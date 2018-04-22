@@ -1,0 +1,122 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, DeleteEmpty">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
+item1[] = {"Delay",4,218,-34.573978,-117.925652,55.426025,-67.925644,0.000000,"Delay"};
+item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,748,768,1};
+window[] = {0,-1,-1,-1,-1,966,26,1614,26,1,766};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "DeleteEmpty";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_tpos"", ""_tradius"", ""_del_camps_stuff""];" \n
+                         "" \n
+                         "private _delpos =+ _tpos;" \n
+                         "" \n
+                         "private _delfirebase_objects =+ d_del_mtd_objects;" \n
+                         "_delfirebase_objects append _del_camps_stuff;" \n
+                         "" \n
+                         "private _mtmissionobj = d_mtmissionobj;" \n
+                         "" \n
+                         "{" \n
+                         "	_delfirebase_objects pushBackUnique _x;" \n
+                         "	_x setVariable [""d_v_p_mt_t"", getPosATL _x];" \n
+                         "	false" \n
+                         "} count d_delvecsmt;" \n
+                         "" \n
+                         "private _endtime = time + 120 + (random 60);" \n
+                         "" \n
+                         "private _tradplus = _tradius + 100;" \n
+                         "private _delmines = allMines select {_x distance2D _tpos < _tradplus};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _endtime"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"private _vecs = [];" \n
+                         "{_vecs append _x;false} count (missionNamespace getVariable format [""d_veh_a_%1"", d_enemy_side_short]);" \n
+                         "" \n
+                         "private _no = _delpos nearEntities [_vecs, _tradius];" \n
+                         "" \n
+                         "if !(_no isEqualTo []) then {" \n
+                         "	{" \n
+                         "		if ({isPlayer _x} count (crew _x) == 0) then {" \n
+                         "			_x call d_fnc_DelVecAndCrew;" \n
+                         "		} else {" \n
+                         "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n
+                         "		};" \n
+                         "		false" \n
+                         "	} count _no;" \n
+                         "};" \n
+                         "" \n
+                         "_no = nil;" \n
+                         "" \n
+                         "if !(_delfirebase_objects isEqualTo []) then {" \n
+                         "	{" \n
+                         "		if (!isNull _x) then {" \n
+                         "			private _d_v_p_mt_t = _x getVariable ""d_v_p_mt_t"";" \n
+                         "			if (isNil ""_d_v_p_mt_t"") then {" \n
+                         "				deleteVehicle _x;" \n
+                         "			} else {" \n
+                         "				if (_x distance2D _d_v_p_mt_t < 100) then {" \n
+                         "					deleteVehicle _x;" \n
+                         "				};" \n
+                         "			};" \n
+                         "		};" \n
+                         "		false" \n
+                         "	} count _delfirebase_objects;" \n
+                         "};" \n
+                         "" \n
+                         "{" \n
+                         "	deleteVehicle _x;" \n
+                         "	false" \n
+                         "} count _delmines;" \n
+                         "" \n
+                         "if (!isNull _mtmissionobj) then {" \n
+                         "	if (_mtmissionobj isKindOf ""House"") then {_mtmissionobj setDamage 0};" \n
+                         "	deleteVehicle _mtmissionobj;" \n
+                         "};" \n
+                         "" \n
+                         "_delfirebase_objects = nil;" \n
+                         "_delmines = nil;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

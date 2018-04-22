@@ -1,0 +1,443 @@
+version=1;
+class GraphItems
+{
+	class Item0
+	{
+		Flags=250;
+		BasicText="";
+		Left=-37.857143;
+		Top=-61.607155;
+		Right=52.14286;
+		Bottom=-11.607155;
+		BgColor=255;
+		class ItemInfo
+		{
+			Text="START";
+			lStyle=-842150451;
+			Shape=6;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=700;
+			FontUnderline=1;
+			FontCharSet=0;
+			ItemType=0;
+			class ItemInfo
+			{
+				Id=0;
+				InitCode="private _timenow = time + 33;";
+			};
+		};
+	};
+	class Item1
+	{
+		Flags=218;
+		BasicText="";
+		Left=-36.964283;
+		Top=74.107124;
+		Right=53.035717;
+		Bottom=124.10712;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=1;
+				Condition="time > _timenow";
+			};
+		};
+	};
+	class Item2
+	{
+		Flags=250;
+		BasicText="";
+		Left=-36.071426;
+		Top=172.32143;
+		Right=53.928589;
+		Bottom=222.32143;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Loop";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=2;
+			};
+		};
+	};
+	class Item3
+	{
+		Flags=218;
+		BasicText="";
+		Left=-34.119724;
+		Top=274.50198;
+		Right=55.880276;
+		Bottom=324.50198;
+		BgColor=8421440;
+		class ItemInfo
+		{
+			Text="not mt radio down";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=8;
+			class ItemInfo
+			{
+				Id=3;
+			};
+		};
+	};
+	class Item4
+	{
+		Flags=250;
+		BasicText="";
+		Left=-34.210274;
+		Top=385.23331;
+		Right=55.789742;
+		Bottom=435.23331;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="React";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=4;
+				InitCode="_timenow = time + 10;" \n "";
+			};
+		};
+	};
+	class Item5
+	{
+		Flags=218;
+		BasicText="";
+		Left=-199.13101;
+		Top=172.61731;
+		Right=-109.13101;
+		Bottom=222.61731;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="mt radio down";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=5;
+				Priority=2;
+				Condition="d_mt_radio_down";
+			};
+		};
+	};
+	class Item6
+	{
+		Flags=250;
+		BasicText="";
+		Left=-347.90067;
+		Top=172.01929;
+		Right=-257.90063;
+		Bottom=222.01927;
+		BgColor=33023;
+		class ItemInfo
+		{
+			Text="End";
+			lStyle=-842150451;
+			Shape=6;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=700;
+			FontCharSet=0;
+			ItemType=1;
+			class ItemInfo
+			{
+				Id=6;
+			};
+		};
+	};
+	class Item7
+	{
+		Flags=218;
+		BasicText="";
+		Left=-34.277866;
+		Top=489.66266;
+		Right=55.722134;
+		Bottom=539.66266;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="New Paras";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=7;
+				Priority=1;
+				Condition="d_create_new_paras";
+			};
+		};
+	};
+	class Item8
+	{
+		Flags=4346;
+		BasicText="";
+		Left=-35.618126;
+		Top=610.28668;
+		Right=54.381882;
+		Bottom=660.28668;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Create";
+			lStyle=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=8;
+				InitCode="private _start_pos = call d_fnc_GetRanPointOuterAir;" \n "private _end_pos = [0,0,0];" \n "if (!d_tt_ver) then {" \n "	while {_start_pos distance2D D_FLAG_BASE < 1000} do {" \n "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	while {_end_pos distance2D D_FLAG_BASE < 1000} do {" \n "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "} else {" \n "	while {_start_pos distance2D D_WFLAG_BASE < 1000 && {_start_pos distance2D D_EFLAG_BASE < 1000}} do {" \n "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	while {_end_pos distance2D D_WFLAG_BASE < 1000 && {_end_pos distance2D D_EFLAG_BASE < 1000}} do {" \n "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "};" \n "private _num_p = call d_fnc_PlayersNumber;" \n "private _vecs = [(ceil (_num_p * 0.13)) min 4, 1] select (_num_p == 0);" \n "d_create_new_paras = false;" \n "" \n "private _attack_pos = [d_cur_tgt_pos, 200] call d_fnc_GetRanPointCircleOld;" \n "private _flytopos = _start_pos getPos [(_start_pos distance2D _attack_pos) + 1500, _start_pos getDir _attack_pos];" \n "[_start_pos, _attack_pos, _flytopos, _end_pos, _vecs] spawn d_fnc_createpara3x;" \n "_timenow = time + 10;";
+			};
+		};
+	};
+	class Item9
+	{
+		Flags=218;
+		BasicText="";
+		Left=157.01625;
+		Top=380.10889;
+		Right=247.01633;
+		Bottom=430.10883;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay 10";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=9;
+				Condition="time > _timenow";
+			};
+		};
+	};
+};
+class GraphLinks
+{
+	class Link0
+	{
+		From=0;
+		To=1;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link1
+	{
+		From=1;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link2
+	{
+		From=2;
+		To=3;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link3
+	{
+		From=2;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link4
+	{
+		From=3;
+		To=4;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link5
+	{
+		From=4;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link6
+	{
+		From=4;
+		To=7;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link7
+	{
+		From=4;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link8
+	{
+		From=5;
+		To=6;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link9
+	{
+		From=7;
+		To=8;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link10
+	{
+		From=8;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link11
+	{
+		From=8;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link12
+	{
+		From=9;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+};
+class Globals
+{
+	NextGroupID=1;
+	NextID=14;
+	FSMName="Parahandler";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	class DefaultLink
+	{
+		ArrowSize=0;
+	};
+	DefaultLinkColor=6316128;
+	DefaultLinkColorFromSelected=6316287;
+	DefaultLinkColorToSelected=6356832;
+	DefaultLinkUseCustom=1;
+	PZoomLeft=-381.68472;
+	PZoomRight=436.8208;
+	PZoomBottom=849.43414;
+	PZoomTop=-67.650528;
+	Clxs=822;
+	Clys=894;
+	Aspect=1;
+};
+class Window
+{
+	Flags=2;
+	MaxPosX=-1;
+	MaxPosY=-1;
+	MinPosX=-1;
+	MinPosY=-1;
+	Left=156;
+	Top=156;
+	Right=1116;
+	Bottom=874;
+	ShowCmd=3;
+	SplitPos=840;
+};

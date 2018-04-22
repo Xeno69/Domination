@@ -1,0 +1,625 @@
+version=1;
+class GraphItems
+{
+	class Item0
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=-200;
+		Right=50;
+		Bottom=-150;
+		BgColor=255;
+		class ItemInfo
+		{
+			Text="Start";
+			lStyle=-842150451;
+			Shape=6;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=700;
+			FontUnderline=1;
+			FontCharSet=0;
+			ItemType=0;
+			class ItemInfo
+			{
+				Id=0;
+				InitCode="private _wtype = d_wcamp;" \n "private _progon = false;" \n "private _wf = objNull;" \n "private _timenow = time + 17;";
+			};
+		};
+	};
+	class Item1
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=-125;
+		Right=50;
+		Bottom=-75;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=1;
+				Condition="time > _timenow";
+			};
+		};
+	};
+	class Item2
+	{
+		Flags=4346;
+		BasicText="";
+		Left=-50;
+		Top=-50;
+		Right=50;
+		Bottom=0;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Check for Camp";
+			lStyle=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=2;
+				InitCode="//private _no = player nearObjects [_wtype, 12];" \n "private _no = nearestObjects [player, [_wtype], 12, false];" \n "_timenow = time + 3;";
+			};
+		};
+	};
+	class Item3
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=25;
+		Right=50;
+		Bottom=75;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="(count _no) > 0";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=3;
+				Priority=1;
+				Condition="!(_no isEqualTo []) && {alive player && {!(player getVariable [""xr_pluncon"", false]) && {!(player getVariable [""ace_isunconscious"", false])}}}";
+			};
+		};
+	};
+	class Item4
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=100;
+		Right=50;
+		Bottom=150;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Create Check Side";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=4;
+				InitCode="private _curside = (_no select 0) getVariable [""D_SIDE"", d_own_side];" \n "_timenow = time + 3;";
+			};
+		};
+	};
+	class Item5
+	{
+		Flags=218;
+		BasicText="";
+		Left=-200;
+		Top=-50;
+		Right=-100;
+		Bottom=0;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=5;
+				Condition="time >= _timenow";
+			};
+		};
+	};
+	class Item6
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=325;
+		Right=50;
+		Bottom=375;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="(count _no) == 0";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=6;
+				Priority=1;
+				Condition="_no isEqualTo [] || {!alive player || {player getVariable ""xr_pluncon"" || {_curside == d_own_side || {player getVariable [""ace_isunconscious"", false]}}}}";
+			};
+		};
+	};
+	class Item7
+	{
+		Flags=218;
+		BasicText="";
+		Left=-200;
+		Top=225;
+		Right=-100;
+		Bottom=275;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=7;
+				Condition="time >= _timenow";
+			};
+		};
+	};
+	class Item8
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=175;
+		Right=50;
+		Bottom=225;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="_curside != d_own_side";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=8;
+				Priority=1;
+				Condition="_curside != d_own_side";
+			};
+		};
+	};
+	class Item9
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=250;
+		Right=50;
+		Bottom=300;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Create Dialog";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=9;
+				InitCode="// create dialog" \n "_no = player nearObjects [_wtype, 8];" \n "private _curside = if !(_no isEqualTo []) then {" \n "	(_no select 0) getVariable ""D_SIDE""" \n "} else {" \n "	""""" \n "};" \n "if (!_progon && {!(_no isEqualTo []) && {_curside != d_own_side}}) then {" \n "	_wf = _no select 0;" \n "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n "	_progon = true;" \n "};" \n "";
+			};
+		};
+	};
+	class Item10
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=400;
+		Right=50;
+		Bottom=450;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Close Dialog";
+			lStyle=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=10;
+				InitCode="// close dialog" \n "if (_progon) then {" \n "	""d_ProgressBar"" cutText ["""", ""PLAIN""];" \n "	_progon = false;" \n "};" \n "_timenow = time + 2;" \n "" \n "if (d_database_found && {alive player && {!(player getVariable ""xr_pluncon"") && {_curside == d_own_side && {!(player getVariable [""ace_isunconscious"", false])}}}}) then {" \n "	[player, 2] remoteExecCall [""d_fnc_addppoints"", 2];" \n "};" \n "";
+			};
+		};
+	};
+	class Item11
+	{
+		Flags=210;
+		BasicText="";
+		Left=146;
+		Top=421;
+		Right=154;
+		Bottom=429;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=11;
+			};
+		};
+	};
+	class Item12
+	{
+		Flags=210;
+		BasicText="";
+		Left=146;
+		Top=-104;
+		Right=154;
+		Bottom=-96;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=12;
+			};
+		};
+	};
+	class Item13
+	{
+		Flags=218;
+		BasicText="";
+		Left=-200;
+		Top=300;
+		Right=-100;
+		Bottom=350;
+		BgColor=8421440;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=8;
+			class ItemInfo
+			{
+				Id=13;
+			};
+		};
+	};
+	class Item14
+	{
+		Flags=250;
+		BasicText="";
+		Left=-350;
+		Top=250;
+		Right=-250;
+		Bottom=300;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Update Dialog";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=14;
+				InitCode="[_wf] spawn d_fnc_ProgBarCall;" \n "" \n "_timenow = time + 1;";
+			};
+		};
+	};
+};
+class GraphLinks
+{
+	class Link0
+	{
+		From=0;
+		To=1;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link1
+	{
+		From=1;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link2
+	{
+		From=2;
+		To=3;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link3
+	{
+		From=2;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link4
+	{
+		From=3;
+		To=4;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link5
+	{
+		From=4;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link6
+	{
+		From=4;
+		To=8;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link7
+	{
+		From=5;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link8
+	{
+		From=6;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link9
+	{
+		From=7;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link10
+	{
+		From=8;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link11
+	{
+		From=9;
+		To=6;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link12
+	{
+		From=9;
+		To=13;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link13
+	{
+		From=10;
+		To=11;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link14
+	{
+		From=11;
+		To=12;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link15
+	{
+		From=12;
+		To=1;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link16
+	{
+		From=13;
+		To=14;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link17
+	{
+		From=14;
+		To=7;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+};
+class Globals
+{
+	NextGroupID=1;
+	NextID=21;
+	FSMName="CampDialog";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	class DefaultLink
+	{
+		ArrowSize=0;
+	};
+	DefaultLinkColor=6316128;
+	DefaultLinkColorFromSelected=6316287;
+	DefaultLinkColorToSelected=6356832;
+	DefaultLinkUseCustom=1;
+	PZoomLeft=-460.08951;
+	PZoomRight=243.87259;
+	PZoomBottom=502.52811;
+	PZoomTop=-222.3853;
+	Clxs=840;
+	Clys=894;
+	Aspect=1;
+};
+class Window
+{
+	Flags=2;
+	MaxPosX=-1;
+	MaxPosY=-1;
+	MinPosX=-32000;
+	MinPosY=-32000;
+	Left=130;
+	Top=130;
+	Right=1090;
+	Bottom=848;
+	ShowCmd=3;
+	SplitPos=858;
+};

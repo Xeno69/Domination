@@ -1,0 +1,11 @@
+// by Xeno
+//#define __DEBUG__
+#define THIS_FILE "fn_getrankfromscore.sqf"
+#include "..\..\x_setup.sqf"
+
+if (_this < (d_points_needed # 0)) exitWith {"Private"};
+if (_this < (d_points_needed # 1)) exitWith {"Corporal"};
+if (_this < (d_points_needed # 2)) exitWith {"Sergeant"};
+if (_this < (d_points_needed # 3)) exitWith {"Lieutenant"};
+if (_this < (d_points_needed # 4)) exitWith {"Captain"};
+["Major", "Colonel"] select (_this < (d_points_needed # 5));

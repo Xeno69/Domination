@@ -1,0 +1,9 @@
+// by Xeno
+//#define __DEBUG__
+#define THIS_FILE "fn_rallusermarkers.sqf"
+#include "..\..\x_setup.sqf"
+
+{
+	deleteMarker _x;
+	false
+} count (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});

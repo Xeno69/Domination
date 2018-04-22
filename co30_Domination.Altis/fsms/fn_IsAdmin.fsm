@@ -1,0 +1,372 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, IsAdmin">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-25.000000,-350.000000,75.000000,-300.000000,0.000000,"Start"};
+item1[] = {"_",8,218,-25.000000,-275.000000,75.000000,-225.000000,0.000000,""};
+item2[] = {"Loop",2,250,-25.000000,-200.000000,75.000000,-150.000000,0.000000,"Loop"};
+item3[] = {"__alive_player",4,4314,200.000000,-200.000000,300.000000,-150.000000,20.000000,"!alive player"};
+item4[] = {"Dummy",2,250,-25.000000,-50.000000,75.000000,0.000000,0.000000,"Dummy"};
+item5[] = {"_",8,218,-25.000000,25.000000,75.000000,75.000000,0.000000,""};
+item6[] = {"Check_for_nearEn",2,250,-25.000000,325.000000,75.000000,375.000000,0.000000,"Check for" \n "nearEntities"};
+item7[] = {"Logged_out_or__a",4,218,200.000000,325.000000,300.000000,375.000000,2.000000,"Logged out" \n "or" \n "!alive"};
+item8[] = {"Reset",1,250,200.000000,-125.000000,300.000000,-75.000000,0.000000,"Reset"};
+item9[] = {"__isNull__vec",4,218,-25.000000,400.000000,75.000000,450.000000,1.000000,"!isNull _vec"};
+item10[] = {"Delay_2s",4,218,-175.000000,325.000000,-75.000000,375.000000,0.000000,"Delay 2s"};
+item11[] = {"Check",2,250,-25.000000,475.000000,75.000000,525.000000,0.000000,"Check"};
+item12[] = {"isNull__vec",4,218,125.000000,475.000000,225.000000,525.000000,1.000000,"isNull _vec"};
+item13[] = {"Check_1",2,250,125.000000,550.000000,225.000000,600.000000,0.000000,"Check"};
+item14[] = {"",7,210,-129.000000,496.000000,-121.000008,504.000000,0.000000,""};
+item15[] = {"",7,210,-129.000000,571.000000,-121.000008,579.000000,0.000000,""};
+item16[] = {"Spectating",2,250,-25.000000,175.000000,75.000000,225.000000,0.000000,"Spectating"};
+item17[] = {"_",8,218,-25.000000,250.000000,75.000000,300.000000,0.000000,""};
+item18[] = {"Fix_for_those_children",4,218,-150.000000,25.000000,-50.000000,75.000000,1.000000,"Fix for those children with small penises"};
+item19[] = {"Kick_those__kindergarden",2,250,-275.000000,-50.000000,-175.000000,0.000000,0.000000,"Kick those" \n " kindergarden children"};
+item20[] = {"_",8,218,-175.000000,-100.000000,-75.000000,-50.000000,0.000000,""};
+item21[] = {"_",8,218,-25.000000,-125.000000,75.000000,-75.000000,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,21};
+link4[] = {3,8};
+link5[] = {4,5};
+link6[] = {4,18};
+link7[] = {5,16};
+link8[] = {6,7};
+link9[] = {6,9};
+link10[] = {6,12};
+link11[] = {7,8};
+link12[] = {9,11};
+link13[] = {10,6};
+link14[] = {11,14};
+link15[] = {12,13};
+link16[] = {13,15};
+link17[] = {14,10};
+link18[] = {15,14};
+link19[] = {16,17};
+link20[] = {17,6};
+link21[] = {18,19};
+link22[] = {19,20};
+link23[] = {20,4};
+link24[] = {21,4};
+globals[] = {0.000000,0,0,0,0,640,480,1,38,6316128,1,-389.664490,412.011230,632.773071,-461.422485,655,894,1};
+window[] = {2,-1,-1,-1,-1,770,52,1012,52,3,673};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "IsAdmin";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"d_admin_idd = -9999;" \n
+                         "d_adm_currentvec = objNull;" \n
+                         "d_adm_currentvec_lockstate = false;" \n
+                         "private _vec = objNull;" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loop">*/
+                class Loop
+                {
+                        name = "Loop";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__alive_player">*/
+                                class __alive_player
+                                {
+                                        itemno = 3;
+                                        priority = 20.000000;
+                                        to="Reset";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!alive player || {player getVariable [""xr_pluncon"", false] || {player getVariable [""ace_isunconscious"", false]}}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 21;
+                                        priority = 0.000000;
+                                        to="Dummy";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Dummy">*/
+                class Dummy
+                {
+                        name = "Dummy";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Fix_for_those_children">*/
+                                class Fix_for_those_children
+                                {
+                                        itemno = 18;
+                                        priority = 1.000000;
+                                        to="Kick_those__kindergarden";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_pisadminp && {isMultiplayer}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Spectating";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_for_nearEn">*/
+                class Check_for_nearEn
+                {
+                        name = "Check_for_nearEn";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"private _no = player nearEntities [[""Air"",""Car"",""Motorcycle"",""Tank""], 9];" \n
+                         "_vec = if !(_no isEqualTo []) then {_no select 0} else {objNull};" \n
+                         "disableUserInput false;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Logged_out_or__a">*/
+                                class Logged_out_or__a
+                                {
+                                        itemno = 7;
+                                        priority = 2.000000;
+                                        to="Reset";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(isMultiplayer && {!d_pisadminp}) || {!alive player || {player getVariable [""xr_pluncon"", false] || {player getVariable [""ace_isunconscious"", false]}}}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "isNull__vec">*/
+                                class isNull__vec
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="Check_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__isNull__vec">*/
+                                class __isNull__vec
+                                {
+                                        itemno = 9;
+                                        priority = 1.000000;
+                                        to="Check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNull _vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reset">*/
+                class Reset
+                {
+                        name = "Reset";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"if (d_admin_idd != -9999) then {" \n
+                         "	if (!isNull d_adm_currentvec) then {" \n
+                         "		d_adm_currentvec removeAction d_admin_idd;" \n
+                         "	};" \n
+                         "	d_admin_idd =  -9999;" \n
+                         "};" \n
+                         "d_adm_currentvec = objNull;" \n
+                         "d_adm_currentvec_lockstate = false;" \n
+                         "disableUserInput false;" \n
+                         "d_clientScriptsAr set [0, false];" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check">*/
+                class Check
+                {
+                        name = "Check";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"if (alive _vec) then {" \n
+                         "	if (_vec != d_adm_currentvec) then {" \n
+                         "		if (d_admin_idd != -9999) then {" \n
+                         "			if (!isNull d_adm_currentvec) then {" \n
+                         "				d_adm_currentvec removeAction d_admin_idd;" \n
+                         "			};" \n
+                         "			d_admin_idd = -9999;" \n
+                         "		};" \n
+                         "		if (_vec call d_fnc_isVecLocked) then {" \n
+                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc},1,-1,false];" \n
+                         "			d_adm_currentvec_lockstate = true;" \n
+                         "		} else {" \n
+                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc},0,-1,false];" \n
+                         "			d_adm_currentvec_lockstate = false;" \n
+                         "		};" \n
+                         "		d_adm_currentvec = _vec;" \n
+                         "	} else {" \n
+                         "		if (d_adm_currentvec_lockstate && {!(_vec call d_fnc_isVecLocked)}) then {" \n
+                         "			d_adm_currentvec removeAction d_admin_idd;" \n
+                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc},0,-1,false];" \n
+                         "			d_adm_currentvec_lockstate = false;" \n
+                         "		} else {" \n
+                         "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n
+                         "				d_adm_currentvec removeAction d_admin_idd;" \n
+                         "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc},1,-1,false];" \n
+                         "				d_adm_currentvec_lockstate = true;" \n
+                         "			};" \n
+                         "		};" \n
+                         "	};" \n
+                         "} else {" \n
+                         "	if (d_admin_idd != -9999) then {" \n
+                         "		if (!isNull d_adm_currentvec) then {" \n
+                         "			d_adm_currentvec removeAction d_admin_idd;" \n
+                         "		};" \n
+                         "		d_admin_idd = -9999;" \n
+                         "	};" \n
+                         "	d_adm_currentvec = objNull;" \n
+                         "	d_adm_currentvec_lockstate = false;" \n
+                         "};" \n
+                         "private _timenow = time + 2;" \n
+                         "			"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_2s">*/
+                                class Delay_2s
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Check_for_nearEn";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_1">*/
+                class Check_1
+                {
+                        name = "Check_1";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"if (d_admin_idd != -9999) then {" \n
+                         "	if (!isNull d_adm_currentvec) then {" \n
+                         "		d_adm_currentvec removeAction d_admin_idd;" \n
+                         "		d_admin_idd = -9999;" \n
+                         "	};" \n
+                         "};" \n
+                         "d_adm_currentvec = objNull;" \n
+                         "d_adm_currentvec_lockstate = false;" \n
+                         "private _timenow = time + 2;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_2s">*/
+                                class Delay_2s
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="Check_for_nearEn";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Spectating">*/
+                class Spectating
+                {
+                        name = "Spectating";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Check_for_nearEn";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Kick_those__kindergarden">*/
+                class Kick_those__kindergarden
+                {
+                        name = "Kick_those__kindergarden";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"[player, d_name_pl, 3] remoteExecCall [""d_fnc_KickPlayerBS"", 2];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="Dummy";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "Reset",
+        };
+};
+/*%FSM</COMPILE>*/

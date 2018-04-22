@@ -1,0 +1,151 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, TTPoints">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start_",0,250,-1095.939087,482.799683,-1005.939087,532.799683,0.000000,"Start" \n ""};
+item1[] = {"Not_is_server_",4,218,-951.111328,482.648224,-861.111328,532.648193,1.000000,"Not is server" \n ""};
+item2[] = {"Exit_",1,250,-811.817505,483.595825,-721.817505,533.595825,0.000000,"Exit" \n ""};
+item3[] = {"Allways",8,218,-1096.090454,559.401855,-1006.090515,609.401855,0.000000,"Allways"};
+item4[] = {"Loop",2,250,-1096.090576,650.739380,-1006.090576,700.739380,0.000000,"Loop"};
+item5[] = {"Send_Points____",4,218,-1212.552002,730.261841,-1074.537231,811.931213,1.000000,"Send Points ?" \n "" \n ""};
+item6[] = {"Send_Points_",2,4346,-1083.778931,862.763184,-993.778931,912.763184,0.000000,"Send Points" \n ""};
+item7[] = {"Delay",4,218,-1012.267700,727.913208,-877.317627,804.474548,0.000000,"Delay"};
+link0[] = {0,1};
+link1[] = {0,3};
+link2[] = {1,2};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,7};
+link6[] = {5,6};
+link7[] = {6,7};
+link8[] = {7,4};
+globals[] = {0.000000,0,0,0,0,640,480,1,11,6316128,1,-1434.198364,-564.697510,1114.639526,236.925980,847,894,1};
+window[] = {2,-1,-1,-1,-1,926,208,1326,208,3,865};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "TTPoints";
+        class States
+        {
+                /*%FSM<STATE "Start_">*/
+                class Start_
+                {
+                        name = "Start_";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _points_blufor_old = -1;" \n
+                         "private _points_opfor_old = -1;" \n
+                         "private _kill_points_blufor_old = -1;" \n
+                         "private _kill_points_opfor_old = -1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Not_is_server_">*/
+                                class Not_is_server_
+                                {
+                                        itemno = 1;
+                                        priority = 1.000000;
+                                        to="Exit_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Allways">*/
+                                class Allways
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Exit_">*/
+                class Exit_
+                {
+                        name = "Exit_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loop">*/
+                class Loop
+                {
+                        name = "Loop";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"private _timenow = time + 1.516;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Send_Points____">*/
+                                class Send_Points____
+                                {
+                                        itemno = 5;
+                                        priority = 1.000000;
+                                        to="Send_Points_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_public_points"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Send_Points_">*/
+                class Send_Points_
+                {
+                        name = "Send_Points_";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"if (d_points_blufor != _points_blufor_old || {d_points_opfor != _points_opfor_old || {d_kill_points_blufor != _kill_points_blufor_old || {d_kill_points_opfor != _kill_points_opfor_old}}}) then {" \n
+                         "	d_points_array = [d_points_blufor,d_points_opfor,d_kill_points_blufor,d_kill_points_opfor];" \n
+                         "	publicVariable ""d_points_array"";" \n
+                         "	_points_blufor_old = d_points_blufor;" \n
+                         "	_points_opfor_old = d_points_opfor;" \n
+                         "	_kill_points_blufor_old = d_kill_points_blufor;" \n
+                         "	_kill_points_opfor_old = d_kill_points_opfor;" \n
+                         "};" \n
+                         "private _timenow = time + 1.516;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start_";
+        finalStates[] =
+        {
+                "Exit_",
+        };
+};
+/*%FSM</COMPILE>*/

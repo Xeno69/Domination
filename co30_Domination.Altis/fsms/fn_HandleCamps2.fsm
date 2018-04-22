@@ -1,0 +1,329 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,4346,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
+item1[] = {"_",8,218,-25.000000,-100.000000,75.000000,-50.000000,0.000000,""};
+item2[] = {"Loop",2,250,-25.000000,-25.000000,75.000000,25.000000,0.000000,"Loop"};
+item3[] = {"target_clear",4,218,-175.000000,-25.000000,-75.000000,25.000000,10.000000,"target_clear"};
+item4[] = {"End",1,250,-300.000000,-25.000000,-200.000000,25.000000,0.000000,"End"};
+item5[] = {"_____enemy____0",4,218,-25.000000,75.000000,75.000000,125.000000,2.000000,"(!(_enemy == 0 && _friendly == 0)) && (!(_enemy == _friendly))"};
+item6[] = {"__1",8,218,100.000000,75.000000,200.000000,125.000000,0.000000,""};
+item7[] = {"Reset_cap_time",2,250,250.000000,75.000000,350.000000,125.000000,0.000000,"Reset cap time"};
+item8[] = {"Delay",4,218,250.000000,-25.000000,350.000000,25.000000,0.000000,"Delay"};
+item9[] = {"Check",2,250,-25.000000,175.000000,75.000000,225.000000,0.000000,"Check"};
+item10[] = {"_curcaptime____",4,218,-25.000000,275.000000,75.000000,325.000000,1.000000,"_curcaptime >= _captime"};
+item11[] = {"Captured",2,250,-25.000000,375.000000,75.000000,425.000000,0.000000,"Captured"};
+item12[] = {"",7,210,408.500000,196.000000,416.500000,204.000000,0.000000,""};
+item13[] = {"",7,210,408.500000,-4.000000,416.500000,4.000000,0.000000,""};
+item14[] = {"",7,210,408.500000,396.000000,416.500000,404.000000,0.000000,""};
+item15[] = {"_",4,218,-219.103043,47.826355,-129.103027,97.826355,1.000000,""};
+item16[] = {"_",2,250,-234.491364,137.774841,-144.491333,187.774841,0.000000,""};
+item17[] = {"_",8,218,-119.357384,110.190613,-29.357361,160.190613,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,5};
+link4[] = {2,6};
+link5[] = {2,15};
+link6[] = {3,4};
+link7[] = {5,9};
+link8[] = {6,7};
+link9[] = {7,8};
+link10[] = {8,2};
+link11[] = {9,10};
+link12[] = {9,12};
+link13[] = {10,11};
+link14[] = {11,14};
+link15[] = {12,13};
+link16[] = {13,8};
+link17[] = {14,12};
+link18[] = {15,16};
+link19[] = {16,17};
+link20[] = {17,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-344.202637,446.144165,655.692139,-416.493042,659,894,1};
+window[] = {2,-1,-1,-32000,-32000,822,104,1064,104,3,677};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "HandleCamps2";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_wf"", ""_flag""];" \n
+                         "private _delay = 3;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loop">*/
+                class Loop
+                {
+                        name = "Loop";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"private _units = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n
+                         "private _enemy = d_side_enemy countSide _units;" \n
+                         "private _friendly = 0;" \n
+                         "{" \n
+                         "	_friendly = _friendly + (_x countSide _units);" \n
+                         "	false" \n
+                         "} count d_own_sides_o;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "target_clear">*/
+                                class target_clear
+                                {
+                                        itemno = 3;
+                                        priority = 10.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_target_clear"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_____enemy____0">*/
+                                class _____enemy____0
+                                {
+                                        itemno = 5;
+                                        priority = 2.000000;
+                                        to="Check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(!(_enemy == 0 && {_friendly == 0})) && {!(_enemy == _friendly)}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 15;
+                                        priority = 1.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_enemy > 0 && {_friendly > 0}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__1">*/
+                                class __1
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Reset_cap_time";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Reset_cap_time">*/
+                class Reset_cap_time
+                {
+                        name = "Reset_cap_time";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeend"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check">*/
+                class Check
+                {
+                        name = "Check";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"private _captime = _wf getVariable ""D_CAPTIME"";" \n
+                         "private _curcaptime = _wf getVariable ""D_CURCAPTIME"";" \n
+                         "private _curside = _wf getVariable ""D_SIDE"";" \n
+                         "private _curcapturer = _wf getVariable ""D_CURCAPTURER"";" \n
+                         "" \n
+                         "if (_curside == d_enemy_side && {_friendly > 0 && {_enemy == 0}}) then {" \n
+                         "	if (_curcapturer == d_enemy_side) then {" \n
+                         "		_wf setVariable [""D_CAPTIME"", 40 + (floor random 10), true];" \n
+                         "		_curcaptime = 0;" \n
+                         "		_wf setVariable [""D_CURCAPTURER"", d_own_side];" \n
+                         "	};" \n
+                         "	_curcaptime = _curcaptime + (3 max _friendly);" \n
+                         "	_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
+                         "	if (_wf getVariable ""d_STALL"") then {" \n
+                         "		_wf setVariable [""d_STALL"", false, true];" \n
+                         "	};" \n
+                         "} else {" \n
+                         "	if (_curside == d_own_side && {_enemy > 0 && {_friendly == 0}}) then {" \n
+                         "		if (_curcapturer == d_own_side) then {" \n
+                         "			_wf setVariable [""D_CAPTIME"", 10, true];" \n
+                         "			_curcaptime = 0;" \n
+                         "			_wf setVariable [""D_CURCAPTURER"", d_enemy_side];" \n
+                         "		};" \n
+                         "		_curcaptime = _curcaptime + (3 max _enemy);" \n
+                         "		_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
+                         "		if (_wf getVariable ""d_STALL"") then {" \n
+                         "			_wf setVariable [""d_STALL"", false, true];" \n
+                         "		};" \n
+                         "	};" \n
+                         "};" \n
+                         "private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_curcaptime____">*/
+                                class _curcaptime____
+                                {
+                                        itemno = 10;
+                                        priority = 1.000000;
+                                        to="Captured";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_curcaptime >= _captime"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeend"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Captured">*/
+                class Captured
+                {
+                        name = "Captured";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"private _mar = format [""d_camp%1"", _wf getVariable ""D_INDEX""];" \n
+                         "private _texture = """";" \n
+                         "private _mcolor = """";" \n
+                         "switch (_curside) do {" \n
+                         "	case d_enemy_side: {" \n
+                         "		_wf setVariable [""D_SIDE"", d_own_side, true];" \n
+                         "		_texture = switch (d_own_side) do {" \n
+                         "			case ""WEST"": {d_flag_str_blufor};" \n
+                         "			case ""EAST"": {d_flag_str_opfor};" \n
+                         "			case ""GUER"": {d_flag_str_independent};" \n
+                         "		};" \n
+                         "		_mcolor = ""ColorBLUFOR"";" \n
+                         "		d_campscaptured = d_campscaptured + 1; publicVariable ""d_campscaptured"";" \n
+                         "		//[_wf, d_enemy_side] call d_fnc_RetakeCamp;" \n
+                         "		[_wf, d_enemy_side] execFSM ""fsms\fn_RetakeCamp.fsm"";" \n
+                         "	};" \n
+                         "	case d_own_side: {" \n
+                         "		_wf setVariable [""D_SIDE"", d_enemy_side, true];" \n
+                         "		_texture = call d_fnc_getenemyflagtex;" \n
+                         "		_mcolor = ""ColorBlack"";" \n
+                         "		d_campscaptured = d_campscaptured - 1; publicVariable ""d_campscaptured"";" \n
+                         "	};" \n
+                         "};" \n
+                         "if (!isNull _flag) then {" \n
+                         "	_flag setFlagTexture _texture;" \n
+                         "};" \n
+                         "[_mar, _mcolor] remoteExecCall [""setMarkerColor"", 2];" \n
+                         "_wf setVariable [""D_CURCAPTIME"", 0, true];" \n
+                         "" \n
+                         "private _sent = switch (_wf getVariable ""D_SIDE"") do {" \n
+                         "	case ""WEST"": {""CapCampByBlufor""};" \n
+                         "	case ""EAST"": {""CapCampByOpfor""};" \n
+                         "	case ""GUER"": {""CapCampByGuer""};" \n
+                         "};" \n
+                         "[44, _sent] remoteExecCall [""d_fnc_DoKBMsg"", 2];" \n
+                         """d_Ui_cc"" remoteExecCall [""playSound""];" \n
+                         "" \n
+                         "private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 8;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timeend"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 16;
+                        init = /*%FSM<STATEINIT""">*/"if !(_wf getVariable ""d_STALL"") then {" \n
+                         "	_wf setVariable [""d_STALL"", true, true];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

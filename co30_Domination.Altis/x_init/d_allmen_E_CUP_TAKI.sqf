@@ -1,0 +1,9 @@
+["East","CUP_O_TK","Infantry","CUP_O_TK_InfantrySquad"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK","Infantry","CUP_O_TK_InfantrySection"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK","Infantry","CUP_O_TK_InfantrySectionAT"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK","Infantry","CUP_O_TK_InfantrySectionAA"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK","Infantry","CUP_O_TK_InfantrySectionMG"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK_MILITIA","Infantry","CUP_O_TK_MILITIA_Group"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK_MILITIA","Infantry","CUP_O_TK_MILITIA_Patrol"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK_MILITIA","Infantry","CUP_O_TK_MILITIA_AATeam"] call d_fnc_GetConfigGroup,
+["East","CUP_O_TK_MILITIA","Infantry","CUP_O_TK_MILITIA_ATTeam"] call d_fnc_GetConfigGroup

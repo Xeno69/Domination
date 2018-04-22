@@ -1,0 +1,11 @@
+- Extra in code parameter wie d_db_auto_save in dom_settings database table einfügen und auch uids for reserved slots, d_reserved_slot (Achtung, braucht publicVar)
+d_uid_reserved_slots = []; d_uids_for_reserved_slots = [];(Achtung, brauchen beide publicVar)
+und d_tt_points (Achtung, braucht publicVar), d_cas_available_time (Achtung, braucht publicVar), d_ranked_a (Achtung, braucht publicVar, aber nur wenn d_with_ranked an ist)
+
+Wie Strings und Array Mischen mit input
+
+- CfgIdentities in description.ext
+	Russen statt iwelchen Arabern
+
+
+

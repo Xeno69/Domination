@@ -1,0 +1,542 @@
+version=1;
+class GraphItems
+{
+	class Item0
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=-175;
+		Right=50;
+		Bottom=-125;
+		BgColor=255;
+		class ItemInfo
+		{
+			Text="Start";
+			lStyle=-842150451;
+			Shape=6;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=700;
+			FontUnderline=1;
+			FontCharSet=0;
+			ItemType=0;
+			class ItemInfo
+			{
+				Id=0;
+				InitCode="private _timenow = time + 120;" \n "";
+			};
+		};
+	};
+	class Item1
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=-75;
+		Right=50;
+		Bottom=-25;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=1;
+				Condition="time > _timenow";
+			};
+		};
+	};
+	class Item2
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=25;
+		Right=50;
+		Bottom=75;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Loop";
+			lStyle=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=2;
+				InitCode="private _timenow2 = time + 5.33;";
+			};
+		};
+	};
+	class Item3
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=100;
+		Right=50;
+		Bottom=150;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="(count  allGroups > 0)";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=3;
+				Priority=1;
+				Condition="!(allGroups isEqualTo [])";
+			};
+		};
+	};
+	class Item4
+	{
+		Flags=250;
+		BasicText="";
+		Left=-50;
+		Top=200;
+		Right=50;
+		Bottom=250;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Check";
+			lStyle=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=4;
+				InitCode="private _allgroups =+ allGroups;" \n "private _counter = 0;";
+			};
+		};
+	};
+	class Item5
+	{
+		Flags=218;
+		BasicText="";
+		Left=125;
+		Top=100;
+		Right=225;
+		Bottom=150;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=5;
+				Condition="time > _timenow";
+			};
+		};
+	};
+	class Item6
+	{
+		Flags=210;
+		BasicText="";
+		Left=171;
+		Top=46;
+		Right=179;
+		Bottom=54;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=6;
+			};
+		};
+	};
+	class Item7
+	{
+		Flags=218;
+		BasicText="";
+		Left=-200;
+		Top=25;
+		Right=-100;
+		Bottom=75;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=7;
+				Condition="time > _timenow2";
+			};
+		};
+	};
+	class Item8
+	{
+		Flags=218;
+		BasicText="";
+		Left=-50;
+		Top=275;
+		Right=50;
+		Bottom=325;
+		BgColor=8421440;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=8;
+			class ItemInfo
+			{
+				Id=8;
+			};
+		};
+	};
+	class Item9
+	{
+		Flags=4346;
+		BasicText="";
+		Left=-50;
+		Top=350;
+		Right=50;
+		Bottom=400;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Loop2";
+			lStyle=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=9;
+				InitCode="private _onegrp = _allgroups select _counter;" \n "if (!isNull _onegrp) then {" \n "	_gstate = _onegrp getVariable ""d_gstate"";" \n "	if (!isNil ""_gstate"" && {_gstate > 0 && {(units _onegrp) isEqualTo []}}) then {" \n "		deleteGroup _onegrp;" \n "	} else {" \n "		if (d_IS_HC_CLIENT || {!isNil ""HC_D_UNIT""}) exitWith {};" \n "		if (!isNil {_onegrp getVariable ""d_fromHC""}) then {" \n "			{" \n "				if (!alive _x) then {deleteVehicle _x};" \n "				false" \n "			} count (units _onegrp);" \n "			if ((units _onegrp) isEqualTo []) then {" \n "				deleteGroup _onegrp;" \n "			} else {" \n "				_onegrp setVariable [""d_gstate"", 1];" \n "			};" \n "		};" \n "	};" \n "};" \n "_counter = _counter + 1;" \n "_timenow = time + 2.57;";
+			};
+		};
+	};
+	class Item10
+	{
+		Flags=218;
+		BasicText="";
+		Left=125;
+		Top=350;
+		Right=225;
+		Bottom=400;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="(_counter == count _allgroups)";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=10;
+				Priority=1;
+				Condition="(_counter == count _allgroups)";
+			};
+		};
+	};
+	class Item11
+	{
+		Flags=250;
+		BasicText="";
+		Left=125;
+		Top=200;
+		Right=225;
+		Bottom=250;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=11;
+				InitCode="_allgroups = nil;" \n "_timenow = time + 20;";
+			};
+		};
+	};
+	class Item12
+	{
+		Flags=218;
+		BasicText="";
+		Left=-225;
+		Top=350;
+		Right=-125;
+		Bottom=400;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="Delay";
+			lStyle=-842150451;
+			Shape=2;
+			FontFace="";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=12;
+				Condition="time > _timenow";
+			};
+		};
+	};
+};
+class GraphLinks
+{
+	class Link0
+	{
+		From=0;
+		To=1;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link1
+	{
+		From=1;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link2
+	{
+		From=2;
+		To=3;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link3
+	{
+		From=2;
+		To=7;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link4
+	{
+		From=3;
+		To=4;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link5
+	{
+		From=4;
+		To=8;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link6
+	{
+		From=5;
+		To=6;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link7
+	{
+		From=6;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link8
+	{
+		From=7;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link9
+	{
+		From=8;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link10
+	{
+		From=9;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link11
+	{
+		From=9;
+		To=12;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link12
+	{
+		From=10;
+		To=11;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link13
+	{
+		From=11;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link14
+	{
+		From=12;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+};
+class Globals
+{
+	NextGroupID=1;
+	NextID=38;
+	FSMName="GroupClean";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	class DefaultLink
+	{
+		ArrowSize=0;
+	};
+	DefaultLinkColor=6316128;
+	DefaultLinkColorFromSelected=6316287;
+	DefaultLinkColorToSelected=6356832;
+	DefaultLinkUseCustom=1;
+	PZoomLeft=-398.83926;
+	PZoomRight=492.5134;
+	PZoomBottom=632.56909;
+	PZoomTop=-193.11519;
+	Clxs=923;
+	Clys=894;
+	Aspect=1;
+};
+class Window
+{
+	Flags=2;
+	MaxPosX=-1;
+	MaxPosY=-1;
+	MinPosX=-1;
+	MinPosY=-1;
+	Left=234;
+	Top=234;
+	Right=1194;
+	Bottom=952;
+	ShowCmd=3;
+	SplitPos=941;
+};

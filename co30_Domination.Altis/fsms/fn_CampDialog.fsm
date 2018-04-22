@@ -1,0 +1,252 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, CampDialog">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-50.000000,-200.000000,50.000000,-150.000000,0.000000,"Start"};
+item1[] = {"Delay",4,218,-50.000000,-125.000000,50.000000,-75.000000,0.000000,"Delay"};
+item2[] = {"Check_for_Camp",2,4346,-50.000000,-50.000000,50.000000,0.000000,0.000000,"Check for Camp"};
+item3[] = {"__count__no____0",4,218,-50.000000,25.000000,50.000000,75.000000,1.000000,"(count _no) > 0"};
+item4[] = {"Create_Check_Sid",2,250,-50.000000,100.000000,50.000000,150.000000,0.000000,"Create Check Side"};
+item5[] = {"Delay",4,218,-200.000000,-50.000000,-100.000000,0.000000,0.000000,"Delay"};
+item6[] = {"__count__no____",4,218,-50.000000,325.000000,50.000000,375.000000,1.000000,"(count _no) == 0"};
+item7[] = {"Delay",4,218,-200.000000,225.000000,-100.000000,275.000000,0.000000,"Delay"};
+item8[] = {"_curside____d_own",4,218,-50.000000,175.000000,50.000000,225.000000,1.000000,"_curside != d_own_side"};
+item9[] = {"Create_Dialog",2,250,-50.000000,250.000000,50.000000,300.000000,0.000000,"Create Dialog"};
+item10[] = {"Close_Dialog",2,250,-50.000000,400.000000,50.000000,450.000000,0.000000,"Close Dialog"};
+item11[] = {"",7,210,146.000000,421.000000,154.000000,429.000000,0.000000,""};
+item12[] = {"",7,210,146.000000,-104.000000,154.000000,-96.000000,0.000000,""};
+item13[] = {"_",8,218,-200.000000,300.000000,-100.000000,350.000000,0.000000,""};
+item14[] = {"Update_Dialog",2,250,-350.000000,250.000000,-250.000000,300.000000,0.000000,"Update Dialog"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,5};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {4,8};
+link7[] = {5,2};
+link8[] = {6,10};
+link9[] = {7,9};
+link10[] = {8,9};
+link11[] = {9,6};
+link12[] = {9,13};
+link13[] = {10,11};
+link14[] = {11,12};
+link15[] = {12,1};
+link16[] = {13,14};
+link17[] = {14,7};
+globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-460.089508,243.872589,502.528107,-222.385300,840,894,1};
+window[] = {2,-1,-1,-32000,-32000,848,130,1090,130,3,858};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "CampDialog";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _wtype = d_wcamp;" \n
+                         "private _progon = false;" \n
+                         "private _wf = objNull;" \n
+                         "private _timenow = time + 17;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Check_for_Camp";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Check_for_Camp">*/
+                class Check_for_Camp
+                {
+                        name = "Check_for_Camp";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"//private _no = player nearObjects [_wtype, 12];" \n
+                         "private _no = nearestObjects [player, [_wtype], 12, false];" \n
+                         "_timenow = time + 3;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__count__no____0">*/
+                                class __count__no____0
+                                {
+                                        itemno = 3;
+                                        priority = 1.000000;
+                                        to="Create_Check_Sid";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(_no isEqualTo []) && {alive player && {!(player getVariable [""xr_pluncon"", false]) && {!(player getVariable [""ace_isunconscious"", false])}}}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Check_for_Camp";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Create_Check_Sid">*/
+                class Create_Check_Sid
+                {
+                        name = "Create_Check_Sid";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"private _curside = (_no select 0) getVariable [""D_SIDE"", d_own_side];" \n
+                         "_timenow = time + 3;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_curside____d_own">*/
+                                class _curside____d_own
+                                {
+                                        itemno = 8;
+                                        priority = 1.000000;
+                                        to="Create_Dialog";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_curside != d_own_side"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Check_for_Camp";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Create_Dialog">*/
+                class Create_Dialog
+                {
+                        name = "Create_Dialog";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"// create dialog" \n
+                         "_no = player nearObjects [_wtype, 8];" \n
+                         "private _curside = if !(_no isEqualTo []) then {" \n
+                         "	(_no select 0) getVariable ""D_SIDE""" \n
+                         "} else {" \n
+                         "	""""" \n
+                         "};" \n
+                         "if (!_progon && {!(_no isEqualTo []) && {_curside != d_own_side}}) then {" \n
+                         "	_wf = _no select 0;" \n
+                         "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n
+                         "	_progon = true;" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__count__no____">*/
+                                class __count__no____
+                                {
+                                        itemno = 6;
+                                        priority = 1.000000;
+                                        to="Close_Dialog";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_no isEqualTo [] || {!alive player || {player getVariable ""xr_pluncon"" || {_curside == d_own_side || {player getVariable [""ace_isunconscious"", false]}}}}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 13;
+                                        priority = 0.000000;
+                                        to="Update_Dialog";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Close_Dialog">*/
+                class Close_Dialog
+                {
+                        name = "Close_Dialog";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"// close dialog" \n
+                         "if (_progon) then {" \n
+                         "	""d_ProgressBar"" cutText ["""", ""PLAIN""];" \n
+                         "	_progon = false;" \n
+                         "};" \n
+                         "_timenow = time + 2;" \n
+                         "" \n
+                         "if (d_database_found && {alive player && {!(player getVariable ""xr_pluncon"") && {_curside == d_own_side && {!(player getVariable [""ace_isunconscious"", false])}}}}) then {" \n
+                         "	[player, 2] remoteExecCall [""d_fnc_addppoints"", 2];" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Check_for_Camp";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Update_Dialog">*/
+                class Update_Dialog
+                {
+                        name = "Update_Dialog";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"[_wf] spawn d_fnc_ProgBarCall;" \n
+                         "" \n
+                         "_timenow = time + 1;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Create_Dialog";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/
