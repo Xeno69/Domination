@@ -957,9 +957,3 @@ if (isMultiplayer) then {
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
-
-player addaction [ "<t color='#FF0000'>Edit Vehicle</t>",{
-	BIS_fnc_garage_center = cursorTarget;
-	uinamespace setvariable ["bis_fnc_garage_defaultClass", typeOf cursorTarget ];
-	["Open",true] call BIS_fnc_garage;
-}, [], 1, true, true, "", "!( isNull cursortarget ) "];
