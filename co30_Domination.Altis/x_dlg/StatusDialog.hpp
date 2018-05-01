@@ -460,5 +460,18 @@ class D_StatusDialog {
 			y = "0.71 * safezoneH + safezoneY";
 			text = "";
 		};
+		class GeneralPic: CorporalPic {
+			y = "0.775 * safezoneH + safezoneY";
+			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"texture"));
+		};
+		class GeneralString: CorporalString {
+			y = "0.74 * safezoneH + safezoneY";
+			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"displayName"));
+		};
+		class GeneralPoints: CorporalPoints {
+			idc = 2007;
+			y = "0.74 * safezoneH + safezoneY";
+			text = "";
+		};
 	};
 };
