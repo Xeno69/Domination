@@ -18,7 +18,8 @@ if (call d_fnc_checkSHC) then {
 	private _sm_vec = _ogroup createUnit [d_sniper, _newpos, [], 0, "NONE"];
 	[_sm_vec] joinSilent _ogroup;
 	_ogroup deleteGroupWhenEmpty true;
-	_sm_vec setPos _newpos;
+	_newpos set [2, 0];
+	[_sm_vec, _newpos] call d_fnc_setposagls;
 	_sm_vec call d_fnc_removenvgoggles_fak;
 	_sm_vec call d_fnc_addkillednormal;
 	d_x_sm_rem_ar pushBack _sm_vec;
@@ -26,7 +27,7 @@ if (call d_fnc_checkSHC) then {
 	private _leadero = leader _ogroup;
 	_leadero setRank "COLONEL";
 	_ogroup allowFleeing 0;
-	_ogroup setbehaviour "AWARE";
+	_ogroup setBehaviour "AWARE";
 	if (d_with_dynsim == 0) then {
 		_sm_vec enableDynamicSimulation true;
 	};

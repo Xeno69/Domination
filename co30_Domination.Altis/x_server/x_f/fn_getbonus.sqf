@@ -32,22 +32,16 @@ switch (d_sm_winner) do {
 	case 1: {
 		d_points_opfor = d_points_opfor + (d_tt_points # 4);
 		{
-			private _u = missionNamespace getVariable _x;
-			if (!isNil "_u" && {!isNull _u}) then {
-				_u addScore (d_tt_points # 4);
-			};
+			_x addScore (d_tt_points # 4);
 			false;
-		} count d_entities_tt_opfor;
+		} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {opfor getFriend side (group _x) >= 0.6}});
 	};
 	case 2: {
 		d_points_blufor = d_points_blufor + (d_tt_points # 4);
 		{
-			private _u = missionNamespace getVariable _x;
-			if (!isNil "_u" && {!isNull _u}) then {
-				_u addScore (d_tt_points # 4);
-			};
+			_x addScore (d_tt_points # 4);
 			false;
-		} count d_entities_tt_blufor;
+		} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {blufor getFriend side (group _x) >= 0.6}});
 	};
 };	
 #endif

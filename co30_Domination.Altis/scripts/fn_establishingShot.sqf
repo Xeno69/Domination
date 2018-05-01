@@ -41,11 +41,8 @@ BIS_fnc_establishingShot_icons = [
 
 _colortouse = d_player_side call BIS_fnc_sideColor;
 {
-	_u = missionNamespace getVariable _x;
-	if (!isNil "_u" && {alive _u && {!(_u getVariable ["xr_pluncon", false]) && {_u != player && {!(_u getVariable ["ace_isunconscious", false])}}}}) then {
-		BIS_fnc_establishingShot_icons pushBack [getText(configFile>>"CfgVehicleIcons">>getText(configFile>>"CfgVehicles">>(typeOf _u)>>"icon")), _colortouse, _u, 0.8, 0.8, 0, _u call d_fnc_getplayername, 1];
-	};
-} forEach d_player_entities;
+	BIS_fnc_establishingShot_icons pushBack [getText(configFile>>"CfgVehicleIcons">>getText(configFile>>"CfgVehicles">>(typeOf _x)>>"icon")), _colortouse, _x, 0.8, 0.8, 0, _x call d_fnc_getplayername, 1];
+} forEach ((allPlayers - entities "HeadlessClient_F") select {alive _x && {d_player_side getFriend side (group _x) >= 0.6 && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}});
 
 // Create fake UAV
 if (isNil "BIS_fnc_establishingShot_fakeUAV") then {

@@ -36,7 +36,7 @@ if (isServer) then {
 	_cm addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal);(param [0]) spawn {sleep 2;deleteVehicle _this}}];
 	_cm addMPEventHandler ["MPKilled", {
 		if (isServer) then {
-			if (isPlayer (param [1])) then {(param [1]) addScore 5};
+			if ((param [1]) call d_fnc_isplayer) then {(param [1]) addScore 5};
 		};
 	}];
 	sleep 20;

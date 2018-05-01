@@ -19,7 +19,7 @@ d_player_side = independent;
 #endif
 
 #ifdef __TT__
-if (d_string_player in d_entities_tt_blufor) then {
+if (side (group player) == blufor) then {
 	d_mob_respawns = d_mob_respawns_blufor;
 	d_player_side = blufor;
 	d_own_side = "WEST";
@@ -27,7 +27,6 @@ if (d_string_player in d_entities_tt_blufor) then {
 	d_own_sides_o = [west];
 	d_create_bike = [["B_Quadbike_01_F"], ["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]] select d_tanoa;
 	d_FLAG_BASE = d_WFLAG_BASE;
-	d_player_entities = d_entities_tt_blufor;
 	
 	{
 		_x setMarkerAlphaLocal 1;
@@ -45,7 +44,6 @@ if (d_string_player in d_entities_tt_blufor) then {
 	d_own_sides_o = [east];
 	d_create_bike = [["O_Quadbike_01_F"], ["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]] select d_tanoa;
 	d_FLAG_BASE = d_EFLAG_BASE;
-	d_player_entities = d_entities_tt_opfor;
 	
 	{
 		_x setMarkerAlphaLocal 1;
@@ -380,7 +378,7 @@ if (!d_no_ai) then {
 
 		private _grpp = group player;
 		private _leader = leader _grpp;
-		if (!isPlayer _leader || {player == _leader}) then {
+		if (!(_leader call d_fnc_isplayer) || {player == _leader}) then {
 			{
 				if (isNull objectParent _x) then {
 					deleteVehicle _x;
@@ -388,7 +386,7 @@ if (!d_no_ai) then {
 					(vehicle _x) deleteVehicleCrew _x;
 				};
 				false
-			} count ((units _grpp) select {!isPlayer _x});
+			} count ((units _grpp) select {!(_x call d_fnc_isplayer)});
 		};
 	};
 
@@ -544,7 +542,6 @@ if (!d_with_ace) then {
 
 		sleep 10;
 
-		waitUntil {sleep 0.232;!isNil "d_player_entities"};
 		waitUntil {sleep 0.232;!d_still_in_intro};
 
 		d_phudraw3d = -1;
@@ -921,20 +918,19 @@ if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 
 missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 
+0 spawn d_fnc_allplayers;
+
 if (d_with_ace) then {
 	addMissionEventHandler ["Draw3D", {
 		if (alive player && {!(player getVariable ["ace_isunconscious", false])}) then {
 			private _cam2world = positionCameraToWorld [0,0,0];
 			{
-				private _u = missionNamespace getVariable _x;
-				if (!isNil "_u" && {!isNull _u && {_u getVariable ["ace_isunconscious", false]}}) then {
-					private _dist = _cam2world distance _u;
-					if (_dist < 400) then {
-						drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _u) vectorAdd [0, 0, 1 + (_dist * 0.05)], 1, 1, 0, "(Uncon) " + (_u call d_fnc_getplayername), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
-					};
+				private _dist = _cam2world distance _x;
+				if (_dist < 400) then {
+					drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.05)], 1, 1, 0, "(Uncon) " + (_x call d_fnc_getplayername), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
 				};
 				false
-			} count d_player_entities;
+			} count (d_allplayers select {_x getVariable ["ace_isunconscious", false]});
 		};
 	}];
 };

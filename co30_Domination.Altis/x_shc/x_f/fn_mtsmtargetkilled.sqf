@@ -43,7 +43,7 @@ if (d_database_found) then {
 #ifndef __TT__
 	private _killer = param [2];
 #endif
-	if (!isNil "_killer" && {!isNull _killer && {isPlayer _killer}}) then {
+	if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
 		[_killer, 3] remoteExecCall ["d_fnc_addppoints", 2];
 	};
 };

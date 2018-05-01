@@ -17,6 +17,8 @@ if (call d_fnc_checkSHC) then {
 	private _sm_vec = _ogroup createUnit [d_sniper, _poss, [], 0, "NONE"];
 	[_sm_vec] joinSilent _ogroup;
 	_ogroup deleteGroupWhenEmpty true;
+	_poss set [2, 0];
+	[_sm_vec, _poss] call d_fnc_setposagls;
 	_sm_vec call d_fnc_removenvgoggles_fak;
 	_sm_vec addEventHandler ["killed", {_this call d_fnc_KilledSMTarget500}];
 	d_x_sm_rem_ar pushBack _sm_vec;

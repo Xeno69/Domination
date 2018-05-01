@@ -9,7 +9,7 @@
 // now, the lowest points number should be given for air vehicles and the highest for inf units
 // second change: distance to target, the lower the higher, Only for infantry!!!!
 params ["_points", "_killer", "_killed"];
-if (isNull _killer || {!isPlayer _killer}) exitWith {};
+if (isNull _killer || {!(_killer call d_fnc_isplayer)}) exitWith {};
 private _endpoints = if (isNull objectParent _killer) then {
 	private _dist = [_killed distance _killer, 500] select (isNull _killed);
 	if (_dist < 0) then {_dist = 500};

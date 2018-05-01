@@ -55,7 +55,7 @@ _camstart = markerPos "d_camstart";
 deleteMarkerLocal "d_camstart";
 #else
 private "_camstart";
-if (str player in d_entities_tt_blufor) then {
+if (side (group player) == blufor) then {
 	d_intro_color = [0,0,1,1];
 	_camstart = markerPos "d_camstart";
 } else {
@@ -185,7 +185,7 @@ sleep 5;
 [
 	[
 		[localize "STR_DOM_MISSIONSTRING_265","<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 0],
-		[d_name_pl,"<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 5],
+		[profileName,"<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 5],
 		[localize "STR_DOM_MISSIONSTRING_266","<t size='0.9'>%1</t><br/>", 27]
 	],
 	-safezoneX,0.85,"<t color='#FFFFFFFF' align='right'>%1</t>"

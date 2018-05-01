@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 private _shooter = param [6];
-if (!isPlayer _shooter) exitWith {};
+if !(_shooter call d_fnc_isplayer) exitWith {};
 
 params ["_vec"];
 

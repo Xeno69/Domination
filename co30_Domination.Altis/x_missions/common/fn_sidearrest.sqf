@@ -12,6 +12,8 @@ if (isNull _officer) then {
 	private _officer = _ogroup createUnit [d_sniper, _poss, [], 0, "NONE"];
 	[_officer] joinSilent _ogroup;
 	_ogroup deleteGroupWhenEmpty true;
+	_poss set [2, 0];
+	[_officer, _poss] call d_fnc_setposagls;
 	_officer call d_fnc_removenvgoggles_fak;
 	_officer addEventHandler ["killed", {_this call d_fnc_KilledSMTarget500}];
 	d_x_sm_rem_ar pushBack _officer;
@@ -49,7 +51,7 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 	call d_fnc_mpcheck;
 	if (!alive _officer) exitWith {_is_dead = true;};
 	if (!_rescued) then {
-		private _nobjs = (_officer nearEntities ["CAManBase", 20]) select {isPlayer _x && {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+		private _nobjs = (_officer nearEntities ["CAManBase", 20]) select {(_x call d_fnc_isplayer) && {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 		if !(_nobjs isEqualTo []) then {
 			if (!d_no_ai || {d_tt_ver}) then {
 				_nobjs params ["_rescuer"];

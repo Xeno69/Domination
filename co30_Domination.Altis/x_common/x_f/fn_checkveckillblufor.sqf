@@ -4,7 +4,7 @@
 
 private _killer = param [2];
 
-if (!isPlayer _killer) exitWith {};
+if !(_killer call d_fnc_isplayer) exitWith {};
 
 if (side (group _killer) == opfor) then {
 	d_points_opfor = d_points_opfor + (d_tt_points # 7);

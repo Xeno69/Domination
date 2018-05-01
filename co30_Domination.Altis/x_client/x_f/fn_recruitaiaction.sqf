@@ -21,6 +21,6 @@ if (player distance2D (param [0]) > 50) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_312");
 };
 
-d_current_ai_num = {!isPlayer _x && {alive _x}} count (units _grpplayer);
+d_current_ai_num = {!(_x call d_fnc_isplayer) && {alive _x}} count (units _grpplayer);
 
 createDialog "d_AIRecruitDialog";

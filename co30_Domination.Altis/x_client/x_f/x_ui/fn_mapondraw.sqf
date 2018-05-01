@@ -18,98 +18,94 @@ __TRACE_1("","d_show_player_marker")
 if !(d_show_player_marker isEqualTo 0) then {
 	private _drawn_v = [];
 	{
-		private _ap = missionNamespace getVariable _x;
-		if (!isNil "_ap" && {!isNull _ap && {!(_ap getVariable ["xr_pluncon", false]) && {isNil {_ap getVariable "xr_plno3dd"}}}}) then {
-			private _v = vehicle _ap;
-			//private _inv = !(_v isEqualTo _ap);
-			private _inv = !isNull objectParent _ap;
-			__TRACE_2("","_v","_inv")
-			
-			private _dodraw = [true, _ap isEqualTo (crew _v # 0)] select _inv;
-			if (d_with_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!isPlayer (crew _v # 0)}}}}) then {
-				_v setVariable ["d_v_drawn", true];
-				_drawn_v pushBack _v;
-				_dodraw = true;
-			};
-			
-			__TRACE_1("","_drawn_v")
-			__TRACE_1("","_dodraw")
-			
-			if (_dodraw) then {
-				private _text = if !(_type isEqualTo 1) then {
-					if (!_inv) then {
-						if (d_show_player_marker isEqualTo 1) then {
-							[_ap] call d_fnc_gethpname;
+		private _v = vehicle _x;
+		private _inv = !isNull objectParent _x;
+		__TRACE_2("","_v","_inv")
+		
+		private _dodraw = [true, _x isEqualTo (crew _v # 0)] select _inv;
+		if (d_with_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!isPlayer (crew _v # 0)}}}}) then {
+			_v setVariable ["d_v_drawn", true];
+			_drawn_v pushBack _v;
+			_dodraw = true;
+		};
+		
+		__TRACE_1("","_drawn_v")
+		__TRACE_1("","_dodraw")
+		
+		if (_dodraw) then {
+			private _text = if !(_type isEqualTo 1) then {
+				if (!_inv) then {
+					if (d_show_player_marker isEqualTo 1) then {
+						[_x] call d_fnc_gethpname;
+					} else {
+						if (d_show_player_marker isEqualTo 2) then {
+							""
 						} else {
-							if (d_show_player_marker isEqualTo 2) then {
-								""
+							if (d_show_player_marker isEqualTo 3) then {
+								format [d_mark_loc280, 9 - round(9 * damage _x)]
 							} else {
-								if (d_show_player_marker isEqualTo 3) then {
-									format [d_mark_loc280, 9 - round(9 * damage _ap)]
-								} else {
-									""
-								};
+								""
 							};
 						};
-					} else {
-						//if (player distance2D _v < 3500) then {
-							private _crw = crew _v;
-							private _nmt = _v getVariable "d_ma_text";
-							__TRACE_1("","_nmt")
-							if (isNil "_nmt") then {
-								_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
-								_v setVariable ["d_ma_text", _nmt];
-							};
-							private _nt = [_nmt, ": "];
-							private _ccrwm1 = count _crw - 1;
-							{
-								if (alive _x) then {
-									_nt pushBack (_x call d_fnc_getplayername);
-									if (_forEachIndex < _ccrwm1) then {
-										_nt pushBack ", ";
-									};
-								};
-							} forEach _crw;
-							__TRACE_1("","_nt")
-							(_nt joinString "")
-						/*} else {
-							private _nmt = _v getVariable "d_ma_text";
-							if (isNil "_nmt") then {
-								_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
-								_v setVariable ["d_ma_text", _nmt];
-							};
-							_nmt
-						};*/
 					};
 				} else {
-					""
+					//if (player distance2D _v < 3500) then {
+						private _crw = crew _v;
+						private _nmt = _v getVariable "d_ma_text";
+						__TRACE_1("","_nmt")
+						if (isNil "_nmt") then {
+							_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
+							_v setVariable ["d_ma_text", _nmt];
+						};
+						private _nt = [_nmt, ": "];
+						private _ccrwm1 = count _crw - 1;
+						{
+							if (alive _x) then {
+								_nt pushBack (_x call d_fnc_getplayername);
+								if (_forEachIndex < _ccrwm1) then {
+									_nt pushBack ", ";
+								};
+							};
+						} forEach _crw;
+						__TRACE_1("","_nt")
+						(_nt joinString "")
+					/*} else {
+						private _nmt = _v getVariable "d_ma_text";
+						if (isNil "_nmt") then {
+							_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
+							_v setVariable ["d_ma_text", _nmt];
+						};
+						_nmt
+					};*/
 				};
-				
-				private _isc = [_v, _ap] call d_fnc_getmapicon;
-				
-				__TRACE_1("","_isc")
-				
-				_map drawIcon [
-					_isc # 0,
-					_isc # 2,
-					visiblePositionASL _v,
-					_isc # 1,
-					_isc # 1,
-					getDirVisual _v,
-					_text,
-					1,
-					0.05,
-					"puristaMedium", // ROBOTO?
-					"right"
-				];
-				
-				if (_inv && {!isNil {_v getVariable "d_ism_vec"}}) then {
-					_v setVariable ["d_mvs_not", true];
-				};
+			} else {
+				""
+			};
+			
+			private _isc = [_v, _x] call d_fnc_getmapicon;
+			
+			__TRACE_1("","_isc")
+			
+			_map drawIcon [
+				_isc # 0,
+				_isc # 2,
+				visiblePositionASL _v,
+				_isc # 1,
+				_isc # 1,
+				getDirVisual _v,
+				_text,
+				1,
+				0.05,
+				"puristaMedium", // ROBOTO?
+				"right"
+			];
+			
+			if (_inv && {!isNil {_v getVariable "d_ism_vec"}}) then {
+				_v setVariable ["d_mvs_not", true];
 			};
 		};
 		false
-	} count d_player_entities;
+	} count (d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}});
 	
 	if !(_drawn_v isEqualTo []) then {
 		{

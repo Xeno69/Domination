@@ -9,7 +9,9 @@ if (d_with_bis_dynamicgroups == 0) then {
 
 // Set to true to enable autosave to sql database each time a main target gets cleared (auto save entry in DB will get deleted after last main target)
 // Does load the autosave automatically if worldname and briefingName match to those saved at mission start
-d_db_auto_save = false;
+if (isNil "d_db_auto_save") then {
+	d_db_auto_save = false;
+};
 
 if (d_database_found) then {
 #ifndef __TT__

@@ -20,9 +20,8 @@ if (_tt != xr_u_ott) then {
 };
 if (xr_near_player_dist_respawn && {!xr_respawn_available && {xr_u_dcounter > 10 && {time > xr_u_xxstarttime}}}) then {
 	private _nearunit = objNull;
-	d_player_entities findIf {
-		private _xm = missionNamespace getVariable _x;
-		private _ret = !isNil "_xm" && {!isNull _xm && {_xm != player && {!(_xm getVariable ["xr_pluncon", false])}}};
+	d_allplayers findIf {
+		private _ret = _x != player && {!(_x getVariable ["xr_pluncon", false])};
 		if (_ret) then {
 			_nearunit = _xm;
 		};

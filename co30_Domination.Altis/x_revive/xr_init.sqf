@@ -45,23 +45,20 @@ if (d_only_medics_canrevive != 0) then {
 };
 
 {
-	private _unit = missionNamespace getVariable _x;
-	if (!isNil "_unit") then {
-		if (alive _unit && {_unit getVariable ["xr_pluncon", false]}) then {
-			_unit spawn {
-				sleep 1;
-				if (alive _this && {_this getVariable ["xr_pluncon", false]}) then {
-					_this call xr_fnc_addActions;
-				};
+	if (alive _x && {_x getVariable ["xr_pluncon", false]}) then {
+		_x spawn {
+			sleep 1;
+			if (alive _this && {_this getVariable ["xr_pluncon", false]}) then {
+				_this call xr_fnc_addActions;
 			};
-			xr_uncon_units pushBackUnique _unit;
-		} else {
-			_unit setVariable ["xr_ReviveAction", -9999];
-			_unit setVariable ["xr_DragAction", -9999];
 		};
+		xr_uncon_units pushBackUnique _x;
+	} else {
+		_x setVariable ["xr_ReviveAction", -9999];
+		_x setVariable ["xr_DragAction", -9999];
 	};
 	false
-} count d_player_entities;
+} count ((allPlayers - entities "HeadlessClient_F") select {d_player_side getFriend side (group _x) >= 0.6});
 
 addMissionEventHandler ["Draw3D", {
 	if (alive player && {!(xr_uncon_units isEqualTo [])}) then {

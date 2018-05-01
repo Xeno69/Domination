@@ -18,14 +18,10 @@ private _ctrl = (uiNamespace getVariable "d_AdminDialog") displayCtrl 1001;
 
 lbClear _ctrl;
 {
-	private _u = missionNamespace getVariable _x;
-	if (!isNil "_u" && {!isNull _u}) then {
-		private _index = _ctrl lbAdd (_u call d_fnc_getplayername);
-		_ctrl lbSetData [_index, str _u];
-		
-	};
+	private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
+	_ctrl lbSetData [_index, str _x];
 	false
-} count d_player_entities;
+} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 
 _ctrl lbSetCurSel 0;
 ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);
@@ -40,13 +36,10 @@ ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);
 			d_a_d_p_kicked = nil;
 			lbClear _ctrl;
 			{
-				private _u = missionNamespace getVariable _x;
-				if (!isNil "_u" && {!isNull _u}) then {
-					private _index = _ctrl lbAdd (_u call d_fnc_getplayername);
-					_ctrl lbSetData [_index, str _u];
-				};
+				private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
+				_ctrl lbSetData [_index, str _x];
 				false
-			} count d_player_entities;
+			} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 			_ctrl lbSetCurSel 0;
 		};
 		sleep 0.2;

@@ -67,7 +67,7 @@ class FSM
                          "" \n
                          "if !(_no isEqualTo []) then {" \n
                          "	{" \n
-                         "		if ({isPlayer _x} count (crew _x) == 0) then {" \n
+                         "		if ({_x call d_fnc_isplayer} count (crew _x) == 0) then {" \n
                          "			_x call d_fnc_DelVecAndCrew;" \n
                          "		} else {" \n
                          "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n

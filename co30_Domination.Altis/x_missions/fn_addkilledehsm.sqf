@@ -45,7 +45,7 @@ _this addEventHandler ["handleDamage", {_this call d_fnc_CheckSMShotHD}];
 _this addEventHandler ["hit", {
 	__TRACE_1("hit","_this")
 	private _obj = param [3];
-	if (!isNull _obj && {isPlayer _obj}) then {
+	if (!isNull _obj && {_obj call d_fnc_isplayer}) then {
 		if (side (group _obj) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;
 		} else {

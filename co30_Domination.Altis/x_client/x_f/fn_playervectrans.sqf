@@ -16,10 +16,10 @@ while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", 
 			{
 				_x setVariable ["d_TRANS_START", getPosASL _vec];
 				false
-			} count ((crew _vec) select {_x != player && {isPlayer _x}});
+			} count ((crew _vec) select {_x != player && {_x call d_fnc_isplayer}});
 		};
 		if (_eindex == -1) then {
-			_eindex = __vaeh ["getIn", {if (isPlayer (param [2])) then {(param [2]) setVariable ["d_TRANS_START", getPosASL (param [0])]}}];
+			_eindex = __vaeh ["getIn", {if ((param [2]) call d_fnc_isplayer) then {(param [2]) setVariable ["d_TRANS_START", getPosASL (param [0])]}}];
 		};
 	};
 	if (player != driver _vec) then {

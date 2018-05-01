@@ -1187,7 +1187,7 @@ private _d_backpackclasses_opfor = [
 ];
 
 private ["_all_weapons_items"];
-if (str player in d_entities_tt_blufor) then {
+if (side (group player) == blufor) then {
 	__TRACE("Player is blufor")
 	_all_weapons_items = _all_weapons_items_blufor;
 	d_all_magazines = _d_all_magazines_blufor;

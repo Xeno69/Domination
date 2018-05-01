@@ -57,13 +57,13 @@ class FSM
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"{" \n
                          "	if !(_x isKindOf ""CAManBase"") then {" \n
-                         "		if ({isPlayer _x} count (crew _x) == 0) then {" \n
+                         "		if ({_x call d_fnc_isplayer} count (crew _x) == 0) then {" \n
                          "			_x call d_fnc_DelVecAndCrew;" \n
                          "		} else {" \n
                          "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n
                          "		};" \n
                          "	} else {" \n
-                         "		if (!isPlayer _x) then {deleteVehicle _x};" \n
+                         "		if !(_x call d_fnc_isplayer) then {deleteVehicle _x};" \n
                          "	};" \n
                          "	false" \n
                          "} count ((list _old_units_trigger) unitsBelowHeight 20);" \n

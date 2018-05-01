@@ -8,7 +8,7 @@ params ["_killed", "", "_killer"];
 
 private _killedfriendly = side (group _killer) == side (group _killed);
 
-if (!isNull _killer && {isPlayer _killer && {vehicle _killer != vehicle _killed}}) then {
+if (!isNull _killer && {(_killer call d_fnc_isplayer) && {vehicle _killer != vehicle _killed}}) then {
 	private _par1 = d_player_store getVariable (getPlayerUID _killed);
 	__TRACE_1("",_par1);
 	private _namep = [_par1 # 6, "Unknown"] select (isNil "_par1");

@@ -136,8 +136,12 @@ if (_rtype == 0) then { // player died
 	
 	0 spawn {
 		sleep (1 + random 1);
-		private _np = profileName splitString """'" joinString "";
-		if !(_np isEqualTo (player getVariable ["d_plname", ""])) then {
+		private _np = player getVariable ["d_plname", ""];
+		if (_np isEqualTo "" || {_np isEqualTo "Error: No unit"}) then {
+			_np = profileName splitString """'" joinString "";
+			if (_np isEqualTo "Error: No unit") then {
+				_np = (name player) splitString """'" joinString "";
+			};
 			player setVariable ["d_plname", _np, true];
 			d_name_pl = _np;
 		};

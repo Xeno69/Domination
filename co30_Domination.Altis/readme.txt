@@ -23,6 +23,10 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Added: setVariable ["d_no_lift", true, true] a vehicle to remove it from lifting. Even if a vehicle is initialized with setVariable ["d_liftit", true, true] it won't get lifted then
 - Fixed: In the RHS version russians do speak russian now and not farsi :)
 - Changed: Dom general settings like use params from sql database were moved to dom_params2 table (run Domination.sql file first, with Heidi for example)
+- Fixed: Sidemission units should no longer spawn in rocks
+- Changed: Using player vehicle var name as references is broken if the game thinks that a player is a "Error: No unit", use allPlayers instead of d_player_entities (maybe one day BI will fix)
+- Changed: Better check if a unit is a player as isPlayer scripting command returns false if a player is a "Error: No unit"
+- Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in x_init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
 
 3.90
 ATTENTION: ALL mission.sqm files have changed

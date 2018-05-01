@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 private _killer = param [1];
-if (!isPlayer _killer) exitWith {};
+if !(_killer call d_fnc_isplayer) exitWith {};
 private _points = param [0];
 call {
 	private _side = side (group _killer);

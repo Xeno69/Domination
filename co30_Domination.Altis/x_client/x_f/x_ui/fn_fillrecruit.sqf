@@ -30,7 +30,7 @@ d_current_ai_units = [];
 	d_current_ai_num = d_current_ai_num + 1;
 	d_current_ai_units pushBack _x;
 	false
-} count ((units group player) select {!isPlayer _x && {alive _x}});
+} count ((units group player) select {!(_x call d_fnc_isplayer) && {alive _x}});
 
 (_dspx displayCtrl 1030) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_693", d_current_ai_num, d_max_ai];
 

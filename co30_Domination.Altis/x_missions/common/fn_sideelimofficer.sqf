@@ -31,6 +31,9 @@ if (!_issniper) then {
 	_bpos set [2, 1];
 	_sm_vec setFormDir ((direction _fortress) + 90);
 	_sm_vec setPos _bpos;
+} else {
+	_poss set [2, 0];
+	[_sm_vec, _poss] call d_fnc_setposagls;
 };
 sleep 1;
 private _leadero = leader _ogroup;

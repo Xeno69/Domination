@@ -11,9 +11,9 @@ if (d_with_ranked && {d_sub_kill_points != 0 && {side (group _killer) getFriend 
 };
 
 if (d_with_ai) then {	
-	if (!isNull _killer && {!isPlayer _killer && {side (group _killer) getFriend side (group _killed) >= 0.6 && {vehicle _killed != vehicle _killer}}}) then {
+	if (!isNull _killer && {!(_killer call d_fnc_isplayer) && {side (group _killer) getFriend side (group _killed) >= 0.6 && {vehicle _killed != vehicle _killer}}}) then {
 		_leader_killer = leader _killer;
-		if (isPlayer _leader_killer) then {
+		if (_leader_killer call d_fnc_isplayer) then {
 			private _par = d_player_store getVariable (getPlayerUID _killed);
 			private _namep = [_par # 6, "Unknown"] select (isNil "_par");
 			private _par = d_player_store getVariable (getPlayerUID _leader_killer);
@@ -22,7 +22,7 @@ if (d_with_ai) then {
 	};
 };
 
-if (!isNull _killer && {isPlayer _killer && {vehicle _killer != vehicle _killed}}) then {
+if (!isNull _killer && {(_killer call d_fnc_isplayer) && {vehicle _killer != vehicle _killed}}) then {
 	private _par = d_player_store getVariable (getPlayerUID _killed);
 	__TRACE_1("_killed",_par)
 	private _namep = [_par # 6, "Unknown"] select (isNil "_par");

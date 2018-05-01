@@ -26,7 +26,7 @@ _control lbDelete _idx;
 private _unit = d_current_ai_units # _idx;
 d_current_ai_units deleteAt _idx;
 
-if (!isPlayer _unit) then {
+if !(_unit call d_fnc_isplayer) then {
 	if (isNull objectParent _unit) then {
 		deleteVehicle _unit;
 	} else {

@@ -17,7 +17,7 @@ private _has_ai = false;
 		(vehicle _x) deleteVehicleCrew _x;
 	};
 	false
-} count ((units group player) select {!isPlayer _x});
+} count ((units group player) select {!(_x call d_fnc_isplayer)});
 if (_has_ai) then {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_216")};
 private _dispx = uiNamespace getVariable "d_AIRecruitDialog";
 (_dispx displayCtrl 1011) ctrlShow false;

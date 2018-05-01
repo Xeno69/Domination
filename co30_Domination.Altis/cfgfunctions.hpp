@@ -139,6 +139,7 @@ class cfgFunctions {
 			addc(warnplayer);
 			addc(engtrigfnc);
 			addc(checkammo);
+			addc(allplayers);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -233,6 +234,8 @@ class cfgFunctions {
 			addc(checkveckillblufor);
 			addc(checkveckillopfor);
 			addc(create_route);
+			addc(setposagls);
+			addc(isplayer);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

@@ -36,7 +36,7 @@ if (xr_MouseButtons # 0) then {
 	if (!isNull _cursObj && {!(_cursObj isKindOf "CAManBase")}) then {
 		if !(crew _cursObj isEqualTo []) then {
 			(crew _cursObj) findIf {
-				private _ret = isPlayer _x;
+				private _ret = _x call d_fnc_isplayer;
 				if (_ret) then {
 					_cursObj = _x;
 				};
@@ -67,33 +67,27 @@ if (time > xr_spect_timer) then {
 		private _vecp = vehicle player;
 		private _grppl = group player;
 		{
-			private _u = missionNamespace getVariable _x;
-			if (!isNil "_u" && {!isNull _u && {_u != player}}) then {
-				private _dist = (vehicle _u) distance2D _vecp;
-				private _pic = getText (configFile >>"CfgVehicles">>typeOf _u>>"icon");
-				if (_pic != "") then {
-					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
-				};
-				_helperls pushBack [_dist, format [(_u call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_u getVariable ["xr_pluncon", false])], str _u, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _u == _grppl)];
+			private _dist = (vehicle _x) distance2D _vecp;
+			private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+			if (_pic != "") then {
+				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
+			_helperls pushBack [_dist, format [(_x call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
 			false
-		} count d_player_entities;
+		} count (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
 		{
-			private _u = missionNamespace getVariable _x;
-			if (!isNil "_u" && {!isNull _u && {_u != player}}) then {
-				private _distup = _u distance2D _sfm;
-				if (_distup > 100) then {
-					private _pic = getText (configFile >>"CfgVehicles">>typeOf _u>>"icon");
-					if (_pic != "") then {
-						_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
-					};
-					_helperls pushBack [_distup, _u call d_fnc_getplayername, str _u, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
+			private _distup = _x distance2D _sfm;
+			if (_distup > 100) then {
+				private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+				if (_pic != "") then {
+					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
+				_helperls pushBack [_distup, _x call d_fnc_getplayername, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
 			};
 			false
-		} count d_player_entities;
+		} count (d_allplayers select {_x != player});
 	};
 	xr_x_updatelb = true;
 	xr_spect_timer = time + 10;
@@ -170,11 +164,10 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
 		private _visobj = objNull;
-		d_player_entities findIf {
-			private _u = missionNamespace getVariable _x;
-			private _ret = !isNil "_u" && {!isNull _u && {_u != player && {_u distance2D _sfm > 100}}};
+		d_allplayers findIf {
+			private _ret = _x != player && {_x distance2D _sfm > 100};
 			if (_ret) then {
-				_visobj = _u;
+				_visobj = _x;
 			};
 			_ret
 		};

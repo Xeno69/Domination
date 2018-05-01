@@ -64,7 +64,7 @@ while {true} do {
 #endif
 					deleteVehicle _x;
 				} else {
-					if ((_x nearEntities ["CAManBase", 50]) findIf {isPlayer _x} == -1) then {
+					if ((_x nearEntities ["CAManBase", 50]) findIf {_x call d_fnc_isplayer} == -1) then {
 						deleteVehicle _x;
 					};
 				};
@@ -81,7 +81,7 @@ while {true} do {
 				if ((crew _x) findIf {alive _x} == -1) then {
 					deleteVehicle _x;
 				} else {
-					if ((crew _x) findIf {isPlayer _x} > -1) then {
+					if ((crew _x) findIf {_x call d_fnc_isplayer} > -1) then {
 						_x setVariable ["d_end_time", time + 600];
 					};
 				};

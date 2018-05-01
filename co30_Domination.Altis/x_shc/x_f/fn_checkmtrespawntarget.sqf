@@ -20,7 +20,7 @@ if (_type == 0) then {
 		(param [0]) removeAllEventHandlers "killed";
 		if (d_database_found) then {
 			private _killer = param [2];
-			if (!isNil "_killer" && {!isNull _killer && {isPlayer _killer}}) then {
+			if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
 				[_killer, 5] remoteExecCall ["addScore", 2];
 			};
 		};
@@ -38,7 +38,7 @@ if (_type == 0) then {
 		(param [0]) removeAllEventHandlers "killed";
 		if (d_database_found) then {
 			private _killer = param [2];
-			if (!isNil "_killer" && {!isNull _killer && {isPlayer _killer}}) then {
+			if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
 				[_killer, 5] remoteExecCall ["addScore", 2];
 			};
 		};

@@ -24,10 +24,13 @@ __TRACE_1("","_owngroup")
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _poss, [], 60, "NONE"];
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
+_poss set [2, 0];
+[_pilot1, _poss] call d_fnc_setposagls;
 
 private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPosATL _pilot1, [], 0, "NONE"];
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
+[_pilot2, _poss] call d_fnc_setposagls;
 [_pilot1, _pilot2] joinSilent _owngroup;
 
 sleep 15;
@@ -82,7 +85,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			__TRACE("not rescued")
 			if (alive _pilot1) then {
 				__TRACE("_pilot1 alive")
-				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {isPlayer _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}};
+				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}};
 				if !(_nobjs isEqualTo []) then {
 					_resctimestarted = time;
 					_rescued = true;
@@ -93,7 +96,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			if (!_rescued) then {
 				if (alive _pilot2) then {
 					__TRACE("_pilot2 alive")
-					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {isPlayer _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}};
+					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}};
 					if !(_nobjs isEqualTo []) then {
 						_resctimestarted = time;
 						_rescued = true;
@@ -118,7 +121,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 				_which_base = 2;
 			};
 #endif
-			if (alive _pilot1 && {!(isPlayer leader (group _pilot1))} || {alive _pilot2 && {!(isPlayer leader (group _pilot2))}}) then {
+			if (alive _pilot1 && {!(leader (group _pilot1) call d_fnc_isplayer)} || {alive _pilot2 && {!(leader (group _pilot2) call d_fnc_isplayer)}}) then {
 				_rescued = false;
 			};
 			if (time - _resctimestarted > 3600) then {

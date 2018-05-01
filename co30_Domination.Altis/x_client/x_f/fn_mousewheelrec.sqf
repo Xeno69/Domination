@@ -43,7 +43,7 @@ private _s_ai = [];
 				};
 			};
 		};
-		if (isPlayer _uni) then {
+		if (_uni call d_fnc_isplayer) then {
 			_s_p pushBack format ["%1<img color='#FFFFFF' image='%2'/> <br/>", [_uni] call d_fnc_gethpname, _rpic];
 		} else {
 			_s_ai pushBack format ["%1 (AI)<img color='#FFFFFF' image='%2'/> <br/>", _uni call d_fnc_getplayername, _rpic];

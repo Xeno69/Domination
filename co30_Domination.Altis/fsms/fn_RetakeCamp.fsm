@@ -73,7 +73,7 @@ class FSM
                          "		_lead = leader _grp;" \n
                          "		//player sideChat format [""_lead: %1, side _lead: %2, _recapside: %3, _curcap: %4"", _lead, side _lead, _recapside, _wf getVariable ""D_CURCAPTURER""];" \n
                          "		//diag_log format [""_lead: %1, side _lead: %2, _recapside: %3, _curcap: %4"", _lead, side _lead, _recapside, _wf getVariable ""D_CURCAPTURER""];" \n
-                         "		if (!isPlayer _lead && {_lead distance2D _wf < 300 && {(getPosATL _lead) select 2 < 10}}) then {" \n
+                         "		if (!(_lead call d_fnc_isplayer) && {_lead distance2D _wf < 300 && {(getPosATL _lead) select 2 < 10}}) then {" \n
                          "			if (!isNil {_grp getVariable ""D_PATR""}) then {_patgrps pushBack _grp};" \n
                          "			d_camp_cap_groups pushBack _grp;" \n
                          "			if (_lead distance2D _wf > 7) then {" \n

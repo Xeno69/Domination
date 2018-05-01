@@ -70,33 +70,28 @@ if (!xr_pl_no_lifes) then {
 	private _vecpplxp = vehicle player;
 	private _grppl = group player;
 	{
-		private _u = missionNamespace getVariable _x;
-		if (!isNil "_u" && {!isNull _u && {_u != player}}) then {
-			private _dist = (vehicle _u) distance2D _vecpplxp;
-			private _pic = getText (configFile >>"CfgVehicles">>typeOf _u>>"icon");
-			if (_pic != "") then {
-				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
-			};
-			_helperls pushBack [_dist, format [(_u call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_u getVariable ["xr_pluncon", false])], str _u, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _u == _grppl)];
+		private _dist = (vehicle _x) distance2D _vecpplxp;
+		private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+		if (_pic != "") then {
+			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
+		_helperls pushBack [_dist, format [(_x call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
 		false
-	} count d_player_entities;
+	} count (d_allplayers select {_x != player});
+	
 } else {
 	private _sfm = markerPos "xr_playerparkmarker";
 	{
-		private _u = missionNamespace getVariable _x;
-		if (!isNil "_u" && {!isNull _u && {_u != player}}) then {
-			private _distup = (vehicle _u) distance2D _sfm;
-			if (_distup > 100) then {
-				private _pic = getText (configFile >>"CfgVehicles">>typeOf _u>>"icon");
-				if (_pic != "") then {
-					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
-				};
-				_helperls pushBack [_distup, _u call d_fnc_getplayername, str _u, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
+		private _distup = (vehicle _x) distance2D _sfm;
+		if (_distup > 100) then {
+			private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+			if (_pic != "") then {
+				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
+			_helperls pushBack [_distup, _x call d_fnc_getplayername, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
 		};
 		false
-	} count d_player_entities;
+	} count (d_allplayers select {_x != player});
 };
 
 __TRACE_1("","_helperls")
@@ -141,11 +136,10 @@ if (!xr_pl_no_lifes) then {
 	
 	private _sfm = markerPos "xr_playerparkmarker";
 	private _visobj = objNull;
-	d_player_entities findIf {
-		private _u = missionNamespace getVariable _x;
-		private _ret = !isNil "_u" && {alive _u && {_u != player && {_u distance2D _sfm > 100}}};
+	d_allplayers findIf {
+		private _ret = _x != player && {_x distance2D _sfm > 100};
 		if (_ret) then {
-			_visobj = _u;
+			_visobj = _x;
 		};
 		_ret
 	};
@@ -166,40 +160,37 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 	private _grpp = group player;
 	private _cam2world = positionCameraToWorld [0,0,0];
 	{
-		private _u = missionNamespace getVariable _x;
-		if (!isNil "_u" && {alive _u && {!(_u getVariable ["xr_pluncon", false])}}) then {
-			private _distu = _cam2world distance _u;
-			if (_distu <= d_dist_pname_hud) then {
-				private _vu = vehicle _u;
-				private _targetPos = _vu modelToWorldVisual (_u selectionPosition "Head");
-				if !(_targetPos isEqualTo []) then {
-					private _dodraw = if (isNull objectParent _u) then {
-						true
+		private _distu = _cam2world distance _x;
+		if (_distu <= d_dist_pname_hud) then {
+			private _vu = vehicle _x;
+			private _targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
+			if !(_targetPos isEqualTo []) then {
+				private _dodraw = if (isNull objectParent _x) then {
+					true
+				} else {
+					if (crew _vu isEqualTo 1) exitWith {true};
+					if (_x == commander _vu) exitWith {true};
+					if (_x == gunner _vu && {!isPlayer commander _vu}) exitWith {true};
+					if (_x == driver _vu && {!isPlayer commander _vu && {!isPlayer gunner _vu}}) exitWith {true};
+					false
+				};
+				if (_dodraw) then {
+					private _tex = "";
+					private _rtex = "";
+					if (_distu <= 150) then {
+						_tex = [_x] call d_fnc_gethpname;
+						if (isNil "_tex") then {_tex = _x call d_fnc_getplayername};
+						_rtex = (rank _x) call d_fnc_getrankpic;
 					} else {
-						if (crew _vu isEqualTo 1) exitWith {true};
-						if (_u == commander _vu) exitWith {true};
-						if (_u == gunner _vu && {!isPlayer commander _vu}) exitWith {true};
-						if (_u == driver _vu && {!isPlayer commander _vu && {!isPlayer gunner _vu}}) exitWith {true};
-						false
+						_tex = "*";
+						_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 					};
-					if (_dodraw) then {
-						private _tex = "";
-						private _rtex = "";
-						if (_distu <= 150) then {
-							_tex = [_u] call d_fnc_gethpname;
-							if (isNil "_tex") then {_tex = _u call d_fnc_getplayername};
-							_rtex = (rank _u) call d_fnc_getrankpic;
-						} else {
-							_tex = "*";
-							_rtex = "#(argb,8,8,3)color(0,0,0,0)";
-						};
-						drawIcon3D [_rtex, [d_pnhudothercolor, d_pnhudgroupcolor] select (group _u == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
-					};
+					drawIcon3D [_rtex, [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
 				};
 			};
 		};
 		false
-	} count d_player_entities;
+	} count (d_allplayers select {alive _x && {!(_x getVariable ["xr_pluncon", false])}});
 }];
 
 xr_x_updatelb = false;

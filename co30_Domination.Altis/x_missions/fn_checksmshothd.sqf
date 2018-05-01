@@ -12,7 +12,7 @@ if (!alive (param [0])) exitWith {
 if ((param [4]) call d_fnc_checksimminet) then {
 #ifdef __TT__
 	private _obj = param [6];
-	if (!isNull _obj && {isPlayer _obj}) then {
+	if (!isNull _obj && {_obj call d_fnc_isplayer}) then {
 		if (side (group _obj) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;
 		} else {

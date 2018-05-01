@@ -11,7 +11,7 @@ private _xr_near_players = [];
 	false
 } count (player nearEntities 50);
 
-xr_near_players = _xr_near_players select {isPlayer _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {xr_side_pl getFriend side (group _x) >= 0.6}}}};
+xr_near_players = _xr_near_players select {(_x call d_fnc_isplayer) && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {xr_side_pl getFriend side (group _x) >= 0.6}}}};
 
 __TRACE_1("","xr_near_players")
 if !(xr_near_players isEqualTo []) then {

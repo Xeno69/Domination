@@ -10,12 +10,15 @@ if (hasInterface && {d_with_bis_dynamicgroups == 0}) then {
 player enableAttack false;
 
 if (hasInterface) then {
-	private _np = profileName splitString """'" joinString "";
-	//  && {!(_np isEqualTo "Error: No unit")})
-	if !(_np isEqualTo (player getVariable ["d_plname", ""])) then {
+	0 spawn {
+		sleep (1 + random 1);
+		private _np = profileName splitString """'" joinString "";
+		if (_np isEqualTo "Error: No unit") then {
+			_np = (name player) splitString """'" joinString "";
+		};
 		player setVariable ["d_plname", _np, true];
+		d_name_pl = _np;
 	};
-	d_name_pl = _np;
 };
 
 execVM "tasks.sqf";

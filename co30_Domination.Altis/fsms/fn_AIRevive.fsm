@@ -221,7 +221,7 @@ class FSM
                 {
                         name = "Check_other_unit";
                         itemno = 9;
-                        init = /*%FSM<STATEINIT""">*/"private _no = (_unit nearEntities [""CAManBase"", 50]) select {isPlayer _x};"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"private _no = (_unit nearEntities [""CAManBase"", 50]) select {_x call d_fnc_isplayer};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {

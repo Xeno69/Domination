@@ -388,12 +388,12 @@ class FSM
                          "		{" \n
                          "			if (alive _x) then {" \n
                          "				if (isNull objectParent _x) then {" \n
-                         "					if (isPlayer _x && {side (group _x) == _checkside}) then {" \n
+                         "					if ((_x call d_fnc_isplayer) && {side (group _x) == _checkside}) then {" \n
                          "						[_x, 5] remoteExecCall [""addScore"", 2];" \n
                          "					};" \n
                          "				} else {" \n
                          "					{" \n
-                         "						if (alive _x && {isPlayer _x && {side (group _x) == _checkside}}) then {" \n
+                         "						if (alive _x && {(_x call d_fnc_isplayer) && {side (group _x) == _checkside}}) then {" \n
                          "							[_x, 5] remoteExecCall [""addScore"", 2];" \n
                          "						};" \n
                          "						false" \n
