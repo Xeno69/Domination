@@ -893,7 +893,9 @@ player addEventhandler ["WeaponAssembled", {
 
 {_x call d_fnc_initvec; false} count vehicles;
 
-["Preload"] call bis_fnc_arsenal;
+if (!d_with_ace) then {
+	["Preload"] call bis_fnc_arsenal;
+};
 
 if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 	if (d_ifa3lite) then {

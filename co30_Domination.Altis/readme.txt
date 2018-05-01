@@ -27,6 +27,7 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Changed: Using player vehicle var name as references is broken if the game thinks that a player is a "Error: No unit", use allPlayers instead of d_player_entities (maybe one day BI will fix)
 - Changed: Better check if a unit is a player as isPlayer scripting command returns false if a player is a "Error: No unit"
 - Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in x_init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
+- Changed: When ace is found use ace arsenal instead of BI virtual arsenal (works also for ranked mode except uniforms and items for now)
 
 3.90
 ATTENTION: ALL mission.sqm files have changed

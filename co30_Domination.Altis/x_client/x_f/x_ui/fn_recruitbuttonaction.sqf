@@ -147,7 +147,12 @@ _control lbSetColor [_index, [1, 1, 0, 0.8]];
 (_dispx displayCtrl 1030) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_693", d_current_ai_num, d_max_ai];
 
 if (!d_with_ranked) then {
-	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", {["Open",[true,nil,param [0]]] call bis_fnc_arsenal}, [], -1, false, true, "", "true", 3];
+	private _code = if (!d_with_ace) then {
+		{["Open",[true,nil,param [0]]] call bis_fnc_arsenal}
+	} else {
+		{[param [0], param [0], true] call ace_arsenal_fnc_openBox}
+	};
+	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "true", 3];
 };
 
 #ifndef __TT__

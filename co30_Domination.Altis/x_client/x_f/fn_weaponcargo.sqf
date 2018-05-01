@@ -28,6 +28,7 @@ __TRACE_1("","d_all_p_a_boxes")
 __TRACE_1("","_vec")
 
 if (!d_with_ranked) then {
+	if (d_with_ace) exitWith {};
 	_vec spawn {
 		waitUntil {time > 0};
 
