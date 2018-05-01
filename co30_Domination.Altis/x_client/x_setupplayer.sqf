@@ -191,6 +191,8 @@ if (d_with_ranked) then {
 	
 	if (!d_with_ace) then {
 		player addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
+	} else {
+		["ace_treatmentSucceded", { _this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
 	
 	d_sm_p_pos = nil;
