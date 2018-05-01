@@ -17,12 +17,13 @@ __TRACE_1("","d_show_player_marker")
 
 if !(d_show_player_marker isEqualTo 0) then {
 	private _drawn_v = [];
+	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc"];
 	{
-		private _v = vehicle _x;
-		private _inv = !isNull objectParent _x;
+		_v = vehicle _x;
+		_inv = !isNull objectParent _x;
 		__TRACE_2("","_v","_inv")
 		
-		private _dodraw = [true, _x isEqualTo (crew _v # 0)] select _inv;
+		_dodraw = [true, _x isEqualTo (crew _v # 0)] select _inv;
 		if (d_with_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!isPlayer (crew _v # 0)}}}}) then {
 			_v setVariable ["d_v_drawn", true];
 			_drawn_v pushBack _v;
@@ -33,7 +34,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 		__TRACE_1("","_dodraw")
 		
 		if (_dodraw) then {
-			private _text = if !(_type isEqualTo 1) then {
+			_text = if !(_type isEqualTo 1) then {
 				if (!_inv) then {
 					if (d_show_player_marker isEqualTo 1) then {
 						[_x] call d_fnc_gethpname;
@@ -50,15 +51,15 @@ if !(d_show_player_marker isEqualTo 0) then {
 					};
 				} else {
 					//if (player distance2D _v < 3500) then {
-						private _crw = crew _v;
-						private _nmt = _v getVariable "d_ma_text";
+						_crw = crew _v;
+						_nmt = _v getVariable "d_ma_text";
 						__TRACE_1("","_nmt")
 						if (isNil "_nmt") then {
 							_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
 							_v setVariable ["d_ma_text", _nmt];
 						};
-						private _nt = [_nmt, ": "];
-						private _ccrwm1 = count _crw - 1;
+						_nt = [_nmt, ": "];
+						_ccrwm1 = count _crw - 1;
 						{
 							if (alive _x) then {
 								_nt pushBack (_x call d_fnc_getplayername);
@@ -82,7 +83,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 				""
 			};
 			
-			private _isc = [_v, _x] call d_fnc_getmapicon;
+			_isc = [_v, _x] call d_fnc_getmapicon;
 			
 			__TRACE_1("","_isc")
 			
@@ -115,10 +116,11 @@ if !(d_show_player_marker isEqualTo 0) then {
 	};
 	
 	if (d_with_ai) then {
+		private ["_isc", "_text"];
 		{
-			private _isc = [_x, _x] call d_fnc_getmapicon;
+			_isc = [_x, _x] call d_fnc_getmapicon;
 			
-			private _text = if !(_type isEqualTo 1) then {
+			_text = if !(_type isEqualTo 1) then {
 				if (d_show_player_marker == 1) then {
 					_ut = str _x; _ut select [count _ut - 1]
 				} else {
@@ -157,11 +159,12 @@ if !(d_show_player_marker isEqualTo 0) then {
 __TRACE_1("","d_marker_vecs")
 
 private _rem = [];
+private ["_isc", "_mt"];
 {
 	if (!isNull _x) then {
 		if (isNil {_x getVariable "d_mvs_not"}) then {
-			private _isc = [_x, objNull, true] call d_fnc_getmapicon;
-			private _mt = call {
+			_isc = [_x, objNull, true] call d_fnc_getmapicon;
+			_mt = call {
 				if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
 					format [d_mark_loc261, _x getVariable "d_ma_text"];
 				};

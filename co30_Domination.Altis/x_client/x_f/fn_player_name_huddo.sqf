@@ -11,13 +11,14 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
 		private _grpp = group player;
 		private _cam2world = positionCameraToWorld [0,0,0];
+		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex"];
 		{
-			private _distu = _cam2world distance _x;
+			_distu = _cam2world distance _x;
 			if (_distu <= d_dist_pname_hud) then {
-				private _vu = vehicle _x;
-				private _targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
+				_vu = vehicle _x;
+				_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
 				if !(_targetPos isEqualTo []) then {
-					private _dodraw = if (isNull objectParent _x) then {
+					_dodraw = if (isNull objectParent _x) then {
 						true
 					} else {
 						if (crew _vu isEqualTo 1) exitWith {true};
@@ -27,8 +28,8 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 						false
 					};
 					if (_dodraw) then {
-						private _tex = "";
-						private _rtex = "";
+						_tex = "";
+						_rtex = "";
 						if (_distu <= 200) then {
 							_tex = if (d_show_player_namesx == 1) then {
 								[_x] call d_fnc_gethpname
