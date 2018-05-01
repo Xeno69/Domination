@@ -66,9 +66,10 @@ if (time > xr_spect_timer) then {
 		
 		private _vecp = vehicle player;
 		private _grppl = group player;
+		private ["_dist", "_pic"];
 		{
-			private _dist = (vehicle _x) distance2D _vecp;
-			private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+			_dist = (vehicle _x) distance2D _vecp;
+			_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
@@ -77,10 +78,11 @@ if (time > xr_spect_timer) then {
 		} count (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
+		private ["_distup", "_pic"];
 		{
-			private _distup = _x distance2D _sfm;
+			_distup = _x distance2D _sfm;
 			if (_distup > 100) then {
-				private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+				_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
 				if (_pic != "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
@@ -98,8 +100,9 @@ if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
 	xr_x_updatelb = false;
 	private _lbctr = (uiNamespace getVariable "xr_SpectDlg") displayCtrl 1000;
 	lbClear _lbctr;
+	private ["_idx"];
 	{
-		private _idx = _lbctr lbAdd (_x # 1);
+		_idx = _lbctr lbAdd (_x # 1);
 		_lbctr lbSetData [_idx, _x # 2];
 		_lbctr lbSetValue [_idx, _x # 0];
 		_lbctr lbSetPicture [_idx, _x # 3];
@@ -165,7 +168,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		private _sfm = markerPos "xr_playerparkmarker";
 		private _visobj = objNull;
 		d_allplayers findIf {
-			private _ret = _x != player && {_x distance2D _sfm > 100};
+			_ret = _x != player && {_x distance2D _sfm > 100};
 			if (_ret) then {
 				_visobj = _x;
 			};

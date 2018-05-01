@@ -69,9 +69,10 @@ if (!xr_pl_no_lifes) then {
 	
 	private _vecpplxp = vehicle player;
 	private _grppl = group player;
+	private ["_dist", "_pic"];
 	{
-		private _dist = (vehicle _x) distance2D _vecpplxp;
-		private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+		_dist = (vehicle _x) distance2D _vecpplxp;
+		_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
@@ -81,10 +82,11 @@ if (!xr_pl_no_lifes) then {
 	
 } else {
 	private _sfm = markerPos "xr_playerparkmarker";
+	private ["_dist", "_pic"];
 	{
-		private _distup = (vehicle _x) distance2D _sfm;
+		_distup = (vehicle _x) distance2D _sfm;
 		if (_distup > 100) then {
-			private _pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+			_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
@@ -99,9 +101,10 @@ __TRACE_1("","xr_strpl")
 
 private _lbctr = (uiNamespace getVariable "xr_SpectDlg") displayCtrl 1000;
 lbClear _lbctr;
+private ["_idx"];
 {
 	__TRACE_1("","_x")
-	private _idx = _lbctr lbAdd (_x # 1);
+	_idx = _lbctr lbAdd (_x # 1);
 	__TRACE_1("","_idx")
 	_lbctr lbSetData [_idx, _x # 2];
 	_lbctr lbSetValue [_idx, _x # 0];
@@ -137,7 +140,7 @@ if (!xr_pl_no_lifes) then {
 	private _sfm = markerPos "xr_playerparkmarker";
 	private _visobj = objNull;
 	d_allplayers findIf {
-		private _ret = _x != player && {_x distance2D _sfm > 100};
+		_ret = _x != player && {_x distance2D _sfm > 100};
 		if (_ret) then {
 			_visobj = _x;
 		};
@@ -159,13 +162,14 @@ if (!xr_pl_no_lifes) then {
 xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 	private _grpp = group player;
 	private _cam2world = positionCameraToWorld [0,0,0];
+	private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex"];
 	{
-		private _distu = _cam2world distance _x;
+		_distu = _cam2world distance _x;
 		if (_distu <= d_dist_pname_hud) then {
-			private _vu = vehicle _x;
-			private _targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
+			_vu = vehicle _x;
+			_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
 			if !(_targetPos isEqualTo []) then {
-				private _dodraw = if (isNull objectParent _x) then {
+				_dodraw = if (isNull objectParent _x) then {
 					true
 				} else {
 					if (crew _vu isEqualTo 1) exitWith {true};
@@ -175,8 +179,8 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 					false
 				};
 				if (_dodraw) then {
-					private _tex = "";
-					private _rtex = "";
+					_tex = "";
+					_rtex = "";
 					if (_distu <= 150) then {
 						_tex = [_x] call d_fnc_gethpname;
 						if (isNil "_tex") then {_tex = _x call d_fnc_getplayername};
