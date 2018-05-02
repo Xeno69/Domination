@@ -9,8 +9,9 @@ if !(call d_fnc_checkSHC) exitWith {};
 
 params ["_poss", "_dir", "_type", ["_issniper", false], ["_createarmor", false], ["_createinf", false]];
 
+private ["_fortress"];
 if (!_issniper) then {
-	private _fortress = createVehicle [d_sm_fortress, _poss, [], 0, "NONE"];
+	_fortress = createVehicle [d_sm_fortress, _poss, [], 0, "NONE"];
 	_fortress setDir _dir;
 	_fortress setPos _poss;
 	d_x_sm_vec_rem_ar pushBack _fortress;
