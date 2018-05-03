@@ -31,6 +31,7 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Changed: Added ACE support for different medical items (by Boersencrash321)
 - Added: Support for special rank "General"
 - Fixed: Script error in fn_db_loadsavegame_server which broke bonus air positions (and probably others) when a DB save game was loaded
+- Fixed: Better ace support for killed eventhandler (killer might be null because of ace medical system) by Auge103
 
 3.90
 ATTENTION: ALL mission.sqm files have changed
