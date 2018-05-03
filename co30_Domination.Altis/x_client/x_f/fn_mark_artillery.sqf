@@ -37,7 +37,7 @@ d_ari_type = "";
 d_ari_salvos = 1;
 createDialog "d_MarkArtilleryDialog";
 
-waitUntil {d_ari_type != "" || {!d_markarti_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+waitUntil {!isNil "d_markarti_dialog_open" && {d_ari_type != "" || {!d_markarti_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
 
 deleteMarkerLocal "d_temp_mark_arty_marker";
 if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {

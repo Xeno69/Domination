@@ -173,10 +173,9 @@ if (d_current_target_index != -1) then {
 
 __ctrl2(11007) ctrlSetText _s;
 
-_rank_p = rank player;
-__ctrl2(12010) ctrlSetText (_rank_p call d_fnc_GetRankPic);
+__ctrl2(12010) ctrlSetText (player call d_fnc_GetRankPic);
 
-__ctrl2(11014) ctrlSetText (_rank_p call d_fnc_GetRankString);
+__ctrl2(11014) ctrlSetText (player call d_fnc_GetRankString);
 
 __ctrl2(12016) ctrlSetText serverName;
 
@@ -223,6 +222,6 @@ __ctrl2(2003) ctrlSetText str(d_points_needed # 2);
 __ctrl2(2004) ctrlSetText str(d_points_needed # 3);
 __ctrl2(2005) ctrlSetText str(d_points_needed # 4);
 __ctrl2(2006) ctrlSetText str(d_points_needed # 5);
-__ctrl2(2011) ctrlSetText str(d_points_needed # 6);
+__ctrl2(2007) ctrlSetText str(d_points_needed # 6);
 
 //ctrlSetFocus __ctrl2(1212);

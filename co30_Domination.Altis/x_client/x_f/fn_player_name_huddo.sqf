@@ -41,7 +41,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 								};
 							};
 							if (isNil "_tex") then {_tex = _x call d_fnc_getplayername};
-							_rtex = (rank _x) call d_fnc_getrankpic;
+							_rtex = _x call d_fnc_getrankpic;
 						} else {
 							_tex = "*";
 							_rtex = "#(argb,8,8,3)color(0,0,0,0)";

@@ -65,7 +65,7 @@ createDialog "d_ArtilleryDialog2";
 d_commandingMenuIniting = false;
 
 0 spawn {
-	waitUntil {!isNil "d_arti_did_fire" || {!d_arti_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+	waitUntil {!isNil "d_arti_dialog_open" && {!isNil "d_arti_did_fire" || {!d_arti_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
 
 	if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
 		if (d_arti_dialog_open) then {closeDialog 0};

@@ -184,7 +184,7 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 					if (_distu <= 150) then {
 						_tex = [_x] call d_fnc_gethpname;
 						if (isNil "_tex") then {_tex = _x call d_fnc_getplayername};
-						_rtex = (rank _x) call d_fnc_getrankpic;
+						_rtex = _x call d_fnc_getrankpic;
 					} else {
 						_tex = "*";
 						_rtex = "#(argb,8,8,3)color(0,0,0,0)";

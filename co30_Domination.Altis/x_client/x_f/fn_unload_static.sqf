@@ -18,7 +18,7 @@ if (_tr_cargo_ar isEqualTo []) exitWith {};
 d_current_truck_cargo_array = _tr_cargo_ar;
 createDialog "d_UnloadDialog";
 
-waitUntil {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+waitUntil {!isNil "d_unload_dialog_open" && {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
 
 if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {if (d_unload_dialog_open) then {closeDialog 0}};
 

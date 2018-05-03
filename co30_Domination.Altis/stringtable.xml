@@ -2986,6 +2986,22 @@
 <Japanese>大佐に昇格しました、おめでとう!!!</Japanese>
 <Original>You were promoted to Colonel, congratulations !!!</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_674a">
+<English>You were degraded from %1 to Colonel !!!</English>
+<Spanish>You were degraded from %1 to Colonel !!!</Spanish>
+<Portuguese>You were degraded from %1 to Colonel !!!</Portuguese>
+<Korean>You were degraded from %1 to Colonel !!!</Korean>
+<Japanese>You were degraded from %1 to Colonel !!!</Japanese>
+<Original>You were degraded from %1 to Colonel !!!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_675a">
+<English>You were promoted to General, congratulations !!!</English>
+<Spanish>You were promoted to General, congratulations !!!</Spanish>
+<Portuguese>You were promoted to General, congratulations !!!</Portuguese>
+<Korean>You were promoted to General, congratulations !!!</Korean>
+<Japanese>You were promoted to General, congratulations !!!</Japanese>
+<Original>You were promoted to General, congratulations !!!</Original>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_676">
 <English>DANGER:</English>
 <Spanish>PELIGRO:</Spanish>

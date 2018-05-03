@@ -133,7 +133,7 @@ __control(44460) ctrlShow false;
 #endif
 
 0 spawn {
-	waitUntil {!d_vec_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+	waitUntil {!isNil "d_vec_dialog_open" && {!d_vec_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
 
 	if (d_vec_dialog_open) then {closeDialog 0};
 };

@@ -11,6 +11,6 @@ d_commandingMenuIniting = false;
 
 0 spawn {
 	scriptName "spawn_waitforstatusdialogclose";
-	waitUntil {!d_showstatus_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+	waitUntil {!isNil "d_showstatus_dialog_open" && {!d_showstatus_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
 	if (d_showstatus_dialog_open) then {closeDialog 0};
 };

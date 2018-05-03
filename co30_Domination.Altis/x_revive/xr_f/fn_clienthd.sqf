@@ -9,9 +9,11 @@ if (isDedicated) exitWith {};
 
 params ["_unit", "_part", "_dam", "", "_ammo", "_idx", "_injurer"];
 __TRACE_1("","_this")
+if (!local _unit) exitWith {};
 if (!alive _unit) exitWith {
 	__TRACE("unit not alive, removing hd EH")
 	_unit removeEventHandler ["handleDamage", _thisEventhandler];
+	nil
 };
 if (_dam == 0) exitWith {
 	__TRACE_1("exiting, unit healing","_dam")

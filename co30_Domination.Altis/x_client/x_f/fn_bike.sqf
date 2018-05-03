@@ -13,7 +13,7 @@ if (d_with_ranked) then {
 		private _index = d_create_bike find _create_bike;
 		if (_index != -1) then {
 			_dosearch = false;
-			private _parray = [d_points_needed # 1, d_points_needed # 2, d_points_needed # 3, d_points_needed # 4, d_points_needed # 5, d_points_needed # 5];
+			private _parray = [d_points_needed # 1, d_points_needed # 2, d_points_needed # 3, d_points_needed # 4, d_points_needed # 5, d_points_needed # 5, d_points_needed # 6];
 			if (_index < count _parray && {score player < (_parray # _index)}) then {
 				private _rank = switch (_parray # _index) do {
 					case (d_points_needed # 1): {"Sergeant"};
@@ -21,6 +21,7 @@ if (d_with_ranked) then {
 					case (d_points_needed # 3): {"Captain"};
 					case (d_points_needed # 4): {"Major"};
 					case (d_points_needed # 5): {"Colonel"};
+					case (d_points_needed # 6): {"General"};
 				};
 				systemChat format [localize "STR_DOM_MISSIONSTRING_156", _rank, _create_bike];
 				_exitit = true;

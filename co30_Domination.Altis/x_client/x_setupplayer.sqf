@@ -357,8 +357,8 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 	
 	xr_phd_invulnerable = false;
 	sleep 2;
-	player setVariable ["d_player_old_rank", 0];
-	if (d_database_found && {d_set_pl_score_db}) then {
+	player setVariable ["d_player_old_rank", 0, true];
+	if (d_database_found && {!isNil "d_points_needed_db" && {d_set_pl_score_db}}) then {
 		d_points_needed = d_points_needed_db;
 	};
 	0 spawn d_fnc_playerrankloop;

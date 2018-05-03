@@ -14,12 +14,12 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Changed: Removed recapture main targets
 - Changed: Params through SQL DB with a much better and more flexible system
 - Fixed: Don't run sandstorm script if player is unconscious
-- Fixed: Sidmission cleanup routine broken when HC was enabled. Variable got not initialized on HC anymore after cleanup
+- Fixed: Sidemission cleanup routine broken when HC was enabled. Variable got not initialized on HC anymore after cleanup
 - Added: New server lobby parameter "Use only mod weapons in Virtual Arsenal:" to disable mod only weapons in VA completely
 - Fixed: Deliver sidemission vehicles can be lifted again
 - Changed: Added more sleeps to move AI script and removed reveal for each AI unit, hopefully removes lags for some people (only gets called when With AI is enabled)
 - Fixed: Do not delete the kbTell units groups in the With AI version because then many sidechat kbTell messages are gone too.
-- Added: New lobby paramter "Enemy AI vehicles can be air lifted:", default yes; if disabled no enemy AI vehicles can be airlifted
+- Added: New lobby parameter "Enemy AI vehicles can be air lifted:", default yes; if disabled no enemy AI vehicles can be airlifted
 - Added: setVariable ["d_no_lift", true, true] a vehicle to remove it from lifting. Even if a vehicle is initialized with setVariable ["d_liftit", true, true] it won't get lifted then
 - Fixed: In the RHS version russians do speak russian now and not farsi :)
 - Changed: Dom general settings like use params from sql database were moved to dom_params2 table (run Domination.sql file first, with Heidi for example)
@@ -29,6 +29,8 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in x_init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
 - Changed: When ace is found use ace arsenal instead of BI virtual arsenal (works also for ranked mode except uniforms and items for now)
 - Changed: Added ACE support for different medical items (by Boersencrash321)
+- Added: Support for special rank "General"
+- Fixed: Script error in fn_db_loadsavegame_server which broke bonus air positions (and probably others) when a DB save game was loaded
 
 3.90
 ATTENTION: ALL mission.sqm files have changed

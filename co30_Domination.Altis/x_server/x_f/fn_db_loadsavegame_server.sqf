@@ -57,7 +57,7 @@ d_bonus_vecs_db = _ar # 9;
 	};
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
-		_endpos = (d_bonus_air_positions # d_bap_counter) params ["_endpos"];
+		_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
 		_dir = (d_bonus_air_positions # d_bap_counter) # 1;
 		d_bap_counter = d_bap_counter + 1;
 		if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};

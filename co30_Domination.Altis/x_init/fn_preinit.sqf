@@ -461,32 +461,19 @@ if (isServer) then {
 			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
 				{
 					call {
-						if (_x # 0 == "d_reserved_slot") exitWith {
+						if (toLower (_x # 0) in ["d_reserved_slot, "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 							if !((_x # 1) isEqualTo []) then {
 								missionNamespace setVariable [_x # 0, _x # 1, true];
 							};
 						};
-						if (_x # 0 == "d_uid_reserved_slots") exitWith {
-							if !((_x # 1) isEqualTo []) then {
-								missionNamespace setVariable [_x # 0, _x # 1, true];
-							};
-						};
-						if (_x # 0 == "d_uids_for_reserved_slots") exitWith {
-							if !((_x # 1) isEqualTo []) then {
-								missionNamespace setVariable [_x # 0, _x # 1, true];
-							};
+						if (toLower (_x # 0) in ["d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 #ifdef __TT__
 						if (_x # 0 == "d_tt_points") exitWith {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 #endif
-						if (_x # 0 == "d_cas_available_time") exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
-						if (_x # 0 == "d_ranked_a") exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
 					};
 					false;
 				} count (_dbresult # 1);
@@ -1189,41 +1176,53 @@ if (hasInterface) then {
 	// points needed to get a specific rank
 	// gets even used in the unranked versions, though it's just cosmetic there
 #ifndef __TT__
-	d_points_needed = [
-		20, // Corporal
-		50, // Sergeant
-		90, // Lieutenant
-		140, // Captain
-		200, // Major
-		270 // Colonel
-	];
+	if (!isNil "d_points_needed") then {
+		d_points_needed = [
+			20, // Corporal
+			50, // Sergeant
+			90, // Lieutenant
+			140, // Captain
+			200, // Major
+			270, // Colonel
+			500 // General
+		];
+	};
 	
-	d_points_needed_db = [
-		3000, // Corporal
-		8000, // Sergeant
-		15000, // Lieutenant
-		30000, // Captain
-		70000, // Major
-		140000 // Colonel
-	];
+	if (!isNil "d_points_needed_db") then {
+		d_points_needed_db = [
+			500, // Corporal
+			2000, // Sergeant
+			5000, // Lieutenant
+			9000, // Captain
+			14000, // Major
+			20000, // Colonel
+			30000 // General
+		];
+	};
 #else
-	d_points_needed = [
-		100, // Corporal
-		400, // Sergeant
-		1000, // Lieutenant
-		3000, // Captain
-		6000, // Major
-		12000 // Colonel
-	];
+	if (!isNil "d_points_needed") then {
+		d_points_needed = [
+			100, // Corporal
+			400, // Sergeant
+			800, // Lieutenant
+			1600, // Captain
+			3000, // Major
+			5000, // Colonel
+			8000 // General
+		];
+	};
 	
-	d_points_needed_db = [
-		5000, // Corporal
-		10000, // Sergeant
-		20000, // Lieutenant
-		40000, // Captain
-		80000, // Major
-		160000 // Colonel
-	];
+	if (!isNil "d_points_needed_db") then {
+		d_points_needed_db = [
+			500, // Corporal
+			2000, // Sergeant
+			5000, // Lieutenant
+			9000, // Captain
+			14000, // Major
+			20000, // Colonel
+			30000 // General
+		];
+	};
 #endif
 
 	d_marker_vecs = [];
