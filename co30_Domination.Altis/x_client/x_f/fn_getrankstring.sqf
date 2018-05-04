@@ -12,7 +12,7 @@ private _r = call {
 	};
 	private _tr = _this getVariable "d_player_old_rank";
 	if (isNil "_tr") then {
-		_tr = (_rank _this) call d_fnc_getrankindex;
+		_tr = (rank _this) call d_fnc_getrankindex;
 	};
 	_tr
 };

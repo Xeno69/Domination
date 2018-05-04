@@ -461,7 +461,7 @@ if (isServer) then {
 			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
 				{
 					call {
-						if (toLower (_x # 0) in ["d_reserved_slot, "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+						if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 							if !((_x # 1) isEqualTo []) then {
 								missionNamespace setVariable [_x # 0, _x # 1, true];
 							};
@@ -1176,7 +1176,7 @@ if (hasInterface) then {
 	// points needed to get a specific rank
 	// gets even used in the unranked versions, though it's just cosmetic there
 #ifndef __TT__
-	if (!isNil "d_points_needed") then {
+	if (isNil "d_points_needed") then {
 		d_points_needed = [
 			20, // Corporal
 			50, // Sergeant
@@ -1188,7 +1188,7 @@ if (hasInterface) then {
 		];
 	};
 	
-	if (!isNil "d_points_needed_db") then {
+	if (isNil "d_points_needed_db") then {
 		d_points_needed_db = [
 			500, // Corporal
 			2000, // Sergeant
@@ -1200,7 +1200,7 @@ if (hasInterface) then {
 		];
 	};
 #else
-	if (!isNil "d_points_needed") then {
+	if (isNil "d_points_needed") then {
 		d_points_needed = [
 			100, // Corporal
 			400, // Sergeant
@@ -1212,7 +1212,7 @@ if (hasInterface) then {
 		];
 	};
 	
-	if (!isNil "d_points_needed_db") then {
+	if (isNil "d_points_needed_db") then {
 		d_points_needed_db = [
 			500, // Corporal
 			2000, // Sergeant
