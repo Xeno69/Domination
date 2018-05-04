@@ -26,7 +26,6 @@ _ctrl lnbAddColumn 0.88;
 
 _ctrl lnbAddRow ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills"];
 _ctrl lnbAddRow [""];
-//_ctrl ctrlSetTooltip "Name|Playtime|Infkills|Softveckills|Armorkills|Airkills|Deaths|Totalscore|Radiotowerkills|Main Target Sidemission Kills|Number played on server|Camps captured|Teamkills";
 {
 	_ctrl lnbAddRow (_x apply {str _x});
 	false

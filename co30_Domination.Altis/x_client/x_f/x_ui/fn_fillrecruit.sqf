@@ -10,12 +10,13 @@ private _dspx = uiNamespace getVariable "d_AIRecruitDialog";
 private _ctrl = _dspx displayCtrl 1000;
 lbClear _ctrl;
 
+private ["_ipic", "_pic", "_idx"];
 {
-	private _ipic = getText (configFile>>"cfgVehicles">>_x>>"icon");
+	_ipic = getText (configFile>>"cfgVehicles">>_x>>"icon");
 	__TRACE_2("","_x","_ipic")
-	private _pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
+	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
 	__TRACE_1("","_pic")
-	private _idx = _ctrl lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
+	_idx = _ctrl lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
 	false
@@ -23,26 +24,21 @@ lbClear _ctrl;
 
 _ctrl lbSetCurSel 0;
 
-d_current_ai_num = 0;
-d_current_ai_units = [];
-
-{
-	d_current_ai_num = d_current_ai_num + 1;
-	d_current_ai_units pushBack _x;
-	false
-} count ((units group player) select {!(_x call d_fnc_isplayer) && {alive _x}});
+d_current_ai_units = (units group player) select {!(_x call d_fnc_isplayer) && {alive _x}};
+d_current_ai_num = count d_current_ai_units;
 
 (_dspx displayCtrl 1030) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_693", d_current_ai_num, d_max_ai];
 
 _ctrl = _dspx displayCtrl 1001;
 lbClear _ctrl;
+private ["_tt", "_pic", "_idx"];
 {
-	private _tt = typeOf _x;
-	private _ipic = getText (configFile>>"cfgVehicles">>_tt>>"icon");
+	_tt = typeOf _x;
+	_ipic = getText (configFile>>"cfgVehicles">>_tt>>"icon");
 	__TRACE_2("","_tt","_ipic")
-	private _pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
+	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
 	__TRACE_1("","_pic")
-	private _idx = _ctrl lbAdd ([_tt, "CfgVehicles"] call d_fnc_GetDisplayName);
+	_idx = _ctrl lbAdd ([_tt, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
 	false

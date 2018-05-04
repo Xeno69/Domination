@@ -25,5 +25,9 @@ if (_r > 0) then {
 	if (_val > 0) then {_r = _r + _val};
 	_obj setVariable ["d_damt", _r];
 	__TRACE_1("_r result","_r")
+	
+	if (!d_with_ace && {param [5] == 0 && {!isNull (param [6]) && {(param [6]) call d_fnc_isplayer}}}) then {
+		_obj setVariable ["d_last_damager", param [6]];
+	};
 };
 _r

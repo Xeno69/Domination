@@ -20,10 +20,14 @@ if (_type == 0) then {
 		(param [0]) removeAllEventHandlers "killed";
 		if (d_database_found) then {
 			private _killer = param [2];
-			if (d_with_ace && {isNull _killer}) then {
-				_killer = (param [0]) getVariable ["ace_medical_lastDamageSource", _killer];
+			if (isNull _killer) then {
+				if (!d_with_ace) then {
+					_killer = (param [0]) getVariable ["d_last_damager", _killer];
+				} else {
+					_killer = (param [0]) getVariable ["ace_medical_lastDamageSource", _killer];
+				};
 			};
-			if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
+			if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 				[_killer, 5] remoteExecCall ["addScore", 2];
 			};
 		};
@@ -41,10 +45,14 @@ if (_type == 0) then {
 		(param [0]) removeAllEventHandlers "killed";
 		if (d_database_found) then {
 			private _killer = param [2];
-			if (d_with_ace && {isNull _killer}) then {
-				_killer = (param [0]) getVariable ["ace_medical_lastDamageSource", _killer];
+			if (isNull _killer) then {
+				if (!d_with_ace) then {
+					_killer = (param [0]) getVariable ["d_last_damager", _killer];
+				} else {
+					_killer = (param [0]) getVariable ["ace_medical_lastDamageSource", _killer];
+				};
 			};
-			if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
+			if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 				[_killer, 5] remoteExecCall ["addScore", 2];
 			};
 		};

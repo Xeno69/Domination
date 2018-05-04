@@ -40,11 +40,12 @@ private _correctit_fnc = {
 	_pos
 };
 
+private ["_dir", "_x1", "_y1", "_pos"];
 while {!isNil "d_do_end_rose"} do {
-	private _dir = getDirVisual BIS_fnc_establishingShot_fakeUAV;
-	private _x1 = _center_x - (__radius * sin _dir);
-	private _y1 = _center_y - (__radius * cos _dir);
-	private _pos = [[_x1, _y1], _dir] call _correctit_fnc;
+	_dir = getDirVisual BIS_fnc_establishingShot_fakeUAV;
+	_x1 = _center_x - (__radius * sin _dir);
+	_y1 = _center_y - (__radius * cos _dir);
+	_pos = [[_x1, _y1], _dir] call _correctit_fnc;
 	_char_n ctrlSetPosition [_pos # 0, _pos # 1, _width, _height];
 	//_char_n ctrlSetAngle [_dir, _center_x, _center_y];
 	_char_n ctrlCommit 0;

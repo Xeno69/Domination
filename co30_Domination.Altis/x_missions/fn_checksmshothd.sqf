@@ -23,6 +23,10 @@ if ((param [4]) call d_fnc_checksimminet) then {
 	};
 	__TRACE_2("","d_sm_points_blufor","d_sm_points_opfor")
 #endif
+	if (!d_with_ace && {param [5] == 0 && {!isNull (param [6]) && {(param [6]) call d_fnc_isplayer}}}) then {
+		(param [0]) setVariable ["d_last_damager", param [6]];
+	};
+
 	param [2]
 } else {
 	0
