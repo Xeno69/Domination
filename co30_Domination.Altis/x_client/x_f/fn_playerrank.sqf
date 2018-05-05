@@ -79,16 +79,14 @@ if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player
 	} else {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_674a", "General"];
 	};
-	_d_player_old_rank = 6;
 	player setRank "Colonel";
 	player setVariable ["d_player_old_score", _score];
-	player setVariable ["d_player_old_rank", _d_player_old_rank, true];
+	player setVariable ["d_player_old_rank", 6, true];
 };
 if (_score >= d_points_needed # 6 && {_d_player_old_rank != 7}) exitWith {
-	_d_player_old_rank = 7;
 	player setRank "Colonel";
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_675a");
 	playSound "d_fanfare";
 	player setVariable ["d_player_old_score", _score];
-	player setVariable ["d_player_old_rank", _d_player_old_rank, true];
+	player setVariable ["d_player_old_rank", 7, true];
 };

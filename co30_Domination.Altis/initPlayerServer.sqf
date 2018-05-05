@@ -64,7 +64,7 @@ if (d_database_found) then {
 				d_player_store setVariable [_uid + "_scores", [0, 0, 0, 0, 0, ((_dbresult # 1) # 0) # 0]];
 				[_pl, ((_dbresult # 1) # 0) # 0] spawn {
 					params ["_pl", "_tsp"];
-					sleep 5;
+					sleep 10;
 					_pl addScore (_tsp - score _pl);
 				};
 			};

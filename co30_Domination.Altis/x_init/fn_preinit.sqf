@@ -458,6 +458,7 @@ if (isServer) then {
 			d_use_sql_settings = false;
 			
 			private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+			diag_log ["Dom Database result loading dom_settings:", _dbresult];
 			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
 				{
 					call {
@@ -466,7 +467,7 @@ if (isServer) then {
 								missionNamespace setVariable [_x # 0, _x # 1, true];
 							};
 						};
-						if (toLower (_x # 0) in ["d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+						if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 #ifdef __TT__
