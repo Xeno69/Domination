@@ -137,7 +137,7 @@ if (!isMultiplayer) then {
 	0 spawn {
 		scriptName "spawn_playerstuff";
 		sleep 1 + random 3;		
-		d_player_autokick_time = d_AutoKickTime;
+		d_player_autokick_time = time + d_AutoKickTime;
 		xr_phd_invulnerable = false;
 		sleep 10;
 		if (d_still_in_intro) then {

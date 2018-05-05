@@ -12,26 +12,28 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 		   You can also delete dom_params table in the Domination sql database, a new one gets created called dom_params2
 
 - Changed: Removed recapture main targets
-- Changed: Params through SQL DB with a much better and more flexible system
+- Changed: Server lobby params (class Params) through SQL DB with a much better and more flexible system
 - Fixed: Don't run sandstorm script if player is unconscious
 - Fixed: Sidemission cleanup routine broken when HC was enabled. Variable got not initialized on HC anymore after cleanup
 - Added: New server lobby parameter "Use only mod weapons in Virtual Arsenal:" to disable mod only weapons in VA completely
 - Fixed: Deliver sidemission vehicles can be lifted again
 - Changed: Added more sleeps to move AI script and removed reveal for each AI unit, hopefully removes lags for some people (only gets called when With AI is enabled)
-- Fixed: Do not delete the kbTell units groups in the With AI version because then many sidechat kbTell messages are gone too.
+- Fixed: Do not delete the kbTell unit groups when With AI is enabled because then many sidechat kbTell messages are gone too.
 - Added: New lobby parameter "Enemy AI vehicles can be air lifted:", default yes; if disabled no enemy AI vehicles can be airlifted
-- Added: setVariable ["d_no_lift", true, true] a vehicle to remove it from lifting. Even if a vehicle is initialized with setVariable ["d_liftit", true, true] it won't get lifted then
+- Added: Use vehicle setVariable ["d_no_lift", true, true] to remove it from lifting. Even if a vehicle is initialized with setVariable ["d_liftit", true, true] it won't get lifted then
 - Fixed: In the RHS version russians do speak russian now and not farsi :)
 - Changed: Dom general settings like use params from sql database were moved to dom_params2 table (run Domination.sql file first, with Heidi for example)
+- Added: Settings available in SQL DB settings table: d_reserved_slot, d_uid_reserved_slots, d_uids_for_reserved_slots, d_cas_available_time, d_ranked_a, d_points_needed, d_points_needed_db and d_tt_points (attention d_reserved_slot has changed to array)
 - Fixed: Sidemission units should no longer spawn in rocks
 - Changed: Using player vehicle var name as references is broken if the game thinks that a player is a "Error: No unit", use allPlayers instead of d_player_entities (maybe one day BI will fix)
-- Changed: Better check if a unit is a player as isPlayer scripting command returns false if a player is a "Error: No unit"
+- Changed: Better check if a unit is a player as isPlayer scripting command returns false if a player is "Error: No unit"
 - Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in x_init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
 - Changed: When ace is found use ace arsenal instead of BI virtual arsenal (works also for ranked mode except uniforms and items for now)
 - Changed: Added ACE support for different medical items (by Boersencrash321)
 - Added: Support for special rank "General"
 - Fixed: Script error in fn_db_loadsavegame_server which broke bonus air positions (and probably others) when a DB save game was loaded
 - Fixed: Better ace support for killed eventhandler (killer might be null because of ace medical system) by Auge103
+- Changed: Player scores are now saved every few minutes to SQL DB (if extDB3 is enabled) instead of just when a player disconnects
 
 3.90
 ATTENTION: ALL mission.sqm files have changed
