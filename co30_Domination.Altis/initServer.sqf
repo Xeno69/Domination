@@ -60,8 +60,10 @@ if (d_database_found) then {
 };
 
 // if set to true player total score saved into the external database will be added to the player score at connect (only if d_database_found is true of course)
-d_set_pl_score_db = true;
-publicVariable "d_set_pl_score_db";
+if (isNil "d_set_pl_score_db") then {
+	d_set_pl_score_db = true;
+	publicVariable "d_set_pl_score_db";
+};
 
 if (d_database_found && {d_db_auto_save}) then {
 	["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;

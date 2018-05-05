@@ -467,7 +467,7 @@ if (isServer) then {
 								missionNamespace setVariable [_x # 0, _x # 1, true];
 							};
 						};
-						if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+						if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 #ifdef __TT__
