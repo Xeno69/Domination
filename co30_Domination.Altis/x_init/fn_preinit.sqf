@@ -480,7 +480,11 @@ if (isServer) then {
 				} count (_dbresult # 1);
 			};
 			
-			if (!isNil "paramsArray" && {d_use_sql_settings}) then {
+			if (!isMultiplayer && {isNil "paramsArray"}) then {
+				paramsArray = [];
+			};
+			
+			if (d_use_sql_settings) then {
 				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
 				diag_log ["Dom Database result standard params:", _dbresult];
 				if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
@@ -490,12 +494,20 @@ if (isServer) then {
 					if (isClass (getMissionConfig "Params")) then {
 						_dbresult = _dbresult # 1;
 						private _conf = getMissionConfig "Params";
+						if (paramsArray isEqualTo []) then {
+							paramsArray resize (count _conf);
+						};
 						for "_i" from 0 to (count _conf - 1) do {
-							private _cname = configName (_conf # _i);
+							private _cname = configName (_conf select _i);
 							private _fidx = _dbresult findIf {_x # 0 == _cname};
-							paramsArray set [_i, _dbresult # _fidx # 1];							
+							if (_fidx != -1) then {
+								paramsArray set [_i, _dbresult # _fidx # 1];							
+							};
 						};
 						publicVariable "paramsArray";
+						if (!isMultiplayer) then {
+							paramsArray = nil;
+						};
 					};
 				} else {
 					if (isClass (getMissionConfig "Params")) then {
