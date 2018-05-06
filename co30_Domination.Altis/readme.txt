@@ -35,6 +35,7 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Fixed: Script error in fn_db_loadsavegame_server which broke bonus air positions (and probably others) when a DB save game was loaded
 - Fixed: Better ace support for killed eventhandler (killer might be null because of ace medical system) by Auge103
 - Changed: Player scores are now saved every few minutes to SQL DB (if extDB3 is enabled) instead of just when a player disconnects
+- Fixed: Search intel was using wrong index for intel array because of a removed intel
 
 3.90
 ATTENTION: ALL mission.sqm files have changed
