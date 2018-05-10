@@ -54,3 +54,11 @@ if (d_with_ai) then {
 	};
 	false
 } count (d_mhq_3ddraw select {alive _x});
+
+{
+	_distp = _pos_cam distance _x;
+	if (_distp < 150) then {
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 8 + (_distp * 0.05)]), 1, 1, 0, format ["%1/%2", _x getVariable "d_CURCAPTIME", _x getVariable "d_CAPTIME"], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+	};
+	false
+} count d_currentcamps;

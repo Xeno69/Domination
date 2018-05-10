@@ -79,7 +79,6 @@ d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_t
 #endif
 
 sleep 3.234;
-private _d_currentcamps = [];
 #ifndef __TT__
 private _nrcamps = (ceil random 5) max 3;
 #else
@@ -113,18 +112,18 @@ for "_i" from 1 to _nrcamps do {
 	private _nnpos = getPosASL _wf;
 	_nnpos set [2, 0];
 	__TRACE_1("","_nnpos")
-	if !(_d_currentcamps isEqualTo []) then {
+	if !(d_currentcamps isEqualTo []) then {
 		private _doexit = false;
 		private _xcountx = 0;
 		while {_xcountx < 99} do {
-			__TRACE_1("","_d_currentcamps")
+			__TRACE_1("","d_currentcamps")
 			private _wfokc = 0;
 			{
 				if (_nnpos distance2D _x > 130) then {_wfokc = _wfokc + 1};
 				false
-			} count _d_currentcamps;
-			__TRACE_2("","_wfokc","count _d_currentcamps")
-			if (_wfokc != count _d_currentcamps) then {
+			} count d_currentcamps;
+			__TRACE_2("","_wfokc","count d_currentcamps")
+			if (_wfokc != count d_currentcamps) then {
 				_nnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
 			} else {
 				if (_wf distance2D _nnpos > 130) then {
@@ -141,7 +140,7 @@ for "_i" from 1 to _nrcamps do {
 	__TRACE_1("","_poss")
 	_poss set [2, 0];
 	_wf setPos _poss;
-	_d_currentcamps pushBack _wf;
+	d_currentcamps pushBack _wf;
 	_wf setVariable ["d_SIDE", d_enemy_side, true];
 	_wf setVariable ["d_INDEX", _i, true];
 	_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
@@ -169,6 +168,7 @@ for "_i" from 1 to _nrcamps do {
 #else
 	[_wf, _flagPole] execFSM "fsms\fn_HandleCampsTT2.fsm";
 #endif
+
 	sleep 0.5;
 	
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
@@ -186,8 +186,8 @@ for "_i" from 1 to _nrcamps do {
 	};
 };
 
-[missionNamespace, ["d_currentcamps", _d_currentcamps]] remoteExecCall ["setVariable", 2];
-d_numcamps = count _d_currentcamps; publicVariable "d_numcamps";
+publicVariable "d_currentcamps";
+d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
 d_campscaptured = 0; publicVariable "d_campscaptured";
 
 #ifndef __TT__

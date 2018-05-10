@@ -161,6 +161,7 @@ _del_camps_stuff = [];
 	false
 } count d_currentcamps;
 d_currentcamps = [];
+publicVariable "d_currentcamps";
 #ifdef __TT__
 d_campscaptured_w = 0;
 publicVariable "d_campscaptured_w";

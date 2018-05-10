@@ -264,6 +264,11 @@ if (isNil "d_campscaptured_e") then {
 	d_campscaptured_e = 0;
 };
 #endif
+
+if (isNil "d_currentcamps") then {
+	d_currentcamps = [];
+};
+
 if (isNil "d_farps") then {
 	d_farps = [];
 };

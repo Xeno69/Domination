@@ -3,14 +3,14 @@
 /*
 item0[] = {"Start",0,250,-50.000000,-200.000000,50.000000,-150.000000,0.000000,"Start"};
 item1[] = {"Delay",4,218,-50.000000,-125.000000,50.000000,-75.000000,0.000000,"Delay"};
-item2[] = {"Check_for_Camp",2,4346,-50.000000,-50.000000,50.000000,0.000000,0.000000,"Check for Camp"};
-item3[] = {"__count__no____0",4,218,-50.000000,25.000000,50.000000,75.000000,1.000000,"(count _no) > 0"};
+item2[] = {"Check_for_Camp",2,250,-50.000000,-50.000000,50.000000,0.000000,0.000000,"Check for Camp"};
+item3[] = {"_no_not_null",4,218,-50.000000,25.000000,50.000000,75.000000,1.000000,"_no not null"};
 item4[] = {"Create_Check_Sid",2,250,-50.000000,100.000000,50.000000,150.000000,0.000000,"Create Check Side"};
 item5[] = {"Delay",4,218,-200.000000,-50.000000,-100.000000,0.000000,0.000000,"Delay"};
 item6[] = {"__count__no____",4,218,-50.000000,325.000000,50.000000,375.000000,1.000000,"(count _no) == 0"};
 item7[] = {"Delay",4,218,-200.000000,225.000000,-100.000000,275.000000,0.000000,"Delay"};
 item8[] = {"_curside____d_own",4,218,-50.000000,175.000000,50.000000,225.000000,1.000000,"_curside != d_own_side"};
-item9[] = {"Create_Dialog",2,250,-50.000000,250.000000,50.000000,300.000000,0.000000,"Create Dialog"};
+item9[] = {"Create_Dialog",2,4346,-50.000000,250.000000,50.000000,300.000000,0.000000,"Create Dialog"};
 item10[] = {"Close_Dialog",2,250,-50.000000,400.000000,50.000000,450.000000,0.000000,"Close Dialog"};
 item11[] = {"",7,210,146.000000,421.000000,154.000000,429.000000,0.000000,""};
 item12[] = {"",7,210,146.000000,-104.000000,154.000000,-96.000000,0.000000,""};
@@ -74,19 +74,29 @@ class FSM
                         name = "Check_for_Camp";
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"//private _no = player nearObjects [_wtype, 12];" \n
-                         "private _no = nearestObjects [player, [_wtype], 12, false];" \n
+                         "//private _no = nearestObjects [player, [_wtype], 12, false];" \n
+                         "" \n
+                         "private _no = objNull;" \n
+                         "d_currentcamps findIf {" \n
+                         "	_ret = player distance2D _x < 13;" \n
+                         "	if (_ret) then {" \n
+                         "		_no = _x;" \n
+                         "	};" \n
+                         "	_ret" \n
+                         "};" \n
+                         "" \n
                          "_timenow = time + 3;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "__count__no____0">*/
-                                class __count__no____0
+                                /*%FSM<LINK "_no_not_null">*/
+                                class _no_not_null
                                 {
                                         itemno = 3;
                                         priority = 1.000000;
                                         to="Create_Check_Sid";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!(_no isEqualTo []) && {alive player && {!(player getVariable [""xr_pluncon"", false]) && {!(player getVariable [""ace_isunconscious"", false])}}}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNull _no && {alive player && {!(player getVariable [""xr_pluncon"", false]) && {!(player getVariable [""ace_isunconscious"", false])}}}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -109,7 +119,7 @@ class FSM
                 {
                         name = "Create_Check_Sid";
                         itemno = 4;
-                        init = /*%FSM<STATEINIT""">*/"private _curside = (_no select 0) getVariable [""D_SIDE"", d_own_side];" \n
+                        init = /*%FSM<STATEINIT""">*/"private _curside = _no getVariable [""D_SIDE"", d_own_side];" \n
                          "_timenow = time + 3;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -145,14 +155,10 @@ class FSM
                         name = "Create_Dialog";
                         itemno = 9;
                         init = /*%FSM<STATEINIT""">*/"// create dialog" \n
-                         "_no = player nearObjects [_wtype, 8];" \n
-                         "private _curside = if !(_no isEqualTo []) then {" \n
-                         "	(_no select 0) getVariable ""D_SIDE""" \n
-                         "} else {" \n
-                         "	""""" \n
-                         "};" \n
-                         "if (!_progon && {!(_no isEqualTo []) && {_curside != d_own_side}}) then {" \n
-                         "	_wf = _no select 0;" \n
+                         "private _curside = ["""", _no getVariable ""D_SIDE""] select (_no distance2D player < 9);" \n
+                         "" \n
+                         "if (!_progon && {_curside != """" && {_curside != d_own_side}}) then {" \n
+                         "	_wf = _no;" \n
                          "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n
                          "	_progon = true;" \n
                          "};" \n
@@ -167,7 +173,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Close_Dialog";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_no isEqualTo [] || {!alive player || {player getVariable ""xr_pluncon"" || {_curside == d_own_side || {player getVariable [""ace_isunconscious"", false]}}}}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_curside == """" || {!alive player || {player getVariable ""xr_pluncon"" || {_curside == d_own_side || {player getVariable [""ace_isunconscious"", false]}}}}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
