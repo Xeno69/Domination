@@ -451,6 +451,7 @@ if (!hasInterface) then {
 	private _icounter_o = 0;
 	private _icounter_b = 0;
 	private _icounter_i = 0;
+	private _allmissobjs = allMissionObjects "FlagCarrier";
 	{
 		private _side = _x getVariable ["d_flagside", blufor];
 		private _name = _x getVariable "d_name";
@@ -471,7 +472,7 @@ if (!hasInterface) then {
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
 		false
-	} count ((allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] == "d_flag_bb"});
+	} count (_allmissobjs select {(str _x) select [0, 9] == "d_flag_bb"});
 	_icounter_o = 0;
 	_icounter_b = 0;
 	_icounter_i = 0;
@@ -495,7 +496,7 @@ if (!hasInterface) then {
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
 		false
-	} count ((allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] == "d_respawn_point"});
+	} count (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
 	{
 		d_add_resp_points_uni pushBack (_x # 0);
 		false
