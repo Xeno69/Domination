@@ -29,7 +29,6 @@ __TRACE_1("","_isle_grps")
 
 while {true} do {
 #ifndef __DEBUG__
-	call d_fnc_mpcheck;
 	sleep 300 + random 300;
 #else
 	sleep 10;

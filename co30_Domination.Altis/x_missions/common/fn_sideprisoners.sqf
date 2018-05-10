@@ -60,7 +60,11 @@ private _rescuer = objNull;
 private _winner = 0;
 #endif
 while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
-	call d_fnc_mpcheck;
+	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
+		_mforceendtime = _mforceendtime - time;
+		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		_mforceendtime = time + _mforceendtime;
+	};
 	if (_units findIf {alive _x} == -1) exitWith {
 		_all_dead = true;
 	};

@@ -7,7 +7,6 @@ if (!isServer) exitWith {};
 sleep 60;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	private _remar = [];
 	{
 		private _units = units _x;

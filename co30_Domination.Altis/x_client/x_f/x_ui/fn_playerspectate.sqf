@@ -22,7 +22,9 @@ if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 				d_commandingMenuIniting = false;
 				d_rscspect_on = nil;
 				if (!isNil "d_spect_viewdistance") then {
-					setViewDistance d_spect_viewdistance;
+					if (d_spect_viewdistance != viewDistance) then {
+						setViewDistance d_spect_viewdistance;
+					};
 					d_spect_viewdistance = nil;
 				};
 				"d_adminspecttxt" cutText ["", "PLAIN"];
@@ -39,7 +41,9 @@ if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	d_commandingMenuIniting = false;
 	d_rscspect_on = nil;
 	if (!isNil "d_spect_viewdistance") then {
-		setViewDistance d_spect_viewdistance;
+		if (d_spect_viewdistance != viewDistance) then {
+			setViewDistance d_spect_viewdistance;
+		};
 		d_spect_viewdistance = nil;
 	};
 };

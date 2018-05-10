@@ -44,19 +44,13 @@ for "_nr" from 0 to 1 do {
 				_newgroup setSpeedMode "NORMAL";
 				_newgroup setVariable ["d_defend", true];
 				[_newgroup, _pos_center] spawn d_fnc_taskDefend;
-				if (d_with_dynsim == 0) then {
-					_newgroup spawn {
-						sleep 10;
-						_this enableDynamicSimulation true;
-					};
-				};
 			} else {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30], "", 0] spawn d_fnc_MakePatrolWPX;
-				if (d_with_dynsim == 0) then {
-					_newgroup spawn {
-						sleep 3;
-						_this enableDynamicSimulation true;
-					};
+			};
+			if (d_with_dynsim == 0) then {
+				_newgroup spawn {
+					sleep 15;
+					_this enableDynamicSimulation true;
 				};
 			};
 			_ret_grps pushBack _newgroup;

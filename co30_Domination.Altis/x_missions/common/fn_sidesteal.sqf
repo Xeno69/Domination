@@ -44,7 +44,6 @@ private _oldpos = getPosAsl _vec;
 [_vma, _oldpos, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_1584", 0, "mil_dot"] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
 
 while {alive _vec && {!_reached_base && {!d_sm_resolved}}} do {
-	call d_fnc_mpcheck;
 #ifndef __TT__
 	if (_vec distance2D d_FLAG_BASE < 100) exitWith {_reached_base = true};
 #else

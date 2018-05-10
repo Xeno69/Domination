@@ -920,8 +920,6 @@ if (!d_tt_tanoa) then {
 		"G_40mm_HE" // dpicm
 	];
 
-	d_all_simulation_stoped = false;
-
 	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
 	d_hd_sim_types apply {toUpper _x};
 

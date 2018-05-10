@@ -21,9 +21,9 @@ private _subskill = if (diag_fps > 29) then {
 };
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
-	if (d_with_dynsim == 1) then {
+	//if (d_with_dynsim == 1) then {
 		_one_unit spawn d_fnc_mchelper;
-	};
+	//};
 #ifdef __TT__
 	_one_unit addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
 #endif

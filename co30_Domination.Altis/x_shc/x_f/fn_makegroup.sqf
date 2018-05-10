@@ -58,7 +58,7 @@ if (_add_to_ar_type > 0) then {
 
 _grp allowFleeing (((floor random 3) + 1) / 10);
 
-private _sleepti = 2;
+private _sleepti = [5, 15] select (_grptype == "allmen" || {_grptype == "specops"});
 
 switch (_type) do {
 	case "patrol": {
@@ -86,7 +86,6 @@ switch (_type) do {
 		if (_grptype == "allmen" || {_grptype == "specops"}) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
-			_sleepti = 10;
 		} else {
 			_grp setCombatMode "YELLOW";
 			_grp setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"];
@@ -99,7 +98,6 @@ switch (_type) do {
 		if (_grptype == "allmen" || {_grptype == "specops"}) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
-			_sleepti = 10;
 		} else {
 			_grp setCombatMode "YELLOW";
 			_grp setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"];

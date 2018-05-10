@@ -34,7 +34,6 @@ while {true} do {
 		400;
 	});
 #endif
-	call d_fnc_mpcheck;
 	while {d_mt_radio_down} do {sleep 6.123};
 	private _pos = call d_fnc_GetRanPointOuterAir;
 	if !(d_cur_tgt_pos isEqualTo []) then {
@@ -201,11 +200,6 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 		__TRACE_1("","_xcounter")
 		
 		sleep 3 + random 2;
-
-		__TRACE("call mpcheck")
-		call d_fnc_mpcheck;
-		
-		sleep 1;
 
 		if !(_vehicles isEqualTo []) then {
 			__TRACE("_vehicles array not empty")

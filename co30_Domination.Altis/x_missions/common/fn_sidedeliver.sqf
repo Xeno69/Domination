@@ -25,6 +25,24 @@ _vec addItemCargoGlobal ["FirstAidKit",3];
 _vec setVariable ["d_liftit", true, true];
 d_x_sm_vec_rem_ar pushBack _vec;
 
+_vec addEventhandler ["getIn", {
+	params ["_vec", "_role", "_unit"];
+	if (!(_unit call d_fnc_isplayer) && {_role == "driver"}) then {
+		_unit action ["getOut", _vec];
+	};
+}];
+
+_vec addEventHandler ["SeatSwitched", {
+	params ["_vec", "_unit1", "_unit2"];
+	if (!(_unit1 call d_fnc_isplayer) && {(assignedVehicleRole _unit1) # 0 == "driver"}) then {
+		_unit1 action ["getOut", _vec];
+	} else {
+		if (!(_unit2 call d_fnc_isplayer) && {(assignedVehicleRole _unit2) # 0 == "driver"}) then {
+			_unit2 action ["getOut", _vec];
+		};
+	};
+}];
+
 private _hangar2 = createVehicle ["Land_TentHangar_V1_F", _epos, [], 0, "NONE"];
 _hangar2 setDir _edir;
 _hangar2 setPos _epos;
@@ -53,8 +71,9 @@ private _markern = format ["d_smvecposc_%1", _vec];
 [_markern, [0, 0, 0], "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_1584" , 0, "mil_dot"] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
 	
 while {alive _vec && {!_reached_base && {!d_sm_resolved}}} do {
-	call d_fnc_mpcheck;
-	_markern setMarkerPos (getPosWorld _vec);
+	if ((call d_fnc_PlayersNumber) > 0) then {
+		_markern setMarkerPos (getPosWorld _vec);
+	};
 	if (_vec distance2D _epos < 30) then {_reached_base = true;};
 	sleep 5.2134;
 };

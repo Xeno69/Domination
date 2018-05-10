@@ -28,7 +28,6 @@ d_sm_points_opfor = 0;
 private _num_t = count _trains;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	if ({damage _x >= 0.9 || {!alive _x}} count _trains == _num_t) exitWith {};
 	sleep 5.321;
 	__TRACE_1("","_trains")

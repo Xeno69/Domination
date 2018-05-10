@@ -23,7 +23,6 @@ sleep 2.221;
 private _num_t = count _objs;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	if ({damage _x >= 0.9 || {!alive _x}} count _objs == _num_t) exitWith {};
 	sleep 5.326;
 	__TRACE_1("","_objs")

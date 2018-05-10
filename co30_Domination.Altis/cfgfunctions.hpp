@@ -220,7 +220,6 @@ class cfgFunctions {
 			addc(getranpointsquare);
 			addc(getranpointouterair);
 			addc(reload);
-			addc(mpcheck);
 			addc(getenemyflagtex);
 			addc(tjetservice);
 			addc(tchopservice);

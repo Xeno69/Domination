@@ -70,10 +70,15 @@ _wp setWaypointForceBehaviour true;
 sleep 20.123;
 
 private _convoy_reached_dest = false;
-private _endtime = time + 4800;
+private _mforceendtime = time + 4800;
 
 while {true} do {
-	call d_fnc_mpcheck;
+	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
+		_mforceendtime = _mforceendtime - time;
+		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		_mforceendtime = time + _mforceendtime;
+	};
+	if ((call d_fnc_PlayersNumber) == 0) then {
 	if (d_confvdown == _numconfv || {_allSMVecs findIf {canMove _x} == -1}) exitWith {};
 	if ((getPosATL (leader _newgroup)) distance2D _pos_end < 100) exitWith {
 		_convoy_reached_dest = true;
@@ -81,7 +86,7 @@ while {true} do {
 	if (d_with_ranked) then {
 		[missionNamespace, ["d_sm_p_pos", getPosATL _leader]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 	};
-	if (time > _endtime) exitWith {_convoy_reached_dest = true};
+	if (time > _mforceendtime) exitWith {_convoy_reached_dest = true};
 	sleep 5.123;
 	if (d_sm_resolved) exitWith {};
 };
