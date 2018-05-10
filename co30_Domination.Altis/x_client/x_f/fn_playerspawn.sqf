@@ -147,6 +147,12 @@ if (_rtype == 0) then { // player died
 		};
 	};
 	
+	player disableConversation true;
+	if (!d_with_ai) then {
+		enableSentences false;
+	};
+	[player , "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+	
 #ifndef __TT__
 	0 spawn {
 		sleep 1;

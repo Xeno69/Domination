@@ -57,6 +57,12 @@ if (side (group player) == blufor) then {
 d_side_player = d_player_side;
 #endif
 
+player disableConversation true;
+if (!d_with_ai) then {
+	enableSentences false;
+};
+[player , "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false];
 d_player_in_base = true;

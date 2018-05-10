@@ -242,6 +242,7 @@ class CfgRemoteExec {
 		class createDiaryRecord {allowedTargets = 1;};
 		class deleteGroup {allowedTargets=0;};
 		class setOwner {allowedTargets = 2;};
+		class setSpeaker {allowedTargets = 1;};
 #ifdef __TT__
 		class deleteMarkerLocal {allowedTargets = 1;};
 		class systemChat {allowedTargets = 1;};

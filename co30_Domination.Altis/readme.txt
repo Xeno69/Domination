@@ -37,6 +37,7 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Changed: Player scores are now saved every few minutes to SQL DB (if extDB3 is enabled) instead of just when a player disconnects
 - Fixed: Search intel was using wrong index for intel array because of a removed intel
 - Changed: Deliver sidemission vehicle driver has to be a player now
+- Changed: No longer automatic radio messages spam when with AI is disabled
 
 3.90
 ATTENTION: ALL mission.sqm files have changed
