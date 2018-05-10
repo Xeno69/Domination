@@ -8,19 +8,19 @@
 // center position, radius of the circle
 // example: _random_point = [position trigger1, 200] call d_fnc_GetRanPointCircle;
 __TRACE_1("","_this")
-params ["_rcenter", "_rradius", ["_mindist", 2]];
+params ["_rcenter", "_rradius", ["_mindist", 2], ["_maxgrad", 0.7], ["_gradar", 4]];
 __TRACE_2("","_rcenter","_rradius")
 private _ret_val = [];
 for "_co" from 0 to 150 do {
 	//private _isFlat = ([[[_rcenter, _rradius]]] call BIS_fnc_randomPos) isFlatEmpty [
 	private _isFlat = (_rcenter getPos [_rradius * sqrt random 1, random 360]) isFlatEmpty [
 		_mindist,	//--- Minimal distance from another object
-		-1,				//--- If 0, just check position. If >0, select new one // 0
-		0.7,				//--- Max gradient
-		4,	//--- Gradient area
-		0,				//--- 0 for restricted water, 2 for required water,
-		false,				//--- True if some water can be in 25m radius
-		objNull			//--- Ignored object
+		-1,			//--- If 0, just check position. If >0, select new one // 0
+		_maxgrad,	//--- Max gradient
+		_gradar,	//--- Gradient area
+		0,			//--- 0 for restricted water, 2 for required water,
+		false,		//--- True if some water can be in 25m radius
+		objNull		//--- Ignored object
 	];
 	__TRACE_1("","_isFlat")
 	if !(_isFlat isEqualTo []) exitWith {

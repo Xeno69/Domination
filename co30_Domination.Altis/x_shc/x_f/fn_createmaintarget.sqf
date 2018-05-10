@@ -73,10 +73,10 @@ __TRACE_1("","_this")
 
 private _trg_center = if (_trgobj isEqualType objNull) then {getPosATL _trgobj} else {_trgobj};
 __TRACE_1("","_trg_center")
-private _wp_array_inf = [_trg_center, _radius, 0, 0] call d_fnc_getwparray;
+private _wp_array_inf = [_trg_center, _radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
 private _wp_array_vecs = [_trg_center, _radius, 0, 2] call d_fnc_getwparray;
 __TRACE_1("","_trg_center")
-private _wp_array_pat_inf = [_trg_center, _patrol_radius, 0, 0] call d_fnc_getwparray;
+private _wp_array_pat_inf = [_trg_center, _patrol_radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
 private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getwparray;
 
 #ifndef __TT__
