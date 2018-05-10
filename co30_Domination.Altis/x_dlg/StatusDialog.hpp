@@ -212,7 +212,7 @@ class D_StatusDialog {
 			idc = 12010;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.415 * safezoneH + safezoneY";
-			w = "0.02 * safezoneW";
+			w = "0.02 * safezoneH";
 			h = "0.02 * safezoneH";
 			text="";
 			sizeEx = 256;
