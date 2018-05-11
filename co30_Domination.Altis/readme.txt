@@ -38,6 +38,7 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Fixed: Search intel was using wrong index for intel array because of a removed intel
 - Changed: Deliver sidemission vehicle driver has to be a player now
 - Changed: No longer automatic radio messages spam when with AI is disabled
+and many more fixes and optimizations
 
 3.90
 ATTENTION: ALL mission.sqm files have changed
