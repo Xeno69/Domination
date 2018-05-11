@@ -67,21 +67,12 @@ __TRACE_1("","_type_list_guard")
 
 params ["_trgobj", "_radius"];
 private _patrol_radius = _radius + 300 + random 300;
-
+private _trg_center = if (_trgobj isEqualType objNull) then {getPosATL _trgobj} else {_trgobj};
+__TRACE_1("","_trg_center")
 __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
-private _trg_center = if (_trgobj isEqualType objNull) then {getPosATL _trgobj} else {_trgobj};
-__TRACE_1("","_trg_center")
-private _wp_array_inf = [_trg_center, _radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
-private _wp_array_vecs = [_trg_center, _radius, 0, 2] call d_fnc_getwparray;
-__TRACE_1("","_trg_center")
-private _wp_array_pat_inf = [_trg_center, _patrol_radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
-private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getwparray;
-
 #ifndef __TT__
-sleep 0.5;
-
 private _poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
 while {_poss isEqualTo []} do {
@@ -129,14 +120,20 @@ _vec setVectorUp [0,0,1];
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
 [missionNamespace, ["d_mt_mobile_hq_down", false]] remoteExecCall ["setVariable", 2];
+sleep 0.1;
 #endif
 
-//#ifdef __DEBUG__
+#ifdef __DEBUG__
 if (!d_tt_ver) then {
 	[str d_mt_barracks_obj, d_mt_barracks_obj_pos, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 	[str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 };
-//#endif
+#endif
+
+private _wp_array_inf = [_trg_center, _radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
+private _wp_array_vecs = [_trg_center, _radius, 0, 2] call d_fnc_getwparray;
+private _wp_array_pat_inf = [_trg_center, _patrol_radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
+private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getwparray;
 
 sleep 0.112;
 

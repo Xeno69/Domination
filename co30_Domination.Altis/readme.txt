@@ -8,8 +8,8 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.91
-ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file has changed!!!!
-		   You can also delete dom_params table in the Domination sql database, a new one gets created called dom_params2
+ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file have changed!!!!
+		   You can also delete dom_params table in the Domination sql database, a new one gets created called dom_params2 (run the server once to fill it)
 
 - Changed: Removed recapture main targets
 - Changed: Server lobby params (class Params) through SQL DB with a much better and more flexible system
