@@ -12,18 +12,6 @@ disableSerialization;
 
 private _ctrl = (uiNamespace getVariable "D_DBTop10Dialog") displayCtrl 100;
 
-/*_ctrl lnbAddColumn 0.1;
-_ctrl lnbAddColumn 0.17;
-_ctrl lnbAddColumn 0.24;
-_ctrl lnbAddColumn 0.31;
-_ctrl lnbAddColumn 0.38;
-_ctrl lnbAddColumn 0.45;
-_ctrl lnbAddColumn 0.52;
-_ctrl lnbAddColumn 0.59;
-_ctrl lnbAddColumn 0.67;
-_ctrl lnbAddColumn 0.74;
-_ctrl lnbAddColumn 0.81;
-_ctrl lnbAddColumn 0.88;*/
 _ctrl lnbAddColumn 0.1;
 _ctrl lnbAddColumn 0.16;
 _ctrl lnbAddColumn 0.22;
