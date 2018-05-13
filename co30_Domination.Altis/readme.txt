@@ -8,6 +8,11 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.92
+- Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)
+           * Players get extra score for transporting others
+           * Players get extra score when they are near a main target when it gets cleared
+		   * Players get extra score for reviving another player
+		   * Players get extra score for destroying a radio tower, capturing a camp and solving a main target sidemission
 
 3.91
 ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file have changed!!!!

@@ -30,11 +30,13 @@ if (_vec isKindOf "Air") then {
 };
 if (_do_exit) exitWith {};
 
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	if (_vec isKindOf "Car" || {_vec isKindOf "Air"}) then {
 		[_vec] spawn d_fnc_playervectrans;
 	};
-	[_vec] call d_fnc_playerveccheck;
+	if (d_with_ranked) then {
+		[_vec] call d_fnc_playerveccheck;
+	};
 };
 if (d_without_vec_ti == 0) then {
 	_vec disableTIEquipment true;

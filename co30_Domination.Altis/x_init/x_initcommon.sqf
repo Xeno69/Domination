@@ -230,8 +230,7 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 if (hasInterface) then {
 	if (d_with_ai) then {d_current_ai_num = 0};
 
-	if (d_with_ranked) then {
-		if (isNil "d_ranked_a") then {
+	if (isNil "d_ranked_a") then {
 		d_ranked_a = [
 			20, // points that an engineer must have to repair/refuel a vehicle
 			[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
@@ -257,16 +256,13 @@ if (hasInterface) then {
 			2, // points a player gets for reviving another player
 			20 // points a Squad Leader needs for CAS
 		];
-		};
-
-		// distance a player has to transport others to get points
-		d_transport_distance = 500;
-
-		// rank needed to fly the wreck lift chopper
-		d_wreck_lift_rank = "CAPTAIN";
-	} else {
-		d_ranked_a = [];
 	};
+
+	// distance a player has to transport others to get points
+	d_transport_distance = 500;
+
+	// rank needed to fly the wreck lift chopper
+	d_wreck_lift_rank = "CAPTAIN";
 
 	d_graslayer_index = [1, 0] select (d_GrasAtStart == 1);
 

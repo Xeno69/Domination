@@ -16,4 +16,5 @@ private _which = call {
 
 if (_which != "") then {
 	"extdb3" callExtension format ["1:dom:%1:%2", _which, getPlayerUID _pl];
+	_pl addScore 5;
 };
