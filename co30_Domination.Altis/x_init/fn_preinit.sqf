@@ -505,15 +505,12 @@ if (isServer) then {
 							};
 						};
 						publicVariable "paramsArray";
-						if (!isMultiplayer) then {
-							paramsArray = nil;
-						};
 					};
 				} else {
 					if (isClass (getMissionConfig "Params")) then {
 						private _conf = getMissionConfig "Params";
 						for "_i" from 0 to (count _conf - 1) do {
-							private _paramName = configName (_conf # _i);
+							private _paramName = configName (_conf select _i);
 							private _paramval = getNumber (_conf>>_paramName>>"default");
 							if (_paramval != -99999) then {
 								"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
@@ -521,6 +518,9 @@ if (isServer) then {
 						};
 					};
 				};
+			};
+			if (!isMultiplayer && {!isNil "paramsArray"}) then {
+				paramsArray = nil;
 			};
 		};
 	};
