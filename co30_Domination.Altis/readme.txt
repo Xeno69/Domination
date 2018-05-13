@@ -13,6 +13,7 @@ Changelogs
            * Players get extra score when they are near a main target when it gets cleared
 		   * Players get extra score for reviving another player
 		   * Players get extra score for destroying a radio tower, capturing a camp and solving a main target sidemission
+- Fixed: For whatever reason it can happen that when a player calls in artillery that arty vehicles at base shoot at each other resulting in the arty caller beeing blamed for shooting at the arty vecs 
 
 3.91
 ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file have changed!!!!

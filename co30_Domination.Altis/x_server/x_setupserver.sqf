@@ -119,12 +119,13 @@ private _av_check_fnc = {
 
 private _fnc_artvec = {
 	params ["_num", "_name"];
-	private _retar = [];
-	{
-		_x call _av_check_fnc;
-		_retar pushBack _x;
-		false
-	} count (vehicles select {(str _x) select [0, _num] == _name});
+	private _retar = vehicles select {(str _x) select [0, _num] == _name};
+	if !(_retar isEqualTo []) then {
+		{
+			_x call _av_check_fnc;
+			false
+		} count _retar;
+	};
 	_retar
 };
 

@@ -794,11 +794,11 @@ if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}
 
 private _fnc_artvec = {
 	params ["_num", "_name"];
-	{
-		d_ao_arty_vecs pushBack _x;
+	private _ar = vehicles select {(str _x) select [0, _num] == _name};
+	if !(_ar isEqualTo []) then {
 		d_areArtyVecsAvailable = true;
-		false
-	} count (vehicles select {(str _x) select [0, _num] == _name});
+		d_ao_arty_vecs append _ar;
+	};
 };
 #ifndef __TT__
 [10, "d_artyvec_"] call _fnc_artvec;
