@@ -76,6 +76,7 @@ if (count d_resolved_targets < d_MainTargets) then {
 	};
 	"d_tt_winner" cutText [_winner_string, "PLAIN"];
 #endif
+#ifndef __TT__
 	if (d_with_ranked || {d_database_found}) then {
 		if (player distance2D d_cur_tgt_pos < (d_ranked_a # 10)) then {
 			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_574", d_ranked_a # 9];
@@ -86,6 +87,7 @@ if (count d_resolved_targets < d_MainTargets) then {
 			};
 		};
 	};
+#endif
 } else {
 #ifndef __TT__
 	hint  composeText[
