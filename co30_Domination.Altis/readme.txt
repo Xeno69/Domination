@@ -7,6 +7,8 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.92
+
 3.91
 ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file have changed!!!!
 		   You can also delete dom_params table in the Domination sql database, a new one gets created called dom_params2 (run the server once to fill it)
