@@ -12,7 +12,7 @@ private _mode = "";
 private _display = uiNamespace getVariable "d_RscAnimatedLetters";
 private _Slot = 0;
 
-switch (param [1]) do  {
+switch (_this select 1) do  {
 	case 0: {_mode = "IntroAnim\animateLetter.sqf";_Slot = 0};
 	case 1: {_mode = "IntroAnim\animateLetter1.sqf";_Slot = 30};
 	case 2: {_mode = "IntroAnim\animateLetter2.sqf";_Slot = 60};

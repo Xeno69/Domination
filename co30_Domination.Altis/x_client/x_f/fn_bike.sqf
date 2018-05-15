@@ -4,7 +4,7 @@
 
 if (isDedicated) exitWith {};
 
-(param [3]) params ["_create_bike", "_b_mode"];
+(_this select 3) params ["_create_bike", "_b_mode"];
 
 private _exitit = false;
 if (d_with_ranked) then {

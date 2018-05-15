@@ -81,7 +81,7 @@ if (d_WithIsleDefense == 0 && {isServer}) then {
 		d_with_isledefense = [];
 	};
 	private _msize = markerSize _mna;
-	d_with_isledefense = [markerPos _mna, _msize param [0], _msize param [1], markerDir _mna, parseNumber (markerText _mna)];
+	d_with_isledefense = [markerPos _mna, _msize select 0, _msize select 1, markerDir _mna, parseNumber (markerText _mna)];
 	deleteMarker _mna;
 } else {
 	d_with_isledefense = [];
