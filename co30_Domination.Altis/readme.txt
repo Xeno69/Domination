@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.93
+- Fixed: When With AI is enabled do not delete UAV AI
+
 3.92
 - Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)
            * Players get extra score for transporting others

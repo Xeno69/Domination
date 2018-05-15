@@ -25,6 +25,12 @@ private _uav = [getPosATL player, 0, d_UAV_Small, d_player_side] call bis_fnc_sp
 __TRACE_1("","_uav")
 _uav params ["_vecu"];
 createVehicleCrew _vecu;
+if (d_with_ai) then {
+	private _crew = crew _vecu;
+	if !(_crew isEqualTo []) then {
+		[group (_crew # 0), ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+	};
+};
 
 _vecu allowCrewInImmobile true;
 

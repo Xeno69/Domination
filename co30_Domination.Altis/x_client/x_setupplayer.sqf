@@ -951,6 +951,12 @@ d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
 		addToRemainsCollector [param [1]];
+		if (d_with_ai && {unitIsUAV (param [1])) then {
+			private _crew = crew (param [1]);
+			if !(_crew isEqualTo []) then {
+				[group (_crew # 0), ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+			};
+		};
 	}];
 	false
 } count allCurators;
