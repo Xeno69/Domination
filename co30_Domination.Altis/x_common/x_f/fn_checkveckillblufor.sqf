@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_checkveckillblufor.sqf"
 #include "..\..\x_setup.sqf"
 
-private _killer = param [2];
+private _killer = _this select 2;
 
 if !(_killer call d_fnc_isplayer) exitWith {};
 

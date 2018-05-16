@@ -6,9 +6,9 @@
 if (isDedicated) exitWith {};
 
 __TRACE_1("","_this")
-d_player_autokick_time = param [0];
+d_player_autokick_time = _this select 0;
 
-if (d_WithRevive == 0 && {(param [8]) == -1 && {xr_max_lives != -1}}) exitWith {
+if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitWith {
 	0 spawn {
 		scriptName "spawn_playerstuffparking";
 		waitUntil {!d_still_in_intro};
@@ -18,13 +18,13 @@ if (d_WithRevive == 0 && {(param [8]) == -1 && {xr_max_lives != -1}}) exitWith {
 };
 
 #ifdef __TT__
-private _prev_side = param [5];
+private _prev_side = _this select 5;
 if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
 	[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
 };
 #endif
 
-private _lo = param [11];
+private _lo = _this select 11;
 __TRACE_1("","_lo")
 if !(_lo # 0 isEqualTo []) then {
 	_lo spawn {

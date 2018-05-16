@@ -24,5 +24,5 @@ if (_type == 0) then {
 		};
 	};
 #endif
-	(param [1]) execFSM "fsms\fn_DeleteUnits.fsm";
+	(_this select 1) execFSM "fsms\fn_DeleteUnits.fsm";
 };

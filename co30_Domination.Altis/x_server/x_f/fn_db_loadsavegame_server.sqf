@@ -81,10 +81,10 @@ d_bonus_vecs_db = _ar # 9;
 	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0; _this call d_fnc_bonusvecfnc}}];
 	
 	_vec addEventHandler ["getIn", {
-		private _ma = (param [0]) getVariable "d_abandoned_ma";
+		private _ma = (_this select 0) getVariable "d_abandoned_ma";
 		if (!isNil "_ma") then {
 			deleteMarker _ma;
-			(param [0]) setVariable ["d_abandoned_ma", nil];
+			(_this select 0) setVariable ["d_abandoned_ma", nil];
 		};
 	}];
 
@@ -144,10 +144,10 @@ _fnc_tt_bonusvec = {
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
 	_vec addEventHandler ["getIn", {
-		private _ma = (param [0]) getVariable "d_abandoned_ma";
+		private _ma = (_this select 0) getVariable "d_abandoned_ma";
 		if (!isNil "_ma") then {
 			deleteMarker _ma;
-			(param [0]) setVariable ["d_abandoned_ma", nil];
+			(_this select 0) setVariable ["d_abandoned_ma", nil];
 		};
 	}];
 

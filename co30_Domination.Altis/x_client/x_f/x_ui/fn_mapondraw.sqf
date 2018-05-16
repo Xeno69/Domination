@@ -11,7 +11,7 @@ params ["_map", "_type"]; // _type = 0 normal map control, 1 = GPS, 2 = custom m
 
 //if (_type isEqualTo 0 && {!visibleMap} || {_type isEqualTo 1 && {!visibleGPS}}) exitWith {};
 
-_map = _map param [0];
+_map = _map select 0;
 
 __TRACE_1("","d_show_player_marker")
 

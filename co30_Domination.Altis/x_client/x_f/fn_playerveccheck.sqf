@@ -6,7 +6,7 @@
 if (isDedicated) exitWith {};
 
 __TRACE_1("","_this")
-private _vec = param [0];
+params ["_vec"];
 
 if ((assignedVehicleRole player) # 0 == "Cargo" || {!isNil {_vec getVariable "d_vec_type"}}) exitWith {
 	d_vec_role_pl = assignedVehicleRole player;

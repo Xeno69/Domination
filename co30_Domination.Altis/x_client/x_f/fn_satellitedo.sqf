@@ -17,4 +17,4 @@ if (_exitj) exitWith {};
 
 __TRACE_1("","_this")
 
-[(param [0]) ctrlMapScreenToWorld [param [2], param [3]],"", 500, 200, 360, 0, 0] spawn d_fnc_establishingShot;
+[(_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3],"", 500, 200, 360, 0, 0] spawn d_fnc_establishingShot;

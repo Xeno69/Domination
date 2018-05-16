@@ -4,7 +4,7 @@
 
 if (isDedicated) exitWith {};
 
-if (player distance2D (param [0]) > 20) exitWith {
+if (player distance2D (_this select 0) > 20) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_339");
 };
 if (!d_eng_can_repfuel) then {

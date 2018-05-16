@@ -8,7 +8,7 @@ if (isDedicated) exitWith {};
 __TRACE_1("","_this")
 
 params ["_jumpobj"];
-private _mode = param [3];
+private _mode = _this select 3;
 
 if (player distance2D _jumpobj > 15) exitWith {};
 

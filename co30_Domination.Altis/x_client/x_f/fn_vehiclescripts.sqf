@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_vehiclescripts.sqf"
 #include "..\..\x_setup.sqf"
 
-private _vec = param [2];
+private _vec = _this select 2;
 
 if ((_vec isKindOf "ParachuteBase") || {_vec isKindOf "BIS_Steerable_Parachute"}) exitWith {};
 private _do_exit = false;
@@ -12,9 +12,9 @@ if (_vec isKindOf "Air") then {
 		0 spawn d_fnc_chop_hudsp;
 		// currently the only way to disable slingload assistant and rope action for sling loadling.
 		// sadly yet another Arma bug is not fixed, therefore inputAction is also needed... http://feedback.arma3.com/view.php?id=20845
-		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {(param [1] in actionKeys "HeliRopeAction" || {param [1] in actionKeys "HeliSlingLoadManager" || {inputAction "HeliRopeAction" > 0 || {inputAction "HeliSlingLoadManager" > 0}}})}];
+		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {((_this select 1) in actionKeys "HeliRopeAction" || {(_this select 1) in actionKeys "HeliSlingLoadManager" || {inputAction "HeliRopeAction" > 0 || {inputAction "HeliSlingLoadManager" > 0}}})}];
 	};
-	if (d_pilots_only == 0 && {!(call d_fnc_isPilotCheck) && {param [1] == "driver"}}) then {
+	if (d_pilots_only == 0 && {!(call d_fnc_isPilotCheck) && {_this select 1 == "driver"}}) then {
 		player action ["getOut", _vec];
 		hintSilent localize "STR_DOM_MISSIONSTRING_1417";
 		_do_exit = true;

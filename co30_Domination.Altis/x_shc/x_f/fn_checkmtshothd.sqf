@@ -10,11 +10,11 @@ if (!alive _obj) exitWith {
 	_obj removeAllEventHandlers "handleDamage";
 };
 #ifdef __DEBUG__
-_mm = toUpper(getText(configFile>>"CfgAmmo">>(param [4])>>"simulation"));
+_mm = toUpper(getText(configFile>>"CfgAmmo">>(_this select 4)>>"simulation"));
 __TRACE_1("","_mm")
 #endif
-private _r = if (d_MTTowerSatchelsOnly == 1 || {(param [4]) call d_fnc_checksimminet}) then {
-	param [2]
+private _r = if (d_MTTowerSatchelsOnly == 1 || {(_this select 4) call d_fnc_checksimminet}) then {
+	_this select 2
 } else {
 	0
 };
@@ -26,8 +26,8 @@ if (_r > 0) then {
 	_obj setVariable ["d_damt", _r];
 	__TRACE_1("_r result","_r")
 	
-	if (!d_with_ace && {param [5] == 0 && {!isNull (param [6]) && {(param [6]) call d_fnc_isplayer}}}) then {
-		_obj setVariable ["d_last_damager", param [6]];
+	if (!d_with_ace && {_this select 5 == 0 && {!isNull (_this select 6) && {(_this select 6) call d_fnc_isplayer}}}) then {
+		_obj setVariable ["d_last_damager", _this select 6];
 	};
 };
 _r

@@ -597,7 +597,7 @@ d_mark_loc261 = localize "STR_DOM_MISSIONSTRING_261";
 d_mark_loc1825 = localize "STR_DOM_MISSIONSTRING_1825";
 
 d_map_ameh = addMissionEventHandler ["Map", {
-	if (param [0]) then {
+	if (_this select 0) then {
 		findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", {[_this, 0] call d_fnc_mapondraw}];
 	};
 	removeMissionEventHandler ["Map", d_map_ameh];
@@ -654,13 +654,13 @@ if (d_WithRevive == 0) then {
 
 0 spawn d_fnc_dcmcc;
 
-(findDisplay 46) displayAddEventHandler ["KeyDown", {if (param [1] in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(param [2]) && {!(param [3]) && {!(param [4])}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
-(findDisplay 46) displayAddEventHandler ["KeyUp", {if (param [1] in actionKeys "TeamSwitch"&& {!(param [2]) && {!(param [3]) && {!(param [4])}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+(findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+(findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch"&& {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
 
 // by R34P3R
 d_p_isju = false;
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
-	if (param [1] in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
+	if ((_this select 1) in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
 		d_p_isju = true;
 		0 spawn {
 			private _v = velocity player;
@@ -867,7 +867,7 @@ player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 }] call BIS_fnc_addScriptedEventHandler;
 
 player addEventhandler ["HandleRating", {
-	if (param [1] < 0) then {0} else {param [1]}
+	if ((_this select 1) < 0) then {0} else {_this select 1}
 }];
 
 d_pisadminp = false;
@@ -896,7 +896,7 @@ player setVariable ["xr_isleader", false];
 };
 
 player addEventhandler ["WeaponAssembled", {
-	["aw", d_string_player, param [1]] remoteExecCall ["d_fnc_p_o_ar", 2];
+	["aw", d_string_player, _this select 1] remoteExecCall ["d_fnc_p_o_ar", 2];
 }];
 
 {_x call d_fnc_initvec; false} count vehicles;
@@ -950,9 +950,9 @@ if (d_with_ace) then {
 d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
-		addToRemainsCollector [param [1]];
-		if (d_with_ai && {unitIsUAV (param [1])}) then {
-			private _crew = crew (param [1]);
+		addToRemainsCollector [_this select 1];
+		if (d_with_ai && {unitIsUAV (_this select 1)}) then {
+			private _crew = crew (_this select 1);
 			if !(_crew isEqualTo []) then {
 				[group (_crew # 0), ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
 			};

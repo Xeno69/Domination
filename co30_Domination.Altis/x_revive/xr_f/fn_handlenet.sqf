@@ -4,13 +4,13 @@
 #include "..\..\x_macros.sqf"
 
 __TRACE_1("","_this")
-switch (param [1]) do {
+switch (_this select 1) do {
 	case 100: {
 		__TRACE("Die case 100")
-		if (local (param [0])) then {
-			//(param [0]) playActionNow "Die";
-			(param [0]) switchAction "Die";
-			//(param [0]) switchMove "AinjPpneMstpSnonWrflDnon";
+		if (local (_this select 0)) then {
+			//(_this select 0) playActionNow "Die";
+			(_this select 0) switchAction "Die";
+			//(_this select 0) switchMove "AinjPpneMstpSnonWrflDnon";
 		};
 	};
 	case 101: {
@@ -32,8 +32,8 @@ switch (param [1]) do {
 	case 103: {
 		params ["_u"];
 		_u switchMove "";
-		if (local _u) then {_u moveInCargo (param [2])};
+		if (local _u) then {_u moveInCargo (_this select 2)};
 	};
-	case 104: {if (local (param [0])) then {unassignVehicle (param [0])}};
-	case 105: {(param [0]) switchMove ""};
+	case 104: {if (local (_this select 0)) then {unassignVehicle (_this select 0)}};
+	case 105: {(_this select 0) switchMove ""};
 };

@@ -20,7 +20,7 @@ clearBackpackCargo _box;
 [_box, _boxcargo # 3, false, false] call BIS_fnc_addVirtualBackpackCargo;
 
 #ifdef __TT__
-private _p2 = param [2];
+private _p2 = _this select 2;
 if (isNil "_p2" || {d_player_side == _p2}) then {
 #endif
 d_all_p_a_boxes pushBack [_box, [1,1,0,0], localize "STR_DOM_MISSIONSTRING_1585"]; // yellow, Text "Virtual Arsenal"

@@ -5,9 +5,9 @@
 
 __TRACE("fn_playerfiredeh")
 
-if (d_player_in_air && {animationState player == "halofreefall_non" && {(param [4]) isKindOf "TimeBombCore"}}) then {
-	deleteVehicle (param [6]);
-	player addMagazine (param [5]);
+if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this select 4) isKindOf "TimeBombCore"}}) then {
+	deleteVehicle (_this select 6);
+	player addMagazine (_this select 5);
 } else {
 	if (d_player_in_base && {!d_pisadminp}) then {
 #ifndef __TT__
@@ -16,10 +16,10 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(param [
 		if (player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}) then {
 #endif
 			__TRACE("Player in Base")
-			private _ta = param [4];
+			private _ta = _this select 4;
 			if ([_ta, 0] call d_fnc_checkammo) then {
 				if (count _this > 6) then {
-					deleteVehicle (param [6]);
+					deleteVehicle (_this select 6);
 				};
 				[player, d_name_pl, 1] remoteExecCall ["d_fnc_RptMsgBS", 2];
 			} else {

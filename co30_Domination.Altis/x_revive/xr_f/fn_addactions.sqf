@@ -14,7 +14,7 @@ if (_unit getVariable ["xr_ReviveAction", -9999] == -9999) then {
 		/* 3 progress icon */				"A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_reviveMedic_ca.paa",
 		/* 4 condition to show */			"_this distance2D _target <= 3.5 && {_target getVariable 'xr_pluncon' && {!(_this getVariable 'xr_pisinaction') && {!(_target getVariable 'xr_dragged')}}}",
 		/* 5 condition for action */		"true",
-		/* 6 code executed on start */		{(player call d_fnc_getplayername) remoteExecCall ["xr_fnc_yougetrevivedm", param [0]]},
+		/* 6 code executed on start */		{(player call d_fnc_getplayername) remoteExecCall ["xr_fnc_yougetrevivedm", _this select 0]},
 		/* 7 code executed per tick */		{},
 		/* 8 code executed on completion */	{_this call xr_fnc_cdorevive},
 		/* 9 code executed on interruption*/{},
@@ -27,7 +27,7 @@ if (_unit getVariable ["xr_ReviveAction", -9999] == -9999) then {
 	__TRACE_1("id1","_id")
 	_unit setVariable ["xr_ReviveAction", _id];
 	
-	_id = _unit addAction [format ["<t color='#FF0000'>%2 %1</t>", _unit call d_fnc_getplayername, localize "STR_DOM_MISSIONSTRING_1704"], {player setVariable ["xr_cursorTarget", param [0]]; 0 spawn xr_fnc_drag}, [], -2, false, false, "", "_target getVariable 'xr_pluncon' && {!(_this getVariable 'xr_pisinaction') && {!(_target getVariable 'xr_dragged')}}", 3];
+	_id = _unit addAction [format ["<t color='#FF0000'>%2 %1</t>", _unit call d_fnc_getplayername, localize "STR_DOM_MISSIONSTRING_1704"], {player setVariable ["xr_cursorTarget", _this select 0]; 0 spawn xr_fnc_drag}, [], -2, false, false, "", "_target getVariable 'xr_pluncon' && {!(_this getVariable 'xr_pisinaction') && {!(_target getVariable 'xr_dragged')}}", 3];
 	__TRACE_1("id2","_id")
 	_unit setVariable ["xr_DragAction", _id];
 };

@@ -5,7 +5,7 @@
 
 params ["_pl", "_pl_name"];
 __TRACE_2("","_pl","_pl_name")
-switch (param [2]) do {
+switch (_this select 2) do {
 	case 0: {
 		diag_log format [localize "STR_DOM_MISSIONSTRING_947", _pl_name, getPlayerUID _pl];
 	};

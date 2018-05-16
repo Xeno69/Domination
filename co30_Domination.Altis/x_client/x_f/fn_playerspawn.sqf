@@ -68,7 +68,7 @@ if (_rtype == 0) then { // player died
 	"RadialBlur" ppEffectEnable false;
 
 	if (d_WithRevive == 1) then {
-		deleteVehicle ((param [1]) # 1);
+		deleteVehicle ((_this # 1) # 1);
 	};
 	
 	if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles",player]};

@@ -6,4 +6,4 @@
 // set only height of an object
 // parameters: object, height
 // example: [unit1, 30] call d_fnc_SetHeight;
-private _p = getPosWorld (param [0]);(param [0]) setPos [_p # 0, _p # 1, param [1]]
+private _p = getPosWorld (_this select 0);(_this select 0) setPos [_p # 0, _p # 1, _this select 1]

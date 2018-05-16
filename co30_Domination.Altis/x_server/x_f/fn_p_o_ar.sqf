@@ -5,16 +5,16 @@
 
 __TRACE_1("","_this")
 
-switch (param [0]) do {
+switch (_this select 0) do {
 	case "a": {
-		private _ar = d_placed_objs_store getVariable (param [1]);
+		private _ar = d_placed_objs_store getVariable (_this select 1);
 		__TRACE_1("a","_ar")
 		if (!isNil "_ar") then {
-			_ar pushBack (param [2]);
+			_ar pushBack (_this select 2);
 		} else {
-			d_placed_objs_store setVariable [param [1], [param [2]]];
+			d_placed_objs_store setVariable [_this select 1, [_this select 2]];
 		};
-		_ar = param [2];
+		_ar = _this select 2;
 		__TRACE_1("","_ar")
 		(_ar # 0) addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_PlacedObjKilled}}];
 		if ((_ar # 0) isKindOf d_mash) then {
@@ -40,35 +40,35 @@ switch (param [0]) do {
 		};
 	};
 	case "a2": {
-		private _ar = d_placed_objs_store2 getVariable (param [1]);
+		private _ar = d_placed_objs_store2 getVariable (_this select 1);
 		__TRACE_1("a2","_ar")
 		if (isNil "_ar") then {
-			d_placed_objs_store2 setVariable [param [1], [param [2]]];
+			d_placed_objs_store2 setVariable [_this select 1, [_this select 2]];
 		} else {
 			if !(_ar isEqualTo []) then {_ar = _ar - [objNull]};
-			_ar pushBack (param [2]);
+			_ar pushBack (_this select 2);
 		};
 	};
 	case "r": {
-		private _ar = d_placed_objs_store getVariable (param [1]);
+		private _ar = d_placed_objs_store getVariable (_this select 1);
 		__TRACE_1("r","_ar")
 		if (!isNil "_ar") then {
-			private _fidx = _ar findIf {_x # 1 == (param [2])};
+			private _fidx = _ar findIf {_x # 1 == (_this select 2)};
 			if (_fidx > -1) then {
 				_ar deleteAt _fidx;
 			};
 		};
-		deleteMarker (param [2]);
+		deleteMarker (_this select 2);
 	};
 	case "a2r": {
-		private _ar = d_placed_objs_store2 getVariable (param [1]);
+		private _ar = d_placed_objs_store2 getVariable (_this select 1);
 		__TRACE_1("a2r","_ar")
 		if (!isNil "_ar") then {
-			_ar = _ar - [param [2], objNull];
+			_ar = _ar - [_this select 2, objNull];
 		};
 	};
 	case "aw": {
-		private _ar = d_placed_objs_store3 getVariable (param [1]);
+		private _ar = d_placed_objs_store3 getVariable (_this select 1);
 		__TRACE_1("aw","_ar")
 		if (!isNil "_ar") then {
 			if !(_ar isEqualTo []) then {
@@ -81,10 +81,10 @@ switch (param [0]) do {
 				} count (_ar select {!isNull _x});
 				_ar = _ar - [objNull];
 			};
-			_ar pushBack (param [2]);
+			_ar pushBack (_this select 2);
 		} else {
-			d_placed_objs_store3 setVariable [param [1], [param [2]]];
+			d_placed_objs_store3 setVariable [_this select 1, [_this select 2]];
 		};
-		(param [2]) setVariable ["d_time_aw", time + 1800];
+		(_this select 2) setVariable ["d_time_aw", time + 1800];
 	};
 };

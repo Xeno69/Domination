@@ -6,7 +6,7 @@ if (isDedicated) exitWith {};
 
 params ["_vec"];
 
-switch (param [3]) do {
+switch (_this select 3) do {
 	case 0: {
 		d_chophud_on = false;
 		_vec removeAction (player getVariable "d_hud_id");

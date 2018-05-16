@@ -6,7 +6,7 @@
 if (isDedicated) exitWith {};
 
 __TRACE_1("","_this")
-private _box = param [1];
+private _box = _this select 1;
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	_box spawn {

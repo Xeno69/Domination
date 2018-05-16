@@ -1,7 +1,7 @@
 class D_ArtilleryDialog2 {
 	idd = -1;
 	movingEnable = true;
-	onLoad = "uiNamespace setVariable ['D_ArtilleryDialog2', param [0]];[param [0]] call bis_fnc_guiEffectTiles;call d_fnc_initArtyDlg2;d_arti_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_ArtilleryDialog2', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;call d_fnc_initArtyDlg2;d_arti_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_ArtilleryDialog2', nil];d_arti_dialog_open = false;d_cur_art_marker_ar = nil";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

@@ -12,10 +12,10 @@ __TRACE_2("","_unit","_caller")
 if (_unit == _caller) then {_unit = d_curvec_dialog};
 
 private _chatfunc = {
-	if (vehicle (param [1]) == (param [0])) then {
-		(param [0]) vehicleChat (param [2]);
+	if (vehicle (_this select 1) == (_this select 0)) then {
+		(_this select 0) vehicleChat (_this select 2);
 	} else {
-		(param [1]) sideChat (param [2]);
+		(_this select 1) sideChat (_this select 2);
 	};
 };
 

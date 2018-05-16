@@ -1,7 +1,7 @@
 class D_DBSaveDialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "uiNamespace setVariable ['D_DBSaveDialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;((param [0]) displayCtrl 101) ctrlEnable false;call d_fnc_initdbsavedialog;d_dbsave_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_DBSaveDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;((_this select 0) displayCtrl 101) ctrlEnable false;call d_fnc_initdbsavedialog;d_dbsave_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_DBSaveDialog', nil];d_dbsave_dialog_open = false; d_dbsave_dialog_open = nil";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

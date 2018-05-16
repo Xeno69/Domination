@@ -83,7 +83,7 @@ if !(_ar isEqualTo []) then {
 removeAllOwnedMines _unit;
 
 _unit spawn {
-	private _unit = param [0];
+	params ["_unit"];
 	sleep 10;
 	if (isNull objectParent _unit) then {
 		deleteVehicle _unit;
