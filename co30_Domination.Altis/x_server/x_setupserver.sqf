@@ -53,8 +53,7 @@ d_land_bonus_vecs = 0;
 	} else {
 		d_land_bonus_vecs = d_land_bonus_vecs + 1;
 	};
-	false
-} count d_sm_bonus_vehicle_array;
+} forEach d_sm_bonus_vehicle_array;
 __TRACE_2("","d_air_bonus_vecs","d_land_bonus_vecs")
 
 private _bpos =+ d_base_array # 0;
@@ -93,8 +92,7 @@ private _av_check_fnc = {
 	{
 		_x addEventHandler ["handleDamage", {0}];
 		_x setCaptive true;
-		false
-	} count (crew _this);
+	} forEach (crew _this);
 	
 	if (d_with_ai) then {
 		(group (gunner _this)) setVariable ["d_do_not_delete", true];
@@ -123,8 +121,7 @@ private _fnc_artvec = {
 	if !(_retar isEqualTo []) then {
 		{
 			_x call _av_check_fnc;
-			false
-		} count _retar;
+		} forEach _retar;
 	};
 	_retar
 };
@@ -138,7 +135,6 @@ d_arty_vecso = [11, "d_artyveco_"] call _fnc_artvec;
 
 {
 	[_x, 300, false] spawn d_fnc_vehirespawn;
-	false
-} count (vehicles select {(str _x) select [0, 10] == "d_add_vec_"});
+} forEach (vehicles select {(str _x) select [0, 10] == "d_add_vec_"});
 
 0 spawn d_fnc_sendfps;

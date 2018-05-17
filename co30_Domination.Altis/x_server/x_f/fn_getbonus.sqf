@@ -5,8 +5,8 @@
 
 if (!isServer) exitWith {};
 
-d_sm_winner = param [0];
-d_current_sm_bonus_vec = param [1];
+d_sm_winner = _this select 0;
+d_current_sm_bonus_vec = _this select 1;
 
 __TRACE("Starting")
 
@@ -33,15 +33,13 @@ switch (d_sm_winner) do {
 		d_points_opfor = d_points_opfor + (d_tt_points # 4);
 		{
 			_x addScore (d_tt_points # 4);
-			false;
-		} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {opfor getFriend side (group _x) >= 0.6}});
+		} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {opfor getFriend side (group _x) >= 0.6}});
 	};
 	case 2: {
 		d_points_blufor = d_points_blufor + (d_tt_points # 4);
 		{
 			_x addScore (d_tt_points # 4);
-			false;
-		} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {blufor getFriend side (group _x) >= 0.6}});
+		} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {blufor getFriend side (group _x) >= 0.6}});
 	};
 };	
 #endif
@@ -374,10 +372,10 @@ if (!isNull _vec2) then {
 #endif
 
 _vec addEventHandler ["getIn", {
-	private _ma = (param [0]) getVariable "d_abandoned_ma";
+	private _ma = (_this select 0) getVariable "d_abandoned_ma";
 	if (!isNil "_ma") then {
 		deleteMarker _ma;
-		(param [0]) setVariable ["d_abandoned_ma", nil];
+		(_this select 0) setVariable ["d_abandoned_ma", nil];
 	};
 }];
 
@@ -407,10 +405,10 @@ if (_vec isKindOf "Air") then {
 #ifdef __TT__
 if (!isNull _vec2) then {
 	_vec2 addEventHandler ["getIn", {
-		private _ma = (param [0]) getVariable "d_abandoned_ma";
+		private _ma = (_this select 0) getVariable "d_abandoned_ma";
 		if (!isNil "_ma") then {
 			deleteMarker _ma;
-			(param [0]) setVariable ["d_abandoned_ma", nil];
+			(_this select 0) setVariable ["d_abandoned_ma", nil];
 		};
 	}];
 

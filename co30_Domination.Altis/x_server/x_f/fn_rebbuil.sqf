@@ -8,5 +8,4 @@ d_house_objects = [];
 sleep 300;
 {
 	_x setDamage 0;
-	false
-} count _house_objects;
+} forEach _house_objects;

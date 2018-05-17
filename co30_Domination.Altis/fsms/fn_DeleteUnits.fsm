@@ -7,7 +7,7 @@ item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"
 link0[] = {0,1};
 link1[] = {1,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,923,894,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,941};
+window[] = {2,-1,-1,-1,-1,822,104,1064,104,3,941};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -28,7 +28,7 @@ class FSM
                          "d_delinfsm = [];" \n
                          "" \n
                          "if (!isNil ""d_mines_created"" && {!(d_mines_created isEqualTo [])}) then {" \n
-                         "	{deleteVehicle _x;false} count d_mines_created;" \n
+                         "	{deleteVehicle _x} forEach d_mines_created;" \n
                          "	d_mines_created = [];" \n
                          "};" \n
                          "" \n
@@ -57,7 +57,7 @@ class FSM
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"{" \n
                          "	if !(_x isKindOf ""CAManBase"") then {" \n
-                         "		if ({_x call d_fnc_isplayer} count (crew _x) == 0) then {" \n
+                         "		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {" \n
                          "			_x call d_fnc_DelVecAndCrew;" \n
                          "		} else {" \n
                          "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n
@@ -65,8 +65,7 @@ class FSM
                          "	} else {" \n
                          "		if !(_x call d_fnc_isplayer) then {deleteVehicle _x};" \n
                          "	};" \n
-                         "	false" \n
-                         "} count ((list _old_units_trigger) unitsBelowHeight 20);" \n
+                         "} forEach ((list _old_units_trigger) unitsBelowHeight 20);" \n
                          "" \n
                          "deleteVehicle _old_units_trigger;" \n
                          "" \n
@@ -74,8 +73,7 @@ class FSM
                          "" \n
                          "{" \n
                          "	_x setDamage 1;" \n
-                         "	false" \n
-                         "} count _mtunits;" \n
+                         "} forEach _mtunits;" \n
                          "_mtunits = nil;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

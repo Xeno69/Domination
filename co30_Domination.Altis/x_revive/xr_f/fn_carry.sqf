@@ -3,7 +3,7 @@
 
 if (isDedicated) exitWith {};
 
-private _dragee	= param [3];
+private _dragee	= _this select 3;
 private _name_dragee = [_dragee] call d_fnc_gethpname;
 if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = _dragee call d_fnc_getplayername};
 private _unit = player;

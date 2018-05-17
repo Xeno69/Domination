@@ -149,8 +149,7 @@ if (hasInterface) then {
 	d_player_ammobox_pos = [];
 	{
 		d_player_ammobox_pos pushBack [markerPos _x, markerDir _x];
-		false
-	} count (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 #else
 	d_player_ammobox_pos = [[], []];
 	
@@ -158,19 +157,16 @@ if (hasInterface) then {
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, east];
 		deleteMarkerLocal _x;
-		false
-	} count (allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"});
+	} forEach (allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"});
 	_tempar = d_player_ammobox_pos # 0;
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, west];
-		false
-	} count (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 #endif
 
 	{
 		deleteMarkerLocal _x;
-		false
-	} count (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {
@@ -180,10 +176,10 @@ if (isDedicated && {d_WithRevive == 0}) then {
 #include "x_missions\x_missionssetup.sqf"
 
 #ifndef __TT__
-{_x allowDamage false;false} count (nearestTerrainObjects [d_FLAG_BASE, ["House"], 70, false, true]);
+{_x allowDamage false} forEach (nearestTerrainObjects [d_FLAG_BASE, ["House"], 70, false, true]);
 #else
-{_x allowDamage false;false} count (nearestTerrainObjects [d_EFLAG_BASE, ["House"], 70, false, true]);
-{_x allowDamage false;false} count (nearestTerrainObjects [d_WFLAG_BASE, ["House"], 70, false, true]);
+{_x allowDamage false} forEach (nearestTerrainObjects [d_EFLAG_BASE, ["House"], 70, false, true]);
+{_x allowDamage false} forEach (nearestTerrainObjects [d_WFLAG_BASE, ["House"], 70, false, true]);
 #endif
 
 if (isNil "d_target_clear") then {
@@ -448,8 +444,7 @@ if (!hasInterface) then {
 	["d_teleporter_1", d_EFLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	{
 		_x setMarkerAlphaLocal 0;
-		false
-	} count ["d_chopper_service","d_wreck_service","d_teleporter","d_aircraft_service","bonus_air","bonus_vehicles","d_Ammobox_Reload","d_vec_service",
+	} forEach ["d_chopper_service","d_wreck_service","d_teleporter","d_aircraft_service","bonus_air","bonus_vehicles","d_Ammobox_Reload","d_vec_service",
 		"Start","d_chopper_serviceR","d_wreck_serviceR","d_teleporter_1","d_aircraft_serviceR","bonus_airR","bonus_vehiclesR","d_Ammobox ReloadR","Start_opfor","d_vehicle_serviceR", "d_runwaymarker_o", "d_runwaymarker"];
 #endif
 
@@ -476,8 +471,7 @@ if (!hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
-		false
-	} count (_allmissobjs select {(str _x) select [0, 9] == "d_flag_bb"});
+	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_flag_bb"});
 	_icounter_o = 0;
 	_icounter_b = 0;
 	_icounter_i = 0;
@@ -500,12 +494,10 @@ if (!hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
-		false
-	} count (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
+	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
 	{
 		d_add_resp_points_uni pushBack (_x # 0);
-		false
-	} count d_additional_respawn_points;
+	} forEach d_additional_respawn_points;
 
 #ifndef __RHS__
 	call compile preprocessFileLineNumbers "i_weapons_default.sqf";

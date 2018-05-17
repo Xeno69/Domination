@@ -69,8 +69,8 @@ switch (_sec_kind) do {
 		__vkilled(gov_dead);
 		if (d_with_ai && {d_with_ranked}) then {
 			_vec addEventHandler ["Killed", {
-				[1, param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-				(param [0]) removeAllEventHandlers "Killed";
+				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+				(_this select 0) removeAllEventHandlers "Killed";
 			}];
 		};
 		removeFromRemainsCollector [_vec];
@@ -260,8 +260,8 @@ switch (_sec_kind) do {
 		__vkilled(lopo_dead);
 		if (d_with_ai && {d_with_ranked}) then {
 			_vec addEventHandler ["Killed", {
-				[1, param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-				(param [0]) removeAllEventHandlers "Killed";
+				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+				(_this select 0) removeAllEventHandlers "Killed";
 			}];
 		};
 		removeFromRemainsCollector [_vec];
@@ -309,8 +309,8 @@ switch (_sec_kind) do {
 		__vkilled(dealer_dead);
 		if (d_with_ai && {d_with_ranked}) then {
 			_vec addEventHandler ["Killed", {
-				[1, param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-				(param [0]) removeAllEventHandlers "Killed";
+				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+				(_this select 0) removeAllEventHandlers "Killed";
 			}];
 		};
 		removeFromRemainsCollector [_vec];

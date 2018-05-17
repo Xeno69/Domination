@@ -11,8 +11,7 @@ sleep 1.123;
 if (!isNil "d_f_check_triggers") then {
 	{
 		deleteVehicle _x;
-		false
-	} count d_f_check_triggers;
+	} forEach d_f_check_triggers;
 };
 deleteVehicle d_current_trigger;
 if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
@@ -51,8 +50,7 @@ private _pdist = d_old_radius + 200;
 		case blufor: {_addpblufor = _addpblufor + (d_tt_points # 0)};
 		case opfor: {_addpopfor = _addpopfor + (d_tt_points # 0)};
 	};
-	false
-} count ((allPlayers - entities "HeadlessClient_F") select {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x distance2D d_old_target_pos < _pdist}}}});
+} forEach ((allPlayers - entities "HeadlessClient_F") select {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x distance2D d_old_target_pos < _pdist}}}});
 
 d_kill_points_blufor = d_kill_points_blufor + _addpblufor;
 d_kill_points_opfor = d_kill_points_opfor + _addpopfor;
@@ -158,8 +156,7 @@ _del_camps_stuff = [];
 	if (!isNull _flag) then {
 		_del_camps_stuff pushBack _flag;
 	};
-	false
-} count d_currentcamps;
+} forEach d_currentcamps;
 d_currentcamps = [];
 publicVariable "d_currentcamps";
 #ifdef __TT__
@@ -187,8 +184,7 @@ if !(d_maintargets_list isEqualTo []) then {
 				[_x, _fux] remoteExecCall ["setFuel", _x];
 			};
 			_x setVariable ["d_vecfuelmhq", nil, true];
-			false
-		} count (vehicles select {alive _x && {!isNil {_x getVariable "d_vecfuelmhq"}}});
+		} forEach (vehicles select {alive _x && {!isNil {_x getVariable "d_vecfuelmhq"}}});
 	};
 	sleep 15;
 #ifdef __TT__

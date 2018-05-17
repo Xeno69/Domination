@@ -23,8 +23,7 @@ if (d_database_found) then {
 		d_db_savegames = [];
 		{
 			d_db_savegames pushBack (_x # 0);
-			false
-		} count (_dbresult # 1);
+		} forEach (_dbresult # 1);
 		publicVariable "d_db_savegames";
 		__TRACE_1("","d_db_savegames")
 	};
@@ -37,8 +36,7 @@ if (d_database_found) then {
 		d_db_savegames = [];
 		{
 			d_db_savegames pushBack (_x # 0);
-			false
-		} count (_dbresult # 1);
+		} forEach (_dbresult # 1);
 		publicVariable "d_db_savegames";
 		__TRACE_1("","d_db_savegames")
 	};
@@ -49,8 +47,7 @@ if (d_database_found) then {
 	if (_dbresult # 0 == 1) then {
 		{
 			_x set [1, (_x # 1) call d_fnc_convtime];
-			false
-		} count (_dbresult # 1);
+		} forEach (_dbresult # 1);
 		missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
 		
 		0 spawn d_fnc_dbtoppasync;

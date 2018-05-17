@@ -74,7 +74,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=2;
-				InitCode="private _units = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n "private _enemy = d_side_enemy countSide _units;" \n "private _friendly = 0;" \n "{" \n "	_friendly = _friendly + (_x countSide _units);" \n "	false" \n "} count d_own_sides_o;" \n "";
+				InitCode="private _units = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n "private _enemy = d_side_enemy countSide _units;" \n "private _friendly = 0;" \n "{" \n "	_friendly = _friendly + (_x countSide _units);" \n "} forEach d_own_sides_o;" \n "";
 			};
 		};
 	};
@@ -119,7 +119,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -221,7 +221,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -721,12 +721,12 @@ class Window
 	Flags=2;
 	MaxPosX=-1;
 	MaxPosY=-1;
-	MinPosX=-32000;
-	MinPosY=-32000;
-	Left=104;
-	Top=104;
-	Right=1064;
-	Bottom=822;
+	MinPosX=-1;
+	MinPosY=-1;
+	Left=26;
+	Top=26;
+	Right=986;
+	Bottom=744;
 	ShowCmd=3;
 	SplitPos=677;
 };

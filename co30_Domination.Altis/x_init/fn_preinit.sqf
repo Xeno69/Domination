@@ -476,8 +476,7 @@ if (isServer) then {
 						};
 #endif
 					};
-					false;
-				} count (_dbresult # 1);
+				} forEach (_dbresult # 1);
 			};
 			
 			if (!isMultiplayer && {isNil "paramsArray"}) then {
@@ -632,8 +631,7 @@ if (!d_tt_tanoa) then {
 			if (_ran < 4) then {_ran = 4};
 			_x resize _ran;
 		};
-		false
-	} count d_allmen_W;
+	} forEach d_allmen_W;
 #endif
 	d_allmen_G = [
 		#include "d_allmen_G_default.sqf"

@@ -48,6 +48,5 @@ if (d_without_vec_nvg == 0) then {
 if (toUpper (typeOf _vec) in d_check_ammo_load_vecs) then {
 	{
 		[_x] execFSM "fsms\fn_AmmoLoad.fsm";
-		false
-	} count d_all_ammoloads;
+	} forEach d_all_ammoloads;
 };

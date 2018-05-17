@@ -196,8 +196,7 @@ private _glindex = -1;
 {
 	private _index = _ctrl lbAdd _x;
 	if (d_graslayer_index == _index) then {_glindex = _index};
-	false
-} count [localize "STR_DOM_MISSIONSTRING_359", localize "STR_DOM_MISSIONSTRING_360", localize "STR_DOM_MISSIONSTRING_361"];
+} forEach [localize "STR_DOM_MISSIONSTRING_359", localize "STR_DOM_MISSIONSTRING_360", localize "STR_DOM_MISSIONSTRING_361"];
 
 _ctrl lbSetCurSel _glindex;
 if (d_Terraindetail == 1) then {
@@ -207,12 +206,12 @@ if (d_Terraindetail == 1) then {
 };
 
 _ctrl = __ctrl2(1002);
-{_ctrl lbAdd _x;false} count [localize "STR_DOM_MISSIONSTRING_363", localize "STR_DOM_MISSIONSTRING_364", localize "STR_DOM_MISSIONSTRING_365", localize "STR_DOM_MISSIONSTRING_367"];
+{_ctrl lbAdd _x} forEach [localize "STR_DOM_MISSIONSTRING_363", localize "STR_DOM_MISSIONSTRING_364", localize "STR_DOM_MISSIONSTRING_365", localize "STR_DOM_MISSIONSTRING_367"];
 _ctrl lbSetCurSel d_show_player_marker;
 
 d_pnsel_first = true;
 _ctrl = __ctrl2(1602);
-{_ctrl lbAdd _x;false} count [localize "STR_DOM_MISSIONSTRING_363a", localize "STR_DOM_MISSIONSTRING_364", localize "STR_DOM_MISSIONSTRING_367"];
+{_ctrl lbAdd _x} forEach [localize "STR_DOM_MISSIONSTRING_363a", localize "STR_DOM_MISSIONSTRING_364", localize "STR_DOM_MISSIONSTRING_367"];
 _ctrl lbSetCurSel d_show_player_namesx;
 
 __ctrl2(2001) ctrlSetText str(d_points_needed # 0);

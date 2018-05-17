@@ -77,7 +77,7 @@ while {true} do {
 			};
 #endif
 			if (_number_v < 100 || {(_number_v > 999 && {_number_v < 1100})}) then {
-				_vec addMPEventhandler ["MPKilled", {(param [0]) call d_fnc_MHQFunc}];
+				_vec addMPEventhandler ["MPKilled", {(_this select 0) call d_fnc_MHQFunc}];
 				if (count _vec_a == 6) then {
 					_vec setVariable ["d_vec_is_mhq", [_vec_a # 5, _number_v]];
 				};

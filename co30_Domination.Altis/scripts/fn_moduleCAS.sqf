@@ -82,8 +82,7 @@ private _weapons = [];
 			_weapons pushBack [_x, _mode];
 		};
 	};
-	false
-} count getArray (_planeCfg >> "weapons");
+} forEach getArray (_planeCfg >> "weapons");
 __TRACE_1("","_weapons")
 
 if (_weapons isEqualTo []) exitwith {
@@ -166,8 +165,7 @@ private _currentWeapons = weapons _plane;
 	if !(toLower ((_x call bis_fnc_itemType) # 1) in _wpcmls) then {
 		_plane removeWeapon _x;
 	};
-	false
-} count _currentWeapons;
+} forEach _currentWeapons;
 
 _plane setVariable ["d_who_fired", _caller];
 _plane addEventhandler ["fired", {
@@ -232,8 +230,7 @@ waitUntil {
 				{
 					//_plane selectweapon (_x # 0);
 					_planeDriver forceWeaponfire _x;
-					false
-				} count _weapons;
+				} forEach _weapons;
 				_plane setVariable ["fireProgress", (1 - ((_time - time) / _duration)) max 0 min 1];
 				sleep 0.1;
 				(time > _time || {isNull _plane || {!canMove _plane}})
@@ -260,14 +257,14 @@ if !(isNull _logico) then {
 //--- Delete plane
 if (canMove _plane) then {
 	deleteVehicle _plane;
-	{deleteVehicle _x;false} count _crew;
+	{deleteVehicle _x} forEach _crew;
 	deleteGroup _group;
 } else {
 	[_plane, _crew, _group] spawn {
 		params ["_plane", "_crew", "_group"];
 		sleep 30;
 		deleteVehicle _plane;
-		{deleteVehicle _x;false} count _crew;
+		{deleteVehicle _x} forEach _crew;
 		deleteGroup _group;
 	};
 };

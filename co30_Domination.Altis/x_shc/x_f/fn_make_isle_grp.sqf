@@ -37,8 +37,7 @@ private _npos = _start_point;
 		sleep 0.73;
 		_npos = ((_reta # 0) # 0) modelToWorld [0,-12,0];
 	};
-	false
-} count ([d_enemy_side_short] call d_fnc_getmixedlist);
+} forEach ([d_enemy_side_short] call d_fnc_getmixedlist);
 _agrp deleteGroupWhenEmpty true;
 sleep 0.31;
 
@@ -53,6 +52,5 @@ if (d_searchintel # 5 == 1) then {
 {
 	_x allowCrewInImmobile true;
 	_x setVariable ["d_cur_pos", getPosASL _x];
-	false
-} count _vecs;
+} forEach _vecs;
 [_agrp, _units, _vecs]

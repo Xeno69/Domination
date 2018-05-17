@@ -29,10 +29,8 @@ if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
 				systemChat localize "STR_DOM_MISSIONSTRING_1646";
 			};
 			player removePrimaryWeaponItem _x;
-			false
 		};
-		false
-	} count (primaryWeaponItems player);
+	} forEach (primaryWeaponItems player);
 };
 
 player setVariable ["d_respawngear", getUnitLoadout player];

@@ -12,6 +12,5 @@ private _ctrl = CTRL(102);
 
 {
 	_ctrl lbAdd _x;
-	false;
-} count d_db_savegames;
+} forEach d_db_savegames;
 

@@ -15,20 +15,17 @@ private _allmapmarkers = allMapMarkers;
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 30] == "d_bonus_air_positions_carrier_"});
+} forEach (_allmapmarkers select {_x select [0, 30] == "d_bonus_air_positions_carrier_"});
 {
 	d_bonus_air_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 22] == "d_bonus_air_positions_"});
+} forEach (_allmapmarkers select {_x select [0, 22] == "d_bonus_air_positions_"});
 d_bvp_counter = 0;
 d_bonus_vec_positions = [];
 {
 	d_bonus_vec_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 22] == "d_bonus_vec_positions_"});
+} forEach (_allmapmarkers select {_x select [0, 22] == "d_bonus_vec_positions_"});
 if (!isNil "d_the_carrier") then {
 	private _nobs = nearestObjects [d_the_carrier, ["FlagCarrier"], 200];
 	if !(_nobs isEqualTo []) then {
@@ -42,8 +39,7 @@ d_bonus_air_positions_w = [];
 {
 	d_bonus_air_positions_w pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 24] == "d_bonus_air_positions_w_"});
+} forEach (_allmapmarkers select {_x select [0, 24] == "d_bonus_air_positions_w_"});
 
 d_bonus_create_pos_e = markerPos "d_bonus_create_pos_e";
 d_bap_counter_e = 0;
@@ -51,16 +47,14 @@ d_bonus_air_positions_e = [];
 {
 	d_bonus_air_positions_e pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 24] == "d_bonus_air_positions_e_"});
+} forEach (_allmapmarkers select {_x select [0, 24] == "d_bonus_air_positions_e_"});
 
 d_bvp_counter_w = 0;
 d_bonus_vec_positions_w = [];
 {
 	d_bonus_vec_positions_w pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 24] == "d_bonus_vec_positions_w_"});
+} forEach (_allmapmarkers select {_x select [0, 24] == "d_bonus_vec_positions_w_"});
 
 d_bvp_counter_e = 0;
 d_bonus_vec_positions_e = [];
@@ -68,8 +62,7 @@ d_bonus_vec_positions_w = [];
 {
 	d_bonus_vec_positions_e pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	false
-} count (_allmapmarkers select {_x select [0, 24] == "d_bonus_vec_positions_e_"});
+} forEach (_allmapmarkers select {_x select [0, 24] == "d_bonus_vec_positions_e_"});
 #endif
 
 // add some random patrols on the island
@@ -155,8 +148,7 @@ if (d_with_ai && {isServer}) then {
 if (isDedicated) then {
 	{
 		deleteMarkerLocal _x;
-		false
-	} count (_allmapmarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (_allmapmarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 };
 
 if (!isServer) exitWith {};

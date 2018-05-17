@@ -11,7 +11,7 @@ params ["_disp"];
 
 _disp displayAddEventHandler ["KeyDown", {
 	private _res = false;
-	if (param [1] == DIK_N) then {
+	if (_this select 1 == DIK_N) then {
 		if (!xr_camnvgon) then {
 			camUseNVG true;
 			xr_camnvgon = true;
@@ -23,7 +23,7 @@ _disp displayAddEventHandler ["KeyDown", {
 		};
 		_res = true;
 	} else {
-		if (param [1] == DIK_M) then {
+		if (_this select 1 == DIK_M) then {
 			if (ctrlShown ((uiNamespace getVariable "'XR_SpectDlg") displayCtrl 1000)) then {
 				ctrlShow [1000, false];
 				((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334");
@@ -39,7 +39,7 @@ _disp displayAddEventHandler ["KeyDown", {
 			};
 			_res = true;
 		} else {
-			if (param [1] == DIK_P) then {
+			if (_this select 1 == DIK_P) then {
 				if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 3000)) then {
 					ctrlShow [3000, false];
 					((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");

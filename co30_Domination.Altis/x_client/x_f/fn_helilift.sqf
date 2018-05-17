@@ -136,13 +136,11 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					if (_slcmp isEqualTo []) then {
 						{
 							_ropes pushBack (ropeCreate [_chopper, _slipos, _liftobj, _x, 20]);
-							false
-						} count ([_liftobj] call d_fnc_getcorners);
+						} forEach ([_liftobj] call d_fnc_getcorners);
 					} else {
 						{
 							_ropes pushBack (ropeCreate [_chopper, _slipos, _liftobj, _liftobj selectionPosition _x, 20]);
-							false
-						} count _slcmp;
+						} forEach _slcmp;
 					};
 					
 					__TRACE_1("","_ropes")
@@ -163,8 +161,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					
 					{
 						ropeDestroy _x;
-						false
-					} count (_ropes select {!isNull _x});
+					} forEach (_ropes select {!isNull _x});
 					if (_oldmass > -1) then {
 						[_liftobj, _oldmass] remoteExecCall ["setMass"];
 						_chopper setVariable ["d_lobm", nil, true];

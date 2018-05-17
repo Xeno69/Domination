@@ -38,21 +38,18 @@ if (!d_with_ranked) then {
 			private _curar = d_misc_store getVariable "COLONEL_RIFLES";
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			__TRACE_2("","_this","_helperar")
 
 			_curar = d_misc_store getVariable "COLONEL_LAUNCHERS";
 			__TRACE_1("","_curar")
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			_curar = d_misc_store getVariable "COLONEL_PISTOLS";
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			[_this, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
 
 			_helperar = [];
@@ -67,24 +64,20 @@ if (!d_with_ranked) then {
 			_curar = d_misc_store getVariable "COLONEL_OPTICS";
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			_curar = d_misc_store getVariable "COLONEL_MUZZLES";
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			_curar = d_misc_store getVariable "COLONEL_UNIFORMS";
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			__TRACE_2("","_this","_helperar")
 			_curar = d_misc_store getVariable "COLONEL_ITEMS";
 			{
 				_helperar pushBack (_x # 0);
-				false
-			} count _curar;
+			} forEach _curar;
 			__TRACE_2("","_this","_helperar")
 			[_this, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 

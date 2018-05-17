@@ -43,11 +43,10 @@ __TRACE_1("","count _mines");
 #ifdef __DEBUG__
 {
    [format ["mines_%1", _x], getPosASL _x, "ICON", "ColorOrange", [0.8,0.8], "mine", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
-   false
-} count _mines;
+} forEach _mines;
 #endif
 
-{d_side_enemy revealMine _x;false} count _mines;
+{d_side_enemy revealMine _x} forEach _mines;
 d_x_sm_vec_rem_ar append _mines;
 
 while {!d_sm_resolved} do {
@@ -63,4 +62,4 @@ while {!d_sm_resolved} do {
 		};
 	};	
 };
-if !(_arrows isEqualTo []) then {{deleteVehicle _x;false} count _arrows};
+if !(_arrows isEqualTo []) then {{deleteVehicle _x} forEach _arrows};

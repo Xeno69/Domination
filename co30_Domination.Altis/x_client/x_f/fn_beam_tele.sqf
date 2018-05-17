@@ -109,7 +109,7 @@ if (_typepos == 1) then {
 		titleText ["", "BLACK IN"];
 	};
 
-	{player reveal _x;false} count (nearestObjects [player, d_rev_respawn_vec_types, 30]);
+	{player reveal _x} forEach (nearestObjects [player, d_rev_respawn_vec_types, 30]);
 
 	if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false]) && {_typepos != 2 && {!(player getVariable ["ace_isunconscious", false])}}}}) then {[] spawn d_fnc_moveai};
 };

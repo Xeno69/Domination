@@ -7,8 +7,7 @@ if (!isServer || {d_all_sm_res}) exitWith{};
 
 {
 	_x setDamage 0;
-	false
-} count d_house_objects2;
+} forEach d_house_objects2;
 d_house_objects2 = [];
 
 if (d_current_mission_counter >= d_number_side_missions) exitWith {

@@ -50,8 +50,7 @@ switch (tolower (_sm_ar # 1)) do {
 			{
 				_posis pushBack (_x # 0);
 				_dirs pushBack (_x # 1);
-				false
-			} count (_sm_ar # 2);
+			} forEach (_sm_ar # 2);
 			[_posis, _dirs] spawn d_fnc_sidetanks;
 		};
 	};

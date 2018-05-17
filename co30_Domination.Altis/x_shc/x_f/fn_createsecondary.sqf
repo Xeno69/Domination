@@ -70,12 +70,11 @@ d_create_new_paras = false;
 d_f_check_triggers = [];
 #ifndef __TT__
 {
-	d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], [_x, d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;if (d_mt_respawngroups == 0) then {execFSM 'fsms\fn_RespawnGroups.fsm'};[12] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x;false} count d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
-	false
-} count d_own_sides;
+	d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], [_x, d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;if (d_mt_respawngroups == 0) then {execFSM 'fsms\fn_RespawnGroups.fsm'};[12] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x} forEach d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
+} forEach d_own_sides;
 #else
-d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["WEST", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x;false} count d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
-d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["EAST", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[14] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x;false} count d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["WEST", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x} forEach d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["EAST", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[14] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x} forEach d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
 sleep 3.234;
@@ -120,8 +119,7 @@ for "_i" from 1 to _nrcamps do {
 			private _wfokc = 0;
 			{
 				if (_nnpos distance2D _x > 130) then {_wfokc = _wfokc + 1};
-				false
-			} count d_currentcamps;
+			} forEach d_currentcamps;
 			__TRACE_2("","_wfokc","count d_currentcamps")
 			if (_wfokc != count d_currentcamps) then {
 				_nnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;

@@ -57,8 +57,7 @@ if (_caller != driver _vec) then {
 				private _index = __control(44449) lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
 				__control(44449) lbSetPicture [_index, getText(configFile>>"cfgVehicles">>_x>>"picture")];
 				__control(44449) lbSetColor [_index, [1, 1, 0, 0.5]];
-				false
-			} count d_create_bike;
+			} forEach d_create_bike;
 
 			__control(44449) lbSetCurSel 0;
 		} else {

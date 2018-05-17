@@ -42,14 +42,12 @@ if ((abs (((getPosASL _helper1) # 2) - ((getPosASL _helper2) # 2)) > 2) || {(abs
 	systemChat (localize "STR_DOM_MISSIONSTRING_246");
 	{
 		deleteVehicle _x;
-		false
-	} count [_helper1, _helper2, _helper3, _helper4];
+	} forEach [_helper1, _helper2, _helper3, _helper4];
 	d_commandingMenuIniting = false;
 };
 {
 	deleteVehicle _x;
-	false
-} count [_helper1, _helper2, _helper3, _helper4];
+} forEach [_helper1, _helper2, _helper3, _helper4];
 
 player setVariable ["d_isinaction", true];
 
@@ -104,7 +102,7 @@ _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MI
 		
 		private _medtent_content = (player getVariable "d_medic_tent") getVariable ["d_objcont", []];
 		if !(_medtent_content isEqualTo []) then {
-			{deleteVehicle _x;false} count _medtent_content;
+			{deleteVehicle _x} forEach _medtent_content;
 		};
 		deleteVehicle (player getVariable "d_medic_tent");
 		player setVariable ["d_medic_tent", objNull];

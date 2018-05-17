@@ -29,7 +29,7 @@ d_vrespawn2_ar = [];
 		};
 #endif
 		if (_number_v < 100 || {_number_v > 999 && {_number_v < 1100}}) then {
-			_vec addMPEventhandler ["MPKilled", {(param [0]) call d_fnc_MHQFunc}];
+			_vec addMPEventhandler ["MPKilled", {(_this select 0) call d_fnc_MHQFunc}];
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck; _this call d_fnc_mhqmsg}}];
 		} else {
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
@@ -40,7 +40,6 @@ d_vrespawn2_ar = [];
 			_vec setVariable ["d_liftit", true, true];
 		};
 	};
-	false
-} count _this;
+} forEach _this;
 
 0 spawn d_fnc_vrespawn2

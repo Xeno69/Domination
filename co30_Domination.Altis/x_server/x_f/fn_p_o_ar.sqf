@@ -72,13 +72,13 @@ switch (_this select 0) do {
 		__TRACE_1("aw","_ar")
 		if (!isNil "_ar") then {
 			if !(_ar isEqualTo []) then {
+				private ["_t"];
 				{
-					private _t = _x getVariable ["d_time_aw", -1];
+					_t = _x getVariable ["d_time_aw", -1];
 					if (_t != -1 && {time > _t}) then {
 						deleteVehicle _x;
 					};
-					false
-				} count (_ar select {!isNull _x});
+				} forEach (_ar select {!isNull _x});
 				_ar = _ar - [objNull];
 			};
 			_ar pushBack (_this select 2);

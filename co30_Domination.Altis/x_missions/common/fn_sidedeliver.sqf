@@ -15,7 +15,7 @@ private _vec = createVehicle [selectRandom d_sm_deliver_truck, _spos, [], 0, "NO
 _vec setDir (direction _hangar);
 _vec setPos _spos;
 _vec setDamage 0;
-_vec addMPEventHandler ["MPKilled", {if (isServer) then {[param [0]] call d_fnc_sidempkilled}}];
+_vec addMPEventHandler ["MPKilled", {if (isServer) then {[_this select 0] call d_fnc_sidempkilled}}];
 clearWeaponCargoGlobal _vec;
 clearMagazineCargoGlobal _vec;
 clearBackpackCargoGlobal _vec;
@@ -99,7 +99,7 @@ sleep 2.123;
 
 if (!isNull _vec && {alive _vec}) then {
 	if !((crew _vec) isEqualTo []) then {
-		{moveOut _x; false} count (crew _vec);
+		{moveOut _x} forEach (crew _vec);
 	};
 	[_vec, true] remoteExecCall ["d_fnc_l_v", 2];
 	[_vec, false] remoteExecCall ["engineOn", _vec];

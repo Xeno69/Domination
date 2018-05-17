@@ -67,8 +67,7 @@ private _ari_vecs = [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor)
 {
 	_x enableSimulationGlobal true;
 	_x setVariable ["d_who_fired", _arti_operator];
-	false
-} count _ari_vecs;
+} forEach _ari_vecs;
 
 __TRACE_1("","_ari_vecs")
 
@@ -143,8 +142,7 @@ for "_series" from 1 to _ari_salvos do {
 {
 	_x enableSimulationGlobal false;
 	_x setVariable ["d_who_fired", nil];
-	false
-} count _ari_vecs;
+} forEach _ari_vecs;
 _ari_vecs = nil;
 
 sleep 3;

@@ -15,7 +15,7 @@ if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	0 spawn {
 		sleep 2;
 		d_spect_disp_handler = (["GetDisplay"] call BIS_fnc_EGSpectator) displayAddEventHandler ["KeyDown", {
-			if (param [1] == DIK_X) then {
+			if (_this select 1 == DIK_X) then {
 				xr_phd_invulnerable = false;
 				(["GetDisplay"] call BIS_fnc_EGSpectator) displayRemoveEventHandler ["KeyDown" ,d_spect_disp_handler];
 				["Terminate"] call BIS_fnc_EGSpectator;

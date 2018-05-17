@@ -17,10 +17,8 @@ if !(d_respawn_ai_groups isEqualTo []) then {
 						if (alive _v) then {_v setDamage 1};
 					};
 					if (alive _x) then {_x setDamage 1};
-					false
-				} count ((units _rgrp) select {!isNil "_x" && {!isNull _x}});
+				} forEach ((units _rgrp) select {!isNil "_x" && {!isNull _x}});
 			};
-			false
-		} count (d_respawn_ai_groups select {_x isEqualType []});
+		} forEach (d_respawn_ai_groups select {_x isEqualType []});
 	};
 };

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_airtaxiserver.sqf"
 #include "..\..\x_setup.sqf"
 #define __del \
-{_vec deleteVehicleCrew _x;false} count _crew;\
+{_vec deleteVehicleCrew _x} forEach _crew;\
 deleteVehicle _vec;
 
 if (!isServer) exitWith {};
@@ -47,7 +47,7 @@ _unit setSkill 1;
 
 _vec lockDriver true;
 
-{_x setCaptive true;false} count _crew;
+{_x setCaptive true} forEach _crew;
 
 private _pospl =+ _playerpos;
 _pospl set [2,0];

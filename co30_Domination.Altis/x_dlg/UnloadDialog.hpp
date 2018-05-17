@@ -1,7 +1,7 @@
 class D_UnloadDialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad="uiNamespace setVariable ['D_UnloadDialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;d_unload_dialog_open = true;call d_fnc_fillunload";
+	onLoad="uiNamespace setVariable ['D_UnloadDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;d_unload_dialog_open = true;call d_fnc_fillunload";
 	onUnLoad="uiNamespace setVariable ['D_UnloadDialog', nil];d_unload_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

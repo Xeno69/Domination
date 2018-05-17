@@ -8,8 +8,7 @@ private _xr_near_players = [];
 	if (!isNull _x) then {
 		_xr_near_players append (crew _x);
 	};
-	false
-} count (player nearEntities 50);
+} forEach (player nearEntities 50);
 
 xr_near_players = _xr_near_players select {(_x call d_fnc_isplayer) && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {xr_side_pl getFriend side (group _x) >= 0.6}}}};
 
@@ -17,8 +16,7 @@ __TRACE_1("","xr_near_players")
 if !(xr_near_players isEqualTo []) then {
 	{
 		player remoteExecCall ["xr_fnc_announcenear", _x];
-		false
-	} count xr_near_players;
+	} forEach xr_near_players;
 };
 xr_next_pl_near_check = time + 60;
 

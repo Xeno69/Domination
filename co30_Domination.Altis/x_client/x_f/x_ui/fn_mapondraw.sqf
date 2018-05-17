@@ -105,14 +105,12 @@ if !(d_show_player_marker isEqualTo 0) then {
 				_v setVariable ["d_mvs_not", true];
 			};
 		};
-		false
-	} count (d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}});
+	} forEach (d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}});
 	
 	if !(_drawn_v isEqualTo []) then {
 		{
 			_x setVariable ["d_v_drawn", nil];
-			false
-		} count _drawn_v;
+		} forEach _drawn_v;
 	};
 	
 	if (d_with_ai) then {
@@ -151,8 +149,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 				"puristaMedium", // ROBOTO?
 				"right"
 			];
-			false
-		} count ((units (group player)) select {alive _x && {!isPlayer _x && {isNull (objectParent _x)}}});
+		} forEach ((units (group player)) select {alive _x && {!isPlayer _x && {isNull (objectParent _x)}}});
 	};
 };
 
@@ -192,8 +189,7 @@ private ["_isc", "_mt"];
 	} else {
 		_rem pushBack _x;
 	};
-	false
-} count d_marker_vecs;
+} forEach d_marker_vecs;
 
 if !(_rem isEqualTo []) then {
 	__TRACE_1("","_rem")

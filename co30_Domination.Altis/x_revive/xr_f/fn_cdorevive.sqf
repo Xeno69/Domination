@@ -5,6 +5,6 @@
 
 if (isDedicated) exitWith {};
 
-player setVariable ["xr_cursorTarget", param [0]];
+player setVariable ["xr_cursorTarget", _this select 0];
 
 call xr_fnc_dorevive;

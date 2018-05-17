@@ -1,7 +1,7 @@
 class D_ParajumpDialog {
 	idd = -1;
 	movingEnable = true;
-	onLoad = "[param [0]] call bis_fnc_guiEffectTiles;d_parajump_dialog_open = true";
+	onLoad = "[_this select 0] call bis_fnc_guiEffectTiles;d_parajump_dialog_open = true";
 	onUnLoad = "d_parajump_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
@@ -19,7 +19,7 @@ class D_ParajumpDialog {
 			w = 0.885;
 			h = 0.7;
 			showCountourInterval = false;
-			onMouseButtonClick = "closeDialog 0;_pp = (param [0]) ctrlMapScreenToWorld [param [2], param [3]];d_global_jump_pos = _pp";
+			onMouseButtonClick = "closeDialog 0;_pp = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];d_global_jump_pos = _pp";
 		};
 		class ParaMapText: RscText2 {
 			x = 0.06;

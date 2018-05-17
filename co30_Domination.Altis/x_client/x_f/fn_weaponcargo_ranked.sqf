@@ -25,23 +25,20 @@ while {alive _vec} do {
 		__TRACE_1("RIFLES","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("RIFLES","_helperar")
 
 		_curar = d_misc_store getVariable (_old_rank + "_LAUNCHERS");
 		__TRACE_1("LAUNCHERS","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("LAUNCHERS","_helperar")
 		_curar = d_misc_store getVariable (_old_rank + "_PISTOLS");
 		__TRACE_1("PISTOLS","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("PISTOLS","_helperar")
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
 
@@ -60,29 +57,25 @@ while {alive _vec} do {
 		__TRACE_1("OPTICS","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("OPTICS","_helperar")
 		_curar = d_misc_store getVariable (_old_rank + "_MUZZLES");
 		__TRACE_1("MUZZLES","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("MUZZLES","_helperar")
 		_curar = d_misc_store getVariable (_old_rank + "_UNIFORMS");
 		__TRACE_1("UNIFORMS","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("UNIFORMS","_helperar")
 		_curar = d_misc_store getVariable (_old_rank + "_ITEMS");
 		__TRACE_1("ITEMS","_curar")
 		{
 			_helperar pushBack (_x # 0);
-			false
-		} count _curar;
+		} forEach _curar;
 		__TRACE_1("ITEMS","_helperar")
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 

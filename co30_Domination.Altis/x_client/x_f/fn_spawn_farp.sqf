@@ -59,8 +59,7 @@ if ((abs (((getPosASL _helper1) # 2) - ((getPosASL _helper2) # 2)) > 2) || {(abs
 
 {
 	deleteVehicle _x;
-	false
-} count [_helper1, _helper2, _helper3, _helper4];
+} forEach [_helper1, _helper2, _helper3, _helper4];
 
 if (_exit_it) exitWith {
 	d_commandingMenuIniting = false;
@@ -151,7 +150,7 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 
 		private _farpcont = _farp getVariable ["d_objcont", []];
 		if !(_farpcont isEqualTo []) then {
-			{deleteVehicle _x;false} count _farpcont;
+			{deleteVehicle _x} forEach _farpcont;
 		};
 		deleteVehicle _farp;
 		

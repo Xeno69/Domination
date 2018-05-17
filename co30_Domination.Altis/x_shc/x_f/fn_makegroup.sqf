@@ -24,8 +24,7 @@ if (_numvecs > 0) then {
 		([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup) params ["_tmpvecs"];
 		{
 			_x enableWeaponDisassembly false;
-			false
-		} count _tmpvecs;
+		} forEach _tmpvecs;
 		_vecs append _tmpvecs;
 	};
 	_grp setSpeedMode "LIMITED";
@@ -120,7 +119,7 @@ switch (_type) do {
 
 if (d_with_dynsim == 0) then {
 	[_grp, _sleepti] spawn {
-		sleep (param [1]);
-		(param [0]) enableDynamicSimulation true;
+		sleep (_this select 1);
+		(_this select 0) enableDynamicSimulation true;
 	};
 };

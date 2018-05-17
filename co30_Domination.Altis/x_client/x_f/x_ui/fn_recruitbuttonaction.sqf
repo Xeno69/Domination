@@ -106,14 +106,14 @@ _unit call d_fnc_removenvgoggles_fak;
 if (!d_with_ace) then {
 	_unit addEventhandler ["handleDamage", {
 		if (d_player_in_base && {player inArea d_base_array}) then {
-			private _shooter = param [6];
+			private _shooter = _this select 6;
 			if (!isNil "_shooter" && {!isNull _shooter && {isPlayer _shooter}}) then {
 				0
 			} else {
-				param [2]
+				_this select 2
 			};
 		} else {
-			param [2];
+			_this select 2;
 		};
 	}];
 };
@@ -148,9 +148,9 @@ _control lbSetColor [_index, [1, 1, 0, 0.8]];
 
 if (!d_with_ranked) then {
 	private _code = if (!d_with_ace) then {
-		{["Open",[true,nil,param [0]]] call bis_fnc_arsenal}
+		{["Open",[true, nil, _this select 0]] call bis_fnc_arsenal}
 	} else {
-		{[param [0], param [0], true] call ace_arsenal_fnc_openBox}
+		{[_this select 0, _this select 0, true] call ace_arsenal_fnc_openBox}
 	};
 	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "true", 3];
 };

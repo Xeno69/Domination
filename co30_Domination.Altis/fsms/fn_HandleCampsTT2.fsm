@@ -34,7 +34,7 @@ link14[] = {12,13};
 link15[] = {13,8};
 link16[] = {14,12};
 globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-367.563843,704.661621,873.183167,-366.072449,796,894,1};
-window[] = {2,-1,-1,-1,-1,952,234,1194,234,3,814};
+window[] = {2,-1,-1,-1,-1,900,182,1142,182,3,814};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -384,7 +384,7 @@ class FSM
                          "" \n
                          "if (_checkside != independent) then {" \n
                          "	private _objects = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n
-                         "	if (count _objects > 0) then {" \n
+                         "	if !(_objects isEqualTo []) then {" \n
                          "		{" \n
                          "			if (alive _x) then {" \n
                          "				if (isNull objectParent _x) then {" \n
@@ -396,12 +396,10 @@ class FSM
                          "						if (alive _x && {(_x call d_fnc_isplayer) && {side (group _x) == _checkside}}) then {" \n
                          "							[_x, 5] remoteExecCall [""addScore"", 2];" \n
                          "						};" \n
-                         "						false" \n
-                         "					} count (crew _x);" \n
+                         "					} forEach (crew _x);" \n
                          "				};" \n
                          "			};" \n
-                         "			false" \n
-                         "		} count _objects;" \n
+                         "		} forEach _objects;" \n
                          "	};" \n
                          "};" \n
                          "" \n

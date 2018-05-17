@@ -17,8 +17,7 @@ private _dd = 599;
 		_mhq = _x;
 		_dd = _distt;
 	};
-	false
-} count ((player nearEntities [["LandVehicle", "Air"], 10]) select {!isNull _x && {!(_x isKindOf "ParachuteBase") && {!(_x isKindOf "BIS_Steerable_Parachute") && {(_x getVariable ["d_vec_type", ""]) == "MHQ"}}}});
+} forEach ((player nearEntities [["LandVehicle", "Air"], 10]) select {!isNull _x && {!(_x isKindOf "ParachuteBase") && {!(_x isKindOf "BIS_Steerable_Parachute") && {(_x getVariable ["d_vec_type", ""]) == "MHQ"}}}});
 
 if (isNull _mhq) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_1451")};
 
@@ -35,10 +34,7 @@ __TRACE("Before reading deploy var")
 if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	__TRACE("MHQ not deployed")
 	if ((crew _mhq) findIf {alive _x} > -1) then {
-		{
-			moveOut _x;
-			false
-		} count (crew _mhq);
+		{moveOut _x} forEach (crew _mhq);
 		//systemChat (localize "STR_DOM_MISSIONSTRING_215");
 		__TRACE("MHQ not empty")
 	};

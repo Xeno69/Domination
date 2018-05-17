@@ -1,7 +1,7 @@
 class D_StatusDialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "uiNamespace setVariable ['D_StatusDialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;(param [0]) call d_fnc_statusdialoginit;d_showstatus_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_StatusDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;(_this select 0) call d_fnc_statusdialoginit;d_showstatus_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_StatusDialog', nil];d_showstatus_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

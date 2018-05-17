@@ -5,12 +5,12 @@
 #define __announce \
 d_para_available = true; publicVariable "d_para_available";\
 remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated]; \
-{_chopper deleteVehicleCrew _x;false} count _crew;\
+{_chopper deleteVehicleCrew _x} forEach _crew;\
 deleteVehicle _chopper;\
 deleteMarker #d_drop_marker
 
 #define __del \
-{_chopper deleteVehicleCrew _x;false} count _crew;\
+{_chopper deleteVehicleCrew _x} forEach _crew;\
 deleteVehicle _chopper;\
 deleteMarker #d_drop_marker
 
@@ -65,7 +65,7 @@ removeAllWeapons _chopper;
 ["d_drop_marker", _chopper, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_940", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
 sleep 0.1;
 private _crew = _veca # 1;
-{_x setCaptive true;false} count _crew;
+{_x setCaptive true} forEach _crew;
 private _unit = driver _chopper;
 
 private _wp = _grp addWaypoint [_drop_pos, 0];

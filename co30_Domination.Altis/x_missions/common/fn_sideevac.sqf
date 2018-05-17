@@ -60,8 +60,7 @@ private _pcheck_fnc = {
 		_x enableAI "PATH";
 		[_x] join _p;
 		deleteGroup _ogroup;
-		false
-	} count _u;
+	} forEach _u;
 };
 
 private _aiver_check_fnc = {
@@ -183,7 +182,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 				_gwp setWaypointCombatMode "YELLOW";
 				_gwp setWaypointSpeed "FULL";
 				d_x_sm_rem_ar append _units;
-				{_x triggerDynamicSimulation true; false} count _units;
+				{_x triggerDynamicSimulation true} forEach _units;
 				sleep 1.012;
 			};
 			if (d_with_dynsim == 0) then {
@@ -227,8 +226,7 @@ sleep 2.123;
 			deleteVehicle _x;
 		};
 	};
-	false
-} count [_pilot1, _pilot2];
+} forEach [_pilot1, _pilot2];
 sleep 0.5;
 
 d_sm_resolved = true;

@@ -19,8 +19,7 @@ private ["_ipic", "_pic", "_idx"];
 	_idx = _ctrl lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
-	false
-} count d_UnitsToRecruit;
+} forEach d_UnitsToRecruit;
 
 _ctrl lbSetCurSel 0;
 
@@ -41,8 +40,7 @@ private ["_tt", "_pic", "_idx"];
 	_idx = _ctrl lbAdd ([_tt, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
-	false
-} count d_current_ai_units;
+} forEach d_current_ai_units;
 
 if !(d_current_ai_units isEqualTo []) then {
 	_ctrl lbSetCurSel 0;

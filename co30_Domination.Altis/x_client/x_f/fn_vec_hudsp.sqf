@@ -14,7 +14,7 @@ disableSerialization;
 
 #define __CTRL(A) (_disp displayCtrl A)
 
-private _vec = param [0];
+params ["_vec"];
 if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
 	private _vtype = _vec getVariable ["d_vec_type", ""];
 	if (_vtype == "MHQ" || {_vtype == "Engineer"}) then {

@@ -47,16 +47,14 @@ while {!isNil "d_teleport_off"} do {
 				_mrs setVariable ["d_vispos_m", _vpos];
 			};
 		};
-		false
-	} count d_mob_respawns;
+	} forEach d_mob_respawns;
 	sleep 0.01;
 };
 
 if (!isNil "d_respawn_anim_markers") then {
 	{
 		deleteMarkerLocal _x;
-		false
-	} count d_respawn_anim_markers;
+	} forEach d_respawn_anim_markers;
 };
 d_respawn_anim_markers = nil;
 d_respawn_mar_str = nil;

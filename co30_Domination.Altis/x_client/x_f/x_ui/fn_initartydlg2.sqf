@@ -26,8 +26,7 @@ d_arti_did_fire = nil;
 		};
 #endif
 	};
-	false
-} count (allMapMarkers select {_x select [0, 9] == "d_arttmx|"});
+} forEach (allMapMarkers select {_x select [0, 9] == "d_arttmx|"});
 
 __TRACE_1("","d_cur_art_marker_ar")
 

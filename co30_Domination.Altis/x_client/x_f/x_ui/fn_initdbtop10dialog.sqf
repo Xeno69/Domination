@@ -34,8 +34,7 @@ _ctrl lnbAddRow [""];
 	_rowidx = _ctrl lnbAddRow (_x apply {str _x});
 	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
-	false
-} count d_top10_db_players;
+} forEach d_top10_db_players;
 
 _ctrl lnbAddRow [""];
 

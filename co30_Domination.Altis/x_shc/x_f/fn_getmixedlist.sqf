@@ -17,6 +17,5 @@ private _types = if (d_WithLessArmor == 0) then {
 private _ret_list = [];
 {
 	_ret_list pushBack ([_x, _side] call d_fnc_getunitlistv);
-	false
-} count _types;
+} forEach _types;
 _ret_list

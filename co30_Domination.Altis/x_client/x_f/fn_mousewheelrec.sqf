@@ -49,8 +49,7 @@ private _s_ai = [];
 			_s_ai pushBack format ["%1 (AI)<img color='#FFFFFF' image='%2'/> <br/>", _uni call d_fnc_getplayername, _rpic];
 		};
 	};
-	false
-} count _fc;
+} forEach _fc;
 if !(_s_ai isEqualTo []) then {
 	_s_ai pushBack "</t>";
 } else {

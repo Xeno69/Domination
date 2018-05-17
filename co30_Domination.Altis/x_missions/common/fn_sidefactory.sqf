@@ -19,8 +19,7 @@ private _barray = [];
 		_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
 #endif
 	};
-	false
-} count _this;
+} forEach _this;
 
 private _num_t = count _barray;
 

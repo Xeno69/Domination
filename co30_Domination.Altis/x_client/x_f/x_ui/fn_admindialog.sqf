@@ -20,8 +20,7 @@ lbClear _ctrl;
 {
 	private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
 	_ctrl lbSetData [_index, str _x];
-	false
-} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 
 _ctrl lbSetCurSel 0;
 ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);
@@ -38,8 +37,7 @@ ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);
 			{
 				private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
 				_ctrl lbSetData [_index, str _x];
-				false
-			} count ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+			} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 			_ctrl lbSetCurSel 0;
 		};
 		sleep 0.2;

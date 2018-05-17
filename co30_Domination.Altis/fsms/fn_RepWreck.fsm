@@ -17,10 +17,10 @@ item12[] = {"Not_Null_Wreck",4,218,-36.349953,561.631714,53.650047,611.631714,1.
 item13[] = {"Delay_2",4,218,110.701157,372.903015,200.701157,422.903015,0.000000,"Delay 2"};
 item14[] = {"Rebuild",2,250,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
 item15[] = {"Delay_Rebuildtim",4,218,245.170380,648.918762,384.711609,706.782471,0.000000,"Delay Rebuildtime"};
-item16[] = {"Unlock_Vehicle",2,4346,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
+item16[] = {"Unlock_Vehicle",2,250,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
 item17[] = {"Allways",8,218,267.188721,280.897766,357.188751,330.897766,0.000000,"Allways"};
 item18[] = {"_",4,218,28.118450,766.373047,118.118446,816.373047,0.000000,""};
-item19[] = {"_",2,250,180.609940,767.583252,270.609955,817.583252,0.000000,""};
+item19[] = {"_",2,4346,180.609940,767.583252,270.609955,817.583252,0.000000,""};
 link0[] = {0,1};
 link1[] = {0,3};
 link2[] = {1,2};
@@ -44,7 +44,7 @@ link19[] = {17,6};
 link20[] = {18,19};
 link21[] = {19,15};
 globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-380.756256,570.609863,981.150391,-133.556305,763,894,1};
-window[] = {2,-1,-1,-1,-1,848,130,1832,130,3,781};
+window[] = {2,-1,-1,-1,-1,952,234,1936,234,3,781};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -230,7 +230,7 @@ class FSM
                          "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n
                          "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n
                          "if (unitIsUAV _wreck) then {" \n
-                         "	{_wreck deleteVehicleCrew _x;false} count (crew _wreck);" \n
+                         "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n
                          "};" \n
                          "deleteVehicle _wreck;" \n
                          "" \n
@@ -342,7 +342,7 @@ class FSM
                          "	createVehicleCrew _new_vec;" \n
                          "	private _crew = crew _new_vec;" \n
                          "	if (d_with_ai && {!(_crew isEqualTo [])}) then {" \n
-                         "		(group (_crew # 0)) setVariable [""d_do_not_delete"", true];" \n
+                         "		(group (_crew select 0)) setVariable [""d_do_not_delete"", true];" \n
                          "	};" \n
                          "	_new_vec allowCrewInImmobile true;" \n
                          "	if !(_crew isEqualTo []) then {" \n

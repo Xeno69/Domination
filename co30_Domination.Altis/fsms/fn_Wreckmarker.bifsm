@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -24,13 +24,13 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="private _vec = _this;" \n "private _thedesmarker = """";" \n "" \n "if (unitIsUAV _vec) then {" \n "	{" \n "		_vec deleteVehicleCrew _x;" \n "		false" \n "	} count (crew _vec);" \n "};";
+				InitCode="private _vec = _this;" \n "private _thedesmarker = """";" \n "" \n "if (unitIsUAV _vec) then {" \n "	{_vec deleteVehicleCrew _x} forEach (crew _vec);" \n "};";
 			};
 		};
 	};
 	class Item1
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=428.55801;
 		Top=576.67755;
@@ -91,7 +91,7 @@ class GraphItems
 		{
 			Text="Loop speed";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -220,7 +220,7 @@ class GraphItems
 		{
 			Text="Saftey Speed Check";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -349,7 +349,7 @@ class GraphItems
 		{
 			Text="Create Marker";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -401,7 +401,7 @@ class GraphItems
 		{
 			Text="Sleep";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -478,7 +478,7 @@ class GraphItems
 		{
 			Text="Pickup loop";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -608,7 +608,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -659,7 +659,7 @@ class GraphItems
 			Text="No more repairs" \n "";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -674,7 +674,7 @@ class GraphItems
 	};
 	class Item26
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=453.1557;
 		Top=1247.7369;
@@ -792,7 +792,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -1265,10 +1265,10 @@ class Globals
 	DefaultLinkColorFromSelected=6316287;
 	DefaultLinkColorToSelected=6356832;
 	DefaultLinkUseCustom=1;
-	PZoomLeft=-177.37184;
-	PZoomRight=631.31091;
-	PZoomBottom=1887.0859;
-	PZoomTop=932.04987;
+	PZoomLeft=-217.80598;
+	PZoomRight=671.745;
+	PZoomBottom=1537.0313;
+	PZoomTop=486.49155;
 	Clxs=757;
 	Clys=894;
 	Aspect=1;

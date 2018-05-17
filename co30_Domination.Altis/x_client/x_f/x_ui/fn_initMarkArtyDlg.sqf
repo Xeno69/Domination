@@ -13,8 +13,7 @@ private _marray = getArray(configFile>>"CfgVehicles">>typeOf (d_ao_arty_vecs # 0
 _marray = _marray - ["6Rnd_155mm_Mo_AT_mine", "6Rnd_155mm_Mo_mine"];
 {
 	_magsv pushBackUnique _x;
-	false
-} count (_marray select {getText(configFile>>"CfgAmmo">>getText(_cfgmagx>>_x>>"ammo")>>"submunitionAmmo") != "Mo_ClassicMineRange"});
+} forEach (_marray select {getText(configFile>>"CfgAmmo">>getText(_cfgmagx>>_x>>"ammo")>>"submunitionAmmo") != "Mo_ClassicMineRange"});
 
 private _ammonv = [];
 _ammonv resize (count _magsv);
@@ -34,7 +33,7 @@ _ctrl lbSetCurSel 0;
 
 _ctrl = _dispx displayCtrl 889;
 if (!d_with_ranked) then {
-	{_ctrl lbAdd _x;false} count ["1", "2", "3"];
+	{_ctrl lbAdd _x} forEach ["1", "2", "3"];
 } else {
 	private _rank = rank player;
 	private _sels = if (_rank in ["PRIVATE","CORPORAL"]) then {
@@ -46,7 +45,7 @@ if (!d_with_ranked) then {
 			["1", "2", "3"]
 		};
 	};
-	{_ctrl lbAdd _x;false} count _sels;
+	{_ctrl lbAdd _x} forEach _sels;
 };
 _ctrl lbSetCurSel 0;
 ctrlSetFocus (_dispx displayCtrl 1212);

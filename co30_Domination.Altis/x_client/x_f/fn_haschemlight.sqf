@@ -8,7 +8,6 @@ if (isDedicated) exitWith {};
 private _chemar = [];
 {
 	_chemar pushBackUnique _x;
-	false
-} count ((magazines player) select {getText(configFile>>"CfgMagazines">>_x>>"nameSound") == "Chemlight"});
+} forEach ((magazines player) select {getText(configFile>>"CfgMagazines">>_x>>"nameSound") == "Chemlight"});
 
 _chemar

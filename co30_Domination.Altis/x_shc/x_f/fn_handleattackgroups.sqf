@@ -9,8 +9,7 @@ params ["_grps"];
 private _allunits = [];
 {
 	_allunits append ((units _x) select {alive _x});
-	false
-} count _grps;
+} forEach _grps;
 
 if (_allunits isEqualTo []) exitWith {
 	d_c_attacking_grps = [];

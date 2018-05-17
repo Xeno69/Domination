@@ -30,8 +30,8 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_nextpos set [2,0];
 	_onevec addEventHandler ["killed", {
 		d_confvdown = d_confvdown + 1;
-		(param [0]) removeAllEventHandlers "killed";
-		{(param [0]) deleteVehicleCrew _x;false} count (crew (param [0]));
+		(_this select 0) removeAllEventHandlers "killed";
+		{(_this select 0) deleteVehicleCrew _x} forEach (crew (_this select 0));
 	}];
 #ifdef __TT__
 	_onevec addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];

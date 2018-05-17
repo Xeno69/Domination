@@ -76,8 +76,7 @@ if !(_ar isEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];
 		d_player_created pushBack _vec;
-		false
-	} count _ar;
+	} forEach _ar;
 };
 
 removeAllOwnedMines _unit;

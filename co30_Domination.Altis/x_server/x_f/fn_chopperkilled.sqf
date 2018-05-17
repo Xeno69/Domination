@@ -6,7 +6,7 @@
 _this call d_fnc_fuelCheck;
 private _ropes = (_this select 0) getVariable "d_ropes";
 if (!isNil "_ropes") then {
-	{ropeDestroy _x;false} count (_ropes select {!isNull _x});
+	{ropeDestroy _x} forEach (_ropes select {!isNull _x});
 	(_this select 0) setVariable ["d_ropes", nil];
 };
 private _attached = (_this select 0) getVariable "d_attachedto_v";

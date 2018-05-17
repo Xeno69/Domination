@@ -1,7 +1,7 @@
 class D_FakeUAVDialog {
 	idd = -1;
 	movingEnable = true;
-	onLoad = "uiNamespace setVariable ['D_FakeUAVDialog', param [0]]";
+	onLoad = "uiNamespace setVariable ['D_FakeUAVDialog', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['D_FakeUAVDialog', nil]";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

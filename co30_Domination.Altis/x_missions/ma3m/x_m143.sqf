@@ -33,10 +33,10 @@ if (isServer) then {
     [format["uav_%1",_cm], _cm,"ICON","ColorBlack",[0.5,0.5],"uav",0,"mil_dot"] call FUNC(CreateMarkerLocal);
 #endif	
 	__AddToExtraVec(_cm)
-	_cm addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal);(param [0]) spawn {sleep 2;deleteVehicle _this}}];
+	_cm addEventHandler ["killed", {_this call FUNC(KilledSMTargetNormal);(_this select 0) spawn {sleep 2;deleteVehicle _this}}];
 	_cm addMPEventHandler ["MPKilled", {
 		if (isServer) then {
-			if ((param [1]) call d_fnc_isplayer) then {(param [1]) addScore 5};
+			if ((_this select 1) call d_fnc_isplayer) then {(_this select 1) addScore 5};
 		};
 	}];
 	sleep 20;
@@ -84,7 +84,7 @@ if (isServer) then {
 					_newgroup deleteGroupWhenEmpty true;
 					[_newgroup, _exact_pos] call FUNC(AttackWP);
 					GVAR(x_sm_rem_ar) append _units;
-					{_x triggerDynamicSimulation true; false} count _units;
+					{_x triggerDynamicSimulation true} forEach _units;
 					sleep 1.012;
 				};				
 				_unit_array = nil;

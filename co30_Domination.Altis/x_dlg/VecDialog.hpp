@@ -1,7 +1,7 @@
 class D_VecDialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "uiNamespace setVariable ['D_VecDialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;call d_fnc_initvecdialog;d_vec_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_VecDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;call d_fnc_initvecdialog;d_vec_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_VecDialog', nil];d_vec_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

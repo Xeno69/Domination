@@ -32,7 +32,7 @@ if (!isNil "_lon") then {
 private _ropes = _chopper getVariable "d_ropes";
 __TRACE_1("","_ropes")
 if (!isNil "_ropes") then {
-	{ropeDestroy _x;false} count (_ropes select {!isNull _x});
+	{ropeDestroy _x} forEach (_ropes select {!isNull _x});
 };
 
 private _attached = _chopper getVariable "d_attachedto_v";

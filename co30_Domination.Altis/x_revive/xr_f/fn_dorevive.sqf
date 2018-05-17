@@ -26,8 +26,7 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 		if (xr_revivemsg) then {
 			{
 				[xr_name_player, (player getVariable "xr_cursorTarget") call d_fnc_getplayername] remoteExecCall ["xr_fnc_rmsg", _x];
-				false
-			} count d_own_sides_o;
+			} forEach d_own_sides_o;
 			systemChat format [localize "STR_DOM_MISSIONSTRING_914a", (player getVariable "xr_cursorTarget") call d_fnc_getplayername];
 		};
 		if (d_database_found) then {

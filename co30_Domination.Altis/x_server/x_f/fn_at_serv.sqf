@@ -42,6 +42,5 @@ if (d_no_ai) then {
 		};
 #endif
 		};
-		false
-	} count d_can_use_artillery;
+	} forEach d_can_use_artillery;
 };

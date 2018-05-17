@@ -29,8 +29,8 @@ private _subskill = if (diag_fps > 29) then {
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
 		_one_unit addEventHandler ["Killed", {
-			[1, param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-			(param [0]) removeAllEventHandlers "Killed";
+			[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+			(_this select 0) removeAllEventHandlers "Killed";
 		}];
 	};
 	_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));

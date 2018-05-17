@@ -27,8 +27,7 @@ if (units (group player) findIf {alive _x} > -1) then {
 					sleep 0.3;
 					{
 						deleteWaypoint _x;
-						false
-					} count _this;
+					} forEach _this;
 				};
 			};
 		};
