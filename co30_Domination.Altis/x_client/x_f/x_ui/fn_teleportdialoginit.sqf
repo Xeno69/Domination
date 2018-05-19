@@ -106,8 +106,7 @@ private _logtxt = "";
 		[_x # 0, visiblePositionASL _mrs, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 		d_respawn_anim_markers pushBack (_x # 0);
 	};
-	false
-} count d_mob_respawns;
+} forEach d_mob_respawns;
 
 {
 	__TRACE_1("","_x")
@@ -127,8 +126,7 @@ private _logtxt = "";
 	};
 	[_x # 0, _x # 1, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack (_x # 0);
-	false
-} count d_additional_respawn_points;
+} forEach d_additional_respawn_points;
 
 private _has_sql = 0;
 if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}) then {

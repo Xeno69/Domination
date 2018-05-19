@@ -68,7 +68,7 @@ if (_rtype == 0) then { // player died
 	"RadialBlur" ppEffectEnable false;
 
 	if (d_WithRevive == 1) then {
-		deleteVehicle ((param [1]) # 1);
+		deleteVehicle ((_this # 1) # 1);
 	};
 	
 	if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles",player]};
@@ -146,6 +146,12 @@ if (_rtype == 0) then { // player died
 			d_name_pl = _np;
 		};
 	};
+	
+	player disableConversation true;
+	if (!d_with_ai) then {
+		enableSentences false;
+	};
+	[player , "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
 	
 #ifndef __TT__
 	0 spawn {

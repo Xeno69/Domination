@@ -53,11 +53,17 @@ d_bonus_vecs_db = _ar # 9;
 	private _vec = createVehicle [_x, d_bonus_create_pos, [], 0, "NONE"];
 	if (unitIsUAV _vec) then {
 		createVehicleCrew _vec;
+		if (d_with_ai) then {
+			private _crew = crew _vec;
+			if !(_crew isEqualTo []) then {
+				(group (_crew # 0)) setVariable ["d_do_not_delete", true];
+			};
+		};
 		_vec allowCrewInImmobile true;
 	};
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
-		_endpos = (d_bonus_air_positions # d_bap_counter) params ["_endpos"];
+		_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
 		_dir = (d_bonus_air_positions # d_bap_counter) # 1;
 		d_bap_counter = d_bap_counter + 1;
 		if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};
@@ -75,10 +81,10 @@ d_bonus_vecs_db = _ar # 9;
 	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0; _this call d_fnc_bonusvecfnc}}];
 	
 	_vec addEventHandler ["getIn", {
-		private _ma = (param [0]) getVariable "d_abandoned_ma";
+		private _ma = (_this select 0) getVariable "d_abandoned_ma";
 		if (!isNil "_ma") then {
 			deleteMarker _ma;
-			(param [0]) setVariable ["d_abandoned_ma", nil];
+			(_this select 0) setVariable ["d_abandoned_ma", nil];
 		};
 	}];
 
@@ -138,10 +144,10 @@ _fnc_tt_bonusvec = {
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
 	_vec addEventHandler ["getIn", {
-		private _ma = (param [0]) getVariable "d_abandoned_ma";
+		private _ma = (_this select 0) getVariable "d_abandoned_ma";
 		if (!isNil "_ma") then {
 			deleteMarker _ma;
-			(param [0]) setVariable ["d_abandoned_ma", nil];
+			(_this select 0) setVariable ["d_abandoned_ma", nil];
 		};
 	}];
 
@@ -186,9 +192,8 @@ publicVariable "d_points_array";
 	private _tgt_ar = d_target_names # _res;
 	private _mar = format ["d_%1_dommtm", _tgt_ar # 1];
 	[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2]] call d_fnc_CreateMarkerGlobal;
-	_mar setMarkerAlpha d_e_marker_color_alpha;	
-	false
-} count d_resolved_targets;
+	_mar setMarkerAlpha d_e_marker_color_alpha;
+} forEach d_resolved_targets;
 
 
 if (!isNull _sender) then {

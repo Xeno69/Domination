@@ -10,7 +10,7 @@ __TRACE_1("","_this")
 params ["_unit"];
 if (_unit != player) exitWith {};
 
-private _item = param [2];
+private _item = _this select 2;
 
 if (d_without_nvg == 0 && {_item call d_fnc_isnvgoogles}) then {
 	_unit unlinkItem _item;
@@ -40,7 +40,7 @@ if (!_isvalid && {!(_item in d_non_check_items)}) then {
 		private _secits = player getVariable "d_pprimweapitems";
 		if !(primaryWeaponItems player isEqualTo _secits) then {
 			removeAllPrimaryWeaponItems player;
-			{player addPrimaryWeaponItem _x;false} count (_secits select {_x != ""});
+			{player addPrimaryWeaponItem _x} forEach (_secits select {_x != ""});
 		};
 		
 		_exit_it = true;
@@ -55,9 +55,8 @@ if (!_isvalid && {!(_item in d_non_check_items)}) then {
 				// removeAllSecondaryWeaponItems player; // this command does not exist in A3 even after 3 year...
 				{
 					player removeSecondaryWeaponItem _x;
-					false
-				} count (secondaryWeaponItems player);
-				{player addSecondaryWeaponItem _x;false} count (_secits select {_x != ""});
+				} forEach (secondaryWeaponItems player);
+				{player addSecondaryWeaponItem _x} forEach (_secits select {_x != ""});
 			};
 			
 			_exit_it = true;
@@ -70,7 +69,7 @@ if (!_isvalid && {!(_item in d_non_check_items)}) then {
 				private _secits = player getVariable "d_phandgweapitems";
 				if !(handgunItems player isEqualTo _secits) then {
 					removeAllHandgunItems player;
-					{player addHandgunItem _x;false} count (_secits select {_x != ""});
+					{player addHandgunItem _x} forEach (_secits select {_x != ""});
 				};
 				
 				_exit_it = true;
@@ -80,7 +79,7 @@ if (!_isvalid && {!(_item in d_non_check_items)}) then {
 };
 
 if (_exit_it) exitWith {
-	(param [1]) addItemCargo [_item, 1];
+	(_this select 1) addItemCargo [_item, 1];
 	systemChat format [localize "STR_DOM_MISSIONSTRING_1564", _rank, getText(_cfgi>>"displayname")];
 };
 

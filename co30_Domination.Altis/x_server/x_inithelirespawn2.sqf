@@ -35,8 +35,7 @@ d_helirespawn2_ar = [];
 		
 		_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_chopperkilled}}];
 	};
-	false
-} count _this;
+} forEach _this;
 
 __TRACE("Before d_fnc_helirespawn2")
 

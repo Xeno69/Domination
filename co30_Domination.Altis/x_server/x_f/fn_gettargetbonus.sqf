@@ -27,6 +27,12 @@ if (d_database_found) then {
 };
 if (unitIsUAV _vec) then {
 	createVehicleCrew _vec;
+	if (d_with_ai) then {
+		private _crew = crew _vec;
+		if !(_crew isEqualTo []) then {
+			(group (_crew # 0)) setVariable ["d_do_not_delete", true];
+		};
+	};
 	_vec allowCrewInImmobile true;
 };
 private _endpos = [];
@@ -188,10 +194,10 @@ if (!isNull _vec2) then {
 #endif
 
 _vec addEventHandler ["getIn", {
-	private _ma = (param [0]) getVariable "d_abandoned_ma";
+	private _ma = (_this select 0) getVariable "d_abandoned_ma";
 	if (!isNil "_ma") then {
 		deleteMarker _ma;
-		(param [0]) setVariable ["d_abandoned_ma", nil];
+		(_this select 0) setVariable ["d_abandoned_ma", nil];
 	};
 }];
 
@@ -219,10 +225,10 @@ _vec addMPEventhandler ["MPKilled", {_this # 0 setFuel 0}];
 #ifdef __TT__
 if (!isNull _vec2) then {
 		_vec2 addEventHandler ["getIn", {
-		private _ma = (param [0]) getVariable "d_abandoned_ma";
+		private _ma = (_this select 0) getVariable "d_abandoned_ma";
 		if (!isNil "_ma") then {
 			deleteMarker _ma;
-			(param [0]) setVariable ["d_abandoned_ma", nil];
+			(_this select 0) setVariable ["d_abandoned_ma", nil];
 		};
 	}];
 

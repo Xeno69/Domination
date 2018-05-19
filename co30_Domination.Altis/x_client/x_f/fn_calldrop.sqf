@@ -37,7 +37,7 @@ d_x_drop_type = "";
 createDialog "d_AirDropDialog";
 d_commandingMenuIniting = false;
 
-waitUntil {d_x_drop_type != "" || {!d_airdrop_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+waitUntil {!isNil "d_airdrop_dialog_open" && {d_x_drop_type != "" || {!d_airdrop_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
 
 deleteMarkerLocal "d_drop_marker_1";
 

@@ -7,6 +7,5 @@ deleteVehicle d_current_trigger;
 if (!isNil "d_f_check_triggers") then {
 	{
 		deleteVehicle _x;
-		false
-	} count d_f_check_triggers;
+	} forEach d_f_check_triggers;
 };

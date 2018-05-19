@@ -19,13 +19,11 @@ private _barray = [];
 		_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
 #endif
 	};
-	false
-} count _this;
+} forEach _this;
 
 private _num_t = count _barray;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	if ({damage _x >= 0.9 || {!alive _x}} count _barray == _num_t) exitWith {};
 	sleep 5.321;
 	__TRACE_1("","_barray")

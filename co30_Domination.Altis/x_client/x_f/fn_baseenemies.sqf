@@ -5,7 +5,7 @@
 
 if (isDedicated) exitWith {};
 
-switch (param [0]) do {
+switch (_this select 0) do {
 	case 0: {
 		hint composeText[
 			parseText format ["<t color='#f0ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_676"], lineBreak,

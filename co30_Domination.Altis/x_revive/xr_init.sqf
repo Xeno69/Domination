@@ -57,8 +57,7 @@ if (d_only_medics_canrevive != 0) then {
 		_x setVariable ["xr_ReviveAction", -9999];
 		_x setVariable ["xr_DragAction", -9999];
 	};
-	false
-} count ((allPlayers - entities "HeadlessClient_F") select {d_player_side getFriend side (group _x) >= 0.6});
+} forEach ((allPlayers - entities "HeadlessClient_F") select {d_player_side getFriend side (group _x) >= 0.6});
 
 addMissionEventHandler ["Draw3D", {
 	if (alive player && {!(xr_uncon_units isEqualTo [])}) then {
@@ -69,8 +68,7 @@ addMissionEventHandler ["Draw3D", {
 			if (_dist < 400) then {
 				drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.04)], 1, 1, 0, "(Uncon) " + (_x call d_fnc_getplayername), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
 			};
-			false
-		} count xr_uncon_units;
+		} forEach xr_uncon_units;
 	};
 }];
 

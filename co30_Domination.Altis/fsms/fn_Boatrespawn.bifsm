@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -94,7 +94,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -119,7 +119,7 @@ class GraphItems
 		{
 			Text="Init";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -145,7 +145,7 @@ class GraphItems
 			Text="Delay 300";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -170,7 +170,7 @@ class GraphItems
 		{
 			Text="Loop";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -222,7 +222,7 @@ class GraphItems
 		{
 			Text="Sleep";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -274,7 +274,7 @@ class GraphItems
 			Text="Delay Random";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -307,7 +307,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=11;
-				InitCode="{" \n "	private _boat_a = _x;" \n "	private _boat = _boat_a select 0;" \n "	if (damage _boat >= 0.9 || {!alive _boat || {_boat distance (_boat_a select 1) > 50}}) then {" \n "		if ({alive _x} count (crew _boat) == 0) then {" \n "			deleteVehicle _boat;" \n "			_boat = createVehicle [_boat_a select 3, _boat_a select 1, [], 0, ""NONE""];" \n "			_boat setDir (_boat_a select 2);" \n "			_boat setPos (_boat_a select 1);" \n "			_boat_a set [0, _boat];" \n "		};" \n "	};" \n "	false" \n "} count _boats_a;" \n "_timenow = time + (120 + random 5);";
+				InitCode="private [""_boat_a"", ""_boat""];" \n "{	" \n "	_boat_a = _x;" \n "	_boat = _boat_a select 0;" \n "	if (damage _boat >= 0.9 || {!alive _boat || {_boat distance (_boat_a select 1) > 50}}) then {" \n "		if ((crew _boat) findIf {alive _x} == -1) then {" \n "			deleteVehicle _boat;" \n "			_boat = createVehicle [_boat_a select 3, _boat_a select 1, [], 0, ""NONE""];" \n "			_boat setDir (_boat_a select 2);" \n "			_boat setPos (_boat_a select 1);" \n "			_boat_a set [0, _boat];" \n "		};" \n "	};" \n "} forEach _boats_a;" \n "_timenow = time + (120 + random 5);";
 			};
 		};
 	};
@@ -524,10 +524,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=52;
-	Top=52;
-	Right=1012;
-	Bottom=770;
+	Left=26;
+	Top=26;
+	Right=986;
+	Bottom=744;
 	ShowCmd=3;
 	SplitPos=757;
 };

@@ -13,7 +13,6 @@ if (units (group player) findIf {alive _x} > -1) then {
 			private _np_unit = player getPos [1 + random 3, random 360];
 			_x setPosASL [_np_unit # 0, _np_unit # 1, _posasl_p # 2];
 			sleep 0.2;
-			//_x reveal player;
 			_x doFollow player;
 			sleep 0.1;
 			_hasunits = true;
@@ -28,8 +27,7 @@ if (units (group player) findIf {alive _x} > -1) then {
 					sleep 0.3;
 					{
 						deleteWaypoint _x;
-						false
-					} count _this;
+					} forEach _this;
 				};
 			};
 		};
@@ -47,6 +45,7 @@ if (units (group player) findIf {alive _x} > -1) then {
 			_obj_para setVelocity _veloc;
 			_obj_para setPos [_np_unit # 0, _np_unit # 1, _z_po];
 			_x moveInDriver _obj_para;
+			sleep 0.2;
 			[_x] spawn {
 				scriptName "spawnx_moveai_paraAI";
 				params ["_unit"];
@@ -55,6 +54,6 @@ if (units (group player) findIf {alive _x} > -1) then {
 				if (alive _unit && {(getPosATL _unit) # 2 > 1}) then {[_unit, 0] call d_fnc_SetHeight};
 			};
 			false
-		} count ((formationMembers player) select {!(_x call d_fnc_isplayer) && {alive _x && {isNull objectParent _x && {_x distance2D _pos_p > 500}}}});
+		} forEach ((formationMembers player) select {!(_x call d_fnc_isplayer) && {alive _x && {isNull objectParent _x && {_x distance2D _pos_p > 500}}}});
 	};
 };

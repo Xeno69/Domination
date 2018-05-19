@@ -7,7 +7,7 @@ item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"
 link0[] = {0,1};
 link1[] = {1,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,748,768,1};
-window[] = {0,-1,-1,-1,-1,966,26,1614,26,1,766};
+window[] = {0,-1,-1,-1,-1,992,182,1770,52,1,766};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -31,8 +31,7 @@ class FSM
                          "{" \n
                          "	_delfirebase_objects pushBackUnique _x;" \n
                          "	_x setVariable [""d_v_p_mt_t"", getPosATL _x];" \n
-                         "	false" \n
-                         "} count d_delvecsmt;" \n
+                         "} forEach d_delvecsmt;" \n
                          "" \n
                          "private _endtime = time + 120 + (random 60);" \n
                          "" \n
@@ -61,19 +60,18 @@ class FSM
                         name = "End";
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"private _vecs = [];" \n
-                         "{_vecs append _x;false} count (missionNamespace getVariable format [""d_veh_a_%1"", d_enemy_side_short]);" \n
+                         "{_vecs append _x} forEach (missionNamespace getVariable format [""d_veh_a_%1"", d_enemy_side_short]);" \n
                          "" \n
                          "private _no = _delpos nearEntities [_vecs, _tradius];" \n
                          "" \n
                          "if !(_no isEqualTo []) then {" \n
                          "	{" \n
-                         "		if ({_x call d_fnc_isplayer} count (crew _x) == 0) then {" \n
+                         "		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {" \n
                          "			_x call d_fnc_DelVecAndCrew;" \n
                          "		} else {" \n
                          "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n
                          "		};" \n
-                         "		false" \n
-                         "	} count _no;" \n
+                         "	} forEach _no;" \n
                          "};" \n
                          "" \n
                          "_no = nil;" \n
@@ -90,14 +88,12 @@ class FSM
                          "				};" \n
                          "			};" \n
                          "		};" \n
-                         "		false" \n
-                         "	} count _delfirebase_objects;" \n
+                         "	} forEach _delfirebase_objects;" \n
                          "};" \n
                          "" \n
                          "{" \n
                          "	deleteVehicle _x;" \n
-                         "	false" \n
-                         "} count _delmines;" \n
+                         "} forEach _delmines;" \n
                          "" \n
                          "if (!isNull _mtmissionobj) then {" \n
                          "	if (_mtmissionobj isKindOf ""House"") then {_mtmissionobj setDamage 0};" \n

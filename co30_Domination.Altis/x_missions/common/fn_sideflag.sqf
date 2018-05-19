@@ -34,7 +34,6 @@ d_sm_flag_failed = false;
 private _ownerthere = false;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	private _owner = flagOwner _flag;
 	
 	if (!isNull _owner && {isNil {_owner getVariable "d_flagowner"}}) then {

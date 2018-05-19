@@ -7,8 +7,7 @@ if (!isServer || {d_all_sm_res}) exitWith{};
 
 {
 	_x setDamage 0;
-	false
-} count d_house_objects2;
+} forEach d_house_objects2;
 d_house_objects2 = [];
 
 if (d_current_mission_counter >= d_number_side_missions) exitWith {
@@ -37,7 +36,7 @@ __TRACE_1("","_cur_sm_idx")
 d_x_sm_rem_ar = [];
 d_x_sm_vec_rem_ar = [];
 
-//_cur_sm_idx = param [0];
+//_cur_sm_idx = _this select 0;
 //_cur_sm_idx = 24;
 
 if (isNil "d_HC_CLIENT_OBJ_OWNER") then {

@@ -9,9 +9,9 @@ d_side_main_done = true;
 if (d_IS_HC_CLIENT) then {
 	[missionNamespace, ["d_side_main_done", true]] remoteExecCall ["setVariable", 2];
 };
-private _type = param [count _this - 1];
+private _type = _this select (count _this - 1);
 #ifdef __TT__
-private _killer = param [2];
+private _killer = _this select 2;
 private _si = side (group _killer);
 __TRACE_3("","_type","_killer","_si")
 if !(_si in [blufor, opfor]) then {_type = "sec_over"};
@@ -37,11 +37,11 @@ if (!isNull _killer) then {
 	};
 };
 #else
-[42, (["sec_over", _type] select (side (group (param [1])) == d_side_player)) call d_fnc_GetSMTargetMessage] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[42, (["sec_over", _type] select (side (group (_this select 1)) == d_side_player)) call d_fnc_GetSMTargetMessage] remoteExecCall ["d_fnc_DoKBMsg", 2];
 #endif
 if (d_database_found) then {
 #ifndef __TT__
-	private _killer = param [2];
+	private _killer = _this select 2;
 #endif
 	if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
 		[_killer, 3] remoteExecCall ["d_fnc_addppoints", 2];

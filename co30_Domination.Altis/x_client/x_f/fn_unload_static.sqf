@@ -18,7 +18,7 @@ if (_tr_cargo_ar isEqualTo []) exitWith {};
 d_current_truck_cargo_array = _tr_cargo_ar;
 createDialog "d_UnloadDialog";
 
-waitUntil {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+waitUntil {!isNil "d_unload_dialog_open" && {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
 
 if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {if (d_unload_dialog_open) then {closeDialog 0}};
 
@@ -43,16 +43,16 @@ private _place_error = false;
 systemChat (localize "STR_DOM_MISSIONSTRING_84");
 d_e_placing_running = 0; // 0 = running, 1 = placed, 2 = placing canceled
 d_e_placing_id1 = player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_85"], {
-	private _caller = param [1];
+	private _caller = _this select 1;
 	d_e_placing_running = 2;
-	_caller removeAction (param [2]);
+	_caller removeAction (_this select 2);
 	_caller removeAction d_e_placing_id2;
 	d_e_placing_id1 = -1000;
 	d_e_placing_id2 = -1000;
 }];
 d_e_placing_id2 = player addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_86"], {
-	private _caller = param [1];
-	private _id = param [2];
+	private _caller = _this select 1;
+	private _id = _this select 2;
 	d_e_placing_running = 1;
 	_caller removeAction _id;
 	_caller removeAction d_e_placing_id1;

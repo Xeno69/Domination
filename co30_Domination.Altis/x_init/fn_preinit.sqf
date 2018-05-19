@@ -458,41 +458,32 @@ if (isServer) then {
 			d_use_sql_settings = false;
 			
 			private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+			diag_log ["Dom Database result loading dom_settings:", _dbresult];
 			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
 				{
 					call {
-						if (_x # 0 == "d_reserved_slot") exitWith {
+						if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 							if !((_x # 1) isEqualTo []) then {
 								missionNamespace setVariable [_x # 0, _x # 1, true];
 							};
 						};
-						if (_x # 0 == "d_uid_reserved_slots") exitWith {
-							if !((_x # 1) isEqualTo []) then {
-								missionNamespace setVariable [_x # 0, _x # 1, true];
-							};
-						};
-						if (_x # 0 == "d_uids_for_reserved_slots") exitWith {
-							if !((_x # 1) isEqualTo []) then {
-								missionNamespace setVariable [_x # 0, _x # 1, true];
-							};
+						if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 #ifdef __TT__
 						if (_x # 0 == "d_tt_points") exitWith {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 #endif
-						if (_x # 0 == "d_cas_available_time") exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
-						if (_x # 0 == "d_ranked_a") exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
 					};
-					false;
-				} count (_dbresult # 1);
+				} forEach (_dbresult # 1);
 			};
 			
-			if (!isNil "paramsArray" && {d_use_sql_settings}) then {
+			if (!isMultiplayer && {isNil "paramsArray"}) then {
+				paramsArray = [];
+			};
+			
+			if (d_use_sql_settings) then {
 				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
 				diag_log ["Dom Database result standard params:", _dbresult];
 				if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
@@ -502,10 +493,15 @@ if (isServer) then {
 					if (isClass (getMissionConfig "Params")) then {
 						_dbresult = _dbresult # 1;
 						private _conf = getMissionConfig "Params";
+						if (paramsArray isEqualTo []) then {
+							paramsArray resize (count _conf);
+						};
 						for "_i" from 0 to (count _conf - 1) do {
-							private _cname = configName (_conf # _i);
+							private _cname = configName (_conf select _i);
 							private _fidx = _dbresult findIf {_x # 0 == _cname};
-							paramsArray set [_i, _dbresult # _fidx # 1];							
+							if (_fidx != -1) then {
+								paramsArray set [_i, _dbresult # _fidx # 1];							
+							};
 						};
 						publicVariable "paramsArray";
 					};
@@ -513,7 +509,7 @@ if (isServer) then {
 					if (isClass (getMissionConfig "Params")) then {
 						private _conf = getMissionConfig "Params";
 						for "_i" from 0 to (count _conf - 1) do {
-							private _paramName = configName (_conf # _i);
+							private _paramName = configName (_conf select _i);
 							private _paramval = getNumber (_conf>>_paramName>>"default");
 							if (_paramval != -99999) then {
 								"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
@@ -521,6 +517,9 @@ if (isServer) then {
 						};
 					};
 				};
+			};
+			if (!isMultiplayer && {!isNil "paramsArray"}) then {
+				paramsArray = nil;
 			};
 		};
 	};
@@ -632,8 +631,7 @@ if (!d_tt_tanoa) then {
 			if (_ran < 4) then {_ran = 4};
 			_x resize _ran;
 		};
-		false
-	} count d_allmen_W;
+	} forEach d_allmen_W;
 #endif
 	d_allmen_G = [
 		#include "d_allmen_G_default.sqf"
@@ -920,8 +918,6 @@ if (!d_tt_tanoa) then {
 		"G_40mm_HE" // dpicm
 	];
 
-	d_all_simulation_stoped = false;
-
 	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
 	d_hd_sim_types apply {toUpper _x};
 
@@ -1189,41 +1185,53 @@ if (hasInterface) then {
 	// points needed to get a specific rank
 	// gets even used in the unranked versions, though it's just cosmetic there
 #ifndef __TT__
-	d_points_needed = [
-		20, // Corporal
-		50, // Sergeant
-		90, // Lieutenant
-		140, // Captain
-		200, // Major
-		270 // Colonel
-	];
+	if (isNil "d_points_needed") then {
+		d_points_needed = [
+			20, // Corporal
+			50, // Sergeant
+			90, // Lieutenant
+			140, // Captain
+			200, // Major
+			270, // Colonel
+			500 // General
+		];
+	};
 	
-	d_points_needed_db = [
-		3000, // Corporal
-		8000, // Sergeant
-		15000, // Lieutenant
-		30000, // Captain
-		70000, // Major
-		140000 // Colonel
-	];
+	if (isNil "d_points_needed_db") then {
+		d_points_needed_db = [
+			500, // Corporal
+			2000, // Sergeant
+			5000, // Lieutenant
+			9000, // Captain
+			14000, // Major
+			20000, // Colonel
+			30000 // General
+		];
+	};
 #else
-	d_points_needed = [
-		100, // Corporal
-		400, // Sergeant
-		1000, // Lieutenant
-		3000, // Captain
-		6000, // Major
-		12000 // Colonel
-	];
+	if (isNil "d_points_needed") then {
+		d_points_needed = [
+			100, // Corporal
+			400, // Sergeant
+			800, // Lieutenant
+			1600, // Captain
+			3000, // Major
+			5000, // Colonel
+			8000 // General
+		];
+	};
 	
-	d_points_needed_db = [
-		5000, // Corporal
-		10000, // Sergeant
-		20000, // Lieutenant
-		40000, // Captain
-		80000, // Major
-		160000 // Colonel
-	];
+	if (isNil "d_points_needed_db") then {
+		d_points_needed_db = [
+			500, // Corporal
+			2000, // Sergeant
+			5000, // Lieutenant
+			9000, // Captain
+			14000, // Major
+			20000, // Colonel
+			30000 // General
+		];
+	};
 #endif
 
 	d_marker_vecs = [];

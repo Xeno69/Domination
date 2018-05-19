@@ -5,6 +5,6 @@
 
 #include "\a3\editor_f\Data\Scripts\dikCodes.h"
 
-if (!(param [2]) && {!(param [3]) && {!(param [4])}}) then {
-	(param [1]) in xr_drag_keys_ar
+if (!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}) then {
+	(_this select 1) in xr_drag_keys_ar
 }

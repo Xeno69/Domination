@@ -9,8 +9,8 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
-if (str _pl == "HC_D_UNIT") exitWith {
-	d_HC_CLIENT_OBJ_OWNER = owner HC_D_UNIT;
+if ((str _pl) select [0, 9] == "HC_D_UNIT") exitWith {
+	d_HC_CLIENT_OBJ_OWNER = owner _pl;
 	__TRACE_1("","d_HC_CLIENT_OBJ_OWNER")
 };
 
@@ -22,7 +22,7 @@ private _uid = getPlayerUID _pl;
 private _p = d_player_store getVariable _uid;
 private _f_c = false;
 if (isNil "_p") then {
-	_p = [d_AutoKickTime, time, "", 0, str _pl, sideUnknown, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
+	_p = [time + d_AutoKickTime, time, "", 0, str _pl, sideUnknown, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
 	d_player_store setVariable [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
@@ -34,6 +34,9 @@ if (isNil "_p") then {
 	};
 	if (time - (_p # 9) > 600) then {
 		_p set [8, xr_max_lives];
+	};
+	if (_p # 0 > -1) then {
+		_p set [0, time + (_p # 0)];
 	};
 	_p set [1, time];
 	_p set [4, str _pl];
@@ -61,7 +64,7 @@ if (d_database_found) then {
 				d_player_store setVariable [_uid + "_scores", [0, 0, 0, 0, 0, ((_dbresult # 1) # 0) # 0]];
 				[_pl, ((_dbresult # 1) # 0) # 0] spawn {
 					params ["_pl", "_tsp"];
-					sleep 5;
+					sleep 10;
 					_pl addScore (_tsp - score _pl);
 				};
 			};

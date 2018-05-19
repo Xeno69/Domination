@@ -31,18 +31,13 @@ if (!d_with_ace) then {
 	if (alive _healed && {alive _healer && {_healed != _healer && {!(_healed getVariable ["ace_isunconscious", false]) && {!(_healer getVariable ["ace_isunconscious", false])}}}}) then {
 		// Select points (You can add different cases in here to support multiple ace medical actions and distribute points accordingly) 
 		// This differentiates between "normal" soldiers and ace medics - medics who have set Ace_medical_medicClass to 1 or 2 can get different points
-		if ((!isNil {_healer getVariable "Ace_medical_medicClass"}) && {((_healer getVariable "Ace_medical_medicClass") > 0)}) then {
+		if (!isNil {_healer getVariable "Ace_medical_medicClass"} && {(_healer getVariable "Ace_medical_medicClass") > 0}) then {
+			// it's the same?
 			// Medic & Doctor point rewards
-			_medicPoints = switch (_medicItem) do {
-				case ("PersonalAidKit"): {d_ranked_a select 17};
-				default {0};
-			};
+			_medicPoints = [0, d_ranked_a # 17] select (_medicItem == "PersonalAidKit");
 		} else {
 			// Standard soldier point rewards
-			_medicPoints = switch (_medicItem) do {
-				case ("PersonalAidKit"): {d_ranked_a select 17};
-				default {0};
-			};
+			_medicPoints = [0, d_ranked_a # 17] select (_medicItem == "PersonalAidKit");
 		};
 		
 		// Add points to player

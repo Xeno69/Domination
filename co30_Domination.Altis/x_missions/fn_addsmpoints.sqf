@@ -5,24 +5,24 @@
 
 __TRACE_1("","_this")
 
-if (!alive (param [0])) exitWith {
-	(param [0]) removeAllEventHandlers "handleDamage";
-	if (!isNull param [6] && {(param [6]) call d_fnc_isplayer}) then {
-		if (side (group param [6]) == opfor) then {
+if (!alive (_this select 0)) exitWith {
+	(_this select 0) removeAllEventHandlers "handleDamage";
+	if (!isNull (_this select 6) && {(_this select 6) call d_fnc_isplayer}) then {
+		if (side (group (_this select 6)) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;
 		} else {
-			if (side (group param [6]) == blufor) then {
+			if (side (group (_this select 6)) == blufor) then {
 				d_sm_points_blufor = d_sm_points_blufor + 1;
 			};
 		};
 	};
 };
 
-if (param [1] == "" && {!isNull param [6] && {(param [6]) call d_fnc_isplayer}}) then {
-	if (side (group param [6]) == opfor) then {
+if (_this select 1 == "" && {!isNull (_this select 6) && {(_this select 6) call d_fnc_isplayer}}) then {
+	if (side (group (_this select 6)) == opfor) then {
 		d_sm_points_opfor = d_sm_points_opfor + 1;
 	} else {
-		if (side (group param [6]) == blufor) then {
+		if (side (group (_this select 6)) == blufor) then {
 			d_sm_points_blufor = d_sm_points_blufor + 1;
 		};
 	};

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_mhqcheckneartarget.sqf"
 #include "..\..\x_setup.sqf"
 
-private _vec = param [0];
+params ["_vec"];
 while {d_player_in_vec} do {
 #ifndef __TT__
 	if (fuel _vec != 0 && {player == driver _vec && {!(_vec inArea d_base_array)}}) then {

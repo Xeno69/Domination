@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_tkkickcheck.sqf"
 #include "..\..\x_setup.sqf"
 
-private _tk = param [2];
+private _tk = _this select 2;
 _tk addScore (d_sub_tk_points * -1);
 private _uid = getPlayerUID _tk;
 __TRACE_2("TKKickCheck","_tk","_uid")

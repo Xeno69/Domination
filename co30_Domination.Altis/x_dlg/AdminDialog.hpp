@@ -1,7 +1,7 @@
 class D_AdminDialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "if (serverCommandExecutable '#shutdown' || {isServer}) then {uiNamespace setVariable ['D_AdminDialog', param [0]];d_admin_dialog_open = true;[param [0]] call bis_fnc_guiEffectTiles} else {[player, d_name_pl, 3] remoteExecCall ['KickPlayerBS', 2];}";
+	onLoad = "if (serverCommandExecutable '#shutdown' || {isServer}) then {uiNamespace setVariable ['D_AdminDialog', _this select 0];d_admin_dialog_open = true;[_this select 0] call bis_fnc_guiEffectTiles} else {[player, d_name_pl, 3] remoteExecCall ['KickPlayerBS', 2];}";
 	onUnLoad = "uiNamespace setVariable ['D_AdminDialog', nil];d_admin_dialog_open = false;";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

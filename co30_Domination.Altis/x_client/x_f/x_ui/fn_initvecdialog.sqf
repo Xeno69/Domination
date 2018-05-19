@@ -57,8 +57,7 @@ if (_caller != driver _vec) then {
 				private _index = __control(44449) lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
 				__control(44449) lbSetPicture [_index, getText(configFile>>"cfgVehicles">>_x>>"picture")];
 				__control(44449) lbSetColor [_index, [1, 1, 0, 0.5]];
-				false
-			} count d_create_bike;
+			} forEach d_create_bike;
 
 			__control(44449) lbSetCurSel 0;
 		} else {
@@ -133,7 +132,7 @@ __control(44460) ctrlShow false;
 #endif
 
 0 spawn {
-	waitUntil {!d_vec_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+	waitUntil {!isNil "d_vec_dialog_open" && {!d_vec_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
 
 	if (d_vec_dialog_open) then {closeDialog 0};
 };

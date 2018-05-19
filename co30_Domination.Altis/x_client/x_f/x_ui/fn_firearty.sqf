@@ -36,8 +36,7 @@ if (getText(_ammoconf>>"effectFlare") != "CounterMeasureFlare" && {getText(_ammo
 			case "GUER": {"SoldierGB"};
 			default {"SoldierWB"};
 		});
-		false
-	} count d_own_sides;
+	} forEach d_own_sides;
 	_no = _curmar_pos nearEntities [_man_types, 20];
 };
 

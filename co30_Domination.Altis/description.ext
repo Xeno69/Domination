@@ -242,6 +242,7 @@ class CfgRemoteExec {
 		class createDiaryRecord {allowedTargets = 1;};
 		class deleteGroup {allowedTargets=0;};
 		class setOwner {allowedTargets = 2;};
+		class setSpeaker {allowedTargets = 1;};
 #ifdef __TT__
 		class deleteMarkerLocal {allowedTargets = 1;};
 		class systemChat {allowedTargets = 1;};
@@ -991,7 +992,7 @@ class CfgSounds {
 class d_RscAnimatedLetters {
 	idd = -1;
 	movingEnable = false;
-	onLoad = "uiNamespace setVariable ['d_RscAnimatedLetters', param [0]]";
+	onLoad = "uiNamespace setVariable ['d_RscAnimatedLetters', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_RscAnimatedLetters', nil]";
 	class Controls {
 		__EXEC(idc = 5000)

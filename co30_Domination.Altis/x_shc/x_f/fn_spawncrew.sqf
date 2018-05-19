@@ -56,15 +56,14 @@ if (count _crew > 0) then {
 #endif
 		if (d_with_ai && {d_with_ranked}) then {
 			_x addEventHandler ["Killed", {
-				[1, param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-				(param [0]) removeAllEventHandlers "Killed";
+				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+				(_this select 0) removeAllEventHandlers "Killed";
 			}];
 		};
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];
 		_x setSkill ["spotTime", _subskill];
-		false
-	} count _crew;
+	} forEach _crew;
 	if !(isNull (driver _vec)) then {(driver _vec) setRank "LIEUTENANT"};
 	if !(isNull (gunner _vec)) then {(gunner _vec) setRank "SERGEANT"};
 	if !(isNull (effectiveCommander _vec)) then {(effectiveCommander _vec) setRank "CORPORAL"};

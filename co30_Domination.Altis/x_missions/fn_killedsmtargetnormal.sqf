@@ -8,10 +8,8 @@ __TRACE_1("","_this")
 params ["_dvec", "", "_killer"];
 
 // Ace damagehandler fix
-if (d_with_ace) then {	
-	_killer = if (isNull _killer) then {
-        _dvec getVariable ["ace_medical_lastDamageSource", _killer];
-	} else { _killer };
+if (d_with_ace && {isNull _killer}) then {
+	_killer = _dvec getVariable ["ace_medical_lastDamageSource", _killer];
 };
 
 if !(_dvec isKindOf "CAManBase") then {

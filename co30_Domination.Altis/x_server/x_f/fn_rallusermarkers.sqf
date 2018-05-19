@@ -5,5 +5,4 @@
 
 {
 	deleteMarker _x;
-	false
-} count (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
+} forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});

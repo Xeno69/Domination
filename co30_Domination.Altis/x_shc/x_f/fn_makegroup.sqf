@@ -24,8 +24,7 @@ if (_numvecs > 0) then {
 		([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup) params ["_tmpvecs"];
 		{
 			_x enableWeaponDisassembly false;
-			false
-		} count _tmpvecs;
+		} forEach _tmpvecs;
 		_vecs append _tmpvecs;
 	};
 	_grp setSpeedMode "LIMITED";
@@ -58,7 +57,7 @@ if (_add_to_ar_type > 0) then {
 
 _grp allowFleeing (((floor random 3) + 1) / 10);
 
-private _sleepti = 2;
+private _sleepti = [5, 15] select (_grptype == "allmen" || {_grptype == "specops"});
 
 switch (_type) do {
 	case "patrol": {
@@ -86,7 +85,6 @@ switch (_type) do {
 		if (_grptype == "allmen" || {_grptype == "specops"}) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
-			_sleepti = 10;
 		} else {
 			_grp setCombatMode "YELLOW";
 			_grp setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"];
@@ -99,7 +97,6 @@ switch (_type) do {
 		if (_grptype == "allmen" || {_grptype == "specops"}) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
-			_sleepti = 10;
 		} else {
 			_grp setCombatMode "YELLOW";
 			_grp setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","FILE","DIAMOND"];
@@ -122,7 +119,7 @@ switch (_type) do {
 
 if (d_with_dynsim == 0) then {
 	[_grp, _sleepti] spawn {
-		sleep (param [1]);
-		(param [0]) enableDynamicSimulation true;
+		sleep (_this select 1);
+		(_this select 0) enableDynamicSimulation true;
 	};
 };

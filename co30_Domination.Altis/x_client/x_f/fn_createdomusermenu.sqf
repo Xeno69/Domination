@@ -72,8 +72,7 @@ if (!d_with_ace) then {
 				if (_strnum != "") then {
 					d_DomUserMenu pushBack [format [localize "STR_DOM_MISSIONSTRING_1506", getText(configFile>>"CfgMagazines">>_x>>"displayName")], [call _fnc_inc_num], "", -5, [["expression", _strnum + " call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 				};
-				false
-			} count _chemar;
+			} forEach _chemar;
 		};
 	} else {
 		if (_clattached != "") then {

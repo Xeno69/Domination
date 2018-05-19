@@ -19,7 +19,7 @@ if (!isNil "_val") then {
 			private _content = (_x # 0) getVariable ["d_objcont", []];
 			__TRACE_1("","_content")
 			if !(_content isEqualTo []) then {
-				{deleteVehicle _x;false} count _content;
+				{deleteVehicle _x} forEach _content;
 			};
 			
 			if ((_x # 0) isKindOf d_mash) then {
@@ -41,8 +41,7 @@ if (!isNil "_val") then {
 			};
 			deleteVehicle (_x # 0);
 		};
-		false
-	} count _val;
+	} forEach _val;
 	d_placed_objs_store setVariable [_pvar_name, nil];
 };
 
@@ -52,11 +51,10 @@ if (!isNil "_val") then {
 	{
 		if (unitIsUAV _x) then {
 			private _v = _x;
-			{_v deleteVehicleCrew _x;false} count (crew _v);
+			{_v deleteVehicleCrew _x} forEach (crew _v);
 		};
 		deleteVehicle _x;
-		false
-	} count (_val select {!isNull _x});
+	} forEach (_val select {!isNull _x});
 	d_placed_objs_store2 setVariable [_pvar_name, nil];
 };
 
@@ -65,7 +63,6 @@ __TRACE_1("3","_val")
 if (!isNil "_val") then {
 	{
 		deleteVehicle _x;
-		false
-	} count (_val select {!isNull _x});
+	} forEach (_val select {!isNull _x});
 	d_placed_objs_store3 setVariable [_pvar_name, nil];
 };

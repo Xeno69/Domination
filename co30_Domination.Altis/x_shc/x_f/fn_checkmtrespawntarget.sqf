@@ -12,15 +12,22 @@ if (_type == 0) then {
 		d_mt_barracks_down = true;
 		[missionNamespace, ["d_mt_barracks_down", true]] remoteExecCall ["setVariable", 2];
 		[51] remoteExecCall ["d_fnc_DoKBMsg", 2];
-		(param [0]) spawn {
+		(_this select 0) spawn {
 			sleep (10 + random 10);
 			_this setDamage 0;
 			deleteVehicle _this;
 		};
-		(param [0]) removeAllEventHandlers "killed";
+		(_this select 0) removeAllEventHandlers "killed";
 		if (d_database_found) then {
-			private _killer = param [2];
-			if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
+			private _killer = _this select 2;
+			if (isNull _killer) then {
+				if (!d_with_ace) then {
+					_killer = (_this select 0) getVariable ["d_last_damager", _killer];
+				} else {
+					_killer = (_this select 0) getVariable ["ace_medical_lastDamageSource", _killer];
+				};
+			};
+			if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 				[_killer, 5] remoteExecCall ["addScore", 2];
 			};
 		};
@@ -30,15 +37,22 @@ if (_type == 0) then {
 		d_mt_mobile_hq_down = true;
 		[missionNamespace, ["d_mt_mobile_hq_down", true]] remoteExecCall ["setVariable", 2];
 		[53] remoteExecCall ["d_fnc_DoKBMsg", 2];
-		(param [0]) spawn {
+		(_this select 0) spawn {
 			sleep (60 + random 60);
 			_this setDamage 0;
 			deleteVehicle _this;
 		};
-		(param [0]) removeAllEventHandlers "killed";
+		(_this select 0) removeAllEventHandlers "killed";
 		if (d_database_found) then {
-			private _killer = param [2];
-			if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
+			private _killer = _this select 2;
+			if (isNull _killer) then {
+				if (!d_with_ace) then {
+					_killer = (_this select 0) getVariable ["d_last_damager", _killer];
+				} else {
+					_killer = (_this select 0) getVariable ["ace_medical_lastDamageSource", _killer];
+				};
+			};
+			if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 				[_killer, 5] remoteExecCall ["addScore", 2];
 			};
 		};

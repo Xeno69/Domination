@@ -86,8 +86,7 @@ while {true} do {
 					};
 				};
 			};
-			false
-		} count (d_player_created select {!isNull _x});
+		} forEach (d_player_created select {!isNull _x});
 		d_player_created = d_player_created - [objNull];
 	};
 };

@@ -199,8 +199,7 @@ if !(_magazines isEqualTo []) then {
 		_object removeMagazines _x;
 		_removed pushBack _x;
 		__TRACE_1("remMag","_x")
-		false
-	} count (_magazines select {!(_x in _removed)});
+	} forEach (_magazines select {!(_x in _removed)});
 	__TRACE_1("","_removed")
 	{
 		if (hasInterface && {!_isUav}) then {
@@ -214,8 +213,7 @@ if !(_magazines isEqualTo []) then {
 		__NOALIEX
 		_object addMagazine _x;
 		__TRACE_1("addMag","_x")
-		false
-	} count _magazines;
+	} forEach _magazines;
 };
 _object setVehicleAmmo 1;
 

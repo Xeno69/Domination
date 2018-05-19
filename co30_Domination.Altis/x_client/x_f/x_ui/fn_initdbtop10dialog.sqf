@@ -8,32 +8,38 @@ if (isDedicated) exitWith {};
 disableSerialization;
 
 #define CTRL(A) (_disp displayCtrl A)
+#define __totscorecol [1, 1, 0, 1]
 
 private _ctrl = (uiNamespace getVariable "D_DBTop10Dialog") displayCtrl 100;
 
 _ctrl lnbAddColumn 0.1;
-_ctrl lnbAddColumn 0.17;
-_ctrl lnbAddColumn 0.24;
-_ctrl lnbAddColumn 0.31;
-_ctrl lnbAddColumn 0.38;
-_ctrl lnbAddColumn 0.45;
+_ctrl lnbAddColumn 0.16;
+_ctrl lnbAddColumn 0.22;
+_ctrl lnbAddColumn 0.28;
+_ctrl lnbAddColumn 0.34;
+_ctrl lnbAddColumn 0.40;
+_ctrl lnbAddColumn 0.46;
 _ctrl lnbAddColumn 0.52;
-_ctrl lnbAddColumn 0.59;
-_ctrl lnbAddColumn 0.67;
-_ctrl lnbAddColumn 0.74;
-_ctrl lnbAddColumn 0.81;
-_ctrl lnbAddColumn 0.88;
+_ctrl lnbAddColumn 0.58;
+_ctrl lnbAddColumn 0.64;
+_ctrl lnbAddColumn 0.70;
+_ctrl lnbAddColumn 0.76;
+_ctrl lnbAddColumn 0.82;
 
-_ctrl lnbAddRow ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills"];
+private _rowidx = _ctrl lnbAddRow ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills", "Revives"];
+_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
+_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 _ctrl lnbAddRow [""];
-//_ctrl ctrlSetTooltip "Name|Playtime|Infkills|Softveckills|Armorkills|Airkills|Deaths|Totalscore|Radiotowerkills|Main Target Sidemission Kills|Number played on server|Camps captured|Teamkills";
 {
-	_ctrl lnbAddRow (_x apply {str _x});
-	false
-} count d_top10_db_players;
+	_rowidx = _ctrl lnbAddRow (_x apply {str _x});
+	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
+	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
+} forEach d_top10_db_players;
 
 _ctrl lnbAddRow [""];
 
 if (!isNil "d_pl_db_mstart") then {
-	_ctrl lnbAddRow (d_pl_db_mstart apply {str _x});
+	_rowidx = _ctrl lnbAddRow (d_pl_db_mstart apply {str _x});
+	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
+	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 };

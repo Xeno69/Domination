@@ -77,8 +77,7 @@ if (!xr_pl_no_lifes) then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
 		_helperls pushBack [_dist, format [(_x call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
-		false
-	} count (d_allplayers select {_x != player});
+	} forEach (d_allplayers select {_x != player});
 	
 } else {
 	private _sfm = markerPos "xr_playerparkmarker";
@@ -92,8 +91,7 @@ if (!xr_pl_no_lifes) then {
 			};
 			_helperls pushBack [_distup, _x call d_fnc_getplayername, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
 		};
-		false
-	} count (d_allplayers select {_x != player});
+	} forEach (d_allplayers select {_x != player});
 };
 
 __TRACE_1("","_helperls")
@@ -110,8 +108,7 @@ private ["_idx"];
 	_lbctr lbSetValue [_idx, _x # 0];
 	_lbctr lbSetPicture [_idx, _x # 3];
 	_lbctr lbSetColor [_idx, _x # 4];
-	false
-} count _helperls;
+} forEach _helperls;
 if !(_helperls isEqualTo []) then {
 	__TRACE("LB Sort By Value")
 	lbSortByValue _lbctr;
@@ -184,7 +181,7 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 					if (_distu <= 150) then {
 						_tex = [_x] call d_fnc_gethpname;
 						if (isNil "_tex") then {_tex = _x call d_fnc_getplayername};
-						_rtex = (rank _x) call d_fnc_getrankpic;
+						_rtex = _x call d_fnc_getrankpic;
 					} else {
 						_tex = "*";
 						_rtex = "#(argb,8,8,3)color(0,0,0,0)";
@@ -193,8 +190,7 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 				};
 			};
 		};
-		false
-	} count (d_allplayers select {alive _x && {!(_x getVariable ["xr_pluncon", false])}});
+	} forEach (d_allplayers select {alive _x && {!(_x getVariable ["xr_pluncon", false])}});
 }];
 
 xr_x_updatelb = false;

@@ -1,7 +1,7 @@
 class xr_SpectDlg {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "uiNamespace setVariable ['XR_SpectDlg', param [0]];if (!isNil 'xr_mouse_end') then {xr_mouse_end = nil};d_teleport_off = false;[param [0], 1] call d_fnc_teleportdialoginit";
+	onLoad = "uiNamespace setVariable ['XR_SpectDlg', _this select 0];if (!isNil 'xr_mouse_end') then {xr_mouse_end = nil};d_teleport_off = false;[_this select 0, 1] call d_fnc_teleportdialoginit";
 	onUnload = "uiNamespace setVariable ['XR_SpectDlg', nil];d_x_loop_end = true;xr_mouse_end = true;d_teleport_off = nil;";
 	class controlsBackground {
 		class Caption: RscText {

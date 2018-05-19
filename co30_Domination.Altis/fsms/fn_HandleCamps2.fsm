@@ -41,7 +41,7 @@ link18[] = {15,16};
 link19[] = {16,17};
 link20[] = {17,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-344.202637,446.144165,655.692139,-416.493042,659,894,1};
-window[] = {2,-1,-1,-32000,-32000,822,104,1064,104,3,677};
+window[] = {2,-1,-1,-1,-1,744,26,986,26,3,677};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -82,8 +82,7 @@ class FSM
                          "private _friendly = 0;" \n
                          "{" \n
                          "	_friendly = _friendly + (_x countSide _units);" \n
-                         "	false" \n
-                         "} count d_own_sides_o;" \n
+                         "} forEach d_own_sides_o;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

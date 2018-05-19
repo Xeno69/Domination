@@ -29,7 +29,7 @@ link11[] = {10,11};
 link12[] = {11,12};
 link13[] = {12,6};
 globals[] = {0.000000,0,0,0,0,640,480,1,16,6316128,1,-193.880936,362.273712,1032.536133,339.412384,739,894,1};
-window[] = {2,-1,-1,-1,-1,770,52,1012,52,3,757};
+window[] = {2,-1,-1,-1,-1,744,26,986,26,3,757};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -175,11 +175,12 @@ class FSM
                 {
                         name = "Check_Boats";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"{" \n
-                         "	private _boat_a = _x;" \n
-                         "	private _boat = _boat_a select 0;" \n
+                        init = /*%FSM<STATEINIT""">*/"private [""_boat_a"", ""_boat""];" \n
+                         "{	" \n
+                         "	_boat_a = _x;" \n
+                         "	_boat = _boat_a select 0;" \n
                          "	if (damage _boat >= 0.9 || {!alive _boat || {_boat distance (_boat_a select 1) > 50}}) then {" \n
-                         "		if ({alive _x} count (crew _boat) == 0) then {" \n
+                         "		if ((crew _boat) findIf {alive _x} == -1) then {" \n
                          "			deleteVehicle _boat;" \n
                          "			_boat = createVehicle [_boat_a select 3, _boat_a select 1, [], 0, ""NONE""];" \n
                          "			_boat setDir (_boat_a select 2);" \n
@@ -187,8 +188,7 @@ class FSM
                          "			_boat_a set [0, _boat];" \n
                          "		};" \n
                          "	};" \n
-                         "	false" \n
-                         "} count _boats_a;" \n
+                         "} forEach _boats_a;" \n
                          "_timenow = time + (120 + random 5);"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

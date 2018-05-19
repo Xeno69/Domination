@@ -11,8 +11,11 @@ d_sm_points_opfor = 0;
 
 _this addEventhandler ["handleDamage", {
 	__TRACE_1("handleDamage","_this")
-	private _obj = param [6];
-	if (!isNull _obj && {_obj call d_fnc_isplayer}) then {
+	private _obj = _this select 6;
+	if (!isNull _obj && {_this select 5 == 0 && {_obj call d_fnc_isplayer}}) then {
+		if (!d_with_ace) then {
+			(_this select 0) setVariable ["d_last_damager", _obj];
+		};
 		if (side (group _obj) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;
 		} else {
@@ -26,7 +29,7 @@ _this addEventhandler ["handleDamage", {
 
 _this addEventHandler ["hit", {
 	__TRACE_1("hit","_this")
-	private _obj = param [3];
+	private _obj = _this select 3;
 	if (!isNull _obj && {_obj call d_fnc_isplayer}) then {
 		if (side (group _obj) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;

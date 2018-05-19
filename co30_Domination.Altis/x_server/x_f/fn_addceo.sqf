@@ -5,5 +5,4 @@
 
 {
 	_x addCuratorEditableObjects [_this, true];
-	false
-} count allCurators;
+} forEach allCurators;

@@ -3,11 +3,11 @@
 #define THIS_FILE "fn_RemABoxC.sqf"
 #include "..\..\x_setup.sqf"
 
-private _nobjs = nearestObjects [param [0], [d_the_box], 10, false];
+private _nobjs = nearestObjects [_this select 0, [d_the_box], 10, false];
 __TRACE_2("","_nobjs","_this")
 if !(_nobjs isEqualTo []) then {
-	private _box = _nobjs param [0];
-	private _unit = param [1];
+	private _box = _nobjs (_this select 0);
+	private _unit = _this select 1;
 	if (!isNil "_unit" && {!isNull _unit}) then {
 		_unit setVariable ["d_boxcargo", [_box call BIS_fnc_getVirtualWeaponCargo, _box call BIS_fnc_getVirtualMagazineCargo, _box call BIS_fnc_getVirtualItemCargo, _box call BIS_fnc_getVirtualBackpackCargo]];
 	};

@@ -34,8 +34,7 @@ if (call d_fnc_checkSHC) then {
 		{
 			_x setPos (_nbuilding buildingPos (selectRandom _no_list));
 			_x disableAI "PATH";
-			false
-		} count (units _x);
+		} forEach (units _x);
 		sleep 0.01;
 	} forEach _grps;
 	sleep 2.222;

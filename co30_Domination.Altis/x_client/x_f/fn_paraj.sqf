@@ -8,7 +8,7 @@ if (isDedicated) exitWith {};
 __TRACE_1("","_this")
 
 params ["_jumpobj"];
-private _mode = param [3];
+private _mode = _this select 3;
 
 if (player distance2D _jumpobj > 15) exitWith {};
 
@@ -33,7 +33,7 @@ if (d_HALOWaitTime > 0 && {_mode == 0 && {player distance2D _jumpobj < 15 && {d_
 d_global_jump_pos = [];
 createDialog "d_ParajumpDialog";
 
-waitUntil {!d_parajump_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+waitUntil {!isNil "d_parajump_dialog_open" && {!d_parajump_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
 if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
 	if !(d_global_jump_pos isEqualTo []) then {
 #ifndef __TT__

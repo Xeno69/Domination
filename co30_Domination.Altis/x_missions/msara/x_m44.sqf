@@ -22,6 +22,6 @@ if (call d_fnc_checkSHC) then {
 	["aa", 1, "tracked_apc", 1, "tank", 1, d_x_sm_pos # 1, 1, 140, true] spawn d_fnc_CreateArmor;
 	sleep 2.543;
 	[_vec] spawn d_fnc_sidesteal;
-	_vec addMPEventHandler ["MPKilled", {if (isServer) then {[param [0]] call d_fnc_sidempkilled}}];
+	_vec addMPEventHandler ["MPKilled", {if (isServer) then {[_this select 0] call d_fnc_sidempkilled}}];
 	_vec setDamage 0;
 };

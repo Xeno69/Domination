@@ -1,7 +1,7 @@
 class D_DBTop10Dialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "uiNamespace setVariable ['D_DBTop10Dialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;call d_fnc_initdbtop10dialog;d_dbtop10_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_DBTop10Dialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;call d_fnc_initdbtop10dialog;d_dbtop10_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_DBTop10Dialog', nil];d_dbtop10_dialog_open = false; d_dbtop10_dialog_open = nil";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {

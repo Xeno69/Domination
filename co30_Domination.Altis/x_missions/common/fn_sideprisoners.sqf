@@ -4,7 +4,7 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-(param [0]) params ["_pos"];
+(_this select 0) params ["_pos"];
 
 if (d_with_ranked) then {d_sm_p_pos = nil};
 
@@ -26,8 +26,7 @@ private _units = units _newgroup;
 	removeAllWeapons _x;
 	_x setCaptive true;
 	_x disableAI "PATH";
-	false
-} count _units;
+} forEach _units;
 
 if (d_with_dynsim == 0) then {
 	_newgroup enableDynamicSimulation true;
@@ -60,7 +59,11 @@ private _rescuer = objNull;
 private _winner = 0;
 #endif
 while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
-	call d_fnc_mpcheck;
+	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
+		_mforceendtime = _mforceendtime - time;
+		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		_mforceendtime = time + _mforceendtime;
+	};
 	if (_units findIf {alive _x} == -1) exitWith {
 		_all_dead = true;
 	};
@@ -76,8 +79,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 					{
 						_x setCaptive false;
 						_x enableAI "PATH";
-						false
-					} count (_units select {alive _x});
+					} forEach (_units select {alive _x});
 					_units join _rescuer;
 #ifdef __TT__
 					_winner = switch (side (group _rescuer)) do {case blufor: {2}; case opfor: {1};default {0}}; 
@@ -118,8 +120,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 	if (time > _mforceendtime) then {
 		{
 			_x setDamage 1;
-			false
-		} count _units;
+		} forEach _units;
 		_all_dead = true;
 	};
 	sleep 5.123;
@@ -155,7 +156,6 @@ sleep 5.123;
 	} else {
 		deleteVehicle _x;
 	};
-	false
-} count (_units select {!isNull _x});
+} forEach (_units select {!isNull _x});
 sleep 0.5321;
 if (!isNull _newgroup) then {deleteGroup _newgroup};

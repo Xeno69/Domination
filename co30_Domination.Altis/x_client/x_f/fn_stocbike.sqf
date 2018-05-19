@@ -7,7 +7,7 @@ player reveal _vec;
 player moveInDriver _vec;
 
 if (_vec isKindOf "Quadbike_01_Base_F") then {
-	_vec addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_162"], {(param [0]) setVectorUp [0,0,1]}, 0, -1, false, false, "", "!(player in _target) && {((vectorUpVisual _target) # 2) < 0.6}"];
+	_vec addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_162"], {(_this select 0) setVectorUp [0,0,1]}, 0, -1, false, false, "", "!(player in _target) && {((vectorUpVisual _target) # 2) < 0.6}"];
 };
 
 if (player getVariable "d_bike_b_mode" == 1) then {
@@ -24,7 +24,7 @@ if (player getVariable "d_bike_b_mode" == 1) then {
 } else {
 	d_flag_vec = _vec;
 	d_flag_vec addEventHandler ["killed", {
-		(param [0]) spawn {
+		(_this select 0) spawn {
 			private _vec = _this;
 			sleep 10.123;
 			while {true} do {

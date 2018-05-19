@@ -7,7 +7,6 @@ if (!isServer) exitWith {};
 sleep 60;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	private _remar = [];
 	{
 		private _units = units _x;
@@ -20,8 +19,7 @@ while {true} do {
 					} else {
 						deleteVehicle _x;
 					};
-					false
-				} count _units;
+				} forEach _units;
 				_remar pushBack _x;
 			};
 		};
@@ -30,8 +28,7 @@ while {true} do {
 	if !(_remar isEqualTo []) then {
 		{
 			_x remoteExec ["deleteGroup", groupOwner _x];
-			false
-		} count _remar;
+		} forEach _remar;
 	};
 	sleep 20.321;
 };

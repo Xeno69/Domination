@@ -4,10 +4,10 @@
 #include "..\..\x_setup.sqf"
 
 __TRACE_1("","_this")
-d_cur_sm_idx = param [0];
+d_cur_sm_idx = _this select 0;
 publicVariable "d_cur_sm_idx";
-private _pos_ar = param [1];
-d_x_sm_type = param [2];
+private _pos_ar = _this select 1;
+d_x_sm_type = _this select 2;
 
 if (d_x_sm_type == "convoy") then {
 	[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], _pos_ar # 0, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_708", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;

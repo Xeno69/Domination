@@ -11,7 +11,6 @@ private _man_type = format ["Soldier%1B", d_enemy_side_short];
 
 sleep 10.123;
 while {d_nr_observers > 0} do {
-	call d_fnc_mpcheck;
 	if (_e_ari_avail) then {
 		{
 			if (alive _x) then {

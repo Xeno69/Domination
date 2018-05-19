@@ -47,8 +47,7 @@ private _area_ar = [[[], [], [], []], [[], []]] select (_sector < 2);
 {
 	private _cur = _x;
 	(_area_ar # (_area findIf {(_cur # 0) inArea _x})) pushBack _x;
-	false
-} count _alltargetsar;
+} forEach _alltargetsar;
 
 private _whicharea = _area findIf {_firstPoint inArea _x};
 if (_whicharea == -1) then {_whicharea = 0};

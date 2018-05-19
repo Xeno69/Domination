@@ -2,12 +2,12 @@
 #define THIS_FILE "fn_checktrucktrans.sqf"
 #include "..\..\x_setup.sqf"
 
-private _enterer = param [2];
+private _enterer = _this select 2;
 if (_enterer != player) exitWith {};
 
 private _do_msg = true;
 #ifdef __TT__
-private _d_side = (param [0]) getVariable "d_side";
+private _d_side = (_this select 0) getVariable "d_side";
 if (!isNil "_d_side") then {
 	if (d_player_side == blufor && {_d_side == opfor}) then {
 		_do_msg = false;
@@ -24,5 +24,5 @@ if (!isNil "_d_side") then {
 if (_do_msg) then {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_182");
 };
-_enterer action ["getOut", param [0]];
+_enterer action ["getOut", _this select 0];
 

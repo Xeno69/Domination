@@ -24,7 +24,7 @@ if (isServer) then {
     _vehicle call FUNC(equipVehicle);
     _vehicle setDamage 0;
 	_vehicle addEventHandler ["killed", {GVAR(sm_winner) = 2; GVAR(sm_resolved) = true;}];
-	_vehicle addEventHandler ["HandleDamage",{ ((param [2]) * 3) }];
+	_vehicle addEventHandler ["HandleDamage",{ ((_this select 2) * 3) }];
 	__AddToExtraVec(_vehicle)
 	sleep 2.123;
 	["specops", 2, "basic", 3, _poss, 150,true] spawn FUNC(CreateInf);

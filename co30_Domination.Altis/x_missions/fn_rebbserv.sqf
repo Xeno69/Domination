@@ -4,7 +4,6 @@
 
 {
 	_x setDamage 0;
-	false
-} count d_smx_house_objects;
+} forEach d_smx_house_objects;
 
 d_smx_house_objects = nil;

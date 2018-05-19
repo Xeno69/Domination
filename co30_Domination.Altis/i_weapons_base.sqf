@@ -16,7 +16,7 @@ if (d_with_ace) then {
 #endif
 };
 
-{d_misc_store setVariable [_x, []]; false} count ["PRIVATE_RIFLES","CORPORAL_RIFLES","SERGEANT_RIFLES","LIEUTENANT_RIFLES","CAPTAIN_RIFLES","MAJOR_RIFLES","COLONEL_RIFLES",
+{d_misc_store setVariable [_x, []]} forEach ["PRIVATE_RIFLES","CORPORAL_RIFLES","SERGEANT_RIFLES","LIEUTENANT_RIFLES","CAPTAIN_RIFLES","MAJOR_RIFLES","COLONEL_RIFLES",
 	"PRIVATE_LAUNCHERS","CORPORAL_LAUNCHERS","SERGEANT_LAUNCHERS","LIEUTENANT_LAUNCHERS","CAPTAIN_LAUNCHERS","MAJOR_LAUNCHERS","COLONEL_LAUNCHERS",
 	"PRIVATE_PISTOLS","CORPORAL_PISTOLS","SERGEANT_PISTOLS","LIEUTENANT_PISTOLS","CAPTAIN_PISTOLS","MAJOR_PISTOLS","COLONEL_PISTOLS",
 	"PRIVATE_OPTICS","CORPORAL_OPTICS","SERGEANT_OPTICS","LIEUTENANT_OPTICS","CAPTAIN_OPTICS","MAJOR_OPTICS","COLONEL_OPTICS",
@@ -25,7 +25,7 @@ if (d_with_ace) then {
 	"PRIVATE_ITEMS","CORPORAL_ITEMS","SERGEANT_ITEMS","LIEUTENANT_ITEMS","CAPTAIN_ITEMS","MAJOR_ITEMS","COLONEL_ITEMS"
 ];
 if (d_with_ranked) then {
-	{d_misc_store setVariable [_x, []];false} count ["PRIVATE_ONED","CORPORAL_ONED","SERGEANT_ONED","LIEUTENANT_ONED","CAPTAIN_ONED","MAJOR_ONED","COLONEL_ONED"];
+	{d_misc_store setVariable [_x, []]} forEach ["PRIVATE_ONED","CORPORAL_ONED","SERGEANT_ONED","LIEUTENANT_ONED","CAPTAIN_ONED","MAJOR_ONED","COLONEL_ONED"];
 	
 	d_non_check_items = ["ItemGPS", "ItemRadio", "ItemMap", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP"] apply {toUpper _x};
 	
@@ -59,26 +59,22 @@ private _dd_add_gearf = {
 				};
 			};
 		};
-		false
-	} count (_curarx select {!(_x isEqualTo [])});
+	} forEach (_curarx select {!(_x isEqualTo [])});
 	__TRACE_2("_dd_add_gearf","_arw","_ari")
 	if !(_arw isEqualTo []) then {
 		{
 			(d_misc_store getVariable format ["%1_%2", _x, _typeu]) append _arw;
-			false
-		} count _ranks;
+		} forEach _ranks;
 	};
 	if !(_ari isEqualTo []) then {
 		{
 			(d_misc_store getVariable format ["%1_%2", _x, _typeu]) append _ari;
-			false
-		} count _ranks;
+		} forEach _ranks;
 	};
 	if (d_with_ranked && {!(_oned isEqualTo [])}) then {
 		{
 			(d_misc_store getVariable (_x + "_ONED")) append _oned;
-			false
-		} count _ranks;
+		} forEach _ranks;
 	};
 };
 
@@ -103,5 +99,4 @@ private _dd_add_gearf = {
 	} else {
 		[["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"], _x # 2, _typeu] call _dd_add_gearf;
 	};
-	false
-} count _all_weapons_items;
+} forEach _all_weapons_items;

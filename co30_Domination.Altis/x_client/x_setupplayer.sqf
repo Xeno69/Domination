@@ -30,8 +30,7 @@ if (side (group player) == blufor) then {
 	
 	{
 		_x setMarkerAlphaLocal 1;
-		false
-	} count ["d_chopper_service", "d_wreck_service", "d_teleporter", "d_aircraft_service", "bonus_air", "bonus_vehicles", "d_Ammobox_Reload", "d_vec_service", "Start", "d_runwaymarker"];
+	} forEach ["d_chopper_service", "d_wreck_service", "d_teleporter", "d_aircraft_service", "bonus_air", "bonus_vehicles", "d_Ammobox_Reload", "d_vec_service", "Start", "d_runwaymarker"];
 	
 	d_jump_helo = "B_Heli_Transport_01_F";
 	d_UAV_Small = "B_UAV_01_F";
@@ -47,8 +46,7 @@ if (side (group player) == blufor) then {
 	
 	{
 		_x setMarkerAlphaLocal 1;
-		false
-	} count ["d_chopper_serviceR","d_wreck_serviceR","d_teleporter_1","d_aircraft_serviceR","bonus_airR","bonus_vehiclesR","d_Ammobox ReloadR","Start_opfor","d_vehicle_serviceR", "d_runwaymarker_o"];
+	} forEach ["d_chopper_serviceR","d_wreck_serviceR","d_teleporter_1","d_aircraft_serviceR","bonus_airR","bonus_vehiclesR","d_Ammobox ReloadR","Start_opfor","d_vehicle_serviceR", "d_runwaymarker_o"];
 	
 	d_jump_helo = "O_Heli_Light_02_unarmed_F";
 	d_UAV_Small = "O_UAV_01_F";
@@ -56,6 +54,12 @@ if (side (group player) == blufor) then {
 };
 d_side_player = d_player_side;
 #endif
+
+player disableConversation true;
+if (!d_with_ai) then {
+	enableSentences false;
+};
+[player , "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
 
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false];
@@ -115,8 +119,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 	
 	{
 		deleteMarkerLocal _x;
-		false
-	} count (allMapMarkers select {_x select [0, 15] == _whichm});
+	} forEach (allMapMarkers select {_x select [0, 15] == _whichm});
 #endif
 };
 
@@ -137,7 +140,7 @@ if (!isMultiplayer) then {
 	0 spawn {
 		scriptName "spawn_playerstuff";
 		sleep 1 + random 3;		
-		d_player_autokick_time = d_AutoKickTime;
+		d_player_autokick_time = time + d_AutoKickTime;
 		xr_phd_invulnerable = false;
 		sleep 10;
 		if (d_still_in_intro) then {
@@ -254,8 +257,7 @@ if (d_MissionType != 2) then {
 		} else {
 			_x setVariable ["d_jf_id", _x addAction [format ["<t color='#AAD9EF'>%1</t>", format [localize "STR_DOM_MISSIONSTRING_297", [d_jumpflag_vec, "CfgVehicles"] call d_fnc_GetDisplayName]], {_this spawn d_fnc_bike},[d_jumpflag_vec,1]]];
 		};
-		false
-	} count ((allMissionObjects d_flag_pole) select {!isNil {_x getVariable "d_is_jf"} && {isNil {_x getVariable "d_jf_id"}}});
+	} forEach ((allMissionObjects d_flag_pole) select {!isNil {_x getVariable "d_is_jf"} && {isNil {_x getVariable "d_jf_id"}}});
 };
 
 if (d_all_sm_res) then {d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_522"} else {[false] spawn d_fnc_getsidemissionclient};
@@ -297,8 +299,7 @@ if !(d_ammo_boxes isEqualTo []) then {
 			deleteMarkerLocal format ["d_bm_%1", _x # 0];
 		};
 #endif
-		false
-	} count (d_ammo_boxes select {_x isEqualType []});
+	} forEach (d_ammo_boxes select {_x isEqualType []});
 };
 
 player setVariable ["d_isinaction", false];
@@ -328,8 +329,7 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 	};
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_1761", 5];
-		false
-	} count ((allMissionObjects "EmptyDetector") select {(str _x) select [0, 20] == "d_serviceall_trigger"});
+	} forEach ((allMissionObjects "EmptyDetector") select {(str _x) select [0, 20] == "d_serviceall_trigger"});
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
@@ -345,8 +345,7 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 #endif
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5];
-		false
-	} count d_all_ammoloads;
+	} forEach d_all_ammoloads;
 	
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
 	
@@ -357,14 +356,14 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 	
 	xr_phd_invulnerable = false;
 	sleep 2;
-	player setVariable ["d_player_old_rank", 0];
-	if (d_database_found && {d_set_pl_score_db}) then {
+	player setVariable ["d_player_old_rank", 0, true];
+	if (d_database_found && {!isNil "d_points_needed_db" && {d_set_pl_score_db}}) then {
 		d_points_needed = d_points_needed_db;
 	};
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.91"];
+diag_log ["Internal D Version: 3.92"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -387,8 +386,7 @@ if (!d_no_ai) then {
 				} else {
 					(vehicle _x) deleteVehicleCrew _x;
 				};
-				false
-			} count ((units _grpp) select {!(_x call d_fnc_isplayer)});
+			} forEach ((units _grpp) select {!(_x call d_fnc_isplayer)});
 		};
 	};
 
@@ -483,14 +481,13 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 	player setVariable ["d_farp_pos", []];
 
 	if (d_engineerfull == 0 || {!d_no_ai}) then {
-		{_x addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {_this call d_fnc_restoreeng}];false} count d_farps;
+		{_x addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {_this call d_fnc_restoreeng}]} forEach d_farps;
 	};
 };
 
 {
 	_x addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_286a"], {_this call d_fnc_healatmash}, 0, -1, false, false, "", "damage player > 0 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable 'd_isinaction') && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['ace_isunconscious', false])}}}}}}"];
-	false
-} count d_mashes;
+} forEach d_mashes;
 
 {
 	private _farpc = _x getVariable ["d_objcont", []];
@@ -499,8 +496,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 		_trig setTriggerActivation ["ANY", "PRESENT", true];
 		_trig setTriggerStatements ["thislist call d_fnc_tallservice", "0 = [thislist] spawn d_fnc_reload", ""];
 	};
-	false
-} count d_farps;
+} forEach d_farps;
 
 #ifndef __TT__
 // Enemy at base
@@ -591,7 +587,7 @@ d_mark_loc261 = localize "STR_DOM_MISSIONSTRING_261";
 d_mark_loc1825 = localize "STR_DOM_MISSIONSTRING_1825";
 
 d_map_ameh = addMissionEventHandler ["Map", {
-	if (param [0]) then {
+	if (_this select 0) then {
 		findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", {[_this, 0] call d_fnc_mapondraw}];
 	};
 	removeMissionEventHandler ["Map", d_map_ameh];
@@ -609,8 +605,7 @@ if (isNil "d_the_carrier") then {
 private _objsasl = [getPosASL D_FLAG_BASE];
 {
 	_objsasl pushBack (_x # 5);
-	false
-} count d_additional_respawn_points;
+} forEach d_additional_respawn_points;
 
 {
 	private _box = d_the_base_box createVehicleLocal [0,0,0];
@@ -631,11 +626,10 @@ private _objsasl = [getPosASL D_FLAG_BASE];
 	player reveal _box;
 	[_box] call d_fnc_weaponcargo;
 	[_box, _x] execFSM "fsms\fn_PlayerAmmobox.fsm";
-	false
 #ifndef __TT__
-} count d_player_ammobox_pos;
+} forEach d_player_ammobox_pos;
 #else
-} count (d_player_ammobox_pos select ([0, 1] select (d_player_side == opfor)));
+} forEach (d_player_ammobox_pos select ([0, 1] select (d_player_side == opfor)));
 #endif
 
 
@@ -648,13 +642,13 @@ if (d_WithRevive == 0) then {
 
 0 spawn d_fnc_dcmcc;
 
-(findDisplay 46) displayAddEventHandler ["KeyDown", {if (param [1] in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(param [2]) && {!(param [3]) && {!(param [4])}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
-(findDisplay 46) displayAddEventHandler ["KeyUp", {if (param [1] in actionKeys "TeamSwitch"&& {!(param [2]) && {!(param [3]) && {!(param [4])}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+(findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+(findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch"&& {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
 
 // by R34P3R
 d_p_isju = false;
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
-	if (param [1] in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
+	if ((_this select 1) in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
 		d_p_isju = true;
 		0 spawn {
 			private _v = velocity player;
@@ -788,11 +782,11 @@ if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}
 
 private _fnc_artvec = {
 	params ["_num", "_name"];
-	{
-		d_ao_arty_vecs pushBack _x;
+	private _ar = vehicles select {(str _x) select [0, _num] == _name};
+	if !(_ar isEqualTo []) then {
 		d_areArtyVecsAvailable = true;
-		false
-	} count (vehicles select {(str _x) select [0, _num] == _name});
+		d_ao_arty_vecs append _ar;
+	};
 };
 #ifndef __TT__
 [10, "d_artyvec_"] call _fnc_artvec;
@@ -861,7 +855,7 @@ player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 }] call BIS_fnc_addScriptedEventHandler;
 
 player addEventhandler ["HandleRating", {
-	if (param [1] < 0) then {0} else {param [1]}
+	if ((_this select 1) < 0) then {0} else {_this select 1}
 }];
 
 d_pisadminp = false;
@@ -884,16 +878,15 @@ player setVariable ["xr_isleader", false];
 	if (_islead) then {
 		{
 			[_x, ["xr_isleader", false]] remoteExecCall ["setVariable", _x];
-			false
-		} count ((units (group player)) - [player]);
+		} forEach ((units (group player)) - [player]);
 	};
 };
 
 player addEventhandler ["WeaponAssembled", {
-	["aw", d_string_player, param [1]] remoteExecCall ["d_fnc_p_o_ar", 2];
+	["aw", d_string_player, _this select 1] remoteExecCall ["d_fnc_p_o_ar", 2];
 }];
 
-{_x call d_fnc_initvec; false} count vehicles;
+{_x call d_fnc_initvec} forEach vehicles;
 
 if (!d_with_ace) then {
 	["Preload"] call bis_fnc_arsenal;
@@ -934,8 +927,7 @@ if (d_with_ace) then {
 				if (_dist < 400) then {
 					drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.05)], 1, 1, 0, "(Uncon) " + (_x call d_fnc_getplayername), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
 				};
-				false
-			} count (d_allplayers select {_x getVariable ["ace_isunconscious", false]});
+			} forEach (d_allplayers select {_x getVariable ["ace_isunconscious", false]});
 		};
 	}];
 };
@@ -944,10 +936,15 @@ if (d_with_ace) then {
 d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
-		addToRemainsCollector [param [1]];
+		addToRemainsCollector [_this select 1];
+		if (d_with_ai && {unitIsUAV (_this select 1)}) then {
+			private _crew = crew (_this select 1);
+			if !(_crew isEqualTo []) then {
+				[group (_crew # 0), ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+			};
+		};
 	}];
-	false
-} count allCurators;
+} forEach allCurators;
 #endif
 
 0 spawn {
@@ -958,7 +955,7 @@ d_last_placed_zeus_obj = objNull;
 if (isMultiplayer) then {
 	execVM "x_client\x_intro.sqf";
 } else {
-	{_x enableSimulation false;false} count (switchableUnits select {_x != player});
+	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

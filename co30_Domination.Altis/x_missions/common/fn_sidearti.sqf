@@ -41,9 +41,9 @@ for "_i" from 0 to (__count_arti - 1) do {
 	d_x_sm_vec_rem_ar pushBack _arti;
 	_arti addEventHandler ["killed", {
 		d_dead_arti = d_dead_arti + 1;
-		private _v = param [0];
+		private _v = _this select 0;
 		_v removeAllEventHandlers "killed";
-		{_v deleteVehicleCrew _x;false} count (crew _v);
+		{_v deleteVehicleCrew _x} forEach (crew _v);
 	}];
 #ifdef __TT__
 	_arti addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];

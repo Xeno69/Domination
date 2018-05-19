@@ -34,7 +34,6 @@ while {true} do {
 		400;
 	});
 #endif
-	call d_fnc_mpcheck;
 	while {d_mt_radio_down} do {sleep 6.123};
 	private _pos = call d_fnc_GetRanPointOuterAir;
 	if !(d_cur_tgt_pos isEqualTo []) then {
@@ -158,10 +157,9 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 			if (_curvec distance2D _old_pos < 30 && {_xcounter > 100}) exitWith {
 				{
 					private _v = _x;
-					{_v deleteVehicleCrew _x;false} count (crew _v);
+					{_v deleteVehicleCrew _x} forEach (crew _v);
 					_v setDamage 1;
-					false;
-				} count _vehicles;
+				} forEach _vehicles;
 				_xcounter = 0;
 			};
 			_xcounter = 0;
@@ -180,8 +178,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight 80;
-					false
-				} count (_vehicles select {alive _x});
+				} forEach (_vehicles select {alive _x});
 				sleep 35.821 + random 15;
 			} else {
 				__patternpos;
@@ -193,19 +190,13 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight 100;
-					false
-				} count (_vehicles select {alive _x});
+				} forEach (_vehicles select {alive _x});
 				sleep 80 + random 80;
 			};
 		};
 		__TRACE_1("","_xcounter")
 		
 		sleep 3 + random 2;
-
-		__TRACE("call mpcheck")
-		call d_fnc_mpcheck;
-		
-		sleep 1;
 
 		if !(_vehicles isEqualTo []) then {
 			__TRACE("_vehicles array not empty")
@@ -231,7 +222,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 		};
 		if (_vehicles isEqualTo []) exitWith {
 			__TRACE("_vehicles array IS empty")
-			{deleteVehicle _x;false} count _funits;
+			{deleteVehicle _x} forEach _funits;
 			_funits = [];
 			_vehicles = [];
 		};

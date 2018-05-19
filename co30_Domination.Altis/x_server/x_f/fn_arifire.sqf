@@ -67,8 +67,7 @@ private _ari_vecs = [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor)
 {
 	_x enableSimulationGlobal true;
 	_x setVariable ["d_who_fired", _arti_operator];
-	false
-} count _ari_vecs;
+} forEach _ari_vecs;
 
 __TRACE_1("","_ari_vecs")
 
@@ -143,8 +142,7 @@ for "_series" from 1 to _ari_salvos do {
 {
 	_x enableSimulationGlobal false;
 	_x setVariable ["d_who_fired", nil];
-	false
-} count _ari_vecs;
+} forEach _ari_vecs;
 _ari_vecs = nil;
 
 sleep 3;
@@ -175,7 +173,7 @@ if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (mark
 	d_ari_available = true; publicVariable "d_ari_available";
 	private _channel = d_kbtel_chan;
 #else
-	if (param [3] == opfor) then {
+	if (_this select 3 == opfor) then {
 		d_ari_available_e = true; publicVariable "d_ari_available_e";
 	} else {
 		d_ari_available_w = true; publicVariable "d_ari_available_w";
@@ -184,10 +182,10 @@ if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (mark
 #endif
 	remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
 #ifdef __TT__
-	private _topicside = ["HQ_W", "HQ_E"] select (param [3] == opfor);
-	private _logic = [d_hq_logic_blufor2, d_hq_logic_opfor2] select (param [3] == opfor);
-	(param [2]) kbTell [_logic, _topicside, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
+	private _topicside = ["HQ_W", "HQ_E"] select (_this select 3 == opfor);
+	private _logic = [d_hq_logic_blufor2, d_hq_logic_opfor2] select (_this select 3 == opfor);
+	(_this select 2) kbTell [_logic, _topicside, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
 #else
-	(param [2]) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
+	(_this select 2) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
 #endif
 };

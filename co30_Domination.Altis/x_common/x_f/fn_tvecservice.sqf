@@ -7,7 +7,7 @@ if ("LandVehicle" countType _this == 0) exitWith {
 	__TRACE("No vec inside trigger")
 	false
 };
-if (!isTouchingGround (param [0])) exitWith {
+if (!isTouchingGround (_this select 0)) exitWith {
 	__TRACE("Vec is not touching ground")
 	false
 };

@@ -17,7 +17,7 @@ private _delveccrew = {
 	scriptName "spawn_x_createpara3_delveccrew";
 	params ["_crew_vec", "_vec", "_time"];
 	sleep _time;
-	{_x setDamage 1;false} count (_crew_vec select {!isNull _x});
+	{_x setDamage 1} forEach (_crew_vec select {!isNull _x});
 	sleep 1;
 	if (!isNull _vec) then {_vec setDamage 1};
 };
@@ -111,8 +111,8 @@ private _make_jump = {
 #endif
 				if (d_with_ai && {d_with_ranked}) then {
 					_one_unit addEventHandler ["Killed", {
-						[1, param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-						(param [0]) removeAllEventHandlers "Killed";
+						[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+						(_this select 0) removeAllEventHandlers "Killed";
 					}];
 				};
 				_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
@@ -136,7 +136,7 @@ private _make_jump = {
 				params ["_grp", "_pos"];
 				sleep 40;
 				if ((units _grp) findIf {alive _x} > -1) then {
-					[_grp, _pos, [_pos, param [2]], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
+					[_grp, _pos, [_pos, _this select 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
 					_grp setVariable ["d_PATR", true];
 					if (d_with_dynsim == 0) then {
 						_grp enableDynamicSimulation true;
@@ -193,7 +193,7 @@ for "_i" from 1 to _number_vehicles do {
 
 	if (d_mt_radio_down) exitWith {
 		_stop_it = true;
-		{_vec deleteVehicleCrew _x;false} count (crew _vec);
+		{_vec deleteVehicleCrew _x} forEach (crew _vec);
 		deleteVehicle _vec;
 	};
 	

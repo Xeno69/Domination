@@ -48,7 +48,6 @@ if (_docreatearmor) then {
 d_sm_arrest_not_failed = true;
 
 while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolved}}}} do {
-	call d_fnc_mpcheck;
 	if (!alive _officer) exitWith {_is_dead = true;};
 	if (!_rescued) then {
 		private _nobjs = (_officer nearEntities ["CAManBase", 20]) select {(_x call d_fnc_isplayer) && {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};

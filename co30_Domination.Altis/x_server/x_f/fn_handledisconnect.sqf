@@ -40,7 +40,7 @@ if (!isNil "_gru" && {!isNull _gru}) then {
 private _pa = d_player_store getVariable _uid;
 if (!isNil "_pa") then {
 	__TRACE_1("player store before change","_pa")
-	_pa set [0, [(_pa # 0) - (time - (_pa # 1)), 0] select ((time - (_pa # 1)) >= (_pa # 0))];
+	_pa set [0, [time - (_pa # 0), -1] select (time - (_pa # 0) < 0)];
 	_pa set [9, time];
 	private _mname = (_pa # 4) + "_xr_dead";
 	__TRACE_1("","_mname")
@@ -76,14 +76,13 @@ if !(_ar isEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];
 		d_player_created pushBack _vec;
-		false
-	} count _ar;
+	} forEach _ar;
 };
 
 removeAllOwnedMines _unit;
 
 _unit spawn {
-	private _unit = param [0];
+	params ["_unit"];
 	sleep 10;
 	if (isNull objectParent _unit) then {
 		deleteVehicle _unit;

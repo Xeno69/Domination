@@ -21,7 +21,7 @@ player setVariable ["xr_pluncon", true, true]; // just to be sure
 _this spawn {
 	scriptName "xr respawn eh spawn";
 	sleep 1.6;
-	private _old = param [1];
+	private _old = _this select 1;
 	__TRACE_1("","_old")
 	private _norm_resp = false;
 	if (xr_death_pos isEqualTo []) then {

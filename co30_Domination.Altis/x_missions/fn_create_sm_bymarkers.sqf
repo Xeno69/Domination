@@ -480,8 +480,6 @@ __TRACE_1("","_eee")
 	
 	__TRACE_1("","_onesmar");
 	d_sm_store setVariable [_idx, _onesmar];
-	
-	false
-} count (allMapMarkers select {_x select [0, 6] == "d_smm|"});
+} forEach (allMapMarkers select {_x select [0, 6] == "d_smm|"});
 
 d_sm_array append _dallsidemissions;

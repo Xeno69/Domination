@@ -9,8 +9,7 @@ params ["_grps"];
 private _allunits = [];
 {
 	_allunits append ((units _x) select {alive _x});
-	false
-} count _grps;
+} forEach _grps;
 
 if (_allunits isEqualTo []) exitWith {
 	d_c_attacking_grps = [];
@@ -20,7 +19,6 @@ if (_allunits isEqualTo []) exitWith {
 sleep 1.2123;
 
 while {!d_mt_radio_down} do {
-	call d_fnc_mpcheck;
 	if ({alive _x} count _allunits < 4) exitWith {
 		d_c_attacking_grps = [];
 		d_create_new_paras = true;

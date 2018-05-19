@@ -12,7 +12,7 @@ private _objs = nearestObjects [_poss, ["Land_trafostanica_velka"], 40];
 #ifdef __TT__
 d_sm_points_blufor = 0;
 d_sm_points_opfor = 0;
-{_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];false} count _objs;
+{_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}]} forEach _objs;
 #endif
 
 sleep 2.123;
@@ -23,7 +23,6 @@ sleep 2.221;
 private _num_t = count _objs;
 
 while {true} do {
-	call d_fnc_mpcheck;
 	if ({damage _x >= 0.9 || {!alive _x}} count _objs == _num_t) exitWith {};
 	sleep 5.326;
 	__TRACE_1("","_objs")

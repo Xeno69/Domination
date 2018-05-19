@@ -230,8 +230,7 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 if (hasInterface) then {
 	if (d_with_ai) then {d_current_ai_num = 0};
 
-	if (d_with_ranked) then {
-		if (isNil "d_ranked_a") then {
+	if (isNil "d_ranked_a") then {
 		d_ranked_a = [
 			20, // points that an engineer must have to repair/refuel a vehicle
 			[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
@@ -257,16 +256,13 @@ if (hasInterface) then {
 			2, // points a player gets for reviving another player
 			20 // points a Squad Leader needs for CAS
 		];
-		};
-
-		// distance a player has to transport others to get points
-		d_transport_distance = 500;
-
-		// rank needed to fly the wreck lift chopper
-		d_wreck_lift_rank = "CAPTAIN";
-	} else {
-		d_ranked_a = [];
 	};
+
+	// distance a player has to transport others to get points
+	d_transport_distance = 500;
+
+	// rank needed to fly the wreck lift chopper
+	d_wreck_lift_rank = "CAPTAIN";
 
 	d_graslayer_index = [1, 0] select (d_GrasAtStart == 1);
 
@@ -333,42 +329,35 @@ if (hasInterface) then {
 #ifndef __TT__
 	{
 		d_mob_respawns pushBack [_x # 0, _x # 6];
-		false
-	} count (d_p_vecs select {_x # 1 < 100});
+	} forEach (d_p_vecs select {_x # 1 < 100});
 #else
 	d_mob_respawns_blufor = [];
 	{
 		d_mob_respawns_blufor pushBack [_x # 0, _x # 6];
-		false
-	} count (d_p_vecs_blufor select {_x # 1 < 100});
+	} forEach (d_p_vecs_blufor select {_x # 1 < 100});
 	d_mob_respawns_opfor = [];
 	{
 		d_mob_respawns_opfor pushBack [_x # 0, _x # 6];
-		false
-	} count (d_p_vecs_opfor select {_x # 1 < 1100});
+	} forEach (d_p_vecs_opfor select {_x # 1 < 1100});
 #endif
 };
 #ifndef __TT__
 {
 	_x pushBack d_heli_wreck_lift_types;
-	false
-} count (d_choppers select {_x # 1 == 1});
+} forEach (d_choppers select {_x # 1 == 1});
 if (d_ifa3lite) then {
 	{
 		_x pushBack d_heli_wreck_lift_types;
-		false
-	} count (d_p_vecs select {_x # 1 >= 500});
+	} forEach (d_p_vecs select {_x # 1 >= 500});
 };
 #else
 {
 	_x pushBack d_heli_wreck_lift_types;
-	false
-} count (d_choppers_blufor select {_x # 1 == 1});
+} forEach (d_choppers_blufor select {_x # 1 == 1});
 
 {
 	_x pushBack d_heli_wreck_lift_types;
-	false
-} count (d_choppers_opfor select {_x # 1 == 1});
+} forEach (d_choppers_opfor select {_x # 1 == 1});
 #endif
 
 if (hasInterface && {d_with_ai}) then {

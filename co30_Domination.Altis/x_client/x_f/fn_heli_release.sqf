@@ -7,6 +7,6 @@ if (isDedicated) exitWith {};
 params ["_vec", "_caller"];
 
 if (_caller == driver _vec) then {
-	_vec removeAction (param [2]);
+	_vec removeAction (_this select 2);
 	_vec setVariable ["d_vec_released", true];
 };

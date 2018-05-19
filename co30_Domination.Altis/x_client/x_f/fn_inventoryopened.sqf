@@ -6,7 +6,7 @@
 if (isDedicated) exitWith {};
 
 __TRACE_1("","_this")
-private _box = param [1];
+private _box = _this select 1;
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	_box spawn {
@@ -17,11 +17,7 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 				[player, player, true] call ace_arsenal_fnc_openBox;
 			};
 		} else {
-			if (!d_with_ace) then {
-				["Open", [nil, _this]] call bis_fnc_arsenal;
-			} else {
-				[player, player, true] call ace_arsenal_fnc_openBox;
-			};
+			["Open", [nil, _this]] call bis_fnc_arsenal;
 		};
 	};
 	true

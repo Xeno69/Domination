@@ -10,7 +10,7 @@ disableSerialization;
 
 private _welcome_str1 = format [localize "STR_DOM_MISSIONSTRING_183", d_name_pl];
 
-switch (param [0]) do {
+switch (_this select 0) do {
 	case 1: {
 		_welcome_str2 = localize "STR_DOM_MISSIONSTRING_184";
 		_welcome_str3 = localize "STR_DOM_MISSIONSTRING_185";
@@ -25,7 +25,7 @@ switch (param [0]) do {
 	};
 };
 
-private _vec = param [1];
+private _vec = _this select 1;
 private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toUpper (typeOf _vec)) in d_check_ammo_load_vecs);
 
 private _end_welcome = time + 14;

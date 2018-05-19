@@ -29,7 +29,6 @@ private _content = _obj getVariable ["d_objcont", []];
 if !(_content isEqualTo []) then {
 	{
 		deleteVehicle _x;
-		false
-	} count _content;
+	} forEach _content;
 };
 deleteVehicle _obj;

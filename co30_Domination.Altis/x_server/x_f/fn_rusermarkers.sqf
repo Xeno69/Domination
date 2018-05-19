@@ -12,9 +12,8 @@ private _del_markers = [];
 			_del_markers pushBack _x;
 		};
 	};
-	false
-} count (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
+} forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
 
 if !(_del_markers isEqualTo []) then {
-	{deleteMarker _x;false} count _del_markers;
+	{deleteMarker _x} forEach _del_markers;
 };

@@ -7,13 +7,13 @@ if ("LandVehicle" countType _this == 0 && {"Plane" countType _this == 0 && {"Hel
 	__TRACE("No vehicle inside trigger")
 	false
 };
-if (!isTouchingGround (param [0])) exitWith {
+if (!isTouchingGround (_this select 0)) exitWith {
 	__TRACE("Vec is not touching ground")
 	false
 };
 
-if !(param [0] isKindOf "Plane") then {
+if !((_this select 0) isKindOf "Plane") then {
 	true
 } else {
-	(speed param [0] < 10)
+	(speed (_this select 0) < 10)
 };

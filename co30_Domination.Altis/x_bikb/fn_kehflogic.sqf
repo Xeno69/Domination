@@ -30,8 +30,7 @@ _unit setVariable ["d_kddata", _kdata];
 
 {
 	_unit kbAddTopic[_x,"x_bikb\domkba3.bikb"];
-	false
-} count (_kdata # 0);
+} forEach (_kdata # 0);
 _unit setIdentity (_kdata # 1);
 _unit setRank "COLONEL";
 _unit setGroupIdGlobal [_kdata # 2];

@@ -33,8 +33,7 @@ private _grps = ["specops", 3, "allmen", 0, _poss , _radius_p, true] call d_fnc_
 private _units = [];
 {
 	_units append (units _x);
-	false
-} count _grps;
+} forEach _grps;
 
 d_num_species = 0;
 
@@ -42,13 +41,12 @@ d_num_species = 0;
 	_x allowFleeing 0;
 	_x addEventHandler ["killed", {
 		d_num_species = d_num_species + 1;
-		(param [0]) removeAllEventHandlers "killed";
+		(_this select 0) removeAllEventHandlers "killed";
 	}];
 #ifdef __TT__
 	_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
 #endif
-	false
-} count _units;
+} forEach _units;
 
 sleep 2.123;
 private _endnum = (count _units) - 2;
@@ -59,8 +57,7 @@ while {d_num_species < _endnum} do {
 			_x setDamage 1;
 			sleep 0.1;
 		};
-		false
-	} count (_units select {alive _x});
+	} forEach (_units select {alive _x});
 	sleep 4.631;
 	if (d_sm_resolved) exitWith {};
 };

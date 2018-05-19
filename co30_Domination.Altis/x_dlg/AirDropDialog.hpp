@@ -1,7 +1,7 @@
 class D_AirDropDialog {
 	idd = -1;
 	movingEnable = true;
-	onLoad = "uiNamespace setVariable ['D_AirDropDialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;call d_fnc_initairdropdialog;d_airdrop_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_AirDropDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;call d_fnc_initairdropdialog;d_airdrop_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_AirDropDialog', nil];d_airdrop_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
@@ -50,7 +50,7 @@ class D_AirDropDialog {
 			x = 0.02; y = 0.115;
 			w = 0.61; h = 0.8;
 			showCountourInterval = false;
-			onMouseButtonClick = "if (ctrlShown ((uiNamespace getVariable 'D_AirDropDialog') displayCtrl 11111)) then {_pp = (param [0]) ctrlMapScreenToWorld [param [2], param [3]];'d_drop_zone' setMarkerPosLocal _pp}";
+			onMouseButtonClick = "if (ctrlShown ((uiNamespace getVariable 'D_AirDropDialog') displayCtrl 11111)) then {_pp = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];'d_drop_zone' setMarkerPosLocal _pp}";
 		};
 	};
 };

@@ -2810,14 +2810,6 @@
 <Japanese>%1が格納されました</Japanese>
 <Original>%1 undeployed</Original>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_649">
-<English>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</English>
-<Spanish>%1 ha encontrado una nueva información. Sabemos del nombre en clave de los saboteadores enemigos y puede proporcionar información cuando se ponen en marcha para atacar en la base.</Spanish>
-<Portuguese>%1 tem encontrado novo intel. Temos aprendido o codename para inimigo saboteurs, e pode proporcionar informação quando estão lançando um saboteur ataque na base.</Portuguese>
-<Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군의 교란작전에 대한 정보를 얻었으며, 언제 그들이 본부를 기습할지 확인했습니다.</Korean>
-<Japanese>%1が新情報を入手。敵の工作員のコードネームが分かった、基地への奇襲がいつおこなわれるかの情報を得た。</Japanese>
-<Original>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Original>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_650">
 <English>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</English>
 <Spanish>%1 ha encontrado una nueva información. Sabemos el nombre en clave de los paracaidistas enemigo, y puede proporcionar aviso cuando el enemigo envía tropas aerotransportadas en el objetivo principal.</Spanish>
@@ -2985,6 +2977,22 @@
 <Korean>대령으로 진급하셨습니다. 축하드립니다.</Korean>
 <Japanese>大佐に昇格しました、おめでとう!!!</Japanese>
 <Original>You were promoted to Colonel, congratulations !!!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_674a">
+<English>You were degraded from %1 to Colonel !!!</English>
+<Spanish>You were degraded from %1 to Colonel !!!</Spanish>
+<Portuguese>You were degraded from %1 to Colonel !!!</Portuguese>
+<Korean>You were degraded from %1 to Colonel !!!</Korean>
+<Japanese>You were degraded from %1 to Colonel !!!</Japanese>
+<Original>You were degraded from %1 to Colonel !!!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_675a">
+<English>You were promoted to General, congratulations !!!</English>
+<Spanish>You were promoted to General, congratulations !!!</Spanish>
+<Portuguese>You were promoted to General, congratulations !!!</Portuguese>
+<Korean>You were promoted to General, congratulations !!!</Korean>
+<Japanese>You were promoted to General, congratulations !!!</Japanese>
+<Original>You were promoted to General, congratulations !!!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_676">
 <English>DANGER:</English>

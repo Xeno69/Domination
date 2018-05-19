@@ -14,8 +14,7 @@ if (d_earplugs_fitted) then {
 };
 {
 	player remoteExecCall ["xr_fnc_addActions", _x];
-	false
-} count d_own_sides_o;
+} forEach d_own_sides_o;
 if (!captive player) then {
 	[player, true] remoteExecCall ["setCaptive"];
 };
@@ -81,8 +80,7 @@ __TRACE("starting main uncon loop")
 				__TRACE("xr_u_remactions")
 				{
 					player remoteExecCall ["xr_fnc_removeActions", _x];
-					false
-				} count d_own_sides_o;
+				} forEach d_own_sides_o;
 			};
 			if (xr_with_marker) then {
 				__TRACE("del marker")

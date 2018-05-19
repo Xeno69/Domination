@@ -1,7 +1,7 @@
 class d_TeleportDialog {
 	idd = -1;
 	movingEnable = false;
-	onLoad="uiNamespace setVariable ['d_TeleportDialog', param [0]];d_teleport_dialog_open = true;d_teleport_off = false;[param [0], 0] call d_fnc_teleportdialoginit";
+	onLoad="uiNamespace setVariable ['d_TeleportDialog', _this select 0];d_teleport_dialog_open = true;d_teleport_off = false;[_this select 0, 0] call d_fnc_teleportdialoginit";
 	onUnLoad="uiNamespace setVariable ['d_TeleportDialog', nil];d_teleport_dialog_open = false;d_teleport_off = nil;";
 	class controlsBackground {
 		class bg1: RscBG {

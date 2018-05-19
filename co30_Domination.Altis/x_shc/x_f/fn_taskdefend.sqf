@@ -32,8 +32,7 @@ private _units = (units _grp) - [leader _grp];
 		[_unit] orderGetIn true;
 		_units resize ((count _units) - 1);
 	};
-	false
-} count ((_pos nearEntities ["StaticWeapon", 100]) select {_x emptyPositions "gunner" > 0});
+} forEach ((_pos nearEntities ["StaticWeapon", 100]) select {_x emptyPositions "gunner" > 0});
 
 private _wp = _grp addWaypoint [_pos, 10];
 _wp setWaypointType "SENTRY";
@@ -47,7 +46,6 @@ _units spawn {
 			sleep 0.5;
 			_x action ["SitDown", _x];
 		};
-		false
-	} count _this;
+	} forEach _this;
 };
 true

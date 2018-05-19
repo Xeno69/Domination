@@ -89,8 +89,8 @@ if (_addkills) then {
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
 		_veh addEventHandler ["Killed", {
-			[[8, 5] select ((param [0]) isKindOf "Air"), param [1]] remoteExecCall ["d_fnc_addkillsai", 2];
-			(param [0]) removeAllEventHandlers "Killed";
+			[[8, 5] select ((_this select 0) isKindOf "Air"), _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+			(_this select 0) removeAllEventHandlers "Killed";
 		}];
 	};
 };

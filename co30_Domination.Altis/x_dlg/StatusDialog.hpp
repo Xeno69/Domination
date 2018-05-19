@@ -1,7 +1,7 @@
 class D_StatusDialog {
 	idd = -1;
 	movingEnable = 1;
-	onLoad = "uiNamespace setVariable ['D_StatusDialog', param [0]];[param [0]] call bis_fnc_guiEffectTiles;(param [0]) call d_fnc_statusdialoginit;d_showstatus_dialog_open = true";
+	onLoad = "uiNamespace setVariable ['D_StatusDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;(_this select 0) call d_fnc_statusdialoginit;d_showstatus_dialog_open = true";
 	onUnLoad = "uiNamespace setVariable ['D_StatusDialog', nil];d_showstatus_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
@@ -212,7 +212,7 @@ class D_StatusDialog {
 			idc = 12010;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.415 * safezoneH + safezoneY";
-			w = "0.02 * safezoneW";
+			w = "0.02 * safezoneH";
 			h = "0.02 * safezoneH";
 			text="";
 			sizeEx = 256;
@@ -458,6 +458,19 @@ class D_StatusDialog {
 		class ColonelPoints: CorporalPoints {
 			idc = 2006;
 			y = "0.71 * safezoneH + safezoneY";
+			text = "";
+		};
+		class GeneralPic: CorporalPic {
+			y = "0.775 * safezoneH + safezoneY";
+			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"texture"));
+		};
+		class GeneralString: CorporalString {
+			y = "0.74 * safezoneH + safezoneY";
+			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"displayName"));
+		};
+		class GeneralPoints: CorporalPoints {
+			idc = 2007;
+			y = "0.74 * safezoneH + safezoneY";
 			text = "";
 		};
 	};

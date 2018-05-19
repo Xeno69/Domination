@@ -5,26 +5,26 @@
 
 __TRACE_1("","_this")
 
-private _pos_center = param [4];
-private _radius = param [5];
-private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {param [6]} else {false}};
+private _pos_center = _this select 4;
+private _radius = _this select 5;
+private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {_this select 6} else {false}};
 private _ret_grps = [];
 
 for "_nr" from 0 to 1 do {
-	private _nrg = param [1 + (_nr * 2)];
+	private _nrg = _this select (1 + (_nr * 2));
 	__TRACE_1("","_nrg")
 	if (_nrg > 0) then {
 		if (d_MissionType == 2) then {_nrg = _nrg + 2};
 		if (d_WithLessArmor_side == 1) then {_nrg = _nrg + 2};
-		private _typenr = param [_nr * 2];
+		private _typenr = _this select (_nr * 2);
 		for "_i" from 1 to _nrg do {
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 			private "_pos";
 			if (_radius > 0) then {
-				_pos = [_pos_center, _radius, 0] call d_fnc_GetRanPointCircle;
+				_pos = [_pos_center, _radius, 0, 0, 0.7, 2] call d_fnc_GetRanPointCircle;
 				if (_pos isEqualTo []) then {
 					for "_ee" from 0 to 99 do {
-						_pos = [_pos_center, _radius, 0] call d_fnc_GetRanPointCircle;
+						_pos = [_pos_center, _radius, 0, 0, 0.7, 2] call d_fnc_GetRanPointCircle;
 						if !(_pos isEqualTo []) exitWith {};
 					};
 					if (_pos isEqualTo []) then {
@@ -44,19 +44,13 @@ for "_nr" from 0 to 1 do {
 				_newgroup setSpeedMode "NORMAL";
 				_newgroup setVariable ["d_defend", true];
 				[_newgroup, _pos_center] spawn d_fnc_taskDefend;
-				if (d_with_dynsim == 0) then {
-					_newgroup spawn {
-						sleep 10;
-						_this enableDynamicSimulation true;
-					};
-				};
 			} else {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30], "", 0] spawn d_fnc_MakePatrolWPX;
-				if (d_with_dynsim == 0) then {
-					_newgroup spawn {
-						sleep 3;
-						_this enableDynamicSimulation true;
-					};
+			};
+			if (d_with_dynsim == 0) then {
+				_newgroup spawn {
+					sleep 15;
+					_this enableDynamicSimulation true;
 				};
 			};
 			_ret_grps pushBack _newgroup;

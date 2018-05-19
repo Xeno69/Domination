@@ -63,7 +63,7 @@ while {true} do {
 			private _isitlocked = _vec getVariable ["d_vec_islocked", false];// || {_vec call d_fnc_isVecLocked};
 			private _ropes = _vec getVariable "d_ropes";
 			if (!isNil "_ropes") then {
-				{ropeDestroy _x;false} count (_ropes select {!isNull _x});
+				{ropeDestroy _x} forEach (_ropes select {!isNull _x});
 			};
 			private _attached = _vec getVariable "d_attachedto_v";
 			if (!isNil "_attached") then {

@@ -14,8 +14,7 @@ while {true} do {
 	if (!isNil "d_airboxes" && {!(d_airboxes isEqualTo [])}) then {
 		{
 			deleteVehicle _x;
-			false
-		} count (d_airboxes select {time > _x getVariable ["d_airboxtime", -1]});
+		} forEach (d_airboxes select {time > _x getVariable ["d_airboxtime", -1]});
 		d_airboxes = d_airboxes - [objNull];
 	};
 };

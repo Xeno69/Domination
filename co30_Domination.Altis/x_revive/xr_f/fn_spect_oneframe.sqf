@@ -74,8 +74,7 @@ if (time > xr_spect_timer) then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
 			_helperls pushBack [_dist, format [(_x call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
-			false
-		} count (d_allplayers select {_x != player});
+		} forEach (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
 		private ["_distup", "_pic"];
@@ -88,8 +87,7 @@ if (time > xr_spect_timer) then {
 				};
 				_helperls pushBack [_distup, _x call d_fnc_getplayername, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
 			};
-			false
-		} count (d_allplayers select {_x != player});
+		} forEach (d_allplayers select {_x != player});
 	};
 	xr_x_updatelb = true;
 	xr_spect_timer = time + 10;
@@ -107,8 +105,7 @@ if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
 		_lbctr lbSetValue [_idx, _x # 0];
 		_lbctr lbSetPicture [_idx, _x # 3];
 		_lbctr lbSetColor [_idx, _x # 4];
-		false
-	} count _helperls;
+	} forEach _helperls;
 	__TRACE_1("","_helperls")
 	private _setidx = -1;
 	if !(_helperls isEqualTo []) then {
