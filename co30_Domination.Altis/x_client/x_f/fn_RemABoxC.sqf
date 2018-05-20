@@ -6,7 +6,7 @@
 private _nobjs = nearestObjects [_this select 0, [d_the_box], 10, false];
 __TRACE_2("","_nobjs","_this")
 if !(_nobjs isEqualTo []) then {
-	private _box = _nobjs (_this select 0);
+	_nobjs params ["_box"];
 	private _unit = _this select 1;
 	if (!isNil "_unit" && {!isNull _unit}) then {
 		_unit setVariable ["d_boxcargo", [_box call BIS_fnc_getVirtualWeaponCargo, _box call BIS_fnc_getVirtualMagazineCargo, _box call BIS_fnc_getVirtualItemCargo, _box call BIS_fnc_getVirtualBackpackCargo]];
