@@ -10,6 +10,7 @@ Changelogs
 3.93
 - Fixed: When With AI is enabled do not delete UAV AI
 - Changed: ace arsenal disabled in ranked mode
+- Fixed: Convoy side mission was broken (thx @auge103)
 
 3.92
 - Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)
