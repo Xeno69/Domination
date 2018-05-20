@@ -78,7 +78,6 @@ while {true} do {
 		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
 		_mforceendtime = time + _mforceendtime;
 	};
-	if ((call d_fnc_PlayersNumber) == 0) then {
 	if (d_confvdown == _numconfv || {_allSMVecs findIf {canMove _x} == -1}) exitWith {};
 	if ((getPosATL (leader _newgroup)) distance2D _pos_end < 100) exitWith {
 		_convoy_reached_dest = true;
