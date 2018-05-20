@@ -947,6 +947,10 @@ d_last_placed_zeus_obj = objNull;
 } forEach allCurators;
 #endif
 
+if (d_with_ai) then {
+	0 spawn d_fnc_hchelper;
+};
+
 0 spawn {
 	waitUntil {sleep 0.3;time > 0};
 	enableEnvironment [false, true];
