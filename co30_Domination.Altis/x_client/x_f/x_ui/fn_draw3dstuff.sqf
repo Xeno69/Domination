@@ -12,7 +12,7 @@ private _pos_cam = positionCameraToWorld [0,0,0];
 private ["_distp", "_cwt", "_col"];
 {
 	_x params ["_obj"];
-	_distp = _pos_cam distance2D _obj;
+	_distp = _pos_cam distance _obj;
 	if (_distp < 250) then {
 		_cwt = _obj getVariable ["d_curreptime" , -1];
 		if (_cwt == -1) then {
