@@ -913,6 +913,17 @@ if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 	};
 };
 
+if (d_no_mortar_ar == 1) then {
+	private _badar = bis_fnc_arsenal_data # 5;
+	{
+		if (_x isKindOf "B_Mortar_01_weapon_F") then {
+			_badar set [_forEachIndex, -1];
+		};
+	} forEach _badar;
+	_badar = _badar - [-1];
+	bis_fnc_arsenal_data set [5, _badar];
+};
+
 missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 
 0 spawn d_fnc_allplayers;

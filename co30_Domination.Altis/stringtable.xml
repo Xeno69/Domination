@@ -7579,6 +7579,14 @@
 <Japanese>Enemy AI vehicles can be air lifted:</Japanese>
 <Original>Enemy AI vehicles can be air lifted:</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1831">
+<English>Mortar bag packs in Virtual Arsenal:</English>
+<Spanish>Mortar bag packs in Virtual Arsenal:</Spanish>
+<Portuguese>Mortar bag packs in Virtual Arsenal:</Portuguese>
+<Korean>Mortar bag packs in Virtual Arsenal:</Korean>
+<Japanese>Mortar bag packs in Virtual Arsenal:</Japanese>
+<Original>Mortar bag packs in Virtual Arsenal:</Original>
+</Key>
 </Container>
 </Package>
 </Project>

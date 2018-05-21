@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.94
+- Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
+
 3.93
 - Fixed: When With AI is enabled do not delete UAV AI
 - Changed: ace arsenal disabled in ranked mode
