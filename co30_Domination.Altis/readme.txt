@@ -9,6 +9,7 @@ Changelogs
 
 3.94
 - Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
+- Fixed: Use correct position for barracks building fake ruin
 
 3.93
 - Fixed: When With AI is enabled do not delete UAV AI

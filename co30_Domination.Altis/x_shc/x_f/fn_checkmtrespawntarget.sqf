@@ -14,7 +14,7 @@ if (_type == 0) then {
 		[51] remoteExecCall ["d_fnc_DoKBMsg", 2];
 		params ["_obj"];
 		if (typeOf _obj isEqualTo "Land_BagBunker_Large_F") then {
-			private _epos = getPos _obj;
+			private _epos = _obj getVariable "d_v_pos";
 			private _edir = getDir _obj;
 			deleteVehicle _obj;
 			_obj = createVehicle ["Land_Slum_House02_ruins_F", _epos, [], 0, "NONE"];
