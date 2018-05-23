@@ -68,7 +68,7 @@ d_bonus_vec_positions_w = [];
 // add some random patrols on the island
 // if the array is empty, no patrols
 // simply place a rectangular marker called "d_isledefense_marker", marker text = number of patrols
-if (d_WithIsleDefense == 0 && {isServer}) then {
+if (d_WithIsleDefense == 0 && {call d_fnc_checkSHC}) then {
 	private _mna = "d_isledefense_marker";
 	if (markerPos _mna isEqualTo [0,0,0]) exitWith {
 		d_with_isledefense = [];
