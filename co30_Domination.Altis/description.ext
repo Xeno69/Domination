@@ -474,6 +474,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_no_mortar_ar {
+		title = "$STR_DOM_MISSIONSTRING_1831";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";
 		values[] = {-99999};

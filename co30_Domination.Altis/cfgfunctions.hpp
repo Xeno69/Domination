@@ -140,6 +140,7 @@ class cfgFunctions {
 			addc(engtrigfnc);
 			addc(checkammo);
 			addc(allplayers);
+			addc(hchelper);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";

@@ -7,9 +7,18 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.94
+- Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
+- Fixed: Use correct position for barracks building fake ruin
+
 3.93
 - Fixed: When With AI is enabled do not delete UAV AI
 - Changed: ace arsenal disabled in ranked mode
+- Fixed: Convoy side mission was broken (thx @auge103)
+- Fixed: When High Command groups on the player side are available do not delete them when with AI is enabled
+- Fixed: Used wrong mission files so 3.92 was still reporting version number 3.91
+- Fixed: Respawning on the Carrier in the carrier version was broken
+- Fixed: Do not delete Zeus placed groups which are friendly to the player side
 
 3.92
 - Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)

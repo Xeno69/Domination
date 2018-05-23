@@ -363,7 +363,7 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.92"];
+diag_log ["Internal D Version: 3.93"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -913,6 +913,17 @@ if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 	};
 };
 
+if (d_no_mortar_ar == 1) then {
+	private _badar = bis_fnc_arsenal_data # 5;
+	{
+		if (_x isKindOf "B_Mortar_01_weapon_F") then {
+			_badar set [_forEachIndex, -1];
+		};
+	} forEach _badar;
+	_badar = _badar - [-1];
+	bis_fnc_arsenal_data set [5, _badar];
+};
+
 missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 
 0 spawn d_fnc_allplayers;
@@ -937,15 +948,23 @@ d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
 		addToRemainsCollector [_this select 1];
-		if (d_with_ai && {unitIsUAV (_this select 1)}) then {
+		if (d_with_ai) then {
 			private _crew = crew (_this select 1);
 			if !(_crew isEqualTo []) then {
-				[group (_crew # 0), ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+				private _gr = group (_crew # 0);
+				if (side _gr in d_own_sides_o && {isNil {_gr getVariable "d_do_not_delete"}}) then { 
+					[_gr, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+					_gr setVariable ["d_do_not_delete", true];
+				};
 			};
 		};
 	}];
 } forEach allCurators;
 #endif
+
+if (d_with_ai) then {
+	0 spawn d_fnc_hchelper;
+};
 
 0 spawn {
 	waitUntil {sleep 0.3;time > 0};
