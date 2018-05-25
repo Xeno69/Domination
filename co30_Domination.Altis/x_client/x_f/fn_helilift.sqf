@@ -133,7 +133,16 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					
 					private _ropes = [];
 					private _slcmp = getArray(configFile>>"CfgVehicles">>(typeOf _liftobj)>>"slingLoadCargoMemoryPoints");
-					if (_slcmp isEqualTo []) then {
+					
+					// Fix for vehicles with slingload points at null position (lots of mod vehicles...)
+					private _slcmp_null = true;
+					if !(_slcmp isEqualTo []) then {
+						{
+							if !(_liftobj selectionPosition _x isEqualTo [0,0,0]) exitWith {_slcmp_null = false};
+						} forEach _slcmp;
+					};
+					
+					if (_slcmp_null) then {
 						{
 							_ropes pushBack (ropeCreate [_chopper, _slipos, _liftobj, _x, 20]);
 						} forEach ([_liftobj] call d_fnc_getcorners);
