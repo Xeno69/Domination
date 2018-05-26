@@ -883,7 +883,7 @@ player setVariable ["xr_isleader", false];
 };
 
 player addEventhandler ["WeaponAssembled", {
-	["aw", d_string_player, _this select 1] remoteExecCall ["d_fnc_p_o_ar", 2];
+	["aw", d_string_player, _this # 1] remoteExecCall ["d_fnc_p_o_ar", 2];
 }];
 
 {_x call d_fnc_initvec} forEach vehicles;

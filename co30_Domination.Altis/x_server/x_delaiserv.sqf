@@ -1,10 +1,24 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "x_delaiserv.sqf"
 #include "..\x_setup.sqf"
 
 if (!isServer) exitWith {};
 
+#ifndef __DEBUG__
 sleep 60;
+#endif
+
+{
+	if (unitIsUAV _x) then {
+		_cr = crew _x;
+		if !(_cr isEqualTo []) then {
+			(group (_cr # 0)) setVariable ["d_do_not_delete", true];
+		};
+	};
+} forEach vehicles;
+
+sleep 1;
 
 while {true} do {
 	private _remar = [];
@@ -23,12 +37,18 @@ while {true} do {
 				_remar pushBack _x;
 			};
 		};
+#ifndef __DEBUG__
 		sleep 2;
+#endif
 	} forEach (allGroups select {side _x in d_own_sides_o && {isNil {_x getVariable "d_do_not_delete"}}});
 	if !(_remar isEqualTo []) then {
 		{
 			_x remoteExec ["deleteGroup", groupOwner _x];
 		} forEach _remar;
 	};
+#ifndef __DEBUG__
 	sleep 20.321;
+#else
+	sleep 2;
+#endif
 };

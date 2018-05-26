@@ -13,6 +13,7 @@ Changelogs
 - Fixed: Island patrols did not work on headless client
 - Improved: Rope attachement points for helilift by Auge103
 - Fixed: Stupid "I forgot to remove a copy and paste text" in x_server\x_f\fn_getbonus.sqf which completely broke it (mission breaker :/)
+- Fixed: Do not delete UAV invisble crews when with AI is enabled, makes player placed drones work again
 
 3.93
 - Fixed: When With AI is enabled do not delete UAV AI
