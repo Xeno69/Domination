@@ -19,6 +19,7 @@ Changelogs
 - Fixed: Used wrong mission files so 3.92 was still reporting version number 3.91
 - Fixed: Respawning on the Carrier in the carrier version was broken
 - Fixed: Do not delete Zeus placed groups which are friendly to the player side
+- Fixed: Island patrols did not work on headless client
 
 3.92
 - Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)
