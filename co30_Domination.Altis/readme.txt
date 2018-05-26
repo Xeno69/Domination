@@ -10,6 +10,9 @@ Changelogs
 3.94
 - Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
 - Fixed: Use correct position for barracks building fake ruin
+- Fixed: Island patrols did not work on headless client
+- Improved: Rope attachement points for helilift by Auge103
+- Fixed: Stupid "I forgot to remove a copy and paste text" in x_server\x_f\fn_getbonus.sqf which completely broke it (mission breaker :/)
 
 3.93
 - Fixed: When With AI is enabled do not delete UAV AI
@@ -19,8 +22,6 @@ Changelogs
 - Fixed: Used wrong mission files so 3.92 was still reporting version number 3.91
 - Fixed: Respawning on the Carrier in the carrier version was broken
 - Fixed: Do not delete Zeus placed groups which are friendly to the player side
-- Fixed: Island patrols did not work on headless client
-- Improved: Rope attachement points for helilift by Auge103
 
 3.92
 - Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)

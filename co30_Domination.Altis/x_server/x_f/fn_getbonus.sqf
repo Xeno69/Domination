@@ -231,7 +231,6 @@ if (unitIsUAV _vec) then {
 		};
 	};
 	_vec allowCrewInImmobile true;
-	d_do_not_delete
 };
 
 __TRACE_1("","_vec")
