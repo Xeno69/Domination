@@ -11,6 +11,7 @@ Changelogs
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
 - Fixed: Huge VTOL vehicles like Blackfish no longer explode when beeing spawned as sidemission reward
 - Changed: VR uniforms removed from BI Virtual Arsenal
+- Fixed: If "Parachute from base" is disabled then also disable it at additional respawn points like farps (parachute from base is always on when with AI is enabled)
 
 3.94
 - Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
