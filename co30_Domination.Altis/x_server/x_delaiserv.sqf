@@ -9,22 +9,11 @@ if (!isServer) exitWith {};
 sleep 60;
 #endif
 
-{
-	if (unitIsUAV _x) then {
-		_cr = crew _x;
-		if !(_cr isEqualTo []) then {
-			(group (_cr # 0)) setVariable ["d_do_not_delete", true];
-		};
-	};
-} forEach vehicles;
-
-sleep 1;
-
 while {true} do {
 	private _remar = [];
 	{
 		private _units = units _x;
-		if (_units findIf {_x call d_fnc_isplayer} == -1) then {
+		if (!(_units isEqualTo []) && {!unitIsUAV (objectParent (_units # 0)) && {_units findIf {_x call d_fnc_isplayer} == -1}}) then {
 			private _units = _units select {!(_x call d_fnc_isplayer)};
 			if !(_units isEqualTo []) then {
 				{

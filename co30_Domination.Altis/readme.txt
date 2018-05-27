@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.95
+- Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
+
 3.94
 - Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
 - Fixed: Use correct position for barracks building fake ruin

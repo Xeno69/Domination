@@ -44,7 +44,7 @@ link19[] = {17,6};
 link20[] = {18,19};
 link21[] = {19,15};
 globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-380.756256,570.609863,981.150391,-133.556305,763,894,1};
-window[] = {2,-1,-1,-1,-1,952,234,1936,234,3,781};
+window[] = {2,-1,-1,-1,-1,874,156,1858,156,3,781};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -340,11 +340,8 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"private _new_vec = createVehicle [_type, _dpos, [], 0, ""NONE""];" \n
                          "if (unitIsUAV _new_vec) then {" \n
                          "	createVehicleCrew _new_vec;" \n
-                         "	private _crew = crew _new_vec;" \n
-                         "	if (d_with_ai && {!(_crew isEqualTo [])}) then {" \n
-                         "		(group (_crew select 0)) setVariable [""d_do_not_delete"", true];" \n
-                         "	};" \n
                          "	_new_vec allowCrewInImmobile true;" \n
+                         "	private _crew = crew _new_vec;" \n
                          "	if !(_crew isEqualTo []) then {" \n
                          "		_new_vec setVariable [""d_bonus_ar"", [_crew, group (_crew select 0)]];" \n
                          "	};" \n

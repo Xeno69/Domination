@@ -86,11 +86,5 @@ switch (_this select 0) do {
 			d_placed_objs_store3 setVariable [_this select 1, [_this select 2]];
 		};
 		(_this select 2) setVariable ["d_time_aw", time + 1800];
-		if (d_with_ai && {unitIsUAV (_this select 2)}) then {
-			private _cr = crew (_this select 2);
-			if !(_cr isEqualTo []) then {
-				(group (_cr # 0)) setVariable ["d_do_not_delete", true];
-			};
-		};
 	};
 };

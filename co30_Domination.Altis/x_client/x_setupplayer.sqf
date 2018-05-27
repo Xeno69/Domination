@@ -948,16 +948,6 @@ d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
 		addToRemainsCollector [_this select 1];
-		if (d_with_ai) then {
-			private _crew = crew (_this select 1);
-			if !(_crew isEqualTo []) then {
-				private _gr = group (_crew # 0);
-				if (side _gr in d_own_sides_o && {isNil {_gr getVariable "d_do_not_delete"}}) then { 
-					[_gr, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
-					_gr setVariable ["d_do_not_delete", true];
-				};
-			};
-		};
 	}];
 } forEach allCurators;
 #endif

@@ -18,7 +18,7 @@ sleep 2;
 
 private _owngroup = [d_side_player] call d_fnc_creategroup;
 if (d_with_ai) then {
-	_owngroup setVariable ["d_do_not_delete", true];
+	[_owngroup, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
 };
 __TRACE_1("","_owngroup")
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _poss, [], 60, "NONE"];
