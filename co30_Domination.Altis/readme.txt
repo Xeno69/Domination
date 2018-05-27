@@ -9,6 +9,7 @@ Changelogs
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
+- Fixed: Huge VTOL vehicles like Blackfish no longer explode when beeing spawned as sidemission reward
 
 3.94
 - Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
