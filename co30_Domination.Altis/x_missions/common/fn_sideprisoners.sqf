@@ -6,7 +6,7 @@ if !(call d_fnc_checkSHC) exitWith {};
 
 (_this select 0) params ["_pos"];
 
-if (d_with_ranked) then {d_sm_p_pos = nil};
+if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 
 sleep 2;
 
@@ -109,7 +109,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 			};
 		};
 	};
-	if (d_with_ranked && {_hostages_reached_dest}) then {
+	if ((d_with_ranked  || {d_database_found}) && {_hostages_reached_dest}) then {
 #ifndef __TT__
 		private _tmp_flag = d_FLAG_BASE;
 #else

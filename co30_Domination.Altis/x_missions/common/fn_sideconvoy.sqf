@@ -11,7 +11,7 @@ d_sm_points_blufor = 0;
 d_sm_points_opfor = 0;
 #endif
 
-if (d_with_ranked) then {d_sm_p_pos = nil};
+if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 
 d_confvdown = 0;
 private _numconfv = count d_sm_convoy_vehicles;
@@ -82,7 +82,7 @@ while {true} do {
 	if ((getPosATL (leader _newgroup)) distance2D _pos_end < 100) exitWith {
 		_convoy_reached_dest = true;
 	};
-	if (d_with_ranked) then {
+	if (d_with_ranked || {d_database_found}) then {
 		[missionNamespace, ["d_sm_p_pos", getPosATL _leader]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 	};
 	if (time > _mforceendtime) exitWith {_convoy_reached_dest = true};

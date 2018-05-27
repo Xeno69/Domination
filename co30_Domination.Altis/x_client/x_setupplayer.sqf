@@ -202,8 +202,11 @@ if (d_with_ranked) then {
 		["ace_treatmentSucceded", { _this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
 	
-	d_sm_p_pos = nil;
 	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
+};
+
+if (d_with_ranked || {d_database_found}) then {
+	d_sm_p_pos = nil;
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating

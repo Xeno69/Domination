@@ -32,7 +32,7 @@ private _offz_at_base = false;
 private _is_dead = false;
 private _rescued = false;
 
-if (d_with_ranked) then {d_sm_p_pos = nil};
+if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 
 if (_docreateinf) then {
 	["specops", (floor (random 4)) min 2, "allmen", (floor (random 4)) min 2, d_x_sm_pos # 0, 300, true] spawn d_fnc_CreateInf;
@@ -105,19 +105,19 @@ if (!d_sm_resolved) then {
 	} else {
 		if (_offz_at_base) then {
 	#ifndef __TT__
-			if (d_with_ranked) then {
+			if (d_with_ranked || {d_database_found}) then {
 				[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 			};
 			d_sm_winner = 2;
 	#else
 			if (_officer distance2D d_WFLAG_BASE < 50) then {
-				if (d_with_ranked) then {
+				if (d_with_ranked || {d_database_found}) then {
 					[missionNamespace, ["d_sm_p_pos", getPosATL d_WFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 				};
 				d_sm_winner = 2;
 			} else {
 				if (_officer distance2D d_EFLAG_BASE < 50) then {
-					if (d_with_ranked) then {
+					if (d_with_ranked || {d_database_found}) then {
 						[missionNamespace, ["d_sm_p_pos", getPosATL d_EFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 					};
 					d_sm_winner = 1;

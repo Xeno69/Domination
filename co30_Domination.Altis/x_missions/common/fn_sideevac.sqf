@@ -197,7 +197,7 @@ if (!d_sm_resolved) then {
 	if (_is_dead) then {
 		d_sm_winner = -700;
 	} else {
-		if (d_with_ranked) then {
+		if (d_with_ranked || {d_database_found}) then {
 	#ifndef __TT__
 			[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 	#else

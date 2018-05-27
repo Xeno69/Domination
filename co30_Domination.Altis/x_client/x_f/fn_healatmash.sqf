@@ -15,6 +15,6 @@ if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVar
 player setDamage 0;
 player setBleedingRemaining 0;
 
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	[_this select 0, d_name_pl, d_ranked_a # 7] remoteExecCall ["d_fnc_ampoi", 2];
 };

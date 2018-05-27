@@ -10,7 +10,7 @@ private _ran_pos = selectRandom _posi_array;
 
 _posi_array = nil;
 
-if (d_with_ranked) then {d_sm_p_pos = nil};
+if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 
 private _flag = createVehicle [d_flag_pole, _ran_pos, [], 0, "NONE"];
 _flag setPos _ran_pos;
@@ -43,7 +43,7 @@ while {true} do {
 
 #ifndef __TT__
 	if (!isNull _owner && {(_owner distance2D d_FLAG_BASE < 40)}) exitWith {
-		if (d_with_ranked) then {
+		if (d_with_ranked || {d_database_found}) then {
 			[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 		};
 		_flag setFlagOwner objNull;
@@ -58,7 +58,7 @@ while {true} do {
 	};
 #else
 	if (!isNull _owner && {(_owner distance2D d_EFLAG_BASE < 40)}) exitWith {
-		if (d_with_ranked) then {
+		if (d_with_ranked || {d_database_found}) then {
 			[missionNamespace, ["d_sm_p_pos", getPosATL d_EFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 		};
 		_flag setFlagOwner objNull;
@@ -72,7 +72,7 @@ while {true} do {
 		};
 	};
 	if (!isNull _owner && {(_owner distance2D d_WFLAG_BASE < 40)}) exitWith {
-		if (d_with_ranked) then {
+		if (d_with_ranked || {d_database_found}) then {
 			[missionNamespace, ["d_sm_p_pos", getPosATL d_WFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 		};
 		_flag setFlagOwner objNull;
