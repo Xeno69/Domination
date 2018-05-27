@@ -14,7 +14,7 @@ Changelogs
 - Fixed: If "Parachute from base" is disabled then also disable it at additional respawn points like farps
 - Added: New server lobby parameter "Add action menu "Spawn vehicle" to FARPs:", default is Yes
 - Changed: If database is available add extra points (default 3) to the player who placed a mash if another player heals at that mash
-- Changed: If database is available add extra points (default 10) to players who were at the side mission (same points as in ranked mode, added to player total score)
+- Changed: If database is available add extra points (default 10) to players who were at the side mission (same points as in ranked mode, added to player total score; not available for all sidemissions)
 
 3.94
 - Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
