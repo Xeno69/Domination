@@ -648,6 +648,13 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_vec_at_farp {
+		title = "$STR_DOM_MISSIONSTRING_1832";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_engineerfull {
 		title = "$STR_DOM_MISSIONSTRING_1193";

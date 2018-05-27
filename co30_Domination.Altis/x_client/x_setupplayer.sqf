@@ -105,7 +105,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 				private _dadao = missionNamespace getVariable (_x # 1);
 				_x set [1, getPos _dadao];
 				_dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}];
-				if (d_with_ai || {d_ParaAtBase == 0}) then {
+				if (d_ParaAtBase == 0) then {
 					_dadao setVariable ["d_jf_id", _dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0]];
 				};
 				if (count _x > 4 && {_x # 4}) then {
@@ -241,7 +241,7 @@ if (d_MissionType != 2) then {
 	};
 };
 
-if (d_with_ai || {d_ParaAtBase == 0}) then {
+if (d_ParaAtBase == 0) then {
 #ifndef __TT__
 	if (isNil {d_FLAG_BASE getVariable "d_jf_id"}) then {
 		d_FLAG_BASE setVariable ["d_jf_id", d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0]];
