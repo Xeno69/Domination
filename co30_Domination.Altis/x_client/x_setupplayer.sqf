@@ -913,8 +913,17 @@ if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 	};
 };
 
+private _badar = bis_fnc_arsenal_data # 3;
+{
+	if (getText (configFile>>"CfgWeapons">>_x>>"ItemInfo">>"containerClass") == "Supply500") then {
+		_badar set [_forEachIndex, -1];
+	};
+} forEach _badar;
+_badar = _badar - [-1];
+bis_fnc_arsenal_data set [3, _badar];
+
 if (d_no_mortar_ar == 1) then {
-	private _badar = bis_fnc_arsenal_data # 5;
+	_badar = bis_fnc_arsenal_data # 5;
 	{
 		if (_x isKindOf "B_Mortar_01_weapon_F") then {
 			_badar set [_forEachIndex, -1];
