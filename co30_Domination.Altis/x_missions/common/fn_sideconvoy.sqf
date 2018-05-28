@@ -27,6 +27,7 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec lock true;
 	_onevec allowCrewInImmobile true;
 	_nextpos = _onevec modeltoworld [0, -15, 0];
+	_nextpos = _nextpos findEmptyPosition [0, 100, d_sm_convoy_vehicles # _i];
 	_nextpos set [2,0];
 	_onevec addEventHandler ["killed", {
 		d_confvdown = d_confvdown + 1;
