@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.96
+- Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
+
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
 - Fixed: Huge VTOL vehicles like Blackfish no longer explode when beeing spawned as sidemission reward
