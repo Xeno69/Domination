@@ -415,6 +415,8 @@ class cfgFunctions {
 			addc(getflatarea);
 			addc(getmtmission);
 			addc(mchelper);
+			addc(sabotage);
+			addc(createpara2);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";
@@ -499,6 +501,7 @@ class cfgFunctions {
 			class Wreckmarker{ext=".fsm";};
 			class TTPoints{ext=".fsm";};
 			class HandleCampsTT2{ext=".fsm";};
+			class Infilrate{ext=".fsm";};
 		};
 	};
 };

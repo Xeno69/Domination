@@ -1,0 +1,207 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Infiltrate">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,4346,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
+item1[] = {"Allways",8,218,-35.380417,-105.829010,54.619583,-55.829010,0.000000,"Allways"};
+item2[] = {"Init",2,250,-34.407341,-21.204952,55.592728,28.795052,0.000000,"Init"};
+item3[] = {"Delay_4000plus",4,218,-34.553276,84.865578,55.446739,134.865616,0.000000,"Delay 4000plus"};
+item4[] = {"Create_Chopper",2,250,-33.414291,286.450806,56.585716,336.450806,0.000000,"Create Chopper"};
+item5[] = {"Delay_400",4,218,126.183594,285.617645,216.183609,335.617645,0.000000,"Delay 400"};
+item6[] = {"Dummy",2,250,126.285538,83.930473,216.285553,133.930450,0.000000,"Dummy"};
+item7[] = {"Is_MP",4,218,-200.931793,106.172112,-110.931778,156.172028,1.000000,"Is MP"};
+item8[] = {"Sleep",2,250,-348.878754,161.002350,-258.878906,211.002335,0.000000,"Sleep"};
+item9[] = {"Delay2",4,218,-200.797043,210.501663,-110.796951,260.501526,0.000000,"Delay2"};
+item10[] = {"MP_Player_Check",2,250,-33.335449,155.507095,56.664566,205.507095,0.000000,"MP Player" \n "Check"};
+item11[] = {"_",8,218,-33.335449,219.662155,56.664551,269.662170,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,10};
+link4[] = {4,5};
+link5[] = {5,6};
+link6[] = {6,3};
+link7[] = {7,8};
+link8[] = {8,9};
+link9[] = {9,10};
+link10[] = {10,7};
+link11[] = {10,11};
+link12[] = {11,4};
+globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-361.667633,288.347473,446.930389,-305.159943,796,894,1};
+window[] = {2,-1,-1,-32000,-32000,926,208,1168,208,3,814};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Infiltrate";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private [""_pilot"", ""_chopper"", ""_grp"", ""_end_posh"", ""_start_posh"", ""_vehicle"", ""_unit"", ""_attack_pos"",""_timenow"",""_ranwait""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Allways">*/
+                                class Allways
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Init";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"_chopper = selectRandom d_transport_chopper;" \n
+                         "" \n
+                         "_timenow = time + 3000 + (random 600);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_4000plus">*/
+                                class Delay_4000plus
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="MP_Player_Check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Create_Chopper">*/
+                class Create_Chopper
+                {
+                        name = "Create_Chopper";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_grp = [d_side_enemy] call d_fnc_creategroup;" \n
+                         "" \n
+                         "_end_posh = call d_fnc_GetRanPointOuterAir;" \n
+                         "_start_posh = call d_fnc_GetRanPointOuterAir;" \n
+                         "_start_posh set [2, 300];" \n
+                         "" \n
+                         "_vehicle = ([_start_posh, _start_posh getDir _end_posh, _chopper, _grp] call d_fnc_spawnVehicle) select 0;" \n
+                         "" \n
+                         "addToRemainsCollector [_vehicle];" \n
+                         "" \n
+                         "_attack_pos = [getPos d_FLAG_BASE, 800] call d_fnc_GetRanPointCircleOld;" \n
+                         "[_grp, _vehicle, _attack_pos, _end_posh] spawn d_fnc_createpara2;" \n
+                         "" \n
+                         "_timenow = time + 400;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_400">*/
+                                class Delay_400
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Dummy";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Dummy">*/
+                class Dummy
+                {
+                        name = "Dummy";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = time + 3000 + (random 600);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_4000plus">*/
+                                class Delay_4000plus
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="MP_Player_Check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Sleep">*/
+                class Sleep
+                {
+                        name = "Sleep";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = time + 2.38;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay2">*/
+                                class Delay2
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="MP_Player_Check";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "MP_Player_Check">*/
+                class MP_Player_Check
+                {
+                        name = "MP_Player_Check";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Is_MP">*/
+                                class Is_MP
+                                {
+                                        itemno = 7;
+                                        priority = 1.000000;
+                                        to="Sleep";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isMultiplayer && (call d_fnc_PlayersNumber) == 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="Create_Chopper";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+        };
+};
+/*%FSM</COMPILE>*/
