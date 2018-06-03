@@ -40,6 +40,7 @@ _ctrl lnbAddRow [""];
 
 if (!isNil "d_pl_db_mstart") then {
 	_rowidx = _ctrl lnbAddRow (d_pl_db_mstart apply {str _x});
+	_ctrl lnbSetText [[_rowidx, 7], score player];
 	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 };
