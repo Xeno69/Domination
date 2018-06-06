@@ -86,7 +86,7 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 		};
 	} else {
 #ifndef __TT__
-		if (_officer distance2D d_FLAG_BASE < 50) then {
+		if (_officer distance2D d_FLAG_BASE < 50 || {!isNil "d_flag_airfield" && {_officer distance2D d_flag_airfield < 50}}) then {
 #else
 		if (_officer distance2D d_WFLAG_BASE < 50 || {_officer distance2D d_EFLAG_BASE < 50}) then {
 #endif

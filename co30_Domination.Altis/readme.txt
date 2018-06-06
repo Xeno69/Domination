@@ -9,6 +9,10 @@ Changelogs
 
 3.96
 - Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
+- Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
+- Fixed: It could happen that a camp marker had the same name as the previous one
+- Changed: Turn on NVgoogles again if a player opened Virtual arsenal with NV on (if googles are still available)
+- Changed: Show also seconds for time to wait till next parajump from base/farp
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

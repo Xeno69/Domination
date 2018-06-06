@@ -76,7 +76,7 @@ class FSM
                         name = "_";
                         itemno = 4;
                         init = /*%FSM<STATEINIT""">*/"if (!isNull _box) then {deleteVehicle _box;};" \n
-                         "_box = d_the_base_box createVehicleLocal [0,0,0];" \n
+                         "_box = d_the_base_box createVehicleLocal [0,0,0]; _box enableRopeAttach false;" \n
                          "_box setDir (_box_array select 1);" \n
                          "_box setPos (_box_array select 0);" \n
                          "if (surfaceIsWater (_box_array select 0) && {!isNil ""_aslpos""}) then {" \n

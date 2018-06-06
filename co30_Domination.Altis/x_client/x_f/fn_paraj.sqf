@@ -27,7 +27,7 @@ if (_do_exit) exitWith {};
 if (isNil "d_next_jump_time") then {d_next_jump_time = -1};
 
 if (d_HALOWaitTime > 0 && {_mode == 0 && {player distance2D _jumpobj < 15 && {d_next_jump_time > time}}}) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_65", round ((d_next_jump_time - time)/60)];
+	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_65", floor ((d_next_jump_time - time) / 60), round (d_next_jump_time - time) mod 60];
 };
 
 d_global_jump_pos = [];

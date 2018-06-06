@@ -151,7 +151,7 @@ if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";
-	deleteMarker format ["d_camp%1",_x getVariable "d_INDEX"];
+	deleteMarker (_x getVariable "d_camp_mar");
 	_del_camps_stuff pushBack _x;
 	if (!isNull _flag) then {
 		_del_camps_stuff pushBack _flag;

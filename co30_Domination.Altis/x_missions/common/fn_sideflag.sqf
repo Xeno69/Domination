@@ -42,7 +42,7 @@ while {true} do {
 	};
 
 #ifndef __TT__
-	if (!isNull _owner && {(_owner distance2D d_FLAG_BASE < 40)}) exitWith {
+	if (!isNull _owner && {_owner distance2D d_FLAG_BASE < 40 || {!isNil "d_flag_airfield" && {_owner distance2D d_flag_airfield < 40}}}) exitWith {
 		if (d_with_ranked || {d_database_found}) then {
 			[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 		};

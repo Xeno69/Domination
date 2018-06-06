@@ -110,6 +110,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 		} else {
 #ifndef __TT__
 			if (_pilot1 distance2D d_FLAG_BASE < 50 || {_pilot2 distance2D d_FLAG_BASE < 50}) exitWith {_pilots_at_base = true};
+			if (!isNil "d_flag_airfield" && {_pilot1 distance2D d_flag_airfield < 50 || {_pilot2 distance2D d_flag_airfield < 50}}) exitWith {_pilots_at_base = true};
 #else
 			if (_pilot1 distance2D d_EFLAG_BASE < 50 || {_pilot2 distance2D d_EFLAG_BASE < 50}) exitWith {
 				_pilots_at_base = true;

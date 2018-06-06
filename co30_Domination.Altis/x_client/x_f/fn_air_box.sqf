@@ -6,6 +6,7 @@ private _box = d_the_box createVehicleLocal [0,0,0];
 _box setPos [_this select 0, _this select 1, 0];
 player reveal _box;
 [_box] call d_fnc_weaponcargo;
+_box enableRopeAttach false;
 _box addEventHandler ["killed",{
 	deleteVehicle (_this select 0);
 }];

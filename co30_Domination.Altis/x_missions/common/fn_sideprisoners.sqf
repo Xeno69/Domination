@@ -94,7 +94,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 #else
 		private _tmp_flag = if (_winner == 1) then {d_EFLAG_BASE} else {d_WFLAG_BASE};
 #endif
-		_hostages_reached_dest = _units findIf {alive _x && {(vehicle _x) distance2D _tmp_flag < 50}} > -1;
+		_hostages_reached_dest = _units findIf {alive _x && {(vehicle _x) distance2D _tmp_flag < 50 || {!isNil "d_flag_airfield" && {(vehicle _x) distance2D d_flag_airfield < 50}}}} > -1;
 		
 		if (!_hostages_reached_dest) then {
 			private _fidx = _units findIf {alive _x};

@@ -292,6 +292,8 @@ if (d_player_side == blufor) then {
 #endif
 player addEventHandler ["respawn", {_this call d_fnc_prespawned}];
 
+player setVariable ["d_currentvisionmode", 0];
+
 // one entry: [box_object, color as array (R, G, B, Alpha), "Text to show above box"]
 d_all_p_a_boxes = [];
 
@@ -301,6 +303,7 @@ if !(d_ammo_boxes isEqualTo []) then {
 		_boxnew setPos (_x # 0);
 		[_boxnew] call d_fnc_weaponcargo;
 		_boxnew allowDamage false;
+		_boxnew enableRopeAttach false;
 #ifdef __TT__
 		if (d_player_side != _x # 2) then {
 			deleteMarkerLocal format ["d_bm_%1", _x # 0];
@@ -632,6 +635,7 @@ private _objsasl = [getPosASL D_FLAG_BASE];
 	};
 	player reveal _box;
 	[_box] call d_fnc_weaponcargo;
+	_box enableRopeAttach false;
 	[_box, _x] execFSM "fsms\fn_PlayerAmmobox.fsm";
 #ifndef __TT__
 } forEach d_player_ammobox_pos;
@@ -846,6 +850,7 @@ player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 			_this # 3 && {_this # 1 == DIK_O}
 		}];
 	};
+	player setVariable ["d_currentvisionmode", currentVisionMode player];
 }] call BIS_fnc_addScriptedEventHandler;
 
 [missionNamespace, "arsenalClosed", {
@@ -858,6 +863,9 @@ player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 	};
 	if (d_with_ranked) then {
 		call d_fnc_store_rwitems;
+	};
+	if (player getVariable ["d_currentvisionmode", 0] == 1 && {player call d_fnc_hasnvgoggles}) then {
+		player action ["NVGoggles",player];
 	};
 }] call BIS_fnc_addScriptedEventHandler;
 

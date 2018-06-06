@@ -10,7 +10,9 @@ if (d_beam_target == "") exitWith {
 	__TRACE("exit, beam target empty")
 };
 
-if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
+if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
+	player action ["NVGoggles",player];
+};
 
 private _respawn_pos = [0,0,0];
 __TRACE("black out")

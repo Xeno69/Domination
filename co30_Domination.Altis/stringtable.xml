@@ -355,12 +355,12 @@
 <Original>You need %2 points for parajump. Your current score is %1</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_65">
-<English>You can not jump. You have to wait %1 minutes for your next jump!!!</English>
-<Spanish>No se puede saltar. Tienes que esperar %1 minutos para que su próximo salto.</Spanish>
-<Portuguese>Não pode saltar. Tem que espera %1 minutos para vosso salto próximo!!!</Portuguese>
-<Korean>공수 하실 수 없습니다. 다음 공수까지 %1 분을 기다리셔야합니다.</Korean>
-<Japanese>ジャンプすることはできません。 あなたは次のジャンプのために %1 分待たなければなりません!!!</Japanese>
-<Original>You can not jump. You have to wait %1 minutes for your next jump!!!</Original>
+<English>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</English>
+<Spanish>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Spanish>
+<Portuguese>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Portuguese>
+<Korean>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Korean>
+<Japanese>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Japanese>
+<Original>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_68">
 <English>Only engineers can load static weapons</English>
