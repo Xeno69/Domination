@@ -13,7 +13,7 @@ Changelogs
 - Fixed: It could happen that a camp marker had the same name as the previous one
 - Changed: Turn on NVgoogles again if a player opened Virtual arsenal with NV on (if googles are still available)
 - Changed: Show also seconds for time to wait till next parajump from base/farp
-- Changed: When creating a vehicle at a MHQ find a correct empty vehicle position in a 50m radius
+- Changed: When creating a vehicle at a MHQ or FARP find a correct empty vehicle position in a 50m radius
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
