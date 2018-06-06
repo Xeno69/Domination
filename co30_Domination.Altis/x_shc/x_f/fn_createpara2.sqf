@@ -27,9 +27,10 @@ _wp2 setwaypointtype "MOVE";
 _chopper flyinheight 100;
 
 #ifndef __TT__
-if ((__XJIPGetVar(GVAR(searchintel)) select 0) == 1) then {
-	GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"TellInfiltrateAttack",true];
-};
+// TODO
+//if ((__XJIPGetVar(GVAR(searchintel)) select 0) == 1) then {
+//	GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"TellInfiltrateAttack",true];
+//};
 #endif
 
 _delveccrew = {
