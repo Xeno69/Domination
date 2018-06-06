@@ -12,7 +12,7 @@ Changelogs
 - Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
 - Fixed: It could happen that a camp marker had the same name as the previous one
 - Changed: Turn on NVgoogles again if a player opened Virtual arsenal with NV on (if googles are still available)
-- Changed: Show also seconds for time to wait till next parajump from base/farp
+- Changed: Show also seconds for time to wait till next parajump from base/farp and not only minutes
 - Changed: When creating a vehicle at a MHQ or FARP find a correct empty vehicle position in a 50m radius
 
 3.95
