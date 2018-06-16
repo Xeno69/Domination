@@ -35,6 +35,9 @@ private _timedel = if (d_WreckDeleteTime != -1) then {time + d_WreckDeleteTime} 
 while {!isNull _vec && {_vec distance _sav_pos < 30 && {time < _timedel}}} do {sleep 3.321 + random 2.2};
 deleteMarker _mname;
 if (time > _timedel && {_vec distance _sav_pos < 50}) then {
+	if (unitIsUAV _vec) then {
+		{_vec deleteVehicleCrew _x} forEach (crew _vec);
+	};
 	deleteVehicle _vec;
 } else {
 	_vec spawn d_fnc_wreckmarker2;

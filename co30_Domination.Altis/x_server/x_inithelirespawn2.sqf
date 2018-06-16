@@ -34,6 +34,10 @@ d_helirespawn2_ar = [];
 #endif
 		
 		_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_chopperkilled}}];
+	
+		if (unitIsUAV _vec) then {
+			_vec allowCrewInImmobile true;
+		};
 	};
 } forEach _this;
 

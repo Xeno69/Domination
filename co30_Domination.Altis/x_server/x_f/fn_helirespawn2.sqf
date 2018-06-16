@@ -71,6 +71,9 @@ while {true} do {
 				_vec setVariable ["d_attachedto_v", nil, true];
 			};
 			sleep 0.1;
+			if (unitIsUAV _vec) then {
+				{_vec deleteVehicleCrew _x} forEach (crew _vec);
+			};
 			deleteVehicle _vec;
 			if (!_ifdamage) then {_vec_a set [3,-1]};
 			sleep 0.5;
@@ -97,6 +100,11 @@ while {true} do {
 			};
 			_vec setVariable ["d_vec_islocked", _isitlocked];
 			if (_isitlocked) then {_vec lock true};
+			
+			if (unitIsUAV _vec) then {
+				createVehicleCrew _vec;
+				_vec allowCrewInImmobile true;
+			};
 			
 			_vec setFuel _fuelleft;
 			_vec setDamage 0;

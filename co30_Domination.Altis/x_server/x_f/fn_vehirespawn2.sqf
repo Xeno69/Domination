@@ -13,12 +13,19 @@ _vec setVariable ["d_vec_islocked", (_vec call d_fnc_isVecLocked)];
 
 _vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
 
+if (unitIsUAV _vec) then {
+	_vec allowCrewInImmobile true;
+};
+
 while {true} do {
 	sleep (_delay + random 15);
 
 	if ((crew _vec) findIf {alive _x} == -1 && {damage _vec > 0.9 || {!alive _vec}}) then {
 		private _isitlocked = _vec getVariable "d_vec_islocked";
 		private _fuelleft = _vec getVariable ["d_fuel", 1];
+		if (unitIsUAV _vec) then {
+			{_vec deleteVehicleCrew _x} forEach (crew _vec);
+		};
 		deleteVehicle _vec;
 		sleep 0.5;
 		_vec = createVehicle [_type, _startpos, [], 0, "NONE"];
@@ -28,5 +35,9 @@ while {true} do {
 		if (_isitlocked) then {_vec lock true};
 		_vec setFuel _fuelleft;
 		_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
+		if (unitIsUAV _vec) then {
+			createVehicleCrew _vec;
+			_vec allowCrewInImmobile true;
+		};
 	};
 };

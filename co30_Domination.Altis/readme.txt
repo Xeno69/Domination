@@ -16,6 +16,7 @@ Changelogs
 - Changed: When creating a vehicle at a MHQ or FARP find a correct empty vehicle position in a 50m radius
 - Added: A message is now written to the server rpt and a hint is shown when a player shoots at a MHQ vehicle
 - Changed: Add 10 points when reviving a player instead of just 2 (please change manually in dom_settings table if you use a sql DB)
+- Changed: Better uav respawn handling
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

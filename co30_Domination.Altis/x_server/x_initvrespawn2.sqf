@@ -40,6 +40,9 @@ d_vrespawn2_ar = [];
 		} else {
 			_vec setVariable ["d_liftit", true, true];
 		};
+		if (unitIsUAV _vec) then {
+			_vec allowCrewInImmobile true;
+		};
 	};
 } forEach _this;
 
