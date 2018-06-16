@@ -31,6 +31,7 @@ d_vrespawn2_ar = [];
 		if (_number_v < 100 || {_number_v > 999 && {_number_v < 1100}}) then {
 			_vec addMPEventhandler ["MPKilled", {(_this select 0) call d_fnc_MHQFunc}];
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck; _this call d_fnc_mhqmsg}}];
+			_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 		} else {
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
 		};

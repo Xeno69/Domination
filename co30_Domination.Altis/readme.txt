@@ -14,6 +14,7 @@ Changelogs
 - Changed: Turn on NVgoogles again if a player opened Virtual arsenal with NV on (if googles are still available)
 - Changed: Show also seconds for time to wait till next parajump from base/farp and not only minutes
 - Changed: When creating a vehicle at a MHQ or FARP find a correct empty vehicle position in a 50m radius
+- Added: A message is now written to the server rpt and a hint is shown when a player shoots at a MHQ vehicle
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

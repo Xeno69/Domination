@@ -320,6 +320,7 @@ class cfgFunctions {
 			addc(createjumpflag);
 			addc(gettargetbonus);
 			addc(pshootatarti);
+			addc(pshootatmhq);
 			addc(createrandomtargets);
 			addc(handledisconnect);
 			addc(heli_local_check);

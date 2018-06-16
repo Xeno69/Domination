@@ -7595,6 +7595,22 @@
 <Japanese>Add action menu "Spawn vehicle" to FARPs:</Japanese>
 <Original>Add action menu "Spawn vehicle" to FARPs:</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1833">
+<English>%1, uid %2, is shooting at a MHQ vehicle!!!!</English>
+<Spanish>%1, uid %2, is shooting at a MHQ vehicle!!!!</Spanish>
+<Portuguese>%1, uid %2, is shooting at a MHQ vehicle!!!!</Portuguese>
+<Korean>%1, uid %2, is shooting at a MHQ vehicle!!!!</Korean>
+<Japanese>%1, uid %2, is shooting at a MHQ vehicle!!!!</Japanese>
+<Original>%1, uid %2, is shooting at a MHQ vehicle!!!!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1834">
+<English>%1 is shooting at a MHQ vehicle!!!!</English>
+<Spanish>%1 is shooting at a MHQ vehicle!!!!</Spanish>
+<Portuguese>%1 is shooting at a MHQ vehicle!!!!</Portuguese>
+<Korean>%1 is shooting at a MHQ vehicle!!!!</Korean>
+<Japanese>%1 is shooting at a MHQ vehicle!!!!</Japanese>
+<Original>%1 is shooting at a MHQ vehicle!!!!</Original>
+</Key>
 </Container>
 </Package>
 </Project>

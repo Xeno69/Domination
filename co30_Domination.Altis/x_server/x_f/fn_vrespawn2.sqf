@@ -82,6 +82,7 @@ while {true} do {
 					_vec setVariable ["d_vec_is_mhq", [_vec_a # 5, _number_v]];
 				};
 				_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck; _this call d_fnc_mhqmsg}}];
+				_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 			};
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
 			_vec_a set [0, _vec];
