@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_teleportdialoginit.sqf"
 #include "..\..\..\x_setup.sqf"
 
@@ -97,9 +97,9 @@ private _logtxt = "";
 			d_respawn_mar_str = _x # 0;
 			d_beam_target = _x # 0;
 			private _text = if (_dtype == 1 || {d_tele_dialog == 0}) then {
-				format [localize "STR_DOM_MISSIONSTRING_607", _x # 1]
+				format [localize "STR_DOM_MISSIONSTRING_607", _x # 2]
 			} else {
-				format [localize "STR_DOM_MISSIONSTRING_605", _x # 1]
+				format [localize "STR_DOM_MISSIONSTRING_605", _x # 2]
 			};
 			__CTRL(100110) ctrlSetText _text;
 		};
@@ -118,9 +118,9 @@ private _logtxt = "";
 		d_respawn_mar_str = _x # 0;
 		d_beam_target = _x # 0;
 		private _text = if (_dtype == 1 || {d_tele_dialog == 0}) then {
-			format [localize "STR_DOM_MISSIONSTRING_607", _x # 1]
+			format [localize "STR_DOM_MISSIONSTRING_607", _x # 2]
 		} else {
-			format [localize "STR_DOM_MISSIONSTRING_605", _x # 1]
+			format [localize "STR_DOM_MISSIONSTRING_605", _x # 2]
 		};
 		__CTRL(100110) ctrlSetText _text;
 	};

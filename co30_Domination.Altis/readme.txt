@@ -17,6 +17,7 @@ Changelogs
 - Added: A message is now written to the server rpt and a hint is shown when a player shoots at a MHQ vehicle
 - Changed: Add 10 points when reviving a player instead of just 2 (please change manually in dom_settings table if you use a sql DB)
 - Changed: Better uav respawn handling
+- Fixed: Show correct name of additional respawn point or farp instead of position when selecting a respawn pos in revive dialog
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
