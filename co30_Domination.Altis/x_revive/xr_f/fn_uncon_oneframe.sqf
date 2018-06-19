@@ -23,7 +23,7 @@ if (xr_near_player_dist_respawn && {!xr_respawn_available && {xr_u_dcounter > 10
 	d_allplayers findIf {
 		private _ret = _x != player && {!(_x getVariable ["xr_pluncon", false])};
 		if (_ret) then {
-			_nearunit = _xm;
+			_nearunit = _x;
 		};
 		_ret
 	};
