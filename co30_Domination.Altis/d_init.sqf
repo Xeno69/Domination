@@ -495,9 +495,6 @@ if (!hasInterface) then {
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
 	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
-	{
-		d_add_resp_points_uni pushBack (_x # 0);
-	} forEach d_additional_respawn_points;
 
 #ifndef __RHS__
 	call compile preprocessFileLineNumbers "i_weapons_default.sqf";

@@ -12,7 +12,7 @@ if (_unit != player) exitWith {};
 
 private _item = _this select 2;
 
-if (d_without_nvg == 0 && {_item call d_fnc_isnvgoogles}) then {
+if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 	_unit unlinkItem _item;
 };
 

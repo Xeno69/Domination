@@ -71,6 +71,21 @@ d_player_vecs = [];
 disableMapIndicators [true, true, false, false];
 
 if !(d_additional_respawn_points isEqualTo []) then {
+	private _helparrp = [];
+	{
+		_helparrp pushBack [_x # 2, _forEachIndex];
+	} forEach d_additional_respawn_points;
+	_helparrp sort true;
+	
+	private _tempar =+ d_additional_respawn_points;
+	d_additional_respawn_points = [];
+	private "_ele";
+	{
+		_ele = _tempar select (_x # 1);
+		d_additional_respawn_points pushBack _ele;
+		d_add_resp_points_uni pushBack (_ele # 0);
+	} forEach _helparrp;
+
 	{
 		if (_x # 1 isEqualType "") then {
 			if !(markerPos (_x # 1) isEqualTo [0,0,0]) then {
@@ -153,8 +168,13 @@ if (!isMultiplayer) then {
 	};
 };
 
-if (d_WithWinterWeather == 0 && {d_weather == 0}) then {execVM "scripts\weather_winter.sqf"};
-if (d_WithWinterWeather == 1 && {d_weather == 0 && {d_withsandstorm == 0}}) then {0 spawn d_fnc_sandstorm};
+if (d_weather == 0) then {
+	if (d_WithWinterWeather == 0) then {
+		0 spawn d_fnc_weather_winter
+	} else {
+		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
+	};
+};
 
 if (d_with_ranked) then {
 	// basic rifle at start

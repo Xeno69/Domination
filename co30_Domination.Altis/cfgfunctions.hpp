@@ -227,7 +227,7 @@ class cfgFunctions {
 			addc(tvecservice);
 			addc(tallservice);
 			addc(delruin);
-			addc(isnvgoogles);
+			addc(isnvgoggles);
 			addc(isswimming);
 			addc(posbehindvec);
 			addc(getplayername);
@@ -243,6 +243,7 @@ class cfgFunctions {
 			addc(moduleCAS);
 			addc(mando_chute);
 			addc(sandstorm);
+			addc(weather_winter);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";

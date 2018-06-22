@@ -11,7 +11,7 @@ Changelogs
 - Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
 - Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
 - Fixed: It could happen that a camp marker had the same name as the previous one
-- Changed: Turn on NVgoogles again if a player opened Virtual arsenal with NV on (if googles are still available)
+- Changed: Turn on NVgoggles again if a player opened Virtual Arsenal with NV on (if goggles are still available)
 - Changed: Show also seconds for time to wait till next parajump from base/farp and not only minutes
 - Changed: When creating a vehicle at a MHQ or FARP find a correct empty vehicle position in a 50m radius
 - Added: A message is now written to the server rpt and a hint is shown when a player shoots at a MHQ vehicle
@@ -19,6 +19,7 @@ Changelogs
 - Changed: Better uav respawn handling
 - Fixed: Show correct name of additional respawn point or farp instead of position when selecting a respawn pos in revive dialog
 - Fixed: Typo in fn_uncon_oneframe.sqf
+- Changed: Additional respawn points are now sorted by name
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
@@ -339,7 +340,7 @@ KNOWN ISSUES:
 
 3.64c
 - Changed: Better check for nightvision goggles (finds third party NV goggles too)
-- Changed: Turn on NVgoogles after revive (if nvg was on before)
+- Changed: Turn on NVgoggles after revive (if nvg was on before)
 - Fixed: Artillery script was broken (script error)
 
 3.64b
