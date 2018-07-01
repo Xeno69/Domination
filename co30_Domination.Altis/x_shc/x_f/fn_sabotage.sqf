@@ -3,9 +3,6 @@
 #define THIS_FILE "fn_sabotage.sqf"
 #include "..\..\x_setup.sqf"
 
-private ["_leader","_mags","_no","_obj","_obj_pos","_one_shell","_shell_unit"];
-
-
 params ["_grp"];
 
 if (isNull _grp) exitWith {};
@@ -18,28 +15,28 @@ _grp setCombatMode "YELLOW";
 #endif
 
 while {(units _grp) findIf {alive _x} > -1} do {
-	_leader = leader _grp;
+	private _leader = leader _grp;
 	if (isNull _leader) then {
 		sleep 5.121;
 	};
 	if (!isNull _leader) then {
 	#ifndef __OA__
-		_no = nearestObjects [_leader,["WarfareBEastAircraftFactory","WarfareBWestAircraftFactory"],300];
+		private _no = nearestObjects [_leader,["WarfareBEastAircraftFactory","WarfareBWestAircraftFactory"],300];
 	#else
-		_no = nearestObjects [_leader,["TK_WarfareBAircraftFactory_EP1","US_WarfareBAircraftFactory_EP1"],300];
+		private _no = nearestObjects [_leader,["TK_WarfareBAircraftFactory_EP1","US_WarfareBAircraftFactory_EP1"],300];
 	#endif
 		sleep 0.32;
 		if (count _no > 0) then {
-			_obj = selectRandom _no;
+			private _obj = selectRandom _no;
 			if (alive _obj) then {
-				_obj_pos = getPos _obj;
+				private _obj_pos = getPos _obj;
 				_units = units _grp;
 				for "_i" from 1 to 3 do {
-					_one_shell = "";
-					_shell_unit = objNull;
+					private _one_shell = "";
+					private _shell_unit = objNull;
 					{
 						scopeName "xxxx3";
-						_mags = magazines _x;
+						private _mags = magazines _x;
 						_shell_unit = _x;
 						{
 							if (_x == "PipeBomb") then {

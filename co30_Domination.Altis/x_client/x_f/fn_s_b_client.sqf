@@ -64,6 +64,13 @@ d_searchbody setVariable ["d_search_id", [
 								publicVariable "d_searchintel";
 								[6, d_name_pl] remoteExecCall ["d_fnc_intel_updNet", [0, -2] select isDedicated];
 							};
+							case 6: {
+								systemChat (localize "STR_DOM_MISSIONSTRING_1836");
+								sleep 2;
+								d_searchintel set [6, 1];
+								publicVariable "d_searchintel";
+								[7, d_name_pl] remoteExecCall ["d_fnc_intel_updNet", [0, -2] select isDedicated];
+							};
 						};
 					} else {
 						systemChat (localize "STR_DOM_MISSIONSTRING_355");

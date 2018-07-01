@@ -241,6 +241,11 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class TellInfiltrateAttack {
+		text = "$STR_DOM_MISSIONSTRING_1835";
+		speech[] = {};
+		class Arguments {};
+	};
 	class TellAirSUAttack {
 		text = "$STR_DOM_MISSIONSTRING_1390";
 		speech[] = {};

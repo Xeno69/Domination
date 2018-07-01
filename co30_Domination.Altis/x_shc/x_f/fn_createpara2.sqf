@@ -3,22 +3,22 @@
 #define THIS_FILE "fn_createpara2.sqf"
 #include "..\..\x_setup.sqf"
 
-#define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper,240 + random 100] spawn _delveccrew}
-private ["_assigned","_paragrp","_pos_end","_u","_unit_array","_wp","_xx","_wp2","_del_me","_delveccrew","_crew_vec"];
 if (!isServer) exitWith {};
 
+#define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper,240 + random 100] spawn _delveccrew}
+
 params ["_vgrp", "_chopper", "_helifirstpoint", "_heliendpoint"];
-_crew_vec = crew _chopper;
+private _crew_vec = crew _chopper;
 
 sleep 2.123;
 
-_wp = _vgrp addWaypoint [_helifirstpoint, 30];
+private _wp = _vgrp addWaypoint [_helifirstpoint, 30];
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointSpeed "NORMAL";
 _wp setwaypointtype "MOVE";
 _wp setWaypointFormation "WEDGE";
 
-_wp2 = _vgrp addWaypoint [_heliendpoint, 0];
+private _wp2 = _vgrp addWaypoint [_heliendpoint, 0];
 _wp2 setwaypointtype "MOVE";
 _wp2 setWaypointBehaviour "CARELESS";
 _wp2 setWaypointSpeed "NORMAL";
@@ -27,13 +27,12 @@ _wp2 setwaypointtype "MOVE";
 _chopper flyinheight 100;
 
 #ifndef __TT__
-// TODO
-//if ((__XJIPGetVar(GVAR(searchintel)) select 0) == 1) then {
-//	GVAR(kb_logic1) kbTell [GVAR(kb_logic2),GVAR(kb_topic_side),"TellInfiltrateAttack",true];
-//};
+if (d_searchintel # 6 == 1) then {
+	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, "TellInfiltrateAttack", d_kbtel_chan];
+};
 #endif
 
-_delveccrew = {
+private _delveccrew = {
 	params ["_crew_vec", "_vec", "_time"];
 	sleep _time;
 	{_x setDamage 1.1} forEach (_crew_vec select {!isNull _x});
@@ -47,7 +46,7 @@ while {_helifirstpoint distance2D (leader _vgrp) > 150} do {
 };
 
 if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
-	_paragrp = [d_side_enemy] call d_fnc_creategroup;
+	private _paragrp = [d_side_enemy] call d_fnc_creategroup;
 	sleep 0.1;
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))

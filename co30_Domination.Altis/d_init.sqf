@@ -228,7 +228,7 @@ if (isNil "d_searchbody") then {
 	d_searchbody = objNull;
 };
 if (isNil "d_searchintel") then {
-	d_searchintel = [0,0,0,0,0,0];
+	d_searchintel = [0,0,0,0,0,0,0];
 };
 #ifndef __TT__
 if (isNil "d_ari_blocked") then {

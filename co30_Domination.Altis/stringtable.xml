@@ -2274,6 +2274,14 @@
 <Japanese>ターゲット無し</Japanese>
 <Original>No Target</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_541">
+<English>- Codenames for launching saboteur attacks on or base</English>
+<Spanish>- Codenames for launching saboteur attacks on or base</Spanish>
+<Portuguese>- Codenames for launching saboteur attacks on or base</Portuguese>
+<Korean>- Codenames for launching saboteur attacks on or base</Korean>
+<Japanese>- Codenames for launching saboteur attacks on or base</Japanese>
+<Original>- Codenames for launching saboteur attacks on or base</Original>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_542">
 <English>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</English>
 <Spanish>- Nombre en clave para el lanzamiento de paracaidistas, para proporcionar aviso cada vez que el enemigo envíe tropas aerotransportadas al principal objetivo.</Spanish>
@@ -2859,6 +2867,14 @@
 <Original>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656">
+<English>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</English>
+<Spanish>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Spanish>
+<Portuguese>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Portuguese>
+<Korean>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Korean>
+<Japanese>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Japanese>
+<Original>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_656a">
 <English>Your mash was destroyed !!!</English>
 <Spanish>¡¡¡ Su tienda de sanitario ha sido destruída !!!</Spanish>
 <Portuguese>Vosso mash esteve destruído !!!</Portuguese>
@@ -7610,6 +7626,22 @@
 <Korean>%1 is shooting at a MHQ vehicle!!!!</Korean>
 <Japanese>%1 is shooting at a MHQ vehicle!!!!</Japanese>
 <Original>%1 is shooting at a MHQ vehicle!!!!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1835">
+<English>Attention, the enemy launches a saboteur attack on the base...</English>
+<Spanish>Attention, the enemy launches a saboteur attack on the base...</Spanish>
+<Portuguese>Attention, the enemy launches a saboteur attack on the base...</Portuguese>
+<Korean>Attention, the enemy launches a saboteur attack on the base...</Korean>
+<Japanese>Attention, the enemy launches a saboteur attack on the base...</Japanese>
+<Original>Attention, the enemy launches a saboteur attack on the base...</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1836">
+<English>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</English>
+<Spanish>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Spanish>
+<Portuguese>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Portuguese>
+<Korean>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Korean>
+<Japanese>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Japanese>
+<Original>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Original>
 </Key>
 </Container>
 </Package>
