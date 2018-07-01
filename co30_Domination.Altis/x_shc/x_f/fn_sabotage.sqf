@@ -11,6 +11,7 @@ _grp setBehaviour "AWARE";
 _grp setCombatMode "YELLOW";
 
 #ifdef __OA__
+// TODO
 {_x addMagazine "PipeBomb"} forEach (units _grp);
 #endif
 
@@ -20,11 +21,8 @@ while {(units _grp) findIf {alive _x} > -1} do {
 		sleep 5.121;
 	};
 	if (!isNull _leader) then {
-	#ifndef __OA__
-		private _no = nearestObjects [_leader,["WarfareBEastAircraftFactory","WarfareBWestAircraftFactory"],300];
-	#else
+		// TODO search for what objects?
 		private _no = nearestObjects [_leader,["TK_WarfareBAircraftFactory_EP1","US_WarfareBAircraftFactory_EP1"],300];
-	#endif
 		sleep 0.32;
 		if (count _no > 0) then {
 			private _obj = selectRandom _no;
