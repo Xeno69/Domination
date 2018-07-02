@@ -1183,7 +1183,7 @@ if (hasInterface) then {
 	d_weapon_respawn = true;
 
 	// points needed to get a specific rank
-	// gets even used in the unranked versions, though it's just cosmetic there
+	// gets even used in the unranked versions
 #ifndef __TT__
 	if (isNil "d_points_needed") then {
 		d_points_needed = [

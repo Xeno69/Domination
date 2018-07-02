@@ -70,6 +70,7 @@ while {true} do {
 				detach _attached;
 				_vec setVariable ["d_attachedto_v", nil, true];
 			};
+			private _skinpoly = _vec call d_fnc_getskinpoly;
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				{_vec deleteVehicleCrew _x} forEach (crew _vec);
@@ -108,6 +109,8 @@ while {true} do {
 			
 			_vec setFuel _fuelleft;
 			_vec setDamage 0;
+			[_vec, _skinpoly] call d_fnc_skinpolyresp;
+			_skinpoly = nil;
 			
 			_vec addEventhandler ["local", {_this call d_fnc_heli_local_check}];
 			

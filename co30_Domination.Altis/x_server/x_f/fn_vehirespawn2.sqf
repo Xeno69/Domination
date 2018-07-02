@@ -17,6 +17,8 @@ if (unitIsUAV _vec) then {
 	_vec allowCrewInImmobile true;
 };
 
+private _skinpoly = _vec call d_fnc_getskinpoly;
+
 while {true} do {
 	sleep (_delay + random 15);
 
@@ -39,5 +41,6 @@ while {true} do {
 			createVehicleCrew _vec;
 			_vec allowCrewInImmobile true;
 		};
+		[_vec, _skinpoly] call d_fnc_skinpolyresp;
 	};
 };

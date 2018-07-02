@@ -44,7 +44,7 @@ link19[] = {17,6};
 link20[] = {18,19};
 link21[] = {19,15};
 globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-380.756256,570.609863,981.150391,-133.556305,763,894,1};
-window[] = {2,-1,-1,-1,-1,874,156,1858,156,3,781};
+window[] = {2,-1,-1,-1,-1,848,130,1832,130,3,781};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -232,6 +232,7 @@ class FSM
                          "if (unitIsUAV _wreck) then {" \n
                          "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n
                          "};" \n
+                         "private _skinpoly = _wreck call d_fnc_getskinpoly;" \n
                          "deleteVehicle _wreck;" \n
                          "" \n
                          "if (d_database_found) then {" \n
@@ -354,6 +355,9 @@ class FSM
                          "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n
                          "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n
                          "_new_vec setVariable [""d_WreckMaxRepair"", _maxrep, true];" \n
+                         "" \n
+                         "[_new_vec, _skinpoly] call d_fnc_skinpolyresp;" \n
+                         "_skinpoly = nil;" \n
                          "" \n
                          "d_wreck_cur_ar pushBack _new_vec;" \n
                          "" \n

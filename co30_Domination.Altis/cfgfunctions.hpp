@@ -370,6 +370,8 @@ class cfgFunctions {
 			addc(plcheckkillopfor);
 			addc(dbtoppasync);
 			addc(checksimminet);
+			addc(skinpolyresp);
+			addc(getskinpoly);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

@@ -49,6 +49,8 @@ while {true} do {
 				if (!isNull _dhqcamo) then {deleteVehicle _dhqcamo};
 			};
 			private _isitlocked = _vec getVariable ["d_vec_islocked", false]; // || {_vec call d_fnc_isVecLocked};
+			private _skinpoly = _vec call d_fnc_getskinpoly;
+			__TRACE_1("","_skinpoly")
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				{_vec deleteVehicleCrew _x} forEach (crew _vec);
@@ -72,6 +74,8 @@ while {true} do {
 				};
 			};
 			_vec setFuel _fuelleft;
+			[_vec, _skinpoly] call d_fnc_skinpolyresp;
+			_skinpoly = nil;
 #ifdef __TT_
 			if (_number_v < 1000) then {
 				_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillblufor}}];
