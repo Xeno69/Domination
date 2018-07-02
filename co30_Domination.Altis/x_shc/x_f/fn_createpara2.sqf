@@ -35,7 +35,7 @@ if (d_searchintel # 6 == 1) then {
 private _delveccrew = {
 	params ["_crew_vec", "_vec", "_time"];
 	sleep _time;
-	{_x setDamage 1.1} forEach (_crew_vec select {!isNull _x});
+	{_x setDamage 1} forEach (_crew_vec select {!isNull _x});
 	sleep 1;
 	if (!isNull _vec && {({_x call d_fnc_isplayer} count (crew _vec)) == 0}) then {_vec setDamage 1};
 };
@@ -46,13 +46,12 @@ while {_helifirstpoint distance2D (leader _vgrp) > 150} do {
 };
 
 if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
-	private _paragrp = [d_side_enemy] call d_fnc_creategroup;
-	sleep 0.1;
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))
 	} else {
 		(0.12 + (random 0.04))
 	};
+	private _paragrp = [d_side_enemy] call d_fnc_creategroup;
 	{
 		private _pposcx = getPosATL _chopper;
 		_one_unit = _paragrp createUnit [_x, [_pposcx # 0, _pposcx # 1, 0], [], 0,"NONE"];

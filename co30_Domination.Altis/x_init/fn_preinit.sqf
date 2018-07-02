@@ -685,6 +685,11 @@ if (!d_tt_tanoa) then {
 	];
 #endif
 	d_specops_G = [["I_G_Soldier_exp_F", "I_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_medic_F"]];
+	
+	// TODO CUP and RHS and IF3
+	d_sabotage_E = ["O_recon_exp_F"];
+	d_sabotage_W = ["B_recon_exp_F"];
+	d_sabotage_G = ["I_diver_exp_F"];
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
