@@ -21,7 +21,7 @@ Changelogs
 - Fixed: Typo in fn_uncon_oneframe.sqf
 - Changed: Additional respawn points are now sorted by name
 - Changed: Vehicles will now respawn with correct pylons and animations (for example changed in editor via pylon editor or garage)
-- Improved: Better position handling at vehicle and AI spawning 
+- Improved: Better position handling for vehicle spawning (findEmptyPosition) 
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
