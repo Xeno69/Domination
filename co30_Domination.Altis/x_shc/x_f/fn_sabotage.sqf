@@ -10,6 +10,13 @@ if (isNull _grp) exitWith {};
 _grp setBehaviour "AWARE";
 _grp setCombatMode "YELLOW";
 
+private _pbmag = "DemoCharge_Remote_Mag";
+private _muzzle = "DemoChargeMuzzle";
+#ifdef __CUP__
+private _pbmag = "CUP_PipeBomb_M";
+private _muzzle = "PipeBombMuzzle";
+#endif
+
 while {(units _grp) findIf {alive _x} > -1} do {
 	private _leader = leader _grp;
 	if (isNull _leader) then {
@@ -30,7 +37,7 @@ while {(units _grp) findIf {alive _x} > -1} do {
 					private _one_shell = [];
 					private _shell_unit = objNull;
 					{
-						_one_shell = (magazines _x) select {_x == "DemoCharge_Remote_Mag"};
+						_one_shell = (magazines _x) select {_x == _pbmag};
 						if !(_one_shell isEqualTo []) exitWith {
 							_shell_unit = _x;
 						};
@@ -39,7 +46,7 @@ while {(units _grp) findIf {alive _x} > -1} do {
 					if (_shell_unit == objNull) exitWith {};
 					_units = _units - [_shell_unit];
 					if !(_one_shell isEqualTo []) then {
-						_shell_unit selectWeapon "DemoChargeMuzzle";
+						_shell_unit selectWeapon _muzzle;
 						if (_leader == _shell_unit) then {
 							_shell_unit doMove _obj_pos;
 							_shell_unit doTarget _obj;
@@ -59,6 +66,6 @@ while {(units _grp) findIf {alive _x} > -1} do {
 	};
 	_timeend = time + 240 + (random 80);
 	waitUntil {sleep 3.472; time > _timeend || {isNull _grp}};
-	{_x addMagazine "DemoCharge_Remote_Mag"} forEach (_shell_units select {alive _x});
+	{_x addMagazine _pbmag} forEach (_shell_units select {alive _x});
 	_shell_units = [];
 };
