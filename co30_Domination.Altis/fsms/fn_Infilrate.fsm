@@ -1,9 +1,9 @@
 /*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Infiltrate">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
+item0[] = {"Start",0,250,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
 item1[] = {"Allways",8,218,-35.380417,-105.829010,54.619583,-55.829010,0.000000,"Allways"};
-item2[] = {"Init",2,250,-34.407341,-21.204952,55.592728,28.795052,0.000000,"Init"};
+item2[] = {"Init",2,4346,-34.407341,-21.204952,55.592728,28.795052,0.000000,"Init"};
 item3[] = {"Delay_4000plus",4,218,-34.553276,84.865578,55.446739,134.865616,0.000000,"Delay 4000plus"};
 item4[] = {"Create_Chopper",2,250,-33.414291,286.450806,56.585716,336.450806,0.000000,"Create Chopper"};
 item5[] = {"Delay_400",4,218,126.183594,285.617645,216.183609,335.617645,0.000000,"Delay 400"};
@@ -27,7 +27,7 @@ link10[] = {10,7};
 link11[] = {10,11};
 link12[] = {11,4};
 globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-361.667633,288.347473,446.930389,-305.159943,796,894,1};
-window[] = {2,-1,-1,-32000,-32000,926,208,1168,208,3,814};
+window[] = {2,-1,-1,-32000,-32000,952,234,1194,234,3,814};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -39,7 +39,7 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private [""_pilot"", ""_chopper"", ""_grp"", ""_end_posh"", ""_start_posh"", ""_vehicle"", ""_unit"", ""_attack_pos"",""_timenow"",""_ranwait""];"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"private [""_pilot"", ""_chopper"", ""_grp"", ""_end_posh"", ""_start_posh"", ""_vehicle"", ""_unit"", ""_attack_pos"", ""_timenow"", ""_ranwait""];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -64,7 +64,8 @@ class FSM
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"_chopper = selectRandom d_transport_chopper;" \n
                          "" \n
-                         "_timenow = time + 3000 + (random 600);"/*%FSM</STATEINIT""">*/;
+                         "_timenow = time + 3000 + (random 600);" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {

@@ -7643,6 +7643,14 @@
 <Japanese>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Japanese>
 <Original>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1837">
+<English>With base sabotage:</English>
+<Spanish>With base sabotage:</Spanish>
+<Portuguese>With base sabotage:</Portuguese>
+<Korean>With base sabotage:</Korean>
+<Japanese>With base sabotage:</Japanese>
+<Original>With base sabotage:</Original>
+</Key>
 </Container>
 </Package>
 </Project>

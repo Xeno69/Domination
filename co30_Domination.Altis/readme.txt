@@ -23,6 +23,7 @@ Changelogs
 - Changed: Vehicles will now respawn with correct pylons and animations (for example changed in editor via pylon editor or garage)
 - Improved: Better position handling for vehicle spawning (findEmptyPosition) 
 - Added: Encore update destroyers to carrier
+- Added: Base sabotage. Enemy will drop in assault soldiers with satchels and attack your base. Disabled by default, can be enabled by server lobby params (d_with_base_sabotage)
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

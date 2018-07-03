@@ -46,6 +46,12 @@ if (d_MissionType != 2) then {
 };
 #endif
 
+
 if !(d_with_isledefense isEqualTo []) then {execVM "x_shc\x_isledefense.sqf"};
+
+#ifndef __TT__
+d_with_base_sabotage = 0;
+if (!d_carrier && {d_with_base_sabotage == 0}) then {execFSM "fsms\fn_Infilrate.fsm"};
+#endif
 
 __TRACE("x_shcinit done")

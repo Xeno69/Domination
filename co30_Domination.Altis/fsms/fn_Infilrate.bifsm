@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-34.158474;
 		Top=-186.43727;
@@ -24,7 +24,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="private [""_pilot"", ""_chopper"", ""_grp"", ""_end_posh"", ""_start_posh"", ""_vehicle"", ""_unit"", ""_attack_pos"",""_timenow"",""_ranwait""];";
+				InitCode="private [""_pilot"", ""_chopper"", ""_grp"", ""_end_posh"", ""_start_posh"", ""_vehicle"", ""_unit"", ""_attack_pos"", ""_timenow"", ""_ranwait""];";
 			};
 		};
 	};
@@ -55,7 +55,7 @@ class GraphItems
 	};
 	class Item2
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-34.407341;
 		Top=-21.204952;
@@ -74,7 +74,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=2;
-				InitCode="_chopper = selectRandom d_transport_chopper;" \n "" \n "_timenow = time + 3000 + (random 600);";
+				InitCode="_chopper = selectRandom d_transport_chopper;" \n "" \n "_timenow = time + 3000 + (random 600);" \n "";
 			};
 		};
 	};
@@ -99,7 +99,7 @@ class GraphItems
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=5;
+				Id=3;
 				Condition="time > _timenow";
 			};
 		};
@@ -124,7 +124,7 @@ class GraphItems
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=6;
+				Id=4;
 				InitCode="_grp = [d_side_enemy] call d_fnc_creategroup;" \n "" \n "_end_posh = call d_fnc_GetRanPointOuterAir;" \n "_start_posh = call d_fnc_GetRanPointOuterAir;" \n "_start_posh set [2, 300];" \n "" \n "_vehicle = ([_start_posh, _start_posh getDir _end_posh, _chopper, _grp] call d_fnc_spawnVehicle) select 0;" \n "" \n "addToRemainsCollector [_vehicle];" \n "" \n "_attack_pos = [getPos d_FLAG_BASE, 800] call d_fnc_GetRanPointCircleOld;" \n "[_grp, _vehicle, _attack_pos, _end_posh] spawn d_fnc_createpara2;" \n "" \n "_timenow = time + 400;";
 			};
 		};
@@ -143,14 +143,14 @@ class GraphItems
 			Text="Delay 400";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=7;
+				Id=5;
 				Condition="time > _timenow";
 			};
 		};
@@ -168,14 +168,14 @@ class GraphItems
 		{
 			Text="Dummy";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=8;
+				Id=6;
 				InitCode="_timenow = time + 3000 + (random 600);";
 			};
 		};
@@ -201,7 +201,7 @@ class GraphItems
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=9;
+				Id=7;
 				Priority=1;
 				Condition="isMultiplayer && (call d_fnc_PlayersNumber) == 0";
 			};
@@ -220,14 +220,14 @@ class GraphItems
 		{
 			Text="Sleep";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=10;
+				Id=8;
 				InitCode="_timenow = time + 2.38;";
 			};
 		};
@@ -246,14 +246,14 @@ class GraphItems
 			Text="Delay2";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=11;
+				Id=9;
 				Condition="time > _timenow";
 			};
 		};
@@ -278,7 +278,7 @@ class GraphItems
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=12;
+				Id=10;
 			};
 		};
 	};
@@ -296,14 +296,14 @@ class GraphItems
 			Text="";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=8;
 			class ItemInfo
 			{
-				Id=13;
+				Id=11;
 			};
 		};
 	};
@@ -459,7 +459,7 @@ class Globals
 	NextGroupID=1;
 	NextID=23;
 	FSMName="Infiltrate";
-	CompileConfig="D:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -483,10 +483,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-32000;
 	MinPosY=-32000;
-	Left=208;
-	Top=208;
-	Right=1168;
-	Bottom=926;
+	Left=234;
+	Top=234;
+	Right=1194;
+	Bottom=952;
 	ShowCmd=3;
 	SplitPos=814;
 };
