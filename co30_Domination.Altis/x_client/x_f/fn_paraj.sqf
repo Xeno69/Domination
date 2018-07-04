@@ -13,7 +13,7 @@ private _mode = _this select 3;
 if (player distance2D _jumpobj > 15) exitWith {};
 
 private _do_exit = false;
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 4)) then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_64", score player, d_ranked_a # 4];
 		_do_exit = true;

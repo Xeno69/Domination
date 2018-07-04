@@ -17,7 +17,7 @@ if (!isServer || {!d_cas_available_e}) exitWith {};
 
 private _callero = missionNamespace getVariable _caller;
 
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	_callero addScore -(d_ranked_a # 22);
 };
 

@@ -16,7 +16,7 @@ if (!isServer) then {
 	};
 };
 
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	d_was_at_sm = false;
 	d_sm_running = true;
 

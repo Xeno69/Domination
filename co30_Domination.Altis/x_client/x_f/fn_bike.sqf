@@ -56,7 +56,7 @@ if (_b_mode == 0 && {alive d_flag_vec}) exitWith {
 	systemChat format [localize "STR_DOM_MISSIONSTRING_160", 0 max round((d_vec_end_time - time) / 60)];
 };
 
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	[player, (d_ranked_a # 5) * -1] remoteExecCall ["addScore", 2];
 };
 

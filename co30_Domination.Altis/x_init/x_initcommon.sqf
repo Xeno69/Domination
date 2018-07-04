@@ -42,7 +42,7 @@ if (d_with_ace) then {
 	ace_medical_maxReviveTime = 300;
 };
 
-if (d_sub_kill_points != 0) then {
+if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 	d_sub_kill_points = d_sub_kill_points * -1;
 };
 

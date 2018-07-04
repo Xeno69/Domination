@@ -11,7 +11,7 @@ if (!d_heli_taxi_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR
 if (d_FLAG_BASE distance2D player < 500) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_140")};
 
 private _exitj = false;
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 15)) exitWith {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_1424", score player, d_ranked_a # 15];
 		_exitj = true;

@@ -13,7 +13,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 	};
 	
 	private _exitit = false;
-	if (d_with_ranked) then {
+	if (d_with_ranked || {d_database_found}) then {
 		if (score player < d_ranked_a # 0) exitWith {
 			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_325", score player, d_ranked_a # 0];
 			_exitit = true;
@@ -23,17 +23,17 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 	if (_exitit) exitWith {};
 	
 #ifndef __TT__
-	if (d_with_ranked && {player inArea d_base_array && {d_last_base_repair != -1}}) exitWith {
+	if (d_with_ranked || {d_database_found && {player inArea d_base_array && {d_last_base_repair != -1}}}) exitWith {
 #else
-	if (d_with_ranked && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}} && {d_last_base_repair != -1}) exitWith {
+	if (d_with_ranked || {d_database_found && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}} && {d_last_base_repair != -1}}) exitWith {
 #endif
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_326");
 	};
 
 #ifndef __TT__
-	if (d_with_ranked && {player inArea d_base_array}) then {d_last_base_repair = time + 300};
+	if (d_with_ranked || {d_database_found && {player inArea d_base_array}}) then {d_last_base_repair = time + 300};
 #else
-	if (d_with_ranked && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}) then {d_last_base_repair = time + 300};
+	if (d_with_ranked || {d_database_found && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}) then {d_last_base_repair = time + 300};
 #endif
 	
 	d_orig_sfunc_obj = d_objectID2;
@@ -85,7 +85,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 			[d_orig_sfunc_obj, 1] remoteExecCall ["setFuel", d_orig_sfunc_obj];
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
 			systemChat format [localize "STR_DOM_MISSIONSTRING_334", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
-			if (d_with_ranked) then {
+			if (d_with_ranked || {d_database_found}) then {
 				private _addscore = if (d_orig_sfunc_obj isKindOf "Air") then {
 					(d_ranked_a # 1) # 0
 				} else {

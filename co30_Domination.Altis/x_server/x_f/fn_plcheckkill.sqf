@@ -6,7 +6,7 @@ if (!isServer) exitWith {};
 
 params ["_killed", "", "_killer"];
 
-if (d_with_ranked && {d_sub_kill_points != 0 && {side (group _killer) getFriend side (group _killed) < 0.6}}) then {
+if (d_with_ranked || {d_database_found && {d_sub_kill_points != 0 && {side (group _killer) getFriend side (group _killed) < 0.6}}}) then {
 	_killed addScore d_sub_kill_points;
 };
 

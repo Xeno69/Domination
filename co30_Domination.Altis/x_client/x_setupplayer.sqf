@@ -486,7 +486,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 		_engineer_trigger setTriggerStatements["!d_eng_can_repfuel && {player in thislist}", "d_eng_can_repfuel = true;systemChat (localize 'STR_DOM_MISSIONSTRING_340')", ""];
 	};
 
-	if (d_with_ranked) then {d_last_base_repair = -1};
+	if (d_with_ranked || {d_database_found}) then {d_last_base_repair = -1};
 
 	["itemAdd", ["dom_eng_1_trig", {
 		if (player getVariable ["d_has_ffunc_aid", -9999] == -9999 && {player call d_fnc_hastoolkit && {call d_fnc_ffunc}}) then {

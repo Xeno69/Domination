@@ -37,7 +37,7 @@ if (surfaceIsWater _d_farp_pos) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-if (d_with_ranked && {score player < (d_ranked_a # 20)}) exitWith {
+if (d_with_ranked || {d_database_found && {score player < (d_ranked_a # 20)}}) exitWith {
 	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_245", score player, d_ranked_a # 20];
 	d_commandingMenuIniting = false;
 };
@@ -67,7 +67,7 @@ if (_exit_it) exitWith {
 
 player setVariable ["d_isinaction", true];
 
-if (d_with_ranked) then {[player, (d_ranked_a # 20) * -1] remoteExecCall ["addScore", 2]};
+if (d_with_ranked || {d_database_found}) then {[player, (d_ranked_a # 20) * -1] remoteExecCall ["addScore", 2]};
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 1;

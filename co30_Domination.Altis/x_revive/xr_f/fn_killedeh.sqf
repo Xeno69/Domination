@@ -16,9 +16,6 @@ if (player getVariable "xr_pluncon") then {
 	player call xr_fnc_CheckRespawn;
 } else {
 	player setVariable ["xr_pluncon", true, true];
-	if (d_sub_kill_points != 0) then {
-		[player, d_sub_kill_points] remoteExecCall ["addScore", 2];
-	};
 	if (xr_max_lives != -1) then {
 		private _lives = (player getVariable "xr_lives") - 1;
 		__TRACE_1("lives left","_lives")

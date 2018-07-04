@@ -24,6 +24,9 @@ Changelogs
 - Improved: Better position handling for vehicle spawning (findEmptyPosition) 
 - Added: Encore update destroyers to carrier
 - Added: Base sabotage. Enemy will drop in assault soldiers with satchels and attack your base. Disabled by default, can be enabled by server lobby params (d_with_base_sabotage)
+- Changed: Score gets subtracted if a player dies and a SQL database is available (you have to change server lobby param d_sub_kill_points)
+- Changed: If a SQL database is available score gets subtracted when a player calls CAS, calls an air taxi, calls in artillery, creates a vehicle (at MHQ for example),
+           calls an air drop, calls a UAV at MHQ, makes a parajump from base, opens fake UAV at MHQ, builds a FARP
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

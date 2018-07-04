@@ -6,7 +6,7 @@
 if (isDedicated || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
 
 private _exitj = false;
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 19)) then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_76b", score player,d_ranked_a # 19];
 		_exitj = true;

@@ -92,7 +92,7 @@ if (surfaceIsWater _spawnpos) then {
 };
 _unit setSkill 1;
 _unit setRank "PRIVATE";
-if (d_with_ranked && {!d_with_ace}) then {
+if (d_with_ranked || {d_database_found && {!d_with_ace}}) then {
 	_unit addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
 };
 if (d_WithRevive == 0 && {_unit getUnitTrait "Medic"}) then {
