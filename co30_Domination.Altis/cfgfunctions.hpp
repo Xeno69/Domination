@@ -372,6 +372,7 @@ class cfgFunctions {
 			addc(checksimminet);
 			addc(skinpolyresp);
 			addc(getskinpoly);
+			addc(handlescore);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

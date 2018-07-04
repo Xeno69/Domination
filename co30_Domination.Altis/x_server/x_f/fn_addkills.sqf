@@ -14,7 +14,7 @@ if (d_with_ace && {isNull _killer}) then {
 };
 if (isNull _killer || {!(_killer call d_fnc_isplayer)}) exitWith {};
 private _endpoints = if (isNull objectParent _killer) then {
-	private _dist = [_killed distance _killer, 500] select (isNull _killed);
+	private _dist = [_killed distance2D _killer, 500] select (isNull _killed);
 	if (_dist < 0) then {_dist = 500};
 	private _coef = [[1, 2] select (_dist < 70), 3] select (_dist < 20);
 	_killer addScore round ((_points # 0) / 5);
