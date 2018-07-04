@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makemgroup.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_pos", "_unitliste", "_grp"];
+params ["_pos", "_unitliste", "_grp", ["_mchelper", true]];
 
 if (isNil "_unitliste") exitWith {
 	diag_log ["Attention, _unitlist (param 2) is nil, returning []", "_pos", _pos, "_grp", _grp];
@@ -22,7 +22,9 @@ private _subskill = if (diag_fps > 29) then {
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
 	//if (d_with_dynsim == 1) then {
+	if (_mchelper) then {
 		_one_unit spawn d_fnc_mchelper;
+	};
 	//};
 #ifdef __TT__
 	_one_unit addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
