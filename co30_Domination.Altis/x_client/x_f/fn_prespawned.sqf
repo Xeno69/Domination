@@ -15,6 +15,10 @@ if (d_WithMHQTeleport == 0 && {!isNil "d_fnc_dlgopenx" && {d_WithRevive == 1}}) 
 };
 [1, _this] call d_fnc_playerspawn;
 
+if (d_database_found) then {
+	player remoteExecCall ["d_fnc_add_hs", 2];
+};
+
 {
 	if (alive _x) then {
 		private _vc = _x getVariable ["d_fl_v_kc", 0];
@@ -31,3 +35,4 @@ if (d_WithMHQTeleport == 0 && {!isNil "d_fnc_dlgopenx" && {d_WithRevive == 1}}) 
 } forEach d_player_vecs;
 
 d_player_vecs = d_player_vecs - [-1];
+

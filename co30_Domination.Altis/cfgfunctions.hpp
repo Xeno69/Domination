@@ -373,6 +373,7 @@ class cfgFunctions {
 			addc(skinpolyresp);
 			addc(getskinpoly);
 			addc(handlescore);
+			addc(add_hs);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
