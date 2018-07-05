@@ -19,6 +19,12 @@ private _subskill = if (diag_fps > 29) then {
 } else {
 	(0.12 + (random 0.04))
 };
+
+if (!_mchelper) then {
+	private _nnpos = _pos findEmptyPosition [0, 30, _unitlist # 0];
+	if !(_nnpos isEqualTo []) then {_pos = _nnpos};
+};
+
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
 	//if (d_with_dynsim == 1) then {

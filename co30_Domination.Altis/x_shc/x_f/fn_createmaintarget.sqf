@@ -88,7 +88,7 @@ _poss set [2, 0];
 private _vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_barracks_building","_vec")
 _vec setPos _poss;
-_vec setVectorUp [0,0,1];
+//_vec setVectorUp [0,0,1];
 _vec setVariable ["d_v_pos", _poss];
 [_vec, 0] call d_fnc_checkmtrespawntarget;
 d_mt_barracks_down = false;
