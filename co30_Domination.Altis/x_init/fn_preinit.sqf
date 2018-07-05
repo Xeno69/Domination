@@ -427,106 +427,106 @@ if (_isserv_or_hc) then {
 if (isServer) then {
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
-	if (isServer) then {
-		d_database_found = false;
-		if (!isNil "extDB3_var_loaded") then {
-			private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
-				call extDB3_var_loaded
+	d_database_found = false;
+	if (!isNil "extDB3_var_loaded") then {
+		private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
+			call extDB3_var_loaded
+		} else {
+			extDB3_var_loaded
+		};
+		if (_extdb3laoded) then {
+			private _uins = uiNamespace getVariable "d_database_init";
+			if (isNil "_uins") then {
+				private _result = "extdb3" callExtension "9:ADD_DATABASE:Domination";
+				diag_log ["Dom Database result loading:", _result];
+				if (_result != "[1]" && {_result != "[0,""Already Connected to Database""]"}) exitWith {};
+				_result = "extdb3" callExtension "9:ADD_DATABASE_PROTOCOL:Domination:SQL_CUSTOM:dom:domination-custom.ini";
+				diag_log ["Dom Database result custom ini:", _result];
+				if (_result != "[1]" && {_result != "[0,""Error Protocol Name Already Taken""]"}) exitWith {};
+				"extDB3" callExtension "9:LOCK";
+				uiNamespace setVariable ["d_database_init", true];
+				d_database_found = true;
 			} else {
-				extDB3_var_loaded
+				d_database_found = true;
 			};
-			if (_extdb3laoded) then {
-				private _uins = uiNamespace getVariable "d_database_init";
-				if (isNil "_uins") then {
-					private _result = "extdb3" callExtension "9:ADD_DATABASE:Domination";
-					diag_log ["Dom Database result loading:", _result];
-					if (_result != "[1]" && {_result != "[0,""Already Connected to Database""]"}) exitWith {};
-					_result = "extdb3" callExtension "9:ADD_DATABASE_PROTOCOL:Domination:SQL_CUSTOM:dom:domination-custom.ini";
-					diag_log ["Dom Database result custom ini:", _result];
-					if (_result != "[1]" && {_result != "[0,""Error Protocol Name Already Taken""]"}) exitWith {};
-					"extDB3" callExtension "9:LOCK";
-					uiNamespace setVariable ["d_database_init", true];
-					d_database_found = true;
-				} else {
-					d_database_found = true;
+		};
+	};
+	publicVariable "d_database_found";
+	
+	if (d_database_found) then {
+		d_use_sql_settings = false;
+		
+		private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+		diag_log ["Dom Database result loading dom_settings:", _dbresult];
+		if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
+			{
+				call {
+					if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+						if !((_x # 1) isEqualTo []) then {
+							missionNamespace setVariable [_x # 0, _x # 1, true];
+						};
+					};
+					if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+						missionNamespace setVariable [_x # 0, _x # 1, true];
+					};
+#ifdef __TT__
+					if (_x # 0 == "d_tt_points") exitWith {
+						missionNamespace setVariable [_x # 0, _x # 1, true];
+					};
+#endif
+				};
+			} forEach (_dbresult # 1);
+		};
+		
+		if (!isMultiplayer && {isNil "paramsArray"}) then {
+			paramsArray = [];
+		};
+		
+		if (d_use_sql_settings) then {
+			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
+			diag_log ["Dom Database result standard params:", _dbresult];
+			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
+				//diag_log ["_dbresult", _dbresult];
+				//diag_log ["_dbresult # 1", _dbresult # 1];
+				
+				if (isClass (getMissionConfig "Params")) then {
+					_dbresult = _dbresult # 1;
+					private _conf = getMissionConfig "Params";
+					if (paramsArray isEqualTo []) then {
+						paramsArray resize (count _conf);
+					};
+					for "_i" from 0 to (count _conf - 1) do {
+						private _cname = configName (_conf select _i);
+						private _fidx = _dbresult findIf {_x # 0 == _cname};
+						if (_fidx != -1) then {
+							paramsArray set [_i, _dbresult # _fidx # 1];							
+						};
+					};
+					publicVariable "paramsArray";
+				};
+			} else {
+				if (isClass (getMissionConfig "Params")) then {
+					private _conf = getMissionConfig "Params";
+					for "_i" from 0 to (count _conf - 1) do {
+						private _paramName = configName (_conf select _i);
+						private _paramval = getNumber (_conf>>_paramName>>"default");
+						if (_paramval != -99999) then {
+							"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
+						};
+					};
 				};
 			};
 		};
-		publicVariable "d_database_found";
-		
-		if (d_database_found) then {
-			d_use_sql_settings = false;
-			
-			private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
-			diag_log ["Dom Database result loading dom_settings:", _dbresult];
-			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
-				{
-					call {
-						if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
-							if !((_x # 1) isEqualTo []) then {
-								missionNamespace setVariable [_x # 0, _x # 1, true];
-							};
-						};
-						if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
-#ifdef __TT__
-						if (_x # 0 == "d_tt_points") exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
-#endif
-					};
-				} forEach (_dbresult # 1);
-			};
-			
-			if (!isMultiplayer && {isNil "paramsArray"}) then {
-				paramsArray = [];
-			};
-			
-			if (d_use_sql_settings) then {
-				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
-				diag_log ["Dom Database result standard params:", _dbresult];
-				if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
-					//diag_log ["_dbresult", _dbresult];
-					//diag_log ["_dbresult # 1", _dbresult # 1];
-					
-					if (isClass (getMissionConfig "Params")) then {
-						_dbresult = _dbresult # 1;
-						private _conf = getMissionConfig "Params";
-						if (paramsArray isEqualTo []) then {
-							paramsArray resize (count _conf);
-						};
-						for "_i" from 0 to (count _conf - 1) do {
-							private _cname = configName (_conf select _i);
-							private _fidx = _dbresult findIf {_x # 0 == _cname};
-							if (_fidx != -1) then {
-								paramsArray set [_i, _dbresult # _fidx # 1];							
-							};
-						};
-						publicVariable "paramsArray";
-					};
-				} else {
-					if (isClass (getMissionConfig "Params")) then {
-						private _conf = getMissionConfig "Params";
-						for "_i" from 0 to (count _conf - 1) do {
-							private _paramName = configName (_conf select _i);
-							private _paramval = getNumber (_conf>>_paramName>>"default");
-							if (_paramval != -99999) then {
-								"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
-							};
-						};
-					};
-				};
-			};
-			if (!isMultiplayer && {!isNil "paramsArray"}) then {
-				paramsArray = nil;
-			};
+		if (!isMultiplayer && {!isNil "paramsArray"}) then {
+			paramsArray = nil;
 		};
 	};
 	call compile preprocessFileLineNumbers "x_init\x_initcommon.sqf";
 	
 	d_house_objects = [];
 	d_house_objects2 = [];
+	
+	calculatePlayerVisibilityByFriendly false;
 };
 
 if (_isserv_or_hc) then {
