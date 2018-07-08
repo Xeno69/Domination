@@ -7651,6 +7651,54 @@
 <Japanese>With base sabotage:</Japanese>
 <Original>With base sabotage:</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1838">
+<English>Sending data... Please wait!</English>
+<Spanish>Sending data... Please wait!</Spanish>
+<Portuguese>Sending data... Please wait!</Portuguese>
+<Korean>Sending data... Please wait!</Korean>
+<Japanese>Sending data... Please wait!</Japanese>
+<Original>Sending data... Please wait!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1839">
+<English>Send data</English>
+<Spanish>Send data</Spanish>
+<Portuguese>Send data</Portuguese>
+<Korean>Send data</Korean>
+<Japanese>Send data</Japanese>
+<Original>Send data</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1840">
+<English>The data terminal was destroyed before the data was uploaded!</English>
+<Spanish>The data terminal was destroyed before the data was uploaded</Spanish>
+<Portuguese>The data terminal was destroyed before the data was uploaded</Portuguese>
+<Korean>The data terminal was destroyed before the data was uploaded</Korean>
+<Japanese>The data terminal was destroyed before the data was uploaded</Japanese>
+<Original>The data terminal was destroyed before the data was uploaded</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1841">
+<English>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</English>
+<Spanish>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Spanish>
+<Portuguese>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Portuguese>
+<Korean>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Korean>
+<Japanese>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Japanese>
+<Original>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1842">
+<English>Phantastic! You have uploaded the data!</English>
+<Spanish>Phantastic! You have uploaded the data!</Spanish>
+<Portuguese>Phantastic! You have uploaded the data!</Portuguese>
+<Korean>Phantastic! You have uploaded the data!</Korean>
+<Japanese>Phantastic! You have uploaded the data!</Japanese>
+<Original>Phantastic! You have uploaded the data!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1843">
+<English>Data uploaded!</English>
+<Spanish>Data uploaded!</Spanish>
+<Portuguese>Data uploaded!</Portuguese>
+<Korean>Data uploaded!</Korean>
+<Japanese>Data uploaded!</Japanese>
+<Original>Data uploaded!</Original>
+</Key>
 </Container>
 </Package>
 </Project>

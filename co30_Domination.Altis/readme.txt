@@ -8,6 +8,8 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.96
+ATTENTION: The following mission.sqm files have changed: Altis
+
 - Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
 - Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
 - Fixed: It could happen that a camp marker had the same name as the previous one
@@ -28,6 +30,7 @@ Changelogs
 - Changed: If a SQL database is available score gets subtracted when a player calls CAS, calls an air taxi, calls in artillery, creates a vehicle (at MHQ for example),
            calls an air drop, calls a UAV at MHQ, makes a parajump from base, opens fake UAV at MHQ, builds a FARP
 - Changed: If database is available infantry player inside the main target area get more points when killing AI (inf only outside vehicles)
+- Added: New sidemission type send data with data terminal
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

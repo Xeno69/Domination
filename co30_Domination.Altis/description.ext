@@ -204,6 +204,7 @@ class CfgRemoteExec {
 		class d_fnc_db_update {allowedTargets = 2;};
 		class d_fnc_warnplayer {allowedTargets = 1;};
 		class d_fnc_add_hs {allowedTargets=2;};
+		class d_fnc_addactionstd {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

@@ -266,6 +266,7 @@ class cfgFunctions {
 			addc(addsmpoints);
 			addc(getbymarkersm);
 			addc(clearsidemission);
+			addc(addactionstd);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";
@@ -286,6 +287,7 @@ class cfgFunctions {
 			addc(sidetrafo);
 			addc(sideelimofficer);
 			addc(sideobject);
+			addc(sidetransferdata);
 		};
 		class Dom_Server {
 			file = "x_server\x_f";

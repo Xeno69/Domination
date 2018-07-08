@@ -28,6 +28,7 @@ switch (_this select 1) do {
 		params ["_u"];
 		_u switchMove "AmovPpneMstpSnonWnonDnon_healed";
 		_u playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+		//_u switchMove "AfdsPpneMstpSnonWnonDnon_AfdsPpneMstpSrasWrflDnon"; // not working, player can't walk or run
 	};
 	case 103: {
 		params ["_u"];

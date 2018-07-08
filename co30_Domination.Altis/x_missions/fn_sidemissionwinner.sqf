@@ -72,6 +72,7 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 		case -700: {localize "STR_DOM_MISSIONSTRING_722"};
 		case -878: {localize "STR_DOM_MISSIONSTRING_723"};
 		case -900: {localize "STR_DOM_MISSIONSTRING_724a"};
+		case -1000: {localize "STR_DOM_MISSIONSTRING_1840"};
 		default {""};
 	};
 	if (_s != "") then {

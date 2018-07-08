@@ -169,6 +169,11 @@ switch (tolower (_sm_ar # 1)) do {
 			[d_x_sm_pos # 0, d_sm_arty, _sm_ar # 7, false, true, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
+	case "dataterminal": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, _sm_ar # 7, false, true, true] spawn d_fnc_sidetransferdata;
+		};
+	};
 };
 
 if (call d_fnc_checkSHC && {tolower (_sm_ar # 1) != "convoy"}) then {
