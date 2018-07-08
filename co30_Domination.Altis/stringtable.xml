@@ -7715,6 +7715,22 @@
 <Japanese>Good job! The device was destroyed.</Japanese>
 <Original>Good job! The device was destroyed.</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1846">
+<English>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</English>
+<Spanish>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Spanish>
+<Portuguese>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Portuguese>
+<Korean>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Korean>
+<Japanese>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Japanese>
+<Original>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1847">
+<English>Good work! The SAM site is out of business.</English>
+<Spanish>Good work! The SAM site is out of business.</Spanish>
+<Portuguese>Good work! The SAM site is out of business.</Portuguese>
+<Korean>Good work! The SAM site is out of business.</Korean>
+<Japanese>Good work! The SAM site is out of business.</Japanese>
+<Original>Good work! The SAM site is out of business.</Original>
+</Key>
 </Container>
 </Package>
 </Project>

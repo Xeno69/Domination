@@ -288,6 +288,7 @@ class cfgFunctions {
 			addc(sidetrafo);
 			addc(sideelimofficer);
 			addc(sideobject);
+			addc(sideobjects);
 			addc(sidetransferdata);
 		};
 		class Dom_Server {
