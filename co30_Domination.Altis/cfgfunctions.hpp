@@ -141,6 +141,7 @@ class cfgFunctions {
 			addc(checkammo);
 			addc(allplayers);
 			addc(hchelper);
+			addc(cdoquake);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -425,6 +426,7 @@ class cfgFunctions {
 			addc(mchelper);
 			addc(sabotage);
 			addc(createpara2);
+			addc(doquake);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

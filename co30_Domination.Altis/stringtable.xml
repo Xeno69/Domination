@@ -7699,6 +7699,22 @@
 <Japanese>Data uploaded!</Japanese>
 <Original>Data uploaded!</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1844">
+<English>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</English>
+<Spanish>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Spanish>
+<Portuguese>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Portuguese>
+<Korean>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Korean>
+<Japanese>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Japanese>
+<Original>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1845">
+<English>Good job! The device was destroyed.</English>
+<Spanish>Good job! The device was destroyed.</Spanish>
+<Portuguese>Good job! The device was destroyed.</Portuguese>
+<Korean>Good job! The device was destroyed.</Korean>
+<Japanese>Good job! The device was destroyed.</Japanese>
+<Original>Good job! The device was destroyed.</Original>
+</Key>
 </Container>
 </Package>
 </Project>

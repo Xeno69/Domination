@@ -31,6 +31,7 @@ ATTENTION: The following mission.sqm files have changed: Altis
            calls an air drop, calls a UAV at MHQ, makes a parajump from base, opens fake UAV at MHQ, builds a FARP
 - Changed: If database is available infantry player inside the main target area get more points when killing AI (inf only outside vehicles)
 - Added: New sidemission type send data with data terminal
+- Added: New sidemission type destroy earthquake device
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

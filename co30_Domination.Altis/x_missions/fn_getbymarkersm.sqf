@@ -171,7 +171,12 @@ switch (tolower (_sm_ar # 1)) do {
 	};
 	case "dataterminal": {
 		if (call d_fnc_checkSHC) then {
-			[d_x_sm_pos # 0, _sm_ar # 7, false, true, true] spawn d_fnc_sidetransferdata;
+			[d_x_sm_pos # 0, _sm_ar # 7, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidetransferdata;
+		};
+	};
+	case "device": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, "Land_Device_assembled_F", _sm_ar # 7, false, true, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 };
