@@ -28,7 +28,7 @@ ATTENTION: The following mission.sqm files have changed: Altis
 - Added: Base sabotage. Enemy will drop in assault soldiers with satchels and attack your base. Disabled by default, can be enabled by server lobby params (d_with_base_sabotage)
 - Changed: Score gets subtracted if a player dies and a SQL database is available (you have to change server lobby param d_sub_kill_points)
 - Changed: If a SQL database is available score gets subtracted when a player calls CAS, calls an air taxi, calls in artillery, creates a vehicle (at MHQ for example),
-           calls an air drop, calls a UAV at MHQ, makes a parajump from base, opens fake UAV at MHQ, builds a FARP
+           calls an air drop, calls a UAV at MHQ, makes a parajump from base, opens fake UAV at MHQ, builds a FARP (check d_ranked_a)
 - Changed: If database is available infantry player inside the main target area get more points when killing AI (inf only outside vehicles)
 - Added: New sidemission type send data with data terminal
 - Added: New sidemission type destroy earthquake device
