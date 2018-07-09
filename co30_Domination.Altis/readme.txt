@@ -8,7 +8,7 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.96
-ATTENTION: The following mission.sqm files have changed: Altis
+ATTENTION: The following mission.sqm files have changed: Altis, Malden
 
 - Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
 - Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
