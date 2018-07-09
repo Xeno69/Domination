@@ -7739,6 +7739,22 @@
 <Japanese>You were not able to clear the mines fast enough...</Japanese>
 <Original>You were not able to clear the mines fast enough...</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1849">
+<English>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</English>
+<Spanish>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Spanish>
+<Portuguese>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Portuguese>
+<Korean>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Korean>
+<Japanese>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Japanese>
+<Original>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1850">
+<English>Good job! The cache is destroyed</English>
+<Spanish>Good job! The cache is destroyed</Spanish>
+<Portuguese>Good job! The cache is destroyed</Portuguese>
+<Korean>Good job! The cache is destroyed</Korean>
+<Japanese>Good job! The cache is destroyed</Japanese>
+<Original>Good job! The cache is destroyed</Original>
+</Key>
 </Container>
 </Package>
 </Project>

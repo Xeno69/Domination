@@ -33,6 +33,7 @@ ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier 
 - Added: New sidemission type send data with data terminal
 - Added: New sidemission type destroy earthquake device
 - Added: New sidemission type destroy SAM site
+- Added: New sidemission type destroy weapon cache (by Lelik)
 - Changed: Activated naval mines sidemissions again (Altis and Malden)
 
 3.95

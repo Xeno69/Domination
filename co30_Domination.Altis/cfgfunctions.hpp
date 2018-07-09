@@ -290,6 +290,7 @@ class cfgFunctions {
 			addc(sideobject);
 			addc(sideobjects);
 			addc(sidetransferdata);
+			addc(sidecache);
 		};
 		class Dom_Server {
 			file = "x_server\x_f";
