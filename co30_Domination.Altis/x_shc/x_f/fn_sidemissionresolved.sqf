@@ -18,7 +18,7 @@ if (d_sm_winner > 0) then {
 	__TRACE("Calling getbonus")
 	[d_sm_winner, d_current_sm_bonus_vec] remoteExec ["d_fnc_getbonus", 2];
 } else {
-	if (d_sm_winner in [-1,-2,-300,-400,-500,-600,-700,-878,-900,-1000]) then {
+	if (d_sm_winner in [-1,-2,-300,-400,-500,-600,-700,-878,-900,-1000,-1100]) then {
 		__TRACE("Calling res client because winner less than 0")
 		[d_sm_winner, ""] remoteExecCall ["d_fnc_sm_res_client", [0, -2] select isDedicated];
 #ifndef __TT__

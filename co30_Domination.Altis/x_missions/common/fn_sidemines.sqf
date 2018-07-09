@@ -49,6 +49,8 @@ __TRACE_1("","count _mines");
 {d_side_enemy revealMine _x} forEach _mines;
 d_x_sm_vec_rem_ar append _mines;
 
+private _mforceendtime = time + 4800;
+
 while {!d_sm_resolved} do {
 	sleep 5;
 	if (_mines findIf {mineActive _x} == -1) exitWith {
@@ -60,6 +62,21 @@ while {!d_sm_resolved} do {
 			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
 			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
 		};
-	};	
+	};
+	sleep 0.1;
+	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
+		_mforceendtime = _mforceendtime - time;
+		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		_mforceendtime = time + _mforceendtime;
+	};
+	sleep 0.1;
+	if (time > _mforceendtime) exitWith {
+		d_sm_winner = -1100;
+		d_sm_resolved = true;
+		if (d_IS_HC_CLIENT) then {
+			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
+			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
+		};
+	};
 };
 if !(_arrows isEqualTo []) then {{deleteVehicle _x} forEach _arrows};

@@ -7731,6 +7731,14 @@
 <Japanese>Good work! The SAM site is out of business.</Japanese>
 <Original>Good work! The SAM site is out of business.</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1848">
+<English>You were not able to clear the mines fast enough...</English>
+<Spanish>You were not able to clear the mines fast enough...</Spanish>
+<Portuguese>You were not able to clear the mines fast enough...</Portuguese>
+<Korean>You were not able to clear the mines fast enough...</Korean>
+<Japanese>You were not able to clear the mines fast enough...</Japanese>
+<Original>You were not able to clear the mines fast enough...</Original>
+</Key>
 </Container>
 </Package>
 </Project>
