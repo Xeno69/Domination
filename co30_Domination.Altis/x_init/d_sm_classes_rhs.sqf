@@ -67,6 +67,21 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_cargotrucktype = switch (d_enemy_side_short) do {
+	case "E": {["O_Truck_03_covered_F","O_T_Truck_03_covered_ghex_F"] select (d_tanoa)};
+	case "W": {"B_Truck_01_covered_F"};
+	case "G": {"I_Truck_02_covered_F"};
+};
+d_sm_fueltrucktype = switch (d_enemy_side_short) do {
+	case "E": {["O_Truck_03_fuel_F", "O_T_Truck_03_fuel_ghex_F"] select (d_tanoa)};
+	case "W": {"B_Truck_01_fuel_F"};
+	case "G": {"I_Truck_02_fuel_F"};
+};
+d_sm_camo_net = call {
+   if (d_enemy_side_short == "W") exitWith {"CamoNet_BLUFOR_big_F"};
+   if (d_enemy_side_short == "E") exitWith {"CamoNet_OPFOR_big_F"};
+   "CamoNet_INDP_big_F"
+};
 d_sm_medtrucktype = switch (d_enemy_side_short) do {
 	case "E": {"rhs_gaz66_ap2_vdv"};
 	case "W": {"rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy"};

@@ -7,14 +7,27 @@ __TRACE_1("","_this")
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-params ["_poss", "_types", ["_dovup", true], ["_dolock", false], ["_createarmor", false], ["_createinf", false]];
+params ["_poss", ["_dir", 0], "_types", ["_dovup", true], ["_dolock", false], ["_createarmor", false], ["_createinf", false], ["_random", false], ["_camo", false]];
 
 private _vecs = [];
+private _usevecs = [];
+if (!_random) then {
+	_usevecs = _types;
+} else {
+	for "_i" from 1 to count _types do {
+		_usevecs pushBack selectRandom _types;
+	};
+};
+// TODO better position finding 
+// _poss = _vec modeltoWorld [18, 0, 0];
+// _poss set [2,0];
 {
 	private _nnextpos = _poss findEmptyPosition [30, 70, _x];
 	if !(_nnextpos isEqualTo []) then {_poss = _nnextpos};
 	private _vec = createVehicle [_x, _poss, [], 0, "NONE"];
-	_vec setDir (random 360);
+	_vec allowDamage false;
+    _vec spawn {sleep 5; _this allowDamage true};
+	_vec setDir _dir;
 	_vec setPos _poss;
 	if (_dovup) then {
 		_vec setVectorUp [0,0,1];
@@ -25,8 +38,18 @@ private _vecs = [];
 	_vecs pushBack _vec;
 	_vec addEventHandler ["handleDamage", {_this call d_fnc_CheckSMShotHD}];
 	d_x_sm_vec_rem_ar pushBack _vec;
+	if (_camo) then {
+		sleep 0.25;
+		_camov = createVehicle [d_sm_camo_net, getPos _vec, [], 0, "NONE"];
+		_camov allowDamage false;
+		_camov setDir (direction _vec) + 180;
+		_camov setPos (getPos _vec);
+		_camov spawn {sleep 5; _this allowDamage true};
+		d_x_sm_vec_rem_ar pushBack _camo;
+		_camov addEventhandler ["killed", {deleteVehicle (param [0])}];
+	};
 	sleep 1;
-} forEach _types;
+} forEach _usevecs;
 
 if (_createarmor) then {
 	__TRACE("Creating armor")

@@ -290,6 +290,22 @@
 <Japanese>また、ステータスダイアログで表示距離やその他の設定を変更することもできます。</Japanese>
 <Original>You can also change the viewdistance and other settings in the status dialog.</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_49">
+<English>Intel reports about enemy supply trucks. Find and destroy them!</English>
+<Spanish>Intel reports about enemy supply trucks. Find and destroy them!</Spanish>
+<Portuguese>Intel reports about enemy supply trucks. Find and destroy them!</Portuguese>
+<Korean>Intel reports about enemy supply trucks. Find and destroy them!</Korean>
+<Japanese>Intel reports about enemy supply trucks. Find and destroy them!</Japanese>
+<Original>Intel reports about enemy supply trucks. Find and destroy them!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_50">
+<English>The trucks are destroyed! Good job!</English>
+<Spanish>The trucks are destroyed! Good job!</Spanish>
+<Portuguese>The trucks are destroyed! Good job!</Portuguese>
+<Korean>The trucks are destroyed! Good job!</Korean>
+<Japanese>The trucks are destroyed! Good job!</Japanese>
+<Original>The trucks are destroyed! Good job!</Original>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_51">
 <English>The revive system used in Dom is a little bit different to what you may be used to.</English>
 <Spanish>El sistema de revive utilizado en Dom es un poco diferente a lo que se puede utilizar.</Spanish>

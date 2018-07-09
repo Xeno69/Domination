@@ -50,7 +50,7 @@ d_sm_array =
 d_sm_array =
 	[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,19,
 	20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,
-	40,41,42,44,47,48,49,50,51,52,53,64,100,101,102];//,103,104,105,106];
+	40,41,42,44,47,48,49,50,51,52,53,64,100,101,102,103,104,105,106];
 #endif
 #ifdef __STRATIS__
 d_sm_array =
@@ -73,7 +73,7 @@ d_sm_array =
 		94,95,97,98, // 106,108, // steal the vehicle 106 and 108 removed for now
 		// 104,105,107, //evac damaged tank -> same for these 3
 		110,111,112,113, //tank depot
-		//114,115,116,117, //destroy supply trucks -> TODO
+		114,115,116,117, //destroy supply trucks -> TODO
 		// 118,119,120, //destroy cargo box -> TODO
 		123,124,125, //destroy arty vec
 		127,128,129,130,131,132,133, //kill the officer

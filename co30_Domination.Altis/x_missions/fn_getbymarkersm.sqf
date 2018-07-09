@@ -191,12 +191,17 @@ switch (tolower (_sm_ar # 1)) do {
 #ifdef __OWN_SIDE_INDEPENDENT__
 			["B_SAM_System_03_F", "B_Radar_System_01_F"];
 #endif
-			[d_x_sm_pos # 0, _samtypes, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobjects;
+			[d_x_sm_pos # 0, random 360, _samtypes, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobjects;
 		};
 	};
 	case "cache": {
 		if (call d_fnc_checkSHC) then {
 			[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidecache;
+		};
+	};
+	case "trucks": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, _sm_ar # 7, [d_sm_ammotrucktype, d_sm_fueltrucktype, d_sm_cargotrucktype], false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, true, true] spawn d_fnc_sideobjects;
 		};
 	};
 };
