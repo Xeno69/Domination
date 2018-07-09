@@ -6,16 +6,21 @@
 params ["_cur_sm_idx"];
 
 private _sm_ar = d_sm_store getVariable (str (_cur_sm_idx - 50000));
+__TRACE_1("","_sm_ar")
 if (isNil "_sm_ar") then {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
 
 d_x_sm_pos = _sm_ar # 2;
 d_x_sm_type = _sm_ar # 1;
+__TRACE_1("","d_x_sm_pos")
+__TRACE_1("","d_x_sm_type")
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize ("STR_DOM_MISSIONSTRING_" + (_sm_ar # 5));
 	d_current_mission_resolved_text = localize ("STR_DOM_MISSIONSTRING_" + (_sm_ar # 6));
+	__TRACE_1("","d_cur_sm_txt")
+	__TRACE_1("","d_current_mission_resolved_text")
 };
 
 if !(call d_fnc_checkSHC) exitWith {};
@@ -208,17 +213,21 @@ switch (tolower (_sm_ar # 1)) do {
 
 if (call d_fnc_checkSHC && {tolower (_sm_ar # 1) != "convoy"}) then {
 	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
-		__TRACE("Creating armor")
-		{
-			_x spawn d_fnc_CreateArmor;
-			sleep 1.03;
-		} forEach (_sm_ar # 3);
+		(_sm_ar # 3) spawn {
+			__TRACE("Creating armor")
+			{
+				_x spawn d_fnc_CreateArmor;
+				sleep 1.03;
+			} forEach _this;
+		};
 	};
 	if ((_sm_ar # 4) isEqualType [] && {!((_sm_ar # 4) isEqualTo [])}) then {
+		(_sm_ar # 4) spawn {
 		__TRACE("Creating inf")
-		{
-			_x spawn d_fnc_CreateInf;
-			sleep 1.03;
-		} forEach (_sm_ar # 4);
+			{
+				_x spawn d_fnc_CreateInf;
+				sleep 1.03;
+			} forEach _this;
+		};
 	};
 };

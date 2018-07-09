@@ -43,7 +43,7 @@ if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
 	if (_cur_sm_idx < 50000) then {
 		execVM format ["x_missions\%3\%2%1.sqf", _cur_sm_idx, d_sm_fname, d_sm_folder];
 	} else {
-		[_cur_sm_idx] spawn d_fnc_getbymarkersm;
+		[_cur_sm_idx] call d_fnc_getbymarkersm;
 	};
 	sleep 7.012;
 	__TRACE("Calling in getsidemission")

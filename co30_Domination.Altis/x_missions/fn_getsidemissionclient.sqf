@@ -1,9 +1,13 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_getsidemissionclient.sqf"
 #include "..\x_setup.sqf"
-if !(hasInterface) exitWith{};
+
+if (!hasInterface) exitWith{};
 
 params ["_do_hint"];
+
+__TRACE_1("","d_cur_sm_idx")
 
 if (d_cur_sm_idx == -1) exitWith {};
 
@@ -12,7 +16,7 @@ if (!isServer) then {
 	if (d_cur_sm_idx < 50000) then {
 		call compile preprocessFileLineNumbers format ["x_missions\%3\%2%1.sqf", d_cur_sm_idx, d_sm_fname, d_sm_folder];
 	} else {
-		[d_cur_sm_idx] spawn d_fnc_getbymarkersm;
+		[d_cur_sm_idx] call d_fnc_getbymarkersm;
 	};
 };
 

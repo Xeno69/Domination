@@ -498,6 +498,21 @@ __TRACE_1("","_eee")
 			};
 		};
 		
+		if (_smtype == "device") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1844"];
+						_onesmar set [6, "1845"];
+					};
+				};
+			};
+		};
+		
 		if (_smtype == "sam") exitWith {
 			call {
 				if (_subtype == "") exitWith {
@@ -547,4 +562,6 @@ __TRACE_1("","_eee")
 	d_sm_store setVariable [_idx, _onesmar];
 } forEach (allMapMarkers select {_x select [0, 6] == "d_smm|"});
 
-d_sm_array append _dallsidemissions;
+if (isServer) then {
+	d_sm_array append _dallsidemissions;
+};

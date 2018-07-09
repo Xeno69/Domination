@@ -7412,12 +7412,12 @@
 <Original>Some civilians are held hostage. You have to free them and bring at least 8 civilians/prisoners back alive to your base!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
-<English>Intel has got some information about location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
-<Spanish>Intel has got some information about location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Spanish>
-<Portuguese>Intel has got some information about location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Portuguese>
-<Korean>Intel has got some information about location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Korean>
-<Japanese>Intel has got some information about location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Japanese>
-<Original>Intel has got some information about location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Original>
+<English>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
+<Spanish>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Spanish>
+<Portuguese>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Portuguese>
+<Korean>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Korean>
+<Japanese>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Japanese>
+<Original>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1807">
 <English>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
@@ -7452,12 +7452,12 @@
 <Original>Intel has found an enemy tank depot. Destroy all tanks there to weaken the enemy troops.</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1811">
-<English>Intel has got some information about location of an enemy artillery vehicle. Find and destroy it!</English>
-<Spanish>Intel has got some information about location of an enemy artillery vehicle. Find and destroy it!</Spanish>
-<Portuguese>Intel has got some information about location of an enemy artillery vehicle. Find and destroy it!</Portuguese>
-<Korean>Intel has got some information about location of an enemy artillery vehicle. Find and destroy it!</Korean>
-<Japanese>Intel has got some information about location of an enemy artillery vehicle. Find and destroy it!</Japanese>
-<Original>Intel has got some information about location of an enemy artillery vehicle. Find and destroy it!</Original>
+<English>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</English>
+<Spanish>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Spanish>
+<Portuguese>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Portuguese>
+<Korean>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Korean>
+<Japanese>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Japanese>
+<Original>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1812">
 <English>Good job! The vehicle is destroyed</English>
@@ -7700,12 +7700,12 @@
 <Original>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1842">
-<English>Phantastic! You have uploaded the data!</English>
-<Spanish>Phantastic! You have uploaded the data!</Spanish>
-<Portuguese>Phantastic! You have uploaded the data!</Portuguese>
-<Korean>Phantastic! You have uploaded the data!</Korean>
-<Japanese>Phantastic! You have uploaded the data!</Japanese>
-<Original>Phantastic! You have uploaded the data!</Original>
+<English>Fantastic! You have uploaded the data!</English>
+<Spanish>Fantastic! You have uploaded the data!</Spanish>
+<Portuguese>Fantastic! You have uploaded the data!</Portuguese>
+<Korean>Fantastic! You have uploaded the data!</Korean>
+<Japanese>Fantastic! You have uploaded the data!</Japanese>
+<Original>Fantastic! You have uploaded the data!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1843">
 <English>Data uploaded!</English>

@@ -7,7 +7,7 @@ d_x_sm_pos = "d_sm_7" call d_fnc_smmapos; // Officer, second array = pos aa
 d_x_sm_type = "normal"; // "convoy"
 
 if (hasInterface) then {
-	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1800";
+	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1813";
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_729";
 };
 
@@ -16,7 +16,7 @@ if (call d_fnc_checkSHC) then {
 	["aa", 1, "tracked_apc", 0, "tank", 0, d_x_sm_pos # 1, 1, 0, false] spawn d_fnc_CreateArmor;
 	sleep 2.123;
 	private _fortress = createVehicle [d_sm_fortress, _poss, [], 0, "NONE"];
-	_fortress setDir (markerDir "d_sm_1");
+	_fortress setDir (markerDir "d_sm_7");
 	_fortress setPos _poss;
 	d_x_sm_vec_rem_ar pushBack _fortress;
 	sleep 2.123;

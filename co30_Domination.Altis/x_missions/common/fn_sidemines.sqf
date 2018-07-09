@@ -4,7 +4,7 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-params["_pos", "_type"];
+params ["_pos", "_type"];
 
 private _mines = [];
 private _arrows = [];
