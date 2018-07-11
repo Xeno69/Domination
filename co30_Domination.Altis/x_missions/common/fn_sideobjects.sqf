@@ -60,7 +60,7 @@ private _vec = objNull;
 		_camonet setDir (direction _vec) + 180;
 		_camonet setPos (getPos _vec);
 		_camonet spawn {sleep 5; _this allowDamage true};
-		d_x_sm_vec_rem_ar pushBack _camo;
+		d_x_sm_vec_rem_ar pushBack _camonet;
 		_camonet addEventhandler ["killed", {deleteVehicle (param [0])}];
 	};
 	sleep 1;

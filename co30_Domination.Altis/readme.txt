@@ -37,6 +37,7 @@ ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier 
 - Added: New sidemission type destroy support vehicles
 - Changed: Activated naval mines sidemissions again (Altis, Malden and Tanoa)
 - Fixed: Various Malden sidemissions (wrong markers for direction used and wrong localization strings)
+- Fixed: Don't create sandstorm over water
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!

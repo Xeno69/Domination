@@ -12,7 +12,7 @@ private _vecs = [];
 private _uinf = [];
 
 private _grp = [_grp_in, [_side] call d_fnc_creategroup] select (_grp_in isEqualType 0);
-private _pos = [_wp_array # 0, selectRandom _wp_array] select (count _wp_array > 1);
+private _pos = selectRandom _wp_array;
 
 __TRACE_1("","_grp")
 
@@ -40,9 +40,9 @@ if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
 		if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, d_enemyai_respawn_pos, false]];
+				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 			} else {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [d_mt_barracks_obj_pos], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, d_mt_barracks_obj_pos]];
+				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [d_mt_barracks_obj_pos], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_mt_barracks_obj_pos]];
 			};
 		};
 	};

@@ -6,7 +6,7 @@ d_x_sm_pos = "d_sm_62" call d_fnc_smmapos; // clear naval mines
 d_x_sm_type = "normal"; // "convoy"
 
 if (hasInterface) then {
-	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1666a";
+	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1666";
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_1667";
 };
 

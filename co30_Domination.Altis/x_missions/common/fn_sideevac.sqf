@@ -21,16 +21,28 @@ if (d_with_ai) then {
 	[_owngroup, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
 };
 __TRACE_1("","_owngroup")
+private _nposss = _poss findEmptyPosition [20, 80, d_sm_pilottype];
+if !(_nposss isEqualTo []) then {_poss = _nposss};
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _poss, [], 60, "NONE"];
+_pilot1 allowDamage false;
+_pilot1 spawn {
+	sleep 5;
+	_this allowDamage true;
+};
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
 _poss set [2, 0];
 [_pilot1, _poss] call d_fnc_setposagls;
 
-private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPosATL _pilot1, [], 0, "NONE"];
+private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
+_pilot2 allowDamage false;
+_pilot2 spawn {
+	sleep 5;
+	_this allowDamage true;
+};
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
-[_pilot2, _poss] call d_fnc_setposagls;
+[_pilot2, getPos _pilot2] call d_fnc_setposagls;
 [_pilot1, _pilot2] joinSilent _owngroup;
 
 sleep 15;
