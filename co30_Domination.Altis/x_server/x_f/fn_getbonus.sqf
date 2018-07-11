@@ -249,7 +249,7 @@ if (_vec isKindOf "Air") then {
 				_aslheight = (getPosASL d_FLAG_BASE) # 2;
 			};
 			_endpos set [2, _aslheight];
-			_dir = (d_bonus_air_positions_carrier # d_bap_counter) # 1;
+			_dir = (d_bonus_air_positions_carrier # d_bacp_counter) # 1;
 			_vec setVariable ["d_oncarrier", true];
 			d_bacp_counter = d_bacp_counter + 1;
 			if (d_bacp_counter > (count d_bonus_air_positions_carrier - 1)) then {d_bacp_counter = 0};

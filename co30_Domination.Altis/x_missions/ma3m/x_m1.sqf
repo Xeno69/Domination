@@ -13,7 +13,7 @@ if (hasInterface) then {
 
 if (call d_fnc_checkSHC) then {
 	d_x_sm_pos params ["_poss"];
-	["aa", 1, "tracked_apc", 0, "tank", 0, d_x_sm_pos # 1, 1, 0, false] spawn d_fnc_CreateArmor;
+	["aa", 1, "tracked_apc", 0, "tank", 0, _poss, 1, 0, false] spawn d_fnc_CreateArmor;
 	sleep 2.123;
 	private _fortress = createVehicle [d_sm_fortress, _poss, [], 0, "NONE"];
 	_fortress setDir (markerDir "d_sm_1");

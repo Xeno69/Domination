@@ -21,5 +21,5 @@ if (call d_fnc_checkSHC) then {
 	sleep 2.21;
 	["specops", 1, "allmen", 2, _poss, 0] spawn d_fnc_CreateInf;
 	sleep 2.045;
-	["aa", 1, "tracked_apc", 1, "tank", 0, d_x_sm_pos # 1, 1, 0] spawn d_fnc_CreateArmor;
+	["aa", 1, "tracked_apc", 1, "tank", 0, _poss, 1, 0] spawn d_fnc_CreateArmor;
 };

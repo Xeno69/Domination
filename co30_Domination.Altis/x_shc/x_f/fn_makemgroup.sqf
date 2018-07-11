@@ -21,7 +21,7 @@ private _subskill = if (diag_fps > 29) then {
 };
 
 if (!_mchelper) then {
-	private _nnpos = _pos findEmptyPosition [0, 30, _unitlist # 0];
+	private _nnpos = _pos findEmptyPosition [0, 30, _unitliste # 0];
 	if !(_nnpos isEqualTo []) then {_pos = _nnpos};
 };
 

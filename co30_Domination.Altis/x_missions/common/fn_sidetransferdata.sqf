@@ -8,6 +8,7 @@ if !(call d_fnc_checkSHC) exitWith {};
 params ["_poss", ["_dir", 0], ["_dovup", true], ["_createarmor", false], ["_createinf", false]];
 
 private _smvec = createVehicle ["Land_DataTerminal_01_F", _poss, [], 0, "NONE"];
+_smvec allowDamage false;
 _smvec setDir _dir;
 _smvec setPos _poss;
 if (_dovup) then {

@@ -7771,6 +7771,14 @@
 <Japanese>Good job! The cache is destroyed</Japanese>
 <Original>Good job! The cache is destroyed</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1851">
+<English>The supply truck was destroyed before it could reach the point of destination.</English>
+<Spanish>The supply truck was destroyed before it could reach the point of destination.</Spanish>
+<Portuguese>The supply truck was destroyed before it could reach the point of destination.</Portuguese>
+<Korean>The supply truck was destroyed before it could reach the point of destination.</Korean>
+<Japanese>The supply truck was destroyed before it could reach the point of destination.</Japanese>
+<Original>The supply truck was destroyed before it could reach the point of destination.</Original>
+</Key>
 </Container>
 </Package>
 </Project>

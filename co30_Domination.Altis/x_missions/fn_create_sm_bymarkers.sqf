@@ -207,7 +207,7 @@ __TRACE_1("","_eee")
 					_onesmar set [7, markerDir _curmar];
 					if (hasInterface && {_onesmar # 5 == ""}) then {
 						_onesmar set [5, "1664"];
-						_onesmar set [6, "810"];
+						_onesmar set [6, "1665"];
 					};
 				};
 			};
@@ -220,7 +220,7 @@ __TRACE_1("","_eee")
 					_onesmar set [7, markerDir _curmar];
 					if (hasInterface && {_onesmar # 5 == ""}) then {
 						_onesmar set [5, "1803"];
-						_onesmar set [6, "1665"];
+						_onesmar set [6, "812"];
 					};
 				};
 				if (_subtype == "time") then {
