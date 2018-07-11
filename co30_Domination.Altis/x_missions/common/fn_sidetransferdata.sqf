@@ -34,7 +34,7 @@ if (_createinf) then {
 	["specops", 2, "allmen", (floor (random 4)) min 2, _poss, 300, true] spawn d_fnc_CreateInf;
 };
 
-while {!d_data_was_send && {alive _smvec}} do {
+while {!d_data_was_send && {alive _smvec && {!d_sm_resolved}}} do {
 	sleep 2.5;
 };
 

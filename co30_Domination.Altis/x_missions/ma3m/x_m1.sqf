@@ -7,7 +7,7 @@ d_x_sm_pos = "d_sm_1" call d_fnc_smmapos; // Officer, second array = pos aa
 d_x_sm_type = "normal"; // "convoy"
 
 if (hasInterface) then {
-	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1800";
+	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1813";
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_729";
 };
 
