@@ -10,7 +10,10 @@ __TRACE_1("","_this")
 private _pos_center = _this select 6;
 if (isNil "_pos_center") exitWith {
 	diag_log "_pos_center in fn_createarmor.sqf undefined!!!";
-	diag_log ["_fnc_scriptNameParent: ", _fnc_scriptNameParent];
+	if (!isNil "_fnc_scriptNameParent") then {
+		diag_log ["fn_createarmor.sqf _fnc_scriptNameParent: ", _fnc_scriptNameParent];
+	};
+	diag_log ["fn_createarmor.sqf _this: ", _this];
 };
 private _radius = _this select 8;
 private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 10) then {_this select 9} else {false}};

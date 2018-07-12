@@ -21,8 +21,8 @@ if (d_with_ai) then {
 	[_owngroup, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
 };
 __TRACE_1("","_owngroup")
-private _nposss = _poss findEmptyPosition [20, 80, d_sm_pilottype];
-if !(_nposss isEqualTo []) then {_nposss = _poss};
+private _nposss = _poss findEmptyPosition [20, 100, d_sm_pilottype];
+if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 _pilot1 allowDamage false;
 _pilot1 spawn {

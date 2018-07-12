@@ -8,7 +8,10 @@ __TRACE_1("","_this")
 private _pos_center = _this select 4;
 if (isNil "_pos_center") exitWith {
 	diag_log "_pos_center in fn_createinf undefined!!!";
-	diag_log ["_fnc_scriptNameParent: ", _fnc_scriptNameParent];
+	if (!isNil "_fnc_scriptNameParent") then {
+		diag_log ["fn_createinf.sqf _fnc_scriptNameParent: ", _fnc_scriptNameParent];
+	};
+	diag_log ["fn_createinf.sqf _this: ", _this];
 };
 private _radius = _this select 5;
 private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {_this select 6} else {false}};
