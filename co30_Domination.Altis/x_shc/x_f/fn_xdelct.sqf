@@ -4,8 +4,6 @@
 #include "..\..\x_setup.sqf"
 
 deleteVehicle d_current_trigger;
-if (!isNil "d_f_check_triggers") then {
-	{
-		deleteVehicle _x;
-	} forEach d_f_check_triggers;
+if (!isNil "d_f_check_trigger") then {
+	deleteVehicle d_f_check_trigger;
 };

@@ -482,7 +482,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 		private _engineer_trigger = createTrigger ["EmptyDetector" ,_mbase # 0, false];
 		_engineer_trigger setTriggerArea [_mbase # 1, _mbase # 2, _mbase # 3, true, 2];
 #endif
-		_engineer_trigger setTriggerActivation [d_own_side, "PRESENT", true];
+		_engineer_trigger setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 		_engineer_trigger setTriggerStatements["!d_eng_can_repfuel && {player in thislist}", "d_eng_can_repfuel = true;systemChat (localize 'STR_DOM_MISSIONSTRING_340')", ""];
 	};
 

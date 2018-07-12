@@ -8,10 +8,8 @@ __TRACE_1("","_this")
 
 sleep 1.123;
 
-if (!isNil "d_f_check_triggers") then {
-	{
-		deleteVehicle _x;
-	} forEach d_f_check_triggers;
+if (!isNil "d_f_check_trigger") then {
+	deleteVehicle d_f_check_trigger;
 };
 deleteVehicle d_current_trigger;
 if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
