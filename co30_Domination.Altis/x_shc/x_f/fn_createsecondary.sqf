@@ -136,7 +136,7 @@ for "_i" from 1 to _nrcamps do {
 	_wf setPos _poss;
 	d_currentcamps pushBack _wf;
 	_wf setVariable ["d_SIDE", d_enemy_side, true];
-	_wf setVariable ["d_INDEX", _i, true];
+	//_wf setVariable ["d_INDEX", _i, true];
 	_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
 	_wf setVariable ["d_CURCAPTIME", 0, true];
 #ifndef __TT__
