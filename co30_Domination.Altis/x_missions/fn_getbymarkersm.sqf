@@ -104,6 +104,11 @@ switch (tolower (_sm_ar # 1)) do {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_tank, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
 		};
 	};
+	case "stealapc": { // does NOT create armor and inf in common file
+		if (call d_fnc_checkSHC) then {
+			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_tank, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
+		};
+	};
 	case "stealplane": { // does NOT create armor and inf in common file
 		if (call d_fnc_checkSHC) then {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_plane, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;

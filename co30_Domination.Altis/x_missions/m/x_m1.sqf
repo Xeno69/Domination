@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11256.2,4294.15,0], [11075.9,4119.91,0]]; // Officer, Rog, second array = position Shilka
-d_x_sm_type = "normal"; // "convoy"
+d_x_sm_type = "eliminateofficer";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1813";

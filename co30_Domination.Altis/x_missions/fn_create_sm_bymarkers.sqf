@@ -56,9 +56,9 @@
 private _dallsidemissions = [];
 
 private _smtypes = ["convoy", "stealflag", "tankdepot", "arrest", "artibase", "deliver", "evac", "radiotower", "prisoners",
-	"stealvec", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
+	"stealapc", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
 	"transformer", "barracks", "hangar", "eliminatesniper", "cargotruck", "minesland", "minesnaval", "dataterminal", "device",
-	"sam", "cache", "trucks"] apply {toLower _x};
+	"sam", "cache", "trucks", "artycannon"] apply {toLower _x};
 private _subtypes = ["start", "end", "flag", "tank", "time", "radius"] apply {toLower _x};
 
 private _infhelper_fnc = {
@@ -269,6 +269,21 @@ __TRACE_1("","_eee")
 					if (hasInterface && {_onesmar # 5 == ""}) then {
 						_onesmar set [5, "1809"];
 						_onesmar set [6, "796"];
+					};
+				};
+			};
+		};
+		
+		if (_smtype == "stealapc") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1819"];
+						_onesmar set [6, "1551"];
 					};
 				};
 			};

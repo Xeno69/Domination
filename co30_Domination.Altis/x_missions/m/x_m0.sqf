@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[3724.62,14491.7,0]]; // radar tower on Nebelspitze
-d_x_sm_type = "normal"; // "convoy"
+d_x_sm_type = "radiotower";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1815";
