@@ -8,7 +8,7 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.96
-ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier Altis, Opfor Altis, Tanoa, Blufor RHS and Opfor RHS
+ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier Altis, Opfor Altis, Tanoa, Tanoa TT, Blufor RHS and Opfor RHS
 
 - Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
 - Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
@@ -42,6 +42,7 @@ ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier 
 - Fixed: Sidemission 7 on Malden causing broken create armor script because of missing second marker
 - Changed: Nicer UI above capture camps (circle and no longer just text)
 - Fixed: Script error when script didn't find new camp position
+- Fixed: Tanoa TT version Little Birds did explode at mission start
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
