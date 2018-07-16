@@ -106,25 +106,30 @@ for "_i" from 1 to _nrcamps do {
 	_wf setDir floor random 360;
 	private _nnpos = getPosASL _wf;
 	_nnpos set [2, 0];
-	__TRACE_1("","_nnpos")
+	__TRACE_1("1","_nnpos")
 	if !(d_currentcamps isEqualTo []) then {
 		private _doexit = false;
 		private _xcountx = 0;
-		while {_xcountx < 99} do {
-			__TRACE_1("","d_currentcamps")
+		while {_xcountx < 50} do {
+			__TRACE_2("","_xcountx","d_currentcamps")
 			private _wfokc = 0;
 			{
-				if (_nnpos distance2D _x > 130) then {_wfokc = _wfokc + 1};
+				__TRACE_2("","_nnpos","_x")
+				if (!(_nnpos isEqualTo []) && {_nnpos distance2D _x > 130}) then {_wfokc = _wfokc + 1};
 			} forEach d_currentcamps;
 			__TRACE_2("","_wfokc","count d_currentcamps")
 			if (_wfokc != count d_currentcamps) then {
-				_nnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+				private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+				__TRACE_1("2","_tnnpos")
+				if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
 			} else {
 				if (_wf distance2D _nnpos > 130) then {
 					_poss = _nnpos;
 					_doexit = true;
 				} else {
-					_nnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+					private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+					__TRACE_1("3","_tnnpos")
+					if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
 				};
 			};
 			if (_doexit) exitWith {};

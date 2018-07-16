@@ -41,6 +41,7 @@ ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier 
 - Fixed: getBonus bugged out when a side mission bonus vehicle was a carrier based plane
 - Fixed: Sidemission 7 on Malden causing broken create armor script because of missing second marker
 - Changed: Nicer UI above capture camps (circle and no longer just text)
+- Fixed: Script error when script didn't find new camp position
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
