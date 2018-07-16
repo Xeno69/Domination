@@ -10,6 +10,6 @@ if ((_this select 0) < 50000) then {
 sleep 7.012;
 [_this select 0, d_x_sm_pos, d_x_sm_type] remoteExecCall ["d_fnc_s_sm_up", 2];
 
-if (d_x_sm_type != "convoy" && {d_x_sm_type != "deliver"}) then {
-	// TODO create trigger, once players are at the side mission position (quite near) spawn enemy AI inf
+if (random 100 > 50 && {!(toLower d_x_sm_type in ["convoy", "deliver", "prisoners", "evac", "specops"])}) then {
+	d_sm_check_trigger = [d_x_sm_pos # 0, [70, 70, 0, false], ["ANYPLAYER", "PRESENT", false], ["this", "0 spawn d_fnc_smsurprise; deleteVehicle d_sm_check_trigger", ""]] call d_fnc_createtriggerlocal;
 };

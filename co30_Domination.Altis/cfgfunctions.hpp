@@ -268,6 +268,7 @@ class cfgFunctions {
 			addc(getbymarkersm);
 			addc(clearsidemission);
 			addc(addactionstd);
+			addc(smsurprise);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";

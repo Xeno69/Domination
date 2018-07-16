@@ -44,6 +44,7 @@ while {!_created} do {
 		    #ifdef __DEBUG__
 	           [format["cache_%1",_cache], _pos,"ICON","ColorBlack",[0.5,0.5],"Cache",0,"n_Ordnance"] call d_fnc_CreateMarkerGlobal;
             #endif
+			clearWeaponCargoGlobal _cache;
 		};
 	};
 	sleep 1;

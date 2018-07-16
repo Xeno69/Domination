@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[8336.16,5953.24,0]]; // index: 40,   Prison camp, Kumyrna
-d_x_sm_type = "normal"; // "convoy"
+d_x_sm_type = "prisoners";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1805";

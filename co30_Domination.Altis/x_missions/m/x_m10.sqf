@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6599.02,3409.95,0], [6616.04,3410.23,0]]; // index: 10,   Artillery at top of mount Vysota
-d_x_sm_type = "normal";
+d_x_sm_type = "artycannon";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1811";
