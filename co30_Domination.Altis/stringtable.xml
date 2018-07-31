@@ -7779,6 +7779,14 @@
 <Japanese>The supply truck was destroyed before it could reach the point of destination.</Japanese>
 <Original>The supply truck was destroyed before it could reach the point of destination.</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1852">
+<English>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</English>
+<Spanish>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Spanish>
+<Portuguese>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Portuguese>
+<Korean>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Korean>
+<Japanese>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Japanese>
+<Original>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Original>
+</Key>
 </Container>
 </Package>
 </Project>

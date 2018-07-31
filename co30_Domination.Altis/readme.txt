@@ -43,6 +43,7 @@ ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier 
 - Changed: Nicer UI above capture camps (circle and no longer just text)
 - Fixed: Script error when script didn't find new camp position
 - Fixed: Tanoa TT version Little Birds did explode at mission start
+- Fixed: Don't kick player AI out of a static weapon or parachute if d_ai_alone_in_vehicle is enabled (only available with ai mode)
 
 3.95
 - Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
