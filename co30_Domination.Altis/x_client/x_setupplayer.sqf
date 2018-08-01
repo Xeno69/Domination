@@ -822,7 +822,7 @@ private _fnc_artvec = {
 #ifndef __TT__
 [10, "d_artyvec_"] call _fnc_artvec;
 #else
-[11, ["d_artyvecb_%1", "d_artyveco_%1"] select (d_player_side == opfor)] call _fnc_artvec;
+[11, ["d_artyvecb_", "d_artyveco_"] select (d_player_side == opfor)] call _fnc_artvec;
 #endif
 
 if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
