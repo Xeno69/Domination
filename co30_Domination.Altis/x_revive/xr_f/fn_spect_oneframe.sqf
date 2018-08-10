@@ -36,7 +36,7 @@ if (xr_MouseButtons # 0) then {
 	if (!isNull _cursObj && {!(_cursObj isKindOf "CAManBase")}) then {
 		if !(crew _cursObj isEqualTo []) then {
 			(crew _cursObj) findIf {
-				private _ret = _x call d_fnc_isplayer;
+				_ret = _x call d_fnc_isplayer;
 				if (_ret) then {
 					_cursObj = _x;
 				};

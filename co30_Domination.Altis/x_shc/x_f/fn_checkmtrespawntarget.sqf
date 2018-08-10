@@ -9,10 +9,19 @@ params ["_vec", "_type"]; // type 0 = barracks, 1 = vehicles
 
 if (_type == 0) then {
 	_vec addEventHandler ["killed", {
-		d_mt_barracks_down = true;
-		[missionNamespace, ["d_mt_barracks_down", true]] remoteExecCall ["setVariable", 2];
-		[51] remoteExecCall ["d_fnc_DoKBMsg", 2];
+		d_num_barracks_objs = d_num_barracks_objs - 1;
+		if (d_num_barracks_objs == 0) then {
+			d_mt_barracks_down = true;
+			if (!isServer) then {
+				[missionNamespace, ["d_mt_barracks_down", true]] remoteExecCall ["setVariable", 2];
+			};
+			[51] remoteExecCall ["d_fnc_DoKBMsg", 2];
+		} else {
+			[55, d_num_barracks_objs] remoteExecCall ["d_fnc_DoKBMsg", 2];
+		};
 		params ["_obj"];
+		d_mt_barracks_obj_ar = d_mt_barracks_obj_ar - [_obj, objNull];
+		__TRACE_1("","d_mt_barracks_obj_ar")
 		if (typeOf _obj isEqualTo "Land_BagBunker_Large_F") then {
 			private _epos = _obj getVariable "d_v_pos";
 			private _edir = getDir _obj;
@@ -44,7 +53,9 @@ if (_type == 0) then {
 } else {
 	_vec addEventHandler ["killed", {
 		d_mt_mobile_hq_down = true;
-		[missionNamespace, ["d_mt_mobile_hq_down", true]] remoteExecCall ["setVariable", 2];
+		if (!isServer) then {
+			[missionNamespace, ["d_mt_mobile_hq_down", true]] remoteExecCall ["setVariable", 2];
+		};
 		[53] remoteExecCall ["d_fnc_DoKBMsg", 2];
 		(_this select 0) spawn {
 			sleep (60 + random 60);

@@ -186,6 +186,7 @@ class cfgFunctions {
 			addc(dbsave_lbchanged);
 			addc(initdbtop10dialog);
 			addc(draw3dstuff);
+			addc(initadmindialog);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";

@@ -117,13 +117,15 @@ if !(d_maintargets_list isEqualTo []) then {
 		[1, d_current_target_index] remoteExecCall ["d_fnc_doexechcf", d_HC_CLIENT_OBJ_OWNER];
 	} else {
 #ifndef __TT__
-		if (!isNull d_mt_barracks_obj) then {
-			d_mt_barracks_obj spawn {
-				sleep (60 + random 60);
-				_this setDamage 0;
-				deleteVehicle _this;
+		{
+			if (!isNull _x) then {
+				_x spawn {
+					sleep (60 + random 60);
+					_this setDamage 0;
+					deleteVehicle _this;
+				};
 			};
-		};
+		} forEach d_mt_barracks_obj_ar;
 		if (!isNull d_mt_mobile_hq_obj) then {
 			d_mt_mobile_hq_obj spawn {
 				sleep (60 + random 60);

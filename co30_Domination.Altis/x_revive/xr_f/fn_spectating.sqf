@@ -171,8 +171,8 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 				} else {
 					if (crew _vu isEqualTo 1) exitWith {true};
 					if (_x == commander _vu) exitWith {true};
-					if (_x == gunner _vu && {!isPlayer commander _vu}) exitWith {true};
-					if (_x == driver _vu && {!isPlayer commander _vu && {!isPlayer gunner _vu}}) exitWith {true};
+					if (_x == gunner _vu && {!((commander _vu) call d_fnc_isplayer)}) exitWith {true};
+					if (_x == driver _vu && {!((commander _vu) call d_fnc_isplayer) && {!((gunner _vu) call d_fnc_isplayer)}}) exitWith {true};
 					false
 				};
 				if (_dodraw) then {

@@ -43,4 +43,4 @@ if (player distance2D _pos_lt < 10) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_1529");
 };
 
-[_pos_lt, str player, 2] remoteExec ["d_fnc_moduleCAS", 2];
+[_pos_lt, netId player, 2] remoteExec ["d_fnc_moduleCAS", 2];

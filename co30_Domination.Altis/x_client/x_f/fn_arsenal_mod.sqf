@@ -24,7 +24,7 @@ private _findmodfnc = {
 	private _csallow = toLower (_csal # 0);
 	__TRACE_1("_findmodfnc","_csallow")
 	_mods findIf {
-		private _ret = _csallow find _x != -1;
+		_ret = _csallow find _x != -1;
 		if (_ret) then {
 			_res = 1;
 		};
@@ -36,10 +36,11 @@ private _findmodfnc = {
 {
 	private _ar = _x;
 	__TRACE_1("","_x")
+	private ["_item", "_kind"];
 	{
-		private _item = _x;
+		_item = _x;
 		if !(toLower _item in _items_no) then {
-			private _kind = if (isClass (configFile >> "CfgWeapons" >> _x)) then {
+			_kind = if (isClass (configFile >> "CfgWeapons" >> _x)) then {
 				"CfgWeapons"
 			} else {
 				if (isClass (configFile >> "CfgMagazines" >> _x)) then {

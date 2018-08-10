@@ -17,14 +17,14 @@ __TRACE_1("","d_show_player_marker")
 
 if !(d_show_player_marker isEqualTo 0) then {
 	private _drawn_v = [];
-	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc"];
+	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
 	{
 		_v = vehicle _x;
 		_inv = !isNull objectParent _x;
 		__TRACE_2("","_v","_inv")
 		
 		_dodraw = [true, _x isEqualTo (crew _v # 0)] select _inv;
-		if (d_with_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!isPlayer (crew _v # 0)}}}}) then {
+		if (d_with_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!((crew _v # 0) call d_fnc_isplayer)}}}}) then {
 			_v setVariable ["d_v_drawn", true];
 			_drawn_v pushBack _v;
 			_dodraw = true;
@@ -50,34 +50,43 @@ if !(d_show_player_marker isEqualTo 0) then {
 						};
 					};
 				} else {
-					//if (player distance2D _v < 3500) then {
-						_crw = crew _v;
-						_nmt = _v getVariable "d_ma_text";
-						__TRACE_1("","_nmt")
-						if (isNil "_nmt") then {
-							_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
-							_v setVariable ["d_ma_text", _nmt];
-						};
-						_nt = [_nmt, ": "];
-						_ccrwm1 = count _crw - 1;
-						{
-							if (alive _x) then {
-								_nt pushBack (_x call d_fnc_getplayername);
-								if (_forEachIndex < _ccrwm1) then {
-									_nt pushBack ", ";
-								};
+					if (player distance2D _v < 4000) then {
+						_vc = _v getVariable "d_vma_c";
+						if (isNil "_vc" || {_vc > 7}) then {
+							_nmt = _v getVariable "d_ma_text";
+							__TRACE_1("","_nmt")
+							if (isNil "_nmt") then {
+								_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
+								_v setVariable ["d_ma_text", _nmt];
 							};
-						} forEach _crw;
-						__TRACE_1("","_nt")
-						(_nt joinString "")
-					/*} else {
+							_nt = [_nmt, ": "];
+							_crw = crew _v;
+							_ccrwm1 = count _crw - 1;
+							{
+								if (alive _x) then {
+									_nt pushBack (_x call d_fnc_getplayername);
+									if (_forEachIndex < _ccrwm1) then {
+										_nt pushBack ", ";
+									};
+								};
+							} forEach _crw;
+							_v setVariable ["d_vma_c", 0];
+							__TRACE_1("","_nt")
+							_res = (_nt joinString "");
+							_v setVariable ["d_mac_text", _res];
+							_res
+						} else {
+							_v setVariable ["d_vma_c", _vc + 1];
+							_v getVariable "d_mac_text";
+						};
+					} else {
 						private _nmt = _v getVariable "d_ma_text";
 						if (isNil "_nmt") then {
 							_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
 							_v setVariable ["d_ma_text", _nmt];
 						};
 						_nmt
-					};*/
+					};
 				};
 			} else {
 				""
@@ -149,7 +158,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 				"puristaMedium", // ROBOTO?
 				"right"
 			];
-		} forEach ((units (group player)) select {alive _x && {!isPlayer _x && {isNull (objectParent _x)}}});
+		} forEach ((units (group player)) select {alive _x && {!(_x call d_fnc_isplayer) && {isNull (objectParent _x)}}});
 	};
 };
 

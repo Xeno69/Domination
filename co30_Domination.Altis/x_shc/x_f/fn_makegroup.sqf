@@ -42,7 +42,7 @@ if (_add_to_ar_type > 0) then {
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
 				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 			} else {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [d_mt_barracks_obj_pos], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_mt_barracks_obj_pos]];
+				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
 			};
 		};
 	};

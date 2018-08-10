@@ -7,6 +7,13 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.97
+- Fixed: Server artillery scripts were using player scritping command instead of the correct player variable reference
+- Changed: Arty operators can now cancel arty strikes (does not cancel salvoes already on the way)
+- Fixed: Engineer repair and refuel capabilities are now only restored if the player is in base and not everytime he/she gets revived or respawns somewhere
+- Changed: There are now 2-3 enemy AI inf barrack buildings and enemy AI groups respawn randomly at one of them (as long there is a brrack building left)
+and many more fixes and optimizations
+
 3.96
 ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier Altis, Opfor Altis, Tanoa, Tanoa TT, Blufor RHS and Opfor RHS
 

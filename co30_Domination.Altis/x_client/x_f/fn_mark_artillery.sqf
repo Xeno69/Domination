@@ -47,7 +47,7 @@ if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVar
 __TRACE_2("","d_ari_type","d_ari_salvos")
 
 if (d_ari_type != "") then {
-	[player, _pos_lt, d_name_pl, d_ari_type, d_ari_salvos] remoteExecCall ["d_fnc_at_serv", 2];
+	[netId player, _pos_lt, d_name_pl, d_ari_type, d_ari_salvos] remoteExecCall ["d_fnc_at_serv", 2];
 
 	systemChat format [localize "STR_DOM_MISSIONSTRING_1523", mapGridPosition _pos_lt];
 } else {

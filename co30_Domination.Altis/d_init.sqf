@@ -234,12 +234,21 @@ if (isNil "d_searchintel") then {
 if (isNil "d_ari_blocked") then {
 	d_ari_blocked = false;
 };
+if (isNil "d_arty_firing") then {
+	d_arty_firing = false;
+};
 #else
 if (isNil "d_ari_blocked_w") then {
 	d_ari_blocked_w = false;
 };
 if (isNil "d_ari_blocked_e") then {
 	d_ari_blocked_e = false;
+};
+if (isNil "d_arty_firing_w") then {
+	d_arty_firing_w = false;
+};
+if (isNil "d_arty_firing_e") then {
+	d_arty_firing_e = false;
 };
 #endif
 if (!d_no_ai && {isNil "d_drop_blocked"}) then {

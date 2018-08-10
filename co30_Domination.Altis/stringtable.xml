@@ -7524,12 +7524,12 @@
 <Original>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1820">
-<English>Main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</English>
-<Spanish>Main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Spanish>
-<Portuguese>Main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Portuguese>
-<Korean>Main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Korean>
-<Japanese>Main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Japanese>
-<Original>Main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Original>
+<English>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</English>
+<Spanish>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Spanish>
+<Portuguese>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Portuguese>
+<Korean>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Korean>
+<Japanese>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Japanese>
+<Original>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1821">
 <English>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</English>
@@ -7540,12 +7540,12 @@
 <Original>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1822">
-<English>Intel knows about enemy barracks and mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</English>
-<Spanish>Intel knows about enemy barracks and mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Spanish>
-<Portuguese>Intel knows about enemy barracks and mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Portuguese>
-<Korean>Intel knows about enemy barracks and mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Korean>
-<Japanese>Intel knows about enemy barracks and mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Japanese>
-<Original>Intel knows about enemy barracks and mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Original>
+<English>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</English>
+<Spanish>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Spanish>
+<Portuguese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Portuguese>
+<Korean>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Korean>
+<Japanese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Japanese>
+<Original>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1823">
 <English>You have to wait %1 seconds to create a new vehicle at a MHQ!</English>
@@ -7786,6 +7786,30 @@
 <Korean>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Korean>
 <Japanese>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Japanese>
 <Original>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1853">
+<English>Cancel Artillery</English>
+<Spanish>Cancel Artillery</Spanish>
+<Portuguese>Cancel Artillery</Portuguese>
+<Korean>Cancel Artillery</Korean>
+<Japanese>Cancel Artillery</Japanese>
+<Original>Cancel Artillery</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1854">
+<English>Artillery canceled</English>
+<Spanish>Artillery canceled</Spanish>
+<Portuguese>Artillery canceled</Portuguese>
+<Korean>Artillery canceled</Korean>
+<Japanese>Artillery canceled</Japanese>
+<Original>Artillery canceled</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1855">
+<English>One main target enemy inf barrack down. %1 left...</English>
+<Spanish>One main target enemy inf barrack down. %1 left...</Spanish>
+<Portuguese>One main target enemy inf barrack down. %1 left...</Portuguese>
+<Korean>One main target enemy inf barrack down. %1 left...</Korean>
+<Japanese>One main target enemy inf barrack down. %1 left...</Japanese>
+<Original>One main target enemy inf barrack down. %1 left...</Original>
 </Key>
 </Container>
 </Package>

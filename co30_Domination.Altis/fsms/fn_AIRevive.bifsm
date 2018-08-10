@@ -251,7 +251,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=9;
-				InitCode="private _no = (_unit nearEntities [""CAManBase"", 50]) select {isPlayer _x || {_x in allPlayers}};";
+				InitCode="private _no = (_unit nearEntities [""CAManBase"", 50]) select {_x call d_fnc_isplayer};";
 			};
 		};
 	};

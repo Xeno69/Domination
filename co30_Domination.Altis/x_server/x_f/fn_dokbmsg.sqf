@@ -84,4 +84,5 @@ switch (_this select 0) do {
 	case 51: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTBarracksDown",d_kbtel_chan]};
 	case 53: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTVecBuildingDown",d_kbtel_chan]};
 	case 54: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTHQaBarracksBuilding",d_kbtel_chan]};
+	case 55: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"OneMTBarrackDown",["1","",str (_this select 1),[]],d_kbtel_chan]};
 };

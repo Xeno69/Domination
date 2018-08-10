@@ -42,6 +42,7 @@ if (d_beam_target == "D_BASE_D") then {
 		} else {
 			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
 		};
+
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		if (_uidx != -1) then {
@@ -60,6 +61,11 @@ if (d_beam_target == "D_BASE_D") then {
 		};
 	};
 };
+
+if (!d_player_in_base && {!isNil {player getVariable "d_old_eng_can_repfuel"}}) then {
+	d_eng_can_repfuel = false;
+};
+player setVariable ["d_old_eng_can_repfuel", nil];
 
 __TRACE_1("","_respawn_pos")
 

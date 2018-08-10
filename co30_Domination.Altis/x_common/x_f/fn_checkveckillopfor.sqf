@@ -2,7 +2,11 @@
 #define THIS_FILE "fn_checkveckillopfor.sqf"
 #include "..\..\x_setup.sqf"
 
-private _killer = _this select 2;
+params ["_vec", "", "_killer"];
+
+if (d_with_ace && {isNull _killer}) then {
+	_killer = _vec getVariable ["ace_medical_lastDamageSource", _killer];
+};
 
 if !(_killer call d_fnc_isplayer) exitWith {};
 

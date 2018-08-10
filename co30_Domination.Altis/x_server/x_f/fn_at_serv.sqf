@@ -4,10 +4,11 @@
 #include "..\..\x_setup.sqf"
 
 __TRACE_1("","_this")
-params ["_pl", "_apos", "_npl", "_aritype", "_ari_salv"];
+params ["_plnid", "_apos", "_npl", "_aritype", "_ari_salv"];
 
-private _mname = format ["d_arttmx|%1|%2|%3", ["1", netId _pl] select (isMultiplayer), _aritype, _ari_salv];
+private _mname = format ["d_arttmx|%1|%2|%3", ["1", _plnid] select (isMultiplayer), _aritype, _ari_salv];
 __TRACE_1("","_mname")
+private _pl = objectFromNetId _plnid;
 private _pa = d_player_store getVariable (getPlayerUID _pl);
 if (!isNil "_pa") then {
 	private _omar = _pa # 10;
@@ -19,7 +20,7 @@ if (!isNil "_pa") then {
 };
 [_mname, _apos, "ICON", d_color_m_marker, [1, 1], _npl, 0, d_arty_m_marker] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-private _jipid = player getVariable "d_artmark_jip_id";
+private _jipid = _pl getVariable "d_artmark_jip_id";
 if (!isNil "_jipid") then {
 	remoteExecCall ["", _jipid];
 };

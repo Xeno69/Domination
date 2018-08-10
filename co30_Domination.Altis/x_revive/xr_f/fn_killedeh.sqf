@@ -10,6 +10,9 @@ player setVariable ["xr_presptime", 6];
 setPlayerRespawnTime 6;
 __TRACE("respawn time 6")
 enableRadio false;
+if (!isNil "d_eng_can_repfuel" && {!d_eng_can_repfuel}) then {
+	player setVariable ["d_old_eng_can_repfuel", d_eng_can_repfuel];
+};
 xr_death_pos = [];
 private _do_black = true;
 if (player getVariable "xr_pluncon") then {

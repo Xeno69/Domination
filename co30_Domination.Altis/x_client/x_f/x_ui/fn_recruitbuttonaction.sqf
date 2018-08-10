@@ -107,7 +107,7 @@ if (!d_with_ace) then {
 	_unit addEventhandler ["handleDamage", {
 		if (d_player_in_base && {player inArea d_base_array}) then {
 			private _shooter = _this select 6;
-			if (!isNil "_shooter" && {!isNull _shooter && {isPlayer _shooter}}) then {
+			if (!isNil "_shooter" && {!isNull _shooter && {_shooter call d_fnc_isplayer}}) then {
 				0
 			} else {
 				_this select 2

@@ -15,7 +15,7 @@ if (!isServer || {!d_cas_available_w}) exitWith {};
 if (!isServer || {!d_cas_available_e}) exitWith {};
 #endif
 
-private _callero = missionNamespace getVariable _caller;
+private _callero = objectFromNetId _caller;
 
 if (d_with_ranked || {d_database_found}) then {
 	_callero addScore -(d_ranked_a # 22);
@@ -115,7 +115,7 @@ private _logic1 = d_kb_logic1;
 private _channel = d_kbtel_chan;
 #endif
 
-private _callero = missionNamespace getVariable _caller;
+private _callero = objectFromNetId _caller;
 if (isNil "_callero" || {isNull _callero}) then {_callero = _logic};
 _logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
 sleep 1;

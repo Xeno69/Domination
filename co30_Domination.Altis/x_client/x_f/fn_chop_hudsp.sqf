@@ -189,19 +189,25 @@ while {d_player_in_vec} do {
 							} else {
 								__CTRL2(64442) ctrlSetText (if (getPosVisual _vec # 2 >= _lift_height) then {localize "STR_DOM_MISSIONSTRING_198"} else {""});
 								__CTRL2(64447) ctrlSetText __ui_tohigh;
+								
+								private _angle = _vec getRelDir _liftobj;
+								
 								//private _angle = _pos_vec getDir _liftobj_pos;
-								private _angle = _vec getDir _liftobj;
+								//private _angle = _vec getDir _liftobj;
 								/*private _angle = 0; private _a = ((_liftobj_pos # 0) - (_pos_vec # 0));private _b = ((_liftobj_pos # 1) - (_pos_vec # 1));
 								if (_a != 0 || _b != 0) then {_angle = _a atan2 _b}; */
-								
-								private _dif = _angle - getDirVisual _vec;
+								/*private _dif = _angle - getDirVisual _vec;
 								if (_dif < 0) then {_dif = 360 + _dif};
 								if (_dif > 180) then {_dif = _dif - 360};
 								_angle = _dif;
 								__CTRL2(64444) ctrlSetText (["", __ui_forward] select (_angle >= -70 && {_angle <= 70}));
 								__CTRL2(64446) ctrlSetText (["", __ui_right] select (_angle >= 20 && {_angle <= 160}));
 								__CTRL2(64443) ctrlSetText (["", __ui_back] select (_angle <= -110 || {_angle >= 110}));
-								__CTRL2(64445) ctrlSetText (["", __ui_left] select (_angle <= -20 && {_angle >= -160}));
+								__CTRL2(64445) ctrlSetText (["", __ui_left] select (_angle <= -20 && {_angle >= -160}));*/
+								__CTRL2(64444) ctrlSetText (["", __ui_forward] select (_angle >= 290 && {_angle <= 70}));
+								__CTRL2(64446) ctrlSetText (["", __ui_right] select (_angle >= 20 && {_angle <= 160}));
+								__CTRL2(64443) ctrlSetText (["", __ui_back] select (_angle <= 250 || {_angle >= 110}));
+								__CTRL2(64445) ctrlSetText (["", __ui_left] select (_angle <= 340 && {_angle >= 200}));
 								sleep 0.001;
 							};
 						} else {

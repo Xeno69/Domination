@@ -39,5 +39,22 @@ switch (_this) do {
 			d_commandingMenuIniting = false;
 		};
 	};
+	case 50: {
+		d_commandingMenuCode = {
+#ifndef __TT__
+			d_arty_stopp = true;
+			publicVariable "d_arty_stopp";
+#else
+			if (d_player_side == opfor) then {
+				d_arty_stopp_e = true;
+				publicVariable "d_arty_stopp_e";
+			} else {
+				d_arty_stopp_w = true;
+				publicVariable "d_arty_stopp_w";
+			};
+#endif
+			d_commandingMenuIniting = false;
+		};
+	};
 };
 d_DomCommandingMenuBlocked = false;

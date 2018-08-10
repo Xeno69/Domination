@@ -12,7 +12,6 @@ player setVehiclePosition [markerPos "xr_resp_marker", [], 0, "NONE"]; // CAN_CO
 [player, true] remoteExecCall ["setCaptive"];
 if (player getVariable "xr_isdead") exitWith {};
 __TRACE("playActionNow Die/setuncon")
-//player playActionNow "Die"; // takes loooong
 player switchAction "Die";
 //player switchMove "AinjPpneMstpSnonWrflDnon";
 //[player, 100] remoteExecCall ["xr_fnc_handlenet"];

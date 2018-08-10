@@ -73,32 +73,44 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 #ifndef __TT__
-private _poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
-private _iccount = 0;
-while {_poss isEqualTo []} do {
-	_iccount = _iccount + 1;
-	_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
-	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
-};
-if (isNil "_poss" || {_poss isEqualTo []}) then {
-	_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
-};
-_poss set [2, 0];
+d_num_barracks_objs = (ceil random 3) min 2;
+d_mt_barracks_obj_ar = [];
+private ["_iccount", "_ecounter"];
+private _vec = objNull;
+private _poss = [0,0,0];
+for "_i" from 1 to d_num_barracks_objs do {
+	_ecounter = 0;
+	while {_poss distance2D _vec < 130} do {
+		_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
+		_iccount = 0;
+		while {_poss isEqualTo []} do {
+			_iccount = _iccount + 1;
+			_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
+			if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
+		};
+		_ecounter = _ecounter + 1;
+		if (_ecounter == 50) exitWith {};
+	};
+	if (isNil "_poss" || {_poss isEqualTo []}) then {
+		_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
+	};
+	_poss set [2, 0];
 
-private _vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
-__TRACE_1("d_barracks_building","_vec")
-_vec setPos _poss;
-//_vec setVectorUp [0,0,1];
-_vec setVariable ["d_v_pos", _poss];
-[_vec, 0] call d_fnc_checkmtrespawntarget;
+	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
+	__TRACE_1("d_barracks_building","_vec")
+	_vec setPos _poss;
+	_vec setVariable ["d_v_pos", _poss];
+	[_vec, 0] call d_fnc_checkmtrespawntarget;
+	d_mt_barracks_obj_ar pushBack _vec;
+	sleep 0.5;
+};
+__TRACE_1("","d_mt_barracks_obj_ar")
 d_mt_barracks_down = false;
-d_mt_barracks_obj = _vec;
-d_mt_barracks_obj_pos = getPos d_mt_barracks_obj;
-__TRACE_1("","d_mt_barracks_obj_pos")
-[missionNamespace, ["d_mt_barracks_down", false]] remoteExecCall ["setVariable", 2];
+if (!isServer) then {
+	[missionNamespace, ["d_mt_barracks_down", false]] remoteExecCall ["setVariable", 2];
+};
 
-sleep 0.5;
-
+_ecounter = 0;
 while {_poss distance2D _vec < 130} do {
 	_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
 	_iccount = 0;
@@ -107,9 +119,11 @@ while {_poss distance2D _vec < 130} do {
 		_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
 		if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
 	};
-	if (isNil "_poss" || {_poss isEqualTo []}) then {
-		_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
-	};
+	_ecounter = _ecounter + 1;
+	if (_ecounter == 50) exitWith {};
+};
+if (isNil "_poss" || {_poss isEqualTo []}) then {
+	_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
 };
 _poss set [2, 0];
 
@@ -121,7 +135,9 @@ _vec setVariable ["d_v_pos", _poss];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
-[missionNamespace, ["d_mt_mobile_hq_down", false]] remoteExecCall ["setVariable", 2];
+if (!isServer) then {
+	[missionNamespace, ["d_mt_mobile_hq_down", false]] remoteExecCall ["setVariable", 2];
+};
 sleep 0.1;
 #endif
 
