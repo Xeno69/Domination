@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_createmaintarget.sqf"
 #include "..\..\x_setup.sqf"
 
@@ -73,23 +73,35 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 #ifndef __TT__
-d_num_barracks_objs = (ceil random 3) min 2;
+d_num_barracks_objs = (ceil random 4) max 2;
+__TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
-private ["_iccount", "_ecounter"];
-private _vec = objNull;
-private _poss = [0,0,0];
+private ["_iccount", "_ecounter", "_poss"];
+private _vec = [0,0,0];
+private _allbars = [];
+private _doexit = false;
 for "_i" from 1 to d_num_barracks_objs do {
 	_ecounter = 0;
-	while {_poss distance2D _vec < 130} do {
+	while {true} do {
 		_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
-		_iccount = 0;
-		while {_poss isEqualTo []} do {
-			_iccount = _iccount + 1;
-			_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
-			if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
+		if (_poss isEqualTo []) then {
+			_iccount = 0;
+			while {_poss isEqualTo []} do {
+				_iccount = _iccount + 1;
+				_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
+				if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
+			};
+		};
+		_doexit = false;
+		if !(_allbars isEqualTo []) then {
+			if (_allbars findIf {_poss distance2D _vec >= 120} == count _allbars) then {
+				_doexit = true;
+			};
+		} else {
+			_doexit = true;
 		};
 		_ecounter = _ecounter + 1;
-		if (_ecounter == 50) exitWith {};
+		if (_doexit || {_ecounter == 50}) exitWith {};
 	};
 	if (isNil "_poss" || {_poss isEqualTo []}) then {
 		_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
@@ -97,6 +109,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_poss set [2, 0];
 
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
+	_allbars pushBack _vec;
 	__TRACE_1("d_barracks_building","_vec")
 	_vec setPos _poss;
 	_vec setVariable ["d_v_pos", _poss];
@@ -111,16 +124,26 @@ if (!isServer) then {
 };
 
 _ecounter = 0;
-while {_poss distance2D _vec < 130} do {
+	while {true} do {
 	_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
-	_iccount = 0;
-	while {_poss isEqualTo []} do {
-		_iccount = _iccount + 1;
-		_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
-		if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
+	if (_poss isEqualTo []) then {
+		_iccount = 0;
+		while {_poss isEqualTo []} do {
+			_iccount = _iccount + 1;
+			_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
+			if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
+		};
+	};
+	_doexit = false;
+	if !(_allbars isEqualTo []) then {
+		if (_allbars findIf {_poss distance2D _vec >= 120} == count _allbars) then {
+			_doexit = true;
+		};
+	} else {
+		_doexit = true;
 	};
 	_ecounter = _ecounter + 1;
-	if (_ecounter == 50) exitWith {};
+	if (_doexit || {_ecounter == 50}) exitWith {};
 };
 if (isNil "_poss" || {_poss isEqualTo []}) then {
 	_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
@@ -143,7 +166,9 @@ sleep 0.1;
 
 #ifdef __DEBUG__
 if (!d_tt_ver) then {
-	[str d_mt_barracks_obj, d_mt_barracks_obj_pos, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+	{
+		[str _x, getPos _x, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+	} forEach d_mt_barracks_obj_ar;
 	[str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 };
 #endif

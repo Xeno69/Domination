@@ -61,21 +61,55 @@ if (_side_arti_op == opfor) then {
 };
 #endif
 
-sleep 9.123;
+private _endtime = time + 9;
+#ifndef __TT__
+waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+#else
+waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+#endif
 
 private _aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-_logic1 kbTell [_aop, _topicside_arti, "ArtilleryRoger", ["1","",localize "STR_DOM_MISSIONSTRING_934",[]], _channel];
+#ifndef __TT__
+if (!d_arty_stopp) then {
+#else
+if !([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor)) then {
+#endif
+	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryRoger", ["1","",localize "STR_DOM_MISSIONSTRING_934",[]], _channel];
+};
 sleep 1;
 private _aristr = localize "STR_DOM_MISSIONSTRING_937";
-_logic1 kbTell [_logic, _topicside, "ArtilleryUnAvailable", ["1", "", _aristr, []], _channel];
+#ifndef __TT__
+if (!d_arty_stopp) then {
+#else
+if !([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor)) then {
+#endif
+	_logic1 kbTell [_logic, _topicside, "ArtilleryUnAvailable", ["1", "", _aristr, []], _channel];
+};
 
-sleep 6.54;
-private _aop = objectFromNetId _arti_operator;
+_endtime = time + 6;
+#ifndef __TT__
+waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+#else
+waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+#endif
+
+_aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-_logic1 kbTell [_aop, _topicside_arti,"ArtilleryExecute", ["1", "", _aristr, []], ["2", "", getText(configFile>>"CfgMagazines">>_ari_type>>"displayname"), []], ["3", "", str _ari_salvos, []], _channel];
+#ifndef __TT__
+if (!d_arty_stopp) then {
+#else
+if !([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor)) then {
+#endif
+	_logic1 kbTell [_aop, _topicside_arti,"ArtilleryExecute", ["1", "", _aristr, []], ["2", "", getText(configFile>>"CfgMagazines">>_ari_type>>"displayname"), []], ["3", "", str _ari_salvos, []], _channel];
+};
 
-sleep 8 + (random 7);
+_endtime = time + 8 + random 7;
+#ifndef __TT__
+waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+#else
+waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+#endif
 
 #ifndef __TT__
 private _ari_vecs = d_arty_vecs;
@@ -113,7 +147,7 @@ if (_ari_vecs isEqualTo []) exitWith {
 	};
 #endif
 	remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
-	private _aop = objectFromNetId _arti_operator;
+	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) exitWith {};
 	[_aop , localize "STR_DOM_MISSIONSTRING_1519"] remoteExecCall ["sideChat", _aop];
 };
@@ -161,15 +195,25 @@ for "_series" from 1 to _ari_salvos do {
 		sleep 0.2;
 	} forEach _ari_vecs;
 
-	private _aop = objectFromNetId _arti_operator;
+	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
-
-	sleep _eta_time;
 	
-	private _aop = objectFromNetId _arti_operator;
-	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-	_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
+	[_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
+		params ["_eta_time", "_arti_operator", "_logic", "_logic1", "_topicside_arti", "_series", "_channel"];
+		sleep _eta_time;
+	
+		private _aop = objectFromNetId _arti_operator;
+		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
+		_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
+	};
+
+	_endtime = time + _eta_time;
+	#ifndef __TT__
+	waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+	#else
+	waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+	#endif
 	
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
@@ -182,7 +226,7 @@ for "_series" from 1 to _ari_salvos do {
 #endif
 
 	if (_series < _ari_salvos) then {
-		private _aop = objectFromNetId _arti_operator;
+		_aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryReload", ["1","",_aristr,[]], _channel];
 		sleep _reloadtime;
@@ -215,7 +259,7 @@ _ari_vecs = nil;
 
 sleep 3;
 
-private _aop = objectFromNetId _arti_operator;
+_aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 _logic1 kbTell [_aop, _topicside_arti, "ArtilleryComplete", ["1","",_aristr,[]], _channel];
 
