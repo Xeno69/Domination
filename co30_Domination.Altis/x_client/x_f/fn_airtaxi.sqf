@@ -2,8 +2,6 @@
 #define THIS_FILE "fn_airtaxi.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
-
 if (isNil "d_heli_taxi_available") then {d_heli_taxi_available = true};
 
 if (!d_heli_taxi_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_139")};

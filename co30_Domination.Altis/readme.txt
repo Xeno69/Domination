@@ -15,6 +15,7 @@ Changelogs
 - Changed: If old engineer handling is enabled show the number of seconds an engineer has to wait till he can repair at base again
 - Changed: A wreck chopper pilot now gets 20 points for bringing a wreck to the wreck repair point (if database is found or in ranked mode)
 - Fixed: Various issues with wreck lifting (like Release Wreck action not going away)
+- Changed: AI airtaxi is now available in all versions except TT for all players (one taxi for all)
 and many more fixes and optimizations
 
 3.96

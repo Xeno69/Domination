@@ -11,10 +11,8 @@ private _fnc_inc_num = {
 	_start_key
 };
 
-private _fnc_is_para = {
-	private _v_p = vehicle player;
-	(_v_p isKindOf "BIS_Steerable_Parachute") || {_v_p isKindOf "ParachuteBase"}
-};
+private _v_p = vehicle player;
+private _is_para = (_v_p isKindOf "BIS_Steerable_Parachute") || {_v_p isKindOf "ParachuteBase"};
 
 d_DomUserMenu = [
 	["Domination", false],
@@ -22,7 +20,7 @@ d_DomUserMenu = [
 	["-", [0], "", -1, [["expression", ""]], "1", "1"]
 ];
 
-if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!(call _fnc_is_para)}}) then {
+if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!_is_para}}) then {
 #ifndef __TT__
 	if (!visibleMap && {!d_arty_firing}) then {
 #else
@@ -42,12 +40,12 @@ if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!(call _fnc_is_par
 d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 #ifndef __IFA3LITE__
-if (!d_no_ai && {!visibleMap && {!(call _fnc_is_para)}}) then {
+if (!d_tt_ver && {!visibleMap && {!_is_para}}) then {
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 #endif
 
-if (d_player_can_call_drop > 0 && {!visibleMap && {!(call _fnc_is_para)}}) then {
+if (d_player_can_call_drop > 0 && {!visibleMap && {!_is_para}}) then {
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_230", [call _fnc_inc_num], "", -5, [["expression", "2 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 
