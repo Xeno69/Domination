@@ -13,6 +13,8 @@ Changelogs
 - Fixed: Engineer repair and refuel capabilities are now only restored if the player is in base and not everytime he/she gets revived or respawns somewhere
 - Changed: There are now 2-4 enemy AI inf barrack buildings and enemy AI groups respawn randomly at one of them (as long there is a brrack building left)
 - Changed: If old engineer handling is enabled show the number of seconds an engineer has to wait till he can repair at base again
+- Changed: A wreck chopper pilot now gets 20 points for bringing a wreck to the wreck repair point (if database is found or in ranked mode)
+- Fixed: Various issues with wreck lifting (like Release Wreck action not going away)
 and many more fixes and optimizations
 
 3.96

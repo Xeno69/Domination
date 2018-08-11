@@ -7811,6 +7811,14 @@
 <Japanese>One main target enemy inf barrack down. %1 left...</Japanese>
 <Original>One main target enemy inf barrack down. %1 left...</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1856">
+<English>You get %1 points for bringing a wreck to the wreck repair point!</English>
+<Spanish>You get %1 points for bringing a wreck to the wreck repair point!</Spanish>
+<Portuguese>You get %1 points for bringing a wreck to the wreck repair point!</Portuguese>
+<Korean>You get %1 points for bringing a wreck to the wreck repair point!</Korean>
+<Japanese>You get %1 points for bringing a wreck to the wreck repair point!</Japanese>
+<Original>You get %1 points for bringing a wreck to the wreck repair point!</Original>
+</Key>
 </Container>
 </Package>
 </Project>
