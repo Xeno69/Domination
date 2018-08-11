@@ -27,7 +27,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 #else
 	if (d_with_ranked || {d_database_found && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}} && {d_last_base_repair != -1}}) exitWith {
 #endif
-		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_326");
+		[playerSide, "HQ"] sideChat (localize format ["STR_DOM_MISSIONSTRING_326", round (time - d_last_base_repair)]);
 	};
 
 #ifndef __TT__

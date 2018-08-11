@@ -12,6 +12,7 @@ Changelogs
 - Changed: Arty operators can now cancel arty strikes (does not cancel salvoes already on the way)
 - Fixed: Engineer repair and refuel capabilities are now only restored if the player is in base and not everytime he/she gets revived or respawns somewhere
 - Changed: There are now 2-4 enemy AI inf barrack buildings and enemy AI groups respawn randomly at one of them (as long there is a brrack building left)
+- Changed: If old engineer handling is enabled show the number of seconds an engineer has to wait till he can repair at base again
 and many more fixes and optimizations
 
 3.96

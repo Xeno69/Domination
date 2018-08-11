@@ -1707,12 +1707,12 @@
 <Original>You need %2 points to repair/refuel a vehicle, your current score is: %1!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_326">
-<English>You have to wait until you can repair a vehicle at base again.</English>
-<Spanish>Tiene que esperar hasta que pueda reparar el vehículo en la base otra vez.</Spanish>
-<Portuguese>Tem que esperar até que pode consertar um veículo em basear outra vez.</Portuguese>
-<Korean>귀하는 기지에서 차량을 수리할 수 있을때까지 기다리셔야 합니다.</Korean>
-<Japanese>あなたは再びベースで車両を修理できるようになるまで待たなければなりません。</Japanese>
-<Original>You have to wait until you can repair a vehicle at base again.</Original>
+<English>You have to wait %1 seconds until you can repair a vehicle at base again.</English>
+<Spanish>You have to wait %1 seconds until you can repair a vehicle at base again.</Spanish>
+<Portuguese>You have to wait %1 seconds until you can repair a vehicle at base again.</Portuguese>
+<Korean>You have to wait %1 seconds until you can repair a vehicle at base again.</Korean>
+<Japanese>You have to wait %1 seconds until you can repair a vehicle at base again.</Japanese>
+<Original>You have to wait %1 seconds until you can repair a vehicle at base again.</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_327">
 <English>Vehicle status:\n---------------------\nFuel: %1\nDamage: %2</English>
