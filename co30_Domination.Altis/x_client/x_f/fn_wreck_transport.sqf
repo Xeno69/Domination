@@ -120,11 +120,10 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					_vec setVariable ["d_vec_released", false];
 					_vec setVariable ["d_Attached_Vec", objNull];
 					
-					if (!alive _transobj || {!alive _vec}) then {
+					if (alive _vec) then {
 						_vec removeAction _release_id;
 						_release_id = -1212;
-					} else {
-						if (alive _vec && {alive player}) then {_vec vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
+						if (alive player) then {_vec vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 					};
 					
 					private _npos = getPosATLVisual _transobj;
