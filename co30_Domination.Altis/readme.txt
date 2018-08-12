@@ -16,6 +16,8 @@ Changelogs
 - Changed: A wreck chopper pilot now gets 20 points for bringing a wreck to the wreck repair point (if database is found or in ranked mode)
 - Fixed: Various issues with wreck lifting (like Release Wreck action not going away)
 - Changed: AI airtaxi is now available in all versions except TT for all players (one taxi for all)
+- Changed: Removed Special Purpose Suit from Virtual Arsenal uniforms when player is on Blufor side
+- Changed: Show the number of seconds a player has to wait before he/she can deploy/undeploy a MHQ again
 and many more fixes and optimizations
 
 3.96

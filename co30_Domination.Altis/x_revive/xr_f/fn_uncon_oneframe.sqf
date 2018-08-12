@@ -10,7 +10,7 @@ if (time >= xr_u_nextcrytime) then {
 	private _plsayer = floor (random 4);
 	private _nummoans = floor (random (count ((xr_moansoundsar # _plsayer) # 1)));
 	__TRACE_2("next say","_plsayer","_nummoans")
-	playSound3D ["a3\sounds_f\characters\human-sfx\" + ((xr_moansoundsar # _plsayer) # 0) + "\" + (((xr_moansoundsar # _plsayer) # 1) # _nummoans), player, false, getPosASL player, 1, 1, 100];
+	playSound3D ["a3\sounds_f\characters\human-sfx\" + ((xr_moansoundsar # _plsayer) # 0) + "\" + (((xr_moansoundsar # _plsayer) # 1) # _nummoans), vehicle player, false, getPosASL player, 1, 1, 100];
 	xr_u_nextcrytime = time + 15 + (random 15);
 };
 private _tt = round ((player getVariable "xr_unconendtime") - time);

@@ -1019,12 +1019,12 @@
 <Original>You can't deploy a MHQ here!!!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_214">
-<English>Wait a few seconds before you can deploy/undeploy the MHQ again!</English>
-<Spanish>Espere unos segundos para desplegar/replegar el MHQ otra vez.</Spanish>
-<Portuguese>Espera uns quantos segundos dantes de que pode despregar/undeploy o MHQ outra vez!</Portuguese>
-<Korean>다시 지휘차량을 전개하거나 철수하기 위해선 조금 기다리셔야합니다.</Korean>
-<Japanese>MHQを展開/格納するためにはしばらくお待ちください!</Japanese>
-<Original>Wait a few seconds before you can deploy/undeploy the MHQ again!</Original>
+<English>Wait %1 seconds before you can deploy/undeploy the MHQ again!</English>
+<Spanish>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Spanish>
+<Portuguese>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Portuguese>
+<Korean>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Korean>
+<Japanese>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Japanese>
+<Original>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_215">
 <English>You can't deploy a MHQ when there is still crew on board!</English>

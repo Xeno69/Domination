@@ -27,7 +27,9 @@ if (_mhq inArea d_base_array || {surfaceIsWater (getPosATLVisual d_curvec_dialog
 if (_mhq inArea (d_base_array # 0) || {_mhq inArea (d_base_array # 1) || {surfaceIsWater (getPosATLVisual d_curvec_dialog)}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_213")};
 #endif
 
-if ((_mhq getVariable ["d_MHQ_Depltime", -1]) > time) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_214")};
+if ((_mhq getVariable ["d_MHQ_Depltime", -1]) > time) exitWith {
+	systemChat (format [localize "STR_DOM_MISSIONSTRING_214", round (time - (_mhq getVariable ["d_MHQ_Depltime", -1]))])
+};
 
 __TRACE("Before reading deploy var")
 

@@ -952,10 +952,26 @@ private _badar = bis_fnc_arsenal_data # 3;
 {
 	if (getText (configFile>>"CfgWeapons">>_x>>"ItemInfo">>"containerClass") == "Supply500") then {
 		_badar set [_forEachIndex, -1];
+	} else {
+		if (d_player_side == blufor && {_x == "U_O_V_Soldier_Viper_F" || {_x == "U_O_V_Soldier_Viper_hex_F"}}) then {
+			_badar set [_forEachIndex, -1];
+		};
 	};
 } forEach _badar;
 _badar = _badar - [-1];
 bis_fnc_arsenal_data set [3, _badar];
+
+if (d_player_side == blufor) then {
+	_badar = bis_fnc_arsenal_data # 6;
+	{
+		
+		if (_x == "H_HelmetO_ViperSP_ghex_F" || {_x == "H_HelmetO_ViperSP_hex_F"}) then {
+			_badar set [_forEachIndex, -1];
+		};
+	} forEach _badar;
+	_badar = _badar - [-1];
+	bis_fnc_arsenal_data set [6, _badar];
+};
 
 if (d_no_mortar_ar == 1) then {
 	_badar = bis_fnc_arsenal_data # 5;
