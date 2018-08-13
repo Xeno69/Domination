@@ -19,7 +19,7 @@ Changelogs
 - Changed: Removed Special Purpose Suit from Virtual Arsenal uniforms when player is on Blufor side
 - Changed: Show the number of seconds a player has to wait before he/she can deploy/undeploy a MHQ again
 - Changed: It is now possible to remove entries from Virtual Arsenal by either code or classname (d_remove_from_arsenal in x_init\fn_preinit.sqf)
-- Fixed: Healing another player did not add points if when a database is available
+- Fixed: Healing another player did not add points if database is available
 and many more fixes and optimizations
 
 3.96
