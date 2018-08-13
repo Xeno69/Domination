@@ -216,17 +216,16 @@ if (d_with_ranked) then {
 	player setVariable ["d_phandgweapitems", handgunItems player];
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
 	
-	if (!d_with_ace) then {
-		player addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
-	} else {
-		["ace_treatmentSucceded", { _this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
-	};
-	
 	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
 };
 
 if (d_with_ranked || {d_database_found}) then {
 	d_sm_p_pos = nil;
+	if (!d_with_ace) then {
+		player addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
+	} else {
+		["ace_treatmentSucceded", { _this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
+	};
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
@@ -948,40 +947,51 @@ if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 	};
 };
 
-private _badar = bis_fnc_arsenal_data # 3;
-{
-	if (getText (configFile>>"CfgWeapons">>_x>>"ItemInfo">>"containerClass") == "Supply500") then {
-		_badar set [_forEachIndex, -1];
-	} else {
-		if (d_player_side == blufor && {_x == "U_O_V_Soldier_Viper_F" || {_x == "U_O_V_Soldier_Viper_hex_F"}}) then {
-			_badar set [_forEachIndex, -1];
-		};
-	};
-} forEach _badar;
-_badar = _badar - [-1];
-bis_fnc_arsenal_data set [3, _badar];
-
-if (d_player_side == blufor) then {
-	_badar = bis_fnc_arsenal_data # 6;
-	{
+for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
+	if (!((d_remove_from_arsenal # _i) isEqualTo []) && {!((bis_fnc_arsenal_data # _i) isEqualTo [])}) then {
+		private _badar = bis_fnc_arsenal_data # _i;
+		private _codes = [];
+		private _classes = [];
+		{
+			if (_x isEqualType "") then {
+				_classes pushBackUnique _x;
+			} else {
+				_codes pushBack _x;
+			};
+		} forEach (d_remove_from_arsenal # _i);
 		
-		if (_x == "H_HelmetO_ViperSP_ghex_F" || {_x == "H_HelmetO_ViperSP_hex_F"}) then {
-			_badar set [_forEachIndex, -1];
+		if !(_classes isEqualTo []) then {
+			_classes = _classes apply {toUpper _x};
 		};
-	} forEach _badar;
-	_badar = _badar - [-1];
-	bis_fnc_arsenal_data set [6, _badar];
-};
-
-if (d_no_mortar_ar == 1) then {
-	_badar = bis_fnc_arsenal_data # 5;
-	{
-		if (_x isKindOf "B_Mortar_01_weapon_F") then {
-			_badar set [_forEachIndex, -1];
-		};
-	} forEach _badar;
-	_badar = _badar - [-1];
-	bis_fnc_arsenal_data set [5, _badar];
+		
+		__TRACE_2("","_i","_codes")
+		__TRACE_2("","_i","_classes")
+		
+		__TRACE_2("1","count _badar","_badar")
+		
+		private ["_changed"];
+		{
+			_changed = false;
+			if !(_codes isEqualTo []) then {
+				__TRACE("_codes not equal to []")
+				private _curnum = _forEachIndex;
+				private _curele = _x;
+				{
+					if (_curele call _x) then {
+						_badar set [_curnum, -1];
+						_changed = true;
+					};
+				} forEach _codes;
+			};
+			if (!_changed && {!(_classes isEqualTo []) && {toUpper _x in _classes}}) then {
+				__TRACE("in second")
+				_badar set [_forEachIndex, -1];
+			};
+		} forEach _badar;
+		_badar = _badar - [-1];
+		__TRACE_2("2","count _badar","_badar")
+		bis_fnc_arsenal_data set [_i, _badar];
+	};
 };
 
 missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];

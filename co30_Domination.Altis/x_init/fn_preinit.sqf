@@ -1354,6 +1354,21 @@ if (hasInterface) then {
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
 	
+	// can either be a class name (string) or code
+	// if code then _this is the classname
+	d_remove_from_arsenal = [
+		[], // rifles
+		[], // launchers
+		[], // handguns
+		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}], // uniforms
+		[], // belts
+		[{_this isKindOf "B_Mortar_01_weapon_F"}], // backpacks
+		["H_HelmetO_ViperSP_ghex_F", "H_HelmetO_ViperSP_hex_F"], // headgear
+		[], // glasses
+		[], // goggles
+		[] // binoculars
+	];
+	
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	
 		d_preloaddone = true;
 		diag_log [diag_frameno, diag_ticktime, time, "Preload finished"];
