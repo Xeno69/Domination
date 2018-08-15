@@ -750,8 +750,19 @@ player addEventhandler ["getOutMan", {
 d_pisadminp = false;
 if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 	d_clientScriptsAr set [1, true];
+} else {
+	if (d_database_found) then {
+		0 spawn {
+			sleep 30;
+			if (score player > 500) then {
+				d_clientScriptsAr set [1, true];
+				if (!isNil "d_player_autokick_time") then {d_player_autokick_time = nil};
+			};
+		};
+	};
 };
 
+// TODO remove again, is only responsible for starting isAdmin fsm
 ["itemAdd", ["dom_cl_scripts_x", {call d_fnc_startClientScripts}, 0.6]] call bis_fnc_loop;
 
 #ifdef __TT__

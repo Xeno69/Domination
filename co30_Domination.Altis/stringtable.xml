@@ -7819,6 +7819,46 @@
 <Japanese>You get %1 points for bringing a wreck to the wreck repair point!</Japanese>
 <Original>You get %1 points for bringing a wreck to the wreck repair point!</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1857">
+<English>Pylon Loadout</English>
+<Spanish>Pylon Loadout</Spanish>
+<Portuguese>Pylon Loadout</Portuguese>
+<Korean>Pylon Loadout</Korean>
+<Japanese>Pylon Loadout</Japanese>
+<Original>Pylon Loadout</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1858">
+<English>Apply</English>
+<Spanish>Apply</Spanish>
+<Portuguese>Apply</Portuguese>
+<Korean>Apply</Korean>
+<Japanese>Apply</Japanese>
+<Original>Apply</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1859">
+<English>Mirror</English>
+<Spanish>Mirror</Spanish>
+<Portuguese>Mirror</Portuguese>
+<Korean>Mirror</Korean>
+<Japanese>Mirror</Japanese>
+<Original>Mirror</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1860">
+<English>Select Preset</English>
+<Spanish>Select Preset</Spanish>
+<Portuguese>Select Preset</Portuguese>
+<Korean>Select Preset</Korean>
+<Japanese>Select Preset</Japanese>
+<Original>Select Preset</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1861">
+<English>New pylon loadout applied!</English>
+<Spanish>New pylon loadout applied!</Spanish>
+<Portuguese>New pylon loadout applied!</Portuguese>
+<Korean>New pylon loadout applied!</Korean>
+<Japanese>New pylon loadout applied!</Japanese>
+<Original>New pylon loadout applied!</Original>
+</Key>
 </Container>
 </Package>
 </Project>

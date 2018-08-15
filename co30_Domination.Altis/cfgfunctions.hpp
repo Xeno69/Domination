@@ -187,6 +187,10 @@ class cfgFunctions {
 			addc(initdbtop10dialog);
 			addc(draw3dstuff);
 			addc(initadmindialog);
+			addc(initpylonloadoutdialog);
+			addc(pylonloadoutpresetschanged);
+			addc(pylonloadoutdialogcbselchanged);
+			addc(pylonapply);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";

@@ -30,6 +30,27 @@ if (_vec isKindOf "Air") then {
 };
 if (_do_exit) exitWith {};
 
+if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
+	if (time >= d_player_autokick_time) exitWith {
+		d_clientScriptsAr set [1, true];
+		d_player_autokick_time = nil;
+	};
+	if (_vec isKindOf "Air") then {
+		private _type = toUpper (typeOf _vec);
+#ifndef __TT__
+		if ((_type in d_mt_bonus_vehicle_array || {_type in d_sm_bonus_vehicle_array}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
+#else
+		private _numside = [1, 2] select (d_player_side == blufor);
+		if ((_type in (d_mt_bonus_vehicle_array # _numside) || {_type in (d_sm_bonus_vehicle_array # _numside)}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
+#endif
+			player action ["getOut", _vec];
+			[format [localize "STR_DOM_MISSIONSTRING_1416", [_type, "CfgVehicles"] call d_fnc_GetDisplayName, round ((d_player_autokick_time - time) / 60) max 1], "HQ"] call d_fnc_HintChatMsg;
+			_do_exit = true;
+		};
+	};
+};
+if (_do_exit) exitWith {};
+
 if (d_with_ranked || {d_database_found}) then {
 	if (_vec isKindOf "Car" || {_vec isKindOf "Air"}) then {
 		[_vec] spawn d_fnc_playervectrans;

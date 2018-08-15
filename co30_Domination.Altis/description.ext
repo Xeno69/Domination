@@ -1004,6 +1004,7 @@ class Params {
 #include "x_dlg\XR_SpectDlg.hpp"
 #include "x_dlg\DBSaveDialog.hpp"
 #include "x_dlg\DBTop10Dialog.hpp"
+#include "x_dlg\PylonLoadoutDialog.hpp"
 
 class CfgSounds {
 	sounds[] = {d_IncomingChallenge2};
