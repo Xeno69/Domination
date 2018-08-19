@@ -140,6 +140,10 @@ if !(d_additional_respawn_points isEqualTo []) then {
 		deleteMarkerLocal _x;
 	} forEach (allMapMarkers select {_x select [0, 15] == _whichm});
 #endif
+	d_add_resp_points_pos pushBack (getPos D_FLAG_BASE);
+	{
+		d_add_resp_points_pos pushBack (_x # 1);
+	} forEach d_additional_respawn_points;
 };
 
 if (d_WithRevive == 1 && {!d_with_ace}) then {
@@ -723,6 +727,10 @@ player addEventhandler ["getOutMan", {
 		(findDisplay 46) displayRemoveEventHandler ["KeyDown", d_heli_kh_ro];
 		d_heli_kh_ro = nil;
 	};
+	if (!isNil {(_this # 2) getVariable "d_plyonloadoutaction"}) then {
+		[(_this # 2), (_this # 2) getVariable "d_plyonloadoutaction"] call bis_fnc_holdActionRemove;
+		(_this # 2) setVariable ["d_plyonloadoutaction", nil];
+	};
 	if (getPos player # 2 > 5) then {
 		d_player_in_air = true;
 		0 spawn {
@@ -762,8 +770,7 @@ if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 	};
 };
 
-// TODO remove again, is only responsible for starting isAdmin fsm
-["itemAdd", ["dom_cl_scripts_x", {call d_fnc_startClientScripts}, 0.6]] call bis_fnc_loop;
+0 spawn d_fnc_startClientScripts;
 
 #ifdef __TT__
 if (d_player_side == blufor) then {

@@ -1347,6 +1347,7 @@ if (hasInterface) then {
 #endif
 
 	d_add_resp_points_uni = [];
+	d_add_resp_points_pos = [];
 	
 	d_earplugs_fitted = false;
 	

@@ -7859,6 +7859,14 @@
 <Japanese>New pylon loadout applied!</Japanese>
 <Original>New pylon loadout applied!</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1862">
+<English>Change Pylon Loadout</English>
+<Spanish>Change Pylon Loadout</Spanish>
+<Portuguese>Change Pylon Loadout</Portuguese>
+<Korean>Change Pylon Loadout</Korean>
+<Japanese>Change Pylon Loadout</Japanese>
+<Original>Change Pylon Loadout</Original>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -10,9 +10,9 @@ class D_PylonLoadoutDialog {
 		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1857)
 		class AircraftPicture: D_RscPicture {
 			idc = 1000;
-			x = 0.2;
+			x = 0.15;
 			y = 0.15;
-			w = 0.55;
+			w = 0.65;
 			h = 0.65;
 			colorText[] = {1,1,1,1};
 			text = "";
