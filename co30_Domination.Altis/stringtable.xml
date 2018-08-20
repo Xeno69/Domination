@@ -7820,12 +7820,12 @@
 <Original>You get %1 points for bringing a wreck to the wreck repair point!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1857">
-<English>Pylon Loadout</English>
-<Spanish>Pylon Loadout</Spanish>
-<Portuguese>Pylon Loadout</Portuguese>
-<Korean>Pylon Loadout</Korean>
-<Japanese>Pylon Loadout</Japanese>
-<Original>Pylon Loadout</Original>
+<English>Dynamic Pylon Loadout</English>
+<Spanish>Dynamic Pylon Loadout</Spanish>
+<Portuguese>Dynamic Pylon Loadout</Portuguese>
+<Korean>Dynamic Pylon Loadout</Korean>
+<Japanese>Dynamic Pylon Loadout</Japanese>
+<Original>Dynamic Pylon Loadout</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1858">
 <English>Apply</English>

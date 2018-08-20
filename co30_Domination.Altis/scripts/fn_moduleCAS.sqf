@@ -70,9 +70,27 @@ private _weaponTypes = switch _wtype do {
 };
 #endif
 
+// TODO maybe missilelauncher can be removed completely, needs CUP check
+#ifdef __RHS__
+_weaponTypes = _weaponTypes - ["missilelauncher"];
+#endif
+
+private _pylweaps = [];
+private _cfg = _planeCfg>>"Components">>"TransportPylonsComponent">>"pylons";
+if (isClass _cfg) then {
+	for "_i" from 0 to (count _cfg - 1) do {
+		private _curpylon = _cfg select _i;
+		private _tweap = getText (configFile>>"CfgMagazines">>getText (_curpylon>>"attachment")>>"pylonWeapon");
+		__TRACE_1("","_tweap")
+		if (_tweap != "") then {
+			_pylweaps pushBackUnique _tweap;
+		};
+	};
+};
+
 private _weapons = [];
 {
-	__TRACE_1("","_x call bis_fnc_itemType")
+	__TRACE_2("","_x","_x call bis_fnc_itemType")
 	if (toLower ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
 		private _modes = getArray (configFile>>"cfgweapons">>_x>>"modes");
 		__TRACE_1("","_modes")
@@ -82,7 +100,11 @@ private _weapons = [];
 			_weapons pushBack [_x, _mode];
 		};
 	};
-} forEach getArray (_planeCfg >> "weapons");
+} forEach (getArray (_planeCfg >> "weapons") + _pylweaps);
+#ifdef __DEBUG__
+_mmm = getArray (_planeCfg >> "weapons");
+__TRACE_1("","_mmm")
+#endif
 __TRACE_1("","_weapons")
 
 if (_weapons isEqualTo []) exitwith {

@@ -21,7 +21,8 @@ Changelogs
 - Changed: It is now possible to remove entries from Virtual Arsenal by either code or classname (d_remove_from_arsenal in x_init\fn_preinit.sqf)
 - Fixed: Healing another player did not add points if database is available
 - Changed: If database is found and player has a score higher than 500 remove auto kick from air vehicles after 30 seconds
-- Added: Pylon loadout editor. Just enter a plane or chopper which supports it while it doesn't move and engine is out at base and you get the action menu
+- Added: Dynamic pylon loadout editor. Just enter a plane or chopper which supports it while it doesn't move and engine is out at base and you get the action menu
+- Fixed: CAS plane rocketlauncher should now also work for dynamic loadout planes (like RHS A10 or SU25)
 and many more fixes and optimizations
 
 3.96

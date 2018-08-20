@@ -201,7 +201,7 @@ for "_series" from 1 to _ari_salvos do {
 	
 	[_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
 		params ["_eta_time", "_arti_operator", "_logic", "_logic1", "_topicside_arti", "_series", "_channel"];
-		sleep _eta_time;
+		sleep (_eta_time - 1);
 	
 		private _aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
