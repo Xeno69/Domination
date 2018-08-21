@@ -142,6 +142,7 @@ class cfgFunctions {
 			addc(allplayers);
 			addc(hchelper);
 			addc(cdoquake);
+			addc(getoutmaneh);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -495,6 +496,37 @@ class cfgFunctions {
 			addc(changeleader);
 			addc(spectdlginit);
 			addc(selleader);
+		};
+	};
+	class Dom_AR {
+		tag = "ar";
+		class Dom_AR_prestart {
+			file = "ar";
+			class postinit {
+				postInit = 1;
+				headerType = -1;
+			};
+		};
+		class Dom_AR {
+			file = "ar";
+			addc(Has_Addon_Animations_Installed);
+			addc(Has_Addon_Sounds_Installed);
+			addc(Rappel_All_Cargo);
+			addc(Play_Rappelling_Sounds);
+			addc(Play_3D_Sound);
+			addc(Get_Heli_Rappel_Points);
+			addc(Rappel_From_Heli);
+			addc(Client_Rappel_From_Heli);
+			addc(Current_Weapon_Type_Selected);
+			addc(Enable_Rappelling_Animation_Client);
+			addc(Rappel_Detach_Action);
+			addc(Rappel_Detach_Action_Check);
+			addc(Rappel_From_Heli_Action);
+			addc(Rappel_From_Heli_Action_Check);
+			addc(Rappel_AI_Units_From_Heli_Action_Check);
+			addc(Get_Corner_Points);
+			addc(Is_Supported_Vehicle);
+			addc(Hide_Object_Global);
 		};
 	};
 	class Dom_FSM {

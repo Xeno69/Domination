@@ -148,7 +148,7 @@ _control lbSetColor [_index, [1, 1, 0, 0.8]];
 
 if (!d_with_ranked) then {
 	private _code = if (!d_with_ace) then {
-		{["Open",[true, nil, _this select 0]] call bis_fnc_arsenal}
+		{["Open", [true, nil, _this select 0]] call bis_fnc_arsenal}
 	} else {
 		{[_this select 0, _this select 0, true] call ace_arsenal_fnc_openBox}
 	};

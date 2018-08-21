@@ -7867,6 +7867,30 @@
 <Japanese>Change Pylon Loadout</Japanese>
 <Original>Change Pylon Loadout</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1863">
+<English>Rappel Self</English>
+<Spanish>Rappel Self</Spanish>
+<Portuguese>Rappel Self</Portuguese>
+<Korean>Rappel Self</Korean>
+<Japanese>Rappel Self</Japanese>
+<Original>Rappel Self</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1864">
+<English>Rappel AI Units</English>
+<Spanish>Rappel AI Units</Spanish>
+<Portuguese>Rappel AI Units</Portuguese>
+<Korean>Rappel AI Units</Korean>
+<Japanese>Rappel AI Units</Japanese>
+<Original>Rappel AI Units</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1865">
+<English>Detach Rappel Device</English>
+<Spanish>Detach Rappel Device</Spanish>
+<Portuguese>Detach Rappel Device</Portuguese>
+<Korean>Detach Rappel Device</Korean>
+<Japanese>Detach Rappel Device</Japanese>
+<Original>Detach Rappel Device</Original>
+</Key>
 </Container>
 </Package>
 </Project>

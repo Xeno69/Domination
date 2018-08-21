@@ -206,6 +206,12 @@ class CfgRemoteExec {
 		class d_fnc_add_hs {allowedTargets=2;};
 		class d_fnc_addactionstd {allowedTargets = 1;};
 		class d_fnc_cdoquake {allowedTargets = 1;};
+		class AR_fnc_Hide_Object_Global {allowedTargets = 2;};
+		class AR_fnc_Play_Rappelling_Sounds {allowedTargets = 1;};
+		class AR_fnc_Client_Rappel_From_Heli {allowedTargets = 1;};
+		class AR_fnc_Enable_Rappelling_Animation_Client {};
+		class AR_fnc_Rappel_All_Cargo {};
+		class AR_fnc_Rappel_From_Heli {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};
@@ -246,6 +252,7 @@ class CfgRemoteExec {
 		class deleteGroup {allowedTargets=0;};
 		class setOwner {allowedTargets = 2;};
 		class setSpeaker {allowedTargets = 1;};
+		class hint {allowedTargets = 1;};
 #ifdef __TT__
 		class deleteMarkerLocal {allowedTargets = 1;};
 		class systemChat {allowedTargets = 1;};

@@ -31,7 +31,7 @@ Changelogs
 			 * this setVariable ["d_respawn_liftit", true]; // The vehicle can now be lifted by a lift chopper
 			 * this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]]; // Adds a marker, text to the marker and a color for the marker to the vehicle
 			 * this setVariable ["d_empty_respawn", 10]; // The vehicle will respawn after a specific time when no player was nearby (only available when d_respawn_delay != -1
-		   
+- Added: Advanced rappeling from Duda
 and many more fixes and optimizations
 
 3.96

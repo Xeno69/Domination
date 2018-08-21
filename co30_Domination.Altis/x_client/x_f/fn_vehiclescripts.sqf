@@ -61,6 +61,29 @@ if (_vec isKindOf "Air") then {
 		hintSilent localize "STR_DOM_MISSIONSTRING_1417";
 		_do_exit = true;
 	};
+	if (!d_with_ace) then {
+		_vec setVariable ["d_rappel_self_action", _vec addAction [localize "STR_DOM_MISSIONSTRING_1863", { 
+				[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
+			}, nil, 0, false, true, "", "[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check"]
+		];
+
+		if (d_with_ai) then {
+			_vec setVariable ["d_rappel_ai_action", _vec addAction [localize "STR_DOM_MISSIONSTRING_1864", {
+					{
+						if !(_x call d_fnc_isplayer) then {
+							sleep 1;
+							[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
+						};
+					} forEach (units player);
+				}, nil, 0, false, true, "", "[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check"]
+			];
+		};
+
+		_vec setVariable ["d_rappel_detach_action", _vec addAction [localize "STR_DOM_MISSIONSTRING_1865", {
+				[player] call AR_fnc_Rappel_Detach_Action;
+			}, nil, 0, false, true, "", "[player] call AR_fnc_Rappel_Detach_Action_Check"]
+		];
+	};
 } else {
 	if ((_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) || {_vec isKindOf "StaticWeapon" && {!(_vec isKindOf "StaticATWeapon")}}) then {
 		[_vec] spawn d_fnc_vec_hudsp;
