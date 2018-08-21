@@ -31,7 +31,6 @@ if (_do_exit) exitWith {};
 
 if (_vec isKindOf "Air") then {
 	if (isClass (configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent")) then {
-		// TODO check also for flags on carrier and airfield in carrier version
 		_vec setVariable ["d_plyonloadoutaction", [
 				/* 0 object */						_vec,
 				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1862",

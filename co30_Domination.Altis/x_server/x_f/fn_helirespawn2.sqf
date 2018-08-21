@@ -86,7 +86,7 @@ while {true} do {
 			if (surfaceIsWater _cposc) then {
 				private _asl_height;
 				if (!isNil "d_the_carrier") then {
-					private _asl_height = d_the_carrier getVariable "d_asl_height";
+					_asl_height = d_the_carrier getVariable "d_asl_height";
 				};
 				if (isNil "_asl_height") then {
 					_asl_height = (getPosASL d_FLAG_BASE) # 2;

@@ -60,6 +60,23 @@ if (isNil "_d_vec") exitWith {};
 if (!isNil {_vec getVariable "d_vcheck"}) exitWith {};
 _vec setVariable ["d_vcheck", true];
 
+if (_d_vec isEqualType []) exitWith {
+	if (_d_vec # 1 != "") then {
+		_vec setVariable ["d_ma_text", _d_vec # 1];
+	} else {
+		_vec setVariable ["d_ma_text", ""];
+	};
+	if (_d_vec # 0 != "") then {
+		_vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_d_vec # 0)>>"icon")];
+		_vec setVariable ["d_ism_vec", true];
+	};
+	_vec setVariable ["d_icon_type", getText (configFile >>"CfgVehicles">>typeOf _vec>>"icon")];
+	if (_d_vec # 2 != "") then {
+		_vec setVariable ["d_ma_color", getArray (configFile >>"CfgMarkerColors">>(_d_vec # 2)>>"color")];
+	};
+	d_marker_vecs pushBack _vec;
+};
+
 if (_d_vec < 100) exitWith {
 	private _car = [];
 #ifndef __TT__

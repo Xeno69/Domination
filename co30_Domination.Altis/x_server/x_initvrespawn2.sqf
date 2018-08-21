@@ -10,10 +10,15 @@ d_vrespawn2_ar = [];
 	__TRACE_1("","_x")
 	_x params ["_vec", "_number_v"];
 	if (!isNil "_vec" && {!isNull _vec}) then {
-		if (count _x == 2) then {
-			d_vrespawn2_ar pushBack [_vec, _number_v, getPosATL _vec, direction _vec, typeOf _vec];
+		private _vposp = if (_vec isKindOf "Air") then {
+			(getPosATL _vec) vectorAdd [0, 0, 0.1];
 		} else {
-			d_vrespawn2_ar pushBack [_vec, _number_v, getPosATL _vec, direction _vec, typeOf _vec, _x # 2];
+			getPosATL _vec;
+		};
+		if (count _x == 2) then {
+			d_vrespawn2_ar pushBack [_vec, _number_v, _vposp, getDir _vec, typeOf _vec];
+		} else {
+			d_vrespawn2_ar pushBack [_vec, _number_v, _vposp, getDir _vec, typeOf _vec, _x # 2];
 			_vec setVariable ["d_vec_is_mhq", [_x # 2, _number_v]];
 		};
 		

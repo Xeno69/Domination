@@ -170,6 +170,7 @@ private ["_isc", "_mt"];
 	if (!isNull _x) then {
 		if (isNil {_x getVariable "d_mvs_not"}) then {
 			_isc = [_x, objNull, true] call d_fnc_getmapicon;
+			__TRACE_1("","_isc")
 			_mt = call {
 				if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
 					format [d_mark_loc261, _x getVariable "d_ma_text"];
