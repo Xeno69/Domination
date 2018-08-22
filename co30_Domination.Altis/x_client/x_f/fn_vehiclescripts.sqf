@@ -62,26 +62,74 @@ if (_vec isKindOf "Air") then {
 		_do_exit = true;
 	};
 	if (!d_with_ace) then {
-		_vec setVariable ["d_rappel_self_action", _vec addAction [localize "STR_DOM_MISSIONSTRING_1863", { 
-				[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
-			}, nil, 0, false, true, "", "[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check"]
+		_vec setVariable ["d_rappel_self_action", [
+				/* 0 object */						_vec,
+				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
+				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+				/* 4 condition to show */			"[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check",
+				/* 5 condition for action */		"true",
+				/* 6 code executed on start */		{},
+				/* 7 code executed per tick */		{},
+				/* 8 code executed on completion */	{
+					[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
+				},
+				/* 9 code executed on interruption */	{},
+				/* 10 arguments */					[],
+				/* 11 action duration */			1,
+				/* 12 priority */					-1,
+				/* 13 remove on completion */		false,
+				/* 14 show unconscious */			false
+			] call bis_fnc_holdActionAdd
 		];
 
 		if (d_with_ai) then {
-			_vec setVariable ["d_rappel_ai_action", _vec addAction [localize "STR_DOM_MISSIONSTRING_1864", {
-					{
+			_vec setVariable ["d_rappel_ai_action", [
+					/* 0 object */						_vec,
+					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1864",
+					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+					/* 4 condition to show */			"[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check",
+					/* 5 condition for action */		"true",
+					/* 6 code executed on start */		{},
+					/* 7 code executed per tick */		{},
+					/* 8 code executed on completion */	{
+						{
 						if !(_x call d_fnc_isplayer) then {
 							sleep 1;
-							[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
-						};
-					} forEach (units player);
-				}, nil, 0, false, true, "", "[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check"]
+								[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
+							};
+						} forEach (units player);
+					},
+					/* 9 code executed on interruption */	{},
+					/* 10 arguments */					[],
+					/* 11 action duration */			1,
+					/* 12 priority */					-1,
+					/* 13 remove on completion */		false,
+					/* 14 show unconscious */			false
+				] call bis_fnc_holdActionAdd
 			];
 		};
 
-		_vec setVariable ["d_rappel_detach_action", _vec addAction [localize "STR_DOM_MISSIONSTRING_1865", {
-				[player] call AR_fnc_Rappel_Detach_Action;
-			}, nil, 0, false, true, "", "[player] call AR_fnc_Rappel_Detach_Action_Check"]
+		_vec setVariable ["d_rappel_detach_action", [
+				/* 0 object */						_vec,
+				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1865",
+				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+				/* 4 condition to show */			"[player] call AR_fnc_Rappel_Detach_Action_Check",
+				/* 5 condition for action */		"true",
+				/* 6 code executed on start */		{},
+				/* 7 code executed per tick */		{},
+				/* 8 code executed on completion */	{
+					[player] call AR_fnc_Rappel_Detach_Action;
+				},
+				/* 9 code executed on interruption */	{},
+				/* 10 arguments */					[],
+				/* 11 action duration */			1,
+				/* 12 priority */					-1,
+				/* 13 remove on completion */		false,
+				/* 14 show unconscious */			false
+			] call bis_fnc_holdActionAdd
 		];
 	};
 } else {

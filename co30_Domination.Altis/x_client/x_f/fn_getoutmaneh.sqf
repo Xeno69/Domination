@@ -17,17 +17,20 @@ if (alive (_this # 2)) then {
 	if (!d_with_ace) then {
 		private _aidx = (_this # 2) getVariable "d_rappel_self_action";
 		if (!isNil "_aidx") then {
-			(_this # 2) removeAction _aidx;
+			[(_this # 2), _aidx] call bis_fnc_holdActionRemove;
+			(_this # 2) setVariable ["d_rappel_self_action", nil];
 		};
 		if (d_with_ai) then {
 			_aidx = (_this # 2) getVariable "d_rappel_ai_action";
 			if (!isNil "_aidx") then {
-				(_this # 2) removeAction _aidx;
+				[(_this # 2), _aidx] call bis_fnc_holdActionRemove;
+				(_this # 2) setVariable ["d_rappel_ai_action", nil];
 			};
 		};
 		_aidx = (_this # 2) getVariable "d_rappel_detach_action";
 		if (!isNil "_aidx") then {
-			(_this # 2) removeAction _aidx;
+			[(_this # 2), _aidx] call bis_fnc_holdActionRemove;
+			(_this # 2) setVariable ["d_rappel_detach_action", nil];
 		};
 	};
 };
