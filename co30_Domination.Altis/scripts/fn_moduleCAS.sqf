@@ -57,8 +57,8 @@ if !(isclass _planeCfg) exitwith {
 //--- Detect gun
 private _weaponTypes = switch _wtype do {
 	case 0: {["machinegun"]};
-	case 1: {["missilelauncher", "rocketlauncher"]};
-	case 2: {["machinegun", "missilelauncher", "rocketlauncher"]};
+	case 1: {["rocketlauncher"]};
+	case 2: {["machinegun", "rocketlauncher"]};
 	default {[]};
 };
 #else
@@ -70,10 +70,7 @@ private _weaponTypes = switch _wtype do {
 };
 #endif
 
-// TODO maybe missilelauncher can be removed completely, needs CUP check
-#ifdef __RHS__
-_weaponTypes = _weaponTypes - ["missilelauncher"];
-#endif
+__TRACE_1("","_weaponTypes")
 
 private _pylweaps = [];
 private _cfg = _planeCfg>>"Components">>"TransportPylonsComponent">>"pylons";
