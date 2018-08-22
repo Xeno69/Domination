@@ -34,6 +34,7 @@ Changelogs
 			 * this setVariable ["d_empty_respawn", 10]; // The vehicle will respawn after a specific time when no player was nearby (only available when d_respawn_delay != -1
 - Added: Advanced rappeling from Duda
 - Fixed: Map drawing on GPS map (yet again)
+- Optimized: Map drawing, do only draw map icons and markers if they are actually visible
 and many more fixes and optimizations
 
 3.96
