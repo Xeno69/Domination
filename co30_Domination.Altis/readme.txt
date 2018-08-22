@@ -35,6 +35,7 @@ Changelogs
 - Added: Advanced rappeling from Duda
 - Fixed: Map drawing on GPS map (yet again)
 - Optimized: Map drawing, do only draw map icons and markers if they are actually visible
+- Changed: Replaced side mission bonus vec jet and attack chopper classes with the ones which support dynamic (pylon) loadout (including CUP)
 and many more fixes and optimizations
 
 3.96
