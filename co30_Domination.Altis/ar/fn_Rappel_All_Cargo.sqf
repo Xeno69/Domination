@@ -13,6 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 params ["_vehicle", ["_rappelHeight", 25], ["_positionASL", []]];
 
 if ((driver _vehicle) call d_fnc_isplayer) exitWith {};
+
 if (local _vehicle) then {
 	_this spawn {
 		params ["_vehicle", ["_rappelHeight", 25], ["_positionASL", []]];
@@ -43,8 +44,7 @@ if (local _vehicle) then {
 		[_vehicle, _positionASL] spawn {
 			params ["_vehicle","_positionASL"];
 			
-			while { _vehicle getVariable ["AR_Units_Rappelling",false] && alive _vehicle } do {
-
+			while {_vehicle getVariable ["AR_Units_Rappelling", false] && {alive _vehicle}} do {
 				_velocityMagatude = 5;
 				_distanceToPosition = ((getPosASL _vehicle) distance _positionASL);
 				if (_distanceToPosition <= 10) then {
@@ -52,8 +52,8 @@ if (local _vehicle) then {
 				};
 				
 				_currentVelocity = velocity _vehicle;
-				_currentVelocity = _currentVelocity vectorAdd (((getPosASL _vehicle) vectorFromTo _positionASL ) vectorMultiply _velocityMagatude);
-				_currentVelocity = (vectorNormalized _currentVelocity) vectorMultiply ( (vectorMagnitude _currentVelocity) min _velocityMagatude );
+				_currentVelocity = _currentVelocity vectorAdd (((getPosASL _vehicle) vectorFromTo _positionASL) vectorMultiply _velocityMagatude);
+				_currentVelocity = (vectorNormalized _currentVelocity) vectorMultiply ((vectorMagnitude _currentVelocity) min _velocityMagatude);
 				_vehicle setVelocity _currentVelocity;
 				
 				sleep 0.05;
@@ -106,7 +106,7 @@ if (local _vehicle) then {
 		_heliGroup setCombatMode _heliGroupOriginalCombatMode;
 		_heliGroup setFormation _heliGroupOriginalFormation;
 
-		_vehicle setVariable ["AR_Units_Rappelling",nil];
+		_vehicle setVariable ["AR_Units_Rappelling", nil];
 	};
 } else {
 	_this remoteExecCall ["AR_fnc_Rappel_All_Cargo", _vehicle];

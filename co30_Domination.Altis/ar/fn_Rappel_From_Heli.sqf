@@ -13,8 +13,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 params ["_player","_heli"];
 
 if (isServer) then {
-	if !(_player in _heli) exitWith {};
-	if (_player getVariable ["AR_Is_Rappelling", false]) exitWith {};
+	if (!(_player in _heli) || {_player getVariable ["AR_Is_Rappelling", false]}) exitWith {};
 
 	// Find next available rappel anchor
 	_rappelPoints = [_heli] call AR_fnc_Get_Heli_Rappel_Points;
@@ -41,11 +40,10 @@ if (isServer) then {
 	
 	// Wait for player to finish rappeling before freeing up anchor
 	[_player, _heli, _rappelPointIndex] spawn {
-		params ["_player","_heli", "_rappelPointIndex"];
+		params ["_player", "_heli", "_rappelPointIndex"];
 		
 		while {true} do {
-			if (!alive _player) exitWith {};
-			if !(_player getVariable ["AR_Is_Rappelling", false]) exitWith {};
+			if (!alive _player || {!(_player getVariable ["AR_Is_Rappelling", false])}) exitWith {};
 			sleep 2;
 		};
 		_heli setVariable ["AR_Rappelling_Player_" + str _rappelPointIndex, nil];

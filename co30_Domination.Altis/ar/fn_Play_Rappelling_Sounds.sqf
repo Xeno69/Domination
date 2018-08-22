@@ -20,9 +20,9 @@ if (player distance _player < 15) then {
 };
 _this spawn {
 	params ["_player", "_rappelDevice", "_rappelAncor"];
-	private ["_lastDistanceFromAnchor", "_distanceFromAnchor"];
+	private ["_distanceFromAnchor"];
 	
-	_lastDistanceFromAnchor = _rappelDevice distance _rappelAncor;
+	private _lastDistanceFromAnchor = _rappelDevice distance _rappelAncor;
 	while {_player getVariable ["AR_Is_Rappelling", false]} do {
 		_distanceFromAnchor = _rappelDevice distance _rappelAncor;
 		if (_distanceFromAnchor > _lastDistanceFromAnchor + 1 && {player distance _player < 15}) then {

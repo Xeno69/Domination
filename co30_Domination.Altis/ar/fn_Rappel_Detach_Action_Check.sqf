@@ -11,5 +11,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 params ["_player"];
+
 if !(_player getVariable ["AR_Is_Rappelling", false]) exitWith {false};
 true

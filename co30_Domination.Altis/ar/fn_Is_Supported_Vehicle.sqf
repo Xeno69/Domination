@@ -13,10 +13,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 params ["_vehicle", "_isSupported"];
 _isSupported = false;
 if (!isNull _vehicle) then {
-	{
-		if (_vehicle isKindOf _x) then {
-			_isSupported = true;
-		};
-	} forEach (missionNamespace getVariable ["AR_SUPPORTED_VEHICLES_OVERRIDE", AR_SUPPORTED_VEHICLES]);
+	_isSupported = (missionNamespace getVariable ["AR_SUPPORTED_VEHICLES_OVERRIDE", AR_SUPPORTED_VEHICLES]) findIf {
+		_vehicle isKindOf _x
+	} > -1;
 };
 _isSupported;

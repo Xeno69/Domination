@@ -11,8 +11,11 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 params ["_player"];
+
 if (leader _player != _player) exitWith {false}; 
-_canRappelOne = false;
+
+private _canRappelOne = false;
+
 {
 	if (vehicle _x != _x && {!(_x call d_fnc_isplayer)}) then {
 		if ([_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action_Check) then {
@@ -20,4 +23,5 @@ _canRappelOne = false;
 		};
 	};
 } forEach (units _player);
+
 _canRappelOne

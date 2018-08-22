@@ -17,9 +17,9 @@ if (local _player) then {
 	moveOut _player;
 	waitUntil {vehicle _player == _player};
 	_playerStartPosition = AGLtoASL (_heli modelToWorldVisual _rappelPoint);
-	_playerStartPosition set [2,(_playerStartPosition select 2) - 1];
-	_playerStartPosition set [1,(_playerStartPosition select 1) - ((((random 100)-50))/25)];
-	_playerStartPosition set [0,(_playerStartPosition select 0) - ((((random 100)-50))/25)];
+	_playerStartPosition set [2, (_playerStartPosition select 2) - 1];
+	_playerStartPosition set [1, (_playerStartPosition select 1) - (((random 100) - 50) / 25)];
+	_playerStartPosition set [0, (_playerStartPosition select 0) - (((random 100) - 50) / 25)];
 	_player setPosWorld _playerStartPosition;
 
 	_anchor = "Land_Can_V2_F" createVehicle position _player;
@@ -37,18 +37,18 @@ if (local _player) then {
 	[_player, _rappelDevice, _anchor] remoteExecCall ["AR_fnc_Play_Rappelling_Sounds", 2];
 	
 	_bottomRopeLength = 60;
-	_bottomRope = ropeCreate [_rappelDevice, [-0.15,0,0], _bottomRopeLength];
+	_bottomRope = ropeCreate [_rappelDevice, [-0.15, 0, 0], _bottomRopeLength];
 	_bottomRope allowDamage false;
 	_topRopeLength = 3;
-	_topRope = ropeCreate [_rappelDevice, [0,0.15,0], _anchor, [0, 0, 0], _topRopeLength];
+	_topRope = ropeCreate [_rappelDevice, [0, 0.15, 0], _anchor, [0, 0, 0], _topRopeLength];
 	_topRope allowDamage false;
 
 	[_player] spawn AR_fnc_Enable_Rappelling_Animation_Client;
 	
-	_gravityAccelerationVec = [0,0,-9.8];
-	_velocityVec = [0,0,0];
+	_gravityAccelerationVec = [0, 0, -9.8];
+	_velocityVec = [0, 0, 0];
 	_lastTime = diag_tickTime;
-	_lastPosition = AGLtoASL (_rappelDevice modelToWorldVisual [0,0,0]);
+	_lastPosition = AGLtoASL (_rappelDevice modelToWorldVisual [0, 0, 0]);
 	_lookDirFreedom = 50;
 	_dir = (random 360) + (_lookDirFreedom / 2);
 	_dirSpinFactor = (((random 10) - 5) / 5) max 0.1;
@@ -59,7 +59,7 @@ if (local _player) then {
 	if (_player == player) then {
 		_player setVariable ["AR_DECEND_PRESSED", false];
 		_player setVariable ["AR_FAST_DECEND_PRESSED", false];
-		_player setVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT",0];
+		_player setVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT", 0];
 		
 		_ropeKeyDownHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
 			if (_this select 1 in (actionKeys "MoveBack")) then {
@@ -119,22 +119,22 @@ if (local _player) then {
 		_totalWindForce = _totalWindVelocity vectorMultiply (9.8/53);
 
 		_accelerationVec = _gravityAccelerationVec vectorAdd _totalWindForce;
-		_velocityVec = _velocityVec vectorAdd ( _accelerationVec vectorMultiply _timeSinceLastUpdate );
-		_newPosition = _lastPosition vectorAdd ( _velocityVec vectorMultiply _timeSinceLastUpdate );
+		_velocityVec = _velocityVec vectorAdd (_accelerationVec vectorMultiply _timeSinceLastUpdate);
+		_newPosition = _lastPosition vectorAdd (_velocityVec vectorMultiply _timeSinceLastUpdate);
 		
 		_heliPos = AGLtoASL (_heli modelToWorldVisual _rappelPoint);
 		
 		if (_newPosition distance _heliPos > _topRopeLength) then {
-			_newPosition = (_heliPos) vectorAdd (( vectorNormalized ( (_heliPos) vectorFromTo _newPosition )) vectorMultiply _topRopeLength);
-			_surfaceVector = ( vectorNormalized ( _newPosition vectorFromTo (_heliPos) ));
-			_velocityVec = _velocityVec vectorAdd (( _surfaceVector vectorMultiply (_velocityVec vectorDotProduct _surfaceVector)) vectorMultiply -1);
+			_newPosition = _heliPos vectorAdd ((vectorNormalized (_heliPos vectorFromTo _newPosition)) vectorMultiply _topRopeLength);
+			_surfaceVector = vectorNormalized (_newPosition vectorFromTo _heliPos);
+			_velocityVec = _velocityVec vectorAdd ((_surfaceVector vectorMultiply (_velocityVec vectorDotProduct _surfaceVector)) vectorMultiply -1);
 		};
 
 		_rappelDevice setPosWorld (_lastPosition vectorAdd ((_newPosition vectorDiff _lastPosition) vectorMultiply 6));
 		
-		_rappelDevice setVectorDir (vectorDir _player); 
-		_player setPosWorld [_newPosition select 0, _newPosition select 1, (_newPosition select 2)-0.6];
-		_player setVelocity [0,0,0];
+		_rappelDevice setVectorDir (vectorDir _player);
+		_player setPosWorld (_newPosition vectorAdd [0, 0, -0.6]);
+		_player setVelocity [0, 0, 0];
 		
 		// Handle rappelling down rope
 		if (_player getVariable ["AR_DECEND_PRESSED", false]) then {
@@ -142,7 +142,7 @@ if (local _player) then {
 			if (_player getVariable ["AR_FAST_DECEND_PRESSED", false]) then {
 				_decendSpeedMetersPerSecond = 5;
 			};
-			_decendSpeedMetersPerSecond = _decendSpeedMetersPerSecond + (_player getVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT",0]);
+			_decendSpeedMetersPerSecond = _decendSpeedMetersPerSecond + (_player getVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT", 0]);
 			_bottomRopeLength = _bottomRopeLength - (_timeSinceLastUpdate * _decendSpeedMetersPerSecond);
 			_topRopeLength = _topRopeLength + (_timeSinceLastUpdate * _decendSpeedMetersPerSecond);
 			ropeUnwind [_topRope, _decendSpeedMetersPerSecond, _topRopeLength - 0.5];
@@ -159,15 +159,17 @@ if (local _player) then {
 			_minDegreesToMin = 0;
 			if (_currentDir > _maxDir) then {
 				_minDegreesToMax = (_currentDir - _maxDir) min (360 - _currentDir + _maxDir);
-			};
-			if (_currentDir < _maxDir) then {
-				_minDegreesToMax = (_maxDir - _currentDir) min (360 - _maxDir + _currentDir);
+			} else {
+				if (_currentDir < _maxDir) then {
+					_minDegreesToMax = (_maxDir - _currentDir) min (360 - _maxDir + _currentDir);
+				};
 			};
 			if (_currentDir > _minDir) then {
 				_minDegreesToMin = (_currentDir - _minDir) min (360 - _currentDir + _minDir);
-			};
-			if (_currentDir < _minDir) then {
-				_minDegreesToMin = (_minDir - _currentDir) min (360 - _minDir + _currentDir);
+			} else {
+				if (_currentDir < _minDir) then {
+					_minDegreesToMin = (_minDir - _currentDir) min (360 - _minDir + _currentDir);
+				};
 			};
 			if (_minDegreesToMin > _lookDirFreedom || {_minDegreesToMax > _lookDirFreedom}) then {
 				if (_minDegreesToMin < _minDegreesToMax) then {
@@ -184,7 +186,7 @@ if (local _player) then {
 		
 		_lastPosition = _newPosition;
 		
-		if ((getPos _player) select 2 < 1 || {!alive _player || {vehicle _player != _player || {_bottomRopeLength <= 1 || {_player getVariable ["AR_Detach_Rope",false]}}}}) exitWith {};
+		if ((getPos _player) select 2 < 1 || {!alive _player || {vehicle _player != _player || {_bottomRopeLength <= 1 || {_player getVariable ["AR_Detach_Rope", false]}}}}) exitWith {};
 
 		sleep 0.01;
 	};
@@ -192,7 +194,7 @@ if (local _player) then {
 	if (_bottomRopeLength > 1 && {alive _player && {vehicle _player == _player}}) then {
 	
 		_playerStartASLIntersect = getPosASL _player;
-		_playerEndASLIntersect = [_playerStartASLIntersect select 0, _playerStartASLIntersect select 1, (_playerStartASLIntersect select 2) - 5];
+		_playerEndASLIntersect = _playerStartASLIntersect vectorAdd [0, 0, -5];
 		_surfaces = lineIntersectsSurfaces [_playerStartASLIntersect, _playerEndASLIntersect, _player, objNull, true, 10];
 		_intersectionASL = [];
 		{

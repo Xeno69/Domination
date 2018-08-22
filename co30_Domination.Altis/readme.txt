@@ -26,10 +26,11 @@ Changelogs
 - Changed: Respawn scripts for vehicles...
 		   - Give the vehicle a unique var name in the editor. The var name has to start with d_add_vec_
 		   - You can add the following setVariable options to the init line of the vehicle in the editor:
-		     * this setVariable ["d_respawn_delay", 100]; // default is 300, if you use -1 the vehicle respawns almost immediately
+		     * this setVariable ["d_respawn_delay", 100]; // default is 300, if you use -1 the vehicle respawns almost immediately if destroyed
 			 * this setVariable ["d_respawn_fuelcheck", false]; // if true, the vehicle respawns with the same fuel it had when it was destroyed, default true
 			 * this setVariable ["d_respawn_liftit", true]; // The vehicle can now be lifted by a lift chopper
 			 * this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]]; // Adds a marker, text to the marker and a color for the marker to the vehicle
+			     (for available markers check the following page: https://community.bistudio.com/wiki/cfgMarkers )
 			 * this setVariable ["d_empty_respawn", 10]; // The vehicle will respawn after a specific time when no player was nearby (only available when d_respawn_delay != -1
 - Added: Advanced rappeling from Duda
 - Fixed: Map drawing on GPS map (yet again)
