@@ -41,6 +41,7 @@ for "_nr" from 0 to 1 do {
 			} else {
 				_pos = _pos_center;
 			};
+			__TRACE("from createinf")
 			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			_newgroup allowFleeing 0;

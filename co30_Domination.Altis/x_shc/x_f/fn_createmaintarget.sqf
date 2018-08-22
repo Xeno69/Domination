@@ -241,6 +241,7 @@ if (!d_no_more_observers) then {
 		private _xx_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
 		private _xpos = _wp_array_inf select _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
+		__TRACE("from createmaintarget 1")
 		private _observer = ([_xpos, _unit_array, _agrp] call d_fnc_makemgroup) # 0;
 		_agrp deleteGroupWhenEmpty true;
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;

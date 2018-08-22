@@ -44,6 +44,7 @@ d_mt_radio_down = false;
 sleep 1.0112;
 
 private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+__TRACE("from createsecondary 1")
 [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] spawn d_fnc_makemgroup;
 _newgroup deleteGroupWhenEmpty true;
 sleep 1.0112;
@@ -176,6 +177,7 @@ for "_i" from 1 to _nrcamps do {
 	sleep 0.5;
 	
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+	__TRACE("from createsecondary 2")
 	[_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] spawn d_fnc_makemgroup;
 	_newgroup deleteGroupWhenEmpty true;
 	sleep 1.0112;

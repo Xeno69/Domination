@@ -30,6 +30,7 @@ if (_numvecs > 0) then {
 	_grp setSpeedMode "LIMITED";
 	_msize = 2;
 } else {
+	__TRACE("from makegroup")
 	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper] call d_fnc_makemgroup;
 };
 

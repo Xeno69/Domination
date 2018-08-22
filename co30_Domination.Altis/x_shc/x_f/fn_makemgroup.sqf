@@ -10,7 +10,8 @@ if (isNil "_unitliste") exitWith {
 	[]
 };
 
-__TRACE_1("","_unitliste")
+__TRACE_3("","_pos","_unitliste","_grp")
+__TRACE_1("","_mchelper")
 
 private _ret = [];
 _ret resize (count _unitliste);
