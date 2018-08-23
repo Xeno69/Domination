@@ -5,7 +5,7 @@
 
 disableSerialization;
 
-private _vec = vehicle player;
+private _vec = d_pylon_vec;
 private _tvec = typeOf _vec;
 
 __TRACE_1("","count d_pylondialog_ctrls")

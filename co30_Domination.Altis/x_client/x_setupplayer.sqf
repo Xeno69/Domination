@@ -228,7 +228,7 @@ if (d_with_ranked || {d_database_found}) then {
 	if (!d_with_ace) then {
 		player addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
 	} else {
-		["ace_treatmentSucceded", { _this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
+		["ace_treatmentSucceded", {_this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
 };
 
@@ -909,7 +909,12 @@ player addEventhandler ["WeaponAssembled", {
 	["aw", d_string_player, _this # 1] remoteExecCall ["d_fnc_p_o_ar", 2];
 }];
 
-{_x call d_fnc_initvec} forEach vehicles;
+{
+	_x call d_fnc_initvec;
+	if (unitIsUAV _x && {isClass (configFile>>"CfgVehicles">>(typeOf _x)>>"Components">>"TransportPylonsComponent")}) then {
+		_x call d_fnc_addpylon_action;
+	};
+} forEach vehicles;
 
 if (!d_with_ace) then {
 	["Preload"] call bis_fnc_arsenal;

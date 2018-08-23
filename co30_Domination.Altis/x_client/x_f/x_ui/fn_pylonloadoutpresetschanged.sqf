@@ -11,7 +11,7 @@ params ["_ctrl", "_selIdx"];
 
 if (_selIdx == -1) exitWith {};
 
-private _vec = vehicle player;
+private _vec = d_pylon_vec;
 
 if (_selIdx == 0) then {
 	{

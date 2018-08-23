@@ -49,6 +49,9 @@ if (_fuelcheck) then {
 
 if (unitIsUAV _vec) then {
 	_vec allowCrewInImmobile true;
+	if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+	};
 };
 
 _vec setVariable ["d_OUT_OF_SPACE", -1];
@@ -125,6 +128,9 @@ while {true} do {
 		if (unitIsUAV _vec) then {
 			createVehicleCrew _vec;
 			_vec allowCrewInImmobile true;
+			if (isClass (configFile>>"CfgVehicles">>_type>>"Components">>"TransportPylonsComponent")) then {
+				_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+			};
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;
 		if (_vec isKindOf "Air" && {surfaceIsWater _startpos}) then {

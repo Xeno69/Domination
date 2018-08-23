@@ -7,7 +7,7 @@
 
 disableSerialization;
 
-private _vec = vehicle player;
+private _vec = d_pylon_vec;
 
 private _display = uiNamespace getVariable "D_PylonLoadoutDialog";
 

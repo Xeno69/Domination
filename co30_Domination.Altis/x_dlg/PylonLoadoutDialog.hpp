@@ -2,7 +2,7 @@ class D_PylonLoadoutDialog {
 	idd = -1;
 	movingEnable = true;
 	onLoad = "uiNamespace setVariable ['D_PylonLoadoutDialog', _this select 0];[_this select 0] call bis_fnc_guiEffectTiles;_this call d_fnc_initpylonloadoutdialog;d_pylonloadout_dialog_open = true";
-	onUnLoad = "uiNamespace setVariable ['D_PylonLoadoutDialog', nil]; d_pylondialog_ctrls = nil;d_pylonloadout_dialog_open = false";
+	onUnLoad = "uiNamespace setVariable ['D_PylonLoadoutDialog', nil]; d_pylondialog_ctrls = nil;d_pylonloadout_dialog_open = false; if (unitIsUAV d_pylon_vec) then {d_pylon_vec setVariable ['d_pylon_blocked', nil, true]}";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
 		COMMON_BACKGROUND_VIGNETTE
