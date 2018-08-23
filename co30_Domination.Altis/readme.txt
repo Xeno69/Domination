@@ -19,9 +19,9 @@ Changelogs
 - Changed: Removed Special Purpose Suit from Virtual Arsenal uniforms when player is on Blufor side
 - Changed: Show the number of seconds a player has to wait before he/she can deploy/undeploy a MHQ again
 - Changed: It is now possible to remove entries from Virtual Arsenal by either code or classname (d_remove_from_arsenal in x_init\fn_preinit.sqf)
-- Fixed: Healing another player did not add points if database is available
 - Changed: If database is found and player has a score higher than 500 remove auto kick from air vehicles after 30 seconds
-- Added: Dynamic pylon loadout editor. Just enter a plane or chopper which supports it while it doesn't move and engine is out at base and you get the action menu
+- Added: Dynamic pylon loadout editor. Just enter a plane or chopper which supports it while it doesn't move and engine is out at base and you get the action menu.
+		 For UAVs just walk to the UAV and use the hold action outside the UAV
 - Fixed: CAS plane rocketlauncher should now also work for dynamic loadout planes (like RHS A10 or SU25)
 - Changed: Respawn scripts for vehicles...
 		   - Give the vehicle a unique var name in the editor. The var name has to start with d_add_vec_
@@ -36,6 +36,7 @@ Changelogs
 - Fixed: Map drawing on GPS map (yet again)
 - Optimized: Map drawing, do only draw map icons and markers if they are actually visible
 - Changed: Replaced side mission bonus vec jet and attack chopper classes with the ones which support dynamic (pylon) loadout (including CUP)
+- Fixed: Do not immediately trigger refuel in engineer full mode when vehicle fuel ammount is under 1
 and many more fixes and optimizations
 
 3.96

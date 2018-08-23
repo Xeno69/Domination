@@ -212,6 +212,7 @@ class CfgRemoteExec {
 		class AR_fnc_Enable_Rappelling_Animation_Client {};
 		class AR_fnc_Rappel_All_Cargo {};
 		class AR_fnc_Rappel_From_Heli {allowedTargets = 2;};
+		class d_fnc_addpylon_action {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

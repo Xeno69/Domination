@@ -143,6 +143,7 @@ class cfgFunctions {
 			addc(hchelper);
 			addc(cdoquake);
 			addc(getoutmaneh);
+			addc(addpylon_action);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
