@@ -8,10 +8,14 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.98
+ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
+
 - Changed: The camp number is now written near an enemy camp at the maintarget on the map and above the camp in 3D
 - Fixed: Script error in engtrigfnc
 - Fixed: When ace was enabled and CUP or RHS was used Virtual Arsenal was showing all weapons instead of 3rd party mods weapons only
 - Fixed: It could happen that the number of the enemy inf barracks did not match the number of inf barracks internally used (-1 left)
+- Fixed: When a player was unconscious in the CUP versions he was standing and not lying uncon on the ground
+	     (missing "xr_respawn" marker, please replace the CUP mission.sqm files or add an empty "xr_resp_marker" marker in an area where nothing happens)
 
 3.97
 - Fixed: Server artillery scripts were using player scritping command instead of the correct player variable reference

@@ -19,7 +19,8 @@ if (hasInterface) then {
 				_np = (name player) splitString """'" joinString "";
 			};
 			player setVariable ["d_plname", _np, true];
-		];
+		};
+		__TRACE_1("","_np")
 		d_name_pl = _np;
 	};
 };

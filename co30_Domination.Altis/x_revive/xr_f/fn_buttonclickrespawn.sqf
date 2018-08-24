@@ -10,10 +10,6 @@ if (d_beam_target == "") exitWith {
 	__TRACE("exit, beam target empty")
 };
 
-if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
-	player action ["NVGoggles",player];
-};
-
 private _respawn_pos = [0,0,0];
 __TRACE("black out")
 "xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_917", "BLACK OUT", 0.2];
@@ -139,6 +135,12 @@ if (xr_max_lives != -1) then {
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 		};
 		if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false])}}) then {[] spawn d_fnc_moveai};
+	};
+};
+
+0 spawn {
+	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
+		player action ["NVGoggles",player];
 	};
 };
 __TRACE("MapClickRespawn done")

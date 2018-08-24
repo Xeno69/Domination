@@ -793,10 +793,6 @@ if !("ItemRadio" in assigneditems player) then {player linkItem "ItemRadio"};
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
 
-#ifndef __IFA3LITE__
-if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
-#endif
-
 0 spawn d_fnc_clean_craters;
 
 private _fnc_artvec = {

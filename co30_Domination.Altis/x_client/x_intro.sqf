@@ -162,6 +162,10 @@ enableRadio true;
 showChat true;
 "dynamicBlur" ppEffectEnable false;
 
+#ifndef __IFA3LITE__
+if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
+#endif
+
 private _uidcheck_done = false;
 if (!(d_reserved_slot isEqualTo []) && {str player in d_reserved_slot}) then {
 	_uidcheck_done = true;
