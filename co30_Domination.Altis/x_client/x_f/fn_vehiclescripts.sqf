@@ -67,22 +67,28 @@ if (_vec isKindOf "Air") then {
 		];
 
 		if (d_with_ai) then {
+			d_ai_rappeling = false;
 			_vec setVariable ["d_rappel_ai_action", [
 					/* 0 object */						_vec,
 					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1864",
 					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-					/* 4 condition to show */			"[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check",
+					/* 4 condition to show */			"!d_ai_rappeling && {[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check}",
 					/* 5 condition for action */		"true",
 					/* 6 code executed on start */		{},
 					/* 7 code executed per tick */		{},
 					/* 8 code executed on completion */	{
+						d_ai_rappeling = true;
 						{
-						if !(_x call d_fnc_isplayer) then {
-							sleep 1;
+							if !(_x call d_fnc_isplayer) then {
+								sleep 1;
 								[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
 							};
 						} forEach (units player);
+						0 spawn {
+							sleep 10;
+							d_ai_rappeling = false;
+						};
 					},
 					/* 9 code executed on interruption */	{},
 					/* 10 arguments */					[],
