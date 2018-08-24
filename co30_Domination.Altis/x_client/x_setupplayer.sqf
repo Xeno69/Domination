@@ -396,7 +396,7 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.97"];
+diag_log ["Internal D Version: 3.98"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -916,9 +916,7 @@ player addEventhandler ["WeaponAssembled", {
 	};
 } forEach vehicles;
 
-if (!d_with_ace) then {
-	["Preload"] call bis_fnc_arsenal;
-};
+["Preload"] call bis_fnc_arsenal;
 
 if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 	if (d_ifa3lite) then {
@@ -927,10 +925,9 @@ if (!d_with_ranked && {d_arsenal_mod == 0}) then {
 		private _arsar = [];
 		if (d_cup) then {
 			_arsar pushBack "CUP_";
-		} else {
-			if (d_rhs) then {
-				_arsar append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
-			};
+		};
+		if (d_rhs) then {
+			_arsar append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
 		};
 		if (d_with_ace && {!(_arsar isEqualTo [])}) then {
 			_arsar pushBack "ace_";

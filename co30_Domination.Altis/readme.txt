@@ -7,6 +7,12 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.98
+- Changed: The camp number is now written near an enemy camp at the maintarget on the map and above the camp in 3D
+- Fixed: Script error in engtrigfnc
+- Fixed: When ace was enabled and CUP or RHS was used Virtual Arsenal was showing all weapons instead of 3rd party mods weapons only
+- Fixed: It could happen that the number of the enemy inf barracks did not match the number of inf barracks internally used (-1 left)
+
 3.97
 - Fixed: Server artillery scripts were using player scritping command instead of the correct player variable reference
 - Changed: Arty operators can now cancel arty strikes (does not cancel salvoes already on the way)

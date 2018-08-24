@@ -65,6 +65,6 @@ if (d_with_ai) then {
 			"\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_24_ca.paa"
 		};
 		
-		drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 8 + (_distp * 0.05)]), _m, _m, 0, "", 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
 } forEach d_currentcamps;

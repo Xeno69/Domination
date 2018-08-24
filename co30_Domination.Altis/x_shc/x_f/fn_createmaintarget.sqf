@@ -117,7 +117,9 @@ for "_i" from 1 to d_num_barracks_objs do {
 	d_mt_barracks_obj_ar pushBack _vec;
 	sleep 0.5;
 };
+d_num_barracks_objs = count d_mt_barracks_obj_ar;
 __TRACE_1("","d_mt_barracks_obj_ar")
+__TRACE_1("2","d_num_barracks_objs")
 d_mt_barracks_down = false;
 if (!isServer) then {
 	[missionNamespace, ["d_mt_barracks_down", false]] remoteExecCall ["setVariable", 2];

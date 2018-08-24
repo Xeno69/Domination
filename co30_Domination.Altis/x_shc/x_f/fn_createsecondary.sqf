@@ -158,7 +158,7 @@ for "_i" from 1 to _nrcamps do {
 	_flagPole setPos _fwfpos;
 	_wf setVariable ["d_FLAG", _flagPole, true];
 	private _maname = format["d_camp_%1", _wf];
-	[_maname, _poss, "ICON", "ColorBlack", [0.5,0.5], "", 0, d_strongpointmarker] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
+	[_maname, _poss, "ICON", "ColorBlack", [0.5,0.5], str _i, 0, d_strongpointmarker] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
 	if (!isServer) then {
 		[_wf, ["d_camp_mar", _maname]] remoteExecCall ["setVariable", 2];
 	} else {
