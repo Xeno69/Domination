@@ -7,6 +7,8 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99
+
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
 

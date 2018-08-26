@@ -121,9 +121,6 @@ d_base_array = [
 	[[markerPos "d_base_marker_e" # 0, markerPos "d_base_marker_e" # 1, 1.9], _msize2 # 0, _msize2 # 1, markerDir "d_base_marker_e", true] // opfor
 ];
 #endif
-if (isServer) then {
-	0 spawn d_fnc_d_flag_base_correct;
-};
 
 "d_isledefense_marker" setMarkerAlphaLocal 0;
 

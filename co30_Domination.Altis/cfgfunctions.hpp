@@ -374,7 +374,6 @@ class cfgFunctions {
 			addc(endsidemission);
 			addc(db_update);
 			addc(getplayerscores);
-			addc(d_flag_base_correct);
 			addc(a_p_w);
 			addc(a_p_e);
 			addc(addpoints);
@@ -544,7 +543,6 @@ class cfgFunctions {
 			class HandleCamps2{ext=".fsm";};
 			class IsAdmin{ext=".fsm";};
 			class Parahandler{ext=".fsm";};
-			class PlayerAmmobox{ext=".fsm";};
 			class RepWreck{ext=".fsm";};
 			class RespawnGroups{ext=".fsm";};
 			class RetakeCamp{ext=".fsm";};

@@ -659,14 +659,12 @@ private _objsasl = [getPosASL D_FLAG_BASE];
 	player reveal _box;
 	[_box] call d_fnc_weaponcargo;
 	_box enableRopeAttach false;
-	[_box, _x] execFSM "fsms\fn_PlayerAmmobox.fsm";
+	_box enableSimulation false;
 #ifndef __TT__
 } forEach d_player_ammobox_pos;
 #else
 } forEach (d_player_ammobox_pos select ([0, 1] select (d_player_side == opfor)));
 #endif
-
-
 
 (findDisplay 46) displayAddEventHandler ["MouseZChanged", {_this call d_fnc_MouseWheelRec}];
 

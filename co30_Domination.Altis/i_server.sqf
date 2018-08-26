@@ -125,19 +125,9 @@ if (d_with_ai && {isServer}) then {
 	} else {
 		d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];
 	};
+	d_AI_HUT enableSimulationGlobal false;
 	d_AI_HUT addEventHandler ["handleDamage", {0}];
 	publicVariable "d_AI_HUT";
-	d_AI_HUT spawn {
-		params ["_hut"];
-		private _pos_h = getPosASL _hut;
-		private _dir_h = getDir _hut;
-		while {true} do {
-			sleep 600;
-			_hut setDir _dir_h;
-			_hut setPosASL _pos_h;
-			_hut setVectorUp [0,0,1];
-		};
-	};
 	["d_RecruitB_100010000", d_pos_ai_hut # 0, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 	deleteMarker "d_pos_aihut";
 };
