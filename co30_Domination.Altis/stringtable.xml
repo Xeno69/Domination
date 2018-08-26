@@ -7891,6 +7891,14 @@
 <Japanese>Detach Rappel Device</Japanese>
 <Original>Detach Rappel Device</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1866">
+<English>Server Rules</English>
+<Spanish>Server Rules</Spanish>
+<Portuguese>Server Rules</Portuguese>
+<Korean>Server Rules</Korean>
+<Japanese>Server Rules</Japanese>
+<Original>Server Rules</Original>
+</Key>
 </Container>
 </Package>
 </Project>

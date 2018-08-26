@@ -144,6 +144,7 @@ class cfgFunctions {
 			addc(cdoquake);
 			addc(getoutmaneh);
 			addc(addpylon_action);
+			addc(serverrules);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
