@@ -396,7 +396,7 @@ d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) se
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.98"];
+diag_log ["Internal D Version: 3.98a"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
