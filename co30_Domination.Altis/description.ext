@@ -1391,4 +1391,6 @@ class CfgTaskEnhancements {
    propagate    = 0;            //0: do not propagate (default), 1: propagate shared tasks to subordinates
 };
 
+#include "CfgVehicles.hpp"
+
 //__EXEC(diag_log [diag_frameno, diag_ticktime, time, "Dom description.ext processed"]);

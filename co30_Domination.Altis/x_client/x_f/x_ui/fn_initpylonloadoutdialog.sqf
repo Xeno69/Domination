@@ -32,6 +32,9 @@ __TRACE_1("","_pylonmags")
 d_pylondialog_ctrls = [];
 d_pylon_mirrormode = false;
 
+private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toUpper _x};
+__TRACE_1("","_excludemags")
+
 for "_i" from 0 to (count _pylons - 1) do {
 	private _pylon = _pylons select _i;
 	private _ctrl = _display ctrlCreate ["RscUIComboBox2", 5000 + _i];
@@ -83,11 +86,15 @@ for "_i" from 0 to (count _pylons - 1) do {
 	private _selidx = 0;
 	__TRACE_1("","_vec getCompatiblePylonMagazines (configName _pylon)")
 	{
-		_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
-		_ctrl lbSetData [_idx, _x];
-		__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
-		if (_pylonmags select _i == _x) then {
-			_selidx = _i;
+		__TRACE_1("33","_x")
+		if !(toUpper _x in _excludemags) then {
+			__TRACE_1("adding","_x")
+			_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
+			_ctrl lbSetData [_idx, _x];
+			//__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
+			if (_pylonmags select _i == _x) then {
+				_selidx = _i;
+			};
 		};
 	} forEach (_vec getCompatiblePylonMagazines (configName _pylon));
 	if (_selidx != -1) then {

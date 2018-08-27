@@ -7,8 +7,6 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-3.99
-
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
 
@@ -19,6 +17,9 @@ ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chern
 - Fixed: When a player was unconscious in the CUP versions he was standing and not lying uncon on the ground (game breaker :/)
 	     (missing "xr_respawn" marker, please replace the CUP mission.sqm files or add an empty "xr_resp_marker" marker in an area where nothing happens)
 - Fixed: Don't show rappel AI action anymore when the AI units are in action
+- Fixed: CUP planes do use mixed arrays for positions in Transportpylon config ({0.11, "0.12+0.2"})
+- Changed: You can exlcude magazines from the pylon loadout now (see CfgVehicles.hpp in mission root folder)
+- Added: Board with server rules (only on the Blufor Altis version)
 
 3.97
 - Fixed: Server artillery scripts were using player scritping command instead of the correct player variable reference
