@@ -19,6 +19,7 @@ _mmm = getText(_cfg>>"UIPicture");
 __TRACE_1("","_mmm")
 #endif
 __control(1000) ctrlSetText getText(_cfg>>"UIPicture");
+__control(1003) ctrlSetText getText(configFile>>"CfgVehicles">>(typeOf _vec)>>"Displayname");
 
 private _pylons = _cfg>>"pylons";
 __TRACE_1("","_pylons")
@@ -50,6 +51,27 @@ for "_i" from 0 to (count _pylons - 1) do {
 		}];
 	};
 	private _pos = getArray(_pylon>>"UIposition");
+	{
+		__TRACE_1("","_x")
+		if (_x isEqualType "") then {
+			private _arspl = _x splitString "+";
+			__TRACE_1("+","_arspl")
+			private _numte = 0;
+			if (count _arspl > 1) then {
+				{
+					_numte = _numte + parseNumber _x;
+				} forEach _arspl;
+			} else {
+				_arspl = _x splitString "-";
+				__TRACE_1("-","_arspl")
+				{
+					_numte = _numte + parseNumber _x;
+				} forEach _arspl;
+			};
+			__TRACE_1("","_numte")
+			_pos set [_forEachIndex, _numte];
+		};
+	} forEach _pos;
 	_pos pushBack 0.17;
 	_pos pushBack 0.032;
 	_pos set [0, (_pos select 0) + 0.062];
@@ -63,7 +85,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 	{
 		_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
 		_ctrl lbSetData [_idx, _x];
-		__TRACE_1("","_pylonmags select _forEachIndex")
+		__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
 		if (_pylonmags select _i == _x) then {
 			_selidx = _i;
 		};

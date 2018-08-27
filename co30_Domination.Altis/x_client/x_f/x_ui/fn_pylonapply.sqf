@@ -11,7 +11,7 @@ private _tvec = typeOf _vec;
 __TRACE_1("","count d_pylondialog_ctrls")
 __TRACE_1("","d_pylondialog_ctrls")
 
-private _prevweaps = getPylonMagazines _vec apply {getText (configFile>>"CfgMagazines">>_x>> "pylonWeapon")};
+private _prevweaps = getPylonMagazines _vec apply {getText (configFile>>"CfgMagazines">>_x>>"pylonWeapon")};
 _prevweaps = _prevweaps - [""];
 __TRACE_1("","_prevweaps")
 
@@ -27,7 +27,7 @@ for "_i" from 0 to (count _cfg - 1) do {
 	};
 };
 
-private _newweapsx = getPylonMagazines _vec apply {getText (configFile>>"CfgMagazines">>_x>> "pylonWeapon")};
+private _newweapsx = getPylonMagazines _vec apply {getText (configFile>>"CfgMagazines">>_x>>"pylonWeapon")};
 _newweapsx = _newweapsx - [""];
 __TRACE_1("","_newweapsx")
 
