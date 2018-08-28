@@ -1361,9 +1361,9 @@ if (hasInterface) then {
 		[], // rifles
 		[], // launchers
 		[], // handguns
-		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}], // uniforms
+		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}, {_this select [0, 4] == "U_C_"}, {_this == "U_OrestesBody"}], // uniforms
 		[], // belts
-		[{_this isKindOf "B_Mortar_01_weapon_F"}], // backpacks
+		[{_this isKindOf "B_Mortar_01_weapon_F"}, {_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this isKindOf "B_Mortar_01_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}], // backpacks
 		["H_HelmetO_ViperSP_ghex_F", "H_HelmetO_ViperSP_hex_F"], // headgear
 		[], // glasses
 		[], // goggles

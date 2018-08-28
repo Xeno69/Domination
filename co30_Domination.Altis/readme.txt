@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99
+- Changed: Rearanged i_weapons_default.sqf and added missing A3 weapons
+
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
 

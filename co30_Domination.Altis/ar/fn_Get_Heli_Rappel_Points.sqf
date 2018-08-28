@@ -100,11 +100,4 @@ private _rappelPoints = [];
 	};
 } forEach [_middleLeftPointFinal, _middleRightPointFinal, _frontLeftPointFinal, _frontRightPointFinal, _rearLeftPointFinal, _rearRightPointFinal];
 
-private _validRappelPoints = [];
-{
-	if (count _x > 0 && {count _validRappelPoints < missionNamespace getVariable ["AR_MAX_RAPPEL_POINTS_OVERRIDE", 6]}) then {
-		_validRappelPoints pushBack _x;
-	};
-} forEach _rappelPoints;
-
-_validRappelPoints
+(_rappelPoints select {count _x > 0 && {count _validRappelPoints < missionNamespace getVariable ["AR_MAX_RAPPEL_POINTS_OVERRIDE", 6]}})

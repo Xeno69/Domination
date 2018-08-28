@@ -912,7 +912,7 @@ player addEventhandler ["WeaponAssembled", {
 
 ["Preload"] call bis_fnc_arsenal;
 
-if (!d_with_ranked && {d_arsenal_mod == 0}) then {
+if (d_arsenal_mod == 0) then {
 	if (d_ifa3lite) then {
 		["WW2_"] call d_fnc_arsenal_mod;
 	} else {

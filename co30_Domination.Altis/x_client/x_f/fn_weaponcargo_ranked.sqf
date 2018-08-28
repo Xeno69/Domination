@@ -42,15 +42,9 @@ while {alive _vec} do {
 		__TRACE_1("PISTOLS","_helperar")
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
 
-		_helperar = [];
-		_curar = d_all_magazines;
-		__TRACE_1("Mags","_curar")
-		_helperar resize (count _curar);
-		{
-			_helperar set [_forEachIndex, _x # 0];
-		} forEach _curar;
-		__TRACE_1("Mags","_helperar")
-		[_vec, _helperar, false, false] call BIS_fnc_addVirtualMagazineCargo;
+		[_vec, bis_fnc_arsenal_data # 22, false, false] call BIS_fnc_addVirtualMagazineCargo;
+		[_vec, bis_fnc_arsenal_data # 23, false, false] call BIS_fnc_addVirtualMagazineCargo;
+		[_vec, bis_fnc_arsenal_data # 26, false, false] call BIS_fnc_addVirtualMagazineCargo;
 
 		_helperar = [];
 		_curar = d_misc_store getVariable (_old_rank + "_OPTICS");
@@ -79,15 +73,7 @@ while {alive _vec} do {
 		__TRACE_1("ITEMS","_helperar")
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 
-		_helperar = [];
-		_curar = d_backpackclasses;
-		__TRACE_1("Backpacks","_curar")
-		_helperar resize (count _curar);
-		{
-			_helperar set [_forEachIndex, _x];
-		} forEach _curar;
-		__TRACE_1("Backpacks","_helperar")
-		[_vec, _helperar, false, false] call BIS_fnc_addVirtualBackpackCargo;
+		[_vec, bis_fnc_arsenal_data # 5, false, false] call BIS_fnc_addVirtualBackpackCargo;
 	};
 	sleep 2.32;
 };

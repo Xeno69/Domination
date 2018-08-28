@@ -64,11 +64,9 @@ if (local _vehicle) then {
 		_rappelUnits = [];
 		_rappelledGroups = [];
 		{
-			if (alive _x && {group _x != _heliGroup}) then {
-				_rappelUnits pushBack _x;
-				_rappelledGroups pushBack (group _x);
-			};
-		} forEach crew _vehicle;
+			_rappelUnits pushBack _x;
+			_rappelledGroups pushBack (group _x);
+		} forEach ((crew _vehicle) select {alive _x && {group _x != _heliGroup}});
 
 		// Rappel all units
 		_unitsOutsideVehicle = [];
@@ -79,11 +77,7 @@ if (local _vehicle) then {
 					[_x, _vehicle] call AR_fnc_Rappel_From_Heli;					
 					sleep 1;
 				} forEach (_rappelUnits - _unitsOutsideVehicle);
-				{
-					if !(_x in _vehicle) then {
-						_unitsOutsideVehicle pushBack _x;
-					};
-				} forEach (_rappelUnits - _unitsOutsideVehicle);
+				_unitsOutsideVehicle append ((_rappelUnits - _unitsOutsideVehicle) select {!(_x in _vehicle)});
 			};
 			sleep 2;
 		};
@@ -91,12 +85,7 @@ if (local _vehicle) then {
 		// Wait for all units to reach ground
 		_unitsRappelling = true;
 		while {_unitsRappelling} do {
-			_unitsRappelling = false;
-			{
-				if (_x getVariable ["AR_Is_Rappelling", false]) then {
-					_unitsRappelling = true;
-				};
-			} forEach _rappelUnits;
+			_unitsRappelling = _rappelUnits findIf {_x getVariable ["AR_Is_Rappelling", false]} > -1;
 			sleep 3;
 		};
 		
