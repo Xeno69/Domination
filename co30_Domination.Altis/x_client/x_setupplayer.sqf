@@ -933,7 +933,11 @@ if (d_arsenal_mod == 0) then {
 };
 
 for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
-	if (!((d_remove_from_arsenal # _i) isEqualTo []) && {!((bis_fnc_arsenal_data # _i) isEqualTo [])}) then {
+	private _proceed = true;
+	if (d_with_ranked && {!(_i in [5, 22, 23, 26])}) then {
+		_proceed = false;
+	};
+	if (_proceed && {!((d_remove_from_arsenal # _i) isEqualTo []) && {!((bis_fnc_arsenal_data # _i) isEqualTo [])}}) then {
 		private _badar = bis_fnc_arsenal_data # _i;
 		private _codes = [];
 		private _classes = [];
