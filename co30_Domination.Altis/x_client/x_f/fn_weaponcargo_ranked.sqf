@@ -21,56 +21,39 @@ while {alive _vec} do {
 
 		waitUntil {time > 0};
 		private _helperar = [];
-		private _curar = d_misc_store getVariable (_old_rank + "_RIFLES");
-		__TRACE_1("RIFLES","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
+		
+		_helperar append (d_misc_store getVariable (_old_rank + "_RIFLES"));
 		__TRACE_1("RIFLES","_helperar")
 
-		_curar = d_misc_store getVariable (_old_rank + "_LAUNCHERS");
-		__TRACE_1("LAUNCHERS","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
+		_helperar append (d_misc_store getVariable (_old_rank + "_LAUNCHERS"));		
 		__TRACE_1("LAUNCHERS","_helperar")
-		_curar = d_misc_store getVariable (_old_rank + "_PISTOLS");
-		__TRACE_1("PISTOLS","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
+		
+		_helperar append (d_misc_store getVariable (_old_rank + "_PISTOLS"));
 		__TRACE_1("PISTOLS","_helperar")
+		
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
 
 		[_vec, bis_fnc_arsenal_data # 22, false, false] call BIS_fnc_addVirtualMagazineCargo;
 		[_vec, bis_fnc_arsenal_data # 23, false, false] call BIS_fnc_addVirtualMagazineCargo;
 		[_vec, bis_fnc_arsenal_data # 26, false, false] call BIS_fnc_addVirtualMagazineCargo;
 
+		
 		_helperar = [];
-		_curar = d_misc_store getVariable (_old_rank + "_OPTICS");
-		__TRACE_1("OPTICS","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
+		
+		_helperar append (d_misc_store getVariable (_old_rank + "_OPTICS"));
 		__TRACE_1("OPTICS","_helperar")
-		_curar = d_misc_store getVariable (_old_rank + "_MUZZLES");
-		__TRACE_1("MUZZLES","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
+		
+		_helperar append (d_misc_store getVariable (_old_rank + "_MUZZLES"));
 		__TRACE_1("MUZZLES","_helperar")
+		
+		_helperar append (d_misc_store getVariable (_old_rank + "_UNIFORMS")); // TODO remove UNIFORMS from ranked? I would say yes
+		
 		_curar = d_misc_store getVariable (_old_rank + "_UNIFORMS");
-		__TRACE_1("UNIFORMS","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
 		__TRACE_1("UNIFORMS","_helperar")
+		
 		_curar = d_misc_store getVariable (_old_rank + "_ITEMS");
-		__TRACE_1("ITEMS","_curar")
-		{
-			_helperar pushBack (_x # 0);
-		} forEach _curar;
 		__TRACE_1("ITEMS","_helperar")
+		
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 
 		[_vec, bis_fnc_arsenal_data # 5, false, false] call BIS_fnc_addVirtualBackpackCargo;

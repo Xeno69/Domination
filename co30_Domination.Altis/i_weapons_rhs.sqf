@@ -7,360 +7,292 @@
 
 __TRACE("i_weapons.sqf")
 
-#ifdef __OWN_SIDE_BLUFOR__
-private _helipilotgear = [];
-private _helipilothelmet = [];
-if (d_pilots_only == 1) then {
-	_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-	_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-} else {
-	if (d_only_pilots_can_fly isEqualTo []) then {
-		_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-		_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-	} else {
-		if (str player in d_only_pilots_can_fly) then {
-			_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-			_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-		};
-	};
-};
-
-private _all_weapons_items = [
+private _all_weapons_items_blufor = [
 	[
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"RIFLES",
 		// private rifles
 		[
-			["rhs_weap_m16a4",1,true],
-			["rhs_weap_m16a4_carryhandle",1,true],
-			["rhs_weap_m16a4_pmag",1,true]
+			"rhs_weap_m16a4",
+			"rhs_weap_m16a4_carryhandle",
+			"rhs_weap_m16a4_pmag"
 			
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			["hgun_Pistol_heavy_01_F",1,true],
-			["hgun_Pistol_heavy_01_snds_F",1,true],
-			["rhs_weap_m38_rail",1,true],
-			["rhs_weap_m16a4_grip",1,true],
-			["rhs_weap_m16a4_carryhandle_grip",1,true],
-			["rhs_weap_m16a4_carryhandle_grip_pmag",1,true],	
-			["rhs_weap_m16a4_carryhandle_pmag",1,true],
-			["rhs_weap_m16a4_carryhandle_grip3_pmag",1,true],
-			["rhs_weap_m16a4_carryhandle_grip2_pmag",1,true],
-			["rhs_weap_m16a4_pmag_grip2",1,true],
-			["rhs_weap_m16a4_pmag_grip",1,true],
-			["rhs_weap_m16a4_pmag_grip3",1,true],
-			["rhs_weap_m16a4_carryhandle_grip3",1,true],
-			["rhs_weap_m16a4_grip3",1,true],
-			["rhs_weap_m16a4_carryhandle_grip2",1,true],
-			["rhs_weap_m16a4_grip2",1,true],
-			["rhs_weap_m4",1,true],
-			["rhs_weap_m4_carryhandle_grip",1,true],
-			["rhs_weap_m4_carryhandle_mstock_grip",1,true],
-			["rhs_weap_m4_carryhandle_pmag_grip",1,true],
-			["rhs_weap_m4_grip",1,true],
-			["rhs_weap_m4_mstock_grip",1,true],
-			["rhs_weap_m4_pmag_grip",1,true],
-			["rhs_weap_m4_carryhandle",1,true],
-			["rhs_weap_m4_carryhandle_pmag",1,true],
-			["rhs_weap_m4_carryhandle_grip2",1,true],
-			["rhs_weap_m4_carryhandle_mstock_grip2",1,true],
-			["rhs_weap_m4_carryhandle_pmag_grip2",1,true],
-			["rhs_weap_m4_grip2",1,true],
-			["rhs_weap_m4_mstock_grip2",1,true],
-			["rhs_weap_m4_pmag_grip2",1,true],
-			["rhs_weap_m4_pmag",1,true],
-			["rhs_weap_m4_mstock",1,true],
-			["rhs_weap_m4_carryhandle_grip3",1,true],
-			["rhs_weap_m4_carryhandle_mstock_grip3",1,true],
-			["rhs_weap_m4_carryhandle_pmag_grip3",1,true],
-			["rhs_weap_m4_grip3",1,true],
-			["rhs_weap_m4_mstock_grip3",1,true],
-			["rhs_weap_m4_pmag_grip3",1,true]
+			"hgun_Pistol_heavy_01_F",
+			"hgun_Pistol_heavy_01_snds_F",
+			"rhs_weap_m38_rail",
+			"rhs_weap_m16a4_grip",
+			"rhs_weap_m16a4_carryhandle_grip",
+			"rhs_weap_m16a4_carryhandle_grip_pmag",	
+			"rhs_weap_m16a4_carryhandle_pmag",
+			"rhs_weap_m16a4_carryhandle_grip3_pmag",
+			"rhs_weap_m16a4_carryhandle_grip2_pmag",
+			"rhs_weap_m16a4_pmag_grip2",
+			"rhs_weap_m16a4_pmag_grip",
+			"rhs_weap_m16a4_pmag_grip3",
+			"rhs_weap_m16a4_carryhandle_grip3",
+			"rhs_weap_m16a4_grip3",
+			"rhs_weap_m16a4_carryhandle_grip2",
+			"rhs_weap_m16a4_grip2",
+			"rhs_weap_m4",
+			"rhs_weap_m4_carryhandle_grip",
+			"rhs_weap_m4_carryhandle_mstock_grip",
+			"rhs_weap_m4_carryhandle_pmag_grip",
+			"rhs_weap_m4_grip",
+			"rhs_weap_m4_mstock_grip",
+			"rhs_weap_m4_pmag_grip",
+			"rhs_weap_m4_carryhandle",
+			"rhs_weap_m4_carryhandle_pmag",
+			"rhs_weap_m4_carryhandle_grip2",
+			"rhs_weap_m4_carryhandle_mstock_grip2",
+			"rhs_weap_m4_carryhandle_pmag_grip2",
+			"rhs_weap_m4_grip2",
+			"rhs_weap_m4_mstock_grip2",
+			"rhs_weap_m4_pmag_grip2",
+			"rhs_weap_m4_pmag",
+			"rhs_weap_m4_mstock",
+			"rhs_weap_m4_carryhandle_grip3",
+			"rhs_weap_m4_carryhandle_mstock_grip3",
+			"rhs_weap_m4_carryhandle_pmag_grip3",
+			"rhs_weap_m4_grip3",
+			"rhs_weap_m4_mstock_grip3",
+			"rhs_weap_m4_pmag_grip3"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			["rhs_weap_m16a4_carryhandle_M203",1,true],
-			["rhs_weap_m16a4_carryhandle_bipod",1,true],
-			["rhs_weap_m4a1_carryhandle_m203",1,true],
-			["rhs_weap_m4a1_carryhandle_m203S",1,true],
-			["rhs_weap_m32",1,true],
-			["rhs_weap_m16a4_bipod",1,true],
-			["rhs_m4_compm4",1,true],
-			["rhs_weap_m4_bipod",1,true],
-			["rhs_m4_grip_compm4",1,true],
-			["rhs_weap_m4a1_carryhandle",1,true],
-			["rhs_weap_m4a1_carryhandle_bipod",1,true],
-			["rhs_weap_m4a1_carryhandle_pmag",1,true],
-			["rhs_m4a1_compm4",1,true],
-			["rhs_weap_m4a1",1,true],
-			["rhs_weap_m4a1_carryhandle_grip",1,true],
-			["rhs_weap_m4a1_carryhandle_mstock_grip",1,true],
-			["rhs_weap_m4a1_carryhandle_pmag_grip",1,true],
-			["rhs_weap_m4a1_grip",1,true],
-			["rhs_weap_m4a1_mstock_grip",1,true],
-			["rhs_weap_m4a1_pmag_grip",1,true],
-			["rhs_weap_m4a1_carryhandle_grip2",1,true],
-			["rhs_weap_m4a1_carryhandle_mstock_grip2",1,true],
-			["rhs_weap_m4a1_carryhandle_pmag_grip2",1,true],
-			["rhs_weap_m4a1_grip2",1,true],
-			["rhs_weap_m4a1_mstock_grip2",1,true],
-			["rhs_weap_m4a1_pmag_grip2",1,true],
-			["rhs_m4a1_eotech",1,true],
-			["rhs_weap_m32_usmc",1,true],
-			["rhs_weap_hk416d10_LMT_wd",1,true],
-			["rhs_weap_hk416d10_LMT_d",1,true],
-			["rhs_weap_hk416d145_d",1,true],
-			["rhs_weap_hk416d145_d_2",1,true],
-			["rhs_weap_hk416d145_wd",1,true],
-			["rhs_weap_hk416d145_wd_2",1,true],
-			["rhs_weap_m4a1_wd_mstock",1,true],
-			["rhs_weap_hk416d10",1,true],
-			["rhs_weap_hk416d10_LMT",1,true],
-			["rhs_weap_hk416d10_LMT_grip2",1,true],
-			["rhs_weap_hk416d10_LMT_grip",1,true],
-			["rhs_weap_hk416d10_LMT_grip3",1,true],
-			["rhs_weap_hk416d10_grip2",1,true],
-			["rhs_weap_hk416d10_grip",1,true],
-			["rhs_weap_hk416d10_compm4",1,true],
-			["rhs_weap_hk416d10_grip3",1,true],
-			["rhs_weap_hk416d145",1,true],
-			["rhs_weap_hk416d145_grip2",1,true],
-			["rhs_weap_hk416d145_grip",1,true],
-			["rhs_weap_hk416d145_grip3",1,true],
-			["rhs_weap_m27iar",1,true],
-			["rhs_weap_m27iar_grip",1,true],
-			["rhs_weap_m27iar_grip2",1,true],
-			["rhs_weap_m27iar_grip3",1,true],
-			["rhs_weap_m4_carryhandle_mstock",1,true],
-			["rhs_weap_m4a1_carryhandle_mstock",1,true],
-			["rhs_m4a1_grip_compm4",1,true],
-			["rhs_weap_m4a1_carryhandle_grip3",1,true],
-			["rhs_m4a1_grip_eotech_soc",1,true],
-			["rhs_weap_m4a1_blockII",1,true],
-			["rhs_weap_m4a1_blockII_grip2",1,true],
-			["rhs_weap_m4a1_blockII_grip2_d",1,true],
-			["rhs_weap_m4a1_blockII_grip2_wd",1,true],
-			["rhs_weap_m4a1_blockII_grip2_KAC",1,true],
-			["rhs_weap_m4a1_blockII_grip2_KAC_d",1,true],
-			["rhs_weap_m4a1_blockII_grip2_KAC_wd",1,true],
-			["rhs_weap_m4a1_blockII_bk",1,true],
-			["rhs_weap_m4a1_blockII_grip_bk",1,true],
-			["rhs_weap_m4a1_blockII_grip2_bk",1,true],
-			["rhs_weap_m4a1_blockII_grip2_KAC_bk",1,true],
-			["rhs_weap_m4a1_blockII_KAC_bk",1,true],
-			["rhs_weap_m4a1_blockII_grip_KAC_bk",1,true],
-			["rhs_weap_m4a1_blockII_d",1,true],
-			["rhs_weap_m4a1_blockII_grip_d",1,true],
-			["rhs_weap_m4a1_blockII_KAC_d",1,true],
-			["rhs_weap_m4a1_blockII_grip_KAC_d",1,true],
-			["rhs_weap_m4a1_blockII_KAC",1,true],
-			["rhs_weap_m4a1_blockII_grip_KAC",1,true],
-			["rhs_weap_m4a1_blockII_wd",1,true],
-			["rhs_weap_m4a1_blockII_grip_wd",1,true],
-			["rhs_weap_m4a1_blockII_KAC_wd",1,true],
-			["rhs_weap_m4a1_blockII_grip_KAC_wd",1,true],
-			["rhs_weap_m4a1_blockII_grip",1,true],
-			["rhs_weap_m4a1_bipod",1,true],
-			["rhs_weap_m4a1_d",1,true],
-			["rhs_weap_m4a1_d_grip2",1,true],
-			["rhs_weap_m4a1_d_mstock_grip2",1,true],
-			["rhs_weap_m4a1_d_grip",1,true],
-			["rhs_weap_m4a1_d_mstock_grip",1,true],
-			["rhs_weap_m4a1_d_mstock",1,true],
-			["rhs_weap_m4a1_d_grip3",1,true],
-			["rhs_weap_m4a1_d_mstock_grip3",1,true],
-			["rhs_weap_m4a1_pmag",1,true],
-			["rhs_weap_m4a1_mstock",1,true],
-			["rhs_weap_m4a1_carryhandle_mstock_grip3",1,true],
-			["rhs_weap_m4a1_carryhandle_pmag_grip3",1,true],
-			["rhs_weap_m4a1_grip3",1,true],
-			["rhs_weap_m4a1_mstock_grip3",1,true],
-			["rhs_weap_m4a1_pmag_grip3",1,true],
-			["rhs_weap_mk18",1,true],
-			["rhs_weap_mk18_grip2",1,true],
-			["rhs_weap_mk18_grip2_bk",1,true],
-			["rhs_weap_mk18_grip2_d",1,true],
-			["rhs_weap_mk18_grip2_wd",1,true],
-			["rhs_weap_mk18_grip",1,true],
-			["rhs_weap_mk18_grip_bk",1,true],
-			["rhs_weap_mk18_grip_d",1,true],
-			["rhs_weap_mk18_grip_wd",1,true],
-			["rhs_weap_mk18_grip2_KAC",1,true],
-			["rhs_weap_mk18_grip2_KAC_bk",1,true],
-			["rhs_weap_mk18_grip2_KAC_d",1,true],
-			["rhs_weap_mk18_grip2_KAC_wd",1,true],
-			["rhs_weap_mk18_grip_KAC",1,true],
-			["rhs_weap_mk18_grip_KAC_bk",1,true],
-			["rhs_weap_mk18_grip_KAC_d",1,true],
-			["rhs_weap_mk18_grip_KAC_wd",1,true],
-			["rhs_weap_mk18_bk",1,true],
-			["rhs_weap_mk18_KAC_bk",1,true],
-			["rhs_weap_mk18_d",1,true],
-			["rhs_weap_mk18_KAC_d",1,true],
-			["rhs_weap_mk18_KAC",1,true],
-			["rhs_weap_mk18_eotech",1,true],
-			["rhs_weap_mk18_eotech_sup",1,true],
-			["rhs_weap_mk18_wd",1,true],
-			["rhs_weap_mk18_KAC_wd",1,true],
-			["arifle_MX_F",1,true],
-			["rhs_weap_kar98k",1,true],
-			["rhs_weap_g36c",1,true],
-			["rhs_weap_g36c_grip2",1,true],
-			["rhs_weap_g36c_grip1",1,true],
-			["rhs_weap_g36c_grip3_eo",1,true],
-			["rhs_weap_g36c_grip3",1,true],
-			["rhs_weap_g36c_compm4",1,true],
-			["rhs_weap_g36kv",1,true],
-			["rhs_weap_g36kv_grip2",1,true],
-			["rhs_weap_g36kv_grip1",1,true],
-			["rhs_weap_g36kv_grip3_eo",1,true],
-			["rhs_weap_g36kv_grip3",1,true],
-			["rhs_weap_g36kv_compm4",1,true],
-			["rhs_weap_M320",1,true],
-			["rhs_weap_m4a1_m203",1,true],
-			["rhs_weap_m4a1_m320",1,true],
-			["rhs_weap_m4a1_m203s_d",1,true],
-			["rhs_weap_m4a1_m203s",1,true],
-			["rhs_weap_m4_m203",1,true],
-			["rhs_weap_m4_m320",1,true],
-			["rhs_weap_m4_m203S",1,true],
-			["rhs_weap_g36kv_ag36",1,true],
-			["rhs_weap_g36kv_ag36_eo",1,true],
-			["rhs_weap_hk416d10_m320",1,true],
-			["rhs_weap_hk416d145_m320",1,true],
-			["rhs_weap_m4a1_blockII_M203",1,true],
-			["rhs_weap_m4a1_blockII_M203_bk",1,true],
-			["rhs_weap_m4a1_blockII_M203_d",1,true],
-			["rhs_weap_m4a1_blockII_M203_wd",1,true],
-			["rhs_weap_mk18_m320",1,true],
-			["rhs_weap_m249",1,true],
-			["rhs_weap_m249_pip_L",1,true],
-			["rhs_weap_m249_pip_L_para",1,true],
-			["rhs_weap_m249_pip_L_vfg",1,true],
-			["rhs_weap_m249_pip_S",1,true],
-			["rhs_weap_m249_pip_S_para",1,true],
-			["rhs_weap_m249_pip_S_vfg",1,true],
-			["rhs_weap_minimi_para_railed",1,true],
-			["LMG_03_F",1,true],
-			["rhs_weap_m249_pip_S_vfg1",1,true],
-			["rhs_weap_m249_pip_S_vfg2",1,true],
-			["rhs_weap_m249_pip_S_vfg3",1,true],
-			["rhs_weap_m249_pip",1,true],
-			["rhs_weap_m249_pip_L_vfg1",1,true],
-			["rhs_weap_m249_pip_L_vfg2",1,true],
-			["rhs_weap_m249_pip_L_vfg3",1,true],
-			["rhsusf_weap_MP7A2",1,true],
-			["rhsusf_weap_MP7A2_grip1",1,true],
-			["rhsusf_weap_MP7A2_grip2",1,true],
-			["rhsusf_weap_MP7A2_grip3",1,true],
-			["rhsusf_weap_MP7A2_aor1",1,true],
-			["rhsusf_weap_MP7A2_aor1_grip1",1,true],
-			["rhsusf_weap_MP7A2_aor1_grip2",1,true],
-			["rhsusf_weap_MP7A2_aor1_grip3",1,true],
-			["rhsusf_weap_MP7A2_desert",1,true],
-			["rhsusf_weap_MP7A2_desert_grip1",1,true],
-			["rhsusf_weap_MP7A2_desert_grip2",1,true],
-			["rhsusf_weap_MP7A2_desert_grip3",1,true],
-			["arifle_MX_GL_F",1,true], ["arifle_MXM_F",1,true], ["arifle_Mk20_F",1,true], ["arifle_MX_GL_Black_F",1,true], ["arifle_MXM_Black_F",1,true]
+			"rhs_weap_m16a4_carryhandle_M203",
+			"rhs_weap_m16a4_carryhandle_bipod",
+			"rhs_weap_m4a1_carryhandle_m203",
+			"rhs_weap_m4a1_carryhandle_m203S",
+			"rhs_weap_m32",
+			"rhs_weap_m16a4_bipod",
+			"rhs_m4_compm4",
+			"rhs_weap_m4_bipod",
+			"rhs_m4_grip_compm4",
+			"rhs_weap_m4a1_carryhandle",
+			"rhs_weap_m4a1_carryhandle_bipod",
+			"rhs_weap_m4a1_carryhandle_pmag",
+			"rhs_m4a1_compm4",
+			"rhs_weap_m4a1",
+			"rhs_weap_m4a1_carryhandle_grip",
+			"rhs_weap_m4a1_carryhandle_mstock_grip",
+			"rhs_weap_m4a1_carryhandle_pmag_grip",
+			"rhs_weap_m4a1_grip",
+			"rhs_weap_m4a1_mstock_grip",
+			"rhs_weap_m4a1_pmag_grip",
+			"rhs_weap_m4a1_carryhandle_grip2",
+			"rhs_weap_m4a1_carryhandle_mstock_grip2",
+			"rhs_weap_m4a1_carryhandle_pmag_grip2",
+			"rhs_weap_m4a1_grip2",
+			"rhs_weap_m4a1_mstock_grip2",
+			"rhs_weap_m4a1_pmag_grip2",
+			"rhs_m4a1_eotech",
+			"rhs_weap_m32_usmc",
+			"rhs_weap_hk416d10_LMT_wd",
+			"rhs_weap_hk416d10_LMT_d",
+			"rhs_weap_hk416d145_d",
+			"rhs_weap_hk416d145_d_2",
+			"rhs_weap_hk416d145_wd",
+			"rhs_weap_hk416d145_wd_2",
+			"rhs_weap_m4a1_wd_mstock",
+			"rhs_weap_hk416d10",
+			"rhs_weap_hk416d10_LMT",
+			"rhs_weap_hk416d10_LMT_grip2",
+			"rhs_weap_hk416d10_LMT_grip",
+			"rhs_weap_hk416d10_LMT_grip3",
+			"rhs_weap_hk416d10_grip2",
+			"rhs_weap_hk416d10_grip",
+			"rhs_weap_hk416d10_compm4",
+			"rhs_weap_hk416d10_grip3",
+			"rhs_weap_hk416d145",
+			"rhs_weap_hk416d145_grip2",
+			"rhs_weap_hk416d145_grip",
+			"rhs_weap_hk416d145_grip3",
+			"rhs_weap_m27iar",
+			"rhs_weap_m27iar_grip",
+			"rhs_weap_m27iar_grip2",
+			"rhs_weap_m27iar_grip3",
+			"rhs_weap_m4_carryhandle_mstock",
+			"rhs_weap_m4a1_carryhandle_mstock",
+			"rhs_m4a1_grip_compm4",
+			"rhs_weap_m4a1_carryhandle_grip3",
+			"rhs_m4a1_grip_eotech_soc",
+			"rhs_weap_m4a1_blockII",
+			"rhs_weap_m4a1_blockII_grip2",
+			"rhs_weap_m4a1_blockII_grip2_d",
+			"rhs_weap_m4a1_blockII_grip2_wd",
+			"rhs_weap_m4a1_blockII_grip2_KAC",
+			"rhs_weap_m4a1_blockII_grip2_KAC_d",
+			"rhs_weap_m4a1_blockII_grip2_KAC_wd",
+			"rhs_weap_m4a1_blockII_bk",
+			"rhs_weap_m4a1_blockII_grip_bk",
+			"rhs_weap_m4a1_blockII_grip2_bk",
+			"rhs_weap_m4a1_blockII_grip2_KAC_bk",
+			"rhs_weap_m4a1_blockII_KAC_bk",
+			"rhs_weap_m4a1_blockII_grip_KAC_bk",
+			"rhs_weap_m4a1_blockII_d",
+			"rhs_weap_m4a1_blockII_grip_d",
+			"rhs_weap_m4a1_blockII_KAC_d",
+			"rhs_weap_m4a1_blockII_grip_KAC_d",
+			"rhs_weap_m4a1_blockII_KAC",
+			"rhs_weap_m4a1_blockII_grip_KAC",
+			"rhs_weap_m4a1_blockII_wd",
+			"rhs_weap_m4a1_blockII_grip_wd",
+			"rhs_weap_m4a1_blockII_KAC_wd",
+			"rhs_weap_m4a1_blockII_grip_KAC_wd",
+			"rhs_weap_m4a1_blockII_grip",
+			"rhs_weap_m4a1_bipod",
+			"rhs_weap_m4a1_d",
+			"rhs_weap_m4a1_d_grip2",
+			"rhs_weap_m4a1_d_mstock_grip2",
+			"rhs_weap_m4a1_d_grip",
+			"rhs_weap_m4a1_d_mstock_grip",
+			"rhs_weap_m4a1_d_mstock",
+			"rhs_weap_m4a1_d_grip3",
+			"rhs_weap_m4a1_d_mstock_grip3",
+			"rhs_weap_m4a1_pmag",
+			"rhs_weap_m4a1_mstock",
+			"rhs_weap_m4a1_carryhandle_mstock_grip3",
+			"rhs_weap_m4a1_carryhandle_pmag_grip3",
+			"rhs_weap_m4a1_grip3",
+			"rhs_weap_m4a1_mstock_grip3",
+			"rhs_weap_m4a1_pmag_grip3",
+			"rhs_weap_mk18",
+			"rhs_weap_mk18_grip2",
+			"rhs_weap_mk18_grip2_bk",
+			"rhs_weap_mk18_grip2_d",
+			"rhs_weap_mk18_grip2_wd",
+			"rhs_weap_mk18_grip",
+			"rhs_weap_mk18_grip_bk",
+			"rhs_weap_mk18_grip_d",
+			"rhs_weap_mk18_grip_wd",
+			"rhs_weap_mk18_grip2_KAC",
+			"rhs_weap_mk18_grip2_KAC_bk",
+			"rhs_weap_mk18_grip2_KAC_d",
+			"rhs_weap_mk18_grip2_KAC_wd",
+			"rhs_weap_mk18_grip_KAC",
+			"rhs_weap_mk18_grip_KAC_bk",
+			"rhs_weap_mk18_grip_KAC_d",
+			"rhs_weap_mk18_grip_KAC_wd",
+			"rhs_weap_mk18_bk",
+			"rhs_weap_mk18_KAC_bk",
+			"rhs_weap_mk18_d",
+			"rhs_weap_mk18_KAC_d",
+			"rhs_weap_mk18_KAC",
+			"rhs_weap_mk18_eotech",
+			"rhs_weap_mk18_eotech_sup",
+			"rhs_weap_mk18_wd",
+			"rhs_weap_mk18_KAC_wd",
+			"arifle_MX_F",
+			"rhs_weap_kar98k",
+			"rhs_weap_g36c",
+			"rhs_weap_g36c_grip2",
+			"rhs_weap_g36c_grip1",
+			"rhs_weap_g36c_grip3_eo",
+			"rhs_weap_g36c_grip3",
+			"rhs_weap_g36c_compm4",
+			"rhs_weap_g36kv",
+			"rhs_weap_g36kv_grip2",
+			"rhs_weap_g36kv_grip1",
+			"rhs_weap_g36kv_grip3_eo",
+			"rhs_weap_g36kv_grip3",
+			"rhs_weap_g36kv_compm4",
+			"rhs_weap_M320",
+			"rhs_weap_m4a1_m203",
+			"rhs_weap_m4a1_m320",
+			"rhs_weap_m4a1_m203s_d",
+			"rhs_weap_m4a1_m203s",
+			"rhs_weap_m4_m203",
+			"rhs_weap_m4_m320",
+			"rhs_weap_m4_m203S",
+			"rhs_weap_g36kv_ag36",
+			"rhs_weap_g36kv_ag36_eo",
+			"rhs_weap_hk416d10_m320",
+			"rhs_weap_hk416d145_m320",
+			"rhs_weap_m4a1_blockII_M203",
+			"rhs_weap_m4a1_blockII_M203_bk",
+			"rhs_weap_m4a1_blockII_M203_d",
+			"rhs_weap_m4a1_blockII_M203_wd",
+			"rhs_weap_mk18_m320",
+			"rhs_weap_m249",
+			"rhs_weap_m249_pip_L",
+			"rhs_weap_m249_pip_L_para",
+			"rhs_weap_m249_pip_L_vfg",
+			"rhs_weap_m249_pip_S",
+			"rhs_weap_m249_pip_S_para",
+			"rhs_weap_m249_pip_S_vfg",
+			"rhs_weap_minimi_para_railed",
+			"LMG_03_F",
+			"rhs_weap_m249_pip_S_vfg1",
+			"rhs_weap_m249_pip_S_vfg2",
+			"rhs_weap_m249_pip_S_vfg3",
+			"rhs_weap_m249_pip",
+			"rhs_weap_m249_pip_L_vfg1",
+			"rhs_weap_m249_pip_L_vfg2",
+			"rhs_weap_m249_pip_L_vfg3",
+			"rhsusf_weap_MP7A2",
+			"rhsusf_weap_MP7A2_grip1",
+			"rhsusf_weap_MP7A2_grip2",
+			"rhsusf_weap_MP7A2_grip3",
+			"rhsusf_weap_MP7A2_aor1",
+			"rhsusf_weap_MP7A2_aor1_grip1",
+			"rhsusf_weap_MP7A2_aor1_grip2",
+			"rhsusf_weap_MP7A2_aor1_grip3",
+			"rhsusf_weap_MP7A2_desert",
+			"rhsusf_weap_MP7A2_desert_grip1",
+			"rhsusf_weap_MP7A2_desert_grip2",
+			"rhsusf_weap_MP7A2_desert_grip3",
+			"arifle_MX_GL_F", "arifle_MXM_F", "arifle_Mk20_F", "arifle_MX_GL_Black_F", "arifle_MXM_Black_F"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			["rhs_weap_m240B_CAP",1,true],
-			["rhs_weap_m240G",1,true],
-			["rhs_weap_m240B",1,true],
-			["rhs_weap_M590_8RD",1,true],
-			["rhs_weap_M590_5RD",1,true],
-			["rhs_weap_sr25",1,true],
-			["rhs_weap_sr25_d",1,true],
-			["rhs_weap_sr25_ec",1,true],
-			["rhs_weap_sr25_ec_d",1,true],
-			["rhs_weap_m14ebrri",1,true]
+			"rhs_weap_m240B_CAP",
+			"rhs_weap_m240G",
+			"rhs_weap_m240B",
+			"rhs_weap_M590_8RD",
+			"rhs_weap_M590_5RD",
+			"rhs_weap_sr25",
+			"rhs_weap_sr25_d",
+			"rhs_weap_sr25_ec",
+			"rhs_weap_sr25_ec_d",
+			"rhs_weap_m14ebrri"
 		],
 		// captain rifles (gets added...)
 		[
-			["rhs_weap_m24sws",1,true],
-			["rhs_weap_m24sws_blk",1,true],
-			["rhs_weap_m24sws_blk_leu",1,true],
-			["rhs_weap_m24sws_ghillie",1,true],
-			["rhs_weap_m24sws_leu",1,true],
-			["rhs_weap_m40a5",1,true],
-			["rhs_weap_m40a5_d",1,true],
-			["rhs_weap_m40_d_usmc",1,true],
-			["rhs_weap_m40a5_wd",1,true],
-			["rhs_weap_m40_wd_usmc",1,true],
-			["rhs_weap_XM2010",1,true],
-			["rhs_weap_XM2010_wd",1,true],
-			["rhs_weap_XM2010_wd_leu",1,true],
-			["rhs_weap_XM2010_sa",1,true],
-			["rhs_weap_XM2010_d",1,true],
-			["rhs_weap_XM2010_d_leu",1,true]
+			"rhs_weap_m24sws",
+			"rhs_weap_m24sws_blk",
+			"rhs_weap_m24sws_blk_leu",
+			"rhs_weap_m24sws_ghillie",
+			"rhs_weap_m24sws_leu",
+			"rhs_weap_m40a5",
+			"rhs_weap_m40a5_d",
+			"rhs_weap_m40_d_usmc",
+			"rhs_weap_m40a5_wd",
+			"rhs_weap_m40_wd_usmc",
+			"rhs_weap_XM2010",
+			"rhs_weap_XM2010_wd",
+			"rhs_weap_XM2010_wd_leu",
+			"rhs_weap_XM2010_sa",
+			"rhs_weap_XM2010_d",
+			"rhs_weap_XM2010_d_leu"
 		],
 		// major rifles (gets...)
 		[
-			["rhs_weap_M107",1,true],
-			["rhs_weap_M107_d",1,true],
-			["rhs_weap_M107_d_premier",1,true],
-			["rhs_weap_M107_d_leu",1,true],
-			["rhs_weap_M107_w",1,true],
-			["rhs_weap_M107_w_premier",1,true],
-			["rhs_weap_M107_w_leu",1,true],
-			["rhs_weap_M107_premier",1,true],
-			["rhs_weap_M107_leu",1,true],
-			["rhs_weap_m82a1",1,true],
-			["rhs_weap_m82a1_leu",1,true]
+			"rhs_weap_M107",
+			"rhs_weap_M107_d",
+			"rhs_weap_M107_d_premier",
+			"rhs_weap_M107_d_leu",
+			"rhs_weap_M107_w",
+			"rhs_weap_M107_w_premier",
+			"rhs_weap_M107_w_leu",
+			"rhs_weap_M107_premier",
+			"rhs_weap_M107_leu",
+			"rhs_weap_m82a1",
+			"rhs_weap_m82a1_leu"
 		],
 		// colonel rifles (...)
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-		],
-		// sergeant MG
-		[
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-		],
-		// major MG
-		[
-		],
-		// colonel MG
 		[
 		]
 	],
@@ -369,23 +301,23 @@ private _all_weapons_items = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			["rhs_weap_fim92",1,true],
-			["rhs_weap_m72a7",1,true]
+			"rhs_weap_fim92",
+			"rhs_weap_m72a7"
 		],
 		// corporal launchers
 		[
-			["rhs_weap_M136",1,true],
-			["rhs_weap_M136_hedp",1,true],
-			["rhs_weap_M136_hp",1,true]
+			"rhs_weap_M136",
+			"rhs_weap_M136_hedp",
+			"rhs_weap_M136_hp"
 		],
 		// sergeant launchers
 		[
-			["rhs_weap_smaw",1,true],
-			["rhs_weap_smaw_green",1,true]		
+			"rhs_weap_smaw",
+			"rhs_weap_smaw_green"		
 		],
 		// lieutenant launchers
 		[
-			["rhs_weap_maaws",1,true]			
+			"rhs_weap_maaws"			
 		],
 		// capain launchers
 		[
@@ -395,7 +327,7 @@ private _all_weapons_items = [
 		],
 		// colonel launchers
 		[
-			["rhs_weap_fgm148",1,true]
+			"rhs_weap_fgm148"
 		]
 	],
 	[
@@ -409,15 +341,15 @@ private _all_weapons_items = [
 		],
 		// sergeant pistols
 		[
-			["rhsusf_weap_glock17g4",1,true]
+			"rhsusf_weap_glock17g4"
 		],
 		// lieutenant pistols
 		[
-			["rhsusf_weap_m9",1,true]
+			"rhsusf_weap_m9"
 		],
 		// captain pistols
 		[
-			["rhsusf_weap_m1911a1",1,true]
+			"rhsusf_weap_m1911a1"
 		],
 		// major pistols
 		[
@@ -435,75 +367,75 @@ private _all_weapons_items = [
 		],
 		// corporal optics
 		[
-			["optic_ACO_grn",1,true],
-			["optic_aco",1,true],
-			["optic_ACO_grn_smg",1,true],
-			["optic_Aco_smg",1,true],
-			["rhsusf_acc_T1_high",1,true],
-			["rhsusf_acc_T1_low",1,true],
-			["rhsusf_acc_T1_low_fwd",1,true],
-			["rhsusf_acc_compm4",1,true],
-			["rhsusf_acc_eotech_xps3",1,true],
-			["rhsusf_acc_EOTECH",1,true],
-			["rhsusf_acc_wmx",1,true],
-			["rhsusf_acc_wmx_bk",1,true],
-			["rhsusf_acc_M952V",1,true],
-			["acc_pointer_IR",1,true]
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_ACO_grn_smg",
+			"optic_Aco_smg",
+			"rhsusf_acc_T1_high",
+			"rhsusf_acc_T1_low",
+			"rhsusf_acc_T1_low_fwd",
+			"rhsusf_acc_compm4",
+			"rhsusf_acc_eotech_xps3",
+			"rhsusf_acc_EOTECH",
+			"rhsusf_acc_wmx",
+			"rhsusf_acc_wmx_bk",
+			"rhsusf_acc_M952V",
+			"acc_pointer_IR"
 		],
 		// sergeant optics
 		[
-			["rhsusf_acc_ACOG2_USMC",1,true],
-			["rhsusf_acc_ACOG3_USMC",1,true],
-			["rhsusf_acc_ACOG_USMC",1,true],
-			["rhs_weap_optic_smaw",1,true],
-			["rhsusf_acc_g33_t1",1,true],
-			["rhsusf_acc_g33_xps3",1,true],
-			["rhsusf_acc_g33_xps3_tan",1,true],
-			["rhsusf_acc_ACOG",1,true],
-			["rhsusf_acc_ACOG2",1,true],
-			["rhsusf_acc_ACOG3",1,true],
-			["rhsusf_acc_ACOG_anpvs27",1,true],
-			["rhsusf_acc_ACOG_MDO",1,true],
-			["rhsusf_acc_ACOG_d",1,true],
-			["rhsusf_acc_ACOG_wd",1,true],
-			["rhsusf_acc_ACOG_RMR",1,true],
-			["rhsusf_acc_SpecterDR",1,true],
-			["rhsusf_acc_SpecterDR_OD",1,true],
-			["rhsusf_acc_SpecterDR_D",1,true],
-			["rhsusf_acc_SpecterDR_A",1,true],
-			["acc_flashlight",1,true],["optic_Holosight_smg",1,true]
+			"rhsusf_acc_ACOG2_USMC",
+			"rhsusf_acc_ACOG3_USMC",
+			"rhsusf_acc_ACOG_USMC",
+			"rhs_weap_optic_smaw",
+			"rhsusf_acc_g33_t1",
+			"rhsusf_acc_g33_xps3",
+			"rhsusf_acc_g33_xps3_tan",
+			"rhsusf_acc_ACOG",
+			"rhsusf_acc_ACOG2",
+			"rhsusf_acc_ACOG3",
+			"rhsusf_acc_ACOG_anpvs27",
+			"rhsusf_acc_ACOG_MDO",
+			"rhsusf_acc_ACOG_d",
+			"rhsusf_acc_ACOG_wd",
+			"rhsusf_acc_ACOG_RMR",
+			"rhsusf_acc_SpecterDR",
+			"rhsusf_acc_SpecterDR_OD",
+			"rhsusf_acc_SpecterDR_D",
+			"rhsusf_acc_SpecterDR_A",
+			"acc_flashlight","optic_Holosight_smg"
 		],
 		// lieutenant optics
 		[
-			["rhsusf_acc_LEUPOLDMK4",1,true],
-			["rhsusf_acc_LEUPOLDMK4_2",1,true],
-			["rhsusf_acc_LEUPOLDMK4_2_d",1,true],
-			["rhs_optic_maaws",1,true],		
-			["rhsusf_acc_M8541",1,true],
-			["rhsusf_acc_M8541_low",1,true],
-			["rhsusf_acc_M8541_low_d",1,true],
-			["rhsusf_acc_M8541_low_wd",1,true],
-			["rhsusf_acc_premier_low",1,true],
-			["rhsusf_acc_premier_anpvs27",1,true],
-			["rhsusf_acc_premier",1,true],
-			["optic_MRD",1,true],["optic_MRCO",1,true],
-			["optic_ERCO_khk_F",1,true],
-			["optic_ERCO_blk_F",1,true],
-			["optic_ERCO_snd_F",1,true]
+			"rhsusf_acc_LEUPOLDMK4",
+			"rhsusf_acc_LEUPOLDMK4_2",
+			"rhsusf_acc_LEUPOLDMK4_2_d",
+			"rhs_optic_maaws",		
+			"rhsusf_acc_M8541",
+			"rhsusf_acc_M8541_low",
+			"rhsusf_acc_M8541_low_d",
+			"rhsusf_acc_M8541_low_wd",
+			"rhsusf_acc_premier_low",
+			"rhsusf_acc_premier_anpvs27",
+			"rhsusf_acc_premier",
+			"optic_MRD","optic_MRCO",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_ERCO_snd_F"
 		],
 		// captain optics
 		[
-			["optic_Hamr",1,true],
-			["rhsusf_acc_anpas13gv1",1,true],
-			["rhsusf_acc_anpvs27",1,true]
+			"optic_Hamr",
+			"rhsusf_acc_anpas13gv1",
+			"rhsusf_acc_anpvs27"
 		],
 		// major optics
 		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
+			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_tws", "optic_tws_mg", "optic_DMS"
 		],
 		// colonel optics
 		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS"
 		]
 	],
 	[
@@ -512,69 +444,69 @@ private _all_weapons_items = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private muzzles
 		[
-			["rhsusf_acc_SF3P556",1,true],
-			["rhsusf_acc_SFMB556",1,true]
+			"rhsusf_acc_SF3P556",
+			"rhsusf_acc_SFMB556"
 		],
 		// corporal muzzles
 		[
-			["rhsusf_acc_grip2",1,true],
-			["rhsusf_acc_grip2_tan",1,true],
-			["rhsusf_acc_grip1",1,true],
-			["rhsusf_acc_grip3",1,true],
-			["rhsusf_acc_grip3_tan",1,true]
+			"rhsusf_acc_grip2",
+			"rhsusf_acc_grip2_tan",
+			"rhsusf_acc_grip1",
+			"rhsusf_acc_grip3",
+			"rhsusf_acc_grip3_tan"
 		],
 		// sergeant muzzles
 		[
-			["acc_flashlight",1,true],
-			["rhsusf_acc_anpeq15side",1,true],
-			["rhsusf_acc_anpeq15_top",1,true],
-			["rhsusf_acc_anpeq15_wmx_light",1,true],
-			["rhsusf_acc_anpeq15_wmx",1,true],
-			["rhsusf_acc_anpeq15side_bk",1,true],
-			["rhsusf_acc_anpeq15_bk_top",1,true],
-			["rhsusf_acc_anpeq15",1,true],
-			["rhsusf_acc_anpeq15_light",1,true],
-			["rhsusf_acc_anpeq15_bk_light",1,true],
-			["rhsusf_acc_anpeq15_bk",1,true],
-			["rhsusf_acc_anpeq15A",1,true],
-			["rhsusf_acc_harris_bipod",1,true],
-			["rhsusf_acc_nt4_tan",1,true],
-			["rhsusf_acc_nt4_black",1,true],
-			["rhsusf_acc_rotex5_tan",1,true],
-			["rhsusf_acc_rotex5_grey",1,true],
-			["rhsusf_acc_rotex_mp7_aor1",1,true],
-			["rhsusf_acc_rotex_mp7",1,true],
-			["rhsusf_acc_rotex_mp7_desert",1,true],
-			["rhsusf_acc_rotex_mp7_winter",1,true],
-			["rhsusf_acc_grip4",1,true],
-			["acc_flashlight_pistol",1,true],
-			["rhsusf_acc_omega9k",1,true],
-			["rhsusf_acc_SR25S",1,true],
-			["rhsusf_acc_M2010S",1,true],
-			["rhs_acc_dtk",1,true],
-			["rhs_acc_dtk1983",1,true],
-			["rhs_acc_dtk1l",1,true],
-			["rhs_acc_dtk1p",1,true],
-			["rhs_acc_dtk1",1,true],
-			["rhs_acc_dtk2",1,true],
-			["rhs_acc_dtk3",1,true],
-			["rhs_acc_dtk4short",1,true],
-			["rhs_acc_dtk4screws",1,true],
-			["rhs_acc_dtk4long",1,true],
-			["rhsusf_ANPVS_14",1,true],
-			["rhsusf_ANPVS_15",1,true],
-			["rhsusf_Rhino",1,true]
+			"acc_flashlight",
+			"rhsusf_acc_anpeq15side",
+			"rhsusf_acc_anpeq15_top",
+			"rhsusf_acc_anpeq15_wmx_light",
+			"rhsusf_acc_anpeq15_wmx",
+			"rhsusf_acc_anpeq15side_bk",
+			"rhsusf_acc_anpeq15_bk_top",
+			"rhsusf_acc_anpeq15",
+			"rhsusf_acc_anpeq15_light",
+			"rhsusf_acc_anpeq15_bk_light",
+			"rhsusf_acc_anpeq15_bk",
+			"rhsusf_acc_anpeq15A",
+			"rhsusf_acc_harris_bipod",
+			"rhsusf_acc_nt4_tan",
+			"rhsusf_acc_nt4_black",
+			"rhsusf_acc_rotex5_tan",
+			"rhsusf_acc_rotex5_grey",
+			"rhsusf_acc_rotex_mp7_aor1",
+			"rhsusf_acc_rotex_mp7",
+			"rhsusf_acc_rotex_mp7_desert",
+			"rhsusf_acc_rotex_mp7_winter",
+			"rhsusf_acc_grip4",
+			"acc_flashlight_pistol",
+			"rhsusf_acc_omega9k",
+			"rhsusf_acc_SR25S",
+			"rhsusf_acc_M2010S",
+			"rhs_acc_dtk",
+			"rhs_acc_dtk1983",
+			"rhs_acc_dtk1l",
+			"rhs_acc_dtk1p",
+			"rhs_acc_dtk1",
+			"rhs_acc_dtk2",
+			"rhs_acc_dtk3",
+			"rhs_acc_dtk4short",
+			"rhs_acc_dtk4screws",
+			"rhs_acc_dtk4long",
+			"rhsusf_ANPVS_14",
+			"rhsusf_ANPVS_15",
+			"rhsusf_Rhino"
 		],
 		// lieutenant muzzles
 		[
-			["muzzle_snds_B",1, true], ["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
+			"muzzle_snds_B", "muzzle_snds_H","muzzle_snds_L", "muzzle_snds_M", "muzzle_snds_acp"
 		],
 		// captain muzzles
 		[
 		],
 		// major muzzles
 		[
-			["muzzle_snds_H_MG",1, true]
+			"muzzle_snds_H_MG"
 		],
 		// colonel muzzles
 		[
@@ -586,250 +518,250 @@ private _all_weapons_items = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			["rhs_uniform_cu_ocp",1],
-			["rhs_uniform_cu_ocp_101st",1],
-			["rhs_uniform_cu_ocp_10th",1],
-			["rhs_uniform_cu_ocp_1stcav",1],
-			["rhs_uniform_cu_ocp_82nd",1],
-			["rhs_uniform_cu_ucp",1],
-			["rhs_uniform_cu_ucp_101st",1],
-			["rhs_uniform_cu_ucp_10th",1],
-			["rhs_uniform_cu_ucp_1stcav",1],
-			["rhs_uniform_cu_ucp_82nd",1],
-			["rhs_uniform_FROG01_d",1],
-			["rhs_uniform_FROG01_wd",1],
-			["rhs_uniform_g3_blk",1],
-			["rhs_uniform_g3_m81",1],
-			["rhs_uniform_g3_mc",1],
-			["rhs_uniform_g3_rgr",1],
-			["rhs_uniform_g3_tan",1],
-			["rhsusf_iotv_ocp_Grenadier",1],
-			["rhsusf_iotv_ucp_Grenadier",1],
-			["rhsusf_iotv_ocp_Medic",1],
-			["rhsusf_iotv_ucp_Medic",1],
-			["rhsusf_iotv_ocp",1],
-			["rhsusf_iotv_ocp_Repair",1],
-			["rhsusf_iotv_ucp_Repair",1],
-			["rhsusf_iotv_ocp_Rifleman",1],
-			["rhsusf_iotv_ucp_Rifleman",1],
-			["rhsusf_iotv_ocp_SAW",1],
-			["rhsusf_iotv_ucp_SAW",1],
-			["rhsusf_iotv_ocp_Squadleader",1],
-			["rhsusf_iotv_ucp_Squadleader",1],
-			["rhsusf_iotv_ocp_Teamleader",1],
-			["rhsusf_iotv_ucp_Teamleader",1],
-			["rhsusf_iotv_ucp",1],
+			"rhs_uniform_cu_ocp",
+			"rhs_uniform_cu_ocp_101st",
+			"rhs_uniform_cu_ocp_10th",
+			"rhs_uniform_cu_ocp_1stcav",
+			"rhs_uniform_cu_ocp_82nd",
+			"rhs_uniform_cu_ucp",
+			"rhs_uniform_cu_ucp_101st",
+			"rhs_uniform_cu_ucp_10th",
+			"rhs_uniform_cu_ucp_1stcav",
+			"rhs_uniform_cu_ucp_82nd",
+			"rhs_uniform_FROG01_d",
+			"rhs_uniform_FROG01_wd",
+			"rhs_uniform_g3_blk",
+			"rhs_uniform_g3_m81",
+			"rhs_uniform_g3_mc",
+			"rhs_uniform_g3_rgr",
+			"rhs_uniform_g3_tan",
+			"rhsusf_iotv_ocp_Grenadier",
+			"rhsusf_iotv_ucp_Grenadier",
+			"rhsusf_iotv_ocp_Medic",
+			"rhsusf_iotv_ucp_Medic",
+			"rhsusf_iotv_ocp",
+			"rhsusf_iotv_ocp_Repair",
+			"rhsusf_iotv_ucp_Repair",
+			"rhsusf_iotv_ocp_Rifleman",
+			"rhsusf_iotv_ucp_Rifleman",
+			"rhsusf_iotv_ocp_SAW",
+			"rhsusf_iotv_ucp_SAW",
+			"rhsusf_iotv_ocp_Squadleader",
+			"rhsusf_iotv_ucp_Squadleader",
+			"rhsusf_iotv_ocp_Teamleader",
+			"rhsusf_iotv_ucp_Teamleader",
+			"rhsusf_iotv_ucp",
 			
-			["rhsusf_ach_bare",1],
-			["rhsusf_ach_bare_des",1],
-			["rhsusf_ach_bare_des_ess",1],
-			["rhsusf_ach_bare_des_headset",1],
-			["rhsusf_ach_bare_des_headset_ess",1],
-			["rhsusf_ach_bare_ess",1],
-			["rhsusf_ach_bare_headset",1],
-			["rhsusf_ach_bare_headset_ess",1],
-			["rhsusf_ach_bare_semi",1],
-			["rhsusf_ach_bare_semi_ess",1],
-			["rhsusf_ach_bare_semi_headset",1],
-			["rhsusf_ach_bare_semi_headset_ess",1],
-			["rhsusf_ach_bare_tan",1],
-			["rhsusf_ach_bare_tan_ess",1],
-			["rhsusf_ach_bare_tan_headset",1],
-			["rhsusf_ach_bare_tan_headset_ess",1],
-			["rhsusf_ach_bare_wood",1],
-			["rhsusf_ach_bare_wood_ess",1],
-			["rhsusf_ach_bare_wood_headset",1],
-			["rhsusf_ach_bare_wood_headset_ess",1],
-			["rhsusf_ach_helmet_M81",1],
-			["rhsusf_ach_helmet_ocp",1],
-			["rhsusf_ach_helmet_ESS_ocp",1],
-			["rhsusf_ach_helmet_headset_ocp",1],
-			["rhsusf_ach_helmet_headset_ess_ocp",1],
-			["rhsusf_ach_helmet_camo_ocp",1],
-			["rhsusf_ach_helmet_ocp_norotos",1],
-			["rhsusf_ach_helmet_ucp",1],
-			["rhsusf_ach_helmet_ESS_ucp",1],
-			["rhsusf_ach_helmet_headset_ucp",1],
-			["rhsusf_ach_helmet_headset_ess_ucp",1],
-			["rhsusf_ach_helmet_ucp_norotos",1],
-			["rhs_Booniehat_m81",1],
-			["rhs_booniehat2_marpatd",1],
-			["rhs_booniehat2_marpatwd",1],
-			["rhs_Booniehat_ocp",1],
-			["rhs_Booniehat_ucp",1],
-			["rhsusf_Bowman",1],
-			["rhsusf_bowman_cap",1],
-			["rhsusf_opscore_aor1",1],
-			["rhsusf_opscore_aor1_pelt",1],
-			["rhsusf_opscore_aor1_pelt_nsw",1],
-			["rhsusf_opscore_aor2",1],
-			["rhsusf_opscore_aor2_pelt",1],
-			["rhsusf_opscore_aor2_pelt_nsw",1],
-			["rhsusf_opscore_bk",1],
-			["rhsusf_opscore_bk_pelt",1],
-			["rhsusf_opscore_coy_cover",1],
-			["rhsusf_opscore_coy_cover_pelt",1],
-			["rhsusf_opscore_fg",1],
-			["rhsusf_opscore_fg_pelt",1],
-			["rhsusf_opscore_fg_pelt_cam",1],
-			["rhsusf_opscore_fg_pelt_nsw",1],
-			["rhsusf_opscore_mc_cover",1],
-			["rhsusf_opscore_mc_cover_pelt",1],
-			["rhsusf_opscore_mc_cover_pelt_nsw",1],
-			["rhsusf_opscore_mc_cover_pelt_cam",1],
-			["rhsusf_opscore_mc",1],
-			["rhsusf_opscore_mc_pelt",1],
-			["rhsusf_opscore_mc_pelt_nsw",1],
-			["rhsusf_opscore_paint",1],
-			["rhsusf_opscore_paint_pelt",1],
-			["rhsusf_opscore_paint_pelt_nsw",1],
-			["rhsusf_opscore_paint_pelt_nsw_cam",1],
-			["rhsusf_opscore_rg_cover",1],
-			["rhsusf_opscore_rg_cover_pelt",1],
-			["rhsusf_opscore_ut",1],
-			["rhsusf_opscore_ut_pelt",1],
-			["rhsusf_opscore_ut_pelt_cam",1],
-			["rhsusf_opscore_ut_pelt_nsw",1],
-			["rhsusf_opscore_ut_pelt_nsw_cam",1],
-			["rhsusf_opscore_mar_fg",1],
-			["rhsusf_opscore_mar_fg_pelt",1],
-			["rhsusf_opscore_mar_ut",1],
-			["rhsusf_opscore_mar_ut_pelt",1],
-			["rhsusf_lwh_helmet_M1942",1],
-			["rhsusf_lwh_helmet_marpatd",1],
-			["rhsusf_lwh_helmet_marpatd_ess",1],
-			["rhsusf_lwh_helmet_marpatd_headset",1],
-			["rhsusf_lwh_helmet_marpatwd",1],
-			["rhsusf_lwh_helmet_marpatwd_blk_ess",1],
-			["rhsusf_lwh_helmet_marpatwd_headset_blk",1],
-			["rhsusf_lwh_helmet_marpatwd_headset",1],
-			["rhsusf_lwh_helmet_marpatwd_ess",1],
-			["rhsusf_mich_bare",1],
-			["rhsusf_mich_bare_alt",1],
-			["rhsusf_mich_bare_headset",1],
-			["rhsusf_mich_bare_norotos",1],
-			["rhsusf_mich_bare_norotos_alt",1],
-			["rhsusf_mich_bare_norotos_alt_headset",1],
-			["rhsusf_mich_bare_norotos_arc",1],
-			["rhsusf_mich_bare_norotos_arc_alt",1],
-			["rhsusf_mich_bare_norotos_arc_alt_headset",1],
-			["rhsusf_mich_bare_norotos_arc_headset",1],
-			["rhsusf_mich_bare_norotos_headset",1],
-			["rhsusf_mich_bare_semi",1],
-			["rhsusf_mich_bare_alt_semi",1],
-			["rhsusf_mich_bare_semi_headset",1],
-			["rhsusf_mich_bare_norotos_semi",1],
-			["rhsusf_mich_bare_norotos_alt_semi",1],
-			["rhsusf_mich_bare_norotos_alt_semi_headset",1],
-			["rhsusf_mich_bare_norotos_arc_semi",1],
-			["rhsusf_mich_bare_norotos_arc_alt_semi",1],
-			["rhsusf_mich_bare_norotos_arc_alt_semi_headset",1],
-			["rhsusf_mich_bare_norotos_arc_semi_headset",1],
-			["rhsusf_mich_bare_norotos_semi_headset",1],
-			["rhsusf_mich_bare_tan",1],
-			["rhsusf_mich_bare_alt_tan",1],
-			["rhsusf_mich_bare_tan_headset",1],
-			["rhsusf_mich_bare_norotos_tan",1],
-			["rhsusf_mich_bare_norotos_alt_tan",1],
-			["rhsusf_mich_bare_norotos_alt_tan_headset",1],
-			["rhsusf_mich_bare_norotos_arc_tan",1],
-			["rhsusf_mich_bare_norotos_arc_alt_tan",1],
-			["rhsusf_mich_bare_norotos_arc_alt_tan_headset",1],
-			["rhsusf_mich_bare_norotos_tan_headset",1],
-			["rhsusf_mich_helmet_marpatd",1],
-			["rhsusf_mich_helmet_marpatd_alt",1],
-			["rhsusf_mich_helmet_marpatd_alt_headset",1],
-			["rhsusf_mich_helmet_marpatd_headset",1],
-			["rhsusf_mich_helmet_marpatd_norotos",1],
-			["rhsusf_mich_helmet_marpatd_norotos_arc",1],
-			["rhsusf_mich_helmet_marpatd_norotos_arc_headset",1],
-			["rhsusf_mich_helmet_marpatd_norotos_headset",1],
-			["rhsusf_mich_helmet_marpatwd",1],
-			["rhsusf_mich_helmet_marpatwd_alt",1],
-			["rhsusf_mich_helmet_marpatwd_alt_headset",1],
-			["rhsusf_mich_helmet_marpatwd_headset",1],
-			["rhsusf_mich_helmet_marpatwd_norotos",1],
-			["rhsusf_mich_helmet_marpatwd_norotos_arc",1],
-			["rhsusf_mich_helmet_marpatwd_norotos_arc_headset",1],
-			["rhsusf_mich_helmet_marpatwd_norotos_headset",1],
-			["rhsusf_patrolcap_ocp",1],
-			["rhsusf_patrolcap_ucp",1],
-			["rhsusf_protech_helmet",1],
-			["rhsusf_protech_helmet_ess",1],
-			["rhsusf_protech_helmet_rhino",1],
-			["rhsusf_protech_helmet_rhino_ess",1],
-			["rhs_8point_marpatd",1],
-			["rhs_8point_marpatwd",1],
-			["H_ShemagOpen_khk",1],
-			["H_ShemagOpen_tan",1],
-			["H_Shemag_olive",1],
-			["rhsusf_mbav",1],
-			["rhsusf_mbav_grenadier",1],
-			["rhsusf_mbav_light",1],
-			["rhsusf_mbav_mg",1],
-			["rhsusf_mbav_medic",1],
-			["rhsusf_mbav_rifleman",1],
-			["rhsusf_cvc_green_helmet",1],
-			["rhsusf_cvc_green_alt_helmet",1],
-			["rhsusf_cvc_green_ess",1],
-			["rhsusf_cvc_helmet",1],
-			["rhsusf_cvc_alt_helmet",1],
-			["rhsusf_cvc_ess",1],
-			["rhsusf_hgu56p_black",1],
-			["rhsusf_hgu56p_mask_black",1],
-			["rhsusf_hgu56p_visor_black",1],
-			["rhsusf_hgu56p_visor_mask_black",1],
-			["rhsusf_hgu56p_visor_mask_black_skull",1],
-			["rhsusf_hgu56p_mask_green",1],
-			["rhsusf_hgu56p_visor_green",1],
-			["rhsusf_hgu56p_visor_mask_green",1],
-			["rhsusf_hgu56p",1],
-			["rhsusf_hgu56p_mask",1],
-			["rhsusf_hgu56p_mask_skull",1],
-			["rhsusf_hgu56p_visor",1],
-			["rhsusf_hgu56p_visor_mask",1],
-			["rhsusf_hgu56p_visor_mask_mo",1],
-			["rhsusf_hgu56p_visor_mask_skull",1],
-			["rhsusf_shemagh_grn",1],
-			["rhsusf_shemagh_od",1],
-			["rhsusf_shemagh_tan",1],
-			["rhsusf_shemagh2_tan",1],
-			["rhsusf_shemagh_white",1],
-			["rhsusf_shemagh2_white",1],
-			["rhsusf_shemagh_gogg_grn",1],
-			["rhsusf_shemagh2_gogg_grn",1],
-			["rhsusf_shemagh2_gogg_od",1],
-			["rhsusf_shemagh_gogg_tan",1],
-			["rhsusf_shemagh2_gogg_tan",1],
-			["rhsusf_shemagh_gogg_white",1],
-			["rhsusf_shemagh2_gogg_white",1],
-			["rhsusf_oakley_goggles_blk",1],
-			["rhsusf_oakley_goggles_ylw",1],
-			["rhs_goggles_yellow",1],
-			["rhs_goggles_clear",1],
-			["rhs_ess_black",1]		
+			"rhsusf_ach_bare",
+			"rhsusf_ach_bare_des",
+			"rhsusf_ach_bare_des_ess",
+			"rhsusf_ach_bare_des_headset",
+			"rhsusf_ach_bare_des_headset_ess",
+			"rhsusf_ach_bare_ess",
+			"rhsusf_ach_bare_headset",
+			"rhsusf_ach_bare_headset_ess",
+			"rhsusf_ach_bare_semi",
+			"rhsusf_ach_bare_semi_ess",
+			"rhsusf_ach_bare_semi_headset",
+			"rhsusf_ach_bare_semi_headset_ess",
+			"rhsusf_ach_bare_tan",
+			"rhsusf_ach_bare_tan_ess",
+			"rhsusf_ach_bare_tan_headset",
+			"rhsusf_ach_bare_tan_headset_ess",
+			"rhsusf_ach_bare_wood",
+			"rhsusf_ach_bare_wood_ess",
+			"rhsusf_ach_bare_wood_headset",
+			"rhsusf_ach_bare_wood_headset_ess",
+			"rhsusf_ach_helmet_M81",
+			"rhsusf_ach_helmet_ocp",
+			"rhsusf_ach_helmet_ESS_ocp",
+			"rhsusf_ach_helmet_headset_ocp",
+			"rhsusf_ach_helmet_headset_ess_ocp",
+			"rhsusf_ach_helmet_camo_ocp",
+			"rhsusf_ach_helmet_ocp_norotos",
+			"rhsusf_ach_helmet_ucp",
+			"rhsusf_ach_helmet_ESS_ucp",
+			"rhsusf_ach_helmet_headset_ucp",
+			"rhsusf_ach_helmet_headset_ess_ucp",
+			"rhsusf_ach_helmet_ucp_norotos",
+			"rhs_Booniehat_m81",
+			"rhs_booniehat2_marpatd",
+			"rhs_booniehat2_marpatwd",
+			"rhs_Booniehat_ocp",
+			"rhs_Booniehat_ucp",
+			"rhsusf_Bowman",
+			"rhsusf_bowman_cap",
+			"rhsusf_opscore_aor1",
+			"rhsusf_opscore_aor1_pelt",
+			"rhsusf_opscore_aor1_pelt_nsw",
+			"rhsusf_opscore_aor2",
+			"rhsusf_opscore_aor2_pelt",
+			"rhsusf_opscore_aor2_pelt_nsw",
+			"rhsusf_opscore_bk",
+			"rhsusf_opscore_bk_pelt",
+			"rhsusf_opscore_coy_cover",
+			"rhsusf_opscore_coy_cover_pelt",
+			"rhsusf_opscore_fg",
+			"rhsusf_opscore_fg_pelt",
+			"rhsusf_opscore_fg_pelt_cam",
+			"rhsusf_opscore_fg_pelt_nsw",
+			"rhsusf_opscore_mc_cover",
+			"rhsusf_opscore_mc_cover_pelt",
+			"rhsusf_opscore_mc_cover_pelt_nsw",
+			"rhsusf_opscore_mc_cover_pelt_cam",
+			"rhsusf_opscore_mc",
+			"rhsusf_opscore_mc_pelt",
+			"rhsusf_opscore_mc_pelt_nsw",
+			"rhsusf_opscore_paint",
+			"rhsusf_opscore_paint_pelt",
+			"rhsusf_opscore_paint_pelt_nsw",
+			"rhsusf_opscore_paint_pelt_nsw_cam",
+			"rhsusf_opscore_rg_cover",
+			"rhsusf_opscore_rg_cover_pelt",
+			"rhsusf_opscore_ut",
+			"rhsusf_opscore_ut_pelt",
+			"rhsusf_opscore_ut_pelt_cam",
+			"rhsusf_opscore_ut_pelt_nsw",
+			"rhsusf_opscore_ut_pelt_nsw_cam",
+			"rhsusf_opscore_mar_fg",
+			"rhsusf_opscore_mar_fg_pelt",
+			"rhsusf_opscore_mar_ut",
+			"rhsusf_opscore_mar_ut_pelt",
+			"rhsusf_lwh_helmet_M1942",
+			"rhsusf_lwh_helmet_marpatd",
+			"rhsusf_lwh_helmet_marpatd_ess",
+			"rhsusf_lwh_helmet_marpatd_headset",
+			"rhsusf_lwh_helmet_marpatwd",
+			"rhsusf_lwh_helmet_marpatwd_blk_ess",
+			"rhsusf_lwh_helmet_marpatwd_headset_blk",
+			"rhsusf_lwh_helmet_marpatwd_headset",
+			"rhsusf_lwh_helmet_marpatwd_ess",
+			"rhsusf_mich_bare",
+			"rhsusf_mich_bare_alt",
+			"rhsusf_mich_bare_headset",
+			"rhsusf_mich_bare_norotos",
+			"rhsusf_mich_bare_norotos_alt",
+			"rhsusf_mich_bare_norotos_alt_headset",
+			"rhsusf_mich_bare_norotos_arc",
+			"rhsusf_mich_bare_norotos_arc_alt",
+			"rhsusf_mich_bare_norotos_arc_alt_headset",
+			"rhsusf_mich_bare_norotos_arc_headset",
+			"rhsusf_mich_bare_norotos_headset",
+			"rhsusf_mich_bare_semi",
+			"rhsusf_mich_bare_alt_semi",
+			"rhsusf_mich_bare_semi_headset",
+			"rhsusf_mich_bare_norotos_semi",
+			"rhsusf_mich_bare_norotos_alt_semi",
+			"rhsusf_mich_bare_norotos_alt_semi_headset",
+			"rhsusf_mich_bare_norotos_arc_semi",
+			"rhsusf_mich_bare_norotos_arc_alt_semi",
+			"rhsusf_mich_bare_norotos_arc_alt_semi_headset",
+			"rhsusf_mich_bare_norotos_arc_semi_headset",
+			"rhsusf_mich_bare_norotos_semi_headset",
+			"rhsusf_mich_bare_tan",
+			"rhsusf_mich_bare_alt_tan",
+			"rhsusf_mich_bare_tan_headset",
+			"rhsusf_mich_bare_norotos_tan",
+			"rhsusf_mich_bare_norotos_alt_tan",
+			"rhsusf_mich_bare_norotos_alt_tan_headset",
+			"rhsusf_mich_bare_norotos_arc_tan",
+			"rhsusf_mich_bare_norotos_arc_alt_tan",
+			"rhsusf_mich_bare_norotos_arc_alt_tan_headset",
+			"rhsusf_mich_bare_norotos_tan_headset",
+			"rhsusf_mich_helmet_marpatd",
+			"rhsusf_mich_helmet_marpatd_alt",
+			"rhsusf_mich_helmet_marpatd_alt_headset",
+			"rhsusf_mich_helmet_marpatd_headset",
+			"rhsusf_mich_helmet_marpatd_norotos",
+			"rhsusf_mich_helmet_marpatd_norotos_arc",
+			"rhsusf_mich_helmet_marpatd_norotos_arc_headset",
+			"rhsusf_mich_helmet_marpatd_norotos_headset",
+			"rhsusf_mich_helmet_marpatwd",
+			"rhsusf_mich_helmet_marpatwd_alt",
+			"rhsusf_mich_helmet_marpatwd_alt_headset",
+			"rhsusf_mich_helmet_marpatwd_headset",
+			"rhsusf_mich_helmet_marpatwd_norotos",
+			"rhsusf_mich_helmet_marpatwd_norotos_arc",
+			"rhsusf_mich_helmet_marpatwd_norotos_arc_headset",
+			"rhsusf_mich_helmet_marpatwd_norotos_headset",
+			"rhsusf_patrolcap_ocp",
+			"rhsusf_patrolcap_ucp",
+			"rhsusf_protech_helmet",
+			"rhsusf_protech_helmet_ess",
+			"rhsusf_protech_helmet_rhino",
+			"rhsusf_protech_helmet_rhino_ess",
+			"rhs_8point_marpatd",
+			"rhs_8point_marpatwd",
+			"H_ShemagOpen_khk",
+			"H_ShemagOpen_tan",
+			"H_Shemag_olive",
+			"rhsusf_mbav",
+			"rhsusf_mbav_grenadier",
+			"rhsusf_mbav_light",
+			"rhsusf_mbav_mg",
+			"rhsusf_mbav_medic",
+			"rhsusf_mbav_rifleman",
+			"rhsusf_cvc_green_helmet",
+			"rhsusf_cvc_green_alt_helmet",
+			"rhsusf_cvc_green_ess",
+			"rhsusf_cvc_helmet",
+			"rhsusf_cvc_alt_helmet",
+			"rhsusf_cvc_ess",
+			"rhsusf_hgu56p_black",
+			"rhsusf_hgu56p_mask_black",
+			"rhsusf_hgu56p_visor_black",
+			"rhsusf_hgu56p_visor_mask_black",
+			"rhsusf_hgu56p_visor_mask_black_skull",
+			"rhsusf_hgu56p_mask_green",
+			"rhsusf_hgu56p_visor_green",
+			"rhsusf_hgu56p_visor_mask_green",
+			"rhsusf_hgu56p",
+			"rhsusf_hgu56p_mask",
+			"rhsusf_hgu56p_mask_skull",
+			"rhsusf_hgu56p_visor",
+			"rhsusf_hgu56p_visor_mask",
+			"rhsusf_hgu56p_visor_mask_mo",
+			"rhsusf_hgu56p_visor_mask_skull",
+			"rhsusf_shemagh_grn",
+			"rhsusf_shemagh_od",
+			"rhsusf_shemagh_tan",
+			"rhsusf_shemagh2_tan",
+			"rhsusf_shemagh_white",
+			"rhsusf_shemagh2_white",
+			"rhsusf_shemagh_gogg_grn",
+			"rhsusf_shemagh2_gogg_grn",
+			"rhsusf_shemagh2_gogg_od",
+			"rhsusf_shemagh_gogg_tan",
+			"rhsusf_shemagh2_gogg_tan",
+			"rhsusf_shemagh_gogg_white",
+			"rhsusf_shemagh2_gogg_white",
+			"rhsusf_oakley_goggles_blk",
+			"rhsusf_oakley_goggles_ylw",
+			"rhs_goggles_yellow",
+			"rhs_goggles_clear",
+			"rhs_ess_black"		
 		],
 		// corporal uniforms
 		[
 		],
 		// sergeant uniforms
 		[
-			["rhsusf_spcs_ocp",1],
-			["rhsusf_spcs_ocp_rifleman",1],
-			["rhsusf_spcs_ucp_rifleman",1],
-			["rhsusf_spcs_ucp",1],		
-			["rhsusf_spc",1],
-			["rhsusf_spc_corpsman",1],
-			["rhsusf_spc_crewman",1],
-			["rhsusf_spc_iar",1],
-			["rhsusf_spc_light",1],
-			["rhsusf_spc_mg",1],
-			["rhsusf_spc_marksman",1],
-			["rhsusf_spc_patchless",1],
-			["rhsusf_spc_patchless_radio",1],
-			["rhsusf_spc_rifleman",1],
-			["rhsusf_spc_squadleader",1],
-			["rhsusf_spc_teamleader",1]	
+			"rhsusf_spcs_ocp",
+			"rhsusf_spcs_ocp_rifleman",
+			"rhsusf_spcs_ucp_rifleman",
+			"rhsusf_spcs_ucp",		
+			"rhsusf_spc",
+			"rhsusf_spc_corpsman",
+			"rhsusf_spc_crewman",
+			"rhsusf_spc_iar",
+			"rhsusf_spc_light",
+			"rhsusf_spc_mg",
+			"rhsusf_spc_marksman",
+			"rhsusf_spc_patchless",
+			"rhsusf_spc_patchless_radio",
+			"rhsusf_spc_rifleman",
+			"rhsusf_spc_squadleader",
+			"rhsusf_spc_teamleader"	
 		],
 		// lieutenant uniforms
 		[
@@ -839,12 +771,12 @@ private _all_weapons_items = [
 		],
 		// major uniforms
 		[
-			["U_B_GhillieSuit",1]
+			"U_B_GhillieSuit"
 		],
 		// colonel uniforms
 		[
-			["U_B_FullGhillie_sard",1],
-			["U_B_FullGhillie_ard",1]
+			"U_B_FullGhillie_sard",
+			"U_B_FullGhillie_ard"
 		]
 	],
 	// additional weapons and items, no rank
@@ -853,29 +785,26 @@ private _all_weapons_items = [
 		"ITEMS",
 
 		[
-
-
-
-			["MineDetector",1,true],
-			["Binocular",1,true], 
-			["FirstAidKit",1,true],
-			["Medikit",1,true],
-			["ToolKit",1,true],
-			["B_UavTerminal",1,true],
-			["B_UAV_01_backpack_F",1,true]
+			"MineDetector",
+			"Binocular", 
+			"FirstAidKit",
+			"Medikit",
+			"ToolKit",
+			"B_UavTerminal",
+			"B_UAV_01_backpack_F"
 		],
 		// corporal items
 		[
-			["lerca_1200_black",1,true],
-			["lerca_1200_tan",1,true],
-			["Leupold_Mk4",1,true]
+			"lerca_1200_black",
+			"lerca_1200_tan",
+			"Leupold_Mk4"
 		],
 		// sergeant items
 		[
 		],
 		// lieutenant items
 		[
-			["Rangefinder",1,true]
+			"Rangefinder"
 		],
 		// captain items
 		[
@@ -888,179 +817,110 @@ private _all_weapons_items = [
 		]
 	]
 ];
-#endif
 
-#ifdef __OWN_SIDE_OPFOR__
-private _helipilotgear = [];
-private _helipilothelmet = [];
-if (d_pilots_only == 1) then {
-	_helipilotgear = ["U_O_HeliPilotCoveralls",1,true];
-	_helipilothelmet = ["H_PilotHelmetFighter_O",1,true];
-} else {
-	if (d_only_pilots_can_fly isEqualTo []) then {
-		_helipilotgear = ["U_O_HeliPilotCoveralls",1,true];
-		_helipilothelmet = ["H_PilotHelmetFighter_O",1,true];
-	} else {
-		if (str player in d_only_pilots_can_fly) then {
-			_helipilotgear = ["U_O_HeliPilotCoveralls",1,true];
-			_helipilothelmet = ["H_PilotHelmetFighter_O",1,true];
-		};
-	};
-};
-
-private _all_weapons_items = [
+private _all_weapons_items_opfor = [
 	[
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"RIFLES",
 		// private rifles
 		[
-			["rhs_weap_ak74",1,true],
-			["rhs_weap_aks74n",1,true]		
+			"rhs_weap_ak74",
+			"rhs_weap_aks74n"		
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			["hgun_Pistol_heavy_01_F",1,true],
-			["hgun_Pistol_heavy_01_snds_F",1,true],
-			["rhs_weap_m38_rail",1,true],
-			["rhs_weap_ak74_3",1,true],
-			["rhs_weap_ak74_2",1,true],
-			["rhs_weap_aks74",1,true],
-			["rhs_weap_ak74n_2_npz",1,true],
-			["rhs_weap_aks74_2",1,true],
-			["rhs_weap_aks74u",1,true],
-			["rhs_weap_ak74m_camo",1,true],
-			["rhs_weap_ak74m_camo_dtk",1,true],
-			["rhs_weap_ak74m_plummag",1,true],
-			["rhs_weap_ak74m_plummag_dtk",1,true],
-			["rhs_weap_ak74m_desert",1,true],
-			["rhs_weap_ak74m_desert_dtk",1,true],
-			["rhs_weap_ak74m_fullplum",1,true],
-			["rhs_weap_ak74m_fullplum_dtk",1,true],
-			["rhs_weap_ak74m_2mag",1,true],
-			["rhs_weap_ak74m_2mag_dtk",1,true],
-			["rhs_weap_ak74m_2mag_camo",1,true],
-			["rhs_weap_ak74m_2mag_camo_dtk",1,true],
-			["rhs_weap_ak74m",1,true],
-			["rhs_weap_ak74m_dtk",1,true],
-			["rhs_weap_45th_ak74m",1,true]
+			"hgun_Pistol_heavy_01_F",
+			"hgun_Pistol_heavy_01_snds_F",
+			"rhs_weap_m38_rail",
+			"rhs_weap_ak74_3",
+			"rhs_weap_ak74_2",
+			"rhs_weap_aks74",
+			"rhs_weap_ak74n_2_npz",
+			"rhs_weap_aks74_2",
+			"rhs_weap_aks74u",
+			"rhs_weap_ak74m_camo",
+			"rhs_weap_ak74m_camo_dtk",
+			"rhs_weap_ak74m_plummag",
+			"rhs_weap_ak74m_plummag_dtk",
+			"rhs_weap_ak74m_desert",
+			"rhs_weap_ak74m_desert_dtk",
+			"rhs_weap_ak74m_fullplum",
+			"rhs_weap_ak74m_fullplum_dtk",
+			"rhs_weap_ak74m_2mag",
+			"rhs_weap_ak74m_2mag_dtk",
+			"rhs_weap_ak74m_2mag_camo",
+			"rhs_weap_ak74m_2mag_camo_dtk",
+			"rhs_weap_ak74m",
+			"rhs_weap_ak74m_dtk",
+			"rhs_weap_45th_ak74m"
 			
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[			
-			["rhs_weap_akmn_gp25",1,true],
-			["rhs_weap_akmn_gp25_npz",1,true],
-			["rhs_weap_ak74m_gp25_npz",1,true],
-			["rhs_weap_ak74mr_gp25",1,true],
-			["rhs_weap_ak74m_fullplum_gp25_npz",1,true],
-			["rhs_weap_ak103_zenitco01",1,true],
-			["rhs_weap_ak103_zenitco01_b33",1,true],
-			["rhs_weap_ak104_zenitco01",1,true],
-			["rhs_weap_ak104_zenitco01_b33",1,true],
-			["rhs_weap_ak103",1,true],
-			["rhs_weap_ak103_dtk",1,true],
-			["rhs_weap_45th_ak103",1,true],
-			["rhs_weap_ak103_1_npz",1,true],
-			["rhs_weap_ak103_2_npz",1,true],
-			["rhs_weap_ak103_npz",1,true],
-			["rhs_weap_ak104_npz",1,true],
-			["rhs_weap_ak105_npz",1,true],			
-			["rhs_weap_ak103_1",1,true],
-			["rhs_weap_ak103_1_dtk",1,true],
-			["rhs_weap_ak103_2",1,true],
-			["rhs_weap_ak103_2_dtk",1,true],
-			["rhs_weap_akms_gp25",1,true],
-			["rhs_weap_akm_gp25",1,true],
-			["rhs_weap_45th_akm_gp25",1,true],
-			["rhs_weap_aks74n_gp25",1,true],
-			["rhs_weap_aks74_gp25",1,true],
-			["rhs_weap_ak103_gp25",1,true],
-			["rhs_weap_ak74m_gp25",1,true],
-			["rhs_weap_ak74m_gp25_dtk",1,true],
-			["rhs_weap_ak74m_fullplum_gp25",1,true],
-			["rhs_weap_ak74m_fullplum_gp25_dtk",1,true],
-			["rhs_weap_ak74_gp25",1,true],
-			["rhs_weap_ak74m_fullplum_gp25_folded",1,true],
-			["rhs_weap_ak74m_fullplum_gp25_npz_dtk",1,true],
-			["rhs_weap_ak74m_gp25_folded",1,true],
-			["rhs_weap_m84",1,true],
-			["rhs_weap_asval",1,true],
-			["rhs_weap_asval_grip",1,true],
-			["rhs_weap_vss",1,true],
-			["rhs_weap_vss_grip",1,true],
-			["rhs_weap_pkm",1,true]
+			"rhs_weap_akmn_gp25",
+			"rhs_weap_akmn_gp25_npz",
+			"rhs_weap_ak74m_gp25_npz",
+			"rhs_weap_ak74mr_gp25",
+			"rhs_weap_ak74m_fullplum_gp25_npz",
+			"rhs_weap_ak103_zenitco01",
+			"rhs_weap_ak103_zenitco01_b33",
+			"rhs_weap_ak104_zenitco01",
+			"rhs_weap_ak104_zenitco01_b33",
+			"rhs_weap_ak103",
+			"rhs_weap_ak103_dtk",
+			"rhs_weap_45th_ak103",
+			"rhs_weap_ak103_1_npz",
+			"rhs_weap_ak103_2_npz",
+			"rhs_weap_ak103_npz",
+			"rhs_weap_ak104_npz",
+			"rhs_weap_ak105_npz",			
+			"rhs_weap_ak103_1",
+			"rhs_weap_ak103_1_dtk",
+			"rhs_weap_ak103_2",
+			"rhs_weap_ak103_2_dtk",
+			"rhs_weap_akms_gp25",
+			"rhs_weap_akm_gp25",
+			"rhs_weap_45th_akm_gp25",
+			"rhs_weap_aks74n_gp25",
+			"rhs_weap_aks74_gp25",
+			"rhs_weap_ak103_gp25",
+			"rhs_weap_ak74m_gp25",
+			"rhs_weap_ak74m_gp25_dtk",
+			"rhs_weap_ak74m_fullplum_gp25",
+			"rhs_weap_ak74m_fullplum_gp25_dtk",
+			"rhs_weap_ak74_gp25",
+			"rhs_weap_ak74m_fullplum_gp25_folded",
+			"rhs_weap_ak74m_fullplum_gp25_npz_dtk",
+			"rhs_weap_ak74m_gp25_folded",
+			"rhs_weap_m84",
+			"rhs_weap_asval",
+			"rhs_weap_asval_grip",
+			"rhs_weap_vss",
+			"rhs_weap_vss_grip",
+			"rhs_weap_pkm"
 		],
 		// lieutenant rifles (gets added to...)
 		[		
-			["rhs_weap_ak74m_zenitco01_b33",1,true],
-			["rhs_weap_ak74m_zenitco01",1,true],
-			["rhs_weap_ak105_zenitco01",1,true],
-			["rhs_weap_ak105_zenitco01_b33",1,true],
-			["rhs_weap_pkp",1,true],
-			["rhs_weap_svdp",1,true],
-			["rhs_weap_svdp_wd",1,true],
-			["rhs_weap_svds",1,true],
-			["arifle_AK12_F",1,true],
-			["arifle_AK12_GL_F",1,true]
+			"rhs_weap_ak74m_zenitco01_b33",
+			"rhs_weap_ak74m_zenitco01",
+			"rhs_weap_ak105_zenitco01",
+			"rhs_weap_ak105_zenitco01_b33",
+			"rhs_weap_pkp",
+			"rhs_weap_svdp",
+			"rhs_weap_svdp_wd",
+			"rhs_weap_svds",
+			"arifle_AK12_F",
+			"arifle_AK12_GL_F"
 		],
 		// captain rifles (gets added...)
 		[		
-			["rhs_weap_savz61",1,true]
+			"rhs_weap_savz61"
 		],
 		// major rifles (gets...)
 		[		
-			["rhs_weap_t5000",1]
+			"rhs_weap_t5000"
 		],
 		// colonel rifles (...)
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-		],
-		// sergeant MG
-		[
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-		],
-		// major MG
-		[
-		],
-		// colonel MG
 		[
 		]
 	],
@@ -1069,25 +929,25 @@ private _all_weapons_items = [
 		"LAUNCHERS",
 		// private launchers
 		[			
-			["rhs_weap_igla",1],
-			["rhs_weap_rshg2",1],
-			["rhs_weap_rpg26",1]
+			"rhs_weap_igla",
+			"rhs_weap_rshg2",
+			"rhs_weap_rpg26"
 		],
 		// corporal launchers
 		[
-			["rhs_weap_rpg7",1]
+			"rhs_weap_rpg7"
 		],
 		// sergeant launchers
 		[
 		],
 		// lieutenant launchers
 		[
-			["rhs_weap_smaw",1,true],
-			["rhs_weap_smaw_green",1,true]
+			"rhs_weap_smaw",
+			"rhs_weap_smaw_green"
 		],
 		// capain launchers
 		[
-			["rhs_weap_maaws",1,true]
+			"rhs_weap_maaws"
 		],
 		// major launchers
 		[
@@ -1102,21 +962,21 @@ private _all_weapons_items = [
 		"PISTOLS",
 		// private pistols
 		[	
-			["rhs_weap_tr8",1,true]
+			"rhs_weap_tr8"
 		],
 		// corporal pistols
 		[
-			["rhs_weap_makarov_pm",1,true]
+			"rhs_weap_makarov_pm"
 		],
 		// sergeant pistols
 		[
-			["rhs_weap_pb_6p9",1,true],
-			["rhs_weap_pya",1,true]
+			"rhs_weap_pb_6p9",
+			"rhs_weap_pya"
 		],
 		// lieutenant pistols
 		[
-			["rhs_weap_tt33",1,true],
-			["rhs_weap_pp2000",1,true]
+			"rhs_weap_tt33",
+			"rhs_weap_pp2000"
 		],
 		// captain pistols
 		[
@@ -1139,95 +999,95 @@ private _all_weapons_items = [
 		],
 		// corporal optics
 		[
-			["optic_ACO_grn",1,true],
-			["optic_aco",1,true],
-			["optic_ACO_grn_smg",1,true],
-			["optic_Aco_smg",1,true],
-			["rhsusf_acc_compm4",1,true],
-			["rhsusf_acc_eotech_xps3",1,true],
-			["rhsusf_acc_EOTECH",1,true],
-			["rhsusf_acc_T1_high",1,true],
-			["rhsusf_acc_T1_low",1,true],
-			["rhsusf_acc_T1_low_fwd",1,true],
-			["acc_pointer_IR",1,true],
-			["rhsusf_acc_wmx",1,true],
-			["rhsusf_acc_wmx_bk",1,true],
-			["rhsusf_acc_M952V",1,true],
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_ACO_grn_smg",
+			"optic_Aco_smg",
+			"rhsusf_acc_compm4",
+			"rhsusf_acc_eotech_xps3",
+			"rhsusf_acc_EOTECH",
+			"rhsusf_acc_T1_high",
+			"rhsusf_acc_T1_low",
+			"rhsusf_acc_T1_low_fwd",
+			"acc_pointer_IR",
+			"rhsusf_acc_wmx",
+			"rhsusf_acc_wmx_bk",
+			"rhsusf_acc_M952V",
 			
-			["rhs_acc_ekp8_02",1,true],
-			["rhs_acc_ekp8_18",1,true],
-			["rhs_acc_1p87",1,true],
-			["rhs_acc_ekp1",1,true],
-			["rhs_acc_pkas",1,true],
-			["rhs_acc_1p63",1,true],
-            ["rhs_acc_rakursPM",1,true]
+			"rhs_acc_ekp8_02",
+			"rhs_acc_ekp8_18",
+			"rhs_acc_1p87",
+			"rhs_acc_ekp1",
+			"rhs_acc_pkas",
+			"rhs_acc_1p63",
+            "rhs_acc_rakursPM"
 		],
 		// sergeant optics
 		[
-			["rhsusf_acc_ACOG2_USMC",1,true],
-			["rhsusf_acc_ACOG3_USMC",1,true],
-			["rhsusf_acc_ACOG_USMC",1,true],
-			["rhs_weap_optic_smaw",1,true],
-			["rhsusf_acc_g33_t1",1,true],
-			["rhsusf_acc_g33_xps3",1,true],
-			["rhsusf_acc_g33_xps3_tan",1,true],
-			["rhsusf_acc_ACOG",1,true],
-			["rhsusf_acc_ACOG2",1,true],
-			["rhsusf_acc_ACOG3",1,true],
-			["rhsusf_acc_ACOG_anpvs27",1,true],
-			["rhsusf_acc_ACOG_MDO",1,true],
-			["rhsusf_acc_ACOG_d",1,true],
-			["rhsusf_acc_ACOG_wd",1,true],
-			["rhsusf_acc_ACOG_RMR",1,true],
-			["rhsusf_acc_SpecterDR",1,true],
-			["rhsusf_acc_SpecterDR_OD",1,true],
-			["rhsusf_acc_SpecterDR_D",1,true],
-			["rhsusf_acc_SpecterDR_A",1,true],
-			["acc_flashlight",1,true],["optic_Holosight_smg",1,true],
+			"rhsusf_acc_ACOG2_USMC",
+			"rhsusf_acc_ACOG3_USMC",
+			"rhsusf_acc_ACOG_USMC",
+			"rhs_weap_optic_smaw",
+			"rhsusf_acc_g33_t1",
+			"rhsusf_acc_g33_xps3",
+			"rhsusf_acc_g33_xps3_tan",
+			"rhsusf_acc_ACOG",
+			"rhsusf_acc_ACOG2",
+			"rhsusf_acc_ACOG3",
+			"rhsusf_acc_ACOG_anpvs27",
+			"rhsusf_acc_ACOG_MDO",
+			"rhsusf_acc_ACOG_d",
+			"rhsusf_acc_ACOG_wd",
+			"rhsusf_acc_ACOG_RMR",
+			"rhsusf_acc_SpecterDR",
+			"rhsusf_acc_SpecterDR_OD",
+			"rhsusf_acc_SpecterDR_D",
+			"rhsusf_acc_SpecterDR_A",
+			"acc_flashlight","optic_Holosight_smg",
 			
-			["rhs_acc_pgo7v",1,true],
-			["rhs_acc_pso1m2",1,true],
-			["rhs_acc_pgo7v2",1,true],
-			["rhs_acc_pgo7v3",1,true],
-			["rhs_acc_1p29",1,true]
+			"rhs_acc_pgo7v",
+			"rhs_acc_pso1m2",
+			"rhs_acc_pgo7v2",
+			"rhs_acc_pgo7v3",
+			"rhs_acc_1p29"
 
 		],
 		// lieutenant optics
 		[
-			["rhsusf_acc_LEUPOLDMK4",1,true],
-			["rhsusf_acc_LEUPOLDMK4_2",1,true],
-			["rhsusf_acc_LEUPOLDMK4_2_d",1,true],
-			["rhs_optic_maaws",1,true],
-			["rhsusf_acc_M8541",1,true],
-			["rhsusf_acc_M8541_low",1,true],
-			["rhsusf_acc_M8541_low_d",1,true],
-			["rhsusf_acc_M8541_low_wd",1,true],
-			["rhsusf_acc_premier_low",1,true],
-			["rhsusf_acc_premier_anpvs27",1,true],
-			["rhsusf_acc_premier",1,true],
-			["optic_MRD",1,true],["optic_MRCO",1,true],
-			["optic_ERCO_khk_F",1,true],
-			["optic_ERCO_blk_F",1,true],
-			["optic_ERCO_snd_F",1,true],
+			"rhsusf_acc_LEUPOLDMK4",
+			"rhsusf_acc_LEUPOLDMK4_2",
+			"rhsusf_acc_LEUPOLDMK4_2_d",
+			"rhs_optic_maaws",
+			"rhsusf_acc_M8541",
+			"rhsusf_acc_M8541_low",
+			"rhsusf_acc_M8541_low_d",
+			"rhsusf_acc_M8541_low_wd",
+			"rhsusf_acc_premier_low",
+			"rhsusf_acc_premier_anpvs27",
+			"rhsusf_acc_premier",
+			"optic_MRD","optic_MRCO",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_ERCO_snd_F",
 			
-			["rhs_acc_pso1m21",1,true],
-			["rhs_acc_1p78",1,true]
+			"rhs_acc_pso1m21",
+			"rhs_acc_1p78"
 		],
 		// captain optics
 		[
-			["optic_Aco",1,true],["optic_ACO_grn",1,true],["optic_Arco",1,true],["optic_Hamr",1,true],
-			["rhsusf_acc_anpas13gv1",1,true],
-			["rhsusf_acc_anpvs27",1,true],
+			"optic_Aco","optic_ACO_grn","optic_Arco","optic_Hamr",
+			"rhsusf_acc_anpas13gv1",
+			"rhsusf_acc_anpvs27",
 			
-			["rhs_acc_dh520x56",1,true]
+			"rhs_acc_dh520x56"
 		],
 		// major optics
 		[
-			["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
+			"optic_Aco_smg", "optic_ACO_grn_smg", "optic_tws", "optic_tws_mg", "optic_DMS"
 		],
 		// colonel optics
 		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS"
 		]
 	],
 	[
@@ -1236,89 +1096,89 @@ private _all_weapons_items = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private muzzles
 		[
-			["rhsusf_acc_SF3P556",1,true],
-			["rhsusf_acc_SFMB556",1,true],
+			"rhsusf_acc_SF3P556",
+			"rhsusf_acc_SFMB556",
 			
-			["rhs_acc_dtk",1,true],
-			["rhs_acc_dtk1l",1,true],
-			["rhs_acc_dtk1p",1,true],
-			["rhs_acc_dtk1",1,true],
-			["rhs_acc_dtk2",1,true],
-			["rhs_acc_dtk3",1,true]
+			"rhs_acc_dtk",
+			"rhs_acc_dtk1l",
+			"rhs_acc_dtk1p",
+			"rhs_acc_dtk1",
+			"rhs_acc_dtk2",
+			"rhs_acc_dtk3"
 		],
 		// corporal muzzles
 		[
-			["rhsusf_acc_grip2",1,true],
-			["rhsusf_acc_grip2_tan",1,true],
-			["rhsusf_acc_grip1",1,true],
-			["rhsusf_acc_rotex_mp7_aor1",1,true],
-			["rhsusf_acc_rotex_mp7",1,true],
-			["rhsusf_acc_rotex_mp7_desert",1,true],
-			["rhsusf_acc_rotex_mp7_winter",1,true],
-			["rhsusf_acc_grip4",1,true],
-			["rhsusf_acc_SR25S",1,true],
-			["rhsusf_acc_grip3",1,true],
-			["rhsusf_acc_grip3_tan",1,true],
-			["rhsusf_acc_M2010S",1,true],
-			["rhs_acc_dtk1983",1,true],
-			["rhsusf_Rhino",1,true],
-			["rhs_acc_pgs64",1,true],
-			["rhs_acc_pgs64_74u",1,true],
-			["rhs_acc_pgs64_74un",1,true],
-			["rhs_acc_ak5",1,true],
-			["rhs_acc_perst1ik",1,true],
-			["rhs_acc_perst1ik_ris",1,true],
-			["rhs_acc_perst3",1,true],
-			["rhs_acc_perst3_top",1,true],
-			["rhs_acc_perst3_2dp_h",1,true],
-			["rhs_acc_perst3_2dp_light_h",1,true],
-			["rhs_acc_2dpZenit",1,true],
-			["rhs_acc_2dpZenit_ris",1,true],
-			["rhs_acc_grip_rk2",1,true],
-			["rhs_acc_grip_rk6",1,true]			
+			"rhsusf_acc_grip2",
+			"rhsusf_acc_grip2_tan",
+			"rhsusf_acc_grip1",
+			"rhsusf_acc_rotex_mp7_aor1",
+			"rhsusf_acc_rotex_mp7",
+			"rhsusf_acc_rotex_mp7_desert",
+			"rhsusf_acc_rotex_mp7_winter",
+			"rhsusf_acc_grip4",
+			"rhsusf_acc_SR25S",
+			"rhsusf_acc_grip3",
+			"rhsusf_acc_grip3_tan",
+			"rhsusf_acc_M2010S",
+			"rhs_acc_dtk1983",
+			"rhsusf_Rhino",
+			"rhs_acc_pgs64",
+			"rhs_acc_pgs64_74u",
+			"rhs_acc_pgs64_74un",
+			"rhs_acc_ak5",
+			"rhs_acc_perst1ik",
+			"rhs_acc_perst1ik_ris",
+			"rhs_acc_perst3",
+			"rhs_acc_perst3_top",
+			"rhs_acc_perst3_2dp_h",
+			"rhs_acc_perst3_2dp_light_h",
+			"rhs_acc_2dpZenit",
+			"rhs_acc_2dpZenit_ris",
+			"rhs_acc_grip_rk2",
+			"rhs_acc_grip_rk6"			
 		],
 		// sergeant muzzles
 		[
-			["muzzle_snds_B",1,true],
-			["acc_flashlight",1,true],
-			["rhsusf_acc_anpeq15side",1,true],
-			["rhsusf_acc_anpeq15_top",1,true],
-			["rhsusf_acc_anpeq15_wmx_light",1,true],
-			["rhsusf_acc_anpeq15_wmx",1,true],
-			["rhsusf_acc_anpeq15side_bk",1,true],
-			["rhsusf_acc_anpeq15_bk_top",1,true],
-			["rhsusf_acc_anpeq15",1,true],
-			["rhsusf_acc_anpeq15_light",1,true],
-			["rhsusf_acc_anpeq15_bk_light",1,true],
-			["rhsusf_acc_anpeq15_bk",1,true],
-			["rhsusf_acc_anpeq15A",1,true],
-			["rhsusf_acc_harris_bipod",1,true],
-			["rhsusf_acc_nt4_tan",1,true],
-			["rhsusf_acc_nt4_black",1,true],
-			["rhsusf_acc_rotex5_tan",1,true],
-			["rhsusf_acc_rotex5_grey",1,true],
-			["rhsusf_acc_omega9k",1,true],
-			["acc_flashlight_pistol",1,true],
-			["rhs_acc_dtk4long",1,true],
-			["rhs_acc_dtk4screws",1,true],
-			["rhs_acc_dtk4short",1,true],
-			["rhs_acc_tgpa",1,true],
-			["rhs_acc_tgpv",1,true],
-			["rhs_acc_tgpv2",1,true],
-			["rhs_acc_pbs1",1,true],
-			["rhs_acc_pbs4",1,true],
-			["rhs_acc_harris_swivel",1,true]
+			"muzzle_snds_B",
+			"acc_flashlight",
+			"rhsusf_acc_anpeq15side",
+			"rhsusf_acc_anpeq15_top",
+			"rhsusf_acc_anpeq15_wmx_light",
+			"rhsusf_acc_anpeq15_wmx",
+			"rhsusf_acc_anpeq15side_bk",
+			"rhsusf_acc_anpeq15_bk_top",
+			"rhsusf_acc_anpeq15",
+			"rhsusf_acc_anpeq15_light",
+			"rhsusf_acc_anpeq15_bk_light",
+			"rhsusf_acc_anpeq15_bk",
+			"rhsusf_acc_anpeq15A",
+			"rhsusf_acc_harris_bipod",
+			"rhsusf_acc_nt4_tan",
+			"rhsusf_acc_nt4_black",
+			"rhsusf_acc_rotex5_tan",
+			"rhsusf_acc_rotex5_grey",
+			"rhsusf_acc_omega9k",
+			"acc_flashlight_pistol",
+			"rhs_acc_dtk4long",
+			"rhs_acc_dtk4screws",
+			"rhs_acc_dtk4short",
+			"rhs_acc_tgpa",
+			"rhs_acc_tgpv",
+			"rhs_acc_tgpv2",
+			"rhs_acc_pbs1",
+			"rhs_acc_pbs4",
+			"rhs_acc_harris_swivel"
 		],
 		// lieutenant muzzles
 		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
+			"muzzle_snds_H","muzzle_snds_L", "muzzle_snds_M", "muzzle_snds_acp"
 		],
 		// captain muzzles
 		[
 		],
 		// major muzzles
 		[
-			["muzzle_snds_H_MG",1, true]
+			"muzzle_snds_H_MG"
 		],
 		// colonel muzzles
 		[
@@ -1330,226 +1190,226 @@ private _all_weapons_items = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			["rhs_uniform_gorka_r_y",1],
-			["rhs_uniform_gorka_r_g",1],
-			["rhs_uniform_mflora_patchless",1],
-			["rhs_uniform_vdv_mflora",1],
-			["rhs_uniform_df15",1],
-			["rhs_uniform_df15_tan",1],
-			["rhs_uniform_emr_patchless",1],
-			["rhs_uniform_vdv_emr",1],
-			["rhs_uniform_msv_emr",1],
-			["rhs_uniform_emr_des_patchless",1],
-			["rhs_uniform_vdv_emr_des",1],
-			["rhs_uniform_mvd_izlom",1],
-			["rhs_uniform_m88_patchless",1],
-			["rhs_uniform_flora_patchless",1],
-			["rhs_uniform_vdv_flora",1],
-			["rhs_uniform_vmf_flora",1],
-			["rhs_uniform_vmf_flora_subdued",1],
-			["rhs_uniform_flora",1],
-			["rhs_uniform_rva_flora",1],
-			["rhs_uniform_flora_patchless_alt",1],
-			["rhs_6b23",1],
-			["rhs_6b23_ML",1],
-			["rhs_6b23_ML_vydra_3m",1],
-			["rhs_6b23_ML_engineer",1],
-			["rhs_6b23_ML_medic",1],
-			["rhs_6b23_ML_crewofficer",1],
-			["rhs_6b23_ML_sniper",1],
-			["rhs_6b23_ML_rifleman",1],
-			["rhs_6b23_ML_crew",1],
-			["rhs_6b23_ML_6sh92",1],
-			["rhs_6b23_ML_6sh92_vog",1],
-			["rhs_6b23_ML_6sh92_vog_headset",1],
-			["rhs_6b23_ML_6sh92_radio",1],
-			["rhs_6b23_ML_6sh92_headset",1],
-			["rhs_6b23_ML_6sh92_headset_mapcase",1],
-			["rhs_6b23_digi",1],
-			["rhs_6b23_digi_vydra_3m",1],
-			["rhs_6b23_digi_engineer",1],
-			["rhs_6b23_digi_medic",1],
-			["rhs_6b23_digi_crewofficer",1],
-			["rhs_6b23_digi_sniper",1],
-			["rhs_6b23_digi_rifleman",1],
-			["rhs_6b23_digi_crew",1],
-			["rhs_6b23_6sh116",1],
-			["rhs_vydra_3m",1],
-			["rhs_6sh46",1],
-			["rhs_6b23_6sh116_vog",1],
-			["rhs_6b23_digi_6sh92",1],
-			["rhs_6b23_digi_6sh92_vog",1],
-			["rhs_6b23_digi_6sh92_vog_headset",1],
-			["rhs_6b23_digi_6sh92_radio",1],
-			["rhs_6b23_digi_6sh92_headset",1],
-			["rhs_6b23_digi_6sh92_headset_mapcase",1],
-			["rhs_6b23_6sh116_flora",1],
-			["rhs_6b23_6sh116_vog_flora",1],
-			["rhs_6b23_vydra_3m",1],
-			["rhs_6b23_engineer",1],
-			["rhs_6b23_medic",1],
-			["rhs_6b23_crewofficer",1],
-			["rhs_6b23_sniper",1],
-			["rhs_6b23_rifleman",1],
-			["rhs_6b23_crew",1],
-			["rhs_6b23_6sh116_od",1],
-			["rhs_6b23_6sh116_vog_od",1],
-			["rhs_6b23_6sh92",1],
-			["rhs_6b23_6sh92_vog",1],
-			["rhs_6b23_6sh92_vog_headset",1],
-			["rhs_6b23_6sh92_radio",1],
-			["rhs_6b23_6sh92_headset",1],
-			["rhs_6b23_6sh92_headset_mapcase",1],
-			["rhs_6b23_digi_6sh92_Vog_Radio_Spetsnaz",1],
-			["rhs_6b23_digi_6sh92_Spetsnaz",1],
-			["rhs_6b23_digi_6sh92_headset_spetsnaz",1],
-			["rhs_6b43",1],
-			["rhs_6b5_khaki",1],
-			["rhs_6b5_vsr",1],
-			["rhs_6b5_medic_vsr",1],
-			["rhs_6b5_officer_vsr",1],
-			["rhs_6b5_sniper_vsr",1],
-			["rhs_6b5",1],
-			["rhs_6b5_medic",1],
-			["rhs_6b5_officer",1],
-			["rhs_6b5_sniper",1],
-			["rhs_6b5_ttsko",1],
-			["rhs_6b5_medic_ttsko",1],
-			["rhs_6b5_officer_ttsko",1],
-			["rhs_6b5_sniper_ttsko",1],
-			["rhs_6b5_medic_khaki",1],
-			["rhs_6b5_officer_khaki",1],
-			["rhs_6b5_sniper_khaki",1],
-			["rhs_6sh92",1],
-			["rhs_6sh92_vsr",1],
-			["rhs_6sh92_vsr_vog",1],
-			["rhs_6sh92_vsr_vog_headset",1],
-			["rhs_6sh92_vsr_radio",1],
-			["rhs_6sh92_vsr_headset",1],
-			["rhs_6sh92_digi",1],
-			["rhs_6sh92_digi_vog",1],
-			["rhs_6sh92_digi_vog_headset",1],
-			["rhs_6sh92_digi_radio",1],
-			["rhs_6sh92_digi_headset",1],
-			["rhs_6sh92_vog",1],
-			["rhs_6sh92_vog_headset",1],
-			["rhs_6sh92_radio",1],
-			["rhs_6sh92_headset",1],
-			["rhs_altyn_novisor",1],
-			["rhs_altyn_novisor_ess",1],
-			["rhs_altyn_novisor_ess_bala",1],
-			["rhs_altyn_novisor_bala",1],
-			["rhs_altyn_visordown",1],
-			["rhs_altyn",1],
-			["rhs_altyn_bala",1],
-			["H_Bandanna_khk_hs",1],
-			["H_Bandanna_camo",1],
-			["H_Bandanna_sand",1],
-			["H_Bandanna_sgg",1],
-			["H_Bandanna_khk",1],
-			["H_Bandanna_gry",1],
-			["rhs_gssh18",1],
-			["rhs_fieldcap",1],
-			["rhs_fieldcap_vsr",1],
-			["rhs_fieldcap_ml",1],
-			["rhs_fieldcap_digi",1],
-			["rhs_fieldcap_digi2",1],
-			["rhs_fieldcap_khk",1],
-			["rhs_fieldcap_helm_ml",1],
-			["rhs_fieldcap_helm_digi",1],
-			["rhs_fieldcap_helm",1],
-			["rhs_ssh68",1],
-			["rhs_tsh4_ess_bala",1],
-			["rhs_tsh4_bala",1],
-			["rhs_beanie_green",1],
-			["rhs_beanie",1],
-			["H_ShemagOpen_khk",1],
-			["H_ShemagOpen_tan",1],
-			["H_Shemag_olive",1],
-			["H_Shemag_olive_hs",1],
-			["rhs_Booniehat_digi",1],
-			["rhs_Booniehat_flora",1],
-			["rhs_6b26_green",1],
-			["rhs_6b26",1],
-			["rhs_6b26_ess",1],
-			["rhs_6b26_ess_bala",1],
-			["rhs_6b26_bala",1],
-			["rhs_6b26_ess_green",1],
-			["rhs_6b26_ess_bala_green",1],
-			["rhs_6b26_bala_green",1],
-			["rhs_6b27m_green",1],
-			["rhs_6b27m_ml",1],
-			["rhs_6b27m_ml_ess",1],
-			["rhs_6b27m_ML_ess_bala",1],
-			["rhs_6b27m_ml_bala",1],
-			["rhs_6b27m_digi",1],
-			["rhs_6b27m_digi_ess",1],
-			["rhs_6b27m_digi_ess_bala",1],
-			["rhs_6b27m_digi_bala",1],
-			["rhs_6b27m",1],
-			["rhs_6b27m_ess",1],
-			["rhs_6b27m_ess_bala",1],
-			["rhs_6b27m_bala",1],
-			["rhs_6b27m_green_ess",1],
-			["rhs_6b27m_green_ess_bala",1],
-			["rhs_6b27m_green_bala",1],
-			["rhs_6b28_green",1],
-			["rhs_6b28",1],
-			["rhs_6b28_ess",1],
-			["rhs_6b28_ess_bala",1],
-			["rhs_6b28_bala",1],
-			["rhs_6b28_flora_ess",1],
-			["rhs_6b28_flora",1],
-			["rhs_6b28_flora_ess_bala",1],
-			["rhs_6b28_flora_bala",1],
-			["rhs_6b28_green_ess",1],
-			["rhs_6b28_green_ess_bala",1],
-			["rhs_6b28_green_bala",1],
-			["rhs_zsh7a",1],
-			["rhs_zsh7a_mike",1],
-			["rhs_zsh7a_mike_green",1],
-			["rhs_zsh7a_mike_green_alt",1],
-			["rhs_zsh7a_alt",1],
-			["rhs_zsh7a_mike_alt",1],
-			["rhs_zsh12",1],
-			["rhs_zsh12_black",1],
-			["rhs_zsh12_bala",1],
-			["rhs_6b47",1],
-			["rhs_6b47_ess",1],
-			["rhs_6b47_ess_bala",1],
-			["rhs_6b47_bala",1],
-			["rhs_6b7_1m_emr_ess",1],
-			["rhs_6b7_1m_emr_ess_bala",1],
-			["rhs_6b7_1m_ess",1],
-			["rhs_6b7_1m_ess_bala",1],
-			["rhs_6b7_1m",1],
-			["rhs_6b7_1m_olive",1],
-			["rhs_6b7_1m_bala1_olive",1],
-			["rhs_6b7_1m_bala2_olive",1],
-			["rhs_6b7_1m_flora",1],
-			["rhs_6b7_1m_bala1_flora",1],
-			["rhs_6b7_1m_bala2_flora",1],
-			["rhs_6b7_1m_flora_ns3",1],
-			["rhs_6b7_1m_bala1",1],
-			["rhs_6b7_1m_bala2",1],
-			["rhs_6b7_1m_emr",1],
-			["rhs_6b7_1m_bala1_emr",1],
-			["rhs_6b7_1m_bala2_emr",1],
+			"rhs_uniform_gorka_r_y",
+			"rhs_uniform_gorka_r_g",
+			"rhs_uniform_mflora_patchless",
+			"rhs_uniform_vdv_mflora",
+			"rhs_uniform_df15",
+			"rhs_uniform_df15_tan",
+			"rhs_uniform_emr_patchless",
+			"rhs_uniform_vdv_emr",
+			"rhs_uniform_msv_emr",
+			"rhs_uniform_emr_des_patchless",
+			"rhs_uniform_vdv_emr_des",
+			"rhs_uniform_mvd_izlom",
+			"rhs_uniform_m88_patchless",
+			"rhs_uniform_flora_patchless",
+			"rhs_uniform_vdv_flora",
+			"rhs_uniform_vmf_flora",
+			"rhs_uniform_vmf_flora_subdued",
+			"rhs_uniform_flora",
+			"rhs_uniform_rva_flora",
+			"rhs_uniform_flora_patchless_alt",
+			"rhs_6b23",
+			"rhs_6b23_ML",
+			"rhs_6b23_ML_vydra_3m",
+			"rhs_6b23_ML_engineer",
+			"rhs_6b23_ML_medic",
+			"rhs_6b23_ML_crewofficer",
+			"rhs_6b23_ML_sniper",
+			"rhs_6b23_ML_rifleman",
+			"rhs_6b23_ML_crew",
+			"rhs_6b23_ML_6sh92",
+			"rhs_6b23_ML_6sh92_vog",
+			"rhs_6b23_ML_6sh92_vog_headset",
+			"rhs_6b23_ML_6sh92_radio",
+			"rhs_6b23_ML_6sh92_headset",
+			"rhs_6b23_ML_6sh92_headset_mapcase",
+			"rhs_6b23_digi",
+			"rhs_6b23_digi_vydra_3m",
+			"rhs_6b23_digi_engineer",
+			"rhs_6b23_digi_medic",
+			"rhs_6b23_digi_crewofficer",
+			"rhs_6b23_digi_sniper",
+			"rhs_6b23_digi_rifleman",
+			"rhs_6b23_digi_crew",
+			"rhs_6b23_6sh116",
+			"rhs_vydra_3m",
+			"rhs_6sh46",
+			"rhs_6b23_6sh116_vog",
+			"rhs_6b23_digi_6sh92",
+			"rhs_6b23_digi_6sh92_vog",
+			"rhs_6b23_digi_6sh92_vog_headset",
+			"rhs_6b23_digi_6sh92_radio",
+			"rhs_6b23_digi_6sh92_headset",
+			"rhs_6b23_digi_6sh92_headset_mapcase",
+			"rhs_6b23_6sh116_flora",
+			"rhs_6b23_6sh116_vog_flora",
+			"rhs_6b23_vydra_3m",
+			"rhs_6b23_engineer",
+			"rhs_6b23_medic",
+			"rhs_6b23_crewofficer",
+			"rhs_6b23_sniper",
+			"rhs_6b23_rifleman",
+			"rhs_6b23_crew",
+			"rhs_6b23_6sh116_od",
+			"rhs_6b23_6sh116_vog_od",
+			"rhs_6b23_6sh92",
+			"rhs_6b23_6sh92_vog",
+			"rhs_6b23_6sh92_vog_headset",
+			"rhs_6b23_6sh92_radio",
+			"rhs_6b23_6sh92_headset",
+			"rhs_6b23_6sh92_headset_mapcase",
+			"rhs_6b23_digi_6sh92_Vog_Radio_Spetsnaz",
+			"rhs_6b23_digi_6sh92_Spetsnaz",
+			"rhs_6b23_digi_6sh92_headset_spetsnaz",
+			"rhs_6b43",
+			"rhs_6b5_khaki",
+			"rhs_6b5_vsr",
+			"rhs_6b5_medic_vsr",
+			"rhs_6b5_officer_vsr",
+			"rhs_6b5_sniper_vsr",
+			"rhs_6b5",
+			"rhs_6b5_medic",
+			"rhs_6b5_officer",
+			"rhs_6b5_sniper",
+			"rhs_6b5_ttsko",
+			"rhs_6b5_medic_ttsko",
+			"rhs_6b5_officer_ttsko",
+			"rhs_6b5_sniper_ttsko",
+			"rhs_6b5_medic_khaki",
+			"rhs_6b5_officer_khaki",
+			"rhs_6b5_sniper_khaki",
+			"rhs_6sh92",
+			"rhs_6sh92_vsr",
+			"rhs_6sh92_vsr_vog",
+			"rhs_6sh92_vsr_vog_headset",
+			"rhs_6sh92_vsr_radio",
+			"rhs_6sh92_vsr_headset",
+			"rhs_6sh92_digi",
+			"rhs_6sh92_digi_vog",
+			"rhs_6sh92_digi_vog_headset",
+			"rhs_6sh92_digi_radio",
+			"rhs_6sh92_digi_headset",
+			"rhs_6sh92_vog",
+			"rhs_6sh92_vog_headset",
+			"rhs_6sh92_radio",
+			"rhs_6sh92_headset",
+			"rhs_altyn_novisor",
+			"rhs_altyn_novisor_ess",
+			"rhs_altyn_novisor_ess_bala",
+			"rhs_altyn_novisor_bala",
+			"rhs_altyn_visordown",
+			"rhs_altyn",
+			"rhs_altyn_bala",
+			"H_Bandanna_khk_hs",
+			"H_Bandanna_camo",
+			"H_Bandanna_sand",
+			"H_Bandanna_sgg",
+			"H_Bandanna_khk",
+			"H_Bandanna_gry",
+			"rhs_gssh18",
+			"rhs_fieldcap",
+			"rhs_fieldcap_vsr",
+			"rhs_fieldcap_ml",
+			"rhs_fieldcap_digi",
+			"rhs_fieldcap_digi2",
+			"rhs_fieldcap_khk",
+			"rhs_fieldcap_helm_ml",
+			"rhs_fieldcap_helm_digi",
+			"rhs_fieldcap_helm",
+			"rhs_ssh68",
+			"rhs_tsh4_ess_bala",
+			"rhs_tsh4_bala",
+			"rhs_beanie_green",
+			"rhs_beanie",
+			"H_ShemagOpen_khk",
+			"H_ShemagOpen_tan",
+			"H_Shemag_olive",
+			"H_Shemag_olive_hs",
+			"rhs_Booniehat_digi",
+			"rhs_Booniehat_flora",
+			"rhs_6b26_green",
+			"rhs_6b26",
+			"rhs_6b26_ess",
+			"rhs_6b26_ess_bala",
+			"rhs_6b26_bala",
+			"rhs_6b26_ess_green",
+			"rhs_6b26_ess_bala_green",
+			"rhs_6b26_bala_green",
+			"rhs_6b27m_green",
+			"rhs_6b27m_ml",
+			"rhs_6b27m_ml_ess",
+			"rhs_6b27m_ML_ess_bala",
+			"rhs_6b27m_ml_bala",
+			"rhs_6b27m_digi",
+			"rhs_6b27m_digi_ess",
+			"rhs_6b27m_digi_ess_bala",
+			"rhs_6b27m_digi_bala",
+			"rhs_6b27m",
+			"rhs_6b27m_ess",
+			"rhs_6b27m_ess_bala",
+			"rhs_6b27m_bala",
+			"rhs_6b27m_green_ess",
+			"rhs_6b27m_green_ess_bala",
+			"rhs_6b27m_green_bala",
+			"rhs_6b28_green",
+			"rhs_6b28",
+			"rhs_6b28_ess",
+			"rhs_6b28_ess_bala",
+			"rhs_6b28_bala",
+			"rhs_6b28_flora_ess",
+			"rhs_6b28_flora",
+			"rhs_6b28_flora_ess_bala",
+			"rhs_6b28_flora_bala",
+			"rhs_6b28_green_ess",
+			"rhs_6b28_green_ess_bala",
+			"rhs_6b28_green_bala",
+			"rhs_zsh7a",
+			"rhs_zsh7a_mike",
+			"rhs_zsh7a_mike_green",
+			"rhs_zsh7a_mike_green_alt",
+			"rhs_zsh7a_alt",
+			"rhs_zsh7a_mike_alt",
+			"rhs_zsh12",
+			"rhs_zsh12_black",
+			"rhs_zsh12_bala",
+			"rhs_6b47",
+			"rhs_6b47_ess",
+			"rhs_6b47_ess_bala",
+			"rhs_6b47_bala",
+			"rhs_6b7_1m_emr_ess",
+			"rhs_6b7_1m_emr_ess_bala",
+			"rhs_6b7_1m_ess",
+			"rhs_6b7_1m_ess_bala",
+			"rhs_6b7_1m",
+			"rhs_6b7_1m_olive",
+			"rhs_6b7_1m_bala1_olive",
+			"rhs_6b7_1m_bala2_olive",
+			"rhs_6b7_1m_flora",
+			"rhs_6b7_1m_bala1_flora",
+			"rhs_6b7_1m_bala2_flora",
+			"rhs_6b7_1m_flora_ns3",
+			"rhs_6b7_1m_bala1",
+			"rhs_6b7_1m_bala2",
+			"rhs_6b7_1m_emr",
+			"rhs_6b7_1m_bala1_emr",
+			"rhs_6b7_1m_bala2_emr",
 			
-			["rhsusf_oakley_goggles_blk",1],
-			["rhsusf_oakley_goggles_ylw",1],
-			["rhs_goggles_yellow",1],
-			["rhs_goggles_clear",1],
-			["rhs_ess_black",1],
-			["rhs_balaclava1_olive",1],
-			["rhs_scarf",1],
+			"rhsusf_oakley_goggles_blk",
+			"rhsusf_oakley_goggles_ylw",
+			"rhs_goggles_yellow",
+			"rhs_goggles_clear",
+			"rhs_ess_black",
+			"rhs_balaclava1_olive",
+			"rhs_scarf",
 			
-			["rhs_beret_vdv1",1],
-			["rhs_beret_vdv2",1],
-			["rhs_beret_vdv3",1],
-			["rhs_beret_milp",1],
-			["rhs_beret_mp1",1],
-			["rhs_beret_mp2",1]	
+			"rhs_beret_vdv1",
+			"rhs_beret_vdv2",
+			"rhs_beret_vdv3",
+			"rhs_beret_milp",
+			"rhs_beret_mp1",
+			"rhs_beret_mp2"	
 		],
 		// corporal uniforms
 		[
@@ -1557,23 +1417,23 @@ private _all_weapons_items = [
 		],
 		// sergeant uniforms
 		[
-			["rhs_6b13_Flora",1],
-			["rhs_6b13",1],
-			["rhs_6b13_crewofficer",1],
-			["rhs_6b13_6sh92",1],
-			["rhs_6b13_6sh92_vog",1],
-			["rhs_6b13_6sh92_radio",1],
-			["rhs_6b13_6sh92_headset_mapcase",1],
-			["rhs_6b13_EMR_6sh92",1],
-			["rhs_6b13_EMR_6sh92_vog",1],
-			["rhs_6b13_EMR_6sh92_radio",1],
-			["rhs_6b13_EMR_6sh92_headset_mapcase",1],
-			["rhs_6b13_EMR",1],
-			["rhs_6b13_Flora_crewofficer",1],
-			["rhs_6b13_Flora_6sh92",1],
-			["rhs_6b13_Flora_6sh92_vog",1],
-			["rhs_6b13_Flora_6sh92_radio",1],
-			["rhs_6b13_Flora_6sh92_headset_mapcase",1]
+			"rhs_6b13_Flora",
+			"rhs_6b13",
+			"rhs_6b13_crewofficer",
+			"rhs_6b13_6sh92",
+			"rhs_6b13_6sh92_vog",
+			"rhs_6b13_6sh92_radio",
+			"rhs_6b13_6sh92_headset_mapcase",
+			"rhs_6b13_EMR_6sh92",
+			"rhs_6b13_EMR_6sh92_vog",
+			"rhs_6b13_EMR_6sh92_radio",
+			"rhs_6b13_EMR_6sh92_headset_mapcase",
+			"rhs_6b13_EMR",
+			"rhs_6b13_Flora_crewofficer",
+			"rhs_6b13_Flora_6sh92",
+			"rhs_6b13_Flora_6sh92_vog",
+			"rhs_6b13_Flora_6sh92_radio",
+			"rhs_6b13_Flora_6sh92_headset_mapcase"
 					
 		],
 		// lieutenant uniforms
@@ -1581,12 +1441,12 @@ private _all_weapons_items = [
 		],
 		// captain uniforms
 		[
-			["U_O_GhillieSuit",1]
+			"U_O_GhillieSuit"
 		],
 		// major uniforms
 		[
-			["U_O_FullGhillie_sard",1],
-			["U_O_FullGhillie_ard",1]
+			"U_O_FullGhillie_sard",
+			"U_O_FullGhillie_ard"
 		],
 		// colonel uniforms
 		[
@@ -1597,27 +1457,25 @@ private _all_weapons_items = [
 		0,  // 0 = always added for each rank in the ranked version
 		"ITEMS",
 		[
-			["MineDetector",1,true],
-			["Binocular",1,true], 
-			["FirstAidKit",1,true],
-			["Medikit",1,true],
-			["rhs_1PN138",1,true],
-			["ToolKit",1,true],
-			["B_UavTerminal",1,true],
-			["B_UAV_01_backpack_F",1,true]
+			"MineDetector",
+			"Binocular", 
+			"FirstAidKit",
+			"Medikit",
+			"rhs_1PN138",
+			"ToolKit",
+			"B_UavTerminal",
+			"B_UAV_01_backpack_F"
 		],
 		// corporal items
 		[
-			["rhs_pdu4",1,true]
-			
-			
+			"rhs_pdu4"
 		],
 		// sergeant items
 		[
 		],
 		// lieutenant items
 		[
-			["Rangefinder",1,true]
+			"Rangefinder"
 		],
 		// captain items
 		[
@@ -1630,541 +1488,23 @@ private _all_weapons_items = [
 		]
 	]
 ];
-#endif
-
-#ifdef __OWN_SIDE_INDEPENDENT__
-#endif
-
-#ifdef __TT__
-private _helipilotgear = [];
-private _helipilothelmet = [];
-if (d_pilots_only == 1) then {
-	_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-	_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-	_helipilotgeare = ["U_O_HeliPilotCoveralls",1,true];
-	_helipilothelmete = ["H_PilotHelmetFighter_O",1,true];
-} else {
-	if (d_only_pilots_can_fly isEqualTo []) then {
-		_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-		_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-		_helipilotgeare = ["U_O_HeliPilotCoveralls",1,true];
-		_helipilothelmete = ["H_PilotHelmetFighter_O",1,true];
-	} else {
-		if (str player in d_only_pilots_can_fly) then {
-			_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-			_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-			_helipilotgeare = ["U_O_HeliPilotCoveralls",1,true];
-			_helipilothelmete = ["H_PilotHelmetFighter_O",1,true];
-		};
-	};
-};
-
-private _all_weapons_items_blufor = [
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private rifles
-		[
-			//["arifle_MX_F",1], ["arifle_MX_Black_F",1], ["hgun_PDW2000_F",1]
-			["arifle_MX_F",1]
-		],
-		// corporal rifles (gets added to private rifles)
-		[
-			["arifle_MX_GL_F",1], ["arifle_MXM_F",1], ["arifle_Mk20_F",1], ["arifle_MX_GL_Black_F",1], ["arifle_MXM_Black_F",1]
-		],
-		// sergeant rifles (gets added to corporal and private rifles)
-		[
-			["arifle_SDAR_F",1], ["arifle_MX_SW_F",1], ["arifle_MXC_F",1], ["arifle_Mk20C_F",1], ["arifle_MXC_Black_F", 1], ["arifle_MX_SW_Black_F",1]
-		],
-		// lieutenant rifles (gets added to...)
-		[
-			["arifle_TRG21_F",1],["arifle_TRG21_GL_F",1], ["arifle_Mk20_GL_F",1]
-		],
-		// captain rifles (gets added...)
-		[
-			["arifle_TRG20_F",1]
-		],
-		// major rifles (gets...)
-		[
-		],
-		// colonel rifles (...)
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-			["srifle_EBR_F",1]
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-			["srifle_LRR_F",1], ["srifle_GM6_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-			["LMG_Mk200_F",1]
-		],
-		// sergeant MG
-		[
-			["SMG_01_F",1]
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-			["SMG_02_F",1]
-		],
-		// major MG
-		[
-		],
-		// colonel MG
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"LAUNCHERS",
-		// private launchers
-		[
-			["launch_NLAW_F",1], ["launch_B_Titan_F",1]
-		],
-		// corporal launchers
-		[
-			["launch_RPG32_F",1]
-		],
-		// sergeant launchers
-		[
-		],
-		// lieutenant launchers
-		[
-		],
-		// capain launchers
-		[
-		],
-		// major launchers
-		[
-			["launch_B_Titan_short_F",1]
-		],
-		// colonel launchers
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"PISTOLS",
-		// private pistols
-		[
-		],
-		// corporal pistols
-		[
-			["hgun_P07_F",1]
-		],
-		// sergeant pistols
-		[
-		],
-		// lieutenant pistols
-		[
-		],
-		// captain pistols
-		[
-		],
-		// major pistols
-		[
-			["hgun_Pistol_heavy_01_F",1]
-		],
-		// colonel pistols
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"OPTICS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private optics
-		[
-		],
-		// corporal optics
-		[
-			["optic_Holosight",1, true],["acc_pointer_IR",1, true]
-		],
-		// sergeant optics
-		[
-			["acc_flashlight",1, true],["optic_Holosight_smg",1, true]
-		],
-		// lieutenant optics
-		[
-			 ["optic_MRD",1, true],["optic_MRCO",1, true]
-		],
-		// captain optics
-		[
-			["optic_Aco",1, true],["optic_ACO_grn",1, true],["optic_Arco",1, true],["optic_Hamr",1, true]
-		],
-		// major optics
-		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
-		],
-		// colonel optics
-		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"MUZZLES",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private muzzles
-		[
-		],
-		// corporal muzzles
-		[
-		],
-		// sergeant muzzles
-		[
-			["muzzle_snds_B",1, true]
-		],
-		// lieutenant muzzles
-		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
-		],
-		// captain muzzles
-		[
-		],
-		// major muzzles
-		[
-			["muzzle_snds_H_MG",1, true]
-		],
-		// colonel muzzles
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"UNIFORMS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private uniforms
-		[
-			["H_Cap_blu",1,true], ["H_Cap_headphones",1,true], ["H_Cap_red",1,true], ["H_HelmetB",1,true], ["H_Booniehat_khk",1,true], ["H_HelmetB_paint",1,true], ["H_MilCap_mcamo",1,true],
-			["U_B_CombatUniform_mcam",1,true],["U_B_CombatUniform_mcam_tshirt",1,true], ["U_B_CombatUniform_mcam_vest",1,true], ["U_B_GhillieSuit",1,true],
-			["U_B_Wetsuit",1,true], ["V_RebreatherB",1,true], ["V_Rangemaster_belt",1,true], ["V_BandollierB_khk",1,true], ["V_BandollierB_cbr",1,true], ["V_BandollierB_rgr",1,true],
-			["V_PlateCarrier1_rgr",1,true], ["V_PlateCarrier2_rgr",1,true], ["V_PlateCarrierGL_rgr",1,true], ["V_TacVest_khk",1,true], ["V_TacVest_brn",1,true],
-			["V_TacVest_oli",1,true], ["V_TacVest_blk",1,true], ["U_B_CombatUniform_mcam_worn",1,true], ["U_B_CombatUniform_wdl",1,true], ["U_B_CombatUniform_wdl_tshirt",1,true],
-			["U_B_CombatUniform_wdl_vest",1,true], ["U_B_CombatUniform_sgg",1,true], ["U_B_CombatUniform_sgg_tshirt",1,true], ["U_B_CombatUniform_sgg_vest",1,true], ["U_B_SpecopsUniform_sgg",1,true],
-			_helipilotgear,_helipilothelmet
-		],
-		// corporal uniforms
-		[
-		],
-		// sergeant uniforms
-		[
-		],
-		// lieutenant uniforms
-		[
-		],
-		// captain uniforms
-		[
-		],
-		// major uniforms
-		[
-		],
-		// colonel uniforms
-		[
-		]
-	],
-	// additional weapons and items, no rank
-	[
-		0,  // 0 = always added for each rank in the ranked version
-		"ITEMS",
-		// weapons
-		[
-			["MineDetector",1], ["Binocular",1], (if (d_no_faks == 1) then {["FirstAidKit",5,true]} else {[]}), ["Medikit",5,true],
-			(if (d_without_nvg == 1) then {["NVGoggles",1,true]} else {[]}),
-			["ToolKit",1,true], ["B_UavTerminal",1,true]
-		]
-	]
-];
-
-private _all_weapons_items_opfor = [
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private rifles
-		[
-			//["arifle_MX_F",1], ["arifle_MX_Black_F",1], ["hgun_PDW2000_F",1]
-			["arifle_MX_Black_F",1]
-		],
-		// corporal rifles (gets added to private rifles)
-		[
-			["arifle_MX_GL_F",1], ["arifle_MXM_F",1], ["arifle_Mk20_F",1], ["arifle_MX_GL_Black_F",1], ["arifle_MXM_Black_F",1]
-		],
-		// sergeant rifles (gets added to corporal and private rifles)
-		[
-			["arifle_SDAR_F",1], ["arifle_MX_SW_F",1], ["arifle_MXC_F",1], ["arifle_Mk20C_F",1], ["arifle_MXC_Black_F", 1], ["arifle_MX_SW_Black_F",1]
-		],
-		// lieutenant rifles (gets added to...)
-		[
-			["arifle_TRG21_F",1],["arifle_TRG21_GL_F",1], ["arifle_Mk20_GL_F",1]
-		],
-		// captain rifles (gets added...)
-		[
-			["arifle_TRG20_F",1]
-		],
-		// major rifles (gets...)
-		[
-		],
-		// colonel rifles (...)
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-			["srifle_EBR_F",1]
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-			["srifle_LRR_F",1], ["srifle_GM6_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-			["LMG_Mk200_F",1]
-		],
-		// sergeant MG
-		[
-			["SMG_01_F",1]
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-			["SMG_02_F",1]
-		],
-		// major MG
-		[
-		],
-		// colonel MG
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"LAUNCHERS",
-		// private launchers
-		[
-			["launch_NLAW_F",1], ["launch_B_Titan_F",1]
-		],
-		// corporal launchers
-		[
-			["launch_RPG32_F",1]
-		],
-		// sergeant launchers
-		[
-		],
-		// lieutenant launchers
-		[
-		],
-		// capain launchers
-		[
-		],
-		// major launchers
-		[
-			["launch_B_Titan_short_F",1]
-		],
-		// colonel launchers
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"PISTOLS",
-		// private pistols
-		[
-		],
-		// corporal pistols
-		[
-			["hgun_P07_F",1]
-		],
-		// sergeant pistols
-		[
-		],
-		// lieutenant pistols
-		[
-		],
-		// captain pistols
-		[
-		],
-		// major pistols
-		[
-			["hgun_Pistol_heavy_01_F",1]
-		],
-		// colonel pistols
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"OPTICS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private optics
-		[
-		],
-		// corporal optics
-		[
-			["optic_Holosight",1, true],["acc_pointer_IR",1, true]
-		],
-		// sergeant optics
-		[
-			["acc_flashlight",1, true],["optic_Holosight_smg",1, true]
-		],
-		// lieutenant optics
-		[
-			 ["optic_MRD",1, true],["optic_MRCO",1, true]
-		],
-		// captain optics
-		[
-			["optic_Aco",1, true],["optic_ACO_grn",1, true],["optic_Arco",1, true],["optic_Hamr",1, true]
-		],
-		// major optics
-		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
-		],
-		// colonel optics
-		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"MUZZLES",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private muzzles
-		[
-		],
-		// corporal muzzles
-		[
-		],
-		// sergeant muzzles
-		[
-			["muzzle_snds_B",1, true]
-		],
-		// lieutenant muzzles
-		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
-		],
-		// captain muzzles
-		[
-		],
-		// major muzzles
-		[
-			["muzzle_snds_H_MG",1, true]
-		],
-		// colonel muzzles
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"UNIFORMS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private uniforms
-		[
-			["H_Cap_blu",1,true], ["H_Cap_headphones",1,true], ["H_Cap_red",1,true], ["H_HelmetB",1,true], ["H_Booniehat_khk",1,true], ["H_HelmetB_paint",1,true], ["H_MilCap_mcamo",1,true],
-			["U_B_CombatUniform_mcam",1,true],["U_B_CombatUniform_mcam_tshirt",1,true], ["U_B_CombatUniform_mcam_vest",1,true], ["U_B_GhillieSuit",1,true],
-			["U_B_Wetsuit",1,true], ["V_RebreatherB",1,true], ["V_Rangemaster_belt",1,true], ["V_BandollierB_khk",1,true], ["V_BandollierB_cbr",1,true], ["V_BandollierB_rgr",1,true],
-			["V_PlateCarrier1_rgr",1,true], ["V_PlateCarrier2_rgr",1,true], ["V_PlateCarrierGL_rgr",1,true], ["V_TacVest_khk",1,true], ["V_TacVest_brn",1,true],
-			["V_TacVest_oli",1,true], ["V_TacVest_blk",1,true], ["U_B_CombatUniform_mcam_worn",1,true], ["U_B_CombatUniform_wdl",1,true], ["U_B_CombatUniform_wdl_tshirt",1,true],
-			["U_B_CombatUniform_wdl_vest",1,true], ["U_B_CombatUniform_sgg",1,true], ["U_B_CombatUniform_sgg_tshirt",1,true], ["U_B_CombatUniform_sgg_vest",1,true], ["U_B_SpecopsUniform_sgg",1,true],
-			_helipilotgeare,_helipilothelmete
-		],
-		// corporal uniforms
-		[
-		],
-		// sergeant uniforms
-		[
-		],
-		// lieutenant uniforms
-		[
-		],
-		// captain uniforms
-		[
-		],
-		// major uniforms
-		[
-		],
-		// colonel uniforms
-		[
-		]
-	],
-	// additional weapons and items, no rank
-	[
-		0,  // 0 = always added for each rank in the ranked version
-		"ITEMS",
-		// weapons
-		[
-			["MineDetector",1], ["Binocular",1], (if (d_no_faks == 1) then {["FirstAidKit",5,true]} else {[]}), ["Medikit",5,true],
-			(if (d_without_nvg == 1) then {["NVGoggles",1,true]} else {[]}),
-			["ToolKit",1,true], ["B_UavTerminal",1,true]
-		]
-	]
-];
 
 private ["_all_weapons_items"];
-if (side (group player) == blufor) then {
-	__TRACE("Player is blufor")
+if (!d_tt_ver) then {
+#ifdef __OWN_SIDE_BLUFOR__
 	_all_weapons_items = _all_weapons_items_blufor;
-} else {
-	__TRACE("Player is opfor")
-	_all_weapons_items = _all_weapons_items_opfor;
-};
 #endif
+#ifdef __OWN_SIDE_OPFOR__
+	_all_weapons_items = _all_weapons_items_opfor;
+#endif
+} else {
+	if (side (group player) == blufor) then {
+		__TRACE("Player is blufor")
+		_all_weapons_items = _all_weapons_items_blufor;
+	} else {
+		__TRACE("Player is opfor")
+		_all_weapons_items = _all_weapons_items_opfor;
+	};
+};
 
 #include "i_weapons_base.sqf";

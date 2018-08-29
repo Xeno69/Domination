@@ -502,11 +502,13 @@ if (!hasInterface) then {
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
 	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
 
+	if (d_with_ranked) then {
 #ifndef __RHS__
-	call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+		call compile preprocessFileLineNumbers "i_weapons_default.sqf";
 #else
-	call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
+		call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
 #endif
+	};
 };
 
 d_init_processed = true;

@@ -767,7 +767,7 @@ if (d_without_nvg == 1 && {!(player call d_fnc_hasnvgoggles)}) then {
 };
 private _bino = binocular player;
 if (d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery || {d_string_player in d_can_call_cas}}) then {
-	if (_bino != "LaserDesignator") then {
+	if (!d_with_ranked && {_bino != "LaserDesignator"}) then {
 		if (_bino != "") then {
 			player removeWeapon _bino;
 		};
