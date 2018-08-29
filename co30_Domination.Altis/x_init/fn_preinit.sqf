@@ -1369,6 +1369,9 @@ if (hasInterface) then {
 		[], // goggles
 		[] // binoculars
 	];
+#ifdef __CUP__
+	(d_remove_from_arsenal # 5) append [{_this isKindOf "CUP_B_DShkM_Gun_Bag"}, {_this isKindOf "CUP_B_DShkM_TripodHigh_Bag"}];
+#endif
 	
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	
 		d_preloaddone = true;
