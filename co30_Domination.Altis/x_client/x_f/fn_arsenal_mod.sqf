@@ -6,8 +6,11 @@
 private _mods = _this apply {toLower _x};
 __TRACE_1("","_mods")
 
-private _items_no = ["FirstAidKit", "Medikit", "ItemMap", "ItemRadio", "ItemCompass", "ItemWatch", "ItemGPS", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR",
-			"NVGoggles_INDEP"];
+private _items_no = ["FirstAidKit", "Medikit", "ItemMap", "ItemRadio", "ItemCompass", "ItemWatch"];
+			
+if (!d_ifa3lite) then {
+	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
+};
 
 if (d_with_ace) then {
 	_items_no append ["ACE_atropine", "ACE_fieldDressing", "ACE_elasticBandage", "ACE_quikclot", "ACE_bloodIV", "ACE_bloodIV_500", "ACE_bloodIV_250",
@@ -18,11 +21,11 @@ if (d_with_ace) then {
 _items_no = _items_no apply {toLower _x};
 
 private _findmodfnc = {
-	__TRACE_1("_findmodfnc","_this")
+	//__TRACE_1("_findmodfnc","_this")
 	params ["_csal"];
 	private _res = -1;
 	private _csallow = toLower (_csal # 0);
-	__TRACE_1("_findmodfnc","_csallow")
+	//__TRACE_1("_findmodfnc","_csallow")
 	_mods findIf {
 		_ret = _csallow find _x != -1;
 		if (_ret) then {
@@ -58,6 +61,7 @@ private _findmodfnc = {
 				};
 			};
 			__TRACE_1("","_kind")
+			__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")
 			if (_kind != "" && {([configSourceAddonList (configFile >> _kind >> _x)] call _findmodfnc) == -1}) then {
 				_ar set [_forEachIndex, -1];
 			};

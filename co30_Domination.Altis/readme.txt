@@ -13,6 +13,7 @@ Changelogs
 - Changed: TT weapons and items are now handled inside the normal coop ranked part in i_weapons_x
 - Changed: i_weapons_x no longer loaded when ranked is not activated
 - Changed: Removed more stuff from Virtual Arsenal (like virtually all static weapon backpacks and civilian clothes)
+- Fixed: Night vision goggles and rangefinder were added in the IFA3 version
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
