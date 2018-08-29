@@ -9,6 +9,10 @@ Changelogs
 
 3.99
 - Changed: Rearanged i_weapons_default.sqf and added missing A3 weapons
+- Changed: Rewrote i_weapons_base.sqf, i_weapons_x now has a new format (weapons and other stuff now only needs the class names and no arrays with class names and other information anymore)
+- Changed: TT weapons and items are now handled inside the normal coop ranked part in i_weapons_x
+- Changed: i_weapons_x no longer loaded when ranked is not activated
+- Changed: Removed more stuff from Virtual Arsenal (like virtually all static weapon backpacks and civilian clothes)
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

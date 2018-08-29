@@ -13,36 +13,35 @@ private _all_weapons_items_blufor = [
 		"RIFLES",
 		// private rifles
 		[
-			"arifle_MX_F", "arifle_MX_Black_F", "hgun_PDW2000_F", "arifle_Katiba_F", "arifle_Katiba_C_F", "arifle_Mk20_F", "arifle_Mk20_plain_F",
-			"arifle_Mk20C_F", "arifle_Mk20_F", "arifle_Mk20C_plain_F"
+			"arifle_MX_F", "arifle_MX_Black_F", "arifle_MX_khk_F", "arifle_SDAR_F", "hgun_PDW2000_F", "SMG_05_F", "SMG_01_F"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"arifle_MX_GL_F", "arifle_MX_GL_Black_F", "arifle_Katiba_GL_F", "arifle_Mk20_GL_F", "arifle_Mk20_GL_plain_F","arifle_MX_SW_F", "arifle_MX_SW_Black_F", "arifle_MX_SW_khk_F"
+			"arifle_MX_GL_F", "arifle_MX_GL_Black_F", "arifle_MX_SW_F", "arifle_MX_SW_Black_F", "arifle_MX_SW_khk_F", "arifle_MX_GL_khk_F"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"arifle_SDAR_F", "arifle_MXC_F", "arifle_Mk20C_F", "arifle_MXC_Black_F", "arifle_MXM_F", "arifle_MXM_Black_F",
-			"LMG_Mk200_F", "LMG_Zafir_F", "LMG_03_F", "arifle_CTARS_blk_F", "arifle_CTARS_hex_F", "arifle_CTARS_ghex_F"
+			"arifle_MXC_F", "arifle_Mk20C_F", "arifle_MXC_Black_F", "arifle_MXM_F", "arifle_MXM_Black_F",
+			"LMG_Mk200_F"
 		],
 		// lieutenant rifles (gets added to...)
 		[
 			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F", "srifle_EBR_F",
-			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
+			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F", "arifle_SPAR_01_blk_F", "arifle_SPAR_01_khk_F", "arifle_SPAR_01_snd_F"
 		],
 		// captain rifles (gets added...)
 		[
-			"srifle_DMR_01_F", "MMG_01_hex_F", "MMG_01_tan_F", "MMG_02_camo_F", "MMG_02_black_F", "MMG_02_sand_F"
+			"MMG_02_camo_F", "MMG_02_black_F", "MMG_02_sand_F", "arifle_SPAR_01_GL_blk_F", "arifle_SPAR_01_GL_khk_F", "arifle_SPAR_01_GL_snd_F",
+			"arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
 		],
 		// major rifles (gets...)
 		[
-			"srifle_DMR_02_F", "srifle_DMR_02_camo_F", "srifle_DMR_02_sniper_F"
+			"srifle_DMR_02_F", "srifle_DMR_02_camo_F", "srifle_DMR_02_sniper_F", "arifle_SPAR_03_blk_F", "arifle_SPAR_03_khk_F", "arifle_SPAR_03_snd_F"
 		],
 		// colonel rifles (...)
 		[
-			"srifle_LRR_F", "srifle_GM6_F", "srifle_GM6_camo_F", "srifle_LRR_camo_F", "srifle_DMR_03_F", "srifle_DMR_03_khaki_F",
-			"srifle_DMR_03_tan_F", "srifle_DMR_03_multicam_F", "srifle_DMR_03_woodland_F", "srifle_DMR_04_F", "srifle_DMR_04_Tan_F", "srifle_DMR_05_blk_F",
-			"srifle_DMR_05_hex_F", "srifle_DMR_05_tan_f", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_LRR_tna_F", "srifle_GM6_ghex_F"
+			"srifle_LRR_F", "srifle_LRR_camo_F", "srifle_DMR_03_F", "srifle_DMR_03_khaki_F",
+			"srifle_DMR_03_tan_F", "srifle_DMR_03_multicam_F", "srifle_DMR_03_woodland_F", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_LRR_tna_F"
 		]
 	],
 	[
@@ -50,7 +49,7 @@ private _all_weapons_items_blufor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			"launch_Titan_F", "launch_RPG7_F"
+			"launch_B_Titan_F", "launch_RPG7_F"
 		],
 		// corporal launchers
 		[
@@ -58,18 +57,17 @@ private _all_weapons_items_blufor = [
 		],
 		// sergeant launchers
 		[
-			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F"
+			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F", "launch_MRAWS_olive_rail_F", "launch_MRAWS_green_F", "launch_MRAWS_sand_F"
 		],
 		// lieutenant launchers
 		[
-			"launch_O_Vorona_brown_F", "launch_O_Vorona_green_F"
 		],
 		// capain launchers
 		[
 		],
 		// major launchers
 		[
-			"launch_Titan_short_F"
+			"launch_B_Titan_short_F"
 		],
 		// colonel launchers
 		[
@@ -83,27 +81,24 @@ private _all_weapons_items_blufor = [
 		],
 		// corporal pistols
 		[
-			"hgun_P07_F", "hgun_ACPC2_F"
+			"hgun_P07_khk_F", "hgun_P07_F"
 		],
 		// sergeant pistols
 		[
-			"hgun_Rook40_F", "hgun_Pistol_Signal_F"
+			"hgun_ACPC2_F"
 		],
 		// lieutenant pistols
 		[
-			"hgun_P07_snds_F", "hgun_Rook40_snds_F"
+			"hgun_Pistol_heavy_01_F"
 		],
 		// captain pistols
 		[
-			"hgun_Pistol_heavy_02_F"
 		],
 		// major pistols
 		[
-			"hgun_Pistol_heavy_01_F", "hgun_Pistol_heavy_02_Yorris_F"
 		],
 		// colonel pistols
 		[
-			"hgun_Pistol_heavy_01_snds_F", "hgun_Pistol_heavy_01_MRD_F"
 		]
 	],
 	[
@@ -112,30 +107,34 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
+			"acc_flashlight_smg_01", "optic_Holosight_smg_blk_F", "optic_Holosight_smg_khk_F"
 		],
 		// corporal optics
 		[
-			"optic_Holosight", "acc_pointer_IR"
+			"optic_Holosight", "acc_pointer_IR", "optic_Aco", "optic_ERCO_blk_F", "optic_ERCO_khk_F", "optic_ERCO_snd_F", "optic_Holosight_blk_F",
+			"optic_Holosight_khk_F"
 		],
 		// sergeant optics
 		[
-			"acc_flashlight", "optic_Holosight_smg"
+			"acc_flashlight", "optic_Holosight_smg", "acc_flashlight_pistol"
 		],
 		// lieutenant optics
 		[
-			 "optic_MRD", "optic_MRCO"
+			 "optic_MRD", "optic_MRCO", "optic_Yorris"
 		],
 		// captain optics
 		[
-			"optic_Aco", "optic_ACO_grn", "optic_Arco", "optic_Hamr"
+			"optic_ACO_grn", "optic_Arco", "optic_Hamr", "optic_Arco_blk_F", "optic_Arco_ghex_F", "optic_Hamr_khk_F"
 		],
 		// major optics
 		[
-			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_tws", "optic_tws_mg", "optic_DMS"
+			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
+			
 		],
 		// colonel optics
 		[
-			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS"
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS", "optic_tws", "optic_tws_mg", "optic_KHS_blk", "optic_KHS_hex",
+			"optic_KHS_old", "optic_KHS_tan", "optic_SOS_khk_F", "optic_LRPS_tna_F", "optic_LRPS_ghex_F"
 		]
 	],
 	[
@@ -150,18 +149,22 @@ private _all_weapons_items_blufor = [
 		],
 		// sergeant muzzles
 		[
-			"muzzle_snds_B"
+			"muzzle_snds_H", "muzzle_snds_M", "muzzle_snds_L", "muzzle_snds_H_khk_F", "muzzle_snds_H_snd_F", "muzzle_snds_m_khk_F",
+			"muzzle_snds_m_snd_F", "muzzle_snds_B_khk_F", "muzzle_snds_B_snd_F", "muzzle_snds_65_TI_ghex_F"
 		],
 		// lieutenant muzzles
 		[
-			"muzzle_snds_H", "muzzle_snds_L", "muzzle_snds_M", "muzzle_snds_acp"
+			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
+			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
+			
 		],
 		// captain muzzles
 		[
+			"muzzle_snds_338_black", "muzzle_snds_338_green", "muzzle_snds_338_sand", "muzzle_snds_93mmg", "muzzle_snds_93mmg_tan"
 		],
 		// major muzzles
 		[
-			"muzzle_snds_H_MG"
+			"muzzle_snds_H_MG", "muzzle_snds_H_MG_blk_F", "muzzle_snds_H_MG_khk_F"
 		],
 		// colonel muzzles
 		[
@@ -218,36 +221,35 @@ private _all_weapons_items_opfor = [
 		"RIFLES",
 		// private rifles
 		[
-			"arifle_MX_F", "arifle_MX_Black_F", "hgun_PDW2000_F", "arifle_Katiba_F", "arifle_Katiba_C_F", "arifle_Mk20_F", "arifle_Mk20_plain_F",
-			"arifle_Mk20C_F", "arifle_Mk20_F", "arifle_Mk20C_plain_F"
+			"arifle_Katiba_F", "arifle_Katiba_C_F", "arifle_AKM_F", "arifle_AKS_F", "arifle_CTAR_blk_F", "arifle_CTAR_hex_F", "arifle_SDAR_F",
+			"SMG_02_F"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"arifle_MX_GL_F", "arifle_MX_GL_Black_F", "arifle_Katiba_GL_F", "arifle_Mk20_GL_F", "arifle_Mk20_GL_plain_F","arifle_MX_SW_F", "arifle_MX_SW_Black_F", "arifle_MX_SW_khk_F"
+			"arifle_Katiba_GL_F", "arifle_AK12_GL_F", "arifle_CTAR_GL_blk_F", "arifle_CTAR_GL_hex_F", "arifle_CTAR_GL_ghex_F"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"arifle_SDAR_F", "arifle_MXC_F", "arifle_Mk20C_F", "arifle_MXC_Black_F", "arifle_MXM_F", "arifle_MXM_Black_F",
-			"LMG_Mk200_F", "LMG_Zafir_F", "LMG_03_F", "arifle_CTARS_blk_F", "arifle_CTARS_hex_F", "arifle_CTARS_ghex_F"
+			"LMG_Mk200_F", "LMG_Zafir_F", "arifle_CTARS_blk_F", "arifle_CTARS_hex_F", "arifle_CTARS_ghex_F", "arifle_AK12_F"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F", "srifle_EBR_F",
+			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F",
 			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
 		],
 		// captain rifles (gets added...)
 		[
-			"srifle_DMR_01_F", "MMG_01_hex_F", "MMG_01_tan_F", "MMG_02_camo_F", "MMG_02_black_F", "MMG_02_sand_F"
+			"srifle_DMR_01_F", "MMG_01_hex_F", "MMG_01_tan_F"
 		],
 		// major rifles (gets...)
 		[
-			"srifle_DMR_02_F", "srifle_DMR_02_camo_F", "srifle_DMR_02_sniper_F"
+			"arifle_ARX_blk_F", "arifle_ARX_ghex_F", "arifle_ARX_hex_F"
 		],
 		// colonel rifles (...)
 		[
-			"srifle_LRR_F", "srifle_GM6_F", "srifle_GM6_camo_F", "srifle_LRR_camo_F", "srifle_DMR_03_F", "srifle_DMR_03_khaki_F",
-			"srifle_DMR_03_tan_F", "srifle_DMR_03_multicam_F", "srifle_DMR_03_woodland_F", "srifle_DMR_04_F", "srifle_DMR_04_Tan_F", "srifle_DMR_05_blk_F",
-			"srifle_DMR_05_hex_F", "srifle_DMR_05_tan_f", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_LRR_tna_F", "srifle_GM6_ghex_F"
+			"srifle_DMR_04_F", "srifle_DMR_04_Tan_F", "srifle_DMR_05_blk_F",
+			"srifle_DMR_05_hex_F", "srifle_DMR_05_tan_f", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_GM6_ghex_F",
+			"srifle_DMR_07_blk_F", "srifle_DMR_07_hex_F", "srifle_DMR_07_ghex_F"
 		]
 	],
 	[
@@ -255,29 +257,29 @@ private _all_weapons_items_opfor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			"launch_Titan_F", "launch_RPG7_F"
+			"launch_O_Titan_F", "launch_RPG7_F"
 		],
 		// corporal launchers
 		[
-			"launch_RPG32_F", "launch_NLAW_F", "launch_RPG32_ghex_F"
+			"launch_RPG32_F", "launch_RPG32_ghex_F"
 		],
 		// sergeant launchers
 		[
-			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F"
+			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F", "launch_MRAWS_olive_rail_F", "launch_MRAWS_green_F", "launch_MRAWS_sand_F"
 		],
 		// lieutenant launchers
 		[
-			"launch_O_Vorona_brown_F", "launch_O_Vorona_green_F"
 		],
 		// capain launchers
 		[
 		],
 		// major launchers
 		[
-			"launch_Titan_short_F"
+			"launch_O_Titan_short_F"
 		],
 		// colonel launchers
 		[
+			"launch_O_Vorona_brown_F", "launch_O_Vorona_green_F"
 		]
 	],
 	[
@@ -288,27 +290,24 @@ private _all_weapons_items_opfor = [
 		],
 		// corporal pistols
 		[
-			"hgun_P07_F", "hgun_ACPC2_F"
+			"hgun_Rook40_F"
 		],
 		// sergeant pistols
 		[
-			"hgun_Rook40_F", "hgun_Pistol_Signal_F"
+			"hgun_ACPC2_F"
 		],
 		// lieutenant pistols
 		[
-			"hgun_P07_snds_F", "hgun_Rook40_snds_F"
+			"hgun_Pistol_heavy_02_F"
 		],
 		// captain pistols
 		[
-			"hgun_Pistol_heavy_02_F"
 		],
 		// major pistols
 		[
-			"hgun_Pistol_heavy_01_F", "hgun_Pistol_heavy_02_Yorris_F"
 		],
 		// colonel pistols
 		[
-			"hgun_Pistol_heavy_01_snds_F", "hgun_Pistol_heavy_01_MRD_F"
 		]
 	],
 	[
@@ -317,30 +316,34 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
+			"acc_flashlight_smg_01", "optic_Holosight_smg_blk_F", "optic_Holosight_smg_khk_F"
 		],
 		// corporal optics
 		[
-			"optic_Holosight", "acc_pointer_IR"
+			"optic_Holosight", "acc_pointer_IR", "optic_Aco", "optic_ERCO_blk_F", "optic_ERCO_khk_F", "optic_ERCO_snd_F", "optic_Holosight_blk_F",
+			"optic_Holosight_khk_F"
 		],
 		// sergeant optics
 		[
-			"acc_flashlight", "optic_Holosight_smg"
+			"acc_flashlight", "optic_Holosight_smg", "acc_flashlight_pistol"
 		],
 		// lieutenant optics
 		[
-			 "optic_MRD", "optic_MRCO"
+			 "optic_MRD", "optic_MRCO", "optic_Yorris"
 		],
 		// captain optics
 		[
-			"optic_Aco", "optic_ACO_grn", "optic_Arco", "optic_Hamr"
+			"optic_ACO_grn", "optic_Arco", "optic_Hamr", "optic_Arco_blk_F", "optic_Arco_ghex_F", "optic_Hamr_khk_F"
 		],
 		// major optics
 		[
-			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_tws", "optic_tws_mg", "optic_DMS"
+			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
+			
 		],
 		// colonel optics
 		[
-			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS"
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS", "optic_tws", "optic_tws_mg", "optic_KHS_blk", "optic_KHS_hex",
+			"optic_KHS_old", "optic_KHS_tan", "optic_SOS_khk_F", "optic_LRPS_tna_F", "optic_LRPS_ghex_F"
 		]
 	],
 	[
@@ -355,18 +358,22 @@ private _all_weapons_items_opfor = [
 		],
 		// sergeant muzzles
 		[
-			"muzzle_snds_B"
+			"muzzle_snds_H", "muzzle_snds_M", "muzzle_snds_L", "muzzle_snds_H_khk_F", "muzzle_snds_H_snd_F", "muzzle_snds_m_khk_F",
+			"muzzle_snds_m_snd_F", "muzzle_snds_B_khk_F", "muzzle_snds_B_snd_F", "muzzle_snds_65_TI_ghex_F"
 		],
 		// lieutenant muzzles
 		[
-			"muzzle_snds_H", "muzzle_snds_L", "muzzle_snds_M", "muzzle_snds_acp"
+			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
+			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
+			
 		],
 		// captain muzzles
 		[
+			"muzzle_snds_338_black", "muzzle_snds_338_green", "muzzle_snds_338_sand", "muzzle_snds_93mmg", "muzzle_snds_93mmg_tan"
 		],
 		// major muzzles
 		[
-			"muzzle_snds_H_MG"
+			"muzzle_snds_H_MG", "muzzle_snds_H_MG_blk_F", "muzzle_snds_H_MG_khk_F"
 		],
 		// colonel muzzles
 		[
