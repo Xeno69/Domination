@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "i_weapons_default.sqf"
+#define THIS_FILE "i_weapons_CUP.sqf"
 #include "x_setup.sqf"
 
 // please note that in the non ranked version all weapons and items are available, no matter which rank the player has
@@ -176,51 +176,30 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_T_Soldier_F", "U_B_T_Soldier_AR_F",
-			"U_B_T_Soldier_SL_F", "U_B_Wetsuit",
-			
-			"H_HelmetB", "H_HelmetB_camo", "H_HelmetB_light", "H_HelmetB_grass", "H_HelmetB_snakeskin", "H_HelmetB_desert", "H_HelmetB_black", "H_HelmetB_sand",
-			"H_HelmetB_light_grass", "H_HelmetB_light_snakeskin", "H_HelmetB_light_desert", "H_HelmetB_light_black", "H_HelmetB_light_sand", "H_HelmetB_TI_tna_F", "H_HelmetB_tna_F",
-			"H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F", "H_HelmetSpecB", "H_HelmetSpecB_paint1", "H_HelmetSpecB_paint2", "H_HelmetSpecB_blk", "H_HelmetSpecB_snakeskin",
-			"H_HelmetSpecB_sand", "H_Cap_tan_specops_US", "H_HelmetCrew_B", "H_PilotHelmetFighter_B", "H_PilotHelmetHeli_B", "H_CrewHelmetHeli_B",
-			
-			"V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli",
-			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrier2_blk", "V_PlateCarrierGL_rgr", "V_PlateCarrierGL_blk", "V_PlateCarrierGL_mtp",
-			"V_PlateCarrier1_blk", "V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_Chestrig_khk", "V_Chestrig_rgr", "V_Chestrig_blk",
-			"V_Chestrig_oli", "V_TacVest_khk", "V_TacVest_brn", "V_TacVest_oli", "V_TacVest_blk", "V_TacVest_camo", "V_TacVestIR_blk", "V_HarnessO_brn",
-			"V_HarnessOGL_brn", "V_HarnessO_gry", "V_HarnessOGL_gry", "V_PlateCarrierIA1_dgtl", "V_PlateCarrierIA2_dgtl", "V_PlateCarrierIAGL_dgtl",
-			"V_PlateCarrierIAGL_oli", "V_RebreatherB", "V_RebreatherIR", "V_RebreatherIA", "V_PlateCarrierL_CTRG", "V_PlateCarrierH_CTRG", "V_TacChestrig_grn_F",
-			"V_TacChestrig_oli_F", "V_TacChestrig_cbr_F", "V_PlateCarrier1_tna_F", "V_PlateCarrier2_tna_F", "V_PlateCarrierSpec_tna_F", "V_PlateCarrierGL_tna_F",
-			"V_HarnessO_ghex_F", "V_HarnessOGL_ghex_F", "V_BandollierB_ghex_F", "V_TacVest_gen_F", "V_PlateCarrier1_rgr_noflag_F", "V_PlateCarrier2_rgr_noflag_F",
-			"V_Plain_medical_F", "V_Plain_crystal_F", "V_Pocketed_olive_F", "V_Pocketed_coyote_F", "V_Pocketed_black_F", "V_LegStrapBag_black_F", "V_LegStrapBag_coyote_F",
-			"V_LegStrapBag_olive_F",
-			"H_Booniehat_khk", "H_Booniehat_oli", "H_Booniehat_mcamo", "H_Booniehat_tan", "H_Booniehat_dgtl", "H_Booniehat_khk_hs", "H_Bandanna_surfer", "H_Bandanna_khk",
-			"H_Bandanna_khk_hs", "H_Bandanna_cbr", "H_Bandanna_sgg", "H_Bandanna_sand", "H_Bandanna_surfer_blk", "H_Bandanna_surfer_grn", "H_Bandanna_gry", "H_Bandanna_blu",
-			"H_Bandanna_camo", "H_Bandanna_mcamo", "H_Shemag_olive", "H_Shemag_olive_hs", "H_ShemagOpen_khk", "H_ShemagOpen_tan", "H_Beret_blk", "H_Beret_02", "H_Beret_Colonel",
-			"H_Watchcap_blk", "H_Watchcap_cbr", "H_Watchcap_khk", "H_Watchcap_camo", "H_Booniehat_tna_F"
+			"H_Cap_blu", "H_Cap_headphones", "H_Cap_red", "H_HelmetB", "H_Booniehat_khk", "H_HelmetB_paint", "H_MilCap_mcamo",
+			"U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_CombatUniform_mcam_vest", "U_B_GhillieSuit",
+			"U_B_Wetsuit", "V_RebreatherB", "V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr",
+			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrierGL_rgr", "V_TacVest_khk", "V_TacVest_brn",
+			"V_TacVest_oli", "V_TacVest_blk", "U_B_CombatUniform_mcam_worn", "U_B_CombatUniform_wdl", "U_B_CombatUniform_wdl_tshirt",
+			"U_B_CombatUniform_wdl_vest", "U_B_CombatUniform_sgg", "U_B_CombatUniform_sgg_tshirt", "U_B_CombatUniform_sgg_vest", "U_B_SpecopsUniform_sgg"
 		],
 		// corporal uniforms
 		[
-			"U_B_CTRG_2", "U_B_CTRG_3", "U_B_CTRG_1"
 		],
 		// sergeant uniforms
 		[
-			"U_B_CTRG_Soldier_urb_1_F", "U_B_CTRG_Soldier_urb_3_F", "U_B_CTRG_Soldier_urb_2_F", "U_B_CTRG_Soldier_F", "U_B_CTRG_Soldier_3_F", "U_B_CTRG_Soldier_2_F"
 		],
 		// lieutenant uniforms
 		[
-			"U_B_CombatUniform_mcam_worn", "U_B_HeliPilotCoveralls", "U_B_PilotCoveralls"
 		],
 		// captain uniforms
 		[
-			"U_B_survival_uniform"
 		],
 		// major uniforms
 		[
 		],
 		// colonel uniforms
 		[
-			"U_B_T_Sniper_F", "U_B_GhillieSuit", "U_B_T_FullGhillie_tna_F", "U_B_FullGhillie_lsh", "U_B_FullGhillie_sard", "U_B_FullGhillie_ard"
 		]
 	],
 	// additional weapons and items, no rank
@@ -406,37 +385,21 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"U_O_CombatUniform_ocamo", "U_O_CombatUniform_oucamo", "U_O_T_Soldier_F", "U_O_Wetsuit",
-			
-			"H_HelmetCrew_O", "H_PilotHelmetFighter_O", "H_PilotHelmetHeli_O", "H_CrewHelmetHeli_O", "H_HelmetO_ocamo", "H_HelmetLeaderO_ocamo", "H_MilCap_ocamo",
-			"H_HelmetO_oucamo", "H_HelmetLeaderO_oucamo", "H_HelmetSpecO_ocamo", "H_HelmetSpecO_blk", "H_HelmetSpecO_ghex_F", "H_HelmetLeaderO_ghex_F",
-			"H_HelmetO_ghex_F", "H_HelmetCrew_O_ghex_F",
-			
-			"V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli",
-			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrier2_blk", "V_PlateCarrierGL_rgr", "V_PlateCarrierGL_blk", "V_PlateCarrierGL_mtp",
-			"V_PlateCarrier1_blk", "V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_Chestrig_khk", "V_Chestrig_rgr", "V_Chestrig_blk",
-			"V_Chestrig_oli", "V_TacVest_khk", "V_TacVest_brn", "V_TacVest_oli", "V_TacVest_blk", "V_TacVest_camo", "V_TacVestIR_blk", "V_HarnessO_brn",
-			"V_HarnessOGL_brn", "V_HarnessO_gry", "V_HarnessOGL_gry", "V_PlateCarrierIA1_dgtl", "V_PlateCarrierIA2_dgtl", "V_PlateCarrierIAGL_dgtl",
-			"V_PlateCarrierIAGL_oli", "V_RebreatherB", "V_RebreatherIR", "V_RebreatherIA", "V_PlateCarrierL_CTRG", "V_PlateCarrierH_CTRG", "V_TacChestrig_grn_F",
-			"V_TacChestrig_oli_F", "V_TacChestrig_cbr_F", "V_PlateCarrier1_tna_F", "V_PlateCarrier2_tna_F", "V_PlateCarrierSpec_tna_F", "V_PlateCarrierGL_tna_F",
-			"V_HarnessO_ghex_F", "V_HarnessOGL_ghex_F", "V_BandollierB_ghex_F", "V_TacVest_gen_F", "V_PlateCarrier1_rgr_noflag_F", "V_PlateCarrier2_rgr_noflag_F",
-			"V_Plain_medical_F", "V_Plain_crystal_F", "V_Pocketed_olive_F", "V_Pocketed_coyote_F", "V_Pocketed_black_F", "V_LegStrapBag_black_F", "V_LegStrapBag_coyote_F",
-			"V_LegStrapBag_olive_F",
-			"H_Booniehat_khk", "H_Booniehat_oli", "H_Booniehat_mcamo", "H_Booniehat_tan", "H_Booniehat_dgtl", "H_Booniehat_khk_hs", "H_Bandanna_surfer", "H_Bandanna_khk",
-			"H_Bandanna_khk_hs", "H_Bandanna_cbr", "H_Bandanna_sgg", "H_Bandanna_sand", "H_Bandanna_surfer_blk", "H_Bandanna_surfer_grn", "H_Bandanna_gry", "H_Bandanna_blu",
-			"H_Bandanna_camo", "H_Bandanna_mcamo", "H_Shemag_olive", "H_Shemag_olive_hs", "H_ShemagOpen_khk", "H_ShemagOpen_tan", "H_Beret_blk", "H_Beret_02", "H_Beret_Colonel",
-			"H_Watchcap_blk", "H_Watchcap_cbr", "H_Watchcap_khk", "H_Watchcap_camo", "H_Booniehat_tna_F"
+			"H_Cap_blu", "H_Cap_headphones", "H_Cap_red", "H_HelmetB", "H_Booniehat_khk", "H_HelmetB_paint", "H_MilCap_mcamo",
+			"U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_CombatUniform_mcam_vest", "U_B_GhillieSuit",
+			"U_B_Wetsuit", "V_RebreatherB", "V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr",
+			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrierGL_rgr", "V_TacVest_khk", "V_TacVest_brn",
+			"V_TacVest_oli", "V_TacVest_blk", "U_B_CombatUniform_mcam_worn", "U_B_CombatUniform_wdl", "U_B_CombatUniform_wdl_tshirt",
+			"U_B_CombatUniform_wdl_vest", "U_B_CombatUniform_sgg", "U_B_CombatUniform_sgg_tshirt", "U_B_CombatUniform_sgg_vest", "U_B_SpecopsUniform_sgg"
 		],
 		// corporal uniforms
 		[
 		],
 		// sergeant uniforms
 		[
-			"U_O_SpecopsUniform_ocamo"
 		],
 		// lieutenant uniforms
 		[
-			"U_O_officer_noInsignia_hex_F", "U_O_OfficerUniform_ocamo", "U_O_T_Officer_F", "U_O_PilotCoveralls"
 		],
 		// captain uniforms
 		[
@@ -446,8 +409,6 @@ private _all_weapons_items_opfor = [
 		],
 		// colonel uniforms
 		[
-			"U_O_T_Sniper_F", "U_O_GhillieSuit", "U_O_T_FullGhillie_tna_F", "U_O_FullGhillie_sard", "U_O_FullGhillie_lsh", "U_O_FullGhillie_ard",
-			"H_HelmetO_ViperSP_ghex_F", "H_HelmetO_ViperSP_hex_F"
 		]
 	],
 	// additional weapons and items, no rank
@@ -457,8 +418,8 @@ private _all_weapons_items_opfor = [
 		// weapons
 		[
 			"MineDetector", "Binocular", (if (d_no_faks == 1) then {"FirstAidKit"} else {""}), "Medikit",
-			(if (d_without_nvg == 1) then {"NVGoggles_OPFOR"} else {""}),
-			"ToolKit", "O_UavTerminal"
+			(if (d_without_nvg == 1) then {"NVGoggles"} else {""}),
+			"ToolKit", "B_UavTerminal"
 		]
 	]
 ];

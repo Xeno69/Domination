@@ -482,7 +482,6 @@ class cfgFunctions {
 			addc(cdorevive);
 			addc(drop_body);
 			addc(carry);
-			addc(selfheal);
 			addc(updaterlb);
 			addc(showppos);
 			addc(no_spectating);
@@ -497,6 +496,7 @@ class cfgFunctions {
 			addc(changeleader);
 			addc(spectdlginit);
 			addc(selleader);
+			addc(addselfhealaction);
 		};
 	};
 	class Dom_AR {

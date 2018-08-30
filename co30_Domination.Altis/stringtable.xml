@@ -7899,6 +7899,14 @@
 <Japanese>Server Rules</Japanese>
 <Original>Server Rules</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1867">
+<English>Self Heal</English>
+<Spanish>Self Heal</Spanish>
+<Portuguese>Self Heal</Portuguese>
+<Korean>Self Heal</Korean>
+<Japanese>Self Heal</Japanese>
+<Original>Self Heal</Original>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -37,7 +37,6 @@ while {alive _vec} do {
 		[_vec, bis_fnc_arsenal_data # 23, false, false] call BIS_fnc_addVirtualMagazineCargo;
 		[_vec, bis_fnc_arsenal_data # 26, false, false] call BIS_fnc_addVirtualMagazineCargo;
 
-		
 		_helperar = [];
 		
 		_helperar append (d_misc_store getVariable (_old_rank + "_OPTICS"));
@@ -46,12 +45,10 @@ while {alive _vec} do {
 		_helperar append (d_misc_store getVariable (_old_rank + "_MUZZLES"));
 		__TRACE_1("MUZZLES","_helperar")
 		
-		_helperar append (d_misc_store getVariable (_old_rank + "_UNIFORMS")); // TODO remove UNIFORMS from ranked? I would say yes
-		
-		_curar = d_misc_store getVariable (_old_rank + "_UNIFORMS");
+		_helperar append (d_misc_store getVariable (_old_rank + "_UNIFORMS"));
 		__TRACE_1("UNIFORMS","_helperar")
 		
-		_curar = d_misc_store getVariable (_old_rank + "_ITEMS");
+		_helperar append (d_misc_store getVariable (_old_rank + "_ITEMS"));
 		__TRACE_1("ITEMS","_helperar")
 		
 		[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;

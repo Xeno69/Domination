@@ -5,9 +5,6 @@
 
 if (isDedicated) exitWith {};
 
-//d_beam_target = "";
-//d_tele_dialog = 0; // 0 = respawn, 1 = teleport
-
 d_x_loop_end = false;
 
 disableSerialization;

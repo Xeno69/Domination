@@ -74,5 +74,5 @@ addMissionEventHandler ["Draw3D", {
 
 if (xr_selfheals > 0) then {
 	player setVariable ["xr_numheals", xr_selfheals];
-	player setVariable ["xr_selfh_ac_id", player addAction ["<t color='#FF0000'>Self Heal</t>", {_this call xr_fnc_selfheal}, [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon') && {!(_target getVariable 'xr_pisinaction') && {damage _target >= xr_selfheals_minmaxdam # 0 && {damage _target <= xr_selfheals_minmaxdam # 1 && {_target getVariable 'xr_numheals' > 0}}}}}"]];
+	call xr_fnc_addselfhealaction;
 };

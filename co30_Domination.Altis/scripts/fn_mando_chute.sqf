@@ -37,7 +37,6 @@ while {alive _chuto && {(getPos _chuto # 2) > 5}} do {
    
 	_posc = getPosASL _cone;
 	_ang = _posc getDir _target_pos;
-	//_ang = ((_target_pos # 0) - (_posc # 0)) atan2 ((_target_pos # 1) - (_posc # 1));
 	if (([_target_pos # 0, _target_pos # 1, 0] distance [_posc # 0, _posc # 1, 0]) > (getPos _cone # 2)) then {
 		if ((_vz + 0.5 * _deltatime) < -1.5) then {_vz = _vz + 0.5 * _deltatime};
 	} else {

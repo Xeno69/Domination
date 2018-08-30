@@ -503,11 +503,15 @@ if (!hasInterface) then {
 	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
 
 	if (d_with_ranked) then {
-#ifndef __RHS__
-		call compile preprocessFileLineNumbers "i_weapons_default.sqf";
-#else
-		call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
-#endif
+		if (d_rhs) then {
+			call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
+		} else {
+			if (d_cup) then {
+				call compile preprocessFileLineNumbers "i_weapons_CUP.sqf";
+			} else {
+				call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+			};
+		};
 	};
 };
 

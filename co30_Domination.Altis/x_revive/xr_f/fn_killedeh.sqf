@@ -48,5 +48,5 @@ if (_do_black) then {
 };
 
 if (xr_selfheals > 0) then {
-	player removeAction (player getVariable "xr_selfh_ac_id");
+	[player, player getVariable "xr_selfh_ac_id"] call bis_fnc_holdActionRemove;
 };
