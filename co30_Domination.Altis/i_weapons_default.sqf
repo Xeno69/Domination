@@ -129,7 +129,6 @@ private _all_weapons_items_blufor = [
 		// major optics
 		[
 			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
-			
 		],
 		// colonel optics
 		[

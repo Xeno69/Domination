@@ -19,7 +19,7 @@ class D_ParajumpDialog {
 			w = 0.885;
 			h = 0.7;
 			showCountourInterval = false;
-			onMouseButtonClick = "closeDialog 0;_pp = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];d_global_jump_pos = _pp";
+			onMouseButtonClick = "_pp = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];if ([_pp, _this select 0] call d_fnc_checkpjumppos) then {d_global_jump_pos = _pp;closeDialog 0;};";
 		};
 		class ParaMapText: RscText2 {
 			x = 0.06;
@@ -31,13 +31,18 @@ class D_ParajumpDialog {
 			colorText[] = {1, 1, 1, 1};
 			text = "$STR_DOM_MISSIONSTRING_1267";
 		};
-		class ArtiMapText2: ParaMapText {
+		class ParaMapText2: ParaMapText {
 			y = 0.83;
 			text = "$STR_DOM_MISSIONSTRING_1269";
 		};
-		class ArtiMapText3: ParaMapText {
+		class ParaMapText3: ParaMapText {
 			y = 0.86;
 			text = "$STR_DOM_MISSIONSTRING_1271";
+		};
+		class ParaMapText4: ParaMapText2 {
+			idc = 1000;
+			x = 0.5;
+			text = "";
 		};
 	};
 };

@@ -71,8 +71,3 @@ addMissionEventHandler ["Draw3D", {
 		} forEach xr_uncon_units;
 	};
 }];
-
-if (xr_selfheals > 0) then {
-	player setVariable ["xr_numheals", xr_selfheals];
-	call xr_fnc_addselfhealaction;
-};

@@ -194,6 +194,7 @@ class cfgFunctions {
 			addc(pylonloadoutpresetschanged);
 			addc(pylonloadoutdialogcbselchanged);
 			addc(pylonapply);
+			addc(checkpjumppos);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -496,7 +497,6 @@ class cfgFunctions {
 			addc(changeleader);
 			addc(spectdlginit);
 			addc(selleader);
-			addc(addselfhealaction);
 		};
 	};
 	class Dom_AR {

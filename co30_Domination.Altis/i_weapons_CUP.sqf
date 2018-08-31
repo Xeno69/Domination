@@ -13,35 +13,40 @@ private _all_weapons_items_blufor = [
 		"RIFLES",
 		// private rifles
 		[
-			"arifle_MX_F", "arifle_MX_Black_F", "arifle_MX_khk_F", "arifle_SDAR_F", "hgun_PDW2000_F", "SMG_05_F", "SMG_01_F"
+			"CUP_smg_MP5A5", "CUP_arifle_G36A", "CUP_arifle_G36A_camo", "CUP_arifle_G36K", "CUP_arifle_G36K_camo", "CUP_arifle_G36C",
+			"CUP_arifle_G36C_camo", "CUP_arifle_M16A2", "CUP_arifle_M16A4_Base", "CUP_arifle_M4A1", "CUP_arifle_M4A1_camo", "CUP_arifle_M4A1_black".
+			"CUP_arifle_M4A1_desert", "CUP_lmg_M240", "CUP_lmg_M60E4"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"arifle_MX_GL_F", "arifle_MX_GL_Black_F", "arifle_MX_SW_F", "arifle_MX_SW_Black_F", "arifle_MX_SW_khk_F", "arifle_MX_GL_khk_F"
+			"CUP_smg_MP5SD6", "CUP_arifle_MG36", "CUP_arifle_MG36_camo", "CUP_arifle_M16A2_GL", "CUP_arifle_M16A4_GL", "CUP_arifle_M4A1_BUIS_GL",
+			"CUP_arifle_M4A1_BUIS_camo_GL", "CUP_arifle_M4A1_BUIS_desert_GL", "CUP_arifle_M4A3_desert"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"arifle_MXC_F", "arifle_Mk20C_F", "arifle_MXC_Black_F", "arifle_MXM_F", "arifle_MXM_Black_F",
-			"LMG_Mk200_F"
+			"CUP_glaunch_M79", "CUP_lmg_minimi", "CUP_lmg_m249_para", "CUP_lmg_Mk48_des", "CUP_lmg_Mk48_wdl"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F", "srifle_EBR_F",
-			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F", "arifle_SPAR_01_blk_F", "arifle_SPAR_01_khk_F", "arifle_SPAR_01_snd_F"
+			"CUP_sgun_M1014", "CUP_lmg_m249_para_gl", "CUP_lmg_M249_E2", "CUP_lmg_minimi_railed", "CUP_arifle_Mk16_CQC", "CUP_arifle_Mk16_CQC_FG",
+			"CUP_arifle_Mk16_CQC_SFG", "CUP_arifle_Mk16_CQC_EGLM", "CUP_arifle_Mk16_STD", "CUP_arifle_Mk16_STD_FG", "CUP_arifle_Mk16_STD_SFG",
+			"CUP_arifle_Mk16_STD_EGLM", "CUP_arifle_Mk16_SV"
 		],
 		// captain rifles (gets added...)
 		[
-			"MMG_02_camo_F", "MMG_02_black_F", "MMG_02_sand_F", "arifle_SPAR_01_GL_blk_F", "arifle_SPAR_01_GL_khk_F", "arifle_SPAR_01_GL_snd_F",
-			"arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
+			"CUP_glaunch_M32", "CUP_srifle_Mk12SPR", "CUP_arifle_Mk17_CQC", "CUP_arifle_Mk17_CQC_FG", "CUP_arifle_Mk17_CQC_SFG", "CUP_arifle_Mk17_CQC_EGLM",
+			"CUP_arifle_Mk17_STD", "CUP_arifle_Mk17_STD_FG", "CUP_arifle_Mk17_STD_SFG", "CUP_arifle_Mk17_STD_EGLM", "CUP_arifle_Mk20"
 		],
 		// major rifles (gets...)
 		[
-			"srifle_DMR_02_F", "srifle_DMR_02_camo_F", "srifle_DMR_02_sniper_F", "arifle_SPAR_03_blk_F", "arifle_SPAR_03_khk_F", "arifle_SPAR_03_snd_F"
+			"CUP_srifle_M14_DMR", "CUP_srifle_M24_des", "CUP_srifle_M24_wdl", "CUP_srifle_M40A3", "CUP_srifle_M110", "CUP_srifle_M14", "CUP_arifle_XM8_Carbine",
+			"CUP_arifle_XM8_Carbine_GL", "CUP_arifle_xm8_sharpshooter", "CUP_arifle_xm8_SAW", "CUP_arifle_XM8_Compact", "CUP_arifle_XM8_Compact_Rail",
+			"CUP_arifle_XM8_Railed", "CUP_arifle_XM8_Carbine_FG"
 		],
 		// colonel rifles (...)
 		[
-			"srifle_LRR_F", "srifle_LRR_camo_F", "srifle_DMR_03_F", "srifle_DMR_03_khaki_F",
-			"srifle_DMR_03_tan_F", "srifle_DMR_03_multicam_F", "srifle_DMR_03_woodland_F", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_LRR_tna_F"
+			"CUP_sgun_AA12", "CUP_glaunch_Mk13", "CUP_srifle_AS50", "CUP_srifle_AWM_des", "CUP_srifle_AWM_wdl", "CUP_srifle_G22_des", "CUP_srifle_G22_wdl",
+			"CUP_srifle_M107_Base"
 		]
 	],
 	[
@@ -49,28 +54,30 @@ private _all_weapons_items_blufor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			"launch_B_Titan_F", "launch_RPG7_F"
+			"CUP_launch_M72A6", "CUP_launch_M136", "CUP_launch_FIM92Stinger"
 		],
 		// corporal launchers
 		[
-			"launch_RPG32_F", "launch_NLAW_F", "launch_RPG32_ghex_F"
+			"CUP_launch_M72A6_Special"
 		],
 		// sergeant launchers
 		[
-			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F", "launch_MRAWS_olive_rail_F", "launch_MRAWS_green_F", "launch_MRAWS_sand_F"
+			"CUP_launch_MAAWS", "CUP_launch_NLAW"
 		],
 		// lieutenant launchers
 		[
+			"CUP_launch_M47"
 		],
 		// capain launchers
 		[
+			"CUP_launch_Mk153Mod0"
 		],
 		// major launchers
 		[
-			"launch_B_Titan_short_F"
 		],
 		// colonel launchers
 		[
+			"CUP_launch_Javelin"
 		]
 	],
 	[
@@ -81,18 +88,19 @@ private _all_weapons_items_blufor = [
 		],
 		// corporal pistols
 		[
-			"hgun_P07_khk_F", "hgun_P07_F"
+			"CUP_hgun_M9"
 		],
 		// sergeant pistols
 		[
-			"hgun_ACPC2_F"
+			"CUP_hgun_Glock17", "CUP_hgun_Glock17_blk", "CUP_hgun_Glock17_tan"
 		],
 		// lieutenant pistols
 		[
-			"hgun_Pistol_heavy_01_F"
+			"CUP_hgun_Colt1911"
 		],
 		// captain pistols
 		[
+			"CUP_hgun_MicroUzi"
 		],
 		// major pistols
 		[
@@ -129,7 +137,6 @@ private _all_weapons_items_blufor = [
 		// major optics
 		[
 			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
-			
 		],
 		// colonel optics
 		[
@@ -176,12 +183,8 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"H_Cap_blu", "H_Cap_headphones", "H_Cap_red", "H_HelmetB", "H_Booniehat_khk", "H_HelmetB_paint", "H_MilCap_mcamo",
-			"U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_CombatUniform_mcam_vest", "U_B_GhillieSuit",
-			"U_B_Wetsuit", "V_RebreatherB", "V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr",
-			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrierGL_rgr", "V_TacVest_khk", "V_TacVest_brn",
-			"V_TacVest_oli", "V_TacVest_blk", "U_B_CombatUniform_mcam_worn", "U_B_CombatUniform_wdl", "U_B_CombatUniform_wdl_tshirt",
-			"U_B_CombatUniform_wdl_vest", "U_B_CombatUniform_sgg", "U_B_CombatUniform_sgg_tshirt", "U_B_CombatUniform_sgg_vest", "U_B_SpecopsUniform_sgg"
+			"CUP_hgun_SA61", "CUP_U_B_GER_Tropentarn_2", "CUP_U_B_GER_Flecktarn_1", "CUP_U_B_GER_Flecktarn_2", "CUP_U_B_USArmy_Base", "CUP_U_B_USArmy_TwoKnee",
+			"CUP_U_B_USArmy_UBACS", "CUP_U_B_USArmy_Soft"
 		],
 		// corporal uniforms
 		[
@@ -221,35 +224,32 @@ private _all_weapons_items_opfor = [
 		"RIFLES",
 		// private rifles
 		[
-			"arifle_Katiba_F", "arifle_Katiba_C_F", "arifle_AKM_F", "arifle_AKS_F", "arifle_CTAR_blk_F", "arifle_CTAR_hex_F", "arifle_SDAR_F",
-			"SMG_02_F"
+			"CUP_arifle_AK47", "CUP_arifle_AK74", "CUP_arifle_AK74M", "CUP_arifle_AKS74", "CUP_arifle_AKS74U", "CUP_arifle_AKM", "CUP_arifle_AKS",
+			"CUP_arifle_RPK74", "CUP_arifle_RPK74M", "CUP_smg_bizon", "CUP_lmg_PKM"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"arifle_Katiba_GL_F", "arifle_AK12_GL_F", "arifle_CTAR_GL_blk_F", "arifle_CTAR_GL_hex_F", "arifle_CTAR_GL_ghex_F"
+			"CUP_arifle_AK74M_GL", "CUP_arifle_AK107", "CUP_arifle_AK74_GL", "CUP_arifle_RPK74_45", "CUP_lmg_Pecheneg"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"LMG_Mk200_F", "LMG_Zafir_F", "arifle_CTARS_blk_F", "arifle_CTARS_hex_F", "arifle_CTARS_ghex_F", "arifle_AK12_F"
+			"CUP_arifle_AK107_GL"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F",
-			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
+			"CUP_sgun_Saiga12K"
 		],
 		// captain rifles (gets added...)
 		[
-			"srifle_DMR_01_F", "MMG_01_hex_F", "MMG_01_tan_F"
+			"CUP_srifle_VSSVintorez"
 		],
 		// major rifles (gets...)
 		[
-			"arifle_ARX_blk_F", "arifle_ARX_ghex_F", "arifle_ARX_hex_F"
+			"CUP_srifle_LeeEnfield", "CUP_srifle_LeeEnfield_rail", "CUP_srifle_SVD", "CUP_srifle_SVD_des"
 		],
 		// colonel rifles (...)
 		[
-			"srifle_DMR_04_F", "srifle_DMR_04_Tan_F", "srifle_DMR_05_blk_F",
-			"srifle_DMR_05_hex_F", "srifle_DMR_05_tan_f", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_GM6_ghex_F",
-			"srifle_DMR_07_blk_F", "srifle_DMR_07_hex_F", "srifle_DMR_07_ghex_F"
+			"CUP_srifle_ksvk", "CUP_glaunch_6G30", "CUP_arifle_AKS_Gold"
 		]
 	],
 	[
@@ -257,29 +257,28 @@ private _all_weapons_items_opfor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			"launch_O_Titan_F", "launch_RPG7_F"
+			"CUP_launch_Igla", "CUP_launch_9K32Strela", "CUP_launch_RPG7V"
 		],
 		// corporal launchers
 		[
-			"launch_RPG32_F", "launch_RPG32_ghex_F"
+			"CUP_launch_RPG18"
 		],
 		// sergeant launchers
 		[
-			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F", "launch_MRAWS_olive_rail_F", "launch_MRAWS_green_F", "launch_MRAWS_sand_F"
 		],
 		// lieutenant launchers
 		[
+			"CUP_launch_M47"
 		],
 		// capain launchers
 		[
 		],
 		// major launchers
 		[
-			"launch_O_Titan_short_F"
 		],
 		// colonel launchers
 		[
-			"launch_O_Vorona_brown_F", "launch_O_Vorona_green_F"
+			"CUP_launch_Metis"
 		]
 	],
 	[
@@ -290,24 +289,26 @@ private _all_weapons_items_opfor = [
 		],
 		// corporal pistols
 		[
-			"hgun_Rook40_F"
+			"CUP_hgun_Makarov"
 		],
 		// sergeant pistols
 		[
-			"hgun_ACPC2_F"
 		],
 		// lieutenant pistols
 		[
-			"hgun_Pistol_heavy_02_F"
+			"CUP_hgun_PB6P9"
 		],
 		// captain pistols
 		[
+			"CUP_hgun_SA61"
 		],
 		// major pistols
 		[
+			"CUP_hgun_TaurusTracker455"
 		],
 		// colonel pistols
 		[
+			"CUP_hgun_TaurusTracker455_gold"
 		]
 	],
 	[

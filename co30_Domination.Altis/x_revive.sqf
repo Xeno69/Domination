@@ -31,11 +31,6 @@ xr_revivemsg = true;
 // if a player can not revive another unit he can at least use CPR. cpr_time_add gets added to the other units livetime
 xr_cpr_time_add = 300;
 
-// selfheals, how often a player can heal himself (0 = disabled)
-xr_selfheals = 0;
-// if selfheals is enabled then if damage player >= 0.3 and <= 0.7 the action shows up
-xr_selfheals_minmaxdam = [0.3, 0.7];
-
 // if xr_spectating is set to true then player can use spectate view when he is unconscious
 // if set to false no spectating dialog is shown, camera remains in player view
 xr_spectating = d_WithReviveSpectating == 0;

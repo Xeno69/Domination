@@ -3,7 +3,7 @@
 #include "..\..\x_setup.sqf"
 
 if (player getUnitTrait "engineer") then {
-	(_this select 0) addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {_this call d_fnc_restoreeng}];
+	(_this select 0) addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {_this call d_fnc_restoreeng}, 0, -1, false, false, "", "!d_eng_can_repfuel && {alive player}"];
 };
 if (_this select 1 != player) then {
 	private _farpc = (_this select 0) getVariable ["d_objcont", []];

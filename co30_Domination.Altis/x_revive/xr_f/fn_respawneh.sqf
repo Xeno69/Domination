@@ -90,11 +90,6 @@ if (d_enablesway == 0) then {
 	player setCustomAimCoef 0.1;
 };
 
-if (xr_selfheals > 0) then {
-	player setVariable ["xr_numheals", xr_selfheals];
-	call xr_fnc_addselfhealaction;
-};
-
 player removeEventHandler ["handleDamage", _tmpeh];
 
 0 spawn {

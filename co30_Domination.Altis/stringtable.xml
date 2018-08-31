@@ -7900,12 +7900,12 @@
 <Original>Server Rules</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1867">
-<English>Self Heal</English>
-<Spanish>Self Heal</Spanish>
-<Portuguese>Self Heal</Portuguese>
-<Korean>Self Heal</Korean>
-<Japanese>Self Heal</Japanese>
-<Original>Self Heal</Original>
+<English>Jump position too close to main target!!!</English>
+<Spanish>Jump position too close to main target!!!</Spanish>
+<Portuguese>Jump position too close to main target!!!</Portuguese>
+<Korean>Jump position too close to main target!!!</Korean>
+<Japanese>Jump position too close to main target!!!</Japanese>
+<Original>Jump position too close to main target!!!</Original>
 </Key>
 </Container>
 </Package>

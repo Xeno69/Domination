@@ -46,7 +46,3 @@ if (_do_black) then {
 		"xr_revtxt" cutText ["", "BLACK OUT", 1];
 	};
 };
-
-if (xr_selfheals > 0) then {
-	[player, player getVariable "xr_selfh_ac_id"] call bis_fnc_holdActionRemove;
-};
