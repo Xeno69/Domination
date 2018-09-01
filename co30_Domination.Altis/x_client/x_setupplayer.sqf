@@ -194,6 +194,10 @@ if (d_with_ranked) then {
 				_weapp = "CUP_arifle_M16A2";
 				_magp = "CUP_30Rnd_556x45_Stanag";
 			};
+			if (d_ifa3lite) exitWith {
+				_weapp = "LIB_K98";
+				_magp = "LIB_5Rnd_792x57";
+			};
 			_weapp = "arifle_MX_F";
 			_magp = "30Rnd_65x39_caseless_mag";
 		};
@@ -205,6 +209,10 @@ if (d_with_ranked) then {
 			if (d_cup) exitWith {
 				_weapp = "CUP_arifle_AK74";
 				_magp = "CUP_30Rnd_545x39_AK_M";
+			};
+			if (d_ifa3lite) exitWith {
+				_weapp = "LIB_M1903A3_Springfield";
+				_magp = "LIB_5Rnd_762x63";
 			};
 			_weapp = "arifle_MX_F";
 			_magp = "30Rnd_65x39_caseless_mag";

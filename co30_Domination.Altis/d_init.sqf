@@ -509,7 +509,11 @@ if (!hasInterface) then {
 			if (d_cup) then {
 				call compile preprocessFileLineNumbers "i_weapons_CUP.sqf";
 			} else {
-				call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+				if (d_ifa3lite) then {
+					call compile preprocessFileLineNumbers "i_weapons_IFA3.sqf";
+				} else {
+					call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+				};
 			};
 		};
 	};

@@ -20,6 +20,7 @@ Changelogs
 - Changed: You can no longer parajump into a main target area
 - Fixed: Stupid copy and paste error in vehirespawn and getbonus scripts
 - Added: Ambient battlefield sounds at main targets
+- Added: IFA3 weapons and items for ranked mode
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
