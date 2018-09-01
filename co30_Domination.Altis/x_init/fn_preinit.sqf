@@ -1371,6 +1371,7 @@ if (hasInterface) then {
 	];
 #ifdef __CUP__
 	(d_remove_from_arsenal # 5) append [{_this isKindOf "CUP_B_DShkM_Gun_Bag"}, {_this isKindOf "CUP_B_DShkM_TripodHigh_Bag"}];
+	(d_remove_from_arsenal # 4) append [{_this select [0, 15] == "CUP_V_B_LHDVest"}];
 #endif
 #ifdef __RHS__
 	(d_remove_from_arsenal # 5) append [{_this isKindOf "RHS_NSV_Tripod_Bag"}, {_this isKindOf "RHS_NSV_Gun_Bag"}, {_this isKindOf "RHS_M2_Gun_Bag"}, {_this isKindOf "RHS_M2_Tripod_Bag"}];

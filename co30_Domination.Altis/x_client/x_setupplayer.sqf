@@ -186,22 +186,28 @@ if (d_with_ranked) then {
 	private _magp = "";
 	switch (d_own_side) do {
 		case "WEST": {
-#ifndef __RHS__
+			if (d_rhs) exitWith {
+				_weapp = "rhs_weap_m16a4";
+				_magp = "rhs_mag_30Rnd_556x45_M855_Stanag";
+			};
+			if (d_cup) exitWith {
+				_weapp = "CUP_arifle_M16A2";
+				_magp = "CUP_30Rnd_556x45_Stanag";
+			};
 			_weapp = "arifle_MX_F";
 			_magp = "30Rnd_65x39_caseless_mag";
-#else
-			_weapp = "rhs_weap_m16a4";
-			_magp = "rhs_mag_30Rnd_556x45_M855_Stanag";
-#endif
 		};
 		case "EAST": {
-#ifndef __RHS__
+			if (d_rhs) exitWith {
+				_weapp = "rhs_weap_ak74";
+				_magp = "rhs_30Rnd_545x39_AK";
+			};
+			if (d_cup) exitWith {
+				_weapp = "CUP_arifle_AK74";
+				_magp = "CUP_30Rnd_545x39_AK_M";
+			};
 			_weapp = "arifle_MX_F";
 			_magp = "30Rnd_65x39_caseless_mag";
-#else
-			_weapp = "rhs_weap_ak74";
-			_magp = "rhs_30Rnd_545x39_AK";
-#endif
 		};
 		case "GUER": {
 			_weapp = "arifle_MX_F";
@@ -962,9 +968,9 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 		{
 			_changed = false;
 			if !(_codes isEqualTo []) then {
-				__TRACE("_codes not equal to []")
 				private _curnum = _forEachIndex;
 				private _curele = _x;
+				__TRACE_1("","_codes")
 				{
 					if (_curele call _x) then {
 						_badar set [_curnum, -1];

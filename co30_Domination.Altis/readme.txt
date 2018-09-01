@@ -15,7 +15,7 @@ Changelogs
 - Changed: Removed more stuff from Virtual Arsenal (like virtually all static weapon backpacks and civilian clothes)
 - Fixed: Night vision goggles and rangefinder were added in the IFA3 version
 - Changed: In ranked mode blufor only uses blufor weapons and opfor only opfor weapons
-- Added: CIP weapons and items for ranked mode
+- Added: CUP weapons and items for ranked mode
 - Removed: Self heal from x revive (who needs it in times of MediKits)
 - Changed: You can no longer parajump into a main target area
 

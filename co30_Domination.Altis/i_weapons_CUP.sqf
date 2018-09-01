@@ -14,7 +14,7 @@ private _all_weapons_items_blufor = [
 		// private rifles
 		[
 			"CUP_smg_MP5A5", "CUP_arifle_G36A", "CUP_arifle_G36A_camo", "CUP_arifle_G36K", "CUP_arifle_G36K_camo", "CUP_arifle_G36C",
-			"CUP_arifle_G36C_camo", "CUP_arifle_M16A2", "CUP_arifle_M16A4_Base", "CUP_arifle_M4A1", "CUP_arifle_M4A1_camo", "CUP_arifle_M4A1_black".
+			"CUP_arifle_G36C_camo", "CUP_arifle_M16A2", "CUP_arifle_M16A4_Base", "CUP_arifle_M4A1", "CUP_arifle_M4A1_camo", "CUP_arifle_M4A1_black",
 			"CUP_arifle_M4A1_desert", "CUP_lmg_M240", "CUP_lmg_M60E4"
 		],
 		// corporal rifles (gets added to private rifles)
@@ -115,33 +115,39 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
-			"acc_flashlight_smg_01", "optic_Holosight_smg_blk_F", "optic_Holosight_smg_khk_F"
+			
 		],
 		// corporal optics
 		[
-			"optic_Holosight", "acc_pointer_IR", "optic_Aco", "optic_ERCO_blk_F", "optic_ERCO_khk_F", "optic_ERCO_snd_F", "optic_Holosight_blk_F",
-			"optic_Holosight_khk_F"
+			"CUP_optic_Kobra", "CUP_optic_HoloBlack", "CUP_optic_HoloWdl", "CUP_optic_HoloDesert", "CUP_optic_CompM2_Black", "CUP_optic_CompM2_Woodland",
+			"CUP_optic_CompM2_Woodland2", "CUP_optic_CompM2_Desert", "CUP_optic_MRad", "CUP_optic_TrijiconRx01_desert",
+			"CUP_optic_TrijiconRx01_black", "CUP_acc_Flashlight", "CUP_acc_Flashlight_wdl", "CUP_acc_Flashlight_desert"
 		],
 		// sergeant optics
 		[
-			"acc_flashlight", "optic_Holosight_smg", "acc_flashlight_pistol"
+			"CUP_optic_PSO_1", "CUP_optic_Eotech533", "CUP_optic_Eotech533Grey", "CUP_optic_CompM4", "CUP_optic_ElcanM145", "CUP_optic_ZDDot", "CUP_optic_Elcan",
+			"CUP_optic_Elcan_reflex", "CUP_acc_CZ_M3X", "CUP_acc_LLM", "CUP_optic_PGO7V", "CUP_optic_PGO7V2", "CUP_optic_PGO7V3"
 		],
 		// lieutenant optics
 		[
-			 "optic_MRD", "optic_MRCO", "optic_Yorris"
+			 "CUP_optic_MAAWS_Scope", "CUP_optic_PechenegScope", "CUP_optic_SUSAT", "CUP_optic_ACOG", "CUP_optic_PSO_3", "CUP_optic_RCO", "CUP_optic_RCO_desert",
+			 "CUP_acc_XM8_light_module"
 		],
 		// captain optics
 		[
-			"optic_ACO_grn", "optic_Arco", "optic_Hamr", "optic_Arco_blk_F", "optic_Arco_ghex_F", "optic_Hamr_khk_F"
+			"CUP_optic_CWS", "CUP_optic_LeupoldMk4_CQ_T", "CUP_optic_ELCAN_SpecterDR", "CUP_optic_AN_PVS_4", "CUP_acc_ANPEQ_15", "CUP_acc_ANPEQ_2",
+			"CUP_acc_ANPEQ_2_camo", "CUP_acc_ANPEQ_2_desert", "CUP_acc_ANPEQ_2_grey", "CUP_optic_NSPU_RPG"
 		],
 		// major optics
 		[
-			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
+			"LaserDesignator", "CUP_optic_SMAW_Scope", "CUP_optic_GOSHAWK", "CUP_optic_NSPU", "CUP_optic_AN_PAS_13c2", "CUP_optic_AN_PVS_10", "CUP_optic_AN_PAS_13c1",
+			"CUP_optic_SB_11_4x20_PM"
 		],
 		// colonel optics
 		[
-			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS", "optic_tws", "optic_tws_mg", "optic_KHS_blk", "optic_KHS_hex",
-			"optic_KHS_old", "optic_KHS_tan", "optic_SOS_khk_F", "optic_LRPS_tna_F", "optic_LRPS_ghex_F"
+			"CUP_Mxx_camo", "CUP_Mxx_camo_half", "CUP_SVD_camo_g", "CUP_SVD_camo_g_half", "CUP_SVD_camo_d", "CUP_SVD_camo_d_half", "CUP_optic_SB_3_12x50_PMII",
+			"CUP_optic_LeupoldMk4", "CUP_optic_Leupold_VX3", "CUP_optic_LeupoldM3LR", "CUP_optic_LeupoldMk4_10x40_LRT_Desert", "CUP_optic_LeupoldMk4_10x40_LRT_Woodland",
+			"CUP_optic_LeupoldMk4_MRT_tan"
 		]
 	],
 	[
@@ -156,22 +162,20 @@ private _all_weapons_items_blufor = [
 		],
 		// sergeant muzzles
 		[
-			"muzzle_snds_H", "muzzle_snds_M", "muzzle_snds_L", "muzzle_snds_H_khk_F", "muzzle_snds_H_snd_F", "muzzle_snds_m_khk_F",
-			"muzzle_snds_m_snd_F", "muzzle_snds_B_khk_F", "muzzle_snds_B_snd_F", "muzzle_snds_65_TI_ghex_F"
+			"CUP_muzzle_snds_AWM", "CUP_muzzle_snds_M16"
 		],
 		// lieutenant muzzles
 		[
-			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
-			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
-			
+			"CUP_muzzle_snds_G36_black", "CUP_muzzle_snds_G36_desert", "CUP_muzzle_snds_MicroUzi", "CUP_muzzleFlash2SCAR_L", "CUP_muzzle_snds_SCAR_L",
+			"CUP_muzzle_mfsup_SCAR_L"
 		],
 		// captain muzzles
 		[
-			"muzzle_snds_338_black", "muzzle_snds_338_green", "muzzle_snds_338_sand", "muzzle_snds_93mmg", "muzzle_snds_93mmg_tan"
+			"CUP_acc_sffh", "CUP_acc_bfa", "CUP_muzzle_snds_M110", "CUP_muzzle_snds_M14", "CUP_muzzle_snds_M16_camo", "CUP_muzzle_mfsup_SCAR_H", "CUP_muzzle_snds_SCAR_H"
 		],
 		// major muzzles
 		[
-			"muzzle_snds_H_MG", "muzzle_snds_H_MG_blk_F", "muzzle_snds_H_MG_khk_F"
+			"CUP_muzzle_snds_M9", "CUP_muzzle_snds_Mk12", "CUP_muzzle_snds_XM8"
 		],
 		// colonel muzzles
 		[
@@ -183,14 +187,44 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"CUP_hgun_SA61", "CUP_U_B_GER_Tropentarn_2", "CUP_U_B_GER_Flecktarn_1", "CUP_U_B_GER_Flecktarn_2", "CUP_U_B_USArmy_Base", "CUP_U_B_USArmy_TwoKnee",
-			"CUP_U_B_USArmy_UBACS", "CUP_U_B_USArmy_Soft"
+			"CUP_U_B_USArmy_Base", "CUP_U_B_USArmy_TwoKnee", "CUP_U_B_USArmy_UBACS", "CUP_U_B_USArmy_Soft", "CUP_U_B_USArmy_PilotOverall", "CUP_U_B_USMC_Officer",
+			"CUP_U_B_USMC_MARPAT_WDL_Sleeves", "CUP_U_B_USMC_MARPAT_WDL_RolledUp", "CUP_U_B_USMC_MARPAT_WDL_Kneepad", "CUP_U_B_USMC_MARPAT_WDL_TwoKneepads", "CUP_U_B_USMC_PilotOverall",
+			"CUP_U_B_USMC_MARPAT_WDL_RollUpKneepad", "CUP_U_B_FR_SpecOps", "CUP_U_B_FR_Scout", "CUP_U_B_FR_Officer", "CUP_U_B_FR_Corpsman", "CUP_U_B_FR_DirAction",
+			"CUP_U_B_FR_DirAction2", "CUP_U_B_FR_Light", "CUP_U_B_FR_Scout1", "CUP_U_B_FR_Scout2", "CUP_U_B_FR_Scout3", "CUP_B_USMC_Navy_Blue", "CUP_B_USMC_Navy_Brown",
+			"CUP_B_USMC_Navy_Green", "CUP_B_USMC_Navy_Red", "CUP_B_USMC_Navy_Violet", "CUP_B_USMC_Navy_White", "CUP_B_USMC_Navy_Yellow", "CUP_U_B_USMC_FROG1_WMARPAT",
+			"CUP_U_B_USMC_FROG1_DMARPAT", "CUP_U_B_USMC_FROG2_WMARPAT", "CUP_U_B_USMC_FROG2_DMARPAT", "CUP_U_B_USMC_FROG3_WMARPAT", "CUP_U_B_USMC_FROG3_DMARPAT",
+			"CUP_U_B_USMC_FROG4_WMARPAT", "CUP_U_B_USMC_FROG4_DMARPAT",
+			
+			"CUP_V_B_IOTV_SL", "CUP_V_B_IOTV_Medic", "CUP_V_B_IOTV_Rifleman", "CUP_V_B_IOTV_AT", "CUP_V_B_IOTV_MG", "CUP_V_B_IOTV_saw", "CUP_V_B_IOTV_tl",
+			"CUP_V_B_IOTV_gl", "CUP_V_B_USArmy_PilotVest", "CUP_V_B_Interceptor_Rifleman", "CUP_V_B_MTV", "CUP_V_B_MTV_Patrol", "CUP_V_B_MTV_Pouches", "CUP_V_B_MTV_noCB",
+			"CUP_V_B_MTV_Marksman", "CUP_V_B_MTV_PistolBlack", "CUP_V_B_MTV_LegPouch", "CUP_V_B_MTV_MG", "CUP_V_B_MTV_Mine", "CUP_V_B_MTV_TL", "CUP_V_B_PilotVest",
+			"CUP_V_B_RRV_TL", "CUP_V_B_RRV_Officer", "CUP_V_B_RRV_Medic", "CUP_V_B_RRV_DA1", "CUP_V_B_RRV_DA2", "CUP_V_B_RRV_MG", "CUP_V_B_RRV_Light", "CUP_V_B_RRV_Scout",
+			"CUP_V_B_RRV_Scout2", "CUP_V_B_RRV_Scout3", "CUP_V_B_Eagle_SPC_Rifleman", "CUP_V_B_Eagle_SPC_Empty", "CUP_V_B_Eagle_SPC_Patrol", "CUP_V_B_Eagle_SPC_GL",
+			"CUP_V_B_Eagle_SPC_MG", "CUP_V_B_Eagle_SPC_AR", "CUP_V_B_Eagle_SPC_AT", "CUP_V_B_Eagle_SPC_Corpsman", "CUP_V_B_Eagle_SPC_Crew", "CUP_V_B_Eagle_SPC_DMR",
+			"CUP_V_B_Eagle_SPC_Officer", "CUP_V_B_Eagle_SPC_RTO", "CUP_V_B_Eagle_SPC_SL", "CUP_V_B_Eagle_SPC_Scout", "CUP_V_B_Eagle_SPC_TL", "CUP_V_C_Police_Holster",
+			"CUP_V_B_Delta_1", "CUP_V_B_Delta_2",
+			
+			"CUP_H_USArmy_Boonie", "CUP_H_USA_Cap", "CUP_H_USArmy_HelmetMICH", "CUP_H_USArmy_HelmetMICH_ESS", "CUP_H_USArmy_HelmetMICH_earpro", "CUP_H_USArmy_HelmetMICH_earpro_ess",
+			"CUP_H_USArmy_HelmetMICH_headset", "CUP_H_USArmy_HelmetMICH_headset_ess", "CUP_H_USArmy_HelmetMICH_wdl", "CUP_H_USArmy_Helmet_ECH1_Sand", "CUP_H_USArmy_Helmet_ECH2_Sand",
+			"CUP_H_USArmy_Helmet_ECH1_Black", "CUP_H_USArmy_Helmet_ECH2_Black", "CUP_H_USArmy_Helmet_ECH1_Green", "CUP_H_USArmy_Helmet_ECH2_GREEN", "CUP_H_USArmy_Helmet_Pro",
+			"CUP_H_USArmy_Helmet_Pro_gog", "CUP_H_USArmy_Helmet_M1_Olive", "CUP_H_USArmy_Helmet_M1_Vine", "CUP_H_USArmy_Helmet_M1_m81", "CUP_H_USArmy_Helmet_M1_btp", "CUP_H_USMC_Officer_Cap",
+			"CUP_H_USMC_HelmetWDL", "CUP_H_USMC_Headset_HelmetWDL", "CUP_H_USMC_Headset_GoggleW_HelmetWDL", "CUP_H_USMC_Crew_Helmet", "CUP_H_USMC_Goggles_HelmetWDL",
+			"CUP_H_USMC_Helmet_Pilot", "CUP_H_FR_Cap_Headset_Green", "CUP_H_FR_Cap_Officer_Headset", "CUP_H_FR_BandanaGreen", "CUP_H_FR_BandanaWdl", "CUP_H_FR_ECH", "CUP_H_FR_BoonieMARPAT",
+			"CUP_H_FR_BoonieWDL", "CUP_H_FR_BeanieGreen", "CUP_H_FR_Headset", "CUP_H_FR_Bandana_Headset", "CUP_H_FR_Headband_Headset", "CUP_H_FR_PRR_BoonieWDL", "CUP_H_USMC_ACVC_WDL",
+			"CUP_H_USMC_ACVC_DES", "CUP_H_USMC_MICH2000_WDL", "CUP_H_USMC_MICH2000_DES", "CUP_H_USMC_MICH2000_ESS_COMM_WDL", "CUP_H_USMC_MICH2000_ESS_COMM_DES",
+			"CUP_H_USMC_MICH2000_COMM_WDL", "CUP_H_USMC_MICH2000_COMM_DES", "CUP_H_USMC_MICH2000_DEF_WDL", "CUP_H_USMC_MICH2000_DEF_DES", "CUP_H_USMC_MICH2000_DEF_ESS_WDL",
+			"CUP_H_USMC_MICH2000_DEF_ESS_DES", "CUP_H_USMC_LWH_NVGMOUNT_WDL", "CUP_H_USMC_LWH_NVGMOUNT_DES", "CUP_H_USMC_LWH_WDL", "CUP_H_USMC_LWH_DES", "CUP_H_USMC_LWH_NVGMOUNT_ESS_HS_WDL",
+			"CUP_H_USMC_LWH_NVGMOUNT_ESS_HS_DES", "CUP_H_USMC_LWH_ESS_HS_WDL", "CUP_H_USMC_LWH_ESS_HS_DES", "CUP_H_USMC_LWH_NVGMOUNT_ESS_WDL", "CUP_H_USMC_LWH_NVGMOUNT_ESS_DES",
+			"CUP_H_USMC_LWH_ESS_WDL", "CUP_H_USMC_LWH_ESS_DES", "CUP_H_USMC_LWH_NVGMOUNT_ESS_LR_WDL", "CUP_H_USMC_LWH_NVGMOUNT_ESS_LR_DES", "CUP_H_USMC_LWH_ESS_LR_WDL",
+			"CUP_H_USMC_LWH_ESS_LR_DES", "CUP_H_USMC_BOONIE_WDL", "CUP_H_USMC_BOONIE_DES", "CUP_H_USMC_BOONIE_PRR_WDL", "CUP_H_USMC_BOONIE_PRR_DES", "CUP_H_USMC_CAP_WDL",
+			"CUP_H_USMC_CAP_DES", "CUP_H_USMC_CAP_PRR_WDL", "CUP_H_USMC_CAP_PRR_DES"
 		],
 		// corporal uniforms
 		[
 		],
 		// sergeant uniforms
 		[
+			"CUP_FR_NeckScarf", "CUP_FR_NeckScarf2"
 		],
 		// lieutenant uniforms
 		[
@@ -203,6 +237,7 @@ private _all_weapons_items_blufor = [
 		],
 		// colonel uniforms
 		[
+			"CUP_U_B_BAF_DDPM_Ghillie", "CUP_U_B_BAF_DPM_Ghillie"
 		]
 	],
 	// additional weapons and items, no rank
@@ -317,34 +352,39 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
-			"acc_flashlight_smg_01", "optic_Holosight_smg_blk_F", "optic_Holosight_smg_khk_F"
+			
 		],
 		// corporal optics
 		[
-			"optic_Holosight", "acc_pointer_IR", "optic_Aco", "optic_ERCO_blk_F", "optic_ERCO_khk_F", "optic_ERCO_snd_F", "optic_Holosight_blk_F",
-			"optic_Holosight_khk_F"
+			"CUP_optic_Kobra", "CUP_optic_HoloBlack", "CUP_optic_HoloWdl", "CUP_optic_HoloDesert", "CUP_optic_CompM2_Black", "CUP_optic_CompM2_Woodland",
+			"CUP_optic_CompM2_Woodland2", "CUP_optic_CompM2_Desert", "CUP_optic_MRad", "CUP_optic_TrijiconRx01_desert",
+			"CUP_optic_TrijiconRx01_black", "CUP_acc_Flashlight", "CUP_acc_Flashlight_wdl", "CUP_acc_Flashlight_desert"
 		],
 		// sergeant optics
 		[
-			"acc_flashlight", "optic_Holosight_smg", "acc_flashlight_pistol"
+			"CUP_optic_PSO_1", "CUP_optic_Eotech533", "CUP_optic_Eotech533Grey", "CUP_optic_CompM4", "CUP_optic_ElcanM145", "CUP_optic_ZDDot", "CUP_optic_Elcan",
+			"CUP_optic_Elcan_reflex", "CUP_acc_CZ_M3X", "CUP_acc_LLM", "CUP_optic_PGO7V", "CUP_optic_PGO7V2", "CUP_optic_PGO7V3"
 		],
 		// lieutenant optics
 		[
-			 "optic_MRD", "optic_MRCO", "optic_Yorris"
+			 "CUP_optic_MAAWS_Scope", "CUP_optic_PechenegScope", "CUP_optic_SUSAT", "CUP_optic_ACOG", "CUP_optic_PSO_3", "CUP_optic_RCO", "CUP_optic_RCO_desert",
+			 "CUP_acc_XM8_light_module"
 		],
 		// captain optics
 		[
-			"optic_ACO_grn", "optic_Arco", "optic_Hamr", "optic_Arco_blk_F", "optic_Arco_ghex_F", "optic_Hamr_khk_F"
+			"CUP_optic_CWS", "CUP_optic_LeupoldMk4_CQ_T", "CUP_optic_ELCAN_SpecterDR", "CUP_optic_AN_PVS_4", "CUP_acc_ANPEQ_15", "CUP_acc_ANPEQ_2",
+			"CUP_acc_ANPEQ_2_camo", "CUP_acc_ANPEQ_2_desert", "CUP_acc_ANPEQ_2_grey", "CUP_optic_NSPU_RPG"
 		],
 		// major optics
 		[
-			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
-			
+			"LaserDesignator", "CUP_optic_SMAW_Scope", "CUP_optic_GOSHAWK", "CUP_optic_NSPU", "CUP_optic_AN_PAS_13c2", "CUP_optic_AN_PVS_10", "CUP_optic_AN_PAS_13c1",
+			"CUP_optic_SB_11_4x20_PM"
 		],
 		// colonel optics
 		[
-			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS", "optic_tws", "optic_tws_mg", "optic_KHS_blk", "optic_KHS_hex",
-			"optic_KHS_old", "optic_KHS_tan", "optic_SOS_khk_F", "optic_LRPS_tna_F", "optic_LRPS_ghex_F"
+			"CUP_Mxx_camo", "CUP_Mxx_camo_half", "CUP_SVD_camo_g", "CUP_SVD_camo_g_half", "CUP_SVD_camo_d", "CUP_SVD_camo_d_half", "CUP_optic_SB_3_12x50_PMII",
+			"CUP_optic_LeupoldMk4", "CUP_optic_Leupold_VX3", "CUP_optic_LeupoldM3LR", "CUP_optic_LeupoldMk4_10x40_LRT_Desert", "CUP_optic_LeupoldMk4_10x40_LRT_Woodland",
+			"CUP_optic_LeupoldMk4_MRT_tan"
 		]
 	],
 	[
@@ -359,22 +399,20 @@ private _all_weapons_items_opfor = [
 		],
 		// sergeant muzzles
 		[
-			"muzzle_snds_H", "muzzle_snds_M", "muzzle_snds_L", "muzzle_snds_H_khk_F", "muzzle_snds_H_snd_F", "muzzle_snds_m_khk_F",
-			"muzzle_snds_m_snd_F", "muzzle_snds_B_khk_F", "muzzle_snds_B_snd_F", "muzzle_snds_65_TI_ghex_F"
+			"CUP_muzzle_snds_AWM", "CUP_muzzle_snds_M16"
 		],
 		// lieutenant muzzles
 		[
-			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
-			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
-			
+			"CUP_muzzle_snds_G36_black", "CUP_muzzle_snds_G36_desert", "CUP_muzzle_snds_MicroUzi", "CUP_muzzleFlash2SCAR_L", "CUP_muzzle_snds_SCAR_L",
+			"CUP_muzzle_mfsup_SCAR_L"
 		],
 		// captain muzzles
 		[
-			"muzzle_snds_338_black", "muzzle_snds_338_green", "muzzle_snds_338_sand", "muzzle_snds_93mmg", "muzzle_snds_93mmg_tan"
+			"CUP_acc_sffh", "CUP_acc_bfa", "CUP_muzzle_snds_M110", "CUP_muzzle_snds_M14", "CUP_muzzle_snds_M16_camo", "CUP_muzzle_mfsup_SCAR_H", "CUP_muzzle_snds_SCAR_H"
 		],
 		// major muzzles
 		[
-			"muzzle_snds_H_MG", "muzzle_snds_H_MG_blk_F", "muzzle_snds_H_MG_khk_F"
+			"CUP_muzzle_snds_M9", "CUP_muzzle_snds_Mk12", "CUP_muzzle_snds_XM8"
 		],
 		// colonel muzzles
 		[
@@ -386,18 +424,30 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"H_Cap_blu", "H_Cap_headphones", "H_Cap_red", "H_HelmetB", "H_Booniehat_khk", "H_HelmetB_paint", "H_MilCap_mcamo",
-			"U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_CombatUniform_mcam_vest", "U_B_GhillieSuit",
-			"U_B_Wetsuit", "V_RebreatherB", "V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr",
-			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrierGL_rgr", "V_TacVest_khk", "V_TacVest_brn",
-			"V_TacVest_oli", "V_TacVest_blk", "U_B_CombatUniform_mcam_worn", "U_B_CombatUniform_wdl", "U_B_CombatUniform_wdl_tshirt",
-			"U_B_CombatUniform_wdl_vest", "U_B_CombatUniform_sgg", "U_B_CombatUniform_sgg_tshirt", "U_B_CombatUniform_sgg_vest", "U_B_SpecopsUniform_sgg"
+			"CUP_U_O_RUS_Flora_1", "CUP_U_O_RUS_EMR_1", "CUP_U_O_RUS_Flora_2", "CUP_U_O_RUS_EMR_2", "CUP_U_O_RUS_Flora_1_VDV", "CUP_U_O_RUS_EMR_1_VDV",
+			"CUP_U_O_RUS_Flora_2_VDV", "CUP_U_O_RUS_EMR_2_VDV", "CUP_U_O_RUS_Commander", "CUP_U_O_RUS_Gorka_Partizan", "CUP_U_O_RUS_Gorka_Partizan_A",
+			"CUP_U_O_RUS_Gorka_Green",  "CUP_U_O_SLA_MixedCamo", "CUP_U_O_SLA_Green", "CUP_U_O_SLA_Urban", "CUP_U_O_SLA_Desert",
+			"CUP_U_O_Partisan_TTsKO", "CUP_U_O_Partisan_TTsKO_Mixed", "CUP_U_O_Partisan_VSR_Mixed1", "CUP_U_O_Partisan_VSR_Mixed2", "CUP_U_O_SLA_Overalls_Pilot",
+			"CUP_U_O_SLA_Overalls_Tank", "CUP_U_O_SLA_Officer_Suit", "CUP_U_O_TK_Officer", "CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green",
+			"CUP_U_O_CHDKZ_Bardak", "CUP_U_O_CHDKZ_Commander", "CUP_U_O_CHDKZ_Lopotev", "CUP_U_O_CHDKZ_Kam_01", "CUP_U_O_CHDKZ_Kam_02", "CUP_U_O_CHDKZ_Kam_03",
+			"CUP_U_O_CHDKZ_Kam_04", "CUP_U_O_CHDKZ_Kam_05", "CUP_U_O_CHDKZ_Kam_06", "CUP_U_O_CHDKZ_Kam_07", "CUP_U_O_CHDKZ_Kam_08",
+			
+			"CUP_V_RUS_6B3_1", "CUP_V_RUS_6B3_2", "CUP_V_RUS_6B3_3", "CUP_V_RUS_6B3_4", "CUP_V_RUS_Smersh_1", "CUP_V_RUS_Smersh_2", "CUP_V_O_SLA_Carrier_Belt",
+			"CUP_V_O_SLA_Carrier_Belt02", "CUP_V_O_SLA_Carrier_Belt03", "CUP_V_O_SLA_Flak_Vest01", "CUP_V_O_SLA_Flak_Vest02", "CUP_V_O_SLA_Flak_Vest03",
+			"CUP_V_O_TK_CrewBelt", "CUP_V_O_TK_OfficerBelt", "CUP_V_O_TK_OfficerBelt2", "CUP_V_O_TK_Vest_1", "CUP_V_O_TK_Vest_2", "CUP_V_C_Police_Holster",
+			"CUP_V_O_Ins_Carrier_Rig", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_O_Ins_Carrier_Rig_Light",
+			
+			"CUP_H_RUS_6B27_NVG", "CUP_H_RUS_6B27_NVG_olive", "CUP_H_RUS_6B27", "CUP_H_RUS_6B27_olive", "CUP_H_RUS_TSH_4_Brown", "CUP_H_RUS_ZSH_Shield_Up",
+			"CUP_H_RUS_ZSH_Shield_Down", "CUP_H_RUS_Bandana_HS", "CUP_H_RUS_Beret_VDV", "CUP_H_RUS_Beret_Spetsnaz", "CUP_H_RUS_ZSH_1_Goggles", "CUP_H_RUS_ZSH_1",
+			"CUP_H_SLA_TankerHelmet", "CUP_H_SLA_Helmet", "CUP_H_SLA_OfficerCap", "CUP_H_SLA_SLCap", "CUP_H_SLA_Boonie", "CUP_H_SLA_Beret", "CUP_H_SLA_BeanieGreen",
+			"CUP_H_SLA_BeretRed"
 		],
 		// corporal uniforms
 		[
 		],
 		// sergeant uniforms
 		[
+			"CUP_RUS_Balaclava_blk", "CUP_RUS_Balaclava_grn"
 		],
 		// lieutenant uniforms
 		[
@@ -410,6 +460,7 @@ private _all_weapons_items_opfor = [
 		],
 		// colonel uniforms
 		[
+			"CUP_U_O_RUS_Ghillie", "CUP_U_O_TK_Ghillie_Top"
 		]
 	],
 	// additional weapons and items, no rank
