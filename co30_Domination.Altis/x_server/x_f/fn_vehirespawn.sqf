@@ -49,7 +49,7 @@ if (_fuelcheck) then {
 
 if (unitIsUAV _vec) then {
 	_vec allowCrewInImmobile true;
-	if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+	if (isClass (configFile>>"CfgVehicles">>_type>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 };

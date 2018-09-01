@@ -18,6 +18,7 @@ Changelogs
 - Added: CUP weapons and items for ranked mode
 - Removed: Self heal from x revive (who needs it in times of MediKits)
 - Changed: You can no longer parajump into a main target area
+- Fixed: Stupid copy and paste error in vehirespawn and getbonus scripts
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
