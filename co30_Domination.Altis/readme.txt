@@ -19,6 +19,7 @@ Changelogs
 - Removed: Self heal from x revive (who needs it in times of MediKits)
 - Changed: You can no longer parajump into a main target area
 - Fixed: Stupid copy and paste error in vehirespawn and getbonus scripts
+- Added: Ambient battlefield sounds at main targets
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

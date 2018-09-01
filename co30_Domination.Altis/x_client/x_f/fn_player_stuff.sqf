@@ -20,7 +20,7 @@ if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitW
 #ifdef __TT__
 private _prev_side = _this select 5;
 if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
-	[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+	[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
 };
 #endif
 

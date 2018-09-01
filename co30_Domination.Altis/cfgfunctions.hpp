@@ -145,6 +145,7 @@ class cfgFunctions {
 			addc(getoutmaneh);
 			addc(addpylon_action);
 			addc(serverrules);
+			addc(playsound);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -438,6 +439,7 @@ class cfgFunctions {
 			addc(sabotage);
 			addc(createpara2);
 			addc(doquake);
+			addc(createambient);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";
