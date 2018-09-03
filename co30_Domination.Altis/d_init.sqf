@@ -147,24 +147,24 @@ if (hasInterface) then {
 	d_player_ammobox_pos = [];
 	{
 		d_player_ammobox_pos pushBack [markerPos _x, markerDir _x];
-	} forEach (_allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+		deleteMarkerLocal _x;
+	} forEach _allMapMarkers;
 #else
 	d_player_ammobox_pos = [[], []];
 	
 	private _tempar = d_player_ammobox_pos # 1;
+	private _rem = _allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"};
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, east];
 		deleteMarkerLocal _x;
-	} forEach (_allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"});
+	} forEach _rem;
+	_allMapMarkers = _allMapMarkers - _rem;
 	_tempar = d_player_ammobox_pos # 0;
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, west];
-	} forEach (_allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
-#endif
-
-	{
 		deleteMarkerLocal _x;
 	} forEach _allMapMarkers;
+#endif
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {
