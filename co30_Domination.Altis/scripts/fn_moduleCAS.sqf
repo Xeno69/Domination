@@ -6,32 +6,35 @@ params ["_lpos", "_caller", "_wtype"];
 
 __TRACE_1("","_this")
 
+private _callero = objectFromNetId _caller;
+private _side = side (group _callero);
+
 #ifndef __TT__
 if (!isServer || {!d_cas_available}) exitWith {};
 d_cas_available = false;
 publicVariable "d_cas_available";
 #else
-if (!isServer || {!d_cas_available_w}) exitWith {};
-if (!isServer || {!d_cas_available_e}) exitWith {};
-#endif
+if (!isServer || {_side == blufor && {!d_cas_available_w}}) exitWith {};
+if (_side == opfor && {!d_cas_available_e}) exitWith {};
 
-private _callero = objectFromNetId _caller;
+if (_side == blufor) then {
+	d_cas_available_w = false;
+	publicVariable "d_cas_available_w";
+} else {
+	if (_side == opfor) then {
+		d_cas_available_e = false;
+		publicVariable "d_cas_available_e";
+	};
+};
+#endif
 
 if (d_with_ranked || {d_database_found}) then {
 	_callero addScore -(d_ranked_a # 22);
 };
 
-private _side = side (group _callero);
 #ifndef __TT__
 private _planeClass = d_cas_plane;
 #else
-if (_side == opfor) then {
-	d_cas_available_e = false;
-	publicVariable "d_cas_available_e";
-} else {
-	d_cas_available_w = false;
-	publicVariable "d_cas_available_w";
-};
 private _planeClass = d_cas_plane select (_side == opfor);
 #endif
 __TRACE_1("","_planeClass")

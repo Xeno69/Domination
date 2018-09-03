@@ -73,7 +73,7 @@ d_sm_array =
 		94,95,97,98, // 106,108, // steal the vehicle 106 and 108 removed for now
 		// 104,105,107, //evac damaged tank -> same for these 3
 		110,111,112,113, //tank depot
-		114,115,116,117, //destroy supply trucks -> TODO
+		114,115,116,117, //destroy supply trucks
 		// 118,119,120, //destroy cargo box -> TODO
 		123,124,125, //destroy arty vec
 		127,128,129,130,131,132,133, //kill the officer

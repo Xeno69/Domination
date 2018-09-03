@@ -142,11 +142,12 @@ if (d_with_dynsim == 0) then {
 if (hasInterface) then {
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
+	private _allMapMarkers = allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"};
 #ifndef __TT__
 	d_player_ammobox_pos = [];
 	{
 		d_player_ammobox_pos pushBack [markerPos _x, markerDir _x];
-	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (_allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 #else
 	d_player_ammobox_pos = [[], []];
 	
@@ -154,16 +155,16 @@ if (hasInterface) then {
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, east];
 		deleteMarkerLocal _x;
-	} forEach (allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"});
+	} forEach (_allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"});
 	_tempar = d_player_ammobox_pos # 0;
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, west];
-	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (_allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 #endif
 
 	{
 		deleteMarkerLocal _x;
-	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach _allMapMarkers;
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {

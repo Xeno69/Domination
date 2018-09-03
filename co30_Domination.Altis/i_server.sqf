@@ -11,7 +11,7 @@ d_bonus_create_pos = markerPos "d_bonus_create_pos";
 deleteMarker "d_bonus_create_pos";
 d_bonus_air_positions = [];
 d_bonus_air_positions_carrier = [];
-private _allmapmarkers = allMapMarkers;
+private _allmapmarkers = allMapMarkers select {_x select [0, 8] == "d_bonus_"};
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
@@ -136,7 +136,7 @@ if (d_with_ai && {isServer}) then {
 if (isDedicated) then {
 	{
 		deleteMarkerLocal _x;
-	} forEach (_allmapmarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 };
 
 if (!isServer) exitWith {};

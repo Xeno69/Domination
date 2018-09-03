@@ -19,8 +19,9 @@ Changelogs
 - Removed: Self heal from x revive (who needs it in times of MediKits)
 - Changed: You can no longer parajump into a main target area
 - Fixed: Stupid copy and paste error in vehirespawn and getbonus scripts
-- Added: Ambient battlefield sounds at main targets
+- Added: Random ambient battlefield sounds at main targets
 - Added: IFA3 weapons and items for ranked mode
+- Fixed: CAS did not work in the TT version
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

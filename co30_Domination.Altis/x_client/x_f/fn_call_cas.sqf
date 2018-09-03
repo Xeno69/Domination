@@ -39,7 +39,7 @@ _arrow = "Sign_Arrow_Large_F" createVehicleLocal [0,0,0];
 _arrow setPos _pos_lt;
 #endif
 
-if (player distance2D _pos_lt < 10) exitWith {
+if (player distance2D _pos_lt < 30) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_1529");
 };
 

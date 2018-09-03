@@ -15,7 +15,7 @@ params ["_player", ["_globalExec", false]];
 if (local _player && {_globalExec}) exitWith {};
 
 if (local _player && {!_globalExec}) then {
-	[_player, true] remoteExec ["AR_fnc_Enable_Rappelling_Animation_Client", 0]; // TODO 0?
+	[_player, true] remoteExec ["AR_fnc_Enable_Rappelling_Animation_Client", 0];
 };
 
 if (_player != player) then {
