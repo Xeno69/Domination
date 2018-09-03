@@ -15,7 +15,7 @@ if (d_player_side == blufor && {!d_cas_available_w} || {d_player_side == opfor &
 };
 #endif
 
-if (d_with_ranked || {d_database_found && {score player < d_ranked_a # 22}}) exitWith {
+if (d_with_ranked || {d_database_found && {score player < (d_ranked_a # 22)}}) exitWith {
 	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_1713", score player, d_ranked_a # 22];
 };
 
