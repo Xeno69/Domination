@@ -13,14 +13,14 @@ private _all_weapons_items_blufor = [
 		"RIFLES",
 		// private rifles
 		[
-			"CUP_smg_MP5A5", "CUP_arifle_G36A", "CUP_arifle_G36A_camo", "CUP_arifle_G36K", "CUP_arifle_G36K_camo", "CUP_arifle_G36C",
-			"CUP_arifle_G36C_camo", "CUP_arifle_M16A2", "CUP_arifle_M16A4_Base", "CUP_arifle_M4A1", "CUP_arifle_M4A1_camo", "CUP_arifle_M4A1_black",
+			"CUP_smg_MP5A5", "CUP_arifle_M16A2", "CUP_arifle_M16A4_Base", "CUP_arifle_M4A1", "CUP_arifle_M4A1_camo", "CUP_arifle_M4A1_black",
 			"CUP_arifle_M4A1_desert", "CUP_lmg_M240", "CUP_lmg_M60E4"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
 			"CUP_smg_MP5SD6", "CUP_arifle_MG36", "CUP_arifle_MG36_camo", "CUP_arifle_M16A2_GL", "CUP_arifle_M16A4_GL", "CUP_arifle_M4A1_BUIS_GL",
-			"CUP_arifle_M4A1_BUIS_camo_GL", "CUP_arifle_M4A1_BUIS_desert_GL", "CUP_arifle_M4A3_desert"
+			"CUP_arifle_M4A1_BUIS_camo_GL", "CUP_arifle_M4A1_BUIS_desert_GL", "CUP_arifle_M4A3_desert", "CUP_arifle_G36A", "CUP_arifle_G36A_camo", "CUP_arifle_G36K",
+			"CUP_arifle_G36K_camo", "CUP_arifle_G36C", "CUP_arifle_G36C_camo"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
