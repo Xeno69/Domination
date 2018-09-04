@@ -203,7 +203,7 @@ d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
 d_campscaptured = 0; publicVariable "d_campscaptured";
 
 if (d_with_ranked || {d_database_found}) then {
-	d_dist_for_points = _dist_for_points;
+	d_dist_for_points = _dist_for_points + 10;
 	publicVariable "d_dist_for_points";
 };
 
