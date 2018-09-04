@@ -87,6 +87,7 @@ if (!isServer) then {
 };
 
 private _sizecamp = sizeOf d_wcamp;
+private _dist_for_points = -1;
 
 for "_i" from 1 to _nrcamps do {
 	_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
@@ -140,6 +141,11 @@ for "_i" from 1 to _nrcamps do {
 	__TRACE_1("","_poss")
 	_poss set [2, 0];
 	_wf setPos _poss;
+	if (d_with_ranked || {d_database_found}) then {
+		if (_dist_for_points < _wf distance2D _trg_center) then {
+			_dist_for_points = _wf distance2D _trg_center;
+		};
+	};
 	d_currentcamps pushBack _wf;
 	_wf setVariable ["d_SIDE", d_enemy_side, true];
 	//_wf setVariable ["d_INDEX", _i, true];
@@ -195,6 +201,11 @@ for "_i" from 1 to _nrcamps do {
 publicVariable "d_currentcamps";
 d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
 d_campscaptured = 0; publicVariable "d_campscaptured";
+
+if (d_with_ranked || {d_database_found}) then {
+	d_dist_for_points = _dist_for_points;
+	publicVariable "d_dist_for_points";
+};
 
 #ifndef __TT__
 [15, _nrcamps] remoteExecCall ["d_fnc_DoKBMsg", 2];
