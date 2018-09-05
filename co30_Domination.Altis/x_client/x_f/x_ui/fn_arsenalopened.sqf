@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_arsenalopened.sqf"
 #include "..\..\..\x_setup.sqf"
 
+d_arsenal_opened = true;
+
 disableSerialization;
 if (sunOrMoon < 0.9) then {
 	d_arsenal_nvg_used = true;

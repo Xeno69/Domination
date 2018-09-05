@@ -55,6 +55,8 @@ if (side (group player) == blufor) then {
 d_side_player = d_player_side;
 #endif
 
+d_arsenal_opened = false;
+
 player disableConversation true;
 if (!d_with_ai) then {
 	enableSentences false;

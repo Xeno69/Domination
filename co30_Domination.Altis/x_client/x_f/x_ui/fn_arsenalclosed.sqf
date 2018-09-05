@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_arsenalclosed.sqf"
 #include "..\..\..\x_setup.sqf"
 
+d_arsenal_opened = false;
+
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
 [player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];

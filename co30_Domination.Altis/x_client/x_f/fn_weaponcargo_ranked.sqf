@@ -15,6 +15,8 @@ while {alive _vec} do {
 		clearItemCargo _vec;
 		clearBackpackCargo _vec;
 
+		waitUntil {!d_arsenal_opened};
+		
 		_old_rank = rank player;
 		
 		_vec setVariable ["bis_addVirtualWeaponCargo_cargo", [[], [], [], []]];		
