@@ -849,8 +849,6 @@ if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 
 player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 
-// TODO inventoryopened arsenal for ranked mode
-
 if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalOpened", {
 		_this call d_fnc_arsenalopened;
