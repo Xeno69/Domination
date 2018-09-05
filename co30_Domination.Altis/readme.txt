@@ -23,6 +23,7 @@ Changelogs
 - Added: IFA3 weapons and items for ranked mode
 - Fixed: CAS did not work in the TT version
 - Fixed: Not much enemy AI was spawned in the Sahrani CUP version because of SLA group name related changes in CUP
+- Fixed: Ace arsenal now also saving weapons correctly when dialog closes
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

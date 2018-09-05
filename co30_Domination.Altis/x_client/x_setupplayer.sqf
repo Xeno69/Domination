@@ -847,43 +847,25 @@ if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 
 player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 
-[missionNamespace, "arsenalOpened", {
-	disableSerialization;
-	if (sunOrMoon < 0.9) then {
-		d_arsenal_nvg_used = true;
-		camUseNVG true;
-	};
-	params ["_disp"];
-	(_disp displayCtrl 44150) ctrlEnable false; // random
-	(_disp displayCtrl 44148) ctrlEnable false; // export
-	(_disp displayCtrl 44149) ctrlEnable false; // import
-	(_disp displayCtrl 44151) ctrlEnable false; // hide
-	_disp displayAddEventHandler ["KeyDown", {(_this # 1) in [19, 29]}];
-	if (d_with_ranked) then {
-		(_disp displayCtrl 44147) ctrlEnable false; // Load
-		(_disp displayCtrl 44146) ctrlEnable false; // Save
-		_disp displayAddEventHandler ["KeyDown", {
-			_this # 3 && {_this # 1 == DIK_O}
-		}];
-	};
-	player setVariable ["d_currentvisionmode", currentVisionMode player];
-}] call BIS_fnc_addScriptedEventHandler;
+// TODO inventoryopened arsenal for ranked mode
 
-[missionNamespace, "arsenalClosed", {
-	call d_fnc_save_respawngear;
-	call d_fnc_save_layoutgear;
-	[player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];
-	if (!isNil "d_arsenal_nvg_used") then {
-		d_arsenal_nvg_used = nil;
-		camUseNVG false;
-	};
-	if (d_with_ranked) then {
-		call d_fnc_store_rwitems;
-	};
-	if (player getVariable ["d_currentvisionmode", 0] == 1 && {player call d_fnc_hasnvgoggles}) then {
-		player action ["NVGoggles",player];
-	};
-}] call BIS_fnc_addScriptedEventHandler;
+if (!d_with_ace || {d_with_ranked}) then {
+	[missionNamespace, "arsenalOpened", {
+		_this call d_fnc_arsenalopened;
+	}] call BIS_fnc_addScriptedEventHandler;
+	
+	[missionNamespace, "arsenalClosed", {
+		call d__fnc_arsenalclosed;
+	}] call BIS_fnc_addScriptedEventHandler;
+} else {
+	["ace_arsenal_displayOpened", {
+		_this call d_fnc_arsenalopened;
+	}] call CBA_fnc_addEventHandler;
+	
+	["ace_arsenal_displayClosed", {
+		_this call d_fnc_arsenalopened;
+	}] call CBA_fnc_addEventHandler;
+};
 
 player addEventhandler ["HandleRating", {
 	if ((_this select 1) < 0) then {0} else {_this select 1}

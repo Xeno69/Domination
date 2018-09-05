@@ -196,6 +196,8 @@ class cfgFunctions {
 			addc(pylonloadoutdialogcbselchanged);
 			addc(pylonapply);
 			addc(checkpjumppos);
+			addc(arsenalopened);
+			addc(arsenalclosed);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -255,6 +257,7 @@ class cfgFunctions {
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);
+			addc(HousePatrol);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";
