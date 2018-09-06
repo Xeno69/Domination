@@ -24,7 +24,7 @@ Changelogs
 - Fixed: CAS did not work in the TT version
 - Fixed: Not much enemy AI was spawned in the Sahrani CUP version because of SLA group name related changes in CUP
 - Fixed: Ace arsenal now also saving weapons correctly for respawn when dialog closes
-- Changed: Viewdistance now persistent (after changing it Status Dialog)
+- Changed: Viewdistance now persistent (after changing it in Status Dialog)
 - Added: Random house patrol for AI inf units at main targets (can be enabled/disabled in server lobby "With enemy AI house patrol at main targets:" / d_house_patrol)
 
 3.98
