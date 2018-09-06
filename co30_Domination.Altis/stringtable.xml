@@ -7907,6 +7907,14 @@
 <Japanese>Jump position too close to main target!!!</Japanese>
 <Original>Jump position too close to main target!!!</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1868">
+<English>With enemy AI house patrol at main targets:</English>
+<Spanish>With enemy AI house patrol at main targets:</Spanish>
+<Portuguese>With enemy AI house patrol at main targets:</Portuguese>
+<Korean>With enemy AI house patrol at main targets:</Korean>
+<Japanese>With enemy AI house patrol at main targets:</Japanese>
+<Original>With enemy AI house patrol at main targets:</Original>
+</Key>
 </Container>
 </Package>
 </Project>

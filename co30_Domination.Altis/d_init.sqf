@@ -12,8 +12,17 @@ if (!isServer) then {
 call compile preprocessFileLineNumbers "x_shc\x_f\x_shcfunctions.sqf";
 #endif
 
-setViewDistance d_InitialViewDistance;
-setObjectViewDistance (d_InitialViewDistance + 100);
+if (hasInterface) then {
+	private _vd = profileNamespace getVariable ["dom_viewdistance", d_InitialViewDistance];
+	if (_vd > d_MaxViewDistance) then {
+		_vd = d_MaxViewDistance;
+	};
+	setViewDistance _vd;
+	setObjectViewDistance (_vd + 100);
+} else {
+	setViewDistance d_InitialViewDistance;
+	setObjectViewDistance (d_InitialViewDistance + 100);
+};
 
 d_target_names = [];
 //private _dtar_idx_ar = [];

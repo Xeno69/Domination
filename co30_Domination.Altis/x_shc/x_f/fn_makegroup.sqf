@@ -60,20 +60,26 @@ _grp allowFleeing (((floor random 3) + 1) / 10);
 
 private _sleepti = [5, 15] select (_grptype == "allmen" || {_grptype == "specops"});
 
+private _wpstatements = if (d_house_patrol == 0 && {_type in ["patrol", "patrol2mt"] && {(toLower _grptype) in ["allmen", "specops"]}}) then {
+	"if (random 100 < 80) then {0 = [thisList] spawn d_fnc_dohousepatrol}"
+} else {
+	""
+};
+
 switch (_type) do {
 	case "patrol": {
 		_grp setVariable ["d_PATR",true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
-		private _mid = _min + (random (_max - _min));
-		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
+		private _mid = _min + (random (_max - _min));	
+		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	case "patrol2mt": {
 		_grp setVariable ["d_PATR",true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
-		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
+		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	case "patrol2": {
 		_grp setVariable ["d_PATR",true];

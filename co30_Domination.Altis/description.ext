@@ -500,6 +500,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_house_patrol {
+		title = "$STR_DOM_MISSIONSTRING_1868";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";
 		values[] = {-99999};

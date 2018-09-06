@@ -16,14 +16,16 @@ Changelogs
 - Fixed: Night vision goggles and rangefinder were added in the IFA3 version
 - Changed: In ranked mode blufor only uses blufor weapons and opfor only opfor weapons
 - Added: CUP weapons and items for ranked mode
-- Removed: Self heal from x revive (who needs it in times of MediKits)
+- Removed: Self heal from x revive (who needs it in times of MedKits)
 - Changed: You can no longer parajump into a main target area
 - Fixed: Stupid copy and paste error in vehirespawn and getbonus scripts
 - Added: Random ambient battlefield sounds at main targets
 - Added: IFA3 weapons and items for ranked mode
 - Fixed: CAS did not work in the TT version
 - Fixed: Not much enemy AI was spawned in the Sahrani CUP version because of SLA group name related changes in CUP
-- Fixed: Ace arsenal now also saving weapons correctly when dialog closes
+- Fixed: Ace arsenal now also saving weapons correctly for respawn when dialog closes
+- Changed: Viewdistance now persistent (after changing it Status Dialog)
+- Added: Random house patrol for AI inf units at main targets (can be enabled/disabled in server lobby "With enemy AI house patrol at main targets:" / d_house_patrol)
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

@@ -443,6 +443,7 @@ class cfgFunctions {
 			addc(createpara2);
 			addc(doquake);
 			addc(createambient);
+			addc(dohousepatrol);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";
