@@ -912,20 +912,20 @@ if (d_arsenal_mod == 0) then {
 	if (d_ifa3lite) then {
 		["WW2_"] call d_fnc_arsenal_mod;
 	} else {
-		private _arsar = [];
 		if (d_cup) then {
-			_arsar pushBack "CUP_";
+			d_arsenal_mod_prestrings pushBack "CUP_";
 		};
 		if (d_rhs) then {
-			_arsar append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
+			d_arsenal_mod_prestrings append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
 		};
-		if (d_with_ace && {!(_arsar isEqualTo [])}) then {
-			_arsar pushBack "ace_";
+		if (d_with_ace && {!(d_arsenal_mod_prestrings isEqualTo [])}) then {
+			d_arsenal_mod_prestrings pushBack "ace_";
 		};
-		if !(_arsar isEqualTo []) then {
-			_arsar call d_fnc_arsenal_mod;
+		if !(d_arsenal_mod_prestrings isEqualTo []) then {
+			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
 		};
 	};
+	d_arsenal_mod_prestrings = nil;
 };
 
 for "_i" from 0 to (count d_remove_from_arsenal - 1) do {

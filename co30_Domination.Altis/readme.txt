@@ -27,6 +27,7 @@ Changelogs
 - Changed: Viewdistance now persistent (after changing it Status Dialog)
 - Added: Random house patrol for AI inf units at main targets (can be enabled/disabled in server lobby "With enemy AI house patrol at main targets:" / d_house_patrol)
 - Fixed: Air taxi did not work in non with friendly AI versions
+- Added: If Unsung mod is found show only Unsung stuff in Virtual Arsenal
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

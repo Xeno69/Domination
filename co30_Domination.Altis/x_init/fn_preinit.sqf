@@ -1353,6 +1353,19 @@ if (hasInterface) then {
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
 	
+	// pre build in are:
+	// "CUP_"
+	// "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"
+	// "uns_"
+	// "ace_"
+	// if you use CUP then only CUP stuff will be shown in Virtual Arsenal
+	d_arsenal_mod_prestrings = [];
+	
+	if (isClass(configFile>>"CfgPatches">>"uns_main")) then {
+		// now Virtual Arsenal will only show Unsung stuff; of course if you add other modes it will show them too
+		d_arsenal_mod_prestrings pushBack "uns_";
+	};
+	
 	// can either be a class name (string) or code
 	// if code then _this is the classname
 	d_remove_from_arsenal = [
