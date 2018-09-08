@@ -26,7 +26,3 @@ __TRACE_1("","d_all_p_a_boxes")
 #endif
 
 __TRACE_1("","_vec")
-
-if (d_with_ranked) then {
-	[_vec] spawn d_fnc_weaponcargo_ranked;
-};

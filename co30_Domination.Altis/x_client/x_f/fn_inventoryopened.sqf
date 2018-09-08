@@ -17,7 +17,7 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 				[player, player, true] call ace_arsenal_fnc_openBox;
 			};
 		} else {
-			["Open", [nil, _this]] call bis_fnc_arsenal;
+			["Open", [nil, player]] call bis_fnc_arsenal;
 		};
 	};
 	true

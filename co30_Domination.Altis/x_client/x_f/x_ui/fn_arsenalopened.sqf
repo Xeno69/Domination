@@ -5,6 +5,8 @@
 
 d_arsenal_opened = true;
 
+__TRACE_1("","d_arsenal_opened")
+
 disableSerialization;
 if (sunOrMoon < 0.9) then {
 	d_arsenal_nvg_used = true;

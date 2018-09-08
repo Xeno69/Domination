@@ -5,6 +5,8 @@
 
 d_arsenal_opened = false;
 
+__TRACE_1("","d_arsenal_opened")
+
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
 [player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];
