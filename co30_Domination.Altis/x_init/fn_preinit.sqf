@@ -805,24 +805,22 @@ if (!d_tt_tanoa) then {
 	d_drop_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_C130J"] select d_rhs_blufor;
 #endif
 
-	if (isServer && {!d_no_ai}) then {
-		d_taxi_aircraft =
+	d_taxi_aircraft =
 #ifdef __OWN_SIDE_INDEPENDENT__
-			"I_Heli_Transport_02_F";
+		"I_Heli_Transport_02_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-			"B_Heli_Transport_01_camo_F";
+		"B_Heli_Transport_01_camo_F";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-			"O_Heli_Light_02_unarmed_F";
+		"O_Heli_Light_02_unarmed_F";
 #endif
 #ifdef __TT__
-			"O_Heli_Light_02_unarmed_F";
+		"O_Heli_Light_02_unarmed_F";
 #endif
 #ifdef __RHS__
-		d_taxi_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_UH60M2"] select d_rhs_blufor;
+	d_taxi_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_UH60M2"] select d_rhs_blufor;
 #endif
-	};
 	
 	d_cas_plane = 
 #ifdef __OWN_SIDE_INDEPENDENT__

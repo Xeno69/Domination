@@ -855,7 +855,7 @@ if (!d_with_ace || {d_with_ranked}) then {
 	}] call BIS_fnc_addScriptedEventHandler;
 	
 	[missionNamespace, "arsenalClosed", {
-		call d__fnc_arsenalclosed;
+		call d_fnc_arsenalclosed;
 	}] call BIS_fnc_addScriptedEventHandler;
 } else {
 	["ace_arsenal_displayOpened", {
