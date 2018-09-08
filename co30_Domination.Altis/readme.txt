@@ -30,6 +30,7 @@ Changelogs
 - Added: If Unsung mod is found show only Unsung stuff in Virtual Arsenal
 - Optimized: When With AI is enabled run HighCommand helper script only if HC gets activated
 - Optimized: Ranked weaponcargo only called when rank changes now and not running in an extra script for all weapon crates
+- Fixed: In rare circumstances handleobserver script could break out with a nil variable value
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

@@ -271,7 +271,7 @@ if (!d_no_more_observers) then {
 #else
 	[7, d_nr_observers] remoteExecCall ["d_fnc_DoKBMsg", 2];
 #endif
-	0 spawn d_fnc_handleobservers;
+	d_handleobservers_handle = 0 spawn d_fnc_handleobservers;
 	sleep 1.214;
 };
 

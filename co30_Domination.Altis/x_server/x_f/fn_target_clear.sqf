@@ -8,14 +8,11 @@ __TRACE_1("","_this")
 
 sleep 1.123;
 
-if (!isNil "d_f_check_trigger") then {
-	deleteVehicle d_f_check_trigger;
-};
-deleteVehicle d_current_trigger;
 if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 	remoteExecCall ["d_fnc_xdelct", d_HC_CLIENT_OBJ_OWNER];
 	[missionNamespace, ["d_mt_done", true]] remoteExecCall ["setVariable", d_HC_CLIENT_OBJ_OWNER];
 } else {
+	call d_fnc_xdelct;
 	d_mt_done = true;
 };
 sleep 0.01;
