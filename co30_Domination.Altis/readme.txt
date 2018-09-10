@@ -31,6 +31,7 @@ Changelogs
 - Optimized: When With AI is enabled run HighCommand helper script only if HC gets activated
 - Optimized: Ranked weaponcargo only called when rank changes now and not running in an extra script for all weapon crates
 - Fixed: In rare circumstances handleobserver script could break out with a nil variable value
+- Fixed: Vehicle ammoload did not work in the IFA3 version
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

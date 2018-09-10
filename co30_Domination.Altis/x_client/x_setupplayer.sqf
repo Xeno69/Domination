@@ -354,9 +354,9 @@ if !(d_ammo_boxes isEqualTo []) then {
 player setVariable ["d_isinaction", false];
 
 #ifndef __TT__
-d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 10] == "d_AMMOLOAD"};
+d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] == "d_AMMOLOAD"};
 #else
-d_all_ammoloads = (allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 10] == "d_AMMOLOAD" && {_x distance2D d_FLAG_BASE < 1500 || {_x getVariable ["d_side", sideEnemy] == d_player_side}}};
+d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] == "d_AMMOLOAD" && {_x distance2D d_FLAG_BASE < 1500 || {_x getVariable ["d_side", sideEnemy] == d_player_side}}};
 #endif
 
 0 spawn {
