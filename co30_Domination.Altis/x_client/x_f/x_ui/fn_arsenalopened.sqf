@@ -18,6 +18,10 @@ if (!d_with_ace) then {
 	(_disp displayCtrl 44148) ctrlEnable false; // export
 	(_disp displayCtrl 44149) ctrlEnable false; // import
 	(_disp displayCtrl 44151) ctrlEnable false; // hide
+#ifdef __IFA3LITE__
+	(_disp displayCtrl 44147) ctrlEnable false; // Load
+	(_disp displayCtrl 44146) ctrlEnable false; // Save
+#endif
 	_disp displayAddEventHandler ["KeyDown", {(_this # 1) in [19, 29]}];
 } else {
 	(_disp displayCtrl 1004) ctrlEnable false;
