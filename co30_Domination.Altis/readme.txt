@@ -35,6 +35,7 @@ Changelogs
 - Fixed: Vehicle ammoload did not work in the IFA3 version
 - Changed: Disabled loading and saving gear in Virtual Arsenal in the IFA3 version
 - Fixed: Arty operators were not able to call in artillery strikes anymore in the TT version
+- Fixed: Players were able to grind points by destroying their own vehicles
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

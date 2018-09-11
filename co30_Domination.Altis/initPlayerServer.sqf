@@ -90,6 +90,4 @@ _pl spawn {
 diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerServer.sqf processed"];
 #endif
 
-if (d_database_found) then {
-	_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore; true}];
-};
+_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
