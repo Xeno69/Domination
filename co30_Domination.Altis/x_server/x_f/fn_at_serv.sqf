@@ -30,6 +30,7 @@ _pl setVariable ["d_artmark_jip_id", _mname remoteExecCall ["deleteMarkerLocal",
 if (d_no_ai) then {
 #ifdef __TT__
 	private _artopside = side (group _pl);
+	__TRACE_1("","_artopside")
 #endif
 	{
 		private _aunit = missionNamespace getVariable _x;

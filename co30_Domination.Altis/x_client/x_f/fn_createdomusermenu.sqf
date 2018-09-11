@@ -24,14 +24,14 @@ if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!_is_para}}) then 
 #ifndef __TT__
 	if (!visibleMap && {!d_arty_firing}) then {
 #else
-	if (!visibleMap && {d_player_side == opfor && {!d_arty_firing_e || {d_player_side == blufor && {!d_arty_firing_w}}}}) then {
+	if (!visibleMap && {d_player_side == opfor && {!d_arty_firing_e} || {d_player_side == blufor && {!d_arty_firing_w}}}) then {
 #endif
 		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_153", [call _fnc_inc_num], "", -5, [["expression", "1 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 	};
 #ifndef __TT__
 	if (d_arty_firing) then {
 #else
-	if (d_player_side == opfor && {d_arty_firing_e || {d_player_side == blufor && {d_arty_firing_w}}}) then {
+	if (d_player_side == opfor && {d_arty_firing_e} || {d_player_side == blufor && {d_arty_firing_w}}) then {
 #endif
 		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1853", [call _fnc_inc_num], "", -5, [["expression", "50 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 	};
