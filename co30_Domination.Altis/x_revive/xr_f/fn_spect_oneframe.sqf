@@ -52,6 +52,7 @@ if (xr_MouseButtons # 0) then {
 	xr_cur_world_obj = _cursObj;
 };
 
+private _fnc_gpln = d_fnc_getplayername;
 private _helperls = [];
 if (time > xr_spect_timer) then {
 	__TRACE_1("","xr_spect_timer")
@@ -73,7 +74,7 @@ if (time > xr_spect_timer) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [_dist, format [(_x call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
+			_helperls pushBack [_dist, format [(_x call _fnc_gpln) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
 		} forEach (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
@@ -85,7 +86,7 @@ if (time > xr_spect_timer) then {
 				if (_pic != "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
-				_helperls pushBack [_distup, _x call d_fnc_getplayername, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
+				_helperls pushBack [_distup, _x call _fnc_gpln, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
 			};
 		} forEach (d_allplayers select {_x != player});
 	};
@@ -180,7 +181,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		xr_spectcam cameraEffect ["INTERNAL", "Back"];
 		xr_spectcam camCommit 0;
 		cameraEffectEnableHUD true;
-		__dspctrl(1010) ctrlSetText (_visobj call d_fnc_getplayername);
+		__dspctrl(1010) ctrlSetText (_visobj call _fnc_gpln);
 	};
 	xr_spect_timer = -1;
 	__TRACE("ctrl not shown anymore, black in")

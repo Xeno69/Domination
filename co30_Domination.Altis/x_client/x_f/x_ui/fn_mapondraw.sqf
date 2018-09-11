@@ -21,6 +21,12 @@ private _mapmid = _map ctrlMapScreenToWorld [0.5, 0.5];
 if !(d_show_player_marker isEqualTo 0) then {
 	private _drawn_v = [];
 	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
+	private _w_ai = d_with_ai;
+	private _fnc_ispl = d_fnc_isplayer;
+	private _s_pl_ma = d_show_player_marker;
+	private _fnc_gmi = d_fnc_getmapicon;
+	private _fnc_GDN = d_fnc_GetDisplayName;
+	private _fnc_gpln = d_fnc_getplayername;
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
@@ -28,7 +34,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 			__TRACE_2("","_v","_inv")
 			
 			_dodraw = [true, _x isEqualTo (crew _v # 0)] select _inv;
-			if (d_with_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!((crew _v # 0) call d_fnc_isplayer)}}}}) then {
+			if (_w_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!((crew _v # 0) call _fnc_ispl)}}}}) then {
 				_v setVariable ["d_v_drawn", true];
 				_drawn_v pushBack _v;
 				_dodraw = true;
@@ -40,13 +46,13 @@ if !(d_show_player_marker isEqualTo 0) then {
 			if (_dodraw) then {
 				_text = if !(_type isEqualTo 1) then {
 					if (!_inv) then {
-						if (d_show_player_marker isEqualTo 1) then {
+						if (_s_pl_ma isEqualTo 1) then {
 							[_x] call d_fnc_gethpname;
 						} else {
-							if (d_show_player_marker isEqualTo 2) then {
+							if (_s_pl_ma isEqualTo 2) then {
 								""
 							} else {
-								if (d_show_player_marker isEqualTo 3) then {
+								if (_s_pl_ma isEqualTo 3) then {
 									format [d_mark_loc280, 9 - round(9 * damage _x)]
 								} else {
 									""
@@ -60,7 +66,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
-									_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
+									_nmt = [typeOf _v, "CfgVehicles"] call _fnc_GDN;
 									_v setVariable ["d_ma_text", _nmt];
 								};
 								_nt = [_nmt, ": "];
@@ -68,7 +74,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 								_ccrwm1 = count _crw - 1;
 								{
 									if (alive _x) then {
-										_nt pushBack (_x call d_fnc_getplayername);
+										_nt pushBack (_x call _fnc_gpln);
 										if (_forEachIndex < _ccrwm1) then {
 											_nt pushBack ", ";
 										};
@@ -86,7 +92,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 						} else {
 							private _nmt = _v getVariable "d_ma_text";
 							if (isNil "_nmt") then {
-								_nmt = [typeOf _v, "CfgVehicles"] call d_fnc_GetDisplayName;
+								_nmt = [typeOf _v, "CfgVehicles"] call _fnc_GDN;
 								_v setVariable ["d_ma_text", _nmt];
 							};
 							_nmt
@@ -96,7 +102,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 					""
 				};
 				
-				_isc = [_v, _x] call d_fnc_getmapicon;
+				_isc = [_v, _x] call _fnc_gmi;
 				
 				__TRACE_1("","_isc")
 				
@@ -127,20 +133,20 @@ if !(d_show_player_marker isEqualTo 0) then {
 		} forEach _drawn_v;
 	};
 	
-	if (d_with_ai) then {
+	if (_w_ai) then {
 		private ["_isc", "_text"];
 		{
 			if (_x distance2D _mapmid < _drawdist) then {
-				_isc = [_x, _x] call d_fnc_getmapicon;
+				_isc = [_x, _x] call _fnc_gmi;
 				
 				_text = if !(_type isEqualTo 1) then {
-					if (d_show_player_marker == 1) then {
+					if (_s_pl_ma == 1) then {
 						_ut = str _x; _ut select [count _ut - 1]
 					} else {
-						if (d_show_player_marker == 2) then {
+						if (_s_pl_ma == 2) then {
 							""
 						} else {
-							if (d_show_player_marker == 3) then {
+							if (_s_pl_ma == 3) then {
 								format [d_mark_loc280, 9 - round(9 * damage _x)]
 							} else {
 								""

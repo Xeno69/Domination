@@ -508,14 +508,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 	if (d_with_ranked || {d_database_found}) then {d_last_base_repair = -1};
 
 	["itemAdd", ["dom_eng_1_trig", {
-		if (player getVariable ["d_has_ffunc_aid", -9999] == -9999 && {player call d_fnc_hastoolkit && {call d_fnc_ffunc}}) then {
-			player setVariable ["d_has_ffunc_aid", player addAction [format ["<t color='#7F7F7F'>%1</t>", localize 'STR_DOM_MISSIONSTRING_1408'], {_this call d_fnc_unflipVehicle}, [d_objectID1], -1, false]];
-		} else {
-			if (player getVariable ["d_has_ffunc_aid", -9999] != -9999 && {!(call d_fnc_ffunc)}) then {
-				player removeAction (player getVariable "d_has_ffunc_aid");
-				player setVariable ["d_has_ffunc_aid", -9999];
-			};
-		};
+		call d_fnc_engtrig1fnc;
 	}, 0.51]] call bis_fnc_loop;
 
 	if (d_engineerfull == 0 || {!d_no_ai}) then {

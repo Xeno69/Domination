@@ -138,6 +138,7 @@ class cfgFunctions {
 			addc(checkenterer);
 			addc(warnplayer);
 			addc(engtrigfnc);
+			addc(engtrig1fnc);
 			addc(checkammo);
 			addc(allplayers);
 			addc(hchelper);
