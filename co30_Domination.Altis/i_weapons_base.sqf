@@ -4,16 +4,9 @@ if (d_with_ace) then {
 	private _ace_med_items = ["ACE_atropine", "ACE_fieldDressing", "ACE_elasticBandage", "ACE_quikclot", "ACE_bloodIV", "ACE_bloodIV_500", "ACE_bloodIV_250",
 	"ACE_bodyBag", "ACE_bodyBagObject", "ACE_epinephrine", "ACE_morphine", "ACE_packingBandage", "ACE_personalAidKit", "ACE_plasmaIV", "ACE_plasmaIV_500",
 	"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
-#ifndef __TT__
-	private _tmp_ar_i = (_all_weapons_items # 8) # 2;
-	_tmp_ar_i append _ace_med_items;
-#else
-	private _tmp_ar_i = (_all_weapons_items_opfor # 8) # 2;
-	_tmp_ar_i append _ace_med_items;
 	
-	_tmp_ar_i = (_all_weapons_items_blufor # 8) # 2;
+	private _tmp_ar_i = (_all_weapons_items # 6) # 2;
 	_tmp_ar_i append _ace_med_items;
-#endif
 };
 
 {d_misc_store setVariable [_x, []]} forEach ["PRIVATE_RIFLES","CORPORAL_RIFLES","SERGEANT_RIFLES","LIEUTENANT_RIFLES","CAPTAIN_RIFLES","MAJOR_RIFLES","COLONEL_RIFLES",

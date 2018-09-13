@@ -7,7 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-3.99e
+3.99f
+ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!
+
 - Fixed: Vehicle ammoload did not work in the IFA3 version
 - Changed: Disabled loading and saving gear in Virtual Arsenal in the IFA3 version
 - Fixed: Arty operators were not able to call in artillery strikes anymore in the TT version
@@ -18,6 +20,7 @@ Changelogs
 - Fixed: In the TT version when a player switched sides SQL DB totalscore was not transfered to the new player in a running session (for the game it is a new player)
 - Fixed: Enemy spotted one of the teams was written twice on screen in the TT version
 - Fixed: When a player switched sides in the TT version he got the weapon he had saved while beeing on the other team side
+- Fixed: When ace was used in combination with ranked mode it broke Airtual Arsenal
 
 3.99
 - Changed: Rearanged i_weapons_default.sqf and added missing A3 weapons
