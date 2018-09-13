@@ -7,6 +7,18 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99e
+- Fixed: Vehicle ammoload did not work in the IFA3 version
+- Changed: Disabled loading and saving gear in Virtual Arsenal in the IFA3 version
+- Fixed: Arty operators were not able to call in artillery strikes anymore in the TT version
+- Fixed: Players were able to grind points by destroying their own vehicles
+- Fixed: Nasty bug in fire arty server script which broke arifire in the TT version
+- Fixed: Completely broke point handling in ranked mode (points needed for firing arty or calling in CAS) -> game breaker :(
+- Fixed: Don't send player overview for players who are not in the SQL database yet, broke initPlayerServer script
+- Fixed: In the TT version when a player switched sides SQL DB totalscore was not transfered to the new player in a running session (for the game it is a new player)
+- Fixed: Enemy spotted one of the teams was written twice on screen in the TT version
+- Fixed: When a player switched sides in the TT version he got the weapon he had saved while beeing on the other team side
+
 3.99
 - Changed: Rearanged i_weapons_default.sqf and added missing A3 weapons
 - Changed: Rewrote i_weapons_base.sqf, i_weapons_x now has a new format (weapons and other stuff now only needs the class names and no arrays with class names and other information anymore)
@@ -31,11 +43,6 @@ Changelogs
 - Optimized: When With AI is enabled run HighCommand helper script only if HC gets activated
 - Optimized: Ranked weaponcargo only called when rank changes now and not running in an extra script for all weapon crates
 - Fixed: In rare circumstances handleobserver script could break out with a nil variable value
-3.99e
-- Fixed: Vehicle ammoload did not work in the IFA3 version
-- Changed: Disabled loading and saving gear in Virtual Arsenal in the IFA3 version
-- Fixed: Arty operators were not able to call in artillery strikes anymore in the TT version
-- Fixed: Players were able to grind points by destroying their own vehicles
 
 3.98
 ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani

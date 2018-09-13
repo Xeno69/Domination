@@ -31,6 +31,6 @@ if (!isNull _killer && {(_killer call d_fnc_isplayer) && {vehicle _killer != veh
 	};
 };
 
-if (d_with_ranked || {d_database_found && {!_killedfriendly && {d_sub_kill_points != 0}}}) then {
+if ((d_with_ranked || {d_database_found}) && {!_killedfriendly && {d_sub_kill_points != 0}}) then {
 	_killed addScore d_sub_kill_points;
 };

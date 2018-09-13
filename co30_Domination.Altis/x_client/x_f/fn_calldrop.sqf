@@ -14,7 +14,7 @@ if !(d_para_available) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-if (d_with_ranked || {d_database_found && {score player < (d_ranked_a # 16)}}) exitWith {
+if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 16)}) exitWith {
 	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_164", score player, d_ranked_a # 16];
 	d_commandingMenuIniting = false;
 };

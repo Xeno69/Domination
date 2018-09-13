@@ -23,17 +23,17 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 	if (_exitit) exitWith {};
 	
 #ifndef __TT__
-	if (d_with_ranked || {d_database_found && {player inArea d_base_array && {d_last_base_repair != -1}}}) exitWith {
+	if ((d_with_ranked || {d_database_found}) && {player inArea d_base_array && {d_last_base_repair != -1}}) exitWith {
 #else
-	if (d_with_ranked || {d_database_found && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}} && {d_last_base_repair != -1}}) exitWith {
+	if ((d_with_ranked || {d_database_found}) && {d_last_base_repair != -1 && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}) exitWith {
 #endif
 		[playerSide, "HQ"] sideChat (format [localize "STR_DOM_MISSIONSTRING_326", round (time - d_last_base_repair)]);
 	};
 
 #ifndef __TT__
-	if (d_with_ranked || {d_database_found && {player inArea d_base_array}}) then {d_last_base_repair = time + 300};
+	if ((d_with_ranked || {d_database_found}) && {player inArea d_base_array}) then {d_last_base_repair = time + 300};
 #else
-	if (d_with_ranked || {d_database_found && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}) then {d_last_base_repair = time + 300};
+	if ((d_with_ranked || {d_database_found}) && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}) then {d_last_base_repair = time + 300};
 #endif
 	
 	d_orig_sfunc_obj = d_objectID2;

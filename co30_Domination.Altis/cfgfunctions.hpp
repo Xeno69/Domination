@@ -312,7 +312,6 @@ class cfgFunctions {
 			addc(addkillsai);
 			addc(getwreck);
 			addc(placedobjkilled);
-			addc(getplayerarray);
 			addc(tkkickcheck);
 			addc(kickplayerbs);
 			addc(rptmsgbs);

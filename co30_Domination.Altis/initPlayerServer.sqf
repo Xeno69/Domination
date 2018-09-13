@@ -21,8 +21,10 @@ private _uid = getPlayerUID _pl;
 
 private _p = d_player_store getVariable _uid;
 private _f_c = false;
+__TRACE_1("","side (group _pl)")
+private _sidepl = side (group _pl);
 if (isNil "_p") then {
-	_p = [time + d_AutoKickTime, time, "", 0, str _pl, sideUnknown, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
+	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
 	d_player_store setVariable [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
@@ -41,6 +43,13 @@ if (isNil "_p") then {
 	_p set [1, time];
 	_p set [4, str _pl];
 	_p set [6, _name];
+	if (_sidepl != _p # 5) then {
+		_p set [5, _sidepl];
+		_f_c = true;
+		d_player_store setVariable [_uid + "_scores", nil];
+		_p set [11, []];
+		_p set [12, []];
+	};
 	__TRACE_1("player store after change","_p")
 };
 
@@ -57,25 +66,46 @@ if (d_database_found) then {
 		} else {
 			__TRACE("adding nums played for player in db");
 			"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
+			__TRACE_1("","_f_c")
+#ifdef __DEBUG__
+			_uidscores = isNil {d_player_store getVariable (_uid + "_scores")};
+			__TRACE_1("","_uidscores")
+#endif
 			if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
 				__TRACE("Adding score");
 				__TRACE_1("","((_dbresult select 1) select 0) select 0")
 				__TRACE_1("","score _pl")
-				d_player_store setVariable [_uid + "_scores", [0, 0, 0, 0, 0, ((_dbresult # 1) # 0) # 0]];
-				[_pl, ((_dbresult # 1) # 0) # 0] spawn {
-					params ["_pl", "_tsp"];
+				d_player_store setVariable [_uid + "_scores", [((_dbresult # 1) # 0) # 1, ((_dbresult # 1) # 0) # 2, ((_dbresult # 1) # 0) # 3, ((_dbresult # 1) # 0) # 4, ((_dbresult # 1) # 0) # 5, ((_dbresult # 1) # 0) # 0]];
+				[_pl, (_dbresult # 1) # 0] spawn {
+					params ["_pl", "_ar"];
 					sleep 10;
-					_pl addScore (_tsp - score _pl);
+					private _plsar = getPlayerScores _pl;
+					__TRACE_1("","_plsar")
+					_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
+					__TRACE_1("","getPlayerScores _pl")
+					__TRACE_1("","score _pl")
+					sleep 1;
+					__TRACE_1("1","getPlayerScores _pl")
+					__TRACE_1("1","score _pl")
+					__TRACE_2("Adding score","_pl","_ar")
+					if (_ar # 0 != score _pl) then {
+						if (score _pl > 0) then {
+							_pl addScore -(score _pl);
+						};
+						_pl addScore ((_ar # 0) - score _pl);
+					};
+					__TRACE_1("2","getPlayerScores _pl")
+					__TRACE_1("2","score _pl")
 				};
 			};
-		};
-		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
-		__TRACE_1("","_dbresult")
-		if (_dbresult # 0 == 1) then {
-			(_dbresult # 1) params ["_pres"];
-			if !(_pres isEqualTo []) then {
-				_pres set [1, (_pres # 1) call d_fnc_convtime];
-				[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
+			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
+			__TRACE_1("","_dbresult")
+			if (_dbresult # 0 == 1) then {
+				(_dbresult # 1) params ["_pres"];
+				if !(_pres isEqualTo []) then {
+					_pres set [1, (_pres # 1) call d_fnc_convtime];
+					[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
+				};
 			};
 		};
 	};

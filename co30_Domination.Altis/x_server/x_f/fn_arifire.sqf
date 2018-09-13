@@ -65,7 +65,7 @@ private _endtime = time + 9;
 #ifndef __TT__
 waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
 #else
-waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
 #endif
 
 private _aop = objectFromNetId _arti_operator;
@@ -73,7 +73,7 @@ if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 #ifndef __TT__
 if (!d_arty_stopp) then {
 #else
-if !([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor)) then {
+if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}) then {
 #endif
 	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryRoger", ["1","",localize "STR_DOM_MISSIONSTRING_934",[]], _channel];
 };
@@ -82,7 +82,7 @@ private _aristr = localize "STR_DOM_MISSIONSTRING_937";
 #ifndef __TT__
 if (!d_arty_stopp) then {
 #else
-if !([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor)) then {
+if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}) then {
 #endif
 	_logic1 kbTell [_logic, _topicside, "ArtilleryUnAvailable", ["1", "", _aristr, []], _channel];
 };
@@ -91,7 +91,7 @@ _endtime = time + 6;
 #ifndef __TT__
 waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
 #else
-waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
 #endif
 
 _aop = objectFromNetId _arti_operator;
@@ -99,7 +99,7 @@ if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 #ifndef __TT__
 if (!d_arty_stopp) then {
 #else
-if !([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor)) then {
+if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}) then {
 #endif
 	_logic1 kbTell [_aop, _topicside_arti,"ArtilleryExecute", ["1", "", _aristr, []], ["2", "", getText(configFile>>"CfgMagazines">>_ari_type>>"displayname"), []], ["3", "", str _ari_salvos, []], _channel];
 };
@@ -108,7 +108,7 @@ _endtime = time + 8 + random 7;
 #ifndef __TT__
 waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
 #else
-waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
 #endif
 
 #ifndef __TT__
@@ -212,8 +212,9 @@ for "_series" from 1 to _ari_salvos do {
 	#ifndef __TT__
 	waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
 	#else
-	waitUntil {sleep 0.3; time > _endtime || {([d_arty_stopp_w, d_arty_stopp_e] select (_side_arti_op == opfor))}};
+	waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
 	#endif
+	
 	
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
