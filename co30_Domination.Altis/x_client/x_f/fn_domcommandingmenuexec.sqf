@@ -32,9 +32,11 @@ switch (_this) do {
 			if (d_earplugs_fitted) then {
 				d_earplugs_fitted = false;
 				2 fadeSound 1;
+				"d_earplugs" cutText ["<t color='#FF3333' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1870" + "</t>", "PLAIN DOWN", -1, true, true];
 			} else {
 				d_earplugs_fitted = true;
 				2 fadeSound 0.2;
+				"d_earplugs" cutText ["<t color='#339933' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1869" + "</t>", "PLAIN DOWN", -1, true, true];
 			};
 			d_commandingMenuIniting = false;
 		};

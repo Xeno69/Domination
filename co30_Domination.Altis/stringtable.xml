@@ -7915,6 +7915,22 @@
 <Japanese>With enemy AI house patrol at main targets:</Japanese>
 <Original>With enemy AI house patrol at main targets:</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1869">
+<English>Earplugs in</English>
+<Spanish>Earplugs in</Spanish>
+<Portuguese>Earplugs in</Portuguese>
+<Korean>Earplugs in</Korean>
+<Japanese>Earplugs in</Japanese>
+<Original>Earplugs in</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1870">
+<English>Earplugs out</English>
+<Spanish>Earplugs out</Spanish>
+<Portuguese>Earplugs out</Portuguese>
+<Korean>Earplugs out</Korean>
+<Japanese>Earplugs out</Japanese>
+<Original>Earplugs out</Original>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -687,6 +687,22 @@ if (d_WithRevive == 0) then {
 
 (findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
 (findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch"&& {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+(findDisplay 46) displayAddEventHandler ["KeyDown", {
+	if ((_this select 1) in actionKeys "User15" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {
+		if (d_earplugs_fitted) then {
+			d_earplugs_fitted = false;
+			2 fadeSound 1;
+			"d_earplugs" cutText ["<t color='#FF3333' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1870" + "</t>", "PLAIN DOWN", -1, true, true];
+		} else {
+			d_earplugs_fitted = true;
+			2 fadeSound 0.2;
+			"d_earplugs" cutText ["<t color='#339933' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1869" + "</t>", "PLAIN DOWN", -1, true, true];
+		};
+		true
+	} else {
+		false
+	}
+}];
 
 // by R34P3R
 d_p_isju = false;
