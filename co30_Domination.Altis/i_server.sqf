@@ -4,6 +4,7 @@
 #include "x_setup.sqf"
 #endif
 
+private _allmapmarkers = allMapMarkers select {_x select [0, 8] == "d_bonus_"};
 #ifndef __TT__
 d_bap_counter = 0;
 d_bacp_counter = 0;
@@ -11,7 +12,6 @@ d_bonus_create_pos = markerPos "d_bonus_create_pos";
 deleteMarker "d_bonus_create_pos";
 d_bonus_air_positions = [];
 d_bonus_air_positions_carrier = [];
-private _allmapmarkers = allMapMarkers select {_x select [0, 8] == "d_bonus_"};
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
@@ -58,7 +58,6 @@ d_bonus_vec_positions_w = [];
 
 d_bvp_counter_e = 0;
 d_bonus_vec_positions_e = [];
-d_bonus_vec_positions_w = [];
 {
 	d_bonus_vec_positions_e pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;

@@ -562,7 +562,9 @@ if (d_WithMHQTeleport == 0) then {
 #endif
 };
 
+#ifndef __TT__
 d_FLAG_BASE addaction [format ["<t color='#3F3F3F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1745"], {_this call d_fnc_playerspectate}];
+#endif
 
 if (d_ParaAtBase == 1) then {
 	"d_Teleporter" setMarkerTextLocal (localize "STR_DOM_MISSIONSTRING_534");

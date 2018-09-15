@@ -7,6 +7,16 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99g
+ATTENTION: TT Altis Blufor mission.sqm file has changed
+
+ATTENTION 2: Change d_side_missions_random in missionsave and missionsavett in the SQL database from 300 to 600 (if you are saving mission progress)
+
+- Fixed: It's Papa Bear not Papa Baer (well, in German it is correct :))
+- Changed: Blufor respawn position at base corrected (respawn could happen on balcony of the nearby building)
+- Changed: Removed playerspectate at base from TT version
+- Fixed: Side missions award did not spawn in the TT version because of empty spawn marker array :/ (Game Breaker)
+
 3.99f
 ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!
 

@@ -211,6 +211,7 @@ switch (d_sm_winner) do {
 	};
 };
 __TRACE_3("","_d_bonus_create_pos","_vec_type","_d_bvp_counter")
+__TRACE_2("","_d_bonus_vec_positions","_d_bonus_air_positions")
 d_current_sm_bonus_vec = ["",""];
 #endif
 sleep 1.012;
@@ -356,6 +357,8 @@ if (_vec isKindOf "Air") then {
 	};
 	_vec setVariable ["d_liftit", true, true];
 };
+
+__TRACE_2("","_dir","_vec")
 
 if (!isNull _vec2) then {
 	if (_vec2 isKindOf "Air") then {

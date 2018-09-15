@@ -104,12 +104,12 @@ if (d_tt_ver || {d_own_side == "EAST"}) then {
 #endif
 	d_hq_logic_opfor2 setRank "COLONEL";
 	if (isServer) then {
-		d_hq_logic_opfor2 setGroupIdGlobal ["Papa Baer"];
+		d_hq_logic_opfor2 setGroupIdGlobal ["Papa Bear"];
 	};
 #ifndef __RHS__
-	d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "DHQ_OP2", "Papa Baer"]];
+	d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "DHQ_OP2", "Papa Bear"]];
 #else
-	d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "RDHQ_OP2", "Papa Baer"]];
+	d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "RDHQ_OP2", "Papa Bear"]];
 #endif
 };
 
@@ -127,9 +127,9 @@ if (d_tt_ver || {d_own_side == "WEST"}) then {
 	d_hq_logic_blufor2 setIdentity "DHQ_BF2";
 	d_hq_logic_blufor2 setRank "COLONEL";
 	if (isServer) then {
-		d_hq_logic_blufor2 setGroupIdGlobal ["Papa Baer"];
+		d_hq_logic_blufor2 setGroupIdGlobal ["Papa Bear"];
 	};
-	d_hq_logic_blufor2 setVariable ["d_kddata", [["HQ_W"], "DHQ_BF2", "Papa Baer"]];
+	d_hq_logic_blufor2 setVariable ["d_kddata", [["HQ_W"], "DHQ_BF2", "Papa Bear"]];
 };
 
 if (d_own_side == "GUER" || {d_ifa3lite}) then {
@@ -146,9 +146,9 @@ if (d_own_side == "GUER" || {d_ifa3lite}) then {
 	d_hq_logic_guer2 setIdentity "DHQ_IN2";
 	d_hq_logic_guer2 setRank "COLONEL";
 	if (isServer) then {
-		d_hq_logic_guer2 setGroupIdGlobal ["Papa Baer"];
+		d_hq_logic_guer2 setGroupIdGlobal ["Papa Bear"];
 	};
-	d_hq_logic_guer2 setVariable ["d_kddata", [["HQ_I"], "DHQ_IN2", "Papa Baer"]];
+	d_hq_logic_guer2 setVariable ["d_kddata", [["HQ_I"], "DHQ_IN2", "Papa Bear"]];
 };
 
 #ifndef __TT__
