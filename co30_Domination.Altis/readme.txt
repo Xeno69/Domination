@@ -17,6 +17,7 @@ ATTENTION 2: Change d_side_missions_random in missionsave and missionsavett in t
 - Changed: Removed playerspectate at base from TT version
 - Fixed: Side missions award did not spawn in the TT version because of empty spawn marker array :/ (Game Breaker)
 - Added: You can now put your earplugs in and out with user action key 15 (you have to set a key in the game control settings yourself, user 15!)
+- Changed: In the TT version players have to wait 30 minutes (outside the running mission) to switch sides, otherwise they get kicked to the lobby of the current server
 
 3.99f
 ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!

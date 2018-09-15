@@ -22,6 +22,10 @@ __TRACE_1("","allPlayers")
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")
 
+if (isNil "_unit" || {!isNil {_unit getVariable "d_no_side_change"}}) exitWith {
+	__TRACE_2("No database update","_unit","_name")
+};
+
 private _pa = d_player_store getVariable _uid;
 private _ps = if (!isNull _unit) then {getPlayerScores _unit} else {_pa # 12};
 private _scpl = if (!isNull _unit) then {score _unit} else {-1};

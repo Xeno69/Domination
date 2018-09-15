@@ -21,8 +21,8 @@ private _uid = getPlayerUID _pl;
 
 private _p = d_player_store getVariable _uid;
 private _f_c = false;
-__TRACE_1("","side (group _pl)")
 private _sidepl = side (group _pl);
+__TRACE_1("","_sidepl")
 if (isNil "_p") then {
 	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
 	d_player_store setVariable [_uid, _p];
@@ -43,13 +43,19 @@ if (isNil "_p") then {
 	_p set [1, time];
 	_p set [4, str _pl];
 	_p set [6, _name];
+#ifdef __TT__
 	if (_sidepl != _p # 5) then {
-		_p set [5, _sidepl];
-		_f_c = true;
-		d_player_store setVariable [_uid + "_scores", nil];
-		_p set [11, []];
-		_p set [12, []];
+		if (time - (_p # 9) < 1800) then {
+			_pl setVariable ["d_no_side_change", true, true];
+		} else {
+			_p set [5, _sidepl];
+			_f_c = true;
+			d_player_store setVariable [_uid + "_scores", nil];
+			_p set [11, []];
+			_p set [12, []];
+		};
 	};
+#endif
 	__TRACE_1("player store after change","_p")
 };
 

@@ -7931,6 +7931,14 @@
 <Japanese>Earplugs out</Japanese>
 <Original>Earplugs out</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1871">
+<English>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</English>
+<Spanish>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Spanish>
+<Portuguese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Portuguese>
+<Korean>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Korean>
+<Japanese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Japanese>
+<Original>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Original>
+</Key>
 </Container>
 </Package>
 </Project>

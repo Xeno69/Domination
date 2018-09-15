@@ -18,9 +18,18 @@ if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitW
 };
 
 #ifdef __TT__
-private _prev_side = _this select 5;
-if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
-	[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+if (!isNil {player getVariable "d_no_side_change"}) then {
+	private _rtime = time - (_this select 9);
+	[format [localize "STR_DOM_MISSIONSTRING_1871", d_name_pl, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+	0 spawn {
+		sleep 1.5;
+		endMission "LOSER";
+	};
+} else {
+	private _prev_side = _this select 5;
+	if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
+		[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+	};
 };
 #endif
 
