@@ -13,6 +13,8 @@ if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitW
 		scriptName "spawn_playerstuffparking";
 		waitUntil {!d_still_in_intro};
 		__TRACE("player_stuff, calling park_player")
+		player setVariable ["xr_lives", -1];
+		xr_pl_no_lifes = true;
 		[false] spawn xr_fnc_park_player;
 	};
 };

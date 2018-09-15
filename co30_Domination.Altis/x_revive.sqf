@@ -22,7 +22,7 @@ if (isNil "xr_respawn_available_after") then {
 // respawn available when no other players in near_player_dist
 xr_near_player_dist_respawn = true;
 
-// set the number of bonus lifes a player gets when he revives another player, 0 to disable it
+// set the number of bonus lives a player gets when he revives another player, 0 to disable it
 xr_help_bonus = 1;
 
 // if set to false no "x was revived by y" message will show up

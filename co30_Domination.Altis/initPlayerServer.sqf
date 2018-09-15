@@ -34,7 +34,7 @@ if (isNil "_p") then {
 		[format [localize "STR_DOM_MISSIONSTRING_506", _name, _p # 6], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
 		diag_log format [localize "STR_DOM_MISSIONSTRING_942", _name, _p # 6, _uid];
 	};
-	if (time - (_p # 9) > 600) then {
+	if (time - (_p # 9) > 900) then {
 		_p set [8, xr_max_lives];
 	};
 	if (_p # 0 > -1) then {

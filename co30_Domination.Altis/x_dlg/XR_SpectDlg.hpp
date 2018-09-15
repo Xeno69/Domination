@@ -210,7 +210,7 @@ class xr_SpectDlg {
 					idc = 100102;
 					colorBackgroundActive[] = {1,1,1,0.1};
 					text = "$STR_DOM_MISSIONSTRING_298"; 
-					action = "call xr_fnc_closeSpectControls;0 spawn xr_fnc_buttonclickrespawn";
+					action = "if (!xr_pl_no_lifes) then {call xr_fnc_closeSpectControls;0 spawn xr_fnc_buttonclickrespawn}";
 					x = 1 - 0.3;
 					y = 1 - 0.045;
 					w = 0.3;

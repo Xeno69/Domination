@@ -134,6 +134,9 @@ if (!xr_pl_no_lifes) then {
 	call xr_fnc_nearplayercheckui
 } else {
 	__dspctrl(9998) ctrlEnable false;
+	__dspctrl(9998) ctrlSetText "";
+	__dspctrl(100102) ctrlEnable false;
+	__dspctrl(100102) ctrlShow false;
 	
 	private _sfm = markerPos "xr_playerparkmarker";
 	private _visobj = objNull;
