@@ -1,5 +1,5 @@
 d_sm_fortress = "Land_Cargo_House_V2_F";
-d_functionary = "LIB_CIV_Functionary_1";
+d_functionary = "C_Nikos_aged";
 d_fuel_station = "Land_FuelStation_Build_F";//Land_FuelStation_Shed_F
 d_sm_cargo = switch (d_enemy_side_short) do {
 	case "E": {"rhs_typhoon_vdv"};

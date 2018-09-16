@@ -22,6 +22,7 @@ ATTENTION 2: Change d_side_missions_random in missionsave and missionsavett in t
 - Fixed: Disable spectating respawn button exec if player has no lives left
 - Fixed: Players who connect again too early if they have no lives left could play again
 - Added: Transfer score to another player dialog in ranked mode and when database is available
+- Fixed: A IFA3 unit was spawning in the RHS version :(
 
 3.99f
 ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!
