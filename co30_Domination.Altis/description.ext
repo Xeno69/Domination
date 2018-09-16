@@ -214,6 +214,7 @@ class CfgRemoteExec {
 		class AR_fnc_Rappel_From_Heli {allowedTargets = 2;};
 		class d_fnc_addpylon_action {allowedTargets = 1;};
 		class d_fnc_playsound {allowedTargets = 1;};
+		class d_fnc_giveplayerscore {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};
@@ -1021,6 +1022,7 @@ class Params {
 #include "x_dlg\DBSaveDialog.hpp"
 #include "x_dlg\DBTop10Dialog.hpp"
 #include "x_dlg\PylonLoadoutDialog.hpp"
+#include "x_dlg\TransferScoreDialog.hpp"
 
 class CfgSounds {
 	sounds[] = {d_IncomingChallenge2};

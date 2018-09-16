@@ -58,5 +58,13 @@ switch (_this) do {
 			d_commandingMenuIniting = false;
 		};
 	};
+	case 99: {
+		d_commandingMenuCode = {
+			0 spawn {
+				createDialog "d_TransferScoreDialog";
+			};
+			d_commandingMenuIniting = false;
+		};
+	};
 };
 d_DomCommandingMenuBlocked = false;

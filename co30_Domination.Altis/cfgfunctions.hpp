@@ -199,6 +199,9 @@ class cfgFunctions {
 			addc(checkpjumppos);
 			addc(arsenalopened);
 			addc(arsenalclosed);
+			addc(inittransferscoredialog);
+			addc(tsdsliderposchanged);
+			addc(tranfserscoremsgdialog);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -392,6 +395,7 @@ class cfgFunctions {
 			addc(getskinpoly);
 			addc(handlescore);
 			addc(add_hs);
+			addc(giveplayerscore);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

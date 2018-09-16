@@ -7939,6 +7939,78 @@
 <Japanese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Japanese>
 <Original>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1872">
+<English>TRANSFER SCORE DIALOG</English>
+<Spanish>TRANSFER SCORE DIALOG</Spanish>
+<Portuguese>TRANSFER SCORE DIALOG</Portuguese>
+<Korean>TRANSFER SCORE DIALOG</Korean>
+<Japanese>TRANSFER SCORE DIALOG</Japanese>
+<Original>TRANSFER SCORE DIALOG</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1873">
+<English>Transfer</English>
+<Spanish>Transfer</Spanish>
+<Portuguese>Transfer</Portuguese>
+<Korean>Transfer</Korean>
+<Japanese>Transfer</Japanese>
+<Original>Transfer</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1874">
+<English>Your current score:</English>
+<Spanish>Your current score:</Spanish>
+<Portuguese>Your current score:</Portuguese>
+<Korean>Your current score:</Korean>
+<Japanese>Your current score:</Japanese>
+<Original>Your current score:</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1875">
+<English>Your new score:</English>
+<Spanish>Your new score:</Spanish>
+<Portuguese>Your new score:</Portuguese>
+<Korean>Your new score:</Korean>
+<Japanese>Your new score:</Japanese>
+<Original>Your new score:</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1876">
+<English>Score to transfer:</English>
+<Spanish>Score to transfer:</Spanish>
+<Portuguese>Score to transfer:</Portuguese>
+<Korean>Score to transfer:</Korean>
+<Japanese>Score to transfer:</Japanese>
+<Original>Score to transfer:</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1877">
+<English>Are you sure you want to transfer %1 score points to %2?</English>
+<Spanish>Are you sure you want to transfer %1 score points to %2?</Spanish>
+<Portuguese>Are you sure you want to transfer %1 score points to %2?</Portuguese>
+<Korean>Are you sure you want to transfer %1 score points to %2?</Korean>
+<Japanese>Are you sure you want to transfer %1 score points to %2?</Japanese>
+<Original>Are you sure you want to transfer %1 score points to %2?</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1878">
+<English>Confirm</English>
+<Spanish>Confirm</Spanish>
+<Portuguese>Confirm</Portuguese>
+<Korean>Confirm</Korean>
+<Japanese>Confirm</Japanese>
+<Original>Confirm</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1879">
+<English>You received %1 score points from %2!</English>
+<Spanish>You received %1 score points from %2!</Spanish>
+<Portuguese>You received %1 score points from %2!</Portuguese>
+<Korean>You received %1 score points from %2!</Korean>
+<Japanese>You received %1 score points from %2!</Japanese>
+<Original>You received %1 score points from %2!</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1880">
+<English>Transfer score</English>
+<Spanish>Transfer score</Spanish>
+<Portuguese>Transfer score</Portuguese>
+<Korean>Transfer score</Korean>
+<Japanese>Transfer score</Japanese>
+<Original>Transfer score</Original>
+</Key>
 </Container>
 </Package>
 </Project>

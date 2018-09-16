@@ -313,6 +313,7 @@ player addEventHandler ["Killed", {
 	_this remoteExecCall ["d_fnc_plcheckkill", 2];
 	[0] call d_fnc_playerspawn;
 	d_player_in_vec = false;
+	uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
 }];
 #else
 if (d_player_side == blufor) then {
@@ -320,12 +321,14 @@ if (d_player_side == blufor) then {
 		_this remoteExecCall ["d_fnc_plcheckkillblufor", 2];
 		[0] call d_fnc_playerspawn;
 		d_player_in_vec = false;
+		uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
 	}];
 } else {
 	player addEventHandler ["Killed", {
 		_this remoteExecCall ["d_fnc_plcheckkillopfor", 2];
 		[0] call d_fnc_playerspawn;
 		d_player_in_vec = false;
+		uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
 	}];
 };
 #endif
