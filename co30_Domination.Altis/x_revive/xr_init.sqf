@@ -11,7 +11,7 @@ if (didJIP) then {
 waitUntil {player == player};
 
 if (isNil {player getVariable "xr_lives"}) then {
-	player setVariable ["xr_lives", xr_max_lives];
+	player setVariable ["xr_lives", xr_max_lives, true];
 };
 player setVariable ["xr_is_dragging", false];
 player setVariable ["xr_presptime", -1];

@@ -13,16 +13,16 @@ ATTENTION: TT Altis Blufor mission.sqm file has changed
 ATTENTION 2: Change d_side_missions_random in missionsave and missionsavett in the SQL database from 300 to 600 (if you are saving mission progress)
 
 - Fixed: It's Papa Bear not Papa Baer (well, in German it is correct :))
-- Changed: Altis TT version blufor respawn position at base corrected (respawn could happen on balcony of the nearby building)
-- Changed: Removed playerspectate at base from TT version
+- Fixed: Altis TT version blufor respawn position at base corrected (respawn could happen on balcony of the nearby building)
+- Changed: Removed player spectate at base from TT version
 - Fixed: Side missions award did not spawn in the TT version because of empty spawn marker array :/ (Game Breaker)
 - Added: You can now put your earplugs in and out with user action key 15 (you have to set a key in the game/A3 control settings yourself, user 15!)
 - Changed: In the TT version players have to wait 30 minutes (outside the running mission) to switch sides, otherwise they get kicked to the lobby of the current server
 - Fixed: Do not show the "Nearby informed players:" message in spectating when a player has no lives left
 - Fixed: Disable spectating respawn button exec if player has no lives left
-- Fixed: Players who connect again too early if they have no lives left could play again
-- Added: Transfer score to another player dialog in ranked mode and when database is available
-- Fixed: A IFA3 unit was spawning in the RHS version :(
+- Fixed: Players who connect again immediately and have no revive lives left can play again
+- Added: Transfer score to another player dialog in ranked mode
+- Fixed: A IFA3 classname was used for spawning a side mission unit in the RHS version :(
 
 3.99f
 ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!

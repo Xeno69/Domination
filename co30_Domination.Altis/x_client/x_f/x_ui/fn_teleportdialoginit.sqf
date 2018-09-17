@@ -163,6 +163,10 @@ if (_logtxt != "") then {
 	__CTRL(11002) ctrlSetText _logtxt;
 };
 
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
+	__CTRL(100102) ctrlEnable false;
+};
+
 d_lb_tele_first = true;
 
 if (_cidx > -1) then {

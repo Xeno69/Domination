@@ -134,6 +134,10 @@ if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {_leadavailable || {
 	__TRACE("enable false 2")
 };
 
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
+	__CTRL(100102) ctrlEnable false;
+};
+
 __TRACE_1("","d_beam_target")
 
 private _ctrlmap = _disp displayCtrl 900;

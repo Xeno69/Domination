@@ -241,19 +241,29 @@ d_x_drop_array =
 	[[], [localize "STR_DOM_MISSIONSTRING_22", "I_MRAP_03_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_IND_Ammo_F"]];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-	[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]];
+	call {
+		if (d_cup) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "CUP_B_M1151_WDL_USA"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		};
+		if (d_rhs) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhsusf_m998_w_2dr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		};
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	[[], [localize "STR_DOM_MISSIONSTRING_22", if (!d_ifa3lite) then {["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select d_tanoa} else {"LIB_US_Willys_MB"}], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]];
+	call {
+		if (d_rhs) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhs_tigr_m_3camo_vdv"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		};
+		if (d_ifa3lite) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
+		};
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+	};
 #endif
 #ifdef __TT__
 	[[], [], []];
-#endif
-#ifdef __RHS__
-d_x_drop_array = [	
-	[[], [localize "STR_DOM_MISSIONSTRING_22", "rhs_tigr_m_3camo_vdv"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]],
-	[[], [localize "STR_DOM_MISSIONSTRING_22", "rhsusf_m998_w_2dr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
-] select d_rhs_blufor;
 #endif
 
 // side of the pilot that will fly the drop air vehicle
@@ -670,22 +680,23 @@ if (!d_tt_tanoa) then {
 #endif
 	];
 	d_specops_W = 
-#ifndef __IFA3LITE__
-		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup];
-#else
-		[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup];
-#endif
+		call {
+			if (d_rhs) exitWith {
+				[["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup]
+			};
+			if (d_ifa3lite) exitWith {
+				[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
+			};
+			[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup]
+		};
 #ifdef __RHS__
-	d_specops_W = [
-		["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup
-	];
 	d_specops_E = [
 		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_2mg"] call d_fnc_GetConfigGroup,
 		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_mg_sniper"] call d_fnc_GetConfigGroup
 	];
 #endif
 	d_specops_G = [["I_G_Soldier_exp_F", "I_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_medic_F"]];
-	
+
 	d_sabotage_E = [["O_recon_exp_F"]];
 	d_sabotage_W = [["B_recon_exp_F"]];
 	d_sabotage_G = [["I_diver_exp_F"]];
@@ -793,7 +804,7 @@ if (!d_tt_tanoa) then {
 		"I_Heli_Transport_02_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		"B_Heli_Transport_01_camo_F";
+		["CUP_B_C130J_Cargo_USMC", "B_Heli_Transport_01_camo_F"] select (!d_cup);
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		["LIB_Pe2", "O_Heli_Light_02_unarmed_F"] select (!d_ifa3lite);
@@ -866,16 +877,32 @@ if (!d_tt_tanoa) then {
 	"I_LT_01_AA_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-	"B_APC_Tracked_01_AA_F";
+	call {
+		if (d_cup) exitWith {
+			"CUP_B_M6LineBacker_USA_W"
+		};
+		if (d_rhs) exitWith	{
+			"RHS_M6_wd"
+		};
+		"B_APC_Tracked_01_AA_F";
+	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	["LIB_61k", "O_APC_Tracked_02_AA_F"] select (!d_ifa3lite);
+	call {
+		if (d_cup) exitWith {
+			"CUP_O_2S6M_RU"
+		};
+		if (d_rhs) exitWith	{
+			"rhs_zsu234_aa"
+		};
+		if (d_ifa3lite) exitWith {
+			"LIB_61k"
+		};
+		"O_APC_Tracked_02_AA_F"
+	};
 #endif
 #ifdef __TT__
 	"";
-#endif
-#ifdef __RHS__
-	d_base_aa_vec = ["rhs_zsu234_aa", "RHS_M6_wd"] select d_rhs_blufor;
 #endif
 	
 	d_wreck_cur_ar = [];

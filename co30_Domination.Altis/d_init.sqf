@@ -1,8 +1,9 @@
 // by Xeno
 //#define __DEBUG__
-diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 #define THIS_FILE "d_init.sqf"
 #include "x_setup.sqf"
+
+diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
 if (!isServer) then {
 	call compile preprocessFileLineNumbers "x_init\x_initcommon.sqf";
@@ -25,7 +26,6 @@ if (hasInterface) then {
 };
 
 d_target_names = [];
-//private _dtar_idx_ar = [];
 {
 	private _dtar = _x;
 	
@@ -69,11 +69,6 @@ d_target_names = [];
 	};
 	if (isServer) then {
 		_dtar enableSimulationGlobal false;
-		
-		//private _arxh = (str _dtar) splitString "_";
-		//if !(_arxh isEqualTo []) then {
-		//	_dtar_idx_ar pushBackUnique parseNumber (_arxh # (count _arxh - 1));
-		//};
 	};
 	false
 } forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] == "d_target_"});

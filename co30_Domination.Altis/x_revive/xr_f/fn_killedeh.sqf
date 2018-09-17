@@ -22,7 +22,7 @@ if (player getVariable "xr_pluncon") then {
 	if (xr_max_lives != -1) then {
 		private _lives = (player getVariable "xr_lives") - 1;
 		__TRACE_1("lives left","_lives")
-		player setVariable ["xr_lives", _lives];
+		player setVariable ["xr_lives", _lives, true];
 		[getPlayerUID player, _lives] remoteExecCall ["d_fnc_ChangeRLifes", 2];
 		if (_lives == -1) then {
 			__TRACE("lives = -1")

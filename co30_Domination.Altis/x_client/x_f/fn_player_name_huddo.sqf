@@ -58,7 +58,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 					};
 				};
 			};
-		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"} && {!(_x getVariable ["ace_isunconscious", false])}}}}});
+		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"} && {!(_x getVariable ["ace_isunconscious", false]) && {_x getVariable ["xr_lives", 1] > -1}}}}}});
 	};
 } else {
 	if (!d_show_pname_hud) then {

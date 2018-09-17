@@ -110,6 +110,10 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 	};
 };
 
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
+	__CTRL(100102) ctrlEnable false;
+};
+
 /*if (_wone == 1 && {xr_respawn_available} && {!ctrlEnabled __CTRL(100102)}) then {
 	__TRACE("Enable")
 	__CTRL(100102) ctrlEnable true;
