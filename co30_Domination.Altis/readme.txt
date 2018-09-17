@@ -23,6 +23,7 @@ ATTENTION 2: Change d_side_missions_random in missionsave and missionsavett in t
 - Fixed: Players who connect again immediately and have no revive lives left can play again
 - Added: Transfer score to another player dialog in ranked mode
 - Fixed: A IFA3 classname was used for spawning a side mission unit in the RHS version :(
+- Fixed: If a headless client was connected it overwrote player scores in SQL database
 
 3.99f
 ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!

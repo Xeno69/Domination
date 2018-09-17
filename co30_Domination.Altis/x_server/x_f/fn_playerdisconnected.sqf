@@ -6,7 +6,7 @@ if (!isServer || {!d_database_found}) exitWith{};
 
 params ["", "_uid", "_name"];
 
-if (_name == "__SERVER__") exitWith {};
+if (_name == "__SERVER__" || {_name == "headlessclient"}) exitWith {};
 
 private _unit = objNull;
 (allPlayers - entities "HeadlessClient_F") findIf {
