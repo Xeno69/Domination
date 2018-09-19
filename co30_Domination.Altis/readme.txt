@@ -7,6 +7,13 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99h
+- Changed: CAS plane now starts either 90 degree left or right of the player to prevent killing him if he call CAS on a hill
+- Changed: You can now select another destination for an air taxi, till now it was base only
+- Fixed: UI in Status Dialog to make Russian translation fit better 
+- Fixed: Script error in Spectating Dialog (game breaker :/ )
+- Changed: Removed with AI mode in server lobby in the TT version again
+
 3.99g
 ATTENTION: TT Altis Blufor mission.sqm file has changed
 

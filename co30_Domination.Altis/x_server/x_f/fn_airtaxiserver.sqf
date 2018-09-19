@@ -13,11 +13,11 @@ publicVariable "d_heli_taxi_available";
 
 sleep 5;
 
-params ["_playerstr", "_playerpos"];
+params ["_callernetid", "_playerpos", "_destination"];
 
-__TRACE_2("","_playerstr","_playerpos")
+__TRACE_3("","_callernetid","_playerpos","_destination")
 
-private _player = missionNamespace getVariable _playerstr;
+private _player = objectFromNetId _callernetid;
 __TRACE_1("","_player")
 if (isNil "_player" || {isNull _player}) exitWith {
 	d_heli_taxi_available = true;
@@ -52,7 +52,7 @@ _vec lockDriver true;
 private _pospl =+ _playerpos;
 _pospl set [2,0];
 private _helperh = d_HeliHEmpty createVehicle [0,0,0];
-_helperh setPos _pospl;
+_helperh setVehiclePosition [_pospl, [], 0, "NONE"];
 _vec flyInHeight 80;
 _unit doMove _playerpos;
 _vec flyInHeight 80;
@@ -66,7 +66,7 @@ __TRACE_1("","_vecdist")
 
 sleep 10;
 
-_player = missionNamespace getVariable _playerstr;
+_player = objectFromNetId _callernetid;
 if (isNil "_player" || {isNull _player}) exitWith {
 	deleteMarker "d_airtaxi_marker";
 	d_heli_taxi_available = true;
@@ -93,7 +93,7 @@ __TRACE_2("","time","_endtime")
 private _doend = false;
 while {alive _unit && {alive _vec && {canMove _vec}}} do {
 	"d_airtaxi_marker" setMarkerPos (getPosWorld _vec);
-	_player = missionNamespace getVariable _playerstr;
+	_player = objectFromNetId _callernetid;
 	__TRACE_1("","_player")
 	if (time > _endtime || {isNil "_player" || {isNull _player}}) exitWith {
 		_doend = true;
@@ -118,7 +118,7 @@ if (!alive _unit || {!alive _vec || {!canMove _vec || {_doend}}}) exitWith {
 	deleteMarker "d_airtaxi_marker";
 	d_heli_taxi_available = true;
 	publicVariable "d_heli_taxi_available";
-	_player = missionNamespace getVariable _playerstr;
+	_player = objectFromNetId _callernetid;
 	if (!isNil "_player" && {!isNull _player}) then {
 		2 remoteExecCall ["d_fnc_ataxiNet", _player];
 	} else {
@@ -136,22 +136,19 @@ while {alive _unit && {alive _vec && {alive _player && {!(_player in crew _vec) 
 };
 _doend = false;
 if (alive _unit && {alive _vec && {canMove _vec}}) then {
-	_player = missionNamespace getVariable _playerstr;
+	_player = objectFromNetId _callernetid;
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
 	
 	sleep 30 + random 5;
-	_player = missionNamespace getVariable _playerstr;
+	_player = objectFromNetId _callernetid;
 	if (!isNil "_player" && {!isNull _player}) then {
 		5 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
 	_vec flyInHeight 80;
-	if (isNil "d_AISPAWN" || {isNull d_AISPAWN}) then {
-		d_AISPAWN = createVehicle [d_HeliHEmpty, d_pos_ai_hut # 0, [], 0, "NONE"];
-		publicVariable "d_AISPAWN";
-	};
-	_unit doMove (getPos d_AISPAWN);
+	_helperh setVehiclePosition [_destination, [], 0, "NONE"];
+	_unit doMove _destination;
 	_vec flyInHeight 80;
 	_grp setBehaviour "CARELESS";
 	sleep 5;
@@ -164,7 +161,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		};
 		if (!alive _unit || {!alive _vec || {!canMove _vec}}) exitWith {
 			_doend = true;
-			_player = missionNamespace getVariable _playerstr;
+			_player = objectFromNetId _callernetid;
 			if (!isNil "_player" && {!isNull _player}) then {
 				2 remoteExecCall ["d_fnc_ataxiNet", _player];
 			};
@@ -186,7 +183,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	sleep 20 + random 5;
 	
 	if (alive _unit && {alive _vec && {canMove _vec}}) then {
-		_player = missionNamespace getVariable _playerstr;
+		_player = objectFromNetId _callernetid;
 		if (!isNil "_player" && {!isNull _player}) then {
 			4 remoteExecCall ["d_fnc_ataxiNet", _player];
 		};
@@ -207,7 +204,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		sleep 120;
 		__del;
 	} else {
-		_player = missionNamespace getVariable _playerstr;
+		_player = objectFromNetId _callernetid;
 		if (!isNil "_player" && {!isNull _player}) then {
 			1 remoteExecCall ["d_fnc_ataxiNet", _player];
 		};
@@ -218,7 +215,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		__del;
 	};
 } else {
-	_player = missionNamespace getVariable _playerstr;
+	_player = objectFromNetId _callernetid;
 	if (!isNil "_player" && {!isNull _player}) then {
 		1 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};

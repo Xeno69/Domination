@@ -477,12 +477,12 @@ class d_fpsresource {
 		class server_out: server_cap {
 			idc = 50;
 			text="";
-			x = "SafeZoneX + 0.07";
+			x = "SafeZoneX + 0.1";
 		};
 		class client_out: client_cap {
 			idc = 51;
 			text="";
-			x = "SafeZoneX + 0.07";
+			x = "SafeZoneX + 0.1";
 		};
 	};
 };

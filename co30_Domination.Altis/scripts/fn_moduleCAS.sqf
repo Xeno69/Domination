@@ -161,7 +161,8 @@ private _speed = 400 / 3.6;
 private _duration = ([0,0] distance [_dis, _alt]) / _speed;
 
 //--- Create plane
-private _planePos = [_pos, _dis, _dir + 180] call bis_fnc_relpos;
+//private _planePos = [_pos, _dis, _dir + 180] call bis_fnc_relpos;
+private _planePos = _pos getPos [_dis, [_dir + 90, _dir - 90] select (random 100 > 50)];
 _planePos set [2, (_pos # 2) + _alt];
 ([_planePos, _dir, _planeClass, (getNumber (_planeCfg>>"side")) call bis_fnc_sideType] call d_fnc_spawnVehicle) params ["_plane", "_crew", "_group"];
 _plane setPosasl _planePos;

@@ -711,6 +711,7 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
 
+#ifndef __TT__
 	class d_params_dl_9 {
 		title = "$STR_DOM_MISSIONSTRING_1575";
 		values[] = {-99999};
@@ -745,6 +746,7 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
 	};
+#endif
 	
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
@@ -1023,6 +1025,7 @@ class Params {
 #include "x_dlg\DBTop10Dialog.hpp"
 #include "x_dlg\PylonLoadoutDialog.hpp"
 #include "x_dlg\TransferScoreDialog.hpp"
+#include "x_dlg\AirTaxiDialog.hpp"
 
 class CfgSounds {
 	sounds[] = {d_IncomingChallenge2};

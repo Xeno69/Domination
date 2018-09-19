@@ -8011,6 +8011,38 @@
 <Japanese>Transfer score</Japanese>
 <Original>Transfer score</Original>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1881">
+<English>Air taxi canceled...</English>
+<Spanish>Air taxi canceled...</Spanish>
+<Portuguese>Air taxi canceled...</Portuguese>
+<Korean>Air taxi canceled...</Korean>
+<Japanese>Air taxi canceled...</Japanese>
+<Original>Air taxi canceled...</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1882">
+<English>Air taxi destination</English>
+<Spanish>Air taxi destination</Spanish>
+<Portuguese>Air taxi destination</Portuguese>
+<Korean>Air taxi destination</Korean>
+<Japanese>Air taxi destination</Japanese>
+<Original>Air taxi destination</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1883">
+<English>Call air taxi to base or select another destination by clicking on the map:</English>
+<Spanish>Call air taxi to base or select another destination by clicking on the map:</Spanish>
+<Portuguese>Call air taxi to base or select another destination by clicking on the map:</Portuguese>
+<Korean>Call air taxi to base or select another destination by clicking on the map:</Korean>
+<Japanese>Call air taxi to base or select another destination by clicking on the map:</Japanese>
+<Original>Call air taxi to base or select another destination by clicking on the map:</Original>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1884">
+<English>Call Air Taxi</English>
+<Spanish>Call Air Taxi</Spanish>
+<Portuguese>Call Air Taxi</Portuguese>
+<Korean>Call Air Taxi</Korean>
+<Japanese>Call Air Taxi</Japanese>
+<Original>Call Air Taxi</Original>
+</Key>
 </Container>
 </Package>
 </Project>
