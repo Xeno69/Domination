@@ -122,10 +122,6 @@ if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {_leadavailable || {
 } else {
 	__TRACE_1("","d_beam_target")
 	__TRACE_1("","d_last_beam_target")
-	if (!xr_respawn_available) exitWith {
-		__CTRL(100102) ctrlEnable false;
-		__TRACE("enable false")
-	};
 	__CTRL(100110) ctrlSetText "";
 	__CTRL(100102) ctrlEnable false;
 	__TRACE("enable false 2")
