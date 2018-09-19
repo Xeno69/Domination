@@ -415,7 +415,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.99g"];
+diag_log ["Internal D Version: 3.99h"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
