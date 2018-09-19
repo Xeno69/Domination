@@ -17,6 +17,7 @@ Changelogs
 - Changed: Replaced air taxi choppers with VTOLs (where possible)
 - Fixed: Air Taxi script on the server did not end if a fast air taxi like a VTOL reached the endpos
 - Fixed: Air Taxi landing position is now using findEmptyPosition to find a suitable landing spot
+- Fixed: Script error in Get_Heli_Rappel_Points function (me too stupid to optimize :/)
 
 3.99g
 ATTENTION: TT Altis Blufor mission.sqm file has changed
