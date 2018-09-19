@@ -2739,12 +2739,12 @@
 <Original>Air taxi damaged or destroyed !!!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_637">
-<English>Air taxi heading to base in a few seconds !!!</English>
-<Spanish>¡¡¡ Taxi aéreo en dirección a la base en cuestión de segundos !!!</Spanish>
-<Portuguese>Táxi de ar que se dirige a base em uns quantos segundos !!!</Portuguese>
-<Korean>후송헬기가 본부로 곧 복귀합니다.</Korean>
-<Japanese>搬送ヘリコプターは数秒で基地に向かいます!!!</Japanese>
-<Original>Air taxi heading to base in a few seconds !!!</Original>
+<English>Air taxi heading to its destination in a few seconds !!!</English>
+<Spanish>Air taxi heading to its destination in a few seconds !!!</Spanish>
+<Portuguese>Air taxi heading to its destination in a few seconds !!!</Portuguese>
+<Korean>Air taxi heading to its destination in a few seconds !!!</Korean>
+<Japanese>Air taxi heading to its destination in a few seconds !!!</Japanese>
+<Original>Air taxi heading to its destination in a few seconds !!!</Original>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_638">
 <English>Air taxi leaving now, have a nice day !!!</English>

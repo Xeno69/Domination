@@ -13,6 +13,10 @@ Changelogs
 - Fixed: UI in Status Dialog to make Russian translation fit better 
 - Fixed: Script error in Spectating Dialog (game breaker :/ )
 - Changed: Removed with AI mode in server lobby in the TT version again
+- Fixed: Memory leak in airtaxiserver.sqf
+- Changed: Replaced air taxi choppers with VTOLs (where possible)
+- Fixed: Air Taxi script on the server did not end if a fast air taxi like a VTOL reached the endpos
+- Fixed: Air Taxi landing position is now using findEmptyPosition to find a suitable landing spot
 
 3.99g
 ATTENTION: TT Altis Blufor mission.sqm file has changed
