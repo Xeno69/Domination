@@ -8,7 +8,7 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.99h
-- Changed: CAS plane now starts either 90 degree left or right of the player to prevent killing him if he call CAS on a hill
+- Changed: CAS plane now starts either 90 degree left or right of the player to prevent killing him if he calls CAS on a hill
 - Changed: You can now select another destination for an air taxi, till now it was base only
 - Fixed: UI in Status Dialog to make Russian translation fit better 
 - Fixed: Script error in Spectating Dialog (game breaker :/ )
@@ -18,6 +18,8 @@ Changelogs
 - Fixed: Air Taxi script on the server did not end if a fast air taxi like a VTOL reached the endpos
 - Fixed: Air Taxi landing position is now using findEmptyPosition to find a suitable landing spot
 - Fixed: Script error in Get_Heli_Rappel_Points function (me too stupid to optimize :/)
+- Fixed: Spectating respawn button was immediately available when respawn_available_after timer was still running
+- Fixed: Spectating respawn button was available when clicking on non available MHQ
 
 3.99g
 ATTENTION: TT Altis Blufor mission.sqm file has changed

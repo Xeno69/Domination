@@ -166,6 +166,9 @@ if (_logtxt != "") then {
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
 	__CTRL(100102) ctrlEnable false;
 };
+if (!xr_respawn_available) then {
+	__CTRL(100102) ctrlEnable false;
+};
 
 d_lb_tele_first = true;
 

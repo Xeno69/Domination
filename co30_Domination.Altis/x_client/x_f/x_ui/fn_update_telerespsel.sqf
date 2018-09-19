@@ -126,15 +126,18 @@ if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {_leadavailable || {
 		__CTRL(100102) ctrlEnable false;
 		__TRACE("enable false")
 	};
-	if (d_beam_target == "D_BASE_D" || {_uidx != -1}) exitWith {};
-	if !(d_beam_target in _not_avail_array) exitWith {};
-	d_beam_target = "";
 	__CTRL(100110) ctrlSetText "";
 	__CTRL(100102) ctrlEnable false;
 	__TRACE("enable false 2")
+	if (d_beam_target == "D_BASE_D" || {_uidx != -1}) exitWith {};
+	if !(d_beam_target in _not_avail_array) exitWith {};
+	d_beam_target = "";
 };
 
-if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes && {ctrlEnabled __CTRL(100102)}}) then {
+	__CTRL(100102) ctrlEnable false;
+};
+if (!xr_respawn_available && {ctrlEnabled __CTRL(100102)}) then {
 	__CTRL(100102) ctrlEnable false;
 };
 
