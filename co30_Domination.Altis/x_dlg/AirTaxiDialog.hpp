@@ -17,11 +17,11 @@ class D_AirTaxiDialog {
 			colorBackgroundActive[] = {1,1,1,0.1};
 			text = "$STR_DOM_MISSIONSTRING_1884";
 			action = "d_x_do_call_taxi = true;closeDialog 0";
-			x = 0.68; y = 0.32; w = 0.3;
+			x = 0.68; y = 0.8; w = 0.3;
 		};
 		class AirTaxiMapText: RscText2 {
 			x = 0.02; y = 0.02;
-			w = 0.5; h = 0.1;
+			w = 0.7; h = 0.1;
 			colorBackground[] = {1, 1, 1, 0};
 			colorText[] = {1, 1, 1, 1};
 			text = "$STR_DOM_MISSIONSTRING_1883";

@@ -27,7 +27,7 @@ if (isNil "d_AISPAWN" || {isNull d_AISPAWN}) then {
 d_x_taxi_target_pos = getPos d_AISPAWN;
 d_x_do_call_taxi = false;
 
-d_x_airtaximarker = "d_air_taxi_" + str _player;
+d_x_airtaximarker = "d_air_taxi_" + str player;
 [d_x_airtaximarker, d_x_taxi_target_pos, "ICON", "ColorBlue", [0.8,0.8], localize "STR_DOM_MISSIONSTRING_1882", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 
 createDialog "D_AirTaxiDialog";
