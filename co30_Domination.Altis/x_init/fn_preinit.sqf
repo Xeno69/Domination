@@ -821,7 +821,7 @@ if (!d_tt_tanoa) then {
 		"I_Heli_Transport_02_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		["CUP_B_C130J_Cargo_USMC", "B_T_VTOL_01_infantry_F"] select (!d_cup);
+		["CUP_B_MV22_USMC", "B_T_VTOL_01_infantry_F"] select (!d_cup);
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		"O_T_VTOL_02_infantry_dynamicLoadout_F";
