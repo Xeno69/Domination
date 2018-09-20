@@ -8,6 +8,8 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.99h
+ATTENTION: Altis Blufor, Altis Opfor, Altis RHS Blufor and Altis RHS Opfor mission.sqm files have changed
+
 - Changed: CAS plane now starts either 90 degree left or right of the player to prevent killing him if he calls CAS on a hill
 - Changed: You can now select another destination for an air taxi, till now it was base only (which still is default)
 - Fixed: UI in Status Dialog to make Russian translation fit better 
@@ -22,6 +24,9 @@ Changelogs
 - Fixed: Spectating respawn button was available when clicking on non available MHQ
 - Fixed: Show main target color winner side in the TT version (green for draw) again
 - Added: Russian translation (WIP) to Stringtable
+- Fixed: Deliver sidemission start corrected in Altis mission.sqm files
+- Fixed: Sabotage at base did spawn default A3 unit instead of RHS units in the RHS versions
+- Fixed: Containers were floating at some Farps in the Altis versions
 
 3.99g
 ATTENTION: TT Altis Blufor mission.sqm file has changed

@@ -705,6 +705,11 @@ if (!d_tt_tanoa) then {
 	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
 	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
 #endif
+#ifdef __RHS__
+	d_sabotage_E = [["rhs_vmf_recon_rifleman_scout_akm", "rhs_vmf_recon_sergeant"]];
+	d_sabotage_W = [["rhsusf_socom_marsoc_cso_breacher", "rhsusf_socom_marsoc_cso"]];
+	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
