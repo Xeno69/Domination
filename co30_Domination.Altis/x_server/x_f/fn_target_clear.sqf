@@ -95,12 +95,21 @@ if !(d_maintargets_list isEqualTo []) then {
 	};
 } else {
 	d_target_clear = true; publicVariable "d_target_clear";
-	//["d_" + _cur_tgt_name + "_dommtm", "ColorGreen"] remoteExecCall ["setMarkerColor", 2];
-	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor "ColorGreen";
 #ifndef __TT__
+	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor "ColorGreen";
 	"" remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, "Captured2", ["1", "", _cur_tgt_name, [_cur_tgt_name]],d_kbtel_chan];
 #else
+	private _mtcol = if (d_mt_winner == 1) then {
+		"ColorBlue"
+	} else {
+		if (d_mt_winner == 2) then {
+			"ColorRed"
+		} else {
+			"ColorGreen"
+		};
+	};
+	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor _mtcol;
 	["", ""] remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
 	d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
