@@ -40,7 +40,7 @@ if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!_is_para}}) then 
 d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 #ifndef __IFA3LITE__
-if (!d_tt_ver && {!visibleMap && {!_is_para}}) then {
+if (!d_tt_ver && {d_heli_taxi_available && {!visibleMap && {!_is_para}}}) then {
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 #endif

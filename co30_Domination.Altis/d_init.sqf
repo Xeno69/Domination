@@ -295,6 +295,9 @@ if (isNil "d_mttarget_radius_patrol") then {
 	d_mttarget_radius_patrol = -1;
 };
 #ifndef __TT__
+if (isNil "d_heli_taxi_available") then {
+	d_heli_taxi_available = true;
+};
 if (isNil "d_cas_available") then {
 	d_cas_available = true;
 };
