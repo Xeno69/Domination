@@ -224,8 +224,8 @@ __TRACE_1("","_eee")
 					};
 				};
 				if (_subtype == "time") then {
-					if (d_fnc_checkSHC) then {
-						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)))
+					if (call d_fnc_checkSHC) then {
+						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)));
 					};
 				};
 			};
@@ -329,7 +329,7 @@ __TRACE_1("","_eee")
 					};
 				};
 				if (_subtype == "radius") then {
-					if (d_fnc_checkSHC) then {
+					if (call d_fnc_checkSHC) then {
 						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)))
 					};
 				};

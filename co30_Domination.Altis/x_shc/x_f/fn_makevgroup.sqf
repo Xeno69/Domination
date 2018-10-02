@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makevgroup.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false]];
+params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false]];
 private _the_vecs = [];
 private _crews = [];
 private _npos = _pos;
@@ -51,7 +51,7 @@ for "_n" from 0 to _nnvnum do {
 			};
 		};
 	};
-	if (!_is_locked && {!_is_static && {d_enemy_vecs_lift == 0}}) then {
+	if (!_is_locked && {!_is_static && {d_enemy_vecs_lift == 0 && {!_nolift}}}) then {
 		_vec setVariable ["d_liftit", true, true];
 	};
 };

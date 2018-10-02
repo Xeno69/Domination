@@ -7,6 +7,11 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99i
+- Added: Rosche, Germany Blufor version ( https://forums.bohemia.net/forums/topic/219592-rosche-germany/ )
+- Fixed: Base AA vehicles could be lifted
+- Fixed: Stupid bug in fn_create_sm_bymarkers.sqf which broke creation of sidemissions by markers only completely :/
+
 3.99h
 ATTENTION: Altis Blufor, Altis Opfor, Altis RHS Blufor and Altis RHS Opfor mission.sqm files have changed
 

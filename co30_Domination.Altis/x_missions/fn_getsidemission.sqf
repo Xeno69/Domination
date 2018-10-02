@@ -37,7 +37,7 @@ d_x_sm_rem_ar = [];
 d_x_sm_vec_rem_ar = [];
 
 //_cur_sm_idx = _this select 0;
-//_cur_sm_idx = 0;
+//_cur_sm_idx = 50042;
 
 if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
 	[_cur_sm_idx] spawn d_fnc_hcsmexec;

@@ -104,10 +104,6 @@ if (isServer) then {
 "d_base_marker" setMarkerAlphaLocal 0;
 private _msize = markerSize "d_base_marker";
 d_base_array = [[markerPos "d_base_marker" # 0, markerPos "d_base_marker" # 1, 1.9], _msize # 0, _msize # 1, markerDir "d_base_marker", true];
-
-// position of anti air at own base
-d_base_anti_air1 = markerPos "d_base_anti_air1";
-d_base_anti_air2 = markerPos "d_base_anti_air2";
 #else
 d_EFLAG_BASE allowDamage false;
 d_WFLAG_BASE allowDamage false;

@@ -167,6 +167,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __IFA3LITE__
 #include "x_sm_bonus_vec_ar_ifa3.sqf"
 #endif
+#ifdef __ROSCHE__
+#include "x_sm_bonus_vec_ar_altis.sqf"
+#endif
 #ifdef __TT__
 if (!d_tt_tanoa) then {
 #include "x_sm_bonus_vec_ar_tt.sqf"
@@ -188,6 +191,9 @@ if (!d_tt_tanoa) then {
 #endif
 
 #ifdef __ALTIS__
+#include "x_mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __ROSCHE__
 #include "x_mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -590,6 +596,9 @@ if (_isserv_or_hc) then {
 #ifdef __ALTIS__
 #include "d_allmen_O_default.sqf"
 #endif
+#ifdef __ROSCHE__
+#include "d_allmen_O_default.sqf"
+#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_O_CUP_CHER.sqf"
 #endif
@@ -648,6 +657,9 @@ if (!d_tt_tanoa) then {
 	];
 	d_specops_E = [
 #ifdef __ALTIS__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __ROSCHE__
 #include "d_specops_O_default.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -715,6 +727,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ALTIS__
 #include "d_veh_a_O_default.sqf"
 #endif
+#ifdef __ROSCHE__
+#include "d_veh_a_O_default.sqf"
+#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_veh_a_O_CUP_CHER.sqf"
 #endif
@@ -766,6 +781,9 @@ if (!d_tt_tanoa) then {
 	];
 
 #ifdef __ALTIS__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
+#ifdef __ROSCHE__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -915,6 +933,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ALTIS__
 #include "d_sm_classes_default.sqf"
 #endif
+#ifdef __ROSCHE__
+#include "d_sm_classes_default.sqf"
+#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_sm_classes_CUP.sqf"
 #endif
@@ -1023,6 +1044,14 @@ if (!d_tt_tanoa) then {
 #endif
 
 #ifdef __ALTIS__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __ROSCHE__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
 		case "E": {["O_T_VTOL_02_infantry_grey_F"]};

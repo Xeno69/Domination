@@ -63,6 +63,9 @@ class Header {
 #ifdef __MALDEN__
 	maxPlayers = 41;
 #endif
+#ifdef __ROSCHE__
+	maxPlayers = 46;
+#endif
 };
 
 joinUnassigned = false; // auto assign
@@ -309,6 +312,10 @@ class Params {
 		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
+#ifdef __ROSCHE__
+		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+#endif
 		default = -1;
 	};
 
@@ -340,6 +347,9 @@ class Params {
 		default = 7;
 #endif
 #ifdef __MALDEN__
+		default = 7;
+#endif
+#ifdef __ROSCHE__
 		default = 7;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
@@ -434,6 +444,9 @@ class Params {
 #endif
 #ifdef __MALDEN__
 		default = 0;
+#endif
+#ifdef __ROSCHE__
+		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
 	};
@@ -1286,6 +1299,16 @@ class CfgIdentities {
 	};
 #endif
 #ifdef __ALTIS__
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+#endif
+#ifdef __ROSCHE__
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";
