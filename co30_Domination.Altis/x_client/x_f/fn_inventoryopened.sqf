@@ -24,7 +24,9 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 } else {
 	/*0 spawn {
 		private _disp = displayNull;
-		waitUntil {_disp = findDisplay 602;!isNull _disp};
+		waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+		
+		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
 		
 		private _ctrl = _disp ctrlCreate ["RscButtonMenu", 12000];
 		
@@ -38,7 +40,10 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 		
 		_ctrl ctrlSetText "Repack Magazines";
 		
-		_ctrl ctrlAddEventHandler ["ButtonClick", {hint "Starting to repack magazines..."}];
+		_ctrl ctrlAddEventHandler ["ButtonClick", {
+			hint "Starting to repack magazines...";
+			0 spawn d_fnc_repack_mags;
+		}];
 		
 		_ctrl ctrlCommit 0;
 	};*/

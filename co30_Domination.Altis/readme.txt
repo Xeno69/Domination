@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99j
+- Changed: Removed player shooting too much at base message (plus kick to server lobby with endmission)
+
 3.99i
 - Added: Rosche, Germany Blufor version ( https://forums.bohemia.net/forums/topic/219592-rosche-germany/ )
 - Fixed: Base AA vehicles could be lifted

@@ -147,6 +147,7 @@ class cfgFunctions {
 			addc(addpylon_action);
 			addc(serverrules);
 			addc(playsound);
+			addc(repack_mags);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
