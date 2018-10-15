@@ -38,6 +38,17 @@ private _startpos = if (_vec isKindOf "Air") then {
 } else {
 	getPosATL _vec;
 };
+__TRACE_1("","_startpos")
+private "_startposasl";
+if (surfaceIsWater _startpos) then {
+	_startposasl = ATLToASL _startpos;
+	if (_vec isKindOf "Helicopter") then {
+		__TRACE("vector add")
+		_startposasl vectorAdd [0, 0, 2];
+		_startpos vectorAdd [0, 0, 1];
+	};
+	__TRACE_1("","_startposasl")
+};
 private _startdir = getDir _vec;
 private _type = typeOf _vec;
 
@@ -117,8 +128,13 @@ while {true} do {
 		deleteVehicle _vec;
 		sleep 0.5;
 		_vec = createVehicle [_type, _startpos, [], 0, "NONE"];
+		_vec allowDamage false;
 		_vec setDir _startdir;
-		_vec setPos _startpos;
+		if (isNil "_startposasl") then {
+			_vec setPos _startpos;
+		} else {
+			_vec setPosASL _startposasl;
+		};
 		_vec setVariable ["d_vec_islocked", _isitlocked];
 		if (_isitlocked) then {_vec lock true};
 		if (_fuelcheck) then {
@@ -133,9 +149,9 @@ while {true} do {
 			};
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;
-		if (_vec isKindOf "Air" && {surfaceIsWater _startpos}) then {
+		/*if (_vec isKindOf "Air" && {surfaceIsWater _startpos}) then {
 			private _cposc =+ _startpos;
-			private _asl_height;
+			private "_asl_height";
 			if (!isNil "d_the_carrier") then {
 				_asl_height = d_the_carrier getVariable "d_asl_height";
 			};
@@ -147,6 +163,17 @@ while {true} do {
 				params ["_vec", "_cposc"];
 				sleep 1;
 				_vec setPosASL _cposc;
+				_vec setDamage 0;
+			};
+		};*/
+		if (isNil "_startposasl") then {
+			_vec allowDamage true;
+			_vec setDamage 0;
+		} else {
+			[_vec] spawn {
+				params ["_vec"];
+				sleep 2;
+				_vec allowDamage true;
 				_vec setDamage 0;
 			};
 		};
