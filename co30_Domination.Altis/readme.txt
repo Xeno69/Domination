@@ -11,6 +11,7 @@ Changelogs
 - Changed: Removed player shooting too much at base message (plus kick to server lobby with endmission)
 - Fixed: Player names over head were not showing if max revive lives were set to unlimited
 - Fixed: Script error in fn_vehirespawn.sqf and planes exploding when respawning
+- Updated: Russian translation
 
 3.99i
 - Added: Rosche, Germany Blufor version ( https://forums.bohemia.net/forums/topic/219592-rosche-germany/ )

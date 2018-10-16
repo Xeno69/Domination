@@ -45,7 +45,7 @@
 <Korean>탄약상자 적재소</Korean>
 <Japanese>Ammo Point</Japanese>
 <Original>Ammo Point</Original>
-<Russian>Загрузка ящика</Russian>
+<Russian>Загрузка ящика-арсенала</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_6">
 <English>Teleporter / Parajump</English>
@@ -81,7 +81,7 @@
 <Korean>일반</Korean>
 <Japanese>標準</Japanese>
 <Original>Normal</Original>
-<Russian>Обычный</Russian>
+<Russian>Есть</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_12">
 <English>MHQ One</English>
@@ -135,7 +135,7 @@
 <Korean>귀관은 적군의 손아귀에서 부터 이 섬을 해방시켜야합니다.</Korean>
 <Japanese>すべての敵軍から島を解放しなければなりません。</Japanese>
 <Original>You have to free the island from all enemy forces.</Original>
-<Russian>Вам необходимо освободить остров от врагов.</Russian>
+<Russian>Вам необходимо освободить территорию острова от врагов.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_25">
 <English>To clear a target kill all enemies, destroy the radio tower at the main target site, solve the main target sidemission and capture all depots.</English>
@@ -144,7 +144,7 @@
 <Korean>목적를 달성하기 위해서는 작전지역에 존재하는 모두 적 병력을 소탕, 통신탑을 파괴한 뒤, 주요 미션과 보조 과제를 완수하시면 됩니다.</Korean>
 <Japanese>ターゲットをクリアするには、すべての敵を殺し、メインターゲットサイトのラジオタワーを破壊し、メインターゲットとサイドミッションを解決し、すべてのデポをキャプチャします。</Japanese>
 <Original>To clear a target kill all enemies, destroy the radio tower at the main target site, solve the main target sidemission and capture all depots.</Original>
-<Russian>Чтобы выполнить Главное Задание Вам нужно убить всех ИИ, уничтожить радиовышку, захватить все блокпосты в городе и выполнить второстепенную городскую задачу.</Russian>
+<Russian>Чтобы выполнить Главное Задание (города), Вам нужно убить всех ИИ противников, взорвать радиовышку, захватить все блокпосты и выполнить второстепенную городскую задачу.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_26">
 <English>There are several side missions available that will get you some extra vehicles if you solve them.</English>
@@ -153,7 +153,7 @@
 <Korean>보조 과제을 완수할 경우, 추가적인 보상 또한 받으실 수 있습니다.</Korean>
 <Japanese>解決するとボーナス車両が得られるサイドミッションがあります</Japanese>
 <Original>There are several side missions available that will get you some extra vehicles if you solve them.</Original>
-<Russian>Так же существуют ДОП.ЗАДАНИЯ, за выполнение которых Вы получаете боевую технику в качестве приза.</Russian>
+<Russian>Так же существуют отдельные ДОП.ЗАДАНИЯ, за выполнение которых Вы получаете боевую ПРИЗОВУЮ технику.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_27">
 <English>Once a main target is clear, a flag gets created in a random place from where you can jump with the HALO parajump script (if enabled, not available in the TT version).</English>
@@ -198,6 +198,7 @@
 <Korean>탄약상자의 최대 소환 한도는 %1 입니다. 탄약상자는 오직 파괴될 경우에만 제거됩니다.</Korean>
 <Japanese>同時に置ける弾薬箱の最大数は%1です。 弾薬箱が破壊された場合にのみ、弾薬箱が削除されます。</Japanese>
 <Original>The maximum number of ammo crates simultaneously is %1. An ammo crate gets only deleted if the crate was destroyed.</Original>
+<Russian>Максимальное одновременное количество ящиков-арсеналов на карте %1. Чтобы выгружать новые Вам необходимо удалить предыдущие.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_32">
 <English>Reload a crate into chopper 1,2,3 or W or in one of the MHQs, otherwise you will end up at the next target without any crate.</English>
@@ -215,7 +216,7 @@
 <Korean>지휘차량을 전개(Deploy)하면 순간이동(Teleport) 기능이 활성화 됩니다. 위성관측(Satellite view)를 통한 정찰기능또한 사용하실수있으시며, Quadbike 및 고기동경량차량인 Prowler를 소환 하실 수 있습니다.</Korean>
 <Japanese>一度展開すると、あるMHQから別のMHQにテレポートしたり、衛星視点を有効にしたり、乗り物を出すことができます。</Japanese>
 <Original>Once deployed you can teleport from one MHQ to the other, enable satellite view or create a bike.</Original>
-<Russian>Так же в КШМ Вам доступен квадроцикл, спутниуовое наблюдение и вызов БПЛА (стационарно).</Russian>
+<Russian>Так же в КШМ Вам доступен квадроцикл, спутниковое наблюдение и вызов БПЛА (стационарно).</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_34">
 <English>The engineers can repair and refuel all vehicles and aircraft (needs ToolKit and only available in engineer full mode).</English>
@@ -260,7 +261,7 @@
 <Korean>%1 for 양측 세력</Korean>
 <Japanese>%1 を両チームに</Japanese>
 <Original>%1 for both teams</Original>
-<Russian>Ящиков доступно одновременно на карте до %1 штук на обе стороны (пополам).</Russian>
+<Russian>Ящиков доступно одновременно на карте до %1 штук.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_40">
 <English>The map at your base can be used as a teleporter to your mobile respawns or you can choose parajump there (if enabled).</English>
@@ -296,7 +297,7 @@
 <Korean>포병반장은 포격지원을 해줄 수 있습니다. (포격목표는 레이저 지시기로 유도를 해줘야합니다). 또한 인질을 구출 해줄수 있으며 (AI전 경우 모든 유저가 가능합니다), 인질을 본부로 송환해야 작전이 완수됩니다.</Korean>
 <Japanese>砲兵観測手は砲撃を要請することができます（最初にレーザー照準器で砲撃目標をマークする必要があります）。 彼らは人質を救助することもできます（AIバージョンではすべてのプレイヤーができます）。 人質をあなたの基地の地図に持っていかなければなりません。</Japanese>
 <Original>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator). They are also able to rescue hostages (in the AI version every player can do that). You have to bring the hostages to the map at your base.</Original>
-<Russian>Командир может вызывать АртУдар (нужен лазерный целеуказатель) или управлять заложниками (ИИ) на миссиях.</Russian>
+<Russian>Внимание! Командиры отделений могут обозначать место АртУдара (нужен лазерный целеуказатель), но только Арт.наводчики могут его вызвать. Так же командиры отделений могут управлять заложниками (ИИ) на миссиях.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_44">
 <English>The leaders of team Alpha, Charlie and Echo can request air drops (in the AI version every player can do that, not available in the TT version). They can also mark artillery targets for the artillery operator (needs laser designator).</English>
@@ -305,6 +306,7 @@
 <Korean>알파, 찰리, 그리고 에코 분대장은 공수지원을 요청할 수 있습니다. (AI전에서는 모든 유저가 가능합니다. 팀전에서는 제공되지 않습니다). 또한 분대장들은 포격목표를 지시하여 포격지원을 받을수 있습니다. (레이저 지시기가 필요합니다.)</Korean>
 <Japanese>チームアルファ、チャーリー、エコーのリーダーは、空中投下を要求することができます（AIバージョンではすべてのプレイヤーができます、TTバージョンでは利用できません）。 彼らはまた、Artillery operatorのための砲撃目標をマークすることができます。（レーザー照準器が必要です）</Japanese>
 <Original>The leaders of team Alpha, Charlie and Echo can request air drops (in the AI version every player can do that, not available in the TT version). They can also mark artillery targets for the artillery operator (needs laser designator).</Original>
+<Russian>Командиры отделений Альфа, Чарли и Эхо могут вызывать авиаподдержку (в версии с наемом ИИ любой игрок может это делать). Так же они могут ТОЛЬКО отмечать цели для наводчика артиллерии (необходим лазерный целеуказатель)</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_46">
 <English>Medics can place mashes.</English>
@@ -331,6 +333,7 @@
 <Korean>Intel reports about enemy supply trucks. Find and destroy them!</Korean>
 <Japanese>Intel reports about enemy supply trucks. Find and destroy them!</Japanese>
 <Original>Intel reports about enemy supply trucks. Find and destroy them!</Original>
+<Russian>Разведка обнаружила грузовик поддержки противника. Уничтожьте его! </Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_50">
 <English>The trucks are destroyed! Good job!</English>
@@ -375,7 +378,7 @@
 <Korean>매개변수창(paramaters)를 열어 미션을 시작하기 전 세부설정을 확인하고 수정하실 수 있습니다. (관리자만 가능합니다)</Korean>
 <Japanese>サーバロビーのパラメータダイアログを開いて、ミッション開始前に変更可能な機能のリストを表示します。（管理者がそれを行う必要があります）</Japanese>
 <Original>Open the paramaters dialog in the server lobby to see a list of available features that you can change ingame before mission start (an admin must do that).</Original>
-<Russian>Все настройки миссии вы можете видеть в игре нажав карту и выбрав закладку ЖУРНАЛ.</Russian>
+<Russian>Все настройки миссии вы можете увидеть прямо в игре нажав карту и выбрав закладку -ЖУРНАЛ-.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_58">
 <English>Mission ® 2018 by Xeno</English>
@@ -384,7 +387,7 @@
 <Korean>Missons ® 2018 by Xeno</Korean>
 <Japanese>Mission ® 2018 by Xeno</Japanese>
 <Original>Mission ® 2018 by Xeno</Original>
-<Russian>Миссиия ® 2018 от Xeno, официальный перевод [ATP] TopDen [АРМАТОП]</Russian>
+<Russian>Миссиия ® 2018 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_61">
 <English>Have a lot of fun!</English>
@@ -537,6 +540,7 @@
 <Korean>이미 다른 유저가 해당 물품을 내렸습니다. 다시 시도하여 주십시오.</Korean>
 <Japanese>他の人が既にアイテムを降ろしました。 再試行してください。</Japanese>
 <Original>Someone else unloaded already an item. Try again.</Original>
+<Russian>Кто-то уже выгрузил это.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_84">
 <English>Static placement preview mode. Press Place Static to place the object. You may place the object 20 m arround the engineer truck</English>
@@ -545,6 +549,7 @@
 <Korean>배치 미리보기 모드. "거치하기"를 눌러 해당 물체를 배치하십시오. 트럭에서 반경 20미터내에서 하실 수 있습니다.</Korean>
 <Japanese>配置プレビューモード。 Place Staticを押してオブジェクトを配置します。 エンジニアトラックの周囲20m以内に配置することができます</Japanese>
 <Original>Static placement preview mode. Press Place Static to place the object. You may place the object 20 m arround the engineer truck</Original>
+<Russian>Режим предварительного просмотра размещения статики. Вы можете разместить объект в пределах 20 м от инженерного грузовика</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_85">
 <English>Cancel Placing Static</English>
@@ -553,6 +558,7 @@
 <Korean>배치 취소</Korean>
 <Japanese>配置を取り消す</Japanese>
 <Original>Cancel Placing Static</Original>
+<Russian>Отмена размещения статики</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_86">
 <English>Place Static</English>
@@ -561,6 +567,7 @@
 <Korean>배치하기</Korean>
 <Japanese>Place Static</Japanese>
 <Original>Place Static</Original>
+<Russian>Выбор места</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_87">
 <English>You are too far away from the engineer truck to place the static vehicle, placing canceled!</English>
@@ -569,6 +576,7 @@
 <Korean>공병 트럭에서 너무 멀리 떨어져 배치가 취소되었습니다!</Korean>
 <Japanese>エンジニアトラックから離れすぎました。配置を取り消します。</Japanese>
 <Original>You are too far away from the engineer truck to place the static vehicle, placing canceled!</Original>
+<Russian>Вы далеко от инженерного грузовика. Размещение отменено!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_88">
 <English>Static placement canceled...</English>
@@ -577,6 +585,7 @@
 <Korean>배치를 취소합니다...</Korean>
 <Japanese>配置を取り消しました...</Japanese>
 <Original>Static placement canceled...</Original>
+<Russian>Отмена размещения статики...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_89">
 <English>%1 placed!</English>
@@ -585,6 +594,7 @@
 <Korean>%1 배치완료!</Korean>
 <Japanese>%1 を配置しました</Japanese>
 <Original>%1 placed!</Original>
+<Russian>%1 размещен!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_139">
 <English>An air taxi is already on the way to your position!</English>
@@ -593,6 +603,7 @@
 <Korean>후송헬기가 이미 유저 위치로 이동하고 있습니다.</Korean>
 <Japanese>搬送ヘリコプターがすでにユーザの位置に移動しています!</Japanese>
 <Original>An air taxi is already on the way to your position!</Original>
+<Russian>Транспорт эвакуации уже в пути к вашей позиции!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_140">
 <English>You are less than 500 m away from the base, no air taxi for you!</English>
@@ -601,6 +612,7 @@
 <Korean>본부 반경 500m 내입니다. 후송헬기가 지원되지 않습니다.</Korean>
 <Japanese>あなたは基地から500m以内です。搬送ヘリコプターは呼べません!</Japanese>
 <Original>You are less than 500 m away from the base, no air taxi for you!</Original>
+<Russian>Вы должны быть не менее 500м от базы! Эвакуации не будет!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_141">
 <English>Calling in air taxi...</English>
@@ -609,7 +621,7 @@
 <Korean>후송헬기를 불렀습니다...</Korean>
 <Japanese>搬送ヘリコプターを呼んでいます...</Japanese>
 <Original>Calling in air taxi...</Original>
-<Russian>Вызываем авиаперевозку...</Russian>
+<Russian>Вызываем эвакуацию...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_142">
 <English>Air taxi will start in a few seconds, stand by. Stay at your position!</English>
@@ -618,6 +630,7 @@
 <Korean>후송헬기 이륙대기중, 현 위치를 고수하십시오!</Korean>
 <Japanese>搬送ヘリコプターがすぐに来ます。そのままの位置でお待ちください。</Japanese>
 <Original>Air taxi will start in a few seconds, stand by. Stay at your position!</Original>
+<Russian>Эвакуация вылетает за Вами. Ждите на своей позиции!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_145">
 <English>Artillery currently not available...</English>
@@ -644,7 +657,7 @@
 <Korean>다른 유저가 포격지원을 요청하고있습니다. 잠시 뒤 다시 시도해주십시오.</Korean>
 <Japanese>他の誰かが砲撃を要求しています...後でもう一度試してください...</Japanese>
 <Original>Somebody else is requesting an artillery strike... you have to try again later...</Original>
-<Russian>Кто-то уже вызвал АртУдар. Попробуйте позже...</Russian>
+<Russian>Кто-то уже выполнил запрос на АртУдар, попробуйте позже...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_149">
 <English>Somebody else already executed an artillery strike, artillery currently not available...</English>
@@ -653,7 +666,7 @@
 <Korean>다른 유저가 이미 포격요청을 하였습니다. 일시적으로 포격지원이 가능치 않습니다.</Korean>
 <Japanese>他の誰かが既に砲撃を行いました、砲兵支援は現在利用できません...</Japanese>
 <Original>Somebody else already executed an artillery strike, artillery currently not available...</Original>
-<Russian>Кто-то уже вызвал АртУдар. Артиллерия пока не готова к стрельбе...</Russian>
+<Russian>Кто-то уже запросил АртУдар, артиллерия пока не готова для Вас...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_151">
 <English>Friendlies near artillery target. Aborting artillery strike...</English>
@@ -662,7 +675,7 @@
 <Korean>포격요청 지역 근처에 아군이 있습니다. 포격을 취소합니다.</Korean>
 <Japanese>砲撃目標の近くに友軍がいます。砲撃を中止しました...</Japanese>
 <Original>Friendlies near artillery target. Aborting artillery strike...</Original>
-<Russian>Дружественные силы рядом с целью АртУдара. АртУдар отменяется...</Russian>
+<Russian>КДружественная цель в радиусе поражения! Отмена АртУдара...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_152">
 <English>Artillery canceled</English>
@@ -671,7 +684,7 @@
 <Korean>포격 요청을 취소하셨습니다.</Korean>
 <Japanese>砲撃取り消し</Japanese>
 <Original>Artillery canceled</Original>
-<Russian>Артудар отменен</Russian>
+<Russian>АртУдар отменен</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_153">
 <English>Call Artillery</English>
@@ -689,6 +702,7 @@
 <Korean>%2를 생성하기 위해 %1 만큼 필요합니다.</Korean>
 <Japanese> %2を作成するには少なくとも %1 にする必要があります</Japanese>
 <Original>You have to be at least %1 to create a %2</Original>
+<Russian>Вы должны быть %1 чтобы получить %2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_158">
 <English>Creating a %1 is not possible in a vehicle...</English>
@@ -697,6 +711,7 @@
 <Korean>%1 는 차량내에서 생성 하실 수 없습니다.</Korean>
 <Japanese>%1の作成は車両ではできません...</Japanese>
 <Original>Creating a %1 is not possible in a vehicle...</Original>
+<Russian>Получить %1 в транспорте невозможно...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_160">
 <English>You have already created a vehicle, find it and use it again!!! Or wait %1 minutes before you can create a new one (might take longer)!</English>
@@ -705,6 +720,7 @@
 <Korean>이미 차량을 소환하셨습니다. 기존에 이용하시던 것을 계속 이용하거나, %1 분 혹은 그 이상을 기다리셔야 새로 소환하실 수 있습니다.</Korean>
 <Japanese>あなたはすでに車両を作りました。それを見つけて、もう一度使ってください!!! または、新しいものを作成する前に%1分待ってください（時間がかかります）!</Japanese>
 <Original>You have already created a vehicle, find it and use it again!!! Or wait %1 minutes before you can create a new one (might take longer)!</Original>
+<Russian>Вы уже получили технику, найдите ее и используйте снова!!! Или ждите %1 минут для получения новой!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_161">
 <English>Creating %1, stand by...</English>
@@ -713,6 +729,7 @@
 <Korean>%1 소환 중, 기다리십시오...</Korean>
 <Japanese>%1を作成中、スタンバイ...</Japanese>
 <Original>Creating %1, stand by...</Original>
+<Russian>Получаете %1, ОТОЙДИТЕ ОТ КШМ!...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_162">
 <English>Flip ATV</English>
@@ -730,6 +747,7 @@
 <Korean>수송기가 상공에 이미 있어 수송지원이 불가능합니다!</Korean>
 <Japanese>輸送機使用中...投下は利用できません!</Japanese>
 <Original>Transport aircraft in the air... Drop not available!</Original>
+<Russian>Поддержка с воздуха невозможна!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_164">
 <English>You don't have enough points to request an air drop. You need %2 points for an air drop, your current score is %1</English>
@@ -738,6 +756,7 @@
 <Korean>포인트가 부족하여 항공물자지원을 요청할 수 없습니다. 현재 %1 포인트 만큼 가지고 있으며, %2 포인트가 필요합니다.</Korean>
 <Japanese>空中投下を要請するにはポイントが足りません。要請するには %2 ポイントが必要です、あなたの現在のスコアは %1 です</Japanese>
 <Original>You don't have enough points to request an air drop. You need %2 points for an air drop, your current score is %1</Original>
+<Russian>У вас нет очков для вызова поддержки с воздуха. Вам нужно %2 очков, а у Вас %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_165">
 <English>Somebody else is calling a drop... you have to try again later...</English>
@@ -746,6 +765,7 @@
 <Korean>누군가 이미 요청하고있습니다. 나중에 시도해주십시오.</Korean>
 <Japanese>他の誰かが空中投下を要請しています...後でもう一度試してください...</Japanese>
 <Original>Somebody else is calling a drop... you have to try again later...</Original>
+<Russian>Кто-то уже вызвал поддержку с воздуха...попробуйте позже...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_166">
 <English>You are too far away from the drop point, no line of sight !!! Get closer (&lt;%1 m).</English>
@@ -754,6 +774,7 @@
 <Korean>공수요청 지점으로 부터 너무 멀리 떨어져있습니다. 가까운 곳으로 이동해 주십시오. (&lt;%1 m)</Korean>
 <Japanese>投下地点から離れすぎています。もっと近づいてください(&lt;%1 m)</Japanese>
 <Original>You are too far away from the drop point, no line of sight !!! Get closer (&lt;%1 m).</Original>
+<Russian>Вы далеко от предполагаемой точки сброса! Будьте ближе чем (&lt;%1 m).</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_167">
 <English>Calling in %1 air drop</English>
@@ -762,6 +783,7 @@
 <Korean>%1 공수요청을 하였습니다.</Korean>
 <Japanese>%1の空中投下を要請</Japanese>
 <Original>Calling in %1 air drop</Original>
+<Russian>Вызов в %1 поддержки с воздуха</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_168">
 <English>Air drop canceled</English>
@@ -770,6 +792,7 @@
 <Korean>공수요청 취소</Korean>
 <Japanese>空中投下取り消し</Japanese>
 <Original>Air drop canceled</Original>
+<Russian>Поддержка с воздуха отменена</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_169">
 <English>This is a Opfor mobile respawn vehicle.\nYou are not allowed to enter it !!!</English>
@@ -859,6 +882,7 @@
 <Korean>You current rank (%1) doesn't allow you to drive the wreck transport. You need to be at least %2 for that</Korean>
 <Japanese>あなたは現在の階級（%1）ではあなたが残骸輸送車両を運転することを許可していません。 少なくとも%2にする必要があります</Japanese>
 <Original>You current rank (%1) doesn't allow you to drive the wreck transport. You need to be at least %2 for that</Original>
+<Russian>Ваше звание (%1) не позволяет Вам управлять ВРЕК-вертолетом! Вам нужно звание %2 для этого!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_180">
 <English>This is a Opfor truck.\nYou are not allowed to enter it !!!</English>
@@ -1074,6 +1098,7 @@
 <Korean>다음목표는: %1 입니다.</Korean>
 <Japanese>次の目標: %1</Japanese>
 <Original>Next target is: %1</Original>
+<Russian>Следующая Цель: %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_205">
 <English>Player markers with player names available</English>
@@ -1082,6 +1107,7 @@
 <Korean>플에이어 마커와 이름 가능</Korean>
 <Japanese>名前付きプレイヤーマーカー オン</Japanese>
 <Original>Player markers with player names available</Original>
+<Russian>Маркеры игроков с никами включены</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_206">
 <English>Player markers only (without names) available</English>
@@ -1090,6 +1116,7 @@
 <Korean>플레이커 마커만 가능</Korean>
 <Japanese>プレイヤーマーカーのみ(名前非表示) オン</Japanese>
 <Original>Player markers only (without names) available</Original>
+<Russian>Маркеры игроков без ников включены</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_208">
 <English>Player markers with player health available</English>
@@ -1098,6 +1125,7 @@
 <Korean>플레이커 마커와 체력상태 가능</Korean>
 <Japanese>体力表示付きプレイヤーマーカー オン</Japanese>
 <Original>Player markers with player health available</Original>
+<Russian>Маркеры игроков со статусом здоровья включены</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_210">
 <English>Player markers hidden</English>
@@ -1106,6 +1134,7 @@
 <Korean>플레이어 마커 숨김</Korean>
 <Japanese>プレイヤーマーカーを隠す</Japanese>
 <Original>Player markers hidden</Original>
+<Russian>Маркеры игроков отключены</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_213">
 <English>You can't deploy a MHQ here!!!</English>
@@ -1123,6 +1152,7 @@
 <Korean>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Korean>
 <Japanese>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Japanese>
 <Original>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Original>
+<Russian>Ждите %1 секунд прежде чем свернуть/развернуть КШМ снова!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_215">
 <English>You can't deploy a MHQ when there is still crew on board!</English>
@@ -1131,6 +1161,7 @@
 <Korean>내부에 인원이 탑승하고있어 지휘차량을 전개 할 수 없습니다.</Korean>
 <Japanese>乗員が乗っているときにMHQを展開することはできません！</Japanese>
 <Original>You can't deploy a MHQ when there is still crew on board!</Original>
+<Russian>Вы нее можете развернуть КШМ с экипажем внутри!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_216">
 <English>All AI soldiers dismissed !!!!</English>
@@ -1139,6 +1170,7 @@
 <Korean>모든 AI 병력이 해산되었습니다.</Korean>
 <Japanese>すべてのAI兵士を解雇した!!!!</Japanese>
 <Original>All AI soldiers dismissed !!!!</Original>
+<Russian>Все ИИ бойцы уволены в запас !!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_217">
 <English>Can't drop box near Ammo Point.</English>
@@ -1147,6 +1179,7 @@
 <Korean>탄약상자 적재소 주변에선 탄약상자를 내릴 수 없습니다.</Korean>
 <Japanese>Ammo Pointの近くに弾薬箱を置くことはできません。</Japanese>
 <Original>Can't drop box near Ammo Point.</Original>
+<Russian>Нельзя выложить ящик у этой точки</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_218">
 <English>Too high to drop an ammocrate, please land!</English>
@@ -1155,6 +1188,7 @@
 <Korean>탄약상자를 떨어트리기에는 고도가 너무 높습니다. 착륙하여 주십시오.</Korean>
 <Japanese>弾薬箱を投下するには高すぎます、着陸してください！</Japanese>
 <Original>Too high to drop an ammocrate, please land!</Original>
+<Russian>Вы высоко от земли для выгрузки ящика, спуститесь ниже!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_219">
 <English>Too fast to drop an ammocrate, please stop!</English>
@@ -1163,6 +1197,7 @@
 <Korean>탄약상자를 떨어트기에는 속도가 너무 빠릅니다. 정지하여 주십시오.</Korean>
 <Japanese>弾薬箱を投下するには速すぎます、止まってください!</Japanese>
 <Original>Too fast to drop an ammocrate, please stop!</Original>
+<Russian>Вы быстро двигаетесь для выгрузки ящика, остановитесь!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_220">
 <English>Maximum number (%1) of ammo crates reached! Pick up a dropped box...</English>
@@ -1171,6 +1206,7 @@
 <Korean>탄약상자 최대치 (%1)에 도달하였습니다. 탄약상자를 수거해주십시오.</Korean>
 <Japanese>弾薬箱の最大数（%1）に達しました！ 投下した箱を拾ってください...</Japanese>
 <Original>Maximum number (%1) of ammo crates reached! Pick up a dropped box...</Original>
+<Russian>Вы достигли максимального количества ящиков на карте (%1). Подберите предыдущие...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_222">
 <English>No ammobox loaded into this vehicle !!!</English>
@@ -1188,6 +1224,7 @@
 <Korean>탄약상자를 내리기위해 %1 초를 기다시리고 다시 시도하여주십시오.</Korean>
 <Japanese>再び弾薬箱を降ろすには %1 秒待ってください!!!</Japanese>
 <Original>You have to wait %1 seconds before you can drop a box from this vehicle again !!!</Original>
+<Russian>Вы должны подождать %1 секунд прежде чем снова выгрузить ящик !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_224">
 <English>Dropping ammo box... stand by...</English>
@@ -1214,6 +1251,7 @@
 <Korean>공수요청</Korean>
 <Japanese>空中投下を要請</Japanese>
 <Original>Call Drop</Original>
+<Russian>Вызов Поддержки</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_231">
 <English>CONGRATULATIONS</English>
@@ -1240,6 +1278,7 @@
 <Korean>모든 보조 과제이 완수 되었습니다.</Korean>
 <Japanese>あなたはすべてのサイドミッションを解決しました</Japanese>
 <Original>You have resolved all side missions</Original>
+<Russian>Вы выполнили все дополнительные задания</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_234">
 <English>Winner: The Blufor Team</English>
@@ -1293,6 +1332,7 @@
 <Korean>BLUFOR %1:%2 OPFOR</Korean>
 <Japanese>Blufor %1:%2 Opfor</Japanese>
 <Original>Blufor %1:%2 Opfor</Original>
+<Russian>Синие %1:%2 Красные</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_240">
 <English>Have a good time !!!</English>
@@ -1310,6 +1350,7 @@
 <Korean>장난이시죠?</Korean>
 <Japanese>冗談でしょう...</Japanese>
 <Original>You must be kidding...</Original>
+<Russian>Да ты издеваешься...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_242">
 <English>You have already placed a FARP. You have to remove it to build a new one.</English>
@@ -1318,6 +1359,7 @@
 <Korean>이미 재보급소(FARP)가 배치되였습니다. 제거해야 다시 건설 하실 수 있습니다.</Korean>
 <Japanese>あなたはすでにFARPを設置しています。 新しいFARPを作るためには以前のものを撤去しなければなりません。</Japanese>
 <Original>You have already placed a FARP. You have to remove it to build a new one.</Original>
+<Russian>Вы уже построили Аванпост. Нужно удалить старую, прежде чем строить опять.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_243">
 <English>No engineer truck nearby to build a FARP!</English>
@@ -1326,6 +1368,7 @@
 <Korean>재보급소(FARP)를 짓기 위한 공병트럭이 주위에 없습니다.</Korean>
 <Japanese>FARPを建設するためのエンジニアトラックが近くにありません！</Japanese>
 <Original>No engineer truck nearby to build a FARP!</Original>
+<Russian>Рядом нет грузовика инженеров для пострройки Ремзоны!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_244">
 <English>It is not possible to place a FARP into water.</English>
@@ -1334,6 +1377,7 @@
 <Korean>수면위에는 재보급소(FARP)을 배치할 수 없습니다.</Korean>
 <Japanese>FARPは水中には設置できません。</Japanese>
 <Original>It is not possible to place a FARP into water.</Original>
+<Russian>Невозможно построить Аванпост в воде.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_245">
 <English>You need %2 points to build a FARP. Your current score is: %1</English>
@@ -1342,6 +1386,7 @@
 <Korean>재보급소(FARP)를 배치하기 위해선 %2 포인트가 필요합니다. 현재 %1 포인트 만큼 가지고 있습니다.</Korean>
 <Japanese>FARPを建設するには %2 ポイントが必要です。 あなたの現在のスコア： %1</Japanese>
 <Original>You need %2 points to build a FARP. Your current score is: %1</Original>
+<Russian>Вам нужно %2 очков для строительста Аванпоста. У вас сейчас %1 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_246">
 <English>Place not valid. Try another location.</English>
@@ -1350,6 +1395,7 @@
 <Korean>배치할 수 없습니다. 다른 위치에 다시 시도하여 주십시오.</Korean>
 <Japanese>無効な場所です。 別の場所をお試しください。</Japanese>
 <Original>Place not valid. Try another location.</Original>
+<Russian>Тут не подходит. Попробуйте в другом месте.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_247">
 <English>You died before you could place the object.</English>
@@ -1358,6 +1404,7 @@
 <Korean>배치를 하기전에 사망하였습니다.</Korean>
 <Japanese>あなたはオブジェクトを設置し終わる前に亡くなりました。</Japanese>
 <Original>You died before you could place the object.</Original>
+<Russian>Вы погибли до того, как успели поставить объект.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_248">
 <English>FARP ready.</English>
@@ -1366,6 +1413,7 @@
 <Korean>재보급소(FARP) 설치완료.</Korean>
 <Japanese>FARP準備完了。</Japanese>
 <Original>FARP ready.</Original>
+<Russian>Аванпост готов.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_249">
 <English>Remove FARP</English>
@@ -1374,7 +1422,7 @@
 <Korean>재보급소(FARP) 제거</Korean>
 <Japanese>FARPを撤去</Japanese>
 <Original>Remove FARP</Original>
-<Russian>Убрать ФАРП</Russian>
+<Russian>Убрать Аванпост</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_250">
 <English>Lift vehicle</English>
@@ -1401,6 +1449,7 @@
 <Korean>슬링완료</Korean>
 <Japanese>車両を吊り上げました</Japanese>
 <Original>Vehicle attached to chopper</Original>
+<Russian>Техника подцеплена к вертолету</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_253">
 <English>Vehicle released</English>
@@ -1409,6 +1458,7 @@
 <Korean>차량이 내려놔졌습니다.</Korean>
 <Japanese>車両を切り離した</Japanese>
 <Original>Vehicle released</Original>
+<Russian>Техника отцеплена</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_254">
 <English>Lift wreck</English>
@@ -1417,6 +1467,7 @@
 <Korean>잔해 들어올리기</Korean>
 <Japanese>残骸吊り上げ</Japanese>
 <Original>Lift wreck</Original>
+<Russian>Подцепить ВРЭК.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_255">
 <English>Release wreck</English>
@@ -1425,7 +1476,7 @@
 <Korean>잔해 내려놓기</Korean>
 <Japanese>残骸切り離し</Japanese>
 <Original>Release wreck</Original>
-<Russian>Отцепить врек</Russian>
+<Russian>Отцепить ВРЕК</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_256">
 <English>Load Static</English>
@@ -1443,6 +1494,7 @@
 <Korean>거치무기 내리기</Korean>
 <Japanese>設置兵器を降ろす</Japanese>
 <Original>Unload Static</Original>
+<Russian>Выгрузить статику</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_258">
 <English>Chopper Menu</English>
@@ -1469,6 +1521,7 @@
 <Korean>탈영 %1</Korean>
 <Japanese>%1は捨てられた</Japanese>
 <Original>Deserted %1</Original>
+<Russian>Брошенный %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_261">
 <English>%1 (Deployed)</English>
@@ -1495,6 +1548,7 @@
 <Korean>보조 과제만</Korean>
 <Japanese>サイドミッションのみ</Japanese>
 <Original>Sidemissions Only</Original>
+<Russian>Только Доп.Задания</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_264">
 <English>Main Targets Only</English>
@@ -1503,6 +1557,7 @@
 <Korean>주미션 목표만</Korean>
 <Japanese>メインターゲットのみ</Japanese>
 <Original>Main Targets Only</Original>
+<Russian>Только Города</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_265">
 <English>Welcome to Domination!</English>
@@ -1529,6 +1584,7 @@
 <Korean>탄약상자를 실기에 고도가 너무 높습니다. 착륙하여 주십시오.</Korean>
 <Japanese>弾薬箱を搭載するには高すぎます、着陸してください！</Japanese>
 <Original>Too high to load an ammocrate, please land!</Original>
+<Russian>Слишком высоко для загрузки ящика, спустите транспорт ниже!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_268">
 <English>Too fast to load an ammocrate, please stop!</English>
@@ -1537,6 +1593,7 @@
 <Korean>탄약상자를 실기에 너무 빠릅니다. 정지하여 주십시오.</Korean>
 <Japanese>弾薬箱を搭載するには速すぎます、停止してください！</Japanese>
 <Original>Too fast to load an ammocrate, please stop!</Original>
+<Russian>Слишком быстро для загрузки, остановитесь!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_269">
 <English>The loaded ammobox got filled up again!</English>
@@ -1545,6 +1602,7 @@
 <Korean>탄약상자가 재적재되었습니다.</Korean>
 <Japanese>搭載された弾薬箱が再び満たされた！</Japanese>
 <Original>The loaded ammobox got filled up again!</Original>
+<Russian>Вы не можете загрузить еще раз ящик!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_270">
 <English>You have to wait %1 seconds before you can load a dropped box in this vehicle again !!!</English>
@@ -1553,6 +1611,7 @@
 <Korean>탄약상자를 다시 실기 위해선 %1초를 기다주십시오.</Korean>
 <Japanese>再び弾薬箱を載せるには %1 秒待ってください!!!</Japanese>
 <Original>You have to wait %1 seconds before you can load a dropped box in this vehicle again !!!</Original>
+<Russian>Вым надо подождать %1 секунд прежде чем загрузить ящик в транспорт снова!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_271">
 <English>No ammo boxes nearby, can't load a box...</English>
@@ -1561,6 +1620,7 @@
 <Korean>탄약 상자가 주위에 없습니다. 상자를 실을수 없습니다.</Korean>
 <Japanese>近くに弾薬箱がないので搭載できません...</Japanese>
 <Original>No ammo boxes nearby, can't load a box...</Original>
+<Russian>Рядом нет ящика, загрузка невозможна...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_272">
 <English>Loading ammo box... stand by...</English>
@@ -1587,6 +1647,7 @@
 <Korean>오직 외부에서만 차량을 잠구거나 풀 수 있습니다.</Korean>
 <Japanese>あなたは車両の外にいるときにのみ、車両をロック/ロック解除することができます！</Japanese>
 <Original>You can only lock/unlock a vehicle when you are outside the vehicle!</Original>
+<Russian>Вы можете открыть/закрыть технику!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_275">
 <English>Vehicle already locked...</English>
@@ -1595,6 +1656,7 @@
 <Korean>이미 잠겼습니다.</Korean>
 <Japanese>車両はすでにロックされています...</Japanese>
 <Original>Vehicle already locked...</Original>
+<Russian>Транспорт закрыт...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_276">
 <English>Vehicle is already unlocked</English>
@@ -1603,6 +1665,7 @@
 <Korean>이미 풀려있습니다.</Korean>
 <Japanese>車両はすでにロック解除されています...</Japanese>
 <Original>Vehicle is already unlocked</Original>
+<Russian>Транспорт открыт</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_277">
 <English>Even as an admin you can't unlock a deployed MHQ :-)</English>
@@ -1611,6 +1674,7 @@
 <Korean>관리자라도 전개되어있는 지휘차량의 잠금을 풀 수 없습니다.</Korean>
 <Japanese>管理者であっても、展開されたMHQのロックを解除することはできません:-)</Japanese>
 <Original>Even as an admin you can't unlock a deployed MHQ :-)</Original>
+<Russian>Даже Админ не может открыть развернутую КШМ!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_278">
 <English>Vehicle locked</English>
@@ -1619,6 +1683,7 @@
 <Korean>차량 잠금</Korean>
 <Japanese>車両をロックしました</Japanese>
 <Original>Vehicle locked</Original>
+<Russian>Транспорт закрыт</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_279">
 <English>Vehicle unlocked</English>
@@ -1627,6 +1692,7 @@
 <Korean>차량 해금</Korean>
 <Japanese>車両のロックを解除しました</Japanese>
 <Original>Vehicle unlocked</Original>
+<Russian>Транспорт открыт</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_280">
 <English>Health: %1</English>
@@ -1635,6 +1701,7 @@
 <Korean>체력: %1</Korean>
 <Japanese>体力: %1</Japanese>
 <Original>Health: %1</Original>
+<Russian>Здоровье: %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_281">
 <English>You have already build a mash. You have to remove it to build a new one.</English>
@@ -1652,6 +1719,7 @@
 <Korean>이동식의무실(MASH)은 물 위에 생성할 수 없습니다.</Korean>
 <Japanese>メディックテントは水中には設置できません。</Japanese>
 <Original>It is not possible to place a medic tent into water.</Original>
+<Russian>Нельзя поставить его в воде!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_285">
 <English>Mash ready.</English>
@@ -1687,6 +1755,7 @@
 <Korean>치료를 위해 엄폐물로 생성하는 도중 %2를 사용하여 현재 %1 포인트만 가지고있습니다.</Korean>
 <Japanese>%2はあなたのメディックテントを治癒に使ったので、%1ポイントを得た！</Japanese>
 <Original>You get %1 points because %2 used your mash for healing!</Original>
+<Russian>Вы получаете %1 очков потому что у Вашего медпункта кто-то вылечился!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_288">
 <English>You get %1 points for healing other units!</English>
@@ -1695,6 +1764,7 @@
 <Korean>다른 캐릭터를 치료하여 %1를 얻었습니다.</Korean>
 <Japanese>他のユニットを治療したので、%1ポイントを得た！</Japanese>
 <Original>You get %1 points for healing other units!</Original>
+<Russian>Вы получаете %1 очков за лечение товарища!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_296">
 <English>|=CHOOSE PARACHUTE LOCATION=|</English>
@@ -1712,6 +1782,7 @@
 <Korean>(%1 생성)</Korean>
 <Japanese>（%1を作成）</Japanese>
 <Original>(Create %1)</Original>
+<Russian>(Создать %1)</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_298">
 <English>Respawn</English>
@@ -1729,7 +1800,7 @@
 <Korean>재투입 장소를 선택해주십시오.</Korean>
 <Japanese>復活地点を選択</Japanese>
 <Original>Select Respawn Position</Original>
-<Russian>Место возрождения:</Russian>
+<Russian>Выбрать место возрождения</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_304">
 <English>Show Status</English>
@@ -1765,6 +1836,7 @@
 <Korean>현재 귀하의 계급이 %1 이기 때문에 %3을 사용할 수 없습니다.\n\n최소 %2의 계급이 필요합니다.</Korean>
 <Japanese>現在のランク %1 では %3 を使用することを許可されていません。\n\nこれを行うには %2 にする必要があります。</Japanese>
 <Original>Your current rank %1 only allows you to use cargo positions in a %3!!!\n\nTo access other positions you need to be %2.</Original>
+<Russian>Ваше звание %1 позволяет Вам использовать позицию в %3!!!\n\nДля использования других позиций Вы должны быть %2.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_311">
 <English>You are currently not a group leader, no AI available. Create a new group!</English>
@@ -1773,6 +1845,7 @@
 <Korean>귀하는 현재 분대장이 아니기 때문에 AI를 사용할 수 없습니다. 새로운 그룹을 만들어보세요!</Korean>
 <Japanese>あなたは現在グループリーダーではなく、AIは利用できません。 新しいグループを作成してください！</Japanese>
 <Original>You are currently not a group leader, no AI available. Create a new group!</Original>
+<Russian>Вы не командир отделения, наем ИИ невозможен. Создайте новую группу!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_312">
 <English>You are too far away from the AI recruit building!</English>
@@ -1781,6 +1854,7 @@
 <Korean>귀하는 AI 리쿠르팅 건물에서 너무 멀리있습니다!</Korean>
 <Japanese>あなたはAI募集所からあまりにも離れています！</Japanese>
 <Original>You are too far away from the AI recruit building!</Original>
+<Russian>Вы далеко от места наёма ИИ!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_313">
 <English>Recruit Terminal</English>
@@ -1789,6 +1863,7 @@
 <Korean>Recruit Terminal 모병소</Korean>
 <Japanese>Recruit Terminal</Japanese>
 <Original>Recruit Terminal</Original>
+<Russian>Терминал наёма ИИ</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_314">
 <English>Recruit AI</English>
@@ -1806,6 +1881,7 @@
 <Korean>당신이 object를 없애기 전에 죽으셨습니다.</Korean>
 <Japanese>あなたはオブジェクトを撤去し終わる前に亡くなりました。</Japanese>
 <Original>You died before you could remove the object.</Original>
+<Russian>Вы погибли до того, как переместили объект.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_316">
 <English>FARP removed.</English>
@@ -1850,6 +1926,7 @@
 <Korean>You have to wait %1 seconds until you can repair a vehicle at base again.</Korean>
 <Japanese>You have to wait %1 seconds until you can repair a vehicle at base again.</Japanese>
 <Original>You have to wait %1 seconds until you can repair a vehicle at base again.</Original>
+<Russian>Вам нужно подождать %1 секунд прежде чем снова ремонтировать транспорт на базе.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_327">
 <English>Vehicle status:\n---------------------\nFuel: %1\nDamage: %2</English>
@@ -1894,6 +1971,7 @@
 <Korean>_335Attention!\n 이 슬롯은 어드민 슬롯입니다.\ 만약 당신이 서버 어드민일라면 20초 내에 로그인 해주십시오, 아니면 귀하는 자동으로 킥됩니다.</Korean>
 <Japanese>注意！\nこれは予約済みの管理スロットです。\nあなたがこのサーバの管理者である場合、20秒以内にログインしなければ、自動的に排除されます！</Japanese>
 <Original>Attention!\nThis is a reserved admin slot.\nIf you are an admin on this server log in in the next 20 seconds otherwise you'll get kicked automatically!</Original>
+<Russian>Внимание!\nЭто резервный слот для Админа.\nЕсли вы не Админ, то Вас кикнет через 20 секунд автоматически со слота!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_336">
 <English>Welcome %1!\nYou logged in, no kick</English>
@@ -1902,6 +1980,7 @@
 <Korean>어서오십시오 %1\n당신은 로그인하셨습니다. 킥이 되지 않습니다.</Korean>
 <Japanese>ようこそ %1!\nログインしたので、排除はされません</Japanese>
 <Original>Welcome %1!\nYou logged in, no kick</Original>
+<Russian>Добро пожаловать %1 \nВы залогинились, кик отменен</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_337">
 <English>Attention!\nYou have 5 seconds to log in or you get kicked automatically!</English>
@@ -1910,6 +1989,7 @@
 <Korean>Attention!\n 로그인해야할 시간까지 5초 남았습니다. 곧 자동으로 킥됩니다.</Korean>
 <Japanese>注意！\n5秒以内にログインしなければ、自動的に排除されます！</Japanese>
 <Original>Attention!\nYou have 5 seconds to log in or you get kicked automatically!</Original>
+<Russian>Внимание!\n У Вас есть 5 секунда залогиниться или Вас кикнет!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_338">
 <English>You will be kicked now... !!!</English>
@@ -1918,6 +1998,7 @@
 <Korean>이제 당신은 서버에서 킥당할 겁니다.</Korean>
 <Japanese>排除します...!!!</Japanese>
 <Original>You will be kicked now... !!!</Original>
+<Russian>Ну....держи пинка...!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_339">
 <English>You are too far away from the FARP...</English>
@@ -1926,6 +2007,7 @@
 <Korean>귀하는 재보급소에서 너무 멀리있습니다.</Korean>
 <Japanese>FARPから遠すぎます...</Japanese>
 <Original>You are too far away from the FARP...</Original>
+<Russian>Вы далеко от Аванпоста...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_340">
 <English>Engineer repair/refuel capability restored.</English>
@@ -1934,6 +2016,7 @@
 <Korean>엔지니어 수리/재보충 기능이 복구되었습니다.</Korean>
 <Japanese>エンジニアの修理/補給能力が回復しました。</Japanese>
 <Original>Engineer repair/refuel capability restored.</Original>
+<Russian>Ваши инженерные способности восстановлены.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_345">
 <English>Checking body, please wait</English>
@@ -1942,6 +2025,7 @@
 <Korean>시체 확인중, 기다려 주십시오. 3048</Korean>
 <Japanese>死体確認中、お待ちください</Japanese>
 <Original>Checking body, please wait</Original>
+<Russian>Проверяем тело, ждите</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_349">
 <English>Very nice. Seems these airdrop codes for main targets could prove useful.</English>
@@ -1950,6 +2034,7 @@
 <Korean>매우 훌륭합니다. 메인 목표를 위한 Airdrop 코드가 유용할 것으로 보입니다.</Korean>
 <Japanese>非常に素晴らしい。 メインターゲットのためのこれらのエア・ドロップ・コードが有用であると思われる。</Japanese>
 <Original>Very nice. Seems these airdrop codes for main targets could prove useful.</Original>
+<Russian>Отлично. Эти коды могут быть полезными для нас.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_350">
 <English>Yeah. Finally able to know when those fighters show up. Now, if we only had something to fight them with.</English>
@@ -1958,6 +2043,7 @@
 <Korean>좋습니다. 마침내 적군이 어디에 나타날 지 알 수있습니다. 이제, 울리는 그들가 싸울 물품이 필요합니다. </Korean>
 <Japanese>ついに、敵の戦闘機がいつ現れるかを知ることができる。もし私たちが彼らと戦うものがあれば。</Japanese>
 <Original>Yeah. Finally able to know when those fighters show up. Now, if we only had something to fight them with.</Original>
+<Russian>Да, теперь мы знаем, когда бойцы появяться. Было бы чем с ними бороться.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_351">
 <English>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</English>
@@ -1966,6 +2052,7 @@
 <Korean>매우 아주 훌륭합니다. 마침내 공격 헬기에대한 조기경보가 가능해졌습니다. </Korean>
 <Japanese>非常に、非常に素晴らしいです。最終的に攻撃ヘリコプターの早期警報が可能となりました。</Japanese>
 <Original>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</Original>
+<Russian>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_352">
 <English>Code name for the MG chopper. Could be useful.</English>
@@ -1974,6 +2061,7 @@
 <Korean>MG헬기의 코드네임. 매우 유용할 것 같습니다.</Korean>
 <Japanese>MGヘリコプターのコード名。 役に立つかもしれない。</Japanese>
 <Original>Code name for the MG chopper. Could be useful.</Original>
+<Russian>Кодовое имя для боевого вертолета. Может быть полезно.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_353">
 <English>Niiiiice. They can shell us, but they can't hit us. Not anymore.</English>
@@ -1982,6 +2070,7 @@
 <Korean>아~주 좋습니다. 그들은 더이상 우리를 방어할 수 있지만, 공격할 수 없습니다.</Korean>
 <Japanese>Niiiiice。 彼らは私たちを殻にすることができますが、私たちを打つことはできません。 もう違います。</Japanese>
 <Original>Niiiiice. They can shell us, but they can't hit us. Not anymore.</Original>
+<Russian>Отлично. Они могут напасть на нас, но не уничтожить.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_354">
 <English>Don't they know they shouldn't put tracking devices on their patrol vehicles? Handy.</English>
@@ -1990,6 +2079,7 @@
 <Korean>그들은 순찰차량에 추적체를 붙이면 안된다는걸 모르는가? Handy.</Korean>
 <Japanese>彼らは彼らのパトロール車両に追跡装置を置くべきではないことを知っていませんか？ ハンディ。</Japanese>
 <Original>Don't they know they shouldn't put tracking devices on their patrol vehicles? Handy.</Original>
+<Russian>Разве они не знают, что должны иметь gps-модули на машинах? Это удобно.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_355">
 <English>The information you found is already known.</English>
@@ -1998,6 +2088,7 @@
 <Korean>당신이 찾은 정보는 이미 우리가 알고있는것 입니다.</Korean>
 <Japanese>あなたが見つけた情報はすでに知られています。</Japanese>
 <Original>The information you found is already known.</Original>
+<Russian>Информация, которую вы обнаружили, уже известна.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_356">
 <English>You couldn't find any documents of value</English>
@@ -2006,6 +2097,7 @@
 <Korean>유용한 정보를 찾을 수 없었습니다.</Korean>
 <Japanese>あなたは価値のある書類を見つけることができませんでした</Japanese>
 <Original>You couldn't find any documents of value</Original>
+<Russian>Вы не можете найти какие-либо документы</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_357">
 <English>Viewdistance</English>
@@ -2023,7 +2115,7 @@
 <Korean>현재 가시거리: %1</Korean>
 <Japanese>可視距離: %1</Japanese>
 <Original>Viewdistance: %1</Original>
-<Russian>Прорисовка: %1</Russian>
+<Russian>Дальность прорисовки: %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_359">
 <English>No Gras</English>
@@ -2068,7 +2160,7 @@
 <Korean>끄기 (OFF)</Korean>
 <Japanese>オフ</Japanese>
 <Original>Off</Original>
-<Russian>Выкл</Russian>
+<Russian>Выключено</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_363a">
 <English>Cursortarget</English>
@@ -2086,7 +2178,7 @@
 <Korean>표식과 이름</Korean>
 <Japanese>名前付きマーカー</Japanese>
 <Original>With Names</Original>
-<Russian>С именами</Russian>
+<Russian>Маркер с никнеймом</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_365">
 <English>Markers Only</English>
@@ -2095,7 +2187,7 @@
 <Korean>표식만</Korean>
 <Japanese>マーカーのみ</Japanese>
 <Original>Markers Only</Original>
-<Russian>Только маркеры</Russian>
+<Russian>Только маркер</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_367">
 <English>Health</English>
@@ -2104,7 +2196,7 @@
 <Korean>체력만</Korean>
 <Japanese>体力付きマーカー</Japanese>
 <Original>Health</Original>
-<Russian>Здоровье</Russian>
+<Russian>С уровнем здоровья</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_399">
 <English>Low</English>
@@ -2140,6 +2232,8 @@
 <Korean>Never</Korean>
 <Japanese>無い</Japanese>
 <Original>Never</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
 <English>(Dead)</English>
@@ -2157,6 +2251,7 @@
 <Korean>%1 이(가) 당신을 공격하고 있습니다! \n\n팀킬 시스템이 활성화 됩니다!</Korean>
 <Japanese>%1 があなたを撃っています!!!!\n\nチームキルシステムはアクティブではありません！</Japanese>
 <Original>%1 is shooting at you !!!!\n\nNo teamkill system active!</Original>
+<Russian>%1 стреляет по вам !!!!/n/n Система тимкилла активна!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_500">
 <English>Air Drop Zone</English>
@@ -2183,6 +2278,7 @@
 <Korean>%1 이(가) %2 에게 팀킬당하였습니다. %2는 %3 포인트를 잃었습니다.</Korean>
 <Japanese>%1 は %2にチームキルされました。 %2 は %3 ポイントを失います!</Japanese>
 <Original>%1 was teamkilled by %2. %2 loses %3 score points!</Original>
+<Russian>%1 был затимкиллин игроком %2. %2 теряет %3 очков!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_503">
 <English>%1 was teamkilled by %2.</English>
@@ -2191,6 +2287,7 @@
 <Korean>%1 이(가) %2에게 사살당하였습니다.</Korean>
 <Japanese>%1 は %2にチームキルされました。</Japanese>
 <Original>%1 was teamkilled by %2.</Original>
+<Russian>%1 был затимкиллин игроком %2.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_504">
 <English>%2 is shooting at %1. %2 loses %3 score points!</English>
@@ -2199,6 +2296,7 @@
 <Korean>%2 이(가) %1를 쏘고있습니다! %2의 %3 포인트을 차감합니다.</Korean>
 <Japanese>%2 は %1 を撃っています。 %2 は %3 ポイントを失います!</Japanese>
 <Original>%2 is shooting at %1. %2 loses %3 score points!</Original>
+<Russian>%2 был убит игроком %1. %2 теряет %3 очков!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_505">
 <English>%2 is shooting at %1.</English>
@@ -2207,6 +2305,7 @@
 <Korean>%2 이(가) %1를 사격하고 있습니다.</Korean>
 <Japanese>%2 は %1 を撃っています。</Japanese>
 <Original>%2 is shooting at %1.</Original>
+<Russian>%2 был убит игроком %1.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_506">
 <English>Attention!!!\n\n%1 has changed his name...\nIt was %2 before !!!</English>
@@ -2215,6 +2314,7 @@
 <Korean>주목! \n\n%2 이(가) 이름을 %1 으로 변경하였습니다.</Korean>
 <Japanese>注意!!!\n\n%1 は名前を変更しました...\n以前は %2 でした!!!</Japanese>
 <Original>Attention!!!\n\n%1 has changed his name...\nIt was %2 before !!!</Original>
+<Russian>Внимание!!!/n/n %1 поменял никнэйм.....\n\n. Его ник до этого был %2 !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_507">
 <English>%1 was kicked to the lobby because of team killing, number team kills: %2</English>
@@ -2223,6 +2323,7 @@
 <Korean>%1 는 팀킬로 인해 로비로 킥당하였습니다. 팀킬한 횟수: %2</Korean>
 <Japanese>%1 はチームキルのためにロビーへキックされました。チームキル数: %2</Japanese>
 <Original>%1 was kicked to the lobby because of team killing, number team kills: %2</Original>
+<Russian>%1 кикнут в лобби за тимкилл, кол-во тимкиллов %2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_508">
 <English>%1 was kicked to the lobby automatically because of too much unnecessary shooting at base</English>
@@ -2231,6 +2332,7 @@
 <Korean>%1는 본부내에서 무분별한 사격으로 인해 로비로 킥당하였습니다.</Korean>
 <Japanese>%1 は基地での不必要な射撃が多すぎるため、自動的にロビーへキックされました。</Japanese>
 <Original>%1 was kicked to the lobby automatically because of too much unnecessary shooting at base</Original>
+<Russian>%1 кикнут в лобби за бессмысленную стрельбу на базе</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_509">
 <English>%1 was kicked to the lobby automatically because he has placed a satchel at base</English>
@@ -2239,6 +2341,7 @@
 <Korean>%1는 본부내에서 사첼을 설치하여 로비로 킥당하였습니다.</Korean>
 <Japanese>%1 は基地に爆弾を設置したため、自動的にロビーへキックされました。</Japanese>
 <Original>%1 was kicked to the lobby automatically because he has placed a satchel at base</Original>
+<Russian>%1 кикнут в лобби за попытку заминировать базу</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_513">
 <English>Restore repair/refuel capability</English>
@@ -2247,6 +2350,7 @@
 <Korean>수리/재보급 능력</Korean>
 <Japanese>修理/補給能力を回復</Japanese>
 <Original>Restore repair/refuel capability</Original>
+<Russian>Возврат способности ремонтировать/заправлять</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_514">
 <English>%2 was shot uncon by %1. The %3 team gets %4 point.</English>
@@ -2255,6 +2359,7 @@
 <Korean>%1 의하여 %2가 쓰려졌습니다. %3 팀이 %4 포인트를 얻습니다.</Korean>
 <Japanese>%2 は %1 に撃たれて意識不明になりました。 %3 チームに %4 ポイント。</Japanese>
 <Original>%2 was shot uncon by %1. The %3 team gets %4 point.</Original>
+<Russian>%2 был ранен выстрелом игрока %1. Команда %3 получает %4 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_515">
 <English>%1 has killed %2. The %3 team gets %4 point.</English>
@@ -2263,6 +2368,7 @@
 <Korean>%1 이(가) %2를 사살했습니다. %3 팀이 %4 포인트를 얻습니다.</Korean>
 <Japanese>%1 は %2 に殺されました。 %3 チームに %4 ポイント。</Japanese>
 <Original>%1 has killed %2. The %3 team gets %4 point.</Original>
+<Russian>%1 был убит игроком %2. Команда %3 получает %4 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_516">
 <English>%1 destroyed a %2 vehicle. The %3 team gets %4 points.</English>
@@ -2271,6 +2377,7 @@
 <Korean>%1 이(가) %2 차량을 파괴했습니다. %3 팀이 %4 포인트를 얻습니다.</Korean>
 <Japanese>%1 は車両 %2 を破壊しました。 %3 チームに %4 ポイント。</Japanese>
 <Original>%1 destroyed a %2 vehicle. The %3 team gets %4 points.</Original>
+<Russian>%1 уничтоил %2. Команда %3 получает %4 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_517">
 <English>%1 wreck</English>
@@ -2279,6 +2386,7 @@
 <Korean>%1 잔해</Korean>
 <Japanese>%1の残骸</Japanese>
 <Original>%1 wreck</Original>
+<Russian>%1 ВРЭК.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_518">
 <English>Search body</English>
@@ -2287,6 +2395,7 @@
 <Korean>몸 수색</Korean>
 <Japanese>ボディチェック</Japanese>
 <Original>Search body</Original>
+<Russian>Поиск тела</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_520">
 <English>%2 moved to close to the main target (%1 meters), fuel removed to prevent getting to close to the MT (Will be refilled once main target is done)!</English>
@@ -2295,6 +2404,7 @@
 <Korean>%2 이(가) 주 목표 가까이 이동하였습니다 (%1 미터), MT로 너무 가까워지는 것을 방지하기위해 기름이 제거 되었습니다. (주 미션이 완수되면 다시 채워집니다)</Korean>
 <Japanese>%2がメインターゲットの近くに移動しました( %2 m)、これ以上MTに接近するのを防ぐために燃料が抜かれました!（メインターゲットが攻略されると補充されます）</Japanese>
 <Original>%2 moved to close to the main target (%1 meters), fuel removed to prevent getting to close to the MT (Will be refilled once main target is done)!</Original>
+<Russian>%2 подъехала близко к главной цели (%1 метров), топливо слито. Будет восстановлено, когда главная цель будет захвачена!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_521">
 <English>Radiotower</English>
@@ -2303,6 +2413,7 @@
 <Korean>Radiotower 통신탑</Korean>
 <Japanese>Radiotower</Japanese>
 <Original>Radiotower</Original>
+<Russian>Радиовышка</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_522">
 <English>All missions resolved!</English>
@@ -2311,6 +2422,7 @@
 <Korean>모든 미션이 완수 되었습니다.</Korean>
 <Japanese>すべてのミッションが達成されました。!</Japanese>
 <Original>All missions resolved!</Original>
+<Russian>Все миссии выполнены!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_523">
 <English>Ammo</English>
@@ -2391,6 +2503,7 @@
 <Korean>탄약상자 적재 포인트</Korean>
 <Japanese>Ammobox load point</Japanese>
 <Original>Ammobox load point</Original>
+<Russian>Пункт загрузки ящика-арсенала</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_5315">
 <English>Ammobox load point</English>
@@ -2399,6 +2512,7 @@
 <Korean>탄약상자 적재 포인트</Korean>
 <Japanese>Ammobox load point</Japanese>
 <Original>Ammobox load point</Original>
+<Russian>Пункт загрузки ящика-арсенала</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_5316">
 <English>Ammobox load point</English>
@@ -2407,6 +2521,7 @@
 <Korean>탄약상자 적재 포인트</Korean>
 <Japanese>Ammobox load point</Japanese>
 <Original>Ammobox load point</Original>
+<Russian>Пункт загрузки ящика-арсенала</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_533">
 <English>Teleport</English>
@@ -2415,7 +2530,7 @@
 <Korean>텔레포트하기</Korean>
 <Japanese>テレポートする</Japanese>
 <Original>Teleport</Original>
-<Russian>Телепортация</Russian>
+<Russian>Телепорт</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_534">
 <English>Teleporter</English>
@@ -2433,7 +2548,7 @@
 <Korean>후송헬기 요청</Korean>
 <Japanese>搬送ヘリコプターリクエスト</Japanese>
 <Original>Air Taxi</Original>
-<Russian>Авиатакси</Russian>
+<Russian>Вызов эвакуации</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_537">
 <English>Stop shooting at base or you will get kicked automatically...</English>
@@ -2469,6 +2584,8 @@
 <Korean>- Codenames for launching saboteur attacks on or base</Korean>
 <Japanese>- Codenames for launching saboteur attacks on or base</Japanese>
 <Original>- Codenames for launching saboteur attacks on or base</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_542">
 <English>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</English>
@@ -2477,6 +2594,8 @@
 <Korean>- 공수지원의 암호명으로 주미션지에 상대측 공수병력 투하에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに空挺隊を送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_543">
 <English>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</English>
@@ -2485,6 +2604,8 @@
 <Korean>- 항공공격의 암호명으로 주미션지에 상대측 항공공격에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに攻撃機を送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_544">
 <English>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</English>
@@ -2493,6 +2614,8 @@
 <Korean>- 헬기공격의 암호명으로 주미션지에 상대측 헬기공격에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに攻撃ヘリコプターを送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_545">
 <English>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</English>
@@ -2501,6 +2624,8 @@
 <Korean>- 헬기공격의 암호명으로 주미션지에 상대측 헬기공격(경량)에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに軽攻撃ヘリコプターを送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_546">
 <English>- Provide grid information on where the enemy is calling in artillery support.</English>
@@ -2509,6 +2634,8 @@
 <Korean>- 상대측이 어디로 포격을 지원하는지 좌표로 정보를 제공합니다.</Korean>
 <Japanese>- 敵が砲撃支援をどこで呼び出しているかについてのグリッド情報を提供する。</Japanese>
 <Original>- Provide grid information on where the enemy is calling in artillery support.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_547">
 <English>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</English>
@@ -2517,6 +2644,8 @@
 <Korean>- 상대측 차량을 추적할 수 있는 능력입니다. 단, 어떤 종류인지는 알 수 없습니다. 지도를 확인하십시오.</Korean>
 <Japanese>- 敵の車両パトロールを追跡する能力、その構成まではわかりません。 地図を確認してください。</Japanese>
 <Original>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_548">
 <English>No intel found yet...</English>
@@ -2705,6 +2834,7 @@
 <Korean>BLUFOR가 주 목표 미션에서 %1:%2 킬 포인트로 승리하였습니다. \nBLUFOR가 %3 메인 포인트를 얻었습니다.</Korean>
 <Japanese>Bluforチームは%1：%2のキルポイントでメインターゲットで勝利しました。\nBluforチームは%3メインポイントを獲得。</Japanese>
 <Original>The Blufor Team won the main target with %1 : %2 kill points.\nThe Blufor Team gets %3 main points.</Original>
+<Russian>Команда Синих победила на захвате главной цели с %1 : %2 очков за убийства.\n\n Команда Синих получает %3 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_576">
 <English>The Opfor Team won the main target with %1 : %2 kill points.\nThe Opfor Team gets %3 main points.</English>
@@ -2713,6 +2843,7 @@
 <Korean>OPFOR가 주 목표 미션에서 %1:%2 킬 포인트로 승리하였습니다. \nOPFOR가 %3 메인 포인트를 얻었습니다.</Korean>
 <Japanese>Opforチームは%1：%2のキルポイントでメインターゲットで勝利しました。\Opforチームは%3メインポイントを獲得。</Japanese>
 <Original>The Opfor Team won the main target with %1 : %2 kill points.\nThe Opfor Team gets %3 main points.</Original>
+<Russian>Команда Красных победила на захвате главной цели с %1 : %2 очков за убийства.\n\n Команда Красных получает %3 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_577">
 <English>Both teams have %1 kill points.\nBoth teams get %2 main points.</English>
@@ -2721,6 +2852,7 @@
 <Korean>양측 모두 %1 킬포인트를 달성하여, 양측다 %2 메인포인트를 획득하였습니다.</Korean>
 <Japanese>両チーム%1キルポイント。\n両チームに%2メインポイント追加</Japanese>
 <Original>Both teams have %1 kill points.\nBoth teams get %2 main points.</Original>
+<Russian>Обе команды имеют %1 очков за убийства.\n\n Обе команды получают %3 очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_583">
 <English>Teleport not available in a vehicle !!!</English>
@@ -2738,6 +2870,7 @@
 <Korean>깃발을 가지고 있습니다. 텔레포트이 불가능합니다.</Korean>
 <Japanese>旗を輸送中なので、テレポートは使用できません!!!</Japanese>
 <Original>You are carrying the flag. Teleport is not possible !!!</Original>
+<Russian>Вы переносите флаг, телепорт невозможен !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_585">
 <English>Teleporting not possible while swimming !!!</English>
@@ -2764,6 +2897,7 @@
 <Korean>%1 이(가) 항공수송으로 수송중에 있습니다... \n%2</Korean>
 <Japanese>%1は空輸中です... \n%2</Japanese>
 <Original>%1 gets transported by airlift...\n%2</Original>
+<Russian>%1 транспортируется вертолетом...\n%2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_593">
 <English>%1 currently moving...\n%2</English>
@@ -2772,6 +2906,7 @@
 <Korean>%1 이(가) 현재 운전중에 있습니다...\n%2</Korean>
 <Japanese>%1は運転中です...\n%2</Japanese>
 <Original>%1 currently moving...\n%2</Original>
+<Russian>%1 транспортируется...\n%2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_594">
 <English>%1 is currently in water...\n%2</English>
@@ -2897,7 +3032,7 @@
 <Korean>이 차량은 공병트럭입니다. 거치무기를 적재하거나 하적할 수 있습니다.</Korean>
 <Japanese>これはエンジニアトラックです。 設置兵器の積み下ろしをすることができます。</Japanese>
 <Original>This is an engineer truck. You can load static weapons and unload them.</Original>
-<Russian>Это транспорт для ИНЖЕНЕРОВ.\nВы можете загружать в него статику !!!</Russian>
+<Russian>Это транспорт для ИНЖЕНЕРОВ.Вы можете загружать в него статику !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_631">
 <English>Vec: </English>
@@ -2915,6 +3050,7 @@
 <Korean>차량내에서 가능하지 않습니다.</Korean>
 <Japanese>車両内ではできません...</Japanese>
 <Original>Not possible in a vehicle...</Original>
+<Russian>В транспорте невозможно...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_633">
 <English>... Fixing head bug ...</English>
@@ -2932,6 +3068,7 @@
 <Korean>후송헬기 이동중, 현 위치를 고수하십시오.</Korean>
 <Japanese>搬送ヘリコプターが向かっています...現在の位置を保持してください!!!</Japanese>
 <Original>Air taxi is on the way... hold your position!!!</Original>
+<Russian>Эвакуация в пути...Оставайтесь на позиции!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_635">
 <English>Air taxi canceled, you've died !!!</English>
@@ -2940,6 +3077,7 @@
 <Korean>후송헬기가 취소되었습니다. 사망하셨습니다.</Korean>
 <Japanese>死亡したため搬送ヘリコプターはキャンセルされました</Japanese>
 <Original>Air taxi canceled, you've died !!!</Original>
+<Russian>Эвакуация отменена, вы погибли...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_636">
 <English>Air taxi damaged or destroyed !!!</English>
@@ -2948,6 +3086,7 @@
 <Korean>후송헬기가 피해를 입거나 파괴되었습니다.</Korean>
 <Japanese>搬送ヘリコプターは損傷したか、破壊されました!!!</Japanese>
 <Original>Air taxi damaged or destroyed !!!</Original>
+<Russian>Транспорт эвакуации был уничтожен !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_637">
 <English>Air taxi heading to its destination in a few seconds !!!</English>
@@ -2956,6 +3095,7 @@
 <Korean>Air taxi heading to its destination in a few seconds !!!</Korean>
 <Japanese>Air taxi heading to its destination in a few seconds !!!</Japanese>
 <Original>Air taxi heading to its destination in a few seconds !!!</Original>
+<Russian>Транспорт эвакуации прибудет на базу через несколько секунд !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_638">
 <English>Air taxi leaving now, have a nice day !!!</English>
@@ -2964,6 +3104,7 @@
 <Korean>후송헬기가 이륙합니다. 즐거운 시간되십시오.</Korean>
 <Japanese>搬送ヘリコプターが離陸します。良い一日を!!!</Japanese>
 <Original>Air taxi leaving now, have a nice day !!!</Original>
+<Russian>Транспорт эвакуации улетает, удачи Вам!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_639">
 <English>Air taxi starts now !!!</English>
@@ -2972,6 +3113,7 @@
 <Korean>후송헬기가 출발했습니다.</Korean>
 <Japanese>搬送ヘリコプターが出発しました!!!</Japanese>
 <Original>Air taxi starts now !!!</Original>
+<Russian>Транспорт эвакуации выдвинулся!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_640">
 <English>Air taxi allmost there, hang on...</English>
@@ -2980,6 +3122,7 @@
 <Korean>후송헬기 거의 도착했으며, 현 위치에서 대기하십시오.</Korean>
 <Japanese>搬送ヘリコプターはすぐそこです、待機してください...</Japanese>
 <Original>Air taxi allmost there, hang on...</Original>
+<Russian>Транспорт эвакуации почти прибыл, держитесь...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_641">
 <English>%1 reconnected as %3 team member.\nHe played for the %2 team before, attention!!!</English>
@@ -2988,6 +3131,7 @@
 <Korean>%1 이(가) %3 세력으로 재접속하였습니다. 이 유저는 과거 %2 세력이였습니다. 주의하십시오.</Korean>
 <Japanese>%1は%3チームに再接続しました。\n以前は%2チームでプレイしていました。気を付けて!!!</Japanese>
 <Original>%1 reconnected as %3 team member.\nHe played for the %2 team before, attention!!!</Original>
+<Russian>Игрок %1 перезашел за другую сторону. \n Он играл за команду %2, будьте внимательны!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_642">
 <English>Roger. The drop aircraft will start in a few moments!!!</English>
@@ -2996,6 +3140,7 @@
 <Korean>확인. 공수항공기 곧 출발하겠음.</Korean>
 <Japanese>了解、輸送機はすぐに出発します!!!</Japanese>
 <Original>Roger. The drop aircraft will start in a few moments!!!</Original>
+<Russian>Принято. Поддержка с воздуха будет через пару минут!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_643">
 <English>Air drop is on the way... it will take some time!!!</English>
@@ -3004,6 +3149,7 @@
 <Korean>항공기 이륙하였고 이동중.</Korean>
 <Japanese>輸送機が向かっています...しばらくお待ちください。</Japanese>
 <Original>Air drop is on the way... it will take some time!!!</Original>
+<Russian>Поддержка с воздуха в пути. Это займет несколько минут!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_644">
 <English>Air drop allmost there, stand by!!!</English>
@@ -3012,6 +3158,7 @@
 <Korean>현재 투하위치에 거의 도착하였으며, 현 위치 고수할 것.</Korean>
 <Japanese>空中投下機が近づいています、スタンバイ!!!</Japanese>
 <Original>Air drop allmost there, stand by!!!</Original>
+<Russian>Поддержка с воздуха на подходе, ждите!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_645">
 <English>Air drop vehicle damaged or destroyed !!!</English>
@@ -3020,6 +3167,7 @@
 <Korean>상공투하되던 차량에 피해가 발생하거나 파괴되었습니다.</Korean>
 <Japanese>空中投下機は損傷したか、破壊されました!!!</Japanese>
 <Original>Air drop vehicle damaged or destroyed !!!</Original>
+<Russian>Поддержка с воздуха была уничтожена в пути !!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_646">
 <English>Air cargo dropped!!!</English>
@@ -3028,6 +3176,7 @@
 <Korean>투하!</Korean>
 <Japanese>投下!!!</Japanese>
 <Original>Air cargo dropped!!!</Original>
+<Russian>Поддержка с воздуха!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_647">
 <English>%1 deployed</English>
@@ -3036,6 +3185,7 @@
 <Korean>%1 전개</Korean>
 <Japanese>%1が展開されました</Japanese>
 <Original>%1 deployed</Original>
+<Russian>%1 свернута</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_648">
 <English>%1 undeployed</English>
@@ -3044,6 +3194,7 @@
 <Korean>%1 철수</Korean>
 <Japanese>%1が格納されました</Japanese>
 <Original>%1 undeployed</Original>
+<Russian>%1 развернута</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_650">
 <English>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</English>
@@ -3052,6 +3203,8 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군의 항공투하에 대한 정보를 얻었으며, 언제 항공투하를 주미션에 할지에 대해 알게 되었습니다? 4879</Korean>
 <Japanese>%1が新情報を入手。敵の空中投下のコードネームがわかった、メインターゲットへの空挺降下の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_651">
 <English>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</English>
@@ -3060,6 +3213,8 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군 공격항공기에 대한 암호명을 확보하였으며, 언제 적 공격항공기가 주미션에 출격하는지 미리 알수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の攻撃機のコードネームがわかった、メインターゲットへの航空攻撃の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_652">
 <English>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</English>
@@ -3068,6 +3223,8 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 공격헬기에 대한 암호명을 확보하였으며, 언제 적 공격헬기가 주미션에 출현하는지 미리 알수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の攻撃ヘリコプターのコードネームがわかった、情報部はメインターゲットへの攻撃ヘリ飛来が分かるようになるだろう。</Japanese>
 <Original>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_653">
 <English>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</English>
@@ -3076,6 +3233,8 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 수송항공기에 대한 암호명을 확보하였으며, 언제 수송항공기가 지원을 오는지 미리 알 수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の輸送機のコードネームがわかった、メインターゲットへの航空輸送の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_654">
 <English>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</English>
@@ -3084,6 +3243,8 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 이제 적이 어디에 포격지원을 하는지 좌표로 확인을 할 수 있습니다.</Korean>
 <Japanese>%1が新情報を入手。砲撃要請の位置が分かるようになった。</Japanese>
 <Original>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_655">
 <English>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</English>
@@ -3092,6 +3253,8 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 차량순찰을 추적할수있으나 어떤 종류인지는 알 수 없습니다. 지도를 확인해주십시오.</Korean>
 <Japanese>%1が新情報を入手。敵の車両パトロールを追跡できるようになった。その構成までは不明、 地図を確認せよ。</Japanese>
 <Original>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656">
 <English>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</English>
@@ -3100,6 +3263,8 @@
 <Korean>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Korean>
 <Japanese>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Japanese>
 <Original>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656a">
 <English>Your mash was destroyed !!!</English>
@@ -3288,7 +3453,7 @@
 <Korean>본부에 침투한 적 병력을 모두 소탕하였습니다.</Korean>
 <Japanese>侵入した敵をすべて掃討した</Japanese>
 <Original>No more enemies in your base.</Original>
-<Russian>Противник вынужден был отступить.</Russian>
+<Russian>Противник вынужден отступить.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_686">
 <English>Gras layer set to: %1</English>
@@ -3306,6 +3471,7 @@
 <Korean>%1 의 정보를 서버에서 받아오고있습니다...</Korean>
 <Japanese>%1の情報をサーバーから受信中...</Japanese>
 <Original>Receiving player information for %1 from server...</Original>
+<Russian>Получение информации для %1 от сервера....</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_690">
 <English>Player information for %1 not stored on server...</English>
@@ -3314,6 +3480,7 @@
 <Korean>%1 의 정보가 서버에 존재하지 않습니다...</Korean>
 <Japanese>%1の情報はサーバーにありません...</Japanese>
 <Original>Player information for %1 not stored on server...</Original>
+<Russian>Информация игрока для %1 не найдена на сервере....</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_691">
 <English>Player information for %1 received...</English>
@@ -3322,6 +3489,7 @@
 <Korean>%1 정보 수신중...</Korean>
 <Japanese>%1の情報を受信...</Japanese>
 <Original>Player information for %1 received...</Original>
+<Russian>Получение информации о игроке %1 ...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_693">
 <English>Your current AI units (%1/%2):</English>
@@ -3339,6 +3507,7 @@
 <Korean>이미 %1 명의 AI가 귀관의 산하에 배치 되었습니다.</Korean>
 <Japanese>すでに%1人のAIユニットが配属されています!!!</Japanese>
 <Original>You have already %1 AI units under your control!</Original>
+<Russian>У вас достаточно ИИ бойцов под контролем!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_695">
 <English>You are not a group leader, recruiting AI not possible</English>
@@ -3347,6 +3516,7 @@
 <Korean>귀관은 분대장이 아닙니다. AI를 모병할 수 없습니다.</Korean>
 <Japanese>グループリーダーではないので、AIの追加はできません!</Japanese>
 <Original>You are not a group leader, recruiting AI not possible</Original>
+<Russian>Вы не лидер группы. Вы не можете нанимать ИИ!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_696">
 <English>Your current rank is private. You can't recruit soldiers!</English>
@@ -3355,6 +3525,7 @@
 <Korean>현재 귀관은 등급은 이병입니다. AI를 모병할 수 없습니다.</Korean>
 <Japanese>あなたは二等兵なので、AIの追加はできません!</Japanese>
 <Original>Your current rank is private. You can't recruit soldiers!</Original>
+<Russian>Ваше звание - Рядовой. Вы не можете нанимать ИИ!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_697">
 <English>You can't recruit an AI soldier, costs %2 points, your current score (%1) will drop below 10!</English>
@@ -3363,6 +3534,7 @@
 <Korean>AI를 모병할 수 없습니다. 모병하는데 %2 포인트가 소모되며, 현재 귀관의 %1 포인트 10 이하로 떨어지게 됩니다.</Korean>
 <Japanese>現在のポイント%1からAI追加に%2ポイントを払うと10以下になるため、AIを追加することはできません!</Japanese>
 <Original>You can't recruit an AI soldier, costs %2 points, your current score (%1) will drop below 10!</Original>
+<Russian>Вы не можете нанять ИИ солдат, стоимость %2 очков, а у вас %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_698">
 <English>You already have %1 AI soldiers under your control, it is not possible to recruit more with your current rank...</English>
@@ -3371,6 +3543,7 @@
 <Korean>이미 %1 명의 AI를 모병하셨습니다. 현재 계급으로는 더이상 모병하실 수 없습니다.</Korean>
 <Japanese>すでに%1人のAIユニットが配属されています、あなたの階級ではこれ以上の追加はできません...</Japanese>
 <Original>You already have %1 AI soldiers under your control, it is not possible to recruit more with your current rank...</Original>
+<Russian>У вас уже находится ИИ бойцы под контролем ( %1 штук). Вы не можете нанять еще при вашем звании...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_699">
 <English>You have to wait %1 seconds before you can service the vehicle again...</English>
@@ -3453,6 +3626,7 @@
 <Korean>보조 과제, 콘보이 종료</Korean>
 <Japanese>Side Mission, Convoy End</Japanese>
 <Original>Side Mission, Convoy End</Original>
+<Russian>Доп.задание, прибытие конвоя.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_710">
 <English>New side mission:</English>
@@ -3515,6 +3689,8 @@
 <Korean>적이 보조미션의 목표를 자체적으로 파괴하였습니다.</Korean>
 <Japanese>敵は自らサイドミッションターゲットを破壊することに決めました...</Japanese>
 <Original>The enemy decided to destroy the sidemission target by itself...</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_718">
 <English>The convoy reached its destination...</English>
@@ -3657,6 +3833,7 @@
 <Korean>Elektrozavodsk 에서 기차 파괴</Korean>
 <Japanese>敵の列車がElektrozavodskで戦車と燃料の積み込みを待っている。この列車を見つけ出して破壊しろ!</Japanese>
 <Original>An enemy train is waiting in Elektrozavodsk for loading tanks and fuel. Find the train and destroy it!</Original>
+<Russian>Железнодорожный состав проивника ожидает загнрузки танков и топлива к ним. Уничтожьте состав!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_748">
 <English>Good job. The train is down...</English>
@@ -3665,6 +3842,7 @@
 <Korean>Good job. The train is down...</Korean>
 <Japanese>よくやった。列車は破壊された。</Japanese>
 <Original>Good job. The train is down...</Original>
+<Russian>Отличная работа! Поезд уничтожен!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_750">
 <English>Good job. You got the prototype plane.</English>
@@ -3772,7 +3950,7 @@
 <Korean>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Korean>
 <Japanese>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Japanese>
 <Original>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Original>
-<Russian>Враг производит биологическое оружие. Найдите водонапорную вышку и уничтожьте ее!</Russian>
+<Russian>Враг производит биологическое оружие. Найдите водонапорную башню, которая нужна для производства и уничтожьте ее!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_783">
 <English>Good job. The water tower is down.</English>
@@ -3790,6 +3968,7 @@
 <Korean>In the huge radio tower on top of mount Green Mountain is a IED, it looks like an ammobox. Your job is it to destroy the IED.</Korean>
 <Japanese>Green山の頂上にあるラジオタワーにIEDが仕掛けられた。それは大きな弾薬箱の形をしている。君の仕事はこれを破壊することだ。</Japanese>
 <Original>In the huge radio tower on top of mount Green Mountain is a IED, it looks like an ammobox. Your job is it to destroy the IED.</Original>
+<Russian>Радиовышка заминирована фугасом, который выглядит как брошенный ящик. Найдите и уничтожьте фугас!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_785">
 <English>Good job. The IED got destroyed.</English>
@@ -3798,6 +3977,7 @@
 <Korean>Good job. The IED got destroyed.</Korean>
 <Japanese>よくやった。IEDは破壊された。</Japanese>
 <Original>Good job. The IED got destroyed.</Original>
+<Russian>Отлично. Фугас уничтожен!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_786">
 <English>The enemy is producing chemical weapons in a factory Solnichniy. Find the container that has some of the chemical for the production and destroy it.</English>
@@ -3806,6 +3986,7 @@
 <Korean>The enemy is producing chemical weapons in a factory Solnichniy. Find the container that has some of the chemical for the production and destroy it.</Korean>
 <Japanese>Solnichniy工場で敵が化学兵器を製造している。製造な必要な薬品が積まれたコンテナを探して破壊しろ。</Japanese>
 <Original>The enemy is producing chemical weapons in a factory Solnichniy. Find the container that has some of the chemical for the production and destroy it.</Original>
+<Russian>Протинки производит хим.оружие на заводе возле Солнечного. Найдите контейнер и уничтожьте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_787">
 <English>Good job. The cargo truck is destroyed.</English>
@@ -3859,6 +4040,7 @@
 <Korean>The enemy has all its gold in a bank in Elektrozavodsk. Destroy the building so that they can't pay their weapon shipments anymore.</Korean>
 <Japanese>敵はElektrozavodskにある銀行にすべての金を預けている。 建物を破壊して、これ以上兵器の輸入をできないようにしろ。</Japanese>
 <Original>The enemy has all its gold in a bank in Elektrozavodsk. Destroy the building so that they can't pay their weapon shipments anymore.</Original>
+<Russian>Противник складирует свои золотые запасы в банке в Электрозаводске. Уничтожьте здание банка!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_799">
 <English>Good job. The bank building is down.</English>
@@ -3867,6 +4049,7 @@
 <Korean>Good job. The bank building is down.</Korean>
 <Japanese>よくやった。銀行は破壊された。</Japanese>
 <Original>Good job. The bank building is down.</Original>
+<Russian>Отлично! Здание банка разрушено.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_800">
 <English>The enemy is producing ball bearings in a factory in Chernogorsk. Destroy the main building and the two chimneys to stop the production.</English>
@@ -3875,6 +4058,7 @@
 <Korean>The enemy is producing ball bearings in a factory in Chernogorsk. Destroy the main building and the two chimneys to stop the production.</Korean>
 <Japanese>敵はChernogorskの工場でボールベアリングを生産している。 主要建物と2つの煙突を破壊して生産を停止させろ。</Japanese>
 <Original>The enemy is producing ball bearings in a factory in Chernogorsk. Destroy the main building and the two chimneys to stop the production.</Original>
+<Russian>Протинки производит вооружение на заводе возле Черногорска. Найдите главное здание и две химлаборатории и уничтожьте их!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_801">
 <English>Good job. The factory is down.</English>
@@ -3892,6 +4076,7 @@
 <Korean>The enemy is producing ammunition in a factory near Berezino. Destroy the main building and the pipelines to stop the production.</Korean>
 <Japanese>敵はBerezino近くの工場で弾薬を生産している。 主要建物とパイプラインを破壊して生産を停止させろ。</Japanese>
 <Original>The enemy is producing ammunition in a factory near Berezino. Destroy the main building and the pipelines to stop the production.</Original>
+<Russian>Протинки производит вооружения на заводе возле Березино. Найдите главное здание и трубопровод и остановите производство!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_809">
 <English>Intel reports about a train with vital military equipment leaving Chernogorsk habour soon. Find the train and destroy it!</English>
@@ -3900,6 +4085,7 @@
 <Korean>Intel reports about a train with vital military equipment leaving Chernogorsk habour soon. Find the train and destroy it!</Korean>
 <Japanese>情報部がChernogorsk港をすぐに出発する重要な軍用機材を備えた電車について報告している。 電車を見つけてそれを破壊しろ！</Japanese>
 <Original>Intel reports about a train with vital military equipment leaving Chernogorsk habour soon. Find the train and destroy it!</Original>
+<Russian>Мы получили информацию со спутника о  поезде с военным грузом у Черногорска. Найдите и взорвите его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_810">
 <English>Good job. All artillery guns are down. No artillery observers will appear at main targets anymore.</English>
@@ -3908,6 +4094,7 @@
 <Korean>Good job. All artillery guns are down. No artillery observers will appear at main targets anymore.</Korean>
 <Japanese>よくやった。すべての敵長距離砲を破壊した。砲兵観測手がメインターゲットに現れることはもうないだろう。</Japanese>
 <Original>Good job. All artillery guns are down. No artillery observers will appear at main targets anymore.</Original>
+<Russian>Отличная работа. Все артнаводчики уничтожены, теперь противник не сможет на нас наводить минометы.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_812">
 <English>Good job. The crew is back at base.</English>
@@ -3997,6 +4184,7 @@
 <Korean>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Korean>
 <Japanese>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Japanese>
 <Original>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Original>
+<Russian>Противник производит химическое оружие. Найдите и уничтожьте грузовик противника с хим.оружием!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_861c">
 <English>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</English>
@@ -4005,6 +4193,7 @@
 <Korean>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</Korean>
 <Japanese>敵の将校が近くの森で散歩中だ。 彼を逮捕し、基地に連行するいいチャンスだ。</Japanese>
 <Original>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</Original>
+<Russian>Один из высших чинов протинока прогуливается по лесу. Ликвидируйте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_864">
 <English>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</English>
@@ -4031,6 +4220,7 @@
 <Korean>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supllies.</Korean>
 <Japanese>敵はNagara-1-油田の近くに非常に優良なオイルポンプをいくつか持っています。 敵の燃料供給を減らすためにそこにあるポンプを破壊しろ。</Japanese>
 <Original>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supllies.</Original>
+<Russian>Противник захватил нефтяные насосы около Нагары. Уничтожьте их чтобы ослабить обеспечение протинкиа!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_867">
 <English>Good job. The oil pumps are down.</English>
@@ -4039,6 +4229,7 @@
 <Korean>Good job. The oil pumps are down.</Korean>
 <Japanese>よくやった。 オイルポンプは停止した。</Japanese>
 <Original>Good job. The oil pumps are down.</Original>
+<Russian>Отличная работа. Все нефтяные насосы уничтожены!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_878">
 <English>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</English>
@@ -4047,6 +4238,7 @@
 <Korean>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Korean>
 <Japanese>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Japanese>
 <Original>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Original>
+<Russian>Противник тестирует прототип самолета. Уничтожьте его до испытаний!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_878c">
 <English>The enemy tests a new plane prototype. Destroy it before enemy troops use it.</English>
@@ -4055,6 +4247,7 @@
 <Korean>The enemy tests a new plane prototype. Destroy it before enemy troops use it.</Korean>
 <Japanese>敵軍が新型航空機をテスト中だ。敵軍がこれを使用する前に破壊しろ。</Japanese>
 <Original>The enemy tests a new plane prototype. Destroy it before enemy troops use it.</Original>
+<Russian>Противник тестирует прототип самолета. Уничтожьте его до испытаний!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_883">
 <English> (Uncon)</English>
@@ -4063,7 +4256,7 @@
 <Korean> (의식불명)</Korean>
 <Japanese> (意識不明)</Japanese>
 <Original> (Uncon)</Original>
-<Russian>ранен</Russian>
+<Russian> (300-ый)</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_884">
 <English> (Medic)</English>
@@ -4081,6 +4274,7 @@
 <Korean>Turning player names over head off...</Korean>
 <Japanese>頭上のプレーヤーネームをオフに...</Japanese>
 <Original>Turning player names over head off...</Original>
+<Russian>Включение ников игроков ....</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_888">
 <English>Turning player names over head on...</English>
@@ -4089,6 +4283,7 @@
 <Korean>플레이어 이름을 머리 위로...</Korean>
 <Japanese>頭上のプレーヤーネームをオンに...</Japanese>
 <Original>Turning player names over head on...</Original>
+<Russian>Включение ников игроков над головой....</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_890">
 <English>Turning player health over head on...</English>
@@ -4097,6 +4292,7 @@
 <Korean>플레이어 체력바를 머리 위로...</Korean>
 <Japanese>頭上のプレーヤー体力をオンに...</Japanese>
 <Original>Turning player health over head on...</Original>
+<Russian>Включение здоровья игроков над головой....</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_891">
 <English>Find and eliminate the local governor of %1</English>
@@ -4204,7 +4400,7 @@
 <Korean>%1이(가) 쓰려졌습니다.</Korean>
 <Japanese>%1が倒れた</Japanese>
 <Original>%1 is down</Original>
-<Russian>%1 ранен</Russian>
+<Russian>%1 тяжело ранен</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_913">
 <English>%1 was revived by %2</English>
@@ -4258,7 +4454,7 @@
 <Korean>재투입 위치를 선택했습니다. 대기하십시오</Korean>
 <Japanese>復活地点を選択しました,スタンバイ!</Japanese>
 <Original>You have selected a respawn position, stand by!</Original>
-<Russian>Ожидайте возрождения в указанном месте!</Russian>
+<Russian>Ожидайте возрождение в указанном месте!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_918">
 <English>You have respawned</English>
@@ -4267,6 +4463,7 @@
 <Korean>재투입되었습니다.</Korean>
 <Japanese>復活しました</Japanese>
 <Original>You have respawned</Original>
+<Russian>Вы снова живы</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_920">
 <English>Trying to find a position at land... Stand by...</English>
@@ -4275,7 +4472,7 @@
 <Korean>착륙할 곳을 찾고있습니다.. 대기하십시오..</Korean>
 <Japanese>上陸地点を探しています...スタンバイ...</Japanese>
 <Original>Trying to find a position at land... Stand by...</Original>
-<Russian>Вас выкинуло на берег...</Russian>
+<Russian>Попробуйте найти место на берегу....Ждите...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_921">
 <English>You are seriously wounded!\nWait for help or select a respawn position (when available)</English>
@@ -4311,6 +4508,8 @@
 <Korean>CPR</Korean>
 <Japanese>CPR</Japanese>
 <Original>CPR</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_931">
 <English>No lives left...</English>
@@ -4364,6 +4563,7 @@
 <Korean>Air Drop Aircraft</Korean>
 <Japanese>Air Drop Aircraft</Japanese>
 <Original>Air Drop Aircraft</Original>
+<Russian>Самолет поддержки с воздуха</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_942">
 <English>%1 has changed his name... It was %2 before, ArmA Key: %3</English>
@@ -4408,6 +4608,7 @@
 <Korean>Player %1 does too much shooting at base, ArmA Key: %2</Korean>
 <Japanese>%1 は基地での射撃が多すぎるため、自動的にキックされました。 ArmA Key: %2</Japanese>
 <Original>Player %1 does too much shooting at base, ArmA Key: %2</Original>
+<Russian>Игрок %1 стрелял на базе, Армаключ: %2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_948">
 <English>Player %1 placed a satchel at base, ArmA Key: %2</English>
@@ -4416,6 +4617,7 @@
 <Korean>Player %1 placed a satchel at base, ArmA Key: %2</Korean>
 <Japanese>%1 は基地に爆弾を設置しました。 ArmA Key: %2</Japanese>
 <Original>Player %1 placed a satchel at base, ArmA Key: %2</Original>
+<Russian>Игрок %1 заложил взрывчатку на базе, Армаключ: %2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_949">
 <English>Your team eliminated the governor.</English>
@@ -4469,6 +4671,8 @@
 <Korean>아군이 발전기를 파괴하였습니다.</Korean>
 <Japanese>あなたのチームが変電器を破壊しました。</Japanese>
 <Original>Your team destroyed the transformer.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_956">
 <English>Your team destroyed the heavy enemy factory.</English>
@@ -4477,6 +4681,8 @@
 <Korean>아군이 적의 공장을 파괴하였습니다.</Korean>
 <Japanese>あなたのチームが敵工場を破壊しました。</Japanese>
 <Original>Your team destroyed the heavy enemy factory.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_958">
 <English>Your team destroyed the enemy anti air radar.</English>
@@ -4494,6 +4700,8 @@
 <Korean>아군이 반역자를 처단하였습니다.</Korean>
 <Japanese>あなたのチームが敵の協力者を排除しました。</Japanese>
 <Original>Your team killed the collaborateur.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_960">
 <English>Your team killed the drug dealer.</English>
@@ -4637,6 +4845,7 @@
 <Korean>60초</Korean>
 <Japanese>60 秒</Japanese>
 <Original>60 secs</Original>
+<Russian>60 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1013">
 <English>120 secs</English>
@@ -4645,6 +4854,7 @@
 <Korean>120초</Korean>
 <Japanese>120 秒</Japanese>
 <Original>120 secs</Original>
+<Russian>120 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1014">
 <English>180 secs</English>
@@ -4653,6 +4863,7 @@
 <Korean>180초</Korean>
 <Japanese>180 秒</Japanese>
 <Original>180 secs</Original>
+<Russian>180 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1015">
 <English>240 secs</English>
@@ -4661,6 +4872,7 @@
 <Korean>240초</Korean>
 <Japanese>240 秒</Japanese>
 <Original>240 secs</Original>
+<Russian>240 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1016">
 <English>300 secs</English>
@@ -4669,6 +4881,7 @@
 <Korean>300초</Korean>
 <Japanese>300 秒</Japanese>
 <Original>300 secs</Original>
+<Russian>300 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1017">
 <English>600 secs</English>
@@ -4677,6 +4890,7 @@
 <Korean>600초</Korean>
 <Japanese>600 秒</Japanese>
 <Original>600 secs</Original>
+<Russian>600 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1018">
 <English>1200 secs</English>
@@ -4685,6 +4899,7 @@
 <Korean>1200초</Korean>
 <Japanese>1200 秒</Japanese>
 <Original>1200 secs</Original>
+<Russian>1200 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1019">
 <English>Respawn possible after:</English>
@@ -4702,6 +4917,7 @@
 <Korean>5초</Korean>
 <Japanese>5 秒</Japanese>
 <Original>5 secs</Original>
+<Russian>5 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1020">
 <English>30 secs</English>
@@ -4710,6 +4926,7 @@
 <Korean>30초</Korean>
 <Japanese>30 秒</Japanese>
 <Original>30 secs</Original>
+<Russian>30 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1021">
 <English>90 secs</English>
@@ -4718,6 +4935,7 @@
 <Korean>90초</Korean>
 <Japanese>90 秒</Japanese>
 <Original>90 secs</Original>
+<Russian>90 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1023">
 <English>With AI recruitment:</English>
@@ -4726,6 +4944,7 @@
 <Korean>AI 모집</Korean>
 <Japanese>AI兵士募集:</Japanese>
 <Original>With AI recruitment:</Original>
+<Russian>С наёмом ИИ:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1024">
 <English>With AI features but no AI recruit:</English>
@@ -4734,6 +4953,8 @@
 <Korean>AI 기능만, AI 모집없음</Korean>
 <Japanese>AI機能あり,AI募集なし:</Japanese>
 <Original>With AI features but no AI recruit:</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1025">
 <English>Initial Viewdistance:</English>
@@ -4778,6 +4999,7 @@
 <Korean>기본 미션 종류</Korean>
 <Japanese>デフォルトのミッションタイプ</Japanese>
 <Original>Default Mission Type</Original>
+<Russian>Города и доп.задания</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1054">
 <English>Main Targets Only</English>
@@ -4795,6 +5017,7 @@
 <Korean>보조미션만</Korean>
 <Japanese>サイドミッションのみ</Japanese>
 <Original>Side Missions Only</Original>
+<Russian>Только допзадания, без городов</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1056">
 <English>Teleport or spawn at MHQ:</English>
@@ -4803,6 +5026,7 @@
 <Korean>MHQ에서 텔레포트 혹은 재투입 가능여부:</Korean>
 <Japanese>MHQでのテレポートまたは復活:</Japanese>
 <Original>Teleport or spawn at MHQ:</Original>
+<Russian>Телепорт или возраждение на КШМ:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1057">
 <English>Disable MHQ if less than x m away from MT:</English>
@@ -4874,6 +5098,7 @@
 <Korean>0분</Korean>
 <Japanese>0 分</Japanese>
 <Original>0 Minutes</Original>
+<Russian>0 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1078">
 <English>5 Minutes</English>
@@ -4882,6 +5107,7 @@
 <Korean>5분</Korean>
 <Japanese>5 分</Japanese>
 <Original>5 Minutes</Original>
+<Russian>5 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1079">
 <English>10 Minutes</English>
@@ -4890,6 +5116,7 @@
 <Korean>10분</Korean>
 <Japanese>10 分</Japanese>
 <Original>10 Minutes</Original>
+<Russian>10 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1080">
 <English>30 Minutes</English>
@@ -4898,6 +5125,7 @@
 <Korean>30분</Korean>
 <Japanese>30 分</Japanese>
 <Original>30 Minutes</Original>
+<Russian>30 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1081">
 <English>60 Minutes</English>
@@ -4906,6 +5134,7 @@
 <Korean>60분</Korean>
 <Japanese>60 分</Japanese>
 <Original>60 Minutes</Original>
+<Russian>60 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1082">
 <English>Lock armored enemy vecs:</English>
@@ -4941,6 +5170,7 @@
 <Korean>30분</Korean>
 <Japanese>30 分</Japanese>
 <Original>30 minutes</Original>
+<Russian>30 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1095">
 <English>60 minutes</English>
@@ -4949,6 +5179,7 @@
 <Korean>60분</Korean>
 <Japanese>60 分</Japanese>
 <Original>60 minutes</Original>
+<Russian>60 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1097">
 <English>No parachute jump flags:</English>
@@ -5011,6 +5242,7 @@
 <Korean>1분</Korean>
 <Japanese>1 分</Japanese>
 <Original>1 Minute</Original>
+<Russian>1 минута</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1107">
 <English>Air vecs autokick time:</English>
@@ -5019,6 +5251,7 @@
 <Korean>Air vecs autokick time:</Korean>
 <Japanese>航空機の自動キックまでの時間:</Japanese>
 <Original>Air vecs autokick time:</Original>
+<Russian>Время автокика из авиации:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1108">
 <English>HALO jump height:</English>
@@ -5162,6 +5395,7 @@
 <Korean>메인미션에 기갑장비 출연여부</Korean>
 <Japanese>メインターゲットの装甲車両:</Japanese>
 <Original>Armor at main targets:</Original>
+<Russian>Бронетехника в городах:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1133">
 <English>Less</English>
@@ -5170,6 +5404,7 @@
 <Korean>조금</Korean>
 <Japanese>少ない</Japanese>
 <Original>Less</Original>
+<Russian>без</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1137">
 <English>Infinite</English>
@@ -5178,6 +5413,7 @@
 <Korean>무한대</Korean>
 <Japanese>無限</Japanese>
 <Original>Infinite</Original>
+<Russian>Бесконечная</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1159">
 <English>Show player names:</English>
@@ -5195,6 +5431,7 @@
 <Korean>Default player name state:</Korean>
 <Japanese>デフォルトのプレーヤー名の状態：</Japanese>
 <Original>Default player name state:</Original>
+<Russian>Состояние имени игрока по-умолчанию:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1161">
 <English>Names</English>
@@ -5257,6 +5494,7 @@
 <Korean>90분</Korean>
 <Japanese>90 分</Japanese>
 <Original>90 minutes</Original>
+<Russian>90 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1172">
 <English>120 minutes</English>
@@ -5265,6 +5503,7 @@
 <Korean>120분</Korean>
 <Japanese>120 分</Japanese>
 <Original>120 minutes</Original>
+<Russian>120 минут</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1173">
 <English>Wreck max repairs:</English>
@@ -5273,6 +5512,7 @@
 <Korean>Wreck max repairs:</Korean>
 <Japanese>残骸修復のの最大値:</Japanese>
 <Original>Wreck max repairs:</Original>
+<Russian>Макс кол-во восстановлений приз. техники</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1174">
 <English>Grass:</English>
@@ -5281,6 +5521,7 @@
 <Korean>풀숲</Korean>
 <Japanese>草:</Japanese>
 <Original>Grass:</Original>
+<Russian>Трава:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1175">
 <English>Player can disable grass:</English>
@@ -5289,6 +5530,7 @@
 <Korean>플레이어가 풀효과 제거가능 여부</Korean>
 <Japanese>プレーヤーが草を無効にできる:</Japanese>
 <Original>Player can disable grass:</Original>
+<Russian>Игрок может отключить траву:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1176">
 <English>Recruit AI (max.):</English>
@@ -5297,6 +5539,7 @@
 <Korean>모집할수있는 최대 AI 수</Korean>
 <Japanese>AI募集 (最大):</Japanese>
 <Original>Recruit AI (max.):</Original>
+<Russian>Наём ИИ (кол-во макс.):</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1177">
 <English>Player marker:</English>
@@ -5305,6 +5548,7 @@
 <Korean>플레이어 표식:</Korean>
 <Japanese>プレイヤーマーカー:</Japanese>
 <Original>Player marker:</Original>
+<Russian>Отображение игрока на карте:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1178">
 <English>Name only</English>
@@ -5313,6 +5557,7 @@
 <Korean>Name only</Korean>
 <Japanese>名前のみ</Japanese>
 <Original>Name only</Original>
+<Russian>Только ник</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1179">
 <English>Marker only</English>
@@ -5321,6 +5566,7 @@
 <Korean>Marker only</Korean>
 <Japanese>マーカーのみ</Japanese>
 <Original>Marker only</Original>
+<Russian>Только маркер</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1186">
 <English>Air drop radius:</English>
@@ -5329,6 +5575,7 @@
 <Korean>공수지원 반경</Korean>
 <Japanese>空中投下の範囲:</Japanese>
 <Original>Air drop radius:</Original>
+<Russian>Радиус сброса поддержки:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1187">
 <English>Exact position</English>
@@ -5337,6 +5584,7 @@
 <Korean>정확한 위치</Korean>
 <Japanese>正確な位置</Japanese>
 <Original>Exact position</Original>
+<Russian>Точное место</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1188">
 <English>Airdrop max. dist:</English>
@@ -5345,6 +5593,7 @@
 <Korean>공수지원 최대 거리</Korean>
 <Japanese>空中投下の最大距離:</Japanese>
 <Original>Airdrop max. dist:</Original>
+<Russian>Макс расстояние при запросе поддержки:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1193">
 <English>Engineer full repair (old versions):</English>
@@ -5353,6 +5602,7 @@
 <Korean>Engineer full repair (old versions):</Korean>
 <Japanese>エンジニアが完全な修理をできる(旧バージョン):</Japanese>
 <Original>Engineer full repair (old versions):</Original>
+<Russian>Инженеры полностью чинят технику:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1194">
 <English>Negative TK points:</English>
@@ -5361,6 +5611,7 @@
 <Korean>Negative TK points:</Korean>
 <Japanese>チームキルのマイナスポイント:</Japanese>
 <Original>Negative TK points:</Original>
+<Russian>Отрицательные очки за тимкилл:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1195">
 <English>Engineer truck cargo capacity:</English>
@@ -5369,6 +5620,7 @@
 <Korean>Engineer truck cargo capacity:</Korean>
 <Japanese>エンジニアトラックの積載量:</Japanese>
 <Original>Engineer truck cargo capacity:</Original>
+<Russian>Вместимость инженерного транспорта:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1197">
 <English>Max number TKs for kick:</English>
@@ -5377,6 +5629,7 @@
 <Korean>Max number TKs for kick:</Korean>
 <Japanese>キックまでのチームキル許容量:</Japanese>
 <Original>Max number TKs for kick:</Original>
+<Russian>Макс кол-во тимкиллов и потом кик:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1198">
 <English>Disable</English>
@@ -5385,6 +5638,7 @@
 <Korean>비활성화</Korean>
 <Japanese>無効</Japanese>
 <Original>Disable</Original>
+<Russian>Выключено</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1199">
 <English>Kick players shooting at base:</English>
@@ -5393,6 +5647,7 @@
 <Korean>본부에서 사격시 킥 처리여부</Korean>
 <Japanese>キックまでの基地での発砲の許容量:</Japanese>
 <Original>Kick players shooting at base:</Original>
+<Russian>Кикать стреляющих игроков на базе:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1200">
 <English>2 Shots</English>
@@ -5401,6 +5656,7 @@
 <Korean>2발</Korean>
 <Japanese>2 発</Japanese>
 <Original>2 Shots</Original>
+<Russian>2 выстрела</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1201">
 <English>3 Shots</English>
@@ -5409,6 +5665,7 @@
 <Korean>3발</Korean>
 <Japanese>3 発</Japanese>
 <Original>3 Shots</Original>
+<Russian>3 выстрела</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1202">
 <English>5 Shots</English>
@@ -5417,6 +5674,7 @@
 <Korean>5발</Korean>
 <Japanese>5 発</Japanese>
 <Original>5 Shots</Original>
+<Russian>5 выстрела</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1203">
 <English>10 Shots</English>
@@ -5425,6 +5683,7 @@
 <Korean>10발</Korean>
 <Japanese>10 発</Japanese>
 <Original>10 Shots</Original>
+<Russian>10 выстрелов</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1204">
 <English>20 Shots</English>
@@ -5433,6 +5692,7 @@
 <Korean>20발</Korean>
 <Japanese>20 発</Japanese>
 <Original>20 Shots</Original>
+<Russian>20 выстрелов</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1205">
 <English>30 Shots</English>
@@ -5441,6 +5701,7 @@
 <Korean>30발</Korean>
 <Japanese>30 発</Japanese>
 <Original>30 Shots</Original>
+<Russian>30 выстрелов</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1206">
 <English>No kick</English>
@@ -5449,6 +5710,7 @@
 <Korean>킥 안함</Korean>
 <Japanese>キックしない</Japanese>
 <Original>No kick</Original>
+<Russian>Не кикать</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1208">
 <English>No teamkilling possible:</English>
@@ -5457,6 +5719,7 @@
 <Korean>No teamkilling possible:</Korean>
 <Japanese>チームキル不可能:</Japanese>
 <Original>No teamkilling possible:</Original>
+<Russian>Отключить возможность тимкилла:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1209">
 <English>No 3rd person:</English>
@@ -5465,6 +5728,7 @@
 <Korean>보병 3인칭 제한 여부</Korean>
 <Japanese>三人称視点無し:</Japanese>
 <Original>No 3rd person:</Original>
+<Russian>Вид от 3-го лица:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1213">
 <English>MT Tower Satchels only:</English>
@@ -5473,6 +5737,7 @@
 <Korean>메인미션 통신탑 sachels 파괴여부?</Korean>
 <Japanese>MTラジオタワーは爆薬でのみ破壊できる:</Japanese>
 <Original>MT Tower Satchels only:</Original>
+<Russian>Радиовышка взрывается только взрывчаткой:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1218">
 <English>Close</English>
@@ -5481,6 +5746,7 @@
 <Korean>닫기</Korean>
 <Japanese>Close</Japanese>
 <Original>Close</Original>
+<Russian>Закрыть</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1219">
 <English>ADMIN DIALOG</English>
@@ -5534,6 +5800,7 @@
 <Korean>팀킬전적 리셋</Korean>
 <Japanese>TKリセット</Japanese>
 <Original>Reset TKs</Original>
+<Russian>Очистить ТимКилл</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1225">
 <English>Kick player</English>
@@ -5569,6 +5836,7 @@
 <Korean>공수지원</Korean>
 <Japanese>サポートダイアログ</Japanese>
 <Original>SUPPORT DIALOG</Original>
+<Russian>МЕНЮ ПОДДЕРЖКИ</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1229">
 <English>Cancel</English>
@@ -5631,6 +5899,7 @@
 <Korean>AI 모집</Korean>
 <Japanese>AI募集ダイアログ</Japanese>
 <Original>AI RECRUIT DIALOG</Original>
+<Russian>МЕНЮ НАЁМА БОЙЦОВ ИИ</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1237">
 <English>Select unit to recruit:</English>
@@ -5639,6 +5908,7 @@
 <Korean>모병할 보직을 선택하십시오.</Korean>
 <Japanese>募集するユニットを選択:</Japanese>
 <Original>Select unit to recruit:</Original>
+<Russian>Выбрать бойца ИИ для найма:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1238">
 <English>Recruit</English>
@@ -5647,6 +5917,7 @@
 <Korean>모집</Korean>
 <Japanese>募集</Japanese>
 <Original>Recruit</Original>
+<Russian>Нанять</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1239">
 <English>Your current AI units:</English>
@@ -5655,6 +5926,7 @@
 <Korean>현재 운용중인 AI 수:</Korean>
 <Japanese>現在のAIユニット:</Japanese>
 <Original>Your current AI units:</Original>
+<Russian>Сейчас у Вас ИИ:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1240">
 <English>Dismiss</English>
@@ -5663,6 +5935,7 @@
 <Korean>해산</Korean>
 <Japanese>解雇</Japanese>
 <Original>Dismiss</Original>
+<Russian>Уволить</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1241">
 <English>Dismiss All</English>
@@ -5671,6 +5944,7 @@
 <Korean>전원 해산</Korean>
 <Japanese>全員を解雇</Japanese>
 <Original>Dismiss All</Original>
+<Russian>Уволить всех</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1242">
 <English>ARTILLERY DIALOG</English>
@@ -5679,6 +5953,7 @@
 <Korean>포격요청</Korean>
 <Japanese>砲兵ダイアログ</Japanese>
 <Original>ARTILLERY DIALOG</Original>
+<Russian>МЕНЮ АРТИЛЛЕРИИ</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1243">
 <English>Fire Series:</English>
@@ -5705,6 +5980,7 @@
 <Korean>포격 요청하기</Korean>
 <Japanese>砲撃要請!</Japanese>
 <Original>Request Artillery!</Original>
+<Russian>ЗАЛП!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1244a">
 <English>Not in range!</English>
@@ -5713,6 +5989,7 @@
 <Korean>사정거리 밖입니다!</Korean>
 <Japanese>範囲外です!</Japanese>
 <Original>Not in range!</Original>
+<Russian>Вне зоны!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1245">
 <English>Select Ordnance: </English>
@@ -5721,6 +5998,7 @@
 <Korean>탄약 종류 선택</Korean>
 <Japanese>弾種:</Japanese>
 <Original>Select Ordnance: </Original>
+<Russian>Выбор снарядов:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1250">
 <English>Teleport</English>
@@ -5783,6 +6061,7 @@
 <Korean>지면에 다다르면 낙하산을 펴 낙사하는 일이 없도록합시다.</Korean>
 <Japanese>!!!! パラシュートを開くのを忘れるな !!!!</Japanese>
 <Original>!!!! REMEMBER TO OPEN YOUR PARACHUTE !!!!</Original>
+<Russian>!!!! НЕ ЗАБУДЬ ОТКРЫТЬ ПАРАШЮТ !!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1272">
 <English>Capturing Camp</English>
@@ -5809,6 +6088,7 @@
 <Korean>숲과 풀 표시여부</Korean>
 <Japanese>下草のレイヤーを選択</Japanese>
 <Original>Select Gras Layer</Original>
+<Russian>Выбрать уровень травы</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1289">
 <English>Player Marker</English>
@@ -5853,6 +6133,7 @@
 <Korean>분대관리 창</Korean>
 <Japanese>グループ管理</Japanese>
 <Original>Squad Mgmt</Original>
+<Russian>Меню отд-я</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1302">
 <English>Settings</English>
@@ -5915,7 +6196,7 @@
 <Korean>첩보요원이 발견한 정보</Korean>
 <Japanese>発見した情報:</Japanese>
 <Original>Intel found:</Original>
-<Russian>Поиск устройства:</Russian>
+<Russian>Устройство найдено:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1311">
 <English>Points (Blufor : Opfor):</English>
@@ -5969,7 +6250,7 @@
 <Korean>감시탑 점령: </Korean>
 <Japanese>占領したキャンプ:</Japanese>
 <Original>Camps captured:</Original>
-<Russian>Бункеров захвачено:</Russian>
+<Russian>Блок-постов захвачено:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1317">
 <English>Lives left:</English>
@@ -6248,6 +6529,7 @@
 <Korean>효력사 %1발 발포, 착탄까지 %2초!</Korean>
 <Japanese>砲兵 第%1射発射、着弾まで%2秒...</Japanese>
 <Original>Artillery salvo %1 on the way, ETA %2 seconds...</Original>
+<Russian>Приблезительное Время Подлета Снаряда %2 секунд...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1354">
 <English>Artillery Splashdown, salvo %1</English>
@@ -6256,6 +6538,7 @@
 <Korean>효력사 %1 착탄!</Korean>
 <Japanese>第%1射 弾着...今!</Japanese>
 <Original>Artillery Splashdown, salvo %1</Original>
+<Russian>Артподготовка началась, кол-во залпов: %1.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1357">
 <English>%1 reloading...</English>
@@ -6264,6 +6547,7 @@
 <Korean>%1 재보급중...</Korean>
 <Japanese>%1 再装填中...</Japanese>
 <Original>%1 reloading...</Original>
+<Russian>%1 перезаряжается...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1358">
 <English>%1 fire series ended</English>
@@ -6272,6 +6556,7 @@
 <Korean>%1 포격종료</Korean>
 <Japanese>%1 砲撃終了</Japanese>
 <Original>%1 fire series ended</Original>
+<Russian>%1 стрельбу закончила!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1359">
 <English>%1 executing %2 strike, salvoes %3</English>
@@ -6280,6 +6565,7 @@
 <Korean>%1 %2 효력사 %3발 발포!</Korean>
 <Japanese>%1 弾種 %2,発射数 %3</Japanese>
 <Original>%1 executing %2 strike, salvoes %3</Original>
+<Russian>%1 готова произвести %2 удара, количество залпов %3</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1360">
 <English>%1 artillery observers spotted at main target. Be carefull...</English>
@@ -6288,6 +6574,7 @@
 <Korean>작전지역내에 %1명의 포병 감적수가 확인되었습니다.</Korean>
 <Japanese>メインターゲットで%1人の砲兵観測手を目撃。注意せよ...</Japanese>
 <Original>%1 artillery observers spotted at main target. Be carefull...</Original>
+<Russian>В городе есть %1 артнаводчика. Будьте осторожны...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1361">
 <English>Secondary Main Target Mission: %1</English>
@@ -6305,6 +6592,7 @@
 <Korean>현 지역내 모든 포병 감적수들이 무력화 되었습니다.</Korean>
 <Japanese>メインターゲットの砲兵観測手は全て無力化された</Japanese>
 <Original>All enemy artillery observers down at current main target</Original>
+<Russian>Все артнаводчики уничтожены в городе</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1363">
 <English>Radio tower spotted at main target. Destroy it so that the enemy can not call in airborne reinforcements.</English>
@@ -6313,6 +6601,7 @@
 <Korean>작전지역내에 통신탑이 발견되었습니다. 파괴하여 추가적인 증원요청을 막으십시오</Korean>
 <Japanese>メインターゲットにラジオタワーを発見。これを破壊し、敵の援軍要請を妨害しろ。</Japanese>
 <Original>Radio tower spotted at main target. Destroy it so that the enemy can not call in airborne reinforcements.</Original>
+<Russian>Обнаружена радиовышка в городе. Уничтожьте ее и противник не сможет вызывать подкрепления!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1364">
 <English>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</English>
@@ -6321,6 +6610,7 @@
 <Korean>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Korean>
 <Japanese>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Japanese>
 <Original>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Original>
+<Russian>Радиовышка уничтожена. Теперь противник не может вызывать подкрепления и десант!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1365">
 <English>%1 enemy camps sighted at main target... capture them all!!!</English>
@@ -6329,6 +6619,7 @@
 <Korean>작전지역내 %1개의 감시탑이 발견되었습니다. 모두 점령하십시오</Korean>
 <Japanese>メインターゲットに%1か所のキャンプを発見...すべて占領しろ!!!</Japanese>
 <Original>%1 enemy camps sighted at main target... capture them all!!!</Original>
+<Russian>Обнаружено %1 блок-поста противника... захватите их все!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1366">
 <English>The enemy has spotted you at main target... They will now call in reinforcements!!!</English>
@@ -6337,6 +6628,7 @@
 <Korean>적이 당신의 위치를 파악했습니다. 곧 적 증원이 급파됩니다!</Korean>
 <Japanese>メインターゲットで敵に発見された...敵が増援を要請!!!</Japanese>
 <Original>The enemy has spotted you at main target... They will now call in reinforcements!!!</Original>
+<Russian>Противник обнаружил Вас и вызвал подкрепление!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1367">
 <English>The enemy has spotted one of the teams at main target... They will now call in reinforcements!!!</English>
@@ -6345,6 +6637,7 @@
 <Korean>적이 아군의 위치를 파악했습니다. 곧 적이 증원을 요청합니다.</Korean>
 <Japanese>メインターゲットで味方チームが敵に発見された...敵が増援を要請!!!</Japanese>
 <Original>The enemy has spotted one of the teams at main target... They will now call in reinforcements!!!</Original>
+<Russian>Противник обнаружил одну из сторон атаки и вызвал подкрепление!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1368">
 <English>All side missions resolved!</English>
@@ -6362,6 +6655,7 @@
 <Korean>항공수송기로 %1이(가) 수송중에 있습니다.</Korean>
 <Japanese>%1を空輸中</Japanese>
 <Original>%1 gets transported by airlift</Original>
+<Russian>%1 транспортируется вертолетом</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1373">
 <English>%1 is available again !!! Don't forget to deploy the MHQ!!!!!</English>
@@ -6379,6 +6673,7 @@
 <Korean>감시탑이 BLUFOR에게 점령당하였습니다.</Korean>
 <Japanese>キャンプをBluforが占領した!</Japanese>
 <Original>Camp captured by Blufor troops!</Original>
+<Russian>Блок-пост захвачен командой Синих!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1380">
 <English>Camp captured by Independent troops!</English>
@@ -6387,6 +6682,7 @@
 <Korean>감시탑이 Independent에게 점령당하였습니다.</Korean>
 <Japanese>キャンプを独立軍が占領した!</Japanese>
 <Original>Camp captured by Independent troops!</Original>
+<Russian>Блок-пост захвачен противником!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1381">
 <English>New flag for parajump created at current target.</English>
@@ -6395,6 +6691,7 @@
 <Korean>해당지역에 공수낙하용 깃대가 세워졌습니다.</Korean>
 <Japanese>現在のターゲットにパラジャンプ用の旗が立てられた。</Japanese>
 <Original>New flag for parajump created at current target.</Original>
+<Russian>Флаг для десантирования создан в городе.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1383">
 <English>New vehicle create flag created at current target.</English>
@@ -6403,6 +6700,8 @@
 <Korean>해당지역에 차량소환용 깃대가 세워졌습니다.</Korean>
 <Japanese>現在のターゲットに車両作成用の旗が立てられた。</Japanese>
 <Original>New vehicle create flag created at current target.</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1384">
 <English>The %1 team solved the main target mission and gets %2 points.</English>
@@ -6411,6 +6710,7 @@
 <Korean>%1 팀이 메인미션을 완수하였기에 %2 포인트를 얻었습니다.</Korean>
 <Japanese>%1チームはメインターゲットを攻略。%2ポイントを獲得</Japanese>
 <Original>The %1 team solved the main target mission and gets %2 points.</Original>
+<Russian>Команда %1 захватила город и получает % очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1385">
 <English>The %1 team destroyed the main target radio tower and gets %2 points.</English>
@@ -6419,6 +6719,7 @@
 <Korean>%1팀이 메인미션의 통신탑을 파괴하였기에 %2을 얻었습니다.</Korean>
 <Japanese>%1チームはメインターゲットのラジオタワーを破壊。%2ポイントを獲得</Japanese>
 <Original>The %1 team destroyed the main target radio tower and gets %2 points.</Original>
+<Russian>Команда %1 уничтожила антенну в городе и получает % очков.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1389">
 <English>Various airborne enemy troops are heading to the main target, be prepared...</English>
@@ -6427,6 +6728,7 @@
 <Korean>적의 공수부대가 작전지역으로 오고있다합니다. 교전을 준비하십시오.</Korean>
 <Japanese>敵の空挺部隊がメインターゲットに向かっている。交戦に備えよ...</Japanese>
 <Original>Various airborne enemy troops are heading to the main target, be prepared...</Original>
+<Russian>Десант проитивника высаживается в районе главной цели, внимание...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1390">
 <English>Enemy fighters are on the way to the main target, attention...</English>
@@ -6435,6 +6737,7 @@
 <Korean>적의 전투기가 작전지역으로 오고있습니다. 주의하십시오.</Korean>
 <Japanese>敵航空機がメインターゲットに向かっている。注意しろ...</Japanese>
 <Original>Enemy fighters are on the way to the main target, attention...</Original>
+<Russian>Подразделения противника направляются в сторону главной цели, внимание...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1391">
 <English>Enemy attack choppers are on the way to the main target, attention...</English>
@@ -6443,6 +6746,7 @@
 <Korean>_적의 공격헬기가 작전지역으로 오고있습니다. 주의하십시오.</Korean>
 <Japanese>敵攻撃ヘリコプターがメインターゲットに向かっている。注意しろ...</Japanese>
 <Original>Enemy attack choppers are on the way to the main target, attention...</Original>
+<Russian>Боевой вертолет противника направляется в сторону главной цели, внимание...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1392">
 <English>Light enemy support choppers are on the way to the main target, attention...</English>
@@ -6451,6 +6755,7 @@
 <Korean>적의 지원헬기가 작전지역으로 오고있습니다. 주의하십시오.</Korean>
 <Japanese>敵軽ヘリコプターがメインターゲットに向かっている。注意しろ...</Japanese>
 <Original>Light enemy support choppers are on the way to the main target, attention...</Original>
+<Russian>Вертолет поддержки противника направляется в сторону главной цели, внимание...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1399">
 <English>Sidemission: Enemy troops will arrive in less than %1 minutes at the crash site...</English>
@@ -6459,6 +6764,7 @@
 <Korean>보조미션: 추락지점까지 적이 %1 분안에 도착합니다.</Korean>
 <Japanese>サイドミッション: 敵軍は%1分以内に事故地点に到着します...</Japanese>
 <Original>Sidemission: Enemy troops will arrive in less than %1 minutes at the crash site...</Original>
+<Russian>Допзадание: Внимание!!! Противник прибудет на точку меньше чем через %1 минут...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1400">
 <English>Sidemission: ATTENTION!!! Enemy troops will arrive in less than 2 minutes at the crash site...</English>
@@ -6467,6 +6773,7 @@
 <Korean>경고! 추락지점까지 적이 2분내로 도착합니다.</Korean>
 <Japanese>サイドミッション: 注意!!!敵軍は2分以内に事故地点に到着します...</Japanese>
 <Original>Sidemission: ATTENTION!!! Enemy troops will arrive in less than 2 minutes at the crash site...</Original>
+<Russian>Допзадание: Внимание!!! Противник прибудет на точку меньше чем через 2 минуты...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1401">
 <English>Rebuilding %1 at %2, this will take some time...</English>
@@ -6475,6 +6782,7 @@
 <Korean>%1를 %2에서 다시 짓는중, 시간이 걸립니다.</Korean>
 <Japanese>%2で%1を再構築していますが、これには時間がかかります...</Japanese>
 <Original>Rebuilding %1 at %2, this will take some time...</Original>
+<Russian>Восстановление %1 игроком %2, это займет время...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1402">
 <English>%1 ready at %2</English>
@@ -6483,6 +6791,7 @@
 <Korean>%1이(가) %2에 준비되어있습니다.</Korean>
 <Japanese>%1は%2で準備完了</Japanese>
 <Original>%1 ready at %2</Original>
+<Russian>%1 восстановлено игроком %2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1403">
 <English>Enemy troops in your base.</English>
@@ -6500,6 +6809,7 @@
 <Korean>교차로, 좌표 %3에 %1 효력사 %2발 요청. 이상!</Korean>
 <Japanese>Crossroadへ砲撃要請、座標 %3 ,弾種 %1, 発射数%2!</Japanese>
 <Original>Crossroad, requesting %1 strike. %2 salvoes at grid %3!</Original>
+<Russian>Кроссроад, запрашиваем %1 удар. %2 залпа по координатам %3!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1407">
 <English>Camp captured by Opfor troops!</English>
@@ -6535,6 +6845,7 @@
 <Korean>3인칭은 장비안에서만 가능합니다.</Korean>
 <Japanese>車外では三人称視点は利用できません</Japanese>
 <Original>3rd person view not available outside vehicles</Original>
+<Russian>Обзор от 3-го лица вне техники недоступен</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1411">
 <English>Maximum number ammo boxes (%1) already loaded... Please pick up a dropped box...</English>
@@ -6543,6 +6854,7 @@
 <Korean>탄약상자 생성수 (%1)에 도달하였습니다. 이용하고있는 탄약상자를 재사용하십시오.</Korean>
 <Japanese>弾薬箱の最大数（%1）が既にロードされています...投下された弾薬箱を拾い上げてください...</Japanese>
 <Original>Maximum number ammo boxes (%1) already loaded... Please pick up a dropped box...</Original>
+<Russian>Достигнуто максимальное количество ящиков на карте...соберите брошенные ящики...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1412">
 <English>Loading ammobox... please wait, don't move...</English>
@@ -6578,6 +6890,7 @@
 <Korean>비행할 자격이 없습니다. %1 사수석이나 지휘석에 탑승하십시오 \n\n %2분뒤에 자격조건이 충족됩니다.</Korean>
 <Japanese>飛行する資格がありません。%1の砲手席や指揮官席に搭乗してください\n\n%2分後に資格条件が満たされます。</Japanese>
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou will be qualified in about %2 minute(s).</Original>
+<Russian>Вашего опыта не хватает для того, чтобы летать. Побудьте пока стрелком или командиром %1. \n\nВозможно вы сможете летать через %2 минут.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1417">
 <English>Only pilots can fly (you need a pilot uniform and pilot headgear)</English>
@@ -6586,7 +6899,7 @@
 <Korean>오직 조종사만 비행할 수 있습니다.(헬기복과 헬기헬멧이 필요합니다)</Korean>
 <Japanese>パイロットだけが航空機を飛ばすことができます （パイロットユニフォームとパイロットヘッドギアが必要です）</Japanese>
 <Original>Only pilots can fly (you need a pilot uniform and pilot headgear)</Original>
-<Russian>Только пилоты могут летать (Вы должны быть в униформе пилота и с авиашлемом)</Russian>
+<Russian>Только пилоты могут летать (нужны шлем и костюм пилота)</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1418">
 <English>Unlock Vehicle</English>
@@ -6595,7 +6908,7 @@
 <Korean>차량해금</Korean>
 <Japanese>車両のロックを解除</Japanese>
 <Original>Unlock Vehicle</Original>
-<Russian>Открыть технику</Russian>
+<Russian>Открыть транспорт</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1419">
 <English>Lock Vehicle</English>
@@ -6604,7 +6917,7 @@
 <Korean>차량잠금</Korean>
 <Japanese>車両をロック</Japanese>
 <Original>Lock Vehicle</Original>
-<Russian>Закрыть технику</Russian>
+<Russian>Закрыть транспорт</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1420">
 <English>Admin Spectate</English>
@@ -6613,7 +6926,7 @@
 <Korean>관리자 관측모드</Korean>
 <Japanese>管理者用観戦モード</Japanese>
 <Original>Admin Spectate</Original>
-<Russian>Админ спектатр</Russian>
+<Russian>Админ-спектатр</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1424">
 <English>You can't call an air taxi. You need %2 points for that, your score is %1!</English>
@@ -6622,6 +6935,7 @@
 <Korean>후송헬기를 부를 수 없습니다. 요청하는데 %2 포인트가 필요하고, 현재 %1 포인트를 가지고있습니다.</Korean>
 <Japanese>搬送ヘリコプターは呼べません. %2ポイントが必要です, 現在のスコア%1</Japanese>
 <Original>You can't call an air taxi. You need %2 points for that, your score is %1!</Original>
+<Russian>Вы не можете вызвать эвакуацию. Вам нужны %2 очков, а у Вас %1!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1426">
 <English>Attention!\nThis is a reserved member slot.\nYou'll get kicked automatically in a few seconds!\nPlease select another slot!</English>
@@ -6630,6 +6944,7 @@
 <Korean>경고!\n그룹원 전용 슬랏입니다.\n곧 자동으로 킥처리되오니\n조속히 다른 슬랏으로 이동해주십시오.</Korean>
 <Japanese>注意！\nこれは予約されたメンバースロットです。\nあなたは数秒で自動的にキックされます!\n別のスロットを選択してください!</Japanese>
 <Original>Attention!\nThis is a reserved member slot.\nYou'll get kicked automatically in a few seconds!\nPlease select another slot!</Original>
+<Russian>Внимание!\nЭто резервный слот. \n Вас кикнет автоматически через 5 секунд!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1428">
 <English>Ammo box drop only possible from the pilot seat!</English>
@@ -6638,6 +6953,7 @@
 <Korean>탄약상자는 오직 조종석에서만 내릴수 있습니다.</Korean>
 <Japanese>弾薬箱は操縦席からのみ投下できます!</Japanese>
 <Original>Ammo box drop only possible from the pilot seat!</Original>
+<Russian>Ящик можно выгрузить только сидя за пилота!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1434">
 <English>Domination action menus are available when you press the Teamswitch key (%1)!!!</English>
@@ -6664,6 +6980,7 @@
 <Korean>Cursor target</Korean>
 <Japanese>照準時</Japanese>
 <Original>Cursor target</Original>
+<Russian>Курсор</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1448">
 <English>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</English>
@@ -6672,6 +6989,7 @@
 <Korean>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Korean>
 <Japanese>ついに、敵の砲兵基地を発見した。 すべての長距離砲を破壊することができれば、メインターゲットの砲兵観測手はもう砲撃を呼べなくなるだろう。。</Japanese>
 <Original>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
+<Russian>Так же мы обнаружили арт.дивизион противника.Если вы уничтожите все орудия и артнаводчиков, то противник не сможет больше вызывать арт.удар.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1451">
 <English>No MHQ found or destroyed</English>
@@ -6680,6 +6998,7 @@
 <Korean>MHQ가 파괴되었거나 없습니다.</Korean>
 <Japanese>MHQが見つからないか破壊されています。</Japanese>
 <Original>No MHQ found or destroyed</Original>
+<Russian>КШМ не найдена или уничтожена</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1453">
 <English>Air taxi available again!</English>
@@ -6688,6 +7007,7 @@
 <Korean>후송헬기 대기중</Korean>
 <Japanese>搬送ヘリコプター待機中!</Japanese>
 <Original>Air taxi available again!</Original>
+<Russian>Эвакуация снова доступна!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1457">
 <English>Remove Fist Aid Kits:</English>
@@ -6732,6 +7052,7 @@
 <Korean>Kore 인근에 적의 공장이 발견되었습니다. 기름탱크를 파괴하여 추가적인 장비건설을 막으십시오.</Korean>
 <Japanese>Koreの近くに敵の工場がある。 燃料貯蔵タンクを破壊して新しい車両を作る可能性を減らせ。</Japanese>
 <Original>There is an enemy factory near Kore. Destroy the fuel storage tank to cut down their possibilities to build new vehicles.</Original>
+<Russian>Обнаружен завод по производтсву бронетехники. Уничтожьте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1500">
 <English>Good job. The fuel tank is destroyed.</English>
@@ -6740,6 +7061,7 @@
 <Korean>기름탱크가 파괴되었습니다.</Korean>
 <Japanese>よくやった。 燃料タンクは破壊された。</Japanese>
 <Original>Good job. The fuel tank is destroyed.</Original>
+<Russian>Отлично! Топливохранилище уничтожено.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1501">
 <English>There is an enemy boat factory near Iremi Bay. Destroy the building to cut down their possibilities to build new Boats.</English>
@@ -6748,6 +7070,7 @@
 <Korean>There is an enemy boat factory near Iremi Bay. Destroy the building to cut down their possibilities to build new Boats.</Korean>
 <Japanese>Iremi湾の近くに敵の造船所がある。これを破壊して新たな船が作られる可能性を減らせ。</Japanese>
 <Original>There is an enemy boat factory near Iremi Bay. Destroy the building to cut down their possibilities to build new Boats.</Original>
+<Russian>Обнаружен завод по производству лодок. Уничтожьте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1502">
 <English>Good job. The boat factory is destroyed.</English>
@@ -6756,6 +7079,7 @@
 <Korean>Good job. The boat factory is destroyed.</Korean>
 <Japanese>よくやった。造船所は破壊された。</Japanese>
 <Original>Good job. The boat factory is destroyed.</Original>
+<Russian>Отличная работа! Завод разрушен.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1505">
 <English>Remove Chemlight</English>
@@ -6764,6 +7088,7 @@
 <Korean>Chemlight 빼기</Korean>
 <Japanese>Chemlightを外す</Japanese>
 <Original>Remove Chemlight</Original>
+<Russian>Удалить химсвет</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1506">
 <English>Attach %1</English>
@@ -6772,6 +7097,7 @@
 <Korean>%1 장착</Korean>
 <Japanese>%1を装着</Japanese>
 <Original>Attach %1</Original>
+<Russian>Прицепить %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1510">
 <English>Repair/Refuel Vehicle</English>
@@ -6798,6 +7124,7 @@
 <Korean>%1PRESS %2[스페이스]%3 나가기, %2[N]%3열상변경%4</Korean>
 <Japanese>%1 %2[SPACE]%3 を押して終了, %2[N]%3 を押してTIモードを切り替える%4</Japanese>
 <Original>%1PRESS %2[SPACE]%3 TO EXIT, %2[N]%3 TO CHANGE TI MODE%4</Original>
+<Russian>%1 нажмите %2[SPACE]%3 для выхода, %2[N]]%3 для смены режима ТВП%4</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1513">
 <English>SATELLITE VIEW DIALOG</English>
@@ -6824,6 +7151,7 @@
 <Korean>관측위치: </Korean>
 <Japanese>観測位置：</Japanese>
 <Original>Watching position:</Original>
+<Russian>Позиция наблюдения:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1516">
 <English>SQUAD MANAGEMENT</English>
@@ -6841,6 +7169,7 @@
 <Korean>유저 마커 지우기</Korean>
 <Japanese>ユーザーマーカーを削除</Japanese>
 <Original>Remove User Marker</Original>
+<Russian>Удалить маркер игрока</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1518">
 <English>Rem Disc User Marker</English>
@@ -6849,6 +7178,8 @@
 <Korean>디스크 유저 마커 지우기</Korean>
 <Japanese>Rem Disc User Marker</Japanese>
 <Original>Rem Disc User Marker</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1519">
 <English>No artillery vehicles available, artillery aborted!!!</English>
@@ -6857,6 +7188,7 @@
 <Korean>포병차량이 가능치않습니다. 포병 후퇴!</Korean>
 <Japanese>砲兵車両は利用できない、砲兵支援は打ち切られた！</Japanese>
 <Original>No artillery vehicles available, artillery aborted!!!</Original>
+<Russian>Нет артиллерийский орудий, АртУдар недоступен!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1520">
 <English>Mark Artillery Target</English>
@@ -6865,6 +7197,7 @@
 <Korean>포격목표물 위치에 표시하기</Korean>
 <Japanese>砲撃目標を設定</Japanese>
 <Original>Mark Artillery Target</Original>
+<Russian>Отметить цель</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1522">
 <English>%1 has requested an artillery strike!</English>
@@ -6873,6 +7206,7 @@
 <Korean>%1이(가) 포격요청을 하였습니다.</Korean>
 <Japanese>%1 が砲撃要請</Japanese>
 <Original>%1 has requested an artillery strike!</Original>
+<Russian>%1 запросил АртУдар!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1523">
 <English>Artillery Target marked, grid %1</English>
@@ -6881,6 +7215,7 @@
 <Korean>포격위치 표기, 좌표 %1!</Korean>
 <Japanese>砲撃目標マーク,グリッド %1</Japanese>
 <Original>Artillery Target marked, grid %1</Original>
+<Russian>АртУдар по маркеру, координаты %1:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1524">
 <English>Request Artillery Dialog</English>
@@ -6907,6 +7242,7 @@
 <Korean>요청인</Korean>
 <Japanese>要請位置:</Japanese>
 <Original>Request from:</Original>
+<Russian>Запрос от:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1527">
 <English>Request type:</English>
@@ -6915,6 +7251,7 @@
 <Korean>요청 종류</Korean>
 <Japanese>要請種類:</Japanese>
 <Original>Request type:</Original>
+<Russian>Тип:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1528">
 <English>Request salvoes:</English>
@@ -6923,6 +7260,7 @@
 <Korean>요청 효력사 수:</Korean>
 <Japanese>要請数:</Japanese>
 <Original>Request salvoes:</Original>
+<Russian>Залпы:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1529">
 <English>Lasertarget to close! Marking artillery target or calling CAS not possible!</English>
@@ -6940,6 +7278,7 @@
 <Korean>Refresh Target List</Korean>
 <Japanese>ターゲットリストを更新</Japanese>
 <Original>Refresh Target List</Original>
+<Russian>Обновление списка задач</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1532">
 <English>Click here to show player pos</English>
@@ -6948,7 +7287,7 @@
 <Korean>여기를 클릭하여 플레이어의 위치를 보십시오.</Korean>
 <Japanese>ここを押してプレーヤーの位置を表示</Japanese>
 <Original>Click here to show player pos</Original>
-<Russian>Нажмите тут для самообнаружения</Russian>
+<Russian>Клик на карте для самообнаружения</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1533">
 <English>Time Multiplier (1 real second = x ingame seconds):</English>
@@ -6975,6 +7314,7 @@
 <Korean>Molos 숲속에 숨어있는 저격수를 생포하십시오. 그는 무고한 시민을 사살하여 수배중입니다. 추가적인 정찰 병력이 있을 수 있으니 주의하십시오.</Korean>
 <Japanese>Molosの近くの森の中のスナイパーを見つけて捕まえろ。彼は罪のない市民を射殺して手配中だ。この地域では敵のパトロールが行われている、注意しろ。</Japanese>
 <Original>Find and Capture the sniper in the forest near Molos, he is wanted for killing innocent civilians. Don't spook him as he will run. Beware there are enemy patrols in the area.</Original>
+<Russian>Найдите и захватите в плен снайпера в лесах рядом с Молосом.Не дайте ему сбежать! Помните о патрулях противника в районе поиска!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1549">
 <English>Well Done, now we can put him on trial for his crimes</English>
@@ -6983,6 +7323,7 @@
 <Korean>수고하셨습니다. 그는 곧 심판을 통해 죗값을 치루게 될것입니다.</Korean>
 <Japanese>よくやった。彼は裁判で罪が問われるだろう</Japanese>
 <Original>Well Done, now we can put him on trial for his crimes</Original>
+<Russian>Хорошо, теперь мы можем подвергнуть его суду за его преступления</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1551">
 <English>Good job. You got the APC.</English>
@@ -6991,6 +7332,7 @@
 <Korean>Good job. You got the APC.</Korean>
 <Japanese>Good job. You got the APC.</Japanese>
 <Original>Good job. You got the APC.</Original>
+<Russian>Отличная работа! БТР уничтожен.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1564">
 <English>Your rank %1 does not allow you to take a %2. Aborted! Check your magazines!</English>
@@ -7008,6 +7350,7 @@
 <Korean>오직 플레이어만 AI를 모집할 수 있습니다.</Korean>
 <Japanese>プレーヤーだけAIを募集することができます。</Japanese>
 <Original>Only players can recruit AI!</Original>
+<Russian>Только игроки могут нанимать ИИ!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1566">
 <English>Abandoned %1</English>
@@ -7016,6 +7359,7 @@
 <Korean>Abandoned %1 버려진 %1</Korean>
 <Japanese>Abandoned %1</Japanese>
 <Original>Abandoned %1</Original>
+<Russian>%1 оставлена</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1567">
 <English>With revive spectating:</English>
@@ -7186,6 +7530,7 @@
 <Korean>보조미션 차량</Korean>
 <Japanese>Sidemission Vehicle</Japanese>
 <Original>Sidemission Vehicle</Original>
+<Russian>Транспорт доп.задания.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1585">
 <English>Virtual Arsenal</English>
@@ -7203,6 +7548,7 @@
 <Korean>There are some special operations boats in a bay near Pacamac that enemy SF forces use for secret missions. Find them and destroy them.</Korean>
 <Japanese>特殊部隊の使っているボートがPacamac近くにある。敵特殊部隊が秘密任務に使っているようだ。探して破壊しろ。</Japanese>
 <Original>There are some special operations boats in a bay near Pacamac that enemy SF forces use for secret missions. Find them and destroy them.</Original>
+<Russian>Обнаружен причал с лодками для спец операций рядом с г.Пакамак. Противник использует их для проведения секретных миссий. Найдите и уничтожьте лодки!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1604">
 <English>Good job. The boats are down.</English>
@@ -7211,7 +7557,7 @@
 <Korean>Good job. The boats are down.</Korean>
 <Japanese>ボートは破壊された。よくやった。</Japanese>
 <Original>Good job. The boats are down.</Original>
-<Russian>Отличная работа. Лодка уничтожена!</Russian>
+<Russian>Отличная работа. Лодки уничтожены!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1612">
 <English>An enemy scientist is experimenting with volcano technology on Monte Asharah. We don't know yet what it's all about but it is better that he doesn't progress. Eliminate him!</English>
@@ -7220,6 +7566,7 @@
 <Korean>An enemy scientist is experimenting with volcano technology on Monte Asharah. We don't know yet what it's all about but it is better that he doesn't progress. Eliminate him!</Korean>
 <Japanese>敵の科学者がMonte Asharahで火山技術の実験をしている。内容のすべてはまだわからないがやめさせるべきだと判断された。彼を排除しろ!</Japanese>
 <Original>An enemy scientist is experimenting with volcano technology on Monte Asharah. We don't know yet what it's all about but it is better that he doesn't progress. Eliminate him!</Original>
+<Russian>Некий ученый проводит испытания технологий связанных с извержением вулканов у горы Монте Ашарах. Мы не хотим, чтобы технилогии развивались далее. Ликвидируйте ученого!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1613">
 <English>The enemy scientist is dead. Good job.</English>
@@ -7228,6 +7575,7 @@
 <Korean>The enemy scientist is dead. Good job.</Korean>
 <Japanese>科学者の死亡を確認。よくやった。</Japanese>
 <Original>The enemy scientist is dead. Good job.</Original>
+<Russian>Ученый ликвидирован! Отличная работа!.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1627">
 <English>The enemy support uses the bridges in Dolores to move stuff to the frontline. It is your job to destroy all three bridges there.</English>
@@ -7236,6 +7584,7 @@
 <Korean>The enemy support uses the bridges in Dolores to move stuff to the frontline. It is your job to destroy all three bridges there.</Korean>
 <Japanese>敵の補給部隊は、Doloresの橋を使って物資を前線に運ぶ。 そこにある3つの橋をすべて破壊するのが今回の任務だ。</Japanese>
 <Original>The enemy support uses the bridges in Dolores to move stuff to the frontline. It is your job to destroy all three bridges there.</Original>
+<Russian>Проивник использует мосты у г. Долорес для переброски войск к линии фронта. Ваша задача уничтожить все три моста.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1628">
 <English>Good job. The bridges are down.</English>
@@ -7244,6 +7593,7 @@
 <Korean>Good job. The bridges are down.</Korean>
 <Japanese>よくやった。橋は落とされた。</Japanese>
 <Original>Good job. The bridges are down.</Original>
+<Russian>Отлично! Мосты уничтожены!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1630">
 <English>The enemy has all its gold in a bank in Bagango. Destroy the building so that they can't pay their weapon shipments anymore.</English>
@@ -7252,6 +7602,7 @@
 <Korean>The enemy has all its gold in a bank in Bagango. Destroy the building so that they can't pay their weapon shipments anymore.</Korean>
 <Japanese>敵はBagangoにある銀行にすべての金を預けている。 建物を破壊して、これ以上兵器の輸入をできないようにしろ。</Japanese>
 <Original>The enemy has all its gold in a bank in Bagango. Destroy the building so that they can't pay their weapon shipments anymore.</Original>
+<Russian>Противник хранит свои золотые запасы в банке в г. Баганго. Уничтожьте здание, чтобы враг не смог больше покупать оружие.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1631">
 <English>Good job. The bank building is down.</English>
@@ -7260,6 +7611,7 @@
 <Korean>Good job. The bank building is down.</Korean>
 <Japanese>よくやった。銀行は破壊された。</Japanese>
 <Original>Good job. The bank building is down.</Original>
+<Russian>Отличная работа! Здание банка уничтожено!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1632">
 <English>The enemy is producing ball bearings in a factory near Paraiso. Destroy the two main buildings to stop the production.</English>
@@ -7268,6 +7620,7 @@
 <Korean>The enemy is producing ball bearings in a factory near Paraiso. Destroy the two main buildings to stop the production.</Korean>
 <Japanese>敵はParaiso付近の工場でボールベアリングを生産している。 2つの主要建物を破壊して生産を停止させろ。</Japanese>
 <Original>The enemy is producing ball bearings in a factory near Paraiso. Destroy the two main buildings to stop the production.</Original>
+<Russian>Обнаружена завод противника по производству военного снаряжения. Ваша задача уничтожить два главных здания!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1633">
 <English>The enemy is producing ammunition in a factory near Somato. Destroy the hall and the chimney to stop the production.</English>
@@ -7276,6 +7629,7 @@
 <Korean>The enemy is producing ammunition in a factory near Somato. Destroy the hall and the chimney to stop the production.</Korean>
 <Japanese>敵はSomato付近の工場で弾薬を生産している。 ホールと煙突を破壊して生産を停止させろ。</Japanese>
 <Original>The enemy is producing ammunition in a factory near Somato. Destroy the hall and the chimney to stop the production.</Original>
+<Russian>Обнаружена фабрика противника по производству военного снаряжения. Ваша задача уничтожить ее!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1636">
 <English>The king of Sedia is on vacation in a hotel near Vallejo. He is a good friend of the enemy leaders. Eliminate him!</English>
@@ -7284,6 +7638,7 @@
 <Korean>The king of Sedia is on vacation in a hotel near Vallejo. He is a good friend of the enemy leaders. Eliminate him!</Korean>
 <Japanese>Sediaの王がVallejo付近のホテルで休暇中だ。彼は敵軍リーダーの親しい友人のようだ。彼を排除しろ!</Japanese>
 <Original>The king of Sedia is on vacation in a hotel near Vallejo. He is a good friend of the enemy leaders. Eliminate him!</Original>
+<Russian>Король Седии отдыхает в отеле недалеко. Он хороший друг наших врагов. Ликвидируйте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1637">
 <English>The king of Sedia is dead. Good job.</English>
@@ -7292,6 +7647,7 @@
 <Korean>The king of Sedia is dead. Good job.</Korean>
 <Japanese>Sediaの王は死んだ。よくやった。</Japanese>
 <Original>The king of Sedia is dead. Good job.</Original>
+<Russian>Король Седии ликвидирован! Отличная работа!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1644">
 <English>Base Flag</English>
@@ -7309,6 +7665,7 @@
 <Korean>Attention!!! You are using a NVG scope which is not allowed.\n\nRemoving it now, please choose another scope!</Korean>
 <Japanese>注意!!!ナイトビジョンスコープは許可されていません。\n\nスコープを削除しました。ほかのスコープを使ってください!!</Japanese>
 <Original>Attention!!! You are using a NVG scope which is not allowed.\n\nRemoving it now, please choose another scope!</Original>
+<Russian>Внимание! Вы используете ПНВ прицел, который не разрешен\n\nОн удален, выберите другой прицел!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1646">
 <English>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</English>
@@ -7317,6 +7674,7 @@
 <Korean>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</Korean>
 <Japanese>注意!!!サーマルイメージスコープは許可されていません。\n\nスコープを削除しました。ほかのスコープを使ってください!!</Japanese>
 <Original>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</Original>
+<Russian>Внимание! Вы используете ТВП прицел, который не разрешен\n\nОн удален, выберите другой прицел!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1647">
 <English>You are approaching the enemy team area... Turn around immediately!!!!!!!</English>
@@ -7325,6 +7683,7 @@
 <Korean>You are approaching the enemy team area... Turn around immediately!!!!!!!</Korean>
 <Japanese>敵チームのエリアに近づいています...今すぐ戻ってください!!!!!!</Japanese>
 <Original>You are approaching the enemy team area... Turn around immediately!!!!!!!</Original>
+<Russian>Вы на запретной территории другой команды! Покиньте ее немедленно!!!!!!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1648">
 <English>Air Drop %1</English>
@@ -7333,6 +7692,7 @@
 <Korean>Air Drop %1</Korean>
 <Japanese>%1 投下</Japanese>
 <Original>Air Drop %1</Original>
+<Russian>Cброс %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1649">
 <English>No Targets</English>
@@ -7341,6 +7701,7 @@
 <Korean>No Targets</Korean>
 <Japanese>ターゲット無し</Japanese>
 <Original>No Targets</Original>
+<Russian>Нет Целей</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1664">
 <English>Our forces are in urgent need of supplies. Deliver the supply truck from our Base to the point of destination</English>
@@ -7349,6 +7710,7 @@
 <Korean>Our forces are in urgent need of supplies. Deliver the supply truck from our Base to the point of destination</Korean>
 <Japanese>友軍が補給を必要としている。基地から補給地点まで補給トラックを届けなくてはならない</Japanese>
 <Original>Our forces are in urgent need of supplies. Deliver the supply truck from our Base to the point of destination</Original>
+<Russian>Наши подразделения нуждаются в пополнении запасов и БК. Ваша задача доставить грузовик со всем необходимым до места назначения</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1665">
 <English>Well done! The friendly forces have got the supplies</English>
@@ -7357,6 +7719,7 @@
 <Korean>Well done! The friendly forces have got the supplies</Korean>
 <Japanese>よくやった！ 友軍は補給を受け取った</Japanese>
 <Original>Well done! The friendly forces have got the supplies</Original>
+<Russian>Отлично. Наши войска получили снаряжение и БК!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1666">
 <English>The enemy has laid naval mines in the entrance to the bay. We need them disarmed to allow us access to the facility nearby.</English>
@@ -7365,6 +7728,7 @@
 <Korean>The enemy has laid naval mines in the entrance to the bay. We need them disarmed to allow us access to the facility nearby.</Korean>
 <Japanese>敵は湾の入り口に機雷を敷設した。 近くの施設にアクセスできるようにするには、機雷を除去しなければならない。</Japanese>
 <Original>The enemy has laid naval mines in the entrance to the bay. We need them disarmed to allow us access to the facility nearby.</Original>
+<Russian>Противник заминировал все подступы. Ваша задача срочно разминировать территорию.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1666a">
 <English>The enemy has laid mines on a cross road. We need them disarmed to allow us access to the facility nearby.</English>
@@ -7373,6 +7737,7 @@
 <Korean>The enemy has laid mines on a cross road. We need them disarmed to allow us access to the facility nearby.</Korean>
 <Japanese>敵は交差道路に地雷を敷設した。 近くの施設にアクセスできるようにするには、地雷を除去しなければならない。</Japanese>
 <Original>The enemy has laid mines on a cross road. We need them disarmed to allow us access to the facility nearby.</Original>
+<Russian>Противник заминировал все подступы. Ваша задача срочно разминировать территорию.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1667">
 <English>Good job! All the mines are cleared</English>
@@ -7381,6 +7746,7 @@
 <Korean>Good job! All the mines are cleared</Korean>
 <Japanese>すべての地雷は除去された</Japanese>
 <Original>Good job! All the mines are cleared</Original>
+<Russian>Отличная работа! Все мины разминированы!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1685">
 <English>There is an enemy factory near Tavu. Destroy the fuel storage tank to cut down their possibilities to build new vehicles.</English>
@@ -7389,6 +7755,7 @@
 <Korean>There is an enemy factory near Tavu. Destroy the fuel storage tank to cut down their possibilities to build new vehicles.</Korean>
 <Japanese>Tavu近くには敵工場がある。 燃料タンクを破壊して新しい車両を作る可能性を減らせ。</Japanese>
 <Original>There is an enemy factory near Tavu. Destroy the fuel storage tank to cut down their possibilities to build new vehicles.</Original>
+<Russian>Обнаружена завод противника около г. Таву. Задача - уничтожить здание.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1687">
 <English>There is an enemy boat factory near Savaka. Destroy the building to cut down their possibilities to build new Boats.</English>
@@ -7397,6 +7764,7 @@
 <Korean>There is an enemy boat factory near Savaka. Destroy the building to cut down their possibilities to build new Boats.</Korean>
 <Japanese>サバカの近くには敵の造船所がある。 新しい船を建設する可能性を減らすために建物を破壊しろ。</Japanese>
 <Original>There is an enemy boat factory near Savaka. Destroy the building to cut down their possibilities to build new Boats.</Original>
+<Russian>Обнаружена завод противника по производству лодок около г. Савака. Задача - уничтожить здание.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1702">
 <English>Side Mission, Deliver Start</English>
@@ -7423,6 +7791,7 @@
 <Korean>끌고오기</Korean>
 <Japanese>引っ張る</Japanese>
 <Original>Drag</Original>
+<Russian>Тащить</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1705">
 <English>Respawn at Squad Leader:</English>
@@ -7431,6 +7800,7 @@
 <Korean>분대장 위치로 재투입</Korean>
 <Japanese>リーダーの場所へ復活:</Japanese>
 <Original>Respawn at Squad Leader:</Original>
+<Russian>Возрождение на ком.отд.:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1705a">
 <English>Squad Leader</English>
@@ -7439,6 +7809,7 @@
 <Korean>분대장</Korean>
 <Japanese>チームリーダー</Japanese>
 <Original>Squad Leader</Original>
+<Russian>Ком.отделения</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1706">
 <English>Respawn at Leader not available</English>
@@ -7447,6 +7818,7 @@
 <Korean>분대장위치로 재투입될 수 없습니다.</Korean>
 <Japanese>リーダーの場所への復活は利用できません</Japanese>
 <Original>Respawn at Leader not available</Original>
+<Russian>Возрождение на ком.отд. недоступно</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1707">
 <English>You can't parajump into the enemy area!</English>
@@ -7455,6 +7827,7 @@
 <Korean>적지내로 공수낙하 할 수 없습니다.</Korean>
 <Japanese>敵の領域にはパラジャンプできません</Japanese>
 <Original>You can't parajump into the enemy area!</Original>
+<Russian>Вы не можете десантироваться на территорию противника!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1708">
 <English>Sidemission resolved</English>
@@ -7472,6 +7845,7 @@
 <Korean>상대팀이 해냈습니다.</Korean>
 <Japanese>相手チームがミッション達成!</Japanese>
 <Original>The other team made it!</Original>
+<Russian>Другая команда сделала это!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1711">
 <English>Call CAS at Laserdesignator position</English>
@@ -7480,6 +7854,7 @@
 <Korean>레지어지시기로 표시한 지역에 CAS 요청하기</Korean>
 <Japanese>レーザー照準器の位置にCASを呼ぶ</Japanese>
 <Original>Call CAS at Laserdesignator position</Original>
+<Russian>Вызвать АвиаУдар по координатам лазер.целеуказателя</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1712">
 <English>CAS currently not available...</English>
@@ -7488,6 +7863,7 @@
 <Korean>현재 CAS를 이용할 수 없습니다.</Korean>
 <Japanese>CASは現在利用できません...</Japanese>
 <Original>CAS currently not available...</Original>
+<Russian>Авиация пока не готова к АвиаУдару...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1713">
 <English>You don't have enough points to request CAS. You need %2 points for CAS, your current score is %1</English>
@@ -7496,6 +7872,7 @@
 <Korean>CAS를 요청하기에 포인트가 부족합니다. CAS를 요청하기 위해서는 %2 포인트가 필요하며, 현재 %1 포인트 만큼 갖고있습니다.</Korean>
 <Japanese>CASをリクエストするのに十分なポイントがありません。 CASの %2 ポイントが必要です。現在のスコアは %1 です</Japanese>
 <Original>You don't have enough points to request CAS. You need %2 points for CAS, your current score is %1</Original>
+<Russian>У Вас нет достаточно очков для вызова АвиаУдара. Вам нужно %2, а у Вас %1.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1714">
 <English>CAS on the way... ETA in a few seconds...</English>
@@ -7504,6 +7881,7 @@
 <Korean>CAS가 출격하였습니다. ETA in a few seconds...</Korean>
 <Japanese>CASが向かっている... もうすぐ到着...</Japanese>
 <Original>CAS on the way... ETA in a few seconds...</Original>
+<Russian>Скоро АвиаУдар. ПВП несколько секунд...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1715">
 <English>CAS available again...</English>
@@ -7512,6 +7890,7 @@
 <Korean>CAS 대기중...</Korean>
 <Japanese>CAS 利用可能...</Japanese>
 <Original>CAS available again...</Original>
+<Russian>АвиаУдар снова доступен...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1716">
 <English>---------------------- Air Drop Handling --------------------------</English>
@@ -7529,6 +7908,7 @@
 <Korean>통신탑 파괴와 감시탑 점령만 하면 미션 완수여부</Korean>
 <Japanese>制圧済みキャンプとラジオタワーの破壊のみをチェックして、メインターゲットを終了する：</Japanese>
 <Original>Only check for captured camps and destroyed radio tower to end main target:</Original>
+<Russian>Только захват блок-постов и уничтожение радиовышки в городах:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1718">
 <English>Wreck Repair Point, Time to repair: %1 seconds</English>
@@ -7537,6 +7917,7 @@
 <Korean>Wreck Repair Point, Time to repair: %1 seconds</Korean>
 <Japanese>修復ポイント、修復時間： %1 秒</Japanese>
 <Original>Wreck Repair Point, Time to repair: %1 seconds</Original>
+<Russian>Место Ремонта ВРЕКов, Время ремонта: %1 секунд</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1719">
 <English>You can revive %1, he/she is %2</English>
@@ -7545,6 +7926,7 @@
 <Korean>당신은 %1을(를) 살릴 수 있습니다. 현재 그는 %2</Korean>
 <Japanese>あなたは %1 を復活させることができます、彼/彼女は %2 います</Japanese>
 <Original>You can revive %1, he/she is %2</Original>
+<Russian>Вы можете возродить %1, игрок %2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1720">
 <English>in front of you</English>
@@ -7553,6 +7935,7 @@
 <Korean>당신 앞에 있습니다.</Korean>
 <Japanese>あなたの前に</Japanese>
 <Original>in front of you</Original>
+<Russian>спереди</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1721">
 <English>on your right side</English>
@@ -7561,6 +7944,7 @@
 <Korean>당신 오른쪽에 있습니다.</Korean>
 <Japanese>あなたの右側に</Japanese>
 <Original>on your right side</Original>
+<Russian>справа</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1722">
 <English>behind you</English>
@@ -7569,6 +7953,7 @@
 <Korean>당신 뒤에 있습니다.</Korean>
 <Japanese>あなたの後ろに</Japanese>
 <Original>behind you</Original>
+<Russian>сзади</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1723">
 <English>on your left side</English>
@@ -7577,6 +7962,7 @@
 <Korean>당신 왼쪽에 있습니다.</Korean>
 <Japanese>あなたの左側に</Japanese>
 <Original>on your left side</Original>
+<Russian>слева</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1724">
 <English>The following nearby players got a message to revive you:</English>
@@ -7585,6 +7971,7 @@
 <Korean>해당 유저가 살리라는 메세지를 전송받음</Korean>
 <Japanese>次の近くのプレイヤーはあなたを復活させるメッセージを受け取りました：</Japanese>
 <Original>The following nearby players got a message to revive you:</Original>
+<Russian>Ближайшие  игроки получили сообщение чтобы вас возродить:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1725">
 <English>Nearby informed players:</English>
@@ -7638,6 +8025,7 @@
 <Korean>보조미션에 기갑 출현여부</Korean>
 <Japanese>サイドミッションの装甲車両:</Japanese>
 <Original>Armor at side missions:</Original>
+<Russian>Бронетехника на доп.заданиях:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1731">
 <English>With winter weather:</English>
@@ -7664,6 +8052,7 @@
 <Korean>내려놓기</Korean>
 <Japanese>投下</Japanese>
 <Original>Drop</Original>
+<Russian>Отпустить</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1734">
 <English>Carry</English>
@@ -7672,6 +8061,7 @@
 <Korean>업기</Korean>
 <Japanese>持つ</Japanese>
 <Original>Carry</Original>
+<Russian>Перенести</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1735">
 <English>Dynamic Simulation:</English>
@@ -7698,6 +8088,7 @@
 <Korean>No sidemission bonus vehicles</Korean>
 <Japanese>サイドミッションのボーナス車両無し</Japanese>
 <Original>No sidemission bonus vehicles</Original>
+<Russian>Нет призовой техники для доп.заданий</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1738">
 <English>No main target bonus vehicles</English>
@@ -7706,6 +8097,7 @@
 <Korean>No main target bonus vehicles</Korean>
 <Japanese>メインターゲットのボーナス車両無し</Japanese>
 <Original>No main target bonus vehicles</Original>
+<Russian>Нет призовой техники для главных заданий</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1739">
 <English>No bonus vehicles at all</English>
@@ -7714,6 +8106,7 @@
 <Korean>No bonus vehicles at all</Korean>
 <Japanese>ボーナス車両無し</Japanese>
 <Original>No bonus vehicles at all</Original>
+<Russian>Нет призовой техники для всех заданий</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1740">
 <English>%1 was destroyed!!!</English>
@@ -7731,6 +8124,7 @@
 <Korean>Respawn main target enemy AI groups as reinforcements:</Korean>
 <Japanese>AIグループを援軍としてメインターゲットにリスポーンさせる:</Japanese>
 <Original>Respawn main target enemy AI groups as reinforcements:</Original>
+<Russian>Возрождение ИИ групп на главном задании как подкрепления:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1742">
 <English>Attach wreck</English>
@@ -7739,6 +8133,7 @@
 <Korean>Attach wreck</Korean>
 <Japanese>残骸を連結</Japanese>
 <Original>Attach wreck</Original>
+<Russian>Прицепить ВРЕК</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1743">
 <English>Vehicle attached to transporter</English>
@@ -7747,6 +8142,7 @@
 <Korean>Vehicle attached to transporter</Korean>
 <Japanese>車両は輸送車に連結されました</Japanese>
 <Original>Vehicle attached to transporter</Original>
+<Russian>Техника прицеплена к тягачу</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1744">
 <English>This is a wreck transport vehicle. You can attach wrecks (marked on map) to it and bring them back to the base to the wreck repair point!</English>
@@ -7755,6 +8151,7 @@
 <Korean>This is a wreck transport vehicle. You can attach wrecks (marked on map) to it and bring them back to the base to the wreck repair point!</Korean>
 <Japanese>これは残骸回収車両です。残骸を連結し基地の修復ポイント(wreck repair point)へと運ぶことができます!</Japanese>
 <Original>This is a wreck transport vehicle. You can attach wrecks (marked on map) to it and bring them back to the base to the wreck repair point!</Original>
+<Russian>Это транспорт для перевозки обломков приз. техники (ВРЕКов). Найдите WRECK на карте и вы можете его привезти на базу и отремонтировать</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1745">
 <English>Spectate other players</English>
@@ -7763,6 +8160,7 @@
 <Korean>Spectate other players</Korean>
 <Japanese>Spectate other players</Japanese>
 <Original>Spectate other players</Original>
+<Russian>Смотреть за другими игроками</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1746">
 <English>DATABASE SAVE DIALOG</English>
@@ -7771,6 +8169,7 @@
 <Korean>DATABASE SAVE DIALOG</Korean>
 <Japanese>DATABASE SAVE DIALOG</Japanese>
 <Original>DATABASE SAVE DIALOG</Original>
+<Russian>МЕНЮ СОХРАНЕНИЯ БД</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1747">
 <English>Enter save name (only chars and numbers):</English>
@@ -7779,6 +8178,7 @@
 <Korean>Enter save name (only chars and numbers):</Korean>
 <Japanese>Enter save name (only chars and numbers):</Japanese>
 <Original>Enter save name (only chars and numbers):</Original>
+<Russian>Введите имя:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1748">
 <English>Save to DataBase</English>
@@ -7787,6 +8187,7 @@
 <Korean>Save to DataBase</Korean>
 <Japanese>Save to DataBase</Japanese>
 <Original>Save to DataBase</Original>
+<Russian>Сохранить в БД</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1749">
 <English>Mission progress saved (%1)</English>
@@ -7795,6 +8196,7 @@
 <Korean>Mission progress saved (%1)</Korean>
 <Japanese>Mission progress saved (%1)</Japanese>
 <Original>Mission progress saved (%1)</Original>
+<Russian>Сохранение прогресса миссии (%1)</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1750">
 <English>Load database savefile</English>
@@ -7803,6 +8205,7 @@
 <Korean>Load database savefile</Korean>
 <Japanese>Load database savefile</Japanese>
 <Original>Load database savefile</Original>
+<Russian>Загрузить сохраненный файл БД</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1751">
 <English>Click on a save game name below to load it%1%2</English>
@@ -7811,6 +8214,8 @@
 <Korean>Click on a save game name below to load it%1%2</Korean>
 <Japanese>Click on a save game name below to load it%1%2</Japanese>
 <Original>Click on a save game name below to load it%1%2</Original>
+<Russian>
+</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1752">
 <English>Could not load saved DB progress %1</English>
@@ -7819,6 +8224,7 @@
 <Korean>Could not load saved DB progress %1</Korean>
 <Japanese>Could not load saved DB progress %1</Japanese>
 <Original>Could not load saved DB progress %1</Original>
+<Russian>Мы не можем загрузить сохраненный в БД прогресс %1</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1753">
 <English>DB saved progress %1 successfully loaded</English>
@@ -7827,6 +8233,7 @@
 <Korean>DB saved progress %1 successfully loaded</Korean>
 <Japanese>DB saved progress %1 successfully loaded</Japanese>
 <Original>DB saved progress %1 successfully loaded</Original>
+<Russian>Сохраненный прогресс в БД %1 успешно загружен</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1754">
 <English>Save to DB</English>
@@ -7835,6 +8242,7 @@
 <Korean>Save to DB</Korean>
 <Japanese>Save to DB</Japanese>
 <Original>Save to DB</Original>
+<Russian>Сохранить в БД</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1755">
 <English>End sidemission</English>
@@ -7843,6 +8251,7 @@
 <Korean>End sidemission</Korean>
 <Japanese>End sidemission</Japanese>
 <Original>End sidemission</Original>
+<Russian>Конец доп.задания</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1756">
 <English>DATABASE TOP PLAYERS DIALOG</English>
@@ -7851,6 +8260,7 @@
 <Korean>DATABASE TOP PLAYERS DIALOG</Korean>
 <Japanese>DATABASE TOP PLAYERS DIALOG</Japanese>
 <Original>DATABASE TOP PLAYERS DIALOG</Original>
+<Russian>Меню бызы данных</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1757">
 <English>DB Top Players</English>
@@ -7859,6 +8269,7 @@
 <Korean>DB Top Players</Korean>
 <Japanese>DB Top Players</Japanese>
 <Original>DB Top Players</Original>
+<Russian>ДБ Топ Игроков</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1758">
 <English>AI can drive vehicle without a player inside:</English>
@@ -7867,6 +8278,7 @@
 <Korean>AI can drive vehicle without a player inside:</Korean>
 <Japanese>AI can drive vehicle without a player inside:</Japanese>
 <Original>AI can drive vehicle without a player inside:</Original>
+<Russian>ИИ может управлять техникой без игрока внутри:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1759">
 <English>With BIS Dynamic Groups (Squad Mgmt):</English>
@@ -7875,7 +8287,7 @@
 <Korean>With BIS Dynamic Groups (Squad Mgmt):</Korean>
 <Japanese>With BIS Dynamic Groups (Squad Mgmt):</Japanese>
 <Original>With BIS Dynamic Groups (Squad Mgmt):</Original>
-<Russian>Включить BIS меню групп:</Russian>
+<Russian>Включить BIS-меню групп:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1760">
 <English>Airfield</English>
@@ -7956,6 +8368,7 @@
 <Korean>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Korean>
 <Japanese>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Japanese>
 <Original>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Original>
+<Russian>У нас есть информация о тренеровочном лагере боевиков. Найдите и уничтожьте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1807">
 <English>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
@@ -8054,6 +8467,7 @@
 <Korean>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Korean>
 <Japanese>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Japanese>
 <Original>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Original>
+<Russian>Высокопоставленный член правительства решил посетить подразделения противника. Найдите и ликвидируйте его!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1818">
 <English>The enemy government member is dead. Job done!</English>
@@ -8062,6 +8476,7 @@
 <Korean>The enemy government member is dead. Job done!</Korean>
 <Japanese>The enemy government member is dead. Job done!</Japanese>
 <Original>The enemy government member is dead. Job done!</Original>
+<Russian>Цель ликвидирована. Отличная работа!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1819">
 <English>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
@@ -8070,6 +8485,7 @@
 <Korean>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Korean>
 <Japanese>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
 <Original>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Original>
+<Russian>Противник собирается испытать прототип нового БТР. Это хорошая возможность для его уничтожения!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1820">
 <English>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</English>
@@ -8078,6 +8494,7 @@
 <Korean>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Korean>
 <Japanese>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Japanese>
 <Original>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Original>
+<Russian>Все казармы в городе разрушены. Теперь нет возможности получать подкрепления в виде десанта.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1821">
 <English>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</English>
@@ -8086,6 +8503,7 @@
 <Korean>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Korean>
 <Japanese>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Japanese>
 <Original>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Original>
+<Russian>Передвижной штаб противника в городе уничтожен. Теперь они не смогут получать бронетанковые подкрепления</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1822">
 <English>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</English>
@@ -8094,6 +8512,7 @@
 <Korean>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Korean>
 <Japanese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Japanese>
 <Original>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Original>
+<Russian>В городе обнаружено большое скопление пехоты и техники противника. Уничтожьте их и прибывающие подкрепления!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1823">
 <English>You have to wait %1 seconds to create a new vehicle at a MHQ!</English>
@@ -8102,7 +8521,7 @@
 <Korean>You have to wait %1 seconds to create a new vehicle at a MHQ!</Korean>
 <Japanese>You have to wait %1 seconds to create a new vehicle at a MHQ!</Japanese>
 <Original>You have to wait %1 seconds to create a new vehicle at a MHQ!</Original>
-<Russian>Нужно подождать %1 секунда прежде чем доставть транспорт из КШМ!</Russian>
+<Russian>Нужно подождать %1 секунд прежде чем доставать транспорт из КШМ!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1824">
 <English>Seconds till a player can create a new vec at MHQ:</English>
@@ -8111,6 +8530,7 @@
 <Korean>Seconds till a player can create a new vec at MHQ</Korean>
 <Japanese>Seconds till a player can create a new vec at MHQ:</Japanese>
 <Original>Seconds till a player can create a new vec at MHQ:</Original>
+<Russian>Секунд до возможности получить снова технику из КШМ:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1825">
 <English>%1 (destroyed)</English>
@@ -8137,7 +8557,7 @@
 <Korean>%1 tries to revive you...</Korean>
 <Japanese>%1 tries to revive you...</Japanese>
 <Original>%1 tries to revive you...</Original>
-<Russian>игрок %1 Вас оживил...</Russian>
+<Russian>%1 пробует Вас спасти...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1828">
 <English>Seize various main targets and resolve side missions...</English>
@@ -8218,6 +8638,7 @@
 <Korean>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Korean>
 <Japanese>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Japanese>
 <Original>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Original>
+<Russian>Хмм. Интересно. При запуске ракет с базы использовано кодовое слово. Это может быть полезно.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1837">
 <English>With base sabotage:</English>
@@ -8226,7 +8647,7 @@
 <Korean>With base sabotage:</Korean>
 <Japanese>With base sabotage:</Japanese>
 <Original>With base sabotage:</Original>
-<Russian>Атака ИИ баз игроков:</Russian>
+<Russian>ИИ атакует бызы сторон игроков:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1838">
 <English>Sending data... Please wait!</English>
@@ -8262,6 +8683,7 @@
 <Korean>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Korean>
 <Japanese>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Japanese>
 <Original>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Original>
+<Russian>Мы обнаружили терминал противника с важными данными. Выдвигайтесь и скачайте все данные для нас!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1842">
 <English>Fantastic! You have uploaded the data!</English>
@@ -8306,6 +8728,7 @@
 <Korean>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Korean>
 <Japanese>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Japanese>
 <Original>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Original>
+<Russian>ПВО противника доставляет нам много хлопот. Уничтожьте радар и пусковую установку!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1847">
 <English>Good work! The SAM site is out of business.</English>
@@ -8323,6 +8746,7 @@
 <Korean>You were not able to clear the mines fast enough...</Korean>
 <Japanese>You were not able to clear the mines fast enough...</Japanese>
 <Original>You were not able to clear the mines fast enough...</Original>
+<Russian>Вы не смогли быстро разминировать минное поле...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1849">
 <English>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</English>
@@ -8358,6 +8782,7 @@
 <Korean>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Korean>
 <Japanese>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Japanese>
 <Original>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Original>
+<Russian>Внимание!!!!\n\nИИ может только быть водителем техники, если игрок внутри нее!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1853">
 <English>Cancel Artillery</English>
@@ -8384,6 +8809,7 @@
 <Korean>One main target enemy inf barrack down. %1 left...</Korean>
 <Japanese>One main target enemy inf barrack down. %1 left...</Japanese>
 <Original>One main target enemy inf barrack down. %1 left...</Original>
+<Russian>Одна из основных целей -Казарма уничтожена. %1 минус...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1856">
 <English>You get %1 points for bringing a wreck to the wreck repair point!</English>
@@ -8491,7 +8917,7 @@
 <Korean>Jump position too close to main target!!!</Korean>
 <Japanese>Jump position too close to main target!!!</Japanese>
 <Original>Jump position too close to main target!!!</Original>
-<Russian>Точка десантирования далеко от главного задания!!!</Russian>
+<Russian>Точка десантирования близко к городу основного задания!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1868">
 <English>With enemy AI house patrol at main targets:</English>
@@ -8554,7 +8980,7 @@
 <Korean>Your current score:</Korean>
 <Japanese>Your current score:</Japanese>
 <Original>Your current score:</Original>
-<Russian>Сейчас у вас:</Russian>
+<Russian>Сейчас у вас очков:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1875">
 <English>Your new score:</English>
@@ -8563,7 +8989,7 @@
 <Korean>Your new score:</Korean>
 <Japanese>Your new score:</Japanese>
 <Original>Your new score:</Original>
-<Russian>Останется:</Russian>
+<Russian>Останется у вас:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1876">
 <English>Score to transfer:</English>
@@ -8572,7 +8998,7 @@
 <Korean>Score to transfer:</Korean>
 <Japanese>Score to transfer:</Japanese>
 <Original>Score to transfer:</Original>
-<Russian>Переводите:</Russian>
+<Russian>Переводите очков:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1877">
 <English>Are you sure you want to transfer %1 score points to %2?</English>
@@ -8608,7 +9034,7 @@
 <Korean>Transfer score</Korean>
 <Japanese>Transfer score</Japanese>
 <Original>Transfer score</Original>
-<Russian>Перевод очков</Russian>
+<Russian>Переведено очков</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1881">
 <English>Air taxi canceled...</English>
