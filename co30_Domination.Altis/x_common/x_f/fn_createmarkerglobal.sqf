@@ -10,12 +10,12 @@ __TRACE_1("","_this")
 // example: ["my marker",  position player, "hd_dot", "ColorBlue", [0.5,0.5]] call d_fnc_CreateMarkerGlobal;
 params ["_m_name","_m_pos","_m_shape","_m_col","_m_size"];
 
-if (_m_mpos isEqualType [] && {_m_pos isEqualTo []}) exitWith {
+if (_m_pos isEqualType [] && {_m_pos isEqualTo []}) exitWith {
 	diag_log ["Domination Error: Could not create marker global, position array _m_pos empty. Marker name: ", _m_name];
 	_m_name
 };
 
-if (_m_mpos isEqualType objNull && {isNull _m_mpos}) exitWith {
+if (_m_pos isEqualType objNull && {isNull _m_pos}) exitWith {
 	diag_log ["Domination Error: Could not create marker local, object _m_pos is null. Marker name: ", _m_name, " _m_pos object name: ", _m_pos];
 	_m_name
 };
