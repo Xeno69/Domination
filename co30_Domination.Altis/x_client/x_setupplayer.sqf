@@ -415,7 +415,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.99h"];
+diag_log ["Internal D Version: 3.99j"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -688,8 +688,6 @@ if (d_WithRevive == 0) then {
 
 0 spawn d_fnc_dcmcc;
 
-(findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
-(findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch"&& {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
 (findDisplay 46) displayAddEventHandler ["KeyDown", {
 	if ((_this select 1) in actionKeys "User15" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {
 		if (d_earplugs_fitted) then {
