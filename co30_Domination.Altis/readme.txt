@@ -12,6 +12,7 @@ Changelogs
 - Fixed: Player names over head were not showing if max revive lives were set to unlimited
 - Fixed: Script error in fn_vehirespawn.sqf and planes exploding when respawning
 - Fixed: Rare script error in createmarker functions
+- Changed: Removed d_rev_respawn_vec_types
 - Updated: Russian translation
 
 3.99i

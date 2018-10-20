@@ -90,7 +90,7 @@ if (!isNull _mhqobj) then {
 	_newppos set [2, (_mhqobj distance (getPos _mhqobj)) - _maxHeight];
 	player setDir (getDirVisual _mhqobj);
 	player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
-	{player reveal _x} forEach (nearestObjects [player, d_rev_respawn_vec_types, 30]);
+	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
 	call d_fnc_retrieve_layoutgear;
 } else {
 	private _domovevec = false;

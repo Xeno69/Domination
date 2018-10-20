@@ -1360,8 +1360,6 @@ if (hasInterface) then {
 		case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
 	};
 	
-	d_rev_respawn_vec_types = [d_the_box, "B_MRAP_01_F", "O_MRAP_02_F", "I_MRAP_03_F", "B_APC_Tracked_01_CRV_F","LIB_US6_Tent", "rhsgref_BRDM2UM_vdv", "rhsusf_M1232_usarmy_wd"];
-
 	// internal variables
 	d_flag_vec = objNull;
 	d_rscspect_on = false;
