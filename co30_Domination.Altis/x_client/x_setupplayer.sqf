@@ -680,7 +680,9 @@ private _objsasl = [getPosASL D_FLAG_BASE];
 } forEach (d_player_ammobox_pos select ([0, 1] select (d_player_side == opfor)));
 #endif
 
-(findDisplay 46) displayAddEventHandler ["MouseZChanged", {_this call d_fnc_MouseWheelRec}];
+private _dsp46 = findDisplay 46;
+
+_dsp46 displayAddEventHandler ["MouseZChanged", {_this call d_fnc_MouseWheelRec}];
 
 if (d_WithRevive == 0) then {
 	call compile preprocessFileLineNumbers "x_revive.sqf";
@@ -688,7 +690,19 @@ if (d_WithRevive == 0) then {
 
 0 spawn d_fnc_dcmcc;
 
-(findDisplay 46) displayAddEventHandler ["KeyDown", {
+if (d_with_bis_dynamicgroups == 0) then {
+	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+	0 spawn {
+		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
+		(findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+		(findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch" && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+	};
+} else {
+	_dsp46 displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+	_dsp46 displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch" && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+};
+
+_dsp46 displayAddEventHandler ["KeyDown", {
 	if ((_this select 1) in actionKeys "User15" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {
 		if (d_earplugs_fitted) then {
 			d_earplugs_fitted = false;
@@ -707,7 +721,7 @@ if (d_WithRevive == 0) then {
 
 // by R34P3R
 d_p_isju = false;
-(findDisplay 46) displayAddEventHandler ["KeyDown", {
+_dsp46 displayAddEventHandler ["KeyDown", {
 	if ((_this select 1) in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
 		d_p_isju = true;
 		0 spawn {

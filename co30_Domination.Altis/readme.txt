@@ -7,6 +7,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99k
+- Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling
+
 3.99j
 - Changed: Removed player shooting too much at base message (plus kick to server lobby with endmission)
 - Fixed: Player names over head were not showing if max revive lives were set to unlimited
