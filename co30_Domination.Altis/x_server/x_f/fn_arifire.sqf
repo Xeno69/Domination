@@ -192,17 +192,18 @@ for "_series" from 1 to _ari_salvos do {
 		private _angle = floor random 360;
 		
 		_x doArtilleryFire [[(_ari_tgt_pos # 0) - ((random _radius) * sin _angle), (_ari_tgt_pos # 1) - ((random _radius) * cos _angle), 0], _ari_type, 1];
+		//_x doArtilleryFire [[(_ari_tgt_pos # 0) - ((random _radius) * sin _angle), (_ari_tgt_pos # 1) - ((random _radius) * cos _angle), 0], "6Rnd_155mm_Mo_AT_mine", 1];
 		sleep 0.2;
 	} forEach _ari_vecs;
 
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
-	
+
 	[_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
 		params ["_eta_time", "_arti_operator", "_logic", "_logic1", "_topicside_arti", "_series", "_channel"];
 		sleep (_eta_time - 1);
-	
+
 		private _aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 		_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
@@ -214,8 +215,8 @@ for "_series" from 1 to _ari_salvos do {
 	#else
 	waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
 	#endif
-	
-	
+
+
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
@@ -281,7 +282,11 @@ if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (mark
 #endif
 	scriptName "spawn_x_arifire_artiavailable";
 	params ["_ari_salvos", "_aristr"];
-	sleep (300 + ((_ari_salvos - 1) * 200)) + (random 60) + (if (d_MissionType != 2) then {0} else {300});
+    if (d_arty_unlimited == 1) then {
+        sleep (1);
+    } else {
+        sleep (300 + ((_ari_salvos - 1) * 200)) + (random 60) + (if (d_MissionType != 2) then {0} else {300});
+    };
 #ifndef __TT__
 	d_ari_available = true; publicVariable "d_ari_available";
 	private _channel = d_kbtel_chan;
