@@ -9072,6 +9072,51 @@
 <Original>Call Air Taxi</Original>
 <Russian>Вызов Эвакуации (такси)</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1885">
+<English>Disable artillery cooldown</English>
+<Spanish>Disable artillery cooldown</Spanish>
+<Portuguese>Disable artillery cooldown</Portuguese>
+<Korean>Disable artillery cooldown</Korean>
+<Japanese>Disable artillery cooldown</Japanese>
+<Original>Disable artillery cooldown</Original>
+<Russian>Disable artillery cooldown</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1888">
+<English>Subtract score when a player kills a civilian:</English>
+<Spanish>Subtract score when a player kills a civilian:</Spanish>
+<Portuguese>Subtract score when a player kills a civilian:</Portuguese>
+<Korean>Subtract score when a player kills a civilian:</Korean>
+<Japanese>Subtract score when a player kills a civilian:</Japanese>
+<Original>Subtract score when a player kills a civilian:</Original>
+<Russian>Subtract score when a player kills a civilian:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1889">
+<English>%1 killed a civilian!  Penalty of %2 points deducted.</English>
+<Spanish>%1 killed a civilian!  Penalty of %2 points deducted.</Spanish>
+<Portuguese>%1 killed a civilian!  Penalty of %2 points deducted.</Portuguese>
+<Korean>%1 killed a civilian!  Penalty of %2 points deducted.</Korean>
+<Japanese>%1 killed a civilian!  Penalty of %2 points deducted.</Japanese>
+<Original>%1 killed a civilian!  Penalty of %2 points deducted.</Original>
+<Russian>%1 killed a civilian!  Penalty of %2 points deducted.</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1890">
+<English>Enable civilians</English>
+<Spanish>Enable civilians</Spanish>
+<Portuguese>Enable civilians</Portuguese>
+<Korean>Enable civilians</Korean>
+<Japanese>Enable civilians</Japanese>
+<Original>Enable civilians</Original>
+<Russian>Enable civilians</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1893">
+<English>Civilian unit count per target</English>
+<Spanish>Civilian unit count per target</Spanish>
+<Portuguese>Civilian unit count per target</Portuguese>
+<Korean>Civilian unit count per target</Korean>
+<Japanese>Civilian unit count per target</Japanese>
+<Original>Civilian unit count per target</Original>
+<Russian>Civilian unit count per target</Russian>
+</Key>
 </Container>
 </Package>
 </Project>
