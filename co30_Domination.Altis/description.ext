@@ -723,13 +723,6 @@ class Params {
 		default = 120;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
-
-	class d_arty_unlimited {
-    		title = "$STR_DOM_MISSIONSTRING_1885";
-    		values[] = {0,1};
-    		default = 0;
-    		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
-    };
 	
 	class d_enable_civs {
 			title = "$STR_DOM_MISSIONSTRING_1890";

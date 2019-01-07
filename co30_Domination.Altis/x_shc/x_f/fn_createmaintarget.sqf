@@ -228,21 +228,13 @@ if (d_enable_civs == 1) then {
 			params ["_cVictim", "_cKiller"];
 			if (_cKiller call d_fnc_isplayer) then 
 			{
-				//hint formatText ["%1 killed a civilian!", name _cKiller];
-				private _topicside = d_kb_topic_side;
-				private _topicside = d_kb_topic_side;
-				private _logic = d_kb_logic2;
-				private _logic1 = d_kb_logic1;
-				private _channel = d_kbtel_chan;
 				d_hq_logic_blufor1 kbTell [
-					//_logic,
 					d_hq_logic_blufor2,
-					//_topicside,
 					"HQ_W",
 					"PenaltyKilledCivilian",
 					["1", "", name _cKiller, []],
 					["2", "", str d_sub_kill_civ_points, []],
-					 _channel
+					d_kbtel_chan
 				];
 	
 				//subtract penalty for killing a civilian
