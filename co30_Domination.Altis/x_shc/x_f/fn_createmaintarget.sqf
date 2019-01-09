@@ -164,6 +164,87 @@ if (!isServer) then {
 	[missionNamespace, ["d_mt_mobile_hq_down", false]] remoteExecCall ["setVariable", 2];
 };
 sleep 0.1;
+
+//create civilian module
+placeCivilianSpotsAndUnits = {
+	
+	//_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
+	
+	_ms1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms1 call civModuleSetVars;
+	__TRACE_1("_ms1");
+	
+	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms2 call civModuleSetVars;
+	__TRACE_1("_ms2");
+	
+	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms3 call civModuleSetVars;
+	__TRACE_1("_ms3");
+
+	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu1");
+	
+	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu2");
+	
+	_mu3 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu3");
+	
+};
+
+civModuleSetVars = {
+	_this setVariable ["#capacity",5];
+	_this setVariable ["#usebuilding",true];
+	_this setVariable ["#terminal",false];
+	//_m1 setVariable ["#type",5];
+};
+
+if (d_enable_civs == 1) then {
+	_grp = createGroup civilian;
+	_target_name = d_target_names select d_current_target_index;
+	_marker_name = Format ["d_target_%1", d_current_target_index];
+	
+	__TRACE_1("_this");
+	__TRACE_1("d_current_target_index");
+	__TRACE_1("_target_name");
+	__TRACE_1("_marker_name");
+	
+	__TRACE_1("Placing a civilian module...");
+	_this call placeCivilianSpotsAndUnits;
+	
+	_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
+	
+	_m setVariable ["#debug",true]; // Debug mode on
+	 
+	_m setVariable ["#area",[_trg_center,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
+	_m setVariable ["#useagents",true];
+	_m setVariable ["#usepanicmode",false];
+	_m setVariable ["#unitcount",d_civ_unitcount];
+	//_m setVariable ["#onCreated", { hint "created a civilian!" }];
+	_m setVariable ["#onCreated", {
+		_this addMPEventHandler ["MPKilled", 
+		{
+			params ["_cVictim", "_cKiller"];
+			if (_cKiller call d_fnc_isplayer) then 
+			{
+				d_hq_logic_blufor1 kbTell [
+					d_hq_logic_blufor2,
+					"HQ_W",
+					"PenaltyKilledCivilian",
+					["1", "", name _cKiller, []],
+					["2", "", str d_sub_kill_civ_points, []],
+					d_kbtel_chan
+				];
+	
+				//subtract penalty for killing a civilian
+				[player, d_sub_kill_civ_points * -1] remoteExecCall ["addScore", 2]
+			};
+		}];
+	}];
+	//_m setVariable ["#onDeleted", { hint "deleted a civilian!" }];
+ };
+//end create civilian module
 #endif
 
 #ifdef __DEBUG__

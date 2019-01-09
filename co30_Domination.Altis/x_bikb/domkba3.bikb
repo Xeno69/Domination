@@ -322,6 +322,14 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class PenaltyKilledCivilian {
+		text = "$STR_DOM_MISSIONSTRING_1889";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
 };
 class Arguments{};
 class Special{};
