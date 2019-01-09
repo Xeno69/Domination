@@ -745,6 +745,13 @@ class Params {
 			texts[] = {"0","1","2","3","4","5","10","25","100"};
 	};
 
+	class d_arty_unlimited {
+    		title = "$STR_DOM_MISSIONSTRING_1885";
+    		values[] = {0,1};
+    		default = 0;
+    		texts[] = {"$STR_DOM_MISSIONSTRING_1886","$STR_DOM_MISSIONSTRING_1887"};
+    };
+
 #ifndef __TT__
 	class d_params_dl_9 {
 		title = "$STR_DOM_MISSIONSTRING_1575";

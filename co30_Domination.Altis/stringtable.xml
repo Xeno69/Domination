@@ -9081,6 +9081,24 @@
 <Original>Disable artillery cooldown</Original>
 <Russian>Disable artillery cooldown</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1886">
+<English>No</English>
+<Spanish>No</Spanish>
+<Portuguese>Não</Portuguese>
+<Korean>아니요</Korean>
+<Japanese>No</Japanese>
+<Original>No</Original>
+<Russian>Нет</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1887">
+<English>Yes</English>
+<Spanish>Si</Spanish>
+<Portuguese>Sim</Portuguese>
+<Korean>네</Korean>
+<Japanese>Yes</Japanese>
+<Original>Yes</Original>
+<Russian>Да</Russian>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1888">
 <English>Subtract score when a player kills a civilian:</English>
 <Spanish>Subtract score when a player kills a civilian:</Spanish>
