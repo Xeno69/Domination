@@ -28,7 +28,7 @@ if (d_IS_HC_CLIENT) then {
 
 // start air AI after some time
 #ifndef __TT__
-if (d_MissionType != 2) then {
+if (d_MissionType != 2 && d_disable_airai != 1) then {
 	0 spawn {
 		scriptName "spawn_x_shcinit_airai";
 		__TRACE("spawn_x_shcinit_airai start")
