@@ -55,6 +55,7 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 	// the second one the minimum. So [2,0] means, there can be no vehicle groups at all or a maximum of 2 groups of this kind
 	// second element: maximum number of vehicles in group; randomly chosen
 	switch (d_WithLessArmor) do {
+		//armor: normal
 		case 0: {
 			d_vec_numbers_guard = [
 				[[1,0], 1], // tanks
@@ -121,6 +122,7 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 				[[1,1], 1] // aa
 			];
 		};
+		//armor: less
 		case 1: {
 			d_vec_numbers_guard = [
 				[[1,0], 1], // tanks
@@ -169,6 +171,7 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 				[[1,0], 1] // aa
 			];
 		};
+		//armor: none
 		case 2: {
 			d_vec_numbers_guard = [
 				[[0,0], 1], // tanks

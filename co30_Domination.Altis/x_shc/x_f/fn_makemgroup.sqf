@@ -47,6 +47,24 @@ if (!_mchelper) then {
 	_one_unit setSkill ["spotTime", _subskill];
 	_ret set [_forEachIndex, _one_unit];
 	_one_unit call d_fnc_removenvgoggles_fak;
+		
+	//garrison
+	//if configured there is a chance the current AI soldier will be garrisoned in a building (window/roof)
+	if ((d_enemy_occupy_bldgs == 1) && ((100 * d_enemy_occupy_bldgs_probability) > random 100) && isServer) then {
+		__TRACE("placing unit in house");
+		//occupy a building using Zenophon script
+		_unitsNotGarrisoned = [
+			[[[_pos, 100]],[]] call BIS_fnc_randomPos,	// Params: 1. Array, the building(s) nearest this position is used
+			[_one_unit],									//         2. Array of objects, the units that will garrison the building(s)
+			300,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+			false,										//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+			false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+			false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+			false ] call Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+		__TRACE("_unitsNotGarrisoned");
+	};
+	//garrison end
+	
 #ifdef __GROUPDEBUG__
 	// does not subtract if a unit dies!
 	if (side _grp == d_side_enemy) then {

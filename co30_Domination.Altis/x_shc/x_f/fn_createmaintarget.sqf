@@ -73,7 +73,7 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 #ifndef __TT__
-d_num_barracks_objs = (ceil random 4) max 2;
+d_num_barracks_objs = ((ceil random 4) max 2) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 private ["_iccount", "_ecounter", "_poss"];
@@ -181,6 +181,14 @@ placeCivilianSpotsAndUnits = {
 	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
 	_ms3 call civModuleSetVars;
 	__TRACE_1("_ms3");
+	
+	_ms4 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms4 call civModuleSetVars;
+	__TRACE_1("_ms4");
+    	
+	_ms5 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms5 call civModuleSetVars;
+	__TRACE_1("_ms5");
 
 	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
 	__TRACE_1("_mu1");
@@ -191,6 +199,11 @@ placeCivilianSpotsAndUnits = {
 	_mu3 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
 	__TRACE_1("_mu3");
 	
+	_mu4 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu4");
+	
+	_mu5 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu5");
 };
 
 civModuleSetVars = {
@@ -225,6 +238,7 @@ if (d_enable_civs == 1) then {
 	_m setVariable ["#onCreated", {
 		_this addMPEventHandler ["MPKilled", 
 		{
+		//todo - check last fired arty
 			params ["_cVictim", "_cKiller"];
 			if (_cKiller call d_fnc_isplayer) then 
 			{
@@ -238,7 +252,12 @@ if (d_enable_civs == 1) then {
 				];
 	
 				//subtract penalty for killing a civilian
-				[player, d_sub_kill_civ_points * -1] remoteExecCall ["addScore", 2]
+				[_cKiller, d_sub_kill_civ_points * -1] remoteExecCall ["addScore", 2];
+				if (_cKiller == player && d_punish_civ_kill == 1) then
+				{
+					hint "You killed a civilian and died of shame!";
+					player setDamage 1;
+				};
 			};
 		}];
 	}];

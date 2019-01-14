@@ -4,6 +4,8 @@
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom init.sqf"];
 
+Zen_OccupyHouse = compileFinal preprocessFileLineNumbers "Zen_OccupyHouse.sqf";
+
 d_IS_HC_CLIENT = !isDedicated && {!hasInterface};
 __TRACE_1("","d_IS_HC_CLIENT")
 

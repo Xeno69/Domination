@@ -723,6 +723,13 @@ class Params {
 		default = 120;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
+
+	class d_arty_unlimited {
+    		title = "$STR_DOM_MISSIONSTRING_1885";
+    		values[] = {0,1};
+    		default = 0;
+    		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
+    };
 	
 	class d_enable_civs {
 			title = "$STR_DOM_MISSIONSTRING_1890";
@@ -740,17 +747,45 @@ class Params {
 	
 	class d_sub_kill_civ_points {
 			title = "$STR_DOM_MISSIONSTRING_1888";
-			values[] = {0,1,2,3,4,5,10,25,100};
+			values[] = {0,1,2,3,4,5,10,25,50,75,100};
 			default = 0;
-			texts[] = {"0","1","2","3","4","5","10","25","100"};
+			texts[] = {"0","1","2","3","4","5","10","25","50","75","100"};
 	};
-
-	class d_arty_unlimited {
-    		title = "$STR_DOM_MISSIONSTRING_1885";
-    		values[] = {0,1};
-    		default = 0;
-    		texts[] = {"$STR_DOM_MISSIONSTRING_1886","$STR_DOM_MISSIONSTRING_1887"};
-    };
+	
+	class d_disable_airai {
+			title = "$STR_DOM_MISSIONSTRING_1894";
+			values[] = {0,1};
+			default = 0;
+			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
+	};
+	
+	class d_punish_civ_kill {
+			title = "$STR_DOM_MISSIONSTRING_1895";
+			values[] = {0,1};
+			default = 0;
+			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
+	};
+	
+	class d_enemy_occupy_bldgs {
+			title = "$STR_DOM_MISSIONSTRING_1896";
+			values[] = {0,1};
+			default = 0;
+			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
+	};
+	
+	class d_enemy_occupy_bldgs_probability {
+			title = "$STR_DOM_MISSIONSTRING_1897";
+			values[] = {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0};
+			default = 0.2;
+			texts[] = {"0", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0"};
+	};
+	
+	class d_enemy_max_barracks_count {
+			title = "$STR_DOM_MISSIONSTRING_1899";
+			values[] = {1, 2, 3, 4};
+			default = 4;
+			texts[] = {"1", "2", "3", "4"};
+	};
 
 #ifndef __TT__
 	class d_params_dl_9 {
