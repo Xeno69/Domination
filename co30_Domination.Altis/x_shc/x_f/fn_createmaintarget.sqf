@@ -375,6 +375,66 @@ if (!d_no_more_observers) then {
 	sleep 1.214;
 };
 
+//garrison begin
+if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
+	
+	private _number_of_occupy_groups_to_spawn = 0;
+	
+	switch (d_enemy_occupt_bldgs_troop_level) do {
+		case 0: {
+			_number_of_occupy_groups_to_spawn = 4;
+		};
+		case 1: {
+			_number_of_occupy_groups_to_spawn = 8;
+		};
+		case 2: {
+			_number_of_occupy_groups_to_spawn = 16;
+		};
+		case 3: {
+			_number_of_occupy_groups_to_spawn = 24;
+		};
+	};
+	
+	for "_xx" from 0 to _number_of_occupy_groups_to_spawn do {
+		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+		__TRACE("from createmaintarget garrison function");
+		[_trg_center, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, false] spawn d_fnc_makemgroup;
+		_newgroup deleteGroupWhenEmpty true;
+		sleep 1.0112;
+		//_newgroup allowFleeing 0;
+		//_newgroup setVariable ["d_defend", true];
+		//[_newgroup, _poss] spawn d_fnc_taskDefend;
+		if (d_with_dynsim == 0) then {
+			_newgroup spawn {
+				//sleep 1.5;
+				_this enableDynamicSimulation true;
+			};
+		};
+		
+		private _units_to_garrison = [];
+		{
+			_units_to_garrison pushBack _x
+		} forEach (units _newgroup);
+		
+		//__TRACE_1("_newgroup","_newgroup");
+		//__TRACE_1("_units_to_garrison","_units_to_garrison");
+
+		//AI soldiers will be garrisoned in a building (window/roof)
+		__TRACE("Placing units in a building...");
+		//occupy a building using Zenophon script
+		_unitsNotGarrisoned = [
+			[[[_trg_center, 250]],[]] call BIS_fnc_randomPos,	// Params: 1. Array, the building(s) nearest this position is used
+			_units_to_garrison,									//         2. Array of objects, the units that will garrison the building(s)
+			200,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+			false,										//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+			false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+			false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+			false ] call Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+		__TRACE("_unitsNotGarrisoned");
+	};
+};
+//garrison end
+
 [_wp_array_vecs, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
 
 _wp_array_pat = nil;

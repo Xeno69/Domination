@@ -9136,22 +9136,13 @@
 <Russian>Punish for killing a civilian</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
-<English>Enemy AI will sometimes occupy buildings</English>
-<Spanish>Enemy AI will sometimes occupy buildings</Spanish>
-<Portuguese>Enemy AI will sometimes occupy buildings</Portuguese>
-<Korean>Enemy AI will sometimes occupy buildings</Korean>
-<Japanese>Enemy AI will sometimes occupy buildings</Japanese>
-<Original>Enemy AI will sometimes occupy buildings</Original>
-<Russian>Enemy AI will sometimes occupy buildings</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1897">
-<English>Probability an enemy unit will occupy a building</English>
-<Spanish>Probability an enemy unit will occupy a building</Spanish>
-<Portuguese>Probability an enemy unit will occupy a building</Portuguese>
-<Korean>Probability an enemy unit will occupy a building</Korean>
-<Japanese>Probability an enemy unit will occupy a building</Japanese>
-<Original>Probability an enemy unit will occupy a building</Original>
-<Russian>Probability an enemy unit will occupy a building</Russian>
+<English>Enemy AI will occupy buildings</English>
+<Spanish>Enemy AI will occupy buildings</Spanish>
+<Portuguese>Enemy AI will occupy buildings</Portuguese>
+<Korean>Enemy AI will occupy buildings</Korean>
+<Japanese>Enemy AI will occupy buildings</Japanese>
+<Original>Enemy AI will occupy buildings</Original>
+<Russian>Enemy AI will occupy buildings</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1899">
 <English>Maximum number of enemy infantry barracks</English>
@@ -9161,6 +9152,15 @@
 <Japanese>Maximum number of enemy infantry barracks</Japanese>
 <Original>Maximum number of enemy infantry barracks</Original>
 <Russian>Maximum number of enemy infantry barracks</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900">
+<English>Occupy buildings troop level</English>
+<Spanish>Occupy buildings troop level</Spanish>
+<Portuguese>Occupy buildings troop level</Portuguese>
+<Korean>Occupy buildings troop level</Korean>
+<Japanese>Occupy buildings troop level</Japanese>
+<Original>Occupy buildings troop level</Original>
+<Russian>Occupy buildings troop level</Russian>
 </Key>
 </Container>
 </Package>
