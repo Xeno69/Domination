@@ -75,7 +75,9 @@ if (d_WithIsleDefense == 0 && {isServer}) then {
 	private _msize = markerSize _mna;
 	d_with_isledefense = [markerPos _mna, _msize # 0, _msize # 1, markerDir _mna, parseNumber (markerText _mna)];
 } else {
-	d_with_isledefense = [];
+	if (isServer) then {
+		d_with_isledefense = [];
+	};
 };
 publicVariable "d_with_isledefense";
 if (isServer) then {

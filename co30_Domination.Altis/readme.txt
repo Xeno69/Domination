@@ -17,6 +17,7 @@ Changelogs
 - Added: New parameter maximum number of enemy infantry barracks, default 4 (by longtimegamer)
 - Added: Improved spawning of occupying enemy AI, now does not break up non-garrisoned groups (by longtimegamer)
 - Added: New parameter to configure the number of garrisoned groups to spawn at each target (by longtimegamer)
+- Fixed: Isle defense was broken when running on a headless client
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling
