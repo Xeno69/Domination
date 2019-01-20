@@ -73,7 +73,7 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 #ifndef __TT__
-d_num_barracks_objs = (ceil random 4) max 2;
+d_num_barracks_objs = ((ceil random 4) max 2) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 private ["_iccount", "_ecounter", "_poss"];
@@ -165,39 +165,51 @@ if (!isServer) then {
 };
 sleep 0.1;
 
-//create civilian module
-placeCivilianSpotsAndUnits = {
-	
-	//_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
-	
-	_ms1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
-	_ms1 call civModuleSetVars;
-	__TRACE_1("_ms1");
-	
-	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
-	_ms2 call civModuleSetVars;
-	__TRACE_1("_ms2");
-	
-	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
-	_ms3 call civModuleSetVars;
-	__TRACE_1("_ms3");
-
-	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
-	__TRACE_1("_mu1");
-	
-	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
-	__TRACE_1("_mu2");
-	
-	_mu3 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]],[]] call BIS_fnc_randomPos, [], 0, "NONE"];
-	__TRACE_1("_mu3");
-	
+_civModuleSetVars = {
+	_this setVariable ["#capacity", 5];
+	_this setVariable ["#usebuilding", true];
+	_this setVariable ["#terminal", false];
+	//_m1 setVariable ["#type",5];
 };
 
-civModuleSetVars = {
-	_this setVariable ["#capacity",5];
-	_this setVariable ["#usebuilding",true];
-	_this setVariable ["#terminal",false];
-	//_m1 setVariable ["#type",5];
+//create civilian module
+_placeCivilianSpotsAndUnits = {	
+	//_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
+	
+	_ms1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms1 call _civModuleSetVars;
+	__TRACE_1("_ms1");
+	
+	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms2 call _civModuleSetVars;
+	__TRACE_1("_ms2");
+	
+	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms3 call _civModuleSetVars;
+	__TRACE_1("_ms3");
+	
+	_ms4 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms4 call _civModuleSetVars;
+	__TRACE_1("_ms4");
+
+	_ms5 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	_ms5 call _civModuleSetVars;
+	__TRACE_1("_ms5");
+
+	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu1");
+	
+	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu2");
+	
+	_mu3 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu3");
+	
+	_mu4 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu4");
+
+	_mu5 = _grp createUnit ["ModuleCivilianPresenceUnit_F", [[[_trg_center, 200]], []] call BIS_fnc_randomPos, [], 0, "NONE"];
+	__TRACE_1("_mu5");
 };
 
 if (d_enable_civs == 1) then {
@@ -211,23 +223,21 @@ if (d_enable_civs == 1) then {
 	__TRACE_1("_marker_name");
 	
 	__TRACE_1("Placing a civilian module...");
-	_this call placeCivilianSpotsAndUnits;
+	_this call _placeCivilianSpotsAndUnits;
 	
 	_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
 	
-	_m setVariable ["#debug",true]; // Debug mode on
+	_m setVariable ["#debug", true]; // Debug mode on
 	 
-	_m setVariable ["#area",[_trg_center,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
-	_m setVariable ["#useagents",true];
-	_m setVariable ["#usepanicmode",false];
-	_m setVariable ["#unitcount",d_civ_unitcount];
+	_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
+	_m setVariable ["#useagents", true];
+	_m setVariable ["#usepanicmode", false];
+	_m setVariable ["#unitcount", d_civ_unitcount];
 	//_m setVariable ["#onCreated", { hint "created a civilian!" }];
 	_m setVariable ["#onCreated", {
-		_this addMPEventHandler ["MPKilled", 
-		{
+		_this addMPEventHandler ["MPKilled", {
 			params ["_cVictim", "_cKiller"];
-			if (_cKiller call d_fnc_isplayer) then 
-			{
+			if (_cKiller call d_fnc_isplayer) then {
 				d_hq_logic_blufor1 kbTell [
 					d_hq_logic_blufor2,
 					"HQ_W",
@@ -236,7 +246,6 @@ if (d_enable_civs == 1) then {
 					["2", "", str d_sub_kill_civ_points, []],
 					d_kbtel_chan
 				];
-	
 				//subtract penalty for killing a civilian
 				[_cKiller, d_sub_kill_civ_points * -1] remoteExecCall ["addScore", 2]
 			};
@@ -355,6 +364,62 @@ if (!d_no_more_observers) then {
 	d_handleobservers_handle = 0 spawn d_fnc_handleobservers;
 	sleep 1.214;
 };
+
+//garrison begin
+if (d_enemy_occupy_bldgs == 1) then {
+	private _number_of_occupy_groups_to_spawn = 0;
+
+	switch (d_enemy_occupt_bldgs_troop_level) do {
+		case 0: {
+			_number_of_occupy_groups_to_spawn = 4;
+		};
+		case 1: {
+			_number_of_occupy_groups_to_spawn = 8;
+		};
+		case 2: {
+			_number_of_occupy_groups_to_spawn = 16;
+		};
+		case 3: {
+			_number_of_occupy_groups_to_spawn = 24;
+		};
+	};
+
+	for "_xx" from 0 to _number_of_occupy_groups_to_spawn do {
+		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+		__TRACE("from createmaintarget garrison function");
+		[_trg_center, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, false] spawn d_fnc_makemgroup;
+		_newgroup deleteGroupWhenEmpty true;
+		sleep 1.0112;
+		//_newgroup allowFleeing 0;
+		//_newgroup setVariable ["d_defend", true];
+		//[_newgroup, _poss] spawn d_fnc_taskDefend;
+		if (d_with_dynsim == 0) then {
+			_newgroup spawn {
+				//sleep 1.5;
+				_this enableDynamicSimulation true;
+			};
+		};
+
+		private _units_to_garrison = units _newgroup;
+
+		//__TRACE_1("_newgroup","_newgroup");
+		//__TRACE_1("_units_to_garrison","_units_to_garrison");
+
+		//AI soldiers will be garrisoned in a building (window/roof)
+		__TRACE("Placing units in a building...");
+		//occupy a building using Zenophon script
+		_unitsNotGarrisoned = [
+			[[[_trg_center, 250]],[]] call BIS_fnc_randomPos,	// Params: 1. Array, the building(s) nearest this position is used
+			_units_to_garrison,									//         2. Array of objects, the units that will garrison the building(s)
+			200,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+			false,										//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+			false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+			false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+			false ] call d_fnc_Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+		__TRACE("_unitsNotGarrisoned");
+	};
+};
+//garrison end
 
 [_wp_array_vecs, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
 

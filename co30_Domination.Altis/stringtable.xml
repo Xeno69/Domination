@@ -9117,6 +9117,42 @@
 <Original>Disable enemy air</Original>
 <Russian>Disable enemy air</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1895">
+<English>Punish for killing a civilian</English>
+<Spanish>Punish for killing a civilian</Spanish>
+<Portuguese>Punish for killing a civilian</Portuguese>
+<Korean>Punish for killing a civilian</Korean>
+<Japanese>Punish for killing a civilian</Japanese>
+<Original>Punish for killing a civilian</Original>
+<Russian>Punish for killing a civilian</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1896">
+<English>Enemy AI will occupy buildings</English>
+<Spanish>Enemy AI will occupy buildings</Spanish>
+<Portuguese>Enemy AI will occupy buildings</Portuguese>
+<Korean>Enemy AI will occupy buildings</Korean>
+<Japanese>Enemy AI will occupy buildings</Japanese>
+<Original>Enemy AI will occupy buildings</Original>
+<Russian>Enemy AI will occupy buildings</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1899">
+<English>Maximum number of enemy infantry barracks</English>
+<Spanish>Maximum number of enemy infantry barracks</Spanish>
+<Portuguese>Maximum number of enemy infantry barracks</Portuguese>
+<Korean>Maximum number of enemy infantry barracks</Korean>
+<Japanese>Maximum number of enemy infantry barracks</Japanese>
+<Original>Maximum number of enemy infantry barracks</Original>
+<Russian>Maximum number of enemy infantry barracks</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900">
+<English>Occupy buildings troop level</English>
+<Spanish>Occupy buildings troop level</Spanish>
+<Portuguese>Occupy buildings troop level</Portuguese>
+<Korean>Occupy buildings troop level</Korean>
+<Japanese>Occupy buildings troop level</Japanese>
+<Original>Occupy buildings troop level</Original>
+<Russian>Occupy buildings troop level</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

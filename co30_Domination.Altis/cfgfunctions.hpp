@@ -263,6 +263,7 @@ class cfgFunctions {
 			addc(sandstorm);
 			addc(weather_winter);
 			addc(HousePatrol);
+			addc(Zen_OccupyHouse);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";

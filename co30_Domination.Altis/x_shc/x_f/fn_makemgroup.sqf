@@ -47,6 +47,7 @@ if (!_mchelper) then {
 	_one_unit setSkill ["spotTime", _subskill];
 	_ret set [_forEachIndex, _one_unit];
 	_one_unit call d_fnc_removenvgoggles_fak;
+	
 #ifdef __GROUPDEBUG__
 	// does not subtract if a unit dies!
 	if (side _grp == d_side_enemy) then {

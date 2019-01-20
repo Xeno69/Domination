@@ -8,7 +8,15 @@ Also all code regarding custom made third party content was removed (for example
 Changelogs
 
 3.99l
-
+- Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
+- Added: Replaced the explicit user ID with #adminLogged for Zeus access (by longtimegamer)
+- Added: New parameter infantry can occupy buildings using script by Zenophon (by longtimegamer)
+- Added: New parameter probability of infantry being chosen to occupy a building (by longtimegamer)
+- Added: New parameter disable enemy air attack (by longtimegamer)
+- Added: New parameter punish for killing a civ (instant death) (by longtimegamer)
+- Added: New parameter maximum number of enemy infantry barracks, default 4 (by longtimegamer)
+- Added: Improved spawning of occupying enemy AI, now does not break up non-garrisoned groups (by longtimegamer)
+- Added: New parameter to configure the number of garrisoned groups to spawn at each target (by longtimegamer)
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling

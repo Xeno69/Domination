@@ -725,39 +725,67 @@ class Params {
 	};
 	
 	class d_enable_civs {
-			title = "$STR_DOM_MISSIONSTRING_1890";
-			values[] = {0,1};
-			default = 0;
-			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		title = "$STR_DOM_MISSIONSTRING_1890";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_civ_unitcount {
-			title = "$STR_DOM_MISSIONSTRING_1893";
-			values[] = {0,1,2,3,4,5,10,15,20,25,30};
-			default = 0;
-			texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
+		title = "$STR_DOM_MISSIONSTRING_1893";
+		values[] = {0,1,2,3,4,5,10,15,20,25,30};
+		default = 0;
+		texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
 	};
 	
 	class d_sub_kill_civ_points {
-			title = "$STR_DOM_MISSIONSTRING_1888";
-			values[] = {0,1,2,3,4,5,10,25,100};
-			default = 0;
-			texts[] = {"0","1","2","3","4","5","10","25","100"};
+		title = "$STR_DOM_MISSIONSTRING_1888";
+		values[] = {0,1,2,3,4,5,10,25,50,75m100};
+		default = 0;
+		texts[] = {"0","1","2","3","4","5","10","25","50","75","100"};
 	};
 	
 	class d_disable_airai {
-			title = "$STR_DOM_MISSIONSTRING_1894";
-			values[] = {0,1};
-			default = 0;
-			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
+		title = "$STR_DOM_MISSIONSTRING_1894";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_arty_unlimited {
-    		title = "$STR_DOM_MISSIONSTRING_1885";
-    		values[] = {0,1};
-    		default = 0;
-    		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		title = "$STR_DOM_MISSIONSTRING_1885";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
     };
+	
+	class d_punish_civ_kill {
+		title = "$STR_DOM_MISSIONSTRING_1895";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+
+	class d_enemy_occupy_bldgs {
+		title = "$STR_DOM_MISSIONSTRING_1896";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+
+	class d_enemy_occupt_bldgs_troop_level {
+			title = "$STR_DOM_MISSIONSTRING_1900";
+			values[] = {0, 1, 2, 3};
+			default = 1;
+			texts[] = {"0 - Low", "1 - Medium", "2 - High", "3 - Insane"};
+	};
+
+	class d_enemy_max_barracks_count {
+		title = "$STR_DOM_MISSIONSTRING_1899";
+		values[] = {1, 2, 3, 4};
+		default = 4;
+		texts[] = {"1", "2", "3", "4"};
+	};
 
 #ifndef __TT__
 	class d_params_dl_9 {
