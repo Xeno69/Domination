@@ -366,7 +366,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_bonus_vec_type {
@@ -380,28 +380,28 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1717";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_mt_respawngroups {
 		title = "$STR_DOM_MISSIONSTRING_1741";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_weather {
 		title = "$STR_DOM_MISSIONSTRING_1164";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_enable_fog {
 		title = "$STR_DOM_MISSIONSTRING_1164a";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_WithWinterWeather {
@@ -412,7 +412,7 @@ class Params {
 #else
 		default = 1;
 #endif
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_withsandstorm {
@@ -448,7 +448,7 @@ class Params {
 #ifdef __ROSCHE__
 		default = 1;
 #endif
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_MaxNumAmmoboxes {
@@ -469,7 +469,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1457";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_timemultiplier {
@@ -483,42 +483,42 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1735";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_with_bis_dynamicgroups {
 		title = "$STR_DOM_MISSIONSTRING_1759";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_arsenal_mod {
 		title = "$STR_DOM_MISSIONSTRING_1829";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_no_mortar_ar {
 		title = "$STR_DOM_MISSIONSTRING_1831";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_with_base_sabotage {
 		title = "$STR_DOM_MISSIONSTRING_1837";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_house_patrol {
 		title = "$STR_DOM_MISSIONSTRING_1868";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_params_dl_2 {
@@ -546,7 +546,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1041";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_params_dl_3 {
@@ -560,14 +560,14 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1174";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_Terraindetail {
 		title = "$STR_DOM_MISSIONSTRING_1175";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_params_dl_5 {
@@ -581,21 +581,21 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1005";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_WithReviveSpectating {
 		title = "$STR_DOM_MISSIONSTRING_1567";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_only_medics_canrevive {
 		title = "$STR_DOM_MISSIONSTRING_1008";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class xr_max_lives {
@@ -644,7 +644,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1209";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_show_player_marker {
@@ -672,49 +672,49 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1100";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_without_vec_ti {
 		title = "$STR_DOM_MISSIONSTRING_1101";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_without_vec_nvg {
 		title = "$STR_DOM_MISSIONSTRING_1101a";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_vec_at_farp {
 		title = "$STR_DOM_MISSIONSTRING_1832";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_engineerfull {
 		title = "$STR_DOM_MISSIONSTRING_1193";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_enablefatigue {
 		title = "$STR_DOM_MISSIONSTRING_1568";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_enablesway {
 		title = "$STR_DOM_MISSIONSTRING_1583";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_mhqvec_create_cooldown {
@@ -728,7 +728,7 @@ class Params {
 			title = "$STR_DOM_MISSIONSTRING_1890";
 			values[] = {0,1};
 			default = 0;
-			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_1006"};
+			texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_civ_unitcount {
@@ -749,7 +749,7 @@ class Params {
     		title = "$STR_DOM_MISSIONSTRING_1885";
     		values[] = {0,1};
     		default = 0;
-    		texts[] = {"$STR_DOM_MISSIONSTRING_1886","$STR_DOM_MISSIONSTRING_1887"};
+    		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
     };
 
 #ifndef __TT__
@@ -764,14 +764,14 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1023";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_with_ai_features {
 		title = "$STR_DOM_MISSIONSTRING_1024";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_max_ai {
@@ -785,7 +785,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1758";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 #endif
 	
@@ -800,7 +800,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1056";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_MHQDisableNearMT {
@@ -821,21 +821,21 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1067";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_WithTeleToBase {
 		title = "$STR_DOM_MISSIONSTRING_1068";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_respawnatsql {
 		title = "$STR_DOM_MISSIONSTRING_1705";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_params_dl_11 {
@@ -849,7 +849,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1213";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_params_dl_12 {
@@ -870,7 +870,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1099";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_WithLessArmor {
@@ -898,7 +898,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1128";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_params_dl_13 {
@@ -912,7 +912,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1098";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_HALOWaitTime {
@@ -926,7 +926,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1097";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_HALOJumpHeight {
@@ -947,28 +947,28 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1082";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_LockCars {
 		title = "$STR_DOM_MISSIONSTRING_1083";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_LockAir {
 		title = "$STR_DOM_MISSIONSTRING_1084";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_enemy_vecs_lift {
 		title = "$STR_DOM_MISSIONSTRING_1830";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_params_dl_16 {
@@ -996,7 +996,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1208";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1006","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
 	class d_sub_tk_points {
