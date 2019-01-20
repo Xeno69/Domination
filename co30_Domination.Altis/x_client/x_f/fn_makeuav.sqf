@@ -34,6 +34,9 @@ player action ["UAVTerminalOpen"];
 
 ["a2", d_string_player, _vecu] remoteExecCall ["d_fnc_p_o_ar", 2];
 
+_vecu setVariable ["d_vec", ["", "UAV " + d_name_pl, "ColorBlue", d_player_side], true];
+_vecu remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
+
 //diag_log ["UAVControl", UAVControl _vecu];
 
 _vecu spawn {

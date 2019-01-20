@@ -18,6 +18,8 @@ Changelogs
 - Added: Improved spawning of occupying enemy AI, now does not break up non-garrisoned groups (by longtimegamer)
 - Added: New parameter to configure the number of garrisoned groups to spawn at each target (by longtimegamer)
 - Fixed: Isle defense was broken when running on a headless client
+- Changed: Set damage to 0 when infantry AI units spawn in the air after some time
+- Added: Marker at UAV position with player name when a player creates an UAV at a MHQ
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling
