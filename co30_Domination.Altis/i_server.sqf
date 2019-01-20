@@ -79,8 +79,8 @@ if (d_WithIsleDefense == 0 && {isServer}) then {
 		d_with_isledefense = [];
 	};
 };
-publicVariable "d_with_isledefense";
 if (isServer) then {
+	publicVariable "d_with_isledefense";
 	deleteMarker "d_isledefense_marker";
 };
 __TRACE_1("","d_with_isledefense")
