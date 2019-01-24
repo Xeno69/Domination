@@ -3,6 +3,6 @@
 #define THIS_FILE "fn_save_layoutgear.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 player setVariable ["d_layoutgear", getUnitLoadout player];

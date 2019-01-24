@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_update_telerespsel.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_cparams", "_wone"];
 _cparams params ["_ctrl", "_sel"];

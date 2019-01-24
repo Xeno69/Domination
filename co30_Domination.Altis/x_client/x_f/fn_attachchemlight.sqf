@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_attachchemlight.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _cheml = _this;
 

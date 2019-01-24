@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_dropammoboxdx.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_unit", "_caller"];
 

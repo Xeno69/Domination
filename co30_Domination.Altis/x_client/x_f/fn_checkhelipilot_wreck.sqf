@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_checkhelipilot_wreck.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_vec", "_position", "_enterer"];
 

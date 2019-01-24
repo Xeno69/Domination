@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_loaddroppedx.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_unit", "_caller"];
 

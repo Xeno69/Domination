@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_checkhelipilot.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_listin"];
 private _enterer = _listin # 2;

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_fixheadbug.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private "_posasl";
 private _unit = _this;

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_firearty.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 #ifndef __TT__
 if !(d_ari_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_149")};

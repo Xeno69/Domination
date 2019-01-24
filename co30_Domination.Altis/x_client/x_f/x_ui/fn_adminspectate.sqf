@@ -4,7 +4,7 @@
 #include "..\..\..\x_setup.sqf"
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (isMultiplayer && {!d_pisadminp}) exitWith {d_commandingMenuIniting = false};
 

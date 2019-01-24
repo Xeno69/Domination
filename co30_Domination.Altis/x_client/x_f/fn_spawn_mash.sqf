@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_mash.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (player getVariable "d_isinaction") exitWith {
 	d_commandingMenuIniting = false;

@@ -148,6 +148,8 @@ class cfgFunctions {
 			addc(serverrules);
 			addc(playsound);
 			addc(repack_mags);
+			addc(rem_uav);
+			addc(uav_check);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -398,6 +400,7 @@ class cfgFunctions {
 			addc(handlescore);
 			addc(add_hs);
 			addc(giveplayerscore);
+			addc(scheck_uav);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

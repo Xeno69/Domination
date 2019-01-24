@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_vdsliderchanged.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 private _newvd = round (_this select 1);

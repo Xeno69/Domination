@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_dlgopenx.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (dialog) then {closeDialog 0};
 

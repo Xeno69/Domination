@@ -2,7 +2,7 @@
 #define THIS_FILE "x_recruitsetup.sqf"
 #include "..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 player reveal d_AI_HUT;
 

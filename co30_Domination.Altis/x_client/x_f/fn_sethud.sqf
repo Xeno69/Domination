@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sethud.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_vec"];
 

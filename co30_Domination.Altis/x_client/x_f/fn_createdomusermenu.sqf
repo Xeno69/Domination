@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_createdomusermenu.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 _start_key = 1;
 private _fnc_inc_num = {

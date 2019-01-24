@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_ffunc.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (alive player && {isNull objectParent player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}) then {
 	d_objectID1 = cursorObject;

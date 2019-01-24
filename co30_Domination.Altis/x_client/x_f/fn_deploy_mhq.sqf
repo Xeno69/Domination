@@ -5,7 +5,7 @@
 
 __TRACE("Starting")
 
-if (isDedicated || {!alive player || {isNil "d_curvec_dialog" || {isNull d_curvec_dialog || {!alive d_curvec_dialog}}}}) exitWith {
+if (!hasInterface || {!alive player || {isNil "d_curvec_dialog" || {isNull d_curvec_dialog || {!alive d_curvec_dialog}}}}) exitWith {
 	__TRACE("Exiting deply_mhq 1")
 };
 

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makeuav.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
+if (!hasInterface || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
 
 private _exitj = false;
 if (d_with_ranked || {d_database_found}) then {
@@ -33,9 +33,6 @@ player connectTerminalToUav _vecu;
 player action ["UAVTerminalOpen"];
 
 ["a2", d_string_player, _vecu] remoteExecCall ["d_fnc_p_o_ar", 2];
-
-_vecu setVariable ["d_vec", ["", "UAV " + d_name_pl, "ColorBlue", d_player_side], true];
-_vecu remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 
 //diag_log ["UAVControl", UAVControl _vecu];
 

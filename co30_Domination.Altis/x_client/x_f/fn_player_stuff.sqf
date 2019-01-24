@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_player_stuff.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
 d_player_autokick_time = _this select 0;

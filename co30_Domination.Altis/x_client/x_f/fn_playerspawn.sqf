@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_playerspawn.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_rtype"];
 __TRACE_1("","_rtype")

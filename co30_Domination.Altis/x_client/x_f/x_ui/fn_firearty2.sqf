@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_firearty2.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 

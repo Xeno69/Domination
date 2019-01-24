@@ -4,7 +4,7 @@
 #include "..\..\..\x_setup.sqf"
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	xr_phd_invulnerable = true;

@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_bike.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 (_this select 3) params ["_create_bike", "_b_mode"];
 

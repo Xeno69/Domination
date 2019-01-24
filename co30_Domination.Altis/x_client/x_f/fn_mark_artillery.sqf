@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_mark_artillery.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 #ifndef __IFA3LITE__
 private _lt = laserTarget player;

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_ataxinet.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _strout = switch (_this) do {
 	case 0: {localize "STR_DOM_MISSIONSTRING_634"};

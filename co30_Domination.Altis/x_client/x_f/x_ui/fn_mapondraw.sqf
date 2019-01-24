@@ -177,7 +177,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 
 __TRACE_1("","d_marker_vecs")
 
-private _rem = [];
+private _rdel = false;
 private ["_isc", "_mt"];
 {
 	if (!isNull _x) then {
@@ -216,12 +216,10 @@ private ["_isc", "_mt"];
 			};
 		};
 	} else {
-		_rem pushBack _x;
+		_rdel = true;
 	};
 } forEach d_marker_vecs;
 
-if !(_rem isEqualTo []) then {
-	__TRACE_1("","_rem")
-	_rem pushBack objNull;
-	d_marker_vecs = d_marker_vecs - _rem;
+if (_rdel) then {
+	d_marker_vecs = d_marker_vecs - [objNull];
 };

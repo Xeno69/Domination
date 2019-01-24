@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_healatmash.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated || {_this select 1 != player || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
+if (!hasInterface || {_this select 1 != player || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
 
 player setVariable ["d_isinaction", true];
 

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_placedobjan.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated || {!hasInterface}) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (d_string_player == _this) then {
 	if (player getUnitTrait "Medic") then {

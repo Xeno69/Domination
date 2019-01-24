@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_createnexttargetclient.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated || {!hasInterface}) exitWith {};
+if (!hasInterface) exitWith {};
 
 sleep 1.012;
 

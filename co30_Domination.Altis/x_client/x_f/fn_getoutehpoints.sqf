@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_getoutehpoints.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _unit = _this select 2;
 if !(_unit call d_fnc_isplayer) exitWith {};

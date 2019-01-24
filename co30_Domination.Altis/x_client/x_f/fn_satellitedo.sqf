@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #define THIS_FILE "fn_satellitedo.sqf"
 #include "..\..\x_setup.sqf"
-if (isDedicated || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
+if (!hasInterface || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
 
 private _exitj = false;
 if (d_with_ranked || {d_database_found}) then {

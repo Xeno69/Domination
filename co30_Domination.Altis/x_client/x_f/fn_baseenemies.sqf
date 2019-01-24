@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_baseenemies.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 switch (_this select 0) do {
 	case 0: {

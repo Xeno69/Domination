@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_teleupdate_dlg.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated || {d_x_loop_end}) exitWith {};
+if (!hasInterface || {d_x_loop_end}) exitWith {};
 
 disableSerialization;
 

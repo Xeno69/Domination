@@ -5,7 +5,7 @@
 
 #define CTRL(A) (_disp displayCtrl A)
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 

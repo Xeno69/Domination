@@ -4,7 +4,7 @@
 #include "..\..\..\x_setup.sqf"
 
 __TRACE("dismissbuttonaction")
-if (isDedicated || {player getVariable "d_recdbusy"}) exitWith {};
+if (!hasInterface || {player getVariable "d_recdbusy"}) exitWith {};
 
 disableSerialization;
 

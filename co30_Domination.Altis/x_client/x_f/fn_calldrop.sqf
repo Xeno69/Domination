@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_calldrop.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {
+if (!hasInterface) exitWith {
 	d_commandingMenuIniting = false;
 };
 

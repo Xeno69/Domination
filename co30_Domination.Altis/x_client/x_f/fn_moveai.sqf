@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_moveai.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (units (group player) findIf {alive _x} > -1) then {
 	if (isNil "_this" || {_this isEqualTo []}) then {

@@ -1,7 +1,7 @@
 // by Xeno
 #define THIS_FILE "fn_playervectrans.sqf"
 #include "..\..\x_setup.sqf"
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 #define __vaeh _vec addEventHandler
 #define __vreh _vec removeEventHandler

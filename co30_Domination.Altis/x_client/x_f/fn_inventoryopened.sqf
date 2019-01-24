@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_inventoryopened.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
 private _box = _this select 1;

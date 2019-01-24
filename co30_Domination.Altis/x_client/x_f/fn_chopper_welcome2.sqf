@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_chopper_welcome2.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private ["_welcome_str2", "_welcome_str3"];
 disableSerialization;

@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_newflagclient.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _flag = _this;
 

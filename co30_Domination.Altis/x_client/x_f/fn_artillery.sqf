@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_artillery.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (!alive player || {isNull objectParent player && {(getPos player) # 2 > 10} || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {
 	d_commandingMenuIniting = false;
