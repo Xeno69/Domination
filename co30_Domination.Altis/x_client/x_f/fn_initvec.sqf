@@ -57,12 +57,15 @@ if (_desm != "" && {!(markerPos _desm isEqualTo [0,0,0])}) then {
 private _d_vec = _vec getVariable "d_vec";
 if (isNil "_d_vec") exitWith {};
 
+__TRACE_1("","_d_vec")
+
 if (!isNil {_vec getVariable "d_vcheck"}) exitWith {};
 _vec setVariable ["d_vcheck", true];
 
 if (_d_vec isEqualType []) exitWith {
 	__TRACE_1("","_d_vec")
 	_d_vec params ["_ma_type", "_ma_text", "_ma_col", ["_vside", d_player_side]];
+	__TRACE_2("","_vside","d_player_side")
 	if (_vside == d_player_side) then {
 		__TRACE_1("","_ma_text")
 		if (_ma_text != "") then {
@@ -79,6 +82,7 @@ if (_d_vec isEqualType []) exitWith {
 			_vec setVariable ["d_ma_color", getArray (configFile >>"CfgMarkerColors">>_ma_col>>"color")];
 		};
 		d_marker_vecs pushBack _vec;
+		__TRACE_1("","d_marker_vecs")
 	};
 };
 

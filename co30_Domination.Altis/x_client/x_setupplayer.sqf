@@ -1053,7 +1053,9 @@ if (d_with_ai) then {
 	}];
 };
 
+#ifndef __IFA3LITE__
 0 spawn d_fnc_uav_check;
+#endif
 
 0 spawn {
 	waitUntil {sleep 0.3;time > 0};

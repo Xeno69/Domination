@@ -13,6 +13,7 @@ while {true} do {
 			_x setVariable ["d_ublocked", nil, true];
 			_x setVariable ["d_vec", nil, true];
 			_x remoteExecCall ["d_fnc_rem_uav"];
+			_x setVariable ["d_vcheck", nil, true];
 		};
 		sleep 0.5;
 	} forEach allUnitsUAV;
