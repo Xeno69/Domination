@@ -9,7 +9,7 @@ while {true} do {
 	{
 		deleteVehicle _x;
 		sleep 0.212;
-	} forEach (allMissionObjects "CraterLong" + allMissionObjects "CraterLong_small");
+	} forEach (nearestObjects [getArray(configFile >> "CfgWorlds" >> worldName >> "centerPosition"), ["Crater", "CraterLong", "CraterLong_small"], worldSize, true]);
 	sleep 0.1;
 	if (!isNil "d_airboxes" && {!(d_airboxes isEqualTo [])}) then {
 		{

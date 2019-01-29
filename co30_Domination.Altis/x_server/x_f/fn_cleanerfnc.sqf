@@ -6,12 +6,12 @@
 while {true} do {
 	sleep (300 + random 150);
 	private _allmisobjs = allMissionObjects "groundWeaponHolder";
-	sleep 4;
+	sleep 8;
 	private _helperx = allMissionObjects "WeaponHolder";
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
-	sleep 4;
+	sleep 8;
 	_helperx = entities [["WeaponHolderSimulated", "Plane_Canopy_Base_F", "Ejection_Seat_Base_F"], []];
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
@@ -21,33 +21,13 @@ while {true} do {
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
-	sleep 4;
-	_helperx = allMissionObjects "Chemlight_green";
+	sleep 8;
+	_helperx = allMissionObjects "Chemlight_base";
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
-	sleep 4;
-	_helperx = allMissionObjects "Chemlight_red";
-	if !(_helperx isEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 4;
-	_helperx = allMissionObjects "Chemlight_yellow";
-	if !(_helperx isEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 4;
-	_helperx = allMissionObjects "Chemlight_blue";
-	if !(_helperx isEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 4;
-	_helperx = allMissionObjects "CraterLong";
-	if !(_helperx isEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 4;
-	_helperx = allMissionObjects "CraterLong_small";
+	sleep 8;
+	_helperx = nearestObjects [getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition"), ["Crater", "CraterLong", "CraterLong_small"], worldSize, true];
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
