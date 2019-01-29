@@ -453,6 +453,7 @@ class cfgFunctions {
 			addc(doquake);
 			addc(createambient);
 			addc(dohousepatrol);
+			addc(deleteempty);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";
@@ -543,30 +544,6 @@ class cfgFunctions {
 			addc(Get_Corner_Points);
 			addc(Is_Supported_Vehicle);
 			addc(Hide_Object_Global);
-		};
-	};
-	class Dom_FSM {
-		tag = "d";
-		class Dom_FSMs {
-			file = "fsms";
-			class 3rdperson{ext=".fsm";};
-			class AIRevive{ext=".fsm";};
-			class AmmoLoad{ext=".fsm";};
-			class Boatrespawn{ext=".fsm";};
-			class CampDialog{ext=".fsm";};
-			class DeleteEmpty{ext=".fsm";};
-			class DeleteUnits{ext=".fsm";};
-			class HandleCamps2{ext=".fsm";};
-			class IsAdmin{ext=".fsm";};
-			class Parahandler{ext=".fsm";};
-			class RepWreck{ext=".fsm";};
-			class RespawnGroups{ext=".fsm";};
-			class RetakeCamp{ext=".fsm";};
-			class WeatherServer{ext=".fsm";};
-			class Wreckmarker{ext=".fsm";};
-			class TTPoints{ext=".fsm";};
-			class HandleCampsTT2{ext=".fsm";};
-			class Infilrate{ext=".fsm";};
 		};
 	};
 };

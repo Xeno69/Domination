@@ -20,6 +20,8 @@ Changelogs
 - Fixed: Isle defense was broken when running on a headless client
 - Changed: Set damage to 0 when infantry AI units spawn in the air after some time
 - Added: Marker at UAV position with player name when a player connects to a UAV
+- Fixed: Playerscore for db was missing delta calculation (by Auge)
+- Fixed: Main target units/vehicles did not get deleted correctly on a headless client
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling

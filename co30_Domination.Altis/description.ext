@@ -178,7 +178,6 @@ class CfgRemoteExec {
 		class xr_fnc_selleader {allowedTargets = 2;};
 		class d_fnc_cgraa {};
 		class d_fnc_docreatenexttarget {};
-		class d_fnc_deleteunits {};
 		class d_fnc_deleteempty {};
 		class d_fnc_dodelintelu {};
 		class d_fnc_dodelrspgrps {};

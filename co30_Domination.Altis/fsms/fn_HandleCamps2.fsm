@@ -251,7 +251,6 @@ class FSM
                          "		};" \n
                          "		_mcolor = ""ColorBLUFOR"";" \n
                          "		d_campscaptured = d_campscaptured + 1; publicVariable ""d_campscaptured"";" \n
-                         "		//[_wf, d_enemy_side] call d_fnc_RetakeCamp;" \n
                          "		[_wf, d_enemy_side] execFSM ""fsms\fn_RetakeCamp.fsm"";" \n
                          "	};" \n
                          "	case d_own_side: {" \n

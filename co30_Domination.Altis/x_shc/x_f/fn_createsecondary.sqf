@@ -173,7 +173,6 @@ for "_i" from 1 to _nrcamps do {
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 	
 	_wf addEventHandler ["HandleDamage", {0}];
-	//[_wf, _flagPole] call d_fnc_HandleCamps2;
 #ifndef __TT__
 	[_wf, _flagPole] execFSM "fsms\fn_HandleCamps2.fsm";
 #else
