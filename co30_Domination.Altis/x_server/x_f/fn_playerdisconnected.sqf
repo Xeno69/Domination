@@ -45,7 +45,7 @@ private _softveckills = (_ps # 1) - (_t_ps # 1);
 private _armorkills = (_ps # 2) - (_t_ps # 2);
 private _airkills = (_ps # 3) - (_t_ps # 3);
 private _deaths = (_ps # 4) - (_t_ps # 4);
-private _totalscore = if (_scpl != -1) then {_scpl - (_t_ps # 5)} else {_ps # 5};
+private _totalscore = if (_scpl != -1) then {_scpl - (_t_ps # 5)} else {(_ps # 5) - (_t_ps # 5)};
 
 d_player_store setVariable [_usc, _ps];
 
