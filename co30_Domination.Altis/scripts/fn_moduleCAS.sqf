@@ -6,32 +6,35 @@ params ["_lpos", "_caller", "_wtype"];
 
 __TRACE_1("","_this")
 
+private _callero = objectFromNetId _caller;
+private _side = side (group _callero);
+
 #ifndef __TT__
 if (!isServer || {!d_cas_available}) exitWith {};
 d_cas_available = false;
 publicVariable "d_cas_available";
 #else
-if (!isServer || {!d_cas_available_w}) exitWith {};
-if (!isServer || {!d_cas_available_e}) exitWith {};
+if (!isServer || {_side == blufor && {!d_cas_available_w}}) exitWith {};
+if (_side == opfor && {!d_cas_available_e}) exitWith {};
+
+if (_side == blufor) then {
+	d_cas_available_w = false;
+	publicVariable "d_cas_available_w";
+} else {
+	if (_side == opfor) then {
+		d_cas_available_e = false;
+		publicVariable "d_cas_available_e";
+	};
+};
 #endif
 
-private _callero = missionNamespace getVariable _caller;
-
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	_callero addScore -(d_ranked_a # 22);
 };
 
-private _side = side (group _callero);
 #ifndef __TT__
 private _planeClass = d_cas_plane;
 #else
-if (_side == opfor) then {
-	d_cas_available_e = false;
-	publicVariable "d_cas_available_e";
-} else {
-	d_cas_available_w = false;
-	publicVariable "d_cas_available_w";
-};
 private _planeClass = d_cas_plane select (_side == opfor);
 #endif
 __TRACE_1("","_planeClass")
@@ -57,8 +60,8 @@ if !(isclass _planeCfg) exitwith {
 //--- Detect gun
 private _weaponTypes = switch _wtype do {
 	case 0: {["machinegun"]};
-	case 1: {["missilelauncher", "rocketlauncher"]};
-	case 2: {["machinegun", "missilelauncher", "rocketlauncher"]};
+	case 1: {["rocketlauncher"]};
+	case 2: {["machinegun", "rocketlauncher"]};
 	default {[]};
 };
 #else
@@ -70,9 +73,24 @@ private _weaponTypes = switch _wtype do {
 };
 #endif
 
+__TRACE_1("","_weaponTypes")
+
+private _pylweaps = [];
+private _cfg = _planeCfg>>"Components">>"TransportPylonsComponent">>"pylons";
+if (isClass _cfg) then {
+	for "_i" from 0 to (count _cfg - 1) do {
+		private _curpylon = _cfg select _i;
+		private _tweap = getText (configFile>>"CfgMagazines">>getText (_curpylon>>"attachment")>>"pylonWeapon");
+		__TRACE_1("","_tweap")
+		if (_tweap != "") then {
+			_pylweaps pushBackUnique _tweap;
+		};
+	};
+};
+
 private _weapons = [];
 {
-	__TRACE_1("","_x call bis_fnc_itemType")
+	__TRACE_2("","_x","_x call bis_fnc_itemType")
 	if (toLower ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
 		private _modes = getArray (configFile>>"cfgweapons">>_x>>"modes");
 		__TRACE_1("","_modes")
@@ -82,7 +100,11 @@ private _weapons = [];
 			_weapons pushBack [_x, _mode];
 		};
 	};
-} forEach getArray (_planeCfg >> "weapons");
+} forEach (getArray (_planeCfg >> "weapons") + _pylweaps);
+#ifdef __DEBUG__
+_mmm = getArray (_planeCfg >> "weapons");
+__TRACE_1("","_mmm")
+#endif
 __TRACE_1("","_weapons")
 
 if (_weapons isEqualTo []) exitwith {
@@ -115,7 +137,7 @@ private _logic1 = d_kb_logic1;
 private _channel = d_kbtel_chan;
 #endif
 
-private _callero = missionNamespace getVariable _caller;
+private _callero = objectFromNetId _caller;
 if (isNil "_callero" || {isNull _callero}) then {_callero = _logic};
 _logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
 sleep 1;
@@ -139,7 +161,8 @@ private _speed = 400 / 3.6;
 private _duration = ([0,0] distance [_dis, _alt]) / _speed;
 
 //--- Create plane
-private _planePos = [_pos, _dis, _dir + 180] call bis_fnc_relpos;
+//private _planePos = [_pos, _dis, _dir + 180] call bis_fnc_relpos;
+private _planePos = _pos getPos [_dis, [_dir + 90, _dir - 90] select (random 100 > 50)];
 _planePos set [2, (_pos # 2) + _alt];
 ([_planePos, _dir, _planeClass, (getNumber (_planeCfg>>"side")) call bis_fnc_sideType] call d_fnc_spawnVehicle) params ["_plane", "_crew", "_group"];
 _plane setPosasl _planePos;

@@ -1,8 +1,9 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_helilift_wreck.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_chopper"];
 
@@ -63,6 +64,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				};
 			};
 		} else {
+			__TRACE_1("","_menu_lift_shown")
 			if (_menu_lift_shown) then {
 				_chopper removeAction _id;
 				_id = -1212;
@@ -75,6 +77,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				_chopper setVariable ["d_vec_attached", false];
 				_chopper setVariable ["d_vec_released", false];
 			} else {
+				__TRACE_1("","_liftobj")
 				if (_chopper getVariable "d_vec_attached") then {
 					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000];
 					_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_252");
@@ -91,11 +94,15 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					_liftobj engineOn false;
 					_liftobj attachTo [_chopper, [0, 0, -15]];
 					_chopper setVariable ["d_attachedto_v", _liftobj, true];
+					if (d_with_ranked || {d_database_found}) then {
+						_liftobj setVariable ["d_lift_pilot", player, true];
+					};
 					
 					while {alive _chopper && {player in _chopper && {!isNull _liftobj && {alive player && {!isNull attachedTo _liftobj && {!(_chopper getVariable "d_vec_released")}}}}}} do {
 						_chopper setFuel ((fuel _chopper) - _fuelloss);
 						sleep 0.312;
 					};
+					__TRACE("Out of while loop")
 					
 					if (!isNull attachedTo _liftobj) then {
 						detach _liftobj;
@@ -113,21 +120,23 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					
 					_chopper setVariable ["d_Attached_Vec", objNull];
 					
-					if (!alive _liftobj || {!alive _chopper}) then {
+					if (alive _chopper) then {
+						if (alive player) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 						_chopper removeAction _release_id;
 						_release_id = -1212;
-					} else {
-						if (alive _chopper && {alive player}) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 					};
 					
-					if (!(_liftobj isKindOf "StaticWeapon") && {(getPosVisual _liftobj) # 2 < 200}) then {
-						waitUntil {sleep 0.222;(getPosVisual _liftobj) # 2 < 10};
-					} else {
-						private _npos = getPosVisual _liftobj;
-						_liftobj setPos [_npos # 0, _npos # 1, 0];
-					};
+					if (!isNull _liftobj) then {
+						if (!(_liftobj isKindOf "StaticWeapon") && {(getPosVisual _liftobj) # 2 < 200}) then {
+							waitUntil {sleep 0.222;(getPosVisual _liftobj) # 2 < 10};
+						} else {
+							private _npos = getPosVisual _liftobj;
+							_liftobj setPos [_npos # 0, _npos # 1, 0];
+						};					
 					
-					[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+						detach _liftobj;
+						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+					};
 					
 					sleep 1.012;
 				};

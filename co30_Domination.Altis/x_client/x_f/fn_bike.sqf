@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_bike.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 (_this select 3) params ["_create_bike", "_b_mode"];
 
@@ -56,7 +56,7 @@ if (_b_mode == 0 && {alive d_flag_vec}) exitWith {
 	systemChat format [localize "STR_DOM_MISSIONSTRING_160", 0 max round((d_vec_end_time - time) / 60)];
 };
 
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	[player, (d_ranked_a # 5) * -1] remoteExecCall ["addScore", 2];
 };
 

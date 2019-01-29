@@ -5,7 +5,7 @@
 
 #define __control(numcontrol) (_display displayCtrl numcontrol)
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 

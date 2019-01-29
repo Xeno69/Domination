@@ -4,6 +4,7 @@
 #include "x_setup.sqf"
 #endif
 
+private _allmapmarkers = allMapMarkers select {_x select [0, 8] == "d_bonus_"};
 #ifndef __TT__
 d_bap_counter = 0;
 d_bacp_counter = 0;
@@ -11,7 +12,6 @@ d_bonus_create_pos = markerPos "d_bonus_create_pos";
 deleteMarker "d_bonus_create_pos";
 d_bonus_air_positions = [];
 d_bonus_air_positions_carrier = [];
-private _allmapmarkers = allMapMarkers;
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
@@ -58,7 +58,6 @@ d_bonus_vec_positions_w = [];
 
 d_bvp_counter_e = 0;
 d_bonus_vec_positions_e = [];
-d_bonus_vec_positions_w = [];
 {
 	d_bonus_vec_positions_e pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
@@ -68,22 +67,22 @@ d_bonus_vec_positions_w = [];
 // add some random patrols on the island
 // if the array is empty, no patrols
 // simply place a rectangular marker called "d_isledefense_marker", marker text = number of patrols
-if (d_WithIsleDefense == 0 && {call d_fnc_checkSHC}) then {
+if (d_WithIsleDefense == 0 && {isServer}) then {
 	private _mna = "d_isledefense_marker";
 	if (markerPos _mna isEqualTo [0,0,0]) exitWith {
 		d_with_isledefense = [];
 	};
 	private _msize = markerSize _mna;
 	d_with_isledefense = [markerPos _mna, _msize # 0, _msize # 1, markerDir _mna, parseNumber (markerText _mna)];
-	deleteMarker _mna;
 } else {
-	d_with_isledefense = [];
-	
+	if (isServer) then {
+		d_with_isledefense = [];
+	};
 };
-if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	[missionNamespace, ["d_with_isledefense", d_with_isledefense]] remoteExecCall ["setVariable", d_HC_CLIENT_OBJ_OWNER];
+if (isServer) then {
+	publicVariable "d_with_isledefense";
+	deleteMarker "d_isledefense_marker";
 };
-
 __TRACE_1("","d_with_isledefense")
 
 #ifndef __TT__
@@ -127,19 +126,9 @@ if (d_with_ai && {isServer}) then {
 	} else {
 		d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];
 	};
+	d_AI_HUT enableSimulationGlobal false;
 	d_AI_HUT addEventHandler ["handleDamage", {0}];
 	publicVariable "d_AI_HUT";
-	d_AI_HUT spawn {
-		params ["_hut"];
-		private _pos_h = getPosASL _hut;
-		private _dir_h = getDir _hut;
-		while {true} do {
-			sleep 600;
-			_hut setDir _dir_h;
-			_hut setPosASL _pos_h;
-			_hut setVectorUp [0,0,1];
-		};
-	};
 	["d_RecruitB_100010000", d_pos_ai_hut # 0, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 	deleteMarker "d_pos_aihut";
 };
@@ -148,7 +137,7 @@ if (d_with_ai && {isServer}) then {
 if (isDedicated) then {
 	{
 		deleteMarkerLocal _x;
-	} forEach (_allmapmarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
 };
 
 if (!isServer) exitWith {};

@@ -1,27 +1,24 @@
 //#define __DEBUG__
 #define THIS_FILE "x_m63.sqf"
-#include "x_setup.sqf"
-Private ["_poss","_pos_other"];
+#include "..\..\x_setup.sqf"
 
-GVAR(x_sm_pos) = QGVAR(sm_63) call FUNC(smmapos); // clear naval mines
-GVAR(x_sm_type) = "normal"; // "convoy"
+d_x_sm_pos = "d_sm_63" call d_fnc_smmapos; // clear naval mines
+d_x_sm_type = "normal"; // "convoy"
 
-#ifdef __SMMISSIONS_MARKER__
-if (true) exitWith {};
-#endif
-
-if (!isDedicated) then {
-	GVAR(cur_sm_txt) = (localize "STR_DOM_SIDESTRING_1059");
-	GVAR(cur_sm_res_txt) = (localize "STR_DOM_SIDESTRING_1061");
+if (hasInterface) then {
+	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1666";
+	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_1667";
 };
 
-if (isServer) then {
-    __PossAndOther
-	[_poss,"naval"] spawn FUNC(sidemines);
+if (call d_fnc_checkSHC) then {
+	[d_x_sm_pos # 0, "naval"] spawn d_fnc_sidemines;
 	sleep 2.123;
-	["specops", 2, "basic", 4, _pos_other, 150,true] spawn FUNC(CreateInf);
+	["specops", 2, "allmen", 4, d_x_sm_pos # 1, 150, true] spawn d_fnc_CreateInf;
 	sleep 2.123;
-	["DSHKM",1,"AGS",1,"",0,[_pos_other, 100] call FUNC(GetRanPointCircle),1,100,false] spawn FUNC(CreateArmor);
+	private _random_point = [d_x_sm_pos # 1, 100] call d_fnc_GetRanPointCircle;
+	["stat_mg", 1, "stat_gl", 1, "", 0, _random_point, 1, 100, false] spawn d_fnc_CreateArmor;
 	sleep 2.123;
-	[selectRandom ["uaz_grenade","uaz_mg"],1,selectRandom ["brdm","tank","bmp"],1,"shilka",selectRandom [0,1],[_pos_other, 150] call FUNC(GetRanPointCircleOuter),1,300,true] spawn FUNC(CreateArmor);
+	_random_point = [d_x_sm_pos # 1, 150] call d_fnc_getranpointcircleouter;
+    private _wheeled = selectRandom ["wheeled_apc", "jeep_gl", "jeep_mg"];
+	[_wheeled, 1, selectRandom ["tank", "tracked_apc", "aa"], 1, _wheeled, 1, _random_point, 1, 300, true] spawn d_fnc_CreateArmor;
 };

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_handleheal.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+__TRACE_1("","_this")
 
 if (!d_with_ace) then {
 	params ["_healed", "_healer"];

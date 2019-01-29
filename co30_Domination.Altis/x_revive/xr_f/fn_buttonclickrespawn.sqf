@@ -10,8 +10,6 @@ if (d_beam_target == "") exitWith {
 	__TRACE("exit, beam target empty")
 };
 
-if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
-
 private _respawn_pos = [0,0,0];
 __TRACE("black out")
 "xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_917", "BLACK OUT", 0.2];
@@ -40,6 +38,7 @@ if (d_beam_target == "D_BASE_D") then {
 		} else {
 			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
 		};
+
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		if (_uidx != -1) then {
@@ -58,6 +57,11 @@ if (d_beam_target == "D_BASE_D") then {
 		};
 	};
 };
+
+if (!d_player_in_base && {!isNil {player getVariable "d_old_eng_can_repfuel"}}) then {
+	d_eng_can_repfuel = false;
+};
+player setVariable ["d_old_eng_can_repfuel", nil];
 
 __TRACE_1("","_respawn_pos")
 
@@ -86,7 +90,7 @@ if (!isNull _mhqobj) then {
 	_newppos set [2, (_mhqobj distance (getPos _mhqobj)) - _maxHeight];
 	player setDir (getDirVisual _mhqobj);
 	player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
-	{player reveal _x} forEach (nearestObjects [player, d_rev_respawn_vec_types, 30]);
+	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
 	call d_fnc_retrieve_layoutgear;
 } else {
 	private _domovevec = false;
@@ -131,6 +135,12 @@ if (xr_max_lives != -1) then {
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 		};
 		if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false])}}) then {[] spawn d_fnc_moveai};
+	};
+};
+
+0 spawn {
+	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
+		player action ["NVGoggles",player];
 	};
 };
 __TRACE("MapClickRespawn done")

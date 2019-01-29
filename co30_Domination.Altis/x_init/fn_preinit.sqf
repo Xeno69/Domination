@@ -167,6 +167,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __IFA3LITE__
 #include "x_sm_bonus_vec_ar_ifa3.sqf"
 #endif
+#ifdef __ROSCHE__
+#include "x_sm_bonus_vec_ar_altis.sqf"
+#endif
 #ifdef __TT__
 if (!d_tt_tanoa) then {
 #include "x_sm_bonus_vec_ar_tt.sqf"
@@ -188,6 +191,9 @@ if (!d_tt_tanoa) then {
 #endif
 
 #ifdef __ALTIS__
+#include "x_mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __ROSCHE__
 #include "x_mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -241,19 +247,29 @@ d_x_drop_array =
 	[[], [localize "STR_DOM_MISSIONSTRING_22", "I_MRAP_03_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_IND_Ammo_F"]];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-	[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]];
+	call {
+		if (d_cup) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "CUP_B_M1151_WDL_USA"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		};
+		if (d_rhs) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhsusf_m998_w_2dr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		};
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	[[], [localize "STR_DOM_MISSIONSTRING_22", if (!d_ifa3lite) then {["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select d_tanoa} else {"LIB_US_Willys_MB"}], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]];
+	call {
+		if (d_rhs) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhs_tigr_m_3camo_vdv"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		};
+		if (d_ifa3lite) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
+		};
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+	};
 #endif
 #ifdef __TT__
 	[[], [], []];
-#endif
-#ifdef __RHS__
-d_x_drop_array = [	
-	[[], [localize "STR_DOM_MISSIONSTRING_22", "rhs_tigr_m_3camo_vdv"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]],
-	[[], [localize "STR_DOM_MISSIONSTRING_22", "rhsusf_m998_w_2dr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
-] select d_rhs_blufor;
 #endif
 
 // side of the pilot that will fly the drop air vehicle
@@ -427,106 +443,106 @@ if (_isserv_or_hc) then {
 if (isServer) then {
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
-	if (isServer) then {
-		d_database_found = false;
-		if (!isNil "extDB3_var_loaded") then {
-			private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
-				call extDB3_var_loaded
+	d_database_found = false;
+	if (!isNil "extDB3_var_loaded") then {
+		private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
+			call extDB3_var_loaded
+		} else {
+			extDB3_var_loaded
+		};
+		if (_extdb3laoded) then {
+			private _uins = uiNamespace getVariable "d_database_init";
+			if (isNil "_uins") then {
+				private _result = "extdb3" callExtension "9:ADD_DATABASE:Domination";
+				diag_log ["Dom Database result loading:", _result];
+				if (_result != "[1]" && {_result != "[0,""Already Connected to Database""]"}) exitWith {};
+				_result = "extdb3" callExtension "9:ADD_DATABASE_PROTOCOL:Domination:SQL_CUSTOM:dom:domination-custom.ini";
+				diag_log ["Dom Database result custom ini:", _result];
+				if (_result != "[1]" && {_result != "[0,""Error Protocol Name Already Taken""]"}) exitWith {};
+				"extDB3" callExtension "9:LOCK";
+				uiNamespace setVariable ["d_database_init", true];
+				d_database_found = true;
 			} else {
-				extDB3_var_loaded
+				d_database_found = true;
 			};
-			if (_extdb3laoded) then {
-				private _uins = uiNamespace getVariable "d_database_init";
-				if (isNil "_uins") then {
-					private _result = "extdb3" callExtension "9:ADD_DATABASE:Domination";
-					diag_log ["Dom Database result loading:", _result];
-					if (_result != "[1]" && {_result != "[0,""Already Connected to Database""]"}) exitWith {};
-					_result = "extdb3" callExtension "9:ADD_DATABASE_PROTOCOL:Domination:SQL_CUSTOM:dom:domination-custom.ini";
-					diag_log ["Dom Database result custom ini:", _result];
-					if (_result != "[1]" && {_result != "[0,""Error Protocol Name Already Taken""]"}) exitWith {};
-					"extDB3" callExtension "9:LOCK";
-					uiNamespace setVariable ["d_database_init", true];
-					d_database_found = true;
-				} else {
-					d_database_found = true;
+		};
+	};
+	publicVariable "d_database_found";
+	
+	if (d_database_found) then {
+		d_use_sql_settings = false;
+		
+		private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+		diag_log ["Dom Database result loading dom_settings:", _dbresult];
+		if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
+			{
+				call {
+					if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+						if !((_x # 1) isEqualTo []) then {
+							missionNamespace setVariable [_x # 0, _x # 1, true];
+						};
+					};
+					if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+						missionNamespace setVariable [_x # 0, _x # 1, true];
+					};
+#ifdef __TT__
+					if (_x # 0 == "d_tt_points") exitWith {
+						missionNamespace setVariable [_x # 0, _x # 1, true];
+					};
+#endif
+				};
+			} forEach (_dbresult # 1);
+		};
+		
+		if (!isMultiplayer && {isNil "paramsArray"}) then {
+			paramsArray = [];
+		};
+		
+		if (d_use_sql_settings) then {
+			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
+			diag_log ["Dom Database result standard params:", _dbresult];
+			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
+				//diag_log ["_dbresult", _dbresult];
+				//diag_log ["_dbresult # 1", _dbresult # 1];
+				
+				if (isClass (getMissionConfig "Params")) then {
+					_dbresult = _dbresult # 1;
+					private _conf = getMissionConfig "Params";
+					if (paramsArray isEqualTo []) then {
+						paramsArray resize (count _conf);
+					};
+					for "_i" from 0 to (count _conf - 1) do {
+						private _cname = configName (_conf select _i);
+						private _fidx = _dbresult findIf {_x # 0 == _cname};
+						if (_fidx != -1) then {
+							paramsArray set [_i, _dbresult # _fidx # 1];							
+						};
+					};
+					publicVariable "paramsArray";
+				};
+			} else {
+				if (isClass (getMissionConfig "Params")) then {
+					private _conf = getMissionConfig "Params";
+					for "_i" from 0 to (count _conf - 1) do {
+						private _paramName = configName (_conf select _i);
+						private _paramval = getNumber (_conf>>_paramName>>"default");
+						if (_paramval != -99999) then {
+							"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
+						};
+					};
 				};
 			};
 		};
-		publicVariable "d_database_found";
-		
-		if (d_database_found) then {
-			d_use_sql_settings = false;
-			
-			private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
-			diag_log ["Dom Database result loading dom_settings:", _dbresult];
-			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
-				{
-					call {
-						if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
-							if !((_x # 1) isEqualTo []) then {
-								missionNamespace setVariable [_x # 0, _x # 1, true];
-							};
-						};
-						if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
-#ifdef __TT__
-						if (_x # 0 == "d_tt_points") exitWith {
-							missionNamespace setVariable [_x # 0, _x # 1, true];
-						};
-#endif
-					};
-				} forEach (_dbresult # 1);
-			};
-			
-			if (!isMultiplayer && {isNil "paramsArray"}) then {
-				paramsArray = [];
-			};
-			
-			if (d_use_sql_settings) then {
-				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
-				diag_log ["Dom Database result standard params:", _dbresult];
-				if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
-					//diag_log ["_dbresult", _dbresult];
-					//diag_log ["_dbresult # 1", _dbresult # 1];
-					
-					if (isClass (getMissionConfig "Params")) then {
-						_dbresult = _dbresult # 1;
-						private _conf = getMissionConfig "Params";
-						if (paramsArray isEqualTo []) then {
-							paramsArray resize (count _conf);
-						};
-						for "_i" from 0 to (count _conf - 1) do {
-							private _cname = configName (_conf select _i);
-							private _fidx = _dbresult findIf {_x # 0 == _cname};
-							if (_fidx != -1) then {
-								paramsArray set [_i, _dbresult # _fidx # 1];							
-							};
-						};
-						publicVariable "paramsArray";
-					};
-				} else {
-					if (isClass (getMissionConfig "Params")) then {
-						private _conf = getMissionConfig "Params";
-						for "_i" from 0 to (count _conf - 1) do {
-							private _paramName = configName (_conf select _i);
-							private _paramval = getNumber (_conf>>_paramName>>"default");
-							if (_paramval != -99999) then {
-								"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
-							};
-						};
-					};
-				};
-			};
-			if (!isMultiplayer && {!isNil "paramsArray"}) then {
-				paramsArray = nil;
-			};
+		if (!isMultiplayer && {!isNil "paramsArray"}) then {
+			paramsArray = nil;
 		};
 	};
 	call compile preprocessFileLineNumbers "x_init\x_initcommon.sqf";
 	
 	d_house_objects = [];
 	d_house_objects2 = [];
+	
+	calculatePlayerVisibilityByFriendly false;
 };
 
 if (_isserv_or_hc) then {
@@ -578,6 +594,9 @@ if (_isserv_or_hc) then {
 	// this is what gets spawned
 	d_allmen_E = [
 #ifdef __ALTIS__
+#include "d_allmen_O_default.sqf"
+#endif
+#ifdef __ROSCHE__
 #include "d_allmen_O_default.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -640,6 +659,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ALTIS__
 #include "d_specops_O_default.sqf"
 #endif
+#ifdef __ROSCHE__
+#include "d_specops_O_default.sqf"
+#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_specops_O_CUP_CHER.sqf"
 #endif
@@ -670,15 +692,16 @@ if (!d_tt_tanoa) then {
 #endif
 	];
 	d_specops_W = 
-#ifndef __IFA3LITE__
-		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup];
-#else
-		[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup];
-#endif
+		call {
+			if (d_rhs) exitWith {
+				[["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup]
+			};
+			if (d_ifa3lite) exitWith {
+				[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
+			};
+			[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup]
+		};
 #ifdef __RHS__
-	d_specops_W = [
-		["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup
-	];
 	d_specops_E = [
 		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_2mg"] call d_fnc_GetConfigGroup,
 		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_mg_sniper"] call d_fnc_GetConfigGroup
@@ -686,8 +709,25 @@ if (!d_tt_tanoa) then {
 #endif
 	d_specops_G = [["I_G_Soldier_exp_F", "I_Soldier_exp_F", "I_G_Soldier_GL_F", "I_G_medic_F"]];
 
+	d_sabotage_E = [["O_recon_exp_F"]];
+	d_sabotage_W = [["B_recon_exp_F"]];
+	d_sabotage_G = [["I_diver_exp_F"]];
+#ifdef __CUP__
+	d_sabotage_E = [["CUP_O_RUS_Saboteur_Autumn", "CUP_O_RUS_SpecOps_Autumn"]];
+	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
+	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
+#endif
+#ifdef __RHS__
+	d_sabotage_E = [["rhs_vmf_recon_rifleman_scout_akm", "rhs_vmf_recon_sergeant"]];
+	d_sabotage_W = [["rhsusf_socom_marsoc_cso_breacher", "rhsusf_socom_marsoc_cso"]];
+	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
+#endif
+
 	d_veh_a_E = [
 #ifdef __ALTIS__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __ROSCHE__
 #include "d_veh_a_O_default.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -743,6 +783,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ALTIS__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
+#ifdef __ROSCHE__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
 #ifdef __CUP_CHERNARUS__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
@@ -784,7 +827,7 @@ if (!d_tt_tanoa) then {
 		"I_Heli_Transport_02_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		"B_Heli_Transport_01_camo_F";
+		["CUP_B_C130J_Cargo_USMC", "B_Heli_Transport_01_camo_F"] select (!d_cup);
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		["LIB_Pe2", "O_Heli_Light_02_unarmed_F"] select (!d_ifa3lite);
@@ -796,24 +839,22 @@ if (!d_tt_tanoa) then {
 	d_drop_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_C130J"] select d_rhs_blufor;
 #endif
 
-	if (isServer && {!d_no_ai}) then {
-		d_taxi_aircraft =
+	d_taxi_aircraft =
 #ifdef __OWN_SIDE_INDEPENDENT__
-			"I_Heli_Transport_02_F";
+		"I_Heli_Transport_02_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-			"B_Heli_Transport_01_camo_F";
+		["CUP_B_MV22_USMC", "B_T_VTOL_01_infantry_F"] select (!d_cup);
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-			"O_Heli_Light_02_unarmed_F";
+		"O_T_VTOL_02_infantry_dynamicLoadout_F";
 #endif
 #ifdef __TT__
-			"O_Heli_Light_02_unarmed_F";
+		"O_Heli_Light_02_unarmed_F";
 #endif
 #ifdef __RHS__
-		d_taxi_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_UH60M2"] select d_rhs_blufor;
+	d_taxi_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_UH60M2"] select d_rhs_blufor;
 #endif
-	};
 	
 	d_cas_plane = 
 #ifdef __OWN_SIDE_INDEPENDENT__
@@ -859,21 +900,40 @@ if (!d_tt_tanoa) then {
 	"I_LT_01_AA_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-	"B_APC_Tracked_01_AA_F";
+	call {
+		if (d_cup) exitWith {
+			"CUP_B_M6LineBacker_USA_W"
+		};
+		if (d_rhs) exitWith	{
+			"RHS_M6_wd"
+		};
+		"B_APC_Tracked_01_AA_F";
+	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	["LIB_61k", "O_APC_Tracked_02_AA_F"] select (!d_ifa3lite);
+	call {
+		if (d_cup) exitWith {
+			"CUP_O_2S6M_RU"
+		};
+		if (d_rhs) exitWith	{
+			"rhs_zsu234_aa"
+		};
+		if (d_ifa3lite) exitWith {
+			"LIB_61k"
+		};
+		"O_APC_Tracked_02_AA_F"
+	};
 #endif
 #ifdef __TT__
 	"";
-#endif
-#ifdef __RHS__
-	d_base_aa_vec = ["rhs_zsu234_aa", "RHS_M6_wd"] select d_rhs_blufor;
 #endif
 	
 	d_wreck_cur_ar = [];
 
 #ifdef __ALTIS__
+#include "d_sm_classes_default.sqf"
+#endif
+#ifdef __ROSCHE__
 #include "d_sm_classes_default.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -984,6 +1044,14 @@ if (!d_tt_tanoa) then {
 #endif
 
 #ifdef __ALTIS__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __ROSCHE__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
 		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
@@ -1183,7 +1251,7 @@ if (hasInterface) then {
 	d_weapon_respawn = true;
 
 	// points needed to get a specific rank
-	// gets even used in the unranked versions, though it's just cosmetic there
+	// gets even used in the unranked versions
 #ifndef __TT__
 	if (isNil "d_points_needed") then {
 		d_points_needed = [
@@ -1292,8 +1360,6 @@ if (hasInterface) then {
 		case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
 	};
 	
-	d_rev_respawn_vec_types = [d_the_box, "B_MRAP_01_F", "O_MRAP_02_F", "I_MRAP_03_F", "B_APC_Tracked_01_CRV_F","LIB_US6_Tent", "rhsgref_BRDM2UM_vdv", "rhsusf_M1232_usarmy_wd"];
-
 	// internal variables
 	d_flag_vec = objNull;
 	d_rscspect_on = false;
@@ -1338,12 +1404,48 @@ if (hasInterface) then {
 #endif
 
 	d_add_resp_points_uni = [];
+	d_add_resp_points_pos = [];
 	
 	d_earplugs_fitted = false;
 	
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
+	
+	// pre build in are:
+	// "CUP_"
+	// "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"
+	// "uns_"
+	// "ace_"
+	// if you use CUP then only CUP stuff will be shown in Virtual Arsenal
+	d_arsenal_mod_prestrings = [];
+	
+	if (isClass(configFile>>"CfgPatches">>"uns_main")) then {
+		// now Virtual Arsenal will only show Unsung stuff; of course if you add other modes it will show them too
+		d_arsenal_mod_prestrings pushBack "uns_";
+	};
+	
+	// can either be a class name (string) or code
+	// if code then _this is the classname
+	d_remove_from_arsenal = [
+		[], // rifles
+		[], // launchers
+		[], // handguns
+		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}, {_this select [0, 4] == "U_C_"}, {_this == "U_OrestesBody"}], // uniforms
+		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}], // vests
+		[{_this isKindOf "B_Mortar_01_weapon_F"}, {_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this isKindOf "B_Mortar_01_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}], // backpacks
+		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}], // headgear
+		[], // glasses
+		[], // goggles
+		[] // binoculars
+	];
+#ifdef __CUP__
+	(d_remove_from_arsenal # 5) append [{_this isKindOf "CUP_B_DShkM_Gun_Bag"}, {_this isKindOf "CUP_B_DShkM_TripodHigh_Bag"}];
+	(d_remove_from_arsenal # 4) append [{_this select [0, 15] == "CUP_V_B_LHDVest"}];
+#endif
+#ifdef __RHS__
+	(d_remove_from_arsenal # 5) append [{_this isKindOf "RHS_NSV_Tripod_Bag"}, {_this isKindOf "RHS_NSV_Gun_Bag"}, {_this isKindOf "RHS_M2_Gun_Bag"}, {_this isKindOf "RHS_M2_Tripod_Bag"}];
+#endif
 	
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	
 		d_preloaddone = true;

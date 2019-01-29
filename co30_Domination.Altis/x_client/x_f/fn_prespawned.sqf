@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_prespawned.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 player setVariable ["d_isinaction", false];
 
@@ -14,6 +14,8 @@ if (d_WithMHQTeleport == 0 && {!isNil "d_fnc_dlgopenx" && {d_WithRevive == 1}}) 
 	call d_fnc_dlgopenx;
 };
 [1, _this] call d_fnc_playerspawn;
+
+player remoteExecCall ["d_fnc_add_hs", 2];
 
 {
 	if (alive _x) then {
@@ -31,3 +33,4 @@ if (d_WithMHQTeleport == 0 && {!isNil "d_fnc_dlgopenx" && {d_WithRevive == 1}}) 
 } forEach d_player_vecs;
 
 d_player_vecs = d_player_vecs - [-1];
+

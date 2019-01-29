@@ -211,6 +211,7 @@ switch (d_sm_winner) do {
 	};
 };
 __TRACE_3("","_d_bonus_create_pos","_vec_type","_d_bvp_counter")
+__TRACE_2("","_d_bonus_vec_positions","_d_bonus_air_positions")
 d_current_sm_bonus_vec = ["",""];
 #endif
 sleep 1.012;
@@ -219,19 +220,16 @@ private _endpos = [];
 private _dir = 0;
 #ifndef __TT__
 private _vec = createVehicle [_vec_type, d_bonus_create_pos, [], 0, "NONE"];
+_vec allowDamage false;
 if (d_database_found) then {
 	d_bonus_vecs_db pushBack _vec;
 };
 if (unitIsUAV _vec) then {
 	createVehicleCrew _vec;
-	if (d_with_ai) then {
-		private _crew = crew _vec;
-		if !(_crew isEqualTo []) then {
-			(group (_crew # 0)) setVariable ["d_do_not_delete", true];
-		};
-	};
 	_vec allowCrewInImmobile true;
-	d_do_not_delete
+	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+	};
 };
 
 __TRACE_1("","_vec")
@@ -255,7 +253,7 @@ if (_vec isKindOf "Air") then {
 				_aslheight = (getPosASL d_FLAG_BASE) # 2;
 			};
 			_endpos set [2, _aslheight];
-			_dir = (d_bonus_air_positions_carrier # d_bap_counter) # 1;
+			_dir = (d_bonus_air_positions_carrier # d_bacp_counter) # 1;
 			_vec setVariable ["d_oncarrier", true];
 			d_bacp_counter = d_bacp_counter + 1;
 			if (d_bacp_counter > (count d_bonus_air_positions_carrier - 1)) then {d_bacp_counter = 0};
@@ -271,6 +269,11 @@ if (_vec isKindOf "Air") then {
 
 _vec setDir _dir;
 if !(_vec getVariable ["d_oncarrier", false]) then {
+	__TRACE_1("","_endpos")
+	if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}) then {
+		private _nendpos = _endpos findEmptyPosition [20, 100, _vec_type];
+		if !(_nendpos isEqualTo []) then {_endpos = _nendpos};
+	};
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 } else {
 	_vec setPosASL _endpos;
@@ -283,17 +286,23 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 };
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 _vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+_vec spawn {
+	sleep 10;
+	_this allowDamage true;
+};
 #else
 private _vec2 = objNull;
 private _endpos2 = [];
 private _dir2 = 0;
 
 private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "NONE"];
+_vec allowDamage false;
 if (d_database_found) then {
 	d_bonus_vecs_db_e pushBack _vec;
 };
 if (d_sm_winner == 123) then {
 	_vec2 = createVehicle [_vec_type2, _d_bonus_create_pos2, [], 0, "NONE"];
+	_vec2 allowDamage false;
 	if (d_database_found) then {
 		d_bonus_vecs_db_w pushBack _vec2;
 	};
@@ -349,6 +358,8 @@ if (_vec isKindOf "Air") then {
 	_vec setVariable ["d_liftit", true, true];
 };
 
+__TRACE_2("","_dir","_vec")
+
 if (!isNull _vec2) then {
 	if (_vec2 isKindOf "Air") then {
 		_endpos2 = (_d_bonus_air_positions2 # _d_bap_counter2) # 0;
@@ -360,14 +371,30 @@ if (!isNull _vec2) then {
 };
 
 _vec setDir _dir;
+if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}) then {
+	private _nendpos = _endpos findEmptyPosition [20, 100, _vec_type];
+	if !(_nendpos isEqualTo []) then {_endpos = _nendpos};
+};
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 _vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+_vec spawn {
+	sleep 10;
+	_this allowDamage true;
+};
 if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
+	if (_vec_type2 isKindOf "VTOL_01_base_F" || {_vec_type2 isKindOf "VTOL_02_base_F"}) then {
+		private _nendpos2 = _endpos2 findEmptyPosition [20, 100, _vec_type2];
+		if !(_nendpos2 isEqualTo []) then {_endpos2 = _nendpos2};
+	};
 	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec2 addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+	_vec2 spawn {
+		sleep 10;
+		_this allowDamage true;
+	};
 };
 #endif
 

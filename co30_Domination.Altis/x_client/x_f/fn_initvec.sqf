@@ -42,7 +42,7 @@ _vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTR
 #define __pvecss(sname) private _fidx = d_p_vecs_##sname findIf {_x select 1 == _d_vec}; if (_fidx > -1) then {_car = d_p_vecs_##sname select _fidx}
 #endif
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _vec = _this;
 
@@ -57,8 +57,34 @@ if (_desm != "" && {!(markerPos _desm isEqualTo [0,0,0])}) then {
 private _d_vec = _vec getVariable "d_vec";
 if (isNil "_d_vec") exitWith {};
 
+__TRACE_1("","_d_vec")
+
 if (!isNil {_vec getVariable "d_vcheck"}) exitWith {};
 _vec setVariable ["d_vcheck", true];
+
+if (_d_vec isEqualType []) exitWith {
+	__TRACE_1("","_d_vec")
+	_d_vec params ["_ma_type", "_ma_text", "_ma_col", ["_vside", d_player_side]];
+	__TRACE_2("","_vside","d_player_side")
+	if (_vside == d_player_side) then {
+		__TRACE_1("","_ma_text")
+		if (_ma_text != "") then {
+			_vec setVariable ["d_ma_text", _ma_text];
+		} else {
+			_vec setVariable ["d_ma_text", ""];
+		};
+		if (_ma_type != "") then {
+			_vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>_ma_type>>"icon")];
+			_vec setVariable ["d_ism_vec", true];
+		};
+		_vec setVariable ["d_icon_type", getText (configFile >>"CfgVehicles">>typeOf _vec>>"icon")];
+		if (_ma_col != "") then {
+			_vec setVariable ["d_ma_color", getArray (configFile >>"CfgMarkerColors">>_ma_col>>"color")];
+		};
+		d_marker_vecs pushBack _vec;
+		__TRACE_1("","d_marker_vecs")
+	};
+};
 
 if (_d_vec < 100) exitWith {
 	private _car = [];

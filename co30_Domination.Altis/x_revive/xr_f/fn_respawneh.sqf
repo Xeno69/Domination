@@ -12,7 +12,6 @@ player setVehiclePosition [markerPos "xr_resp_marker", [], 0, "NONE"]; // CAN_CO
 [player, true] remoteExecCall ["setCaptive"];
 if (player getVariable "xr_isdead") exitWith {};
 __TRACE("playActionNow Die/setuncon")
-//player playActionNow "Die"; // takes loooong
 player switchAction "Die";
 //player switchMove "AinjPpneMstpSnonWrflDnon";
 //[player, 100] remoteExecCall ["xr_fnc_handlenet"];
@@ -89,11 +88,6 @@ if (d_enablefatigue == 0) then {
 
 if (d_enablesway == 0) then {
 	player setCustomAimCoef 0.1;
-};
-
-if (xr_selfheals > 0) then {
-	player setVariable ["xr_numheals", xr_selfheals];
-	player setVariable ["xr_selfh_ac_id", player addAction ["<t color='#FF0000'>Self Heal</t>", {_this call xr_fnc_selfheal}, [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon') && {!(_target getVariable 'xr_pisinaction') && {damage _target >= xr_selfheals_minmaxdam # 0 && {damage _target <= xr_selfheals_minmaxdam # 1 && {_target getVariable 'xr_numheals' > 0}}}}}"]];
 };
 
 player removeEventHandler ["handleDamage", _tmpeh];

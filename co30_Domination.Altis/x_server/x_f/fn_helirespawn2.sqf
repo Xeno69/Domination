@@ -70,7 +70,11 @@ while {true} do {
 				detach _attached;
 				_vec setVariable ["d_attachedto_v", nil, true];
 			};
+			private _skinpoly = _vec call d_fnc_getskinpoly;
 			sleep 0.1;
+			if (unitIsUAV _vec) then {
+				{_vec deleteVehicleCrew _x} forEach (crew _vec);
+			};
 			deleteVehicle _vec;
 			if (!_ifdamage) then {_vec_a set [3,-1]};
 			sleep 0.5;
@@ -82,7 +86,7 @@ while {true} do {
 			if (surfaceIsWater _cposc) then {
 				private _asl_height;
 				if (!isNil "d_the_carrier") then {
-					private _asl_height = d_the_carrier getVariable "d_asl_height";
+					_asl_height = d_the_carrier getVariable "d_asl_height";
 				};
 				if (isNil "_asl_height") then {
 					_asl_height = (getPosASL d_FLAG_BASE) # 2;
@@ -98,8 +102,15 @@ while {true} do {
 			_vec setVariable ["d_vec_islocked", _isitlocked];
 			if (_isitlocked) then {_vec lock true};
 			
+			if (unitIsUAV _vec) then {
+				createVehicleCrew _vec;
+				_vec allowCrewInImmobile true;
+			};
+			
 			_vec setFuel _fuelleft;
 			_vec setDamage 0;
+			[_vec, _skinpoly] call d_fnc_skinpolyresp;
+			_skinpoly = nil;
 			
 			_vec addEventhandler ["local", {_this call d_fnc_heli_local_check}];
 			

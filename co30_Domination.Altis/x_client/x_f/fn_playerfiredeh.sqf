@@ -30,7 +30,6 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 						if (d_player_kick_shootingbase != 1000) then {
 							if (_num >= d_player_kick_shootingbase) then {
 								if (isNil {player getVariable "d_pfbk_announced"}) then {
-									[player, d_name_pl, 0] remoteExecCall ["d_fnc_KickPlayerBS", 2];
 									[player, d_name_pl, 0] remoteExecCall ["d_fnc_RptMsgBS", 2];
 									player setVariable ["d_pfbk_announced", true];
 								};

@@ -3,11 +3,11 @@
 #define THIS_FILE "fn_handledisconnect.sqf"
 #include "..\..\x_setup.sqf"
 if (!isServer) exitWith{};
-params ["_unit", "", "_uid"];
+params ["_unit", "", "_uid", "_name"];
 
 __TRACE_2("","_unit","_uid")
 
-if (isNil "_unit" || {str _unit == "HC_D_UNIT"}) exitWith {false};
+if (isNil "_unit" || {_name == "__SERVER__" || {_name == "headlessclient"}}) exitWith {false};
 
 #ifndef __TT__
 private _abl = _unit getVariable "d_blocks_arty";

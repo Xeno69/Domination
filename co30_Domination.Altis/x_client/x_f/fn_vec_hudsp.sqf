@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_vec_hudsp.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _speed_str = localize "STR_DOM_MISSIONSTRING_611";
 private _fuel_str = localize "STR_DOM_MISSIONSTRING_612";

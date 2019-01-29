@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_recruitbuttonaction.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated || {player getVariable "d_recdbusy"}) exitWith {};
+if (!hasInterface || {player getVariable "d_recdbusy"}) exitWith {};
 
 disableSerialization;
 
@@ -92,7 +92,7 @@ if (surfaceIsWater _spawnpos) then {
 };
 _unit setSkill 1;
 _unit setRank "PRIVATE";
-if (d_with_ranked && {!d_with_ace}) then {
+if (!d_with_ace && {d_with_ranked || {d_database_found}}) then {
 	_unit addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
 };
 if (d_WithRevive == 0 && {_unit getUnitTrait "Medic"}) then {
@@ -107,7 +107,7 @@ if (!d_with_ace) then {
 	_unit addEventhandler ["handleDamage", {
 		if (d_player_in_base && {player inArea d_base_array}) then {
 			private _shooter = _this select 6;
-			if (!isNil "_shooter" && {!isNull _shooter && {isPlayer _shooter}}) then {
+			if (!isNil "_shooter" && {!isNull _shooter && {_shooter call d_fnc_isplayer}}) then {
 				0
 			} else {
 				_this select 2
@@ -148,7 +148,7 @@ _control lbSetColor [_index, [1, 1, 0, 0.8]];
 
 if (!d_with_ranked) then {
 	private _code = if (!d_with_ace) then {
-		{["Open",[true, nil, _this select 0]] call bis_fnc_arsenal}
+		{["Open", [true, nil, _this select 0]] call bis_fnc_arsenal}
 	} else {
 		{[_this select 0, _this select 0, true] call ace_arsenal_fnc_openBox}
 	};
@@ -163,9 +163,9 @@ addToRemainsCollector [_unit];
 if (d_ai_alone_in_vehicle == 1) then {
 	_unit addEventhandler ["getInMan", {
 		params ["_unit", "_pos", "_vec"];
-		if (_pos == "driver" && {(crew _vec) findIf {_x call d_fnc_isplayer} == -1}) then {
+		if (_pos == "driver" && {!(_vec isKindOf "ParachuteBase") && {!(_vec isKindOf "StaticWeapon") && {(crew _vec) findIf {_x call d_fnc_isplayer} == -1}}}) then {
 			_unit action ["getOut", _vec];
-			hintSilent "Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!";
+			hintSilent (localize "STR_DOM_MISSIONSTRING_1852");
 		};
 	}];
 	/*_unit addEventhandler ["SeatSwitchedMan", {

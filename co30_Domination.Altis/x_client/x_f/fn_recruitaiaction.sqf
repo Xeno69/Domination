@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_recruitaiaction.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (_this select 1 != player) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_1565");

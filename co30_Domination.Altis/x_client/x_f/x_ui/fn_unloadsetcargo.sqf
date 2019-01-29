@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_unloadsetcargo.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 private _idx = lbCurSel ((uiNamespace getVariable "d_UnloadDialog") displayCtrl 101115);

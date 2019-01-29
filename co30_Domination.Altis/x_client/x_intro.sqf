@@ -2,7 +2,7 @@
 #define THIS_FILE "x_intro.sqf"
 #include "..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom intro started"];
 
@@ -124,7 +124,7 @@ switch (d_MissionType) do {
 	};
 };
 
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.93  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.99l  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 _camera camSetTarget player;
 _p_tpos = [_pspsxx # 0, _pspsxx # 1, (player modelToWorld [0,0,2]) # 2];
@@ -161,6 +161,10 @@ closeDialog 0;
 enableRadio true;
 showChat true;
 "dynamicBlur" ppEffectEnable false;
+
+#ifndef __IFA3LITE__
+if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
+#endif
 
 private _uidcheck_done = false;
 if (!(d_reserved_slot isEqualTo []) && {str player in d_reserved_slot}) then {

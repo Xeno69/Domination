@@ -73,7 +73,12 @@ __TRACE("starting main uncon loop")
 		xr_u_nextcrytime = nil;
 		xr_u_doend_of = nil;
 		
-		xr_uncon_units = xr_uncon_units - [player];
+		xr_uncon_units = xr_uncon_units - [player, objNull];
+		
+		if (!d_player_in_base && {!isNil {player getVariable "d_old_eng_can_repfuel"}}) then {
+			d_eng_can_repfuel = false;
+		};
+		player setVariable ["d_old_eng_can_repfuel", nil];
 		
 		0 spawn {
 			if (!xr_u_remactions) then {

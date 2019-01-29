@@ -58,6 +58,7 @@ if (!_withresp) then {
 };
 
 private _helperls = [];
+private _fnc_gpn = d_fnc_getplayername;
 if (!xr_pl_no_lifes) then {
 	if (_withresp) then {
 		private _pic = getText (configFile >>"CfgVehicles">>typeOf player>>"icon");
@@ -76,7 +77,7 @@ if (!xr_pl_no_lifes) then {
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
-		_helperls pushBack [_dist, format [(_x call d_fnc_getplayername) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
+		_helperls pushBack [_dist, format [(_x call _fnc_gpn) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
 	} forEach (d_allplayers select {_x != player});
 	
 } else {
@@ -89,7 +90,7 @@ if (!xr_pl_no_lifes) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [_distup, _x call d_fnc_getplayername, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
+			_helperls pushBack [_distup, _x call _fnc_gpn, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
 		};
 	} forEach (d_allplayers select {_x != player});
 };
@@ -133,6 +134,9 @@ if (!xr_pl_no_lifes) then {
 	call xr_fnc_nearplayercheckui
 } else {
 	__dspctrl(9998) ctrlEnable false;
+	__dspctrl(9998) ctrlSetText "";
+	__dspctrl(100102) ctrlEnable false;
+	__dspctrl(100102) ctrlShow false;
 	
 	private _sfm = markerPos "xr_playerparkmarker";
 	private _visobj = objNull;
@@ -151,7 +155,7 @@ if (!xr_pl_no_lifes) then {
 	xr_spectcam cameraEffect ["INTERNAL", "Back"];
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;
-	__dspctrl(1010) ctrlSetText (_visobj call d_fnc_getplayername);
+	__dspctrl(1010) ctrlSetText (_visobj call _fnc_gpn);
 };
 
 #define __d_textsize_dr3d  0.03333
@@ -160,9 +164,15 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 	private _grpp = group player;
 	private _cam2world = positionCameraToWorld [0,0,0];
 	private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex"];
+	private _d_pn_hud = d_dist_pname_hud;
+	private _fnc_ispl = d_fnc_isplayer;
+	private _fnc_ghpn = d_fnc_gethpname;
+	private _fnc_grp = d_fnc_getrankpic;
+	private _phudoc = d_pnhudothercolor;
+	private _phudgc = d_pnhudgroupcolor;
 	{
 		_distu = _cam2world distance _x;
-		if (_distu <= d_dist_pname_hud) then {
+		if (_distu <= _d_pn_hud) then {
 			_vu = vehicle _x;
 			_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
 			if !(_targetPos isEqualTo []) then {
@@ -171,22 +181,22 @@ xr_meh_draw3d = addMissionEventhandler ["Draw3D", {
 				} else {
 					if (crew _vu isEqualTo 1) exitWith {true};
 					if (_x == commander _vu) exitWith {true};
-					if (_x == gunner _vu && {!isPlayer commander _vu}) exitWith {true};
-					if (_x == driver _vu && {!isPlayer commander _vu && {!isPlayer gunner _vu}}) exitWith {true};
+					if (_x == gunner _vu && {!((commander _vu) call _fnc_ispl)}) exitWith {true};
+					if (_x == driver _vu && {!((commander _vu) call _fnc_ispl) && {!((gunner _vu) call _fnc_ispl)}}) exitWith {true};
 					false
 				};
 				if (_dodraw) then {
 					_tex = "";
 					_rtex = "";
 					if (_distu <= 150) then {
-						_tex = [_x] call d_fnc_gethpname;
-						if (isNil "_tex") then {_tex = _x call d_fnc_getplayername};
-						_rtex = _x call d_fnc_getrankpic;
+						_tex = [_x] call _fnc_ghpn;
+						if (isNil "_tex") then {_tex = _x call _fnc_gpn};
+						_rtex = _x call _fnc_grp;
 					} else {
 						_tex = "*";
 						_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 					};
-					drawIcon3D [_rtex, [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
+					drawIcon3D [_rtex, [_phudoc, _phudgc] select (group _x == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
 				};
 			};
 		};

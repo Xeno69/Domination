@@ -6,16 +6,21 @@
 params ["_cur_sm_idx"];
 
 private _sm_ar = d_sm_store getVariable (str (_cur_sm_idx - 50000));
+__TRACE_1("","_sm_ar")
 if (isNil "_sm_ar") then {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
 
 d_x_sm_pos = _sm_ar # 2;
 d_x_sm_type = _sm_ar # 1;
+__TRACE_1("","d_x_sm_pos")
+__TRACE_1("","d_x_sm_type")
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize ("STR_DOM_MISSIONSTRING_" + (_sm_ar # 5));
 	d_current_mission_resolved_text = localize ("STR_DOM_MISSIONSTRING_" + (_sm_ar # 6));
+	__TRACE_1("","d_cur_sm_txt")
+	__TRACE_1("","d_current_mission_resolved_text")
 };
 
 if !(call d_fnc_checkSHC) exitWith {};
@@ -99,6 +104,11 @@ switch (tolower (_sm_ar # 1)) do {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_tank, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
 		};
 	};
+	case "stealapc": { // does NOT create armor and inf in common file
+		if (call d_fnc_checkSHC) then {
+			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_tank, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
+		};
+	};
 	case "stealplane": { // does NOT create armor and inf in common file
 		if (call d_fnc_checkSHC) then {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_plane, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
@@ -146,12 +156,12 @@ switch (tolower (_sm_ar # 1)) do {
 	};
 	case "hangar": {
 		if (call d_fnc_checkSHC) then {
-			[d_x_sm_pos # 0, d_sm_hangar, _sm_ar # 7, true, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
+			[d_x_sm_pos # 0, d_sm_hangar, _sm_ar # 7, true, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "cargotruck": {
 		if (call d_fnc_checkSHC) then {
-			[d_x_sm_pos # 0, d_sm_cargo, _sm_ar # 7, false, true, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
+			[d_x_sm_pos # 0, d_sm_cargo, _sm_ar # 7, false, true, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "minesland": { // does NOT create armor and inf in common file
@@ -169,21 +179,60 @@ switch (tolower (_sm_ar # 1)) do {
 			[d_x_sm_pos # 0, d_sm_arty, _sm_ar # 7, false, true, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
+	case "dataterminal": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, _sm_ar # 7, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidetransferdata;
+		};
+	};
+	case "device": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, "Land_Device_assembled_F", _sm_ar # 7, false, false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
+		};
+	};
+	case "sam": {
+		if (call d_fnc_checkSHC) then {
+			private _samtypes = 
+#ifdef __OWN_SIDE_OPFOR__
+			["B_SAM_System_03_F", "B_Radar_System_01_F"];
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+			["O_SAM_System_04_F", "O_Radar_System_02_F"];
+#endif
+#ifdef __OWN_SIDE_INDEPENDENT__
+			["B_SAM_System_03_F", "B_Radar_System_01_F"];
+#endif
+			[d_x_sm_pos # 0, random 360, _samtypes, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobjects;
+		};
+	};
+	case "cache": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidecache;
+		};
+	};
+	case "trucks": {
+		if (call d_fnc_checkSHC) then {
+			[d_x_sm_pos # 0, _sm_ar # 7, [d_sm_ammotrucktype, d_sm_fueltrucktype, d_sm_cargotrucktype], false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, true, true] spawn d_fnc_sideobjects;
+		};
+	};
 };
 
 if (call d_fnc_checkSHC && {tolower (_sm_ar # 1) != "convoy"}) then {
 	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
-		__TRACE("Creating armor")
-		{
-			_x spawn d_fnc_CreateArmor;
-			sleep 1.03;
-		} forEach (_sm_ar # 3);
+		(_sm_ar # 3) spawn {
+			__TRACE("Creating armor")
+			{
+				_x spawn d_fnc_CreateArmor;
+				sleep 1.03;
+			} forEach _this;
+		};
 	};
 	if ((_sm_ar # 4) isEqualType [] && {!((_sm_ar # 4) isEqualTo [])}) then {
+		(_sm_ar # 4) spawn {
 		__TRACE("Creating inf")
-		{
-			_x spawn d_fnc_CreateInf;
-			sleep 1.03;
-		} forEach (_sm_ar # 4);
+			{
+				_x spawn d_fnc_CreateInf;
+				sleep 1.03;
+			} forEach _this;
+		};
 	};
 };

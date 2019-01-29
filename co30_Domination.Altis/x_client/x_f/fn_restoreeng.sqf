@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_restoreeng.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (player distance2D (_this select 0) > 20) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_339");

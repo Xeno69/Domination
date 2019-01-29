@@ -4,6 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 // supports also patrols in square areas, including angle
+__TRACE_1("","_this")
 params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 2]];
 if (_start_pos isEqualType objNull) then {_start_pos = getPosATL _start_pos};
 if (!(_start_pos isEqualType []) || {_start_pos isEqualTo []}) exitWith {};

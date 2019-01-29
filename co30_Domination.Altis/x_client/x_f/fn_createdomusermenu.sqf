@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_createdomusermenu.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 _start_key = 1;
 private _fnc_inc_num = {
@@ -11,10 +11,8 @@ private _fnc_inc_num = {
 	_start_key
 };
 
-private _fnc_is_para = {
-	private _v_p = vehicle player;
-	(_v_p isKindOf "BIS_Steerable_Parachute") || {_v_p isKindOf "ParachuteBase"}
-};
+private _v_p = vehicle player;
+private _is_para = (_v_p isKindOf "BIS_Steerable_Parachute") || {_v_p isKindOf "ParachuteBase"};
 
 d_DomUserMenu = [
 	["Domination", false],
@@ -22,19 +20,32 @@ d_DomUserMenu = [
 	["-", [0], "", -1, [["expression", ""]], "1", "1"]
 ];
 
-if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!visibleMap && {!(call _fnc_is_para)}}}) then {
-	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_153", [call _fnc_inc_num], "", -5, [["expression", "1 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!_is_para}}) then {
+#ifndef __TT__
+	if (!visibleMap && {!d_arty_firing}) then {
+#else
+	if (!visibleMap && {d_player_side == opfor && {!d_arty_firing_e} || {d_player_side == blufor && {!d_arty_firing_w}}}) then {
+#endif
+		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_153", [call _fnc_inc_num], "", -5, [["expression", "1 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+	};
+#ifndef __TT__
+	if (d_arty_firing) then {
+#else
+	if (d_player_side == opfor && {d_arty_firing_e} || {d_player_side == blufor && {d_arty_firing_w}}) then {
+#endif
+		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1853", [call _fnc_inc_num], "", -5, [["expression", "50 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+	};
 };
 
 d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 #ifndef __IFA3LITE__
-if (!d_no_ai && {!visibleMap && {!(call _fnc_is_para)}}) then {
+if (!d_tt_ver && {d_heli_taxi_available && {!visibleMap && {!_is_para}}}) then {
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 #endif
 
-if (d_player_can_call_drop > 0 && {!visibleMap && {!(call _fnc_is_para)}}) then {
+if (d_player_can_call_drop > 0 && {!visibleMap && {!_is_para}}) then {
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_230", [call _fnc_inc_num], "", -5, [["expression", "2 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 
@@ -85,4 +96,12 @@ if (!d_with_ace) then {
 	d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 	d_DomUserMenu pushBack [[localize "STR_DOM_MISSIONSTRING_1727", localize "STR_DOM_MISSIONSTRING_1726"] select d_earplugs_fitted, [call _fnc_inc_num], "", -5, [["expression", "40 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+};
+
+if (d_with_ranked) then {
+	if (count d_allplayers - 1 > 0) then {
+		d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
+		
+		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1880", [call _fnc_inc_num], "", -5, [["expression", "99 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+	};
 };

@@ -6,6 +6,13 @@
 __TRACE_1("","_this")
 
 private _pos_center = _this select 4;
+if (isNil "_pos_center") exitWith {
+	diag_log "_pos_center in fn_createinf undefined!!!";
+	if (!isNil "_fnc_scriptNameParent") then {
+		diag_log ["fn_createinf.sqf _fnc_scriptNameParent: ", _fnc_scriptNameParent];
+	};
+	diag_log ["fn_createinf.sqf _this: ", _this];
+};
 private _radius = _this select 5;
 private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {_this select 6} else {false}};
 private _ret_grps = [];
@@ -34,6 +41,7 @@ for "_nr" from 0 to 1 do {
 			} else {
 				_pos = _pos_center;
 			};
+			__TRACE("from createinf")
 			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			_newgroup allowFleeing 0;

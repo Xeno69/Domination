@@ -54,7 +54,7 @@ private _arrow = switch (d_own_side) do {
    case "GUER": {"Sign_Arrow_Large_F"};
 };
 private _arrowhead = _arrow createVehicle [0,0,0];
-_arrowhead setPos [_epos # 0,_epos # 1, 15];
+_arrowhead setPos [_epos # 0, _epos # 1, 15];
 d_x_sm_vec_rem_ar pushBack _arrowhead;
 
 sleep 2.123;
@@ -82,7 +82,7 @@ if (!d_sm_resolved) then {
 	if (alive _vec && {_reached_base}) then {
 		d_sm_winner = 2;
 	} else {
-		d_sm_winner = -600;
+		d_sm_winner = -1200;
 	};
 };
 

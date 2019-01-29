@@ -27,13 +27,10 @@ if (d_database_found) then {
 };
 if (unitIsUAV _vec) then {
 	createVehicleCrew _vec;
-	if (d_with_ai) then {
-		private _crew = crew _vec;
-		if !(_crew isEqualTo []) then {
-			(group (_crew # 0)) setVariable ["d_do_not_delete", true];
-		};
-	};
 	_vec allowCrewInImmobile true;
+	if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+	};
 };
 private _endpos = [];
 private _dir = 0;

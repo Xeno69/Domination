@@ -45,7 +45,7 @@ private _oldpos = getPosAsl _vec;
 
 while {alive _vec && {!_reached_base && {!d_sm_resolved}}} do {
 #ifndef __TT__
-	if (_vec distance2D d_FLAG_BASE < 100) exitWith {_reached_base = true};
+	if (_vec distance2D d_FLAG_BASE < 100 || {!isNil "d_flag_airfield" && {_vec distance2D d_FLAG_BASE < 50}}) exitWith {_reached_base = true};
 #else
 	if (_vec distance2D d_WFLAG_BASE < 100) exitWith {
 		_reached_base = true;

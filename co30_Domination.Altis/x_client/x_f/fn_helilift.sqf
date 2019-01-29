@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_helilift.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_chopper"];
 
@@ -208,10 +208,9 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					
 					_chopper setVariable ["d_Attached_Vec", objNull];
 					
-					if (!alive _chopper) then {
+					if (alive _chopper) then {
+						if (alive player) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 						_chopper removeAction _release_id;
-					} else {
-						if (alive _chopper && {alive player}) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 					};
 					
 					if (!(_liftobj isKindOf "StaticWeapon") && {(getPosVisual _liftobj) # 2 < 200}) then {

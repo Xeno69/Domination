@@ -76,7 +76,7 @@ if (d_MissionType == 2) then {
 
 0 spawn d_fnc_cleanerfnc;
 
-diag_log ["Internal D Version: 3.93"];
+diag_log ["Internal D Version: 3.99l"];
 
 private _av_check_fnc = {
 	_this addEventHandler ["handleDamage", {_this call d_fnc_pshootatarti;0}];
@@ -136,5 +136,9 @@ d_arty_vecso = [11, "d_artyveco_"] call _fnc_artvec;
 {
 	[_x, 300, false] spawn d_fnc_vehirespawn;
 } forEach (vehicles select {(str _x) select [0, 10] == "d_add_vec_"});
+
+#ifndef __IFA3LITE__
+0 spawn d_fnc_scheck_uav;
+#endif
 
 0 spawn d_fnc_sendfps;

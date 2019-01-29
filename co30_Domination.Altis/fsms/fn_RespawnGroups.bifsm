@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -127,7 +127,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=4;
-				InitCode="private _counter = 0;";
+				InitCode="private _counter = 0;" \n "";
 			};
 		};
 	};
@@ -234,7 +234,7 @@ class GraphItems
 	};
 	class Item9
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-50;
 		Top=350;
@@ -253,7 +253,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=9;
-				InitCode="if (_counter >= count d_respawn_ai_groups) exitWith {};" \n "private _onegrpar = d_respawn_ai_groups select _counter;" \n "private _dowaitfg = false;" \n "if (_onegrpar isEqualType []) then {" \n "	private _grp = _onegrpar select 0;" \n "	if (isNull _grp || {(units _grp) findIf {alive _x} == -1}) then {" \n "		_mg_array = _onegrpar select 1;" \n "		if ((_mg_array select 0) in [""allmen"",""specops""]) then {" \n "			if  (!d_mt_barracks_down) then {" \n "				_mg_array call d_fnc_makegroup;" \n "				_dowaitfg = true;" \n "			};" \n "		} else {" \n "			if (!d_mt_mobile_hq_down) then {" \n "				private _resp_mid = _mg_array select 10;" \n "				_mg_array set [1, [[_resp_mid select 0, 600, 400, _resp_mid select 1] call d_fnc_GetRanPointSquare]];" \n "				_mg_array call d_fnc_makegroup;" \n "				_dowaitfg = true;" \n "			};" \n "		};" \n "		d_respawn_ai_groups set [_counter, -1];" \n "	};" \n "} else {" \n "	d_respawn_ai_groups set [_counter, -1];" \n "};" \n "" \n "_counter = _counter + 1;" \n "" \n "_timenow = if (_dowaitfg) then {" \n "	time + (((250 - (([1, count (allPlayers - (entities ""HeadlessClient_F""))] select isMultiplayer) * 5)) max 200) + random 10)" \n "} else {" \n "	time + 1" \n "};" \n "";
+				InitCode="if (_counter >= count d_respawn_ai_groups) exitWith {};" \n "private _onegrpar = d_respawn_ai_groups select _counter;" \n "private _dowaitfg = false;" \n "if (_onegrpar isEqualType []) then {" \n "	private _grp = _onegrpar select 0;" \n "	if (isNull _grp || {(units _grp) findIf {alive _x} == -1}) then {" \n "		_mg_array = _onegrpar select 1;" \n "		if ((_mg_array select 0) in [""allmen"", ""specops""]) then {" \n "			if  (!d_mt_barracks_down) then {" \n "				private _d_mt_barracks_obj_pos = getPos (selectRandom d_mt_barracks_obj_ar);" \n "				_mg_array set [1, [_d_mt_barracks_obj_pos]];" \n "				_mg_array set [11, _d_mt_barracks_obj_pos];" \n "				_mg_array call d_fnc_makegroup;" \n "				_dowaitfg = true;" \n "			};" \n "		} else {" \n "			if (!d_mt_mobile_hq_down) then {" \n "				private _resp_mid = _mg_array select 11;" \n "				_mg_array set [1, [[_resp_mid select 0, 600, 400, _resp_mid select 1] call d_fnc_GetRanPointSquare]];" \n "				_mg_array call d_fnc_makegroup;" \n "				_dowaitfg = true;" \n "			};" \n "		};" \n "		d_respawn_ai_groups set [_counter, -1];" \n "	};" \n "} else {" \n "	d_respawn_ai_groups set [_counter, -1];" \n "};" \n "" \n "_counter = _counter + 1;" \n "private _basetime = 250;" \n "private _maxtime = 200;" \n "if (d_mt_mobile_hq_down) then {" \n "	_basetime = 190;" \n "	_maxtime = 140;" \n "};" \n "_timenow = if (_dowaitfg) then {" \n "	time + (((_basetime - (([1, count (allPlayers - (entities ""HeadlessClient_F""))] select isMultiplayer) * 5)) max _maxtime) + random 10)" \n "} else {" \n "	time + 1" \n "};" \n "";
 			};
 		};
 	};
@@ -297,7 +297,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -427,7 +427,7 @@ class GraphItems
 			Text="d_mt_done";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -442,7 +442,7 @@ class GraphItems
 	};
 	class Item17
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=225;
 		Top=-100;
@@ -454,7 +454,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -479,7 +479,7 @@ class GraphItems
 			Text="";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -776,8 +776,8 @@ class Window
 	Flags=2;
 	MaxPosX=-1;
 	MaxPosY=-1;
-	MinPosX=-1;
-	MinPosY=-1;
+	MinPosX=-32000;
+	MinPosY=-32000;
 	Left=78;
 	Top=78;
 	Right=1038;

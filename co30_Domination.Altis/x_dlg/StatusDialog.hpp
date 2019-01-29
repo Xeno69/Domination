@@ -187,9 +187,9 @@ class D_StatusDialog {
 		};
 		class HintCaption: RscText2 {
 			idc = -1;
-			x = "0.605779 * safezoneW + safezoneX";
+			x = "0.4 * safezoneW + safezoneX";
 			y = "0.02 * safezoneH + safezoneY";
-			w = "0.3 * safezoneW";
+			w = "0.5 * safezoneW";
 			h = "0.04 * safezoneH";
 			sizeEx = 0.03;
 			shadow = 1;
@@ -236,7 +236,7 @@ class D_StatusDialog {
 		};
 		class ScoreP: RscText2 {
 			idc = 11233;
-			x = "0.79 * safezoneW + safezoneX";
+			x = "0.85 * safezoneW + safezoneX";
 			y = "0.42 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
 			h = "0.1 * safezoneH";
@@ -259,7 +259,7 @@ class D_StatusDialog {
 		};
 		class CampsNumber: RscText2 {
 			idc = 11278;
-			x = "0.79 * safezoneW + safezoneX";
+			x = "0.85 * safezoneW + safezoneX";
 			y = "0.465 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
 			h = "0.1 * safezoneH";
@@ -283,7 +283,7 @@ class D_StatusDialog {
 		};
 		class RLivesNumber: RscText2 {
 			idc = 30001;
-			x = "0.79 * safezoneW + safezoneX";
+			x = "0.85 * safezoneW + safezoneX";
 			y = "0.51 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
 			h = "0.1 * safezoneH";
@@ -392,7 +392,7 @@ class D_StatusDialog {
 		};
 		class CorporalPoints: CorporalString {
 			idc = 2001;
-			x = "0.42 * safezoneW + safezoneX";
+			x = "0.47 * safezoneW + safezoneX";
 			text = "";
 		};
 		class SergeantPic: CorporalPic {

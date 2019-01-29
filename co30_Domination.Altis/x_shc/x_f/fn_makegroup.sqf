@@ -5,14 +5,14 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-params ["_grptype", "_wp_array", "_target_pos", "_numvecs", "_type", "_side", "_grp_in", "_vec_dir", ["_add_to_ar_type", 0], "_center_rad"];
+params ["_grptype", "_wp_array", "_target_pos", "_numvecs", "_type", "_side", "_grp_in", "_vec_dir", ["_add_to_ar_type", 0], "_center_rad", ["_mchelper", true]];
 
 __TRACE_1("","_this")
 private _vecs = [];
 private _uinf = [];
 
 private _grp = [_grp_in, [_side] call d_fnc_creategroup] select (_grp_in isEqualType 0);
-private _pos = [_wp_array # 0, selectRandom _wp_array] select (count _wp_array > 1);
+private _pos = selectRandom _wp_array;
 
 __TRACE_1("","_grp")
 
@@ -30,7 +30,8 @@ if (_numvecs > 0) then {
 	_grp setSpeedMode "LIMITED";
 	_msize = 2;
 } else {
-	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp] call d_fnc_makemgroup;
+	__TRACE("from makegroup")
+	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper] call d_fnc_makemgroup;
 };
 
 _grp deleteGroupWhenEmpty true;
@@ -40,9 +41,9 @@ if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
 		if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, d_enemyai_respawn_pos]];
+				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 			} else {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [d_mt_barracks_obj_pos], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, d_mt_barracks_obj_pos]];
+				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
 			};
 		};
 	};
@@ -59,20 +60,26 @@ _grp allowFleeing (((floor random 3) + 1) / 10);
 
 private _sleepti = [5, 15] select (_grptype == "allmen" || {_grptype == "specops"});
 
+private _wpstatements = if (d_house_patrol == 0 && {_type in ["patrol", "patrol2mt"] && {(toLower _grptype) in ["allmen", "specops"]}}) then {
+	"if (random 100 < 50) then {0 = [thisList] spawn d_fnc_dohousepatrol}"
+} else {
+	""
+};
+
 switch (_type) do {
 	case "patrol": {
 		_grp setVariable ["d_PATR",true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
-		private _mid = _min + (random (_max - _min));
-		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
+		private _mid = _min + (random (_max - _min));	
+		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	case "patrol2mt": {
 		_grp setVariable ["d_PATR",true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
-		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
+		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	case "patrol2": {
 		_grp setVariable ["d_PATR",true];

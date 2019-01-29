@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_store_rwitems.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _primary = primaryWeapon player;
 if (_primary != player getVariable "d_pprimweap") then {

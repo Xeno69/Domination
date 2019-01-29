@@ -138,9 +138,18 @@ class cfgFunctions {
 			addc(checkenterer);
 			addc(warnplayer);
 			addc(engtrigfnc);
+			addc(engtrig1fnc);
 			addc(checkammo);
 			addc(allplayers);
 			addc(hchelper);
+			addc(cdoquake);
+			addc(getoutmaneh);
+			addc(addpylon_action);
+			addc(serverrules);
+			addc(playsound);
+			addc(repack_mags);
+			addc(rem_uav);
+			addc(uav_check);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -185,6 +194,17 @@ class cfgFunctions {
 			addc(dbsave_lbchanged);
 			addc(initdbtop10dialog);
 			addc(draw3dstuff);
+			addc(initadmindialog);
+			addc(initpylonloadoutdialog);
+			addc(pylonloadoutpresetschanged);
+			addc(pylonloadoutdialogcbselchanged);
+			addc(pylonapply);
+			addc(checkpjumppos);
+			addc(arsenalopened);
+			addc(arsenalclosed);
+			addc(inittransferscoredialog);
+			addc(tsdsliderposchanged);
+			addc(tranfserscoremsgdialog);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -227,7 +247,7 @@ class cfgFunctions {
 			addc(tvecservice);
 			addc(tallservice);
 			addc(delruin);
-			addc(isnvgoogles);
+			addc(isnvgoggles);
 			addc(isswimming);
 			addc(posbehindvec);
 			addc(getplayername);
@@ -243,6 +263,9 @@ class cfgFunctions {
 			addc(moduleCAS);
 			addc(mando_chute);
 			addc(sandstorm);
+			addc(weather_winter);
+			addc(HousePatrol);
+			addc(Zen_OccupyHouse);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";
@@ -265,6 +288,8 @@ class cfgFunctions {
 			addc(addsmpoints);
 			addc(getbymarkersm);
 			addc(clearsidemission);
+			addc(addactionstd);
+			addc(smsurprise);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";
@@ -285,13 +310,15 @@ class cfgFunctions {
 			addc(sidetrafo);
 			addc(sideelimofficer);
 			addc(sideobject);
+			addc(sideobjects);
+			addc(sidetransferdata);
+			addc(sidecache);
 		};
 		class Dom_Server {
 			file = "x_server\x_f";
 			addc(addkillsai);
 			addc(getwreck);
 			addc(placedobjkilled);
-			addc(getplayerarray);
 			addc(tkkickcheck);
 			addc(kickplayerbs);
 			addc(rptmsgbs);
@@ -320,6 +347,7 @@ class cfgFunctions {
 			addc(createjumpflag);
 			addc(gettargetbonus);
 			addc(pshootatarti);
+			addc(pshootatmhq);
 			addc(createrandomtargets);
 			addc(handledisconnect);
 			addc(heli_local_check);
@@ -359,7 +387,6 @@ class cfgFunctions {
 			addc(endsidemission);
 			addc(db_update);
 			addc(getplayerscores);
-			addc(d_flag_base_correct);
 			addc(a_p_w);
 			addc(a_p_e);
 			addc(addpoints);
@@ -368,6 +395,12 @@ class cfgFunctions {
 			addc(plcheckkillopfor);
 			addc(dbtoppasync);
 			addc(checksimminet);
+			addc(skinpolyresp);
+			addc(getskinpoly);
+			addc(handlescore);
+			addc(add_hs);
+			addc(giveplayerscore);
+			addc(scheck_uav);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
@@ -415,6 +448,11 @@ class cfgFunctions {
 			addc(getflatarea);
 			addc(getmtmission);
 			addc(mchelper);
+			addc(sabotage);
+			addc(createpara2);
+			addc(doquake);
+			addc(createambient);
+			addc(dohousepatrol);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";
@@ -460,7 +498,6 @@ class cfgFunctions {
 			addc(cdorevive);
 			addc(drop_body);
 			addc(carry);
-			addc(selfheal);
 			addc(updaterlb);
 			addc(showppos);
 			addc(no_spectating);
@@ -477,6 +514,37 @@ class cfgFunctions {
 			addc(selleader);
 		};
 	};
+	class Dom_AR {
+		tag = "ar";
+		class Dom_AR_prestart {
+			file = "ar";
+			class postinit {
+				postInit = 1;
+				headerType = -1;
+			};
+		};
+		class Dom_AR {
+			file = "ar";
+			addc(Has_Addon_Animations_Installed);
+			addc(Has_Addon_Sounds_Installed);
+			addc(Rappel_All_Cargo);
+			addc(Play_Rappelling_Sounds);
+			addc(Play_3D_Sound);
+			addc(Get_Heli_Rappel_Points);
+			addc(Rappel_From_Heli);
+			addc(Client_Rappel_From_Heli);
+			addc(Current_Weapon_Type_Selected);
+			addc(Enable_Rappelling_Animation_Client);
+			addc(Rappel_Detach_Action);
+			addc(Rappel_Detach_Action_Check);
+			addc(Rappel_From_Heli_Action);
+			addc(Rappel_From_Heli_Action_Check);
+			addc(Rappel_AI_Units_From_Heli_Action_Check);
+			addc(Get_Corner_Points);
+			addc(Is_Supported_Vehicle);
+			addc(Hide_Object_Global);
+		};
+	};
 	class Dom_FSM {
 		tag = "d";
 		class Dom_FSMs {
@@ -491,7 +559,6 @@ class cfgFunctions {
 			class HandleCamps2{ext=".fsm";};
 			class IsAdmin{ext=".fsm";};
 			class Parahandler{ext=".fsm";};
-			class PlayerAmmobox{ext=".fsm";};
 			class RepWreck{ext=".fsm";};
 			class RespawnGroups{ext=".fsm";};
 			class RetakeCamp{ext=".fsm";};
@@ -499,6 +566,7 @@ class cfgFunctions {
 			class Wreckmarker{ext=".fsm";};
 			class TTPoints{ext=".fsm";};
 			class HandleCampsTT2{ext=".fsm";};
+			class Infilrate{ext=".fsm";};
 		};
 	};
 };

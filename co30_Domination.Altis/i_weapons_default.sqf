@@ -7,720 +7,41 @@
 
 __TRACE("i_weapons.sqf")
 
-#ifdef __OWN_SIDE_BLUFOR__
-private _helipilotgear = [];
-private _helipilothelmet = [];
-if (d_pilots_only == 1) then {
-	_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-	_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-} else {
-	if (d_only_pilots_can_fly isEqualTo []) then {
-		_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-		_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-	} else {
-		if (str player in d_only_pilots_can_fly) then {
-			_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-			_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-		};
-	};
-};
-
-private _all_weapons_items = [
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private rifles
-		[
-			["arifle_MX_F",1], ["arifle_MX_Black_F",1], ["hgun_PDW2000_F",1], ["arifle_Katiba_F",1], ["arifle_Katiba_C_F",1]
-		],
-		// corporal rifles (gets added to private rifles)
-		[
-			["arifle_MX_GL_F",1], ["arifle_MXM_F",1], ["arifle_Mk20_F",1], ["arifle_MX_GL_Black_F",1], ["arifle_MXM_Black_F",1],
-			["arifle_Katiba_GL_F",1]
-		],
-		// sergeant rifles (gets added to corporal and private rifles)
-		[
-			["arifle_SDAR_F",1], ["arifle_MX_SW_F",1], ["arifle_MXC_F",1], ["arifle_Mk20C_F",1], ["arifle_MXC_Black_F", 1], ["arifle_MX_SW_Black_F",1]
-		],
-		// lieutenant rifles (gets added to...)
-		[
-			["arifle_TRG21_F",1],["arifle_TRG21_GL_F",1], ["arifle_Mk20_GL_F",1]
-		],
-		// captain rifles (gets added...)
-		[
-			["arifle_TRG20_F",1]
-		],
-		// major rifles (gets...)
-		[
-		],
-		// colonel rifles (...)
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-			["srifle_EBR_F",1]
-		],
-		// lieutenant sniper rifles
-		[
-			["srifle_EBR_F",1],["srifle_EBR_ACO_F",1], ["srifle_EBR_DMS_F",1], ["srifle_EBR_Hamr_pointer_F",1]
-		],
-		// captain sniper rifles
-		[
-			["srifle_DMR_01_F",1], ["srifle_DMR_01_ACO_F",1], ["srifle_DMR_01_MRCO_F",1], ["srifle_EBR_MRCO_pointer_F",1], ["srifle_EBR_ARCO_pointer_F",1]
-		],
-		// major sniper rifles
-		[
-			["srifle_DMR_01_SOS_F",1], ["srifle_DMR_01_DMS_F",1], ["srifle_DMR_01_ARCO_F",1], ["srifle_EBR_SOS_F",1], ["srifle_EBR_DMS_pointer_snds_F",1],
-			["srifle_DMR_02_F",1], ["srifle_DMR_02_camo_F",1], ["srifle_DMR_02_sniper_F",1], ["srifle_DMR_03_spotter_F",1]
-		],
-		// colonel sniper rifles
-		[
-			["srifle_LRR_F",1], ["srifle_GM6_F",1], ["srifle_DMR_01_DMS_snds_F",1], ["srifle_EBR_ARCO_pointer_snds_F",1], ["srifle_GM6_SOS_F",1], ["srifle_GM6_LRPS_F",1],
-			["srifle_LRR_SOS_F",1], ["srifle_LRR_LRPS_F",1], ["srifle_GM6_camo_F",1], ["srifle_LRR_camo_F",1], ["srifle_DMR_03_F",1], ["srifle_DMR_03_khaki_F",1],
-			["srifle_DMR_03_tan_F",1], ["srifle_DMR_03_multicam_F",1], ["srifle_DMR_03_woodland_F",1], ["srifle_DMR_04_F",1], ["srifle_DMR_04_Tan_F",1], ["srifle_DMR_05_blk_F",1],
-			["srifle_DMR_05_hex_F",1], ["srifle_DMR_05_tan_f",1], ["srifle_DMR_06_camo_F",1], ["srifle_DMR_06_olive_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-			["LMG_Mk200_F",1], ["LMG_Zafir_F",1]
-		],
-		// sergeant MG
-		[
-			["SMG_01_F",1], ["LMG_Zafir_pointer_F",1]
-		],
-		// lieutenant MG
-		[
-			["LMG_Mk200_pointer_F",1], ["LMG_Zafir_ARCO_F",1], ["MMG_01_hex_F",1], ["MMG_01_tan_F",1]
-		],
-		// captain MG
-		[
-			["SMG_02_F",1], ["LMG_Mk200_BI_F",1], ["MMG_02_camo_F",1], ["MMG_02_black_F",1], ["MMG_02_sand_F",1]
-		],
-		// major MG
-		[
-			["LMG_Mk200_MRCO_F",1]
-		],
-		// colonel MG
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"LAUNCHERS",
-		// private launchers
-		[
-			["launch_NLAW_F",1], ["launch_B_Titan_F",1]
-		],
-		// corporal launchers
-		[
-			["launch_RPG32_F",1]
-		],
-		// sergeant launchers
-		[
-		],
-		// lieutenant launchers
-		[
-		],
-		// capain launchers
-		[
-		],
-		// major launchers
-		[
-			["launch_B_Titan_short_F",1]
-		],
-		// colonel launchers
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"PISTOLS",
-		// private pistols
-		[
-		],
-		// corporal pistols
-		[
-			["hgun_P07_F",1], ["hgun_ACPC2_F",1]
-		],
-		// sergeant pistols
-		[
-			["hgun_Rook40_F",1], ["hgun_Pistol_Signal_F",1]
-		],
-		// lieutenant pistols
-		[
-			["hgun_P07_snds_F",1], ["hgun_Rook40_snds_F",1]
-		],
-		// captain pistols
-		[
-			["hgun_Pistol_heavy_02_F",1]
-		],
-		// major pistols
-		[
-			["hgun_Pistol_heavy_01_F",1], ["hgun_Pistol_heavy_02_Yorris_F",1]
-		],
-		// colonel pistols
-		[
-			["hgun_Pistol_heavy_01_snds_F",1], ["hgun_Pistol_heavy_01_MRD_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"OPTICS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private optics
-		[
-		],
-		// corporal optics
-		[
-			["optic_Holosight",1, true],["acc_pointer_IR",1, true]
-		],
-		// sergeant optics
-		[
-			["acc_flashlight",1, true],["optic_Holosight_smg",1, true]
-		],
-		// lieutenant optics
-		[
-			 ["optic_MRD",1, true],["optic_MRCO",1, true]
-		],
-		// captain optics
-		[
-			["optic_Aco",1, true],["optic_ACO_grn",1, true],["optic_Arco",1, true],["optic_Hamr",1, true]
-		],
-		// major optics
-		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
-		],
-		// colonel optics
-		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"MUZZLES",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private muzzles
-		[
-		],
-		// corporal muzzles
-		[
-		],
-		// sergeant muzzles
-		[
-			["muzzle_snds_B",1, true]
-		],
-		// lieutenant muzzles
-		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
-		],
-		// captain muzzles
-		[
-		],
-		// major muzzles
-		[
-			["muzzle_snds_H_MG",1, true]
-		],
-		// colonel muzzles
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"UNIFORMS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private uniforms
-		[
-			["H_Cap_blu",1,true], ["H_Cap_headphones",1,true], ["H_Cap_red",1,true], ["H_HelmetB",1,true], ["H_Booniehat_khk",1,true], ["H_HelmetB_paint",1,true], ["H_MilCap_mcamo",1,true],
-			["U_B_CombatUniform_mcam",1,true],["U_B_CombatUniform_mcam_tshirt",1,true], ["U_B_CombatUniform_mcam_vest",1,true], ["U_B_GhillieSuit",1,true],
-			["U_B_Wetsuit",1,true], ["V_RebreatherB",1,true], ["V_Rangemaster_belt",1,true], ["V_BandollierB_khk",1,true], ["V_BandollierB_cbr",1,true], ["V_BandollierB_rgr",1,true],
-			["V_PlateCarrier1_rgr",1,true], ["V_PlateCarrier2_rgr",1,true], ["V_PlateCarrierGL_rgr",1,true], ["V_TacVest_khk",1,true], ["V_TacVest_brn",1,true],
-			["V_TacVest_oli",1,true], ["V_TacVest_blk",1,true], ["U_B_CombatUniform_mcam_worn",1,true], ["U_B_CombatUniform_wdl",1,true], ["U_B_CombatUniform_wdl_tshirt",1,true],
-			["U_B_CombatUniform_wdl_vest",1,true], ["U_B_CombatUniform_sgg",1,true], ["U_B_CombatUniform_sgg_tshirt",1,true], ["U_B_CombatUniform_sgg_vest",1,true], ["U_B_SpecopsUniform_sgg",1,true],
-			_helipilotgear,_helipilothelmet
-		],
-		// corporal uniforms
-		[
-		],
-		// sergeant uniforms
-		[
-		],
-		// lieutenant uniforms
-		[
-		],
-		// captain uniforms
-		[
-		],
-		// major uniforms
-		[
-		],
-		// colonel uniforms
-		[
-		]
-	],
-	// additional weapons and items, no rank
-	[
-		0,  // 0 = always added for each rank in the ranked version
-		"ITEMS",
-		// weapons
-		[
-			["MineDetector",1], ["Binocular",1], (if (d_no_faks == 1) then {["FirstAidKit",5,true]} else {[]}), ["Medikit",5,true],
-			(if (d_without_nvg == 1) then {["NVGoggles",1,true]} else {[]}),
-			["ToolKit",1,true], ["B_UavTerminal",1,true]
-		]
-	]
-];
-
-d_all_magazines = [
-	["30Rnd_45ACP_Mag_SMG_01",10], ["11Rnd_45ACP_Mag",10], ["16Rnd_9x21_Mag",10], ["30Rnd_9x21_Mag",10], ["30Rnd_65x39_caseless_mag",10], ["30Rnd_65x39_caseless_mag_Tracer",10],
-	["30Rnd_65x39_caseless_mag",10], ["100Rnd_65x39_caseless_mag",10], ["20Rnd_762x51_Mag",10], ["30Rnd_556x45_Stanag",10],
-	["7Rnd_408_mag",3], ["5Rnd_127x108_Mag",3],
-	["200Rnd_65x39_cased_Box",10], ["200Rnd_65x39_cased_Box_Tracer",10], ["100Rnd_65x39_caseless_mag_Tracer",10],
-	["NLAW_F",3], ["Titan_AT",1], ["RPG32_F",3], ["Titan_AA",3], ["RPG32_HE_F",3],
-	["1Rnd_HE_Grenade_shell",10], ["1Rnd_Smoke_Grenade_shell",10], ["1Rnd_SmokeBlue_Grenade_shell",10], ["1Rnd_SmokeGreen_Grenade_shell",10], ["1Rnd_SmokeOrange_Grenade_shell",10],
-	["1Rnd_SmokePurple_Grenade_shell",10], ["1Rnd_SmokeRed_Grenade_shell",10], ["1Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_HE_Grenade_shell",10], ["3Rnd_Smoke_Grenade_shell",10],
-	["3Rnd_SmokeBlue_Grenade_shell",10], ["3Rnd_SmokeGreen_Grenade_shell",10], ["3Rnd_SmokeOrange_Grenade_shell",10], ["3Rnd_SmokePurple_Grenade_shell",10],
-	["3Rnd_SmokeRed_Grenade_shell",10], ["3Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_UGL_FlareCIR_F",10], ["3Rnd_UGL_FlareGreen_F",10], ["3Rnd_UGL_FlareRed_F",10],
-	["3Rnd_UGL_FlareWhite_F",10], ["3Rnd_UGL_FlareYellow_F",10], ["UGL_FlareCIR_F",10], ["UGL_FlareGreen_F",10], ["UGL_FlareRed_F",10], ["UGL_FlareWhite_F",10], ["UGL_FlareYellow_F",10],
-	["DemoCharge_Remote_Mag",5], ["SatchelCharge_Remote_Mag",5], ["ATMine_Range_Mag",5], ["ClaymoreDirectionalMine_Remote_Mag",5], ["APERSMine_Range_Mag",5], ["APERSBoundingMine_Range_Mag",5],
-	["SLAMDirectionalMine_Wire_Mag",5], ["APERSTripMine_Wire_Mag",5],
-	["Laserbatteries",5],
-	["HandGrenade",5], ["MiniGrenade",5], ["SmokeShell",5], ["SmokeShellYellow",5], ["SmokeShellGreen",5], ["SmokeShellRed",5], ["SmokeShellPurple",5], ["SmokeShellOrange",5], ["SmokeShellBlue",5],
-	["B_IR_Grenade",5],
-	["Chemlight_green",5], ["Chemlight_red",5], ["Chemlight_yellow",5], ["Chemlight_blue",5]
-];
-
-d_backpackclasses = [
-	"B_AssaultPack_khk", "B_AssaultPack_dgtl", "B_AssaultPack_rgr", "B_AssaultPack_sgg", "B_AssaultPack_blk", "B_AssaultPack_blk", "B_AssaultPack_cbr",
-	"B_AssaultPack_mcamo", "B_Kitbag_mcamo", "B_Kitbag_sgg", "B_Kitbag_cbr", "B_Bergen_sgg", "B_Bergen_mcamo", "B_Bergen_rgr", "B_Bergen_blk", "B_FieldPack_blk", "B_FieldPack_cbr",
-	"B_Carryall_mcamo", "B_AssaultPack_rgr_LAT", "B_AssaultPack_rgr_Medic", "B_AssaultPack_rgr_Repair", "B_AssaultPack_blk_DiverExp", "B_Kitbag_rgr_Exp",
-	"B_FieldPack_blk_DiverExp"
-];
-#endif
-
-// only a BLUFOR and OPFOR version exists, therefore nothing defined in INDEPENDENT
-#ifdef __OWN_SIDE_OPFOR__
-private _helipilotgear = [];
-private _helipilothelmet = [];
-if (d_pilots_only == 1) then {
-	_helipilotgear = ["U_O_HeliPilotCoveralls",1,true];
-	_helipilothelmet = ["H_PilotHelmetFighter_O",1,true];
-} else {
-	if (d_only_pilots_can_fly isEqualTo []) then {
-		_helipilotgear = ["U_O_HeliPilotCoveralls",1,true];
-		_helipilothelmet = ["H_PilotHelmetFighter_O",1,true];
-	} else {
-		if (str player in d_only_pilots_can_fly) then {
-			_helipilotgear = ["U_O_HeliPilotCoveralls",1,true];
-			_helipilothelmet = ["H_PilotHelmetFighter_O",1,true];
-		};
-	};
-};
-
-private _all_weapons_items = [
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private rifles
-		[
-			["arifle_MX_F",1], ["arifle_MX_Black_F",1], ["hgun_PDW2000_F",1]
-		],
-		// corporal rifles (gets added to private rifles)
-		[
-			["arifle_MX_GL_F",1], ["arifle_MXM_F",1], ["arifle_Mk20_F",1], ["arifle_MX_GL_Black_F",1], ["arifle_MXM_Black_F",1]
-		],
-		// sergeant rifles (gets added to corporal and private rifles)
-		[
-			["arifle_SDAR_F",1], ["arifle_MX_SW_F",1], ["arifle_MXC_F",1], ["arifle_Mk20C_F",1], ["arifle_MXC_Black_F", 1], ["arifle_MX_SW_Black_F",1]
-		],
-		// lieutenant rifles (gets added to...)
-		[
-			["arifle_TRG21_F",1],["arifle_TRG21_GL_F",1], ["arifle_Mk20_GL_F",1]
-		],
-		// captain rifles (gets added...)
-		[
-			["arifle_TRG20_F",1]
-		],
-		// major rifles (gets...)
-		[
-		],
-		// colonel rifles (...)
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-			["srifle_EBR_F",1]
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-			["srifle_DMR_01_F",1], ["srifle_DMR_01_ACO_F",1], ["srifle_DMR_01_MRCO_F",1]
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-			["srifle_LRR_F",1], ["srifle_GM6_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-			["LMG_Mk200_F",1]
-		],
-		// sergeant MG
-		[
-			["SMG_01_F",1]
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-			["SMG_02_F",1]
-		],
-		// major MG
-		[
-		],
-		// colonel MG
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"LAUNCHERS",
-		// private launchers
-		[
-			["launch_NLAW_F",1], ["launch_O_Titan_F",1]
-		],
-		// corporal launchers
-		[
-			["launch_RPG32_F",1]
-		],
-		// sergeant launchers
-		[
-		],
-		// lieutenant launchers
-		[
-		],
-		// capain launchers
-		[
-		],
-		// major launchers
-		[
-			["launch_O_Titan_short_F",1]
-		],
-		// colonel launchers
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"PISTOLS",
-		// private pistols
-		[
-		],
-		// corporal pistols
-		[
-			["hgun_P07_F",1]
-		],
-		// sergeant pistols
-		[
-		],
-		// lieutenant pistols
-		[
-		],
-		// captain pistols
-		[
-		],
-		// major pistols
-		[
-			["hgun_Pistol_heavy_01_F",1]
-		],
-		// colonel pistols
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"OPTICS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private optics
-		[
-		],
-		// corporal optics
-		[
-			["optic_Holosight",1, true],["acc_pointer_IR",1, true]
-		],
-		// sergeant optics
-		[
-			["acc_flashlight",1, true],["optic_Holosight_smg",1, true]
-		],
-		// lieutenant optics
-		[
-			 ["optic_MRD",1, true],["optic_MRCO",1, true]
-		],
-		// captain optics
-		[
-			["optic_Aco",1, true],["optic_ACO_grn",1, true],["optic_Arco",1, true],["optic_Hamr",1, true]
-		],
-		// major optics
-		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
-		],
-		// colonel optics
-		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"MUZZLES",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private muzzles
-		[
-		],
-		// corporal muzzles
-		[
-		],
-		// sergeant muzzles
-		[
-			["muzzle_snds_B",1, true]
-		],
-		// lieutenant muzzles
-		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
-		],
-		// captain muzzles
-		[
-		],
-		// major muzzles
-		[
-			["muzzle_snds_H_MG",1, true]
-		],
-		// colonel muzzles
-		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"UNIFORMS",
-		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
-		// private uniforms
-		[
-			["H_Cap_blu",1,true], ["H_Cap_headphones",1,true], ["H_Cap_red",1,true], ["H_HelmetB",1,true], ["H_Booniehat_khk",1,true], ["H_HelmetB_paint",1,true], ["H_MilCap_mcamo",1,true],
-			["U_B_CombatUniform_mcam",1,true],["U_B_CombatUniform_mcam_tshirt",1,true], ["U_B_CombatUniform_mcam_vest",1,true], ["U_B_GhillieSuit",1,true],
-			["U_B_Wetsuit",1,true], ["V_RebreatherB",1,true], ["V_Rangemaster_belt",1,true], ["V_BandollierB_khk",1,true], ["V_BandollierB_cbr",1,true], ["V_BandollierB_rgr",1,true],
-			["V_PlateCarrier1_rgr",1,true], ["V_PlateCarrier2_rgr",1,true], ["V_PlateCarrierGL_rgr",1,true], ["V_TacVest_khk",1,true], ["V_TacVest_brn",1,true],
-			["V_TacVest_oli",1,true], ["V_TacVest_blk",1,true], ["U_B_CombatUniform_mcam_worn",1,true], ["U_B_CombatUniform_wdl",1,true], ["U_B_CombatUniform_wdl_tshirt",1,true],
-			["U_B_CombatUniform_wdl_vest",1,true], ["U_B_CombatUniform_sgg",1,true], ["U_B_CombatUniform_sgg_tshirt",1,true], ["U_B_CombatUniform_sgg_vest",1,true], ["U_B_SpecopsUniform_sgg",1,true],
-			_helipilotgear,_helipilothelmet
-		],
-		// corporal uniforms
-		[
-		],
-		// sergeant uniforms
-		[
-		],
-		// lieutenant uniforms
-		[
-		],
-		// captain uniforms
-		[
-		],
-		// major uniforms
-		[
-		],
-		// colonel uniforms
-		[
-		]
-	],
-	// additional weapons and items, no rank
-	[
-		0,  // 0 = always added for each rank in the ranked version
-		"ITEMS",
-		// weapons
-		[
-			["MineDetector",1], ["Binocular",1], (if (d_no_faks == 1) then {["FirstAidKit",5,true]} else {[]}), ["Medikit",5,true],
-			(if (d_without_nvg == 1) then {["NVGoggles",1,true]} else {[]}),
-			["ToolKit",1,true], ["B_UavTerminal",1,true]
-		]
-	]
-];
-
-d_all_magazines = [
-	["30Rnd_45ACP_Mag_SMG_01",10], ["11Rnd_45ACP_Mag",10], ["16Rnd_9x21_Mag",10], ["30Rnd_9x21_Mag",10], ["30Rnd_65x39_caseless_mag",10], ["30Rnd_65x39_caseless_mag_Tracer",10],
-	["30Rnd_65x39_caseless_mag",10], ["100Rnd_65x39_caseless_mag",10], ["20Rnd_762x51_Mag",10], ["30Rnd_556x45_Stanag",10],
-	["7Rnd_408_mag",3], ["5Rnd_127x108_Mag",3],
-	["200Rnd_65x39_cased_Box",10], ["200Rnd_65x39_cased_Box_Tracer",10], ["100Rnd_65x39_caseless_mag_Tracer",10],
-	["NLAW_F",3], ["Titan_AT",1], ["RPG32_F",3], ["Titan_AA",3], ["RPG32_HE_F",3],
-	["1Rnd_HE_Grenade_shell",10], ["1Rnd_Smoke_Grenade_shell",10], ["1Rnd_SmokeBlue_Grenade_shell",10], ["1Rnd_SmokeGreen_Grenade_shell",10], ["1Rnd_SmokeOrange_Grenade_shell",10],
-	["1Rnd_SmokePurple_Grenade_shell",10], ["1Rnd_SmokeRed_Grenade_shell",10], ["1Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_HE_Grenade_shell",10], ["3Rnd_Smoke_Grenade_shell",10],
-	["3Rnd_SmokeBlue_Grenade_shell",10], ["3Rnd_SmokeGreen_Grenade_shell",10], ["3Rnd_SmokeOrange_Grenade_shell",10], ["3Rnd_SmokePurple_Grenade_shell",10],
-	["3Rnd_SmokeRed_Grenade_shell",10], ["3Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_UGL_FlareCIR_F",10], ["3Rnd_UGL_FlareGreen_F",10], ["3Rnd_UGL_FlareRed_F",10],
-	["3Rnd_UGL_FlareWhite_F",10], ["3Rnd_UGL_FlareYellow_F",10], ["UGL_FlareCIR_F",10], ["UGL_FlareGreen_F",10], ["UGL_FlareRed_F",10], ["UGL_FlareWhite_F",10], ["UGL_FlareYellow_F",10],
-	["DemoCharge_Remote_Mag",5], ["SatchelCharge_Remote_Mag",5], ["ATMine_Range_Mag",5], ["ClaymoreDirectionalMine_Remote_Mag",5], ["APERSMine_Range_Mag",5], ["APERSBoundingMine_Range_Mag",5],
-	["SLAMDirectionalMine_Wire_Mag",5], ["APERSTripMine_Wire_Mag",5],
-	["Laserbatteries",5],
-	["HandGrenade",5], ["MiniGrenade",5], ["SmokeShell",5], ["SmokeShellYellow",5], ["SmokeShellGreen",5], ["SmokeShellRed",5], ["SmokeShellPurple",5], ["SmokeShellOrange",5], ["SmokeShellBlue",5],
-	["B_IR_Grenade",5],
-	["Chemlight_green",5], ["Chemlight_red",5], ["Chemlight_yellow",5], ["Chemlight_blue",5]
-];
-
-d_backpackclasses = [
-	"B_AssaultPack_khk", "B_AssaultPack_dgtl", "B_AssaultPack_rgr", "B_AssaultPack_sgg", "B_AssaultPack_blk", "B_AssaultPack_blk", "B_AssaultPack_cbr",
-	"B_AssaultPack_mcamo", "B_Kitbag_mcamo", "B_Kitbag_sgg", "B_Kitbag_cbr", "B_Bergen_sgg", "B_Bergen_mcamo", "B_Bergen_rgr", "B_Bergen_blk", "B_FieldPack_blk", "B_FieldPack_cbr",
-	"B_Carryall_mcamo", "B_AssaultPack_rgr_LAT", "B_AssaultPack_rgr_Medic", "B_AssaultPack_rgr_Repair", "B_AssaultPack_blk_DiverExp", "B_Kitbag_rgr_Exp",
-	"B_FieldPack_blk_DiverExp"
-];
-#endif
-
-#ifdef __OWN_SIDE_INDEPENDENT__
-#endif
-
-#ifdef __TT__
-private _helipilotgear = [];
-private _helipilothelmet = [];
-if (d_pilots_only == 1) then {
-	_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-	_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-	_helipilotgeare = ["U_O_HeliPilotCoveralls",1,true];
-	_helipilothelmete = ["H_PilotHelmetFighter_O",1,true];
-} else {
-	if (d_only_pilots_can_fly isEqualTo []) then {
-		_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-		_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-		_helipilotgeare = ["U_O_HeliPilotCoveralls",1,true];
-		_helipilothelmete = ["H_PilotHelmetFighter_O",1,true];
-	} else {
-		if (str player in d_only_pilots_can_fly) then {
-			_helipilotgear = ["U_B_HeliPilotCoveralls",1,true];
-			_helipilothelmet = ["H_PilotHelmetFighter_B",1,true];
-			_helipilotgeare = ["U_O_HeliPilotCoveralls",1,true];
-			_helipilothelmete = ["H_PilotHelmetFighter_O",1,true];
-		};
-	};
-};
-
 private _all_weapons_items_blufor = [
 	[
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"RIFLES",
 		// private rifles
 		[
-			//["arifle_MX_F",1], ["arifle_MX_Black_F",1], ["hgun_PDW2000_F",1]
-			["arifle_MX_F",1]
+			"arifle_MX_F", "arifle_MX_Black_F", "arifle_MX_khk_F", "arifle_SDAR_F", "hgun_PDW2000_F", "SMG_05_F", "SMG_01_F"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			["arifle_MX_GL_F",1], ["arifle_MXM_F",1], ["arifle_Mk20_F",1], ["arifle_MX_GL_Black_F",1], ["arifle_MXM_Black_F",1]
+			"arifle_MX_GL_F", "arifle_MX_GL_Black_F", "arifle_MX_SW_F", "arifle_MX_SW_Black_F", "arifle_MX_SW_khk_F", "arifle_MX_GL_khk_F"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			["arifle_SDAR_F",1], ["arifle_MX_SW_F",1], ["arifle_MXC_F",1], ["arifle_Mk20C_F",1], ["arifle_MXC_Black_F", 1], ["arifle_MX_SW_Black_F",1]
+			"arifle_MXC_F", "arifle_Mk20C_F", "arifle_MXC_Black_F", "arifle_MXM_F", "arifle_MXM_Black_F",
+			"LMG_Mk200_F"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			["arifle_TRG21_F",1],["arifle_TRG21_GL_F",1], ["arifle_Mk20_GL_F",1]
+			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F", "srifle_EBR_F",
+			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F", "arifle_SPAR_01_blk_F", "arifle_SPAR_01_khk_F", "arifle_SPAR_01_snd_F"
 		],
 		// captain rifles (gets added...)
 		[
-			["arifle_TRG20_F",1]
+			"MMG_02_camo_F", "MMG_02_black_F", "MMG_02_sand_F", "arifle_SPAR_01_GL_blk_F", "arifle_SPAR_01_GL_khk_F", "arifle_SPAR_01_GL_snd_F",
+			"arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
 		],
 		// major rifles (gets...)
 		[
+			"srifle_DMR_02_F", "srifle_DMR_02_camo_F", "srifle_DMR_02_sniper_F", "arifle_SPAR_03_blk_F", "arifle_SPAR_03_khk_F", "arifle_SPAR_03_snd_F"
 		],
 		// colonel rifles (...)
 		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-			["srifle_EBR_F",1]
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-			["srifle_LRR_F",1], ["srifle_GM6_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-			["LMG_Mk200_F",1]
-		],
-		// sergeant MG
-		[
-			["SMG_01_F",1]
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-			["SMG_02_F",1]
-		],
-		// major MG
-		[
-		],
-		// colonel MG
-		[
+			"srifle_LRR_F", "srifle_LRR_camo_F", "srifle_DMR_03_F", "srifle_DMR_03_khaki_F",
+			"srifle_DMR_03_tan_F", "srifle_DMR_03_multicam_F", "srifle_DMR_03_woodland_F", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_LRR_tna_F"
 		]
 	],
 	[
@@ -728,14 +49,15 @@ private _all_weapons_items_blufor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			["launch_NLAW_F",1], ["launch_B_Titan_F",1]
+			"launch_B_Titan_F", "launch_RPG7_F"
 		],
 		// corporal launchers
 		[
-			["launch_RPG32_F",1]
+			"launch_RPG32_F", "launch_NLAW_F", "launch_RPG32_ghex_F"
 		],
 		// sergeant launchers
 		[
+			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F", "launch_MRAWS_olive_rail_F", "launch_MRAWS_green_F", "launch_MRAWS_sand_F"
 		],
 		// lieutenant launchers
 		[
@@ -745,7 +67,7 @@ private _all_weapons_items_blufor = [
 		],
 		// major launchers
 		[
-			["launch_B_Titan_short_F",1]
+			"launch_B_Titan_short_F"
 		],
 		// colonel launchers
 		[
@@ -759,20 +81,21 @@ private _all_weapons_items_blufor = [
 		],
 		// corporal pistols
 		[
-			["hgun_P07_F",1]
+			"hgun_P07_khk_F", "hgun_P07_F"
 		],
 		// sergeant pistols
 		[
+			"hgun_ACPC2_F"
 		],
 		// lieutenant pistols
 		[
+			"hgun_Pistol_heavy_01_F"
 		],
 		// captain pistols
 		[
 		],
 		// major pistols
 		[
-			["hgun_Pistol_heavy_01_F",1]
 		],
 		// colonel pistols
 		[
@@ -784,30 +107,33 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
+			"acc_flashlight_smg_01", "optic_Holosight_smg_blk_F", "optic_Holosight_smg_khk_F"
 		],
 		// corporal optics
 		[
-			["optic_Holosight",1, true],["acc_pointer_IR",1, true]
+			"optic_Holosight", "acc_pointer_IR", "optic_Aco", "optic_ERCO_blk_F", "optic_ERCO_khk_F", "optic_ERCO_snd_F", "optic_Holosight_blk_F",
+			"optic_Holosight_khk_F"
 		],
 		// sergeant optics
 		[
-			["acc_flashlight",1, true],["optic_Holosight_smg",1, true]
+			"acc_flashlight", "optic_Holosight_smg", "acc_flashlight_pistol"
 		],
 		// lieutenant optics
 		[
-			 ["optic_MRD",1, true],["optic_MRCO",1, true]
+			 "optic_MRD", "optic_MRCO", "optic_Yorris"
 		],
 		// captain optics
 		[
-			["optic_Aco",1, true],["optic_ACO_grn",1, true],["optic_Arco",1, true],["optic_Hamr",1, true]
+			"optic_ACO_grn", "optic_Arco", "optic_Hamr", "optic_Arco_blk_F", "optic_Arco_ghex_F", "optic_Hamr_khk_F"
 		],
 		// major optics
 		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
+			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
 		],
 		// colonel optics
 		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS", "optic_tws", "optic_tws_mg", "optic_KHS_blk", "optic_KHS_hex",
+			"optic_KHS_old", "optic_KHS_tan", "optic_SOS_khk_F", "optic_LRPS_tna_F", "optic_LRPS_ghex_F"
 		]
 	],
 	[
@@ -822,18 +148,22 @@ private _all_weapons_items_blufor = [
 		],
 		// sergeant muzzles
 		[
-			["muzzle_snds_B",1, true]
+			"muzzle_snds_H", "muzzle_snds_M", "muzzle_snds_L", "muzzle_snds_H_khk_F", "muzzle_snds_H_snd_F", "muzzle_snds_m_khk_F",
+			"muzzle_snds_m_snd_F", "muzzle_snds_B_khk_F", "muzzle_snds_B_snd_F", "muzzle_snds_65_TI_ghex_F"
 		],
 		// lieutenant muzzles
 		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
+			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
+			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
+			
 		],
 		// captain muzzles
 		[
+			"muzzle_snds_338_black", "muzzle_snds_338_green", "muzzle_snds_338_sand", "muzzle_snds_93mmg", "muzzle_snds_93mmg_tan"
 		],
 		// major muzzles
 		[
-			["muzzle_snds_H_MG",1, true]
+			"muzzle_snds_H_MG", "muzzle_snds_H_MG_blk_F", "muzzle_snds_H_MG_khk_F"
 		],
 		// colonel muzzles
 		[
@@ -845,31 +175,51 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			["H_Cap_blu",1,true], ["H_Cap_headphones",1,true], ["H_Cap_red",1,true], ["H_HelmetB",1,true], ["H_Booniehat_khk",1,true], ["H_HelmetB_paint",1,true], ["H_MilCap_mcamo",1,true],
-			["U_B_CombatUniform_mcam",1,true],["U_B_CombatUniform_mcam_tshirt",1,true], ["U_B_CombatUniform_mcam_vest",1,true], ["U_B_GhillieSuit",1,true],
-			["U_B_Wetsuit",1,true], ["V_RebreatherB",1,true], ["V_Rangemaster_belt",1,true], ["V_BandollierB_khk",1,true], ["V_BandollierB_cbr",1,true], ["V_BandollierB_rgr",1,true],
-			["V_PlateCarrier1_rgr",1,true], ["V_PlateCarrier2_rgr",1,true], ["V_PlateCarrierGL_rgr",1,true], ["V_TacVest_khk",1,true], ["V_TacVest_brn",1,true],
-			["V_TacVest_oli",1,true], ["V_TacVest_blk",1,true], ["U_B_CombatUniform_mcam_worn",1,true], ["U_B_CombatUniform_wdl",1,true], ["U_B_CombatUniform_wdl_tshirt",1,true],
-			["U_B_CombatUniform_wdl_vest",1,true], ["U_B_CombatUniform_sgg",1,true], ["U_B_CombatUniform_sgg_tshirt",1,true], ["U_B_CombatUniform_sgg_vest",1,true], ["U_B_SpecopsUniform_sgg",1,true],
-			_helipilotgear,_helipilothelmet
+			"U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_T_Soldier_F", "U_B_T_Soldier_AR_F",
+			"U_B_T_Soldier_SL_F", "U_B_Wetsuit",
+			
+			"H_HelmetB", "H_HelmetB_camo", "H_HelmetB_light", "H_HelmetB_grass", "H_HelmetB_snakeskin", "H_HelmetB_desert", "H_HelmetB_black", "H_HelmetB_sand",
+			"H_HelmetB_light_grass", "H_HelmetB_light_snakeskin", "H_HelmetB_light_desert", "H_HelmetB_light_black", "H_HelmetB_light_sand", "H_HelmetB_TI_tna_F", "H_HelmetB_tna_F",
+			"H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F", "H_HelmetSpecB", "H_HelmetSpecB_paint1", "H_HelmetSpecB_paint2", "H_HelmetSpecB_blk", "H_HelmetSpecB_snakeskin",
+			"H_HelmetSpecB_sand", "H_Cap_tan_specops_US", "H_HelmetCrew_B", "H_PilotHelmetFighter_B", "H_PilotHelmetHeli_B", "H_CrewHelmetHeli_B",
+			
+			"V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli",
+			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrier2_blk", "V_PlateCarrierGL_rgr", "V_PlateCarrierGL_blk", "V_PlateCarrierGL_mtp",
+			"V_PlateCarrier1_blk", "V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_Chestrig_khk", "V_Chestrig_rgr", "V_Chestrig_blk",
+			"V_Chestrig_oli", "V_TacVest_khk", "V_TacVest_brn", "V_TacVest_oli", "V_TacVest_blk", "V_TacVest_camo", "V_TacVestIR_blk", "V_HarnessO_brn",
+			"V_HarnessOGL_brn", "V_HarnessO_gry", "V_HarnessOGL_gry", "V_PlateCarrierIA1_dgtl", "V_PlateCarrierIA2_dgtl", "V_PlateCarrierIAGL_dgtl",
+			"V_PlateCarrierIAGL_oli", "V_RebreatherB", "V_RebreatherIR", "V_RebreatherIA", "V_PlateCarrierL_CTRG", "V_PlateCarrierH_CTRG", "V_TacChestrig_grn_F",
+			"V_TacChestrig_oli_F", "V_TacChestrig_cbr_F", "V_PlateCarrier1_tna_F", "V_PlateCarrier2_tna_F", "V_PlateCarrierSpec_tna_F", "V_PlateCarrierGL_tna_F",
+			"V_HarnessO_ghex_F", "V_HarnessOGL_ghex_F", "V_BandollierB_ghex_F", "V_TacVest_gen_F", "V_PlateCarrier1_rgr_noflag_F", "V_PlateCarrier2_rgr_noflag_F",
+			"V_Plain_medical_F", "V_Plain_crystal_F", "V_Pocketed_olive_F", "V_Pocketed_coyote_F", "V_Pocketed_black_F", "V_LegStrapBag_black_F", "V_LegStrapBag_coyote_F",
+			"V_LegStrapBag_olive_F",
+			"H_Booniehat_khk", "H_Booniehat_oli", "H_Booniehat_mcamo", "H_Booniehat_tan", "H_Booniehat_dgtl", "H_Booniehat_khk_hs", "H_Bandanna_surfer", "H_Bandanna_khk",
+			"H_Bandanna_khk_hs", "H_Bandanna_cbr", "H_Bandanna_sgg", "H_Bandanna_sand", "H_Bandanna_surfer_blk", "H_Bandanna_surfer_grn", "H_Bandanna_gry", "H_Bandanna_blu",
+			"H_Bandanna_camo", "H_Bandanna_mcamo", "H_Shemag_olive", "H_Shemag_olive_hs", "H_ShemagOpen_khk", "H_ShemagOpen_tan", "H_Beret_blk", "H_Beret_02", "H_Beret_Colonel",
+			"H_Watchcap_blk", "H_Watchcap_cbr", "H_Watchcap_khk", "H_Watchcap_camo", "H_Booniehat_tna_F"
 		],
 		// corporal uniforms
 		[
+			"U_B_CTRG_2", "U_B_CTRG_3", "U_B_CTRG_1"
 		],
 		// sergeant uniforms
 		[
+			"U_B_CTRG_Soldier_urb_1_F", "U_B_CTRG_Soldier_urb_3_F", "U_B_CTRG_Soldier_urb_2_F", "U_B_CTRG_Soldier_F", "U_B_CTRG_Soldier_3_F", "U_B_CTRG_Soldier_2_F"
 		],
 		// lieutenant uniforms
 		[
+			"U_B_CombatUniform_mcam_worn", "U_B_HeliPilotCoveralls", "U_B_PilotCoveralls"
 		],
 		// captain uniforms
 		[
+			"U_B_survival_uniform"
 		],
 		// major uniforms
 		[
 		],
 		// colonel uniforms
 		[
+			"U_B_T_Sniper_F", "U_B_GhillieSuit", "U_B_T_FullGhillie_tna_F", "U_B_FullGhillie_lsh", "U_B_FullGhillie_sard", "U_B_FullGhillie_ard"
 		]
 	],
 	// additional weapons and items, no rank
@@ -878,9 +228,9 @@ private _all_weapons_items_blufor = [
 		"ITEMS",
 		// weapons
 		[
-			["MineDetector",1], ["Binocular",1], (if (d_no_faks == 1) then {["FirstAidKit",5,true]} else {[]}), ["Medikit",5,true],
-			(if (d_without_nvg == 1) then {["NVGoggles",1,true]} else {[]}),
-			["ToolKit",1,true], ["B_UavTerminal",1,true]
+			"MineDetector", "Binocular", (if (d_no_faks == 1) then {"FirstAidKit"} else {""}), "Medikit",
+			(if (d_without_nvg == 1) then {"NVGoggles"} else {""}),
+			"ToolKit", "B_UavTerminal"
 		]
 	]
 ];
@@ -891,85 +241,35 @@ private _all_weapons_items_opfor = [
 		"RIFLES",
 		// private rifles
 		[
-			//["arifle_MX_F",1], ["arifle_MX_Black_F",1], ["hgun_PDW2000_F",1]
-			["arifle_MX_Black_F",1]
+			"arifle_Katiba_F", "arifle_Katiba_C_F", "arifle_AKM_F", "arifle_AKS_F", "arifle_CTAR_blk_F", "arifle_CTAR_hex_F", "arifle_SDAR_F",
+			"SMG_02_F"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			["arifle_MX_GL_F",1], ["arifle_MXM_F",1], ["arifle_Mk20_F",1], ["arifle_MX_GL_Black_F",1], ["arifle_MXM_Black_F",1]
+			"arifle_Katiba_GL_F", "arifle_AK12_GL_F", "arifle_CTAR_GL_blk_F", "arifle_CTAR_GL_hex_F", "arifle_CTAR_GL_ghex_F"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			["arifle_SDAR_F",1], ["arifle_MX_SW_F",1], ["arifle_MXC_F",1], ["arifle_Mk20C_F",1], ["arifle_MXC_Black_F", 1], ["arifle_MX_SW_Black_F",1]
+			"LMG_Mk200_F", "LMG_Zafir_F", "arifle_CTARS_blk_F", "arifle_CTARS_hex_F", "arifle_CTARS_ghex_F", "arifle_AK12_F"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			["arifle_TRG21_F",1],["arifle_TRG21_GL_F",1], ["arifle_Mk20_GL_F",1]
+			"arifle_TRG20_F", "arifle_TRG21_F", "arifle_TRG21_GL_F", "arifle_Mk20_GL_F",
+			"LMG_Mk200_BI_F", "arifle_SPAR_02_blk_F", "arifle_SPAR_02_khk_F", "arifle_SPAR_02_snd_F"
 		],
 		// captain rifles (gets added...)
 		[
-			["arifle_TRG20_F",1]
+			"srifle_DMR_01_F", "MMG_01_hex_F", "MMG_01_tan_F"
 		],
 		// major rifles (gets...)
 		[
+			"arifle_ARX_blk_F", "arifle_ARX_ghex_F", "arifle_ARX_hex_F"
 		],
 		// colonel rifles (...)
 		[
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private sniper rifles
-		[
-		],
-		// corporal sniper rifles
-		[
-		],
-		// sergeant sniper rifles
-		[
-			["srifle_EBR_F",1]
-		],
-		// lieutenant sniper rifles
-		[
-		],
-		// captain sniper rifles
-		[
-		],
-		// major sniper rifles
-		[
-		],
-		// colonel sniper rifles
-		[
-			["srifle_LRR_F",1], ["srifle_GM6_F",1]
-		]
-	],
-	[
-		1, // 1 = will only be added for a specific rank in the ranked version
-		"RIFLES",
-		// private MG
-		[
-		],
-		// corporal MG
-		[
-			["LMG_Mk200_F",1]
-		],
-		// sergeant MG
-		[
-			["SMG_01_F",1]
-		],
-		// lieutenant MG
-		[
-		],
-		// captain MG
-		[
-			["SMG_02_F",1]
-		],
-		// major MG
-		[
-		],
-		// colonel MG
-		[
+			"srifle_DMR_04_F", "srifle_DMR_04_Tan_F", "srifle_DMR_05_blk_F",
+			"srifle_DMR_05_hex_F", "srifle_DMR_05_tan_f", "srifle_DMR_06_camo_F", "srifle_DMR_06_olive_F", "srifle_GM6_ghex_F",
+			"srifle_DMR_07_blk_F", "srifle_DMR_07_hex_F", "srifle_DMR_07_ghex_F"
 		]
 	],
 	[
@@ -977,14 +277,15 @@ private _all_weapons_items_opfor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			["launch_NLAW_F",1], ["launch_B_Titan_F",1]
+			"launch_O_Titan_F", "launch_RPG7_F"
 		],
 		// corporal launchers
 		[
-			["launch_RPG32_F",1]
+			"launch_RPG32_F", "launch_RPG32_ghex_F"
 		],
 		// sergeant launchers
 		[
+			"launch_MRAWS_olive_F", "launch_MRAWS_green_rail_F", "launch_MRAWS_sand_rail_F", "launch_MRAWS_olive_rail_F", "launch_MRAWS_green_F", "launch_MRAWS_sand_F"
 		],
 		// lieutenant launchers
 		[
@@ -994,10 +295,11 @@ private _all_weapons_items_opfor = [
 		],
 		// major launchers
 		[
-			["launch_B_Titan_short_F",1]
+			"launch_O_Titan_short_F"
 		],
 		// colonel launchers
 		[
+			"launch_O_Vorona_brown_F", "launch_O_Vorona_green_F"
 		]
 	],
 	[
@@ -1008,20 +310,21 @@ private _all_weapons_items_opfor = [
 		],
 		// corporal pistols
 		[
-			["hgun_P07_F",1]
+			"hgun_Rook40_F"
 		],
 		// sergeant pistols
 		[
+			"hgun_ACPC2_F"
 		],
 		// lieutenant pistols
 		[
+			"hgun_Pistol_heavy_02_F"
 		],
 		// captain pistols
 		[
 		],
 		// major pistols
 		[
-			["hgun_Pistol_heavy_01_F",1]
 		],
 		// colonel pistols
 		[
@@ -1033,30 +336,34 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
+			"acc_flashlight_smg_01", "optic_Holosight_smg_blk_F", "optic_Holosight_smg_khk_F"
 		],
 		// corporal optics
 		[
-			["optic_Holosight",1, true],["acc_pointer_IR",1, true]
+			"optic_Holosight", "acc_pointer_IR", "optic_Aco", "optic_ERCO_blk_F", "optic_ERCO_khk_F", "optic_ERCO_snd_F", "optic_Holosight_blk_F",
+			"optic_Holosight_khk_F"
 		],
 		// sergeant optics
 		[
-			["acc_flashlight",1, true],["optic_Holosight_smg",1, true]
+			"acc_flashlight", "optic_Holosight_smg", "acc_flashlight_pistol"
 		],
 		// lieutenant optics
 		[
-			 ["optic_MRD",1, true],["optic_MRCO",1, true]
+			 "optic_MRD", "optic_MRCO", "optic_Yorris"
 		],
 		// captain optics
 		[
-			["optic_Aco",1, true],["optic_ACO_grn",1, true],["optic_Arco",1, true],["optic_Hamr",1, true]
+			"optic_ACO_grn", "optic_Arco", "optic_Hamr", "optic_Arco_blk_F", "optic_Arco_ghex_F", "optic_Hamr_khk_F"
 		],
 		// major optics
 		[
-			["LaserDesignator",1,true], ["optic_Aco_smg",1,true], ["optic_ACO_grn_smg",1,true], ["optic_tws",1,true], ["optic_tws_mg",1,true], ["optic_DMS",1,true]
+			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
+			
 		],
 		// colonel optics
 		[
-			["optic_SOS",1,true], ["optic_NVS",1,true], ["optic_Nightstalker",1,true], ["optic_LRPS",1,true]
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS", "optic_tws", "optic_tws_mg", "optic_KHS_blk", "optic_KHS_hex",
+			"optic_KHS_old", "optic_KHS_tan", "optic_SOS_khk_F", "optic_LRPS_tna_F", "optic_LRPS_ghex_F"
 		]
 	],
 	[
@@ -1071,18 +378,22 @@ private _all_weapons_items_opfor = [
 		],
 		// sergeant muzzles
 		[
-			["muzzle_snds_B",1, true]
+			"muzzle_snds_H", "muzzle_snds_M", "muzzle_snds_L", "muzzle_snds_H_khk_F", "muzzle_snds_H_snd_F", "muzzle_snds_m_khk_F",
+			"muzzle_snds_m_snd_F", "muzzle_snds_B_khk_F", "muzzle_snds_B_snd_F", "muzzle_snds_65_TI_ghex_F"
 		],
 		// lieutenant muzzles
 		[
-			["muzzle_snds_H",1, true],["muzzle_snds_L",1, true], ["muzzle_snds_M",1, true], ["muzzle_snds_acp", 1, true]
+			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
+			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
+			
 		],
 		// captain muzzles
 		[
+			"muzzle_snds_338_black", "muzzle_snds_338_green", "muzzle_snds_338_sand", "muzzle_snds_93mmg", "muzzle_snds_93mmg_tan"
 		],
 		// major muzzles
 		[
-			["muzzle_snds_H_MG",1, true]
+			"muzzle_snds_H_MG", "muzzle_snds_H_MG_blk_F", "muzzle_snds_H_MG_khk_F"
 		],
 		// colonel muzzles
 		[
@@ -1094,22 +405,37 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			["H_Cap_blu",1,true], ["H_Cap_headphones",1,true], ["H_Cap_red",1,true], ["H_HelmetB",1,true], ["H_Booniehat_khk",1,true], ["H_HelmetB_paint",1,true], ["H_MilCap_mcamo",1,true],
-			["U_B_CombatUniform_mcam",1,true],["U_B_CombatUniform_mcam_tshirt",1,true], ["U_B_CombatUniform_mcam_vest",1,true], ["U_B_GhillieSuit",1,true],
-			["U_B_Wetsuit",1,true], ["V_RebreatherB",1,true], ["V_Rangemaster_belt",1,true], ["V_BandollierB_khk",1,true], ["V_BandollierB_cbr",1,true], ["V_BandollierB_rgr",1,true],
-			["V_PlateCarrier1_rgr",1,true], ["V_PlateCarrier2_rgr",1,true], ["V_PlateCarrierGL_rgr",1,true], ["V_TacVest_khk",1,true], ["V_TacVest_brn",1,true],
-			["V_TacVest_oli",1,true], ["V_TacVest_blk",1,true], ["U_B_CombatUniform_mcam_worn",1,true], ["U_B_CombatUniform_wdl",1,true], ["U_B_CombatUniform_wdl_tshirt",1,true],
-			["U_B_CombatUniform_wdl_vest",1,true], ["U_B_CombatUniform_sgg",1,true], ["U_B_CombatUniform_sgg_tshirt",1,true], ["U_B_CombatUniform_sgg_vest",1,true], ["U_B_SpecopsUniform_sgg",1,true],
-			_helipilotgeare,_helipilothelmete
+			"U_O_CombatUniform_ocamo", "U_O_CombatUniform_oucamo", "U_O_T_Soldier_F", "U_O_Wetsuit",
+			
+			"H_HelmetCrew_O", "H_PilotHelmetFighter_O", "H_PilotHelmetHeli_O", "H_CrewHelmetHeli_O", "H_HelmetO_ocamo", "H_HelmetLeaderO_ocamo", "H_MilCap_ocamo",
+			"H_HelmetO_oucamo", "H_HelmetLeaderO_oucamo", "H_HelmetSpecO_ocamo", "H_HelmetSpecO_blk", "H_HelmetSpecO_ghex_F", "H_HelmetLeaderO_ghex_F",
+			"H_HelmetO_ghex_F", "H_HelmetCrew_O_ghex_F",
+			
+			"V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli",
+			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrier2_blk", "V_PlateCarrierGL_rgr", "V_PlateCarrierGL_blk", "V_PlateCarrierGL_mtp",
+			"V_PlateCarrier1_blk", "V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_Chestrig_khk", "V_Chestrig_rgr", "V_Chestrig_blk",
+			"V_Chestrig_oli", "V_TacVest_khk", "V_TacVest_brn", "V_TacVest_oli", "V_TacVest_blk", "V_TacVest_camo", "V_TacVestIR_blk", "V_HarnessO_brn",
+			"V_HarnessOGL_brn", "V_HarnessO_gry", "V_HarnessOGL_gry", "V_PlateCarrierIA1_dgtl", "V_PlateCarrierIA2_dgtl", "V_PlateCarrierIAGL_dgtl",
+			"V_PlateCarrierIAGL_oli", "V_RebreatherB", "V_RebreatherIR", "V_RebreatherIA", "V_PlateCarrierL_CTRG", "V_PlateCarrierH_CTRG", "V_TacChestrig_grn_F",
+			"V_TacChestrig_oli_F", "V_TacChestrig_cbr_F", "V_PlateCarrier1_tna_F", "V_PlateCarrier2_tna_F", "V_PlateCarrierSpec_tna_F", "V_PlateCarrierGL_tna_F",
+			"V_HarnessO_ghex_F", "V_HarnessOGL_ghex_F", "V_BandollierB_ghex_F", "V_TacVest_gen_F", "V_PlateCarrier1_rgr_noflag_F", "V_PlateCarrier2_rgr_noflag_F",
+			"V_Plain_medical_F", "V_Plain_crystal_F", "V_Pocketed_olive_F", "V_Pocketed_coyote_F", "V_Pocketed_black_F", "V_LegStrapBag_black_F", "V_LegStrapBag_coyote_F",
+			"V_LegStrapBag_olive_F",
+			"H_Booniehat_khk", "H_Booniehat_oli", "H_Booniehat_mcamo", "H_Booniehat_tan", "H_Booniehat_dgtl", "H_Booniehat_khk_hs", "H_Bandanna_surfer", "H_Bandanna_khk",
+			"H_Bandanna_khk_hs", "H_Bandanna_cbr", "H_Bandanna_sgg", "H_Bandanna_sand", "H_Bandanna_surfer_blk", "H_Bandanna_surfer_grn", "H_Bandanna_gry", "H_Bandanna_blu",
+			"H_Bandanna_camo", "H_Bandanna_mcamo", "H_Shemag_olive", "H_Shemag_olive_hs", "H_ShemagOpen_khk", "H_ShemagOpen_tan", "H_Beret_blk", "H_Beret_02", "H_Beret_Colonel",
+			"H_Watchcap_blk", "H_Watchcap_cbr", "H_Watchcap_khk", "H_Watchcap_camo", "H_Booniehat_tna_F"
 		],
 		// corporal uniforms
 		[
 		],
 		// sergeant uniforms
 		[
+			"U_O_SpecopsUniform_ocamo"
 		],
 		// lieutenant uniforms
 		[
+			"U_O_officer_noInsignia_hex_F", "U_O_OfficerUniform_ocamo", "U_O_T_Officer_F", "U_O_PilotCoveralls"
 		],
 		// captain uniforms
 		[
@@ -1119,6 +445,8 @@ private _all_weapons_items_opfor = [
 		],
 		// colonel uniforms
 		[
+			"U_O_T_Sniper_F", "U_O_GhillieSuit", "U_O_T_FullGhillie_tna_F", "U_O_FullGhillie_sard", "U_O_FullGhillie_lsh", "U_O_FullGhillie_ard",
+			"H_HelmetO_ViperSP_ghex_F", "H_HelmetO_ViperSP_hex_F"
 		]
 	],
 	// additional weapons and items, no rank
@@ -1127,77 +455,29 @@ private _all_weapons_items_opfor = [
 		"ITEMS",
 		// weapons
 		[
-			["MineDetector",1], ["Binocular",1], (if (d_no_faks == 1) then {["FirstAidKit",5,true]} else {[]}), ["Medikit",5,true],
-			(if (d_without_nvg == 1) then {["NVGoggles",1,true]} else {[]}),
-			["ToolKit",1,true], ["B_UavTerminal",1,true]
+			"MineDetector", "Binocular", (if (d_no_faks == 1) then {"FirstAidKit"} else {""}), "Medikit",
+			(if (d_without_nvg == 1) then {"NVGoggles_OPFOR"} else {""}),
+			"ToolKit", "O_UavTerminal"
 		]
 	]
 ];
 
-private _d_all_magazines_blufor = [
-	["30Rnd_45ACP_Mag_SMG_01",10], ["11Rnd_45ACP_Mag",10], ["16Rnd_9x21_Mag",10], ["30Rnd_9x21_Mag",10], ["30Rnd_65x39_caseless_mag",10], ["30Rnd_65x39_caseless_mag_Tracer",10],
-	["30Rnd_65x39_caseless_mag",10], ["100Rnd_65x39_caseless_mag",10], ["20Rnd_762x51_Mag",10], ["30Rnd_556x45_Stanag",10],
-	["7Rnd_408_mag",3], ["5Rnd_127x108_Mag",3],
-	["200Rnd_65x39_cased_Box",10], ["200Rnd_65x39_cased_Box_Tracer",10], ["100Rnd_65x39_caseless_mag_Tracer",10],
-	["NLAW_F",3], ["Titan_AT",1], ["RPG32_F",3], ["Titan_AA",3], ["RPG32_HE_F",3],
-	["1Rnd_HE_Grenade_shell",10], ["1Rnd_Smoke_Grenade_shell",10], ["1Rnd_SmokeBlue_Grenade_shell",10], ["1Rnd_SmokeGreen_Grenade_shell",10], ["1Rnd_SmokeOrange_Grenade_shell",10],
-	["1Rnd_SmokePurple_Grenade_shell",10], ["1Rnd_SmokeRed_Grenade_shell",10], ["1Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_HE_Grenade_shell",10], ["3Rnd_Smoke_Grenade_shell",10],
-	["3Rnd_SmokeBlue_Grenade_shell",10], ["3Rnd_SmokeGreen_Grenade_shell",10], ["3Rnd_SmokeOrange_Grenade_shell",10], ["3Rnd_SmokePurple_Grenade_shell",10],
-	["3Rnd_SmokeRed_Grenade_shell",10], ["3Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_UGL_FlareCIR_F",10], ["3Rnd_UGL_FlareGreen_F",10], ["3Rnd_UGL_FlareRed_F",10],
-	["3Rnd_UGL_FlareWhite_F",10], ["3Rnd_UGL_FlareYellow_F",10], ["UGL_FlareCIR_F",10], ["UGL_FlareGreen_F",10], ["UGL_FlareRed_F",10], ["UGL_FlareWhite_F",10], ["UGL_FlareYellow_F",10],
-	["DemoCharge_Remote_Mag",5], ["SatchelCharge_Remote_Mag",5], ["ATMine_Range_Mag",5], ["ClaymoreDirectionalMine_Remote_Mag",5], ["APERSMine_Range_Mag",5], ["APERSBoundingMine_Range_Mag",5],
-	["SLAMDirectionalMine_Wire_Mag",5], ["APERSTripMine_Wire_Mag",5],
-	["Laserbatteries",5],
-	["HandGrenade",5], ["MiniGrenade",5], ["SmokeShell",5], ["SmokeShellYellow",5], ["SmokeShellGreen",5], ["SmokeShellRed",5], ["SmokeShellPurple",5], ["SmokeShellOrange",5], ["SmokeShellBlue",5],
-	["B_IR_Grenade",5],
-	["Chemlight_green",5], ["Chemlight_red",5], ["Chemlight_yellow",5], ["Chemlight_blue",5]
-];
-
-private _d_backpackclasses_blufor = [
-	"B_AssaultPack_khk", "B_AssaultPack_dgtl", "B_AssaultPack_rgr", "B_AssaultPack_sgg", "B_AssaultPack_blk", "B_AssaultPack_blk", "B_AssaultPack_cbr",
-	"B_AssaultPack_mcamo", "B_Kitbag_mcamo", "B_Kitbag_sgg", "B_Kitbag_cbr", "B_Bergen_sgg", "B_Bergen_mcamo", "B_Bergen_rgr", "B_Bergen_blk", "B_FieldPack_blk", "B_FieldPack_cbr",
-	"B_Carryall_mcamo", "B_AssaultPack_rgr_LAT", "B_AssaultPack_rgr_Medic", "B_AssaultPack_rgr_Repair", "B_AssaultPack_blk_DiverExp", "B_Kitbag_rgr_Exp",
-	"B_FieldPack_blk_DiverExp"
-];
-
-private _d_all_magazines_opfor = [
-	["30Rnd_45ACP_Mag_SMG_01",10], ["11Rnd_45ACP_Mag",10], ["16Rnd_9x21_Mag",10], ["30Rnd_9x21_Mag",10], ["30Rnd_65x39_caseless_mag",10], ["30Rnd_65x39_caseless_mag_Tracer",10],
-	["30Rnd_65x39_caseless_mag",10], ["100Rnd_65x39_caseless_mag",10], ["20Rnd_762x51_Mag",10], ["30Rnd_556x45_Stanag",10],
-	["7Rnd_408_mag",3], ["5Rnd_127x108_Mag",3],
-	["200Rnd_65x39_cased_Box",10], ["200Rnd_65x39_cased_Box_Tracer",10], ["100Rnd_65x39_caseless_mag_Tracer",10],
-	["NLAW_F",3], ["Titan_AT",1], ["RPG32_F",3], ["Titan_AA",3], ["RPG32_HE_F",3],
-	["1Rnd_HE_Grenade_shell",10], ["1Rnd_Smoke_Grenade_shell",10], ["1Rnd_SmokeBlue_Grenade_shell",10], ["1Rnd_SmokeGreen_Grenade_shell",10], ["1Rnd_SmokeOrange_Grenade_shell",10],
-	["1Rnd_SmokePurple_Grenade_shell",10], ["1Rnd_SmokeRed_Grenade_shell",10], ["1Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_HE_Grenade_shell",10], ["3Rnd_Smoke_Grenade_shell",10],
-	["3Rnd_SmokeBlue_Grenade_shell",10], ["3Rnd_SmokeGreen_Grenade_shell",10], ["3Rnd_SmokeOrange_Grenade_shell",10], ["3Rnd_SmokePurple_Grenade_shell",10],
-	["3Rnd_SmokeRed_Grenade_shell",10], ["3Rnd_SmokeYellow_Grenade_shell",10], ["3Rnd_UGL_FlareCIR_F",10], ["3Rnd_UGL_FlareGreen_F",10], ["3Rnd_UGL_FlareRed_F",10],
-	["3Rnd_UGL_FlareWhite_F",10], ["3Rnd_UGL_FlareYellow_F",10], ["UGL_FlareCIR_F",10], ["UGL_FlareGreen_F",10], ["UGL_FlareRed_F",10], ["UGL_FlareWhite_F",10], ["UGL_FlareYellow_F",10],
-	["DemoCharge_Remote_Mag",5], ["SatchelCharge_Remote_Mag",5], ["ATMine_Range_Mag",5], ["ClaymoreDirectionalMine_Remote_Mag",5], ["APERSMine_Range_Mag",5], ["APERSBoundingMine_Range_Mag",5],
-	["SLAMDirectionalMine_Wire_Mag",5], ["APERSTripMine_Wire_Mag",5],
-	["Laserbatteries",5],
-	["HandGrenade",5], ["MiniGrenade",5], ["SmokeShell",5], ["SmokeShellYellow",5], ["SmokeShellGreen",5], ["SmokeShellRed",5], ["SmokeShellPurple",5], ["SmokeShellOrange",5], ["SmokeShellBlue",5],
-	["B_IR_Grenade",5],
-	["Chemlight_green",5], ["Chemlight_red",5], ["Chemlight_yellow",5], ["Chemlight_blue",5]
-];
-
-private _d_backpackclasses_opfor = [
-	"B_AssaultPack_khk", "B_AssaultPack_dgtl", "B_AssaultPack_rgr", "B_AssaultPack_sgg", "B_AssaultPack_blk", "B_AssaultPack_blk", "B_AssaultPack_cbr",
-	"B_AssaultPack_mcamo", "B_Kitbag_mcamo", "B_Kitbag_sgg", "B_Kitbag_cbr", "B_Bergen_sgg", "B_Bergen_mcamo", "B_Bergen_rgr", "B_Bergen_blk", "B_FieldPack_blk", "B_FieldPack_cbr",
-	"B_Carryall_mcamo", "B_AssaultPack_rgr_LAT", "B_AssaultPack_rgr_Medic", "B_AssaultPack_rgr_Repair", "B_AssaultPack_blk_DiverExp", "B_Kitbag_rgr_Exp",
-	"B_FieldPack_blk_DiverExp"
-];
-
-private ["_all_weapons_items"];
-if (side (group player) == blufor) then {
-	__TRACE("Player is blufor")
+private "_all_weapons_items";
+if (!d_tt_ver) then {
+#ifdef __OWN_SIDE_BLUFOR__
 	_all_weapons_items = _all_weapons_items_blufor;
-	d_all_magazines = _d_all_magazines_blufor;
-	d_backpackclasses = _d_backpackclasses_blufor;
-} else {
-	__TRACE("Player is opfor")
-	_all_weapons_items = _all_weapons_items_opfor;
-	d_all_magazines = _d_all_magazines_opfor;
-	d_backpackclasses = _d_backpackclasses_opfor;
-};
 #endif
+#ifdef __OWN_SIDE_OPFOR__
+	_all_weapons_items = _all_weapons_items_opfor;
+#endif
+} else {
+	if (side (group player) == blufor) then {
+		__TRACE("Player is blufor")
+		_all_weapons_items = _all_weapons_items_blufor;
+	} else {
+		__TRACE("Player is opfor")
+		_all_weapons_items = _all_weapons_items_opfor;
+	};
+};
 
 #include "i_weapons_base.sqf";

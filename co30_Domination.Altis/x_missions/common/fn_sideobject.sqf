@@ -36,3 +36,7 @@ if (_createinf) then {
 	__TRACE("Creating inf")
 	["specops", 2, "allmen", (floor (random 4)) min 2, _poss, 300, true] spawn d_fnc_CreateInf;
 };
+
+if (_type == "Land_Device_assembled_F") then {
+	_poss spawn d_fnc_doquake;
+};

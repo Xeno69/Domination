@@ -13,7 +13,7 @@ d_helirespawn2_ar = [];
 	_vec_a params ["_vec"];
 	if (!isNil "_vec" && {!isNull _vec}) then {
 		_vec_a params ["", "_number_v", "_ifdamage"];
-		_vposp = (getPosATL _vec) vectorAdd [0, 0, 0.1];
+		private _vposp = (getPosATL _vec) vectorAdd [0, 0, 0.1];
 		d_helirespawn2_ar pushBack [_vec, _number_v, _ifdamage, -1, _vposp, direction _vec, typeOf _vec, if (_ifdamage) then {-1} else {_vec_a # 3}];
 		
 		_vec setVariable ["d_OUT_OF_SPACE", -1];
@@ -34,6 +34,10 @@ d_helirespawn2_ar = [];
 #endif
 		
 		_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_chopperkilled}}];
+	
+		if (unitIsUAV _vec) then {
+			_vec allowCrewInImmobile true;
+		};
 	};
 } forEach _this;
 

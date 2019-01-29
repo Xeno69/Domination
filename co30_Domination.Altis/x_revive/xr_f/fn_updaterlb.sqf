@@ -5,9 +5,6 @@
 
 if (isDedicated) exitWith {};
 
-//d_beam_target = "";
-//d_tele_dialog = 0; // 0 = respawn, 1 = teleport
-
 d_x_loop_end = false;
 
 disableSerialization;
@@ -15,7 +12,7 @@ if (xr_respawn_available) then {
 	private _disp = uiNamespace getVariable "XR_SpectDlg";
 	if (!isNil "_disp" && {!isNull _disp} && {lbCurSel (_disp displayCtrl 1500) == 0}) then {
 		private _ctrl = _disp displayCtrl 100102;
-		if (!ctrlEnabled _ctrl) then {
+		if (!ctrlEnabled _ctrl && {isNil "xr_pl_no_lifes" || {!xr_pl_no_lifes}}) then {
 			_ctrl ctrlEnable true;
 		};
 	};

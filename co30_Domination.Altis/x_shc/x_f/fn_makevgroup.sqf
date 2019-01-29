@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makevgroup.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false]];
+params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false]];
 private _the_vecs = [];
 private _crews = [];
 private _npos = _pos;
@@ -16,6 +16,8 @@ _the_vecs resize _numvecs;
 private _nnvnum = _numvecs - 1;
 for "_n" from 0 to _nnvnum do {
 	__TRACE_1("","_npos")
+	private _nnpos = _npos findEmptyPosition [0, 70, _vname];
+	if !(_nnpos isEqualTo []) then {_npos = _nnpos};
 	private _vec_ar = [_npos, [floor random 360, _dir] select (_dir != -1.111), _vname, _grp] call d_fnc_spawnVehicle;
 	_vec_ar params ["_vec"];
 	_crews append (_vec_ar # 1);
@@ -49,7 +51,7 @@ for "_n" from 0 to _nnvnum do {
 			};
 		};
 	};
-	if (!_is_locked && {!_is_static && {d_enemy_vecs_lift == 0}}) then {
+	if (!_is_locked && {!_is_static && {d_enemy_vecs_lift == 0 && {!_nolift}}}) then {
 		_vec setVariable ["d_liftit", true, true];
 	};
 };

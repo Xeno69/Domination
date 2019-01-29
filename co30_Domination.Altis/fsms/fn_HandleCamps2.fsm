@@ -238,7 +238,7 @@ class FSM
                 {
                         name = "Captured";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"private _mar = format [""d_camp%1"", _wf getVariable ""D_INDEX""];" \n
+                        init = /*%FSM<STATEINIT""">*/"private _mar = _wf getVariable ""d_camp_mar"";" \n
                          "private _texture = """";" \n
                          "private _mcolor = """";" \n
                          "switch (_curside) do {" \n

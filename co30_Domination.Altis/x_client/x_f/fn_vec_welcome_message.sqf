@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_vec_welcome_message.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _vtype = _this select 1;
 

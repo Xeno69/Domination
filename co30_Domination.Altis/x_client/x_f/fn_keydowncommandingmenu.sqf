@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_keydowncommandingmenu.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (dialog) exitWith {
 	showCommandingMenu "";

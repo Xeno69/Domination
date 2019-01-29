@@ -10,7 +10,7 @@ item5[] = {"Delay",4,218,125.000000,100.000000,225.000000,150.000000,0.000000,"D
 item6[] = {"",7,210,171.000000,46.000000,179.000000,54.000000,0.000000,""};
 item7[] = {"Delay",4,218,-225.000000,100.000000,-125.000000,150.000000,0.000000,"Delay"};
 item8[] = {"_",8,218,-50.000000,275.000000,50.000000,325.000000,0.000000,""};
-item9[] = {"Loop2",2,250,-50.000000,350.000000,50.000000,400.000000,0.000000,"Loop2"};
+item9[] = {"Loop2",2,4346,-50.000000,350.000000,50.000000,400.000000,0.000000,"Loop2"};
 item10[] = {"___counter____count",4,218,125.000000,350.000000,225.000000,400.000000,1.000000,"(_counter == count _allgroups)"};
 item11[] = {"_",2,250,125.000000,200.000000,225.000000,250.000000,0.000000,""};
 item12[] = {"Delay",4,218,-225.000000,350.000000,-125.000000,400.000000,0.000000,"Delay"};
@@ -18,7 +18,7 @@ item13[] = {"Is_MP",4,218,-200.000000,-100.000000,-100.000000,-50.000000,5.00000
 item14[] = {"Sleep",2,250,-350.000000,-100.000000,-250.000000,-50.000000,0.000000,"Sleep"};
 item15[] = {"Delay2",4,218,-250.000000,0.000000,-150.000000,50.000000,0.000000,"Delay2"};
 item16[] = {"d_mt_done",4,218,100.000000,-50.000000,200.000000,0.000000,100.000000,"d_mt_done"};
-item17[] = {"End",1,4346,225.000000,-100.000000,325.000000,-50.000000,0.000000,"End"};
+item17[] = {"End",1,250,225.000000,-100.000000,325.000000,-50.000000,0.000000,"End"};
 item18[] = {"_",4,218,250.000000,200.000000,350.000000,250.000000,100.000000,""};
 link0[] = {0,1};
 link1[] = {1,2};
@@ -44,7 +44,7 @@ link20[] = {15,2};
 link21[] = {16,17};
 link22[] = {18,17};
 globals[] = {0.000000,0,0,0,0,640,480,1,49,6316128,1,-364.462250,458.028351,601.496338,-219.212006,923,894,1};
-window[] = {2,-1,-1,-1,-1,796,78,1038,78,3,941};
+window[] = {2,-1,-1,-32000,-32000,796,78,1038,78,3,941};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -138,7 +138,8 @@ class FSM
                 {
                         name = "Check";
                         itemno = 4;
-                        init = /*%FSM<STATEINIT""">*/"private _counter = 0;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"private _counter = 0;" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -168,14 +169,17 @@ class FSM
                          "	private _grp = _onegrpar select 0;" \n
                          "	if (isNull _grp || {(units _grp) findIf {alive _x} == -1}) then {" \n
                          "		_mg_array = _onegrpar select 1;" \n
-                         "		if ((_mg_array select 0) in [""allmen"",""specops""]) then {" \n
+                         "		if ((_mg_array select 0) in [""allmen"", ""specops""]) then {" \n
                          "			if  (!d_mt_barracks_down) then {" \n
+                         "				private _d_mt_barracks_obj_pos = getPos (selectRandom d_mt_barracks_obj_ar);" \n
+                         "				_mg_array set [1, [_d_mt_barracks_obj_pos]];" \n
+                         "				_mg_array set [11, _d_mt_barracks_obj_pos];" \n
                          "				_mg_array call d_fnc_makegroup;" \n
                          "				_dowaitfg = true;" \n
                          "			};" \n
                          "		} else {" \n
                          "			if (!d_mt_mobile_hq_down) then {" \n
-                         "				private _resp_mid = _mg_array select 10;" \n
+                         "				private _resp_mid = _mg_array select 11;" \n
                          "				_mg_array set [1, [[_resp_mid select 0, 600, 400, _resp_mid select 1] call d_fnc_GetRanPointSquare]];" \n
                          "				_mg_array call d_fnc_makegroup;" \n
                          "				_dowaitfg = true;" \n
@@ -188,9 +192,14 @@ class FSM
                          "};" \n
                          "" \n
                          "_counter = _counter + 1;" \n
-                         "" \n
+                         "private _basetime = 250;" \n
+                         "private _maxtime = 200;" \n
+                         "if (d_mt_mobile_hq_down) then {" \n
+                         "	_basetime = 190;" \n
+                         "	_maxtime = 140;" \n
+                         "};" \n
                          "_timenow = if (_dowaitfg) then {" \n
-                         "	time + (((250 - (([1, count (allPlayers - (entities ""HeadlessClient_F""))] select isMultiplayer) * 5)) max 200) + random 10)" \n
+                         "	time + (((_basetime - (([1, count (allPlayers - (entities ""HeadlessClient_F""))] select isMultiplayer) * 5)) max _maxtime) + random 10)" \n
                          "} else {" \n
                          "	time + 1" \n
                          "};" \n

@@ -10,7 +10,9 @@ if (didJIP) then {
 };
 waitUntil {player == player};
 
-player setVariable ["xr_lives", xr_max_lives];
+if (isNil {player getVariable "xr_lives"}) then {
+	player setVariable ["xr_lives", xr_max_lives, true];
+};
 player setVariable ["xr_is_dragging", false];
 player setVariable ["xr_presptime", -1];
 player setVariable ["xr_pluncon", false, true];
@@ -63,16 +65,12 @@ addMissionEventHandler ["Draw3D", {
 	if (alive player && {!(xr_uncon_units isEqualTo [])}) then {
 		private _cam2world = positionCameraToWorld [0,0,0];
 		private ["_dist"];
+		private _fnc_gpln = d_fnc_getplayername;
 		{
 			_dist = _cam2world distance _x;
 			if (_dist < 400) then {
-				drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.04)], 1, 1, 0, "(Uncon) " + (_x call d_fnc_getplayername), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
+				drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.04)], 1, 1, 0, "(Uncon) " + (_x call _fnc_gpln), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
 			};
 		} forEach xr_uncon_units;
 	};
 }];
-
-if (xr_selfheals > 0) then {
-	player setVariable ["xr_numheals", xr_selfheals];
-	player setVariable ["xr_selfh_ac_id", player addAction ["<t color='#FF0000'>Self Heal</t>", {_this call xr_fnc_selfheal}, [], -1, false, false, "", "alive _target &&  {!(_target getVariable 'xr_pluncon') && {!(_target getVariable 'xr_pisinaction') && {damage _target >= xr_selfheals_minmaxdam # 0 && {damage _target <= xr_selfheals_minmaxdam # 1 && {_target getVariable 'xr_numheals' > 0}}}}}"]];
-};

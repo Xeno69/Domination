@@ -2,7 +2,7 @@
 #define THIS_FILE "x_reservedslot.sqf"
 #include "..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 sleep 5;
 

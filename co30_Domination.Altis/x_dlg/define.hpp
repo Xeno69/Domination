@@ -839,6 +839,9 @@ class RscUIComboBox: RscCombo {
 	wholeHeight = 0.3;
 	colorText[] = {1,1,1,1};
 };
+class RscUIComboBox2: RscUIComboBox {
+		sizeEx = 0.03;
+};
 class RscText2 {
 	type = CT_STATIC;
 	idc = -1;
@@ -1265,4 +1268,43 @@ class RscEdit {
 	tooltipColorText[] = {1, 1, 1, 1};
 	tooltipColorBox[] = {1, 1, 1, 1};
 	tooltipColorShade[] = {0, 0, 0, 0.65};
+};
+
+class RscCheckBox {
+	color[] = {1,1,1,0.7};
+	colorFocused[] = {1,1,1,1};
+	colorHover[] = {1,1,1,1};
+	colorPressed[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.2};
+	colorBackground[] = {0,0,0,0};
+	colorBackgroundFocused[] = {0,0,0,0};
+	colorBackgroundHover[] = {0,0,0,0};
+	colorBackgroundPressed[] = {0,0,0,0};
+	colorBackgroundDisabled[] = {0,0,0,0};
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {1,1,1,1};
+	tooltipColorShade[] = {0,0,0,0.65};
+	soundEnter[] = {"",0.1,1};
+	soundPush[] = {"",0.1,1};
+	soundClick[] = {"",0.1,1};
+	soundEscape[] = {"",0.1,1};
+	idc = -1;
+	type = 77;
+	deletable = 0;
+	style = 0;
+	checked = 0;
+	x = "0.375 * safezoneW + safezoneX";
+	y = "0.36 * safezoneH + safezoneY";
+	w = "0.025 * safezoneW";
+	h = "0.04 * safezoneH";
+	textureChecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa";
+	textureUnchecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureUnchecked_ca.paa";
+	textureFocusedChecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa";
+	textureFocusedUnchecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureUnchecked_ca.paa";
+	textureHoverChecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa";
+	textureHoverUnchecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureUnchecked_ca.paa";
+	texturePressedChecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa";
+	texturePressedUnchecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureUnchecked_ca.paa";
+	textureDisabledChecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureChecked_ca.paa";
+	textureDisabledUnchecked = "\a3\3DEN\Data\Controls\ctrlCheckbox\textureUnchecked_ca.paa";
 };

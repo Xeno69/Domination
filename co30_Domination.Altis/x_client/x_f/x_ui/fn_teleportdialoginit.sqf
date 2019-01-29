@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_teleportdialoginit.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 
@@ -97,9 +97,9 @@ private _logtxt = "";
 			d_respawn_mar_str = _x # 0;
 			d_beam_target = _x # 0;
 			private _text = if (_dtype == 1 || {d_tele_dialog == 0}) then {
-				format [localize "STR_DOM_MISSIONSTRING_607", _x # 1]
+				format [localize "STR_DOM_MISSIONSTRING_607", _x # 2]
 			} else {
-				format [localize "STR_DOM_MISSIONSTRING_605", _x # 1]
+				format [localize "STR_DOM_MISSIONSTRING_605", _x # 2]
 			};
 			__CTRL(100110) ctrlSetText _text;
 		};
@@ -118,9 +118,9 @@ private _logtxt = "";
 		d_respawn_mar_str = _x # 0;
 		d_beam_target = _x # 0;
 		private _text = if (_dtype == 1 || {d_tele_dialog == 0}) then {
-			format [localize "STR_DOM_MISSIONSTRING_607", _x # 1]
+			format [localize "STR_DOM_MISSIONSTRING_607", _x # 2]
 		} else {
-			format [localize "STR_DOM_MISSIONSTRING_605", _x # 1]
+			format [localize "STR_DOM_MISSIONSTRING_605", _x # 2]
 		};
 		__CTRL(100110) ctrlSetText _text;
 	};
@@ -161,6 +161,13 @@ __TRACE_1("","_logtxt")
 
 if (_logtxt != "") then {
 	__CTRL(11002) ctrlSetText _logtxt;
+};
+
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
+	__CTRL(100102) ctrlEnable false;
+};
+if (!xr_respawn_available) then {
+	__CTRL(100102) ctrlEnable false;
 };
 
 d_lb_tele_first = true;

@@ -88,6 +88,7 @@ private _intels = "";
 			case 3: {localize "STR_DOM_MISSIONSTRING_545"};
 			case 4: {localize "STR_DOM_MISSIONSTRING_546"};
 			case 5: {localize "STR_DOM_MISSIONSTRING_547"};
+			case 6: {localize "STR_DOM_MISSIONSTRING_541"};
 		};
 		_intels = _intels + _tmp + "\n";
 	};

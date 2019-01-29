@@ -105,6 +105,11 @@ class Sentences {
 			class 3 {type = "simple";};
 		};
 	};
+	class ArtilleryCanceled {
+		text = "$STR_DOM_MISSIONSTRING_1854";
+		speech[] = {};
+		class Arguments {};
+	};
 	class TellNrObservers {
 		text = "$STR_DOM_MISSIONSTRING_1360";
 		speech[] = {};
@@ -143,6 +148,13 @@ class Sentences {
 		text = "$STR_DOM_MISSIONSTRING_1820";
 		speech[] = {};
 		class Arguments {};
+	};
+	class OneMTBarrackDown {
+		text = "$STR_DOM_MISSIONSTRING_1855";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
 	};
 	class MTVecBuildingDown {
 		text = "$STR_DOM_MISSIONSTRING_1821";
@@ -241,6 +253,11 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class TellInfiltrateAttack {
+		text = "$STR_DOM_MISSIONSTRING_1835";
+		speech[] = {};
+		class Arguments {};
+	};
 	class TellAirSUAttack {
 		text = "$STR_DOM_MISSIONSTRING_1390";
 		speech[] = {};
@@ -303,6 +320,14 @@ class Sentences {
 		speech[] = {};
 		class Arguments {
 			class 1 {type = "simple";};
+		};
+	};
+	class PenaltyKilledCivilian {
+		text = "$STR_DOM_MISSIONSTRING_1889";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
 		};
 	};
 };

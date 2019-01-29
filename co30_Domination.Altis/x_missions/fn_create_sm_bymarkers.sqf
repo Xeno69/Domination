@@ -47,12 +47,18 @@
 // d_smm|12|minesland
 // d_smm|12|minesnaval
 // d_smm|19|artycannon
+// d_smm|667|dataterminal
+// d_smm|668|device
+// d_smm|669|sam
+// d_smm|670|cache
+// d_smm|671|trucks
 
 private _dallsidemissions = [];
 
 private _smtypes = ["convoy", "stealflag", "tankdepot", "arrest", "artibase", "deliver", "evac", "radiotower", "prisoners",
-	"stealvec", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
-	"transformer", "barracks", "hangar", "eliminatesniper", "cargotruck", "minesland", "minesnaval"] apply {toLower _x};
+	"stealapc", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
+	"transformer", "barracks", "hangar", "eliminatesniper", "cargotruck", "minesland", "minesnaval", "dataterminal", "device",
+	"sam", "cache", "trucks", "artycannon"] apply {toLower _x};
 private _subtypes = ["start", "end", "flag", "tank", "time", "radius"] apply {toLower _x};
 
 private _infhelper_fnc = {
@@ -201,7 +207,7 @@ __TRACE_1("","_eee")
 					_onesmar set [7, markerDir _curmar];
 					if (hasInterface && {_onesmar # 5 == ""}) then {
 						_onesmar set [5, "1664"];
-						_onesmar set [6, "810"];
+						_onesmar set [6, "1665"];
 					};
 				};
 			};
@@ -214,12 +220,12 @@ __TRACE_1("","_eee")
 					_onesmar set [7, markerDir _curmar];
 					if (hasInterface && {_onesmar # 5 == ""}) then {
 						_onesmar set [5, "1803"];
-						_onesmar set [6, "1665"];
+						_onesmar set [6, "812"];
 					};
 				};
 				if (_subtype == "time") then {
-					if (d_fnc_checkSHC) then {
-						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)))
+					if (call d_fnc_checkSHC) then {
+						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)));
 					};
 				};
 			};
@@ -268,6 +274,21 @@ __TRACE_1("","_eee")
 			};
 		};
 		
+		if (_smtype == "stealapc") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1819"];
+						_onesmar set [6, "1551"];
+					};
+				};
+			};
+		};
+		
 		if (_smtype == "stealtank") exitWith {
 			call {
 				if (_subtype == "") exitWith {
@@ -308,7 +329,7 @@ __TRACE_1("","_eee")
 					};
 				};
 				if (_subtype == "radius") then {
-					if (d_fnc_checkSHC) then {
+					if (call d_fnc_checkSHC) then {
 						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)))
 					};
 				};
@@ -476,10 +497,86 @@ __TRACE_1("","_eee")
 				};
 			};
 		};
+		
+		if (_smtype == "dataterminal") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1841"];
+						_onesmar set [6, "1842"];
+					};
+				};
+			};
+		};
+		
+		if (_smtype == "device") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1844"];
+						_onesmar set [6, "1845"];
+					};
+				};
+			};
+		};
+		
+		if (_smtype == "sam") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1846"];
+						_onesmar set [6, "1847"];
+					};
+				};
+			};
+		};
+		
+		if (_smtype == "cache") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "1849"];
+						_onesmar set [6, "1850"];
+					};
+				};
+			};
+		};
+		
+		if (_smtype == "trucks") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+						_onesmar set [7, markerDir _curmar];
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "49"];
+						_onesmar set [6, "50"];
+					};
+				};
+			};
+		};
 	};
 	
 	__TRACE_1("","_onesmar");
 	d_sm_store setVariable [_idx, _onesmar];
 } forEach (allMapMarkers select {_x select [0, 6] == "d_smm|"});
 
-d_sm_array append _dallsidemissions;
+if (isServer) then {
+	d_sm_array append _dallsidemissions;
+};

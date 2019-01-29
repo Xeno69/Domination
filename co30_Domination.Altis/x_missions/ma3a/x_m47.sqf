@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_47" call d_fnc_smmapos; // index: 47,   Prison camp, Orino
-d_x_sm_type = "normal"; // "convoy"
+d_x_sm_type = "prisoners";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1805";

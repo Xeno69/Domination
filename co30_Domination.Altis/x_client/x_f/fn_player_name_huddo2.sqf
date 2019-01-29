@@ -10,7 +10,7 @@ if (d_pnhuddo2_frskip == 4) exitWith {
 disableSerialization;
 if (!d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	private _ct = cursorObject;
-	if (alive _ct && {_ct isKindOf "CAManBase" && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {_ct != player && {(positionCameraToWorld [0,0,0]) distance _ct <= (d_dist_pname_hud / 2) && {side (group _ct) getFriend d_player_side >= 0.6}}}}}}) then { // && {isPlayer _ct}
+	if (alive _ct && {_ct isKindOf "CAManBase" && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {_ct != player && {(positionCameraToWorld [0,0,0]) distance _ct <= (d_dist_pname_hud / 2) && {side (group _ct) getFriend d_player_side >= 0.6}}}}}}) then {
 		d_pnhuddo2_endtime = time + 0.8;
 		if (!d_showPlayerNameRSC_shown) then {
 			"d_showPlayerNameRsc" cutRsc ["d_showPlayerNameRsc", "PLAIN"];
@@ -18,7 +18,7 @@ if (!d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 			0 spawn d_fnc_dosshowhuddo2spawn;
 		};
 		
-		private _name = [(_ct call d_fnc_getplayername) + d_phud_loc883, [getText(configFile>>"CfgVehicles">>typeOf _ct>>"displayName") ,_ct call d_fnc_getplayername] select (isPlayer _ct)] select !(_ct getVariable ["xr_pluncon", false]);
+		private _name = [(_ct call d_fnc_getplayername) + d_phud_loc883, [getText(configFile>>"CfgVehicles">>typeOf _ct>>"displayName") ,_ct call d_fnc_getplayername] select (_ct call d_fnc_isplayer)] select !(_ct getVariable ["xr_pluncon", false]);
 		private _icon = getText(configFile>>"CfgVehicles">>typeOf _ct>>"Icon");
 		if (_icon != "") then {
 			_icon = getText(configFile>>"CfgVehicleIcons">>_icon);

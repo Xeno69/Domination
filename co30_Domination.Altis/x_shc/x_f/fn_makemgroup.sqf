@@ -3,14 +3,15 @@
 #define THIS_FILE "fn_makemgroup.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_pos", "_unitliste", "_grp"];
+params ["_pos", "_unitliste", "_grp", ["_mchelper", true]];
 
 if (isNil "_unitliste") exitWith {
 	diag_log ["Attention, _unitlist (param 2) is nil, returning []", "_pos", _pos, "_grp", _grp];
 	[]
 };
 
-__TRACE_1("","_unitliste")
+__TRACE_3("","_pos","_unitliste","_grp")
+__TRACE_1("","_mchelper")
 
 private _ret = [];
 _ret resize (count _unitliste);
@@ -19,10 +20,18 @@ private _subskill = if (diag_fps > 29) then {
 } else {
 	(0.12 + (random 0.04))
 };
+
+if (!_mchelper) then {
+	private _nnpos = _pos findEmptyPosition [0, 30, _unitliste # 0];
+	if !(_nnpos isEqualTo []) then {_pos = _nnpos};
+};
+
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
 	//if (d_with_dynsim == 1) then {
+	if (_mchelper) then {
 		_one_unit spawn d_fnc_mchelper;
+	};
 	//};
 #ifdef __TT__
 	_one_unit addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
@@ -38,6 +47,7 @@ private _subskill = if (diag_fps > 29) then {
 	_one_unit setSkill ["spotTime", _subskill];
 	_ret set [_forEachIndex, _one_unit];
 	_one_unit call d_fnc_removenvgoggles_fak;
+	
 #ifdef __GROUPDEBUG__
 	// does not subtract if a unit dies!
 	if (side _grp == d_side_enemy) then {

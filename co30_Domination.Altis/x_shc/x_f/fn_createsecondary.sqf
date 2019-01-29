@@ -44,6 +44,7 @@ d_mt_radio_down = false;
 sleep 1.0112;
 
 private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+__TRACE("from createsecondary 1")
 [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] spawn d_fnc_makemgroup;
 _newgroup deleteGroupWhenEmpty true;
 sleep 1.0112;
@@ -67,14 +68,10 @@ sleep 3.234;
 
 d_mt_spotted = false;
 d_create_new_paras = false;
-d_f_check_triggers = [];
 #ifndef __TT__
-{
-	d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], [_x, d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;if (d_mt_respawngroups == 0) then {execFSM 'fsms\fn_RespawnGroups.fsm'};[12] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x} forEach d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
-} forEach d_own_sides;
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;if (d_mt_respawngroups == 0) then {execFSM 'fsms\fn_RespawnGroups.fsm'};[12] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #else
-d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["WEST", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x} forEach d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
-d_f_check_triggers pushBack ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["EAST", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[14] remoteExecCall ['d_fnc_DoKBMsg', 2];sleep 5;{deleteVehicle _x} forEach d_f_check_triggers}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
 sleep 3.234;
@@ -90,6 +87,7 @@ if (!isServer) then {
 };
 
 private _sizecamp = sizeOf d_wcamp;
+private _dist_for_points = -1;
 
 for "_i" from 1 to _nrcamps do {
 	_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
@@ -110,25 +108,30 @@ for "_i" from 1 to _nrcamps do {
 	_wf setDir floor random 360;
 	private _nnpos = getPosASL _wf;
 	_nnpos set [2, 0];
-	__TRACE_1("","_nnpos")
+	__TRACE_1("1","_nnpos")
 	if !(d_currentcamps isEqualTo []) then {
 		private _doexit = false;
 		private _xcountx = 0;
-		while {_xcountx < 99} do {
-			__TRACE_1("","d_currentcamps")
+		while {_xcountx < 50} do {
+			__TRACE_2("","_xcountx","d_currentcamps")
 			private _wfokc = 0;
 			{
-				if (_nnpos distance2D _x > 130) then {_wfokc = _wfokc + 1};
+				__TRACE_2("","_nnpos","_x")
+				if (!(_nnpos isEqualTo []) && {_nnpos distance2D _x > 130}) then {_wfokc = _wfokc + 1};
 			} forEach d_currentcamps;
 			__TRACE_2("","_wfokc","count d_currentcamps")
 			if (_wfokc != count d_currentcamps) then {
-				_nnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+				private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+				__TRACE_1("2","_tnnpos")
+				if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
 			} else {
 				if (_wf distance2D _nnpos > 130) then {
 					_poss = _nnpos;
 					_doexit = true;
 				} else {
-					_nnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+					private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+					__TRACE_1("3","_tnnpos")
+					if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
 				};
 			};
 			if (_doexit) exitWith {};
@@ -138,9 +141,14 @@ for "_i" from 1 to _nrcamps do {
 	__TRACE_1("","_poss")
 	_poss set [2, 0];
 	_wf setPos _poss;
+	if (d_with_ranked || {d_database_found}) then {
+		if (_dist_for_points < _wf distance2D _trg_center) then {
+			_dist_for_points = _wf distance2D _trg_center;
+		};
+	};
 	d_currentcamps pushBack _wf;
 	_wf setVariable ["d_SIDE", d_enemy_side, true];
-	_wf setVariable ["d_INDEX", _i, true];
+	//_wf setVariable ["d_INDEX", _i, true];
 	_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
 	_wf setVariable ["d_CURCAPTIME", 0, true];
 #ifndef __TT__
@@ -155,8 +163,13 @@ for "_i" from 1 to _nrcamps do {
 	private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 	_flagPole setPos _fwfpos;
 	_wf setVariable ["d_FLAG", _flagPole, true];
-	_maname = format["d_camp%1",_i];
-	[_maname, _poss,"ICON","ColorBlack",[0.5,0.5],"",0,d_strongpointmarker] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
+	private _maname = format["d_camp_%1", _wf];
+	[_maname, _poss, "ICON", "ColorBlack", [0.5,0.5], str _i, 0, d_strongpointmarker] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
+	if (!isServer) then {
+		[_wf, ["d_camp_mar", _maname]] remoteExecCall ["setVariable", 2];
+	} else {
+		_wf setVariable ["d_camp_mar", _maname];
+	};
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 	
 	_wf addEventHandler ["HandleDamage", {0}];
@@ -170,7 +183,8 @@ for "_i" from 1 to _nrcamps do {
 	sleep 0.5;
 	
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-	[_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] spawn d_fnc_makemgroup;
+	__TRACE("from createsecondary 2")
+	[_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, false] spawn d_fnc_makemgroup;
 	_newgroup deleteGroupWhenEmpty true;
 	sleep 1.0112;
 	_newgroup allowFleeing 0;
@@ -187,6 +201,11 @@ for "_i" from 1 to _nrcamps do {
 publicVariable "d_currentcamps";
 d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
 d_campscaptured = 0; publicVariable "d_campscaptured";
+
+if (d_with_ranked || {d_database_found}) then {
+	d_dist_for_points = _dist_for_points + 10;
+	publicVariable "d_dist_for_points";
+};
 
 #ifndef __TT__
 [15, _nrcamps] remoteExecCall ["d_fnc_DoKBMsg", 2];

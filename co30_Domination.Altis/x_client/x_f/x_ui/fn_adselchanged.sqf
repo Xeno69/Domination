@@ -5,7 +5,7 @@
 
 #define __CTRL2(A) ((uiNamespace getVariable "d_AdminDialog") displayCtrl A)
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 

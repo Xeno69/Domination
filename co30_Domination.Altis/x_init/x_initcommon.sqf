@@ -42,7 +42,7 @@ if (d_with_ace) then {
 	ace_medical_maxReviveTime = 300;
 };
 
-if (d_sub_kill_points != 0) then {
+if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 	d_sub_kill_points = d_sub_kill_points * -1;
 };
 
@@ -240,7 +240,7 @@ if (hasInterface) then {
 			10, // points that get subtracted for creating a vehicle at a MHQ
 			20, // points needed to create a vehicle at a MHQ
 			3, // points a medic gets if someone heals at his Mash
-			["Sergeant","Lieutenant","Captain","Major","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
+			["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
 			30, // points that get added if a player is xxx m in range of a main target when it gets cleared
 			400, // range the player has to be in to get the main target extra points
 			10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
@@ -253,7 +253,7 @@ if (hasInterface) then {
 			1, // points that a player gets when transporting others
 			20, // points needed for activating satellite view
 			20, // points needed to build a FARP (engineer)
-			2, // points a player gets for reviving another player
+			10, // points a player gets for reviving another player
 			20 // points a Squad Leader needs for CAS
 		];
 	};

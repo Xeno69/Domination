@@ -2,19 +2,14 @@
 #define THIS_FILE "fn_sethud.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_vec"];
 
-switch (_this select 3) do {
-	case 0: {
-		d_chophud_on = false;
-		_vec removeAction (player getVariable "d_hud_id");
-		player setVariable ["d_hud_id", _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_177"], {_this call d_fnc_sethud}, 1, -1, false]];
-	};
-	case 1: {
-		d_chophud_on = true;
-		_vec removeAction (player getVariable "d_hud_id");
-		player setVariable ["d_hud_id", _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_176"], {_this call d_fnc_sethud}, 0, -1, false]];
-	};
+if (d_chophud_on) then {
+	_vec setUserActionText [player getVariable "d_hud_id", format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_177"]];
+	d_chophud_on = false;
+} else {
+	_vec setUserActionText [player getVariable "d_hud_id", format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_176"]];
+	d_chophud_on = true;
 };

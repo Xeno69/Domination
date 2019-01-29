@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_domcommandingmenuexec.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
 
@@ -32,9 +32,36 @@ switch (_this) do {
 			if (d_earplugs_fitted) then {
 				d_earplugs_fitted = false;
 				2 fadeSound 1;
+				"d_earplugs" cutText ["<t color='#FF3333' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1870" + "</t>", "PLAIN DOWN", -1, true, true];
 			} else {
 				d_earplugs_fitted = true;
 				2 fadeSound 0.2;
+				"d_earplugs" cutText ["<t color='#339933' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1869" + "</t>", "PLAIN DOWN", -1, true, true];
+			};
+			d_commandingMenuIniting = false;
+		};
+	};
+	case 50: {
+		d_commandingMenuCode = {
+#ifndef __TT__
+			d_arty_stopp = true;
+			publicVariable "d_arty_stopp";
+#else
+			if (d_player_side == opfor) then {
+				d_arty_stopp_e = true;
+				publicVariable "d_arty_stopp_e";
+			} else {
+				d_arty_stopp_w = true;
+				publicVariable "d_arty_stopp_w";
+			};
+#endif
+			d_commandingMenuIniting = false;
+		};
+	};
+	case 99: {
+		d_commandingMenuCode = {
+			0 spawn {
+				createDialog "d_TransferScoreDialog";
 			};
 			d_commandingMenuIniting = false;
 		};

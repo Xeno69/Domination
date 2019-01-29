@@ -14,7 +14,7 @@ sleep 1;
 d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_712";
 
 if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
-	if (d_with_ranked) then {
+	if (d_with_ranked || {d_database_found}) then {
 		private _get_points = false;
 		if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
 			if (isNil "d_sm_p_pos") then {
@@ -72,6 +72,9 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 		case -700: {localize "STR_DOM_MISSIONSTRING_722"};
 		case -878: {localize "STR_DOM_MISSIONSTRING_723"};
 		case -900: {localize "STR_DOM_MISSIONSTRING_724a"};
+		case -1000: {localize "STR_DOM_MISSIONSTRING_1840"};
+		case -1100: {localize "STR_DOM_MISSIONSTRING_1848"};
+		case -1200: {localize "STR_DOM_MISSIONSTRING_1851"};
 		default {""};
 	};
 	if (_s != "") then {

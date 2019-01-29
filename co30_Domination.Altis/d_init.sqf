@@ -1,8 +1,9 @@
 // by Xeno
 //#define __DEBUG__
-diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 #define THIS_FILE "d_init.sqf"
 #include "x_setup.sqf"
+
+diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
 if (!isServer) then {
 	call compile preprocessFileLineNumbers "x_init\x_initcommon.sqf";
@@ -12,11 +13,19 @@ if (!isServer) then {
 call compile preprocessFileLineNumbers "x_shc\x_f\x_shcfunctions.sqf";
 #endif
 
-setViewDistance d_InitialViewDistance;
-setObjectViewDistance (d_InitialViewDistance + 100);
+if (hasInterface) then {
+	private _vd = profileNamespace getVariable ["dom_viewdistance", d_InitialViewDistance];
+	if (_vd > d_MaxViewDistance) then {
+		_vd = d_MaxViewDistance;
+	};
+	setViewDistance _vd;
+	setObjectViewDistance (_vd + 100);
+} else {
+	setViewDistance d_InitialViewDistance;
+	setObjectViewDistance (d_InitialViewDistance + 100);
+};
 
 d_target_names = [];
-//private _dtar_idx_ar = [];
 {
 	private _dtar = _x;
 	
@@ -60,11 +69,6 @@ d_target_names = [];
 	};
 	if (isServer) then {
 		_dtar enableSimulationGlobal false;
-		
-		//private _arxh = (str _dtar) splitString "_";
-		//if !(_arxh isEqualTo []) then {
-		//	_dtar_idx_ar pushBackUnique parseNumber (_arxh # (count _arxh - 1));
-		//};
 	};
 	false
 } forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] == "d_target_"});
@@ -100,10 +104,6 @@ if (isServer) then {
 "d_base_marker" setMarkerAlphaLocal 0;
 private _msize = markerSize "d_base_marker";
 d_base_array = [[markerPos "d_base_marker" # 0, markerPos "d_base_marker" # 1, 1.9], _msize # 0, _msize # 1, markerDir "d_base_marker", true];
-
-// position of anti air at own base
-d_base_anti_air1 = markerPos "d_base_anti_air1";
-d_base_anti_air2 = markerPos "d_base_anti_air2";
 #else
 d_EFLAG_BASE allowDamage false;
 d_WFLAG_BASE allowDamage false;
@@ -121,9 +121,6 @@ d_base_array = [
 	[[markerPos "d_base_marker_e" # 0, markerPos "d_base_marker_e" # 1, 1.9], _msize2 # 0, _msize2 # 1, markerDir "d_base_marker_e", true] // opfor
 ];
 #endif
-if (isServer) then {
-	0 spawn d_fnc_d_flag_base_correct;
-};
 
 "d_isledefense_marker" setMarkerAlphaLocal 0;
 
@@ -145,28 +142,29 @@ if (d_with_dynsim == 0) then {
 if (hasInterface) then {
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
+	private _allMapMarkers = allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"};
 #ifndef __TT__
 	d_player_ammobox_pos = [];
 	{
 		d_player_ammobox_pos pushBack [markerPos _x, markerDir _x];
-	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+		deleteMarkerLocal _x;
+	} forEach _allMapMarkers;
 #else
 	d_player_ammobox_pos = [[], []];
 	
 	private _tempar = d_player_ammobox_pos # 1;
+	private _rem = _allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"};
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, east];
 		deleteMarkerLocal _x;
-	} forEach (allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"});
+	} forEach _rem;
+	_allMapMarkers = _allMapMarkers - _rem;
 	_tempar = d_player_ammobox_pos # 0;
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, west];
-	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
-#endif
-
-	{
 		deleteMarkerLocal _x;
-	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});
+	} forEach _allMapMarkers;
+#endif
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {
@@ -228,11 +226,14 @@ if (isNil "d_searchbody") then {
 	d_searchbody = objNull;
 };
 if (isNil "d_searchintel") then {
-	d_searchintel = [0,0,0,0,0,0];
+	d_searchintel = [0,0,0,0,0,0,0];
 };
 #ifndef __TT__
 if (isNil "d_ari_blocked") then {
 	d_ari_blocked = false;
+};
+if (isNil "d_arty_firing") then {
+	d_arty_firing = false;
 };
 #else
 if (isNil "d_ari_blocked_w") then {
@@ -240,6 +241,12 @@ if (isNil "d_ari_blocked_w") then {
 };
 if (isNil "d_ari_blocked_e") then {
 	d_ari_blocked_e = false;
+};
+if (isNil "d_arty_firing_w") then {
+	d_arty_firing_w = false;
+};
+if (isNil "d_arty_firing_e") then {
+	d_arty_firing_e = false;
 };
 #endif
 if (!d_no_ai && {isNil "d_drop_blocked"}) then {
@@ -284,6 +291,9 @@ if (isNil "d_mttarget_radius_patrol") then {
 	d_mttarget_radius_patrol = -1;
 };
 #ifndef __TT__
+if (isNil "d_heli_taxi_available") then {
+	d_heli_taxi_available = true;
+};
 if (isNil "d_cas_available") then {
 	d_cas_available = true;
 };
@@ -470,7 +480,7 @@ if (!hasInterface) then {
 			};
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
-		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
+		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x];
 	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_flag_bb"});
 	_icounter_o = 0;
 	_icounter_b = 0;
@@ -495,15 +505,22 @@ if (!hasInterface) then {
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
 	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
-	{
-		d_add_resp_points_uni pushBack (_x # 0);
-	} forEach d_additional_respawn_points;
 
-#ifndef __RHS__
-	call compile preprocessFileLineNumbers "i_weapons_default.sqf";
-#else
-	call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
-#endif
+	if (d_with_ranked) then {
+		if (d_rhs) then {
+			call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
+		} else {
+			if (d_cup) then {
+				call compile preprocessFileLineNumbers "i_weapons_CUP.sqf";
+			} else {
+				if (d_ifa3lite) then {
+					call compile preprocessFileLineNumbers "i_weapons_IFA3.sqf";
+				} else {
+					call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+				};
+			};
+		};
+	};
 };
 
 d_init_processed = true;

@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -30,7 +30,7 @@ class GraphItems
 	};
 	class Item1
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=428.55801;
 		Top=576.67755;
@@ -91,7 +91,7 @@ class GraphItems
 		{
 			Text="Loop speed";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -220,7 +220,7 @@ class GraphItems
 		{
 			Text="Saftey Speed Check";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -349,7 +349,7 @@ class GraphItems
 		{
 			Text="Create Marker";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -401,7 +401,7 @@ class GraphItems
 		{
 			Text="Sleep";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -517,7 +517,7 @@ class GraphItems
 	};
 	class Item20
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=164.19768;
 		Top=1909.0162;
@@ -537,7 +537,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=20;
-				InitCode="deleteMarker _mname;" \n "if (time >= _timedelete && {_vec distance _sav_pos < 50}) then {" \n "	deleteVehicle _vec;" \n "} else {" \n "	_vec spawn d_fnc_wreckmarker2;" \n "};";
+				InitCode="deleteMarker _mname;" \n "if (time >= _timedelete && {_vec distance _sav_pos < 50}) then {" \n "	if (unitIsUAV _vec) then {" \n "		{_vec deleteVehicleCrew _x} forEach (crew _vec);" \n "	};" \n "	deleteVehicle _vec;" \n "} else {" \n "	_vec spawn d_fnc_wreckmarker2;" \n "};";
 			};
 		};
 	};
@@ -582,7 +582,7 @@ class GraphItems
 			Text="timecheck" \n "for delete";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -608,7 +608,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -686,7 +686,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -792,7 +792,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -1267,8 +1267,8 @@ class Globals
 	DefaultLinkUseCustom=1;
 	PZoomLeft=-217.80598;
 	PZoomRight=671.745;
-	PZoomBottom=1537.0313;
-	PZoomTop=486.49155;
+	PZoomBottom=2176.2856;
+	PZoomTop=1125.7461;
 	Clxs=757;
 	Clys=894;
 	Aspect=1;
@@ -1280,10 +1280,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=78;
-	Top=78;
-	Right=1038;
-	Bottom=796;
+	Left=130;
+	Top=130;
+	Right=1090;
+	Bottom=848;
 	ShowCmd=3;
 	SplitPos=775;
 };

@@ -5,9 +5,10 @@
 
 params ["_unit", "_vtype", "_b_mode"];
 private _pos = getPosATL _unit;
+private _npos = _pos findEmptyPosition [0, 50, _vtype];
+if !(_npos isEqualTo []) then {_pos = _npos};
 private _vec = createVehicle [_vtype, _pos, [], 0, "NONE"];
 _vec setDir direction _unit;
-//_vec setPos _pos;
 _vec remoteExecCall ["d_fnc_stocbike", _unit];
 if (_b_mode != 1) then {
 	//_vec setVariable ["d_end_time", _this select 3];

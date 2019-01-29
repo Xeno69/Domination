@@ -4,12 +4,12 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-params["_pos", "_type"];
+params ["_pos", "_type"];
 
 private _mines = [];
 private _arrows = [];
 if (_type isEqualTo "naval") then {
-    for "_i" from 1 to ((ceil random 8) max 4) do {
+    for "_i" from 1 to ((ceil random 6) max 4) do {
 	   private _helper = createVehicle [d_HeliHEmpty, _pos, [], 50, "NONE"];
 	   private _mine = createMine ["UnderwaterMine", [getPosASL _helper # 0, getPosASL _helper # 1, random (getPosASL _helper # 2)], [], 0];
 	   _mines pushBack _mine;
@@ -20,7 +20,7 @@ if (_type isEqualTo "naval") then {
 	private _roads = (_pos nearRoads 150) select {count roadsConnectedto _x > 1};
 	__TRACE_1("","count _roads");
 	if !(_roads isEqualTo []) then {
-	    for "_i" from 1 to (5 + round random 5) do {
+	    for "_i" from 1 to (4 + round random 4) do {
 	       private _road = selectRandom _roads;
 		   _roads = _roads - [_road];
 		   private _mine = createMine [selectRandom ["APERSBoundingMine", "APERSTripMine", "APERSMine", "ATMine"], [(getPos _road # 0) + 2.5 - random 5, (getPos _road # 1) + 2.5 - random 5, 0], [], 0];
@@ -49,6 +49,8 @@ __TRACE_1("","count _mines");
 {d_side_enemy revealMine _x} forEach _mines;
 d_x_sm_vec_rem_ar append _mines;
 
+private _mforceendtime = time + 4800;
+
 while {!d_sm_resolved} do {
 	sleep 5;
 	if (_mines findIf {mineActive _x} == -1) exitWith {
@@ -60,6 +62,21 @@ while {!d_sm_resolved} do {
 			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
 			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
 		};
-	};	
+	};
+	sleep 0.1;
+	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
+		_mforceendtime = _mforceendtime - time;
+		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		_mforceendtime = time + _mforceendtime;
+	};
+	sleep 0.1;
+	if (time > _mforceendtime) exitWith {
+		d_sm_winner = -1100;
+		d_sm_resolved = true;
+		if (d_IS_HC_CLIENT) then {
+			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
+			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
+		};
+	};
 };
 if !(_arrows isEqualTo []) then {{deleteVehicle _x} forEach _arrows};

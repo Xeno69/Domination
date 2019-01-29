@@ -8,16 +8,11 @@ __TRACE_1("","_this")
 
 sleep 1.123;
 
-if (!isNil "d_f_check_triggers") then {
-	{
-		deleteVehicle _x;
-	} forEach d_f_check_triggers;
-};
-deleteVehicle d_current_trigger;
 if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 	remoteExecCall ["d_fnc_xdelct", d_HC_CLIENT_OBJ_OWNER];
 	[missionNamespace, ["d_mt_done", true]] remoteExecCall ["setVariable", d_HC_CLIENT_OBJ_OWNER];
 } else {
+	call d_fnc_xdelct;
 	d_mt_done = true;
 };
 sleep 0.01;
@@ -100,12 +95,21 @@ if !(d_maintargets_list isEqualTo []) then {
 	};
 } else {
 	d_target_clear = true; publicVariable "d_target_clear";
-	//["d_" + _cur_tgt_name + "_dommtm", "ColorGreen"] remoteExecCall ["setMarkerColor", 2];
-	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor "ColorGreen";
 #ifndef __TT__
+	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor "ColorGreen";
 	"" remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, "Captured2", ["1", "", _cur_tgt_name, [_cur_tgt_name]],d_kbtel_chan];
 #else
+	private _mtcol = if (d_mt_winner == 1) then {
+		"ColorBlue"
+	} else {
+		if (d_mt_winner == 2) then {
+			"ColorRed"
+		} else {
+			"ColorGreen"
+		};
+	};
+	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor _mtcol;
 	["", ""] remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
 	d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
@@ -119,13 +123,15 @@ if !(d_maintargets_list isEqualTo []) then {
 		[1, d_current_target_index] remoteExecCall ["d_fnc_doexechcf", d_HC_CLIENT_OBJ_OWNER];
 	} else {
 #ifndef __TT__
-		if (!isNull d_mt_barracks_obj) then {
-			d_mt_barracks_obj spawn {
-				sleep (60 + random 60);
-				_this setDamage 0;
-				deleteVehicle _this;
+		{
+			if (!isNull _x) then {
+				_x spawn {
+					sleep (60 + random 60);
+					_this setDamage 0;
+					deleteVehicle _this;
+				};
 			};
-		};
+		} forEach d_mt_barracks_obj_ar;
 		if (!isNull d_mt_mobile_hq_obj) then {
 			d_mt_mobile_hq_obj spawn {
 				sleep (60 + random 60);
@@ -151,7 +157,7 @@ if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";
-	deleteMarker format ["d_camp%1",_x getVariable "d_INDEX"];
+	deleteMarker (_x getVariable "d_camp_mar");
 	_del_camps_stuff pushBack _x;
 	if (!isNull _flag) then {
 		_del_camps_stuff pushBack _flag;

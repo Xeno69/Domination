@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_dropansw.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 [playerSide, "HQ"] sideChat (switch (_this) do {
 	case 0: {localize "STR_DOM_MISSIONSTRING_642"};

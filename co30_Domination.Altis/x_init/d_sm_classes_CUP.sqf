@@ -72,3 +72,8 @@ d_sm_deliver_truck = switch (d_enemy_side_short) do {
 	case "W": {["CUP_O_Ural_Repair_RU", "CUP_O_Ural_Reammo_RU", "CUP_O_Ural_Refuel_RU", "CUP_O_GAZ_Vodnik_MedEvac_RU"]};
 	case "G": {["I_Truck_03_repair_F", "I_Truck_03_ammo_F", "CUP_O_Ural_Refuel_RU", "I_Truck_03_medical_F"]};
 };
+d_sm_cache = switch (d_enemy_side_short) do {
+	case "W": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
+	case "E": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
+	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
+};

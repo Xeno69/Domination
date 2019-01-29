@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_save_respawngear.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
 	private _doexit = 0;

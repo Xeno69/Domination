@@ -3,6 +3,11 @@
 #define THIS_FILE "fn_clearsidemission.sqf"
 #include "..\x_setup.sqf"
 
+if (!isNil "d_sm_check_trigger") then {
+	deleteVehicle d_sm_check_trigger;
+	d_sm_check_trigger = nil;
+};
+
 private _waittime = 200 + random 10;
 if (d_MissionType != 2) then {
 	private _num_p = call d_fnc_PlayersNumber;

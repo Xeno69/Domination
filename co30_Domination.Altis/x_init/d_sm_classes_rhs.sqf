@@ -1,5 +1,5 @@
 d_sm_fortress = "Land_Cargo_House_V2_F";
-d_functionary = "LIB_CIV_Functionary_1";
+d_functionary = "C_Nikos_aged";
 d_fuel_station = "Land_FuelStation_Build_F";//Land_FuelStation_Shed_F
 d_sm_cargo = switch (d_enemy_side_short) do {
 	case "E": {"rhs_typhoon_vdv"};
@@ -67,6 +67,21 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_cargotrucktype = switch (d_enemy_side_short) do {
+	case "E": {["O_Truck_03_covered_F","O_T_Truck_03_covered_ghex_F"] select (d_tanoa)};
+	case "W": {"B_Truck_01_covered_F"};
+	case "G": {"I_Truck_02_covered_F"};
+};
+d_sm_fueltrucktype = switch (d_enemy_side_short) do {
+	case "E": {["O_Truck_03_fuel_F", "O_T_Truck_03_fuel_ghex_F"] select (d_tanoa)};
+	case "W": {"B_Truck_01_fuel_F"};
+	case "G": {"I_Truck_02_fuel_F"};
+};
+d_sm_camo_net = call {
+   if (d_enemy_side_short == "W") exitWith {"CamoNet_BLUFOR_big_F"};
+   if (d_enemy_side_short == "E") exitWith {"CamoNet_OPFOR_big_F"};
+   "CamoNet_INDP_big_F"
+};
 d_sm_medtrucktype = switch (d_enemy_side_short) do {
 	case "E": {"rhs_gaz66_ap2_vdv"};
 	case "W": {"rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy"};
@@ -76,4 +91,9 @@ d_sm_deliver_truck = switch (d_enemy_side_short) do {
 	case "E": {["rhsusf_M977A4_REPAIR_usarmy_d", "rhsusf_M977A4_AMMO_usarmy_d", "rhsusf_M978A4_BKIT_usarmy_d", "rhsusf_M1085A1P2_B_D_Medical_fmtv_usarmy"]};
 	case "W": {["RHS_Ural_Repair_VDV_01", "rhs_gaz66_ammo_vdv", "RHS_Ural_Fuel_VDV_01", "rhs_gaz66_ap2_vdv"]};
 	case "G": {["I_Truck_03_repair_F", "I_Truck_03_ammo_F", "I_Truck_03_fuel_F", "I_Truck_03_medical_F"]};
+};
+d_sm_cache = switch (d_enemy_side_short) do {
+	case "W": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
+	case "E": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
+	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };

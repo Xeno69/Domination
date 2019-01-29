@@ -1,21 +1,16 @@
 //#define __DEBUG__
 #define THIS_FILE "x_m116.sqf"
-#include "x_setup.sqf"
-private ["_vehicle", "_poss"];
+#include "..\..\x_setup.sqf"
 
-GVAR(x_sm_pos) = QGVAR(sm_116) call FUNC(smmapos); // Destroy trucks
-GVAR(x_sm_type) = "normal"; // "convoy"
+d_x_sm_pos = "d_sm_116" call d_fnc_smmapos; // Destroy trucks
+d_x_sm_type = "normal"; // "convoy"
 
-#ifdef __SMMISSIONS_MARKER__
-if (true) exitWith {};
-#endif
-
-if (!isDedicated) then {
-	GVAR(cur_sm_txt) = (localize "STR_DOM_SIDESTRING_1043");
-	GVAR(cur_sm_res_txt) = (localize "STR_DOM_SIDESTRING_1044");
+if (hasInterface) then {
+	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_49";
+	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_50";
 };
 
-if (isServer) then {
-	__Poss
-    [_poss,markerDir QGVAR(sm_116)] spawn FUNC(sidetrucks);
+if (call d_fnc_checkSHC) then {
+	[d_x_sm_pos # 0, markerDir "d_sm_114", [d_sm_ammotrucktype, d_sm_fueltrucktype, d_sm_cargotrucktype], false, true, true, true, true, true] spawn d_fnc_sideobjects;
 };
+

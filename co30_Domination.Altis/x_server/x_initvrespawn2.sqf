@@ -10,10 +10,15 @@ d_vrespawn2_ar = [];
 	__TRACE_1("","_x")
 	_x params ["_vec", "_number_v"];
 	if (!isNil "_vec" && {!isNull _vec}) then {
-		if (count _x == 2) then {
-			d_vrespawn2_ar pushBack [_vec, _number_v, getPosATL _vec, direction _vec, typeOf _vec];
+		private _vposp = if (_vec isKindOf "Air") then {
+			(getPosATL _vec) vectorAdd [0, 0, 0.1];
 		} else {
-			d_vrespawn2_ar pushBack [_vec, _number_v, getPosATL _vec, direction _vec, typeOf _vec, _x # 2];
+			getPosATL _vec;
+		};
+		if (count _x == 2) then {
+			d_vrespawn2_ar pushBack [_vec, _number_v, _vposp, getDir _vec, typeOf _vec];
+		} else {
+			d_vrespawn2_ar pushBack [_vec, _number_v, _vposp, getDir _vec, typeOf _vec, _x # 2];
 			_vec setVariable ["d_vec_is_mhq", [_x # 2, _number_v]];
 		};
 		
@@ -31,6 +36,7 @@ d_vrespawn2_ar = [];
 		if (_number_v < 100 || {_number_v > 999 && {_number_v < 1100}}) then {
 			_vec addMPEventhandler ["MPKilled", {(_this select 0) call d_fnc_MHQFunc}];
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck; _this call d_fnc_mhqmsg}}];
+			_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 		} else {
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
 		};
@@ -38,6 +44,9 @@ d_vrespawn2_ar = [];
 			_vec enableCopilot false;
 		} else {
 			_vec setVariable ["d_liftit", true, true];
+		};
+		if (unitIsUAV _vec) then {
+			_vec allowCrewInImmobile true;
 		};
 	};
 } forEach _this;

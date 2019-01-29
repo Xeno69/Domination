@@ -2,7 +2,7 @@
 #define THIS_FILE "x_endcam.sqf"
 #include "..\x_setup.sqf"
 
-if (isDedicated || {!hasInterface}) exitWith {};
+if (!hasInterface) exitWith {};
 
 d_end_cam_running = true;
 

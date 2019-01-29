@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[9255.93,8234.52,0]]; // index: 51,   Shot down chopper
-d_x_sm_type = "normal"; // "convoy"
+d_x_sm_type = "evac";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1803";

@@ -3,13 +3,14 @@
 #define THIS_FILE "fn_playerspawn.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_rtype"];
 __TRACE_1("","_rtype")
 
 if (_rtype == 0) then { // player died
 	call d_fnc_save_respawngear;
+	player setVariable ["d_currentvisionmode", currentVisionMode player];
 	if (visibleMap) then {
 		openMap false;
 	};
@@ -71,7 +72,12 @@ if (_rtype == 0) then { // player died
 		deleteVehicle ((_this # 1) # 1);
 	};
 	
-	if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles",player]};
+#ifndef __IFA3LITE__
+	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}) then {
+		player action ["NVGoggles",player];
+	};
+#endif
+
 	if !(player getVariable ["xr_isdead", false]) then {
 		0 spawn {
 			scriptName "spawn_playerspawn_vul";
@@ -134,7 +140,7 @@ if (_rtype == 0) then { // player died
 	player setFatigue 0;
 	player setBleedingRemaining 0;
 	
-	0 spawn {
+	/*0 spawn {
 		sleep (1 + random 1);
 		private _np = player getVariable ["d_plname", ""];
 		if (_np isEqualTo "" || {_np isEqualTo "Error: No unit"}) then {
@@ -145,7 +151,7 @@ if (_rtype == 0) then { // player died
 			player setVariable ["d_plname", _np, true];
 			d_name_pl = _np;
 		};
-	};
+	};*/
 	
 	player disableConversation true;
 	if (!d_with_ai) then {

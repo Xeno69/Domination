@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_teleupdate_dlg.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated || {d_x_loop_end}) exitWith {};
+if (!hasInterface || {d_x_loop_end}) exitWith {};
 
 disableSerialization;
 
@@ -45,6 +45,8 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 					};
 					_listctrl lbSetColor [_i, _lbcolor];
 				};
+				__TRACE_1("","_mravailable")
+				__TRACE_2("","lbCurSel _listctrl","_i")
 				if (lbCurSel _listctrl == _i) then {
 					if (_mravailable) then {
 						private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
@@ -93,21 +95,25 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 				};
 			};
 		} else {
-			if (xr_respawn_available && {!ctrlEnabled __CTRL(100102)}) then {
+			if (lbCurSel _listctrl == _i && {xr_respawn_available && {!ctrlEnabled __CTRL(100102)}}) then {
+				__TRACE("xr_respawn_available 1111")
 				__CTRL(100102) ctrlEnable true;
 			};
 		};
 	} else {
 		__TRACE_1("_listctrl lbText _i","_listctrl lbText _i")
-		/*private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
-			format [localize "STR_DOM_MISSIONSTRING_607", _listctrl lbText _i]
-		} else {
-			format [localize "STR_DOM_MISSIONSTRING_605", _listctrl lbText _i]
-		};*/
-		__CTRL(100102) ctrlEnable true;
+		if (lbCurSel _listctrl == _i && {xr_respawn_available && {!ctrlEnabled __CTRL(100102)}}) then {
+			__CTRL(100102) ctrlEnable true;
+		};
 		__TRACE_1("Additional enable true","_lbdata")
-		//__CTRL(100110) ctrlSetText _text;
 	};
+};
+
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes && {ctrlEnabled __CTRL(100102)}}) then {
+	__CTRL(100102) ctrlEnable false;
+};
+if (!xr_respawn_available && {ctrlEnabled __CTRL(100102)}) then {
+	__CTRL(100102) ctrlEnable false;
 };
 
 /*if (_wone == 1 && {xr_respawn_available} && {!ctrlEnabled __CTRL(100102)}) then {

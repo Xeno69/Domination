@@ -2,7 +2,7 @@
 #define THIS_FILE "x_recruitsetup.sqf"
 #include "..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 player reveal d_AI_HUT;
 
@@ -87,6 +87,14 @@ if (isNil "d_UnitsToRecruit") then {
 		case opfor: {["rhs_vdv_des_rifleman", "rhs_vdv_des_marksman", "rhs_vdv_des_medic", "rhs_vdv_des_machinegunner", "rhs_vdv_des_at", "rhs_vdv_des_grenadier_rpg", "rhs_vdv_des_engineer", "rhs_vdv_des_aa", "rhs_vdv_des_grenadier", "rhs_vdv_des_RShG2"]};
 		case independent: {[]};
 	};
+#endif
+#ifdef __ROSCHE__
+	private _pchar = switch (d_player_side) do {
+		case blufor: {"B"};
+		case opfor: {"O"};
+		case independent: {"I"};
+	};
+	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
 #endif
 };
 

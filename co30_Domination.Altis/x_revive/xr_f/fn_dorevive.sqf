@@ -18,7 +18,7 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 			if (xr_max_lives > -1) then {
 				private _lives = (player getVariable "xr_lives") + xr_help_bonus;
 				__TRACE_1("","_lives")
-				player setVariable ["xr_lives", _lives];
+				player setVariable ["xr_lives", _lives, true];
 				[getPlayerUID player, _lives] remoteExecCall ["d_fnc_ChangeRLifes", 2];
 			};
 		};

@@ -18,19 +18,30 @@ sleep 2;
 
 private _owngroup = [d_side_player] call d_fnc_creategroup;
 if (d_with_ai) then {
-	_owngroup setVariable ["d_do_not_delete", true];
+	[_owngroup, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
 };
 __TRACE_1("","_owngroup")
-private _pilot1 = _owngroup createUnit [d_sm_pilottype, _poss, [], 60, "NONE"];
+private _nposss = _poss findEmptyPosition [20, 100, d_sm_pilottype];
+if (_nposss isEqualTo []) then {_nposss = _poss};
+private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
+_pilot1 allowDamage false;
+_pilot1 spawn {
+	sleep 5;
+	_this allowDamage true;
+};
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
-_poss set [2, 0];
-[_pilot1, _poss] call d_fnc_setposagls;
+[_pilot1, getPos _pilot1] call d_fnc_setposagls;
 
-private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPosATL _pilot1, [], 0, "NONE"];
+private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
+_pilot2 allowDamage false;
+_pilot2 spawn {
+	sleep 5;
+	_this allowDamage true;
+};
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
-[_pilot2, _poss] call d_fnc_setposagls;
+[_pilot2, getPos _pilot2] call d_fnc_setposagls;
 [_pilot1, _pilot2] joinSilent _owngroup;
 
 sleep 15;
@@ -110,6 +121,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 		} else {
 #ifndef __TT__
 			if (_pilot1 distance2D d_FLAG_BASE < 50 || {_pilot2 distance2D d_FLAG_BASE < 50}) exitWith {_pilots_at_base = true};
+			if (!isNil "d_flag_airfield" && {_pilot1 distance2D d_flag_airfield < 50 || {_pilot2 distance2D d_flag_airfield < 50}}) exitWith {_pilots_at_base = true};
 #else
 			if (_pilot1 distance2D d_EFLAG_BASE < 50 || {_pilot2 distance2D d_EFLAG_BASE < 50}) exitWith {
 				_pilots_at_base = true;
@@ -197,7 +209,7 @@ if (!d_sm_resolved) then {
 	if (_is_dead) then {
 		d_sm_winner = -700;
 	} else {
-		if (d_with_ranked) then {
+		if (d_with_ranked || {d_database_found}) then {
 	#ifndef __TT__
 			[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
 	#else

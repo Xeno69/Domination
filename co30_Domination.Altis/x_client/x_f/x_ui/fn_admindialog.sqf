@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_admindialog.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 
@@ -14,16 +14,12 @@ if (isMultiplayer && {!d_pisadminp}) exitWith {
 xr_phd_invulnerable = true;
 
 createDialog "d_AdminDialog";
-private _ctrl = (uiNamespace getVariable "d_AdminDialog") displayCtrl 1001;
 
-lbClear _ctrl;
-{
-	private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
-	_ctrl lbSetData [_index, str _x];
-} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+waitUntil {!isNil "d_admin_dialog_open" || {!d_admin_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
 
-_ctrl lbSetCurSel 0;
-ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);
+if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+	if (d_admin_dialog_open) then {closeDialog 0};
+};
 
 0 spawn {
 	scriptName "spawn_d_fnc_admindialog_kicker";

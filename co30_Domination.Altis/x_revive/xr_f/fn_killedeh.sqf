@@ -10,19 +10,19 @@ player setVariable ["xr_presptime", 6];
 setPlayerRespawnTime 6;
 __TRACE("respawn time 6")
 enableRadio false;
+if (!isNil "d_eng_can_repfuel" && {!d_eng_can_repfuel}) then {
+	player setVariable ["d_old_eng_can_repfuel", d_eng_can_repfuel];
+};
 xr_death_pos = [];
 private _do_black = true;
 if (player getVariable "xr_pluncon") then {
 	player call xr_fnc_CheckRespawn;
 } else {
 	player setVariable ["xr_pluncon", true, true];
-	if (d_sub_kill_points != 0) then {
-		[player, d_sub_kill_points] remoteExecCall ["addScore", 2];
-	};
 	if (xr_max_lives != -1) then {
 		private _lives = (player getVariable "xr_lives") - 1;
 		__TRACE_1("lives left","_lives")
-		player setVariable ["xr_lives", _lives];
+		player setVariable ["xr_lives", _lives, true];
 		[getPlayerUID player, _lives] remoteExecCall ["d_fnc_ChangeRLifes", 2];
 		if (_lives == -1) then {
 			__TRACE("lives = -1")
@@ -45,8 +45,4 @@ if (_do_black) then {
 		__TRACE("spawn blacking out 1 sec before respawn")
 		"xr_revtxt" cutText ["", "BLACK OUT", 1];
 	};
-};
-
-if (xr_selfheals > 0) then {
-	player removeAction (player getVariable "xr_selfh_ac_id");
 };

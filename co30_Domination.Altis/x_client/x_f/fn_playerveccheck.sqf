@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_playerveccheck.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
 params ["_vec"];

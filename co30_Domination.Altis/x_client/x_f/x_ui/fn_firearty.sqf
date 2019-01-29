@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_firearty.sqf"
 #include "..\..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 #ifndef __TT__
 if !(d_ari_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_149")};
@@ -45,7 +45,7 @@ if !(_no isEqualTo []) exitWith {
 };
 #endif
 
-if (d_with_ranked && {d_ranked_a # 2 > 0}) then {[player, (d_ranked_a # 2) * -1] remoteExecCall ["addScore", 2]};
+if ((d_with_ranked || {d_database_found}) && {d_ranked_a # 2 > 0}) then {[player, (d_ranked_a # 2) * -1] remoteExecCall ["addScore", 2]};
 #ifndef __TT__
 player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], d_kbtel_chan];
 #else
@@ -59,5 +59,5 @@ private _logic = switch (d_player_side) do {
 };
 player kbTell [_logic, _topicside, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], "SIDE"];
 #endif
-[_arele # 2, _arele # 3, str player, _arele # 0] remoteExec ["d_fnc_arifire", 2];
+[_arele # 2, _arele # 3, netId player, _arele # 0] remoteExec ["d_fnc_arifire", 2];
 d_arti_did_fire = true;

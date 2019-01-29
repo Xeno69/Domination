@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_ptakeweapon.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
 
@@ -12,7 +12,7 @@ if (_unit != player) exitWith {};
 
 private _item = _this select 2;
 
-if (d_without_nvg == 0 && {_item call d_fnc_isnvgoogles}) then {
+if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 	_unit unlinkItem _item;
 };
 

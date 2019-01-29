@@ -4,7 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_26" call d_fnc_smmapos; // Specop camp in the jungle
-d_x_sm_type = "normal"; // "convoy"
+d_x_sm_type = "specops";
 
 if (hasInterface) then {
 	d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_1806";

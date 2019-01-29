@@ -3,10 +3,10 @@
 #define THIS_FILE "fn_makeuav.sqf"
 #include "..\..\x_setup.sqf"
 
-if (isDedicated || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
+if (!hasInterface || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
 
 private _exitj = false;
-if (d_with_ranked) then {
+if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 19)) then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_76b", score player,d_ranked_a # 19];
 		_exitj = true;
@@ -25,12 +25,6 @@ private _uav = [getPosATL player, 0, d_UAV_Small, d_player_side] call bis_fnc_sp
 __TRACE_1("","_uav")
 _uav params ["_vecu"];
 createVehicleCrew _vecu;
-if (d_with_ai) then {
-	private _crew = crew _vecu;
-	if !(_crew isEqualTo []) then {
-		[group (_crew # 0), ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
-	};
-};
 
 _vecu allowCrewInImmobile true;
 

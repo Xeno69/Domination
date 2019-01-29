@@ -13,11 +13,11 @@ publicVariable "d_heli_taxi_available";
 
 sleep 5;
 
-params ["_playerstr", "_playerpos"];
+params ["_callernetid", "_playerpos", "_destination"];
 
-__TRACE_2("","_playerstr","_playerpos")
+__TRACE_3("","_callernetid","_playerpos","_destination")
 
-private _player = missionNamespace getVariable _playerstr;
+private _player = [player , objectFromNetId _callernetid] select isMultiplayer;
 __TRACE_1("","_player")
 if (isNil "_player" || {isNull _player}) exitWith {
 	d_heli_taxi_available = true;
@@ -52,26 +52,29 @@ _vec lockDriver true;
 private _pospl =+ _playerpos;
 _pospl set [2,0];
 private _helperh = d_HeliHEmpty createVehicle [0,0,0];
-_helperh setPos _pospl;
 _vec flyInHeight 80;
-_unit doMove _playerpos;
+private _nendpos = _playerpos findEmptyPosition [10, 200, d_taxi_aircraft];
+if !(_nendpos isEqualTo []) then {_nendpos = _playerpos};
+_unit doMove _nendpos;
+_helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
 _grp setBehaviour "CARELESS";
 
 
 ["d_airtaxi_marker", _vec, "ICON", (switch (_sidep) do {case opfor: {"ColorEAST"};case blufor: {"ColorWEST"};case independent: {"ColorGUER"};default {"ColorCIV"};}), [1,1], "Air Taxi", 0, (switch (_sidep) do {case blufor: {"b_air"};case opfor: {"o_air"};default {"n_air"};})] call d_fnc_CreateMarkerGlobal;
 
-private _vecdist = _vec distance2D _playerpos;
+private _vecdist = _vec distance2D _nendpos;
 __TRACE_1("","_vecdist")
 
 sleep 10;
 
-_player = missionNamespace getVariable _playerstr;
+_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 if (isNil "_player" || {isNull _player}) exitWith {
 	deleteMarker "d_airtaxi_marker";
 	d_heli_taxi_available = true;
 	publicVariable "d_heli_taxi_available";
 	-1 remoteExecCall ["d_fnc_ataxiNet", [0, -2] select isDedicated];
+	deleteVehicle _helperh;
 	sleep 120;
 	__del;
 };
@@ -81,6 +84,7 @@ if (!alive _player) exitWith {
 	publicVariable "d_heli_taxi_available";
 	deleteMarker "d_airtaxi_marker";
 	1 remoteExecCall ["d_fnc_ataxiNet", _player];
+	deleteVehicle _helperh;
 	sleep 120;
 	__del;
 };
@@ -93,7 +97,7 @@ __TRACE_2("","time","_endtime")
 private _doend = false;
 while {alive _unit && {alive _vec && {canMove _vec}}} do {
 	"d_airtaxi_marker" setMarkerPos (getPosWorld _vec);
-	_player = missionNamespace getVariable _playerstr;
+	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	__TRACE_1("","_player")
 	if (time > _endtime || {isNil "_player" || {isNull _player}}) exitWith {
 		_doend = true;
@@ -118,12 +122,13 @@ if (!alive _unit || {!alive _vec || {!canMove _vec || {_doend}}}) exitWith {
 	deleteMarker "d_airtaxi_marker";
 	d_heli_taxi_available = true;
 	publicVariable "d_heli_taxi_available";
-	_player = missionNamespace getVariable _playerstr;
+	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	if (!isNil "_player" && {!isNull _player}) then {
 		2 remoteExecCall ["d_fnc_ataxiNet", _player];
 	} else {
 		-1 remoteExecCall ["d_fnc_ataxiNet", [0, -2] select isDedicated];
 	};
+	deleteVehicle _helperh;
 	sleep 120;
 	__del;
 };
@@ -136,22 +141,21 @@ while {alive _unit && {alive _vec && {alive _player && {!(_player in crew _vec) 
 };
 _doend = false;
 if (alive _unit && {alive _vec && {canMove _vec}}) then {
-	_player = missionNamespace getVariable _playerstr;
+	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
 	
 	sleep 30 + random 5;
-	_player = missionNamespace getVariable _playerstr;
+	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	if (!isNil "_player" && {!isNull _player}) then {
 		5 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
 	_vec flyInHeight 80;
-	if (isNil "d_AISPAWN" || {isNull d_AISPAWN}) then {
-		d_AISPAWN = createVehicle [d_HeliHEmpty, d_pos_ai_hut # 0, [], 0, "NONE"];
-		publicVariable "d_AISPAWN";
-	};
-	_unit doMove (getPos d_AISPAWN);
+	_nendpos = _destination findEmptyPosition [10, 200, d_taxi_aircraft];
+	if !(_nendpos isEqualTo []) then {_nendpos = _destination};
+	_unit doMove _nendpos;
+	_helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 	_vec flyInHeight 80;
 	_grp setBehaviour "CARELESS";
 	sleep 5;
@@ -164,7 +168,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		};
 		if (!alive _unit || {!alive _vec || {!canMove _vec}}) exitWith {
 			_doend = true;
-			_player = missionNamespace getVariable _playerstr;
+			_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 			if (!isNil "_player" && {!isNull _player}) then {
 				2 remoteExecCall ["d_fnc_ataxiNet", _player];
 			};
@@ -186,28 +190,34 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	sleep 20 + random 5;
 	
 	if (alive _unit && {alive _vec && {canMove _vec}}) then {
-		_player = missionNamespace getVariable _playerstr;
+		_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 		if (!isNil "_player" && {!isNull _player}) then {
 			4 remoteExecCall ["d_fnc_ataxiNet", _player];
 		};
-		_vec flyInHeight 80;
+		__TRACE("Unit moving to endpos")
 		_unit doMove _dstart_pos;
 		_vec flyInHeight 80;
 		_grp setBehaviour "CARELESS";
 		_endtime = time + 720;
 		while {alive _unit && {alive _vec && {canMove _vec}}} do {
 			"d_airtaxi_marker" setMarkerPos (getPosWorld _vec);
-			if (_vec distance2D _dstart_pos < 300) exitWith {};
-			if (time > _endtime) exitWith {};
+			__TRACE_1("","_vec distance2D _dstart_pos")
+			if (_vec distance2D _dstart_pos < 800) exitWith {};
+			if (time > _endtime) exitWith {
+				__TRACE("time > _endtime")
+			};
+			__TRACE_1("","unitReady _unit")
+			if (unitReady _unit) exitWith {
+				__TRACE("unit ready")
+			};
 			sleep 2.012
 		};
 		deleteMarker "d_airtaxi_marker";
 		d_heli_taxi_available = true;
 		publicVariable "d_heli_taxi_available";
-		sleep 120;
 		__del;
 	} else {
-		_player = missionNamespace getVariable _playerstr;
+		_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 		if (!isNil "_player" && {!isNull _player}) then {
 			1 remoteExecCall ["d_fnc_ataxiNet", _player];
 		};
@@ -218,7 +228,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		__del;
 	};
 } else {
-	_player = missionNamespace getVariable _playerstr;
+	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	if (!isNil "_player" && {!isNull _player}) then {
 		1 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
@@ -230,3 +240,5 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 };
 
 deleteVehicle _helperh;
+
+__TRACE("END")
