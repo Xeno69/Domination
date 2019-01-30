@@ -281,6 +281,21 @@ if (isNil "d_mashes") then {
 if (isNil "d_cur_tgt_pos") then {
 	d_cur_tgt_pos = [];
 };
+if (isNil "d_cur_tgt_civ_modules_presence") then {
+	d_cur_tgt_civ_modules_presence = [];
+};
+if (isNil "d_cur_tgt_civ_modules_presenceunit") then {
+	d_cur_tgt_civ_modules_presenceunit = [];
+};
+if (isNil "d_cur_tgt_civ_modules_presencesafespot") then {
+	d_cur_tgt_civ_modules_presencesafespot = [];
+};
+if (isNil "d_cur_tgt_civ_units") then {
+	d_cur_tgt_civ_units = [];
+};
+if (isNil "d_cur_tgt_garrisonedinfantry") then {
+	d_cur_tgt_garrisonedinfantry = [];
+};
 if (isNil "d_cur_tgt_name") then {
 	d_cur_tgt_name = "";
 };
