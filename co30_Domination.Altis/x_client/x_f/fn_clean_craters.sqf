@@ -5,7 +5,7 @@
 sleep 60;
 
 while {true} do {
-	sleep (240 + random 240);
+	sleep (300 + random 240);
 	{
 		deleteVehicle _x;
 		sleep 0.212;
