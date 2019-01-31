@@ -5,6 +5,8 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
+private _civGroupCount = d_civ_groupcount;
+
 private _selectit = {
 	(ceil (random (((_this select 0) select (_this select 1)) # 1)))
 };

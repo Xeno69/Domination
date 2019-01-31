@@ -9153,6 +9153,15 @@
 <Original>Occupy buildings troop level</Original>
 <Russian>Occupy buildings troop level</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1920">
+<English>Civilian group count per target</English>
+<Spanish>Civilian group count per target</Spanish>
+<Portuguese>Civilian group count per target</Portuguese>
+<Korean>Civilian group count per target</Korean>
+<Japanese>Civilian group count per target</Japanese>
+<Original>Civilian group count per target</Original>
+<Russian>Civilian group count per target</Russian>
+</Key>
 </Container>
 </Package>
 </Project>
