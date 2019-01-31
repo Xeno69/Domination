@@ -23,5 +23,7 @@ if (hasInterface) then {
 
 player enableAttack false;
 
-execVM "tasks.sqf";
+if (hasInterface) then {
+	execVM "tasks.sqf";
+};
 diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerLocal.sqf processed"];
