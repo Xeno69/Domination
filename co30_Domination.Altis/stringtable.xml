@@ -9100,13 +9100,13 @@
 <Russian>Enable civilians</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
-<English>Civilian unit count per target</English>
-<Spanish>Civilian unit count per target</Spanish>
-<Portuguese>Civilian unit count per target</Portuguese>
-<Korean>Civilian unit count per target</Korean>
-<Japanese>Civilian unit count per target</Japanese>
-<Original>Civilian unit count per target</Original>
-<Russian>Civilian unit count per target</Russian>
+<English>Civilian unit count per group</English>
+<Spanish>Civilian unit count per group</Spanish>
+<Portuguese>Civilian unit count per group</Portuguese>
+<Korean>Civilian unit count per group</Korean>
+<Japanese>Civilian unit count per group</Japanese>
+<Original>Civilian unit count per group</Original>
+<Russian>Civilian unit count per group</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
 <English>Disable enemy air</English>
