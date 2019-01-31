@@ -227,6 +227,9 @@ d_sm_folder = "mifa3";
 // Add d_current_sm_bonus_vec to the beginning of a sidemission script with a vehicle class string and that vehicle gets chosen instead of a random one.
 // Examples:
 // d_current_sm_bonus_vec = "B_MBT_01_cannon_F";
+// if (d_IS_HC_CLIENT) then {
+//	[missionNamespace, ["d_current_sm_bonus_vec", d_current_sm_bonus_vec]] remoteExecCall ["setVariable", 2];
+// };
 // DON'T CHANGE IT HERE IN X_MISSIONSETUP.SQF!!!!!!!!!!!!!!!!!!!!!!!!!
 if (call d_fnc_checkSHC) then {
 #ifndef __TT__
