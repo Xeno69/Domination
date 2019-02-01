@@ -126,4 +126,6 @@ _pl spawn {
 diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerServer.sqf processed"];
 #endif
 
-_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
+if (d_MissionType != 2) then {
+	_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
+};

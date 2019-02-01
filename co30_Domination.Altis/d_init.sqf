@@ -431,8 +431,9 @@ if (isServer) then {
 	addMissionEventHandler ["PlayerDisconnected", {_this call d_fnc_playerdisconnected}];
 	
 	addMissionEventHandler ["HandleDisconnect", {_this call d_fnc_handledisconnect}];
-	
-	addMissionEventhandler ["BuildingChanged", {_this call d_fnc_buildingchanged}];
+	if (d_MissionType != 2) then {
+		addMissionEventhandler ["BuildingChanged", {_this call d_fnc_buildingchanged}];
+	};
 };
 
 if (!hasInterface) then {
