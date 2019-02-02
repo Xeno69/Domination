@@ -1505,15 +1505,6 @@
 <Original>Chopper Menu</Original>
 <Russian>Меню вертолета</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_259">
-<English>HALO Jump</English>
-<Spanish>Salto en Paracaídas</Spanish>
-<Portuguese>HALO Salto</Portuguese>
-<Korean>공수낙하</Korean>
-<Japanese>HALO ジャンプ</Japanese>
-<Original>HALO Jump</Original>
-<Russian>Затяжной прыжок</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_260">
 <English>Deserted %1</English>
 <Spanish>Abandonado %1</Spanish>
@@ -2468,60 +2459,6 @@
 <Japanese>Ammobox load point</Japanese>
 <Original>Ammobox load point</Original>
 <Russian>Загрузка ящика-арсенала</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_5311">
-<English>Ammobox load point</English>
-<Spanish>Punto de carga de munición Box</Spanish>
-<Portuguese>Ammobox Ponto de ônus</Portuguese>
-<Korean>탄약상자 적재 포인트</Korean>
-<Japanese>Ammobox load point</Japanese>
-<Original>Ammobox load point</Original>
-<Russian>Загрузка ящика</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_5312">
-<English>Ammobox load point</English>
-<Spanish>Punto de carga de munición Box</Spanish>
-<Portuguese>Ammobox Ponto de ônus</Portuguese>
-<Korean>탄약상자 적재 포인트</Korean>
-<Japanese>Ammobox load point</Japanese>
-<Original>Ammobox load point</Original>
-<Russian>Точка загрузки ящика-арсенала</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_5313">
-<English>Ammobox load point</English>
-<Spanish>punto de carga de munición Box</Spanish>
-<Portuguese>Ammobox Ponto de ônus</Portuguese>
-<Korean>탄약상자 적재 포인트</Korean>
-<Japanese>Ammobox load point</Japanese>
-<Original>Ammobox load point</Original>
-<Russian>Точка загрузки ящика</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_5314">
-<English>Ammobox load point</English>
-<Spanish>punto de carga de munición Box</Spanish>
-<Portuguese>Ammobox Ponto de ônus</Portuguese>
-<Korean>탄약상자 적재 포인트</Korean>
-<Japanese>Ammobox load point</Japanese>
-<Original>Ammobox load point</Original>
-<Russian>Пункт загрузки ящика-арсенала</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_5315">
-<English>Ammobox load point</English>
-<Spanish>punto de carga de munición Box</Spanish>
-<Portuguese>Ammobox Ponto de ônus</Portuguese>
-<Korean>탄약상자 적재 포인트</Korean>
-<Japanese>Ammobox load point</Japanese>
-<Original>Ammobox load point</Original>
-<Russian>Пункт загрузки ящика-арсенала</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_5316">
-<English>Ammobox load point</English>
-<Spanish>Punto de carga de munición Box</Spanish>
-<Portuguese>Ammobox Ponto de ônus</Portuguese>
-<Korean>탄약상자 적재 포인트</Korean>
-<Japanese>Ammobox load point</Japanese>
-<Original>Ammobox load point</Original>
-<Russian>Пункт загрузки ящика-арсенала</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_533">
 <English>Teleport</English>
@@ -3637,15 +3574,6 @@
 <Original>New side mission:</Original>
 <Russian>Новое доп.задание:</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_711">
-<English>Sidemission: %1</English>
-<Spanish>Misión Secundaria: %1</Spanish>
-<Portuguese>Sidemission: %1</Portuguese>
-<Korean>보조 과제: %1</Korean>
-<Japanese>サイドミッション: %1</Japanese>
-<Original>Sidemission: %1</Original>
-<Russian>Доп.задание: %1</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_712">
 <English>No new side mission available...</English>
 <Spanish>No hay nueva misión secundaria disponible...</Spanish>
@@ -4573,15 +4501,6 @@
 <Japanese>%1 は名前を変更しました...以前は %2 でした ArmA Key: %3</Japanese>
 <Original>%1 has changed his name... It was %2 before, ArmA Key: %3</Original>
 <Russian>%1 поменял никнейм... Его ник был до этого %2 , ArmA Key: %3</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_943">
-<English>Player %1 was kicked automatically because of too much unnecessary shooting at base, ArmA Key: %2</English>
-<Spanish>El jugador %1 fue expulsado automáticamente por disparar en su base, ArmA Key: %2</Spanish>
-<Portuguese>O jogador %1 foi chutado automaticamente por causa do tiro desnecessário na base, ArmA Key: %2</Portuguese>
-<Korean>%1 는 불필요한 본부내 사격으로 킥당하였습니다. ArmA Key: %2</Korean>
-<Japanese>%1 は基地での不必要な射撃が多すぎるため、自動的にキックされました。 ArmA Key: %2</Japanese>
-<Original>Player %1 was kicked automatically because of too much unnecessary shooting at base, ArmA Key: %2</Original>
-<Russian>Игрок %1 автокикнут из-за беспорядочной стрельбы на базе, ArmA Key: %3</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_945">
 <English>Player %1 was kicked automatically because he didn't log on in the admin slot, ArmA Key: %2</English>
@@ -5730,15 +5649,6 @@
 <Original>MT Tower Satchels only:</Original>
 <Russian>Радиовышка взрывается только взрывчаткой:</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1218">
-<English>Close</English>
-<Spanish>Cerrar</Spanish>
-<Portuguese>Próximo</Portuguese>
-<Korean>닫기</Korean>
-<Japanese>Close</Japanese>
-<Original>Close</Original>
-<Russian>Закрыть</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1219">
 <English>ADMIN DIALOG</English>
 <Spanish>MENU ADMIN</Spanish>
@@ -6432,7 +6342,7 @@
 <Original>Nightvision On</Original>
 <Russian>Вкл. ПНВ</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1335A">
+<Key ID="STR_DOM_MISSIONSTRING_1335a">
 <English>Nightvision Off</English>
 <Spanish>Nightvision Off</Spanish>
 <Portuguese>Nightvision Off</Portuguese>
@@ -7144,15 +7054,6 @@
 <Original>Watching position:</Original>
 <Russian>Позиция наблюдения:</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1516">
-<English>SQUAD MANAGEMENT</English>
-<Spanish>GESTION DE EQUIPO</Spanish>
-<Portuguese>ADMINISTRAÇÃO de EQUIPE</Portuguese>
-<Korean>그룹 관리</Korean>
-<Japanese>グループ管理</Japanese>
-<Original>SQUAD MANAGEMENT</Original>
-<Russian>Меню отделения</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1517">
 <English>Remove User Marker</English>
 <Spanish>Quitar Marcador Usuario</Spanish>
@@ -7568,24 +7469,6 @@
 <Original>The enemy scientist is dead. Good job.</Original>
 <Russian>Ученый ликвидирован! Отличная работа!.</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1627">
-<English>The enemy support uses the bridges in Dolores to move stuff to the frontline. It is your job to destroy all three bridges there.</English>
-<Spanish>El soporte enemigo usa los puentes en Dolores para trasladar materiales a la primera línea. Su trabajo es destruir los tres puentes que hay.</Spanish>
-<Portuguese>O suporte de inimigo utiliza as pontes em Dores para mover material ao frontline. É vosso trabalho para destruir todo três pontes ali.</Portuguese>
-<Korean>The enemy support uses the bridges in Dolores to move stuff to the frontline. It is your job to destroy all three bridges there.</Korean>
-<Japanese>敵の補給部隊は、Doloresの橋を使って物資を前線に運ぶ。 そこにある3つの橋をすべて破壊するのが今回の任務だ。</Japanese>
-<Original>The enemy support uses the bridges in Dolores to move stuff to the frontline. It is your job to destroy all three bridges there.</Original>
-<Russian>Проивник использует мосты у г. Долорес для переброски войск к линии фронта. Ваша задача уничтожить все три моста.</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1628">
-<English>Good job. The bridges are down.</English>
-<Spanish>Buen trabajo. Los puentes han sido destruídos.</Spanish>
-<Portuguese>Trabalho bom. As pontes são abaixo.</Portuguese>
-<Korean>Good job. The bridges are down.</Korean>
-<Japanese>よくやった。橋は落とされた。</Japanese>
-<Original>Good job. The bridges are down.</Original>
-<Russian>Отлично! Мосты уничтожены!</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1630">
 <English>The enemy has all its gold in a bank in Bagango. Destroy the building so that they can't pay their weapon shipments anymore.</English>
 <Spanish>El enemigo tiene todo su oro en un banco en Bagango. Destruya el edificio de modo que no puedan pagar más sus envíos de armas.</Spanish>
@@ -7666,15 +7549,6 @@
 <Japanese>注意!!!サーマルイメージスコープは許可されていません。\n\nスコープを削除しました。ほかのスコープを使ってください!!</Japanese>
 <Original>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</Original>
 <Russian>Внимание! Вы используете ТВП прицел, который не разрешен\n\nОн удален, выберите другой прицел!</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1647">
-<English>You are approaching the enemy team area... Turn around immediately!!!!!!!</English>
-<Spanish>Se está acercando a la zona del equipo enemigo ... Date la vuelta inmediatamente !!!!!!!</Spanish>
-<Portuguese>Está acercando você o área de equipe do inimigo... Volta ao redor imediatamente!!!!!!!</Portuguese>
-<Korean>You are approaching the enemy team area... Turn around immediately!!!!!!!</Korean>
-<Japanese>敵チームのエリアに近づいています...今すぐ戻ってください!!!!!!</Japanese>
-<Original>You are approaching the enemy team area... Turn around immediately!!!!!!!</Original>
-<Russian>Вы на запретной территории другой команды! Покиньте ее немедленно!!!!!!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1648">
 <English>Air Drop %1</English>
@@ -7954,15 +7828,6 @@
 <Japanese>あなたの左側に</Japanese>
 <Original>on your left side</Original>
 <Russian>слева</Russian>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1724">
-<English>The following nearby players got a message to revive you:</English>
-<Spanish>Los siguientes jugadores han recibido un mensaje para revirte:</Spanish>
-<Portuguese>Os seguintes jogadores próximos receberam uma mensagem para reviver você:</Portuguese>
-<Korean>해당 유저가 살리라는 메세지를 전송받음</Korean>
-<Japanese>次の近くのプレイヤーはあなたを復活させるメッセージを受け取りました：</Japanese>
-<Original>The following nearby players got a message to revive you:</Original>
-<Russian>Ближайшие  игроки получили сообщение чтобы вас возродить:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1725">
 <English>Nearby informed players:</English>
