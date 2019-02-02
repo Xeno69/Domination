@@ -300,7 +300,10 @@ class D_RscMapControl {
 	colorMainRoadsFill[] = {1.0,0.6,0.4,1.0};
 	colorGrid[] = {0.1,0.1,0.1,0.6};
 	colorGridMap[] = {0.1,0.1,0.1,0.6};
+	colorTrails[] = {0.84,0.76,0.65,0.15};
+	colorTrailsFill[] = {0.84,0.76,0.65,0.65};
 	colorText[] = {0, 0, 0, 1};
+	widthRailWay = 4.0;
 	fontLabel = DEFAULTFONT;
 	sizeExLabel = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 	fontGrid = "RobotoCondensed";
@@ -314,6 +317,10 @@ class D_RscMapControl {
 	fontLevel = "RobotoCondensed";
 	sizeExLevel = 0.02;
 	text = "#(argb,8,8,3)color(1,1,1,1)";
+	idcMarkerColor = -1;
+	idcMarkerIcon = -1;
+	textureComboBoxColor = "#(argb,8,8,3)color(1,1,1,1)";
+	showMarkers = 1;
 	onDraw = "[_this, 2] call d_fnc_mapondraw";
 	class LineMarker {
 		lineWidthThin = 0.008;

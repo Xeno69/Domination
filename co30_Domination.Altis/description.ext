@@ -12,7 +12,7 @@ allowFunctionsLog = 1;
 
 author = "Xeno";
 OnLoadName = "Domination!";
-onLoadMission = __D_VER_NAME__;
+onLoadMission = "$STR_DOM_MISSIONSTRING_24";
 onLoadIntroTime = false;
 onLoadMissionTime = false;
 disabledAI = 1;
