@@ -77,6 +77,10 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 sleep 3.234;
 #ifndef __TT__
 private _nrcamps = (ceil random 5) max 3;
+if (d_enemy_max_camps_count != -1 ) then {
+	//max camps is set, overwrite the random value
+	_nrcamps = d_enemy_max_camps_count;
+};
 #else
 private _nrcamps = (ceil random 6) max 4;
 #endif
@@ -89,8 +93,16 @@ if (!isServer) then {
 private _sizecamp = sizeOf d_wcamp;
 private _dist_for_points = -1;
 
+private _isFirstCamp = true;
+
 for "_i" from 1 to _nrcamps do {
-	_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+	if (_isFirstCamp && (d_first_enemy_camp_near_target_center == 1)) then {
+		//try to place the first camp very close (10m) to the center of the target
+		_poss = [_trg_center, 10, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+		_isFirstCamp = false;
+	} else {
+		_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+	};
 	_iccount = 0;
 	while {_poss isEqualTo []} do {
 		_iccount = _iccount + 1;

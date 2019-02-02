@@ -9027,6 +9027,24 @@
 <Original>Civilian group count per target</Original>
 <Russian>Civilian group count per target</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1930">
+<English>Maximum number of enemy camps to capture</English>
+<Spanish>Maximum number of enemy camps to capture</Spanish>
+<Portuguese>Maximum number of enemy camps to capture</Portuguese>
+<Korean>Maximum number of enemy camps to capture</Korean>
+<Japanese>Maximum number of enemy camps to capture</Japanese>
+<Original>Maximum number of enemy camps to capture</Original>
+<Russian>Maximum number of enemy camps to capture</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1931">
+<English>Locate the first enemy camp to capture near the center of the main target</English>
+<Spanish>Locate the first enemy camp to capture near the center of the main target</Spanish>
+<Portuguese>Locate the first enemy camp to capture near the center of the main target</Portuguese>
+<Korean>Locate the first enemy camp to capture near the center of the main target</Korean>
+<Japanese>Locate the first enemy camp to capture near the center of the main target</Japanese>
+<Original>Locate the first enemy camp to capture near the center of the main target</Original>
+<Russian>Locate the first enemy camp to capture near the center of the main target</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

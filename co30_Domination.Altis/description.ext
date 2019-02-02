@@ -793,6 +793,20 @@ class Params {
 		default = 4;
 		texts[] = {"1", "2", "3", "4"};
 	};
+	
+	class d_enemy_max_camps_count {
+		title = "$STR_DOM_MISSIONSTRING_1930";
+		values[] = {1, 2, 3, 4, 5, -1};
+		default = -1;
+		texts[] = {"1", "2", "3", "4", "5", "Random"};
+	};
+	
+	class d_first_enemy_camp_near_target_center {
+		title = "$STR_DOM_MISSIONSTRING_1931";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 #ifndef __TT__
 	class d_params_dl_9 {
