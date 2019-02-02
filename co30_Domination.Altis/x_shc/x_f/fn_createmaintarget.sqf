@@ -448,7 +448,7 @@ if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
 			_number_of_occupy_groups_to_spawn = 8;
 		};
 		case 4: {
-			_number_of_occupy_groups_to_spawn = 24;
+			_number_of_occupy_groups_to_spawn = 16;
 		};
 	};
 	
