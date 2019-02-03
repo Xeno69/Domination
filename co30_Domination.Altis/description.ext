@@ -780,11 +780,11 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
-	class d_enemy_occupt_bldgs_troop_level {
+	class d_enemy_occupy_bldgs_troop_level {
 			title = "$STR_DOM_MISSIONSTRING_1900";
-			values[] = {0, 1, 2, 3};
+			values[] = {0, 1, 2, 3, 4};
 			default = 1;
-			texts[] = {"0 - Low", "1 - Medium", "2 - High", "3 - Insane"};
+			texts[] = {"0 - Low (2 groups)", "1 - Medium (4 groups)", "2 - High (6 groups)", "3 - High (8 groups)", "4 - Insane (16 groups)"};
 	};
 
 	class d_enemy_max_barracks_count {
@@ -792,6 +792,20 @@ class Params {
 		values[] = {1, 2, 3, 4};
 		default = 4;
 		texts[] = {"1", "2", "3", "4"};
+	};
+	
+	class d_enemy_max_camps_count {
+		title = "$STR_DOM_MISSIONSTRING_1930";
+		values[] = {1, 2, 3, 4, 5, -1};
+		default = -1;
+		texts[] = {"1", "2", "3", "4", "5", "Random"};
+	};
+	
+	class d_first_enemy_camp_near_target_center {
+		title = "$STR_DOM_MISSIONSTRING_1931";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 #ifndef __TT__
