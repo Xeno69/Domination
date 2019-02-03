@@ -20,6 +20,7 @@ class D_AirTaxiDialog {
 			x = 0.68; y = 0.86; w = 0.3;
 		};
 		class AirTaxiMapText: RscText2 {
+			idc = 11005;
 			x = 0.02; y = 0.02;
 			w = 0.7; h = 0.1;
 			SizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.3) / 25) * 1)";

@@ -45,6 +45,9 @@ private _unit = driver _vec;
 addToRemainsCollector [_vec];
 _unit setSkill 1;
 
+d_airtaxi_driver = _unit;
+_unit setVariable ["d_type", _ttype];
+
 _vec lockDriver true;
 
 {_x setCaptive true} forEach _crew;
@@ -52,6 +55,8 @@ _vec lockDriver true;
 private _pospl =+ _playerpos;
 _pospl set [2,0];
 private _helperh = d_HeliHEmpty createVehicle [0,0,0];
+_unit setVariable ["d_hempty", _helperh];
+200 remoteExecCall ["d_fnc_ataxiNet", _player];
 _vec flyInHeight 80;
 private _nendpos = _playerpos findEmptyPosition [10, 200, _ttype];
 if !(_nendpos isEqualTo []) then {_nendpos = _playerpos};
@@ -59,7 +64,6 @@ _unit doMove _nendpos;
 _helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
 _grp setBehaviour "CARELESS";
-
 
 ["d_airtaxi_marker", _vec, "ICON", (switch (_sidep) do {case opfor: {"ColorEAST"};case blufor: {"ColorWEST"};case independent: {"ColorGUER"};default {"ColorCIV"};}), [1,1], "Air Taxi", 0, (switch (_sidep) do {case blufor: {"b_air"};case opfor: {"o_air"};default {"n_air"};})] call d_fnc_CreateMarkerGlobal;
 
@@ -152,9 +156,13 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		5 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
 	_vec flyInHeight 80;
-	_nendpos = _destination findEmptyPosition [10, 200, _ttype];
-	if !(_nendpos isEqualTo []) then {_nendpos = _destination};
+	_nendpos = _unit getVariable "d_newdest";
+	if (isNil "_nendpos") then {
+		_nendpos = _destination findEmptyPosition [10, 200, _ttype];
+		if !(_nendpos isEqualTo []) then {_nendpos = _destination};
+	};
 	_unit doMove _nendpos;
+	_unit setVariable ["d_isondestway", true];
 	_helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 	_vec flyInHeight 80;
 	_grp setBehaviour "CARELESS";

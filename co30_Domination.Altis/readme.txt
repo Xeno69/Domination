@@ -27,6 +27,7 @@ Changelogs
 - Fixed: New RscMapControl config properties introduced in 1.90 release candidate caused dialog error
 - Added: New parameter attempts to place the first enemy camp very near (10m) the center of the main target (by longtimegamer)
 - Added: Select air taxi type
+- Added: The player who called in an air taxi can now change it's destination after calling it in
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling

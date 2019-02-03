@@ -9063,6 +9063,42 @@
 <Original>Select vehicle type:</Original>
 <Russian>Select vehicle type:</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1934">
+<English>Change Air Taxi dest</English>
+<Spanish>Change Air Taxi dest</Spanish>
+<Portuguese>Change Air Taxi dest</Portuguese>
+<Korean>Change Air Taxi dest</Korean>
+<Japanese>Change Air Taxi dest</Japanese>
+<Original>Change Air Taxi dest</Original>
+<Russian>Change Air Taxi dest</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1935">
+<English>Select another air taxi destination by clicking on the map:</English>
+<Spanish>Select another air taxi destination by clicking on the map:</Spanish>
+<Portuguese>Select another air taxi destination by clicking on the map:</Portuguese>
+<Korean>Select another air taxi destination by clicking on the map:</Korean>
+<Japanese>Select another air taxi destination by clicking on the map:</Japanese>
+<Original>Select another air taxi destination by clicking on the map:</Original>
+<Russian>Select another air taxi destination by clicking on the map:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1936">
+<English>Set new destination</English>
+<Spanish>Set new destination</Spanish>
+<Portuguese>Set new destination</Portuguese>
+<Korean>Set new destination</Korean>
+<Japanese>Set new destination</Japanese>
+<Original>Set new destination</Original>
+<Russian>Set new destination</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1937">
+<English>Air taxi destination changed</English>
+<Spanish>Air taxi destination changed</Spanish>
+<Portuguese>Air taxi destination changed</Portuguese>
+<Korean>Air taxi destination changed</Korean>
+<Japanese>Air taxi destination changed</Japanese>
+<Original>Air taxi destination changed</Original>
+<Russian>Air taxi destination changed</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -80,6 +80,7 @@ class cfgFunctions {
 			addc(target_clear_client);
 			addc(moveai);
 			addc(airtaxi);
+			addc(changeairtaxidest);
 			addc(makeuav);
 			addc(haschemlight);
 			addc(attachchemlight);
@@ -403,6 +404,7 @@ class cfgFunctions {
 			addc(add_hs);
 			addc(giveplayerscore);
 			addc(scheck_uav);
+			addc(airtaxi_dest);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
