@@ -734,21 +734,21 @@ class Params {
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
 		values[] = {0,1,2,3,4,5,10,15,20,25,30};
-		default = 0;
+		default = 15;
 		texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
 	};
 	
 	class d_civ_groupcount {
 		title = "$STR_DOM_MISSIONSTRING_1920";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
-		default = 2;
+		default = 4;
 		texts[] = {"0","1","2","3","4","5","6","7","8","9","10"};
 	};
 	
 	class d_sub_kill_civ_points {
 		title = "$STR_DOM_MISSIONSTRING_1888";
-		values[] = {0,1,2,3,4,5,10,25,50,75m100};
-		default = 0;
+		values[] = {0,1,2,3,4,5,10,25,50,75,100};
+		default = 3;
 		texts[] = {"0","1","2","3","4","5","10","25","50","75","100"};
 	};
 	
