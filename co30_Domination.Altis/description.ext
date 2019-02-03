@@ -784,7 +784,7 @@ class Params {
 			title = "$STR_DOM_MISSIONSTRING_1900";
 			values[] = {0, 1, 2, 3, 4};
 			default = 1;
-			texts[] = {"0 - Low (2 groups)", "1 - Medium (4 groups)", "2 - High (6 groups)", "3 - High (8 groups)", "4 - Insane (16 groups)"};
+			texts[] = {"0 - Low (2 groups)", "1 - Medium (4 groups)", "2 - High (6 groups)", "3 - Very High (8 groups)", "4 - Insane (16 groups)"};
 	};
 
 	class d_enemy_max_barracks_count {
