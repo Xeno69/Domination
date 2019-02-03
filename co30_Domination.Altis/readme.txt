@@ -25,6 +25,7 @@ Changelogs
 - Fixed: When a headless client was used camp marker handling was broken
 - Fixed: When side missions only was selected a script error related to d_cur_tgt_pos was thrown
 - Fixed: New RscMapControl config properties introduced in 1.90 release candidate caused dialog error
+- Added: New parameter attempts to place the first enemy camp very near (10m) the center of the main target (by longtimegamer)
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling
