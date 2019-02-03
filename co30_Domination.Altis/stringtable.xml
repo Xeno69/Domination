@@ -9045,6 +9045,24 @@
 <Original>Locate the first enemy camp to capture near the center of the main target</Original>
 <Russian>Locate the first enemy camp to capture near the center of the main target</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1932">
+<English>Destination:</English>
+<Spanish>Destination:</Spanish>
+<Portuguese>Destination:</Portuguese>
+<Korean>Destination:</Korean>
+<Japanese>Destination:</Japanese>
+<Original>Destination:</Original>
+<Russian>Destination:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1933">
+<English>Select vehicle type:</English>
+<Spanish>Select vehicle type:</Spanish>
+<Portuguese>Select vehicle type:</Portuguese>
+<Korean>Select vehicle type:</Korean>
+<Japanese>Select vehicle type:</Japanese>
+<Original>Select vehicle type:</Original>
+<Russian>Select vehicle type:</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -205,6 +205,8 @@ class cfgFunctions {
 			addc(inittransferscoredialog);
 			addc(tsdsliderposchanged);
 			addc(tranfserscoremsgdialog);
+			addc(initairtaxidialog);
+			addc(ataxselchanged);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
