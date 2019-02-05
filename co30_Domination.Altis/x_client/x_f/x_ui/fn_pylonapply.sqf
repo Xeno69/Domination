@@ -6,59 +6,44 @@
 disableSerialization;
 
 private _vec = d_pylon_vec;
+
+private _alreadyremoved = [];
+{
+	_pyweap = getText (configFile>>"CfgMagazines">>_x>>"pylonWeapon");
+	if (_alreadyremoved pushBackUnique _pyweap != -1) then {
+		_vec removeWeaponGlobal _pyweap;
+		_vec removeWeaponTurret [_pyweap, [-1]];
+	};
+} forEach getPylonMagazines _vec;
+__TRACE_1("2","weapons _vec")
+
 private _tvec = typeOf _vec;
-
-__TRACE_1("","count d_pylondialog_ctrls")
-__TRACE_1("","d_pylondialog_ctrls")
-
-private _prevweaps = getPylonMagazines _vec apply {getText (configFile>>"CfgMagazines">>_x>>"pylonWeapon")};
-_prevweaps = _prevweaps - [""];
-__TRACE_1("","_prevweaps")
-
-private _cfg = configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent">>"pylons";
+private _cfg = configFile>>"CfgVehicles">>_tvec>>"Components">>"TransportPylonsComponent">>"pylons";
+private _pylonowners = _vec getVariable "d_pylon_owners";
 for "_i" from 0 to (count _cfg - 1) do {
-	_ctrl = d_pylondialog_ctrls select _i;
+	private _ctrl = d_pylondialog_ctrls select _i;
 	private _mag = _ctrl lbData (lbCurSel _ctrl);
+	__TRACE_1("","_mag")
 	private _cname = configName (_cfg select _i);
+	__TRACE_1("","_cname")
 	if (_mag != "") then {
-		_vec setPylonLoadOut [_cname, _mag, true, getArray (configFile >>"CfgVehicles">>_tvec>>"Components">>"TransportPylonsComponent">>"Pylons">>_cname>>"turret")];
+		private _ctrl_drivgun = _ctrl getVariable "d_turret_ctrl";
+		if (!isNil "_ctrl_drivgun") then {
+			private _turtype = [[], [0]] select (_ctrl_drivgun getVariable "d_cursel_gundriv" == 1);
+			__TRACE_1("","_turtype")
+			_vec setPylonLoadOut [_cname, _mag, true, _turtype];
+			if (!isNil "_pylonowners") then {
+				_pylonowners set [_i, _turtype];
+			};
+		} else {
+			__TRACE("_ctrl_drivgun is nil")
+			_vec setPylonLoadOut [_cname, _mag, true, getArray (configFile>>"CfgVehicles">>_tvec>>"Components">>"TransportPylonsComponent">>"Pylons">>_cname>>"turret")];
+		};
 	} else {
+		__TRACE("no pylon")
 		_vec setPylonLoadOut [_cname, "", true];
 	};
 };
-
-private _newweapsx = getPylonMagazines _vec apply {getText (configFile>>"CfgMagazines">>_x>>"pylonWeapon")};
-_newweapsx = _newweapsx - [""];
-__TRACE_1("","_newweapsx")
-
-private _oldweaps = [];
-{
-	_oldweaps pushBackUnique _x;
-} forEach _prevweaps;
-
-private _newweaps = [];
-{
-	_newweaps pushBackUnique _x;
-} forEach _newweapsx;
-
-__TRACE_1("","_oldweaps")
-
-{
-	if !(_x in _newweaps) then {
-		_vec removeWeaponGlobal _x;
-		if !(allTurrets _vec isEqualTo []) then {
-			private _ww = _x;
-			{
-				_vec removeWeaponTurret [_ww, _x];
-			} forEach allTurrets _vec;
-		};
-	};
-} forEach _oldweaps;
-
-{
-	if !(_x in _oldweaps) then {
-		_vec addWeaponGlobal _x;
-	};
-} forEach _newweaps;
+__TRACE_1("3","weapons _vec")
 
 _vec vehicleChat localize "STR_DOM_MISSIONSTRING_1861";

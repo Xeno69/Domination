@@ -31,9 +31,14 @@ __TRACE_1("","_pylonmags")
 
 d_pylondialog_ctrls = [];
 d_pylon_mirrormode = false;
+private _pylon_owners = _vec getVariable ["d_pylon_owners", []];
+__TRACE_1("","_pylon_owners")
+private _pyl_owns_empty = _pylon_owners isEqualTo [];
 
 private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toUpper _x};
 __TRACE_1("","_excludemags")
+
+__TRACE_1("","count _pylons")
 
 for "_i" from 0 to (count _pylons - 1) do {
 	private _pylon = _pylons select _i;
@@ -80,7 +85,52 @@ for "_i" from 0 to (count _pylons - 1) do {
 	_pos set [0, (_pos select 0) + 0.062];
 	_pos set [1, (_pos select 1) + 0.18];
 	_ctrl ctrlSetPosition _pos;
+	__TRACE_1("","_pos")
 	_ctrl ctrlCommit 0;
+	
+	private _turret = getArray(_pylon>>"turret");
+	__TRACE_1("","_turret")
+	if !(_turret isEqualTo []) then {
+		private _ctrl2 = _display ctrlCreate ["RscActivePictureKeepAspect", 8000 + _i];
+		//private _ctrl2 = _display ctrlCreate ["RscButton", 8000 + _i];
+		if !(_pyl_owns_empty) then {
+			if (_pylon_owners select _i isEqualTo []) then {
+				_ctrl2 ctrlSetText "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageDriver_ca.paa";
+				_ctrl2 setVariable ["d_cursel_gundriv", 0];
+			} else {
+				_ctrl2 ctrlSetText "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageGunner_ca.paa";
+				_ctrl2 setVariable ["d_cursel_gundriv", 1];
+				_turret = [0];
+			};
+		} else {
+			if (_turret select 0 == 0) then {
+				_ctrl2 ctrlSetText "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageGunner_ca.paa";
+				_ctrl2 setVariable ["d_cursel_gundriv", 1];
+				_turret = [0];
+			} else {
+				_ctrl2 ctrlSetText "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageDriver_ca.paa";
+				_ctrl2 setVariable ["d_cursel_gundriv", 0];
+			};
+		};
+		_ctrl2 ctrlAddEventHandler ["MouseButtonClick", {
+			params ["_ctrl"];
+			if (ctrlText _ctrl== "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageGunner_ca.paa") then {
+				_ctrl ctrlSetText "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageDriver_ca.paa";
+				_ctrl setVariable ["d_cursel_gundriv", 0];
+			} else {
+				_ctrl ctrlSetText "\a3\ui_f\data\IGUI\Cfg\CommandBar\imageGunner_ca.paa";
+				_ctrl setVariable ["d_cursel_gundriv", 1];
+			};
+		}];
+		_pos set [0, (_pos select 0) - 0.04];
+		_pos set [2, 0.035];
+		_pos set [3, 0.035];
+		_ctrl2 ctrlSetPosition _pos;
+		_ctrl2 ctrlCommit 0;
+		_ctrl setVariable ["d_turret_ctrl", _ctrl2];
+	};
+	_pylon_owners pushBack _turret;
+	
 	private _idx = _ctrl lbAdd ("<" + (localize "STR_empty") + ">");
 	_ctrl lbSetData [_idx, ""];
 	private _selidx = 0;
@@ -101,6 +151,9 @@ for "_i" from 0 to (count _pylons - 1) do {
 		_ctrl lbSetCurSel _selidx;
 	};
 };
+
+__TRACE_1("","_pylon_owners")
+_vec setVariable ["d_pylon_owners", _pylon_owners, true];
 
 private _presets = _cfg>>"Presets";
 private _ctrl = _display displayCtrl 1001;

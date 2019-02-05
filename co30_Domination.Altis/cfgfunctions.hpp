@@ -137,7 +137,6 @@ class cfgFunctions {
 			addc(arsenal_mod);
 			addc(checkdriver);
 			addc(checkenterer);
-			addc(warnplayer);
 			addc(engtrigfnc);
 			addc(engtrig1fnc);
 			addc(checkammo);
