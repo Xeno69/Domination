@@ -741,7 +741,7 @@ class Params {
 	
 	class d_sub_kill_civ_points {
 		title = "$STR_DOM_MISSIONSTRING_1888";
-		values[] = {0,1,2,3,4,5,10,25,50,75m100};
+		values[] = {0,1,2,3,4,5,10,25,50,75,100};
 		default = 0;
 		texts[] = {"0","1","2","3","4","5","10","25","50","75","100"};
 	};
