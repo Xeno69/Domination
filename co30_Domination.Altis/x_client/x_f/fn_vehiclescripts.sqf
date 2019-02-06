@@ -8,7 +8,7 @@ private _vec = _this select 2;
 if ((_vec isKindOf "ParachuteBase") || {_vec isKindOf "BIS_Steerable_Parachute"}) exitWith {};
 private _do_exit = false;
 
-/*if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
+if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 	if (time >= d_player_autokick_time) exitWith {
 		d_clientScriptsAr set [1, true];
 		d_player_autokick_time = nil;
@@ -26,7 +26,7 @@ private _do_exit = false;
 			_do_exit = true;
 		};
 	};
-};*/
+};
 if (_do_exit) exitWith {};
 
 if (_vec isKindOf "Air") then {
