@@ -36,7 +36,7 @@ private _make_jump = {
 	_heliendpoint set [2, 80];
 	_attackpoint set [2, 0];
 	
-	private _wp = _vgrp addWaypoint [_flytopos, 0];
+	/*private _wp = _vgrp addWaypoint [_flytopos, 0];
 	_wp setWaypointBehaviour "CARELESS";
 	_wp setWaypointSpeed "NORMAL";
 	_wp setWaypointtype "MOVE";
@@ -48,6 +48,13 @@ private _make_jump = {
 	_wp setWaypointtype "MOVE";
 	_wp setWaypointFormation "VEE";
 	_wp setWaypointForceBehaviour true;
+	*/
+	
+	_driver_vec setSkill 1;
+
+	_driver_vec doMove _flytopos;
+	_vec flyInHeight 80;
+	_vgrp setBehaviour "CARELESS";
 	
 	//_vec flyInHeight 100;
 	
@@ -55,7 +62,7 @@ private _make_jump = {
 	
 	private _stop_me = false;
 	private _checktime = time + 300;
-	while {_attackpoint distance2D (getPosASL (leader _vgrp)) > 300} do {
+	while {_attackpoint distance2D (leader _vgrp) > 300} do {
 		if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {d_should_be_there = d_should_be_there - 1};
 		sleep 0.01;
 		if (d_mt_radio_down && {_attackpoint distance2D (leader _vgrp) > 1300}) exitWith {
@@ -80,6 +87,9 @@ private _make_jump = {
 	sleep 0.534;
 	
 	if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
+		_driver_vec doMove _flytopos;
+		_vec flyInHeight 80;
+		_vgrp setBehaviour "CARELESS";
 		if (!d_mt_radio_down && {_vec distance2D d_cur_tgt_pos < ([500, 700] select (speed _vec > 300))}) then {
 			private _paragrp = [d_side_enemy] call d_fnc_creategroup;
 			private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;

@@ -5,13 +5,23 @@
 
 if (!isServer) exitWith {};
 
-#define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper,240 + random 100] spawn _delveccrew}
+#define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper,240 + random 100] spawn _delveccrew; _stop_me = true}
 
 params ["_vgrp", "_chopper", "_helifirstpoint", "_heliendpoint"];
 private _crew_vec = crew _chopper;
+private _startpos = getPos _chopper;
 
 sleep 2.123;
 
+private _stop_me = false;
+private _unit = driver _chopper;
+_unit setSkill 1;
+
+_unit doMove _helifirstpoint;
+_chopper flyInHeight 80;
+_vgrp setBehaviour "CARELESS";
+
+/*
 private _wp = _vgrp addWaypoint [_helifirstpoint, 30];
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointSpeed "NORMAL";
@@ -25,6 +35,7 @@ _wp2 setWaypointSpeed "NORMAL";
 _wp2 setwaypointtype "MOVE";
 
 _chopper flyinheight 100;
+*/
 
 #ifndef __TT__
 if (d_searchintel # 6 == 1) then {
@@ -33,19 +44,36 @@ if (d_searchintel # 6 == 1) then {
 #endif
 
 private _delveccrew = {
+	scriptName "spawn_x_createpara2_delveccrew";
 	params ["_crew_vec", "_vec", "_time"];
 	sleep _time;
 	{_x setDamage 1} forEach (_crew_vec select {!isNull _x});
 	sleep 1;
-	if (!isNull _vec && {({_x call d_fnc_isplayer} count (crew _vec)) == 0}) then {_vec setDamage 1};
+	if (!isNull _vec) then {_vec setDamage 1};
 };
 
+private _checktime = time + 300;
 while {_helifirstpoint distance2D (leader _vgrp) > 300} do {
 	__exitchop;
+	if (time > _checktime) then {
+		if (_startpos distance2D _chopper < 500) then {
+			[_crew_vec, _chopper, 1 + random 1] spawn _delveccrew;
+			_stop_me = true;
+		} else {
+			_checktime = time + 9999999;
+		};
+	};
+	if (_stop_me) exitWith {};
 	sleep 2.123;
 };
 
+if (_stop_me) exitWith {};
+
 if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
+	_unit doMove _heliendpoint;
+	_chopper flyInHeight 80;
+	_vgrp setBehaviour "CARELESS";
+	
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))
 	} else {

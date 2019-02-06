@@ -29,6 +29,7 @@ Changelogs
 - Added: Select air taxi type
 - Added: The player who called in an air taxi can now change it's destination after calling it in
 - Changed: You can now change pylon loadout for pilot and gunner individually in the pylon loadout dialog (like in 3DEN editor)
+- Fixed: Sabotage group choppers did not get deleted if they did not move (Arma problem, sometimes vehicles do not move even if they have a valid waypoint)
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling
