@@ -19,7 +19,9 @@ __TRACE_1("2","weapons _vec")
 
 private _tvec = typeOf _vec;
 private _cfg = configFile>>"CfgVehicles">>_tvec>>"Components">>"TransportPylonsComponent">>"pylons";
-private _pylonowners = _vec getVariable "d_pylon_owners";
+private _pylonowners = _vec getVariable ["d_pylon_owners", []];
+__TRACE_1("","_pylonowners")
+private _oldpylonowners =+ _pylonowners;
 for "_i" from 0 to (count _cfg - 1) do {
 	private _ctrl = d_pylondialog_ctrls select _i;
 	private _mag = _ctrl lbData (lbCurSel _ctrl);
@@ -32,7 +34,7 @@ for "_i" from 0 to (count _cfg - 1) do {
 			private _turtype = [[], [0]] select (_ctrl_drivgun getVariable "d_cursel_gundriv" == 1);
 			__TRACE_1("","_turtype")
 			_vec setPylonLoadOut [_cname, _mag, true, _turtype];
-			if (!isNil "_pylonowners") then {
+			if !(_pylonowners isEqualTo []) then {
 				_pylonowners set [_i, _turtype];
 			};
 		} else {
@@ -45,5 +47,9 @@ for "_i" from 0 to (count _cfg - 1) do {
 	};
 };
 __TRACE_1("3","weapons _vec")
+
+if !(_pylonowners isEqualTo _oldpylonowners) then {
+	_vec setVariable ["d_pylon_owners", _pylonowners, true];
+};
 
 _vec vehicleChat localize "STR_DOM_MISSIONSTRING_1861";
