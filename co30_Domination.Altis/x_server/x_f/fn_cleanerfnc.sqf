@@ -27,10 +27,16 @@ while {true} do {
 		_allmisobjs append _helperx;
 	};
 	sleep 8;
-	_helperx = nearestObjects [getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition"), ["Crater", "CraterLong", "CraterLong_small"], worldSize, true];
+	_helperx = allMissionObjects "Crater";
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
+	sleep 8;
+	_helperx = allMissionObjects "CraterLong";
+	if !(_helperx isEqualTo []) then {
+		_allmisobjs append _helperx;
+	};
+	sleep 8;
 	if !(_allmisobjs isEqualTo []) then {
 		{
 			private _ct = _x getVariable ["d_checktime", -1];
