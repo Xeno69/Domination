@@ -28,19 +28,17 @@ if (hasInterface) then {
 d_target_names = [];
 {
 	private _dtar = _x;
-	
-	private _ar = [];
-	_ar resize 4;
 	private _name = _dtar getVariable "d_cityname";
 	if (!isNil "_name") then {
 		private _pos = getPosWorld _dtar;
 		_pos set [2, 0];
-		_ar set [0, _pos]; // position CityCenter by logic
-		_ar set [1, _name]; // name village/city
-		_ar set [2, _dtar getVariable ["d_cityradius", 300]];
-		_ar set [3, _forEachIndex];
-		__TRACE_1("One target found","_ar")
-		d_target_names pushBack _ar;
+		//private _ar = [];
+		//_ar set [0, _pos]; // position CityCenter by logic
+		//_ar set [1, _name]; // name village/city
+		//_ar set [2, _dtar getVariable ["d_cityradius", 300]];
+		//_ar set [3, _forEachIndex];
+		//__TRACE_1("One target found","_ar")
+		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex];
 	} else {
 		private _nlocs = nearestLocations [getPosWorld _dtar, ["NameCityCapital", "NameCity", "NameVillage"], 500];
 		__TRACE_2("","_dtar","_nlocs")
@@ -50,17 +48,18 @@ d_target_names = [];
 			__TRACE_2("","_locposnl0","_nl")
 			private _pos = [_locposnl0, locationPosition (_nl # 0)] select !(_nl isEqualTo []);
 			_pos set [2, 0];
-			_ar set [0, _pos]; // position CityCenter
 			if (isServer) then {
 				_dtar setPos _pos;
 			};
 			_name = text (_nlocs # 0);
-			_ar set [1, _name]; // name village/city
-			_ar set [2, _dtar getVariable ["d_cityradius", 300]];
-			_ar set [3, _forEachIndex];
+			//private _ar = [];
+			//_ar set [0, _pos]; // position CityCenter
+			//_ar set [1, _name]; // name village/city
+			//_ar set [2, _dtar getVariable ["d_cityradius", 300]];
+			//_ar set [3, _forEachIndex];
 			_dtar setVariable ["d_cityname", _name];
-			__TRACE_1("One target found","_ar")
-			d_target_names pushBack _ar;
+			//__TRACE_1("One target found","_ar")
+			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex];
 		} else {
 			private _strx = format ["No city found near target location %1", str _dtar];
 			hint _strx;
