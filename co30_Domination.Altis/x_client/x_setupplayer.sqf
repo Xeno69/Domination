@@ -363,6 +363,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 #endif
 
 0 spawn {
+	scriptName "spawn_setupplayer1";
 	waitUntil {sleep 0.3;!d_still_in_intro};
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
@@ -578,6 +579,7 @@ if (d_ParaAtBase == 1) then {
 
 if (!d_with_ace) then {
 	0 spawn {
+		scriptName "spawn_setupplayer2";
 		// 0 = over head, 1 = cursor target
 		d_show_pname_hud = d_playernames_state > 0 && {d_show_playernames == 0};
 
@@ -693,6 +695,7 @@ if (d_WithRevive == 0) then {
 if (d_with_bis_dynamicgroups == 0) then {
 	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
 	0 spawn {
+		scriptName "spawn_setupplayer3";
 		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
 		(findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
 		(findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch" && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
@@ -725,6 +728,7 @@ _dsp46 displayAddEventHandler ["KeyDown", {
 	if ((_this select 1) in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
 		d_p_isju = true;
 		0 spawn {
+			scriptName "spawn_setupplayer4";
 			private _v = velocity player;
 			private _veloH = _v vectorAdd [0.6, 0.6, 0.1];
 			private _veloL = _v vectorAdd [0, 0, -1];
@@ -772,6 +776,7 @@ if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 } else {
 	if (d_database_found) then {
 		0 spawn {
+			scriptName "spawn_setupplayer5";
 			sleep 30;
 			if (score player > 500) then {
 				d_clientScriptsAr set [1, true];
@@ -898,7 +903,7 @@ player addEventhandler ["HandleRating", {
 }];
 
 d_pisadminp = false;
-addMissionEventhandler ["EachFrame", {call d_fnc_SCACheck}];
+["itemAdd", ["d_scacheck", {call d_fnc_SCACheck}, 10, "frames"]] call bis_fnc_loop;
 
 if (d_enablefatigue == 0) then {
 	player setFatigue 0;
@@ -911,6 +916,7 @@ if (d_enablesway == 0) then {
 
 player setVariable ["xr_isleader", false];
 0 spawn {
+	scriptName "spawn_setupplayer6";
 	sleep 10;
 	private _islead = leader (group player) == player;
 	player setVariable ["xr_isleader", _islead];
@@ -1058,6 +1064,7 @@ if (d_with_ai) then {
 #endif
 
 0 spawn {
+	scriptName "spawn_setupplayer7";
 	waitUntil {sleep 0.3;time > 0};
 	enableEnvironment [false, true];
 };

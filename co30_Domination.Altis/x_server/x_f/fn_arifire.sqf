@@ -200,6 +200,7 @@ for "_series" from 1 to _ari_salvos do {
 	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
 	
 	[_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
+		scriptName "spawn arifire";
 		params ["_eta_time", "_arti_operator", "_logic", "_logic1", "_topicside_arti", "_series", "_channel"];
 		sleep (_eta_time - 1);
 	

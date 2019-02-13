@@ -126,6 +126,7 @@ if !(d_maintargets_list isEqualTo []) then {
 		{
 			if (!isNull _x) then {
 				_x spawn {
+					scriptName "spawn target_clear1";
 					sleep (60 + random 60);
 					_this setDamage 0;
 					deleteVehicle _this;
@@ -134,6 +135,7 @@ if !(d_maintargets_list isEqualTo []) then {
 		} forEach d_mt_barracks_obj_ar;
 		if (!isNull d_mt_mobile_hq_obj) then {
 			d_mt_mobile_hq_obj spawn {
+				scriptName "spawn target_clear2";
 				sleep (60 + random 60);
 				_this setDamage 0;
 				deleteVehicle _this;

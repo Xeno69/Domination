@@ -60,6 +60,7 @@ if (_tt <= 0) exitWith {
 	__TRACE("_tt <= 0, black out")
 	"xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_932", "BLACK OUT", 1];
 	0 spawn {
+		scriptName "spawn xr uncon oneframe";
 		sleep 1;
 		closeDialog 0;
 		__TRACE("_tt stopspect = true")
@@ -78,6 +79,7 @@ if (_tt <= 0) exitWith {
 		player setVariable ["xr_pluncon", false, true];
 		if (xr_max_lives != -1) then {
 			0 spawn {
+				scriptName "spawn xr uncon oneframe2";
 				sleep 3;
 				hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 			};

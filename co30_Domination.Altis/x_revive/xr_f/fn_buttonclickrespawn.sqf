@@ -130,6 +130,7 @@ __TRACE("MapClickRespawn, black in")
 "xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_918", "BLACK IN", 6];
 if (xr_max_lives != -1) then {
 	0 spawn {
+		scriptName "spawn_buttonclickrespawn";
 		sleep 7;
 		if (xr_max_lives != -1) then {
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
@@ -139,6 +140,7 @@ if (xr_max_lives != -1) then {
 };
 
 0 spawn {
+	scriptName "spawn_buttonclickrespawn2";
 	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
 		player action ["NVGoggles",player];
 	};

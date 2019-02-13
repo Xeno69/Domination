@@ -13,6 +13,7 @@ d_searchbody setVariable ["d_search_id", [
 		/* 7 code executed per tick */		{},
 		/* 8 code executed on completion */	{
 			0 spawn {
+				scriptName "spawn_s_b_client";
 				remoteExecCall ["d_fnc_rem_sb_id", -2];
 				sleep 0.3;
 				d_searchbody = objNull; publicVariable "d_searchbody";

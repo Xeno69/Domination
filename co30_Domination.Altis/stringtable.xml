@@ -9099,6 +9099,15 @@
 <Original>Air taxi destination changed</Original>
 <Russian>Air taxi destination changed</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1938">
+<English>Pylon loadout enabled:</English>
+<Spanish>Pylon loadout enabled:</Spanish>
+<Portuguese>Pylon loadout enabled:</Portuguese>
+<Korean>Pylon loadout enabled:</Korean>
+<Japanese>Pylon loadout enabled:</Japanese>
+<Original>Pylon loadout enabled:</Original>
+<Russian>Pylon loadout enabled:</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

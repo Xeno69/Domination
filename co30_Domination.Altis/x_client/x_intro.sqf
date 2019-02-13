@@ -29,6 +29,7 @@ private _pspsxx = getPosASL player;
 private _arrow_over_head = "Sign_Arrow_Large_F" createVehicleLocal [0,0,0];
 _arrow_over_head setPosASL (_pspsxx vectorAdd [0, 0, 2.2]);
 _arrow_over_head spawn {
+	scriptName "spawn_intro";
 	private _dir = 0;
 	private _arr = _this;
 	while {!isNull _arr} do {
@@ -132,6 +133,7 @@ _camera camSetPos _p_tpos;
 _camera camCommit 18;
 
 0 spawn {
+	scriptName "spawn_intro2";
 	disableSerialization;
 	sleep 3;
 	private _control = (uiNamespace getVariable "d_DomLabel") displayCtrl 50;

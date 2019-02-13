@@ -37,6 +37,7 @@ player action ["UAVTerminalOpen"];
 //diag_log ["UAVControl", UAVControl _vecu];
 
 _vecu spawn {
+	scriptName "spawn_makuav";
 	params ["_uav"];
 	__TRACE_1("spawn","_uav")
 	private _exit_it = false;

@@ -43,6 +43,7 @@ if (!isNull objectParent player) exitWith {
 
 if (time > d_vec_end_time && {!isNull d_flag_vec}) then {
 	d_flag_vec spawn {
+		scriptName "spawn_bikey";
 		private _vec = _this;
 		while {alive _vec && {(crew _vec) findIf {alive _x} > -1}} do {
 			sleep 1;

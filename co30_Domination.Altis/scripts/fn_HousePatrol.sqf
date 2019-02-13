@@ -95,6 +95,7 @@ if (_behaviour in _behaviours) then {
 // Set unit stance
 if (_stance == "HIGH") then {
 	[_unit] spawn {
+		scriptName "spawn_housepatrol";
 		params ["_unit"];
 		while {alive _unit} do {
 			if (unitPos _unit == "DOWN") then {

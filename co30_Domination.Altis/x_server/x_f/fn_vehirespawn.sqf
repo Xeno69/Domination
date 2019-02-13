@@ -54,6 +54,8 @@ private _type = typeOf _vec;
 
 _vec setVariable ["d_vec_islocked", (_vec call d_fnc_isVecLocked)];
 
+private _nopylon = _vec getVariable "d_disable_pylonloadout";
+
 if (_fuelcheck) then {
 	_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck;}}];
 };
@@ -160,6 +162,7 @@ while {true} do {
 			};
 			_cposc set [2, _asl_height];
 			[_vec, _cposc] spawn {
+				scriptName "spawn vehirespawn";
 				params ["_vec", "_cposc"];
 				sleep 1;
 				_vec setPosASL _cposc;
@@ -171,6 +174,7 @@ while {true} do {
 			_vec setDamage 0;
 		} else {
 			[_vec] spawn {
+				scriptName "spawn vehirespawn2";
 				params ["_vec"];
 				sleep 2;
 				_vec allowDamage true;
@@ -183,6 +187,10 @@ while {true} do {
 		if !(_vicon isEqualTo []) then {
 			_vec setVariable ["d_vec", _vicon, true];
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
+		};
+		
+		if (!isNil "_nopylon") then {
+			_vec setVariable ["d_disable_pylonloadout", true, true];
 		};
 	};
 };

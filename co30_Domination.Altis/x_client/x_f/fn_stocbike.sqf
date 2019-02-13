@@ -25,6 +25,7 @@ if (player getVariable "d_bike_b_mode" == 1) then {
 	d_flag_vec = _vec;
 	d_flag_vec addEventHandler ["killed", {
 		(_this select 0) spawn {
+			scriptName "spawn_stocbike";
 			private _vec = _this;
 			sleep 10.123;
 			while {true} do {

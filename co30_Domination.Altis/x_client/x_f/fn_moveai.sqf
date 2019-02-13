@@ -24,6 +24,7 @@ if (units (group player) findIf {alive _x} > -1) then {
 			if !(_wps isEqualTo []) then {
 				(_wps # 0) setWPPos (getPos player);
 				_wps spawn {
+					scriptName "spawn_moveai";
 					sleep 0.3;
 					{
 						deleteWaypoint _x;

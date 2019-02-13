@@ -268,6 +268,7 @@ class cfgFunctions {
 			addc(weather_winter);
 			addc(HousePatrol);
 			addc(Zen_OccupyHouse);
+			addc(Zen_JBOY_UpDown);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";
@@ -292,6 +293,7 @@ class cfgFunctions {
 			addc(clearsidemission);
 			addc(addactionstd);
 			addc(smsurprise);
+			addc(sm_dist);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";
@@ -457,6 +459,9 @@ class cfgFunctions {
 			addc(createambient);
 			addc(dohousepatrol);
 			addc(deleteempty);
+			addc(nightfograin);
+			addc(changeskill);
+			addc(ai_loop);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

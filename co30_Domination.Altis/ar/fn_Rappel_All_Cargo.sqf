@@ -16,6 +16,7 @@ if ((driver _vehicle) call d_fnc_isplayer) exitWith {};
 
 if (local _vehicle) then {
 	_this spawn {
+		scriptName "spawn_AR_rappel_all_cargo";
 		params ["_vehicle", ["_rappelHeight", 25], ["_positionASL", []]];
 
 		_heliGroup = group driver _vehicle;

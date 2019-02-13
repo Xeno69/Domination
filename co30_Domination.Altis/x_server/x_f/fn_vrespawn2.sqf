@@ -66,6 +66,7 @@ while {true} do {
 				if (surfaceIsWater _cposc) then {
 					_cposc set [2, (getPosASL d_FLAG_BASE) # 2];
 					[_vec, _cposc] spawn {
+						scriptName "spawn vrespawn2";
 						params ["_vec", "_cposc"];
 						sleep 1;
 						_vec setPosASL _cposc;

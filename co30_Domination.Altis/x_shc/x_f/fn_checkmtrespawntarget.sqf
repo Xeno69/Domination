@@ -50,6 +50,7 @@ if (_type == 0) then {
 			_obj setVectorUp [0,0,1];
 		};
 		_obj spawn {
+			scriptName "spawn checkmtrespawntarget1";
 			sleep (10 + random 10);
 			_this setDamage 0;
 			deleteVehicle _this;
@@ -63,6 +64,7 @@ if (_type == 0) then {
 		};
 		[53] remoteExecCall ["d_fnc_DoKBMsg", 2];
 		(_this select 0) spawn {
+			scriptName "spawn checkmtrespawntarget2";
 			sleep (60 + random 60);
 			_this setDamage 0;
 			deleteVehicle _this;

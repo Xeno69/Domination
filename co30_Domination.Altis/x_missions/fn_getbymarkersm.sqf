@@ -219,6 +219,7 @@ switch (tolower (_sm_ar # 1)) do {
 if (call d_fnc_checkSHC && {tolower (_sm_ar # 1) != "convoy"}) then {
 	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
 		(_sm_ar # 3) spawn {
+			scriptName "spawn_getbymarkersmarmor";
 			__TRACE("Creating armor")
 			{
 				_x spawn d_fnc_CreateArmor;
@@ -228,7 +229,8 @@ if (call d_fnc_checkSHC && {tolower (_sm_ar # 1) != "convoy"}) then {
 	};
 	if ((_sm_ar # 4) isEqualType [] && {!((_sm_ar # 4) isEqualTo [])}) then {
 		(_sm_ar # 4) spawn {
-		__TRACE("Creating inf")
+			scriptName "spawn_getbymarkersminf";
+			__TRACE("Creating inf")
 			{
 				_x spawn d_fnc_CreateInf;
 				sleep 1.03;

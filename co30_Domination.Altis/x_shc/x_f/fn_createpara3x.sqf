@@ -104,6 +104,7 @@ private _make_jump = {
 			} else {
 				(0.12 + (random 0.04))
 			};
+			private _nightorfog = call d_fnc_nightfograin;
 			private _sleeptime = [0.551, 0.15] select (speed _vec > 300);
 			{
 				private _pposcx = getPosATL _vec;
@@ -129,6 +130,7 @@ private _make_jump = {
 				_one_unit setSkill ["aimingAccuracy", _subskill];
 				_one_unit setSkill ["spotTime", _subskill];
 				d_delinfsm  pushBack _one_unit;
+				[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 				sleep _sleeptime;
 				if (!alive _vec) exitWith {};
 			} forEach _real_units;

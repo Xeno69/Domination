@@ -560,6 +560,7 @@ if (_isserv_or_hc) then {
 			} else {
 				0 setFog [0, 0, 0];
 				0 spawn {
+					scriptName "spawn_preinitfog";
 					sleep 100;
 					0 setFog [0, 0, 0];
 				};
@@ -573,6 +574,7 @@ if (_isserv_or_hc) then {
 			0 setFog [0, 0, 0];
 			0 setOvercast 0;
 			0 spawn {
+				scriptName "spawn_preinitovercast";
 				while {true} do {
 					sleep 100;
 					0 setOvercast 0;

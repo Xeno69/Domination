@@ -40,6 +40,7 @@ if (isServer) then {
 	
 	// Wait for player to finish rappeling before freeing up anchor
 	[_player, _heli, _rappelPointIndex] spawn {
+		scriptName "spawn_AR_rappel_from_heli";
 		params ["_player", "_heli", "_rappelPointIndex"];
 		
 		while {true} do {

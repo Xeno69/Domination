@@ -13,6 +13,7 @@ if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	["Initialize", [player, d_own_sides_o, !isMultiplayer, true, true, true, true, true, true, true]] call BIS_fnc_EGSpectator;
 	d_rscspect_on = true;
 	0 spawn {
+		scriptName "spawn_playerspectate";
 		sleep 2;
 		d_spect_disp_handler = (["GetDisplay"] call BIS_fnc_EGSpectator) displayAddEventHandler ["KeyDown", {
 			if (_this select 1 == DIK_X) then {

@@ -30,6 +30,7 @@ private _gru = group _unit;
 __TRACE_1("","_gru")
 if (!isNil "_gru" && {!isNull _gru}) then {
 	_gru spawn {
+		scriptName "spawn handledisconnect";
 		sleep 2;
 		if (!isNil "_this" && {!isNull _this}) then {
 			remoteExecCall ["xr_fnc_changeleader", _this];
@@ -82,6 +83,7 @@ if !(_ar isEqualTo []) then {
 removeAllOwnedMines _unit;
 
 _unit spawn {
+	scriptName "spawn handledisconnect2";
 	params ["_unit"];
 	sleep 10;
 	if (isNull objectParent _unit) then {

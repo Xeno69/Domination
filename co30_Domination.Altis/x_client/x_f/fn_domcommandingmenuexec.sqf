@@ -62,6 +62,7 @@ switch (_this) do {
 	case 99: {
 		d_commandingMenuCode = {
 			0 spawn {
+				scriptName "spawn_transferscoredialog";
 				createDialog "d_TransferScoreDialog";
 			};
 			d_commandingMenuIniting = false;

@@ -27,6 +27,7 @@
 
 d_hintC_EH = findDisplay 57 displayAddEventHandler ["unload", {
 	0 = _this spawn {
+		scriptName "spawn_serverrules";
 		_this select 0 displayRemoveEventHandler ["unload", d_hintC_EH];
 		d_hintC_EH = nil;
 		hintSilent "";

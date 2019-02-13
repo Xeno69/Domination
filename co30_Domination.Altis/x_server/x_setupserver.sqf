@@ -63,6 +63,7 @@ _bpos set [2, 1.9];
 
 if (d_MissionType == 2) then {
 	0 spawn {
+		scriptName "spawn setupserver2";
 		while {true} do {
 			sleep 9;
 			if (d_all_sm_res) exitWith {
@@ -110,6 +111,7 @@ private _av_check_fnc = {
 		};
 	}];
 	_this spawn {
+		scriptName "spawn setupserver3";
 		sleep 2;
 		_this enableSimulationGlobal false;
 	};

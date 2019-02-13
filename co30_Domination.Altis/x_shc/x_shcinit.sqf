@@ -53,4 +53,6 @@ if !(d_with_isledefense isEqualTo []) then {execVM "x_shc\x_isledefense.sqf"};
 if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0}}) then {execFSM "fsms\fn_Infilrate.fsm"};
 #endif
 
+0 spawn d_fnc_ai_loop;
+
 __TRACE("x_shcinit done")

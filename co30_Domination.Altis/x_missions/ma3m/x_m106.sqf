@@ -16,7 +16,10 @@ if (call d_fnc_checkSHC) then {
 	_vehicle setDir markerDir "d_sm_106";
 	_vehicle setPos _poss;
 	_vehicle allowDamage false;
-	_vehicle spawn {sleep 10;_this allowDamage true};	
+	_vehicle spawn {
+		scriptName "spawn_sm106";
+		sleep 10;_this allowDamage true;
+	};
     addToRemainsCollector [_vehicle];
     _vehicle call d_fnc_equipVehicle;
     _vehicle remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];

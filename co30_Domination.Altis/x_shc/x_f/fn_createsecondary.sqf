@@ -53,6 +53,7 @@ _newgroup setVariable ["d_defend", true];
 [_newgroup, _poss] spawn d_fnc_taskDefend;
 if (d_with_dynsim == 0) then {
 	_newgroup spawn {
+		scriptName "spawn createsecondary1";
 		sleep 10;
 		_this enableDynamicSimulation true;
 	};
@@ -69,9 +70,9 @@ sleep 3.234;
 d_mt_spotted = false;
 d_create_new_paras = false;
 #ifndef __TT__
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;if (d_mt_respawngroups == 0) then {execFSM 'fsms\fn_RespawnGroups.fsm'};[12] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;if (d_mt_respawngroups == 0) then {execFSM 'fsms\fn_RespawnGroups.fsm'};[12] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #else
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;0 execFSM 'fsms\fn_Parahandler.fsm'};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
 sleep 3.234;
@@ -202,6 +203,7 @@ for "_i" from 1 to _nrcamps do {
 	[_newgroup, _poss] spawn d_fnc_taskDefend;
 	if (d_with_dynsim == 0) then {
 		_newgroup spawn {
+			scriptName "spawn createsecondary2";
 			sleep 10;
 			_this enableDynamicSimulation true;
 		};

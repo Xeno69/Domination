@@ -15,6 +15,7 @@ if (!surfaceIsWater (getPosASL _vec)) then {
 	_vec execFSM "fsms\fn_Wreckmarker.fsm";
 } else {
 	_vec spawn {
+		scriptName "spawn bonusvecfnc";
 		#define __radius 20
 		private _endpos = getPosWorld _this;
 		private _markerpos = markerPos "xr_center";

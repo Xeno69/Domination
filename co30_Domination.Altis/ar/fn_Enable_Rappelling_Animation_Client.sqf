@@ -101,6 +101,7 @@ if (local _player) then {
 
 if (!local _player) then {
 	[_player] spawn {
+		scriptName "spawn_ar_is_rappelling_2";
 		params ["_player"];
 		private ["_currentState"];
 		while {_player getVariable ["AR_Is_Rappelling", false]} do {

@@ -8,6 +8,7 @@ if (_this select 1 != xr_name_player && {_this select 0 != xr_name_player}) then
 };
 if (_this select 1 == xr_name_player) then {
 	_this spawn {
+		scriptName "spawn xr msg";
 		sleep 2.7;
 		systemChat (format [localize "STR_DOM_MISSIONSTRING_914", _this select 0]);
 	};

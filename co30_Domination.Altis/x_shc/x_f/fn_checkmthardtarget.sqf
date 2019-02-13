@@ -33,6 +33,7 @@ _vec addEventHandler ["killed", {
 	};
 #endif
 	(_this select 0) spawn {
+		scriptName "spawn checkmthardtarget";
 		sleep (60 + random 60);
 		_this setDamage 0;
 		deleteVehicle _this;

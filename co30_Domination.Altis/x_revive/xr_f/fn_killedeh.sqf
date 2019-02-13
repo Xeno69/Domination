@@ -39,6 +39,7 @@ if (player getVariable "xr_pluncon") then {
 __TRACE_1("","_do_black")
 if (_do_black) then {
 	0 spawn {
+		scriptName "spawn_xr_do_black";
 		private _etime = time + (player getVariable "xr_presptime") - 1.3;
 		__TRACE_1("spawn","_etime")
 		waitUntil {time >= _etime};

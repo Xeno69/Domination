@@ -26,6 +26,7 @@ if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 _pilot1 allowDamage false;
 _pilot1 spawn {
+	scriptName "spawn_sideevac1";
 	sleep 5;
 	_this allowDamage true;
 };
@@ -36,6 +37,7 @@ _pilot1 call d_fnc_removenvgoggles_fak;
 private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
 _pilot2 allowDamage false;
 _pilot2 spawn {
+	scriptName "spawn_sideevac2";
 	sleep 5;
 	_this allowDamage true;
 };

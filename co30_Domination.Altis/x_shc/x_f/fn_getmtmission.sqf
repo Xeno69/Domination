@@ -19,6 +19,7 @@ _newgroup setVariable ["d_defend", true]; \
 [_newgroup, _poss] spawn d_fnc_taskDefend; \
 if (d_with_dynsim == 0) then { \
 	_newgroup spawn { \
+		scriptName "spawn getmtmission"; \
 		sleep 10; \
 		_this enableDynamicSimulation true; \
 	}; \
