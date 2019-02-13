@@ -14,4 +14,11 @@ params ["_vec"];
 
 if (isNull _vec) exitWith {false};
 
-((missionNamespace getVariable ["AR_SUPPORTED_VEHICLES_OVERRIDE", AR_SUPPORTED_VEHICLES]) findIf {_vec isKindOf _x} > -1)
+private _issup = _vec getVariable "ar_canrap";
+
+if (isNil "_issup") then {
+	_issup = (missionNamespace getVariable ["AR_SUPPORTED_VEHICLES_OVERRIDE", AR_SUPPORTED_VEHICLES]) findIf {_vec isKindOf _x} > -1;
+	_vec setVariable ["ar_canrap", _issup];
+};
+
+_issup
