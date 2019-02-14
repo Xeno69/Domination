@@ -64,7 +64,7 @@ while {_helifirstpoint distance2D (leader _vgrp) > 300} do {
 		};
 	};
 	if (_stop_me) exitWith {};
-	sleep 2.123;
+	sleep 0.8;
 };
 
 if (_stop_me) exitWith {};

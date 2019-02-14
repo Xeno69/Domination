@@ -150,6 +150,7 @@ class cfgFunctions {
 			addc(repack_mags);
 			addc(rem_uav);
 			addc(uav_check);
+			addc(seatswitchedmanvs);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -406,6 +407,8 @@ class cfgFunctions {
 			addc(giveplayerscore);
 			addc(scheck_uav);
 			addc(airtaxi_dest);
+			addc(civilianmodule);
+			addc(civmodulekilleh);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

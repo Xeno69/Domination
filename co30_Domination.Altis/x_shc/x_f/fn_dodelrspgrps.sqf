@@ -22,3 +22,14 @@ if !(d_respawn_ai_groups isEqualTo []) then {
 		} forEach (d_respawn_ai_groups select {_x isEqualType []});
 	};
 };
+
+#ifndef __TT__
+if (d_enemy_occupy_bldgs == 1) then {
+	//garrisoned infantry cleanup
+	{
+		//diag_log [diag_frameno, diag_ticktime, time, format ["Deleting garrisoned infantry: %1", _x]];
+		deleteVehicle _x;
+	} forEach d_cur_tgt_garrisonedinfantry;
+	d_cur_tgt_garrisonedinfantry = [];
+};
+#endif

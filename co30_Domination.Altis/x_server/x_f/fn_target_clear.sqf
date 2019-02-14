@@ -174,49 +174,34 @@ d_campscaptured_e = 0;
 publicVariable "d_campscaptured_e";
 #endif
 
+#ifndef __TT__
+if (d_enable_civs == 1) then {
+	//cleanup civ modules presencesafespot
+	{
+		deleteVehicle _x;
+	} forEach d_cur_tgt_civ_modules_presencesafespot;
+	d_cur_tgt_civ_modules_presencesafespot = [];
 
-//civ cleanup
+	//cleanup civ modules presenceunit
+	{
+		deleteVehicle _x;
+	} forEach d_cur_tgt_civ_modules_presenceunit;
+	d_cur_tgt_civ_modules_presenceunit = [];
 
-//cleanup civ modules presencesafespot
-{
-	deleteVehicle _x;
-} forEach d_cur_tgt_civ_modules_presencesafespot;
-d_cur_tgt_civ_modules_presencesafespot = [];
-publicVariable "d_cur_tgt_civ_modules_presencesafespot";
+	//cleanup civ modules presence
+	{
+		deleteVehicle _x;
+	} forEach d_cur_tgt_civ_modules_presence;
+	d_cur_tgt_civ_modules_presence = [];
 
-//cleanup civ modules presenceunit
-{
-	deleteVehicle _x;
-} forEach d_cur_tgt_civ_modules_presenceunit;
-d_cur_tgt_civ_modules_presenceunit = [];
-publicVariable "d_cur_tgt_civ_modules_presenceunit";
-
-//cleanup civ modules presence
-{
-	deleteVehicle _x;
-} forEach d_cur_tgt_civ_modules_presence;
-d_cur_tgt_civ_modules_presence = [];
-publicVariable "d_cur_tgt_civ_modules_presence";
-
-//cleanup civ units
-{
-	diag_log [diag_frameno, diag_ticktime, time, format ["Deleting civ: %1", _x]];
-	deleteVehicle _x;
-} forEach d_cur_tgt_civ_units;
-d_cur_tgt_civ_units = [];
-publicVariable "d_cur_tgt_civ_units";
-
-
-
-//garrisoned infantry cleanup
-{
-	diag_log [diag_frameno, diag_ticktime, time, format ["Deleting garrisoned infantry: %1", _x]];
-	deleteVehicle _x;
-} forEach d_cur_tgt_garrisonedinfantry;
-d_cur_tgt_garrisonedinfantry = [];
-publicVariable "d_cur_tgt_garrisonedinfantry";
-
-
+	//cleanup civ units
+	{
+		//diag_log [diag_frameno, diag_ticktime, time, format ["Deleting civ: %1", _x]];
+		deleteVehicle _x;
+	} forEach d_cur_tgt_civ_units;
+	d_cur_tgt_civ_units = [];
+};
+#endif
 
 sleep 0.245;
 

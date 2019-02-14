@@ -770,6 +770,8 @@ player addEventhandler ["getOutMan", {
 	_this call d_fnc_getoutmaneh;
 }];
 
+player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedmanvs}];
+
 d_pisadminp = false;
 if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 	d_clientScriptsAr set [1, true];

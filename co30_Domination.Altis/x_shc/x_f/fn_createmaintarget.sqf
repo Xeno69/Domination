@@ -5,8 +5,6 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-private _civGroupCount = d_civ_groupcount;
-
 private _selectit = {
 	(ceil (random (((_this select 0) select (_this select 1)) # 1)))
 };
@@ -168,156 +166,9 @@ if (!isServer) then {
 };
 sleep 0.1;
 
-//create civilian module
-placeCivilianSpotsAndUnits = {
-
-	//_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
-	_ms1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms1 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms1;
-	__TRACE_1("_ms1");
-	
-	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms2 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms2;
-	__TRACE_1("_ms2");
-	
-	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms3 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms3;
-	__TRACE_1("_ms3");
-	
-	_ms4 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms4 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms4;
-	__TRACE_1("_ms4");
-	
-	_ms5 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms5 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms5;
-	__TRACE_1("_ms5");
-	
-	_ms6 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms6 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms6;
-	__TRACE_1("_ms6");
-	
-	_ms7 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	_ms7 call civModuleSetVars;
-	d_cur_tgt_civ_modules_presencesafespot pushBack _ms7;
-	__TRACE_1("_ms7");
-
-
-	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
-	__TRACE_1("_mu1");
-	
-	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-	d_cur_tgt_civ_modules_presenceunit pushBack _mu2;
-	__TRACE_1("_mu2");
-	
-};
-
-civModuleSetVars = {
-	_this setVariable ["#capacity",5];
-	_this setVariable ["#usebuilding",true];
-	_this setVariable ["#terminal",false];
-	//_m1 setVariable ["#type",5];
-};
-
 if (d_enable_civs == 1) then {
-	diag_log [diag_frameno, diag_ticktime, time, "placing civilians"];
-
-	for "_i" from 0 to _civGroupCount step 1 do {
-		diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop _i: %1", _i]];
-		_grp = createGroup civilian;
-		_target_name = d_target_names select d_current_target_index;
-		_marker_name = Format ["d_target_%1", d_current_target_index];
-		
-		__TRACE_1("_this");
-		__TRACE_1("d_current_target_index");
-		__TRACE_1("_target_name");
-		__TRACE_1("_marker_name");
-		
-		__TRACE_1("Placing a civilian module...");
-		_this call placeCivilianSpotsAndUnits;
-		
-		_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
-		
-		d_cur_tgt_civ_modules_presence pushBack _m;
-		
-		_m setVariable ["#debug",true]; // Debug mode on
-		 
-		_m setVariable ["#area",[_trg_center,1000,1000,0,true,-1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
-		_m setVariable ["#useagents",true];
-		_m setVariable ["#usepanicmode",false];
-		_m setVariable ["#unitcount",d_civ_unitcount];
-		//_m setVariable ["#onCreated", { hint "created a civilian!" }];
-		_m setVariable ["#onCreated", {
-			d_cur_tgt_civ_units pushBack _this;
-			_this addMPEventHandler ["MPKilled", 
-			{
-				params ["_cVictim", "_cKiller"];
-				
-				private "_punishMe";
-				
-				if (_cKiller call d_fnc_isplayer) then 
-				{
-					_punishMe = _cKiller;
-					diag_log [diag_frameno, diag_ticktime, time, format ["Player %1 killed a civilian.", _punishMe]];
-				} else {
-					private _cKillerName = str _cKiller;					
-					private _killerIsArty = _cKillerName find "artyvec";
-					if (_killerIsArty == -1) then {
-						//diag_log [diag_frameno, diag_ticktime, time, "Civilian was not killed by artillery."];					
-					} else {				
-						//civ was killed by artillery, find who fired		
-						private _whof = _cKiller getVariable "d_who_fired";
-						private _guiltyArtyUser = objectFromNetId _whof;
-						diag_log [diag_frameno, diag_ticktime, time, format ["_guiltyUser is: %1", name _guiltyArtyUser]];
-						diag_log [diag_frameno, diag_ticktime, time, format ["_whof is: %1", _whof]];
-						_punishMe = _guiltyArtyUser;
-						diag_log [diag_frameno, diag_ticktime, time, format ["Player %1 killed a civ.", _punishMe]];
-					};
-				};
-				
-				if (!isNil "_punishMe") then 
-				{
-					diag_log [diag_frameno, diag_ticktime, time, format ["_punishMe: %1", _punishMe]];
-					
-					private _topicside = d_kb_topic_side;
-					private _logic = d_kb_logic2;
-					private _logic1 = d_kb_logic1;
-					private _channel = d_kbtel_chan;
-					d_hq_logic_blufor1 kbTell [
-						_logic,
-						_topicside,
-						"PenaltyKilledCivilian",
-						["1", "", name _punishMe, []],
-						["2", "", str d_sub_kill_civ_points, []],
-						 _channel
-					];
-		
-					//subtract penalty for killing a civilian
-					if (isServer) then {
-						[_punishMe, d_sub_kill_civ_points * -1] remoteExecCall ["addScore", 2];
-						if ((call d_fnc_checkSHC) && d_punish_civ_kill == 1) then {
-							//check if killer is in a vehicle
-							//THIS IS BUGGY, if guilty user is in a vehicle the entire vehicle will explode :)
-							if (!(isNull objectParent _punishMe)) then {
-								//hint "ejecting";
-								_punishMe action ["Eject",vehicle _punishMe];
-							};
-							_punishMe setDamage 1;
-						};
-					};	
-				};
-			}];
-		}];
-		//_m setVariable ["#onDeleted", { hint "deleted a civilian!" }];
-	};
+	[_trg_center] remoteExecCall ["d_fnc_civilianmodule", 2];
 };
-//end create civilian module
 #endif
 
 #ifdef __DEBUG__
@@ -429,9 +280,13 @@ if (!d_no_more_observers) then {
 	sleep 1.214;
 };
 
+#ifndef __TT__
 //garrison begin
-if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
-	
+//if (d_enemy_occupy_bldgs == 1) then {
+	if (isNil "d_cur_tgt_garrisonedinfantry") then {
+		d_cur_tgt_garrisonedinfantry = [];
+	};
+
 	private _number_of_occupy_groups_to_spawn = 0;
 	
 	switch (d_enemy_occupy_bldgs_troop_level) do {
@@ -454,7 +309,7 @@ if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
 	
 	for "_xx" from 0 to _number_of_occupy_groups_to_spawn do {
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-		__TRACE("from createmaintarget garrison function");
+		__TRACE("from createmaintarget garrison function")
 		[_trg_center, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, false] spawn d_fnc_makemgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		sleep 1.0112;
@@ -469,20 +324,15 @@ if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
 			};
 		};
 		
-		{
-			d_cur_tgt_garrisonedinfantry pushBack _x;
-		} forEach (units _newgroup);
+		private _units_to_garrison = units _newgroup;
 		
-		private _units_to_garrison = [];
-		{
-			_units_to_garrison pushBack _x
-		} forEach (units _newgroup);
+		d_cur_tgt_garrisonedinfantry append _units_to_garrison;
 		
-		//__TRACE_1("_newgroup","_newgroup");
-		//__TRACE_1("_units_to_garrison","_units_to_garrison");
+		__TRACE_1("","_newgroup")
+		__TRACE_1("","_units_to_garrison")
 
 		//AI soldiers will be garrisoned in a building (window/roof)
-		__TRACE("Placing units in a building...");
+		__TRACE("Placing units in a building...")
 		//occupy a building using Zenophon script
 		_unitsNotGarrisoned = [
 			[[[_trg_center, 250]],[]] call BIS_fnc_randomPos,	// Params: 1. Array, the building(s) nearest this position is used
@@ -491,11 +341,12 @@ if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
 			false,										//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 			false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 			false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
-			false ] call d_fnc_Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-		__TRACE("_unitsNotGarrisoned");
+			false] call d_fnc_Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+		__TRACE_1("","_unitsNotGarrisoned")
 	};
-};
+//};
 //garrison end
+#endif
 
 [_wp_array_vecs, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
 

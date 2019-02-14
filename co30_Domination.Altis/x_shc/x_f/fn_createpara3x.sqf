@@ -80,14 +80,14 @@ private _make_jump = {
 			};
 		};
 		if (_stop_me) exitWith {};
-		sleep 2.023;
+		sleep 0.8;
 	};
 	if (_stop_me) exitWith {};
 	
-	sleep 0.534;
+	sleep 0.3;
 	
 	if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
-		_driver_vec doMove _flytopos;
+		_driver_vec doMove _heliendpoint;
 		_vec flyInHeight 80;
 		_vgrp setBehaviour "CARELESS";
 		if (!d_mt_radio_down && {_vec distance2D d_cur_tgt_pos < ([500, 700] select (speed _vec > 300))}) then {
