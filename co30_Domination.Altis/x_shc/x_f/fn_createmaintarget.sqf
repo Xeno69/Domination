@@ -436,19 +436,19 @@ if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
 	
 	switch (d_enemy_occupy_bldgs_troop_level) do {
 		case 0: {
-			_number_of_occupy_groups_to_spawn = 2;
-		};
-		case 1: {
 			_number_of_occupy_groups_to_spawn = 4;
 		};
-		case 2: {
-			_number_of_occupy_groups_to_spawn = 6;
-		};
-		case 3: {
+		case 1: {
 			_number_of_occupy_groups_to_spawn = 8;
 		};
-		case 4: {
+		case 2: {
 			_number_of_occupy_groups_to_spawn = 16;
+		};
+		case 3: {
+			_number_of_occupy_groups_to_spawn = 24;
+		};
+		case 4: {
+			_number_of_occupy_groups_to_spawn = 32;
 		};
 	};
 	
