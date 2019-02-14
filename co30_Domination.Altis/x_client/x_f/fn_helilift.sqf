@@ -180,6 +180,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
 					if ((getPosVisual _liftobj) # 2 > 5) then {
 						_liftobj spawn {
+							scriptName "spawn_helilift";
 							while {(getPosVisual _this) # 2 > 5} do {
 								_this setDamage ((damage _this) + 0.01);
 								sleep 0.1;

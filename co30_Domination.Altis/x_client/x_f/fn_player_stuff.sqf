@@ -24,6 +24,7 @@ if (!isNil {player getVariable "d_no_side_change"}) then {
 	private _rtime = time - (_this select 9);
 	[format [localize "STR_DOM_MISSIONSTRING_1871", d_name_pl, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
 	0 spawn {
+		scriptName "spawn_endmissionloser";
 		sleep 1.5;
 		endMission "LOSER";
 	};
@@ -39,6 +40,7 @@ private _lo = _this select 11;
 __TRACE_1("","_lo")
 if !(_lo # 0 isEqualTo []) then {
 	_lo spawn {
+		scriptName "spawn_player_stuff";
 		waitUntil {!isNil "d_player_side"};
 		if (_this # 1 == d_player_side) then {
 			player setUnitLoadout [_this # 0, false];

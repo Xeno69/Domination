@@ -10,6 +10,7 @@ private _box = _this select 1;
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	_box spawn {
+		scriptName "spawn_inventoryopened1";
 		if (!d_with_ranked) then {
 			if (!d_with_ace) then {
 				["Open", true] call bis_fnc_arsenal;
@@ -23,6 +24,7 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	true
 } else {
 	/*0 spawn {
+		scriptName "spawn_inventoryopened2";
 		private _disp = displayNull;
 		waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
 		

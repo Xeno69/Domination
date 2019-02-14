@@ -65,20 +65,6 @@ NonCommercial � You may not use the material for commercial purposes.<br/><br/
 NoDerivatives � If you remix, transform, or build upon the material, you may not distribute the modified material.<br/><br/><br/>
 No additional restrictions � You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 "]];
-player createDiaryRecord ["dLicense", ["License, additional", "
-The following is not allowed, read strictly forbidden!<br/><br/>
-Uploading Domination to Steam Workshop is not allowed (only by myself)!!!!!<br/><br/>
-You are not allowed to monetize videos recorded/streamed while playing Domination in any form!!!!<br/>
-(Non-commercial license, that's for you, youtube and twitch heroes. Make your own content if you want to make money and don't use other peoples work!!!)<br/><br/>
-Server owners are also not allowed to monetize their servers with perks or anything else when using/playing Domination!<br/>
-(Again, non-commercial license!)<br/><br/>
-Additionally you are not allowed to use any of the Dom scripts/dialogs/images/whatever outside of the mission!<br/>
-It is also strictly forbidden for server host companys to sell or rent servers with the mission!!<br/>
-(Non commercial license, not that hard to understand)<br/><br/>
-THIS MISSION IS Arma 3 only! Because no derivates are allowed it also means no port to any other game in the series is allowed!<br/><br/>
-You are free to edit the mission for your own server but you may not release the mission elsewhere (read the license!).<br/>
-Furthermore you may not use servside addons with code from the mission or from your modded version. All code has to be in the mission.pbo!
-"]];
 
 if (d_database_found && {getClientStateNumber < 10}) then {
 	if (!isNil "d_db_savegames" && {serverCommandAvailable "#shutdown" || {isServer}}) then {

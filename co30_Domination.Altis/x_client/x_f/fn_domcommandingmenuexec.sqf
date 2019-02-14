@@ -27,6 +27,7 @@ switch (_this) do {
 	case 18: {d_commandingMenuCode = {"Chemlight_blue" call d_fnc_attachchemlight}};
 	case 20: {d_commandingMenuCode = {call d_fnc_detachchemlight}};
 	case 30: {d_commandingMenuCode = {call d_fnc_airtaxi;d_commandingMenuIniting = false}};
+	case 31: {d_commandingMenuCode = {call d_fnc_changeairtaxidest;d_commandingMenuIniting = false}};
 	case 40: {
 		d_commandingMenuCode = {
 			if (d_earplugs_fitted) then {
@@ -61,6 +62,7 @@ switch (_this) do {
 	case 99: {
 		d_commandingMenuCode = {
 			0 spawn {
+				scriptName "spawn_transferscoredialog";
 				createDialog "d_TransferScoreDialog";
 			};
 			d_commandingMenuIniting = false;

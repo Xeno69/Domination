@@ -13,6 +13,7 @@ player allowDamage false;
 //player remoteExecCall ["hideObjectGlobal", 2];
 if (!hasInterface && {!isDedicated}) then {
 	0 spawn {
+		scriptName "spawn setuphc";
 		waitUntil {time > 0};
 		enableEnvironment [false, false];
 	};

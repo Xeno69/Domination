@@ -205,7 +205,10 @@ _plane addEventhandler ["fired", {
 private _enemy_units = [];
 
 //--- Approach
-private _fire = [] spawn {waitUntil {false}};
+private _fire = [] spawn {
+	scriptName "spawn_modulcas";
+	waitUntil {false}
+};
 private _fireNull = true;
 private _time = time;
 private _offset = [0, 20] select (_weaponTypes findIf {_x == "missilelauncher"} > -1);
@@ -245,6 +248,7 @@ waitUntil {
 		_fireNull = false;
 		terminate _fire;
 		_fire = [_plane,_weapons] spawn {
+			scriptName "spawn_modulcas2";
 			params ["_plane", "_weapons"];
 			private _planeDriver = driver _plane;
 			private _duration = 3;
@@ -284,6 +288,7 @@ if (canMove _plane) then {
 	deleteGroup _group;
 } else {
 	[_plane, _crew, _group] spawn {
+		scriptName "spawn_modulcas3";
 		params ["_plane", "_crew", "_group"];
 		sleep 30;
 		deleteVehicle _plane;

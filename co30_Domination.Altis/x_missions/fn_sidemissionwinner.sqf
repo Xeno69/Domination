@@ -28,6 +28,7 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 		if (_get_points) then {
 			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_713", d_ranked_a # 11];
 			0 spawn {
+				scriptName "spawn_sidemissionwinner";
 				sleep (0.5 + random 2);
 				[player, d_ranked_a # 11] remoteExecCall ["addScore", 2];
 			};

@@ -80,6 +80,7 @@ class cfgFunctions {
 			addc(target_clear_client);
 			addc(moveai);
 			addc(airtaxi);
+			addc(changeairtaxidest);
 			addc(makeuav);
 			addc(haschemlight);
 			addc(attachchemlight);
@@ -136,7 +137,6 @@ class cfgFunctions {
 			addc(arsenal_mod);
 			addc(checkdriver);
 			addc(checkenterer);
-			addc(warnplayer);
 			addc(engtrigfnc);
 			addc(engtrig1fnc);
 			addc(checkammo);
@@ -205,6 +205,8 @@ class cfgFunctions {
 			addc(inittransferscoredialog);
 			addc(tsdsliderposchanged);
 			addc(tranfserscoremsgdialog);
+			addc(initairtaxidialog);
+			addc(ataxselchanged);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -266,6 +268,7 @@ class cfgFunctions {
 			addc(weather_winter);
 			addc(HousePatrol);
 			addc(Zen_OccupyHouse);
+			addc(Zen_JBOY_UpDown);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";
@@ -290,6 +293,7 @@ class cfgFunctions {
 			addc(clearsidemission);
 			addc(addactionstd);
 			addc(smsurprise);
+			addc(sm_dist);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";
@@ -401,6 +405,7 @@ class cfgFunctions {
 			addc(add_hs);
 			addc(giveplayerscore);
 			addc(scheck_uav);
+			addc(airtaxi_dest);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
@@ -454,6 +459,9 @@ class cfgFunctions {
 			addc(createambient);
 			addc(dohousepatrol);
 			addc(deleteempty);
+			addc(nightfograin);
+			addc(changeskill);
+			addc(ai_loop);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

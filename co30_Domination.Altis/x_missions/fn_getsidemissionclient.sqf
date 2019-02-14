@@ -25,16 +25,7 @@ if (d_with_ranked || {d_database_found}) then {
 	d_sm_running = true;
 
 	if (d_cur_sm_idx != -1 && {d_x_sm_type != "convoy"}) then {
-		(d_x_sm_pos # 0) spawn {
-			private _posione = _this;
-			while {d_sm_running} do {
-				if (player distance2D _posione < (d_ranked_a # 12)) exitWith {
-					d_was_at_sm = true;
-					d_sm_running = false;
-				};
-				sleep 3.012 + random 3;
-			};
-		};
+		(d_x_sm_pos # 0) spawn d_fnc_sm_dist;
 	};
 };
 

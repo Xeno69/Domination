@@ -185,27 +185,18 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
                                     (_units select _unitIndex) forceSpeed 0;
                                 };
 
-                               //** JBOY_UpDown by JohnnyBoy //*/
-                                #define JBOY_UpDown \
-                                    if (!isServer)  exitWith {}; \
-                                    _dude = _this select 0; \
-                                    _stances = _this select 1; \
-                                    _dude removeAllEventHandlers "FiredNear"; \
-                                    while {alive _dude} do { \
-                                        if (unitPos _dude == _stances select 0) then { \
-                                            _dude setUnitPos (_stances select 1); \
-                                        } else { \
-                                            _dude setUnitPos (_stances select 0); \
-                                        }; \
-                                        sleep (1 + (random 7)); \
-                                    };
-
                                 if (_isRoof) then {
                                     (_units select _unitIndex) setUnitPos "MIDDLE";
-                                   (_units select _unitIndex) addEventHandler ["FiredNear",{[(_this select 0), ["DOWN","MIDDLE"]] spawn {JBOY_UpDown};}];
+									(_units select _unitIndex) addEventHandler ["FiredNear", {
+										scriptName "spawn_zoh_firednear1";
+										[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+									}];
                                 } else {
                                     (_units select _unitIndex) setUnitPos "UP";
-                                   (_units select _unitIndex) addEventHandler ["FiredNear",{[(_this select 0), ["UP","MIDDLE"]] spawn {JBOY_UpDown};}];
+									(_units select _unitIndex) addEventHandler ["FiredNear", {
+										scriptName "spawn_zoh_firednear2";
+										[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+									}];
                                 };
 
                                 I(_unitIndex)
@@ -225,6 +216,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 if (_doMove) then {
     0 = [_units, _unitIndex] spawn {
+		scriptName "spawn_zoh_occupyhouse";
 		params ["_units", "_unitIndex"];
 
         _usedUnits = [];

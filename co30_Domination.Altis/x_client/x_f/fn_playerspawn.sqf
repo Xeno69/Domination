@@ -141,6 +141,7 @@ if (_rtype == 0) then { // player died
 	player setBleedingRemaining 0;
 	
 	/*0 spawn {
+		scriptName "spawn_playerspawn_vu2";
 		sleep (1 + random 1);
 		private _np = player getVariable ["d_plname", ""];
 		if (_np isEqualTo "" || {_np isEqualTo "Error: No unit"}) then {
@@ -161,6 +162,7 @@ if (_rtype == 0) then { // player died
 	
 #ifndef __TT__
 	0 spawn {
+		scriptName "spawn_playerspawn_vu3";
 		sleep 1;
 		[player] remoteExecCall ["d_fnc_addceo", 2];
 	};

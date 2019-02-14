@@ -560,6 +560,7 @@ if (_isserv_or_hc) then {
 			} else {
 				0 setFog [0, 0, 0];
 				0 spawn {
+					scriptName "spawn_preinitfog";
 					sleep 100;
 					0 setFog [0, 0, 0];
 				};
@@ -573,6 +574,7 @@ if (_isserv_or_hc) then {
 			0 setFog [0, 0, 0];
 			0 setOvercast 0;
 			0 spawn {
+				scriptName "spawn_preinitovercast";
 				while {true} do {
 					sleep 100;
 					0 setOvercast 0;
@@ -837,23 +839,6 @@ if (!d_tt_tanoa) then {
 #endif
 #ifdef __RHS__
 	d_drop_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_C130J"] select d_rhs_blufor;
-#endif
-
-	d_taxi_aircraft =
-#ifdef __OWN_SIDE_INDEPENDENT__
-		"I_Heli_Transport_02_F";
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-		["CUP_B_MV22_USMC", "B_T_VTOL_01_infantry_F"] select (!d_cup);
-#endif
-#ifdef __OWN_SIDE_OPFOR__
-		"O_T_VTOL_02_infantry_dynamicLoadout_F";
-#endif
-#ifdef __TT__
-		"O_Heli_Light_02_unarmed_F";
-#endif
-#ifdef __RHS__
-	d_taxi_aircraft = ["RHS_Mi8mt_Cargo_vv", "RHS_UH60M2"] select d_rhs_blufor;
 #endif
 	
 	d_cas_plane = 
@@ -1359,6 +1344,24 @@ if (hasInterface) then {
 		case "EAST": {"O_supplyCrate_F"};//Box_East_WpsSpecial_F
 		case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
 	};
+	
+	// array now so players can select different air taxi types
+	d_taxi_aircrafts =
+#ifdef __OWN_SIDE_INDEPENDENT__
+		["I_Heli_Transport_02_F"];
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+		[["CUP_B_MV22_USMC"], ["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]] select (!d_cup);
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+		["O_T_VTOL_02_infantry_dynamicLoadout_F"];
+#endif
+#ifdef __TT__
+		["O_Heli_Light_02_unarmed_F"];
+#endif
+#ifdef __RHS__
+	d_taxi_aircrafts = [["RHS_Mi8mt_Cargo_vv"], ["RHS_UH60M2"]] select d_rhs_blufor;
+#endif
 	
 	// internal variables
 	d_flag_vec = objNull;

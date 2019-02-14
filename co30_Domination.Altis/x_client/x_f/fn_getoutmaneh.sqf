@@ -38,6 +38,7 @@ if (alive (_this # 2)) then {
 if (getPos player # 2 > 5) then {
 	d_player_in_air = true;
 	0 spawn {
+		scriptName "spawn_getoutmaneh";
 		while {alive player && {!(player getVariable ["xr_pluncon", false]) && {getPos player # 2 > 2 && {!(player getVariable ["ace_isunconscious", false])}}}} do {sleep 1};
 		d_player_in_air = false;
 #ifndef __TT__

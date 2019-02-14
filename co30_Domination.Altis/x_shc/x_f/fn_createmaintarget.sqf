@@ -463,6 +463,7 @@ if ((d_enemy_occupy_bldgs == 1) && (isServer)) then {
 		//[_newgroup, _poss] spawn d_fnc_taskDefend;
 		if (d_with_dynsim == 0) then {
 			_newgroup spawn {
+				scriptName "spawn createmaintarget1";
 				//sleep 1.5;
 				_this enableDynamicSimulation true;
 			};

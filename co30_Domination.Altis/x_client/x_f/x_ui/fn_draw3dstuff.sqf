@@ -10,6 +10,7 @@
 private _pos_cam = positionCameraToWorld [0,0,0];
 
 private ["_distp", "_cwt", "_col", "_ico"];
+private _d_3draw_ar = d_3draw_ar;
 {
 	_x params ["_obj"];
 	_distp = _pos_cam distance _obj;
@@ -21,36 +22,38 @@ private ["_distp", "_cwt", "_col", "_ico"];
 			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [d_d3d_locs4a, round (_cwt - time)], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		};
 	};
-} forEach d_3draw_ar;
+} forEach _d_3draw_ar;
 
+private _d_all_p_a_boxes = d_all_p_a_boxes;
 {
 	_x params ["_box"];
-	if (!isNull _box) then {
-		_distp = _pos_cam distance _box;
-		if (_distp < 80) then {
-			_col = _x # 1;
-			_col set [3, 1 - (_distp / 200)];
-			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
-		};
+	_distp = _pos_cam distance _box;
+	if (_distp < 80) then {
+		_col = _x # 1;
+		_col set [3, 1 - (_distp / 200)];
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach d_all_p_a_boxes;
+} forEach (_d_all_p_a_boxes select {!isNull (_x select 0)});
 
 if (d_with_ai) then {
+	private _d_allai_recruit_objs = d_allai_recruit_objs;
 	{
 		_distp = _pos_cam distance _x;
 		if (_distp < 150) then {
 			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [1,1,0,1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 3 + (_distp * 0.05)]), 1, 1, 0, d_d3d_locsaire, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		};
-	} forEach d_allai_recruit_objs;
+	} forEach _d_allai_recruit_objs;
 };
 
+private _d_mhq_3ddraw = d_mhq_3ddraw;
 {
 	_distp = _pos_cam distance _x;
 	if (_distp < 150) then {
 		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 5 + (_distp * 0.05)]), 1, 1, 0, format ["MHQ %1", _x getVariable "d_ma_text"], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach (d_mhq_3ddraw select {alive _x});
+} forEach (_d_mhq_3ddraw select {alive _x});
 
+private _d_currentcamps = d_currentcamps;
 {
 	_distp = _pos_cam distance _x;
 	if (_distp < 150) then {
@@ -66,4 +69,4 @@ if (d_with_ai) then {
 		
 		drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach d_currentcamps;
+} forEach _d_currentcamps;

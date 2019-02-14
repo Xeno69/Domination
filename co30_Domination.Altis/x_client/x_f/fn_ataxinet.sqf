@@ -14,6 +14,10 @@ private _strout = switch (_this) do {
 	case 5: {localize "STR_DOM_MISSIONSTRING_639"};
 	case 6: {localize "STR_DOM_MISSIONSTRING_640"};
 	case 7: {localize "STR_DOM_MISSIONSTRING_142"};
+	case 200: {
+		player setVariable ["d_can_change_taxi", player getVariable "d_can_change_taxix"];
+		player setVariable ["d_can_change_taxix", nil];
+	};
 	default {""};
 };
 if (_strout != "") then {
@@ -21,4 +25,5 @@ if (_strout != "") then {
 };
 if (d_heli_taxi_available) then {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1453");
+	player setVariable ["d_can_change_taxi", nil];
 };

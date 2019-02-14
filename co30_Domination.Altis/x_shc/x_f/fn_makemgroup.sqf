@@ -26,6 +26,8 @@ if (!_mchelper) then {
 	if !(_nnpos isEqualTo []) then {_pos = _nnpos};
 };
 
+private _nightorfog = call d_fnc_nightfograin;
+
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
 	//if (d_with_dynsim == 1) then {
@@ -47,6 +49,7 @@ if (!_mchelper) then {
 	_one_unit setSkill ["spotTime", _subskill];
 	_ret set [_forEachIndex, _one_unit];
 	_one_unit call d_fnc_removenvgoggles_fak;
+	[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 	
 #ifdef __GROUPDEBUG__
 	// does not subtract if a unit dies!

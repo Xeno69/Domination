@@ -43,6 +43,7 @@ _this spawn {
 		} else {
 			__TRACE("spawning go uncon")
 			[_d_pos # 0] spawn {
+				scriptName "xr respawn eh spawn2";
 				params ["_d_pos0"];
 				if (surfaceIsWater (getPosWorld player)) then {
 					__TRACE("watferfix check start")
@@ -73,6 +74,7 @@ player setVariable ["xr_is_dragging", false];
 player setVariable ["xr_dragged", false, true];
 
 0 spawn {
+	scriptName "xr respawn eh spawn3";
 	private _etime = time + 5;
 	waitUntil {bis_fnc_feedback_allowPP || {time > _etime}};
 	bis_fnc_feedback_allowPP = false;
@@ -93,6 +95,7 @@ if (d_enablesway == 0) then {
 player removeEventHandler ["handleDamage", _tmpeh];
 
 0 spawn {
+	scriptName "xr respawn eh spawn4";
 	sleep 1;
 	xr_name_player = player call d_fnc_getplayername;
 };

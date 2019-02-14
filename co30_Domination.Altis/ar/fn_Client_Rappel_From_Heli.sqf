@@ -84,6 +84,7 @@ if (local _player) then {
 		_player setVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT", (random 2) - 1];
 
 		[_player] spawn {
+			scriptName "spawn_ar_decend_pressed";
 			params ["_player"];
 			sleep 2;
 			_player setVariable ["AR_DECEND_PRESSED", true];
@@ -92,6 +93,7 @@ if (local _player) then {
 	
 	// Cause player to fall from rope if heli is moving too fast
 	_this spawn {
+		scriptName "spawn_ar_is_rappelling";
 		params ["_player","_heli"];	
 		while {_player getVariable ["AR_Is_Rappelling", false]} do {
 			if (speed _heli > 150) then {

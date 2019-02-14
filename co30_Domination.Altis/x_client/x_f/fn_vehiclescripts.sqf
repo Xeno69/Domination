@@ -30,7 +30,7 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 if (_do_exit) exitWith {};
 
 if (_vec isKindOf "Air") then {
-	if (!unitIsUAV _vec && {isClass (configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent")}) then {
+	if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {isClass (configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}) then {
 		_vec call d_fnc_addpylon_action;
 	};
 	if (_vec isKindOf "Helicopter") then {
@@ -86,6 +86,7 @@ if (_vec isKindOf "Air") then {
 							};
 						} forEach (units player);
 						0 spawn {
+							scriptName "spawn_vehiclescripts";
 							sleep 10;
 							d_ai_rappeling = false;
 						};

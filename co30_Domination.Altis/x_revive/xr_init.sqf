@@ -49,6 +49,7 @@ if (d_only_medics_canrevive != 0) then {
 {
 	if (alive _x && {_x getVariable ["xr_pluncon", false]}) then {
 		_x spawn {
+			scriptName "spawn xr init";
 			sleep 1;
 			if (alive _this && {_this getVariable ["xr_pluncon", false]}) then {
 				_this call xr_fnc_addActions;

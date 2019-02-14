@@ -278,6 +278,7 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 } else {
 	_vec setPosASL _endpos;
 	[_vec, _endpos] spawn {
+		scriptName "spawn getbonus1";
 		params ["_vec", "_cposc"];
 		sleep 1;
 		_vec setPosASL _cposc;
@@ -287,6 +288,7 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 _vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
 _vec spawn {
+	scriptName "spawn getbonus2";
 	sleep 10;
 	_this allowDamage true;
 };
@@ -379,6 +381,7 @@ _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 _vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
 _vec spawn {
+	scriptName "spawn getbonus3";
 	sleep 10;
 	_this allowDamage true;
 };
@@ -392,6 +395,7 @@ if (!isNull _vec2) then {
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec2 addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
 	_vec2 spawn {
+		scriptName "spawn getbonus4";
 		sleep 10;
 		_this allowDamage true;
 	};

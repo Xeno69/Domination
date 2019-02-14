@@ -93,6 +93,7 @@ while {true} do {
 				};
 				_cposc set [2, _asl_height];
 				[_vec, _cposc] spawn {
+					scriptName "spawn helirespawn2";
 					params ["_vec", "_cposc"];
 					sleep 1;
 					_vec setPosASL _cposc;

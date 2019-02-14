@@ -27,6 +27,7 @@
 
 			if (d_with_dynsim == 0) then {
 				_newgroup spawn {
+					scriptName "spawn_smsurprise";
 					sleep 15;
 					_this enableDynamicSimulation true;
 				};

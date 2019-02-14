@@ -78,6 +78,7 @@ _ppGrain ppEffectCommit 0;
 
 // Disable stuff after simulation starts
 0 spawn {
+	scriptName "spawn_stablishingshot";
 	waitUntil {time > 0};
 	showCinemaBorder false;
 	enableEnvironment [false ,false];

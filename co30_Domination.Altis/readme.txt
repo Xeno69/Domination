@@ -26,6 +26,13 @@ Changelogs
 - Fixed: When side missions only was selected a script error related to d_cur_tgt_pos was thrown
 - Fixed: New RscMapControl config properties introduced in 1.90 release candidate caused dialog error
 - Added: New parameter attempts to place the first enemy camp very near (10m) the center of the main target (by longtimegamer)
+- Added: Select air taxi type
+- Added: The player who called in an air taxi can now change it's destination after calling it in
+- Changed: You can now change pylon loadout for pilot and gunner individually in the pylon loadout dialog (like in 3DEN editor)
+- Fixed: Sabotage group choppers did not get deleted if they did not move (Arma problem, sometimes vehicles do not move even if they have a valid waypoint)
+- Added: AI inf unit spotdistance, spottime and aimingspeed changes at night or when there is fog or rain
+- Added: You can put this setVariable ["d_disable_pylonloadout", true] into the init field of an editor placed plane/chopper to disable pylon loadout for this air vehicle
+- Added: Pylon loadout can be disabled completely in the server lobby/params (d_pylon_lodout -> "Pylon loadout enabled:")
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling

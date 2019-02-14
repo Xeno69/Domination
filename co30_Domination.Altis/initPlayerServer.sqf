@@ -83,6 +83,7 @@ if (d_database_found) then {
 				__TRACE_1("","score _pl")
 				d_player_store setVariable [_uid + "_scores", [((_dbresult # 1) # 0) # 1, ((_dbresult # 1) # 0) # 2, ((_dbresult # 1) # 0) # 3, ((_dbresult # 1) # 0) # 4, ((_dbresult # 1) # 0) # 5, ((_dbresult # 1) # 0) # 0]];
 				[_pl, (_dbresult # 1) # 0] spawn {
+					scriptName "spawn_init_playerserver";
 					params ["_pl", "_ar"];
 					sleep 10;
 					private _plsar = getPlayerScores _pl;
@@ -118,6 +119,7 @@ if (d_database_found) then {
 };
 
 _pl spawn {
+	scriptName "spawn_init_playerserver2";
 	sleep 1;
 	[_this] call d_fnc_addceo;
 };

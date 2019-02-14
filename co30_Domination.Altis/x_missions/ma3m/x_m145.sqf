@@ -19,7 +19,10 @@ if (call d_fnc_checkSHC) then {
 	_cm allowDamage false;
 	_cm setDir (random 360);
 	_cm setPos _exact_pos;
-	_cm spawn {sleep 10; _this allowDamage true};
+	_cm spawn {
+		scriptName "spawn_sm145";
+		sleep 10; _this allowDamage true;
+	};
 	{_cm removeMagazineGlobal _x} forEach (magazines _cm);
     _cm call d_fnc_clearcargo;
 	_cm lock true;
@@ -29,7 +32,13 @@ if (call d_fnc_checkSHC) then {
     [format["uav_%1",_cm], _cm,"ICON","ColorBlack",[0.5,0.5],"uav",0,"mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif	
 	d_x_sm_vec_rem_ar pushBack _cm;
-	_cm addEventHandler ["killed", {_this call d_fnc_KilledSMTargetNormal;(_this select 0) spawn {sleep 2;deleteVehicle _this}}];
+	_cm addEventHandler ["killed", {
+		_this call d_fnc_KilledSMTargetNormal;
+		(_this select 0) spawn {
+			scriptName "spawn_sm145_2";
+			sleep 2; deleteVehicle _this;
+		}
+	}];
 	_cm addMPEventHandler ["MPKilled", {
 		if (isServer) then {
 			if ((_this select 1) call d_fnc_isplayer) then {(_this select 1) addScore 5};

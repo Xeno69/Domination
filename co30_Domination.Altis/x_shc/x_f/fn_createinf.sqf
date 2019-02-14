@@ -57,6 +57,7 @@ for "_nr" from 0 to 1 do {
 			};
 			if (d_with_dynsim == 0) then {
 				_newgroup spawn {
+					scriptName "spawn createinf";
 					sleep 15;
 					_this enableDynamicSimulation true;
 				};

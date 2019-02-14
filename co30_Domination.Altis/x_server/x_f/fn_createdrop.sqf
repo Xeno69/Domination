@@ -30,6 +30,7 @@ private _mname = "d_drop_zone_" + str _player;
 [_mname, _drop_pos, "ICON", "ColorBlue", [0.8,0.8], format [localize "STR_DOM_MISSIONSTRING_1648", _player call d_fnc_getplayername], 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 
 _mname spawn {
+	scriptName "spawn createdrop";
 	sleep 900;
 	deleteMarker _this;
 };

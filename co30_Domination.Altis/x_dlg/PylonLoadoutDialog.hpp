@@ -61,7 +61,7 @@ class D_PylonLoadoutDialog {
 			style = 2;
 			colorBackgroundActive[] = {1,1,1,0.1};
 			text = "$STR_DOM_MISSIONSTRING_1858"; 
-			action = "closeDialog 0; call d_fnc_pylonapply";
+			action = "call d_fnc_pylonapply;closeDialog 0";
 			x = 0.77; y = 0.87; w = 0.2;
 		};
 	};

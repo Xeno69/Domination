@@ -19,6 +19,7 @@ if (player distance _player < 15) then {
 	[_rappelDevice, "AR_Rappel_Loop"] call AR_fnc_Play_3D_Sound;
 };
 _this spawn {
+	scriptName "spawn_ar_play_rappeling_sound";
 	params ["_player", "_rappelDevice", "_rappelAncor"];
 	private ["_distanceFromAnchor"];
 	
@@ -35,6 +36,7 @@ _this spawn {
 	};
 };
 _this spawn {
+	scriptName "spawn_AR_Is_Rappelling_3";
 	params ["_player"];
 	while {_player getVariable ["AR_Is_Rappelling", false]} do {
 		sleep 0.1;

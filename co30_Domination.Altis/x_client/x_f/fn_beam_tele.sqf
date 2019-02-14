@@ -102,6 +102,7 @@ if (_typepos == 1) then {
 	};
 };
 [_wone, _typepos] spawn {
+	scriptName "spawn_beam_tele";
 	params ["_wone", "_typepos"];
 	sleep 2;
 	if (_wone == 0) then {

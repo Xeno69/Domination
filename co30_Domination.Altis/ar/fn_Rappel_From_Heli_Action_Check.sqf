@@ -10,11 +10,11 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-params ["_player","_vehicle"];
+params ["_player", "_vec"];
 
-if !([_vehicle] call AR_fnc_Is_Supported_Vehicle) exitWith {false};
-if (((getPos _vehicle) select 2) < 5) exitWith {false};
-if (((getPos _vehicle) select 2) > 150) exitWith {false};
-if (driver _vehicle == _player && {isEngineOn _vehicle}) exitWith {false};
-if (speed _vehicle > 100) exitWith {false};
+if !([_vec] call AR_fnc_Is_Supported_Vehicle) exitWith {false};
+private _h = (getPos _vec) select 2;
+if (_h < 5 || {_h > 150}) exitWith {false};
+if (isEngineOn _vec && {driver _vec == _player}) exitWith {false};
+if (speed _vec > 100) exitWith {false};
 true

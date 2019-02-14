@@ -37,4 +37,6 @@ xr_spectating = d_WithReviveSpectating == 0;
 
 call compile preprocessFileLineNumbers "x_revive\xr_main.sqf";
 
-execVM "x_revive\xr_init.sqf";
+if (!isDedicated) then {
+	execVM "x_revive\xr_init.sqf";
+};

@@ -7,6 +7,7 @@ __TRACE_1("","_this")
 
 if (hasInterface) then {
 	0 spawn {
+		scriptName "spawn_init_playerlocal";
 		sleep (1 + random 1);
 		private _np = player getVariable ["d_plname", ""];
 		if (_np == "" || {_np == "Error: No unit"}) then {

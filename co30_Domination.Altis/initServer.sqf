@@ -68,6 +68,7 @@ if (d_database_found && {d_db_auto_save}) then {
 
 if (isDedicated) then {
 	0 spawn {
+		scriptName "spawn_initserver";
 		waitUntil {time > 0};
 		enableEnvironment [false, false];
 	};

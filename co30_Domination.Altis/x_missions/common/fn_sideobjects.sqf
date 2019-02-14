@@ -40,7 +40,10 @@ private _vec = objNull;
 	};
 	_vec = createVehicle [_x, _poss, [], 0, "NONE"];
 	_vec allowDamage false;
-    _vec spawn {sleep 5; _this allowDamage true};
+    _vec spawn {
+		scriptName "spawn_sideobjects1";
+		sleep 5; _this allowDamage true;
+	};
 	_vec setDir _dir;
 	_vec setPos _poss;
 	if (_dovup) then {
@@ -59,7 +62,10 @@ private _vec = objNull;
 		_camonet allowDamage false;
 		_camonet setDir (direction _vec) + 180;
 		_camonet setPos (getPos _vec);
-		_camonet spawn {sleep 5; _this allowDamage true};
+		_camonet spawn {
+			scriptName "spawn_sideobjects2";
+			sleep 5; _this allowDamage true;
+		};
 		d_x_sm_vec_rem_ar pushBack _camonet;
 		_camonet addEventhandler ["killed", {deleteVehicle (param [0])}];
 	};
