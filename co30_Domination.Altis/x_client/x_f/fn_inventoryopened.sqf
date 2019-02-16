@@ -5,6 +5,17 @@
 
 if (!hasInterface) exitWith {};
 
+if (d_inventory_blocked) exitWith {
+	0 spawn {
+		scriptName "spawn_inventoryopened3";
+		private _endtime = time + 20;
+		waitUntil {!isNull (findDisplay 602) || {time > _endtime}};
+		if (time < _endtime && {!isNull (findDisplay 602)}) then {
+			(findDisplay 602) closeDisplay 1;
+		};
+	};
+};
+
 __TRACE_1("","_this")
 private _box = _this select 1;
 
@@ -23,7 +34,7 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	};
 	true
 } else {
-	/*0 spawn {
+	0 spawn {
 		scriptName "spawn_inventoryopened2";
 		private _disp = displayNull;
 		waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
@@ -40,14 +51,15 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 		
 		_ctrl ctrlSetPosition [_xpos, _ypos, _w, _h];
 		
-		_ctrl ctrlSetText "Repack Magazines";
+		_ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_1940");
 		
 		_ctrl ctrlAddEventHandler ["ButtonClick", {
-			hint "Starting to repack magazines...";
+			hintSilent (localize "STR_DOM_MISSIONSTRING_1941");
+			(findDisplay 602) closeDisplay 1;
 			0 spawn d_fnc_repack_mags;
 		}];
 		
 		_ctrl ctrlCommit 0;
-	};*/
+	};
 	false
 };

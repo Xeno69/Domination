@@ -381,13 +381,13 @@
 <Russian>Все настройки миссии вы можете увидеть прямо в игре нажав карту и выбрав закладку -ЖУРНАЛ-.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_58">
-<English>Mission ® 2018 by Xeno</English>
-<Spanish>Misión ® 2018 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
-<Portuguese>Mission ® 2018 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
-<Korean>Missons ® 2018 by Xeno</Korean>
-<Japanese>Mission ® 2018 by Xeno</Japanese>
-<Original>Mission ® 2018 by Xeno</Original>
-<Russian>Миссиия ® 2018 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
+<English>Mission ® 2007 - 2019 by Xeno</English>
+<Spanish>Misión ® 2007 - 2019 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
+<Portuguese>Mission ® 2007 - 2019 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
+<Korean>Missons ® 2007 - 2019 by Xeno</Korean>
+<Japanese>Mission ® 2007 - 2019 by Xeno</Japanese>
+<Original>Mission ® 2007 - 2019 by Xeno</Original>
+<Russian>Миссиия ® 2007 - 2019 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_61">
 <English>Have a lot of fun!</English>
@@ -9107,6 +9107,42 @@
 <Japanese>Pylon loadout enabled:</Japanese>
 <Original>Pylon loadout enabled:</Original>
 <Russian>Pylon loadout enabled:</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1939">
+<English>Repacking magazines</English>
+<Spanish>Repacking magazines</Spanish>
+<Portuguese>Repacking magazines</Portuguese>
+<Korean>Repacking magazines</Korean>
+<Japanese>Repacking magazines</Japanese>
+<Original>Repacking magazines</Original>
+<Russian>Repacking magazines</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1940">
+<English>Repack Magazines</English>
+<Spanish>Repack Magazines</Spanish>
+<Portuguese>Repack Magazines</Portuguese>
+<Korean>Repack Magazines</Korean>
+<Japanese>Repack Magazines</Japanese>
+<Original>Repack Magazines</Original>
+<Russian>Repack Magazines</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1941">
+<English>Starting to repack magazines...</English>
+<Spanish>Starting to repack magazines...</Spanish>
+<Portuguese>Starting to repack magazines...</Portuguese>
+<Korean>Starting to repack magazines...</Korean>
+<Japanese>Starting to repack magazines...</Japanese>
+<Original>Starting to repack magazines...</Original>
+<Russian>Starting to repack magazines...</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1942">
+<English>Magazines repacked...</English>
+<Spanish>Magazines repacked...</Spanish>
+<Portuguese>Magazines repacked...</Portuguese>
+<Korean>Magazines repacked...</Korean>
+<Japanese>Magazines repacked...</Japanese>
+<Original>Magazines repacked...</Original>
+<Russian>Magazines repacked...</Russian>
 </Key>
 </Container>
 </Package>

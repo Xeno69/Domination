@@ -916,6 +916,8 @@ if (d_enablesway == 0) then {
 	player setCustomAimCoef 0.1;
 };
 
+d_inventory_blocked = false;
+
 player setVariable ["xr_isleader", false];
 0 spawn {
 	scriptName "spawn_setupplayer6";

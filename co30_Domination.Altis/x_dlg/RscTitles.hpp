@@ -310,22 +310,63 @@ class d_ProgressBar {
 		class ProgressBarBackground: RscText2 {
 			style = 128;
 			idc = 3600;
-			x = 0.3;y = "((SafeZoneH + SafeZoneY) - (1 + 0.165))*-1";w = 0.4;h = 0.06;
+			x = 0.3;
+			y = "((SafeZoneH + SafeZoneY) - (1 + 0.165)) * -1";
+			w = 0.4;
+			h = 0.06;
 			colorBackground[] = {0,0,0,0.5};
 		};
 		class ProgressBar: RscText2 {
 			style = 128;
 			idc = 3800;
-			x = 0.31;y = "((SafeZoneH + SafeZoneY) - (1 + 0.175))*-1";w = 0.02;h = 0.04;
+			x = 0.31;
+			y = "((SafeZoneH + SafeZoneY) - (1 + 0.175)) * -1";
+			w = 0;
+			h = 0.04;
 			colorBackground[] = {0.543, 0.5742, 0.4102, 0.8};
 		};
 		class Progress_Label: RscText2 {
 			idc = 3900;
+			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1272";
-			x = 0.405;w = 0.2;y = "((SafeZoneH + SafeZoneY) - (1 + 0.1))*-1";
+			x = 0.31;
+			w = 0.38;
+			y = "((SafeZoneH + SafeZoneY) - (1 + 0.175)) * -1";
 			sizeEx = 0.035;
 			colorBackground[] = {1,1,1,0};
 			colorText[] = {1, 1, 1, 1};
+		};
+	};
+};
+class d_ProgressBar2 {
+	idd = -1;
+	movingEnable = 0;
+	objects[] = {};
+	duration = 1e+011;
+	name = "d_ProgressBar2";
+	onLoad = "uiNamespace setVariable ['d_ProgressBar2', _this select 0]; ((_this select 0) displayCtrl 3800) progressSetPosition 0";
+	onUnLoad = "uiNamespace setVariable ['d_ProgressBar2', nil]";
+	controlsBackground[] = {};
+	class controls {
+		class ProgressBar: RscText2 {
+			style = 128;
+			idc = 3800;
+			x = 0.3;
+			y = "SafeZoneH + SafeZoneY - 0.175";
+			w = 0;
+			h = 0.04;
+			colorBackground[] = {0.543, 0.5742, 0.4102, 0.8};
+		};
+		class Progress_Label: RscText2 {
+			idc = 3900;
+			style = 2;
+			text = "$STR_DOM_MISSIONSTRING_1939";
+			x = 0.3;
+			w = 0.4;
+			y = "SafeZoneH + SafeZoneY - 0.175";
+			sizeEx = 0.035;
+			colorBackground[] = {1,1,1,0};
+			colorText[] = {1, 1, 1, 0.8};
 		};
 	};
 };
