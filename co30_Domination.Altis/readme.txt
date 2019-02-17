@@ -34,6 +34,7 @@ Changelogs
 - Added: You can put this setVariable ["d_disable_pylonloadout", true] into the init field of an editor placed plane/chopper to disable pylon loadout for this air vehicle
 - Added: Pylon loadout can be disabled completely in the server lobby/params (d_pylon_lodout -> "Pylon loadout enabled:")
 - Added: Repack magazines (button available in inventory dialog)
+- Added: Lock player backpack
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling

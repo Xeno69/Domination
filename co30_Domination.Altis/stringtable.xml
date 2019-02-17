@@ -9144,6 +9144,33 @@
 <Original>Magazines repacked...</Original>
 <Russian>Magazines repacked...</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1943">
+<English>Lock Backpack</English>
+<Spanish>Lock Backpack</Spanish>
+<Portuguese>Lock Backpack</Portuguese>
+<Korean>Lock Backpack</Korean>
+<Japanese>Lock Backpack</Japanese>
+<Original>Lock Backpack</Original>
+<Russian>Lock Backpack</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1944">
+<English>Unlock Backpack</English>
+<Spanish>Unlock Backpack</Spanish>
+<Portuguese>Unlock Backpack</Portuguese>
+<Korean>Unlock Backpack</Korean>
+<Japanese>Unlock Backpack</Japanese>
+<Original>Unlock Backpack</Original>
+<Russian>Unlock Backpack</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1945">
+<English>Backpack locked</English>
+<Spanish>Backpack locked</Spanish>
+<Portuguese>Backpack locked</Portuguese>
+<Korean>Backpack locked</Korean>
+<Japanese>Backpack locked</Japanese>
+<Original>Backpack locked</Original>
+<Russian>Backpack locked</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -881,6 +881,7 @@ if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 };
 
 player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
+player addEventhandler["InventoryClosed", {d_inventory_open = nil}];
 
 if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalOpened", {
