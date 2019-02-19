@@ -70,3 +70,19 @@ private _d_currentcamps = d_currentcamps;
 		drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
 } forEach _d_currentcamps;
+
+if (d_showallnearusermarkers) then {
+	private "_pos";
+	private _toshow = d_allnearusermarkers # currentChannel;
+	{
+		if (getMarkerColor _x == "") exitWith {};
+		_pos = markerPos _x;
+		_pos set [2, 6];
+		_distp = _pos_cam distance _pos;
+		_m = 1 - (_distp / 1000);
+		_col = getArray (configfile>>"CfgMarkerColors">>(getMarkerColor _x)>>"color");
+		if (_col isEqualTo []) then {_col = [1, 1, 1, 1]};
+		_col set [3, _m];
+		drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.033 - (_distp / 15000), "RobotoCondensed"];
+	} forEach _toshow;
+};

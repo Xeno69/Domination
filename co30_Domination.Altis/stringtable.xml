@@ -2223,8 +2223,7 @@
 <Korean>Never</Korean>
 <Japanese>無い</Japanese>
 <Original>Never</Original>
-<Russian>
-</Russian>
+<Russian>Never</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
 <English>(Dead)</English>
@@ -9170,6 +9169,24 @@
 <Japanese>Backpack locked</Japanese>
 <Original>Backpack locked</Original>
 <Russian>Backpack locked</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1946">
+<English>3D user markers turned on!</English>
+<Spanish>3D user markers turned on!</Spanish>
+<Portuguese>3D user markers turned on!</Portuguese>
+<Korean>3D user markers turned on!</Korean>
+<Japanese>3D user markers turned on!</Japanese>
+<Original>3D user markers turned on!</Original>
+<Russian>3D user markers turned on!</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1947">
+<English>3D user markers turned off!</English>
+<Spanish>3D user markers turned off!</Spanish>
+<Portuguese>3D user markers turned off!</Portuguese>
+<Korean>3D user markers turned off!</Korean>
+<Japanese>3D user markers turned off!</Japanese>
+<Original>3D user markers turned off!</Original>
+<Russian>3D user markers turned off!</Russian>
 </Key>
 </Container>
 </Package>

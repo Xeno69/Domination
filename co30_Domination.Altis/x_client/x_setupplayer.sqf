@@ -309,27 +309,12 @@ if (d_MissionType != 2) then {
 if (d_all_sm_res) then {d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_522"} else {[false] spawn d_fnc_getsidemissionclient};
 
 #ifndef __TT__
-player addEventHandler ["Killed", {
-	_this remoteExecCall ["d_fnc_plcheckkill", 2];
-	[0] call d_fnc_playerspawn;
-	d_player_in_vec = false;
-	uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
-}];
+player addEventHandler ["Killed", {_this call d_fnc_pkilledeh}];
 #else
 if (d_player_side == blufor) then {
-	player addEventHandler ["Killed", {
-		_this remoteExecCall ["d_fnc_plcheckkillblufor", 2];
-		[0] call d_fnc_playerspawn;
-		d_player_in_vec = false;
-		uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
-	}];
+	player addEventHandler ["Killed", {[_this, 0] call d_fnc_pkilledeh}];
 } else {
-	player addEventHandler ["Killed", {
-		_this remoteExecCall ["d_fnc_plcheckkillopfor", 2];
-		[0] call d_fnc_playerspawn;
-		d_player_in_vec = false;
-		uiNamespace setVariable ["BIS_fnc_guiMessage_status", false];
-	}];
+	player addEventHandler ["Killed", {[_this, 1] call d_fnc_pkilledeh}];
 };
 #endif
 player addEventHandler ["respawn", {_this call d_fnc_prespawned}];
@@ -697,78 +682,29 @@ if (d_with_bis_dynamicgroups == 0) then {
 	0 spawn {
 		scriptName "spawn_setupplayer3";
 		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
-		(findDisplay 46) displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
-		(findDisplay 46) displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch" && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+		(findDisplay 46) displayAddEventHandler ["KeyDown", {_this call d_fnc_keydown_dyng}];
+		(findDisplay 46) displayAddEventHandler ["KeyUp", {_this call d_fnc_keyup_dyng}];
 	};
 } else {
-	_dsp46 displayAddEventHandler ["KeyDown", {if ((_this select 1) in actionKeys "TeamSwitch" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {[0, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
-	_dsp46 displayAddEventHandler ["KeyUp", {if ((_this select 1) in actionKeys "TeamSwitch" && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}) then {[1, _this] call d_fnc_KeyDownCommandingMenu; true} else {false}}];
+	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_keydown_dyng}];
+	_dsp46 displayAddEventHandler ["KeyUp", {_this call d_fnc_keyup_dyng}];
 };
 
-_dsp46 displayAddEventHandler ["KeyDown", {
-	if ((_this select 1) in actionKeys "User15" && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this select 2) && {!(_this select 3) && {!(_this select 4)}}}}}}) then {
-		if (d_earplugs_fitted) then {
-			d_earplugs_fitted = false;
-			2 fadeSound 1;
-			"d_earplugs" cutText ["<t color='#FF3333' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1870" + "</t>", "PLAIN DOWN", -1, true, true];
-		} else {
-			d_earplugs_fitted = true;
-			2 fadeSound 0.2;
-			"d_earplugs" cutText ["<t color='#339933' size='2'font='PuristaBold'>" + localize "STR_DOM_MISSIONSTRING_1869" + "</t>", "PLAIN DOWN", -1, true, true];
-		};
-		true
-	} else {
-		false
-	}
-}];
+_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_earplugs}];
+if (!d_with_ace) then {
+	// Press User Key 16 toggle 3D user markers
+	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_toggle3dm}];
+} else {
+	d_showallnearusermarkers = false;
+};
 
 // by R34P3R
 d_p_isju = false;
-_dsp46 displayAddEventHandler ["KeyDown", {
-	if ((_this select 1) in actionKeys "GetOver" &&  {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
-		d_p_isju = true;
-		0 spawn {
-			scriptName "spawn_setupplayer4";
-			private _v = velocity player;
-			private _veloH = _v vectorAdd [0.6, 0.6, 0.1];
-			private _veloL = _v vectorAdd [0, 0, -1];
-			private _maxHight = (getPosATL player # 2) + 1.3;
-			
-			[player, "AovrPercMrunSrasWrflDf"] remoteExecCall ["switchMove"];
-			sleep 0.05;
-			while {animationState player == "AovrPercMrunSrasWrflDf"} do {
-				if (getPosATL player # 2 > _maxHight) then {
-					player setVelocity _veloL;
-				} else {
-					player setVelocity _veloH;
-				};
-				sleep 0.05;
-			};
-			sleep 1;
-			d_p_isju = false;
-		};
-		true
-	} else {
-		false
-	};
-}];
+_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
 
 d_vec_role_pl = [];
-player addEventhandler ["getInMan", {
-	d_player_in_base = false;
-	d_vec_role_pl = assignedVehicleRole player;
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
-		d_player_in_vec = true;
-		_this call d_fnc_vehicleScripts;
-	} else {
-		d_player_in_vec = false;
-	};
-}];
-player addEventhandler ["getOutMan", {
-	d_player_in_vec = false;
-	d_vec_role_pl = [];
-	_this call d_fnc_getoutmaneh;
-}];
+player addEventhandler ["getInMan", {_this call d_fnc_getinmaneh}];
+player addEventhandler ["getOutMan", {_this call d_fnc_getoutmaneh}];
 
 player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedmanvs}];
 
@@ -1025,18 +961,7 @@ missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 0 spawn d_fnc_allplayers;
 
 if (d_with_ace) then {
-	addMissionEventHandler ["Draw3D", {
-		if (alive player && {!(player getVariable ["ace_isunconscious", false])}) then {
-			private _cam2world = positionCameraToWorld [0,0,0];
-			private ["_dist"];
-			{
-				_dist = _cam2world distance _x;
-				if (_dist < 400) then {
-					drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.05)], 1, 1, 0, "(Uncon) " + (_x call d_fnc_getplayername), 1, 0.032 - (_dist / 9000), "RobotoCondensed"];
-				};
-			} forEach (d_allplayers select {_x getVariable ["ace_isunconscious", false]});
-		};
-	}];
+	addMissionEventHandler ["Draw3D", {_this call d_fnc_draw3d_ace}];
 };
 
 #ifndef __TT__
@@ -1050,18 +975,7 @@ d_last_placed_zeus_obj = objNull;
 
 if (d_with_ai) then {
 	d_hchelperhandle = scriptNull;
-	addMissionEventHandler ["CommandModeChanged", {
-		params ["_isHighCommand"];
-		if (_isHighCommand) then {
-			if (isNull d_hchelperrunning) then {
-				d_hchelperhandle = 0 spawn d_fnc_hchelper;
-			};
-		} else {
-			if (!isNull d_hchelperhandle) then {
-				terminate d_hchelperhandle;
-			};
-		};
-	}];
+	addMissionEventHandler ["CommandModeChanged", {_this call d_fnc_cmchanged}];
 };
 
 #ifndef __IFA3LITE__

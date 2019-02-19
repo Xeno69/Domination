@@ -144,6 +144,7 @@ class cfgFunctions {
 			addc(hchelper);
 			addc(cdoquake);
 			addc(getoutmaneh);
+			addc(getinmaneh);
 			addc(addpylon_action);
 			addc(serverrules);
 			addc(playsound);
@@ -151,6 +152,17 @@ class cfgFunctions {
 			addc(rem_uav);
 			addc(uav_check);
 			addc(seatswitchedmanvs);
+			addc(pkilledeh);
+			addc(earplugs);
+			addc(jumpover);
+			addc(draw3d_ace);
+			addc(cmchanged);
+			addc(toggle3dm);
+			addc(keydown_dyng);
+			addc(keyup_dyng);
+			addc(ropekeyb);
+			addc(handledamageai);
+			addc(getinmanai);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -409,6 +421,9 @@ class cfgFunctions {
 			addc(airtaxi_dest);
 			addc(civilianmodule);
 			addc(civmodulekilleh);
+			addc(sgetinvec);
+			addc(sgetoutvec);
+			addc(casfired);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

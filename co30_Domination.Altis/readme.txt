@@ -1,5 +1,3 @@
-!!!!!!!!!BESIDE THE NORMAL license.txt FILE READ ALSO THE license_additional.txt FILE!!!!!!!!!!!!
-
 While some things may basically be and look the same, all scripts were touched and a lot of code has changed.
 Also all code regarding custom made third party content was removed (for example ACRE).
 
@@ -34,7 +32,9 @@ Changelogs
 - Added: You can put this setVariable ["d_disable_pylonloadout", true] into the init field of an editor placed plane/chopper to disable pylon loadout for this air vehicle
 - Added: Pylon loadout can be disabled completely in the server lobby/params (d_pylon_lodout -> "Pylon loadout enabled:")
 - Added: Repack magazines (button available in inventory dialog)
-- Added: Lock player backpack
+- Added: Lock player backpack for other players
+- Added: User markers now visible in 3D world (can be toggled on and off with User Key 16, please make sure to set the key up in A3 control settings; not available in ace)
+- More optimizations
 
 3.99k
 - Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling

@@ -3,9 +3,7 @@
 #define THIS_FILE "fn_inventoryopened.sqf"
 #include "..\..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
-if (d_inventory_blocked) exitWith {
+if (!hasInterface || {d_inventory_blocked}) exitWith {
 	true
 };
 

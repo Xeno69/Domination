@@ -37,7 +37,7 @@ if (_vec isKindOf "Air") then {
 		0 spawn d_fnc_chop_hudsp;
 		// currently the only way to disable slingload assistant and rope action for sling loadling.
 		// sadly yet another Arma bug is not fixed, therefore inputAction is also needed... http://feedback.arma3.com/view.php?id=20845
-		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {((_this select 1) in actionKeys "HeliRopeAction" || {(_this select 1) in actionKeys "HeliSlingLoadManager" || {inputAction "HeliRopeAction" > 0 || {inputAction "HeliSlingLoadManager" > 0}}})}];
+		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {_this call d_fnc_ropekeyb}];
 	};
 	if (d_pilots_only == 0 && {!(call d_fnc_isPilotCheck) && {_this select 1 == "driver"}}) then {
 		player action ["getOut", _vec];

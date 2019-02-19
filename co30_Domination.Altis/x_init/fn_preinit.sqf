@@ -1211,6 +1211,8 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = "";
 	
 	d_allplayers = [];
+	d_showallnearusermarkers = true;
+	d_allnearusermarkers = [];
 
 	// ammobox handling (default, loading and dropping boxes) it means the time diff in seconds before a box can be loaded or dropped again in a vehicle
 	d_drop_ammobox_time = 10;

@@ -402,32 +402,9 @@ if (!isNull _vec2) then {
 };
 #endif
 
-_vec addEventHandler ["getIn", {
-	private _ma = (_this select 0) getVariable "d_abandoned_ma";
-	if (!isNil "_ma") then {
-		deleteMarker _ma;
-		(_this select 0) setVariable ["d_abandoned_ma", nil];
-	};
-}];
+_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
-_vec addEventHandler ["getOut", {
-	params ["_vec"];
-#ifndef __TT__
-	if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vec distance2D d_FLAG_BASE > 800}}) then {
-#else
-	private _vside = _vec getVariable "D_VEC_SIDE";
-	if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vside == 2 && {_vec distance2D d_WFLAG_BASE > 800} || {_vside == 1 && {_vec distance2D d_EFLAG_BASE > 800}}}}) then {
-#endif
-		_vec setVariable ["d_abandoned_ma", [format ["%1_ab%2", _vec, time], _vec, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_1566", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal];
-#ifdef __TT__
-		if (_vside == 1) then {
-			(_vec getVariable "d_abandoned_ma") remoteExecCall ["deleteMarkerLocal", west];
-		} else {
-			(_vec getVariable "d_abandoned_ma") remoteExecCall ["deleteMarkerLocal", east];
-		};
-#endif
-	};
-}];
+_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 
 if (_vec isKindOf "Air") then {
 	_vec enableCopilot false;
@@ -435,28 +412,9 @@ if (_vec isKindOf "Air") then {
 
 #ifdef __TT__
 if (!isNull _vec2) then {
-	_vec2 addEventHandler ["getIn", {
-		private _ma = (_this select 0) getVariable "d_abandoned_ma";
-		if (!isNil "_ma") then {
-			deleteMarker _ma;
-			(_this select 0) setVariable ["d_abandoned_ma", nil];
-		};
-	}];
+	_vec2 addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
-	_vec2 addEventHandler ["getOut", {
-		params ["_vec"];
-		private _vside = _vec getVariable "D_VEC_SIDE";
-		if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vside == 2 && {_vec distance2D d_WFLAG_BASE > 800} || {_vside == 1 } && {_vec distance2D d_EFLAG_BASE > 800}}}) then {
-			private _mname = format ["%1_ab%2", _vec, time];
-			[_mname, _vec, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_1566", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
-			_vec setVariable ["d_abandoned_ma", _mname];
-			if (_vside == 1) then {
-				_mname remoteExecCall ["deleteMarkerLocal", west];
-			} else {
-				_mname remoteExecCall ["deleteMarkerLocal", east];
-			};
-		};
-	}];
+	_vec2 addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 };
 if (_vec2 isKindOf "Air") then {
 	_vec2 enableCopilot false;

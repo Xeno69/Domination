@@ -3,6 +3,9 @@
 #define THIS_FILE "fn_getoutmaneh.sqf"
 #include "..\..\x_setup.sqf"
 
+d_player_in_vec = false;
+d_vec_role_pl = [];
+
 if (!isNil "d_heli_kh_ro") then {
 	(findDisplay 46) displayRemoveEventHandler ["KeyDown", d_heli_kh_ro];
 	d_heli_kh_ro = nil;

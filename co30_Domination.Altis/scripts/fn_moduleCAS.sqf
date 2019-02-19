@@ -191,16 +191,7 @@ private _currentWeapons = weapons _plane;
 } forEach _currentWeapons;
 
 _plane setVariable ["d_who_fired", _caller];
-_plane addEventhandler ["fired", {
-	params ["_vec"];
-	private _whof = _vec getVariable "d_who_fired";
-	if (!isNil "_whof") then {
-		private _aop = missionNamespace getVariable _whof;
-		if (!isNil "_aop" && {!isNull _aop}) then {
-			_this # 6 setShotParents [_vec, _aop];
-		};
-	};
-}];
+_plane addEventhandler ["fired", {_this call d_fnc_casfired}];
 
 private _enemy_units = [];
 
