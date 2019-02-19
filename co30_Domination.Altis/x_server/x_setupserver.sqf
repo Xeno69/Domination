@@ -100,16 +100,7 @@ private _av_check_fnc = {
 	};
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
-	_this addEventhandler ["fired", {
-		params ["_vec"];
-		private _whof = _vec getVariable "d_who_fired";
-		if (!isNil "_whof") then {
-			private _aop = missionNamespace getVariable _whof;
-			if (!isNil "_aop" && {!isNull _aop}) then {
-				_this # 6 setShotParents [_vec, _aop];
-			};
-		};
-	}];
+	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
 	_this spawn {
 		scriptName "spawn setupserver3";
 		sleep 2;

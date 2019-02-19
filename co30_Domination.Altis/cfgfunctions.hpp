@@ -307,6 +307,10 @@ class cfgFunctions {
 			addc(addactionstd);
 			addc(smsurprise);
 			addc(sm_dist);
+			addc(smkilledeh);
+			addc(smhiteh);
+			addc(smhandledeh);
+			addc(smhiteh2);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";
@@ -480,6 +484,9 @@ class cfgFunctions {
 			addc(nightfograin);
 			addc(changeskill);
 			addc(ai_loop);
+			addc(mtrestkilled0);
+			addc(mtrestkilled1);
+			addc(mthardtargetkilled);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";
@@ -539,6 +546,8 @@ class cfgFunctions {
 			addc(changeleader);
 			addc(spectdlginit);
 			addc(selleader);
+			addc(draw3d);
+			addc(spectkeyeh);
 		};
 	};
 	class Dom_AR {

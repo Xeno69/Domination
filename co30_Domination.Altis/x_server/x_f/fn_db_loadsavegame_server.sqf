@@ -74,20 +74,9 @@ d_bonus_vecs_db = _ar # 9;
 
 	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0; _this call d_fnc_bonusvecfnc}}];
 	
-	_vec addEventHandler ["getIn", {
-		private _ma = (_this select 0) getVariable "d_abandoned_ma";
-		if (!isNil "_ma") then {
-			deleteMarker _ma;
-			(_this select 0) setVariable ["d_abandoned_ma", nil];
-		};
-	}];
+	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
-	_vec addEventHandler ["getOut", {
-		params ["_vec"];
-		if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vec distance2D d_FLAG_BASE > 800}}) then {
-			_vec setVariable ["d_abandoned_ma", [format ["%1_ab%2", _vec, time], _vec, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_1566", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal];
-		};
-	}];
+	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 	d_bonus_vecs_db set [_forEachIndex, _vec];
 } forEach d_bonus_vecs_db;
 #else
@@ -137,26 +126,10 @@ _fnc_tt_bonusvec = {
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
-	_vec addEventHandler ["getIn", {
-		private _ma = (_this select 0) getVariable "d_abandoned_ma";
-		if (!isNil "_ma") then {
-			deleteMarker _ma;
-			(_this select 0) setVariable ["d_abandoned_ma", nil];
-		};
-	}];
+	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
-	_vec addEventHandler ["getOut", {
-		params ["_vec"];
-		private _vside = _vec getVariable "D_VEC_SIDE";
-		if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vside == 2 && {_vec distance2D d_WFLAG_BASE > 800} || {_vside == 1 && {_vec distance2D d_EFLAG_BASE > 800}}}}) then {
-			_vec setVariable ["d_abandoned_ma", [format ["%1_ab%2", _vec, time], _vec, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_1566", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal];
-			if (_vside == 1) then {
-				(_vec getVariable "d_abandoned_ma") remoteExecCall ["deleteMarkerLocal", west];
-			} else {
-				(_vec getVariable "d_abandoned_ma") remoteExecCall ["deleteMarkerLocal", east];
-			};
-		};
-	}];
+	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	
 	_vec
 };
 
