@@ -19,7 +19,7 @@ while {true} do {
 		{
 			private _objp = objectParent _x;
 			if (isNull _objp || {driver _objp != _x && {gunner _objp != _x}}) then {
-				[_one_unit, _new_state] call d_fnc_changeskill;
+				[_x, _new_state] call d_fnc_changeskill;
 			};
 			sleep 0.1;
 		} forEach (allUnits select {!isPlayer _x});
