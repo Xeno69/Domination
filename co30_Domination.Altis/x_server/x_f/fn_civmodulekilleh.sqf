@@ -2,8 +2,7 @@
 #define THIS_FILE "fn_civmodulekilleh.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_cVictim", "_cKiller"];
-
+private _cKiller = _this select 1;
 private "_punishMe";
 
 if (_cKiller call d_fnc_isplayer) then {

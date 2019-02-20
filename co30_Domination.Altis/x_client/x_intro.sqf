@@ -198,7 +198,7 @@ sleep 5;
 ] spawn bis_fnc_typeText;
 
 sleep 8;
-"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch"], "PLAIN"];
+"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames "User16", actionKeysNames "User15"], "PLAIN"];
 xr_phd_invulnerable = false;
 
 uiNamespace setVariable ["D_DomLabel", nil];

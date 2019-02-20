@@ -6856,13 +6856,13 @@
 <Russian>Ящик можно выгрузить только сидя за пилота!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1434">
-<English>Domination action menus are available when you press the Teamswitch key (%1)!!!</English>
-<Spanish>El Menú de acción de Domination está disponible al pulsar la tecla (%1)</Spanish>
-<Portuguese>Cartas de ação da dominación são disponíveis quando pulsa o Teamswitch chave (%1)!!!</Portuguese>
-<Korean>도미네이션 액션메뉴는 팀변경키 (%1)를 눌러 보실 수 있습니다.</Korean>
-<Japanese>Dominationアクションメニューはチームスイッチキー(%1)を押すと利用できます!!!</Japanese>
-<Original>Domination action menus are available when you press the Teamswitch key (%1)!!!</Original>
-<Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (%1) !</Russian>
+<English>Domination action menus are available when you press the Teamswitch key (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</English>
+<Spanish>El Menú de acción de Domination está disponible al pulsar la tecla (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Spanish>
+<Portuguese>Cartas de ação da dominación são disponíveis quando pulsa o Teamswitch chave (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Portuguese>
+<Korean>도미네이션 액션메뉴는 팀변경키 (%1)를 눌러 보실 수 있습니다.!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Korean>
+<Japanese>Dominationアクションメニューはチームスイッチキー(%1)を押すと利用できます!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Japanese>
+<Original>Domination action menus are available when you press the Teamswitch key (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Original>
+<Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (%1) !!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1446">
 <English>Over head</English>

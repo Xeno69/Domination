@@ -163,6 +163,7 @@ class cfgFunctions {
 			addc(ropekeyb);
 			addc(handledamageai);
 			addc(getinmanai);
+			addc(bikekilled);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -220,6 +221,7 @@ class cfgFunctions {
 			addc(tranfserscoremsgdialog);
 			addc(initairtaxidialog);
 			addc(ataxselchanged);
+			addc(egspectkeyeh);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -408,8 +410,6 @@ class cfgFunctions {
 			addc(endsidemission);
 			addc(db_update);
 			addc(getplayerscores);
-			addc(a_p_w);
-			addc(a_p_e);
 			addc(addpoints);
 			addc(addkills);
 			addc(plcheckkillblufor);
@@ -548,6 +548,7 @@ class cfgFunctions {
 			addc(selleader);
 			addc(draw3d);
 			addc(spectkeyeh);
+			addc(spectdraw3d);
 		};
 	};
 	class Dom_AR {
@@ -579,6 +580,7 @@ class cfgFunctions {
 			addc(Get_Corner_Points);
 			addc(Is_Supported_Vehicle);
 			addc(Hide_Object_Global);
+			addc(animchangedeh);
 		};
 	};
 };

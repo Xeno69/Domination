@@ -67,36 +67,7 @@ if (call AR_fnc_Has_Addon_Animations_Installed) then {
 
 _animationEventHandler = -1;
 if (local _player) then {
-	_animationEventHandler = _player addEventHandler ["AnimChanged",{
-		params ["_player", "_animation"];
-		if (call AR_fnc_Has_Addon_Animations_Installed) then {
-			if ((toLower _animation) find "ar_" < 0) then {
-				if ([_player] call AR_fnc_Current_Weapon_Type_Selected == "HANDGUN") then {
-					_player switchMove "AR_01_Aim_Pistol";
-					_player setVariable ["AR_Animation_Move", "AR_01_Aim_Pistol_No_Actions", true];
-				} else {
-					_player switchMove "AR_01_Aim";
-					_player setVariable ["AR_Animation_Move", "AR_01_Aim_No_Actions", true];
-				};
-			} else {
-				if (toLower _animation == "ar_01_aim") then {
-					_player setVariable ["AR_Animation_Move", "AR_01_Aim_No_Actions", true];
-				};
-				if (toLower _animation == "ar_01_idle") then {
-					_player setVariable ["AR_Animation_Move", "AR_01_Idle_No_Actions", true];
-				};
-				if (toLower _animation == "ar_01_aim_pistol") then {
-					_player setVariable ["AR_Animation_Move", "AR_01_Aim_Pistol_No_Actions", true];
-				};
-				if (toLower _animation == "ar_01_idle_pistol") then {
-					_player setVariable ["AR_Animation_Move", "AR_01_Idle_Pistol_No_Actions", true];
-				};
-			};
-		} else {
-			_player switchMove "HubSittingChairC_idle1";
-			_player setVariable ["AR_Animation_Move", "HubSittingChairC_idle1", true];
-		};
-	}];
+	_animationEventHandler = _player addEventHandler ["AnimChanged",{_this call ar_fnc_animchangedeh}];
 };
 
 if (!local _player) then {

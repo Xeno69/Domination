@@ -23,18 +23,7 @@ if (player getVariable "d_bike_b_mode" == 1) then {
 	};
 } else {
 	d_flag_vec = _vec;
-	d_flag_vec addEventHandler ["killed", {
-		(_this select 0) spawn {
-			scriptName "spawn_stocbike";
-			private _vec = _this;
-			sleep 10.123;
-			while {true} do {
-				if (isNull _vec || {(crew _vec) findIf {alive _x} == -1}) exitWith {deleteVehicle _vec};
-				sleep 15.123;
-			};
-			d_flag_vec = objNull;
-		}
-	}];
+	d_flag_vec addEventHandler ["killed", {_this spawn d_fnc_bikekilled}]; 
 	d_player_vecs pushBack d_flag_vec;
 	d_flag_vec setVariable ["d_fl_v_kc", 0];
 };
