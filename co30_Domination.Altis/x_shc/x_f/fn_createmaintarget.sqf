@@ -282,7 +282,9 @@ if (!d_no_more_observers) then {
 
 #ifndef __TT__
 //garrison begin
-//if (d_enemy_occupy_bldgs == 1) then {
+
+// TODO reduce number of normal groups because of performance reasons when enemy occupy buildings is on
+if (d_enemy_occupy_bldgs == 1) then {
 	if (isNil "d_cur_tgt_garrisonedinfantry") then {
 		d_cur_tgt_garrisonedinfantry = [];
 	};
@@ -344,7 +346,7 @@ if (!d_no_more_observers) then {
 			false] call d_fnc_Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 		__TRACE_1("","_unitsNotGarrisoned")
 	};
-//};
+};
 //garrison end
 #endif
 
