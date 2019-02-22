@@ -19,6 +19,10 @@ if (!isNil "_d_vec" && {side (group _unit) == blufor && {_d_vec < 1000} || {side
 	false
 };
 #endif
+if (_obj isKindOf "ParachuteBase") exitWith {
+	__TRACE_1("No score - killed unit was parachute","_score")
+	false
+};
 
 if (isNull objectParent _unit && {_score > 0 && {_unit distance2D d_cur_tgt_pos < d_mttarget_radius_patrol}}) then {
 	_unit addScore (_score * 2);
