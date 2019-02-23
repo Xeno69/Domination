@@ -256,7 +256,8 @@ if (hasInterface) then {
 			20, // points needed for activating satellite view
 			20, // points needed to build a FARP (engineer)
 			10, // points a player gets for reviving another player
-			20 // points a Squad Leader needs for CAS
+			20, // points a Squad Leader needs for CAS
+			20  // points a player gets for bringing a wreck to the repair point
 		];
 	};
 
