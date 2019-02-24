@@ -235,8 +235,8 @@ class FSM
                          "private _skinpoly = _wreck call d_fnc_getskinpoly;" \n
                          "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n
                          "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n
-                         "	_wpilot addScore 20;" \n
-                         "	[_wpilot, localize ""STR_DOM_MISSIONSTRING_1856""] remoteExecCall [""sideChat"", _wpilot];" \n
+                         "	_wpilot addScore (d_ranked_a # 23);" \n
+                         "	[_wpilot, format[localize ""STR_DOM_MISSIONSTRING_1856"",(d_ranked_a # 23)]] remoteExecCall [""sideChat"", _wpilot];" \n
                          "};" \n
                          "deleteVehicle _wreck;" \n
                          "" \n
