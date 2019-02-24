@@ -3,7 +3,7 @@
 #include "..\..\x_setup.sqf"
 
 d_currentcamps_prep = [];
-if (player distance2D d_cur_tgt_pos < 1500) then {
+if (!(d_cur_tgt_pos isEqualTo []) && {player distance2D d_cur_tgt_pos < 1500}) then {
 	private _pos_cam = positionCameraToWorld [0,0,0];
 	private ["_distp", "_col", "_ico"];
 	{

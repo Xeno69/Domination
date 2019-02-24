@@ -3,6 +3,7 @@
 #include "..\..\x_setup.sqf"
 
 d_usermarkers_prep = [];
+if (d_allnearusermarkers isEqualTo []) exitWith {};
 private _pos_cam = positionCameraToWorld [0,0,0];
 private ["_distp", "_pos", "_col", "_m"];
 private _toshow = d_allnearusermarkers # currentChannel;
