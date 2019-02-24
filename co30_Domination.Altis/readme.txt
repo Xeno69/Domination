@@ -38,6 +38,7 @@ Changelogs
 - Fixed: Multiple handleScore EH's got added in hosted environment (by Auge)
 - Fixed: "Killed" parachutes added/subracted points (by Auge)
 - Fixed: Small fixes for wreck repair point (by Auge)
+- Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
 - More optimizations
 
 3.99k
