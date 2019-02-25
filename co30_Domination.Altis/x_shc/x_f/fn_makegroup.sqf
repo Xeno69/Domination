@@ -32,6 +32,7 @@ if (_numvecs > 0) then {
 } else {
 	__TRACE("from makegroup")
 	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper] call d_fnc_makemgroup;
+	__TRACE_1("","_uinf")
 };
 
 _grp deleteGroupWhenEmpty true;
