@@ -162,6 +162,8 @@ private _make_jump = {
 			d_should_be_there = d_should_be_there - 1;
 
 			_driver_vec doMove _heliendpoint;
+			_vec flyInHeight 80;
+			_vgrp setBehaviour "CARELESS";
 			
 			while {_heliendpoint distance2D (leader _vgrp) > 1000} do {
 				if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {};
