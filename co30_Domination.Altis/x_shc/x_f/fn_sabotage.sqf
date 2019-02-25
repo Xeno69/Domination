@@ -25,7 +25,6 @@ while {(units _grp) findIf {alive _x} > -1} do {
 	};
 	private _shell_units = [];
 	if (!isNull _leader) then {
-		// TODO... search for something else? Buildings? Add the old mode again destroying facs?
 		private _no = nearestObjects [_leader, ["LandVehicle", "Air"], 300, true];
 		sleep 0.32;
 		if (count _no > 0) then {

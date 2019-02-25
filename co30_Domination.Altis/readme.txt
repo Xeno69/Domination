@@ -39,6 +39,7 @@ Changelogs
 - Fixed: "Killed" parachutes added/subracted points (by Auge)
 - Fixed: Small fixes for wreck repair point (by Auge)
 - Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
+- Changed: Do not delete isle defense groups if players are less than 1000m away
 - More optimizations
 
 3.99k
