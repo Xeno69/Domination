@@ -8,7 +8,7 @@
 if (isDedicated) exitWith {};
 
 while {true} do {
-	if (rain isEqualTo 0 && {!d_rscspect_on && {!surfaceIsWater (getPosWorld player) && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false])}}}}) then {
+	if (rain isEqualTo 0 && {!d_rscspect_on && {!surfaceIsWater (getPosWorld player) && {((getPos player) # 2) < 15 && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false])}}}}}) then {
 		private _obj = vehicle player;
 		private _velocity = [-8 + (random 16), -8 + (random 16), 0];
 		private _color = [1.0 * __COLORCOEF, 0.9 * __COLORCOEF, 0.8 * __COLORCOEF];
