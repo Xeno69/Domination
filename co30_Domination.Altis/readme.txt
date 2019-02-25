@@ -18,7 +18,6 @@ Changelogs
 - Fixed: Isle defense was broken when running on a headless client
 - Changed: Set damage to 0 when infantry AI units spawn in the air after some time
 - Added: Marker at UAV position with player name when a player connects to a UAV
-- Fixed: Playerscore for db was missing delta calculation (by Auge)
 - Fixed: Main target units/vehicles did not get deleted correctly on a headless client
 - Fixed: When a headless client was used camp marker handling was broken
 - Fixed: When side missions only was selected a script error related to d_cur_tgt_pos was thrown
