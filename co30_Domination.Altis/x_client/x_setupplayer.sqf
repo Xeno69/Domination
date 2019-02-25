@@ -695,12 +695,14 @@ if (d_with_bis_dynamicgroups == 0) then {
 };
 
 _dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_earplugs}];
+#ifndef __TT__
 if (!d_with_ace) then {
 	// Press User Key 16 toggle 3D user markers
 	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_toggle3dm}];
 } else {
 	d_showallnearusermarkers = false;
 };
+#endif
 
 // by R34P3R
 d_p_isju = false;

@@ -11,6 +11,8 @@ if (d_with_ai) then {
 };
 draw3d_ar append d_mhq_3ddraw_prep;
 draw3d_ar append d_currentcamps_prep;
+#ifndef __TT__
 if (d_showallnearusermarkers) then {
 	draw3d_ar append d_usermarkers_prep;
 };
+#endif
