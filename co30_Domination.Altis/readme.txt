@@ -34,6 +34,12 @@ Changelogs
 - Added: Repack magazines (button available in inventory dialog)
 - Added: Lock player backpack for other players
 - Added: User markers now visible in 3D world (can be toggled on and off with User Key 16, please make sure to set the key up in A3 control settings; not available in ace)
+- Optimized: Moved calculation for draw3D stuff outside the 3D draw eventhandler (not everything needs to be calculated every frame)
+- Fixed: Multiple handleScore EH's got added in hosted environment (by Auge)
+- Fixed: "Killed" parachutes added/subracted points (by Auge)
+- Fixed: Small fixes for wreck repair point (by Auge)
+- Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
+- Changed: Do not delete isle defense groups if players are less than 1000m away
 - More optimizations
 
 3.99k

@@ -44,7 +44,7 @@ link20[] = {15,2};
 link21[] = {16,17};
 link22[] = {18,17};
 globals[] = {0.000000,0,0,0,0,640,480,1,49,6316128,1,-364.462250,458.028351,601.496338,-219.212006,923,894,1};
-window[] = {2,-1,-1,-32000,-32000,796,78,1038,78,3,941};
+window[] = {2,-1,-1,-1,-1,770,52,1012,52,3,941};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -192,11 +192,11 @@ class FSM
                          "};" \n
                          "" \n
                          "_counter = _counter + 1;" \n
-                         "private _basetime = 250;" \n
-                         "private _maxtime = 200;" \n
+                         "private _basetime = 180;" \n
+                         "private _maxtime = 100;" \n
                          "if (d_mt_mobile_hq_down) then {" \n
-                         "	_basetime = 190;" \n
-                         "	_maxtime = 140;" \n
+                         "	_basetime = 130;" \n
+                         "	_maxtime = 70;" \n
                          "};" \n
                          "_timenow = if (_dowaitfg) then {" \n
                          "	time + (((_basetime - (([1, count (allPlayers - (entities ""HeadlessClient_F""))] select isMultiplayer) * 5)) max _maxtime) + random 10)" \n

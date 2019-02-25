@@ -59,10 +59,6 @@ private _type_list_guard_static2 = [
 	["stat_gl", 1, ceil (random 3)]
 ];
 
-_selectit = nil;
-_selectitmen = nil;
-_selectitvec = nil;
-
 __TRACE_1("","_type_list_guard")
 
 params ["_trgobj", "_radius"];
@@ -74,7 +70,7 @@ __TRACE_1("","_this")
 
 #ifndef __TT__
 //limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
-d_num_barracks_objs = ((ceil random 4) max 2) min d_enemy_max_barracks_count;
+d_num_barracks_objs = ((ceil random 5) max 3) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 private ["_iccount", "_ecounter", "_poss"];
@@ -283,7 +279,6 @@ if (!d_no_more_observers) then {
 #ifndef __TT__
 //garrison begin
 
-// TODO reduce number of normal groups because of performance reasons when enemy occupy buildings is on
 if (d_enemy_occupy_bldgs == 1) then {
 	if (isNil "d_cur_tgt_garrisonedinfantry") then {
 		d_cur_tgt_garrisonedinfantry = [];
