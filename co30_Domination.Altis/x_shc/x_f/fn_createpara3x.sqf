@@ -160,6 +160,8 @@ private _make_jump = {
 			
 			sleep 0.112;
 			d_should_be_there = d_should_be_there - 1;
+
+			_driver_vec doMove _heliendpoint;
 			
 			while {_heliendpoint distance2D (leader _vgrp) > 1000} do {
 				if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {};
