@@ -742,7 +742,7 @@ class Params {
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
 		values[] = {0,1,2,3,4,5,10,15,20,25,30};
-		default = 15;
+		default = 10;
 		texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
 	};
 	
