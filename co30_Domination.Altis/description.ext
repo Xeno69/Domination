@@ -784,15 +784,15 @@ class Params {
 	class d_enemy_occupy_bldgs {
 		title = "$STR_DOM_MISSIONSTRING_1896";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_enemy_occupy_bldgs_troop_level {
-			title = "$STR_DOM_MISSIONSTRING_1900";
-			values[] = {0, 1, 2, 3, 4};
-			default = 1;
-			texts[] = {"0 - Low (4 groups)", "1 - Medium (8 groups)", "2 - High (16 groups)", "3 - Very High (24 groups)", "4 - Insane (32 groups)"};
+		title = "$STR_DOM_MISSIONSTRING_1900";
+		values[] = {0, 1, 2, 3, 4};
+		default = 0;
+		texts[] = {"0 - Low (4 groups)", "1 - Medium (8 groups)", "2 - High (16 groups)", "3 - Very High (24 groups)", "4 - Insane (32 groups)"};
 	};
 
 	class d_enemy_max_barracks_count {

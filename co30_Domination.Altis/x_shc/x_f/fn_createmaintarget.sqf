@@ -307,7 +307,13 @@ if (d_enemy_occupy_bldgs == 1) then {
 	for "_xx" from 0 to _number_of_occupy_groups_to_spawn do {
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		__TRACE("from createmaintarget garrison function")
-		[_trg_center, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, false] spawn d_fnc_makemgroup;
+		private _unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
+		if (count _unitlist > 5) then {
+			while {count _unitlist > 5} do {
+				_unitlist deleteAt (ceil (random (count _unitlist - 1)));
+			};
+		};
+		[_trg_center, _unitlist, _newgroup, false] spawn d_fnc_makemgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		sleep 1.0112;
 		//_newgroup allowFleeing 0;
