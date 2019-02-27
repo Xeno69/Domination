@@ -196,7 +196,6 @@ class cfgFunctions {
 			addc(dismissallbuttonaction);
 			addc(cam_rose);
 			addc(removeallusermarkers);
-			addc(removediscusermarkers);
 			addc(updatesupportrsc);
 			addc(artmselchanged);
 			addc(initvecdialog);
@@ -396,7 +395,6 @@ class cfgFunctions {
 			addc(plcheckkill);
 			addc(vrespawn2);
 			addc(helirespawn2);
-			addc(rusermarkers);
 			addc(rallusermarkers);
 			addc(airmarkermove);
 			addc(l_v);

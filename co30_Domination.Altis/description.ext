@@ -188,7 +188,6 @@ class CfgRemoteExec {
 		class d_fnc_plcheckkill {allowedTargets = 2;};
 		class d_fnc_HintChatMsg {allowedTargets = 1;};
 		class d_fnc_hcsmexec {allowedTargets = 1;};
-		class d_fnc_rusermarkers {allowedTargets = 2;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class d_fnc_airmarkermove {allowedTargets = 2;};

@@ -127,12 +127,6 @@ class D_AdminDialog {
 			action = "call d_fnc_removeallusermarkers";
 			x = 0.08; y = 0.89; w = 0.25;
 		};
-		class DelMarkerButton2: KickButton {
-			idc = -1;
-			text = "$STR_DOM_MISSIONSTRING_1518";
-			action = "call d_fnc_removediscusermarkers";
-			x = 0.4; y = 0.89; w = 0.25;
-		};
 		class EndSidemissionButton: KickButton {
 			idc = -1;
 			text = "$STR_DOM_MISSIONSTRING_1755";
