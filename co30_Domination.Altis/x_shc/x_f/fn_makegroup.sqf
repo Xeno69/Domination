@@ -32,6 +32,7 @@ if (_numvecs > 0) then {
 } else {
 	__TRACE("from makegroup")
 	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper] call d_fnc_makemgroup;
+	__TRACE_1("","_uinf")
 };
 
 _grp deleteGroupWhenEmpty true;
@@ -41,9 +42,15 @@ if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
 		if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
+				{
+					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+				} forEach (units _grp);
+				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 			} else {
-				d_respawn_ai_groups pushBack [_grp, [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
+				{
+					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+				} forEach _uinf;
+				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
 			};
 		};
 	};

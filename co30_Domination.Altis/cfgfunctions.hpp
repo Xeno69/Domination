@@ -164,6 +164,14 @@ class cfgFunctions {
 			addc(handledamageai);
 			addc(getinmanai);
 			addc(bikekilled);
+			addc(draw3dprep);
+			addc(fillname_huddo);
+			addc(3draw_ar_prep);
+			addc(all_p_a_boxes_prep);
+			addc(allai_recruit_objs_prep);
+			addc(mhq_3ddraw_prep);
+			addc(currentcamps_prep);
+			addc(usermarkers_prep);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -188,7 +196,6 @@ class cfgFunctions {
 			addc(dismissallbuttonaction);
 			addc(cam_rose);
 			addc(removeallusermarkers);
-			addc(removediscusermarkers);
 			addc(updatesupportrsc);
 			addc(artmselchanged);
 			addc(initvecdialog);
@@ -388,7 +395,6 @@ class cfgFunctions {
 			addc(plcheckkill);
 			addc(vrespawn2);
 			addc(helirespawn2);
-			addc(rusermarkers);
 			addc(rallusermarkers);
 			addc(airmarkermove);
 			addc(l_v);
@@ -487,6 +493,8 @@ class cfgFunctions {
 			addc(mtrestkilled0);
 			addc(mtrestkilled1);
 			addc(mthardtargetkilled);
+			addc(onerespukilled);
+			addc(respawngroup);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

@@ -59,10 +59,6 @@ private _type_list_guard_static2 = [
 	["stat_gl", 1, ceil (random 3)]
 ];
 
-_selectit = nil;
-_selectitmen = nil;
-_selectitvec = nil;
-
 __TRACE_1("","_type_list_guard")
 
 params ["_trgobj", "_radius"];
@@ -74,7 +70,7 @@ __TRACE_1("","_this")
 
 #ifndef __TT__
 //limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
-d_num_barracks_objs = ((ceil random 4) max 2) min d_enemy_max_barracks_count;
+d_num_barracks_objs = ((ceil random 5) max 3) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 private ["_iccount", "_ecounter", "_poss"];
@@ -188,24 +184,28 @@ private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getw
 sleep 0.112;
 
 {
-	private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-		[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
-		_curar deleteAt _wp_ran;
-		sleep 0.4;
+	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+		for "_xxx" from 1 to (_x # 2) do {
+			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+			_curar deleteAt _wp_ran;
+			sleep 0.4;
+		};
 	};
 } forEach (_type_list_guard select {_x # 2 > 0});
 
 sleep 0.233;
 
 {
-	private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-		[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
-		_curar deleteAt _wp_ran;
-		sleep 0.4;
+	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+		for "_xxx" from 1 to (_x # 2) do {
+			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+			_curar deleteAt _wp_ran;
+			sleep 0.4;
+		};
 	};
 } forEach (_type_list_guard_static select {_x # 2 > 0});
 
@@ -221,13 +221,15 @@ sleep 0.233;
 d_del_mtd_objects = [];
 
 {
-	private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-		[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
-		_curar deleteAt _wp_ran;
-		sleep 0.4;
-};
+	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
+		for "_xxx" from 1 to (_x # 2) do {
+			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
+			_curar deleteAt _wp_ran;
+			sleep 0.4;
+		};
+	};
 } forEach (_type_list_patrol select {_x # 2 > 0});
 
 _type_list_guard = nil;
@@ -283,7 +285,6 @@ if (!d_no_more_observers) then {
 #ifndef __TT__
 //garrison begin
 
-// TODO reduce number of normal groups because of performance reasons when enemy occupy buildings is on
 if (d_enemy_occupy_bldgs == 1) then {
 	if (isNil "d_cur_tgt_garrisonedinfantry") then {
 		d_cur_tgt_garrisonedinfantry = [];
@@ -312,7 +313,13 @@ if (d_enemy_occupy_bldgs == 1) then {
 	for "_xx" from 0 to _number_of_occupy_groups_to_spawn do {
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		__TRACE("from createmaintarget garrison function")
-		[_trg_center, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, false] spawn d_fnc_makemgroup;
+		private _unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
+		if (count _unitlist > 5) then {
+			while {count _unitlist > 5} do {
+				_unitlist deleteAt (ceil (random (count _unitlist - 1)));
+			};
+		};
+		[_trg_center, _unitlist, _newgroup, false] spawn d_fnc_makemgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		sleep 1.0112;
 		//_newgroup allowFleeing 0;

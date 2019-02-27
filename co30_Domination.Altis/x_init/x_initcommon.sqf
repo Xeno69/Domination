@@ -99,8 +99,8 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 			];
 			d_footunits_patrol = [
 #ifndef __TT__
-				[5,3], // basic groups
-				[5,3] // specop groups
+				[2,2], // basic groups
+				[2,2] // specop groups
 #else
 				[6,3], // basic groups
 				[5,3] // specop groups
@@ -147,19 +147,19 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 			// allmost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
+				[1,1], // basic groups
+				[1,1] // specop groups
+			];
+			d_footunits_patrol = [
+				[4,2], // basic groups
+				[4,2] // specop groups
+			];
+			d_footunits_guard_static = [
 				[2,1], // basic groups
 				[2,1] // specop groups
 			];
-			d_footunits_patrol = [
-				[6,3], // basic groups
-				[6,3] // specop groups
-			];
-			d_footunits_guard_static = [
-				[3,1], // basic groups
-				[2,1] // specop groups
-			];
 			d_footunits_attack = [
-				[3,1], // basic groups
+				[2,1], // basic groups
 				[2,1] // specop groups
 			];
 			d_vec_numbers_attack = [
@@ -195,20 +195,20 @@ if (isServer || {!isDedicated && {!hasInterface}}) then {
 			// allmost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
-				[4,1], // basic groups
-				[4,1] // specop groups
-			];
-			d_footunits_patrol = [
-				[8,3], // basic groups
-				[6,3] // specop groups
-			];
-			d_footunits_guard_static = [
-				[4,1], // basic groups
+				[3,1], // basic groups
 				[3,1] // specop groups
 			];
+			d_footunits_patrol = [
+				[6,2], // basic groups
+				[4,2] // specop groups
+			];
+			d_footunits_guard_static = [
+				[3,1], // basic groups
+				[2,1] // specop groups
+			];
 			d_footunits_attack = [
-				[6,1], // basic groups
-				[6,1] // specop groups
+				[4,1], // basic groups
+				[4,1] // specop groups
 			];
 			d_vec_numbers_attack = [
 				[[0,0], 1], // tanks
@@ -256,7 +256,8 @@ if (hasInterface) then {
 			20, // points needed for activating satellite view
 			20, // points needed to build a FARP (engineer)
 			10, // points a player gets for reviving another player
-			20 // points a Squad Leader needs for CAS
+			20, // points a Squad Leader needs for CAS
+			20  // points a player gets for bringing a wreck to the repair point
 		];
 	};
 

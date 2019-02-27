@@ -7062,16 +7062,6 @@
 <Original>Remove User Marker</Original>
 <Russian>Удалить маркер игрока</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1518">
-<English>Rem Disc User Marker</English>
-<Spanish>Rem Disc Marcador Usuario</Spanish>
-<Portuguese>Rem Marcador de Usuário do disco</Portuguese>
-<Korean>디스크 유저 마커 지우기</Korean>
-<Japanese>Rem Disc User Marker</Japanese>
-<Original>Rem Disc User Marker</Original>
-<Russian>
-</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1519">
 <English>No artillery vehicles available, artillery aborted!!!</English>
 <Spanish>No hay vehículos de artillería disponibles, artillería abortado.</Spanish>

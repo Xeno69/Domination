@@ -45,7 +45,11 @@ while {true} do {
 					_make_new = true;
 				} else {
 					(_x # 2) findIf {
+#ifndef __DEBUG__
 						private _ret = (alive _x && {_x distance2D (_x getVariable ["d_cur_pos", [0, 0, 0]]) < 100}) || {!canMove _x};
+#else
+						private _ret = (alive _x && {_x distance2D (_x getVariable ["d_cur_pos", [0, 0, 0]]) < 10}) || {!canMove _x};
+#endif
 						if (!_ret) then {
 							_x setVariable ["d_cur_pos", getPosASL _x];
 						} else {
@@ -57,17 +61,36 @@ while {true} do {
 			} else {
 				_make_new = true;
 			};
+			__TRACE_2("","_igrp","_make_new")
 			sleep 0.3;
 			if (_make_new) then {
-				// TODO
 				_x pushBack (time + 300 + random 300);
 			};
 		} else {
 			if (time > (_x # 3)) then {
-				{_x call d_fnc_DelVecAndCrew; sleep 0.01} forEach ((_x # 2) select {!isNull _x});
-				sleep 0.01;
-				{deleteVehicle _x; sleep 0.01} forEach (_x # 1);
-				_isle_grps set [_forEachIndex, call d_fnc_make_isle_grp];
+				private _lead = leader (_x # 0);
+				if (!alive _lead) then {
+					private _idx = (_x # 1) findIf {alive _x};
+					if (_idx != -1) then {
+						_lead = (_x # 1) # _idx;
+					} else {
+						_idx = (_x # 2) findIf {alive _x};
+						if (_idx != -1) then {
+							_lead = (_x # 2) # _idx;
+						};
+					};
+				};
+				private _dodelu = true;
+				if (alive _lead && {!(((allPlayers - entities "HeadlessClient_F") select {_x distance2D _lead < 1000}) isEqualTo [])}) then {
+					_dodelu = false;
+				};
+				__TRACE("Time reached for new group")
+				if (_dodelu) then {
+					{_x call d_fnc_DelVecAndCrew; sleep 0.01} forEach ((_x # 2) select {!isNull _x});
+					sleep 0.01;
+					{deleteVehicle _x; sleep 0.01} forEach (_x # 1);
+					_isle_grps set [_forEachIndex, call d_fnc_make_isle_grp];
+				};
 				sleep 3.012;
 			};
 		};

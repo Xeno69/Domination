@@ -1,4 +1,4 @@
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_civilianmodule.sqf"
 #include "..\..\x_setup.sqf"
 
@@ -87,14 +87,14 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 
 for "_i" from 0 to d_civ_groupcount do {
 #ifdef __DEBUG__
-	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop _i: %1", _i]];
+	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
 	_grp = createGroup civilian;
 	
 	__TRACE("Placing a civilian module...")
 	call _placeCivilianSpotsAndUnits;
 	
-	_m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
+	private _m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
 	
 	d_cur_tgt_civ_modules_presence pushBack _m;
 	

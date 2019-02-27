@@ -18,7 +18,6 @@ Changelogs
 - Fixed: Isle defense was broken when running on a headless client
 - Changed: Set damage to 0 when infantry AI units spawn in the air after some time
 - Added: Marker at UAV position with player name when a player connects to a UAV
-- Fixed: Playerscore for db was missing delta calculation (by Auge)
 - Fixed: Main target units/vehicles did not get deleted correctly on a headless client
 - Fixed: When a headless client was used camp marker handling was broken
 - Fixed: When side missions only was selected a script error related to d_cur_tgt_pos was thrown
@@ -34,6 +33,14 @@ Changelogs
 - Added: Repack magazines (button available in inventory dialog)
 - Added: Lock player backpack for other players
 - Added: User markers now visible in 3D world (can be toggled on and off with User Key 16, please make sure to set the key up in A3 control settings; not available in ace)
+- Optimized: Moved calculation for draw3D stuff outside the 3D draw eventhandler (not everything needs to be calculated every frame)
+- Fixed: Multiple handleScore EH's got added in hosted environment (by Auge)
+- Fixed: "Killed" parachutes added/subracted points (by Auge)
+- Fixed: Small fixes for wreck repair point (by Auge)
+- Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
+- Changed: Do not delete isle defense groups if players are less than 1000m away
+- Changed: Removed delete marker from specific user because the id inside the user defined marker is not the net id but some other whatever ID
+- Changed: Enemy AI inf and vehicle groups have different respawn times at main targets now
 - More optimizations
 
 3.99k
