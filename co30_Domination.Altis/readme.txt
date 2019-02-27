@@ -39,6 +39,7 @@ Changelogs
 - Fixed: Small fixes for wreck repair point (by Auge)
 - Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
 - Changed: Do not delete isle defense groups if players are less than 1000m away
+- Changed: Removed delete marker from specific user because the id inside the user defined marker is not the net id but some other whatever ID
 - More optimizations
 
 3.99k
