@@ -493,6 +493,8 @@ class cfgFunctions {
 			addc(mtrestkilled0);
 			addc(mtrestkilled1);
 			addc(mthardtargetkilled);
+			addc(onerespukilled);
+			addc(respawngroup);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

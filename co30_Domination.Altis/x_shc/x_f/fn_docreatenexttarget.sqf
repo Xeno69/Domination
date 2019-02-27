@@ -13,7 +13,6 @@ if (isServer && {!isNil "d_HC_CLIENT_OBJ_OWNER"}) exitWith {
 d_delvecsmt = [];
 d_delinfsm = [];
 d_mtmissionobj = objNull;
-d_respawn_ai_groups = [];
 d_mt_done = false;
 if (isNil "d_sum_camps") then {d_sum_camps = -91};
 

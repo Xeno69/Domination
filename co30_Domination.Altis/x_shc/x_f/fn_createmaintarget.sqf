@@ -184,24 +184,28 @@ private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getw
 sleep 0.112;
 
 {
-	private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-		[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
-		_curar deleteAt _wp_ran;
-		sleep 0.4;
+	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+		for "_xxx" from 1 to (_x # 2) do {
+			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+			_curar deleteAt _wp_ran;
+			sleep 0.4;
+		};
 	};
 } forEach (_type_list_guard select {_x # 2 > 0});
 
 sleep 0.233;
 
 {
-	private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-		[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
-		_curar deleteAt _wp_ran;
-		sleep 0.4;
+	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+		for "_xxx" from 1 to (_x # 2) do {
+			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+			_curar deleteAt _wp_ran;
+			sleep 0.4;
+		};
 	};
 } forEach (_type_list_guard_static select {_x # 2 > 0});
 
@@ -217,13 +221,15 @@ sleep 0.233;
 d_del_mtd_objects = [];
 
 {
-	private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
-	for "_xxx" from 1 to (_x # 2) do {
-		private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-		[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
-		_curar deleteAt _wp_ran;
-		sleep 0.4;
-};
+	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
+		for "_xxx" from 1 to (_x # 2) do {
+			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
+			_curar deleteAt _wp_ran;
+			sleep 0.4;
+		};
+	};
 } forEach (_type_list_patrol select {_x # 2 > 0});
 
 _type_list_guard = nil;
