@@ -31,7 +31,7 @@ if (_isman) then {
 	__TRACE_2("","_basetime","_maxtime")
 
 #ifndef __DEBUG__
-	private _endtime = time + (((_basetime - (([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5)) min _maxtime) + random 20);
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 20;
 #else
 	private _endtime = time + 10;
 #endif
@@ -49,7 +49,7 @@ if (_isman) then {
 	__TRACE_2("","_basetime","_maxtime")
 
 #ifndef __DEBUG__
-	private _endtime = time + (((_basetime - (([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5)) min _maxtime) + random 40);
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 40;
 #else
 	private _endtime = time + 10;
 #endif
