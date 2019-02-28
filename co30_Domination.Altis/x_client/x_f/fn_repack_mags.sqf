@@ -158,6 +158,6 @@ sleep 4.95;
 d_inventory_blocked = false;
 if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
 
-hintSilent (localize "STR_DOM_MISSIONSTRING_1942");
+hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t>", localize "STR_DOM_MISSIONSTRING_1942"];
 
 player setUnitLoadout _ular;
