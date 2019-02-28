@@ -148,6 +148,9 @@ if (_d_vec < 200) exitWith {
 		if (d_player_side == blufor) then {
 			d_marker_vecs pushBack _vec;
 			_vec setVariable ["d_ism_vec", true];
+			if (d_with_ace) then {
+				_vec setVariable ["ace_medical_medicClass", 1];
+			};
 		};
 #endif
 		__vecname;
@@ -340,6 +343,9 @@ if (_d_vec < 1200) exitWith {
 		if (d_player_side == opfor) then {
 			d_marker_vecs pushBack _vec;
 			_vec setVariable ["d_ism_vec", true];
+			if (d_with_ace) then {
+				_vec setVariable ["ace_medical_medicClass", 1];
+			};
 		};
 		__vecname;
 	};
