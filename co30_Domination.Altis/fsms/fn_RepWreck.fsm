@@ -56,7 +56,7 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private _endtime = time + 17;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"private _endtime = serverTime + 17;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -78,7 +78,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Init";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _endtime"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"serverTime > _endtime"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -107,7 +107,7 @@ class FSM
                          "private _rep_station_side = [civilian, [opfor, blufor] select (_rep_station == d_wreck_rep)] select d_tt_ver;" \n
                          "" \n
                          "private _pos_rep_station = getPosATL _rep_station;" \n
-                         "private _timenow = time + 10;" \n
+                         "private _timenow = serverTime + 10;" \n
                          "" \n
                          "_rep_station setVariable [""d_curreptime"", -1, true];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -120,7 +120,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"serverTime > _timenow"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -166,7 +166,7 @@ class FSM
                 {
                         name = "Sleep";
                         itemno = 8;
-                        init = /*%FSM<STATEINIT""">*/"_timenow = time + 2.34;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = serverTime + 2.34;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -177,7 +177,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"serverTime > _timenow"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -190,7 +190,7 @@ class FSM
                         name = "Check";
                         itemno = 11;
                         init = /*%FSM<STATEINIT""">*/"private _wreck = [_pos_rep_station, _types] call d_fnc_GetWreck;" \n
-                         "_timenow = time + 3.432;"/*%FSM</STATEINIT""">*/;
+                         "_timenow = serverTime + 3.432;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -212,7 +212,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"serverTime > _timenow"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -251,7 +251,7 @@ class FSM
                          "	};" \n
                          "};" \n
                          "" \n
-                         "_timenow = time + 0.6;" \n
+                         "_timenow = serverTime + 0.6;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -263,7 +263,7 @@ class FSM
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"serverTime > _timenow"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -360,7 +360,7 @@ class FSM
                          "	};" \n
                          "};" \n
                          "" \n
-                         "_timenow = time + _totaltime;" \n
+                         "_timenow = serverTime + _totaltime;" \n
                          "_rep_station setVariable [""d_curreptime"", _timenow, true];" \n
                          "" \n
                          "if (d_database_found) then {" \n
@@ -384,7 +384,7 @@ class FSM
                                         priority = 0.000000;
                                         to="Unlock_Vehicle";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"serverTime > _timenow"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
