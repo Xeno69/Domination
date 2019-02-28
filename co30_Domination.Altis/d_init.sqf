@@ -69,7 +69,6 @@ d_target_names = [];
 	if (isServer) then {
 		_dtar enableSimulationGlobal false;
 	};
-	false
 } forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] == "d_target_"});
 __TRACE_1("All targets found","d_target_names")
 

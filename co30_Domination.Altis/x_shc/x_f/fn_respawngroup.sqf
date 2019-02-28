@@ -23,19 +23,11 @@ private _doend = false;
 if (_isman) then {
 	private _basetime = 180;
 	private _maxtime = 100;
-	if (d_mt_mobile_hq_down) then {
-		_basetime = 130;
-		_maxtime = 70;
-	};
 
 	__TRACE_2("","_basetime","_maxtime")
 
-#ifndef __DEBUG__
-	private _endtime = time + (((_basetime - (([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5)) min _maxtime) + random 20);
-#else
-	private _endtime = time + 10;
-#endif
-
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 20;
+	
 	__TRACE_1("","_endtime")
 
 	waitUntil {sleep 1; time > _endtime || {d_mt_done || {d_mt_barracks_down}}};
@@ -48,11 +40,7 @@ if (_isman) then {
 
 	__TRACE_2("","_basetime","_maxtime")
 
-#ifndef __DEBUG__
-	private _endtime = time + (((_basetime - (([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5)) min _maxtime) + random 40);
-#else
-	private _endtime = time + 10;
-#endif
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 40;
 
 	__TRACE_1("","_endtime")
 
@@ -63,19 +51,21 @@ if (_isman) then {
 };
 
 if (_doend) exitWith {
-	__TRACE("Doend")
+	__TRACE_1("Doend","_this")
 };
 
 if (!_isman) then {
 	private _resp_mid = _this select 11;
 	__TRACE_1("","_resp_mid")
 	_this set [1, [[_resp_mid select 0, 600, 400, _resp_mid select 1] call d_fnc_GetRanPointSquare]];
+	__TRACE_1("respawning","_this")
 	_this call d_fnc_makegroup;
 } else {
 	private _d_mt_barracks_obj_pos = getPos (selectRandom d_mt_barracks_obj_ar);
 	__TRACE_1("","_d_mt_barracks_obj_pos")
 	_this set [1, [_d_mt_barracks_obj_pos]];
 	_this set [11, _d_mt_barracks_obj_pos];
+	__TRACE_1("respawning","_this")
 	_this call d_fnc_makegroup;
 };
 

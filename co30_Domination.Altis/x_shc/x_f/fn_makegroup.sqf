@@ -44,8 +44,9 @@ if (_add_to_ar_type > 0) then {
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
 				{
 					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
-				} forEach (units _grp);
-				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
+					_x setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
+					_x setVariable ["d_thevecs", _vecs];
+				} forEach _vecs;
 			} else {
 				{
 					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
