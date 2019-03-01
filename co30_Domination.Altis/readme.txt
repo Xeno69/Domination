@@ -43,6 +43,7 @@ Changelogs
 - Changed: Enemy AI inf and vehicle groups have different respawn times at main targets now
 - Changed: Any group leader can now rescue/arrest AI units in side missions and not just the artillery operators
 - Added: New A3 style intro which can be canceled immediately by pressing the space key
+- Changed: Only check for enemy AI infantry to announce a new main target (some vehicle types might not get spawned anymore :))
 - More optimizations
 
 3.99k

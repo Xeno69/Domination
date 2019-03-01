@@ -41,17 +41,9 @@ d_side_main_done = false;
 d_sum_camps = -91;
 
 #ifndef __TT__
-private _tsar = if (d_WithLessArmor == 0) then {
-	["('Man' countType thislist >= d_man_count_for_target_clear) && {'Tank' countType thislist >= d_tank_count_for_target_clear && {'Car' countType thislist  >= d_car_count_for_target_clear}}", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger", ""]
-} else {
-	["('Man' countType thislist >= d_man_count_for_target_clear)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger;", ""]
-};
+private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 6)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger", ""];
 #else
-private _tsar = if (d_WithLessArmor == 0) then {
-	["('Man' countType thislist >= d_man_count_for_target_clear) && {'Tank' countType thislist >= d_tank_count_for_target_clear && {'Car' countType thislist  >= d_car_count_for_target_clear}}", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,'HQ_W','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,'HQ_E','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];deleteVehicle d_check_trigger", ""]
-} else {
-	["('Man' countType thislist >= d_man_count_for_target_clear)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,'HQ_W','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,'HQ_E','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];deleteVehicle d_check_trigger;", ""]
-};
+private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 6)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,'HQ_W','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,'HQ_E','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];deleteVehicle d_check_trigger;", ""];
 #endif
 
 d_check_trigger = [d_cur_tgt_pos, [d_cur_target_radius + 200, d_cur_target_radius + 200, 0, false], [d_enemy_side, "PRESENT", false], _tsar] call d_fnc_createtriggerlocal;
