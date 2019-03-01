@@ -46,14 +46,6 @@ private _all_dead = false;
 private _rescued = false;
 private _mforceendtime = time + 2400;
 
-private _aiver_check_fnc = {
-	if (!d_with_ai) then {
-		(str _this) in d_can_use_artillery
-	} else {
-		true
-	}
-};
-
 private _rescuer = objNull;
 #ifdef __TT__
 private _winner = 0;
@@ -72,7 +64,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 		private _nobjs = _leader nearEntities ["CAManBase", 20];
 		if !(_nobjs isEqualTo []) then {
 			{
-				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}) exitWith {
+				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
 					_rescued = true;
 					_mforceendtime = time + 2400;
 					_rescuer = _x;
