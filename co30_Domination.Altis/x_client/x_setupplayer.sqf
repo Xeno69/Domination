@@ -1015,7 +1015,7 @@ if (d_with_ai) then {
 };
 
 if (isMultiplayer) then {
-	execVM "x_client\x_intro.sqf";
+	execVM "x_client\x_intro2.sqf";
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
 };

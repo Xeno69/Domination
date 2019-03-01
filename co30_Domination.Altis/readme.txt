@@ -42,6 +42,7 @@ Changelogs
 - Changed: Removed delete marker from specific user because the id inside the user defined marker is not the net id but some other whatever ID
 - Changed: Enemy AI inf and vehicle groups have different respawn times at main targets now
 - Changed: Any group leader can now rescue/arrest AI units in side missions and not just the artillery operators
+- Added: New A3 style intro which can be canceled immediately by pressing the space key
 - More optimizations
 
 3.99k

@@ -22,7 +22,7 @@ createDialog "d_RscAnimatedLetters";
 setMousePosition [1, 1];
 private _line = 0;
 d_animL_i = 0;
-titleText ["", "BLACK IN",0];
+titleText ["", "BLACK IN", 0];
 "BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
 
 private _pspsxx = getPosASL player;
@@ -190,11 +190,11 @@ sleep 5;
 
 [
 	[
-		[localize "STR_DOM_MISSIONSTRING_265","<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 0],
-		[profileName,"<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 5],
-		[localize "STR_DOM_MISSIONSTRING_266","<t size='0.9'>%1</t><br/>", 27]
+		[localize "STR_DOM_MISSIONSTRING_265", "<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 0],
+		[profileName, "<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 5],
+		[localize "STR_DOM_MISSIONSTRING_266", "<t size='0.9'>%1</t><br/>", 27]
 	],
-	-safezoneX,0.85,"<t color='#FFFFFFFF' align='right'>%1</t>"
+	-safezoneX, 0.85, "<t color='#FFFFFFFF' align='right'>%1</t>"
 ] spawn bis_fnc_typeText;
 
 sleep 8;
