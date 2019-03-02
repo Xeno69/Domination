@@ -291,6 +291,7 @@ class cfgFunctions {
 			addc(HousePatrol);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
+			addc(ambientradiochatter);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";

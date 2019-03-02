@@ -814,6 +814,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_WithAmbientRadio {
+		title = "$STR_DOM_MISSIONSTRING_1948";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 #ifndef __TT__
 	class d_params_dl_9 {
@@ -1140,6 +1147,36 @@ class CfgSounds {
 	//class AR_Rappel_Loop {name = "AR_Rappel_Loop"; sound[] = {"sounds\AR_Rappel_Loop.ogg", db+20, 1}; titles[] = {0,""};};
 	//class AR_Rappel_Start {name = "AR_Rappel_Start"; sound[] = {"sounds\AR_Rappel_Start.ogg", db+20, 1};titles[] = {0,""};};
 	//class AR_Rappel_End {name = "AR_Rappel_End"; sound[] = {"sounds\AR_Rappel_End.ogg", db+20, 1}; titles[] = {0,""};};
+	class ambientradio1 {name="ambientradio1";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio1.wss",1,1};titles[]={};};
+	class ambientradio2 {name="ambientradio2";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio2.wss",1,1};titles[]={};};
+	class ambientradio3 {name="ambientradio3";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio3.wss",1,1};titles[]={};};
+	class ambientradio4 {name="ambientradio4";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio4.wss",1,1};titles[]={};};
+	class ambientradio5 {name="ambientradio5";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio5.wss",1,1};titles[]={};};
+	class ambientradio6 {name="ambientradio6";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio6.wss",1,1};titles[]={};};
+	class ambientradio7 {name="ambientradio7";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio7.wss",1,1};titles[]={};};
+	class ambientradio8 {name="ambientradio8";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio8.wss",1,1};titles[]={};};
+	class ambientradio9 {name="ambientradio9";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio9.wss",1,1};titles[]={};};
+	class ambientradio10 {name="ambientradio10";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio10.wss",1,1};titles[]={};};
+	class ambientradio11 {name="ambientradio11";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio11.wss",1,1};titles[]={};};
+	class ambientradio12 {name="ambientradio12";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio12.wss",1,1};titles[]={};};
+	class ambientradio13 {name="ambientradio13";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio13.wss",1,1};titles[]={};};
+	class ambientradio14 {name="ambientradio14";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio14.wss",1,1};titles[]={};};
+	class ambientradio15 {name="ambientradio15";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio15.wss",1,1};titles[]={};};
+	class ambientradio16 {name="ambientradio16";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio16.wss",1,1};titles[]={};};
+	class ambientradio17 {name="ambientradio17";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio17.wss",1,1};titles[]={};};
+	class ambientradio18 {name="ambientradio18";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio18.wss",1,1};titles[]={};};
+	class ambientradio19 {name="ambientradio19";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio19.wss",1,1};titles[]={};};
+	class ambientradio20 {name="ambientradio20";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio20.wss",1,1};titles[]={};};
+	class ambientradio21 {name="ambientradio21";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio21.wss",1,1};titles[]={};};
+	class ambientradio22 {name="ambientradio22";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio22.wss",1,1};titles[]={};};
+	class ambientradio23 {name="ambientradio23";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio23.wss",1,1};titles[]={};};
+	class ambientradio24 {name="ambientradio24";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio24.wss",1,1};titles[]={};};
+	class ambientradio25 {name="ambientradio25";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio25.wss",1,1};titles[]={};};
+	class ambientradio26 {name="ambientradio26";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio26.wss",1,1};titles[]={};};
+	class ambientradio27 {name="ambientradio27";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio27.wss",1,1};titles[]={};};
+	class ambientradio28 {name="ambientradio28";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio28.wss",1,1};titles[]={};};
+	class ambientradio29 {name="ambientradio29";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio29.wss",1,1};titles[]={};};
+	class ambientradio30 {name="ambientradio30";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio30.wss",1,1};titles[]={};};
 };
 
 class d_RscAnimatedLetters {

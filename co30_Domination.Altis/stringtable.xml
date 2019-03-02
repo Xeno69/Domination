@@ -9156,6 +9156,15 @@
 <Original>3D user markers turned off!</Original>
 <Russian>3D user markers turned off!</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1948">
+<English>With ambient radio:</English>
+<Spanish>With ambient radio:</Spanish>
+<Portuguese>With ambient radio:</Portuguese>
+<Korean>With ambient radio:</Korean>
+<Japanese>With ambient radio:</Japanese>
+<Original>With ambient radio:</Original>
+<Russian>With ambient radio:</Russian>
+</Key>
 </Container>
 </Package>
 </Project>

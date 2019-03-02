@@ -44,6 +44,7 @@ Changelogs
 - Changed: Any group leader can now rescue/arrest AI units in side missions and not just the artillery operators
 - Added: New A3 style intro which can be canceled immediately by pressing the space key
 - Changed: Only check for enemy AI infantry to announce a new main target (some vehicle types might not get spawned anymore :))
+- Added: Ambient vehicle radio chatter (by lelik). Check d_WithAmbientRadio in description.ext/With ambient radio: in server lobby params
 - More optimizations
 
 3.99k

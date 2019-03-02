@@ -1008,6 +1008,10 @@ if (d_with_ai) then {
 0 spawn d_fnc_uav_check;
 #endif
 
+if (d_WithAmbientRadio == 1 && {!d_with_ace}) then {
+   15 spawn d_fnc_AmbientRadioChatter;
+};
+
 0 spawn {
 	scriptName "spawn_setupplayer7";
 	waitUntil {sleep 0.3;time > 0};
