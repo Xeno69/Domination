@@ -1008,7 +1008,7 @@ if (d_with_ai) then {
 0 spawn d_fnc_uav_check;
 #endif
 
-if (d_WithAmbientRadio == 1 && {!d_with_ace}) then {
+if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
