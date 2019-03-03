@@ -46,6 +46,7 @@ Changelogs
 - Changed: Only check for enemy AI infantry to announce a new main target (some vehicle types might not get spawned anymore :))
 - Added: Ambient vehicle radio chatter (by lelik). Check d_WithAmbientRadio in description.ext/With ambient radio: in server lobby params
 - Fixed: Don't save player score to database if player score <= 0 to prevent overwriting DB values
+- Fixed: Loading and placing bonus vehicles from a database save file was not using the latest code from getbonus.
 - More optimizations
 
 3.99k

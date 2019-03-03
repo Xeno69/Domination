@@ -57,10 +57,30 @@ d_bonus_vecs_db = _ar # 9;
 	};
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
-		_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
-		_dir = (d_bonus_air_positions # d_bap_counter) # 1;
-		d_bap_counter = d_bap_counter + 1;
-		if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};
+		if (d_bonus_air_positions_carrier isEqualTo []) then {
+			_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
+			_dir = (d_bonus_air_positions # d_bap_counter) # 1;
+			d_bap_counter = d_bap_counter + 1;
+			if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};
+		} else {
+			if (getNumber(configFile >> "CfgVehicles" >> _vec_type >> "tailHook") != 1) then {
+				_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
+				_dir = (d_bonus_air_positions # d_bap_counter) # 1;
+				d_bap_counter = d_bap_counter + 1;
+				if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};
+			} else {
+				_endpos = (d_bonus_air_positions_carrier # d_bacp_counter) # 0;
+				private _aslheight = d_the_carrier getVariable "d_asl_height";
+				if (isNil "_aslheight") then {
+					_aslheight = (getPosASL d_FLAG_BASE) # 2;
+				};
+				_endpos set [2, _aslheight];
+				_dir = (d_bonus_air_positions_carrier # d_bacp_counter) # 1;
+				_vec setVariable ["d_oncarrier", true];
+				d_bacp_counter = d_bacp_counter + 1;
+				if (d_bacp_counter > (count d_bonus_air_positions_carrier - 1)) then {d_bacp_counter = 0};
+			};
+		};
 	} else {
 		_endpos = (d_bonus_vec_positions # d_bvp_counter) # 0;
 		_dir = (d_bonus_vec_positions # d_bvp_counter) # 1;
@@ -68,6 +88,7 @@ d_bonus_vecs_db = _ar # 9;
 		if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 		_vec setVariable ["d_liftit", true, true];
 	};
+	
 
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
@@ -122,6 +143,7 @@ _fnc_tt_bonusvec = {
 		};
 		_vec setVariable ["d_liftit", true, true];
 	};
+	
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
