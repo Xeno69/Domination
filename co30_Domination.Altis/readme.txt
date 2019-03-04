@@ -48,6 +48,7 @@ Changelogs
 - Added: Ambient vehicle radio chatter for the RHS version (by lelik)
 - Fixed: Don't save player score to database if player score <= 0 to prevent overwriting DB values
 - Fixed: Loading and placing bonus vehicles from a database save file was not using the latest code from getbonus.
+- Fixed: Wrong trigger size was used for player placed FARP triggers on remote clients
 - More optimizations
 
 3.99k
