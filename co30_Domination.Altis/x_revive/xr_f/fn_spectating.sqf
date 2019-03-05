@@ -158,8 +158,6 @@ if (!xr_pl_no_lifes) then {
 	__dspctrl(1010) ctrlSetText (_visobj call _fnc_gpn);
 };
 
-#define __d_textsize_dr3d  0.03333
-
 xr_meh_draw3d = addMissionEventhandler ["Draw3D", {call xr_fnc_spectdraw3d}];
 
 xr_x_updatelb = false;

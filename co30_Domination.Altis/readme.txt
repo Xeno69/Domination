@@ -5,6 +5,10 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99m
+- Fixed: Draw3D for other players in revive spectating was missing because of missing define
+- Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)
+
 3.99l
 - Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
 - Added: Replaced the explicit user ID with #adminLogged for Zeus access (by longtimegamer)

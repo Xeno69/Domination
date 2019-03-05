@@ -591,7 +591,7 @@ if (!d_with_ace) then {
 
 		if (d_show_pname_hud) then {
 			d_pl_name_huddo_ar = [];
-			["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 4, "frames"]] call bis_fnc_loop;
+			["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 0]] call bis_fnc_loop;
 			d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
 		} else {
 			["itemAdd", ["dom_player_hud2", {call d_fnc_player_name_huddo2}, 0]] call bis_fnc_loop;
