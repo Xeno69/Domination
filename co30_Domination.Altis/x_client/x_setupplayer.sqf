@@ -1023,6 +1023,4 @@ if (isMultiplayer) then {
 	};
 };
 
-execVM "x_client\x_intro2.sqf";
-
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
