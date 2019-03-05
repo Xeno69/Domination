@@ -42,10 +42,10 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 		if (_d_sm_winner == 1 && {d_player_side == opfor} || {_d_sm_winner == 2 && {d_player_side == blufor} || {_d_sm_winner == 123}}) then {
 #endif
 		hint composeText[
-			parseText("<t color='#ffffffff' size='1.5'>" + localize "STR_DOM_MISSIONSTRING_1708" + "</t>"), lineBreak,lineBreak,
-			localize "STR_DOM_MISSIONSTRING_572", lineBreak,lineBreak,
-			d_current_mission_resolved_text, lineBreak, lineBreak,
-			_bonus_string
+			parseText("<t color='#00ff00' size='1.5'>" + localize "STR_DOM_MISSIONSTRING_1708" + "</t>"), lineBreak,lineBreak,
+			parseText("<t color='#00ff00' size='1.3'>" + localize "STR_DOM_MISSIONSTRING_572" + "</t>"), lineBreak,lineBreak,
+			parseText("<t color='#ffffffff' size='1.1'>" + d_current_mission_resolved_text + "</t>"), lineBreak, lineBreak,
+			parseText("<t color='#ffffffff' size='1.1'>" + _bonus_string + "</t>")
 		];
 #ifdef __TT__
 		} else {
@@ -57,9 +57,9 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 #endif
 	} else {
 		hint composeText[
-			parseText("<t color='#ffffffff' size='1.5'>" + localize "STR_DOM_MISSIONSTRING_1708" + "</t>"), lineBreak,lineBreak,
-			localize "STR_DOM_MISSIONSTRING_572", lineBreak,lineBreak,
-			d_current_mission_resolved_text
+			parseText("<t color='#00ff00' size='1.5'>" + localize "STR_DOM_MISSIONSTRING_1708" + "</t>"), lineBreak,lineBreak,
+			parseText("<t color='#00ff00' size='1.3'>" + localize "STR_DOM_MISSIONSTRING_572" + "</t>"), lineBreak,lineBreak,
+			parseText("<t color='#ffffffff' size='1.1'>" + d_current_mission_resolved_text + "</t>")
 		];
 	};
 } else {
