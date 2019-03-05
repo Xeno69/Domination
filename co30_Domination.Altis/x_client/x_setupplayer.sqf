@@ -1012,16 +1012,17 @@ if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
-0 spawn {
-	scriptName "spawn_setupplayer7";
-	waitUntil {sleep 0.3;time > 0};
-	enableEnvironment [false, true];
-};
-
 if (isMultiplayer) then {
 	execVM "x_client\x_intro2.sqf";
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
+	0 spawn {
+		scriptName "spawn_setupplayer7";
+		waitUntil {sleep 0.3;time > 0};
+		enableEnvironment [false, true];
+	};
 };
+
+execVM "x_client\x_intro2.sqf";
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

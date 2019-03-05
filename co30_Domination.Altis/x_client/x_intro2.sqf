@@ -15,20 +15,17 @@ sleep 0.01;
 
 d_still_in_intro = true;
 
-private ["_plicon", "_hqicon", "_color"];
+private ["_plicon", "_color"];
 call {
 	if (d_player_side == blufor) exitWith {
 		_plicon = getText(configFile >> "CfgMarkers" >> "b_inf" >> "icon");
-		_hqicon = getText(configFile >> "CfgMarkers" >> "b_hq" >> "icon");
 		_color = [blufor] call BIS_fnc_sidecolor;
 	};
 	if (d_player_side == opfor) exitWith {
 		_plicon = getText(configFile >> "CfgMarkers" >> "o_inf" >> "icon");
-		_hqicon = getText(configFile >> "CfgMarkers" >> "o_hq" >> "icon");
 		_color = [opfor] call BIS_fnc_sidecolor;
 	};
 	_plicon = getText(configFile >> "CfgMarkers" >> "n_inf" >> "icon");
-	_hqicon = getText(configFile >> "CfgMarkers" >> "n_hq" >> "icon");
 	_color = [independent] call BIS_fnc_sidecolor;
 };
 
@@ -43,17 +40,18 @@ _txt = _txt + "Two Teams";
 if (d_with_ranked) then {_txt = _txt + " RANKED"};
 if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
-titleText ["", "BLACK IN", 0];
+titleText ["", "BLACK IN", 0.2];
 
 private _bfehandle = [player, _txt, 200, 250, 75, 1,
 	[
-	   [_plicon, _color, player, 1, 1, 0, profileName, 0],
-	   [_hqicon, _color, d_flag_base, 1, 1, 0, "", 0]
+	   [_plicon, _color, player, 1, 1, 0, profileName, 0]
    ]
 , 0, true, 5] spawn BIS_fnc_establishingShot;
 
 sleep 1;
 "d_Xlabel" cutRsc ["d_Xlabel", "PLAIN"];
+"d_DomLabel" cutRsc ["d_DomLabel", "PLAIN"];
+"d_ArmaLogo" cutRsc ["d_ArmaLogo", "PLAIN"];
 sleep 2;
 0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.99m  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
@@ -62,6 +60,8 @@ enableSaving [false, false];
 enableEnvironment [false, true];
 
 "d_Xlabel" cutFadeout 1;
+"d_DomLabel" cutFadeout 1;
+"d_ArmaLogo" cutFadeout 1;
 
 enableRadio true;
 showChat true;

@@ -185,6 +185,7 @@ if (!_uidcheck_done && {!(d_uid_reserved_slots isEqualTo [])} && {!(d_uids_for_r
 };
 
 d_still_in_intro = false;
+enableEnvironment [false, true];
 
 sleep 5;
 
