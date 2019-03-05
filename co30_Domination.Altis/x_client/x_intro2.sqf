@@ -40,7 +40,7 @@ _txt = _txt + "Two Teams";
 if (d_with_ranked) then {_txt = _txt + " RANKED"};
 if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
-titleText ["", "BLACK IN", 1];
+titleText ["", "BLACK IN", 1.5];
 
 private _bfehandle = [player, _txt, 200, 250, 75, 1,
 	[
