@@ -1901,15 +1901,6 @@
 <Original>You have to restore your repair/refuel capability at base first or take one of the two engineer trucks with you.</Original>
 <Russian>Вы восстановите возможность чинить и заправлять технику путем возврата на базу или берите с собой один из двух грузовиков (спец. для инженеров)</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_325">
-<English>You need %2 points to repair/refuel a vehicle, your current score is: %1!</English>
-<Spanish>Necesita %2 puntos para reparar/repostar un vehículo, su puntuación actual es: %1.</Spanish>
-<Portuguese>Precisa %2 pontos para consertar/refuel um veículo, vossa pontuação atual é: %1!</Portuguese>
-<Korean>차량을 수리하려면 %2 포인트가 필요합니다. 귀하의 포인트는: %1!</Korean>
-<Japanese>車両の修理/補給には %2 ポイントが必要ですが、現在の得点は%1です！</Japanese>
-<Original>You need %2 points to repair/refuel a vehicle, your current score is: %1!</Original>
-<Russian>Вам необходимо иметь %2 очков для полного ремонта, а у Вас сейчас %1 очков !</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_326">
 <English>You have to wait %1 seconds until you can repair a vehicle at base again.</English>
 <Spanish>You have to wait %1 seconds until you can repair a vehicle at base again.</Spanish>
