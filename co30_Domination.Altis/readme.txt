@@ -9,6 +9,7 @@ Changelogs
 - Fixed: Draw3D for other players in revive spectating was missing because of missing define
 - Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)
 - Changed: Added old Domination and A3 logo resources to new intro
+- Changed: Don't respawn enemy AI groups if there are no players on a persistent server
 
 3.99l
 - Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
