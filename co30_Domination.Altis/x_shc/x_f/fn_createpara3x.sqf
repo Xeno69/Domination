@@ -62,7 +62,7 @@ private _make_jump = {
 	
 	private _stop_me = false;
 	private _checktime = time + 300;
-	while {_attackpoint distance2D (leader _vgrp) > 300} do {
+	while {_attackpoint distance2D _vec > 300} do {
 		if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {d_should_be_there = d_should_be_there - 1};
 		sleep 0.01;
 		if (d_mt_radio_down && {_attackpoint distance2D (leader _vgrp) > 1300}) exitWith {
@@ -161,9 +161,10 @@ private _make_jump = {
 			sleep 0.112;
 			d_should_be_there = d_should_be_there - 1;
 			
-			while {_heliendpoint distance2D (leader _vgrp) > 1000} do {
-				if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {};
-				sleep 5.123;
+			_checktime = time + 300;
+			while {_heliendpoint distance2D _vec > 1000} do {
+				if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {};
+				sleep 1.123;
 			};
 			
 			if (!isNull _vec && {_heliendpoint distance2D _vec > 1000}) then {

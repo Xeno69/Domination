@@ -81,8 +81,8 @@ while {true} do {
 		private _vec_array = [[_pos # 0, _pos # 1, 400], _cdir, _heli_type, _grp] call d_fnc_spawnVehicle;
 		__TRACE_1("","_vec_array")
 		
-		 _vec_array params ["_vec"];
-		_vec setPos [_pos # 0, _pos # 1, 400];
+		_vec_array params ["_vec"];
+		//_vec setPos [_pos # 0, _pos # 1, 400];
 		_vehicles pushBack _vec;
 		__TRACE_1("","_vehicles")
 		
@@ -227,6 +227,21 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 			_vehicles = [];
 		};
 		sleep 20;
+		{
+			if (_x distance2D _pos < 500) then {
+				_vec call d_fnc_DelVecAndCrew
+			};
+		} forEach _vehicles;
+		sleep 0.1;
+		_vehicles = _vehicles - [objNull];
+		_funits = _funits - [objNull];
+		sleep 0.1;
+		if (_vehicles isEqualTo []) exitWith {
+			__TRACE("_vehicles array IS empty")
+			{deleteVehicle _x} forEach _funits;
+			_funits = [];
+			_vehicles = [];
+		};
 	};
 #ifndef __DEBUG__
 	_num_p = call d_fnc_PlayersNumber;

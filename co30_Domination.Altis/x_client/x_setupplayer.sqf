@@ -847,8 +847,7 @@ player addEventhandler ["HandleRating", {
 	if ((_this select 1) < 0) then {0} else {_this select 1}
 }];
 
-d_pisadminp = false;
-["itemAdd", ["d_scacheck", {call d_fnc_SCACheck}, 10, "frames"]] call bis_fnc_loop;
+["itemAdd", ["d_scacheck", {call d_fnc_SCACheck}, 0]] call bis_fnc_loop;
 
 if (d_enablefatigue == 0) then {
 	player setFatigue 0;

@@ -10,6 +10,8 @@ Changelogs
 - Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)
 - Changed: Added old Domination and A3 logo resources to new intro
 - Changed: Don't respawn enemy AI groups if there are no players on a persistent server
+- Changed: More robust move checks and deletion of enemy AI air units spawning at the edges of the map
+- Changed: More checks if a player is admin (every frame again instead of every 10 frames)
 
 3.99l
 - Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
