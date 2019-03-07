@@ -162,11 +162,11 @@ if (_may_exit) exitWith {
 
 _drop_pos = nil;
 
-_starttime = time + 300;
-
 sleep 0.512;
 
-while {time < _starttime && {canMove _chopper && {_chopper distance2D _end_pos > 400}}} do {
+_starttime = time + 300;
+
+while {time < _starttime && {canMove _chopper && {_chopper distance2D _end_pos > 600}}} do {
 	"d_drop_marker" setMarkerPos (getPosWorld _chopper);
 	sleep 3.7;
 };

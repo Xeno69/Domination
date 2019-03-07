@@ -20,23 +20,34 @@ if (!_isman && {d_mt_mobile_hq_down}) exitWith {
 };
 
 private _doend = false;
+private _fnc_checktime = {
+	private _count = count (allPlayers - entities "HeadlessClient_F");
+	if (_count == 0) then {
+		__TRACE("no players")
+		(time + (_this # 1))
+	} else {
+		__TRACE("players")
+		(_this # 0)
+	};
+};
+
 if (_isman) then {
-	private _basetime = 180;
-	private _maxtime = 100;
+	private _basetime = 230;
+	private _maxtime = 130;
 
 	__TRACE_2("","_basetime","_maxtime")
 
 	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 20;
 	
 	__TRACE_1("","_endtime")
-
-	waitUntil {sleep 1; time > _endtime || {d_mt_done || {d_mt_barracks_down}}};
+	
+	waitUntil {sleep 1; _endtime = [_endtime, _maxtime] call _fnc_checktime; time > _endtime || {d_mt_done || {d_mt_barracks_down}}};
 	if (d_mt_done || {d_mt_barracks_down}) then {
 		_doend = true;
 	};
 } else {
-	private _basetime = 220;
-	private _maxtime = 120;
+	private _basetime = 280;
+	private _maxtime = 150;
 
 	__TRACE_2("","_basetime","_maxtime")
 
@@ -44,7 +55,7 @@ if (_isman) then {
 
 	__TRACE_1("","_endtime")
 
-	waitUntil {sleep 1; time > _endtime || {d_mt_done || {d_mt_mobile_hq_down}}};
+	waitUntil {sleep 1; _endtime = [_endtime, _maxtime] call _fnc_checktime; time > _endtime || {d_mt_done || {d_mt_mobile_hq_down}}};
 	if (d_mt_done || {d_mt_mobile_hq_down}) then {
 		_doend = true;
 	};

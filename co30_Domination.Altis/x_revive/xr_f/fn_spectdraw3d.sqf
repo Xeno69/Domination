@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_spectdraw3d.sqf"
 #include "..\..\x_macros.sqf"
 
+#define __d_textsize_dr3d  0.03333
+
 private _grpp = group player;
 private _cam2world = positionCameraToWorld [0,0,0];
 private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex"];

@@ -11,5 +11,8 @@ if (_this select 1 != player) then {
 		_farpc params ["_trig"];
 		_trig setTriggerActivation ["ANY", "PRESENT", true];
 		_trig setTriggerStatements ["thislist call d_fnc_tallservice", "0 = [thislist] spawn d_fnc_reload", ""];
+		d_farp_classes params ["_farptype"];
+		private _mapSize = getNumber(configFile>>"CfgVehicles">>_farptype>>"mapSize");
+		_trig setTriggerArea [_mapSize, _mapSize, getDir (_this select 0), true, 2];
 	};
 };

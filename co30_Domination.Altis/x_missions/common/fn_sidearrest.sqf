@@ -52,37 +52,24 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 	if (!_rescued) then {
 		private _nobjs = (_officer nearEntities ["CAManBase", 20]) select {(_x call d_fnc_isplayer) && {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 		if !(_nobjs isEqualTo []) then {
-			if (!d_no_ai || {d_tt_ver}) then {
-				_nobjs params ["_rescuer"];
-				_rescued = true;
-				_officer enableAI "PATH";
-				[_officer] join _rescuer;
+			_nobjs params ["_rescuer"];
+			_rescued = true;
+			_officer enableAI "PATH";
+			[_officer] join _rescuer;
 
-				[_officer, true] remoteExecCall ["setCaptive", _officer];
+			[_officer, true] remoteExecCall ["setCaptive", _officer];
 
-				d_sm_arrest_mp_unit = _rescuer;
-				d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx",
-					_rescuer addMPEventhandler ["MPKilled", {
-						if (!isNil "d_sm_arrest_mp_unit") then {
-							d_sm_arrest_not_failed = false;
-							d_sm_arrest_mp_unit removeMPEventHandler ["MPKilled", d_sm_arrest_mp_unit getVariable "d_sm_ar_mpk_eh_idx"];
-							d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx", nil];
-							d_sm_arrest_mp_unit = nil;
-						};
-					}]
-				];
-			} else {
-				_nobjs findIf {
-					private _ret = (str _x) select [0, 8] == "d_artop_";
-					if (_ret) then {
-						_rescued = true;
-						_officer enableAI "PATH";
-						[_officer] join _x;
-						[_officer, true] remoteExecCall ["setCaptive", _officer];
+			d_sm_arrest_mp_unit = _rescuer;
+			d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx",
+				_rescuer addMPEventhandler ["MPKilled", {
+					if (!isNil "d_sm_arrest_mp_unit") then {
+						d_sm_arrest_not_failed = false;
+						d_sm_arrest_mp_unit removeMPEventHandler ["MPKilled", d_sm_arrest_mp_unit getVariable "d_sm_ar_mpk_eh_idx"];
+						d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx", nil];
+						d_sm_arrest_mp_unit = nil;
 					};
-					_ret
-				};
-			};
+				}]
+			];
 		};
 	} else {
 #ifndef __TT__

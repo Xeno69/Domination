@@ -5,6 +5,14 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99m
+- Fixed: Draw3D for other players in revive spectating was missing because of missing define
+- Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)
+- Changed: Added old Domination and A3 logo resources to new intro
+- Changed: Don't respawn enemy AI groups if there are no players on a persistent server
+- Changed: More robust move checks and deletion of enemy AI air units spawning at the edges of the map
+- Changed: More checks if a player is admin (every frame again instead of every 10 frames)
+
 3.99l
 - Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
 - Added: Replaced the explicit user ID with #adminLogged for Zeus access (by longtimegamer)
@@ -41,6 +49,14 @@ Changelogs
 - Changed: Do not delete isle defense groups if players are less than 1000m away
 - Changed: Removed delete marker from specific user because the id inside the user defined marker is not the net id but some other whatever ID
 - Changed: Enemy AI inf and vehicle groups have different respawn times at main targets now
+- Changed: Any group leader can now rescue/arrest AI units in side missions and not just the artillery operators
+- Added: New A3 style intro which can be canceled immediately by pressing the space key
+- Changed: Only check for enemy AI infantry to announce a new main target (some vehicle types might not get spawned anymore :))
+- Added: Ambient vehicle radio chatter (by lelik). Check d_WithAmbientRadio in description.ext/With ambient radio: in server lobby params
+- Added: Ambient vehicle radio chatter for the RHS version (by lelik)
+- Fixed: Don't save player score to database if player score <= 0 to prevent overwriting DB values
+- Fixed: Loading and placing bonus vehicles from a database save file was not using the latest code from getbonus.
+- Fixed: Wrong trigger size was used for player placed FARP triggers on remote clients
 - More optimizations
 
 3.99k

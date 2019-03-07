@@ -1,3 +1,4 @@
+//#define __DEBUG__
 #define THIS_FILE "fn_establishingShot.sqf"
 #include "..\x_setup.sqf"
 /*
@@ -29,6 +30,7 @@ private _dir = [_this, 5, round random 1, [0]] call BIS_fnc_param;
 private _mode = [_this, 7, 0, [0]] call BIS_fnc_param;
 
 d_is_sat_on = true;
+BIS_fnc_establishingShot_fakeUAV = nil;
 
 _txt = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1515", str _tgt];
 if (count _tgt == 2) then {_tgt pushBack 0};
@@ -170,12 +172,16 @@ if (_mode == 1) then {
 	waitUntil {!isNull (uiNamespace getVariable "RscEstablishingShot")};
 };
 
+__TRACE("After waitUntil 1")
+
 // Wait for the camera to load
 waitUntil {camPreloaded BIS_fnc_establishingShot_fakeUAV || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+__TRACE("After waitUntil 2")
 
 private _drawEH = -1;
 
 if (isNil "BIS_fnc_establishingShot_skip") then {
+	__TRACE("After isnil BIS_fnc_establishingShot_skip")
 	BIS_fnc_establishingShot_playing = true;
 
 	// Create logic to play sounds
@@ -244,7 +250,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 	};
 
 	sleep 1;
-
+	__TRACE("After sleep 1")
 	if (isNil "BIS_fnc_establishingShot_skip" && {!( player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
 		enableEnvironment [false, true];
 		2 fadeSound 1;
@@ -259,7 +265,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 			"BIS_layerInterlacing" cutRsc ["RscInterlacing", "PLAIN"];
 
 			// Show screen
-			"BIS_fnc_blackOut" cutText ["","PLAIN",10e10];
+			"BIS_fnc_blackOut" cutText ["", "PLAIN", 10e10];
 
 			// Add interlacing to optionsMenuClosed
 			optionsMenuClosed = if (_mode == 0) then {
@@ -445,7 +451,9 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 };
 
 if (_mode == 0) then {
+	__TRACE("Before waitUntil 4")
 	waitUntil {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false]} || {!alive player}};
+	__TRACE("After waitUntil 4")
 
 	// Remove skipping eventhandler if it wasn't removed already
 	if (!isNil {uiNamespace getVariable "BIS_fnc_establishingShot_skipEH"}) then {
@@ -482,7 +490,7 @@ if (_mode == 0) then {
 	} forEach ["BIS_layerEstShot", "BIS_layerStatic", "BIS_layerInterlacing"];
 
 	enableEnvironment [false, true];
-	"BIS_fnc_blackOut" cutText ["","BLACK FADED",10e10];
+	"BIS_fnc_blackOut" cutText ["", "BLACK FADED", 10e10];
 
 	sleep 1;
 

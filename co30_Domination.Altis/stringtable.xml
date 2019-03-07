@@ -291,13 +291,13 @@
 <Russian>Только врек-вертолет (W) может перевозить обломки призовой техники.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_43">
-<English>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator). They are also able to rescue hostages (in the AI version every player can do that). You have to bring the hostages to the map at your base.</English>
-<Spanish>Los operadores de artillería puede disparar la artillería (los objetivos de artillería tienen que ser marcados en primer lugar, para ellos es necesita un designador láser). También son capaces de rescatar a los rehenes (en la versión AI cada jugador puede hacer eso). Tiene que llevar a los rehenes al mapa de su base.</Spanish>
-<Portuguese>Os operadores de artilharia podem executar greves de artilharia (objetivos de artilharia têm que ser marcados primeiro, laser de necessidades designator) São também capazes de resgatar reféns (no AI versão a cada jogador pode fazer aquele). Tem que trazer os reféns ao mapa em vossa base.</Portuguese>
-<Korean>포병반장은 포격지원을 해줄 수 있습니다. (포격목표는 레이저 지시기로 유도를 해줘야합니다). 또한 인질을 구출 해줄수 있으며 (AI전 경우 모든 유저가 가능합니다), 인질을 본부로 송환해야 작전이 완수됩니다.</Korean>
-<Japanese>砲兵観測手は砲撃を要請することができます（最初にレーザー照準器で砲撃目標をマークする必要があります）。 彼らは人質を救助することもできます（AIバージョンではすべてのプレイヤーができます）。 人質をあなたの基地の地図に持っていかなければなりません。</Japanese>
-<Original>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator). They are also able to rescue hostages (in the AI version every player can do that). You have to bring the hostages to the map at your base.</Original>
-<Russian>Внимание! Командиры отделений могут обозначать место АртУдара (нужен лазерный целеуказатель), но только Арт.наводчики могут его вызвать. Так же командиры отделений могут управлять заложниками (ИИ) на миссиях.</Russian>
+<English>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</English>
+<Spanish>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Spanish>
+<Portuguese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Portuguese>
+<Korean>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Korean>
+<Japanese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Japanese>
+<Original>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Original>
+<Russian>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_44">
 <English>The leaders of team Alpha, Charlie and Echo can request air drops (in the AI version every player can do that, not available in the TT version). They can also mark artillery targets for the artillery operator (needs laser designator).</English>
@@ -1901,15 +1901,6 @@
 <Original>You have to restore your repair/refuel capability at base first or take one of the two engineer trucks with you.</Original>
 <Russian>Вы восстановите возможность чинить и заправлять технику путем возврата на базу или берите с собой один из двух грузовиков (спец. для инженеров)</Russian>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_325">
-<English>You need %2 points to repair/refuel a vehicle, your current score is: %1!</English>
-<Spanish>Necesita %2 puntos para reparar/repostar un vehículo, su puntuación actual es: %1.</Spanish>
-<Portuguese>Precisa %2 pontos para consertar/refuel um veículo, vossa pontuação atual é: %1!</Portuguese>
-<Korean>차량을 수리하려면 %2 포인트가 필요합니다. 귀하의 포인트는: %1!</Korean>
-<Japanese>車両の修理/補給には %2 ポイントが必要ですが、現在の得点は%1です！</Japanese>
-<Original>You need %2 points to repair/refuel a vehicle, your current score is: %1!</Original>
-<Russian>Вам необходимо иметь %2 очков для полного ремонта, а у Вас сейчас %1 очков !</Russian>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_326">
 <English>You have to wait %1 seconds until you can repair a vehicle at base again.</English>
 <Spanish>You have to wait %1 seconds until you can repair a vehicle at base again.</Spanish>
@@ -2520,8 +2511,7 @@
 <Korean>- Codenames for launching saboteur attacks on or base</Korean>
 <Japanese>- Codenames for launching saboteur attacks on or base</Japanese>
 <Original>- Codenames for launching saboteur attacks on or base</Original>
-<Russian>
-</Russian>
+<Russian>- Codenames for launching saboteur attacks on or base</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_542">
 <English>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</English>
@@ -2530,8 +2520,7 @@
 <Korean>- 공수지원의 암호명으로 주미션지에 상대측 공수병력 투하에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに空挺隊を送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</Original>
-<Russian>
-</Russian>
+<Russian>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_543">
 <English>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</English>
@@ -2540,8 +2529,7 @@
 <Korean>- 항공공격의 암호명으로 주미션지에 상대측 항공공격에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに攻撃機を送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</Original>
-<Russian>
-</Russian>
+<Russian>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_544">
 <English>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</English>
@@ -2550,8 +2538,7 @@
 <Korean>- 헬기공격의 암호명으로 주미션지에 상대측 헬기공격에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに攻撃ヘリコプターを送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</Original>
-<Russian>
-</Russian>
+<Russian>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_545">
 <English>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</English>
@@ -2560,8 +2547,7 @@
 <Korean>- 헬기공격의 암호명으로 주미션지에 상대측 헬기공격(경량)에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに軽攻撃ヘリコプターを送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</Original>
-<Russian>
-</Russian>
+<Russian>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_546">
 <English>- Provide grid information on where the enemy is calling in artillery support.</English>
@@ -2570,8 +2556,7 @@
 <Korean>- 상대측이 어디로 포격을 지원하는지 좌표로 정보를 제공합니다.</Korean>
 <Japanese>- 敵が砲撃支援をどこで呼び出しているかについてのグリッド情報を提供する。</Japanese>
 <Original>- Provide grid information on where the enemy is calling in artillery support.</Original>
-<Russian>
-</Russian>
+<Russian>- Provide grid information on where the enemy is calling in artillery support.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_547">
 <English>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</English>
@@ -2580,8 +2565,7 @@
 <Korean>- 상대측 차량을 추적할 수 있는 능력입니다. 단, 어떤 종류인지는 알 수 없습니다. 지도를 확인하십시오.</Korean>
 <Japanese>- 敵の車両パトロールを追跡する能力、その構成まではわかりません。 地図を確認してください。</Japanese>
 <Original>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
-<Russian>
-</Russian>
+<Russian>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_548">
 <English>No intel found yet...</English>
@@ -3139,8 +3123,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군의 항공투하에 대한 정보를 얻었으며, 언제 항공투하를 주미션에 할지에 대해 알게 되었습니다? 4879</Korean>
 <Japanese>%1が新情報を入手。敵の空中投下のコードネームがわかった、メインターゲットへの空挺降下の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_651">
 <English>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</English>
@@ -3149,8 +3132,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군 공격항공기에 대한 암호명을 확보하였으며, 언제 적 공격항공기가 주미션에 출격하는지 미리 알수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の攻撃機のコードネームがわかった、メインターゲットへの航空攻撃の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_652">
 <English>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</English>
@@ -3159,8 +3141,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 공격헬기에 대한 암호명을 확보하였으며, 언제 적 공격헬기가 주미션에 출현하는지 미리 알수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の攻撃ヘリコプターのコードネームがわかった、情報部はメインターゲットへの攻撃ヘリ飛来が分かるようになるだろう。</Japanese>
 <Original>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_653">
 <English>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</English>
@@ -3169,8 +3150,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 수송항공기에 대한 암호명을 확보하였으며, 언제 수송항공기가 지원을 오는지 미리 알 수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の輸送機のコードネームがわかった、メインターゲットへの航空輸送の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_654">
 <English>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</English>
@@ -3179,8 +3159,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 이제 적이 어디에 포격지원을 하는지 좌표로 확인을 할 수 있습니다.</Korean>
 <Japanese>%1が新情報を入手。砲撃要請の位置が分かるようになった。</Japanese>
 <Original>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_655">
 <English>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</English>
@@ -3189,8 +3168,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 차량순찰을 추적할수있으나 어떤 종류인지는 알 수 없습니다. 지도를 확인해주십시오.</Korean>
 <Japanese>%1が新情報を入手。敵の車両パトロールを追跡できるようになった。その構成までは不明、 地図を確認せよ。</Japanese>
 <Original>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656">
 <English>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</English>
@@ -3199,8 +3177,7 @@
 <Korean>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Korean>
 <Japanese>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Japanese>
 <Original>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Original>
-<Russian>
-</Russian>
+<Russian>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656a">
 <English>Your mash was destroyed !!!</English>
@@ -3616,8 +3593,7 @@
 <Korean>적이 보조미션의 목표를 자체적으로 파괴하였습니다.</Korean>
 <Japanese>敵は自らサイドミッションターゲットを破壊することに決めました...</Japanese>
 <Original>The enemy decided to destroy the sidemission target by itself...</Original>
-<Russian>
-</Russian>
+<Russian>The enemy decided to destroy the sidemission target by itself...</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_718">
 <English>The convoy reached its destination...</English>
@@ -4435,8 +4411,7 @@
 <Korean>CPR</Korean>
 <Japanese>CPR</Japanese>
 <Original>CPR</Original>
-<Russian>
-</Russian>
+<Russian>CPR</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_931">
 <English>No lives left...</English>
@@ -4589,8 +4564,7 @@
 <Korean>아군이 발전기를 파괴하였습니다.</Korean>
 <Japanese>あなたのチームが変電器を破壊しました。</Japanese>
 <Original>Your team destroyed the transformer.</Original>
-<Russian>
-</Russian>
+<Russian>Your team destroyed the transformer.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_956">
 <English>Your team destroyed the heavy enemy factory.</English>
@@ -4599,8 +4573,7 @@
 <Korean>아군이 적의 공장을 파괴하였습니다.</Korean>
 <Japanese>あなたのチームが敵工場を破壊しました。</Japanese>
 <Original>Your team destroyed the heavy enemy factory.</Original>
-<Russian>
-</Russian>
+<Russian>Your team destroyed the heavy enemy factory.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_958">
 <English>Your team destroyed the enemy anti air radar.</English>
@@ -4618,8 +4591,7 @@
 <Korean>아군이 반역자를 처단하였습니다.</Korean>
 <Japanese>あなたのチームが敵の協力者を排除しました。</Japanese>
 <Original>Your team killed the collaborateur.</Original>
-<Russian>
-</Russian>
+<Russian>Your team killed the collaborateur.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_960">
 <English>Your team killed the drug dealer.</English>
@@ -4862,8 +4834,7 @@
 <Korean>AI 기능만, AI 모집없음</Korean>
 <Japanese>AI機能あり,AI募集なし:</Japanese>
 <Original>With AI features but no AI recruit:</Original>
-<Russian>
-</Russian>
+<Russian>With AI features but no AI recruit:</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1025">
 <English>Initial Viewdistance:</English>
@@ -6600,8 +6571,7 @@
 <Korean>해당지역에 차량소환용 깃대가 세워졌습니다.</Korean>
 <Japanese>現在のターゲットに車両作成用の旗が立てられた。</Japanese>
 <Original>New vehicle create flag created at current target.</Original>
-<Russian>
-</Russian>
+<Russian>New vehicle create flag created at current target.</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1384">
 <English>The %1 team solved the main target mission and gets %2 points.</English>
@@ -8059,8 +8029,7 @@
 <Korean>Click on a save game name below to load it%1%2</Korean>
 <Japanese>Click on a save game name below to load it%1%2</Japanese>
 <Original>Click on a save game name below to load it%1%2</Original>
-<Russian>
-</Russian>
+<Russian>Click on a save game name below to load it%1%2</Russian>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1752">
 <English>Could not load saved DB progress %1</English>
@@ -9177,6 +9146,15 @@
 <Japanese>3D user markers turned off!</Japanese>
 <Original>3D user markers turned off!</Original>
 <Russian>3D user markers turned off!</Russian>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1948">
+<English>With ambient radio:</English>
+<Spanish>With ambient radio:</Spanish>
+<Portuguese>With ambient radio:</Portuguese>
+<Korean>With ambient radio:</Korean>
+<Japanese>With ambient radio:</Japanese>
+<Original>With ambient radio:</Original>
+<Russian>With ambient radio:</Russian>
 </Key>
 </Container>
 </Package>

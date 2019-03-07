@@ -403,7 +403,7 @@ draw3d_ar = [];
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.99l"];
+diag_log ["Internal D Version: 3.99m"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -591,7 +591,7 @@ if (!d_with_ace) then {
 
 		if (d_show_pname_hud) then {
 			d_pl_name_huddo_ar = [];
-			["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 4, "frames"]] call bis_fnc_loop;
+			["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 0]] call bis_fnc_loop;
 			d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
 		} else {
 			["itemAdd", ["dom_player_hud2", {call d_fnc_player_name_huddo2}, 0]] call bis_fnc_loop;
@@ -847,8 +847,7 @@ player addEventhandler ["HandleRating", {
 	if ((_this select 1) < 0) then {0} else {_this select 1}
 }];
 
-d_pisadminp = false;
-["itemAdd", ["d_scacheck", {call d_fnc_SCACheck}, 10, "frames"]] call bis_fnc_loop;
+["itemAdd", ["d_scacheck", {call d_fnc_SCACheck}, 0]] call bis_fnc_loop;
 
 if (d_enablefatigue == 0) then {
 	player setFatigue 0;
@@ -1008,16 +1007,19 @@ if (d_with_ai) then {
 0 spawn d_fnc_uav_check;
 #endif
 
-0 spawn {
-	scriptName "spawn_setupplayer7";
-	waitUntil {sleep 0.3;time > 0};
-	enableEnvironment [false, true];
+if (d_WithAmbientRadio == 1) then {
+   15 spawn d_fnc_AmbientRadioChatter;
 };
 
 if (isMultiplayer) then {
-	execVM "x_client\x_intro.sqf";
+	execVM "x_client\x_intro2.sqf";
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
+	0 spawn {
+		scriptName "spawn_setupplayer7";
+		waitUntil {sleep 0.3;time > 0};
+		enableEnvironment [false, true];
+	};
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

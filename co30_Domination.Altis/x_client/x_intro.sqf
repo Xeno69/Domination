@@ -22,7 +22,7 @@ createDialog "d_RscAnimatedLetters";
 setMousePosition [1, 1];
 private _line = 0;
 d_animL_i = 0;
-titleText ["", "BLACK IN",0];
+titleText ["", "BLACK IN", 0];
 "BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
 
 private _pspsxx = getPosASL player;
@@ -125,7 +125,7 @@ switch (d_MissionType) do {
 	};
 };
 
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.99l  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.99m  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 _camera camSetTarget player;
 _p_tpos = [_pspsxx # 0, _pspsxx # 1, (player modelToWorld [0,0,2]) # 2];
@@ -185,16 +185,17 @@ if (!_uidcheck_done && {!(d_uid_reserved_slots isEqualTo [])} && {!(d_uids_for_r
 };
 
 d_still_in_intro = false;
+enableEnvironment [false, true];
 
 sleep 5;
 
 [
 	[
-		[localize "STR_DOM_MISSIONSTRING_265","<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 0],
-		[profileName,"<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 5],
-		[localize "STR_DOM_MISSIONSTRING_266","<t size='0.9'>%1</t><br/>", 27]
+		[localize "STR_DOM_MISSIONSTRING_265", "<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 0],
+		[profileName, "<t size='1.0' font='RobotoCondensed'>%1</t><br/>", 5],
+		[localize "STR_DOM_MISSIONSTRING_266", "<t size='0.9'>%1</t><br/>", 27]
 	],
-	-safezoneX,0.85,"<t color='#FFFFFFFF' align='right'>%1</t>"
+	-safezoneX, 0.85, "<t color='#FFFFFFFF' align='right'>%1</t>"
 ] spawn bis_fnc_typeText;
 
 sleep 8;
