@@ -63,7 +63,7 @@ d_bonus_vecs_db = _ar # 9;
 			d_bap_counter = d_bap_counter + 1;
 			if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};
 		} else {
-			if (getNumber(configFile >> "CfgVehicles" >> _vec_type >> "tailHook") != 1) then {
+			if (getNumber(configFile >> "CfgVehicles" >> _x >> "tailHook") != 1) then {
 				_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
 				_dir = (d_bonus_air_positions # d_bap_counter) # 1;
 				d_bap_counter = d_bap_counter + 1;
