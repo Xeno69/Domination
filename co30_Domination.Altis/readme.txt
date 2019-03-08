@@ -5,6 +5,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99n
+- Changed: Draw MHQ 3D marker in every frame again
+
 3.99m
 - Fixed: Draw3D for other players in revive spectating was missing because of missing define
 - Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)

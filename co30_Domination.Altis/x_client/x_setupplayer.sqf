@@ -975,7 +975,7 @@ call d_fnc_allai_recruit_objs_prep;
 ["itemAdd", ["dom_allai_recruit_objs_prep", {call d_fnc_allai_recruit_objs_prep}, 30, "frames"]] call bis_fnc_loop;
 
 call d_fnc_mhq_3ddraw_prep;
-["itemAdd", ["dom_mhq_3ddraw_prep", {call d_fnc_mhq_3ddraw_prep}, 3, "frames"]] call bis_fnc_loop;
+["itemAdd", ["dom_mhq_3ddraw_prep", {call d_fnc_mhq_3ddraw_prep}, 0]] call bis_fnc_loop;
 
 call d_fnc_currentcamps_prep;
 ["itemAdd", ["dom_currentcamps_prep", {call d_fnc_currentcamps_prep}, 2, "frames"]] call bis_fnc_loop;
@@ -1023,3 +1023,6 @@ if (isMultiplayer) then {
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
+
+
+// TODO Hint spieler links iwo neben dir kann revived werden weg machen wenn spieler revived worden ist
