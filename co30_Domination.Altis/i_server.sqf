@@ -25,7 +25,7 @@ d_bonus_vec_positions = [];
 {
 	d_bonus_vec_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-} forEach (_allmapmarkers select {_x select [0, 22] == "d_bonus_vec_positions_"});
+} forEach (_allmapmarkers select {_x select [0, 22] == "d_bonus_vec_positions_" && {([_x select [22, 23]] call BIS_fnc_parseNumber) != -1}});
 if (!isNil "d_the_carrier") then {
 	private _nobs = nearestObjects [d_the_carrier, ["FlagCarrier"], 200];
 	if !(_nobs isEqualTo []) then {
