@@ -1023,6 +1023,3 @@ if (isMultiplayer) then {
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
-
-
-// TODO Hint Nachricht "Spieler x kann revived werden" bleibt zu lange, wird noch angezeigt wenn Spieler schon revived wurde -> cutText?
