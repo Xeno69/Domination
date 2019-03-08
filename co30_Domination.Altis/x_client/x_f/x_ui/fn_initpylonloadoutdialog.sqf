@@ -166,3 +166,5 @@ for "_i" from 0 to (count _presets - 1) do {
 	_ctrl lbSetData [_idx, configName _preset];
 };
 _ctrl lbSetCurSel 0;
+
+ctrlSetFocus _ctrl;

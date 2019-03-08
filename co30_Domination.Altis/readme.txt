@@ -9,6 +9,7 @@ Changelogs
 - Changed: Draw MHQ 3D marker in every frame again
 - Fixed: Critical error (bonusVec script with DB crashes) and a faulty array of bonusVec positions when loading DB savefile (by Auge)
 - Fixed: Score was subtracted for parajumping from base/flag even if the player did not jump/closed the dialog
+- Fixed: Pylon loadout dialog was closed when a player openend the dialog with the space key (focus issue)
 
 3.99m
 - Fixed: Draw3D for other players in revive spectating was missing because of missing define
