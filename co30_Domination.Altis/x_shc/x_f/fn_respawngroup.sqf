@@ -32,8 +32,8 @@ private _fnc_checktime = {
 };
 
 if (_isman) then {
-	private _basetime = 230;
-	private _maxtime = 130;
+	private _basetime = d_ai_groups_respawn_time # 0;
+	private _maxtime = d_ai_groups_respawn_time # 1;
 
 	__TRACE_2("","_basetime","_maxtime")
 
@@ -46,8 +46,8 @@ if (_isman) then {
 		_doend = true;
 	};
 } else {
-	private _basetime = 280;
-	private _maxtime = 150;
+	private _basetime = d_ai_groups_respawn_time # 2;
+	private _maxtime = d_ai_groups_respawn_time # 3;
 
 	__TRACE_2("","_basetime","_maxtime")
 

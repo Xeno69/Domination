@@ -10,6 +10,7 @@ Changelogs
 - Fixed: Critical error (bonusVec script with DB crashes) and a faulty array of bonusVec positions when loading DB savefile (by Auge)
 - Fixed: Score was subtracted for parajumping from base/flag even if the player did not jump/closed the dialog
 - Fixed: Pylon loadout dialog was closed when a player openend the dialog with the space key (focus issue)
+- Changed: AI inf and vehicle groups respawn times at main targets can now be changed with d_ai_groups_respawn_time array (check fn_preinit.sqf; can also be added to dom_settings SQL DB table)
 
 3.99m
 - Fixed: Draw3D for other players in revive spectating was missing because of missing define
