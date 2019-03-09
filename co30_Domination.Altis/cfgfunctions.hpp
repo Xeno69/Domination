@@ -389,7 +389,6 @@ class cfgFunctions {
 			addc(ampoi);
 			addc(mhqdepls);
 			addc(mhq_net);
-			addc(s_mrecap_g);
 			addc(at_serv);
 			addc(d_sm_mar);
 			addc(s_sm_up);
@@ -435,6 +434,7 @@ class cfgFunctions {
 			addc(sgetinvec);
 			addc(sgetoutvec);
 			addc(casfired);
+			addc(trigsetmarker);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

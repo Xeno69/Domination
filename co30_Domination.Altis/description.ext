@@ -136,7 +136,6 @@ class CfgRemoteExec {
 		class d_fnc_mhq_net {allowedTargets = 2;};
 		class d_fnc_getbonus {allowedTargets = 2;};
 		class d_fnc_CreateMarkerGlobal {allowedTargets = 2;};
-		class d_fnc_s_mrecap_g {allowedTargets = 2;};
 		class d_fnc_at_serv {allowedTargets = 2;};
 		class d_fnc_d_sm_mar {allowedTargets = 2;};
 		class d_fnc_s_sm_up {allowedTargets = 2;};
