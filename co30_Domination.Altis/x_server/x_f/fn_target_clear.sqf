@@ -95,17 +95,6 @@ if !(d_maintargets_list isEqualTo []) then {
 	};
 } else {
 	d_target_clear = true; publicVariable "d_target_clear";
-	
-	{
-		private _mname = _x getVariable "d_trigmarker";
-		if (!isNil "_mname") then {
-			deleteMarker _mname;
-		};
-		deleteVehicle _x;
-	} forEach d_mt_marker_triggers;
-
-	d_mt_marker_triggers = [];
-	
 #ifndef __TT__
 	("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
 	"" remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];

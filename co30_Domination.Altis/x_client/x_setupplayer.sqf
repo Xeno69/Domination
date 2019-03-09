@@ -70,6 +70,8 @@ d_player_in_air = false;
 
 d_player_vecs = [];
 
+d_mt_marker_triggers = [];
+
 disableMapIndicators [true, true, false, false];
 
 if !(d_additional_respawn_points isEqualTo []) then {
@@ -280,6 +282,8 @@ if (d_MissionType != 2) then {
 			d_obj00_task = nil;
 			["d_obj00", "Succeeded", false] call BIS_fnc_taskSetState;
 		};
+		
+		call d_fnc_cmakemtgmarker;
 	};
 };
 

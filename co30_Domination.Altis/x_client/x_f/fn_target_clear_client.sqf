@@ -6,6 +6,16 @@ if (!hasInterface) exitWith {};
 
 playSound "d_fanfare";
 
+{
+	private _mname = _x getVariable "d_trigmarker";
+	if (!isNil "_mname") then {
+		deleteMarkerLocal _mname;
+	};
+	deleteVehicle _x;
+} forEach d_mt_marker_triggers;
+
+d_mt_marker_triggers = [];
+
 private _extra_bonusn = _this;
 
 if (!isNil "d_obj00_task") then {

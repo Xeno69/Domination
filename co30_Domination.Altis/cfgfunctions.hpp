@@ -172,6 +172,8 @@ class cfgFunctions {
 			addc(mhq_3ddraw_prep);
 			addc(currentcamps_prep);
 			addc(usermarkers_prep);
+			addc(trigsetmarker);
+			addc(cmakemtgmarker);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -434,7 +436,6 @@ class cfgFunctions {
 			addc(sgetinvec);
 			addc(sgetoutvec);
 			addc(casfired);
-			addc(trigsetmarker);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

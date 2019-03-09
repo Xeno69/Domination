@@ -13,4 +13,4 @@ private _color = ["ColorGreen", "ColorRed"] select (_this # 1);
 
 __TRACE_1("","_color")
 
-_mar setMarkerColor _color;
+_mar setMarkerColorLocal _color;
