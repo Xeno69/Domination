@@ -695,6 +695,15 @@
 <Original>Call Artillery</Original>
 <Russian>Запрос на АртУдар</Russian>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_155">
+<English>You must have at least %1 points to create a %2</English>
+<Spanish>Debe tener al menos %1 puntos para crear un %2</Spanish>
+<Portuguese>Você deve ter pelo menos %1 pontos para criar um %2</Portuguese>
+<Korean> %2 를 만들려면 적어도 %1 점이 있어야합니다.</Korean>
+<Japanese> %2 を作成するには少なくとも %1 ポイントが必要です</Japanese>
+<Original>You must have at least %1 points to create a %2</Original>
+<Russian>У вас должно быть как минимум %1 очков, чтобы создать %2</Russian>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_156">
 <English>You have to be at least %1 to create a %2</English>
 <Spanish>Debe tener al menos %1 para crear un %2</Spanish>

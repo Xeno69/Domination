@@ -4,8 +4,9 @@
 
 if (!hasInterface) exitWith {};
 
-(_this select 3) params ["_create_bike", "_b_mode"];
+(_this select 3) params ["_create_bike", "_b_mode", ["_ismhq",false]];
 
+private _disp_name = [_create_bike, "CfgVehicles"] call d_fnc_GetDisplayName;
 private _exitit = false;
 if (d_with_ranked) then {
 	private _dosearch = true;
@@ -23,19 +24,21 @@ if (d_with_ranked) then {
 					case (d_points_needed # 5): {"Colonel"};
 					case (d_points_needed # 6): {"General"};
 				};
-				systemChat format [localize "STR_DOM_MISSIONSTRING_156", _rank, _create_bike];
+				systemChat format [localize "STR_DOM_MISSIONSTRING_156", _rank, _disp_name];
 				_exitit = true;
 			};
 		};
 	};
 	if (_dosearch && {score player < d_ranked_a # 6}) then {
 		_exitit = true;
-		systemChat format[localize "STR_DOM_MISSIONSTRING_156", (d_ranked_a # 6) call d_fnc_GetRankFromScore, _create_bike];
+		systemChat format[localize "STR_DOM_MISSIONSTRING_155", (d_ranked_a # 6) , _disp_name];
 	};
 };
 if (_exitit) exitWith {};
 
-private _disp_name = [_create_bike, "CfgVehicles"] call d_fnc_GetDisplayName;
+if (_ismhq) then {
+	d_mhqvec_create_cooldown_time = time + d_mhqvec_create_cooldown;
+};
 
 if (!isNull objectParent player) exitWith {
 	systemChat format [localize "STR_DOM_MISSIONSTRING_158", _disp_name];
