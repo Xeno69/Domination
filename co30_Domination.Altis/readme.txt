@@ -13,6 +13,7 @@ Changelogs
 - Changed: AI inf and vehicle groups respawn times at main targets can now be changed with d_ai_groups_respawn_time array (check fn_preinit.sqf; can also be added to dom_settings SQL DB table)
 - Added: New marker system at main targets. You'll see now areas with enememy AI units
 - Changed: Better mhq (bike) vehicle creation (by Auge)
+- Changed: Increase the time for enemy AI inf respawn groups with every barracks building destroyed to prevent respawning at one building of all groups
 
 3.99m
 - Fixed: Draw3D for other players in revive spectating was missing because of missing define

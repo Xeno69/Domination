@@ -37,7 +37,7 @@ if (_isman) then {
 
 	__TRACE_2("","_basetime","_maxtime")
 
-	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 20;
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 20 + d_groups_respawn_time_add;
 	
 	__TRACE_1("","_endtime")
 	

@@ -6,6 +6,7 @@
 params ["_obj"];
 _obj removeAllEventHandlers "killed";
 d_num_barracks_objs = d_num_barracks_objs - 1;
+d_groups_respawn_time_add = d_groups_respawn_time_add + 30 + (random 30);
 if ({alive _x} count d_mt_barracks_obj_ar != d_num_barracks_objs) then {
 	d_num_barracks_objs = {alive _x} count d_mt_barracks_obj_ar;
 };

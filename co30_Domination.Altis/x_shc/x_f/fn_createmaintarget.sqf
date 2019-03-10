@@ -69,6 +69,7 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 #ifndef __TT__
+d_groups_respawn_time_add = 0;
 //limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
 d_num_barracks_objs = ((ceil random 5) max 3) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
