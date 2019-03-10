@@ -172,6 +172,8 @@ class cfgFunctions {
 			addc(mhq_3ddraw_prep);
 			addc(currentcamps_prep);
 			addc(usermarkers_prep);
+			addc(trigsetmarker);
+			addc(cmakemtgmarker);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -196,7 +198,6 @@ class cfgFunctions {
 			addc(dismissallbuttonaction);
 			addc(cam_rose);
 			addc(removeallusermarkers);
-			addc(removediscusermarkers);
 			addc(updatesupportrsc);
 			addc(artmselchanged);
 			addc(initvecdialog);
@@ -292,6 +293,7 @@ class cfgFunctions {
 			addc(HousePatrol);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
+			addc(ambientradiochatter);
 		};
 		class Dom_KBTell {
 			file = "x_bikb";
@@ -389,14 +391,12 @@ class cfgFunctions {
 			addc(ampoi);
 			addc(mhqdepls);
 			addc(mhq_net);
-			addc(s_mrecap_g);
 			addc(at_serv);
 			addc(d_sm_mar);
 			addc(s_sm_up);
 			addc(plcheckkill);
 			addc(vrespawn2);
 			addc(helirespawn2);
-			addc(rusermarkers);
 			addc(rallusermarkers);
 			addc(airmarkermove);
 			addc(l_v);
@@ -495,6 +495,8 @@ class cfgFunctions {
 			addc(mtrestkilled0);
 			addc(mtrestkilled1);
 			addc(mthardtargetkilled);
+			addc(onerespukilled);
+			addc(respawngroup);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

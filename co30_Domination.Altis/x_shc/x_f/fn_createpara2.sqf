@@ -5,7 +5,7 @@
 
 if (!isServer) exitWith {};
 
-#define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper,240 + random 100] spawn _delveccrew; _stop_me = true}
+#define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper, 240 + random 100] spawn _delveccrew; _stop_me = true}
 
 params ["_vgrp", "_chopper", "_helifirstpoint", "_heliendpoint"];
 private _crew_vec = crew _chopper;
@@ -53,7 +53,7 @@ private _delveccrew = {
 };
 
 private _checktime = time + 300;
-while {_helifirstpoint distance2D (leader _vgrp) > 300} do {
+while {_helifirstpoint distance2D _chopper > 300} do {
 	__exitchop;
 	if (time > _checktime) then {
 		if (_startpos distance2D _chopper < 500) then {
@@ -132,9 +132,11 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 
 __exitchop;
 
-while {(_heliendpoint distance2D (leader _vgrp) > 300)} do {
+_checktime = time + 300;
+while {(_heliendpoint distance2D _chopper > 500)} do {
 	__exitchop;
-	sleep 5.123;
+	if (time > _checktime) exitWith	{};
+	sleep 1.123;
 };
 
 if (!isNull _chopper) then {_chopper call d_fnc_DelVecAndCrew};

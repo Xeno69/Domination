@@ -15,7 +15,6 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 	private _exitit = false;
 	if (d_with_ranked || {d_database_found}) then {
 		if (score player < d_ranked_a # 0) exitWith {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_325", score player, d_ranked_a # 0];
 			_exitit = true;
 		};
 		if (time >= d_last_base_repair) then {d_last_base_repair = -1};

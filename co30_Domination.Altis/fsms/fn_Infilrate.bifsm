@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Allways";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -55,7 +55,7 @@ class GraphItems
 	};
 	class Item2
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-34.407341;
 		Top=-21.204952;
@@ -66,7 +66,7 @@ class GraphItems
 		{
 			Text="Init";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -92,7 +92,7 @@ class GraphItems
 			Text="Delay 4000plus";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -106,7 +106,7 @@ class GraphItems
 	};
 	class Item4
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-33.414291;
 		Top=286.45081;
@@ -125,7 +125,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=4;
-				InitCode="_grp = [d_side_enemy] call d_fnc_creategroup;" \n "" \n "_end_posh = call d_fnc_GetRanPointOuterAir;" \n "_start_posh = call d_fnc_GetRanPointOuterAir;" \n "_start_posh set [2, 300];" \n "" \n "_vehicle = ([_start_posh, _start_posh getDir _end_posh, _chopper, _grp] call d_fnc_spawnVehicle) select 0;" \n "" \n "addToRemainsCollector [_vehicle];" \n "" \n "_attack_pos = [getPos d_FLAG_BASE, 800] call d_fnc_GetRanPointCircleOld;" \n "[_grp, _vehicle, _attack_pos, _end_posh] spawn d_fnc_createpara2;" \n "" \n "_timenow = time + 400;";
+				InitCode="_grp = [d_side_enemy] call d_fnc_creategroup;" \n "_grp deleteGroupWhenEmpty true;" \n "" \n "_end_posh = call d_fnc_GetRanPointOuterAir;" \n "_start_posh = call d_fnc_GetRanPointOuterAir;" \n "_start_posh set [2, 300];" \n "" \n "_vehicle = ([_start_posh, _start_posh getDir _end_posh, _chopper, _grp] call d_fnc_spawnVehicle) select 0;" \n "" \n "addToRemainsCollector [_vehicle];" \n "" \n "_attack_pos = [getPos d_FLAG_BASE, 800] call d_fnc_GetRanPointCircleOld;" \n "[_grp, _vehicle, _attack_pos, _end_posh] spawn d_fnc_createpara2;" \n "" \n "_timenow = time + 400;";
 			};
 		};
 	};
@@ -194,7 +194,7 @@ class GraphItems
 			Text="Is MP";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -271,7 +271,7 @@ class GraphItems
 		{
 			Text="MP Player" \n "Check";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -481,12 +481,12 @@ class Window
 	Flags=2;
 	MaxPosX=-1;
 	MaxPosY=-1;
-	MinPosX=-32000;
-	MinPosY=-32000;
-	Left=234;
-	Top=234;
-	Right=1194;
-	Bottom=952;
+	MinPosX=-1;
+	MinPosY=-1;
+	Left=52;
+	Top=52;
+	Right=1012;
+	Bottom=770;
 	ShowCmd=3;
 	SplitPos=814;
 };

@@ -17,8 +17,6 @@ if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 4)) then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_64", score player, d_ranked_a # 4];
 		_do_exit = true;
-	} else {
-		[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
 	};
 };
 
@@ -38,18 +36,27 @@ if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player ge
 	if !(d_global_jump_pos isEqualTo []) then {
 #ifndef __TT__
 		[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;
+		if (d_with_ranked || {d_database_found}) then {
+			[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
+		};
 #else
 		if (d_player_side == blufor) then {
 			if (d_global_jump_pos inArea d_opfor_b_trig) exitWith {
 				systemChat localize "STR_DOM_MISSIONSTRING_1707";
 			};
 			[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;
+			if (d_with_ranked || {d_database_found}) then {
+				[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
+			};
 		} else {
 			if (d_player_side == opfor) then {
 				if (d_global_jump_pos inArea d_blufor_b_trig) exitWith {
 					systemChat localize "STR_DOM_MISSIONSTRING_1707";
 				};
 				[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;
+				if (d_with_ranked || {d_database_found}) then {
+					[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
+				};
 			};
 		};
 #endif

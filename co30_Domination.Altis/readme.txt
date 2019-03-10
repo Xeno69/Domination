@@ -5,6 +5,23 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99n
+- Changed: Draw MHQ 3D marker in every frame again
+- Fixed: Critical error (bonusVec script with DB crashes) and a faulty array of bonusVec positions when loading DB savefile (by Auge)
+- Fixed: Score was subtracted for parajumping from base/flag even if the player did not jump/closed the dialog
+- Fixed: Pylon loadout dialog was closed when a player openend the dialog with the space key (focus issue)
+- Changed: AI inf and vehicle groups respawn times at main targets can now be changed with d_ai_groups_respawn_time array (check fn_preinit.sqf; can also be added to dom_settings SQL DB table)
+- Changed: Do not count enemy AI units occupying buildings for main target AI units end condition
+- Added: New marker system at main targets. You'll see now areas with enememy AI units
+
+3.99m
+- Fixed: Draw3D for other players in revive spectating was missing because of missing define
+- Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)
+- Changed: Added old Domination and A3 logo resources to new intro
+- Changed: Don't respawn enemy AI groups if there are no players on a persistent server
+- Changed: More robust move checks and deletion of enemy AI air units spawning at the edges of the map
+- Changed: More checks if a player is admin (every frame again instead of every 10 frames)
+
 3.99l
 - Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
 - Added: Replaced the explicit user ID with #adminLogged for Zeus access (by longtimegamer)
@@ -18,7 +35,6 @@ Changelogs
 - Fixed: Isle defense was broken when running on a headless client
 - Changed: Set damage to 0 when infantry AI units spawn in the air after some time
 - Added: Marker at UAV position with player name when a player connects to a UAV
-- Fixed: Playerscore for db was missing delta calculation (by Auge)
 - Fixed: Main target units/vehicles did not get deleted correctly on a headless client
 - Fixed: When a headless client was used camp marker handling was broken
 - Fixed: When side missions only was selected a script error related to d_cur_tgt_pos was thrown
@@ -40,6 +56,16 @@ Changelogs
 - Fixed: Small fixes for wreck repair point (by Auge)
 - Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
 - Changed: Do not delete isle defense groups if players are less than 1000m away
+- Changed: Removed delete marker from specific user because the id inside the user defined marker is not the net id but some other whatever ID
+- Changed: Enemy AI inf and vehicle groups have different respawn times at main targets now
+- Changed: Any group leader can now rescue/arrest AI units in side missions and not just the artillery operators
+- Added: New A3 style intro which can be canceled immediately by pressing the space key
+- Changed: Only check for enemy AI infantry to announce a new main target (some vehicle types might not get spawned anymore :))
+- Added: Ambient vehicle radio chatter (by lelik). Check d_WithAmbientRadio in description.ext/With ambient radio: in server lobby params
+- Added: Ambient vehicle radio chatter for the RHS version (by lelik)
+- Fixed: Don't save player score to database if player score <= 0 to prevent overwriting DB values
+- Fixed: Loading and placing bonus vehicles from a database save file was not using the latest code from getbonus.
+- Fixed: Wrong trigger size was used for player placed FARP triggers on remote clients
 - More optimizations
 
 3.99k

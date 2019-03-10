@@ -6,6 +6,16 @@ if (!hasInterface) exitWith {};
 
 playSound "d_fanfare";
 
+{
+	private _mname = _x getVariable "d_trigmarker";
+	if (!isNil "_mname") then {
+		deleteMarkerLocal _mname;
+	};
+	deleteVehicle _x;
+} forEach d_mt_marker_triggers;
+
+d_mt_marker_triggers = [];
+
 private _extra_bonusn = _this;
 
 if (!isNil "d_obj00_task") then {
@@ -24,14 +34,14 @@ if (count d_resolved_targets < d_MainTargets) then {
 		private _bonus_string = format[localize "STR_DOM_MISSIONSTRING_571", [_extra_bonusn, "CfgVehicles"] call d_fnc_GetDisplayName];
 		
 		hint composeText[
-			parseText format ["<t color='#ffffffff' size='1.5'>%1</t>", _mt_str], lineBreak, lineBreak,
+			parseText format ["<t color='#00ff00' size='1.5'>%1</t>", _mt_str], lineBreak, lineBreak,
 			localize "STR_DOM_MISSIONSTRING_572", lineBreak,lineBreak,
 			_bonus_string, lineBreak,lineBreak,
 			localize "STR_DOM_MISSIONSTRING_573"
 		];
 	} else {
 		hint composeText[
-			parseText format ["<t color='#ffffffff' size='1.5'>%1</t>", _mt_str], lineBreak, lineBreak,
+			parseText format ["<t color='#00ff00' size='1.5'>%1</t>", _mt_str], lineBreak, lineBreak,
 			localize "STR_DOM_MISSIONSTRING_572", lineBreak,lineBreak,
 			localize "STR_DOM_MISSIONSTRING_573"
 		];
@@ -56,20 +66,20 @@ if (count d_resolved_targets < d_MainTargets) then {
 		if (d_mt_winner == 1 && {d_player_side == blufor} || {d_mt_winner == 2 && {d_player_side == opfor} || {d_mt_winner == 3}}) then {
 			private _bonus_string = format[localize "STR_DOM_MISSIONSTRING_571", [_vecnn, "CfgVehicles"] call d_fnc_GetDisplayName];
 			hint composeText[
-				parseText("<t color='#ffffffff' size='1.5'>" + _mt_str + "</t>"), lineBreak,lineBreak,
+				parseText("<t color='#00ff00' size='1.5'>" + _mt_str + "</t>"), lineBreak,lineBreak,
 				localize "STR_DOM_MISSIONSTRING_572", lineBreak,lineBreak,
 				_bonus_string, lineBreak,lineBreak,
 				localize "STR_DOM_MISSIONSTRING_573"
 			];
 		} else {
 			hint composeText[
-				parseText("<t color='#ffffffff' size='1.5'>" + _mt_str + "</t>"), lineBreak,lineBreak,
+				parseText("<t color='#00ff00' size='1.5'>" + _mt_str + "</t>"), lineBreak,lineBreak,
 				localize "STR_DOM_MISSIONSTRING_573"
 			];
 		};
 	} else {
 		hint composeText[
-			parseText("<t color='#ffffffff' size='1.5'>" + _mt_str + "</t>"), lineBreak,lineBreak,
+			parseText("<t color='#00ff00' size='1.5'>" + _mt_str + "</t>"), lineBreak,lineBreak,
 			localize "STR_DOM_MISSIONSTRING_572", lineBreak,lineBreak,
 			localize "STR_DOM_MISSIONSTRING_573"
 		];

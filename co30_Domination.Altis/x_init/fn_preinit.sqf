@@ -482,7 +482,7 @@ if (isServer) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db"]) exitWith {
+					if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1, true];
 					};
 #ifdef __TT__
@@ -1144,6 +1144,15 @@ if (!d_tt_tanoa) then {
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
 	d_vehicle_building = "Land_Cargo_HQ_V1_F";
+	
+	if (isNil "d_ai_groups_respawn_time") then {
+		// inf base time, inf min time, vehicle base time, vehicle min time, all in seconds
+		// means, inf base time minus number of players but at least wait 130 to respawn a group, same for vehicles
+		// can also be put into the dom_settings in Domination sql DB
+		d_ai_groups_respawn_time = [270, 140, 320, 180];
+	};
+	
+	d_cur_tgt_garrisonedinfantry = [];
 };
 
 if (hasInterface) then {

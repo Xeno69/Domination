@@ -76,14 +76,6 @@ private _pcheck_fnc = {
 	} forEach _u;
 };
 
-private _aiver_check_fnc = {
-	if (!d_with_ai) then {
-		(str _this) in d_can_use_artillery
-	} else {
-		true
-	}
-};
-
 #ifdef __TT__
 private _which_base = 0;
 #endif
@@ -97,7 +89,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			__TRACE("not rescued")
 			if (alive _pilot1) then {
 				__TRACE("_pilot1 alive")
-				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}};
+				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 				if !(_nobjs isEqualTo []) then {
 					_resctimestarted = time;
 					_rescued = true;
@@ -108,7 +100,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			if (!_rescued) then {
 				if (alive _pilot2) then {
 					__TRACE("_pilot2 alive")
-					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x call _aiver_check_fnc}}}}};
+					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 					if !(_nobjs isEqualTo []) then {
 						_resctimestarted = time;
 						_rescued = true;

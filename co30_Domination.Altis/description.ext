@@ -136,7 +136,6 @@ class CfgRemoteExec {
 		class d_fnc_mhq_net {allowedTargets = 2;};
 		class d_fnc_getbonus {allowedTargets = 2;};
 		class d_fnc_CreateMarkerGlobal {allowedTargets = 2;};
-		class d_fnc_s_mrecap_g {allowedTargets = 2;};
 		class d_fnc_at_serv {allowedTargets = 2;};
 		class d_fnc_d_sm_mar {allowedTargets = 2;};
 		class d_fnc_s_sm_up {allowedTargets = 2;};
@@ -188,7 +187,6 @@ class CfgRemoteExec {
 		class d_fnc_plcheckkill {allowedTargets = 2;};
 		class d_fnc_HintChatMsg {allowedTargets = 1;};
 		class d_fnc_hcsmexec {allowedTargets = 1;};
-		class d_fnc_rusermarkers {allowedTargets = 2;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class d_fnc_airmarkermove {allowedTargets = 2;};
@@ -742,7 +740,7 @@ class Params {
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
 		values[] = {0,1,2,3,4,5,10,15,20,25,30};
-		default = 15;
+		default = 10;
 		texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
 	};
 	
@@ -784,15 +782,15 @@ class Params {
 	class d_enemy_occupy_bldgs {
 		title = "$STR_DOM_MISSIONSTRING_1896";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_enemy_occupy_bldgs_troop_level {
-			title = "$STR_DOM_MISSIONSTRING_1900";
-			values[] = {0, 1, 2, 3, 4};
-			default = 1;
-			texts[] = {"0 - Low (4 groups)", "1 - Medium (8 groups)", "2 - High (16 groups)", "3 - Very High (24 groups)", "4 - Insane (32 groups)"};
+		title = "$STR_DOM_MISSIONSTRING_1900";
+		values[] = {0, 1, 2, 3, 4};
+		default = 0;
+		texts[] = {"0 - Low (4 groups)", "1 - Medium (8 groups)", "2 - High (16 groups)", "3 - Very High (24 groups)", "4 - Insane (32 groups)"};
 	};
 
 	class d_enemy_max_barracks_count {
@@ -813,6 +811,13 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1931";
 		values[] = {0,1};
 		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_WithAmbientRadio {
+		title = "$STR_DOM_MISSIONSTRING_1948";
+		values[] = {0,1};
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
@@ -1141,6 +1146,65 @@ class CfgSounds {
 	//class AR_Rappel_Loop {name = "AR_Rappel_Loop"; sound[] = {"sounds\AR_Rappel_Loop.ogg", db+20, 1}; titles[] = {0,""};};
 	//class AR_Rappel_Start {name = "AR_Rappel_Start"; sound[] = {"sounds\AR_Rappel_Start.ogg", db+20, 1};titles[] = {0,""};};
 	//class AR_Rappel_End {name = "AR_Rappel_End"; sound[] = {"sounds\AR_Rappel_End.ogg", db+20, 1}; titles[] = {0,""};};
+	class ambientradio1 {name="ambientradio1";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio1.wss",1,1};titles[]={};};
+	class ambientradio2 {name="ambientradio2";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio2.wss",1,1};titles[]={};};
+	class ambientradio3 {name="ambientradio3";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio3.wss",1,1};titles[]={};};
+	class ambientradio4 {name="ambientradio4";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio4.wss",1,1};titles[]={};};
+	class ambientradio5 {name="ambientradio5";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio5.wss",1,1};titles[]={};};
+	class ambientradio6 {name="ambientradio6";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio6.wss",1,1};titles[]={};};
+	class ambientradio7 {name="ambientradio7";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio7.wss",1,1};titles[]={};};
+	class ambientradio8 {name="ambientradio8";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio8.wss",1,1};titles[]={};};
+	class ambientradio9 {name="ambientradio9";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio9.wss",1,1};titles[]={};};
+	class ambientradio10 {name="ambientradio10";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio10.wss",1,1};titles[]={};};
+	class ambientradio11 {name="ambientradio11";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio11.wss",1,1};titles[]={};};
+	class ambientradio12 {name="ambientradio12";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio12.wss",1,1};titles[]={};};
+	class ambientradio13 {name="ambientradio13";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio13.wss",1,1};titles[]={};};
+	class ambientradio14 {name="ambientradio14";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio14.wss",1,1};titles[]={};};
+	class ambientradio15 {name="ambientradio15";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio15.wss",1,1};titles[]={};};
+	class ambientradio16 {name="ambientradio16";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio16.wss",1,1};titles[]={};};
+	class ambientradio17 {name="ambientradio17";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio17.wss",1,1};titles[]={};};
+	class ambientradio18 {name="ambientradio18";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio18.wss",1,1};titles[]={};};
+	class ambientradio19 {name="ambientradio19";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio19.wss",1,1};titles[]={};};
+	class ambientradio20 {name="ambientradio20";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio20.wss",1,1};titles[]={};};
+	class ambientradio21 {name="ambientradio21";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio21.wss",1,1};titles[]={};};
+	class ambientradio22 {name="ambientradio22";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio22.wss",1,1};titles[]={};};
+	class ambientradio23 {name="ambientradio23";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio23.wss",1,1};titles[]={};};
+	class ambientradio24 {name="ambientradio24";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio24.wss",1,1};titles[]={};};
+	class ambientradio25 {name="ambientradio25";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio25.wss",1,1};titles[]={};};
+	class ambientradio26 {name="ambientradio26";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio26.wss",1,1};titles[]={};};
+	class ambientradio27 {name="ambientradio27";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio27.wss",1,1};titles[]={};};
+	class ambientradio28 {name="ambientradio28";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio28.wss",1,1};titles[]={};};
+	class ambientradio29 {name="ambientradio29";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio29.wss",1,1};titles[]={};};
+	class ambientradio30 {name="ambientradio30";sound[]={"@A3\Sounds_F\sfx\radio\ambient_radio30.wss",1,1};titles[]={};};
+#ifdef __RHS__
+	class ambientradior1 {name="ambientradior1";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_01.wss",1,1};titles[]={};};
+	class ambientradior2 {name="ambientradior2";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_02.wss",1,1};titles[]={};};
+	class ambientradior3 {name="ambientradior3";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_03.wss",1,1};titles[]={};};
+	class ambientradior4 {name="ambientradior4";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_04.wss",1,1};titles[]={};};
+	class ambientradior5 {name="ambientradior5";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_05.wss",1,1};titles[]={};};
+	class ambientradior6 {name="ambientradior6";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_06.wss",1,1};titles[]={};};
+	class ambientradior7 {name="ambientradior7";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_07.wss",1,1};titles[]={};};
+	class ambientradior8 {name="ambientradior8";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_08.wss",1,1};titles[]={};};
+	class ambientradior9 {name="ambientradior9";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_09.wss",1,1};titles[]={};};
+	class ambientradior10 {name="ambientradior10";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_11.wss",1,1};titles[]={};};
+	class ambientradior11 {name="ambientradior11";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_12.wss",1,1};titles[]={};};
+	class ambientradior12 {name="ambientradior12";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_14.wss",1,1};titles[]={};};
+	class ambientradior13 {name="ambientradior13";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_15.wss",1,1};titles[]={};};
+	class ambientradior14 {name="ambientradior14";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_16.wss",1,1};titles[]={};};
+	class ambientradior15 {name="ambientradior15";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_17.wss",1,1};titles[]={};};
+	class ambientradior16 {name="ambientradior16";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_18.wss",1,1};titles[]={};};
+	class ambientradior17 {name="ambientradior17";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_19.wss",1,1};titles[]={};};
+	class ambientradior18 {name="ambientradior18";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_20.wss",1,1};titles[]={};};
+	class ambientradior19 {name="ambientradior19";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_24.wss",1,1};titles[]={};};
+	class ambientradior20 {name="ambientradior20";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_25.wss",1,1};titles[]={};};
+	class ambientradior21 {name="ambientradior21";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_26.wss",1,1};titles[]={};};
+	class ambientradior22 {name="ambientradior22";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_27.wss",1,1};titles[]={};};
+	class ambientradior23 {name="ambientradior23";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_31.wss",1,1};titles[]={};};
+	class ambientradior24 {name="ambientradior24";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_32.wss",1,1};titles[]={};};
+	class ambientradior25 {name="ambientradior25";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_33.wss",1,1};titles[]={};};
+	class ambientradior26 {name="ambientradior26";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_34.wss",1,1};titles[]={};};
+	class ambientradior27 {name="ambientradior27";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_36.wss",1,1};titles[]={};};
+#endif
 };
 
 class d_RscAnimatedLetters {

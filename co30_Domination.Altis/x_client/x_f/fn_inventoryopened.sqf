@@ -51,7 +51,7 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 			_ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_1940");
 			
 			_ctrl ctrlAddEventHandler ["ButtonClick", {
-				hintSilent (localize "STR_DOM_MISSIONSTRING_1941");
+				hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t>", localize "STR_DOM_MISSIONSTRING_1941"];
 				(findDisplay 602) closeDisplay 1;
 				0 spawn d_fnc_repack_mags;
 			}];
