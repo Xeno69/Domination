@@ -3,10 +3,10 @@
 #define THIS_FILE "fn_cmakemtgmarker.sqf"
 #include "..\..\x_setup.sqf"
 
-private _tile_size = round ((d_mttarget_radius_patrol * 2) / 7);
+private _tile_size = (d_mttarget_radius_patrol * 2) / 7;
 
-private _tilesfull_half = round ((_tile_size * 7) / 2);
-private _tilehalf = round (_tile_size / 2);
+private _tilesfull_half = (_tile_size * 7) / 2;
+private _tilehalf = _tile_size / 2;
 
 private _xpos1 = (d_cur_tgt_pos # 0) - _tilesfull_half + _tilehalf;
 private _ypos1 = (d_cur_tgt_pos # 1);
