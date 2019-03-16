@@ -110,7 +110,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_allbars pushBack _vec;
 	__TRACE_1("d_barracks_building","_vec")
 	_vec setPos _poss;
-	_vec setVariable ["d_v_pos", _poss];
+	_vec setVariable ["d_v_pos", getPos _vec];
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
 	sleep 0.5;

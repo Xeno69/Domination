@@ -7,6 +7,7 @@ Changelogs
 
 3.99o
 - Added: Chinese translation (by CHL198011)
+- Fixed: Remove killed eventhandlers from barracks and mobile HQ from resolved main target once cleared to prevent counting down the variables for the new main target
 
 3.99n
 - Changed: Draw MHQ 3D marker in every frame again
