@@ -5,6 +5,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99o
+- Added: Chinese translation (by CHL198011)
+
 3.99n
 - Changed: Draw MHQ 3D marker in every frame again
 - Fixed: Critical error (bonusVec script with DB crashes) and a faulty array of bonusVec positions when loading DB savefile (by Auge)
