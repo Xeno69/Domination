@@ -407,7 +407,7 @@ draw3d_ar = [];
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 3.99n"];
+diag_log ["Internal D Version: 3.99o"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
