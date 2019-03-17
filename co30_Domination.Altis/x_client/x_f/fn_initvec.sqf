@@ -33,7 +33,7 @@ _vec addEventHandler ["getOut", {_this call d_fnc_checkhelipilotout}]
 _vec addAction[format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_256"], {_this spawn d_fnc_load_static}, _d_vec, -1, false, true, "","count (_target getVariable ['d_CARGO_AR', []]) < d_max_truck_cargo"];\
 _vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_257"], {_this spawn d_fnc_unload_static}, _d_vec, -2, false, true, "","isNull objectParent player && {!((_target getVariable ['d_CARGO_AR', []]) isEqualTo [])}"]
 
-#define __addchopm _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_258"], {_this call d_fnc_vecdialog},[],-1,false]
+#define __addchopm _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_258"], {_this call d_fnc_vecdialog}, [], -1, false, true, "", "true", 8]
 
 #ifdef __TT__
 #define __sidew _vec setVariable ["d_side", blufor]
@@ -116,7 +116,7 @@ if (_d_vec < 100) exitWith {
 #ifdef __TT__
 	if (d_player_side == blufor) then {
 #endif
-	_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false];
+	_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false, true, "", "true", 7];
 #ifdef __TT__
 	} else {
 		_vec setVariable ["d_liftit", false];
@@ -322,7 +322,7 @@ if (_d_vec < 1100) exitWith {
 	};
 	if (!alive _vec) exitWith {};
 	if (d_player_side == opfor) then {
-		_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false];
+		_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false, true, "", "true", 7];
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
 	_vec setAmmoCargo 0;

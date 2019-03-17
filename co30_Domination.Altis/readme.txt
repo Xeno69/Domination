@@ -5,6 +5,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99p
+- Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles
+
 3.99o
 - Added: Chinese translation (by CHL198011)
 - Fixed: Remove killed eventhandlers from barracks and mobile HQ from resolved main target once cleared to prevent counting down the variables for the new main target
