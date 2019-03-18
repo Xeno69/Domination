@@ -45,6 +45,9 @@ if (_vec isKindOf "Air") then {
 	d_bvp_counter = d_bvp_counter + 1;
 	if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 	_vec setVariable ["d_liftit", true, true];
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
 };
 _vec setDir _dir;
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
@@ -165,6 +168,9 @@ if (_vec isKindOf "Air") then {
 		};
 	};
 	_vec setVariable ["d_liftit", true, true];
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
 };
 
 if (!isNull _vec2) then {
@@ -175,6 +181,9 @@ if (!isNull _vec2) then {
 		_endpos2 = (_d_bonus_vec_positions2 # _d_bvp_counter2) # 0;
 		_dir2 = (_d_bonus_vec_positions2 # _d_bvp_counter2) # 1;
 		_vec2 setVariable ["d_liftit", true, true];
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec2;
+		};
 	};
 };
 

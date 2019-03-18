@@ -265,6 +265,9 @@ if (_vec isKindOf "Air") then {
 	d_bvp_counter = d_bvp_counter + 1;
 	if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 	_vec setVariable ["d_liftit", true, true];
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
 };
 
 _vec setDir _dir;
@@ -355,9 +358,15 @@ if (_vec isKindOf "Air") then {
 			d_bvp_counter_w = d_bvp_counter_w + 1;
 			if (d_bvp_counter_w > (count _d_bonus_vec_positions2 - 1)) then {d_bvp_counter_w = 0};
 			_vec2 setVariable ["d_liftit", true, true];
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec2;
+			};
 		};
 	};
 	_vec setVariable ["d_liftit", true, true];
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
 };
 
 __TRACE_2("","_dir","_vec")

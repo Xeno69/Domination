@@ -7,6 +7,7 @@ Changelogs
 
 3.99p
 - Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles
+- Changed: Remove weapon cargo from bonus vehicles in ranked mode
 
 3.99o
 - Added: Chinese translation (by CHL198011)
