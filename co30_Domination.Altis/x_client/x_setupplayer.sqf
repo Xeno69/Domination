@@ -975,8 +975,10 @@ call d_fnc_3draw_ar_prep;
 call d_fnc_all_p_a_boxes_prep;
 ["itemAdd", ["dom_all_p_a_boxes_prep", {call d_fnc_all_p_a_boxes_prep}, 10, "frames"]] call bis_fnc_loop;
 
-call d_fnc_allai_recruit_objs_prep;
-["itemAdd", ["dom_allai_recruit_objs_prep", {call d_fnc_allai_recruit_objs_prep}, 30, "frames"]] call bis_fnc_loop;
+if (d_with_ai) then {
+	call d_fnc_allai_recruit_objs_prep;
+	["itemAdd", ["dom_allai_recruit_objs_prep", {call d_fnc_allai_recruit_objs_prep}, 30, "frames"]] call bis_fnc_loop;
+};
 
 call d_fnc_mhq_3ddraw_prep;
 ["itemAdd", ["dom_mhq_3ddraw_prep", {call d_fnc_mhq_3ddraw_prep}, 0]] call bis_fnc_loop;

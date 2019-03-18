@@ -236,22 +236,22 @@ class FSM
                          "			d_admin_idd = -9999;" \n
                          "		};" \n
                          "		if (_vec call d_fnc_isVecLocked) then {" \n
-                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc},1,-1,false];" \n
+                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n
                          "			d_adm_currentvec_lockstate = true;" \n
                          "		} else {" \n
-                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc},0,-1,false];" \n
+                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc}, 0, -1, false, true, """", ""true"", 10];" \n
                          "			d_adm_currentvec_lockstate = false;" \n
                          "		};" \n
                          "		d_adm_currentvec = _vec;" \n
                          "	} else {" \n
                          "		if (d_adm_currentvec_lockstate && {!(_vec call d_fnc_isVecLocked)}) then {" \n
                          "			d_adm_currentvec removeAction d_admin_idd;" \n
-                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc},0,-1,false];" \n
+                         "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc}, 0, -1, false, true, """", ""true"", 10];" \n
                          "			d_adm_currentvec_lockstate = false;" \n
                          "		} else {" \n
                          "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n
                          "				d_adm_currentvec removeAction d_admin_idd;" \n
-                         "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc},1,-1,false];" \n
+                         "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n
                          "				d_adm_currentvec_lockstate = true;" \n
                          "			};" \n
                          "		};" \n

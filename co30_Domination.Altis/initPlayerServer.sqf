@@ -9,7 +9,9 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
-if ((str _pl) select [0, 9] == "HC_D_UNIT") exitWith {
+//entities "HeadlessClient_F"
+//if ((str _pl) select [0, 9] == "HC_D_UNIT") exitWith {
+if (_pl isKindOf "HeadlessClient_F") exitWith {
 	d_HC_CLIENT_OBJ_OWNER = owner _pl;
 	__TRACE_1("","d_HC_CLIENT_OBJ_OWNER")
 };
