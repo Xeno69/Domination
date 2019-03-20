@@ -110,6 +110,9 @@ while {true} do {
 			};
 			sleep 0.01;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec;
+			};
 		};
 		sleep (8 + random 5);
 	} forEach d_vrespawn2_ar;

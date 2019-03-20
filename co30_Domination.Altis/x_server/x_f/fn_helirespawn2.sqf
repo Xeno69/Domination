@@ -128,6 +128,9 @@ while {true} do {
 			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_chopperkilled}}];
 			_vec enableCopilot false;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec;
+			};
 		};
 		sleep (20 + random 10);
 	} forEach d_helirespawn2_ar;

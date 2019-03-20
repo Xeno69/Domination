@@ -16,9 +16,17 @@ if (d_num_barracks_objs == 0) then {
 	if (!isServer) then {
 		[missionNamespace, ["d_mt_barracks_down", true]] remoteExecCall ["setVariable", 2];
 	};
+#ifndef __TT__
 	[51] remoteExecCall ["d_fnc_DoKBMsg", 2];
+#else
+	[56] remoteExecCall ["d_fnc_DoKBMsg", 2];
+#endif
 } else {
+#ifndef __TT__
 	[55, d_num_barracks_objs] remoteExecCall ["d_fnc_DoKBMsg", 2];
+#else
+	[58, d_num_barracks_objs] remoteExecCall ["d_fnc_DoKBMsg", 2];
+#endif
 };
 d_mt_barracks_obj_ar = d_mt_barracks_obj_ar - [_obj, objNull];
 __TRACE_1("","d_mt_barracks_obj_ar")
@@ -33,6 +41,13 @@ if (d_database_found) then {
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 		[_killer, 5] remoteExecCall ["addScore", 2];
+#ifdef __TT__
+	[d_tt_points # 2, _killer] remoteExecCall ["d_fnc_AddPoints", 2];
+	switch (side (group _killer)) do {
+		case blufor: {[59, "WEST"] remoteExecCall ["d_fnc_DoKBMsg", 2]};
+		case opfor: {[59, "EAST"] remoteExecCall ["d_fnc_DoKBMsg", 2]};
+	};
+#endif
 	};
 };
 if (typeOf _obj isEqualTo "Land_BagBunker_Large_F") then {

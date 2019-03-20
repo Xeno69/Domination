@@ -265,9 +265,6 @@ if (_vec isKindOf "Air") then {
 	d_bvp_counter = d_bvp_counter + 1;
 	if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 	_vec setVariable ["d_liftit", true, true];
-	if (d_with_ranked) then {
-		clearWeaponCargoGlobal _vec;
-	};
 };
 
 _vec setDir _dir;
@@ -287,6 +284,9 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 		_vec setPosASL _cposc;
 		_vec setDamage 0;
 	};
+};
+if (d_with_ranked) then {
+	clearWeaponCargoGlobal _vec;
 };
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 _vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
@@ -358,15 +358,9 @@ if (_vec isKindOf "Air") then {
 			d_bvp_counter_w = d_bvp_counter_w + 1;
 			if (d_bvp_counter_w > (count _d_bonus_vec_positions2 - 1)) then {d_bvp_counter_w = 0};
 			_vec2 setVariable ["d_liftit", true, true];
-			if (d_with_ranked) then {
-				clearWeaponCargoGlobal _vec2;
-			};
 		};
 	};
 	_vec setVariable ["d_liftit", true, true];
-	if (d_with_ranked) then {
-		clearWeaponCargoGlobal _vec;
-	};
 };
 
 __TRACE_2("","_dir","_vec")
@@ -394,6 +388,9 @@ _vec spawn {
 	sleep 10;
 	_this allowDamage true;
 };
+if (d_with_ranked) then {
+	clearWeaponCargoGlobal _vec;
+};
 if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
 	if (_vec_type2 isKindOf "VTOL_01_base_F" || {_vec_type2 isKindOf "VTOL_02_base_F"}) then {
@@ -407,6 +404,9 @@ if (!isNull _vec2) then {
 		scriptName "spawn getbonus4";
 		sleep 10;
 		_this allowDamage true;
+	};
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec2;
 	};
 };
 #endif

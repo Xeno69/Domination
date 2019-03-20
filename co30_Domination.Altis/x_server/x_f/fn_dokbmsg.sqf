@@ -84,4 +84,8 @@ switch (_this select 0) do {
 	case 53: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTVecBuildingDown",d_kbtel_chan]};
 	case 54: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTHQaBarracksBuilding",d_kbtel_chan]};
 	case 55: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"OneMTBarrackDown",["1","",str (_this select 1),[]],d_kbtel_chan]};
+	case 56: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTHQaBarracksBuildingTT","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTHQaBarracksBuildingTT","SIDE"]};
+	case 57: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTBarracksDown","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTBarracksDown","SIDE"]};
+	case 58: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","OneMTBarrackDown",["1","",str (_this select 1),[]],"SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","OneMTBarrackDown",["1","",str (_this select 1),[]],"SIDE"]};
+	case 59: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","TTBArracksAnnounce",["1","",_this select 1,[]],["2","",str(d_tt_points # 2),[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","TTBArracksAnnounce",["1","",_this select 1,[]],["2","",str(d_tt_points # 2),[]],"SIDE"]};
 };

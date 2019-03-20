@@ -50,6 +50,7 @@ sleep 1;
 [54] remoteExecCall ["d_fnc_DoKBMsg", 2];
 sleep 2.234;
 #else
+[56] remoteExecCall ["d_fnc_DoKBMsg", 2];
 sleep 3.234;
 #endif
 

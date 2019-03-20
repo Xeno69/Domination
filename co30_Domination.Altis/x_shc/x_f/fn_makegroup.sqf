@@ -38,15 +38,16 @@ if (_numvecs > 0) then {
 _grp deleteGroupWhenEmpty true;
 
 if (_add_to_ar_type > 0) then {
-#ifndef __TT__
 	if (d_mt_respawngroups == 0) then {
 		if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
-				{
-					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
-					_x setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
-					_x setVariable ["d_thevecs", _vecs];
-				} forEach _vecs;
+				if (!d_tt_ver) then {
+					{
+						_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+						_x setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
+						_x setVariable ["d_thevecs", _vecs];
+					} forEach _vecs;
+				};
 			} else {
 				{
 					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
@@ -55,7 +56,6 @@ if (_add_to_ar_type > 0) then {
 			};
 		};
 	};
-#endif
 	if !(_vecs isEqualTo []) then {
 		d_delvecsmt append _vecs;
 	};

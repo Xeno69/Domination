@@ -10183,6 +10183,26 @@
 <Russian>With ambient radio:</Russian>
 <Chinesesimp>With ambient radio:</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1949">
+<English>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</English>
+<Spanish>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Spanish>
+<Portuguese>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Portuguese>
+<Korean>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Korean>
+<Japanese>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Japanese>
+<Original>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Original>
+<Russian>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Russian>
+<Chinesesimp>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1950">
+<English>The %1 team destroyed a main target barrack and gets %2 points.</English>
+<Spanish>The %1 team destroyed a main target barrack and gets %2 points.</Spanish>
+<Portuguese>The %1 team destroyed a main target barrack and gets %2 points.</Portuguese>
+<Korean>The %1 team destroyed a main target barrack and gets %2 points.</Korean>
+<Japanese>The %1 team destroyed a main target barrack and gets %2 points.</Japanese>
+<Original>The %1 team destroyed a main target barrack and gets %2 points.</Original>
+<Russian>The %1 team destroyed a main target barrack and gets %2 points.</Russian>
+<Chinesesimp>The %1 team destroyed a main target barrack and gets %2 points.</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

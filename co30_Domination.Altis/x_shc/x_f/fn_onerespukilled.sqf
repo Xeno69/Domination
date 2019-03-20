@@ -32,8 +32,8 @@ if (_killed isKindOf "CAManBase") then {
 		};
 	};
 } else {
-	if (d_mt_done || {d_mt_mobile_hq_down}) exitWith {
-		__TRACE("mt done or mobile hq down")
+	if (d_mt_done || {d_mt_mobile_hq_down || {d_tt_ver}}) exitWith {
+		__TRACE("mt done or mobile hq down or tt ver")
 	};
 	
 	private _tv = _killed getVariable "d_thevecs";

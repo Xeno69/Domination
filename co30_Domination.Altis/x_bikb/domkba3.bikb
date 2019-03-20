@@ -144,6 +144,11 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class MTHQaBarracksBuildingTT {
+		text = "$STR_DOM_MISSIONSTRING_1949";
+		speech[] = {};
+		class Arguments {};
+	};
 	class MTBarracksDown {
 		text = "$STR_DOM_MISSIONSTRING_1820";
 		speech[] = {};
@@ -246,7 +251,12 @@ class Sentences {
 		text = "$STR_DOM_MISSIONSTRING_1385";
 		speech[] = {};
 		class Arguments {};
-	};
+	}
+	class TTBArracksAnnounce {
+		text = "$STR_DOM_MISSIONSTRING_1950";
+		speech[] = {};
+		class Arguments {};
+	};;
 #else
 	class TellAirDropAttack {
 		text = "$STR_DOM_MISSIONSTRING_1389";

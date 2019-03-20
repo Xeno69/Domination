@@ -71,6 +71,10 @@ _vec setVariable ["d_OUT_OF_SPACE", -1];
 
 private _skinpoly = _vec call d_fnc_getskinpoly;
 
+if (d_with_ranked) then {
+	clearWeaponCargoGlobal _vec;
+};
+
 sleep 5;
 
 while {true} do {
@@ -191,6 +195,10 @@ while {true} do {
 		
 		if (!isNil "_nopylon") then {
 			_vec setVariable ["d_disable_pylonloadout", true, true];
+		};
+		
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
 		};
 	};
 };

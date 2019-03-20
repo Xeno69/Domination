@@ -17,6 +17,10 @@ if (unitIsUAV _vec) then {
 	_vec allowCrewInImmobile true;
 };
 
+if (d_with_ranked) then {
+	clearWeaponCargoGlobal _vec;
+};
+
 private _skinpoly = _vec call d_fnc_getskinpoly;
 
 while {true} do {
@@ -42,5 +46,8 @@ while {true} do {
 			_vec allowCrewInImmobile true;
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
 	};
 };

@@ -68,7 +68,6 @@ __TRACE_1("","_trg_center")
 __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
-#ifndef __TT__
 d_groups_respawn_time_add = 0;
 //limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
 d_num_barracks_objs = ((ceil random 5) max 3) min d_enemy_max_barracks_count;
@@ -123,6 +122,7 @@ if (!isServer) then {
 	[missionNamespace, ["d_mt_barracks_down", false]] remoteExecCall ["setVariable", 2];
 };
 
+#ifndef __TT__
 _ecounter = 0;
 	while {true} do {
 	_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
@@ -169,10 +169,10 @@ if (d_enable_civs == 1) then {
 #endif
 
 #ifdef __DEBUG__
+{
+	[str _x, getPos _x, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+} forEach d_mt_barracks_obj_ar;
 if (!d_tt_ver) then {
-	{
-		[str _x, getPos _x, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
-	} forEach d_mt_barracks_obj_ar;
 	[str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 };
 #endif

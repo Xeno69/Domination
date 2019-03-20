@@ -8,7 +8,6 @@ params ["_type"];
 if (_type == 0) then {
 	0 spawn d_fnc_clearsidemission;
 } else {
-#ifndef __TT__
 	{
 		if (!isNull _x) then {
 			_x spawn {
@@ -19,6 +18,7 @@ if (_type == 0) then {
 			};
 		};
 	} forEach d_mt_barracks_obj_ar;
+#ifndef __TT__
 	if (!isNull d_mt_mobile_hq_obj) then {
 		d_mt_mobile_hq_obj spawn {
 			scriptName "spawn doexechcf2";

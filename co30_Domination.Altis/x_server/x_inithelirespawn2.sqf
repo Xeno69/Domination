@@ -38,6 +38,9 @@ d_helirespawn2_ar = [];
 		if (unitIsUAV _vec) then {
 			_vec allowCrewInImmobile true;
 		};
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
 	};
 } forEach _this;
 

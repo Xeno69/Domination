@@ -123,7 +123,6 @@ if !(d_maintargets_list isEqualTo []) then {
 	if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 		[1, d_current_target_index] remoteExecCall ["d_fnc_doexechcf", d_HC_CLIENT_OBJ_OWNER];
 	} else {
-#ifndef __TT__
 		{
 			if (!isNull _x) then {
 				_x removeAllEventHandlers "killed";
@@ -135,6 +134,7 @@ if !(d_maintargets_list isEqualTo []) then {
 				};
 			};
 		} forEach d_mt_barracks_obj_ar;
+#ifndef __TT__
 		if (!isNull d_mt_mobile_hq_obj) then {
 			d_mt_mobile_hq_obj removeAllEventHandlers "killed";
 			d_mt_mobile_hq_obj spawn {
