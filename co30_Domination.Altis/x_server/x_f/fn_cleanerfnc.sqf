@@ -39,23 +39,25 @@ while {true} do {
 	sleep 8;
 	if !(_allmisobjs isEqualTo []) then {
 		{
-			private _ct = _x getVariable ["d_checktime", -1];
-			if (_ct == -1) then {
-				_x setVariable ["d_checktime", time];
-			} else {
-#ifndef __TT__
-				if (_x distance2D d_FLAG_BASE < 20) then {
-#else
-				if (_x distance2D d_WFLAG_BASE < 20 || {_x distance2D d_EFLAG_BASE < 20}) then {
-#endif
-					deleteVehicle _x;
+			if (!isNull _x) then {
+				private _ct = _x getVariable ["d_checktime", -1];
+				if (_ct == -1) then {
+					_x setVariable ["d_checktime", time];
 				} else {
-					if ((_x nearEntities ["CAManBase", 50]) findIf {_x call d_fnc_isplayer} == -1) then {
+#ifndef __TT__
+					if (_x distance2D d_FLAG_BASE < 20) then {
+#else
+					if (_x distance2D d_WFLAG_BASE < 20 || {_x distance2D d_EFLAG_BASE < 20}) then {
+#endif
 						deleteVehicle _x;
+					} else {
+						if ((_x nearEntities ["CAManBase", 50]) findIf {_x call d_fnc_isplayer} == -1) then {
+							deleteVehicle _x;
+						};
 					};
 				};
+				sleep 0.212;
 			};
-			sleep 0.212;
 		} forEach (_allmisobjs select {!isNull _x});
 	};
 	_allmisobjs = nil;

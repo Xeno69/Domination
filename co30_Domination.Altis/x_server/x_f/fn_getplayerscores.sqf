@@ -5,11 +5,13 @@
 
 while {true} do {
 	{
-		private _ps = getPlayerScores _x;
-		if !(_ps isEqualTo []) then {
-			private _p = d_player_store getVariable (getPlayerUID _x);
-			if (!isNil "_p") then {
-				_p set [12, _ps];
+		if (!isNull _x) then {
+			private _ps = getPlayerScores _x;
+			if !(_ps isEqualTo []) then {
+				private _p = d_player_store getVariable (getPlayerUID _x);
+				if (!isNil "_p") then {
+					_p set [12, _ps];
+				};
 			};
 		};
 		sleep 1;

@@ -91,7 +91,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 		};
 		_doexit = false;
 		if !(_allbars isEqualTo []) then {
-			if (_allbars findIf {_poss distance2D _vec >= 120} == count _allbars) then {
+			if (_allbars findIf {_poss distance2D _vec < 120} == -1) then {
 				_doexit = true;
 			};
 		} else {
@@ -112,7 +112,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec setVariable ["d_v_pos", getPos _vec];
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
-	sleep 0.5;
+	sleep 0.2;
 };
 d_num_barracks_objs = count d_mt_barracks_obj_ar;
 __TRACE_1("","d_mt_barracks_obj_ar")
@@ -136,7 +136,7 @@ _ecounter = 0;
 	};
 	_doexit = false;
 	if !(_allbars isEqualTo []) then {
-		if (_allbars findIf {_poss distance2D _vec >= 120} == count _allbars) then {
+		if (_allbars findIf {_poss distance2D _vec < 120} == -1) then {
 			_doexit = true;
 		};
 	} else {
