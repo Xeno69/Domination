@@ -10,6 +10,8 @@ Changelogs
 - Changed: Remove weapon cargo from bonus vehicles in ranked mode
 - Added: Enemy AI respawn barracks at main targets in TT version
 - Fixed: Enemy AI barracks and mobile HQ were spawning too close to together
+- Removed: Double d_tt_points entry from Domination.sql dom_settings table
+- Added: d_ai_groups_respawn_time to Domination.sql dom_settings table
 
 3.99o
 - Added: Chinese translation (by CHL198011)
