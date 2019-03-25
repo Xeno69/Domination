@@ -9,7 +9,7 @@ Changelogs
 - Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles
 - Changed: Remove weapon cargo from bonus vehicles in ranked mode
 - Added: Enemy AI respawn barracks at main targets in TT version
-- Fixed: Enemy AI barracks and mobile HQ were spawning too close to together
+- Fixed: Enemy AI barracks and mobile HQ were spawning too close together
 - Removed: Double d_tt_points entry from Domination.sql dom_settings table
 - Added: d_ai_groups_respawn_time to Domination.sql dom_settings table
 
