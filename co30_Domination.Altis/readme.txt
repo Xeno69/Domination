@@ -13,6 +13,7 @@ Changelogs
 - Removed: Double d_tt_points entry from Domination.sql dom_settings table
 - Added: d_ai_groups_respawn_time to Domination.sql dom_settings table
 - Fixed: Two chinese strings had references to a server (I'm sorry but I'm too old to learn Chinese :))
+- Fixed: Don't try to save headless client score to a SQL database when it leaves the server
 
 3.99o
 - Added: Chinese translation (by CHL198011)
