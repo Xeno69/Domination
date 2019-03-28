@@ -3,6 +3,10 @@
 #define THIS_FILE "fn_saveprogress2db.sqf"
 #include "..\..\x_setup.sqf"
 
+if (!isNil "d_saveprogess2db_inprogress") exitWith {};
+
+d_saveprogess2db_inprogress = true;
+
 params ["_sname", "_sender"];
 
 __TRACE_2("","_sname","_sender")
@@ -65,3 +69,5 @@ if !(_sname in d_db_savegames) then {
 if (!isNull _sender) then {
 	[format [localize "STR_DOM_MISSIONSTRING_1749", _sname], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", _sender];
 };
+
+d_saveprogess2db_inprogress = nil;

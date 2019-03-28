@@ -21,8 +21,10 @@ if (hasInterface) then {
 	setViewDistance _vd;
 	setObjectViewDistance (_vd + 100);
 } else {
-	setViewDistance d_InitialViewDistance;
-	setObjectViewDistance (d_InitialViewDistance + 100);
+	//setViewDistance d_InitialViewDistance;
+	//setObjectViewDistance (d_InitialViewDistance + 100);
+	setViewDistance 1600;
+	setObjectViewDistance (1600 + 100);
 };
 
 d_target_names = [];

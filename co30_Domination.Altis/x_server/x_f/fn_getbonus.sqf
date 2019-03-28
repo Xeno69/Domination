@@ -455,3 +455,5 @@ if (d_sm_winner == 1) then {
 #endif
 
 if !(isServer && {!isDedicated}) then {d_sm_winner = 0};
+
+d_sm_bonus_wait = nil;

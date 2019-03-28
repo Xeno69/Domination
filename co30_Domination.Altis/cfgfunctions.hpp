@@ -436,6 +436,7 @@ class cfgFunctions {
 			addc(sgetinvec);
 			addc(sgetoutvec);
 			addc(casfired);
+			addc(sidemissionresolved);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
@@ -460,7 +461,6 @@ class cfgFunctions {
 			addc(makepatrolwpx);
 			addc(makepatrolwpx2);
 			addc(delvecandcrew);
-			addc(sidemissionresolved);
 			addc(checkmtshothd);
 			addc(checkmthardtarget);
 			addc(checkmtrespawntarget);
