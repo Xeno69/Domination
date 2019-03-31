@@ -26,18 +26,22 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 			};
 		};
 		if (_get_points) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_713", d_ranked_a # 11];
+			private _smppoi = [d_ranked_a # 11, (d_ranked_a # 11) * 2] select (d_without_sm_bonus == 0);
+			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_713", _smppoi];
 			0 spawn {
 				scriptName "spawn_sidemissionwinner";
 				sleep (0.5 + random 2);
-				[player, d_ranked_a # 11] remoteExecCall ["addScore", 2];
+				[player, _smppoi] remoteExecCall ["addScore", 2];
 			};
 		};
 		d_sm_p_pos = nil;
 	};
 
 	if (d_MissionType != 2) then {
-		private _bonus_string = format[localize "STR_DOM_MISSIONSTRING_714", [_bonus_vecn, "CfgVehicles"] call d_fnc_GetDisplayName];
+		private _bonus_string = "";
+		if (_bonus_vecn != "FAKE_VEC") then {
+			_bonus_string = format [localize "STR_DOM_MISSIONSTRING_714", [_bonus_vecn, "CfgVehicles"] call d_fnc_GetDisplayName];
+		};
 #ifdef __TT__
 		if (_d_sm_winner == 1 && {d_player_side == opfor} || {_d_sm_winner == 2 && {d_player_side == blufor} || {_d_sm_winner == 123}}) then {
 #endif

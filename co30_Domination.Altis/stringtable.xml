@@ -10203,6 +10203,16 @@
 <Russian>The %1 team destroyed a main target barrack and gets %2 points.</Russian>
 <Chinesesimp>%1团队摧毁了一个主要目标兵营并获得%2点分数.</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1951">
+<English>Without sidemission bonus vehicles:</English>
+<Spanish>Without sidemission bonus vehicles:</Spanish>
+<Portuguese>Without sidemission bonus vehicles:</Portuguese>
+<Korean>Without sidemission bonus vehicles:</Korean>
+<Japanese>Without sidemission bonus vehicles:</Japanese>
+<Original>Without sidemission bonus vehicles:</Original>
+<Russian>Without sidemission bonus vehicles:</Russian>
+<Chinesesimp>Without sidemission bonus vehicles:</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

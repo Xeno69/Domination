@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_initvrespawn2.sqf"
-#include "..\x_setup.sqf"
+#define THIS_FILE "fn_initvrespawn2.sqf"
+#include "..\..\x_setup.sqf"
 
 if (!isServer) exitWith{};
 
@@ -54,4 +54,4 @@ d_vrespawn2_ar = [];
 	};
 } forEach _this;
 
-0 spawn d_fnc_vrespawn2
+0 spawn d_fnc_vrespawn2;

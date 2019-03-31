@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_inithelirespawn2.sqf"
-#include "..\x_setup.sqf"
+#define THIS_FILE "fn_inithelirespawn2.sqf"
+#include "..\..\x_setup.sqf"
 
 if (!isServer) exitWith{};
 
@@ -46,4 +46,4 @@ d_helirespawn2_ar = [];
 
 __TRACE("Before d_fnc_helirespawn2")
 
-0 spawn d_fnc_helirespawn2
+0 spawn d_fnc_helirespawn2;

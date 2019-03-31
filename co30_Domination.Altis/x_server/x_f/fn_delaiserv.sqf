@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_delaiserv.sqf"
-#include "..\x_setup.sqf"
+#define THIS_FILE "fn_delaiserv.sqf"
+#include "..\..\x_setup.sqf"
 
 if (!isServer) exitWith {};
 

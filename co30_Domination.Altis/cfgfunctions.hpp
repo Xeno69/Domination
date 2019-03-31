@@ -437,6 +437,11 @@ class cfgFunctions {
 			addc(sgetoutvec);
 			addc(casfired);
 			addc(sidemissionresolved);
+			addc(setupserver);
+			addc(initvrespawn2);
+			addc(inithelirespawn2);
+			addc(initvecsspecial);
+			addc(delaiserv);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
@@ -497,6 +502,8 @@ class cfgFunctions {
 			addc(mthardtargetkilled);
 			addc(onerespukilled);
 			addc(respawngroup);
+			addc(airai);
+			addc(isledefense);
 		};
 		class Dom_PrePostInit {
 			file = "x_init";

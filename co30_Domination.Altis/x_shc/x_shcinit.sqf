@@ -37,17 +37,17 @@ if (d_MissionType != 2 && d_disable_airai != 1) then {
 		if (isMultiplayer && {isServer && {!isNil "HC_D_UNIT"}}) exitWith {};
 		sleep 1200;
 		__TRACE("spawn_x_shcinit_airai 30 exec LAC")
-		["LAC"] execVM "x_shc\x_airai.sqf"; // LAC = Ligh Attack Chopper
+		["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
 		sleep 1200;
-		["HAC"] execVM "x_shc\x_airai.sqf"; // HAC = Heavy Attack Chopper
+		["HAC"] spawn d_fnc_airai; // HAC = Heavy Attack Chopper
 		sleep 1200;
-		["AP"] execVM "x_shc\x_airai.sqf"; // AP = Attack Plane
+		["AP"] spawn d_fnc_airai; // AP = Attack Plane
 	};
 };
 #endif
 
 
-if !(d_with_isledefense isEqualTo []) then {execVM "x_shc\x_isledefense.sqf"};
+if !(d_with_isledefense isEqualTo []) then {0 spawn d_fnc_isledefense};
 
 #ifndef __TT__
 if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0}}) then {execFSM "fsms\fn_Infilrate.fsm"};

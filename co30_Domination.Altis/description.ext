@@ -527,6 +527,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_without_sm_bonus {
+		title = "$STR_DOM_MISSIONSTRING_1951";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";
 		values[] = {-99999};
@@ -1091,7 +1098,7 @@ class Params {
 	
 	class d_WreckMaxRepair {
 		title = "$STR_DOM_MISSIONSTRING_1173";
-		values[] = {1,2,3,4,5,10,20,100000};
+		values[] = {1,2,3,4,5,10,20,10000000};
 		default = 3;
 		texts[] = {"1","2","3","4","5","10","20","$STR_DOM_MISSIONSTRING_1137"};
 	};

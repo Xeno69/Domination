@@ -1,6 +1,7 @@
 // by Xeno
-#define THIS_FILE "x_setupserver.sqf"
-#include "..\x_setup.sqf"
+#define THIS_FILE "fn_setupserver.sqf"
+#include "..\..\x_setup.sqf"
+
 if (!isServer) exitWith {};
 
 d_last_bonus_vec = "";
@@ -16,7 +17,7 @@ d_sm_triggervb = [
 	]
 ] call d_fnc_createtriggerlocal;
 
-if (d_with_ai) then {execVM "x_server\x_delaiserv.sqf"};
+if (d_with_ai) then {0 spawn d_fnc_delaiserv};
 
 if (d_MissionType in [0,2]) then {
 	0 spawn {

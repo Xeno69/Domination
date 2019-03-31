@@ -19,8 +19,33 @@ __TRACE_2("","d_sm_winner","d_current_sm_bonus_vec")
 
 if (d_sm_winner > 0) then {
 	__TRACE("Calling getbonus")
-	d_sm_bonus_wait = true;
-	[d_sm_winner, d_current_sm_bonus_vec] spawn d_fnc_getbonus;
+	if (d_without_sm_bonus == 1) then {
+		d_sm_bonus_wait = true;
+		[d_sm_winner, d_current_sm_bonus_vec] spawn d_fnc_getbonus;
+	} else {
+		[d_sm_winner, "FAKE_VEC"] remoteExecCall ["d_fnc_sm_res_client", [0, -2] select isDedicated];
+#ifndef __TT__
+		d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MissionAccomplished",d_kbtel_chan];
+#else
+		if (d_sm_winner == 1) then {
+			d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MissionFailure","SIDE"];
+			d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MissionAccomplished","SIDE"];
+		} else {
+			if (d_sm_winner == 2) then {
+				d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MissionAccomplished","SIDE"];
+				d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MissionFailure","SIDE"];
+			} else {
+				if (d_sm_winner == 123) then {
+					d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MissionAccomplished","SIDE"];
+					d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MissionAccomplished","SIDE"];
+				} else {
+					d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MissionFailure","SIDE"];
+					d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MissionFailure","SIDE"];
+				};
+			};
+		};
+#endif
+	};
 } else {
 	if (d_sm_winner in [-1,-2,-300,-400,-500,-600,-700,-878,-900,-1000,-1100,-1200]) then {
 		__TRACE("Calling res client because winner less than 0")

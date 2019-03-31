@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_isledefense.sqf"
-#include "..\x_setup.sqf"
+#define THIS_FILE "fn_isledefense.sqf"
+#include "..\..\x_setup.sqf"
 
 if !(call d_fnc_checkSHC) exitWith {};
 

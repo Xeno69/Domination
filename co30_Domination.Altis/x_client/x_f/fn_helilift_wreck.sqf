@@ -41,7 +41,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				} else {
 					private _isvalid = _liftobj getVariable "d_canbewlifted";
 					if (isNil "_isvalid") then {
-						_isvalid = toUpper (typeof _liftobj) in _possible_types;
+						_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"} || {toUpper (typeof _liftobj) in _possible_types};
 						_liftobj setVariable ["d_canbewlifted", _isvalid];
 					};
 					if (!_isvalid || {damage _liftobj < 1}) then {_liftobj = objNull};
