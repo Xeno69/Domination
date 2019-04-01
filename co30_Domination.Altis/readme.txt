@@ -17,7 +17,7 @@ Changelogs
 - Fixed: Don't autosave mission progress after a sidemission is resolved before the bonus vehicles get created
 - Added: New mode sidemissions without bonus vehicles (description.ext d_without_sm_bonus, server lobby "Without sidemission bonus vehicles:")
          Does not create bonus vehicles if you solve a sidemission. It is now possible to place vehicles like attack choppers and planes or tanks, etc,
-		 which will be there at mission start but are handled like bonus vehicles (wreck handling)
+		 which will be there at mission start but are handled like bonus vehicles (wreck handling; vehicle var names have to start with d_vecs_special_ )
 
 3.99o
 - Added: Chinese translation (by CHL198011)
