@@ -17,7 +17,12 @@ if (!isNil "_p") then {
 		[format [localize "STR_DOM_MISSIONSTRING_507", _pna, _numtk], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
 		"LOSER" remoteExecCall ["endMission", _tk];
 		if (d_database_found) then {
+#ifndef __INTERCEPTDB__
 			"extdb3" callExtension format ["1:dom:teankillsAdd:%1", _uid];
+#else
+			_query = dbPrepareQueryConfig ["teankillsAdd", [_uid]];
+			_res = D_DB_CON dbExecuteAsync _query;
+#endif
 		};
 	};
 };

@@ -7,23 +7,59 @@ params ["_sname", "_sender"];
 
 __TRACE_1("","_sname")
 
-#ifndef __TT__
-private _dbresult = if (_sender != objNull) then {
-	parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet:%1", toLower (worldName + _sname)]);
-} else {
-	parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
-};
+private _dbresult = [];
+
+if (!d_tt_ver) then {
+#ifndef __INTERCEPTDB__
+	_dbresult = if (_sender != objNull) then {
+		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet:%1", toLower (worldName + _sname)]);
+	} else {
+		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
+	};
+	if (_dbresult # 0 == 1) then {
+		_dbresult = _dbresult # 1;
+	} else {
+		_dbresult = [];
+	};
 #else
-private _dbresult = if (_sender != objNull) then {
-	parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet:%1", tolower (worldName + _sname)]);
-} else {
-	parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet2:%1", tolower (worldName + _sname + briefingname)]);
-};
+	if (_sender != objNull) then {
+		_query = dbPrepareQueryConfig ["missionGet", [toLower (worldName + _sname)]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+	} else {
+		_query = dbPrepareQueryConfig ["missionGet2", [toLower (worldName + _sname + briefingname)]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+	};
 #endif
+} else {
+#ifndef __INTERCEPTDB__
+	_dbresult = if (_sender != objNull) then {
+		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet:%1", tolower (worldName + _sname)]);
+	} else {
+		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet2:%1", tolower (worldName + _sname + briefingname)]);
+	};
+	if (_dbresult # 0 == 1) then {
+		_dbresult = _dbresult # 1;
+	} else {
+		_dbresult = [];
+	};
+#else
+	if (_sender != objNull) then {
+		_query = dbPrepareQueryConfig ["missionttGet", [toLower (worldName + _sname)]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+	} else {
+		_query = dbPrepareQueryConfig ["missionttGet2", [toLower (worldName + _sname + briefingname)]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+	};
+#endif
+};
 
 __TRACE_1("","_dbresult")
 
-if (_dbresult # 0 != 1 || {(_dbresult # 1) isEqualTo []}) exitWith {
+if (_dbresult isEqualTo []) exitWith {
 	if (!isNull _sender) then {
 		[format [localize "STR_DOM_MISSIONSTRING_1752", _sname], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", _sender];
 	} else {
@@ -31,7 +67,7 @@ if (_dbresult # 0 != 1 || {(_dbresult # 1) isEqualTo []}) exitWith {
 	};
 };
 
-(_dbresult # 1) params ["_ar"];
+_dbresult params ["_ar"];
 
 #ifndef __TT__
 d_maintargets = _ar # 0;

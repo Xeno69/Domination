@@ -237,19 +237,29 @@ if !(d_maintargets_list isEqualTo []) then {
 	};
 	0 spawn d_fnc_createnexttarget;
 } else {
-#ifdef __TT__
-	if (d_database_found && {d_db_auto_save}) then {
-		"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
-	};
-	d_the_end = true; publicVariable "d_the_end";
-	0 spawn d_fnc_DomEnd;
+	if (d_tt_ver) then {
+		if (d_database_found && {d_db_auto_save}) then {
+#ifndef __INTERCEPTDB__
+			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
 #else
-	if (d_database_found && {d_db_auto_save}) then {
-		"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
-	};
+			_query = dbPrepareQueryConfig ["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingName)]];
+			_res = D_DB_CON dbExecuteAsync _query;
+#endif
+		};
 	d_the_end = true; publicVariable "d_the_end";
 	0 spawn d_fnc_DomEnd;
+	} else {
+		if (d_database_found && {d_db_auto_save}) then {
+#ifndef __INTERCEPTDB__
+			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
+#else
+			_query = dbPrepareQueryConfig ["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingName)]];
+			_res = D_DB_CON dbExecuteAsync _query;
 #endif
+		};
+		d_the_end = true; publicVariable "d_the_end";
+		0 spawn d_fnc_DomEnd;
+	};
 };
 
 __TRACE("Done")

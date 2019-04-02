@@ -14,41 +14,76 @@ if (isNil "d_db_auto_save") then {
 };
 
 if (d_database_found) then {
-#ifndef __TT__
-	d_bonus_vecs_db = [];
-	__TRACE_1("","worldname")
-	private _dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsGet:%1", tolower worldname]);
-	__TRACE_1("","_dbresult")
+	if (!d_tt_ver) then {
+		d_bonus_vecs_db = [];
+		__TRACE_1("","worldname")
+		private _dbresult = [];
+#ifndef __INTERCEPTDB__
+		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsGet:%1", tolower worldname]);
+		if (_dbresult # 0 == 1) then {
+			_dbresult = _dbresult # 1;
+		} else {
+			_dbresult = [];
+		};
+#else
+		_query = dbPrepareQueryConfig ["missionsGet", [tolower worldname]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+#endif
+		__TRACE_1("","_dbresult")
+		if !(_dbresult isEqualTo []) then {
+			d_db_savegames = [];
+			{
+				d_db_savegames pushBack (_x # 0);
+			} forEach _dbresult;
+			publicVariable "d_db_savegames";
+			__TRACE_1("","d_db_savegames")
+		};
+	} else {
+		d_bonus_vecs_db_w = [];
+		d_bonus_vecs_db_e = [];
+		private _dbresult = [];
+#ifndef __INTERCEPTDB__
+		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsttGet:%1", tolower worldname]);
+		if (_dbresult # 0 == 1) then {
+			_dbresult = _dbresult # 1;
+		} else {
+			_dbresult = [];
+		};
+#else
+		_query = dbPrepareQueryConfig ["missionsttGet", [tolower worldname]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+#endif
+		__TRACE_1("","_dbresult")
+		if !(_dbresult isEqualTo []) then {
+			d_db_savegames = [];
+			{
+				d_db_savegames pushBack (_x # 0);
+			} forEach _dbresult;
+			publicVariable "d_db_savegames";
+			__TRACE_1("","d_db_savegames")
+		};
+	};
+
+#ifndef __INTERCEPTDB__
+	_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getTop10Players");
 	if (_dbresult # 0 == 1) then {
-		d_db_savegames = [];
-		{
-			d_db_savegames pushBack (_x # 0);
-		} forEach (_dbresult # 1);
-		publicVariable "d_db_savegames";
-		__TRACE_1("","d_db_savegames")
+		_dbresult = _dbresult # 1;
+	} else {
+		_dbresult = [];
 	};
 #else
-	d_bonus_vecs_db_w = [];
-	d_bonus_vecs_db_e = [];
-	private _dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsttGet:%1", tolower worldname]);
-	__TRACE_1("","_dbresult")
-	if (_dbresult # 0 == 1) then {
-		d_db_savegames = [];
-		{
-			d_db_savegames pushBack (_x # 0);
-		} forEach (_dbresult # 1);
-		publicVariable "d_db_savegames";
-		__TRACE_1("","d_db_savegames")
-	};
+	_query = dbPrepareQueryConfig "getTop10Players";
+	_res = D_DB_CON dbExecute _query;
+	_dbresult = dbResultToParsedArray _res;
 #endif
-
-	_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getTop10Players");
 	__TRACE_1("","_dbresult")
-	if (_dbresult # 0 == 1) then {
+	if !(_dbresult isEqualTo []) then {
 		{
 			_x set [1, (_x # 1) call d_fnc_convtime];
-		} forEach (_dbresult # 1);
-		missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
+		} forEach _dbresult;
+		missionNamespace setVariable ["d_top10_db_players", _dbresult, true];
 		
 		0 spawn d_fnc_dbtoppasync;
 	};

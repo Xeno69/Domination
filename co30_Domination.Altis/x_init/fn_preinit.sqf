@@ -444,6 +444,32 @@ if (isServer) then {
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
 	d_database_found = false;
+	
+#ifdef __INTERCEPTDB__
+	d_interceptdb = isClass (configFile>>"Intercept">>"Dedmen">>"intercept_database");
+		
+	diag_log ["Dom InterceptDB Database"];
+	
+	D_DB_CON = dbCreateConnection "domination";
+	d_database_found = true;
+	/*if (dbPing D_DB_CON) then {
+		diag_log ["Dom InterceptDB connected!!!"];
+		d_database_found = true;
+	} else {
+		d_interceptdb = false;
+	};*/
+	// dbIsConnected D_DB_CON does not work immediately after createConnection as the connection is only really available after a query (which dbPing provides)
+	/*if (dbIsConnected D_DB_CON) then {
+		diag_log ["InterceptDB connected!!!"];
+		if (dbPing D_DB_CON) exitWith {
+			diag_log ["InterceptDB Domination DB found!!!"];
+		};
+		d_interceptdb = false;
+	} else {
+		d_interceptdb = false;
+		diag_log ["InterceptDB NOT connected!!!"];
+	};*/
+#else
 	if (!isNil "extDB3_var_loaded") then {
 		private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
 			call extDB3_var_loaded
@@ -467,14 +493,27 @@ if (isServer) then {
 			};
 		};
 	};
+#endif
 	publicVariable "d_database_found";
 	
 	if (d_database_found) then {
 		d_use_sql_settings = false;
 		
-		private _dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+		private _dbresult = [];
+#ifndef __INTERCEPTDB__
+		_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+		if (_dbresult # 0 != 1) then {
+			_dbresult = [];
+		} else {
+			_dbresult = _dbresult # 1;
+		};
+#else
+		_query = dbPrepareQueryConfig "getDomSettings";
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+#endif
 		diag_log ["Dom Database result loading dom_settings:", _dbresult];
-		if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
+		if !(_dbresult isEqualTo []) then {
 			{
 				call {
 					if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
@@ -491,7 +530,7 @@ if (isServer) then {
 					};
 #endif
 				};
-			} forEach (_dbresult # 1);
+			} forEach _dbresult;
 		};
 		
 		if (!isMultiplayer && {isNil "paramsArray"}) then {
@@ -499,14 +538,21 @@ if (isServer) then {
 		};
 		
 		if (d_use_sql_settings) then {
+#ifndef __INTERCEPTDB__
 			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
+			if (_dbresult # 0 != 1) then {
+				_dbresult = [];
+			} else {
+				_dbresult = _dbresult # 1;
+			};
+#else
+			_query = dbPrepareQueryConfig ["getDomParams2", [__DOMDBPARAMNAME]];
+			_res = D_DB_CON dbExecute _query;
+			_dbresult = dbResultToParsedArray _res;
+#endif
 			diag_log ["Dom Database result standard params:", _dbresult];
-			if (_dbresult # 0 == 1 && {!(_dbresult # 1 isEqualTo [])}) then {
-				//diag_log ["_dbresult", _dbresult];
-				//diag_log ["_dbresult # 1", _dbresult # 1];
-				
+			if !(_dbresult isEqualTo []) then {
 				if (isClass (getMissionConfig "Params")) then {
-					_dbresult = _dbresult # 1;
 					private _conf = getMissionConfig "Params";
 					if (paramsArray isEqualTo []) then {
 						paramsArray resize (count _conf);

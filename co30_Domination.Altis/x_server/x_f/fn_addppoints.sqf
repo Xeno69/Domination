@@ -15,6 +15,11 @@ private _which = call {
 };
 
 if (_which != "") then {
+#ifndef __INTERCEPTDB__
 	"extdb3" callExtension format ["1:dom:%1:%2", _which, getPlayerUID _pl];
+#else
+	_query = dbPrepareQueryConfig [_which, [getPlayerUID _pl]];
+	_res = D_DB_CON dbExecuteAsync _query;
+#endif
 	_pl addScore 5;
 };

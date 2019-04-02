@@ -64,57 +64,96 @@ if (isNil "_p") then {
 _p remoteExecCall ["d_fnc_player_stuff", owner _pl];
 
 if (d_database_found) then {
-	private _dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGetTS:%1", _uid]);
-	__TRACE_1("","_dbresult")
+	private _dbresult = [];
+#ifndef __INTERCEPTDB__
+	_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGetTS:%1", _uid]);
 	if (_dbresult # 0 == 1) then {
-		if (_dbresult # 1 isEqualTo []) then {
-			// create new database entry for UID
-			__TRACE("creating new db entry");
-			"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
-		} else {
-			__TRACE("adding nums played for player in db");
-			"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
-			__TRACE_1("","_f_c")
-#ifdef __DEBUG__
-			_uidscores = isNil {d_player_store getVariable (_uid + "_scores")};
-			__TRACE_1("","_uidscores")
+		_dbresult = _dbresult # 1;
+	} else {
+		_dbresult = [];
+	};
+#else
+	// TODO Does the following work?
+	//if (isNil "D_DB_plgetts_query") then {
+	//	D_DB_plgetts_query = dbPrepareQueryConfig ["playerGetTS", [_uid]];
+	//} else {
+	//	D_DB_plgetts_query dbBindValue _uid;
+	//};
+	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
+	
+	_query = dbPrepareQueryConfig ["playerGetTS", [_uid]];
+	_res = D_DB_CON dbExecute _query;
+	_dbresult = dbResultToParsedArray _res;
 #endif
-			if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
-				__TRACE("Adding score");
-				__TRACE_1("","((_dbresult select 1) select 0) select 0")
+	__TRACE_1("","_dbresult")
+	if (_dbresult isEqualTo []) then {
+		// create new database entry for UID
+		__TRACE("creating new db entry");
+#ifndef __INTERCEPTDB__
+		"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
+#else
+		_query = dbPrepareQueryConfig ["playerInsert", [_uid, _name]];
+		_res = D_DB_CON dbExecuteAsync _query;
+#endif
+	} else {
+		__TRACE("adding nums played for player in db");
+#ifndef __INTERCEPTDB__
+		"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
+#else
+		_query = dbPrepareQueryConfig ["numplayedAdd", [_name, _uid]];
+		_res = D_DB_CON dbExecuteAsync _query;
+#endif
+		__TRACE_1("","_f_c")
+#ifdef __DEBUG__
+		_uidscores = isNil {d_player_store getVariable (_uid + "_scores")};
+		__TRACE_1("","_uidscores")
+#endif
+		if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
+			__TRACE("Adding score");
+			__TRACE_1("","((_dbresult select 1) select 0) select 0")
+			__TRACE_1("","score _pl")
+			d_player_store setVariable [_uid + "_scores", [((_dbresult # 1) # 0) # 1, ((_dbresult # 1) # 0) # 2, ((_dbresult # 1) # 0) # 3, ((_dbresult # 1) # 0) # 4, ((_dbresult # 1) # 0) # 5, ((_dbresult # 1) # 0) # 0]];
+			[_pl, (_dbresult # 1) # 0] spawn {
+				scriptName "spawn_init_playerserver";
+				params ["_pl", "_ar"];
+				sleep 10;
+				private _plsar = getPlayerScores _pl;
+				__TRACE_1("","_plsar")
+				_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
+				__TRACE_1("","getPlayerScores _pl")
 				__TRACE_1("","score _pl")
-				d_player_store setVariable [_uid + "_scores", [((_dbresult # 1) # 0) # 1, ((_dbresult # 1) # 0) # 2, ((_dbresult # 1) # 0) # 3, ((_dbresult # 1) # 0) # 4, ((_dbresult # 1) # 0) # 5, ((_dbresult # 1) # 0) # 0]];
-				[_pl, (_dbresult # 1) # 0] spawn {
-					scriptName "spawn_init_playerserver";
-					params ["_pl", "_ar"];
-					sleep 10;
-					private _plsar = getPlayerScores _pl;
-					__TRACE_1("","_plsar")
-					_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
-					__TRACE_1("","getPlayerScores _pl")
-					__TRACE_1("","score _pl")
-					sleep 1;
-					__TRACE_1("1","getPlayerScores _pl")
-					__TRACE_1("1","score _pl")
-					__TRACE_2("Adding score","_pl","_ar")
-					if (_ar # 0 != score _pl) then {
-						if (score _pl > 0) then {
-							_pl addScore -(score _pl);
-						};
-						_pl addScore ((_ar # 0) - score _pl);
+				sleep 1;
+				__TRACE_1("1","getPlayerScores _pl")
+				__TRACE_1("1","score _pl")
+				__TRACE_2("Adding score","_pl","_ar")
+				if (_ar # 0 != score _pl) then {
+					if (score _pl > 0) then {
+						_pl addScore -(score _pl);
 					};
-					__TRACE_1("2","getPlayerScores _pl")
-					__TRACE_1("2","score _pl")
+					_pl addScore ((_ar # 0) - score _pl);
 				};
+				__TRACE_1("2","getPlayerScores _pl")
+				__TRACE_1("2","score _pl")
 			};
-			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
-			__TRACE_1("","_dbresult")
-			if (_dbresult # 0 == 1) then {
-				(_dbresult # 1) params ["_pres"];
-				if !(_pres isEqualTo []) then {
-					_pres set [1, (_pres # 1) call d_fnc_convtime];
-					[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
-				};
+		};
+#ifndef __INTERCEPTDB__
+		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
+		if (_dbresult # 0 == 1) then {
+			_dbresult = _dbresult # 1;
+		} else {
+			_dbresult = [];
+		};
+#else
+		_query = dbPrepareQueryConfig ["playerGet", [_uid]];
+		_res = D_DB_CON dbExecute _query;
+		_dbresult = dbResultToParsedArray _res;
+#endif
+		__TRACE_1("","_dbresult")
+		if !(_dbresult isEqualTo []) then {
+			_dbresult params ["_pres"];
+			if !(_pres isEqualTo []) then {
+				_pres set [1, (_pres # 1) call d_fnc_convtime];
+				[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
 			};
 		};
 	};

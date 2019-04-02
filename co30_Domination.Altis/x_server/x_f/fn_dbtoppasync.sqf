@@ -30,8 +30,13 @@ while {true} do {
 					_pa set [1, time];
 
 					__TRACE_1("","_playtime")
-
+					
+#ifndef __INTERCEPTDB__
 					"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid];
+#else
+					_query = dbPrepareQueryConfig ["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid]];
+					_res = D_DB_CON dbExecuteAsync _query;
+#endif
 
 					__TRACE("extDB3 called")
 				};
@@ -40,6 +45,7 @@ while {true} do {
 		sleep 0.3;
 	} forEach (allPlayers - entities "HeadlessClient_F");
 	sleep 10;
+#ifndef __INTERCEPTDB__
 	_dbresult = parseSimpleArray ("extdb3" callExtension "2:dom:getTop10Players");
 	__TRACE_1("","_dbresult")
 	if (_dbresult # 0 == 2) then {
@@ -54,4 +60,19 @@ while {true} do {
 			missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
 		};
 	};
+#else
+	_query = dbPrepareQueryConfig "getTop10Players";
+	_res = D_DB_CON dbExecuteAsync _query;
+	_res dbBindCallback [{
+		params ["_result"];
+		
+		private _dbresult = dbResultToParsedArray _result;
+		if !(_dbresult isEqualTo []) then {
+			{
+				_x set [1, (_x # 1) call d_fnc_convtime];
+			} forEach _dbresult;
+			missionNamespace setVariable ["d_top10_db_players", _dbresult, true];
+		};
+	}];
+#endif
 };
