@@ -329,7 +329,7 @@
 <Korean>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Korean>
 <Japanese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Japanese>
 <Original>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Original>
-<Russian>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Russian>
+<Russian>Арт.наводчик вызывает арт.удар (Сначала отмечаете цель лазер. целецказателем, нужна батарейка к нему).</Russian>
 <Chinesesimp>炮兵可以操作武器炮击 (首先要用激光指示仪标定炮击位置). 他们也可以拯救人质 (AI模式下所有人都可以). 炮兵需要将人质护送回地图上的基地.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_44">
@@ -829,7 +829,7 @@
 <Korean>ATV 뒤집기</Korean>
 <Japanese>ATVをひっくり返す</Japanese>
 <Original>Flip ATV</Original>
-<Russian>Перевернуть квадрик</Russian>
+<Russian>Перевернуть квадроцикл</Russian>
 <Chinesesimp>翻转 ATV</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_163">
@@ -1149,7 +1149,7 @@
 <Korean>Dist attached to surface: %1</Korean>
 <Japanese>空輸車両から地面までの距離: %1</Japanese>
 <Original>Dist attached to surface: %1</Original>
-<Russian>Расстояние груза до земли: %1</Russian>
+<Russian>Расстояние груза до земли: %1м</Russian>
 <Chinesesimp>表面附着距离: %1</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_196">
@@ -2469,7 +2469,7 @@
 <Korean>Never</Korean>
 <Japanese>無い</Japanese>
 <Original>Never</Original>
-<Russian>Never</Russian>
+<Russian>Никогда</Russian>
 <Chinesesimp>从不</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
@@ -2849,7 +2849,7 @@
 <Korean>- 상대측이 어디로 포격을 지원하는지 좌표로 정보를 제공합니다.</Korean>
 <Japanese>- 敵が砲撃支援をどこで呼び出しているかについてのグリッド情報を提供する。</Japanese>
 <Original>- Provide grid information on where the enemy is calling in artillery support.</Original>
-<Russian>- Provide grid information on where the enemy is calling in artillery support.</Russian>
+<Russian>- Поступила информация о том, что противник вызвал арт. поддержку.</Russian>
 <Chinesesimp>- 当敌军呼叫炮火支援时提供的坐标信息.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_547">
@@ -2859,7 +2859,7 @@
 <Korean>- 상대측 차량을 추적할 수 있는 능력입니다. 단, 어떤 종류인지는 알 수 없습니다. 지도를 확인하십시오.</Korean>
 <Japanese>- 敵の車両パトロールを追跡する能力、その構成まではわかりません。 地図を確認してください。</Japanese>
 <Original>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
-<Russian>- Ability to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Russian>
+<Russian>- Поступила информация о патрулях противника, но их численность неизвестна. Проверьте карту.</Russian>
 <Chinesesimp>- 可以跟踪敌军载具巡逻路线,但我们不知道他们的配置.请看地图.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_548">
@@ -2869,7 +2869,7 @@
 <Korean>아무것도 발견한 것이 없습니다...</Korean>
 <Japanese>新たな情報なし...</Japanese>
 <Original>No intel found yet...</Original>
-<Russian>Устройство пока не найдено...</Russian>
+<Russian>Информации пока не найдено...</Russian>
 <Chinesesimp>目前没有情报...</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_552">
@@ -3459,7 +3459,7 @@
 <Korean>%1 전개</Korean>
 <Japanese>%1が展開されました</Japanese>
 <Original>%1 deployed</Original>
-<Russian>%1 свернута</Russian>
+<Russian>%1 развернута</Russian>
 <Chinesesimp>%1 部署</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_648">
@@ -3469,7 +3469,7 @@
 <Korean>%1 철수</Korean>
 <Japanese>%1が格納されました</Japanese>
 <Original>%1 undeployed</Original>
-<Russian>%1 развернута</Russian>
+<Russian>%1 свернута</Russian>
 <Chinesesimp>%1 取消部署</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_650">
@@ -3479,7 +3479,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군의 항공투하에 대한 정보를 얻었으며, 언제 항공투하를 주미션에 할지에 대해 알게 되었습니다? 4879</Korean>
 <Japanese>%1が新情報を入手。敵の空中投下のコードネームがわかった、メインターゲットへの空挺降下の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Original>
-<Russian>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Russian>
+<Russian>%1 нашел новую информацию. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Russian>
 <Chinesesimp>%1 发现了新情报.我们得到了敌军空投的代号,在他们空投增援部队前可以进行预警.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_651">
@@ -3489,7 +3489,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군 공격항공기에 대한 암호명을 확보하였으며, 언제 적 공격항공기가 주미션에 출격하는지 미리 알수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の攻撃機のコードネームがわかった、メインターゲットへの航空攻撃の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Original>
-<Russian>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Russian>
+<Russian>%1 нашел новую информацию. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Russian>
 <Chinesesimp>%1 发现了新情报.我们得到了敌军攻击机出发的代号,在他们呼叫攻击机前可以进行预警.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_652">
@@ -3499,7 +3499,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 공격헬기에 대한 암호명을 확보하였으며, 언제 적 공격헬기가 주미션에 출현하는지 미리 알수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の攻撃ヘリコプターのコードネームがわかった、情報部はメインターゲットへの攻撃ヘリ飛来が分かるようになるだろう。</Japanese>
 <Original>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Original>
-<Russian>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Russian>
+<Russian>%1 нашел новую информацию. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Russian>
 <Chinesesimp>%1 发现了新情报.我们得到了敌军武装直升机的代号,在他们呼叫武装直升机支援前可以进行预警.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_653">
@@ -3509,7 +3509,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 수송항공기에 대한 암호명을 확보하였으며, 언제 수송항공기가 지원을 오는지 미리 알 수 있게 되었습니다.</Korean>
 <Japanese>%1が新情報を入手。敵の輸送機のコードネームがわかった、メインターゲットへの航空輸送の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Original>
-<Russian>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Russian>
+<Russian>%1 нашел новую информацию. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Russian>
 <Chinesesimp>%1 发现了新情报.我们得到了敌军空中运输的代号,在他们进行空中运输之前可以进行预警.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_654">
@@ -3519,7 +3519,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 이제 적이 어디에 포격지원을 하는지 좌표로 확인을 할 수 있습니다.</Korean>
 <Japanese>%1が新情報を入手。砲撃要請の位置が分かるようになった。</Japanese>
 <Original>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</Original>
-<Russian>%1 has found new intel. We can now provide grid information on where the enemy is calling in artillery support.</Russian>
+<Russian>%1 нашел новую информацию. We can now provide grid information on where the enemy is calling in artillery support.</Russian>
 <Chinesesimp>%1 发现了新情报.我们可以在敌军炮火打击之前得到打击目标坐标.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_655">
@@ -3529,7 +3529,7 @@
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 차량순찰을 추적할수있으나 어떤 종류인지는 알 수 없습니다. 지도를 확인해주십시오.</Korean>
 <Japanese>%1が新情報を入手。敵の車両パトロールを追跡できるようになった。その構成までは不明、 地図を確認せよ。</Japanese>
 <Original>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Original>
-<Russian>%1 has found new intel. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Russian>
+<Russian>%1 нашел новую информацию. We are now able to track enemy vehicle patrols, but we don't know their configuration. Check the map.</Russian>
 <Chinesesimp>%1 发现了新情报.我们可以跟踪敌军巡逻载具的情报,但不知道他们的位置,请看地图位置.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656">
@@ -3539,7 +3539,7 @@
 <Korean>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Korean>
 <Japanese>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Japanese>
 <Original>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Original>
-<Russian>%1 has found new intel. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Russian>
+<Russian>%1 нашел новую информацию. We have learned the codename for enemy saboteurs, and can provide information when they are launching a saboteur attack on the base.</Russian>
 <Chinesesimp>%1获得了新的情报。我们已经截获了敌方破坏者的代号，并且可以在他们对基地发动破坏性攻击时提供信息。</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_656a">
@@ -4630,7 +4630,7 @@
 <Korean> (의식불명)</Korean>
 <Japanese> (意識不明)</Japanese>
 <Original> (Uncon)</Original>
-<Russian> (300-ый)</Russian>
+<Russian> (ранен)</Russian>
 <Chinesesimp> (昏迷)</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_884">
@@ -5080,7 +5080,7 @@
 <Korean>아군이 발전기를 파괴하였습니다.</Korean>
 <Japanese>あなたのチームが変電器を破壊しました。</Japanese>
 <Original>Your team destroyed the transformer.</Original>
-<Russian>Your team destroyed the transformer.</Russian>
+<Russian>Ваша команда уничтожила трансформатор.</Russian>
 <Chinesesimp>你的小队摧毁了变压器.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_956">
@@ -5090,7 +5090,7 @@
 <Korean>아군이 적의 공장을 파괴하였습니다.</Korean>
 <Japanese>あなたのチームが敵工場を破壊しました。</Japanese>
 <Original>Your team destroyed the heavy enemy factory.</Original>
-<Russian>Your team destroyed the heavy enemy factory.</Russian>
+<Russian>Ваша команда уничтожила фабрику противника.</Russian>
 <Chinesesimp>你的小队摧毁了敌军工厂.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_958">
@@ -5110,7 +5110,7 @@
 <Korean>아군이 반역자를 처단하였습니다.</Korean>
 <Japanese>あなたのチームが敵の協力者を排除しました。</Japanese>
 <Original>Your team killed the collaborateur.</Original>
-<Russian>Your team killed the collaborateur.</Russian>
+<Russian>Ваша команда ликвидировала цель.</Russian>
 <Chinesesimp>你的小队杀死了敌军同盟.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_960">
@@ -6750,7 +6750,7 @@
 <Korean>첩보요원이 발견한 정보</Korean>
 <Japanese>発見した情報:</Japanese>
 <Original>Intel found:</Original>
-<Russian>Устройство найдено:</Russian>
+<Russian>Развед.данные:</Russian>
 <Chinesesimp>所发现的情报:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1311">
@@ -7309,7 +7309,7 @@
 <Korean>해당지역에 차량소환용 깃대가 세워졌습니다.</Korean>
 <Japanese>現在のターゲットに車両作成用の旗が立てられた。</Japanese>
 <Original>New vehicle create flag created at current target.</Original>
-<Russian>New vehicle create flag created at current target.</Russian>
+<Russian>Флаг создания нового транспортного средства создан на текущей цели.</Russian>
 <Chinesesimp>当前目标生成了一个新载具标志.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1384">
@@ -7429,7 +7429,7 @@
 <Korean>교차로, 좌표 %3에 %1 효력사 %2발 요청. 이상!</Korean>
 <Japanese>Crossroadへ砲撃要請、座標 %3 ,弾種 %1, 発射数%2!</Japanese>
 <Original>Crossroad, requesting %1 strike. %2 salvoes at grid %3!</Original>
-<Russian>Кроссроад, запрашиваем %1 удар. %2 залпа по координатам %3!</Russian>
+<Russian>Внимание, запрашиваем %1 удар. %2 залпа по координатам %3!</Russian>
 <Chinesesimp>Crossroad, 请求 %1 支援打击. %2 齐射坐标 %3!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1407">
@@ -7439,7 +7439,7 @@
 <Korean>감시탑이 OPFOR에게 점령당하였습니다!</Korean>
 <Japanese>キャンプをOpforが占領した!</Japanese>
 <Original>Camp captured by Opfor troops!</Original>
-<Russian>Блок-пост занять силами Красных!</Russian>
+<Russian>Блок-пост занят силами Красных!</Russian>
 <Chinesesimp>红方部队占领了营地!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1408">
@@ -9300,7 +9300,7 @@
 <Korean>Respawn</Korean>
 <Japanese>Respawn</Japanese>
 <Original>Respawn</Original>
-<Russian>Респавн</Russian>
+<Russian>Респаун</Russian>
 <Chinesesimp>重生</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1827">
@@ -9430,7 +9430,7 @@
 <Korean>Send data</Korean>
 <Japanese>Send data</Japanese>
 <Original>Send data</Original>
-<Russian>Отправка</Russian>
+<Russian>Отправка данных</Russian>
 <Chinesesimp>发送数据</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1840">
@@ -9890,7 +9890,7 @@
 <Korean>Disable artillery cooldown</Korean>
 <Japanese>Disable artillery cooldown</Japanese>
 <Original>Disable artillery cooldown</Original>
-<Russian>Disable artillery cooldown</Russian>
+<Russian>Отключить перезарядку артиллерии</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1888">
@@ -9900,7 +9900,7 @@
 <Korean>Subtract score when a player kills a civilian:</Korean>
 <Japanese>Subtract score when a player kills a civilian:</Japanese>
 <Original>Subtract score when a player kills a civilian:</Original>
-<Russian>Subtract score when a player kills a civilian:</Russian>
+<Russian>Вычитать очки, когда игрок убивает гражданское лицо:</Russian>
 <Chinesesimp>当玩家杀死平民时减去分数:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1889">
@@ -9910,7 +9910,7 @@
 <Korean>%1 killed a civilian!  Penalty of %2 points deducted.</Korean>
 <Japanese>%1 killed a civilian!  Penalty of %2 points deducted.</Japanese>
 <Original>%1 killed a civilian!  Penalty of %2 points deducted.</Original>
-<Russian>%1 killed a civilian!  Penalty of %2 points deducted.</Russian>
+<Russian>%1 убил гражданского!  Игрок потерял %2 очков.</Russian>
 <Chinesesimp>%1杀死了一名平民!扣除%2点分数.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
@@ -9920,7 +9920,7 @@
 <Korean>Enable civilians</Korean>
 <Japanese>Enable civilians</Japanese>
 <Original>Enable civilians</Original>
-<Russian>Enable civilians</Russian>
+<Russian>Включить гражданских</Russian>
 <Chinesesimp>启用平民</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
@@ -9930,7 +9930,7 @@
 <Korean>Civilian unit count per group</Korean>
 <Japanese>Civilian unit count per group</Japanese>
 <Original>Civilian unit count per group</Original>
-<Russian>Civilian unit count per group</Russian>
+<Russian>Количество гражданских групп</Russian>
 <Chinesesimp>每组平民单位数</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
@@ -9940,7 +9940,7 @@
 <Korean>Disable enemy air</Korean>
 <Japanese>Disable enemy air</Japanese>
 <Original>Disable enemy air</Original>
-<Russian>Disable enemy air</Russian>
+<Russian>Отключить авиацию противника</Russian>
 <Chinesesimp>禁止敌方空袭</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1895">
@@ -9950,7 +9950,7 @@
 <Korean>Punish for killing a civilian</Korean>
 <Japanese>Punish for killing a civilian</Japanese>
 <Original>Punish for killing a civilian</Original>
-<Russian>Punish for killing a civilian</Russian>
+<Russian>Наказывать за убийство гражданских</Russian>
 <Chinesesimp>惩罚杀害平民</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
@@ -9960,7 +9960,7 @@
 <Korean>Enemy AI will occupy buildings</Korean>
 <Japanese>Enemy AI will occupy buildings</Japanese>
 <Original>Enemy AI will occupy buildings</Original>
-<Russian>Enemy AI will occupy buildings</Russian>
+<Russian>ИИ противника оккупирует дома</Russian>
 <Chinesesimp>敌人AI将占领建筑物</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1899">
@@ -9970,7 +9970,7 @@
 <Korean>Maximum number of enemy infantry barracks</Korean>
 <Japanese>Maximum number of enemy infantry barracks</Japanese>
 <Original>Maximum number of enemy infantry barracks</Original>
-<Russian>Maximum number of enemy infantry barracks</Russian>
+<Russian>Максимальное число казарм пехотинцев противника</Russian>
 <Chinesesimp>敌人步兵营的最大数量</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900">
@@ -9980,7 +9980,7 @@
 <Korean>Occupy buildings troop level</Korean>
 <Japanese>Occupy buildings troop level</Japanese>
 <Original>Occupy buildings troop level</Original>
-<Russian>Occupy buildings troop level</Russian>
+<Russian>Уровень занятия домов противником</Russian>
 <Chinesesimp>占据建筑物部队的等级</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
@@ -9990,7 +9990,7 @@
 <Korean>Civilian group count per target</Korean>
 <Japanese>Civilian group count per target</Japanese>
 <Original>Civilian group count per target</Original>
-<Russian>Civilian group count per target</Russian>
+<Russian>Количество групп гражданских на город</Russian>
 <Chinesesimp>每个目标的平民群体数量</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1930">
@@ -10000,7 +10000,7 @@
 <Korean>Maximum number of enemy camps to capture</Korean>
 <Japanese>Maximum number of enemy camps to capture</Japanese>
 <Original>Maximum number of enemy camps to capture</Original>
-<Russian>Maximum number of enemy camps to capture</Russian>
+<Russian>Максимальное количество бункеров противника для захвата</Russian>
 <Chinesesimp>捕获的敌方阵营的最大数量</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1931">
@@ -10010,7 +10010,7 @@
 <Korean>Locate the first enemy camp to capture near the center of the main target</Korean>
 <Japanese>Locate the first enemy camp to capture near the center of the main target</Japanese>
 <Original>Locate the first enemy camp to capture near the center of the main target</Original>
-<Russian>Locate the first enemy camp to capture near the center of the main target</Russian>
+<Russian>Расположить первый бункер противника ближе к центру города</Russian>
 <Chinesesimp>找到第一个在主要目标中心附近捕获的敌人营地</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
@@ -10020,7 +10020,7 @@
 <Korean>Destination:</Korean>
 <Japanese>Destination:</Japanese>
 <Original>Destination:</Original>
-<Russian>Destination:</Russian>
+<Russian>Место назначения:</Russian>
 <Chinesesimp>目的地:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1933">
@@ -10030,7 +10030,7 @@
 <Korean>Select vehicle type:</Korean>
 <Japanese>Select vehicle type:</Japanese>
 <Original>Select vehicle type:</Original>
-<Russian>Select vehicle type:</Russian>
+<Russian>Выбрать тип транспорта:</Russian>
 <Chinesesimp>选择载具类型:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1934">
@@ -10040,7 +10040,7 @@
 <Korean>Change Air Taxi dest</Korean>
 <Japanese>Change Air Taxi dest</Japanese>
 <Original>Change Air Taxi dest</Original>
-<Russian>Change Air Taxi dest</Russian>
+<Russian>Поменять точку назначения для авиатакси</Russian>
 <Chinesesimp>改变空中运输</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1935">
@@ -10050,7 +10050,7 @@
 <Korean>Select another air taxi destination by clicking on the map:</Korean>
 <Japanese>Select another air taxi destination by clicking on the map:</Japanese>
 <Original>Select another air taxi destination by clicking on the map:</Original>
-<Russian>Select another air taxi destination by clicking on the map:</Russian>
+<Russian>Выберите другую точку назначения авиатакси кликнув на карте:</Russian>
 <Chinesesimp>点击地图选择另一个空中运输目的地:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1936">
@@ -10060,7 +10060,7 @@
 <Korean>Set new destination</Korean>
 <Japanese>Set new destination</Japanese>
 <Original>Set new destination</Original>
-<Russian>Set new destination</Russian>
+<Russian>Установить новую точку назначения</Russian>
 <Chinesesimp>设置新目的地</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1937">
@@ -10070,7 +10070,7 @@
 <Korean>Air taxi destination changed</Korean>
 <Japanese>Air taxi destination changed</Japanese>
 <Original>Air taxi destination changed</Original>
-<Russian>Air taxi destination changed</Russian>
+<Russian>Точка назначения изменена</Russian>
 <Chinesesimp>空中运输目的地改变</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1938">
@@ -10080,7 +10080,7 @@
 <Korean>Pylon loadout enabled:</Korean>
 <Japanese>Pylon loadout enabled:</Japanese>
 <Original>Pylon loadout enabled:</Original>
-<Russian>Pylon loadout enabled:</Russian>
+<Russian>Включить смену пилонов:</Russian>
 <Chinesesimp>启用铁塔装载:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1939">
@@ -10090,7 +10090,7 @@
 <Korean>Repacking magazines</Korean>
 <Japanese>Repacking magazines</Japanese>
 <Original>Repacking magazines</Original>
-<Russian>Repacking magazines</Russian>
+<Russian>Перепаковываем магазины</Russian>
 <Chinesesimp>装填弹匣</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1940">
@@ -10100,7 +10100,7 @@
 <Korean>Repack Magazines</Korean>
 <Japanese>Repack Magazines</Japanese>
 <Original>Repack Magazines</Original>
-<Russian>Repack Magazines</Russian>
+<Russian>Перепаковка магазинов</Russian>
 <Chinesesimp>重装弹匣</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1941">
@@ -10110,7 +10110,7 @@
 <Korean>Starting to repack magazines...</Korean>
 <Japanese>Starting to repack magazines...</Japanese>
 <Original>Starting to repack magazines...</Original>
-<Russian>Starting to repack magazines...</Russian>
+<Russian>Начинаем перепаковку...</Russian>
 <Chinesesimp>开始装填弹匣...</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1942">
@@ -10120,7 +10120,7 @@
 <Korean>Magazines repacked...</Korean>
 <Japanese>Magazines repacked...</Japanese>
 <Original>Magazines repacked...</Original>
-<Russian>Magazines repacked...</Russian>
+<Russian>Магазины перепакованы...</Russian>
 <Chinesesimp>弹匣被装填...</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1943">
@@ -10130,7 +10130,7 @@
 <Korean>Lock Backpack</Korean>
 <Japanese>Lock Backpack</Japanese>
 <Original>Lock Backpack</Original>
-<Russian>Lock Backpack</Russian>
+<Russian>Закрыть рюкзак</Russian>
 <Chinesesimp>锁住背包</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1944">
@@ -10140,7 +10140,7 @@
 <Korean>Unlock Backpack</Korean>
 <Japanese>Unlock Backpack</Japanese>
 <Original>Unlock Backpack</Original>
-<Russian>Unlock Backpack</Russian>
+<Russian>Открыть рюкзак</Russian>
 <Chinesesimp>解锁背包</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1945">
@@ -10150,7 +10150,7 @@
 <Korean>Backpack locked</Korean>
 <Japanese>Backpack locked</Japanese>
 <Original>Backpack locked</Original>
-<Russian>Backpack locked</Russian>
+<Russian>Рюкзак закрыт</Russian>
 <Chinesesimp>背包锁定</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1946">
@@ -10160,8 +10160,8 @@
 <Korean>3D user markers turned on!</Korean>
 <Japanese>3D user markers turned on!</Japanese>
 <Original>3D user markers turned on!</Original>
-<Russian>3D用户标记已开启!</Russian>
-<Chinesesimp></Chinesesimp>
+<Russian>3D маркеры включены!</Russian>
+<Chinesesimp>3D用户标记已开启!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1947">
 <English>3D user markers turned off!</English>
@@ -10170,7 +10170,7 @@
 <Korean>3D user markers turned off!</Korean>
 <Japanese>3D user markers turned off!</Japanese>
 <Original>3D user markers turned off!</Original>
-<Russian>3D user markers turned off!</Russian>
+<Russian>3D маркеры выключены!</Russian>
 <Chinesesimp>3D用户标记已关闭!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1948">
@@ -10180,7 +10180,7 @@
 <Korean>With ambient radio:</Korean>
 <Japanese>With ambient radio:</Japanese>
 <Original>With ambient radio:</Original>
-<Russian>With ambient radio:</Russian>
+<Russian>Радиопереговоры-фон:</Russian>
 <Chinesesimp>使用环境无线电:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1949">
