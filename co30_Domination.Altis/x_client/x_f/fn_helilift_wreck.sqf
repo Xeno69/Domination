@@ -84,7 +84,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					_chopper setVariable ["d_Attached_Vec", _liftobj];
 					
 					private _fuelloss = switch (true) do {
-						case (_liftobj isKindOf "Wheeled_APC"): {0.0003};
+						case (_liftobj isKindOf "Wheeled_APC" || {_liftobj isKindOf "Wheeled_APC_F"}): {0.0003};
 						case (_liftobj isKindOf "Car" || {_liftobj isKindOf "Car_F"}): {0.0002};
 						case (_liftobj isKindOf "Air"): {0.0004};
 						case (_liftobj isKindOf "TANK"): {0.0006};

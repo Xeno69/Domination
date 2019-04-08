@@ -85,7 +85,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					_vec setVariable ["d_Attached_Vec", _transobj];
 					
 					private _fuelloss = switch (true) do {
-						case (_transobj isKindOf "Wheeled_APC"): {0.0003};
+						case (_transobj isKindOf "Wheeled_APC" || {_transobj isKindOf "Wheeled_APC_F"}): {0.0003};
 						case (_transobj isKindOf "Car" || {_transobj isKindOf "Car_F"}): {0.0002};
 						case (_transobj isKindOf "Air"): {0.0004};
 						case (_transobj isKindOf "TANK"): {0.0006};

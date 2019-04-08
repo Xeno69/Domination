@@ -22,7 +22,7 @@ private _endpoints = if (isNull objectParent _killer) then {
 } else {
 	private _vec = vehicle _killer;
 	call {
-		if (_vec isKindOf "Wheeled_APC") exitWith {_points # 1};
+		if (_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F"}) exitWith {_points # 1};
 		if (_vec isKindOf "Tank") exitWith {_points # 2};
 		if (_vec isKindOf "Air") exitWith {_points # 3};
 		1
