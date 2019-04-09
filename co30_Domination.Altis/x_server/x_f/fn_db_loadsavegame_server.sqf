@@ -22,14 +22,12 @@ if (!d_tt_ver) then {
 		_dbresult = [];
 	};
 #else
-	if (_sender != objNull) then {
-		_query = dbPrepareQueryConfig ["missionGet", [toLower (worldName + _sname)]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
-	} else {
-		_query = dbPrepareQueryConfig ["missionGet2", [toLower (worldName + _sname + briefingname)]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
+	if (d_interceptdb) then {
+		if (_sender != objNull) then {
+			_dbresult = ["missionGet", [toLower (worldName + _sname)]] call dsi_fnc_queryconfig;
+		} else {
+			_dbresult = ["missionGet2", [toLower (worldName + _sname + briefingname)]] call dsi_fnc_queryconfig;
+		};
 	};
 #endif
 } else {
@@ -45,14 +43,12 @@ if (!d_tt_ver) then {
 		_dbresult = [];
 	};
 #else
-	if (_sender != objNull) then {
-		_query = dbPrepareQueryConfig ["missionttGet", [toLower (worldName + _sname)]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
-	} else {
-		_query = dbPrepareQueryConfig ["missionttGet2", [toLower (worldName + _sname + briefingname)]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
+	if (d_interceptdb) then {
+		if (_sender != objNull) then {
+			_dbresult = ["missionttGet", [toLower (worldName + _sname)]] call dsi_fnc_queryconfig;
+		} else {
+			_dbresult = ["missionttGet2", [toLower (worldName + _sname + briefingname)]] call dsi_fnc_queryconfig;
+		};
 	};
 #endif
 };

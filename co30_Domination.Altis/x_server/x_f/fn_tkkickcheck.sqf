@@ -20,8 +20,9 @@ if (!isNil "_p") then {
 #ifndef __INTERCEPTDB__
 			"extdb3" callExtension format ["1:dom:teankillsAdd:%1", _uid];
 #else
-			_query = dbPrepareQueryConfig ["teankillsAdd", [_uid]];
-			_res = D_DB_CON dbExecuteAsync _query;
+			if (d_interceptdb) then {
+				["teankillsAdd", [_uid]] call dsi_fnc_queryconfigasync;
+			};
 #endif
 		};
 	};

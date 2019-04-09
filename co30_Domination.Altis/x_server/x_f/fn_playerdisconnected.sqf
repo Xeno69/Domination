@@ -74,7 +74,8 @@ __TRACE_1("","_playtime")
 "extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid];
 __TRACE("extDB3 called")
 #else
-_query = dbPrepareQueryConfig ["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid]];
-_res = D_DB_CON dbExecuteAsync _query;
+if (d_interceptdb) then {
+	["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid]] call dsi_fnc_queryconfigasync;
+};
 __TRACE("interceptDB called")
 #endif

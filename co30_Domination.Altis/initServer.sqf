@@ -26,9 +26,9 @@ if (d_database_found) then {
 			_dbresult = [];
 		};
 #else
-		_query = dbPrepareQueryConfig ["missionsGet", [tolower worldname]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
+		if (d_interceptdb) then {
+			_dbresult = ["missionsGet", [tolower worldname]] call dsi_fnc_queryconfig;
+		};
 #endif
 		__TRACE_1("","_dbresult")
 		if !(_dbresult isEqualTo []) then {
@@ -51,9 +51,9 @@ if (d_database_found) then {
 			_dbresult = [];
 		};
 #else
-		_query = dbPrepareQueryConfig ["missionsttGet", [tolower worldname]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
+		if (d_interceptdb) then {
+			_dbresult = ["missionsttGet", [tolower worldname]] call dsi_fnc_queryconfig;
+		};
 #endif
 		__TRACE_1("","_dbresult")
 		if !(_dbresult isEqualTo []) then {
@@ -74,9 +74,9 @@ if (d_database_found) then {
 		_dbresult = [];
 	};
 #else
-	_query = dbPrepareQueryConfig "getTop10Players";
-	_res = D_DB_CON dbExecute _query;
-	_dbresult = dbResultToParsedArray _res;
+	if (d_interceptdb) then {
+		_dbresult = ["getTop10Players"] call dsi_fnc_queryconfig;
+	};
 #endif
 	__TRACE_1("","_dbresult")
 	if !(_dbresult isEqualTo []) then {

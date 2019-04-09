@@ -242,8 +242,9 @@ if !(d_maintargets_list isEqualTo []) then {
 #ifndef __INTERCEPTDB__
 			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
 #else
-			_query = dbPrepareQueryConfig ["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingName)]];
-			_res = D_DB_CON dbExecuteAsync _query;
+			if (d_interceptdb) then {
+				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingName)]] call dsi_fnc_queryconfigasync;
+			};
 #endif
 		};
 	d_the_end = true; publicVariable "d_the_end";
@@ -253,8 +254,9 @@ if !(d_maintargets_list isEqualTo []) then {
 #ifndef __INTERCEPTDB__
 			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
 #else
-			_query = dbPrepareQueryConfig ["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingName)]];
-			_res = D_DB_CON dbExecuteAsync _query;
+			if (d_interceptdb) then {
+				["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingName)]] call dsi_fnc_queryconfigasync;
+			};
 #endif
 		};
 		d_the_end = true; publicVariable "d_the_end";

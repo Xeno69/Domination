@@ -446,29 +446,9 @@ if (isServer) then {
 	d_database_found = false;
 	
 #ifdef __INTERCEPTDB__
-	d_interceptdb = isClass (configFile>>"Intercept">>"Dedmen">>"intercept_database");
-		
-	diag_log ["Dom InterceptDB Database"];
-	
-	D_DB_CON = dbCreateConnection "domination";
-	d_database_found = true;
-	/*if (dbPing D_DB_CON) then {
-		diag_log ["Dom InterceptDB connected!!!"];
-		d_database_found = true;
-	} else {
-		d_interceptdb = false;
-	};*/
-	// dbIsConnected D_DB_CON does not work immediately after createConnection as the connection is only really available after a query (which dbPing provides)
-	/*if (dbIsConnected D_DB_CON) then {
-		diag_log ["InterceptDB connected!!!"];
-		if (dbPing D_DB_CON) exitWith {
-			diag_log ["InterceptDB Domination DB found!!!"];
-		};
-		d_interceptdb = false;
-	} else {
-		d_interceptdb = false;
-		diag_log ["InterceptDB NOT connected!!!"];
-	};*/
+	if (d_interceptdb) then {
+		call dsi_fnc_createdbconn;
+	};
 #else
 	if (!isNil "extDB3_var_loaded") then {
 		private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
@@ -508,9 +488,10 @@ if (isServer) then {
 			_dbresult = _dbresult # 1;
 		};
 #else
-		_query = dbPrepareQueryConfig "getDomSettings";
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
+		if (isNil "d_interceptdb") then {d_interceptdb = false};
+		if (d_interceptdb) then {
+			_dbresult = ["getDomSettings"] call dsi_fnc_queryconfig;
+		};
 #endif
 		diag_log ["Dom Database result loading dom_settings:", _dbresult];
 		if !(_dbresult isEqualTo []) then {
@@ -546,9 +527,9 @@ if (isServer) then {
 				_dbresult = _dbresult # 1;
 			};
 #else
-			_query = dbPrepareQueryConfig ["getDomParams2", [__DOMDBPARAMNAME]];
-			_res = D_DB_CON dbExecute _query;
-			_dbresult = dbResultToParsedArray _res;
+			if (d_interceptdb) then {
+				_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call dsi_fnc_queryconfig
+			};
 #endif
 			diag_log ["Dom Database result standard params:", _dbresult];
 			if !(_dbresult isEqualTo []) then {

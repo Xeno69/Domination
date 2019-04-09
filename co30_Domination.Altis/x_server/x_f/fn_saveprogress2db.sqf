@@ -60,12 +60,15 @@ if !(_sname in d_db_savegames) then {
 		"extdb3" callExtension format ["1:dom:missionttInsert:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:%18:%19:%20", _sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)];
 	};
 #else
-	if (!d_tt_ver) then {
-		_query = dbPrepareQueryConfig ["missionInsert", [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)]];
-	} else {
-		_query = dbPrepareQueryConfig ["missionttInsert", [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)]];
+	if (d_interceptdb) then {
+		private "_iquery";
+		if (!d_tt_ver) then {
+			_iquery = ["missionInsert", [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)]];
+		} else {
+			_iquery = ["missionttInsert", [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)]];
+		};
+		_iquery call dsi_fnc_queryconfigasync;
 	};
-	_res = D_DB_CON dbExecuteAsync _query;
 #endif
 } else {
 #ifndef __INTERCEPTDB__
@@ -75,12 +78,15 @@ if !(_sname in d_db_savegames) then {
 		"extdb3" callExtension format ["1:dom:missionTTUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname)];
 	};
 #else
-	if (!d_tt_ver) then {
-		_query = dbPrepareQueryConfig ["missionUpdate", [d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower (worldName + _sname)]];
-	} else {
-		_query = dbPrepareQueryConfig ["missionTTUpdate", [d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname)]];
+	if (d_interceptdb) then {
+		private "_iquery";
+		if (!d_tt_ver) then {
+			_iquery = ["missionUpdate", [d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower (worldName + _sname)]];
+		} else {
+			_iquery = ["missionTTUpdate", [d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname)]];
+		};
+		_iquery call dsi_fnc_queryconfigasync;
 	};
-		_res = D_DB_CON dbExecuteAsync _query;
 #endif
 };
 

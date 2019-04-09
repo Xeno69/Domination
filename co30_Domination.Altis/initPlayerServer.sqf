@@ -81,9 +81,9 @@ if (d_database_found) then {
 	//};
 	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
 	
-	_query = dbPrepareQueryConfig ["playerGetTS", [_uid]];
-	_res = D_DB_CON dbExecute _query;
-	_dbresult = dbResultToParsedArray _res;
+	if (d_interceptdb) then {
+		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
+	};
 #endif
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
@@ -92,16 +92,18 @@ if (d_database_found) then {
 #ifndef __INTERCEPTDB__
 		"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
 #else
-		_query = dbPrepareQueryConfig ["playerInsert", [_uid, _name]];
-		_res = D_DB_CON dbExecuteAsync _query;
+		if (d_interceptdb) then {
+			["playerInsert", [_uid, _name]] call dsi_fnc_queryconfigasync;
+		};
 #endif
 	} else {
 		__TRACE("adding nums played for player in db");
 #ifndef __INTERCEPTDB__
 		"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
 #else
-		_query = dbPrepareQueryConfig ["numplayedAdd", [_name, _uid]];
-		_res = D_DB_CON dbExecuteAsync _query;
+		if (d_interceptdb) then {
+			["numplayedAdd", [_name, _uid]] call dsi_fnc_queryconfigasync;
+		};
 #endif
 		__TRACE_1("","_f_c")
 #ifdef __DEBUG__
@@ -144,9 +146,9 @@ if (d_database_found) then {
 			_dbresult = [];
 		};
 #else
-		_query = dbPrepareQueryConfig ["playerGet", [_uid]];
-		_res = D_DB_CON dbExecute _query;
-		_dbresult = dbResultToParsedArray _res;
+		if (d_interceptdb) then {
+			_dbresult = ["playerGet", [_uid]] call dsi_fnc_queryconfig;
+		};
 #endif
 		__TRACE_1("","_dbresult")
 		if !(_dbresult isEqualTo []) then {

@@ -34,8 +34,9 @@ while {true} do {
 #ifndef __INTERCEPTDB__
 					"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid];
 #else
-					_query = dbPrepareQueryConfig ["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid]];
-					_res = D_DB_CON dbExecuteAsync _query;
+					if (d_interceptdb) then {
+						["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid]] call dsi_fnc_queryconfigasync;
+					};
 #endif
 
 					__TRACE("extDB3 called")
@@ -61,18 +62,8 @@ while {true} do {
 		};
 	};
 #else
-	_query = dbPrepareQueryConfig "getTop10Players";
-	_res = D_DB_CON dbExecuteAsync _query;
-	_res dbBindCallback [{
-		params ["_result"];
-		
-		private _dbresult = dbResultToParsedArray _result;
-		if !(_dbresult isEqualTo []) then {
-			{
-				_x set [1, (_x # 1) call d_fnc_convtime];
-			} forEach _dbresult;
-			missionNamespace setVariable ["d_top10_db_players", _dbresult, true];
-		};
-	}];
+	if (d_interceptdb) then {
+		call dsi_fnc_gettopplayers;
+	};
 #endif
 };
