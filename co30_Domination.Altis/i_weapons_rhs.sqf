@@ -16,7 +16,6 @@ private _all_weapons_items_blufor = [
 			"rhs_weap_m16a4",
 			"rhs_weap_m16a4_carryhandle",
 			"rhs_weap_m16a4_pmag"
-			
 		],
 		// corporal rifles (gets added to private rifles)
 		[
@@ -25,7 +24,7 @@ private _all_weapons_items_blufor = [
 			"rhs_weap_m38_rail",
 			"rhs_weap_m16a4_grip",
 			"rhs_weap_m16a4_carryhandle_grip",
-			"rhs_weap_m16a4_carryhandle_grip_pmag",	
+			"rhs_weap_m16a4_carryhandle_grip_pmag",
 			"rhs_weap_m16a4_carryhandle_pmag",
 			"rhs_weap_m16a4_carryhandle_grip3_pmag",
 			"rhs_weap_m16a4_carryhandle_grip2_pmag",
@@ -783,21 +782,27 @@ private _all_weapons_items_blufor = [
 	[
 		1,  // 0 = always added for each rank in the ranked version
 		"ITEMS",
-
+		// private items
 		[
+			"ItemRadio",
+			"ItemMap",
+			"ItemGPS",
+			"ItemCompass",
+			"ItemWatch",
 			"MineDetector",
-			"Binocular", 
-			"FirstAidKit",
+			"rhsusf_bino_m24", 
+			(if (d_no_faks == 1) then {"FirstAidKit"} else {""}),
 			"Medikit",
 			"ToolKit",
 			"B_UavTerminal",
-			"B_UAV_01_backpack_F"
+			"B_UAV_01_backpack_F",
+			(if (d_without_nvg == 1) then {"rhsusf_ANPVS_14"} else {""})
 		],
 		// corporal items
 		[
-			"lerca_1200_black",
-			"lerca_1200_tan",
-			"Leupold_Mk4"
+			"rhsusf_bino_lerca_1200_black",
+			"rhsusf_bino_lerca_1200_tan",
+			"rhsusf_bino_Leupold_Mk4"
 		],
 		// sergeant items
 		[
@@ -1457,11 +1462,16 @@ private _all_weapons_items_opfor = [
 		0,  // 0 = always added for each rank in the ranked version
 		"ITEMS",
 		[
+			"ItemRadio",
+			"ItemMap",
+			"ItemGPS",
+			"ItemCompass",
+			"ItemWatch",
 			"MineDetector",
-			"Binocular", 
-			"FirstAidKit",
+			"rhsusf_bino_m24", 
+			(if (d_no_faks == 1) then {"FirstAidKit"} else {""}),
 			"Medikit",
-			"rhs_1PN138",
+			(if (d_without_nvg == 1) then {"rhs_1PN138"} else {""}),
 			"ToolKit",
 			"B_UavTerminal",
 			"B_UAV_01_backpack_F"

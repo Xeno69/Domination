@@ -9,7 +9,7 @@ __TRACE_1("","_mods")
 private _items_no = ["FirstAidKit", "Medikit", "ItemMap", "ItemRadio", "ItemCompass", "ItemWatch"];
 			
 if (!d_ifa3lite) then {
-	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
+	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "MineDetector"];
 };
 
 if (d_with_ace) then {
