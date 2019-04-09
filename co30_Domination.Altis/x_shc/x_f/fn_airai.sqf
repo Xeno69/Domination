@@ -14,11 +14,11 @@ params ["_type"];
 while {true} do {
 #ifndef __DEBUG__
 	if (!d_mt_radio_down) then {
-		while {!d_mt_spotted} do {sleep 11.32};
+		while {!d_mt_spotted} do {sleep 8.32};
 	} else {
-		while {d_mt_radio_down} do {sleep 10.123};
+		while {d_mt_radio_down} do {sleep 8.123};
 		if (!d_mt_spotted) then {
-			while {!d_mt_spotted} do {sleep 12.32};
+			while {!d_mt_spotted} do {sleep 8.32};
 		};
 	};
 #endif
@@ -29,9 +29,10 @@ while {true} do {
 #ifndef __DEBUG__
 	sleep (call {
 		if (_num_p < 5) exitWith {1800};
-		if (_num_p < 10) exitWith {1200};
-		if (_num_p < 20) exitWith {800};
-		400;
+		if (_num_p < 10) exitWith {1500};
+		if (_num_p < 20) exitWith {1200};
+		if (_num_p < 30) exitWith {900};
+		600;
 	});
 #endif
 	while {d_mt_radio_down} do {sleep 6.123};
@@ -54,15 +55,15 @@ while {true} do {
 	switch (_type) do {
 		case "HAC": {
 			_heli_type = selectRandom d_airai_attack_chopper;
-			_numair = d_number_attack_choppers;
+			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 		};
 		case "AP": {
 			_heli_type = selectRandom d_airai_attack_plane;
-			_numair = d_number_attack_planes;
+			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
 		};
 		case "LAC": {
 			_heli_type = selectRandom d_light_attack_chopper;
-			_numair = d_number_attack_choppers;
+			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 		};
 	};
 	
@@ -245,12 +246,13 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 	};
 #ifndef __DEBUG__
 	_num_p = call d_fnc_PlayersNumber;
-	private _re_random = call {
+	private _re_random = (call {
 		if (_num_p < 5) exitWith {1800};
-		if (_num_p < 10) exitWith {1200};
-		if (_num_p < 20) exitWith {800};
-		400;
-	};
+		if (_num_p < 10) exitWith {1500};
+		if (_num_p < 20) exitWith {1200};
+		if (_num_p < 30) exitWith {900};
+		600;
+	});
 	sleep (d_airai_respawntime + _re_random + (random _re_random));
 #else
 	sleep 10;

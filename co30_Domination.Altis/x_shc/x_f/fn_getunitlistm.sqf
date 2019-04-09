@@ -11,8 +11,8 @@ private _ret = selectRandom (missionNamespace getVariable format ["d_%1_%2", _gr
 
 __TRACE_2("1","count _ret","_ret")
 
-// for now reduce inf groups to 6 or 7 units max to save a little bit performance
-private _cm = selectRandom [6, 7];
+// for now reduce inf groups to 5 or 7 units max to save a little bit performance
+private _cm = selectRandom [5, 6, 7];
 if (count _ret > _cm) then {
 	while {count _ret > _cm} do {
 		_ret deleteAt (ceil (random (count _ret - 1)));

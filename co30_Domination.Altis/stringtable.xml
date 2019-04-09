@@ -10213,6 +10213,16 @@
 <Russian>Without sidemission bonus vehicles:</Russian>
 <Chinesesimp>Without sidemission bonus vehicles:</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1952">
+<English>Attention. You were spotted by enemy FACs. Incoming air strike!!!</English>
+<Spanish>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Spanish>
+<Portuguese>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Portuguese>
+<Korean>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Korean>
+<Japanese>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Japanese>
+<Original>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Original>
+<Russian>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Russian>
+<Chinesesimp>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

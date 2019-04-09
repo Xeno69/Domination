@@ -287,6 +287,7 @@ class cfgFunctions {
 			file = "scripts";
 			addc(establishingShot);
 			addc(moduleCAS);
+			addc(moduleCASAI);
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);

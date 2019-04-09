@@ -20,6 +20,8 @@ Changelogs
 		 which will be there at mission start but are handled like bonus vehicles (wreck handling; vehicle var names have to start with d_vecs_special_ )
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 - Updated: Russian translation (by Topden)
+- Fixed: Some functions which were supposed to run on both, server or a headless client, still were exiting on a headless client
+- Added: Enemy AI now also can call in CAS strikes
 
 3.99o
 - Added: Chinese translation (by CHL198011)

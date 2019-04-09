@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_handleattackgroups.sqf"
 #include "..\..\x_setup.sqf"
 
-if (!isServer) exitWith {};
+if !(call d_fnc_checkSHC) exitWith {};
 
 params ["_grps"];
 

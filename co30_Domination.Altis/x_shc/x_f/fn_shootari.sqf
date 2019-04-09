@@ -21,7 +21,7 @@ private _num_shells = if (_kind in [0, 1]) then {
 #else
 	if (floor random 3 == 0) then {
 #endif
-		_pos_enemy remoteExecCall ["d_fnc_doarti", [0, -2] select isDedicated];
+		[_pos_enemy, 0] remoteExecCall ["d_fnc_doarti", [0, -2] select isDedicated];
 	};
 	3 + (ceil random 3)
 } else {

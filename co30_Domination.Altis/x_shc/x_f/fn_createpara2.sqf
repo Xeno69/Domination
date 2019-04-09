@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_createpara2.sqf"
 #include "..\..\x_setup.sqf"
 
-if (!isServer) exitWith {};
+if !(call d_fnc_checkSHC) exitWith {};
 
 #define __exitchop if (!alive _chopper || {!canMove _chopper || {!alive driver _chopper}}) exitWith {[_crew_vec, _chopper, 240 + random 100] spawn _delveccrew; _stop_me = true}
 

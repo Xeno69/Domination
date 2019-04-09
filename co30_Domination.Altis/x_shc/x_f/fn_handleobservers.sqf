@@ -19,7 +19,13 @@ while {d_nr_observers > 0} do {
 					if ((_enemy nearEntities [_man_type, 30]) isEqualTo []) then {
 						_e_ari_avail = false;
 						_nextaritime = time + 120 + (random 120);
-						[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
+						if (selectRandom [0, 1] == 0 && {d_no_more_observers < 1}) then {
+							[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
+						} else {
+							if (d_cas_plane_ai != "") then {
+								[getPosWorld _enemy, _x, 2] spawn d_fnc_moduleCASAI;
+							};
+						};
 					} else {
 						_e_ari_avail = false;
 						_nextaritime = time + 120 + (random 120);

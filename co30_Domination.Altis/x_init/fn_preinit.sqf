@@ -889,19 +889,52 @@ if (!d_tt_tanoa) then {
 	
 	d_cas_plane = 
 #ifdef __OWN_SIDE_INDEPENDENT__
-			"I_Plane_Fighter_03_CAS_F";
+		"I_Plane_Fighter_03_CAS_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-			if (!d_cup) then {"B_Plane_CAS_01_F"} else {"CUP_B_A10_CAS_USA"};
+		if (!d_cup) then {"B_Plane_CAS_01_F"} else {"CUP_B_A10_CAS_USA"};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-			if (!d_ifa3lite) then {"O_Plane_CAS_02_F"} else {"LIB_P47"};
+		if (!d_ifa3lite) then {"O_Plane_CAS_02_F"} else {"LIB_P47"};
 #endif
 #ifdef __TT__
-			["B_Plane_CAS_01_F", "O_Plane_CAS_02_F"];
+		["B_Plane_CAS_01_F", "O_Plane_CAS_02_F"];
 #endif
 #ifdef __RHS__
 	d_cas_plane = ["RHS_Su25SM_vvsc", "RHS_A10"] select d_rhs_blufor;
+#endif
+
+	d_cas_plane_ai =
+#ifdef __OWN_SIDE_INDEPENDENT__
+		"";
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+		call {
+			if (d_ifa3lite) exitWith {
+				"LIB_P47"
+			};
+			if (d_cup) exitWith {
+				"CUP_O_Su25_Dyn_RU"
+			};
+			"O_Plane_CAS_02_F"
+		};
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+		call {
+			if (d_ifa3lite) exitWith {
+				"LIB_Ju87"
+			};
+			if (d_cup) exitWith {
+				"CUP_B_A10_CAS_USA"
+			};
+			"B_Plane_CAS_01_F"
+		};
+#endif
+#ifdef __TT__
+		"I_Plane_Fighter_03_CAS_F";
+#endif
+#ifdef __RHS__
+	d_cas_plane_ai = ["RHS_A10", "RHS_Su25SM_vvsc"] select d_rhs_blufor;
 #endif
 
 	// max men for main target clear
