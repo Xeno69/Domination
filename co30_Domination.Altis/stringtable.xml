@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Domination">
 <Package name="Domination">
 <Container name="Mission">
@@ -1740,7 +1740,7 @@
 <Japanese>Welcome to Domination!</Japanese>
 <Original>Welcome to Domination!</Original>
 <Russian>Добро пожаловать в Доминацию!</Russian>
-<Chinesesimp>欢迎来到 Domination!</Chinesesimp>
+<Chinesesimp>中国军事模拟联盟QQ群:422522513</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_266">
 <English>Have a nice time!</English>
@@ -1750,7 +1750,7 @@
 <Japanese>Have a nice time!</Japanese>
 <Original>Have a nice time!</Original>
 <Russian>Хорошей игры!</Russian>
-<Chinesesimp>祝你玩得愉快!</Chinesesimp>
+<Chinesesimp>语音TS服务器:ts.msuoc.cn</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_267">
 <English>Too high to load an ammocrate, please land!</English>
@@ -6750,7 +6750,7 @@
 <Korean>첩보요원이 발견한 정보</Korean>
 <Japanese>発見した情報:</Japanese>
 <Original>Intel found:</Original>
-<Russian>Развед.данные:</Russian>
+<Russian>Устройство найдено:</Russian>
 <Chinesesimp>所发现的情报:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1311">
@@ -9881,7 +9881,7 @@
 <Japanese>Call Air Taxi</Japanese>
 <Original>Call Air Taxi</Original>
 <Russian>Вызов Эвакуации (такси)</Russian>
-<Chinesesimp>呼叫空中运输</Chinesesimp>
+<Chinesesimp>叫空中运输</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1885">
 <English>Disable artillery cooldown</English>
@@ -9891,7 +9891,7 @@
 <Japanese>Disable artillery cooldown</Japanese>
 <Original>Disable artillery cooldown</Original>
 <Russian>Отключить перезарядку артиллерии</Russian>
-<Chinesesimp>禁用火炮冷却时间</Chinesesimp>
+<Chinesesimp>Disable artillery cooldown</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1888">
 <English>Subtract score when a player kills a civilian:</English>
@@ -9901,7 +9901,7 @@
 <Japanese>Subtract score when a player kills a civilian:</Japanese>
 <Original>Subtract score when a player kills a civilian:</Original>
 <Russian>Вычитать очки, когда игрок убивает гражданское лицо:</Russian>
-<Chinesesimp>当玩家杀死平民时减去分数:</Chinesesimp>
+<Chinesesimp>Subtract score when a player kills a civilian:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1889">
 <English>%1 killed a civilian!  Penalty of %2 points deducted.</English>
@@ -9911,7 +9911,7 @@
 <Japanese>%1 killed a civilian!  Penalty of %2 points deducted.</Japanese>
 <Original>%1 killed a civilian!  Penalty of %2 points deducted.</Original>
 <Russian>%1 убил гражданского!  Игрок потерял %2 очков.</Russian>
-<Chinesesimp>%1杀死了一名平民!扣除%2点分数.</Chinesesimp>
+<Chinesesimp>%1 killed a civilian!  Penalty of %2 points deducted.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
 <English>Enable civilians</English>
@@ -9921,7 +9921,7 @@
 <Japanese>Enable civilians</Japanese>
 <Original>Enable civilians</Original>
 <Russian>Включить гражданских</Russian>
-<Chinesesimp>启用平民</Chinesesimp>
+<Chinesesimp>Enable civilians</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
 <English>Civilian unit count per group</English>
@@ -9931,7 +9931,7 @@
 <Japanese>Civilian unit count per group</Japanese>
 <Original>Civilian unit count per group</Original>
 <Russian>Количество гражданских групп</Russian>
-<Chinesesimp>每组平民单位数</Chinesesimp>
+<Chinesesimp>Civilian unit count per group</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
 <English>Disable enemy air</English>
@@ -9941,7 +9941,7 @@
 <Japanese>Disable enemy air</Japanese>
 <Original>Disable enemy air</Original>
 <Russian>Отключить авиацию противника</Russian>
-<Chinesesimp>禁止敌方空袭</Chinesesimp>
+<Chinesesimp>Disable enemy air</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1895">
 <English>Punish for killing a civilian</English>
@@ -9951,7 +9951,7 @@
 <Japanese>Punish for killing a civilian</Japanese>
 <Original>Punish for killing a civilian</Original>
 <Russian>Наказывать за убийство гражданских</Russian>
-<Chinesesimp>惩罚杀害平民</Chinesesimp>
+<Chinesesimp>Punish for killing a civilian</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
 <English>Enemy AI will occupy buildings</English>
@@ -9961,7 +9961,7 @@
 <Japanese>Enemy AI will occupy buildings</Japanese>
 <Original>Enemy AI will occupy buildings</Original>
 <Russian>ИИ противника оккупирует дома</Russian>
-<Chinesesimp>敌人AI将占领建筑物</Chinesesimp>
+<Chinesesimp>Enemy AI will occupy buildings</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1899">
 <English>Maximum number of enemy infantry barracks</English>
@@ -9971,7 +9971,7 @@
 <Japanese>Maximum number of enemy infantry barracks</Japanese>
 <Original>Maximum number of enemy infantry barracks</Original>
 <Russian>Максимальное число казарм пехотинцев противника</Russian>
-<Chinesesimp>敌人步兵营的最大数量</Chinesesimp>
+<Chinesesimp>Maximum number of enemy infantry barracks</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900">
 <English>Occupy buildings troop level</English>
@@ -9981,7 +9981,7 @@
 <Japanese>Occupy buildings troop level</Japanese>
 <Original>Occupy buildings troop level</Original>
 <Russian>Уровень занятия домов противником</Russian>
-<Chinesesimp>占据建筑物部队的等级</Chinesesimp>
+<Chinesesimp>Occupy buildings troop level</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilian group count per target</English>
@@ -9991,7 +9991,7 @@
 <Japanese>Civilian group count per target</Japanese>
 <Original>Civilian group count per target</Original>
 <Russian>Количество групп гражданских на город</Russian>
-<Chinesesimp>每个目标的平民群体数量</Chinesesimp>
+<Chinesesimp>Civilian group count per target</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1930">
 <English>Maximum number of enemy camps to capture</English>
@@ -10001,7 +10001,7 @@
 <Japanese>Maximum number of enemy camps to capture</Japanese>
 <Original>Maximum number of enemy camps to capture</Original>
 <Russian>Максимальное количество бункеров противника для захвата</Russian>
-<Chinesesimp>捕获的敌方阵营的最大数量</Chinesesimp>
+<Chinesesimp>Maximum number of enemy camps to capture</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1931">
 <English>Locate the first enemy camp to capture near the center of the main target</English>
@@ -10011,7 +10011,7 @@
 <Japanese>Locate the first enemy camp to capture near the center of the main target</Japanese>
 <Original>Locate the first enemy camp to capture near the center of the main target</Original>
 <Russian>Расположить первый бункер противника ближе к центру города</Russian>
-<Chinesesimp>找到第一个在主要目标中心附近捕获的敌人营地</Chinesesimp>
+<Chinesesimp>Locate the first enemy camp to capture near the center of the main target</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
 <English>Destination:</English>
@@ -10021,7 +10021,7 @@
 <Japanese>Destination:</Japanese>
 <Original>Destination:</Original>
 <Russian>Место назначения:</Russian>
-<Chinesesimp>目的地:</Chinesesimp>
+<Chinesesimp>Destination:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1933">
 <English>Select vehicle type:</English>
@@ -10031,7 +10031,7 @@
 <Japanese>Select vehicle type:</Japanese>
 <Original>Select vehicle type:</Original>
 <Russian>Выбрать тип транспорта:</Russian>
-<Chinesesimp>选择载具类型:</Chinesesimp>
+<Chinesesimp>Select vehicle type:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1934">
 <English>Change Air Taxi dest</English>
@@ -10041,7 +10041,7 @@
 <Japanese>Change Air Taxi dest</Japanese>
 <Original>Change Air Taxi dest</Original>
 <Russian>Поменять точку назначения для авиатакси</Russian>
-<Chinesesimp>改变空中运输</Chinesesimp>
+<Chinesesimp>Change Air Taxi dest</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1935">
 <English>Select another air taxi destination by clicking on the map:</English>
@@ -10051,7 +10051,7 @@
 <Japanese>Select another air taxi destination by clicking on the map:</Japanese>
 <Original>Select another air taxi destination by clicking on the map:</Original>
 <Russian>Выберите другую точку назначения авиатакси кликнув на карте:</Russian>
-<Chinesesimp>点击地图选择另一个空中运输目的地:</Chinesesimp>
+<Chinesesimp>Select another air taxi destination by clicking on the map:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1936">
 <English>Set new destination</English>
@@ -10061,7 +10061,7 @@
 <Japanese>Set new destination</Japanese>
 <Original>Set new destination</Original>
 <Russian>Установить новую точку назначения</Russian>
-<Chinesesimp>设置新目的地</Chinesesimp>
+<Chinesesimp>Set new destination</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1937">
 <English>Air taxi destination changed</English>
@@ -10071,7 +10071,7 @@
 <Japanese>Air taxi destination changed</Japanese>
 <Original>Air taxi destination changed</Original>
 <Russian>Точка назначения изменена</Russian>
-<Chinesesimp>空中运输目的地改变</Chinesesimp>
+<Chinesesimp>Air taxi destination changed</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1938">
 <English>Pylon loadout enabled:</English>
@@ -10081,7 +10081,7 @@
 <Japanese>Pylon loadout enabled:</Japanese>
 <Original>Pylon loadout enabled:</Original>
 <Russian>Включить смену пилонов:</Russian>
-<Chinesesimp>启用铁塔装载:</Chinesesimp>
+<Chinesesimp>Pylon loadout enabled:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1939">
 <English>Repacking magazines</English>
@@ -10091,7 +10091,7 @@
 <Japanese>Repacking magazines</Japanese>
 <Original>Repacking magazines</Original>
 <Russian>Перепаковываем магазины</Russian>
-<Chinesesimp>装填弹匣</Chinesesimp>
+<Chinesesimp>Repacking magazines</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1940">
 <English>Repack Magazines</English>
@@ -10101,7 +10101,7 @@
 <Japanese>Repack Magazines</Japanese>
 <Original>Repack Magazines</Original>
 <Russian>Перепаковка магазинов</Russian>
-<Chinesesimp>重装弹匣</Chinesesimp>
+<Chinesesimp>Repack Magazines</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1941">
 <English>Starting to repack magazines...</English>
@@ -10111,7 +10111,7 @@
 <Japanese>Starting to repack magazines...</Japanese>
 <Original>Starting to repack magazines...</Original>
 <Russian>Начинаем перепаковку...</Russian>
-<Chinesesimp>开始装填弹匣...</Chinesesimp>
+<Chinesesimp>Starting to repack magazines...</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1942">
 <English>Magazines repacked...</English>
@@ -10121,7 +10121,7 @@
 <Japanese>Magazines repacked...</Japanese>
 <Original>Magazines repacked...</Original>
 <Russian>Магазины перепакованы...</Russian>
-<Chinesesimp>弹匣被装填...</Chinesesimp>
+<Chinesesimp>Magazines repacked...</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1943">
 <English>Lock Backpack</English>
@@ -10131,7 +10131,7 @@
 <Japanese>Lock Backpack</Japanese>
 <Original>Lock Backpack</Original>
 <Russian>Закрыть рюкзак</Russian>
-<Chinesesimp>锁住背包</Chinesesimp>
+<Chinesesimp>Lock Backpack</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1944">
 <English>Unlock Backpack</English>
@@ -10141,7 +10141,7 @@
 <Japanese>Unlock Backpack</Japanese>
 <Original>Unlock Backpack</Original>
 <Russian>Открыть рюкзак</Russian>
-<Chinesesimp>解锁背包</Chinesesimp>
+<Chinesesimp>Unlock Backpack</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1945">
 <English>Backpack locked</English>
@@ -10151,7 +10151,7 @@
 <Japanese>Backpack locked</Japanese>
 <Original>Backpack locked</Original>
 <Russian>Рюкзак закрыт</Russian>
-<Chinesesimp>背包锁定</Chinesesimp>
+<Chinesesimp>Backpack locked</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1946">
 <English>3D user markers turned on!</English>
@@ -10161,7 +10161,7 @@
 <Japanese>3D user markers turned on!</Japanese>
 <Original>3D user markers turned on!</Original>
 <Russian>3D маркеры включены!</Russian>
-<Chinesesimp>3D用户标记已开启!</Chinesesimp>
+<Chinesesimp></Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1947">
 <English>3D user markers turned off!</English>
@@ -10171,7 +10171,7 @@
 <Japanese>3D user markers turned off!</Japanese>
 <Original>3D user markers turned off!</Original>
 <Russian>3D маркеры выключены!</Russian>
-<Chinesesimp>3D用户标记已关闭!</Chinesesimp>
+<Chinesesimp>3D user markers turned on!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1948">
 <English>With ambient radio:</English>
@@ -10181,7 +10181,7 @@
 <Japanese>With ambient radio:</Japanese>
 <Original>With ambient radio:</Original>
 <Russian>Радиопереговоры-фон:</Russian>
-<Chinesesimp>使用环境无线电:</Chinesesimp>
+<Chinesesimp>With ambient radio:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1949">
 <English>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</English>
@@ -10210,7 +10210,7 @@
 <Korean>Without sidemission bonus vehicles:</Korean>
 <Japanese>Without sidemission bonus vehicles:</Japanese>
 <Original>Without sidemission bonus vehicles:</Original>
-<Russian>ез призовой техники с Доп.заданий:</Russian>
+<Russian>Без призовой техники с Доп.заданий:</Russian>
 <Chinesesimp>Without sidemission bonus vehicles:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
