@@ -10190,7 +10190,7 @@
 <Korean>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Korean>
 <Japanese>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Japanese>
 <Original>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Original>
-<Russian>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Russian>
+<Russian>Информация показывает на наличие казарм пехоты на главной цели. Уничтожьте их, чтобы остановить подкрепления!</Russian>
 <Chinesesimp>情报获取主要目标的各种敌军兵营. 找到并摧毁它们以切断敌人的步兵增援部队!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1950">
@@ -10200,7 +10200,7 @@
 <Korean>The %1 team destroyed a main target barrack and gets %2 points.</Korean>
 <Japanese>The %1 team destroyed a main target barrack and gets %2 points.</Japanese>
 <Original>The %1 team destroyed a main target barrack and gets %2 points.</Original>
-<Russian>The %1 team destroyed a main target barrack and gets %2 points.</Russian>
+<Russian>Команда %1 уничтожила казарму противника в городе и получает %2 очков.</Russian>
 <Chinesesimp>%1团队摧毁了一个主要目标兵营并获得%2点分数.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1951">
@@ -10210,7 +10210,7 @@
 <Korean>Without sidemission bonus vehicles:</Korean>
 <Japanese>Without sidemission bonus vehicles:</Japanese>
 <Original>Without sidemission bonus vehicles:</Original>
-<Russian>Without sidemission bonus vehicles:</Russian>
+<Russian>Без призовой техники с Доп.заданий:</Russian>
 <Chinesesimp>Without sidemission bonus vehicles:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
@@ -10220,7 +10220,7 @@
 <Korean>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Korean>
 <Japanese>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Japanese>
 <Original>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Original>
-<Russian>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Russian>
+<Russian>Внимание! Вас засекли авианаводчики противника. Готовьте к атаке с воздуха!!!</Russian>
 <Chinesesimp>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Chinesesimp>
 </Key>
 </Container>
