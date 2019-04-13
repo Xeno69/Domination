@@ -54,7 +54,7 @@ private _make_jump = {
 
 	_driver_vec doMove _flytopos;
 	_vec flyInHeight 80;
-	_vgrp setBehaviour "CARELESS";
+	_vgrp setBehaviourStrong "CARELESS";
 	
 	//_vec flyInHeight 100;
 	
@@ -89,7 +89,7 @@ private _make_jump = {
 	if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
 		_driver_vec doMove _heliendpoint;
 		_vec flyInHeight 80;
-		_vgrp setBehaviour "CARELESS";
+		_vgrp setBehaviourStrong "CARELESS";
 		if (!d_mt_radio_down && {_vec distance2D d_cur_tgt_pos < ([500, 700] select (speed _vec > 300))}) then {
 			private _paragrp = [d_side_enemy] call d_fnc_creategroup;
 			private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
@@ -141,7 +141,7 @@ private _make_jump = {
 #endif
 			_paragrp allowFleeing 0;
 			_paragrp setCombatMode "YELLOW";
-			_paragrp setBehaviour "AWARE";
+			_paragrp setBehaviourStrong "AWARE";
 			
 			[_paragrp, d_cur_tgt_pos, d_cur_target_radius] spawn {
 				scriptName "spawn_x_createpara3_usegroup";
