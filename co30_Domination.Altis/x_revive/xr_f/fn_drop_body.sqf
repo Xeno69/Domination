@@ -1,7 +1,7 @@
 #define THIS_FILE "fn_drop_body.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _dragee	= (_this select 3) select 0;
 

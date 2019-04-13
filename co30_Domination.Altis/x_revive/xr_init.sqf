@@ -3,7 +3,7 @@
 #define THIS_FILE "x_revive\xr_init.sqf"
 #include "..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (didJIP) then {
 	waitUntil {!isNull player};

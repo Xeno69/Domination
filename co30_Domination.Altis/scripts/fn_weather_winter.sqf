@@ -10,7 +10,7 @@
    weather script: winter
    color filter, light snow particles and ground fog around the player
 */
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _pphandle = ppEffectCreate ["colorCorrections", 327723];
 _pphandle ppEffectAdjust [1, 1, 0, [0.01, 0.02, 0.04, 0.01], [0.87, 1.08, 1.196, 0.3], [0.399, 0.287, 0.014, 0.0]];

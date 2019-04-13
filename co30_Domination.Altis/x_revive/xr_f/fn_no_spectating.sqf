@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_no_spectating.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (player getVariable "xr_lives" == -1) exitWith {
 	[false] spawn xr_fnc_spectating;

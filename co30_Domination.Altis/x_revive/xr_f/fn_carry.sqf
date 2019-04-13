@@ -1,7 +1,7 @@
 #define THIS_FILE "fn_carry.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _dragee	= _this select 3;
 private _name_dragee = [_dragee] call d_fnc_gethpname;

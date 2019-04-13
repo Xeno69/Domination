@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_removeactions.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated || {player == _this}) exitWith {};
+if (!hasInterface || {player == _this}) exitWith {};
 
 private _unit = _this;
 private _actid = _unit getVariable ["xr_ReviveAction", -9999];

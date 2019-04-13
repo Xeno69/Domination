@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_uncon.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 enableRadio false;

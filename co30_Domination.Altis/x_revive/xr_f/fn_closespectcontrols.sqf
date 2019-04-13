@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_closespectcontrols.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 private _disp = uiNamespace getVariable ["XR_SpectDlg", displayNull];

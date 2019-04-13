@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_buttonclickrespawn.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","d_beam_target")
 if (d_beam_target == "") exitWith {

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_killedeh.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("start","_this")
 player setVariable ["xr_presptime", 6];

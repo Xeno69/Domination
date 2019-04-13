@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_showppos.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 disableSerialization;
 

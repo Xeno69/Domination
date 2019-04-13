@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_targetsslbchange.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
 

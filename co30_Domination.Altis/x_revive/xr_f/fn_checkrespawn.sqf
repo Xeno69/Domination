@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_checkrespawn.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 private _pos = getPosASL _this;
 _pos set [2, _this distance (getPos _this)];

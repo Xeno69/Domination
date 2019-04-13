@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_cdorevive.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 player setVariable ["xr_cursorTarget", _this select 0];
 

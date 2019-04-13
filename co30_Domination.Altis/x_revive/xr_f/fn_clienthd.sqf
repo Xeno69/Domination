@@ -5,7 +5,7 @@
 
 #define __shots ["shotBullet","shotShell","shotRocket","shotMissile","shotTimeBomb","shotMine","shotGrenade","shotSpread","shotSubmunitions","shotDeploy","shotBoundingMine","shotDirectionalBomb"]
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_unit", "_part", "_dam", "", "_ammo", "_idx", "_injurer"];
 __TRACE_1("","_this")

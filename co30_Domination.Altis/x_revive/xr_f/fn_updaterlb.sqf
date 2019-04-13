@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_updaterlb.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 d_x_loop_end = false;
 

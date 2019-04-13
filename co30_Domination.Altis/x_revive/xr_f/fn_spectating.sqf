@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_spectating.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE("start")
 xr_MouseScroll = 0;

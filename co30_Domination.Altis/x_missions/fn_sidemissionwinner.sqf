@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_sidemissionwinner.sqf"
 #include "..\x_setup.sqf"
 
-if (isDedicated || {d_IS_HC_CLIENT}) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_d_sm_winner", "_bonus_vecn"];
 

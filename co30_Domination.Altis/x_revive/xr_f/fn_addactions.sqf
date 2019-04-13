@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_addactions.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated || {player == _this}) exitWith {};
+if (!hasInterface || {player == _this}) exitWith {};
 
 private _unit = _this;
 if (_unit getVariable ["xr_ReviveAction", -9999] == -9999) then {

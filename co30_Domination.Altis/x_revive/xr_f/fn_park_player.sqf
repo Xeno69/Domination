@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_park_player.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 params ["_dosleep"];
 __TRACE_1("park_player","_dosleep")

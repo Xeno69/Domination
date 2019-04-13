@@ -41,7 +41,7 @@ xr_moansoundsar = [
 	]
 ];
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 if (isNil "xr_respawn_available_after") then {xr_respawn_available_after = 120};
 if (isNil "xr_lifetime") then {xr_lifetime = 300};

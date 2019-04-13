@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_waterfix.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE("black out")
 "xr_revtxt_wf" cutText [localize "STR_DOM_MISSIONSTRING_920", "PLAIN"];

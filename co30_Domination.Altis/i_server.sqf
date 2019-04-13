@@ -129,12 +129,12 @@ if (d_with_ai && {isServer}) then {
 	d_AI_HUT enableSimulationGlobal false;
 	d_AI_HUT addEventHandler ["handleDamage", {0}];
 	publicVariable "d_AI_HUT";
-	["d_RecruitB_100010000", d_pos_ai_hut # 0, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+	["d_RecruitB_100010000", d_AI_HUT, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 	deleteMarker "d_pos_aihut";
 };
 #endif
 
-if (isDedicated) then {
+if (!hasInterface) then {
 	{
 		deleteMarkerLocal _x;
 	} forEach (allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"});

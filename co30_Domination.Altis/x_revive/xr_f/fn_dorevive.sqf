@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_dorevive.sqf"
 #include "..\..\x_macros.sqf"
 
-if (isDedicated) exitWith {};
+if (!hasInterface) exitWith {};
 
 __TRACE("start")
 if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
