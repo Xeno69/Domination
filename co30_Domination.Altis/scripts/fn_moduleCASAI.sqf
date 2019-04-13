@@ -15,6 +15,8 @@ if !(isclass _planeCfg) exitwith {
 	false
 };
 
+__TRACE_1("","_planeCfg")
+
 #ifndef __IFA3LITE__
 //--- Detect gun
 private _weaponTypes = switch _wtype do {
@@ -70,8 +72,6 @@ if (_weapons isEqualTo []) exitwith {
 	false
 };
 
-[_lpos, 1] remoteExecCall ["d_fnc_doarti", [0, -2] select isDedicated];
-
 private _callerpos = getPos _callero;
 
 private _logico = d_HeliHEmpty createVehicleLocal [0,0,0];
@@ -94,11 +94,11 @@ private _duration = ([0,0] distance [_dis, _alt]) / _speed;
 private _planePos = _pos getPos [_dis, [_dir + 90, _dir - 90] select (random 100 > 50)];
 _planePos set [2, (_pos # 2) + _alt];
 ([_planePos, _dir, _planeClass, (getNumber (_planeCfg>>"side")) call bis_fnc_sideType] call d_fnc_spawnVehicle) params ["_plane", "_crew", "_group"];
+
+__TRACE_3("","_plane","_crew","_group")
+
 _plane setPosasl _planePos;
 _plane move ([_pos,_dis,_dir] call bis_fnc_relpos);
-if (d_with_ai) then {
-	_group setVariable ["d_do_not_delete", true];
-};
 _plane disableAi "move";
 _plane disableAi "target";
 _plane disableAi "autotarget";
@@ -113,13 +113,12 @@ private _vectorUp = vectorUp _plane;
 //--- Remove all other weapons
 private _wpcmls = _weaponTypes + ["countermeasureslauncher"];
 private _currentWeapons = weapons _plane;
+__TRACE_1("","_currentWeapons")
 {
 	if !(toLower ((_x call bis_fnc_itemType) # 1) in _wpcmls) then {
 		_plane removeWeapon _x;
 	};
 } forEach _currentWeapons;
-
-private _enemy_units = [];
 
 //--- Approach
 private _fire = [] spawn {
@@ -213,3 +212,5 @@ if (canMove _plane) then {
 		deleteGroup _group;
 	};
 };
+
+__TRACE("Done")

@@ -193,8 +193,6 @@ private _currentWeapons = weapons _plane;
 _plane setVariable ["d_who_fired", _caller];
 _plane addEventhandler ["fired", {_this call d_fnc_casfired}];
 
-private _enemy_units = [];
-
 //--- Approach
 private _fire = [] spawn {
 	scriptName "spawn_modulcas";
