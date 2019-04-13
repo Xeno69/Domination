@@ -530,7 +530,11 @@ class Params {
 	class d_without_sm_bonus {
 		title = "$STR_DOM_MISSIONSTRING_1951";
 		values[] = {0,1};
+#ifndef __NOBONUS__
 		default = 0;
+#else
+		default = 1;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	

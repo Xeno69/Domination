@@ -16,8 +16,9 @@ Changelogs
 - Fixed: Don't try to save headless client score to a SQL database when it leaves the server
 - Fixed: Don't autosave mission progress after a sidemission is resolved before the bonus vehicles get created
 - Added: New mode sidemissions without bonus vehicles (description.ext d_without_sm_bonus, server lobby "Without sidemission bonus vehicles:")
-         Does not create bonus vehicles if you solve a sidemission. It is now possible to place vehicles like attack choppers and planes or tanks, etc,
+		 Does not create bonus vehicles if you solve a sidemission. It is now possible to place vehicles like attack choppers and planes or tanks, etc,
 		 which will be there at mission start but are handled like bonus vehicles (wreck handling; vehicle var names have to start with d_vecs_special_ )
+- Added: Blufor Malden NBV version which uses d_without_sm_bonus from above
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 - Updated: Russian translation (by Topden)
 - Fixed: Some functions which were supposed to run on both, server or a headless client, still were exiting on a headless client
