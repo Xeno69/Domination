@@ -114,8 +114,8 @@ if (d_database_found) then {
 			__TRACE("Adding score");
 			__TRACE_1("","((_dbresult select 1) select 0) select 0")
 			__TRACE_1("","score _pl")
-			d_player_store setVariable [_uid + "_scores", [((_dbresult # 1) # 0) # 1, ((_dbresult # 1) # 0) # 2, ((_dbresult # 1) # 0) # 3, ((_dbresult # 1) # 0) # 4, ((_dbresult # 1) # 0) # 5, ((_dbresult # 1) # 0) # 0]];
-			[_pl, (_dbresult # 1) # 0] spawn {
+			d_player_store setVariable [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
+			[_pl, _dbresult # 0] spawn {
 				scriptName "spawn_init_playerserver";
 				params ["_pl", "_ar"];
 				sleep 10;
