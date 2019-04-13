@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makevgroup.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false]];
+params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false], ["_dyna", false]];
 private _the_vecs = [];
 private _crews = [];
 private _npos = _pos;
@@ -29,6 +29,14 @@ for "_n" from 0 to _nnvnum do {
 	
 	_vec addEventHandler ["killed", {_this call d_fnc_handleDeadVec}];
 	addToRemainsCollector [_vec];
+	
+	if (_dyna && {d_with_dynsim == 0}) then {
+		_vec spawn {
+			scriptName "spawn make vec dyn";
+			sleep 20;
+			_this enableDynamicSimulation true;
+		};
+	};
 	
 	private _is_locked = false;
 	if (_vec isKindOf "Tank") then {

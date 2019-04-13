@@ -46,7 +46,7 @@ for "_nr" from 0 to 2 do {
 				_pos = _pos_center;
 			};
 			__TRACE_1("","_pos")
-			private _reta = [_this select 7, _pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistv, _newgroup, -1.111, true] call d_fnc_makevgroup;
+			private _reta = [_this select 7, _pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistv, _newgroup, -1.111, true, true, true] call d_fnc_makevgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			__TRACE_1("","_reta")
 			d_x_sm_vec_rem_ar append (_reta # 0);

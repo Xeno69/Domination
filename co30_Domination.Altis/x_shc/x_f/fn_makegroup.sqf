@@ -16,10 +16,12 @@ private _pos = selectRandom _wp_array;
 
 __TRACE_1("","_grp")
 
+private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty"];
+
 private _msize = 0;
 if (_numvecs > 0) then {
 	if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then {
-		_vecs append (([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir] call d_fnc_makevgroup) # 0);
+		_vecs append (([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, _istatatic, false, true] call d_fnc_makevgroup) # 0);
 	} else {
 		([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup) params ["_tmpvecs"];
 		{
@@ -39,7 +41,7 @@ _grp deleteGroupWhenEmpty true;
 
 if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
-		if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
+		if (!_istatatic) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if !((toLower _grptype) in ["allmen", "specops"]) then {
 				if (!d_tt_ver) then {
 					{
