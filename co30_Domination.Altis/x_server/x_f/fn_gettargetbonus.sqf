@@ -58,7 +58,7 @@ if (_vec isKindOf "Air") then {
 };
 _vec setDir _dir;
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
-_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this call d_fnc_bonusvecfnc}}];
+_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
@@ -195,7 +195,7 @@ if (!isNull _vec2) then {
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setDir _dir;
 _vec setVariable ["d_WreckMaxRepair", "d_WreckMaxRepair", true];
-_vec addMPEventHandler ["MPKilled", {if (isServer) then {(_this # 0) execFSM "fsms\Wreckmarker.fsm"}}];
+_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
@@ -220,7 +220,7 @@ if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
 	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
 	_vec2 setVariable ["d_WreckMaxRepair", "d_WreckMaxRepair", true];
-	_vec2 addMPEventHandler ["MPKilled", {if (isServer) then {(_this # 0) execFSM "fsms\Wreckmarker.fsm"}}];
+	_vec2 addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 	if (d_with_ranked) then {
 		clearWeaponCargoGlobal _vec2;
 	};
@@ -247,13 +247,11 @@ if (!isNull _vec2) then {
 _vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 _vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
-_vec addMPEventhandler ["MPKilled", {_this # 0 setFuel 0}];
 #ifdef __TT__
 if (!isNull _vec2) then {
 		_vec2 addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec2 addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
-	_vec2 addMPEventhandler ["MPKilled", {_this # 0 setFuel 0}];
 };
 #endif
 

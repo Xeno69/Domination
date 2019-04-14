@@ -18,7 +18,7 @@ if (!isServer) exitWith{};
 	
 	_vec setVariable ["d_isspecialvec", true, true];
 	
-	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+	_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 	
 	if (unitIsUAV _vec) then {
 		createVehicleCrew _vec;

@@ -443,6 +443,7 @@ class cfgFunctions {
 			addc(inithelirespawn2);
 			addc(initvecsspecial);
 			addc(delaiserv);
+			addc(prebonus);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

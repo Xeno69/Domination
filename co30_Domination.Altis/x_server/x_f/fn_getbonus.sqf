@@ -299,7 +299,7 @@ if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 _vec spawn {
 	scriptName "spawn getbonus2";
 	sleep 10;
@@ -392,7 +392,7 @@ if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}
 };
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 _vec spawn {
 	scriptName "spawn getbonus3";
 	sleep 10;
@@ -426,7 +426,7 @@ if (!isNull _vec2) then {
 	};
 	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-	_vec2 addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+	_vec2 addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 	_vec2 spawn {
 		scriptName "spawn getbonus4";
 		sleep 10;

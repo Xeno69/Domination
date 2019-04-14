@@ -125,7 +125,7 @@ d_bonus_vecs_db = _ar # 9;
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 
-	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0; _this call d_fnc_bonusvecfnc}}];
+	_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 	
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
@@ -179,7 +179,7 @@ _fnc_tt_bonusvec = {
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-	_vec addMPEventHandler ["MPKilled", {if (isServer) then {_this # 0 setFuel 0;_this call d_fnc_bonusvecfnc}}];
+	_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
