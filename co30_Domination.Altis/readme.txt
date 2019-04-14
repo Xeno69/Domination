@@ -24,6 +24,7 @@ Changelogs
 - Fixed: Some functions which were supposed to run on both, server or a headless client, still were exiting on a headless client
 - Added: Enemy AI now also can call in CAS strikes
 - Fixed: Some items were missing when using mods and in ranked mode
+- Various optimizations
 
 3.99o
 - Added: Chinese translation (by CHL198011)

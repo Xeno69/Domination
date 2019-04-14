@@ -62,7 +62,7 @@ if !(_nendpos isEqualTo []) then {_nendpos = _playerpos};
 _unit doMove _nendpos;
 _helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
-_grp setBehaviourStrong "CARELESS";
+_grp setBehaviour "CARELESS";
 
 ["d_airtaxi_marker", _vec, "ICON", (switch (_sidep) do {case opfor: {"ColorEAST"};case blufor: {"ColorWEST"};case independent: {"ColorGUER"};default {"ColorCIV"};}), [1,1], "Air Taxi", 0, (switch (_sidep) do {case blufor: {"b_air"};case opfor: {"o_air"};default {"n_air"};})] call d_fnc_CreateMarkerGlobal;
 

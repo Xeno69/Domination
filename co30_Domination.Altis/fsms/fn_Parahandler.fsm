@@ -25,7 +25,7 @@ link10[] = {8,5};
 link11[] = {8,9};
 link12[] = {9,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,14,6316128,1,-381.684723,436.820801,849.434143,-67.650528,822,894,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,840};
+window[] = {2,-1,-1,-1,-1,952,234,1194,234,3,840};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -172,7 +172,7 @@ class FSM
                          "	};" \n
                          "};" \n
                          "private _num_p = call d_fnc_PlayersNumber;" \n
-                         "private _vecs = [(ceil (_num_p * 0.13)) min 4, 1] select (_num_p == 0);" \n
+                         "private _vecs = [(ceil (_num_p * 0.1)) min 3, 1] select (_num_p == 0);" \n
                          "d_create_new_paras = false;" \n
                          "" \n
                          "private _attack_pos = [d_cur_tgt_pos, 200] call d_fnc_GetRanPointCircleOld;" \n

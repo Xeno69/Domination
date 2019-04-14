@@ -31,8 +31,8 @@ while {true} do {
 		if (_num_p < 5) exitWith {1800};
 		if (_num_p < 10) exitWith {1500};
 		if (_num_p < 20) exitWith {1200};
-		if (_num_p < 30) exitWith {900};
-		600;
+		if (_num_p < 30) exitWith {1000};
+		800;
 	});
 #endif
 	while {d_mt_radio_down} do {sleep 6.123};
@@ -175,7 +175,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				__TRACE_1("HACLAC","_pat_pos")
 				[_grp, 1] setWaypointPosition [_pat_pos, 0];
 				_grp setSpeedMode "NORMAL";
-				_grp setBehaviourStrong __wp_behave;
+				_grp setBehaviour __wp_behave;
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight 80;
@@ -187,7 +187,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				__TRACE_1("plane","_pat_pos")
 				[_grp, 1] setWaypointPosition [_pat_pos, 0];
 				_grp setSpeedMode "LIMITED";
-				_grp setBehaviourStrong __wp_behave;
+				_grp setBehaviour __wp_behave;
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight 100;
@@ -250,8 +250,8 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 		if (_num_p < 5) exitWith {1800};
 		if (_num_p < 10) exitWith {1500};
 		if (_num_p < 20) exitWith {1200};
-		if (_num_p < 30) exitWith {900};
-		600;
+		if (_num_p < 30) exitWith {1000};
+		800;
 	});
 	sleep (d_airai_respawntime + _re_random + (random _re_random));
 #else

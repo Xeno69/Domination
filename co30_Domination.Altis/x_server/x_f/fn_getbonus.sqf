@@ -230,6 +230,16 @@ if (unitIsUAV _vec) then {
 	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
+} else {
+	if (d_with_dynsim == 0) then {
+		_vec spawn {
+			scriptName "spawn enable dyn";
+			sleep 10;
+			if (alive _this) then {
+				_this enableDynamicSimulation true;
+			};
+		};
+	};
 };
 
 __TRACE_1("","_vec")
@@ -391,6 +401,23 @@ _vec spawn {
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
+if (unitIsUAV _vec) then {
+	createVehicleCrew _vec;
+	_vec allowCrewInImmobile true;
+	if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+	};
+} else {
+	if (d_with_dynsim == 0) then {
+		_vec spawn {
+			scriptName "spawn enable dyn";
+			sleep 10;
+			if (alive _this) then {
+				_this enableDynamicSimulation true;
+			};
+		};
+	};
+};
 if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
 	if (_vec_type2 isKindOf "VTOL_01_base_F" || {_vec_type2 isKindOf "VTOL_02_base_F"}) then {
@@ -407,6 +434,23 @@ if (!isNull _vec2) then {
 	};
 	if (d_with_ranked) then {
 		clearWeaponCargoGlobal _vec2;
+	};
+	if (unitIsUAV _vec2) then {
+		createVehicleCrew _vec2;
+		_vec2 allowCrewInImmobile true;
+		if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+			_vec2 remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+		};
+	} else {
+		if (d_with_dynsim == 0) then {
+			_vec2 spawn {
+				scriptName "spawn enable dyn";
+				sleep 10;
+				if (alive _this) then {
+					_this enableDynamicSimulation true;
+				};
+			};
+		};
 	};
 };
 #endif

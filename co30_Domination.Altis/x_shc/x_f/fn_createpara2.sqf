@@ -19,7 +19,7 @@ _unit setSkill 1;
 
 _unit doMove _helifirstpoint;
 _chopper flyInHeight 80;
-_vgrp setBehaviourStrong "CARELESS";
+_vgrp setBehaviour "CARELESS";
 
 /*
 private _wp = _vgrp addWaypoint [_helifirstpoint, 30];
@@ -72,7 +72,7 @@ if (_stop_me) exitWith {};
 if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 	_unit doMove _heliendpoint;
 	_chopper flyInHeight 80;
-	_vgrp setBehaviourStrong "CARELESS";
+	_vgrp setBehaviour "CARELESS";
 	
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))
@@ -80,8 +80,8 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 		(0.12 + (random 0.04))
 	};
 	private _real_units = ["sabotage", d_enemy_side_short] call d_fnc_getunitlistm;
-	if (count _real_units < 6) then {
-		while {count _real_units < 6} do {
+	if (count _real_units < 5) then {
+		while {count _real_units < 5} do {
 			_real_units pushBack (selectRandom _real_units);
 		};
 	};
@@ -113,7 +113,7 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 	} forEach _real_units;
 	_paragrp allowFleeing 0;
 	_paragrp setCombatMode "YELLOW";
-	_paragrp setBehaviourStrong "AWARE";
+	_paragrp setBehaviour "AWARE";
 	
 	sleep 0.113;
 	_paragrp spawn {

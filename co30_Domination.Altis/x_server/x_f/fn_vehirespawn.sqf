@@ -65,6 +65,16 @@ if (unitIsUAV _vec) then {
 	if (isClass (configFile>>"CfgVehicles">>_type>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
+} else {
+	if (d_with_dynsim == 0) then {
+		_vec spawn {
+			scriptName "spawn enable dyn";
+			sleep 10;
+			if (alive _this) then {
+				_this enableDynamicSimulation true;
+			};
+		};
+	};
 };
 
 _vec setVariable ["d_OUT_OF_SPACE", -1];
@@ -152,6 +162,16 @@ while {true} do {
 			_vec allowCrewInImmobile true;
 			if (isClass (configFile>>"CfgVehicles">>_type>>"Components">>"TransportPylonsComponent")) then {
 				_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
+			};
+		} else {
+			if (d_with_dynsim == 0) then {
+				_vec spawn {
+					scriptName "spawn enable dyn";
+					sleep 10;
+					if (alive _this) then {
+						_this enableDynamicSimulation true;
+					};
+				};
 			};
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;

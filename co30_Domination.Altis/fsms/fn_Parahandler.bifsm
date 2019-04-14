@@ -67,7 +67,7 @@ class GraphItems
 		{
 			Text="Loop";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -92,7 +92,7 @@ class GraphItems
 			Text="not mt radio down";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -116,7 +116,7 @@ class GraphItems
 		{
 			Text="React";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -142,7 +142,7 @@ class GraphItems
 			Text="mt radio down";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -194,7 +194,7 @@ class GraphItems
 			Text="New Paras";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -228,7 +228,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=8;
-				InitCode="private _start_pos = call d_fnc_GetRanPointOuterAir;" \n "private _end_pos = [0,0,0];" \n "if (!d_tt_ver) then {" \n "	while {_start_pos distance2D D_FLAG_BASE < 1000} do {" \n "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	while {_end_pos distance2D D_FLAG_BASE < 1000} do {" \n "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "} else {" \n "	while {_start_pos distance2D D_WFLAG_BASE < 1000 && {_start_pos distance2D D_EFLAG_BASE < 1000}} do {" \n "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	while {_end_pos distance2D D_WFLAG_BASE < 1000 && {_end_pos distance2D D_EFLAG_BASE < 1000}} do {" \n "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "};" \n "private _num_p = call d_fnc_PlayersNumber;" \n "private _vecs = [(ceil (_num_p * 0.13)) min 4, 1] select (_num_p == 0);" \n "d_create_new_paras = false;" \n "" \n "private _attack_pos = [d_cur_tgt_pos, 200] call d_fnc_GetRanPointCircleOld;" \n "private _flytopos = _start_pos getPos [(_start_pos distance2D _attack_pos) + 1500, _start_pos getDir _attack_pos];" \n "[_start_pos, _attack_pos, _flytopos, _end_pos, _vecs] spawn d_fnc_createpara3x;" \n "_timenow = time + 10;";
+				InitCode="private _start_pos = call d_fnc_GetRanPointOuterAir;" \n "private _end_pos = [0,0,0];" \n "if (!d_tt_ver) then {" \n "	while {_start_pos distance2D D_FLAG_BASE < 1000} do {" \n "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	while {_end_pos distance2D D_FLAG_BASE < 1000} do {" \n "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "} else {" \n "	while {_start_pos distance2D D_WFLAG_BASE < 1000 && {_start_pos distance2D D_EFLAG_BASE < 1000}} do {" \n "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	while {_end_pos distance2D D_WFLAG_BASE < 1000 && {_end_pos distance2D D_EFLAG_BASE < 1000}} do {" \n "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n "	};" \n "};" \n "private _num_p = call d_fnc_PlayersNumber;" \n "private _vecs = [(ceil (_num_p * 0.1)) min 3, 1] select (_num_p == 0);" \n "d_create_new_paras = false;" \n "" \n "private _attack_pos = [d_cur_tgt_pos, 200] call d_fnc_GetRanPointCircleOld;" \n "private _flytopos = _start_pos getPos [(_start_pos distance2D _attack_pos) + 1500, _start_pos getDir _attack_pos];" \n "[_start_pos, _attack_pos, _flytopos, _end_pos, _vecs] spawn d_fnc_createpara3x;" \n "_timenow = time + 10;";
 			};
 		};
 	};
@@ -434,10 +434,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=156;
-	Top=156;
-	Right=1116;
-	Bottom=874;
+	Left=234;
+	Top=234;
+	Right=1194;
+	Bottom=952;
 	ShowCmd=3;
 	SplitPos=840;
 };

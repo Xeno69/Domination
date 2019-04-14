@@ -47,6 +47,16 @@ d_vrespawn2_ar = [];
 		};
 		if (unitIsUAV _vec) then {
 			_vec allowCrewInImmobile true;
+		} else {
+			if (d_with_dynsim == 0) then {
+				_vec spawn {
+					scriptName "spawn enable dyn";
+					sleep 10;
+					if (alive _this) then {
+						_this enableDynamicSimulation true;
+					};
+				};
+			};
 		};
 		if (d_with_ranked) then {
 			clearWeaponCargoGlobal _vec;

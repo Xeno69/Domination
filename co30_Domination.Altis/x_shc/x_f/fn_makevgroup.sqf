@@ -30,7 +30,7 @@ for "_n" from 0 to _nnvnum do {
 	_vec addEventHandler ["killed", {_this call d_fnc_handleDeadVec}];
 	addToRemainsCollector [_vec];
 	
-	if (_dyna && {d_with_dynsim == 0}) then {
+	if (_dyna && {d_with_dynsim == 0 && {!unitIsUAV _vec}}) then {
 		_vec spawn {
 			scriptName "spawn make vec dyn";
 			sleep 20;

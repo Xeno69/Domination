@@ -15,6 +15,16 @@ _vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCh
 
 if (unitIsUAV _vec) then {
 	_vec allowCrewInImmobile true;
+} else {
+	if (d_with_dynsim == 0) then {
+		_vec spawn {
+			scriptName "spawn enable dyn";
+			sleep 10;
+			if (alive _this) then {
+				_this enableDynamicSimulation true;
+			};
+		};
+	};
 };
 
 if (d_with_ranked) then {
@@ -44,6 +54,16 @@ while {true} do {
 		if (unitIsUAV _vec) then {
 			createVehicleCrew _vec;
 			_vec allowCrewInImmobile true;
+		} else {
+			if (d_with_dynsim == 0) then {
+				_vec spawn {
+					scriptName "spawn enable dyn";
+					sleep 10;
+					if (alive _this) then {
+						_this enableDynamicSimulation true;
+					};
+				};
+			};
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;
 		if (d_with_ranked) then {
