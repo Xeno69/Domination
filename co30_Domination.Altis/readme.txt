@@ -24,6 +24,7 @@ Changelogs
 - Fixed: Some functions which were supposed to run on both, server or a headless client, still were exiting on a headless client
 - Added: Enemy AI now also can call in CAS strikes
 - Fixed: Some items were missing when using mods and in ranked mode
+- Added: If "Players can select next main target" (d_with_targetselect in description.ext) is enabled players can selected the next main target (max 4 choices) by map clicking on a target
 - Various optimizations
 
 3.99o

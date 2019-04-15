@@ -10223,6 +10223,16 @@
 <Russian>Внимание! Вас засекли авианаводчики противника. Готовьте к атаке с воздуха!!!</Russian>
 <Chinesesimp>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1953">
+<English>Players can select next main target:</English>
+<Spanish>Players can select next main target:</Spanish>
+<Portuguese>Players can select next main target:</Portuguese>
+<Korean>Players can select next main target:</Korean>
+<Japanese>Players can select next main target:</Japanese>
+<Original>Players can select next main target:</Original>
+<Russian>Players can select next main target:</Russian>
+<Chinesesimp>Players can select next main target:</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

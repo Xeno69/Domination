@@ -174,6 +174,7 @@ class cfgFunctions {
 			addc(usermarkers_prep);
 			addc(trigsetmarker);
 			addc(cmakemtgmarker);
+			addc(clienttargetsel);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";
@@ -231,6 +232,7 @@ class cfgFunctions {
 			addc(initairtaxidialog);
 			addc(ataxselchanged);
 			addc(egspectkeyeh);
+			addc(selnthandler);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";
@@ -444,6 +446,7 @@ class cfgFunctions {
 			addc(initvecsspecial);
 			addc(delaiserv);
 			addc(prebonus);
+			addc(selectnexttarget);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

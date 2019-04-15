@@ -40,7 +40,7 @@ d_target_names = [];
 		//_ar set [2, _dtar getVariable ["d_cityradius", 300]];
 		//_ar set [3, _forEachIndex];
 		//__TRACE_1("One target found","_ar")
-		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex];
+		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
 	} else {
 		private _nlocs = nearestLocations [getPosWorld _dtar, ["NameCityCapital", "NameCity", "NameVillage"], 500];
 		__TRACE_2("","_dtar","_nlocs")
@@ -61,7 +61,7 @@ d_target_names = [];
 			//_ar set [3, _forEachIndex];
 			_dtar setVariable ["d_cityname", _name];
 			//__TRACE_1("One target found","_ar")
-			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex];
+			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
 		} else {
 			private _strx = format ["No city found near target location %1", str _dtar];
 			hint _strx;
@@ -342,20 +342,27 @@ if (isServer) then {
 #endif
 	
 	if (d_weather == 0) then {execFSM "fsms\fn_WeatherServer.fsm"};
-	if (d_MainTargets_num > count d_target_names) then {
-		d_MainTargets_num = count d_target_names;
-	};
-	
-	if (d_MainTargets_num == -1) then {
-		d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
-		d_MainTargets_num = count d_target_names;
+	if (d_with_targetselect == 1 || {d_tt_ver}) then {
+		if (d_MainTargets_num > count d_target_names) then {
+			d_MainTargets_num = count d_target_names;
+		};
+		
+		if (d_MainTargets_num == -1) then {
+			d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
+			d_MainTargets_num = count d_target_names;
+		} else {
+			// create random list of targets
+			d_maintargets_list = call d_fnc_createrandomtargets;
+		};
+		//d_maintargets_list = [0,1,2,3];
+		__TRACE_1("","d_maintargets_list")
+		
+		d_MainTargets = count d_maintargets_list;
 	} else {
-		// create random list of targets
-		d_maintargets_list = call d_fnc_createrandomtargets;
+		d_MainTargets = count d_target_names;
+		d_mttargets_ar =+ d_target_names;
+		d_cur_tar_obj = d_FLAG_BASE;
 	};
-	//d_maintargets_list = [0,1,2,3];
-	__TRACE_1("","d_maintargets_list")
-	d_MainTargets = count d_maintargets_list;
 	publicVariable "d_MainTargets";
 	
 	// create random list of side missions

@@ -11,6 +11,10 @@ waitUntil {sleep 0.2; (isMultiplayer && {getClientStateNumber >= 10}) || {!isMul
 
 __TRACE("start")
 
+if (d_with_targetselect == 0) then {
+	call d_fnc_selectnexttarget;
+};
+
 __TRACE_1("before delete","d_maintargets_list")
 d_current_target_index = d_maintargets_list # 0;
 publicVariable "d_current_target_index";
