@@ -5,7 +5,7 @@
 
 while {true} do {
 	sleep 600;
-	private ["_uid", "_pa", "_ps", "_usc", "_t_ps", "_infkills", "_softveckills", "_armorkills", "_airkills", "_deaths", "_totalscore", "_playtime"];
+	private ["_uid", "_pa", "_ps", "_usc", "_t_ps", "_infkills", "_softveckills", "_armorkills", "_airkills", "_deaths", "_totalscore", "_playtime", "_zeros"];
 	{
 		if (!isNull _x) then {
 			_uid = getPlayerUID _x;
@@ -13,6 +13,13 @@ while {true} do {
 			if (!isNil "_pa") then {
 				_ps = getPlayerScores _x;
 				if !(_ps isEqualTo []) then {
+					_zeros = 0;
+					{
+						if (_x == 0) then {
+							_zeros = _zeros + 1;
+						};
+					} forEach _ps;
+					if (_zeros == count _ps) exitWith {};
 					_usc = _uid + "_scores";
 					_t_ps = d_player_store getVariable [_usc, [0, 0, 0, 0, 0, 0]];
 					_infkills = (_ps # 0) - (_t_ps # 0);
