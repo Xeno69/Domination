@@ -11,6 +11,11 @@ waitUntil {sleep 0.2; (isMultiplayer && {getClientStateNumber >= 10}) || {!isMul
 
 __TRACE("start")
 
+if (d_first_time_after_start) then {
+	d_first_time_after_start = false;
+	sleep 18.123;
+};
+
 if (d_with_targetselect == 0) then {
 	call d_fnc_selectnexttarget;
 };
@@ -34,10 +39,6 @@ d_mttarget_radius_patrol = d_cur_target_radius + 200 + random 200;
 publicVariable "d_mttarget_radius_patrol";
 
 sleep 1.0123;
-if (d_first_time_after_start) then {
-	d_first_time_after_start = false;
-	sleep 18.123;
-};
 
 d_update_target = false;
 d_main_target_ready = false;
