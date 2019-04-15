@@ -10233,6 +10233,56 @@
 <Russian>Players can select next main target:</Russian>
 <Chinesesimp>Players can select next main target:</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1954">
+<English>Main target selection time left</English>
+<Spanish>Main target selection time left</Spanish>
+<Portuguese>Main target selection time left</Portuguese>
+<Korean>Main target selection time left</Korean>
+<Japanese>Main target selection time left</Japanese>
+<Original>Main target selection time left</Original>
+<Russian>Main target selection time left</Russian>
+<Chinesesimp>Main target selection time left</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1955">
+<English>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</English>
+<Spanish>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Spanish>
+<Portuguese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Portuguese>
+<Korean>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Korean>
+<Japanese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Japanese>
+<Original>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Original>
+<Russian>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Russian>
+<Chinesesimp>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1956">
+<English>New target selection is over!</English>
+<Spanish>New target selection is over!</Spanish>
+<Portuguese>New target selection is over!</Portuguese>
+<Korean>New target selection is over!</Korean>
+<Japanese>New target selection is over!</Japanese>
+<Original>New target selection is over!</Original>
+<Russian>New target selection is over!</Russian>
+<Chinesesimp>New target selection is over!</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1957">
+<English>Players have selected %1 as new main target!</English>
+<Spanish>Players have selected %1 as new main target!</Spanish>
+<Portuguese>Players have selected %1 as new main target!</Portuguese>
+<Korean>Players have selected %1 as new main target!</Korean>
+<Japanese>Players have selected %1 as new main target!</Japanese>
+<Original>Players have selected %1 as new main target!</Original>
+<Russian>Players have selected %1 as new main target!</Russian>
+<Chinesesimp>Players have selected %1 as new main target!</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1958">
+<English>No new target had enough votes or none was voted for! Choosing random one...</English>
+<Spanish>No new target had enough votes or none was voted for! Choosing random one...</Spanish>
+<Portuguese>No new target had enough votes or none was voted for! Choosing random one...</Portuguese>
+<Korean>No new target had enough votes or none was voted for! Choosing random one...</Korean>
+<Japanese>No new target had enough votes or none was voted for! Choosing random one...</Japanese>
+<Original>No new target had enough votes or none was voted for! Choosing random one...</Original>
+<Russian>No new target had enough votes or none was voted for! Choosing random one...</Russian>
+<Chinesesimp>No new target had enough votes or none was voted for! Choosing random one...</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

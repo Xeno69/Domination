@@ -5,13 +5,25 @@
 params ["_type"];
 
 if (_type == 0) then {
-	hint "You now have 30 seconds to select the next main target by clicking on one of the next available targets (purple)\n\nA selected target will turn orange";
+	[localize "STR_DOM_MISSIONSTRING_1955", "GLOBAL"] call d_fnc_HintChatMsg;
 	
 	d_cur_sel_tar_obj = objNull;
 	
 	d_nt_sel_handler = addMissionEventHandler ["MapSingleClick", {_this call d_fnc_selnthandler}];
+	
+	"d_ProgressBar3" cutRsc ["d_ProgressBar3", "PLAIN"];
+	private _control = (uiNamespace getVariable "d_ProgressBar3") displayCtrl 3800;
+
+	private _pos = ctrlPosition _control;
+	_pos set [2, 0.4];
+	_control ctrlSetPosition _pos;
+	_control ctrlCommit 0;
+	_pos set [2, 0];
+	_control ctrlSetPosition _pos;
+	_control ctrlCommit 30;
 } else {
-	hint "30 Seconds selection is over";
+	"d_ProgressBar3" cutFadeOut 0;
+	[localize "STR_DOM_MISSIONSTRING_1956", "GLOBAL"] call d_fnc_HintChatMsg;
 	
 	if (!isNil "d_nt_sel_handler") then {
 		removeMissionEventHandler ["MapSingleClick", d_nt_sel_handler];

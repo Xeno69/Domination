@@ -370,6 +370,38 @@ class d_ProgressBar2 {
 		};
 	};
 };
+class d_ProgressBar3 {
+	idd = -1;
+	movingEnable = 0;
+	objects[] = {};
+	duration = 1e+011;
+	name = "d_ProgressBar3";
+	onLoad = "uiNamespace setVariable ['d_ProgressBar3', _this select 0];";
+	onUnLoad = "uiNamespace setVariable ['d_ProgressBar3', nil]";
+	controlsBackground[] = {};
+	class controls {
+		class ProgressBar: RscText2 {
+			style = 128;
+			idc = 3800;
+			x = 0.3;
+			y = "SafeZoneH + SafeZoneY - 0.2";
+			w = 0;
+			h = 0.04;
+			colorBackground[] = {0, 0, 0, 0.8};
+		};
+		class Progress_Label: RscText2 {
+			idc = 3900;
+			style = 2;
+			text = "$STR_DOM_MISSIONSTRING_1954";
+			x = 0.3;
+			w = 0.4;
+			y = "SafeZoneH + SafeZoneY - 0.2";
+			sizeEx = 0.035;
+			colorBackground[] = {1,1,1,0};
+			colorText[] = {1, 1, 1, 0.8};
+		};
+	};
+};
 
 class d_showPlayerNameRsc {
 	idd = -1;

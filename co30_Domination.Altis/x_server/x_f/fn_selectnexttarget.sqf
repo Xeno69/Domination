@@ -1,13 +1,11 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_selectnexttarget.sqf"
 #include "..\..\x_setup.sqf"
 
 __TRACE_1("","d_mttargets_ar")
 
 // TODO 1/3 of players must select new target otherwise random
-// TODO Some kind of progressbar to show time left for selection
-// TODO Announce which target was selected or none if none was selected
 
 if (count d_mttargets_ar > 1) then {
 	d_next_sels_ar = [];
@@ -51,7 +49,7 @@ if (count d_mttargets_ar > 1) then {
 	
 	0 remoteExecCall ["d_fnc_clienttargetsel", [0, -2] select isDedicated];
 	
-	sleep 35;
+	sleep 30;
 
 	1 remoteExecCall ["d_fnc_clienttargetsel", [0, -2] select isDedicated];
 	
@@ -74,8 +72,10 @@ if (count d_mttargets_ar > 1) then {
 	
 	__TRACE_2("","_idx","_highest")
 	
+	private _was_selected = false;
 	if (_idx != -1) then {
 		d_cur_tar_obj = d_next_sels_ar # _idx;
+		_was_selected = true;
 	} else {
 		d_cur_tar_obj = selectRandom d_next_sels_ar;
 	};
@@ -94,11 +94,19 @@ if (count d_mttargets_ar > 1) then {
 	__TRACE_1("","_idx")
 	
 	d_maintargets_list = [d_mttargets_ar # _idx # 3];
+	
+	if (_was_selected) then {
+		[format [localize "STR_DOM_MISSIONSTRING_1957", d_mttargets_ar # _idx # 1], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+	} else {
+		[localize "STR_DOM_MISSIONSTRING_1958", "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+	};
+	
 	d_mttargets_ar deleteAt _idx;
 	
 	{
 		d_maintargets_list pushBack (_x # 3);
 	} forEach d_mttargets_ar;
+	
 	__TRACE_1("","d_maintargets_list")
 } else {
 	d_cur_tar_obj = d_mttargets_ar # 0 # 4;
