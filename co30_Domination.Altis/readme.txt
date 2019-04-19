@@ -5,6 +5,9 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
+3.99q
+- Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+
 3.99p
 - Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles
 - Changed: Remove weapon cargo from bonus vehicles in ranked mode
@@ -19,12 +22,11 @@ Changelogs
 		 Does not create bonus vehicles if you solve a sidemission. It is now possible to place vehicles like attack choppers and planes or tanks, etc,
 		 which will be there at mission start but are handled like bonus vehicles (wreck handling; vehicle var names have to start with d_vecs_special_ )
 - Added: Blufor Malden NBV version which uses d_without_sm_bonus from above
-- Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 - Updated: Russian translation (by Topden)
 - Fixed: Some functions which were supposed to run on both, server or a headless client, still were exiting on a headless client
 - Added: Enemy AI now also can call in CAS strikes
 - Fixed: Some items were missing when using mods and in ranked mode
-- Added: If "Players can select next main target" (d_with_targetselect in description.ext) is enabled players can selected the next main target (max 4 choices) by map clicking on a target
+- Added: If "Players can select next main target" (d_with_targetselect in description.ext) is enabled players can select the next main target (max 4 choices) by map clicking on a target
 - Changed: Don't update the database if getPlayerScores only returns zeros when saving player stats
 - Various optimizations
 
