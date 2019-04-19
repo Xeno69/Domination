@@ -28,3 +28,5 @@
 //#define __RHS__
 
 //#define __INTERCEPTDB__
+
+// #define __GMCWG__

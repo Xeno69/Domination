@@ -316,6 +316,10 @@ class Params {
 		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
 #endif
+#ifdef __GMCWG__
+		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,34};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","34"};
+#endif
 		default = -1;
 	};
 
@@ -350,6 +354,9 @@ class Params {
 		default = 7;
 #endif
 #ifdef __ROSCHE__
+		default = 7;
+#endif
+#ifdef __GMCWG__
 		default = 7;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
@@ -453,6 +460,9 @@ class Params {
 		default = 0;
 #endif
 #ifdef __ROSCHE__
+		default = 1;
+#endif
+#ifdef __GMCWG__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
@@ -1590,6 +1600,21 @@ class CfgIdentities {
 	class RDHQ_OP2: DHQ_OP2 {
 		name = "Vasyl, HQ";
 		speaker = "RHS_Male02RUS";
+	};
+#endif
+// TODO for GMCWG
+#ifdef __GMCWG__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
 	};
 #endif
 };

@@ -57,6 +57,12 @@ d_rhs = false;
 d_rhs = true;
 #endif
 
+#ifndef __GMCWG__
+d_gmcwg = false;
+#else
+d_gmcwg = true;
+#endif
+
 d_HeliHEmpty = "Land_HelipadEmpty_F";
 
 // BLUFOR, OPFOR or INDEPENDENT for own side, setup in x_setup.sqf
@@ -170,6 +176,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __ROSCHE__
 #include "x_sm_bonus_vec_ar_altis.sqf"
 #endif
+#ifdef __GMCWG__
+#include "x_sm_bonus_vec_ar_gmcwg.sqf"
+#endif
 #ifdef __TT__
 if (!d_tt_tanoa) then {
 #include "x_sm_bonus_vec_ar_tt.sqf"
@@ -195,6 +204,9 @@ if (!d_tt_tanoa) then {
 #endif
 #ifdef __ROSCHE__
 #include "x_mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __GMCWG__
+#include "x_mt_bonus_vec_ar_gmcwg.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
 #include "x_mt_bonus_vec_ar_cup.sqf"
@@ -253,6 +265,10 @@ d_x_drop_array =
 		};
 		if (d_rhs) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhsusf_m998_w_2dr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		};
+		if (d_gmcwg) exitWith {
+			// TODO for gmcwg
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "CUP_B_M1151_WDL_USA"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
@@ -628,6 +644,9 @@ if (_isserv_or_hc) then {
 #ifdef __ROSCHE__
 #include "d_allmen_O_default.sqf"
 #endif
+#ifdef __GMCWG__
+#include "d_allmen_O_gmcwg.sqf"
+#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_O_CUP_CHER.sqf"
 #endif
@@ -691,6 +710,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ROSCHE__
 #include "d_specops_O_default.sqf"
 #endif
+#ifdef __GMCWG__
+#include "d_specops_O_gmcwg.sqf"
+#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_specops_O_CUP_CHER.sqf"
 #endif
@@ -751,6 +773,11 @@ if (!d_tt_tanoa) then {
 	d_sabotage_W = [["rhsusf_socom_marsoc_cso_breacher", "rhsusf_socom_marsoc_cso"]];
 	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
 #endif
+#ifdef __GMCWG__
+	d_sabotage_E = [["CUP_O_RUS_Saboteur_Autumn", "CUP_O_RUS_SpecOps_Autumn"]];
+	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
+	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
@@ -758,6 +785,9 @@ if (!d_tt_tanoa) then {
 #endif
 #ifdef __ROSCHE__
 #include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __GMCWG__
+#include "d_veh_a_O_gmcwg.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
 #include "d_veh_a_O_CUP_CHER.sqf"
@@ -815,6 +845,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ROSCHE__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
+#ifdef __GMCWG__
+	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
 #ifdef __CUP_CHERNARUS__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
@@ -856,10 +889,23 @@ if (!d_tt_tanoa) then {
 		"I_Heli_Transport_02_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		["CUP_B_C130J_Cargo_USMC", "B_Heli_Transport_01_camo_F"] select (!d_cup);
+		call {
+			if (d_cup) exitWith {
+				"CUP_B_C130J_Cargo_USMC"
+			};
+			if (d_gmcwg) exitWith {
+				"B_Heli_Transport_01_camo_F"
+			};
+			"B_Heli_Transport_01_camo_F"
+		};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-		["LIB_Pe2", "O_Heli_Light_02_unarmed_F"] select (!d_ifa3lite);
+		call {
+			if (d_ifa3lite) exitWith {
+				"LIB_Pe2"
+			};
+			"O_Heli_Light_02_unarmed_F"
+		};
 #endif
 #ifdef __TT__
 		"O_Heli_Light_02_unarmed_F";
@@ -873,10 +919,23 @@ if (!d_tt_tanoa) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		if (!d_cup) then {"B_Plane_CAS_01_F"} else {"CUP_B_A10_CAS_USA"};
+		call {
+			if (d_cup) exitWith {
+				"CUP_B_A10_CAS_USA"
+			};
+			if (d_gmcwg) exitWith {
+				"CUP_B_A10_CAS_USA"
+			};
+			"B_Plane_CAS_01_F"
+		};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-		if (!d_ifa3lite) then {"O_Plane_CAS_02_F"} else {"LIB_P47"};
+		call {
+			if (d_ifa3lite) exitWith {
+				"LIB_P47"
+			};
+			"O_Plane_CAS_02_F"
+		};
 #endif
 #ifdef __TT__
 		["B_Plane_CAS_01_F", "O_Plane_CAS_02_F"];
@@ -895,6 +954,9 @@ if (!d_tt_tanoa) then {
 				"LIB_P47"
 			};
 			if (d_cup) exitWith {
+				"CUP_O_Su25_Dyn_RU"
+			};
+			if (d_gmcwg) exitWith {
 				"CUP_O_Su25_Dyn_RU"
 			};
 			"O_Plane_CAS_02_F"
@@ -952,6 +1014,9 @@ if (!d_tt_tanoa) then {
 		if (d_rhs) exitWith	{
 			"RHS_M6_wd"
 		};
+		if (d_gmcwg) exitWith	{
+			"RHS_M6_wd"
+		};
 		"B_APC_Tracked_01_AA_F";
 	};
 #endif
@@ -980,6 +1045,9 @@ if (!d_tt_tanoa) then {
 #endif
 #ifdef __ROSCHE__
 #include "d_sm_classes_default.sqf"
+#endif
+#ifdef __GMCWG__
+#include "d_sm_classes_gmcwg.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
 #include "d_sm_classes_CUP.sqf"
@@ -1097,6 +1165,14 @@ if (!d_tt_tanoa) then {
 	};
 #endif
 #ifdef __ROSCHE__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
+#ifdef __GMCWG__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
 		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
@@ -1242,10 +1318,23 @@ if (hasInterface) then {
 	["I_Quadbike_01_F"];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-	[["B_Quadbike_01_F", "B_LSV_01_unarmed_F"], ["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]] select d_tanoa;
+	call {
+		if (d_tanoa) exitWith {
+			["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]
+		};
+		if (d_gmcwg) exitWith {
+			["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]
+		};
+		["B_Quadbike_01_F", "B_LSV_01_unarmed_F"]
+	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	[["O_Quadbike_01_F", "O_LSV_02_unarmed_F"], ["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]] select d_tanoa;
+	call {
+		if (d_tanoa) exitWith {
+			["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]
+		};
+		["O_Quadbike_01_F", "O_LSV_02_unarmed_F"]
+	};
 #endif
 #ifdef __TT__
 	["O_Quadbike_01_F"];
@@ -1295,7 +1384,12 @@ if (hasInterface) then {
 	["B_Heli_Light_01_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F","CUP_B_M1133_MEV_Woodland","CUP_B_LAV25_HQ_USMC","CUP_B_M1133_MEV_Desert","CUP_B_UH1Y_UNA_USMC","I_Heli_light_03_unarmed_F","RHS_MELB_MH6M","rhsusf_M1232_usarmy_wd"];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	[["LIB_US6_Tent"], ["O_MRAP_02_F", "O_Heli_Light_02_unarmed_F", "B_APC_Tracked_01_CRV_F", "rhsgref_BRDM2UM_vdv", "RHS_Mi8AMT_vvs"]] select (!d_ifa3lite);
+	call {
+		if (d_ifa3lite) exitWith {
+			["LIB_US6_Tent"]
+		};
+		["O_MRAP_02_F", "O_Heli_Light_02_unarmed_F", "B_APC_Tracked_01_CRV_F", "rhsgref_BRDM2UM_vdv", "RHS_Mi8AMT_vvs"]
+	};
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 	["I_MRAP_03_F", "I_Heli_light_03_unarmed_F"];
@@ -1384,7 +1478,12 @@ if (hasInterface) then {
 	"B_Heli_Transport_01_F";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	["LIB_Ju87_Italy2", "O_Heli_Light_02_unarmed_F"] select (!d_ifa3lite);
+	call {
+		if (d_ifa3lite) exitWith {
+			"LIB_Ju87_Italy2"
+		};
+		"O_Heli_Light_02_unarmed_F"
+	};
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 	"I_Heli_light_03_unarmed_F";
@@ -1424,7 +1523,15 @@ if (hasInterface) then {
 		["I_Heli_Transport_02_F"];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		[["CUP_B_MV22_USMC"], ["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]] select (!d_cup);
+		call {
+			if (d_cup) exitWith {
+				["CUP_B_MV22_USMC"]
+			};
+			if (d_gmcwg) exitWith {
+				["CUP_B_MV22_USMC"]
+			};
+			["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
+		};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		["O_T_VTOL_02_infantry_dynamicLoadout_F"];

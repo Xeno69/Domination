@@ -41,7 +41,6 @@ if (count d_mttargets_ar > 1) then {
 	
 	private _markers = [];
 	{
-		// TODO find correct marker, not hd_start
 		_ma = [format ["d_sel_mar_%1", _x], _x, "ICON", "ColorYellow", [1.5, 1.5], "", 0, "hd_objective"] call d_fnc_CreateMarkerGlobal;
 		_x setVariable ["d_sel_mar", _ma, true];
 		_markers pushBack _ma;
