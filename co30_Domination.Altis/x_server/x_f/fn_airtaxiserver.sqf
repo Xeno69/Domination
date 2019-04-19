@@ -62,7 +62,7 @@ if !(_nendpos isEqualTo []) then {_nendpos = _playerpos};
 _unit doMove _nendpos;
 _helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
-_grp setBehaviour "CARELESS";
+_grp setBehaviourStrong "CARELESS";
 
 ["d_airtaxi_marker", _vec, "ICON", (switch (_sidep) do {case opfor: {"ColorEAST"};case blufor: {"ColorWEST"};case independent: {"ColorGUER"};default {"ColorCIV"};}), [1,1], "Air Taxi", 0, (switch (_sidep) do {case blufor: {"b_air"};case opfor: {"o_air"};default {"n_air"};})] call d_fnc_CreateMarkerGlobal;
 
@@ -164,7 +164,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	_unit setVariable ["d_isondestway", true];
 	_helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 	_vec flyInHeight 80;
-	_grp setBehaviour "CARELESS";
+	_grp setBehaviourStrong "CARELESS";
 	sleep 5;
 	_doend = false;
 	while {alive _unit && {alive _vec && {canMove _vec}}} do {
@@ -204,7 +204,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		__TRACE("Unit moving to endpos")
 		_unit doMove _dstart_pos;
 		_vec flyInHeight 80;
-		_grp setBehaviour "CARELESS";
+		_grp setBehaviourStrong "CARELESS";
 		_endtime = time + 720;
 		while {alive _unit && {alive _vec && {canMove _vec}}} do {
 			"d_airtaxi_marker" setMarkerPos (getPosWorld _vec);

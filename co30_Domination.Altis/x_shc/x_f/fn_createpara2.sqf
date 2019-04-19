@@ -19,7 +19,7 @@ _unit setSkill 1;
 
 _unit doMove _helifirstpoint;
 _chopper flyInHeight 80;
-_vgrp setBehaviour "CARELESS";
+_vgrp setBehaviourStrong "CARELESS";
 
 /*
 private _wp = _vgrp addWaypoint [_helifirstpoint, 30];
@@ -72,7 +72,7 @@ if (_stop_me) exitWith {};
 if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 	_unit doMove _heliendpoint;
 	_chopper flyInHeight 80;
-	_vgrp setBehaviour "CARELESS";
+	_vgrp setBehaviourStrong "CARELESS";
 	
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))
