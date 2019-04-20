@@ -82,30 +82,25 @@ if (_move_controls) then {
 	__control(44459) ctrlShow false;
 	__control(44460) ctrlShow false;
 	__control(44462) ctrlShow false;
+	
 	private _control = _display displayCtrl 44454;
-	private _pos = ctrlPosition _control;
-	_pos = [(_pos # 0) + 0.14, _pos # 1,_pos # 2,_pos # 3];
-	_control ctrlSetPosition _pos;
+	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.14);
 	_control ctrlCommit 0;
 	_control = _display displayCtrl 44446;
-	_pos = ctrlPosition _control;
-	_pos = [(_pos # 0) + 0.17, _pos # 1,_pos # 2,_pos # 3];
-	_control ctrlSetPosition _pos;
+	
+	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
+	
 	_control = _display displayCtrl 44447;
-	_pos = ctrlPosition _control;
-	_pos = [(_pos # 0) + 0.17, _pos # 1,_pos # 2,_pos # 3];
-	_control ctrlSetPosition _pos;
+	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
+	
 	_control = _display displayCtrl 44448;
-	_pos = ctrlPosition _control;
-	_pos = [(_pos # 0) + 0.17, _pos # 1,_pos # 2,_pos # 3];
-	_control ctrlSetPosition _pos;
+	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
+	
 	_control = _display displayCtrl 44452;
-	_pos = ctrlPosition _control;
-	_pos = [(_pos # 0) + 0.17, _pos # 1,_pos # 2,_pos # 3];
-	_control ctrlSetPosition _pos;
+	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
 } else {
 	if (_vec getVariable ["d_MHQ_Deployed", false]) then {

@@ -162,9 +162,7 @@ while {d_player_in_vec} do {
 							
 							"d_RscPIP" cutRsc ["d_RscPIP", "PLAIN", 0, false];
 							private _ctrlpip = (uiNamespace getVariable "d_RscPIP") displayCtrl 2300;
-							private _poscpip = ctrlPosition _ctrlpip;
-							_poscpip set [1, (_poscpip # 1) + 0.3];
-							_ctrlpip ctrlSetPosition _poscpip;
+							_ctrlpip ctrlSetPositionY (((ctrlPosition _ctrlpip) # 1) + 0.3);
 							_ctrlpip ctrlSettext format ["#(argb,256,256,1)r2t(%1,1.0)", "d_choprendtar0"];
 							_ctrlpip ctrlSettextcolor [1,1,1,1];
 							_ctrlpip ctrlCommit 0;

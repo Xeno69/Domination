@@ -10,9 +10,7 @@ d_inventory_blocked = true;
 "d_ProgressBar2" cutRsc ["d_ProgressBar2", "PLAIN"];
 private _control = (uiNamespace getVariable "d_ProgressBar2") displayCtrl 3800;
 
-private _pos = ctrlPosition _control;
-_pos set [2, 0.4];
-_control ctrlSetPosition _pos;
+_control ctrlSetPositionW 0.4;
 _control ctrlCommit 5;
 
 private _ular = getUnitLoadout player;

@@ -14,12 +14,9 @@ if (_type == 0) then {
 	"d_ProgressBar3" cutRsc ["d_ProgressBar3", "PLAIN"];
 	private _control = (uiNamespace getVariable "d_ProgressBar3") displayCtrl 3800;
 
-	private _pos = ctrlPosition _control;
-	_pos set [2, 0.4];
-	_control ctrlSetPosition _pos;
+	_control ctrlSetPositionW 0.4;
 	_control ctrlCommit 0;
-	_pos set [2, 0];
-	_control ctrlSetPosition _pos;
+	_control ctrlSetPositionW 0;
 	_control ctrlCommit 30;
 } else {
 	"d_ProgressBar3" cutFadeOut 0;
