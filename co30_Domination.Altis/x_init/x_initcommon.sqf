@@ -5,6 +5,9 @@
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom x_initcommon.sqf"];
 
 if (isNil "paramsArray") then {
+	if (hasInterface) then {
+		diag_log "CfgParams";
+	};
 	if (isClass (getMissionConfig "Params")) then {
 		private _conf = getMissionConfig "Params";
 		private ["_paramName", "_paramval"];
@@ -13,15 +16,24 @@ if (isNil "paramsArray") then {
 			_paramval = getNumber (_conf>>_paramName>>"default");
 			if (_paramval != -99999) then {
 				missionNamespace setVariable [_paramName, _paramval];
+				if (hasInterface) then {
+					diag_log [_paramName, _paramval];
+				};
 			};
 		};
 	};
 } else {
 	private "_paramval";
+	if (hasInterface) then {
+		diag_log "CfgParams";
+	};
 	for "_i" from 0 to (count paramsArray - 1) do {
 		_paramval = paramsArray select _i;
 		if (_paramval != -99999) then {
 			missionNamespace setVariable [configName ((getMissionConfig "Params") select _i), _paramval];
+			if (hasInterface) then {
+				diag_log [configName ((getMissionConfig "Params") select _i), _paramval];
+			};
 		};
 	};
 };

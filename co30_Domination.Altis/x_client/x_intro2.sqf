@@ -42,6 +42,7 @@ if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
 titleText ["", "BLACK IN", 1.5];
 BIS_fnc_establishingShot_fakeUAV = nil;
+BIS_fnc_establishingShot_skip = nil;
 
 private _bfehandle = [player, _txt, 200, 250, 75, 1,
 	[
