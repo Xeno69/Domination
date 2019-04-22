@@ -42,7 +42,6 @@ if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
 titleText ["", "BLACK IN", 1.5];
 BIS_fnc_establishingShot_fakeUAV = nil;
-BIS_fnc_establishingShot_skip = nil;
 
 private _bfehandle = [player, _txt, 200, 250, 75, 1,
 	[
@@ -59,7 +58,11 @@ sleep 2;
 
 waitUntil {scriptDone _bfehandle};
 enableSaving [false, false];
-enableEnvironment [false, true];
+0 spawn {
+	scriptName "spawn disable environment intro2";
+	sleep 15;
+	enableEnvironment [false, true];
+};
 
 "d_Xlabel" cutFadeout 1;
 "d_DomLabel" cutFadeout 1;
