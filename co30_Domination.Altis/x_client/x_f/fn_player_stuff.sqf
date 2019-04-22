@@ -49,3 +49,13 @@ if !(_lo # 0 isEqualTo []) then {
 		};
 	};
 };
+
+if (_this select 7 >= d_maxnum_tks_forkick) then {
+	0 spawn {
+		scriptName "spawn_endmissionloser2";
+		hint "You will be kicked back to the lobby because of too much teamkilling!!!!";
+		titleText "You will be kicked back to the lobby because of too much teamkilling!!!!";
+		sleep 5;
+		endMission "LOSER";
+	};
+};
