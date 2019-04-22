@@ -1,14 +1,12 @@
-// TODO for gmcwg
-
-["O_MBT_02_cannon_F","O_MBT_04_cannon_F","O_MBT_04_command_F"],
-["O_APC_Tracked_02_cannon_F"],
-["O_APC_Wheeled_02_rcws_F"],
-["O_APC_Tracked_02_AA_F"],
-["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F"],
-["O_G_Offroad_01_armed_F","O_LSV_02_AT_F","O_G_Offroad_01_AT_F"],
-["O_GMG_01_F","O_GMG_01_high_F"], //O_GMG_01_A_F, removed because it creates an invisible gunner (UAV type)
-["O_HMG_01_F","O_HMG_01_high_F","O_static_AA_F","O_static_AT_F"], // O_HMG_01_A_F, removed because it creates an invisible gunner (UAV type)
-["O_Mortar_01_F"],
-["O_Truck_02_fuel_F"],
-["O_Truck_02_box_F"],
-["O_Truck_02_Ammo_F"]
+["gm_gc_army_t55a"],
+["gm_gc_army_bmp1sp2"],
+["gm_gc_army_btr60pa","gm_gc_army_btr60pb","gm_gc_army_btr60pu12"],
+["gm_gc_army_zsu234v1"],
+["gm_gc_army_brdm2","gm_gc_army_brdm2um"],
+["CUP_O_UAZ_MG_RU","CUP_O_UAZ_MG_CHDKZ"],
+["CUP_O_UAZ_AGS30_RU","CUP_O_UAZ_METIS_RU","CUP_O_UAZ_SPG9_RU"],
+["CUP_O_KORD_high_RU","CUP_O_KORD_RU"],
+["CUP_O_D30_RU","CUP_O_2b14_82mm_RU","CUP_O_ZU23_RU"],
+["gm_gc_army_ural375d_refuel"],
+["gm_gc_army_ural4320_repair"],
+["gm_gc_army_ural4320_reammo"]

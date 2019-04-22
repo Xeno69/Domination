@@ -9,7 +9,7 @@ player setVariable ["d_isinaction", false];
 
 d_player_in_air = false;
 
-if (d_WithMHQTeleport == 0 && {!isNil "d_fnc_dlgopenx" && {d_WithRevive == 1}}) then {
+if (d_WithMHQTeleport == 0 && {d_WithRevive == 1}) then {
 	d_player_in_base = true;
 	call d_fnc_dlgopenx;
 };
