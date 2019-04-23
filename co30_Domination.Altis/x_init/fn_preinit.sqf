@@ -1620,7 +1620,24 @@ if (hasInterface) then {
 		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}], // headgear
 		[], // glasses
 		[], // goggles
-		[] // binoculars
+		[], // binoculars
+		[], // ItemMap
+		[], // ItemGPS, UAV Terminal
+		[], // ItemRadio
+		[], // ItemCompass
+		[], // ItemWatch
+		[], // Heads
+		[], // Language?
+		[], // signs
+		[],
+		[],
+		[],
+		[],
+		[], // Grenades
+		["APERSMineDispenser_Mag"], // Charges
+		[], // MineDector, FirstAidkit, MediKit
+		[],
+		[] // magazines
 	];
 #ifdef __CUP__
 	(d_remove_from_arsenal # 5) append [{_this isKindOf "CUP_B_DShkM_Gun_Bag"}, {_this isKindOf "CUP_B_DShkM_TripodHigh_Bag"}];

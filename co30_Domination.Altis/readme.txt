@@ -28,6 +28,7 @@ Changelogs
 - Fixed: Some items were missing when using mods and in ranked mode
 - Added: If "Players can select next main target" (d_with_targetselect in description.ext, enabled by default for now) is enabled players can select the next main target (max 4 choices) by map clicking on a target
 - Changed: Don't update the database if getPlayerScores only returns zeros when saving player stats
+- Removed: APERS Mine Dispenser from Virtual Arsenal (causes FPS issues)
 - Various optimizations
 
 3.99o
