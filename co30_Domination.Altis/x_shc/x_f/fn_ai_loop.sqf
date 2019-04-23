@@ -21,7 +21,7 @@ while {true} do {
 			if (isNull _objp || {driver _objp != _x && {gunner _objp != _x}}) then {
 				[_x, _new_state] call d_fnc_changeskill;
 			};
-			sleep 0.1;
+			sleep 0.2;
 		} forEach (allUnits select {!isPlayer _x});
 	};
 #ifndef __DEBUG__

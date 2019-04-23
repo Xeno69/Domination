@@ -40,7 +40,24 @@ if (count _crew > 0) then {
 						_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 						_one_unit setSkill ["aimingAccuracy", _subskill];
 						_one_unit setSkill ["spotTime", _subskill];
+						_one_unit call d_fnc_removenvgoggles_fak;
 						[_one_unit, _nightorfog, true] call d_fnc_changeskill;
+#ifdef __TT__
+						_one_unit addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+#endif
+						if (d_with_ai && {d_with_ranked}) then {
+							_one_unit addEventHandler ["Killed", {
+								[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
+								(_this select 0) removeAllEventHandlers "Killed";
+							}];
+						};
+						if (d_with_dynsim == 0) then {
+							_one_unit spawn {
+								scriptName "spawn spawncrew dyn";
+								sleep 15;
+								_this enableDynamicSimulation true;
+							};
+						};
 #ifdef __GROUPDEBUG__
 						// does not subtract if a unit dies!
 						if (side _grp == d_side_enemy) then {
