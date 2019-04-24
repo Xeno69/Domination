@@ -149,7 +149,7 @@ if !(d_maintargets_list isEqualTo []) then {
 	};
 };
 
-sleep 4.321;
+sleep 3.321;
 
 if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
 
@@ -226,7 +226,7 @@ if !(d_maintargets_list isEqualTo []) then {
 			_x setVariable ["d_vecfuelmhq", nil, true];
 		} forEach (vehicles select {alive _x && {!isNil {_x getVariable "d_vecfuelmhq"}}});
 	};
-	sleep 15;
+	sleep 10;
 #ifdef __TT__
 	d_kill_points_blufor = 0;
 	d_kill_points_opfor = 0;

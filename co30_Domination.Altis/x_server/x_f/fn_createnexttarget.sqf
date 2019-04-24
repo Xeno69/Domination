@@ -16,7 +16,7 @@ if (d_first_time_after_start) then {
 	if (isMultiplayer) then {
 		sleep 18.123;
 	} else {
-		sleep 3;
+		sleep 1;
 	};
 };
 

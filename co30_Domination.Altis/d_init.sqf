@@ -20,6 +20,10 @@ if (hasInterface) then {
 	};
 	setViewDistance _vd;
 	setObjectViewDistance (_vd + 100);
+	
+	if (isMultiplayer) then {
+		["d_server_name", [500, 500], "ICON", "ColorYellow", [3, 3], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
+	};
 } else {
 	//setViewDistance d_InitialViewDistance;
 	//setObjectViewDistance (d_InitialViewDistance + 100);
