@@ -41,3 +41,5 @@ while {d_nr_observers > 0} do {
 	sleep 5.123;
 	if (!_e_ari_avail && {time > _nextaritime}) then {_e_ari_avail = true};
 };
+
+d_handleobservers_handle = nil;

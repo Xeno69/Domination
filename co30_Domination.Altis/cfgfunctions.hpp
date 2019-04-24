@@ -175,6 +175,7 @@ class cfgFunctions {
 			addc(trigsetmarker);
 			addc(cmakemtgmarker);
 			addc(clienttargetsel);
+			addc(vdhandler);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";

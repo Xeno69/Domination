@@ -60,8 +60,6 @@ if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 	d_sub_kill_points = d_sub_kill_points * -1;
 };
 
-if (d_GrasAtStart == 1) then {setTerrainGrid 50};
-
 if (isServer) then {skipTime d_TimeOfDay};
 
 if (isServer || {!isDedicated && {!hasInterface}}) then {
