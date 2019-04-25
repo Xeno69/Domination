@@ -217,7 +217,6 @@ class CfgRemoteExec {
 		class d_fnc_airtaxi_dest {allowedTargets = 2;};
 		class d_fnc_civilianmodule {allowedTargets = 2;};
 		class d_fnc_clienttargetsel {allowedTargets = 1;};
-		class d_fnc_seltarrec {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

@@ -85,6 +85,8 @@ if (d_database_found) then {
 		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
 	};
 #endif
+	diag_log ["playerGetTS dbresult", _dbresult];
+	
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
 		// create new database entry for UID
@@ -100,6 +102,7 @@ if (d_database_found) then {
 		__TRACE("adding nums played for player in db");
 #ifndef __INTERCEPTDB__
 		"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
+		diag_log ["extdb3 updating numplayed"];
 #else
 		if (d_interceptdb) then {
 			["numplayedAdd", [_name, _uid]] call dsi_fnc_queryconfigasync;
@@ -150,6 +153,7 @@ if (d_database_found) then {
 			_dbresult = ["playerGet", [_uid]] call dsi_fnc_queryconfig;
 		};
 #endif
+		diag_log ["playerGet dbresult", _dbresult];
 		__TRACE_1("","_dbresult")
 		if !(_dbresult isEqualTo []) then {
 			_dbresult params ["_pres"];

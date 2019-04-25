@@ -447,7 +447,6 @@ class cfgFunctions {
 			addc(delaiserv);
 			addc(prebonus);
 			addc(selectnexttarget);
-			addc(seltarrec);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
