@@ -19,7 +19,7 @@ private _mtype = selectRandom ["APERSMine", "APERSBoundingMine", "SLAMDirectiona
 
 for "_i" from 0 to (_num_mines - 1) do {
 	private _mine = createMine [_mtype, _m_pos_ar # _i, [], 0];
-	[_mine, random 360] remoteExecCall ["setDir"];
+	_mine setDir random 360;
 	d_side_enemy revealMine _mine;
 	d_mines_created pushBack _mine;
 #ifdef __GROUPDEBUG__

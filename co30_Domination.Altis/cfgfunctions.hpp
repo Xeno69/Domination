@@ -404,7 +404,6 @@ class cfgFunctions {
 			addc(rallusermarkers);
 			addc(airmarkermove);
 			addc(l_v);
-			addc(allunits_add);
 			addc(makemtgmarker);
 			addc(addppoints);
 			addc(storeploadout);
@@ -448,6 +447,7 @@ class cfgFunctions {
 			addc(delaiserv);
 			addc(prebonus);
 			addc(selectnexttarget);
+			addc(seltarrec);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

@@ -5,6 +5,6 @@
 
 sleep 10;
 while {true} do {
-	sleep 2;
+	sleep 3;
 	diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
 };

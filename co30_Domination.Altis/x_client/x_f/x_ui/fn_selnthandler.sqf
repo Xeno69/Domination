@@ -13,7 +13,7 @@ if (!isNil "d_next_sels_ar") then {
 	if (_idx != -1) then {
 		private _obj = d_next_sels_ar # _idx;
 		if (!isNull d_cur_sel_tar_obj) then {
-			d_cur_sel_tar_obj setVariable ["d_selectionsmt", (d_cur_sel_tar_obj getVariable ["d_selectionsmt", 0]) - 1, true];
+			[d_cur_sel_tar_obj, -1] remoteExecCall ["d_fnc_seltarrec", 2];
 			private _ma = d_cur_sel_tar_obj getVariable "d_sel_mar";
 			__TRACE_1("1","_ma")
 			if (!isNil "_ma") then {
@@ -21,7 +21,7 @@ if (!isNil "d_next_sels_ar") then {
 			};
 		};
 		d_cur_sel_tar_obj = _obj;
-		d_cur_sel_tar_obj setVariable ["d_selectionsmt", (d_cur_sel_tar_obj getVariable ["d_selectionsmt", 0]) + 1, true];
+		[d_cur_sel_tar_obj, 1] remoteExecCall ["d_fnc_seltarrec", 2];
 		private _ma = d_cur_sel_tar_obj getVariable "d_sel_mar";
 		__TRACE_1("2","_ma")
 		if (!isNil "_ma") then {

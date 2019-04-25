@@ -101,7 +101,7 @@ _static setDir _dir_to_set;
 _static setPos [_pos_to_set # 0, _pos_to_set # 1, 0];
 player reveal _static;
 _static lock false;
-_static remoteExecCall ["d_fnc_allunits_add", 2];
+addToRemainsCollector [_static];
 
 private _str_placed = format [localize "STR_DOM_MISSIONSTRING_89", [_cargo, "CfgVehicles"] call d_fnc_GetDisplayName];
 hintSilent _str_placed;
