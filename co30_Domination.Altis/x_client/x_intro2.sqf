@@ -41,13 +41,17 @@ if (d_with_ranked) then {_txt = _txt + " RANKED"};
 if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
 titleText ["", "BLACK IN", 1.5];
+if (!isNil "BIS_fnc_establishingShot_fakeUAV") then {
+	camDestroy BIS_fnc_establishingShot_fakeUAV;
+};
 BIS_fnc_establishingShot_fakeUAV = nil;
 
 private _bfehandle = [player, _txt, 200, 250, 75, 1,
 	[
 	   [_plicon, _color, player, 1, 1, 0, profileName, 0]
-   ]
-, 0, true, 5] spawn BIS_fnc_establishingShot;
+	]
+] spawn BIS_fnc_establishingShot;
+//, 0, true, 5] spawn BIS_fnc_establishingShot;
 
 sleep 1;
 "d_Xlabel" cutRsc ["d_Xlabel", "PLAIN"];
