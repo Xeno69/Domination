@@ -2039,7 +2039,7 @@
 <Korean>현재 귀하의 계급이 %1 이기 때문에 %3을 사용할 수 없습니다.\n\n최소 %2의 계급이 필요합니다.</Korean>
 <Japanese>現在のランク %1 では %3 を使用することを許可されていません。\n\nこれを行うには %2 にする必要があります。</Japanese>
 <Original>Your current rank %1 only allows you to use cargo positions in a %3!!!\n\nTo access other positions you need to be %2.</Original>
-<Russian>Ваше звание %1 позволяет Вам использовать позицию в %3!!!\n\nДля использования других позиций Вы должны быть %2.</Russian>
+<Russian>Ваше звание %1 позволяет Вам использовать только пассажирские места в %3!!!\n\nДля доступа к другим местам Вы должны быть %2.</Russian>
 <Chinesesimp>你目前的等级是 %1 ,因此不允许使用 %3.\n\n你需要成为 %2.</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_311">
@@ -10230,7 +10230,7 @@
 <Korean>Players can select next main target:</Korean>
 <Japanese>Players can select next main target:</Japanese>
 <Original>Players can select next main target:</Original>
-<Russian>Players can select next main target:</Russian>
+<Russian>Игроки могут выбрать следующую основную цель:</Russian>
 <Chinesesimp>Players can select next main target:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
@@ -10240,7 +10240,7 @@
 <Korean>Main target selection time left</Korean>
 <Japanese>Main target selection time left</Japanese>
 <Original>Main target selection time left</Original>
-<Russian>Main target selection time left</Russian>
+<Russian>Оставшееся время выбора главного задания</Russian>
 <Chinesesimp>Main target selection time left</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1955">
@@ -10250,7 +10250,7 @@
 <Korean>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Korean>
 <Japanese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Japanese>
 <Original>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Original>
-<Russian>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Russian>
+<Russian>Откройте карту! Теперь у вас есть 30 секунд, чтобы выбрать следующую основную цель, нажав одну из доступных новых желтых целей \n\nВыбранная цель станет синей!</Russian>
 <Chinesesimp>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1956">
@@ -10260,7 +10260,7 @@
 <Korean>New target selection is over!</Korean>
 <Japanese>New target selection is over!</Japanese>
 <Original>New target selection is over!</Original>
-<Russian>New target selection is over!</Russian>
+<Russian>Выбор новой цели окончен!</Russian>
 <Chinesesimp>New target selection is over!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1957">
@@ -10270,7 +10270,7 @@
 <Korean>Players have selected %1 as new main target!</Korean>
 <Japanese>Players have selected %1 as new main target!</Japanese>
 <Original>Players have selected %1 as new main target!</Original>
-<Russian>Players have selected %1 as new main target!</Russian>
+<Russian>Игроки выбрали %1 в качестве новой главной цели!</Russian>
 <Chinesesimp>Players have selected %1 as new main target!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1958">
@@ -10280,7 +10280,7 @@
 <Korean>No new target had enough votes or none was voted for! Choosing random one...</Korean>
 <Japanese>No new target had enough votes or none was voted for! Choosing random one...</Japanese>
 <Original>No new target had enough votes or none was voted for! Choosing random one...</Original>
-<Russian>No new target had enough votes or none was voted for! Choosing random one...</Russian>
+<Russian>Ни у одной нового задания не было достаточно голосов, или за него не проголосовали! Выбор будет случайным ...</Russian>
 <Chinesesimp>No new target had enough votes or none was voted for! Choosing random one...</Chinesesimp>
 </Key>
 </Container>
