@@ -36,4 +36,16 @@ d_x_loop_end = false;
 		sleep 1.012;
 	};
 	if (!alive player) then {closeDialog 0};
+	
+	if (!isNil "d_resp_map_click_eh") then {
+		removeMissionEventHandler ["MapSingleClick", d_resp_map_click_eh];
+		d_resp_map_click_eh = nil;
+		d_rmapclick_type = nil;
+	};
+	if (!isNil "d_respawn_posis") then {
+		d_respawn_posis = nil;
+	};
+	if (!isNil "d_resp_lead_idx") then {
+		d_resp_lead_idx = nil;
+	};
 };

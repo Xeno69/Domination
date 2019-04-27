@@ -234,6 +234,7 @@ class cfgFunctions {
 			addc(ataxselchanged);
 			addc(egspectkeyeh);
 			addc(selnthandler);
+			addc(rmapclick);
 		};
 		class Dom_Common {
 			file = "x_common\x_f";

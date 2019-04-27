@@ -16,6 +16,9 @@ disableSerialization;
 
 #define __CTRL(A) (_disp displayCtrl A)
 
+if (_sel == d_tele_prev_sel) exitWith {};
+d_tele_prev_sel = _sel;
+
 private _data = _ctrl lbData _sel;
 
 __TRACE_1("","_data")

@@ -51,7 +51,10 @@ lbClear _listctrl;
 private _cidx = -1;
 private _selidx = 0;
 
+d_tele_prev_sel = -1;
+
 d_respawn_anim_markers = [];
+d_respawn_posis = [];
 
 if (_addbase) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1251");
@@ -67,6 +70,7 @@ if (_addbase) then {
 	["D_BASE_D", getPosASL d_FLAG_BASE, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_BASE_D";
 	d_respawn_mar_str = "D_BASE_D";
+	d_respawn_posis pushBack (getPosASL d_FLAG_BASE);
 } else {
 	d_respawn_mar_str = "";
 };
@@ -105,6 +109,7 @@ private _logtxt = "";
 		};
 		[_x # 0, visiblePositionASL _mrs, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 		d_respawn_anim_markers pushBack (_x # 0);
+		d_respawn_posis pushBack (visiblePositionASL _mrs);
 	};
 } forEach d_mob_respawns;
 
@@ -126,9 +131,12 @@ private _logtxt = "";
 	};
 	[_x # 0, _x # 1, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack (_x # 0);
+	d_respawn_posis pushBack (_x # 1);
 } forEach d_additional_respawn_points;
 
 private _has_sql = 0;
+d_resp_lead_idx = -1;
+
 if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1705a");
 	_listctrl lbSetData [_cidx, "D_SQL_D"];
@@ -155,6 +163,7 @@ if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {cou
 	};
 	["D_SQL_D", visiblePositionASL _leader, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_SQL_D";
+	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _leader);
 };
 
 __TRACE_1("","_logtxt")
@@ -163,11 +172,20 @@ if (_logtxt != "") then {
 	__CTRL(11002) ctrlSetText _logtxt;
 };
 
+private _can_add_mapclick = true;
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
 	__CTRL(100102) ctrlEnable false;
+	_can_add_mapclick = false;
 };
 if (!xr_respawn_available) then {
 	__CTRL(100102) ctrlEnable false;
+};
+
+if (_can_add_mapclick) then {
+	d_rmapclick_type = _dtype;
+	d_resp_map_click_eh = addMissionEventHandler ["MapSingleClick", {
+		_this call d_fnc_rmapclick
+	}];
 };
 
 d_lb_tele_first = true;

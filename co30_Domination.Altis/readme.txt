@@ -30,6 +30,7 @@ Changelogs
 - Changed: Don't update the database if getPlayerScores only returns zeros when saving player stats
 - Removed: APERS Mine Dispenser from Virtual Arsenal (causes FPS issues)
 - Added: Terraingrid is now saved to profileNamespace like viewdistance and will be set to what the player had selected last time
+- Changed: Players can now also select respawn/teleport target by map mouseclick
 - Various optimizations
 
 3.99o

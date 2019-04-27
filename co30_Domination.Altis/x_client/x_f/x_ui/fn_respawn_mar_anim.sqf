@@ -32,7 +32,9 @@ while {!isNil "d_teleport_off"} do {
 		_old_respmar setMarkerDirLocal _cur_ang;
 	};
 	if (_has_sql == 1) then {
-		"D_SQL_D" setMarkerPosLocal visiblePositionASL (leader (group player));
+		private _lpos = visiblePositionASL (leader (group player));
+		"D_SQL_D" setMarkerPosLocal _lpos;
+		d_respawn_posis set [d_resp_lead_idx, _lpos];
 	};
 	{
 		private _mrs = missionNamespace getVariable [_x # 0, objNull];

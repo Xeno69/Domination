@@ -25,4 +25,16 @@ if (xr_respawn_available) then {
 		if (!d_x_loop_end) then {[1] call d_fnc_teleupdate_dlg};
 		sleep 1.012;
 	};
+	
+	if (!isNil "d_resp_map_click_eh") then {
+		removeMissionEventHandler ["MapSingleClick", d_resp_map_click_eh];
+		d_resp_map_click_eh = nil;
+		d_rmapclick_type = nil;
+	};
+	if (!isNil "d_respawn_posis") then {
+		d_respawn_posis = nil;
+	};
+	if (!isNil "d_resp_lead_idx") then {
+		d_resp_lead_idx = nil;
+	};
 };
