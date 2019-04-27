@@ -156,7 +156,11 @@ d_e_marker_color =
 	"ColorYellow";
 #endif
 
+#ifdef __IFA3LITE__
+d_e_marker_color_alpha = 1.3;
+#else
 d_e_marker_color_alpha = 0.8;
+#endif
 
 #ifdef __ALTIS__
 #include "x_sm_bonus_vec_ar_altis.sqf"
