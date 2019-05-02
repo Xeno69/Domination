@@ -1,4 +1,3 @@
-// TODO for gmcwg
+["East","gm_gc_army","gm_infantry","gm_gc_army_infantry_squad_str"] call d_fnc_GetConfigGroup
 
-["East","OPF_F","Infantry","OI_reconTeam"] call d_fnc_GetConfigGroup,
-["East","OPF_F","SpecOps","OI_ViperTeam"] call d_fnc_GetConfigGroup
+// TODO Winter

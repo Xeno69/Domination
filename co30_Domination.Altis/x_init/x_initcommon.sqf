@@ -315,6 +315,17 @@ d_p_vecs = [
 if (d_ifa3lite) then {
 	d_p_vecs pushBack ["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""];
 };
+if (d_gmcwg) then {
+	d_p_vecs append [
+		["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""],
+		["D_TR12",501,"d_truck11","n_support","ColorGreen","W2",""],
+		["D_TR13",502,"d_truck12","n_support","ColorGreen","W3",""],
+		["D_TR14",503,"d_truck13","n_support","ColorGreen","W4",""],
+		["D_TR15",504,"d_truck14","n_support","ColorGreen","W5",""],
+		["D_TR16",505,"d_truck15","n_support","ColorGreen","W6",""],
+		["D_TR17",506,"d_truck16","n_support","ColorGreen","W7",""]
+	];
+};
 #else
 d_p_vecs_blufor = [
 	["D_MRR1",0,"d_mobilerespawn1","b_hq","ColorYellow","1",localize "STR_DOM_MISSIONSTRING_12"],["D_MRR2",1,"d_mobilerespawn2","b_hq","ColorYellow","2",localize "STR_DOM_MISSIONSTRING_13"],

@@ -121,10 +121,10 @@ if (_move_controls) then {
 	};
 };
 
-#ifdef __IFA3LITE__
-__control(44459) ctrlShow false;
-__control(44460) ctrlShow false;
-#endif
+if (d_ifa3lite || {d_gmcwg}) then {
+	__control(44459) ctrlShow false;
+	__control(44460) ctrlShow false;
+};
 
 0 spawn {
 	scriptName "spawn_initvecdialog";

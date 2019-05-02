@@ -43,7 +43,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 				} else {
 					private _isvalid = _transobj getVariable "d_canbewlifted";
 					if (isNil "_isvalid") then {
-						_isvalid = toUpper (typeof _transobj) in _possible_types;
+						_isvalid = !isNil {_transobj getVariable "d_isspecialvec"} || {toUpper (typeOf _transobj) in _possible_types};
 						_transobj setVariable ["d_canbewlifted", _isvalid];
 					};
 					if (!_isvalid || {damage _transobj < 1}) then {_transobj = objNull};
@@ -93,10 +93,14 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					};
 					
 					_transobj engineOn false;
-					_transobj attachTo [_vec, [0, -15, 1]];
+					if (d_ifa3lite) then {
+						_transobj attachTo [_vec, [0, -15, 1]];
+					} else {
+						_transobj attachTo [_vec, [0, -15, 0]];
+					};
 					_vec setVariable ["d_attachedto_v", _transobj, true];
 					if (d_with_ranked || {d_database_found}) then {
-						_liftobj setVariable ["d_lift_pilot", player, true];
+						_transobj setVariable ["d_lift_pilot", player, true];
 					};
 					
 					while {alive _vec && {player in _vec && {!isNull _transobj && {alive player && {!isNull attachedTo _transobj && {!(_vec getVariable "d_vec_released")}}}}}} do {

@@ -5,8 +5,14 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-3.99q
+3.99r
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+
+3.99q
+ADDED: Global Mobilzation summer and winter version 
+
+- Fixed: Wreck transport with non airborne vehicles was broken
+- Fixed: Saving progress to a SQL database was broken (script error)
 
 3.99p
 - Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles

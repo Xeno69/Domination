@@ -1,5 +1,5 @@
-//#define __DEBUG__
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_createdomusermenu.sqf"
 #include "..\..\x_setup.sqf"
 
@@ -41,7 +41,8 @@ d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 #ifndef __IFA3LITE__
 if (!d_tt_ver) then {
-	if (!visibleMap && {!_is_para}) then {
+	__TRACE_1("","d_taxi_aircrafts")
+	if (!visibleMap && {!_is_para && {!(d_taxi_aircrafts isEqualTo [])}}) then {
 		if (d_heli_taxi_available) then {
 			d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 		} else {
@@ -53,7 +54,8 @@ if (!d_tt_ver) then {
 };
 #endif
 
-if (d_player_can_call_drop > 0 && {!visibleMap && {!_is_para}}) then {
+__TRACE_1("","isNil 'd_drop_aircraft_avail'")
+if (d_player_can_call_drop > 0 && {!visibleMap && {!_is_para && {isNil "d_drop_aircraft_avail"}}}) then {
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_230", [call _fnc_inc_num], "", -5, [["expression", "2 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 

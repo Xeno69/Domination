@@ -191,7 +191,14 @@ if (call d_fnc_checkSHC) then {
 #endif
 #ifdef __GMCWG__
 	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
-		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
+		case "E": {
+			call {
+				if (d_gmcwgwinter) exitWith {
+					["gm_gc_army_btr60pb_win","gm_gc_army_brdm2_win", "gm_gc_army_btr60pb_win", "gm_gc_army_ural4320_repair_win", "gm_gc_army_ural375d_refuel_win", "gm_gc_army_ural4320_reammo_win", "gm_gc_army_brdm2_win"]
+				};
+				["gm_gc_army_btr60pb","gm_gc_army_brdm2", "gm_gc_army_btr60pb", "gm_gc_army_ural4320_repair", "gm_gc_army_ural375d_refuel", "gm_gc_army_ural4320_reammo", "gm_gc_army_brdm2"]
+			};
+		};
 		case "W": {["B_MRAP_01_hmg_F","B_APC_Wheeled_01_cannon_F", "B_MRAP_01_gmg_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Wheeled_01_cannon_F"]};
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};

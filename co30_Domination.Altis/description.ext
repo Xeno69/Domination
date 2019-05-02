@@ -315,6 +315,7 @@ class Params {
 		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
 #endif
+// TODO Anzahl Targets
 #ifdef __GMCWG__
 		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,34};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","34"};
@@ -1601,19 +1602,22 @@ class CfgIdentities {
 		speaker = "RHS_Male02RUS";
 	};
 #endif
-// TODO for GMCWG
 #ifdef __GMCWG__
-	class DHQ_BF1 {
-		name = "Winters, HQ";
-		face = "whiteHead_04";
-		glasses = "None";
-		speaker = "Male03ENG";
-		pitch = 1.0;
-		nameSound = "Reynolds";
+	class GMDHQ_BF1: DHQ_BF1 {
+		name = "Berger, HQ";
+		speaker = "gm_voice_male_deu_04";
 	};
-	class DHQ_BF2: DHQ_BF1 {
-		name = "Meyers, HQ";
-		speaker = "male02eng";
+	class GMDHQ_BF2: GMDHQ_BF1 {
+		name = "Koch, HQ";
+		speaker = "gm_voice_male_deu_08";
+	};
+	class GMDHQ_OP1: GMDHQ_BF1 {
+		name = "Reindel, HQ";
+		speaker = "gm_voice_male_deu_06";
+	};
+	class GMDHQ_OP2: GMDHQ_OP1 {
+		name = "Ehrlich, HQ";
+		speaker = "gm_voice_male_deu_01";
 	};
 #endif
 };

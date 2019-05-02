@@ -49,6 +49,10 @@ __TRACE_1("","d_current_target_index")
 __TRACE_1("","d_maintargets_list")
 __TRACE_1("","d_resolved_targets")
 
+if (isNil "d_db_savegames") then {
+	d_db_savegames = [];
+};
+
 if !(_sname in d_db_savegames) then {
 	d_db_savegames pushBack _sname;
 	publicVariable "d_db_savegames";

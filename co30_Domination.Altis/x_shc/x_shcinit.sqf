@@ -35,13 +35,19 @@ if (d_MissionType != 2 && d_disable_airai != 1) then {
 		sleep 30;
 		__TRACE("spawn_x_shcinit_airai 30 secs over")
 		if (isMultiplayer && {isServer && {!isNil "HC_D_UNIT"}}) exitWith {};
-		sleep 1200;
-		__TRACE("spawn_x_shcinit_airai 30 exec LAC")
-		["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
-		sleep 1200;
-		["HAC"] spawn d_fnc_airai; // HAC = Heavy Attack Chopper
-		sleep 1200;
-		["AP"] spawn d_fnc_airai; // AP = Attack Plane
+		if !(d_light_attack_chopper isEqualTo []) then {
+			sleep 1200;
+			__TRACE("spawn_x_shcinit_airai 30 exec LAC")
+			["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
+		};
+		if !(d_airai_attack_chopper isEqualTo []) then {
+			sleep 1200;
+			["HAC"] spawn d_fnc_airai; // HAC = Heavy Attack Chopper
+		};
+		if !(d_airai_attack_plane isEqualTo []) then {
+			sleep 1200;
+			["AP"] spawn d_fnc_airai; // AP = Attack Plane
+		};
 	};
 };
 #endif
@@ -50,7 +56,7 @@ if (d_MissionType != 2 && d_disable_airai != 1) then {
 if !(d_with_isledefense isEqualTo []) then {0 spawn d_fnc_isledefense};
 
 #ifndef __TT__
-if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0}}) then {execFSM "fsms\fn_Infilrate.fsm"};
+if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0 && {!(d_transport_chopper isEqualTo [])}}}) then {execFSM "fsms\fn_Infilrate.fsm"};
 #endif
 
 0 spawn d_fnc_ai_loop;

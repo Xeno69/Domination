@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_getunitlistv.sqf"
 #include "..\..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 params ["_grptype", "_side"];
 private _side_char = if (_side isEqualType "") then {
 	_side

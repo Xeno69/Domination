@@ -96,14 +96,17 @@ if (isNil "d_UnitsToRecruit") then {
 	};
 	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
 #endif
-// TODO for GMCWG
 #ifdef __GMCWG__
-	private _pchar = switch (d_player_side) do {
-		case blufor: {"B"};
-		case opfor: {"O"};
-		case independent: {"I"};
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {
+			call {
+				if (d_gmcwgwinter) exitWith {
+					["gm_ge_army_rifleman_g3a3_parka_80_win", "gm_ge_army_grenadier_g3a3_parka_80_win", "gm_ge_army_demolition_g3a4_parka_80_win", "gm_ge_army_machinegunner_mg3_parka_80_win", "gm_ge_army_antitank_g3a3_pzf44_parka_80_win", "gm_ge_army_antitank_g3a3_pzf84_parka_80_win", "gm_ge_army_engineer_g3a4_parka_80_win", "gm_ge_army_medic_g3a3_parka_80_win"]
+				};
+				["gm_ge_army_rifleman_g3a3_80_ols", "gm_ge_army_grenadier_g3a3_80_ols", "gm_ge_army_demolition_g3a4_80_ols", "gm_ge_army_machinegunner_mg3_80_ols", "gm_ge_army_antitank_g3a3_pzf44_80_ols", "gm_ge_army_antitank_g3a3_pzf84_80_ols", "gm_ge_army_engineer_g3a4_80_ols", "gm_ge_army_medic_g3a3_80_ols"]
+			};
+		};
 	};
-	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
 #endif
 };
 

@@ -81,55 +81,89 @@ private _kbscript = "x_bikb\domkba3.bikb";
 if (d_tt_ver || {d_own_side == "EAST"}) then {
 	d_hq_logic_opfor1 kbAddTopic["HQ_E",_kbscript];
 	d_hq_logic_opfor1 kbAddTopic["HQ_ART_E",_kbscript];
-#ifndef __RHS__
-	d_hq_logic_opfor1 setIdentity "DHQ_OP1";
-#else
-	d_hq_logic_opfor1 setIdentity "RDHQ_OP1";
-#endif
+	call {
+		if (d_rhs) exitWith {
+			d_hq_logic_opfor1 setIdentity "RDHQ_OP1";
+		};
+		if (d_gmcwg) exitWith {
+			d_hq_logic_opfor1 setIdentity "GMDHQ_OP1";
+		};
+		d_hq_logic_opfor1 setIdentity "DHQ_OP1";
+	};
 	d_hq_logic_opfor1 setRank "COLONEL";
 	if (isServer) then {
 		d_hq_logic_opfor1 setGroupIdGlobal ["HQ"];
 	};
-#ifndef __RHS__
-	d_hq_logic_opfor1 setVariable ["d_kddata", [["HQ_E", "HQ_ART_E"], "DHQ_OP1", "HQ"]];
-#else
-	d_hq_logic_opfor1 setVariable ["d_kddata", [["HQ_E", "HQ_ART_E"], "RDHQ_OP1", "HQ"]];
-#endif
-
+	call {
+		if (d_rhs) exitWith {
+			d_hq_logic_opfor1 setVariable ["d_kddata", [["HQ_E", "HQ_ART_E"], "RDHQ_OP1", "HQ"]];
+		};
+		if (d_gmcwg) exitWith {
+			d_hq_logic_opfor1 setVariable ["d_kddata", [["HQ_E", "HQ_ART_E"], "GMDHQ_OP1", "HQ"]];
+		};
+		d_hq_logic_opfor1 setVariable ["d_kddata", [["HQ_E", "HQ_ART_E"], "DHQ_OP1", "HQ"]];
+	};
 	d_hq_logic_opfor2 kbAddTopic["HQ_E",_kbscript];
-#ifndef __RHS__
-	d_hq_logic_opfor2 setIdentity "DHQ_OP2";
-#else
-	d_hq_logic_opfor2 setIdentity "RDHQ_OP2";
-#endif
+	call {
+		if (d_rhs) exitWith {
+			d_hq_logic_opfor2 setIdentity "RDHQ_OP2";
+		};
+		if (d_gmcwg) exitWith {
+			d_hq_logic_opfor2 setIdentity "GMDHQ_OP2";
+		};
+		d_hq_logic_opfor2 setIdentity "DHQ_OP2";
+	};
 	d_hq_logic_opfor2 setRank "COLONEL";
 	if (isServer) then {
 		d_hq_logic_opfor2 setGroupIdGlobal ["Papa Bear"];
 	};
-#ifndef __RHS__
-	d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "DHQ_OP2", "Papa Bear"]];
-#else
-	d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "RDHQ_OP2", "Papa Bear"]];
-#endif
+	call {
+		if (d_rhs) exitWith {
+			d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "RDHQ_OP2", "Papa Bear"]];
+		};
+		if (d_gmcwg) exitWith {
+			d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "GMDHQ_OP2", "Papa Bear"]];
+		};
+		d_hq_logic_opfor2 setVariable ["d_kddata", [["HQ_E"], "DHQ_OP2", "Papa Bear"]];
+	};
 };
 
 if (d_tt_ver || {d_own_side == "WEST"}) then {
 	d_hq_logic_blufor1 kbAddTopic["HQ_W",_kbscript];
 	d_hq_logic_blufor1 kbAddTopic["HQ_ART_W",_kbscript];
-	d_hq_logic_blufor1 setIdentity "DHQ_BF1";
+	call {
+		if (d_gmcwg) exitWith {
+			d_hq_logic_blufor1 setIdentity "GMDHQ_BF1";
+		};
+		d_hq_logic_blufor1 setIdentity "DHQ_BF1";
+	};
 	d_hq_logic_blufor1 setRank "COLONEL";
 	if (isServer) then {
 		d_hq_logic_blufor1 setGroupIdGlobal ["Crossroad"];
 	};
-	d_hq_logic_blufor1 setVariable ["d_kddata", [["HQ_W", "HQ_ART_W"], "DHQ_BF1", "Crossroad"]];
-
+	call {
+		if (d_gmcwg) exitWith {
+			d_hq_logic_blufor1 setVariable ["d_kddata", [["HQ_W", "HQ_ART_W"], "GMDHQ_BF1", "Crossroad"]];
+		};
+		d_hq_logic_blufor1 setVariable ["d_kddata", [["HQ_W", "HQ_ART_W"], "DHQ_BF1", "Crossroad"]];
+	};
 	d_hq_logic_blufor2 kbAddTopic["HQ_W",_kbscript];
-	d_hq_logic_blufor2 setIdentity "DHQ_BF2";
+	call {
+		if (d_gmcwg) exitWith {
+			d_hq_logic_blufor2 setIdentity "GMDHQ_BF2";
+		};
+		d_hq_logic_blufor2 setIdentity "DHQ_BF2";
+	};
 	d_hq_logic_blufor2 setRank "COLONEL";
 	if (isServer) then {
 		d_hq_logic_blufor2 setGroupIdGlobal ["Papa Bear"];
 	};
-	d_hq_logic_blufor2 setVariable ["d_kddata", [["HQ_W"], "DHQ_BF2", "Papa Bear"]];
+	call {
+		if (d_gmcwg) exitWith {
+			d_hq_logic_blufor2 setVariable ["d_kddata", [["HQ_W"], "GMDHQ_BF2", "Papa Bear"]];
+		};
+		d_hq_logic_blufor2 setVariable ["d_kddata", [["HQ_W"], "DHQ_BF2", "Papa Bear"]];
+	};
 };
 
 if (d_own_side == "GUER" || {d_ifa3lite}) then {

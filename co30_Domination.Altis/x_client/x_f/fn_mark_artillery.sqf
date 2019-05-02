@@ -5,22 +5,28 @@
 
 if (!hasInterface) exitWith {};
 
-#ifndef __IFA3LITE__
-private _lt = laserTarget player;
+private "_pos_lt";
+private _do_exit = false;
 
-__TRACE_1("","_lt")
+if (!d_ifa3lite && {!d_gmcwg}) then {
+	private _lt = laserTarget player;
 
-if (isNil "_lt" || {isNull _lt}) exitWith {
-	// laser target not valid
+	__TRACE_1("","_lt")
+
+	if (isNil "_lt" || {isNull _lt}) exitWith {
+		// laser target not valid
+		_do_exit = true;
+	};
+
+	_pos_lt = getPos _lt;
+	_pos_lt set [2, 0];
+
+	__TRACE_1("","_pos_lt")
+} else {
+	_pos_lt = screenToWorld [0.5, 0.5];
 };
-
-private _pos_lt = getPos _lt;
-_pos_lt set [2, 0];
-
+if (_do_exit) exitWith {};
 __TRACE_1("","_pos_lt")
-#else
-private _pos_lt = screenToWorld [0.5, 0.5];
-#endif
 
 #ifdef __DEBUG__
 _arrow = "Sign_Arrow_Large_F" createVehicleLocal [0,0,0];

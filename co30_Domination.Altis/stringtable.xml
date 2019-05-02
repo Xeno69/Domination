@@ -8533,14 +8533,14 @@
 <Chinesesimp>另外一个队伍完成了!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1711">
-<English>Call CAS at Laserdesignator position</English>
-<Spanish>CAS llamar una posición designador de laser</Spanish>
-<Portuguese>Telefonema CAS em Laserdesignator posição</Portuguese>
-<Korean>레지어지시기로 표시한 지역에 CAS 요청하기</Korean>
-<Japanese>レーザー照準器の位置にCASを呼ぶ</Japanese>
-<Original>Call CAS at Laserdesignator position</Original>
-<Russian>Вызвать АвиаУдар по координатам лазер.целеуказателя</Russian>
-<Chinesesimp>在激光指示点呼叫空中支援</Chinesesimp>
+<English>Call CAS</English>
+<Spanish>Call CAS</Spanish>
+<Portuguese>Call CAS</Portuguese>
+<Korean>Call CAS</Korean>
+<Japanese>Call CAS</Japanese>
+<Original>Call CAS</Original>
+<Russian>Call CAS</Russian>
+<Chinesesimp>Call CAS</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1712">
 <English>CAS currently not available...</English>

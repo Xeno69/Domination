@@ -6,9 +6,13 @@
 private _mods = _this apply {toLower _x};
 __TRACE_1("","_mods")
 
-private _items_no = ["FirstAidKit", "Medikit", "ItemMap", "ItemRadio", "ItemCompass", "ItemWatch"];
-			
-if (!d_ifa3lite) then {
+private _items_no = ["ItemMap", "ItemRadio"];
+
+if (!d_gmcwg) then {
+	_items_no append ["FirstAidKit", "Medikit","ItemCompass", "ItemWatch"];
+};
+
+if (!d_ifa3lite && {!d_gmcwg}) then {
 	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "MineDetector"];
 };
 
