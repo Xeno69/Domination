@@ -400,8 +400,7 @@ draw3d_ar = [];
 	};
 	if (!isNil "d_wreck_rep") then {
 		d_3draw_ar pushBack [[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5];
-	};	
-	];
+	};
 #endif
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5];
