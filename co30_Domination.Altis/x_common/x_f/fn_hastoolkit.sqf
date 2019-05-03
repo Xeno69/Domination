@@ -3,4 +3,7 @@
 #define THIS_FILE "fn_hastoolkit.sqf"
 #include "..\..\x_setup.sqf"
 
-(items _this) findIf {(toUpper _x) find "TOOLKIT" > -1} > -1
+(items _this) findIf {
+	private _it = toUpper _x;
+	_it find "TOOLKIT" > -1 || {_it find "REPAIRKIT" > -1}
+} > -1
