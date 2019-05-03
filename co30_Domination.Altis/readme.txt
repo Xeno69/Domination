@@ -13,6 +13,7 @@ ADDED: Global Mobilzation summer and winter version
 
 - Fixed: Wreck transport with non airborne vehicles was broken
 - Fixed: Saving progress to a SQL database was broken (script error)
+- Fixed: Main target selection broke TT version
 
 3.99p
 - Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles
