@@ -125,7 +125,7 @@ switch (d_MissionType) do {
 	};
 };
 
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.99p  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 3</t><br/>  <t align='left' size='1'>  Version 3.99q  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 _camera camSetTarget player;
 _p_tpos = [_pspsxx # 0, _pspsxx # 1, (player modelToWorld [0,0,2]) # 2];
