@@ -23,6 +23,10 @@ d_bonus_vecs_db_e = d_bonus_vecs_db_e - [objNull];
 private _bonus_vecs_db_e = d_bonus_vecs_db_e apply {typeOf _x};
 #endif
 
+if (isNil "d_maintargets_list") then {
+	d_maintargets_list = [];
+};
+
 private _maintargets_list =+ d_maintargets_list;
 
 #ifndef __TT__
@@ -75,6 +79,7 @@ if !(_sname in d_db_savegames) then {
 	};
 #endif
 } else {
+	private _recapgone = [];
 #ifndef __INTERCEPTDB__
 	if (!d_tt_ver) then {
 		"extdb3" callExtension format ["1:dom:missionUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower (worldName + _sname)];
