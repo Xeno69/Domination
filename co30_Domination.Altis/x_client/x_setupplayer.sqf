@@ -362,14 +362,14 @@ draw3d_ar = [];
 		[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5]
 	];
 	if (!isNil "d_vecre_trigger") then {
-		[d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5];
+		d_3draw_ar pushBack [d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5];
 	};
 	if (!isNil "d_jet_trigger") then {
 		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5];
 	};
-	if (!isNil "d_wreck_rep") then {
-		[d_wreck_rep, localize "STR_DOM_MISSIONSTRING_0", 5];
-	};
+	{
+		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5];
+	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
 	
 	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
 		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5];
@@ -390,16 +390,16 @@ draw3d_ar = [];
 	];
 	
 	if (!isNil "d_vecre_trigger") then {
-		[[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5];
+		d_3draw_ar pushBack [[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5];
 	};
 	if (!isNil "d_jet_trigger") then {
-		[[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5];
+		d_3draw_ar pushBack [[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5];
 	};
 	if (!isNil "d_chopper_trigger") then {
-		[[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5];
+		d_3draw_ar pushBack [[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5];
 	};
 	if (!isNil "d_wreck_rep") then {
-		[[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5];
+		d_3draw_ar pushBack [[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5];
 	};	
 	];
 #endif
