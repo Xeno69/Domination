@@ -983,7 +983,11 @@ if (!d_tt_tanoa) then {
 		["B_Plane_CAS_01_F", "O_Plane_CAS_02_F"];
 #endif
 
+#ifndef __TT__
 	if (d_cas_plane == "") then {
+#else
+	if (d_cas_plane isEqualTo []) then {
+#endif
 		d_cas_plane_avail = false;
 		publicVariable "d_cas_plane_avail";
 	};
@@ -1397,7 +1401,7 @@ if (hasInterface) then {
 		};
 		if (d_gmcwg) exitWith {
 			if (d_gmcwgwinter) exitWith {
-				["gm_ge_army_k125_win", "gm_xx_civ_bicycle_01_win", "gm_ge_army_iltis_cargo_win"]
+				["gm_ge_army_k125", "gm_xx_civ_bicycle_01", "gm_ge_army_iltis_cargo_win"]
 			};
 			["gm_ge_army_k125", "gm_xx_civ_bicycle_01", "gm_ge_army_iltis_cargo"]
 		};

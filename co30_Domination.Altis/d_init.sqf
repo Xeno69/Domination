@@ -518,8 +518,8 @@ if (!hasInterface) then {
 	};
 	if (!isNil "d_chopper_triggerR") then {
 		["d_chopper_serviceR", d_chopper_triggerR,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	}
-	if (!isNil "d_vecre_trigger2") then {;
+	};
+	if (!isNil "d_vecre_trigger2") then {
 		["d_vehicle_serviceR", d_vecre_trigger2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};
 	["d_Ammobox ReloadR", d_AMMOLOAD2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
