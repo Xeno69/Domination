@@ -153,12 +153,6 @@ sleep 3.321;
 
 if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
 
-if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	remoteExecCall ["d_fnc_dodelrspgrps", d_HC_CLIENT_OBJ_OWNER];
-} else {
-	call d_fnc_dodelrspgrps;
-};
-
 _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";

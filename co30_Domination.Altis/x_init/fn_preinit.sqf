@@ -1364,8 +1364,6 @@ if (!d_tt_tanoa) then {
 		// can also be put into the dom_settings in Domination sql DB
 		d_ai_groups_respawn_time = [290, 170, 360, 200];
 	};
-	
-	d_cur_tgt_garrisonedinfantry = [];
 };
 
 if (hasInterface) then {

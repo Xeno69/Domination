@@ -179,7 +179,6 @@ class CfgRemoteExec {
 		class d_fnc_docreatenexttarget {};
 		class d_fnc_deleteempty {};
 		class d_fnc_dodelintelu {};
-		class d_fnc_dodelrspgrps {};
 		class d_fnc_clearsidemission {};
 		class d_fnc_xdelct {};
 		class d_fnc_mct {};

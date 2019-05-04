@@ -329,8 +329,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 				_this enableDynamicSimulation true;
 			};
 		};
-		
-		d_cur_tgt_garrisonedinfantry append _units_to_garrison;
+		d_delinfsm append _units_to_garrison;
 		
 		__TRACE_1("","_newgroup")
 		__TRACE_1("","_units_to_garrison")

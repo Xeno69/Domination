@@ -62,7 +62,7 @@ if (_add_to_ar_type > 0) then {
 		d_delvecsmt append _vecs;
 	};
 	if !(_uinf isEqualTo []) then {
-		d_delinfsm  append _uinf;
+		d_delinfsm append _uinf;
 	};
 };
 

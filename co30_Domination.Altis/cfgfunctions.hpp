@@ -487,7 +487,6 @@ class cfgFunctions {
 			addc(handleattackgroups);
 			addc(cgraa);
 			addc(dodelintelu);
-			addc(dodelrspgrps);
 			addc(xdelct);
 			addc(mct);
 			addc(doexechcf);
