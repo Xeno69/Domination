@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, DeleteUnits">*/
+/*%FSM<COMPILE "scriptedFSM.cfg, DeleteUnits">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
@@ -6,8 +6,8 @@ item1[] = {"Delay",4,218,-34.573978,-117.925652,55.426025,-67.925644,0.000000,"D
 item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"};
 link0[] = {0,1};
 link1[] = {1,2};
-globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,923,894,1};
-window[] = {2,-1,-1,-1,-1,822,104,1064,104,3,941};
+globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,512.315918,-331.894562,923,1254,1};
+window[] = {2,-1,-1,-1,-1,848,130,1090,130,3,941};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -23,7 +23,7 @@ class FSM
                          "" \n
                          "private _mtunits =+ d_delinfsm;" \n
                          "" \n
-                         "private _old_units_trigger = [(d_target_names select _index) select 0, [350, 350, 0, false], [d_enemy_side, ""PRESENT"", false], [""this"", """", """"]] call d_fnc_createtriggerlocal;" \n
+                         "private _old_units_trigger = [(d_target_names select _index) select 0, [500, 500, 0, false], [d_enemy_side, ""PRESENT"", false], [""this"", """", """"]] call d_fnc_createtriggerlocal;" \n
                          "" \n
                          "d_delinfsm = [];" \n
                          "" \n

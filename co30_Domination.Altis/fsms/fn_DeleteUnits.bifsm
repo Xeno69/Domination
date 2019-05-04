@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-34.158474;
 		Top=-186.43727;
@@ -24,7 +24,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="private _index = _this;" \n "" \n "private _mtunits =+ d_delinfsm;" \n "" \n "private _old_units_trigger = [(d_target_names select _index) select 0, [350, 350, 0, false], [d_enemy_side, ""PRESENT"", false], [""this"", """", """"]] call d_fnc_createtriggerlocal;" \n "" \n "d_delinfsm = [];" \n "" \n "if (!isNil ""d_mines_created"" && {!(d_mines_created isEqualTo [])}) then {" \n "	{deleteVehicle _x} forEach d_mines_created;" \n "	d_mines_created = [];" \n "};" \n "" \n "private _timenow = time + 240;";
+				InitCode="private _index = _this;" \n "" \n "private _mtunits =+ d_delinfsm;" \n "" \n "private _old_units_trigger = [(d_target_names select _index) select 0, [500, 500, 0, false], [d_enemy_side, ""PRESENT"", false], [""this"", """", """"]] call d_fnc_createtriggerlocal;" \n "" \n "d_delinfsm = [];" \n "" \n "if (!isNil ""d_mines_created"" && {!(d_mines_created isEqualTo [])}) then {" \n "	{deleteVehicle _x} forEach d_mines_created;" \n "	d_mines_created = [];" \n "};" \n "" \n "private _timenow = time + 240;";
 			};
 		};
 	};
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -56,7 +56,7 @@ class GraphItems
 	};
 	class Item2
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-34.630585;
 		Top=-38.744061;
@@ -122,10 +122,10 @@ class Globals
 	DefaultLinkUseCustom=1;
 	PZoomLeft=-302.11169;
 	PZoomRight=319.26489;
-	PZoomBottom=218.81474;
-	PZoomTop=-311.01978;
+	PZoomBottom=512.31592;
+	PZoomTop=-331.89456;
 	Clxs=923;
-	Clys=894;
+	Clys=1254;
 	Aspect=1;
 };
 class Window
@@ -135,10 +135,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=104;
-	Top=104;
-	Right=1064;
-	Bottom=822;
+	Left=156;
+	Top=156;
+	Right=1116;
+	Bottom=874;
 	ShowCmd=3;
 	SplitPos=941;
 };
