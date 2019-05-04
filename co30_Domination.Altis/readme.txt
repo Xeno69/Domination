@@ -5,8 +5,11 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-3.99r
+3.99s
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+
+3.99r
+- Fixed: Don't auto change main target viewdistance when Zeus dialog gets enabled
 
 3.99q
 ADDED: Global Mobilzation summer and winter version 

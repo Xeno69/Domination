@@ -41,7 +41,7 @@ for "_i" from 0 to (__count_arti - 1) do {
 	d_x_sm_vec_rem_ar pushBack _arti;
 	_arti addEventHandler ["killed", {
 		d_dead_arti = d_dead_arti + 1;
-		private _v = _this select 0;
+		params ["_v"];
 		_v removeAllEventHandlers "killed";
 		{_v deleteVehicleCrew _x} forEach (crew _v);
 	}];

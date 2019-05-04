@@ -187,8 +187,13 @@ if (d_disable_viewdistance) then {
 	__ctrl2(1997) ctrlSetText "";
 } else {
 	__ctrl2(1000) sliderSetRange [200, d_MaxViewDistance];
-	__ctrl2(1000) sliderSetPosition viewDistance;
-	__ctrl2(1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round viewDistance];
+	if (!d_isvdreduced) then {
+		__ctrl2(1000) sliderSetPosition viewDistance;
+		__ctrl2(1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round viewDistance];
+	} else {
+		__ctrl2(1000) sliderSetPosition d_curviewdistance;
+		__ctrl2(1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round d_curviewdistance];
+	};
 };
 
 private _ctrl = __ctrl2(1001);
