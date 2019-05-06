@@ -11,7 +11,7 @@ while {_poss isEqualTo []} do {\
 
 #define __specops \
 _newgroup = [d_side_enemy] call d_fnc_creategroup;\
-[_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] spawn d_fnc_makemgroup;\
+private _specus = [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;\
 sleep 1.0112;\
 _newgroup deleteGroupWhenEmpty true; \
 _newgroup allowFleeing 0;\
@@ -23,7 +23,8 @@ if (d_with_dynsim == 0) then { \
 		sleep 10; \
 		_this enableDynamicSimulation true; \
 	}; \
-};
+}; \
+d_delinfsm append _specus;
 
 #define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]
 
@@ -55,7 +56,7 @@ switch (_sec_kind) do {
 		_vec setRank "COLONEL";
 		_vec setSkill 0.3;
 		_vec disableAI "PATH";
-		d_delinfsm  pushBack _vec;
+		d_delinfsm pushBack _vec;
 		d_fixor_var = _vec;
 		if ({_x == 1} count d_searchintel < count d_searchintel) then {
 			d_intel_unit = _vec;
@@ -244,7 +245,7 @@ switch (_sec_kind) do {
 		_vec setRank "COLONEL";
 		_vec setSkill 0.3;
 		_vec disableAI "PATH";
-		d_delinfsm  pushBack _vec;
+		d_delinfsm pushBack _vec;
 		d_fixor_var = _vec;
 		_vec addMagazines ["16Rnd_9x21_Mag", 2];
 		_vec addWeapon "hgun_Rook40_F";
@@ -293,7 +294,7 @@ switch (_sec_kind) do {
 		_vec setRank "COLONEL";
 		_vec setSkill 0.3;
 		d_fixor_var = _vec;
-		d_delinfsm  pushBack _vec;
+		d_delinfsm pushBack _vec;
 		_vec disableAI "PATH";
 		_vec addMagazines ["16Rnd_9x21_Mag", 2];
 		_vec addWeapon "hgun_Rook40_F";

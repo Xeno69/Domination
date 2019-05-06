@@ -24,7 +24,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="params [""_tpos"", ""_tradius"", ""_del_camps_stuff""];" \n "" \n "private _delpos =+ _tpos;" \n "" \n "private _delfirebase_objects =+ d_del_mtd_objects;" \n "_delfirebase_objects append _del_camps_stuff;" \n "" \n "private _mtmissionobj = d_mtmissionobj;" \n "" \n "{" \n "	_delfirebase_objects pushBackUnique _x;" \n "	_x setVariable [""d_v_p_mt_t"", getPosATL _x];" \n "} forEach d_delvecsmt;" \n "" \n "private _endtime = time + 120 + (random 60);" \n "" \n "private _tradplus = _tradius + 100;" \n "private _delmines = allMines select {_x distance2D _tpos < _tradplus};";
+				InitCode="params [""_tpos"", ""_tradius"", ""_delfirebase_objects""];" \n "" \n "private _delpos =+ _tpos;" \n "" \n "private _mtmissionobj = d_mtmissionobj;" \n "" \n "{" \n "	_delfirebase_objects pushBackUnique _x;" \n "	_x setVariable [""d_v_p_mt_t"", getPosATL _x];" \n "} forEach d_delvecsmt;" \n "d_delvecsmt = [];" \n "" \n "private _endtime = time + 120 + (random 60);" \n "" \n "private _tradplus = _tradius + 100;" \n "private _delmines = allMines select {_x distance2D _tpos < _tradplus};";
 			};
 		};
 	};
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -111,7 +111,7 @@ class Globals
 	NextGroupID=1;
 	NextID=6;
 	FSMName="DeleteEmpty";
-	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	CompileConfig="scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -135,10 +135,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=182;
-	Top=52;
-	Right=1770;
-	Bottom=992;
+	Left=26;
+	Top=26;
+	Right=1614;
+	Bottom=966;
 	ShowCmd=1;
 	SplitPos=766;
 };

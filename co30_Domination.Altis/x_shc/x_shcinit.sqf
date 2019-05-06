@@ -8,6 +8,7 @@ __TRACE("x_shcinit")
 if !(call d_fnc_checkSHC) exitWith {};
 
 d_delvecsmt = [];
+d_delinfsm = [];
 d_no_more_observers = 0;
 d_create_new_paras = false;
 d_x_sm_rem_ar = [];

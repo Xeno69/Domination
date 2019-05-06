@@ -648,7 +648,7 @@ if (_isserv_or_hc) then {
 		};
 		
 		d_fifo_ar = [];
-	};	
+	};
 
 	// _E = Opfor
 	// _W = Blufor

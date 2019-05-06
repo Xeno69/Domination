@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makevgroup.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false], ["_dyna", false]];
+params ["_numvecs", "_pos", "_vname", "_grp", "_dir", ["_is_static", false], ["_nolift", false], ["_dyna", false], ["_nocargo", false]];
 private _the_vecs = [];
 private _crews = [];
 private _npos = _pos;
@@ -18,7 +18,7 @@ for "_n" from 0 to _nnvnum do {
 	__TRACE_1("","_npos")
 	private _nnpos = _npos findEmptyPosition [0, 70, _vname];
 	if !(_nnpos isEqualTo []) then {_npos = _nnpos};
-	private _vec_ar = [_npos, [floor random 360, _dir] select (_dir != -1.111), _vname, _grp] call d_fnc_spawnVehicle;
+	private _vec_ar = [_npos, [floor random 360, _dir] select (_dir != -1.111), _vname, _grp, true] call d_fnc_spawnVehicle;
 	_vec_ar params ["_vec"];
 	_crews append (_vec_ar # 1);
 	

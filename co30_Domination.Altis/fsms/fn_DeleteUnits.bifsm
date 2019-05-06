@@ -24,7 +24,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="private _index = _this;" \n "" \n "private _mtunits =+ d_delinfsm;" \n "" \n "private _old_units_trigger = [(d_target_names select _index) select 0, [500, 500, 0, false], [d_enemy_side, ""PRESENT"", false], [""this"", """", """"]] call d_fnc_createtriggerlocal;" \n "" \n "d_delinfsm = [];" \n "" \n "if (!isNil ""d_mines_created"" && {!(d_mines_created isEqualTo [])}) then {" \n "	{deleteVehicle _x} forEach d_mines_created;" \n "	d_mines_created = [];" \n "};" \n "" \n "private _timenow = time + 240;";
+				InitCode="private _index = _this;" \n "" \n "private _mtunits =+ d_delinfsm;" \n "d_delinfsm = [];" \n "" \n "private _old_units_trigger = [(d_target_names select _index) select 0, [500, 500, 0, false], [d_enemy_side, ""PRESENT"", false], [""this"", """", """"]] call d_fnc_createtriggerlocal;" \n "" \n "if (!isNil ""d_mines_created"" && {!(d_mines_created isEqualTo [])}) then {" \n "	{deleteVehicle _x} forEach d_mines_created;" \n "	d_mines_created = [];" \n "};" \n "" \n "private _timenow = time + 240;";
 			};
 		};
 	};
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -111,7 +111,7 @@ class Globals
 	NextGroupID=1;
 	NextID=6;
 	FSMName="DeleteUnits";
-	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	CompileConfig="scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -135,10 +135,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=156;
-	Top=156;
-	Right=1116;
-	Bottom=874;
+	Left=234;
+	Top=234;
+	Right=1194;
+	Bottom=952;
 	ShowCmd=3;
 	SplitPos=941;
 };

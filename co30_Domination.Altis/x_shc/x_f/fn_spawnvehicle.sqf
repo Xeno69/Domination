@@ -23,7 +23,7 @@
 */
 
 private ["_grp", "_side", "_newGrp"];
-params ["_posv1", "_azi", "_typev1", "_param4", ["_addkills", true]];
+params ["_posv1", "_azi", "_typev1", "_param4", ["_addkills", true], ["_nocargo", false]];
 __TRACE_1("","_this")
 
 if (_param4 isEqualType sideUnknown) then {

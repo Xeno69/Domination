@@ -21,7 +21,7 @@ private _nextpos =+ _pos_start;
 private _allSMVecs = [];
 
 for "_i" from 0 to (_numconfv - 1) do {
-	private _reta = [1, _nextpos, d_sm_convoy_vehicles # _i, _newgroup, _direction] call d_fnc_makevgroup;
+	private _reta = [1, _nextpos, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
 	_reta params ["_vehicles"];
 	_vehicles params ["_onevec"];
 	_onevec lock true;

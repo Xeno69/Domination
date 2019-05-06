@@ -219,8 +219,6 @@ sleep 0.233;
 	};
 } forEach (_type_list_guard_static2 select {_x # 2 > 0});
 
-d_del_mtd_objects = [];
-
 {
 	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
 		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
@@ -272,6 +270,8 @@ if (d_no_more_observers < 2) then {
 		d_obs_array set [_xx, _observer];
 		sleep 0.4;
 	};
+	
+	d_delinfsm append d_obs_array;
 	_unit_array = nil;
 
 #ifndef __TT__

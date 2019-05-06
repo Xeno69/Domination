@@ -129,7 +129,7 @@ private _make_jump = {
 				_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 				_one_unit setSkill ["aimingAccuracy", _subskill];
 				_one_unit setSkill ["spotTime", _subskill];
-				d_delinfsm  pushBack _one_unit;
+				d_delinfsm pushBack _one_unit;
 				[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 				sleep _sleeptime;
 				if (!alive _vec) exitWith {};

@@ -21,13 +21,16 @@ private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty"];
 private _msize = 0;
 if (_numvecs > 0) then {
 	if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then {
-		_vecs append (([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, _istatatic, false, true] call d_fnc_makevgroup) # 0);
+		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, _istatatic, false, true] call d_fnc_makevgroup;
+		_vecs = _vecar # 0;
+		_uinf = _vecar # 1;
 	} else {
-		([_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup) params ["_tmpvecs"];
+		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup;
+		_vecs = _vecar # 0;
+		_uinf = _vecar # 1;
 		{
 			_x enableWeaponDisassembly false;
-		} forEach _tmpvecs;
-		_vecs append _tmpvecs;
+		} forEach _vecs;
 	};
 	_grp setSpeedMode "LIMITED";
 	_msize = 2;

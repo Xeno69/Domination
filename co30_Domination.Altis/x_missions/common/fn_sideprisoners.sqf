@@ -15,18 +15,19 @@ private _newgroup = [d_own_side] call d_fnc_creategroup;
 #else
 private _newgroup = [civilian] call d_fnc_creategroup;
 #endif
-[_pos, call d_fnc_getunitlistc, _newgroup] call d_fnc_makemgroup;
+private _units = [_pos, call d_fnc_getunitlistc, _newgroup] call d_fnc_makemgroup;
 private _leader = leader _newgroup;
 _leader setSkill 1;
 sleep 2.0112;
 _newgroup allowFleeing 0;
 _newgroup deleteGroupWhenEmpty true;
-private _units = units _newgroup;
 {
 	removeAllWeapons _x;
 	_x setCaptive true;
 	_x disableAI "PATH";
 } forEach _units;
+
+d_x_sm_rem_ar pushBack _units;
 
 if (d_with_dynsim == 0) then {
 	_newgroup enableDynamicSimulation true;
