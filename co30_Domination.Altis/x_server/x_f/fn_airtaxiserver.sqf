@@ -4,7 +4,8 @@
 #include "..\..\x_setup.sqf"
 #define __del \
 {_vec deleteVehicleCrew _x} forEach _crew;\
-deleteVehicle _vec;
+deleteVehicle _vec; \
+{deleteVehicle _x} forEach (_crew select {!isNull _x});
 
 if (!isServer) exitWith {};
 
@@ -245,6 +246,8 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	sleep 120;
 	__del;
 };
+
+{deleteVehicle _x} forEach (_crew select {!isNull _x});
 
 deleteVehicle _helperh;
 

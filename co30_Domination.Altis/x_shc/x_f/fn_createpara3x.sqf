@@ -17,9 +17,9 @@ private _delveccrew = {
 	scriptName "spawn_x_createpara3_delveccrew";
 	params ["_crew_vec", "_vec", "_time"];
 	sleep _time;
-	{_x setDamage 1} forEach (_crew_vec select {!isNull _x});
-	sleep 1;
+	{_vec deleteVehicleCrew _x} forEach (_crew_vec select {!isNull _x});
 	if (!isNull _vec) then {_vec setDamage 1};
+	{_x setDamage 1; deleteVehicle _x} forEach (_crew_vec select {!isNull _x});
 };
 
 private _make_jump = {
@@ -172,7 +172,10 @@ private _make_jump = {
 			} else {
 				_vec call d_fnc_DelVecAndCrew;
 			};
-			if (!isNull _driver_vec) then {_driver_vec setDamage 1};
+			if (!isNull _driver_vec) then {
+				_driver_vec setDamage 1;
+				deleteVehicle _driver_vec;
+			};
 		};
 	} else {
 		[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;

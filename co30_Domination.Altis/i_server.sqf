@@ -67,70 +67,70 @@ d_bonus_vec_positions_e = [];
 // add some random patrols on the island
 // if the array is empty, no patrols
 // simply place a rectangular marker called "d_isledefense_marker", marker text = number of patrols
-if (d_WithIsleDefense == 0 && {isServer}) then {
-	private _mna = "d_isledefense_marker";
-	if (markerPos _mna isEqualTo [0,0,0]) exitWith {
-		d_with_isledefense = [];
-	};
-	private _msize = markerSize _mna;
-	d_with_isledefense = [markerPos _mna, _msize # 0, _msize # 1, markerDir _mna, parseNumber (markerText _mna)];
-} else {
-	if (isServer) then {
-		d_with_isledefense = [];
-	};
-};
 if (isServer) then {
+	if (d_WithIsleDefense == 0) then {
+		private _mna = "d_isledefense_marker";
+		if (markerPos _mna isEqualTo [0,0,0]) exitWith {
+			d_with_isledefense = [];
+		};
+		private _msize = markerSize _mna;
+		d_with_isledefense = [markerPos _mna, _msize # 0, _msize # 1, markerDir _mna, parseNumber (markerText _mna)];
+	} else {
+		d_with_isledefense = [];
+	};
 	publicVariable "d_with_isledefense";
 	deleteMarker "d_isledefense_marker";
 };
 __TRACE_1("","d_with_isledefense")
 
 #ifndef __TT__
-if (d_MissionType != 2 && {isServer}) then {
-	0 spawn {
-		scriptName "spawn_ServicePoint_Building";
-		private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
-		
-		if !((d_service_buildings # 0) isEqualTo []) then {
-			private _pos = (d_service_buildings # 0) # 0;
-			_pos set [2, 3.3];
-			private _fac = createSimpleObject [_stype # 1, _pos];
-			_fac setDir ((d_service_buildings # 0) # 1);
-			_fac setPos _pos;
-		};
+if (isServer) then {
+	if (d_MissionType != 2) then {
+		0 spawn {
+			scriptName "spawn_ServicePoint_Building";
+			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
+			
+			if !((d_service_buildings # 0) isEqualTo []) then {
+				private _pos = (d_service_buildings # 0) # 0;
+				_pos set [2, 3.3];
+				private _fac = createSimpleObject [_stype # 1, _pos];
+				_fac setDir ((d_service_buildings # 0) # 1);
+				_fac setPos _pos;
+			};
 
-		if !((d_service_buildings # 1) isEqualTo []) then {
-			private _pos = (d_service_buildings # 1) # 0;
-			_pos set [2, 3.3];
-			private _fac = createSimpleObject [_stype # 1, _pos];
-			_fac setDir ((d_service_buildings # 1) # 1);
-			_fac setPos _pos;
-		};
+			if !((d_service_buildings # 1) isEqualTo []) then {
+				private _pos = (d_service_buildings # 1) # 0;
+				_pos set [2, 3.3];
+				private _fac = createSimpleObject [_stype # 1, _pos];
+				_fac setDir ((d_service_buildings # 1) # 1);
+				_fac setPos _pos;
+			};
 
-		if !((d_service_buildings # 2) isEqualTo []) then {
-			private _pos = (d_service_buildings # 2) # 0;
-			_pos set [2, 3.3];
-			private _fac = createSimpleObject [_stype # 1, _pos];
-			_fac setDir ((d_service_buildings # 2) # 1);
-			_fac setPos _pos;
+			if !((d_service_buildings # 2) isEqualTo []) then {
+				private _pos = (d_service_buildings # 2) # 0;
+				_pos set [2, 3.3];
+				private _fac = createSimpleObject [_stype # 1, _pos];
+				_fac setDir ((d_service_buildings # 2) # 1);
+				_fac setPos _pos;
+			};
 		};
 	};
-};
 
-if (d_with_ai && {isServer}) then {
-	d_pos_ai_hut = [markerPos "d_pos_aihut", markerDir "d_pos_aihut"];
-	d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
-	d_AI_HUT setDir (d_pos_ai_hut # 1);
-	if (!d_carrier) then {
-		d_AI_HUT setPos (d_pos_ai_hut # 0);
-	} else {
-		d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];
+	if (d_with_ai) then {
+		d_pos_ai_hut = [markerPos "d_pos_aihut", markerDir "d_pos_aihut"];
+		d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
+		d_AI_HUT setDir (d_pos_ai_hut # 1);
+		if (!d_carrier) then {
+			d_AI_HUT setPos (d_pos_ai_hut # 0);
+		} else {
+			d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];
+		};
+		d_AI_HUT enableSimulationGlobal false;
+		d_AI_HUT addEventHandler ["handleDamage", {0}];
+		publicVariable "d_AI_HUT";
+		["d_RecruitB_100010000", d_AI_HUT, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+		deleteMarker "d_pos_aihut";
 	};
-	d_AI_HUT enableSimulationGlobal false;
-	d_AI_HUT addEventHandler ["handleDamage", {0}];
-	publicVariable "d_AI_HUT";
-	["d_RecruitB_100010000", d_AI_HUT, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
-	deleteMarker "d_pos_aihut";
 };
 #endif
 
