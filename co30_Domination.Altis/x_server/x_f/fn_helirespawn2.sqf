@@ -71,6 +71,7 @@ while {true} do {
 				_vec setVariable ["d_attachedto_v", nil, true];
 			};
 			private _skinpoly = _vec call d_fnc_getskinpoly;
+			private _veccustom = _vec getVariable "d_veccustom";
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				{_vec deleteVehicleCrew _x} forEach (crew _vec);
@@ -140,6 +141,10 @@ while {true} do {
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 			if (d_with_ranked) then {
 				clearWeaponCargoGlobal _vec;
+			};
+			
+			if (!isNil "_veccustom") then {
+				[_vec, _veccustom # 0, _veccustom # 1] call BIS_fnc_initVehicle;
 			};
 		};
 		sleep (20 + random 10);

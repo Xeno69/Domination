@@ -63,4 +63,5 @@ if (!isServer) exitWith{};
 	if !(_vec isKindOf "Air") then {
 		_vec setVariable ["d_liftit", true, true];
 	};
+	_vec setVariable ["d_veccustom", [_vec] call BIS_fnc_getVehicleCustomization];
 } forEach _this;

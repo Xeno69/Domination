@@ -61,6 +61,7 @@ d_vrespawn2_ar = [];
 		if (d_with_ranked) then {
 			clearWeaponCargoGlobal _vec;
 		};
+		_vec setVariable ["d_veccustom", [_vec] call BIS_fnc_getVehicleCustomization];
 	};
 } forEach _this;
 
