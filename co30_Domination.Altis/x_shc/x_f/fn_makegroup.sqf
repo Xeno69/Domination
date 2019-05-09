@@ -16,12 +16,15 @@ private _pos = selectRandom _wp_array;
 
 __TRACE_1("","_grp")
 
+_grptype = toLower _grptype;
+
 private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty"];
+private _ismen = _grptype in ["allmen", "specops"];
 
 private _msize = 0;
 if (_numvecs > 0) then {
-	if !(_grptype in ["stat_mg", "stat_gl", "arty"]) then {
-		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, _istatatic, false, true] call d_fnc_makevgroup;
+	if (!_istatatic) then {
+		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, false, false, true] call d_fnc_makevgroup;
 		_vecs = _vecar # 0;
 		_uinf = _vecar # 1;
 	} else {
@@ -45,11 +48,11 @@ _grp deleteGroupWhenEmpty true;
 if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
 		if (!_istatatic) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
-			if !((toLower _grptype) in ["allmen", "specops"]) then {
+			if (!_ismen) then {
 				if (!d_tt_ver) then {
 					{
 						_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
-						_x setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
+						_x setVariable ["d_respawninfo", [_grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 						_x setVariable ["d_thevecs", _vecs];
 					} forEach _vecs;
 				};
@@ -71,9 +74,9 @@ if (_add_to_ar_type > 0) then {
 
 _grp allowFleeing (((floor random 3) + 1) / 10);
 
-private _sleepti = [5, 15] select (_grptype == "allmen" || {_grptype == "specops"});
+private _sleepti = [5, 15] select _ismen;
 
-private _wpstatements = if (d_house_patrol == 0 && {_type in ["patrol", "patrol2mt"] && {(toLower _grptype) in ["allmen", "specops"]}}) then {
+private _wpstatements = if (d_house_patrol == 0 && {_ismen && {_type in ["patrol", "patrol2mt"]}}) then {
 	"if (random 100 < 50) then {0 = [thisList] spawn d_fnc_dohousepatrol}"
 } else {
 	""
@@ -102,7 +105,7 @@ switch (_type) do {
 		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX2;
 	};
 	case "guard": {
-		if (_grptype == "allmen" || {_grptype == "specops"}) then {
+		if (_ismen) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
 		} else {
@@ -114,7 +117,7 @@ switch (_type) do {
 		};
 	};
 	case "guardstatic": {
-		if (_grptype == "allmen" || {_grptype == "specops"}) then {
+		if (_ismen) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
 		} else {

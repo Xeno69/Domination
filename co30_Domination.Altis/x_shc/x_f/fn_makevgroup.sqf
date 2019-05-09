@@ -10,8 +10,6 @@ private _npos = _pos;
 
 __TRACE_1("","_this")
 
-private _grpskill = (d_skill_array # 0) + (random (d_skill_array # 1));
-
 _the_vecs resize _numvecs;
 private _nnvnum = _numvecs - 1;
 for "_n" from 0 to _nnvnum do {
@@ -63,5 +61,4 @@ for "_n" from 0 to _nnvnum do {
 		_vec setVariable ["d_liftit", true, true];
 	};
 };
-(leader _grp) setSkill _grpskill;
 [_the_vecs, _crews]

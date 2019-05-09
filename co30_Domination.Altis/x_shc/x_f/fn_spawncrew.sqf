@@ -22,7 +22,7 @@ if (count _crew > 0) then {
 #ifdef __IFA3LITE__
 		if (random 100 > 80 && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC"}}}) then {
 #else
-		if (_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC"}}) then {
+		if (random 100 > 49 && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC"}}}) then {
 #endif
 			private _counter = _vec emptyPositions "cargo";
 			__TRACE_2("","typeOf _vec","_counter")
@@ -88,7 +88,7 @@ if (count _crew > 0) then {
 		};
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];
-		_x setSkill ["spotTime", _subskill];
+		_x setSkill ["spotTime", 0.4 + _subskill];
 	} forEach _crew;
 	if !(isNull (driver _vec)) then {(driver _vec) setRank "LIEUTENANT"};
 	if !(isNull (gunner _vec)) then {(gunner _vec) setRank "SERGEANT"};
