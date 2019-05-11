@@ -3,12 +3,12 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
-		Left=-34.158474;
-		Top=-186.43727;
-		Right=55.84153;
-		Bottom=-136.43727;
+		Left=-41.563808;
+		Top=-188.45692;
+		Right=48.436195;
+		Bottom=-138.45692;
 		BgColor=255;
 		class ItemInfo
 		{
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -56,7 +56,7 @@ class GraphItems
 	};
 	class Item2
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-34.630585;
 		Top=-38.744061;
@@ -76,7 +76,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=2;
-				InitCode="{" \n "	if !(_x isKindOf ""CAManBase"") then {" \n "		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {" \n "			_x call d_fnc_DelVecAndCrew;" \n "		} else {" \n "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n "		};" \n "	} else {" \n "		if !(_x call d_fnc_isplayer) then {deleteVehicle _x};" \n "	};" \n "} forEach ((list _old_units_trigger) unitsBelowHeight 20);" \n "" \n "deleteVehicle _old_units_trigger;" \n "" \n "_mtunits = _mtunits - [objNull];" \n "" \n "{" \n "	_x setDamage 1;" \n "} forEach _mtunits;" \n "_mtunits = nil;" \n "";
+				InitCode="{" \n "	if !(_x isKindOf ""CAManBase"") then {" \n "		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {" \n "			_x call d_fnc_DelVecAndCrew;" \n "		} else {" \n "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n "		};" \n "	} else {" \n "		if !(_x call d_fnc_isplayer) then {deleteVehicle _x};" \n "	};" \n "} forEach ((list _old_units_trigger) unitsBelowHeight 20);" \n "" \n "deleteVehicle _old_units_trigger;" \n "" \n "{" \n "	_x setDamage 1;" \n "} forEach _mtunits;" \n "";
 			};
 		};
 	};
@@ -135,10 +135,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=234;
-	Top=234;
-	Right=1194;
-	Bottom=952;
+	Left=260;
+	Top=260;
+	Right=1220;
+	Bottom=978;
 	ShowCmd=3;
 	SplitPos=941;
 };

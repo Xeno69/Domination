@@ -10,7 +10,6 @@ if (isServer && {!isNil "d_HC_CLIENT_OBJ_OWNER"}) exitWith {
 	remoteExec ["d_fnc_docreatenexttarget", d_HC_CLIENT_OBJ_OWNER];
 };
 
-d_delvecsmt = [];
 d_mtmissionobj = objNull;
 d_mt_done = false;
 if (isNil "d_sum_camps") then {d_sum_camps = -91};

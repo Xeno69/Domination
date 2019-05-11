@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_engtrigfnc.sqf"
 #include "..\..\x_setup.sqf"
 
+__TRACE("fn_engtrigfnc")
+
 if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(player call d_fnc_hastoolkit) && {call d_fnc_sfunc}}}) then {
 	player setVariable ["d_has_sfunc_aid", true];
 	
@@ -11,7 +13,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 	if (!d_eng_can_repfuel && {!(player distance2D D_TR7 < 21 || {player distance2D D_TR8 < 21})}) exitWith {
 		hintSilent (localize "STR_DOM_MISSIONSTRING_324");
 	};
-	
+	__TRACE_1("1","d_last_base_repair")
 	private _exitit = false;
 	if (d_with_ranked || {d_database_found}) then {
 		if (score player < d_ranked_a # 0) exitWith {
@@ -19,6 +21,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 		};
 		if (time >= d_last_base_repair) then {d_last_base_repair = -1};
 	};
+	__TRACE_1("2","d_last_base_repair")
 	if (_exitit) exitWith {};
 	
 #ifndef __TT__
@@ -26,14 +29,8 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 #else
 	if ((d_with_ranked || {d_database_found}) && {d_last_base_repair != -1 && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}) exitWith {
 #endif
-		[playerSide, "HQ"] sideChat (format [localize "STR_DOM_MISSIONSTRING_326", round (time - d_last_base_repair)]);
+		[playerSide, "HQ"] sideChat (format [localize "STR_DOM_MISSIONSTRING_326", round (d_last_base_repair - time)]);
 	};
-
-#ifndef __TT__
-	if ((d_with_ranked || {d_database_found}) && {player inArea d_base_array}) then {d_last_base_repair = time + 300};
-#else
-	if ((d_with_ranked || {d_database_found}) && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}) then {d_last_base_repair = time + 300};
-#endif
 	
 	d_orig_sfunc_obj = d_objectID2;
 	
@@ -64,7 +61,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
 			systemChat format [localize "STR_DOM_MISSIONSTRING_328", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
 		},
-		/* 7 code executed per tick */		{
+		/* 7 code executed per tick */	{
 			__TRACE_1("tick","_this select 4")
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
 			//systemChat format [localize "STR_DOM_MISSIONSTRING_328", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
@@ -101,6 +98,13 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 				if (_addscore > 0) then {
 					[player, _addscore] remoteExecCall ["addScore", 2];
 					[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_333", _addscore];
+				};
+#ifndef __TT__
+				if (player inArea d_base_array) then {
+#else
+				if (player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}) then {
+#endif
+					d_last_base_repair = time + 300
 				};
 			};
 		},

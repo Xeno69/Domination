@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-34.158474;
 		Top=-186.43727;
@@ -24,7 +24,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="params [""_tpos"", ""_tradius"", ""_delfirebase_objects""];" \n "" \n "private _delpos =+ _tpos;" \n "" \n "private _mtmissionobj = d_mtmissionobj;" \n "" \n "{" \n "	_delfirebase_objects pushBackUnique _x;" \n "	_x setVariable [""d_v_p_mt_t"", getPosATL _x];" \n "} forEach d_delvecsmt;" \n "d_delvecsmt = [];" \n "" \n "private _endtime = time + 120 + (random 60);" \n "" \n "private _tradplus = _tradius + 100;" \n "private _delmines = allMines select {_x distance2D _tpos < _tradplus};";
+				InitCode="params [""_tpos"", ""_tradius"", ""_delfirebase_objects""];" \n "" \n "private _delpos =+ _tpos;" \n "" \n "private _mtmissionobj = d_mtmissionobj;" \n "" \n "private _delvecsmt =+ d_delvecsmt;" \n "d_delvecsmt = [];" \n "{" \n "	_delfirebase_objects pushBackUnique _x;" \n "	_x setVariable [""d_v_p_mt_t"", getPosATL _x];" \n "} forEach _delvecsmt;" \n "" \n "private _endtime = time + 120 + (random 60);" \n "" \n "private _tradplus = _tradius + 100;" \n "private _delmines = allMines select {_x distance2D _delpos < _tradplus};";
 			};
 		};
 	};
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -56,7 +56,7 @@ class GraphItems
 	};
 	class Item2
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-34.630585;
 		Top=-38.744061;
@@ -135,10 +135,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=26;
-	Top=26;
-	Right=1614;
-	Bottom=966;
+	Left=52;
+	Top=52;
+	Right=1640;
+	Bottom=992;
 	ShowCmd=1;
 	SplitPos=766;
 };

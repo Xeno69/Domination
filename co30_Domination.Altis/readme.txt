@@ -13,7 +13,8 @@ ATTENTION: Weferlingen Summer and Winter sqm files have changed
 
 - Fixed: Don't auto change main target viewdistance when Zeus dialog gets enabled
 - Fixed: Don't mix up viewdistance change in status dialog when auto viewdistance at main targets kicks in
-- Changed: Global Mobilization vehicle markings are also visible after the vehicle respawns 
+- Changed: Global Mobilization vehicle markings are also visible after the vehicle respawns
+- Fixed: In ranked mode or when a database is found and engineer full is activated last repair base was calculated wrong
 
 3.99q
 ADDED: Global Mobilzation summer and winter version 
