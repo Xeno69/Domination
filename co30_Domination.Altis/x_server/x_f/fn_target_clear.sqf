@@ -79,10 +79,7 @@ __TRACE_1("","d_mt_winner")
 if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 	remoteExecCall ["d_fnc_dodelintelu", d_HC_CLIENT_OBJ_OWNER];
 } else {
-	if (!isNull d_intel_unit) then {
-		deleteVehicle d_intel_unit;
-		d_intel_unit = objNull;
-	};
+	call d_fnc_dodelintelu;
 };
 
 sleep 0.5;
@@ -123,30 +120,7 @@ if !(d_maintargets_list isEqualTo []) then {
 	if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
 		[1, d_current_target_index] remoteExecCall ["d_fnc_doexechcf", d_HC_CLIENT_OBJ_OWNER];
 	} else {
-		{
-			if (!isNull _x) then {
-				_x removeAllEventHandlers "killed";
-				_x spawn {
-					scriptName "spawn target_clear1";
-					sleep (60 + random 60);
-					_this setDamage 0;
-					deleteVehicle _this;
-				};
-			};
-		} forEach d_mt_barracks_obj_ar;
-		d_mt_barracks_obj_ar = [];
-#ifndef __TT__
-		if (!isNull d_mt_mobile_hq_obj) then {
-			d_mt_mobile_hq_obj removeAllEventHandlers "killed";
-			d_mt_mobile_hq_obj spawn {
-				scriptName "spawn target_clear2";
-				sleep (60 + random 60);
-				_this setDamage 0;
-				deleteVehicle _this;
-			};
-		};
-#endif
-		d_current_target_index execFSM "fsms\fn_DeleteUnits.fsm";
+		[1, d_current_target_index] call d_fnc_doexechcf;
 	};
 };
 
