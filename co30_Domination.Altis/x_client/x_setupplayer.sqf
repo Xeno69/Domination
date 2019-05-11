@@ -367,26 +367,26 @@ draw3d_ar = [];
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
 	d_3draw_ar = [
-		[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5]
+		[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0]
 	];
 	if (!isNil "d_vecre_trigger") then {
-		d_3draw_ar pushBack [d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5];
+		d_3draw_ar pushBack [d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1];
 	};
 	if (!isNil "d_jet_trigger") then {
-		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5];
+		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1];
 	};
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5];
+		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1];
 	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
 	
 	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
-		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5];
+		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1];
 	};
 	if (d_carrier) then {
-		d_3draw_ar pushBack [d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5];
+		d_3draw_ar pushBack [d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0];
 	};
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_1761", 5];
+		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1];
 	} forEach ((allMissionObjects "EmptyDetector") select {(str _x) select [0, 20] == "d_serviceall_trigger"});
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
@@ -394,24 +394,24 @@ draw3d_ar = [];
 	};
 #else
 	d_3draw_ar = [
-		[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5]
+		[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0]
 	];
 	
 	if (!isNil "d_vecre_trigger") then {
-		d_3draw_ar pushBack [[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5];
+		d_3draw_ar pushBack [[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1];
 	};
 	if (!isNil "d_jet_trigger") then {
-		d_3draw_ar pushBack [[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5];
+		d_3draw_ar pushBack [[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1];
 	};
 	if (!isNil "d_chopper_trigger") then {
-		d_3draw_ar pushBack [[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5];
+		d_3draw_ar pushBack [[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1];
 	};
 	if (!isNil "d_wreck_rep") then {
-		d_3draw_ar pushBack [[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5];
+		d_3draw_ar pushBack [[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1];
 	};
 #endif
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5];
+		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2];
 	} forEach d_all_ammoloads;
 	
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
