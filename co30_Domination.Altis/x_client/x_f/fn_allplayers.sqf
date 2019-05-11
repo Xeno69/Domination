@@ -19,7 +19,7 @@ while {true} do {
 					(d_allnearusermarkers # _chan) pushBack _x;
 				};
 			};
-		} forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #" && {markerPos _x distance2D player < 1000}});
+		} forEach (allMapMarkers select {_x select [0, 15] isEqualTo "_USER_DEFINED #" && {markerPos _x distance2D player < 1000}});
 	};
 #endif
 	sleep 2;

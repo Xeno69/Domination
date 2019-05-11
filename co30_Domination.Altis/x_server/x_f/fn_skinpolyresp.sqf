@@ -5,6 +5,8 @@
 
 params ["_vec", "_skinpoly"];
 
+if (_skinpoly isEqualTo ([_vec] call d_fnc_getskinpoly)) exitWith {};
+
 _skinpoly params ["_textures", "_anims", "_airar"];
 
 if (!(_textures isEqualTo []) && {!(getObjectTextures _vec isEqualTo _textures)}) then {

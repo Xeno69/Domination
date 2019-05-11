@@ -23,7 +23,7 @@ if (_player != player) then {
 };
 
 if (call AR_fnc_Has_Addon_Animations_Installed) then {		
-	if ([_player] call AR_fnc_Current_Weapon_Type_Selected == "HANDGUN") then {
+	if ([_player] call AR_fnc_Current_Weapon_Type_Selected isEqualTo "HANDGUN") then {
 		if (local _player) then {
 			if (missionNamespace getVariable ["AR_DISABLE_SHOOTING_OVERRIDE", false]) then {
 				_player switchMove "AR_01_Idle_Pistol_No_Actions";

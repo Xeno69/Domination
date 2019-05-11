@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 params ["_player"];
 
-if (currentWeapon _player == handgunWeapon _player) exitWith {"HANDGUN"};
-if (currentWeapon _player == primaryWeapon _player) exitWith {"PRIMARY"};
-if (currentWeapon _player == secondaryWeapon _player) exitWith {"SECONDARY"};
+if (currentWeapon _player isEqualTo handgunWeapon _player) exitWith {"HANDGUN"};
+if (currentWeapon _player isEqualTo primaryWeapon _player) exitWith {"PRIMARY"};
+if (currentWeapon _player isEqualTo secondaryWeapon _player) exitWith {"SECONDARY"};
 "OTHER"

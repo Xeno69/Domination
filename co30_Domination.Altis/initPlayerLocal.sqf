@@ -11,7 +11,7 @@ if (hasInterface) then {
 		waitUntil {time > 0};
 		sleep (2 + random 1);
 		private _np = player getVariable ["d_plname", ""];
-		if (_np == "" || {_np == "Error: No unit"}) then {
+		if (_np isEqualTo "" || {_np isEqualTo "Error: No unit"}) then {
 			_np = profileName splitString """'" joinString "";
 			if (_np isEqualTo "Error: No unit") then {
 				_np = (name player) splitString """'" joinString "";

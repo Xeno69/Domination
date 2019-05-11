@@ -90,7 +90,7 @@ d_target_names = [];
 	if (isServer) then {
 		_dtar enableSimulationGlobal false;
 	};
-} forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] == "d_target_"});
+} forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] isEqualTo "d_target_"});
 __TRACE_1("All targets found","d_target_names")
 
 // positions of service buildings
@@ -161,7 +161,7 @@ if (d_with_dynsim == 0) then {
 if (hasInterface) then {
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
-	private _allMapMarkers = allMapMarkers select {_x select [0, 20] == "d_player_ammobox_pos"};
+	private _allMapMarkers = allMapMarkers select {_x select [0, 20] isEqualTo "d_player_ammobox_pos"};
 #ifndef __TT__
 	d_player_ammobox_pos = [];
 	{
@@ -172,7 +172,7 @@ if (hasInterface) then {
 	d_player_ammobox_pos = [[], []];
 	
 	private _tempar = d_player_ammobox_pos # 1;
-	private _rem = _allMapMarkers select {_x select [0, 22] == "d_player_ammobox_pos_e"};
+	private _rem = _allMapMarkers select {_x select [0, 22] isEqualTo "d_player_ammobox_pos_e"};
 	{
 		_tempar pushBack [markerPos _x, markerDir _x, east];
 		deleteMarkerLocal _x;
@@ -350,7 +350,7 @@ if (isServer) then {
 			_fac setPos _mmm;
 		};
 
-		if (d_base_aa_vec == "") exitWith {};
+		if (d_base_aa_vec isEqualTo "") exitWith {};
 		
 		if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
 			[d_own_side, d_base_aa_vec] call d_fnc_cgraa;
@@ -390,7 +390,7 @@ if (isServer) then {
 	
 	d_current_mission_counter = 0;
 	
-	private _special_v = vehicles select {(str _x) select [0, 15] == "d_vecs_special_"};
+	private _special_v = vehicles select {(str _x) select [0, 15] isEqualTo "d_vecs_special_"};
 	private _sp_v_ar = [];
 	if !(_special_v isEqualTo []) then {
 		_special_v call d_fnc_initvecsspecial;
@@ -426,7 +426,7 @@ if (isServer) then {
 	if (d_gmcwg) then {
 		{
 			_vecsar pushBack [_x, 500 + _forEachIndex];
-		} forEach (vehicles select {(str _x) select [0, 12] == "d_vec_wreck_"});
+		} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
 	};
 	_vecsar call d_fnc_initvrespawn2;
 	if (!isNil "d_boat_1") then {
@@ -445,7 +445,7 @@ if (isServer) then {
 #endif
 	{
 		[_x, localize "STR_DOM_MISSIONSTRING_0", d_heli_wreck_lift_types] execFSM "fsms\fn_RepWreck.fsm";
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
+	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] isEqualTo "d_wreck_rep"});
 	
 #ifdef __TT__
 	d_public_points = true;
@@ -477,7 +477,7 @@ if (!hasInterface) then {
 #ifndef __TT__
 	{
 		[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
+	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] isEqualTo "d_wreck_rep"});
 	if (!isNil "d_jet_trigger") then {
 		["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};
@@ -489,7 +489,7 @@ if (!hasInterface) then {
 	};
 	{
 		[format ["d_Ammobox_Reload%1", _forEachIndex],_x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] == "d_AMMOLOAD"});
+	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] isEqualTo "d_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	if (d_carrier) then {
 		["d_service_point", d_serviceall_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
@@ -553,7 +553,7 @@ if (!hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x];
-	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_flag_bb"});
+	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"});
 	_icounter_o = 0;
 	_icounter_b = 0;
 	_icounter_i = 0;
@@ -576,7 +576,7 @@ if (!hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
-	} forEach (_allmissobjs select {(str _x) select [0, 9] == "d_respawn_point"});
+	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_respawn_point"});
 
 	if (d_with_ranked) then {
 		if (d_rhs) then {

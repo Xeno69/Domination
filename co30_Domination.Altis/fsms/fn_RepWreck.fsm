@@ -44,7 +44,7 @@ link19[] = {17,6};
 link20[] = {18,19};
 link21[] = {19,15};
 globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-375.999420,565.853027,964.322388,192.173111,666,546,1};
-window[] = {0,-1,-1,-1,-1,926,208,1910,208,1,684};
+window[] = {0,-1,-1,-1,-1,770,52,1754,52,1,684};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -232,8 +232,7 @@ class FSM
                          "if (unitIsUAV _wreck) then {" \n
                          "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n
                          "};" \n
-                         "private _skinpoly = _wreck call d_fnc_getskinpoly;" \n
-                         "private _veccustom = _wreck getVariable ""d_veccustom"";" \n
+                         "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n
                          "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n
                          "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n
                          "	_wpilot addScore (d_ranked_a # 23);" \n
@@ -355,9 +354,6 @@ class FSM
                          "" \n
                          "[_new_vec, _skinpoly] call d_fnc_skinpolyresp;" \n
                          "_skinpoly = nil;" \n
-                         "if (!isNil ""_veccustom"") then {" \n
-                         "	[_new_vec, _veccustom # 0, _veccustom # 1] call BIS_fnc_initVehicle;" \n
-                         "};" \n
                          "" \n
                          "d_wreck_cur_ar pushBack _new_vec;" \n
                          "" \n

@@ -13,8 +13,9 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 params ["_player", "_animation"];
 
 if (call AR_fnc_Has_Addon_Animations_Installed) then {
-	if ((toLower _animation) find "ar_" < 0) then {
-		if ([_player] call AR_fnc_Current_Weapon_Type_Selected == "HANDGUN") then {
+	private _lanim = toLower _animation;
+	if (_lanim find "ar_" < 0) then {
+		if (([_player] call AR_fnc_Current_Weapon_Type_Selected) isEqualTo "HANDGUN") then {
 			_player switchMove "AR_01_Aim_Pistol";
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_Pistol_No_Actions", true];
 		} else {
@@ -22,16 +23,16 @@ if (call AR_fnc_Has_Addon_Animations_Installed) then {
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_No_Actions", true];
 		};
 	} else {
-		if (toLower _animation == "ar_01_aim") then {
+		if (_lanim isEqualTo "ar_01_aim") then {
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_No_Actions", true];
 		};
-		if (toLower _animation == "ar_01_idle") then {
+		if (_lanim isEqualTo "ar_01_idle") then {
 			_player setVariable ["AR_Animation_Move", "AR_01_Idle_No_Actions", true];
 		};
-		if (toLower _animation == "ar_01_aim_pistol") then {
+		if (_lanim isEqualTo "ar_01_aim_pistol") then {
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_Pistol_No_Actions", true];
 		};
-		if (toLower _animation == "ar_01_idle_pistol") then {
+		if (_lanim isEqualTo "ar_01_idle_pistol") then {
 			_player setVariable ["AR_Animation_Move", "AR_01_Idle_Pistol_No_Actions", true];
 		};
 	};

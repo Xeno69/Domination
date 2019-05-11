@@ -79,9 +79,6 @@ if (unitIsUAV _vec) then {
 
 _vec setVariable ["d_OUT_OF_SPACE", -1];
 
-private _skinpoly = _vec call d_fnc_getskinpoly;
-_vec setVariable ["d_veccustom", [_vec] call BIS_fnc_getVehicleCustomization];
-
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
@@ -139,7 +136,7 @@ while {true} do {
 	if (!alive _vec || {_empty && {_disabled}}) then {
 		private _isitlocked = _vec getVariable "d_vec_islocked";
 		private _fuelleft = _vec getVariable ["d_fuel", 1];
-		private _veccustom = _vec getVariable "d_veccustom";
+		private _skinpoly = [_vec] call d_fnc_getskinpoly;
 		if (unitIsUAV _vec) then {
 			{_vec deleteVehicleCrew _x} forEach (crew _vec);
 		};
@@ -221,9 +218,6 @@ while {true} do {
 		
 		if (d_with_ranked) then {
 			clearWeaponCargoGlobal _vec;
-		};
-		if (!isNil "_veccustom") then {
-			[_vec, _veccustom # 0, _veccustom # 1] call BIS_fnc_initVehicle;
 		};
 	};
 };

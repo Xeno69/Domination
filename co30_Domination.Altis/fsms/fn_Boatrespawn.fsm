@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Boatrespawn">*/
+/*%FSM<COMPILE "scriptedFSM.cfg, Boatrespawn">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,38.135712,349.433441,128.135712,399.433441,0.000000,"Start"};
@@ -28,8 +28,8 @@ link10[] = {9,6};
 link11[] = {10,11};
 link12[] = {11,12};
 link13[] = {12,6};
-globals[] = {0.000000,0,0,0,0,640,480,1,16,6316128,1,-193.880936,362.273712,1032.536133,339.412384,739,894,1};
-window[] = {2,-1,-1,-1,-1,848,130,1090,130,3,757};
+globals[] = {0.000000,0,0,0,0,640,480,1,16,6316128,1,-193.880936,362.273712,1032.536133,339.412384,739,1254,1};
+window[] = {2,-1,-1,-1,-1,926,208,1168,208,3,757};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -181,14 +181,13 @@ class FSM
                          "	_boat = _boat_a select 0;" \n
                          "	if (damage _boat >= 0.9 || {!alive _boat || {_boat distance (_boat_a select 1) > 50}}) then {" \n
                          "		if ((crew _boat) findIf {alive _x} == -1) then {" \n
-                         "			private _skinpoly = _boat call d_fnc_getskinpoly;" \n
+                         "			private _skinpoly = [_boat] call d_fnc_getskinpoly;" \n
                          "			deleteVehicle _boat;" \n
                          "			_boat = createVehicle [_boat_a select 3, _boat_a select 1, [], 0, ""NONE""];" \n
                          "			_boat setDir (_boat_a select 2);" \n
                          "			_boat setPos (_boat_a select 1);" \n
                          "			_boat_a set [0, _boat];" \n
                          "			[_boat, _skinpoly] call d_fnc_skinpolyresp;" \n
-                         "			_skinpoly = nil;" \n
                          "		};" \n
                          "	};" \n
                          "} forEach _boats_a;" \n
