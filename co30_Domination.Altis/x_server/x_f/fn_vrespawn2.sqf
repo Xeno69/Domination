@@ -51,6 +51,9 @@ while {true} do {
 			private _isitlocked = _vec getVariable ["d_vec_islocked", false]; // || {_vec call d_fnc_isVecLocked};
 			private _skinpoly = [_vec] call d_fnc_getskinpoly;
 			__TRACE_1("","_skinpoly")
+#ifdef __GMCWG__
+			private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
+#endif
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				{_vec deleteVehicleCrew _x} forEach (crew _vec);
@@ -118,6 +121,12 @@ while {true} do {
 					};
 				};
 			};
+#ifdef __GMCWG__
+			if (!isNil "_attribs") then {
+				_vec setVariable ["GM_VEHICLE_ATTRIBUTES", _attribs];
+				[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
+			};
+#endif
 			sleep 0.01;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 			if (d_with_ranked) then {

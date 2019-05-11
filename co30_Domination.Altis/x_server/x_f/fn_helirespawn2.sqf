@@ -71,6 +71,9 @@ while {true} do {
 				_vec setVariable ["d_attachedto_v", nil, true];
 			};
 			private _skinpoly = [_vec] call d_fnc_getskinpoly;
+#ifdef __GMCWG__
+			private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
+#endif
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
 				{_vec deleteVehicleCrew _x} forEach (crew _vec);
@@ -127,6 +130,12 @@ while {true} do {
 			_vec_a set [0, _vec];
 			_vec setVariable ["d_OUT_OF_SPACE", -1];
 			_vec setVariable ["d_vec", _vec_a # 1, true];
+#ifdef __GMCWG__
+			if (!isNil "_attribs") then {
+				_vec setVariable ["GM_VEHICLE_ATTRIBUTES", _attribs];
+				[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
+			};
+#endif
 #ifdef __TT__
 			if (_vec_a # 1 < 4000) then {
 				_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillblufor}}];
