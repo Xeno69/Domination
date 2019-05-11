@@ -81,6 +81,7 @@ if (!_isman) then {
 	__TRACE_1("respawning","_this")
 	_this call d_fnc_makegroup;
 } else {
+	if (d_mt_barracks_obj_ar isEqualTo []) exitWith {};
 	private _d_mt_barracks_obj_pos = getPos (selectRandom d_mt_barracks_obj_ar);
 	__TRACE_1("","_d_mt_barracks_obj_pos")
 	_this set [1, [_d_mt_barracks_obj_pos]];

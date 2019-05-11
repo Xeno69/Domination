@@ -134,6 +134,7 @@ if !(d_maintargets_list isEqualTo []) then {
 				};
 			};
 		} forEach d_mt_barracks_obj_ar;
+		d_mt_barracks_obj_ar = [];
 #ifndef __TT__
 		if (!isNull d_mt_mobile_hq_obj) then {
 			d_mt_mobile_hq_obj removeAllEventHandlers "killed";
