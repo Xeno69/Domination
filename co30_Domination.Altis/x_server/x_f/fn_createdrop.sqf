@@ -7,11 +7,13 @@ d_para_available = true; publicVariable "d_para_available";\
 remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated]; \
 {_chopper deleteVehicleCrew _x} forEach _crew;\
 deleteVehicle _chopper;\
+{deleteVehicle _x} forEach (_crew select {!isNull _x}); \
 deleteMarker #d_drop_marker
 
 #define __del \
 {_chopper deleteVehicleCrew _x} forEach _crew;\
 deleteVehicle _chopper;\
+{deleteVehicle _x} forEach (_crew select {!isNull _x}); \
 deleteMarker #d_drop_marker
 
 #define __exit if (!alive _unit || {!alive _chopper || {!canMove _chopper}}) exitWith {[_crew,_chopper] spawn _delete_chop;_may_exit = true}
@@ -108,6 +110,7 @@ if (_may_exit) exitWith {
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_dropansw", _player];
 	};
+	__del;
 };
 
 if (!isNil "_player" && {!isNull _player}) then {
@@ -127,6 +130,7 @@ if (_may_exit) exitWith {
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_dropansw", _player];
 	};
+	__del;
 };
 
 [_chopper, _drop_type, _player, _drop_pos, _mname] spawn {

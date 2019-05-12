@@ -189,6 +189,9 @@ if (d_searchintel # 0 == 1) then {
 	[43] remoteExecCall ["d_fnc_DoKBMsg", 2];
 };
 
+private _crews_ar = [];
+private _vecs_ar = [];
+
 for "_i" from 1 to _number_vehicles do {
 	if (d_mt_radio_down) exitWith {_stop_it = true};
 	if (d_cur_tgt_pos distance2D _cur_tgt_pos > 500) exitWith {_stop_it = true};
@@ -196,6 +199,8 @@ for "_i" from 1 to _number_vehicles do {
 	private _heli_type = selectRandom d_transport_chopper;
 	private _spos = [_startpoint # 0, _startpoint # 1, 300];
 	([_spos, _spos getDir _attackpoint, _heli_type, _vgrp] call d_fnc_spawnVehicle) params ["_vec", "_crew"];
+	_crews_ar append _crew;
+	_vecs_ar pushBack _vec;
 	addToRemainsCollector [_vec];
 	_vec remoteExec ["d_fnc_airmarkermove", 2];
 
@@ -218,7 +223,14 @@ for "_i" from 1 to _number_vehicles do {
 	sleep 30 + random 30;
 };
 
-if (_stop_it) exitWith {};
+if (_stop_it) exitWith {
+	{
+		private _v = _x;
+		{_v deleteVehicleCrew _x} forEach (crew _v);
+	} forEach (_vecs_ar select {!isNull _x});
+	{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
+	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
+};
 
 while {d_should_be_there > 0 && {!d_mt_radio_down}} do {sleep 1.021};
 
@@ -231,3 +243,10 @@ if (!d_mt_radio_down) then {
 		d_create_new_paras = true;
 	};
 };
+
+{
+	private _v = _x;
+	{_v deleteVehicleCrew _x} forEach (crew _v);
+} forEach (_vecs_ar select {!isNull _x});
+{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
+{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
