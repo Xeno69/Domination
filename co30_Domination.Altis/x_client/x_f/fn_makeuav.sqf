@@ -21,10 +21,11 @@ if !(d_UAV_Terminal in (assignedItems player)) then {
 	player linkItem d_UAV_Terminal;
 };
 
-private _uav = [getPosATL player, 0, d_UAV_Small, d_player_side] call bis_fnc_spawnVehicle;
+private _uav = [getPosATL player, 0, d_UAV_Small, d_player_side, false, false, true] call bis_fnc_spawnVehicle;
 __TRACE_1("","_uav")
-_uav params ["_vecu"];
-createVehicleCrew _vecu;
+_uav params ["_vecu", "_crew", "_grp"];
+
+_grp deleteGroupWhenEmpty true;
 
 _vecu allowCrewInImmobile true;
 
@@ -59,6 +60,7 @@ _vecu spawn {
 	if (!isNull _uav) then {
 		["a2r", d_string_player, _uav] remoteExecCall ["d_fnc_p_o_ar", 2];
 	};
+	{_uav deleteVehicleCrew _x} forEach (crew _uav);
 	deleteVehicle _uav;
 	(findDisplay 160) closeDisplay 1;
 };

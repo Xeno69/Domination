@@ -1703,6 +1703,10 @@ if (hasInterface) then {
 		d_arsenal_mod_prestrings pushBack "uns_";
 	};
 	
+	// same as above but will remove specific mods
+	// for example: "gm_" will remove Global Mobilization
+	d_arsenal_mod_remove_strings = [];
+	
 	// can either be a class name (string) or code
 	// if code then _this is the classname
 	d_remove_from_arsenal = [

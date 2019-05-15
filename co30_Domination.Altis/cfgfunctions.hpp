@@ -176,6 +176,7 @@ class cfgFunctions {
 			addc(cmakemtgmarker);
 			addc(clienttargetsel);
 			addc(vdhandler);
+			addc(arsenal_mod_rem);
 		};
 		class Dom_UI {
 			file = "x_client\x_f\x_ui";

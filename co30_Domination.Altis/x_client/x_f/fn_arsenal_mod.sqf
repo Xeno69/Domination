@@ -67,6 +67,7 @@ private _findmodfnc = {
 			__TRACE_1("","_kind")
 			__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")
 			if (_kind != "" && {([configSourceAddonList (configFile >> _kind >> _x)] call _findmodfnc) == -1}) then {
+				__TRACE_1("","_ar select _forEachIndex")
 				_ar set [_forEachIndex, -1];
 			};
 		};

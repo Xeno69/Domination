@@ -48,6 +48,7 @@ switch (_this select 0) do {
 			if !(_ar isEqualTo []) then {_ar = _ar - [objNull]};
 			_ar pushBack (_this select 2);
 		};
+		(_this select 2) addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}];
 	};
 	case "r": {
 		private _ar = d_placed_objs_store getVariable (_this select 1);

@@ -921,6 +921,16 @@ player addEventhandler ["WeaponAssembled", {
 
 ["Preload"] call bis_fnc_arsenal;
 
+if (!d_gmcwg) then {
+	d_arsenal_mod_remove_strings pushBack "gm_";
+};
+
+if (d_arsenal_mod_remove_strings isEqualTo []) then {
+	d_arsenal_mod_remove_strings call d_fnc_arsenal_mod_rem;
+	
+	d_arsenal_mod_remove_strings = nil;
+};
+
 if (d_arsenal_mod == 0) then {
 	if (d_ifa3lite) then {
 		["WW2_"] call d_fnc_arsenal_mod;

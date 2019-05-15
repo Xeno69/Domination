@@ -230,6 +230,8 @@ if (unitIsUAV _vec) then {
 	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
+	group ((crew _vec) select 0) deleteGroupWhenEmpty true;
+	_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}];
 } else {
 	if (d_with_dynsim == 0) then {
 		_vec spawn {
@@ -404,9 +406,11 @@ if (d_with_ranked) then {
 if (unitIsUAV _vec) then {
 	createVehicleCrew _vec;
 	_vec allowCrewInImmobile true;
-	if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
+	group ((crew _vec) select 0) deleteGroupWhenEmpty true;
+	_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}];
 } else {
 	if (d_with_dynsim == 0) then {
 		_vec spawn {
@@ -438,9 +442,11 @@ if (!isNull _vec2) then {
 	if (unitIsUAV _vec2) then {
 		createVehicleCrew _vec2;
 		_vec2 allowCrewInImmobile true;
-		if (isClass (configFile>>"CfgVehicles">>_vectypetouse>>"Components">>"TransportPylonsComponent")) then {
+		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 			_vec2 remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
+		group ((crew _vec2) select 0) deleteGroupWhenEmpty true;
+		_vec2 addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}];
 	} else {
 		if (d_with_dynsim == 0) then {
 			_vec2 spawn {

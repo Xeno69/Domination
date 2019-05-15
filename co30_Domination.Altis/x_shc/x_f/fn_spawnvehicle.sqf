@@ -41,8 +41,11 @@ private _sim = toUpper getText(configFile>>"CfgVehicles">>_typev1>>"simulation")
 __TRACE_1("","_sim")
 
 if (_sim in ["AIRPLANE", "HELICOPTER", "AIRPLANEX", "HELICOPTERX", "HELICOPTERRTD"]) then {
-	if (count _posv1 == 2) then {_posv1 pushBack 0};
-	_posv1 set [2, (_posv1 # 2) max 300];
+	if (count _posv1 == 2) then {
+		_posv1 pushBack ((_posv1 # 2) max 300);
+	} else {
+		_posv1 set [2, (_posv1 # 2) max 300];
+	};
 
 	_veh = createVehicle [_typev1, _posv1, [], 0, "FLY"];
 
