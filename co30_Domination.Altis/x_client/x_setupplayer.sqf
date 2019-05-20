@@ -359,11 +359,9 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] == "d_AMMOLOAD" && {_x distance2D d_FLAG_BASE < 1500 || {_x getVariable ["d_side", sideEnemy] == d_player_side}}};
 #endif
 
-draw3d_ar = [];
-
 0 spawn {
 	scriptName "spawn_setupplayer1";
-	waitUntil {sleep 0.3;!d_still_in_intro};
+	waitUntil {sleep 0.3; !d_still_in_intro};
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
 	d_3draw_ar = [
@@ -1012,28 +1010,6 @@ if (d_with_ranked) then {
 missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 
 0 spawn d_fnc_allplayers;
-
-call d_fnc_3draw_ar_prep;
-["itemAdd", ["dom_3draw_ar_prep", {call d_fnc_3draw_ar_prep}, 5, "frames"]] call bis_fnc_loop;
-
-call d_fnc_all_p_a_boxes_prep;
-["itemAdd", ["dom_all_p_a_boxes_prep", {call d_fnc_all_p_a_boxes_prep}, 10, "frames"]] call bis_fnc_loop;
-
-if (d_with_ai) then {
-	call d_fnc_allai_recruit_objs_prep;
-	["itemAdd", ["dom_allai_recruit_objs_prep", {call d_fnc_allai_recruit_objs_prep}, 30, "frames"]] call bis_fnc_loop;
-};
-
-call d_fnc_mhq_3ddraw_prep;
-["itemAdd", ["dom_mhq_3ddraw_prep", {call d_fnc_mhq_3ddraw_prep}, 0]] call bis_fnc_loop;
-
-call d_fnc_currentcamps_prep;
-["itemAdd", ["dom_currentcamps_prep", {call d_fnc_currentcamps_prep}, 2, "frames"]] call bis_fnc_loop;
-
-call d_fnc_usermarkers_prep;
-["itemAdd", ["dom_usermarkers_prep", {call d_fnc_usermarkers_prep}, 50, "frames"]] call bis_fnc_loop;
-
-["itemAdd", ["dom_draw3d_prep", {call d_fnc_draw3dprep}, 2, "frames"]] call bis_fnc_loop;
 
 if (d_with_ace) then {
 	addMissionEventHandler ["Draw3D", {_this call d_fnc_draw3d_ace}];

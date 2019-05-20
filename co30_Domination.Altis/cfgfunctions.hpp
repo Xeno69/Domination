@@ -164,14 +164,7 @@ class cfgFunctions {
 			addc(handledamageai);
 			addc(getinmanai);
 			addc(bikekilled);
-			addc(draw3dprep);
 			addc(fillname_huddo);
-			addc(3draw_ar_prep);
-			addc(all_p_a_boxes_prep);
-			addc(allai_recruit_objs_prep);
-			addc(mhq_3ddraw_prep);
-			addc(currentcamps_prep);
-			addc(usermarkers_prep);
 			addc(trigsetmarker);
 			addc(cmakemtgmarker);
 			addc(clienttargetsel);
