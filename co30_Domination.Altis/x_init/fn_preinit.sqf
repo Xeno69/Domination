@@ -337,6 +337,10 @@ d_SlopeObject = "Logic" createVehicleLocal [0,0,0];
 
 d_sm_store = d_HeliHEmpty createVehicleLocal [0,0,0];
 
+d_ef_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+d_ef_events = [];
+d_ef_running = -1;
+
 d_cargo_chute =
 #ifdef __OWN_SIDE_BLUFOR__
 	"B_Parachute_02_F";

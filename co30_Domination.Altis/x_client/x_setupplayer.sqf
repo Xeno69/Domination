@@ -523,17 +523,17 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 
 	if (d_with_ranked || {d_database_found}) then {d_last_base_repair = -1};
 
-	["itemAdd", ["dom_eng_1_trig", {
+	["dom_eng_1_trig", {
 		call d_fnc_engtrig1fnc;
-	}, 0.51]] call bis_fnc_loop;
+	}, 0.51] call d_fnc_eachframeadd;
 
 	if (d_engineerfull == 0 || {!d_no_ai}) then {
 		player setVariable ["d_has_sfunc_aid", false];
 		d_actionID2 = -9999;
 		d_orig_sfunc_obj = objNull;
-		["itemAdd", ["dom_eng_2_trig", {
+		["dom_eng_2_trig", {
 			call d_fnc_engtrigfnc;
-		}, 0.56]] call bis_fnc_loop;
+		}, 0.56] call d_fnc_eachframeadd;
 	};
 
 	player setVariable ["d_farp_pos", []];
@@ -616,10 +616,10 @@ if (!d_with_ace) then {
 
 		if (d_show_pname_hud) then {
 			d_pl_name_huddo_ar = [];
-			["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 0]] call bis_fnc_loop;
+			["dom_fillname_huddo", {call d_fnc_fillname_huddo}] call d_fnc_eachframeadd;
 			d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
 		} else {
-			["itemAdd", ["dom_player_hud2", {call d_fnc_player_name_huddo2}, 0]] call bis_fnc_loop;
+			["dom_player_hud2", {call d_fnc_player_name_huddo2}] call d_fnc_eachframeadd;
 		};
 	};
 };
@@ -880,7 +880,7 @@ player addEventhandler ["HandleRating", {
 	if ((_this select 1) < 0) then {0} else {_this select 1}
 }];
 
-["itemAdd", ["d_scacheck", {call d_fnc_SCACheck}, 0]] call bis_fnc_loop;
+["d_scacheck", {call d_fnc_SCACheck}] call d_fnc_eachframeadd;
 
 if (d_enablefatigue == 0) then {
 	player setFatigue 0;

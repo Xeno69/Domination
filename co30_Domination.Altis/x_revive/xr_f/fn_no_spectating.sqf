@@ -58,11 +58,11 @@ xr_x_withresp = _withresp;
 __dspctrl(1010) ctrlSetText xr_name_player;
 xr_x_loc_922 = localize "STR_DOM_MISSIONSTRING_922";
 __TRACE("main no spectating one frame loop starts")
-["itemAdd", ["dom_xr_no_spect_of", {
+["dom_xr_no_spect_of", {
 	if (!xr_stopspect) then {
 		call xr_fnc_no_spect_oneframe;
 	} else {
-		["itemRemove", ["dom_xr_no_spect_of"]] call bis_fnc_loop;
+		["dom_xr_no_spect_of"] call d_fnc_eachframeremove;
 		d_x_loop_end = true;
 		closeDialog 0;
 		player switchCamera "INTERNAL";
@@ -73,4 +73,4 @@ __TRACE("main no spectating one frame loop starts")
 		xr_no_spect_campos = nil;
 		__TRACE("no spectating ended, one frame removed")
 	};
-}, 0.01]] call bis_fnc_loop;
+}, 0.01] call d_fnc_eachframeadd;

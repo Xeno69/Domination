@@ -19,10 +19,10 @@ if (d_show_player_namesx != _selIdx) then {
 				d_show_pname_hud = false;
 				if (d_phudraw3d != -1) then {
 					removeMissionEventHandler ["Draw3D", d_phudraw3d];
-					["itemRemove", ["dom_fillname_huddo"]] call BIS_fnc_loop;
+					["dom_fillname_huddo"] call d_fnc_eachframeremove;
 					d_phudraw3d = -1;
 				};
-				["itemAdd", ["dom_player_hud2", {call d_fnc_player_name_huddo2}, 0]] call bis_fnc_loop;
+				["dom_player_hud2", {call d_fnc_player_name_huddo2}] call d_fnc_eachframeadd;
 			};
 			systemChat (localize "STR_DOM_MISSIONSTRING_887");
 		};
@@ -34,7 +34,7 @@ if (d_show_player_namesx != _selIdx) then {
 					d_phudraw3d = -1;
 				};
 				d_pl_name_huddo_ar = [];
-				["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 4, "frames"]] call bis_fnc_loop;
+				["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 4, "frames"] call d_fnc_eachframeadd;
 				d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
 			};
 			systemChat (localize "STR_DOM_MISSIONSTRING_888");
@@ -47,7 +47,7 @@ if (d_show_player_namesx != _selIdx) then {
 					d_phudraw3d = -1;
 				};
 				d_pl_name_huddo_ar = [];
-				["itemAdd", ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 4, "frames"]] call bis_fnc_loop;
+				 ["dom_fillname_huddo", {call d_fnc_fillname_huddo}, 4, "frames"] call d_fnc_eachframeadd;
 				d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
 			};
 			systemChat (localize "STR_DOM_MISSIONSTRING_890");

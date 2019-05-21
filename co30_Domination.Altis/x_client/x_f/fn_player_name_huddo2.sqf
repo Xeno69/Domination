@@ -40,6 +40,6 @@ if (!d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	};
 } else {
 	if (d_show_pname_hud) then {
-		["itemRemove", ["dom_player_hud2"]] call bis_fnc_loop;
+		["dom_player_hud2"] call d_fnc_eachframeremove;
 	};
 };

@@ -59,11 +59,12 @@ false call xr_fnc_nearplayercheck;
 xr_uncon_units pushBack player;
 
 __TRACE("starting main uncon loop")
-["itemAdd", ["dom_xr_uncon_of", {
+
+["dom_xr_uncon_of", {
 	if (!xr_u_doend_of && {alive player && {player getVariable "xr_pluncon"}}) then {
 		call xr_fnc_uncon_oneframe;
 	} else {
-		["itemRemove", ["dom_xr_uncon_of"]] call bis_fnc_loop;
+		["dom_xr_uncon_of"] call d_fnc_eachframeremove;
 		
 		xr_u_dcounter = nil;
 		xr_u_xxstarttime = nil;
@@ -144,4 +145,4 @@ __TRACE("starting main uncon loop")
 		};
 		__TRACE("uncon ended, one frame removed")
 	};
-}, 0.02]] call bis_fnc_loop;
+}, 0.02] call d_fnc_eachframeadd;

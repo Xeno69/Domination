@@ -165,11 +165,11 @@ xr_spect_timer = time + 10;
 xr_x_withresp = _withresp;
 xr_x_loc_922 = localize "STR_DOM_MISSIONSTRING_922";
 __TRACE("main one frame loop starts")
-["itemAdd", ["dom_xr_spect_of", {
+["dom_xr_spect_of", {
 	if (!xr_stopspect) then {
 		call xr_fnc_spect_oneframe;
 	} else {
-		["itemRemove", ["dom_xr_spect_of"]] call bis_fnc_loop;
+		["dom_xr_spect_of"] call d_fnc_eachframeremove;
 		removeMissionEventHandler ["Draw3D", xr_meh_draw3d];
 		d_x_loop_end = true;
 		closeDialog 0;
@@ -185,4 +185,4 @@ __TRACE("main one frame loop starts")
 		xr_cur_world_obj = nil;
 		__TRACE("spectating ended, one frame removed")
 	};
-}, 0.01]] call bis_fnc_loop;
+}, 0.01] call d_fnc_eachframeadd;

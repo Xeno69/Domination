@@ -280,6 +280,9 @@ class cfgFunctions {
 			addc(create_route);
 			addc(setposagls);
 			addc(isplayer);
+			addc(eachframeadd);
+			addc(eachframerun);
+			addc(eachframeremove);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
