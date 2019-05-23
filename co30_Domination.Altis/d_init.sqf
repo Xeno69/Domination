@@ -420,14 +420,9 @@ if (isServer) then {
 			_vecsar pushBack _x;
 		};
 	} forEach [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]];
-	if (d_ifa3lite) then {
-		_vecsar pushBack [d_vec_wreck_1, 500];
-	};
-	if (d_gmcwg) then {
-		{
-			_vecsar pushBack [_x, 500 + _forEachIndex];
-		} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
-	};
+	{
+		_vecsar pushBack [_x, 500 + _forEachIndex];
+	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
 	_vecsar call d_fnc_initvrespawn2;
 	if (!isNil "d_boat_1") then {
 		execFSM "fsms\fn_Boatrespawn.fsm";
