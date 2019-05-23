@@ -1,7 +1,7 @@
 // by psycho
 #define THIS_FILE "fn_medicequip.sqf"
 #include "..\..\x_setup.sqf"
-params ["_healer", "_injured"];
+params ["_healer"];
 
 if (!local _healer || {_healer distance2D d_FLAG_BASE < 30}) exitWith {};
 
@@ -31,7 +31,7 @@ for "_i" from 1 to (1 + (round random 3)) do {
 	_objs pushBack _band;
 };
 if (random 2 >= 1) then {
-	private _ab_pos = _healer modelToWorld [-0.8,(0.6 - (random 0.4)),0];
+	private _ab_pos = _healer modelToWorld [-0.8, 0.6 - (random 0.4), 0];
 	private _ab = "Land_Antibiotic_F" createVehicle _ab_pos;
 	_ab setDir (random 359);
 	_ab setPos _ab_pos;

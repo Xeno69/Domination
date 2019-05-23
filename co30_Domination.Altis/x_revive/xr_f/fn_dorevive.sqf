@@ -35,6 +35,6 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 	} else {
 		remoteExecCall ["xr_fnc_xcpr", player getVariable "xr_cursorTarget"];
 	};
-	[player, player getVariable "xr_cursorTarget"] call d_fnc_medicequip;
+	[player] call d_fnc_medicequip;
 };
 __TRACE("end")
