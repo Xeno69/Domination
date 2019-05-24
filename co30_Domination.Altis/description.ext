@@ -66,6 +66,9 @@ class Header {
 #ifdef __ROSCHE__
 	maxPlayers = 46;
 #endif
+#ifdef __LIVONIA__
+	maxPlayers = 46;
+#endif
 };
 
 joinUnassigned = false; // auto assign
@@ -318,6 +321,10 @@ class Params {
 		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,31};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","31"};
 #endif
+#ifdef __LIVONIA__
+		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,31};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","31"};
+#endif
 		default = -1;
 	};
 
@@ -355,6 +362,9 @@ class Params {
 		default = 7;
 #endif
 #ifdef __GMCWG__
+		default = 7;
+#endif
+#ifdef __LIVONIA__
 		default = 7;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
@@ -461,6 +471,9 @@ class Params {
 		default = 1;
 #endif
 #ifdef __GMCWG__
+		default = 1;
+#endif
+#ifdef __LIVONIA__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};

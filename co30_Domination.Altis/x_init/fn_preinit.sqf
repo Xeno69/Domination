@@ -18,6 +18,12 @@ d_tanoa = false;
 d_tanoa = true;
 #endif
 
+#ifndef __LIVONIA__
+d_livonia = false;
+#else
+d_true = false;
+#endif
+
 #ifdef __TANOATT__
 d_tt_tanoa = true;
 d_tanoa = true;
@@ -189,6 +195,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __GMCWG__
 #include "x_sm_bonus_vec_ar_gmcwg.sqf"
 #endif
+#ifdef __LIVONIA__
+#include "x_sm_bonus_vec_ar_tanoa.sqf"
+#endif
 #ifdef __TT__
 if (!d_tt_tanoa) then {
 #include "x_sm_bonus_vec_ar_tt.sqf"
@@ -211,6 +220,9 @@ if (!d_tt_tanoa) then {
 
 #ifdef __ALTIS__
 #include "x_mt_bonus_vec_ar_altis.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "x_mt_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __ROSCHE__
 #include "x_mt_bonus_vec_ar_altis.sqf"
@@ -279,7 +291,7 @@ d_x_drop_array =
 		if (d_gmcwg) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", ["gm_ge_army_u1300l_cargo", "gm_ge_army_u1300l_cargo_win"] select d_gmcwgwinter], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
-		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -290,7 +302,7 @@ d_x_drop_array =
 		if (d_ifa3lite) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
 		};
-		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 	};
 #endif
 #ifdef __TT__
@@ -662,6 +674,9 @@ if (_isserv_or_hc) then {
 #ifdef __ALTIS__
 #include "d_allmen_O_default.sqf"
 #endif
+#ifdef __LIVONIA__
+#include "d_allmen_O_tanoa.sqf"
+#endif
 #ifdef __ROSCHE__
 #include "d_allmen_O_default.sqf"
 #endif
@@ -728,6 +743,9 @@ if (!d_tt_tanoa) then {
 	d_specops_E = [
 #ifdef __ALTIS__
 #include "d_specops_O_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_specops_O_tanoa.sqf"
 #endif
 #ifdef __ROSCHE__
 #include "d_specops_O_default.sqf"
@@ -804,6 +822,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ALTIS__
 #include "d_veh_a_O_default.sqf"
 #endif
+#ifdef __LIVONIA__
+#include "d_veh_a_O_tanoa.sqf"
+#endif
 #ifdef __ROSCHE__
 #include "d_veh_a_O_default.sqf"
 #endif
@@ -873,6 +894,9 @@ if (!d_tt_tanoa) then {
 
 #ifdef __ALTIS__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
+#endif
+#ifdef __LIVONIA__
+	d_arti_observer_E = [["O_T_Recon_JTAC_F"]];
 #endif
 #ifdef __ROSCHE__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
@@ -1105,6 +1129,9 @@ if (!d_tt_tanoa) then {
 #ifdef __ALTIS__
 #include "d_sm_classes_default.sqf"
 #endif
+#ifdef __LIVONIA__
+#include "d_sm_classes_default.sqf"
+#endif
 #ifdef __ROSCHE__
 #include "d_sm_classes_default.sqf"
 #endif
@@ -1262,6 +1289,14 @@ if (!d_tt_tanoa) then {
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
 #endif
+#ifdef __LIVONIA__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
+		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
 #ifdef __STRATIS__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
@@ -1398,7 +1433,7 @@ if (hasInterface) then {
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 	call {
-		if (d_tanoa) exitWith {
+		if (d_tanoa || {d_livonia}) exitWith {
 			["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]
 		};
 		if (d_gmcwg) exitWith {
@@ -1415,7 +1450,7 @@ if (hasInterface) then {
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {
-		if (d_tanoa) exitWith {
+		if (d_tanoa || {d_livonia}) exitWith {
 			["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]
 		};
 		if (d_rhs) exitWith {
