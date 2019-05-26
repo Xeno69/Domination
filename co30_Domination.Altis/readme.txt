@@ -15,6 +15,7 @@ Changelogs
 - Changed: Switched back to old draw3D handling again, new one stopped during a mission
 - Changed: Replaced bis_fnc_loop with own system; bis_fnc_loop is not reliable enough.
 - Added: Bloodpool script by lelik for uncon players
+- Changed: Increased size of database colums for bonus vehicles in mission save tables
 
 3.99r
 ATTENTION: Weferlingen Summer and Winter sqm files have changed
