@@ -9,6 +9,8 @@ Changelogs
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
 3.99s
+ADDED: Livonia (Contact expansion) version
+
 - Changed: If a player connects with Global Mobilization in a non GM session disable the GM weapons/items/uniforms/magazines/etc
 - Fixed: When a player created a UAV at a MHQ the UAV crew was not deleted once he dismissed it
 - Fixed: Missing UAV handling applied for all scripts with UAV respawn
