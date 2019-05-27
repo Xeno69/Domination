@@ -18,7 +18,6 @@ private _newgroup = [civilian] call d_fnc_creategroup;
 private _units = [_pos, call d_fnc_getunitlistc, _newgroup] call d_fnc_makemgroup;
 private _leader = leader _newgroup;
 _leader setSkill 1;
-sleep 2.0112;
 _newgroup allowFleeing 0;
 _newgroup deleteGroupWhenEmpty true;
 {
@@ -34,6 +33,7 @@ if (d_with_dynsim == 0) then {
 };
 
 sleep 2.333;
+
 ["specops", 2, "allmen", (floor (random 4)) min 2, _pos, 150, true] spawn d_fnc_CreateInf;
 sleep 2.333;
 [selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _pos, 1, 400, true] spawn d_fnc_CreateArmor;
