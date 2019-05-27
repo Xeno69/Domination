@@ -18,7 +18,7 @@ ADDED: Livonia (Contact expansion) version
 - Changed: Replaced bis_fnc_loop with own system; bis_fnc_loop is not reliable enough.
 - Added: Bloodpool script by lelik for uncon players
 - Changed: Increased size of database colums for bonus vehicles in mission save tables
-- Fixed: Markers did not work for additional vehicles (d_add_vec_ and this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]];)
+- Fixed: Markers did not work for additional vehicles when player side was not defined yet (d_add_vec_ and this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]];)
 
 3.99r
 ATTENTION: Weferlingen Summer and Winter sqm files have changed
