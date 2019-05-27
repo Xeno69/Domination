@@ -64,9 +64,10 @@ _vec setVariable ["d_vcheck", true];
 
 if (_d_vec isEqualType []) exitWith {
 	__TRACE_1("","_d_vec")
-	_d_vec params ["_ma_type", "_ma_text", "_ma_col", ["_vside", d_player_side]];
+	private _p_side = [d_player_side, side (group player)] select (isNil "d_player_side");
+	_d_vec params ["_ma_type", "_ma_text", "_ma_col", ["_vside", _p_side]];
 	__TRACE_2("","_vside","d_player_side")
-	if (_vside == d_player_side) then {
+	if (_vside getFriend _p_side >= 0.6) then {
 		__TRACE_1("","_ma_text")
 		if (_ma_text != "") then {
 			_vec setVariable ["d_ma_text", _ma_text];
