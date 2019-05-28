@@ -20,6 +20,7 @@ ADDED: Livonia (Contact expansion) version
 - Changed: Increased size of database colums for bonus vehicles in mission save tables
 - Fixed: Markers did not work for additional vehicles when player side was not defined yet (d_add_vec_ and this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]];)
 - Fixed: Don't switch on dynamic simulation for civilian prisoners in prisoner sidemissions too early (results in those units dropping dead to the ground)
+- Fixed: On bigger islands like Altis the cutoff time for main target para troops transport choppers was too low resulting in no para drops
 
 3.99r
 ATTENTION: Weferlingen Summer and Winter sqm files have changed

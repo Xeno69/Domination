@@ -61,8 +61,10 @@ private _make_jump = {
 	sleep 10.0231;
 	
 	private _stop_me = false;
-	private _checktime = time + 300;
+	private _checktime = time + 500;
+	__TRACE_1("","_checktime")
 	while {_attackpoint distance2D _vec > 300} do {
+		__TRACE_1("","_attackpoint distance2D _vec")
 		if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {d_should_be_there = d_should_be_there - 1};
 		sleep 0.01;
 		if (d_mt_radio_down && {_attackpoint distance2D (leader _vgrp) > 1300}) exitWith {
@@ -80,18 +82,23 @@ private _make_jump = {
 			};
 		};
 		if (_stop_me) exitWith {};
-		sleep 0.8;
+		sleep 0.7;
 	};
 	if (_stop_me) exitWith {};
-	
+	__TRACE("MT dist loop end")
 	sleep 0.3;
 	
 	if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
 		_driver_vec doMove _heliendpoint;
 		_vec flyInHeight 80;
 		_vgrp setBehaviourStrong "CARELESS";
-		if (!d_mt_radio_down && {_vec distance2D d_cur_tgt_pos < ([500, 700] select (speed _vec > 300))}) then {
+		private _disttt = [500, 700] select (speed _vec > 300);
+		__TRACE_1("","_disttt")
+		__TRACE_1("","_vec distance2D d_cur_tgt_pos")
+		if (!d_mt_radio_down && {_vec distance2D d_cur_tgt_pos < _disttt}) then {
+			__TRACE("Do create para units")
 			private _paragrp = [d_side_enemy] call d_fnc_creategroup;
+			__TRACE_1("","_paragrp")
 			private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 			if (count _real_units < 5) then {
 				while {count _real_units < 5} do {
@@ -105,16 +112,20 @@ private _make_jump = {
 				(0.12 + (random 0.04))
 			};
 			private _nightorfog = call d_fnc_nightfograin;
+			__TRACE_1("","_nightorfog")
 			private _sleeptime = [0.551, 0.15] select (speed _vec > 300);
+			__TRACE_1("","_sleeptime")
 			{
 				private _pposcx = getPosATL _vec;
 				private _one_unit = _paragrp createUnit [_x, [_pposcx # 0, _pposcx # 1, 0], [], 0,"NONE"];
 				[_one_unit] joinSilent _paragrp;
 				__TRACE_1("","_one_unit")
 				private _para = createVehicle [d_non_steer_para, _pposcx, [], 20, "NONE"];
+				__TRACE_1("","_para")
 				_one_unit moveInDriver _para;
 				_para setDir random 360;
 				_pposcx = getPosATL _vec;
+				__TRACE_1("","_pposcx")
 				_para setPos [_pposcx # 0, _pposcx # 1, (_pposcx # 2) - 10];
 				_one_unit call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
@@ -132,7 +143,9 @@ private _make_jump = {
 				d_delinfsm pushBack _one_unit;
 				[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 				sleep _sleeptime;
-				if (!alive _vec) exitWith {};
+				if (!alive _vec) exitWith {
+					__TRACE("vec not alive")
+				};
 			} forEach _real_units;
 			_paragrp deleteGroupWhenEmpty true;
 			__TRACE_1("","_real_units")
@@ -161,7 +174,7 @@ private _make_jump = {
 			sleep 0.112;
 			d_should_be_there = d_should_be_there - 1;
 			
-			_checktime = time + 300;
+			_checktime = time + 500;
 			while {_heliendpoint distance2D _vec > 1000} do {
 				if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {};
 				sleep 1.123;
