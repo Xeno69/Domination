@@ -29,7 +29,13 @@ _newgroup deleteGroupWhenEmpty true;
 d_x_sm_rem_ar pushBack _units;
 
 if (d_with_dynsim == 0) then {
-	_newgroup enableDynamicSimulation true;
+	_newgroup spawn {
+		scriptName "spawn sideprisoners dyn";
+		sleep 20;
+		if (!isNull _this) then {
+			_this enableDynamicSimulation true;
+		};
+	};
 };
 
 sleep 2.333;

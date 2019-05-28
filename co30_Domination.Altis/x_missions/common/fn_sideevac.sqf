@@ -172,7 +172,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 	} else {
 		if (!_enemy_created) then {
 			_enemy_created = true;
-			private _estart_pos = [_poss,250] call d_fnc_GetRanPointCircleOuter;
+			private _estart_pos = [_poss, 250] call d_fnc_GetRanPointCircleOuter;
 			private _unit_array = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 			for "_i" from 1 to ([3,5] call d_fnc_GetRandomRangeInt) do {
 				private _newgroup = [d_enemy_side] call d_fnc_creategroup;
@@ -190,9 +190,6 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 				d_x_sm_rem_ar append _units;
 				{_x triggerDynamicSimulation true} forEach _units;
 				sleep 1.012;
-			};
-			if (d_with_dynsim == 0) then {
-				_owngroup enableDynamicSimulation false;
 			};
 			_unit_array = nil;
 		};
