@@ -34,7 +34,7 @@ _tr_cargo_ar deleteAt d_cargo_selected_index;
 _vec setVariable ["d_CARGO_AR", _tr_cargo_ar, true];
 
 private _pos_to_set = player modelToWorldVisual [0,5,0];
-private _static = _cargo createVehicleLocal [0,0,0];
+private _static = _cargo createVehicleLocal [10, 10, 10];
 _static setPos _pos_to_set;
 _static lock false;
 private _dir_to_set = getDir player;

@@ -5,7 +5,7 @@
 if (isServer) then {
 	if (d_tt_ver || {d_own_side == "WEST"}) then {
 		private _grpen = [blufor] call d_fnc_creategroup;
-		d_hq_logic_blufor1 = _grpen createUnit ["Logic",[0,0,0],[],0,"NONE"];
+		d_hq_logic_blufor1 = _grpen createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_blufor1] joinSilent _grpen;
 		if (d_with_ai) then {
 			_grpen setVariable ["d_do_not_delete", true];
@@ -15,64 +15,64 @@ if (isServer) then {
 		publicVariable "d_hq_logic_blufor1";
 		d_hq_logic_blufor1 setVariable ["d_hq_logic_name", "d_hq_logic_blufor1"];
 		d_hq_logic_blufor1 setVariable ["d_hq_logic_side", blufor];
-		d_hq_logic_blufor1 addEventHandler ["killed",{_this call d_fnc_kEHflogic}];
+		d_hq_logic_blufor1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 		
-		d_hq_logic_blufor2 = _grpen createUnit ["Logic",[0,0,0],[],0,"NONE"];
+		d_hq_logic_blufor2 = _grpen createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_blufor2] joinSilent _grpen;
-		d_hq_logic_blufor2 addEventHandler ["handleDamage",{0}];
+		d_hq_logic_blufor2 addEventHandler ["handleDamage", {0}];
 		d_hq_logic_blufor2 enableSimulationGlobal false;
 		publicVariable "d_hq_logic_blufor2";
 		d_hq_logic_blufor2 setVariable ["d_hq_logic_name", "d_hq_logic_blufor2"];
 		d_hq_logic_blufor2 setVariable ["d_hq_logic_side", blufor];
-		d_hq_logic_blufor2 addEventHandler ["killed",{_this call d_fnc_kEHflogic}];
+		d_hq_logic_blufor2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 	};
 	if (d_tt_ver || {d_own_side == "EAST"}) then {
 		private _grpru = [opfor] call d_fnc_creategroup;
-		d_hq_logic_opfor1 = _grpru createUnit ["Logic",[0,0,0],[],0,"NONE"];
+		d_hq_logic_opfor1 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_opfor1] joinSilent _grpru;
 		if (d_with_ai) then {
 			_grpru setVariable ["d_do_not_delete", true];
 		};
 		_grpru deleteGroupWhenEmpty true;
 		d_hq_logic_opfor1 enableSimulationGlobal false;
-		d_hq_logic_opfor1 addEventHandler ["handleDamage",{0}];
+		d_hq_logic_opfor1 addEventHandler ["handleDamage", {0}];
 		publicVariable "d_hq_logic_opfor1";
 		d_hq_logic_opfor1 setVariable ["d_hq_logic_name", "d_hq_logic_opfor1"];
 		d_hq_logic_opfor1 setVariable ["d_hq_logic_side", opfor];
-		d_hq_logic_opfor1 addEventHandler ["killed",{_this call d_fnc_kEHflogic}];
+		d_hq_logic_opfor1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 		
-		d_hq_logic_opfor2 = _grpru createUnit ["Logic",[0,0,0],[],0,"NONE"];
+		d_hq_logic_opfor2 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_opfor2] joinSilent _grpru;
 		d_hq_logic_opfor2 enableSimulationGlobal false;
-		d_hq_logic_opfor2 addEventHandler ["handleDamage",{0}];
+		d_hq_logic_opfor2 addEventHandler ["handleDamage", {0}];
 		publicVariable "d_hq_logic_opfor2";
 		d_hq_logic_opfor2 setVariable ["d_hq_logic_name", "d_hq_logic_opfor2"];
 		d_hq_logic_opfor2 setVariable ["d_hq_logic_side", opfor];
-		d_hq_logic_opfor2 addEventHandler ["killed",{_this call d_fnc_kEHflogic}];
+		d_hq_logic_opfor2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 	};
 	if (d_own_side == "GUER" || {d_ifa3lite}) then {
 		private _grpru = [independent] call d_fnc_creategroup;
-		d_hq_logic_guer1 = _grpru createUnit ["Logic",[0,0,0],[],0,"NONE"];
+		d_hq_logic_guer1 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_guer1] joinSilent _grpru;
 		if (d_with_ai) then {
 			_grpru setVariable ["d_do_not_delete", true];
 		};
 		_grpru deleteGroupWhenEmpty true;
 		d_hq_logic_guer1 enableSimulationGlobal false;
-		d_hq_logic_guer1 addEventHandler ["handleDamage",{0}];
+		d_hq_logic_guer1 addEventHandler ["handleDamage", {0}];
 		publicVariable "d_hq_logic_guer1";
 		d_hq_logic_guer1 setVariable ["d_hq_logic_name", "d_hq_logic_guer1"];
 		d_hq_logic_guer1 setVariable ["d_hq_logic_side", independent];
-		d_hq_logic_guer1 addEventHandler ["killed",{_this call d_fnc_kEHflogic}];
+		d_hq_logic_guer1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 		
-		d_hq_logic_guer2 = _grpru createUnit ["Logic",[0,0,0],[],0,"NONE"];
+		d_hq_logic_guer2 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_guer2] joinSilent _grpru;
 		d_hq_logic_guer2 enableSimulationGlobal false;
-		d_hq_logic_guer2 addEventHandler ["handleDamage",{0}];
+		d_hq_logic_guer2 addEventHandler ["handleDamage", {0}];
 		publicVariable "d_hq_logic_guer2";
 		d_hq_logic_guer2 setVariable ["d_hq_logic_name", "d_hq_logic_guer2"];
 		d_hq_logic_guer2 setVariable ["d_hq_logic_side", independent];
-		d_hq_logic_guer2 addEventHandler ["killed",{_this call d_fnc_kEHflogic}];
+		d_hq_logic_guer2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 	};
 };
 

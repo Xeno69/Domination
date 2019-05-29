@@ -60,6 +60,10 @@ private _make_jump = {
 	
 	sleep 10.0231;
 	
+	if (d_mt_radio_down) exitWith {
+		[_crew_vec, _vec, 1 + random 1] spawn _delveccrew;
+	};
+	
 	private _stop_me = false;
 	private _checktime = time + 500;
 	__TRACE_1("","_checktime")
@@ -205,9 +209,9 @@ if (d_searchintel # 0 == 1) then {
 private _crews_ar = [];
 private _vecs_ar = [];
 
-for "_i" from 1 to _number_vehicles do {
-	if (d_mt_radio_down) exitWith {_stop_it = true};
-	if (d_cur_tgt_pos distance2D _cur_tgt_pos > 500) exitWith {_stop_it = true};
+private _icounter = 0;
+while {_icounter < _number_vehicles} do {
+	if (d_mt_radio_down || {d_cur_tgt_pos distance2D _cur_tgt_pos > 500}) exitWith {_stop_it = true};
 	private _vgrp = [d_side_enemy] call d_fnc_creategroup;
 	private _heli_type = selectRandom d_transport_chopper;
 	private _spos = [_startpoint # 0, _startpoint # 1, 300];
@@ -221,7 +225,8 @@ for "_i" from 1 to _number_vehicles do {
 	
 	_vgrp deleteGroupWhenEmpty true;
 
-	sleep 5.012;
+	private _etime = time + 5.012;
+	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
 	
 	//_vec flyInHeight 100;
 
@@ -233,7 +238,11 @@ for "_i" from 1 to _number_vehicles do {
 	
 	[_vgrp, _vec, _attackpoint, _flytopos, _heliendpoint, _delveccrew, _crew] spawn _make_jump;
 	
-	sleep 30 + random 30;
+	_icounter = _icounter + 1;
+	if (_icounter == _number_vehicles) exitWith {};
+	
+	_etime = time + 30 + (random 30);
+	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
 };
 
 if (_stop_it) exitWith {
@@ -248,7 +257,11 @@ if (_stop_it) exitWith {
 while {d_should_be_there > 0 && {!d_mt_radio_down}} do {sleep 1.021};
 
 if (!d_mt_radio_down) then {
-	sleep 20.0123;
+	private _etime = time + 20.0123;
+	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
+	if (d_mt_radio_down) exitWith {
+		d_create_new_paras = false;
+	};
 	if !(d_c_attacking_grps isEqualTo []) then {
 		[d_c_attacking_grps] spawn d_fnc_handleattackgroups;
 	} else {

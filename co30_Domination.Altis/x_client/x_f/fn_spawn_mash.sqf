@@ -29,13 +29,13 @@ if (surfaceIsWater [_d_medtent # 0, _d_medtent # 1]) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-private _helper1 = d_HeliHEmpty createVehicleLocal [0,0,0];
+private _helper1 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
 _helper1 setPos [_d_medtent # 0, (_d_medtent # 1) + 4, 0];
-private _helper2 = d_HeliHEmpty createVehicleLocal [0,0,0];
+private _helper2 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
 _helper2 setPos [_d_medtent # 0, (_d_medtent # 1) - 4, 0];
-private _helper3 = d_HeliHEmpty createVehicleLocal [0,0,0];
+private _helper3 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
 _helper3 setPos [(_d_medtent # 0) + 4, _d_medtent # 1, 0];
-private _helper4 = d_HeliHEmpty createVehicleLocal [0,0,0];
+private _helper4 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
 _helper4 setPos [(_d_medtent # 0) - 4, _d_medtent # 1, 0];
 
 if ((abs (((getPosASL _helper1) # 2) - ((getPosASL _helper2) # 2)) > 2) || {(abs (((getPosASL _helper3) # 2) - ((getPosASL _helper4) # 2)) > 2)}) exitWith {

@@ -13,7 +13,7 @@ params ["_pos", "_unit"];
 params ["_pos", "_unit", "_bside"];
 #endif
 __TRACE_2("","_pos","_unit")
-private _box = d_the_box createVehicleLocal [0,0,0];
+private _box = d_the_box createVehicleLocal [10, 10, 10];
 _box setPos _pos;
 __TRACE_2("","_box","_pos")
 player reveal _box;

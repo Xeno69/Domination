@@ -345,11 +345,11 @@ d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
-d_SlopeObject = "Logic" createVehicleLocal [0,0,0];
+d_SlopeObject = "Logic" createVehicleLocal [10, 10, 11];
 
-d_sm_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+d_sm_store = d_HeliHEmpty createVehicleLocal [10, 10, 12];
 
-d_ef_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+d_ef_store = d_HeliHEmpty createVehicleLocal [10, 10, 13];
 d_ef_events = [];
 d_ef_running = -1;
 
@@ -1694,7 +1694,7 @@ if (hasInterface) then {
 	d_clientScriptsAr = [false, false];
 	d_areArtyVecsAvailable = false;
 	d_ao_arty_vecs = [];
-	d_misc_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+	d_misc_store = d_HeliHEmpty createVehicleLocal [10, 10, 14];
 	d_mhqvec_create_cooldown_time = -1;
 	
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];

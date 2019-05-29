@@ -18,10 +18,11 @@ if (isNull _kgrp) then {
 		_kgrp setVariable ["d_do_not_delete", true];
 	};
 };
-private _unit = _kgrp createUnit [typeOf _killed,[0,0,0],[],0,"NONE"];
+private _pkilled = getPos _killed;
+private _unit = _kgrp createUnit [typeOf _killed, _pkilled, [], 0, "NONE"];
 missionNamespace setVariable [_var, _unit];
 [_unit] joinSilent _kgrp;
-_unit addEventHandler ["handleDamage",{0}];
+_unit addEventHandler ["handleDamage", {0}];
 [_unit, false] remoteExecCall ["enableSimulationGlobal", 2];
 publicVariable _var;
 _unit setVariable ["d_hq_logic_name", _var];

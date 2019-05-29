@@ -74,7 +74,7 @@ if (_weapons isEqualTo []) exitwith {
 
 private _callerpos = getPos _callero;
 
-private _logico = d_HeliHEmpty createVehicleLocal [0,0,0];
+private _logico = d_HeliHEmpty createVehicleLocal [10,10,10];
 _logico setPos _lpos;
 __TRACE_1("","_logico")
 

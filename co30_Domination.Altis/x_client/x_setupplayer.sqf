@@ -338,7 +338,7 @@ d_all_p_a_boxes = [];
 
 if !(d_ammo_boxes isEqualTo []) then {
 	{
-		private _boxnew = d_the_box createVehicleLocal [0,0,0];
+		private _boxnew = d_the_box createVehicleLocal [10, 10, 10];
 		_boxnew setPos (_x # 0);
 		[_boxnew] call d_fnc_weaponcargo;
 		_boxnew allowDamage false;
@@ -671,7 +671,7 @@ private _objsasl = [getPosASL D_FLAG_BASE];
 } forEach d_additional_respawn_points;
 
 {
-	private _box = d_the_base_box createVehicleLocal [0,0,0];
+	private _box = d_the_base_box createVehicleLocal [10, 10, 10];
 	_box setDir (_x # 1);
 	_box setPos (_x # 0);
 	if (surfaceIsWater (_x # 0)) then {

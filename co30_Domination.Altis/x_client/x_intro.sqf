@@ -26,7 +26,7 @@ titleText ["", "BLACK IN", 0];
 "BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
 
 private _pspsxx = getPosASL player;
-private _arrow_over_head = "Sign_Arrow_Large_F" createVehicleLocal [0,0,0];
+private _arrow_over_head = "Sign_Arrow_Large_F" createVehicleLocal [10, 10, 10];
 _arrow_over_head setPosASL (_pspsxx vectorAdd [0, 0, 2.2]);
 _arrow_over_head spawn {
 	scriptName "spawn_intro";
