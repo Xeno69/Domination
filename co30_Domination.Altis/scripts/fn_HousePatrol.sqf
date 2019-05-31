@@ -80,7 +80,7 @@ private "_name";
 if (_debug) then {
 	_name = vehicleVarName _unit;
 
-	if (isNil _name) then {
+	if (isNil "_name") then {
 		_name = format ["Guard x%1y%2", floor (_position select 0), floor (_position select 1)];
 	};
 };

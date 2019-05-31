@@ -404,10 +404,8 @@ if (isServer) then {
 	// unique number must be between 3000 and 3999
 	private _choppers = [];
 	{
-		if (!isNil {_x select 0}) then {
-			_choppers pushBack _x;
-		};
-	} forEach [[d_chopper_1,3001,true],[d_chopper_2,3002,true],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,1500],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]];
+		_choppers pushBack _x;
+	} forEach ([[d_chopper_1,3001,true],[d_chopper_2,3002,true],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,1500],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}});
 	if !(_choppers isEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
@@ -416,10 +414,8 @@ if (isServer) then {
 	// new in 3.70  third parameter for MHQ means a message will be displayed for a MHQ if it gets destroyed
 	private _vecsar = [];
 	{
-		if (!isNil {_x select 0}) then {
-			_vecsar pushBack _x;
-		};
-	} forEach [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]];
+		_vecsar pushBack _x;
+	} forEach ([[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x select 0}});
 	{
 		_vecsar pushBack [_x, 500 + _forEachIndex];
 	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});

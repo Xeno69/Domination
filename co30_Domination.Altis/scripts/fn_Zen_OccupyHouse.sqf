@@ -78,7 +78,7 @@ _Zen_ArrayShuffle = {
         for "_i" from 0 to (count _array - 1) do {
                 _j = _i + floor random ((count _array) - _i);
                 _temp = _array select _i;
-                _array set [_i, (_array select _j)];
+                _array set [_i, _array select _j];
                 _array set [_j, _temp];
         };
     };
@@ -219,10 +219,7 @@ if (_doMove) then {
 		scriptName "spawn_zoh_occupyhouse";
 		params ["_units", "_unitIndex"];
 
-        _usedUnits = [];
-        for "_i" from 0 to (_unitIndex - 1) do {
-            _usedUnits pushBack (_units select _i);
-        };
+		_usedUnits = _units select [0, _unitIndex];
 
         while {count _usedUnits > 0} do {
             sleep 1;
@@ -235,14 +232,13 @@ if (_doMove) then {
                 };
             } forEach _usedUnits;
 
-            {
-                _usedUnits deleteAt (_x - _forEachIndex);
-            } forEach _toRemove;
+			_usedUnits = _usedUnits - _toRemove;
         };
     };
 };
 
 _unUsedUnits = [];
+
 for "_i" from _unitIndex to (count _units - 1) step 1 do {
     _unUsedUnits pushBack (_units select _i);
 };

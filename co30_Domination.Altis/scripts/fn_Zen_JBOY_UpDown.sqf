@@ -21,7 +21,7 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 params ["_dude", "_stances"];
-_dude removeAllEventHandlers "FiredNear";
+_dude removeEventHandler ["FiredNear", _thisEventHandler];
 while {alive _dude} do {
 	if (unitPos _dude == _stances select 0) then {
 		_dude setUnitPos (_stances select 1);
