@@ -187,16 +187,16 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
                                 if (_isRoof) then {
                                     (_units select _unitIndex) setUnitPos "MIDDLE";
-									(_units select _unitIndex) addEventHandler ["FiredNear", {
+									(_units select _unitIndex) setVariable ["zen_fn_idx", (_units select _unitIndex) addEventHandler ["FiredNear", {
 										scriptName "spawn_zoh_firednear1";
 										[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-									}];
+									}]];
                                 } else {
                                     (_units select _unitIndex) setUnitPos "UP";
-									(_units select _unitIndex) addEventHandler ["FiredNear", {
+									(_units select _unitIndex) setVariable ["zen_fn_idx",(_units select _unitIndex) addEventHandler ["FiredNear", {
 										scriptName "spawn_zoh_firednear2";
 										[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-									}];
+									}]];
                                 };
 
                                 I(_unitIndex)
