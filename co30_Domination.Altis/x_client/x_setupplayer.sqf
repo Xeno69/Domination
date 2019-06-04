@@ -338,14 +338,13 @@ d_all_p_a_boxes = [];
 
 if !(d_ammo_boxes isEqualTo []) then {
 	{
-		private _boxnew = d_the_box createVehicleLocal [10, 10, 10];
-		_boxnew setPos (_x # 0);
+		private _boxnew = _x # 0;
 		[_boxnew] call d_fnc_weaponcargo;
 		_boxnew allowDamage false;
 		_boxnew enableRopeAttach false;
 #ifdef __TT__
 		if (d_player_side != _x # 2) then {
-			deleteMarkerLocal format ["d_bm_%1", _x # 0];
+			deleteMarkerLocal (_x # 1);
 		};
 #endif
 	} forEach (d_ammo_boxes select {_x isEqualType []});
@@ -665,35 +664,15 @@ if (isNil "d_the_carrier") then {
 	d_the_carrier = [0,0,0];
 };
 
-private _objsasl = [getPosASL D_FLAG_BASE];
 {
-	_objsasl pushBack (_x # 5);
-} forEach d_additional_respawn_points;
-
-{
-	private _box = d_the_base_box createVehicleLocal [10, 10, 10];
-	_box setDir (_x # 1);
-	_box setPos (_x # 0);
-	if (surfaceIsWater (_x # 0)) then {
-		private _apos = _x # 0;
-		_objsasl findIf {
-			private _ret = _x distance2D _box < 200;
-			if (_ret) then {
-				private _posi = [_apos # 0, _apos # 1, _x # 2];
-				_box setPosASL _posi;
-				_box setVariable ["d_box_asl_pos", _posi];
-			};
-			_ret
-		};
-	};
-	player reveal _box;
-	[_box] call d_fnc_weaponcargo;
-	_box enableRopeAttach false;
-	_box enableSimulation false;
+	player reveal _x;
+	[_x] call d_fnc_weaponcargo;
+	_x enableRopeAttach false;
+	_x allowDamage false;
 #ifndef __TT__
-} forEach d_player_ammobox_pos;
+} forEach d_player_ammoboxes;
 #else
-} forEach (d_player_ammobox_pos select ([0, 1] select (d_player_side == opfor)));
+} forEach (d_player_ammoboxes select ([0, 1] select (d_player_side == opfor)));
 #endif
 
 private _dsp46 = findDisplay 46;

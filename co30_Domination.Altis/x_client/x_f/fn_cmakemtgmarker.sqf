@@ -79,7 +79,6 @@ private _fnc_make_trig_mar = {
 		_marcounter = _marcounter + 1;
 		__TRACE_1("","_marcounter")
 	};
-	diag_log ["_marcounter",_marcounter];
 };
 
 [7] call _fnc_make_trig_mar;

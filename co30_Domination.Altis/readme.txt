@@ -8,6 +8,8 @@ Changelogs
 3.99t
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
+- Fixed: Ammo point/ammo load marker was gone
+- Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in upcoming patch prevents using createVehicleLocal)
 
 3.99s
 ADDED: Livonia (Contact expansion) version (WIP)

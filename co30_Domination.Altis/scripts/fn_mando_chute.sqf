@@ -81,7 +81,22 @@ while {alive _chuto && {(getPos _chuto # 2) > 5}} do {
 private _pos_conex = getPos _cone;
 deleteVehicle _cone;
 if (_is_ammo) then {
-	_pos_conex remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
+	private _box = createVehicle [d_the_box, [0, 0, 0], [], 0, "NONE"];
+	_box setPos [_this select 0, _this select 1, 0];
+	clearWeaponCargoGlobal _box;
+	clearMagazineCargoGlobal _box;
+	clearBackpackCargoGlobal _box;
+	clearItemCargoGlobal _box;
+	_box remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
+	if (isNil "d_airboxes") then {
+		d_airboxes = [];
+	};
+	_box setVariable ["d_airboxtime", time + 1800];
+	d_airboxes pushBack _box;
+	_box enableRopeAttach false;
+	_box addEventHandler ["killed",{
+		deleteVehicle (_this select 0);
+	}];
 } else {
 	if (position _man # 2 <= -1) then {
 		private _pos_man = getPos _man;

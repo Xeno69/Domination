@@ -134,12 +134,6 @@ if (isServer) then {
 };
 #endif
 
-if (!hasInterface) then {
-	{
-		deleteMarkerLocal _x;
-	} forEach (allMapMarkers select {_x select [0, 20] isEqualTo "d_player_ammobox_pos"});
-};
-
 if (!isServer) exitWith {};
 
 private _civcenter = createCenter civilian;

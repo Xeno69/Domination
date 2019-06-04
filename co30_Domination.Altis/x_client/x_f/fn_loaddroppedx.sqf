@@ -29,7 +29,10 @@ if (_unit getVariable ["d_ammobox_next", -1] > time) exitWith {[_unit, _caller, 
 private _nobjs = nearestObjects [_unit, [d_the_box], 20];
 if (_nobjs isEqualTo []) exitWith {[_unit, _caller, localize "STR_DOM_MISSIONSTRING_271"] call _chatfunc};
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_272"] call _chatfunc;
-[getPosATL (_nobjs # 0), _unit] remoteExecCall ["d_fnc_RemABox", 2];
+private _box = _nobjs # 0;
+[_box, _unit] remoteExecCall ["d_fnc_RemABoxC"];
+sleep 0.5;
+[_box, _unit] remoteExecCall ["d_fnc_RemABox", 2];
 _unit setVariable ["d_ammobox", true, true];
 _unit setVariable ["d_ammobox_next", time + d_drop_ammobox_time, true];
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_273"] call _chatfunc;

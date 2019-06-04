@@ -77,4 +77,11 @@ while {true} do {
 		} forEach (d_player_created select {!isNull _x});
 		d_player_created = d_player_created - [objNull];
 	};
+	sleep 3;
+	if (!isNil "d_airboxes" && {!(d_airboxes isEqualTo [])}) then {
+		{
+			deleteVehicle _x;
+		} forEach (d_airboxes select {time > _x getVariable ["d_airboxtime", -1]});
+		d_airboxes = d_airboxes - [objNull];
+	};
 };

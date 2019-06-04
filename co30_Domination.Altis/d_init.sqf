@@ -158,32 +158,54 @@ if (d_with_dynsim == 0) then {
 	enableDynamicSimulationSystem false;
 };
 
-if (hasInterface) then {
+if (isServer) then {
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
 	private _allMapMarkers = allMapMarkers select {_x select [0, 20] isEqualTo "d_player_ammobox_pos"};
+	
+	private _fnc_boxset = {
+		params ["_ma"];
+		private _bpos = markerPos _ma;
+		private _box = createVehicle [d_the_base_box, [0, 0, 0], [], 0, "NONE"];
+		_box setPos _bpos;
+		_box setDir (markerDir _ma);
+		if (surfaceIsWater _bpos) then {
+			// we assume it is the carrier
+			private _aslh = d_the_carrier getVariable "d_asl_height";
+			if (!isNil "_aslh") then {
+				_box setPosASL [_bpos # 0, _bpos # 1, _aslh];
+			};
+		};
+		clearWeaponCargoGlobal _box;
+		clearMagazineCargoGlobal _box;
+		clearBackpackCargoGlobal _box;
+		clearItemCargoGlobal _box;
+		_box allowDamage false;
+		_box enableRopeAttach false;
+		_box
+	};
+	
 #ifndef __TT__
-	d_player_ammobox_pos = [];
+	d_player_ammoboxes = [];
 	{
-		d_player_ammobox_pos pushBack [markerPos _x, markerDir _x];
-		deleteMarkerLocal _x;
+		d_player_ammoboxes pushBack ([_x] call _fnc_boxset);
 	} forEach _allMapMarkers;
 #else
-	d_player_ammobox_pos = [[], []];
+	d_player_ammoboxes = [[], []];
 	
-	private _tempar = d_player_ammobox_pos # 1;
+	private _tempar = d_player_ammoboxes # 1;
 	private _rem = _allMapMarkers select {_x select [0, 22] isEqualTo "d_player_ammobox_pos_e"};
 	{
-		_tempar pushBack [markerPos _x, markerDir _x, east];
-		deleteMarkerLocal _x;
+		_tempar pushBack ([_x] call _fnc_boxset);
 	} forEach _rem;
 	_allMapMarkers = _allMapMarkers - _rem;
-	_tempar = d_player_ammobox_pos # 0;
+	
+	_tempar = d_player_ammoboxes # 0;
 	{
-		_tempar pushBack [markerPos _x, markerDir _x, west];
-		deleteMarkerLocal _x;
+		_tempar pushBack ([_x] call _fnc_boxset);
 	} forEach _allMapMarkers;
 #endif
+	publicVariable "d_player_ammoboxes";
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {
@@ -468,7 +490,7 @@ if (!hasInterface) then {
 #ifndef __TT__
 	{
 		[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] isEqualTo "d_wreck_rep"});
+	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
 	if (!isNil "d_jet_trigger") then {
 		["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};
@@ -480,7 +502,7 @@ if (!hasInterface) then {
 	};
 	{
 		[format ["d_Ammobox_Reload%1", _forEachIndex],_x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] isEqualTo "d_AMMOLOAD"});
+	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	if (d_carrier) then {
 		["d_service_point", d_serviceall_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;

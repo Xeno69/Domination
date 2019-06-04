@@ -8,16 +8,14 @@ if (!hasInterface) exitWith {};
 __TRACE_1("","_this")
 
 #ifndef __TT__
-params ["_pos", "_unit"];
+params ["_box", "_unit"];
 #else
-params ["_pos", "_unit", "_bside"];
+params ["_box", "_unit", "_bside"];
 #endif
-__TRACE_2("","_pos","_unit")
-private _box = d_the_box createVehicleLocal [10, 10, 10];
-_box setPos _pos;
-__TRACE_2("","_box","_pos")
+__TRACE_2("","_box","_unit")
 player reveal _box;
 _box allowDamage false;
+_box enableRopeAttach false;
 private _boxcargo = _unit getVariable "d_boxcargo";
 if (isNil "_boxcargo") then {
 #ifndef __TT__

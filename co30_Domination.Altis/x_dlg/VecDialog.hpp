@@ -55,7 +55,7 @@ class D_VecDialog {
 		class LoadAmmoButton: DropAmmoButton {
 			idc = 44452;
 			text = "$STR_DOM_MISSIONSTRING_1325"; 
-			action = "closeDialog 0;[vehicle player, player] call d_fnc_loaddroppedx";
+			action = "closeDialog 0;0 = [vehicle player, player] spawn d_fnc_loaddroppedx";
 			y = 0.53;
 		};
 		class CreateVecCaption: VecDialogCaption2 {
