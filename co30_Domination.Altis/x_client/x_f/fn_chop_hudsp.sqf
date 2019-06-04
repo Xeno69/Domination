@@ -7,9 +7,6 @@ if (!hasInterface) exitWith {};
 
 private ["_chdispx", "_chdispx2"];
 
-//private _helper_h = d_HeliHEmpty createVehicleLocal [0,0,0];
-//_helper_h enableSimulation false;
-
 disableSerialization;
 
 #define __ui_forward "pics\ui_tankdir_forward_ca.paa"
@@ -147,8 +144,6 @@ while {d_player_in_vec} do {
 								_sling_cam cameraEffect ["terminate","back"];
 								camDestroy _sling_cam;
 							};
-							//_helper_h attachTo [_liftobj, [0, 0, 0]];
-							//_helper_h attachTo [_vec, [0, 4, -10]];
 							private _cam_loc = _vec selectionPosition "slingcamera";
 							if (_cam_loc isEqualTo [0,0,0]) then {
 								_cam_loc = _vec selectionPosition "slingload0";
@@ -169,7 +164,6 @@ while {d_player_in_vec} do {
 							
 							_sling_cam = "camera" camCreate (getPosVisual _vec);
 							_sling_cam attachTo [_vec, _cam_loc];
-							//_sling_cam camPreparetarget _helper_h;
 							_sling_cam camPreparetarget _liftobj;
 							_sling_cam camCommitprepared 0;
 							_sling_cam camPrepareFOV 0.9;
@@ -218,7 +212,6 @@ while {d_player_in_vec} do {
 							_sling_cam cameraEffect ["terminate","back"];
 							camDestroy _sling_cam;
 							_sling_cam = objNull;
-							//detach _helper_h;
 							_pip_cam_on = false;
 							_prev_liftobj = objNull;
 						};
@@ -242,7 +235,6 @@ while {d_player_in_vec} do {
 						_sling_cam cameraEffect ["terminate","back"];
 						camDestroy _sling_cam;
 						_sling_cam = objNull;
-						//detach _helper_h;
 						_pip_cam_on = false;
 						_prev_liftobj = objNull;
 					};
@@ -264,7 +256,6 @@ while {d_player_in_vec} do {
 				_sling_cam cameraEffect ["terminate","back"];
 				camDestroy _sling_cam;
 				_sling_cam = objNull;
-				//detach _helper_h;
 				_pip_cam_on = false;
 				_prev_liftobj = objNull;
 			};
@@ -292,5 +283,3 @@ while {d_player_in_vec} do {
 if (d_playerInMHQ) then {
 	d_playerInMHQ = false;
 };
-
-//deleteVehicle _helper_h;

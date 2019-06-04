@@ -14,7 +14,7 @@ private _dist = _pos distance _unit;
 __TRACE_1("Fixheadbug","_dist")
 if (surfaceIsWater _pos) then {_posasl = getPosASL _unit};
 private _dir = getDirVisual _unit;
-private _vec = d_headbug_vehicle createVehicleLocal [10, 10, 10];
+private _vec = d_headbug_vehicle createVehicle [10, 10, 10];
 _vec setPos _pos;
 if (surfaceIsWater _pos) then {_vec setPosASL _posasl};
 _unit moveincargo _vec;

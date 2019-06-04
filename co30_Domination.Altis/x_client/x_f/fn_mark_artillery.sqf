@@ -29,7 +29,7 @@ if (_do_exit) exitWith {};
 __TRACE_1("","_pos_lt")
 
 #ifdef __DEBUG__
-_arrow = "Sign_Arrow_Large_F" createVehicleLocal [0,0,0];
+_arrow = "Sign_Arrow_Large_F" createVehicle [0,0,0];
 _arrow setPos _pos_lt;
 #endif
 

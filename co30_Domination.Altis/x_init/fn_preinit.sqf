@@ -345,7 +345,7 @@ d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
-d_SlopeObject = "Logic" createVehicleLocal [10, 10, 11];
+d_SlopeObject = d_HeliHEmpty createVehicle [0, 0, 0];
 
 // todo replace with createSimpleObjectLocal once available
 d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0]];

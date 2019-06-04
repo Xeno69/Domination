@@ -26,19 +26,6 @@ titleText ["", "BLACK IN", 0];
 "BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
 
 private _pspsxx = getPosASL player;
-private _arrow_over_head = "Sign_Arrow_Large_F" createVehicleLocal [10, 10, 10];
-_arrow_over_head setPosASL (_pspsxx vectorAdd [0, 0, 2.2]);
-_arrow_over_head spawn {
-	scriptName "spawn_intro";
-	private _dir = 0;
-	private _arr = _this;
-	while {!isNull _arr} do {
-		_arr setDir _dir;
-		_dir = _dir + 1;
-		if (_dir == 360) then {_dir = 0};
-		sleep 0.005;
-	};
-};
 
 "dynamicBlur" ppEffectEnable true;
 "dynamicBlur" ppEffectAdjust [6];
@@ -154,7 +141,6 @@ _camera camCommit 18;
 "d_Xlabel" cutRsc ["d_Xlabel", "PLAIN"];
 sleep 6;
 waitUntil {camCommitted _camera};
-deleteVehicle _arrow_over_head;
 player cameraEffect ["terminate","back"];
 camDestroy _camera;
 closeDialog 0;

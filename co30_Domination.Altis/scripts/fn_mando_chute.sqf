@@ -25,8 +25,8 @@ private _dir = getDir _chuto;
 _chuto setDir _dir;
 private _posc = getPosASL _chuto;
 
-//_cone = "RoadCone_F" createVehicleLocal [10,10,10];//Sign_F
-private _cone = "Land_ClutterCutter_small_F" createVehicleLocal [10,10,10];
+//_cone = "RoadCone_F" createVehicle [10,10,10];//Sign_F
+private _cone = "Land_ClutterCutter_small_F" createVehicle [10,10,10];
 _cone setDir _dir;
 _cone setPosASL [_posc # 0, _posc # 1, (_posc # 2) - 2];
 _posc = getPosASL _cone;
@@ -70,7 +70,7 @@ while {alive _chuto && {(getPos _chuto # 2) > 5}} do {
 		detach _man;
 		_detached = true;
 		private _pos_man = position _man;
-		private _helper1 = d_HeliHEmpty createVehicleLocal [0, 0, 0];
+		private _helper1 = d_HeliHEmpty createVehicle [0, 0, 0];
 		_helper1 setPos [_pos_man # 0, _pos_man # 1, 0];
 		_man setPos [_pos_man # 0, _pos_man # 1, 0];
 		_man setVectorUp (vectorUp  _helper1);
@@ -101,7 +101,7 @@ if (_is_ammo) then {
 	if (position _man # 2 <= -1) then {
 		private _pos_man = getPos _man;
 		_pos_man set [2, 0];
-		private _helper1 = d_HeliHEmpty createVehicleLocal _pos_man;
+		private _helper1 = d_HeliHEmpty createVehicle _pos_man;
 		_helper1 setPos _pos_man;
 		_man setPos _pos_man;
 		_man setVectorUp (vectorUp  _helper1);

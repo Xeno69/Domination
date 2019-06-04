@@ -42,13 +42,13 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 20)})
 	d_commandingMenuIniting = false;
 };
 
-private _helper1 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
+private _helper1 = d_HeliHEmpty createVehicle [10, 10, 10];
 _helper1 setPos [_d_farp_pos # 0, (_d_farp_pos # 1) + 4, 0];
-private _helper2 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
+private _helper2 = d_HeliHEmpty createVehicle [10, 10, 10];
 _helper2 setPos [_d_farp_pos # 0, (_d_farp_pos # 1) - 4, 0];
-private _helper3 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
+private _helper3 = d_HeliHEmpty createVehicle [10, 10, 10];
 _helper3 setPos [(_d_farp_pos # 0) + 4, _d_farp_pos # 1, 0];
-private _helper4 = d_HeliHEmpty createVehicleLocal [10, 10, 10];
+private _helper4 = d_HeliHEmpty createVehicle [10, 10, 10];
 _helper4 setPos [(_d_farp_pos # 0) - 4, _d_farp_pos # 1, 0];
 
 private _exit_it = false;
