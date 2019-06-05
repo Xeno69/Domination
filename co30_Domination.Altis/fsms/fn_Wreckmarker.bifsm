@@ -42,7 +42,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -338,7 +338,7 @@ class GraphItems
 	};
 	class Item13
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=161.28371;
 		Top=1516.5974;
@@ -349,7 +349,7 @@ class GraphItems
 		{
 			Text="Create Marker";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -357,7 +357,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=13;
-				InitCode="private _mname = format [""%1_%2"", _vec, time];" \n "private _sav_pos = getPosWorld _vec;" \n "_sav_pos set [2, 0];" \n "_vec setPos _sav_pos;" \n "_vec setVelocity [0,0,0];" \n "[_mname, _sav_pos,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [typeOf _vec, ""CfgVehicles""] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != -1);" \n "" \n "";
+				InitCode="private _mname = format [""%1_%2"", _vec, time];" \n "private _sav_pos = getPosWorld _vec;" \n "_sav_pos set [2, 0];" \n "_vec setPos _sav_pos;" \n "_vec setVelocity [0,0,0];" \n "[_mname, _vec,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [typeOf _vec, ""CfgVehicles""] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != -1);" \n "" \n "";
 			};
 		};
 	};
@@ -478,7 +478,7 @@ class GraphItems
 		{
 			Text="Pickup loop";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -517,7 +517,7 @@ class GraphItems
 	};
 	class Item20
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=164.19768;
 		Top=1909.0162;
@@ -582,7 +582,7 @@ class GraphItems
 			Text="timecheck" \n "for delete";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -1270,7 +1270,7 @@ class Globals
 	PZoomBottom=2176.2856;
 	PZoomTop=1125.7461;
 	Clxs=757;
-	Clys=894;
+	Clys=1254;
 	Aspect=1;
 };
 class Window
@@ -1280,10 +1280,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=130;
-	Top=130;
-	Right=1090;
-	Bottom=848;
+	Left=182;
+	Top=182;
+	Right=1142;
+	Bottom=900;
 	ShowCmd=3;
 	SplitPos=775;
 };

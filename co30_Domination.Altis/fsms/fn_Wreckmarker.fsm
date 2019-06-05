@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Wreckmarker">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Wreckmarker">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,158.255112,934.853210,248.255127,984.853210,0.000000,"Start"};
@@ -14,14 +14,14 @@ item9[] = {"Speed_to_high",4,218,28.564133,1282.291504,118.564133,1332.291504,1.
 item10[] = {"Sleep_1",2,250,-75.594696,1324.741089,14.405330,1374.741089,0.000000,"Sleep"};
 item11[] = {"Delay_1",4,218,32.045158,1383.616333,122.045067,1433.616333,0.000000,"Delay 1"};
 item12[] = {"Speed_ok",8,218,161.095062,1428.074341,251.095062,1478.074341,0.000000,"Speed ok"};
-item13[] = {"Create_Marker",2,250,161.283707,1516.597412,251.283722,1566.597412,0.000000,"Create Marker"};
+item13[] = {"Create_Marker",2,4346,161.283707,1516.597412,251.283722,1566.597412,0.000000,"Create Marker"};
 item14[] = {"Wait_for_Pickup",4,218,24.718124,1640.850464,114.718170,1690.850464,1.000000,"Wait for Pickup"};
 item15[] = {"Sleep_2",2,250,-100.447342,1698.115723,-10.447346,1748.115723,0.000000,"Sleep"};
 item16[] = {"Delay_3",4,218,27.990425,1751.290649,117.990463,1801.290649,0.000000,"Delay 3"};
 item17[] = {"Pickup",8,218,162.855377,1609.740479,252.855377,1659.740479,0.000000,"Pickup"};
 item18[] = {"Pickup_loop",2,250,161.427368,1704.059082,251.427307,1754.059082,0.000000,"Pickup loop"};
 item19[] = {"Picked_up",8,218,122.274384,1799.229248,212.274384,1849.229248,0.000000,"Picked up"};
-item20[] = {"Main_End",1,4346,164.197678,1909.016235,254.197678,1959.016235,0.000000,"Main End"};
+item20[] = {"Main_End",1,250,164.197678,1909.016235,254.197678,1959.016235,0.000000,"Main End"};
 item21[] = {"isNull__vec",4,218,430.420685,924.520386,520.420654,974.520386,20.000000,"isNull _vec"};
 item22[] = {"timecheck_for_de",4,218,247.171082,1799.056274,337.171082,1849.056274,2.000000,"timecheck" \n "for delete"};
 item23[] = {"_",2,250,429.571808,790.827515,519.571777,840.827515,0.000000,""};
@@ -71,8 +71,8 @@ link34[] = {28,13};
 link35[] = {29,30};
 link36[] = {30,31};
 link37[] = {31,18};
-globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2176.285645,1125.746094,757,894,1};
-window[] = {2,-1,-1,-1,-1,848,130,1090,130,3,775};
+globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2176.285645,1125.746094,757,1254,1};
+window[] = {2,-1,-1,-1,-1,900,182,1142,182,3,775};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -283,7 +283,7 @@ class FSM
                          "_sav_pos set [2, 0];" \n
                          "_vec setPos _sav_pos;" \n
                          "_vec setVelocity [0,0,0];" \n
-                         "[_mname, _sav_pos,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [typeOf _vec, ""CfgVehicles""] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n
+                         "[_mname, _vec,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [typeOf _vec, ""CfgVehicles""] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n
                          "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != -1);" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
