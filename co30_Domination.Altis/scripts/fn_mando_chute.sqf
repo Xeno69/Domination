@@ -82,7 +82,7 @@ private _pos_conex = getPos _cone;
 deleteVehicle _cone;
 if (_is_ammo) then {
 	private _box = createVehicle [d_the_box, [0, 0, 0], [], 0, "NONE"];
-	_box setPos [_this select 0, _this select 1, 0];
+	_box setPos _target_pos;
 	clearWeaponCargoGlobal _box;
 	clearMagazineCargoGlobal _box;
 	clearBackpackCargoGlobal _box;
