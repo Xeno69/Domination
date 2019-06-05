@@ -20,6 +20,7 @@ if (count _tr_cargo_ar >= d_max_truck_cargo) exitWith {
 private _cargo = nearestObject [_vec, "StaticWeapon"];
 if (isNull _cargo) exitWith {hintSilent (localize "STR_DOM_MISSIONSTRING_70")};
 if (!alive _cargo) exitWith {hintSilent (localize "STR_DOM_MISSIONSTRING_71")};
+
 private _cargo_type = typeOf _cargo;
 private _type_name = [_cargo_type, "CfgVehicles"] call d_fnc_GetDisplayName;
 if (_cargo distance2D _vec > 10) exitwith {hintSilent format [localize "STR_DOM_MISSIONSTRING_72", _type_name]};
