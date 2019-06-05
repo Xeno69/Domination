@@ -463,6 +463,17 @@ if (isNil "d_cas_available_time") then {
 
 d_non_steer_para = "NonSteerable_Parachute_F";
 
+d_the_box = switch (d_own_side) do {
+	case "GUER": {"Box_IND_Wps_F"};
+	case "EAST": {"Box_East_Wps_F"};
+	case "WEST": {"Box_NATO_Wps_F"};
+};
+d_the_base_box = switch (d_own_side) do {
+	case "GUER": {"I_supplyCrate_F"};//Box_IND_WpsSpecial_F
+	case "EAST": {"O_supplyCrate_F"};//Box_East_WpsSpecial_F
+	case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
+};
+
 private _confmapsize = call {
 	if !(markerPos "d_whole_island" isEqualTo [0,0,0]) exitWith {
 		private _ret = (markerSize "d_whole_island" # 0) * 2;
@@ -620,17 +631,6 @@ if (isServer) then {
 	d_house_objects2 = [];
 	
 	calculatePlayerVisibilityByFriendly false;
-	
-	d_the_box = switch (d_own_side) do {
-		case "GUER": {"Box_IND_Wps_F"};
-		case "EAST": {"Box_East_Wps_F"};
-		case "WEST": {"Box_NATO_Wps_F"};
-	};
-	d_the_base_box = switch (d_own_side) do {
-		case "GUER": {"I_supplyCrate_F"};//Box_IND_WpsSpecial_F
-		case "EAST": {"O_supplyCrate_F"};//Box_East_WpsSpecial_F
-		case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
-	};
 	
 	if (d_weather == 0) then {
 			0 setOvercast (random 1);
