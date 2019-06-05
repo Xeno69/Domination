@@ -24,7 +24,6 @@ d_vrespawn2_ar = [];
 		
 		_vec setVariable ["d_OUT_OF_SPACE", -1];
 		_vec setVariable ["d_vec", _number_v, true];
-		_vec setAmmoCargo 0;
 		_vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 #ifdef __TT_
 		if (_number_v < 1000) then {

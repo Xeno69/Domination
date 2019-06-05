@@ -11,6 +11,7 @@ Changelogs
 - Fixed: Ammo point/ammo load marker was gone
 - Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in upcoming patch prevents using createVehicleLocal)
 - Changed: Removed all createVehicleLocal occurences for upcoming BI security change, see above)
+- Fixed: Ammo cargo was removed from all vehicles including ammo vehicles :/
 
 3.99s
 ADDED: Livonia (Contact expansion) version (WIP)

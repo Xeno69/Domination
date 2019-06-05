@@ -124,7 +124,6 @@ if (_d_vec < 100) exitWith {
 	};
 #endif
 	_vec setVariable ["d_vec_type", "MHQ"];
-	_vec setAmmoCargo 0;
 #ifdef __TT__
 	__sidew;
 	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver}];
@@ -157,7 +156,6 @@ if (_d_vec < 200) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 #ifdef __TT__
 	__sidew;
 	__checkenterer;
@@ -190,7 +188,6 @@ if (_d_vec < 300) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 #ifdef __TT__
 	__sidew;
 	__checkenterer;
@@ -229,7 +226,6 @@ if (_d_vec < 400) exitWith {
 		_vec addEventHandler ["getin", {_this call d_fnc_checktrucktrans}];
 	};
 	_vec setVariable ["d_vec_type", "Engineer"];
-	_vec setAmmoCargo 0;
 #ifdef __TT__
 	__sidew;
 	if (d_player_side != blufor) then {
@@ -261,7 +257,6 @@ if (_d_vec < 500) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 #ifdef __TT__
 	__sidew;
 	__checkenterer;
@@ -295,7 +290,6 @@ if (_d_vec < 600) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 #ifdef __TT__
 	__sidew;
 	if (d_player_side != blufor) then {
@@ -326,7 +320,6 @@ if (_d_vec < 1100) exitWith {
 		_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false, true, "", "true", 7];
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
-	_vec setAmmoCargo 0;
 	__sidee;
 	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver}];
 	if (d_player_side != opfor) then {
@@ -351,7 +344,6 @@ if (_d_vec < 1200) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 	__sidee;
 	__checkenterer;
 	if (d_player_side != opfor) then {
@@ -373,7 +365,6 @@ if (_d_vec < 1300) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 	__sidee;
 	__checkenterer;
 	if (d_player_side != opfor) then {
@@ -401,7 +392,6 @@ if (_d_vec < 1400) exitWith {
 		_vec addEventHandler ["getin", {_this call d_fnc_checktrucktrans}];
 	};
 	_vec setVariable ["d_vec_type", "Engineer"];
-	_vec setAmmoCargo 0;
 	__sidee;
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
@@ -422,7 +412,6 @@ if (_d_vec < 1500) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 	__sidee;
 	__checkenterer;
 	if (d_player_side != opfor) then {
@@ -444,7 +433,6 @@ if (_d_vec < 1600) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setAmmoCargo 0;
 	__sidew;
 	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver_wreck}];
 	if (d_player_side != opfor) then {

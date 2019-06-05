@@ -99,7 +99,6 @@ while {true} do {
 			_vec_a set [0, _vec];
 			_vec setVariable ["d_OUT_OF_SPACE", -1];
 			_vec setVariable ["d_vec", _number_v, true];
-			_vec setAmmoCargo 0;
 			_vec setVariable ["d_vec_islocked", _isitlocked];
 			if (_isitlocked) then {_vec lock true};
 			if (_vec isKindOf "Air") then {

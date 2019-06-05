@@ -10,8 +10,7 @@ if (!isServer) exitWith{};
 	private _vec = _x;
 
 	_vec setVariable ["d_OUT_OF_SPACE", -1];
-	
-	_vec setAmmoCargo 0;
+
 	_vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 	
 	_vec setVariable ["d_WreckMaxRepair", 10000000, true];
