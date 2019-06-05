@@ -97,6 +97,11 @@ if (_is_ammo) then {
 	_box addEventHandler ["killed",{
 		deleteVehicle (_this select 0);
 	}];
+#ifndef __TT__
+	private _mname = format ["d_ab_%1", _box];
+	[_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
+	_box setVariable ["d_mname", _mname];
+#endif
 } else {
 	if (position _man # 2 <= -1) then {
 		private _pos_man = getPos _man;

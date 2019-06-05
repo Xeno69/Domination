@@ -15,14 +15,14 @@ clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box allowDamage false;
 _box enableRopeAttach false;
-private _mname = format ["d_bm_%1", _box_pos];
+private _mname = format ["d_bm_%1", _box];
 #ifndef __TT__
 d_ammo_boxes pushBack [_box, _mname];
 #else
 d_ammo_boxes pushBack [_box, _mname, _this select 2];
 #endif
 publicVariable "d_ammo_boxes";
-[_mname, _box_pos, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
+[_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
 _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_this select 2 == blufor)];
 #endif

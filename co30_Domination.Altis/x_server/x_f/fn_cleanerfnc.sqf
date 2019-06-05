@@ -80,6 +80,10 @@ while {true} do {
 	sleep 3;
 	if (!isNil "d_airboxes" && {!(d_airboxes isEqualTo [])}) then {
 		{
+			private _mname = _x getVariable "d_mname";
+			if (!isNil "_mname") then {
+				deleteMarker _mname;
+			};
 			deleteVehicle _x;
 		} forEach (d_airboxes select {time > _x getVariable ["d_airboxtime", -1]});
 		d_airboxes = d_airboxes - [objNull];

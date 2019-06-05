@@ -669,6 +669,7 @@ if (isNil "d_the_carrier") then {
 	[_x] call d_fnc_weaponcargo;
 	_x enableRopeAttach false;
 	_x allowDamage false;
+	[format ["d_pab_%1", _x], _x, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerLocal;
 #ifndef __TT__
 } forEach d_player_ammoboxes;
 #else
