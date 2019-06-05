@@ -999,7 +999,15 @@ if (d_with_ace) then {
 d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
+		diag_log ["CuratorObjectPlaced", _this, group (_this select 1)];
 		addToRemainsCollector [_this select 1];
+		if (d_with_ai) then {
+			private _grp = group (_this select 1);
+			if (!isNull _grp && {side _group in d_own_sides_o && {isNil {_group getVariable "d_do_not_delete"}}}) then {
+				[_grp, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+				_grp setVariable ["d_do_not_delete", true];
+			};
+		};
 	}];
 } forEach allCurators;
 #endif
