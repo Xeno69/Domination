@@ -25,8 +25,7 @@ private _dir = getDir _chuto;
 _chuto setDir _dir;
 private _posc = getPosASL _chuto;
 
-//_cone = "RoadCone_F" createVehicle [10,10,10];//Sign_F
-private _cone = "Land_ClutterCutter_small_F" createVehicle [10,10,10];
+private _cone = "RoadCone_L_F" createVehicle [10,10,10];
 _cone setDir _dir;
 _cone setPosASL [_posc # 0, _posc # 1, (_posc # 2) - 2];
 _posc = getPosASL _cone;
