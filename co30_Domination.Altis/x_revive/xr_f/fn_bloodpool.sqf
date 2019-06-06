@@ -6,7 +6,7 @@ params ["_injured"];
 
 private _bp = objNull;
 private _bp_pos = _injured modelToWorldWorld [0,0,0];
-private _class = selectRandom[
+private _class = selectRandom [
     "a3\Props_F_Orange\Humanitarian\Garbage\BloodPool_01_Large_F.p3d",
 	"a3\Props_F_Orange\Humanitarian\Garbage\BloodPool_01_Medium_F.p3d",
 	"a3\Props_F_Orange\Humanitarian\Garbage\BloodSplatter_01_Large_F.p3d",

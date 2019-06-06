@@ -13,6 +13,7 @@ Changelogs
 - Changed: Removed all createVehicleLocal occurences for upcoming BI security change, see above)
 - Fixed: Ammo cargo was removed from all vehicles including ammo vehicles :/
 - Fixed: If With AI was enabled Zeus placed groups on the player side got deleted shortly after the placement
+- Changed: More use of simple objects
 
 3.99s
 ADDED: Livonia (Contact expansion) version (WIP)
