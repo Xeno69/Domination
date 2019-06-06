@@ -1002,9 +1002,8 @@ d_last_placed_zeus_obj = objNull;
 		addToRemainsCollector [_this select 1];
 		private _grp = group (_this select 1);
 		if (!isNull _grp) then {
-			if (isNil {_grp getVariable "d_del_grp_empty"}) then {
+			if (!isGroupDeletedWhenEmpty _grp) then {
 				_grp deleteGroupWhenEmpty true;
-				_grp setVariable ["d_del_grp_empty", true];
 			};
 			if (d_with_ai && {side _grp in d_own_sides_o && {isNil {_grp getVariable "d_do_not_delete"}}}) then {
 				[_grp, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
