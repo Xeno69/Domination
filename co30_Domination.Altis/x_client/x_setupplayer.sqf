@@ -1000,9 +1000,13 @@ d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
 		addToRemainsCollector [_this select 1];
-		if (d_with_ai) then {
-			private _grp = group (_this select 1);
-			if (!isNull _grp && {side _group in d_own_sides_o && {isNil {_group getVariable "d_do_not_delete"}}}) then {
+		private _grp = group (_this select 1);
+		if (!isNull _grp) then {
+			if (isNil {_grp getVariable "d_del_grp_empty"}) then {
+				_grp deleteGroupWhenEmpty true;
+				_grp setVariable ["d_del_grp_empty", true];
+			};
+			if (d_with_ai && {side _grp in d_own_sides_o && {isNil {_grp getVariable "d_do_not_delete"}}}) then {
 				[_grp, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
 				_grp setVariable ["d_do_not_delete", true];
 			};
