@@ -36,6 +36,9 @@ _vec setVariable ["d_CARGO_AR", _tr_cargo_ar, true];
 private _pos_to_set = player modelToWorldVisualWorld [0,5,0];
 //private _pos_to_set = player modelToWorldVisualWorld [0,5,0];
 // TODO replace with local version of createSimpleObject
+//private _static = createSimpleObject [_cargo, _pos_to_set, true];
+//_static setPosASL _pos_to_set;
+//_static setVectorUp (surfaceNormal _pos_to_set);
 //private _static = [_cargo, _pos_to_set, getDir player, true] call BIS_fnc_createSimpleObject;
 private _static = _cargo createVehicleLocal [10, 10, 10];
 _static setPos _pos_to_set;
