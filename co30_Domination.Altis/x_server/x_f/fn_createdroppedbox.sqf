@@ -15,6 +15,7 @@ clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box allowDamage false;
 _box enableRopeAttach false;
+_box enableSimulationGlobal false;
 private _mname = format ["d_bm_%1", _box];
 #ifndef __TT__
 d_ammo_boxes pushBack [_box, _mname];

@@ -182,6 +182,7 @@ if (isServer) then {
 		clearItemCargoGlobal _box;
 		_box allowDamage false;
 		_box enableRopeAttach false;
+		_box enableSimulationGlobal false;
 		_box
 	};
 	

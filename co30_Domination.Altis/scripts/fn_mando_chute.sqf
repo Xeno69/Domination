@@ -93,6 +93,7 @@ if (_is_ammo) then {
 	_box setVariable ["d_airboxtime", time + 1800];
 	d_airboxes pushBack _box;
 	_box enableRopeAttach false;
+	_box enableSimulationGlobal false;
 	_box addEventHandler ["killed",{
 		deleteVehicle (_this select 0);
 	}];
