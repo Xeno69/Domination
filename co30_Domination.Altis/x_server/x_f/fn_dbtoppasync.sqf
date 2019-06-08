@@ -5,21 +5,14 @@
 
 while {true} do {
 	sleep 600;
-	private ["_uid", "_pa", "_ps", "_usc", "_t_ps", "_infkills", "_softveckills", "_armorkills", "_airkills", "_deaths", "_totalscore", "_playtime", "_zeros"];
+	private ["_uid", "_pa", "_ps", "_usc", "_t_ps", "_infkills", "_softveckills", "_armorkills", "_airkills", "_deaths", "_totalscore", "_playtime"];
 	{
 		if (!isNull _x) then {
 			_uid = getPlayerUID _x;
 			_pa = d_player_store getVariable _uid;
 			if (!isNil "_pa") then {
 				_ps = getPlayerScores _x;
-				if !(_ps isEqualTo []) then {
-					_zeros = 0;
-					{
-						if (_x == 0) then {
-							_zeros = _zeros + 1;
-						};
-					} forEach _ps;
-					if (_zeros == count _ps) exitWith {};
+				if !(_ps isEqualTo [] && {!(_ps isEqualTo [0, 0, 0, 0, 0, 0])}) then {
 					_usc = _uid + "_scores";
 					_t_ps = d_player_store getVariable [_usc, [0, 0, 0, 0, 0, 0]];
 					_infkills = (_ps # 0) - (_t_ps # 0);
@@ -37,6 +30,10 @@ while {true} do {
 					_pa set [1, time];
 
 					__TRACE_1("","_playtime")
+					
+					if (_totalscore <= 0) exitWith {
+						diag_log ["DOM playerdisconnected _totalscore <= 0"];
+					};
 					
 #ifndef __INTERCEPTDB__
 					"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid];

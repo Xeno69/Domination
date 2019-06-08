@@ -36,14 +36,7 @@ __TRACE_1("","_scpl")
 __TRACE_1("","getPlayerScores _unit")
 __TRACE_1("","_ps")
 diag_log ["DOM playerdisconnected _pa", _pa, " _ps", _ps, " _scpl", _scpl];
-if (_ps isEqualTo []) exitWith {};
-private _zeros = 0;
-{
-	if (_x == 0) then {
-		_zeros = _zeros + 1;
-	};
-} forEach _ps;
-if (_zeros == count _ps) exitWith {};
+if (_ps isEqualTo [] || {_ps isEqualTo [0, 0, 0, 0, 0, 0]}) exitWith {};
 //  [infantry kills, soft vehicle kills, armor kills, air kills, deaths, total score]
 private _usc = _uid + "_scores";
 private _t_ps = d_player_store getVariable [_usc, [0, 0, 0, 0, 0, 0]];
