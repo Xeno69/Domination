@@ -11,8 +11,8 @@ private _wfunc = if (_mode isEqualTo 0) then {
 	d_fnc_GetRanPointCircleOuter
 };
 private _wp_a = [];
-_wp_a resize 100;
-for "_i" from 0 to 99 do {
+_wp_a resize 60;
+for "_i" from 0 to 59 do {
 	private _point = [_tc, _radius, _sizem, _maxgrad, _gradar] call _wfunc;
 	if (_point isEqualTo []) then {
 		for "_e" from 0 to 99 do {
@@ -20,20 +20,20 @@ for "_i" from 0 to 99 do {
 			if !(_point isEqualTo []) exitWith {
 				_wp_a set [_i, _point];
 #ifdef __DEBUG__
-				[str _point, _point, "ICON", "ColorBlue", [0.5, 0.5], "", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+				[str _point, _point, "ICON", "ColorBlue", [0.5, 0.5], str _sizem, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 			};
 		};
 		if (_point isEqualTo []) then {
 			_wp_a set [_i, _tc];
 #ifdef __DEBUG__
-			[str _tc, _tc, "ICON", "ColorBlue", [0.5, 0.5], "", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+			[str _tc, _tc, "ICON", "ColorBlue", [0.5, 0.5], str _sizem, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 		};
 	} else {
 		_wp_a set [_i, _point];
 #ifdef __DEBUG__
-		[str _point, _point, "ICON", "ColorBlue", [0.5, 0.5], "", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+		[str _point, _point, "ICON", "ColorBlue", [0.5, 0.5], str _sizem, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 	};
 };

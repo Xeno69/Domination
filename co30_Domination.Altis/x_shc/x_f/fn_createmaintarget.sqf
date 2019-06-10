@@ -70,7 +70,7 @@ __TRACE_1("","_this")
 
 d_groups_respawn_time_add = 0;
 //limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
-d_num_barracks_objs = ((ceil random 5) max 3) min d_enemy_max_barracks_count;
+d_num_barracks_objs = ((ceil random 6) max 4) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 private ["_iccount", "_ecounter", "_poss"];
@@ -109,6 +109,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_allbars pushBack _vec;
 	__TRACE_1("d_barracks_building","_vec")
 	_vec setPos _poss;
+	_vec setVectorUp (surfaceNormal _poss);
 	_vec setVariable ["d_v_pos", getPos _vec];
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
@@ -184,8 +185,16 @@ private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getw
 
 sleep 0.112;
 
+private _fnc_dospawnr = {
+	if !(_this in ["tank", "tracked_apc"]) then {
+		random 100 > 20
+	} else {
+		selectrandom [0, 1] == 1
+	};
+};
+
 {
-	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+	if ((_x # 0) call _fnc_dospawnr) then {
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
@@ -199,7 +208,7 @@ sleep 0.112;
 sleep 0.233;
 
 {
-	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+	if ((_x # 0) call _fnc_dospawnr) then {
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
@@ -220,7 +229,7 @@ sleep 0.233;
 } forEach (_type_list_guard_static2 select {_x # 2 > 0});
 
 {
-	if (!((_x # 0) in ["tank", "tracked_apc"]) || {random 100 > 50}) then {
+	if ((_x # 0) call _fnc_dospawnr) then {
 		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;

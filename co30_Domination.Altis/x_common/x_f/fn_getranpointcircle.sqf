@@ -11,7 +11,7 @@ __TRACE_1("","_this")
 params ["_rcenter", "_rradius", ["_mindist", 2], ["_maxgrad", 0.7], ["_gradar", 4]];
 __TRACE_2("","_rcenter","_rradius")
 private _ret_val = [];
-for "_co" from 0 to 150 do {
+for "_co" from 0 to 99 do {
 	//private _isFlat = ([[[_rcenter, _rradius]]] call BIS_fnc_randomPos) isFlatEmpty [
 	private _isFlat = (_rcenter getPos [_rradius * sqrt random 1, random 360]) isFlatEmpty [
 		_mindist,	//--- Minimal distance from another object

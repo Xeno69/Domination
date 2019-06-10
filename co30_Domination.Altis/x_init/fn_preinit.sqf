@@ -1418,7 +1418,7 @@ if (!d_tt_tanoa) then {
 		// inf base time, inf min time, vehicle base time, vehicle min time, all in seconds
 		// means, inf base time minus number of players but at least wait 130 to respawn a group, same for vehicles
 		// can also be put into the dom_settings in Domination sql DB
-		d_ai_groups_respawn_time = [290, 170, 360, 200];
+		d_ai_groups_respawn_time = [260, 160, 330, 180];
 	};
 };
 

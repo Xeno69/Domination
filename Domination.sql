@@ -111,7 +111,7 @@ INSERT INTO `dom_settings` (`name`, `value`) VALUES
 	('d_ranked_a', '[20,[3,2,1,0],10,3,10,10,20,3,["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"],30,400,10,200,20,10,5,20,4,1,20,20,10,20]'),
 	('d_points_needed', '[20,50,90,140,200,270,500]'),
 	('d_points_needed_db', '[500,2000,5000,9000,14000,20000,30000]'),
-	('d_ai_groups_respawn_time', '[290,170,360,200]'),
+	('d_ai_groups_respawn_time', '[260,160,330,180]'),
 	('d_set_pl_score_db', 'true');
 /*!40000 ALTER TABLE `dom_settings` ENABLE KEYS */;
 
