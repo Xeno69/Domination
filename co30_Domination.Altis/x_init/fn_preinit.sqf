@@ -638,46 +638,48 @@ if (isServer) then {
 	calculatePlayerVisibilityByFriendly false;
 	
 	if (d_weather == 0) then {
-			0 setOvercast (random 1);
-			if (d_enable_fog == 0) then {
-				private _fog = if (random 100 > 90) then {
-					[random 0.1, 0.2, 20 + (random 40)]
-				} else {
-					[0,0,0]
-				};
-				__TRACE_1("","_fog")
-				0 setFog _fog;
+		0 setOvercast (random 1);
+		if (d_enable_fog == 0) then {
+			private _fog = if (random 100 > 90) then {
+				[random 0.1, 0.2, 20 + (random 40)]
 			} else {
-				0 setFog [0, 0, 0];
-				0 spawn {
-					scriptName "spawn_preinitfog";
-					sleep 100;
-					0 setFog [0, 0, 0];
-				};
+				[0,0,0]
 			};
-			forceWeatherChange;
-			if (d_WithWinterWeather == 0) then {
-				d_winterw = [0, [2, 1] select (rain <= 0.3)] select (overcast > 0.5);
-				publicVariable "d_winterw";
-			};
+			__TRACE_1("","_fog")
+			0 setFog _fog;
 		} else {
 			0 setFog [0, 0, 0];
-			0 setOvercast 0;
 			0 spawn {
-				scriptName "spawn_preinitovercast";
-				while {true} do {
-					sleep 100;
-					0 setOvercast 0;
-					0 setFog [0, 0, 0];
-				};
+				scriptName "spawn_preinitfog";
+				sleep 100;
+				0 setFog [0, 0, 0];
 			};
 		};
-		
-		if (d_timemultiplier > 1) then {
-			setTimeMultiplier d_timemultiplier;
+		forceWeatherChange;
+		if (d_WithWinterWeather == 0) then {
+			d_winterw = [0, [2, 1] select (rain <= 0.3)] select (overcast > 0.5);
+			publicVariable "d_winterw";
 		};
-		
-		d_fifo_ar = [];
+	} else {
+		0 setFog [0, 0, 0];
+		0 setOvercast 0;
+		0 spawn {
+			scriptName "spawn_preinitovercast";
+			while {true} do {
+				sleep 100;
+				0 setOvercast 0;
+				0 setFog [0, 0, 0];
+			};
+		};
+	};
+	
+	if (d_timemultiplier > 1) then {
+		setTimeMultiplier d_timemultiplier;
+	} else {
+		0 spawn d_fnc_nightmultiplier;
+	};
+	
+	d_fifo_ar = [];
 };
 
 if (_isserv_or_hc) then {

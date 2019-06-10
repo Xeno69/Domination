@@ -445,6 +445,7 @@ class cfgFunctions {
 			addc(delaiserv);
 			addc(prebonus);
 			addc(selectnexttarget);
+			addc(nightmultiplier);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

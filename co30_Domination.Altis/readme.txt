@@ -15,6 +15,7 @@ Changelogs
 - Fixed: If With AI was enabled Zeus placed groups on the player side got deleted shortly after the placement
 - Changed: More use of simple objects
 - Fixed: Don't save player data to database if total score is zero while player is still playing
+- Changed: Nights are now handled with a time multiplier of 5 
 
 3.99s
 ADDED: Livonia (Contact expansion) version (WIP)
