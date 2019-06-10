@@ -1236,6 +1236,12 @@ if (!d_tt_tanoa) then {
 		case "E": {"Land_Radar_Small_F"};
 		case "G": {"Land_Radar_Small_F"};
 	};
+	
+	d_air_radar2 = switch (d_enemy_side_short) do {
+		case "W": {"Land_MobileRadar_01_radar_F"};
+		case "E": {"Land_MobileRadar_01_radar_F"};
+		case "G": {"Land_MobileRadar_01_radar_F"};
+	};
 
 	d_enemy_hq = switch (d_enemy_side_short) do {
 		case "E": {"Land_Cargo_HQ_V1_F"};

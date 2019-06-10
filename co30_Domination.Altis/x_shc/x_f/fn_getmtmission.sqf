@@ -88,9 +88,8 @@ switch (_sec_kind) do {
 	};
 	case 2: {
 		__getPos;
-		private _ctype = "Land_Radar_Small_F";
-		private _vec = createVehicle [_ctype, _poss, [], 0, "NONE"];
-		private _svec = sizeOf _ctype;
+		private _vec = createVehicle [d_air_radar2, _poss, [], 0, "NONE"];
+		private _svec = sizeOf d_air_radar2;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1) then {
 			if (_poss distance2D _isFlat < 100) then {
@@ -98,6 +97,7 @@ switch (_sec_kind) do {
 				_poss = _isFlat;
 			};
 		};
+		_vec setDir (random 360);
 		_vec setPos _poss;
 		_vec setVectorUp [0,0,1];
 		__vkilled(radar_down);
@@ -169,9 +169,8 @@ switch (_sec_kind) do {
 	};
 	case 6: {
 		__getPos;
-		private _fact = "Land_dp_transformer_F";
-		private _vec = createVehicle [_fact, _poss, [], 0, "NONE"];
-		private _svec = sizeOf _fact;
+		private _vec = createVehicle ["Land_dp_transformer_F", _poss, [], 0, "NONE"];
+		private _svec = sizeOf "Land_dp_transformer_F";
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
