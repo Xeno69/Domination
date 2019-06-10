@@ -34,16 +34,12 @@ _tr_cargo_ar deleteAt d_cargo_selected_index;
 _vec setVariable ["d_CARGO_AR", _tr_cargo_ar, true];
 
 private _pos_to_set = player modelToWorldVisualWorld [0,5,0];
-//private _pos_to_set = player modelToWorldVisualWorld [0,5,0];
-// TODO replace with local version of createSimpleObject
-//private _static = createSimpleObject [_cargo, _pos_to_set, true];
-//_static setPosASL _pos_to_set;
-//_static setVectorUp (surfaceNormal _pos_to_set);
-//private _static = [_cargo, _pos_to_set, getDir player, true] call BIS_fnc_createSimpleObject;
-private _static = _cargo createVehicleLocal [10, 10, 10];
-_static setPos _pos_to_set;
-_static lock false;
 private _dir_to_set = getDir player;
+private _static = createSimpleObject [_cargo, _pos_to_set, true];
+_static setDir _dir_to_set;
+_static setPosASL _pos_to_set;
+_static setVectorUp (surfaceNormal _pos_to_set);
+_static lock false;
 
 private _place_error = false;
 systemChat (localize "STR_DOM_MISSIONSTRING_84");
@@ -66,14 +62,11 @@ d_e_placing_id2 = player addAction [format ["<t color='#7F7F7F'>%1</t>", localiz
 	d_e_placing_id2 = -1000;
 },[], 0];
 while {d_e_placing_running == 0} do {
-	//_pos_to_set = player modelToWorldVisualWorld [0,5,0];
-	_pos_to_set = player modelToWorldVisual [0,5,0];
+	_pos_to_set = player modelToWorldVisualWorld [0,5,0];
 	_dir_to_set = getDir player;
-
 	_static setDir _dir_to_set;
-	_static setPos [_pos_to_set # 0, _pos_to_set # 1, 0];
-	//_static setPosASL _pos_to_set;
-	//_static setVectorUp (surfaceNormal _pos_to_set);
+	_static setPosASL _pos_to_set;
+	_static setVectorUp (surfaceNormal _pos_to_set);
 	sleep 0.211;
 	if (_vec distance2D player > 20) exitWith {
 		systemChat (localize "STR_DOM_MISSIONSTRING_87");
@@ -107,7 +100,7 @@ if (d_e_placing_running == 2) exitWith {
 
 _static = createVehicle [_cargo, _pos_to_set, [], 0, "NONE"];
 _static setDir _dir_to_set;
-_static setPos [_pos_to_set # 0, _pos_to_set # 1, 0];
+_static setPosASL _pos_to_set;
 _static setVectorUp (surfaceNormal _pos_to_set);
 player reveal _static;
 _static lock false;

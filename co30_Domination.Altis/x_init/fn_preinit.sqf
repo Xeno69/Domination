@@ -374,11 +374,8 @@ d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
-// todo replace with createSimpleObjectLocal once available
-//d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_sm_store = d_HeliHEmpty createVehicleLocal [0,0,0];
-//d_ef_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+d_ef_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 d_ef_events = [];
 d_ef_running = -1;
 
@@ -522,17 +519,11 @@ private _isserv_or_hc = isServer || {!isDedicated && {!hasInterface}};
 
 if (_isserv_or_hc) then {
 	__TRACE_1("","_isserv_or_hc")
-	// todo replace with createSimpleObjectLocal once available
-	//d_player_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_player_store = d_HeliHEmpty createVehicleLocal [0,0,0];
-	//d_placed_objs_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store = d_HeliHEmpty createVehicleLocal [0,0,0];
-	//d_placed_objs_store2 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store2 = d_HeliHEmpty createVehicleLocal [0,0,0];
-	//d_placed_objs_store3 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store3 = d_HeliHEmpty createVehicleLocal [0,0,0];
-	//d_misc_s_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_misc_s_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+	d_player_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_placed_objs_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_placed_objs_store2 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_placed_objs_store3 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_misc_s_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 };
 
 if (isServer) then {
@@ -1801,18 +1792,14 @@ if (hasInterface) then {
 	d_clientScriptsAr = [false, false];
 	d_areArtyVecsAvailable = false;
 	d_ao_arty_vecs = [];
-	// todo replace with createSimpleObjectLocal once available
-	//d_misc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_misc_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+	d_misc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_mhqvec_create_cooldown_time = -1;
 	
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];
 	
 	d_last_beam_target = "";
 	
-	// todo replace with createSimpleObjectLocal once available
-	//d_misc_sc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_misc_sc_store = d_HeliHEmpty createVehicleLocal [0,0,0];
+	d_misc_sc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 
 	// If you want to add additional non MHQ respawn points like additional bases for example
 	// Usage: Each point array needs a unique name, position or marker name, description and a side (side is only valid for the TT version), optional: add create atv action menue entry(true/false; default false)
