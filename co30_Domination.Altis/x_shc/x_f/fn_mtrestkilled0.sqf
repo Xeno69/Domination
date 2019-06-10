@@ -50,7 +50,7 @@ if (d_database_found) then {
 #endif
 	};
 };
-if (typeOf _obj isEqualTo "Land_BagBunker_Large_F") then {
+if ((typeOf _obj) == d_barracks_building) then {
 	private _epos = _obj getVariable "d_v_pos";
 	private _edir = getDir _obj;
 	deleteVehicle _obj;

@@ -328,10 +328,39 @@ d_jumpflag_vec = call {
 d_servicepoint_building = "Land_Cargo_House_V2_F";
 
 d_illum_tower = "Land_TTowerBig_2_F";
-#ifndef __IFA3LITE__
-d_wcamp = "Land_Cargo_Patrol_V1_F";
-#else
-d_wcamp = "Land_Misc_deerstand";
+d_wcamp =
+#ifdef __ALTIS__
+	"Land_Cargo_Patrol_V1_F";
+#endif
+#ifdef __CUP_CHERNARUS__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __CUP_TAKISTAN__
+	"Land_Cargo_Patrol_V1_F";
+#endif
+#ifdef __CUP_SARA__
+	"Land_Cargo_Patrol_V1_F";
+#endif
+#ifdef __IFA3LITE__
+	"Land_Misc_deerstand";
+#endif
+#ifdef __TANOA__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __STRATIS__
+	"Land_Cargo_Patrol_V1_F";
+#endif
+#ifdef __MALDEN__
+	"Land_Cargo_Patrol_V1_F";
+#endif
+#ifdef __ROSCHE__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __LIVONIA__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __TT__
+	"Land_Cargo_Patrol_V1_F";
 #endif
 
 d_mash = "Land_TentDome_F";
@@ -1408,11 +1437,77 @@ if (!d_tt_tanoa) then {
 	// Needs a building which can be entered by AI (as they will respawn inside)
 	// can only be destroyed by satchel charges!!!
 	// no marker gets created!
-	d_barracks_building = "Land_BagBunker_Large_F";
+	d_barracks_building =
+#ifdef __ALTIS__
+		"Land_BagBunker_Large_F";
+#endif
+#ifdef __CUP_CHERNARUS__
+		"Land_BagBunker_01_large_green_F";
+#endif
+#ifdef __CUP_TAKISTAN__
+		"Land_BagBunker_Large_F";
+#endif
+#ifdef __CUP_SARA__
+		"Land_BagBunker_Large_F";
+#endif
+#ifdef __IFA3LITE__
+		"Land_BagBunker_01_large_green_F";
+#endif
+#ifdef __TANOA__
+		"Land_BagBunker_01_large_green_F";
+#endif
+#ifdef __STRATIS__
+		"Land_BagBunker_Large_F";
+#endif
+#ifdef __STRATIS__
+		"Land_BagBunker_Large_F";
+#endif
+#ifdef __ROSCHE__
+		"Land_BagBunker_01_large_green_F";
+#endif
+#ifdef __LIVONIA__
+		"Land_BagBunker_01_large_green_F";
+#endif
+#ifdef __TT__
+		"Land_BagBunker_Large_F";
+#endif
 	
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
-	d_vehicle_building = "Land_Cargo_HQ_V1_F";
+	d_vehicle_building =
+#ifdef __ALTIS__
+		"Land_Cargo_HQ_V1_F";
+#endif
+#ifdef __CUP_CHERNARUS__
+		"Land_Cargo_HQ_V4_F";
+#endif
+#ifdef __CUP_TAKISTAN__
+		"Land_Cargo_HQ_V1_F";
+#endif
+#ifdef __CUP_SARA__
+		"Land_Cargo_HQ_V1_F";
+#endif
+#ifdef __IFA3LITE__
+		"CDF_WarfareBHeavyFactory";
+#endif
+#ifdef __TANOA__
+		"Land_Cargo_HQ_V4_F";
+#endif
+#ifdef __STRATIS__
+		"Land_Cargo_HQ_V1_F";
+#endif
+#ifdef __MALDEN__
+		"Land_Cargo_HQ_V1_F";
+#endif
+#ifdef __ROSCHE__
+		"Land_Cargo_HQ_V4_F";
+#endif
+#ifdef __LIVONIA__
+		"Land_Cargo_HQ_V4_F";
+#endif
+#ifdef __TT__
+		"Land_Cargo_HQ_V1_F";
+#endif
 	
 	if (isNil "d_ai_groups_respawn_time") then {
 		// inf base time, inf min time, vehicle base time, vehicle min time, all in seconds
