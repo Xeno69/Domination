@@ -9,7 +9,7 @@ if (d_mt_done) exitWith {};
 
 private _grptype = toLower (_this select 0);
 
-private _isman = toLower (_this select 0) in ["allmen", "specops"];
+private _isman = _grptype in ["allmen", "specops"];
 
 if (_isman && {d_mt_barracks_down}) exitWith {
 	__TRACE("barracks down")
@@ -82,12 +82,26 @@ if (!_isman) then {
 	_this call d_fnc_makegroup;
 } else {
 	if (d_mt_barracks_obj_ar isEqualTo []) exitWith {};
-	private _d_mt_barracks_obj_pos = getPos (selectRandom d_mt_barracks_obj_ar);
+	
+	private _selobj = selectRandom d_mt_barracks_obj_ar;
+	private _trig = _selobj getVariable "d_bar_trig";
+	if (isNil "_trig") exitWith {};
+	_doend = false;
+	if !((list _trig) isEqualTo []) then {
+		__TRACE_1("trigger list not empty","list _trig")
+		waitUntil {sleep 1; isNull _selobj || {d_mt_done || {d_mt_barracks_down || {(list _trig) isEqualTo []}}}};
+		if (isNull _selobj || {d_mt_done || {d_mt_barracks_down}}) then {
+			_doend = true;
+		};
+	};
+	if (_doend) exitWith {
+		__TRACE("no respawn")
+	};
+	
+	private _d_mt_barracks_obj_pos = getPos _selobj;
 	__TRACE_1("","_d_mt_barracks_obj_pos")
 	_this set [1, [_d_mt_barracks_obj_pos]];
 	_this set [11, _d_mt_barracks_obj_pos];
 	__TRACE_1("respawning","_this")
 	_this call d_fnc_makegroup;
 };
-
-

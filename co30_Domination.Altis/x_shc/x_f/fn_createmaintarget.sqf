@@ -77,6 +77,7 @@ private ["_iccount", "_ecounter", "_poss"];
 private _vec = [0,0,0];
 private _allbars = [];
 private _doexit = false;
+d_bara_trig_ar = [];
 for "_i" from 1 to d_num_barracks_objs do {
 	_ecounter = 0;
 	while {true} do {
@@ -111,6 +112,9 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec setPos _poss;
 	_vec setVectorUp (surfaceNormal _poss);
 	_vec setVariable ["d_v_pos", getPos _vec];
+	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
+	_vec setVariable ["d_bar_trig", _trig];
+	d_bara_trig_ar pushBack _trig;
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
 	sleep 0.2;
@@ -327,6 +331,12 @@ if (d_enemy_occupy_bldgs == 1) then {
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
 		_newgroup deleteGroupWhenEmpty true;
+		if (d_mt_respawngroups == 0) then {
+			{
+				_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+			} forEach _units_to_garrison;
+			_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
+		};
 		sleep 1.0112;
 		//_newgroup allowFleeing 0;
 		//_newgroup setVariable ["d_defend", true];

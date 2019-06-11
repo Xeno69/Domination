@@ -10,6 +10,10 @@ if (_type == 0) then {
 } else {
 	{
 		if (!isNull _x) then {
+			private _trig = _x getVariable "d_bar_trig";
+			if (!isNil "_trig") then {
+				deleteVehicle _trig;
+			};
 			_x spawn {
 				scriptName "spawn doexechcf1";
 				sleep (60 + random 60);
@@ -19,6 +23,12 @@ if (_type == 0) then {
 		};
 	} forEach d_mt_barracks_obj_ar;
 	d_mt_barracks_obj_ar = [];
+	if (!isNil "d_bara_trig_ar") then {
+		{
+			deleteVehicle _x;
+		} forEach (d_bara_trig_ar select {!isNull _x});
+		d_bara_trig_ar = [];
+	};
 #ifndef __TT__
 	if (!isNull d_mt_mobile_hq_obj) then {
 		d_mt_mobile_hq_obj spawn {

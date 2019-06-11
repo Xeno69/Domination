@@ -16,6 +16,7 @@ Changelogs
 - Changed: More use of simple objects
 - Fixed: Don't save player data to database if total score is zero while player is still playing
 - Changed: Nights are now handled with a time multiplier of 5
+- Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
 - And more optimizations and cosmetic changes
 
 3.99s
