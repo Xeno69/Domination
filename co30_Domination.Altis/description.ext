@@ -25,6 +25,12 @@ saving = 0;
 loadScreen = "pics\domls.paa";
 overviewText = "$STR_DOM_MISSIONSTRING_1828";
 
+// Set to 1 if you use addons, etc, which still uses createVehicleLocal
+// Check also https://community.bistudio.com/wiki/createVehicleLocal
+// and https://community.bistudio.com/wiki/Description.ext#unsafeCVL
+// setting it to 1 allows using createVehicleLocal with all objects on clients which is quite unsafe
+unsafeCVL = 0;
+
 #ifdef __DEBUG__
 enableDebugConsole = 2;
 #endif
