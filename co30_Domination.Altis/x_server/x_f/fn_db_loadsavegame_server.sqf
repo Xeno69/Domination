@@ -92,8 +92,8 @@ d_bonus_vecs_db = _ar # 9;
 {
 	private _vec = createVehicle [_x, d_bonus_create_pos, [], 0, "NONE"];
 	if (unitIsUAV _vec) then {
-		createVehicleCrew _vec;
-		group ((crew _vec) select 0) deleteGroupWhenEmpty true;
+		private _uavgrp = createVehicleCrew _vec;
+		_uavgrp deleteGroupWhenEmpty true;
 		_vec allowCrewInImmobile true;
 		_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}}];
 		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {

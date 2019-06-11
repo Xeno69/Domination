@@ -5,12 +5,11 @@
 
 params ["_vec", "_grp", ["_nocargo", false]];
 
-createVehicleCrew _vec;
+private _uavgrp = createVehicleCrew _vec;
 private _crew = crew _vec;
 if (count _crew > 0) then {
-	private _grp_old = group (_crew # 0);
 	_crew joinSilent _grp;
-	deleteGroup _grp_old;
+	deleteGroup _uavgrp;
 	
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))

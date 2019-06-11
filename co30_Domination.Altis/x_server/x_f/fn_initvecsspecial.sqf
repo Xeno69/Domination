@@ -20,9 +20,9 @@ if (!isServer) exitWith{};
 	_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
 	
 	if (unitIsUAV _vec) then {
-		createVehicleCrew _vec;
+		private _uavgrp = createVehicleCrew _vec;
 		_vec allowCrewInImmobile true;
-		group ((crew _vec) select 0) deleteGroupWhenEmpty true;
+		_uavgrp deleteGroupWhenEmpty true;
 		_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}}];
 		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 			_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
