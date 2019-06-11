@@ -17,6 +17,7 @@ Changelogs
 - Fixed: Don't save player data to database if total score is zero while player is still playing
 - Changed: Nights are now handled with a time multiplier of 5
 - Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
+- Changed: Set the year to 1944 instead of 2035 in the IFA3 version
 - And more optimizations and cosmetic changes
 
 3.99s

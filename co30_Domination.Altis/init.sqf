@@ -26,4 +26,12 @@ addMissionEventhandler ["EachFrame", {
 	removeMissionEventHandler ["EachFrame", _thisEventHandler];
 }];
 
+#ifndef __IFA3LITE__
+if (isServer) then {
+	private _date = date;
+	_date set [0, 1944];
+	setDate _date;
+};
+#endif
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom init.sqf processed"];
