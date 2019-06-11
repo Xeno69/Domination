@@ -60,7 +60,7 @@ if (_add_to_ar_type > 0) then {
 				{
 					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
 				} forEach _uinf;
-				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
+				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, selectRandom ["patrol", "patrol2"], _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
 			};
 		};
 	};
@@ -84,21 +84,21 @@ private _wpstatements = if (d_house_patrol == 0 && {_ismen && {_type in ["patrol
 
 switch (_type) do {
 	case "patrol": {
-		_grp setVariable ["d_PATR",true];
+		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));	
 		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	case "patrol2mt": {
-		_grp setVariable ["d_PATR",true];
+		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
 		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	case "patrol2": {
-		_grp setVariable ["d_PATR",true];
+		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
