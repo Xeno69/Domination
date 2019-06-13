@@ -120,6 +120,15 @@ if (d_player_side == blufor) then {
 };
 #endif
 
+#ifdef __TT__
+__ctrl(11279);
+if (d_num_barracks_tt != -1) then {
+	_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
+} else {
+	_ctrl ctrlSetText "0/0";
+};
+#endif
+
 __ctrl(11009);
 _ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_552");
 

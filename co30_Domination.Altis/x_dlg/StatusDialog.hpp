@@ -269,6 +269,31 @@ class D_StatusDialog {
 			text = "";
 			shadow = 0;
 		};
+#ifdef __TT__
+	class BarracksCaption: RscText2 {
+			x = "0.71 * safezoneW + safezoneX";
+			y = "0.482 * safezoneH + safezoneY";
+			w = "0.25 * safezoneW";
+			h = "0.1 * safezoneH";
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+			sizeEx = 0.032;
+			text = "$STR_DOM_MISSIONSTRING_1959";
+			shadow = 0;
+		};
+		class BarrackNumber: RscText2 {
+			idc = 11279;
+			x = "0.85 * safezoneW + safezoneX";
+			y = "0.482 * safezoneH + safezoneY";
+			w = "0.25 * safezoneW";
+			h = "0.1 * safezoneH";
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = __GUI_TXT_RGB;
+			sizeEx = 0.032;
+			text = "";
+			shadow = 0;
+		};
+#endif
 		class RLivesCaption: RscText2 {
 			idc = 30000;
 			x = "0.71 * safezoneW + safezoneX";

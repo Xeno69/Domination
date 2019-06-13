@@ -10283,6 +10283,16 @@
 <Russian>Ни у одной нового задания не было достаточно голосов, или за него не проголосовали! Выбор будет случайным ...</Russian>
 <Chinesesimp>No new target had enough votes or none was voted for! Choosing random one...</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1959">
+<English>Barracks left:</English>
+<Spanish>Barracks left:</Spanish>
+<Portuguese>Barracks left:</Portuguese>
+<Korean>Barracks left:</Korean>
+<Japanese>Barracks left:</Japanese>
+<Original>Barracks left:</Original>
+<Russian>Barracks left:</Russian>
+<Chinesesimp>Barracks left:</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

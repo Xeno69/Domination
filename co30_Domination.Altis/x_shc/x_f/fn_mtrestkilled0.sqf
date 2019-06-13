@@ -14,6 +14,9 @@ d_groups_respawn_time_add = d_groups_respawn_time_add + 20 + (random 20);
 if ({alive _x} count d_mt_barracks_obj_ar != d_num_barracks_objs) then {
 	d_num_barracks_objs = {alive _x} count d_mt_barracks_obj_ar;
 };
+#ifdef __TT__
+publicVariable "d_num_barracks_objs";
+#endif
 __TRACE_1("","d_num_barracks_objs")
 if (d_num_barracks_objs == 0) then {
 	d_mt_barracks_down = true;

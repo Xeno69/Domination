@@ -7,6 +7,7 @@ Changelogs
 
 3.99t
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
+!!!!!! (available with A3 patch 1.68) !!!!!!!!!
 
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
@@ -20,7 +21,9 @@ Changelogs
 - Changed: Nights are now handled with a time multiplier of 5
 - Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
 - Changed: Set the year to 1944 instead of 2035 in the IFA3 version
-- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients!
+- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.68)
+- Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks
+- Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes
 - And more optimizations and cosmetic changes
 
 3.99s

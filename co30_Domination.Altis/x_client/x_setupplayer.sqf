@@ -340,7 +340,6 @@ if !(d_ammo_boxes isEqualTo []) then {
 	{
 		private _boxnew = _x # 0;
 		[_boxnew] call d_fnc_weaponcargo;
-		_boxnew allowDamage false;
 		_boxnew enableRopeAttach false;
 #ifdef __TT__
 		if (d_player_side != _x # 2) then {

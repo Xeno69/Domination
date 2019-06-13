@@ -74,6 +74,8 @@ publicVariable "d_resolved_targets";
 sleep 0.5;
 d_public_points = false;
 __TRACE_1("","d_mt_winner")
+d_num_barracks_tt = -1;
+publicVariable "d_num_barracks_tt";
 #endif
 
 if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {

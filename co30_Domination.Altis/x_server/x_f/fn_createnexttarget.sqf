@@ -49,6 +49,10 @@ d_main_target_ready = false;
 d_side_main_done = false;
 d_sum_camps = -91;
 
+#ifdef __TT__
+d_mt_barracks_down = false;
+#endif
+
 #ifndef __TT__
 private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 6)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger", ""];
 #else
@@ -71,7 +75,7 @@ _tsar = if (d_ao_check_for_ai == 1) then {
 };
 #else
 //_tsar = ["d_mt_radio_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = 0 spawn d_fnc_target_clear", ""];
-_tsar = ["d_mt_radio_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}", "0 = 0 spawn d_fnc_target_clear", ""];
+_tsar = ["d_mt_radio_down && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}", "0 = 0 spawn d_fnc_target_clear", ""];
 #endif
 
 __TRACE_1("","_tsar")

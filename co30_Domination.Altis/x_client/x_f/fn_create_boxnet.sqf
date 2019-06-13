@@ -14,7 +14,6 @@ params ["_box", "_unit", "_bside"];
 #endif
 __TRACE_2("","_box","_unit")
 player reveal _box;
-_box allowDamage false;
 _box enableRopeAttach false;
 private _boxcargo = _unit getVariable "d_boxcargo";
 if (isNil "_boxcargo") then {

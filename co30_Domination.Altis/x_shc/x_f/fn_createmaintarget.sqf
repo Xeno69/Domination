@@ -6,11 +6,11 @@
 if !(call d_fnc_checkSHC) exitWith {};
 
 private _selectit = {
-	(ceil (random (((_this select 0) select (_this select 1)) # 1)))
+	(ceil (random (((_this # 0) select (_this # 1)) # 1)))
 };
 
 private _selectitmen = {
-	private _a_vng2 = (_this select 0) select (_this select 1);
+	private _a_vng2 = (_this # 0) select (_this # 1);
 	if (_a_vng2 # 0 > 0) then {
 		private _num_ret = floor (random ((_a_vng2 # 0) + 1));
 		if (_num_ret < _a_vng2 # 1) then {
@@ -22,8 +22,17 @@ private _selectitmen = {
 };
 
 private _selectitvec = {
-	private _a_vng2 = ((_this select 0) select (_this select 1)) # 0;
-	if (_a_vng2 # 0 > 0) then {private _num_ret = floor (random ((_a_vng2 # 0) + 1));if (_num_ret < _a_vng2 # 1) then {_a_vng2 # 1} else {_num_ret}} else {0}
+	private _a_vng2 = ((_this # 0) select (_this # 1)) # 0;
+	if (_a_vng2 # 0 > 0) then {
+		private _num_ret = floor (random ((_a_vng2 # 0) + 1));
+		if (_num_ret < _a_vng2 # 1) then {
+			_a_vng2 # 1
+		} else {
+			_num_ret
+		}
+	} else {
+		0
+	};
 };
 
 private _type_list_guard = [
@@ -126,6 +135,10 @@ d_mt_barracks_down = false;
 if (!isServer) then {
 	[missionNamespace, ["d_mt_barracks_down", false]] remoteExecCall ["setVariable", 2];
 };
+#ifdef __TT__
+d_num_barracks_tt = d_num_barracks_objs;
+publicVariable "d_num_barracks_tt";
+#endif
 
 #ifndef __TT__
 _ecounter = 0;

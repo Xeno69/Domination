@@ -446,6 +446,7 @@ class cfgFunctions {
 			addc(prebonus);
 			addc(selectnexttarget);
 			addc(nightmultiplier);
+			addc(aboxkilled);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
