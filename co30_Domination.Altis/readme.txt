@@ -12,8 +12,8 @@ Changelogs
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
 - Fixed: Ammo point/ammo load marker was gone
-- Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in upcoming patch prevents using createVehicleLocal)
-- Changed: Removed all createVehicleLocal occurences for upcoming BI security change, see above)
+- Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal)
+- Changed: Removed all createVehicleLocal occurences for an upcoming BI security change, see above)
 - Fixed: Ammo cargo was removed from all vehicles including ammo vehicles :/
 - Fixed: If With AI was enabled Zeus placed groups on the player side got deleted shortly after the placement
 - Changed: More use of simple objects
@@ -22,7 +22,7 @@ Changelogs
 - Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
 - Changed: Set the year to 1944 instead of 2035 in the IFA3 version
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.68)
-- Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks
+- Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks to seize a main target
 - Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes
 - And more optimizations and cosmetic changes
 
