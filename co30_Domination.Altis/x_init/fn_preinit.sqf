@@ -21,7 +21,7 @@ d_tanoa = true;
 #ifndef __LIVONIA__
 d_livonia = false;
 #else
-d_true = false;
+d_livonia = true;
 #endif
 
 #ifdef __TANOATT__
@@ -1139,6 +1139,9 @@ if (!d_tt_tanoa) then {
 				"gm_ge_army_gepard1a1_win"
 			};
 			"gm_ge_army_gepard1a1"
+		};
+		if (d_tanoa || {d_livonia}) exitWith {
+			"B_T_APC_Tracked_01_AA_F"
 		};
 		"B_APC_Tracked_01_AA_F";
 	};
