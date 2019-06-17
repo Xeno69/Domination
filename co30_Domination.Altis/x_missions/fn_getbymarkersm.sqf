@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_getbymarkersm.sqf"
 #include "..\x_setup.sqf"
 
@@ -11,7 +11,11 @@ if (isNil "_sm_ar") then {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
 
-d_x_sm_pos = _sm_ar # 2;
+if (tolower (_sm_ar # 1) != "tankdepot") then {
+	d_x_sm_pos = _sm_ar # 2;
+} else {
+	d_x_sm_pos = (_sm_ar # 2) # 0;
+};
 d_x_sm_type = _sm_ar # 1;
 __TRACE_1("","d_x_sm_pos")
 __TRACE_1("","d_x_sm_type")
