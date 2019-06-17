@@ -67,6 +67,11 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"B_Truck_01_ammo_F"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {["O_APC_Tracked_02_cannon_F","O_T_APC_Tracked_02_cannon_ghex_F"] select (d_tanoa || {d_livonia})};
+	case "W": {["B_APC_Tracked_01_rcws_F","B_T_APC_Tracked_01_rcws_F"] select (d_tanoa || {d_livonia})};
+	case "G": {"I_APC_tracked_03_cannon_F"};
+};
 d_sm_cargotrucktype = switch (d_enemy_side_short) do {
 	case "E": {["O_Truck_03_covered_F","O_T_Truck_03_covered_ghex_F"] select (d_tanoa || {d_livonia})};
 	case "W": {"B_Truck_01_covered_F"};
