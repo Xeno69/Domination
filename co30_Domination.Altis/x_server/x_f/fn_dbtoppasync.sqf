@@ -12,6 +12,7 @@ while {true} do {
 			_pa = d_player_store getVariable _uid;
 			if (!isNil "_pa") then {
 				_ps = getPlayerScores _x;
+				diag_log ["DOM dbtoppasync: player", _x, "getPlayerScores", _ps];
 				if !(_ps isEqualTo [] && {!(_ps isEqualTo [0, 0, 0, 0, 0, 0])}) then {
 					_usc = _uid + "_scores";
 					_t_ps = d_player_store getVariable [_usc, [0, 0, 0, 0, 0, 0]];
@@ -31,8 +32,9 @@ while {true} do {
 
 					__TRACE_1("","_playtime")
 					
+					diag_log ["DOM dbtoppasync: _totalscore", _totalscore];
 					if (_totalscore <= 0) exitWith {
-						diag_log ["DOM playerdisconnected _totalscore <= 0"];
+						diag_log ["DOM dbtoppasync _totalscore <= 0"];
 					};
 					
 #ifndef __INTERCEPTDB__
