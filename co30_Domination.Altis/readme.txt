@@ -29,6 +29,7 @@ Changelogs
 - Fixed: If NOBONUS was defined as macro then it worked ecactly the other way around :(
 - Fixed: Tank depot sidemissions added by marker did not work at all, caused by a script error
 - Fixed: Mines sidemissions added by marker startet sidesteal script instead of sidemines
+- Fixed: Destroy trucks sidemission did not spawn any enemy AI units
 - And more optimizations and cosmetic changes
 
 3.99s

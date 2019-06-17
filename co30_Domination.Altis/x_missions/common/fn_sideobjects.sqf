@@ -72,7 +72,7 @@ private _vec = objNull;
 	sleep 1;
 } forEach _usevecs;
 
-/*if (_createarmor) then {
+if (_createarmor) then {
 	__TRACE("Creating armor")
 	sleep 2.22;
 	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _poss, 1, 400, true] spawn d_fnc_CreateArmor;
@@ -83,7 +83,7 @@ if (_createinf) then {
 	sleep 2.123;
 	__TRACE("Creating inf")
 	["specops", 2, "allmen", (floor (random 4)) min 2, _poss, 300, true] spawn d_fnc_CreateInf;
-};*/
+};
 
 sleep 2;
 
