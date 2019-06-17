@@ -31,6 +31,7 @@ Changelogs
 - Fixed: Mines sidemissions added by marker startet sidesteal script instead of sidemines
 - Fixed: Destroy trucks sidemission did not spawn any enemy AI units
 - Fixed: Arrest sidemissions added by marker did end immediately because a wrong unit reference was used
+- Fixed: Mines sidemissions added by marker did not spawn enemy AI units
 - And more optimizations and cosmetic changes
 
 3.99s

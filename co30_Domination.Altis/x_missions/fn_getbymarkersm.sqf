@@ -170,12 +170,12 @@ switch (tolower (_sm_ar # 1)) do {
 	};
 	case "minesland": { // does NOT create armor and inf in common file
 		if (call d_fnc_checkSHC) then {
-			[d_x_sm_pos # 0, "land"] spawn d_fnc_sidemines;
+			[d_x_sm_pos # 0, "land", (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidemines;
 		};
 	};
 	case "minesnaval": { // does NOT create armor and inf in common file
 		if (call d_fnc_checkSHC) then {
-			[d_x_sm_pos # 0, "naval"] spawn d_fnc_sidemines;
+			[d_x_sm_pos # 0, "naval", (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidemines;
 		};
 	};
 	case "artycannon": {

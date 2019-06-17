@@ -4,7 +4,7 @@
 
 if !(call d_fnc_checkSHC) exitWith {};
 
-params ["_pos", "_type"];
+params ["_pos", "_type", ["_docreatearmor", false], ["_docreateinf", false]];
 
 private _mines = [];
 private _arrows = [];
@@ -45,6 +45,28 @@ __TRACE_1("","count _mines");
    [format ["mines_%1", _x], getPosASL _x, "ICON", "ColorOrange", [0.8,0.8], "mine", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 } forEach _mines;
 #endif
+sleep 2;
+
+if (_docreateinf) then {
+	_diam = 300;
+	if (_type isEqualTo "naval") then {
+		_diam = 500;
+	};
+	["specops", (floor (random 4)) min 2, "allmen", (floor (random 4)) min 2, d_x_sm_pos # 0, 300, true] spawn d_fnc_CreateInf;
+	sleep 2.333;
+};
+if (_docreatearmor) then {
+	_diam = 400;
+	if (_type isEqualTo "naval") then {
+		_diam = 600;
+	};
+	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, d_x_sm_pos # 0, 1, 400, true] spawn d_fnc_CreateArmor;
+	sleep 2.333;
+	if !(_type isEqualTo "naval") then {
+		["stat_mg", 1, "stat_gl", 1, "", 0, d_x_sm_pos # 0, 1, 100, false] spawn d_fnc_CreateArmor;
+	};
+	sleep 1;
+};
 
 {d_side_enemy revealMine _x} forEach _mines;
 d_x_sm_vec_rem_ar append _mines;
