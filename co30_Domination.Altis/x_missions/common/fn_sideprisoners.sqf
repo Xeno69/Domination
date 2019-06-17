@@ -26,7 +26,7 @@ _newgroup deleteGroupWhenEmpty true;
 	_x disableAI "PATH";
 } forEach _units;
 
-d_x_sm_rem_ar pushBack _units;
+d_x_sm_rem_ar append _units;
 
 if (d_with_dynsim == 0) then {
 	_newgroup spawn {
