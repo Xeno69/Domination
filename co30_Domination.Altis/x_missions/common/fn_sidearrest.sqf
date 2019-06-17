@@ -9,9 +9,14 @@ params ["_officer", ["_docreatearmor", false], ["_docreateinf", false]];
 if (isNull _officer) then {
 	d_x_sm_pos params ["_poss"];
 	private _ogroup = [d_side_enemy] call d_fnc_creategroup;
-	private _officer = _ogroup createUnit [d_sniper, _poss, [], 0, "NONE"];
+	_officer = _ogroup createUnit [d_sniper, _poss, [], 0, "NONE"];
 	[_officer] joinSilent _ogroup;
 	_ogroup deleteGroupWhenEmpty true;
+	_officer allowDamage false;
+	_officer spawn {
+		sleep 20;
+		_this allowDamage true;
+	};
 	_poss set [2, 0];
 	[_officer, _poss] call d_fnc_setposagls;
 	_officer call d_fnc_removenvgoggles_fak;
