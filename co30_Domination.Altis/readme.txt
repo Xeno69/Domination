@@ -26,6 +26,7 @@ Changelogs
 - Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes
 - Fixed: Wrong stringtable entry was used for marker created specops sidemission
 - Fixed: Unit array was pushed back to delete array instead of appended in sideprisoner side mission
+- Fixed: If NOBONUS was defines as macro then it worked ecactly the other way around :(
 - And more optimizations and cosmetic changes
 
 3.99s
