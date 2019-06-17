@@ -24,6 +24,7 @@ Changelogs
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.68)
 - Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks to seize a main target
 - Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes
+- Fixed: Wrong stringtable entry was used for marker created specops sidemission
 - And more optimizations and cosmetic changes
 
 3.99s

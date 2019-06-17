@@ -324,8 +324,8 @@ __TRACE_1("","_eee")
 				if ((_onesmar # 2) isEqualTo []) then {
 					(_onesmar # 2) pushBack (markerPos _curmar);
 					if (hasInterface && {_onesmar # 5 == ""}) then {
-						_onesmar set [5, "1803"];
-						_onesmar set [6, "1665"];
+						_onesmar set [5, "1806"];
+						_onesmar set [6, "760"];
 					};
 				};
 				if (_subtype == "radius") then {
