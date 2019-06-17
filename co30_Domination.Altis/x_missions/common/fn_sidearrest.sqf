@@ -9,7 +9,7 @@ params ["_officer", ["_docreatearmor", false], ["_docreateinf", false]];
 if (isNull _officer) then {
 	d_x_sm_pos params ["_poss"];
 	private _ogroup = [d_side_enemy] call d_fnc_creategroup;
-	_officer = _ogroup createUnit [d_sniper, _poss, [], 0, "NONE"];
+	_officer = _ogroup createUnit [d_soldier_officer, _poss, [], 0, "NONE"];
 	[_officer] joinSilent _ogroup;
 	_ogroup deleteGroupWhenEmpty true;
 	_officer allowDamage false;

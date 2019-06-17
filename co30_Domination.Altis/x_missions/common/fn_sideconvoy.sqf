@@ -27,7 +27,7 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec lock true;
 	_onevec allowCrewInImmobile true;
 	_nextpos = _onevec modeltoworld [0, -15, 0];
-	_nnextpos = _nextpos findEmptyPosition [0, 70, d_sm_convoy_vehicles # _i];
+	private _nnextpos = _nextpos findEmptyPosition [0, 70, d_sm_convoy_vehicles # _i];
 	if !(_nnextpos isEqualTo []) then {_nextpos = _nnextpos};
 	_nextpos set [2,0];
 	_onevec addEventHandler ["killed", {

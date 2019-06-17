@@ -32,6 +32,7 @@ Changelogs
 - Fixed: Destroy trucks sidemission did not spawn any enemy AI units
 - Fixed: Arrest sidemissions added by marker did end immediately because a wrong unit reference was used
 - Fixed: Mines sidemissions added by marker did not spawn enemy AI units
+- Fixed: In marker added arrest sidemissions a sniper instead of an officer was spawned
 - And more optimizations and cosmetic changes
 
 3.99s
