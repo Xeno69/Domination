@@ -59,5 +59,9 @@ if (_createarmor) then {
 };
 if (_createinf) then {
 	sleep 2.123;
-	["specops", 2, "allmen", (random 4) min 2, _poss, 200, true] spawn d_fnc_CreateInf;
+	if (!_issniper) then {
+		["specops", 2, "allmen", (random 4) min 2, _poss, 200, true] spawn d_fnc_CreateInf;
+	} else {
+		["specops", 1, "allmen", 2, _poss, 200, true] spawn d_fnc_CreateInf;
+	};
 };

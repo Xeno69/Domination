@@ -140,7 +140,7 @@ switch (tolower (_sm_ar # 1)) do {
 	};
 	case "eliminatesniper": {
 		if (call d_fnc_checkSHC) then {
-			[d_x_sm_pos # 0, _sm_ar # 7, d_sniper, true, false, call _boolorarrayfnc] spawn d_fnc_sideelimofficer;
+			[d_x_sm_pos # 0, _sm_ar # 7, d_sniper, true, false, false, true] spawn d_fnc_sideelimofficer;
 		};
 	};
 	case "fuelstation": {
