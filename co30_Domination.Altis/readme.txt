@@ -35,6 +35,7 @@ Changelogs
 - Fixed: In marker added arrest sidemissions a sniper instead of an officer was spawned
 - Fixed: Marker created steal apc sidemission did spawn a tank instead of an apc
 - Fixed: Marker placed eliminate sniper sidemission did not spawn any AI
+- Fixed: Client sidemission winner script broke with a non defined variable
 - And more optimizations and cosmetic changes
 
 3.99s
