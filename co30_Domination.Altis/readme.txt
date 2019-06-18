@@ -5,11 +5,13 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-3.99t
+3.99u
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
-!!!!!! (available with A3 patch 1.68) !!!!!!!!!
+!!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+
+3.99t
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
 - Fixed: Ammo point/ammo load marker was gone
 - Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal)
@@ -36,6 +38,7 @@ Changelogs
 - Fixed: Marker created steal apc sidemission did spawn a tank instead of an apc
 - Fixed: Marker placed eliminate sniper sidemission did not spawn any AI
 - Fixed: Client sidemission winner script broke with a non defined variable
+- Fixed: FINALLY!!!! The wrong totalscore was written to the SQL database when the server was closed when players were still playing :/
 - And more optimizations and cosmetic changes
 
 3.99s

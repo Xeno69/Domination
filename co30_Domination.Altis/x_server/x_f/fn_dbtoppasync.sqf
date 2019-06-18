@@ -21,7 +21,7 @@ while {true} do {
 					_armorkills = (_ps # 2) - (_t_ps # 2);
 					_airkills = (_ps # 3) - (_t_ps # 3);
 					_deaths = (_ps # 4) - (_t_ps # 4);
-					_totalscore = (_ps # 5) - (_t_ps # 5);
+					_totalscore = _ps # 5;
 					d_player_store setVariable [_usc, _ps];
 
 					__TRACE_3("","_infkills","_softveckills","_armorkills")
