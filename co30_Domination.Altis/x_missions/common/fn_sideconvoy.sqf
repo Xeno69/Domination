@@ -17,19 +17,20 @@ d_confvdown = 0;
 private _numconfv = count d_sm_convoy_vehicles;
 private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 
-private _nextpos =+ _pos_start;
 private _allSMVecs = [];
 
 for "_i" from 0 to (_numconfv - 1) do {
-	private _reta = [1, _nextpos, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
+	private _reta = [1, _pos_start, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
 	_reta params ["_vehicles"];
 	_vehicles params ["_onevec"];
+	_onevec allowDamage false;
+	_onevec setVectorUp [0,0,1];
+	_onevec spawn {
+		sleep 30;
+		_this allowDamage true;
+	};
 	_onevec lock true;
 	_onevec allowCrewInImmobile true;
-	_nextpos = _onevec modeltoworld [0, -15, 0];
-	private _nnextpos = _nextpos findEmptyPosition [0, 70, d_sm_convoy_vehicles # _i];
-	if !(_nnextpos isEqualTo []) then {_nextpos = _nnextpos};
-	_nextpos set [2,0];
 	_onevec addEventHandler ["killed", {
 		d_confvdown = d_confvdown + 1;
 		(_this select 0) removeAllEventHandlers "killed";
