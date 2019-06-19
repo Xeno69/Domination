@@ -1459,7 +1459,7 @@ if (!d_tt_tanoa) then {
 #ifdef __STRATIS__
 		"Land_BagBunker_Large_F";
 #endif
-#ifdef __STRATIS__
+#ifdef __MALDEN__
 		"Land_BagBunker_Large_F";
 #endif
 #ifdef __ROSCHE__
