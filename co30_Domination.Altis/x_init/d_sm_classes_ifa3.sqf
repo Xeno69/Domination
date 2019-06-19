@@ -62,3 +62,8 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "E": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
+d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"LIB_SOV_M3_Halftrack"};
+	case "W": {"LIB_SdKfz234_4_DLV"};
+	case "G": {"LIB_US_M3_Halftrack"};
+};

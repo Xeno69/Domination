@@ -202,3 +202,8 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "E": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
+d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"gm_gc_army_bmp1sp2"};
+	case "W": {"gm_ge_army_m113a1g_apc_milan"};
+	case "G": {"I_APC_tracked_03_cannon_F"};
+};
