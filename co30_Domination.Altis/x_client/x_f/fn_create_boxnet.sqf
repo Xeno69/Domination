@@ -15,19 +15,8 @@ params ["_box", "_unit", "_bside"];
 __TRACE_2("","_box","_unit")
 player reveal _box;
 _box enableRopeAttach false;
-private _boxcargo = _unit getVariable "d_boxcargo";
-if (isNil "_boxcargo") then {
 #ifndef __TT__
-	[_box] call d_fnc_weaponcargo;
+[_box] call d_fnc_weaponcargo;
 #else
-	[_box, _bside] call d_fnc_weaponcargo;
+[_box, _bside] call d_fnc_weaponcargo;
 #endif
-} else {
-	__TRACE_1("","_boxcargo")
-#ifndef __TT__
-	[_box, _boxcargo] call d_fnc_fillDropedBox;
-#else
-	[_box, _boxcargo, _bside] call d_fnc_fillDropedBox;
-#endif
-	_unit setVariable ["d_boxcargo", nil];
-};

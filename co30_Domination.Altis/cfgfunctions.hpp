@@ -32,7 +32,6 @@ class cfgFunctions {
 			addc(retrieve_respawngear);
 			addc(retrieve_layoutgear);
 			addc(ispilotcheck);
-			addc(filldropedbox);
 			addc(create_boxnet);
 			addc(ataxinet);
 			addc(player_stuff);

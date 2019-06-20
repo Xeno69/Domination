@@ -5,11 +5,8 @@
 
 if !(hasInterface) exitWith {};
 
-params ["_box", "_unit"];
+params ["_box"];
 
-if (!isNil "_unit" && {!isNull _unit}) then {
-	_unit setVariable ["d_boxcargo", [_box call BIS_fnc_getVirtualWeaponCargo, _box call BIS_fnc_getVirtualMagazineCargo, _box call BIS_fnc_getVirtualItemCargo, _box call BIS_fnc_getVirtualBackpackCargo]];
-};
 {
 	if (_x # 0 == _box || {isNull (_x # 0)}) exitWith {
 		d_all_p_a_boxes set [_forEachIndex, -1];
