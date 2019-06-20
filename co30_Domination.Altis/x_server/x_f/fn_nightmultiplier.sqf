@@ -6,7 +6,7 @@
 sleep 20;
 
 while {true} do {
-    if (daytime >= 20 && {daytime < 4}) then {
+    if (daytime >= 20 || {daytime < 4}) then {
         if (timeMultiplier != 5) then {
 			setTimeMultiplier 5;
 		};
