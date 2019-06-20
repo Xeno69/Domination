@@ -782,7 +782,7 @@ if (!d_tt_tanoa) then {
 #include "d_specops_O_default.sqf"
 #endif
 #ifdef __LIVONIA__
-#include "d_specops_O_tanoa.sqf"
+#include "d_specops_O_livonia.sqf"
 #endif
 #ifdef __ROSCHE__
 #include "d_specops_O_default.sqf"
