@@ -108,14 +108,13 @@ if (isNil "d_UnitsToRecruit") then {
 		};
 	};
 #endif
-// TODO
 #ifdef __LIVONIA__
 	private _pchar = switch (d_player_side) do {
-		case blufor: {"B_T"};
+		case blufor: {"B_W"};
 		case opfor: {"O_T"};
 		case independent: {"I_T"};
 	};
-	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
+	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_Exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
 #endif
 };
 
