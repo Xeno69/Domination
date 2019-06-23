@@ -39,6 +39,7 @@ Changelogs
 - Fixed: Marker placed eliminate sniper sidemission did not spawn any AI
 - Fixed: Client sidemission winner script broke with a non defined variable
 - Fixed: FINALLY!!!! The wrong totalscore was written to the SQL database when the server was closed when players were still playing :/
+- Fixed: If a vehicle class for create vehicle at new flag was not empty it resulted in a script error
 - And more optimizations and cosmetic changes
 
 3.99s
