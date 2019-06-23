@@ -339,9 +339,11 @@ d_all_p_a_boxes = [];
 if !(d_ammo_boxes isEqualTo []) then {
 	{
 		private _boxnew = _x # 0;
-		[_boxnew] call d_fnc_weaponcargo;
 		_boxnew enableRopeAttach false;
-#ifdef __TT__
+#ifndef __TT__
+		[_boxnew] call d_fnc_weaponcargo;
+#else
+		[_boxnew, _x # 2] call d_fnc_weaponcargo;
 		if (d_player_side != _x # 2) then {
 			deleteMarkerLocal (_x # 1);
 		};
