@@ -725,7 +725,7 @@ if (!d_gmcwgwinter) then {
 #include "d_allmen_O_gmcwg.sqf"
 } else {
 #include "d_allmen_O_gmcwgw.sqf"
-};
+}
 #endif
 #ifdef __CUP_CHERNARUS__
 #include "d_allmen_O_CUP_CHER.sqf"
@@ -799,7 +799,7 @@ if (!d_gmcwgwinter) then {
 #include "d_specops_O_gmcwg.sqf"
 } else {
 #include "d_specops_O_gmcwgw.sqf"
-};
+}
 #endif
 #ifdef __CUP_CHERNARUS__
 #include "d_specops_O_CUP_CHER.sqf"
