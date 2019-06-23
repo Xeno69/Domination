@@ -362,6 +362,9 @@ d_wcamp =
 #ifdef __TT__
 	"Land_Cargo_Patrol_V1_F";
 #endif
+#ifdef __GMCWG__
+	"Land_Cargo_Patrol_V4_F";
+#endif
 
 d_mash = "Land_TentDome_F";
 d_mash_flag = "Flag_RedCrystal_F";
@@ -1471,6 +1474,9 @@ if (!d_tt_tanoa) then {
 #ifdef __TT__
 		"Land_BagBunker_Large_F";
 #endif
+#ifdef __GMCWG__
+		"Land_BagBunker_01_large_green_F";
+#endif
 	
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
@@ -1507,6 +1513,9 @@ if (!d_tt_tanoa) then {
 #endif
 #ifdef __TT__
 		"Land_Cargo_HQ_V1_F";
+#endif
+#ifdef __GMCWG__
+		"Land_Cargo_HQ_V4_F";
 #endif
 	
 	if (isNil "d_ai_groups_respawn_time") then {
