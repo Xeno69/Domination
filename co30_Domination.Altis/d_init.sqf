@@ -25,10 +25,8 @@ if (hasInterface) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [3, 3], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
 	};
 } else {
-	//setViewDistance d_InitialViewDistance;
-	//setObjectViewDistance (d_InitialViewDistance + 100);
 	setViewDistance 1600;
-	setObjectViewDistance [1600, 0];
+	setObjectViewDistance [1700, 0];
 };
 
 if (d_GrasAtStart == 1) then {
@@ -53,12 +51,6 @@ d_target_names = [];
 	if (!isNil "_name") then {
 		private _pos = getPosWorld _dtar;
 		_pos set [2, 0];
-		//private _ar = [];
-		//_ar set [0, _pos]; // position CityCenter by logic
-		//_ar set [1, _name]; // name village/city
-		//_ar set [2, _dtar getVariable ["d_cityradius", 300]];
-		//_ar set [3, _forEachIndex];
-		//__TRACE_1("One target found","_ar")
 		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
 	} else {
 		private _nlocs = nearestLocations [getPosWorld _dtar, ["NameCityCapital", "NameCity", "NameVillage"], 500];
@@ -73,13 +65,7 @@ d_target_names = [];
 				_dtar setPos _pos;
 			};
 			_name = text (_nlocs # 0);
-			//private _ar = [];
-			//_ar set [0, _pos]; // position CityCenter
-			//_ar set [1, _name]; // name village/city
-			//_ar set [2, _dtar getVariable ["d_cityradius", 300]];
-			//_ar set [3, _forEachIndex];
 			_dtar setVariable ["d_cityname", _name];
-			//__TRACE_1("One target found","_ar")
 			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
 		} else {
 			private _strx = format ["No city found near target location %1", str _dtar];
