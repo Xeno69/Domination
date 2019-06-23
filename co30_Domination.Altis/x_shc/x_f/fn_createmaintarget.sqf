@@ -79,7 +79,7 @@ __TRACE_1("","_this")
 
 d_groups_respawn_time_add = 0;
 //limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
-d_num_barracks_objs = ((ceil random 6) max 4) min d_enemy_max_barracks_count;
+d_num_barracks_objs = ((ceil random 7) max 4) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 private ["_iccount", "_ecounter", "_poss"];
