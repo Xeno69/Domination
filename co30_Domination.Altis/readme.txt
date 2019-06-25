@@ -14,32 +14,32 @@ Changelogs
 3.99t
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
 - Fixed: Ammo point/ammo load marker was gone
-- Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal)
-- Changed: Removed all createVehicleLocal occurences for an upcoming BI security change, see above)
+- Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal in MP)
+- Changed: Removed all createVehicleLocal occurences for an upcoming BI security change (see above)
 - Fixed: Ammo cargo was removed from all vehicles including ammo vehicles :/
 - Fixed: If With AI was enabled Zeus placed groups on the player side got deleted shortly after the placement
 - Changed: More use of simple objects
 - Fixed: Don't save player data to database if total score is zero while player is still playing
-- Changed: Nights are now handled with a time multiplier of 5
+- Changed: Nights are now handled with a time multiplier of 5 (no parameter to disable it, fyi)
 - Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
 - Changed: Set the year to 1944 instead of 2035 in the IFA3 version
-- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.68)
+- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks to seize a main target
-- Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes
-- Fixed: Wrong stringtable entry was used for marker created specops sidemission
+- Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes (as they are no longer locally spawned on clients)
+- Fixed: Wrong Stringtable entry was used for marker created specops sidemission
 - Fixed: Unit array was pushed back to delete array instead of appended in sideprisoner side mission
-- Fixed: If NOBONUS was defined as macro then it worked ecactly the other way around :(
+- Fixed: If NOBONUS was defined as macro then it worked exactly the other way around :(
 - Fixed: Tank depot sidemissions added by marker did not work at all, caused by a script error
-- Fixed: Mines sidemissions added by marker startet sidesteal script instead of sidemines
+- Fixed: Mines sidemissions added by marker startet sidesteal script instead of sidemines script
 - Fixed: Destroy trucks sidemission did not spawn any enemy AI units
-- Fixed: Arrest sidemissions added by marker did end immediately because a wrong unit reference was used
+- Fixed: Arrest sidemissions added by marker did end immediately because of a wrong unit reference (wrong scope)
 - Fixed: Mines sidemissions added by marker did not spawn enemy AI units
 - Fixed: In marker added arrest sidemissions a sniper instead of an officer was spawned
 - Fixed: Marker created steal apc sidemission did spawn a tank instead of an apc
 - Fixed: Marker placed eliminate sniper sidemission did not spawn any AI
 - Fixed: Client sidemission winner script broke with a non defined variable
-- Fixed: FINALLY!!!! The wrong totalscore was written to the SQL database when the server was closed when players were still playing :/
-- Fixed: If a vehicle class for create vehicle at new flag was not empty it resulted in a script error
+- Fixed: FINALLY!!!! The wrong totalscore was written to the SQL database when the server was closed and players were still playing :/
+- Fixed: If a vehicle class for create vehicle at a new flag was not empty it resulted in a script error
 - And more optimizations and cosmetic changes
 
 3.99s
