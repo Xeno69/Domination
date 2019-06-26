@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_repack_mags.sqf"
 #include "..\..\x_setup.sqf"
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
 
 d_inventory_blocked = true;
 
@@ -154,7 +154,7 @@ for "_i" from 0 to 2 do {
 sleep 4.95;
 "d_ProgressBar2" cutFadeOut 0;
 d_inventory_blocked = false;
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
 
 hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t>", localize "STR_DOM_MISSIONSTRING_1942"];
 

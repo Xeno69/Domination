@@ -34,9 +34,9 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 		0 spawn {
 			scriptName "spawn_inventoryopened2";
 			private _disp = displayNull;
-			waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+			waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false]}}};
 			
-			if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+			if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
 			
 			private _ctrl = _disp ctrlCreate ["RscButtonMenu", 12000];
 			

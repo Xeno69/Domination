@@ -6,7 +6,7 @@
 
 d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
+	if (alive player && {!(player getVariable ["xr_pluncon", false])}) then {
 		private _grpp = group player;
 		private _cam2world = positionCameraToWorld [0,0,0];
 		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex"];
@@ -56,7 +56,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 					};
 				};
 			};
-		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"} && {!(_x getVariable ["ace_isunconscious", false])}}}}});
+		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}}});
 	};
 } else {
 	if (!d_show_pname_hud) then {

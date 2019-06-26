@@ -40,6 +40,7 @@ Changelogs
 - Fixed: Client sidemission winner script broke with a non defined variable
 - Fixed: FINALLY!!!! The wrong totalscore was written to the SQL database when the server was closed and players were still playing :/
 - Fixed: If a vehicle class for create vehicle at a new flag was not empty it resulted in a script error
+- Fixed: Mash at base did not heal a player because simulation was disabled for the mash
 - And more optimizations and cosmetic changes
 
 3.99s
