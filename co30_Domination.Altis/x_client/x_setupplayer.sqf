@@ -1028,7 +1028,9 @@ if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
+#ifndef __TT__
 0 spawn d_fnc_vdhandler;
+#endif
 
 if (isMultiplayer) then {
 	execVM "x_client\x_intro2.sqf";
