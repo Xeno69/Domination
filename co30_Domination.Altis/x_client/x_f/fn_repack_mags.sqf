@@ -13,7 +13,7 @@ private _control = (uiNamespace getVariable "d_ProgressBar2") displayCtrl 3800;
 _control ctrlSetPositionW 0.4;
 _control ctrlCommit 5;
 
-private _ular = getUnitLoadout player;
+private _ular =+ getUnitLoadout player;
 
 private _conf = configFile>>"CfgMagazines";
 
