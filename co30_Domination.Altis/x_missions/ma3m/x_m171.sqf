@@ -10,6 +10,6 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_SIDESTRING_1032";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
    [d_fnc_x_sm_pos, time + ((15 * 60) + random 60), "plane"] spawn d_fnc_sideevacsea;
 };

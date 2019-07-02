@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_867";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	d_x_sm_pos params ["_poss"];
 	private _objs = _poss nearObjects ["Land_Ind_Oil_Pump_EP1", 150];
 	if (count _objs < 3) then {_objs set [2, objNull]};

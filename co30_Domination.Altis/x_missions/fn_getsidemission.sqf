@@ -36,8 +36,4 @@ __TRACE_1("","_cur_sm_idx")
 //_cur_sm_idx = _this select 0;
 //_cur_sm_idx = 50042;
 
-if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	[_cur_sm_idx] spawn d_fnc_hcsmexec;
-} else {
-	[_cur_sm_idx] remoteExec ["d_fnc_hcsmexec", d_HC_CLIENT_OBJ_OWNER];
-};
+[_cur_sm_idx] spawn d_fnc_hcsmexec;

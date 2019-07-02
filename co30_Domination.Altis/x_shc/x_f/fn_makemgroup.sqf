@@ -36,13 +36,10 @@ private _nightorfog = call d_fnc_nightfograin;
 	};
 	//};
 #ifdef __TT__
-	_one_unit addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+	_one_unit addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
-		_one_unit addEventHandler ["Killed", {
-			[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-			(_this select 0) removeAllEventHandlers "Killed";
-		}];
+		_one_unit addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 	};
 	_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 	_one_unit setSkill ["aimingAccuracy", _subskill];
@@ -66,6 +63,6 @@ if (side _grp == d_side_enemy) then {
 #endif
 (leader _grp) setRank "SERGEANT";
 #ifndef __TT__
-_ret remoteExecCall ["d_fnc_addceo", 2];
+_ret call d_fnc_addceo;
 #endif
 _ret

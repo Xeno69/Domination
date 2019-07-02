@@ -19,7 +19,7 @@
 
 //Zen_JBOY_UpDown
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 params ["_dude", "_stances"];
 _dude removeEventHandler ["FiredNear", _dude getVariable "zen_fn_idx"];
 while {alive _dude} do {

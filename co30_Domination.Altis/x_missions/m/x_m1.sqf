@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_729";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	d_x_sm_pos params ["_poss"];
 	private _pos_other = d_x_sm_pos # 1;
 	["aa", 1, "", 0, "", 0, _pos_other, 1, 0, false] call d_fnc_CreateArmor;

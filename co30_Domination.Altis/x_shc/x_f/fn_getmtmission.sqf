@@ -22,13 +22,14 @@ if (d_with_dynsim == 0) then { \
 		scriptName "spawn getmtmission"; \
 		sleep 10; \
 		_this enableDynamicSimulation true; \
+		_this call d_fnc_addgrp2hc; \
 	}; \
 }; \
 d_delinfsm append _specus;
 
 #define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 private _wp_array = _this;
 
@@ -70,18 +71,15 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(gov_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			_vec addEventHandler ["Killed", {
-				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-				(_this select 0) removeAllEventHandlers "Killed";
-			}];
+			_vec addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 		};
 		removeFromRemainsCollector [_vec];
-		[_vec] remoteExecCall ["d_fnc_addceo", 2];
+		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		_vec addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+		_vec addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 		sleep 1.0112;
 		__specops;
@@ -260,18 +258,15 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(lopo_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			_vec addEventHandler ["Killed", {
-				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-				(_this select 0) removeAllEventHandlers "Killed";
-			}];
+			_vec addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 		};
 		removeFromRemainsCollector [_vec];
-		[_vec] remoteExecCall ["d_fnc_addceo", 2];
+		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		_vec addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+		_vec addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 		sleep 1.0112;
 		__specops;
@@ -309,18 +304,15 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(dealer_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			_vec addEventHandler ["Killed", {
-				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-				(_this select 0) removeAllEventHandlers "Killed";
-			}];
+			_vec addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 		};
 		removeFromRemainsCollector [_vec];
-		[_vec] remoteExecCall ["d_fnc_addceo", 2];
+		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		_vec addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+		_vec addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 		sleep 1.0112;
 		__specops;
@@ -366,11 +358,7 @@ if (d_current_target_index != -1) then {
 	_s = localize "STR_DOM_MISSIONSTRING_905";
 };
 #ifndef __TT__
-[18, _s] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[18, _s] call d_fnc_DoKBMsg;
 #else
-[19, _s] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[19, _s] call d_fnc_DoKBMsg;
 #endif
-
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_fixor_var", d_fixor_var]] remoteExecCall ["setVariable", 2];
-};

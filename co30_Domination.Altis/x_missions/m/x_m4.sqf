@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_787a";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	d_x_sm_pos params ["_poss"];
 	private _vec = createVehicle ["Misc_Cargo1B_military", _poss, [], 0, "NONE"];
 	_vec setDir 255;

@@ -10,6 +10,6 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_1849";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	[d_x_sm_pos, markerDir "d_sm_104", "land", "evac", "tank", false] spawn d_fnc_sidesteal;
 };

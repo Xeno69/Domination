@@ -55,7 +55,7 @@ guard = [this, MODE, STAND TIME, EXCLUDED POS, STARTING POS, DEBUG] execVM "Hous
 
 ===========================================================================================*/
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 sleep random 1;
 

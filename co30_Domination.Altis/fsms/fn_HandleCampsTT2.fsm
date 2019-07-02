@@ -380,7 +380,7 @@ class FSM
                          "	case ""EAST"": {""CapCampByOpfor""};" \n
                          "	case ""GUER"": {""CapCampByGuer""};" \n
                          "};" \n
-                         "[45, _sent] remoteExecCall [""d_fnc_DoKBMsg"", 2];" \n
+                         "[45, _sent] call d_fnc_DoKBMsg;" \n
                          "" \n
                          "if (_checkside != independent) then {" \n
                          "	private _objects = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n

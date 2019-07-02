@@ -44,7 +44,3 @@ __TRACE_2("","d_sm_points_blufor","d_sm_points_opfor")
 
 _dvec removeAllEventHandlers "killed";
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};

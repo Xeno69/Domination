@@ -46,4 +46,4 @@ d_x_sm_vec_rem_ar = [];
 {deleteVehicle _x} forEach (d_x_sm_rem_ar select {!isNull _x});
 d_x_sm_rem_ar = [];
 d_sm_resolved = false;
-0 remoteExec ["d_fnc_getsidemission", 2];
+0 spawn d_fnc_getsidemission;

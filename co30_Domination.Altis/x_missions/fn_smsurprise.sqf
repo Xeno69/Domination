@@ -34,6 +34,7 @@
 			};
 			
 			d_x_sm_rem_ar append _units;
+			_newgroup call d_fnc_addgrp2hc;
 		};
 	};
 	sleep 1;

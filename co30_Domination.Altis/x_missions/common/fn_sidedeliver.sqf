@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sidedeliver.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if (!isServer) exitWith {};
 
 params ["_spos","_epos","_sdir","_edir"];
 
@@ -68,7 +68,7 @@ private _reached_base = false;
 
 private _markern = format ["d_smvecposc_%1", _vec];
 
-[_markern, [0, 0, 0], "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_1584" , 0, "mil_dot"] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
+[_markern, [0, 0, 0], "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_1584" , 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 	
 while {alive _vec && {!_reached_base && {!d_sm_resolved}}} do {
 	if ((call d_fnc_PlayersNumber) > 0) then {
@@ -86,14 +86,9 @@ if (!d_sm_resolved) then {
 	};
 };
 
-_markern remoteExecCall ["deleteMarker", 2];
+deleteMarker _markern;
 
 d_sm_resolved = true;
-
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};
 
 sleep 2.123;
 
@@ -101,6 +96,6 @@ if (!isNull _vec && {alive _vec}) then {
 	if !((crew _vec) isEqualTo []) then {
 		{moveOut _x} forEach (crew _vec);
 	};
-	[_vec, true] remoteExecCall ["d_fnc_l_v", 2];
+	[_vec, true] call d_fnc_l_v;
 	[_vec, false] remoteExecCall ["engineOn", _vec];
 };

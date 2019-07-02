@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_createpara3x.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 params ["_startpoint", "_attackpoint", "_flytopos", "_heliendpoint", "_number_vehicles"];
 __TRACE_3("","_startpoint","_attackpoint","_heliendpoint")
 __TRACE_2("","_number_vehicles","_flytopos")
@@ -133,13 +131,10 @@ private _make_jump = {
 				_para setPos [_pposcx # 0, _pposcx # 1, (_pposcx # 2) - 10];
 				_one_unit call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
-				_one_unit addEventHandler ["killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+				_one_unit addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 				if (d_with_ai && {d_with_ranked}) then {
-					_one_unit addEventHandler ["Killed", {
-						[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-						(_this select 0) removeAllEventHandlers "Killed";
-					}];
+					_one_unit addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 				};
 				_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 				_one_unit setSkill ["aimingAccuracy", _subskill];
@@ -154,7 +149,7 @@ private _make_jump = {
 			_paragrp deleteGroupWhenEmpty true;
 			__TRACE_1("","_real_units")
 #ifndef __TT__
-			(units _paragrp) remoteExecCall ["d_fnc_addceo", 2];
+			(units _paragrp) call d_fnc_addceo;
 #endif
 			_paragrp allowFleeing 0;
 			_paragrp setCombatMode "YELLOW";
@@ -174,6 +169,7 @@ private _make_jump = {
 			};
 			
 			d_c_attacking_grps pushBack _paragrp;
+			_paragrp call d_fnc_addgrp2hc;
 			
 			sleep 0.112;
 			d_should_be_there = d_should_be_there - 1;
@@ -203,7 +199,7 @@ private _cur_tgt_pos =+ d_cur_tgt_pos;
 private _stop_it = false;
 
 if (d_searchintel # 0 == 1) then {
-	[43] remoteExecCall ["d_fnc_DoKBMsg", 2];
+	[43] call d_fnc_DoKBMsg;
 };
 
 private _crews_ar = [];
@@ -219,7 +215,7 @@ while {_icounter < _number_vehicles} do {
 	_crews_ar append _crew;
 	_vecs_ar pushBack _vec;
 	addToRemainsCollector [_vec];
-	_vec remoteExec ["d_fnc_airmarkermove", 2];
+	_vec call d_fnc_airmarkermove;
 
 	_vec lock true;
 	

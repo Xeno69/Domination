@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_poss", ["_dir", 0], "_types", ["_dovup", true], ["_dolock", false], ["_createarmor", false], ["_createinf", false], ["_random", false], ["_camo", false]];
 
@@ -94,7 +94,3 @@ while {!d_sm_resolved && {{alive _x} count _vecs > 0}} do {
 d_sm_winner = 2;
 
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};

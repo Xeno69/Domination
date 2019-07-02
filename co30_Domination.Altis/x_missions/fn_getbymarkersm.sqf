@@ -27,7 +27,7 @@ if (hasInterface) then {
 	__TRACE_1("","d_current_mission_resolved_text")
 };
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 private _boolorarrayfnc = {
 	if (_this isEqualType false) then {
@@ -43,17 +43,17 @@ private _boolorarrayfnc = {
 
 switch (tolower (_sm_ar # 1)) do {
 	case "convoy": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_x_sm_pos # 1, _sm_ar # 7] spawn d_fnc_sideconvoy;
 		};
 	};
 	case "stealflag": { // creates armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos] spawn d_fnc_sideflag;
 		};
 	};
 	case "tankdepot": { // creates armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			private _posis = [];
 			private _dirs = [];
 			{
@@ -64,22 +64,22 @@ switch (tolower (_sm_ar # 1)) do {
 		};
 	};
 	case "arrest": { // does create armor and inf in common file if param 1 and 2 are set to true
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[objNull, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidearrest;
 		};
 	};
 	case "artibase": { // creates armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0] spawn d_fnc_sidearti;
 		};
 	};
 	case "deliver": { // creates armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_x_sm_pos # 1, markerDir "d_sm_loga", _sm_ar # 7] spawn d_fnc_sidedeliver;
 		};
 	};
 	case "evac": { // no need to create armor and inf
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			private _time = if (count _sm_ar > 8) then {
 				_sm_ar # 8
 			} else {
@@ -89,37 +89,37 @@ switch (tolower (_sm_ar # 1)) do {
 		};
 	};
 	case "radiotower": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_illum_tower, _sm_ar # 7, true, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "prisoners": { // creates armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos] spawn d_fnc_sideprisoners;
 		};
 	};
 	case "stealchopper": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_chopper, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
 		};
 	};
 	case "stealtank": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_tank, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
 		};
 	};
 	case "stealapc": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_apc, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
 		};
 	};
 	case "stealplane": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[objNull, d_x_sm_pos # 0, _sm_ar # 7, d_sm_plane, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidesteal;
 		};
 	};
 	case "specops": { // no need to create armor and inf
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			private _radius = if (count _sm_ar > 8) then {
 				_sm_ar # 8
 			} else {
@@ -129,72 +129,72 @@ switch (tolower (_sm_ar # 1)) do {
 		};
 	};
 	case "eliminateofficer": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, _sm_ar # 7, d_soldier_officer, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideelimofficer;
 		};
 	};
 	case "eliminategovmember": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, _sm_ar # 7, d_soldier_officer, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideelimofficer;
 		};
 	};
 	case "eliminatesniper": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, _sm_ar # 7, d_sniper, true, false, false, true] spawn d_fnc_sideelimofficer;
 		};
 	};
 	case "fuelstation": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_fuel_station, _sm_ar # 7, true, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "transformer": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_sm_land_transformer, _sm_ar # 7, true, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "barracks": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_sm_barracks, _sm_ar # 7, true, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "hangar": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_sm_hangar, _sm_ar # 7, true, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "cargotruck": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_sm_cargo, _sm_ar # 7, false, true, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "minesland": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, "land", (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidemines;
 		};
 	};
 	case "minesnaval": { // does NOT create armor and inf in common file
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, "naval", (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidemines;
 		};
 	};
 	case "artycannon": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, d_sm_arty, _sm_ar # 7, false, true, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "dataterminal": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, _sm_ar # 7, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidetransferdata;
 		};
 	};
 	case "device": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, "Land_Device_assembled_F", _sm_ar # 7, false, false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobject;
 		};
 	};
 	case "sam": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			private _samtypes = 
 #ifdef __OWN_SIDE_OPFOR__
 			["B_SAM_System_03_F", "B_Radar_System_01_F"];
@@ -209,18 +209,18 @@ switch (tolower (_sm_ar # 1)) do {
 		};
 	};
 	case "cache": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidecache;
 		};
 	};
 	case "trucks": {
-		if (call d_fnc_checkSHC) then {
+		if (isServer) then {
 			[d_x_sm_pos # 0, _sm_ar # 7, [d_sm_ammotrucktype, d_sm_fueltrucktype, d_sm_cargotrucktype], false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, true, true] spawn d_fnc_sideobjects;
 		};
 	};
 };
 
-if (call d_fnc_checkSHC && {tolower (_sm_ar # 1) != "convoy"}) then {
+if (isServer && {tolower (_sm_ar # 1) != "convoy"}) then {
 	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
 		(_sm_ar # 3) spawn {
 			scriptName "spawn_getbymarkersmarmor";

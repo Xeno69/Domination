@@ -10293,6 +10293,16 @@
 <Russian>Barracks left:</Russian>
 <Chinesesimp>Barracks left:</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1960">
+<English>With minefield at main targets:</English>
+<Spanish>With minefield at main targets:</Spanish>
+<Portuguese>With minefield at main targets:</Portuguese>
+<Korean>With minefield at main targets:</Korean>
+<Japanese>With minefield at main targets:</Japanese>
+<Original>With minefield at main targets:</Original>
+<Russian>With minefield at main targets:</Russian>
+<Chinesesimp>With minefield at main targets:</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

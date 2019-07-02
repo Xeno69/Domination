@@ -530,6 +530,9 @@ if (_isserv_or_hc) then {
 };
 
 if (isServer) then {
+	d_hc_array = [];
+	d_hc_counter = 0;
+
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
 	d_database_found = false;
@@ -1923,16 +1926,11 @@ if (hasInterface) then {
 				xr_phd_invulnerable = true;
 				player setVariable ["d_p_ev_hd_last", time];
 			};
-			if (!isNil "d_init_processed" && {time > 0 && {!isNil "d_IS_HC_CLIENT"}}) then {
-				if ((!d_IS_HC_CLIENT && {!isNil "d_preloaddone" && {!isNull (findDisplay 46)}}) || {d_IS_HC_CLIENT}) then {
+			if (!isNil "d_init_processed" && {time > 0}) then {
+				if (!isNil "d_preloaddone" && {!isNull (findDisplay 46)}) then {
 					diag_log [diag_frameno, diag_tickTime, time, "Executing Dom local player pre start"];
 					if !(str player in d_virtual_entities) then {
-						if (d_IS_HC_CLIENT) then {
-							__TRACE("Headless client found")
-							call compile preprocessFileLineNumbers "x_shc\x_setuphc.sqf";
-						} else {
-							call compile preprocessFileLineNumbers "x_client\x_setupplayer.sqf";
-						};
+						call compile preprocessFileLineNumbers "x_client\x_setupplayer.sqf";
 						disableRemoteSensors true;
 					};
 					removeMissionEventHandler ["EachFrame", _thisEventHandler];
@@ -1940,6 +1938,10 @@ if (hasInterface) then {
 			};
 		};
 	}];
+} else {
+	if (!isDedicated) then {
+		call compile preprocessFileLineNumbers "x_shc\x_setuphc.sqf";
+	};
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom fn_preinit.sqf processed"];

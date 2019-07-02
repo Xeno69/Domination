@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sidemines.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_pos", "_type", ["_docreatearmor", false], ["_docreateinf", false]];
 
@@ -80,10 +80,6 @@ while {!d_sm_resolved} do {
 			d_sm_winner = 2;
 		};
 		d_sm_resolved = true;
-		if (d_IS_HC_CLIENT) then {
-			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-		};
 	};
 	sleep 0.1;
 	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
@@ -95,10 +91,6 @@ while {!d_sm_resolved} do {
 	if (time > _mforceendtime) exitWith {
 		d_sm_winner = -1100;
 		d_sm_resolved = true;
-		if (d_IS_HC_CLIENT) then {
-			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-		};
 	};
 };
 if !(_arrows isEqualTo []) then {{deleteVehicle _x} forEach _arrows};

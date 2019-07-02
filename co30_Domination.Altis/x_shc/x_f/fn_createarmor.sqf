@@ -65,6 +65,7 @@ for "_nr" from 0 to 2 do {
 			if (d_with_dynsim == 0) then {
 				_newgroup enableDynamicSimulation true;
 			};
+			_newgroup call d_fnc_addgrp2hc;
 		};
 	};
 };

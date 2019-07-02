@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_sidetrafo.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_poss"];
 
@@ -52,7 +52,3 @@ if (!d_sm_resolved) then {
 	#endif
 };
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};

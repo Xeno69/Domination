@@ -4,10 +4,7 @@
 #include "..\..\x_setup.sqf"
 
 d_mt_mobile_hq_down = true;
-if (!isServer) then {
-	[missionNamespace, ["d_mt_mobile_hq_down", true]] remoteExecCall ["setVariable", 2];
-};
-[53] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[53] call d_fnc_DoKBMsg;
 (_this select 0) spawn {
 	scriptName "spawn checkmtrespawntarget2";
 	sleep (60 + random 60);
@@ -25,6 +22,6 @@ if (d_database_found) then {
 		};
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 5] remoteExecCall ["addScore", 2];
+		[_killer, 5] call addScore;
 	};
 };

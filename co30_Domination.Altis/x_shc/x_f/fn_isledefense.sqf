@@ -3,20 +3,12 @@
 #define THIS_FILE "fn_isledefense.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 #ifndef __DEBUG__
 sleep 85.321;
 #else
 sleep 5;
 d_all_igrps_vecs = [];
 #endif
-
-__TRACE("before isServer check")
-
-if (isMultiplayer && {isServer && {!isNil "HC_D_UNIT"}}) exitWith {};
-
-__TRACE("after isServer check")
 
 d_old_old_start = [0,0,0];
 

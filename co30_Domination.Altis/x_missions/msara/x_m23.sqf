@@ -11,6 +11,6 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_1604";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	[d_x_sm_pos, [32, 336.274, 73.0341, 96.5422]] spawn d_fnc_sideboats;
 };

@@ -44,13 +44,10 @@ if (count _crew > 0) then {
 							_one_unit call d_fnc_removenvgoggles_fak;
 							[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 #ifdef __TT__
-							_one_unit addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+							_one_unit addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 							if (d_with_ai && {d_with_ranked}) then {
-								_one_unit addEventHandler ["Killed", {
-									[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-									(_this select 0) removeAllEventHandlers "Killed";
-								}];
+								_one_unit addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 							};
 							if (d_with_dynsim == 0) then {
 								_one_unit spawn {
@@ -77,13 +74,10 @@ if (count _crew > 0) then {
 	{
 		_x call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
-		_x addEventHandler ["Killed", {[[15, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+		_x addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
 #endif
 		if (d_with_ai && {d_with_ranked}) then {
-			_x addEventHandler ["Killed", {
-				[1, _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-				(_this select 0) removeAllEventHandlers "Killed";
-			}];
+			_x addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
 		};
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];

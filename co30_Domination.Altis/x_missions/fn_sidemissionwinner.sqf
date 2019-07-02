@@ -31,7 +31,7 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 			_smppoi spawn {
 				scriptName "spawn_sidemissionwinner";
 				sleep (0.5 + random 2);
-				[player, _this] remoteExecCall ["addScore", 2];
+				player addScore _this;
 			};
 		};
 		d_sm_p_pos = nil;

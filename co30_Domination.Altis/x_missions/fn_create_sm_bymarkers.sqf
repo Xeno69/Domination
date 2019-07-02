@@ -115,7 +115,7 @@ __TRACE_1("","_eee")
 		_onesmar = [parseNumber _idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 7 = d_current_mission_resolved_text
 	};
 	
-	if (call d_fnc_checkSHC) then {
+	if (isServer) then {
 		private _fidx = _marar find "smarmor";
 		if (_fidx != -1) then {
 			if (_marar # (_fidx + 1) == "no") then {
@@ -224,7 +224,7 @@ __TRACE_1("","_eee")
 					};
 				};
 				if (_subtype == "time") then {
-					if (call d_fnc_checkSHC) then {
+					if (isServer) then {
 						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)));
 					};
 				};
@@ -329,7 +329,7 @@ __TRACE_1("","_eee")
 					};
 				};
 				if (_subtype == "radius") then {
-					if (call d_fnc_checkSHC) then {
+					if (isServer) then {
 						_onesmar pushBack (parseNumber (_marar # (_subtypeidx + 1)))
 					};
 				};

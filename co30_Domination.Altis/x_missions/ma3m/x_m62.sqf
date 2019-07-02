@@ -10,7 +10,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_1667";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	[d_x_sm_pos # 0, "naval"] spawn d_fnc_sidemines;
 	sleep 2.123;
 	["specops", 2, "allmen", 4, d_x_sm_pos # 1, 150, true] spawn d_fnc_CreateInf;

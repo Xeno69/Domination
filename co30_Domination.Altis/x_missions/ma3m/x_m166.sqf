@@ -10,7 +10,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_SIDESTRING_1063A";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	d_x_sm_pos params ["_poss", "_pos_other", "_pos_other2"];
 	private _helper = createVehicle [d_HeliHEmpty, _poss, [],0, "NONE"];
 	private _vehicle = d_sm_submarine2 createVehicle [getPosASL _helper # 0, getPosASL _helper # 1, (random (getPosASL _helper # 2))];

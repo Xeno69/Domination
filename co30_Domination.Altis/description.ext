@@ -186,15 +186,11 @@ class CfgRemoteExec {
 		class xr_fnc_selleader {allowedTargets = 2;};
 		class d_fnc_cgraa {};
 		class d_fnc_docreatenexttarget {};
-		class d_fnc_deleteempty {};
 		class d_fnc_dodelintelu {};
 		class d_fnc_clearsidemission {};
 		class d_fnc_xdelct {};
-		class d_fnc_mct {};
-		class d_fnc_addkillsai {allowedTargets = 2;};
 		class d_fnc_plcheckkill {allowedTargets = 2;};
 		class d_fnc_HintChatMsg {allowedTargets = 1;};
-		class d_fnc_hcsmexec {allowedTargets = 1;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class d_fnc_airmarkermove {allowedTargets = 2;};
@@ -225,6 +221,7 @@ class CfgRemoteExec {
 		class d_fnc_airtaxi_dest {allowedTargets = 2;};
 		class d_fnc_civilianmodule {allowedTargets = 2;};
 		class d_fnc_clienttargetsel {allowedTargets = 1;};
+		class d_fnc_addttp {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};
@@ -570,6 +567,13 @@ class Params {
 #else
 		default = 1;
 #endif
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_with_minefield {
+		title = "$STR_DOM_MISSIONSTRING_1960";
+		values[] = {0,1};
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	

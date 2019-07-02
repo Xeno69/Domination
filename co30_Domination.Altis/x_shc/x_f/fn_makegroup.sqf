@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makegroup.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if (!isServer) exitWith {};
 
 params ["_grptype", "_wp_array", "_target_pos", "_numvecs", "_type", "_side", "_grp_in", "_vec_dir", ["_add_to_ar_type", 0], "_center_rad", ["_mchelper", true]];
 
@@ -51,14 +51,14 @@ if (_add_to_ar_type > 0) then {
 			if (!_ismen) then {
 				if (!d_tt_ver) then {
 					{
-						_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+						_x addMPEventhandler ["MPkilled", {if (isServer) then {_this call d_fnc_onerespukilled}}];
 						_x setVariable ["d_respawninfo", [_grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 						_x setVariable ["d_thevecs", _vecs];
 					} forEach _vecs;
 				};
 			} else {
 				{
-					_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+					_x addMPEventhandler ["MPkilled", {if (isServer) then {_this call d_fnc_onerespukilled}}];
 				} forEach _uinf;
 				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, selectRandom ["patrol", "patrol2"], _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
 			};
@@ -144,6 +144,7 @@ if (d_with_dynsim == 0) then {
 	[_grp, _sleepti] spawn {
 		scriptName "spawn makegroup";
 		sleep (_this select 1);
+		(_this select 0) call d_fnc_addgrp2hc;
 		(_this select 0) enableDynamicSimulation true;
 	};
 };

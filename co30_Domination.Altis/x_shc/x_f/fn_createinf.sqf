@@ -64,6 +64,7 @@ for "_nr" from 0 to 1 do {
 			};
 			_ret_grps pushBack _newgroup;
 			d_x_sm_rem_ar append _units;
+			_newgroup call d_fnc_addgrp2hc;
 		};
 	};
 };

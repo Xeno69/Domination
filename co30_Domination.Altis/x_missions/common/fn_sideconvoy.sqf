@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sideconvoy.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if (!isServer) exitWith {};
 
 params ["_pos_start", "_pos_end", "_direction"];
 
@@ -114,7 +114,3 @@ if (!d_sm_resolved) then {
 };
 
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};

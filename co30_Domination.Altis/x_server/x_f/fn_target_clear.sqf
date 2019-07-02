@@ -8,13 +8,9 @@ __TRACE_1("","_this")
 
 sleep 1.123;
 
-if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	remoteExecCall ["d_fnc_xdelct", d_HC_CLIENT_OBJ_OWNER];
-	[missionNamespace, ["d_mt_done", true]] remoteExecCall ["setVariable", d_HC_CLIENT_OBJ_OWNER];
-} else {
-	call d_fnc_xdelct;
-	d_mt_done = true;
-};
+call d_fnc_xdelct;
+d_mt_done = true;
+
 sleep 0.01;
 
 if (!d_side_main_done) then {
@@ -78,11 +74,7 @@ d_num_barracks_tt = -1;
 publicVariable "d_num_barracks_tt";
 #endif
 
-if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	remoteExecCall ["d_fnc_dodelintelu", d_HC_CLIENT_OBJ_OWNER];
-} else {
-	call d_fnc_dodelintelu;
-};
+call d_fnc_dodelintelu;
 
 sleep 0.5;
 
@@ -119,11 +111,7 @@ if !(d_maintargets_list isEqualTo []) then {
 sleep 2.123;
 
 if !(d_maintargets_list isEqualTo []) then {
-	if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
-		[1, d_current_target_index] remoteExecCall ["d_fnc_doexechcf", d_HC_CLIENT_OBJ_OWNER];
-	} else {
-		[1, d_current_target_index] call d_fnc_doexechcf;
-	};
+	[1, d_current_target_index] call d_fnc_doexechcf;
 };
 
 sleep 3.321;
@@ -179,11 +167,7 @@ if (d_enable_civs == 1) then {
 
 sleep 0.245;
 
-if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	[d_old_target_pos, d_old_radius, _del_camps_stuff] execFSM "fsms\fn_DeleteEmpty.fsm";
-} else {
-	[d_old_target_pos, d_old_radius, _del_camps_stuff] remoteExecCall ["d_fnc_DeleteEmpty", d_HC_CLIENT_OBJ_OWNER];
-};
+[d_old_target_pos, d_old_radius, _del_camps_stuff] execFSM "fsms\fn_DeleteEmpty.fsm";
 
 0 spawn d_fnc_rebbuil;
 

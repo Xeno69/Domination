@@ -104,7 +104,7 @@ __TRACE_1("","d_sm_array")
 
 d_number_side_missions = count d_sm_array;
 
-if (call d_fnc_checkSHC) then {		
+if (isServer) then {		
 	// these vehicles get spawned in a convoy sidemission. Be aware that it is the best to use a wheeled vehicle first as leader.
 	// at least wheeled AI vehicles try to stay on the road somehow
 #ifdef __ALTIS__
@@ -260,11 +260,8 @@ d_sm_folder = "mifa3";
 // Add d_current_sm_bonus_vec to the beginning of a sidemission script with a vehicle class string and that vehicle gets chosen instead of a random one.
 // Examples:
 // d_current_sm_bonus_vec = "B_MBT_01_cannon_F";
-// if (d_IS_HC_CLIENT) then {
-//	[missionNamespace, ["d_current_sm_bonus_vec", d_current_sm_bonus_vec]] remoteExecCall ["setVariable", 2];
-// };
 // DON'T CHANGE IT HERE IN X_MISSIONSETUP.SQF!!!!!!!!!!!!!!!!!!!!!!!!!
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 #ifndef __TT__
 	d_current_sm_bonus_vec = "";
 #else

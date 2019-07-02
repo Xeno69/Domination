@@ -2,8 +2,6 @@
 #define THIS_FILE "fn_handleobservers.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 private _e_ari_avail = true;
 private _nextaritime = 0;
 

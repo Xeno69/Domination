@@ -1,11 +1,7 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_shcinit.sqf"
+#define THIS_FILE "x_serverinit.sqf"
 #include "..\x_setup.sqf"
-
-__TRACE("x_shcinit")
-
-if !(call d_fnc_checkSHC) exitWith {};
 
 d_delvecsmt = [];
 d_delinfsm = [];
@@ -23,22 +19,17 @@ d_mt_radio_down = false;
 d_mt_barracks_down = false;
 d_mt_mobile_hq_down = false;
 
-if (d_IS_HC_CLIENT) then {
-	call compile preprocessFileLineNumbers "i_server.sqf";
-};
-
 // start air AI after some time
 #ifndef __TT__
 if (d_MissionType != 2 && d_disable_airai != 1) then {
 	0 spawn {
-		scriptName "spawn_x_shcinit_airai";
-		__TRACE("spawn_x_shcinit_airai start")
+		scriptName "spawn_x_init_airai";
+		__TRACE("spawn_x_init_airai start")
 		sleep 30;
-		__TRACE("spawn_x_shcinit_airai 30 secs over")
-		if (isMultiplayer && {isServer && {!isNil "HC_D_UNIT"}}) exitWith {};
+		__TRACE("spawn_x_init_airai 30 secs over")
 		if !(d_light_attack_chopper isEqualTo []) then {
 			sleep 1200;
-			__TRACE("spawn_x_shcinit_airai 30 exec LAC")
+			__TRACE("spawn_x_init_airai 30 exec LAC")
 			["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
 		};
 		if !(d_airai_attack_chopper isEqualTo []) then {
@@ -61,5 +52,3 @@ if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0 && {!(d_transport_c
 #endif
 
 0 spawn d_fnc_ai_loop;
-
-__TRACE("x_shcinit done")

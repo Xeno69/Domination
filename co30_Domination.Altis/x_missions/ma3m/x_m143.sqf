@@ -10,7 +10,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_SIDESTRING_1058";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	private _trigger = objNull;
 	d_x_sm_pos params ["_poss"];
 	private _exact_pos = [_poss, 300] call d_fnc_GetRanPointCircleOld;
@@ -54,19 +54,19 @@ if (call d_fnc_checkSHC) then {
 			if (_time_over == 3) then {
 				if (_endtime - time <= 600) then {
 					_time_over = 2;
-					[29] remoteExecCall ["d_fnc_DoKBMsg", 2];
+					[29] call d_fnc_DoKBMsg;
 				};
 			} else {
 				if (_time_over == 2) then {
 					if (_endtime - time <= 300) then {
 						_time_over = 1;
-						[31] remoteExecCall ["d_fnc_DoKBMsg", 2];
+						[31] call d_fnc_DoKBMsg;
 					};
 				} else {
 					if (_time_over == 1) then {
 						if (_endtime - time <= 120) then {
 							_time_over = 0;
-							[33] remoteExecCall ["d_fnc_DoKBMsg", 2];
+							[33] call d_fnc_DoKBMsg;
 						};
 					};
 				};

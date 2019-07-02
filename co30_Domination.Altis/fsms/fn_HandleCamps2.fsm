@@ -271,7 +271,7 @@ class FSM
                          "	case ""EAST"": {""CapCampByOpfor""};" \n
                          "	case ""GUER"": {""CapCampByGuer""};" \n
                          "};" \n
-                         "[44, _sent] remoteExecCall [""d_fnc_DoKBMsg"", 2];" \n
+                         "[44, _sent] call d_fnc_DoKBMsg;" \n
                          """d_Ui_cc"" remoteExecCall [""playSound""];" \n
                          "" \n
                          "private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;

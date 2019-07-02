@@ -17,7 +17,11 @@ private _endpoints = if (isNull objectParent _killer) then {
 	private _dist = [_killed distance2D _killer, 500] select (isNull _killed);
 	if (_dist < 0) then {_dist = 500};
 	private _coef = [[1, 2] select (_dist < 70), 3] select (_dist < 20);
-	_killer addScore round ((_points # 0) / 5);
+	if (!d_with_ace) then {
+		_killer addScore round ((_points # 0) / 5);
+	} else {
+		[_killer, round ((_points # 0) / 5)] remoteExecCall ["addScore", 2];
+	};
 	((_points # 0) * _coef)
 } else {
 	private _vec = vehicle _killer;
@@ -30,9 +34,17 @@ private _endpoints = if (isNull objectParent _killer) then {
 };
 private _grs = side (group _killer);
 if (_grs == blufor) then {
-	d_kill_points_blufor = d_kill_points_blufor + _endpoints;
+	if (!d_with_ace) then {
+		d_kill_points_blufor = d_kill_points_blufor + _endpoints;
+	} else {
+		[1, _endpoints] remoteExecCall ["d_fnc_addttp", 2];
+	};
 } else {
 	if (_grs == opfor) then {
-		d_kill_points_opfor = d_kill_points_opfor + _endpoints
+		if (!d_with_ace) then {
+			d_kill_points_opfor = d_kill_points_opfor + _endpoints;
+		} else {
+			[2, _endpoints] remoteExecCall ["d_fnc_addttp", 2];
+		};
 	};
 };

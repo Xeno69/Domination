@@ -5,8 +5,6 @@
 
 __TRACE("Create Secondary")
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 params ["_wp_array", "_mtradius", "_trg_center"];
 
 sleep 3.120;
@@ -33,13 +31,12 @@ _vec setPos _poss;
 _vec setVectorUp [0,0,1];
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
-[missionNamespace, ["d_mt_radio_down", false]] remoteExecCall ["setVariable", 2];
-["d_main_target_radiotower", _poss,"ICON","ColorBlack",[0.5,0.5],localize "STR_DOM_MISSIONSTRING_521",0,"mil_dot"] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
+["d_main_target_radiotower", _poss,"ICON","ColorBlack",[0.5,0.5],localize "STR_DOM_MISSIONSTRING_521",0,"mil_dot"] call d_fnc_CreateMarkerGlobal;
 
 #ifndef __TT__
-[9] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[9] call d_fnc_DoKBMsg;
 #else
-[10] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[10] call d_fnc_DoKBMsg;
 #endif
 sleep 1.0112;
 
@@ -47,19 +44,19 @@ sleep 1.0112;
 
 #ifndef __TT__
 sleep 1;
-[54] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[54] call d_fnc_DoKBMsg;
 sleep 2.234;
 #else
-[56] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[56] call d_fnc_DoKBMsg;
 sleep 3.234;
 #endif
 
 d_mt_spotted = false;
 d_create_new_paras = false;
 #ifndef __TT__
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[12] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[12] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #else
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[13] remoteExecCall ['d_fnc_DoKBMsg', 2];0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
 sleep 3.234;
@@ -74,9 +71,6 @@ private _nrcamps = (ceil random 6) max 4;
 #endif
 
 d_sum_camps = _nrcamps;
-if (!isServer) then {
-	[missionNamespace, ["d_sum_camps", _nrcamps]] remoteExecCall ["setVariable", 2];
-};
 
 private _sizecamp = sizeOf d_wcamp;
 private _dist_for_points = -1;
@@ -164,11 +158,8 @@ for "_i" from 1 to _nrcamps do {
 	_flagPole setPos _fwfpos;
 	_wf setVariable ["d_FLAG", _flagPole, true];
 	private _maname = format["d_camp_%1", _wf];
-	[_maname, _poss, "ICON", "ColorBlack", [0.5,0.5], str _i, 0, d_strongpointmarker] remoteExecCall ["d_fnc_CreateMarkerGlobal", 2];
+	[_maname, _poss, "ICON", "ColorBlack", [0.5,0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 	_wf setVariable ["d_camp_mar", _maname];
-	if (!isServer) then {
-		[_wf, ["d_camp_mar", _maname]] remoteExecCall ["setVariable", 2];
-	};
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 	
 	_wf addEventHandler ["HandleDamage", {0}];
@@ -195,17 +186,14 @@ if (d_with_ranked || {d_database_found}) then {
 };
 
 #ifndef __TT__
-[15, _nrcamps] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[15, _nrcamps] call d_fnc_DoKBMsg;
 #else
-[16, _nrcamps] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[16, _nrcamps] call d_fnc_DoKBMsg;
 #endif
 
-if (random 100 > 70) then {
+if (d_with_minefield == 0 && {random 100 > 70}) then {
 	[_mtradius, _trg_center] call d_fnc_minefield;
 };
 
 sleep 5.213;
 d_main_target_ready = true;
-if (!isServer) then {
-	[missionNamespace, ["d_main_target_ready", true]] remoteExecCall ["setVariable", 2];
-};

@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_createmaintarget.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 private _selectit = {
 	(ceil (random (((_this # 0) select (_this # 1)) # 1)))
 };
@@ -132,9 +130,6 @@ d_num_barracks_objs = count d_mt_barracks_obj_ar;
 __TRACE_1("","d_mt_barracks_obj_ar")
 __TRACE_1("2","d_num_barracks_objs")
 d_mt_barracks_down = false;
-if (!isServer) then {
-	[missionNamespace, ["d_mt_barracks_down", false]] remoteExecCall ["setVariable", 2];
-};
 #ifdef __TT__
 d_num_barracks_tt = d_num_barracks_objs;
 publicVariable "d_num_barracks_tt";
@@ -176,13 +171,10 @@ _vec setVariable ["d_v_pos", _poss];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
-if (!isServer) then {
-	[missionNamespace, ["d_mt_mobile_hq_down", false]] remoteExecCall ["setVariable", 2];
-};
 sleep 0.1;
 
 if (d_enable_civs == 1) then {
-	[_trg_center] remoteExecCall ["d_fnc_civilianmodule", 2];
+	[_trg_center] call d_fnc_civilianmodule;
 };
 #endif
 
@@ -286,9 +278,9 @@ if (d_no_more_observers < 2) then {
 		_observer addEventHandler ["killed", {d_nr_observers = d_nr_observers - 1;
 			if (d_nr_observers == 0) then {
 #ifndef __TT__
-				[3] remoteExecCall ["d_fnc_DoKBMsg", 2];
+				[3] call d_fnc_DoKBMsg;
 #else
-				[4] remoteExecCall ["d_fnc_DoKBMsg", 2];
+				[4] call d_fnc_DoKBMsg;
 #endif
 			};
 			(_this select 0) removeAllEventHandlers "killed";
@@ -301,9 +293,9 @@ if (d_no_more_observers < 2) then {
 	_unit_array = nil;
 
 #ifndef __TT__
-	[6, d_nr_observers] remoteExecCall ["d_fnc_DoKBMsg", 2];
+	[6, d_nr_observers] call d_fnc_DoKBMsg;
 #else
-	[7, d_nr_observers] remoteExecCall ["d_fnc_DoKBMsg", 2];
+	[7, d_nr_observers] call d_fnc_DoKBMsg;
 #endif
 	d_handleobservers_handle = 0 spawn d_fnc_handleobservers;
 	sleep 1.214;
@@ -346,7 +338,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 		_newgroup deleteGroupWhenEmpty true;
 		if (d_mt_respawngroups == 0) then {
 			{
-				_x addEventhandler ["killed", {_this call d_fnc_onerespukilled}];
+				_x addMPEventhandler ["MPkilled", {if (isServer) then {_this call d_fnc_onerespukilled}}];
 			} forEach _units_to_garrison;
 			_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
 		};
@@ -362,6 +354,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 			};
 		};
 		d_delinfsm append _units_to_garrison;
+		_newgroup call d_fnc_addgrp2hc;
 		
 		__TRACE_1("","_newgroup")
 		__TRACE_1("","_units_to_garrison")

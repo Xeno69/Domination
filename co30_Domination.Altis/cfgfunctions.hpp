@@ -232,7 +232,6 @@ class cfgFunctions {
 		class Dom_Common {
 			file = "x_common\x_f";
 			addc(mhqfunc);
-			addc(checkshc);
 			addc(removenvgoggles_fak);
 			addc(hasnvgoggles);
 			addc(hastoolkit);
@@ -311,7 +310,6 @@ class cfgFunctions {
 			addc(getsidemission);
 			addc(sidempkilled);
 			addc(smmapos);
-			addc(hcsmexec);
 			addc(addkillednormal);
 			addc(create_sm_bymarkers);
 			addc(addsmpoints);
@@ -324,6 +322,7 @@ class cfgFunctions {
 			addc(smhiteh);
 			addc(smhandledeh);
 			addc(smhiteh2);
+			addc(hcsmexec);
 		};
 		class Dom_SMMissions_Common {
 			file = "x_missions\common";
@@ -446,6 +445,10 @@ class cfgFunctions {
 			addc(selectnexttarget);
 			addc(nightmultiplier);
 			addc(aboxkilled);
+			addc(add_mp_aik);
+			addc(addttp);
+			addc(addgrp2hc);
+			addc(recreatehcs);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";
@@ -486,7 +489,6 @@ class cfgFunctions {
 			addc(cgraa);
 			addc(dodelintelu);
 			addc(xdelct);
-			addc(mct);
 			addc(doexechcf);
 			addc(getflatarea);
 			addc(getmtmission);
@@ -496,7 +498,6 @@ class cfgFunctions {
 			addc(doquake);
 			addc(createambient);
 			addc(dohousepatrol);
-			addc(deleteempty);
 			addc(nightfograin);
 			addc(changeskill);
 			addc(ai_loop);

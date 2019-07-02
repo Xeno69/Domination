@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_shootari.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_pos_enemy", "_kind"];
 

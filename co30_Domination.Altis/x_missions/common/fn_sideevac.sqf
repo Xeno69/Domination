@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_sideevac.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_pos_array", "_endtime"];
 _pos_array params ["_poss"];
@@ -18,7 +18,7 @@ sleep 2;
 
 private _owngroup = [d_side_player] call d_fnc_creategroup;
 if (d_with_ai) then {
-	[_owngroup, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
+	_owngroup setVariable ["d_do_not_delete", true];
 };
 __TRACE_1("","_owngroup")
 private _nposss = _poss findEmptyPosition [20, 100, d_sm_pilottype];
@@ -141,9 +141,9 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			if (_endtime - time <= 600) then {
 				_time_over = 2;
 #ifndef __TT__
-				[23] remoteExecCall ["d_fnc_DoKBMsg", 2];
+				[23] call d_fnc_DoKBMsg;
 #else
-				[24] remoteExecCall ["d_fnc_DoKBMsg", 2];
+				[24] call d_fnc_DoKBMsg;
 #endif
 			};
 		} else {
@@ -151,9 +151,9 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 				if (_endtime - time <= 300) then {
 					_time_over = 1;
 #ifndef __TT__
-					[25] remoteExecCall ["d_fnc_DoKBMsg", 2];
+					[25] call d_fnc_DoKBMsg;
 #else
-					[26] remoteExecCall ["d_fnc_DoKBMsg", 2];
+					[26] call d_fnc_DoKBMsg;
 #endif
 				};
 			} else {
@@ -161,9 +161,9 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 					if (_endtime - time <= 120) then {
 						_time_over = 0;
 #ifndef __TT__
-						[27] remoteExecCall ["d_fnc_DoKBMsg", 2];
+						[27] call d_fnc_DoKBMsg;
 #else
-						[28] remoteExecCall ["d_fnc_DoKBMsg", 2];
+						[28] call d_fnc_DoKBMsg;
 #endif
 					};
 				};
@@ -233,7 +233,3 @@ sleep 2.123;
 sleep 0.5;
 
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};

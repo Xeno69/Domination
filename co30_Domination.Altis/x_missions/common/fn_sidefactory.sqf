@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sidefactory.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 #ifdef __TT__
 d_sm_points_blufor = 0;
@@ -53,7 +53,3 @@ if (!d_sm_resolved) then {
 #endif
 };
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};

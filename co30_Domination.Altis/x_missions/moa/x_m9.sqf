@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_821";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	private _poss = if ((floor random 2) == 1) then {d_x_sm_pos # 3} else {d_x_sm_pos # 0};
 	private _vec = createVehicle [d_sm_chopper, _poss, [], 0, "NONE"];
 	_vec setDir (markerDir "d_sm_9");

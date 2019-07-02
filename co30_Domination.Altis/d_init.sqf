@@ -343,7 +343,7 @@ if (isNil "d_winterw") then {
 if (isServer) then {
 	execVM "x_bikb\kbinit.sqf";
 	
-	call compile preprocessFileLineNumbers "x_shc\x_shcinit.sqf";
+	call compile preprocessFileLineNumbers "x_server\x_serverinit.sqf";
 
 #ifndef __TT__
 	0 spawn {
@@ -364,11 +364,7 @@ if (isServer) then {
 
 		if (d_base_aa_vec isEqualTo "") exitWith {};
 		
-		if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
-			[d_own_side, d_base_aa_vec] call d_fnc_cgraa;
-		} else {
-			[d_own_side, d_base_aa_vec] remoteExecCall ["d_fnc_cgraa", d_HC_CLIENT_OBJ_OWNER];
-		};
+		[d_own_side, d_base_aa_vec] call d_fnc_cgraa;
 	};
 #endif
 	
@@ -474,9 +470,7 @@ if (isServer) then {
 	};
 };
 
-if (!hasInterface) then {
-	call compile preprocessFileLineNumbers "x_shc\x_shcinit.sqf";
-} else {
+if (hasInterface) then {
 #ifndef __TT__
 	{
 		[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;

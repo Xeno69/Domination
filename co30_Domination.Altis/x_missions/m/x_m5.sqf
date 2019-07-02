@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_748";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	#define __train1poss [6976.36,2422.87,0]
 	private _train1 = createVehicle ["Land_loco_742_blue", __train1poss, [], 0, "NONE"];
 	_train1 setDir 51.991;

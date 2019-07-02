@@ -23,7 +23,7 @@
 */
 
 private ["_grp", "_side", "_newGrp"];
-params ["_posv1", "_azi", "_typev1", "_param4", ["_addkills", true], ["_nocargo", false]];
+params ["_posv1", "_azi", "_typev1", ["_param4", sideUnknown], ["_addkills", true], ["_nocargo", false]];
 __TRACE_1("","_this")
 
 if (_param4 isEqualType sideUnknown) then {
@@ -85,21 +85,22 @@ if (_newGrp) then {_grp selectLeader (commander _veh)};
 if (_addkills) then {
 #ifdef __TT__
 	if !(_veh isKindOf "Air") then {
-		_veh addEventHandler ["Killed", {[[20, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+		_veh addMPEventHandler ["MPKilled", {if (isServer) then {[[20, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills}}];
 	} else {
-		_veh addEventHandler ["Killed", {[[30, 3, 2, 1], _this # 1, _this # 0] remoteExecCall ["d_fnc_AddKills", 2]}];
+		_veh addMPEventHandler ["MPKilled", {if (isServer) then {[[30, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills}}];
 	};
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
-		_veh addEventHandler ["Killed", {
-			[[8, 5] select ((_this select 0) isKindOf "Air"), _this select 1] remoteExecCall ["d_fnc_addkillsai", 2];
-			(_this select 0) removeAllEventHandlers "Killed";
-		}];
+		if !(_veh isKindOf "Air") then {
+			_veh addMPEventHandler ["MPKilled", {if (isServer) then {[5, _this # 1] call d_fnc_addkillsai}}];
+		} else {
+			_veh addMPEventHandler ["MPKilled", {if (isServer) then {[8, _this # 1] call d_fnc_addkillsai}}];
+		};
 	};
 };
 
 #ifndef __TT__
-[_veh] remoteExecCall ["d_fnc_addceo", 2];
+[_veh] call d_fnc_addceo;
 #endif
 
 [_veh, _crew, _grp]

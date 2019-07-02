@@ -5,11 +5,6 @@
 
 __TRACE("docreatenexttarget start")
 
-if (isServer && {!isNil "d_HC_CLIENT_OBJ_OWNER"}) exitWith {
-	__TRACE("found HC moving")
-	remoteExec ["d_fnc_docreatenexttarget", d_HC_CLIENT_OBJ_OWNER];
-};
-
 d_mtmissionobj = objNull;
 d_mt_done = false;
 if (isNil "d_sum_camps") then {d_sum_camps = -91};

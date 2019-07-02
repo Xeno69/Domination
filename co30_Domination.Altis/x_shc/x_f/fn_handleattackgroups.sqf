@@ -2,8 +2,6 @@
 #define THIS_FILE "fn_handleattackgroups.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 params ["_grps"];
 
 private _allunits = [];

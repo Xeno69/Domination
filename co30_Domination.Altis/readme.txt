@@ -42,6 +42,11 @@ Changelogs
 - Fixed: If a vehicle class for create vehicle at a new flag was not empty it resulted in a script error
 - Fixed: Mash at base did not heal a player because simulation was disabled for the mash
 - Fixed: Repacking magazines added full magazines, rewrote repack code completely
+- Changed: Disabled automatic view distance handler for TT version
+- Changed: Domination now supports more than one Headless Client
+- Changed: If a Headless Client disconnects the mission will continue normally
+- Changed: If an additional Headless Client connects the groups will be rebalanced across the HCs (same if a HC disconnects)
+- Added: New parameter "With minefield at main targets:" (d_with_minefield in description.ext), default is on
 - And more optimizations and cosmetic changes
 
 3.99s

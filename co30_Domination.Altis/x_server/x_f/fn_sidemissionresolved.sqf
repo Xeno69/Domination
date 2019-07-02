@@ -5,11 +5,8 @@
 
 __TRACE("In fn_sidemissionresolved")
 
-if (isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	0 spawn d_fnc_clearsidemission;
-} else {
-	[0] remoteExecCall ["d_fnc_doexechcf", d_HC_CLIENT_OBJ_OWNER];
-};
+0 spawn d_fnc_clearsidemission;
+
 (d_cur_sm_idx + 1) call d_fnc_d_sm_mar;
 
 d_cur_sm_idx = -1;

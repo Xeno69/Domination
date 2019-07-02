@@ -81,6 +81,3 @@ _tsar = ["d_mt_radio_down && {d_mt_barracks_down && {d_campscaptured_w == d_sum_
 __TRACE_1("","_tsar")
 d_current_trigger = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", false], _tsar] call d_fnc_createtriggerlocal;
 __TRACE_1("","d_current_trigger")
-if (!isNil "d_HC_CLIENT_OBJ_OWNER") then {
-	[d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", false], ["this", "", ""]] remoteExecCall ["d_fnc_mct", d_HC_CLIENT_OBJ_OWNER];
-};

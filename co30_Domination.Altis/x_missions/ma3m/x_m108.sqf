@@ -10,7 +10,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_SIDESTRING_1054";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	d_x_sm_pos params ["_poss", "_pos_other", "_pos_other2"];
 	private _vehicle = createVehicle [d_sm_SpeedBoat, _poss, [], 0, "NONE"];
 	_vehicle setDir markerDir "d_sm_108";

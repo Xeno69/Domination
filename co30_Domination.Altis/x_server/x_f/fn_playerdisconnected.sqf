@@ -6,7 +6,18 @@ if (!isServer || {!d_database_found}) exitWith{};
 
 params ["", "_uid", "_name"];
 
-if (_name == "__SERVER__" || {_name == "HC_D_UNIT" || {_name == "headlessclient"}}) exitWith {};
+__TRACE_1("","_this")
+
+if (_name == "__SERVER__" || {_name select [0, 9] == "HC_D_UNIT" || {_name == "headlessclient"}}) exitWith {
+	diag_log ["DOM playerdisconnected, Server or headless client disconnect: _this", _this];
+	if (_name select [0, 9] == "HC_D_UNIT" || {_name == "headlessclient"}) then {
+		0 spawn {
+			sleep 2;
+			d_hc_array = d_hc_array - [objNull, grpNull];
+			0 spawn d_fnc_recreatehcs;
+		};
+	};
+};
 
 private _unit = objNull;
 (allPlayers - entities "HeadlessClient_F") findIf {
@@ -17,7 +28,6 @@ private _unit = objNull;
 		false
 	};
 };
-__TRACE_1("","_this")
 __TRACE_1("","allPlayers")
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")

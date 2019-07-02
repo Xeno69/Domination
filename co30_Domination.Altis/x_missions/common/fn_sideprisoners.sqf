@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sideprisoners.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 (_this select 0) params ["_pos"];
 
@@ -142,10 +142,6 @@ if (!d_sm_resolved) then {
 };
 
 d_sm_resolved = true;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-	[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-};
 
 sleep 5.123;
 

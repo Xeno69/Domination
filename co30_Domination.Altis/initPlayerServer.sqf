@@ -9,11 +9,10 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
-//entities "HeadlessClient_F"
-//if ((str _pl) select [0, 9] isEqualTo "HC_D_UNIT") exitWith {
 if (_pl isKindOf "HeadlessClient_F") exitWith {
-	d_HC_CLIENT_OBJ_OWNER = owner _pl;
-	__TRACE_1("","d_HC_CLIENT_OBJ_OWNER")
+	__TRACE_2("","_pl","owner _pl")
+	d_hc_array pushBack _pl;
+	0 spawn d_fnc_recreatehcs;
 };
 
 private _name = (name _pl) splitString """'" joinString "";

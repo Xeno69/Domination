@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_827";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	private _newpos = [d_x_sm_pos # 0, 400] call d_fnc_GetRanPointCircle;
 	private _ogroup = [d_side_enemy] call d_fnc_creategroup;
 	private _sm_vec = _ogroup createUnit [d_soldier_officer, _newpos, [], 0, "NONE"];

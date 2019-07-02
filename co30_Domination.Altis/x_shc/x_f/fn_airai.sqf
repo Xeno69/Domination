@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_airai.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
-
 __TRACE("airai")
 
 params ["_type"];
@@ -73,9 +71,9 @@ while {true} do {
 	private _cdir = _pos getDir d_island_center;
 #ifndef __TT__
 	switch (_type) do {
-		case "AP": {if (d_searchintel # 1 == 1) then {[0] remoteExecCall ["d_fnc_DoKBMsg", 2]}};
-		case "HAC": {if (d_searchintel # 2 == 1) then {[1] remoteExecCall ["d_fnc_DoKBMsg", 2]}};
-		case "LAC": {if (d_searchintel # 3 == 1) then {[2] remoteExecCall ["d_fnc_DoKBMsg", 2]}};
+		case "AP": {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
+		case "HAC": {if (d_searchintel # 2 == 1) then {[1] call d_fnc_DoKBMsg}};
+		case "LAC": {if (d_searchintel # 3 == 1) then {[2] call d_fnc_DoKBMsg}};
 	};
 #endif
 	for "_xxx" from 1 to _numair do {
@@ -95,7 +93,7 @@ while {true} do {
 		if (d_LockAir == 0) then {_vec lock true};
 		_vec flyInHeight 100;
 
-		_vec remoteExec ["d_fnc_airmarkermove", 2];
+		_vec call d_fnc_airmarkermove;
 		__TRACE_1("","_vec")
 		sleep 0.1;
 	};
@@ -106,6 +104,7 @@ while {true} do {
 	sleep 1.011;
 	
 	_grp allowFleeing 0;
+	_grp call d_fnc_addgrp2hc;
 	
 	waitUntil {sleep 0.323; d_current_target_index >= 0};
 	private _cur_tgt_pos =+ d_cur_tgt_pos;

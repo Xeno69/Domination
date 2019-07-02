@@ -11,7 +11,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_801";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	d_x_sm_pos params ["_poss"];
 	private _building = nearestObject [_poss, "Land_Hangar_2"];
 	private _building2 = nearestObject [_poss, "Land_Komin"];

@@ -4,16 +4,12 @@
 #include "..\..\x_setup.sqf"
 
 d_mt_spotted = false;
-if (d_IS_HC_CLIENT) then {
-	[missionNamespace, ["d_mt_spotted", false]] remoteExecCall ["setVariable", 2];
-};
 d_mt_radio_down = true;
-[missionNamespace, ["d_mt_radio_down", true]] remoteExecCall ["setVariable", 2];
-"d_main_target_radiotower" remoteExecCall ["deleteMarker", 2];
+deleteMarker "d_main_target_radiotower";
 #ifndef __TT__
-[37] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[37] call d_fnc_DoKBMsg;
 #else
-[38] remoteExecCall ["d_fnc_DoKBMsg", 2];
+[38] call d_fnc_DoKBMsg;
 private _killer = _this select 2;
 if (isNull _killer) then {
 	if (!d_with_ace) then {
@@ -23,10 +19,10 @@ if (isNull _killer) then {
 	};
 };
 if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-	[d_tt_points # 2, _killer] remoteExecCall ["d_fnc_AddPoints", 2];
+	[d_tt_points # 2, _killer] call d_fnc_AddPoints;
 	switch (side (group _killer)) do {
-		case blufor: {[39, "WEST"] remoteExecCall ["d_fnc_DoKBMsg", 2]};
-		case opfor: {[39, "EAST"] remoteExecCall ["d_fnc_DoKBMsg", 2]};
+		case blufor: {[39, "WEST"] call d_fnc_DoKBMsg};
+		case opfor: {[39, "EAST"] call d_fnc_DoKBMsg};
 	};
 };
 #endif
@@ -48,7 +44,7 @@ if (d_database_found) then {
 	};
 #endif
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 1] remoteExecCall ["d_fnc_addppoints", 2];
+		[_killer, 1] call d_fnc_addppoints;
 	};
 };
 (_this select 0) removeAllEventHandlers "killed";

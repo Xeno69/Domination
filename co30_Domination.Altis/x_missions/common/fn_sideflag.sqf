@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_sideflag.sqf"
 #include "..\..\x_setup.sqf"
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_posi_array"];
 
@@ -51,10 +51,6 @@ while {true} do {
 			d_sm_winner = 2;
 		};
 		d_sm_resolved = true;
-		if (d_IS_HC_CLIENT) then {
-			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-		};
 	};
 #else
 	if (!isNull _owner && {(_owner distance2D d_EFLAG_BASE < 40)}) exitWith {
@@ -66,10 +62,6 @@ while {true} do {
 			d_sm_winner = 1;
 		};
 		d_sm_resolved = true;
-		if (d_IS_HC_CLIENT) then {
-			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-		};
 	};
 	if (!isNull _owner && {(_owner distance2D d_WFLAG_BASE < 40)}) exitWith {
 		if (d_with_ranked || {d_database_found}) then {
@@ -80,10 +72,6 @@ while {true} do {
 			d_sm_winner = 2;
 		};
 		d_sm_resolved = true;
-		if (d_IS_HC_CLIENT) then {
-			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-		};
 	};
 #endif
 	
@@ -93,10 +81,6 @@ while {true} do {
 			d_sm_winner = -900;
 		};
 		d_sm_resolved = true;
-		if (d_IS_HC_CLIENT) then {
-			[missionNamespace, ["d_sm_winner", d_sm_winner]] remoteExecCall ["setVariable", 2];
-			[missionNamespace, ["d_sm_resolved", true]] remoteExecCall ["setVariable", 2];
-		};
 		if (!isNil "_owner" && {!isNull _owner}) then {
 			_owner removeMPEventHandler ["MPKilled", _owner getVariable "d_flagowner"];
 			_owner setVariable ["d_flagowner", nil];

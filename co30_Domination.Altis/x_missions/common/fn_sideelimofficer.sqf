@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-if !(call d_fnc_checkSHC) exitWith {};
+if !(isServer) exitWith {};
 
 params ["_poss", "_dir", "_type", ["_issniper", false], ["_createarmor", false], ["_createinf", false]];
 

@@ -11,6 +11,6 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = localize "STR_DOM_MISSIONSTRING_767";
 };
 
-if (call d_fnc_checkSHC) then {
+if (isServer) then {
 	[d_x_sm_pos, [markerDir "d_sm_74_1",markerDir "d_sm_74_2",markerDir "d_sm_74_3",markerDir "d_sm_74_4",markerDir "d_sm_74_5",markerDir "d_sm_74_6"]] spawn d_fnc_sidetanks;
 };
