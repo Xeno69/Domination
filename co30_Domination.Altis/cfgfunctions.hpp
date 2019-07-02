@@ -445,10 +445,10 @@ class cfgFunctions {
 			addc(selectnexttarget);
 			addc(nightmultiplier);
 			addc(aboxkilled);
-			addc(add_mp_aik);
 			addc(addttp);
 			addc(addgrp2hc);
 			addc(recreatehcs);
+			addc(entitykilled);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

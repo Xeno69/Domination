@@ -98,7 +98,7 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 		_one_unit call d_fnc_removenvgoggles_fak;
 		
 		if (d_with_ai && {d_with_ranked}) then {
-			_one_unit addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}];
+			_one_unit setVariable ["d_ktypeai", 1];
 		};
 		_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_one_unit setSkill ["aimingAccuracy", _subskill];

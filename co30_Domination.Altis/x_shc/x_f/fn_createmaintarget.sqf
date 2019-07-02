@@ -338,7 +338,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 		_newgroup deleteGroupWhenEmpty true;
 		if (d_mt_respawngroups == 0) then {
 			{
-				_x addMPEventhandler ["MPkilled", {if (isServer) then {_this call d_fnc_onerespukilled}}];
+				_x setVariable ["d_onerespk", true];
 			} forEach _units_to_garrison;
 			_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
 		};

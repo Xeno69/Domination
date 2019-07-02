@@ -104,15 +104,10 @@ for "_i" from 0 to d_civ_groupcount do {
 	_m setVariable ["#useagents", true];
 	_m setVariable ["#usepanicmode", false];
 	_m setVariable ["#unitcount", d_civ_unitcount];
-	//_m setVariable ["#onCreated", { hint "created a civilian!" }];
 	_m setVariable ["#onCreated", {
 		d_cur_tgt_civ_units pushBack _this;
-		//_this addMPEventHandler ["MPKilled", {
 		_this addEventHandler ["Killed", {
-			//if (isServer) then {
 			_this call d_fnc_civmodulekilleh;
-			//};
 		}];
 	}];
-	//_m setVariable ["#onDeleted", { hint "deleted a civilian!" }];
 };

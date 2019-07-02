@@ -44,10 +44,10 @@ if (count _crew > 0) then {
 							_one_unit call d_fnc_removenvgoggles_fak;
 							[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 #ifdef __TT__
-							_one_unit addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
+							_one_unit setVariable ["d_ktypett", 1];
 #endif
 							if (d_with_ai && {d_with_ranked}) then {
-								_one_unit addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
+								_one_unit setVariable ["d_ktypeai", 1];
 							};
 							if (d_with_dynsim == 0) then {
 								_one_unit spawn {
@@ -74,10 +74,10 @@ if (count _crew > 0) then {
 	{
 		_x call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
-		_x addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
+		_x setVariable ["d_ktypett", 1];
 #endif
 		if (d_with_ai && {d_with_ranked}) then {
-			_x addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
+			_x setVariable ["d_ktypeai", 1];
 		};
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];

@@ -36,10 +36,10 @@ private _nightorfog = call d_fnc_nightfograin;
 	};
 	//};
 #ifdef __TT__
-	_one_unit addMPEventHandler ["MPKilled", {_this call d_fnc_add_mp_aik}];
+	_one_unit setVariable ["d_ktypett", 1];
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
-		_one_unit addMPEventHandler ["MPKilled", {if (isServer) then {[1, _this select 1] call d_fnc_addkillsai}}];
+		_one_unit setVariable ["d_ktypeai", 1];
 	};
 	_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 	_one_unit setSkill ["aimingAccuracy", _subskill];

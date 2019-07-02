@@ -32,7 +32,7 @@ if (unitIsUAV _vec) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 	_uavgrp deleteGroupWhenEmpty true;
-	_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}}];
+	_vec setVariable ["d_delcrewk", true];
 } else {
 	if (d_with_dynsim == 0) then {
 		_vec spawn {
@@ -208,7 +208,7 @@ if (unitIsUAV _vec) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 	_uavgrp deleteGroupWhenEmpty true;
-	_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}}];
+	_vec setVariable ["d_delcrewk", true];
 } else {
 	if (d_with_dynsim == 0) then {
 		_vec spawn {
@@ -235,7 +235,7 @@ if (!isNull _vec2) then {
 			_vec2 remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
 		_uavgrp deleteGroupWhenEmpty true;
-		_vec2 addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}}];
+		_vec2 setVariable ["d_delcrewk", true];
 	} else {
 		if (d_with_dynsim == 0) then {
 			_vec2 spawn {

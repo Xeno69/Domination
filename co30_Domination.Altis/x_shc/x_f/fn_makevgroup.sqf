@@ -25,7 +25,7 @@ for "_n" from 0 to _nnvnum do {
 		_npos = _vec modelToWorld [0, -12, 0];
 	};
 	
-	_vec addEventHandler ["killed", {_this call d_fnc_handleDeadVec}];
+	_vec setVariable ["d_ktype", 1];
 	addToRemainsCollector [_vec];
 	
 	if (_dyna && {d_with_dynsim == 0 && {!unitIsUAV _vec}}) then {

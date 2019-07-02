@@ -85,16 +85,16 @@ if (_newGrp) then {_grp selectLeader (commander _veh)};
 if (_addkills) then {
 #ifdef __TT__
 	if !(_veh isKindOf "Air") then {
-		_veh addMPEventHandler ["MPKilled", {if (isServer) then {[[20, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills}}];
+		_veh setVariable ["d_ktypett", 2];
 	} else {
-		_veh addMPEventHandler ["MPKilled", {if (isServer) then {[[30, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills}}];
+		_veh setVariable ["d_ktypett", 3];
 	};
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
 		if !(_veh isKindOf "Air") then {
-			_veh addMPEventHandler ["MPKilled", {if (isServer) then {[5, _this # 1] call d_fnc_addkillsai}}];
+			_veh setVariable ["d_ktypeai", 2];
 		} else {
-			_veh addMPEventHandler ["MPKilled", {if (isServer) then {[8, _this # 1] call d_fnc_addkillsai}}];
+			_veh setVariable ["d_ktypeai", 3];
 		};
 	};
 };

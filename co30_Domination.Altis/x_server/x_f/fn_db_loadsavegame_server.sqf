@@ -95,7 +95,7 @@ d_bonus_vecs_db = _ar # 9;
 		private _uavgrp = createVehicleCrew _vec;
 		_uavgrp deleteGroupWhenEmpty true;
 		_vec allowCrewInImmobile true;
-		_vec addMPEventhandler ["MPKilled", {if (isServer) then {{_this deleteVehicleCrew _x} forEach (crew (_this select 0))}}];
+		_vec setVariable ["d_delcrewk", true];
 		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 			_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
