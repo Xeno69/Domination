@@ -24,11 +24,6 @@ sleep _waittime;
 {
 	if !(isNull _x) then {
 		if (_x isKindOf "House") then {
-			/*_ruin = nearestObject [_x, "Ruins"];
-			if (!isNull _ruin) then {
-				 (getPosATL _ruin) remoteExecCall ["d_fnc_delruin"];
-				deleteVehicle _ruin;
-			};*/
 			_x setDamage 0;
 			deleteVehicle _x;
 		} else {

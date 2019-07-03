@@ -86,6 +86,11 @@ if (count _crew > 0) then {
 	if !(isNull (driver _vec)) then {(driver _vec) setRank "LIEUTENANT"};
 	if !(isNull (gunner _vec)) then {(gunner _vec) setRank "SERGEANT"};
 	if !(isNull (effectiveCommander _vec)) then {(effectiveCommander _vec) setRank "CORPORAL"};
+#ifdef __TT__
+	if (d_with_ace) then {
+		_grp setVariable ["d_ktypett", 1];
+	};
+#endif
 };
 
 __TRACE_1("","fullCrew _vec")

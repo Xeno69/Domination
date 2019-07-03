@@ -5,4 +5,5 @@
 
 if (!hasInterface) exitWith {};
 
-player setVariable ["d_layoutgear", getUnitLoadout player];
+private _ar =+ getUnitLoadout player;
+player setVariable ["d_layoutgear", _ar];

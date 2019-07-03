@@ -85,9 +85,9 @@ if (_newGrp) then {_grp selectLeader (commander _veh)};
 if (_addkills) then {
 #ifdef __TT__
 	if !(_veh isKindOf "Air") then {
-		_veh setVariable ["d_ktypett", 2];
+		_veh setVariable ["d_ktypett", 2, [false, true] select d_with_ace];
 	} else {
-		_veh setVariable ["d_ktypett", 3];
+		_veh setVariable ["d_ktypett", 3, [false, true] select d_with_ace];
 	};
 #endif
 	if (d_with_ai && {d_with_ranked}) then {

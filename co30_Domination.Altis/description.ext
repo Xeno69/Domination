@@ -120,7 +120,6 @@ class CfgRemoteExec {
 		//class YourFunction2 { allowedTargets=1; }; // can target only clients
 		//class YourFunction3 { allowedTargets=2; }; // can target only the server
 
-		class d_fnc_delruin {};
 		class d_fnc_CreateDroppedBox {allowedTargets = 2;};
 		class d_fnc_create_boxNet {allowedTargets = 1;};
 		class d_fnc_airtaxiserver {allowedTargets = 2;};
@@ -136,18 +135,12 @@ class CfgRemoteExec {
 		class d_fnc_AdminDelTKs {allowedTargets = 2;};
 		class d_fnc_ChangeRLifes {allowedTargets = 2;};
 		class d_fnc_TKR {allowedTargets = 2;};
-		class d_fnc_DoKBMsg {allowedTargets = 2;};
-		class d_fnc_getsidemission {allowedTargets = 2;};
 		class d_fnc_createPlayerBike {allowedTargets = 2;};
 		class d_fnc_l_v {allowedTargets = 2;};
 		class d_fnc_mhqdepls {allowedTargets = 2;};
 		class d_fnc_mhqdeplNet {allowedTargets = 1;};
 		class d_fnc_mhq_net {allowedTargets = 2;};
-		class d_fnc_getbonus {allowedTargets = 2;};
-		class d_fnc_CreateMarkerGlobal {allowedTargets = 2;};
 		class d_fnc_at_serv {allowedTargets = 2;};
-		class d_fnc_d_sm_mar {allowedTargets = 2;};
-		class d_fnc_s_sm_up {allowedTargets = 2;};
 		class d_fnc_air_box {allowedTargets = 1;};
 		class d_fnc_the_end {allowedTargets = 1;};
 		class d_fnc_doarti {allowedTargets = 1;};
@@ -166,7 +159,6 @@ class CfgRemoteExec {
 		class d_fnc_unit_tk2 {allowedTargets = 1;};
 		class d_fnc_farp_e {allowedTargets = 1;};
 		class d_fnc_newflagclient {allowedTargets = 1;};
-		class d_fnc_pho {allowedTargets = 1;};
 		class d_fnc_s_b_client {allowedTargets = 1;};
 		class d_fnc_rem_sb_id {allowedTargets = 1;};
 		class d_fnc_kbunits {allowedTargets = 1;};
@@ -184,16 +176,10 @@ class CfgRemoteExec {
 		class xr_fnc_changeleader {};
 		class xr_fnc_draghelper {allowedTargets = 1;};
 		class xr_fnc_selleader {allowedTargets = 2;};
-		class d_fnc_cgraa {};
-		class d_fnc_docreatenexttarget {};
-		class d_fnc_dodelintelu {};
-		class d_fnc_clearsidemission {};
-		class d_fnc_xdelct {};
 		class d_fnc_plcheckkill {allowedTargets = 2;};
 		class d_fnc_HintChatMsg {allowedTargets = 1;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
-		class d_fnc_airmarkermove {allowedTargets = 2;};
 		class d_fnc_addppoints {allowedTargets = 2;};
 		class d_fnc_moduleCAS {allowedTargets = 2;};
 		class d_fnc_storeploadout {allowedTargets = 2;};
@@ -219,7 +205,6 @@ class CfgRemoteExec {
 		class d_fnc_giveplayerscore {allowedTargets = 2;};
 		class d_fnc_rem_uav {allowedTargets = 1;};
 		class d_fnc_airtaxi_dest {allowedTargets = 2;};
-		class d_fnc_civilianmodule {allowedTargets = 2;};
 		class d_fnc_clienttargetsel {allowedTargets = 1;};
 		class d_fnc_addttp {allowedTargets = 2;};
 #ifdef __TT__
@@ -228,6 +213,7 @@ class CfgRemoteExec {
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
 		class d_fnc_AddKills {allowedTargets = 2;};
+		class d_fnc_addgrhcace {allowedTargets = 1;};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -249,18 +235,12 @@ class CfgRemoteExec {
 		class setMass {};
 		class addScore {allowedTargets = 2;};
 		class hideObjectGlobal {allowedTargets = 2;};
-		class enableSimulationGlobal {allowedTargets = 2;};
 		class deleteMarker {allowedTargets = 2;};
-		class setMarkerColor {allowedTargets = 2;};
 		class setVariable {};
 		class endMission {allowedTargets = 1;};
-		class localize {allowedTargets = 1;};
 		class sideChat {allowedTargets = 1;};
-		class setMarkerPos {allowedTargets = 2;};
-		class setMarkerAlpha {allowedTargets = 2;};
 		class createDiaryRecord {allowedTargets = 1;};
 		class deleteGroup {allowedTargets=0;};
-		class setOwner {allowedTargets = 2;};
 		class setSpeaker {allowedTargets = 1;};
 		class hint {allowedTargets = 1;};
 #ifdef __TT__

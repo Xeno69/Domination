@@ -47,6 +47,7 @@ Changelogs
 - Changed: If a Headless Client disconnects the mission will continue normally
 - Changed: If an additional Headless Client connects the groups will be rebalanced across the HCs (same if a HC disconnects)
 - Added: New parameter "With minefield at main targets:" (d_with_minefield in description.ext), default is on
+- Fixed: Replaced deprecated "O_T_APC_Wheeled_02_rcws_ghex_F" class with O_T_APC_Wheeled_02_rcws_v2_ghex_F
 - And more optimizations and cosmetic changes
 
 3.99s

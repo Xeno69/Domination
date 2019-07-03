@@ -263,7 +263,7 @@ class FSM
                          "if (!isNull _flag) then {" \n
                          "	_flag setFlagTexture _texture;" \n
                          "};" \n
-                         "[_mar, _mcolor] remoteExecCall [""setMarkerColor"", 2];" \n
+                         "_mar setMarkerColor _mcolor;" \n
                          "_wf setVariable [""D_CURCAPTIME"", 0, true];" \n
                          "" \n
                          "private _sent = switch (_wf getVariable ""D_SIDE"") do {" \n

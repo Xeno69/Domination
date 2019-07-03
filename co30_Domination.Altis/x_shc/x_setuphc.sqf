@@ -11,4 +11,8 @@ __TRACE("Running HC setup")
 
 0 spawn d_fnc_ai_loop;
 
+d_is_hc = true;
+
+addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
+
 __TRACE("HC setup done")

@@ -56,6 +56,11 @@ private _nightorfog = call d_fnc_nightfograin;
 #endif
 } forEach _unitliste;
 _ret joinSilent _grp;
+#ifdef __TT__
+if (d_with_ace) then {
+	_grp setVariable ["d_ktypett", 1];
+};
+#endif
 #ifdef __GROUPDEBUG__
 if (side _grp == d_side_enemy) then {
 	d_infunitswithoutleader = d_infunitswithoutleader - 1;

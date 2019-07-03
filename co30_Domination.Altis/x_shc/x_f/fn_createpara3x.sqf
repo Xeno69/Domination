@@ -146,6 +146,11 @@ private _make_jump = {
 					__TRACE("vec not alive")
 				};
 			} forEach _real_units;
+#ifdef __TT__
+			if (d_with_ace) then {
+				_paragrp setVariable ["d_ktypett", 1];
+			};
+#endif
 			_paragrp deleteGroupWhenEmpty true;
 			__TRACE_1("","_real_units")
 #ifndef __TT__

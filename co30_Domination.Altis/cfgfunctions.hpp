@@ -268,7 +268,6 @@ class cfgFunctions {
 			addc(tchopservice);
 			addc(tvecservice);
 			addc(tallservice);
-			addc(delruin);
 			addc(isnvgoggles);
 			addc(isswimming);
 			addc(posbehindvec);
@@ -449,6 +448,7 @@ class cfgFunctions {
 			addc(addgrp2hc);
 			addc(recreatehcs);
 			addc(entitykilled);
+			addc(addgrhcace);
 		};
 		class Dom_SHC {
 			file = "x_shc\x_f";

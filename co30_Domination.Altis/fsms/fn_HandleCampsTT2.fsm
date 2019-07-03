@@ -372,7 +372,7 @@ class FSM
                          "	_flag setFlagTexture _texture;" \n
                          "};" \n
                          " " \n
-                         "[_mar, _mcolor] remoteExecCall [""setMarkerColor"", 2];" \n
+                         "_mar setMarkerColor _mcolor;" \n
                          "_wf setVariable [""D_CURCAPTIME"", 0, true];" \n
                          "" \n
                          "_sent = switch (_wf getVariable ""D_SIDE"") do {" \n
@@ -389,12 +389,12 @@ class FSM
                          "			if (alive _x) then {" \n
                          "				if (isNull objectParent _x) then {" \n
                          "					if ((_x call d_fnc_isplayer) && {side (group _x) == _checkside}) then {" \n
-                         "						[_x, 5] remoteExecCall [""addScore"", 2];" \n
+                         "						_x addScore 5;" \n
                          "					};" \n
                          "				} else {" \n
                          "					{" \n
                          "						if (alive _x && {(_x call d_fnc_isplayer) && {side (group _x) == _checkside}}) then {" \n
-                         "							[_x, 5] remoteExecCall [""addScore"", 2];" \n
+                         "							_x addScore 5;" \n
                          "						};" \n
                          "					} forEach (crew _x);" \n
                          "				};" \n

@@ -7,6 +7,28 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
+#ifdef __TT__
+if (!d_with_ace || {d_with_ace && {local _obj}}) then {
+	private _ktypett =  _obj getVariable "d_ktypett";
+	if (!isNil "_ktypett") then {
+		__TRACE_1("","_ktypett")
+		call {
+			if (_ktypett == 1) exitWith {
+				[[15, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills
+			};
+			if (_ktypett == 2) exitWith {
+				[[20, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills
+			};
+			if (_ktypett == 3) exitWith {
+				[[30, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills
+			};
+		};
+		_obj setVariable ["d_ktypett", nil];
+	};
+};
+if (!isNil "d_is_hc") exitWith {true};
+#endif
+
 private _onerespk = _obj getVariable "d_onerespk";
 if (!isNil "_onerespk") then {
 	__TRACE_1("","_onerespk")
@@ -30,25 +52,6 @@ if (!isNil "_ktypeai") then {
 	};
 	_obj setVariable ["d_ktypeai", nil];
 };
-
-#ifdef __TT__
-private _ktypett =  _obj getVariable "d_ktypett";
-if (!isNil "_ktypett") then {
-	__TRACE_1("","_ktypett")
-	call {
-		if (_ktypett == 1) exitWith {
-			[[15, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills
-		};
-		if (_ktypett == 2) exitWith {
-			[[20, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills
-		};
-		if (_ktypett == 3) exitWith {
-			[[30, 3, 2, 1], _this # 1, _this # 0] call d_fnc_AddKills
-		};
-	};
-	_obj setVariable ["d_ktypett", nil];
-};
-#endif
 
 private _ktype = _obj getVariable "d_ktype";
 if (!isNil "_ktype") then {

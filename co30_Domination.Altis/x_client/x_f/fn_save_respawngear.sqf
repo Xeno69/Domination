@@ -33,4 +33,5 @@ if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
 	} forEach (primaryWeaponItems player);
 };
 
-player setVariable ["d_respawngear", getUnitLoadout player];
+private _ar =+ getUnitLoadout player;
+player setVariable ["d_respawngear", _ar];
