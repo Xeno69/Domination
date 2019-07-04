@@ -6,11 +6,11 @@
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
 if (!isServer) then {
-	call compile preprocessFileLineNumbers "x_init\x_initcommon.sqf";
+	call compile preprocessFileLineNumbers "init\initcommon.sqf";
 };
 
 #ifdef __GROUPDEBUG__
-call compile preprocessFileLineNumbers "x_shc\x_f\x_shcfunctions.sqf";
+call compile preprocessFileLineNumbers "x_gdbfunctions.sqf";
 #endif
 
 if (hasInterface) then {
@@ -199,7 +199,7 @@ if (isDedicated && {d_WithRevive == 0}) then {
 	call compile preprocessFileLineNumbers "x_revive.sqf";
 };
 
-#include "x_missions\x_missionssetup.sqf"
+#include "missions\missionssetup.sqf"
 
 #ifndef __TT__
 {_x allowDamage false} forEach (nearestTerrainObjects [d_FLAG_BASE, ["House"], 70, false, true]);
@@ -341,13 +341,13 @@ if (isNil "d_winterw") then {
 };
 
 if (isServer) then {
-	execVM "x_bikb\kbinit.sqf";
+	execVM "bikb\kbinit.sqf";
 	
-	call compile preprocessFileLineNumbers "x_server\x_serverinit.sqf";
+	call compile preprocessFileLineNumbers "server\serverinit.sqf";
 
 #ifndef __TT__
 	0 spawn {
-		scriptName "spawn_x_initx_createbase";
+		scriptName "spawn_initx_createbase";
 		waitUntil {time > 0};
 		sleep 2;
 

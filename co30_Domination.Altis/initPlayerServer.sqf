@@ -114,7 +114,7 @@ if (d_database_found) then {
 #endif
 		if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
 			__TRACE("Adding score");
-			__TRACE_1("","((_dbresult select 1) select 0) select 0")
+			__TRACE_1("","_dbresult select 0")
 			__TRACE_1("","score _pl")
 			d_player_store setVariable [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
 			[_pl, _dbresult # 0] spawn {

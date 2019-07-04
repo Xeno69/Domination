@@ -295,7 +295,7 @@ ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chern
 - Changed: AI airtaxi is now available in all versions except TT for all players (one taxi for all players)
 - Changed: Removed Special Purpose Suit from Virtual Arsenal uniforms when player is on Blufor side
 - Changed: Show the number of seconds a player has to wait before he/she can deploy/undeploy a MHQ again
-- Changed: It is now possible to remove entries from Virtual Arsenal by either code or classname (d_remove_from_arsenal in x_init\fn_preinit.sqf)
+- Changed: It is now possible to remove entries from Virtual Arsenal by either code or classname (d_remove_from_arsenal in init\fn_preinit.sqf)
 - Changed: If database is found and player has a score higher than 500 remove auto kick from air vehicles after 30 seconds
 - Added: Dynamic pylon loadout editor. Just enter a plane or chopper which supports it while it doesn't move and engine is out at base and you get the action menu.
 		 For UAVs just walk to the UAV and use the hold action outside the UAV
@@ -369,7 +369,7 @@ ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier 
 - Fixed: Use correct position for barracks building fake ruin
 - Fixed: Island patrols did not work on headless client
 - Improved: Rope attachement points for helilift by Auge103
-- Fixed: Stupid "I forgot to remove a copy and paste text" in x_server\x_f\fn_getbonus.sqf which completely broke it (mission breaker :/)
+- Fixed: Stupid "I forgot to remove a copy and paste text" in server\x_f\fn_getbonus.sqf which completely broke it (mission breaker :/)
 - Fixed: Do not delete UAV invisble crews when with AI is enabled, makes player placed drones work again
 
 3.93
@@ -411,7 +411,7 @@ ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini fi
 - Fixed: Sidemission units should no longer spawn in rocks
 - Changed: Using player vehicle var name as references is broken if the game thinks that a player is a "Error: No unit", use allPlayers instead of d_player_entities (maybe one day BI will fix)
 - Changed: Better check if a unit is a player as isPlayer scripting command returns false if a player is "Error: No unit"
-- Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in x_init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
+- Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
 - Changed: When ace is found use ace arsenal instead of BI virtual arsenal (works also for ranked mode except uniforms and items for now)
 - Changed: Added ACE support for different medical items (by Boersencrash321)
 - Added: Support for special rank "General"
@@ -622,7 +622,7 @@ ATTENTION: mission.sqm files of ALL versions were changed!!!!
 - Changed: You can now disable main target bonus vehicles or side mission bonus vehicles or both together in the server lobby
 - Fixed: Disabled near own side soldier check for artillery targets in the CUP versions as it always reported friendlies even though no own soldiers were near the target (bug in CUP?)
 - Fixed: Group could already be nil in handleDisconnect before beeing used in remoteExec
-- Changed: Ships/boats can now also only be entered as driver with a specific rank in the ranked version (can be changed in x_initcommon.sqf, d_ranked_a select 8)
+- Changed: Ships/boats can now also only be entered as driver with a specific rank in the ranked version (can be changed in initcommon.sqf, d_ranked_a select 8)
 - Changed: In the ranked version players can now also enter vehicles in a cargo position even if their rank doesn't allow them to access other positions
 - Added: A kbTell message (sidechat) is now displayed when a MHQ gets destroyed
 - Changed: In the ranked version you need rank Corporal now to enter a static weapon (MG, GMG, mortar)
@@ -918,7 +918,7 @@ ATTENTION: Chernarus version mission.sqm file has changed!
 - Changed: Reduced chance to get fog from 30 to 10 percent
 - Optimized: 3D text over player heads (removed visibility check)
 - Fixed: No check if player was at delivery point in the deliver side missions if ranked was enabled
-- Added: Adding additional static respawn points is now available via d_additional_respawn_points variable in x_init\fn_preinit.sqf
+- Added: Adding additional static respawn points is now available via d_additional_respawn_points variable in init\fn_preinit.sqf
 - Fixed: Outdated stringtable entries
 - Fixed: Time multiplier reduced to max 120 (the engine doesn't allow more anyway)
 - Fixed: Wrong number of maintargets got created by create random main targets function
@@ -1036,7 +1036,7 @@ ATTENTION: Altis version mission.sqm file has changed!
 - Fixed: Arrest side missions did not work at all in the TT version
 - Added: Missing weapons, mags and backpack in i_weapons.sqf for the ranked TT version (currently both contain the same weapons, mags and backpacks, at least it works now)
 - Changed: If a bonus vehicle gets killed over water/over the sea, it'll now be moved to the next beach so that it can still be picked up by a wreck chopper
-- Fixed: Stupid typo in x_server\x_f\fn_airtaxiserver.sqf (underline got lost)
+- Fixed: Stupid typo in server\x_f\fn_airtaxiserver.sqf (underline got lost)
 - More optimizations
 
 3.38

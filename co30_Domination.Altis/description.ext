@@ -1148,24 +1148,24 @@ class Params {
 	};
 };
 
-#include "x_dlg\define.hpp"
-#include "x_dlg\TeleportDialog.hpp"
-#include "x_dlg\StatusDialog.hpp"
-#include "x_dlg\AdminDialog.hpp"
-#include "x_dlg\ArtilleryDialog.hpp"
-#include "x_dlg\MarkArtilleryDialog.hpp"
-#include "x_dlg\UnloadDialog.hpp"
-#include "x_dlg\ParajumpDialog.hpp"
-#include "x_dlg\VecDialog.hpp"
-#include "x_dlg\AirDropDialog.hpp"
-#include "x_dlg\AIRecruitDialog.hpp"
-#include "x_dlg\FakeUAVDialog.hpp"
-#include "x_dlg\XR_SpectDlg.hpp"
-#include "x_dlg\DBSaveDialog.hpp"
-#include "x_dlg\DBTop10Dialog.hpp"
-#include "x_dlg\PylonLoadoutDialog.hpp"
-#include "x_dlg\TransferScoreDialog.hpp"
-#include "x_dlg\AirTaxiDialog.hpp"
+#include "dlg\define.hpp"
+#include "dlg\TeleportDialog.hpp"
+#include "dlg\StatusDialog.hpp"
+#include "dlg\AdminDialog.hpp"
+#include "dlg\ArtilleryDialog.hpp"
+#include "dlg\MarkArtilleryDialog.hpp"
+#include "dlg\UnloadDialog.hpp"
+#include "dlg\ParajumpDialog.hpp"
+#include "dlg\VecDialog.hpp"
+#include "dlg\AirDropDialog.hpp"
+#include "dlg\AIRecruitDialog.hpp"
+#include "dlg\FakeUAVDialog.hpp"
+#include "dlg\XR_SpectDlg.hpp"
+#include "dlg\DBSaveDialog.hpp"
+#include "dlg\DBTop10Dialog.hpp"
+#include "dlg\PylonLoadoutDialog.hpp"
+#include "dlg\TransferScoreDialog.hpp"
+#include "dlg\AirTaxiDialog.hpp"
 
 class CfgSounds {
 	sounds[] = {d_IncomingChallenge2};
@@ -1466,7 +1466,7 @@ class d_RscAnimatedLetters {
 };
 
 class RscTitles {
-	#include "x_dlg\RscTitles.hpp"
+	#include "dlg\RscTitles.hpp"
 };
 
 class CfgIdentities {

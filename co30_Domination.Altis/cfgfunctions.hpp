@@ -5,7 +5,7 @@ class cfgFunctions {
 	class Dom {
 		tag = "d";
 		class Dom_Client {
-			file = "x_client\x_f";
+			file = "client\x_f";
 			addc(playerspawn);
 			addc(dlgopenx);
 			addc(prespawned);
@@ -141,7 +141,6 @@ class cfgFunctions {
 			addc(checkammo);
 			addc(allplayers);
 			addc(hchelper);
-			addc(cdoquake);
 			addc(getoutmaneh);
 			addc(getinmaneh);
 			addc(addpylon_action);
@@ -171,7 +170,7 @@ class cfgFunctions {
 			addc(arsenal_mod_rem);
 		};
 		class Dom_UI {
-			file = "x_client\x_f\x_ui";
+			file = "client\x_f\x_ui";
 			addc(initartydlg2);
 			addc(initMarkArtyDlg);
 			addc(artytypeselchanged2);
@@ -230,7 +229,7 @@ class cfgFunctions {
 			addc(rmapclick);
 		};
 		class Dom_Common {
-			file = "x_common\x_f";
+			file = "common\x_f";
 			addc(mhqfunc);
 			addc(removenvgoggles_fak);
 			addc(hasnvgoggles);
@@ -295,11 +294,11 @@ class cfgFunctions {
 			addc(ambientradiochatter);
 		};
 		class Dom_KBTell {
-			file = "x_bikb";
+			file = "bikb";
 			addc(kehflogic);
 		};
 		class Dom_SMMissions {
-			file = "x_missions";
+			file = "missions";
 			addc(checksmshothd);
 			addc(killedsmtargetnormal);
 			addc(killedsmtarget500);
@@ -322,9 +321,13 @@ class cfgFunctions {
 			addc(smhandledeh);
 			addc(smhiteh2);
 			addc(hcsmexec);
+			addc(createinf);
+			addc(createarmor);
+			addc(cdoquake);
+			addc(doquake);
 		};
 		class Dom_SMMissions_Common {
-			file = "x_missions\common";
+			file = "missions\common";
 			addc(sidearrest);
 			addc(sidearti);
 			addc(sideconvoy);
@@ -347,7 +350,7 @@ class cfgFunctions {
 			addc(sidecache);
 		};
 		class Dom_Server {
-			file = "x_server\x_f";
+			file = "server\x_f";
 			addc(addkillsai);
 			addc(getwreck);
 			addc(placedobjkilled);
@@ -449,9 +452,6 @@ class cfgFunctions {
 			addc(recreatehcs);
 			addc(entitykilled);
 			addc(addgrhcace);
-		};
-		class Dom_SHC {
-			file = "x_shc\x_f";
 			addc(shootari);
 			addc(spawnvehicle);
 			addc(spawncrew);
@@ -467,8 +467,6 @@ class cfgFunctions {
 			addc(handledeadvec);
 			addc(makevgroup);
 			addc(makemgroup);
-			addc(createinf);
-			addc(createarmor);
 			addc(outofbounds);
 			addc(makepatrolwpx);
 			addc(makepatrolwpx2);
@@ -495,7 +493,6 @@ class cfgFunctions {
 			addc(mchelper);
 			addc(sabotage);
 			addc(createpara2);
-			addc(doquake);
 			addc(createambient);
 			addc(dohousepatrol);
 			addc(nightfograin);
@@ -510,7 +507,7 @@ class cfgFunctions {
 			addc(isledefense);
 		};
 		class Dom_PrePostInit {
-			file = "x_init";
+			file = "init";
 			class preinit {
 				preInit = 1;
 				headerType = -1;
