@@ -5,7 +5,7 @@ class cfgFunctions {
 	class Dom {
 		tag = "d";
 		class Dom_Client {
-			file = "client\x_f";
+			file = "client";
 			addc(playerspawn);
 			addc(dlgopenx);
 			addc(prespawned);
@@ -170,7 +170,7 @@ class cfgFunctions {
 			addc(arsenal_mod_rem);
 		};
 		class Dom_UI {
-			file = "client\x_f\x_ui";
+			file = "clientui";
 			addc(initartydlg2);
 			addc(initMarkArtyDlg);
 			addc(artytypeselchanged2);
@@ -229,7 +229,7 @@ class cfgFunctions {
 			addc(rmapclick);
 		};
 		class Dom_Common {
-			file = "common\x_f";
+			file = "common";
 			addc(mhqfunc);
 			addc(removenvgoggles_fak);
 			addc(hasnvgoggles);
@@ -350,7 +350,7 @@ class cfgFunctions {
 			addc(sidecache);
 		};
 		class Dom_Server {
-			file = "server\x_f";
+			file = "server";
 			addc(addkillsai);
 			addc(getwreck);
 			addc(placedobjkilled);
@@ -521,7 +521,7 @@ class cfgFunctions {
 	class Dom_Revive {
 		tag = "xr";
 		class Dom_Revivexr {
-			file = "x_revive\xr_f";
+			file = "x_revive";
 			addc(handlenet);
 			addc(killedeh);
 			addc(respawneh);

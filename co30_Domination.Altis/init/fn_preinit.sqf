@@ -175,91 +175,91 @@ d_e_marker_color_alpha = 0.8;
 #endif
 
 #ifdef __ALTIS__
-#include "x_sm_bonus_vec_ar_altis.sqf"
+#include "sm_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
-#include "x_sm_bonus_vec_ar_cup.sqf"
+#include "sm_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __CUP_TAKISTAN__
-#include "x_sm_bonus_vec_ar_cup.sqf"
+#include "sm_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __CUP_SARA__
-#include "x_sm_bonus_vec_ar_cup.sqf"
+#include "sm_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __IFA3LITE__
-#include "x_sm_bonus_vec_ar_ifa3.sqf"
+#include "sm_bonus_vec_ar_ifa3.sqf"
 #endif
 #ifdef __ROSCHE__
-#include "x_sm_bonus_vec_ar_altis.sqf"
+#include "sm_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __GMCWG__
-#include "x_sm_bonus_vec_ar_gmcwg.sqf"
+#include "sm_bonus_vec_ar_gmcwg.sqf"
 #endif
 #ifdef __LIVONIA__
-#include "x_sm_bonus_vec_ar_tanoa.sqf"
+#include "sm_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __TT__
 if (!d_tt_tanoa) then {
-#include "x_sm_bonus_vec_ar_tt.sqf"
+#include "sm_bonus_vec_ar_tt.sqf"
 } else {
-#include "x_sm_bonus_vec_ar_tt_tanoa.sqf"
+#include "sm_bonus_vec_ar_tt_tanoa.sqf"
 };
 #endif
 #ifdef __TANOA__
-#include "x_sm_bonus_vec_ar_tanoa.sqf"
+#include "sm_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __STRATIS__
-#include "x_sm_bonus_vec_ar_altis.sqf"
+#include "sm_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __MALDEN__
-#include "x_sm_bonus_vec_ar_altis.sqf"
+#include "sm_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __RHS__
-#include "x_sm_bonus_vec_ar_rhs.sqf"
+#include "sm_bonus_vec_ar_rhs.sqf"
 #endif
 
 #ifdef __ALTIS__
-#include "x_mt_bonus_vec_ar_altis.sqf"
+#include "mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __LIVONIA__
-#include "x_mt_bonus_vec_ar_tanoa.sqf"
+#include "mt_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __ROSCHE__
-#include "x_mt_bonus_vec_ar_altis.sqf"
+#include "mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __GMCWG__
-#include "x_mt_bonus_vec_ar_gmcwg.sqf"
+#include "mt_bonus_vec_ar_gmcwg.sqf"
 #endif
 #ifdef __CUP_CHERNARUS__
-#include "x_mt_bonus_vec_ar_cup.sqf"
+#include "mt_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __CUP_TAKISTAN__
-#include "x_mt_bonus_vec_ar_cup.sqf"
+#include "mt_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __CUP_SARA__
-#include "x_mt_bonus_vec_ar_cup.sqf"
+#include "mt_bonus_vec_ar_cup.sqf"
 #endif
 #ifdef __IFA3LITE__
-#include "x_mt_bonus_vec_ar_ifa3.sqf"
+#include "mt_bonus_vec_ar_ifa3.sqf"
 #endif
 #ifdef __TT__
 if (!d_tt_tanoa) then {
-#include "x_mt_bonus_vec_ar_tt.sqf"
+#include "mt_bonus_vec_ar_tt.sqf"
 } else {
-#include "x_mt_bonus_vec_ar_tt_tanoa.sqf"
+#include "mt_bonus_vec_ar_tt_tanoa.sqf"
 };
 #endif
 #ifdef __TANOA__
-#include "x_mt_bonus_vec_ar_tanoa.sqf"
+#include "mt_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __STRATIS__
-#include "x_mt_bonus_vec_ar_altis.sqf"
+#include "mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __MALDEN__
-#include "x_mt_bonus_vec_ar_altis.sqf"
+#include "mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __RHS__
-#include "x_mt_bonus_vec_ar_rhs.sqf"
+#include "mt_bonus_vec_ar_rhs.sqf"
 #endif
 
 #ifndef __TT__
@@ -1940,7 +1940,7 @@ if (hasInterface) then {
 	}];
 } else {
 	if (!isDedicated) then {
-		call compile preprocessFileLineNumbers "x_setuphc.sqf";
+		call compile preprocessFileLineNumbers "setuphc.sqf";
 	};
 };
 
