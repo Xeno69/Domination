@@ -4,6 +4,8 @@
 #include "..\x_setup.sqf"
 __TRACE_1("","_this")
 
+if (!hasInterface) exitWith {};
+
 _this addAction ["Open Terminal", {[_this select 0, 3] call BIS_fnc_dataTerminalAnimate}, nil, 1, true, true, "", "_target animationSourcePhase 'Antenna_source' == 0&& {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}", 5];
 
 [

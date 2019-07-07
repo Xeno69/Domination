@@ -1,6 +1,9 @@
 // by Xeno
 #define THIS_FILE "fn_air_box.sqf"
 #include "..\x_setup.sqf"
+
+if (!hasInterface) exitWith {};
+
 params ["_box"];
 
 player reveal _box;

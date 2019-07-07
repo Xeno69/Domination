@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_clienttargetsel.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 params ["_type"];
 
 if (_type == 0) then {

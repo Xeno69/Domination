@@ -5,6 +5,8 @@
 
 __TRACE_1("","_this")
 
+if (!hasInterface) exitWith {};
+
 if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {
 	hintSilent "";
 	xr_announce_ar = [];

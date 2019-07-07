@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_draghelper.sqf"
 #include "..\x_macros.sqf"
 
+if (!hasInterface) exitWith {};
+
 params ["_dragger"];
 
 while {player getVariable ["xr_dragged", false]} do {

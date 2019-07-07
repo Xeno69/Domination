@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_s_b_client.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 d_searchbody setVariable ["d_search_id", [
 		/* 0 object */						d_searchbody,
 		/* 1 action title */				localize "STR_DOM_MISSIONSTRING_518",

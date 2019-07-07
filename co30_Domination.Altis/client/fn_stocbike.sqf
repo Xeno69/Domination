@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_stocbike.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 private _vec = _this;
 player reveal _vec;
 player moveInDriver _vec;
