@@ -532,6 +532,7 @@ if (_isserv_or_hc) then {
 if (isServer) then {
 	d_hc_array = [];
 	d_hc_counter = 0;
+	d_virtual_spectators = [];
 
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
@@ -1929,7 +1930,7 @@ if (hasInterface) then {
 			if (!isNil "d_init_processed" && {time > 0}) then {
 				if (!isNil "d_preloaddone" && {!isNull (findDisplay 46)}) then {
 					diag_log [diag_frameno, diag_tickTime, time, "Executing Dom local player pre start"];
-					if !(str player in d_virtual_entities) then {
+					if !(player isKindOf "VirtualSpectator_F") then {
 						call compile preprocessFileLineNumbers "client\x_setupplayer.sqf";
 						disableRemoteSensors true;
 					};

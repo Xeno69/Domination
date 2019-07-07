@@ -15,10 +15,16 @@ if (_pl isKindOf "HeadlessClient_F") exitWith {
 	0 spawn d_fnc_recreatehcs;
 };
 
+private _uid = getPlayerUID _pl;
+
+if (_pl isKindOf "VirtualSpectator_F") exitWith {
+	if (d_database_found) then {
+		d_virtual_spectators pushBack _uid;
+	};
+};
+
 private _name = (name _pl) splitString """'" joinString "";
 _pl setVariable ["d_plname", _name, true];
-
-private _uid = getPlayerUID _pl;
 
 private _p = d_player_store getVariable _uid;
 private _f_c = false;

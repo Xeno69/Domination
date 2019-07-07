@@ -17,8 +17,14 @@ if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclie
 	0 spawn {
 		sleep 2;
 		d_hc_array = d_hc_array - [objNull, grpNull];
-		0 spawn d_fnc_recreatehcs;
+		if !(d_hc_array isEqualTo []) then {
+			0 spawn d_fnc_recreatehcs;
+		};
 	};
+};
+
+if (_uid in d_virtual_spectators) exitWith {
+	d_virtual_spectators = d_virtual_spectators - [_uid];
 };
 
 private _unit = objNull;
