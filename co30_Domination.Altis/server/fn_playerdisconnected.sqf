@@ -18,7 +18,10 @@ if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclie
 		sleep 2;
 		d_hc_array = d_hc_array - [objNull, grpNull];
 		if !(d_hc_array isEqualTo []) then {
-			0 spawn d_fnc_recreatehcs;
+			if (!isNil "d_recreatehcs_handle") then {
+				terminate d_recreatehcs_handle;
+			};
+			d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 		};
 	};
 };

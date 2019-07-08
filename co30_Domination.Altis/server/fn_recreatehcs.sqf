@@ -9,7 +9,7 @@ d_hc_array = d_hc_array - [objNull, grpNull];
 
 if (d_hc_array isEqualTo []) exitWith {};
 
-{
+{	
 	__TRACE_1("","_x")
 	if (count d_hc_array == 1) then {
 		_x setGroupOwner (owner (d_hc_array # 0));
@@ -34,4 +34,7 @@ if (d_hc_array isEqualTo []) exitWith {};
 	};
 	__TRACE_1("","groupOwner _x")
 	sleep 0.5;
+	if (d_hc_array isEqualTo []) exitWith {};
 } forEach allGroups select {!isNil {_x getVariable "d_can_move2hc"}};
+
+d_recreatehcs_handle = nil;

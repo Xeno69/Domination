@@ -38,16 +38,18 @@ _helper3 setPos [(_d_medtent # 0) + 4, _d_medtent # 1, 0];
 private _helper4 = d_HeliHEmpty createVehicle [10, 10, 10];
 _helper4 setPos [(_d_medtent # 0) - 4, _d_medtent # 1, 0];
 
-if ((abs (((getPosASL _helper1) # 2) - ((getPosASL _helper2) # 2)) > 2) || {(abs (((getPosASL _helper3) # 2) - ((getPosASL _helper4) # 2)) > 2)}) exitWith {
+private _exit_it = false;
+if ((abs (((getPosASL _helper1) # 2) - ((getPosASL _helper2) # 2)) > 2) || {(abs (((getPosASL _helper3) # 2) - ((getPosASL _helper4) # 2)) > 2)}) then {
 	systemChat (localize "STR_DOM_MISSIONSTRING_246");
-	{
-		deleteVehicle _x;
-	} forEach [_helper1, _helper2, _helper3, _helper4];
-	d_commandingMenuIniting = false;
+	_exit_it = true;
 };
 {
 	deleteVehicle _x;
 } forEach [_helper1, _helper2, _helper3, _helper4];
+
+if (_exit_it) exitWith {
+	d_commandingMenuIniting = false;
+};
 
 player setVariable ["d_isinaction", true];
 

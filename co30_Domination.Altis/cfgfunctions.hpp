@@ -55,7 +55,6 @@ class cfgFunctions {
 			addc(loaddroppedx);
 			addc(deploy_mhq);
 			addc(teleportx);
-			addc(beam_tele);
 			addc(checktrucktrans);
 			addc(checkhelipilot);
 			addc(checkhelipilot_wreck);
@@ -227,6 +226,7 @@ class cfgFunctions {
 			addc(egspectkeyeh);
 			addc(selnthandler);
 			addc(rmapclick);
+			addc(beam_tele);
 		};
 		class Dom_Common {
 			file = "common";

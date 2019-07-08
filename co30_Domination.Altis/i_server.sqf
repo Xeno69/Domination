@@ -118,6 +118,7 @@ if (isServer) then {
 
 	if (d_with_ai) then {
 		d_pos_ai_hut = [markerPos "d_pos_aihut", markerDir "d_pos_aihut"];
+		// TODO something better than Land_CashDesk_F ? Expecially for IFA3?
 		d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
 		d_AI_HUT setDir (d_pos_ai_hut # 1);
 		if (!d_carrier) then {
