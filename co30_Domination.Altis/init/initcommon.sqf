@@ -60,9 +60,9 @@ if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 	d_sub_kill_points = d_sub_kill_points * -1;
 };
 
-if (isServer) then {skipTime d_TimeOfDay};
-
-if (isServer || {!isDedicated && {!hasInterface}}) then {
+if (isServer) then {
+	skipTime d_TimeOfDay;
+	
 	// first element (array. for example: [2,1]): number of vehicle groups that will get spawned, the first number is the max number that will get spawned,
 	// the second one the minimum. So [2,0] means, there can be no vehicle groups at all or a maximum of 2 groups of this kind
 	// second element: maximum number of vehicles in group; randomly chosen

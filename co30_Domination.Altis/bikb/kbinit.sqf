@@ -1,10 +1,12 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "kbinit.sqf"
 #include "..\x_setup.sqf"
 
 if (isServer) then {
 	if (d_tt_ver || {d_own_side == "WEST"}) then {
 		private _grpen = [blufor] call d_fnc_creategroup;
+		__TRACE_1("","_grpen")
 		d_hq_logic_blufor1 = _grpen createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_blufor1] joinSilent _grpen;
 		if (d_with_ai) then {
@@ -28,6 +30,7 @@ if (isServer) then {
 	};
 	if (d_tt_ver || {d_own_side == "EAST"}) then {
 		private _grpru = [opfor] call d_fnc_creategroup;
+		__TRACE_1("","_grpru")
 		d_hq_logic_opfor1 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_opfor1] joinSilent _grpru;
 		if (d_with_ai) then {
@@ -51,13 +54,14 @@ if (isServer) then {
 		d_hq_logic_opfor2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 	};
 	if (d_own_side == "GUER" || {d_ifa3lite}) then {
-		private _grpru = [independent] call d_fnc_creategroup;
-		d_hq_logic_guer1 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
-		[d_hq_logic_guer1] joinSilent _grpru;
+		private _grprn = [independent] call d_fnc_creategroup;
+		__TRACE_1("","_grprn")
+		d_hq_logic_guer1 = _grprn createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
+		[d_hq_logic_guer1] joinSilent _grprn;
 		if (d_with_ai) then {
-			_grpru setVariable ["d_do_not_delete", true];
+			_grprn setVariable ["d_do_not_delete", true];
 		};
-		_grpru deleteGroupWhenEmpty true;
+		_grprn deleteGroupWhenEmpty true;
 		d_hq_logic_guer1 enableSimulationGlobal false;
 		d_hq_logic_guer1 addEventHandler ["handleDamage", {0}];
 		publicVariable "d_hq_logic_guer1";
@@ -65,8 +69,8 @@ if (isServer) then {
 		d_hq_logic_guer1 setVariable ["d_hq_logic_side", independent];
 		d_hq_logic_guer1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
 		
-		d_hq_logic_guer2 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
-		[d_hq_logic_guer2] joinSilent _grpru;
+		d_hq_logic_guer2 = _grprn createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
+		[d_hq_logic_guer2] joinSilent _grprn;
 		d_hq_logic_guer2 enableSimulationGlobal false;
 		d_hq_logic_guer2 addEventHandler ["handleDamage", {0}];
 		publicVariable "d_hq_logic_guer2";
@@ -79,6 +83,9 @@ if (isServer) then {
 private _kbscript = "bikb\domkba3.bikb";
 
 if (d_tt_ver || {d_own_side == "EAST"}) then {
+	if (!isServer) then {
+		waitUntil {sleep 0.1; !isNil "d_hq_logic_opfor2"};
+	};
 	d_hq_logic_opfor1 kbAddTopic["HQ_E",_kbscript];
 	d_hq_logic_opfor1 kbAddTopic["HQ_ART_E",_kbscript];
 	call {
@@ -129,6 +136,9 @@ if (d_tt_ver || {d_own_side == "EAST"}) then {
 };
 
 if (d_tt_ver || {d_own_side == "WEST"}) then {
+	if (!isServer) then {
+		waitUntil {sleep 0.1; !isNil "d_hq_logic_blufor2"};
+	};
 	d_hq_logic_blufor1 kbAddTopic["HQ_W",_kbscript];
 	d_hq_logic_blufor1 kbAddTopic["HQ_ART_W",_kbscript];
 	call {
@@ -167,6 +177,9 @@ if (d_tt_ver || {d_own_side == "WEST"}) then {
 };
 
 if (d_own_side == "GUER" || {d_ifa3lite}) then {
+	if (!isServer) then {
+		waitUntil {sleep 0.1; !isNil "d_hq_logic_guer2"};
+	};
 	d_hq_logic_guer1 kbAddTopic["HQ_I",_kbscript];
 	d_hq_logic_guer1 kbAddTopic["HQ_ART_I",_kbscript];
 	d_hq_logic_guer1 setIdentity "DHQ_IN1";

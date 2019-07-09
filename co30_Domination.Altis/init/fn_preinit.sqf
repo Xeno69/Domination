@@ -518,18 +518,13 @@ d_island_center = [_confmapsize / 2, _confmapsize / 2, 300];
 d_island_x_max = _confmapsize;
 d_island_y_max = _confmapsize;
 
-private _isserv_or_hc = isServer || {!isDedicated && {!hasInterface}};
-
-if (_isserv_or_hc) then {
-	__TRACE_1("","_isserv_or_hc")
+if (isServer) then {
 	d_player_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_placed_objs_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_placed_objs_store2 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_placed_objs_store3 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_misc_s_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-};
 
-if (isServer) then {
 	d_hc_array = [];
 	d_hc_counter = 0;
 	d_virtual_spectators = [];
@@ -707,9 +702,7 @@ if (isServer) then {
 	};
 	
 	d_fifo_ar = [];
-};
 
-if (_isserv_or_hc) then {
 	// _E = Opfor
 	// _W = Blufor
 	// _G = Independent
@@ -1941,7 +1934,7 @@ if (hasInterface) then {
 	}];
 } else {
 	if (!isDedicated) then {
-		call compile preprocessFileLineNumbers "setuphc.sqf";
+		execVM "setuphc.sqf";
 	};
 };
 

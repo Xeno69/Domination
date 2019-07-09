@@ -35,6 +35,6 @@ if (d_hc_array isEqualTo []) exitWith {};
 	__TRACE_1("","groupOwner _x")
 	sleep 0.5;
 	if (d_hc_array isEqualTo []) exitWith {};
-} forEach allGroups select {!isNil {_x getVariable "d_can_move2hc"}};
+} forEach (allGroups select {!isNil {_x getVariable "d_can_move2hc"}});
 
 d_recreatehcs_handle = nil;

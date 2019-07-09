@@ -12,10 +12,12 @@ params ["_pl"];
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
 	d_hc_array pushBack _pl;
-	if (!isNil "d_recreatehcs_handle") then {
-		terminate d_recreatehcs_handle;
+	if (time > 10) then {
+		if (!isNil "d_recreatehcs_handle") then {
+			terminate d_recreatehcs_handle;
+		};
+		d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 	};
-	d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 };
 
 private _uid = getPlayerUID _pl;
