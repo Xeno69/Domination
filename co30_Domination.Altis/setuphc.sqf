@@ -13,6 +13,8 @@ __TRACE("Running HC setup")
 
 d_is_hc = true;
 
-addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
+if (d_with_ace) then {
+	addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
+};
 
 __TRACE("HC setup done")
