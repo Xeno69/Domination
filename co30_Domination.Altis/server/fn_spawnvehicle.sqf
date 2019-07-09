@@ -85,16 +85,16 @@ if (_newGrp) then {_grp selectLeader (commander _veh)};
 if (_addkills) then {
 #ifdef __TT__
 	if !(_veh isKindOf "Air") then {
-		_veh setVariable ["d_ktypett", 2, [false, true] select d_with_ace];
+		[_veh, "d_ktypett", 2, [false, true] select d_with_ace] call d_fnc_setekmode;
 	} else {
-		_veh setVariable ["d_ktypett", 3, [false, true] select d_with_ace];
+		[_veh, "d_ktypett", 3, [false, true] select d_with_ace] call d_fnc_setekmode;
 	};
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
 		if !(_veh isKindOf "Air") then {
-			_veh setVariable ["d_ktypeai", 2];
+			[_veh, "d_ktypeai", 2] call d_fnc_setekmode;
 		} else {
-			_veh setVariable ["d_ktypeai", 3];
+			[_veh, "d_ktypeai", 3] call d_fnc_setekmode;
 		};
 	};
 };

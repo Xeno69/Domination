@@ -27,13 +27,13 @@ d_helirespawn2_ar = [];
 		
 #ifdef __TT__
 		if (_number_v < 4000) then {
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillblufor}}];
+			[_vec, "d_cvkblu"] call d_fnc_setekmode;
 		} else {
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillopfor}}];
+			[_vec, "d_cvkopf"] call d_fnc_setekmode;
 		};
 #endif
 		
-		_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_chopperkilled}}];
+		[_vec, "d_chkill"] call d_fnc_setekmode;
 	
 		if (unitIsUAV _vec) then {
 			_vec allowCrewInImmobile true;

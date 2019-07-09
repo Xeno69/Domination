@@ -95,7 +95,7 @@ d_bonus_vecs_db = _ar # 9;
 		private _uavgrp = createVehicleCrew _vec;
 		_uavgrp deleteGroupWhenEmpty true;
 		_vec allowCrewInImmobile true;
-		_vec setVariable ["d_delcrewk", true];
+		[_vec, "d_delcrewk"] call d_fnc_setekmode;
 		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 			_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
@@ -138,7 +138,7 @@ d_bonus_vecs_db = _ar # 9;
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 
-	_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
+	[_vec, "d_prebo"] call d_fnc_setekmode;
 	
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
@@ -192,7 +192,7 @@ _fnc_tt_bonusvec = {
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-	_vec addMPEventHandler ["MPKilled", {_this call d_fnc_prebonus}];
+	[_vec, "d_prebo"] call d_fnc_setekmode;
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];

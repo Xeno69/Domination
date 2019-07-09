@@ -71,7 +71,7 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(gov_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			_vec setVariable ["d_ktypeai", 1];
+			[_vec, "d_ktypeai", 1] call d_fnc_setekmode;
 		};
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
@@ -79,7 +79,7 @@ switch (_sec_kind) do {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		_vec setVariable ["d_ktypett", 1];
+		[_vec, "d_ktypett", 1] call d_fnc_setekmode;
 #endif
 		sleep 1.0112;
 		__specops;
@@ -258,7 +258,7 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(lopo_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			_vec setVariable ["d_ktypeai", 1];
+			[_vec, "d_ktypeai", 1] call d_fnc_setekmode;
 		};
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
@@ -266,7 +266,7 @@ switch (_sec_kind) do {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		_vec setVariable ["d_ktypett", 1];
+		[_vec, "d_ktypett", 1] call d_fnc_setekmode;
 #endif
 		sleep 1.0112;
 		__specops;
@@ -304,7 +304,7 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(dealer_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			_vec setVariable ["d_ktypeai", 1];
+			[_vec, "d_ktypeai", 1] call d_fnc_setekmode;
 		};
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
@@ -312,7 +312,7 @@ switch (_sec_kind) do {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		_vec setVariable ["d_ktypett", 1];
+		[_vec, "d_ktypett", 1] call d_fnc_setekmode;
 #endif
 		sleep 1.0112;
 		__specops;

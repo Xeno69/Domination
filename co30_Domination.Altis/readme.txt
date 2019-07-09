@@ -9,13 +9,14 @@ Changelogs
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
 !!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
+- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
 3.99t
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
 - Fixed: Ammo point/ammo load marker was gone
 - Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal in MP)
-- Changed: Removed all createVehicleLocal occurences for an upcoming BI security change (see above)
+- Changed: Removed all createVehicleLocal occurrences for an upcoming BI security change (see above)
 - Fixed: Ammo cargo was removed from all vehicles including ammo vehicles :/
 - Fixed: If With AI was enabled Zeus placed groups on the player side got deleted shortly after the placement
 - Changed: More use of simple objects
@@ -23,7 +24,6 @@ Changelogs
 - Changed: Nights are now handled with a time multiplier of 5 (no parameter to disable it, fyi)
 - Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
 - Changed: Set the year to 1944 instead of 2035 in the IFA3 version
-- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks to seize a main target
 - Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes (as they are no longer locally spawned on clients)
 - Fixed: Wrong Stringtable entry was used for marker created specops sidemission
@@ -38,17 +38,18 @@ Changelogs
 - Fixed: Marker created steal apc sidemission did spawn a tank instead of an apc
 - Fixed: Marker placed eliminate sniper sidemission did not spawn any AI
 - Fixed: Client sidemission winner script broke with a non defined variable
-- Fixed: FINALLY!!!! The wrong totalscore was written to the SQL database when the server was closed and players were still playing :/
+- Fixed: FINALLY!!!! Wrong totalscore was written to the SQL database when the server was closed and players were still playing :/
 - Fixed: If a vehicle class for create vehicle at a new flag was not empty it resulted in a script error
 - Fixed: Mash at base did not heal a player because simulation was disabled for the mash
-- Fixed: Repacking magazines added full magazines, rewrote repack code completely
+- Fixed: Repacking magazines added full magazines, rewrote repack magazines code completely
 - Changed: Disabled automatic view distance handler for TT version
-- Changed: Domination now supports more than one Headless Client
+- Changed: Domination now supports more than one Headless Client (you still have to add headless client objects (HeadlessClient_F) if you want more than one HC)
 - Changed: If a Headless Client disconnects the mission will continue normally
-- Changed: If an additional Headless Client connects the groups will be rebalanced across the HCs (same if a HC disconnects)
+- Changed: If an additional Headless Client connects the groups will be rebalanced across the HCs (same if a HC disconnects and there is still another HC connected)
 - Added: New parameter "With minefield at main targets:" (d_with_minefield in description.ext), default is on
 - Fixed: Replaced deprecated "O_T_APC_Wheeled_02_rcws_ghex_F" class with O_T_APC_Wheeled_02_rcws_v2_ghex_F
 - Fixed: Players in virtual spectator slot did trigger database handling
+- Changed: Updated Simplified Chinese Translation by CHL198011
 - And more optimizations and cosmetic changes
 
 3.99s

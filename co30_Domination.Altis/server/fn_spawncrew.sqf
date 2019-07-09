@@ -44,10 +44,10 @@ if (count _crew > 0) then {
 							_one_unit call d_fnc_removenvgoggles_fak;
 							[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 #ifdef __TT__
-							_one_unit setVariable ["d_ktypett", 1];
+							[_one_unit, "d_ktypett", 1] call d_fnc_setekmode;
 #endif
 							if (d_with_ai && {d_with_ranked}) then {
-								_one_unit setVariable ["d_ktypeai", 1];
+								[_one_unit, "d_ktypeai", 1] call d_fnc_setekmode;
 							};
 							if (d_with_dynsim == 0) then {
 								_one_unit spawn {
@@ -74,10 +74,11 @@ if (count _crew > 0) then {
 	{
 		_x call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
-		_x setVariable ["d_ktypett", 1];
+		[_x, "d_ktypett", 1] call d_fnc_setekmode;
+		_one_unit setVariable ["d_hkx", true];
 #endif
 		if (d_with_ai && {d_with_ranked}) then {
-			_x setVariable ["d_ktypeai", 1];
+			[_x, "d_ktypeai", 1] call d_fnc_setekmode;
 		};
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];

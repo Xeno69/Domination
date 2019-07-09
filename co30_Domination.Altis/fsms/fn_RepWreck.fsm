@@ -278,7 +278,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n
                          "_rep_station setVariable [""d_curreptime"", -1, true];" \n
                          "_new_vec lock false;" \n
-                         "_new_vec addMPEventHandler [""MPKilled"", {_this call d_fnc_prebonus}];" \n
+                         "[_new_vec, ""d_prebo""] call d_fnc_setekmode;" \n
                          "if (!d_tt_ver) then {" \n
                          "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n
                          "} else {" \n
@@ -329,7 +329,7 @@ class FSM
                          "		_new_vec remoteExecCall [""d_fnc_addpylon_action"", [0, -2] select isDedicated];" \n
                          "	};" \n
                          "	_uavgrp deleteGroupWhenEmpty true;" \n
-                         "	_new_vec setVariable [""d_delcrewk"", true];" \n
+						 "	[_new_vec, ""d_delcrewk""] call d_fnc_setekmode;" \n
                          "} else {" \n
                          "	if (d_with_dynsim == 0) then {" \n
                          "		_new_vec spawn {" \n

@@ -82,20 +82,22 @@ while {true} do {
 			_skinpoly = nil;
 #ifdef __TT_
 			if (_number_v < 1000) then {
-				_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillblufor}}];
+				[_vec, "d_cvkblu"] call d_fnc_setekmode;
 			} else {
-				_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillopfor}}];
+				[_vec, "d_cvkopf"] call d_fnc_setekmode;
 			};
 #endif
+			[_vec, "d_fuelc"] call d_fnc_setekmode;
 			if (_number_v < 100 || {(_number_v > 999 && {_number_v < 1100})}) then {
-				_vec addMPEventhandler ["MPKilled", {(_this select 0) call d_fnc_MHQFunc}];
+				if (d_NoMHQTeleEnemyNear > 0) then {
+					[_vec, "d_mhqf"] call d_fnc_setekmode;
+				};
 				if (count _vec_a == 6) then {
 					_vec setVariable ["d_vec_is_mhq", [_vec_a # 5, _number_v]];
 				};
-				_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck; _this call d_fnc_mhqmsg}}];
+				[_vec, "d_mhqmsg"] call d_fnc_setekmode;
 				_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 			};
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
 			_vec_a set [0, _vec];
 			_vec setVariable ["d_OUT_OF_SPACE", -1];
 			_vec setVariable ["d_vec", _number_v, true];
@@ -110,7 +112,7 @@ while {true} do {
 				private _uavgrp = createVehicleCrew _vec;
 				_vec allowCrewInImmobile true;
 				_uavgrp deleteGroupWhenEmpty true;
-				_vec setVariable ["d_delcrewk", true];
+				[_vec, "d_delcrewk"] call d_fnc_setekmode;
 				if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 					_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 				};

@@ -27,17 +27,18 @@ d_vrespawn2_ar = [];
 		_vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 #ifdef __TT_
 		if (_number_v < 1000) then {
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillblufor}}];
+			[_vec, "d_cvkblu"] call d_fnc_setekmode;
 		} else {
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_checkveckillopfor}}];
+			[_vec, "d_cvkopf"] call d_fnc_setekmode;
 		};
 #endif
+		[_vec, "d_fuelc"] call d_fnc_setekmode;
 		if (_number_v < 100 || {_number_v > 999 && {_number_v < 1100}}) then {
-			_vec addMPEventhandler ["MPKilled", {(_this select 0) call d_fnc_MHQFunc}];
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck; _this call d_fnc_mhqmsg}}];
+			if (d_NoMHQTeleEnemyNear > 0) then {
+				[_vec, "d_mhqf"] call d_fnc_setekmode;
+			};
+			[_vec, "d_mhqmsg"] call d_fnc_setekmode;
 			_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
-		} else {
-			_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
 		};
 		if (_vec isKindOf "Air") then {
 			_vec enableCopilot false;

@@ -230,7 +230,6 @@ class cfgFunctions {
 		};
 		class Dom_Common {
 			file = "common";
-			addc(mhqfunc);
 			addc(removenvgoggles_fak);
 			addc(hasnvgoggles);
 			addc(hastoolkit);
@@ -306,7 +305,6 @@ class cfgFunctions {
 			addc(getsidemissionclient);
 			addc(sidemissionwinner);
 			addc(getsidemission);
-			addc(sidempkilled);
 			addc(smmapos);
 			addc(addkillednormal);
 			addc(create_sm_bymarkers);
@@ -443,7 +441,6 @@ class cfgFunctions {
 			addc(inithelirespawn2);
 			addc(initvecsspecial);
 			addc(delaiserv);
-			addc(prebonus);
 			addc(selectnexttarget);
 			addc(nightmultiplier);
 			addc(aboxkilled);
@@ -505,6 +502,7 @@ class cfgFunctions {
 			addc(respawngroup);
 			addc(airai);
 			addc(isledefense);
+			addc(setekmode);
 		};
 		class Dom_PrePostInit {
 			file = "init";

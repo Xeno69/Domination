@@ -65,16 +65,7 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 			[_officer, true] remoteExecCall ["setCaptive", _officer];
 
 			d_sm_arrest_mp_unit = _rescuer;
-			d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx",
-				_rescuer addMPEventhandler ["MPKilled", {
-					if (!isNil "d_sm_arrest_mp_unit") then {
-						d_sm_arrest_not_failed = false;
-						d_sm_arrest_mp_unit removeMPEventHandler ["MPKilled", d_sm_arrest_mp_unit getVariable "d_sm_ar_mpk_eh_idx"];
-						d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx", nil];
-						d_sm_arrest_mp_unit = nil;
-					};
-				}]
-			];
+			[_rescuer, "d_sarrest"] call d_fnc_setekmode;
 		};
 	} else {
 #ifndef __TT__
@@ -131,8 +122,8 @@ sleep 0.5;
 
 d_sm_arrest_not_failed = nil;
 if (!isNil "d_sm_arrest_mp_unit") then {
-	d_sm_arrest_mp_unit removeMPEventHandler ["MPKilled", d_sm_arrest_mp_unit getVariable "d_sm_ar_mpk_eh_idx"];
-	d_sm_arrest_mp_unit setVariable ["d_sm_ar_mpk_eh_idx", nil];
+	d_sm_arrest_mp_unit setVariable ["d_sarrest", nil];
+	d_sm_arrest_mp_unit setVariable ["d_hkx", nil];
 	d_sm_arrest_mp_unit = nil;
 };
 

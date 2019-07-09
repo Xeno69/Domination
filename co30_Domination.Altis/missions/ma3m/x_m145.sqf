@@ -1,5 +1,4 @@
 //#define __DEBUG__
-//#define __DEBUG__
 #define THIS_FILE "x_m145.sqf"
 #include "..\..\x_setup.sqf"
 

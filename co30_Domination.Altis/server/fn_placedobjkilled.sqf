@@ -24,7 +24,7 @@ if (!isNil "_val") then {
 	};
 	_val remoteExecCall ["d_fnc_PlacedObjAn", [0, -2] select isDedicated];
 };
-_obj removeAllMPEventHandlers "MPKilled";
+
 private _content = _obj getVariable ["d_objcont", []];
 if !(_content isEqualTo []) then {
 	{

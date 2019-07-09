@@ -28,7 +28,7 @@ publicVariable "d_ammo_boxes";
 _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_this select 2 == blufor)];
 #endif
 
-_box addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_aboxkilled}}];
+[_box, "d_boxk"] call d_fnc_setekmode;
 
 _this set [0, _box];
 _this remoteExecCall ["d_fnc_create_boxNet", [0, -2] select isDedicated];

@@ -15,7 +15,7 @@ private _vec = createVehicle [selectRandom d_sm_deliver_truck, _spos, [], 0, "NO
 _vec setDir (direction _hangar);
 _vec setPos _spos;
 _vec setDamage 0;
-_vec addMPEventHandler ["MPKilled", {if (isServer) then {[_this select 0] call d_fnc_sidempkilled}}];
+[_vec, "d_sidekill"] call d_fnc_setekmode;
 clearWeaponCargoGlobal _vec;
 clearMagazineCargoGlobal _vec;
 clearBackpackCargoGlobal _vec;

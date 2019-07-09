@@ -10,7 +10,7 @@ if (d_beam_target == "") exitWith {
 	__TRACE("exit, beam target empty")
 };
 
-private _respawn_pos = [0,0,0];
+private _respawn_pos = [0, 0, 0];
 __TRACE("black out")
 "xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_917", "BLACK OUT", 0.2];
 

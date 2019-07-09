@@ -36,10 +36,10 @@ private _nightorfog = call d_fnc_nightfograin;
 	};
 	//};
 #ifdef __TT__
-	_one_unit setVariable ["d_ktypett", 1];
+	[_one_unit, "d_ktypett", 1] call d_fnc_setekmode;
 #endif
 	if (d_with_ai && {d_with_ranked}) then {
-		_one_unit setVariable ["d_ktypeai", 1];
+		[_one_unit, "d_ktypeai", 1] call d_fnc_setekmode;
 	};
 	_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 	_one_unit setSkill ["aimingAccuracy", _subskill];

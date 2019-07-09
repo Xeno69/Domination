@@ -8,7 +8,11 @@
 // [points if the killer (player) is infantry unit, points if the killer is inside an APC, points if the killer is inside a tank, points if the player is inside an air vehicle]
 // now, the lowest points number should be given for air vehicles and the highest for inf units
 // second change: distance to target, the lower the higher, Only for infantry!!!!
-params ["_points", "_killer", "_killed"];
+params ["_points", "_killer", "_killed", "_instigator"];
+
+if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0};
+if (!isNull _instigator) then {_killer = _instigator};
+
 if (d_with_ace && {isNull _killer}) then {
 	_killer = _killed getVariable ["ace_medical_lastDamageSource", _killer];
 };

@@ -9,7 +9,6 @@ private _ma = _vec getVariable "d_abandoned_ma";
 if (!isNil "_ma") then {
 	deleteMarker _ma;
 };
-_vec removeAllMPEventHandlers "MPKilled";
 
 if (!surfaceIsWater (getPosASL _vec)) then {
 	_vec execFSM "fsms\fn_Wreckmarker.fsm";

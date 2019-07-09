@@ -36,9 +36,9 @@ private _ownerthere = false;
 while {true} do {
 	private _owner = flagOwner _flag;
 	
-	if (!isNull _owner && {isNil {_owner getVariable "d_flagowner"}}) then {
+	if (!isNull _owner && {isNil {_owner getVariable "d_flago"}}) then {
 		_ownerthere = true;
-		_owner setVariable ["d_flagowner", _owner addMPEventHandler ["MPKilled", {if (!isNil "d_sm_flag_failed") then {d_sm_flag_failed = true}}]];
+		[_owner, "d_flago"] call d_fnc_setekmode;
 	};
 
 #ifndef __TT__
@@ -82,8 +82,8 @@ while {true} do {
 		};
 		d_sm_resolved = true;
 		if (!isNil "_owner" && {!isNull _owner}) then {
-			_owner removeMPEventHandler ["MPKilled", _owner getVariable "d_flagowner"];
-			_owner setVariable ["d_flagowner", nil];
+			_owner setVariable ["d_flago", nil];
+			_owner setVariable ["d_hkx", nil];
 		};
 	};
 	sleep 5.123;

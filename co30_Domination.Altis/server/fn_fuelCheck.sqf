@@ -5,4 +5,3 @@
 
 params ["_vec"];
 _vec setVariable ["d_fuel", (fuel _vec) max 0.1];
-_vec removeAllMPEventHandlers "MPKilled";

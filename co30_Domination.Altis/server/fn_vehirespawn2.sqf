@@ -11,13 +11,13 @@ private _type = typeOf _vec;
 
 _vec setVariable ["d_vec_islocked", (_vec call d_fnc_isVecLocked)];
 
-_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
+[_vec, "d_fuelc"] call d_fnc_setekmode;
 
 if (unitIsUAV _vec) then {
 	private _uavgrp = createVehicleCrew _vec;
 	_vec allowCrewInImmobile true;
 	_uavgrp deleteGroupWhenEmpty true;
-	_vec setVariable ["d_delcrewk", true];
+	[_vec, "d_delcrewk"] call d_fnc_setekmode;
 	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
@@ -58,12 +58,12 @@ while {true} do {
 		_vec setVariable ["d_vec_islocked", _isitlocked];
 		if (_isitlocked) then {_vec lock true};
 		_vec setFuel _fuelleft;
-		_vec addMPEventhandler ["MPKilled", {if (isServer) then {_this call d_fnc_fuelCheck}}];
+		[_vec, "d_fuelc"] call d_fnc_setekmode;
 		if (unitIsUAV _vec) then {
 			private _uavgrp = createVehicleCrew _vec;
 			_vec allowCrewInImmobile true;
 			_uavgrp deleteGroupWhenEmpty true;
-			_vec setVariable ["d_delcrewk", true];
+			[_vec, "d_delcrewk"] call d_fnc_setekmode;
 			if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 				_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 			};
