@@ -10211,7 +10211,7 @@
 <Japanese>Without sidemission bonus vehicles:</Japanese>
 <Original>Without sidemission bonus vehicles:</Original>
 <Russian>Без призовой техники с Доп.заданий:</Russian>
-<Chinesesimp>Without sidemission bonus vehicles:</Chinesesimp>
+<Chinesesimp>没有支线任务奖励车辆:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
 <English>Attention. You were spotted by enemy FACs. Incoming air strike!!!</English>
@@ -10221,7 +10221,7 @@
 <Japanese>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Japanese>
 <Original>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Original>
 <Russian>Внимание! Вас засекли авианаводчики противника. Готовьте к атаке с воздуха!!!</Russian>
-<Chinesesimp>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Chinesesimp>
+<Chinesesimp>注意. 你被敌人的空军前进控制员发现了. 空袭即将到来!!!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1953">
 <English>Players can select next main target:</English>
@@ -10231,7 +10231,7 @@
 <Japanese>Players can select next main target:</Japanese>
 <Original>Players can select next main target:</Original>
 <Russian>Игроки могут выбрать следующую основную цель:</Russian>
-<Chinesesimp>Players can select next main target:</Chinesesimp>
+<Chinesesimp>玩家可以选择下一个主要目标:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
 <English>Main target selection time left</English>
@@ -10241,7 +10241,7 @@
 <Japanese>Main target selection time left</Japanese>
 <Original>Main target selection time left</Original>
 <Russian>Оставшееся время выбора главного задания</Russian>
-<Chinesesimp>Main target selection time left</Chinesesimp>
+<Chinesesimp>主要目标剩余选择时间</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1955">
 <English>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</English>
@@ -10251,7 +10251,7 @@
 <Japanese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Japanese>
 <Original>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Original>
 <Russian>Откройте карту! Теперь у вас есть 30 секунд, чтобы выбрать следующую основную цель, нажав одну из доступных новых желтых целей \n\nВыбранная цель станет синей!</Russian>
-<Chinesesimp>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Chinesesimp>
+<Chinesesimp>打开地图! 你现在有30秒的时间通过单击可用的新黄色目标之一来选择下一个主目标\n\n所选目标将变为蓝色!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1956">
 <English>New target selection is over!</English>
@@ -10261,7 +10261,7 @@
 <Japanese>New target selection is over!</Japanese>
 <Original>New target selection is over!</Original>
 <Russian>Выбор новой цели окончен!</Russian>
-<Chinesesimp>New target selection is over!</Chinesesimp>
+<Chinesesimp>新的目标选择已经结束!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1957">
 <English>Players have selected %1 as new main target!</English>
@@ -10271,7 +10271,7 @@
 <Japanese>Players have selected %1 as new main target!</Japanese>
 <Original>Players have selected %1 as new main target!</Original>
 <Russian>Игроки выбрали %1 в качестве новой главной цели!</Russian>
-<Chinesesimp>Players have selected %1 as new main target!</Chinesesimp>
+<Chinesesimp>玩家已选择 %1 作为新的主要目标!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1958">
 <English>No new target had enough votes or none was voted for! Choosing random one...</English>
@@ -10281,7 +10281,7 @@
 <Japanese>No new target had enough votes or none was voted for! Choosing random one...</Japanese>
 <Original>No new target had enough votes or none was voted for! Choosing random one...</Original>
 <Russian>Ни у одной нового задания не было достаточно голосов, или за него не проголосовали! Выбор будет случайным ...</Russian>
-<Chinesesimp>No new target had enough votes or none was voted for! Choosing random one...</Chinesesimp>
+<Chinesesimp>新目标没有足够的选票或没有投票! 选择一个随机...</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1959">
 <English>Barracks left:</English>
@@ -10291,7 +10291,7 @@
 <Japanese>Barracks left:</Japanese>
 <Original>Barracks left:</Original>
 <Russian>Barracks left:</Russian>
-<Chinesesimp>Barracks left:</Chinesesimp>
+<Chinesesimp>离开营房:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1960">
 <English>With minefield at main targets:</English>
@@ -10301,7 +10301,7 @@
 <Japanese>With minefield at main targets:</Japanese>
 <Original>With minefield at main targets:</Original>
 <Russian>With minefield at main targets:</Russian>
-<Chinesesimp>With minefield at main targets:</Chinesesimp>
+<Chinesesimp>雷区是主要目标:</Chinesesimp>
 </Key>
 </Container>
 </Package>
