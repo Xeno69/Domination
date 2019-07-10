@@ -8,36 +8,53 @@ if (isNil "xr_with_marker") then {
 };
 
 xr_moansoundsar = [
-	[
-		"Person0",
-		[
-			"P0_moan_13_words.wss", "P0_moan_14_words.wss", "P0_moan_15_words.wss", "P0_moan_16_words.wss",
-			"P0_moan_17_words.wss", "P0_moan_18_words.wss", "P0_moan_19_words.wss", "P0_moan_20_words.wss"
-		]
+    [
+	    "A3\Dubbing_Radio_F_Enoch\data\RUS\",
+        [
+	       "Male01RUS\Normal\140_Com_Status\",
+	       "Male02RUS\Normal\140_Com_Status\",
+	       "Male03RUS\Normal\140_Com_Status\",
+	       "Male01RUS\Normal\140_Com_Status\",
+	       "Male02RUS\Normal\140_Com_Status\",
+	       "Male03RUS\Normal\140_Com_Status\"		   
+	    ]
 	],
-	[
-		"Person1",
-		[
-			"P1_moan_19_words.wss", "P1_moan_20_words.wss", "P1_moan_21_words.wss", "P1_moan_22_words.wss",
-			"P1_moan_23_words.wss", "P1_moan_24_words.wss", "P1_moan_25_words.wss", "P1_moan_26_words.wss",
-			"P1_moan_27_words.wss", "P1_moan_28_words.wss", "P1_moan_29_words.wss", "P1_moan_30_words.wss",
-			"P1_moan_31_words.wss", "P1_moan_32_words.wss", "P1_moan_33_words.wss"
-		]
+    [
+	    "A3\Dubbing_Radio_F\data\ENG\",
+        [
+	       "Male01ENG\RadioProtocolENG\Normal\140_Com_Status\",
+	       "Male02ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male03ENG\RadioProtocolENG\Normal\140_Com_Status\",
+	       "Male04ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male05ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male06ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male07ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male08ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male09ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male10ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male11ENG\RadioProtocolENG\Normal\140_Com_Status\",
+		   "Male12ENG\RadioProtocolENG\Normal\140_Com_Status\"
+	    ]
 	],
+    [
+	    "A3\Dubbing_Radio_F\data\GRE\",
+        [
+	       "Male01GRE\RadioProtocolGRE\Normal\140_Com_Status\",
+	       "Male02GRE\RadioProtocolGRE\Normal\140_Com_Status\",
+	       "Male03GRE\RadioProtocolGRE\Normal\140_Com_Status\",
+		   "Male04GRE\RadioProtocolGRE\Normal\140_Com_Status\",
+		   "Male05GRE\RadioProtocolGRE\Normal\140_Com_Status\",
+		   "Male06GRE\RadioProtocolGRE\Normal\140_Com_Status\"
+	    ]
+	],	
 	[
-		"Person2",
-		[
-			"P2_moan_14_words.wss", "P2_moan_15_words.wss", "P2_moan_16_words.wss", "P2_moan_17_words.wss",
-			"P2_moan_18_words.wss", "P2_moan_19_words.wss", "P2_moan_20_words.wss", "P2_moan_21_words.wss"
-		]
-	],
-	[
-		"Person3",
-		[
-			"P3_moan_10_words.wss", "P3_moan_11_words.wss", "P3_moan_12_words.wss", "P3_moan_13_words.wss",
-			"P3_moan_14_words.wss", "P3_moan_15_words.wss", "P3_moan_16_words.wss", "P3_moan_17_words.wss",
-			"P3_moan_18_words.wss", "P3_moan_19_words.wss", "P3_moan_20_words.wss"
-		]
+	  "HealthINeedHelpNow.ogg",
+	  "HealthIAmBadlyHurt.ogg",
+	  "HealthINeedSomeHelpHere.ogg",
+	  "HealthNeedMedicNow.ogg",
+	  "HealthIAmWounded.ogg",
+	  "CriticalDamage_1.ogg",
+	  "CriticalDamage_2.ogg"
 	]
 ];
 
@@ -50,3 +67,11 @@ xr_dropAction = -3333;
 if (isNil "xr_phd_invulnerable") then {xr_phd_invulnerable = false};
 
 xr_respawn_available = false;
+
+xr_plsayer = call {
+    if (d_own_side == "EAST") exitWith {0};
+	if (d_own_side == "WEST") exitWith {1};
+	2
+};
+private _num = floor (random (count ((xr_moansoundsar # xr_plsayer) # 1)));
+xr_voicetype = (((xr_moansoundsar # xr_plsayer) # 1) # _num);

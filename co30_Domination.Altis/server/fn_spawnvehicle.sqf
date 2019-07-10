@@ -62,12 +62,6 @@ if (_sim in ["AIRPLANE", "HELICOPTER", "AIRPLANEX", "HELICOPTERX", "HELICOPTERRT
 	};
 } else {
 	_veh = createVehicle [_typev1, _posv1, [], 0, "NONE"];
-	/*private _svec = sizeOf _typev1;
-	private _isFlat = (ASLToAGL getPosASL _veh) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _veh]; // 0
-	if (count _isFlat > 1) then {
-		_posv1 = _isFlat;
-		_posv1 set [2, 0];
-	};*/
 	if (random 100 > 50) then {_veh allowCrewInImmobile true};
 	_veh setDir _azi;
 	_veh setVehiclePosition [_veh, [], 0, "NONE"];
@@ -80,7 +74,6 @@ _grp deleteGroupWhenEmpty true;
 _veh setUnloadInCombat [true, false];
 
 if (_newGrp) then {_grp selectLeader (commander _veh)};
-
 
 if (_addkills) then {
 #ifdef __TT__

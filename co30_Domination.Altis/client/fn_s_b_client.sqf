@@ -18,7 +18,7 @@ d_searchbody setVariable ["d_search_id", [
 				scriptName "spawn_s_b_client";
 				remoteExecCall ["d_fnc_rem_sb_id", -2];
 				sleep 0.3;
-				d_searchbody = objNull; publicVariable "d_searchbody";
+				missionNamespace setVariable ["d_searchbody", objNull, true];
 
 				private _intelnum = d_searchintel call d_fnc_RandomFloorArray;
 

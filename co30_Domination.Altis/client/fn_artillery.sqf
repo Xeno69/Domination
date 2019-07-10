@@ -34,7 +34,7 @@ if (d_ari_blocked) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-d_ari_blocked = true; publicVariable "d_ari_blocked";
+missionNamespace setVariable ["d_ari_blocked", true, true];
 player setVariable ["d_blocks_arty", true, true];
 #else
 private _dexit = false;
@@ -43,7 +43,7 @@ if (d_player_side == blufor) then {
 		_dexit = true;
 	};
 
-	d_ari_blocked_w = true; publicVariable "d_ari_blocked_w";
+	missionNamespace setVariable ["d_ari_blocked_w", true, true];
 	player setVariable ["d_blocks_arty_w", true, true];
 } else {
 	if (d_player_side == opfor) then {
@@ -51,7 +51,7 @@ if (d_player_side == blufor) then {
 			_dexit = true;
 		};
 
-		d_ari_blocked_e = true; publicVariable "d_ari_blocked_e";
+		missionNamespace setVariable ["d_ari_blocked_e", true, true];
 		player setVariable ["d_blocks_arty_e", true, true];
 	};
 };
@@ -71,15 +71,15 @@ d_commandingMenuIniting = false;
 	if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
 		if (d_arti_dialog_open) then {closeDialog 0};
 #ifndef __TT__
-		d_ari_blocked = false; publicVariable "d_ari_blocked";
+		missionNamespace setVariable ["d_ari_blocked", false, true];
 		player setVariable ["d_blocks_arty", nil, true];
 #else
 		if (d_player_side == blufor) then {
-			d_ari_blocked_w = false; publicVariable "d_ari_blocked_w";
+			missionNamespace setVariable ["d_ari_blocked_w", false, true];
 			player setVariable ["d_blocks_arty_w", nil, true];
 		} else {
 			if (d_player_side == opfor) then {
-				d_ari_blocked_e = false; publicVariable "d_ari_blocked_e";
+				missionNamespace setVariable ["d_ari_blocked_e", false, true];
 				player setVariable ["d_blocks_arty_e", nil, true];
 			};
 		};
@@ -93,15 +93,15 @@ d_commandingMenuIniting = false;
 	};
 
 #ifndef __TT__
-	d_ari_blocked = false; publicVariable "d_ari_blocked";
+	missionNamespace setVariable ["d_ari_blocked", false, true];
 	player setVariable ["d_blocks_arty", nil, true];
 #else
 	if (d_player_side == blufor) then {
-		d_ari_blocked_w = false; publicVariable "d_ari_blocked_w";
+		missionNamespace setVariable ["d_ari_blocked_w", false, true];
 		player setVariable ["d_blocks_arty_w", nil, true];
 	} else {
 		if (d_player_side == opfor) then {
-			d_ari_blocked_e = false; publicVariable "d_ari_blocked_e";
+			missionNamespace setVariable ["d_ari_blocked_e", false, true];
 			player setVariable ["d_blocks_arty_e", nil, true];
 		};
 	};

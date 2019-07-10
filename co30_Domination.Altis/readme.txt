@@ -5,14 +5,19 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-3.99u
+4.01
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
 !!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
-3.99t
+4.00
+
+Version number up to 4 because of many internal changes to the mission code (especially because of the headless client changes)
+
+ADDED: Livonia (Contact expansion) version
+
 - Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
 - Fixed: Ammo point/ammo load marker was gone
 - Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal in MP)
@@ -50,6 +55,8 @@ Changelogs
 - Fixed: Replaced deprecated "O_T_APC_Wheeled_02_rcws_ghex_F" class with O_T_APC_Wheeled_02_rcws_v2_ghex_F
 - Fixed: Players in virtual spectator slot did trigger database handling
 - Changed: Updated Simplified Chinese Translation by CHL198011
+- Changed: XRevive moan sounds now either use Russian, English or Greek depending on player side, by lelik
+- Changed: The mission no longer uses any MP eventhandlers like MPKilled
 - And more optimizations and cosmetic changes
 
 3.99s
@@ -310,7 +317,7 @@ ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chern
 			 * this setVariable ["d_respawn_liftit", true]; // The vehicle can now be lifted by a lift chopper
 			 * this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]]; // Adds a marker, text to the marker and a color for the marker to the vehicle
 			     (for available markers check the following page: https://community.bistudio.com/wiki/cfgMarkers )
-			 * this setVariable ["d_empty_respawn", 10]; // The vehicle will respawn after a specific time when no player was nearby (only available when d_respawn_delay != -1
+			 * this setVariable ["d_empty_respawn", 10]; // The vehicle will respawn after a specific time when no player was nearby (only available when d_respawn_delay != -1)
 - Added: Advanced rappeling from Duda
 - Fixed: Map drawing on GPS map (yet again)
 - Optimized: Map drawing, do only draw map icons and markers if they are actually visible

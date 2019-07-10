@@ -25,8 +25,7 @@ if (!d_no_ai && {d_drop_blocked}) exitWith {
 };
 
 if (!d_no_ai) then {
-	d_drop_blocked = true;
-	publicVariable "d_drop_blocked";
+	missionNamespace setVariable ["d_drop_blocked", true, true];
 };
 
 ["d_drop_zone", [0,0,0], "ICON", "ColorBlue", [1,1], localize "STR_DOM_MISSIONSTRING_500", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
@@ -45,7 +44,7 @@ if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVar
 	if (d_airdrop_dialog_open) then {closeDialog 0};
 	deleteMarkerLocal "d_drop_zone";
 	if (!d_no_ai) then {
-		d_drop_blocked = false; publicVariable "d_drop_blocked";
+		missionNamespace setVariable ["d_drop_blocked", false, true];
 	};
 };
 if (d_x_drop_type != "") then {
@@ -63,6 +62,5 @@ if (d_x_drop_type != "") then {
 };
 
 if (!d_no_ai) then {
-	d_drop_blocked = false;
-	publicVariable "d_drop_blocked";
+	missionNamespace setVariable ["d_drop_blocked", false, true];
 };

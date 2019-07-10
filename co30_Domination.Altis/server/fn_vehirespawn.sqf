@@ -109,7 +109,7 @@ while {true} do {
 					};
 				} else {
 					if (time > _empty_respawn) then {
-						private _runits = ((allPlayers - entities "HeadlessClient_F") select {!isNil "_x" && {!isNull _x}});
+						private _runits = (allPlayers - entities "HeadlessClient_F") select {!isNil "_x" && {!isNull _x}};
 						sleep 0.1;
 						if (!(_runits isEqualTo []) && {_runits findIf {_x distance2D _vec < 100} == -1}) then {
 							_disabled = true;

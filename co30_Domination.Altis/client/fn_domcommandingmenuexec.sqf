@@ -45,15 +45,12 @@ switch (_this) do {
 	case 50: {
 		d_commandingMenuCode = {
 #ifndef __TT__
-			d_arty_stopp = true;
-			publicVariable "d_arty_stopp";
+			missionNamespace setVariable ["d_arty_stopp", true, true];
 #else
 			if (d_player_side == opfor) then {
-				d_arty_stopp_e = true;
-				publicVariable "d_arty_stopp_e";
+				missionNamespace setVariable ["d_arty_stopp_e", true, true];
 			} else {
-				d_arty_stopp_w = true;
-				publicVariable "d_arty_stopp_w";
+				missionNamespace setVariable ["d_arty_stopp_w", true, true];
 			};
 #endif
 			d_commandingMenuIniting = false;
