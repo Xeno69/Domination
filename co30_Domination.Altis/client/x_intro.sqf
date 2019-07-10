@@ -99,7 +99,7 @@ private _start_pos2 = switch (count _str2) do {
 };
 
 "d_DomLabel" cutRsc ["d_DomLabel", "PLAIN", 2];
-"d_DomThree" cutRsc ["d_DomThree", "PLAIN", 2];
+"d_DomFour" cutRsc ["d_DomFour", "PLAIN", 2];
 "d_ArmaLogo" cutRsc ["d_ArmaLogo", "PLAIN", 2];
 [_start_pos, _str, 5] execVM "IntroAnim\animateLettersX.sqf";_line = _line + 1; waitUntil {d_animL_i == _line};
 if (_str2 != "") then {[_start_pos2, _str2, 6] execVM "IntroAnim\animateLettersX.sqf";_line = _line + 1; waitUntil {d_animL_i == _line}};
@@ -127,7 +127,7 @@ _camera camCommit 18;
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) - 0.1);
 	_control ctrlCommit 0.3;
 	waitUntil {ctrlCommitted _control};
-	private _control2 = (uiNamespace getVariable "d_DomThree") displayCtrl 50;
+	private _control2 = (uiNamespace getVariable "d_DomFour") displayCtrl 50;
 	private _pos = ctrlPosition _control2;
 	_control2 ctrlSetPosition [0.69, _pos # 1];
 	_control2 ctrlCommit 0.5;
@@ -188,7 +188,7 @@ sleep 8;
 xr_phd_invulnerable = false;
 
 uiNamespace setVariable ["D_DomLabel", nil];
-uiNamespace setVariable ["d_DomThree", nil];
+uiNamespace setVariable ["d_DomFour", nil];
 
 if (name player == "Error: No unit" || {!isPlayer player}) then {
 	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";

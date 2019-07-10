@@ -16,19 +16,19 @@ class D_DomLabel {
 		};
 	};
 };
-class d_DomThree {
+class d_DomFour {
 	idd=-1;
 	movingEnable=0;
 	duration=9.5;
 	fadeout = 1;
-	name="d_DomThree";
+	name="d_DomFour";
 	sizeEx = 256;
-	onLoad = "uiNamespace setVariable ['d_DomThree', _this select 0]";
+	onLoad = "uiNamespace setVariable ['d_DomFour', _this select 0]";
 	class controls {
 		class Picture: D_RscPicture {
 			idc=50;
 			x=2; y=0.35; w=0.15; h=0.15;
-			text="pics\dthree.paa";
+			text="pics\dfour.paa";
 			sizeEx = 256;
 		};
 	};
