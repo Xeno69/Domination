@@ -30,6 +30,20 @@ if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 		};
 		_obj setVariable ["d_ktypett", nil];
 	};
+	
+	private _cvkblu = _obj getVariable "d_cvkblu";
+	if (!isNil "_cvkblu") then {
+		__TRACE_1("","_cvkblu")
+		_this call d_fnc_checkveckillblufor;
+		_obj setVariable ["d_cvkblu", nil];
+	};
+
+	private _cvkopf = _obj getVariable "d_cvkopf";
+	if (!isNil "_cvkopf") then {
+		__TRACE_1("","_cvkopf")
+		_this call d_fnc_checkveckillopfor;
+		_obj setVariable ["d_cvkopf", nil];
+	};
 };
 if (!isNil "d_is_hc") exitWith {true};
 #endif
@@ -145,22 +159,6 @@ if (!isNil "_sarrest") then {
 	d_sm_arrest_not_failed = false;
 	_obj setVariable ["d_sarrest", nil];
 };
-
-#ifdef __TT__
-private _cvkblu = _obj getVariable "d_cvkblu";
-if (!isNil "_cvkblu") then {
-	__TRACE_1("","_cvkblu")
-	_this call d_fnc_checkveckillblufor;
-	_obj setVariable ["d_cvkblu", nil];
-};
-
-private _cvkopf = _obj getVariable "d_cvkopf";
-if (!isNil "_cvkopf") then {
-	__TRACE_1("","_cvkopf")
-	_this call d_fnc_checkveckillopfor;
-	_obj setVariable ["d_cvkopf", nil];
-};
-#endif
 
 _obj setVariable ["d_hkx", nil];
 

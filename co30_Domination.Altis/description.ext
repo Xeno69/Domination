@@ -214,6 +214,7 @@ class CfgRemoteExec {
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
 		class d_fnc_AddKills {allowedTargets = 2;};
 		class d_fnc_addgrhcace {allowedTargets = 1;};
+		class d_fnc_ttpvkill {allowedTargets = 2;};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec

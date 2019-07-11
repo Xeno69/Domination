@@ -503,6 +503,7 @@ class cfgFunctions {
 			addc(airai);
 			addc(isledefense);
 			addc(setekmode);
+			addc(ttpvkill);
 		};
 		class Dom_PrePostInit {
 			file = "init";

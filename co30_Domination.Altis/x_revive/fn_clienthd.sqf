@@ -23,9 +23,6 @@ if (_unit getVariable ["xr_pluncon", false] || {xr_phd_invulnerable}) exitWith {
 	__TRACE_2("exiting, unit uncon or invulnerable","_part")
 	0
 };
-// TODO
-//if (isNull _injurer) then {_injurer = UAVControl vehicle _source select 0}; // UAV/UGV player operated road kill
-//if (isNull _injurer) then {_injurer = _source}; // player driven vehicle road kill
 
 if (d_no_teamkill == 0 && {_dam >= 0.1 && {!isNull _injurer && {(_injurer call d_fnc_isplayer) && {_injurer != _unit && {isNull objectParent _unit && {side (group _injurer) getFriend side (group _unit) >= 0.6}}}}}}) exitWith {
 	if (_idx == -1 && {_ammo != "" && {time > (player getVariable "d_tk_cutofft") && {getText (configFile>>"CfgAmmo">>_ammo>>"simulation") in __shots}}}) then {

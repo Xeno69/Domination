@@ -15,6 +15,7 @@ Changelogs
 4.00
 
 Version number up to 4 because of many internal changes to the mission code (especially because of the headless client changes)
+Don't worry, you can still use your 3.99s mission.sqm files :)
 
 ADDED: Livonia (Contact expansion) version
 
