@@ -59,7 +59,7 @@ if !(isServer) exitWith {};
 
 sleep random 1;
 
-params ["_unit", ["_behaviour", "SAFE"], ["_maxWaitTime", 30], ["_excludedPositions", []], ["_startingPos", -1], ["_stance", "HIGH"], ["_debug", false], ["_house", objNull]];
+params ["_unit", ["_behaviour", "safe"], ["_maxWaitTime", 30], ["_excludedPositions", []], ["_startingPos", -1], ["_stance", "high"], ["_debug", false], ["_house", objNull]];
 
 _behaviour = toLower _behaviour;
 _stance = toLower _stance;
@@ -72,8 +72,8 @@ private _lastBuildingPos = 0;
 private _waitTime = 0;
 private _timeout = 0;
 
-private _behaviours = ["CARELESS", "SAFE", "AWARE", "COMBAT", "STEALTH"];
-private _stances = ["UP", "DOWN", "MIDDLE", "AUTO", "HIGH"];
+private _behaviours = ["careless", "safe", "aware", "combat", "stealth"];
+private _stances = ["up", "down", "middle", "auto", "high"];
 
 private "_name"; 
 
@@ -93,7 +93,7 @@ if (_behaviour in _behaviours) then {
 };
 
 // Set unit stance
-if (_stance == "HIGH") then {
+if (_stance == "high") then {
 	[_unit] spawn {
 		scriptName "spawn_housepatrol";
 		params ["_unit"];
