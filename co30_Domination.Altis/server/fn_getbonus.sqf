@@ -106,12 +106,12 @@ switch (d_sm_winner) do {
 			while {_btype_e == ""} do {
 				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 1);
 				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
+					private _vecclass = toLower (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
 					// 50 % chance for an Air vehicle now
 					if (_chance > _airval) then {
-						if (_vecclass == "AIR") then {_btype_e = _vec_typex};
+						if (_vecclass == "air") then {_btype_e = _vec_typex};
 					} else {
-						if (_vecclass != "AIR") then {_btype_e = _vec_typex};
+						if (_vecclass != "air") then {_btype_e = _vec_typex};
 					};
 				} else {
 					_btype_e = _vec_typex;
@@ -133,12 +133,12 @@ switch (d_sm_winner) do {
 			while {_btype_w == ""} do {
 				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 0);
 				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
+					private _vecclass = toLower (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
 					// 50 % chance for an Air vehicle now
 					if (_chance > _airval) then {
-						if (_vecclass == "AIR") then {_btype_w = _vec_typex};
+						if (_vecclass == "air") then {_btype_w = _vec_typex};
 					} else {
-						if (_vecclass != "AIR") then {_btype_w = _vec_typex};
+						if (_vecclass != "air") then {_btype_w = _vec_typex};
 					};
 				} else {
 					_btype_w = _vec_typex;
@@ -160,12 +160,12 @@ switch (d_sm_winner) do {
 			while {_btype_e == ""} do {
 				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 1);
 				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
+					private _vecclass = toLower (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
 					// 50 % chance for an Air vehicle now
 					if (_chance > _airval) then {
-						if (_vecclass == "AIR") then {_btype_e = _vec_typex};
+						if (_vecclass == "air") then {_btype_e = _vec_typex};
 					} else {
-						if (_vecclass != "AIR") then {_btype_e = _vec_typex};
+						if (_vecclass != "air") then {_btype_e = _vec_typex};
 					};
 				} else {
 					_btype_e = _vec_typex;
@@ -186,12 +186,12 @@ switch (d_sm_winner) do {
 			while {_btype_w == ""} do {
 				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 0);
 				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toUpper (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
+					private _vecclass = toLower (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
 					// 50 % chance for an Air vehicle now
 					if (_chance > _airval) then {
-						if (_vecclass == "AIR") then {_btype_w = _vec_typex};
+						if (_vecclass == "air") then {_btype_w = _vec_typex};
 					} else {
-						if (_vecclass != "AIR") then {_btype_w = _vec_typex};
+						if (_vecclass != "air") then {_btype_w = _vec_typex};
 					};
 				} else {
 					_btype_w = _vec_typex;

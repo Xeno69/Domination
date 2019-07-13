@@ -31,7 +31,7 @@ __control(44446) ctrlSetText getText(configFile>>"CfgVehicleIcons">>getText (con
 __control(44445) ctrlSetText _vec_name;
 
 private _hasbox = _vec getVariable ["d_ammobox", false];
-private _ttyp = toUpper (typeOf _vec);
+private _ttyp = toLower (typeOf _vec);
 
 private _canloadunloadbox = _ttyp in d_check_ammo_load_vecs;
 if (_canloadunloadbox) then {

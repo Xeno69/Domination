@@ -263,15 +263,15 @@ if (!d_tt_tanoa) then {
 #endif
 
 #ifndef __TT__
-d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toUpper _x};
-d_mt_bonus_vehicle_array = d_mt_bonus_vehicle_array apply {toUpper _x};
+d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLower _x};
+d_mt_bonus_vehicle_array = d_mt_bonus_vehicle_array apply {toLower _x};
 // these vehicles can be lifted by the wreck lift chopper (previous chopper 4), but only, if they are completely destroyed
 d_heli_wreck_lift_types = d_sm_bonus_vehicle_array + d_mt_bonus_vehicle_array;
 #else
-d_sm_bonus_vehicle_array set [0, (d_sm_bonus_vehicle_array # 0) apply {toUpper _x}];
-d_sm_bonus_vehicle_array set [1, (d_sm_bonus_vehicle_array # 1) apply {toUpper _x}];
-d_mt_bonus_vehicle_array set [0, (d_mt_bonus_vehicle_array # 0) apply {toUpper _x}];
-d_mt_bonus_vehicle_array set [1, (d_mt_bonus_vehicle_array # 1) apply {toUpper _x}];
+d_sm_bonus_vehicle_array set [0, (d_sm_bonus_vehicle_array # 0) apply {toLower _x}];
+d_sm_bonus_vehicle_array set [1, (d_sm_bonus_vehicle_array # 1) apply {toLower _x}];
+d_mt_bonus_vehicle_array set [0, (d_mt_bonus_vehicle_array # 0) apply {toLower _x}];
+d_mt_bonus_vehicle_array set [1, (d_mt_bonus_vehicle_array # 1) apply {toLower _x}];
 
 d_heli_wreck_lift_types = (d_sm_bonus_vehicle_array # 0) + (d_sm_bonus_vehicle_array # 1) + (d_mt_bonus_vehicle_array select 0) + (d_mt_bonus_vehicle_array # 1);
 #endif
@@ -1229,7 +1229,7 @@ if (!d_tt_tanoa) then {
 	];
 
 	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
-	d_hd_sim_types apply {toUpper _x};
+	d_hd_sim_types apply {toLower _x};
 
 	d_isle_defense_marker = "n_mech_inf";
 
@@ -1644,7 +1644,7 @@ if (hasInterface) then {
 	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F"];
 #endif
 	
-	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toUpper _x};
+	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLower _x};
 
 	d_weapon_respawn = true;
 

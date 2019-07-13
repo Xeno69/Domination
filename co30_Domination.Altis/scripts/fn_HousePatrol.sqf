@@ -61,8 +61,8 @@ sleep random 1;
 
 params ["_unit", ["_behaviour", "SAFE"], ["_maxWaitTime", 30], ["_excludedPositions", []], ["_startingPos", -1], ["_stance", "HIGH"], ["_debug", false], ["_house", objNull]];
 
-_behaviour = toUpper _behaviour;
-_stance = toUpper _stance;
+_behaviour = toLower _behaviour;
+_stance = toLower _stance;
 
 private _position = getPos _unit;
 if (isNull _house) then {_house = nearestBuilding _unit};

@@ -43,7 +43,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 				} else {
 					private _isvalid = _transobj getVariable "d_canbewlifted";
 					if (isNil "_isvalid") then {
-						_isvalid = !isNil {_transobj getVariable "d_isspecialvec"} || {toUpper (typeOf _transobj) in _possible_types};
+						_isvalid = !isNil {_transobj getVariable "d_isspecialvec"} || {toLower (typeOf _transobj) in _possible_types};
 						_transobj setVariable ["d_canbewlifted", _isvalid];
 					};
 					if (!_isvalid || {damage _transobj < 1}) then {_transobj = objNull};

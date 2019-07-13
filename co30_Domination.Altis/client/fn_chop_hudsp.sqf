@@ -97,7 +97,7 @@ while {d_player_in_vec} do {
 								_check_cond = if (_chopttype == 1) then {
 									private _isvalid = _liftobj getVariable "d_canbewlifted";
 									if (isNil "_isvalid") then {
-										_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"} || {toUpper (typeOf _liftobj) in (_vec getVariable ["d_lift_types", []])};
+										_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"} || {toLower (typeOf _liftobj) in (_vec getVariable ["d_lift_types", []])};
 										_liftobj setVariable ["d_canbewlifted", _isvalid];
 									};
 									(!isNull _liftobj && {_isvalid && {_marp > 0 && {damage _liftobj >= 1}}})

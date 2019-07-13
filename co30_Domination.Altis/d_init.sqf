@@ -403,7 +403,7 @@ if (isServer) then {
 	if !(_special_v isEqualTo []) then {
 		_special_v call d_fnc_initvecsspecial;
 		{
-			d_heli_wreck_lift_types pushBackUnique (toUpper (typeOf _x));
+			d_heli_wreck_lift_types pushBackUnique (toLower (typeOf _x));
 		} forEach _special_v;
 	};
 

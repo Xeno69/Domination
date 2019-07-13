@@ -13,9 +13,9 @@ hintSilent _msg;
 //private _msg_chat = (_msg splitString "\n") joinString " ";
 private _msg_chat = _msg call d_fnc_removelinebreak;
 
-switch (toUpper _type_chat) do {
-	case "HQ": {[playerSide, "HQ"] sideChat _msg_chat};
-	case "SIDE": {player sideChat _msg_chat};
-	case "GLOBAL": {systemChat _msg_chat};
-	case "GROUP": {player groupChat _msg_chat};
+switch (toLower _type_chat) do {
+	case "hq": {[playerSide, "HQ"] sideChat _msg_chat};
+	case "side": {player sideChat _msg_chat};
+	case "global": {systemChat _msg_chat};
+	case "group": {player groupChat _msg_chat};
 };

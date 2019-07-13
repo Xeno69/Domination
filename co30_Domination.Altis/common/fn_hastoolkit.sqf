@@ -4,6 +4,6 @@
 #include "..\x_setup.sqf"
 
 (items _this) findIf {
-	private _it = toUpper _x;
-	_it find "TOOLKIT" > -1 || {_it find "REPAIRKIT" > -1}
+	private _it = toLower _x;
+	_it find "toolkit" > -1 || {_it find "repairkit" > -1}
 } > -1

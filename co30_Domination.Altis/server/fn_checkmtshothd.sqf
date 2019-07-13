@@ -10,7 +10,7 @@ if (!alive _obj) exitWith {
 	_obj removeAllEventHandlers "handleDamage";
 };
 #ifdef __DEBUG__
-_mm = toUpper(getText(configFile>>"CfgAmmo">>(_this select 4)>>"simulation"));
+_mm = toLower(getText(configFile>>"CfgAmmo">>(_this select 4)>>"simulation"));
 __TRACE_1("","_mm")
 #endif
 private _r = if (d_MTTowerSatchelsOnly == 1 || {(_this select 4) call d_fnc_checksimminet}) then {

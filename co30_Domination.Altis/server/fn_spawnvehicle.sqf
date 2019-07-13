@@ -37,10 +37,10 @@ if (_param4 isEqualType sideUnknown) then {
 };
 
 private "_veh";
-private _sim = toUpper getText(configFile>>"CfgVehicles">>_typev1>>"simulation");
+private _sim = toLower getText(configFile>>"CfgVehicles">>_typev1>>"simulation");
 __TRACE_1("","_sim")
 
-if (_sim in ["AIRPLANE", "HELICOPTER", "AIRPLANEX", "HELICOPTERX", "HELICOPTERRTD"]) then {
+if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrtd"]) then {
 	if (count _posv1 == 2) then {
 		_posv1 pushBack ((_posv1 # 2) max 300);
 	} else {
@@ -52,7 +52,7 @@ if (_sim in ["AIRPLANE", "HELICOPTER", "AIRPLANEX", "HELICOPTERX", "HELICOPTERRT
 	_veh setDir _azi;
 	_veh setPos _posv1;
 	
-	if (_sim == "AIRPLANEX" || {_sim == "AIRPLANE"}) then {
+	if (_sim == "airplanex" || {_sim == "airplane"}) then {
 		private _v = velocity _veh;
 		_veh setVelocity [
 			(_v # 1) * sin _azi - (_v # 0) * cos _azi,
