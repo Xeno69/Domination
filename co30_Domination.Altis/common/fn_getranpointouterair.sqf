@@ -12,18 +12,18 @@ private _py = 1;
 switch (floor (random 4)) do {
 	case 0: {
 		_px = random _width;
-		_py = _height / 10; // 250
+		_py = _height / 12;
 	};
 	case 1: {
-		_px = _width / 10; // 250
+		_px = _width / 12;
 		_py = random _height;
 	};
 	case 2: {
 		_px = random _width;
-		_py = _height - (_height / 10); // 250
+		_py = _height - (_height / 12);
 	};
 	case 3: {
-		_px = _width - (_width / 10); // 250
+		_px = _width - (_width / 12);
 		_py = random _height;
 	};
 };

@@ -13,7 +13,7 @@ if (isNil "d_MaxNumAmmoboxes") then {
 
 private _bar = [
 	localize "STR_DOM_MISSIONSTRING_23", __BR,
-	"<font face='RobotoCondensed' size=52 color='#ffffff'>Domination! 3</font>", __BRBR,
+	"<font face='RobotoCondensed' size=52 color='#ffffff'>Domination! 4</font>", __BRBR,
 	localize "STR_DOM_MISSIONSTRING_24", __BR,
 	localize "STR_DOM_MISSIONSTRING_25", __BRBRBR,
 	localize "STR_DOM_MISSIONSTRING_26", __BRBR,

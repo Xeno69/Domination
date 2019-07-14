@@ -65,7 +65,7 @@
 #define __GUI_TXT_RGB {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 1}
 #define __GUI_1_RGB {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.69])","(profilenamespace getvariable ['GUI_BCG_RGB_G',0.75])","(profilenamespace getvariable ['GUI_BCG_RGB_B',0.5])",1}
 
-#define __DOM_NVER_STR__ "Domination! 3"
+#define __DOM_NVER_STR__ "Domination! 4"
 
 class ScrollBar {
 	color[] = {1,1,1,0.6};

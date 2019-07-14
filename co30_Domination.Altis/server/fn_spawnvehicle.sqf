@@ -95,5 +95,7 @@ if (_addkills) then {
 #ifndef __TT__
 [_veh] call d_fnc_addceo;
 #endif
-
+__TRACE_1("","_veh")
+__TRACE_1("","_crew")
+__TRACE_1("","_grp")
 [_veh, _crew, _grp]

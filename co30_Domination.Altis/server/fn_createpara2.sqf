@@ -51,10 +51,11 @@ private _delveccrew = {
 };
 
 private _checktime = time + 300;
+private _distchk = [500, 2000] select (_chopper isKindOf "Plane");
 while {_helifirstpoint distance2D _chopper > 300} do {
 	__exitchop;
 	if (time > _checktime) then {
-		if (_startpos distance2D _chopper < 500) then {
+		if (_startpos distance2D _chopper < _distchk) then {
 			[_crew_vec, _chopper, 1 + random 1] spawn _delveccrew;
 			_stop_me = true;
 		} else {

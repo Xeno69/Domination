@@ -49,22 +49,28 @@ private _make_jump = {
 	*/
 	
 	_driver_vec setSkill 1;
+	
+	sleep 0.1;
 
 	_driver_vec doMove _flytopos;
 	_vec flyInHeight 80;
 	_vgrp setBehaviourStrong "CARELESS";
 	
+	__TRACE_1("","_flytopos")
+	
 	//_vec flyInHeight 100;
 	
 	sleep 10.0231;
 	
+	__TRACE_1("","d_mt_radio_down")
 	if (d_mt_radio_down) exitWith {
 		[_crew_vec, _vec, 1 + random 1] spawn _delveccrew;
 	};
 	
 	private _stop_me = false;
-	private _checktime = time + 500;
-	__TRACE_1("","_checktime")
+	private _checktime = time + 200;
+	private _distchk = [500, 2000] select (_vec isKindOf "Plane");
+	__TRACE_2("","_checktime","_distchk")
 	while {_attackpoint distance2D _vec > 300} do {
 		__TRACE_1("","_attackpoint distance2D _vec")
 		if (!alive _vec || {!alive _driver_vec || {!canMove _vec}}) exitWith {d_should_be_there = d_should_be_there - 1};
@@ -75,7 +81,9 @@ private _make_jump = {
 		};
 		sleep 0.01;
 		if (time > _checktime) then {
-			if (_startpos distance2D _vec < 500) then {
+			__TRACE_2("","time","_checktime")
+			__TRACE_1("","_startpos distance2D _vec")
+			if (_startpos distance2D _vec < _distchk) then {
 				d_should_be_there = d_should_be_there - 1;
 				[_crew_vec, _vec, 1 + random 1] spawn _delveccrew;
 				_stop_me = true;
@@ -86,7 +94,9 @@ private _make_jump = {
 		if (_stop_me) exitWith {};
 		sleep 0.7;
 	};
-	if (_stop_me) exitWith {};
+	if (_stop_me) exitWith {
+		__TRACE("1 stop me true")
+	};
 	__TRACE("MT dist loop end")
 	sleep 0.3;
 	
@@ -201,6 +211,7 @@ private _make_jump = {
 };
 
 private _cur_tgt_pos =+ d_cur_tgt_pos;
+__TRACE_1("","_cur_tgt_pos")
 private _stop_it = false;
 
 if (d_searchintel # 0 == 1) then {
@@ -217,10 +228,12 @@ while {_icounter < _number_vehicles} do {
 	private _heli_type = selectRandom d_transport_chopper;
 	private _spos = [_startpoint # 0, _startpoint # 1, 300];
 	([_spos, _spos getDir _attackpoint, _heli_type, _vgrp] call d_fnc_spawnVehicle) params ["_vec", "_crew"];
+	__TRACE_1("","_crew")
+	__TRACE_1("","_vec")
 	_crews_ar append _crew;
 	_vecs_ar pushBack _vec;
 	addToRemainsCollector [_vec];
-	_vec call d_fnc_airmarkermove;
+	_vec spawn d_fnc_airmarkermove;
 
 	_vec lock true;
 	
@@ -228,15 +241,17 @@ while {_icounter < _number_vehicles} do {
 
 	private _etime = time + 5.012;
 	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
+	__TRACE("5 seconds over")
 	
 	//_vec flyInHeight 100;
 
+	__TRACE_1("","d_mt_radio_down")
 	if (d_mt_radio_down) exitWith {
 		_stop_it = true;
 		{_vec deleteVehicleCrew _x} forEach (crew _vec);
 		deleteVehicle _vec;
 	};
-	
+	__TRACE("before _make_jump")
 	[_vgrp, _vec, _attackpoint, _flytopos, _heliendpoint, _delveccrew, _crew] spawn _make_jump;
 	
 	_icounter = _icounter + 1;

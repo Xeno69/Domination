@@ -93,7 +93,7 @@ while {true} do {
 		if (d_LockAir == 0) then {_vec lock true};
 		_vec flyInHeight 100;
 
-		_vec call d_fnc_airmarkermove;
+		_vec spawn d_fnc_airmarkermove;
 		__TRACE_1("","_vec")
 		sleep 0.1;
 	};
