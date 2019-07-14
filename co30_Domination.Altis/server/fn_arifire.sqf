@@ -155,8 +155,10 @@ if (_ari_vecs isEqualTo []) exitWith {
 private _eta_time = (_ari_vecs # 0) getArtilleryETA [_ari_tgt_pos, _ari_type];
 __TRACE_1("","_eta_time")
 
-//_inrange = _ari_tgt_pos inRangeOfArtillery [[(_ari_vecs # 0)], _ari_type];
-//__TRACE_2("","_eta_time","_inrange")
+#ifdef __DEBUG__
+_inrange = _ari_tgt_pos inRangeOfArtillery [[(_ari_vecs # 0)], _ari_type];
+__TRACE_2("","_eta_time","_inrange")
+#endif
 
 private _ammoconf = configFile>>"CfgAmmo">>getText(configFile>>"CfgMagazines">>_ari_type>>"ammo");
 private _is_flare = getText(_ammoconf>>"effectFlare") == "CounterMeasureFlare";
@@ -164,10 +166,27 @@ private _is_smoke = getText(_ammoconf>>"submunitionAmmo") == "SmokeShellArty";
 
 __TRACE_3("","_ammoconf","_is_flare","_is_smoke")
 
-if (getText(_ammoconf>>"submunitionAmmo") == "Mo_cluster_AP") then {
-	_ari_vecs resize 1;
-	__TRACE("is cluster")
+#ifdef __DEBUG__
+_suba =	getArray(_ammoconf>>"submunitionAmmo");
+__TRACE_1("","_suba")
+#endif
+
+if (isText (_ammoconf>>"submunitionAmmo")) then {
+	if (getText(_ammoconf>>"submunitionAmmo") == "Mo_cluster_AP") then {
+		_ari_vecs resize 1;
+		__TRACE_1("is cluster","_ari_type")
+	};
+} else {
+	if (isArray (_ammoconf>>"submunitionAmmo")) then {
+		private _arsub = getArray (_ammoconf>>"submunitionAmmo");
+		if ("Mo_cluster_AP" in _arsub || {"Mo_cluster_AP_UXO_deploy" in _arsub}) then {
+			_ari_vecs resize 1;
+			__TRACE_1("is cluster","_ari_type")
+		};
+	};
 };
+
+__TRACE_1("after cluster","_ari_vecs")
 
 private _aweapon = getArray(configFile>>"CfgVehicles">>(typeOf (_ari_vecs # 0))>>"Turrets">>"MainTurret">>"weapons") # 0;
 private _reloadtime = getNumber(configFile>>"CfgWeapons">>_aweapon>>"reloadTime");

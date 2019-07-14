@@ -10,7 +10,7 @@ disableSerialization;
 private _magsv = [];
 private _cfgmagx = configFile>>"CfgMagazines";
 private _marray = getArray(configFile>>"CfgVehicles">>typeOf (d_ao_arty_vecs # 0)>>"Turrets">>"MainTurret">>"magazines");
-_marray = _marray - ["6Rnd_155mm_Mo_AT_mine", "6Rnd_155mm_Mo_mine"];
+_marray = _marray - ["6Rnd_155mm_Mo_AT_mine", "6Rnd_155mm_Mo_mine", "6Rnd_155mm_Mo_AT_mine_O", "6Rnd_155mm_Mo_mine_O"];
 {
 	_magsv pushBackUnique _x;
 } forEach (_marray select {getText(configFile>>"CfgAmmo">>getText(_cfgmagx>>_x>>"ammo")>>"submunitionAmmo") != "Mo_ClassicMineRange"});

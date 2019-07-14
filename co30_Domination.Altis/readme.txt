@@ -58,6 +58,8 @@ ADDED: Livonia (Contact expansion) version
 - Changed: Updated Simplified Chinese Translation by CHL198011
 - Changed: XRevive moan sounds now either use Russian, English or Greek depending on player side, by lelik
 - Changed: The mission no longer uses any MP eventhandlers like MPKilled
+- Fixed: Artillery cluster subammo check sometimes broke because the checked config property can be both, text and array
+- Changed: Added "6Rnd_155mm_Mo_AT_mine_O" and "6Rnd_155mm_Mo_mine_O" to artillery mine magazine removal check
 - And more optimizations and cosmetic changes
 
 3.99s
