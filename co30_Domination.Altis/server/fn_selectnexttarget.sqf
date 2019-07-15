@@ -5,8 +5,6 @@
 
 __TRACE_1("","d_mttargets_ar")
 
-// TODO 1/3 of players must select new target otherwise random
-
 if (count d_mttargets_ar > 1) then {
 	d_next_sels_ar = [];
 	

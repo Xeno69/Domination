@@ -12,14 +12,20 @@ d_bonus_create_pos = markerPos "d_bonus_create_pos";
 deleteMarker "d_bonus_create_pos";
 d_bonus_air_positions = [];
 d_bonus_air_positions_carrier = [];
+private _rem = [];
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
+	_rem pushBack _x;
 } forEach (_allmapmarkers select {_x select [0, 30] isEqualTo "d_bonus_air_positions_carrier_"});
+_allmapmarkers = _allmapmarkers - _rem;
+_rem = [];
 {
 	d_bonus_air_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
+	_rem pushBack _x;
 } forEach (_allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_air_positions_"});
+_allmapmarkers = _allmapmarkers - _rem;
 d_bvp_counter = 0;
 d_bonus_vec_positions = [];
 {
@@ -118,7 +124,6 @@ if (isServer) then {
 
 	if (d_with_ai) then {
 		d_pos_ai_hut = [markerPos "d_pos_aihut", markerDir "d_pos_aihut"];
-		// TODO something better than Land_CashDesk_F ? Expecially for IFA3?
 		d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
 		d_AI_HUT setDir (d_pos_ai_hut # 1);
 		if (!d_carrier) then {

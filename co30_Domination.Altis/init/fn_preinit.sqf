@@ -1925,7 +1925,6 @@ if (hasInterface) then {
 					diag_log [diag_frameno, diag_tickTime, time, "Executing Dom local player pre start"];
 					if !(player isKindOf "VirtualSpectator_F") then {
 						call compile preprocessFileLineNumbers "client\x_setupplayer.sqf";
-						disableRemoteSensors true;
 					};
 					removeMissionEventHandler ["EachFrame", _thisEventHandler];
 				};
