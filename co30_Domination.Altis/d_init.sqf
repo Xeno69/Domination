@@ -5,6 +5,100 @@
 
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
+#ifdef __GMCWG__
+if (isServer) then {
+	if (isClass(configFile>>"CfgVehicles">>"CUP_B_UH1D_GER_KSK")) then {
+		d_additional_mhqs = [];
+		{
+			private _pos = markerPos _x;
+			_pos set [2, 0];
+			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_mhqs pushBack _vec;
+		} forEach (allMapMarkers select {_x select [0, 17] == "d_cup_chopper_mhq"});
+		
+		if (d_additional_mhqs isEqualTo []) then {
+			d_additional_mhqs = nil;
+		} else {
+			publicVariable "d_additional_mhqs";
+		};
+		
+		d_additional_trans = [];
+		{
+			private _pos = markerPos _x;
+			_pos set [2, 0];
+			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_trans pushBack _vec;
+		} forEach (allMapMarkers select {_x select [0, 19] == "d_cup_chopper_trans"});
+		
+		if (d_additional_trans isEqualTo []) then {
+			d_additional_trans = nil;
+		} else {
+			publicVariable "d_additional_trans";
+		};
+	};
+	if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
+		d_additional_wreck = [];
+		{
+			private _pos = markerPos _x;
+			_pos set [2, 0];
+			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_wreck pushBack _vec;
+		} forEach (allMapMarkers select {_x select [0, 19] == "d_cup_chopper_wreck"});
+		
+		if (d_additional_wreck isEqualTo []) then {
+			d_additional_wreck = nil;
+		} else {
+			publicVariable "d_additional_wreck";
+		};
+		
+		d_additional_lift = [];
+		{
+			private _pos = markerPos _x;
+			_pos set [2, 0];
+			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
+			_vec setDir (markerDir _x);
+			d_additional_lift pushBack _vec;
+		} forEach (allMapMarkers select {_x select [0, 18] == "d_cup_chopper_lift"});
+		
+		if (d_additional_lift isEqualTo []) then {
+			d_additional_lift = nil;
+		} else {
+			publicVariable "d_additional_lift";
+		};
+	};
+};
+if (hasInterface) then {
+	if (!isNil "d_additional_mhqs") then {
+		{
+			private _num = 3 + _forEachIndex;
+			d_p_vecs pushBack ["D_MRR" + str (_num), _num - 1, "d_mobilerespawn" + str (_num), "b_hq", "ColorYellow", str _num, "MHQ " + str (_num)];
+			d_mob_respawns pushBack ["D_MRR" + str (_num), "MHQ " + str (_num)];
+		} forEach d_additional_mhqs;
+	};
+	if (!isNil "d_additional_wreck") then {
+		{
+			private _num = 10 + _forEachIndex;
+			d_choppers pushBack ["D_HR" + str (_num), 1, "d_chopper" + str (_num), 3000 + _num, "n_air", "ColorWhite", "W", localize "STR_DOM_MISSIONSTRING_10"];
+		} forEach d_additional_wreck;
+	};
+	if (!isNil "d_additional_lift") then {
+		{
+			private _num = 30 + _forEachIndex;
+			d_choppers pushBack ["D_HR" + str (_num), 0, "d_chopper" + str (_num), 3000 + _num, "n_air", "ColorWhite", str (_forEachIndex  + 1), "Lift " + str (_forEachIndex  + 1)];
+		} forEach d_additional_lift;
+	};
+	if (!isNil "d_additional_trans") then {
+		{
+			private _num = 40 + _forEachIndex;
+			d_choppers pushBack ["D_HR"  + str (_num), 2, "d_chopper" + str (_num), 3000 + _num, "n_air", "ColorWhite", str (40 + _forEachIndex), ""];
+		} forEach d_additional_trans;
+	};
+};
+#endif
+
 if (!isServer) then {
 	call compile preprocessFileLineNumbers "init\initcommon.sqf";
 };
@@ -414,6 +508,25 @@ if (isServer) then {
 	{
 		_choppers pushBack _x;
 	} forEach ([[d_chopper_1,3001,true],[d_chopper_2,3002,true],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,1500],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}});
+	
+	if (!isNil "d_additional_wreck") then {
+		{
+			_choppers pushBack [_x, 3000 + 10 + _forEachIndex , false, 600];
+		} forEach d_additional_wreck;
+	};
+	
+	if (!isNil "d_additional_lift") then {
+		{
+			_choppers pushBack [_x, 3000 + 30 + _forEachIndex , true];
+		} forEach d_additional_lift;
+	};
+	
+	if (!isNil "d_additional_trans") then {
+		{
+			_choppers pushBack [_x, 3000 + 40 + _forEachIndex , true];
+		} forEach d_additional_trans;
+	};
+	
 	if !(_choppers isEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
@@ -427,6 +540,12 @@ if (isServer) then {
 	{
 		_vecsar pushBack [_x, 500 + _forEachIndex];
 	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
+	if (!isNil "d_additional_mhqs") then {
+		{
+			private _num = 2 + _forEachIndex;
+			_vecsar pushBack [_x, _num, "MHQ " + str (_num)];
+		} forEach d_additional_mhqs;
+	};
 	_vecsar call d_fnc_initvrespawn2;
 	if (!isNil "d_boat_1") then {
 		execFSM "fsms\fn_Boatrespawn.fsm";

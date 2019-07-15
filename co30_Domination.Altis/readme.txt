@@ -60,6 +60,7 @@ ADDED: Livonia (Contact expansion) version
 - Changed: The mission no longer uses any MP eventhandlers like MPKilled
 - Fixed: Artillery cluster subammo check sometimes broke because the checked config property can be both, text and array
 - Changed: Added "6Rnd_155mm_Mo_AT_mine_O" and "6Rnd_155mm_Mo_mine_O" to artillery mine magazine removal check
+- Changed: If the Global Mobilization versions find CUP vehicles on the server it will automatically spawn a BW UH1D MHQ, BW UH1D transport, BW CH53 lift and BW CH53 wreck chopper
 - And more optimizations and cosmetic changes
 
 3.99s
