@@ -20,6 +20,9 @@ d_mt_barracks_down = false;
 d_mt_mobile_hq_down = false;
 
 addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
+if (d_MissionType != 2) then {
+	addMissionEventHandler ["EntityRespawned", {(_this # 0) addEventhandler ["HandleScore", {_this call d_fnc_handlescore; true}]}];
+};
 
 // start air AI after some time
 #ifndef __TT__

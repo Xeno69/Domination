@@ -70,6 +70,13 @@ if (isServer) then {
 		};
 	};
 };
+#endif
+
+if (!isServer) then {
+	call compile preprocessFileLineNumbers "init\initcommon.sqf";
+};
+
+#ifdef __GMCWG__
 if (hasInterface) then {
 	if (!isNil "d_additional_mhqs") then {
 		{
@@ -99,10 +106,6 @@ if (hasInterface) then {
 };
 #endif
 
-if (!isServer) then {
-	call compile preprocessFileLineNumbers "init\initcommon.sqf";
-};
-
 #ifdef __GROUPDEBUG__
 call compile preprocessFileLineNumbers "x_gdbfunctions.sqf";
 #endif
@@ -116,7 +119,7 @@ if (hasInterface) then {
 	setObjectViewDistance (_vd + 100);
 	
 	if (isMultiplayer) then {
-		["d_server_name", [500, 500], "ICON", "ColorYellow", [3, 3], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
+		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
 	};
 } else {
 	setViewDistance 1600;
@@ -290,7 +293,7 @@ if (isServer) then {
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {
-	call compile preprocessFileLineNumbers "x_revive.sqf";
+	call compile preprocessFileLineNumbers "revive.sqf";
 };
 
 #include "missions\missionssetup.sqf"

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_revive\xr_main.sqf"
+#define THIS_FILE "revive\xr_main.sqf"
 #include "..\x_macros.sqf"
 
 if (isNil "xr_with_marker") then {

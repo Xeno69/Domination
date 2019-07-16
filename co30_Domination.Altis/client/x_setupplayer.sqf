@@ -682,7 +682,7 @@ private _dsp46 = findDisplay 46;
 _dsp46 displayAddEventHandler ["MouseZChanged", {_this call d_fnc_MouseWheelRec}];
 
 if (d_WithRevive == 0) then {
-	call compile preprocessFileLineNumbers "x_revive.sqf";
+	call compile preprocessFileLineNumbers "revive.sqf";
 };
 
 0 spawn d_fnc_dcmcc;

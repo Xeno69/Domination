@@ -128,6 +128,7 @@ if (_d_vec < 100) exitWith {
 	__sidew;
 	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver}];
 #endif
+	_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 };
 
 if (_d_vec < 200) exitWith {
@@ -325,6 +326,7 @@ if (_d_vec < 1100) exitWith {
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
+	_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 };
 
 if (_d_vec < 1200) exitWith {

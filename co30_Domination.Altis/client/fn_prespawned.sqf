@@ -13,11 +13,8 @@ if (d_WithMHQTeleport == 0 && {d_WithRevive == 1}) then {
 	d_player_in_base = true;
 	call d_fnc_dlgopenx;
 };
-[1, _this] call d_fnc_playerspawn;
 
-if (d_MissionType != 2 && {!isServer}) then {
-	player remoteExecCall ["d_fnc_add_hs", 2];
-};
+[1, _this] call d_fnc_playerspawn;
 
 {
 	if (alive _x) then {

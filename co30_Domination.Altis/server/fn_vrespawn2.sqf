@@ -97,6 +97,15 @@ while {true} do {
 				};
 				[_vec, "d_mhqmsg"] call d_fnc_setekmode;
 				_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+#ifdef __TT__
+				if (_number_v < 100) then {
+					_vec setVariable ["d_side", blufor];
+				} else {
+					if (_number_v > 999 && {_number_v < 1100}) then {
+						_vec setVariable ["d_side", opfor];
+					};
+				};
+#endif
 			};
 			_vec_a set [0, _vec];
 			_vec setVariable ["d_OUT_OF_SPACE", -1];

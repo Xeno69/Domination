@@ -1,4 +1,4 @@
-#define THIS_FILE "x_revive.sqf"
+#define THIS_FILE "revive.sqf"
 #include "x_macros.sqf";
 
 // set max lives to -1 to have unlimited lives
@@ -35,8 +35,8 @@ xr_cpr_time_add = 300;
 // if set to false no spectating dialog is shown, camera remains in player view
 xr_spectating = d_WithReviveSpectating == 0;
 
-call compile preprocessFileLineNumbers "x_revive\xr_main.sqf";
+call compile preprocessFileLineNumbers "revive\xr_main.sqf";
 
 if (!isDedicated) then {
-	execVM "x_revive\xr_init.sqf";
+	execVM "revive\xr_init.sqf";
 };

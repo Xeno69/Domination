@@ -426,7 +426,6 @@ class cfgFunctions {
 			addc(skinpolyresp);
 			addc(getskinpoly);
 			addc(handlescore);
-			addc(add_hs);
 			addc(giveplayerscore);
 			addc(scheck_uav);
 			addc(airtaxi_dest);
@@ -520,7 +519,7 @@ class cfgFunctions {
 	class Dom_Revive {
 		tag = "xr";
 		class Dom_Revivexr {
-			file = "x_revive";
+			file = "revive";
 			addc(handlenet);
 			addc(killedeh);
 			addc(respawneh);

@@ -39,6 +39,15 @@ d_vrespawn2_ar = [];
 			};
 			[_vec, "d_mhqmsg"] call d_fnc_setekmode;
 			_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+#ifdef __TT__
+			if (_number_v < 100) then {
+				_vec setVariable ["d_side", blufor];
+			} else {
+				if (_number_v > 999 && {_number_v < 1100}) then {
+					_vec setVariable ["d_side", opfor];
+				};
+			};
+#endif
 		};
 		if (_vec isKindOf "Air") then {
 			_vec enableCopilot false;
