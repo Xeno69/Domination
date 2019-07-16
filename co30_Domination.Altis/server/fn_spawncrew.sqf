@@ -75,7 +75,6 @@ if (count _crew > 0) then {
 		_x call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
 		[_x, "d_ktypett", 1] call d_fnc_setekmode;
-		_one_unit setVariable ["d_hkx", true];
 #endif
 		if (d_with_ai && {d_with_ranked}) then {
 			[_x, "d_ktypeai", 1] call d_fnc_setekmode;
