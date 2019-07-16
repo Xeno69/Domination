@@ -1334,6 +1334,9 @@ if (!d_tt_tanoa) then {
 		case "W": {[]};
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
+	if (d_enemy_side_short == "E" && {isClass(configFile>>"CfgVehicles">>"CUP_O_Mi8_VIV_RU")}) then {
+		d_transport_chopper = ["CUP_O_Mi8_VIV_RU"];
+	};
 #endif
 #ifdef __TANOA__
 	// enemy parachute troops transport chopper

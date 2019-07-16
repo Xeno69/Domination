@@ -23,7 +23,7 @@ if (d_num_barracks_objs == 0) then {
 #ifndef __TT__
 	[51] call d_fnc_DoKBMsg;
 #else
-	[56] call d_fnc_DoKBMsg;
+	[57] call d_fnc_DoKBMsg;
 #endif
 } else {
 #ifndef __TT__

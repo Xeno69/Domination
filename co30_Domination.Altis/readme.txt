@@ -63,6 +63,7 @@ ATTENTION: Weferlingen Summer and Winter sqm files have changed
 - Changed: Added "6Rnd_155mm_Mo_AT_mine_O" and "6Rnd_155mm_Mo_mine_O" to artillery mine magazine removal check
 - Changed: If the Global Mobilization Weferlingen versions find CUP vehicles on the server they will automatically spawn a BW UH1D MHQ, BW UH1D transport, BW CH53 lift and BW CH53 wreck chopper
 - Fixed: Shoot at MHQ message did not trigger when MHQ locality changed from the server to a client
+- Fixed: Wrong all barracks down message in TT version
 - And more optimizations and cosmetic changes
 
 3.99s
