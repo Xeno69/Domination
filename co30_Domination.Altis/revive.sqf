@@ -35,8 +35,8 @@ xr_cpr_time_add = 300;
 // if set to false no spectating dialog is shown, camera remains in player view
 xr_spectating = d_WithReviveSpectating == 0;
 
-call compile preprocessFileLineNumbers "revive\xr_main.sqf";
+call compile preprocessFileLineNumbers "revive\main.sqf";
 
 if (!isDedicated) then {
-	execVM "revive\xr_init.sqf";
+	execVM "revive\init.sqf";
 };

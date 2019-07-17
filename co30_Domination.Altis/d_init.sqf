@@ -7,68 +7,7 @@ diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
 #ifdef __GMCWG__
 if (isServer) then {
-	if (isClass(configFile>>"CfgVehicles">>"CUP_B_UH1D_GER_KSK")) then {
-		d_additional_mhqs = [];
-		{
-			private _pos = markerPos _x;
-			_pos set [2, 0];
-			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
-			_vec setDir (markerDir _x);
-			d_additional_mhqs pushBack _vec;
-		} forEach (allMapMarkers select {_x select [0, 17] == "d_cup_chopper_mhq"});
-		
-		if (d_additional_mhqs isEqualTo []) then {
-			d_additional_mhqs = nil;
-		} else {
-			publicVariable "d_additional_mhqs";
-		};
-		
-		d_additional_trans = [];
-		{
-			private _pos = markerPos _x;
-			_pos set [2, 0];
-			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
-			_vec setDir (markerDir _x);
-			d_additional_trans pushBack _vec;
-		} forEach (allMapMarkers select {_x select [0, 19] == "d_cup_chopper_trans"});
-		
-		if (d_additional_trans isEqualTo []) then {
-			d_additional_trans = nil;
-		} else {
-			publicVariable "d_additional_trans";
-		};
-	};
-	if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
-		d_additional_wreck = [];
-		{
-			private _pos = markerPos _x;
-			_pos set [2, 0];
-			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
-			_vec setDir (markerDir _x);
-			d_additional_wreck pushBack _vec;
-		} forEach (allMapMarkers select {_x select [0, 19] == "d_cup_chopper_wreck"});
-		
-		if (d_additional_wreck isEqualTo []) then {
-			d_additional_wreck = nil;
-		} else {
-			publicVariable "d_additional_wreck";
-		};
-		
-		d_additional_lift = [];
-		{
-			private _pos = markerPos _x;
-			_pos set [2, 0];
-			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
-			_vec setDir (markerDir _x);
-			d_additional_lift pushBack _vec;
-		} forEach (allMapMarkers select {_x select [0, 18] == "d_cup_chopper_lift"});
-		
-		if (d_additional_lift isEqualTo []) then {
-			d_additional_lift = nil;
-		} else {
-			publicVariable "d_additional_lift";
-		};
-	};
+	call d_fnc_gmcwgextra;
 };
 #endif
 
@@ -78,31 +17,7 @@ if (!isServer) then {
 
 #ifdef __GMCWG__
 if (hasInterface) then {
-	if (!isNil "d_additional_mhqs") then {
-		{
-			private _num = 3 + _forEachIndex;
-			d_p_vecs pushBack ["D_MRR" + str (_num), _num - 1, "d_mobilerespawn" + str (_num), "b_hq", "ColorYellow", str _num, "MHQ " + str (_num)];
-			d_mob_respawns pushBack ["D_MRR" + str (_num), "MHQ " + str (_num)];
-		} forEach d_additional_mhqs;
-	};
-	if (!isNil "d_additional_wreck") then {
-		{
-			private _num = 10 + _forEachIndex;
-			d_choppers pushBack ["D_HR" + str (_num), 1, "d_chopper" + str (_num), 3000 + _num, "n_air", "ColorWhite", "W", localize "STR_DOM_MISSIONSTRING_10"];
-		} forEach d_additional_wreck;
-	};
-	if (!isNil "d_additional_lift") then {
-		{
-			private _num = 30 + _forEachIndex;
-			d_choppers pushBack ["D_HR" + str (_num), 0, "d_chopper" + str (_num), 3000 + _num, "n_air", "ColorWhite", str (_forEachIndex  + 1), "Lift " + str (_forEachIndex  + 1)];
-		} forEach d_additional_lift;
-	};
-	if (!isNil "d_additional_trans") then {
-		{
-			private _num = 40 + _forEachIndex;
-			d_choppers pushBack ["D_HR"  + str (_num), 2, "d_chopper" + str (_num), 3000 + _num, "n_air", "ColorWhite", str (40 + _forEachIndex), ""];
-		} forEach d_additional_trans;
-	};
+	call d_fnc_gmcwgextrac;
 };
 #endif
 
@@ -142,39 +57,7 @@ if (d_GrasAtStart == 1) then {
 };
 
 d_target_names = [];
-{
-	private _dtar = _x;
-	private _name = _dtar getVariable "d_cityname";
-	if (!isNil "_name") then {
-		private _pos = getPosWorld _dtar;
-		_pos set [2, 0];
-		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
-	} else {
-		private _nlocs = nearestLocations [getPosWorld _dtar, ["NameCityCapital", "NameCity", "NameVillage"], 500];
-		__TRACE_2("","_dtar","_nlocs")
-		if !(_nlocs isEqualTo []) then {
-			private _locposnl0 = locationPosition (_nlocs # 0);
-			private _nl = nearestLocations [_locposnl0, ["CityCenter"], 300];
-			__TRACE_2("","_locposnl0","_nl")
-			private _pos = [_locposnl0, locationPosition (_nl # 0)] select !(_nl isEqualTo []);
-			_pos set [2, 0];
-			if (isServer) then {
-				_dtar setPos _pos;
-			};
-			_name = text (_nlocs # 0);
-			_dtar setVariable ["d_cityname", _name];
-			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
-		} else {
-			private _strx = format ["No city found near target location %1", str _dtar];
-			hint _strx;
-			diag_log _strx;
-		};
-	};
-	if (isServer) then {
-		_dtar enableSimulationGlobal false;
-	};
-} forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] isEqualTo "d_target_"});
-__TRACE_1("All targets found","d_target_names")
+call d_fnc_maketarget_names;
 
 // positions of service buildings
 // first jet service, second chopper service, third wreck repair

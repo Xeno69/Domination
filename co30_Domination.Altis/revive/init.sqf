@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "revive\xr_init.sqf"
+#define THIS_FILE "revive\init.sqf"
 #include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};

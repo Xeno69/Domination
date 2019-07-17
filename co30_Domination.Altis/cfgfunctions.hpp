@@ -167,6 +167,7 @@ class cfgFunctions {
 			addc(clienttargetsel);
 			addc(vdhandler);
 			addc(arsenal_mod_rem);
+			addc(gmcwgextrac);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -503,6 +504,8 @@ class cfgFunctions {
 			addc(isledefense);
 			addc(setekmode);
 			addc(ttpvkill);
+			addc(gmcwgextra);
+			addc(maketarget_names);
 		};
 		class Dom_PrePostInit {
 			file = "init";

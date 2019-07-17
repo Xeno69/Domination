@@ -38,7 +38,7 @@ if (_killed isKindOf "CAManBase") then {
 	
 	private _tv = _killed getVariable "d_thevecs";
 	__TRACE_1("","_tv")
-	if (!isNil "_tv" && {_tv findIf {alive _x} == -1}) then {
+	if (!isNil "_tv" && {_tv findIf {alive _x || {damage _x < 0.9}} isEqualTo -1}) then { 
 		private _grpinfo = _killed getVariable "d_respawninfo";
 		__TRACE_1("","_grpinfo")
 		if (!isNil "_grpinfo") then {
