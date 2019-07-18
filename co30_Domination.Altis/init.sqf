@@ -23,7 +23,7 @@ addMissionEventhandler ["EachFrame", {
 	removeMissionEventHandler ["EachFrame", _thisEventHandler];
 }];
 
-#ifndef __IFA3LITE__
+#ifdef __IFA3LITE__
 if (isServer) then {
 	private _date = date;
 	_date set [0, 1944];
