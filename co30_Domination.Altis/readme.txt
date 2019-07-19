@@ -14,7 +14,7 @@ Changelogs
 
 4.00
 
-Version number up to 4 because of many internal changes to the mission code (especially because of the headless client changes)
+Version number up to 4 because of many internal changes to the mission code (especially because of the headless client changes and ammo boxes)
 Don't worry, you can still use your 3.99s mission.sqm files :)
 
 ADDED: Livonia (Contact expansion) version
@@ -58,7 +58,7 @@ ATTENTION: Weferlingen Summer and Winter sqm files have changed
 - Fixed: Replaced deprecated "O_T_APC_Wheeled_02_rcws_ghex_F" class with O_T_APC_Wheeled_02_rcws_v2_ghex_F
 - Fixed: Players in virtual spectator slot did trigger database handling
 - Changed: Updated Simplified Chinese Translation by CHL198011
-- Changed: XRevive moan sounds now either use Russian, English or Greek depending on player side, by lelik
+- Changed: Revive moan sounds now either use Russian, English or Greek depending on player side, by lelik
 - Changed: The mission no longer uses any MP eventhandlers like MPKilled
 - Fixed: Artillery cluster subammo check sometimes broke because the checked config property can be both, text and array
 - Changed: Added "6Rnd_155mm_Mo_AT_mine_O" and "6Rnd_155mm_Mo_mine_O" to artillery mine magazine removal check
