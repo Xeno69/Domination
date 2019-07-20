@@ -50,7 +50,11 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	_veh = createVehicle [_typev1, _posv1, [], 0, "FLY"];
 
 	_veh setDir _azi;
-	_veh setPos _posv1;
+	if (getTerrainHeightASL _posv1 < 0) then {
+		_veh setPosASL _posv1;
+	} else {
+		_veh setPosATL _posv1;
+	};
 	
 	if (_sim == "airplanex" || {_sim == "airplane"}) then {
 		private _v = velocity _veh;
