@@ -35,9 +35,8 @@ if (count _crew > 0) then {
 						private _pos = getPos _vec;
 						private _nightorfog = call d_fnc_nightfograin;
 						for "_i" from 1 to _counter do {
-							private _one_unit = _grp createUnit [selectRandom _munits, _pos, [], 10, "NONE"];
-							[_one_unit] joinSilent _grp;
-							_one_unit moveInCargo _vec;
+							private _one_unit = _grp createUnit [selectRandom _munits, _grp, [], 0, "CARGO"];
+							//[_one_unit] joinSilent _grp;
 							_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 							_one_unit setSkill ["aimingAccuracy", _subskill];
 							_one_unit setSkill ["spotTime", _subskill];

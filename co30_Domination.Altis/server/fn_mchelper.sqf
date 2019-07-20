@@ -9,3 +9,4 @@ private _pos = getPos _this;
 _this setPos [_pos # 0, _pos # 1, 10];
 sleep 10 + random 2;
 _this allowDamage true;
+_this setDamage 0;
