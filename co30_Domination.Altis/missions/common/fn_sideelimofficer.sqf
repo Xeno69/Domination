@@ -17,7 +17,10 @@ if (!_issniper) then {
 	d_x_sm_vec_rem_ar pushBack _fortress;
 	sleep 2.123;
 } else {
-	_poss = [_poss, 150] call d_fnc_GetRanPointCircle;
+	private _nposs = [_poss, 150] call d_fnc_GetRanPointCircle;
+	if (!(_nposs isEqualTo []) || {!(_nposs isEqualTo [0,0,0])}) then {
+		_poss = _nposs;
+	};
 };
 private _ogroup = [d_side_enemy] call d_fnc_creategroup;
 private _sm_vec = _ogroup createUnit [_type, _poss, [], 0, "NONE"];

@@ -91,7 +91,7 @@ if (!isNil "_sikill") then {
 private _delcrewk = _obj getVariable "d_delcrewk";
 if (!isNil "_delcrewk") then {
 	__TRACE_1("","_delcrewk")
-	{_this deleteVehicleCrew _x} forEach (crew _obj);
+	{_obj deleteVehicleCrew _x} forEach (crew _obj);
 	_obj setVariable ["d_delcrewk", nil];
 };
 

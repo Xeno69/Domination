@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_addfifo.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 if (_this isEqualType []) then {
 	d_fifo_ar append _this;
 } else {
@@ -11,6 +13,8 @@ if (_this isEqualType []) then {
 
 if (count d_fifo_ar > 20) then {
 	d_fifo_counter = d_fifo_counter + 1;
+	
+	__TRACE_1("","_this")
 	
 	if (d_fifo_counter >= 5) then {
 		private _num = count d_fifo_ar - 20;

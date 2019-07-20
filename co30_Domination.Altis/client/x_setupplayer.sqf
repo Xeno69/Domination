@@ -180,6 +180,27 @@ if (d_weather == 0) then {
 	if (d_WithWinterWeather == 0) then {
 		0 spawn d_fnc_weather_winter
 	} else {
+#ifdef __TANOA__
+		d_withsandstorm = 1;
+#endif
+#ifdef __CUP_CHERNARUS__
+		d_withsandstorm = 1;
+#endif
+#ifdef __IFA3LITE__
+		d_withsandstorm = 1;
+#endif
+#ifdef __ROSCHE__
+		d_withsandstorm = 1;
+#endif
+#ifdef __GMCWG__
+		d_withsandstorm = 1;
+#endif
+#ifdef __LIVONIA__
+		d_withsandstorm = 1;
+#endif
+#ifdef __TANOATT__
+		d_withsandstorm = 1;
+#endif
 		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
 	};
 };
