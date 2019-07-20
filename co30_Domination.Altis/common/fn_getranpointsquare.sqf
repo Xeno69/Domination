@@ -28,4 +28,5 @@ for "_co" from 0 to 99 do {
 		_ret_val = ASLToATL _isFlat;
 	};
 };
+if (_ret_val isEqualTo []) then {_ret_val = _pos};
 _ret_val

@@ -509,7 +509,6 @@ private _confmapsize = call {
 		deleteMarkerLocal "d_whole_island";
 		_ret
 	};
-	if (worldName == "Chernarus_winter") exitWith {15360};
 	getNumber(configFile>>"CfgWorlds">>worldName>>"mapSize")
 };
 d_island_center = [_confmapsize / 2, _confmapsize / 2, 300];

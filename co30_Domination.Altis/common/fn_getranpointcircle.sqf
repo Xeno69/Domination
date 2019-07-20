@@ -27,5 +27,6 @@ for "_co" from 0 to 99 do {
 		_ret_val = ASLToATL _isFlat;
 	};
 };
+if (_ret_val isEqualTo []) then {_ret_val = _rcenter};
 __TRACE_1("","_ret_val")
 _ret_val

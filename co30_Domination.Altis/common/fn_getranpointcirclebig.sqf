@@ -28,5 +28,6 @@ for "_co" from 0 to 99 do {
 		_ret_val = [];
 	};
 };
+if (_ret_val isEqualTo []) then {_ret_val = _center};
 __TRACE_1("","_ret_val")
 _ret_val
