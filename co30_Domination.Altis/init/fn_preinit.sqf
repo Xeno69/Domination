@@ -510,7 +510,6 @@ private _confmapsize = call {
 		_ret
 	};
 	if (worldName == "Chernarus_winter") exitWith {15360};
-	if (worldName == "Malden") exitWith {12800};
 	getNumber(configFile>>"CfgWorlds">>worldName>>"mapSize")
 };
 d_island_center = [_confmapsize / 2, _confmapsize / 2, 300];
