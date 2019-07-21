@@ -243,6 +243,7 @@ class CfgRemoteExec {
 		class deleteGroup {allowedTargets=0;};
 		class setSpeaker {allowedTargets = 1;};
 		class hint {allowedTargets = 1;};
+		class setFeatureType {};
 #ifdef __TT__
 		class deleteMarkerLocal {allowedTargets = 1;};
 		class systemChat {allowedTargets = 1;};
