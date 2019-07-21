@@ -49,19 +49,27 @@ while {true} do {
 	private _grp = [d_side_enemy] call d_fnc_creategroup;
 	__TRACE_1("","_grp")
 	private _heli_type = "";
+	private _height = 150;
+	private _heightASL = [150,150,150];	
 	private _numair = 0;
 	switch (_type) do {
 		case "HAC": {
 			_heli_type = selectRandom d_airai_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
+			_height = 250;
+		        _heightASL = [250,(100 + (random 100)),(250 + (random 250))];
 		};
 		case "AP": {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
+		        _height = 700;
+		        _heightASL = [700,(500 + (random 100)),(700 + (random 700))];
 		};
 		case "LAC": {
 			_heli_type = selectRandom d_light_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
+			_height = 150;
+		        _heightASL = [150,(100 + (random 50)),(150 + (random 150))];
 		};
 	};
 	
@@ -91,7 +99,8 @@ while {true} do {
 		addToRemainsCollector [_vec];
 		
 		if (d_LockAir == 0) then {_vec lock true};
-		_vec flyInHeight 100;
+	        _vec flyInHeight _height;
+	        _vec flyInHeightASL _heightASL;
 
 		_vec spawn d_fnc_airmarkermove;
 		__TRACE_1("","_vec")
@@ -177,7 +186,8 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				_grp setBehaviour __wp_behave;
 				_old_pos = getPosASL _curvec;
 				{
-					_x flyInHeight 80;
+					_x flyInHeight _height;
+					_x flyInHeightASL _heightASL;
 				} forEach (_vehicles select {alive _x});
 				sleep 35.821 + random 15;
 			} else {
@@ -189,7 +199,8 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				_grp setBehaviour __wp_behave;
 				_old_pos = getPosASL _curvec;
 				{
-					_x flyInHeight 100;
+					_x flyInHeight _height;
+					_x flyInHeightASL _heightASL;
 				} forEach (_vehicles select {alive _x});
 				sleep 80 + random 80;
 			};
