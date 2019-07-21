@@ -12,7 +12,7 @@ showChat false;
 waitUntil {sleep 0.112;!isNil "d_preloaddone"};
 
 private _campos = if (isNil "d_cur_tgt_pos" || {d_cur_tgt_pos isEqualTo []}) then {player} else {d_cur_tgt_pos};
-__TRACE_1("_campos","_campos")
+__TRACE_1("","_campos")
 
 sleep 0.01;
 1 fadeSound 1;
@@ -54,7 +54,12 @@ if (!isNil "BIS_fnc_establishingShot_fakeUAV") then {
 };
 BIS_fnc_establishingShot_fakeUAV = nil;
 
-private _bfehandle = [_campos, _txt, 200, 250, 75, 1, []] BIS_fnc_establishingShot;
+private _bfehandle = [_campos, _txt, 200, 250, 75, 1,
+	[
+	   [_plicon, _color, player, 1, 1, 0, profileName, 0]
+	]
+] spawn BIS_fnc_establishingShot;
+//, 0, true, 5] spawn BIS_fnc_establishingShot;
 
 sleep 1;
 "d_Xlabel" cutRsc ["d_Xlabel", "PLAIN"];
