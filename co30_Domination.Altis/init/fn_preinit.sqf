@@ -1281,6 +1281,39 @@ if (!d_tt_tanoa) then {
 		case "G": {["I_Plane_Fighter_03_CAS_F"]};
 	};
 
+       // type of enemy UAV that will fly over the main target
+	d_airai_attack_uav = switch (d_enemy_side_short) do {
+		case "E": {
+			call {
+				if (d_cup) exitWith {
+					[]
+				};
+				if (d_gmcwg) exitWith {
+					[]
+				};
+				if (d_rhs) exitWith {
+					[]
+				};
+				["O_UAV_02_F","O_UAV_02_CAS_F","O_T_UAV_04_CAS_F"]
+			};
+		};
+		case "W": {
+			call {
+				if (d_cup) exitWith {
+					["CUP_B_USMC_DYN_MQ9"]
+				};			
+				if (d_ifa3lite) exitWith {
+					[]
+				};
+				if (d_rhs) exitWith {
+					[]
+				};
+				["B_T_UAV_03_F","B_UAV_02_F","B_UAV_05_F"]
+			};
+		};
+		case "G": {["I_UAV_02_F","I_UAV_02_CAS_F"]};
+	};
+	
 	// type of enemy chopper that will fly over the main target
 	d_airai_attack_chopper = switch (d_enemy_side_short) do {
 		case "E": {
