@@ -1,32 +1,43 @@
-// Infantry Occupy House
-// by Zenophon
-// Released under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
-// http://creativecommons.org/licenses/by-nc/4.0/
-
-// Teleports the units to random windows of the building(s) within the distance
-// Faces units in the right direction and orders them to stand up or crouch on a roof
-// Units will only fill the building to as many positions as there are windows
-// Multiple buildings can be filled either evenly or to the limit of each sequentially
-// Usage : Call, execVM
-// Params: 1. Array, the building(s) nearest this position is used
-//         2. Array of objects, the units that will garrison the building(s)
-//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
-//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
-//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
-//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
-//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-// Return: Array of objects, the units that were not garrisoned
-
+// *****************************************************
+// ** JBOY_UpDown.sqf
+// ** Version 1.1
+// ** by JohnnyBoy
+// ** AI will toggle between two stances with a delay between.  Good for defenders to duck behind walls or windows, then pop back up.
+// **  Call:  null = [dude, ["Up","Middle"]] execVM "JBOY\JBOY_UpDown.sqf";
+// ** To start with an eventhandler, put this in unit's init:
+// this addeventhandler ["FiredNear",{ [_this select 0, ["Up","Middle"]] execVM "JBOY\JBOY_UpDown.sqf";}];
+// this addeventhandler ["FiredNear",{ [_this select 0, ["Middle","Down"]] execVM "JBOY\JBOY_UpDown.sqf";}];
+//
+// *****************************************************
 //Zen_JBOY_UpDown
 
-if !(isServer) exitWith {};
-params ["_dude", "_stances"];
-_dude removeEventHandler ["FiredNear", _dude getVariable "zen_fn_idx"];
-while {alive _dude} do {
-	if (unitPos _dude == _stances select 0) then {
-		_dude setUnitPos (_stances select 1);
-	} else {
-		_dude setUnitPos (_stances select 0);
-	};
-	sleep (1 + (random 7));
+if (!isServer)  exitwith {};
+diag_log ["JBOY_UpDown.sqf ",_this];
+//  Parameters:
+_dude = _this select 0;   
+_stances = _this select 1;
+_dudeOriginalStance = unitPos _dude;
+_dude removeAllEventHandlers "FiredNear";
+_done = false;
+_iterations = 0;
+while {alive _dude and !_done and _iterations < 12} do
+{
+    if ((unitpos _dude) == (_stances select 0)) then
+    {
+        _dude setUnitPos (_stances select 1);
+    } else
+    {
+        _dude setUnitPos (_stances select 0);
+    };
+    sleep (1 + (random 5));
+    if (isNull (_dude findNearestEnemy _dude)) then // If no known enemies then increment iterations so that guys stop popping up and down
+    {
+        //systemchat "no known enemies found";
+        _iterations = _iterations + 1;
+    };
 };
+if (alive _dude) then
+{
+    _dude setUnitPos _dudeOriginalStance;
+    _dude addeventhandler ["FiredNear",{ [_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;}];
+}; 
