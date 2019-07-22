@@ -77,6 +77,10 @@ ATTENTION: Weferlingen Summer and Winter sqm files have changed
 - Changed: Updated occupy house scripts, by longtimegamer
 - And more optimizations and cosmetic changes
 
+todo list:
++if water in a radius near a MT, will spawn armed patrol boats.
++add snipers (ghillie) on hills (if exists) around a MT
+
 3.99s
 ADDED: Livonia (Contact expansion) version (WIP)
 
@@ -864,7 +868,7 @@ ATTENTION: mission.sqm files of ALL versions were changed!!!!
 - Fixed: Small issues with respawn dialog
 - Fixed: Camps (to capture) should not spawn close to each other anymore (if there are enough possible places available at a main target)
 - Changed: When a wreck gets put on the wreck repair point the seconds it will take to rebuild the vehicle are also displayed (sidechat once and the 3D text over the wreck point will display the sconds too)
-- Added: Portuguese translation by Linux ©
+- Added: Portuguese translation by Linux Â©
 - Fixed: Problem with including arrays for the TT versions
 - More optimizations
 
