@@ -45,6 +45,10 @@ if (d_MissionType != 2 && d_disable_airai != 1) then {
 			sleep 1200;
 			["AP"] spawn d_fnc_airai; // AP = Attack Plane
 		};
+		if !(d_airai_attack_uav isEqualTo []) then {
+			sleep (60 + random 120);
+			["UAV"] spawn d_fnc_airai; // UAV = Attack UAV
+		};		
 	};
 };
 #endif
