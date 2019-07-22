@@ -109,6 +109,8 @@ while {alive _unit && {alive _vec && {canMove _vec}}} do {
 	};
 	if (!_toldp && {_vec distance2D _helperh < 1000 && {alive _player}}) then {
 		6 remoteExecCall ["d_fnc_ataxiNet", _player];
+	        private _signal = if (sunOrMoon != 1) then {"NVG_TargetC"} else {"SmokeShellGreen"};
+		private _smoke = _signal createVehicle _nendpos;
 		_toldp = true;
 	};
 	if (unitReady _unit) exitWith {
