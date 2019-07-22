@@ -37,7 +37,7 @@ if (!_exit_it && {_position == "driver"}) then {
 	[_vec] spawn d_fnc_wreck_transport;
 };
 
-if (_exit_it) then {
+if (_exit_it) exitWith {
 	_enterer action ["engineOff", _vec];
 	moveOut _enterer;	
 };
