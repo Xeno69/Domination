@@ -71,6 +71,11 @@ while {true} do {
 			_height = 150;
 		        _heightASL = [150,(100 + (random 50)),(150 + (random 150))];
 		};
+		case "UAV": {
+		       _heli_type = selectRandom d_airai_attack_uav;
+		       _height = 400;
+		       _heightASL = [400,(250 + (random 100)),(400 + (random 200))];
+		};		
 	};
 	
 	__TRACE_2("","_heli_type","_numair")
