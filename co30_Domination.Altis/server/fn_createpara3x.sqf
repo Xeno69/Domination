@@ -54,6 +54,7 @@ private _make_jump = {
 
 	_driver_vec doMove _flytopos;
 	_vec flyInHeight 80;
+	_vec flyInHeightASL [80,80,80];
 	_vgrp setBehaviourStrong "CARELESS";
 	
 	__TRACE_1("","_flytopos")
@@ -128,17 +129,15 @@ private _make_jump = {
 			private _sleeptime = [0.551, 0.15] select (speed _vec > 300);
 			__TRACE_1("","_sleeptime")
 			{
-				private _pposcx = getPosATL _vec;
-				private _one_unit = _paragrp createUnit [_x, [_pposcx # 0, _pposcx # 1, 0], [], 0,"NONE"];
+				private _pposcx = getPosASLVisual _vec;
+				private _one_unit = _paragrp createUnit [_x, [0,0,0], [], 0, "NONE"];
 				[_one_unit] joinSilent _paragrp;
 				__TRACE_1("","_one_unit")
-				private _para = createVehicle [d_non_steer_para, _pposcx, [], 20, "NONE"];
+				private _para = d_non_steer_para createVehicle [0,0,0];
 				__TRACE_1("","_para")
+				_para setPosASL [_pposcx # 0, _pposcx # 1, (_pposcx # 2) - 10];
+				_para setVectorDirAndUp [vectorDirVisual _vec,vectorUpVisual _vec];
 				_one_unit moveInDriver _para;
-				_para setDir random 360;
-				_pposcx = getPosATL _vec;
-				__TRACE_1("","_pposcx")
-				_para setPos [_pposcx # 0, _pposcx # 1, (_pposcx # 2) - 10];
 				_one_unit call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
 				[_one_unit, "d_ktypett", 1] call d_fnc_setekmode;
@@ -244,6 +243,8 @@ while {_icounter < _number_vehicles} do {
 	__TRACE("5 seconds over")
 	
 	//_vec flyInHeight 100;
+	_vec flyInHeight 80;
+	_vec flyInHeightASL [80,80,80];	
 
 	__TRACE_1("","d_mt_radio_down")
 	if (d_mt_radio_down) exitWith {
