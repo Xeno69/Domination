@@ -3,7 +3,7 @@
 class Sentences {
 	class Attack {
 		text = "$STR_DOM_MISSIONSTRING_1339";
-		speech[] = {"XMIT","SupportAddedDuringMission"};
+		speech[] = {"XMIT","GenCmdSeize1"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
