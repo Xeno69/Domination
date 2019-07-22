@@ -97,6 +97,12 @@ while {true} do {
 				};
 				[_vec, "d_mhqmsg"] call d_fnc_setekmode;
 				_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+			        private _flag = call {
+			            if (d_own_side == "EAST") exitWith {"\a3\data_f\flags\flag_red_co.paa"};
+			            if (d_own_side == "WEST") exitWith {"\a3\data_f\flags\flag_blue_co.paa"};
+			            "\a3\data_f\flags\flag_green_co.paa"			
+			        };
+			        _vec forceFlagTexture _flag;				
 #ifdef __TT__
 				if (_number_v < 100) then {
 					_vec setVariable ["d_side", blufor];
