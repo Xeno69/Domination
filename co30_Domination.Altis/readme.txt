@@ -66,6 +66,15 @@ ATTENTION: Weferlingen Summer and Winter sqm files have changed
 - Fixed: Shoot at MHQ message did not trigger when MHQ locality changed from the server to a client
 - Fixed: Wrong "all barracks down" message in TT version
 - Changed: Use current main target (if available) as location for intro, by lelik
+- Changed: You'll now also see enemy UAVs at main targets as attack aircraft (of course not in the IFA3 and GMCWG versions), by lelik
+- Changed: Air taxi landing position will now get marked by smoke or NVG target, by lelik
+- Added: Flags for MHQs, by lelik
+- Changed: Different flyin heights for different aircraft types for enemy air AI which patrols over the main target, by lelik
+- Optimized: Better visibility for enemy air AI patrols over main targets, by lelik
+- Added: Pilot and collisionlights turned on for air taxi vehicles, by lelik
+- Added: More audio messages for written kbTell messages, by lelik
+- Changed: New mash class for spawning mash, by lelik
+- Changed: Updated occupy house scripts, by longtimegamer
 - And more optimizations and cosmetic changes
 
 3.99s

@@ -29,6 +29,14 @@ _grp deleteGroupWhenEmpty true;
 
 _vecu allowCrewInImmobile true;
 
+_vecu setVehicleReceiveRemoteTargets true;
+_vecu setVehicleReportRemoteTargets true;
+_vecu setVehicleRadar 1;
+
+{
+	_x setSkill ["spotDistance", 1];
+} forEach _crew;	
+
 player connectTerminalToUav _vecu;
 
 player action ["UAVTerminalOpen"];

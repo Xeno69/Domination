@@ -1293,6 +1293,9 @@ if (!d_tt_tanoa) then {
 				if (d_rhs) exitWith {
 					[]
 				};
+				if (d_ifa3lite) exitWith {
+					[]
+				};
 				["O_UAV_02_F","O_UAV_02_CAS_F","O_T_UAV_04_CAS_F"]
 			};
 		};
@@ -1307,10 +1310,26 @@ if (!d_tt_tanoa) then {
 				if (d_rhs) exitWith {
 					[]
 				};
-				["B_T_UAV_03_F","B_UAV_02_F","B_UAV_05_F"]
+				if (d_gmcwg) exitWith {
+					[]
+				};
+				["B_T_UAV_03_F", "B_UAV_02_F", "B_UAV_05_F"]
 			};
 		};
-		case "G": {["I_UAV_02_F","I_UAV_02_CAS_F"]};
+		case "G": {
+			call {
+				if (d_cup) exitWith {
+					[]
+				};			
+				if (d_ifa3lite) exitWith {
+					[]
+				};
+				if (d_rhs) exitWith {
+					[]
+				};
+				["I_UAV_02_F", "I_UAV_02_CAS_F"]
+			};
+		};
 	};
 	
 	// type of enemy chopper that will fly over the main target
