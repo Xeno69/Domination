@@ -63,7 +63,12 @@ if !(_nendpos isEqualTo []) then {_nendpos = _playerpos};
 _unit doMove _nendpos;
 _helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
+_vec flyInHeightASL [80,80,80];
 _grp setBehaviourStrong "CARELESS";
+
+_unit action ["CollisionLightOn", _vec];
+if (sunOrMoon != 1) then {_vec setPilotLight true};
+_vec setCollisionLight true;
 
 ["d_airtaxi_marker", _vec, "ICON", (switch (_sidep) do {case opfor: {"ColorEAST"};case blufor: {"ColorWEST"};case independent: {"ColorGUER"};default {"ColorCIV"};}), [1,1], "Air Taxi", 0, (switch (_sidep) do {case blufor: {"b_air"};case opfor: {"o_air"};default {"n_air"};})] call d_fnc_CreateMarkerGlobal;
 
@@ -167,6 +172,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	_unit setVariable ["d_isondestway", true];
 	_helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 	_vec flyInHeight 80;
+	_vec flyInHeightASL [80,80,80];
 	_grp setBehaviourStrong "CARELESS";
 	sleep 5;
 	_doend = false;
