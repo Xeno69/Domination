@@ -18,7 +18,7 @@ if (!isServer)  exitwith {};
 params ["_dude", "_stances"];
 
 private _dudeOriginalStance = unitPos _dude;
-private _dude removeAllEventHandlers "FiredNear";
+_dude removeEventHandler ["FiredNear", _dude getVariable "zen_fn_idx"];
 private _done = false;
 private _iterations = 0;
 
@@ -38,5 +38,5 @@ while {!_done && {alive _dude && {_iterations < 12}}} do {
 };
 if (alive _dude) then {
     _dude setUnitPos _dudeOriginalStance;
-    _dude addeventhandler ["FiredNear",{[_this select 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}];
+    _dude setVariable ["zen_fn_idx", _dude addeventhandler ["FiredNear",{[_this select 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}]];
 }; 
