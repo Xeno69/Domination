@@ -3,57 +3,57 @@
 class Sentences {
 	class Attack {
 		text = "$STR_DOM_MISSIONSTRING_1339";
-		speech[] = {"Attack"};
+		speech[] = {"XMIT","GenCmdSeize1"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class Captured {
 		text = "$STR_DOM_MISSIONSTRING_1340";
-		speech[] = {"AreaClear"};
+		speech[] = {"XMIT","GenComplete3"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class Captured2 {
 		text = "$STR_DOM_MISSIONSTRING_1341";
-		speech[] = {"AreaClear"};
+		speech[] = {"XMIT","GenComplete3"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class NewMission {
 		text = "$STR_DOM_MISSIONSTRING_1344";
-		speech[] = {};
+		speech[] = {"XMIT","Attack"};
 		class Arguments {};
 	};
 	class MissionAccomplished {
 		text = "$STR_DOM_MISSIONSTRING_1345";
-		speech[] = {};
+		speech[] = {"XMIT","GenComplete3"};
 		class Arguments {};
 	};
 	class MissionFailure {
 		text = "$STR_DOM_MISSIONSTRING_725";
-		speech[] = {};
+		speech[] = {"XMIT","GenLost1"};
 		class Arguments {};
 	};
 	class ArtilleryAvailable {
 		text = "$STR_DOM_MISSIONSTRING_1347";
-		speech[] = {%1};
+		speech[] = {"XMIT","%1","SupportAddedDuringMission"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class ArtilleryUnAvailable {
 		text = "$STR_DOM_MISSIONSTRING_1348";
-		speech[] = {%1};
+		speech[] = {"XMIT","%1","UnitDestroyedHQArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class ArtilleryRequest {
         text = "$STR_DOM_MISSIONSTRING_1404";
-		speech[] = {"SupportRequestRGArty"};
+		speech[] = {"XMIT","SupportRequestRGArty"};
         class Arguments {
             class 1 {type = "simple";};
             class 2 {type = "simple";};
@@ -62,14 +62,14 @@ class Sentences {
     };
 	class ArtilleryRoger {
 		text = "$STR_DOM_MISSIONSTRING_1350";
-		speech[] = {"RequestAcknowledgedSGArty"};
+		speech[] = {"XMIT","RequestAcknowledgedSGArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class ArtilleryOTW {
 		text = "$STR_DOM_MISSIONSTRING_1351";
-		speech[] = {};
+		speech[] = {"XMIT","RoundsComplete"};
 		class Arguments {
 			class 1 {type = "simple";};
 			class 2 {type = "simple";};
@@ -77,7 +77,7 @@ class Sentences {
 	};
 	class ArtillerySplash {
 		text = "$STR_DOM_MISSIONSTRING_1354";
-		speech[] = {"RequestAccomplishedSGArty"};
+		speech[] = {"XMIT","RequestAccomplishedSGArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
@@ -91,7 +91,7 @@ class Sentences {
 	};
 	class ArtilleryComplete {
 		text = "$STR_DOM_MISSIONSTRING_1358";
-		speech[] = {"ArtySGSupportRoundsComplete"};
+		speech[] = {"XMIT","ArtySGSupportRoundsComplete"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
@@ -112,31 +112,31 @@ class Sentences {
 	};
 	class TellNrObservers {
 		text = "$STR_DOM_MISSIONSTRING_1360";
-		speech[] = {};
+		speech[] = {"XMIT","Danger","veh_Static_mortar_p"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class TellSecondaryMTM {
 		text = "$STR_DOM_MISSIONSTRING_1361";
-		speech[] = {};
+		speech[] = {"XMIT","GenCmdTargetFind2"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class AllObserversDown {
 		text = "$STR_DOM_MISSIONSTRING_1362";
-		speech[] = {};
+		speech[] = {"XMIT","TargetIsNeutralized"};
 		class Arguments {};
 	};
 	class MTRadioTower {
 		text = "$STR_DOM_MISSIONSTRING_1363";
-		speech[] = {};
+		speech[] = {"XMIT","GenCmdTargetNeutralize2"};
 		class Arguments {};
 	};
 	class MTRadioTowerDown {
 		text = "$STR_DOM_MISSIONSTRING_1364";
-		speech[] = {};
+		speech[] = {"XMIT","TargetIsDown"};
 		class Arguments {};
 	};
 	class MTHQaBarracksBuilding {
@@ -168,7 +168,7 @@ class Sentences {
 	};
 	class CampAnnounce {
 		text = "$STR_DOM_MISSIONSTRING_1365";
-		speech[] = {};
+		speech[] = {"XMIT","GenCmdTargetProtect2"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
@@ -179,12 +179,12 @@ class Sentences {
 #else
 		text = "$STR_DOM_MISSIONSTRING_1367";
 #endif
-		speech[] = {};
+		speech[] = {"XMIT","GenIncoming3"};
 		class Arguments {};
 	};
 	class AllSMissionsResolved {
 		text = "$STR_DOM_MISSIONSTRING_1368";
-		speech[] = {};
+		speech[] = {"XMIT","GenComplete1"};
 		class Arguments {};
 	};
 	class Dmr_in_air {
@@ -201,44 +201,70 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+#ifdef __OWN_SIDE_OPFOR__	
 	class CapCampByBlufor {
 		text = "$STR_DOM_MISSIONSTRING_1378";
-		speech[] = {};
+		speech[] = {"XMIT","GenLosing2"};
 		class Arguments {};
 	};
 	class CapCampByOpfor {
 		text = "$STR_DOM_MISSIONSTRING_1407";
-		speech[] = {};
+		speech[] = {"XMIT","GenComplete1"};
 		class Arguments {};
 	};
+#endif
+#ifdef __OWN_SIDE_BLUFOR__	
+	class CapCampByBlufor {
+		text = "$STR_DOM_MISSIONSTRING_1378";
+		speech[] = {"XMIT","GenComplete1"};
+		class Arguments {};
+	};
+	class CapCampByOpfor {
+		text = "$STR_DOM_MISSIONSTRING_1407";
+		speech[] = {"XMIT","GenLosing2"};
+		class Arguments {};
+	};
+#endif
+#ifdef __OWN_SIDE_INDEPENDENT__
 	class CapCampByGuer {
 		text = "$STR_DOM_MISSIONSTRING_1380";
-		speech[] = {};
+		speech[] = {"XMIT","GenComplete1"};
 		class Arguments {};
 	};
+	class CapCampByBlufor {
+		text = "$STR_DOM_MISSIONSTRING_1378";
+		speech[] = {"XMIT","GenLosing2"};
+		class Arguments {};
+	};
+	class CapCampByOpfor {
+		text = "$STR_DOM_MISSIONSTRING_1407";
+		speech[] = {"XMIT","GenLosing2"};
+		class Arguments {};
+	};	
+#endif	
 	class CASOnTheWay {
 		text = "$STR_DOM_MISSIONSTRING_1714";
-		speech[] = {};
+		speech[] = {"XMIT","RequestAcknowledgedSGCASBombing"};
 		class Arguments {};
 	};
 	class CASUnavailable {
 		text = "$STR_DOM_MISSIONSTRING_1712";
-		speech[] = {};
+		speech[] = {"XMIT","UnitDestroyedHQCASBombing"};
 		class Arguments {};
 	};
 	class CASAvailable {
 		text = "$STR_DOM_MISSIONSTRING_1715";
-		speech[] = {};
+		speech[] = {"XMIT","SupportAddedDuringMission"};
 		class Arguments {};
 	};
 	class NewJumpFlag {
 		text = "$STR_DOM_MISSIONSTRING_1381";
-		speech[] = {};
+		speech[] = {"XMIT","GenBaseUnlockRespawn3"};
 		class Arguments {};
 	};
 	class NewJumpVehFlag {
 		text = "$STR_DOM_MISSIONSTRING_1383";
-		speech[] = {};
+		speech[] = {"XMIT","GenBaseUnlockRespawn3"};
 		class Arguments {};
 	};
 #ifdef __TT__
@@ -260,39 +286,39 @@ class Sentences {
 #else
 	class TellAirDropAttack {
 		text = "$STR_DOM_MISSIONSTRING_1389";
-		speech[] = {};
+		speech[] = {"XMIT","Danger","veh_air_parachute_p"};
 		class Arguments {};
 	};
 	class TellInfiltrateAttack {
 		text = "$STR_DOM_MISSIONSTRING_1835";
-		speech[] = {};
+		speech[] = {"XMIT","GenCmdTargetProtect1"};
 		class Arguments {};
 	};
 	class TellAirSUAttack {
 		text = "$STR_DOM_MISSIONSTRING_1390";
-		speech[] = {};
+		speech[] = {"XMIT","Danger","veh_air_s"};
 		class Arguments {};
 	};
 	class TellAirAttackChopperAttack {
 		text = "$STR_DOM_MISSIONSTRING_1391";
-		speech[] = {};
+		speech[] = {"XMIT","Danger","veh_air_gunship_s"};
 		class Arguments {};
 	};
 	class TellAirLightAttackChopperAttack {
 		text = "$STR_DOM_MISSIONSTRING_1392";
-		speech[] = {};
+		speech[] = {"XMIT","Danger","veh_air_helicopter_s"};
 		class Arguments {};
 	};
 	class TimeLimitSM {
 		text = "$STR_DOM_MISSIONSTRING_1399";
-		speech[] = {};
+		speech[] = {"XMIT","GenTime1"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
 	};
 	class TimeLimitSMTwoM {
 		text = "$STR_DOM_MISSIONSTRING_1400";
-		speech[] = {};
+		speech[] = {"XMIT","GenTime3"};
 		class Arguments {};
 	};
 #endif
@@ -305,7 +331,7 @@ class Sentences {
 	};
 	class RebuildWreck {
 		text = "$STR_DOM_MISSIONSTRING_1401";
-		speech[] = {};
+		speech[] = {"XMIT","GenReinforcementsRejected2"};
 		class Arguments {
 			class 1 {type = "simple";};
 			class 2 {type = "simple";};
@@ -314,7 +340,7 @@ class Sentences {
 	};
 	class WreckRepaired {
 		text = "$STR_DOM_MISSIONSTRING_1402";
-		speech[] = {};
+		speech[] = {"XMIT","GenBaseUnlockVehicle1"};
 		class Arguments {
 			class 1 {type = "simple";};
 			class 2 {type = "simple";};
@@ -322,12 +348,12 @@ class Sentences {
 	};
 	class BaseUnderAtack {
 		text = "$STR_DOM_MISSIONSTRING_1403";
-		speech[] = {};
+		speech[] = {"XMIT","Danger"};
 		class Arguments {};
 	};
 	class MHQDestroyed {
 		text = "$STR_DOM_MISSIONSTRING_1740";
-		speech[] = {};
+		speech[] = {"XMIT","GenCmdRTB2"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
