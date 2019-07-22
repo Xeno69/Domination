@@ -77,7 +77,7 @@ class Sentences {
 	};
 	class ArtillerySplash {
 		text = "$STR_DOM_MISSIONSTRING_1354";
-		speech[] = {"ArtySGSupportRoundsComplete"};
+		speech[] = {"XMIT","RequestAccomplishedSGArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
@@ -91,7 +91,7 @@ class Sentences {
 	};
 	class ArtilleryComplete {
 		text = "$STR_DOM_MISSIONSTRING_1358";
-		speech[] = {"ArtySGSupportRoundsComplete"};
+		speech[] = {"XMIT","ArtySGSupportRoundsComplete"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
