@@ -12,32 +12,31 @@
 //Zen_JBOY_UpDown
 
 if (!isServer)  exitwith {};
-diag_log ["JBOY_UpDown.sqf ",_this];
+
 //  Parameters:
-_dude = _this select 0;   
-_stances = _this select 1;
-_dudeOriginalStance = unitPos _dude;
-_dude removeAllEventHandlers "FiredNear";
-_done = false;
-_iterations = 0;
-while {alive _dude and !_done and _iterations < 12} do
-{
-    if ((unitpos _dude) == (_stances select 0)) then
-    {
+
+params ["_dude", "_stances"];
+
+private _dudeOriginalStance = unitPos _dude;
+private _dude removeAllEventHandlers "FiredNear";
+private _done = false;
+private _iterations = 0;
+
+while {!_done && {alive _dude && {_iterations < 12}}} do {
+    if (unitpos _dude == _stances select 0) then {
         _dude setUnitPos (_stances select 1);
-    } else
-    {
+    } else {
         _dude setUnitPos (_stances select 0);
     };
+	
     sleep (1 + (random 5));
-    if (isNull (_dude findNearestEnemy _dude)) then // If no known enemies then increment iterations so that guys stop popping up and down
-    {
+	
+    if (isNull (_dude findNearestEnemy _dude)) then { // If no known enemies then increment iterations so that guys stop popping up and down
         //systemchat "no known enemies found";
         _iterations = _iterations + 1;
     };
 };
-if (alive _dude) then
-{
+if (alive _dude) then {
     _dude setUnitPos _dudeOriginalStance;
-    _dude addeventhandler ["FiredNear",{ [_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;}];
+    _dude addeventhandler ["FiredNear",{[_this select 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}];
 }; 
