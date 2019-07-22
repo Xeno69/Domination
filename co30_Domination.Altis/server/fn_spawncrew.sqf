@@ -17,6 +17,12 @@ if (count _crew > 0) then {
 		(0.12 + (random 0.04))
 	};
 	
+        if (unitIsUAV _vec) then {
+             {
+	         _x setSkill ["spotDistance",1];
+             } forEach _crew;	
+        };	
+	
 	if (!_nocargo) then {
 #ifdef __IFA3LITE__
 		if (random 100 > 80 && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC"}}}) then {
