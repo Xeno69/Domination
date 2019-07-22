@@ -77,6 +77,13 @@ _grp deleteGroupWhenEmpty true;
 
 _veh setUnloadInCombat [true, false];
 
+if (unitIsUAV _veh) then {
+	_veh allowCrewInImmobile true;
+	_veh setVehicleReceiveRemoteTargets true;
+	_veh setVehicleReportRemoteTargets true;
+	_veh setVehicleRadar 1;
+};
+
 if (_newGrp) then {_grp selectLeader (commander _veh)};
 
 if (_addkills) then {
