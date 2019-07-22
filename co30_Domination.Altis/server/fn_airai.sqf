@@ -97,6 +97,7 @@ while {true} do {
 		__TRACE_1("","_funits")
 
 		addToRemainsCollector [_vec];
+		[_vec,2] remoteExec ["setFeatureType",[0, -2] select isDedicated];
 		
 		if (d_LockAir == 0) then {_vec lock true};
 	        _vec flyInHeight _height;
