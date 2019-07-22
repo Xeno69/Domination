@@ -366,8 +366,7 @@ d_wcamp =
 	"Land_Cargo_Patrol_V4_F";
 #endif
 
-d_mash = "Land_TentDome_F";
-d_mash_flag = "Flag_RedCrystal_F";
+d_mash = "Land_FirstAidKit_01_closed_F";
 
 d_dropped_box_marker = "mil_marker";
 
