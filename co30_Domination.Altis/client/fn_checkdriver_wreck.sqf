@@ -38,5 +38,6 @@ if (!_exit_it && {_position == "driver"}) then {
 };
 
 if (_exit_it) then {
-	_enterer action ["getOut", _vec];
+	_enterer action ["engineOff", _vec];
+	moveOut _enterer;	
 };
