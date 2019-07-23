@@ -70,11 +70,6 @@ publicVariable "d_mashes";
 systemChat (localize "STR_DOM_MISSIONSTRING_285");
 
 ["a", d_string_player, [_medic_tent, "Mash " + d_string_player, d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
-if (isMultiplayer) then {
-	[_medic_tent, player] remoteExecCall ["d_fnc_m_a_h_a", d_player_side];
-} else {
-	[_medic_tent, player] call d_fnc_m_a_h_a;
-};
 
 _medic_tent setVariable ["d_owner", player, true];
 
