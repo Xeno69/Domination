@@ -75,6 +75,7 @@ ATTENTION: Weferlingen Summer and Winter sqm files have changed
 - Added: More audio messages for written kbTell messages, by lelik
 - Changed: New mash class for spawning mash, by lelik
 - Changed: Updated occupy house scripts, by longtimegamer
+- Added: You'll now also see friendly AI units names above their heads when with ai is enabled
 - And more optimizations and cosmetic changes
 
 3.99s

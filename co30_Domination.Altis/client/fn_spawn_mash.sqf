@@ -1,5 +1,5 @@
 // by Xeno
-#define THIS_FILE "fn_mash.sqf"
+#define THIS_FILE "fn_spawn_mash.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
@@ -29,7 +29,7 @@ if (surfaceIsWater [_d_medtent # 0, _d_medtent # 1]) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-if ([_pos, 3] call d_fnc_getslope > 0.5) exitWith {
+if ([_d_medtent, 3] call d_fnc_getslope > 0.5) exitWith {
     systemChat (localize "STR_DOM_MISSIONSTRING_246");
     d_commandingMenuIniting = false;
 };
@@ -46,7 +46,7 @@ if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVar
 };
 
 private _obj = objNull;
-_obj = createSimpleObject ["Land_ClutterCutter_medium_F", AGLtoASL _pos];
+_obj = createSimpleObject ["Land_ClutterCutter_medium_F", AGLtoASL _d_medtent];
 sleep 0.2;
 private _medic_tent = createVehicle [d_mash, _d_medtent, [], 0, "NONE"];
 _medic_tent setDir (getDirVisual player - 180);
@@ -54,6 +54,9 @@ _medic_tent setPosATL _d_medtent;
 _medic_tent setVectorUp surfaceNormal _d_medtent;
 _medic_tent addItemCargoGlobal ["FirstAidKit",25];
 player reveal _medic_tent;
+if (d_with_ranked || {d_database_found}) then {
+	_medic_tent setVariable ["d_mplayer", player, true];
+};
 
 private _medtent_content = _medic_tent getVariable ["d_objcont", []];
 _medtent_content pushBack _obj;
@@ -70,11 +73,6 @@ publicVariable "d_mashes";
 systemChat (localize "STR_DOM_MISSIONSTRING_285");
 
 ["a", d_string_player, [_medic_tent, "Mash " + d_string_player, d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
-if (isMultiplayer) then {
-	[_medic_tent, player] remoteExecCall ["d_fnc_m_a_h_a", d_player_side];
-} else {
-	[_medic_tent, player] call d_fnc_m_a_h_a;
-};
 
 _medic_tent setVariable ["d_owner", player, true];
 
@@ -100,6 +98,6 @@ _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MI
 		player setVariable ["d_medtent", []];
 		["r", d_string_player, "Mash " + d_string_player] remoteExecCall ["d_fnc_p_o_ar", 2];
 	};
-},[],-1,false,true,"","isNull objectParent player",5];
+}, [], -1, false, true, "", "isNull objectParent player", 5];
 
 player setVariable ["d_isinaction", false];

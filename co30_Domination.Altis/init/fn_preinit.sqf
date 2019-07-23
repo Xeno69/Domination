@@ -1669,6 +1669,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = "";
 	
 	d_allplayers = [];
+	d_allplayerai = [];
 #ifndef __TT__
 	d_showallnearusermarkers = true;
 	d_allnearusermarkers = [];

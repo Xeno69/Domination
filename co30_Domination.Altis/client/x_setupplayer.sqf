@@ -277,6 +277,8 @@ if (d_with_ranked || {d_database_found}) then {
 	} else {
 		["ace_treatmentSucceded", {_this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
+	
+	inGameUISetEventHandler ["Action", "_this call d_fnc_healatmash; false"];
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating

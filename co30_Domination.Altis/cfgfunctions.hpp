@@ -101,6 +101,7 @@ class cfgFunctions {
 			addc(player_name_huddo2);
 			addc(player_name_huddo);
 			addc(gethpname);
+			addc(gethpnameai);
 			addc(inventoryopened);
 			addc(command_menu);
 			addc(dcmcc);
@@ -117,7 +118,6 @@ class cfgFunctions {
 			addc(s_b_client);
 			addc(rem_sb_id);
 			addc(kbunits);
-			addc(m_a_h_a);
 			addc(upd_aop);
 			addc(dfps);
 			addc(getcorners);

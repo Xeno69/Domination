@@ -5,6 +5,18 @@
 
 while {true} do {
 	d_allplayers = (allPlayers - entities "HeadlessClient_F") select {!isNull _x && {d_player_side getFriend side (group _x) >= 0.6}};
+	if (d_with_ai) then {
+		sleep 0.2;
+		private _tmpgrps = [];
+		{
+			_tmpgrps pushBackUnique (group _x);
+		} forEach d_allplayers;
+		sleep 0.1;
+		d_allplayerai = [];
+		{
+			d_allplayerai append ((units _x) select {alive _x && {!(_x call d_fnc_isplayer)}});
+		} forEach _tmpgrps;
+	};
 #ifndef __TT__
 	if (d_showallnearusermarkers) then {
 		sleep 0.1;

@@ -162,7 +162,6 @@ class CfgRemoteExec {
 		class d_fnc_s_b_client {allowedTargets = 1;};
 		class d_fnc_rem_sb_id {allowedTargets = 1;};
 		class d_fnc_kbunits {allowedTargets = 1;};
-		class d_fnc_m_a_h_a {allowedTargets = 1;};
 		class d_fnc_upd_aop {allowedTargets = 1;};
 		class d_fnc_dfps {allowedTargets = 1;};
 		class xr_fnc_handlenet {};

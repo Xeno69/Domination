@@ -3,6 +3,7 @@
 #include "..\x_setup.sqf"
 
 #define __d_textsize_dr3d  0.03333
+#define __d_textsize_dr3d_ai  0.028
 
 d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
@@ -16,6 +17,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 		private _pnhgc = d_pnhudgroupcolor;
 		private _fnc_gpn = d_fnc_getplayername;
 		private _fnc_ghpn = d_fnc_gethpname;
+		private _fnc_ghpnai = d_fnc_gethpnameai;
 		private _fnc_isp = d_fnc_isplayer;
 		private _nfc_grp = d_fnc_getrankpic;
 		{
@@ -57,6 +59,30 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 				};
 			};
 		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}}});
+		if (d_with_ai) then {
+			{
+				_distu = _cam2world distance _x;
+				if (_distu <= _d_pn_hud) then {
+					_targetPos = _x modelToWorldVisual (_x selectionPosition "Head");
+					if !(_targetPos isEqualTo []) then {
+						if (_distu <= 200) then {
+							_tex = if (_s_p_namesx == 1) then {
+								[_x] call _fnc_ghpnai
+							} else {
+								if (_s_p_namesx == 2) then {
+									str(9 - round(9 * damage _x))
+								} else {
+									""
+								};
+							};
+						} else {
+							_tex = "*";
+						};
+						d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [_pnhoc, _pnhgc] select (group _x == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+					};
+				};
+			} forEach (d_allplayerai select {alive _x && {isNull objectParent _x}});
+		};
 	};
 } else {
 	if (!d_show_pname_hud) then {
