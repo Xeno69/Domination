@@ -1228,7 +1228,7 @@ if (!d_tt_tanoa) then {
 	];
 
 	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
-	d_hd_sim_types apply {toLower _x};
+	d_hd_sim_types = d_hd_sim_types apply {toLower _x};
 
 	d_isle_defense_marker = "n_mech_inf";
 
