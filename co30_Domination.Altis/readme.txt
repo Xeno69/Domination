@@ -12,6 +12,10 @@ Changelogs
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
+4.02
+
+- Fixed: MHQ flag removed in TT version
+
 4.01
 
 - Fixed: Gamebreaking bug which prevented to blow up radio towers and other main target objects with satchels only
