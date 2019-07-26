@@ -3,7 +3,6 @@
 #define THIS_FILE "fn_vdhandler.sqf"
 #include "..\x_setup.sqf"
 
-d_isvdreduced = false;
 d_curviewdistance = -1;
 d_curobjectdistance = -1;
 

@@ -1051,6 +1051,7 @@ if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
+d_isvdreduced = false;
 #ifndef __TT__
 0 spawn d_fnc_vdhandler;
 #endif
