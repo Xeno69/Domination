@@ -15,6 +15,7 @@ Changelogs
 4.02
 
 - Fixed: MHQ flag removed in TT version
+- Fixed: If "Locate the first enemy camp to capture near the center of the main target" was activated the camp marker of the first camp was not drawn
 
 4.01
 

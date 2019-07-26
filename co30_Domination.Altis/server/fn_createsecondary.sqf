@@ -81,9 +81,11 @@ for "_i" from 1 to _nrcamps do {
 	if (_isFirstCamp && {d_first_enemy_camp_near_target_center == 1}) then {
 		//try to place the first camp very close (10m) to the center of the target
 		_poss = [_trg_center, 10, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+		__TRACE_1("1","_poss")
 		_isFirstCamp = false;
 	} else {
 		_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
+		__TRACE_1("2","_poss")
 	};
 	_iccount = 0;
 	while {_poss isEqualTo []} do {
@@ -91,6 +93,7 @@ for "_i" from 1 to _nrcamps do {
 		_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
 		if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
 	};
+	__TRACE_1("3","_poss")
 	if (isNil "_poss" || {_poss isEqualTo []}) then {
 		_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
 	};
@@ -131,10 +134,12 @@ for "_i" from 1 to _nrcamps do {
 			if (_doexit) exitWith {};
 			_xcountx = _xcountx + 1;
 		};
+		_poss set [2, 0];
+		_wf setPos _poss;
+	} else {
+		_poss = _nnpos;
 	};
 	__TRACE_1("","_poss")
-	_poss set [2, 0];
-	_wf setPos _poss;
 	if (d_with_ranked || {d_database_found}) then {
 		if (_dist_for_points < _wf distance2D _trg_center) then {
 			_dist_for_points = _wf distance2D _trg_center;
@@ -157,8 +162,9 @@ for "_i" from 1 to _nrcamps do {
 	private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 	_flagPole setPos _fwfpos;
 	_wf setVariable ["d_FLAG", _flagPole, true];
-	private _maname = format["d_camp_%1", _wf];
-	[_maname, _poss, "ICON", "ColorBlack", [0.5,0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
+	private _maname = format["d_camp_%1", _i];
+	__TRACE_2("","_i","_maname")
+	[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 	_wf setVariable ["d_camp_mar", _maname];
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 	
