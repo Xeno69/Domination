@@ -17,6 +17,7 @@ Changelogs
 - Fixed: MHQ flag removed in TT version
 - Fixed: If "Locate the first enemy camp to capture near the center of the main target" was activated the camp marker of the first camp was not drawn
 - Fixed: In the TT version Viewdistance change slider in the Status Dialog did not work at all
+- Changed: Removed UAV and UGV backpacks from Virtual Arsenal
 
 4.01
 
