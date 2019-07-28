@@ -569,6 +569,7 @@ class cfgFunctions {
 			addc(spectkeyeh);
 			addc(spectdraw3d);
 			addc(bloodpool);
+			addc(hasfak);
 		};
 	};
 	class Dom_AR {
