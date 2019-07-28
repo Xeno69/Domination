@@ -12,7 +12,7 @@ if (_unit getVariable ["xr_ReviveAction", -9999] == -9999) then {
 		/* 1 action title */				format ["<t color='#FF0000'>%1 %2</t>", [localize "STR_DOM_MISSIONSTRING_924", localize "STR_DOM_MISSIONSTRING_923"] select xr_pl_can_revive, _unit call d_fnc_getplayername],
 		/* 2 idle icon */					"\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa",
 		/* 3 progress icon */				"A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_reviveMedic_ca.paa",
-		/* 4 condition to show */			"_this distance2D _target <= 3 && {_target getVariable 'xr_pluncon' && {!(_this getVariable 'xr_pisinaction') && {!(_target getVariable 'xr_dragged')} && {_this call d_fnc_hasfak}}}",
+		/* 4 condition to show */			"_this distance2D _target <= 3 && {_target getVariable 'xr_pluncon' && {!(_this getVariable 'xr_pisinaction') && {!(_target getVariable 'xr_dragged') && {_this call d_fnc_hasfak}}}}",
 		/* 5 condition for action */		"_caller distance2D _target <= 3",
 		/* 6 code executed on start */		
 		{
