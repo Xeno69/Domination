@@ -50,8 +50,19 @@ if (d_searchintel # 5 == 1) then {
 };
 #endif
 {
-	_x allowCrewInImmobile true;
-	_x setVariable ["d_cur_pos", getPosASL _x];
+        private _vec = _x;
+	{
+	   _x enableSimulation true;
+	   _x enableDynamicSimulation false;   
+	} forEach (crew _vec);
+	_vec enableDynamicSimulation false;
+	_vec setUnloadInCombat [false, false];
+	_vec forceFollowRoad true;
+	_vec setConvoySeparation 50;
+	_vec addEventHandler ["GetOut", {(_this # 2) setDamage 1;(_this # 0) setDamage 1}];	
+	_vec allowCrewInImmobile true;
+	_vec setVariable ["d_cur_pos", getPosASL _x];
+	_vec lock true;
 } forEach _vecs;
 _agrp call d_fnc_addgrp2hc;
 [_agrp, _units, _vecs]
