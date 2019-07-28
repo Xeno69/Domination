@@ -20,6 +20,7 @@ Changelogs
 - Changed: Removed UAV and UGV backpacks from Virtual Arsenal
 - Fixed: In the TT version messages for capturing camps were gone
 - Changed: Server param "Armor at side missions" changed, available is "Normal", Less" and "None" now (d_WithLessArmor_side, 0 = normal, 1 = less, 2 = none)
+- Changed: If a player respawns at a MHQ and there is no ammobox dropped or nearby then he respawns with the same weapons and ammo as he/she had when he/she died
 
 4.01
 

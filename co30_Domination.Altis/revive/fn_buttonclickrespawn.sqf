@@ -91,7 +91,9 @@ if (!isNull _mhqobj) then {
 	player setDir (getDirVisual _mhqobj);
 	player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
 	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
-	call d_fnc_retrieve_layoutgear;
+	if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
+		call d_fnc_retrieve_layoutgear;
+	};
 } else {
 	private _domovevec = false;
 	if (d_beam_target != "D_SQL_D")	then {
