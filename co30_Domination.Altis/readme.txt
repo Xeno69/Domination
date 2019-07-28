@@ -19,6 +19,7 @@ Changelogs
 - Fixed: In the TT version Viewdistance change slider in the Status Dialog did not work at all
 - Changed: Removed UAV and UGV backpacks from Virtual Arsenal
 - Fixed: In the TT version messages for capturing camps were gone
+- Changed: Server param "Armor at side missions" changed, available is "Normal", Less" and "None" now (d_WithLessArmor_side, 0 = normal, 1 = less, 2 = none)
 
 4.01
 

@@ -22,7 +22,7 @@ for "_nr" from 0 to 1 do {
 	__TRACE_1("","_nrg")
 	if (_nrg > 0) then {
 		if (d_MissionType == 2) then {_nrg = _nrg + 2};
-		if (d_WithLessArmor_side == 1) then {_nrg = _nrg + 2};
+		if (d_WithLessArmor_side == 2) then {_nrg = _nrg + 2};
 		private _typenr = _this select (_nr * 2);
 		for "_i" from 1 to _nrg do {
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;

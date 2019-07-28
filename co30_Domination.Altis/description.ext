@@ -981,9 +981,9 @@ class Params {
 	
 	class d_WithLessArmor_side {
 		title = "$STR_DOM_MISSIONSTRING_1730";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_405"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405"};
 	};
 
 	class d_EnemySkill {
