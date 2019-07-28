@@ -39,6 +39,7 @@ private _npos = _start_point;
 	};
 } forEach ([d_enemy_side_short] call d_fnc_getmixedlist);
 _agrp deleteGroupWhenEmpty true;
+_agrp enableDynamicSimulation false;
 sleep 0.31;
 
 _agrp setVariable ["d_PATR", true];
