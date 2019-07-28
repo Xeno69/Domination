@@ -18,6 +18,7 @@ Changelogs
 - Fixed: If "Locate the first enemy camp to capture near the center of the main target" was activated the camp marker of the first camp was not drawn
 - Fixed: In the TT version Viewdistance change slider in the Status Dialog did not work at all
 - Changed: Removed UAV and UGV backpacks from Virtual Arsenal
+- Fixed: In the TT version messages for capturing a camp were gone
 
 4.01
 

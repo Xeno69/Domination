@@ -201,47 +201,21 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
-#ifdef __OWN_SIDE_OPFOR__	
 	class CapCampByBlufor {
 		text = "$STR_DOM_MISSIONSTRING_1378";
-		speech[] = {"XMIT","GenLosing2"};
+		speech[] = {};
 		class Arguments {};
 	};
 	class CapCampByOpfor {
 		text = "$STR_DOM_MISSIONSTRING_1407";
-		speech[] = {"XMIT","GenComplete1"};
+		speech[] = {};
 		class Arguments {};
 	};
-#endif
-#ifdef __OWN_SIDE_BLUFOR__	
-	class CapCampByBlufor {
-		text = "$STR_DOM_MISSIONSTRING_1378";
-		speech[] = {"XMIT","GenComplete1"};
-		class Arguments {};
-	};
-	class CapCampByOpfor {
-		text = "$STR_DOM_MISSIONSTRING_1407";
-		speech[] = {"XMIT","GenLosing2"};
-		class Arguments {};
-	};
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
 	class CapCampByGuer {
 		text = "$STR_DOM_MISSIONSTRING_1380";
-		speech[] = {"XMIT","GenComplete1"};
+		speech[] = {};
 		class Arguments {};
 	};
-	class CapCampByBlufor {
-		text = "$STR_DOM_MISSIONSTRING_1378";
-		speech[] = {"XMIT","GenLosing2"};
-		class Arguments {};
-	};
-	class CapCampByOpfor {
-		text = "$STR_DOM_MISSIONSTRING_1407";
-		speech[] = {"XMIT","GenLosing2"};
-		class Arguments {};
-	};	
-#endif	
 	class CASOnTheWay {
 		text = "$STR_DOM_MISSIONSTRING_1714";
 		speech[] = {"XMIT","RequestAcknowledgedSGCASBombing"};
