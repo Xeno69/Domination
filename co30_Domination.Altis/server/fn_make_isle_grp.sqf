@@ -57,6 +57,7 @@ if (d_searchintel # 5 == 1) then {
 	   _x enableDynamicSimulation false;   
 	} forEach (crew _vec);
 	_vec enableDynamicSimulation false;
+	_vec forceSpeed (random [40,50,60]);
 	_vec setUnloadInCombat [false, false];
 	_vec forceFollowRoad true;
 	_vec setConvoySeparation 50;
