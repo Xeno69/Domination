@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,4346,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
@@ -40,8 +40,8 @@ link17[] = {14,12};
 link18[] = {15,16};
 link19[] = {16,17};
 link20[] = {17,2};
-globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-344.202637,446.144165,655.692139,-416.493042,659,894,1};
-window[] = {2,-1,-1,-1,-1,744,26,986,26,3,677};
+globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-344.202637,446.144165,655.692139,-416.493042,659,1254,1};
+window[] = {2,-1,-1,-1,-1,978,260,1220,260,3,677};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -54,7 +54,18 @@ class FSM
                         name = "Start";
                         itemno = 0;
                         init = /*%FSM<STATEINIT""">*/"params [""_wf"", ""_flag""];" \n
-                         "private _delay = 3;"/*%FSM</STATEINIT""">*/;
+                         "private _delay = 3;" \n
+                         "" \n
+                         "private _debugme = false;" \n
+                         "" \n
+                         "private [""_oldunits"", ""_oldenemy"", ""_oldfriendly""];" \n
+                         "" \n
+                         "if (_debugme) then {" \n
+                         "	_oldunits = [];" \n
+                         "	_oldenemy = -1;" \n
+                         "	_oldfriendly = -1;" \n
+                         "	diag_log [time, ""HandleCamps2"", ""_this"", _this];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -83,6 +94,21 @@ class FSM
                          "{" \n
                          "	_friendly = _friendly + (_x countSide _units);" \n
                          "} forEach d_own_sides_o;" \n
+                         "" \n
+                         "if (_debugme) then {" \n
+                         "	if !(_units isEqualTo _oldunits) then {" \n
+                         "		diag_log [time, ""HandleCamps2"", ""_units"", _units];" \n
+                         "		_oldunits =+ _units;" \n
+                         "	};" \n
+                         "	if !(_enemy isEqualTo _oldenemy) then {" \n
+                         "		diag_log [time, ""HandleCamps2"", ""_enemy"", _enemy];" \n
+                         "		_oldenemy = _enemy;" \n
+                         "	};" \n
+                         "	if !(_friendly isEqualTo _oldfriendly) then {" \n
+                         "		diag_log [time, ""HandleCamps2"", ""_friendly"", _friendly];" \n
+                         "		_oldfriendly = _friendly;" \n
+                         "	};" \n
+                         "};" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -139,7 +165,9 @@ class FSM
                 {
                         name = "End";
                         itemno = 4;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"if (_debugme) then {" \n
+                         "	diag_log [time, ""HandleCamps2"", ""capturing ended""];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -151,7 +179,10 @@ class FSM
                 {
                         name = "Reset_cap_time";
                         itemno = 7;
-                        init = /*%FSM<STATEINIT""">*/"private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"private _timeend = time + _delay;" \n
+                         "if (_debugme) then {" \n
+                         "	diag_log [time, ""HandleCamps2"", ""reset cap time""];" \n
+                         "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -184,8 +215,18 @@ class FSM
                          "		_wf setVariable [""D_CAPTIME"", 40 + (floor random 10), true];" \n
                          "		_curcaptime = 0;" \n
                          "		_wf setVariable [""D_CURCAPTURER"", d_own_side];" \n
+                         "		if (_debugme) then {" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curcapturer == d_enemy_side""];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_captime"", _captime];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curcaptime"", _curcaptime];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curside"", _curside];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curcapturer"", _curcapturer];" \n
+                         "		};" \n
                          "	};" \n
                          "	_curcaptime = _curcaptime + (3 max _friendly);" \n
+                         "	if (_debugme) then {" \n
+                         "		diag_log [time, ""HandleCamps2"", ""_curcaptime"", _curcaptime];" \n
+                         "	};" \n
                          "	_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
                          "	if (_wf getVariable ""d_STALL"") then {" \n
                          "		_wf setVariable [""d_STALL"", false, true];" \n
@@ -196,13 +237,27 @@ class FSM
                          "			_wf setVariable [""D_CAPTIME"", 10, true];" \n
                          "			_curcaptime = 0;" \n
                          "			_wf setVariable [""D_CURCAPTURER"", d_enemy_side];" \n
+                         "			if (_debugme) then {" \n
+                         "				diag_log [time, ""HandleCamps2"", ""_curcapturer == d_own_side""];" \n
+                         "			};" \n
                          "		};" \n
                          "		_curcaptime = _curcaptime + (3 max _enemy);" \n
+                         "		if (_debugme) then {" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curcaptime"", _curcaptime];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_captime"", _captime];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curcaptime"", _curcaptime];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curside"", _curside];" \n
+                         "			diag_log [time, ""HandleCamps2"", ""_curcapturer"", _curcapturer];" \n
+                         "		};" \n
                          "		_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
                          "		if (_wf getVariable ""d_STALL"") then {" \n
                          "			_wf setVariable [""d_STALL"", false, true];" \n
                          "		};" \n
                          "	};" \n
+                         "};" \n
+                         "if (_debugme) then {" \n
+                         "	diag_log [time, ""HandleCamps2"", ""_captime"", _captime];" \n
+                         "	diag_log [time, ""HandleCamps2"", ""_curcaptime"", _curcaptime];" \n
                          "};" \n
                          "private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -252,12 +307,18 @@ class FSM
                          "		_mcolor = ""ColorBLUFOR"";" \n
                          "		d_campscaptured = d_campscaptured + 1; publicVariable ""d_campscaptured"";" \n
                          "		[_wf, d_enemy_side] execFSM ""fsms\fn_RetakeCamp.fsm"";" \n
+                         "		if (_debugme) then {" \n
+                         "			diag_log [time, ""HandleCamps2"", ""captured by own side""];" \n
+                         "		};" \n
                          "	};" \n
                          "	case d_own_side: {" \n
                          "		_wf setVariable [""D_SIDE"", d_enemy_side, true];" \n
                          "		_texture = call d_fnc_getenemyflagtex;" \n
                          "		_mcolor = ""ColorBlack"";" \n
                          "		d_campscaptured = d_campscaptured - 1; publicVariable ""d_campscaptured"";" \n
+                         "		if (_debugme) then {" \n
+                         "			diag_log [time, ""HandleCamps2"", ""captured by enemy""];" \n
+                         "		};" \n
                          "	};" \n
                          "};" \n
                          "if (!isNull _flag) then {" \n
@@ -299,6 +360,9 @@ class FSM
                         itemno = 16;
                         init = /*%FSM<STATEINIT""">*/"if !(_wf getVariable ""d_STALL"") then {" \n
                          "	_wf setVariable [""d_STALL"", true, true];" \n
+                         "	if (_debugme) then {" \n
+                         "		diag_log [time, ""HandleCamps2"", ""_curcapturer == d_enemy_side""];" \n
+                         "	};" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

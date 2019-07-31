@@ -5,6 +5,8 @@
 
 __TRACE("Create Secondary")
 
+__TRACE_1("","_this")
+
 params ["_wp_array", "_mtradius", "_trg_center"];
 
 sleep 3.120;
@@ -61,10 +63,15 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 
 sleep 3.234;
 #ifndef __TT__
-private _nrcamps = (ceil random 5) max 3;
+private "_nrcamps";
 if (d_enemy_max_camps_count != -1 ) then {
 	//max camps is set, overwrite the random value
-	_nrcamps = d_enemy_max_camps_count;
+	_nrcamps = ceil random d_enemy_max_camps_count;
+	if (_nrcamps == 0) then {
+		_nrcamps = 1;
+	};
+} else {
+	_nrcamps = (ceil random 5) max 3;
 };
 #else
 private _nrcamps = (ceil random 6) max 4;
@@ -72,7 +79,10 @@ private _nrcamps = (ceil random 6) max 4;
 
 d_sum_camps = _nrcamps;
 
+__TRACE_1("","_nrcamps")
+
 private _sizecamp = sizeOf d_wcamp;
+__TRACE_1("","_sizecamp")
 private _dist_for_points = -1;
 
 private _isFirstCamp = true;
@@ -87,6 +97,7 @@ for "_i" from 1 to _nrcamps do {
 		_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
 		__TRACE_1("2","_poss")
 	};
+	__TRACE_1("","_isFirstCamp")
 	_iccount = 0;
 	while {_poss isEqualTo []} do {
 		_iccount = _iccount + 1;
@@ -98,7 +109,7 @@ for "_i" from 1 to _nrcamps do {
 		_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
 	};
 	_poss set [2, 0];
-	__TRACE_1("","_poss")
+	__TRACE_1("4","_poss")
 	private _wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
 	sleep 0.5;
 	__TRACE_1("","_wf")
@@ -106,20 +117,21 @@ for "_i" from 1 to _nrcamps do {
 	private _nnpos = getPosASL _wf;
 	_nnpos set [2, 0];
 	__TRACE_1("1","_nnpos")
+	__TRACE_1("","d_currentcamps")
 	if !(d_currentcamps isEqualTo []) then {
 		private _doexit = false;
 		private _xcountx = 0;
 		while {_xcountx < 50} do {
-			__TRACE_2("","_xcountx","d_currentcamps")
+			__TRACE_1("","_xcountx")
 			private _wfokc = 0;
 			{
 				__TRACE_2("","_nnpos","_x")
 				if (!(_nnpos isEqualTo []) && {_nnpos distance2D _x > 130}) then {_wfokc = _wfokc + 1};
 			} forEach d_currentcamps;
-			__TRACE_2("","_wfokc","count d_currentcamps")
+			__TRACE_1("","_wfokc")
 			if (_wfokc != count d_currentcamps) then {
 				private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-				__TRACE_1("2","_tnnpos")
+				__TRACE_1("1","_tnnpos")
 				if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
 			} else {
 				if (_wf distance2D _nnpos > 130) then {
@@ -127,7 +139,7 @@ for "_i" from 1 to _nrcamps do {
 					_doexit = true;
 				} else {
 					private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-					__TRACE_1("3","_tnnpos")
+					__TRACE_1("2","_tnnpos")
 					if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
 				};
 			};
@@ -139,15 +151,15 @@ for "_i" from 1 to _nrcamps do {
 	} else {
 		_poss = _nnpos;
 	};
-	__TRACE_1("","_poss")
+	__TRACE_1("5","_poss")
 	if (d_with_ranked || {d_database_found}) then {
 		if (_dist_for_points < _wf distance2D _trg_center) then {
 			_dist_for_points = _wf distance2D _trg_center;
 		};
 	};
+	__TRACE_1("","_dist_for_points")
 	d_currentcamps pushBack _wf;
 	_wf setVariable ["d_SIDE", d_enemy_side, true];
-	//_wf setVariable ["d_INDEX", _i, true];
 	_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
 	_wf setVariable ["d_CURCAPTIME", 0, true];
 #ifndef __TT__
@@ -159,6 +171,7 @@ for "_i" from 1 to _nrcamps do {
 	_wf setVariable ["d_TARGET_MID_POS", _trg_center];
 	_fwfpos = getPosATL _wf;
 	_fwfpos set [2, 4.3];
+	__TRACE_1("","_fwfpos")
 	private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 	_flagPole setPos _fwfpos;
 	_wf setVariable ["d_FLAG", _flagPole, true];
