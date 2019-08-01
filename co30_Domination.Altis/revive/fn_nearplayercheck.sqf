@@ -14,7 +14,7 @@ __TRACE_1("","xr_near_players")
 if !(xr_near_players isEqualTo []) then {
 	{
 		player remoteExecCall ["xr_fnc_announcenear", _x];
-	} forEach xr_near_players;
+	} forEach (xr_near_players select {!isNull _x});
 };
 xr_next_pl_near_check = time + 60;
 

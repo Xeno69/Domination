@@ -18,7 +18,12 @@ if (!isServer)  exitwith {};
 params ["_dude", "_stances"];
 
 private _dudeOriginalStance = unitPos _dude;
-_dude removeEventHandler ["FiredNear", _dude getVariable "zen_fn_idx"];
+private _idx = _dude getVariable "zen_fn_idx";
+if (!isNil "_idx") then {
+	_dude removeEventHandler ["FiredNear", _idx];
+} else {
+	_dude removeAllEventHandlers "FiredNear";
+};
 private _done = false;
 private _iterations = 0;
 

@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-25;
 		Top=-175;
@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -153,8 +153,8 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=5;
-				Priority=2;
-				Condition="(!(_enemy == 0 && {_friendly == 0})) && {!(_enemy == _friendly)}";
+				Priority=1;
+				Condition="_enemy != _friendly";
 			};
 		};
 	};
@@ -204,7 +204,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=7;
-				InitCode="private _timeend = time + _delay;" \n "if (_debugme) then {" \n "	diag_log [time, ""HandleCamps2"", ""reset cap time""];" \n "};";
+				InitCode="private _timeend = time + _delay;" \n "";
 			};
 		};
 	};
@@ -247,7 +247,7 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -273,7 +273,7 @@ class GraphItems
 			Text="_curcaptime >= _captime";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -282,13 +282,13 @@ class GraphItems
 			{
 				Id=10;
 				Priority=1;
-				Condition="_curcaptime >= _captime";
+				Condition="_curcaptime > _captime";
 			};
 		};
 	};
 	class Item11
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-25;
 		Top=375;
@@ -405,8 +405,8 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=15;
-				Priority=1;
-				Condition="_enemy > 0 && {_friendly > 0}";
+				Priority=2;
+				Condition="_enemy > 0 && {_friendly > 0 && {_enemy == _friendly}}";
 			};
 		};
 	};
@@ -724,10 +724,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=260;
-	Top=260;
-	Right=1220;
-	Bottom=978;
+	Left=52;
+	Top=52;
+	Right=1012;
+	Bottom=770;
 	ShowCmd=3;
 	SplitPos=677;
 };

@@ -192,7 +192,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 									}]];
                                 } else {
                                     (_units select _unitIndex) setUnitPos "UP";
-									(_units select _unitIndex) setVariable ["zen_fn_idx",(_units select _unitIndex) addEventHandler ["FiredNear", {
+									(_units select _unitIndex) setVariable ["zen_fn_idx", (_units select _unitIndex) addEventHandler ["FiredNear", {
 										[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 									}]];
                                 };
