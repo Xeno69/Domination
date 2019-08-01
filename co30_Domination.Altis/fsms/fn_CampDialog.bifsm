@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-50;
 		Top=-200;
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -67,7 +67,7 @@ class GraphItems
 		{
 			Text="Check for Camp";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -75,7 +75,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=2;
-				InitCode="//private _no = player nearObjects [_wtype, 12];" \n "//private _no = nearestObjects [player, [_wtype], 12, false];" \n "" \n "private _no = objNull;" \n "d_currentcamps findIf {" \n "	_ret = player distance2D _x < 13;" \n "	if (_ret) then {" \n "		_no = _x;" \n "	};" \n "	_ret" \n "};" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_no"", _no];" \n "};" \n "" \n "_timenow = time + 3;";
+				InitCode="//private _no = player nearObjects [_wtype, 12];" \n "//private _no = nearestObjects [player, [_wtype], 12, false];" \n "" \n "private _no = objNull;" \n "d_currentcamps findIf {" \n "	_ret = player distance2D _x < 13;" \n "	if (_ret) then {" \n "		_no = _x;" \n "	};" \n "	_ret" \n "};" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""_no"", _no];" \n "};" \n "" \n "_timenow = time + 3;";
 			};
 		};
 	};
@@ -93,7 +93,7 @@ class GraphItems
 			Text="_no not null";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -119,7 +119,7 @@ class GraphItems
 		{
 			Text="Create Check Side";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -127,7 +127,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=4;
-				InitCode="private _curside = _no getVariable [""D_SIDE"", d_own_side];" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_curside"", _curside];" \n "};" \n "" \n "_timenow = time + 3;" \n "";
+				InitCode="private _curside = _no getVariable [""D_SIDE"", d_own_side];" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""_curside"", _curside];" \n "};" \n "" \n "_timenow = time + 3;" \n "";
 			};
 		};
 	};
@@ -145,7 +145,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -198,7 +198,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -224,7 +224,7 @@ class GraphItems
 			Text="_curside != d_own_side";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -239,7 +239,7 @@ class GraphItems
 	};
 	class Item9
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-50;
 		Top=250;
@@ -250,7 +250,7 @@ class GraphItems
 		{
 			Text="Create Dialog";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -258,7 +258,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=9;
-				InitCode="// create dialog" \n "private _curside = ["""", _no getVariable ""D_SIDE""] select (_no distance2D player < 9);" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_curside 2"", _curside];" \n "};" \n "" \n "if (!_progon && {_curside != """" && {_curside != d_own_side}}) then {" \n "	_wf = _no;" \n "	if (_debugme) then {" \n "		diag_log [time, ""CampDialog"", ""_wf"", _wf];" \n "	};" \n "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n "	_progon = true;" \n "};" \n "";
+				InitCode="// create dialog" \n "private _curside = if (_no distance2D player < 9) then {" \n "	_no getVariable ""D_SIDE""" \n "} else {" \n "	""""" \n "};" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""_curside 2"", _curside];" \n "};" \n "" \n "if (!_progon && {_curside != """" && {_curside != d_own_side}}) then {" \n "	_wf = _no;" \n "	if (_debugme) then {" \n "		diag_log [time, ""CampDialog"", ""_wf"", _wf];" \n "	};" \n "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n "	_progon = true;" \n "};" \n "";
 			};
 		};
 	};
@@ -283,7 +283,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=10;
-				InitCode="// close dialog" \n "if (_progon) then {" \n "	""d_ProgressBar"" cutText ["""", ""PLAIN""];" \n "	_progon = false;" \n "};" \n "_timenow = time + 2;" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""CloseDialog""];" \n "};" \n "" \n "if (d_database_found && {alive player && {!(player getVariable ""xr_pluncon"") && {_curside == d_own_side && {!(player getVariable [""ace_isunconscious"", false])}}}}) then {" \n "	[player, 2] remoteExecCall [""d_fnc_addppoints"", 2];" \n "};" \n "";
+				InitCode="// close dialog" \n "if (_progon) then {" \n "	""d_ProgressBar"" cutText ["""", ""PLAIN""];" \n "	_progon = false;" \n "};" \n "_timenow = time + 2;" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""CloseDialog""];" \n "};" \n "" \n "if (d_database_found && {alive player && {!(player getVariable ""xr_pluncon"") && {_curside == d_own_side && {!(player getVariable [""ace_isunconscious"", false])}}}}) then {" \n "	[player, 2] remoteExecCall [""d_fnc_addppoints"", 2];" \n "};" \n "";
 			};
 		};
 	};
@@ -349,7 +349,7 @@ class GraphItems
 			Text="";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -373,7 +373,7 @@ class GraphItems
 		{
 			Text="Update Dialog";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -381,7 +381,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=14;
-				InitCode="[_wf] spawn d_fnc_ProgBarCall;" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""ProgbarCall""];" \n "};" \n "" \n "_timenow = time + 1;";
+				InitCode="[_wf] spawn d_fnc_ProgBarCall;" \n "" \n "if (_debugme) then {" \n "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""ProgbarCall""];" \n "};" \n "" \n "_timenow = time + 1;";
 			};
 		};
 	};
@@ -616,10 +616,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=26;
-	Top=26;
-	Right=986;
-	Bottom=744;
+	Left=52;
+	Top=52;
+	Right=1012;
+	Bottom=770;
 	ShowCmd=3;
 	SplitPos=858;
 };
