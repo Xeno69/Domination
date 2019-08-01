@@ -7,7 +7,7 @@ params ["_unit", "", "_uid", "_name"];
 
 __TRACE_1("","_this")
 
-if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {_name == "__SERVER__" || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}) exitWith {false};
+if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name == "__SERVER__" || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}}) exitWith {false};
 
 #ifndef __TT__
 private _abl = _unit getVariable "d_blocks_arty";

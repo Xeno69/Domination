@@ -12,6 +12,8 @@ if (_name == "__SERVER__") exitWith {
 	diag_log ["DOM playerdisconnected, Server disconnect: _this", _this];
 };
 
+if (_uid isEqualTo "") exitWith {};
+
 if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}) exitWith {
 	diag_log ["DOM playerdisconnected, headless client disconnect: _this", _this];
 	0 spawn {
