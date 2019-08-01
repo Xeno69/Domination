@@ -22,6 +22,13 @@ if (_pl isKindOf "HeadlessClient_F") exitWith {
 
 private _uid = getPlayerUID _pl;
 
+if (_uid isEqualTo "") exitWith {
+	diag_log "Domination ATTENTION!!!!!! A player connected with an empty UID";
+	diag_log ["_this", _this];
+	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
+	diag_log "This may break scripts!!!!";
+};
+
 if (_pl isKindOf "VirtualSpectator_F") exitWith {
 	if (d_database_found) then {
 		d_virtual_spectators pushBack _uid;

@@ -21,6 +21,7 @@ Changelogs
 - Fixed: In the TT version messages for capturing camps were gone
 - Changed: Server param "Armor at side missions" changed, available is "Normal", Less" and "None" now (d_WithLessArmor_side, 0 = normal, 1 = less, 2 = none)
 - Changed: If a player respawns at a MHQ and there is no ammobox dropped or nearby then he respawns with the same weapons and ammo as he/she had when he/she died
+- Changed: Do stop initPlayerServer if a player connects without a unit ("WARNING: Function 'name' - d_xxxxx has no unit" happens before that and breaks stuff)
 
 4.01
 
