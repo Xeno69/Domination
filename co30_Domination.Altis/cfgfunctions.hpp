@@ -168,6 +168,7 @@ class cfgFunctions {
 			addc(vdhandler);
 			addc(arsenal_mod_rem);
 			addc(gmcwgextrac);
+			addc(remplnounit);
 		};
 		class Dom_UI {
 			file = "clientui";

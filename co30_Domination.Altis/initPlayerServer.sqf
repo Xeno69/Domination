@@ -22,11 +22,14 @@ if (_pl isKindOf "HeadlessClient_F") exitWith {
 
 private _uid = getPlayerUID _pl;
 
-if (_uid isEqualTo "") exitWith {
-	diag_log "Domination ATTENTION!!!!!! A player connected with an empty UID";
+if (isNull _pl || {_uid isEqualTo ""}) exitWith {
+	diag_log "Domination ATTENTION!!!!!! A player connected as null object or with an empty UID";
 	diag_log ["_this", _this];
 	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
 	diag_log "This may break scripts!!!!";
+	if (!isNull _pl) then {
+		remoteExecCall ["d_fnc_remplnounit", _pl];
+	};
 };
 
 if (_pl isKindOf "VirtualSpectator_F") exitWith {

@@ -467,6 +467,7 @@ if (isServer) then {
 	publicVariable "d_points_array";
 #endif
 	
+	addMissionEventHandler ["PlayerConnected", {_this call d_fnc_playerconnected}];
 	addMissionEventHandler ["PlayerDisconnected", {_this call d_fnc_playerdisconnected}];
 	
 	addMissionEventHandler ["HandleDisconnect", {_this call d_fnc_handledisconnect}];
