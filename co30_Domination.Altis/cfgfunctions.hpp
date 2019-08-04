@@ -507,6 +507,7 @@ class cfgFunctions {
 			addc(ttpvkill);
 			addc(gmcwgextra);
 			addc(maketarget_names);
+			addc(playerconnected);
 		};
 		class Dom_PrePostInit {
 			file = "init";

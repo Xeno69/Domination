@@ -9,7 +9,7 @@ private _cfg = configFile >> "CfgVehicles";
 for "_i" from 0 to ((count _cfg) -1) do {
 	if (isClass (_cfg select _i)) then {
 		private _cfgName = configName (_cfg select _i);
-		if (_cfgName isKindOf "Car" && {getNumber ((_cfg select _i) >> "scope") == 2 && {getNumber ((_cfg select _i) >> "side") >= 3}}) then {
+		if (_cfgName isKindOf "Car" && {getNumber ((_cfg select _i) >> "scope") == 2 && {getNumber ((_cfg select _i) >> "side") >= 3 && {getNumber ((_cfg select _i) >> "isUav") == 0}}}) then {
 			__TRACE_1("","_cfgName")
 			d_radio_carlist pushBack _cfgname;
 		};
