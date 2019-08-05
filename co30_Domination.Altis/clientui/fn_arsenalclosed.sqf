@@ -18,5 +18,5 @@ if (d_with_ranked) then {
 	call d_fnc_store_rwitems;
 };
 if (player getVariable ["d_currentvisionmode", 0] == 1 && {player call d_fnc_hasnvgoggles}) then {
-	player action ["NVGoggles",player];
+	player action ["NVGoggles", player];
 };

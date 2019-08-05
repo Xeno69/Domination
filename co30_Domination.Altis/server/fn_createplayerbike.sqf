@@ -20,6 +20,6 @@ if (_b_mode != 1) then {
 		_ar = _ar - [objNull];
 	};
 	_ar pushBack _vec;
-	_unit getVariable ["d_all_p_vecs_s", _ar];
+	_unit setVariable ["d_all_p_vecs_s", _ar];
 };
 addToRemainsCollector [_vec];
