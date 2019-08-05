@@ -190,7 +190,7 @@ for "_i" from 1 to _nrcamps do {
 
 	sleep 0.5;
 	
-	if (random 100 > 30) then {
+	if (random 100 > 20) then {
 		["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
 	};
 };
