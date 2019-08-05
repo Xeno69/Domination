@@ -508,6 +508,7 @@ class cfgFunctions {
 			addc(gmcwgextra);
 			addc(maketarget_names);
 			addc(playerconnected);
+			addc(weatherserver);
 		};
 		class Dom_PrePostInit {
 			file = "init";

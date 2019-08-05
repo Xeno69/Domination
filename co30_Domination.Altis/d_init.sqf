@@ -348,7 +348,7 @@ if (isServer) then {
 	};
 #endif
 	
-	if (d_weather == 0) then {execFSM "fsms\fn_WeatherServer.fsm"};
+	if (d_weather == 0) then {0 spawn d_fnc_weatherserver};
 	if (d_with_targetselect == 1 || {d_tt_ver}) then {
 		if (d_MainTargets_num > count d_target_names) then {
 			d_MainTargets_num = count d_target_names;
