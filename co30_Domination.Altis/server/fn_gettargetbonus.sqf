@@ -196,7 +196,7 @@ if (!isNull _vec2) then {
 
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setDir _dir;
-_vec setVariable ["d_WreckMaxRepair", "d_WreckMaxRepair", true];
+_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 [_vec, "d_prebo"] call d_fnc_setekmode;
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
@@ -223,7 +223,7 @@ if (unitIsUAV _vec) then {
 if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
 	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
-	_vec2 setVariable ["d_WreckMaxRepair", "d_WreckMaxRepair", true];
+	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	[_vec2, "d_prebo"] call d_fnc_setekmode;
 	if (d_with_ranked) then {
 		clearWeaponCargoGlobal _vec2;

@@ -24,6 +24,7 @@ Changelogs
 - Changed: Do stop initPlayerServer if a player connects without a unit ("WARNING: Function 'name' - d_xxxxx has no unit" happens before that and breaks stuff)
 - Fixed: Don't play ambient radio chatter for UAVs
 - Changed: Boats (d_boat_xx) now use d_fnc_vehirespawn instead of a FSM (check 3.97 changelog for respawn params)
+- Fixed: d_WreckMaxRepair was saved as string instead of number to vehicle object space
 
 4.01
 
