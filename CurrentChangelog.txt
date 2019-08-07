@@ -1,5 +1,6 @@
 4.03
 
 - Changed: Better handling for enemy near MHQ trigger (no more format)
-- Changed: Rewrote camp creation code
+- Changed: Rewrote camp and barracks creation code
+- Changed: Camp capture FSMs have now exactly the same code as in 3.99s
 - Changed: Removed disableRemoteSensors again
