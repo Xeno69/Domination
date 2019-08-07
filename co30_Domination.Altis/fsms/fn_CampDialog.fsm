@@ -10,8 +10,8 @@ item5[] = {"Delay",4,218,-200.000000,-50.000000,-100.000000,0.000000,0.000000,"D
 item6[] = {"__count__no____",4,218,-50.000000,325.000000,50.000000,375.000000,1.000000,"(count _no) == 0"};
 item7[] = {"Delay",4,218,-200.000000,225.000000,-100.000000,275.000000,0.000000,"Delay"};
 item8[] = {"_curside____d_own",4,218,-50.000000,175.000000,50.000000,225.000000,1.000000,"_curside != d_own_side"};
-item9[] = {"Create_Dialog",2,4346,-50.000000,250.000000,50.000000,300.000000,0.000000,"Create Dialog"};
-item10[] = {"Close_Dialog",2,250,-50.000000,400.000000,50.000000,450.000000,0.000000,"Close Dialog"};
+item9[] = {"Create_Dialog",2,250,-50.000000,250.000000,50.000000,300.000000,0.000000,"Create Dialog"};
+item10[] = {"Close_Dialog",2,4346,-50.000000,400.000000,50.000000,450.000000,0.000000,"Close Dialog"};
 item11[] = {"",7,210,146.000000,421.000000,154.000000,429.000000,0.000000,""};
 item12[] = {"",7,210,146.000000,-104.000000,154.000000,-96.000000,0.000000,""};
 item13[] = {"_",8,218,-200.000000,300.000000,-100.000000,350.000000,0.000000,""};
@@ -34,8 +34,8 @@ link14[] = {11,12};
 link15[] = {12,1};
 link16[] = {13,14};
 link17[] = {14,7};
-globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-460.089508,243.872589,502.528107,-222.385300,840,1254,1};
-window[] = {2,-1,-1,-1,-1,770,52,1012,52,3,858};
+globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-460.089508,243.872589,502.528107,-222.385300,682,1245,1};
+window[] = {0,-1,-1,-1,-1,1010,-405,555,292,1,700};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -51,8 +51,7 @@ class FSM
                          "private _progon = false;" \n
                          "private _wf = objNull;" \n
                          "private _timenow = time + 17;" \n
-                         "" \n
-                         "private _debugme = false;"/*%FSM</STATEINIT""">*/;
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -85,10 +84,6 @@ class FSM
                          "		_no = _x;" \n
                          "	};" \n
                          "	_ret" \n
-                         "};" \n
-                         "" \n
-                         "if (_debugme) then {" \n
-                         "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""_no"", _no];" \n
                          "};" \n
                          "" \n
                          "_timenow = time + 3;"/*%FSM</STATEINIT""">*/;
@@ -126,11 +121,6 @@ class FSM
                         name = "Create_Check_Sid";
                         itemno = 4;
                         init = /*%FSM<STATEINIT""">*/"private _curside = _no getVariable [""D_SIDE"", d_own_side];" \n
-                         "" \n
-                         "if (_debugme) then {" \n
-                         "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""_curside"", _curside];" \n
-                         "};" \n
-                         "" \n
                          "_timenow = time + 3;" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -167,21 +157,10 @@ class FSM
                         name = "Create_Dialog";
                         itemno = 9;
                         init = /*%FSM<STATEINIT""">*/"// create dialog" \n
-                         "private _curside = if (_no distance2D player < 9) then {" \n
-                         "	_no getVariable ""D_SIDE""" \n
-                         "} else {" \n
-                         "	""""" \n
-                         "};" \n
-                         "" \n
-                         "if (_debugme) then {" \n
-                         "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""_curside 2"", _curside];" \n
-                         "};" \n
+                         "private _curside = ["""", _no getVariable ""D_SIDE""] select (_no distance2D player < 9);" \n
                          "" \n
                          "if (!_progon && {_curside != """" && {_curside != d_own_side}}) then {" \n
                          "	_wf = _no;" \n
-                         "	if (_debugme) then {" \n
-                         "		diag_log [time, ""CampDialog"", ""_wf"", _wf];" \n
-                         "	};" \n
                          "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n
                          "	_progon = true;" \n
                          "};" \n
@@ -226,10 +205,6 @@ class FSM
                          "};" \n
                          "_timenow = time + 2;" \n
                          "" \n
-                         "if (_debugme) then {" \n
-                         "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""CloseDialog""];" \n
-                         "};" \n
-                         "" \n
                          "if (d_database_found && {alive player && {!(player getVariable ""xr_pluncon"") && {_curside == d_own_side && {!(player getVariable [""ace_isunconscious"", false])}}}}) then {" \n
                          "	[player, 2] remoteExecCall [""d_fnc_addppoints"", 2];" \n
                          "};" \n
@@ -257,10 +232,6 @@ class FSM
                         name = "Update_Dialog";
                         itemno = 14;
                         init = /*%FSM<STATEINIT""">*/"[_wf] spawn d_fnc_ProgBarCall;" \n
-                         "" \n
-                         "if (_debugme) then {" \n
-                         "	diag_log [time, ""CampDialog"", ""_wf"", _wf, ""ProgbarCall""];" \n
-                         "};" \n
                          "" \n
                          "_timenow = time + 1;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
