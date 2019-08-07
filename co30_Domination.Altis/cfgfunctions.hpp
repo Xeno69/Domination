@@ -256,9 +256,9 @@ class cfgFunctions {
 			addc(isveclocked);
 			addc(worldboundscheck);
 			addc(getranpointcircle);
-			addc(getranpointcirclenoslope);
 			addc(getranpointcircleold);
 			addc(getranpointcirclebig);
+			addc(getranpointcirclebigarray);
 			addc(getranpointcircleouter);
 			addc(getranpointsquare);
 			addc(getranpointouterair);
@@ -467,7 +467,6 @@ class cfgFunctions {
 			addc(makemgroup);
 			addc(outofbounds);
 			addc(makepatrolwpx);
-			addc(makepatrolwpx2);
 			addc(delvecandcrew);
 			addc(checkmtshothd);
 			addc(checkmthardtarget);

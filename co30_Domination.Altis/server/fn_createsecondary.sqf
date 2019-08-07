@@ -9,13 +9,13 @@ __TRACE_1("","_this")
 
 params ["_wp_array", "_mtradius", "_trg_center"];
 
-sleep 3.120;
+sleep 2.120;
 
 private _mtmhandle = _wp_array spawn d_fnc_getmtmission;
 
 waitUntil {sleep 0.321; scriptDone _mtmhandle};
 
-sleep 3.0123;
+sleep 2.0123;
 
 private _poss = [_trg_center, _mtradius, 3, 1, 0.3, 30, 0] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
@@ -50,7 +50,7 @@ sleep 1;
 sleep 2.234;
 #else
 [56] call d_fnc_DoKBMsg;
-sleep 3.234;
+sleep 2.234;
 #endif
 
 d_mt_spotted = false;
@@ -61,7 +61,7 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
-sleep 3.234;
+sleep 2.234;
 #ifndef __TT__
 private "_nrcamps";
 if (d_enemy_max_camps_count != -1 ) then {
@@ -87,77 +87,53 @@ private _dist_for_points = -1;
 
 private _isFirstCamp = true;
 
+private _parray = [_trg_center, d_cur_target_radius + 200, 4, 1, 0.3, _sizecamp - 2, 0] call d_fnc_GetRanPointCircleBigArray;
+
 for "_i" from 1 to _nrcamps do {
-	if (_isFirstCamp && {d_first_enemy_camp_near_target_center == 1}) then {
+	private _wf = objNull;
+	private _poss =+ _trg_center;
+	
+	if (d_first_enemy_camp_near_target_center == 1 && {_isFirstCamp}) then {
 		//try to place the first camp very close (10m) to the center of the target
-		_poss = [_trg_center, 10, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-		__TRACE_1("1","_poss")
+		_poss set [2, 0];
+		_wf = createVehicle [d_wcamp, _poss, [], 10, "NONE"];
+		_wf setDir (_wf getDir _trg_center);
+		_poss = getPosASL _wf;
 		_isFirstCamp = false;
 	} else {
-		_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-		__TRACE_1("2","_poss")
-	};
-	__TRACE_1("","_isFirstCamp")
-	_iccount = 0;
-	while {_poss isEqualTo []} do {
-		_iccount = _iccount + 1;
-		_poss = [_trg_center, _mtradius, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-		if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
-	};
-	__TRACE_1("3","_poss")
-	if (isNil "_poss" || {_poss isEqualTo []}) then {
-		_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
-	};
-	_poss set [2, 0];
-	__TRACE_1("4","_poss")
-	private _wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
-	sleep 0.5;
-	__TRACE_1("","_wf")
-	_wf setDir floor random 360;
-	private _nnpos = getPosASL _wf;
-	_nnpos set [2, 0];
-	__TRACE_1("1","_nnpos")
-	__TRACE_1("","d_currentcamps")
-	if !(d_currentcamps isEqualTo []) then {
-		private _doexit = false;
-		private _xcountx = 0;
-		while {_xcountx < 50} do {
-			__TRACE_1("","_xcountx")
-			private _wfokc = 0;
-			{
-				__TRACE_2("","_nnpos","_x")
-				if (!(_nnpos isEqualTo []) && {_nnpos distance2D _x > 130}) then {_wfokc = _wfokc + 1};
-			} forEach d_currentcamps;
-			__TRACE_1("","_wfokc")
-			if (_wfokc != count d_currentcamps) then {
-				private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-				__TRACE_1("1","_tnnpos")
-				if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
-			} else {
-				if (_wf distance2D _nnpos > 130) then {
-					_poss = _nnpos;
-					_doexit = true;
-				} else {
-					private _tnnpos = [_nnpos, _mtradius / 2, 4, 1, 0.3, _sizecamp, 0] call d_fnc_GetRanPointCircleBig;
-					__TRACE_1("2","_tnnpos")
-					if !(_tnnpos isEqualTo []) then {_nnpos = _tnnpos};
+		private _idx = floor random (count _parray);
+		_poss = _parray select _idx;	
+		__TRACE_1("1","_poss")
+		
+		if !(d_currentcamps isEqualTo []) then {
+			private _fidx = d_currentcamps findIf {_x distance2D _poss < 115};
+			if (_fidx != -1) then {
+				private _icounter = 0;
+				while {_icounter < 50 || {_fidx != -1}} do {
+					_idx = floor random (count _parray);
+					_poss = _parray select _idx;
+					_fidx = d_currentcamps findIf {_x distance2D _poss < 115};
+					_icounter = _icounter + 1;
 				};
 			};
-			if (_doexit) exitWith {};
-			_xcountx = _xcountx + 1;
 		};
+		
 		_poss set [2, 0];
-		_wf setPos _poss;
-	} else {
-		_poss = _nnpos;
+		_wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
+		_wf setDir (_wf getDir _trg_center);
+		sleep 0.5;
+		__TRACE_1("1111","_wf")
+		
+		_parray deleteAt _idx;
 	};
+
 	__TRACE_1("5","_poss")
 	if (d_with_ranked || {d_database_found}) then {
 		if (_dist_for_points < _wf distance2D _trg_center) then {
 			_dist_for_points = _wf distance2D _trg_center;
 		};
+		__TRACE_1("","_dist_for_points")
 	};
-	__TRACE_1("","_dist_for_points")
 	d_currentcamps pushBack _wf;
 	_wf setVariable ["d_SIDE", d_enemy_side, true];
 	_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
@@ -175,7 +151,7 @@ for "_i" from 1 to _nrcamps do {
 	private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 	_flagPole setPos _fwfpos;
 	_wf setVariable ["d_FLAG", _flagPole, true];
-	private _maname = format["d_camp_%1", _i];
+	private _maname = format ["d_camp_%1", _wf];
 	__TRACE_2("","_i","_maname")
 	[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 	_wf setVariable ["d_camp_mar", _maname];
@@ -190,7 +166,7 @@ for "_i" from 1 to _nrcamps do {
 
 	sleep 0.5;
 	
-	if (random 100 > 20) then {
+	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 20}) then {
 		["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
 	};
 };

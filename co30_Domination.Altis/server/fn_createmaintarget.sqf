@@ -80,44 +80,36 @@ d_groups_respawn_time_add = 0;
 d_num_barracks_objs = ((ceil random 7) max 4) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
+
+private _parray = [_trg_center, d_cur_target_radius + 100, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBigArray;
+
 private ["_iccount", "_ecounter", "_poss"];
-private _vec = [0,0,0];
+private _vec = objNull;
 private _allbars = [];
 private _doexit = false;
 d_bara_trig_ar = [];
-for "_i" from 1 to d_num_barracks_objs do {
-	_ecounter = 0;
-	while {true} do {
-		_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
-		if (_poss isEqualTo []) then {
-			_iccount = 0;
-			while {_poss isEqualTo []} do {
-				_iccount = _iccount + 1;
-				_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBig;
-				if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
-			};
-		};
-		_doexit = false;
-		if !(_allbars isEqualTo []) then {
-			if (_allbars findIf {_poss distance2D _vec < 120} == -1) then {
-				_doexit = true;
-			};
-		} else {
-			_doexit = true;
-		};
-		_ecounter = _ecounter + 1;
-		if (_doexit || {_ecounter == 50}) exitWith {};
-	};
-	if (isNil "_poss" || {_poss isEqualTo []}) then {
-		_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
-	};
-	_poss set [2, 0];
 
+for "_i" from 1 to d_num_barracks_objs do {
+	private _idx = floor random (count _parray);
+	_poss = _parray select _idx;	
+	__TRACE_1("1","_poss")
+	
+	if !(_allbars isEqualTo []) then {
+		private _fidx = _allbars findIf {_x distance2D _poss < 115};
+		if (_fidx != -1) then {
+			private _icounter = 0;
+			while {_icounter < 50 || {_fidx != -1}} do {
+				_idx = floor random (count _parray);
+				_poss = _parray select _idx;
+				_fidx = _allbars findIf {_x distance2D _poss < 115};
+				_icounter = _icounter + 1;
+			};
+		};
+	};
+	
+	_poss set [2, 0];
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
-	_allbars pushBack _vec;
-	__TRACE_1("d_barracks_building","_vec")
-	_vec setPos _poss;
-	//_vec setVectorUp (surfaceNormal _poss);
+	_vec setDir (_vec getDir _trg_center);
 	_vec setVectorUp [0, 0, 1];
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _trig = [_vec, [40, 40, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
@@ -125,6 +117,13 @@ for "_i" from 1 to d_num_barracks_objs do {
 	d_bara_trig_ar pushBack _trig;
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
+	sleep 0.5;
+	__TRACE_1("1111","_vec")
+	
+	_parray deleteAt _idx;
+	
+	_allbars pushBack _vec;
+	
 	sleep 0.2;
 };
 d_num_barracks_objs = count d_mt_barracks_obj_ar;
@@ -137,38 +136,26 @@ publicVariable "d_num_barracks_tt";
 #endif
 
 #ifndef __TT__
-_ecounter = 0;
-	while {true} do {
-	_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
-	if (_poss isEqualTo []) then {
-		_iccount = 0;
-		while {_poss isEqualTo []} do {
-			_iccount = _iccount + 1;
-			_poss = [_trg_center, _radius, 4, 1, 0.3, sizeOf d_vehicle_building, 0] call d_fnc_GetRanPointCircleBig;
-			if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
-		};
-	};
-	_doexit = false;
-	if !(_allbars isEqualTo []) then {
-		if (_allbars findIf {_poss distance2D _vec < 120} == -1) then {
-			_doexit = true;
-		};
-	} else {
-		_doexit = true;
-	};
-	_ecounter = _ecounter + 1;
-	if (_doexit || {_ecounter == 50}) exitWith {};
-};
-if (isNil "_poss" || {_poss isEqualTo []}) then {
-	_poss = [_trg_center, _radius] call d_fnc_getranpointcircle;
-};
-_poss set [2, 0];
+private _idx = floor random (count _parray);
+_poss = _parray select _idx;	
+__TRACE_1("1","_poss")
 
+if !(_allbars isEqualTo []) then {
+	private _fidx = _allbars findIf {_x distance2D _poss < 115};
+	if (_fidx != -1) then {
+		private _icounter = 0;
+		while {_icounter < 50 || {_fidx != -1}} do {
+			_idx = floor random (count _parray);
+			_poss = _parray select _idx;
+			_fidx = _allbars findIf {_x distance2D _poss < 115};
+			_icounter = _icounter + 1;
+		};
+	};
+};
 _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
-_vec setPos _poss;
 _vec setVectorUp [0, 0, 1];
-_vec setVariable ["d_v_pos", _poss];
+_vec setVariable ["d_v_pos", getPos _vec];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;

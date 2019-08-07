@@ -9,6 +9,12 @@
 // example: _random_point = [position trigger1, 200] call d_fnc_GetRanPointCircle;
 __TRACE_1("","_this")
 params ["_rcenter", "_rradius", ["_mindist", 2], ["_maxgrad", 0.7], ["_gradar", 4]];
+
+if (_rcenter isEqualTo []) exitWith {
+	diag_log ["getranpointcircle, _rcenter is empty", _this];
+	[]
+};
+
 __TRACE_2("","_rcenter","_rradius")
 private _ret_val = [];
 for "_co" from 0 to 99 do {

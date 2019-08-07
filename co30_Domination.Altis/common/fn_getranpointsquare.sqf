@@ -8,9 +8,15 @@
 // center position, a and b (like in triggers), angle
 // example: _random_point  = [position trigger2, 200, 300, 30] call d_fnc_GetRanPointSquare;
 params ["_pos", "_a", "_b", "_angle"];
+
+if (_pos isEqualTo []) exitWith {
+	diag_log ["getranpointsquare, pos is an empty array", _this];
+	[]
+};
+
 _pos params ["_centerx", "_centery"];
 private _ret_val = [];
-for "_co" from 0 to 99 do {
+for "_co" from 0 to 150 do {
 	private _px1 = (_centerx - _a) + random (2 * _a);
 	private _py1 = (_centery - _b) + random (2 * _b);
 	private _radius = _pos distance2D [_px1, _py1];

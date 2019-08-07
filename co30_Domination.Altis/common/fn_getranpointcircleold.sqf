@@ -5,6 +5,11 @@
 
 // no slope check, for patrolling
 params ["_center", "_radius"];
+
+if (_center isEqualTo []) exitWith {
+	diag_log ["getranpointcircleold, _center is empty", _this];
+};
+
 private _ret_val = [];
 for "_co" from 0 to 99 do {
 	private _npos = _center getPos [_radius * sqrt random 1, random 360];

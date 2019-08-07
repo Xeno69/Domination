@@ -8,6 +8,12 @@
 // center position, radius of the circle
 // example: _random_point = [position trigger1, 200] call d_fnc_GetRanPointCircleOuter;
 params ["_center", "_radius"];
+
+if (_center isEqualTo []) exitWith {
+	diag_log ["getranpointcircleouter, _center is empty", _this];
+	[]
+};
+
 private _ret_val = [];
 for "_co" from 0 to 99 do {
 	private _isFlat = (_center getPos [_radius, random 360]) isFlatEmpty [

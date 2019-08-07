@@ -269,6 +269,16 @@ if (hasInterface) then {
 			20, // points a Squad Leader needs for CAS
 			20  // points a player gets for bringing a wreck to the repair point
 		];
+	} else {
+		if (count d_ranked_a < 24) then {
+			if (count d_ranked_a == 22) then {
+				d_ranked_a append [20, 20];
+			} else {
+				if (count d_ranked_a == 23) then {
+					d_ranked_a pushBack 20;
+				};
+			};
+		};
 	};
 
 	// distance a player has to transport others to get points

@@ -4,8 +4,6 @@
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom init.sqf"];
 
-disableRemoteSensors true;
-
 if (isMultiplayer && {hasInterface}) then {
 	enableRadio false;
 	showChat false;

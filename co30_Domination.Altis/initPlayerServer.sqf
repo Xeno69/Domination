@@ -133,6 +133,10 @@ if (d_database_found) then {
 		_uidscores = isNil {d_player_store getVariable (_uid + "_scores")};
 		__TRACE_1("","_uidscores")
 #endif
+		if (isNil "d_set_pl_score_db") then {
+			d_set_pl_score_db = true;
+			publicVariable "d_set_pl_score_db";
+		};
 		if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
 			__TRACE("Adding score");
 			__TRACE_1("","_dbresult select 0")
@@ -142,9 +146,17 @@ if (d_database_found) then {
 				scriptName "spawn_init_playerserver";
 				params ["_pl", "_ar"];
 				sleep 10;
+				if (isNull _pl) exitWith {
+					diag_log ["initPlayerServer spawn_init_playerserver, _pl is null", "_pl", _pl, "_ar", _ar];
+				};
 				private _plsar = getPlayerScores _pl;
 				__TRACE_1("","_plsar")
-				_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
+				if (!(_plsar isEqualTo []) && {!(_ar isEqualTo [])}) then {
+					_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
+				} else {
+					diag_log ["initPlayerServer spawn_init_playerserver, _plsar or _ar empty", "_plsar", _plsar, "_ar", _ar];
+				};
+				if (_ar isEqualTo []) exitWith {};
 				__TRACE_1("","getPlayerScores _pl")
 				__TRACE_1("","score _pl")
 				sleep 1;

@@ -1,22 +1,27 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getranpointcirclebig.sqf"
+#define THIS_FILE "fn_getranpointcirclebigarray.sqf"
 #include "..\x_setup.sqf"
 
-// get a random point inside a circle for bigger objects
+// get an array of random points inside a circle for bigger objects
 // parameters:
 // center position, radius of the circle
-// example: _random_point = [position trigger1, 200] call d_fnc_GetRanPointCircleBig;
+// example: _random_point = [position trigger1, 200] call d_fnc_GetRanPointCircleBigArray;
 
 params ["_center", "_radius", ["_mindist", 4], ["_checkpos", -1], ["_maxgradient", 0.5], ["_gradientar", 13], ["_water", 0], ["_waterin25", false], ["_ignoreobj", objNull]];
 
 if (_center isEqualTo []) exitWith {
-	diag_log ["getranpointcirclebig, _center is empty", _this];
+	diag_log ["getranpointcirclebigarray, _center is empty", _this];
 	[]
 };
 
 private _ret_val = [];
-for "_co" from 0 to 99 do {
+#ifdef __DEBUG__
+private _co = 0;
+#endif
+private _timeend = time + 10;
+while {count _ret_val < 50} do {
+//for "_co" from 0 to 149 do {
 	private _isFlat = (_center getPos [_radius * sqrt random 1, random 360]) isFlatEmpty [
 		_mindist,	//--- Minimal distance from another object was 9 before
 		_checkpos,				//--- If 0, just check position. If >0, select new one // 0
@@ -27,10 +32,20 @@ for "_co" from 0 to 99 do {
 		_ignoreobj			//--- Ignored object
 	];
 	//if (!(_isFlat isEqualTo []) && {!isOnRoad _isFlat && {count (_isFlat nearRoads 20) > 0}}) exitWith {
-	if (!(_isFlat isEqualTo []) && {!isOnRoad _isFlat}) exitWith {
-		_ret_val = ASLToATL _isFlat;
+	if (!(_isFlat isEqualTo []) && {!isOnRoad _isFlat}) then {
+		_ret_val pushBack (ASLToATL _isFlat);
+#ifdef __DEBUG__
+		_co = _co + 1;
+		if (isNil "d_mmmcoui") then {
+			d_mmmcoui = 0;
+		};
+		[format ["d_grpcba_%1", _co + d_mmmcoui], _isFlat, "ICON", "ColorBlack", [0.5, 0.5], str (_co + d_mmmcoui), 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+#endif
 	};
+	if (time > _timeend) exitWith {};
 };
-if (_ret_val isEqualTo []) then {_ret_val = _center};
-__TRACE_1("","_ret_val")
+#ifdef __DEBUG
+d_mmmcoui = d_mmmcoui + 50;
+#endif
+__TRACE_2("","count _ret_val","_ret_val")
 _ret_val

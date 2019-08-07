@@ -37,25 +37,26 @@ if (surfaceIsWater (d_enemyai_respawn_pos # 0)) then {
 		_incdir = _incdir * -1;
 	};
 	
-	if (surfaceIsWater _tmppos) then {
+	if ((_tmppos isEqualTo []) || {surfaceIsWater _tmppos}) then {
 		_tmppos = d_cur_tgt_pos;
 	};
 	
 	d_enemyai_respawn_pos set [0, _tmppos];
-	_dirn = d_cur_tgt_pos getDir _tmppos;
-	_dirn = _dirn + 180;
-	d_enemyai_respawn_pos set [2, _dirn];
+	d_enemyai_respawn_pos set [2, (d_cur_tgt_pos getDir _tmppos) + 180];
 };
 
 d_enemyai_mt_camp_pos = [d_enemyai_respawn_pos # 0, 600, 400, d_enemyai_respawn_pos # 1] call d_fnc_GetRanPointSquare;
 if (d_enemyai_mt_camp_pos isEqualTo []) then {
 	private _al = 800;
 	private _bl = 600;
+	private _counter = 0;
 	while {true} do {
 		d_enemyai_mt_camp_pos = [d_enemyai_respawn_pos # 0, _al, _bl, d_enemyai_respawn_pos # 1] call d_fnc_GetRanPointSquare;
 		if !(d_enemyai_mt_camp_pos isEqualTo []) exitWith {};
 		_al = _al + 200;
 		_bl = _bl + 200;
+		_counter = _counter + 1;
+		if (_counter > 50) exitWith {d_enemyai_mt_camp_pos = d_cur_tgt_pos};
 		sleep 0.2;
 	};
 };
