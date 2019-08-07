@@ -106,13 +106,13 @@ for "_i" from 1 to _nrcamps do {
 		__TRACE_1("1","_poss")
 		
 		if !(d_currentcamps isEqualTo []) then {
-			private _fidx = d_currentcamps findIf {_x distance2D _poss < 115};
+			private _fidx = d_currentcamps findIf {_x distance2D _poss < 130};
 			if (_fidx != -1) then {
 				private _icounter = 0;
 				while {_icounter < 50 || {_fidx != -1}} do {
 					_idx = floor random (count _parray);
 					_poss = _parray select _idx;
-					_fidx = d_currentcamps findIf {_x distance2D _poss < 115};
+					_fidx = d_currentcamps findIf {_x distance2D _poss < 130};
 					_icounter = _icounter + 1;
 				};
 			};
