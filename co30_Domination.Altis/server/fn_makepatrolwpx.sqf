@@ -4,7 +4,6 @@
 #include "..\x_setup.sqf"
 
 // supports also patrols in square areas, including angle
-__TRACE_1("","_this")
 params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 2], ["_full", false]];
 
 __TRACE_1("","_this")
@@ -40,11 +39,12 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 		if (count _wp_array == 2) exitWith {
 			[_wp_array # 0, _wp_array # 1, _mindist] call d_fnc_GetRanPointCircle
 		};
-		if (count _wp_array == 2) exitWith {
+		if (count _wp_array == 4) exitWith {
 			_wp_array call d_fnc_GetRanPointSquare
 		};
 		[]
 	};
+	__TRACE_1("1","_wp_pos")
 	if (_wp_pos isEqualTo []) exitWith {_no_pos_found = true};
 	
 	private _counter = 0;
@@ -61,6 +61,7 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 		if (_wp_pos isEqualTo []) exitWith {};
 		_counter = _counter + 1;
 	};
+	__TRACE_1("2","_wp_pos")
 	if (_wp_pos isEqualTo []) exitWith {_no_pos_found = true};
 	
 	_wp_pos = _wp_pos call d_fnc_WorldBoundsCheck;
