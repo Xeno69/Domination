@@ -36,15 +36,17 @@ if (_isman) then {
 	__TRACE_2("","_basetime","_maxtime")
 
 	private _old_add = d_groups_respawn_time_add;
-	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 20 + d_groups_respawn_time_add;
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 10 + d_groups_respawn_time_add;
 	
 	__TRACE_1("","_endtime")
+	__TRACE_1("","d_groups_respawn_time_add")
 	
 	while {true} do {
 		sleep 1;
 		if (_old_add != d_groups_respawn_time_add) then {
 			_endtime = _endtime + (d_groups_respawn_time_add - _old_add) + random 5;
 			_old_add = d_groups_respawn_time_add;
+			__TRACE_3("111","_endtime","_old_add","d_groups_respawn_time_add")
 		};
 		_endtime = [_endtime, _maxtime] call _fnc_checktime;
 		if (time > _endtime || {d_mt_done || {d_mt_barracks_down}}) exitWith {};
@@ -58,7 +60,7 @@ if (_isman) then {
 
 	__TRACE_2("","_basetime","_maxtime")
 
-	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 40;
+	private _endtime = time + (_basetime - ((([1, count (allPlayers - (entities "HeadlessClient_F"))] select isMultiplayer) * 5) min _maxtime)) + random 30;
 
 	__TRACE_1("","_endtime")
 
