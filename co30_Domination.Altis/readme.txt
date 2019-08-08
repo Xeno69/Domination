@@ -20,6 +20,8 @@ Changelogs
 - Changed: Removed disableRemoteSensors again
 - Changed: Switched waitUntil {sleep xxx;..} to while loops
 - Added: New param "With 3D draw icon above wreck repair/ammo point:" (d_with_3Dicon), default is on (1)
+- Fixed: While remote AI units on a headless client trigger a EntityKilled eventhandler on a server immediately, the alive status of the killed unit is not updated right away,
+		this broke respawn AI groups when they were transfered to headless clients
 
 4.03
 (Interims version only)

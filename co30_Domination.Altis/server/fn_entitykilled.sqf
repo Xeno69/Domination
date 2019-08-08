@@ -51,6 +51,7 @@ if (!isNil "d_is_hc") exitWith {true};
 private _onerespk = _obj getVariable "d_onerespk";
 if (!isNil "_onerespk") then {
 	__TRACE_1("","_onerespk")
+	_obj setVariable ["d_dead", true];
 	_obj call d_fnc_onerespukilled;
 	_obj setVariable ["d_onerespk", nil];
 };
