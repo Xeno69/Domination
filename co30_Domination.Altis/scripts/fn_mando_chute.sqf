@@ -86,7 +86,7 @@ if (_is_ammo) then {
 	clearMagazineCargoGlobal _box;
 	clearBackpackCargoGlobal _box;
 	clearItemCargoGlobal _box;
-	_box remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
+	[_box] remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
 	if (isNil "d_airboxes") then {
 		d_airboxes = [];
 	};

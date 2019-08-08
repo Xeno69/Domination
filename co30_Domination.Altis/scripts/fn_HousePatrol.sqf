@@ -171,7 +171,10 @@ while {alive _unit && {(_numOfBuildingPos - count _excludedPositions) > 0}} do {
 	_unit moveTo (_house buildingPos _currentBuildingPos);
 	sleep 0.5;
 	_timeout = time + 50;
-	waitUntil {moveToCompleted _unit || {moveToFailed _unit || {!alive _unit || {_timeout < time}}}};
+	while {true} do {
+		sleep 0.1;
+		if (moveToCompleted _unit || {moveToFailed _unit || {!alive _unit || {_timeout < time}}}) exitWith {};
+	};
 	if (_timeout < time) then {_unit setPos (_house buildingPos _currentBuildingPos)};
 	
 	// DEBUGGING - move marker to new position

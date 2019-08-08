@@ -63,9 +63,15 @@ if (_side_arti_op == opfor) then {
 
 private _endtime = time + 9;
 #ifndef __TT__
-waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+while {true} do {
+	sleep 0.3;
+	if (time > _endtime || {d_arty_stopp}) exitWith {};
+};
 #else
-waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
+while {true} do {
+	sleep 0.3;
+	if (time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {};
+};
 #endif
 
 private _aop = objectFromNetId _arti_operator;
@@ -89,9 +95,15 @@ if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor &&
 
 _endtime = time + 6;
 #ifndef __TT__
-waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+while {true} do {
+	sleep 0.3;
+	if (time > _endtime || {d_arty_stopp}) exitWith {};
+};
 #else
-waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
+while {true} do {
+	sleep 0.3;
+	if (time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {};
+};
 #endif
 
 _aop = objectFromNetId _arti_operator;
@@ -106,9 +118,15 @@ if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor &&
 
 _endtime = time + 8 + random 7;
 #ifndef __TT__
-waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+while {true} do {
+	sleep 0.3;
+	if (time > _endtime || {d_arty_stopp}) exitWith {};
+};
 #else
-waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
+while {true} do {
+	sleep 0.3;
+	if (time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {};
+};
 #endif
 
 #ifndef __TT__
@@ -230,9 +248,15 @@ for "_series" from 1 to _ari_salvos do {
 
 	_endtime = time + _eta_time;
 	#ifndef __TT__
-	waitUntil {sleep 0.3; time > _endtime || {d_arty_stopp}};
+	while {true} do {
+		sleep 0.3;
+		if (time > _endtime || {d_arty_stopp}) exitWith {};
+	};
 	#else
-	waitUntil {sleep 0.3; time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}};
+	while {true} do {
+		sleep 0.3;
+		if (time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {};
+	};
 	#endif
 	
 	

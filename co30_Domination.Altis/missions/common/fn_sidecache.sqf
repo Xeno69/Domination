@@ -75,7 +75,10 @@ private _endtime = time + 2000;
 while {true} do {
 	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
 		_endtime = _endtime - time;
-		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		while {true} do {
+			sleep (1.012 + random 1);
+			if ((call d_fnc_PlayersNumber) > 0) exitWith {};
+		};
 		_endtime = time + _endtime;
 	};
 	sleep 0.1;

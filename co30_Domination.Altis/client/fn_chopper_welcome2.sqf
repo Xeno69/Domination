@@ -33,5 +33,8 @@ private _end_welcome = time + 14;
 private _t = format ["<t color='#b5f279' size='1.9'><t align='center'>%1</t><br/><br/><t color='#ffffff' size='1.5'><t align='center'>%2<br/><br/>%3<br/><br/>%4</t>", _welcome_str1, _welcome_str2, _welcome_str3, _welcome_str4];
 ((uiNamespace getVariable "d_chopper_hud") displayCtrl 9999) ctrlSetStructuredText parseText _t;
 
-waitUntil {sleep 0.223; time >= _end_welcome || {isNull objectParent player || {player != driver _vec || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+while {true} do {
+	sleep 0.223;
+	if (time >= _end_welcome || {isNull objectParent player || {player != driver _vec || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}) exitWith {};
+};
 "d_chopper_hud" cutFadeOut 0;

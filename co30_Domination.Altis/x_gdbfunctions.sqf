@@ -36,7 +36,10 @@ d_infunitswithoutleader = 0;
 d_fnc_groupmarker = {
 	scriptName "d_fnc_groupmarker";
 	params ["_grp"];
-	waitUntil {sleep 0.221;(units _grp) findIf {alive _x} > -1};
+	while {true} do {
+		sleep 0.221;
+		if ((units _grp) findIf {alive _x} > -1) exitWith {};
+	};
 	_helper = str _grp;
 	private _gname = if (_helper != "") then {_helper} else {d_gcounter = d_gcounter + 1; str d_gcounter};
 	private _mname = _gname + "dgrp";

@@ -84,7 +84,10 @@ private _kbscript = "bikb\domkba3.bikb";
 
 if (d_tt_ver || {d_own_side == "EAST"}) then {
 	if (!isServer) then {
-		waitUntil {sleep 0.1; !isNil "d_hq_logic_opfor2"};
+		while {true} do {
+			sleep 0.1;
+			if (!isNil "d_hq_logic_opfor2") exitWith {};
+		};
 	};
 	d_hq_logic_opfor1 kbAddTopic["HQ_E",_kbscript];
 	d_hq_logic_opfor1 kbAddTopic["HQ_ART_E",_kbscript];
@@ -137,7 +140,10 @@ if (d_tt_ver || {d_own_side == "EAST"}) then {
 
 if (d_tt_ver || {d_own_side == "WEST"}) then {
 	if (!isServer) then {
-		waitUntil {sleep 0.1; !isNil "d_hq_logic_blufor2"};
+		while {true} do {
+			sleep 0.1;
+			if (!isNil "d_hq_logic_blufor2") exitWith {};
+		};
 	};
 	d_hq_logic_blufor1 kbAddTopic["HQ_W",_kbscript];
 	d_hq_logic_blufor1 kbAddTopic["HQ_ART_W",_kbscript];
@@ -178,7 +184,10 @@ if (d_tt_ver || {d_own_side == "WEST"}) then {
 
 if (d_own_side == "GUER" || {d_ifa3lite}) then {
 	if (!isServer) then {
-		waitUntil {sleep 0.1; !isNil "d_hq_logic_guer2"};
+		while {true} do {
+			sleep 0.1;
+			if (!isNil "d_hq_logic_guer2") exitWith {};
+		};
 	};
 	d_hq_logic_guer1 kbAddTopic["HQ_I",_kbscript];
 	d_hq_logic_guer1 kbAddTopic["HQ_ART_I",_kbscript];
@@ -224,8 +233,10 @@ d_kb_topic_side_arti = switch (d_own_side) do {
 if (hasInterface) then {
 	sleep 1;
 	if (isMultiplayer) then {
-		waitUntil {sleep 0.220;!isNil "d_still_in_intro"};
-		waitUntil {sleep 0.220;!d_still_in_intro};
+		while {true} do {
+			sleep 0.220;
+			if (!isNil "d_still_in_intro" && {!d_still_in_intro}) exitWith {};
+		};
 	};
 	private _pside = side (group player);
 	switch (_pside) do {

@@ -98,7 +98,7 @@ for "_i" from 0 to d_civ_groupcount do {
 	
 	d_cur_tgt_civ_modules_presence pushBack _m;
 	
-	_m setVariable ["#debug", true]; // Debug mode on
+	//_m setVariable ["#debug", true]; // Debug mode on
 	 
 	_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
 	_m setVariable ["#useagents", true];

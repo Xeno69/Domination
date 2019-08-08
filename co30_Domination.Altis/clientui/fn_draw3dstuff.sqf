@@ -12,17 +12,21 @@ private _d_3draw_ar = d_3draw_ar;
 	_distp = _pos_cam distance _obj;
 	if (_distp < 250) then {
 		_cwt = _obj getVariable ["d_curreptime" , -1];
-		_tex = call {
-			if (_x # 3 == 0) exitWith {
-				"a3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa"
+		if (d_with_3Dicon == 1) then {
+			_tex = call {
+				if (_x # 3 == 0) exitWith {
+					"a3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa"
+				};
+				if (_x # 3 == 1) exitWith {
+					"a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"
+				};
+				if (_x # 3 == 2) exitWith {
+					"a3\ui_f\data\IGUI\Cfg\Actions\loadVehicle_ca.paa"
+				};
+				"#(argb,8,8,3)color(0,0,0,0)"
 			};
-			if (_x # 3 == 1) exitWith {
-				"a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"
-			};
-			if (_x # 3 == 2) exitWith {
-				"a3\ui_f\data\IGUI\Cfg\Actions\loadVehicle_ca.paa"
-			};
-			"#(argb,8,8,3)color(0,0,0,0)"
+		} else {
+			_tex = "#(argb,8,8,3)color(0,0,0,0)";
 		};
 		if (_cwt == -1) then {
 			drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, _x # 1, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
@@ -39,7 +43,11 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	if (_distp < 80) then {
 		_col = _x # 1;
 		_col set [3, 1 - (_distp / 200)];
-		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		if (d_with_3Dicon == 1) then {
+			drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		} else {
+			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		};
 	};
 } forEach (_d_all_p_a_boxes select {!isNull (_x select 0)});
 

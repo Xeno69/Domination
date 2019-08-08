@@ -79,8 +79,11 @@ while {true} do {
 	};
 	
 	__TRACE_2("","_heli_type","_numair")
-	
-	waitUntil {sleep 0.323; d_current_target_index >= 0};
+
+	while {true} do {
+		sleep 0.323;
+		if (d_current_target_index >= 0) exitWith {};
+	};
 	private _cdir = _pos getDir d_island_center;
 #ifndef __TT__
 	switch (_type) do {
@@ -121,7 +124,10 @@ while {true} do {
 	_grp allowFleeing 0;
 	_grp call d_fnc_addgrp2hc;
 	
-	waitUntil {sleep 0.323; d_current_target_index >= 0};
+	while {true} do {
+		sleep 0.323;
+		if (d_current_target_index >= 0) exitWith {};
+	};
 	private _cur_tgt_pos =+ d_cur_tgt_pos;
 	_cur_tgt_pos set [2, 0];
 	private _wp = _grp addWayPoint [d_cur_tgt_pos, 0];
@@ -132,7 +138,10 @@ while {true} do {
 	private _old_pos = [0,0,0];
 	private _xcounter = 0;
 	while {true} do {
-		waitUntil {sleep 0.323; d_current_target_index >= 0};
+		while {true} do {
+			sleep 0.323;
+			if (d_current_target_index >= 0) exitWith {};
+		};
 		_cur_tgt_pos =+ d_cur_tgt_pos;
 		_cur_tgt_pos set [2, 0];
 		

@@ -6,7 +6,10 @@
 disableSerialization;
 sleep 10;
 __TRACE_1("","uiNamespace getVariable 'IGUI_displays'")
-waitUntil {sleep 0.1; visibleGPS};
+while {true} do {
+	sleep 0.1;
+	if (visibleGPS) exitWith {};
+};
 __TRACE("starting")
 __TRACE_1("","(uiNamespace getVariable 'RscCustomInfoMiniMap')")
 __TRACE_1("","(uiNamespace getVariable 'RscCustomInfoMiniMap')  displayCtrl 101")

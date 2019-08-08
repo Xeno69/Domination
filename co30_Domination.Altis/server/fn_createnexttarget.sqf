@@ -6,8 +6,10 @@
 if (!isServer) exitWith{};
 
 sleep 3;
-
-waitUntil {sleep 0.2; (isMultiplayer && {getClientStateNumber >= 10}) || {!isMultiplayer}};
+while {true} do {
+	sleep 0.2;
+	if ((isMultiplayer && {getClientStateNumber >= 10}) || {!isMultiplayer}) exitWith {};
+};
 
 __TRACE("start")
 

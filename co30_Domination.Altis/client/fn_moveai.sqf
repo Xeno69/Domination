@@ -33,7 +33,10 @@ if (units (group player) findIf {alive _x} > -1) then {
 			};
 		};
 	} else {
-		waitUntil {(vehicle player isKindOf "ParachuteBase") || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+		while {true} do {
+			sleep 0.1;
+			if ((vehicle player isKindOf "ParachuteBase") || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
+		};
 		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
 		private _pos_p = getPos player;
 		private _veloc = velocity player;
@@ -51,7 +54,10 @@ if (units (group player) findIf {alive _x} > -1) then {
 				scriptName "spawnx_moveai_paraAI";
 				params ["_unit"];
 				sleep 0.8321;
-				waitUntil {sleep 0.111; (isNull objectParent _unit || {!alive _unit})};
+				while {true} do {
+					sleep 0.111;
+					if (isNull objectParent _unit || {!alive _unit}) exitWith {};
+				};
 				if (alive _unit && {(getPosATL _unit) # 2 > 1}) then {[_unit, 0] call d_fnc_SetHeight};
 			};
 			false

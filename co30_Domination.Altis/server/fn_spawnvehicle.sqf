@@ -37,7 +37,15 @@ if (_param4 isEqualType sideUnknown) then {
 };
 
 private "_veh";
-private _sim = toLower getText(configFile>>"CfgVehicles">>_typev1>>"simulation");
+private _cfg = configFile>>"CfgVehicles">>_typev1>>"simulation";
+
+private _sim = if (isText _cfg) then {
+	toLower getText(_cfg)
+} else {
+	private _ar = getArray (_cfg);
+	toLower (_ar # 0)
+};
+
 __TRACE_1("","_sim")
 
 if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrtd"]) then {

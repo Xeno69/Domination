@@ -13,7 +13,10 @@ sleep 2.120;
 
 private _mtmhandle = _wp_array spawn d_fnc_getmtmission;
 
-waitUntil {sleep 0.321; scriptDone _mtmhandle};
+while {true} do {
+	sleep 0.321;
+	if (scriptDone _mtmhandle) exitWith {};
+};
 
 sleep 2.0123;
 
@@ -158,6 +161,7 @@ for "_i" from 1 to _nrcamps do {
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 	
 	_wf addEventHandler ["HandleDamage", {0}];
+
 #ifndef __TT__
 	[_wf, _flagPole] execFSM "fsms\fn_HandleCamps2.fsm";
 #else

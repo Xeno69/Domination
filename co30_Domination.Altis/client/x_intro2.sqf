@@ -9,7 +9,10 @@ diag_log [diag_frameno, diag_ticktime, time, "Dom intro started"];
 enableRadio false;
 showChat false;
 
-waitUntil {sleep 0.112;!isNil "d_preloaddone"};
+while {true} do {
+	sleep 0.112;
+	if (!isNil "d_preloaddone") exitWith {};
+};
 
 private _campos = if (isNil "d_cur_tgt_pos" || {d_cur_tgt_pos isEqualTo []}) then {player} else {d_cur_tgt_pos};
 __TRACE_1("","_campos")
@@ -66,7 +69,7 @@ sleep 1;
 "d_DomLabel" cutRsc ["d_DomLabel", "PLAIN"];
 "d_ArmaLogo" cutRsc ["d_ArmaLogo", "PLAIN"];
 sleep 2;
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.03  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.04  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 waitUntil {scriptDone _bfehandle};
 enableSaving [false, false];

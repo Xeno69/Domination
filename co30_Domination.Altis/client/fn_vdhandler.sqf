@@ -15,7 +15,10 @@ sleep 5;
 private _curvd = -1;
 private _curovd = -1;
 
-waitUntil {sleep 1; !(d_cur_tgt_pos isEqualTo [])};
+while {true} do {
+	sleep 1;
+	if !(d_cur_tgt_pos isEqualTo []) exitWith {};
+};
 
 while {true} do {
 	if (!d_isvdreduced && {isNull (findDisplay 312) && {viewDistance > 600 && {isNull objectParent player && {positionCameraToWorld [0,0,0] distance2D d_cur_tgt_pos < 400}}}}) then {

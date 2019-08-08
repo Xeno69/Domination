@@ -16,7 +16,10 @@ if (player getVariable "d_bike_b_mode" == 1) then {
 	_vec spawn {
 		scriptName "spawn_x_bike_1";
 		private _vec = _this;
-		waitUntil {sleep 0.412;!alive player || {!alive _vec}};
+		while {true} do {
+			sleep 0.412;
+			if (!alive player || {!alive _vec}) exitWith {};
+		};
 		sleep 10.123;
 		while {true} do {
 			if ((crew _vec) findIf {alive _x} == -1) exitWith {deleteVehicle _vec};

@@ -68,7 +68,10 @@ if (_dospawn) then {
 	0 spawn {
 		scriptName "spawn_crewrsc";
 		private _vecp = vehicle player;
-		waitUntil {sleep 0.221;time > d_rscCrewTextShownTimeEnd || {!alive player || {player getVariable ["xr_pluncon", false] || {vehicle player != _vecp || {player getVariable ["ace_isunconscious", false]}}}}};
+		while {true} do {
+			sleep 0.221;
+			if (time > d_rscCrewTextShownTimeEnd || {!alive player || {player getVariable ["xr_pluncon", false] || {vehicle player != _vecp || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
+		};
 		"d_rscCrewText" cutFadeOut 0;
 		d_rscCrewTextShownTimeEnd = -1;
 	};

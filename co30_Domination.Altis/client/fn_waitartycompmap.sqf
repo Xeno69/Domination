@@ -4,7 +4,10 @@
 #include "..\x_setup.sqf"
 
 while {true} do {
-	waitUntil {sleep 0.3;shownArtilleryComputer};
+	while {true} do {
+		sleep 0.3;
+		if (shownArtilleryComputer) exitWith {};
+	};
 	disableSerialization;
 	private _artycomputer_map = controlNull;
 	(allDisplays + (uiNamespace getVariable "IGUI_Displays")) findIf {
@@ -19,5 +22,8 @@ while {true} do {
 		uiNamespace setVariable ["d_artycomputer_map", _artycomputer_map];
 		_artycomputer_map ctrlAddEventHandler ["Draw", {[[uiNamespace getVariable "d_artycomputer_map", 0], 0] call d_fnc_mapondraw}];
 	};
-	waitUntil {sleep 0.3;!shownArtilleryComputer};
+	while {true} do {
+		sleep 0.3;
+		if (!shownArtilleryComputer) exitWith {};
+	};
 };

@@ -215,7 +215,10 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					};
 					
 					if (!(_liftobj isKindOf "StaticWeapon") && {(getPosVisual _liftobj) # 2 < 200}) then {
-						waitUntil {sleep 0.222;(getPosVisual _liftobj) # 2 < 10};
+						while {true} do {
+							sleep 0.222;
+							if ((getPosVisual _liftobj) # 2 < 10) exitWith {};
+						};
 					} else {
 						private _npos = getPosVisual _liftobj;
 						_liftobj setPos [_npos # 0, _npos # 1, 0];

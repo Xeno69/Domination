@@ -19,9 +19,9 @@ __TRACE("Running")
 
 while {!d_mt_done} do {
 	private _next = time + 5 + (selectRandom [10, 20, 30]) + random 20;
-	waitUntil {
+	while {true} do {
 		sleep 1;
-		time > _next || {d_mt_done}
+		if (time > _next || {d_mt_done}) exitWith {};
 	};
 	
 	if (d_mt_done) exitWith {};

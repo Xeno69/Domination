@@ -162,7 +162,7 @@ d_mt_mobile_hq_obj = _vec;
 sleep 0.1;
 
 if (d_enable_civs == 1) then {
-	[_trg_center] call d_fnc_civilianmodule;
+	[_trg_center] spawn d_fnc_civilianmodule;
 };
 #endif
 

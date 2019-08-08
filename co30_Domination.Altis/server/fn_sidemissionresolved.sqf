@@ -59,7 +59,10 @@ if (d_database_found && {d_db_auto_save}) then {
 	if (!isNil "d_sm_bonus_wait") then {
 		0 spawn {
 			scriptName "spawn saveprogress2db sidemissionresolved";
-			waitUntil {isNil "d_sm_bonus_wait"};
+			while {true} do {
+				sleep 0.1;
+				if (isNil "d_sm_bonus_wait") exitWith {};
+			};
 			["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 		};
 	} else {

@@ -44,7 +44,10 @@ while {d_player_in_vec} do {
 		if (_chopttype > -1) then {
 			private _chop_welcome_scr = [_chopttype, _vec] spawn d_fnc_chopper_welcome2;
 			sleep 0.321;
-			waitUntil {sleep 0.3;scriptDone _chop_welcome_scr};
+			while {true} do {
+				sleep 0.3;
+				if (scriptDone _chop_welcome_scr) exitWith {};
+			};
 		};
 		if (_chopttype in [0,1]) then {
 			private _search_height = 0;

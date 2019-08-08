@@ -23,30 +23,30 @@ if (_cKiller call d_fnc_isplayer) then {
 	};
 };
 
-if (!isNil "_punishMe") then {
-#ifdef __DEBUG__
-	diag_log [diag_frameno, diag_ticktime, time, format ["Player (_punishMe) %1 killed a civilian.", _punishMe]];
-#endif
-	
-	d_hq_logic_blufor1 kbTell [
-		d_kb_logic2,
-		d_kb_topic_side,
-		"PenaltyKilledCivilian",
-		["1", "", _punishMe call d_fnc_getplayername, []],
-		["2", "", str d_sub_kill_civ_points, []],
-		d_kbtel_chan
-	];
+if (isNil "_punishMe") exitWith {};
 
-	//subtract penalty for killing a civilian
-	_punishMe addScore (d_sub_kill_civ_points * -1);
-	// removing for now... Not nice when the pilot of an air vehicle kills a civilian unit and all other players die because the pilot gets kicked out
-	/*if (d_punish_civ_kill == 1) then {
-		//check if killer is in a vehicle
-		//THIS IS BUGGY, if guilty user is in a vehicle the entire vehicle will explode :)
-		if (!isNull objectParent _punishMe) then {
-			//hint "ejecting";
-			_punishMe action ["Eject", vehicle _punishMe];
-		};
-		_punishMe setDamage 1;
-	};*/
-};
+#ifdef __DEBUG__
+diag_log [diag_frameno, diag_ticktime, time, format ["Player (_punishMe) %1 killed a civilian.", _punishMe]];
+#endif
+
+d_hq_logic_blufor1 kbTell [
+	d_kb_logic2,
+	d_kb_topic_side,
+	"PenaltyKilledCivilian",
+	["1", "", _punishMe call d_fnc_getplayername, []],
+	["2", "", str d_sub_kill_civ_points, []],
+	d_kbtel_chan
+];
+
+//subtract penalty for killing a civilian
+_punishMe addScore (d_sub_kill_civ_points * -1);
+// removing for now... Not nice when the pilot of an air vehicle kills a civilian unit and all other players die because the pilot gets kicked out
+/*if (d_punish_civ_kill == 1) then {
+	//check if killer is in a vehicle
+	//THIS IS BUGGY, if guilty user is in a vehicle the entire vehicle will explode :)
+	if (!isNull objectParent _punishMe) then {
+		//hint "ejecting";
+		_punishMe action ["Eject", vehicle _punishMe];
+	};
+	_punishMe setDamage 1;
+};*/

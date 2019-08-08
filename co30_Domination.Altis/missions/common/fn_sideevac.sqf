@@ -81,7 +81,14 @@ private _which_base = 0;
 #endif
 
 while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
-	if (isMultiplayer) then {waitUntil {sleep (1.012 + random 1);_pnum = call d_fnc_PlayersNumber; if (_pnum == 0) then {_resctimestarted = time};_pnum > 0}};
+	if (isMultiplayer) then {
+		while {true} do {
+			sleep (1.012 + random 1);
+			_pnum = call d_fnc_PlayersNumber;
+			if (_pnum == 0) then {_resctimestarted = time};
+			if (_pnum > 0) exitWith {};
+		};
+	};
 	if (!alive _pilot1 && {!alive _pilot2}) then {
 		_is_dead = true;
 	} else {

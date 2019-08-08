@@ -10303,6 +10303,16 @@
 <Russian>With minefield at main targets:</Russian>
 <Chinesesimp>雷区是主要目标:</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1961">
+<English>With 3D draw icon above wreck repair/ammo point:</English>
+<Spanish>With 3D draw icon above wreck repair/ammo point:</Spanish>
+<Portuguese>With 3D draw icon above wreck repair/ammo point:</Portuguese>
+<Korean>With 3D draw icon above wreck repair/ammo point:</Korean>
+<Japanese>With 3D draw icon above wreck repair/ammo point:</Japanese>
+<Original>With 3D draw icon above wreck repair/ammo point:</Original>
+<Russian>With 3D draw icon above wreck repair/ammo point:</Russian>
+<Chinesesimp>With 3D draw icon above wreck repair/ammo point:</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

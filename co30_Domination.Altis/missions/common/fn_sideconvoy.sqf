@@ -78,7 +78,10 @@ private _mforceendtime = time + 4800;
 while {true} do {
 	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
 		_mforceendtime = _mforceendtime - time;
-		waitUntil {sleep (1.012 + random 1); (call d_fnc_PlayersNumber) > 0};
+		while {true} do {
+			sleep (1.012 + random 1);
+			if ((call d_fnc_PlayersNumber) > 0) exitWith {};
+		};
 		_mforceendtime = time + _mforceendtime;
 	};
 	if (d_confvdown == _numconfv || {_allSMVecs findIf {canMove _x} == -1}) exitWith {};

@@ -12,12 +12,17 @@ Changelogs
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
-4.03
+4.04
 
 - Changed: Better handling for enemy near MHQ trigger (no more format)
 - Changed: Rewrote camp and barracks creation code
 - Changed: Camp capture FSMs have now exactly the same code as in 3.99s
 - Changed: Removed disableRemoteSensors again
+- Changed: Switched waitUntil {sleep xxx;..} to while loops
+- Added: New param "With 3D draw icon above wreck repair/ammo point:" (d_with_3Dicon), default is on (1)
+
+4.03
+(Interims version only)
 
 4.02
 

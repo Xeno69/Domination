@@ -64,7 +64,10 @@ while {(units _grp) findIf {alive _x} > -1} do {
 		_no = nil;
 	};
 	_timeend = time + 240 + (random 80);
-	waitUntil {sleep 3.472; time > _timeend || {isNull _grp}};
+	while {true} do {
+		sleep 3.472;
+		if (time > _timeend || {isNull _grp}) exitWith {};
+	};
 	{_x addMagazine _pbmag} forEach (_shell_units select {alive _x});
 	_shell_units = [];
 };

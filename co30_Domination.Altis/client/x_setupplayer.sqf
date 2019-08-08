@@ -384,7 +384,10 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 
 0 spawn {
 	scriptName "spawn_setupplayer1";
-	waitUntil {sleep 0.3; !d_still_in_intro};
+	while {true} do {
+		sleep 0.3;
+		if (!d_still_in_intro) exitWith {};
+	};
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
 	d_3draw_ar = [
@@ -451,14 +454,17 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 4.03"];
+diag_log ["Internal D Version: 4.04"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
 		if (isNil "d_AI_HUT") then {
 			0 spawn {
 				scriptName "spawn_wait_for_ai_hut";
-				waitUntil {sleep 0.512; !isNil "d_AI_HUT"};
+				while {true} do {
+					sleep 0.512;
+					if (!isNil "d_AI_HUT") exitWith {};
+				};
 				call compile preprocessFileLineNumbers "client\x_recruitsetup.sqf";
 			};
 		} else {
@@ -624,7 +630,10 @@ if (!d_with_ace) then {
 
 		sleep 10;
 
-		waitUntil {sleep 0.232;!d_still_in_intro};
+		while {true} do {
+			sleep 0.232;
+			if (!d_still_in_intro) exitWith {};
+		};
 
 		d_phudraw3d = -1;
 		//d_pnhudgroupcolor = [0.96, 1, 0, 0.7];
@@ -1062,8 +1071,12 @@ if (isMultiplayer) then {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
 	0 spawn {
 		scriptName "spawn_setupplayer7";
-		waitUntil {sleep 0.3;time > 0};
-		enableEnvironment [false, true];
+		while {true} do {
+			sleep 0.3;
+			if (time > 0) exitWith {
+				enableEnvironment [false, true];
+			};
+		};
 	};
 };
 
