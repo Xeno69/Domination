@@ -46,7 +46,7 @@ if (!_m) then {
 } else {
 #ifdef __DEBUG__
 	_res = [_i, _s, _v getVariable "d_ma_color"];
-	__TRACE_1("_res","")
+	__TRACE_1("","_res")
 #endif
 	[_i, _s, _v getVariable "d_ma_color"]
 };

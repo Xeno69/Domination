@@ -142,7 +142,7 @@ if (!isNil "_plok") then {
 private _mhqf = _obj getVariable "d_mhqf";
 if (!isNil "_mhqf") then {
 	__TRACE_1("","_mhqf")
-	_obj call d_fnc_removeMHQEnemyTeleTrig;
+	[_obj, 1] call d_fnc_removeMHQEnemyTeleTrig;
 	_obj setVariable ["d_mhqf", nil];
 };
 

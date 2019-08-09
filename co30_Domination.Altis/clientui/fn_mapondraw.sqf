@@ -5,11 +5,7 @@
 
 __TRACE_1("","_this")
 
-//if (!isNil "d_is_sat_on") exitWith {};
-
 params ["_map", "_type"]; // _type = 0 normal map control, 1 = GPS, 2 = custom map resources
-
-//if (_type isEqualTo 0 && {!visibleMap} || {_type isEqualTo 1 && {!visibleGPS}}) exitWith {};
 
 _map = _map select 0;
 
@@ -18,15 +14,16 @@ __TRACE_1("","d_show_player_marker")
 private _drawdist = d_island_x_max * (ctrlMapScale _map) + 200;
 private _mapmid = _map ctrlMapScreenToWorld [0.5, 0.5];
 
+private _fnc_gmi = d_fnc_getmapicon;
+
 if !(d_show_player_marker isEqualTo 0) then {
 	private _drawn_v = [];
 	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
 	private _w_ai = d_with_ai;
 	private _fnc_ispl = d_fnc_isplayer;
 	private _s_pl_ma = d_show_player_marker;
-	private _fnc_gmi = d_fnc_getmapicon;
 	private _fnc_GDN = d_fnc_GetDisplayName;
-	private _fnc_gpln = d_fnc_getplayername;
+	private _fnc_ghpn = d_fnc_gethpname;
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
@@ -47,7 +44,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 				_text = if !(_type isEqualTo 1) then {
 					if (!_inv) then {
 						if (_s_pl_ma isEqualTo 1) then {
-							[_x] call d_fnc_gethpname;
+							[_x] call _fnc_ghpn;
 						} else {
 							if (_s_pl_ma isEqualTo 2) then {
 								""
@@ -60,7 +57,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 							};
 						};
 					} else {
-						if (player distance2D _v < 4000) then {
+						if (player distance2D _v < 3000) then {
 							_vc = _v getVariable "d_vma_c";
 							if (isNil "_vc" || {_vc > 7}) then {
 								_nmt = _v getVariable "d_ma_text";
@@ -171,7 +168,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 					"right"
 				];
 			};
-		} forEach ((units (group player)) select {alive _x && {!(_x call d_fnc_isplayer) && {isNull (objectParent _x)}}});
+		} forEach ((units (group player)) select {alive _x && {!(_x call _fnc_ispl) && {isNull (objectParent _x)}}});
 	};
 };
 
@@ -183,7 +180,7 @@ private ["_isc", "_mt"];
 	if (!isNull _x) then {
 		if (_x distance2D _mapmid < _drawdist) then {
 			if (isNil {_x getVariable "d_mvs_not"}) then {
-				_isc = [_x, objNull, true] call d_fnc_getmapicon;
+				_isc = [_x, objNull, true] call _fnc_gmi;
 				__TRACE_1("","_isc")
 				_mt = call {
 					if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
