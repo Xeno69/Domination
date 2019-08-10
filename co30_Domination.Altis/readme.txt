@@ -12,6 +12,10 @@ Changelogs
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
+4.05
+
+- Changed: If d_without_nvg or d_without_vec_ti all optics and headgear which use either NVG or TI will be removed once arsenal or inventory closes (d_without_vec_ti also still turns off vehicle TI)
+
 4.04
 
 - Changed: Better handling for enemy near MHQ trigger (no more format)

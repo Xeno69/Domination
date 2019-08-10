@@ -869,7 +869,7 @@ if (isNil "d_cas_plane_avail") then {
 };
 
 player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
-player addEventhandler["InventoryClosed", {d_inventory_open = nil}];
+player addEventhandler["InventoryClosed", {_this call d_fnc_inventoryclosed}];
 
 if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalOpened", {

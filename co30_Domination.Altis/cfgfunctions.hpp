@@ -103,6 +103,7 @@ class cfgFunctions {
 			addc(gethpname);
 			addc(gethpnameai);
 			addc(inventoryopened);
+			addc(inventoryclosed);
 			addc(command_menu);
 			addc(dcmcc);
 			addc(clean_craters);
@@ -169,6 +170,7 @@ class cfgFunctions {
 			addc(arsenal_mod_rem);
 			addc(gmcwgextrac);
 			addc(remplnounit);
+			addc(rem_ti_nvg_items);
 		};
 		class Dom_UI {
 			file = "clientui";

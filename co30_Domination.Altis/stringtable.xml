@@ -8333,24 +8333,24 @@
 <Chinesesimp>基地传送点</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1645">
-<English>Attention!!! You are using a NVG scope which is not allowed.\n\nRemoving it now, please choose another scope!</English>
-<Spanish>¡¡¡Atención!!! Está utilizando un alcance NVG que no está permitido. \ En \ Extracción ahora, por favor elija otro alcance!</Spanish>
-<Portuguese>Atenção!!! Está utilizando um NVG atinja que não é dejado.nnRemoving Ele agora, comprazer escolher outro alcance!</Portuguese>
-<Korean>Attention!!! You are using a NVG scope which is not allowed.\n\nRemoving it now, please choose another scope!</Korean>
-<Japanese>注意!!!ナイトビジョンスコープは許可されていません。\n\nスコープを削除しました。ほかのスコープを使ってください!!</Japanese>
-<Original>Attention!!! You are using a NVG scope which is not allowed.\n\nRemoving it now, please choose another scope!</Original>
-<Russian>Внимание! Вы используете ПНВ прицел, который не разрешен\n\nОн удален, выберите другой прицел!</Russian>
-<Chinesesimp>注意!!! 你所选择的夜视功能望远镜禁止使用.\n\n现在已经移除,请选择其他望远镜!</Chinesesimp>
+<English>Attention!!! You are using a NVG scope which is not allowed. Removing it now, please choose another scope!</English>
+<Spanish>¡¡¡Atención!!! Está utilizando un alcance NVG que no está permitido. Extracción ahora, por favor elija otro alcance!</Spanish>
+<Portuguese>Atenção!!! Está utilizando um NVG atinja que não é dejado. Removing Ele agora, comprazer escolher outro alcance!</Portuguese>
+<Korean>Attention!!! You are using a NVG scope which is not allowed. Removing it now, please choose another scope!</Korean>
+<Japanese>注意!!!ナイトビジョンスコープは許可されていません。 スコープを削除しました。ほかのスコープを使ってください!!</Japanese>
+<Original>Attention!!! You are using a NVG scope which is not allowed. Removing it now, please choose another scope!</Original>
+<Russian>Внимание! Вы используете ПНВ прицел, который не разрешен Он удален, выберите другой прицел!</Russian>
+<Chinesesimp>注意!!! 你所选择的夜视功能望远镜禁止使用. 现在已经移除,请选择其他望远镜!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1646">
-<English>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</English>
-<Spanish>¡¡¡Atención!!! Está utilizando un ámbito de TI que no está permitido. \ En \ Extracción ahora, por favor elija otro alcance!</Spanish>
-<Portuguese>Atenção!!! Está utilizando um TI atinja que não é dejado.nnRemoving Ele agora, comprazer escolher outro alcance!</Portuguese>
-<Korean>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</Korean>
-<Japanese>注意!!!サーマルイメージスコープは許可されていません。\n\nスコープを削除しました。ほかのスコープを使ってください!!</Japanese>
-<Original>Attention!!! You are using a TI scope which is not allowed.\n\nRemoving it now, please choose another scope!</Original>
-<Russian>Внимание! Вы используете ТВП прицел, который не разрешен\n\nОн удален, выберите другой прицел!</Russian>
-<Chinesesimp>注意!!! 你所选择的 TI 望远镜禁止使用.\n\n现在已经移除,请选择其他望远镜!</Chinesesimp>
+<English>Attention!!! You are using a TI scope which is not allowed. Removing it now, please choose another scope!</English>
+<Spanish>¡¡¡Atención!!! Está utilizando un ámbito de TI que no está permitido. Extracción ahora, por favor elija otro alcance!</Spanish>
+<Portuguese>Atenção!!! Está utilizando um TI atinja que não é dejado. Removing Ele agora, comprazer escolher outro alcance!</Portuguese>
+<Korean>Attention!!! You are using a TI scope which is not allowed. Removing it now, please choose another scope!</Korean>
+<Japanese>注意!!!サーマルイメージスコープは許可されていません。 スコープを削除しました。ほかのスコープを使ってください!!</Japanese>
+<Original>Attention!!! You are using a TI scope which is not allowed. Removing it now, please choose another scope!</Original>
+<Russian>Внимание! Вы используете ТВП прицел, который не разрешен Он удален, выберите другой прицел!</Russian>
+<Chinesesimp>注意!!! 你所选择的 TI 望远镜禁止使用. 现在已经移除,请选择其他望远镜!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1648">
 <English>Air Drop %1</English>
@@ -10312,6 +10312,26 @@
 <Original>With 3D draw icon above wreck repair/ammo point:</Original>
 <Russian>With 3D draw icon above wreck repair/ammo point:</Russian>
 <Chinesesimp>With 3D draw icon above wreck repair/ammo point:</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1962">
+<English>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</English>
+<Spanish>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Spanish>
+<Portuguese>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Portuguese>
+<Korean>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Korean>
+<Japanese>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Japanese>
+<Original>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Original>
+<Russian>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Russian>
+<Chinesesimp>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1963">
+<English>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</English>
+<Spanish>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Spanish>
+<Portuguese>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Portuguese>
+<Korean>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Korean>
+<Japanese>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Japanese>
+<Original>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Original>
+<Russian>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Russian>
+<Chinesesimp>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Chinesesimp>
 </Key>
 </Container>
 </Package>
