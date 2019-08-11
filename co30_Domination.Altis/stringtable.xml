@@ -10333,6 +10333,36 @@
 <Russian>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Russian>
 <Chinesesimp>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1964">
+<English>Auto viewdistance change at main target:</English>
+<Spanish>Auto viewdistance change at main target:</Spanish>
+<Portuguese>Auto viewdistance change at main target:</Portuguese>
+<Korean>Auto viewdistance change at main target:</Korean>
+<Japanese>Auto viewdistance change at main target:</Japanese>
+<Original>Auto viewdistance change at main target:</Original>
+<Russian>Auto viewdistance change at main target:</Russian>
+<Chinesesimp>Auto viewdistance change at main target:</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1965">
+<English>Auto Viewdistance change at main targets enabled!</English>
+<Spanish>Auto Viewdistance change at main targets enabled!</Spanish>
+<Portuguese>Auto Viewdistance change at main targets enabled!</Portuguese>
+<Korean>Auto Viewdistance change at main targets enabled!</Korean>
+<Japanese>Auto Viewdistance change at main targets enabled!</Japanese>
+<Original>Auto Viewdistance change at main targets enabled!</Original>
+<Russian>Auto Viewdistance change at main targets enabled!</Russian>
+<Chinesesimp>Auto Viewdistance change at main targets enabled!</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1966">
+<English>Auto Viewdistance change at main targets disabled!</English>
+<Spanish>Auto Viewdistance change at main targets disabled!</Spanish>
+<Portuguese>Auto Viewdistance change at main targets disabled!</Portuguese>
+<Korean>Auto Viewdistance change at main targets disabled!</Korean>
+<Japanese>Auto Viewdistance change at main targets disabled!</Japanese>
+<Original>Auto Viewdistance change at main targets disabled!</Original>
+<Russian>Auto Viewdistance change at main targets disabled!</Russian>
+<Chinesesimp>Auto Viewdistance change at main targets disabled!</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

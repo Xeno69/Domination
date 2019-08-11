@@ -15,6 +15,7 @@ Changelogs
 4.05
 
 - Changed: If d_without_nvg or d_without_vec_ti all optics and headgear which use either NVG or TI will be removed once arsenal or inventory closes (d_without_vec_ti also still turns off vehicle TI)
+- Added: Checkbox in StatusDialog to enable/disable automatic viewdistance change at main targets
 
 4.04
 

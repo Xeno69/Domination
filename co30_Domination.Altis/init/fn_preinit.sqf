@@ -1893,6 +1893,11 @@ if (hasInterface) then {
 	d_add_resp_points_pos = [];
 	
 	d_earplugs_fitted = false;
+#ifndef __TT__
+	d_maintarget_auto_vd = true;
+#else
+	d_maintarget_auto_vd = false;
+#endif
 	
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";

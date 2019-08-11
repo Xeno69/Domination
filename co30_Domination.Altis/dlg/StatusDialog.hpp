@@ -382,8 +382,24 @@ class D_StatusDialog {
 			y = "0.43 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this] call d_fnc_pnselchanged"; 
 		};
-		class PointsCaption: RscText2 {
+#ifndef __TT__
+		class AutoVDCaption: ViewDistanceCaption {
+			idc = 1609;
 			y = "0.5 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_1964";
+		};
+		class AutoVDCheckBox: RscCheckBox {
+			idc = 1610;
+			x = "0.48 * safezoneW + safezoneX";
+			y = "0.504 * safezoneH + safezoneY";
+			w = "0.02 * safezoneW";
+			h = "0.025 * safezoneH";
+			checked = 1;
+			onCheckedChanged = "d_maintarget_auto_vd = !d_maintarget_auto_vd; if (d_maintarget_auto_vd) then {systemChat (localize 'STR_DOM_MISSIONSTRING_1965')} else {systemChat (localize 'STR_DOM_MISSIONSTRING_1966')};";
+		};
+#endif
+		class PointsCaption: RscText2 {
+			y = "0.58 * safezoneH + safezoneY";
 			x = "0.35 * safezoneW + safezoneX";
 			w = "0.25 * safezoneW";
 			h = "0.025 * safezoneH";
@@ -393,12 +409,12 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1294";
 		};
 		class PointsCaption2: PointsCaption {
-			y = "0.53 * safezoneH + safezoneY";
+			y = "0.61 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1295";
 		};
 		class CorporalPic: D_RscPicture {
 			x = "0.35 * safezoneW + safezoneX";
-			y = "0.595 * safezoneH + safezoneY";
+			y = "0.675 * safezoneH + safezoneY";
 			w = "0.025 * safezoneW";
 			h = "0.025 * safezoneH";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"1">>"texture"));
@@ -407,7 +423,7 @@ class D_StatusDialog {
 		};
 		class CorporalString: RscText2 {
 			x = "0.38 * safezoneW + safezoneX";
-			y = "0.56 * safezoneH + safezoneY";
+			y = "0.64 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
 			h = "0.1 * safezoneH";
 			sizeEx = 0.032;
@@ -421,81 +437,81 @@ class D_StatusDialog {
 			text = "";
 		};
 		class SergeantPic: CorporalPic {
-			y = "0.625 * safezoneH + safezoneY";
+			y = "0.695 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"2">>"texture"));
 		};
 		class SergeantString: CorporalString {
-			y = "0.59 * safezoneH + safezoneY";
+			y = "0.67 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"2">>"displayName"));
 		};
 		class SergeantPoints: CorporalPoints {
 			idc = 2002;
-			y = "0.59 * safezoneH + safezoneY";
+			y = "0.67 * safezoneH + safezoneY";
 			text = "";
 		};
 		class LieutenantPic: CorporalPic {
-			y = "0.655 * safezoneH + safezoneY";
+			y = "0.735 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"3">>"texture"));
 		};
 		class LieutenantString: CorporalString {
-			y = "0.62 * safezoneH + safezoneY";
+			y = "0.7 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"3">>"displayName"));
 		};
 		class LieutenantPoints: CorporalPoints {
 			idc = 2003;
-			y = "0.62 * safezoneH + safezoneY";
+			y = "0.7 * safezoneH + safezoneY";
 			text = "";
 		};
 		class CaptainPic: CorporalPic {
-			y = "0.685 * safezoneH + safezoneY";
+			y = "0.765 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"4">>"texture"));
 		};
 		class CaptainString: CorporalString {
-			y = "0.65 * safezoneH + safezoneY";
+			y = "0.73 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"4">>"displayName"));
 		};
 		class CaptainPoints: CorporalPoints {
 			idc = 2004;
-			y = "0.65 * safezoneH + safezoneY";
+			y = "0.73 * safezoneH + safezoneY";
 			text = "";
 		};
 		class MajorPic: CorporalPic {
-			y = "0.715 * safezoneH + safezoneY";
+			y = "0.795 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"5">>"texture"));
 		};
 		class MajorString: CorporalString {
-			y = "0.68 * safezoneH + safezoneY";
+			y = "0.76 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"5">>"displayName"));
 		};
 		class MajorPoints: CorporalPoints {
 			idc = 2005;
-			y = "0.68 * safezoneH + safezoneY";
+			y = "0.76 * safezoneH + safezoneY";
 			text = "";
 		};
 		class ColonelPic: CorporalPic {
-			y = "0.745 * safezoneH + safezoneY";
+			y = "0.825 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"6">>"texture"));
 		};
 		class ColonelString: CorporalString {
-			y = "0.71 * safezoneH + safezoneY";
+			y = "0.79 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"6">>"displayName"));
 		};
 		class ColonelPoints: CorporalPoints {
 			idc = 2006;
-			y = "0.71 * safezoneH + safezoneY";
+			y = "0.79 * safezoneH + safezoneY";
 			text = "";
 		};
 		class GeneralPic: CorporalPic {
-			y = "0.775 * safezoneH + safezoneY";
+			y = "0.855 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"texture"));
 		};
 		class GeneralString: CorporalString {
-			y = "0.74 * safezoneH + safezoneY";
+			y = "0.82 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"displayName"));
 		};
 		class GeneralPoints: CorporalPoints {
 			idc = 2007;
-			y = "0.74 * safezoneH + safezoneY";
+			y = "0.82 * safezoneH + safezoneY";
 			text = "";
 		};
 	};
