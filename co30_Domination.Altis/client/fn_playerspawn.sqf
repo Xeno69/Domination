@@ -169,4 +169,5 @@ if (_rtype == 0) then { // player died
 		[player] remoteExecCall ["d_fnc_addceo", 2];
 	};
 #endif
+	showChat true;
 };

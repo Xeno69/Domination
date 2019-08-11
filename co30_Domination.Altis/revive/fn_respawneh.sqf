@@ -100,3 +100,5 @@ player removeEventHandler ["handleDamage", _tmpeh];
 	sleep 1;
 	xr_name_player = player call d_fnc_getplayername;
 };
+
+showChat true;
