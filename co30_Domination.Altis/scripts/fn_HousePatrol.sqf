@@ -55,6 +55,10 @@ guard = [this, MODE, STAND TIME, EXCLUDED POS, STARTING POS, DEBUG] execVM "Hous
 
 ===========================================================================================*/
 
+//#define __DEBUG__
+#define THIS_FILE "fn_HousePatrol.sqf"
+#include "..\x_setup.sqf"
+
 if !(isServer) exitWith {};
 
 sleep random 1;
@@ -75,15 +79,13 @@ private _timeout = 0;
 private _behaviours = ["careless", "safe", "aware", "combat", "stealth"];
 private _stances = ["up", "down", "middle", "auto", "high"];
 
-private "_name"; 
+#ifdef __DEBUG__
+private _name = vehicleVarName _unit;
 
-if (_debug) then {
-	_name = vehicleVarName _unit;
-
-	if (isNil "_name") then {
-		_name = format ["Guard x%1y%2", floor (_position select 0), floor (_position select 1)];
-	};
+if (isNil "_name") then {
+	_name = format ["Guard x%1y%2", floor (_position select 0), floor (_position select 1)];
 };
+#endif
 
 // Set behaviour of unit
 if (_behaviour in _behaviours) then {
@@ -93,8 +95,9 @@ if (_behaviour in _behaviours) then {
 };
 
 // Set unit stance
+private "_stancehandle";
 if (_stance == "high") then {
-	[_unit] spawn {
+	_stancehandle = [_unit] spawn {
 		scriptName "spawn_housepatrol";
 		params ["_unit"];
 		while {alive _unit} do {
@@ -103,6 +106,7 @@ if (_stance == "high") then {
 				sleep random 5;
 				_unit setUnitPos "AUTO";
 			};
+			sleep 0.1;
 		};
 	};
 } else {
@@ -114,12 +118,14 @@ if (_stance == "high") then {
 };
 
 // Find number of positions in building
-while {format ["%1", _house buildingPos _numOfBuildingPos] != "[0,0,0]"} do {
+while {!((_house buildingPos _numOfBuildingPos) isEqualTo [0,0,0])} do {
 	_numOfBuildingPos = _numOfBuildingPos + 1;
 };
 
+if (_numOfBuildingPos == 0) exitWith {};
+
 // DEBUGGING - Mark house on map, mark building positions ingame, broadcast information
-if (_debug) then {
+#ifdef __DEBUG__
 	for [{_i = 0}, {_i <= _numOfBuildingPos}, {_i = _i + 1}] do	{
 		if (!(_i in _excludedPositions)) then {	
 			_arrow = "Sign_Arrow_F" createVehicle (_house buildingPos _i);
@@ -135,7 +141,7 @@ if (_debug) then {
 	_marker setMarkerType "mil_dot";
 	_marker setMarkerText _name;
 	_marker setMarkerColor "ColorGreen";
-};
+#endif
 
 // Put unit at random starting pos.
 while {_startingPos in _excludedPositions || {_startingPos < 0}} do {
@@ -152,13 +158,14 @@ if (_startingPos > _numOfBuildingPos - 1) then {
 //};
 
 // DEBUGGING - broadcast starting position
-if (_debug) then {
-	player globalChat format["%1 - starting at building pos %2", _name, _startingPos]
-};
+#ifdef __DEBUG__
+	player globalChat format["%1 - starting at building pos %2", _name, _startingPos];
+#endif
 
 _unit setVariable ["d_housepatrol", true];
 
 // Have unit patrol inside house
+private _searchcounter = 0;
 while {alive _unit && {(_numOfBuildingPos - count _excludedPositions) > 0}} do {
 	if (_numOfBuildingPos < 2) exitWith {};
 	
@@ -178,19 +185,28 @@ while {alive _unit && {(_numOfBuildingPos - count _excludedPositions) > 0}} do {
 	if (_timeout < time) then {_unit setPos (_house buildingPos _currentBuildingPos)};
 	
 	// DEBUGGING - move marker to new position
-	if (_debug) then {
+#ifdef __DEBUG__
 		_name setMarkerPos position _unit; 
 		_text = format["%1: moving to pos %2", _name, _currentBuildingPos]; 
 		_name setMarkerText _text;
-	};
+#endif
+
+	_searchcounter = _searchcounter + 1;
+	if (_searchcounter == 6) exitWith {};
 	
 	sleep _waitTime;
 	_lastBuildingPos = _currentBuildingPos;
 };
-_unit setVariable ["d_housepatrol", nil];
+if (alive _unit) then {
+	_unit setVariable ["d_housepatrol", nil];
+};
+
+if (!isNil "_stancehandle" && {!isNull _stancehandle}) then {
+	terminate _stancehandle;
+};
 
 // DEBUGGING - Change marker color if script ends
-if (_debug) then {
+#ifdef __DEBUG__
 	player globalChat format["%1 - ended house patrol loop", _name];
 	_name setMarkerColor "ColorRed";
-};
+#endif

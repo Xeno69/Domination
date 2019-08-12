@@ -11,6 +11,9 @@
 // *****************************************************
 //Zen_JBOY_UpDown
 
+#define THIS_FILE "fn_Zen_JBOY_UpDown.sqf"
+#include "..\x_setup.sqf"
+
 if (!isServer)  exitwith {};
 
 //  Parameters:
@@ -19,17 +22,14 @@ params ["_dude", "_stances"];
 
 private _dudeOriginalStance = unitPos _dude;
 _dude removeAllEventHandlers "FiredNear";
-private _done = false;
 private _iterations = 0;
 
-while {!_done && {alive _dude && {_iterations < 12}}} do {
-    if (unitpos _dude == _stances select 0) then {
-        _dude setUnitPos (_stances select 1);
-    } else {
-        _dude setUnitPos (_stances select 0);
-    };
+while {alive _dude && {_iterations < 12}} do {
+	_dude setUnitPos ([_dude setUnitPos (_stances # 0), _dude setUnitPos (_stances # 1)] select (unitpos _dude == _stances select 0));
 	
     sleep (1 + (random 5));
+	
+	if (!alive _dude) exitWith {};
 	
     if (isNull (_dude findNearestEnemy _dude)) then { // If no known enemies then increment iterations so that guys stop popping up and down
         //systemchat "no known enemies found";
@@ -38,5 +38,5 @@ while {!_done && {alive _dude && {_iterations < 12}}} do {
 };
 if (alive _dude) then {
     _dude setUnitPos _dudeOriginalStance;
-    _dude addeventhandler ["FiredNear", {[_this select 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}];
+    _dude addeventhandler ["FiredNear", {[_this # 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}];
 }; 
