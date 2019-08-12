@@ -152,6 +152,7 @@ if !(_allbars isEqualTo []) then {
 		};
 	};
 };
+_poss set [2, 0];
 _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
 _vec setVectorUp [0, 0, 1];
