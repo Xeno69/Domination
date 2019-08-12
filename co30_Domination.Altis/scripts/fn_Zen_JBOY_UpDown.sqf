@@ -25,9 +25,13 @@ _dude removeAllEventHandlers "FiredNear";
 private _iterations = 0;
 
 while {alive _dude && {_iterations < 12}} do {
-	_dude setUnitPos ([_dude setUnitPos (_stances # 0), _dude setUnitPos (_stances # 1)] select (unitpos _dude == _stances select 0));
+	if (unitpos _dude == _stances select 0) then {
+        _dude setUnitPos (_stances select 1);
+    } else {
+        _dude setUnitPos (_stances select 0);
+    };
 	
-    sleep (1 + (random 5));
+    sleep (1.5 + (random 6));
 	
 	if (!alive _dude) exitWith {};
 	
@@ -35,6 +39,7 @@ while {alive _dude && {_iterations < 12}} do {
         //systemchat "no known enemies found";
         _iterations = _iterations + 1;
     };
+	sleep 0.1;
 };
 if (alive _dude) then {
     _dude setUnitPos _dudeOriginalStance;
