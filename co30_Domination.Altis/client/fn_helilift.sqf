@@ -92,12 +92,12 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						_lon = _liftobj getVariable "d_vec_name";
 						_chopper setVariable ["d_mhq_lift_obj", [_liftobj, _lon], true];
 #ifndef __TT__
-						d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side,"Dmr_in_air",["1","",_lon,[]],d_kbtel_chan];
+						[d_kb_logic1, format [localize "STR_DOM_MISSIONSTRING_1372", _lon]] remoteExecCall ["sideChat", d_player_side];
 #else
 						if (d_player_side == blufor) then {
-							player kbTell [d_hq_logic_blufor1,"HQ_W","Dmr_in_air",["1","",_lon,[]],"SIDE"];
+							[d_hq_logic_blufor1, format [localize "STR_DOM_MISSIONSTRING_1372", _lon]] remoteExecCall ["sideChat", d_player_side];
 						} else {
-							player kbTell [d_hq_logic_opfor1,"HQ_E","Dmr_in_air",["1","",_lon,[]],"SIDE"];
+							[d_hq_logic_opfor1, format [localize "STR_DOM_MISSIONSTRING_1372", _lon]] remoteExecCall ["sideChat", d_player_side];
 						};
 #endif
 					};
@@ -197,12 +197,12 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						_liftobj setVariable ["d_in_air", false, true];
 						_chopper setVariable ["d_mhq_lift_obj", nil, true];
 #ifndef __TT__
-						d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side,"Dmr_available",["1","",_liftobj getVariable "d_vec_name",[]],d_kbtel_chan];
+						[d_kb_logic1, format [localize "STR_DOM_MISSIONSTRING_1373", _liftobj getVariable "d_vec_name"]] remoteExecCall ["sideChat", d_player_side];
 #else
 						if (d_player_side == blufor) then {
-							player kbTell [d_hq_logic_blufor1,"HQ_W","Dmr_available",["1","",_liftobj getVariable "d_vec_name",[]],"SIDE"];
+							[d_hq_logic_blufor1, format [localize "STR_DOM_MISSIONSTRING_1373", _liftobj getVariable "d_vec_name"]] remoteExecCall ["sideChat", d_player_side];
 						} else {
-							player kbTell [d_hq_logic_opfor1,"HQ_E","Dmr_available",["1","",_liftobj getVariable "d_vec_name",[]],"SIDE"];
+							[d_hq_logic_opfor1, format [localize "STR_DOM_MISSIONSTRING_1373", _liftobj getVariable "d_vec_name"]] remoteExecCall ["sideChat", d_player_side];
 						};
 #endif
 					};

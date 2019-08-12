@@ -83,7 +83,7 @@ if (isServer) then {
 private _kbscript = "bikb\domkba3.bikb";
 
 if (d_tt_ver || {d_own_side == "EAST"}) then {
-	if (!isServer) then {
+	if (!isServer && {isNil "d_hq_logic_opfor2"}) then {
 		while {true} do {
 			sleep 0.1;
 			if (!isNil "d_hq_logic_opfor2") exitWith {};
@@ -139,7 +139,7 @@ if (d_tt_ver || {d_own_side == "EAST"}) then {
 };
 
 if (d_tt_ver || {d_own_side == "WEST"}) then {
-	if (!isServer) then {
+	if (!isServer && {isNil "d_hq_logic_blufor2"}) then {
 		while {true} do {
 			sleep 0.1;
 			if (!isNil "d_hq_logic_blufor2") exitWith {};
@@ -183,7 +183,7 @@ if (d_tt_ver || {d_own_side == "WEST"}) then {
 };
 
 if (d_own_side == "GUER" || {d_ifa3lite}) then {
-	if (!isServer) then {
+	if (!isServer && {isNil "d_hq_logic_guer2"}) then {
 		while {true} do {
 			sleep 0.1;
 			if (!isNil "d_hq_logic_guer2") exitWith {};
