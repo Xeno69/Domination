@@ -17,11 +17,11 @@ if (count _crew > 0) then {
 		(0.12 + (random 0.04))
 	};
 	
-        if (unitIsUAV _vec) then {
-             {
-	         _x setSkill ["spotDistance",1];
-             } forEach _crew;	
-        };	
+	if (unitIsUAV _vec) then {
+		{
+			_x setSkill ["spotDistance", 1];
+		} forEach _crew;	
+	};	
 	
 	if (!_nocargo) then {
 		private _ran =
