@@ -28,7 +28,7 @@ if (count _crew > 0) then {
 #ifdef __IFA3LITE__
 			random 100 > 80;
 #else
-			random 100 > 49
+			random 100 > 49;
 #endif
 		if (_ran && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F"}}}}}}) then {
 			private _counter = _vec emptyPositions "cargo";
