@@ -8,6 +8,6 @@ private _whof = _vec getVariable "d_who_fired";
 if (!isNil "_whof") then {
 	private _aop = missionNamespace getVariable _whof;
 	if (!isNil "_aop" && {!isNull _aop}) then {
-		_this # 6 setShotParents [_vec, _aop];
+		(_this # 6) setShotParents [_vec, _aop];
 	};
 };

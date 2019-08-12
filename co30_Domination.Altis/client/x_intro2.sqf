@@ -120,7 +120,7 @@ sleep 5;
 ] spawn bis_fnc_typeText;
 
 sleep 8;
-"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames "User16", actionKeysNames "User15"], "PLAIN"];
+"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", d_actionkeys_teamswitch, actionKeysNames "User16", actionKeysNames "User15"], "PLAIN"];
 xr_phd_invulnerable = false;
 
 

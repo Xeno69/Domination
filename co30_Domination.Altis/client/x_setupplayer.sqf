@@ -74,6 +74,8 @@ d_mt_marker_triggers = [];
 
 disableMapIndicators [true, true, false, false];
 
+d_actionkeys_teamswitch = actionKeys "TeamSwitch";
+
 if !(d_additional_respawn_points isEqualTo []) then {
 	private _helparrp = [];
 	{

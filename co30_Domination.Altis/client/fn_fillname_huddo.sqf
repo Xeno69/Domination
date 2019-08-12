@@ -29,11 +29,13 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 					_dodraw = if (isNull objectParent _x) then {
 						true
 					} else {
-						if (crew _vu isEqualTo 1) exitWith {true};
-						if (_x == commander _vu) exitWith {true};
-						if (_x == gunner _vu && {!((commander _vu) call _fnc_isp)}) exitWith {true};
-						if (_x == driver _vu && {!((commander _vu) call _fnc_isp) && {!((gunner _vu) call _fnc_isp)}}) exitWith {true};
-						false
+						call {
+							if (crew _vu isEqualTo 1) exitWith {true};
+							if (_x == commander _vu) exitWith {true};
+							if (_x == gunner _vu && {!((commander _vu) call _fnc_isp)}) exitWith {true};
+							if (_x == driver _vu && {!((commander _vu) call _fnc_isp) && {!((gunner _vu) call _fnc_isp)}}) exitWith {true};
+							false
+						};
 					};
 					if (_dodraw) then {
 						_tex = "";

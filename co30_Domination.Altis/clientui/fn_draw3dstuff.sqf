@@ -7,12 +7,13 @@ private _pos_cam = positionCameraToWorld [0,0,0];
 
 private ["_distp", "_cwt", "_col", "_ico", "_tex"];
 private _d_3draw_ar = d_3draw_ar;
+private _with_3Dicon = d_with_3Dicon;
 {
 	_x params ["_obj"];
 	_distp = _pos_cam distance _obj;
 	if (_distp < 250) then {
 		_cwt = _obj getVariable ["d_curreptime" , -1];
-		if (d_with_3Dicon == 1) then {
+		if (_with_3Dicon == 1) then {
 			_tex = call {
 				if (_x # 3 == 0) exitWith {
 					"a3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa"
@@ -43,7 +44,7 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	if (_distp < 80) then {
 		_col = _x # 1;
 		_col set [3, 1 - (_distp / 200)];
-		if (d_with_3Dicon == 1) then {
+		if (_with_3Dicon == 1) then {
 			drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		} else {
 			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
@@ -65,7 +66,7 @@ private _d_mhq_3ddraw = d_mhq_3ddraw;
 {
 	_distp = _pos_cam distance _x;
 	if (_distp < 150) then {
-		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 5 + (_distp * 0.05)]), 1, 1, 0, format ["MHQ %1", _x getVariable "d_ma_text"], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 5 + (_distp * 0.05)]), 1, 1, 0, "MHQ " + (_x getVariable "d_ma_text"), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
 } forEach (_d_mhq_3ddraw select {alive _x});
 
