@@ -25,9 +25,9 @@ if (count _crew > 0) then {
 	
 	if (!_nocargo) then {
 #ifdef __IFA3LITE__
-		if (random 100 > 80 && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC"}}}) then {
+		if (random 100 > 80 && {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F"}}}}) then {
 #else
-		if (random 100 > 49 && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC"}}}) then {
+		if (random 100 > 49 && {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F"}}}}) then {
 #endif
 			private _counter = _vec emptyPositions "cargo";
 			__TRACE_2("","typeOf _vec","_counter")
