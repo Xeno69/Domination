@@ -17,6 +17,7 @@ Changelogs
 - Fixed: Malden version was using the Malden NBV version mission.sqm file
 - Fixed: After the last RHS update some editor placed vehicles were half in the ground
 - Fixed: Editor placed CH-53 always sank into the ground in the Chernarus and Chernarus Winter versions
+- Fixed: Names for players in vehicles were not drawn on the map
 
 4.05
 

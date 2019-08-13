@@ -24,6 +24,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 	private _s_pl_ma = d_show_player_marker;
 	private _fnc_GDN = d_fnc_GetDisplayName;
 	private _fnc_ghpn = d_fnc_gethpname;
+	private _fnc_gpln = d_fnc_getplayername;
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
