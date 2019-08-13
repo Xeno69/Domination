@@ -5,12 +5,16 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-4.04
+4.07
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
 !!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+
+4.06
+
+- Fixed: Malden version was using the Malden NBV version mission.sqm file
 
 4.05
 
