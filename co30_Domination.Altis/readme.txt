@@ -15,6 +15,7 @@ Changelogs
 4.06
 
 - Fixed: Malden version was using the Malden NBV version mission.sqm file
+- Fixed: After the last RHS update some editor placed vehicles were half in the ground
 
 4.05
 
