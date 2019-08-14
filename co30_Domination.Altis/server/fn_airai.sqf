@@ -57,24 +57,24 @@ while {true} do {
 			_heli_type = selectRandom d_airai_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 			_height = 250;
-		        _heightASL = [250,(100 + (random 100)),(250 + (random 250))];
+		        _heightASL = [250, 100 + (random 100), 250 + (random 250)];
 		};
 		case "AP": {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
 		        _height = 700;
-		        _heightASL = [700,(500 + (random 100)),(700 + (random 700))];
+		        _heightASL = [700, 500 + (random 100), 700 + (random 700)];
 		};
 		case "LAC": {
 			_heli_type = selectRandom d_light_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 			_height = 150;
-		        _heightASL = [150,(100 + (random 50)),(150 + (random 150))];
+		        _heightASL = [150, 100 + (random 50), 150 + (random 150)];
 		};
 		case "UAV": {
 		       _heli_type = selectRandom d_airai_attack_uav;
 		       _height = 400;
-		       _heightASL = [400,(250 + (random 100)),(400 + (random 200))];
+		       _heightASL = [400, 250 + (random 100), 400 + (random 200)];
 		};		
 	};
 	
