@@ -23,6 +23,7 @@ ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Mald
 - Fixed: Wreck repair service building was spawned in the chopper repair area in the Livonia/Enoch version
 - Fixed: Wreck repair point was completely missing in the Livonia/Enoch version
 - Fixed: Enemy attack UAVs at main targets did not spawn (vehicle number was always zero)
+- Fixed: Livonia/Enoch version was missing Zeus module
 
 4.05
 

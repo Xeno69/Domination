@@ -33,6 +33,7 @@ while {true} do {
 		800;
 	});
 #endif
+	__TRACE_1("","_num_p")
 	while {d_mt_radio_down} do {sleep 6.123};
 	private _pos = call d_fnc_GetRanPointOuterAir;
 	if !(d_cur_tgt_pos isEqualTo []) then {
@@ -57,24 +58,25 @@ while {true} do {
 			_heli_type = selectRandom d_airai_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 			_height = 250;
-		        _heightASL = [250, 100 + (random 100), 250 + (random 250)];
+			_heightASL = [250, 100 + (random 100), 250 + (random 250)];
 		};
 		case "AP": {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
-		        _height = 700;
-		        _heightASL = [700, 500 + (random 100), 700 + (random 700)];
+			_height = 700;
+			_heightASL = [700, 500 + (random 100), 700 + (random 700)];
 		};
 		case "LAC": {
 			_heli_type = selectRandom d_light_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 			_height = 150;
-		        _heightASL = [150, 100 + (random 50), 150 + (random 150)];
+			_heightASL = [150, 100 + (random 50), 150 + (random 150)];
 		};
 		case "UAV": {
-		       _heli_type = selectRandom d_airai_attack_uav;
-		       _height = 400;
-		       _heightASL = [400, 250 + (random 100), 400 + (random 200)];
+			_heli_type = selectRandom d_airai_attack_uav;
+			_numair = [d_number_attack_uavs, ceil (random d_number_attack_uavs)] select (d_number_attack_uavs > 1);
+			_height = 400;
+			_heightASL = [400, 250 + (random 100), 400 + (random 200)];
 		};		
 	};
 	
@@ -85,6 +87,7 @@ while {true} do {
 		if (d_current_target_index >= 0) exitWith {};
 	};
 	private _cdir = _pos getDir d_island_center;
+	__TRACE_1("","_cdir")
 #ifndef __TT__
 	switch (_type) do {
 		case "AP": {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
@@ -160,11 +163,6 @@ while {true} do {
 _pat_pos = _cur_tgt_pos getPos [random _radius, random 360]; \
 _pat_pos set [2, _cur_tgt_pos select 2]
 
-
-#ifdef __DEBUG__
-	_xdist = (_vehicles # 0) distance2D _cur_tgt_pos;
-	__TRACE_1("","_xdist")
-#endif
 		_curvec = objNull;
 		private _mmvevs = _vehicles select {alive _x && {canMove _x}};
 		if !(_mmvevs isEqualTo []) then {
