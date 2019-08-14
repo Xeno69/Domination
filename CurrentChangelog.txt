@@ -3,7 +3,7 @@
 ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Malden mission sqm files have changed
 
 - Fixed: Normal Malden version was using the Malden NBV version mission.sqm file
-- Fixed: After the last RHS update some editor placed vehicles were half in the ground
+- Fixed: After the last RHS update some editor placed vehicles spawned half in the ground
 - Fixed: Editor placed CUP CH-53 always sank into the ground in the Chernarus and Chernarus Winter versions
 - Fixed: Names for players in vehicles were not drawn on the map
 - Fixed: Wreck repair service building was spawned in the chopper repair area in the Livonia/Enoch version
