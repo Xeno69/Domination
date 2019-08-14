@@ -8,3 +8,4 @@ ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Mald
 - Fixed: Names for players in vehicles were not drawn on the map
 - Fixed: Wreck repair service building was spawned in the chopper repair area in the Livonia/Enoch version
 - Fixed: Wreck repair point was completely missing in the Livonia/Enoch version
+- Fixed: Enemy attack UAVs at main targets did not spawn (vehicle number was always zero)
