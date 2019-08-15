@@ -19,7 +19,8 @@ private _chatfunc = {
 	};
 };
 
-if (_caller != driver _unit && {!isNil {_unit getVariable "d_choppertype"} && {_unit getVariable ["d_vec_type", ""] != "MHQ"}}) exitWith {
+//if (_caller != driver _unit && {!isNil {_unit getVariable "d_choppertype"} && {_unit getVariable ["d_vec_type", ""] != "MHQ"}}) exitWith {
+if (_caller != currentPilot _unit && {!isNil {_unit getVariable "d_choppertype"} && {_unit getVariable ["d_vec_type", ""] != "MHQ"}}) exitWith {
 	[_unit, _caller, localize "STR_DOM_MISSIONSTRING_1428"] call _chatfunc;
 };
 

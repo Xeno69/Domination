@@ -6,9 +6,11 @@
 params ["_vec"];
 while {d_player_in_vec} do {
 #ifndef __TT__
-	if (fuel _vec != 0 && {player == driver _vec && {!(_vec inArea d_base_array)}}) then {
+	//if (fuel _vec != 0 && {player == driver _vec && {!(_vec inArea d_base_array)}}) then {
+	if (fuel _vec != 0 && {player == currentPilot _vec && {!(_vec inArea d_base_array)}}) then {
 #else
-	if (fuel _vec != 0 && {player == driver _vec && {!(_vec inArea (d_base_array # 0)) && {!(_vec inArea (d_base_array # 1))}}}) then {
+	//if (fuel _vec != 0 && {player == driver _vec && {!(_vec inArea (d_base_array # 0)) && {!(_vec inArea (d_base_array # 1))}}}) then {
+	if (fuel _vec != 0 && {player == currentPilot _vec && {!(_vec inArea (d_base_array # 0)) && {!(_vec inArea (d_base_array # 1))}}}) then {
 #endif
 		if (d_current_target_index != -1) then {
 			if (!(d_cur_tgt_pos isEqualTo []) && {_vec distance2D d_cur_tgt_pos <= d_MHQDisableNearMT}) then {

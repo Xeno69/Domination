@@ -14,16 +14,11 @@ private _transobj = objNull;
 private _id = -1212;
 private _release_id = -1212;
 
-_vec setVariable ["d_vec_attached", false];
-_vec setVariable ["d_vec_released", false];
-_vec setVariable ["d_Attached_Vec", objNull];
-
-private _possible_types = _vec getVariable ["d_lift_types", []];
-
 sleep 10.123;
 
 while {alive _vec && {alive player && {player in _vec}}} do {
-	if (driver _vec == player) then {
+	//if (driver _vec == player) then {
+	if (currentPilot _vec == player) then {
 		if !(_vec getVariable ["d_vec_attached", false]) then {
 			_transobj = objNull;
 			private _nobjects = nearestObjects [_vec, ["LandVehicle", "Air"], 70];
@@ -43,14 +38,14 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 				} else {
 					private _isvalid = _transobj getVariable "d_canbewlifted";
 					if (isNil "_isvalid") then {
-						_isvalid = !isNil {_transobj getVariable "d_isspecialvec"} || {toLower (typeOf _transobj) in _possible_types};
+						_isvalid = !isNil {_transobj getVariable "d_isspecialvec"};
 						_transobj setVariable ["d_canbewlifted", _isvalid];
 					};
 					if (!_isvalid || {damage _transobj < 1}) then {_transobj = objNull};
 				};
 			};
 			sleep 0.1;
-			if ((_transobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair]) > 0 && {!isNull _transobj && {_transobj != _vec getVariable "d_Attached_Vec"}}) then {
+			if ((_transobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair]) > 0 && {!isNull _transobj && {_transobj != _vec getVariable ["d_Attached_Vec", objNull]}}) then {
 				if (_vec inArea [_transobj, 10, 10, 0, false]) then {
 					if (!_menu_trans_shown) then {
 						_id = _vec addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_1742"], {_this call d_fnc_heli_action},-1,100000];
@@ -76,10 +71,14 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 			sleep 0.1;
 			
 			if (isNull _transobj) then {
-				_vec setVariable ["d_vec_attached", false];
-				_vec setVariable ["d_vec_released", false];
+				if (!isNil {_vec getVariable "d_vec_attached"}) then {
+					_vec setVariable ["d_vec_attached", nil, true];
+				};
+				if (!isNil {_vec getVariable "d_vec_released"}) then {
+					_vec setVariable ["d_vec_released", nil, true];
+				};
 			} else {
-				if (_vec getVariable "d_vec_attached") then {
+				if (_vec getVariable ["d_vec_attached", false]) then {
 					_release_id = _vec addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000];
 					_vec vehicleChat (localize "STR_DOM_MISSIONSTRING_1743");
 					_vec setVariable ["d_Attached_Vec", _transobj];
@@ -103,7 +102,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 						_transobj setVariable ["d_lift_pilot", player, true];
 					};
 					
-					while {alive _vec && {player in _vec && {!isNull _transobj && {alive player && {!isNull attachedTo _transobj && {!(_vec getVariable "d_vec_released")}}}}}} do {
+					while {alive _vec && {player in _vec && {!isNull _transobj && {alive player && {!isNull attachedTo _transobj && {!(_vec getVariable ["d_vec_released", false])}}}}}} do {
 						_vec setFuel ((fuel _vec) - _fuelloss);
 						sleep 0.312;
 					};
@@ -120,9 +119,9 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 						_transobj setPos (_vec modelToWorldVisual [0, -2, 0]);
 					};
 					
-					_vec setVariable ["d_vec_attached", false];
-					_vec setVariable ["d_vec_released", false];
-					_vec setVariable ["d_Attached_Vec", objNull];
+					_vec setVariable ["d_vec_attached", nil, true];
+					_vec setVariable ["d_vec_released", nil, true];
+					_vec setVariable ["d_Attached_Vec", nil, true];
 					
 					if (alive _vec) then {
 						_vec removeAction _release_id;

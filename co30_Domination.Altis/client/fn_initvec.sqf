@@ -12,8 +12,7 @@ _vec setVariable ["d_icon_size", 28];
 _vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_car select 4)>>"icon")]; \
 _vec setVariable ["d_ma_color", getArray (configFile >>"CfgMarkerColors">>(_car select 5)>>"color")]; \
 _vec setVariable ["d_icon_type", getText (configFile >>"CfgVehicles">>typeOf _vec>>"icon")]; \
-_vec setVariable ["d_icon_size", 28]; \
-if (count _car > 8) then {_vec setVariable ["d_lift_types", _car select 8]}
+_vec setVariable ["d_icon_size", 28];
 
 #define __chopset private _index = _car select 1;\
 _vec setVariable ["d_choppertype", _index];\
@@ -279,7 +278,6 @@ if (_d_vec < 600) exitWith {
 	if !(_car isEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
-		if (count _car > 7) then {_vec setVariable ["d_lift_types", _car # 7]};
 		__vecmarker;
 #ifndef __TT__
 		d_marker_vecs pushBack _vec;

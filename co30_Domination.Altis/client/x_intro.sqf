@@ -162,8 +162,10 @@ if (!(d_reserved_slot isEqualTo []) && {str player in d_reserved_slot}) then {
 	execVM "client\x_reservedslot.sqf";
 };
 if (!_uidcheck_done && {!(d_uid_reserved_slots isEqualTo [])} && {!(d_uids_for_reserved_slots isEqualTo [])}) then {
-	d_uid_reserved_slots = d_uid_reserved_slots apply {toLower _x};
-	if ((toLower str player) in d_uid_reserved_slots) then {
+	//d_uid_reserved_slots = d_uid_reserved_slots apply {toLower _x};
+	d_uid_reserved_slots = d_uid_reserved_slots apply {toLowerANSI _x};
+	//if ((toLower str player) in d_uid_reserved_slots) then {
+	if ((toLowerANSI str player) in d_uid_reserved_slots) then {
 		if !(getPlayerUID player in d_uids_for_reserved_slots) then {
 			execVM "client\x_reservedslot2.sqf";
 		};

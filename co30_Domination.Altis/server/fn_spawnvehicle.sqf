@@ -40,10 +40,12 @@ private "_veh";
 private _cfg = configFile>>"CfgVehicles">>_typev1>>"simulation";
 
 private _sim = if (isText _cfg) then {
-	toLower getText(_cfg)
+	//toLower getText(_cfg)
+	toLowerANSI getText(_cfg)
 } else {
 	private _ar = getArray (_cfg);
-	toLower (_ar # 0)
+	//toLower (_ar # 0)
+	toLowerANSI (_ar # 0)
 };
 
 __TRACE_1("","_sim")

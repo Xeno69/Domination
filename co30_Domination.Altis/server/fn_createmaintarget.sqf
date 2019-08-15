@@ -4,14 +4,7 @@
 #include "..\x_setup.sqf"
 
 private _garrisonUnits = {
-    _centerPos = _this select 0;
-	_numUnits = _this select 1;
-	_fillRadius = _this select 2;
-	_fillRoof = _this select 3;
-	_fillEvenly = _this select 4;
-	_fillTopDown = _this select 5;
-	_disableTeleport = _this select 6;
-	_unitMovementMode = _this select 7;
+	params ["_centerPos", "_numUnits", "_fillRadius", "_fillRoof", "_fillEvenly", "_fillTopDown", "_disableTeleport", "_unitMovementMode"];
 
 	__TRACE("from createmaintarget garrison function")
 	private _unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
@@ -353,7 +346,6 @@ if (d_no_more_observers < 2) then {
 //garrison begin`
 
 if (d_enemy_occupy_bldgs == 1) then {
-	
 	//create garrisoned "occupy" groups of AI (free to move immediately)
 	if (d_enemy_garrison_troop_occupy_count > 0) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_occupy_count - 1) do {
@@ -371,7 +363,6 @@ if (d_enemy_occupy_bldgs == 1) then {
 		};
 	};
 
-
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
 	if (d_enemy_garrison_troop_ambush_count > 0) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_ambush_count - 1) do {
@@ -388,7 +379,6 @@ if (d_enemy_occupy_bldgs == 1) then {
 			] call _garrisonUnits
 		};
 	};
-
 
     //create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	//START create garrisoned groups of snipers

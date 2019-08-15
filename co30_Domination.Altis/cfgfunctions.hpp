@@ -283,6 +283,7 @@ class cfgFunctions {
 			addc(eachframerun);
 			addc(eachframeremove);
 			addc(hascopilot);
+			addc(iscopilot);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

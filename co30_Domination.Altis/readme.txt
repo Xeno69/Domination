@@ -14,6 +14,10 @@ Changelogs
 
 4.10
 - Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
+- Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
+- Optimized: Using toLowerANSI/toUpperANSI where possible
+- Added: Parameter to allow players more target selections across the map, discrete parameters for each of the three garrison behaviors (by longtimegamer)
+- Fixed: Removed occupy buildings troop level parameter, replaced with three parameters for garrison behaviors (by longtimegamer)
 
 4.06
 
@@ -29,7 +33,6 @@ ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Mald
 - Fixed: Livonia/Enoch version was missing Zeus module
 
 4.05
-
 - Changed: If d_without_nvg or d_without_vec_ti all optics and headgear which use either NVG or TI will be removed once arsenal or inventory closes (d_without_vec_ti also still turns off vehicle TI)
 - Added: Checkbox in StatusDialog to enable/disable automatic viewdistance change at main targets
 - Fixed: Enemy vehicle HQ could spawn under the ground
@@ -37,7 +40,6 @@ ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Mald
 - Lots of optimizations
 
 4.04
-
 - Changed: Better handling for enemy near MHQ trigger (no more format)
 - Changed: Rewrote camp and barracks creation code
 - Changed: Camp capture FSMs have now exactly the same code as in 3.99s
@@ -51,7 +53,6 @@ ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Mald
 (Interims version only)
 
 4.02
-
 - Fixed: MHQ flag removed in TT version
 - Fixed: If "Locate the first enemy camp to capture near the center of the main target" was activated the camp marker of the first camp was not drawn
 - Fixed: In the TT version Viewdistance change slider in the Status Dialog did not work at all

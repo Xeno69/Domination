@@ -985,7 +985,8 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 		} forEach (d_remove_from_arsenal # _i);
 		
 		if !(_classes isEqualTo []) then {
-			_classes = _classes apply {toLower _x};
+			//_classes = _classes apply {toLower _x};
+			_classes = _classes apply {toLowerANSI _x};
 		};
 		
 		__TRACE_2("","_i","_codes")
@@ -1007,7 +1008,8 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 					};
 				} forEach _codes;
 			};
-			if (!_changed && {!(_classes isEqualTo []) && {toLower _x in _classes}}) then {
+			//if (!_changed && {!(_classes isEqualTo []) && {toLower _x in _classes}}) then {
+			if (!_changed && {!(_classes isEqualTo []) && {toLowerANSI _x in _classes}}) then {
 				__TRACE("in second")
 				_badar set [_forEachIndex, -1];
 			};

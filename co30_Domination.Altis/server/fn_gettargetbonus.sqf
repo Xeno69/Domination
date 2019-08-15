@@ -44,6 +44,7 @@ if (unitIsUAV _vec) then {
 		};
 	};
 };
+_vec setVariable ["d_isspecialvec", true, true];
 private _endpos = [];
 private _dir = 0;
 if (_vec isKindOf "Air") then {
@@ -99,6 +100,7 @@ if (d_mt_winner == 1) then {
 		d_bonus_vecs_db_w pushBack _vec;
 	};
 	_vec setVariable ["D_VEC_SIDE", 2];
+	_vec setVariable ["d_isspecialvec", true, true];
 	_d_bonus_air_positions = d_bonus_air_positions_w;
 	_d_bap_counter = d_bap_counter_w;
 	_d_bonus_vec_positions = d_bonus_vec_positions_w;
@@ -111,6 +113,7 @@ if (d_mt_winner == 1) then {
 			d_bonus_vecs_db_e pushBack _vec;
 		};
 		_vec setVariable ["D_VEC_SIDE", 1];
+		_vec setVariable ["d_isspecialvec", true, true];
 		_d_bonus_air_positions = d_bonus_air_positions_e;
 		_d_bap_counter = d_bap_counter_e;
 		_d_bonus_vec_positions = d_bonus_vec_positions_e;
@@ -128,6 +131,8 @@ if (d_mt_winner == 1) then {
 		};
 		_vec setVariable ["D_VEC_SIDE", 2];
 		_vec2 setVariable ["D_VEC_SIDE", 1];
+		_vec setVariable ["d_isspecialvec", true, true];
+		_vec2 setVariable ["d_isspecialvec", true, true];
 		_d_bonus_air_positions = d_bonus_air_positions_w;
 		_d_bonus_air_positions2 = d_bonus_air_positions_e;
 		_d_bap_counter = d_bap_counter_w;

@@ -29,6 +29,7 @@ private _doexitit = false;
 private _chophud_shown = false;
 private _chophud2_shown = false;
 
+//if (player == currentPilot _vec) then {
 if (player == driver _vec) then {
 	private _vtype = _vec getVariable ["d_vec_type", ""];
 	if (_vtype == "MHQ") then {
@@ -38,7 +39,8 @@ if (player == driver _vec) then {
 };
 
 while {d_player_in_vec} do {
-	if (player == driver _vec) then {
+	//if (player == driver _vec) then {
+	if (player == currentPilot _vec) then {
 		private _chopttype = _vec getVariable ["d_choppertype", -1];
 		__TRACE_2("","_vec","_chopttype")
 		if (_chopttype > -1) then {
@@ -65,7 +67,8 @@ while {d_player_in_vec} do {
 			private _pip_cam_on = false;
 			private _prev_liftobj = objNull;
 
-			while {d_player_in_vec && {alive player && {player == driver _vec}}} do {
+			//while {d_player_in_vec && {alive player && {player == driver _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
+			while {d_player_in_vec && {alive player && {player == currentPilot _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
 				if (d_chophud_on && {!visibleMap}) then {
 					if (isNil "_vec") then {_vec = vehicle player};
 					_hudoff = false;
@@ -100,7 +103,7 @@ while {d_player_in_vec} do {
 								_check_cond = if (_chopttype == 1) then {
 									private _isvalid = _liftobj getVariable "d_canbewlifted";
 									if (isNil "_isvalid") then {
-										_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"} || {toLower (typeOf _liftobj) in (_vec getVariable ["d_lift_types", []])};
+										_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"};
 										_liftobj setVariable ["d_canbewlifted", _isvalid];
 									};
 									(!isNull _liftobj && {_isvalid && {_marp > 0 && {damage _liftobj >= 1}}})
@@ -269,7 +272,8 @@ while {d_player_in_vec} do {
 			};
 			_chdispx2 = uiNamespace getVariable "d_chopper_lift_hud2";
 			__CTRL3(61422) ctrlSetText (localize "STR_DOM_MISSIONSTRING_200");
-			while {d_player_in_vec && {alive player && {player == driver _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
+			//while {d_player_in_vec && {alive player && {player == driver _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
+			while {d_player_in_vec && {alive player && {player == currentPilot _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
 				sleep 0.421;
 			};
 			_doexitit = true;

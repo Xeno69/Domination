@@ -12,16 +12,11 @@ private _liftobj = objNull;
 private _id = -1212;
 private _release_id = -1212;
 
-_chopper setVariable ["d_vec_attached", false];
-_chopper setVariable ["d_vec_released", false];
-_chopper setVariable ["d_Attached_Vec", objNull];
-
-private _possible_types = _chopper getVariable ["d_lift_types", []];
-
 sleep 10.123;
 
 while {alive _chopper && {alive player && {player in _chopper}}} do {
-	if (driver _chopper == player) then {
+	//if (driver _chopper == player) then {
+	if (currentPilot _chopper == player) then {
 		private _pos = getPosVisual _chopper;
 		
 		if (!(_chopper getVariable ["d_vec_attached", false]) && {_pos # 2 > 2.5 && {_pos # 2 < 50}}) then {
@@ -41,17 +36,17 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				} else {
 					private _isvalid = _liftobj getVariable "d_canbewlifted";
 					if (isNil "_isvalid") then {
-						_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"} || {toLower (typeof _liftobj) in _possible_types};
+						_isvalid = !isNil {_liftobj getVariable "d_isspecialvec"};
 						_liftobj setVariable ["d_canbewlifted", _isvalid];
 					};
 					if (!_isvalid || {damage _liftobj < 1}) then {_liftobj = objNull};
 				};
 			};
 			sleep 0.1;
-			if ((_liftobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair]) > 0 && {!isNull _liftobj && {_liftobj != _chopper getVariable "d_Attached_Vec"}}) then {
+			if ((_liftobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair]) > 0 && {!isNull _liftobj && {_liftobj != _chopper getVariable ["d_Attached_Vec", objNull]}}) then {
 				if (_chopper inArea [_liftobj, 10, 10, 0, false]) then {
 					if (!_menu_lift_shown) then {
-						_id = _chopper addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_254"], {_this call d_fnc_heli_action},-1,100000];
+						_id = _chopper addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_254"], {_this call d_fnc_heli_action}, -1, 100000, false, true, "", "currentPilot _target == player"];
 						_menu_lift_shown = true;
 					};
 				} else {
@@ -74,15 +69,28 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 			sleep 0.1;
 			
 			if (isNull _liftobj) then {
-				_chopper setVariable ["d_vec_attached", false];
-				_chopper setVariable ["d_vec_released", false];
+				_liftobj = _chopper getVariable ["d_Attached_Vec", objNull];
+			};
+			
+			if (isNull _liftobj) then {
+				if (!isNil {_chopper getVariable "d_vec_attached"}) then {
+					_chopper setVariable ["d_vec_attached", nil, true];
+				};
+				if (!isNil {_chopper getVariable "d_vec_released"}) then {
+					_chopper setVariable ["d_vec_released", nil, true];
+				};
 			} else {
 				__TRACE_1("","_liftobj")
-				if (_chopper getVariable "d_vec_attached") then {
-					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000];
-					_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_252");
-					_chopper setVariable ["d_Attached_Vec", _liftobj];
-					
+				if (_chopper getVariable ["d_vec_attached", false]) then {
+					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000, false, true, "", "currentPilot _target == player"];
+					if (isNull (_chopper getVariable ["d_Attached_Vec", objNull])) then {
+						_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_252");
+						_chopper setVariable ["d_Attached_Vec", _liftobj, true];
+
+						_liftobj engineOn false;
+						_liftobj attachTo [_chopper, [0, 0, -15]];
+						_chopper setVariable ["d_attachedto_v", _liftobj, true];
+					};
 					private _fuelloss = switch (true) do {
 						case (_liftobj isKindOf "Wheeled_APC" || {_liftobj isKindOf "Wheeled_APC_F"}): {0.0003};
 						case (_liftobj isKindOf "Car" || {_liftobj isKindOf "Car_F"}): {0.0002};
@@ -90,35 +98,33 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						case (_liftobj isKindOf "TANK"): {0.0006};
 						default {0.0001};
 					};
-					
-					_liftobj engineOn false;
-					_liftobj attachTo [_chopper, [0, 0, -15]];
-					_chopper setVariable ["d_attachedto_v", _liftobj, true];
 					if (d_with_ranked || {d_database_found}) then {
 						_liftobj setVariable ["d_lift_pilot", player, true];
 					};
 					
-					while {alive _chopper && {player in _chopper && {!isNull _liftobj && {alive player && {!isNull attachedTo _liftobj && {!(_chopper getVariable "d_vec_released")}}}}}} do {
+					while {alive _chopper && {player in _chopper && {!isNull _liftobj && {alive player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false])}}}}}} do {
 						_chopper setFuel ((fuel _chopper) - _fuelloss);
 						sleep 0.312;
 					};
 					__TRACE("Out of while loop")
+					
+					if (alive _chopper && {alive player && {!isNull _liftobj && {player in _chopper && {currentPilot _chopper != player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false]) && {!isNull gunner _chopper && {[_chopper, gunner _chopper] call d_fnc_iscopilot}}}}}}}}) exitWith {};
 					
 					if (!isNull attachedTo _liftobj) then {
 						detach _liftobj;
 					};
 					
 					_chopper setVariable ["d_attachedto_v", nil, true];
-										
+
 					if (!isNull _liftobj) then {
 						detach _liftobj;
 						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
 					};
 					
-					_chopper setVariable ["d_vec_attached", false];
-					_chopper setVariable ["d_vec_released", false];
+					_chopper setVariable ["d_vec_attached", nil, true];
+					_chopper setVariable ["d_vec_released", nil, true];
 					
-					_chopper setVariable ["d_Attached_Vec", objNull];
+					_chopper setVariable ["d_Attached_Vec", nil, true];
 					
 					if (alive _chopper) then {
 						if (alive player) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};

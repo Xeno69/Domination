@@ -149,7 +149,6 @@ while {true} do {
 			};
 #endif
 			[_vec, "d_chkill"] call d_fnc_setekmode;
-			_vec enableCopilot false;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 			if (d_with_ranked) then {
 				clearWeaponCargoGlobal _vec;

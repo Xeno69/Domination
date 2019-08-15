@@ -21,5 +21,5 @@ if (!isNil "_d_side") then {
 	};
 };
 if (_exit_it) exitWith {
-	_enterer action ["GetOut",_vec];
+	_enterer action ["GetOut", _vec];
 };

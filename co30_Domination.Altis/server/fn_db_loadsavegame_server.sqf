@@ -100,6 +100,7 @@ d_bonus_vecs_db = _ar # 9;
 			_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
 	};
+	_vec setVariable ["d_isspecialvec", true, true];
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
 		if (d_bonus_air_positions_carrier isEqualTo []) then {
@@ -192,6 +193,7 @@ _fnc_tt_bonusvec = {
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
+	_vec setVariable ["d_isspecialvec", true, true];
 	[_vec, "d_prebo"] call d_fnc_setekmode;
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 

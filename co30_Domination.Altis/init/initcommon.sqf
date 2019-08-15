@@ -375,24 +375,6 @@ if (hasInterface) then {
 	} forEach (d_p_vecs_opfor select {_x # 1 < 1100});
 #endif
 };
-#ifndef __TT__
-{
-	_x pushBack d_heli_wreck_lift_types;
-} forEach (d_choppers select {_x # 1 == 1});
-if (d_ifa3lite) then {
-	{
-		_x pushBack d_heli_wreck_lift_types;
-	} forEach (d_p_vecs select {_x # 1 >= 500});
-};
-#else
-{
-	_x pushBack d_heli_wreck_lift_types;
-} forEach (d_choppers_blufor select {_x # 1 == 1});
-
-{
-	_x pushBack d_heli_wreck_lift_types;
-} forEach (d_choppers_opfor select {_x # 1 == 1});
-#endif
 
 if (hasInterface && {d_with_ai}) then {
 	// additional AI recruit buildings

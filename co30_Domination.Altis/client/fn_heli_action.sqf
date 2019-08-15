@@ -6,7 +6,8 @@ if (!hasInterface) exitWith {};
 
 params ["_vec", "_unit"];
 
-if (_unit == driver _vec) then {
+//if (_unit == driver _vec) then {
+if (_unit == currentPilot _vec) then {
 	_vec removeAction (_this select 2);
-	_vec setVariable ["d_vec_attached", true];
+	_vec setVariable ["d_vec_attached", true, true];
 };

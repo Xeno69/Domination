@@ -29,9 +29,7 @@ if (!isServer) exitWith{};
 		};
 	};
 	
-	if (_vec isKindOf "Air") then {
-		_vec enableCopilot false;
-	} else {
+	if !(_vec isKindOf "Air") then {
 		_vec setVariable ["d_liftit", true, true];
 	};
 	if (!unitIsUAV _vec && {d_with_dynsim == 0}) then {

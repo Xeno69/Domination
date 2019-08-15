@@ -35,7 +35,8 @@ private _pylon_owners = _vec getVariable ["d_pylon_owners", []];
 __TRACE_1("","_pylon_owners")
 private _pyl_owns_empty = _pylon_owners isEqualTo [];
 
-private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toLower _x};
+//private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toLower _x};
+private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toLowerANSI _x};
 __TRACE_1("","_excludemags")
 
 __TRACE_1("","count _pylons")
@@ -137,7 +138,8 @@ for "_i" from 0 to (count _pylons - 1) do {
 	__TRACE_1("","_vec getCompatiblePylonMagazines (configName _pylon)")
 	{
 		__TRACE_1("33","_x")
-		if !(toLower _x in _excludemags) then {
+		//if !(toLower _x in _excludemags) then {
+		if !(toLowerANSI _x in _excludemags) then {
 			__TRACE_1("adding","_x")
 			_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
 			_ctrl lbSetData [_idx, _x];

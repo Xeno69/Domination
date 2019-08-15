@@ -57,7 +57,7 @@ if (_units isEqualTo [] || {isNull (_units select 0)}) exitWith {
 _Zen_ExtendPosition = {
     params ["_center", "_dist", "_phi"];
 
-    ([(_center select 0) + (_dist * (cos _phi)), (_center select 1) + (_dist * (sin _phi)), (_this select 3)])
+    ([(_center select 0) + (_dist * (cos _phi)), (_center select 1) + (_dist * (sin _phi)), _this select 3])
 };
 
 _Zen_InsertionSort = {

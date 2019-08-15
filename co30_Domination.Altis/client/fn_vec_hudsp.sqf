@@ -23,12 +23,14 @@ if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
 	
 	private _fuelcap = getNumber(configFile>>"CfgVehicles">>typeOf _vec>>"fuelCapacity");
 	while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
-		if (player == driver _vec || {player == gunner _vec || {player == commander _vec}}) then {
+		//if (player == driver _vec || {player == gunner _vec || {player == commander _vec}}) then {
+		if (player == currentPilot _vec || {player == gunner _vec || {player == commander _vec}}) then {
 			private _vec_string = localize "STR_DOM_MISSIONSTRING_631" + ([typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName);
 			"d_vec_hud" cutRsc ["d_vec_hud", "PLAIN"];
 			private _disp = uiNamespace getVariable "d_vec_hud";
 			private _ison = true;
-			while {d_player_in_vec && {alive player && {player == driver _vec}}} do {
+			//while {d_player_in_vec && {alive player && {player == driver _vec}}} do {
+			while {d_player_in_vec && {alive player && {player == currentPilot _vec}}} do {
 				private _crewctrl = (uiNamespace getVariable "d_rscCrewText") displayCtrl 9999;
 				if (!visibleMap && {isNil "_crewctrl" || {!ctrlShown _crewctrl}}) then {
 					if (!_ison) then {

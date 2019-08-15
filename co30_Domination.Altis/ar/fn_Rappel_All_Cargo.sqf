@@ -12,14 +12,16 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 params ["_vehicle", ["_rappelHeight", 25], ["_positionASL", []]];
 
-if ((driver _vehicle) call d_fnc_isplayer) exitWith {};
+//if ((driver _vehicle) call d_fnc_isplayer) exitWith {};
+if ((currentPilot _vehicle) call d_fnc_isplayer) exitWith {};
 
 if (local _vehicle) then {
 	_this spawn {
 		scriptName "spawn_AR_rappel_all_cargo";
 		params ["_vehicle", ["_rappelHeight", 25], ["_positionASL", []]];
 
-		_heliGroup = group driver _vehicle;
+		//_heliGroup = group driver _vehicle;
+		_heliGroup = group currentPilot _vehicle;
 		_vehicle setVariable ["AR_Units_Rappelling", true];
 
 		_heliGroupOriginalBehaviour = behaviour leader _heliGroup;

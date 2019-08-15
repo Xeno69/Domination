@@ -12,7 +12,7 @@ item7[] = {"Is_MP",4,218,-155.878143,225.499680,-65.878143,275.499695,1.000000,"
 item8[] = {"Sleep",2,250,-266.756226,283.691040,-176.756241,333.691040,0.000000,"Sleep"};
 item9[] = {"Delay2",4,218,-155.091797,341.096008,-65.091766,391.096008,0.000000,"Delay2"};
 item10[] = {"Allways",8,218,-36.349953,375.696259,53.650047,425.696259,0.000000,"Allways"};
-item11[] = {"Check",2,250,-36.349949,461.762817,53.650066,511.762817,0.000000,"Check"};
+item11[] = {"Check",2,4346,-36.349949,461.762817,53.650066,511.762817,0.000000,"Check"};
 item12[] = {"Not_Null_Wreck",4,218,-36.349953,561.631714,53.650047,611.631714,1.000000,"Not Null Wreck"};
 item13[] = {"Delay_2",4,218,110.701157,372.903015,200.701157,422.903015,0.000000,"Delay 2"};
 item14[] = {"Rebuild",2,250,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
@@ -43,8 +43,8 @@ link18[] = {16,17};
 link19[] = {17,6};
 link20[] = {18,19};
 link21[] = {19,15};
-globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-375.999420,565.853027,964.322388,192.173111,666,546,1};
-window[] = {0,-1,-1,-1,-1,822,104,1806,104,1,684};
+globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-567.387878,757.241089,954.856201,-343.248932,849,832,1};
+window[] = {0,-1,-1,-1,-1,1264,260,2407,260,1,867};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -102,7 +102,7 @@ class FSM
                 {
                         name = "Init";
                         itemno = 4;
-                        init = /*%FSM<STATEINIT""">*/"params [""_rep_station"", ""_name"", ""_types""];" \n
+                        init = /*%FSM<STATEINIT""">*/"params [""_rep_station"", ""_name""];" \n
                          "" \n
                          "private _rep_station_side = [civilian, [opfor, blufor] select (_rep_station == d_wreck_rep)] select d_tt_ver;" \n
                          "" \n
@@ -189,7 +189,7 @@ class FSM
                 {
                         name = "Check";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"private _wreck = [_pos_rep_station, _types] call d_fnc_GetWreck;" \n
+                        init = /*%FSM<STATEINIT""">*/"private _wreck = [_pos_rep_station] call d_fnc_GetWreck;" \n
                          "_timenow = ([time, serverTime] select isMultiplayer) + 2.432;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -329,7 +329,7 @@ class FSM
                          "		_new_vec remoteExecCall [""d_fnc_addpylon_action"", [0, -2] select isDedicated];" \n
                          "	};" \n
                          "	_uavgrp deleteGroupWhenEmpty true;" \n
-						 "	[_new_vec, ""d_delcrewk""] call d_fnc_setekmode;" \n
+                         "	[_new_vec, ""d_delcrewk""] call d_fnc_setekmode;" \n
                          "} else {" \n
                          "	if (d_with_dynsim == 0) then {" \n
                          "		_new_vec spawn {" \n
@@ -349,6 +349,7 @@ class FSM
                          "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n
                          "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n
                          "_new_vec setVariable [""d_WreckMaxRepair"", _maxrep, true];" \n
+                         "_new_vec setVariable [""d_isspecialvec"", true, true];" \n
                          "" \n
                          "[_new_vec, _skinpoly] call d_fnc_skinpolyresp;" \n
                          "_skinpoly = nil;" \n

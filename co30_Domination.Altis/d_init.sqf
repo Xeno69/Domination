@@ -377,15 +377,6 @@ if (isServer) then {
 	__TRACE_1("","d_side_missions_random")
 	
 	d_current_mission_counter = 0;
-	
-	private _special_v = vehicles select {(str _x) select [0, 15] isEqualTo "d_vecs_special_"};
-	private _sp_v_ar = [];
-	if !(_special_v isEqualTo []) then {
-		_special_v call d_fnc_initvecsspecial;
-		{
-			d_heli_wreck_lift_types pushBackUnique (toLower (typeOf _x));
-		} forEach _special_v;
-	};
 
 #ifndef __TT__
 	// editor varname, unique number, true = respawn only when the chopper is completely destroyed, false = respawn after some time when no crew is in the chopper or chopper is destroyed
@@ -448,7 +439,7 @@ if (isServer) then {
 	] call d_fnc_initvrespawn2;
 #endif
 	{
-		[_x, localize "STR_DOM_MISSIONSTRING_0", d_heli_wreck_lift_types] execFSM "fsms\fn_RepWreck.fsm";
+		[_x, localize "STR_DOM_MISSIONSTRING_0"] execFSM "fsms\fn_RepWreck.fsm";
 	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] isEqualTo "d_wreck_rep"});
 	
 #ifdef __TT__

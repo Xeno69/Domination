@@ -16,7 +16,8 @@ private _pos = selectRandom _wp_array;
 
 __TRACE_1("","_grp")
 
-_grptype = toLower _grptype;
+//_grptype = toLower _grptype;
+_grptype = toLowerANSI _grptype;
 
 private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty"];
 private _ismen = _grptype in ["allmen", "specops"];
@@ -60,7 +61,7 @@ if (_add_to_ar_type > 0) then {
 				{
 					[_x, "d_onerespk"] call d_fnc_setekmode;
 				} forEach _uinf;
-				_grp setVariable ["d_respawninfo", [toLower _grptype, [], _target_pos, _numvecs, selectRandom ["patrol", "patrol2"], _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
+				_grp setVariable ["d_respawninfo", [_grptype, [], _target_pos, _numvecs, selectRandom ["patrol", "patrol2"], _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, []]];
 			};
 		};
 	};

@@ -120,9 +120,7 @@ while {true} do {
 			_vec setVariable ["d_vec", _number_v, true];
 			_vec setVariable ["d_vec_islocked", _isitlocked];
 			if (_isitlocked) then {_vec lock true};
-			if (_vec isKindOf "Air") then {
-				_vec enableCopilot false;
-			} else {
+			if !(_vec isKindOf "Air") then {
 				_vec setVariable ["d_liftit", true, true];
 			};
 			if (unitIsUAV _vec) then {

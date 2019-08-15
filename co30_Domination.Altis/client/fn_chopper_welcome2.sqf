@@ -26,7 +26,8 @@ switch (_this select 0) do {
 };
 
 private _vec = _this select 1;
-private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toLower (typeOf _vec)) in d_check_ammo_load_vecs);
+//private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toLower (typeOf _vec)) in d_check_ammo_load_vecs);
+private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toLowerANSI (typeOf _vec)) in d_check_ammo_load_vecs);
 
 private _end_welcome = time + 14;
 "d_chopper_hud" cutRsc ["d_chopper_hud", "PLAIN"];
@@ -35,6 +36,6 @@ private _t = format ["<t color='#b5f279' size='1.9'><t align='center'>%1</t><br/
 
 while {true} do {
 	sleep 0.223;
-	if (time >= _end_welcome || {isNull objectParent player || {player != driver _vec || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}) exitWith {};
+	if (time >= _end_welcome || {isNull objectParent player || {player != currentPilot _vec || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}) exitWith {};
 };
 "d_chopper_hud" cutFadeOut 0;

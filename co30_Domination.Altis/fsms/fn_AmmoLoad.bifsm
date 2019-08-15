@@ -92,7 +92,7 @@ class GraphItems
 			Text="count _nobjs == 0";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -118,7 +118,7 @@ class GraphItems
 		{
 			Text="Sleep";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -144,7 +144,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -220,7 +220,7 @@ class GraphItems
 			Text="!isNull _vec && alive _vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -260,7 +260,7 @@ class GraphItems
 	};
 	class Item10
 	{
-		Flags=218;
+		Flags=4314;
 		BasicText="";
 		Left=-25;
 		Top=350;
@@ -272,7 +272,7 @@ class GraphItems
 			Text="local (driver _vec) || player == driver _vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -281,7 +281,7 @@ class GraphItems
 			{
 				Id=10;
 				Priority=1;
-				Condition="player == driver _vec";
+				Condition="//player == driver _vec" \n "player == currentPilot _vec";
 			};
 		};
 	};
@@ -324,7 +324,7 @@ class GraphItems
 			Text="_vec != _old_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -375,7 +375,7 @@ class GraphItems
 			Text="_thebox";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -476,7 +476,7 @@ class GraphItems
 			Text="ammo_boxes >= d_MaxNumAmmoboxes";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -528,7 +528,7 @@ class GraphItems
 			Text="";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -578,7 +578,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -702,7 +702,7 @@ class GraphItems
 			Text="!d_player_in_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -754,7 +754,7 @@ class GraphItems
 			Text="!d_player_in_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -769,7 +769,7 @@ class GraphItems
 	};
 	class Item30
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-600;
 		Top=325;
@@ -806,7 +806,7 @@ class GraphItems
 			Text="!d_player_in_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -1337,7 +1337,7 @@ class Globals
 	NextGroupID=1;
 	NextID=42;
 	FSMName="AmmoLoad";
-	CompileConfig="f:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -1346,12 +1346,12 @@ class Globals
 	DefaultLinkColorFromSelected=6316287;
 	DefaultLinkColorToSelected=6356832;
 	DefaultLinkUseCustom=1;
-	PZoomLeft=-613.74707;
-	PZoomRight=723.36017;
-	PZoomBottom=1264.087;
-	PZoomTop=193.92244;
+	PZoomLeft=-540.87469;
+	PZoomRight=650.48779;
+	PZoomBottom=1211.2455;
+	PZoomTop=-126.23751;
 	Clxs=1117;
-	Clys=894;
+	Clys=1254;
 	Aspect=1;
 };
 class Window
@@ -1361,10 +1361,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=26;
-	Top=26;
-	Right=1087;
-	Bottom=744;
+	Left=156;
+	Top=156;
+	Right=1217;
+	Bottom=874;
 	ShowCmd=3;
 	SplitPos=1135;
 };

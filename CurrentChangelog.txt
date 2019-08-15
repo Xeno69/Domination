@@ -1,2 +1,4 @@
 4.10
 - Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
+- Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
+- Optimized: Using toLowerANSI/toUpperANSI where possible

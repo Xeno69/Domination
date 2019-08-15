@@ -20,19 +20,21 @@ if (d_with_ace) then {
 	
 {d_misc_store setVariable [_x, []]} forEach ["PRIVATE_ONED","CORPORAL_ONED","SERGEANT_ONED","LIEUTENANT_ONED","CAPTAIN_ONED","MAJOR_ONED","COLONEL_ONED"];
 
-d_non_check_items = ["ItemGPS", "ItemRadio", "ItemMap", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP"] apply {toLower _x};
+//d_non_check_items = ["ItemGPS", "ItemRadio", "ItemMap", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP"] apply {toLower _x};
+d_non_check_items = ["ItemGPS", "ItemRadio", "ItemMap", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP"] apply {toLowerANSI _x};
 
 if (d_with_ace) then {
 	private _ttacer = ["ACE_atropine", "ACE_fieldDressing", "ACE_elasticBandage", "ACE_quikclot", "ACE_bloodIV", "ACE_bloodIV_500", "ACE_bloodIV_250",
 		"ACE_bodyBag", "ACE_bodyBagObject", "ACE_epinephrine", "ACE_morphine", "ACE_packingBandage", "ACE_personalAidKit", "ACE_plasmaIV", "ACE_plasmaIV_500",
-		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"] apply {toLower _x};
+		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"] apply {toLowerANSI _x}; //apply {toLower _x};
 	d_non_check_items append _ttacer;
 };
 
 private _dd_add_gearf = {
 	params ["_ranks", "_curarx", "_typeu"];
 	
-	private _arw = (_curarx select {!(_x isEqualTo "")}) apply {toLower _x};
+	//private _arw = (_curarx select {!(_x isEqualTo "")}) apply {toLower _x};
+	private _arw = (_curarx select {!(_x isEqualTo "")}) apply {toLowerANSI _x};
 	__TRACE_1("_dd_add_gearf","_arw")
 	
 	if !(_arw isEqualTo []) then {

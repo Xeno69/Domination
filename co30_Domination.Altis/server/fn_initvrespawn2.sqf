@@ -57,9 +57,7 @@ d_vrespawn2_ar = [];
 			};
 #endif
 		};
-		if (_vec isKindOf "Air") then {
-			_vec enableCopilot false;
-		} else {
+		if !(_vec isKindOf "Air") then {
 			_vec setVariable ["d_liftit", true, true];
 		};
 		if (unitIsUAV _vec) then {

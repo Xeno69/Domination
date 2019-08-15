@@ -32,7 +32,8 @@ waitUntil {camCommitted _camera};
 	private _vec = vehicle player;
 	if (_vec != player && {_vec isKindOf "Air"}) then {
 		private _posp = getPosATLVisual player;
-		private _is_driver = driver _vec == player;
+		//private _is_driver = driver _vec == player;
+		private _is_driver = currentPilot _vec == player;
 		player action ["getOut", _vec];
 		waitUntil {isNull objectParent player};
 		player setPos [_posp # 0, _posp # 1, 0];
