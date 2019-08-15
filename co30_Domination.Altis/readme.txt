@@ -5,12 +5,15 @@ Also all code regarding custom made third party content was removed (for example
 
 Changelogs
 
-4.07
+4.11
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
 !!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
 - Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+
+4.10
+- Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
 
 4.06
 
