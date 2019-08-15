@@ -361,6 +361,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_with_targetselect_count {
+		title = "$STR_DOM_MISSIONSTRING_1953A";
+		values[] = {4,8,12,-1};
+		default = 4;
+		texts[] = {"4 targets","8 targets","12 targets","Entire map"};
+	};
+	
 	class d_MissionType {
 		title = "$STR_DOM_MISSIONSTRING_1052";
 		values[] = {0,1,2};
@@ -816,12 +823,26 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-
-	class d_enemy_occupy_bldgs_troop_level {
-		title = "$STR_DOM_MISSIONSTRING_1900";
-		values[] = {0, 1, 2, 3, 4};
+	
+	class d_enemy_garrison_troop_occupy_count {
+		title = "$STR_DOM_MISSIONSTRING_1900A";
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
 		default = 0;
-		texts[] = {"0 - Low (4 groups)", "1 - Medium (8 groups)", "2 - High (16 groups)", "3 - Very High (24 groups)", "4 - Insane (32 groups)"};
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
+	};
+	
+	class d_enemy_garrison_troop_ambush_count {
+		title = "$STR_DOM_MISSIONSTRING_1900B";
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
+		default = 3;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
+	};
+	
+	class d_enemy_garrison_troop_sniper_count {
+		title = "$STR_DOM_MISSIONSTRING_1900C";
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45, 60};
+		default = 8;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60"};
 	};
 
 	class d_enemy_max_barracks_count {
