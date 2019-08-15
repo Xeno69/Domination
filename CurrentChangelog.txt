@@ -2,3 +2,5 @@
 - Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
 - Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
 - Optimized: Using toLowerANSI/toUpperANSI where possible
+- Added: Parameter to allow players more target selections across the map, discrete parameters for each of the three garrison behaviors (by longtimegamer)
+- Fixed: Removed occupy buildings troop level parameter, replaced with three parameters for garrison behaviors (by longtimegamer)
