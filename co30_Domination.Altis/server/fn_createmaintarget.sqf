@@ -3,6 +3,65 @@
 #define THIS_FILE "fn_createmaintarget.sqf"
 #include "..\x_setup.sqf"
 
+private _garrisonUnits = {
+    _centerPos = _this select 0;
+	_numUnits = _this select 1;
+	_fillRadius = _this select 2;
+	_fillRoof = _this select 3;
+	_fillEvenly = _this select 4;
+	_fillTopDown = _this select 5;
+	_disableTeleport = _this select 6;
+	_unitMovementMode = _this select 7;
+
+	__TRACE("from createmaintarget garrison function")
+	private _unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
+	if (count _unitlist > _numUnits) then {
+		while {count _unitlist > _numUnits} do {
+			_unitlist deleteAt (ceil (random (count _unitlist - 1)));
+		};
+	};
+	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
+	_newgroup deleteGroupWhenEmpty true;
+	if (d_mt_respawngroups == 0) then {
+		{
+			[_x, "d_onerespk"] call d_fnc_setekmode;
+		} forEach _units_to_garrison;
+		_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
+	};
+	sleep 1.0112;
+	//_newgroup allowFleeing 0;
+	//_newgroup setVariable ["d_defend", true];
+	//[_newgroup, _poss] spawn d_fnc_taskDefend;
+	if (d_with_dynsim == 0) then {
+		_newgroup spawn {
+			scriptName "spawn createmaintarget1";
+			//sleep 1.5;
+			_this enableDynamicSimulation true;
+		};
+	};
+	d_delinfsm append _units_to_garrison;
+	_newgroup call d_fnc_addgrp2hc;
+
+	__TRACE_1("","_newgroup")
+	__TRACE_1("","_units_to_garrison")
+
+	//AI soldiers will be garrisoned in a building (window/roof)
+	__TRACE("Placing units in a building...")
+	//occupy a building using Zenophon script
+	_unitsNotGarrisoned = [
+		_centerPos,											// Params: 1. Array, the building(s) nearest this position is used
+		_units_to_garrison,									//         2. Array of objects, the units that will garrison the building(s)
+		_fillRadius,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+		_fillRoof,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+		_fillEvenly,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+		_fillTopDown,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+		_disableTeleport,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+		_unitMovementMode   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+		] call d_fnc_Zen_OccupyHouse;
+	__TRACE_1("","_unitsNotGarrisoned")
+};
+
 private _selectit = {
 	(ceil (random (((_this # 0) select (_this # 1)) # 1)))
 };
@@ -291,76 +350,95 @@ if (d_no_more_observers < 2) then {
 };
 
 #ifndef __TT__
-//garrison begin
+//garrison begin`
 
 if (d_enemy_occupy_bldgs == 1) then {
-	private _number_of_occupy_groups_to_spawn = 0;
 	
-	switch (d_enemy_occupy_bldgs_troop_level) do {
-		case 0: {
-			_number_of_occupy_groups_to_spawn = 4;
-		};
-		case 1: {
-			_number_of_occupy_groups_to_spawn = 8;
-		};
-		case 2: {
-			_number_of_occupy_groups_to_spawn = 16;
-		};
-		case 3: {
-			_number_of_occupy_groups_to_spawn = 24;
-		};
-		case 4: {
-			_number_of_occupy_groups_to_spawn = 32;
+	//create garrisoned "occupy" groups of AI (free to move immediately)
+	if (d_enemy_garrison_troop_occupy_count > 0) then {
+		for "_xx" from 0 to (d_enemy_garrison_troop_occupy_count - 1) do {
+			_numU = (ceil random 6) max 3;
+			[
+				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
+				_numU,			//unit count
+				250,		//fillRadius
+				false,		//fillRoof
+				false,		//fillEvenly
+				false,		//fillTopDown
+				false,		//disableTeleport
+				0		//unitMovementMode
+			] call _garrisonUnits
 		};
 	};
-	
-	for "_xx" from 0 to _number_of_occupy_groups_to_spawn do {
-		__TRACE("from createmaintarget garrison function")
-		private _unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
-		if (count _unitlist > 5) then {
-			while {count _unitlist > 5} do {
-				_unitlist deleteAt (ceil (random (count _unitlist - 1)));
-			};
-		};
-		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-		private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
-		_newgroup deleteGroupWhenEmpty true;
-		if (d_mt_respawngroups == 0) then {
-			{
-				[_x, "d_onerespk"] call d_fnc_setekmode;
-			} forEach _units_to_garrison;
-			_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
-		};
-		sleep 1.0112;
-		//_newgroup allowFleeing 0;
-		//_newgroup setVariable ["d_defend", true];
-		//[_newgroup, _poss] spawn d_fnc_taskDefend;
-		if (d_with_dynsim == 0) then {
-			_newgroup spawn {
-				scriptName "spawn createmaintarget1";
-				//sleep 1.5;
-				_this enableDynamicSimulation true;
-			};
-		};
-		d_delinfsm append _units_to_garrison;
-		_newgroup call d_fnc_addgrp2hc;
-		
-		__TRACE_1("","_newgroup")
-		__TRACE_1("","_units_to_garrison")
 
-		//AI soldiers will be garrisoned in a building (window/roof)
-		__TRACE("Placing units in a building...")
-		//occupy a building using Zenophon script
-		_unitsNotGarrisoned = [
-			[[[_trg_center, 250]],[]] call BIS_fnc_randomPos,	// Params: 1. Array, the building(s) nearest this position is used
-			_units_to_garrison,									//         2. Array of objects, the units that will garrison the building(s)
-			200,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
-			false,										//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
-			false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
-			false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
-			false] call d_fnc_Zen_OccupyHouse;				//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-		__TRACE_1("","_unitsNotGarrisoned")
+
+	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
+	if (d_enemy_garrison_troop_ambush_count > 0) then {
+		for "_xx" from 0 to (d_enemy_garrison_troop_ambush_count - 1) do {
+			_numUn = (ceil random 8) max 4;
+			[
+				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
+				_numUn,			//unit count
+				250,		//fillRadius
+				false,		//fillRoof
+				false,		//fillEvenly
+				false,		//fillTopDown
+				false,		//disableTeleport
+				1		//unitMovementMode
+			] call _garrisonUnits
+		};
 	};
+
+
+    //create garrisoned "sniper" groups of AI (static, never leave spawn position)
+	//START create garrisoned groups of snipers
+	//prepare to create garrisoned groups of snipers - find and sort tallest buildings
+	_buildingsArray = [];
+	_buildingRadius = 250;
+    _buildingsArray0 = nearestObjects [_trg_center, ["house"], _buildingRadius];
+    _buildingsArray1 = nearestObjects [_trg_center, ["building"], _buildingRadius];
+    _buildingsArrayRaw = _buildingsArray0 arrayIntersect _buildingsArray1;
+
+    _buildingsArrayUsable = [];
+
+    {
+    	_poss = _x buildingPos -1;
+		if !(_poss isEqualTo []) then {
+			_buildingsArrayUsable pushBack _x;
+		};
+    } forEach _buildingsArrayRaw;
+
+    //sort by height
+    _buildingsArraySorted = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x select 1) select 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
+
+    //choose the Top N of tallest buildings array
+    if (d_enemy_garrison_troop_sniper_count > 0) then {
+		for "_i" from 0 to (d_enemy_garrison_troop_sniper_count - 1) do {
+			_buildingsArray pushBack (_buildingsArraySorted select _i);
+		};
+    };
+
+	//create garrisoned groups of snipers with Top N of tallest buildings
+	if (d_enemy_garrison_troop_sniper_count > 0) then {
+		for "_xx" from 0 to (d_enemy_garrison_troop_sniper_count - 1) do {
+			_bldgIdx = _xx;
+			_numBldgPositions = count ((_buildingsArray select _bldgIdx) buildingPos -1);
+			//create the group but do not exceed the total number of positions in the building
+			_numUnits = ((ceil random 4) max 2) min _numBldgPositions;
+
+			[
+				getPos (_buildingsArray select _bldgIdx),
+				_numUnits,	//unit count
+				-1,			//fillRadius
+				true,		//fillRoof
+				false,		//fillEvenly
+				true,		//fillTopDown
+				false,		//disableTeleport
+				2		//unitMovementMode
+			] call _garrisonUnits
+		};
+	};
+	//END create garrisoned groups of snipers
 };
 //garrison end
 #endif

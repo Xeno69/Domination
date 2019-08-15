@@ -9,6 +9,13 @@ if (count d_mttargets_ar > 1) then {
 	d_next_sels_ar = [];
 	
 	private _howmany = 4;
+	
+	if (d_with_targetselect_count == -1) then {
+		_howmany = 999;
+	} else {
+		_howmany = d_with_targetselect_count;
+	};
+		
 	if (count d_mttargets_ar < 4) then {
 		_howmany = count d_mttargets_ar;
 	};

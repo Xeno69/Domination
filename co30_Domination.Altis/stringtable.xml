@@ -9973,15 +9973,35 @@
 <Russian>Максимальное число казарм пехотинцев противника</Russian>
 <Chinesesimp>敌人步兵营的最大数量</Chinesesimp>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1900">
-<English>Occupy buildings troop level</English>
-<Spanish>Occupy buildings troop level</Spanish>
-<Portuguese>Occupy buildings troop level</Portuguese>
-<Korean>Occupy buildings troop level</Korean>
-<Japanese>Occupy buildings troop level</Japanese>
-<Original>Occupy buildings troop level</Original>
-<Russian>Уровень занятия домов противником</Russian>
-<Chinesesimp>占据建筑物部队的等级</Chinesesimp>
+<Key ID="STR_DOM_MISSIONSTRING_1900A">
+<English>Garrisoned infantry group count - occupy mode</English>
+<Spanish>Garrisoned infantry group count - occupy mode</Spanish>
+<Portuguese>Garrisoned infantry group count - occupy mode</Portuguese>
+<Korean>Garrisoned infantry group count - occupy mode</Korean>
+<Japanese>Garrisoned infantry group count - occupy mode</Japanese>
+<Original>Garrisoned infantry group count - occupy mode</Original>
+<Russian>Garrisoned infantry group count - occupy mode</Russian>
+<Chinesesimp>Garrisoned infantry group count - occupy mode</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900B">
+<English>Garrisoned infantry group count - ambush mode</English>
+<Spanish>Garrisoned infantry group count - ambush mode</Spanish>
+<Portuguese>Garrisoned infantry group count - ambush mode</Portuguese>
+<Korean>Garrisoned infantry group count - ambush mode</Korean>
+<Japanese>Garrisoned infantry group count - ambush mode</Japanese>
+<Original>Garrisoned infantry group count - ambush mode</Original>
+<Russian>Garrisoned infantry group count - ambush mode</Russian>
+<Chinesesimp>Garrisoned infantry group count - ambush mode</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900C">
+<English>Garrisoned infantry group count - sniper mode</English>
+<Spanish>Garrisoned infantry group count - sniper mode</Spanish>
+<Portuguese>Garrisoned infantry group count - sniper mode</Portuguese>
+<Korean>Garrisoned infantry group count - sniper mode</Korean>
+<Japanese>Garrisoned infantry group count - sniper mode</Japanese>
+<Original>Garrisoned infantry group count - sniper mode</Original>
+<Russian>Garrisoned infantry group count - sniper mode</Russian>
+<Chinesesimp>Garrisoned infantry group count - sniper mode</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilian group count per target</English>
@@ -10232,6 +10252,16 @@
 <Original>Players can select next main target:</Original>
 <Russian>Игроки могут выбрать следующую основную цель:</Russian>
 <Chinesesimp>玩家可以选择下一个主要目标:</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1953A">
+<English>Players can select from available targets:</English>
+<Spanish>Players can select from available targets:</Spanish>
+<Portuguese>Players can select from available targets:</Portuguese>
+<Korean>Players can select from available targets:</Korean>
+<Japanese>Players can select from available targets:</Japanese>
+<Original>Players can select from available targets:</Original>
+<Russian>Players can select from available targets:</Russian>
+<Chinesesimp>Players can select from available targets:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
 <English>Main target selection time left</English>

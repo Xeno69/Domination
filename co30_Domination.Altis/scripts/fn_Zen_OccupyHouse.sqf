@@ -15,6 +15,10 @@
 //  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 //  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 //  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+//  (opt.) 8. Scalar
+//                0 - unit is free to move immediately (default: 0)
+//                1 - unit is free to move after a firedNear event is triggered
+//                2 - unit is static, no movement allowed
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -27,7 +31,16 @@
 
 private ["_Zen_ExtendPosition", "_buildingsArray", "_buildingPosArray", "_buildingPositions", "_posArray", "_unitIndex", "_j", "_building", "_posArray", "_randomIndex", "_housePos", "_startAngle", "_i", "_checkPos", "_hitCount", "_isRoof", "_edge", "_k", "_unUsedUnits", "_array", "_Zen_InsertionSort", "_Zen_ArrayShuffle"];
 
-params [["_center", [0,0,0], [[]], 3], ["_units", [objNull], [[]]], ["_buildingRadius", -1, [0]], ["_putOnRoof", false, [true]], ["_fillEvenly", false, [true]], ["_sortHeight", false, [true]], ["_doMove", false, [true]]];
+params [
+	["_center", [0,0,0], [[]], 3],
+	["_units", [objNull], [[]]],
+	["_buildingRadius", -1, [0]],
+	["_putOnRoof", false, [true]],
+	["_fillEvenly", false, [true]],
+	["_sortHeight", false, [true]],
+	["_doMove", false, [true]],
+	["_unitMovementMode", 0, [0]]
+];
 
 if (_center isEqualTo [0,0,0]) exitWith {
     player sideChat str "Zen_Occupy House Error : Invalid position given.";
@@ -136,13 +149,14 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
         scopeName "while";
         if (_unitIndex >= count _units) exitWith {};
 
-        _housePos = _posArray select 0;
+        _housePosArray = _posArray select 0;
         _posArray deleteAt 0;
-        _housePos = [_housePos select 0, _housePos select 1, (_housePos select 2) + (getTerrainHeightASL _housePos) + EYE_HEIGHT];
-
+        _housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
+		
         _startAngle = (round random 10) * (round random 36);
         for "_i" from _startAngle to (_startAngle + 350) step 10 do {
             _checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, _housePos select 2] call _Zen_ExtendPosition;
+            
             if !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull]) then {
                 if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
                     _checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) + (CHECK_DISTANCE * tan FOV_ANGLE)] call _Zen_ExtendPosition;
@@ -173,8 +187,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
                             if (!_isRoof || {_edge}) then {
                                 (_units select _unitIndex) doWatch ([_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
-
-                                (_units select _unitIndex) disableAI "TARGET";
+                                
                                 if (_doMove) then {
                                     (_units select _unitIndex) doMove ASLToATL ([_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT]);
                                 } else {
@@ -182,19 +195,43 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
                                     (_units select _unitIndex) setDir _i;
 
                                     doStop (_units select _unitIndex);
-                                    (_units select _unitIndex) forceSpeed 0;
+                                    
                                 };
 
-                                if (_isRoof) then {
-                                    (_units select _unitIndex) setUnitPos "MIDDLE";
-									(_units select _unitIndex) addEventHandler ["FiredNear", {
-										[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-									}];
-                                } else {
-                                    (_units select _unitIndex) setUnitPos "UP";
-									(_units select _unitIndex) addEventHandler ["FiredNear", {
-										[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-									}];
+                                if (_unitMovementMode == 1 || _unitMovementMode == 2) then {
+                                	(_units select _unitIndex) disableAI "TARGET";
+                                	(_units select _unitIndex) forceSpeed 0;
+								};
+
+								//_unitMovementMode == 0 -> no special behavior
+
+								//_unitMovementMode == 1 -> ambush mode - firedNear to restore unit ability to move and fire
+                                if (_unitMovementMode == 1) then {
+                                    (_units select _unitIndex) setVariable ["zen_fn_idx2", (_units select _unitIndex) addEventHandler ["FiredNear", {
+                                        scriptName "spawn_zoh_firednear1ambush";
+                                        //[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+                                        (_this select 0) enableAI "TARGET";
+                                        (_this select 0) enableAI "AUTOTARGET";
+                                        (_this select 0) enableAI "MOVE";
+                                        (_this select 0) forceSpeed -1;
+                                    }]];
+                                };
+								
+								//_unitMovementMode == 2 -> static mode - add up/down event handler
+								if (_unitMovementMode == 2) then {
+                                	if (_isRoof) then {
+										(_units select _unitIndex) setUnitPos "MIDDLE";
+										(_units select _unitIndex) setVariable ["zen_fn_idx", (_units select _unitIndex) addEventHandler ["FiredNear", {
+											scriptName "spawn_zoh_firednear1";
+											[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+										}]];
+									} else {
+										(_units select _unitIndex) setUnitPos "UP";
+										(_units select _unitIndex) setVariable ["zen_fn_idx",(_units select _unitIndex) addEventHandler ["FiredNear", {
+											scriptName "spawn_zoh_firednear2";
+											[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+										}]];
+									};
                                 };
 
                                 I(_unitIndex)
@@ -205,12 +242,12 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
                                 };
                             };
                         };
-                    };
-                };
-            };
-        };
-    };
-};
+                    };//end if
+                };//end if
+            };//end if
+        };//end for
+    };//end while
+};//end for
 
 if (_doMove) then {
     0 = [_units, _unitIndex] spawn {
@@ -225,7 +262,9 @@ if (_doMove) then {
             {
                 if (unitReady _x) then {
                     doStop _x;
-                    _x forceSpeed 0;
+                    if (_unitMovementMode == 2) then {
+                    	_x forceSpeed 0;
+                    };
                     _toRemove pushBack _forEachIndex;
                 };
             } forEach _usedUnits;
