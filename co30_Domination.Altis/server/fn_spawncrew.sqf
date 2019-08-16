@@ -100,6 +100,12 @@ if (count _crew > 0) then {
 #endif
 };
 
+{
+    _x enableStamina false;
+    _x enableFatigue false;
+    _x disableAI "RADIOPROTOCOL";
+} count _crew;
+
 __TRACE_1("","fullCrew _vec")
 
 _crew
