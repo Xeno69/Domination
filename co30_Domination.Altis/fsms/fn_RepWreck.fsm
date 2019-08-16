@@ -1,26 +1,24 @@
 /*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,250,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
+item0[] = {"Start",0,4346,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
 item1[] = {"Not_Server",4,218,88.035713,-61.607155,178.035721,-11.607155,1.000000,"Not Server"};
 item2[] = {"End",1,250,228.214279,-60.714302,318.214294,-10.714317,0.000000,"End"};
 item3[] = {"Delay",4,218,-38.750000,36.607124,51.250000,86.607124,0.000000,"Delay"};
 item4[] = {"Init",2,250,-36.071442,114.285721,53.928574,164.285721,0.000000,"Init"};
-item5[] = {"Delay_10",4,218,-36.382713,197.976746,53.617287,247.976639,0.000000,"Delay 10"};
+item5[] = {"Delay_1",4,218,-36.382713,197.976746,53.617287,247.976639,0.000000,"Delay 1"};
 item6[] = {"Loop",2,250,-35.596336,280.545624,54.403679,330.545624,0.000000,"Loop"};
-item7[] = {"Is_MP",4,218,-155.878143,225.499680,-65.878143,275.499695,1.000000,"Is MP"};
-item8[] = {"Sleep",2,250,-266.756226,283.691040,-176.756241,333.691040,0.000000,"Sleep"};
-item9[] = {"Delay2",4,218,-155.091797,341.096008,-65.091766,391.096008,0.000000,"Delay2"};
-item10[] = {"Allways",8,218,-36.349953,375.696259,53.650047,425.696259,0.000000,"Allways"};
-item11[] = {"Check",2,4346,-36.349949,461.762817,53.650066,511.762817,0.000000,"Check"};
-item12[] = {"Not_Null_Wreck",4,218,-36.349953,561.631714,53.650047,611.631714,1.000000,"Not Null Wreck"};
-item13[] = {"Delay_2",4,218,110.701157,372.903015,200.701157,422.903015,0.000000,"Delay 2"};
-item14[] = {"Rebuild",2,250,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
-item15[] = {"Delay_Rebuildtim",4,218,245.170380,648.918762,384.711609,706.782471,0.000000,"Delay Rebuildtime"};
-item16[] = {"Unlock_Vehicle",2,250,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
-item17[] = {"Allways",8,218,267.188721,280.897766,357.188751,330.897766,0.000000,"Allways"};
-item18[] = {"_",4,218,28.118450,766.373047,118.118446,816.373047,0.000000,""};
-item19[] = {"_",2,250,180.609940,767.583252,270.609955,817.583252,0.000000,""};
+item7[] = {"d_noplayer",4,218,172.305389,127.801453,262.305389,177.801453,2.000000,"d_noplayer"};
+item8[] = {"Allways",8,218,-36.349953,375.696259,53.650047,425.696259,0.000000,"Allways"};
+item9[] = {"Check",2,250,-36.349949,461.762817,53.650066,511.762817,0.000000,"Check"};
+item10[] = {"Not_Null_Wreck",4,218,-36.349953,561.631714,53.650047,611.631714,1.000000,"Not Null Wreck"};
+item11[] = {"Delay_2",4,218,110.701157,372.903015,200.701157,422.903015,0.000000,"Delay 2"};
+item12[] = {"Rebuild",2,250,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
+item13[] = {"Delay_Rebuildtim",4,218,245.170380,648.918762,384.711609,706.782471,0.000000,"Delay Rebuildtime"};
+item14[] = {"Unlock_Vehicle",2,250,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
+item15[] = {"Allways",8,218,267.188721,280.897766,357.188751,330.897766,0.000000,"Allways"};
+item16[] = {"_",4,218,28.118450,766.373047,118.118446,816.373047,0.000000,""};
+item17[] = {"_",2,250,180.609940,767.583252,270.609955,817.583252,0.000000,""};
 link0[] = {0,1};
 link1[] = {0,3};
 link2[] = {1,2};
@@ -28,23 +26,21 @@ link3[] = {3,4};
 link4[] = {4,5};
 link5[] = {5,6};
 link6[] = {6,7};
-link7[] = {6,10};
-link8[] = {7,8};
+link7[] = {6,8};
+link8[] = {7,2};
 link9[] = {8,9};
-link10[] = {9,6};
-link11[] = {10,11};
-link12[] = {11,12};
-link13[] = {11,13};
-link14[] = {12,14};
-link15[] = {13,6};
-link16[] = {14,18};
-link17[] = {15,16};
+link10[] = {9,10};
+link11[] = {9,11};
+link12[] = {10,12};
+link13[] = {11,6};
+link14[] = {12,16};
+link15[] = {13,14};
+link16[] = {14,15};
+link17[] = {15,6};
 link18[] = {16,17};
-link19[] = {17,6};
-link20[] = {18,19};
-link21[] = {19,15};
-globals[] = {0.000000,0,0,0,0,640,480,1,21,6316128,1,-567.387878,757.241089,954.856201,-343.248932,849,832,1};
-window[] = {0,-1,-1,-1,-1,1264,260,2407,260,1,867};
+link19[] = {17,13};
+globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-414.199951,517.863525,375.460205,-537.940002,849,832,1};
+window[] = {0,-1,-1,-1,-1,1316,312,2459,312,1,867};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -56,7 +52,12 @@ class FSM
                 {
                         name = "Start";
                         itemno = 0;
-                        init = /*%FSM<STATEINIT""">*/"private _endtime = ([time, serverTime] select isMultiplayer) + 17;"/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"params [""_rep_station"", ""_name"", ""_trigger""];" \n
+                         "" \n
+                         "_trigger setVariable [""d_fsmisrunning"", true];" \n
+                         "" \n
+                         "private _endtime = 1;" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -90,7 +91,7 @@ class FSM
                 {
                         name = "End";
                         itemno = 2;
-                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        init = /*%FSM<STATEINIT""">*/"_trigger setVariable [""d_fsmisrunning"", false];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -102,19 +103,17 @@ class FSM
                 {
                         name = "Init";
                         itemno = 4;
-                        init = /*%FSM<STATEINIT""">*/"params [""_rep_station"", ""_name""];" \n
-                         "" \n
-                         "private _rep_station_side = [civilian, [opfor, blufor] select (_rep_station == d_wreck_rep)] select d_tt_ver;" \n
+                        init = /*%FSM<STATEINIT""">*/"private _rep_station_side = [civilian, [opfor, blufor] select (_rep_station == d_wreck_rep)] select d_tt_ver;" \n
                          "" \n
                          "private _pos_rep_station = getPosATL _rep_station;" \n
-                         "private _timenow = ([time, serverTime] select isMultiplayer) + 10;" \n
+                         "private _timenow = ([time, serverTime] select isMultiplayer) + 1;" \n
                          "" \n
                          "_rep_station setVariable [""d_curreptime"", -1, true];"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "Delay_10">*/
-                                class Delay_10
+                                /*%FSM<LINK "Delay_1">*/
+                                class Delay_1
                                 {
                                         itemno = 5;
                                         priority = 0.000000;
@@ -136,21 +135,21 @@ class FSM
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
-                                /*%FSM<LINK "Is_MP">*/
-                                class Is_MP
+                                /*%FSM<LINK "d_noplayer">*/
+                                class d_noplayer
                                 {
                                         itemno = 7;
-                                        priority = 1.000000;
-                                        to="Sleep";
+                                        priority = 2.000000;
+                                        to="End";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"isMultiplayer && {(call d_fnc_PlayersNumber) == 0}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_trigger getVariable [""d_noplayer"", false]"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
                                 /*%FSM<LINK "Allways">*/
                                 class Allways
                                 {
-                                        itemno = 10;
+                                        itemno = 8;
                                         priority = 0.000000;
                                         to="Check";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -161,34 +160,11 @@ class FSM
                         };
                 };
                 /*%FSM</STATE>*/
-                /*%FSM<STATE "Sleep">*/
-                class Sleep
-                {
-                        name = "Sleep";
-                        itemno = 8;
-                        init = /*%FSM<STATEINIT""">*/"_timenow = serverTime + 2.34;"/*%FSM</STATEINIT""">*/;
-                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-                        class Links
-                        {
-                                /*%FSM<LINK "Delay2">*/
-                                class Delay2
-                                {
-                                        itemno = 9;
-                                        priority = 0.000000;
-                                        to="Loop";
-                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"serverTime > _timenow"/*%FSM</CONDITION""">*/;
-                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-                                };
-                                /*%FSM</LINK>*/
-                        };
-                };
-                /*%FSM</STATE>*/
                 /*%FSM<STATE "Check">*/
                 class Check
                 {
                         name = "Check";
-                        itemno = 11;
+                        itemno = 9;
                         init = /*%FSM<STATEINIT""">*/"private _wreck = [_pos_rep_station] call d_fnc_GetWreck;" \n
                          "_timenow = ([time, serverTime] select isMultiplayer) + 2.432;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -197,7 +173,7 @@ class FSM
                                 /*%FSM<LINK "Not_Null_Wreck">*/
                                 class Not_Null_Wreck
                                 {
-                                        itemno = 12;
+                                        itemno = 10;
                                         priority = 1.000000;
                                         to="Rebuild";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -208,7 +184,7 @@ class FSM
                                 /*%FSM<LINK "Delay_2">*/
                                 class Delay_2
                                 {
-                                        itemno = 13;
+                                        itemno = 11;
                                         priority = 0.000000;
                                         to="Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -223,7 +199,7 @@ class FSM
                 class Rebuild
                 {
                         name = "Rebuild";
-                        itemno = 14;
+                        itemno = 12;
                         init = /*%FSM<STATEINIT""">*/"private _type = typeOf _wreck;" \n
                          "private _dpos = getPosATL _wreck;" \n
                          "private _ddir = direction _wreck;" \n
@@ -259,7 +235,7 @@ class FSM
                                 /*%FSM<LINK "_">*/
                                 class _
                                 {
-                                        itemno = 18;
+                                        itemno = 16;
                                         priority = 0.000000;
                                         to="_";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -274,7 +250,7 @@ class FSM
                 class Unlock_Vehicle
                 {
                         name = "Unlock_Vehicle";
-                        itemno = 16;
+                        itemno = 14;
                         init = /*%FSM<STATEINIT""">*/"d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n
                          "_rep_station setVariable [""d_curreptime"", -1, true];" \n
                          "_new_vec lock false;" \n
@@ -304,7 +280,7 @@ class FSM
                                 /*%FSM<LINK "Allways">*/
                                 class Allways
                                 {
-                                        itemno = 17;
+                                        itemno = 15;
                                         priority = 0.000000;
                                         to="Loop";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
@@ -319,7 +295,7 @@ class FSM
                 class _
                 {
                         name = "_";
-                        itemno = 19;
+                        itemno = 17;
                         init = /*%FSM<STATEINIT""">*/"private _new_vec = createVehicle [_type, _dpos, [], 0, ""NONE""];" \n
                          "_new_vec allowDamage false;" \n
                          "if (unitIsUAV _new_vec) then {" \n
@@ -392,7 +368,7 @@ class FSM
                                 /*%FSM<LINK "Delay_Rebuildtim">*/
                                 class Delay_Rebuildtim
                                 {
-                                        itemno = 15;
+                                        itemno = 13;
                                         priority = 0.000000;
                                         to="Unlock_Vehicle";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;

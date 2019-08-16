@@ -438,9 +438,7 @@ if (isServer) then {
 		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]
 	] call d_fnc_initvrespawn2;
 #endif
-	{
-		[_x, localize "STR_DOM_MISSIONSTRING_0"] execFSM "fsms\fn_RepWreck.fsm";
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] isEqualTo "d_wreck_rep"});
+	0 spawn d_fnc_initrepwreck;
 	
 #ifdef __TT__
 	d_public_points = true;

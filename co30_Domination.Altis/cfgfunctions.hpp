@@ -512,6 +512,7 @@ class cfgFunctions {
 			addc(maketarget_names);
 			addc(playerconnected);
 			addc(weatherserver);
+			addc(initrepwreck);
 		};
 		class Dom_PrePostInit {
 			file = "init";

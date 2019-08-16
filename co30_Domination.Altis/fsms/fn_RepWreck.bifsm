@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-37.857143;
 		Top=-61.607155;
@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -24,7 +24,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=0;
-				InitCode="private _endtime = ([time, serverTime] select isMultiplayer) + 17;";
+				InitCode="params [""_rep_station"", ""_name"", ""_trigger""];" \n "" \n "_trigger setVariable [""d_fsmisrunning"", true];" \n "" \n "private _endtime = 1;" \n "";
 			};
 		};
 	};
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Not Server";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -69,7 +69,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -77,6 +77,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=2;
+				InitCode="_trigger setVariable [""d_fsmisrunning"", false];";
 			};
 		};
 	};
@@ -94,7 +95,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -119,7 +120,7 @@ class GraphItems
 		{
 			Text="Init";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -127,7 +128,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=4;
-				InitCode="params [""_rep_station"", ""_name""];" \n "" \n "private _rep_station_side = [civilian, [opfor, blufor] select (_rep_station == d_wreck_rep)] select d_tt_ver;" \n "" \n "private _pos_rep_station = getPosATL _rep_station;" \n "private _timenow = ([time, serverTime] select isMultiplayer) + 10;" \n "" \n "_rep_station setVariable [""d_curreptime"", -1, true];";
+				InitCode="private _rep_station_side = [civilian, [opfor, blufor] select (_rep_station == d_wreck_rep)] select d_tt_ver;" \n "" \n "private _pos_rep_station = getPosATL _rep_station;" \n "private _timenow = ([time, serverTime] select isMultiplayer) + 1;" \n "" \n "_rep_station setVariable [""d_curreptime"", -1, true];";
 			};
 		};
 	};
@@ -142,10 +143,10 @@ class GraphItems
 		BgColor=65535;
 		class ItemInfo
 		{
-			Text="Delay 10";
+			Text="Delay 1";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -185,81 +186,31 @@ class GraphItems
 	{
 		Flags=218;
 		BasicText="";
-		Left=-155.87814;
-		Top=225.49968;
-		Right=-65.878143;
-		Bottom=275.49969;
+		Left=172.30539;
+		Top=127.80145;
+		Right=262.30539;
+		Bottom=177.80145;
 		BgColor=65535;
 		class ItemInfo
 		{
-			Text="Is MP";
+			Text="d_noplayer";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			Group=-842150451;
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=7;
-				Priority=1;
-				Condition="isMultiplayer && {(call d_fnc_PlayersNumber) == 0}";
+				Id=21;
+				Priority=2;
+				Condition="_trigger getVariable [""d_noplayer"", false]";
 			};
 		};
 	};
 	class Item8
-	{
-		Flags=250;
-		BasicText="";
-		Left=-266.75623;
-		Top=283.69104;
-		Right=-176.75624;
-		Bottom=333.69104;
-		BgColor=16777215;
-		class ItemInfo
-		{
-			Text="Sleep";
-			lStyle=-842150451;
-			FontFace="";
-			FontHeight=10;
-			FontWeight=0;
-			FontCharSet=0;
-			ItemType=2;
-			class ItemInfo
-			{
-				Id=8;
-				InitCode="_timenow = serverTime + 2.34;";
-			};
-		};
-	};
-	class Item9
-	{
-		Flags=218;
-		BasicText="";
-		Left=-155.0918;
-		Top=341.09601;
-		Right=-65.091766;
-		Bottom=391.09601;
-		BgColor=65535;
-		class ItemInfo
-		{
-			Text="Delay2";
-			lStyle=-842150451;
-			Shape=2;
-			FontFace="";
-			FontHeight=10;
-			FontWeight=0;
-			FontCharSet=0;
-			ItemType=4;
-			class ItemInfo
-			{
-				Id=9;
-				Condition="serverTime > _timenow";
-			};
-		};
-	};
-	class Item10
 	{
 		Flags=218;
 		BasicText="";
@@ -273,7 +224,7 @@ class GraphItems
 			Text="Allways";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -285,9 +236,9 @@ class GraphItems
 			};
 		};
 	};
-	class Item11
+	class Item9
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-36.349949;
 		Top=461.76282;
@@ -310,7 +261,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item12
+	class Item10
 	{
 		Flags=218;
 		BasicText="";
@@ -337,7 +288,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item13
+	class Item11
 	{
 		Flags=218;
 		BasicText="";
@@ -351,7 +302,7 @@ class GraphItems
 			Text="Delay 2";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -363,7 +314,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item14
+	class Item12
 	{
 		Flags=250;
 		BasicText="";
@@ -388,7 +339,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item15
+	class Item13
 	{
 		Flags=218;
 		BasicText="";
@@ -402,7 +353,7 @@ class GraphItems
 			Text="Delay Rebuildtime";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -414,7 +365,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item16
+	class Item14
 	{
 		Flags=250;
 		BasicText="";
@@ -439,7 +390,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item17
+	class Item15
 	{
 		Flags=218;
 		BasicText="";
@@ -465,7 +416,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item18
+	class Item16
 	{
 		Flags=218;
 		BasicText="";
@@ -491,7 +442,7 @@ class GraphItems
 			};
 		};
 	};
-	class Item19
+	class Item17
 	{
 		Flags=250;
 		BasicText="";
@@ -504,7 +455,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -599,7 +550,7 @@ class GraphLinks
 	class Link7
 	{
 		From=6;
-		To=10;
+		To=8;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -610,7 +561,7 @@ class GraphLinks
 	class Link8
 	{
 		From=7;
-		To=8;
+		To=2;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -632,7 +583,7 @@ class GraphLinks
 	class Link10
 	{
 		From=9;
-		To=6;
+		To=10;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -642,7 +593,7 @@ class GraphLinks
 	};
 	class Link11
 	{
-		From=10;
+		From=9;
 		To=11;
 		Color=6316128;
 		Flags=2;
@@ -653,7 +604,7 @@ class GraphLinks
 	};
 	class Link12
 	{
-		From=11;
+		From=10;
 		To=12;
 		Color=6316128;
 		Flags=2;
@@ -665,7 +616,7 @@ class GraphLinks
 	class Link13
 	{
 		From=11;
-		To=13;
+		To=6;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -676,7 +627,7 @@ class GraphLinks
 	class Link14
 	{
 		From=12;
-		To=14;
+		To=16;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -687,7 +638,7 @@ class GraphLinks
 	class Link15
 	{
 		From=13;
-		To=6;
+		To=14;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -698,7 +649,7 @@ class GraphLinks
 	class Link16
 	{
 		From=14;
-		To=18;
+		To=15;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -709,7 +660,7 @@ class GraphLinks
 	class Link17
 	{
 		From=15;
-		To=16;
+		To=6;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -731,29 +682,7 @@ class GraphLinks
 	class Link19
 	{
 		From=17;
-		To=6;
-		Color=6316128;
-		Flags=2;
-		class Extra
-		{
-			ArrowSize=0;
-		};
-	};
-	class Link20
-	{
-		From=18;
-		To=19;
-		Color=6316128;
-		Flags=2;
-		class Extra
-		{
-			ArrowSize=0;
-		};
-	};
-	class Link21
-	{
-		From=19;
-		To=15;
+		To=13;
 		Color=6316128;
 		Flags=2;
 		class Extra
@@ -765,7 +694,7 @@ class GraphLinks
 class Globals
 {
 	NextGroupID=1;
-	NextID=21;
+	NextID=22;
 	FSMName="RepWreck";
 	CompileConfig="E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
 	class DefaultLink
@@ -776,10 +705,10 @@ class Globals
 	DefaultLinkColorFromSelected=6316287;
 	DefaultLinkColorToSelected=6356832;
 	DefaultLinkUseCustom=1;
-	PZoomLeft=-567.38788;
-	PZoomRight=757.24109;
-	PZoomBottom=954.8562;
-	PZoomTop=-343.24893;
+	PZoomLeft=-414.19995;
+	PZoomRight=517.86353;
+	PZoomBottom=375.46021;
+	PZoomTop=-537.94;
 	Clxs=849;
 	Clys=832;
 	Aspect=1;
@@ -791,10 +720,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=260;
-	Top=260;
-	Right=2407;
-	Bottom=1264;
+	Left=312;
+	Top=312;
+	Right=2459;
+	Bottom=1316;
 	ShowCmd=1;
 	SplitPos=867;
 };
