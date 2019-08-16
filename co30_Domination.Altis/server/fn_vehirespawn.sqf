@@ -88,9 +88,10 @@ if (d_with_ranked) then {
 
 sleep 5;
 
+private ["_disabled", "_empty"];
 while {true} do {
-	private _disabled = false;
-	private _empty = false;
+	_disabled = false;
+	_empty = false;
 	if (_delay != -1) then {
 		sleep (_delay + random 15);
 	} else {

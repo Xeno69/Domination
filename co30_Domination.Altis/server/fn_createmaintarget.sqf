@@ -7,7 +7,7 @@ private _garrisonUnits = {
 	params ["_centerPos", "_numUnits", "_fillRadius", "_fillRoof", "_fillEvenly", "_fillTopDown", "_disableTeleport", "_unitMovementMode"];
 
 	__TRACE("from createmaintarget garrison function")
-	private _unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
+	private _unitlist =+ ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
 	if (count _unitlist > _numUnits) then {
 		while {count _unitlist > _numUnits} do {
 			_unitlist deleteAt (ceil (random (count _unitlist - 1)));
@@ -28,7 +28,7 @@ private _garrisonUnits = {
 	//[_newgroup, _poss] spawn d_fnc_taskDefend;
 	if (d_with_dynsim == 0) then {
 		_newgroup spawn {
-			scriptName "spawn createmaintarget1";
+			scriptName "spawn createmaintarget2";
 			//sleep 1.5;
 			_this enableDynamicSimulation true;
 		};
@@ -51,7 +51,7 @@ private _garrisonUnits = {
 		_fillTopDown,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 		_disableTeleport,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 		_unitMovementMode   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
-		] call d_fnc_Zen_OccupyHouse;
+	] call d_fnc_Zen_OccupyHouse;
 	__TRACE_1("","_unitsNotGarrisoned")
 };
 
