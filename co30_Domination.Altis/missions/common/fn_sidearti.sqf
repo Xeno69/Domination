@@ -54,6 +54,9 @@ for "_i" from 0 to (__count_arti - 1) do {
 	[_unit] joinSilent _grp;
 	_unit call d_fnc_removenvgoggles_fak;
 	_unit setSkill 1;_unit assignAsGunner _arti;_unit moveInGunner _arti;
+	_unit enableStamina false;
+	_unit enableFatigue false;
+	_unit disableAI "RADIOPROTOCOL";
 	d_x_sm_rem_ar pushBack _unit;
 	sleep 0.5321;
 };

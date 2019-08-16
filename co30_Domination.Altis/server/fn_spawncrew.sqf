@@ -49,6 +49,9 @@ if (count _crew > 0) then {
 							_one_unit setSkill ["aimingAccuracy", _subskill];
 							_one_unit setSkill ["spotTime", _subskill];
 							_one_unit call d_fnc_removenvgoggles_fak;
+							//_one_unit enableStamina false;
+							//_one_unit enableFatigue false;
+							_one_unit disableAI "RADIOPROTOCOL";
 							[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 #ifdef __TT__
 							[_one_unit, "d_ktypett", 1] call d_fnc_setekmode;
@@ -89,6 +92,9 @@ if (count _crew > 0) then {
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];
 		_x setSkill ["spotTime", 0.4 + _subskill];
+		//_x enableStamina false;
+		//_x enableFatigue false;
+		_x disableAI "RADIOPROTOCOL";
 	} forEach _crew;
 	if !(isNull (driver _vec)) then {(driver _vec) setRank "LIEUTENANT"};
 	if !(isNull (gunner _vec)) then {(gunner _vec) setRank "SERGEANT"};
@@ -99,12 +105,6 @@ if (count _crew > 0) then {
 	};
 #endif
 };
-
-{
-    _x enableStamina false;
-    _x enableFatigue false;
-    _x disableAI "RADIOPROTOCOL";
-} count _crew;
 
 __TRACE_1("","fullCrew _vec")
 

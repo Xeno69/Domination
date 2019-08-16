@@ -104,6 +104,9 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 		_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_one_unit setSkill ["aimingAccuracy", _subskill];
 		_one_unit setSkill ["spotTime", _subskill];
+		//_one_unit enableStamina false;
+		//_one_unit enableFatigue false;
+		_one_unit disableAI "RADIOPROTOCOL";
 		[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 		sleep 0.551;
 	} forEach _real_units;

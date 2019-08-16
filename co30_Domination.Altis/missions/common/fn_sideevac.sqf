@@ -33,6 +33,9 @@ _pilot1 spawn {
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
 [_pilot1, getPos _pilot1] call d_fnc_setposagls;
+_pilot1 enableStamina false;
+_pilot1 enableFatigue false;
+_pilot1 disableAI "RADIOPROTOCOL";
 
 private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
 _pilot2 allowDamage false;
@@ -45,6 +48,9 @@ __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
 [_pilot2, getPos _pilot2] call d_fnc_setposagls;
 [_pilot1, _pilot2] joinSilent _owngroup;
+_pilot2 enableStamina false;
+_pilot2 enableFatigue false;
+_pilot2 disableAI "RADIOPROTOCOL";
 
 sleep 15;
 _pilot1 disableAI "PATH";

@@ -47,8 +47,8 @@ private _nightorfog = call d_fnc_nightfograin;
 	_ret set [_forEachIndex, _one_unit];
 	_one_unit call d_fnc_removenvgoggles_fak;
 	[_one_unit, _nightorfog, true] call d_fnc_changeskill;
-	_one_unit enableStamina false;
-	_one_unit enableFatigue false;
+	//_one_unit enableStamina false;
+	//_one_unit enableFatigue false;
 	_one_unit disableAI "RADIOPROTOCOL";	
 	
 #ifdef __GROUPDEBUG__
