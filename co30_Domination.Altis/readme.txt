@@ -20,6 +20,7 @@ Changelogs
 - Fixed: Removed occupy buildings troop level parameter, replaced with three parameters for garrison behaviors (by longtimegamer)
 - Optimized: Repwreck, including constant check for a wreck object, now only starts on the server when a player is nearby and ends when the player is gone (or the wreck is repaired)
 - Changed: Disabled AI Radioprotocol
+- Changed: Show score on the main display in the ranked version or when a SQL database is running
 
 4.06
 

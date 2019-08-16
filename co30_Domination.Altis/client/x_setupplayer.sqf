@@ -1069,6 +1069,10 @@ d_isvdreduced = false;
 0 spawn d_fnc_vdhandler;
 #endif
 
+if (d_with_ranked || {d_database_found}) then {
+	0 spawn d_fnc_cutscore;
+};
+
 if (isMultiplayer) then {
 	execVM "client\x_intro2.sqf";
 } else {

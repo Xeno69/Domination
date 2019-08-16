@@ -152,6 +152,32 @@ class d_vec_hud {
 		};
 	};
 };
+class d_score_hud {
+	idd=-1;
+	movingEnable = true;
+	fadein = 0;
+	fadeout = 0;
+	duration = 1e+011;
+	name="d_score_hud";
+	onLoad="uiNamespace setVariable ['d_score_hud', _this select 0]";
+	onUnLoad="uiNamespace setVariable ['d_score_hud', nil]";
+	class controls {
+		class hud_type {
+			type = 0;
+			idc = 9999;
+			style = 0;
+			x = "0.72 * safezoneW + safezoneX";
+			y = "SafeZoneY + 0.02";
+			w = 0.2;h = 0.032;
+			font = DEFAULTFONT;
+			sizeEx = 0.032;
+			colorText[] = {1,1,1,1};
+			colorBackground[]={0,0,0,0};
+			text = "";
+			shadow = 0;
+		};
+	};
+};
 class d_chopper_hud {
 	idd=-1;
 	movingEnable = true;
