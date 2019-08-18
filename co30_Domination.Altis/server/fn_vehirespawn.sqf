@@ -100,7 +100,7 @@ while {true} do {
 	
 	if (alive _vec) then {
 		_empty = (crew _vec) findIf {alive _x} == -1;
-		
+		__TRACE_2("","_vec","_empty")
 		if (_delay != -1 && {_dempty_respawn != -1}) then {
 			if (_empty) then {
 				private _empty_respawn = _vec getVariable ["d_empty_respawn_time", -1];
@@ -118,25 +118,30 @@ while {true} do {
 					};
 				};
 			} else {
-				if (alive _vec) then {_vec setVariable ["d_empty_respawn_time", -1]};
+				_vec setVariable ["d_empty_respawn_time", -1];
 			};
 		};
-		
-		if (!_disabled && {damage _vec >= 0.9}) then {_disabled = true};
-		
-		if (_empty && {!_disabled && {alive _vec && {_vec call d_fnc_OutOfBounds}}}) then {
-			private _outb = _vec getVariable "d_OUT_OF_SPACE";
-			if (_outb != -1) then {
-				if (time > _outb) then {_disabled = true};
-			} else {
-				_vec setVariable ["d_OUT_OF_SPACE", time + 600];
+		__TRACE_2("","_vec","_disabled")
+		if (!_disabled && {_empty}) then {
+			if (damage _vec >= 0.9) exitWith {
+				_disabled = true;
 			};
-		} else {
-			_vec setVariable ["d_OUT_OF_SPACE", -1];
+			
+			if (alive _vec && {_vec call d_fnc_OutOfBounds}) then {
+				private _outb = _vec getVariable "d_OUT_OF_SPACE";
+				if (_outb != -1) then {
+					if (time > _outb) then {_disabled = true};
+				} else {
+					_vec setVariable ["d_OUT_OF_SPACE", time + 600];
+				};
+			} else {
+				_vec setVariable ["d_OUT_OF_SPACE", -1];
+			};
 		};
 		sleep 0.01;
 	};
-	
+	__TRACE_3("","_vec","alive _vec","_empty")
+	__TRACE_2("","_vec","_disabled")
 	if (!alive _vec || {_empty && {_disabled}}) then {
 		private _isitlocked = _vec getVariable "d_vec_islocked";
 		private _fuelleft = _vec getVariable ["d_fuel", 1];

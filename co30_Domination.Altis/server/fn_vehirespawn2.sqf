@@ -38,7 +38,7 @@ if (d_with_ranked) then {
 };
 
 while {true} do {
-	sleep (_delay + random 15);
+	sleep (_delay + random 5);
 
 	if ((crew _vec) findIf {alive _x} == -1 && {damage _vec > 0.9 || {!alive _vec}}) then {
 		private _isitlocked = _vec getVariable "d_vec_islocked";
