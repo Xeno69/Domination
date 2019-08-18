@@ -171,6 +171,7 @@ class cfgFunctions {
 			addc(gmcwgextrac);
 			addc(remplnounit);
 			addc(rem_ti_nvg_items);
+			addc(curcampsclient);
 		};
 		class Dom_UI {
 			file = "clientui";

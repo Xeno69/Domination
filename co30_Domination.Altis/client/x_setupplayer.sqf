@@ -664,7 +664,9 @@ if (_primw != "") then {
 };
 
 if (d_MissionType != 2) then {
-	execFSM "fsms\fn_CampDialog.fsm";
+	if !(d_currentcamps isEqualTo []) then {
+		call d_fnc_curcampsclient;
+	};
 	
 	if (!isNil "d_searchbody" && {!isNull d_searchbody && {isNil {d_searchbody getVariable "d_search_id"}}}) then {
 		call d_fnc_s_b_client;

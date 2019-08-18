@@ -7,3 +7,4 @@
 - Optimized: Repwreck, including constant check for a wreck object, now only starts on the server when a player is nearby and ends when the player is gone (or the wreck is repaired)
 - Changed: Disabled AI Radioprotocol
 - Changed: Show score on the main display in the ranked version or when a SQL database is running
+- Optimized: (Capture)CampDialog FSM now only runs if a player is near a Camp and not constantly

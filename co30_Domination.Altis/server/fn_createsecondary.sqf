@@ -176,6 +176,7 @@ for "_i" from 1 to _nrcamps do {
 };
 
 publicVariable "d_currentcamps";
+remoteExecCall ["d_fnc_curcampsclient", [0, -2] select isDedicated];
 d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
 d_campscaptured = 0; publicVariable "d_campscaptured";
 

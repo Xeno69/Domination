@@ -16,6 +16,12 @@ playSound "d_fanfare";
 
 d_mt_marker_triggers = [];
 
+if (!isNil "d_deletecamptrigs") then {
+	{
+		deleteVehicle _x;
+	} forEach d_deletecamptrigs;
+};
+
 private _extra_bonusn = _this;
 
 if (!isNil "d_obj00_task") then {
