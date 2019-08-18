@@ -28,14 +28,6 @@ switch (_this select 0) do {
 #ifdef __TT__
 				(_ar # 1) remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_ar # 4 == blufor)];
 #endif
-				if (isDedicated) then {
-					private _farpc = (_ar # 0) getVariable ["d_objcont", []];
-					if !(_farpc isEqualTo []) then {
-						_farpc params ["_trig"];
-						_trig setTriggerActivation ["ANY", "PRESENT", true];
-						_trig setTriggerStatements ["thislist call d_fnc_tallservice", "0 = [thislist] spawn d_fnc_reload", ""];
-					};
-				};
 			};
 		};
 	};
