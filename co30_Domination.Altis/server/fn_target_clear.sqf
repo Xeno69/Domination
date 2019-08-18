@@ -28,6 +28,10 @@ private _cur_tgt_name = d_cur_tgt_name;
 d_old_target_pos =+ d_cur_tgt_pos;
 d_old_radius = d_cur_target_radius;
 
+if (!isNil "d_parahhandle" && {!isNull d_parahhandle}) then {
+	terminate d_parahhandle;
+};
+
 #ifndef __TT__
 d_resolved_targets pushBack d_current_target_index;
 publicVariable "d_resolved_targets";

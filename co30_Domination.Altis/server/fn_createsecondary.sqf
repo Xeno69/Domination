@@ -59,9 +59,9 @@ sleep 2.234;
 d_mt_spotted = false;
 d_create_new_paras = false;
 #ifndef __TT__
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[12] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[12] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #else
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {0 execFSM 'fsms\fn_Parahandler.fsm'}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
 sleep 2.234;
