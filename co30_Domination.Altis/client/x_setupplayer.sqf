@@ -401,9 +401,10 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	if (!isNil "d_jet_trigger") then {
 		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1];
 	};
+	private _allmhs = allMissionObjects "Land_HelipadSquare_F"; 
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1];
-	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 11] == "d_wreck_rep"});
+	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
 	
 	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
 		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1];
@@ -413,7 +414,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	};
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1];
-	} forEach ((allMissionObjects "EmptyDetector") select {(str _x) select [0, 20] == "d_serviceall_trigger"});
+	} forEach (_allmhs select {(str _x) select [0, 20] == "d_serviceall_trigger"});
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
@@ -1074,6 +1075,8 @@ d_isvdreduced = false;
 if (d_with_ranked || {d_database_found}) then {
 	0 spawn d_fnc_cutscore;
 };
+
+call d_fnc_initservicepoints;
 
 if (isMultiplayer) then {
 	execVM "client\x_intro2.sqf";

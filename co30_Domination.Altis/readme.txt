@@ -13,6 +13,9 @@ Changelogs
 - Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
 
 4.10
+
+ATTENTION: ALL mission.sqm files have changed!!!!!!
+
 - Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
 - Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
 - Optimized: Using toLowerANSI/toUpperANSI where possible
@@ -22,6 +25,7 @@ Changelogs
 - Changed: Disabled AI Radioprotocol
 - Changed: Show score on the main display in the ranked version or when a SQL database is running
 - Optimized: (Capture)CampDialog FSM now only runs if a player is near a Camp and not constantly
+- Changed: Service triggers are now only created on clients, editor placed ones removed, by lelik
 
 4.06
 
