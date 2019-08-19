@@ -113,11 +113,6 @@ private _make_jump = {
 			private _paragrp = [d_side_enemy] call d_fnc_creategroup;
 			__TRACE_1("","_paragrp")
 			private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
-			if (count _real_units < 5) then {
-				while {count _real_units < 5} do {
-					_real_units pushBack (selectRandom _real_units);
-				};
-			};
 			sleep 0.1;
 			private _subskill = if (diag_fps > 29) then {
 				(0.1 + (random 0.2))
