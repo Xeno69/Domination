@@ -53,7 +53,7 @@ _object setVariable ["d_last_reload", time];
 if (isNil "d_reload_time_factor") then {d_reload_time_factor = 1};
 
 __NOALIEX
-_object setFuel 0;
+[_object, 0] remoteExecCall ["setFuel", _object];
 
 private _type_name = [_type, "CfgVehicles"] call d_fnc_GetDisplayName;
 if (_type_name == "") then {_type_name = _type};
@@ -238,10 +238,8 @@ if (hasInterface && {!_isUav}) then {
 		systemChat (localize "STR_DOM_MISSIONSTRING_705");
 	};
 };
-while {fuel _object < 0.99} do {
-	_object setFuel 1;
-	sleep 0.01;
-};
+
+[_object, 1] remoteExecCall ["setFuel", _object];
 sleep d_reload_time_factor;
 __NOALIEX
 if (hasInterface) then {
