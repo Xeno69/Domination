@@ -20,6 +20,7 @@ if (!isNil "d_deletecamptrigs") then {
 	{
 		deleteVehicle _x;
 	} forEach d_deletecamptrigs;
+	d_deletecamptrigs = [];
 };
 
 private _extra_bonusn = _this;
