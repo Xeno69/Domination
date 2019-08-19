@@ -172,6 +172,7 @@ class cfgFunctions {
 			addc(remplnounit);
 			addc(rem_ti_nvg_items);
 			addc(curcampsclient);
+			addc(initservicepoints);
 		};
 		class Dom_UI {
 			file = "clientui";
