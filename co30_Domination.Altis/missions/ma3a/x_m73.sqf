@@ -21,6 +21,6 @@ if (isServer) then {
 	sleep 2.221;
 	["aa", 2, "tracked_apc", 1, "tank", 0, d_x_sm_pos # 1, 1, 60, true] spawn d_fnc_CreateArmor;
 	[_vec] spawn d_fnc_sidesteal;
-	[_vec, "d_sidekill"] call d_fnc_setekmode;
+	[_vec, 6] call d_fnc_setekmode;
 	_vec setDamage 0;
 };

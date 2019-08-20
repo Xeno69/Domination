@@ -18,7 +18,7 @@ private _garrisonUnits = {
 	_newgroup deleteGroupWhenEmpty true;
 	if (d_mt_respawngroups == 0) then {
 		{
-			[_x, "d_onerespk"] call d_fnc_setekmode;
+			[_x, 3] call d_fnc_setekmode;
 		} forEach _units_to_garrison;
 		_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
 	};

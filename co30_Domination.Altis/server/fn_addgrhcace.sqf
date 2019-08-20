@@ -6,6 +6,6 @@
 __TRACE_1("","_this")
 
 {
-	[_x, "d_ktypett", 1] call d_fnc_setekmode;
+	[_x, 0] call d_fnc_setekmode;
 } forEach (units _this);
 

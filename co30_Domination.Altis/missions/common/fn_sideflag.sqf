@@ -36,9 +36,9 @@ private _ownerthere = false;
 while {true} do {
 	private _owner = flagOwner _flag;
 	
-	if (!isNull _owner && {isNil {_owner getVariable "d_flago"}}) then {
+	if (!_ownerthere && {!isNull _owner}) then {
 		_ownerthere = true;
-		[_owner, "d_flago"] call d_fnc_setekmode;
+		[_owner, 15] call d_fnc_setekmode;
 	};
 
 #ifndef __TT__
@@ -82,8 +82,7 @@ while {true} do {
 		};
 		d_sm_resolved = true;
 		if (!isNil "_owner" && {!isNull _owner}) then {
-			_owner setVariable ["d_flago", nil];
-			_owner setVariable ["d_hkx", nil];
+			[_owner, 15, 0] call d_fnc_setekmode;
 		};
 	};
 	sleep 5.123;

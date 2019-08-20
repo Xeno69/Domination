@@ -3,7 +3,12 @@
 #define THIS_FILE "fn_setekmode.sqf"
 #include "..\x_setup.sqf"
 
-params ["_obj", "_mode", ["_type", true], ["_public", false]];
+params ["_obj", "_num", ["_val", 1], ["_public", false]];
 
-_obj setVariable [_mode, _type, _public];
-_obj setVariable ["d_hkx", true, _public];
+private _ar = _obj getVariable "d_hkx";
+if (isNil "d_hkx") then {
+	_ar = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+};
+
+_ar set [_num, _val];
+_obj setVariable ["d_hkx", _ar, _public]

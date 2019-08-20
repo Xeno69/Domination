@@ -12,3 +12,4 @@ ATTENTION: ALL mission.sqm files have changed!!!!!!
 - Changed: Show score on the main display in the ranked version or when a SQL database is running
 - Optimized: (Capture)CampDialog FSM now only runs if a player is near a Camp and not constantly
 - Changed: Service triggers are now only created on clients, editor placed ones removed, by lelik
+- Optimized: Entity killed eventhandler, now only uses one variable instead of 17

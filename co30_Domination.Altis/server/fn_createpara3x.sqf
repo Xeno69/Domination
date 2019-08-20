@@ -135,10 +135,10 @@ private _make_jump = {
 				_one_unit moveInDriver _para;
 				_one_unit call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
-				[_one_unit, "d_ktypett", 1] call d_fnc_setekmode;
+				[_one_unit, 0] call d_fnc_setekmode;
 #endif
 				if (d_with_ai && {d_with_ranked}) then {
-					[_one_unit, "d_ktypeai", 1] call d_fnc_setekmode;
+					[_one_unit, 4] call d_fnc_setekmode;
 				};
 				_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 				_one_unit setSkill ["aimingAccuracy", _subskill];

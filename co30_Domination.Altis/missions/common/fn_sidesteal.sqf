@@ -13,7 +13,7 @@ if (isNull _vec) then {
 	_vec = createVehicle [_vtype, _vpos, [], 0, "NONE"];
 	_vec setDir _vdir;
 	_vec setPos _vpos;
-	[_vec, "d_sidekill"] call d_fnc_setekmode;
+	[_vec, 6] call d_fnc_setekmode;
 	_vec setDamage 0;
 	sleep 1;
 };

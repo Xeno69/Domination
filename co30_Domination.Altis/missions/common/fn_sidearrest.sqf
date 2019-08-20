@@ -65,7 +65,7 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 			[_officer, true] remoteExecCall ["setCaptive", _officer];
 
 			d_sm_arrest_mp_unit = _rescuer;
-			[_rescuer, "d_sarrest"] call d_fnc_setekmode;
+			[_rescuer, 16] call d_fnc_setekmode;
 		};
 	} else {
 #ifndef __TT__
@@ -122,8 +122,7 @@ sleep 0.5;
 
 d_sm_arrest_not_failed = nil;
 if (!isNil "d_sm_arrest_mp_unit") then {
-	d_sm_arrest_mp_unit setVariable ["d_sarrest", nil];
-	d_sm_arrest_mp_unit setVariable ["d_hkx", nil];
+	[d_sm_arrest_mp_unit, 16, 0] call d_fnc_setekmode;
 	d_sm_arrest_mp_unit = nil;
 };
 

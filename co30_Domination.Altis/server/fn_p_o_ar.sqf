@@ -16,7 +16,7 @@ switch (_this select 0) do {
 		};
 		_ar = _this select 2;
 		__TRACE_1("","_ar")
-		[_ar # 0, "d_plok"] call d_fnc_setekmode;
+		[_ar # 0, 13] call d_fnc_setekmode;
 		if ((_ar # 0) isKindOf d_mash) then {
 			[_ar # 1, _ar # 0, "ICON", "ColorBlue", [0.5, 0.5], format ["Mash %1", _ar # 2], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
@@ -40,7 +40,7 @@ switch (_this select 0) do {
 			if !(_ar isEqualTo []) then {_ar = _ar - [objNull]};
 			_ar pushBack (_this select 2);
 		};
-		[_this select 2, "d_delcrewk"] call d_fnc_setekmode;
+		[_this select 2, 7] call d_fnc_setekmode;
 	};
 	case "r": {
 		private _ar = d_placed_objs_store getVariable (_this select 1);

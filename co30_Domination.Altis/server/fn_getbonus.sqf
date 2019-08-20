@@ -235,7 +235,7 @@ if (unitIsUAV _vec) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 	_uavgrp deleteGroupWhenEmpty true;
-	[_vec, "d_delcrewk"] call d_fnc_setekmode;
+	[_vec, 7] call d_fnc_setekmode;
 } else {
 	if (d_with_dynsim == 0) then {
 		_vec spawn {
@@ -306,7 +306,7 @@ if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-[_vec, "d_prebo"] call d_fnc_setekmode;
+[_vec, 11] call d_fnc_setekmode;
 _vec spawn {
 	scriptName "spawn getbonus2";
 	sleep 10;
@@ -401,7 +401,7 @@ if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}
 };
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-[_vec, "d_prebo"] call d_fnc_setekmode;
+[_vec, 11] call d_fnc_setekmode;
 _vec spawn {
 	scriptName "spawn getbonus3";
 	sleep 10;
@@ -417,7 +417,7 @@ if (unitIsUAV _vec) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 	_uavgrp deleteGroupWhenEmpty true;
-	[_vec, "d_delcrewk"] call d_fnc_setekmode;
+	[_vec, 7] call d_fnc_setekmode;
 } else {
 	if (d_with_dynsim == 0) then {
 		_vec spawn {
@@ -437,7 +437,7 @@ if (!isNull _vec2) then {
 	};
 	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
-	[_vec2, "d_prebo"] call d_fnc_setekmode;
+	[_vec2, 11] call d_fnc_setekmode;
 	_vec2 spawn {
 		scriptName "spawn getbonus4";
 		sleep 10;
@@ -453,7 +453,7 @@ if (!isNull _vec2) then {
 			_vec2 remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
 		_uavgrp deleteGroupWhenEmpty true;
-		[_vec2, "d_delcrewk"] call d_fnc_setekmode;
+		[_vec2, 7] call d_fnc_setekmode;
 	} else {
 		if (d_with_dynsim == 0) then {
 			_vec2 spawn {

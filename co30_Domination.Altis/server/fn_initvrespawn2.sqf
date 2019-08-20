@@ -27,17 +27,17 @@ d_vrespawn2_ar = [];
 		_vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 #ifdef __TT__
 		if (_number_v < 1000) then {
-			[_vec, "d_cvkblu"] call d_fnc_setekmode;
+			[_vec, 1] call d_fnc_setekmode;
 		} else {
-			[_vec, "d_cvkopf"] call d_fnc_setekmode;
+			[_vec, 2] call d_fnc_setekmode;
 		};
 #endif
-		[_vec, "d_fuelc"] call d_fnc_setekmode;
+		[_vec, 9] call d_fnc_setekmode;
 		if (_number_v < 100 || {_number_v > 999 && {_number_v < 1100}}) then {
 			if (d_NoMHQTeleEnemyNear > 0) then {
-				[_vec, "d_mhqf"] call d_fnc_setekmode;
+				[_vec, 14] call d_fnc_setekmode;
 			};
-			[_vec, "d_mhqmsg"] call d_fnc_setekmode;
+			[_vec, 10] call d_fnc_setekmode;
 			_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
 #ifndef __TT__
 			private _flag = call {

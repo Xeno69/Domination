@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_getmtmission.sqf"
 #include "..\x_setup.sqf"
 
+params ["_wp_array", "_mtradius", "_trg_center"];
+
 #define __getPos \
 _poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_GetRanPointCircleBig;\
 while {_poss isEqualTo []} do {\
@@ -25,13 +27,17 @@ if (d_with_dynsim == 0) then { \
 		_this call d_fnc_addgrp2hc; \
 	}; \
 }; \
-d_delinfsm append _specus;
+d_delinfsm append _specus; \
+if (d_mt_respawngroups == 0) then { \
+	{ \
+		[_x, 3] call d_fnc_setekmode; \
+	} forEach (units _newgroup); \
+	_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _mtradius], false, []]]; \
+};
 
 #define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]
 
 if !(isServer) exitWith {};
-
-private _wp_array = _this;
 
 sleep 3.120;
 private _poss = _wp_array select ((count _wp_array) call d_fnc_RandomFloor);
@@ -71,7 +77,7 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(gov_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			[_vec, "d_ktypeai", 1] call d_fnc_setekmode;
+			[_vec, 4] call d_fnc_setekmode;
 		};
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
@@ -79,7 +85,7 @@ switch (_sec_kind) do {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		[_vec, "d_ktypett", 1] call d_fnc_setekmode;
+		[_vec, 0] call d_fnc_setekmode;
 #endif
 		sleep 1.0112;
 		__specops;
@@ -258,7 +264,7 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(lopo_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			[_vec, "d_ktypeai", 1] call d_fnc_setekmode;
+			[_vec, 4] call d_fnc_setekmode;
 		};
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
@@ -266,7 +272,7 @@ switch (_sec_kind) do {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		[_vec, "d_ktypett", 1] call d_fnc_setekmode;
+		[_vec, 0] call d_fnc_setekmode;
 #endif
 		sleep 1.0112;
 		__specops;
@@ -304,7 +310,7 @@ switch (_sec_kind) do {
 		sleep 0.1;
 		__vkilled(dealer_dead);
 		if (d_with_ai && {d_with_ranked}) then {
-			[_vec, "d_ktypeai", 1] call d_fnc_setekmode;
+			[_vec, 4] call d_fnc_setekmode;
 		};
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
@@ -312,7 +318,7 @@ switch (_sec_kind) do {
 			_vec enableDynamicSimulation true;
 		};
 #ifdef __TT__
-		[_vec, "d_ktypett", 1] call d_fnc_setekmode;
+		[_vec, 0] call d_fnc_setekmode;
 #endif
 		sleep 1.0112;
 		__specops;

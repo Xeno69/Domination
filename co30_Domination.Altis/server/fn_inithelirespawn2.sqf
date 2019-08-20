@@ -27,13 +27,13 @@ d_helirespawn2_ar = [];
 		
 #ifdef __TT__
 		if (_number_v < 4000) then {
-			[_vec, "d_cvkblu"] call d_fnc_setekmode;
+			[_vec, 1] call d_fnc_setekmode;
 		} else {
-			[_vec, "d_cvkopf"] call d_fnc_setekmode;
+			[_vec, 2] call d_fnc_setekmode;
 		};
 #endif
 		
-		[_vec, "d_chkill"] call d_fnc_setekmode;
+		[_vec, 8] call d_fnc_setekmode;
 	
 		if (unitIsUAV _vec) then {
 			_vec allowCrewInImmobile true;

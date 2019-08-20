@@ -11,7 +11,7 @@ params ["_wp_array", "_mtradius", "_trg_center"];
 
 sleep 2.120;
 
-private _mtmhandle = _wp_array spawn d_fnc_getmtmission;
+private _mtmhandle = _this spawn d_fnc_getmtmission;
 
 while {true} do {
 	sleep 0.321;

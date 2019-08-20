@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-37.857143;
 		Top=-61.607155;
@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -42,7 +42,7 @@ class GraphItems
 			Text="Not Server";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -69,7 +69,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -95,7 +95,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -120,7 +120,7 @@ class GraphItems
 		{
 			Text="Init";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -146,7 +146,7 @@ class GraphItems
 			Text="Delay 1";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -171,7 +171,7 @@ class GraphItems
 		{
 			Text="Loop";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -196,15 +196,14 @@ class GraphItems
 			Text="d_noplayer";
 			lStyle=-842150451;
 			Shape=2;
-			Group=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=21;
+				Id=7;
 				Priority=2;
 				Condition="_trigger getVariable [""d_noplayer"", false]";
 			};
@@ -224,14 +223,14 @@ class GraphItems
 			Text="Allways";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=8;
 			class ItemInfo
 			{
-				Id=10;
+				Id=8;
 				Condition="true";
 			};
 		};
@@ -249,14 +248,14 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=11;
+				Id=9;
 				InitCode="private _wreck = [_pos_rep_station] call d_fnc_GetWreck;" \n "_timenow = ([time, serverTime] select isMultiplayer) + 2.432;";
 			};
 		};
@@ -275,14 +274,14 @@ class GraphItems
 			Text="Not Null Wreck";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=12;
+				Id=10;
 				Priority=1;
 				Condition="!isNull _wreck";
 			};
@@ -302,14 +301,14 @@ class GraphItems
 			Text="Delay 2";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=13;
+				Id=11;
 				Condition="if (isMultiplayer) then {serverTime > _timenow} else {time > _timenow}";
 			};
 		};
@@ -327,14 +326,14 @@ class GraphItems
 		{
 			Text="Rebuild";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=14;
+				Id=12;
 				InitCode="private _type = typeOf _wreck;" \n "private _dpos = getPosATL _wreck;" \n "private _ddir = direction _wreck;" \n "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n "if (unitIsUAV _wreck) then {" \n "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n "};" \n "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n "	_wpilot addScore (d_ranked_a # 23);" \n "	[_wpilot, format[localize ""STR_DOM_MISSIONSTRING_1856"",(d_ranked_a # 23)]] remoteExecCall [""sideChat"", _wpilot];" \n "};" \n "deleteVehicle _wreck;" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db = d_bonus_vecs_db - [objNull];" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w = d_bonus_vecs_db_w - [objNull]};" \n "			case opfor: {d_bonus_vecs_db_e = d_bonus_vecs_db_e - [objNull]};" \n "		};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + 0.6;" \n "";
 			};
 		};
@@ -353,21 +352,21 @@ class GraphItems
 			Text="Delay Rebuildtime";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=15;
+				Id=13;
 				Condition="if (isMultiplayer) then {serverTime > _timenow} else {time > _timenow}";
 			};
 		};
 	};
 	class Item14
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=270.72742;
 		Top=446.82175;
@@ -378,15 +377,15 @@ class GraphItems
 		{
 			Text="Unlock Vehicle";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=16;
-				InitCode="d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n "_rep_station setVariable [""d_curreptime"", -1, true];" \n "_new_vec lock false;" \n "[_new_vec, ""d_prebo""] call d_fnc_setekmode;" \n "if (!d_tt_ver) then {" \n "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n "} else {" \n "	switch (_rep_station_side) do {" \n "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "	};" \n "};" \n "" \n "_new_vec addEventHandler [""getIn"", {_this call d_fnc_sgetinvec}];" \n "" \n "_new_vec addEventHandler [""getOut"", {_this call d_fnc_sgetoutvec}];" \n "" \n "if !(_new_vec isKindOf ""Air"") then {" \n "	_new_vec setVariable [""d_liftit"", true, true];" \n "};" \n "" \n "_new_vec allowDamage true;" \n "";
+				Id=14;
+				InitCode="d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n "_rep_station setVariable [""d_curreptime"", -1, true];" \n "_new_vec lock false;" \n "[_new_vec, 11] call d_fnc_setekmode;" \n "if (!d_tt_ver) then {" \n "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n "} else {" \n "	switch (_rep_station_side) do {" \n "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "	};" \n "};" \n "" \n "_new_vec addEventHandler [""getIn"", {_this call d_fnc_sgetinvec}];" \n "" \n "_new_vec addEventHandler [""getOut"", {_this call d_fnc_sgetoutvec}];" \n "" \n "if !(_new_vec isKindOf ""Air"") then {" \n "	_new_vec setVariable [""d_liftit"", true, true];" \n "};" \n "" \n "_new_vec allowDamage true;" \n "";
 			};
 		};
 	};
@@ -411,7 +410,7 @@ class GraphItems
 			ItemType=8;
 			class ItemInfo
 			{
-				Id=17;
+				Id=15;
 				Condition="true";
 			};
 		};
@@ -437,7 +436,7 @@ class GraphItems
 			ItemType=4;
 			class ItemInfo
 			{
-				Id=18;
+				Id=16;
 				Condition="if (isMultiplayer) then {serverTime > _timenow} else {time > _timenow}";
 			};
 		};
@@ -462,8 +461,8 @@ class GraphItems
 			ItemType=2;
 			class ItemInfo
 			{
-				Id=19;
-				InitCode="private _new_vec = createVehicle [_type, _dpos, [], 0, ""NONE""];" \n "_new_vec allowDamage false;" \n "if (unitIsUAV _new_vec) then {" \n "	private _uavgrp = createVehicleCrew _new_vec;" \n "	_new_vec allowCrewInImmobile true;" \n "	if (isClass (configFile>>""CfgVehicles"">>_vec_type>>""Components"">>""TransportPylonsComponent"")) then {" \n "		_new_vec remoteExecCall [""d_fnc_addpylon_action"", [0, -2] select isDedicated];" \n "	};" \n "	_uavgrp deleteGroupWhenEmpty true;" \n "	[_new_vec, ""d_delcrewk""] call d_fnc_setekmode;" \n "} else {" \n "	if (d_with_dynsim == 0) then {" \n "		_new_vec spawn {" \n "			scriptName ""spawn enable dyn"";" \n "			sleep 10;" \n "			if (alive _this) then {" \n "				_this enableDynamicSimulation true;" \n "			};" \n "		};" \n "	};" \n "};" \n "_new_vec setDir _ddir;" \n "_new_vec setPos [_dpos select 0, _dpos select 1, 0];" \n "_new_vec lock true;" \n "_new_vec setVelocity [0,0,-0.01];" \n "_type_name = [_type, ""CfgVehicles""] call d_fnc_GetDisplayName;" \n "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n "_new_vec setVariable [""d_WreckMaxRepair"", _maxrep, true];" \n "_new_vec setVariable [""d_isspecialvec"", true, true];" \n "" \n "[_new_vec, _skinpoly] call d_fnc_skinpolyresp;" \n "_skinpoly = nil;" \n "" \n "d_wreck_cur_ar pushBack _new_vec;" \n "" \n "private _sleep_time = call {" \n "	if (_new_vec isKindOf ""Plane"") exitWith {300};" \n "	if (_new_vec isKindOf ""Helicopter"") exitWith {240};" \n "	180;" \n "};" \n "private _totaltime = _sleep_time + random 10;" \n "" \n "if (!d_tt_ver) then {" \n "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str(round _totaltime),[]],d_kbtel_chan];" \n "} else {" \n "	switch (_rep_station_side) do {" \n "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str(round _totaltime),[]],""SIDE""]};" \n "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str(round _totaltime),[]],""SIDE""]};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + _totaltime;" \n "_rep_station setVariable [""d_curreptime"", _timenow, true];" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db pushBack _new_vec;" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w pushBack _new_vec};" \n "			case opfor: {d_bonus_vecs_db_e pushBack _new_vec};" \n "		};" \n "	};" \n "};" \n "";
+				Id=17;
+				InitCode="private _new_vec = createVehicle [_type, _dpos, [], 0, ""NONE""];" \n "_new_vec allowDamage false;" \n "if (unitIsUAV _new_vec) then {" \n "	private _uavgrp = createVehicleCrew _new_vec;" \n "	_new_vec allowCrewInImmobile true;" \n "	if (isClass (configFile>>""CfgVehicles"">>_vec_type>>""Components"">>""TransportPylonsComponent"")) then {" \n "		_new_vec remoteExecCall [""d_fnc_addpylon_action"", [0, -2] select isDedicated];" \n "	};" \n "	_uavgrp deleteGroupWhenEmpty true;" \n "	[_new_vec, 7] call d_fnc_setekmode;" \n "} else {" \n "	if (d_with_dynsim == 0) then {" \n "		_new_vec spawn {" \n "			scriptName ""spawn enable dyn"";" \n "			sleep 10;" \n "			if (alive _this) then {" \n "				_this enableDynamicSimulation true;" \n "			};" \n "		};" \n "	};" \n "};" \n "_new_vec setDir _ddir;" \n "_new_vec setPos [_dpos select 0, _dpos select 1, 0];" \n "_new_vec lock true;" \n "_new_vec setVelocity [0,0,-0.01];" \n "_type_name = [_type, ""CfgVehicles""] call d_fnc_GetDisplayName;" \n "if (!isNil ""_sidevar"") then {_new_vec setVariable [""D_VEC_SIDE"", _sidevar]};" \n "if (isNil ""_maxrep"") then {_maxrep = d_WreckMaxRepair};" \n "_new_vec setVariable [""d_WreckMaxRepair"", _maxrep, true];" \n "_new_vec setVariable [""d_isspecialvec"", true, true];" \n "" \n "[_new_vec, _skinpoly] call d_fnc_skinpolyresp;" \n "_skinpoly = nil;" \n "" \n "d_wreck_cur_ar pushBack _new_vec;" \n "" \n "private _sleep_time = call {" \n "	if (_new_vec isKindOf ""Plane"") exitWith {300};" \n "	if (_new_vec isKindOf ""Helicopter"") exitWith {240};" \n "	180;" \n "};" \n "private _totaltime = _sleep_time + random 10;" \n "" \n "if (!d_tt_ver) then {" \n "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str(round _totaltime),[]],d_kbtel_chan];" \n "} else {" \n "	switch (_rep_station_side) do {" \n "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str(round _totaltime),[]],""SIDE""]};" \n "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""RebuildWreck"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],[""3"","""",str(round _totaltime),[]],""SIDE""]};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + _totaltime;" \n "_rep_station setVariable [""d_curreptime"", _timenow, true];" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db pushBack _new_vec;" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w pushBack _new_vec};" \n "			case opfor: {d_bonus_vecs_db_e pushBack _new_vec};" \n "		};" \n "	};" \n "};" \n "";
 			};
 		};
 	};
@@ -707,8 +706,8 @@ class Globals
 	DefaultLinkUseCustom=1;
 	PZoomLeft=-414.19995;
 	PZoomRight=517.86353;
-	PZoomBottom=375.46021;
-	PZoomTop=-537.94;
+	PZoomBottom=863.99756;
+	PZoomTop=-49.402657;
 	Clxs=849;
 	Clys=832;
 	Aspect=1;
@@ -720,10 +719,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=312;
-	Top=312;
-	Right=2459;
-	Bottom=1316;
+	Left=338;
+	Top=338;
+	Right=2485;
+	Bottom=1342;
 	ShowCmd=1;
 	SplitPos=867;
 };

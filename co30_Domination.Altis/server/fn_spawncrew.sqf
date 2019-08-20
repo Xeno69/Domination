@@ -54,10 +54,10 @@ if (count _crew > 0) then {
 							_one_unit disableAI "RADIOPROTOCOL";
 							[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 #ifdef __TT__
-							[_one_unit, "d_ktypett", 1] call d_fnc_setekmode;
+							[_one_unit, 0] call d_fnc_setekmode;
 #endif
 							if (d_with_ai && {d_with_ranked}) then {
-								[_one_unit, "d_ktypeai", 1] call d_fnc_setekmode;
+								[_one_unit, 4] call d_fnc_setekmode;
 							};
 							if (d_with_dynsim == 0) then {
 								_one_unit spawn {
@@ -84,10 +84,10 @@ if (count _crew > 0) then {
 	{
 		_x call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
-		[_x, "d_ktypett", 1] call d_fnc_setekmode;
+		[_x, 0] call d_fnc_setekmode;
 #endif
 		if (d_with_ai && {d_with_ranked}) then {
-			[_x, "d_ktypeai", 1] call d_fnc_setekmode;
+			[_x, 4] call d_fnc_setekmode;
 		};
 		_x setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 		_x setSkill ["aimingAccuracy", _subskill];

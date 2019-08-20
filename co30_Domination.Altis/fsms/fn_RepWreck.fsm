@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
+item0[] = {"Start",0,250,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
 item1[] = {"Not_Server",4,218,88.035713,-61.607155,178.035721,-11.607155,1.000000,"Not Server"};
 item2[] = {"End",1,250,228.214279,-60.714302,318.214294,-10.714317,0.000000,"End"};
 item3[] = {"Delay",4,218,-38.750000,36.607124,51.250000,86.607124,0.000000,"Delay"};
@@ -15,7 +15,7 @@ item10[] = {"Not_Null_Wreck",4,218,-36.349953,561.631714,53.650047,611.631714,1.
 item11[] = {"Delay_2",4,218,110.701157,372.903015,200.701157,422.903015,0.000000,"Delay 2"};
 item12[] = {"Rebuild",2,250,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
 item13[] = {"Delay_Rebuildtim",4,218,245.170380,648.918762,384.711609,706.782471,0.000000,"Delay Rebuildtime"};
-item14[] = {"Unlock_Vehicle",2,250,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
+item14[] = {"Unlock_Vehicle",2,4346,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
 item15[] = {"Allways",8,218,267.188721,280.897766,357.188751,330.897766,0.000000,"Allways"};
 item16[] = {"_",4,218,28.118450,766.373047,118.118446,816.373047,0.000000,""};
 item17[] = {"_",2,250,180.609940,767.583252,270.609955,817.583252,0.000000,""};
@@ -39,8 +39,8 @@ link16[] = {14,15};
 link17[] = {15,6};
 link18[] = {16,17};
 link19[] = {17,13};
-globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-414.199951,517.863525,375.460205,-537.940002,849,832,1};
-window[] = {0,-1,-1,-1,-1,1316,312,2459,312,1,867};
+globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-414.199951,517.863525,863.997559,-49.402657,849,832,1};
+window[] = {0,-1,-1,-1,-1,1342,338,2485,338,1,867};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -254,7 +254,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n
                          "_rep_station setVariable [""d_curreptime"", -1, true];" \n
                          "_new_vec lock false;" \n
-                         "[_new_vec, ""d_prebo""] call d_fnc_setekmode;" \n
+                         "[_new_vec, 11] call d_fnc_setekmode;" \n
                          "if (!d_tt_ver) then {" \n
                          "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n
                          "} else {" \n
@@ -305,7 +305,7 @@ class FSM
                          "		_new_vec remoteExecCall [""d_fnc_addpylon_action"", [0, -2] select isDedicated];" \n
                          "	};" \n
                          "	_uavgrp deleteGroupWhenEmpty true;" \n
-                         "	[_new_vec, ""d_delcrewk""] call d_fnc_setekmode;" \n
+                         "	[_new_vec, 7] call d_fnc_setekmode;" \n
                          "} else {" \n
                          "	if (d_with_dynsim == 0) then {" \n
                          "		_new_vec spawn {" \n

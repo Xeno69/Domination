@@ -110,7 +110,7 @@ while {true} do {
 				private _uavgrp = createVehicleCrew _vec;
 				_vec allowCrewInImmobile true;
 				_uavgrp deleteGroupWhenEmpty true;
-				[_vec, "d_delcrewk"] call d_fnc_setekmode;
+				[_vec, 7] call d_fnc_setekmode;
 				if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
 					_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 				};	
@@ -143,12 +143,12 @@ while {true} do {
 #endif
 #ifdef __TT__
 			if (_vec_a # 1 < 4000) then {
-				[_vec, "d_cvkblu"] call d_fnc_setekmode;
+				[_vec, 1] call d_fnc_setekmode;
 			} else {
-				[_vec, "d_cvkopf"] call d_fnc_setekmode;
+				[_vec, 2] call d_fnc_setekmode;
 			};
 #endif
-			[_vec, "d_chkill"] call d_fnc_setekmode;
+			[_vec, 8] call d_fnc_setekmode;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 			if (d_with_ranked) then {
 				clearWeaponCargoGlobal _vec;
