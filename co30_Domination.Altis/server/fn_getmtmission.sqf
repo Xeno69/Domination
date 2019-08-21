@@ -196,7 +196,7 @@ switch (_sec_kind) do {
 			case "W": {"Land_spp_Transformer_F"};
 			case "G": {"Land_spp_Transformer_F"};
 		};*/
-		private _fact = "Land_Factory_Main_F";
+		private _fact = "Land_IndustrialShed_01_F";
 		private _vec = createVehicle [_fact, _poss, [], 0, "NONE"];
 		private _svec = sizeOf _fact;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
