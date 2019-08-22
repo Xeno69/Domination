@@ -1,22 +1,22 @@
 /*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,250,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
+item0[] = {"Start",0,4346,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
 item1[] = {"_",8,218,-25.000000,-100.000000,75.000000,-50.000000,0.000000,""};
 item2[] = {"Loop",2,250,-25.000000,-25.000000,75.000000,25.000000,0.000000,"Loop"};
 item3[] = {"target_clear",4,218,-175.000000,-25.000000,-75.000000,25.000000,10.000000,"target_clear"};
 item4[] = {"End",1,250,-300.000000,-25.000000,-200.000000,25.000000,0.000000,"End"};
 item5[] = {"_____enemy____0",4,218,-25.000000,75.000000,75.000000,125.000000,2.000000,"(!(_enemy == 0 && _friendly == 0)) && (!(_enemy == _friendly))"};
-item6[] = {"__1",8,218,100.000000,75.000000,200.000000,125.000000,0.000000,""};
+item6[] = {"_",8,218,100.000000,75.000000,200.000000,125.000000,0.000000,""};
 item7[] = {"Reset_cap_time",2,250,250.000000,75.000000,350.000000,125.000000,0.000000,"Reset cap time"};
 item8[] = {"Delay",4,218,250.000000,-25.000000,350.000000,25.000000,0.000000,"Delay"};
-item9[] = {"Check",2,4346,-25.000000,175.000000,75.000000,225.000000,0.000000,"Check"};
+item9[] = {"Check",2,250,-25.000000,175.000000,75.000000,225.000000,0.000000,"Check"};
 item10[] = {"_curcaptime____",4,218,-25.000000,275.000000,75.000000,325.000000,1.000000,"_curcaptime >= _captime"};
 item11[] = {"Captured",2,250,-25.000000,375.000000,75.000000,425.000000,0.000000,"Captured"};
 item12[] = {"",7,210,408.500000,196.000000,416.500000,204.000000,0.000000,""};
 item13[] = {"",7,210,408.500000,-4.000000,416.500000,4.000000,0.000000,""};
 item14[] = {"",7,210,408.500000,396.000000,416.500000,404.000000,0.000000,""};
-item15[] = {"_",4,218,-219.103043,47.826355,-129.103027,97.826355,1.000000,""};
+item15[] = {"_enemy___0_____",4,218,-219.103043,47.826355,-129.103027,97.826355,1.000000,"_enemy > 0 && {_friendly > 0}"};
 item16[] = {"_",2,250,-234.491364,137.774841,-144.491333,187.774841,0.000000,""};
 item17[] = {"_",8,218,-119.357384,110.190613,-29.357361,160.190613,0.000000,""};
 link0[] = {0,1};
@@ -40,8 +40,8 @@ link17[] = {14,12};
 link18[] = {15,16};
 link19[] = {16,17};
 link20[] = {17,2};
-globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-475.005005,576.946411,546.910461,-553.295532,584,1245,1};
-window[] = {0,-1,-1,-1,-1,953,73,1033,235,1,602};
+globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-475.005005,576.946411,618.342163,-186.015808,1640,1254,1};
+window[] = {2,-1,-1,-1,-1,1030,312,1272,312,3,1658};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -106,12 +106,12 @@ class FSM
                                         priority = 2.000000;
                                         to="Check";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(!(_enemy == 0 && {_friendly == 0})) && {!(_enemy == _friendly)}"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_enemy == 0 && {_friendly > 0}) || (_friendly == 0 && {_enemy > 0})"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "_">*/
-                                class _
+                                /*%FSM<LINK "_enemy___0_____">*/
+                                class _enemy___0_____
                                 {
                                         itemno = 15;
                                         priority = 1.000000;
@@ -121,8 +121,8 @@ class FSM
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
-                                /*%FSM<LINK "__1">*/
-                                class __1
+                                /*%FSM<LINK "_">*/
+                                class _
                                 {
                                         itemno = 6;
                                         priority = 0.000000;
@@ -181,6 +181,10 @@ class FSM
                          "private _curside = _wf getVariable ""D_SIDE"";" \n
                          "private _curcapturer = _wf getVariable ""D_CURCAPTURER"";" \n
                          "" \n
+                         "if (_wf getVariable ""d_STALL"") then {" \n
+                         "	_wf setVariable [""d_STALL"", false, true];" \n
+                         "};" \n
+                         "" \n
                          "if (_curside == d_enemy_side && {_friendly > 0 && {_enemy == 0}}) then {" \n
                          "	if (_curcapturer == d_enemy_side) then {" \n
                          "		_wf setVariable [""D_CAPTIME"", 40 + (floor random 10), true];" \n
@@ -189,9 +193,6 @@ class FSM
                          "	};" \n
                          "	_curcaptime = _curcaptime + (3 max _friendly);" \n
                          "	_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
-                         "	if (_wf getVariable ""d_STALL"") then {" \n
-                         "		_wf setVariable [""d_STALL"", false, true];" \n
-                         "	};" \n
                          "} else {" \n
                          "	if (_curside == d_own_side && {_enemy > 0 && {_friendly == 0}}) then {" \n
                          "		if (_curcapturer == d_own_side) then {" \n
@@ -201,9 +202,6 @@ class FSM
                          "		};" \n
                          "		_curcaptime = _curcaptime + (3 max _enemy);" \n
                          "		_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
-                         "		if (_wf getVariable ""d_STALL"") then {" \n
-                         "			_wf setVariable [""d_STALL"", false, true];" \n
-                         "		};" \n
                          "	};" \n
                          "};" \n
                          "private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;

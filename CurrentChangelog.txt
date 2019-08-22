@@ -14,3 +14,4 @@ ATTENTION: ALL mission.sqm files have changed!!!!!!
 - Changed: Service triggers are now only created on clients, editor placed ones removed, by lelik
 - Optimized: Entity killed eventhandler, now only uses one variable instead of 17
 - Changed: Replaced Land_Factory_Main_F with Land_IndustrialShed_01_F in "find IED factory" main target mission
+- Changed: Display "Stall" in the camp capture progress dialog if there is a stall between players and enemies at a camp

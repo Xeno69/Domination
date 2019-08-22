@@ -10393,6 +10393,16 @@
 <Russian>Автоматическое изменение видимости на основных задачах отключено!</Russian>
 <Chinesesimp>Auto Viewdistance change at main targets disabled!</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1967">
+<English>Stall</English>
+<Spanish>Stall</Spanish>
+<Portuguese>Stall</Portuguese>
+<Korean>Stall</Korean>
+<Japanese>Stall</Japanese>
+<Original>Stall</Original>
+<Russian>Stall</Russian>
+<Chinesesimp>Stall</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>
