@@ -16,7 +16,6 @@ private _pos = selectRandom _wp_array;
 
 __TRACE_1("","_grp")
 
-//_grptype = toLower _grptype;
 _grptype = toLowerANSI _grptype;
 
 private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty"];

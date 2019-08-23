@@ -7,7 +7,6 @@ __TRACE_1("","_this")
 
 if (d_mt_done) exitWith {};
 
-//private _grptype = toLower (_this select 0);
 private _grptype = toLowerANSI (_this select 0);
 
 private _isman = _grptype in ["allmen", "specops"];

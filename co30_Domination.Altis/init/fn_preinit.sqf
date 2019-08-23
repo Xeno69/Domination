@@ -263,15 +263,9 @@ if (!d_tt_tanoa) then {
 #endif
 
 #ifndef __TT__
-//d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLower _x};
-//d_mt_bonus_vehicle_array = d_mt_bonus_vehicle_array apply {toLower _x};
 d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
 d_mt_bonus_vehicle_array = d_mt_bonus_vehicle_array apply {toLowerANSI _x};
 #else
-//d_sm_bonus_vehicle_array set [0, (d_sm_bonus_vehicle_array # 0) apply {toLower _x}];
-//d_sm_bonus_vehicle_array set [1, (d_sm_bonus_vehicle_array # 1) apply {toLower _x}];
-//d_mt_bonus_vehicle_array set [0, (d_mt_bonus_vehicle_array # 0) apply {toLower _x}];
-//d_mt_bonus_vehicle_array set [1, (d_mt_bonus_vehicle_array # 1) apply {toLower _x}];
 d_sm_bonus_vehicle_array set [0, (d_sm_bonus_vehicle_array # 0) apply {toLowerANSI _x}];
 d_sm_bonus_vehicle_array set [1, (d_sm_bonus_vehicle_array # 1) apply {toLowerANSI _x}];
 d_mt_bonus_vehicle_array set [0, (d_mt_bonus_vehicle_array # 0) apply {toLowerANSI _x}];
@@ -586,13 +580,11 @@ if (isServer) then {
 		if !(_dbresult isEqualTo []) then {
 			{
 				call {
-					//if (toLower (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 					if (toLowerANSI (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 						if !((_x # 1) isEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					//if (toLower (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time"]) exitWith {
 					if (toLowerANSI (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1, true];
 					};
@@ -1233,7 +1225,6 @@ if (!d_tt_tanoa) then {
 	];
 
 	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
-	//d_hd_sim_types = d_hd_sim_types apply {toLower _x};
 	d_hd_sim_types = d_hd_sim_types apply {toLowerANSI _x};
 
 	d_isle_defense_marker = "n_mech_inf";
@@ -1705,7 +1696,6 @@ if (hasInterface) then {
 	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F"];
 #endif
 	
-	//d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLower _x};
 	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLowerANSI _x};
 
 	d_weapon_respawn = true;

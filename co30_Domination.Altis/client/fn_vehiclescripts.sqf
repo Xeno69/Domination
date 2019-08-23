@@ -14,7 +14,6 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 		d_player_autokick_time = nil;
 	};
 	if (_vec isKindOf "Air") then {
-		//private _type = toLower (typeOf _vec);
 		private _type = toLowerANSI (typeOf _vec);
 #ifndef __TT__
 		if ((_type in d_mt_bonus_vehicle_array || {_type in d_sm_bonus_vehicle_array}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
@@ -151,7 +150,6 @@ if (d_without_vec_nvg == 0) then {
 	_vec disableNVGEquipment true;
 };
 
-//if (toLower (typeOf _vec) in d_check_ammo_load_vecs) then {
 if (toLowerANSI (typeOf _vec) in d_check_ammo_load_vecs) then {
 	{
 		[_x] execFSM "fsms\fn_AmmoLoad.fsm";

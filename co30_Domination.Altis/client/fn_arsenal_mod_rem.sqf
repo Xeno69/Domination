@@ -3,7 +3,6 @@
 #define THIS_FILE "fn_arsenal_mod_rem.sqf"
 #include "..\x_setup.sqf"
 
-//private _mods = _this apply {toLower _x};
 private _mods = _this apply {toLowerANSI _x};
 __TRACE_1("","_mods")
 
@@ -11,7 +10,6 @@ private _findmodfnc = {
 	//__TRACE_1("_findmodfnc","_this")
 	params ["_csal"];
 	private _res = -1;
-	//private _csallow = toLower (_csal # 0);
 	private _csallow = toLowerANSI (_csal # 0);
 	//__TRACE_1("_findmodfnc","_csallow")
 	_mods findIf {

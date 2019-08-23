@@ -11,7 +11,6 @@ if (isNil "_sm_ar") then {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
 
-//if (tolower (_sm_ar # 1) != "tankdepot") then {
 if (toLowerANSI (_sm_ar # 1) != "tankdepot") then {
 	d_x_sm_pos = _sm_ar # 2;
 } else {
@@ -42,7 +41,6 @@ private _boolorarrayfnc = {
 	};
 };
 
-//switch (tolower (_sm_ar # 1)) do {
 switch (toLowerANSI (_sm_ar # 1)) do {
 	case "convoy": {
 		if (isServer) then {
@@ -222,7 +220,6 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 	};
 };
 
-//if (isServer && {tolower (_sm_ar # 1) != "convoy"}) then {
 if (isServer && {toLowerANSI (_sm_ar # 1) != "convoy"}) then {
 	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
 		(_sm_ar # 3) spawn {

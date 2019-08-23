@@ -3,7 +3,6 @@
 #define THIS_FILE "fn_arsenal_mod.sqf"
 #include "..\x_setup.sqf"
 
-//private _mods = _this apply {toLower _x};
 private _mods = _this apply {toLowerANSI _x};
 __TRACE_1("","_mods")
 
@@ -23,14 +22,12 @@ if (d_with_ace) then {
 		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
 };
 
-//_items_no = _items_no apply {toLower _x};
 _items_no = _items_no apply {toLowerANSI _x};
 
 private _findmodfnc = {
 	//__TRACE_1("_findmodfnc","_this")
 	params ["_csal"];
 	private _res = -1;
-	//private _csallow = toLower (_csal # 0);
 	private _csallow = toLowerANSI (_csal # 0);
 	//__TRACE_1("_findmodfnc","_csallow")
 	_mods findIf {
@@ -49,7 +46,6 @@ private _findmodfnc = {
 	private ["_item", "_kind"];
 	{
 		_item = _x;
-		//if !(toLower _item in _items_no) then {
 		if !(toLowerANSI _item in _items_no) then {
 			_kind = if (isClass (configFile >> "CfgWeapons" >> _x)) then {
 				"CfgWeapons"

@@ -91,7 +91,6 @@ if (isClass _cfg) then {
 private _weapons = [];
 {
 	__TRACE_2("","_x","_x call bis_fnc_itemType")
-	//if (toLower ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
 	if (toLowerANSI ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
 		private _modes = getArray (configFile>>"cfgweapons">>_x>>"modes");
 		__TRACE_1("","_modes")
@@ -186,7 +185,6 @@ private _vectorUp = vectorUp _plane;
 private _wpcmls = _weaponTypes + ["countermeasureslauncher"];
 private _currentWeapons = weapons _plane;
 {
-	//if !(toLower ((_x call bis_fnc_itemType) # 1) in _wpcmls) then {
 	if !(toLowerANSI ((_x call bis_fnc_itemType) # 1) in _wpcmls) then {
 		_plane removeWeapon _x;
 	};

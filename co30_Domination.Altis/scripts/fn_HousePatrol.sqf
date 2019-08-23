@@ -65,8 +65,6 @@ sleep random 1;
 
 params ["_unit", ["_behaviour", "safe"], ["_maxWaitTime", 30], ["_excludedPositions", []], ["_startingPos", -1], ["_stance", "high"], ["_debug", false], ["_house", objNull]];
 
-//_behaviour = toLower _behaviour;
-//_stance = toLower _stance;
 _behaviour = toLowerANSI _behaviour;
 _stance = toLowerANSI _stance;
 

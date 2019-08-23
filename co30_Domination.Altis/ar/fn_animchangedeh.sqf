@@ -13,7 +13,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 params ["_player", "_animation"];
 
 if (call AR_fnc_Has_Addon_Animations_Installed) then {
-	//private _lanim = toLower _animation;
 	private _lanim = toLowerANSI _animation;
 	if (_lanim find "ar_" < 0) then {
 		if (([_player] call AR_fnc_Current_Weapon_Type_Selected) isEqualTo "HANDGUN") then {

@@ -58,8 +58,7 @@ private _dallsidemissions = [];
 private _smtypes = ["convoy", "stealflag", "tankdepot", "arrest", "artibase", "deliver", "evac", "radiotower", "prisoners",
 	"stealapc", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
 	"transformer", "barracks", "hangar", "eliminatesniper", "cargotruck", "minesland", "minesnaval", "dataterminal", "device",
-	"sam", "cache", "trucks", "artycannon"] apply {toLowerANSI _x}; //apply {toLower _x};
-//private _subtypes = ["start", "end", "flag", "tank", "time", "radius"] apply {toLower _x};
+	"sam", "cache", "trucks", "artycannon"] apply {toLowerANSI _x};
 private _subtypes = ["start", "end", "flag", "tank", "time", "radius"] apply {toLowerANSI _x};
 
 private _infhelper_fnc = {
@@ -83,7 +82,6 @@ __TRACE_1("","_eee")
 	private _marar = _curmar splitString "|";
 	__TRACE_1("","_marar")
 	_marar params ["", "_idx" , "_smtype"];
-	//_smtype = toLower _smtype;
 	_smtype = toLowerANSI _smtype;
 	__TRACE_1("","_smtype")
 	
@@ -96,7 +94,6 @@ __TRACE_1("","_eee")
 	private _subtype = "";
 	private _subtypeidx = -1;
 	for "_i" from 3 to (count _marar - 1) do {
-		//private _str = toLower (_marar # _i);
 		private _str = toLowerANSI (_marar # _i);
 		if (_str in _subtypes) exitWith {
 			_subtype = _str;

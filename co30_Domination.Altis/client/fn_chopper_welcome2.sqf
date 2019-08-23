@@ -26,7 +26,6 @@ switch (_this select 0) do {
 };
 
 private _vec = _this select 1;
-//private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toLower (typeOf _vec)) in d_check_ammo_load_vecs);
 private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toLowerANSI (typeOf _vec)) in d_check_ammo_load_vecs);
 
 private _end_welcome = time + 14;

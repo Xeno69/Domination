@@ -24,7 +24,6 @@ if (!isClass(_cfgi)) exitWith {
 	__TRACE_1("not of type weapon","_item")
 };
 
-//_item = toLower _item;
 _item = toLowerANSI _item;
 
 private _rank = rank player;

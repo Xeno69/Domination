@@ -76,8 +76,6 @@ if (!local _player) then {
 		params ["_player"];
 		private ["_currentState"];
 		while {_player getVariable ["AR_Is_Rappelling", false]} do {
-			//_currentState = toLower animationState _player;
-			//_newState = toLower (_player getVariable ["AR_Animation_Move", ""]);
 			_currentState = toLowerANSI animationState _player;
 			_newState = toLowerANSI (_player getVariable ["AR_Animation_Move", ""]);
 			if !(call AR_fnc_Has_Addon_Animations_Installed) then {
