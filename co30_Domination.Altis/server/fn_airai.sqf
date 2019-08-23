@@ -109,6 +109,7 @@ while {true} do {
 
 		addToRemainsCollector [_vec];
 		[_vec, 2] remoteExec ["setFeatureType", [0, -2] select isDedicated];
+		[_veh, 17] call d_fnc_setekmode;
 		
 		if (d_LockAir == 0) then {_vec lock true};
 	        _vec flyInHeight _height;

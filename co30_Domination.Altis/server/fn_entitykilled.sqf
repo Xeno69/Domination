@@ -115,6 +115,10 @@ if (_ar # 16 == 1) then {
 	d_sm_arrest_not_failed = false;
 };
 
+if (_ar # 17 == 1) then {
+	[_obj, 0] remoteExec ["setFeatureType", [0, -2] select isDedicated];
+};
+
 _obj setVariable ["d_hkx", nil];
 
 true
