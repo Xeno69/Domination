@@ -15,7 +15,6 @@ private _release_id = -1212;
 sleep 10.123;
 
 while {alive _chopper && {alive player && {player in _chopper}}} do {
-	//if (driver _chopper == player) then {
 	if (currentPilot _chopper == player) then {
 		private _pos = getPosVisual _chopper;
 		
@@ -60,17 +59,21 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					};
 				};
 			};
+			__TRACE_1("1","_id")
 		} else {
+			__TRACE("attached")
 			if (_menu_lift_shown) then {
 				_chopper removeAction _id;
 				_id = -1212;
 				_menu_lift_shown = false;
 			};
+			__TRACE_1("2","_id")
 			
 			sleep 0.1;
 			
 			if (isNull _liftobj) then {
 				_liftobj = _chopper getVariable ["d_Attached_Vec", objNull];
+				__TRACE_1("liftobject null, new one","_liftobj")
 			};
 			
 			if (isNull _liftobj) then {
@@ -167,6 +170,8 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						};
 						
 						_chopper setVariable ["d_ropes", _ropes, true];
+					} else {
+						_ropes = _chopper getVariable ["d_ropes", []];
 					};
 
 					// ropeBreak event?
@@ -175,9 +180,10 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						sleep 0.312;
 					};
 					
-					if (alive _chopper && {alive player && {alive _liftobj && {player in _chopper && {currentPilot _chopper != player && {!(_chopper getVariable ["d_vec_released", false]) && {!isNull gunner _chopper && {[_chopper, gunner _chopper] call d_fnc_iscopilot}}}}}}}) exitWith {};
+					if (alive _chopper && {alive player && {alive _liftobj && {player in _chopper && {currentPilot _chopper != player && {!(_chopper getVariable ["d_vec_released", false])}}}}}) exitWith {
+						if (_release_id != -1212) then {_chopper removeAction _release_id};
+					};
 					
-					_ropes = _chopper getVariable ["d_ropes", []];
 					{
 						ropeDestroy _x;
 					} forEach (_ropes select {!isNull _x});

@@ -15,7 +15,6 @@ private _release_id = -1212;
 sleep 10.123;
 
 while {alive _chopper && {alive player && {player in _chopper}}} do {
-	//if (driver _chopper == player) then {
 	if (currentPilot _chopper == player) then {
 		private _pos = getPosVisual _chopper;
 		
@@ -108,7 +107,9 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					};
 					__TRACE("Out of while loop")
 					
-					if (alive _chopper && {alive player && {!isNull _liftobj && {player in _chopper && {currentPilot _chopper != player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false]) && {!isNull gunner _chopper && {[_chopper, gunner _chopper] call d_fnc_iscopilot}}}}}}}}) exitWith {};
+					if (alive _chopper && {alive player && {!isNull _liftobj && {player in _chopper && {currentPilot _chopper != player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false])}}}}}}) exitWith {
+						if (_release_id != -1212) then {_chopper removeAction _release_id};
+					};
 					
 					if (!isNull attachedTo _liftobj) then {
 						detach _liftobj;

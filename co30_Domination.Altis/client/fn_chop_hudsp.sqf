@@ -29,7 +29,6 @@ private _doexitit = false;
 private _chophud_shown = false;
 private _chophud2_shown = false;
 
-//if (player == currentPilot _vec) then {
 if (player == driver _vec) then {
 	private _vtype = _vec getVariable ["d_vec_type", ""];
 	if (_vtype == "MHQ") then {
@@ -38,12 +37,14 @@ if (player == driver _vec) then {
 	};
 };
 
+private _msgshown = false;
+
 while {d_player_in_vec} do {
-	//if (player == driver _vec) then {
 	if (player == currentPilot _vec) then {
 		private _chopttype = _vec getVariable ["d_choppertype", -1];
 		__TRACE_2("","_vec","_chopttype")
-		if (_chopttype > -1) then {
+		if (!_msgshown && {_chopttype > -1}) then {
+			_msgshown = true;
 			private _chop_welcome_scr = [_chopttype, _vec] spawn d_fnc_chopper_welcome2;
 			sleep 0.321;
 			while {true} do {
