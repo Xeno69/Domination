@@ -92,7 +92,7 @@ class GraphItems
 			Text="count _nobjs == 0";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -118,7 +118,7 @@ class GraphItems
 		{
 			Text="Sleep";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -144,7 +144,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -260,7 +260,7 @@ class GraphItems
 	};
 	class Item10
 	{
-		Flags=4314;
+		Flags=218;
 		BasicText="";
 		Left=-25;
 		Top=350;
@@ -281,7 +281,7 @@ class GraphItems
 			{
 				Id=10;
 				Priority=1;
-				Condition="//player == driver _vec" \n "player == currentPilot _vec";
+				Condition="player == currentPilot _vec";
 			};
 		};
 	};
@@ -324,7 +324,7 @@ class GraphItems
 			Text="_vec != _old_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -375,7 +375,7 @@ class GraphItems
 			Text="_thebox";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -401,7 +401,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -440,7 +440,7 @@ class GraphItems
 	};
 	class Item17
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-25;
 		Top=725;
@@ -476,7 +476,7 @@ class GraphItems
 			Text="ammo_boxes >= d_MaxNumAmmoboxes";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -502,7 +502,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -528,7 +528,7 @@ class GraphItems
 			Text="";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -552,7 +552,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -578,7 +578,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -603,7 +603,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -702,7 +702,7 @@ class GraphItems
 			Text="!d_player_in_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -729,7 +729,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -754,7 +754,7 @@ class GraphItems
 			Text="!d_player_in_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -781,7 +781,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -806,7 +806,7 @@ class GraphItems
 			Text="!d_player_in_vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -833,7 +833,7 @@ class GraphItems
 			Text="End";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontCharSet=0;
@@ -1337,7 +1337,7 @@ class Globals
 	NextGroupID=1;
 	NextID=42;
 	FSMName="AmmoLoad";
-	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	CompileConfig="E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -1348,8 +1348,8 @@ class Globals
 	DefaultLinkUseCustom=1;
 	PZoomLeft=-540.87469;
 	PZoomRight=650.48779;
-	PZoomBottom=1211.2455;
-	PZoomTop=-126.23751;
+	PZoomBottom=1254.2904;
+	PZoomTop=-83.192734;
 	Clxs=1117;
 	Clys=1254;
 	Aspect=1;
@@ -1361,10 +1361,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=156;
-	Top=156;
-	Right=1217;
-	Bottom=874;
+	Left=130;
+	Top=130;
+	Right=1191;
+	Bottom=848;
 	ShowCmd=3;
 	SplitPos=1135;
 };

@@ -17,7 +17,6 @@ private _release_id = -1212;
 sleep 10.123;
 
 while {alive _vec && {alive player && {player in _vec}}} do {
-	//if (driver _vec == player) then {
 	if (currentPilot _vec == player) then {
 		if !(_vec getVariable ["d_vec_attached", false]) then {
 			_transobj = objNull;

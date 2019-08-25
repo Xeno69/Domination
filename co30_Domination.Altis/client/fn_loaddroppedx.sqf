@@ -16,7 +16,6 @@ private _chatfunc = {
 
 if (_unit == _caller) then {_unit = d_curvec_dialog};
 
-//if (_caller != driver _unit && {!isNil {_unit getVariable "d_choppertype"}}) exitWith {};
 if (_caller != currentPilot _unit && {!isNil {_unit getVariable "d_choppertype"}}) exitWith {};
 
 if ((_unit call d_fnc_GetHeight) > 3) exitWith {_unit vehicleChat (localize "STR_DOM_MISSIONSTRING_267")};

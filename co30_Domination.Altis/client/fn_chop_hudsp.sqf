@@ -68,7 +68,6 @@ while {d_player_in_vec} do {
 			private _pip_cam_on = false;
 			private _prev_liftobj = objNull;
 
-			//while {d_player_in_vec && {alive player && {player == driver _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
 			while {d_player_in_vec && {alive player && {player == currentPilot _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
 				if (d_chophud_on && {!visibleMap}) then {
 					if (isNil "_vec") then {_vec = vehicle player};
@@ -273,7 +272,6 @@ while {d_player_in_vec} do {
 			};
 			_chdispx2 = uiNamespace getVariable "d_chopper_lift_hud2";
 			__CTRL3(61422) ctrlSetText (localize "STR_DOM_MISSIONSTRING_200");
-			//while {d_player_in_vec && {alive player && {player == driver _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
 			while {d_player_in_vec && {alive player && {player == currentPilot _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
 				sleep 0.421;
 			};

@@ -15,7 +15,6 @@ params ["_player", "_vec"];
 if !([_vec] call AR_fnc_Is_Supported_Vehicle) exitWith {false};
 private _h = (getPos _vec) select 2;
 if (_h < 5 || {_h > 150}) exitWith {false};
-//if (isEngineOn _vec && {driver _vec == _player}) exitWith {false};
 if (isEngineOn _vec && {currentPilot _vec == _player}) exitWith {false};
 if (speed _vec > 100) exitWith {false};
 true

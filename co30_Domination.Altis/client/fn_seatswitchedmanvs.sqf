@@ -7,7 +7,6 @@ params ["_switcher", "", "_vec"];
 
 if (_vec isKindOf "Air") then {
 	if (!d_with_ace) then {
-		//if (driver _vec != player) then {
 		if (currentPilot _vec != player) then {
 			if (isNil {_vec getVariable "d_rappel_self_action"}) then {
 				_vec setVariable ["d_rappel_self_action", [
@@ -38,7 +37,6 @@ if (_vec isKindOf "Air") then {
 			};
 		};
 	};
-	//if (driver _vec != player) then {
 	if (currentPilot _vec != player) then {
 		if (!isNil {_vec getVariable "d_plyonloadoutaction"}) then {
 			[_vec, _vec getVariable "d_plyonloadoutaction"] call bis_fnc_holdActionRemove;

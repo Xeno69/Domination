@@ -49,7 +49,6 @@ if (_canloadunloadbox) then {
 
 private _move_controls = false;
 
-//if (_caller != driver _vec) then {
 if (_caller != currentPilot _vec) then {
 	if ((_vec getVariable ["d_vec_type", ""]) == "MHQ") then {
 		if !(_caller in _vec) then {
