@@ -413,11 +413,13 @@ if (d_enemy_occupy_bldgs == 1) then {
 	__TRACE_1("","_buildingsArray")
 
 	//create garrisoned groups of snipers with Top N of tallest buildings
-	private _counter = [count _buildingsArray, d_enemy_garrison_troop_sniper_count] select (d_enemy_garrison_troop_sniper_count > count _buildingsArray);
+	private _counter = [d_enemy_garrison_troop_sniper_count, count _buildingsArray] select (d_enemy_garrison_troop_sniper_count > count _buildingsArray);
 	__TRACE_3("","_counter","d_enemy_garrison_troop_sniper_count","count _buildingsArray")
-	for "_xx" from 0 to (d_enemy_garrison_troop_sniper_count - 1) do {
+	for "_xx" from 0 to (_counter - 1) do {
 		//create the group but do not exceed the total number of positions in the building
 		private _building = _buildingsArray select _xx;
+		__TRACE_1("","_building")
+		__TRACE_1("","count (_building buildingPos -1)")
 		[
 			getPos _building,
 			((ceil random 4) max 2) min (count (_building buildingPos -1)),	//unit count
