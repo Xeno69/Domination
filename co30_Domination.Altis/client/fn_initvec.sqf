@@ -61,6 +61,10 @@ __TRACE_1("","_d_vec")
 if (!isNil {_vec getVariable "d_vcheck"}) exitWith {};
 _vec setVariable ["d_vcheck", true];
 
+if (isNil {_vec getVariable "d_canloadbox"}) then {
+	_vec setVariable ["d_canloadbox", toLowerANSI (typeOf _vec) in d_check_ammo_load_vecs];
+};
+
 if (_d_vec isEqualType []) exitWith {
 	__TRACE_1("","_d_vec")
 	private _p_side = [d_player_side, side (group player)] select (isNil "d_player_side");

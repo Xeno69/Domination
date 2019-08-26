@@ -321,6 +321,7 @@ class D_RscMapControl {
 	idcMarkerIcon = -1;
 	textureComboBoxColor = "#(argb,8,8,3)color(1,1,1,1)";
 	showMarkers = 1;
+	drawLocations = true;
 	onDraw = "[_this, 2] call d_fnc_mapondraw";
 	class LineMarker {
 		lineWidthThin = 0.008;

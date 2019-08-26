@@ -150,7 +150,12 @@ if (d_without_vec_nvg == 0) then {
 	_vec disableNVGEquipment true;
 };
 
-if (toLowerANSI (typeOf _vec) in d_check_ammo_load_vecs) then {
+private _canload = _vec getVariable "d_canloadbox";
+if (isNil "_canload") then {
+	_canload = toLowerANSI (typeOf _vec) in d_check_ammo_load_vecs;
+	_vec setVariable ["d_canloadbox", _canload];
+};
+if (_canload) then {
 	{
 		[_x] execFSM "fsms\fn_AmmoLoad.fsm";
 	} forEach d_all_ammoloads;

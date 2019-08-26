@@ -61,6 +61,7 @@ while {true} do {
 				publicVariable "d_num_ammo_boxes";
 			};
 			private _isitlocked = _vec getVariable ["d_vec_islocked", false];// || {_vec call d_fnc_isVecLocked};
+			private _canloadbox = _vec getVariable ["d_canloadbox", false];
 			private _ropes = _vec getVariable "d_ropes";
 			if (!isNil "_ropes") then {
 				{ropeDestroy _x} forEach (_ropes select {!isNull _x});
@@ -135,6 +136,9 @@ while {true} do {
 			_vec_a set [0, _vec];
 			_vec setVariable ["d_OUT_OF_SPACE", -1];
 			_vec setVariable ["d_vec", _vec_a # 1, true];
+			if (_canloadbox) then {
+				_vec setVariable ["d_canloadbox", true, true];
+			};
 #ifdef __GMCWG__
 			if (!isNil "_attribs") then {
 				_vec setVariable ["GM_VEHICLE_ATTRIBUTES", _attribs];

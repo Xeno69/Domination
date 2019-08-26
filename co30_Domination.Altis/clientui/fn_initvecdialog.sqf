@@ -33,7 +33,7 @@ __control(44445) ctrlSetText _vec_name;
 private _hasbox = _vec getVariable ["d_ammobox", false];
 private _ttyp = toLowerANSI (typeOf _vec);
 
-private _canloadunloadbox = _ttyp in d_check_ammo_load_vecs;
+private _canloadunloadbox = _vec getVariable ["d_canloadbox", false];
 if (_canloadunloadbox) then {
 	if (_hasbox) then {
 		__control(44447) ctrlSetText "pics\objective_complete_ca.paa";

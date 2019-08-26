@@ -146,6 +146,7 @@ while {true} do {
 		private _isitlocked = _vec getVariable "d_vec_islocked";
 		private _fuelleft = _vec getVariable ["d_fuel", 1];
 		private _skinpoly = [_vec] call d_fnc_getskinpoly;
+		private _canloadbox = _vec getVariable ["d_canloadbox", false];
 #ifdef __GMCWG__
 		private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
 #endif
@@ -212,6 +213,9 @@ while {true} do {
 				_vec setDamage 0;
 			};
 		};*/
+		if (_canloadbox) then {
+			_vec setVariable ["d_canloadbox", true, true];
+		};
 		if (isNil "_startposasl") then {
 			_vec allowDamage true;
 			_vec setDamage 0;

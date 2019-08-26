@@ -44,6 +44,7 @@ while {true} do {
 			if (_vec getVariable ["d_ammobox", false]) then {
 				d_num_ammo_boxes = d_num_ammo_boxes - 1; publicVariable "d_num_ammo_boxes";
 			};
+			private _canloadbox = _vec getVariable ["d_canloadbox", false];
 			if (_number_v < 100 || {(_number_v > 999 && {_number_v < 1100})}) then {
 				private _dhqcamo = _vec getVariable ["d_MHQ_Camo", objNull];
 				if (!isNull _dhqcamo) then {deleteVehicle _dhqcamo};
@@ -120,6 +121,9 @@ while {true} do {
 			_vec setVariable ["d_vec", _number_v, true];
 			_vec setVariable ["d_vec_islocked", _isitlocked];
 			if (_isitlocked) then {_vec lock true};
+			if (_canloadbox) then {
+				_vec setVariable ["d_canloadbox", true, true];
+			};
 			if !(_vec isKindOf "Air") then {
 				_vec setVariable ["d_liftit", true, true];
 			};
