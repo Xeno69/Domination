@@ -833,9 +833,11 @@ call d_fnc_save_layoutgear;
 
 0 spawn d_fnc_clean_craters;
 
+private _vehicles = vehicles select {!(_x isKindOf "WeaponHolderSimulated")};
+
 private _fnc_artvec = {
 	params ["_num", "_name"];
-	private _ar = vehicles select {(str _x) select [0, _num] == _name};
+	private _ar = _vehicles select {(str _x) select [0, _num] == _name};
 	if !(_ar isEqualTo []) then {
 		d_areArtyVecsAvailable = true;
 		d_ao_arty_vecs append _ar;
@@ -933,7 +935,7 @@ player addEventhandler ["WeaponAssembled", {
 	if (unitIsUAV _x && {isClass (configFile>>"CfgVehicles">>(typeOf _x)>>"Components">>"TransportPylonsComponent")}) then {
 		_x call d_fnc_addpylon_action;
 	};
-} forEach vehicles;
+} forEach _vehicles;
 
 ["Preload"] call bis_fnc_arsenal;
 

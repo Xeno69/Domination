@@ -17,7 +17,7 @@ __TRACE_2("","_obj","_ar")
 
 #ifdef __TT__
 if (!d_with_ace || {d_with_ace && {local _obj}}) then {
-	private _val =  _ar # 0;
+	private _val = _ar # 0;
 	if (_val > 0) then {
 		__TRACE_1("","_val")
 		call {
@@ -66,7 +66,7 @@ if (_val > 0) then {
 };
 
 if (_ar # 5 == 1) then {
-	_obj call d_fnc_handleDeadVec
+	_obj call d_fnc_handleDeadVec;
 };
 
 if (_ar # 6 == 1) then {

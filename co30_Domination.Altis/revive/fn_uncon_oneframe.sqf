@@ -7,10 +7,8 @@
 #define __spectdlg1006 ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1006)
 
 if (time >= xr_u_nextcrytime) then {
-	private _path = (xr_moansoundsar # xr_plsayer) # 0;
-	private _nummoans = floor (random (count (xr_moansoundsar # 3)));	
-	__TRACE_2("next say","_path","_nummoans")
-	playSound3D [_path + xr_voicetype + ((xr_moansoundsar # 3) # _nummoans), player, false, getPosASL player, 1, 1, 100];
+	playSound3D [format ["%1%2%3", (xr_moansoundsar # xr_plsayer) # 0, xr_voicetype, (xr_moansoundsar # 3) # (floor (random (count (xr_moansoundsar # 3))))], player, false, getPosASL player, 1, 1, 100];
+	//playSound3D [((xr_moansoundsar # xr_plsayer) # 0) + xr_voicetype + ((xr_moansoundsar # 3) # (floor (random (count (xr_moansoundsar # 3))))), player, false, getPosASL player, 1, 1, 100];
 	xr_u_nextcrytime = time + 15 + (random 15);
 };
 

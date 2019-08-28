@@ -23,7 +23,5 @@ private "_e";
 				};
 			};
 		};
-		
-		
 	};
 } forEach d_ef_events;
