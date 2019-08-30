@@ -1,4 +1,6 @@
 .idea/
+*.iml
+*.ipr
 /co30_Domination4.Altis/*
 /co30_Domination.Malden/*
 /co30_Domination.Sara/*
