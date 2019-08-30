@@ -80,6 +80,6 @@ if (d_database_found && {getClientStateNumber < 10}) then {
 waitUntil {!isNil "d_current_target_index"};
 
 private _tstate = ["Succeeded", "Assigned"] select (d_current_target_index == -1);
-[true, "d_obj00", [localize "STR_DOM_MISSIONSTRING_62", localize "STR_DOM_MISSIONSTRING_62", localize "STR_DOM_MISSIONSTRING_62"], getPosWorld player, _tstate, 2, false, "Defend", false] call BIS_fnc_taskCreate;
+[true, "d_obj00", [localize "STR_DOM_MISSIONSTRING_62", localize "STR_DOM_MISSIONSTRING_62", localize "STR_DOM_MISSIONSTRING_62"], getPosWorld player, _tstate, 2, false, "Defend", false] call d_fnc_taskcreate;
 
 d_obj00_task = true;

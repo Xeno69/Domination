@@ -233,7 +233,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 							__TRACE("deleting airai vehicle")
 							scriptName "spawn_x_airai_delvec1";
 							private _vec = _this;
-							sleep 200;
+							sleep 100;
 							if (alive _vec && {canMove _vec}) exitWith {};
 							if (!isNull _vec) then {_vec call d_fnc_DelVecAndCrew};
 						};

@@ -299,7 +299,7 @@ if (d_MissionType != 2) then {
 			if (!isNil "_res" && {_res >= 0 && {_res < _codtn}}) then {
 				private _tgt_ar = d_target_names # _res;
 				private _cur_tgt_name = _tgt_ar # 1;
-				[true, format ["d_obj%1", _res + 2], [format [localize "STR_DOM_MISSIONSTRING_202", _cur_tgt_name], format [localize "STR_DOM_MISSIONSTRING_203", _cur_tgt_name], format [localize "STR_DOM_MISSIONSTRING_203", _cur_tgt_name]], _tgt_ar # 0, "Succeeded", 2, false, "Attack", false] call BIS_fnc_taskCreate;
+				[true, format ["d_obj%1", _res + 2], [format [localize "STR_DOM_MISSIONSTRING_202", _cur_tgt_name], format [localize "STR_DOM_MISSIONSTRING_203", _cur_tgt_name], format [localize "STR_DOM_MISSIONSTRING_203", _cur_tgt_name]], _tgt_ar # 0, "Succeeded", 2, false, "Attack", false] call d_fnc_taskcreate;
 			};
 		};
 	};
@@ -309,11 +309,11 @@ if (d_MissionType != 2) then {
 		d_current_seize = d_cur_tgt_name;
 		"d_dummy_marker" setMarkerPosLocal d_cur_tgt_pos;
 		private _tname = format ["d_obj%1", d_current_target_index + 2];
-		[true, _tname, [format [localize "STR_DOM_MISSIONSTRING_202", d_current_seize], format [localize "STR_DOM_MISSIONSTRING_203", d_current_seize], format [localize "STR_DOM_MISSIONSTRING_203", d_current_seize]], d_cur_tgt_pos, true, 2, false, "Attack", false] call BIS_fnc_taskCreate;
+		[true, _tname, [format [localize "STR_DOM_MISSIONSTRING_202", d_current_seize], format [localize "STR_DOM_MISSIONSTRING_203", d_current_seize], format [localize "STR_DOM_MISSIONSTRING_203", d_current_seize]], d_cur_tgt_pos, true, 2, false, "Attack", false] call d_fnc_taskcreate;
 		d_current_task = _tname;
 		if (!isNil "d_obj00_task") then {
 			d_obj00_task = nil;
-			["d_obj00", "Succeeded", false] call BIS_fnc_taskSetState;
+			["d_obj00", "Succeeded", false] call d_fnc_taskSetState;
 		};
 		
 		call d_fnc_cmakemtgmarker;

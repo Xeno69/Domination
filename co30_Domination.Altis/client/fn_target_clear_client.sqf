@@ -27,11 +27,11 @@ private _extra_bonusn = _this;
 
 if (!isNil "d_obj00_task") then {
 	d_obj00_task = nil;
-	["d_obj00", "Succeeded", false] call BIS_fnc_taskSetState;
+	["d_obj00", "Succeeded", false] call d_fnc_taskSetState;
 };
 
 if (!isNil "d_current_task") then {
-	[d_current_task, "Succeeded", true] call BIS_fnc_taskSetState;
+	[d_current_task, "Succeeded", true] call d_fnc_taskSetState;
 };
 
 private _mt_str = format [localize "STR_DOM_MISSIONSTRING_570", d_cur_tgt_name];

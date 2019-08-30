@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_save_respawngear.sqf"
 #include "..\x_setup.sqf"
 
-// TODO FOR TI HELMETS, maybe also for TI Goggles
-
 if (!hasInterface) exitWith {};
 
 if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {

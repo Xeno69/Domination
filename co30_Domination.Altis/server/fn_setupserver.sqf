@@ -102,6 +102,7 @@ private _av_check_fnc = {
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
 	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
+	_this addEventhandler ["fired", {_this call d_fnc_arifired}];
 	_this spawn {
 		scriptName "spawn setupserver3";
 		sleep 2;
@@ -110,11 +111,14 @@ private _av_check_fnc = {
 };
 
 private _fnc_artvec = {
-	params ["_num", "_name"];
+	params ["_num", "_name", ["_side", sideUnknown]];
 	private _retar = vehicles select {(str _x) select [0, _num] == _name};
 	if !(_retar isEqualTo []) then {
 		{
 			_x call _av_check_fnc;
+			if !(_side isEqualTo sideUnknown) then {
+				_x setVariable ["d_fside", _side];
+			};
 		} forEach _retar;
 	};
 	_retar
@@ -123,8 +127,8 @@ private _fnc_artvec = {
 #ifndef __TT__
 d_arty_vecs = [10, "d_artyvec_"] call _fnc_artvec;
 #else
-d_arty_vecsb = [11, "d_artyvecb_"] call _fnc_artvec;
-d_arty_vecso = [11, "d_artyveco_"] call _fnc_artvec;
+d_arty_vecsb = [11, "d_artyvecb_", blufor] call _fnc_artvec;
+d_arty_vecso = [11, "d_artyveco_", opfor] call _fnc_artvec;
 #endif
 
 {

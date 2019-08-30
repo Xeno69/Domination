@@ -16,5 +16,5 @@ while {true} do {
 		};
 		sleep 1;
 	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNil "_x" && {!isNull _x}});
-	sleep 1;
+	sleep 2;
 };

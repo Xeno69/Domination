@@ -1,6 +1,7 @@
 //#define __DEBUG__
 #define THIS_FILE "fn_ambientradiochatter.sqf"
 #include "..\x_setup.sqf"
+
 if !(hasInterface) exitWith {};
 
 d_radio_carlist = [];

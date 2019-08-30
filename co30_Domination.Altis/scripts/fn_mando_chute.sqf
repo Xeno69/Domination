@@ -11,7 +11,10 @@ params ["_man", "_target_pos", "_rad", "_bla", "_chuto", "_is_ammo"];
 
 if (count _target_pos == 2) then {_target_pos pushBack 0};
 private _ang = random 360;
-_target_pos = [[(_target_pos # 0) + (sin _ang) * _rad, (_target_pos # 1) + (cos _ang) * _rad, 0], [_target_pos # 0, _target_pos # 1, 0]] select (_rad == 0);
+if (_rad > 0) then {
+	_target_pos = _targetPos getPos [_rad, random 360];
+};
+_target_pos set [2, 0];
 
 private _deg_sec = 30;
 private _max_spd = 4;
@@ -28,15 +31,14 @@ private _posc = getPosASL _chuto;
 private _cone = "RoadCone_L_F" createVehicle [10,10,10];
 _cone setDir _dir;
 _cone setPosASL [_posc # 0, _posc # 1, (_posc # 2) - 2];
-_posc = getPosASL _cone;
 private _detached = false;
-while {alive _chuto && {(getPos _chuto # 2) > 5}} do {
+while {alive _chuto && {getPos (_chuto # 2) > 5}} do {
 	private _deltatime = (time - _timeold) max 0.001;
 	_timeold = time;
    
 	_posc = getPosASL _cone;
 	_ang = _posc getDir _target_pos;
-	if (([_target_pos # 0, _target_pos # 1, 0] distance [_posc # 0, _posc # 1, 0]) > (getPos _cone # 2)) then {
+	if ((_target_pos distance2D _posc) > getPos (_cone # 2)) then {
 		if ((_vz + 0.5 * _deltatime) < -1.5) then {_vz = _vz + 0.5 * _deltatime};
 	} else {
 		if ((_vz - 0.5 * _deltatime) > -3) then {_vz = _vz - 0.5 * _deltatime};
@@ -62,7 +64,7 @@ while {alive _chuto && {(getPos _chuto # 2) > 5}} do {
 	_cone setDir _dir;
 	_cone setVelocity [(sin _dir) * _vh, (cos _dir) * _vh, _vz];
 	if (!isNull _man) then {_man setDir _dir};
-	_chuto setPos (_cone modelToWorld [0,0,2]);
+	_chuto setPos (_cone modelToWorld [0 ,0, 2]);// -2 ???
 	_chuto setDir _dir;
 	
 	if (!_is_ammo && {!_detached && {position _man # 2 <= 4}}) then {

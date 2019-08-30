@@ -39,4 +39,4 @@ if (_do_hint) then {
 	];
 };
 
-[true, "d_sm_task", [d_cur_sm_txt, "Side Mission", format ["d_XMISSIONM%1", d_cur_sm_idx + 1]], d_x_sm_pos # 0, false, 1, true, "Attack", false] call BIS_fnc_taskCreate;
+[true, "d_sm_task", [d_cur_sm_txt, "Side Mission", format ["d_XMISSIONM%1", d_cur_sm_idx + 1]], d_x_sm_pos # 0, false, 1, true, "Attack", false] call d_fnc_taskcreate;
