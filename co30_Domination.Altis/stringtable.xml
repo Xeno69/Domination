@@ -4891,7 +4891,7 @@
 <Japanese>はい</Japanese>
 <Original>Yes</Original>
 <Russian>Да</Russian>
-<Chinesesimp>确定</Chinesesimp>
+<Chinesesimp>是</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_923">
 <English>Revive</English>
@@ -7600,7 +7600,7 @@
 <Japanese>Dominationアクションメニューはチームスイッチキー(%1)を押すと利用できます!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Japanese>
 <Original>Domination action menus are available when you press the Teamswitch key (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Original>
 <Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (%1) !!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Russian>
-<Chinesesimp>按(%1)键打开游戏互动菜单!!!</Chinesesimp>
+<Chinesesimp>按(%1)键打开游戏互动菜单!!!\n按(%2)键关闭3D用户标记，为空时没有分配按键!!!\n按(%3)键戴上或取下耳塞标记，为空时没有分配按键!!!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1446">
 <English>Over head</English>
@@ -9981,7 +9981,7 @@
 <Japanese>Garrisoned infantry group count - occupy mode</Japanese>
 <Original>Garrisoned infantry group count - occupy mode</Original>
 <Russian>Garrisoned infantry group count - occupy mode</Russian>
-<Chinesesimp>Garrisoned infantry group count - occupy mode</Chinesesimp>
+<Chinesesimp>驻军步兵团计数 - 占领模式</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
 <English>Garrisoned infantry group count - ambush mode</English>
@@ -9991,7 +9991,7 @@
 <Japanese>Garrisoned infantry group count - ambush mode</Japanese>
 <Original>Garrisoned infantry group count - ambush mode</Original>
 <Russian>Garrisoned infantry group count - ambush mode</Russian>
-<Chinesesimp>Garrisoned infantry group count - ambush mode</Chinesesimp>
+<Chinesesimp>驻军步兵团计数 - 埋伏模式</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
 <English>Garrisoned infantry group count - sniper mode</English>
@@ -10001,7 +10001,7 @@
 <Japanese>Garrisoned infantry group count - sniper mode</Japanese>
 <Original>Garrisoned infantry group count - sniper mode</Original>
 <Russian>Garrisoned infantry group count - sniper mode</Russian>
-<Chinesesimp>Garrisoned infantry group count - sniper mode</Chinesesimp>
+<Chinesesimp>驻军步兵团计数 - 狙击手模式</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilian group count per target</English>
@@ -10261,7 +10261,7 @@
 <Japanese>Players can select from available targets:</Japanese>
 <Original>Players can select from available targets:</Original>
 <Russian>Players can select from available targets:</Russian>
-<Chinesesimp>Players can select from available targets:</Chinesesimp>
+<Chinesesimp>玩家可以从可用目标中进行选择:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
 <English>Main target selection time left</English>
@@ -10341,7 +10341,7 @@
 <Japanese>With 3D draw icon above wreck repair/ammo point:</Japanese>
 <Original>With 3D draw icon above wreck repair/ammo point:</Original>
 <Russian>With 3D draw icon above wreck repair/ammo point:</Russian>
-<Chinesesimp>With 3D draw icon above wreck repair/ammo point:</Chinesesimp>
+<Chinesesimp>使用沉船维修/弹药点上方的3D绘制图标:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1962">
 <English>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</English>
@@ -10351,7 +10351,7 @@
 <Japanese>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Japanese>
 <Original>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Original>
 <Russian>Внимание!!! Вы взяли шлем с ПНВ! Шлем удален, выберите другой головной убор!</Russian>
-<Chinesesimp>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Chinesesimp>
+<Chinesesimp>注意!!!你已经戴了夜视仪!现在删除它，请选择另一个头戴装备!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1963">
 <English>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</English>
@@ -10361,7 +10361,7 @@
 <Japanese>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Japanese>
 <Original>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Original>
 <Russian>Внимание!!! Вы взяли шлем с тепловизором! Шлем удален, выберите другой головной убор!</Russian>
-<Chinesesimp>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Chinesesimp>
+<Chinesesimp>注意!!!你已经戴了热成像仪!现在删除它，请选择另一个头戴装备!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1964">
 <English>Auto viewdistance change at main target:</English>
@@ -10371,7 +10371,7 @@
 <Japanese>Auto viewdistance change at main target:</Japanese>
 <Original>Auto viewdistance change at main target:</Original>
 <Russian>Автоматическое изменение видимости на основной задаче:</Russian>
-<Chinesesimp>Auto viewdistance change at main target:</Chinesesimp>
+<Chinesesimp>主目标上的自动视距变化:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1965">
 <English>Auto Viewdistance change at main targets enabled!</English>
@@ -10381,7 +10381,7 @@
 <Japanese>Auto Viewdistance change at main targets enabled!</Japanese>
 <Original>Auto Viewdistance change at main targets enabled!</Original>
 <Russian>Автоматическое изменение видимости на основных задачах включено!</Russian>
-<Chinesesimp>Auto Viewdistance change at main targets enabled!</Chinesesimp>
+<Chinesesimp>启用主目标时的自动视图距离更改!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1966">
 <English>Auto Viewdistance change at main targets disabled!</English>
@@ -10391,7 +10391,7 @@
 <Japanese>Auto Viewdistance change at main targets disabled!</Japanese>
 <Original>Auto Viewdistance change at main targets disabled!</Original>
 <Russian>Автоматическое изменение видимости на основных задачах отключено!</Russian>
-<Chinesesimp>Auto Viewdistance change at main targets disabled!</Chinesesimp>
+<Chinesesimp>禁用主要目标的自动视图距离更改!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1967">
 <English>Stall</English>
@@ -10401,7 +10401,7 @@
 <Japanese>Stall</Japanese>
 <Original>Stall</Original>
 <Russian>Stall</Russian>
-<Chinesesimp>Stall</Chinesesimp>
+<Chinesesimp>停顿</Chinesesimp>
 </Key>
 </Container>
 </Package>
