@@ -10003,6 +10003,36 @@
 <Russian>Garrisoned infantry group count - sniper mode</Russian>
 <Chinesesimp>驻军步兵团计数 - 狙击手模式</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900D">
+<English>Garrisoned infantry sniper mode - advanced awareness</English>
+<Spanish>Garrisoned infantry sniper mode - advanced awareness</Spanish>
+<Portuguese>Garrisoned infantry sniper mode - advanced awareness</Portuguese>
+<Korean>Garrisoned infantry sniper mode - advanced awareness</Korean>
+<Japanese>Garrisoned infantry sniper mode - advanced awareness</Japanese>
+<Original>Garrisoned infantry sniper mode - advanced awareness</Original>
+<Russian>Garrisoned infantry sniper mode - advanced awareness</Russian>
+<Chinesesimp>Garrisoned infantry sniper mode - advanced awareness</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900E">
+<English>Garrisoned infantry sniper mode - general skill</English>
+<Spanish>Garrisoned infantry sniper mode - general skill</Spanish>
+<Portuguese>Garrisoned infantry sniper mode - general skill</Portuguese>
+<Korean>Garrisoned infantry sniper mode - general skill</Korean>
+<Japanese>Garrisoned infantry sniper mode - general skill</Japanese>
+<Original>Garrisoned infantry sniper mode - general skill</Original>
+<Russian>Garrisoned infantry sniper mode - general skill</Russian>
+<Chinesesimp>Garrisoned infantry sniper mode - general skill</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900F">
+<English>Garrisoned infantry sniper mode - aimingShake skill</English>
+<Spanish>Garrisoned infantry sniper mode - aimingShake skill</Spanish>
+<Portuguese>Garrisoned infantry sniper mode - aimingShake skill</Portuguese>
+<Korean>Garrisoned infantry sniper mode - aimingShake skill</Korean>
+<Japanese>Garrisoned infantry sniper mode - aimingShake skill</Japanese>
+<Original>Garrisoned infantry sniper mode - aimingShake skill</Original>
+<Russian>Garrisoned infantry sniper mode - aimingShake skill</Russian>
+<Chinesesimp>Garrisoned infantry sniper mode - aimingShake skill</Chinesesimp>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilian group count per target</English>
 <Spanish>Civilian group count per target</Spanish>
