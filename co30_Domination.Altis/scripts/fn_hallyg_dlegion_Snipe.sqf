@@ -76,12 +76,11 @@ while {true} do {
 	
 	_Dtargets = [];
 
+	// why not use nearentities here with a radius?
+	// if there are 200 units then this one takes quite some time to compute
 	{
-		if (
-			(_x distance2D _unit) < _detectionRadius && (side _x == _targetSide) && (_x isKindOf "CAManBase")
-			&& (alive _x) && !(vehicle _unit isKindOf "Air")
-		) then {
-			_unit reveal [_x,4];
+		if (alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side _x == _targetSide && {_x distance2D _unit < _detectionRadius}}}}) then {
+			_unit reveal [_x, 4];
 			_Dtargets pushBack _x;
 		};
 	} forEach allunits;
@@ -89,7 +88,7 @@ while {true} do {
 	_fired = false;
 	_targetUnit = [];
 	{
-		if (([_unit, _x] call _isVisible) || ([_unit, _x, 360] call _isLOS)) then {
+		if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
 			//to check if unit actually fired
 			_ammoCount = _unit ammo primaryWeapon _unit;
 			_targetUnit = _x;
@@ -102,8 +101,6 @@ while {true} do {
 				_fired = true;
 				_lastFired = time;
 			};
-			exit;
-		} else {
 		};
 	} forEach ([_Dtargets, getPos _unit] call _sortArrayByDistance);
 

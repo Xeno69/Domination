@@ -849,7 +849,7 @@ class Params {
 	class d_enemy_garrison_troop_sniper_awareness {
 		title = "$STR_DOM_MISSIONSTRING_1900D";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
