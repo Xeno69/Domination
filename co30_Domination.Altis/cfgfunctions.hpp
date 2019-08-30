@@ -173,6 +173,8 @@ class cfgFunctions {
 			addc(rem_ti_nvg_items);
 			addc(curcampsclient);
 			addc(initservicepoints);
+			addc(taskcreate);
+			addc(tasksetstate);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -517,6 +519,7 @@ class cfgFunctions {
 			addc(weatherserver);
 			addc(initrepwreck);
 			addc(parahandler);
+			addc(arifired);
 		};
 		class Dom_PrePostInit {
 			file = "init";
