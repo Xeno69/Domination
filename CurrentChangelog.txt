@@ -15,4 +15,5 @@ ATTENTION: ALL mission.sqm files have changed!!!!!!
 - Optimized: Entity killed eventhandler, now only uses one variable instead of 17
 - Changed: Replaced Land_Factory_Main_F with Land_IndustrialShed_01_F in "find IED factory" main target mission
 - Changed: Display "Stall" in the camp capture progress dialog if there is a stall between players and enemies at a camp
+- Changed: Artillery projectiles on the way will now be deleted if an arty operator cancels an artillery strike
 - And various other improvements and optimizations
