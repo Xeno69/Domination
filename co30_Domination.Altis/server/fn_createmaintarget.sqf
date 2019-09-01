@@ -24,12 +24,6 @@ private _garrisonUnits = {
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
 	_newgroup deleteGroupWhenEmpty true;
-	if (d_mt_respawngroups == 0) then {
-		{
-			[_x, 3] call d_fnc_setekmode;
-		} forEach _units_to_garrison;
-		_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
-	};
 	sleep 1.0112;
 	//_newgroup allowFleeing 0;
 	//_newgroup setVariable ["d_defend", true];
@@ -41,11 +35,6 @@ private _garrisonUnits = {
 			_this enableDynamicSimulation true;
 		};
 	};
-	d_delinfsm append _units_to_garrison;
-	_newgroup call d_fnc_addgrp2hc;
-
-	__TRACE_1("","_newgroup")
-	__TRACE_1("","_units_to_garrison")
 
 	//AI soldiers will be garrisoned in a building (window/roof)
 	__TRACE("Placing units in a building...")
@@ -60,8 +49,23 @@ private _garrisonUnits = {
 		_disableTeleport,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 		_unitMovementMode   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
 	] call d_fnc_Zen_OccupyHouse;
+	sleep 0.01;
 	__TRACE_1("","_unitsNotGarrisoned")
+	_units_to_garrison = _units_to_garrison - _unitsNotGarrisoned;
 	{deleteVehicle _x} forEach _unitsNotGarrisoned;
+	if (_units_to_garrison isEqualTo []) exitWith {
+		deleteGroup _newgroup;
+	};
+	if (d_mt_respawngroups == 0) then {
+		{
+			[_x, 3] call d_fnc_setekmode;
+		} forEach _units_to_garrison;
+		_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
+	};
+	d_delinfsm append _units_to_garrison;
+	_newgroup call d_fnc_addgrp2hc;
+	__TRACE_1("","_newgroup")
+	__TRACE_1("","_units_to_garrison")
 };
 
 private _selectit = {
