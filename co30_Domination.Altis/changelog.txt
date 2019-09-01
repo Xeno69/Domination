@@ -16,5 +16,5 @@ ATTENTION: ALL mission.sqm files have changed!!!!!!
 - Changed: Replaced Land_Factory_Main_F with Land_IndustrialShed_01_F in "find IED factory" main target mission
 - Changed: Display "Stall" in the camp capture progress dialog if there is a stall between players and enemies at a camp
 - Changed: Artillery projectiles on the way will now be deleted if an arty operator cancels an artillery strike
-- Fixed: If a player connects as leader of an existing group he/she should no longer change the tasks of other players
+- Fixed: If a player connects as leader of an existing group he/she should no longer change the assigned task of other players
 - And various other improvements and optimizations
