@@ -362,7 +362,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
 	if (d_enemy_garrison_troop_occupy_count > 0) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_occupy_count - 1) do {
-			_numU = (ceil random 6) max 3;
+			_numU = (ceil random 5) max 3;
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				_numU,			//unit count
@@ -379,7 +379,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
 	if (d_enemy_garrison_troop_ambush_count > 0) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_ambush_count - 1) do {
-			_numUn = (ceil random 8) max 4;
+			_numUn = (ceil random 6) max 4;
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				_numUn,			//unit count
@@ -440,11 +440,9 @@ if (d_enemy_occupy_bldgs == 1) then {
 	__TRACE_1("","_buildingsArraySorted")
 
     //choose the Top N of sorted buildings array
-    if (d_enemy_garrison_troop_sniper_count > 0) then {
-		for "_i" from 0 to (d_enemy_garrison_troop_sniper_count - 1) do {
-			_buildingsArray pushBack (_buildingsArraySorted select _i);
-		};
-    };
+	for "_i" from 0 to (d_enemy_garrison_troop_sniper_count - 1) do {
+		_buildingsArray pushBack (_buildingsArraySorted select _i);
+	};
     
     __TRACE_1("","_buildingsArray")
 

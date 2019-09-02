@@ -45,6 +45,8 @@ _veca params ["_vec", "_crew"];
 private _unit = driver _vec;
 addToRemainsCollector [_vec];
 _unit setSkill 1;
+_vec allowDamage false;
+_unit allowDamage false;
 
 d_airtaxi_driver = _unit;
 _unit setVariable ["d_type", _ttype];
