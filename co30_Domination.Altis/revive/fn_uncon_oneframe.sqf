@@ -8,7 +8,7 @@
 
 if (time >= xr_u_nextcrytime) then {
 	playSound3D [format ["%1%2%3", (xr_moansoundsar # xr_plsayer) # 0, xr_voicetype, (xr_moansoundsar # 3) # (floor (random (count (xr_moansoundsar # 3))))], player, false, getPosASL player, 1, 1, 100];
-	//playSound3D [((xr_moansoundsar # xr_plsayer) # 0) + xr_voicetype + ((xr_moansoundsar # 3) # (floor (random (count (xr_moansoundsar # 3))))), player, false, getPosASL player, 1, 1, 100];
+	//playSound3D [((xr_moansoundsar # xr_plsayer) # 0) + xr_voicetype + ((xr_moansoundsar # 3) # (floor (random (count (xr_moansoundsar # 3))))), player, false, (player modelToWorldWorld (player selectionPosition ["head","hitpoints"])), 5, 1, 25];
 	xr_u_nextcrytime = time + 15 + (random 15);
 };
 
