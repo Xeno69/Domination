@@ -241,6 +241,9 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					_vehicles set [_forEachIndex, -1];
 				} else {
 					_x setFuel 1;
+					if (random 2 > 1.25) then {
+					   _x setVehicleAmmo (random 0.5);
+					};
 				};
 			} forEach _vehicles;
 			_vehicles = _vehicles - [-1];
