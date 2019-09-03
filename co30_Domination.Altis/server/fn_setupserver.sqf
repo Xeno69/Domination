@@ -103,11 +103,7 @@ private _av_check_fnc = {
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
 	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
 	_this addEventhandler ["fired", {_this call d_fnc_arifired}];
-	_this spawn {
-		scriptName "spawn setupserver3";
-		sleep 2;
-		_this enableSimulationGlobal false;
-	};
+	[_this, 2] spawn d_fnc_disglobalsim;
 };
 
 private _fnc_artvec = {

@@ -7,6 +7,8 @@
    Moves a chute to the landing position
 */
 
+// TODO Test and improve, read make it really working again
+
 params ["_man", "_target_pos", "_rad", "_bla", "_chuto", "_is_ammo"];
 
 if (count _target_pos == 2) then {_target_pos pushBack 0};

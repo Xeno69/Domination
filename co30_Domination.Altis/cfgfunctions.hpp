@@ -175,6 +175,10 @@ class cfgFunctions {
 			addc(initservicepoints);
 			addc(taskcreate);
 			addc(tasksetstate);
+			addc(artywait);
+			addc(bikewait);
+			addc(dlgopenxwait);
+			addc(initplname);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -521,6 +525,7 @@ class cfgFunctions {
 			addc(initrepwreck);
 			addc(parahandler);
 			addc(arifired);
+			addc(initdbplscores);
 		};
 		class Dom_PrePostInit {
 			file = "init";

@@ -142,36 +142,7 @@ if (d_database_found) then {
 			__TRACE_1("","_dbresult select 0")
 			__TRACE_1("","score _pl")
 			d_player_store setVariable [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
-			[_pl, _dbresult # 0] spawn {
-				scriptName "spawn_init_playerserver";
-				params ["_pl", "_ar"];
-				sleep 10;
-				if (isNull _pl) exitWith {
-					diag_log ["initPlayerServer spawn_init_playerserver, _pl is null", "_pl", _pl, "_ar", _ar];
-				};
-				private _plsar = getPlayerScores _pl;
-				__TRACE_1("","_plsar")
-				if (!(_plsar isEqualTo []) && {!(_ar isEqualTo [])}) then {
-					_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
-				} else {
-					diag_log ["initPlayerServer spawn_init_playerserver, _plsar or _ar empty", "_plsar", _plsar, "_ar", _ar];
-				};
-				if (_ar isEqualTo []) exitWith {};
-				__TRACE_1("","getPlayerScores _pl")
-				__TRACE_1("","score _pl")
-				sleep 1;
-				__TRACE_1("1","getPlayerScores _pl")
-				__TRACE_1("1","score _pl")
-				__TRACE_2("Adding score","_pl","_ar")
-				if (_ar # 0 != score _pl) then {
-					if (score _pl > 0) then {
-						_pl addScore -(score _pl);
-					};
-					_pl addScore ((_ar # 0) - score _pl);
-				};
-				__TRACE_1("2","getPlayerScores _pl")
-				__TRACE_1("2","score _pl")
-			};
+			[_pl, _dbresult # 0] spawn d_fnc_initdbplscores;
 		};
 #ifndef __INTERCEPTDB__
 		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
