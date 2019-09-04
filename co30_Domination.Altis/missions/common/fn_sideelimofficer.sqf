@@ -52,7 +52,7 @@ if (!_issniper) then {
 	_leadero disableAI "PATH";
 };
 if (d_with_dynsim == 0) then {
-	_sm_vec enableDynamicSimulation true;
+	[_sm_vec, 3] spawn d_fnc_enabledynsim;
 };
 if (_createarmor) then {
 	sleep 2.123;

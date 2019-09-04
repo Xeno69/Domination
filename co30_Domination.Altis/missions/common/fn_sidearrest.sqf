@@ -28,7 +28,7 @@ if (isNull _officer) then {
 	_leadero setRank "COLONEL";
 	_ogroup setBehaviour "CARELESS";
 	if (d_with_dynsim == 0) then {
-		_officer enableDynamicSimulation true;
+		[_officer, 10] spawn d_fnc_enabledynsim;
 	};
 	sleep 2;
 };

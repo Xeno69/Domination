@@ -20,12 +20,7 @@ _newgroup allowFleeing 0;\
 _newgroup setVariable ["d_defend", true]; \
 [_newgroup, _poss] spawn d_fnc_taskDefend; \
 if (d_with_dynsim == 0) then { \
-	_newgroup spawn { \
-		scriptName "spawn getmtmission"; \
-		sleep 10; \
-		_this enableDynamicSimulation true; \
-		_this call d_fnc_addgrp2hc; \
-	}; \
+	[_newgroup, 10] spawn d_fnc_enabledynsim; \
 }; \
 d_delinfsm append _specus; \
 if (d_mt_respawngroups == 0) then { \
@@ -82,7 +77,7 @@ switch (_sec_kind) do {
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
-			_vec enableDynamicSimulation true;
+			[_vec, 0] spawn d_fnc_enabledynsim;
 		};
 #ifdef __TT__
 		[_vec, 0] call d_fnc_setekmode;
@@ -269,7 +264,7 @@ switch (_sec_kind) do {
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
-			_vec enableDynamicSimulation true;
+			[_vec, 0] spawn d_fnc_enabledynsim;
 		};
 #ifdef __TT__
 		[_vec, 0] call d_fnc_setekmode;
@@ -315,7 +310,7 @@ switch (_sec_kind) do {
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
-			_vec enableDynamicSimulation true;
+			[_vec, 0] spawn d_fnc_enabledynsim;
 		};
 #ifdef __TT__
 		[_vec, 0] call d_fnc_setekmode;

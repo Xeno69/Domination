@@ -73,7 +73,7 @@ _unit setUnitPos "UP";
 //sniper aware loop
 while {true} do {
 	sleep 1;
-	
+
 	_Dtargets = [];
 
 	// why not use nearentities here with a radius?
@@ -124,7 +124,7 @@ while {true} do {
 				};
 				case "MIDDLE": {
 					//if middle and could not fire on a target then rise to up position
-					_unit setUnitPos "UP";	
+					_unit setUnitPos "UP";
 					sleep 3;
 				};
 			};

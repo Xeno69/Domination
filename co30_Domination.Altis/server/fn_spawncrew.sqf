@@ -60,11 +60,7 @@ if (count _crew > 0) then {
 								[_one_unit, 4] call d_fnc_setekmode;
 							};
 							if (d_with_dynsim == 0) then {
-								_one_unit spawn {
-									scriptName "spawn spawncrew dyn";
-									sleep 15;
-									_this enableDynamicSimulation true;
-								};
+								[_one_unit, 10] spawn d_fnc_enabledynsim;
 							};
 #ifdef __GROUPDEBUG__
 							// does not subtract if a unit dies!

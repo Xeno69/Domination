@@ -1,3 +1,4 @@
+//#define __DEBUG__
 #define THIS_FILE "mando_chute.sqf"
 #include "..\x_setup.sqf"
 /*
@@ -11,12 +12,16 @@
 
 params ["_man", "_target_pos", "_rad", "_bla", "_chuto", "_is_ammo"];
 
+__TRACE_1("","_this")
+
 if (count _target_pos == 2) then {_target_pos pushBack 0};
 private _ang = random 360;
 if (_rad > 0) then {
 	_target_pos = _targetPos getPos [_rad, random 360];
 };
 _target_pos set [2, 0];
+
+__TRACE_1("","_target_pos")
 
 private _deg_sec = 30;
 private _max_spd = 4;
@@ -28,19 +33,27 @@ private _vz = -3;
 private _timeold = time;
 private _dir = getDir _chuto;
 _chuto setDir _dir;
-private _posc = getPosASL _chuto;
+_chuto setPos (_man modelToWorld [0,0,2]);
+private _posc = getPos _chuto;
+__TRACE_1("","_posc")
 
-private _cone = "RoadCone_L_F" createVehicle [10,10,10];
+private _cone = "RoadCone_L_F" createVehicle [0,0,0];
+__TRACE_1("","_cone")
 _cone setDir _dir;
-_cone setPosASL [_posc # 0, _posc # 1, (_posc # 2) - 2];
+_cone setPos [_posc # 0, _posc # 1, (_posc # 2) - 2];
+__TRACE_1("2","_posc")
 private _detached = false;
-while {alive _chuto && {getPos (_chuto # 2) > 5}} do {
+__TRACE_1("","getPos _chuto select 2")
+__TRACE_1("","getPos _man select 2")
+while {alive _chuto && {((getPos _chuto) # 2) > 5}} do {
 	private _deltatime = (time - _timeold) max 0.001;
+	__TRACE_1("","_deltatime")
 	_timeold = time;
-   
-	_posc = getPosASL _cone;
+
+	_posc = getPos _cone;
 	_ang = _posc getDir _target_pos;
-	if ((_target_pos distance2D _posc) > getPos (_cone # 2)) then {
+	__TRACE_1("","_ang")
+	if ((_target_pos distance2D _posc) > ((getPos _cone) # 2)) then {
 		if ((_vz + 0.5 * _deltatime) < -1.5) then {_vz = _vz + 0.5 * _deltatime};
 	} else {
 		if ((_vz - 0.5 * _deltatime) > -3) then {_vz = _vz - 0.5 * _deltatime};
@@ -50,9 +63,10 @@ while {alive _chuto && {getPos (_chuto # 2) > 5}} do {
 	if (_dif < 0) then {_dif = 360 + _dif};
 	if (_dif > 180) then {_dif = _dif - 360};
 	private _difabs = abs _dif;
-  
+
 	//private _turn = [0, _dif / _difabs] select (_difabs > 0.01);
 	private _turn = if (_difabs > 0.01) then {_dif / _difabs} else {0};
+	__TRACE_1("","_turn")
 
 	_dir = _dir + (_turn * ((_deg_sec * _deltatime) min _difabs));
 
@@ -66,13 +80,13 @@ while {alive _chuto && {getPos (_chuto # 2) > 5}} do {
 	_cone setDir _dir;
 	_cone setVelocity [(sin _dir) * _vh, (cos _dir) * _vh, _vz];
 	if (!isNull _man) then {_man setDir _dir};
-	_chuto setPos (_cone modelToWorld [0 ,0, 2]);// -2 ???
+	_chuto setPos (_cone modelToWorld [0 ,0, 2]);
 	_chuto setDir _dir;
-	
-	if (!_is_ammo && {!_detached && {position _man # 2 <= 4}}) then {
+
+	if (!_is_ammo && {!_detached && {getPos _man select 2 <= 4}}) then {
 		detach _man;
 		_detached = true;
-		private _pos_man = position _man;
+		private _pos_man = getPos _man;
 		private _helper1 = d_HeliHEmpty createVehicle [0, 0, 0];
 		_helper1 setPos [_pos_man # 0, _pos_man # 1, 0];
 		_man setPos [_pos_man # 0, _pos_man # 1, 0];
@@ -80,7 +94,10 @@ while {alive _chuto && {getPos (_chuto # 2) > 5}} do {
 		deleteVehicle _helper1;
 	};
 	sleep 0.01;
+	__TRACE_1("","getPos _cone select 2")
+	__TRACE_1("","getPos _chuto select 2")
 };
+__TRACE("Loop over")
 private _pos_conex = getPos _cone;
 deleteVehicle _cone;
 if (_is_ammo) then {

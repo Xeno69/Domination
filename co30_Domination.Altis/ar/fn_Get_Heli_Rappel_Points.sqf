@@ -22,11 +22,11 @@ private _preDefinedRappelPoints = [];
 	};
 } forEach (AP_RAPPEL_POINTS + (missionNamespace getVariable ["AP_CUSTOM_RAPPEL_POINTS", []]));
 
-if (count _preDefinedRappelPoints > 0) exitWith { 
+if (count _preDefinedRappelPoints > 0) exitWith {
 	private _preDefinedRappelPointsConverted = [];
 	{
 		if (_x isEqualType "") then {
-			_modelPosition = _vehicle selectionPosition _x;
+			private _modelPosition = _vehicle selectionPosition _x;
 			if ([0, 0, 0] distance _modelPosition > 0) then {
 				_preDefinedRappelPointsConverted pushBack _modelPosition;
 			};
@@ -56,7 +56,7 @@ private _middleRightPointFinal = ((_frontRightPointFinal vectorDiff _rearRightPo
 
 private _vehicleUnitVectorUp = vectorNormalized (vectorUp _vehicle);
 
-_rappelPointHeightOffset = 0;
+private _rappelPointHeightOffset = 0;
 {
 	if (_vehicle isKindOf (_x select 0)) then {
 		_rappelPointHeightOffset = _x select 1;
@@ -68,24 +68,23 @@ private _rappelPoints = [];
 	private _modelPointASL = AGLToASL (_vehicle modelToWorldVisual _x);
 	private _surfaceIntersectStartASL = _modelPointASL vectorAdd ( _vehicleUnitVectorUp vectorMultiply -5 );
 	private _surfaceIntersectEndASL = _modelPointASL vectorAdd ( _vehicleUnitVectorUp vectorMultiply 5 );
-	
+
 	// Determine if the surface intersection line crosses below ground level
 	// If if does, move surfaceIntersectStartASL above ground level (lineIntersectsSurfaces
 	// doesn't work if starting below ground level for some reason
 	// See: https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection
-	
+
 	private _la = ASLToAGL _surfaceIntersectStartASL;
 	private _lb = ASLToAGL _surfaceIntersectEndASL;
-	
+
 	if (_la select 2 < 0 && {_lb select 2 > 0}) then {
 		private _n = [0, 0, 1];
-		private _p0 = [0, 0, 0.1];
 		private _l = _la vectorFromTo _lb;
 		if ((_l vectorDotProduct _n) != 0) then {
-			_surfaceIntersectStartASL = AGLToASL ((_l vectorMultiply (((_p0 vectorAdd (_la vectorMultiply -1)) vectorDotProduct _n) / (_l vectorDotProduct _n))) vectorAdd _la);
+			_surfaceIntersectStartASL = AGLToASL ((_l vectorMultiply ((([0, 0, 0.1] vectorAdd (_la vectorMultiply -1)) vectorDotProduct _n) / (_l vectorDotProduct _n))) vectorAdd _la);
 		};
 	};
-	
+
 	private _intersectionASL = [];
 	{
 		if (_x select 2 == _vehicle) exitWith {
@@ -106,5 +105,5 @@ private _validRappelPoints = [];
 		_validRappelPoints pushBack _x;
 	};
 } forEach _rappelPoints;
-	
+
 _validRappelPoints

@@ -12,6 +12,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 params ["_player"];
 
-if (leader _player != _player) exitWith {false}; 
+if (leader _player != _player) exitWith {false};
 
 (units _player) findIf {vehicle _x != _x && {!(_x call d_fnc_isplayer) && {[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action_Check}}} > -1

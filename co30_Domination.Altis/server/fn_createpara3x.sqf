@@ -203,7 +203,7 @@ private _make_jump = {
 						[_grp, _pos, [_pos, _this select 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
 						_grp setVariable ["d_PATR", true];
 						if (d_with_dynsim == 0) then {
-							_grp enableDynamicSimulation true;
+							[_grp, 0] spawn d_fnc_enabledynsim;
 						};
 						_grp call d_fnc_addgrp2hc;
 					};
@@ -290,7 +290,7 @@ private _make_jump = {
 						[_grp, _pos, [_pos, _this select 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
 						_grp setVariable ["d_PATR", true];
 						if (d_with_dynsim == 0) then {
-							_grp enableDynamicSimulation true;
+							[_grp, 0] spawn d_fnc_enabledynsim;
 						};
 						_paragrp call d_fnc_addgrp2hc;
 					};

@@ -26,11 +26,10 @@ if (_vehicle isKindOf "Helicopter") then {
 private _centerOfMass = getCenterOfMass _vehicle;
 (boundingBoxReal _vehicle) params ["_p1", "_p2"];
 private _widthOffset = (((abs ((_p2 select 0) - (_p1 select 0))) / 2) - abs (_centerOfMass select 0)) * _widthFactor;
-_maxLength = abs ((_p2 select 1) - (_p1 select 1));
-private _lengthOffset = ((_maxLength / 2) - abs (_centerOfMass select 1 )) * _lengthFactor;
+private _lengthOffset = (((abs ((_p2 select 1) - (_p1 select 1))) / 2) - abs (_centerOfMass select 1 )) * _lengthFactor;
 private _heightOffset = (abs ((_p2 select 2) - (_p1 select 2))) / 6;
 
 [[(_centerOfMass select 0) + _widthOffset, (_centerOfMass select 1) - _lengthOffset, (_centerOfMass select 2) + _heightOffset],
-	[(_centerOfMass select 0) - _widthOffset, (_centerOfMass select 1) - _lengthOffset, (_centerOfMass select 2) + _heightOffset],
-	[(_centerOfMass select 0) + _widthOffset, (_centerOfMass select 1) + _lengthOffset, (_centerOfMass select 2) + _heightOffset],
-	[(_centerOfMass select 0) - _widthOffset, (_centerOfMass select 1) + _lengthOffset, (_centerOfMass select 2) + _heightOffset]]
+[(_centerOfMass select 0) - _widthOffset, (_centerOfMass select 1) - _lengthOffset, (_centerOfMass select 2) + _heightOffset],
+[(_centerOfMass select 0) + _widthOffset, (_centerOfMass select 1) + _lengthOffset, (_centerOfMass select 2) + _heightOffset],
+[(_centerOfMass select 0) - _widthOffset, (_centerOfMass select 1) + _lengthOffset, (_centerOfMass select 2) + _heightOffset]]

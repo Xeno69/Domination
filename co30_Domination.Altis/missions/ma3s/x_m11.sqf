@@ -31,6 +31,6 @@ if (isServer) then {
 	_ogroup setBehaviour "AWARE";
 	_leadero disableAI "PATH";
 	if (d_with_dynsim == 0) then {
-		_sm_vec enableDynamicSimulation true;
+		[_sm_vec, 1] spawn d_fnc_enabledynsim;
 	};
 };

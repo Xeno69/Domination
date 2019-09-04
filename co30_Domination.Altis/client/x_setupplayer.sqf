@@ -27,11 +27,11 @@ if (side (group player) == blufor) then {
 	d_own_sides_o = [west];
 	d_create_bike = [["B_Quadbike_01_F"], ["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]] select d_tanoa;
 	d_FLAG_BASE = d_WFLAG_BASE;
-	
+
 	{
 		_x setMarkerAlphaLocal 1;
 	} forEach ["d_chopper_service", "d_wreck_service", "d_teleporter", "d_aircraft_service", "bonus_air", "bonus_vehicles", "d_Ammobox_Reload", "d_vec_service", "Start", "d_runwaymarker"];
-	
+
 	d_jump_helo = "B_Heli_Transport_01_F";
 	d_UAV_Small = "B_UAV_01_F";
 	d_UAV_Terminal = "B_UavTerminal";
@@ -43,11 +43,11 @@ if (side (group player) == blufor) then {
 	d_own_sides_o = [east];
 	d_create_bike = [["O_Quadbike_01_F"], ["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]] select d_tanoa;
 	d_FLAG_BASE = d_EFLAG_BASE;
-	
+
 	{
 		_x setMarkerAlphaLocal 1;
 	} forEach ["d_chopper_serviceR","d_wreck_serviceR","d_teleporter_1","d_aircraft_serviceR","bonus_airR","bonus_vehiclesR","d_Ammobox ReloadR","Start_opfor","d_vehicle_serviceR", "d_runwaymarker_o"];
-	
+
 	d_jump_helo = "O_Heli_Light_02_unarmed_F";
 	d_UAV_Small = "O_UAV_01_F";
 	d_UAV_Terminal = "O_UavTerminal";
@@ -82,7 +82,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 		_helparrp pushBack [_x # 2, _forEachIndex];
 	} forEach d_additional_respawn_points;
 	_helparrp sort true;
-	
+
 	private _tempar =+ d_additional_respawn_points;
 	d_additional_respawn_points = [];
 	private "_ele";
@@ -139,9 +139,9 @@ if !(d_additional_respawn_points isEqualTo []) then {
 #ifdef __TT__
 	d_additional_respawn_points = d_additional_respawn_points - [-1];
 	d_add_resp_points_uni = d_add_resp_points_uni - [-1];
-	
+
 	private _whichm = ["d_farp_marker_b", "d_farp_marker_o"] select (d_player_side == blufor);
-	
+
 	{
 		deleteMarkerLocal _x;
 	} forEach (allMapMarkers select {_x select [0, 15] == _whichm});
@@ -168,7 +168,7 @@ if (d_the_end) exitWith {
 if (!isMultiplayer) then {
 	0 spawn {
 		scriptName "spawn_playerstuff";
-		sleep 1 + random 3;		
+		sleep 1 + random 3;
 		d_player_autokick_time = time + d_AutoKickTime;
 		xr_phd_invulnerable = false;
 		sleep 10;
@@ -268,7 +268,7 @@ if (d_with_ranked) then {
 	player setVariable ["d_psecweapitems", secondaryWeaponItems player];
 	player setVariable ["d_phandgweapitems", handgunItems player];
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
-	
+
 	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
 };
 
@@ -279,7 +279,7 @@ if (d_with_ranked || {d_database_found}) then {
 	} else {
 		["ace_treatmentSucceded", {_this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
-	
+
 	inGameUISetEventHandler ["Action", "_this call d_fnc_healatmash; false"];
 };
 
@@ -315,7 +315,7 @@ if (d_MissionType != 2) then {
 			d_obj00_task = nil;
 			["d_obj00", "Succeeded", false] call d_fnc_taskSetState;
 		};
-		
+
 		call d_fnc_cmakemtgmarker;
 	};
 };
@@ -401,11 +401,11 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	if (!isNil "d_jet_trigger") then {
 		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1];
 	};
-	private _allmhs = allMissionObjects "Land_HelipadSquare_F"; 
+	private _allmhs = allMissionObjects "Land_HelipadSquare_F";
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1];
 	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
-	
+
 	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
 		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1];
 	};
@@ -423,7 +423,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	d_3draw_ar = [
 		[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0]
 	];
-	
+
 	if (!isNil "d_vecre_trigger") then {
 		d_3draw_ar pushBack [[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1];
 	};
@@ -440,14 +440,14 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2];
 	} forEach d_all_ammoloads;
-	
+
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
-	
+
 	"d_fpsresource" cutRsc ["d_fpsresource", "PLAIN"];
 	if (d_player_can_call_arti > 0 || {d_player_can_call_drop > 0 || {d_string_player in d_can_call_cas || {!d_no_ai}}}) then {
 		"d_RscSupportL" cutRsc ["d_RscSupportL", "PLAIN"];
 	};
-	
+
 	xr_phd_invulnerable = false;
 	sleep 2;
 	player setVariable ["d_player_old_rank", 0, true];
@@ -668,7 +668,7 @@ if (d_MissionType != 2) then {
 	if !(d_currentcamps isEqualTo []) then {
 		call d_fnc_curcampsclient;
 	};
-	
+
 	if (!isNil "d_searchbody" && {!isNull d_searchbody && {isNil {d_searchbody getVariable "d_search_id"}}}) then {
 		call d_fnc_s_b_client;
 	};
@@ -882,7 +882,7 @@ if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalOpened", {
 		_this call d_fnc_arsenalopened;
 	}] call BIS_fnc_addScriptedEventHandler;
-	
+
 	[missionNamespace, "arsenalClosed", {
 		call d_fnc_arsenalclosed;
 	}] call BIS_fnc_addScriptedEventHandler;
@@ -890,7 +890,7 @@ if (!d_with_ace || {d_with_ranked}) then {
 	["ace_arsenal_displayOpened", {
 		_this call d_fnc_arsenalopened;
 	}] call CBA_fnc_addEventHandler;
-	
+
 	["ace_arsenal_displayClosed", {
 		_this call d_fnc_arsenalopened;
 	}] call CBA_fnc_addEventHandler;
@@ -945,7 +945,7 @@ if (!d_gmcwg) then {
 
 if (d_arsenal_mod_remove_strings isEqualTo []) then {
 	d_arsenal_mod_remove_strings call d_fnc_arsenal_mod_rem;
-	
+
 	d_arsenal_mod_remove_strings = nil;
 };
 
@@ -988,16 +988,16 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 				_codes pushBack _x;
 			};
 		} forEach (d_remove_from_arsenal # _i);
-		
+
 		if !(_classes isEqualTo []) then {
 			_classes = _classes apply {toLowerANSI _x};
 		};
-		
+
 		__TRACE_2("","_i","_codes")
 		__TRACE_2("","_i","_classes")
-		
+
 		__TRACE_2("1","count _badar","_badar")
-		
+
 		private ["_changed"];
 		{
 			_changed = false;

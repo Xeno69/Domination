@@ -141,7 +141,7 @@ if (_may_exit) exitWith {
 	private _vec = objNull;
 	private _is_ammo = false;
 	private _para = objNull;
-	private _chopposx = getPosATL _chopper;
+	private _chopposx = getPos _chopper;
 	_chopposx set [2, (_chopposx # 2) - 10];
 	if (_drop_type isKindOf "ReammoBox_F") then {
 		_is_ammo = true;
@@ -152,16 +152,16 @@ if (_may_exit) exitWith {
 		_vec = createVehicle [_drop_type, _chopposx, [], 0, "NONE"];
 		_vec setPos _chopposx;
 		_para = createVehicle [d_cargo_chute, _chopposx, [], 0, "FLY"];
-		_para setPos (_vec modelToWorld [0,0,2]);
-		_vec attachTo [_para,[0,0,0]];
+		_para setPos _chopposx;
+		_vec attachTo [_para, [0,0,0]];
 		_para setVelocity (velocity _chopper);
 		addToRemainsCollector [_vec];
 	};
+	[_vec, _drop_pos, d_drop_radius, _drop_type, _para, _is_ammo] spawn d_fnc_mando_chute;
 	
 	if (!isNil "_player" && {!isNull _player}) then {
 		4 remoteExecCall ["d_fnc_dropansw", _player];
 	};
-	[_vec, _drop_pos, d_drop_radius, _drop_type, _para, _is_ammo] spawn d_fnc_mando_chute;
 };
 
 _drop_pos = nil;

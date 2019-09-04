@@ -117,13 +117,7 @@ while {true} do {
 				};	
 			} else {
 				if (d_with_dynsim == 0) then {
-					_vec spawn {
-						scriptName "spawn enable dyn";
-						sleep 10;
-						if (alive _this) then {
-							_this enableDynamicSimulation true;
-						};
-					};
+					[_vec, 10] spawn d_fnc_enabledynsim;
 				};
 			};
 			

@@ -29,11 +29,7 @@ for "_n" from 0 to _nnvnum do {
 	addToRemainsCollector [_vec];
 	
 	if (_dyna && {d_with_dynsim == 0 && {!unitIsUAV _vec}}) then {
-		_vec spawn {
-			scriptName "spawn make vec dyn";
-			sleep 20;
-			_this enableDynamicSimulation true;
-		};
+		[_vec] spawn d_fnc_enabledynsim;
 	};
 	
 	private _is_locked = false;

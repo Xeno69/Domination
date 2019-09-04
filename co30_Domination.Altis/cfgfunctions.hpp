@@ -526,6 +526,9 @@ class cfgFunctions {
 			addc(parahandler);
 			addc(arifired);
 			addc(initdbplscores);
+			addc(enabledynsim);
+			addc(hdsellead);
+			addc(hddelu);
 		};
 		class Dom_PrePostInit {
 			file = "init";

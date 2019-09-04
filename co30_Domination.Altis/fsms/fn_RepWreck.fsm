@@ -308,13 +308,7 @@ class FSM
                          "	[_new_vec, 7] call d_fnc_setekmode;" \n
                          "} else {" \n
                          "	if (d_with_dynsim == 0) then {" \n
-                         "		_new_vec spawn {" \n
-                         "			scriptName ""spawn enable dyn"";" \n
-                         "			sleep 10;" \n
-                         "			if (alive _this) then {" \n
-                         "				_this enableDynamicSimulation true;" \n
-                         "			};" \n
-                         "		};" \n
+                         "		[_new_vec, 10] spawn d_fnc_enabledynsim;" \n
                          "	};" \n
                          "};" \n
                          "_new_vec setDir _ddir;" \n

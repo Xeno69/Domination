@@ -63,7 +63,7 @@ for "_nr" from 0 to 2 do {
 			};
 			_ret_grps pushBack _newgroup;
 			if (d_with_dynsim == 0) then {
-				_newgroup enableDynamicSimulation true;
+				[_newgroup, 15] spawn d_fnc_enabledynsim;
 			};
 			_newgroup call d_fnc_addgrp2hc;
 		};

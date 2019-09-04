@@ -234,13 +234,7 @@ if (unitIsUAV _vec) then {
 	[_vec, 7] call d_fnc_setekmode;
 } else {
 	if (d_with_dynsim == 0) then {
-		_vec spawn {
-			scriptName "spawn enable dyn";
-			sleep 10;
-			if (alive _this) then {
-				_this enableDynamicSimulation true;
-			};
-		};
+		[_vec, 10] spawn d_fnc_enabledynsim;
 	};
 };
 _vec setVariable ["d_isspecialvec", true, true];
@@ -416,13 +410,7 @@ if (unitIsUAV _vec) then {
 	[_vec, 7] call d_fnc_setekmode;
 } else {
 	if (d_with_dynsim == 0) then {
-		_vec spawn {
-			scriptName "spawn enable dyn";
-			sleep 10;
-			if (alive _this) then {
-				_this enableDynamicSimulation true;
-			};
-		};
+		[_vec, 10] spawn d_fnc_enabledynsim;
 	};
 };
 if (!isNull _vec2) then {
@@ -452,13 +440,7 @@ if (!isNull _vec2) then {
 		[_vec2, 7] call d_fnc_setekmode;
 	} else {
 		if (d_with_dynsim == 0) then {
-			_vec2 spawn {
-				scriptName "spawn enable dyn";
-				sleep 10;
-				if (alive _this) then {
-					_this enableDynamicSimulation true;
-				};
-			};
+			[_vec2, 10] spawn d_fnc_enabledynsim;
 		};
 	};
 };

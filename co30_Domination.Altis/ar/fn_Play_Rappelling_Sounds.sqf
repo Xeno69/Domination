@@ -22,7 +22,7 @@ _this spawn {
 	scriptName "spawn_ar_play_rappeling_sound";
 	params ["_player", "_rappelDevice", "_rappelAncor"];
 	private ["_distanceFromAnchor"];
-	
+
 	private _lastDistanceFromAnchor = _rappelDevice distance _rappelAncor;
 	while {_player getVariable ["AR_Is_Rappelling", false]} do {
 		_distanceFromAnchor = _rappelDevice distance _rappelAncor;

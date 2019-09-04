@@ -1,3 +1,7 @@
+//#define __DEBUG__
+#define THIS_FILE "fn_Zen_OccupyHouse.sqf"
+#include "..\x_setup.sqf"
+
 // Infantry Occupy House
 // by Zenophon
 // Released under Creative Commons Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)
@@ -62,11 +66,11 @@ _Zen_ExtendPosition = {
 
 _Zen_InsertionSort = {
 	private ["_i", "_j", "_element", "_value"];
-	
+
 	params ["_array", "_comparator"];
-	
+
 	if (_array isEqualTo []) exitWith {};
-	
+
 	for "_i" from 1 to (count _array - 1) do {
 		scopeName "forI";
 		_element = _array select _i;
@@ -114,14 +118,13 @@ if (count _buildingsArray == 0) exitWith {
 _buildingPosArray = [];
 0 = [_buildingsArray] call _Zen_ArrayShuffle;
 {
-	_posArray = [];
-	for "_i" from 0 to 1000 do {
-		if ((_x buildingPos _i) isEqualTo [0,0,0]) exitWith {};
-		_posArray pushBack (_x buildingPos _i);
+	_posArray = _x buildingPos -1;
+	if !(_posArray isEqualTo []) then {
+		_buildingPosArray pushBack _posArray;
 	};
-
-	_buildingPosArray pushBack _posArray;
 } forEach _buildingsArray;
+
+__TRACE_1("","_buildingPosArray")
 
 if (_sortHeight) then {
 	{
@@ -139,6 +142,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 	_building = _buildingsArray select (_j % (count _buildingsArray));
 	_posArray = _buildingPosArray select (_j % (count _buildingPosArray));
+	__TRACE_2("","_building","_posArray")
 
 	if (count _posArray == 0) then {
 		_buildingsArray deleteAt (_j % (count _buildingsArray));
@@ -147,12 +151,14 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 	while {(count _posArray) > 0} do {
 		scopeName "while";
+		__TRACE_1("","_posArray")
 		if (_unitIndex >= count _units) exitWith {};
 
 		_housePosArray = _posArray select 0;
+		__TRACE_1("","_housePosArray")
 		_posArray deleteAt 0;
 		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
-		
+
 		_startAngle = (round random 10) * (round random 36);
 		for "_i" from _startAngle to (_startAngle + 350) step 10 do {
 			_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, _housePos select 2] call _Zen_ExtendPosition;
@@ -195,7 +201,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 									(_units select _unitIndex) setDir _i;
 
 									doStop (_units select _unitIndex);
-									
+
 								};
 
 								//occupy mode - no special behavior
@@ -205,12 +211,12 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 								//ambush mode - static until firedNear within 69m restores unit ability to move and fire
 								if (_unitMovementMode == 1) then {
-									
+
 									if !(_doMove) then {
 										(_units select _unitIndex) disableAI "TARGET";
 										(_units select _unitIndex) forceSpeed 0;
 									};
-									
+
 									(_units select _unitIndex) setVariable ["zen_fn_idx2", (_units select _unitIndex) addEventHandler ["FiredNear", {
 										scriptName "spawn_zoh_firednear1ambush";
 										(_this select 0) enableAI "TARGET";
@@ -219,25 +225,25 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 										(_this select 0) forceSpeed -1;
 									}]];
 								};
-								
+
 								//sniper mode - static forever
 								if (_unitMovementMode == 2) then {
-									
+
 									//if defined, apply general skill modifier
 									if (d_enemy_garrison_troop_sniper_general_skill > 0) then {
 										(_units select _unitIndex) setSkill d_enemy_garrison_troop_sniper_general_skill;
 									};
-									
+
 									//if defined, apply aimingShake skill modifier
 									if (d_enemy_garrison_troop_sniper_aimingShake_skill > 0) then {
 										(_units select _unitIndex) setSkill ["aimingShake", d_enemy_garrison_troop_sniper_aimingShake_skill];
 									};
-								
+
 									if (d_enemy_garrison_troop_sniper_awareness == 1) then {
 										//highly aware snipers
 										[(_units select _unitIndex), d_side_player] spawn d_fnc_hallyg_dlegion_Snipe;
 									} else {
-										
+
 										//common snipers with up/down script triggered by firedNear within 69m
 										if (_isRoof) then {
 											(_units select _unitIndex) setUnitPos "MIDDLE";
@@ -252,12 +258,12 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 												[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 											}]];
 										};
-										
+
 										if !(_doMove) then {
 											(_units select _unitIndex) disableAI "TARGET";
 											(_units select _unitIndex) forceSpeed 0;
 										};
-										
+
 									};
 								};
 
@@ -277,7 +283,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 };//end for
 
 if (_doMove) then {
-	0 = [_units, _unitIndex] spawn {
+	[_units, _unitIndex] spawn {
 		scriptName "spawn_zoh_occupyhouse";
 		params ["_units", "_unitIndex"];
 
@@ -303,7 +309,7 @@ if (_doMove) then {
 
 _unUsedUnits = [];
 
-for "_i" from _unitIndex to (count _units - 1) step 1 do {
+for "_i" from _unitIndex to (count _units - 1) do {
 	_unUsedUnits pushBack (_units select _i);
 };
 

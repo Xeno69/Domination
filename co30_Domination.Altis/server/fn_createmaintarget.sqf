@@ -8,14 +8,10 @@ private _garrisonUnits = {
 
 	__TRACE("from createmaintarget garrison function")
 	
-	private ["_unitlist"];
-	
-	if (_unitMovementMode == 2) then { 
-		_unitlist = ["sniper", d_enemy_side_short] call d_fnc_getunitlistm;
-	} else {
-		_unitlist = ["specops", d_enemy_side_short] call d_fnc_getunitlistm;
-	};
-	
+	__TRACE_1("_garrisonUnits","_this")
+
+	private _unitlist = [["specops", "sniper"] select (_unitMovementMode == 2), d_enemy_side_short] call d_fnc_getunitlistm;
+
 	if (count _unitlist > _numUnits) then {
 		while {count _unitlist > _numUnits} do {
 			_unitlist deleteAt (ceil (random (count _unitlist - 1)));
@@ -29,11 +25,7 @@ private _garrisonUnits = {
 	//_newgroup setVariable ["d_defend", true];
 	//[_newgroup, _poss] spawn d_fnc_taskDefend;
 	if (d_with_dynsim == 0) then {
-		_newgroup spawn {
-			scriptName "spawn createmaintarget2";
-			//sleep 1.5;
-			_this enableDynamicSimulation true;
-		};
+		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
 
 	//AI soldiers will be garrisoned in a building (window/roof)
@@ -141,7 +133,7 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 d_groups_respawn_time_add = 0;
-//limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default 
+//limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default
 d_num_barracks_objs = ((ceil random 7) max 4) min d_enemy_max_barracks_count;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
@@ -156,9 +148,9 @@ d_bara_trig_ar = [];
 
 for "_i" from 1 to d_num_barracks_objs do {
 	private _idx = floor random (count _parray);
-	_poss = _parray select _idx;	
+	_poss = _parray select _idx;
 	__TRACE_1("1","_poss")
-	
+
 	if !(_allbars isEqualTo []) then {
 		private _fidx = _allbars findIf {_x distance2D _poss < 115};
 		if (_fidx != -1) then {
@@ -171,7 +163,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 			};
 		};
 	};
-	
+
 	_poss set [2, 0];
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
@@ -184,11 +176,11 @@ for "_i" from 1 to d_num_barracks_objs do {
 	d_mt_barracks_obj_ar pushBack _vec;
 	sleep 0.5;
 	__TRACE_1("1111","_vec")
-	
+
 	_parray deleteAt _idx;
-	
+
 	_allbars pushBack _vec;
-	
+
 	sleep 0.2;
 };
 d_num_barracks_objs = count d_mt_barracks_obj_ar;
@@ -202,7 +194,7 @@ publicVariable "d_num_barracks_tt";
 
 #ifndef __TT__
 private _idx = floor random (count _parray);
-_poss = _parray select _idx;	
+_poss = _parray select _idx;
 __TRACE_1("1","_poss")
 
 if !(_allbars isEqualTo []) then {
@@ -327,7 +319,7 @@ if (d_no_more_observers < 2) then {
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;
 		_agrp setVariable ["d_PATR", true];
 		if (d_with_dynsim == 0) then {
-			_agrp enableDynamicSimulation true;
+			[_agrp, 0] spawn d_fnc_enabledynsim;
 		};
 		_observer addEventHandler ["killed", {d_nr_observers = d_nr_observers - 1;
 			if (d_nr_observers == 0) then {
@@ -342,7 +334,7 @@ if (d_no_more_observers < 2) then {
 		d_obs_array set [_xx, _observer];
 		sleep 0.4;
 	};
-	
+
 	d_delinfsm append d_obs_array;
 	_unit_array = nil;
 
@@ -362,10 +354,9 @@ if (d_enemy_occupy_bldgs == 1) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
 	if (d_enemy_garrison_troop_occupy_count > 0) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_occupy_count - 1) do {
-			_numU = (ceil random 5) max 3;
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				_numU,			//unit count
+				(ceil random 5) max 3,			//unit count
 				250,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -379,10 +370,9 @@ if (d_enemy_occupy_bldgs == 1) then {
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
 	if (d_enemy_garrison_troop_ambush_count > 0) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_ambush_count - 1) do {
-			_numUn = (ceil random 6) max 4;
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				_numUn,			//unit count
+				(ceil random 6) max 4,			//unit count
 				250,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -392,82 +382,76 @@ if (d_enemy_occupy_bldgs == 1) then {
 			] call _garrisonUnits
 		};
 	};
-	
+
 	if (d_enemy_garrison_troop_sniper_count == 0) exitWith {};
 
-    //create garrisoned "sniper" groups of AI (static, never leave spawn position)
+	//create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	//START create garrisoned groups of snipers
 	//prepare to create garrisoned groups of snipers - find and sort buildings
-	_buildingsArray = [];
-	_buildingRadius = 425;
-    _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], _buildingRadius];
+	private _buildingsArray = [];
+	private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], 425];
+	
+	if (_buildingsArrayRaw isEqualTo []) exitWith {};
 
-    _buildingsArrayUsable = [];
+	private _buildingsArrayUsable = _buildingsArrayRaw select {!((_x buildingPos -1) isEqualTo [])};
+	
+	if (_buildingsArrayUsable isEqualTo []) exitWith {};
 
-    {
-    	//only buildings with positions for AI are usable
-    	_poss = _x buildingPos -1;
-		if !(_poss isEqualTo []) then {
-			_buildingsArrayUsable pushBack _x;
-		};
-    } forEach _buildingsArrayRaw;
-    
-    __TRACE_1("","_buildingsArrayUsable")
+	__TRACE_1("","_buildingsArrayUsable")
 
-    //sort by building height
-    //_buildingsArraySorted = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x select 1) select 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
-    
-    //sort by elevation - sort by highest position in each building
-    _buildingsArraySorted = [
-    	_buildingsArrayUsable,
-    	[],
-    	{
-    		private _topElevation = 0;
-    		private _currentElevation = 0;
-    		private _bldg = _x;
+	//sort by building height
+	//_buildingsArraySorted = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x select 1) select 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
+
+	//sort by elevation - sort by highest position in each building
+	private _buildingsArraySorted = [
+		_buildingsArrayUsable,
+		[],
+		{
+			private _topElevation = 0;
+			private _currentElevation = 0;
+			private _bldg = _x;
 			_posArray = _bldg buildingPos -1;
-			
+
 			{
 				_currentElevation = _x select 2; //Z axis
-				if (_currentElevation > _topElevation) then { _topElevation = _currentElevation };
+				if (_currentElevation > _topElevation) then {_topElevation = _currentElevation};
 			} forEach _posArray;
-			
+
 			_topElevation
 		},
 		"DESCEND"
 	] call BIS_fnc_sortBy;
-	
-	__TRACE_1("","_buildingsArraySorted")
 
-    //choose the Top N of sorted buildings array
-	for "_i" from 0 to (d_enemy_garrison_troop_sniper_count - 1) do {
-		_buildingsArray pushBack (_buildingsArraySorted select _i);
+	__TRACE_1("","_buildingsArraySorted")
+	
+	if (_buildingsArraySorted isEqualTo []) exitWith {};
+
+	//choose the Top N of sorted buildings array
+	
+	if (d_enemy_garrison_troop_sniper_count >= count _buildingsArraySorted) then {
+		_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted];
+	} else {
+		_buildingsArray = _buildingsArraySorted select [0, d_enemy_garrison_troop_sniper_count];
 	};
-    
-    __TRACE_1("","_buildingsArray")
+
+	__TRACE_1("","_buildingsArray")
 
 	//create garrisoned groups of snipers with Top N of sorted buildings
-	private _counter = [d_enemy_garrison_troop_sniper_count, count _buildingsArray] select (d_enemy_garrison_troop_sniper_count > count _buildingsArray);
-	__TRACE_3("","_counter","d_enemy_garrison_troop_sniper_count","count _buildingsArray")
-	for "_xx" from 0 to (_counter - 1) do {
-		_numUnits = 2;
+	{
 		//create the group but do not exceed the total number of positions in the building
-		private _building = _buildingsArray select _xx;
-		__TRACE_1("","_building")
-		__TRACE_1("","count (_building buildingPos -1)")
+		__TRACE_2("","_x","count (_x buildingPos -1)")
 		[
-			getPos _building,
-			_numUnits,	//unit count
-			-1,			//fillRadius
-			true,		//fillRoof
-			false,		//fillEvenly
-			true,		//fillTopDown
-			false,		//disableTeleport
+			getPos _x,
+			2,		//unit count
+			-1,		//fillRadius
+			true,	//fillRoof
+			false,	//fillEvenly
+			true,	//fillTopDown
+			false,	//disableTeleport
 			2		//unitMovementMode
-		] call _garrisonUnits
-	};
+		] call _garrisonUnits;
+	} forEach _buildingsArray;
 	//END create garrisoned groups of snipers
-    	
 };
 //garrison end
 #endif

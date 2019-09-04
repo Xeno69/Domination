@@ -40,6 +40,6 @@ if (isServer) then {
 	sleep 2.222;
 	["aa", 1, "tracked_apc", 1, "tank", 1, d_x_sm_pos # 1, 1, 80, true] spawn d_fnc_CreateArmor;
 	if (d_with_dynsim == 0) then {
-		_sm_vec enableDynamicSimulation true;
+		[_sm_vec, 1] spawn d_fnc_enabledynsim;
 	};
 };

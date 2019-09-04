@@ -11,7 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 
 params ["_player", ["_globalExec", false]];
-	
+
 if (local _player && {_globalExec}) exitWith {};
 
 if (local _player && {!_globalExec}) then {
@@ -22,7 +22,7 @@ if (_player != player) then {
 	_player enableSimulation false;
 };
 
-if (call AR_fnc_Has_Addon_Animations_Installed) then {		
+if (call AR_fnc_Has_Addon_Animations_Installed) then {
 	if ([_player] call AR_fnc_Current_Weapon_Type_Selected isEqualTo "HANDGUN") then {
 		if (local _player) then {
 			if (missionNamespace getVariable ["AR_DISABLE_SHOOTING_OVERRIDE", false]) then {
@@ -32,7 +32,7 @@ if (call AR_fnc_Has_Addon_Animations_Installed) then {
 			};
 			_player setVariable ["AR_Animation_Move", "AR_01_Idle_Pistol_No_Actions", true];
 		} else {
-			_player setVariable ["AR_Animation_Move", "AR_01_Idle_Pistol_No_Actions"];			
+			_player setVariable ["AR_Animation_Move", "AR_01_Idle_Pistol_No_Actions"];
 		};
 	} else {
 		if (local _player) then {
@@ -61,20 +61,20 @@ if (call AR_fnc_Has_Addon_Animations_Installed) then {
 		_player switchMove "HubSittingChairC_idle1";
 		_player setVariable ["AR_Animation_Move", "HubSittingChairC_idle1", true];
 	} else {
-		_player setVariable ["AR_Animation_Move", "HubSittingChairC_idle1"];		
+		_player setVariable ["AR_Animation_Move", "HubSittingChairC_idle1"];
 	};
 };
 
-_animationEventHandler = -1;
+private _animationEventHandler = -1;
 if (local _player) then {
-	_animationEventHandler = _player addEventHandler ["AnimChanged",{_this call ar_fnc_animchangedeh}];
+	_animationEventHandler = _player addEventHandler ["AnimChanged", {_this call ar_fnc_animchangedeh}];
 };
 
 if (!local _player) then {
 	[_player] spawn {
 		scriptName "spawn_ar_is_rappelling_2";
 		params ["_player"];
-		private ["_currentState"];
+		private ["_currentState", "_newState"];
 		while {_player getVariable ["AR_Is_Rappelling", false]} do {
 			_currentState = toLowerANSI animationState _player;
 			_newState = toLowerANSI (_player getVariable ["AR_Animation_Move", ""]);
@@ -89,7 +89,7 @@ if (!local _player) then {
 				_player switchGesture "";
 			};
 			sleep 0.1;
-		};			
+		};
 	};
 };
 
@@ -99,5 +99,5 @@ if (_animationEventHandler != -1) then {
 	_player removeEventHandler ["AnimChanged", _animationEventHandler];
 };
 
-_player switchMove "";	
+_player switchMove "";
 _player enableSimulation true;

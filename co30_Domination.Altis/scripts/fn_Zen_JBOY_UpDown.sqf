@@ -30,11 +30,11 @@ while {alive _dude && {_iterations < 12}} do {
 	} else {
 		_dude setUnitPos (_stances select 0);
 	};
-	
+
 	sleep (1.5 + (random 6));
-	
+
 	if (!alive _dude) exitWith {};
-	
+
 	if (isNull (_dude findNearestEnemy _dude)) then { // If no known enemies then increment iterations so that guys stop popping up and down
 		//systemchat "no known enemies found";
 		_iterations = _iterations + 1;
@@ -44,4 +44,4 @@ while {alive _dude && {_iterations < 12}} do {
 if (alive _dude) then {
 	_dude setUnitPos _dudeOriginalStance;
 	_dude addeventhandler ["FiredNear", {[_this # 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}];
-}; 
+};

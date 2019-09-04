@@ -56,11 +56,7 @@ for "_nr" from 0 to 1 do {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30], "", 0] spawn d_fnc_MakePatrolWPX;
 			};
 			if (d_with_dynsim == 0) then {
-				_newgroup spawn {
-					scriptName "spawn createinf";
-					sleep 15;
-					_this enableDynamicSimulation true;
-				};
+				[_newgroup, 15] spawn d_fnc_enabledynsim;
 			};
 			_ret_grps pushBack _newgroup;
 			d_x_sm_rem_ar append _units;

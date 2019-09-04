@@ -61,7 +61,7 @@ _pilot2 setDamage 0.5;
 _owngroup deleteGroupWhenEmpty true;
 
 if (d_with_dynsim == 0) then {
-	_owngroup enableDynamicSimulation true;
+	[_owngroup] spawn d_fnc_enabledynsim;
 };
 
 private _is_dead = false;

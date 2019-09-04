@@ -26,11 +26,7 @@
 			_wp setWaypointCombatMode "YELLOW";
 
 			if (d_with_dynsim == 0) then {
-				_newgroup spawn {
-					scriptName "spawn_smsurprise";
-					sleep 15;
-					_this enableDynamicSimulation true;
-				};
+				[_newgroup, 15] spawn d_fnc_enabledynsim;
 			};
 			
 			d_x_sm_rem_ar append _units;

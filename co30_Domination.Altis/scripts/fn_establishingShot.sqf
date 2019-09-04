@@ -105,7 +105,7 @@ if (_mode == 1) then {
 	private _date = format ["%1/%2/%3", _day, _month, str (date # 0)];
 
 	//_SITREP = format [localize "STR_A3_BIS_fnc_establishingShot_SITREP" + "||%1|%2||" + localize "STR_A3_BIS_fnc_establishingShot_Time", toUpper _txt, _date, _time];
-	
+
 	_SITREP = [
 		[_date + " ", ""],
 		[_time, "font = 'PuristaMedium'"],
@@ -436,7 +436,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 					] spawn BIS_fnc_typeText2;
 
 					waitUntil {scriptDone BIS_fnc_establishingShot_SITREP || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
-					
+
 					private _time = time + 2;
 					waitUntil {time >= _time || {isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
 
