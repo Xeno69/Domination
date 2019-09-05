@@ -58,7 +58,7 @@ _arrowhead setPos [_epos # 0, _epos # 1, 15];
 d_x_sm_vec_rem_ar pushBack _arrowhead;
 
 sleep 2.123;
-["specops", (floor (random 4) min 2), "allmen", (floor (random 5)) min 3, [_epos, 100] call d_fnc_getranpointcircleouter, 200, true] spawn d_fnc_CreateInf;
+["specops", (floor (random 3) min 1), "allmen", (floor (random 4)) min 2, [_epos, 100] call d_fnc_getranpointcircleouter, 200, true] spawn d_fnc_CreateInf;
 sleep 2.123;
 [selectRandom ["wheeled_apc", "jeep_gl", "jeep_mg"], 1, selectRandom ["tank", "tracked_apc"], 1, "aa", 1, [_epos, 150] call d_fnc_getranpointcircleouter, 1, 250, true] spawn d_fnc_CreateArmor;
 

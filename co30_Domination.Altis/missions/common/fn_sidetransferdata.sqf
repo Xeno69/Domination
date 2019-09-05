@@ -24,7 +24,7 @@ d_x_sm_vec_rem_ar pushBack _smvec;
 if (_createarmor) then {
 sleep 2.22;
 	__TRACE("Creating armor")
-	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _poss, 1, 400, true] spawn d_fnc_CreateArmor;
+	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 2, _poss, 1, 300, true] spawn d_fnc_CreateArmor;
 	sleep 1;
 	["stat_mg", 1, "stat_gl", 1, "", 0, _poss, 1, 100, false] spawn d_fnc_CreateArmor;
 };
@@ -32,7 +32,7 @@ sleep 2.22;
 if (_createinf) then {
 	sleep 2.123;
 	__TRACE("Creating inf")
-	["specops", 2, "allmen", (floor (random 4)) min 2, _poss, 300, true] spawn d_fnc_CreateInf;
+	["specops", 2, "allmen", (floor (random 3)) min 1, _poss, 200, true] spawn d_fnc_CreateInf;
 };
 
 while {!d_data_was_send && {alive _smvec && {!d_sm_resolved}}} do {

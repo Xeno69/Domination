@@ -56,14 +56,14 @@ if (d_with_dynsim == 0) then {
 };
 if (_createarmor) then {
 	sleep 2.123;
-	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _poss, 1, 400, true] spawn d_fnc_CreateArmor;
+	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 1, _poss, 1, 400, true] spawn d_fnc_CreateArmor;
 	sleep 1;
 	["stat_mg", 1, "stat_gl", 1, "", 0, _poss, 1, 100, false] spawn d_fnc_CreateArmor;
 };
 if (_createinf) then {
 	sleep 2.123;
 	if (!_issniper) then {
-		["specops", 2, "allmen", (random 4) min 2, _poss, 200, true] spawn d_fnc_CreateInf;
+		["specops", 2, "allmen", (random 3) min 1, _poss, 200, true] spawn d_fnc_CreateInf;
 	} else {
 		["specops", 1, "allmen", 2, _poss, 200, true] spawn d_fnc_CreateInf;
 	};

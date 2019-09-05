@@ -25,6 +25,7 @@ if (d_MissionType == 2 || {d_bonus_vec_type in [1, 3]}) exitWith {
 #endif
 
 	if !(isServer && {!isDedicated}) then {d_sm_winner = 0};
+	d_sm_bonus_wait = nil;
 };
 
 #ifdef __TT__
@@ -484,4 +485,5 @@ if (d_sm_winner == 1) then {
 
 if !(isServer && {!isDedicated}) then {d_sm_winner = 0};
 
+__TRACE("End")
 d_sm_bonus_wait = nil;

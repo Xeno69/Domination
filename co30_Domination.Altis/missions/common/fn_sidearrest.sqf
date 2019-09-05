@@ -40,11 +40,11 @@ private _rescued = false;
 if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 
 if (_docreateinf) then {
-	["specops", (floor (random 4)) min 2, "allmen", (floor (random 4)) min 2, d_x_sm_pos # 0, 300, true] spawn d_fnc_CreateInf;
+	["specops", (floor (random 3)) min 1, "allmen", (floor (random 3)) min 1, d_x_sm_pos # 0, 300, true] spawn d_fnc_CreateInf;
 	sleep 2.333;
 };
 if (_docreatearmor) then {
-	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, d_x_sm_pos # 0, 1, 400, true] spawn d_fnc_CreateArmor;
+	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 1, d_x_sm_pos # 0, 1, 400, true] spawn d_fnc_CreateArmor;
 	sleep 2.333;
 	["stat_mg", 1, "stat_gl", 1, "", 0, d_x_sm_pos # 0, 1, 100, false] spawn d_fnc_CreateArmor;
 	sleep 1;
