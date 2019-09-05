@@ -100,13 +100,13 @@ if (d_database_found) then {
 	//	D_DB_plgetts_query dbBindValue _uid;
 	//};
 	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
-	
+
 	if (d_interceptdb) then {
 		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
 	};
 #endif
 	diag_log ["Dom Database playerGetTS result", _dbresult];
-	
+
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
 		// create new database entry for UID

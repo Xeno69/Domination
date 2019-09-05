@@ -35,38 +35,38 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 			scriptName "spawn_inventoryopened2";
 			private _disp = displayNull;
 			waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false]}}};
-			
+
 			if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
-			
+
 			private _ctrl = _disp ctrlCreate ["RscButtonMenu", 12000];
-			
+
 			private _sfwh = (safezoneW / safezoneH) min 1.2;
 			private _xpos = 14.6 * (_sfwh / 40) + (safezoneX + (safezoneW - _sfwh) / 2);
 			private _ypos = 24.3 * ((_sfwh / 1.2) / 25) + (safezoneY + (safezoneH - (_sfwh / 1.2)) / 2);
 			private _w = 9.6 * (_sfwh / 40);
 			private _h = 1.2 * ((_sfwh / 1.2) / 25);
-			
+
 			_ctrl ctrlSetPosition [_xpos, _ypos, _w, _h];
-			
+
 			_ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_1940");
-			
+
 			_ctrl ctrlAddEventHandler ["ButtonClick", {
 				hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t>", localize "STR_DOM_MISSIONSTRING_1941"];
 				(findDisplay 602) closeDisplay 1;
 				0 spawn d_fnc_repack_mags;
 			}];
-			
+
 			_ctrl ctrlCommit 0;
-			
+
 			_ctrl = _disp ctrlCreate ["RscButtonMenu", 12001];
-			
+
 			_xpos = 25.6 * (_sfwh / 40) + (safezoneX + (safezoneW - _sfwh) / 2);
 			_ypos = 24.3 * ((_sfwh / 1.2) / 25) + (safezoneY + (safezoneH - (_sfwh / 1.2)) / 2);
 			_w = 9.6 * (_sfwh / 40);
 			_h = 1.2 * ((_sfwh / 1.2) / 25);
-			
+
 			_ctrl ctrlSetPosition [_xpos, _ypos, _w, _h];
-			
+
 			_ctrl ctrlAddEventHandler ["ButtonClick", {
 				private _bpc = backpackContainer player;
 				if (!isNil {_bpc getVariable "d_islocked"}) then {
@@ -77,9 +77,9 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 					(_this select 0)  ctrlSetText (localize "STR_DOM_MISSIONSTRING_1944");
 				};
 			}];
-			
+
 			_ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_1943");
-			
+
 			if (!isNull backpackContainer player) then {
 				if (!isNil {(backpackContainer player) getVariable "d_islocked"}) then {
 					_ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_1944");
@@ -88,16 +88,16 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 				_ctrl ctrlEnable false;
 			};
 			_ctrl ctrlCommit 0;
-			
+
 			uiNamespace setVariable ["d_bplock_button", _ctrl];
 			d_inventory_open = true;
-			
+
 			0 spawn {
 				scriptName "spawn_inventoryopened5";
-				
+
 				private _ctrl = uiNamespace getVariable "d_bplock_button";
 				private _prevcontainer = backpackContainer player;
-				
+
 				while {!isNil "d_inventory_open"} do {
 					if (_prevcontainer != backpackContainer player) then {
 						_prevcontainer = backpackContainer player;

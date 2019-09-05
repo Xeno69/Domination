@@ -17,7 +17,7 @@ sleep 10.123;
 while {alive _chopper && {alive player && {player in _chopper}}} do {
 	if (currentPilot _chopper == player) then {
 		private _pos = getPosVisual _chopper;
-		
+
 		if (!(_chopper getVariable ["d_vec_attached", false]) && {_pos # 2 > 2.5 && {_pos # 2 < 11}}) then {
 			_liftobj = objNull;
 			private _nobjects = nearestObjects [_chopper, ["LandVehicle", "Air"], 50];
@@ -68,14 +68,14 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				_menu_lift_shown = false;
 			};
 			__TRACE_1("2","_id")
-			
+
 			sleep 0.1;
-			
+
 			if (isNull _liftobj) then {
 				_liftobj = _chopper getVariable ["d_Attached_Vec", objNull];
 				__TRACE_1("liftobject null, new one","_liftobj")
 			};
-			
+
 			if (isNull _liftobj) then {
 				if (!isNil {_chopper getVariable "d_vec_attached"}) then {
 					_chopper setVariable ["d_vec_attached", nil, true];
@@ -90,13 +90,13 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					if (isNull (_chopper getVariable ["d_Attached_Vec", objNull])) then {
 						_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_252");
 						_chopper setVariable ["d_Attached_Vec", _liftobj, true];
-						
+
 						_mhqfuel = _liftobj getVariable "d_vecfuelmhq";
 						if (!isNil "_mhqfuel") then {
 							[_liftobj, _mhqfuel] remoteExecCall ["setFuel", _liftobj];
 							_liftobj setVariable ["d_vecfuelmhq", nil, true];
 						};
-						
+
 						if (_liftobj getVariable ["d_vec_type", ""] == "MHQ") then {
 							_liftobj setVariable ["d_in_air", true, true];
 							_lon = _liftobj getVariable "d_vec_name";
@@ -111,14 +111,14 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 							};
 #endif
 						};
-					
+
 						[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
-					
+
 						private _maxload = getNumber(configFile>>"CfgVehicles">>(typeOf _chopper)>>"maximumLoad");
 						private _slipos = [[0,0,1], _chopper selectionPosition "slingload0"] select !(_chopper selectionPosition "slingload0" isEqualTo [0,0,0]);
 						__TRACE_2("","_maxload","_slipos")
 						//_chopper addEventhandler ["RopeAttach", {player sideChat str(_this);player sideChat "bla"}];
-					
+
 						private _oldmass = getMass _liftobj;
 						private _newmass = -1;
 						__TRACE_2("1","_liftobj","_oldmass")
@@ -127,9 +127,9 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 							// means, if we want to cheat and reduce the mass of an object it needs to be set everywhere (or at least where the object is local, not tested)
 							_newmass = (_maxload - 1500) max 100;
 							[_liftobj, _newmass] remoteExecCall ["setMass"];
-						
+
 							_chopper setVariable ["d_lobm", [_liftobj, _oldmass], true];
-						
+
 							sleep 0.1;
 							[_liftobj, _newmass] remoteExecCall ["setMass"];
 						} else {
@@ -140,9 +140,9 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						//_lobmm = getMass _liftobj;
 						//__TRACE_1("","_lobmm")
 						//#endif
-					
+
 						private _slcmp = getArray(configFile>>"CfgVehicles">>(typeOf _liftobj)>>"slingLoadCargoMemoryPoints");
-					
+
 						// Fix for vehicles with slingload points at null position (lots of mod vehicles...)
 						private _slcmp_null = true;
 						if !(_slcmp isEqualTo []) then {
@@ -150,7 +150,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 								if !(_liftobj selectionPosition _x isEqualTo [0,0,0]) exitWith {_slcmp_null = false};
 							} forEach _slcmp;
 						};
-						
+
 						if (_slcmp_null) then {
 							{
 								_ropes pushBack (ropeCreate [_chopper, _slipos, _liftobj, _x, 20]);
@@ -160,15 +160,15 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 								_ropes pushBack (ropeCreate [_chopper, _slipos, _liftobj, _liftobj selectionPosition _x, 20]);
 							} forEach _slcmp;
 						};
-						
+
 						__TRACE_1("","_ropes")
-						
+
 						if (_newmass > -1) then {
-							[_liftobj, _newmass] remoteExecCall ["setMass"];						
+							[_liftobj, _newmass] remoteExecCall ["setMass"];
 							sleep 0.1;
 							[_liftobj, _newmass] remoteExecCall ["setMass"];
 						};
-						
+
 						_chopper setVariable ["d_ropes", _ropes, true];
 					} else {
 						_ropes = _chopper getVariable ["d_ropes", []];
@@ -179,17 +179,17 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					while {alive _chopper && {alive _liftobj && {alive player && {currentPilot _chopper == player && {_ropes findIf {alive _x} > -1 && {!(_chopper getVariable ["d_vec_released", false]) && {player in _chopper}}}}}}} do {
 						sleep 0.312;
 					};
-					
+
 					if (alive _chopper && {alive player && {alive _liftobj && {player in _chopper && {currentPilot _chopper != player && {!(_chopper getVariable ["d_vec_released", false])}}}}}) exitWith {
 						if (_release_id != -1212) then {_chopper removeAction _release_id};
 					};
-					
+
 					{
 						ropeDestroy _x;
 					} forEach (_ropes select {!isNull _x});
-					
+
 					_oldmass = (_chopper getVariable "d_lobm") select 1;
-					
+
 					if (_oldmass > -1) then {
 						[_liftobj, _oldmass] remoteExecCall ["setMass"];
 						_chopper setVariable ["d_lobm", nil, true];
@@ -208,10 +208,10 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						};
 					};
 					_chopper setVariable ["d_ropes", nil, true];
-					
+
 					_chopper setVariable ["d_vec_attached", nil, true];
 					_chopper setVariable ["d_vec_released", nil, true];
-					
+
 					if (_liftobj getVariable ["d_vec_type", ""] == "MHQ") then {
 						_liftobj setVariable ["d_in_air", false, true];
 						_chopper setVariable ["d_mhq_lift_obj", nil, true];
@@ -225,14 +225,14 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						};
 #endif
 					};
-					
+
 					_chopper setVariable ["d_Attached_Vec", nil, true];
-					
+
 					if (alive _chopper) then {
 						if (alive player) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 						_chopper removeAction _release_id;
 					};
-					
+
 					if (!(_liftobj isKindOf "StaticWeapon") && {(getPosVisual _liftobj) # 2 < 200}) then {
 						while {true} do {
 							sleep 0.222;
@@ -243,7 +243,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						_liftobj setPos [_npos # 0, _npos # 1, 0];
 					};
 					[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
-					
+
 					sleep 1.012;
 				};
 			};

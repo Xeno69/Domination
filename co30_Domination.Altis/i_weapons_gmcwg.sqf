@@ -157,11 +157,11 @@ private _all_weapons_items_blufor = [
 			"gm_dk_army_uniform_soldier_84_m84", "gm_dk_army_uniform_soldier_84_oli", "gm_dk_army_uniform_soldier_84_win", "gm_ge_army_uniform_crew_80_oli", "gm_ge_army_uniform_soldier_80_oli",
 			"gm_ge_army_uniform_soldier_80_ols", "gm_ge_army_uniform_soldier_parka_80_oli", "gm_ge_army_uniform_soldier_parka_80_ols", "gm_ge_army_uniform_soldier_parka_80_win", "gm_ge_bgs_uniform_soldier_80_smp",
 			"gm_ge_civ_uniform_blouse_80_gry", "gm_ge_dbp_uniform_suit_80_blu", "gm_ge_ff_uniform_man_80_orn", "gm_ge_pol_uniform_blouse_80_blk",
-			
+
 			"gm_dk_army_vest_54_crew", "gm_dk_army_vest_54_machinegunner", "gm_dk_army_vest_54_rifleman", "gm_ge_army_vest_80_bag", "gm_ge_army_vest_80_belt", "gm_ge_army_vest_80_crew", "gm_ge_army_vest_80_demolition",
 			"gm_ge_army_vest_80_leader", "gm_ge_army_vest_80_machinegunner", "gm_ge_army_vest_80_medic", "gm_ge_army_vest_80_mp_wht", "gm_ge_army_vest_80_officer", "gm_ge_army_vest_80_rifleman", "gm_ge_bgs_vest_80_rifleman",
 			"gm_ge_pol_vest_80_wht",
-			
+
 			"gm_dk_headgear_m52_net_oli", "gm_dk_headgear_m52_net_win", "gm_dk_headgear_m52_oli", "gm_ge_bgs_headgear_m35_53_blk", "gm_ge_bgs_headgear_m35_53_net_blk", "gm_ge_dbp_headgear_cap_80_blu",
 			"gm_ge_ff_headgear_m35_53_tan", "gm_ge_headgear_beret_bdx", "gm_ge_headgear_beret_red", "gm_ge_headgear_beret_grn", "gm_ge_headgear_beret_bdx_armyaviation", "gm_ge_headgear_beret_bdx_lrrp",
 			"gm_ge_headgear_beret_bdx_paratrooper", "gm_ge_headgear_beret_bdx_specop", "gm_ge_headgear_beret_blk_antitank", "gm_ge_headgear_beret_blk_armor", "gm_ge_headgear_beret_blk_armorrecon",

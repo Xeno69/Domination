@@ -10433,6 +10433,16 @@
 <Russian>Stall</Russian>
 <Chinesesimp>停顿</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1968">
+<English>Don't forget to deploy the MHQ</English>
+<Spanish>Don't forget to deploy the MHQ</Spanish>
+<Portuguese>Don't forget to deploy the MHQ</Portuguese>
+<Korean>Don't forget to deploy the MHQ</Korean>
+<Japanese>Don't forget to deploy the MHQ</Japanese>
+<Original>Don't forget to deploy the MHQ</Original>
+<Russian>Не забудьте развернуть КШМ</Russian>
+<Chinesesimp>Don't forget to deploy the MHQ</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>

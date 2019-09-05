@@ -312,11 +312,11 @@ private _all_weapons_items_blufor = [
 		// sergeant launchers
 		[
 			"rhs_weap_smaw",
-			"rhs_weap_smaw_green"		
+			"rhs_weap_smaw_green"
 		],
 		// lieutenant launchers
 		[
-			"rhs_weap_maaws"			
+			"rhs_weap_maaws"
 		],
 		// capain launchers
 		[
@@ -333,7 +333,7 @@ private _all_weapons_items_blufor = [
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"PISTOLS",
 		// private pistols
-		[				
+		[
 		],
 		// corporal pistols
 		[
@@ -409,7 +409,7 @@ private _all_weapons_items_blufor = [
 			"rhsusf_acc_LEUPOLDMK4",
 			"rhsusf_acc_LEUPOLDMK4_2",
 			"rhsusf_acc_LEUPOLDMK4_2_d",
-			"rhs_optic_maaws",		
+			"rhs_optic_maaws",
 			"rhsusf_acc_M8541",
 			"rhsusf_acc_M8541_low",
 			"rhsusf_acc_M8541_low_d",
@@ -550,7 +550,7 @@ private _all_weapons_items_blufor = [
 			"rhsusf_iotv_ocp_Teamleader",
 			"rhsusf_iotv_ucp_Teamleader",
 			"rhsusf_iotv_ucp",
-			
+
 			"rhsusf_ach_bare",
 			"rhsusf_ach_bare_des",
 			"rhsusf_ach_bare_des_ess",
@@ -738,7 +738,7 @@ private _all_weapons_items_blufor = [
 			"rhsusf_oakley_goggles_ylw",
 			"rhs_goggles_yellow",
 			"rhs_goggles_clear",
-			"rhs_ess_black"		
+			"rhs_ess_black"
 		],
 		// corporal uniforms
 		[
@@ -748,7 +748,7 @@ private _all_weapons_items_blufor = [
 			"rhsusf_spcs_ocp",
 			"rhsusf_spcs_ocp_rifleman",
 			"rhsusf_spcs_ucp_rifleman",
-			"rhsusf_spcs_ucp",		
+			"rhsusf_spcs_ucp",
 			"rhsusf_spc",
 			"rhsusf_spc_corpsman",
 			"rhsusf_spc_crewman",
@@ -760,7 +760,7 @@ private _all_weapons_items_blufor = [
 			"rhsusf_spc_patchless_radio",
 			"rhsusf_spc_rifleman",
 			"rhsusf_spc_squadleader",
-			"rhsusf_spc_teamleader"	
+			"rhsusf_spc_teamleader"
 		],
 		// lieutenant uniforms
 		[
@@ -790,7 +790,7 @@ private _all_weapons_items_blufor = [
 			"ItemCompass",
 			"ItemWatch",
 			"MineDetector",
-			"rhsusf_bino_m24", 
+			"rhsusf_bino_m24",
 			(if (d_no_faks == 1) then {"FirstAidKit"} else {""}),
 			"Medikit",
 			"ToolKit",
@@ -830,7 +830,7 @@ private _all_weapons_items_opfor = [
 		// private rifles
 		[
 			"rhs_weap_ak74",
-			"rhs_weap_aks74n"		
+			"rhs_weap_aks74n"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
@@ -858,10 +858,10 @@ private _all_weapons_items_opfor = [
 			"rhs_weap_ak74m",
 			"rhs_weap_ak74m_dtk",
 			"rhs_weap_45th_ak74m"
-			
+
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
-		[			
+		[
 			"rhs_weap_akmn_gp25",
 			"rhs_weap_akmn_gp25_npz",
 			"rhs_weap_ak74m_gp25_npz",
@@ -878,7 +878,7 @@ private _all_weapons_items_opfor = [
 			"rhs_weap_ak103_2_npz",
 			"rhs_weap_ak103_npz",
 			"rhs_weap_ak104_npz",
-			"rhs_weap_ak105_npz",			
+			"rhs_weap_ak105_npz",
 			"rhs_weap_ak103_1",
 			"rhs_weap_ak103_1_dtk",
 			"rhs_weap_ak103_2",
@@ -905,7 +905,7 @@ private _all_weapons_items_opfor = [
 			"rhs_weap_pkm"
 		],
 		// lieutenant rifles (gets added to...)
-		[		
+		[
 			"rhs_weap_ak74m_zenitco01_b33",
 			"rhs_weap_ak74m_zenitco01",
 			"rhs_weap_ak105_zenitco01",
@@ -918,11 +918,11 @@ private _all_weapons_items_opfor = [
 			"arifle_AK12_GL_F"
 		],
 		// captain rifles (gets added...)
-		[		
+		[
 			"rhs_weap_savz61"
 		],
 		// major rifles (gets...)
-		[		
+		[
 			"rhs_weap_t5000"
 		],
 		// colonel rifles (...)
@@ -933,7 +933,7 @@ private _all_weapons_items_opfor = [
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"LAUNCHERS",
 		// private launchers
-		[			
+		[
 			"rhs_weap_igla",
 			"rhs_weap_rshg2",
 			"rhs_weap_rpg26"
@@ -956,7 +956,7 @@ private _all_weapons_items_opfor = [
 		],
 		// major launchers
 		[
-			
+
 		],
 		// colonel launchers
 		[
@@ -966,7 +966,7 @@ private _all_weapons_items_opfor = [
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"PISTOLS",
 		// private pistols
-		[	
+		[
 			"rhs_weap_tr8"
 		],
 		// corporal pistols
@@ -985,11 +985,11 @@ private _all_weapons_items_opfor = [
 		],
 		// captain pistols
 		[
-			
+
 		],
 		// major pistols
 		[
-			
+
 		],
 		// colonel pistols
 		[
@@ -1018,7 +1018,7 @@ private _all_weapons_items_opfor = [
 			"rhsusf_acc_wmx",
 			"rhsusf_acc_wmx_bk",
 			"rhsusf_acc_M952V",
-			
+
 			"rhs_acc_ekp8_02",
 			"rhs_acc_ekp8_18",
 			"rhs_acc_1p87",
@@ -1049,7 +1049,7 @@ private _all_weapons_items_opfor = [
 			"rhsusf_acc_SpecterDR_D",
 			"rhsusf_acc_SpecterDR_A",
 			"acc_flashlight","optic_Holosight_smg",
-			
+
 			"rhs_acc_pgo7v",
 			"rhs_acc_pso1m2",
 			"rhs_acc_pgo7v2",
@@ -1074,7 +1074,7 @@ private _all_weapons_items_opfor = [
 			"optic_ERCO_khk_F",
 			"optic_ERCO_blk_F",
 			"optic_ERCO_snd_F",
-			
+
 			"rhs_acc_pso1m21",
 			"rhs_acc_1p78"
 		],
@@ -1083,7 +1083,7 @@ private _all_weapons_items_opfor = [
 			"optic_Aco","optic_ACO_grn","optic_Arco","optic_Hamr",
 			"rhsusf_acc_anpas13gv1",
 			"rhsusf_acc_anpvs27",
-			
+
 			"rhs_acc_dh520x56"
 		],
 		// major optics
@@ -1103,7 +1103,7 @@ private _all_weapons_items_opfor = [
 		[
 			"rhsusf_acc_SF3P556",
 			"rhsusf_acc_SFMB556",
-			
+
 			"rhs_acc_dtk",
 			"rhs_acc_dtk1l",
 			"rhs_acc_dtk1p",
@@ -1140,7 +1140,7 @@ private _all_weapons_items_opfor = [
 			"rhs_acc_2dpZenit",
 			"rhs_acc_2dpZenit_ris",
 			"rhs_acc_grip_rk2",
-			"rhs_acc_grip_rk6"			
+			"rhs_acc_grip_rk6"
 		],
 		// sergeant muzzles
 		[
@@ -1400,7 +1400,7 @@ private _all_weapons_items_opfor = [
 			"rhs_6b7_1m_emr",
 			"rhs_6b7_1m_bala1_emr",
 			"rhs_6b7_1m_bala2_emr",
-			
+
 			"rhsusf_oakley_goggles_blk",
 			"rhsusf_oakley_goggles_ylw",
 			"rhs_goggles_yellow",
@@ -1408,17 +1408,17 @@ private _all_weapons_items_opfor = [
 			"rhs_ess_black",
 			"rhs_balaclava1_olive",
 			"rhs_scarf",
-			
+
 			"rhs_beret_vdv1",
 			"rhs_beret_vdv2",
 			"rhs_beret_vdv3",
 			"rhs_beret_milp",
 			"rhs_beret_mp1",
-			"rhs_beret_mp2"	
+			"rhs_beret_mp2"
 		],
 		// corporal uniforms
 		[
-			
+
 		],
 		// sergeant uniforms
 		[
@@ -1439,7 +1439,7 @@ private _all_weapons_items_opfor = [
 			"rhs_6b13_Flora_6sh92_vog",
 			"rhs_6b13_Flora_6sh92_radio",
 			"rhs_6b13_Flora_6sh92_headset_mapcase"
-					
+
 		],
 		// lieutenant uniforms
 		[
@@ -1468,7 +1468,7 @@ private _all_weapons_items_opfor = [
 			"ItemCompass",
 			"ItemWatch",
 			"MineDetector",
-			"rhsusf_bino_m24", 
+			"rhsusf_bino_m24",
 			(if (d_no_faks == 1) then {"FirstAidKit"} else {""}),
 			"Medikit",
 			(if (d_without_nvg == 1) then {"rhs_1PN138"} else {""}),

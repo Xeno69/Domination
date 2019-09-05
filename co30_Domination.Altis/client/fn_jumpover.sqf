@@ -10,7 +10,7 @@ if ((_this select 1) in actionKeys "GetOver" && {alive player && {currentWeapon 
 		private _veloH = _v vectorAdd [0.6, 0.6, 0.1];
 		private _veloL = _v vectorAdd [0, 0, -1];
 		private _maxHight = (getPosATL player # 2) + 1.3;
-		
+
 		[player, "AovrPercMrunSrasWrflDf"] remoteExecCall ["switchMove"];
 		sleep 0.05;
 		while {animationState player == "AovrPercMrunSrasWrflDf"} do {

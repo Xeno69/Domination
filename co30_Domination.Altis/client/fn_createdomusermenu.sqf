@@ -69,7 +69,7 @@ if (player getUnitTrait "engineer" && {isNull objectParent player && {(player ge
 
 if (d_pisadminp && {!visibleMap}) then {
 	d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
-	
+
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1420", [call _fnc_inc_num], "", -5, [["expression", "7 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 
@@ -81,7 +81,7 @@ if (!d_with_ace) then {
 		__TRACE_1("","_chemar")
 		if (count _chemar > 0) then {
 			d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
-			
+
 			{
 				private _strnum = switch (_x) do {
 					case "Chemlight_green": {"15"};
@@ -98,7 +98,7 @@ if (!d_with_ace) then {
 	} else {
 		if (_clattached != "") then {
 			d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
-			
+
 			d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1505", [call _fnc_inc_num], "", -5, [["expression", "20 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 		};
 	};
@@ -111,7 +111,7 @@ if (!d_with_ace) then {
 if (d_with_ranked) then {
 	if (count d_allplayers - 1 > 0) then {
 		d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
-		
+
 		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1880", [call _fnc_inc_num], "", -5, [["expression", "99 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 	};
 };

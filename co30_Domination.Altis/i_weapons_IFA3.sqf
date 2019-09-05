@@ -117,7 +117,7 @@ private _all_weapons_items_blufor = [
 		[
 		],
 		// major optics
-		[	
+		[
 		],
 		// colonel optics
 		[
@@ -166,14 +166,14 @@ private _all_weapons_items_blufor = [
 			"U_LIB_DAK_Soldier", "U_LIB_DAK_Soldier_2", "U_LIB_DAK_Soldier_3", "U_LIB_DAK_Sentry", "U_LIB_DAK_Sentry_2", "U_LIB_DAK_Medic", "U_LIB_DAK_NCO", "U_LIB_DAK_NCO_2",
 			"U_LIB_DAK_lieutenant", "U_LIB_DAK_Spg_crew_private", "U_LIB_DAK_Spg_crew_unterofficer", "U_LIB_DAK_Spg_crew_leutnant", "U_LIB_GER_Soldier3_w", "U_LIB_GER_Soldier_camo_w",
 			"U_LIB_GER_Scharfschutze_w", "U_LIB_GER_Scharfschutze_2_w",
-			
+
 			"V_LIB_GER_FSJ_VestKar98", "V_LIB_GER_FSJ_VestKar98_Camo", "V_LIB_GER_FSJ_VestKar98_DAK", "V_LIB_GER_TankPrivateBelt", "V_LIB_GER_VestMP40", "V_LIB_GER_VestSTG",
 			"V_LIB_GER_VestKar98", "V_LIB_GER_VestG43", "V_LIB_GER_SniperBelt", "V_LIB_GER_VestMG", "V_LIB_GER_VestUnterofficer", "V_LIB_GER_FieldOfficer", "V_LIB_GER_OfficerVest",
 			"V_LIB_GER_OfficerBelt", "V_LIB_GER_PrivateBelt", "V_LIB_GER_PioneerVest", "V_LIB_WP_MP40Vest", "V_LIB_WP_STGVest", "V_LIB_WP_Kar98Vest", "V_LIB_WP_G43Vest",
 			"V_LIB_WP_SniperBela", "V_LIB_WP_MGVest", "V_LIB_WP_OfficerVest", "V_LIB_DAK_VestMP40", "V_LIB_DAK_VestSTG", "V_LIB_DAK_VestKar98", "V_LIB_DAK_VestG43",
 			"V_LIB_DAK_SniperBelt", "V_LIB_DAK_VestMG", "V_LIB_DAK_VestUnterofficer", "V_LIB_DAK_FieldOfficer", "V_LIB_DAK_OfficerVest", "V_LIB_DAK_OfficerBelt",
 			"V_LIB_DAK_PrivateBelt", "V_LIB_DAK_PioneerVest",
-			
+
 			"H_LIB_GER_FSJ_M38_Helmet", "H_LIB_GER_FSJ_M38_Helmet_os", "H_LIB_GER_FSJ_M38_Helmet_grey", "H_LIB_GER_FSJ_M38_Helmet_grey_os", "H_LIB_GER_FSJ_M38_Helmet_DAK",
 			"H_LIB_GER_FSJ_M38_Helmet_Cover", "H_LIB_GER_FSJ_M44_Helmet", "H_LIB_GER_FSJ_M44_Helmet_os", "H_LIB_GER_FSJ_M44_HelmetCamo1", "H_LIB_GER_FSJ_M44_HelmetCamo2",
 			"H_LIB_GER_FSJ_M44_Helmet_Medic", "H_LIB_GER_FSJ_M44_Helmet_Winter", "H_LIB_GER_FSJ_M44_HelmetUtility", "H_LIB_ST_Helmet", "H_LIB_ST_Helmet2", "H_LIB_GER_Fieldcap",
@@ -377,7 +377,7 @@ private _all_weapons_items_opfor = [
 			"U_LIB_US_Rangers_Private_1st", "U_LIB_US_Rangers_Corp", "U_LIB_US_Rangers_Sergant", "U_LIB_US_Rangers_Eng", "U_LIB_US_Rangers_Med", "U_LIB_NKVD_Efreitor",
 			"U_LIB_NKVD_Strelok", "U_LIB_NKVD_Starshina", "U_LIB_NKVD_Sergeant", "U_LIB_NKVD_Leutenant", "U_LIB_NKVD_StLeutenant", "U_LIB_SOV_Strelok_w", "U_LIB_SOV_Strelok_2_w",
 			"U_LIB_SOV_Sniper_w", "U_LIB_US_Private_w", "U_LIB_US_AB_Uniform_M42_W", "U_LIB_US_AB_Uniform_M43_W",
-			
+
 			"V_LIB_SOV_IShBrVestMG", "V_LIB_SOV_IShBrVestPPShMag", "V_LIB_SOV_IShBrVestPPShDisc", "V_LIB_SOV_RA_OfficerVest", "V_LIB_SOV_RA_SniperVest", "V_LIB_SOV_RA_Belt",
 			"V_LIB_SOV_RA_TankOfficerSet", "V_LIB_SOV_RA_PPShBelt", "V_LIB_SOV_RA_MosinBelt", "V_LIB_SOV_RA_SVTBelt", "V_LIB_SOV_RA_MGBelt", "V_LIB_SOV_RAZV_SVTBelt",
 			"V_LIB_SOV_RAZV_OfficerVest", "V_LIB_SOV_RAZV_MGBelt", "V_LIB_SOV_RAZV_PPShBelt", "V_LIB_US_AB_Vest_Bar", "V_LIB_US_AB_Vest_M1919", "V_LIB_US_AB_Vest_Asst_MG",
@@ -387,7 +387,7 @@ private _all_weapons_items_opfor = [
 			"V_LIB_US_Vest_Carbine_nco", "V_LIB_US_Vest_Carbine_nco_Radio", "V_LIB_US_Vest_Garand", "V_LIB_US_Vest_Grenadier", "V_LIB_US_Vest_Medic", "V_LIB_US_Vest_Medic2",
 			"V_LIB_US_Vest_Thompson", "V_LIB_US_Vest_Thompson_nco", "V_LIB_US_Vest_Thompson_nco_Radio", "V_LIB_US_Vest_45", "V_LIB_US_Assault_Vest", "V_LIB_US_Assault_Vest_Light",
 			"V_LIB_US_Assault_Vest_Thompson", "V_LIB_US_Assault_Vest_dday",
-			
+
 			"H_LIB_ST_Helmet", "H_LIB_ST_Helmet2", "H_LIB_WP_Helmet", "H_LIB_WP_Helmet_camo", "H_LIB_WP_Helmet_med", "H_LIB_WP_Cap", "H_LIB_SOV_RA_PrivateCap",
 			"H_LIB_SOV_RA_OfficerCap", "H_LIB_SOV_RA_Helmet", "H_LIB_SOV_TankHelmet", "H_LIB_SOV_PilotHelmet", "H_LIB_SOV_Ushanka", "H_LIB_SOV_Ushanka2", "H_LIB_US_AB_Helmet",
 			"H_LIB_US_AB_Helmet_2", "H_LIB_US_AB_Helmet_3", "H_LIB_US_AB_Helmet_4", "H_LIB_US_AB_Helmet_5", "H_LIB_US_AB_Helmet_Jump_1", "H_LIB_US_AB_Helmet_Jump_2",

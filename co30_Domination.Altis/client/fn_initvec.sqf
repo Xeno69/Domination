@@ -463,7 +463,7 @@ if (_d_vec < 4000) exitWith {
 		missionNamespace setVariable [_car # 0, _vec];
 		__chopname;
 		__chopmarker;
-#ifndef __TT__		
+#ifndef __TT__
 		d_marker_vecs pushBack _vec;
 		_vec setVariable ["d_ism_vec", true];
 #else

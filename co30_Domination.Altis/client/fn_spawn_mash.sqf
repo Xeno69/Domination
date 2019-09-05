@@ -86,7 +86,7 @@ _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MI
 
 		d_mashes = d_mashes - [player getVariable "d_medic_tent"];
 		publicVariable "d_mashes";
-		
+
 		private _medtent_content = (player getVariable "d_medic_tent") getVariable ["d_objcont", []];
 		if !(_medtent_content isEqualTo []) then {
 			{deleteVehicle _x} forEach _medtent_content;

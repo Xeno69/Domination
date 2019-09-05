@@ -74,7 +74,7 @@ while {d_player_in_vec} do {
 					_hudoff = false;
 					private _liftobj = objNull;
 					private _check_cond = false;
-					
+
 					if (_vec getVariable ["d_vec_attached", false]) then {
 						// no need to check for nearest!
 						_liftobj = _vec getVariable ["d_Attached_Vec", objNull];
@@ -82,7 +82,7 @@ while {d_player_in_vec} do {
 					} else {
 						private _nobjects = nearestObjects [_vec, ["LandVehicle", "Air"], _search_height];
 						__TRACE_2("","_vec","_nobjects")
-						
+
 						if !(_nobjects isEqualTo []) then {
 							_nobjects params ["_dummy"];
 							if (isNil "_vec") then {_vec = vehicle player};
@@ -92,14 +92,14 @@ while {d_player_in_vec} do {
 								_liftobj = _dummy;
 							};
 						};
-						
+
 						if (!isNull _liftobj) then {
 							if (_liftobj isKindOf "CAManBase") then {
 								_liftobj = objNull;
 							} else {
 								private _marp = _liftobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair];
 								__TRACE_2("","_vec","_marp")
-								
+
 								_check_cond = if (_chopttype == 1) then {
 									private _isvalid = _liftobj getVariable "d_canbewlifted";
 									if (isNil "_isvalid") then {
@@ -118,10 +118,10 @@ while {d_player_in_vec} do {
 							};
 						};
 					};
-					
+
 					sleep 0.001;
 					__TRACE_3("","_vec","_check_cond","_liftobj")
-					
+
 					if (_check_cond) then {
 						if (!_chophud_shown) then {
 							"d_chopper_lift_hud" cutRsc ["d_chopper_lift_hud", "PLAIN"];
@@ -129,10 +129,10 @@ while {d_player_in_vec} do {
 							_chdispx = uiNamespace getVariable "d_chopper_lift_hud";
 							__CTRL2(64440) ctrlSetText ([localize "STR_DOM_MISSIONSTRING_197", localize "STR_DOM_MISSIONSTRING_196"] select (_chopttype == 1));
 						};
-						
+
 						if (_prev_liftobj != _liftobj) then {
 							private _tofn = typeOf _liftobj;
-							
+
 							private _type_name = [_tofn, "CfgVehicles"] call d_fnc_GetDisplayName;
 							__CTRL2(64438) ctrlSetText ([format [_liftstr, _type_name], format [_typestr, _type_name]] select !(_vec getVariable ["d_vec_attached", false]));
 
@@ -160,14 +160,14 @@ while {d_player_in_vec} do {
 							} else {
 								_cam_loc = [_cam_loc # 0, _cam_loc # 1, (_cam_loc # 2) - 0.2];
 							};
-							
+
 							"d_RscPIP" cutRsc ["d_RscPIP", "PLAIN", 0, false];
 							private _ctrlpip = (uiNamespace getVariable "d_RscPIP") displayCtrl 2300;
 							_ctrlpip ctrlSetPositionY (((ctrlPosition _ctrlpip) # 1) + 0.3);
 							_ctrlpip ctrlSettext format ["#(argb,256,256,1)r2t(%1,1.0)", "d_choprendtar0"];
 							_ctrlpip ctrlSettextcolor [1,1,1,1];
 							_ctrlpip ctrlCommit 0;
-							
+
 							_sling_cam = "camera" camCreate (getPosVisual _vec);
 							_sling_cam attachTo [_vec, _cam_loc];
 							_sling_cam camPreparetarget _liftobj;
@@ -178,7 +178,7 @@ while {d_player_in_vec} do {
 							_pip_cam_on = true;
 							_prev_liftobj = _liftobj;
 						};
-						
+
 						if !(_vec getVariable ["d_vec_attached", false]) then {
 							__CTRL2(64441) ctrlSetText format [_distvstr, round (_vec distance _liftobj)];
 							if (_vec inArea [_liftobj, 10, 10, 0, false] && {getPosVisual _vec # 2 < _lift_height}) then {
@@ -211,7 +211,7 @@ while {d_player_in_vec} do {
 						};
 						_chdispx2 = uiNamespace getVariable "d_chopper_lift_hud2";
 						__CTRL3(61422) ctrlSetText ([localize "STR_DOM_MISSIONSTRING_197", localize "STR_DOM_MISSIONSTRING_196"] select _chopttype);
-						
+
 
 						if (_pip_cam_on) then {
 							"d_RscPIP" cutText ["", "plain"];

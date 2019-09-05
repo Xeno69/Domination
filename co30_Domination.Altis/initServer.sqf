@@ -84,10 +84,10 @@ if (d_database_found) then {
 			_x set [1, (_x # 1) call d_fnc_convtime];
 		} forEach _dbresult;
 		missionNamespace setVariable ["d_top10_db_players", _dbresult, true];
-		
+
 		0 spawn d_fnc_dbtoppasync;
 	};
-	
+
 	0 spawn d_fnc_getplayerscores;
 };
 

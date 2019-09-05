@@ -24,7 +24,7 @@ while {!isNull objectParent player && {alive player && {time < _endtime && {!(pl
 	hintSilent _struct_text;
 };
 if (_vtype == "MHQ" && {alive player && {!isNull objectParent player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}) then {
-	hintSilent composeText[parseText("<t color='#f0a7ff31' size='1.5'>" + (localize "STR_DOM_MISSIONSTRING_659") + "</t>"), lineBreak,lineBreak,"Dont' forget to deploy the MHQ"];
+	hintSilent composeText[parseText("<t color='#f0a7ff31' size='1.5'>" + (localize "STR_DOM_MISSIONSTRING_659") + "</t>"), lineBreak, lineBreak, localize "STR_DOM_MISSIONSTRING_1968"];
 } else {
 	hintSilent "";
 };

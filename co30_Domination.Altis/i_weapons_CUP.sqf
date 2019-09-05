@@ -115,7 +115,7 @@ private _all_weapons_items_blufor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
-			
+
 		],
 		// corporal optics
 		[
@@ -194,7 +194,7 @@ private _all_weapons_items_blufor = [
 			"CUP_B_USMC_Navy_Green", "CUP_B_USMC_Navy_Red", "CUP_B_USMC_Navy_Violet", "CUP_B_USMC_Navy_White", "CUP_B_USMC_Navy_Yellow", "CUP_U_B_USMC_FROG1_WMARPAT",
 			"CUP_U_B_USMC_FROG1_DMARPAT", "CUP_U_B_USMC_FROG2_WMARPAT", "CUP_U_B_USMC_FROG2_DMARPAT", "CUP_U_B_USMC_FROG3_WMARPAT", "CUP_U_B_USMC_FROG3_DMARPAT",
 			"CUP_U_B_USMC_FROG4_WMARPAT", "CUP_U_B_USMC_FROG4_DMARPAT",
-			
+
 			"CUP_V_B_IOTV_SL", "CUP_V_B_IOTV_Medic", "CUP_V_B_IOTV_Rifleman", "CUP_V_B_IOTV_AT", "CUP_V_B_IOTV_MG", "CUP_V_B_IOTV_saw", "CUP_V_B_IOTV_tl",
 			"CUP_V_B_IOTV_gl", "CUP_V_B_USArmy_PilotVest", "CUP_V_B_Interceptor_Rifleman", "CUP_V_B_MTV", "CUP_V_B_MTV_Patrol", "CUP_V_B_MTV_Pouches", "CUP_V_B_MTV_noCB",
 			"CUP_V_B_MTV_Marksman", "CUP_V_B_MTV_PistolBlack", "CUP_V_B_MTV_LegPouch", "CUP_V_B_MTV_MG", "CUP_V_B_MTV_Mine", "CUP_V_B_MTV_TL", "CUP_V_B_PilotVest",
@@ -203,7 +203,7 @@ private _all_weapons_items_blufor = [
 			"CUP_V_B_Eagle_SPC_MG", "CUP_V_B_Eagle_SPC_AR", "CUP_V_B_Eagle_SPC_AT", "CUP_V_B_Eagle_SPC_Corpsman", "CUP_V_B_Eagle_SPC_Crew", "CUP_V_B_Eagle_SPC_DMR",
 			"CUP_V_B_Eagle_SPC_Officer", "CUP_V_B_Eagle_SPC_RTO", "CUP_V_B_Eagle_SPC_SL", "CUP_V_B_Eagle_SPC_Scout", "CUP_V_B_Eagle_SPC_TL", "CUP_V_C_Police_Holster",
 			"CUP_V_B_Delta_1", "CUP_V_B_Delta_2",
-			
+
 			"CUP_H_USArmy_Boonie", "CUP_H_USA_Cap", "CUP_H_USArmy_HelmetMICH", "CUP_H_USArmy_HelmetMICH_ESS", "CUP_H_USArmy_HelmetMICH_earpro", "CUP_H_USArmy_HelmetMICH_earpro_ess",
 			"CUP_H_USArmy_HelmetMICH_headset", "CUP_H_USArmy_HelmetMICH_headset_ess", "CUP_H_USArmy_HelmetMICH_wdl", "CUP_H_USArmy_Helmet_ECH1_Sand", "CUP_H_USArmy_Helmet_ECH2_Sand",
 			"CUP_H_USArmy_Helmet_ECH1_Black", "CUP_H_USArmy_Helmet_ECH2_Black", "CUP_H_USArmy_Helmet_ECH1_Green", "CUP_H_USArmy_Helmet_ECH2_GREEN", "CUP_H_USArmy_Helmet_Pro",
@@ -352,7 +352,7 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
-			
+
 		],
 		// corporal optics
 		[
@@ -431,12 +431,12 @@ private _all_weapons_items_opfor = [
 			"CUP_U_O_SLA_Overalls_Tank", "CUP_U_O_SLA_Officer_Suit", "CUP_U_O_TK_Officer", "CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green",
 			"CUP_U_O_CHDKZ_Bardak", "CUP_U_O_CHDKZ_Commander", "CUP_U_O_CHDKZ_Lopotev", "CUP_U_O_CHDKZ_Kam_01", "CUP_U_O_CHDKZ_Kam_02", "CUP_U_O_CHDKZ_Kam_03",
 			"CUP_U_O_CHDKZ_Kam_04", "CUP_U_O_CHDKZ_Kam_05", "CUP_U_O_CHDKZ_Kam_06", "CUP_U_O_CHDKZ_Kam_07", "CUP_U_O_CHDKZ_Kam_08",
-			
+
 			"CUP_V_RUS_6B3_1", "CUP_V_RUS_6B3_2", "CUP_V_RUS_6B3_3", "CUP_V_RUS_6B3_4", "CUP_V_RUS_Smersh_1", "CUP_V_RUS_Smersh_2", "CUP_V_O_SLA_Carrier_Belt",
 			"CUP_V_O_SLA_Carrier_Belt02", "CUP_V_O_SLA_Carrier_Belt03", "CUP_V_O_SLA_Flak_Vest01", "CUP_V_O_SLA_Flak_Vest02", "CUP_V_O_SLA_Flak_Vest03",
 			"CUP_V_O_TK_CrewBelt", "CUP_V_O_TK_OfficerBelt", "CUP_V_O_TK_OfficerBelt2", "CUP_V_O_TK_Vest_1", "CUP_V_O_TK_Vest_2", "CUP_V_C_Police_Holster",
 			"CUP_V_O_Ins_Carrier_Rig", "CUP_V_O_Ins_Carrier_Rig_MG", "CUP_V_O_Ins_Carrier_Rig_Com", "CUP_V_O_Ins_Carrier_Rig_Light",
-			
+
 			"CUP_H_RUS_6B27_NVG", "CUP_H_RUS_6B27_NVG_olive", "CUP_H_RUS_6B27", "CUP_H_RUS_6B27_olive", "CUP_H_RUS_TSH_4_Brown", "CUP_H_RUS_ZSH_Shield_Up",
 			"CUP_H_RUS_ZSH_Shield_Down", "CUP_H_RUS_Bandana_HS", "CUP_H_RUS_Beret_VDV", "CUP_H_RUS_Beret_Spetsnaz", "CUP_H_RUS_ZSH_1_Goggles", "CUP_H_RUS_ZSH_1",
 			"CUP_H_SLA_TankerHelmet", "CUP_H_SLA_Helmet", "CUP_H_SLA_OfficerCap", "CUP_H_SLA_SLCap", "CUP_H_SLA_Boonie", "CUP_H_SLA_Beret", "CUP_H_SLA_BeanieGreen",

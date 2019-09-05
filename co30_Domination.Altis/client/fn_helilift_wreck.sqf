@@ -17,7 +17,7 @@ sleep 10.123;
 while {alive _chopper && {alive player && {player in _chopper}}} do {
 	if (currentPilot _chopper == player) then {
 		private _pos = getPosVisual _chopper;
-		
+
 		if (!(_chopper getVariable ["d_vec_attached", false]) && {_pos # 2 > 2.5 && {_pos # 2 < 50}}) then {
 			_liftobj = objNull;
 			private _nobjects = nearestObjects [_chopper, ["LandVehicle","Air"], 70];
@@ -64,13 +64,13 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				_id = -1212;
 				_menu_lift_shown = false;
 			};
-			
+
 			sleep 0.1;
-			
+
 			if (isNull _liftobj) then {
 				_liftobj = _chopper getVariable ["d_Attached_Vec", objNull];
 			};
-			
+
 			if (isNull _liftobj) then {
 				if (!isNil {_chopper getVariable "d_vec_attached"}) then {
 					_chopper setVariable ["d_vec_attached", nil, true];
@@ -100,39 +100,39 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					if (d_with_ranked || {d_database_found}) then {
 						_liftobj setVariable ["d_lift_pilot", player, true];
 					};
-					
+
 					while {alive _chopper && {player in _chopper && {!isNull _liftobj && {alive player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false])}}}}}} do {
 						_chopper setFuel ((fuel _chopper) - _fuelloss);
 						sleep 0.312;
 					};
 					__TRACE("Out of while loop")
-					
+
 					if (alive _chopper && {alive player && {!isNull _liftobj && {player in _chopper && {currentPilot _chopper != player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false])}}}}}}) exitWith {
 						if (_release_id != -1212) then {_chopper removeAction _release_id};
 					};
-					
+
 					if (!isNull attachedTo _liftobj) then {
 						detach _liftobj;
 					};
-					
+
 					_chopper setVariable ["d_attachedto_v", nil, true];
 
 					if (!isNull _liftobj) then {
 						detach _liftobj;
 						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
 					};
-					
+
 					_chopper setVariable ["d_vec_attached", nil, true];
 					_chopper setVariable ["d_vec_released", nil, true];
-					
+
 					_chopper setVariable ["d_Attached_Vec", nil, true];
-					
+
 					if (alive _chopper) then {
 						if (alive player) then {_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 						_chopper removeAction _release_id;
 						_release_id = -1212;
 					};
-					
+
 					if (!isNull _liftobj) then {
 						if (!(_liftobj isKindOf "StaticWeapon") && {(getPosVisual _liftobj) # 2 < 200}) then {
 							while {true} do {
@@ -142,12 +142,12 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						} else {
 							private _npos = getPosVisual _liftobj;
 							_liftobj setPos [_npos # 0, _npos # 1, 0];
-						};					
-					
+						};
+
 						detach _liftobj;
 						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
 					};
-					
+
 					sleep 1.012;
 				};
 			};

@@ -33,7 +33,7 @@
 #define ROOF_CHECK 4
 #define ROOF_EDGE 2
 
-private ["_Zen_ExtendPosition", "_buildingsArray", "_buildingPosArray", "_buildingPositions", "_posArray", "_unitIndex", "_j", "_building", "_posArray", "_randomIndex", "_housePos", "_startAngle", "_i", "_checkPos", "_hitCount", "_isRoof", "_edge", "_k", "_unUsedUnits", "_array", "_Zen_InsertionSort", "_Zen_ArrayShuffle"];
+private ["_Zen_ExtendPosition", "_buildingsArray", "_buildingPosArray", "_buildingPositions", "_posArray", "_unitIndex", "_j", "_building", "_posArray", "_randomIndex", "_housePos", "_startAngle", "_i", "_checkPos", "_hitCount", "_isRoof", "_edge", "_k", "_array", "_Zen_InsertionSort", "_Zen_ArrayShuffle"];
 
 params [
 	["_center", [0,0,0], [[]], 3],
@@ -65,11 +65,11 @@ _Zen_ExtendPosition = {
 };
 
 _Zen_InsertionSort = {
-	private ["_i", "_j", "_element", "_value"];
-
 	params ["_array", "_comparator"];
 
 	if (_array isEqualTo []) exitWith {};
+	
+	private ["_element", "_value"];
 
 	for "_i" from 1 to (count _array - 1) do {
 		scopeName "forI";
@@ -88,10 +88,9 @@ _Zen_InsertionSort = {
 };
 
 _Zen_ArrayShuffle = {
-	private ["_j", "_i", "_temp"];
 	params ["_array"];
-
 	if (count _array > 1) then {
+		private ["_temp"];
 		for "_i" from 0 to (count _array - 1) do {
 			_j = _i + floor random ((count _array) - _i);
 			_temp = _array select _i;
@@ -149,7 +148,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		_buildingPosArray deleteAt (_j % (count _buildingPosArray));
 	};
 
-	while {(count _posArray) > 0} do {
+	while {count _posArray > 0} do {
 		scopeName "while";
 		__TRACE_1("","_posArray")
 		if (_unitIndex >= count _units) exitWith {};
@@ -192,32 +191,31 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 							};
 
 							if (!_isRoof || {_edge}) then {
-								(_units select _unitIndex) doWatch ([_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
+								private _uuidx = _units select _unitIndex;
+								_uuidx doWatch ([_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
 
 								if (_doMove) then {
-									(_units select _unitIndex) doMove ASLToATL ([_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT]);
+									_uuidx doMove ASLToATL ([_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT]);
 								} else {
-									(_units select _unitIndex) setPosASL [_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT];
-									(_units select _unitIndex) setDir _i;
+									_uuidx setPosASL [_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT];
+									_uuidx setDir _i;
 
-									doStop (_units select _unitIndex);
-
+									doStop _uuidx;
 								};
 
 								//occupy mode - no special behavior
-								if (_unitMovementMode == 0) then {
+								//if (_unitMovementMode == 0) then {
 									//do nothing
-								};
+								//};
 
 								//ambush mode - static until firedNear within 69m restores unit ability to move and fire
 								if (_unitMovementMode == 1) then {
-
 									if !(_doMove) then {
-										(_units select _unitIndex) disableAI "TARGET";
-										(_units select _unitIndex) forceSpeed 0;
+										_uuidx disableAI "TARGET";
+										_uuidx forceSpeed 0;
 									};
 
-									(_units select _unitIndex) setVariable ["zen_fn_idx2", (_units select _unitIndex) addEventHandler ["FiredNear", {
+									_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
 										scriptName "spawn_zoh_firednear1ambush";
 										(_this select 0) enableAI "TARGET";
 										(_this select 0) enableAI "AUTOTARGET";
@@ -231,39 +229,37 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 									//if defined, apply general skill modifier
 									if (d_enemy_garrison_troop_sniper_general_skill > 0) then {
-										(_units select _unitIndex) setSkill d_enemy_garrison_troop_sniper_general_skill;
+										_uuidx setSkill d_enemy_garrison_troop_sniper_general_skill;
 									};
 
 									//if defined, apply aimingShake skill modifier
 									if (d_enemy_garrison_troop_sniper_aimingShake_skill > 0) then {
-										(_units select _unitIndex) setSkill ["aimingShake", d_enemy_garrison_troop_sniper_aimingShake_skill];
+										_uuidx setSkill ["aimingShake", d_enemy_garrison_troop_sniper_aimingShake_skill];
 									};
 
 									if (d_enemy_garrison_troop_sniper_awareness == 1) then {
 										//highly aware snipers
-										[(_units select _unitIndex), d_side_player] spawn d_fnc_hallyg_dlegion_Snipe;
+										[_uuidx, d_side_player] spawn d_fnc_hallyg_dlegion_Snipe;
 									} else {
-
 										//common snipers with up/down script triggered by firedNear within 69m
 										if (_isRoof) then {
-											(_units select _unitIndex) setUnitPos "MIDDLE";
-											(_units select _unitIndex) setVariable ["zen_fn_idx", (_units select _unitIndex) addEventHandler ["FiredNear", {
+											_uuidx setUnitPos "MIDDLE";
+											_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
 												scriptName "spawn_zoh_firednear1";
 												[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 											}]];
 										} else {
-											(_units select _unitIndex) setUnitPos "UP";
-											(_units select _unitIndex) setVariable ["zen_fn_idx",(_units select _unitIndex) addEventHandler ["FiredNear", {
+											_uuidx setUnitPos "UP";
+											_uuidx setVariable ["zen_fn_idx",_uuidx addEventHandler ["FiredNear", {
 												scriptName "spawn_zoh_firednear2";
 												[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 											}]];
 										};
 
 										if !(_doMove) then {
-											(_units select _unitIndex) disableAI "TARGET";
-											(_units select _unitIndex) forceSpeed 0;
+											_uuidx disableAI "TARGET";
+											_uuidx forceSpeed 0;
 										};
-
 									};
 								};
 
@@ -307,13 +303,7 @@ if (_doMove) then {
 	};
 };
 
-_unUsedUnits = [];
-
-for "_i" from _unitIndex to (count _units - 1) do {
-	_unUsedUnits pushBack (_units select _i);
-};
-
-_unUsedUnits
+(_units select [_unitIndex, (count _units - 1) - _unitIndex])
 
 // Changelog
 // 7/21/15

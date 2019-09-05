@@ -66,9 +66,9 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 				_id = -1212;
 				_menu_trans_shown = false;
 			};
-			
+
 			sleep 0.1;
-			
+
 			if (isNull _transobj) then {
 				if (!isNil {_vec getVariable "d_vec_attached"}) then {
 					_vec setVariable ["d_vec_attached", nil, true];
@@ -81,7 +81,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					_release_id = _vec addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000];
 					_vec vehicleChat (localize "STR_DOM_MISSIONSTRING_1743");
 					_vec setVariable ["d_Attached_Vec", _transobj];
-					
+
 					private _fuelloss = switch (true) do {
 						case (_transobj isKindOf "Wheeled_APC" || {_transobj isKindOf "Wheeled_APC_F"}): {0.0003};
 						case (_transobj isKindOf "Car" || {_transobj isKindOf "Car_F"}): {0.0002};
@@ -89,7 +89,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 						case (_transobj isKindOf "TANK"): {0.0006};
 						default {0.0001};
 					};
-					
+
 					_transobj engineOn false;
 					if (d_ifa3lite) then {
 						_transobj attachTo [_vec, [0, -15, 1]];
@@ -100,39 +100,39 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					if (d_with_ranked || {d_database_found}) then {
 						_transobj setVariable ["d_lift_pilot", player, true];
 					};
-					
+
 					while {alive _vec && {player in _vec && {!isNull _transobj && {alive player && {!isNull attachedTo _transobj && {!(_vec getVariable ["d_vec_released", false])}}}}}} do {
 						_vec setFuel ((fuel _vec) - _fuelloss);
 						sleep 0.312;
 					};
-					
+
 					if (!isNull attachedTo _transobj) then {
 						detach _transobj;
 					};
-					
+
 					_vec setVariable ["d_attachedto_v", nil, true];
-										
+
 					if (!isNull _transobj) then {
 						detach _transobj;
 						[_transobj, [0,0,0]] remoteExecCall ["setVelocity", _transobj];
 						_transobj setPos (_vec modelToWorldVisual [0, -2, 0]);
 					};
-					
+
 					_vec setVariable ["d_vec_attached", nil, true];
 					_vec setVariable ["d_vec_released", nil, true];
 					_vec setVariable ["d_Attached_Vec", nil, true];
-					
+
 					if (alive _vec) then {
 						_vec removeAction _release_id;
 						_release_id = -1212;
 						if (alive player) then {_vec vehicleChat (localize "STR_DOM_MISSIONSTRING_253")};
 					};
-					
+
 					private _npos = getPosATLVisual _transobj;
 					_transobj setPos [_npos # 0, _npos # 1, 0];
-					
+
 					//[_transobj, [0,0,0]] remoteExecCall ["setVelocity", _transobj];
-					
+
 					sleep 1.012;
 				};
 			};

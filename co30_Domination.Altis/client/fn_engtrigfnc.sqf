@@ -7,9 +7,9 @@ __TRACE("fn_engtrigfnc")
 
 if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(player call d_fnc_hastoolkit) && {call d_fnc_sfunc}}}) then {
 	player setVariable ["d_has_sfunc_aid", true];
-	
+
 	__TRACE("has sfunc")
-	
+
 	if (!d_eng_can_repfuel && {!(player distance2D D_TR7 < 21 || {player distance2D D_TR8 < 21})}) exitWith {
 		hintSilent (localize "STR_DOM_MISSIONSTRING_324");
 	};
@@ -23,7 +23,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 	};
 	__TRACE_1("2","d_last_base_repair")
 	if (_exitit) exitWith {};
-	
+
 #ifndef __TT__
 	if ((d_with_ranked || {d_database_found}) && {player inArea d_base_array && {d_last_base_repair != -1}}) exitWith {
 #else
@@ -31,9 +31,9 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 #endif
 		[playerSide, "HQ"] sideChat (format [localize "STR_DOM_MISSIONSTRING_326", round (d_last_base_repair - time)]);
 	};
-	
+
 	d_orig_sfunc_obj = d_objectID2;
-	
+
 	private _rep_count = if (d_orig_sfunc_obj isKindOf "Air") then {
 		0.05
 	} else {
@@ -44,12 +44,12 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 		};
 	};
 	private _reptime = ceil (((damage d_orig_sfunc_obj) / _rep_count) max ((1 - (fuel d_orig_sfunc_obj)) / _rep_count));
-	
+
 	__TRACE_2("","_rep_count","_reptime")
-	
+
 	d_et_dam_sub = damage d_orig_sfunc_obj / 25;
 	d_et_fuel_add = (1 - fuel d_orig_sfunc_obj) / 25;
-	
+
 	d_actionID2 = [
 		/* 0 object */						d_orig_sfunc_obj,
 		/* 1 action title */				format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1510"],
@@ -114,7 +114,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 		/* 12 priority */					-1,
 		/* 13 remove on completion */		false,
 		/* 14 show unconscious */			false
-	] call bis_fnc_holdActionAdd;					
+	] call bis_fnc_holdActionAdd;
 } else {
 	if (player getVariable ["d_has_sfunc_aid", false] && {!(call d_fnc_sfunc)}) then {
 		__TRACE("sfunc removed")

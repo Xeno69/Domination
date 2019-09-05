@@ -94,7 +94,7 @@ if (count d_farp_classes > 2) then {
 		_farp_o = createVehicle [d_farp_classes # _i, _farp_o_pos, [], 0, "NONE"];
 		_farp_o setDir (random 360);
 		_farp_o setPos _farp_o_pos;
-		
+
 		_farpcont pushBack _farp_o;
 	};
 };
@@ -126,7 +126,7 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 		sleep 1;
 		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
 		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
-		
+
 		d_farps = d_farps - [_farp];
 		publicVariable "d_farps";
 
@@ -135,7 +135,7 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 			{deleteVehicle _x} forEach _farpcont;
 		};
 		deleteVehicle _farp;
-		
+
 		player setVariable ["d_farp_obj", objNull];
 
 		systemChat (localize "STR_DOM_MISSIONSTRING_316");

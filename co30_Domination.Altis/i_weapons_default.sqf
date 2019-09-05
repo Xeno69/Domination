@@ -155,7 +155,7 @@ private _all_weapons_items_blufor = [
 		[
 			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
 			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
-			
+
 		],
 		// captain muzzles
 		[
@@ -177,12 +177,12 @@ private _all_weapons_items_blufor = [
 		[
 			"U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam", "U_B_CombatUniform_mcam_tshirt", "U_B_T_Soldier_F", "U_B_T_Soldier_AR_F",
 			"U_B_T_Soldier_SL_F", "U_B_Wetsuit",
-			
+
 			"H_HelmetB", "H_HelmetB_camo", "H_HelmetB_light", "H_HelmetB_grass", "H_HelmetB_snakeskin", "H_HelmetB_desert", "H_HelmetB_black", "H_HelmetB_sand",
 			"H_HelmetB_light_grass", "H_HelmetB_light_snakeskin", "H_HelmetB_light_desert", "H_HelmetB_light_black", "H_HelmetB_light_sand", "H_HelmetB_TI_tna_F", "H_HelmetB_tna_F",
 			"H_HelmetB_Enh_tna_F","H_HelmetB_Light_tna_F", "H_HelmetSpecB", "H_HelmetSpecB_paint1", "H_HelmetSpecB_paint2", "H_HelmetSpecB_blk", "H_HelmetSpecB_snakeskin",
 			"H_HelmetSpecB_sand", "H_Cap_tan_specops_US", "H_HelmetCrew_B", "H_PilotHelmetFighter_B", "H_PilotHelmetHeli_B", "H_CrewHelmetHeli_B",
-			
+
 			"V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli",
 			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrier2_blk", "V_PlateCarrierGL_rgr", "V_PlateCarrierGL_blk", "V_PlateCarrierGL_mtp",
 			"V_PlateCarrier1_blk", "V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_Chestrig_khk", "V_Chestrig_rgr", "V_Chestrig_blk",
@@ -358,7 +358,7 @@ private _all_weapons_items_opfor = [
 		// major optics
 		[
 			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_DMS", "optic_AMS", "optic_AMS_khk", "optic_AMS_snd", "optic_DMS_ghex_F"
-			
+
 		],
 		// colonel optics
 		[
@@ -385,7 +385,7 @@ private _all_weapons_items_opfor = [
 		[
 			"muzzle_snds_B", "muzzle_snds_acp", "muzzle_snds_58_blk_F", "muzzle_snds_58_wdm_F", "muzzle_snds_58_ghex_F", "muzzle_snds_58_hex_F",
 			"muzzle_snds_65_TI_blk_F", "muzzle_snds_65_TI_hex_F"
-			
+
 		],
 		// captain muzzles
 		[
@@ -406,11 +406,11 @@ private _all_weapons_items_opfor = [
 		// private uniforms
 		[
 			"U_O_CombatUniform_ocamo", "U_O_CombatUniform_oucamo", "U_O_T_Soldier_F", "U_O_Wetsuit",
-			
+
 			"H_HelmetCrew_O", "H_PilotHelmetFighter_O", "H_PilotHelmetHeli_O", "H_CrewHelmetHeli_O", "H_HelmetO_ocamo", "H_HelmetLeaderO_ocamo", "H_MilCap_ocamo",
 			"H_HelmetO_oucamo", "H_HelmetLeaderO_oucamo", "H_HelmetSpecO_ocamo", "H_HelmetSpecO_blk", "H_HelmetSpecO_ghex_F", "H_HelmetLeaderO_ghex_F",
 			"H_HelmetO_ghex_F", "H_HelmetCrew_O_ghex_F",
-			
+
 			"V_Rangemaster_belt", "V_BandollierB_khk", "V_BandollierB_cbr", "V_BandollierB_rgr", "V_BandollierB_blk", "V_BandollierB_oli",
 			"V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr", "V_PlateCarrier2_blk", "V_PlateCarrierGL_rgr", "V_PlateCarrierGL_blk", "V_PlateCarrierGL_mtp",
 			"V_PlateCarrier1_blk", "V_PlateCarrierSpec_rgr", "V_PlateCarrierSpec_blk", "V_PlateCarrierSpec_mtp", "V_Chestrig_khk", "V_Chestrig_rgr", "V_Chestrig_blk",

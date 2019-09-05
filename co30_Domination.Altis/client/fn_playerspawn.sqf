@@ -71,7 +71,7 @@ if (_rtype == 0) then { // player died
 	if (d_WithRevive == 1) then {
 		deleteVehicle ((_this # 1) # 1);
 	};
-	
+
 #ifndef __IFA3LITE__
 	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}) then {
 		player action ["NVGoggles",player];
@@ -92,7 +92,7 @@ if (_rtype == 0) then { // player died
 	};
 	private _clattachedobj = player getVariable ["d_p_clattachedobj", objNull];
 	if (!isNull _clattachedobj) then {
-		_clattachedobj attachTo [player, [0, -0.03, 0.07], "LeftShoulder"]; 
+		_clattachedobj attachTo [player, [0, -0.03, 0.07], "LeftShoulder"];
 	};
 	if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
 		if (!d_ifa3lite && {!d_gmcwg}) then {
@@ -121,14 +121,14 @@ if (_rtype == 0) then { // player died
 	if (d_enablefatigue == 0) then {
 		player enableFatigue false;
 	};
-	
+
 	if (d_enablesway == 0) then {
 		player setCustomAimCoef 0.1;
 	};
 	player enableAttack false;
-	
+
 	d_player_in_vec = false; // just to be sure
-	
+
 	if (!isNil "d_heli_kh_ro") then {
 		(findDisplay 46) displayRemoveEventHandler ["KeyDown", d_heli_kh_ro];
 		d_heli_kh_ro = nil;
@@ -138,10 +138,10 @@ if (_rtype == 0) then { // player died
 	};
 	BIS_DeathBlur ppEffectAdjust [0.0];
 	BIS_DeathBlur ppEffectCommit 0.0;
-	
+
 	player setFatigue 0;
 	player setBleedingRemaining 0;
-	
+
 	/*0 spawn {
 		scriptName "spawn_playerspawn_vu2";
 		sleep (1 + random 1);
@@ -155,13 +155,13 @@ if (_rtype == 0) then { // player died
 			d_name_pl = _np;
 		};
 	};*/
-	
+
 	player disableConversation true;
 	if (!d_with_ai) then {
 		enableSentences false;
 	};
 	[player , "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
-	
+
 #ifndef __TT__
 	0 spawn {
 		scriptName "spawn_playerspawn_vu3";

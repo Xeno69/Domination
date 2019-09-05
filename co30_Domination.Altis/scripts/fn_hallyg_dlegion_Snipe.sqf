@@ -1,4 +1,4 @@
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_hallyg_dlegion_Snipe.sqf"
 #include "..\x_setup.sqf"
 

@@ -22,7 +22,7 @@ private _conf = configFile>>"CfgMagazines";
 	__TRACE_1("_ular","_x")
 } forEach _ular;
 #endif
- 
+
 for "_i" from 3 to 5 do {
 	private _row = _ular # _i;
 	if (_row isEqualType [] && {!(_row isEqualTo [])}) then {
@@ -46,7 +46,7 @@ private _fnc_search345 = {
 	private _doend = false;
 	private _result = _ammocount;
 	private _diff = _maxammo - _ammocount;
-	
+
 	for "_z" from 5 to _endrow step -1 do {
 		private _currow = _ular # _z;
 		if (_currow isEqualType [] && {!(_currow isEqualTo [])}) then {
@@ -78,7 +78,7 @@ private _fnc_search345 = {
 		};
 		if (_doend) exitWith {};
 	};
-	
+
 	_result
 };
 
@@ -127,13 +127,13 @@ for "_i" from 3 to 5 do {
 	private _row = _ular # _i;
 	if !(_row isEqualTo []) then {
 		private _containerar = [];
-		
+
 		private _ar = _row # 1;
 		_ar = _ar - [-1];
 		private _countar = count _ar - 1;
 		{
 			if (_x isEqualType []) then {
-				if (_forEachIndex < _countar) then {	
+				if (_forEachIndex < _countar) then {
 					if (count _x == 3) then {
 						private _mcount = 1;
 						for "_b" from (_forEachIndex + 1) to _countar do {
@@ -156,7 +156,7 @@ for "_i" from 3 to 5 do {
 				};
 			};
 		} forEach _ar;
-		
+
 		(_ular # _i) set [1, _containerar];
 	};
 };

@@ -119,6 +119,11 @@ private _make_jump = {
 	
 	if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
 		private "_paragrp";
+		private _subskill = if (diag_fps > 29) then {
+			(0.1 + (random 0.2))
+		} else {
+			(0.12 + (random 0.04))
+		};
 		if (_landheli) then {
 			if (!d_mt_radio_down) then {
 				while {alive _vec && {alive _driver_vec && {canMove _vec && {!(unitReady _driver_vec)}}}} do {
@@ -138,11 +143,6 @@ private _make_jump = {
 				__TRACE_1("","_paragrp")
 				private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 				sleep 0.1;
-				private _subskill = if (diag_fps > 29) then {
-					(0.1 + (random 0.2))
-				} else {
-					(0.12 + (random 0.04))
-				};
 				private _nightorfog = call d_fnc_nightfograin;
 				__TRACE_1("","_nightorfog")
 				private _aunits = [];
@@ -229,11 +229,6 @@ private _make_jump = {
 				__TRACE_1("","_paragrp")
 				private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 				sleep 0.1;
-				private _subskill = if (diag_fps > 29) then {
-					(0.1 + (random 0.2))
-				} else {
-					(0.12 + (random 0.04))
-				};
 				private _nightorfog = call d_fnc_nightfograin;
 				__TRACE_1("","_nightorfog")
 				private _sleeptime = [0.551, 0.15] select (speed _vec > 300);

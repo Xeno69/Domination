@@ -20,7 +20,7 @@ if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
 	if (_vtype == "MHQ" || {_vtype == "Engineer"}) then {
 		[_vec, _vtype] spawn d_fnc_vec_welcome_message;
 	};
-	
+
 	private _fuelcap = getNumber(configFile>>"CfgVehicles">>typeOf _vec>>"fuelCapacity");
 	while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
 		if (player == currentPilot _vec || {player == gunner _vec || {player == commander _vec}}) then {
@@ -36,7 +36,7 @@ if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
 						_disp = uiNamespace getVariable "d_vec_hud";
 						_ison = true;
 					};
-					
+
 					__CTRL(64432) ctrlSetText _vec_string;
 					__CTRL(64433) ctrlSetText format [_speed_str, round (speed _vec)];
 					__CTRL(64434) ctrlSetText format [_fuel_str, round (fuel _vec * _fuelcap)];
