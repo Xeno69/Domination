@@ -8,8 +8,6 @@
    Moves a chute to the landing position
 */
 
-// TODO Test and improve, read make it really working again
-
 params ["_man", "_target_pos", "_rad", "_bla", "_chuto", "_is_ammo"];
 
 __TRACE_1("","_this")
@@ -30,31 +28,36 @@ private _acc = 2;
 private _vh = 0;
 private _vz = -3;
 
+if (!isNull _man) then {_man allowDamage false};
+
 private _timeold = time;
 private _dir = getDir _chuto;
 _chuto setDir _dir;
 _chuto setPos (_man modelToWorld [0,0,2]);
-private _posc = getPos _chuto;
+private _posc = getPosASL _chuto;
 __TRACE_1("","_posc")
 
-private _cone = "RoadCone_L_F" createVehicle [0,0,0];
+//private _cone = "RoadCone_F" createVehicle [0,0,0];
+//private _cone = "Land_ClutterCutter_small_F" createVehicle [0,0,0];
+private _cone = "ArrowDesk_L_F" createVehicle [0,0,0];
+
 hideObjectGlobal _cone;
 __TRACE_1("","_cone")
 _cone setDir _dir;
-_cone setPos [_posc # 0, _posc # 1, (_posc # 2) - 2];
+_cone setPosASL [_posc # 0, _posc # 1, (_posc # 2) - 2];
 __TRACE_1("2","_posc")
 private _detached = false;
 __TRACE_1("","getPos _chuto select 2")
 __TRACE_1("","getPos _man select 2")
-while {alive _chuto && {((getPos _chuto) # 2) > 5}} do {
+while {alive _chuto && {((ASLtoATL getPosASL _chuto) # 2) > 5}} do {
 	private _deltatime = (time - _timeold) max 0.001;
 	__TRACE_1("","_deltatime")
 	_timeold = time;
 
-	_posc = getPos _cone;
+	_posc = getPosASL _cone;
 	_ang = _posc getDir _target_pos;
 	__TRACE_1("","_ang")
-	if ((_target_pos distance2D _posc) > ((getPos _cone) # 2)) then {
+	if ((_target_pos distance [_posc # 0, _posc # 1, 0]) > ((ASLtoATL getPosASL _cone) # 2)) then {
 		if ((_vz + 0.5 * _deltatime) < -1.5) then {_vz = _vz + 0.5 * _deltatime};
 	} else {
 		if ((_vz - 0.5 * _deltatime) > -3) then {_vz = _vz - 0.5 * _deltatime};
@@ -65,7 +68,6 @@ while {alive _chuto && {((getPos _chuto) # 2) > 5}} do {
 	if (_dif > 180) then {_dif = _dif - 360};
 	private _difabs = abs _dif;
 
-	//private _turn = [0, _dif / _difabs] select (_difabs > 0.01);
 	private _turn = if (_difabs > 0.01) then {_dif / _difabs} else {0};
 	__TRACE_1("","_turn")
 
@@ -77,17 +79,17 @@ while {alive _chuto && {((getPos _chuto) # 2) > 5}} do {
 		if (_vh > _hspd) then {_vh = _vh - (_acc * _deltatime)};
 	};
 
-	_hspd = [_max_spd, _max_spd / 3] select (_difabs > 45);
+	_hspd = if (_difabs > 45) then {_max_spd / 3} else {_max_spd};
 	_cone setDir _dir;
 	_cone setVelocity [(sin _dir) * _vh, (cos _dir) * _vh, _vz];
 	if (!isNull _man) then {_man setDir _dir};
 	_chuto setPos (_cone modelToWorld [0 ,0, 2]);
 	_chuto setDir _dir;
 
-	if (!_is_ammo && {!_detached && {getPos _man select 2 <= 4}}) then {
+	if (!_is_ammo && {!_detached && {(ASLtoATL getPosASL _man) select 2 <= 4}}) then {
 		detach _man;
 		_detached = true;
-		private _pos_man = getPos _man;
+		private _pos_man = ASLtoATL getPosASL _man;
 		private _helper1 = d_HeliHEmpty createVehicle [0, 0, 0];
 		_helper1 setPos [_pos_man # 0, _pos_man # 1, 0];
 		_man setPos [_pos_man # 0, _pos_man # 1, 0];
@@ -134,4 +136,8 @@ if (_is_ammo) then {
 		_man setVectorUp (vectorUp  _helper1);
 		deleteVehicle _helper1;
 	};
+};
+if (!isNull _man) then {
+	sleep 2;
+	_man allowDamage true;
 };

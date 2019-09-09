@@ -146,12 +146,14 @@ if (_may_exit) exitWith {
 	if (_drop_type isKindOf "ReammoBox_F") then {
 		_is_ammo = true;
 		_para = createVehicle [d_cargo_chute, _chopposx, [], 0, "FLY"];
+		_para allowDamage false;
 		_para setPos _chopposx;
 		_para setVelocity (velocity _chopper);
 	} else {
 		_vec = createVehicle [_drop_type, _chopposx, [], 0, "NONE"];
 		_vec setPos _chopposx;
 		_para = createVehicle [d_cargo_chute, _chopposx, [], 0, "FLY"];
+		_para allowDamage false;
 		_para setPos _chopposx;
 		_vec attachTo [_para, [0,0,0]];
 		_para setVelocity (velocity _chopper);
