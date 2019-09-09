@@ -38,6 +38,7 @@ private _posc = getPos _chuto;
 __TRACE_1("","_posc")
 
 private _cone = "RoadCone_L_F" createVehicle [0,0,0];
+hideObjectGlobal _cone;
 __TRACE_1("","_cone")
 _cone setDir _dir;
 _cone setPos [_posc # 0, _posc # 1, (_posc # 2) - 2];

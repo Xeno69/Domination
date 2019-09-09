@@ -45,7 +45,6 @@ if (local _player) then {
 
 	[_player] spawn AR_fnc_Enable_Rappelling_Animation_Client;
 
-	private _gravityAccelerationVec = [0, 0, -9.8];
 	private _velocityVec = [0, 0, 0];
 	private _lastTime = diag_tickTime;
 	private _lastPosition = AGLtoASL (_rappelDevice modelToWorldVisual [0, 0, 0]);
@@ -114,7 +113,7 @@ if (local _player) then {
 			_timeSinceLastUpdate = 0;
 		};
 
-		_velocityVec = _velocityVec vectorAdd ((_gravityAccelerationVec vectorAdd ((wind vectorAdd (_velocityVec vectorMultiply -1) vectorAdd ((vectorUp _heli) vectorMultiply -30)) vectorMultiply (9.8/53))) vectorMultiply _timeSinceLastUpdate);
+		_velocityVec = _velocityVec vectorAdd (([0, 0, -9.8] vectorAdd ((wind vectorAdd (_velocityVec vectorMultiply -1) vectorAdd ((vectorUp _heli) vectorMultiply -30)) vectorMultiply (9.8/53))) vectorMultiply _timeSinceLastUpdate);
 		private _newPosition = _lastPosition vectorAdd (_velocityVec vectorMultiply _timeSinceLastUpdate);
 
 		private _heliPos = AGLtoASL (_heli modelToWorldVisual _rappelPoint);

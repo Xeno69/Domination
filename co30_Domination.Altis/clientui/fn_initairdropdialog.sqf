@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_initairdropdialog.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 #define CTRL(A) (_disp displayCtrl A)

@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_playerspectate.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	xr_phd_invulnerable = true;
 	player setVariable ["AllowAi", false];

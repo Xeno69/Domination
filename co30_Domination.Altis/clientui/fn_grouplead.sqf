@@ -3,7 +3,6 @@
 #define THIS_FILE "fn_grouplead.sqf"
 #include "..\x_setup.sqf"
 
-
 __TRACE_1("","_this")
 disableSerialization;
 

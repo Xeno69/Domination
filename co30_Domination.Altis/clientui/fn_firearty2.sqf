@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_firearty2.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 private _idx = lbCurSel ((uiNamespace getVariable "d_MarkArtilleryDialog") displayCtrl 889);

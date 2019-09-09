@@ -87,7 +87,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 	_ctrl ctrlSetPosition _pos;
 	__TRACE_1("","_pos")
 	_ctrl ctrlCommit 0;
-	
+
 	private _turret = getArray(_pylon>>"turret");
 	__TRACE_1("","_turret")
 	if !(_turret isEqualTo []) then {
@@ -130,7 +130,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 		_ctrl setVariable ["d_turret_ctrl", _ctrl2];
 	};
 	_pylon_owners pushBack _turret;
-	
+
 	private _idx = _ctrl lbAdd ("<" + (localize "STR_empty") + ">");
 	_ctrl lbSetData [_idx, ""];
 	private _selidx = 0;

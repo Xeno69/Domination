@@ -236,5 +236,3 @@ __ctrl2(2004) ctrlSetText str(d_points_needed # 3);
 __ctrl2(2005) ctrlSetText str(d_points_needed # 4);
 __ctrl2(2006) ctrlSetText str(d_points_needed # 5);
 __ctrl2(2007) ctrlSetText str(d_points_needed # 6);
-
-//ctrlSetFocus __ctrl2(1212);

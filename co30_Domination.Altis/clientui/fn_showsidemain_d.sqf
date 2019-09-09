@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_showsidemain_d.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 params ["_which"];
 
 if (_which == 1 && {d_current_target_index == -1} || {_which == 0 && {d_all_sm_res || {d_cur_sm_idx == -1}}}) exitWith {};

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_dismissallbuttonaction.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface || {player getVariable "d_recdbusy"}) exitWith {};
+if (player getVariable "d_recdbusy") exitWith {};
 
 disableSerialization;
 

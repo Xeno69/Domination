@@ -22,17 +22,15 @@
 	2: vehicle's group (Group).
 */
 
-private ["_grp", "_side", "_newGrp"];
-params ["_posv1", "_azi", "_typev1", ["_param4", sideUnknown], ["_addkills", true], ["_nocargo", false]];
+private ["_grp", "_newGrp"];
+params ["_posv1", "_azi", "_typev1", ["_sideorgrp", sideUnknown], ["_addkills", true], ["_nocargo", false]];
 __TRACE_1("","_this")
 
-if (_param4 isEqualType sideUnknown) then {
-	_side = _param4;
-	_grp = [_side] call d_fnc_creategroup;
+if (_sideorgrp isEqualType sideUnknown) then {
+	_grp = [_sideorgrp] call d_fnc_creategroup;
 	_newGrp = true;
 } else {
-	_grp = _param4;
-	_side = side _grp;
+	_grp = _sideorgrp;
 	_newGrp = false;
 };
 

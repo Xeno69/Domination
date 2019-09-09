@@ -95,7 +95,7 @@ if (isServer) then {
 		0 spawn {
 			scriptName "spawn_ServicePoint_Building";
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
-			
+
 			if !((d_service_buildings # 0) isEqualTo []) then {
 				private _pos = (d_service_buildings # 0) # 0;
 				_pos set [2, 3.3];

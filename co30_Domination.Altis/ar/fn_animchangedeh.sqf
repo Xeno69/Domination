@@ -23,13 +23,13 @@ if (call AR_fnc_Has_Addon_Animations_Installed) then {
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_No_Actions", true];
 		};
 	} else {
-		if (_lanim isEqualTo "ar_01_aim") then {
+		if (_lanim isEqualTo "ar_01_aim") exitWith {
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_No_Actions", true];
 		};
-		if (_lanim isEqualTo "ar_01_idle") then {
+		if (_lanim isEqualTo "ar_01_idle") exitWith {
 			_player setVariable ["AR_Animation_Move", "AR_01_Idle_No_Actions", true];
 		};
-		if (_lanim isEqualTo "ar_01_aim_pistol") then {
+		if (_lanim isEqualTo "ar_01_aim_pistol") exitWith {
 			_player setVariable ["AR_Animation_Move", "AR_01_Aim_Pistol_No_Actions", true];
 		};
 		if (_lanim isEqualTo "ar_01_idle_pistol") then {

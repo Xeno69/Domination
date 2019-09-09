@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_teleportdialoginit.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 #define __CTRL(A) (_display displayCtrl A)

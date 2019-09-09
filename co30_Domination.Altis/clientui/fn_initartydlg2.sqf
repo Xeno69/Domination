@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_initartydlg2.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 d_cur_art_marker_ar = [];
@@ -15,7 +13,7 @@ d_arti_did_fire = nil;
 {
 	(_x splitString "|") params ["", "_netid_ar", "_type_ar", "_rounds_ar"];
 	__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
-	
+
 	if (_netid_ar != "") then {
 #ifdef __TT__
 		private _obj = objectFromNetId _netid_ar;

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_recruitbuttonaction.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface || {player getVariable "d_recdbusy"}) exitWith {};
+if (player getVariable "d_recdbusy") exitWith {};
 
 disableSerialization;
 
@@ -165,7 +165,7 @@ if (d_ai_alone_in_vehicle == 1) then {
 				};
 			};
 		};
-		
+
 	}];*/
 };
 

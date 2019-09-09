@@ -354,70 +354,70 @@ class Params {
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
-	
+
 	class d_with_targetselect {
 		title = "$STR_DOM_MISSIONSTRING_1953";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_with_targetselect_count {
 		title = "$STR_DOM_MISSIONSTRING_1953A";
 		values[] = {4,8,12,-1};
 		default = 4;
 		texts[] = {"4 targets","8 targets","12 targets","Entire map"};
 	};
-	
+
 	class d_MissionType {
 		title = "$STR_DOM_MISSIONSTRING_1052";
 		values[] = {0,1,2};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
 	};
-	
+
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_bonus_vec_type {
 		title = "$STR_DOM_MISSIONSTRING_1736";
 		values[] = {0,1,2,3};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1737","$STR_DOM_MISSIONSTRING_1738","$STR_DOM_MISSIONSTRING_1739"};
 	};
-	
+
 	class d_ao_check_for_ai {
 		title = "$STR_DOM_MISSIONSTRING_1717";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_mt_respawngroups {
 		title = "$STR_DOM_MISSIONSTRING_1741";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_weather {
 		title = "$STR_DOM_MISSIONSTRING_1164";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_enable_fog {
 		title = "$STR_DOM_MISSIONSTRING_1164a";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_WithWinterWeather {
 		title = "$STR_DOM_MISSIONSTRING_1731";
 		values[] = {0,1};
@@ -428,7 +428,7 @@ class Params {
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_withsandstorm {
 		title = "$STR_DOM_MISSIONSTRING_1732";
 		values[] = {0,1};
@@ -470,84 +470,84 @@ class Params {
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_MaxNumAmmoboxes {
 		title = "$STR_DOM_MISSIONSTRING_1169";
 		values[] = {10,20,30};
 		default = 10;
 		texts[] = {"10","20","30"};
 	};
-	
+
 	class d_max_truck_cargo {
 		title = "$STR_DOM_MISSIONSTRING_1195";
 		values[] = {1,3,6,9,12,16};
 		default = 6;
 		texts[] = {"1","3","6","9","12","16"};
 	};
-	
+
 	class d_no_faks {
 		title = "$STR_DOM_MISSIONSTRING_1457";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_timemultiplier {
 		title = "$STR_DOM_MISSIONSTRING_1533";
 		values[] = {1,6,12,30,45,60,90,120};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","6","12","30","45","60","90","120"};
 	};
-	
+
 	class d_with_dynsim {
 		title = "$STR_DOM_MISSIONSTRING_1735";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_with_bis_dynamicgroups {
 		title = "$STR_DOM_MISSIONSTRING_1759";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_arsenal_mod {
 		title = "$STR_DOM_MISSIONSTRING_1829";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_no_mortar_ar {
 		title = "$STR_DOM_MISSIONSTRING_1831";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_with_base_sabotage {
 		title = "$STR_DOM_MISSIONSTRING_1837";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_house_patrol {
 		title = "$STR_DOM_MISSIONSTRING_1868";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_pylon_lodout {
 		title = "$STR_DOM_MISSIONSTRING_1938";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_without_sm_bonus {
 		title = "$STR_DOM_MISSIONSTRING_1951";
 		values[] = {0,1};
@@ -558,154 +558,154 @@ class Params {
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_with_minefield {
 		title = "$STR_DOM_MISSIONSTRING_1960";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_InitialViewDistance {
 		title = "$STR_DOM_MISSIONSTRING_1025";
 		values[] = {1000,1600,2000,2500,3000,3500,4000,4500,5000};
 		default = 1600;
 		texts[] = {"1000 m","1600 m","2000 m","2500 m","3000 m","3500 m","4000 m","4500 m","5000 m"};
 	};
-	
+
 	class d_MaxViewDistance {
 		title = "$STR_DOM_MISSIONSTRING_1035";
 		values[] = {2000,3000,4000,5000,6000,7000,8000,9000,10000};
 		default = 5000;
 		texts[] = {"2000 m","3000 m","4000 m","5000 m","6000 m","7000 m","8000 m","9000 m","10000 m"};
 	};
-	
+
 	class d_ViewdistanceChange {
 		title = "$STR_DOM_MISSIONSTRING_1041";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_params_dl_3 {
 		title = "$STR_DOM_MISSIONSTRING_1571";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_GrasAtStart {
 		title = "$STR_DOM_MISSIONSTRING_1174";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_Terraindetail {
 		title = "$STR_DOM_MISSIONSTRING_1175";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_params_dl_5 {
 		title = "$STR_DOM_MISSIONSTRING_1572";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_WithRevive {
 		title = "$STR_DOM_MISSIONSTRING_1005";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_WithReviveSpectating {
 		title = "$STR_DOM_MISSIONSTRING_1567";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_only_medics_canrevive {
 		title = "$STR_DOM_MISSIONSTRING_1008";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class xr_max_lives {
 		title = "$STR_DOM_MISSIONSTRING_1009";
 		values[] = {1,5,10,20,30,40,50,-1};
 		default = 30;
 		texts[] = {"1","5","10","20","30","40","50","$STR_DOM_MISSIONSTRING_1010"};
 	};
-	
+
 	class xr_lifetime {
 		title = "$STR_DOM_MISSIONSTRING_1011";
 		values[] = {60,120,180,240,300,600,1200};
 		default = 300;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1012","$STR_DOM_MISSIONSTRING_1013","$STR_DOM_MISSIONSTRING_1014","$STR_DOM_MISSIONSTRING_1015","$STR_DOM_MISSIONSTRING_1016","$STR_DOM_MISSIONSTRING_1017","$STR_DOM_MISSIONSTRING_1018"};
 	};
-	
+
 	class xr_respawn_available_after {
 		title = "$STR_DOM_MISSIONSTRING_1019";
 		values[] = {5,30,60,90,120,180,240,300,600};
 		default = 5;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1020a","$STR_DOM_MISSIONSTRING_1020","$STR_DOM_MISSIONSTRING_1012","$STR_DOM_MISSIONSTRING_1021","$STR_DOM_MISSIONSTRING_1013","$STR_DOM_MISSIONSTRING_1014","$STR_DOM_MISSIONSTRING_1015","$STR_DOM_MISSIONSTRING_1016","$STR_DOM_MISSIONSTRING_1017"};
 	};
-	
+
 	class d_params_dl_7 {
 		title = "$STR_DOM_MISSIONSTRING_1573";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_show_playernames {
 		title = "$STR_DOM_MISSIONSTRING_1159";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1446","$STR_DOM_MISSIONSTRING_1447"};
 	};
-	
+
 	class d_playernames_state {
 		title = "$STR_DOM_MISSIONSTRING_1160";
 		values[] = {0,1,2};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1058","$STR_DOM_MISSIONSTRING_1161", "$STR_DOM_MISSIONSTRING_1163"};
 	};
-	
+
 	class d_no_3rd_person {
 		title = "$STR_DOM_MISSIONSTRING_1209";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_show_player_marker {
 		title = "$STR_DOM_MISSIONSTRING_1177";
 		values[] = {0,1,2,3};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1058","$STR_DOM_MISSIONSTRING_1178","$STR_DOM_MISSIONSTRING_1179","$STR_DOM_MISSIONSTRING_1163"};
 	};
-	
+
 	class d_params_dl_8 {
 		title = "$STR_DOM_MISSIONSTRING_1574";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_AutoKickTime {
 		title = "$STR_DOM_MISSIONSTRING_1107";
 		values[] = {0,60, 300, 600, 1800,3600};
@@ -726,14 +726,14 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_without_vec_nvg {
 		title = "$STR_DOM_MISSIONSTRING_1101a";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_vec_at_farp {
 		title = "$STR_DOM_MISSIONSTRING_1832";
 		values[] = {0,1};
@@ -747,56 +747,56 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_enablefatigue {
 		title = "$STR_DOM_MISSIONSTRING_1568";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_enablesway {
 		title = "$STR_DOM_MISSIONSTRING_1583";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_mhqvec_create_cooldown {
 		title = "$STR_DOM_MISSIONSTRING_1824";
 		values[] = {0, 60, 120, 300, 600, 1200, 1800};
 		default = 120;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
-	
+
 	class d_enable_civs {
 		title = "$STR_DOM_MISSIONSTRING_1890";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-	
+
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
 		values[] = {0,1,2,3,4,5,10,15,20,25,30};
 		default = 10;
 		texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
 	};
-	
+
 	class d_civ_groupcount {
 		title = "$STR_DOM_MISSIONSTRING_1920";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
 		default = 4;
 		texts[] = {"0","1","2","3","4","5","6","7","8","9","10"};
 	};
-	
+
 	class d_sub_kill_civ_points {
 		title = "$STR_DOM_MISSIONSTRING_1888";
 		values[] = {0,1,2,3,4,5,10,25,50,75,100};
 		default = 3;
 		texts[] = {"0","1","2","3","4","5","10","25","50","75","100"};
 	};
-	
+
 	class d_disable_airai {
 		title = "$STR_DOM_MISSIONSTRING_1894";
 		values[] = {0,1};
@@ -810,7 +810,7 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
     };
-	
+
 	class d_punish_civ_kill {
 		title = "$STR_DOM_MISSIONSTRING_1895";
 		values[] = {0,1};
@@ -824,35 +824,35 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-	
+
 	class d_enemy_garrison_troop_occupy_count {
 		title = "$STR_DOM_MISSIONSTRING_1900A";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
-	
+
 	class d_enemy_garrison_troop_ambush_count {
 		title = "$STR_DOM_MISSIONSTRING_1900B";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
-	
+
 	class d_enemy_garrison_troop_sniper_count {
 		title = "$STR_DOM_MISSIONSTRING_1900C";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45};
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60", "75", "90"};
 	};
-	
+
 	class d_enemy_garrison_troop_sniper_awareness {
 		title = "$STR_DOM_MISSIONSTRING_1900D";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-	
+
 	class d_enemy_garrison_troop_sniper_general_skill {
         title = "$STR_DOM_MISSIONSTRING_1900E";
         values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
@@ -873,28 +873,28 @@ class Params {
 		default = 4;
 		texts[] = {"1", "2", "3", "4"};
 	};
-	
+
 	class d_enemy_max_camps_count {
 		title = "$STR_DOM_MISSIONSTRING_1930";
 		values[] = {1, 2, 3, 4, -1};
 		default = -1;
 		texts[] = {"1", "2", "3", "4", "5"};
 	};
-	
+
 	class d_first_enemy_camp_near_target_center {
 		title = "$STR_DOM_MISSIONSTRING_1931";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-	
+
 	class d_WithAmbientRadio {
 		title = "$STR_DOM_MISSIONSTRING_1948";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-	
+
 	class d_with_3Dicon {
 		title = "$STR_DOM_MISSIONSTRING_1961";
 		values[] = {0,1};
@@ -916,21 +916,21 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_with_ai_features {
 		title = "$STR_DOM_MISSIONSTRING_1024";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_max_ai {
 		title = "$STR_DOM_MISSIONSTRING_1176";
 		values[] = {6,8,10,12,14,16};
 		default = 8;
 		texts[] = {"6","8","10","12","14","16"};
 	};
-	
+
 	class d_ai_alone_in_vehicle {
 		title = "$STR_DOM_MISSIONSTRING_1758";
 		values[] = {0,1};
@@ -938,63 +938,63 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 #endif
-	
+
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_WithMHQTeleport {
 		title = "$STR_DOM_MISSIONSTRING_1056";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_MHQDisableNearMT {
 		title = "$STR_DOM_MISSIONSTRING_1057";
 		values[] = {0,500,700,900,1000,2000};
 		default = 500;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1058","500 m","700 m","900 m","1000 m","2000 m"};
 	};
-	
+
 	class d_NoMHQTeleEnemyNear {
 		title = "$STR_DOM_MISSIONSTRING_1062";
 		values[] = {0,50,100,200,500};
 		default = 50;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1063","50 m","100 m","200 m","500 m"};
 	};
-	
+
 	class d_with_mhq_camo {
 		title = "$STR_DOM_MISSIONSTRING_1067";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_WithTeleToBase {
 		title = "$STR_DOM_MISSIONSTRING_1068";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_respawnatsql {
 		title = "$STR_DOM_MISSIONSTRING_1705";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_params_dl_11 {
 		title = "$STR_DOM_MISSIONSTRING_1577";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_MTTowerSatchelsOnly {
 		title = "$STR_DOM_MISSIONSTRING_1213";
 		values[] = {0,1};
@@ -1008,7 +1008,7 @@ class Params {
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_sub_kill_points {
 		title = "$STR_DOM_MISSIONSTRING_1113";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
@@ -1022,14 +1022,14 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_WithLessArmor {
 		title = "$STR_DOM_MISSIONSTRING_1132";
 		values[] = {0,1,2};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405"};
 	};
-	
+
 	class d_WithLessArmor_side {
 		title = "$STR_DOM_MISSIONSTRING_1730";
 		values[] = {0,1,2};
@@ -1050,49 +1050,49 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_params_dl_13 {
 		title = "$STR_DOM_MISSIONSTRING_1579";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_ParaAtBase {
 		title = "$STR_DOM_MISSIONSTRING_1098";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_HALOWaitTime {
 		title = "$STR_DOM_MISSIONSTRING_1076";
 		values[] = {0, 300, 600, 1800, 3600};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1077","$STR_DOM_MISSIONSTRING_1078","$STR_DOM_MISSIONSTRING_1079","$STR_DOM_MISSIONSTRING_1080","$STR_DOM_MISSIONSTRING_1081"};
 	};
-	
+
 	class d_WithJumpFlags {
 		title = "$STR_DOM_MISSIONSTRING_1097";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_HALOJumpHeight {
 		title = "$STR_DOM_MISSIONSTRING_1108";
 		values[] = {500, 700, 888, 1000, 2000, 5000};
 		default = 2000;
 		texts[] = {"500 m","700 m","888 m","1000 m","2000 m","5000 m"};
 	};
-	
+
 	class d_params_dl_14 {
 		title = "$STR_DOM_MISSIONSTRING_1580";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_LockArmored {
 		title = "$STR_DOM_MISSIONSTRING_1082";
 		values[] = {0,1};
@@ -1113,28 +1113,28 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_enemy_vecs_lift {
 		title = "$STR_DOM_MISSIONSTRING_1830";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_params_dl_16 {
 		title = "$STR_DOM_MISSIONSTRING_1581";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_maxnum_tks_forkick {
 		title = "$STR_DOM_MISSIONSTRING_1197";
 		values[] = {1,3,5,10,20,30,40,1000000};
 		default = 10;
 		texts[] = {"1","3","5","10","20","30","40","$STR_DOM_MISSIONSTRING_1198"};
 	};
-	
+
 	class d_player_kick_shootingbase {
 		title = "$STR_DOM_MISSIONSTRING_1199";
 		values[] = {2,3,5,10,20,30,1000};
@@ -1148,49 +1148,49 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_sub_tk_points {
 		title = "$STR_DOM_MISSIONSTRING_1194";
 		values[] = {0,1,5,10,20,30,50};
 		default = 10;
 		texts[] = {"0","1","5","10","20","30","50"};
 	};
-	
+
 	class d_params_dl_18 {
 		title = "$STR_DOM_MISSIONSTRING_1582";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_WreckDeleteTime {
 		title = "$STR_DOM_MISSIONSTRING_1170";
 		values[] = {1800,3600,5400,7200,-1};
 		default = 3600;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1093","$STR_DOM_MISSIONSTRING_1095","$STR_DOM_MISSIONSTRING_1171","$STR_DOM_MISSIONSTRING_1172","$STR_DOM_MISSIONSTRING_418"};
 	};
-	
+
 	class d_WreckMaxRepair {
 		title = "$STR_DOM_MISSIONSTRING_1173";
 		values[] = {1,2,3,4,5,10,20,10000000};
 		default = 3;
 		texts[] = {"1","2","3","4","5","10","20","$STR_DOM_MISSIONSTRING_1137"};
 	};
-	
+
 	class d_params_dl_17 {
 		title = "$STR_DOM_MISSIONSTRING_1716";
 		values[] = {-99999};
 		default = -99999;
 		texts[] = {""};
 	};
-	
+
 	class d_drop_radius {
 		title = "$STR_DOM_MISSIONSTRING_1186";
 		values[] = {0,10,30,50,100};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1187","10 m","30 m","50 m","100 m"};
 	};
-	
+
 	class d_drop_max_dist {
 		title = "$STR_DOM_MISSIONSTRING_1188";
 		values[] = {100,500,1000,2000,3000,5000,10000000};

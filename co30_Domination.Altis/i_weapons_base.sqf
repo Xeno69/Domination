@@ -4,7 +4,7 @@ if (d_with_ace) then {
 	private _ace_med_items = ["ACE_atropine", "ACE_fieldDressing", "ACE_elasticBandage", "ACE_quikclot", "ACE_bloodIV", "ACE_bloodIV_500", "ACE_bloodIV_250",
 	"ACE_bodyBag", "ACE_bodyBagObject", "ACE_epinephrine", "ACE_morphine", "ACE_packingBandage", "ACE_personalAidKit", "ACE_plasmaIV", "ACE_plasmaIV_500",
 	"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
-	
+
 	private _tmp_ar_i = (_all_weapons_items # 6) # 2;
 	_tmp_ar_i append _ace_med_items;
 };
@@ -17,7 +17,7 @@ if (d_with_ace) then {
 	"PRIVATE_UNIFORMS","CORPORAL_UNIFORMS","SERGEANT_UNIFORMS","LIEUTENANT_UNIFORMS","CAPTAIN_UNIFORMS","MAJOR_UNIFORMS","COLONEL_UNIFORMS",
 	"PRIVATE_ITEMS","CORPORAL_ITEMS","SERGEANT_ITEMS","LIEUTENANT_ITEMS","CAPTAIN_ITEMS","MAJOR_ITEMS","COLONEL_ITEMS"
 ];
-	
+
 {d_misc_store setVariable [_x, []]} forEach ["PRIVATE_ONED","CORPORAL_ONED","SERGEANT_ONED","LIEUTENANT_ONED","CAPTAIN_ONED","MAJOR_ONED","COLONEL_ONED"];
 
 d_non_check_items = ["ItemGPS", "ItemRadio", "ItemMap", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP"] apply {toLowerANSI _x};
@@ -31,10 +31,10 @@ if (d_with_ace) then {
 
 private _dd_add_gearf = {
 	params ["_ranks", "_curarx", "_typeu"];
-	
+
 	private _arw = (_curarx select {!(_x isEqualTo "")}) apply {toLowerANSI _x};
 	__TRACE_1("_dd_add_gearf","_arw")
-	
+
 	if !(_arw isEqualTo []) then {
 		{
 			(d_misc_store getVariable format ["%1_%2", _x, _typeu]) append _arw;

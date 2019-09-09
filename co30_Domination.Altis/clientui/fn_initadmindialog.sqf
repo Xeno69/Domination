@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_initadmindialog.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 private _ctrl = (uiNamespace getVariable "d_AdminDialog") displayCtrl 1001;
