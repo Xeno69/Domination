@@ -17,10 +17,10 @@ _vec setVariable ["d_icon_size", 28];
 #define __chopset private _index = _car select 1;\
 _vec setVariable ["d_choppertype", _index];\
 _vec setVariable ["d_vec_type", "chopper"];\
-switch (_index) do {\
-	case 0: {_vec addEventHandler ["getin", {[_this,0] call d_fnc_checkhelipilot}]};\
-	case 1: {_vec addEventHandler ["getin", {_this call d_fnc_checkhelipilot_wreck}]};\
-	case 2: {_vec addEventHandler ["getin", {[_this,1] call d_fnc_checkhelipilot}]};\
+call {\
+	if (_index == 0) exitWith {_vec addEventHandler ["getin", {[_this,0] call d_fnc_checkhelipilot}]};\
+	if (_index == 1) exitWith {_vec addEventHandler ["getin", {_this call d_fnc_checkhelipilot_wreck}]};\
+	if (_index == 2) exitWith {_vec addEventHandler ["getin", {[_this,1] call d_fnc_checkhelipilot}]};\
 };\
 _vec addEventHandler ["getOut", {_this call d_fnc_checkhelipilotout}]
 

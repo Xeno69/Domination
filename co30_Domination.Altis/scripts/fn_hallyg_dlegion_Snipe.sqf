@@ -110,19 +110,18 @@ while {true} do {
 	    _unit setVehicleAmmo 1;
 	} else {
 		//if (count _Dtargets == 0 || _lastFired + 10 > time) then {
-			switch (toUpper (unitPos _unit)) do {
-				case "AUTO";
-				case "UP": {
+			call {
+				if (unitPos _unit == "AUTO" || {unitPos _unit == "UP"}) exitWith {
 					//if standing upright and could not fire on a target then lay down for a while
 					_unit setUnitPos "DOWN";
 					sleep ((ceil random 40) max 7);
 				};
-				case "DOWN": {
+				if (unitPos _unit == "DOWN") exitWith {
 					//if down and could not fire on a target then rise to middle position
 					_unit setUnitPos "MIDDLE";
 					sleep 3;
 				};
-				case "MIDDLE": {
+				if (unitPos _unit == "MIDDLE") exitWith {
 					//if middle and could not fire on a target then rise to up position
 					_unit setUnitPos "UP";
 					sleep 3;

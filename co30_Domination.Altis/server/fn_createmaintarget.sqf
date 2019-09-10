@@ -7,7 +7,7 @@ private _garrisonUnits = {
 	params ["_centerPos", "_numUnits", "_fillRadius", "_fillRoof", "_fillEvenly", "_fillTopDown", "_disableTeleport", "_unitMovementMode"];
 
 	__TRACE("from createmaintarget garrison function")
-	
+
 	__TRACE_1("_garrisonUnits","_this")
 
 	private _unitlist = [["specops", "sniper"] select (_unitMovementMode == 2), d_enemy_side_short] call d_fnc_getunitlistm;
@@ -390,11 +390,11 @@ if (d_enemy_occupy_bldgs == 1) then {
 	//prepare to create garrisoned groups of snipers - find and sort buildings
 	private _buildingsArray = [];
 	private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], 425];
-	
+
 	if (_buildingsArrayRaw isEqualTo []) exitWith {};
 
 	private _buildingsArrayUsable = _buildingsArrayRaw select {!((_x buildingPos -1) isEqualTo [])};
-	
+
 	if (_buildingsArrayUsable isEqualTo []) exitWith {};
 
 	__TRACE_1("","_buildingsArrayUsable")
@@ -423,11 +423,11 @@ if (d_enemy_occupy_bldgs == 1) then {
 	] call BIS_fnc_sortBy;
 
 	__TRACE_1("","_buildingsArraySorted")
-	
+
 	if (_buildingsArraySorted isEqualTo []) exitWith {};
 
 	//choose the Top N of sorted buildings array
-	
+
 	if (d_enemy_garrison_troop_sniper_count >= count _buildingsArraySorted) then {
 		_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted];
 	} else {

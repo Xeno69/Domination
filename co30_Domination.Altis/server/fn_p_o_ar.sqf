@@ -5,8 +5,8 @@
 
 __TRACE_1("","_this")
 
-switch (_this select 0) do {
-	case "a": {
+call {
+	if (_this select 0 == "a") exitWith {
 		private _ar = d_placed_objs_store getVariable (_this select 1);
 		__TRACE_1("a","_ar")
 		if (!isNil "_ar") then {
@@ -31,7 +31,7 @@ switch (_this select 0) do {
 			};
 		};
 	};
-	case "a2": {
+	if (_this select 0 == "a2") exitWith {
 		private _ar = d_placed_objs_store2 getVariable (_this select 1);
 		__TRACE_1("a2","_ar")
 		if (isNil "_ar") then {
@@ -42,7 +42,7 @@ switch (_this select 0) do {
 		};
 		[_this select 2, 7] call d_fnc_setekmode;
 	};
-	case "r": {
+	if (_this select 0 == "r") exitWith {
 		private _ar = d_placed_objs_store getVariable (_this select 1);
 		__TRACE_1("r","_ar")
 		if (!isNil "_ar") then {
@@ -53,14 +53,14 @@ switch (_this select 0) do {
 		};
 		deleteMarker (_this select 2);
 	};
-	case "a2r": {
+	if (_this select 0 == "a2r") exitWith {
 		private _ar = d_placed_objs_store2 getVariable (_this select 1);
 		__TRACE_1("a2r","_ar")
 		if (!isNil "_ar") then {
 			_ar = _ar - [_this select 2, objNull];
 		};
 	};
-	case "aw": {
+	if (_this select 0 == "aw") exitWith {
 		private _ar = d_placed_objs_store3 getVariable (_this select 1);
 		__TRACE_1("aw","_ar")
 		if (!isNil "_ar") then {

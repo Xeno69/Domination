@@ -72,7 +72,7 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 	_unit doMove _heliendpoint;
 	_chopper flyInHeight 80;
 	_vgrp setBehaviourStrong "CARELESS";
-	
+
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))
 	} else {
@@ -90,14 +90,14 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 		private _pposcx = getPosATL _chopper;
 		_one_unit = _paragrp createUnit [_x, [_pposcx # 0, _pposcx # 1, 0], [], 0,"NONE"];
 		[_one_unit] joinSilent _paragrp;
-		
+
 		private _para = createVehicle [d_non_steer_para, _pposcx, [], 20, "NONE"];
 		_one_unit moveInDriver _para;
 		_para setDir random 360;
 		_pposcx = getPosATL _chopper;
 		_para setPos [_pposcx # 0, _pposcx # 1, (_pposcx # 2) - 10];
 		_one_unit call d_fnc_removenvgoggles_fak;
-		
+
 		if (d_with_ai && {d_with_ranked}) then {
 			[_one_unit, 4] call d_fnc_setekmode;
 		};
@@ -113,7 +113,7 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 	_paragrp allowFleeing 0;
 	_paragrp setCombatMode "YELLOW";
 	_paragrp setBehaviour "AWARE";
-	
+
 	sleep 0.113;
 	_paragrp spawn {
 		scriptName "spawn createpara2";

@@ -1032,7 +1032,7 @@ missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 0 spawn d_fnc_allplayers;
 
 if (d_with_ace) then {
-	addMissionEventHandler ["Draw3D", {_this call d_fnc_draw3d_ace}];
+	addMissionEventHandler ["Draw3D", {call d_fnc_draw3d_ace}];
 };
 
 #ifndef __TT__

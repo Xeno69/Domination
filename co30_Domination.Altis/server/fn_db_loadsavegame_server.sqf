@@ -134,13 +134,13 @@ d_bonus_vecs_db = _ar # 9;
 		if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 		_vec setVariable ["d_liftit", true, true];
 	};
-	
+
 
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 
 	[_vec, 11] call d_fnc_setekmode;
-	
+
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
@@ -189,7 +189,7 @@ _fnc_tt_bonusvec = {
 		};
 		_vec setVariable ["d_liftit", true, true];
 	};
-	
+
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
@@ -198,7 +198,7 @@ _fnc_tt_bonusvec = {
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
-	
+
 	_vec
 };
 
@@ -224,7 +224,7 @@ publicVariable "d_points_array";
 #else
 	private _res = _x # 0;
 #endif
-	
+
 	private _tgt_ar = d_target_names # _res;
 	private _mar = format ["d_%1_dommtm", _tgt_ar # 1];
 	[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2]] call d_fnc_CreateMarkerGlobal;

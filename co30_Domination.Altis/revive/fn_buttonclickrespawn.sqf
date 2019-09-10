@@ -144,7 +144,7 @@ if (xr_max_lives != -1) then {
 0 spawn {
 	scriptName "spawn_buttonclickrespawn2";
 	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
-		player action ["NVGoggles",player];
+		player action ["NVGoggles", player];
 	};
 };
 __TRACE("MapClickRespawn done")

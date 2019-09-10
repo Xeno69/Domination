@@ -23,17 +23,17 @@ private _delveccrew = {
 private _make_jump = {
 	scriptName "spawn_x_createpara3_make_jump";
 	params ["_vgrp", "_vec", "_attackpoint", "_flytopos", "_heliendpoint", "_delveccrew", "_crew_vec"];
-	
+
 	__TRACE("_make_jump")
-	
+
 	private _startpos = getPosATL _vec;
 	private _driver_vec = driver _vec;
-	
+
 	if (_vec isKindOf "Plane") then {_flytopos = _attackpoint} else {_flytopos set [2, 80]};
-	
+
 	_heliendpoint set [2, 80];
 	_attackpoint set [2, 0];
-	
+
 	/*private _wp = _vgrp addWaypoint [_flytopos, 0];
 	_wp setWaypointBehaviour "CARELESS";
 	_wp setWaypointSpeed "NORMAL";
@@ -47,12 +47,12 @@ private _make_jump = {
 	_wp setWaypointFormation "VEE";
 	_wp setWaypointForceBehaviour true;
 	*/
-	
+
 	_driver_vec setSkill 1;
-	
+
 	sleep 0.1;
 	private _landheli = random 100 > 49;
-	
+
 	private _helperh = objNull;
 	if (_landheli) then {
 		_helperh = d_HeliHEmpty createVehicle [0,0,0];
@@ -66,13 +66,13 @@ private _make_jump = {
 	_vec flyInHeight 80;
 	_vec flyInHeightASL [80,80,80];
 	_vgrp setBehaviourStrong "CARELESS";
-	
+
 	__TRACE_1("","_flytopos")
-	
+
 	//_vec flyInHeight 100;
-	
+
 	sleep 10.0231;
-	
+
 	__TRACE_1("","d_mt_radio_down")
 	if (d_mt_radio_down) exitWith {
 		[_crew_vec, _vec, 1 + random 1] spawn _delveccrew;
@@ -80,7 +80,7 @@ private _make_jump = {
 			deleteVehicle _helperh;
 		};
 	};
-	
+
 	private _stop_me = false;
 	private _checktime = time + 200;
 	private _distchk = [500, 2000] select (_vec isKindOf "Plane");
@@ -116,7 +116,7 @@ private _make_jump = {
 	};
 	__TRACE("MT dist loop end")
 	sleep 0.3;
-	
+
 	if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
 		private "_paragrp";
 		private _subskill = if (diag_fps > 29) then {
@@ -194,7 +194,7 @@ private _make_jump = {
 				_paragrp allowFleeing 0;
 				_paragrp setCombatMode "YELLOW";
 				_paragrp setBehaviour "AWARE";
-				
+
 				[_paragrp, d_cur_tgt_pos, d_cur_target_radius] spawn {
 					scriptName "spawn_x_createpara3_usegroup2";
 					params ["_grp", "_pos"];
@@ -208,7 +208,7 @@ private _make_jump = {
 						_grp call d_fnc_addgrp2hc;
 					};
 				};
-				
+
 				sleep 1;
 				_vec land "NONE";
 				sleep 0.1;
@@ -276,7 +276,7 @@ private _make_jump = {
 				_paragrp allowFleeing 0;
 				_paragrp setCombatMode "YELLOW";
 				_paragrp setBehaviour "AWARE";
-				
+
 				[_paragrp, d_cur_tgt_pos, d_cur_target_radius] spawn {
 					scriptName "spawn_x_createpara3_usegroup";
 					params ["_grp", "_pos"];
@@ -292,20 +292,20 @@ private _make_jump = {
 				};
 			};
 		};
-			
+
 		if (!isNil "_paragrp" && {!isNull _paragrp}) then {
 			d_c_attacking_grps pushBack _paragrp;
 		};
-		
+
 		sleep 0.112;
 		d_should_be_there = d_should_be_there - 1;
-		
+
 		_checktime = time + 500;
 		while {_heliendpoint distance2D _vec > 1000} do {
 			if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {};
 			sleep 1.123;
 		};
-		
+
 		if (!isNull _vec && {_heliendpoint distance2D _vec > 1000}) then {
 			[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
 		} else {
@@ -349,16 +349,16 @@ while {_icounter < _number_vehicles} do {
 	_vec spawn d_fnc_airmarkermove;
 
 	_vec lock true;
-	
+
 	_vgrp deleteGroupWhenEmpty true;
 
 	private _etime = time + 5.012;
 	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
 	__TRACE("5 seconds over")
-	
+
 	//_vec flyInHeight 100;
 	_vec flyInHeight 80;
-	_vec flyInHeightASL [80,80,80];	
+	_vec flyInHeightASL [80,80,80];
 
 	__TRACE_1("","d_mt_radio_down")
 	if (d_mt_radio_down) exitWith {
@@ -368,10 +368,10 @@ while {_icounter < _number_vehicles} do {
 	};
 	__TRACE("before _make_jump")
 	[_vgrp, _vec, _attackpoint, _flytopos, _heliendpoint, _delveccrew, _crew] spawn _make_jump;
-	
+
 	_icounter = _icounter + 1;
 	if (_icounter == _number_vehicles) exitWith {};
-	
+
 	_etime = time + 30 + (random 30);
 	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
 };

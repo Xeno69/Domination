@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 #define __CTRL2(A) (_display displayCtrl A)
 
-if (!hasInterface || {d_beam_target == "" || {d_x_loop_end}}) exitWith {};
+if (d_beam_target == "" || {d_x_loop_end}) exitWith {};
 
 d_x_loop_end = true;
 

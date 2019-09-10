@@ -81,6 +81,7 @@ while {alive _chuto && {((ASLtoATL getPosASL _chuto) # 2) > 5}} do {
 
 	_hspd = if (_difabs > 45) then {_max_spd / 3} else {_max_spd};
 	_cone setDir _dir;
+	__TRACE_1("","_vz")
 	_cone setVelocity [(sin _dir) * _vh, (cos _dir) * _vh, _vz];
 	if (!isNull _man) then {_man setDir _dir};
 	_chuto setPos (_cone modelToWorld [0 ,0, 2]);

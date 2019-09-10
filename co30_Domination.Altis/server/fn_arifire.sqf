@@ -226,14 +226,14 @@ for "_series" from 1 to _ari_salvos do {
 		d_arty_projectiles_b = [];
 	};
 #endif
-	{	
+	{
 		_x setVehicleAmmo 1;
 		_x setFuel 1;
 		_x setDamage 0;
-		
+
 		private _radius = 20 + random 10;
 		private _angle = floor random 360;
-		
+
 		_x doArtilleryFire [[(_ari_tgt_pos # 0) - ((random _radius) * sin _angle), (_ari_tgt_pos # 1) - ((random _radius) * cos _angle), 0], _ari_type, 1];
 		sleep 0.2;
 	} forEach _ari_vecs;
@@ -241,12 +241,12 @@ for "_series" from 1 to _ari_salvos do {
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
-	
+
 	private _spawn_handle = [_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
 		scriptName "spawn arifire";
 		params ["_eta_time", "_arti_operator", "_logic", "_logic1", "_topicside_arti", "_series", "_channel"];
 		sleep (_eta_time - 1);
-	
+
 		private _aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 		_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
@@ -264,8 +264,8 @@ for "_series" from 1 to _ari_salvos do {
 		if (time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {};
 	};
 	#endif
-	
-	
+
+
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
 		terminate _spawn_handle;

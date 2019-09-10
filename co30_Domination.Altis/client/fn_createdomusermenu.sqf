@@ -83,12 +83,12 @@ if (!d_with_ace) then {
 			d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 			{
-				private _strnum = switch (_x) do {
-					case "Chemlight_green": {"15"};
-					case "Chemlight_red": {"16"};
-					case "Chemlight_yellow": {"17"};
-					case "Chemlight_blue": {"18"};
-					default {""};
+				private _strnum = call {
+					if (_x == "Chemlight_green") exitWith {"15"};
+					if (_x == "Chemlight_red") exitWith {"16"};
+					if (_x == "Chemlight_yellow") exitWith {"17"};
+					if (_x == "Chemlight_blue") exitWith {"18"};
+					""
 				};
 				if (_strnum != "") then {
 					d_DomUserMenu pushBack [format [localize "STR_DOM_MISSIONSTRING_1506", getText(configFile>>"CfgMagazines">>_x>>"displayName")], [call _fnc_inc_num], "", -5, [["expression", _strnum + " call d_fnc_DomCommandingMenuExec"]], "1", "1"];

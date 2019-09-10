@@ -26,32 +26,32 @@ private _placeCivilianSpotsAndUnits = {
 	_ms1 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms1;
 	__TRACE_1("","_ms1")
-	
+
 	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms2 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms2;
 	__TRACE_1("","_ms2")
-	
+
 	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms3 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms3;
 	__TRACE_1("","_ms3")
-	
+
 	_ms4 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms4 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms4;
 	__TRACE_1("","_ms4")
-	
+
 	_ms5 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms5 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms5;
 	__TRACE_1("","_ms5")
-	
+
 	_ms6 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms6 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms6;
 	__TRACE_1("","_ms6")
-	
+
 	_ms7 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms7 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms7;
@@ -60,7 +60,7 @@ private _placeCivilianSpotsAndUnits = {
 	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
 	__TRACE_1("","_mu1")
-	
+
 	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	d_cur_tgt_civ_modules_presenceunit pushBack _mu2;
 	__TRACE_1("","_mu2")
@@ -90,17 +90,17 @@ for "_i" from 0 to d_civ_groupcount do {
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
 	_grp = createGroup civilian;
-	
+
 	__TRACE("Placing a civilian module...")
 	call _placeCivilianSpotsAndUnits;
-	
+
 	private _m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
-	
+
 	d_cur_tgt_civ_modules_presence pushBack _m;
-	
+
 	//_m setVariable ["#debug", true]; // Debug mode on
-	 
-	_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
+
+	_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray
 	_m setVariable ["#useagents", true];
 	_m setVariable ["#usepanicmode", false];
 	_m setVariable ["#unitcount", d_civ_unitcount];

@@ -19,7 +19,7 @@ __TRACE_1("","_idx")
 if (_idx != -1) then {
 	private _disp = [uiNamespace getVariable "XR_SpectDlg", uiNamespace getVariable "d_TeleportDialog"] select (d_rmapclick_type == 0);
 	private _ctrl = _disp displayCtrl 1500;
-	
+
 	if (lbCurSel _ctrl != _idx) then {
 		_ctrl lbSetCurSel _idx;
 	};

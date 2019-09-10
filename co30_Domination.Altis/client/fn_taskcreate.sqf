@@ -57,7 +57,7 @@ private _showNotification = param [6,true,[true]];
 private _taskType = param [7,GET_DATA(_taskVar,TYPE),[""]];
 private _alwaysVisible = param [8,GET_DATA(_taskVar,CORE),[true]];
 
-if (typename _dest == typename "") then {_dest = markerpos _dest;};
-if (typename _state == typename 0) then {_state = _state > 0;};
+if (_dest isEqualType "") then {_dest = markerpos _dest;};
+if (_state isEqualType 0) then {_state = _state > 0;};
 
 [_params,_target,_texts,_dest,_state,_priority,_showNotification,false,_taskType,_alwaysVisible] call bis_fnc_setTask;

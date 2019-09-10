@@ -158,7 +158,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
-	
+
 	sleep 30 + random 5;
 	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	if (!isNil "_player" && {!isNull _player}) then {
@@ -199,14 +199,14 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		sleep 2.012
 	};
 	if (_doend) exitWith {};
-	
+
 	_endtime = time + 820;
 	while {alive _unit && {alive _vec && {alive _player && {(_player in crew _vec) && {canMove _vec}}}}} do {
 		sleep 3.221;
 		if (time > _endtime) exitWith {};
 	};
 	sleep 20 + random 5;
-	
+
 	if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 		if (!isNil "_player" && {!isNull _player}) then {

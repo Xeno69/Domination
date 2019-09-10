@@ -58,18 +58,18 @@ if !(isclass _planeCfg) exitwith {
 
 #ifndef __IFA3LITE__
 //--- Detect gun
-private _weaponTypes = switch _wtype do {
-	case 0: {["machinegun"]};
-	case 1: {["rocketlauncher"]};
-	case 2: {["machinegun", "rocketlauncher"]};
-	default {[]};
+private _weaponTypes = call {
+	if (_wtype == 0) exitWith {["machinegun"]};
+	if (_wtype == 1) exitWith {["rocketlauncher"]};
+	if (_wtype == 2) exitWith {["machinegun", "rocketlauncher"]};
+	[]
 };
 #else
-private _weaponTypes = switch _wtype do {
-	case 0: {["machinegun"]};
-	case 1: {["vehicleweapon"]};
-	case 2: {["vehicleweapon"]};
-	default {[]};
+private _weaponTypes = call {
+	if (_wtype == 0) exitWith {["machinegun"]};
+	if (_wtype == 1) exitWith {["vehicleweapon"]};
+	if (_wtype == 2) exitWith {["vehicleweapon"]};
+	[]
 };
 #endif
 

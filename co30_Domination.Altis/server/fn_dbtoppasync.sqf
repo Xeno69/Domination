@@ -32,12 +32,12 @@ while {true} do {
 						_pa set [1, time];
 
 						__TRACE_1("","_playtime")
-						
+
 						//diag_log ["DOM dbtoppasync: _totalscore", _totalscore];
 						if (_totalscore <= 0) exitWith {
 							//diag_log ["DOM dbtoppasync _totalscore <= 0"];
 						};
-					
+
 #ifndef __INTERCEPTDB__
 						"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid];
 #else

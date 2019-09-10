@@ -82,29 +82,29 @@ private _wpstatements = if (d_house_patrol == 0 && {_ismen && {_type in ["patrol
 	""
 };
 
-switch (_type) do {
-	case "patrol": {
+call {
+	if (_type == "patrol") exitWith {
 		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));	
 		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
-	case "patrol2mt": {
+	if (_type == "patrol2mt") exitWith {
 		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
 		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
 	};
-	case "patrol2": {
+	if (_type == "patrol2") exitWith {
 		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
 		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize, true] spawn d_fnc_MakePatrolWPX;
 	};
-	case "guard": {
+	if (_type == "guard") exitWith {
 		if (_ismen) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
@@ -116,7 +116,7 @@ switch (_type) do {
 			_grp setBehaviour "SAFE";
 		};
 	};
-	case "guardstatic": {
+	if (_type == "guardstatic") exitWith {
 		if (_ismen) then {
 			_grp setVariable ["d_defend", true];
 			[_grp, _pos] spawn d_fnc_taskDefend;
@@ -128,10 +128,10 @@ switch (_type) do {
 			_grp setBehaviour "SAFE";
 		};
 	};
-	case "guardstatic2": {
+	if (_type == "guardstatic2") exitWith {
 		(_vecs # 0) setDir (floor random 360);
 	};
-	case "attack": {
+	if (_type == "attack") then {
 		_grp setBehaviour "AWARE";
 		private _gwp = _grp addWaypoint [_target_pos, 30];
 		_gwp setWaypointtype "SAD";

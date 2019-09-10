@@ -38,7 +38,7 @@ if (_uidx == -1) then {
 		private _mrs = missionNamespace getVariable [_data, objNull];
 		__TRACE_1("","_mrs")
 		if (!isNull _mrs) then {
-			private _curaridx = _not_avail_array pushBack _data; 
+			private _curaridx = _not_avail_array pushBack _data;
 			private _lbcolor = call {
 				if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592",  _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _ctrl lbText _sel, _logtxt]; __COLRED};
@@ -51,7 +51,7 @@ if (_uidx == -1) then {
 				[1,1,1,1.0];
 			};
 			_ctrl lbSetColor [_sel, _lbcolor];
-			
+
 			if (_logtxt != "" && {!d_lb_tele_first}) then {
 				__CTRL(11002) ctrlSetText _logtxt;
 			};
@@ -67,7 +67,7 @@ if (_uidx == -1) then {
 					[1,1,1,1.0]
 				} else {
 					_not_avail_array pushBack "D_SQL_D";
-					__CTRL(11002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1706");				
+					__CTRL(11002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1706");
 					__COLRED
 				};
 				_ctrl lbSetColor [_sel, _lbcolor];

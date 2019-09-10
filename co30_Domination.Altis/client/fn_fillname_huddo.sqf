@@ -38,8 +38,8 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 						};
 					};
 					if (_dodraw) then {
-						_tex = "";
-						_rtex = "";
+						//_tex = "";
+						//_rtex = "";
 						if (_distu <= 200) then {
 							_tex = if (_s_p_namesx == 1) then {
 								[_x] call _fnc_ghpn

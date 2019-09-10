@@ -46,11 +46,14 @@ if (d_database_found) then {
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 		[_killer, 5] call addScore;
 #ifdef __TT__
-	[d_tt_points # 2, _killer] call d_fnc_AddPoints;
-	switch (side (group _killer)) do {
-		case blufor: {[59, "WEST"] call d_fnc_DoKBMsg};
-		case opfor: {[59, "EAST"] call d_fnc_DoKBMsg};
-	};
+		[d_tt_points # 2, _killer] call d_fnc_AddPoints;
+		if (side (group _killer) == blufor) then {
+			[59, "WEST"] call d_fnc_DoKBMsg
+		} else {
+			if (side (group _killer) == opfor) then {
+				[59, "EAST"] call d_fnc_DoKBMsg
+			};
+		};
 #endif
 	};
 };

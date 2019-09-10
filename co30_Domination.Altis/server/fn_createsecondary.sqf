@@ -95,7 +95,7 @@ private _parray = [_trg_center, d_cur_target_radius + 200, 4, 1, 0.3, _sizecamp 
 for "_i" from 1 to _nrcamps do {
 	private _wf = objNull;
 	private _poss =+ _trg_center;
-	
+
 	if (d_first_enemy_camp_near_target_center == 1 && {_isFirstCamp}) then {
 		//try to place the first camp very close (10m) to the center of the target
 		_poss set [2, 0];
@@ -105,9 +105,9 @@ for "_i" from 1 to _nrcamps do {
 		_isFirstCamp = false;
 	} else {
 		private _idx = floor random (count _parray);
-		_poss = _parray select _idx;	
+		_poss = _parray select _idx;
 		__TRACE_1("1","_poss")
-		
+
 		if !(d_currentcamps isEqualTo []) then {
 			private _fidx = d_currentcamps findIf {_x distance2D _poss < 130};
 			if (_fidx != -1) then {
@@ -120,13 +120,13 @@ for "_i" from 1 to _nrcamps do {
 				};
 			};
 		};
-		
+
 		_poss set [2, 0];
 		_wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
 		_wf setDir (_wf getDir _trg_center);
 		sleep 0.5;
 		__TRACE_1("1111","_wf")
-		
+
 		_parray deleteAt _idx;
 	};
 
@@ -159,7 +159,7 @@ for "_i" from 1 to _nrcamps do {
 	[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 	_wf setVariable ["d_camp_mar", _maname];
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
-	
+
 	_wf addEventHandler ["HandleDamage", {0}];
 
 #ifndef __TT__
@@ -169,7 +169,7 @@ for "_i" from 1 to _nrcamps do {
 #endif
 
 	sleep 0.5;
-	
+
 	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 20}) then {
 		["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
 	};

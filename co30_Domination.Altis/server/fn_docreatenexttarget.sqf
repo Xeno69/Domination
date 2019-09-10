@@ -17,7 +17,7 @@ if (surfaceIsWater (d_enemyai_respawn_pos # 0)) then {
 	d_enemyai_respawn_pos params ["_tmppos", "_dirn", "_dist"];
 	if (_dirn < 0) then {_dirn = _dirn + 180};
 	private _incdir = [15, -15] select (_dirn <= 90 || {_dirn >= 270});
-	__TRACE_3("","_dist","_dirn","_incdir")	
+	__TRACE_3("","_dist","_dirn","_incdir")
 	private _foundpos = false;
 	private _counter = 0;
 	while {_counter < 2} do {
@@ -36,11 +36,11 @@ if (surfaceIsWater (d_enemyai_respawn_pos # 0)) then {
 		_counter = _counter + 1;
 		_incdir = _incdir * -1;
 	};
-	
+
 	if ((_tmppos isEqualTo []) || {surfaceIsWater _tmppos}) then {
 		_tmppos = d_cur_tgt_pos;
 	};
-	
+
 	d_enemyai_respawn_pos set [0, _tmppos];
 	d_enemyai_respawn_pos set [2, (d_cur_tgt_pos getDir _tmppos) + 180];
 };

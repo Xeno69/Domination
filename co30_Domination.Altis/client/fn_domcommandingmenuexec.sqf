@@ -14,21 +14,21 @@ if (!alive player || {player getVariable ["d_isinaction", false] || {player getV
 };
 d_commandingMenuIniting = true;
 showCommandingMenu "";
-switch (_this) do {
-	case 0: {d_commandingMenuCode = {call d_fnc_showstatus}};
-	case 1: {d_commandingMenuCode = {call d_fnc_artillery}};
-	case 2: {d_commandingMenuCode = {0 spawn d_fnc_calldrop}};
-	case 5: {d_commandingMenuCode = {0 spawn d_fnc_spawn_mash}};
-	case 6: {d_commandingMenuCode = {0 spawn d_fnc_spawn_farp}};
-	case 7: {d_commandingMenuCode = {call d_fnc_adminspectate}};
-	case 15: {d_commandingMenuCode = {"Chemlight_green" call d_fnc_attachchemlight}};
-	case 16: {d_commandingMenuCode = {"Chemlight_red" call d_fnc_attachchemlight}};
-	case 17: {d_commandingMenuCode = {"Chemlight_yellow" call d_fnc_attachchemlight}};
-	case 18: {d_commandingMenuCode = {"Chemlight_blue" call d_fnc_attachchemlight}};
-	case 20: {d_commandingMenuCode = {call d_fnc_detachchemlight}};
-	case 30: {d_commandingMenuCode = {call d_fnc_airtaxi;d_commandingMenuIniting = false}};
-	case 31: {d_commandingMenuCode = {call d_fnc_changeairtaxidest;d_commandingMenuIniting = false}};
-	case 40: {
+call {
+	if (_this == 0) exitWith {d_commandingMenuCode = {call d_fnc_showstatus}};
+	if (_this == 1) exitWith {d_commandingMenuCode = {call d_fnc_artillery}};
+	if (_this == 2) exitWith {d_commandingMenuCode = {0 spawn d_fnc_calldrop}};
+	if (_this == 5) exitWith {d_commandingMenuCode = {0 spawn d_fnc_spawn_mash}};
+	if (_this == 6) exitWith {d_commandingMenuCode = {0 spawn d_fnc_spawn_farp}};
+	if (_this == 7) exitWith {d_commandingMenuCode = {call d_fnc_adminspectate}};
+	if (_this == 15) exitWith {d_commandingMenuCode = {"Chemlight_green" call d_fnc_attachchemlight}};
+	if (_this == 16) exitWith {d_commandingMenuCode = {"Chemlight_red" call d_fnc_attachchemlight}};
+	if (_this == 17) exitWith {d_commandingMenuCode = {"Chemlight_yellow" call d_fnc_attachchemlight}};
+	if (_this == 18) exitWith {d_commandingMenuCode = {"Chemlight_blue" call d_fnc_attachchemlight}};
+	if (_this == 20) exitWith {d_commandingMenuCode = {call d_fnc_detachchemlight}};
+	if (_this == 30) exitWith {d_commandingMenuCode = {call d_fnc_airtaxi;d_commandingMenuIniting = false}};
+	if (_this == 31) exitWith {d_commandingMenuCode = {call d_fnc_changeairtaxidest;d_commandingMenuIniting = false}};
+	if (_this == 40) exitWith {
 		d_commandingMenuCode = {
 			if (d_earplugs_fitted) then {
 				d_earplugs_fitted = false;
@@ -42,7 +42,7 @@ switch (_this) do {
 			d_commandingMenuIniting = false;
 		};
 	};
-	case 50: {
+	if (_this == 50) exitWith {
 		d_commandingMenuCode = {
 #ifndef __TT__
 			missionNamespace setVariable ["d_arty_stopp", true, true];
@@ -56,7 +56,7 @@ switch (_this) do {
 			d_commandingMenuIniting = false;
 		};
 	};
-	case 99: {
+	if (_this == 99) exitWith {
 		d_commandingMenuCode = {
 			0 spawn {
 				scriptName "spawn_transferscoredialog";
