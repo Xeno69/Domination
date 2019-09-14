@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_curcampsclient.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 d_deletecamptrigs = [];
 
 {

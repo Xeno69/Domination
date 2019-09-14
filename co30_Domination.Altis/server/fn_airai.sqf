@@ -89,10 +89,10 @@ while {true} do {
 	private _cdir = _pos getDir d_island_center;
 	__TRACE_1("","_cdir")
 #ifndef __TT__
-	switch (_type) do {
-		case "AP": {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
-		case "HAC": {if (d_searchintel # 2 == 1) then {[1] call d_fnc_DoKBMsg}};
-		case "LAC": {if (d_searchintel # 3 == 1) then {[2] call d_fnc_DoKBMsg}};
+	call {
+		if (_type == "AP") exitWith {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
+		if (_type == "HAC") exitWith {if (d_searchintel # 2 == 1) then {[1] call d_fnc_DoKBMsg}};
+		if (_type == "LAC") exitWith {if (d_searchintel # 3 == 1) then {[2] call d_fnc_DoKBMsg}};
 	};
 #endif
 	for "_xxx" from 1 to _numair do {
@@ -151,11 +151,10 @@ while {true} do {
 
 		sleep 3 + random 2;
 
-		private _radius = switch (_type) do {
-			case "HAC";
-			case "LAC": {d_cur_target_radius * 3};
-			case "AP": {d_cur_target_radius * 5};
-			default {d_cur_target_radius};
+		private _radius = call {
+			if (_type == "HAC" || {_type == "LAC"}) exitWith {d_cur_target_radius * 3};
+			if (_type == "AP") exitWith {d_cur_target_radius * 5};
+			d_cur_target_radius
 		};
 
 		__TRACE_1("","_radius")

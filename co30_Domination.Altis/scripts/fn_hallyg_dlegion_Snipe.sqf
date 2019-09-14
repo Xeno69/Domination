@@ -31,7 +31,7 @@ private _sortArrayByDistance = {
 	{
 		_closest = _unsorted select 0;
 		{if ((getPos _x distance _pos) < (getPos _closest distance _pos)) then {_closest = _x}} forEach _unsorted;
-		_sorted = _sorted + [_closest];
+		_sorted pushBack _closest;
 		_unsorted = _unsorted - [_closest]
 	} forEach _unsorted;
 

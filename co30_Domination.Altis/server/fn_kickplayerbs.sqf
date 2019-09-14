@@ -7,11 +7,10 @@ params ["_pl", "_pl_name", "_reason"];
 private _uid = getPlayerUID _pl;
 "LOSER" remoteExecCall ["endMission", _pl];
 if (_reason != -1) then {
-	switch (_reason) do {
-		case 2: {
-			diag_log format [localize "STR_DOM_MISSIONSTRING_945", _pl_name, _uid];
-		};
-		case 3: {
+	if (_reason == 2) then {
+		diag_log format [localize "STR_DOM_MISSIONSTRING_945", _pl_name, _uid];
+	} else {
+		if (_reason == 3) then {
 			diag_log format [localize "STR_DOM_MISSIONSTRING_946", _pl_name, _uid];
 		};
 	};

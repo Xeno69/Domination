@@ -67,7 +67,7 @@ if (!xr_pl_no_lifes) then {
 		};
 		_helperls pushBack [-100, xr_name_player, xr_strpl, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudgroupcolor];
 	};
-	
+
 	private _vecpplxp = vehicle player;
 	private _grppl = group player;
 	private ["_dist", "_pic"];
@@ -79,7 +79,7 @@ if (!xr_pl_no_lifes) then {
 		};
 		_helperls pushBack [_dist, format [(_x call _fnc_gpn) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
 	} forEach (d_allplayers select {_x != player});
-	
+
 } else {
 	private _sfm = markerPos "xr_playerparkmarker";
 	private ["_dist", "_pic"];
@@ -130,14 +130,14 @@ if (!xr_pl_no_lifes) then {
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;
 	__dspctrl(1010) ctrlSetText xr_name_player;
-	
+
 	call xr_fnc_nearplayercheckui
 } else {
 	__dspctrl(9998) ctrlEnable false;
 	__dspctrl(9998) ctrlSetText "";
 	__dspctrl(100102) ctrlEnable false;
 	__dspctrl(100102) ctrlShow false;
-	
+
 	private _sfm = markerPos "xr_playerparkmarker";
 	private _visobj = objNull;
 	d_allplayers findIf {

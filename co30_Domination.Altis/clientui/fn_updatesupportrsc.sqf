@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_updatesupportrsc.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 disableSerialization;
 
 #define __availcol [0,1,0,0.3]

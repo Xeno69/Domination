@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_getsidemissionclient.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith{};
+if (!hasInterface) exitWith {};
 
 params ["_do_hint"];
 

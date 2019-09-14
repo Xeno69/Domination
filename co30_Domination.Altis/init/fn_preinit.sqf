@@ -374,7 +374,6 @@ d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
 d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 d_ef_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_events = [];
 d_ef_running = -1;
 
 d_cargo_chute =

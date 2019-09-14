@@ -4,8 +4,9 @@
 #include "..\x_setup.sqf"
 
 private "_e";
+private _ef_store = d_ef_store;
 {
-	_e = d_ef_store getVariable _x;
+	_e = _ef_store getVariable _x;
 	if (!isNil "_e") then {
 		if (_e # 1 == 0) then {
 			call (_e # 0);
@@ -24,4 +25,4 @@ private "_e";
 			};
 		};
 	};
-} forEach d_ef_events;
+} forEach (allVariables _ef_store);

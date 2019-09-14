@@ -26,6 +26,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 	private _fnc_ghpn = d_fnc_gethpname;
 	private _fnc_gpln = d_fnc_getplayername;
 	private _d_mark_loc280 = d_mark_loc280;
+	private _allplayermapd = d_allplayermapd;
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
@@ -125,7 +126,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 			};
 		};
 	//} forEach (d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}});
-	} forEach d_allplayermapd;
+	} forEach _allplayermapd;
 
 	if !(_drawn_v isEqualTo []) then {
 		{
@@ -181,6 +182,7 @@ private _rdel = false;
 private ["_isc", "_mt"];
 private _d_mark_loc261 = d_mark_loc261;
 private _d_mark_loc1825 = d_mark_loc1825;
+private _marker_vecs = d_marker_vecs;
 {
 	if (!isNull _x) then {
 		if (_x distance2D _mapmid < _drawdist) then {
@@ -220,7 +222,7 @@ private _d_mark_loc1825 = d_mark_loc1825;
 	} else {
 		_rdel = true;
 	};
-} forEach d_marker_vecs;
+} forEach _marker_vecs;
 
 if (_rdel) then {
 	d_marker_vecs = d_marker_vecs - [objNull];

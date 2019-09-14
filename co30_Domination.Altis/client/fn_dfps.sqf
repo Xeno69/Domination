@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_dfps.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 disableSerialization;
 private _disp = uiNamespace getVariable "d_fpsresource";
 if (isNil "_disp" || {isNull _disp}) then {

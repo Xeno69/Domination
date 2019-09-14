@@ -11,4 +11,4 @@ if (isNil "d_hkx") then {
 };
 
 _ar set [_num, _val];
-_obj setVariable ["d_hkx", _ar, _public]
+_obj setVariable ["d_hkx", _ar, _public];

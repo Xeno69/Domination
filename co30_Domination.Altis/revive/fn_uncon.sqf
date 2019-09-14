@@ -65,7 +65,7 @@ __TRACE("starting main uncon loop")
 		call xr_fnc_uncon_oneframe;
 	} else {
 		["dom_xr_uncon_of"] call d_fnc_eachframeremove;
-		
+
 		xr_u_dcounter = nil;
 		xr_u_xxstarttime = nil;
 		xr_u_plposm = nil;
@@ -73,14 +73,14 @@ __TRACE("starting main uncon loop")
 		xr_u_respawn = nil;
 		xr_u_nextcrytime = nil;
 		xr_u_doend_of = nil;
-		
+
 		xr_uncon_units = xr_uncon_units - [player, objNull];
-		
+
 		if (!d_player_in_base && {!isNil {player getVariable "d_old_eng_can_repfuel"}}) then {
 			d_eng_can_repfuel = false;
 		};
 		player setVariable ["d_old_eng_can_repfuel", nil];
-		
+
 		0 spawn {
 			if (!xr_u_remactions) then {
 				__TRACE("xr_u_remactions")

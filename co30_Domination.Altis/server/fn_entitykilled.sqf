@@ -17,17 +17,15 @@ __TRACE_2("","_obj","_ar")
 
 #ifdef __TT__
 if (!d_with_ace || {d_with_ace && {local _obj}}) then {
-	private _val = _ar # 0;
-	if (_val > 0) then {
-		__TRACE_1("","_val")
+	if (_ar # 0 > 0) then {
 		call {
-			if (_val == 1) exitWith {
+			if (_ar # 0 == 1) exitWith {
 				[[15, 3, 2, 1], _this # 1, _this # 0, _this # 2] call d_fnc_AddKills
 			};
-			if (_val == 2) exitWith {
+			if (_ar # 0 == 2) exitWith {
 				[[20, 3, 2, 1], _this # 1, _this # 0, _this # 2] call d_fnc_AddKills
 			};
-			if (_val == 3) exitWith {
+			if (_ar # 0 == 3) exitWith {
 				[[30, 3, 2, 1], _this # 1, _this # 0, _this # 2] call d_fnc_AddKills
 			};
 		};
@@ -49,17 +47,15 @@ if (_ar # 3 == 1) then {
 	_obj call d_fnc_onerespukilled;
 };
 
-private _val = _ar # 4;
-if (_val > 0) then {
-	__TRACE_1("","_val")
+if (_ar # 4 > 0) then {
 	call {
-		if (_val == 1) exitWith {
+		if (_ar # 4 == 1) exitWith {
 			[8, _this # 1] call d_fnc_addkillsai
 		};
-		if (_val == 2) exitWith {
+		if (_ar # 4 == 2) exitWith {
 			[5, _this # 1] call d_fnc_addkillsai
 		};
-		if (_val == 3) exitWith {
+		if (_ar # 4 == 3) exitWith {
 			[8, _this # 1] call d_fnc_addkillsai
 		};
 	};
