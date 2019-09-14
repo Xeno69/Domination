@@ -1035,10 +1035,11 @@ if (d_with_ace) then {
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3d_ace}];
 };
 
-#ifndef __TT__
 d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
+		_this call d_fnc_place;
+#ifndef __TT__
 		addToRemainsCollector [_this select 1];
 		private _grp = group (_this select 1);
 		if (!isNull _grp) then {
@@ -1050,9 +1051,10 @@ d_last_placed_zeus_obj = objNull;
 				_grp setVariable ["d_do_not_delete", true];
 			};
 		};
+#endif
+		_this select 1
 	}];
 } forEach allCurators;
-#endif
 
 if (d_with_ai) then {
 	d_hchelperhandle = scriptNull;

@@ -307,6 +307,8 @@ class cfgFunctions {
 			addc(Zen_JBOY_UpDown);
 			addc(hallyg_dlegion_Snipe);
 			addc(ambientradiochatter);
+			addc(place);
+			addc(adjustEntity);
 		};
 		class Dom_KBTell {
 			file = "bikb";
