@@ -12,7 +12,7 @@ if (time >= (_vec getVariable ["d_ncuttoft", 0])) then {
 	private _whof = _vec getVariable "d_who_fired";
 	private _aop = objNull;
 	if (!isNil "_whof") then {
-		_aop = missionNamespace getVariable _whof;
+		_aop = objectFromNetId _whof;
 		if (isNil "_aop") then {
 			_aop = objNull;
 		};

@@ -14,7 +14,10 @@ if (!d_tt_ver) then {
 	_dbresult = if (_sender != objNull) then {
 		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet:%1", toLower (worldName + _sname)]);
 	} else {
-		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
+		__TRACE("Before")
+		_res = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
+		__TRACE_1("","_res")
+		_res
 	};
 	if (_dbresult # 0 == 1) then {
 		_dbresult = _dbresult # 1;
@@ -54,6 +57,12 @@ if (!d_tt_ver) then {
 };
 
 __TRACE_1("","_dbresult")
+
+#ifdef __DEBUG__
+{
+	diag_log _x;
+} forEach (_dbresult # 0);
+#endif
 
 if (_dbresult isEqualTo []) exitWith {
 	if (!isNull _sender) then {
