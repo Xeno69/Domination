@@ -24,4 +24,5 @@ ATTENTION: You need to replace the domination-custom.ini file in your @extDB3\sq
 - Changed: Force convoy sidemission vehicles to stay on road
 - Fixed: Who fired variable was still using missionnamespace variable instead of net ID of player object
 - Fixed: Script error when loading saved mission from SQL DB (ATTENTION: YOU NEED TO REPLACE domination-custom.ini)
+- Fixed: Vehicles placed on the carrier in the Carrier version did not spawn and respawn correctly
 - And various other improvements and optimizations

@@ -62,6 +62,7 @@ while {true} do {
 			};
 			private _isitlocked = _vec getVariable ["d_vec_islocked", false];// || {_vec call d_fnc_isVecLocked};
 			private _canloadbox = _vec getVariable ["d_canloadbox", false];
+			private _aslpos = _vec getVariable "d_posasl";
 			private _ropes = _vec getVariable "d_ropes";
 			if (!isNil "_ropes") then {
 				{ropeDestroy _x} forEach (_ropes select {!isNull _x});
@@ -85,23 +86,18 @@ while {true} do {
 			_vec = createVehicle [_vec_a # 6, _vec_a # 4, [], 0, "NONE"]; //"NONE"
 			_vec setDir (_vec_a # 5);
 			_vec setPos (_vec_a # 4);
+			_vec allowDamage false;
 			private _cposc = _vec_a # 4;
 			__TRACE_2("","_vec","_cposc")
-			if (surfaceIsWater _cposc) then {
-				private _asl_height;
-				if (!isNil "d_the_carrier") then {
-					_asl_height = d_the_carrier getVariable "d_asl_height";
-				};
-				if (isNil "_asl_height") then {
-					_asl_height = (getPosASL d_FLAG_BASE) # 2;
-				};
-				_cposc set [2, _asl_height];
-				[_vec, _cposc] spawn {
-					scriptName "spawn helirespawn2";
-					params ["_vec", "_cposc"];
+			if (!isNil "_aslpos") then {
+				_vec setVariable ["d_posasl", _aslpos];
+				[_vec] spawn {
+					params ["_vec"];
 					sleep 1;
-					_vec setPosASL _cposc;
+					_vec setPosASL (_vec getVariable "d_posasl");
 					_vec setDamage 0;
+					sleep 2;
+					_vec allowDamage true;
 				};
 			};
 			_vec setVariable ["d_vec_islocked", _isitlocked];
@@ -150,6 +146,9 @@ while {true} do {
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 			if (d_with_ranked) then {
 				clearWeaponCargoGlobal _vec;
+			};
+			if (isNil "_aslpos") then {
+				_vec allowDamage true;
 			};
 		};
 		sleep (20 + random 10);

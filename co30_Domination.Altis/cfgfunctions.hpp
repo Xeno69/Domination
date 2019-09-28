@@ -531,6 +531,7 @@ class cfgFunctions {
 			addc(enabledynsim);
 			addc(hdsellead);
 			addc(hddelu);
+			addc(carrierspawn);
 		};
 		class Dom_PrePostInit {
 			file = "init";

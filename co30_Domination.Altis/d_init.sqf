@@ -484,7 +484,7 @@ if (hasInterface) then {
 	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	if (d_carrier) then {
-		["d_service_point", d_serviceall_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
+		["d_service_point", d_serviceall_trigger_5,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	};
 #else
 	if (!isNil "d_wreck_rep") then {
