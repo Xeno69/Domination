@@ -613,7 +613,10 @@ if (isServer) then {
 				_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call dsi_fnc_queryconfig
 			};
 #endif
-			diag_log ["Dom Database result standard params:", _dbresult];
+			diag_log "Dom Database result standard params:";
+			{
+				diag_log _x;
+			} forEach _dbresult;
 			if !(_dbresult isEqualTo []) then {
 				if (isClass (getMissionConfig "Params")) then {
 					private _conf = getMissionConfig "Params";

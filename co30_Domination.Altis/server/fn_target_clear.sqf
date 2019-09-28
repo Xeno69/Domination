@@ -199,10 +199,10 @@ if !(d_maintargets_list isEqualTo []) then {
 	if (d_tt_ver) then {
 		if (d_database_found && {d_db_auto_save}) then {
 #ifndef __INTERCEPTDB__
-			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
+			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
 #else
 			if (d_interceptdb) then {
-				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingName)]] call dsi_fnc_queryconfigasync;
+				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call dsi_fnc_queryconfigasync;
 			};
 #endif
 		};
@@ -211,10 +211,10 @@ if !(d_maintargets_list isEqualTo []) then {
 	} else {
 		if (d_database_found && {d_db_auto_save}) then {
 #ifndef __INTERCEPTDB__
-			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
+			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
 #else
 			if (d_interceptdb) then {
-				["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingName)]] call dsi_fnc_queryconfigasync;
+				["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call dsi_fnc_queryconfigasync;
 			};
 #endif
 		};

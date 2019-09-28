@@ -2,6 +2,8 @@
 
 ATTENTION: ALL mission.sqm files have changed!!!!!!
 
+ATTENTION: You need to replace the domination-custom.ini file in your @extDB3\sql_custom folder with the new one!!!!!!!!
+
 - Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
 - Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
 - Optimized: Using toLowerANSI/toUpperANSI where possible
@@ -20,5 +22,6 @@ ATTENTION: ALL mission.sqm files have changed!!!!!!
 - Changed: 50/50 chance that airborne groups (main tower) now do not paradrop but the aircraft lands and they get out of the aircraft normally
 - Fixed: SM position in convoy sidemissions in ranked and DB mode did not get updated when the original leader of the group got killed
 - Changed: Force convoy sidemission vehicles to stay on road
-- Fixed: Who fired variable was still using missionnamespace variable instead of net ID of player object 
+- Fixed: Who fired variable was still using missionnamespace variable instead of net ID of player object
+- Fixed: Script error when loading saved mission from SQL DB (ATTENTION: YOU NEED TO REPLACE domination-custom.ini)
 - And various other improvements and optimizations
