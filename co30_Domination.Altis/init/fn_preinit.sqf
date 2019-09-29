@@ -575,7 +575,10 @@ if (isServer) then {
 			_dbresult = ["getDomSettings"] call dsi_fnc_queryconfig;
 		};
 #endif
-		diag_log ["Dom Database result loading dom_settings:", _dbresult];
+		diag_log "Dom Database result loading dom_settings:";
+		{
+			diag_log _x;
+		} forEach _dbresult;
 		if !(_dbresult isEqualTo []) then {
 			{
 				call {
