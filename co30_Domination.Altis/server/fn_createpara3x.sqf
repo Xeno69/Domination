@@ -287,7 +287,7 @@ private _make_jump = {
 						if (d_with_dynsim == 0) then {
 							[_grp, 0] spawn d_fnc_enabledynsim;
 						};
-						_paragrp call d_fnc_addgrp2hc;
+						_grp call d_fnc_addgrp2hc;
 					};
 				};
 			};
