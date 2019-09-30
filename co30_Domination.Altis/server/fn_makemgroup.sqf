@@ -10,6 +10,11 @@ if (isNil "_unitliste") exitWith {
 	[]
 };
 
+if (_unitliste isEqualTo []) exitWith {
+	diag_log ["Attention, _unitlist (param 2) is empty, returning []", "_pos", _pos, "_grp", _grp];
+	[]
+};
+
 __TRACE_3("","_pos","_unitliste","_grp")
 __TRACE_1("","_mchelper")
 
