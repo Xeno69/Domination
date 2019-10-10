@@ -68,7 +68,6 @@ params ["_unit", ["_behaviour", "safe"], ["_maxWaitTime", 30], ["_excludedPositi
 _behaviour = toLowerANSI _behaviour;
 _stance = toLowerANSI _stance;
 
-private _position = getPos _unit;
 if (isNull _house) then {_house = nearestBuilding _unit};
 if (isNull _house) exitWith {};
 private _numOfBuildingPos = count (_house buildingPos -1);
@@ -85,6 +84,7 @@ private _stances = ["up", "down", "middle", "auto", "high"];
 private _name = vehicleVarName _unit;
 
 if (isNil "_name") then {
+	private _position = getPos _unit;
 	_name = format ["Guard x%1y%2", floor (_position select 0), floor (_position select 1)];
 };
 #endif
