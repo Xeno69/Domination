@@ -6,6 +6,9 @@ if (!isServer) exitWith {};
 
 d_last_bonus_vec = "";
 
+d_sm_selected = [];
+d_sm_max_distance_from_mt = 1500;
+
 d_sm_triggervb = [
 	[0, 0, 0],
 	[0, 0, 0, false, 0],
@@ -25,7 +28,8 @@ if (d_MissionType in [0,2]) then {
 		sleep 20;
 		if (d_MissionType != 2) then {
 			private _num_p = call d_fnc_PlayersNumber;
-			private _waittime = 200 + random 10;
+			//private _waittime = 200 + random 10;
+			private _waittime = 60 + random 10;
 			if (_num_p > 0) then {
 				private _fidx = d_time_until_next_sidemission findIf {_num_p <= _x # 0};
 				if (_fidx > -1) then {
