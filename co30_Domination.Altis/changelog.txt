@@ -26,4 +26,5 @@ ATTENTION: You need to replace the domination-custom.ini file in your @extDB3\sq
 - Fixed: Script error when loading saved mission from SQL DB (ATTENTION: YOU NEED TO REPLACE domination-custom.ini)
 - Fixed: Vehicles placed on the carrier in the Carrier version did not spawn and respawn correctly
 - Fixed: One allmen group had no units in the Sahrani version (CUP_O_SLA_InfantrySquad_Desert)
+- Changed: If player ammobox at base gets destroyed delete it and create a new one so that the Inventory action shows up again
 - And various other improvements and optimizations
