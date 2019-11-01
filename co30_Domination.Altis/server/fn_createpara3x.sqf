@@ -300,16 +300,18 @@ private _make_jump = {
 		sleep 0.112;
 		d_should_be_there = d_should_be_there - 1;
 
-		_checktime = time + 500;
+		_checktime = time + 800;
 		while {_heliendpoint distance2D _vec > 1000} do {
 			if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {};
 			sleep 1.123;
 		};
 
-		if (!isNull _vec && {_heliendpoint distance2D _vec > 1000}) then {
-			[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
-		} else {
-			_vec call d_fnc_DelVecAndCrew;
+		if (!isNull _vec) then {
+			if (_heliendpoint distance2D _vec > 1000) then {
+				[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
+			} else {
+				_vec call d_fnc_DelVecAndCrew;
+			};
 		};
 		if (!isNull _driver_vec) then {
 			_driver_vec setDamage 1;
