@@ -114,7 +114,7 @@ if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
 	if !(_helperls isEqualTo []) then {
 		lbSortByValue _lbctr;
 		_setidx = 0;
-		private _spectcamtargetstr == xr_spectcamtargetstr;
+		private _spectcamtargetstr = xr_spectcamtargetstr;
 		for "_i" from 0 to (lbSize _lbctr) -1 do {
 			if (_spectcamtargetstr == _lbctr lbData _i) exitWith {
 				_setidx = _i;
