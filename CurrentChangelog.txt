@@ -4,3 +4,4 @@
 - Fixed: Mine sidemission 104 was spawning enemy AI far far away (marker moved by accident)
 - Changed: Reduced number of spawned enemy AI units slightly, seems 1.96 has some performance issues
 - Fixed: Really stupid script error in revive
+- Fixed: Script error in air AI script
