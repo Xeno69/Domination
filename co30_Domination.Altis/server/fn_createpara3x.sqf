@@ -14,6 +14,7 @@ d_c_attacking_grps = [];
 private _delveccrew = {
 	scriptName "spawn_x_createpara3_delveccrew";
 	params ["_crew_vec", "_vec", "_time"];
+	__TRACE("_delveccrew running")
 	sleep _time;
 	{_vec deleteVehicleCrew _x} forEach (_crew_vec select {!isNull _x});
 	if (!isNull _vec) then {_vec setDamage 1};
@@ -52,6 +53,8 @@ private _make_jump = {
 
 	sleep 0.1;
 	private _landheli = random 100 > 49;
+	
+	__TRACE_1("","_landheli")
 
 	private _helperh = objNull;
 	if (_landheli) then {
@@ -82,7 +85,7 @@ private _make_jump = {
 	};
 
 	private _stop_me = false;
-	private _checktime = time + 200;
+	private _checktime = time + 400;
 	private _distchk = [500, 2000] select (_vec isKindOf "Plane");
 	__TRACE_2("","_checktime","_distchk")
 	while {_attackpoint distance2D _vec > 300} do {
@@ -211,6 +214,7 @@ private _make_jump = {
 
 				sleep 1;
 				_vec land "NONE";
+				__TRACE("vec starting again")
 				sleep 0.1;
 				_driver_vec doMove _heliendpoint;
 				_vec flyInHeight 80;
@@ -300,23 +304,21 @@ private _make_jump = {
 		sleep 0.112;
 		d_should_be_there = d_should_be_there - 1;
 
-		_checktime = time + 800;
+		_checktime = time + 500;
+		__TRACE_1("","_checktime")
 		while {_heliendpoint distance2D _vec > 1000} do {
-			if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {};
+			__TRACE_1("","_vec")
+			__TRACE_3("","alive _vec","alive _driver_vec","canMove _vec")
+			if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {
+				__TRACE("Exiting heliendpoint check")
+			};
 			sleep 1.123;
 		};
-
+		
 		if (!isNull _vec) then {
-			if (_heliendpoint distance2D _vec > 1000) then {
-				[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
-			} else {
-				_vec call d_fnc_DelVecAndCrew;
-			};
+			[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
 		};
-		if (!isNull _driver_vec) then {
-			_driver_vec setDamage 1;
-			deleteVehicle _driver_vec;
-		};
+
 		if (!isNull _helperh) then {
 			deleteVehicle _helperh;
 		};
