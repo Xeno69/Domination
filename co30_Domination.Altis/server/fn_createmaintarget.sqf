@@ -356,7 +356,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_occupy_count - 1) do {
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				(ceil random 5) max 3,			//unit count
+				selectRandom [2, 3, 4],			//unit count
 				250,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -372,7 +372,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 		for "_xx" from 0 to (d_enemy_garrison_troop_ambush_count - 1) do {
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				(ceil random 6) max 4,			//unit count
+				selectRandom [3, 4],		//unit count
 				250,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly

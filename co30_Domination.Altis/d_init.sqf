@@ -115,10 +115,10 @@ if (isServer) then {
 
 if (d_with_dynsim == 0) then {
 	enableDynamicSimulationSystem true;
-	"Group" setDynamicSimulationDistance 1000;
+	"Group" setDynamicSimulationDistance 1400;
 	"Vehicle" setDynamicSimulationDistance 3000;
 	"EmptyVehicle" setDynamicSimulationDistance 1000;
-	"Prop" setDynamicSimulationDistance 1000;
+	"Prop" setDynamicSimulationDistance 600;
 	"IsMoving" setDynamicSimulationDistanceCoef 2;
 } else {
 	enableDynamicSimulationSystem false;

@@ -9980,7 +9980,7 @@
 <Korean>Garrisoned infantry group count - occupy mode</Korean>
 <Japanese>Garrisoned infantry group count - occupy mode</Japanese>
 <Original>Garrisoned infantry group count - occupy mode</Original>
-<Russian>Garrisoned infantry group count - occupy mode</Russian>
+<Russian>Количество пехотных групп - режим оккупации</Russian>
 <Chinesesimp>驻军步兵团计数 - 占领模式</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
@@ -9990,7 +9990,7 @@
 <Korean>Garrisoned infantry group count - ambush mode</Korean>
 <Japanese>Garrisoned infantry group count - ambush mode</Japanese>
 <Original>Garrisoned infantry group count - ambush mode</Original>
-<Russian>Garrisoned infantry group count - ambush mode</Russian>
+<Russian>Количество пехотных групп - режим засады</Russian>
 <Chinesesimp>驻军步兵团计数 - 埋伏模式</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
@@ -10000,7 +10000,7 @@
 <Korean>Garrisoned infantry group count - sniper mode</Korean>
 <Japanese>Garrisoned infantry group count - sniper mode</Japanese>
 <Original>Garrisoned infantry group count - sniper mode</Original>
-<Russian>Garrisoned infantry group count - sniper mode</Russian>
+<Russian>Количество пехотных групп - режим снайпера</Russian>
 <Chinesesimp>驻军步兵团计数 - 狙击手模式</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
@@ -10010,7 +10010,7 @@
 <Korean>Garrisoned infantry sniper mode - advanced awareness</Korean>
 <Japanese>Garrisoned infantry sniper mode - advanced awareness</Japanese>
 <Original>Garrisoned infantry sniper mode - advanced awareness</Original>
-<Russian>Garrisoned infantry sniper mode - advanced awareness</Russian>
+<Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
 <Chinesesimp>Garrisoned infantry sniper mode - advanced awareness</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
@@ -10020,7 +10020,7 @@
 <Korean>Garrisoned infantry sniper mode - general skill</Korean>
 <Japanese>Garrisoned infantry sniper mode - general skill</Japanese>
 <Original>Garrisoned infantry sniper mode - general skill</Original>
-<Russian>Garrisoned infantry sniper mode - general skill</Russian>
+<Russian>Снайперский режим пехоты - общий навык</Russian>
 <Chinesesimp>Garrisoned infantry sniper mode - general skill</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900F">
@@ -10030,7 +10030,7 @@
 <Korean>Garrisoned infantry sniper mode - aimingShake skill</Korean>
 <Japanese>Garrisoned infantry sniper mode - aimingShake skill</Japanese>
 <Original>Garrisoned infantry sniper mode - aimingShake skill</Original>
-<Russian>Garrisoned infantry sniper mode - aimingShake skill</Russian>
+<Russian>Снайперский режим пехоты - навык прицеливания</Russian>
 <Chinesesimp>Garrisoned infantry sniper mode - aimingShake skill</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
@@ -10290,7 +10290,7 @@
 <Korean>Players can select from available targets:</Korean>
 <Japanese>Players can select from available targets:</Japanese>
 <Original>Players can select from available targets:</Original>
-<Russian>Players can select from available targets:</Russian>
+<Russian>Игроки могут выбрать доступные цели основных заданий:</Russian>
 <Chinesesimp>玩家可以从可用目标中进行选择:</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
