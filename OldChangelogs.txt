@@ -2,7 +2,7 @@ Changelogs
 
 Upcoming...
 
-4.11
+4.12
 !!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
 !!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
