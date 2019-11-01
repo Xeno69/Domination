@@ -5,3 +5,4 @@
 - Changed: Reduced number of spawned enemy AI units slightly, seems 1.96 has some performance issues
 - Fixed: Really stupid script error in revive
 - Fixed: Script error in air AI script
+- Fixed: d_ranked_a array was not available on the server (in case a server is not using a SQL database table)
