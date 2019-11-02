@@ -77,7 +77,7 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	_veh setVehiclePosition [_veh, [], 0, "NONE"];
 };
 
-private _crew = [_veh, _grp] call d_fnc_spawnCrew;
+private _crew = [_veh, _grp, _nocargo] call d_fnc_spawnCrew;
 _grp addVehicle _veh;
 _grp deleteGroupWhenEmpty true;
 
