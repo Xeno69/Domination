@@ -1,8 +1,9 @@
 4.11
 
-- Changed: Increased dynamic "Group" simulation from 1000 to 1400
+- Changed: Increased dynamic "Group" simulation from 1000m to 1400m
 - Fixed: Mine sidemission 104 was spawning enemy AI far far away (marker moved by accident)
 - Changed: Reduced number of spawned enemy AI units slightly, seems 1.96 has some performance issues
 - Fixed: Really stupid script error in revive
 - Fixed: Script error in air AI script
 - Fixed: d_ranked_a array was not available on the server (in case a server is not using a SQL database table)
+- Fixed: Air vehicles para dropping or unloading AI over the main target got deleted way too early

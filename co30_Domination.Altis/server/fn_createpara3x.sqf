@@ -16,6 +16,7 @@ private _delveccrew = {
 	params ["_crew_vec", "_vec", "_time"];
 	__TRACE("_delveccrew running")
 	sleep _time;
+	__TRACE("_delveccrew deleting")
 	{_vec deleteVehicleCrew _x} forEach (_crew_vec select {!isNull _x});
 	if (!isNull _vec) then {_vec setDamage 1};
 	{_x setDamage 1; deleteVehicle _x} forEach (_crew_vec select {!isNull _x});
@@ -308,6 +309,7 @@ private _make_jump = {
 		__TRACE_1("","_checktime")
 		while {_heliendpoint distance2D _vec > 1000} do {
 			__TRACE_1("","_vec")
+			__TRACE_1("","_heliendpoint distance2D _vec")
 			__TRACE_3("","alive _vec","alive _driver_vec","canMove _vec")
 			if (!alive _vec || {!alive _driver_vec || {!canMove _vec || {time > _checktime}}}) exitWith {
 				__TRACE("Exiting heliendpoint check")
@@ -316,7 +318,11 @@ private _make_jump = {
 		};
 		
 		if (!isNull _vec) then {
-			[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
+			if (_heliendpoint distance2D _vec > 1000) then {
+				[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
+			} else {
+				_vec call d_fnc_DelVecAndCrew;
+			};
 		};
 
 		if (!isNull _helperh) then {
@@ -325,6 +331,7 @@ private _make_jump = {
 	} else {
 		[_crew_vec, _vec, 60 + random 60] spawn _delveccrew;
 	};
+	__TRACE("Ending makejump")
 };
 
 private _cur_tgt_pos =+ d_cur_tgt_pos;
@@ -367,6 +374,7 @@ while {_icounter < _number_vehicles} do {
 	__TRACE_1("","d_mt_radio_down")
 	if (d_mt_radio_down) exitWith {
 		_stop_it = true;
+		__TRACE("Main deleting")
 		{_vec deleteVehicleCrew _x} forEach (crew _vec);
 		deleteVehicle _vec;
 	};
@@ -374,11 +382,18 @@ while {_icounter < _number_vehicles} do {
 	[_vgrp, _vec, _attackpoint, _flytopos, _heliendpoint, _delveccrew, _crew] spawn _make_jump;
 
 	_icounter = _icounter + 1;
-	if (_icounter == _number_vehicles) exitWith {};
+	if (_icounter == _number_vehicles) exitWith {
+		__TRACE("icounter = number vecs")
+	};
 
 	_etime = time + 30 + (random 30);
-	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
+	while {time < _etime && {!d_mt_radio_down}} do {
+		__TRACE("waiting for radio down or etime")
+		sleep 1;
+	};
 };
+
+__TRACE_1("","_stop_it")
 
 if (_stop_it) exitWith {
 	{
@@ -389,7 +404,10 @@ if (_stop_it) exitWith {
 	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
 };
 
-while {d_should_be_there > 0 && {!d_mt_radio_down}} do {sleep 1.021};
+while {d_should_be_there > 0 && {!d_mt_radio_down}} do {
+	__TRACE_1("","d_should_be_there")
+	sleep 1.021;
+};
 
 if (!d_mt_radio_down) then {
 	private _etime = time + 20.0123;
@@ -405,9 +423,13 @@ if (!d_mt_radio_down) then {
 	};
 };
 
-{
-	private _v = _x;
-	{_v deleteVehicleCrew _x} forEach (crew _v);
-} forEach (_vecs_ar select {!isNull _x});
-{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
-{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
+[_vecs_ar, _crews_ar] spawn {
+	params ["_vecs_ar", "_crews_ar"];
+	sleep 120;
+	{
+		private _v = _x;
+		{_v deleteVehicleCrew _x} forEach (crew _v);
+	} forEach (_vecs_ar select {!isNull _x});
+	{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
+	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
+};
