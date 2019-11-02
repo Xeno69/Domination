@@ -7,3 +7,4 @@
 - Fixed: Script error in air AI script
 - Fixed: d_ranked_a array was not available on the server (in case a server is not using a SQL database table)
 - Fixed: Air vehicles para dropping or unloading AI over the main target got deleted way too early
+- Fixed: Really stupid error which did not delete AI groups of destroyed vehicles, game breaker
