@@ -59,7 +59,7 @@ if (d_with_ai) then {
 	_grp setVariable ["d_do_not_delete", true];
 };
 private _spos = [_dstart_pos # 0, _dstart_pos # 1, 300];
-private _veca = [_spos, _spos getDir _drop_pos, d_drop_aircraft, _grp, false] call d_fnc_spawnVehicle;
+private _veca = [_spos, _spos getDir _drop_pos, d_drop_aircraft, _grp, false, true] call d_fnc_spawnVehicle;
 _grp deleteGroupWhenEmpty true;
 _veca params ["_chopper"];
 addToRemainsCollector [_chopper];

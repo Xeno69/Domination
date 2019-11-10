@@ -13,6 +13,10 @@ while {true} do {
 		"d_score_hud" cutRsc ["d_score_hud", "PLAIN"];
 		_disp = uiNamespace getVariable "d_score_hud";
 	};
-	(_disp displayCtrl 9999) ctrlSetText ("Score: " + str (score player));
+	if (!visibleMap) then {
+		(_disp displayCtrl 9999) ctrlSetText ("Score: " + str (score player));
+	} else {
+		(_disp displayCtrl 9999) ctrlSetText ("");
+	};
 	sleep 1;
 };

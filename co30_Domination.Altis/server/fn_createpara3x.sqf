@@ -88,6 +88,7 @@ private _make_jump = {
 	private _stop_me = false;
 	private _checktime = time + 400;
 	private _distchk = [500, 2000] select (_vec isKindOf "Plane");
+	private _slower = false;
 	__TRACE_2("","_checktime","_distchk")
 	while {_attackpoint distance2D _vec > 300} do {
 		__TRACE_1("","_attackpoint distance2D _vec")
@@ -110,6 +111,11 @@ private _make_jump = {
 			};
 		};
 		if (_stop_me) exitWith {};
+		sleep 0.01;
+		if (_landheli && {!_slower && {_attackpoint distance2D _vec > 1000}}) then {
+			_slower = true;
+			_driver_vec setSpeedMode "LIMITED";
+		};
 		sleep 0.7;
 	};
 	if (_stop_me) exitWith {
@@ -218,6 +224,9 @@ private _make_jump = {
 				__TRACE("vec starting again")
 				sleep 0.1;
 				_driver_vec doMove _heliendpoint;
+				if (_slower) then {
+					_driver_vec setSpeedMode "NORMAL";
+				};
 				_vec flyInHeight 80;
 				_vgrp setBehaviourStrong "CARELESS";
 			};

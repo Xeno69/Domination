@@ -78,7 +78,7 @@ if (d_MissionType == 2) then {
 
 0 spawn d_fnc_cleanerfnc;
 
-diag_log ["Internal D Version: 4.11"];
+diag_log ["Internal D Version: 4.12"];
 
 private _av_check_fnc = {
 	_this addEventHandler ["handleDamage", {_this call d_fnc_pshootatarti;0}];
