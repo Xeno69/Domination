@@ -49,6 +49,7 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 			player setVariable ["d_p_f_b", 0];
 		};
 	} else {
+		if (d_with_ace) exitWith {};
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
 			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0) then {
 				if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {};
