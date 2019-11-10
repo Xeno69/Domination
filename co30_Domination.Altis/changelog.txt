@@ -1,29 +1,6 @@
-4.10
+4.12
 
-ATTENTION: ALL mission.sqm files have changed!!!!!!
-
-ATTENTION: You need to replace the domination-custom.ini file in your @extDB3\sql_custom folder with the new one!!!!!!!!
-
-- Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
-- Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
-- Optimized: Using toLowerANSI/toUpperANSI where possible
-- Added: Parameter to allow players more target selections across the map, discrete parameters for each of the three garrison behaviors (by longtimegamer)
-- Fixed: Removed occupy buildings troop level parameter, replaced with three parameters for garrison behaviors (by longtimegamer)
-- Optimized: Repwreck, including constant check for a wreck object, now only starts on the server when a player is nearby and ends when the player is gone (or the wreck is repaired)
-- Changed: Disabled AI Radioprotocol
-- Changed: Show score on the main display in the ranked version or when a SQL database is running
-- Optimized: (Capture)CampDialog FSM now only runs if a player is near a Camp and not constantly
-- Changed: Service triggers are now only created on clients, editor placed ones removed, by lelik
-- Optimized: Entity killed eventhandler, now only uses one object space variable instead of 17 different ones (saves 17 getVariable calls)
-- Changed: Replaced Land_Factory_Main_F with Land_IndustrialShed_01_F in "find IED factory" main target mission
-- Changed: Display "Stall" in the camp capture progress dialog if there is a stall between players and enemies at a camp
-- Changed: Artillery projectiles on the way will now be deleted if an arty operator cancels an artillery strike
-- Fixed: If a player connects as leader of an existing group he/she should no longer change the assigned task of other players
-- Changed: 50/50 chance that airborne groups (main tower) now do not paradrop but the aircraft lands and they get out of the aircraft normally
-- Fixed: SM position in convoy sidemissions in ranked and DB mode did not get updated when the original leader of the group got killed
-- Changed: Force convoy sidemission vehicles to stay on road
-- Fixed: Who fired variable was still using missionnamespace variable instead of net ID of player object
-- Fixed: Script error when loading saved mission from SQL DB (ATTENTION: YOU NEED TO REPLACE domination-custom.ini)
-- Fixed: Vehicles placed on the carrier in the Carrier version did not spawn and respawn correctly
-- Fixed: One allmen group had no units in the Sahrani version (CUP_O_SLA_InfantrySquad_Desert)
-- And various other improvements and optimizations
+- Changed: Don't show score resource when the main map is open
+- Changed: Added d_launcher_cooldown; when a player fires a guided launcher like a Titan then he has too wait a specific time in seconds defined in d_launcher_cooldown (default 120 seconds, can be changed in dom_settings too; 0 to disable)
+- Fixed: UAV servicing at service points did not work at all, game breaker :(
+- Fixed: Some more minor issues and problems

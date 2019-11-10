@@ -115,10 +115,10 @@ if (isServer) then {
 
 if (d_with_dynsim == 0) then {
 	enableDynamicSimulationSystem true;
-	"Group" setDynamicSimulationDistance 1000;
+	"Group" setDynamicSimulationDistance 1400;
 	"Vehicle" setDynamicSimulationDistance 3000;
 	"EmptyVehicle" setDynamicSimulationDistance 1000;
-	"Prop" setDynamicSimulationDistance 1000;
+	"Prop" setDynamicSimulationDistance 600;
 	"IsMoving" setDynamicSimulationDistanceCoef 2;
 } else {
 	enableDynamicSimulationSystem false;
@@ -132,7 +132,7 @@ if (isServer) then {
 	private _fnc_boxset = {
 		params ["_ma"];
 		private _bpos = markerPos _ma;
-		private _box = createVehicle [d_the_base_box, [0, 0, 0], [], 0, "NONE"];
+		private _box = createVehicle [d_the_base_box, _bpos, [], 0, "NONE"];
 		_box setPos _bpos;
 		_box setDir (markerDir _ma);
 		if (surfaceIsWater _bpos) then {
@@ -142,13 +142,15 @@ if (isServer) then {
 				_box setPosASL [_bpos # 0, _bpos # 1, _aslh];
 			};
 		};
+		_box setVariable ["d_bpos", getPosASL _box];
+		_box setVariable ["d_bdir", markerDir _ma];
 		clearWeaponCargoGlobal _box;
 		clearMagazineCargoGlobal _box;
 		clearBackpackCargoGlobal _box;
 		clearItemCargoGlobal _box;
-		_box allowDamage false;
 		_box enableRopeAttach false;
 		_box enableSimulationGlobal false;
+		_box addEventhandler ["killed", {_this call d_fnc_playerboxkilled}];
 		_box
 	};
 
@@ -318,6 +320,10 @@ if (isNil "d_num_barracks_tt") then {
 #endif
 if (isNil "d_winterw") then {
 	d_winterw = 0;
+};
+
+if (hasInterface) then {
+	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
 };
 
 if (isServer) then {

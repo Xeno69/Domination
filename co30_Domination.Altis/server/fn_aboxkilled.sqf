@@ -5,7 +5,7 @@
 
 params ["_box"];
 deleteMarker ((_box getVariable "d_box_params") # 1);
-[_box] remoteExecCall ["d_fnc_RemABoxC"];
+[_box] remoteExecCall ["d_fnc_RemABoxC", [0, -2] select isDedicated];
 _box spawn {sleep 30; deleteVehicle _this};
 d_ammo_boxes = d_ammo_boxes - [_box, objNull];
 publicVariable "d_ammo_boxes";

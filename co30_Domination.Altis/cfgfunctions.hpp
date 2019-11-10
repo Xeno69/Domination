@@ -532,6 +532,7 @@ class cfgFunctions {
 			addc(hdsellead);
 			addc(hddelu);
 			addc(carrierspawn);
+			addc(playerboxkilled);
 		};
 		class Dom_PrePostInit {
 			file = "init";

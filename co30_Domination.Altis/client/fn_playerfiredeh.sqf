@@ -48,5 +48,24 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 		} else {
 			player setVariable ["d_p_f_b", 0];
 		};
+	} else {
+		if (d_with_ace) exitWith {};
+		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
+			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0) then {
+				if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {};
+				private _w = player getVariable ("d_" + (_this # 1));
+				if (!isNil "_w") then {
+					if (time < _w) then {
+						deleteVehicle (_this # 6);
+						player addMagazine (_this # 5);
+						private _str = format [localize "STR_DOM_MISSIONSTRING_1969", [_this # 1, "CfgWeapons"] call d_fnc_getdisplayname, round (_w - time)];
+						hintSilent parseText format ["<t color='#ff0000' size='1.5' align='center'>%1</t>", _str];
+						systemChat _str;
+					};
+				} else {
+					player setVariable ["d_" + (_this # 1), time + d_launcher_cooldown];
+				};
+			};
+		};
 	};
 };

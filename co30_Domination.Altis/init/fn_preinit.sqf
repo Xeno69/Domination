@@ -587,7 +587,7 @@ if (isServer) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (toLowerANSI (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time"]) exitWith {
+					if (toLowerANSI (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time", "d_launcher_cooldown"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1, true];
 					};
 #ifdef __TT__
@@ -1854,6 +1854,13 @@ if (hasInterface) then {
 #ifdef __TT__
 		["O_Heli_Light_02_unarmed_F"];
 #endif
+
+	if (isNil "d_launcher_cooldown") then {
+		// player AT launcher cooldown time, means, a player can't use a guided launcher like the Titan for 60
+		// The projectile gets deleted and a magazine added again to the player inventory
+		// can be changed in the database dom_settings table too
+		d_launcher_cooldown = 120;
+	};
 	
 	// internal variables
 	d_flag_vec = objNull;

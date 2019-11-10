@@ -50,13 +50,13 @@ if (_ar # 3 == 1) then {
 if (_ar # 4 > 0) then {
 	call {
 		if (_ar # 4 == 1) exitWith {
-			[8, _this # 1] call d_fnc_addkillsai
+			[8, _this # 1, _this # 2] spawn d_fnc_addkillsai
 		};
 		if (_ar # 4 == 2) exitWith {
-			[5, _this # 1] call d_fnc_addkillsai
+			[5, _this # 1, _this # 2] spawn d_fnc_addkillsai
 		};
 		if (_ar # 4 == 3) exitWith {
-			[8, _this # 1] call d_fnc_addkillsai
+			[8, _this # 1, _this # 2] spawn d_fnc_addkillsai
 		};
 	};
 };

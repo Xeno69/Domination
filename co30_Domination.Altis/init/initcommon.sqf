@@ -239,47 +239,47 @@ if (isServer) then {
 	};
 };
 
-if (hasInterface) then {
-	if (d_with_ai) then {d_current_ai_num = 0};
-
-	if (isNil "d_ranked_a") then {
-		d_ranked_a = [
-			20, // points that an engineer must have to repair/refuel a vehicle
-			[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
-			10, // points an artillery operator needs for a strike
-			3, // points in the AI version for recruiting one soldier
-			10, // points a player needs for an AAHALO parajump
-			10, // points that get subtracted for creating a vehicle at a MHQ
-			20, // points needed to create a vehicle at a MHQ
-			3, // points a medic gets if someone heals at his Mash
-			["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
-			30, // points that get added if a player is xxx m in range of a main target when it gets cleared
-			400, // range the player has to be in to get the main target extra points
-			10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
-			200, // range the player has to be in to get the sidemission extra points
-			20, // points needed for an egineer to rebuild the support buildings at base
-			10, // not used anymore !!! Was points needed to build MG Nest before
-			5, // points needed in AI Ranked to call in an airtaxi
-			20, // points needed to call in an air drop
-			4, // points a medic gets when he heals another unit
-			1, // points that a player gets when transporting others
-			20, // points needed for activating satellite view
-			20, // points needed to build a FARP (engineer)
-			10, // points a player gets for reviving another player
-			20, // points a Squad Leader needs for CAS
-			20  // points a player gets for bringing a wreck to the repair point
-		];
-	} else {
-		if (count d_ranked_a < 24) then {
-			if (count d_ranked_a == 22) then {
-				d_ranked_a append [20, 20];
-			} else {
-				if (count d_ranked_a == 23) then {
-					d_ranked_a pushBack 20;
-				};
+if (isNil "d_ranked_a") then {
+	d_ranked_a = [
+		20, // points that an engineer must have to repair/refuel a vehicle
+		[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
+		10, // points an artillery operator needs for a strike
+		3, // points in the AI version for recruiting one soldier
+		10, // points a player needs for an AAHALO parajump
+		10, // points that get subtracted for creating a vehicle at a MHQ
+		20, // points needed to create a vehicle at a MHQ
+		3, // points a medic gets if someone heals at his Mash
+		["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
+		30, // points that get added if a player is xxx m in range of a main target when it gets cleared
+		400, // range the player has to be in to get the main target extra points
+		10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
+		200, // range the player has to be in to get the sidemission extra points
+		20, // points needed for an egineer to rebuild the support buildings at base
+		10, // not used anymore !!! Was points needed to build MG Nest before
+		5, // points needed in AI Ranked to call in an airtaxi
+		20, // points needed to call in an air drop
+		4, // points a medic gets when he heals another unit
+		1, // points that a player gets when transporting others
+		20, // points needed for activating satellite view
+		20, // points needed to build a FARP (engineer)
+		10, // points a player gets for reviving another player
+		20, // points a Squad Leader needs for CAS
+		20  // points a player gets for bringing a wreck to the repair point
+	];
+} else {
+	if (count d_ranked_a < 24) then {
+		if (count d_ranked_a == 22) then {
+			d_ranked_a append [20, 20];
+		} else {
+			if (count d_ranked_a == 23) then {
+				d_ranked_a pushBack 20;
 			};
 		};
 	};
+};
+
+if (hasInterface) then {
+	if (d_with_ai) then {d_current_ai_num = 0};
 
 	// distance a player has to transport others to get points
 	d_transport_distance = 500;

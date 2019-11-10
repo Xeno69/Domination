@@ -31,7 +31,7 @@ private _npos = _start_point;
 {
 	private _rand = floor random 2;
 	if (_rand > 0) then {
-		private _reta = [_rand, _npos, _x, _agrp, -1.111] call d_fnc_makevgroup;
+		private _reta = [_rand, _npos, _x, _agrp, -1.111, false, false, false, true] call d_fnc_makevgroup;
 		_vecs append (_reta # 0);
 		_units append (_reta # 1);
 		sleep 0.73;

@@ -3,13 +3,22 @@
 #define THIS_FILE "fn_tchopservice.sqf"
 #include "..\x_setup.sqf"
 
-if ("Helicopter" countType _this == 0) exitWith {
+params ["_list", "_trig"];
+
+if (_list isEqualTo []) then {
+	_list = _trig nearEntities ["UAV_01_base_F", 8];
+};
+
+if ("Helicopter" countType _list == 0) exitWith {
 	__TRACE("No heli inside trigger")
 	false
 };
-if (!isTouchingGround (_this select 0)) exitWith {
+if (!isTouchingGround (_list select 0)) exitWith {
 	__TRACE("Heli is not touching ground")
 	false
 };
+
+_trig setVariable ["d_list", _list];
+
 __TRACE("true")
 true
