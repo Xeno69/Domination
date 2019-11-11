@@ -114,6 +114,6 @@ if (count d_mttargets_ar > 1) then {
 	__TRACE_1("","d_maintargets_list")
 } else {
 	d_cur_tar_obj = d_mttargets_ar # 0 # 4;
+	d_maintargets_list = [d_mttargets_ar # 0 # 3];
 	d_mttargets_ar deleteAt 0;
-	d_maintargets_list = [];
 };

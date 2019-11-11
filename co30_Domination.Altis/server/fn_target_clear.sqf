@@ -175,6 +175,8 @@ sleep 0.245;
 
 0 spawn d_fnc_rebbuil;
 
+__TRACE_1("","d_maintargets_list")
+
 if !(d_maintargets_list isEqualTo []) then {
 	if (d_MHQDisableNearMT != 0) then {
 		{
@@ -206,8 +208,8 @@ if !(d_maintargets_list isEqualTo []) then {
 			};
 #endif
 		};
-	d_the_end = true; publicVariable "d_the_end";
-	0 spawn d_fnc_DomEnd;
+		d_the_end = true; publicVariable "d_the_end";
+		0 spawn d_fnc_DomEnd;
 	} else {
 		if (d_database_found && {d_db_auto_save}) then {
 #ifndef __INTERCEPTDB__

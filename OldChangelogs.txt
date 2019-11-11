@@ -1,15 +1,25 @@
 Changelogs
 
-Upcoming...
+Old...
 
 4.12
-!!!!!! Please note that you can set unsafeCVL to 1 in description.ext if you are using addons which need createVehicleLocal for objects (unsafe!!!) !!!!
-!!!!!! (available with A3 patch 1.96) !!!!!!!!!
 
-- Changed: unsafeCVL is set to 0 in description.ext to disallow using createVehicleLocal for objects on clients! (available with A3 patch 1.96)
-- Added: InterceptDB support (enable in x_setup.sqf; #define __INTERCEPTDB__)
+- Changed: Don't show score resource when the main map is open
+- Changed: Added d_launcher_cooldown; when a player fires a guided launcher like a Titan then he has too wait a specific time in seconds defined in d_launcher_cooldown (default 120 seconds, can be changed in dom_settings too; 0 to disable)
+- Fixed: UAV servicing at service points did not work at all, game breaker :(
+- Fixed: Some more minor issues and problems
 
-Old...
+4.11
+
+- Changed: Increased dynamic "Group" simulation from 1000m to 1400m
+- Fixed: Mine sidemission 104 was spawning enemy AI far far away (marker moved by accident)
+- Changed: Reduced number of spawned enemy AI units slightly, seems 1.96 has some performance issues
+- Fixed: Really stupid script error in revive
+- Fixed: Script error in air AI script
+- Fixed: d_ranked_a array was not available on the server (in case a server is not using a SQL database table)
+- Fixed: Air vehicles para dropping or unloading AI over the main target got deleted way too early
+- Fixed: Really stupid error which did not delete AI groups of destroyed vehicles, game breaker
+- Fixed: Island patrol groups were spawning too much crew
 
 4.10
 

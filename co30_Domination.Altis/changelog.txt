@@ -1,6 +1,4 @@
-4.12
+4.14
 
-- Changed: Don't show score resource when the main map is open
-- Changed: Added d_launcher_cooldown; when a player fires a guided launcher like a Titan then he has too wait a specific time in seconds defined in d_launcher_cooldown (default 120 seconds, can be changed in dom_settings too; 0 to disable)
-- Fixed: UAV servicing at service points did not work at all, game breaker :(
-- Fixed: Some more minor issues and problems
+- Changed: Give players score if database is found and revive lives are infinite 
+- Fixed: Stupid bug which prevented the creation of the last main target when select targets was activated; this also rendered removing auf db autosave rows; game breaker :/

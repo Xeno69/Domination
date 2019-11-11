@@ -10453,6 +10453,16 @@
 <Russian>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Russian>
 <Chinesesimp>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1970">
+<English>You get %1 points for reviving another player</English>
+<Spanish>You get %1 points for reviving another player</Spanish>
+<Portuguese>You get %1 points for reviving another player</Portuguese>
+<Korean>You get %1 points for reviving another player</Korean>
+<Japanese>You get %1 points for reviving another player</Japanese>
+<Original>You get %1 points for reviving another player</Original>
+<Russian>You get %1 points for reviving another player</Russian>
+<Chinesesimp>You get %1 points for reviving another player</Chinesesimp>
+</Key>
 </Container>
 </Package>
 </Project>
