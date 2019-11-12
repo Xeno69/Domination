@@ -10450,7 +10450,7 @@
 <Korean>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Korean>
 <Japanese>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Japanese>
 <Original>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Original>
-<Russian>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Russian>
+<Russian>%1 режим перезарядки... Вы должны подождать %2 секунд для повторного выстрела!!!</Russian>
 <Chinesesimp>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1970">
@@ -10460,8 +10460,58 @@
 <Korean>You get %1 points for reviving another player</Korean>
 <Japanese>You get %1 points for reviving another player</Japanese>
 <Original>You get %1 points for reviving another player</Original>
-<Russian>You get %1 points for reviving another player</Russian>
+<Russian>Вы получаете %1 очков за оживление другого игрока</Russian>
 <Chinesesimp>You get %1 points for reviving another player</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1971">
+<English>points for destroying an enemy barracks building</English>
+<Spanish>points for destroying an enemy barracks building</Spanish>
+<Portuguese>points for destroying an enemy barracks building</Portuguese>
+<Korean>points for destroying an enemy barracks building</Korean>
+<Japanese>points for destroying an enemy barracks building</Japanese>
+<Original>points for destroying an enemy barracks building</Original>
+<Russian>points for destroying an enemy barracks building</Russian>
+<Chinesesimp>points for destroying an enemy barracks building</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1972">
+<English>points for destroying the enemy mobile HQ</English>
+<Spanish>points for destroying the enemy mobile HQ</Spanish>
+<Portuguese>points for destroying the enemy mobile HQ</Portuguese>
+<Korean>points for destroying the enemy mobile HQ</Korean>
+<Japanese>points for destroying the enemy mobile HQ</Japanese>
+<Original>points for destroying the enemy mobile HQ</Original>
+<Russian>points for destroying the enemy mobile HQ</Russian>
+<Chinesesimp>points for destroying the enemy mobile HQ</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1973">
+<English>points for destroying the enemy radio tower</English>
+<Spanish>points for destroying the enemy radio tower</Spanish>
+<Portuguese>points for destroying the enemy radio tower</Portuguese>
+<Korean>points for destroying the enemy radio tower</Korean>
+<Japanese>points for destroying the enemy radio tower</Japanese>
+<Original>points for destroying the enemy radio tower</Original>
+<Russian>points for destroying the enemy radio tower</Russian>
+<Chinesesimp>points for destroying the enemy radio tower</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1974">
+<English>points for seizing an enemy camp</English>
+<Spanish>points for seizing an enemy camp</Spanish>
+<Portuguese>points for seizing an enemy camp</Portuguese>
+<Korean>points for seizing an enemy camp</Korean>
+<Japanese>points for seizing an enemy camp</Japanese>
+<Original>points for seizing an enemy camp</Original>
+<Russian>points for seizing an enemy camp</Russian>
+<Chinesesimp>points for seizing an enemy camp</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1975">
+<English>points for resolving the main target mission</English>
+<Spanish>points for resolving the main target mission</Spanish>
+<Portuguese>points for resolving the main target mission</Portuguese>
+<Korean>points for resolving the main target mission</Korean>
+<Japanese>points for resolving the main target mission</Japanese>
+<Original>points for resolving the main target mission</Original>
+<Russian>points for resolving the main target mission</Russian>
+<Chinesesimp>points for resolving the main target mission</Chinesesimp>
 </Key>
 </Container>
 </Package>

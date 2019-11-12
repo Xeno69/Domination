@@ -179,6 +179,7 @@ class cfgFunctions {
 			addc(bikewait);
 			addc(dlgopenxwait);
 			addc(initplname);
+			addc(scoreadded);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -533,6 +534,7 @@ class cfgFunctions {
 			addc(hddelu);
 			addc(carrierspawn);
 			addc(playerboxkilled);
+			addc(addscore);
 		};
 		class Dom_PrePostInit {
 			file = "init";

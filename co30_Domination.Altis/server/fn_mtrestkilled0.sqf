@@ -44,7 +44,7 @@ if (d_database_found) then {
 		};
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 5] call addScore;
+		[_killer, 5, 1] call d_fnc_addScore;
 #ifdef __TT__
 		[d_tt_points # 2, _killer] call d_fnc_AddPoints;
 		if (side (group _killer) == blufor) then {

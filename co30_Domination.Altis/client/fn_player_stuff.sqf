@@ -11,7 +11,7 @@ d_player_autokick_time = _this select 0;
 if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitWith {
 	0 spawn {
 		scriptName "spawn_playerstuffparking";
-		waitUntil {!d_still_in_intro};
+		waitUntil {sleep 0.1; !d_still_in_intro};
 		__TRACE("player_stuff, calling park_player")
 		player setVariable ["xr_lives", -1, true];
 		xr_pl_no_lifes = true;
@@ -20,18 +20,21 @@ if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitW
 };
 
 #ifdef __TT__
-if (!isNil {player getVariable "d_no_side_change"}) then {
-	private _rtime = time - (_this select 9);
-	[format [localize "STR_DOM_MISSIONSTRING_1871", d_name_pl, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
-	0 spawn {
-		scriptName "spawn_endmissionloser";
-		sleep 1.5;
-		endMission "LOSER";
-	};
-} else {
-	private _prev_side = _this select 5;
-	if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
-		[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+_this spawn {
+	waitUntil {sleep 0.1; !d_still_in_intro};
+	if (!isNil {player getVariable "d_no_side_change"}) then {
+		private _rtime = time - (_this select 9);
+		[format [localize "STR_DOM_MISSIONSTRING_1871", profileName, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+		0 spawn {
+			scriptName "spawn_endmissionloser";
+			sleep 1.5;
+			endMission "LOSER";
+		};
+	} else {
+		private _prev_side = _this select 5;
+		if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
+			[format [localize "STR_DOM_MISSIONSTRING_641", profileName, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+		};
 	};
 };
 #endif

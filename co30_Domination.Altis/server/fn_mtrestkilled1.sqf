@@ -22,6 +22,6 @@ if (d_database_found) then {
 		};
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 5] call addScore;
+		[_killer, 5, 2] call d_fnc_addScore;
 	};
 };

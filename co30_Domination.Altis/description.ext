@@ -207,6 +207,8 @@ class CfgRemoteExec {
 		class d_fnc_addttp {allowedTargets = 2;};
 		class d_fnc_remplnounit {allowedTargets = 1;};
 		class d_fnc_curcampsclient {allowedTargets = 1;};
+		class d_fnc_addscore {allowedTargets = 2;};
+		class d_fnc_scoreadded {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};
