@@ -15,6 +15,9 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 					[player, d_ranked_a # 21] remoteExecCall ["addScore", 2];
 				} else {
 					hintSilent format [localize "STR_DOM_MISSIONSTRING_915", xr_help_bonus];
+					if (d_database_found) then {
+						[player, d_ranked_a # 21, 7] remoteExecCall ["d_fnc_addscore", 2];
+					 };
 				};
 				if (xr_max_lives > -1) then {
 					private _lives = (player getVariable "xr_lives") + xr_help_bonus;
@@ -23,10 +26,9 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 					[getPlayerUID player, _lives] remoteExecCall ["d_fnc_ChangeRLifes", 2];
 				};
 			} else {
-				 if (d_database_found) then {
-					hintSilent format [localize "STR_DOM_MISSIONSTRING_1970", d_ranked_a # 21];
-					[player, d_ranked_a # 21] remoteExecCall ["addScore", 2];
-				 };
+				if (d_database_found) then {
+					[player, d_ranked_a # 21, 7] remoteExecCall ["d_fnc_addscore", 2];
+				};
 			};
 		};
 		(player getVariable "xr_cursorTarget") setVariable ["xr_pluncon", false, true];

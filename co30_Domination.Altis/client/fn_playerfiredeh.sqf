@@ -63,7 +63,8 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 						systemChat _str;
 					};
 				} else {
-					player setVariable ["d_" + (_this # 1), time + d_launcher_cooldown];
+					_w = time + d_launcher_cooldown;
+					player setVariable ["d_" + (_this # 1), _w];
 				};
 			};
 		};

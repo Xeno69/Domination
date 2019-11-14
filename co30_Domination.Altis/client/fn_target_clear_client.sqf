@@ -98,11 +98,10 @@ if (count d_resolved_targets < d_MainTargets) then {
 		if (isNil "d_dist_for_points") then {d_dist_for_points = -1};
 		private _dist_for_points = if (d_ranked_a # 10 < d_dist_for_points) then {d_dist_for_points} else {d_ranked_a # 10};
 		if (player distance2D d_cur_tgt_pos < _dist_for_points) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_574", d_ranked_a # 9];
 			0 spawn {
 				scriptName "spawn_x_target_clear_client_sendscore";
 				sleep (0.5 + random 2);
-				[player, d_ranked_a # 9] remoteExecCall ["addScore", 2];
+				[player, d_ranked_a # 9, 6] remoteExecCall ["d_fnc_addscore", 2];
 			};
 		};
 	};

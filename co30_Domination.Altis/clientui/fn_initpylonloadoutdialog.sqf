@@ -137,13 +137,23 @@ for "_i" from 0 to (count _pylons - 1) do {
 	__TRACE_1("","_vec getCompatiblePylonMagazines (configName _pylon)")
 	{
 		__TRACE_1("33","_x")
+		__TRACE_1("","toLowerANSI _x in _excludemags")
+		__TRACE_1("","toLowerANSI _x")
 		if !(toLowerANSI _x in _excludemags) then {
-			__TRACE_1("adding","_x")
-			_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
-			_ctrl lbSetData [_idx, _x];
-			//__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
-			if (_pylonmags select _i == _x) then {
-				_selidx = _i;
+			private _ammo = getText (configFile>>"CfgMagazines">>_x>>"ammo");
+			__TRACE_1("","_ammo")
+#ifdef __DEBUG__
+			_sub = getArray (configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
+			__TRACE_1("","_sub")
+#endif
+			if (getArray (configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo") isEqualTo []) then {
+				__TRACE_1("adding","_x")
+				_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
+				_ctrl lbSetData [_idx, _x];
+				__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
+				if (_pylonmags select _i == _x) then {
+					_selidx = _i;
+				};
 			};
 		};
 	} forEach (_vec getCompatiblePylonMagazines (configName _pylon));

@@ -180,6 +180,7 @@ class cfgFunctions {
 			addc(dlgopenxwait);
 			addc(initplname);
 			addc(scoreadded);
+			addc(scoreaddqeue);
 		};
 		class Dom_UI {
 			file = "clientui";

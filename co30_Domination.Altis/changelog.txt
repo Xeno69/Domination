@@ -1,6 +1,7 @@
-4.14
+4.15
 
-- Fixed: Stupid bug which prevented the creation of the last main target when select targets was activated; this also rendered removing auf db autosave rows; game breaker because the mission did not end at all :/
-- Fixed: Points were not added to player score when a player destroyed a barracks building or a mobile HQ at main targets (if SQL database available)
-- Changed: Add score to players who revive other players too if database is found and revive lives are infinite
-- Changed: Show player message for changing sides in the TT version after intro is over
+- Fixed: Player did not get extra points for helping solving the sidemission (score was added on the client not on the server; available in ranked mode and when SQL database is available)
+- Changed: All cluster/subammo type magazines removed from mission pylon loadout dialog (including 3rd party mods). Causing much too much lag!!!
+- Changed: Added more score messages to the new UI score message system
+- Added: Chinese translation by 小新
+- Updated: Russian translation

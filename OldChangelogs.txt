@@ -2,6 +2,13 @@ Changelogs
 
 Old...
 
+4.14
+
+- Fixed: Stupid bug which prevented the creation of the last main target when select targets was activated; this also rendered removing auf db autosave rows; game breaker because the mission did not end at all :/
+- Fixed: Points were not added to player score when a player destroyed a barracks building or a mobile HQ at main targets (if SQL database available)
+- Changed: Add score to players who revive other players too if database is found and revive lives are infinite
+- Changed: Show player message for changing sides in the TT version after intro is over
+
 4.12
 
 - Changed: Don't show score resource when the main map is open

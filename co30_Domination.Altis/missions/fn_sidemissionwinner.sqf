@@ -27,11 +27,10 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 		};
 		if (_get_points) then {
 			private _smppoi = [d_ranked_a # 11, (d_ranked_a # 11) * 2] select (d_without_sm_bonus == 0);
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_713", _smppoi];
 			_smppoi spawn {
 				scriptName "spawn_sidemissionwinner";
 				sleep (0.5 + random 2);
-				player addScore _this;
+				[player, _smppoi, 8] remoteExecCall ["d_fnc_addscore", 2];
 			};
 		};
 		d_sm_p_pos = nil;

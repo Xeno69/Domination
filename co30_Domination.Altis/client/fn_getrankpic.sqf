@@ -11,10 +11,10 @@ if (isNil "_xm") then {
 	};
 	getText(configFile>>"CfgRanks">>str _r>>"texture")
 } else {
-	private _r = _this getVariable "d_2star";
+	private _r = _this getVariable "d_5star";
 	if (isNil "_r") then {
-		_r = getMissionPath "pics\2star.paa";
-		_this setVariable ["d_2star", _r];
+		_r = getMissionPath "pics\5star.paa";
+		_this setVariable ["d_5star", _r];
 	};
 	_r
 };
