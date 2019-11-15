@@ -832,7 +832,7 @@ class Params {
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
 	
-	class d_enemy_garrison_troop_occupy_fillRadius {
+	class d_occ_rad {
 		title = "$STR_DOM_MISSIONSTRING_1901A";
 		values[] = {250, 425, 650, 900, 1250};
 		default = 250;
@@ -846,7 +846,7 @@ class Params {
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
 	
-	class d_enemy_garrison_troop_ambush_fillRadius {
+	class d_amb_rad {
 		title = "$STR_DOM_MISSIONSTRING_1901B";
 		values[] = {250, 425, 650, 900, 1250};
 		default = 250;
@@ -860,7 +860,7 @@ class Params {
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60", "75", "90"};
 	};
 	
-	class d_enemy_garrison_troop_sniper_fillRadius {
+	class d_snp_rad {
 		title = "$STR_DOM_MISSIONSTRING_1901C";
 		values[] = {250, 425, 650, 900, 1250};
 		default = 425;
