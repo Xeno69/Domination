@@ -780,19 +780,19 @@ class Params {
 
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
-		values[] = {0,1,2,3,4,5,10,15,20,25,30};
+		values[] = {10,15,20,25,30};
 		default = 10;
-		texts[] = {"0","1","2","3","4","5","10","15","20","25","30"};
+		texts[] = {"10","15","20","25","30"};
 	};
 
 	class d_civ_groupcount {
 		title = "$STR_DOM_MISSIONSTRING_1920";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10};
-		default = 4;
+		default = 2;
 		texts[] = {"0","1","2","3","4","5","6","7","8","9","10"};
 	};
 
-	class d_sub_kill_civ_points {
+	class d_civ_pnts {
 		title = "$STR_DOM_MISSIONSTRING_1888";
 		values[] = {0,1,2,3,4,5,10,25,50,75,100};
 		default = 3;
@@ -813,77 +813,77 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
     };
 
-	class d_punish_civ_kill {
+	class d_pun_civ {
 		title = "$STR_DOM_MISSIONSTRING_1895";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
-	class d_enemy_occupy_bldgs {
+	class d_occ_bldgs {
 		title = "$STR_DOM_MISSIONSTRING_1896";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
-	class d_enemy_garrison_troop_occupy_count {
+	class d_occ_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900A";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
 
-	class d_enemy_garrison_troop_ambush_count {
+	class d_amb_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900B";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
 		default = 1;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
 
-	class d_enemy_garrison_troop_sniper_count {
+	class d_snp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900C";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45};
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60", "75", "90"};
 	};
 
-	class d_enemy_garrison_troop_sniper_awareness {
+	class d_snp_aware {
 		title = "$STR_DOM_MISSIONSTRING_1900D";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
-	class d_enemy_garrison_troop_sniper_general_skill {
+	class d_snp_skill {
         title = "$STR_DOM_MISSIONSTRING_1900E";
         values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
         default = -1;
         texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
     };
 
-    class d_enemy_garrison_troop_sniper_aimingShake_skill {
+    class d_snp_shake {
         title = "$STR_DOM_MISSIONSTRING_1900F";
         values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
         default = -1;
         texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
     };
 
-	class d_enemy_max_barracks_count {
+	class d_max_bar_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1899";
 		values[] = {1, 2, 3, 4};
 		default = 4;
 		texts[] = {"1", "2", "3", "4"};
 	};
 
-	class d_enemy_max_camps_count {
+	class d_max_camp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1930";
 		values[] = {1, 2, 3, 4, -1};
 		default = -1;
 		texts[] = {"1", "2", "3", "4", "5"};
 	};
 
-	class d_first_enemy_camp_near_target_center {
+	class d_camp_center {
 		title = "$STR_DOM_MISSIONSTRING_1931";
 		values[] = {0,1};
 		default = 0;

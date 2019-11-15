@@ -34,14 +34,14 @@ d_hq_logic_blufor1 kbTell [
 	d_kb_topic_side,
 	"PenaltyKilledCivilian",
 	["1", "", _punishMe call d_fnc_getplayername, []],
-	["2", "", str d_sub_kill_civ_points, []],
+	["2", "", str d_civ_pnts, []],
 	d_kbtel_chan
 ];
 
 //subtract penalty for killing a civilian
-_punishMe addScore (d_sub_kill_civ_points * -1);
+_punishMe addScore (d_civ_pnts * -1);
 // removing for now... Not nice when the pilot of an air vehicle kills a civilian unit and all other players die because the pilot gets kicked out
-/*if (d_punish_civ_kill == 1) then {
+/*if (d_pun_civ == 1) then {
 	//check if killer is in a vehicle
 	//THIS IS BUGGY, if guilty user is in a vehicle the entire vehicle will explode :)
 	if (!isNull objectParent _punishMe) then {

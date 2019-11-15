@@ -67,9 +67,9 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 sleep 2.234;
 #ifndef __TT__
 private "_nrcamps";
-if (d_enemy_max_camps_count != -1 ) then {
+if (d_max_camp_cnt != -1 ) then {
 	//max camps is set, overwrite the random value
-	_nrcamps = ceil random d_enemy_max_camps_count;
+	_nrcamps = ceil random d_max_camp_cnt;
 	if (_nrcamps == 0) then {
 		_nrcamps = 1;
 	};
@@ -96,7 +96,7 @@ for "_i" from 1 to _nrcamps do {
 	private _wf = objNull;
 	private _poss =+ _trg_center;
 
-	if (d_first_enemy_camp_near_target_center == 1 && {_isFirstCamp}) then {
+	if (d_camp_center == 1 && {_isFirstCamp}) then {
 		//try to place the first camp very close (10m) to the center of the target
 		_poss set [2, 0];
 		_wf = createVehicle [d_wcamp, _poss, [], 10, "NONE"];
