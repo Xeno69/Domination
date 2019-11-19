@@ -181,6 +181,7 @@ class cfgFunctions {
 			addc(initplname);
 			addc(scoreadded);
 			addc(scoreaddqeue);
+//			addc(arsenalfilter);
 		};
 		class Dom_UI {
 			file = "clientui";

@@ -11448,7 +11448,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for reviving another player</Korean>
 <Japanese>points for reviving another player</Japanese>
 <Original>points for reviving another player</Original>
-<Russian>points for reviving another player</Russian>
+<Russian>очки за оживление другого игрока</Russian>
 <Chinesesimp>points for reviving another player</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1971">
@@ -11500,6 +11500,7 @@ Chinese>砲擊取消了</Chinese>
 <Original>points for resolving the main target mission</Original>
 <Russian>очки за выполнение основной задачи</Russian>
 <Chinesesimp>points for resolving the main target mission</Chinesesimp>
+<Chinese>points for resolving the main target mission</Chinese>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1976">
 <English>points for clearing the main target!</English>
@@ -11508,7 +11509,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for clearing the main target!</Korean>
 <Japanese>points for clearing the main target!</Japanese>
 <Original>points for clearing the main target!</Original>
-<Russian>points for clearing the main target!</Russian>
+<Russian>очки за выполнение основного задания!</Russian>
 <Chinesesimp>points for clearing the main target!</Chinesesimp>
 <Chinese>points for clearing the main target!</Chinese>
 </Key>
@@ -11519,7 +11520,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for helping solving the sidemission!</Korean>
 <Japanese>points for helping solving the sidemission!</Japanese>
 <Original>points for helping solving the sidemission!</Original>
-<Russian>points for helping solving the sidemission!</Russian>
+<Russian>очки за помощь в вполнении дополнительного задания (сайд миссии)!</Russian>
 <Chinesesimp>points for helping solving the sidemission!</Chinesesimp>
 <Chinese>points for helping solving the sidemission!</Chinese>
 </Key>

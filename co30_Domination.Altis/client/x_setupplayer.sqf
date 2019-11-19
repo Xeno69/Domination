@@ -1035,6 +1035,8 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	};
 };
 
+//call d_fnc_arsenalfilter;
+
 if (d_with_ranked) then {
 	0 spawn d_fnc_weaponcargo_ranked;
 };
