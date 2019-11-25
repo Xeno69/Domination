@@ -14,6 +14,8 @@ params ["_pl", "_score", "_reason"];
 // 6 - extra points seizing the main target
 // 7 - points for reviving another player
 // 8 - points for helping solving the sidemission
+// 9 - points for repairing/refueling a vehicle
+// 10 - points for healing another unit
 
 _pl addScore _score;
 [_reason, _score] remoteExecCall ["d_fnc_scoreadded", _pl];

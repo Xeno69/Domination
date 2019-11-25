@@ -1,10 +1,4 @@
-4.15
+4.16
 
-- Fixed: Player did not get extra points for helping solving the sidemission (score was added on the client not on the server; available in ranked mode and when SQL database is available)
-- Changed: All cluster/subammo type magazines removed from mission pylon loadout dialog (including 3rd party mods). Causes much too much lag!!!
-- Changed: Added more score messages to the new UI score message system
-- Fixed: Global Mobilization versions both had two accidentally placed blufor units
-- Fixed: Global Mobilization player artillery had no crew at all so artillery called by players did not fire
-- Fixed: Sniper teams were missing from all 3rd party mods/dlcs (d_sniper_x); Vanilla units got spawned instead of the correct mod/dlc ones
-- Added: Chinese translation by 小新
-- Updated: Russian translation
+- Added: New parameter d_pylon_noclust, set it to one and cluster bombs should be there again (if not exlucded otherwise; "Remove cluster ammo from pylon loadout" in the server lobby params)
+- Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destryoed on the map

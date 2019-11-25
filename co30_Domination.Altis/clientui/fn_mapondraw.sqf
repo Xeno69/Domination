@@ -190,13 +190,13 @@ private _marker_vecs = d_marker_vecs;
 				_isc = [_x, objNull, true] call _fnc_gmi;
 				__TRACE_1("","_isc")
 				_mt = call {
+					if (!alive _x) exitWith {
+						format [_d_mark_loc1825, _x getVariable "d_ma_text"];
+					};
 					if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
 						format [_d_mark_loc261, _x getVariable "d_ma_text"];
 					};
-					if (alive _x) exitWith {
-						_x getVariable "d_ma_text"
-					};
-					format [_d_mark_loc1825, _x getVariable "d_ma_text"];
+					_x getVariable "d_ma_text"
 				};
 				_map drawIcon [
 					_isc # 0,

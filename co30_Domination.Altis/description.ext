@@ -549,6 +549,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_pylon_noclust {
+		title = "$STR_DOM_MISSIONSTRING_1978";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_without_sm_bonus {
 		title = "$STR_DOM_MISSIONSTRING_1951";

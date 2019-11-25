@@ -15,6 +15,8 @@ params ["_reason", "_score"];
 // 6 - extra points seizing the main target
 // 7 - points for reviving another player
 // 8 - points for helping solving the sidemission
+// 9 - points for repairing/refueling a vehicle
+// 10 - points for healing another unit
 
 private _txt = call {
 	if (_reason == 1) exitWith {
@@ -40,6 +42,12 @@ private _txt = call {
 	};
 	if (_reason == 8) exitWith {
 		localize "STR_DOM_MISSIONSTRING_1977"
+	};
+	if (_reason == 9) exitWith {
+		localize "STR_DOM_MISSIONSTRING_1979"
+	};
+	if (_reason == 10) exitWith {
+		localize "STR_DOM_MISSIONSTRING_1980"
 	};
 	""
 };

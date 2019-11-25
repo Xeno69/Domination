@@ -2144,17 +2144,6 @@
 <Chinesesimp>你得到了 %1 点数，点数由 %2 使用你的医疗帐篷进行治疗而得到!</Chinesesimp>
 <Chinese>你得到了 %1 點數，點數由 %2 使用你的醫療帳篷進行治療而得到‧</Chinese>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_288">
-<English>You get %1 points for healing other units!</English>
-<Spanish>Obtiene %1 puntos por curar a otras unidades</Spanish>
-<Portuguese>Consegue 1 pontos a favor % curando-se outras unidades!</Portuguese>
-<Korean>다른 캐릭터를 치료하여 %1를 얻었습니다.</Korean>
-<Japanese>他のユニットを治療したので、%1ポイントを得た！</Japanese>
-<Original>You get %1 points for healing other units!</Original>
-<Russian>Вы получаете %1 очков за лечение товарища!</Russian>
-<Chinesesimp>你医治了其他人得到了 %1 点数!</Chinesesimp>
-<Chinese>你醫治了其他人得到了 %1 點數‧</Chinese>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_296">
 <English>|=CHOOSE PARACHUTE LOCATION=|</English>
 <Spanish>|=SALTAR EN PARACAÍDAS=|</Spanish>
@@ -2363,17 +2352,6 @@
 <Russian>Ремонт и заправка %1... Ждите</Russian>
 <Chinesesimp>%1 维修和油料补给中，请稍后</Chinesesimp>
 <Chinese>%1 維修和油料補給中，請稍後</Chinese>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_333">
-<English>You get %1 point(s) for repairing/refueling!</English>
-<Spanish>Consiguio %1 punto(s) por reparar/repostar</Spanish>
-<Portuguese>Consegue 1 ponto %(s) para consertar/refueling!</Portuguese>
-<Korean>현재 수리/재보충을 위한 점수를 %1 획득 하셨습니다.</Korean>
-<Japanese>修理/給油で %1 ポイントを得た！</Japanese>
-<Original>You get %1 point(s) for repairing/refueling!</Original>
-<Russian>Вы получили %1 очков за полный ремонт!</Russian>
-<Chinesesimp>你维修加油得到了 %1 点数!</Chinesesimp>
-<Chinese>你維修加油得到了 %1 點數‧</Chinese>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_334">
 <English>%1 repaired and refuelled</English>
@@ -11523,6 +11501,38 @@ Chinese>砲擊取消了</Chinese>
 <Russian>очки за помощь в вполнении дополнительного задания (сайд миссии)!</Russian>
 <Chinesesimp>points for helping solving the sidemission!</Chinesesimp>
 <Chinese>points for helping solving the sidemission!</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1978">
+<English>Remove cluster ammo from pylon loadout</English>
+<Spanish>Remove cluster ammo from pylon loadout</Spanish>
+<Portuguese>Remove cluster ammo from pylon loadout</Portuguese>
+<Korean>Remove cluster ammo from pylon loadout</Korean>
+<Japanese>Remove cluster ammo from pylon loadout</Japanese>
+<Original>Remove cluster ammo from pylon loadout</Original>
+<Russian>Remove cluster ammo from pylon loadout</Russian>
+<Chinesesimp>Remove cluster ammo from pylon loadout</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1979">
+<English>points for repairing/refueling!</English>
+<Spanish>puntos por reparar/repostar!</Spanish>
+<Portuguese>points for repairing/refueling!</Portuguese>
+<Korean>points for repairing/refueling!</Korean>
+<Japanese>points for repairing/refueling!</Japanese>
+<Original>points for repairing/refueling!</Original>
+<Russian>points for repairing/refueling!</Russian>
+<Chinesesimp>points for repairing/refueling!</Chinesesimp>
+<Chinese>points for repairing/refueling!</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1980">
+<English>points for healing another unit!</English>
+<Spanish>puntos por curar a otras unidades</Spanish>
+<Portuguese>pontos a favor % curando-se outras unidades!</Portuguese>
+<Korean>points for healing another unit!</Korean>
+<Japanese>points for healing another unit!</Japanese>
+<Original>points for healing another unit!</Original>
+<Russian>points for healing another unit!</Russian>
+<Chinesesimp>points for healing another unit!</Chinesesimp>
+<Chinese>points for healing another unit!</Chinese>
 </Key>
 </Container>
 </Package>

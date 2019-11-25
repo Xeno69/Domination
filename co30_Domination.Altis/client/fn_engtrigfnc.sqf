@@ -96,8 +96,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 					};
 				};
 				if (_addscore > 0) then {
-					[player, _addscore] remoteExecCall ["addScore", 2];
-					[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_333", _addscore];
+					[player, _addscore, 9] remoteExecCall ["d_fnc_addscore", 2];
 				};
 #ifndef __TT__
 				if (player inArea d_base_array) then {

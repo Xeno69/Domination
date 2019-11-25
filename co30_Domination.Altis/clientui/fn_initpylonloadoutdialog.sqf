@@ -140,13 +140,9 @@ for "_i" from 0 to (count _pylons - 1) do {
 		__TRACE_1("","toLowerANSI _x in _excludemags")
 		__TRACE_1("","toLowerANSI _x")
 		if !(toLowerANSI _x in _excludemags) then {
-			private _ammo = getText (configFile>>"CfgMagazines">>_x>>"ammo");
-			__TRACE_1("","_ammo")
-#ifdef __DEBUG__
-			_sub = getArray (configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo");
+			private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
 			__TRACE_1("","_sub")
-#endif
-			if (getArray (configFile>>"CfgAmmo">>_ammo>>"submunitionAmmo") isEqualTo []) then {
+			if (_sub isEqualTo []) then {
 				__TRACE_1("adding","_x")
 				_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
 				_ctrl lbSetData [_idx, _x];
