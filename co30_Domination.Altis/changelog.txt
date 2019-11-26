@@ -1,5 +1,8 @@
 4.16
 
 - Added: New parameter d_pylon_noclust, set it to one and cluster bombs should be there again (if not exlucded otherwise; "Remove cluster ammo from pylon loadout" in the server lobby params)
+- Added: Status Bar by Babayka
 - Changed: Added even more score messages to the new UI score message system
+- Changed: Remove mortar backpack from loaded Virtual Arsenal save file
 - Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destryoed on the map
+- Updated: Russian translation by Babayka

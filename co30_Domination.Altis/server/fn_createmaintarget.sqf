@@ -187,10 +187,9 @@ d_num_barracks_objs = count d_mt_barracks_obj_ar;
 __TRACE_1("","d_mt_barracks_obj_ar")
 __TRACE_1("2","d_num_barracks_objs")
 d_mt_barracks_down = false;
-#ifdef __TT__
 d_num_barracks_tt = d_num_barracks_objs;
+publicVariable "d_num_barracks_objs";
 publicVariable "d_num_barracks_tt";
-#endif
 
 #ifndef __TT__
 private _idx = floor random (count _parray);

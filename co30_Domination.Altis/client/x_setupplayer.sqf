@@ -1107,6 +1107,7 @@ if (isMultiplayer) then {
 			};
 		};
 	};
+	0 spawn d_fnc_statusbar;
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

@@ -14,6 +14,12 @@ if (_unip != "") then {
 	};
 };
 
+if (d_no_mortar_ar == 1) then {
+	if (backpack player isKindOf "B_Mortar_01_weapon_F" || {backpack player isKindOf "B_Mortar_01_support_F"}) then {
+		removeBackpack player;
+	};
+};
+
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
 [player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];

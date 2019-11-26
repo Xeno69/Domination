@@ -709,3 +709,36 @@ class d_RscPIP {
 		};
 	};
 };
+
+class d_infobar {
+	idd = -1;
+	onLoad = "uiNamespace setVariable ['d_infobar', _this select 0]";
+	onUnload = "uiNamespace setVariable ['d_infobar', nil]";
+	onDestroy = "uiNamespace setVariable ['d_infobar', nil]";
+	fadein = 0;
+	fadeout = 0;
+	duration = 10e10;
+	movingEnable = 0;
+	controlsBackground[] = {};
+	objects[] = {};
+	class controls {
+		class statusBarText {
+			idc = 1102;
+			x = safezoneX + safezoneW - 1.80;
+			y = safezoneY + safezoneH - 0.04;
+			w = 1.25;
+			h = 0.04;
+			shadow = 1;
+			colorBackground[] = { 1, 0.3, 0, 0.0 };
+			font = "PuristaSemibold";
+			size = 0.03;
+			type = 13;
+			style = 0;
+			text="";
+			class Attributes {
+				align="right";
+				color = "#A0FFFF";
+			};
+		};
+	};
+};

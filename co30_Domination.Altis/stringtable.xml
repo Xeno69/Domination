@@ -11426,7 +11426,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for reviving another player</Korean>
 <Japanese>points for reviving another player</Japanese>
 <Original>points for reviving another player</Original>
-<Russian>очки за оживление другого игрока</Russian>
+<Russian>очков за оживление другого игрока</Russian>
 <Chinesesimp>points for reviving another player</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1971">
@@ -11436,7 +11436,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for destroying an enemy barracks building</Korean>
 <Japanese>points for destroying an enemy barracks building</Japanese>
 <Original>points for destroying an enemy barracks building</Original>
-<Russian>очки за уничтожение казармы противника</Russian>
+<Russian>очков за уничтожение казармы противника</Russian>
 <Chinesesimp>points for destroying an enemy barracks building</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1972">
@@ -11446,7 +11446,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for destroying the enemy mobile HQ</Korean>
 <Japanese>points for destroying the enemy mobile HQ</Japanese>
 <Original>points for destroying the enemy mobile HQ</Original>
-<Russian>очки за уничтожение мобильного штаба противника</Russian>
+<Russian>очков за уничтожение мобильного штаба противника</Russian>
 <Chinesesimp>points for destroying the enemy mobile HQ</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1973">
@@ -11456,7 +11456,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for destroying the enemy radio tower</Korean>
 <Japanese>points for destroying the enemy radio tower</Japanese>
 <Original>points for destroying the enemy radio tower</Original>
-<Russian>очки за уничтожение вражеской радиовышки</Russian>
+<Russian>очков за уничтожение вражеской радиовышки</Russian>
 <Chinesesimp>points for destroying the enemy radio tower</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1974">
@@ -11466,7 +11466,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for seizing an enemy camp</Korean>
 <Japanese>points for seizing an enemy camp</Japanese>
 <Original>points for seizing an enemy camp</Original>
-<Russian>очки за захват вражеского бункера</Russian>
+<Russian>очков за захват вражеского бункера</Russian>
 <Chinesesimp>points for seizing an enemy camp</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1975">
@@ -11476,7 +11476,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for resolving the main target mission</Korean>
 <Japanese>points for resolving the main target mission</Japanese>
 <Original>points for resolving the main target mission</Original>
-<Russian>очки за выполнение основной задачи</Russian>
+<Russian>очков за выполнение основной задачи</Russian>
 <Chinesesimp>points for resolving the main target mission</Chinesesimp>
 <Chinese>points for resolving the main target mission</Chinese>
 </Key>
@@ -11487,7 +11487,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for clearing the main target!</Korean>
 <Japanese>points for clearing the main target!</Japanese>
 <Original>points for clearing the main target!</Original>
-<Russian>очки за выполнение основного задания!</Russian>
+<Russian>очков за выполнение основного задания!</Russian>
 <Chinesesimp>points for clearing the main target!</Chinesesimp>
 <Chinese>points for clearing the main target!</Chinese>
 </Key>
@@ -11498,7 +11498,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for helping solving the sidemission!</Korean>
 <Japanese>points for helping solving the sidemission!</Japanese>
 <Original>points for helping solving the sidemission!</Original>
-<Russian>очки за помощь в вполнении дополнительного задания (сайд миссии)!</Russian>
+<Russian>очков за помощь в вполнении дополнительного задания (сайд миссии)!</Russian>
 <Chinesesimp>points for helping solving the sidemission!</Chinesesimp>
 <Chinese>points for helping solving the sidemission!</Chinese>
 </Key>
@@ -11509,7 +11509,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>Remove cluster ammo from pylon loadout</Korean>
 <Japanese>Remove cluster ammo from pylon loadout</Japanese>
 <Original>Remove cluster ammo from pylon loadout</Original>
-<Russian>Remove cluster ammo from pylon loadout</Russian>
+<Russian>Снять кассетные боеприпасы с пилона</Russian>
 <Chinesesimp>Remove cluster ammo from pylon loadout</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1979">
@@ -11519,7 +11519,7 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for repairing/refueling!</Korean>
 <Japanese>points for repairing/refueling!</Japanese>
 <Original>points for repairing/refueling!</Original>
-<Russian>points for repairing/refueling!</Russian>
+<Russian>очков за ремонт/заправку!</Russian>
 <Chinesesimp>points for repairing/refueling!</Chinesesimp>
 <Chinese>points for repairing/refueling!</Chinese>
 </Key>
@@ -11530,9 +11530,64 @@ Chinese>砲擊取消了</Chinese>
 <Korean>points for healing another unit!</Korean>
 <Japanese>points for healing another unit!</Japanese>
 <Original>points for healing another unit!</Original>
-<Russian>points for healing another unit!</Russian>
+<Russian>очков за исцеление другого игрока!</Russian>
 <Chinesesimp>points for healing another unit!</Chinesesimp>
 <Chinese>points for healing another unit!</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1981">
+<English>Players</English>
+<Spanish>Players</Spanish>
+<Portuguese>Players</Portuguese>
+<Korean>Players</Korean>
+<Japanese>Players</Japanese>
+<Original>Players</Original>
+<Russian>Players</Russian>
+<Chinesesimp>Players</Chinesesimp>
+<Chinese>Players</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1982">
+<English>Rank</English>
+<Spanish>Rank</Spanish>
+<Portuguese>Rank</Portuguese>
+<Korean>Rank</Korean>
+<Japanese>Rank</Japanese>
+<Original>Rank</Original>
+<Russian>Rank</Russian>
+<Chinesesimp>Rank</Chinesesimp>
+<Chinese>Rank</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1983">
+<English>Camps</English>
+<Spanish>Camps</Spanish>
+<Portuguese>Camps</Portuguese>
+<Korean>Camps</Korean>
+<Japanese>Camps</Japanese>
+<Original>Camps</Original>
+<Russian>Camps</Russian>
+<Chinesesimp>Camps</Chinesesimp>
+<Chinese>Camps</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1984">
+<English>Barracks</English>
+<Spanish>Barracks</Spanish>
+<Portuguese>Barracks</Portuguese>
+<Korean>Barracks</Korean>
+<Japanese>Barracks</Japanese>
+<Original>Barracks</Original>
+<Russian>Barracks</Russian>
+<Chinesesimp>Barracks</Chinesesimp>
+<Chinese>Barracks</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1985">
+<English>Points</English>
+<Spanish>Points</Spanish>
+<Portuguese>Points</Portuguese>
+<Korean>Points</Korean>
+<Japanese>Points</Japanese>
+<Original>Points</Original>
+<Russian>Points</Russian>
+<Chinesesimp>Points</Chinesesimp>
+<Chinese>Points</Chinese>
 </Key>
 </Container>
 </Package>

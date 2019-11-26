@@ -312,6 +312,7 @@ class cfgFunctions {
 			addc(ambientradiochatter);
 			addc(place);
 			addc(adjustEntity);
+			addc(statusbar);
 		};
 		class Dom_KBTell {
 			file = "bikb";

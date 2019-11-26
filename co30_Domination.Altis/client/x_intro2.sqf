@@ -123,6 +123,7 @@ sleep 8;
 "d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames "User16", actionKeysNames "User15"], "PLAIN"];
 xr_phd_invulnerable = false;
 
+0 spawn d_fnc_statusbar;
 
 if (name player == "Error: No unit" || {!isPlayer player}) then {
 	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";
