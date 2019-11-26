@@ -122,10 +122,7 @@ if (d_player_side == blufor) then {
 
 #ifdef __TT__
 __ctrl(11279);
-if (d_num_barracks_tt != -1) then {
-	_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
-} else {
-	_ctrl ctrlSetText "0/0";
+_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
 };
 #endif
 

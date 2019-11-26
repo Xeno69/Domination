@@ -319,10 +319,10 @@ if (isNil "d_cas_available_e") then {
 };
 #endif
 if (isNil "d_num_barracks_tt") then {
-	d_num_barracks_tt = -1;
+	d_num_barracks_tt = 0;
 };
 if (isNil "d_num_barracks_objs") then {
-	d_num_barracks_objs = -1;
+	d_num_barracks_objs = 0;
 };
 if (isNil "d_winterw") then {
 	d_winterw = 0;

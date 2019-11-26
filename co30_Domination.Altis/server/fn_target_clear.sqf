@@ -75,9 +75,9 @@ sleep 0.5;
 d_public_points = false;
 __TRACE_1("","d_mt_winner")
 #endif
-d_num_barracks_tt = -1;
+d_num_barracks_tt = 0;
 publicVariable "d_num_barracks_tt";
-d_num_barracks_objs = -1;
+d_num_barracks_objs = 0;
 publicVariable "d_num_barracks_objs";
 
 call d_fnc_dodelintelu;
