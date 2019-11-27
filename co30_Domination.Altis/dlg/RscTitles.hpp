@@ -737,7 +737,7 @@ class d_infobar {
 			text="";
 			class Attributes {
 				align="right";
-				color = "#A0FFFF";
+				color = "#B0F0FFFF";
 			};
 		};
 	};

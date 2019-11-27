@@ -11,7 +11,7 @@ disableSerialization;
 
 #ifndef __TT__
 private _formatstr = "
-	<t align='center' color='#80FFFF'>
+	<t align='center'>
 	<img size='1.0' image='pics\players.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1981") + ": %1  
 	<img size='1.0' image='pics\summ.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1223") + ": %2  
 	<img size='1.0' image='pics\star.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1982") + ": %3  
@@ -19,7 +19,7 @@ private _formatstr = "
 	<img size='1.0' image='pics\bomb.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1984") + ": %6 / %7</t>";
 #else
 private _formatstr = "
-	<t align='center' color='#80FFFF'>
+	<t align='center'>
 	<img size='1.0' image='pics\players.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1981") + ": %1  
 	<img size='1.0' image='pics\summ.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1223") + ": %2  
 	<img size='1.0' image='pics\star.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1982") + ": %3  

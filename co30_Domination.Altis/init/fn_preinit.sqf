@@ -2006,18 +2006,14 @@ if (hasInterface) then {
 		[] // magazines
 	];
 #ifdef __CUP__
-	(d_remove_from_arsenal # 5) append [{_this isKindOf "CUP_B_DShkM_Gun_Bag"}, {_this isKindOf "CUP_B_DShkM_TripodHigh_Bag"}];
 	(d_remove_from_arsenal # 4) append [{_this select [0, 15] == "CUP_V_B_LHDVest"}];
-#endif
-#ifdef __RHS__
-	(d_remove_from_arsenal # 5) append [{_this isKindOf "RHS_NSV_Tripod_Bag"}, {_this isKindOf "RHS_NSV_Gun_Bag"}, {_this isKindOf "RHS_M2_Gun_Bag"}, {_this isKindOf "RHS_M2_Tripod_Bag"}];
 #endif
 #ifdef __GMCWG__
 	(d_remove_from_arsenal # 1) pushBack "gm_p2a1_launcher_blk";
 #endif
 
 	if (d_no_mortar_ar == 1) then {
-		(d_remove_from_arsenal # 5) append [{_this isKindOf "B_Mortar_01_weapon_F"}, {_this isKindOf "B_Mortar_01_support_F"}];
+		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base"}];
 	};
 	
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	

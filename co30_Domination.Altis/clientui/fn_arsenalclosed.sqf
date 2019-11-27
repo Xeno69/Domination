@@ -15,8 +15,22 @@ if (_unip != "") then {
 };
 
 if (d_no_mortar_ar == 1) then {
-	if (backpack player isKindOf "B_Mortar_01_weapon_F" || {backpack player isKindOf "B_Mortar_01_support_F"}) then {
-		removeBackpack player;
+	if !((d_remove_from_arsenal # 5) isEqualTo []) then {
+		private _bp = backpack player;
+		private _resg = (d_remove_from_arsenal # 5) findIf {
+			private _res = false;
+			if (_x isEqualType {}) then {
+				_res = _bp call _x;
+			} else {
+				if (_bp == _x) then {
+					_res = true;
+				};
+			};
+			_res
+		};
+		if (_resg != -1) then {
+			removeBackpack player;
+		};
 	};
 };
 

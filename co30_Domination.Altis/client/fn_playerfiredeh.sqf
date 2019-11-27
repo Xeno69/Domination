@@ -1,9 +1,11 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_playerfiredeh.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE("fn_playerfiredeh")
+
+__TRACE_1("","_this")
 
 if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this select 4) isKindOf "TimeBombCore"}}) then {
 	deleteVehicle (_this select 6);
@@ -51,19 +53,29 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 	} else {
 		if (d_with_ace) exitWith {};
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
-			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0) then {
-				if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {};
+			__TRACE("7 is null")
+			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"weaponLockSystem") > 0}) then {
+				__TRACE("has manual control")
+				if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {
+					__TRACE("ammo is laserDesignate")
+				};
 				private _w = player getVariable ("d_" + (_this # 1));
+				__TRACE_1("1","_w")
 				if (!isNil "_w") then {
 					if (time < _w) then {
 						deleteVehicle (_this # 6);
-						player addMagazine (_this # 5);
+						__TRACE("projectile deleted")
+						private _ul =+ getUnitLoadout player;
+						(_ul # 1) set [4, [_this # 5, 1]];
+						player setUnitLoadout _ul;
+						__TRACE("Magazine added")
 						private _str = format [localize "STR_DOM_MISSIONSTRING_1969", [_this # 1, "CfgWeapons"] call d_fnc_getdisplayname, round (_w - time)];
 						hintSilent parseText format ["<t color='#ff0000' size='1.5' align='center'>%1</t>", _str];
 						systemChat _str;
 					};
 				} else {
 					_w = time + d_launcher_cooldown;
+					__TRACE_1("2","_w")
 					player setVariable ["d_" + (_this # 1), _w];
 				};
 			};

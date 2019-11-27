@@ -4,5 +4,8 @@
 - Added: Status Bar by Babayka
 - Changed: Added even more score messages to the new UI score message system
 - Changed: Remove mortar backpack from loaded Virtual Arsenal save file
-- Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destryoed on the map
+- Changed: Remove all weapon bagpacks from Virtual Arsenal (it's still the d_no_mortar_ar param which enables/disables it)
+- Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destroyed on the map
+- Fixed: Launcher cooldown did not work for Mod launchers
+- Fixed: Sometimes a launcher mag was not readded when launcher cooldown deleted the missile projectile
 - Updated: Russian translation by Babayka
