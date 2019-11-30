@@ -1,13 +1,13 @@
-/*%FSM<COMPILE "scriptedFSM.cfg, DeleteEmpty">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, DeleteEmpty">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
+item0[] = {"Start",0,250,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
 item1[] = {"Delay",4,218,-34.573978,-117.925652,55.426025,-67.925644,0.000000,"Delay"};
-item2[] = {"End",1,250,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"};
+item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"};
 link0[] = {0,1};
 link1[] = {1,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,748,768,1};
-window[] = {0,-1,-1,-1,-1,992,52,1640,52,1,766};
+window[] = {0,-1,-1,-1,-1,966,26,1614,26,1,766};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -77,17 +77,15 @@ class FSM
                          "" \n
                          "if !(_delfirebase_objects isEqualTo []) then {" \n
                          "	{" \n
-                         "		if (!isNull _x) then {" \n
-                         "			private _d_v_p_mt_t = _x getVariable ""d_v_p_mt_t"";" \n
-                         "			if (isNil ""_d_v_p_mt_t"") then {" \n
+                         "		private _d_v_p_mt_t = _x getVariable ""d_v_p_mt_t"";" \n
+                         "		if (isNil ""_d_v_p_mt_t"") then {" \n
+                         "			_x call d_fnc_DelVecAndCrew;" \n
+                         "		} else {" \n
+                         "			if (_x distance2D _d_v_p_mt_t < 100) then {" \n
                          "				_x call d_fnc_DelVecAndCrew;" \n
-                         "			} else {" \n
-                         "				if (_x distance2D _d_v_p_mt_t < 100) then {" \n
-                         "					_x call d_fnc_DelVecAndCrew;" \n
-                         "				};" \n
                          "			};" \n
                          "		};" \n
-                         "	} forEach _delfirebase_objects;" \n
+                         "	} forEach (_delfirebase_objects select {!isNull _x});" \n
                          "};" \n
                          "" \n
                          "{" \n

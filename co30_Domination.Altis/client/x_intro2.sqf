@@ -51,7 +51,7 @@ if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 
-titleText ["", "BLACK IN", 2];
+titleText ["", "BLACK IN", 3];
 if (!isNil "BIS_fnc_establishingShot_fakeUAV") then {
 	camDestroy BIS_fnc_establishingShot_fakeUAV;
 };
