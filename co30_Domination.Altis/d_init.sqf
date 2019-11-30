@@ -5,21 +5,17 @@
 
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
-#ifdef __GMCWG__
 if (isServer) then {
 	call d_fnc_gmcwgextra;
 };
-#endif
 
 if (!isServer) then {
 	call compile preprocessFileLineNumbers "init\initcommon.sqf";
 };
 
-#ifdef __GMCWG__
 if (hasInterface) then {
 	call d_fnc_gmcwgextrac;
 };
-#endif
 
 #ifdef __GROUPDEBUG__
 call compile preprocessFileLineNumbers "x_gdbfunctions.sqf";

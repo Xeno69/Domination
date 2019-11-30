@@ -6,6 +6,7 @@
 - Changed: Added even more score messages to the new UI score message system
 - Changed: Remove weapon backpacks from loaded Virtual Arsenal save files
 - Changed: Remove all weapon bagpacks from Virtual Arsenal (it's still the d_no_mortar_ar param which enables/disables it)
+- Changed: You can now easily add an additional MHQ by adding a variable name that starts with "d_mhq_add_" to the vehicle. Same for additional lift: "d_lift_add_", additonal wreck lifter "d_wreck_add_" and additional transporter: "d_trans_add_"
 - Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destroyed on the map
 - Fixed: Launcher cooldown did not work for 3rd party Addon/Mod launchers
 - Fixed: Sometimes a launcher mag was not readded when launcher cooldown deleted the missile projectile
