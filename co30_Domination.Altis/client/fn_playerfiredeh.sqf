@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_playerfiredeh.sqf"
 #include "..\x_setup.sqf"
 
@@ -52,7 +52,6 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 		};
 	} else {
 		if (d_with_ace) exitWith {};
-		// TODO check how it works when a player fires from inside a vehicle; not with a vehicle weapon but with his personal launcher
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
 			__TRACE("7 is null")
 			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"weaponLockSystem") > 0}) then {

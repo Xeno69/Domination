@@ -1035,26 +1035,6 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	};
 };
 
-if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
-	private _itemsar = bis_fnc_arsenal_data # 0; // TODO which bis_fnc_arsenal_data array contains optics?
-	{
-		private _omc = configFile>>"CfgWeapons">>_x>>"ItemInfo">>"OpticsModes";
-		if (isClass _omc) then {
-			for "_i" from 0 to count _omc - 1 do {
-				private _modes = getArray((_omc select _i)>>"visionMode");
-				__TRACE_1("","_modes")
-				if (d_without_nvg == 0 && {"NVG" in _modes}) exitWith {
-					_itemsar set [_forEachIndex, -1];
-				};
-				if (d_without_vec_ti == 0 && {"Ti" in _modes}) exitWith {
-					_itemsar set [_forEachIndex, -1];
-				};
-			};
-		};
-	} forEach _itemsar;
-	_itemsar = _itemsar - [-1];
-};
-
 //call d_fnc_arsenalfilter;
 
 if (d_with_ranked) then {
