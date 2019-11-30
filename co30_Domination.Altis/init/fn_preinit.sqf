@@ -1894,7 +1894,7 @@ if (hasInterface) then {
 		// player AT launcher cooldown time, means, a player can't use a guided launcher like the Titan for 60
 		// The projectile gets deleted and a magazine added again to the player inventory
 		// can be changed in the database dom_settings table too
-		d_launcher_cooldown = 120;
+		d_launcher_cooldown = d_launcher_cooldownp;
 	};
 	
 	// internal variables

@@ -11589,6 +11589,17 @@ Chinese>砲擊取消了</Chinese>
 <Chinesesimp>Points</Chinesesimp>
 <Chinese>Points</Chinese>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1986">
+<English>Launcher Cooldown Time in seconds:</English>
+<Spanish>Launcher Cooldown Time in seconds:</Spanish>
+<Portuguese>Launcher Cooldown Time in seconds:</Portuguese>
+<Korean>Launcher Cooldown Time in seconds:</Korean>
+<Japanese>Launcher Cooldown Time in seconds:</Japanese>
+<Original>Launcher Cooldown Time in seconds:</Original>
+<Russian>Launcher Cooldown Time in seconds:</Russian>
+<Chinesesimp>Launcher Cooldown Time in seconds:</Chinesesimp>
+<Chinese>Launcher Cooldown Time in seconds：</Chinese>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -32,10 +32,6 @@ private _formatstr = "
 "d_infobar" cutRsc ["d_infobar", "PLAIN"];
 
 while {true} do {
-	private _timeend = time + 2;
-	while {alive player && {time < _timeend && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ['ace_isunconscious', false])}}}} do {
-		sleep 0.3;
-	};
 	private _disp = uiNamespace getVariable "d_infobar";
 	if (isNil "_disp" || {isNull _disp}) then {
 		"d_infobar" cutRsc ["d_infobar", "PLAIN"];
@@ -80,6 +76,10 @@ while {true} do {
 				scoreSide west, 
 				scoreSide east
 			];
+		};
+		private _timeend = time + 2;
+		while {time < _timeend && {alive player}} do {
+			sleep 0.3;
 		};
 #endif
 	} else {

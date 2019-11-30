@@ -80,10 +80,10 @@ class FSM
                          "		if (!isNull _x) then {" \n
                          "			private _d_v_p_mt_t = _x getVariable ""d_v_p_mt_t"";" \n
                          "			if (isNil ""_d_v_p_mt_t"") then {" \n
-                         "				deleteVehicle _x;" \n
+                         "				_x call d_fnc_DelVecAndCrew;" \n
                          "			} else {" \n
                          "				if (_x distance2D _d_v_p_mt_t < 100) then {" \n
-                         "					deleteVehicle _x;" \n
+                         "					_x call d_fnc_DelVecAndCrew;" \n
                          "				};" \n
                          "			};" \n
                          "		};" \n
