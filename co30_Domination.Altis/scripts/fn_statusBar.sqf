@@ -83,7 +83,7 @@ while {true} do {
 		};
 #endif
 	} else {
-		(_disp displayCtrl 1102) ctrlSetStructuredText "";
+		(_disp displayCtrl 1102) ctrlSetStructuredText text "";
 		waitUntil {
 			sleep 0.3;
 			alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ['ace_isunconscious', false])}}
