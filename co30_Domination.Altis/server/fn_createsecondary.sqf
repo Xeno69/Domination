@@ -100,7 +100,9 @@ for "_i" from 1 to _nrcamps do {
 		//try to place the first camp very close (10m) to the center of the target
 		_poss set [2, 0];
 		_wf = createVehicle [d_wcamp, _poss, [], 10, "NONE"];
+		_wf allowDamage false;
 		_wf setDir (_wf getDir _trg_center);
+		_wf addEventHandler ["HandleDamage", {0}];
 		_poss = getPosASL _wf;
 		_isFirstCamp = false;
 	} else {
@@ -123,7 +125,9 @@ for "_i" from 1 to _nrcamps do {
 
 		_poss set [2, 0];
 		_wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
+		_wf allowDamage false;
 		_wf setDir (_wf getDir _trg_center);
+		_wf addEventHandler ["HandleDamage", {0}];
 		sleep 0.5;
 		__TRACE_1("1111","_wf")
 
@@ -159,8 +163,6 @@ for "_i" from 1 to _nrcamps do {
 	[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 	_wf setVariable ["d_camp_mar", _maname];
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
-
-	_wf addEventHandler ["HandleDamage", {0}];
 
 #ifndef __TT__
 	[_wf, _flagPole] execFSM "fsms\fn_HandleCamps2.fsm";

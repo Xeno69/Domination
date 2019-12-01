@@ -1,14 +1,3 @@
-4.16
+4.17
 
-- Added: New parameter d_pylon_noclust, set it to one and cluster bombs should be there again (if not exlucded otherwise; "Remove cluster ammo from pylon loadout" in the server lobby params)
-- Added: Status Bar by Babayka (includes Score too -> Score resource on top removed)
-- Added: Launcher Cooldown can now also be changed in Params ("Launcher Cooldown Time in seconds", d_launcher_cooldownp in description.ext)
-- Changed: Added even more score messages to the new UI score message system
-- Changed: Remove weapon backpacks from loaded Virtual Arsenal save files
-- Changed: Remove all weapon bagpacks from Virtual Arsenal (it's still the d_no_mortar_ar param which enables/disables it)
-- Changed: You can now easily add an additional MHQ by adding a variable name that starts with "d_mhq_add_" to the vehicle. Same for additional lift: "d_lift_add_", additonal wreck lifter "d_wreck_add_" and additional transporter: "d_trans_add_"
-- Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destroyed on the map
-- Fixed: Launcher cooldown did not work for 3rd party Addon/Mod launchers
-- Fixed: Sometimes a launcher mag was not readded when launcher cooldown deleted the missile projectile
-- Fixed: The crew of alive enemy AI vehicles at seized/resolved main targets did not get deleted at the same as the vehicles
-- Updated: Russian translation by Babayka
+- Fixed: Camp was not immediately set to indestructable after creation
