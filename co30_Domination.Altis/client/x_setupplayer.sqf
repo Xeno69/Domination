@@ -555,7 +555,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 		_engineer_trigger setTriggerArea [_mbase # 1, _mbase # 2, _mbase # 3, true, 2];
 #endif
 		_engineer_trigger setTriggerActivation ["ANYPLAYER", "PRESENT", true];
-		_engineer_trigger setTriggerStatements["!d_eng_can_repfuel && {player in thislist}", "d_eng_can_repfuel = true;systemChat (localize 'STR_DOM_MISSIONSTRING_340')", ""];
+		_engineer_trigger setTriggerStatements["!d_eng_can_repfuel && {alive player && {!(player getVariable ['xr_pluncon', false]) && {player in thislist}}}", "d_eng_can_repfuel = true; systemChat (localize 'STR_DOM_MISSIONSTRING_340')", ""];
 	};
 
 	if (d_with_ranked || {d_database_found}) then {d_last_base_repair = -1};

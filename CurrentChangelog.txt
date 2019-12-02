@@ -1,3 +1,4 @@
 4.17
 
-- Fixed: Camp was not immediately set to indestructable after creation
+- Fixed: Camps were not immediately set to indestructable after creation
+- Fixed: When engineer full was enabled repair and refuel ability was enabled when the player was revived or respawned at a MHQ/Farp/squad leader
