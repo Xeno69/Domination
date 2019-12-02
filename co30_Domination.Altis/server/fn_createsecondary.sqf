@@ -103,6 +103,7 @@ for "_i" from 1 to _nrcamps do {
 		_wf allowDamage false;
 		_wf setDir (_wf getDir _trg_center);
 		_wf addEventHandler ["HandleDamage", {0}];
+		sleep 0.3;
 		_poss = getPosASL _wf;
 		_isFirstCamp = false;
 	} else {
@@ -128,7 +129,7 @@ for "_i" from 1 to _nrcamps do {
 		_wf allowDamage false;
 		_wf setDir (_wf getDir _trg_center);
 		_wf addEventHandler ["HandleDamage", {0}];
-		sleep 0.5;
+		sleep 0.3;
 		__TRACE_1("1111","_wf")
 
 		_parray deleteAt _idx;
