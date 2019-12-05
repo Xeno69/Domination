@@ -10657,13 +10657,13 @@ Chinese>砲擊取消了</Chinese>
 <Chinese>取下耳塞</Chinese>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1871">
-<English>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</English>
-<Spanish>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Spanish>
-<Portuguese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Portuguese>
-<Korean>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Korean>
-<Japanese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Japanese>
-<Original>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 seconds left...</Original>
-<Russian>Игрок %1 пытается поменять сторону. Это возможно только через 30 минут после выхода с сервера. У него осталось %2 секунд...</Russian>
+<English>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</English>
+<Spanish>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Spanish>
+<Portuguese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Portuguese>
+<Korean>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Korean>
+<Japanese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Japanese>
+<Original>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Original>
+<Russian>Игрок %1 пытается поменять сторону. Это возможно только через 30 минут после выхода с сервера. У него осталось %2 минут...</Russian>
 <Chinesesimp>玩家%1试图改变阵营。等待切换。他还要等待%2秒...</Chinesesimp>
 <Chinese>玩家％1試圖改變陣營。等待切換。他還要等待％2秒...</Chinese>
 </Key>

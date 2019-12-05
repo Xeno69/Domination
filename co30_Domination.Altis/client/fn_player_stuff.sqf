@@ -24,7 +24,7 @@ _this spawn {
 	waitUntil {sleep 0.1; !d_still_in_intro};
 	if (!isNil {player getVariable "d_no_side_change"}) then {
 		private _rtime = serverTime - ((_this # 9) # 1);
-		[format [localize "STR_DOM_MISSIONSTRING_1871", profileName, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+		[format [localize "STR_DOM_MISSIONSTRING_1871", profileName, round (30 - (_rtime / 60))], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
 		0 spawn {
 			scriptName "spawn_endmissionloser";
 			sleep 1.5;
