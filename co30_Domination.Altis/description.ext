@@ -128,7 +128,6 @@ class CfgRemoteExec {
 		class d_fnc_KickPlayerBS {allowedTargets = 2;};
 		class d_fnc_RptMsgBS {allowedTargets = 2;};
 		class d_fnc_p_o_ar {allowedTargets = 2;};
-		class d_fnc_ampoi {allowedTargets = 2;};
 		class d_fnc_createdrop {allowedTargets = 2;};
 		class d_fnc_arifire {allowedTargets = 2;};
 		class d_fnc_GetAdminArray {allowedTargets = 2;};

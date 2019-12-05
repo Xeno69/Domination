@@ -46,7 +46,7 @@ private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (isNil "_p") then {
-	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
+	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], []];
 	d_player_store setVariable [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
@@ -56,8 +56,9 @@ if (isNil "_p") then {
 		[format [localize "STR_DOM_MISSIONSTRING_506", _name, _p # 6], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
 		diag_log format [localize "STR_DOM_MISSIONSTRING_942", _name, _p # 6, _uid];
 	};
-	if (time - (_p # 9) > 900) then {
-		_p set [8, xr_max_lives];
+	if ((_p # 9) # 0 > 0 && {time - ((_p # 9) # 0) > 900}) then {
+		_p set [8, [-2, xr_max_lives] select (xr_max_lives != -1)];
+		_p set [9, [0, (_p # 9) # 1]];
 	};
 	if (_p # 0 > -1) then {
 		_p set [0, time + (_p # 0)];
@@ -67,7 +68,7 @@ if (isNil "_p") then {
 	_p set [6, _name];
 #ifdef __TT__
 	if (_sidepl != _p # 5) then {
-		if (time - (_p # 9) < 1800) then {
+		if ((_p # 9) # 1 > 0 && {time - ((_p # 9) # 1) < 1800}) then {
 			_pl setVariable ["d_no_side_change", true, true];
 		} else {
 			_p set [5, _sidepl];
@@ -75,6 +76,9 @@ if (isNil "_p") then {
 			d_player_store setVariable [_uid + "_scores", nil];
 			_p set [11, []];
 			_p set [12, []];
+			if ((_p # 9) # 1 > 0) then {
+				_p set [9, [(_p # 9) # 0, 0]];
+			};
 		};
 	};
 #endif

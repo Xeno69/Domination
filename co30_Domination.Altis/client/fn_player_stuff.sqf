@@ -23,7 +23,7 @@ if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitW
 _this spawn {
 	waitUntil {sleep 0.1; !d_still_in_intro};
 	if (!isNil {player getVariable "d_no_side_change"}) then {
-		private _rtime = time - (_this select 9);
+		private _rtime = serverTime - ((_this # 9) # 1);
 		[format [localize "STR_DOM_MISSIONSTRING_1871", profileName, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
 		0 spawn {
 			scriptName "spawn_endmissionloser";

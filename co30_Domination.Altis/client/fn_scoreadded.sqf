@@ -49,6 +49,9 @@ private _txt = call {
 	if (_reason == 10) exitWith {
 		localize "STR_DOM_MISSIONSTRING_1980"
 	};
+	if (_reason == 11) exitWith {
+		localize "STR_DOM_MISSIONSTRING_1987"
+	};
 	""
 };
 

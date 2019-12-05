@@ -2133,17 +2133,6 @@
 <Chinesesimp>在医疗帐篷进行治疗</Chinesesimp>
 <Chinese>在醫療帳篷進行治療</Chinese>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_287">
-<English>You get %1 points because %2 used your mash for healing!</English>
-<Spanish>Obtiene %1 puntos porque %2 utilizó su tienda sanitaria para la curación.</Spanish>
-<Portuguese>Consegue 1 pontos % porque %2 utilizou vosso mash para curar-se!</Portuguese>
-<Korean>치료를 위해 엄폐물로 생성하는 도중 %2를 사용하여 현재 %1 포인트만 가지고있습니다.</Korean>
-<Japanese>%2はあなたのメディックテントを治癒に使ったので、%1ポイントを得た！</Japanese>
-<Original>You get %1 points because %2 used your mash for healing!</Original>
-<Russian>Вы получаете %1 очков потому что у Вашего медпункта кто-то вылечился!</Russian>
-<Chinesesimp>你得到了 %1 点数，点数由 %2 使用你的医疗帐篷进行治疗而得到!</Chinesesimp>
-<Chinese>你得到了 %1 點數，點數由 %2 使用你的醫療帳篷進行治療而得到‧</Chinese>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_296">
 <English>|=CHOOSE PARACHUTE LOCATION=|</English>
 <Spanish>|=SALTAR EN PARACAÍDAS=|</Spanish>
@@ -11599,6 +11588,17 @@ Chinese>砲擊取消了</Chinese>
 <Russian>Время восстановления пусковой установки в секундах:</Russian>
 <Chinesesimp>Launcher Cooldown Time in seconds:</Chinesesimp>
 <Chinese>Launcher Cooldown Time in seconds：</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1987">
+<English>points for usage of your mash for healing!</English>
+<Spanish>points for usage of your mash for healing!</Spanish>
+<Portuguese>points for usage of your mash for healing!</Portuguese>
+<Korean>points for usage of your mash for healing!</Korean>
+<Japanese>points for usage of your mash for healing!</Japanese>
+<Original>points for usage of your mash for healing!</Original>
+<Russian>points for usage of your mash for healing!</Russian>
+<Chinesesimp>points for usage of your mash for healing!</Chinesesimp>
+<Chinese>points for usage of your mash for healing!</Chinese>
 </Key>
 </Container>
 </Package>

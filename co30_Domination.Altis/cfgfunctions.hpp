@@ -409,7 +409,6 @@ class cfgFunctions {
 			addc(bonusvecfnc);
 			addc(cleanerfnc);
 			addc(p_o_ar);
-			addc(ampoi);
 			addc(mhqdepls);
 			addc(mhq_net);
 			addc(at_serv);

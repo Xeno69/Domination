@@ -36,7 +36,14 @@ private _pa = d_player_store getVariable _uid;
 if (!isNil "_pa") then {
 	__TRACE_1("player store before change","_pa")
 	_pa set [0, [time - (_pa # 0), -1] select (time - (_pa # 0) < 0)];
-	_pa set [9, time];
+	if ((_pa # 9) # 0 == 0) then {
+		_pa set [9, [time, (_pa # 9) # 1]];
+	};
+#ifdef __TT__
+	if ((_pa # 9) # 1 == 0) then {
+		_pa set [9, [(_pa # 9) # 0, time]];
+	};
+#endif
 	private _mname = (_pa # 4) + "_xr_dead";
 	__TRACE_1("","_mname")
 	if !(markerPos _mname isEqualTo [0,0,0]) then {

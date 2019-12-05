@@ -505,6 +505,7 @@ private _confmapsize = call {
 	};
 	getNumber(configFile>>"CfgWorlds">>worldName>>"mapSize")
 };
+if (_confmapsize == 0) then {_confmapsize = worldSize};
 d_island_center = [_confmapsize / 2, _confmapsize / 2, 300];
 
 d_island_x_max = _confmapsize;

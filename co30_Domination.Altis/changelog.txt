@@ -2,3 +2,5 @@
 
 - Fixed: Camps were not immediately set to indestructable after creation
 - Fixed: When engineer full was enabled repair and refuel ability was also restored when the player was revived or respawned at a MHQ/Farp/squad leader
+- Fixed: At player connect, time for resetting revive lives (15 minutes if a player leaves a server and reconnects) and side switching in the TT version (30 minutes) was not correctly resetted on the server
+- Fixed: Winter Chernarus was missing CfgWorlds mapSize field resulting in markers not drawn and wrong bounds for vehicle respawn check (vehicles simply respawned because they were out of bounds)
