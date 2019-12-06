@@ -1,0 +1,10 @@
+version: "1"
+rules: # Array of rules
+  - base: source # Required. Target branch
+    upstream: Xeno69/Domination:master # Required. Must be in the same fork network.
+    mergeMethod: rebase # Optional, one of [none, merge, squash, rebase, hardreset], Default: none.
+    assignees: # Optional
+      - PairedPrototype
+    reviewers: # Optional
+      - PairedPrototype
+label: ":arrow_heading_down: pull" # Optional
