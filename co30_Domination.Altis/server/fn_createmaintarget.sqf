@@ -181,7 +181,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 
 	_allbars pushBack _vec;
 
-	sleep 0.2;
+	sleep 0.1;
 };
 d_num_barracks_objs = count d_mt_barracks_obj_ar;
 __TRACE_1("","d_mt_barracks_obj_ar")
