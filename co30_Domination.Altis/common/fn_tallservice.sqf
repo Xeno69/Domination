@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_tallservice.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 params ["_list", "_trig"];
 
 if (_list isEqualTo []) then {

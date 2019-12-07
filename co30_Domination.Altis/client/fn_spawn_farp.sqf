@@ -73,7 +73,7 @@ private _farptrig = [
 [_d_farp_pos # 0, _d_farp_pos # 1, 1.9],
 [_mapSize, _mapSize, getDirVisual _farp, true, 2],
 ["ANY", "PRESENT", true],
-["thislist call d_fnc_tallservice", "0 = [thislist] spawn d_fnc_reload", ""]
+["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""]
 ] call d_fnc_CreateTrigger;
 
 private _farpcont = [_farptrig];

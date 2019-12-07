@@ -589,7 +589,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 	if !(_farpc isEqualTo []) then {
 		_farpc params ["_trig"];
 		_trig setTriggerActivation ["ANY", "PRESENT", true];
-		_trig setTriggerStatements ["thislist call d_fnc_tallservice", "0 = [thislist] spawn d_fnc_reload", ""];
+		_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
 	};
 } forEach d_farps;
 
