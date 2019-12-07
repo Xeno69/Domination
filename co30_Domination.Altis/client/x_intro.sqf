@@ -193,9 +193,7 @@ xr_phd_invulnerable = false;
 uiNamespace setVariable ["D_DomLabel", nil];
 uiNamespace setVariable ["d_DomFour", nil];
 
-if (d_with_ranked || {d_database_found || {d_tt_ver}}) then {
-	0 spawn d_fnc_statusbar;
-};
+0 spawn d_fnc_statusbar;
 
 if (name player == "Error: No unit" || {!isPlayer player}) then {
 	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";
