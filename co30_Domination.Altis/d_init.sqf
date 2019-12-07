@@ -349,10 +349,15 @@ if (isServer) then {
 			_fac setDir (markerDir "d_base_sb_ammoload");
 			_fac setPos _mmm;
 		};
-
-		if (d_base_aa_vec isEqualTo "") exitWith {};
-
-		[d_own_side, d_base_aa_vec] call d_fnc_cgraa;
+		if (!isNil "d_base_aa_vec" && {!(d_base_aa_vec isEqualTo "")}) then {
+			[d_own_side, d_base_aa_vec, "d_base_anti_air"] call d_fnc_cgraa;
+		};
+		if (!isNil "d_base_tank_vec" && {!(d_base_tank_vec isEqualTo "")}) then {
+			[d_own_side, d_base_tank_vec, "d_base_tank"] call d_fnc_cgraa;
+		};
+		if (!isNil "d_base_apc_vec" && {!(d_base_apc_vec isEqualTo "")}) then {
+			[d_own_side, d_base_apc_vec, "d_base_apc"] call d_fnc_cgraa;
+		};
 	};
 #endif
 

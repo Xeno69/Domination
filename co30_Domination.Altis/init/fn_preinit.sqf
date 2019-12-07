@@ -1214,6 +1214,88 @@ if (!d_tt_tanoa) then {
 #ifdef __TT__
 	"";
 #endif
+d_base_tank_vec =
+#ifdef __OWN_SIDE_INDEPENDENT__
+	"I_MBT_03_cannon_F";
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_B_M1A1_Woodland_US_Army"
+		};
+		if (d_rhs) exitWith	{
+			"rhsusf_m1a1aimwd_usarmy"
+		};
+		if (d_gmcwg) exitWith {
+			if (d_gmcwgwinter) exitWith {
+				"gm_ge_army_Leopard1a1a1_win"
+			};
+			"gm_ge_army_Leopard1a1a1"
+		};
+		if (d_tanoa || {d_livonia}) exitWith {
+			"B_T_MBT_01_cannon_F"
+		};
+		"B_MBT_01_cannon_F";
+	};
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_O_T72_RU"
+		};
+		if (d_rhs) exitWith	{
+			"rhs_t90_tv"
+		};
+		if (d_ifa3lite) exitWith {
+			"LIB_T34_85"
+		};
+		"O_MBT_02_cannon_F"
+	};
+#endif
+#ifdef __TT__
+	"";
+#endif
+d_base_apc_vec =
+#ifdef __OWN_SIDE_INDEPENDENT__
+	"I_APC_tracked_03_cannon_F";
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_B_M2Bradley_USA_W"
+		};
+		if (d_rhs) exitWith	{
+			"RHS_M2A2_wd"
+		};
+		if (d_gmcwg) exitWith {
+			if (d_gmcwgwinter) exitWith {
+				"gm_ge_army_m113a1g_apc_win"
+			};
+			"gm_ge_army_m113a1g_apc"
+		};
+		if (d_tanoa || {d_livonia}) exitWith {
+			"B_T_APC_Wheeled_01_cannon_F"
+		};
+		"B_APC_Wheeled_01_cannon_F";
+	};
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_O_BMP2_RU"
+		};
+		if (d_rhs) exitWith	{
+			"rhs_bmp2d_tv"
+		};
+		if (d_ifa3lite) exitWith {
+			"LIB_SOV_M3_Halftrack"
+		};
+		"O_APC_Tracked_02_cannon_F"
+	};
+#endif
+#ifdef __TT__
+	"";
+#endif
 
 	d_wreck_cur_ar = [];
 

@@ -1,5 +1,6 @@
 4.17
 
+- Added: If there are markers at base which start with "d_base_tank" or "d_base_apc" friendly tanks or APC will be added (no driver, just AI commander and AI gunner)
 - Fixed: Camps were not immediately set to indestructable after creation
 - Fixed: When engineer full was enabled repair and refuel ability was also restored when the player was revived or respawned at a MHQ/Farp/squad leader
 - Fixed: At player connect, time for resetting revive lives (15 minutes if a player leaves a server and reconnects) and side switching in the TT version (30 minutes) was not correctly resetted on the server
