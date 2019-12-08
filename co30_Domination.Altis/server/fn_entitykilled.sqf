@@ -113,6 +113,7 @@ if (_ar # 16 == 1) then {
 
 if (_ar # 17 == 1) then {
 	[_obj, 0] remoteExec ["setFeatureType", [0, -2] select isDedicated];
+	_obj setFuel 0.05;
 };
 
 _obj setVariable ["d_hkx", nil];
