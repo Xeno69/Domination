@@ -196,7 +196,11 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				__TRACE_1("HACLAC","_pat_pos")
 				[_grp, 1] setWaypointPosition [_pat_pos, 0];
 				_grp setSpeedMode "NORMAL";
-				_grp setBehaviour __wp_behave;
+				if (_type != "UAV") then {
+					_grp setBehaviour __wp_behave;
+				} else {
+					_grp setBehaviour "COMBAT";
+				};
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight _height;
@@ -209,7 +213,11 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				__TRACE_1("plane","_pat_pos")
 				[_grp, 1] setWaypointPosition [_pat_pos, 0];
 				_grp setSpeedMode "LIMITED";
-				_grp setBehaviour __wp_behave;
+				if (_type != "UAV") then {
+					_grp setBehaviour __wp_behave;
+				} else {
+					_grp setBehaviour "COMBAT";
+				};
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight _height;
