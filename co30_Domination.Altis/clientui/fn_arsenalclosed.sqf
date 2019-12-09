@@ -36,7 +36,8 @@ if (d_no_mortar_ar == 1) then {
 
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
-[player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];
+//[player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];
+[player, getUnitLoadout player] remoteExecCall ["d_fnc_storeploadout", 2];
 if (!isNil "d_arsenal_nvg_used") then {
 	d_arsenal_nvg_used = nil;
 	camUseNVG false;

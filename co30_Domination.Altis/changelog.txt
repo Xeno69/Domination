@@ -1,10 +1,10 @@
 4.17
 
-- Added: If there are markers at base which start with "d_base_tank" or "d_base_apc" friendly tanks or APC will be added (no driver, just AI commander and AI gunner)
+- Added: If there are markers at base which start with "d_base_tank" or "d_base_apc" friendly tanks or APCs will be added (no driver, just AI commander and AI gunner)
 - Fixed: Camps were not immediately set to indestructable after creation
 - Fixed: When engineer full was enabled repair and refuel ability was also restored when the player was revived or respawned at a MHQ/Farp/squad leader
 - Fixed: At player connect, time for resetting revive lives (15 minutes if a player leaves a server and reconnects) and side switching in the TT version (30 minutes) was not correctly resetted on the server
 - Fixed: CUP Winter Chernarus was missing CfgWorlds mapSize field resulting in markers not drawn and wrong bounds for vehicle respawn check (vehicles simply respawned because they were out of bounds)
-- Fixed: Engineer spawned FARPS did not use the new tallservice format resulting in script errors
-- Fixed: If a unit classname array had four or less units it resulted in an array select script error
-- Fixed: Sniper classname variable was defined as d_sniper_I instead of d_sniper_G which prevented making a normal One Team version against an independent enemy
+- Fixed: Engineer spawned FARPs did not use the new txxxservice format resulting in script errors
+- Fixed: If a unit classname array had four or less unit classnames it resulted in an array select script error
+- Fixed: Independent sniper classname variable was defined as d_sniper_I instead of d_sniper_G which prevented making a normal One Team version against an independent enemy

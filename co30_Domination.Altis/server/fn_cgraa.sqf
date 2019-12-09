@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_cgraa.sqf"
 #include "..\x_setup.sqf"
 
-params ["_side", "_type", "_mname"];
+params ["_side", "_type", "_mname", ["_remdriver", true]];
 
 private _mlen = count _mname;
 
@@ -15,7 +15,7 @@ private _mlen = count _mname;
 	(([1, markerPos _x, _type, _grp, markerDir _x, false, true] call d_fnc_makevgroup) # 0) params ["_av"];
 	_grp deleteGroupWhenEmpty true;
 	_av lock true;
-	if (!isNull (driver _av)) then {
+	if (_remdriver && {!isNull (driver _av)}) then {
 		_av lockDriver true;
 		_av deleteVehicleCrew (driver _av);
 		_av lock 2;
