@@ -842,11 +842,11 @@ if (!d_tt_tanoa) then {
 	if (d_tanoa || {d_livonia}) then {
 		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup];
 		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup];
-		d_sniper_I = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 	} else {
 		d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup];
 		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup];
-		d_sniper_I = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 	};
 	
 #ifdef __RHS__
