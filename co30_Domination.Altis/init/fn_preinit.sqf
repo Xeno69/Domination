@@ -1709,6 +1709,8 @@ d_base_apc_vec =
 		// can also be put into the dom_settings in Domination sql DB
 		d_ai_groups_respawn_time = [250, 150, 320, 170];
 	};
+	
+	d_dbox_idx = 0;
 };
 
 if (hasInterface) then {
