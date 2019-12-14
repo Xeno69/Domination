@@ -228,16 +228,16 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 								if (_unitMovementMode == 2) then {
 
 									//if defined, apply general skill modifier
-									if (d_enemy_garrison_troop_sniper_general_skill > 0) then {
-										_uuidx setSkill d_enemy_garrison_troop_sniper_general_skill;
+									if (d_snp_skill > 0) then {
+										_uuidx setSkill d_snp_skill;
 									};
 
 									//if defined, apply aimingShake skill modifier
-									if (d_enemy_garrison_troop_sniper_aimingShake_skill > 0) then {
-										_uuidx setSkill ["aimingShake", d_enemy_garrison_troop_sniper_aimingShake_skill];
+									if (d_snp_shake > 0) then {
+										_uuidx setSkill ["aimingShake", d_snp_shake];
 									};
 
-									if (d_enemy_garrison_troop_sniper_awareness == 1) then {
+									if (d_snp_aware == 1) then {
 										//highly aware snipers
 										[_uuidx, d_side_player] spawn d_fnc_hallyg_dlegion_Snipe;
 									} else {

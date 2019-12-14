@@ -133,8 +133,8 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 d_groups_respawn_time_add = 0;
-//limit barracks by d_enemy_max_barracks_count, default is very high but may be lower if mission settings are non-default
-d_num_barracks_objs = ((ceil random 7) max 4) min d_enemy_max_barracks_count;
+//limit barracks by d_max_bar_cnt, default is very high but may be lower if mission settings are non-default
+d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 
@@ -349,10 +349,10 @@ if (d_no_more_observers < 2) then {
 #ifndef __TT__
 //garrison begin`
 
-if (d_enemy_occupy_bldgs == 1) then {
+if (d_occ_bldgs == 1) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
-	if (d_enemy_garrison_troop_occupy_count > 0) then {
-		for "_xx" from 0 to (d_enemy_garrison_troop_occupy_count - 1) do {
+	if (d_occ_cnt > 0) then {
+		for "_xx" from 0 to (d_occ_cnt - 1) do {
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [2, 3, 4],			//unit count
@@ -367,8 +367,8 @@ if (d_enemy_occupy_bldgs == 1) then {
 	};
 
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
-	if (d_enemy_garrison_troop_ambush_count > 0) then {
-		for "_xx" from 0 to (d_enemy_garrison_troop_ambush_count - 1) do {
+	if (d_amb_cnt > 0) then {
+		for "_xx" from 0 to (d_amb_cnt - 1) do {
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [3, 4],		//unit count
@@ -382,7 +382,7 @@ if (d_enemy_occupy_bldgs == 1) then {
 		};
 	};
 
-	if (d_enemy_garrison_troop_sniper_count == 0) exitWith {};
+	if (d_snp_cnt == 0) exitWith {};
 
 	//create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	//START create garrisoned groups of snipers
@@ -427,10 +427,10 @@ if (d_enemy_occupy_bldgs == 1) then {
 
 	//choose the Top N of sorted buildings array
 
-	if (d_enemy_garrison_troop_sniper_count >= count _buildingsArraySorted) then {
+	if (d_snp_cnt >= count _buildingsArraySorted) then {
 		_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted];
 	} else {
-		_buildingsArray = _buildingsArraySorted select [0, d_enemy_garrison_troop_sniper_count];
+		_buildingsArray = _buildingsArraySorted select [0, d_snp_cnt];
 	};
 
 	__TRACE_1("","_buildingsArray")
