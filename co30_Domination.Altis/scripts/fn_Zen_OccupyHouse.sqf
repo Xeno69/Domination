@@ -262,6 +262,14 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 										};
 									};
 								};
+								
+								//overwatch mode - static forever but without special sniper behaviors
+								if (_unitMovementMode == 3) then {
+									if !(_doMove) then {
+										_uuidx disableAI "TARGET";
+										_uuidx forceSpeed 0;
+									};
+								};
 
 								I(_unitIndex)
 								if (_fillEvenly) then {

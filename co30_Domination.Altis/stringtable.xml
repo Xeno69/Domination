@@ -10919,6 +10919,16 @@ Chinese>砲擊取消了</Chinese>
 <Russian>Количество пехотных групп - режим оккупации</Russian>
 <Chinesesimp>驻军步兵团计数 - 占领模式</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900AA">
+<English>Garrisoned infantry group count - overwatch mode</English>
+<Spanish>Garrisoned infantry group count - overwatch mode</Spanish>
+<Portuguese>Garrisoned infantry group count - overwatch mode</Portuguese>
+<Korean>Garrisoned infantry group count - overwatch mode</Korean>
+<Japanese>Garrisoned infantry group count - overwatch mode</Japanese>
+<Original>Garrisoned infantry group count - overwatch mode</Original>
+<Russian>Garrisoned infantry group count - overwatch mode</Russian>
+<Chinesesimp>Garrisoned infantry group count - overwatch mode</Chinesesimp>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
 <English>Garrisoned infantry group count - ambush mode</English>
 <Spanish>Garrisoned infantry group count - ambush mode</Spanish>

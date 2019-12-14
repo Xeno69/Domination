@@ -76,14 +76,12 @@ while {true} do {
 
 	_Dtargets = [];
 
-	// why not use nearentities here with a radius?
-	// if there are 200 units then this one takes quite some time to compute
 	{
 		if (alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side _x == _targetSide && {_x distance2D _unit < _detectionRadius}}}}) then {
 			_unit reveal [_x, 4];
 			_Dtargets pushBack _x;
 		};
-	} forEach allunits;
+	} forEach (_unit nearEntities 1400);
 
 	_fired = false;
 	_targetUnit = [];
