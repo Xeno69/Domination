@@ -1,3 +1,4 @@
 4.20
 
+- Changed: Shorter names for some classes in CfgParams (note that you have to check your DB params too; best to recreate them completely)
 - Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
