@@ -4,13 +4,10 @@
 #include "..\x_setup.sqf"
 
 params ["_box"];
-private _dbidx = (_box getVariable "d_box_params") # 0;
-private _idx = d_ammo_boxes findIf {
-	(_x # 0) == _dbidx
-};
-if (_idx > -1) then {
-	deleteMarker (d_ammo_boxes # _idx # 2);
-	d_ammo_boxes deleteAt _idx;
+private _fidx = d_ammo_boxes findIf {(_x # 0) == _box};
+if (_fidx > -1) then {
+	deleteMarker (d_ammo_boxes # _fidx # 1);
+	d_ammo_boxes deleteAt _fidx;
 };
 publicVariable "d_ammo_boxes";
 deleteVehicle _box;

@@ -191,10 +191,6 @@ private _make_jump = {
 					sleep 0.5;
 				} forEach _aunits;
 				__TRACE("paragrp units moveout")
-				private _bino = binocular (leader _paragrp);
-				if !(_bino isEqualTo "") then {
-					(leader _paragrp) removeWeapon _bino;
-				};
 #ifdef __TT__
 				if (d_with_ace) then {
 					_paragrp setVariable ["d_ktypett", 1];

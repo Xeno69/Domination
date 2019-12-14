@@ -75,11 +75,6 @@ if (side _grp == d_side_enemy) then {
 };
 #endif
 (leader _grp) setRank "SERGEANT";
-// I can't stand enemy AI leaders running around with Binos in their hands constantly
-private _bino = binocular (leader _grp);
-if !(_bino isEqualTo "") then {
-	(leader _grp) removeWeapon _bino;
-};
 #ifndef __TT__
 _ret call d_fnc_addceo;
 #endif
