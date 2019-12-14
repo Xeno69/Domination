@@ -11022,6 +11022,36 @@ Chinese>砲擊取消了</Chinese>
 <Chinesesimp>找到第一个在主要目标中心附近捕获的敌人营地</Chinesesimp>
 <Chinese>找到第一個敵人營地，以在主要目標的中心附近捕獲</Chinese>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1901A">
+<English>Enemy placement target fill radius - occupy infantry</English>
+<Spanish>Enemy placement target fill radius - occupy infantry</Spanish>
+<Portuguese>Enemy placement target fill radius - occupy infantry</Portuguese>
+<Korean>Enemy placement target fill radius - occupy infantry</Korean>
+<Japanese>Enemy placement target fill radius - occupy infantry</Japanese>
+<Original>Enemy placement target fill radius - occupy infantry</Original>
+<Russian>Enemy placement target fill radius - occupy infantry</Russian>
+<Chinesesimp>Enemy placement target fill radius - occupy infantry</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1901B">
+<English>Enemy placement target fill radius - ambush infantry</English>
+<Spanish>Enemy placement target fill radius - ambush infantry</Spanish>
+<Portuguese>Enemy placement target fill radius - ambush infantry</Portuguese>
+<Korean>Enemy placement target fill radius - ambush infantry</Korean>
+<Japanese>Enemy placement target fill radius - ambush infantry</Japanese>
+<Original>Enemy placement target fill radius - ambush infantry</Original>
+<Russian>Enemy placement target fill radius - ambush infantry</Russian>
+<Chinesesimp>Enemy placement target fill radius - ambush infantry</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1901C">
+<English>Enemy placement target fill radius - sniper infantry</English>
+<Spanish>Enemy placement target fill radius - sniper infantry</Spanish>
+<Portuguese>Enemy placement target fill radius - sniper infantry</Portuguese>
+<Korean>Enemy placement target fill radius - sniper infantry</Korean>
+<Japanese>Enemy placement target fill radius - sniper infantry</Japanese>
+<Original>Enemy placement target fill radius - sniper infantry</Original>
+<Russian>Enemy placement target fill radius - sniper infantry</Russian>
+<Chinesesimp>Enemy placement target fill radius - sniper infantry</Chinesesimp>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
 <English>Destination:</English>
 <Spanish>Destination:</Spanish>
