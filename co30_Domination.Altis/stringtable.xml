@@ -10979,6 +10979,16 @@ Chinese>砲擊取消了</Chinese>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
 <Chinesesimp>Garrisoned infantry sniper mode - aimingShake skill</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1902">
+<English>Deployment radius</English>
+<Spanish>Deployment radius</Spanish>
+<Portuguese>Deployment radius</Portuguese>
+<Korean>Deployment radius</Korean>
+<Japanese>Deployment radius</Japanese>
+<Original>Deployment radius</Original>
+<Russian>Deployment radius</Russian>
+<Chinesesimp>Deployment radius</Chinesesimp>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilian group count per target</English>
 <Spanish>Civilian group count per target</Spanish>
