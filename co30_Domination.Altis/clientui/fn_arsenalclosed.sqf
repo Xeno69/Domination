@@ -7,10 +7,43 @@ d_arsenal_opened = false;
 
 __TRACE_1("","d_arsenal_opened")
 
-private _unip = uniform player;
-if (_unip != "") then {
-	if (getText (configFile>>"CfgWeapons">>_unip>>"ItemInfo">>"containerClass") == "Supply500") then {
-		removeUniform player;
+if !((d_remove_from_arsenal # 3) isEqualTo []) then {
+	private _unip = uniform player;
+	if (_unip != "") then {
+		private _resg = (d_remove_from_arsenal # 3) findIf {
+			private _res = false;
+			if (_x isEqualType {}) then {
+				_res = _bp call _x;
+			} else {
+				if (_bp == _x) then {
+					_res = true;
+				};
+			};
+			_res
+		};
+		if (_resg != -1) then {
+			removeUniform player;
+		};
+	};
+};
+
+if !((d_remove_from_arsenal # 4) isEqualTo []) then {
+	private _unip = vest player;
+	if (_unip != "") then {
+		private _resg = (d_remove_from_arsenal # 4) findIf {
+			private _res = false;
+			if (_x isEqualType {}) then {
+				_res = _bp call _x;
+			} else {
+				if (_bp == _x) then {
+					_res = true;
+				};
+			};
+			_res
+		};
+		if (_resg != -1) then {
+			removeVest player;
+		};
 	};
 };
 
@@ -34,10 +67,29 @@ if (d_no_mortar_ar == 1) then {
 	};
 };
 
+if !((d_remove_from_arsenal # 6) isEqualTo []) then {
+	private _unip = headgear player;
+	if (_unip != "") then {
+		private _resg = (d_remove_from_arsenal # 6) findIf {
+			private _res = false;
+			if (_x isEqualType {}) then {
+				_res = _bp call _x;
+			} else {
+				if (_bp == _x) then {
+					_res = true;
+				};
+			};
+			_res
+		};
+		if (_resg != -1) then {
+			removeHeadgear player;
+		};
+	};
+};
+
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
-//[player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];
-[player, getUnitLoadout player] remoteExecCall ["d_fnc_storeploadout", 2];
+[player, getUnitLoadout player, d_player_side] remoteExecCall ["d_fnc_storeploadout", 2];
 if (!isNil "d_arsenal_nvg_used") then {
 	d_arsenal_nvg_used = nil;
 	camUseNVG false;
