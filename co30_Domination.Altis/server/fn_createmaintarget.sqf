@@ -387,8 +387,7 @@ if (d_occ_bldgs == 1) then {
 	//create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	//START create garrisoned groups of snipers
 	//prepare to create garrisoned groups of snipers - find and sort buildings
-	private _buildingsArray = [];
-	private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], d_snp_rad];
+	private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], d_snp_rad, true];
 
 	if (_buildingsArrayRaw isEqualTo []) exitWith {};
 
@@ -426,6 +425,8 @@ if (d_occ_bldgs == 1) then {
 	if (_buildingsArraySorted isEqualTo []) exitWith {};
 
 	//choose the Top N of sorted buildings array
+	
+	private _buildingsArray = [];
 
 	if (d_snp_cnt >= count _buildingsArraySorted) then {
 		_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted];

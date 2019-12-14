@@ -769,14 +769,14 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
 	class d_mhqvec_create_cooldown {
 		title = "$STR_DOM_MISSIONSTRING_1824";
 		values[] = {0, 60, 120, 300, 600, 1200, 1800};
 		default = 120;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","300","600","1200","1800"};
 	};
-	
+
 	class d_launcher_cooldownp {
 		title = "$STR_DOM_MISSIONSTRING_1986";
 		values[] = {0, 60, 120, 180, 240, 300};
@@ -846,7 +846,7 @@ class Params {
 		default = 4;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
-	
+
 	class d_occ_rad {
 		title = "$STR_DOM_MISSIONSTRING_1901A";
 		values[] = {250, 425, 650, 900, 1250};
@@ -860,7 +860,7 @@ class Params {
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
-	
+
 	class d_amb_rad {
 		title = "$STR_DOM_MISSIONSTRING_1901B";
 		values[] = {250, 425, 650, 900, 1250};
@@ -874,7 +874,7 @@ class Params {
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60", "75", "90"};
 	};
-	
+
 	class d_snp_rad {
 		title = "$STR_DOM_MISSIONSTRING_1901C";
 		values[] = {250, 425, 650, 900, 1250};
@@ -923,7 +923,7 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-	
+
 	class d_WithAmbientRadio {
 		title = "$STR_DOM_MISSIONSTRING_1948";
 		values[] = {0,1};
