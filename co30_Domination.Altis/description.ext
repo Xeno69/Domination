@@ -846,6 +846,13 @@ class Params {
 		default = 4;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
+	
+	class d_occ_rad {
+		title = "$STR_DOM_MISSIONSTRING_1901A";
+		values[] = {250, 425, 650, 900, 1250};
+		default = 250;
+		texts[] = {"250m", "425m", "650m", "900m", "1250m"};
+	};
 
 	class d_amb_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900B";
@@ -853,12 +860,26 @@ class Params {
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
 	};
+	
+	class d_amb_rad {
+		title = "$STR_DOM_MISSIONSTRING_1901B";
+		values[] = {250, 425, 650, 900, 1250};
+		default = 250;
+		texts[] = {"250m", "425m", "650m", "900m", "1250m"};
+	};
 
 	class d_snp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900C";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45};
 		default = 2;
 		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60", "75", "90"};
+	};
+	
+	class d_snp_rad {
+		title = "$STR_DOM_MISSIONSTRING_1901C";
+		values[] = {250, 425, 650, 900, 1250};
+		default = 425;
+		texts[] = {"250m", "425m", "650m", "900m", "1250m"};
 	};
 
 	class d_snp_aware {
@@ -902,7 +923,7 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-
+	
 	class d_WithAmbientRadio {
 		title = "$STR_DOM_MISSIONSTRING_1948";
 		values[] = {0,1};

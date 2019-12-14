@@ -356,7 +356,7 @@ if (d_occ_bldgs == 1) then {
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [2, 3, 4],			//unit count
-				250,		//fillRadius
+				d_occ_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -372,7 +372,7 @@ if (d_occ_bldgs == 1) then {
 			[
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [3, 4],		//unit count
-				250,		//fillRadius
+				d_amb_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -388,7 +388,7 @@ if (d_occ_bldgs == 1) then {
 	//START create garrisoned groups of snipers
 	//prepare to create garrisoned groups of snipers - find and sort buildings
 	private _buildingsArray = [];
-	private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], 425];
+	private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], d_snp_rad];
 
 	if (_buildingsArrayRaw isEqualTo []) exitWith {};
 
