@@ -23,10 +23,10 @@ if (_delta == 0 || {_type == 1}) then {
 			[10, 10, 0],
 			[0, 0, 0, false],
 			["ANYPLAYER", "PRESENT", true],
-			["thisTrigger call d_fnc_triggerrun;false", "", ""]
+			["thisTrigger call d_fnc_triggerrun;false", "", ""],
+			_delta
 		] call d_fnc_createtriggerlocal;
 		_trig setVariable [_name, _code];
-		_trig setTriggerInterval _delta;
 		d_ef_trig_store setVariable [_str_delta, _trig];
 	} else {
 		_trig setVariable [_name, _code];
