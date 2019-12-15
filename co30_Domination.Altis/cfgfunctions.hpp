@@ -293,6 +293,7 @@ class cfgFunctions {
 			addc(eachframeadd);
 			addc(eachframerun);
 			addc(eachframeremove);
+			addc(triggerrun);
 			addc(hascopilot);
 			addc(iscopilot);
 		};

@@ -12,16 +12,10 @@ private _ef_store = d_ef_store;
 			call (_e # 0);
 			__TRACE_1("1","_e")
 		} else {
-			if ((_e # 3) == 0 && {time >= (_e # 2)}) then {
+			if ((_e # 3) == 1 && {diag_frameno >= (_e # 2)}) then {
 				call (_e # 0);
-				_e set [2, time + (_e # 1)];
-				__TRACE_1("2","_e")
-			} else {
-				if ((_e # 3) == 1 && {diag_frameno >= (_e # 2)}) then {
-					call (_e # 0);
-					_e set [2, diag_frameno + (_e # 1)];
-					__TRACE_1("3","_e")
-				};
+				_e set [2, diag_frameno + (_e # 1)];
+				__TRACE_1("3","_e")
 			};
 		};
 	};
