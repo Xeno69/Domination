@@ -100,8 +100,8 @@ if (isServer) then {
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
 #ifndef __TT__
-				[2,1], // basic groups
-				[2,1] // specop groups
+				[1,1], // basic groups
+				[1,1] // specop groups
 #else
 				[2,1], // basic groups
 				[2,1] // specop groups
@@ -109,15 +109,15 @@ if (isServer) then {
 			];
 			d_footunits_patrol = [
 #ifndef __TT__
-				[3,2], // basic groups
-				[3,2] // specop groups
+				[2,2], // basic groups
+				[2,2] // specop groups
 #else
 				[6,3], // basic groups
 				[5,3] // specop groups
 #endif
 			];
 			d_footunits_guard_static = [
-				[2,1], // basic groups
+				[1,1], // basic groups
 				[1,0] // specop groups
 			];
 			d_footunits_attack = [
