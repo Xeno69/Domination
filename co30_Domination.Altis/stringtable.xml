@@ -4194,8 +4194,6 @@
 <English>You have to wait %1 seconds before you can service the vehicle again...</English>
 <Spanish>Tiene que esperar %1 segundos antes de que pueda reparar el vehículo de nuevo...</Spanish>
 <Portuguese>Tem que espera %1 segundos dantes de que pode serviço o veículo outra vez...</Portuguese>
-<Korean>You have to wait %1 seconds before you can service the vehicle again...</Korean>
-<Portuguese>Tem que espera %1 segundos dantes de que pode serviço ou veículo outra vez..</Portuguese>
 <Korean>차량 정비를 다시 이용하기 위해서는 %1 초를 기다리셔야합니다.</Korean>
 <Japanese>車両の整備を再度利用するためには、%1秒待つ必要があります</Japanese>
 <Original>You have to wait %1 seconds before you can service the vehicle again...</Original>
@@ -6471,7 +6469,6 @@
 <English>Internal weather system:</English>
 <Spanish>Sistema interno de tiempo:</Spanish>
 <Korean>자체 날씨 시스템 사용여부:</Korean>
-<Korean>Internal weather system:</Korean>
 <Japanese>独自の気象システム:</Japanese>
 <Original>Internal weather system:</Original>
 <Russian>Внешняя система погоды:</Russian>
@@ -9406,7 +9403,6 @@
 <English>Wreck Repair Point, Time to repair: %1 seconds</English>
 <Spanish>Punto de reparación del naufragio, Tiempo de reparación: %1 segundos</Spanish>
 <Korean>잔해 수리 지점, 수리까지 남은 시간: %1 초</Korean>
-<Korean>Wreck Repair Point, Time to repair: %1 seconds</Korean>
 <Japanese>修復ポイント、修復時間： %1 秒</Japanese>
 <Original>Wreck Repair Point, Time to repair: %1 seconds</Original>
 <Russian>Место Ремонта ВРЕКов, Время ремонта: %1 секунд</Russian>
@@ -10478,7 +10474,7 @@
 <Original>Artillery canceled</Original>
 <Russian>АртУдар отменен.</Russian>
 <Chinesesimp>炮击取消了</Chinesesimp>
-Chinese>砲擊取消了</Chinese>
+<Chinese>砲擊取消了</Chinese>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1855">
 <English>One main target enemy inf barrack down. %1 left...</English>
