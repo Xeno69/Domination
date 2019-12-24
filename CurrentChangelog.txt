@@ -7,3 +7,4 @@
 - Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
 - Fixed: Sometimes dropped box markers did not get deleted
 - Fixed: Removed binoculars from enemy AI group leaders so that they don't run around with a bino in their hands constantly
+- Fixed: No chat message when an ammobox near a vehicle was loaded

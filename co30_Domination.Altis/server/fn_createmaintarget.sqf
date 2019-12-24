@@ -167,7 +167,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_poss set [2, 0];
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
-	_vec setVectorUp [0, 0, 1];
+	//_vec setVectorUp [0, 0, 1];
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _trig = [_vec, [40, 40, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
