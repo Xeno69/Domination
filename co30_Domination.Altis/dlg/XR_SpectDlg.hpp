@@ -39,9 +39,9 @@ class xr_SpectDlg {
 			};
 		};
 		class Help: RscText {
-			x = SafeZoneX + SafeZoneW - 0.37;
+			x = SafeZoneX + SafeZoneW - 0.42;
 			y = SafeZoneY + SafeZoneH - 0.17;
-			w = 0.34;
+			w = 0.41;
 			h = 0.04;
 			size = 0.028;
 			sizeEx = 0.028;
