@@ -12,6 +12,8 @@ if (_healer getUnitTrait "medic") then {
 	private _defi = createSimpleObject ["Land_Defibrillator_F", _defi_pos];
 	_defi setDir (getDir _healer - 180);
 	private _position = getPosWorld _defi;
+	//_position = _position vectorAdd [0, 0, 0.01];
+	//_defi setPosWorld _position;
 	_defi setPosATL [_position # 0, _position # 1, 0.01];
 	_defi setVectorUp (surfaceNormal _position);
 	_objs pushBack _defi;
@@ -21,6 +23,8 @@ if (_healer getUnitTrait "medic") then {
 		private _bb = createSimpleObject ["Land_BloodBag_F", _bb_pos];
 		_bb setDir (random 359);
 		private _position = getPosWorld _bb;
+		//_position = _position vectorAdd [0, 0, 0.01];
+		//_bb setPosWorld _position;
 		_bb setPosATL [_position # 0, _position # 1, 0.01];
 		_bb setVectorUp (surfaceNormal _position);
 		_objs pushBack _bb;
@@ -32,6 +36,8 @@ for "_i" from 1 to (1 + (round random 3)) do {
 	private _band = createSimpleObject ["Land_Bandage_F", _band_pos];
 	_band setDir (random 359);
 	private _position = getPosWorld _band;
+	//_position = _position vectorAdd [0, 0, 0.01];
+	//_band setPosWorld _position;
 	_band setPosATL [_position # 0, _position # 1, 0.01];
 	_band setVectorUp (surfaceNormal _position);
 	_objs pushBack _band;
@@ -41,6 +47,8 @@ if (random 2 >= 1) then {
 	private _ab = createSimpleObject ["Land_Antibiotic_F", _ab_pos];
 	_ab setDir (random 359);
 	private _position = getPosWorld _ab;
+	//_position = _position vectorAdd [0, 0, 0.01];
+	//_ab setPosWorld _position;
 	_ab setPosATL [_position # 0, _position # 1, 0.01];
 	_ab setVectorUp (surfaceNormal _position);
 	_objs pushBack _ab;
