@@ -19,7 +19,6 @@ if (!_isman && {d_mt_mobile_hq_down}) exitWith {
 	__TRACE("d_mt_mobile_hq_down down")
 };
 
-private _doend = false;
 private _fnc_checktime = {
 	private _count = count (allPlayers - entities "HeadlessClient_F");
 	if (_count == 0) then {
@@ -28,6 +27,9 @@ private _fnc_checktime = {
 		(_this # 0)
 	};
 };
+
+
+private _doend = false;
 
 if (_isman) then {
 	private _basetime = d_ai_groups_respawn_time # 0;
@@ -89,26 +91,34 @@ if (!_isman) then {
 		diag_log ["respawngroup, _resp_mid is either nil or empty", _this];
 	};
 } else {
-	if (d_mt_barracks_obj_ar isEqualTo []) exitWith {};
-	
-	private _selobj = selectRandom d_mt_barracks_obj_ar;
-	private _trig = _selobj getVariable "d_bar_trig";
-	if (isNil "_trig") exitWith {};
-	_doend = false;
-	if !((list _trig) isEqualTo []) then {
+	private "_selobj";
+	while {true} do {
+		__TRACE_1("Starting loop","_this")
+		if (d_mt_barracks_obj_ar isEqualTo []) exitWith {_doend = true};
+		
+		_selobj = selectRandom d_mt_barracks_obj_ar;
+		private _trig = _selobj getVariable "d_bar_trig";
+		if (isNil "_trig") exitWith {};
+		if ((list _trig) isEqualTo []) exitWith {};
 		__TRACE_1("trigger list not empty","list _trig")
 		while {true} do {
 			sleep 1;
-			if (isNull _selobj || {d_mt_done || {d_mt_barracks_down || {(list _trig) isEqualTo []}}}) exitWith {};
+			if (d_mt_done || {d_mt_barracks_down}) exitWith {
+				_doend = true;
+			};
+			if (!alive _selobj) exitWith {
+				if (d_mt_barracks_obj_ar isEqualTo []) then {
+					_doend = true;
+				};
+			};
+			if ((list _trig) isEqualTo []) exitWith {};
 		};
-		if (isNull _selobj || {d_mt_done || {d_mt_barracks_down}}) then {
-			_doend = true;
-		};
+		if (_doend) exitWith {};
 	};
-	if (_doend) exitWith {
-		__TRACE("no respawn")
-	};
+	if (_doend) exitWith {};
 	
+	if (isNil "_selobj") exitWith {};
+		
 	private _d_mt_barracks_obj_pos = getPos _selobj;
 	__TRACE_1("","_d_mt_barracks_obj_pos")
 	_this set [1, [_d_mt_barracks_obj_pos]];

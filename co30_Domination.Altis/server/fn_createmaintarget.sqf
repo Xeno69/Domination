@@ -169,7 +169,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec setDir (_vec getDir _trg_center);
 	//_vec setVectorUp [0, 0, 1];
 	_vec setVariable ["d_v_pos", getPos _vec];
-	private _trig = [_vec, [40, 40, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
+	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
 	d_bara_trig_ar pushBack _trig;
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
