@@ -195,6 +195,10 @@ uiNamespace setVariable ["d_DomFour", nil];
 
 0 spawn d_fnc_statusbar;
 
+sleep 3;
+
+"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
+
 if (name player == "Error: No unit" || {!isPlayer player}) then {
 	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";
 };

@@ -11626,6 +11626,17 @@
 <Chinesesimp>points for usage of your mash for healing!</Chinesesimp>
 <Chinese>points for usage of your mash for healing!</Chinese>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1988">
+<English>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</English>
+<Spanish>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Spanish>
+<Portuguese>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Portuguese>
+<Korean>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Korean>
+<Japanese>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Japanese>
+<Original>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Original>
+<Russian>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Russian>
+<Chinesesimp>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Chinesesimp>
+<Chinese>You can teleport to a MHQ (if deployed) from the base flag, no need to waste choppers...</Chinese>
+</Key>
 </Container>
 </Package>
 </Project>
