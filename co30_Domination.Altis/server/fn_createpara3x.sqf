@@ -153,6 +153,9 @@ private _make_jump = {
 				__TRACE_1("","_paragrp")
 				private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 				sleep 0.1;
+				if (count _real_units > 6) then {
+					_real_units resize 6;
+				};
 				private _nightorfog = call d_fnc_nightfograin;
 				__TRACE_1("","_nightorfog")
 				private _aunits = [];
