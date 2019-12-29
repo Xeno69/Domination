@@ -67,7 +67,8 @@ private _fnc_make_trig_mar = {
 			["this",
 				"0 = [thistrigger, true] call d_fnc_trigsetmarker",
 				"0 = [thistrigger, false] call d_fnc_trigsetmarker"
-			]
+			],
+			1
 		] call d_fnc_createtriggerlocal;
 		__TRACE_1("","_trigger")
 		
