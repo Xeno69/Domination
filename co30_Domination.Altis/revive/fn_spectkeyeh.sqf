@@ -5,6 +5,8 @@
 
 #include "\a3\editor_f\Data\Scripts\dikCodes.h"
 
+__TRACE_1("","_this")
+
 private _res = false;
 if (_this select 1 == DIK_N) then {
 	if (!xr_camnvgon) then {
@@ -19,15 +21,19 @@ if (_this select 1 == DIK_N) then {
 	_res = true;
 } else {
 	if (_this select 1 == DIK_M) then {
-		if (ctrlShown ((uiNamespace getVariable "'XR_SpectDlg") displayCtrl 1000)) then {
+		__TRACE("DIK M")
+		if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1000)) then {
+			__TRACE("1000 shown")
 			ctrlShow [1000, false];
 			((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334");
 		};
 		if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 3000)) then {
+			__TRACE("3000 shown")
 			ctrlShow [3000, false];
 			((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");
 			d_x_loop_end = true;
 		} else {
+			__TRACE("3000 NOT shown")
 			ctrlShow [3000, true];
 			((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333a");
 			call xr_fnc_updaterlb;
@@ -35,9 +41,11 @@ if (_this select 1 == DIK_N) then {
 		_res = true;
 	} else {
 		if (_this select 1 == DIK_P) then {
+			__TRACE("DIK P")
 			if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 3000)) then {
 				ctrlShow [3000, false];
 				((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1333");
+				d_x_loop_end = true;
 			};
 			if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1000)) then {
 				ctrlShow [1000, false];

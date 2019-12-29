@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_eachframeremove.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 params ["_name"];
 
 if (_name in (allVariables d_ef_store)) then {
@@ -14,11 +16,13 @@ if (_name in (allVariables d_ef_store)) then {
 	};
 } else {
 	{
-		if (!isNil {_x getVariable _name}) exitWith {
-			_x setVariable [_name, nil];
-			if ((allVariables _x) isEqualTo []) then {
+		private _trig = d_ef_trig_store getVariable _x;
+		__TRACE_2("","_x","_trig")
+		if (!isNil {_trig getVariable _name}) exitWith {
+			_trig setVariable [_name, nil];
+			if ((allVariables _trig) isEqualTo []) then {
 				d_ef_trig_store deleteAt _forEachIndex;
-				deleteVehicle _x;
+				deleteVehicle _trig;
 			};
 		};
 	} forEach (allVariables d_ef_trig_store);
