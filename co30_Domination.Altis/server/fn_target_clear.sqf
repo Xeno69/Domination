@@ -32,6 +32,15 @@ if (!isNil "d_parahhandle" && {!isNull d_parahhandle}) then {
 	terminate d_parahhandle;
 };
 
+[d_old_target_pos, d_mttarget_radius_patrol] spawn {
+	params ["_opos", "_radpatr"];
+	{
+		if (_opos distance2D (markerPos _x) < _radpatr) then {
+			deleteMarker _x;
+		};
+	} forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
+};
+
 #ifndef __TT__
 d_resolved_targets pushBack d_current_target_index;
 publicVariable "d_resolved_targets";
