@@ -13,3 +13,4 @@
 - Fixed: Moved revive help left a little bit to the left to avoid cut off text
 - Fixed: AI inf barracks respawn handling did sometimes not select another barrack when one was destroyed
 - Fixed: Pressing the M key in the spectating dialog to open the (respawn) map did not close the player panel
+- Fixed: Loading gear setup in Virtual Arsenal was still possible in ranked mode with key combo CTRL-O

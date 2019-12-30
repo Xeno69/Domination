@@ -31,9 +31,7 @@ if (d_with_ranked) then {
 	if (!d_with_ace) then {
 		(_disp displayCtrl 44147) ctrlEnable false; // Load
 		(_disp displayCtrl 44146) ctrlEnable false; // Save
-		_disp displayAddEventHandler ["KeyDown", {
-			_this # 3 && {_this # 1 == DIK_O}
-		}];
+		_disp displayAddEventHandler ["KeyDown", {(_this # 3)}];
 	} else {
 		(_disp displayCtrl 1003) ctrlEnable false;
 	};
