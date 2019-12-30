@@ -1903,36 +1903,6 @@ if (hasInterface) then {
 #endif
 
 	d_chophud_on = true;
-
-	d_jump_helo =
-#ifdef __OWN_SIDE_BLUFOR__
-	call {
-		if (d_rhs) exitWith {
-			"RHS_UH1Y_UNARMED_d"
-		};
-		if (d_gmcwg) exitWith {
-			""
-		};
-		"B_Heli_Transport_01_F"
-	};
-#endif
-#ifdef __OWN_SIDE_OPFOR__
-	call {
-		if (d_ifa3lite) exitWith {
-			"LIB_Ju87_Italy2"
-		};
-		if (d_rhs) exitWith {
-			"RHS_Mi8mt_vvs"
-		};
-		"O_Heli_Light_02_unarmed_F"
-	};
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	"I_Heli_light_03_unarmed_F";
-#endif
-#ifdef __TT__
-	"I_Heli_light_03_unarmed_F";
-#endif
 	
 	d_headbug_vehicle = "B_Quadbike_01_F";
 	

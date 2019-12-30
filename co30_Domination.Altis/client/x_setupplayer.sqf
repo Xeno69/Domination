@@ -32,7 +32,6 @@ if (side (group player) == blufor) then {
 		_x setMarkerAlphaLocal 1;
 	} forEach ["d_chopper_service", "d_wreck_service", "d_teleporter", "d_aircraft_service", "bonus_air", "bonus_vehicles", "d_Ammobox_Reload", "d_vec_service", "Start", "d_runwaymarker"];
 
-	d_jump_helo = "B_Heli_Transport_01_F";
 	d_UAV_Small = "B_UAV_01_F";
 	d_UAV_Terminal = "B_UavTerminal";
 } else {
@@ -48,7 +47,6 @@ if (side (group player) == blufor) then {
 		_x setMarkerAlphaLocal 1;
 	} forEach ["d_chopper_serviceR","d_wreck_serviceR","d_teleporter_1","d_aircraft_serviceR","bonus_airR","bonus_vehiclesR","d_Ammobox ReloadR","Start_opfor","d_vehicle_serviceR", "d_runwaymarker_o"];
 
-	d_jump_helo = "O_Heli_Light_02_unarmed_F";
 	d_UAV_Small = "O_UAV_01_F";
 	d_UAV_Terminal = "O_UavTerminal";
 };
@@ -115,7 +113,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 					private _dadao = missionNamespace getVariable (_x # 1);
 					_x set [1, getPos _dadao];
 					_dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}];
-					if (d_ParaAtBase == 0 && {d_jump_helo != ""}) then {
+					if (d_ParaAtBase == 0) then {
 						_dadao setVariable ["d_jf_id", _dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0]];
 					};
 					if (count _x > 4 && {_x # 4}) then {
@@ -126,7 +124,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 				private _dadao = missionNamespace getVariable (_x # 1);
 				_x set [1, getPos _dadao];
 				_dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}];
-				if (d_ParaAtBase == 0 && {d_jump_helo != ""}) then {
+				if (d_ParaAtBase == 0) then {
 					_dadao setVariable ["d_jf_id", _dadao addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0]];
 				};
 				if (count _x > 4 && {_x # 4}) then {
@@ -327,7 +325,7 @@ if (d_MissionType != 2) then {
 
 if (d_ParaAtBase == 0) then {
 #ifndef __TT__
-	if (isNil {d_FLAG_BASE getVariable "d_jf_id"} && {d_jump_helo != ""}) then {
+	if (isNil {d_FLAG_BASE getVariable "d_jf_id"}) then {
 		d_FLAG_BASE setVariable ["d_jf_id", d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0]];
 	};
 #else

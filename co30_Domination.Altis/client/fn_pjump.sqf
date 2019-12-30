@@ -10,27 +10,11 @@ params ["_startLocation"];
 if (d_HALOWaitTime > 0) then {d_next_jump_time = time + d_HALOWaitTime};
 
 titleText ["", "Plain"];
-__TRACE_1("","d_jump_helo")
-private _jumphelo = createVehicle [d_jump_helo, _startLocation, [], 0, "FLY"];
-_jumphelo setPos _startLocation;
-_jumphelo engineOn true;
-if (_jumphelo emptyPositions "cargo" > 0) then {
-	player moveInCargo _jumphelo;
-} else {
-	player moveInDriver _jumphelo;
-};
-if (isNull objectParent player) exitWith {
-	if (!isNull _jumphelo) then {
-		deleteVehicle _jumphelo;
-	};
-};
 
-player setVelocity [0,0,0];
-player action["eject", vehicle player];
+player setPos _startLocation;
 
 sleep 3;
 
-deleteVehicle _jumphelo;
 if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}) then {[getPosATL player, velocity player, getDirVisual player] spawn d_fnc_moveai};
 
 d_jump_action_id = player addAction [localize "str_a3_rscgrouprootmenu_items_openparachute0", {
