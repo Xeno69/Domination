@@ -11,7 +11,8 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 	deleteVehicle (_this select 6);
 	player addMagazine (_this select 5);
 } else {
-	if (d_player_in_base && {!d_pisadminp}) then {
+	//if (d_player_in_base && {!d_pisadminp}) then {
+	if (d_player_in_base) then {
 #ifndef __TT__
 		if (player inArea d_base_array) then {
 #else
