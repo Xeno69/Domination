@@ -537,6 +537,7 @@ class cfgFunctions {
 			addc(carrierspawn);
 			addc(playerboxkilled);
 			addc(addscore);
+			addc(sub_box);
 		};
 		class Dom_PrePostInit {
 			file = "init";

@@ -5,7 +5,7 @@
 
 private _pos_cam = positionCameraToWorld [0,0,0];
 
-private ["_distp", "_cwt", "_col", "_ico", "_tex"];
+private ["_distp", "_cwt", "_col", "_ico", "_tex", "_hasperc", "_txt"];
 private _d_3draw_ar = d_3draw_ar;
 private _with_3Dicon = d_with_3Dicon;
 private _d3d_locs4a = d_d3d_locs4a;
@@ -45,10 +45,12 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	if (_distp < 80) then {
 		_col = _x # 1;
 		_col set [3, 1 - (_distp / 200)];
+		_hasperc = _box getVariable "d_abox_perc";
+		_txt = [_x # 2, format ["%1 (%2)", _x # 2, _hasperc / 10]] select (!isNil "_hasperc");
 		if (_with_3Dicon == 1) then {
-			drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+			drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		} else {
-			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _x # 2, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+			drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		};
 	};
 } forEach (_d_all_p_a_boxes select {!isNull (_x select 0)});

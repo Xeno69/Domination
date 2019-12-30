@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_arsenalopened.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 d_arsenal_opened = true;
 
 __TRACE_1("","d_arsenal_opened")

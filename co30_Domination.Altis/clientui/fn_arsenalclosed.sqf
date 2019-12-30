@@ -5,6 +5,8 @@
 
 d_arsenal_opened = false;
 
+__TRACE_1("","_this")
+
 __TRACE_1("","d_arsenal_opened")
 
 if !((d_remove_from_arsenal # 3) isEqualTo []) then {

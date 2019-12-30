@@ -3,7 +3,14 @@
 #define THIS_FILE "fn_remabox.sqf"
 #include "..\x_setup.sqf"
 
-params ["_box"];
+params ["_box", ["_vec", objNull]];
+
+if (!isNull _vec) then {
+	private _percent = _box getVariable "d_abox_perc";
+	if (!isNil "_percent") then {
+		(_this # 1) setVariable ["d_abox_perc", _percent, true];
+	};
+};
 private _dbidx = (_box getVariable "d_box_params") # 0;
 private _idx = d_ammo_boxes findIf {
 	(_x # 0) == _dbidx

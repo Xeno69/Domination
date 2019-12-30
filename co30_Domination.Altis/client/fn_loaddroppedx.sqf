@@ -32,7 +32,7 @@ if (_nobjs isEqualTo []) exitWith {[_unit, _caller, localize "STR_DOM_MISSIONSTR
 private _box = _nobjs # 0;
 [_box] remoteExecCall ["d_fnc_RemABoxC"];
 sleep 0.5;
-[_box] remoteExecCall ["d_fnc_RemABox", 2];
+[_box, _unit] remoteExecCall ["d_fnc_RemABox", 2];
 _unit setVariable ["d_ammobox", true, true];
 _unit setVariable ["d_ammobox_next", time + d_drop_ammobox_time, true];
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_273"] call _chatfunc;

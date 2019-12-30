@@ -16,16 +16,27 @@ if (!isNil {_box getVariable "d_islocked"} && {_box getVariable "d_islocked" != 
 };
 
 if (_box getVariable ["d_player_ammobox", false]) then {
-	_box spawn {
-		scriptName "spawn_inventoryopened1";
-		if (!d_with_ranked) then {
-			if (!d_with_ace) then {
-				["Open", true] call bis_fnc_arsenal;
+	private _canopen = true;
+	private _perc = _box getVariable "d_abox_perc";
+	if (!isNil "_perc") then {
+		__TRACE("Calling sub box")
+		_box remoteExecCall ["d_fnc_sub_box", 2];
+		if (_perc == 0) then {
+			_canopen = false;
+		};		
+	};
+	if (_canopen) then {
+		_box spawn {
+			scriptName "spawn_inventoryopened1";
+			if (!d_with_ranked) then {
+				if (!d_with_ace) then {
+					["Open", true] call bis_fnc_arsenal;
+				} else {
+					[player, player, true] call ace_arsenal_fnc_openBox;
+				};
 			} else {
-				[player, player, true] call ace_arsenal_fnc_openBox;
+				["Open", [nil, player]] call bis_fnc_arsenal;
 			};
-		} else {
-			["Open", [nil, player]] call bis_fnc_arsenal;
 		};
 	};
 	true

@@ -14,6 +14,11 @@ clearMagazineCargoGlobal _box;
 clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box enableRopeAttach false;
+private _percent = (_this # 1) getVariable "d_abox_perc";
+if (!isNil "_percent") then {
+	_box setVariable ["d_abox_perc", _percent, true];
+	(_this # 1) setVariable ["d_abox_perc", nil, true];
+};
 private _mname = format ["d_bm_%1", _box];
 #ifndef __TT__
 d_ammo_boxes pushBack [d_dbox_idx, _box, _mname];

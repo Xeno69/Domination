@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -66,7 +66,7 @@ class GraphItems
 		{
 			Text="Loop";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -194,7 +194,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -220,7 +220,7 @@ class GraphItems
 			Text="!isNull _vec && alive _vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -246,7 +246,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -272,7 +272,7 @@ class GraphItems
 			Text="local (driver _vec) || player == driver _vec";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -298,7 +298,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -350,7 +350,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -440,7 +440,7 @@ class GraphItems
 	};
 	class Item17
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-25;
 		Top=725;
@@ -451,7 +451,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -592,7 +592,7 @@ class GraphItems
 	};
 	class Item23
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=150;
 		Top=725;
@@ -603,7 +603,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -611,7 +611,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=23;
-				InitCode="_pvec2 = getPosATLVisual _vec;" \n "if (_oposvec distance2D _pvec2 < 6) then {" \n "	_vec setVariable [""d_ammobox"", true, true];" \n "	_old_vec = _vec;" \n "	_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1413"");" \n "	d_num_ammo_boxes = d_num_ammo_boxes + 1; publicVariable ""d_num_ammo_boxes"";" \n "	_vec setVariable [""d_boxcargo"", nil, true];" \n "} else {" \n "	_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1414"");" \n "};";
+				InitCode="_pvec2 = getPosATLVisual _vec;" \n "if (_oposvec distance2D _pvec2 < 6) then {" \n "	_vec setVariable [""d_ammobox"", true, true];" \n "	_vec setVariable [""d_abox_perc"", 1000, true];" \n "	_old_vec = _vec;" \n "	_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1413"");" \n "	d_num_ammo_boxes = d_num_ammo_boxes + 1; publicVariable ""d_num_ammo_boxes"";" \n "	_vec setVariable [""d_boxcargo"", nil, true];" \n "} else {" \n "	_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1414"");" \n "};";
 			};
 		};
 	};
@@ -1337,7 +1337,7 @@ class Globals
 	NextGroupID=1;
 	NextID=42;
 	FSMName="AmmoLoad";
-	CompileConfig="E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -1346,10 +1346,10 @@ class Globals
 	DefaultLinkColorFromSelected=6316287;
 	DefaultLinkColorToSelected=6356832;
 	DefaultLinkUseCustom=1;
-	PZoomLeft=-540.87469;
-	PZoomRight=650.48779;
-	PZoomBottom=1254.2904;
-	PZoomTop=-83.192734;
+	PZoomLeft=-597.04858;
+	PZoomRight=706.66101;
+	PZoomBottom=1016.5901;
+	PZoomTop=-447.0195;
 	Clxs=1117;
 	Clys=1254;
 	Aspect=1;
@@ -1361,10 +1361,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=130;
-	Top=130;
-	Right=1191;
-	Bottom=848;
+	Left=338;
+	Top=338;
+	Right=1399;
+	Bottom=1056;
 	ShowCmd=3;
 	SplitPos=1135;
 };
