@@ -1354,7 +1354,7 @@ d_base_apc_vec =
 		"G_40mm_HE" // dpicm
 	];
 
-	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
+	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE", "shotboundingmine"];
 	d_hd_sim_types = d_hd_sim_types apply {toLowerANSI _x};
 
 	d_isle_defense_marker = "n_mech_inf";

@@ -7,7 +7,7 @@ __TRACE("fn_playerfiredeh")
 
 __TRACE_1("","_this")
 
-if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this select 4) isKindOf "TimeBombCore"}}) then {
+if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this # 1) == "Put"}}) then {
 	deleteVehicle (_this select 6);
 	player addMagazine (_this select 5);
 } else {
@@ -18,14 +18,14 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 		if (player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}) then {
 #endif
 			__TRACE("Player in Base")
-			private _ta = _this select 4;
-			if ([_ta, 0] call d_fnc_checkammo) then {
+			if ((_this # 1) == "Put") then {
+			//if ([_this # 4, 0] call d_fnc_checkammo) then {
 				if (count _this > 6) then {
 					deleteVehicle (_this select 6);
 				};
 				[player, d_name_pl, 1] remoteExecCall ["d_fnc_RptMsgBS", 2];
 			} else {
-				if (!d_there_are_enemies_atbase && {!d_enemies_near_base && {!([_ta, 1] call d_fnc_checkammo)}}) then {
+				if (!d_there_are_enemies_atbase && {!d_enemies_near_base && {!([_this # 4, 1] call d_fnc_checkammo)}}) then {
 					private _num = (player getVariable "d_p_f_b") + 1;
 					player setVariable ["d_p_f_b", _num];
 					if !(player inArea [d_flag_base, 25, 25, 0, false]) then {
@@ -51,6 +51,12 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this s
 			player setVariable ["d_p_f_b", 0];
 		};
 	} else {
+		if (count _this > 6 && {(_this # 1) == "Put"}) exitWith {
+		//if (count _this > 6 && {[_this # 4, 0] call d_fnc_checkammo}) exitWith {
+			if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
+				deleteVehicle (_this select 6);
+			};
+		};
 		if (d_with_ace) exitWith {};
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
 			__TRACE("7 is null")

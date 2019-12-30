@@ -7,6 +7,7 @@
 - Changed: Lift choppper (chopper 1) will now respawn after 10 minutes (if empty), like the wreck lift chopper
 - Changed: Remove user markers at cleared target (cleanup)
 - Changed: Parajump chopper is no longer spawned when a player selects parajump (client side object caused issues)
+- Changed: Placing explosives near ammo boxes no longer possible (prevents idiots from placing thousands of mines around respawn points)
 - Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
 - Fixed: Sometimes dropped box markers did not get deleted
 - Fixed: Removed binoculars from enemy AI group leaders so that they don't run around with a bino in their hands constantly
