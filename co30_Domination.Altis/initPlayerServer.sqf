@@ -38,6 +38,10 @@ if (_pl isKindOf "VirtualSpectator_F") exitWith {
 	};
 };
 
+#ifndef __TT__
+[_pl, 18] call d_fnc_setekmode;
+#endif
+
 private _name = (name _pl) splitString """'" joinString "";
 _pl setVariable ["d_plname", _name, true];
 

@@ -9,6 +9,7 @@
 - Changed: Parajump chopper is no longer spawned when a player selects parajump (client side object caused issues)
 - Changed: Placing explosives near ammo boxes no longer possible (prevents idiots from placing thousands of mines around respawn points)
 - Changed: Dropped ammo boxes (e.g. from MHQ) can now only be accessed about 1000 times from players before they get deleted
+- Changed: Moved player killed check to server entitykilled instead of sending a remoteExec from the killed client to the server
 - Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
 - Fixed: Sometimes dropped box markers did not get deleted
 - Fixed: Removed binoculars from enemy AI group leaders so that they don't run around with a bino in their hands constantly

@@ -15,6 +15,13 @@ if (isNil "_ar") exitWith {
 
 __TRACE_2("","_obj","_ar")
 
+#ifndef __TT__
+if (_ar # 18 == 1) exitWith {
+	_this call d_fnc_plcheckkill;
+	true
+};
+#endif
+
 #ifdef __TT__
 if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 	if (_ar # 0 > 0) then {

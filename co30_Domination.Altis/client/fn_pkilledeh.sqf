@@ -2,9 +2,7 @@
 #define THIS_FILE "fn_pkilledeh.sqf"
 #include "..\x_setup.sqf"
 
-#ifndef __TT_
-_this remoteExecCall ["d_fnc_plcheckkill", 2];
-#else
+#ifdef __TT__
 if (_this # 1 == 0) then {
 	(_this # 0) remoteExecCall ["d_fnc_plcheckkillblufor", 2];
 } else {

@@ -174,7 +174,6 @@ class CfgRemoteExec {
 		class xr_fnc_changeleader {};
 		class xr_fnc_draghelper {allowedTargets = 1;};
 		class xr_fnc_selleader {allowedTargets = 2;};
-		class d_fnc_plcheckkill {allowedTargets = 2;};
 		class d_fnc_HintChatMsg {allowedTargets = 1;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
