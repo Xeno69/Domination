@@ -10915,6 +10915,16 @@
 <Russian>Количество пехотных групп - режим оккупации</Russian>
 <Chinesesimp>驻军步兵团计数 - 占领模式</Chinesesimp>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900AA">
+<English>Garrisoned infantry group count - overwatch mode</English>
+<Spanish>Garrisoned infantry group count - overwatch mode</Spanish>
+<Portuguese>Garrisoned infantry group count - overwatch mode</Portuguese>
+<Korean>Garrisoned infantry group count - overwatch mode</Korean>
+<Japanese>Garrisoned infantry group count - overwatch mode</Japanese>
+<Original>Garrisoned infantry group count - overwatch mode</Original>
+<Russian>Garrisoned infantry group count - overwatch mode</Russian>
+<Chinesesimp>Garrisoned infantry group count - overwatch mode</Chinesesimp>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
 <English>Garrisoned infantry group count - ambush mode</English>
 <Spanish>Garrisoned infantry group count - ambush mode</Spanish>
@@ -10964,6 +10974,16 @@
 <Original>Garrisoned infantry sniper mode - aimingShake skill</Original>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
 <Chinesesimp>Garrisoned infantry sniper mode - aimingShake skill</Chinesesimp>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1902">
+<English>Deployment radius</English>
+<Spanish>Deployment radius</Spanish>
+<Portuguese>Deployment radius</Portuguese>
+<Korean>Deployment radius</Korean>
+<Japanese>Deployment radius</Japanese>
+<Original>Deployment radius</Original>
+<Russian>Deployment radius</Russian>
+<Chinesesimp>Deployment radius</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilian group count per target</English>

@@ -10,7 +10,7 @@ private _garrisonUnits = {
 
 	__TRACE_1("_garrisonUnits","_this")
 
-	private _unitlist = [["specops", "sniper"] select (_unitMovementMode == 2), d_enemy_side_short] call d_fnc_getunitlistm;
+	private _unitlist = [["allmen", "sniper"] select (_unitMovementMode == 2), d_enemy_side_short] call d_fnc_getunitlistm;
 
 	if (count _unitlist > _numUnits) then {
 		while {count _unitlist > _numUnits} do {
@@ -362,6 +362,22 @@ if (d_occ_bldgs == 1) then {
 				false,		//fillTopDown
 				false,		//disableTeleport
 				0		//unitMovementMode
+			] call _garrisonUnits
+		};
+	};
+	
+	//create garrisoned "overwatch" groups of AI (movement disabled)
+	if (d_ovrw_cnt > 0) then {
+		for "_xx" from 0 to (d_ovrw_cnt - 1) do {
+			[
+				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
+				selectRandom [2, 3, 4],			//unit count
+				d_ovrw_rad,		//fillRadius
+				false,		//fillRoof
+				false,		//fillEvenly
+				false,		//fillTopDown
+				false,		//disableTeleport
+				3		//unitMovementMode
 			] call _garrisonUnits
 		};
 	};

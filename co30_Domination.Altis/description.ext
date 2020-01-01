@@ -848,10 +848,24 @@ class Params {
 	};
 
 	class d_occ_rad {
-		title = "$STR_DOM_MISSIONSTRING_1901A";
-		values[] = {250, 425, 650, 900, 1250};
+		title = "$STR_DOM_MISSIONSTRING_1902";
+		values[] = {125, 250, 350};
 		default = 250;
-		texts[] = {"250m", "425m", "650m", "900m", "1250m"};
+		texts[] = {"125m", "250m", "350m"};
+	};
+	
+	class d_ovrw_cnt {
+		title = "$STR_DOM_MISSIONSTRING_1900AA";
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
+		default = 2;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
+	};
+	
+	class d_ovrw_rad {
+		title = "$STR_DOM_MISSIONSTRING_1902";
+		values[] = {125, 250, 350};
+		default = 250;
+		texts[] = {"125m", "250m", "350m"};
 	};
 
 	class d_amb_cnt {
@@ -862,24 +876,24 @@ class Params {
 	};
 
 	class d_amb_rad {
-		title = "$STR_DOM_MISSIONSTRING_1901B";
-		values[] = {250, 425, 650, 900, 1250};
+		title = "$STR_DOM_MISSIONSTRING_1902";
+		values[] = {125, 250, 350, 425};
 		default = 250;
-		texts[] = {"250m", "425m", "650m", "900m", "1250m"};
+		texts[] = {"125m", "250m", "350m", "425m"};
 	};
 
 	class d_snp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900C";
 		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45};
 		default = 2;
-		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "60", "75", "90"};
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45"};
 	};
 
 	class d_snp_rad {
-		title = "$STR_DOM_MISSIONSTRING_1901C";
-		values[] = {250, 425, 650, 900, 1250};
+		title = "$STR_DOM_MISSIONSTRING_1902";
+		values[] = {250, 425, 650, 900};
 		default = 425;
-		texts[] = {"250m", "425m", "650m", "900m", "1250m"};
+		texts[] = {"250m", "425m", "650m", "900m"};
 	};
 
 	class d_snp_aware {
