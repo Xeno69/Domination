@@ -5,11 +5,17 @@
 params ["_wp_array", "_mtradius", "_trg_center"];
 
 #define __getPos \
-_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_GetRanPointCircleBig;\
+_poss = [d_cur_tgt_pos, d_cur_target_radius, _svec / 2, 1, 0.3, _svec, 0] call d_fnc_GetRanPointCircleBig;\
+private _iccount = 0;\
 while {_poss isEqualTo []} do {\
-	_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_GetRanPointCircleBig;\
-	sleep 0.01;\
-}
+	_iccount = _iccount + 1;\
+	_poss = [d_cur_tgt_pos, d_cur_target_radius, _svec / 2, 1, 0.3, _svec, 0] call d_fnc_GetRanPointCircleBig;\
+	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};\
+};\
+if (isNil "_poss" || {_poss isEqualTo []}) then {\
+	_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_getranpointcircle;\
+};\
+_poss set [2, 0];
 
 #define __specops \
 _newgroup = [d_side_enemy] call d_fnc_creategroup;\
@@ -86,19 +92,12 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 2: {
+		private _svec = sizeOf d_air_radar2;
 		__getPos;
 		private _vec = createVehicle [d_air_radar2, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_air_radar2;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1) then {
-			if (_poss distance2D _isFlat < 100) then {
-				_isFlat set [2,0];
-				_poss = _isFlat;
-			};
-		};
 		_vec setDir (random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(radar_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
@@ -106,14 +105,9 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 3: {
+		private _svec = sizeOf d_sm_ammotrucktype;
 		__getPos;
 		private _vec = createVehicle [d_sm_ammotrucktype, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_sm_ammotrucktype;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
 		_vec setPos _poss;
 		_vec lock true;
@@ -149,16 +143,11 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 5: {
+		private _svec = sizeOf d_enemy_hq;
 		__getPos;
 		private _vec = createVehicle [d_enemy_hq, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_enemy_hq;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
+		//_vec setPos _poss;
 		_vec lock true;
 		__vkilled(hq_down);
 		d_fixor_var = _vec;
@@ -167,17 +156,12 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 6: {
+		private _svec = sizeOf "Land_dp_transformer_F";
 		__getPos;
 		private _vec = createVehicle ["Land_dp_transformer_F", _poss, [], 0, "NONE"];
-		private _svec = sizeOf "Land_dp_transformer_F";
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(light_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
@@ -185,6 +169,7 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 7: {
+		private _svec = sizeOf _fact;
 		__getPos;
 		/*_fact = switch (d_enemy_side_short) do {
 			case "E": {"Land_spp_Transformer_F"};
@@ -193,15 +178,9 @@ switch (_sec_kind) do {
 		};*/
 		private _fact = "Land_IndustrialShed_01_F";
 		private _vec = createVehicle [_fact, _poss, [], 0, "NONE"];
-		private _svec = sizeOf _fact;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(heavy_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
@@ -209,17 +188,12 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 8: {
+		private _svec = sizeOf d_air_radar;
 		__getPos;
 		private _vec = createVehicle [d_air_radar, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_air_radar;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(airrad_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;

@@ -665,7 +665,7 @@ if (isServer) then {
 		0 setOvercast (random 1);
 		if (d_enable_fog == 0) then {
 			private _fog = if (random 100 > 90) then {
-				[random 0.1, 0.2, 20 + (random 40)]
+				[random 0.1, 0.1, 20 + (random 40)]
 			} else {
 				[0,0,0]
 			};
