@@ -10,6 +10,8 @@
 __TRACE_1("","_this")
 params ["_rcenter", "_rradius", ["_mindist", 2], ["_maxgrad", 0.7], ["_gradar", 4]];
 
+if (_mindist == 0) then {_mindist = 1};
+
 if (_rcenter isEqualTo []) exitWith {
 	diag_log ["getranpointcircle, _rcenter is empty", _this];
 	[]
