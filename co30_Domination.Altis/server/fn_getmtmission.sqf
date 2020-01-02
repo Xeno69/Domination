@@ -108,8 +108,9 @@ switch (_sec_kind) do {
 		private _svec = sizeOf d_sm_ammotrucktype;
 		__getPos;
 		private _vec = createVehicle [d_sm_ammotrucktype, _poss, [], 0, "NONE"];
+		_vec call d_fnc_nodamoff;
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
+		//_vec setPos _poss;
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "ammo_down";
@@ -123,6 +124,7 @@ switch (_sec_kind) do {
 	};
 	case 4: {
 		private _vec = createVehicle [d_sm_medtrucktype, _poss, [], 0, "NONE"];
+		_vec call d_fnc_nodamoff;
 		private _svec = sizeOf d_sm_medtrucktype;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
@@ -130,7 +132,7 @@ switch (_sec_kind) do {
 			_poss = _isFlat;
 		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
+		//_vec setPos _poss;
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "med_down";

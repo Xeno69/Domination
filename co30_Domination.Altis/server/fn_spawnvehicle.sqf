@@ -54,6 +54,7 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	};
 
 	_veh = createVehicle [_typev1, _posv1, [], 0, "FLY"];
+	_veh call d_fnc_nodamoff;
 
 	_veh setDir _azi;
 	if (getTerrainHeightASL _posv1 < 0) then {
@@ -72,6 +73,7 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	};
 } else {
 	_veh = createVehicle [_typev1, _posv1, [], 0, "NONE"];
+	_veh call d_fnc_nodamoff;
 	if (random 100 > 50) then {_veh allowCrewInImmobile true};
 	_veh setDir _azi;
 	_veh setVehiclePosition [_veh, [], 0, "NONE"];

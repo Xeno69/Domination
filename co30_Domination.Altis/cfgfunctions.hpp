@@ -538,6 +538,7 @@ class cfgFunctions {
 			addc(playerboxkilled);
 			addc(addscore);
 			addc(sub_box);
+			addc(nodamoff);
 		};
 		class Dom_PrePostInit {
 			file = "init";
