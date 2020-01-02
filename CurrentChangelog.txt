@@ -21,3 +21,4 @@
 - Fixed: Loading gear setup in Virtual Arsenal was still possible in ranked mode with key combo CTRL-O
 - Fixed: Added missing shotboundingmine simulation to check for explosives laid at base
 - Fixed: Enemy AI vehicles should no longer explode during creation
+- Fixed: Camp dialog progress resource did not show again if a player was killed inside the camp area
