@@ -104,13 +104,14 @@ if (d_showallnearusermarkers) then {
 	{
 		if !(getMarkerColor _x isEqualTo "") then {
 			_pos = markerPos _x;
-			_pos set [2, 6];
+			_pos set [2, 10];
 			_distp = _pos_cam distance _pos;
 			_m = 1 - (_distp / 1000);
 			_col = getArray (configfile>>"CfgMarkerColors">>(getMarkerColor _x)>>"color");
 			if (_col isEqualTo []) then {_col = [1, 1, 1, 1]};
 			_col set [3, _m];
-			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.033 - (_distp / 15000), "RobotoCondensed"];
+			//drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.033 - (_distp / 15000), "RobotoCondensed"];
+			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
 		};
 	} forEach _toshow;
 };
