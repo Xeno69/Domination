@@ -15,7 +15,8 @@ if (_center isEqualTo []) exitWith {
 	[]
 };
 
-private _ret_val = [];
+private _ret_val = [_center, 0, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25] call BIS_fnc_findSafePos;
+/*private _ret_val = [];
 for "_co" from 0 to 99 do {
 	private _isFlat = (_center getPos [_radius * sqrt random 1, random 360]) isFlatEmpty [
 		_mindist,	//--- Minimal distance from another object was 9 before
@@ -30,7 +31,7 @@ for "_co" from 0 to 99 do {
 	if (!(_isFlat isEqualTo []) && {!isOnRoad _isFlat}) exitWith {
 		_ret_val = ASLToATL _isFlat;
 	};
-};
+};*/
 if (_ret_val isEqualTo []) then {_ret_val = _center};
 __TRACE_1("","_ret_val")
 _ret_val

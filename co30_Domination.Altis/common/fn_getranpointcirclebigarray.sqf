@@ -22,7 +22,18 @@ private _co = 0;
 private _timeend = time + 10;
 while {count _ret_val < 50} do {
 //for "_co" from 0 to 149 do {
-	private _isFlat = (_center getPos [_radius * sqrt random 1, random 360]) isFlatEmpty [
+	private _npos = [_center, 0, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25] call BIS_fnc_findSafePos;
+	if (!(_npos isEqualTo []) && {!isOnRoad _npos}) then {
+		_ret_val pushBack _npos;
+#ifdef __DEBUG__
+		_co = _co + 1;
+		if (isNil "d_mmmcoui") then {
+			d_mmmcoui = 0;
+		};
+		[format ["d_grpcba_%1", _co + d_mmmcoui], _npos, "ICON", "ColorBlack", [0.5, 0.5], str (_co + d_mmmcoui), 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+#endif
+	};
+	/*private _isFlat = (_center getPos [_radius * sqrt random 1, random 360]) isFlatEmpty [
 		_mindist,	//--- Minimal distance from another object was 9 before
 		_checkpos,				//--- If 0, just check position. If >0, select new one // 0
 		_maxgradient,				//--- Max gradient
@@ -42,6 +53,7 @@ while {count _ret_val < 50} do {
 		[format ["d_grpcba_%1", _co + d_mmmcoui], _isFlat, "ICON", "ColorBlack", [0.5, 0.5], str (_co + d_mmmcoui), 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 	};
+	*/
 	if (time > _timeend) exitWith {};
 };
 #ifdef __DEBUG

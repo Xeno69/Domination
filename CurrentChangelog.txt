@@ -1,21 +1,21 @@
 4.20
 
-- Added: Parameters for enemy spawn radius for AI which occupies buildings
+- Added: Parameters for enemy spawn radius for AI which occupies buildings by longtimegamer
 - Added: Overwatch mode for static infantry in building by longtimegamer
 - Changed: Shorter names for some classes in CfgParams (note that you have to check your DB params too; best to recreate them completely)
-- Changed: Make use of new triggerinterval stuff to run scripts at a specific time
+- Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 - Changed: Lift choppper (chopper 1) will now respawn after 10 minutes (if empty), like the wreck lift chopper
-- Changed: Remove user markers at cleared target (cleanup)
-- Changed: Parajump chopper is no longer spawned when a player selects parajump (client side object caused issues)
-- Changed: Placing explosives near ammo boxes no longer possible (prevents idiots from placing thousands of mines around respawn points)
-- Changed: Dropped ammo boxes (e.g. from MHQ) can now only be accessed about 1000 times from players before they get deleted
-- Changed: Moved player killed check to server entitykilled instead of sending a remoteExec from the killed client to the server
+- Changed: Remove user markers at a main target after target is seized (cleanup)
+- Changed: Parajump does no longer spawn a client side chopper for ejecting (caused issues without createVehicleLocal)
+- Changed: Placing explosives near ammo boxes is no longer possible (prevents idiots from placing thousands of mines around respawn points)
+- Changed: Dropped ammo boxes (e.g. from MHQ) can now only be accessed about 1000 times from players; they then get deleted
+- Changed: Moved player killed check to server entitykilled instead of sending a remoteExec from the killed client to the server everytime
 - Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
 - Fixed: Sometimes dropped box markers did not get deleted
 - Fixed: Removed binoculars from enemy AI group leaders so that they don't run around with a bino in their hands constantly
 - Fixed: No chat message when an ammobox near a vehicle was loaded
-- Fixed: Moved revive help left a little bit to the left to avoid cut off text
+- Fixed: Moved revive help message a little bit to the left to avoid cut off text
 - Fixed: AI inf barracks respawn handling did sometimes not select another barrack when one was destroyed
 - Fixed: Pressing the M key in the spectating dialog to open the (respawn) map did not close the player panel
 - Fixed: Loading gear setup in Virtual Arsenal was still possible in ranked mode with key combo CTRL-O
