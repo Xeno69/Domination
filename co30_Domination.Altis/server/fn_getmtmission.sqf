@@ -169,6 +169,7 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 7: {
+		private _fact = "Land_IndustrialShed_01_F";
 		private _svec = sizeOf _fact;
 		__getPos;
 		/*_fact = switch (d_enemy_side_short) do {
@@ -176,7 +177,6 @@ switch (_sec_kind) do {
 			case "W": {"Land_spp_Transformer_F"};
 			case "G": {"Land_spp_Transformer_F"};
 		};*/
-		private _fact = "Land_IndustrialShed_01_F";
 		private _vec = createVehicle [_fact, _poss, [], 0, "NONE"];
 		_vec setDir (floor random 360);
 		//_vec setPos _poss;
