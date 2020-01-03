@@ -242,6 +242,7 @@ class cfgFunctions {
 			addc(selnthandler);
 			addc(rmapclick);
 			addc(beam_tele);
+			addc(pcheck);
 		};
 		class Dom_Common {
 			file = "common";
