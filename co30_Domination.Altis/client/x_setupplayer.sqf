@@ -387,6 +387,8 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] == "d_AMMOLOAD" && {_x distance2D d_FLAG_BASE < 1500 || {_x getVariable ["d_side", sideEnemy] == d_player_side}}};
 #endif
 
+d_points_needed_15 = (d_points_needed # 6) + 15000;
+
 0 spawn {
 	scriptName "spawn_setupplayer1";
 	while {true} do {

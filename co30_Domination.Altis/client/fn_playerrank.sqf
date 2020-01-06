@@ -75,7 +75,7 @@ if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
 };
-if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player_old_rank != 5}}) exitWith {		
+if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player_old_rank != 5}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 5) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_673");
 		playSound "d_fanfare";
@@ -90,7 +90,7 @@ if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
 };
-if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player_old_rank != 6}}) exitWith {		
+if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player_old_rank != 6}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 6) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_675");
 		playSound "d_fanfare";
