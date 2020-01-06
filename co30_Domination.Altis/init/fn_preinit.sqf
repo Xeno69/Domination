@@ -1148,6 +1148,43 @@ if (!d_tt_tanoa) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 
+#ifdef __ALTIS__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "d_compositions_default.sqf"
+#endif
+//#ifdef __GMCWG__
+// no compositions
+//#endif
+//#ifdef __CUP_CHERNARUS__
+// no compositions
+//#endif
+//#ifdef __CUP_TAKISTAN__
+// no compositions
+//#endif
+//#ifdef __CUP_SARA__
+// no compositions
+//#endif
+//#ifdef __IFA3LITE__
+// no compositions
+//#endif
+#ifdef __TT__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __MALDEN__
+#include "d_compositions_default.sqf"
+#endif
+
 	// max men for main target clear
 	d_man_count_for_target_clear = 6;
 	// max tanks for main target clear

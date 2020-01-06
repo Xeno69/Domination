@@ -314,6 +314,9 @@ class cfgFunctions {
 			addc(place);
 			addc(adjustEntity);
 			addc(statusbar);
+			addc(objectsmapper);
+			addc(createsimpleobject);
+			addc(findsafepos);
 		};
 		class Dom_KBTell {
 			file = "bikb";

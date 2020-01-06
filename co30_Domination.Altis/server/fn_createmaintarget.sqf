@@ -167,7 +167,8 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_poss set [2, 0];
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
-	//_vec setVectorUp [0, 0, 1];
+	_vec setPos _poss;
+	_vec setVectorUp (surfaceNormal _poss);
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
@@ -211,7 +212,10 @@ if !(_allbars isEqualTo []) then {
 _poss set [2, 0];
 _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
-_vec setVectorUp [0, 0, 1];
+//_vec setVectorUp [0, 0, 1];
+_vec setDir (_vec getDir _trg_center);
+_vec setPos _poss;
+_vec setVectorUp (surfaceNormal _poss);
 _vec setVariable ["d_v_pos", getPos _vec];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
@@ -247,12 +251,30 @@ private _fnc_dospawnr = {
 	};
 };
 
+private _comppost = [];
 {
 	if ((_x # 0) call _fnc_dospawnr) then {
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+			private _ppos = _curar select _wp_ran;
+			private _iscompost = false;
+			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
+				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7] call d_fnc_findSafePos;
+				if !(_nppos isEqualTo []) then {
+					_ppos = _nppos;
+					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
+						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
+#ifdef __DEBUG__
+						[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+#endif
+						_comppost pushBack _ppos;
+						_iscompost = true;
+						sleep 0.2;
+					};
+				};
+			};
+			[_x # 0, [_ppos], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;
 			sleep 0.4;
 		};
@@ -266,7 +288,24 @@ sleep 0.233;
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+			private _ppos = _curar select _wp_ran;
+			private _iscompost = false;
+			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
+				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7] call d_fnc_findSafePos;
+				if !(_nppos isEqualTo []) then {
+					_ppos = _nppos;
+					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
+						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
+#ifdef __DEBUG__
+						[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+#endif
+						_comppost pushBack _ppos;
+						_iscompost = true;
+						sleep 0.2;
+					};
+				};
+			};
+			[_x # 0, [_ppos], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;
 			sleep 0.4;
 		};

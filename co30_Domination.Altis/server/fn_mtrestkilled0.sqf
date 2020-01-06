@@ -62,7 +62,8 @@ if ((typeOf _obj) == d_barracks_building) then {
 	_obj = createVehicle ["Land_Slum_House02_ruins_F", _epos, [], 0, "NONE"];
 	_obj setDir _edir;
 	_obj setPos _epos;
-	_obj setVectorUp [0,0,1];
+	//_obj setVectorUp [0,0,1];
+	_obj setVectorUp (surfaceNormal _epos);
 };
 _obj spawn {
 	scriptName "spawn checkmtrespawntarget1";
