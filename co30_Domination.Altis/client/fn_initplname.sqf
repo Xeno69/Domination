@@ -2,8 +2,8 @@
 #define THIS_FILE "fn_initplname.sqf"
 #include "..\x_setup.sqf"
 
-waitUntil {time > 0};
-sleep (2 + random 1);
+waitUntil {time > 0 && {player == player}};
+sleep (2 + random 2);
 private _np = player getVariable ["d_plname", ""];
 if (_np isEqualTo "" || {_np isEqualTo "Error: No unit"}) then {
 	_np = profileName splitString """'" joinString "";
