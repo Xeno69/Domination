@@ -15,7 +15,7 @@ if (_center isEqualTo []) exitWith {
 	[]
 };
 
-private _ret_val = [_center, 0, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25] call BIS_fnc_findSafePos;
+private _ret_val = [_center, 0, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25] call d_fnc_findSafePos;
 /*private _ret_val = [];
 for "_co" from 0 to 99 do {
 	private _isFlat = (_center getPos [_radius * sqrt random 1, random 360]) isFlatEmpty [

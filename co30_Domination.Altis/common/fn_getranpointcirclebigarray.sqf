@@ -22,7 +22,7 @@ private _co = 0;
 private _timeend = time + 10;
 while {count _ret_val < 50} do {
 //for "_co" from 0 to 149 do {
-	private _npos = [_center, 0, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25] call BIS_fnc_findSafePos;
+	private _npos = [_center, 0, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25] call d_fnc_findSafePos;
 	if (!(_npos isEqualTo []) && {!isOnRoad _npos}) then {
 		_ret_val pushBack _npos;
 #ifdef __DEBUG__

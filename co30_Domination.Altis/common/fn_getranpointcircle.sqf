@@ -18,7 +18,7 @@ if (_rcenter isEqualTo []) exitWith {
 };
 
 __TRACE_2("","_rcenter","_rradius")
-private _ret_val = [_rcenter, 0, _rradius, _mindist, 0, _maxgrad] call BIS_fnc_findSafePos;
+private _ret_val = [_rcenter, 0, _rradius, _mindist, 0, _maxgrad] call d_fnc_findSafePos;
 /*private _ret_val = [];
 for "_co" from 0 to 99 do {
 	//private _isFlat = ([[[_rcenter, _rradius]]] call BIS_fnc_randomPos) isFlatEmpty [
