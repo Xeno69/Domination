@@ -101,7 +101,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 							_liftobj setVariable ["d_in_air", true, true];
 							_lon = _liftobj getVariable "d_vec_name";
 							_chopper setVariable ["d_mhq_lift_obj", [_liftobj, _lon], true];							
-							[0, _lon] remoteExecCall ["d_fnc_sideChat", d_player_side];
+							[0, _lon] remoteExecCall ["d_fnc_csidechat", d_player_side];
 						};
 
 						[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
@@ -207,7 +207,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					if (_liftobj getVariable ["d_vec_type", ""] == "MHQ") then {
 						_liftobj setVariable ["d_in_air", false, true];
 						_chopper setVariable ["d_mhq_lift_obj", nil, true];
-						[1, _liftobj getVariable "d_vec_name"] remoteExecCall ["d_fnc_sideChat", d_player_side];
+						[1, _liftobj getVariable "d_vec_name"] remoteExecCall ["d_fnc_csidechat", d_player_side];
 					};
 
 					_chopper setVariable ["d_Attached_Vec", nil, true];
