@@ -51,6 +51,9 @@ if (d_beam_target == "D_BASE_D") then {
 		} else {
 			_typepos = 2;
 		};
+		if (d_with_ranked || {d_database_found}) then {
+			[_lead, 1, 12] remoteExecCall ["d_fnc_addscore", 2];
+		};
 #ifndef __TT__
 		d_player_in_base = player inArea d_base_array;
 #else

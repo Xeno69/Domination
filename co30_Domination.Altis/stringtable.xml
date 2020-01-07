@@ -11657,6 +11657,17 @@
 <Chinesesimp>You can teleport from the base flag to other positions, no need to waste choppers...</Chinesesimp>
 <Chinese>You can teleport from the base flag to other positions, no need to waste choppers...</Chinese>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1989">
+<English>points for another player spawning at you!</English>
+<Spanish>points for another player spawning at you!</Spanish>
+<Portuguese>points for another player spawning at you!</Portuguese>
+<Korean>points for another player spawning at you!</Korean>
+<Japanese>points for another player spawning at you!</Japanese>
+<Original>points for another player spawning at you!</Original>
+<Russian>points for another player spawning at you!</Russian>
+<Chinesesimp>points for another player spawning at you!</Chinesesimp>
+<Chinese>points for another player spawning at you!</Chinese>
+</Key>
 </Container>
 </Package>
 </Project>

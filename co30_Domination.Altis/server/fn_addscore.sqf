@@ -17,6 +17,7 @@ params ["_pl", "_score", "_reason"];
 // 9 - points for repairing/refueling a vehicle
 // 10 - points for healing another unit
 // 11 - points for another player healing at a player mash
+// 12 - points for another player spawning at squad leader
 
 _pl addScore _score;
 [_reason, _score] remoteExecCall ["d_fnc_scoreadded", _pl];

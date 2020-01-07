@@ -33,12 +33,14 @@ if (d_beam_target == "D_BASE_D") then {
 		private _lead = leader (group player);
 		_respawn_pos = [(vehicle _lead) modelToWorldVisual [0, -8, 0], getPosASL _lead] select (isNull objectParent _lead);
 		_respawn_pos set [2, _lead distance (getPos _lead)];
+		if (d_with_ranked || {d_database_found}) then {
+			[_lead, 1, 12] remoteExecCall ["d_fnc_addscore", 2];
+		};
 		if (!d_tt_ver) then {
 			d_player_in_base = player inArea d_base_array;
 		} else {
 			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
 		};
-
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		if (_uidx != -1) then {
