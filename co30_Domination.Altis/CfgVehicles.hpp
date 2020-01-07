@@ -43,7 +43,11 @@ class CfgVehicles {
 
 	class O_UAV_02_dynamicLoadout_F: Default {
 		class TransportPylons: TransportPylons {
+#ifndef __TT__
 			excludeMagazines[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles"};
+#else
+			excludeMagazines[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles","PylonRack_1Rnd_AAA_missiles"};
+#endif
 		};
 	};
 
@@ -53,7 +57,11 @@ class CfgVehicles {
 
 	class B_Plane_CAS_01_dynamicLoadout_F: Default {
 		class TransportPylons: TransportPylons {
+#ifndef __TT__
 			excludeMagazines[] = {"PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_4Rnd_LG_scalpel","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles","PylonMissile_1Rnd_BombCluster_01_F","PylonMissile_1Rnd_BombCluster_03_F"};
+#else
+			excludeMagazines[] = {"PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_4Rnd_LG_scalpel","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles","PylonMissile_1Rnd_BombCluster_01_F","PylonMissile_1Rnd_BombCluster_03_F","PylonRack_1Rnd_AAA_missiles"};
+#endif
 		};
 	};
 
@@ -67,7 +75,11 @@ class CfgVehicles {
 
 	class B_UAV_02_dynamicLoadout_F: Default {
 		class TransportPylons: TransportPylons {
+#ifndef __TT__
 			excludeMagazines[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles"};
+#else
+			excludeMagazines[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles","PylonRack_1Rnd_AAA_missiles"};
+#endif
 		};
 	};
 
@@ -91,7 +103,11 @@ class CfgVehicles {
 
 	class I_UAV_02_dynamicLoadout_F: Default {
 		class TransportPylons: TransportPylons {
+#ifndef __TT__
 			excludeMagazines[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles"};
+#else
+			excludeMagazines[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_12Rnd_PG_missiles","PylonRack_12Rnd_missiles","PylonRack_1Rnd_AAA_missiles"};
+#endif
 		};
 	};
 };
