@@ -406,7 +406,7 @@ d_points_needed_15 = (d_points_needed # 6) + 15000;
 	if (!isNil "d_jet_trigger") then {
 		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1];
 	};
-	private _allmhs = allMissionObjects "Land_HelipadSquare_F";
+	private _allmhs = (allMissionObjects "Land_HelipadSquare_F") + (allMissionObjects "Land_HelipadEmpty_F");
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1];
 	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
