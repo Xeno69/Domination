@@ -15,4 +15,4 @@ while {surfaceIsWater _endpos} do {
 	sleep 0.01;
 };
 _endpos set [2, 0];
-player setPos _endpos;
+[player, _endpos] call d_fnc_setposagls

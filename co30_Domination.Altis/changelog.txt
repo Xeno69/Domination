@@ -26,3 +26,4 @@
 - Fixed: Enemy AI vehicles should no longer explode during creation
 - Fixed: Camp dialog progress resource did not show again if a player was killed inside the camp area
 - Fixed: Carrier service trigger was created on sea level and not on the carrier flight deck
+- Fixed: When a player dies over the sea waterfix should no longer put the player object under a pier or rock at the beach

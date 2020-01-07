@@ -261,7 +261,6 @@ private _comppost = [];
 			private _iscompost = false;
 			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				player sidechat str(["1_1",_nppos]);
 				if !(_nppos isEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
@@ -293,7 +292,6 @@ sleep 0.233;
 			private _iscompost = false;
 			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				player sidechat str(["2_1",_nppos]);
 				if !(_nppos isEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
