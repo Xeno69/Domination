@@ -43,10 +43,11 @@ __TRACE_1("","_allmissiono")
 {
 	private _trig = [
 		_x,
-		[5.5, 5.5, getDir _x, true, 10],
+		[12, 12, getDir _x, true, 15],
 		["ANYPLAYER", "PRESENT", true],
 		["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""]
 	] call d_fnc_createtriggerlocal;
 	_trig setPosASL ((getPosASL _x) vectorAdd [0, 0, -0.5]);
+	__TRACE_1("serviceall","_x")
 	__TRACE_3("serviceall","_trig","getPos _trig","getPos _x")
 } forEach (_allmissiono select {(str _x) select [0, 20] isEqualTo "d_serviceall_trigger"});
