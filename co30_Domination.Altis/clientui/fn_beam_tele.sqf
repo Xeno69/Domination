@@ -72,12 +72,17 @@ if (d_beam_target == "D_BASE_D") then {
 			d_player_in_base = false;
 		} else {
 			private _mrs = missionNamespace getVariable [d_beam_target, objNull];
-			_global_pos = _mrs call d_fnc_posbehindvec;
-			__TRACE_1("1","_global_pos")
-			(boundingBoxReal _mrs) params ["_p1", "_p2"];
-			private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-			__TRACE_1("","_maxHeight")
-			_global_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+			if (isNil "d_alt_map_pos") then {
+				_global_pos = _mrs call d_fnc_posbehindvec;
+				__TRACE_1("1","_global_pos")
+				(boundingBoxReal _mrs) params ["_p1", "_p2"];
+				private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+				__TRACE_1("","_maxHeight")
+				_global_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+			} else {
+				_global_pos = d_alt_map_pos;
+				_global_pos set [2, 0];
+			};
 			__TRACE_1("2","_global_pos")
 			_global_dir = getDirVisual _mrs;
 			_typepos = 1;

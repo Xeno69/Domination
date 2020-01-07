@@ -82,15 +82,20 @@ __TRACE_1("","d_additional_respawn_points")
 
 __TRACE_1("","_uidx")
 
+d_cur_map_endpos = nil;
+d_alt_map_pos = nil;
+
 private _end_pos = if (_uidx == -1) then {
-	if (_data == "D_BASE_D") then {
-		getPosATL d_FLAG_BASE;
-	} else {
-		if (_data == "D_SQL_D") then {
-			visiblePosition (leader (group player));
-		} else {
-			visiblePosition (missionNamespace getVariable _data);
+	call {
+		if (_data == "D_BASE_D") exitWith {
+			getPosATL d_FLAG_BASE;
 		};
+		if (_data == "D_SQL_D") exitWith {
+			visiblePosition (leader (group player));
+		};
+		private _rppp = visiblePosition (missionNamespace getVariable _data);
+		d_cur_map_endpos = _rppp;
+		_rppp
 	};
 } else {
 	(d_additional_respawn_points # _uidx) # 1;
@@ -147,3 +152,15 @@ _ctrlmap ctrlMapAnimAdd [0, 1, getPosATL player];
 _ctrlmap ctrlMapAnimAdd [1.2, 1, _end_pos];
 _ctrlmap ctrlMapAnimAdd [0.8, 0.1, _end_pos];
 ctrlMapAnimCommit _ctrlmap;
+
+if (!isNil "d_cur_map_endpos") then {
+	"d_exactpos_radius_mar" setMarkerPosLocal _end_pos;
+	"d_exactpos_radius_mar" setMarkerAlphaLocal 1;
+	"d_exactpos_sel_mar" setMarkerPosLocal _end_pos;
+	"d_exactpos_sel_mar" setMarkerAlphaLocal 1;
+} else {
+	"d_exactpos_radius_mar" setMarkerPosLocal [0, 0, 0];
+	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
+	"d_exactpos_sel_mar" setMarkerPosLocal [0, 0, 0];
+	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
+};

@@ -180,6 +180,10 @@ if (!xr_respawn_available) then {
 };
 
 if (_can_add_mapclick) then {
+	["d_exactpos_radius_mar", [0, 0, 0], "ELLIPSE", "ColorBlack", [40, 40], "", 0, "", "BDiagonal", 1] call d_fnc_CreateMarkerLocal;
+	["d_exactpos_sel_mar", [0, 0, 0], "ICON", "ColorWhite", [1,1], "", 0, "waypoint"] call d_fnc_CreateMarkerLocal;
+	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
+	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
 	d_rmapclick_type = _dtype;
 	d_resp_map_click_eh = addMissionEventHandler ["MapSingleClick", {
 		_this call d_fnc_rmapclick

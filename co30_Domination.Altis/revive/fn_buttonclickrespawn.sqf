@@ -51,10 +51,15 @@ if (d_beam_target == "D_BASE_D") then {
 			d_player_in_base = false;
 		} else {
 			private _mrs = missionNamespace getVariable [d_beam_target, objNull];
-			_respawn_pos = _mrs call d_fnc_posbehindvec;
-			(boundingBoxReal _mrs) params ["_p1", "_p2"];
-			private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-			_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+			if (isNil "d_alt_map_pos") then {
+				_respawn_pos = _mrs call d_fnc_posbehindvec;
+				(boundingBoxReal _mrs) params ["_p1", "_p2"];
+				private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+				_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+			} else {
+				_respawn_pos = d_alt_map_pos;
+				_respawn_pos set [2, 0];
+			};
 			d_player_in_base = false;
 		};
 	};
