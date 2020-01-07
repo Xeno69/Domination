@@ -174,7 +174,6 @@ class CfgRemoteExec {
 		class xr_fnc_changeleader {};
 		class xr_fnc_draghelper {allowedTargets = 1;};
 		class xr_fnc_selleader {allowedTargets = 2;};
-		class d_fnc_HintChatMsg {allowedTargets = 1;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class d_fnc_addppoints {allowedTargets = 2;};
@@ -208,6 +207,7 @@ class CfgRemoteExec {
 		class d_fnc_addscore {allowedTargets = 2;};
 		class d_fnc_scoreadded {allowedTargets = 1;};
 		class d_fnc_sub_box {allowedTargets = 2;};
+		class d_fnc_csidechat {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};
@@ -240,15 +240,11 @@ class CfgRemoteExec {
 		class deleteMarker {allowedTargets = 2;};
 		class setVariable {};
 		class endMission {allowedTargets = 1;};
-		class sideChat {allowedTargets = 1;};
-		class createDiaryRecord {allowedTargets = 1;};
 		class deleteGroup {allowedTargets=0;};
 		class setSpeaker {allowedTargets = 1;};
-		class hint {allowedTargets = 1;};
 		class setFeatureType {};
 #ifdef __TT__
 		class deleteMarkerLocal {allowedTargets = 1;};
-		class systemChat {allowedTargets = 1;};
 #endif
 	};
 };

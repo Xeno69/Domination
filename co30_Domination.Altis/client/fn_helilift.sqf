@@ -100,16 +100,8 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						if (_liftobj getVariable ["d_vec_type", ""] == "MHQ") then {
 							_liftobj setVariable ["d_in_air", true, true];
 							_lon = _liftobj getVariable "d_vec_name";
-							_chopper setVariable ["d_mhq_lift_obj", [_liftobj, _lon], true];
-#ifndef __TT__
-							[d_kb_logic1, format [localize "STR_DOM_MISSIONSTRING_1372", _lon]] remoteExecCall ["sideChat", d_player_side];
-#else
-							if (d_player_side == blufor) then {
-								[d_hq_logic_blufor1, format [localize "STR_DOM_MISSIONSTRING_1372", _lon]] remoteExecCall ["sideChat", d_player_side];
-							} else {
-								[d_hq_logic_opfor1, format [localize "STR_DOM_MISSIONSTRING_1372", _lon]] remoteExecCall ["sideChat", d_player_side];
-							};
-#endif
+							_chopper setVariable ["d_mhq_lift_obj", [_liftobj, _lon], true];							
+							[0, _lon] remoteExecCall ["d_fnc_sideChat", d_player_side];
 						};
 
 						[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
@@ -215,15 +207,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 					if (_liftobj getVariable ["d_vec_type", ""] == "MHQ") then {
 						_liftobj setVariable ["d_in_air", false, true];
 						_chopper setVariable ["d_mhq_lift_obj", nil, true];
-#ifndef __TT__
-						[d_kb_logic1, format [localize "STR_DOM_MISSIONSTRING_1373", _liftobj getVariable "d_vec_name"]] remoteExecCall ["sideChat", d_player_side];
-#else
-						if (d_player_side == blufor) then {
-							[d_hq_logic_blufor1, format [localize "STR_DOM_MISSIONSTRING_1373", _liftobj getVariable "d_vec_name"]] remoteExecCall ["sideChat", d_player_side];
-						} else {
-							[d_hq_logic_opfor1, format [localize "STR_DOM_MISSIONSTRING_1373", _liftobj getVariable "d_vec_name"]] remoteExecCall ["sideChat", d_player_side];
-						};
-#endif
+						[1, _liftobj getVariable "d_vec_name"] remoteExecCall ["d_fnc_sideChat", d_player_side];
 					};
 
 					_chopper setVariable ["d_Attached_Vec", nil, true];

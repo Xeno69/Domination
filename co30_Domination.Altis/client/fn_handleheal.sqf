@@ -39,8 +39,8 @@ if (!d_with_ace) then {
 		if (_medicPoints > 0) then {
 			[_healer, _medicPoints] remoteExecCall ["addScore", 2];
 			// Display chat message to player
-			if (isMultiplayer) then {
-				[[playerSide, "HQ"], format [localize "STR_DOM_MISSIONSTRING_288", _medicPoints]] remoteExecCall ["sideChat", _healer];
+			if (isMultiplayer) then {			
+				[23, _medicPoints] remoteExecCall ["d_fnc_csidechat", _healer];
 			} else {
 				[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_288", _medicPoints];
 			};

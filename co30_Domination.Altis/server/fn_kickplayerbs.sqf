@@ -14,5 +14,5 @@ if (_reason != -1) then {
 			diag_log format [localize "STR_DOM_MISSIONSTRING_946", _pl_name, _uid];
 		};
 	};
-	[format [[localize "STR_DOM_MISSIONSTRING_509", localize "STR_DOM_MISSIONSTRING_508"] select (_reason == 0), _pl_name], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+	[10, _reason, _pl_name] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 };

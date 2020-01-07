@@ -27,7 +27,7 @@ if (isServer) then {
 	// All rappel anchors are taken by other players. Hint player to try again.
 	if (count _rappelPoints == _rappelPointIndex) exitWith {
 		if (_player call d_fnc_isplayer) then {
-			"All rappel anchors in use. Please try again." remoteExecCall ["hint", _player];
+			[24] remoteExecCall ["d_fnc_csidechat", _player];
 		};
 	};
 

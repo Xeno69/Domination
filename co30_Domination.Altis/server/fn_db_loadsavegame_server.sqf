@@ -66,7 +66,7 @@ __TRACE_1("","_dbresult")
 
 if (_dbresult isEqualTo []) exitWith {
 	if (!isNull _sender) then {
-		[format [localize "STR_DOM_MISSIONSTRING_1752", _sname], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", _sender];
+		[7, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 	} else {
 		diag_log format [localize "STR_DOM_MISSIONSTRING_1752", _sname];
 	};
@@ -242,5 +242,5 @@ publicVariable "d_points_array";
 
 
 if (!isNull _sender) then {
-	[_sender, ["dDBLoad", [localize "STR_DOM_MISSIONSTRING_1750", "<font face='RobotoCondensed' size=24 color='#ffffff'>" + format [localize "STR_DOM_MISSIONSTRING_1753", _sname] + "</font>"]]] remoteExecCall ["createDiaryRecord", _sender];
+	[8, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 };

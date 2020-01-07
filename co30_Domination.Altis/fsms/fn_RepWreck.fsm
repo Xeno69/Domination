@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
@@ -13,9 +13,9 @@ item8[] = {"Allways",8,218,-36.349953,375.696259,53.650047,425.696259,0.000000,"
 item9[] = {"Check",2,250,-36.349949,461.762817,53.650066,511.762817,0.000000,"Check"};
 item10[] = {"Not_Null_Wreck",4,218,-36.349953,561.631714,53.650047,611.631714,1.000000,"Not Null Wreck"};
 item11[] = {"Delay_2",4,218,110.701157,372.903015,200.701157,422.903015,0.000000,"Delay 2"};
-item12[] = {"Rebuild",2,250,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
+item12[] = {"Rebuild",2,4346,-34.777206,652.850647,55.222801,702.850647,0.000000,"Rebuild"};
 item13[] = {"Delay_Rebuildtim",4,218,245.170380,648.918762,384.711609,706.782471,0.000000,"Delay Rebuildtime"};
-item14[] = {"Unlock_Vehicle",2,4346,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
+item14[] = {"Unlock_Vehicle",2,250,270.727417,446.821747,360.727417,496.821747,0.000000,"Unlock Vehicle"};
 item15[] = {"Allways",8,218,267.188721,280.897766,357.188751,330.897766,0.000000,"Allways"};
 item16[] = {"_",4,218,28.118450,766.373047,118.118446,816.373047,0.000000,""};
 item17[] = {"_",2,250,180.609940,767.583252,270.609955,817.583252,0.000000,""};
@@ -40,7 +40,7 @@ link17[] = {15,6};
 link18[] = {16,17};
 link19[] = {17,13};
 globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-414.199951,517.863525,863.997559,-49.402657,849,832,1};
-window[] = {0,-1,-1,-1,-1,1342,338,2485,338,1,867};
+window[] = {0,-1,-1,-1,-1,1186,182,2329,182,1,867};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -212,7 +212,7 @@ class FSM
                          "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n
                          "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n
                          "	_wpilot addScore (d_ranked_a # 23);" \n
-                         "	[_wpilot, format[localize ""STR_DOM_MISSIONSTRING_1856"",(d_ranked_a # 23)]] remoteExecCall [""sideChat"", _wpilot];" \n
+                         "	[5] remoteExec [""d_fnc_csidechat"", _wpilot];" \n
                          "};" \n
                          "deleteVehicle _wreck;" \n
                          "" \n

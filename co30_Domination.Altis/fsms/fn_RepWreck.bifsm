@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -95,7 +95,7 @@ class GraphItems
 			Text="Delay";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -120,7 +120,7 @@ class GraphItems
 		{
 			Text="Init";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -171,7 +171,7 @@ class GraphItems
 		{
 			Text="Loop";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -248,7 +248,7 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -315,7 +315,7 @@ class GraphItems
 	};
 	class Item12
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-34.777206;
 		Top=652.85065;
@@ -326,7 +326,7 @@ class GraphItems
 		{
 			Text="Rebuild";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -334,7 +334,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=12;
-				InitCode="private _type = typeOf _wreck;" \n "private _dpos = getPosATL _wreck;" \n "private _ddir = direction _wreck;" \n "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n "if (unitIsUAV _wreck) then {" \n "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n "};" \n "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n "	_wpilot addScore (d_ranked_a # 23);" \n "	[_wpilot, format[localize ""STR_DOM_MISSIONSTRING_1856"",(d_ranked_a # 23)]] remoteExecCall [""sideChat"", _wpilot];" \n "};" \n "deleteVehicle _wreck;" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db = d_bonus_vecs_db - [objNull];" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w = d_bonus_vecs_db_w - [objNull]};" \n "			case opfor: {d_bonus_vecs_db_e = d_bonus_vecs_db_e - [objNull]};" \n "		};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + 0.6;" \n "";
+				InitCode="private _type = typeOf _wreck;" \n "private _dpos = getPosATL _wreck;" \n "private _ddir = direction _wreck;" \n "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n "if (unitIsUAV _wreck) then {" \n "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n "};" \n "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n "	_wpilot addScore (d_ranked_a # 23);" \n "	[5] remoteExec [""d_fnc_csidechat"", _wpilot];" \n "};" \n "deleteVehicle _wreck;" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db = d_bonus_vecs_db - [objNull];" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w = d_bonus_vecs_db_w - [objNull]};" \n "			case opfor: {d_bonus_vecs_db_e = d_bonus_vecs_db_e - [objNull]};" \n "		};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + 0.6;" \n "";
 			};
 		};
 	};
@@ -366,7 +366,7 @@ class GraphItems
 	};
 	class Item14
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=270.72742;
 		Top=446.82175;
@@ -454,7 +454,7 @@ class GraphItems
 		{
 			Text="";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -719,10 +719,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=312;
-	Top=312;
-	Right=2459;
-	Bottom=1316;
+	Left=182;
+	Top=182;
+	Right=2329;
+	Bottom=1186;
 	ShowCmd=1;
 	SplitPos=867;
 };

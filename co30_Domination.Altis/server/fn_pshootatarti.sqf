@@ -21,6 +21,6 @@ if (time >= (_vec getVariable ["d_ncuttoft", 0])) then {
 		_vec setVariable ["d_ncuttoft", time + 2];
 	};
 	diag_log format [localize "STR_DOM_MISSIONSTRING_1461", _shooter call d_fnc_getplayername, getPlayerUID _shooter];
-	[format [localize "STR_DOM_MISSIONSTRING_1462", _shooter call d_fnc_getplayername], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+	[15, _shooter call d_fnc_getplayername] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 	_vec setVariable ["d_ncuttoft", time + 2];
 };

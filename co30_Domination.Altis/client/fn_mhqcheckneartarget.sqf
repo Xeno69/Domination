@@ -14,7 +14,7 @@ while {d_player_in_vec} do {
 			if (!(d_cur_tgt_pos isEqualTo []) && {_vec distance2D d_cur_tgt_pos <= d_MHQDisableNearMT}) then {
 				_vec setVariable ["d_vecfuelmhq", fuel _vec, true];
 				[_vec, 0] remoteExecCall ["setFuel", _vec];
-				[format [localize "STR_DOM_MISSIONSTRING_520", d_MHQDisableNearMT, _vec getVariable "d_vec_name"], "HQ"] remoteExecCall ["d_fnc_HintChatMsg", d_player_side];
+				[2, _vec getVariable "d_vec_name"] remoteExecCall ["d_fnc_csidechat", d_player_side];
 			};
 		};
 	};

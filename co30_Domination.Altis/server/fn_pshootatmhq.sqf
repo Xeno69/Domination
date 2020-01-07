@@ -22,10 +22,10 @@ if (time >= (_vec getVariable ["d_ncuttoft", 0])) then {
 	_vec setVariable ["d_ncuttoft", time + 2];
 	
 	if (isServer) then {
-		[format [localize "STR_DOM_MISSIONSTRING_1834", _shooter call d_fnc_getplayername], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+		[16, _shooter call d_fnc_getplayername] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 		diag_log format [localize "STR_DOM_MISSIONSTRING_1833", _shooter call d_fnc_getplayername, getPlayerUID _shooter];
 	} else {
-		[format [localize "STR_DOM_MISSIONSTRING_1834", _shooter call d_fnc_getplayername], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg"];
+		[16, _shooter call d_fnc_getplayername] remoteExecCall ["d_fnc_csidechat"];
 	};
 	_vec setVariable ["d_ncuttoft", time + 2];
 };

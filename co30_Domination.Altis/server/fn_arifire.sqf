@@ -167,7 +167,7 @@ if (_ari_vecs isEqualTo []) exitWith {
 	remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) exitWith {};
-	[_aop , localize "STR_DOM_MISSIONSTRING_1519"] remoteExecCall ["sideChat", _aop];
+	[6] remoteExecCall ["d_fnc_csidechat", _aop];
 };
 
 private _eta_time = (_ari_vecs # 0) getArtilleryETA [_ari_tgt_pos, _ari_type];

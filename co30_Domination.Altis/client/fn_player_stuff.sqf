@@ -24,7 +24,7 @@ _this spawn {
 	waitUntil {sleep 0.1; !d_still_in_intro};
 	if (!isNil {player getVariable "d_no_side_change"}) then {
 		private _rtime = serverTime - ((_this # 9) # 1);
-		[format [localize "STR_DOM_MISSIONSTRING_1871", profileName, round (30 - (_rtime / 60))], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+		[3, profileName, round (30 - (_rtime / 60))] remoteExecCall ["d_fnc_csidechat", -2];
 		0 spawn {
 			scriptName "spawn_endmissionloser";
 			sleep 1.5;
@@ -33,7 +33,7 @@ _this spawn {
 	} else {
 		private _prev_side = _this select 5;
 		if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
-			[format [localize "STR_DOM_MISSIONSTRING_641", profileName, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+			[4, profileName, _prev_side, d_player_side] remoteExecCall ["d_fnc_csidechat", -2];
 		};
 	};
 };

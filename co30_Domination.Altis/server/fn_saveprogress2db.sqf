@@ -100,7 +100,7 @@ if !(_sname in d_db_savegames) then {
 };
 
 if (!isNull _sender) then {
-	[format [localize "STR_DOM_MISSIONSTRING_1749", _sname], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", _sender];
+	[17, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 };
 
 d_saveprogess2db_inprogress = nil;
