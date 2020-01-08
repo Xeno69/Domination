@@ -102,5 +102,21 @@ class d_TeleportDialog {
 			colorText[] = {1, 1, 1, 1};
 			text = __DOM_NVER_STR__;
 		};
+		class Helptext: Tdestination {
+			idc = 11003;
+			x = 0.31;
+			y = 0.082;
+			w = 0.7;
+			h = 0.032;
+			sizeEx = 0.032;
+			text = "$STR_DOM_MISSIONSTRING_1990";
+			shadow = 1;
+			colorText[] = {1,1,1,1};
+		};
+		class Helptext2: Helptext {
+			idc = 11004;
+			y = 0.76;
+			text = "$STR_DOM_MISSIONSTRING_1991";
+		};
 	};
 };

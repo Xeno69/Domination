@@ -11668,6 +11668,28 @@
 <Chinesesimp>points for another player spawning at you!</Chinesesimp>
 <Chinese>points for another player spawning at you!</Chinese>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1990">
+<English>You can select an alternative position by left click inside the circle</English>
+<Spanish>You can select an alternative position by left click inside the circle</Spanish>
+<Portuguese>You can select an alternative position by left click inside the circle</Portuguese>
+<Korean>You can select an alternative position by left click inside the circle</Korean>
+<Japanese>You can select an alternative position by left click inside the circle</Japanese>
+<Original>You can select an alternative position by left click inside the circle</Original>
+<Russian>You can select an alternative position by left click inside the circle</Russian>
+<Chinesesimp>You can select an alternative position by left click inside the circle</Chinesesimp>
+<Chinese>You can select an alternative position by left click inside the circle</Chinese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1991">
+<English>ALT click inside the circle resets the position to the default position</English>
+<Spanish>ALT click inside the circle resets the position to the default position</Spanish>
+<Portuguese>ALT click inside the circle resets the position to the default position</Portuguese>
+<Korean>ALT click inside the circle resets the position to the default position</Korean>
+<Japanese>ALT click inside the circle resets the position to the default position</Japanese>
+<Original>ALT click inside the circle resets the position to the default position</Original>
+<Russian>ALT click inside the circle resets the position to the default position</Russian>
+<Chinesesimp>ALT click inside the circle resets the position to the default position</Chinesesimp>
+<Chinese>ALT click inside the circle resets the position to the default position</Chinese>
+</Key>
 </Container>
 </Package>
 </Project>

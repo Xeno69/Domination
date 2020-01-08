@@ -38,6 +38,9 @@ if (_dtype == 0) then {
 	};
 };
 
+__CTRL(11003) ctrlShow false;
+__CTRL(11004) ctrlShow false;
+
 private _addbase = true;
 if (d_WithTeleToBase == 1 && {d_tele_dialog > 0 && {_dtype == 0}}) then {
 	_addbase = false;

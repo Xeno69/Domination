@@ -240,6 +240,20 @@ class xr_SpectDlg {
 					text = "";
 					colorText[] = {1,1,0,1};
 				};
+				class Helptext: Tdestination {
+					idc = 11003;
+					x = 0.31;
+					y = 0.77;
+					w = 0.7;
+					text = "$STR_DOM_MISSIONSTRING_1990";
+					shadow = 1;
+					colorText[] = {1,1,1,1};
+				};
+				class Helptext2: Helptext {
+					idc = 11004;
+					y = 0.8;
+					text = "$STR_DOM_MISSIONSTRING_1991";
+				};
 			};
 		};
 	};

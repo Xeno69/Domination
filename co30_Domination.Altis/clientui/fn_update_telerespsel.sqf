@@ -150,7 +150,8 @@ ctrlMapAnimClear _ctrlmap;
 
 _ctrlmap ctrlMapAnimAdd [0, 1, getPosATL player];
 _ctrlmap ctrlMapAnimAdd [1.2, 1, _end_pos];
-_ctrlmap ctrlMapAnimAdd [0.8, 0.1, _end_pos];
+private _zoom = [0.005, 0.5] select (isNil "d_cur_map_endpos");
+_ctrlmap ctrlMapAnimAdd [0.8, _zoom, _end_pos];
 ctrlMapAnimCommit _ctrlmap;
 
 if (!isNil "d_cur_map_endpos") then {
@@ -158,9 +159,13 @@ if (!isNil "d_cur_map_endpos") then {
 	"d_exactpos_radius_mar" setMarkerAlphaLocal 1;
 	"d_exactpos_sel_mar" setMarkerPosLocal _end_pos;
 	"d_exactpos_sel_mar" setMarkerAlphaLocal 1;
+	__CTRL(11003) ctrlShow true;
+	__CTRL(11004) ctrlShow true;
 } else {
 	"d_exactpos_radius_mar" setMarkerPosLocal [0, 0, 0];
 	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
 	"d_exactpos_sel_mar" setMarkerPosLocal [0, 0, 0];
 	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
+	__CTRL(11003) ctrlShow false;
+	__CTRL(11004) ctrlShow false;
 };
