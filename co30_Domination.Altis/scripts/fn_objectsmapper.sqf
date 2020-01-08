@@ -123,11 +123,17 @@ private _multiplyMatrixFunc = {
 		//_newObj = _type createVehicle _newPos;
 		//_newObj = createSimpleObject [_type, AGLToASL _newPos];
 		private "_newObj";
-		if (_type isKindOf "StaticWeapon" || {_type isKindOf ["Default", configFile >> "CfgWeapons"]}) then {
-			_newObj = _type createVehicle _newPos;
+		if (_type isKindOf "StaticWeapon" || {_type isKindOf "BagBunker_base_F"}) then {
+			_newObj = createVehicle [_type, _newPos, [], 0, "CAN_COLLIDE"];
 			_newObj setDir (_azi + _azimuth);
 			_newObj setPos _newPos;
+			if (d_with_dynsim == 0) then {
+				[_newObj, 10] spawn d_fnc_enabledynsim;
+			};
 		} else {
+			if (_type isKindOf "Car") then {
+				_newPos = _newPos vectorAdd [0,0,0.1];
+			};
 			_newObj = [_type, AGLToASL _newPos, 0, true] call d_fnc_createSimpleObject;
 			_newObj setDir (_azi + _azimuth);
 			_newObj setPosWorld (getPosWorld _newObj);
