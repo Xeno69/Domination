@@ -92,13 +92,16 @@ if (!_isman) then {
 	};
 } else {
 	private "_selobj";
+	private _do_end2 = false;
 	while {true} do {
 		__TRACE_1("Starting loop","_this")
 		if (d_mt_barracks_obj_ar isEqualTo []) exitWith {_doend = true};
 		
 		_selobj = selectRandom d_mt_barracks_obj_ar;
 		private _trig = _selobj getVariable "d_bar_trig";
-		if (isNil "_trig") exitWith {};
+		if (isNil "_trig") exitWith {
+			__TRACE("no d_bar_trig var")
+		};
 		if ((list _trig) isEqualTo []) exitWith {};
 		__TRACE_1("trigger list not empty","list _trig")
 		while {true} do {
@@ -111,13 +114,13 @@ if (!_isman) then {
 					_doend = true;
 				};
 			};
-			if ((list _trig) isEqualTo []) exitWith {};
+			if ((list _trig) isEqualTo []) exitWith {
+				_do_end2 = true;
+			};
 		};
-		if (_doend) exitWith {};
+		if (_doend || {_do_end2}) exitWith {};
 	};
-	if (_doend) exitWith {};
-	
-	if (isNil "_selobj") exitWith {};
+	if (_doend || {isNil "_selobj"}) exitWith {};
 		
 	private _d_mt_barracks_obj_pos = getPos _selobj;
 	__TRACE_1("","_d_mt_barracks_obj_pos")

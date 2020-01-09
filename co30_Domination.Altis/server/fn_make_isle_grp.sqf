@@ -28,6 +28,11 @@ private _units = [];
 private _vecs = [];
 private _agrp = [d_side_enemy] call d_fnc_creategroup;
 private _npos = _start_point;
+private _var = [];
+_var resize (selectRandom [2, 3]);
+for "_e" from 0 to (count _var - 1) do {
+	_var set [_e, ["wheeled_apc", d_enemy_side_short] call d_fnc_getunitlistv];
+};
 {
 	private _rand = floor random 2;
 	if (_rand > 0) then {
@@ -37,7 +42,9 @@ private _npos = _start_point;
 		sleep 0.73;
 		_npos = ((_reta # 0) # 0) modelToWorld [0,-12,0];
 	};
-} forEach ([d_enemy_side_short] call d_fnc_getmixedlist);
+} forEach _var;
+// TODO if tanks show better driving behaviour change it back to mixed list?
+//} forEach ([d_enemy_side_short] call d_fnc_getmixedlist);
 _agrp deleteGroupWhenEmpty true;
 sleep 0.31;
 

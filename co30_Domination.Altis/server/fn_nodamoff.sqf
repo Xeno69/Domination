@@ -4,4 +4,4 @@
 #include "..\x_setup.sqf"
 
 _this allowDamage false;
-_this spawn {sleep 10; _this allowDamage true};
+_this spawn {sleep 20; _this allowDamage true};

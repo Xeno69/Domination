@@ -51,7 +51,8 @@ if (d_MissionType != 2 && d_disable_airai != 1) then {
 	};
 };
 
-if !(d_with_isledefense isEqualTo []) then {0 spawn d_fnc_isledefense};
+// TODO disabled for now. AI is simply too stupid too drive around the islands with vehicles
+// if !(d_with_isledefense isEqualTo []) then {0 spawn d_fnc_isledefense};
 
 #ifndef __TT__
 if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0 && {!(d_transport_chopper isEqualTo [])}}}) then {execFSM "fsms\fn_Infilrate.fsm"};
