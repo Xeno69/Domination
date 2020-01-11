@@ -46,6 +46,7 @@ if (_uidx == -1) then {
 				if (!alive _mrs) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_595", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (_mrs getVariable ["d_enemy_near", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_597", _ctrl lbText _sel, _logtxt]; __COLRED};
+				if (_wone == 0 && {_mrs distance2D player < 15}) exitWith {__COLRED};
 				_not_avail_array deleteAt _curaridx;
 				_mravailable = true;
 				[1,1,1,1.0];
@@ -150,8 +151,11 @@ ctrlMapAnimClear _ctrlmap;
 
 _ctrlmap ctrlMapAnimAdd [0, 1, getPosATL player];
 _ctrlmap ctrlMapAnimAdd [1.2, 1, _end_pos];
-private _zoom = [0.005, 0.5] select (isNil "d_cur_map_endpos");
-_ctrlmap ctrlMapAnimAdd [0.8, _zoom, _end_pos];
+if (!isNil "d_cur_map_endpos") then {
+	_ctrlmap ctrlMapAnimAdd [0.8, (2 * 110 / d_island_x_max) / (safeZoneH * 0.717), _end_pos];
+} else {
+	_ctrlmap ctrlMapAnimAdd [0.8, 0.5, _end_pos];
+};
 ctrlMapAnimCommit _ctrlmap;
 
 if (!isNil "d_cur_map_endpos") then {
