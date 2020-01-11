@@ -14,6 +14,9 @@ clearMagazineCargoGlobal _box;
 clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box enableRopeAttach false;
+if (d_with_dynsim == 0) then {
+	[_box, 5] spawn d_fnc_enabledynsim;
+};
 private _percent = (_this # 1) getVariable "d_abox_perc";
 if (!isNil "_percent") then {
 	_box setVariable ["d_abox_perc", _percent, true];

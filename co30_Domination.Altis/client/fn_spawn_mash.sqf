@@ -51,7 +51,11 @@ sleep 0.2;
 private _medic_tent = createVehicle [d_mash, _d_medtent, [], 0, "NONE"];
 _medic_tent setDir (getDirVisual player - 180);
 _medic_tent setPosATL _d_medtent;
-_medic_tent setVectorUp surfaceNormal _d_medtent;
+if (([_d_medtent, sizeOf d_mash] call d_fnc_getslope) > 0.29) then {
+	_medic_tent setVectorUp surfaceNormal _d_medtent;
+} else {
+	_medic_tent setVectorUp [0,0,1];
+};
 _medic_tent addItemCargoGlobal ["FirstAidKit",25];
 player reveal _medic_tent;
 if (d_with_ranked || {d_database_found}) then {

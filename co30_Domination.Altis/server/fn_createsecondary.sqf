@@ -38,6 +38,10 @@ _vec setVectorUp [0,0,1];
 d_mt_radio_down = false;
 ["d_main_target_radiotower", _poss,"ICON","ColorBlack",[0.5,0.5],localize "STR_DOM_MISSIONSTRING_521",0,"mil_dot"] call d_fnc_CreateMarkerGlobal;
 
+if (d_with_dynsim == 0) then {
+	[_vec, 5] spawn d_fnc_enabledynsim;
+};
+
 #ifndef __TT__
 [9] call d_fnc_DoKBMsg;
 #else
@@ -103,6 +107,9 @@ for "_i" from 1 to _nrcamps do {
 		_wf allowDamage false;
 		_wf setDir (_wf getDir _trg_center);
 		_wf addEventHandler ["HandleDamage", {0}];
+		if (d_with_dynsim == 0) then {
+			[_wf, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 0.3;
 		_poss = getPosASL _wf;
 		_isFirstCamp = false;
@@ -129,6 +136,9 @@ for "_i" from 1 to _nrcamps do {
 		_wf allowDamage false;
 		_wf setDir (_wf getDir _trg_center);
 		_wf addEventHandler ["HandleDamage", {0}];
+		if (d_with_dynsim == 0) then {
+			[_wf, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 0.3;
 		__TRACE_1("1111","_wf")
 
@@ -164,6 +174,9 @@ for "_i" from 1 to _nrcamps do {
 	[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 	_wf setVariable ["d_camp_mar", _maname];
 	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
+	if (d_with_dynsim == 0) then {
+		[_flagPole, 5] spawn d_fnc_enabledynsim;
+	};
 
 #ifndef __TT__
 	[_wf, _flagPole] execFSM "fsms\fn_HandleCamps2.fsm";

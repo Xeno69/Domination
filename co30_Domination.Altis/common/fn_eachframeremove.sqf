@@ -7,6 +7,16 @@ __TRACE_1("","_this")
 
 params ["_name"];
 
+d_ef_store setVariable [_name, nil];
+
+if ((allVariables d_ef_store) isEqualTo []) then {
+	removeMissionEventHandler ["EachFrame", d_ef_running];
+	d_ef_running = -1;
+};
+
+/*
+params ["_name"];
+
 if (_name in (allVariables d_ef_store)) then {
 	d_ef_store setVariable [_name, nil];
 
@@ -27,3 +37,4 @@ if (_name in (allVariables d_ef_store)) then {
 		};
 	} forEach (allVariables d_ef_trig_store);
 };
+*/

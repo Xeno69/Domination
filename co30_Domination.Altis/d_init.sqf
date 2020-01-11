@@ -235,7 +235,7 @@ if (isNil "d_searchbody") then {
 	d_searchbody = objNull;
 };
 if (isNil "d_searchintel") then {
-	d_searchintel = [0,0,0,0,0,0,0];
+	d_searchintel = [0,0,0,0,0,1,0]; // TODO search intel for island patrol groups disabled as those groups are disabled too
 };
 #ifndef __TT__
 if (isNil "d_ari_blocked") then {

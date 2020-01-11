@@ -27,6 +27,9 @@ if (surfaceIsWater _bpos) then {
 };
 _box setVariable ["d_bpos", getPosASL _box];
 _box setVariable ["d_bdir", _dir];
+if (d_with_dynsim == 0) then {
+	[_box, 5] spawn d_fnc_enabledynsim;
+};
 clearWeaponCargoGlobal _box;
 clearMagazineCargoGlobal _box;
 clearBackpackCargoGlobal _box;

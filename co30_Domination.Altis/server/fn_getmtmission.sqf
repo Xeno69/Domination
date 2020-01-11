@@ -101,6 +101,9 @@ switch (_sec_kind) do {
 		__vkilled(radar_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -119,6 +122,9 @@ switch (_sec_kind) do {
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -141,6 +147,9 @@ switch (_sec_kind) do {
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -154,6 +163,9 @@ switch (_sec_kind) do {
 		__vkilled(hq_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -167,6 +179,9 @@ switch (_sec_kind) do {
 		__vkilled(light_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -186,6 +201,9 @@ switch (_sec_kind) do {
 		__vkilled(heavy_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -199,6 +217,9 @@ switch (_sec_kind) do {
 		__vkilled(airrad_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};

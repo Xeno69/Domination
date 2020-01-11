@@ -58,12 +58,12 @@ if (d_database_found) then {
 if ((typeOf _obj) == d_barracks_building) then {
 	private _epos = _obj getVariable "d_v_pos";
 	private _edir = getDir _obj;
+	private _vup = vectorUp _obj;
 	deleteVehicle _obj;
 	_obj = createVehicle ["Land_Slum_House02_ruins_F", _epos, [], 0, "NONE"];
 	_obj setDir _edir;
 	_obj setPos _epos;
-	//_obj setVectorUp [0,0,1];
-	_obj setVectorUp (surfaceNormal _epos);
+	_obj setVectorUp _vup;
 };
 _obj spawn {
 	scriptName "spawn checkmtrespawntarget1";

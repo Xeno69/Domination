@@ -9,8 +9,21 @@ if (!hasInterface) exitWith {};
 // parameters: text (with \n for hints), type of chat ("HQ","SIDE","GLOBAL" or "GROUP")
 // example: ["My nice text\n\nHello World", "HQ"] call d_fnc_HintChatMsg;
 params ["_msg", "_type_chat"];
-hintSilent _msg;
-//private _msg_chat = (_msg splitString "\n") joinString " ";
+
+if (count _msg < 2) exitWith {};
+
+private _ar = [];
+
+for "_i" from 0 to count _msg - 1 do {
+	if (_msg select [_i, 2] == "\n") then {
+		_ar pushBack "<br/>";
+		_i = _i + 1;
+	} else {
+		_ar pushBack (_msg select [_i, 1]);
+	};
+};
+
+hintSilent parseText format ["<t color='#34ebe8' size='1.3' align='center'>%1</t>", _ar joinString ""];
 private _msg_chat = _msg call d_fnc_removelinebreak;
 
 switch (toLowerANSI _type_chat) do {

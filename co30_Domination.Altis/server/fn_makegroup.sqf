@@ -140,11 +140,11 @@ call {
 	};
 };
 
-if (d_with_dynsim == 0) then {
-	[_grp, _sleepti] spawn {
-		scriptName "spawn makegroup";
-		sleep (_this select 1);
-		(_this select 0) call d_fnc_addgrp2hc;
+[_grp, _sleepti] spawn {
+	scriptName "spawn makegroup";
+	sleep (_this select 1);
+	(_this select 0) call d_fnc_addgrp2hc;
+	if (d_with_dynsim == 0) then {
 		(_this select 0) enableDynamicSimulation true;
 	};
 };

@@ -168,7 +168,11 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
 	_vec setPos _poss;
-	_vec setVectorUp (surfaceNormal _poss);
+	if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.29) then {
+		_vec setVectorUp (surfaceNormal _poss);
+	} else {
+		_vec setVectorUp [0,0,1];
+	};
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
@@ -212,10 +216,13 @@ if !(_allbars isEqualTo []) then {
 _poss set [2, 0];
 _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
-//_vec setVectorUp [0, 0, 1];
 _vec setDir (_vec getDir _trg_center);
 _vec setPos _poss;
-_vec setVectorUp (surfaceNormal _poss);
+if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.29) then {
+	_vec setVectorUp (surfaceNormal _poss);
+} else {
+	_vec setVectorUp [0,0,1];
+};
 _vec setVariable ["d_v_pos", getPos _vec];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;

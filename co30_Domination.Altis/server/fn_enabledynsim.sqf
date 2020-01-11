@@ -8,6 +8,6 @@ params ["_obj", ["_stime", 20]];
 if (_stime > 0) then {
 	sleep _stime;
 };
-if (!isNull _obj) then {
+if (!isNull _obj && {!dynamicSimulationEnabled _obj}) then {
 	_obj enableDynamicSimulation true;
 };
