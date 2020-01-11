@@ -46,7 +46,6 @@ if (_uidx == -1) then {
 				if (!alive _mrs) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_595", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (_mrs getVariable ["d_enemy_near", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_597", _ctrl lbText _sel, _logtxt]; __COLRED};
-				if (_wone == 0 && {_mrs distance2D player < 15}) exitWith {__COLRED};
 				_not_avail_array deleteAt _curaridx;
 				_mravailable = true;
 				[1,1,1,1.0];
