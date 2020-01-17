@@ -9,9 +9,9 @@ if !((d_remove_from_arsenal # 3) isEqualTo []) then {
 		private _resg = (d_remove_from_arsenal # 3) findIf {
 			private _res = false;
 			if (_x isEqualType {}) then {
-				_res = _bp call _x;
+				_res = _unip call _x;
 			} else {
-				if (_bp == _x) then {
+				if (_unip == _x) then {
 					_res = true;
 				};
 			};
@@ -24,14 +24,14 @@ if !((d_remove_from_arsenal # 3) isEqualTo []) then {
 };
 
 if !((d_remove_from_arsenal # 4) isEqualTo []) then {
-	private _unip = vest player;
-	if (_unip != "") then {
+	private _vestp = vest player;
+	if (_vestp != "") then {
 		private _resg = (d_remove_from_arsenal # 4) findIf {
 			private _res = false;
 			if (_x isEqualType {}) then {
-				_res = _bp call _x;
+				_res = _vestp call _x;
 			} else {
-				if (_bp == _x) then {
+				if (_vestp == _x) then {
 					_res = true;
 				};
 			};
@@ -46,32 +46,34 @@ if !((d_remove_from_arsenal # 4) isEqualTo []) then {
 if (d_no_mortar_ar == 1) then {
 	if !((d_remove_from_arsenal # 5) isEqualTo []) then {
 		private _bp = backpack player;
-		private _resg = (d_remove_from_arsenal # 5) findIf {
-			private _res = false;
-			if (_x isEqualType {}) then {
-				_res = _bp call _x;
-			} else {
-				if (_bp == _x) then {
-					_res = true;
+		if (_bp != "") then {
+			private _resg = (d_remove_from_arsenal # 5) findIf {
+				private _res = false;
+				if (_x isEqualType {}) then {
+					_res = _bp call _x;
+				} else {
+					if (_bp == _x) then {
+						_res = true;
+					};
 				};
+				_res
 			};
-			_res
-		};
-		if (_resg != -1) then {
-			removeBackpack player;
+			if (_resg != -1) then {
+				removeBackpack player;
+			};
 		};
 	};
 };
 
 if !((d_remove_from_arsenal # 6) isEqualTo []) then {
-	private _unip = headgear player;
-	if (_unip != "") then {
+	private _hgp = headgear player;
+	if (_hgp != "") then {
 		private _resg = (d_remove_from_arsenal # 6) findIf {
 			private _res = false;
 			if (_x isEqualType {}) then {
-				_res = _bp call _x;
+				_res = _hgp call _x;
 			} else {
-				if (_bp == _x) then {
+				if (_hgp == _x) then {
 					_res = true;
 				};
 			};
