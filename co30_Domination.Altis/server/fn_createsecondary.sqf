@@ -20,11 +20,11 @@ while {true} do {
 
 sleep 2.0123;
 
-private _poss = [_trg_center, _mtradius, 3, 1, 0.3, 30, 0] call d_fnc_GetRanPointCircleBig;
+private _poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
 while {_poss isEqualTo []} do {
 	_iccount = _iccount + 1;
-	_poss = [_trg_center, _mtradius, 3, 1, 0.3, 30, 0] call d_fnc_GetRanPointCircleBig;
+	_poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
 	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
 };
 if (isNil "_poss" || {_poss isEqualTo []}) then {
@@ -94,7 +94,7 @@ private _dist_for_points = -1;
 
 private _isFirstCamp = true;
 
-private _parray = [_trg_center, d_cur_target_radius + 200, 4, 1, 0.3, _sizecamp - 2, 0] call d_fnc_GetRanPointCircleBigArray;
+private _parray = [_trg_center, d_cur_target_radius + 200, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 
 for "_i" from 1 to _nrcamps do {
 	private _wf = objNull;
@@ -186,8 +186,24 @@ for "_i" from 1 to _nrcamps do {
 
 	sleep 0.5;
 
-	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 20}) then {
-		["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
+	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 10}) then {
+		private _retgr = ["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
+		(_retgr # 1) spawn {
+			sleep 20;
+			{
+				if (d_with_dynsim == 0) then {
+					_x enableDynamicSimulation false;
+					sleep 0.2;
+				};
+				if (animationState _x == "afalpercmstpsraswrfldnon") then {
+					private _hpos = getPosWorld _x;
+					_x setPos [_hpos # 0, _hpos # 1, 0];
+				};
+				if (d_with_dynsim == 0) then {
+					_x enableDynamicSimulation true;
+				};
+			} forEach (_this select {alive _x});
+		};
 	};
 };
 

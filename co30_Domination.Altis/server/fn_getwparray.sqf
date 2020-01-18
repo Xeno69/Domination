@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 
 __TRACE_1("","_this")
-params ["_tc", "_radius","_mode", ["_sizem", 2], ["_maxgrad", 0.7], ["_gradar", 4]];
+params ["_tc", "_radius","_mode", ["_sizem", 1], ["_maxgrad", 0.7]];
 private _wfunc = if (_mode isEqualTo 0) then {
 	d_fnc_GetRanPointCircle
 } else {
@@ -13,10 +13,10 @@ private _wfunc = if (_mode isEqualTo 0) then {
 private _wp_a = [];
 _wp_a resize 60;
 for "_i" from 0 to 59 do {
-	private _point = [_tc, _radius, _sizem, _maxgrad, _gradar] call _wfunc;
+	private _point = [_tc, _radius, _sizem, _maxgrad] call _wfunc;
 	if (_point isEqualTo []) then {
-		for "_e" from 0 to 99 do {
-			_point = [_tc, _radius, _sizem, _maxgrad, _gradar] call _wfunc;
+		for "_e" from 0 to 49 do {
+			_point = [_tc, _radius, _sizem, _maxgrad] call _wfunc;
 			if !(_point isEqualTo []) exitWith {
 				_wp_a set [_i, _point];
 #ifdef __DEBUG__

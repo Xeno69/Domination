@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 
 // supports also patrols in square areas, including angle
-params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 2], ["_full", false]];
+params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 1], ["_full", false]];
 
 __TRACE_1("","_this")
 

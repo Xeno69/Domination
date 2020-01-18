@@ -122,6 +122,9 @@ private _make_jump = {
 		if (!isNull _helperh) then {
 			deleteVehicle _helperh;
 		};
+		if (!isNull _vec) then {
+			[_crew_vec, _vec, 1 + random 1] spawn _delveccrew;
+		};
 		__TRACE("1 stop me true")
 	};
 	__TRACE("MT dist loop end")

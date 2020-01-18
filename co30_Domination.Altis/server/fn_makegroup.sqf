@@ -148,3 +148,5 @@ call {
 		(_this select 0) enableDynamicSimulation true;
 	};
 };
+
+[_grp, _uinf, _vecs]

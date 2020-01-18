@@ -32,6 +32,10 @@ if (_rdm < 0.0) then {
 	};
 };
 
+if (isNil "d_struct_patches_ar") then {
+	d_struct_patches_ar = getArray(configFile>>"CfgPatches">>"A3_Structures_F_Ind_Transmitter_Tower">>"units") apply {toLowerANSI _x};
+};
+
 //See if an object array, specific composition class or tag array was given
 private ["_script"];
 private _cfgObjectComps = configFile >> "CfgObjectCompositions";
@@ -122,6 +126,7 @@ private _multiplyMatrixFunc = {
 		//Create the object and make sure it's in the correct location
 		//_newObj = _type createVehicle _newPos;
 		//_newObj = createSimpleObject [_type, AGLToASL _newPos];
+		private _dosurface = true;
 		private "_newObj";
 		if (_type isKindOf "StaticWeapon" || {_type isKindOf "BagBunker_base_F"}) then {
 			_newObj = createVehicle [_type, _newPos, [], 0, "CAN_COLLIDE"];
@@ -137,8 +142,13 @@ private _multiplyMatrixFunc = {
 			_newObj = [_type, AGLToASL _newPos, 0, true] call d_fnc_createSimpleObject;
 			_newObj setDir (_azi + _azimuth);
 			_newObj setPosWorld (getPosWorld _newObj);
+			_dosurface = !(toLowerANSI _type in d_struct_patches_ar);
 		};
-		_newObj setVectorUp (surfaceNormal _newPos);
+		if (_dosurface) then {
+			_newObj setVectorUp (surfaceNormal _newPos);
+		} else {
+			_newObj setVectorUp [0, 0, 1];
+		};
 		
 		//if (!_ASL) then {_newObj setPos _newPos;} else {_newObj setPosASL _newPos; _newObj setVariable ["BIS_DynO_ASL", true];};
 		

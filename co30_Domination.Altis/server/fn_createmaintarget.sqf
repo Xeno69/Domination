@@ -138,7 +138,9 @@ d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 
-private _parray = [_trg_center, d_cur_target_radius + 100, 4, 1, 0.3, sizeOf d_barracks_building, 0] call d_fnc_GetRanPointCircleBigArray;
+private _parray = [_trg_center, d_cur_target_radius + 150, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+
+__TRACE_1("","_parray")
 
 private ["_iccount", "_ecounter", "_poss"];
 private _vec = objNull;
@@ -267,7 +269,7 @@ private _comppost = [];
 			private _ppos = _curar select _wp_ran;
 			private _iscompost = false;
 			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
-				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
+				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 12, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
 				if !(_nppos isEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {

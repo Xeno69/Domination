@@ -33,3 +33,4 @@
 - Fixed: When a player gets uncon over the sea, waterfix should no longer put the player object under a pier or rock at the beach
 - Fixed: Service point 3D marker was not drawn for all service points (especially not on carriers)
 - Fixed: Some remote messages were translated with the sender localization instead of the receiver client localization
+- Fixed: Enemy AI inf units should no longer longer hover near camps (hopefully fixed)

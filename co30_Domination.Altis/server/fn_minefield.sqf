@@ -7,11 +7,11 @@ params ["_radius", "_center"];
 
 private _num_mines = (floor (random 20)) max 10;
 
-private _ran_start_pos = [_center, _radius, 0] call d_fnc_GetRanPointCircle;
+private _ran_start_pos = [_center, _radius, -1] call d_fnc_GetRanPointCircle;
 private _m_pos_ar = [];
 
 for "_i" from 1 to _num_mines do {
-	_m_pos_ar pushBack ([_ran_start_pos, 100, 0] call d_fnc_GetRanPointCircle);
+	_m_pos_ar pushBack ([_ran_start_pos, 100, -1] call d_fnc_GetRanPointCircle);
 };
 
 d_mines_created = [];

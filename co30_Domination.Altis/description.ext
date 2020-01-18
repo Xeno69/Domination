@@ -972,9 +972,9 @@ class Params {
 
 	class d_max_ai {
 		title = "$STR_DOM_MISSIONSTRING_1176";
-		values[] = {6,8,10,12,14,16};
+		values[] = {4,6,8,10,12,14,16};
 		default = 8;
-		texts[] = {"6","8","10","12","14","16"};
+		texts[] = {"4","6","8","10","12","14","16"};
 	};
 
 	class d_ai_alone_in_vehicle {
@@ -1176,9 +1176,9 @@ class Params {
 
 	class d_maxnum_tks_forkick {
 		title = "$STR_DOM_MISSIONSTRING_1197";
-		values[] = {1,3,5,10,20,30,40,1000000};
+		values[] = {1,2,3,5,10,20,30,40,1000000};
 		default = 10;
-		texts[] = {"1","3","5","10","20","30","40","$STR_DOM_MISSIONSTRING_1198"};
+		texts[] = {"1","2","3","5","10","20","30","40","$STR_DOM_MISSIONSTRING_1198"};
 	};
 
 	class d_player_kick_shootingbase {
