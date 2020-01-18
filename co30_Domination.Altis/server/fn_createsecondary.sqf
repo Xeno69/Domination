@@ -94,7 +94,7 @@ private _dist_for_points = -1;
 
 private _isFirstCamp = true;
 
-private _parray = [_trg_center, d_cur_target_radius + 200, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+private _parray = [_trg_center, d_cur_target_radius + 200, 4, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 
 for "_i" from 1 to _nrcamps do {
 	private _wf = objNull;

@@ -142,11 +142,15 @@ private _multiplyMatrixFunc = {
 			_newObj = [_type, AGLToASL _newPos, 0, true] call d_fnc_createSimpleObject;
 			_newObj setDir (_azi + _azimuth);
 			_newObj setPosWorld (getPosWorld _newObj);
-			_dosurface = !(toLowerANSI _type in d_struct_patches_ar);
+			if (toLowerANSI _type in d_struct_patches_ar) then {
+				_dosurface = false;
+			};
 		};
 		if (_dosurface) then {
-			_newObj setVectorUp (surfaceNormal _newPos);
+			_newObj setVectorUp (surfaceNormal (getPos _newObj));
+			__TRACE_3("setVectorUp surfaceNormal","_type","_newObj","surfaceNormal _newPos")
 		} else {
+			__TRACE_2("setVectorUp 001","_type","_newObj")
 			_newObj setVectorUp [0, 0, 1];
 		};
 		
@@ -157,6 +161,7 @@ private _multiplyMatrixFunc = {
 		if (!isNil "_damage") then {_newObj setDamage _damage;};
 		if (!isNil "_orientation") then  {
 			if ((count _orientation) > 0) then {
+				__TRACE_2("do orientation","_type","_newObj")
 				([_newObj] + _orientation) call BIS_fnc_setPitchBank;
 			};
 		};
