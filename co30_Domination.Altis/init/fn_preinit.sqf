@@ -1748,6 +1748,9 @@ d_base_apc_vec =
 		d_ai_groups_respawn_time = [250, 150, 320, 170];
 	};
 	
+	// set to true to disable ambient battlefield sounds at main targets
+	d_noambient_bf_sounds = false;
+	
 	d_dbox_idx = 0;
 };
 

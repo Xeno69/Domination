@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_createambient.sqf"
 #include "..\x_setup.sqf"
 
+if (d_noambient_bf_sounds) exitWith {};
+
 private _sounds = [
 	"BattlefieldExplosions1_3D",
 	"BattlefieldExplosions2_3D",
