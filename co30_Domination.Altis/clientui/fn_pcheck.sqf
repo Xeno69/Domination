@@ -20,7 +20,7 @@ if !((d_remove_from_arsenal # 3) isEqualTo []) then {
 		if (_resg != -1) then {
 			removeUniform player;
 			private _ounip = player getVariable "d_uniformp";
-			if (!isNil "_ounip") then {
+			if (!isNil "_ounip" && {_unip != _ounip}) then {
 				player addUniform _ounip;
 			};
 		};
@@ -44,34 +44,32 @@ if !((d_remove_from_arsenal # 4) isEqualTo []) then {
 		if (_resg != -1) then {
 			removeVest player;
 			private _ovestp = player getVariable "d_vestp";
-			if (!isNil "_ovestp") then {
+			if (!isNil "_ovestp" && {_vestp != _ovestp}) then {
 				player addVest _ovestp;
 			};
 		};
 	};
 };
 
-if (d_no_mortar_ar == 1) then {
-	if !((d_remove_from_arsenal # 5) isEqualTo []) then {
-		private _bp = backpack player;
-		if (_bp != "") then {
-			private _resg = (d_remove_from_arsenal # 5) findIf {
-				private _res = false;
-				if (_x isEqualType {}) then {
-					_res = _bp call _x;
-				} else {
-					if (_bp == _x) then {
-						_res = true;
-					};
+if !((d_remove_from_arsenal # 5) isEqualTo []) then {
+	private _bp = backpack player;
+	if (_bp != "") then {
+		private _resg = (d_remove_from_arsenal # 5) findIf {
+			private _res = false;
+			if (_x isEqualType {}) then {
+				_res = _bp call _x;
+			} else {
+				if (_bp == _x) then {
+					_res = true;
 				};
-				_res
 			};
-			if (_resg != -1) then {
-				removeBackpack player;
-				private _obackpp = player getVariable "d_backpackp";
-				if (!isNil "_obackpp") then {
-					player addBackpack _obackpp;
-				};
+			_res
+		};
+		if (_resg != -1) then {
+			removeBackpack player;
+			private _obackpp = player getVariable "d_backpackp";
+			if (!isNil "_obackpp" && {_bp != _obackpp}) then {
+				player addBackpack _obackpp;
 			};
 		};
 	};
@@ -94,7 +92,7 @@ if !((d_remove_from_arsenal # 6) isEqualTo []) then {
 		if (_resg != -1) then {
 			removeHeadgear player;
 			private _ohgp = player getVariable "d_headgearp";
-			if (!isNil "_ohgp") then {
+			if (!isNil "_ohgp" && {_hgp != _ohgp}) then {
 				player addHeadgear _ohgp;
 			};
 		};
