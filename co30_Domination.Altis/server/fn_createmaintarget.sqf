@@ -170,7 +170,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
 	_vec setPos _poss;
-	if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.35) then {
+	if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.39) then {
 		_vec setVectorUp (surfaceNormal _poss);
 	} else {
 		_vec setVectorUp [0,0,1];
@@ -220,7 +220,7 @@ _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
 _vec setDir (_vec getDir _trg_center);
 _vec setPos _poss;
-if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.35) then {
+if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.39) then {
 	_vec setVectorUp (surfaceNormal _poss);
 } else {
 	_vec setVectorUp [0,0,1];

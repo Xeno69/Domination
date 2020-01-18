@@ -364,6 +364,9 @@ if (d_searchintel # 0 == 1) then {
 private _crews_ar = [];
 private _vecs_ar = [];
 
+private _diststoa = 40000 * (1 / (_startpoint distance2D _attackpoint));
+__TRACE_1("","_diststoa")
+
 private _icounter = 0;
 while {_icounter < _number_vehicles} do {
 	if (d_mt_radio_down || {d_cur_tgt_pos distance2D _cur_tgt_pos > 500}) exitWith {_stop_it = true};
@@ -382,7 +385,7 @@ while {_icounter < _number_vehicles} do {
 
 	_vgrp deleteGroupWhenEmpty true;
 
-	private _etime = time + 5.012;
+	private _etime = time + 5.012 + _diststoa;
 	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};
 	__TRACE("5 seconds over")
 
