@@ -15,6 +15,11 @@ if (!isNil {_box getVariable "d_islocked"} && {_box getVariable "d_islocked" != 
 	true
 };
 
+player setVariable ["d_uniformp", uniform player];
+player setVariable ["d_vestp", vest player];
+player setVariable ["d_backpackp", backpack player];
+player setVariable ["d_headgearp", headgear player];
+
 if (_box getVariable ["d_player_ammobox", false]) then {
 	private _canopen = true;
 	private _perc = _box getVariable "d_abox_perc";

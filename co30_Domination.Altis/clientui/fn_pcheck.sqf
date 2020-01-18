@@ -19,6 +19,10 @@ if !((d_remove_from_arsenal # 3) isEqualTo []) then {
 		};
 		if (_resg != -1) then {
 			removeUniform player;
+			private _ounip = player getVariable "d_uniformp";
+			if (!isNil "_ounip") then {
+				player addUniform _ounip;
+			};
 		};
 	};
 };
@@ -39,6 +43,10 @@ if !((d_remove_from_arsenal # 4) isEqualTo []) then {
 		};
 		if (_resg != -1) then {
 			removeVest player;
+			private _ovestp = player getVariable "d_vestp";
+			if (!isNil "_ovestp") then {
+				player addVest _ovestp;
+			};
 		};
 	};
 };
@@ -60,6 +68,10 @@ if (d_no_mortar_ar == 1) then {
 			};
 			if (_resg != -1) then {
 				removeBackpack player;
+				private _obackpp = player getVariable "d_backpackp";
+				if (!isNil "_obackpp") then {
+					player addBackpack _obackpp;
+				};
 			};
 		};
 	};
@@ -81,6 +93,10 @@ if !((d_remove_from_arsenal # 6) isEqualTo []) then {
 		};
 		if (_resg != -1) then {
 			removeHeadgear player;
+			private _ohgp = player getVariable "d_headgearp";
+			if (!isNil "_ohgp") then {
+				player addHeadgear _ohgp;
+			};
 		};
 	};
 };
