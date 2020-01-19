@@ -62,6 +62,11 @@ private _nightorfog = call d_fnc_nightfograin;
 		d_infunitswithoutleader = d_infunitswithoutleader + 1;
 	};
 #endif
+	private _bino = binocular _one_unit;
+	__TRACE_1("","_bino")
+	if !(_bino isEqualTo "") then {
+		_one_unit removeWeapon _bino;
+	};
 } forEach _unitliste;
 _ret joinSilent _grp;
 #ifdef __TT__
@@ -75,11 +80,6 @@ if (side _grp == d_side_enemy) then {
 };
 #endif
 (leader _grp) setRank "SERGEANT";
-// I can't stand enemy AI leaders running around with Binos in their hands constantly
-private _bino = binocular (leader _grp);
-if !(_bino isEqualTo "") then {
-	(leader _grp) removeWeapon _bino;
-};
 #ifndef __TT__
 _ret call d_fnc_addceo;
 #endif

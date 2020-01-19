@@ -186,6 +186,10 @@ private _make_jump = {
 					[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 					[_one_unit, 3] call d_fnc_setekmode;
 					sleep 0.01;
+					private _bino = binocular _one_unit;
+					if !(_bino isEqualTo "") then {
+						_one_unit removeWeapon _bino;
+					};
 					if (!alive _vec) exitWith {
 						__TRACE("vec not alive")
 					};
@@ -199,10 +203,6 @@ private _make_jump = {
 					sleep 0.5;
 				} forEach _aunits;
 				__TRACE("paragrp units moveout")
-				private _bino = binocular (leader _paragrp);
-				if !(_bino isEqualTo "") then {
-					(leader _paragrp) removeWeapon _bino;
-				};
 #ifdef __TT__
 				if (d_with_ace) then {
 					_paragrp setVariable ["d_ktypett", 1];
