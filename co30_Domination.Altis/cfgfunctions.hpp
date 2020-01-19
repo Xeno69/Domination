@@ -543,6 +543,7 @@ class cfgFunctions {
 			addc(addscore);
 			addc(sub_box);
 			addc(nodamoff);
+			addc(umadel);
 		};
 		class Dom_PrePostInit {
 			file = "init";
