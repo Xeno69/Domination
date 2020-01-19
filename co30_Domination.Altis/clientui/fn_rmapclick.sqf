@@ -28,8 +28,23 @@ if (_idx != -1) then {
 	private _ctrl = _disp displayCtrl 1500;
 
 	if (lbCurSel _ctrl != _idx) then {
-		_ctrl lbSetCurSel _idx;
-		_same = false;
+		private _midx = -1;
+		private _curdata = _ctrl lbData (lbCurSel _ctrl);
+		private _mrs = missionNamespace getVariable [_curdata, objNull];
+		if (!isNull _mrs) then {
+			if (_mrs distance2D _pos < 40) then {
+				private _lbd = _ctrl lbData _idx;
+				__TRACE_1("","_lbd")
+				_midx = d_mob_respawns findIf {
+					(_x # 0) == _lbd
+				};
+			};
+		};
+		__TRACE_1("","_midx")
+		if (_midx == -1) then {
+			_ctrl lbSetCurSel _idx;
+			_same = false;
+		};
 	};
 };
 

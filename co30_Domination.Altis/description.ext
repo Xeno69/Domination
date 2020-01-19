@@ -569,6 +569,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_va_percentage {
+		title = "$STR_DOM_MISSIONSTRING_1992";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";

@@ -462,7 +462,7 @@ d_points_needed_15 = (d_points_needed # 6) + 15000;
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 4.20"];
+diag_log ["Internal D Version: 4.21"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {

@@ -1,38 +1,6 @@
-4.21
+4.22
 
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 
-4.20
-
-- Added: Parameters for enemy spawn radius for AI which occupies buildings by longtimegamer
-- Added: Overwatch mode for static infantry in building by longtimegamer
-- Added: Object compositions at main targets
-- Added: If a player wants to teleport or respawn at a MHQ he/she can select an alternative position 40 meter around the MHQ (zoom map and an extra markers shows you the possible alternative area; left click selects alternative position, ALT left click resets it)
-- Changed: Shorter names for some classes in CfgParams (note that you have to check your DB params too; best to recreate them completely)
-- Changed: Lift choppper (chopper 1) will now respawn after 10 minutes (if empty), like the wreck lift chopper
-- Changed: Remove user markers at a main target after target is seized (cleanup)
-- Changed: Parajump does no longer spawn a client side chopper for ejecting (caused issues without createVehicleLocal)
-- Changed: Placing explosives near ammo boxes is no longer possible (prevents idiots from placing thousands of mines around respawn points)
-- Changed: Dropped ammo boxes (e.g. from MHQ) can now only be accessed about 1000 times from players; they then get deleted
-- Changed: Moved player killed check to server entitykilled instead of sending a remoteExec from the killed client to the server everytime
-- Changed: Enabled AMRAAM type missiles for pylon loadout again
-- Changed: Squad leader gets one point when another group member spawns at his/her position (only available in ranked mode or a database is running)
-- Changed: Removed some more uniforms/vests and backpacks from Virtual Arsenal
-- Changed: More strict check and removal of disabled Virtual Arsenal uniforms/vests/backpacks and headgear
-- Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
-- Fixed: Sometimes dropped box markers did not get deleted
-- Fixed: Removed binoculars from enemy AI group leaders so that they don't run around with a bino in their hands constantly
-- Fixed: No chat message when an ammobox near a vehicle was loaded
-- Fixed: Moved revive help message a little bit to the left to avoid cut off text
-- Fixed: AI inf barracks respawn handling did sometimes not select another barrack when one was destroyed
-- Fixed: Pressing the M key in the spectating dialog to open the (respawn) map did not close the player panel
-- Fixed: Loading gear setup in Virtual Arsenal was still possible in ranked mode with key combo CTRL-O
-- Fixed: Added missing shotboundingmine simulation to check for explosives laid at base
-- Fixed: Enemy AI vehicles should no longer explode during creation
-- Fixed: Camp dialog progress resource did not show again if a player was killed inside the camp area
-- Fixed: Carrier service trigger was created on sea level and not on the carrier flight deck
-- Fixed: When a player gets uncon over the sea, waterfix should no longer put the player object under a pier or rock at the beach
-- Fixed: Service point 3D marker was not drawn for all service points (especially not on carriers)
-- Fixed: Some remote messages were translated with the sender localization instead of the receiver client localization
-- Fixed: Enemy AI inf units should no longer longer hover near camps (hopefully fixed)
+4.21

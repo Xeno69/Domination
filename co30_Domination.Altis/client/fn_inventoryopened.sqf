@@ -22,13 +22,15 @@ player setVariable ["d_headgearp", headgear player];
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	private _canopen = true;
-	private _perc = _box getVariable "d_abox_perc";
-	if (!isNil "_perc") then {
-		__TRACE("Calling sub box")
-		_box remoteExecCall ["d_fnc_sub_box", 2];
-		if (_perc == 0) then {
-			_canopen = false;
-		};		
+	if (d_va_percentage == 0) then {
+		private _perc = _box getVariable "d_abox_perc";
+		if (!isNil "_perc") then {
+			__TRACE("Calling sub box")
+			_box remoteExecCall ["d_fnc_sub_box", 2];
+			if (_perc == 0) then {
+				_canopen = false;
+			};		
+		};
 	};
 	if (_canopen) then {
 		_box spawn {

@@ -11690,6 +11690,17 @@
 <Chinesesimp>ALT click inside the circle resets the position to the default position</Chinesesimp>
 <Chinese>ALT click inside the circle resets the position to the default position</Chinese>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1992">
+<English>Limit Virtual Arsenal ammo box access too 1000</English>
+<Spanish>Limit Virtual Arsenal ammo box access too 1000</Spanish>
+<Portuguese>Limit Virtual Arsenal ammo box access too 1000</Portuguese>
+<Korean>Limit Virtual Arsenal ammo box access too 1000</Korean>
+<Japanese>Limit Virtual Arsenal ammo box access too 1000</Japanese>
+<Original>Limit Virtual Arsenal ammo box access too 1000</Original>
+<Russian>Limit Virtual Arsenal ammo box access too 1000</Russian>
+<Chinesesimp>Limit Virtual Arsenal ammo box access too 1000</Chinesesimp>
+<Chinese>Limit Virtual Arsenal ammo box access too 1000</Chinese>
+</Key>
 </Container>
 </Package>
 </Project>
