@@ -5,6 +5,6 @@
 
 4.21
 
-- Added: Server param to turn off Virtual Arsenal ammo box limitation
+- Added: Server param to turn off Virtual Arsenal ammo box limitation (d_va_percentage)
 - Changed: Don't select another respawn/teleport point inside the 40 m MHQ area by map click
 - Fixed: Some object classes return a sizeOf value of zero so positions might not fit for those objects
