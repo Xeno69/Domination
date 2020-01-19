@@ -54,7 +54,7 @@ switch (_sec_kind) do {
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = sizeOf d_soldier_officer;
+		private _svec = 1;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
@@ -92,7 +92,7 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 2: {
-		private _svec = sizeOf d_air_radar2;
+		private _svec = 8;
 		__getPos;
 		private _vec = createVehicle [d_air_radar2, _poss, [], 0, "NONE"];
 		_vec setDir (random 360);
@@ -108,7 +108,7 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 3: {
-		private _svec = sizeOf d_sm_ammotrucktype;
+		private _svec = 6;
 		__getPos;
 		private _vec = createVehicle [d_sm_ammotrucktype, _poss, [], 0, "NONE"];
 		_vec call d_fnc_nodamoff;
@@ -131,7 +131,7 @@ switch (_sec_kind) do {
 	case 4: {
 		private _vec = createVehicle [d_sm_medtrucktype, _poss, [], 0, "NONE"];
 		_vec call d_fnc_nodamoff;
-		private _svec = sizeOf d_sm_medtrucktype;
+		private _svec = 6;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
@@ -170,7 +170,7 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 6: {
-		private _svec = sizeOf "Land_dp_transformer_F";
+		private _svec = 6;
 		__getPos;
 		private _vec = createVehicle ["Land_dp_transformer_F", _poss, [], 0, "NONE"];
 		_vec setDir (floor random 360);
@@ -187,7 +187,7 @@ switch (_sec_kind) do {
 	};
 	case 7: {
 		private _fact = "Land_IndustrialShed_01_F";
-		private _svec = sizeOf _fact;
+		private _svec = 15;
 		__getPos;
 		/*_fact = switch (d_enemy_side_short) do {
 			case "E": {"Land_spp_Transformer_F"};
@@ -230,7 +230,7 @@ switch (_sec_kind) do {
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = sizeOf _ctype;
+		private _svec = 1;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
@@ -276,7 +276,7 @@ switch (_sec_kind) do {
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = sizeOf _ctype;
+		private _svec = 1;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];

@@ -152,7 +152,6 @@ private _make_jump = {
 			};
 			if (alive _vec && {alive _driver_vec && {canMove _vec}}) then {
 				sleep 1;
-				_paragrp = [d_side_enemy] call d_fnc_creategroup;
 				__TRACE_1("","_paragrp")
 				private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 				sleep 0.1;
@@ -162,6 +161,8 @@ private _make_jump = {
 				private _nightorfog = call d_fnc_nightfograin;
 				__TRACE_1("","_nightorfog")
 				private _aunits = [];
+				_paragrp = [d_side_enemy] call d_fnc_creategroup;
+				_paragrp setVariable ["d_respawninfo", ["allmen", [], d_cur_tgt_pos, 0, selectRandom ["patrol", "patrol2"], d_enemy_side_short, 0, -1.111, 1, [d_cur_tgt_pos, d_cur_target_radius], false, []]];
 				{
 					private _one_unit = _paragrp createUnit [_x, [0,0,0], [], 0, "NONE"];
 					[_one_unit] joinSilent _paragrp;
@@ -183,6 +184,7 @@ private _make_jump = {
 					_one_unit disableAI "RADIOPROTOCOL";
 					d_delinfsm pushBack _one_unit;
 					[_one_unit, _nightorfog, true] call d_fnc_changeskill;
+					[_one_unit, 3] call d_fnc_setekmode;
 					sleep 0.01;
 					if (!alive _vec) exitWith {
 						__TRACE("vec not alive")
@@ -257,6 +259,8 @@ private _make_jump = {
 				__TRACE_1("","_nightorfog")
 				private _sleeptime = [0.551, 0.15] select (speed _vec > 300);
 				__TRACE_1("","_sleeptime")
+				_paragrp = [d_side_enemy] call d_fnc_creategroup;
+				_paragrp setVariable ["d_respawninfo", ["allmen", [], d_cur_tgt_pos, 0, selectRandom ["patrol", "patrol2"], d_enemy_side_short, 0, -1.111, 1, [d_cur_tgt_pos, d_cur_target_radius], false, []]];
 				{
 					private _pposcx = getPosASL _vec;
 					private _one_unit = _paragrp createUnit [_x, [0,0,0], [], 0, "NONE"];
@@ -280,6 +284,7 @@ private _make_jump = {
 					//_one_unit enableStamina false;
 					//_one_unit enableFatigue false;
 					_one_unit disableAI "RADIOPROTOCOL";
+					[_one_unit, 3] call d_fnc_setekmode;
 					d_delinfsm pushBack _one_unit;
 					[_one_unit, _nightorfog, true] call d_fnc_changeskill;
 					sleep _sleeptime;

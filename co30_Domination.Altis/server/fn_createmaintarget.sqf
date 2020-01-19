@@ -138,7 +138,7 @@ d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 
-private _parray = [_trg_center, d_cur_target_radius + 150, 5, 0.4, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+private _parray = [_trg_center, d_cur_target_radius + 150, 11, 0.4, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 
 __TRACE_1("","_parray")
 
@@ -170,7 +170,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
 	_vec setPos _poss;
-	if (([_poss, sizeOf d_barracks_building] call d_fnc_getslope) > 0.39) then {
+	if (([_poss, 11] call d_fnc_getslope) > 0.39) then {
 		_vec setVectorUp (surfaceNormal _poss);
 	} else {
 		_vec setVectorUp [0,0,1];

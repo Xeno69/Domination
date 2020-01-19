@@ -51,7 +51,7 @@ sleep 0.2;
 private _medic_tent = createVehicle [d_mash, _d_medtent, [], 0, "NONE"];
 _medic_tent setDir (getDirVisual player - 180);
 _medic_tent setPosATL _d_medtent;
-if (([_d_medtent, sizeOf d_mash] call d_fnc_getslope) > 0.29) then {
+if (([_d_medtent, 1] call d_fnc_getslope) > 0.29) then {
 	_medic_tent setVectorUp surfaceNormal _d_medtent;
 } else {
 	_medic_tent setVectorUp [0,0,1];
