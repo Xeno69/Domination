@@ -5,6 +5,9 @@
 
 params ["_opos", "_radpatr"];
 _opos =+ _opos;
+
+sleep 5;
+
 private _musers = [];
 private _mmarkers = [];
 {
