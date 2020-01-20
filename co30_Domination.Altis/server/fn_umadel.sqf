@@ -4,6 +4,7 @@
 #include "..\x_setup.sqf"
 
 params ["_opos", "_radpatr"];
+_opos =+ _opos;
 private _musers = [];
 private _mmarkers = [];
 {
