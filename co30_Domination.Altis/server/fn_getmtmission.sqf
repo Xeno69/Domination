@@ -40,7 +40,7 @@ if (d_mt_respawngroups == 0) then { \
 
 if !(isServer) exitWith {};
 
-sleep 3.120;
+sleep 1.120;
 private _poss = _wp_array select ((count _wp_array) call d_fnc_RandomFloor);
 
 private _sec_kind = (floor (random 10)) + 1;

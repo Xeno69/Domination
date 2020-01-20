@@ -169,19 +169,19 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_poss set [2, 0];
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
-	_vec setPos _poss;
-	if (([getPos _vec, 11] call d_fnc_getslope) > 0.45) then {
+	//_vec setPos _poss;
+	if (([getPos _vec, 11] call d_fnc_getslope) > 0.3) then {
 		_vec setVectorUp (surfaceNormal (getPos _vec));
-	} else {
+	};/* else {
 		_vec setVectorUp [0,0,1];
-	};
+	};*/
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
 	d_bara_trig_ar pushBack _trig;
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
-	sleep 0.5;
+	sleep 0.1;
 	__TRACE_1("1111","_vec")
 
 	_parray deleteAt _idx;
@@ -219,12 +219,12 @@ _poss set [2, 0];
 _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
 _vec setDir (_vec getDir _trg_center);
-_vec setPos _poss;
-if (([getPos _vec, sizeOf d_vehicle_building] call d_fnc_getslope) > 0.45) then {
+//_vec setPos _poss;
+if (([getPos _vec, sizeOf d_vehicle_building] call d_fnc_getslope) > 0.3) then {
 	_vec setVectorUp (surfaceNormal (getPos _vec));
-} else {
+};/* else {
 	_vec setVectorUp [0,0,1];
-};
+};*/
 _vec setVariable ["d_v_pos", getPos _vec];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
@@ -285,7 +285,7 @@ private _comppost = [];
 			};
 			[_x # 0, [_ppos], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;
-			sleep 0.4;
+			sleep 0.2;
 		};
 	};
 } forEach (_type_list_guard select {_x # 2 > 0});
@@ -316,7 +316,7 @@ sleep 0.233;
 			};
 			[_x # 0, [_ppos], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;
-			sleep 0.4;
+			sleep 0.2;
 		};
 	};
 } forEach (_type_list_guard_static select {_x # 2 > 0});
@@ -337,7 +337,7 @@ sleep 0.233;
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
 			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;
-			sleep 0.4;
+			sleep 0.2;
 		};
 	};
 } forEach (_type_list_patrol select {_x # 2 > 0});
@@ -347,7 +347,7 @@ _type_list_guard_static = nil;
 _type_list_guard_static2 = nil;
 _type_list_patrol = nil;
 
-sleep 2.124;
+sleep 1.124;
 
 if (d_no_more_observers < 2) then {
 	d_nr_observers = floor random 4;
@@ -379,7 +379,7 @@ if (d_no_more_observers < 2) then {
 			(_this select 0) removeAllEventHandlers "killed";
 		}];
 		d_obs_array set [_xx, _observer];
-		sleep 0.4;
+		sleep 0.2;
 	};
 
 	d_delinfsm append d_obs_array;

@@ -9,7 +9,7 @@ __TRACE_1("","_this")
 
 params ["_wp_array", "_mtradius", "_trg_center"];
 
-sleep 2.120;
+sleep 1.120;
 
 private _mtmhandle = _this spawn d_fnc_getmtmission;
 
@@ -18,7 +18,7 @@ while {true} do {
 	if (scriptDone _mtmhandle) exitWith {};
 };
 
-sleep 2.0123;
+sleep 1.0123;
 
 private _poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
@@ -32,7 +32,6 @@ if (isNil "_poss" || {_poss isEqualTo []}) then {
 };
 _poss set [2, 0];
 private _vec = createVehicle [d_illum_tower, _poss, [], 0, "NONE"];
-_vec setPos _poss;
 _vec setVectorUp [0,0,1];
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
@@ -54,11 +53,10 @@ sleep 1.0112;
 #ifndef __TT__
 sleep 1;
 [54] call d_fnc_DoKBMsg;
-sleep 2.234;
 #else
 [56] call d_fnc_DoKBMsg;
-sleep 2.234;
 #endif
+sleep 1.234;
 
 d_mt_spotted = false;
 d_create_new_paras = false;
@@ -68,7 +66,7 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
-sleep 2.234;
+sleep 1.234;
 #ifndef __TT__
 private "_nrcamps";
 if (d_max_camp_cnt != -1 ) then {
