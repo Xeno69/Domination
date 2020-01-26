@@ -70,7 +70,7 @@ sleep 1.234;
 #ifndef __TT__
 private "_nrcamps";
 if (d_max_camp_cnt_method == 1 && d_max_camp_cnt > 0) then {
-	_nrcamps = d_max_camp_cnt
+	_nrcamps = d_max_camp_cnt;
 } else {
 	if (d_max_camp_cnt != -1 ) then {
 		//max camps is set, overwrite the random value
@@ -81,7 +81,7 @@ if (d_max_camp_cnt_method == 1 && d_max_camp_cnt > 0) then {
 	} else {
 		_nrcamps = (ceil random 5) max 3;
 	};
-}
+};
 #else
 private _nrcamps = (ceil random 6) max 4;
 #endif
