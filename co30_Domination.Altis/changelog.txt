@@ -1,11 +1,9 @@
-4.22
+4.23
 
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 
-4.21
+4.22
 
-- Added: Server param to turn off Virtual Arsenal ammo box limitation (d_va_percentage)
-- Fixed: Don't select another respawn/teleport point which may be inside the 40 m MHQ area by map click
-- Fixed: Some object classes return a sizeOf value of zero so positions might not fit for those objects
-- Fixed: Not all binoculars were removed from AI units
+- Fixed: Do not select another respawn like squad leader inside the 40m MHQ alternative respawn area (now really fixed)
+- Fixed: Somehow a "p" landed at the end of d_launcher_cooldown in description.ext

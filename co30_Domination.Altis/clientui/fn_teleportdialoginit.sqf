@@ -56,6 +56,7 @@ d_tele_prev_sel = -1;
 
 d_respawn_anim_markers = [];
 d_respawn_posis = [];
+d_respawn_ismhq = [];
 
 if (_addbase) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1251");
@@ -72,6 +73,7 @@ if (_addbase) then {
 	d_respawn_anim_markers pushBack "D_BASE_D";
 	d_respawn_mar_str = "D_BASE_D";
 	d_respawn_posis pushBack (getPosASL d_FLAG_BASE);
+	d_respawn_ismhq pushBack false;
 } else {
 	d_respawn_mar_str = "";
 };
@@ -111,6 +113,7 @@ private _logtxt = "";
 		[_x # 0, visiblePositionASL _mrs, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 		d_respawn_anim_markers pushBack (_x # 0);
 		d_respawn_posis pushBack (visiblePositionASL _mrs);
+		d_respawn_ismhq pushBack true;
 	};
 } forEach d_mob_respawns;
 
@@ -133,6 +136,7 @@ private _logtxt = "";
 	[_x # 0, _x # 1, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack (_x # 0);
 	d_respawn_posis pushBack (_x # 1);
+	d_respawn_ismhq pushBack false;
 } forEach d_additional_respawn_points;
 
 private _has_sql = 0;
@@ -165,6 +169,7 @@ if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {cou
 	["D_SQL_D", visiblePositionASL _leader, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_SQL_D";
 	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _leader);
+	d_respawn_ismhq pushBack false;
 };
 
 __TRACE_1("","_logtxt")

@@ -26,22 +26,14 @@ private _same = true;
 if (_idx != -1) then {
 	private _disp = [uiNamespace getVariable "XR_SpectDlg", uiNamespace getVariable "d_TeleportDialog"] select (d_rmapclick_type == 0);
 	private _ctrl = _disp displayCtrl 1500;
-
-	if (lbCurSel _ctrl != _idx) then {
-		private _midx = -1;
-		private _curdata = _ctrl lbData (lbCurSel _ctrl);
-		private _mrs = missionNamespace getVariable [_curdata, objNull];
-		if (!isNull _mrs) then {
-			if (_mrs distance2D _pos < 40) then {
-				private _lbd = _ctrl lbData _idx;
-				__TRACE_1("","_lbd")
-				_midx = d_mob_respawns findIf {
-					(_x # 0) == _lbd
-				};
-			};
+	private _cursel = lbCurSel _ctrl;
+	if (_cursel != _idx) then {
+		private _dochange = true;
+		if ((d_respawn_ismhq # _cursel) && {(d_respawn_posis # _cursel) distance2D (d_respawn_posis # _idx) < 40}) then {
+			_dochange = false;
 		};
-		__TRACE_1("","_midx")
-		if (_midx == -1) then {
+		
+		if (_dochange) then {
 			_ctrl lbSetCurSel _idx;
 			_same = false;
 		};

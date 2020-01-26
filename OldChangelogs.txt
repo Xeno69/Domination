@@ -2,6 +2,13 @@ Changelogs
 
 Old...
 
+4.21
+
+- Added: Server param to turn off Virtual Arsenal ammo box limitation (d_va_percentage)
+- Fixed: Don't select another respawn/teleport point which may be inside the 40 m MHQ area by map click
+- Fixed: Some object classes return a sizeOf value of zero so positions might not fit for those objects
+- Fixed: Not all binoculars were removed from AI units
+
 4.20
 
 - Added: Parameters for enemy spawn radius for AI which occupies buildings by longtimegamer
