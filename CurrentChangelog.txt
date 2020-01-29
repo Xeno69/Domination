@@ -5,5 +5,7 @@
 
 4.22
 
+- Added: Chernarus 2020 version
+- Added: French translation by -mj-
 - Fixed: Do not select another respawn like squad leader inside the 40m MHQ alternative respawn area (now really fixed)
 - Fixed: Somehow a "p" landed at the end of d_launcher_cooldown in description.ext
