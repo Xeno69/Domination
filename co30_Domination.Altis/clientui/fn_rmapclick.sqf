@@ -29,10 +29,9 @@ if (_idx != -1) then {
 	private _cursel = lbCurSel _ctrl;
 	if (_cursel != _idx) then {
 		private _dochange = true;
-		if ((d_respawn_ismhq # _cursel) && {(d_respawn_posis # _cursel) distance2D (d_respawn_posis # _idx) < 40}) then {
+		if ((d_respawn_ismhq # _cursel) && {_pos inArea [d_respawn_posis # _cursel, 40, 40, 0, false]}) then {
 			_dochange = false;
 		};
-		
 		if (_dochange) then {
 			_ctrl lbSetCurSel _idx;
 			_same = false;
@@ -40,7 +39,7 @@ if (_idx != -1) then {
 	};
 };
 
-if (_same && {!isNil "d_cur_map_endpos" && {_pos inArea [d_cur_map_endpos, 40, 40, 0, false ]}}) then {
+if (_same && {!isNil "d_cur_map_endpos" && {_pos inArea [d_cur_map_endpos, 40, 40, 0, false]}}) then {
 	__TRACE("Is in")
 	if !(_this # 2) then {
 		"d_exactpos_sel_mar" setMarkerPosLocal _pos;
