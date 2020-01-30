@@ -123,10 +123,14 @@ while {true} do {
 			
 			if (alive _vec && {_vec call d_fnc_OutOfBounds}) then {
 				private _outb = _vec getVariable "d_OUT_OF_SPACE";
-				if (_outb != -1) then {
-					if (time > _outb) then {_disabled = true};
+					if (!isNil "_outb") then {
+					if (_outb != -1) then {
+						if (time > _outb) then {_disabled = true};
+					} else {
+						_vec setVariable ["d_OUT_OF_SPACE", time + 600];
+					};
 				} else {
-					_vec setVariable ["d_OUT_OF_SPACE", time + 600];
+					_vec setVariable ["d_OUT_OF_SPACE", -1];
 				};
 			} else {
 				_vec setVariable ["d_OUT_OF_SPACE", -1];
