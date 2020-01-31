@@ -5,10 +5,6 @@
 
 params ["_list", "_trig"];
 
-if (_list isEqualTo []) then {
-	_list = _trig nearEntities ["UAV_01_base_F", 8];
-};
-
 if ("Helicopter" countType _list == 0) exitWith {
 	__TRACE("No heli inside trigger")
 	false

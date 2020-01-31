@@ -505,7 +505,7 @@ private _confmapsize = call {
 		_ret
 	};
 	if (worldName == "cup_chernarus_A3") exitWith {
-		15360
+		worldSize
 	};
 	getNumber(configFile>>"CfgWorlds">>worldName>>"mapSize")
 };

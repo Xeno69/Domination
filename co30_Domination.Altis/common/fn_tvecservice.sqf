@@ -3,11 +3,9 @@
 #define THIS_FILE "fn_tvecservice.sqf"
 #include "..\x_setup.sqf"
 
-params ["_list", "_trig"];
+__TRACE_1("","_this")
 
-if (_list isEqualTo []) then {
-	_list = _trig nearEntities ["UGV_01_base_F", 8];
-};
+params ["_list", "_trig"];
 
 if ("LandVehicle" countType _list == 0) exitWith {
 	__TRACE("No vec inside trigger")
