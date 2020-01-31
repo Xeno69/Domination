@@ -143,6 +143,9 @@ __TRACE("starting main uncon loop")
 				d_current_ai_num = 0;
 			};
 		};
+		{
+			player remoteExecCall ["xr_fnc_announcenearrem", _x];
+		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}});
 		__TRACE("uncon ended, one frame removed")
 	};
 }, 0.02] call d_fnc_eachframeadd;

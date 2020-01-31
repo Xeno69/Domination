@@ -597,6 +597,7 @@ class cfgFunctions {
 			addc(xcpr);
 			addc(rmsg);
 			addc(announcenear);
+			addc(announcenearrem);
 			addc(nearplayercheck);
 			addc(nearplayercheckui);
 			addc(yougetrevivedm);

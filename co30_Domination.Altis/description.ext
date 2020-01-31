@@ -170,6 +170,7 @@ class CfgRemoteExec {
 		class xr_fnc_removeActions {allowedTargets = 1;};
 		class xr_fnc_addmarker {allowedTargets = 2;};
 		class xr_fnc_announcenear {allowedTargets = 1;};
+		class xr_fnc_announcenearrem {allowedTargets = 1;};
 		class xr_fnc_yougetrevivedm {allowedTargets = 1;};
 		class xr_fnc_changeleader {};
 		class xr_fnc_draghelper {allowedTargets = 1;};
