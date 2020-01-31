@@ -14,12 +14,12 @@ while {true} do {
 				if (_warning_level == 0) exitWith {
 					[localize "STR_DOM_MISSIONSTRING_1993", "SIDE", true] call d_fnc_HintChatMsg;
 					_warning_level = 1;
-					_next_warning = time + 10;
+					_next_warning = time + 20;
 				};
 				if (_warning_level == 1 && {time >= _next_warning}) exitWith {
 					[localize "STR_DOM_MISSIONSTRING_1994", "SIDE", true] call d_fnc_HintChatMsg;
 					_warning_level = 2;
-					_next_warning = time + 10;
+					_next_warning = time + 20;
 				};
 				if (_warning_level == 2 && {time >= _next_warning}) exitWith {
 					{
