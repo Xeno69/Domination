@@ -12771,6 +12771,30 @@
 <Chinese>Limit Virtual Arsenal ammo box access too 1000</Chinese>
 <French>Limiter l'accès aux boîtes de munitions de l'Arsenal virtuel à 1000</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1993">
+<English>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</English>
+<Spanish>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Spanish>
+<Portuguese>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Portuguese>
+<Korean>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Korean>
+<Japanese>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Japanese>
+<Original>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Original>
+<Russian>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Russian>
+<Chinesesimp>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Chinesesimp>
+<Chinese>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Chinese>
+<French>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1994">
+<English>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</English>
+<Spanish>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Spanish>
+<Portuguese>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Portuguese>
+<Korean>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Korean>
+<Japanese>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Japanese>
+<Original>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Original>
+<Russian>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Russian>
+<Chinesesimp>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Chinesesimp>
+<Chinese>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Chinese>
+<French>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</French>
+</Key>
 </Container>
 </Package>
 </Project>

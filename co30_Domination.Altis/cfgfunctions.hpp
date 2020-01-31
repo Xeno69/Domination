@@ -182,6 +182,7 @@ class cfgFunctions {
 			addc(scoreadded);
 			addc(scoreaddqeue);
 			addc(csidechat);
+			addc(ttoutsidecheck);
 		};
 		class Dom_UI {
 			file = "clientui";

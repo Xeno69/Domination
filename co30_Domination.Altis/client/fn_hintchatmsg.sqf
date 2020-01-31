@@ -8,7 +8,7 @@ if (!hasInterface) exitWith {};
 // displays a hint and a chat message, \n get removed for the chat text
 // parameters: text (with \n for hints), type of chat ("HQ","SIDE","GLOBAL" or "GROUP")
 // example: ["My nice text\n\nHello World", "HQ"] call d_fnc_HintChatMsg;
-params ["_msg", "_type_chat"];
+params ["_msg", "_type_chat", ["_docut", false]];
 
 if (count _msg < 2) exitWith {};
 
@@ -31,4 +31,8 @@ switch (toLowerANSI _type_chat) do {
 	case "side": {player sideChat _msg_chat};
 	case "global": {systemChat _msg_chat};
 	case "group": {player groupChat _msg_chat};
+};
+
+if (_docut) then {
+	"d_hc_msg" cutText [format ["<t color='#ff0000' size='2'>%1</t>", _msg_chat], "PLAIN DOWN", -1, true, true];
 };

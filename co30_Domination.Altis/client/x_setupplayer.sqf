@@ -1081,6 +1081,46 @@ if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
+#ifdef __TT__
+["d_nogo_w", [-2000, d_island_y_max / 2, 0], "RECTANGLE", "ColorYellow", [2000, d_island_y_max / 2], "", 0, "", "BDiagonal", 0.7] call d_fnc_CreateMarkerLocal;
+
+private _trig = [
+	[-2000, d_island_y_max / 2, 0],
+	[2000, d_island_y_max / 2, 0, true],
+	["ANYPLAYER", "PRESENT", true],
+	["vehicle player in thislist", "thisTrigger setVariable ['d_tt_p_check', true];d_tt_pcheck_curtrig = thisTrigger", "thisTrigger setVariable ['d_tt_p_check', false]"]
+] call d_fnc_createtriggerlocal;
+
+["d_nogo_n", [d_island_x_max / 2, d_island_y_max + 2000, 0], "RECTANGLE", "ColorYellow", [(d_island_x_max / 2) + 4000 , 2000], "", 0, "", "BDiagonal", 0.7] call d_fnc_CreateMarkerLocal;
+
+_trig = [
+	[d_island_x_max / 2, d_island_y_max + 2000, 0],
+	[(d_island_x_max / 2) + 4000 , 2000, 0, true],
+	["ANYPLAYER", "PRESENT", true],
+	["vehicle player in thislist", "thisTrigger setVariable ['d_tt_p_check', true];d_tt_pcheck_curtrig = thisTrigger;", "thisTrigger setVariable ['d_tt_p_check', false]"]
+] call d_fnc_createtriggerlocal;
+
+["d_nogo_e", [d_island_x_max + 2000, d_island_y_max / 2, 0], "RECTANGLE", "ColorYellow", [2000, d_island_y_max / 2], "", 0, "", "BDiagonal", 0.7] call d_fnc_CreateMarkerLocal;
+
+_trig = [
+	[d_island_x_max + 2000, d_island_y_max / 2, 0],
+	[2000, d_island_y_max / 2, 0, true],
+	["ANYPLAYER", "PRESENT", true],
+	["vehicle player in thislist", "thisTrigger setVariable ['d_tt_p_check', true];d_tt_pcheck_curtrig = thisTrigger;", "thisTrigger setVariable ['d_tt_p_check', false]"]
+] call d_fnc_createtriggerlocal;
+
+["d_nogo_s", [d_island_x_max / 2, -2000, 0], "RECTANGLE", "ColorYellow", [(d_island_x_max / 2) + 4000 , 2000], "", 0, "", "BDiagonal", 0.7] call d_fnc_CreateMarkerLocal;
+
+_trig = [
+	[d_island_x_max / 2, -2000, 0],
+	[(d_island_x_max / 2) + 4000 , 2000, 0, true],
+	["ANYPLAYER", "PRESENT", true],
+	["vehicle player in thislist", "thisTrigger setVariable ['d_tt_p_check', true];d_tt_pcheck_curtrig = thisTrigger;", "thisTrigger setVariable ['d_tt_p_check', false]"]
+] call d_fnc_createtriggerlocal;
+
+0 spawn d_fnc_ttoutsidecheck;
+#endif
+
 d_isvdreduced = false;
 #ifndef __TT__
 0 spawn d_fnc_vdhandler;
