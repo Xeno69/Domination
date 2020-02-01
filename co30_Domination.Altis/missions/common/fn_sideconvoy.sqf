@@ -40,6 +40,11 @@ for "_i" from 0 to (_numconfv - 1) do {
 #ifdef __TT__
 	_onevec addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
 #endif
+	if (d_with_dynsim == 0) then {
+		if (dynamicSimulationEnabled  _onevec) then {
+			_onevec enableDynamicSimulation false; 
+		};
+	};
 	_allSMVecs pushBack _onevec;
 	d_x_sm_vec_rem_ar append _vehicles;
 	d_x_sm_rem_ar append (_reta # 1);

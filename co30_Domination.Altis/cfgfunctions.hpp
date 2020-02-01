@@ -319,6 +319,10 @@ class cfgFunctions {
 			addc(createsimpleobject);
 			addc(findsafepos);
 		};
+		class Dom_cba_Scripts {
+			file = "cba";
+			addc(vecinit);
+		};
 		class Dom_KBTell {
 			file = "bikb";
 			addc(kehflogic);

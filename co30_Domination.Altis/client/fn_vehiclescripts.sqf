@@ -5,7 +5,7 @@
 
 private _vec = _this select 2;
 
-if ((_vec isKindOf "ParachuteBase") || {_vec isKindOf "BIS_Steerable_Parachute"}) exitWith {};
+if (_vec isKindOf "ParachuteBase") exitWith {};
 private _do_exit = false;
 
 if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {

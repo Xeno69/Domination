@@ -137,6 +137,7 @@ private _ari_vecs = [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor)
 
 {
 	_x enableSimulationGlobal true;
+	_x enableDynamicSimulation true;
 	_x setVariable ["d_who_fired", _arti_operator];
 } forEach _ari_vecs;
 
@@ -312,6 +313,7 @@ if (_side_arti_op == opfor) then {
 
 {
 	_x enableSimulationGlobal false;
+	_x enableDynamicSimulation false;
 	_x setVariable ["d_who_fired", nil];
 } forEach _ari_vecs;
 _ari_vecs = nil;

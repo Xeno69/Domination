@@ -12,7 +12,7 @@ private _fnc_inc_num = {
 };
 
 private _v_p = vehicle player;
-private _is_para = (_v_p isKindOf "BIS_Steerable_Parachute") || {_v_p isKindOf "ParachuteBase"};
+private _is_para = _v_p isKindOf "ParachuteBase";
 
 d_DomUserMenu = [
 	["Domination", false],

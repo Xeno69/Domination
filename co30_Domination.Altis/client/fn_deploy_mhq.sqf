@@ -17,7 +17,7 @@ private _dd = 599;
 		_mhq = _x;
 		_dd = _distt;
 	};
-} forEach ((player nearEntities [["LandVehicle", "Air"], 10]) select {!isNull _x && {!(_x isKindOf "ParachuteBase") && {!(_x isKindOf "BIS_Steerable_Parachute") && {(_x getVariable ["d_vec_type", ""]) == "MHQ"}}}});
+} forEach ((player nearEntities [["LandVehicle", "Air"], 10]) select {!isNull _x && {!(_x isKindOf "ParachuteBase") && {(_x getVariable ["d_vec_type", ""]) == "MHQ"}}});
 
 if (isNull _mhq) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_1451")};
 

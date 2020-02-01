@@ -389,6 +389,12 @@ while {_icounter < _number_vehicles} do {
 	_vec lock true;
 
 	_vgrp deleteGroupWhenEmpty true;
+	
+	if (d_with_dynsim == 0) then {
+		if (dynamicSimulationEnabled  _vec) then {
+			_vec enableDynamicSimulation false; 
+		};
+	};
 
 	private _etime = time + 5.012 + _diststoa;
 	while {time < _etime && {!d_mt_radio_down}} do {sleep 1};

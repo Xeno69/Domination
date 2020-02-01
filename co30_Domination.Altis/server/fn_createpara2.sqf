@@ -9,6 +9,12 @@ params ["_vgrp", "_chopper", "_helifirstpoint", "_heliendpoint"];
 private _crew_vec = crew _chopper;
 private _startpos = getPos _chopper;
 
+if (d_with_dynsim == 0) then {
+	if (dynamicSimulationEnabled  _chopper) then {
+		_chopper enableDynamicSimulation false; 
+	};
+};
+
 sleep 2.123;
 
 private _stop_me = false;

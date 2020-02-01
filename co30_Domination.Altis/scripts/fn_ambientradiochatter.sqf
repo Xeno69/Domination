@@ -22,7 +22,7 @@ uisleep _this;
 while {true} do {
     if (!d_player_in_vec && {diag_fps > 30}) then {
 	    private _veh = (player nearEntities [["Air", "Car", "Tank", "Ship"], 10]) # 0;
-		if (!isNil "_veh" && {!(typeOf _veh in d_radio_carlist) && {!(_veh isKindOf "BIS_Steerable_Parachute") && {!(_veh isKindOf "ParachuteBase") && {!(_veh isKindOf "StaticWeapon")}}}}) then {
+		if (!isNil "_veh" && {!(typeOf _veh in d_radio_carlist) && {!(_veh isKindOf "ParachuteBase") && {!(_veh isKindOf "StaticWeapon")}}}) then {
 #ifndef __RHS__
 			_veh say3D [format ["ambientradio%1", ceil random 30], 50, 1];
 #else

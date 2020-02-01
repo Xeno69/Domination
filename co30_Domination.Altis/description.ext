@@ -1738,4 +1738,16 @@ class CfgTaskEnhancements {
 
 #include "CfgVehicles.hpp"
 
+class Extended_Init_Eventhandlers {
+	class Car {
+		d_car_init = "_this call d_fnc_vecinit";
+	};
+	class Tank {
+		d_car_init = "_this call d_fnc_vecinit";
+	};
+	class Air {
+		d_car_init = "_this call d_fnc_vecinit";
+	};
+};
+
 //__EXEC(diag_log [diag_frameno, diag_ticktime, time, "Dom description.ext processed"]);
