@@ -996,7 +996,7 @@ if (!d_tt_tanoa) then {
 	d_arti_observer_E = [[["gm_gc_army_squadleader_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win"]] select d_gmcwgwinter];
 #endif
 #ifdef __CUP_CHERNARUS__
-	d_arti_observer_E = [["O_recon_JTAC_F"]];
+	d_arti_observer_E = [["CUP_O_RUS_SpecOps_Scout_Autumn"]];
 #endif
 #ifdef __CUP_TAKISTAN__
 	d_arti_observer_E = [["CUP_O_RUS_SpecOps_Scout_Autumn"]];
