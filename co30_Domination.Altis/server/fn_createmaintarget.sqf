@@ -268,7 +268,7 @@ private _comppost = [];
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
 			private _ppos = _curar select _wp_ran;
 			private _iscompost = false;
-			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
+			if (!isNil "d_compositions" && {!(d_compositions isEqualTo []) && {(_x # 0) in ["allmen", "specops"]}}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 12, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
 				if !(_nppos isEqualTo []) then {
 					_ppos = _nppos;

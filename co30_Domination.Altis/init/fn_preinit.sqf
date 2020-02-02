@@ -1160,16 +1160,16 @@ if (!d_tt_tanoa) then {
 #ifdef __ROSCHE__
 #include "d_compositions_default.sqf"
 #endif
+#ifdef __CUP_CHERNARUS__
+#include "d_compositions_CUP_Chernarus.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_compositions_CUP_Takistan.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_compositions_CUP_Chernarus.sqf"
+#endif
 //#ifdef __GMCWG__
-// no compositions
-//#endif
-//#ifdef __CUP_CHERNARUS__
-// no compositions
-//#endif
-//#ifdef __CUP_TAKISTAN__
-// no compositions
-//#endif
-//#ifdef __CUP_SARA__
 // no compositions
 //#endif
 //#ifdef __IFA3LITE__

@@ -6,6 +6,7 @@
 4.22
 
 - Added: Chernarus 2020 version
+- Added: Object compositions for CUP versions
 - Added: French translation by -mj-
 - Added: No Go zone for the TT version. Players may not go beyond the map, otherwise they will be killed
 - Changed: If CBA A3 is running on the server then all vehicles (including user placed vehicles) will be added to dynamic simulation (if enabled in the mission params)
