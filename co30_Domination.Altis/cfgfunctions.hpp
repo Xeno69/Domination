@@ -549,6 +549,7 @@ class cfgFunctions {
 			addc(sub_box);
 			addc(nodamoff);
 			addc(umadel);
+			addc(moveboxm);
 		};
 		class Dom_PrePostInit {
 			file = "init";
