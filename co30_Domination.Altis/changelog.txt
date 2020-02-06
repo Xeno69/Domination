@@ -1,16 +1,8 @@
-4.23
+4.24
 
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 
-4.22
+4.23
 
-- Added: Chernarus 2020 version
-- Added: Object compositions for CUP versions
-- Added: French translation by -mj-
-- Added: No Go zone for the TT version. Players may not go beyond the map, otherwise they will be killed
-- Changed: If CBA A3 is running on the server then all vehicles (including user placed vehicles) will be added to dynamic simulation (if enabled in the mission params)
-- Fixed: Do not select another respawn like squad leader inside the 40m MHQ alternative respawn area (now really fixed)
-- Fixed: Somehow a "p" landed at the end of d_launcher_cooldown in description.ext
-- Fixed: AI can now use vehicle service points again (and not only AI in UAVs)
-- Fixed: CUP Chernarus version was spawning a CSAT JTAC instead of a Russian one
+- Changed: Dropped box markers will move now when a player drags an ammo box when using ACE
