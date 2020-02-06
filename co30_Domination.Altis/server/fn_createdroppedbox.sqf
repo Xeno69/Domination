@@ -36,6 +36,9 @@ d_dbox_idx = d_dbox_idx + 1;
 #ifdef __TT__
 _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_this select 2 == blufor)];
 #endif
+if (d_with_ace) then {
+	[_box, _mname] spawn d_fnc_moveboxm;
+};
 
 [_box, 12] call d_fnc_setekmode;
 
