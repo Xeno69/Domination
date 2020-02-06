@@ -2,6 +2,19 @@ Changelogs
 
 Old...
 
+4.22
+
+- Added: Chernarus 2020 version
+- Added: Object compositions for CUP versions
+- Added: French translation by -mj-
+- Added: No Go zone for the TT version. Players may not go beyond the map, otherwise they will be killed
+- Changed: If CBA A3 is running on the server then all vehicles (including user placed vehicles) will be added to dynamic simulation (if enabled in the mission params)
+- Fixed: Do not select another respawn like squad leader inside the 40m MHQ alternative respawn area (now really fixed)
+- Fixed: Somehow a "p" landed at the end of d_launcher_cooldown in description.ext
+- Fixed: AI can now use vehicle service points again (and not only AI in UAVs)
+- Fixed: CUP Chernarus version was spawning a CSAT JTAC instead of a Russian one
+
+
 4.21
 
 - Added: Server param to turn off Virtual Arsenal ammo box limitation (d_va_percentage)
@@ -1041,7 +1054,7 @@ ATTENTION: mission.sqm files of ALL versions were changed!!!!
 - Fixed: Small issues with respawn dialog
 - Fixed: Camps (to capture) should not spawn close to each other anymore (if there are enough possible places available at a main target)
 - Changed: When a wreck gets put on the wreck repair point the seconds it will take to rebuild the vehicle are also displayed (sidechat once and the 3D text over the wreck point will display the sconds too)
-- Added: Portuguese translation by Linux ©
+- Added: Portuguese translation by Linux Â©
 - Fixed: Problem with including arrays for the TT versions
 - More optimizations
 
