@@ -94,7 +94,9 @@ private _end_pos = if (_uidx == -1) then {
 			visiblePosition (leader (group player));
 		};
 		private _rppp = visiblePosition (missionNamespace getVariable _data);
-		d_cur_map_endpos = _rppp;
+		if (_mravailable) then {
+			d_cur_map_endpos = _rppp;
+		};
 		_rppp
 	};
 } else {

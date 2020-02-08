@@ -6,3 +6,4 @@
 4.23
 
 - Changed: Dropped box markers will move now when a player drags an ammo box when using ACE
+- Fixed: Don't show alternative respawn position markers when a MHQ is moving or not available
