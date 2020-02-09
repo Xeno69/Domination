@@ -62,6 +62,9 @@ private _spos = [_dstart_pos # 0, _dstart_pos # 1, 300];
 private _veca = [_spos, _spos getDir _drop_pos, d_drop_aircraft, _grp, false, true] call d_fnc_spawnVehicle;
 _grp deleteGroupWhenEmpty true;
 _veca params ["_chopper"];
+if (d_with_dynsim == 0) then {
+	_chopper setVariable ["d_nodyn", true];
+};
 addToRemainsCollector [_chopper];
 _chopper lock true;
 removeAllWeapons _chopper;

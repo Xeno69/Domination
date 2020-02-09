@@ -10,9 +10,7 @@ private _crew_vec = crew _chopper;
 private _startpos = getPos _chopper;
 
 if (d_with_dynsim == 0) then {
-	if (dynamicSimulationEnabled  _chopper) then {
-		_chopper enableDynamicSimulation false; 
-	};
+	_chopper setVariable ["d_nodyn", true];
 };
 
 sleep 2.123;

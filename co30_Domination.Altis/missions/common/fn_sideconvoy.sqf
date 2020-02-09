@@ -23,6 +23,9 @@ for "_i" from 0 to (_numconfv - 1) do {
 	private _reta = [1, _pos_start, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
 	_reta params ["_vehicles"];
 	_vehicles params ["_onevec"];
+	if (d_with_dynsim == 0) then {
+		_onevec setVariable ["d_nodyn", true];
+	};
 	_onevec allowDamage false;
 	_onevec setVectorUp [0,0,1];
 	_onevec forceFollowRoad true;
@@ -40,11 +43,6 @@ for "_i" from 0 to (_numconfv - 1) do {
 #ifdef __TT__
 	_onevec addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
 #endif
-	if (d_with_dynsim == 0) then {
-		if (dynamicSimulationEnabled  _onevec) then {
-			_onevec enableDynamicSimulation false; 
-		};
-	};
 	_allSMVecs pushBack _onevec;
 	d_x_sm_vec_rem_ar append _vehicles;
 	d_x_sm_rem_ar append (_reta # 1);

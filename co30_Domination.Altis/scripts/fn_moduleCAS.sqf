@@ -166,6 +166,9 @@ private _planePos = _pos getPos [_dis, [_dir + 90, _dir - 90] select (random 100
 _planePos set [2, (_pos # 2) + _alt];
 ([_planePos, _dir, _planeClass, (getNumber (_planeCfg>>"side")) call bis_fnc_sideType] call d_fnc_spawnVehicle) params ["_plane", "_crew", "_group"];
 _plane setPosasl _planePos;
+if (d_with_dynsim == 0) then {
+	_plane setVariable ["d_nodyn", true];
+};
 _plane move ([_pos,_dis,_dir] call bis_fnc_relpos);
 if (d_with_ai) then {
 	_group setVariable ["d_do_not_delete", true];

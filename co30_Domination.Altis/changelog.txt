@@ -7,3 +7,4 @@
 
 - Changed: Dropped box markers will move now when a player drags an ammo box when using ACE
 - Fixed: Don't show alternative respawn position markers when a MHQ is moving or not available
+- Fixed: Dynamic simulation was enabled for vehicles which should not use it like drop aircraft when CBA was available on the server (vehicles did no longer move)

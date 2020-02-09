@@ -100,6 +100,9 @@ while {true} do {
 		__TRACE_1("","_vec_array")
 
 		_vec_array params ["_vec"];
+		if (d_with_dynsim == 0) then {
+			_vec setVariable ["d_nodyn", true];
+		};
 		//_vec setPos [_pos # 0, _pos # 1, 400];
 		_vehicles pushBack _vec;
 		__TRACE_1("","_vehicles")
