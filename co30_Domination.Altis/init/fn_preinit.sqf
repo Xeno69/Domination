@@ -1658,6 +1658,17 @@ d_base_apc_vec =
 				["B_Heli_Light_01_armed_F"]
 			};
 		};
+		case "G": {
+			call {
+				if (d_ifa3lite) exitWith {
+					[]
+				};
+				if (d_rhs) exitWith {
+					[]
+				};
+				["I_Heli_light_03_dynamicLoadout_F"]
+			};
+		};
 	};
 
 	// enemy AI inf barracks in main target... As long as the building exists enemy AI inf respawns inside the building thus in the main target area!!!

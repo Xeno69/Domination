@@ -2,9 +2,4 @@
 
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
-
-4.23
-
-- Changed: Dropped box markers will move now when a player drags an ammo box when using ACE
-- Fixed: Don't show alternative respawn position markers when a MHQ is moving or not available
-- Fixed: Dynamic simulation was enabled for vehicles which should not use it like drop aircraft when CBA was available on the server (vehicles did no longer move)
+- Fixed: Added missing light attack chopper for independent side
