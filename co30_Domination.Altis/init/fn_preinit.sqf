@@ -1045,6 +1045,9 @@ if (!d_tt_tanoa) then {
 			if (d_rhs) exitWith {
 				"RHS_C130J"
 			};
+			if (d_ifa3lite) exitWith {
+				""
+			};
 			"B_Heli_Transport_01_camo_F"
 		};
 #endif
@@ -1055,6 +1058,12 @@ if (!d_tt_tanoa) then {
 			};
 			if (d_rhs) exitWith {
 				"RHS_Mi8mt_Cargo_vv"
+			};
+			if (d_gmcwg) exitWith {
+				""
+			};
+			if (d_cup) exitWith {
+				""
 			};
 			"O_Heli_Light_02_unarmed_F"
 		};
@@ -1641,6 +1650,9 @@ d_base_apc_vec =
 				if (d_gmcwg) exitWith {
 					[]
 				};
+				if (d_ifa3lite) exitWith {
+					[]
+				};
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vvs"]
 				};
@@ -1649,8 +1661,14 @@ d_base_apc_vec =
 		};
 		case "W": {
 			call {
+				if (d_cup) exitWith {
+					[]
+				};
 				if (d_ifa3lite) exitWith {
 					["LIB_Ju87_Italy2"]
+				};
+				if (d_gmcwg) exitWith {
+					[]
 				};
 				if (d_rhs) exitWith {
 					["RHS_MELB_AH6M","RHS_UH1Y_d","RHS_UH1Y"]
@@ -1660,10 +1678,16 @@ d_base_apc_vec =
 		};
 		case "G": {
 			call {
+				if (d_cup) exitWith {
+					[]
+				};
 				if (d_ifa3lite) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
+					[]
+				};
+				if (d_gmcwg) exitWith {
 					[]
 				};
 				["I_Heli_light_03_dynamicLoadout_F"]

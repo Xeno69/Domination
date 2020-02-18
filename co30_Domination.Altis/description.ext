@@ -934,6 +934,13 @@ class Params {
 		default = -1;
 		texts[] = {"1", "2", "3", "4", "5"};
 	};
+	
+	class d_max_camp_cnt_method {
+    		title = "$STR_DOM_MISSIONSTRING_1930A";
+    		values[] = {0, 1};
+    		default = 0;
+    		texts[] = {"Random", "Maximum"};
+    	};
 
 	class d_camp_center {
 		title = "$STR_DOM_MISSIONSTRING_1931";

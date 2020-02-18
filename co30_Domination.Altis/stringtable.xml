@@ -12011,6 +12011,17 @@
 <Chinese>要佔領的最大敵人營地(camps)數量</Chinese>
 <French>Nombre maximum de camps ennemis à capturer</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1930A">
+<English>Maximum number of enemy camps to capture - random/maximum</English>
+<Spanish>Maximum number of enemy camps to capture - random/maximum</Spanish>
+<Portuguese>Maximum number of enemy camps to capture - random/maximum</Portuguese>
+<Korean>Maximum number of enemy camps to capture - random/maximum</Korean>
+<Japanese>Maximum number of enemy camps to capture - random/maximum</Japanese>
+<Original>Maximum number of enemy camps to capture - random/maximum</Original>
+<Russian>Максимальное количество бункеров противника для захвата - random/maximum</Russian>
+<Chinesesimp>捕获的敌方阵营的最大数量 - random/maximum</Chinesesimp>
+<Chinese>要佔領的最大敵人營地(camps)數量 - random/maximum</Chinese>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1931">
 <English>Locate the first enemy camp to capture near the center of the main target</English>
 <Spanish>Locate the first enemy camp to capture near the center of the main target</Spanish>

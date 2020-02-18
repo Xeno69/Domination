@@ -1,5 +1,6 @@
 4.24
 
+- Added: Max_camp_cnt_method mission parameter
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 - Fixed: Added missing light attack chopper for independent side
