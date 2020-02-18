@@ -45,8 +45,8 @@ private _bar = [
 	localize "STR_DOM_MISSIONSTRING_55", __BR,
 	localize "STR_DOM_MISSIONSTRING_58", __BRBR,
 	localize "STR_DOM_MISSIONSTRING_61", __BRBR,
-	"Thanks to all people who donate, you guys are great :-)", __BRBR,
-	"Domination also available on Discord: https://discordapp.com/invite/vYVNKV2"
+	"Thanks to all people who donate, you guys are great :-)", __BRBR
+	//"Domination also available on Discord: https://discordapp.com/invite/vYVNKV2"
 ];
 
 player createDiaryRecord ["Diary", ["Briefing", _bar joinString ""]];
@@ -56,14 +56,14 @@ player createDiaryRecord ["dLicense", ["License", "
 Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)<br/><br/>
 http://creativecommons.org/licenses/by-nc-nd/4.0/<br/><br/>
 You are free to:<br/><br/>
-Share � copy and redistribute the material in any medium or format<br/><br/>
+Share - copy and redistribute the material in any medium or format<br/><br/>
 The licensor cannot revoke these freedoms as long as you follow the license terms.<br/><br/><br/>
 Under the following terms:<br/><br/>
-Attribution � You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner,<br/>
+Attribution - You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner,<br/>
 but not in any way that suggests the licensor endorses you or your use.<br/><br/>
-NonCommercial � You may not use the material for commercial purposes.<br/><br/>
-NoDerivatives � If you remix, transform, or build upon the material, you may not distribute the modified material.<br/><br/><br/>
-No additional restrictions � You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+NonCommercial - You may not use the material for commercial purposes.<br/><br/>
+NoDerivatives - If you remix, transform, or build upon the material, you may not distribute the modified material.<br/><br/><br/>
+No additional restrictions - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 "]];
 
 if (d_database_found && {getClientStateNumber < 10}) then {
