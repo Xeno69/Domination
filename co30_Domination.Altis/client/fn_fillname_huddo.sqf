@@ -8,18 +8,8 @@
 d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable ["xr_pluncon", false])}) then {
-		private _grpp = group player;
-		private _cam2world = positionCameraToWorld [0,0,0];
 		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex"];
-		private _d_pn_hud = d_dist_pname_hud;
-		private _s_p_namesx = d_show_player_namesx;
-		private _pnhoc = d_pnhudothercolor;
-		private _pnhgc = d_pnhudgroupcolor;
-		private _fnc_gpn = d_fnc_getplayername;
-		private _fnc_ghpn = d_fnc_gethpname;
-		private _fnc_ghpnai = d_fnc_gethpnameai;
-		private _fnc_isp = d_fnc_isplayer;
-		private _nfc_grp = d_fnc_getrankpic;
+		[group player, positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_pnhudothercolor, d_pnhudgroupcolor, d_fnc_getplayername, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_grpp", "_cam2world", "_d_pn_hud", "_s_p_namesx", "_pnhoc", "_pnhgc", "_fnc_gpn", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
 		{
 			_distu = _cam2world distance _x;
 			if (_distu <= _d_pn_hud) then {

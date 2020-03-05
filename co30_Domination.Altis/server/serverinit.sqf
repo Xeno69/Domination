@@ -59,3 +59,11 @@ if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0 && {!(d_transport_c
 #endif
 
 0 spawn d_fnc_ai_loop;
+
+/* for jail
+[
+	["Land_PillboxWall_01_3m_F",[-0.203125,-1.66772,0],0,1,0,[],"","",true,false], 
+	["Land_PillboxBunker_01_big_F",[3.55261,3.76831,0],0,1,0,[],"","",true,false], 
+	["UGV_02_Wheel_F",[6.56763,4.93701,-0.000999928],359.999,1,0,[],"","",true,false]
+]
+*/

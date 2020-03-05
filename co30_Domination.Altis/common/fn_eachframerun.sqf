@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_eachframerun.sqf"
 #include "..\x_setup.sqf"
 
-private "_e";
+/*private "_e";
 private _ef_store = d_ef_store;
 {
 	_e = _ef_store getVariable _x;
@@ -26,8 +26,8 @@ private _ef_store = d_ef_store;
 		};
 	};
 } forEach (allVariables _ef_store);
+*/
 
-/*
 private "_e";
 private _ef_store = d_ef_store;
 {
@@ -45,4 +45,3 @@ private _ef_store = d_ef_store;
 		};
 	};
 } forEach (allVariables _ef_store);
-*/
