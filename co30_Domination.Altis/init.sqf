@@ -29,7 +29,7 @@ if (isServer) then {
 };
 #endif
 
-if (productVersion # 2 < 196) exitWith {
+if (productVersion # 2 < 198) exitWith {
 	diag_log [diag_frameno, diag_ticktime, time, "You need at least A3 patch 1.96 to run the mission!!!!"];
 	endMission "END1";
 	forceEnd;
