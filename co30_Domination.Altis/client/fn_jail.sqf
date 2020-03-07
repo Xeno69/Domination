@@ -9,7 +9,7 @@ if (!alive player) then {
 	waitUntil {alive player};
 };
 
-cutText ["You are beeing transfered to jail because of too much teamkilling!!!", "BLACK", 0];
+cutText [localize "STR_DOM_MISSIONSTRING_1999", "BLACK", 0];
 
 if (vehicle player != player) then {
 	moveOut player;
@@ -88,7 +88,7 @@ while {_secs > 0} do {
 "d_jail" cutText ["", "PLAIN"];
 "d_jail2" cutText ["", "PLAIN DOWN"];
 
-cutText ["You are beeing transfered back to base!!!", "BLACK OUT", 0];
+cutText [localize "STR_DOM_MISSIONSTRING_2000", "BLACK OUT", 0];
 
 sleep 2;
 

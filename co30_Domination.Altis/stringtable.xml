@@ -12866,6 +12866,30 @@
 <Chinese>You are free again! Behave properly!</Chinese>
 <French>You are free again! Behave properly!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1999">
+<English>You are beeing transfered to jail because of too much teamkilling!!!</English>
+<Spanish>You are beeing transfered to jail because of too much teamkilling!!!</Spanish>
+<Portuguese>You are beeing transfered to jail because of too much teamkilling!!!</Portuguese>
+<Korean>You are beeing transfered to jail because of too much teamkilling!!!</Korean>
+<Japanese>You are beeing transfered to jail because of too much teamkilling!!!</Japanese>
+<Original>You are beeing transfered to jail because of too much teamkilling!!!</Original>
+<Russian>You are beeing transfered to jail because of too much teamkilling!!!</Russian>
+<Chinesesimp>You are beeing transfered to jail because of too much teamkilling!!!</Chinesesimp>
+<Chinese>You are beeing transfered to jail because of too much teamkilling!!!</Chinese>
+<French>You are beeing transfered to jail because of too much teamkilling!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2000">
+<English>You are beeing transfered back to base!!!</English>
+<Spanish>You are beeing transfered back to base!!!</Spanish>
+<Portuguese>You are beeing transfered back to base!!!</Portuguese>
+<Korean>You are beeing transfered back to base!!!</Korean>
+<Japanese>You are beeing transfered back to base!!!</Japanese>
+<Original>You are beeing transfered back to base!!!</Original>
+<Russian>You are beeing transfered back to base!!!</Russian>
+<Chinesesimp>You are beeing transfered back to base!!!</Chinesesimp>
+<Chinese>You are beeing transfered back to base!!!</Chinese>
+<French>You are beeing transfered back to base!!!</French>
+</Key>
 </Container>
 </Package>
 </Project>
