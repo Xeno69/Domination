@@ -19,7 +19,7 @@
 	Created objects (Array)
 */
 
-params ["_pos", "_azi", "_objs", ["_rdm", 0]];
+params ["_pos", "_azi", "_objs", ["_rdm", 0], ["_loc", false]];
 
 //_pos = _this param [0, [0, 0], [[]]];
 //_azi = _this param [1, 0, [-1]];
@@ -139,7 +139,7 @@ private _multiplyMatrixFunc = {
 			if (_type isKindOf "Car") then {
 				_newPos = _newPos vectorAdd [0,0,0.1];
 			};
-			_newObj = [_type, AGLToASL _newPos, 0, true] call d_fnc_createSimpleObject;
+			_newObj = [_type, AGLToASL _newPos, 0, true, false, _loc] call d_fnc_createSimpleObject;
 			_newObj setDir (_azi + _azimuth);
 			_newObj setPosWorld (getPosWorld _newObj);
 			if (toLowerANSI _type in d_struct_patches_ar) then {

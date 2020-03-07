@@ -1285,6 +1285,7 @@ class CfgSounds {
 	class d_Notebook {name="d_Notebook";sound[]={"\sounds\notebook.wss",db-15,1.0};titles[] = {};};
 	class d_Ui_cc {name="d_Ui_cc";sound[]={"\sounds\ui_cc.wss",db,1.0};titles[] = {};};
 	class d_fanfare {name = "d_fanfare";sound[] = {"sounds\fanfare.wss",1.0,1.0};titles[] = {};};
+	class d_war {name = "d_war";sound[] = {"sounds\aawar.ogg",db+10,1.0};titles[] = {};};
 	//class AR_Rappel_Loop {name = "AR_Rappel_Loop"; sound[] = {"sounds\AR_Rappel_Loop.ogg", db+20, 1}; titles[] = {0,""};};
 	//class AR_Rappel_Start {name = "AR_Rappel_Start"; sound[] = {"sounds\AR_Rappel_Start.ogg", db+20, 1};titles[] = {0,""};};
 	//class AR_Rappel_End {name = "AR_Rappel_End"; sound[] = {"sounds\AR_Rappel_End.ogg", db+20, 1}; titles[] = {0,""};};
@@ -1348,6 +1349,28 @@ class CfgSounds {
 	class ambientradior27 {name="ambientradior27";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_36.wss",1,1};titles[]={};};
 #endif
 };
+
+/*class CfgMusic {
+	tracks[] = {};
+	class d_war {
+		name = "d_war";
+		sound[]	= { "sounds\aawar.ogg", db + 10, 1.0 };
+	};
+};*/
+
+/*class CfgEnvSounds {
+	sounds[] = {d_War};
+	class d_none {
+		name = "d_none";
+		sound[] = {"", db-10, 1.0};
+		titles[] = {};
+	};		
+	class d_War {
+		name = "d_War";
+		sound[] = {"sounds\aawar.ogg", db+10, 1.0};
+		titles[] = {};
+	};
+};*/
 
 class d_RscAnimatedLetters {
 	idd = -1;

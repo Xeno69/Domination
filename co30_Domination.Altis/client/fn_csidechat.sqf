@@ -113,7 +113,10 @@ if (_num == 19) exitWith {
 };
 
 if (_num == 20) exitWith {
-	[format [localize "STR_DOM_MISSIONSTRING_507", _param1, _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	[format [localize "STR_DOM_MISSIONSTRING_507a", _param1, _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	if (_param3 == player) then {
+		_param2 spawn d_fnc_jail;
+	};
 };
 
 #ifdef __TT__

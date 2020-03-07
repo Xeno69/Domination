@@ -3048,6 +3048,18 @@
 <Chinese>由於擊殺友軍 %2 次,%1 被踢出了伺服器</Chinese>
 <French>%1 a été renvoyé à l'acceuil en raison des TK, du nombre de TK: %2</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_507a">
+<English>%1 was out into jail because of team killing, number team kills: %2</English>
+<Spanish>%1 was out into jail because of team killing, number team kills: %2</Spanish>
+<Portuguese>%1 was out into jail because of team killing, number team kills: %2</Portuguese>
+<Korean>%1 was out into jail because of team killing, number team kills: %2</Korean>
+<Japanese>%1 was out into jail because of team killing, number team kills: %2</Japanese>
+<Original>%1 was out into jail because of team killing, number team kills: %2</Original>
+<Russian>%1 was out into jail because of team killing, number team kills: %2</Russian>
+<Chinesesimp>%1 was out into jail because of team killing, number team kills: %2</Chinesesimp>
+<Chinese>%1 was out into jail because of team killing, number team kills: %2</Chinese>
+<French>%1 was out into jail because of team killing, number team kills: %2</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_508">
 <English>%1 was kicked to the lobby automatically because of too much unnecessary shooting at base</English>
 <Spanish>%1 fue expulsado automáticamente al vestíbulo, por disparar en su base</Spanish>
@@ -12805,6 +12817,54 @@
 <Chinesesimp>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Chinesesimp>
 <Chinese>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Chinese>
 <French>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1995">
+<English>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</English>
+<Spanish>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Spanish>
+<Portuguese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Portuguese>
+<Korean>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Korean>
+<Japanese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Japanese>
+<Original>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Original>
+<Russian>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Russian>
+<Chinesesimp>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Chinesesimp>
+<Chinese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Chinese>
+<French>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1996">
+<English>Rest jail time:</English>
+<Spanish>Rest jail time:</Spanish>
+<Portuguese>Rest jail time:</Portuguese>
+<Korean>RestRest jail time:</Korean>
+<Japanese>Rest jail time:</Japanese>
+<Original>Rest jail time:</Original>
+<Russian>Rest jail time:</Russian>
+<Chinesesimp>Rest jail time:</Chinesesimp>
+<Chinese>Rest jail time:</Chinese>
+<French>Rest jail time:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1997">
+<English>%1 seconds</English>
+<Spanish>%1 seconds</Spanish>
+<Portuguese>%1 seconds</Portuguese>
+<Korean>%1 seconds</Korean>
+<Japanese>%1 seconds</Japanese>
+<Original>%1 seconds</Original>
+<Russian>%1 seconds</Russian>
+<Chinesesimp>%1 seconds</Chinesesimp>
+<Chinese>%1 seconds</Chinese>
+<French>%1 seconds</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1998">
+<English>You are free again! Behave properly!</English>
+<Spanish>You are free again! Behave properly!</Spanish>
+<Portuguese>You are free again! Behave properly!</Portuguese>
+<Korean>You are free again! Behave properly!</Korean>
+<Japanese>You are free again! Behave properly!</Japanese>
+<Original>You are free again! Behave properly!</Original>
+<Russian>You are free again! Behave properly!</Russian>
+<Chinesesimp>You are free again! Behave properly!</Chinesesimp>
+<Chinese>You are free again! Behave properly!</Chinese>
+<French>You are free again! Behave properly!</French>
 </Key>
 </Container>
 </Package>
