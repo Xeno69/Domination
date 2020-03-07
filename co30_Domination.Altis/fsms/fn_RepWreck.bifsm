@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -248,7 +248,7 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -334,7 +334,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=12;
-				InitCode="private _type = typeOf _wreck;" \n "private _dpos = getPosATL _wreck;" \n "private _ddir = direction _wreck;" \n "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n "if (unitIsUAV _wreck) then {" \n "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n "};" \n "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n "	_wpilot addScore (d_ranked_a # 23);" \n "	[5] remoteExec [""d_fnc_csidechat"", _wpilot];" \n "};" \n "deleteVehicle _wreck;" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db = d_bonus_vecs_db - [objNull];" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w = d_bonus_vecs_db_w - [objNull]};" \n "			case opfor: {d_bonus_vecs_db_e = d_bonus_vecs_db_e - [objNull]};" \n "		};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + 0.6;" \n "";
+				InitCode="private _type = typeOf _wreck;" \n "private _dpos = getPosATL _wreck;" \n "private _ddir = direction _wreck;" \n "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n "if (unitIsUAV _wreck) then {" \n "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n "};" \n "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n "	[_wpilot, d_ranked_a # 23, 14] call d_fnc_addscore;" \n "};" \n "deleteVehicle _wreck;" \n "" \n "if (d_database_found) then {" \n "	if (!d_tt_ver) then {" \n "		d_bonus_vecs_db = d_bonus_vecs_db - [objNull];" \n "	} else {" \n "		switch (_rep_station_side) do {" \n "			case blufor: {d_bonus_vecs_db_w = d_bonus_vecs_db_w - [objNull]};" \n "			case opfor: {d_bonus_vecs_db_e = d_bonus_vecs_db_e - [objNull]};" \n "		};" \n "	};" \n "};" \n "" \n "_timenow = ([time, serverTime] select isMultiplayer) + 0.6;" \n "";
 			};
 		};
 	};
@@ -704,25 +704,25 @@ class Globals
 	DefaultLinkColorFromSelected=6316287;
 	DefaultLinkColorToSelected=6356832;
 	DefaultLinkUseCustom=1;
-	PZoomLeft=-414.19995;
-	PZoomRight=517.86353;
-	PZoomBottom=863.99756;
-	PZoomTop=-49.402657;
-	Clxs=849;
-	Clys=832;
+	PZoomLeft=-455.67676;
+	PZoomRight=559.34021;
+	PZoomBottom=904.64374;
+	PZoomTop=-90.048965;
+	Clxs=1025;
+	Clys=1254;
 	Aspect=1;
 };
 class Window
 {
-	Flags=0;
+	Flags=2;
 	MaxPosX=-1;
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=286;
-	Top=286;
-	Right=2433;
-	Bottom=1290;
-	ShowCmd=1;
-	SplitPos=867;
+	Left=26;
+	Top=26;
+	Right=2173;
+	Bottom=1030;
+	ShowCmd=3;
+	SplitPos=1043;
 };

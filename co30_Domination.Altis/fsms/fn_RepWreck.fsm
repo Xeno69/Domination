@@ -39,8 +39,8 @@ link16[] = {14,15};
 link17[] = {15,6};
 link18[] = {16,17};
 link19[] = {17,13};
-globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-414.199951,517.863525,863.997559,-49.402657,849,832,1};
-window[] = {0,-1,-1,-1,-1,1290,286,2433,286,1,867};
+globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-455.676758,559.340210,904.643738,-90.048965,1025,1254,1};
+window[] = {2,-1,-1,-1,-1,1030,26,2173,26,3,1043};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -211,8 +211,7 @@ class FSM
                          "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n
                          "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n
                          "if (!isNil ""_wpilot"" && {!isNull _wpilot}) then {" \n
-                         "	_wpilot addScore (d_ranked_a # 23);" \n
-                         "	[5] remoteExec [""d_fnc_csidechat"", _wpilot];" \n
+                         "	[_wpilot, d_ranked_a # 23, 14] call d_fnc_addscore;" \n
                          "};" \n
                          "deleteVehicle _wreck;" \n
                          "" \n

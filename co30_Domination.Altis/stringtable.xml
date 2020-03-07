@@ -11456,16 +11456,16 @@
 <French>Une caserne ennemie cible principale a été détruite. Il reste %1...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1856">
-<English>You get %1 points for bringing a wreck to the wreck repair point!</English>
-<Spanish>You get %1 points for bringing a wreck to the wreck repair point!</Spanish>
-<Portuguese>You get %1 points for bringing a wreck to the wreck repair point!</Portuguese>
-<Korean>You get %1 points for bringing a wreck to the wreck repair point!</Korean>
-<Japanese>You get %1 points for bringing a wreck to the wreck repair point!</Japanese>
-<Original>You get %1 points for bringing a wreck to the wreck repair point!</Original>
-<Russian>Вы получаете %1 очков за доставку врэка (уничтож. приз. техники) на точку ремонта!</Russian>
-<Chinesesimp>将沉船带到沉船维修点会获得%1点数！</Chinesesimp>
-<Chinese>將沉船帶到沉船維修點會獲得%1點數！</Chinese>
-<French>Vous obtenez %1 points pour avoir amené une épave au point de réparation d'épaves!</French>
+<English>points for bringing a wreck to the wreck repair point!</English>
+<Spanish>points for bringing a wreck to the wreck repair point!</Spanish>
+<Portuguese>points for bringing a wreck to the wreck repair point!</Portuguese>
+<Korean>points for bringing a wreck to the wreck repair point!</Korean>
+<Japanese>points for bringing a wreck to the wreck repair point!</Japanese>
+<Original>points for bringing a wreck to the wreck repair point!</Original>
+<Russian>points for bringing a wreck to the wreck repair point!</Russian>
+<Chinesesimp>points for bringing a wreck to the wreck repair point!</Chinesesimp>
+<Chinese>points for bringing a wreck to the wreck repair point!</Chinese>
+<French>points for bringing a wreck to the wreck repair point!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1857">
 <English>Dynamic Pylon Loadout</English>
@@ -12889,6 +12889,18 @@
 <Chinesesimp>You are beeing transfered back to base!!!</Chinesesimp>
 <Chinese>You are beeing transfered back to base!!!</Chinese>
 <French>You are beeing transfered back to base!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2001">
+<English>points for transporting another player in a vehicle!</English>
+<Spanish>points for transporting another player in a vehicle!</Spanish>
+<Portuguese>points for transporting another player in a vehicle!</Portuguese>
+<Korean>points for transporting another player in a vehicle!</Korean>
+<Japanese>points for transporting another player in a vehicle!</Japanese>
+<Original>points for transporting another player in a vehicle!</Original>
+<Russian>points for transporting another player in a vehicle!</Russian>
+<Chinesesimp>points for transporting another player in a vehicle!</Chinesesimp>
+<Chinese>points for transporting another player in a vehicle!</Chinese>
+<French>points for transporting another player in a vehicle!</French>
 </Key>
 </Container>
 </Package>

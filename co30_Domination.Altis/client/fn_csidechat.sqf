@@ -42,9 +42,9 @@ if (_num == 4) exitWith {
 	[format [localize "STR_DOM_MISSIONSTRING_641", _param1, _param2, _param3], "GLOBAL"] call d_fnc_HintChatMsg;
 };
 
-if (_num == 5) exitWith {
-	player sideChat format [localize "STR_DOM_MISSIONSTRING_1856", d_ranked_a # 23];
-};
+//if (_num == 5) exitWith {
+	//player sideChat format [localize "STR_DOM_MISSIONSTRING_1856", d_ranked_a # 23];
+//};
 
 if (_num == 6) exitWith {
 	player sideChat (localize "STR_DOM_MISSIONSTRING_1519");
