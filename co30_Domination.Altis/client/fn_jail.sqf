@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_jail.sqf"
 #include "..\x_setup.sqf"
 
@@ -9,15 +9,18 @@ if (!alive player) then {
 	waitUntil {alive player};
 };
 
+cutText ["You are beeing transfered to jail because of too much teamkilling!!!", "BLACK", 0];
+
 if (vehicle player != player) then {
 	moveOut player;
 };
 
 player allowDamage false;
 
-params ["_numtk"];
+params ["_numtk", ["_isjip", 0]];
 
-private _secs = _numtk * 60;
+private _secs = [_numtk * 60, _isjip] select (_isjip > 0);
+player setVariable ["d_jailar", [serverTime, _secs], true];
 
 private _laodout =+ getUnitLoadout player;
 player setUnitLoadout (configFile >> "EmptyLoadout");
@@ -65,6 +68,10 @@ if (_todelete != -1) then {
 
 player setPos _pmovepos;
 
+sleep 2;
+cutText ["", "BLACK IN", 2];
+sleep 2;
+
 private _t1 = format [localize "STR_DOM_MISSIONSTRING_1995", _numtk, _secs];
 "d_jail2" cutText [format ["<t color='#ffffff' size='2'>%1</t>", _t1], "PLAIN DOWN", -1, true, true];
 
@@ -81,8 +88,14 @@ while {_secs > 0} do {
 "d_jail" cutText ["", "PLAIN"];
 "d_jail2" cutText ["", "PLAIN DOWN"];
 
+cutText ["You are beeing transfered back to base!!!", "BLACK OUT", 0];
+
+sleep 2;
+
 terminate _soundspawn;
 terminate _disresbspawn;
+
+player setVariable ["d_jailar", nil, true];
 
 player setUnitLoadout _laodout;
 
@@ -108,6 +121,12 @@ if (surfaceIsWater _respawn_pos) then {
 "d_jail" cutText [format ["<t color='#ff0000' size='5'>%1</t>", localize "STR_DOM_MISSIONSTRING_1998"], "PLAIN", -1, true, true];
 d_goto_jail = nil;
 player allowDamage true;
+
+cutText ["", "BLACK IN", 0.2];
+
+{
+	deleteVehicle _x;
+} forEach _jailobjects;
 
 sleep 8;
 if (isNil "d_goto_jail") then {
