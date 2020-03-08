@@ -69,12 +69,8 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 sleep 1.234;
 #ifndef __TT__
 private "_nrcamps";
-if (d_max_camp_cnt != -1 ) then {
-	//max camps is set, overwrite the random value
-	_nrcamps = ceil random d_max_camp_cnt;
-	if (_nrcamps == 0) then {
-		_nrcamps = 1;
-	};
+if (d_max_camp_cnt > 0) then {
+	_nrcamps = d_max_camp_cnt
 } else {
 	_nrcamps = (ceil random 5) max 3;
 };

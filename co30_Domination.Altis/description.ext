@@ -930,9 +930,9 @@ class Params {
 
 	class d_max_camp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1930";
-		values[] = {1, 2, 3, 4, -1};
+		values[] = {1, 2, 3, 4, 5, -1};
 		default = -1;
-		texts[] = {"1", "2", "3", "4", "5"};
+		texts[] = {"1", "2", "3", "4", "5", "3 to 5"};
 	};
 
 	class d_camp_center {
