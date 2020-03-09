@@ -5,4 +5,3 @@
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 - Changed: Teamkillers are no longer pushed to the server lobby (slot selection) but they now can listen to a song in jail (something with bananas :))
 - Fixed: Added missing light attack chopper for independent side
-- Fixed: d_max_camp_cnt logic and parameter fix (by longtimegamer)
