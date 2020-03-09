@@ -96,7 +96,7 @@ if (isServer) then {
 #endif
 			];
 
-			// allmost the same like above
+			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
 #ifndef __TT__
@@ -154,7 +154,7 @@ if (isServer) then {
 				[[1,1], 1] // jeep with gl
 			];
 
-			// allmost the same like above
+			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
 				[2,1], // basic groups
@@ -202,7 +202,7 @@ if (isServer) then {
 				[[2,1], 1] // jeep with gl
 			];
 
-			// allmost the same like above
+			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
 				[3,1], // basic groups
