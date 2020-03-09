@@ -1274,12 +1274,12 @@
 <French>C'est un hélicoptère de levage normal.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_187">
-<English>It can lift allmost any vehicle except wrecks.</English>
+<English>It can lift almost any vehicle except wrecks.</English>
 <Spanish>Puede levantar cualquier vehículo excepto chatarra.</Spanish>
-<Portuguese>Possa elevador allmost qualquer veículo excepto chatarra.</Portuguese>
+<Portuguese>Possa elevador almost qualquer veículo excepto chatarra.</Portuguese>
 <Korean>잔해를 제외한 거의 모든 장비을 수송할 수 있습니다.</Korean>
 <Japanese>残骸以外のほぼすべての車両を空輸できます。</Japanese>
-<Original>It can lift allmost any vehicle except wrecks.</Original>
+<Original>It can lift almost any vehicle except wrecks.</Original>
 <Russian>Цепляет технику, кроме уничтоженной (врек)!</Russian>
 <Chinesesimp>本机基本可以吊运全部载具，残骸除外.</Chinesesimp>
 <Chinese>本機基本可以吊運全部載具，殘骸除外‧</Chinese>
@@ -4021,12 +4021,12 @@
 <French>L'hélico de transport part maintenant!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_640">
-<English>Air taxi allmost there, hang on...</English>
+<English>Air taxi almost there, hang on...</English>
 <Spanish>Taxi aéreo a punto de llegar, esté atento...</Spanish>
-<Portuguese>Táxi de ar allmost ali, pendura em cima...</Portuguese>
+<Portuguese>Táxi de ar almost ali, pendura em cima...</Portuguese>
 <Korean>후송헬기 거의 도착했으며, 현 위치에서 대기하십시오.</Korean>
 <Japanese>搬送ヘリコプターはすぐそこです、待機してください...</Japanese>
-<Original>Air taxi allmost there, hang on...</Original>
+<Original>Air taxi almost there, hang on...</Original>
 <Russian>Транспорт эвакуации почти прибыл, держитесь...</Russian>
 <Chinesesimp>空中运输就快到了,坚持住...</Chinesesimp>
 <Chinese>空中運輸就快到了,堅持住...</Chinese>
@@ -4069,12 +4069,12 @@
 <French>Le largage aérien est en route... ça va prendre du temps.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_644">
-<English>Air drop allmost there, stand by!!!</English>
+<English>Air drop almost there, stand by!!!</English>
 <Spanish>El avión de suministros está llegando, espere.</Spanish>
-<Portuguese>Gota de ar allmost ali, posição por!!!</Portuguese>
+<Portuguese>Gota de ar almost ali, posição por!!!</Portuguese>
 <Korean>현재 투하위치에 거의 도착하였으며, 현 위치 고수할 것.</Korean>
 <Japanese>空中投下機が近づいています、スタンバイ!!!</Japanese>
-<Original>Air drop allmost there, stand by!!!</Original>
+<Original>Air drop almost there, stand by!!!</Original>
 <Russian>Поддержка с воздуха на подходе, ждите!!!</Russian>
 <Chinesesimp>空投即将到达，请准备好!!!</Chinesesimp>
 <Chinese>空投即將到達，請準備好!!!</Chinese>
@@ -8541,12 +8541,12 @@
 <French>%1 exécuté %2 frappes, salves %3</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1360">
-<English>%1 artillery observers spotted at main target. Be carefull...</English>
+<English>%1 artillery observers spotted at main target. Be careful...</English>
 <Spanish>%1 observadores de artillería vistos en el objetivo principal. Tenga cuidado...</Spanish>
-<Portuguese>%1 observadores de artilharia spotted em objetivo principal. Ser carefull...</Portuguese>
+<Portuguese>%1 observadores de artilharia spotted em objetivo principal. Ser careful...</Portuguese>
 <Korean>작전지역내에 %1명의 포병 감적수가 확인되었습니다.</Korean>
 <Japanese>メインターゲットで%1人の砲兵観測手を目撃。注意せよ...</Japanese>
-<Original>%1 artillery observers spotted at main target. Be carefull...</Original>
+<Original>%1 artillery observers spotted at main target. Be careful...</Original>
 <Russian>В городе есть %1 артнаводчика. Будьте осторожны...</Russian>
 <Chinesesimp>%1 个炮兵观察手在主目标被发现了,小心...</Chinesesimp>
 <Chinese>％1個砲兵觀察手在主目標被發現了，小心...</Chinese>
