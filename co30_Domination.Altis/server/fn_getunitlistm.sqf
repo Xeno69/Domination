@@ -13,4 +13,8 @@ if (count _ret > 7) then {
 	_ret resize (selectRandom [6, 7]);
 };
 
+if (_ret isEqualTo []) then {
+	diag_log ["Attention in getunitlistm!!! Current _grptype returns empty list, _grptype:", _grptype, ", _side:", _side];
+};
+
 _ret

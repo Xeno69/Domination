@@ -892,7 +892,7 @@ if (!d_tt_tanoa) then {
 	d_sniper_I = [["Indep","CUP_I_TK_GUE","Infantry","CUP_I_TK_GUE_SniperTeam"] call d_fnc_GetConfigGroup];
 #endif
 #ifdef __CUP_SARA__
-	d_sniper_E = [["East","CUP_O_SLA","Infantry","CUP_O_SLA_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_E = [["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_SniperTeam_Desert"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_RACS","Infantry","CUP_I_RACS_SniperTeam"] call d_fnc_GetConfigGroup];
 #endif

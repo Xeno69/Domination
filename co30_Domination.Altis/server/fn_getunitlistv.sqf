@@ -15,4 +15,7 @@ private _idx = ["tank", "tracked_apc", "wheeled_apc", "aa", "jeep_mg", "jeep_gl"
 if (_idx != -1) exitWith {
 	selectRandom ((missionNamespace getVariable format ["d_veh_a_%1", _side_char]) select _idx)
 };
+
+diag_log ["Attention in getunitlistv!!! Current _grptype returns empty list, _grptype:", _grptype, ", _side:", _side];
+
 []
