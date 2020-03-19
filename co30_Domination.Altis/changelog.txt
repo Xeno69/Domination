@@ -4,5 +4,6 @@
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 - Changed: Teamkillers are no longer pushed to the server lobby (slot selection) but they now can listen to a song in jail (something with bananas :))
+- Changed: Updated Korean translation by kkim
 - Fixed: Added missing light attack chopper for independent side
 - Fixed: Some SLA CfgGroup names and sections got renamed in the CUP update resulting in spawning no groups

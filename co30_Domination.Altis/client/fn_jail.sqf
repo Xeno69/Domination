@@ -11,11 +11,11 @@ if (!alive player) then {
 
 cutText [localize "STR_DOM_MISSIONSTRING_1999", "BLACK", 0];
 
+player allowDamage false;
+
 if (vehicle player != player) then {
 	moveOut player;
 };
-
-player allowDamage false;
 
 params ["_numtk", ["_isjip", 0]];
 
@@ -25,8 +25,10 @@ player setVariable ["d_jailar", [serverTime, _secs], true];
 private _laodout =+ getUnitLoadout player;
 player setUnitLoadout (configFile >> "EmptyLoadout");
 
-if (isNil "d_jailpos") then {
-	d_jailpos = [d_FLAG_BASE, 800, 10000, 3, 0, 0.3] call d_fnc_findsafepos;
+private _jailpos = if !(d_cur_tgt_pos isEqualTo []) then {
+	[d_FLAG_BASE, 800, 10000, 3, 0, 0.3, 0, [d_cur_tgt_pos, 1000]] call d_fnc_findsafepos
+} else {
+	[d_FLAG_BASE, 800, 10000, 3, 0, 0.3] call d_fnc_findsafepos
 };
 
 private _soundspawn = 0 spawn {
@@ -47,7 +49,7 @@ private _jailcoords = [
 	["UGV_02_Wheel_F",[6.56763,4.93701,-0.000999928],359.999,1,0,[],"","",true,false]
 ];
 
-private _jailobjects = [d_jailpos, random 360, _jailcoords, 0, true] call d_fnc_objectsMapper;
+private _jailobjects = [_jailpos, random 360, _jailcoords, 0, true] call d_fnc_objectsMapper;
 __TRACE_1("","_jailobjects")
 private _pmovepos = [];
 
