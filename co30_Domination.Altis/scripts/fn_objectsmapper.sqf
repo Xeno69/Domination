@@ -120,28 +120,67 @@ private _multiplyMatrixFunc = {
 		//Backwards compatability causes for height to be optional
 		private ["_z"];
 		if (count _relPos > 2) then {_z = _relPos select 2} else {_z = 0};
+		
+		__TRACE_1("","_z")
 	
 		private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
 	
 		//Create the object and make sure it's in the correct location
 		//_newObj = _type createVehicle _newPos;
 		//_newObj = createSimpleObject [_type, AGLToASL _newPos];
+		
+		private _checkfunc = {
+#ifndef __CUP__
+		(_this isKindOf "StaticWeapon" || {_this isKindOf "BagBunker_base_F"})
+#else
+		(_this isKindOf "StaticWeapon" || {_this isKindOf "BagBunker_base_F" || {_this isKindOf "Tank_F" || {_this isKindOf "Car_F" || {_this == "Land_tent_east"}}}})
+#endif
+		};
+		
 		private _dosurface = true;
 		private "_newObj";
-		if (_type isKindOf "StaticWeapon" || {_type isKindOf "BagBunker_base_F"}) then {
+		if (_type call _checkfunc) then {
 			_newObj = createVehicle [_type, _newPos, [], 0, "CAN_COLLIDE"];
 			_newObj setDir (_azi + _azimuth);
 			_newObj setPos _newPos;
+			_newPos = getPos _newObj;
+			if (_newPos # 2 < 0) then {
+				_newObj setPos [_newPos # 0, _newPos # 1, 0];
+				_newObj setVectorUp (surfaceNormal (getPos _newObj));
+			};
+#ifdef __CUP__
+			if (!(_type isKindOf "StaticWeapon") && {_type isKindOf "Tank_F" || {_type isKindOf "Car_F" || {_type == "Land_tent_east"}}}) then {
+				_newObj lock true;
+				_newObj enableSimulationGlobal false;
+				_newObj allowDamage false;
+				clearWeaponCargoGlobal _newObj;
+				clearMagazineCargoGlobal _newObj;
+				clearItemCargoGlobal _newObj;
+				clearBackpackCargoGlobal _newObj;
+			} else {
+				if (d_with_dynsim == 0) then {
+					[_newObj, 10] spawn d_fnc_enabledynsim;
+				};
+			};
+#else
 			if (d_with_dynsim == 0) then {
 				[_newObj, 10] spawn d_fnc_enabledynsim;
 			};
+#endif
 		} else {
 			if (_type isKindOf "Car") then {
-				_newPos = _newPos vectorAdd [0,0,0.1];
+				_newPos = _newPos vectorAdd [0, 0, 0.1];
 			};
+			__TRACE_2("","_newPos","AGLToASL _newPos")
 			_newObj = [_type, AGLToASL _newPos, 0, true, false, _loc] call d_fnc_createSimpleObject;
 			_newObj setDir (_azi + _azimuth);
-			_newObj setPosWorld (getPosWorld _newObj);
+			_newPos = getPosWorld _newObj;
+			__TRACE_1("before","_newPos")
+#ifdef __CUP__
+			_newPos = _newPos vectorAdd [0, 0, (boundingCenter _newObj) # 2];
+#endif
+			__TRACE_1("after","_newPos")
+			_newObj setPosWorld _newPos;
 			if (toLowerANSI _type in d_struct_patches_ar) then {
 				_dosurface = false;
 			};
