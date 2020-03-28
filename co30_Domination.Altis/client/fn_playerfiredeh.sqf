@@ -60,12 +60,13 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this #
 		if (d_with_ace) exitWith {};
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
 			__TRACE("7 is null")
+			if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {
+				__TRACE("ammo is laserDesignate")
+			};
 			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"weaponLockSystem") > 0}) then {
 				__TRACE("has manual control")
-				if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {
-					__TRACE("ammo is laserDesignate")
-				};
-				private _w = player getVariable ("d_" + (_this # 1));
+				//private _w = player getVariable ("d_" + (_this # 5));
+				private _w = player getVariable "d_rcoold";
 				__TRACE_1("1","_w")
 				if (!isNil "_w") then {
 					if (time < _w) then {
@@ -82,7 +83,8 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this #
 				} else {
 					_w = time + d_launcher_cooldown;
 					__TRACE_1("2","_w")
-					player setVariable ["d_" + (_this # 1), _w];
+					//player setVariable ["d_" + (_this # 5), _w];
+					player setVariable ["d_rcoold", _w];
 				};
 			};
 		};
