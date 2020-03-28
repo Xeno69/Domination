@@ -180,7 +180,7 @@ for "_i" from 1 to _nrcamps do {
 
 	sleep 0.5;
 
-	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 10}) then {
+	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 30}) then {
 		private _retgr = ["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
 		(_retgr # 1) spawn {
 			sleep 20;

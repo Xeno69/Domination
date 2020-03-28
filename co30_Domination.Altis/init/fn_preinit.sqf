@@ -829,7 +829,15 @@ if (!d_tt_tanoa) then {
 #ifdef __MALDEN__
 #include "d_specops_O_default.sqf"
 #endif
-	];	
+	];
+	
+#ifdef __GMCWG__
+	{
+		if (count _x > 5) then {
+			_x resize 5
+		};
+	} forEach d_specops_E;
+#endif
 
 	d_specops_W = call {
 		if (d_rhs) exitWith {
