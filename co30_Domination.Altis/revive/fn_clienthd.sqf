@@ -12,7 +12,13 @@ __TRACE_1("","_this")
 if (!local _unit) exitWith {};
 if (!alive _unit) exitWith {
 	__TRACE("unit not alive, removing hd EH")
-	_unit removeEventHandler ["handleDamage", _thisEventhandler];
+	private _ehi = player getVariable "xr_hd_eh_i";
+	if (!isNil "_ehi") then {
+		player removeEventHandler ["handleDamage", _ehi];
+		player setVariable ["xr_hd_eh_i", nil];
+	} else {
+		_unit removeEventHandler ["handleDamage", _thisEventhandler];
+	};
 	nil
 };
 if (_dam == 0) exitWith {

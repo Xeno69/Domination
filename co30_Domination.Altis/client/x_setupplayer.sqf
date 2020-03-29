@@ -151,7 +151,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 };
 
 if (d_WithRevive == 1 && {!d_with_ace}) then {
-	player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}];
+	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
 };
 
 if (!isServer) then {execVM "bikb\kbinit.sqf"};
@@ -754,7 +754,9 @@ if (!d_with_ace) then {
 
 // by R34P3R
 d_p_isju = false;
-_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
+if (!d_with_ace) then {
+	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
+};
 
 d_vec_role_pl = [];
 player addEventhandler ["getInMan", {_this call d_fnc_getinmaneh}];

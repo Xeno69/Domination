@@ -35,6 +35,13 @@ if (_rtype == 0) then { // player died
 		};
 		player setVariable ["d_has_sfunc_aid", false];
 	};
+	if (!d_with_ace) then {
+		private _ehi = player getVariable "xr_hd_eh_i";
+		if (!isNil "_ehi") then {
+			player removeEventHandler ["handleDamage", _ehi];
+			player setVariable ["xr_hd_eh_i", nil];
+		};
+	};
 } else { // _rtype = 1, player has respawned
 	d_commandingMenuIniting = false;
 	d_DomCommandingMenuBlocked = false;
@@ -48,7 +55,7 @@ if (_rtype == 0) then { // player died
 	showCommandingMenu "";
 	__TRACE("adding player handleDamage eventhandler non ace")
 	if (!d_with_ace) then {
-		player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}];
+		player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
 	};
 	xr_phd_invulnerable = true;
 	player setFatigue 0;
