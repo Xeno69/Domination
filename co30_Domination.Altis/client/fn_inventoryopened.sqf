@@ -36,11 +36,11 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 		_box spawn {
 			scriptName "spawn_inventoryopened1";
 			if (!d_with_ranked) then {
-				if (!d_with_ace) then {
+				//if (!d_with_ace) then {
 					["Open", true] call bis_fnc_arsenal;
-				} else {
-					[player, player, true] call ace_arsenal_fnc_openBox;
-				};
+				//} else {
+				//	[player, player, true] call ace_arsenal_fnc_openBox;
+				//};
 			} else {
 				["Open", [nil, player]] call bis_fnc_arsenal;
 			};

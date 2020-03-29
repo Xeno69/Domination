@@ -7,6 +7,7 @@
 - Changed: Updated Korean translation by kkim
 - Changed: Launcher cooldown time is no longer set by launcher class name but by is the same for all
 - Changed: Removed searchlight from GMCWG version vehicles
+- Changed: Always use BIS Virtual Arsenal instead of ACE arsenal if ACE is available (ACE arsenal causes issues when mods like GM run, loads vanilla A3 weapons too instead of only GM weapons for example)
 - Fixed: Added missing light attack chopper for independent side
 - Fixed: Some SLA CfgGroup names and sections got renamed in the CUP update resulting in spawning no groups
 - Fixed: CUP composition objects were spawned under or half in the ground
