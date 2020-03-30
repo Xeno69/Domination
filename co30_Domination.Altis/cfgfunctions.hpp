@@ -311,7 +311,7 @@ class cfgFunctions {
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
 			addc(hallyg_dlegion_Snipe);
-			addc(hallyg_dlegion_Snipe_awareness_only);
+			addc(hallyg_dlegion_Snipe_awareness);
 			addc(ambientradiochatter);
 			addc(place);
 			addc(adjustEntity);

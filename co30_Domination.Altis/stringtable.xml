@@ -11899,6 +11899,39 @@
 <Chinese>敵軍步兵營的最大數量</Chinese>
 <French>Nombre maximum de casernes d'infanterie ennemies</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900AWARE">
+<English>Enemy infantry fight with advanced awareness of players</English>
+<Spanish>Enemy infantry fight with advanced awareness of players</Spanish>
+<Portuguese>Enemy infantry fight with advanced awareness of players</Portuguese>
+<Korean>Enemy infantry fight with advanced awareness of players</Korean>
+<Japanese>Enemy infantry fight with advanced awareness of players</Japanese>
+<Original>Enemy infantry fight with advanced awareness of players</Original>
+<Russian>Enemy infantry fight with advanced awareness of players</Russian>
+<Chinesesimp>Enemy infantry fight with advanced awareness of players</Chinesesimp>
+<French>Enemy infantry fight with advanced awareness of players</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
+<English>Enemy infantry pursue players</English>
+<Spanish>Enemy infantry pursue players</Spanish>
+<Portuguese>Enemy infantry pursue players</Portuguese>
+<Korean>Enemy infantry pursue players</Korean>
+<Japanese>Enemy infantry pursue players</Japanese>
+<Original>Enemy infantry pursue players</Original>
+<Russian>Enemy infantry pursue players</Russian>
+<Chinesesimp>Enemy infantry pursue players</Chinesesimp>
+<French>Enemy infantry pursue players</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT">
+<English>Enemy infantry shoot aggressively at players</English>
+<Spanish>Enemy infantry shoot aggressively at players</Spanish>
+<Portuguese>Enemy infantry shoot aggressively at players</Portuguese>
+<Korean>Enemy infantry shoot aggressively at players</Korean>
+<Japanese>Enemy infantry shoot aggressively at players</Japanese>
+<Original>Enemy infantry shoot aggressively at players</Original>
+<Russian>Enemy infantry shoot aggressively at players</Russian>
+<Chinesesimp>Enemy infantry shoot aggressively at players</Chinesesimp>
+<French>Enemy infantry shoot aggressively at players</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
 <English>Garrisoned infantry group count - occupy mode</English>
 <Spanish>Garrisoned infantry group count - occupy mode</Spanish>

@@ -1,5 +1,5 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_hallyg_dlegion_Snipe_awareness_only.sqf"
+#define THIS_FILE "fn_hallyg_dlegion_Snipe_awareness.sqf"
 #include "..\x_setup.sqf"
 
 #define EYE_HEIGHT 1.53
@@ -61,54 +61,55 @@ private _isVisible = {
 //in meters
 _detectionRadius = 2000;
 
-//sniper aware loop
+_loopCountSinceLastMoveOrder = 0;
+_loopCountThreshold = 3;
+
+if (d_ai_pursue_dist < 0) then {
+	(group _unit) setSpeedMode "FULL";
+};
+
+//awareness loop
 while {true} do {
-	sleep ((ceil random 5) max 3);
 	
+	if (d_ai_aware == 0 && d_ai_pursue_dist < 0) exitWith {};
+		
 	_Dtargets = [];
 
 	{
 		if (alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side _x == _targetSide && {_x distance2D _unit < _detectionRadius}}}}) then {
-			_unit reveal [_x, 4];
+			if (d_ai_aware == 1) then {
+				_unit reveal [_x, 4];
+			};
 			_Dtargets pushBack _x;
 		};
 	} forEach (_unit nearEntities 1400);
 	
-	if (count _Dtargets > 0) then {
-		_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
-		_nearestTargetPlayer = _playersSortedByDistance select 0;
+	_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
+	
+	if (count _playersSortedByDistance > 0) then {
 		
-		
-		
-		
-		_fired = false;
 		{
-			if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
-				//to check if unit actually fired
-				_ammoCount = _unit ammo primaryWeapon _unit;
-				_unit doTarget _x;
-				_unit doSuppressiveFire _x;
-				//_unit forceWeaponFire [(currentWeapon _unit), "Single"];
-				//sleep 7;
-				if (_ammoCount > _unit ammo primaryWeapon _unit) then {
-					//yes the unit actually fired
-					_fired = true;
-					_lastFired = time;
+			if (d_ai_aggressiveshoot == 1) then {
+				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
+					// execute aggressive shooting
+					_unit doTarget _x;
+					_unit doSuppressiveFire _x;
 				};
 			};
-		} forEach ([_Dtargets, getPos _unit] call _sortArrayByDistance);
-	
-		sleep 1;
-	
-		if (_fired) then {
-			//_unit setVehicleAmmo 1;
-		} else {
-				        	
-			if (_nearestTargetPlayer distance2D _unit < _distanceThreshold) then {
+		} forEach (_playersSortedByDistance);
+		
+		_nearestTargetPlayer = _playersSortedByDistance select 0;
+		        	
+		if (d_ai_pursue_dist > 0 && (_nearestTargetPlayer distance2D _unit < _distanceThreshold)) then {
+			if (_loopCountSinceLastMoveOrder > _loopCountThreshold) then {
 				_unit doMove (position _nearestTargetPlayer);
+			} else {
+				_loopCountSinceLastMoveOrder = _loopCountSinceLastMoveOrder + 1;
 			};
-			
 		};
+		
 	};
+	
+	sleep ((random 5) + 3);
 	
 };

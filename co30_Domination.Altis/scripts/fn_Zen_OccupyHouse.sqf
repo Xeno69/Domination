@@ -205,14 +205,15 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 								//occupy mode - no special behavior
 								if (_unitMovementMode == 0) then {
-									// MUHAHAHAHAHAHAHAHAAA
-									[_uuidx, d_side_player, 175] spawn d_fnc_hallyg_dlegion_Snipe_awareness_only;
+									if (d_ai_aware == 1) then {
+										[_uuidx, d_side_player, d_ai_pursue_dist] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+									};
 								};
 
 								//ambush mode - static until firedNear within 69m restores unit ability to move and fire
 								if (_unitMovementMode == 1) then {
-									// MUHAHAHAHAHAHAHAHAAA
-									[_uuidx, d_side_player, 69] spawn d_fnc_hallyg_dlegion_Snipe_awareness_only;
+									// awareness and movement always 69m threshold with ambush mode
+									[_uuidx, d_side_player, 69] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 									if !(_doMove) then {
 										_uuidx disableAI "TARGET";
 										_uuidx forceSpeed 0;
@@ -271,8 +272,8 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 									if !(_doMove) then {
 										_uuidx disableAI "TARGET";
 										_uuidx forceSpeed 0;
-										// MUHAHAHAHAHAHAHAHAAA
-										[_uuidx, d_side_player, 1] spawn d_fnc_hallyg_dlegion_Snipe_awareness_only;
+										// 1m pursuit distance but isn't actually relevant since unit speed is zero
+										[_uuidx, d_side_player, 1] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 									};
 								};
 
