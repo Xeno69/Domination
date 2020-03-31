@@ -4,7 +4,13 @@
 
 #define EYE_HEIGHT 1.53
 
-params ["_unit", "_targetSide", "_distanceThreshold"];
+// _unit - this unit
+// _targetSide - side the unit is engaging
+// _distanceThreshold - if nearest player is within _distanceThreshold and d_ai_pursue_dist > 0 then the unit will occasionally be ordered to move to the player position
+// _isSniper - unit does not move, uses timed stand / laydown sequence
+// _infiniteAmmo - unit will have ammo instantly replaced on a frequent basis
+// _sleepInterval - time in seconds to sleep between loop execution
+params ["_unit", "_targetSide", "_distanceThreshold", "_isSniper", "_infiniteAmmo", "_sleepInterval"];
 
 //by HallyG, dlegion
 private _isLOS = {
@@ -61,6 +67,18 @@ private _isVisible = {
 //in meters
 _detectionRadius = 2000;
 
+sleep random 3;
+
+//_unit disableAI "AIMINGERROR";
+_unit disableAI "TARGET";
+private _lastFired = 0;
+
+if (_isSniper == 1) then {
+	_unit disableAI "PATH";	
+	_unit forceSpeed 0;	
+	_unit setUnitPos "UP";
+};
+
 _loopCountSinceLastMoveOrder = 0;
 _loopCountThreshold = 3;
 
@@ -84,6 +102,8 @@ while {true} do {
 		};
 	} forEach (_unit nearEntities 1400);
 	
+	_fired = false;
+	
 	_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
 	
 	if (count _playersSortedByDistance > 0) then {
@@ -91,9 +111,17 @@ while {true} do {
 		{
 			if (d_ai_aggressiveshoot == 1) then {
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
+					//to check if unit actually fired
+                	_ammoCount = _unit ammo primaryWeapon _unit;
 					// execute aggressive shooting
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
+					sleep 1.7;
+					if (_ammoCount > _unit ammo primaryWeapon _unit) then {
+                    	//yes the unit actually fired
+                    	_fired = true;
+                    	_lastFired = time;
+                    };
 				};
 			};
 		} forEach (_playersSortedByDistance);
@@ -109,7 +137,31 @@ while {true} do {
 		};
 		
 	};
+		
+	if (_fired && _infiniteAmmo == 1) then {
+		_unit setVehicleAmmo 1;
+	};
 	
-	sleep ((random 5) + 3);
+	if (!_fired) then {
+		call {
+			if (unitPos _unit == "AUTO" || {unitPos _unit == "UP"}) exitWith {
+				//if standing upright and could not fire on a target then lay down for a while
+				_unit setUnitPos "DOWN";
+				sleep ((ceil random 40) max 7);
+			};
+			if (unitPos _unit == "DOWN") exitWith {
+				//if down and could not fire on a target then rise to middle position
+				_unit setUnitPos "MIDDLE";
+				sleep 3;
+			};
+			if (unitPos _unit == "MIDDLE") exitWith {
+				//if middle and could not fire on a target then rise to up position
+				_unit setUnitPos "UP";
+				sleep 3;
+			};
+		};
+	};
+	
+	sleep _sleepInterval;
 	
 };
