@@ -8,9 +8,9 @@
 // _targetSide - side the unit is engaging
 // _distanceThreshold - if nearest player is within _distanceThreshold and d_ai_pursue_dist > 0 then the unit will occasionally be ordered to move to the player position
 // _isSniper - unit does not move, uses timed stand / laydown sequence
-// _infiniteAmmo - unit will have ammo instantly replaced on a frequent basis
+// _isInfiniteAmmo - unit will have ammo instantly replaced on a frequent basis
 // _sleepInterval - time in seconds to sleep between loop execution
-params ["_unit", "_targetSide", "_distanceThreshold", "_isSniper", "_infiniteAmmo", "_sleepInterval"];
+params ["_unit", "_targetSide", "_distanceThreshold", "_isSniper", "_isInfiniteAmmo", "_sleepInterval"];
 
 //by HallyG, dlegion
 private _isLOS = {
@@ -73,7 +73,7 @@ sleep random 3;
 _unit disableAI "TARGET";
 private _lastFired = 0;
 
-if (_isSniper == 1) then {
+if (_isSniper) then {
 	_unit disableAI "PATH";	
 	_unit forceSpeed 0;	
 	_unit setUnitPos "UP";
@@ -122,6 +122,7 @@ while {true} do {
                     	_fired = true;
                     	_lastFired = time;
                     };
+                    //if (_fired) exitWith {};
 				};
 			};
 		} forEach (_playersSortedByDistance);
@@ -138,11 +139,11 @@ while {true} do {
 		
 	};
 		
-	if (_fired && _infiniteAmmo == 1) then {
+	if (_fired && _isInfiniteAmmo) then {
 		_unit setVehicleAmmo 1;
 	};
 	
-	if (!_fired) then {
+	if (!_fired && _isSniper) then {
 		call {
 			if (unitPos _unit == "AUTO" || {unitPos _unit == "UP"}) exitWith {
 				//if standing upright and could not fire on a target then lay down for a while
