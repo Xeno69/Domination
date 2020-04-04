@@ -28,7 +28,7 @@ private _garrisonUnits = {
 		} forEach _units_to_garrison;
 	};
 	_newgroup deleteGroupWhenEmpty true;
-	sleep 1.0112;
+	sleep 0.01;
 	//_newgroup allowFleeing 0;
 	//_newgroup setVariable ["d_defend", true];
 	//[_newgroup, _poss] spawn d_fnc_taskDefend;
