@@ -7,10 +7,8 @@
 // _unit - this unit
 // _targetSide - side the unit is engaging
 // _distanceThreshold - if nearest player is within _distanceThreshold and d_ai_pursue_dist > 0 then the unit will occasionally be ordered to move to the player position
-// _isSniper - unit does not move, uses timed stand / laydown sequence
-// _isInfiniteAmmo - unit will have ammo instantly replaced on a frequent basis
-// _sleepInterval - time in seconds to sleep between loop execution
-params ["_unit", "_targetSide", "_distanceThreshold", "_isSniper", "_isInfiniteAmmo", "_sleepInterval"];
+// _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis, useful when doSuppressiveFire causes the unit to use ammo rapidly
+params ["_unit", "_targetSide", "_distanceThreshold", "_isQuickAmmo"];
 
 //by HallyG, dlegion
 private _isLOS = {
@@ -64,23 +62,24 @@ private _isVisible = {
 	};
 };
 
-//in meters
-_detectionRadius = 2000;
+//_unit disableAI "AIMINGERROR";
+_unit disableAI "TARGET";
 
 sleep random 3;
 
-//_unit disableAI "AIMINGERROR";
-_unit disableAI "TARGET";
+private _detectionRadius = 2000; //in meters
 private _lastFired = 0;
+private _lastMoveOrder = 0;
+private _moveOrderInterval = 30; //in seconds
 
-if (_isSniper) then {
-	_unit disableAI "PATH";	
-	_unit forceSpeed 0;	
-	_unit setUnitPos "UP";
+//hack - we only apply "forceWalk true" to sniper units
+if (isForcedWalk _unit) then {
+	_isSniper = true;
+} else {
+	_isSniper = false;
 };
 
-_loopCountSinceLastMoveOrder = 0;
-_loopCountThreshold = 3;
+_unit setCombatMode "RED";
 
 if (d_ai_pursue_dist < 0) then {
 	(group _unit) setSpeedMode "FULL";
@@ -116,13 +115,13 @@ while {true} do {
 					// execute aggressive shooting
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
-					sleep 1.7;
+					sleep 7;
 					if (_ammoCount > _unit ammo primaryWeapon _unit) then {
                     	//yes the unit actually fired
                     	_fired = true;
                     	_lastFired = time;
                     };
-                    //if (_fired) exitWith {};
+                    if (_fired) exitWith {};
 				};
 			};
 		} forEach (_playersSortedByDistance);
@@ -130,16 +129,15 @@ while {true} do {
 		_nearestTargetPlayer = _playersSortedByDistance select 0;
 		        	
 		if (d_ai_pursue_dist > 0 && (_nearestTargetPlayer distance2D _unit < _distanceThreshold)) then {
-			if (_loopCountSinceLastMoveOrder > _loopCountThreshold) then {
-				_unit doMove (position _nearestTargetPlayer);
-			} else {
-				_loopCountSinceLastMoveOrder = _loopCountSinceLastMoveOrder + 1;
+			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
+				_unit doMove (getPosATL _nearestTargetPlayer);
+				_lastMoveOrder = time;
 			};
 		};
 		
 	};
 		
-	if (_fired && _isInfiniteAmmo) then {
+	if (_fired && (_isInfiniteAmmo || _isSniper)) then {
 		_unit setVehicleAmmo 1;
 	};
 	
@@ -162,7 +160,4 @@ while {true} do {
 			};
 		};
 	};
-	
-	sleep _sleepInterval;
-	
 };

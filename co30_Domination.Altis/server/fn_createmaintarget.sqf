@@ -19,6 +19,14 @@ private _garrisonUnits = {
 	};
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
+	if (_unitMovementMode == 2) then {
+		{
+			_x disableAI "PATH";
+			_x forceSpeed 0;
+			_x setUnitPos "UP";
+			_x forceWalk true; //hack - we only apply "forceWalk true" to sniper units
+		} forEach _units_to_garrison;
+	};
 	_newgroup deleteGroupWhenEmpty true;
 	sleep 1.0112;
 	//_newgroup allowFleeing 0;

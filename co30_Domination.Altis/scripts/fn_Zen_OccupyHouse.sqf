@@ -205,15 +205,12 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 								//occupy mode - no special behavior
 								if (_unitMovementMode == 0) then {
-									if (d_ai_aware == 1) then {
-										[_uuidx, d_side_player, d_ai_pursue_dist, false, false, 10] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
-									};
+									//do nothing
 								};
 
 								//ambush mode - static until firedNear within 69m restores unit ability to move and fire
 								if (_unitMovementMode == 1) then {
-									// awareness and movement always 69m threshold with ambush mode
-									[_uuidx, d_side_player, 69, false, false, 10] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+
 									if !(_doMove) then {
 										_uuidx disableAI "TARGET";
 										_uuidx forceSpeed 0;
@@ -243,9 +240,9 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 									if (d_snp_aware == 1) then {
 										//highly aware snipers
-										[_uuidx, d_side_player, 1, true, true, 10] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+										//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
 									} else {
-										//common snipers with up/down script triggered by firedNear within 69m
+										//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
 										if (_isRoof) then {
 											_uuidx setUnitPos "MIDDLE";
 											_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
@@ -272,8 +269,6 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 									if !(_doMove) then {
 										_uuidx disableAI "TARGET";
 										_uuidx forceSpeed 0;
-										// 1m pursuit distance but isn't actually relevant since unit speed is zero
-										[_uuidx, d_side_player, 1, false, false, 10] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 									};
 								};
 
