@@ -65,7 +65,7 @@ private _isVisible = {
 //_unit disableAI "AIMINGERROR";
 _unit disableAI "TARGET";
 
-sleep random 3;
+sleep (90 + (random 45));
 
 private _detectionRadius = 2000; //in meters
 private _lastFired = 0;
