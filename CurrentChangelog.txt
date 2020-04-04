@@ -13,7 +13,7 @@
              - Low number of AI units, all camps captured and radio tower destroyed
              - Low number of AI units and radio tower destroyed
            for "Seize condition for main target:" (d_ao_check_for_ai in description.ext).
-		   Second one is default (d_ao_check_for_ai = 1)
+           Second one is default (d_ao_check_for_ai = 1)
 - Fixed: Added missing light attack chopper for independent side
 - Fixed: Some SLA CfgGroup names and sections got renamed in the CUP update resulting in spawning no groups
 - Fixed: CUP composition objects were spawned under or half in the ground
