@@ -10255,18 +10255,6 @@
 <Chinese>---------------------- 跳傘操作中 --------------------------</Chinese>
 <French>---------------------- GESTION LARGUAGE --------------------------</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1717">
-<English>Only check for captured camps and destroyed radio tower to end main target:</English>
-<Spanish>Sólo comprobar si hay campos capturados y destruir la torre de radio para poner fin principal objetivo:</Spanish>
-<Portuguese>Controle único para capturou acampamentos e torre radiofónica destruída para acabar objetivo principal</Portuguese>
-<Korean>통신탑 파괴와 초소만 점령만 하면 미션 완수여부</Korean>
-<Japanese>制圧済みキャンプとラジオタワーの破壊のみをチェックして、メインターゲットを終了する：</Japanese>
-<Original>Only check for captured camps and destroyed radio tower to end main target:</Original>
-<Russian>Только захват блок-постов и уничтожение радиовышки в городах:</Russian>
-<Chinesesimp>只检查营地和摧毁通讯塔以结束主要目标:</Chinesesimp>
-<Chinese>只檢查營地和摧毀通訊塔以結束主要目標：</Chinese>
-<French>Vérifiez uniquement les camps capturés et la tour radio détruite pour terminer l'objectif principal:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1718">
 <English>Wreck Repair Point, Time to repair: %1 seconds</English>
 <Spanish>Punto de reparación del naufragio, Tiempo de reparación: %1 segundos</Spanish>
@@ -12890,6 +12878,54 @@
 <Chinesesimp>points for transporting another player in a vehicle!</Chinesesimp>
 <Chinese>points for transporting another player in a vehicle!</Chinese>
 <French>points for transporting another player in a vehicle!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2002">
+<English>Seize condition for main target:</English>
+<Spanish>Seize condition for main target:</Spanish>
+<Portuguese>Seize condition for main target:</Portuguese>
+<Korean>Seize condition for main target:</Korean>
+<Japanese>Seize condition for main target:</Japanese>
+<Original>Seize condition for main target:</Original>
+<Russian>Seize condition for main target:</Russian>
+<Chinesesimp>Seize condition for main target:</Chinesesimp>
+<Chinese>Seize condition for main target:</Chinese>
+<French>Seize condition for main target:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2003">
+<English>All camps captured and radio tower destroyed</English>
+<Spanish>All camps captured and radio tower destroyed</Spanish>
+<Portuguese>All camps captured and radio tower destroyed</Portuguese>
+<Korean>All camps captured and radio tower destroyed</Korean>
+<Japanese>All camps captured and radio tower destroyed</Japanese>
+<Original>All camps captured and radio tower destroyed</Original>
+<Russian>All camps captured and radio tower destroyed</Russian>
+<Chinesesimp>All camps captured and radio tower destroyed</Chinesesimp>
+<Chinese>All camps captured and radio tower destroyed</Chinese>
+<French>All camps captured and radio tower destroyed</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2004">
+<English>Low number of AI units, all camps captured and radio tower destroyed</English>
+<Spanish>Low number of AI units, all camps captured and radio tower destroyed</Spanish>
+<Portuguese>Low number of AI units, all camps captured and radio tower destroyed</Portuguese>
+<Korean>Low number of AI units, all camps captured and radio tower destroyed</Korean>
+<Japanese>Low number of AI units, all camps captured and radio tower destroyed</Japanese>
+<Original>Low number of AI units, all camps captured and radio tower destroyed</Original>
+<Russian>Low number of AI units, all camps captured and radio tower destroyed</Russian>
+<Chinesesimp>Low number of AI units, all camps captured and radio tower destroyed</Chinesesimp>
+<Chinese>Low number of AI units, all camps captured and radio tower destroyed</Chinese>
+<French>Low number of AI units, all camps captured and radio tower destroyed</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2005">
+<English>Low number of AI units and radio tower destroyed</English>
+<Spanish>Low number of AI units and radio tower destroyed</Spanish>
+<Portuguese>Low number of AI units and radio tower destroyed</Portuguese>
+<Korean>Low number of AI units and radio tower destroyed</Korean>
+<Japanese>Low number of AI units and radio tower destroyed</Japanese>
+<Original>Low number of AI units and radio tower destroyed</Original>
+<Russian>Low number of AI units and radio tower destroyed</Russian>
+<Chinesesimp>Low number of AI units and radio tower destroyed</Chinesesimp>
+<Chinese>Low number of AI units and radio tower destroyed</Chinese>
+<French>Low number of AI units and radio tower destroyed</French>
 </Key>
 </Container>
 </Package>

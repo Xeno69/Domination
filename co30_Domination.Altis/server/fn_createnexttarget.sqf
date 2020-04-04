@@ -70,10 +70,16 @@ while {!d_update_target} do {sleep 2.123};
 __TRACE("!d_update_target done")
 
 #ifndef __TT__
-_tsar = if (d_ao_check_for_ai == 1) then {
-	["d_mt_radio_down && {d_campscaptured == d_sum_camps && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}}", "0 = 0 spawn d_fnc_target_clear", ""]
-} else {
-	["d_mt_radio_down && {d_campscaptured == d_sum_camps}", "0 = 0 spawn d_fnc_target_clear", ""]
+_tsar = call {
+	if (d_ao_check_for_ai == 0) exitWith {
+		["d_mt_radio_down && {d_campscaptured == d_sum_camps}", "0 = 0 spawn d_fnc_target_clear", ""]
+	};
+	if (d_ao_check_for_ai == 1) exitWith {
+		["d_mt_radio_down && {d_campscaptured == d_sum_camps && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}}", "0 = 0 spawn d_fnc_target_clear", ""]
+	};
+	if (d_ao_check_for_ai == 2) exitWith {
+		["d_mt_radio_down && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}", "0 = 0 spawn d_fnc_target_clear", ""]
+	};
 };
 #else
 //_tsar = ["d_mt_radio_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = 0 spawn d_fnc_target_clear", ""];

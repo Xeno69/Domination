@@ -389,10 +389,10 @@ class Params {
 	};
 
 	class d_ao_check_for_ai {
-		title = "$STR_DOM_MISSIONSTRING_1717";
-		values[] = {0,1};
+		title = "$STR_DOM_MISSIONSTRING_2002";
+		values[] = {0,1,2};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_2003","$STR_DOM_MISSIONSTRING_2004","$STR_DOM_MISSIONSTRING_2005"};
 	};
 
 	class d_mt_respawngroups {

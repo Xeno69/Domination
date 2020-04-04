@@ -76,7 +76,7 @@ private _d_mhq_3ddraw = d_mhq_3ddraw;
 
 if !(d_cur_tgt_pos isEqualTo []) then {
 	private _d_currentcamps = d_currentcamps;
-	if (player distance2D d_cur_tgt_pos < 1500) then {
+	if (!(_d_currentcamps isEqualTo []) && {player distance2D d_cur_tgt_pos < 1500}) then {
 		private _own_sides = d_own_sides;
 		{
 			_distp = _pos_cam distance _x;
