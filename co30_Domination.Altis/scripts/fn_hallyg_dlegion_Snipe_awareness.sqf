@@ -137,7 +137,7 @@ while {true} do {
 		
 	};
 		
-	if (_fired && (_isInfiniteAmmo || _isSniper)) then {
+	if (_fired && (_isQuickAmmo || _isSniper)) then {
 		_unit setVehicleAmmo 1;
 	};
 	
