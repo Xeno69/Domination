@@ -72,11 +72,10 @@ private _lastFired = 0;
 private _lastMoveOrder = 0;
 private _moveOrderInterval = 30; //in seconds
 
+private _isSniper = false;
 //hack - we only apply "forceWalk true" to sniper units
 if (isForcedWalk _unit) then {
 	_isSniper = true;
-} else {
-	_isSniper = false;
 };
 
 _unit setCombatMode "RED";
