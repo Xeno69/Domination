@@ -42,7 +42,7 @@ class GraphItems
 			Text="";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -79,7 +79,7 @@ class GraphItems
 	};
 	class Item3
 	{
-		Flags=4314;
+		Flags=218;
 		BasicText="";
 		Left=200;
 		Top=-200;
@@ -192,7 +192,7 @@ class GraphItems
 			Text="Logged out" \n "or" \n "!alive";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -272,7 +272,7 @@ class GraphItems
 			Text="Delay 2s";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -286,7 +286,7 @@ class GraphItems
 	};
 	class Item11
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-25;
 		Top=475;
@@ -297,7 +297,7 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -305,7 +305,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=11;
-				InitCode="if (alive _vec) then {" \n "	if (_vec != d_adm_currentvec) then {" \n "		if (d_admin_idd != -9999) then {" \n "			if (!isNull d_adm_currentvec) then {" \n "				d_adm_currentvec removeAction d_admin_idd;" \n "			};" \n "			d_admin_idd = -9999;" \n "		};" \n "		if (_vec call d_fnc_isVecLocked) then {" \n "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n "			d_adm_currentvec_lockstate = true;" \n "		} else {" \n "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc}, 0, -1, false, true, """", ""true"", 10];" \n "			d_adm_currentvec_lockstate = false;" \n "		};" \n "		d_adm_currentvec = _vec;" \n "	} else {" \n "		if (d_adm_currentvec_lockstate && {!(_vec call d_fnc_isVecLocked)}) then {" \n "			d_adm_currentvec removeAction d_admin_idd;" \n "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc}, 0, -1, false, true, """", ""true"", 10];" \n "			d_adm_currentvec_lockstate = false;" \n "		} else {" \n "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n "				d_adm_currentvec removeAction d_admin_idd;" \n "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n "				d_adm_currentvec_lockstate = true;" \n "			};" \n "		};" \n "	};" \n "} else {" \n "	if (d_admin_idd != -9999) then {" \n "		if (!isNull d_adm_currentvec) then {" \n "			d_adm_currentvec removeAction d_admin_idd;" \n "		};" \n "		d_admin_idd = -9999;" \n "	};" \n "	d_adm_currentvec = objNull;" \n "	d_adm_currentvec_lockstate = false;" \n "};" \n "private _timenow = time + 2;" \n "			";
+				InitCode="if (alive _vec) then {" \n "	if (_vec != d_adm_currentvec) then {" \n "		if (d_admin_idd != -9999) then {" \n "			if (!isNull d_adm_currentvec) then {" \n "				d_adm_currentvec removeAction d_admin_idd;" \n "			};" \n "			d_admin_idd = -9999;" \n "		};" \n "		if (_vec call d_fnc_isVecLocked) then {" \n "			if (_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n "			d_adm_currentvec_lockstate = true;" \n "		} else {" \n "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc}, 0, -1, false, true, """", ""true"", 10];" \n "			d_adm_currentvec_lockstate = false;" \n "		};" \n "		d_adm_currentvec = _vec;" \n "	} else {" \n "		if (d_adm_currentvec_lockstate && {!(_vec call d_fnc_isVecLocked)}) then {" \n "			d_adm_currentvec removeAction d_admin_idd;" \n "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1419""], {_this call d_fnc_lockc}, 0, -1, false, true, """", ""true"", 10];" \n "			d_adm_currentvec_lockstate = false;" \n "		} else {" \n "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n "				d_adm_currentvec removeAction d_admin_idd;" \n "				if (_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n "				d_adm_currentvec_lockstate = true;" \n "			};" \n "		};" \n "	};" \n "} else {" \n "	if (d_admin_idd != -9999) then {" \n "		if (!isNull d_adm_currentvec) then {" \n "			d_adm_currentvec removeAction d_admin_idd;" \n "		};" \n "		d_admin_idd = -9999;" \n "	};" \n "	d_adm_currentvec = objNull;" \n "	d_adm_currentvec_lockstate = false;" \n "};" \n "private _timenow = time + 2;" \n "			";
 			};
 		};
 	};
@@ -472,7 +472,7 @@ class GraphItems
 			Text="Fix for those children with small penises";
 			lStyle=-842150451;
 			Shape=2;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -498,7 +498,7 @@ class GraphItems
 		{
 			Text="Kick those" \n " kindergarden children";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -858,7 +858,7 @@ class Globals
 	PZoomBottom=632.77307;
 	PZoomTop=-461.42249;
 	Clxs=655;
-	Clys=894;
+	Clys=1254;
 	Aspect=1;
 };
 class Window
@@ -868,10 +868,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=52;
-	Top=52;
-	Right=1012;
-	Bottom=770;
+	Left=156;
+	Top=156;
+	Right=1116;
+	Bottom=874;
 	ShowCmd=3;
 	SplitPos=673;
 };

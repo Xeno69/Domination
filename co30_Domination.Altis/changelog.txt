@@ -19,3 +19,4 @@
 - Fixed: CUP composition objects were spawned under or half in the ground
 - Fixed: In the GMCWG versions enemy AI infantry didn't spawn because CfgGroups class names have changed
 - Fixed: Some vehicles at base were placed half in the ground in the IFA3 version
+- Fixed: When a player ejected with an ejection seat from an air vehicle on the ground it was still possible for an admin to unlock the vehicle via the isAdmin script and get into it

@@ -49,6 +49,10 @@ if (!isServer) exitWith{};
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 	
+	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+	};
+	
 	if !(_vec isKindOf "Air") then {
 		_vec setVariable ["d_liftit", true, true];
 	};

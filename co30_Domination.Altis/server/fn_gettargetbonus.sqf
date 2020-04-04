@@ -240,11 +240,19 @@ if (!isNull _vec2) then {
 _vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 _vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+
+if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+};
 #ifdef __TT__
 if (!isNull _vec2) then {
 		_vec2 addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec2 addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	
+	if (_vec2 isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec2 >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		_vec2 addEventHandler ["getOut", {_this call d_fnc_aftereject];
+	};
 };
 #endif
 

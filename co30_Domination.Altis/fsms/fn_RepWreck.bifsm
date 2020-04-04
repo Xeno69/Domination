@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -248,7 +248,7 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -315,7 +315,7 @@ class GraphItems
 	};
 	class Item12
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-34.777206;
 		Top=652.85065;
@@ -366,7 +366,7 @@ class GraphItems
 	};
 	class Item14
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=270.72742;
 		Top=446.82175;
@@ -377,7 +377,7 @@ class GraphItems
 		{
 			Text="Unlock Vehicle";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -385,7 +385,7 @@ class GraphItems
 			class ItemInfo
 			{
 				Id=14;
-				InitCode="d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n "_rep_station setVariable [""d_curreptime"", -1, true];" \n "_new_vec lock false;" \n "[_new_vec, 11] call d_fnc_setekmode;" \n "if (!d_tt_ver) then {" \n "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n "} else {" \n "	switch (_rep_station_side) do {" \n "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "	};" \n "};" \n "" \n "_new_vec addEventHandler [""getIn"", {_this call d_fnc_sgetinvec}];" \n "" \n "_new_vec addEventHandler [""getOut"", {_this call d_fnc_sgetoutvec}];" \n "" \n "if !(_new_vec isKindOf ""Air"") then {" \n "	_new_vec setVariable [""d_liftit"", true, true];" \n "};" \n "" \n "_new_vec allowDamage true;" \n "";
+				InitCode="d_wreck_cur_ar = d_wreck_cur_ar - [_new_vec];" \n "_rep_station setVariable [""d_curreptime"", -1, true];" \n "_new_vec lock false;" \n "[_new_vec, 11] call d_fnc_setekmode;" \n "if (!d_tt_ver) then {" \n "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n "} else {" \n "	switch (_rep_station_side) do {" \n "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n "	};" \n "};" \n "" \n "_new_vec addEventHandler [""getIn"", {_this call d_fnc_sgetinvec}];" \n "" \n "_new_vec addEventHandler [""getOut"", {_this call d_fnc_sgetoutvec}];" \n "" \n "if (_new_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _new_vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1}) then {" \n "	_new_vec addEventHandler [""getOut"", {_this call d_fnc_aftereject];" \n "};" \n "" \n "if !(_new_vec isKindOf ""Air"") then {" \n "	_new_vec setVariable [""d_liftit"", true, true];" \n "};" \n "" \n "_new_vec allowDamage true;" \n "";
 			};
 		};
 	};
@@ -719,10 +719,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=26;
-	Top=26;
-	Right=2173;
-	Bottom=1030;
+	Left=208;
+	Top=208;
+	Right=2355;
+	Bottom=1212;
 	ShowCmd=3;
 	SplitPos=1043;
 };
