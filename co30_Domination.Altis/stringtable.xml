@@ -11900,37 +11900,48 @@
 <French>Nombre maximum de casernes d'infanterie ennemies</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AWARE">
-<English>Enemy infantry fight with advanced awareness of players</English>
-<Spanish>Enemy infantry fight with advanced awareness of players</Spanish>
-<Portuguese>Enemy infantry fight with advanced awareness of players</Portuguese>
-<Korean>Enemy infantry fight with advanced awareness of players</Korean>
-<Japanese>Enemy infantry fight with advanced awareness of players</Japanese>
-<Original>Enemy infantry fight with advanced awareness of players</Original>
-<Russian>Enemy infantry fight with advanced awareness of players</Russian>
-<Chinesesimp>Enemy infantry fight with advanced awareness of players</Chinesesimp>
-<French>Enemy infantry fight with advanced awareness of players</French>
+<English>AI Advanced awareness - Enemy awareness radius</English>
+<Spanish>AI Advanced awareness - Enemy awareness radius</Spanish>
+<Portuguese>AI Advanced awareness - Enemy awareness radius</Portuguese>
+<Korean>AI Advanced awareness - Enemy awareness radius</Korean>
+<Japanese>AI Advanced awareness - Enemy awareness radius</Japanese>
+<Original>AI Advanced awareness - Enemy awareness radius</Original>
+<Russian>AI Advanced awareness - Enemy awareness radius</Russian>
+<Chinesesimp>AI Advanced awareness - Enemy awareness radius</Chinesesimp>
+<French>AI Advanced awareness - Enemy awareness radius</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
-<English>Enemy infantry pursue players</English>
-<Spanish>Enemy infantry pursue players</Spanish>
-<Portuguese>Enemy infantry pursue players</Portuguese>
-<Korean>Enemy infantry pursue players</Korean>
-<Japanese>Enemy infantry pursue players</Japanese>
-<Original>Enemy infantry pursue players</Original>
-<Russian>Enemy infantry pursue players</Russian>
-<Chinesesimp>Enemy infantry pursue players</Chinesesimp>
-<French>Enemy infantry pursue players</French>
+<English>AI Advanced awareness - Enemy active pursuit radius</English>
+<Spanish>AI Advanced awareness - Enemy active pursuit radius</Spanish>
+<Portuguese>AI Advanced awareness - Enemy active pursuit radius</Portuguese>
+<Korean>AI Advanced awareness - Enemy active pursuit radius</Korean>
+<Japanese>AI Advanced awareness - Enemy active pursuit radius</Japanese>
+<Original>AI Advanced awareness - Enemy active pursuit radius</Original>
+<Russian>AI Advanced awareness - Enemy active pursuit radius</Russian>
+<Chinesesimp>AI Advanced awareness - Enemy active pursuit radius</Chinesesimp>
+<French>AI Advanced awareness - Enemy active pursuit radius</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT">
-<English>Enemy infantry shoot aggressively at players</English>
-<Spanish>Enemy infantry shoot aggressively at players</Spanish>
-<Portuguese>Enemy infantry shoot aggressively at players</Portuguese>
-<Korean>Enemy infantry shoot aggressively at players</Korean>
-<Japanese>Enemy infantry shoot aggressively at players</Japanese>
-<Original>Enemy infantry shoot aggressively at players</Original>
-<Russian>Enemy infantry shoot aggressively at players</Russian>
-<Chinesesimp>Enemy infantry shoot aggressively at players</Chinesesimp>
-<French>Enemy infantry shoot aggressively at players</French>
+<English>AI Advanced awareness - Enemy infantry shoot aggressively at players</English>
+<Spanish>AI Advanced awareness - Enemy infantry shoot aggressively at players</Spanish>
+<Portuguese>AI Advanced awareness - Enemy infantry shoot aggressively at players</Portuguese>
+<Korean>AI Advanced awareness - Enemy infantry shoot aggressively at players</Korean>
+<Japanese>AI Advanced awareness - Enemy infantry shoot aggressively at players</Japanese>
+<Original>AI Advanced awareness - Enemy infantry shoot aggressively at players</Original>
+<Russian>AI Advanced awareness - Enemy infantry shoot aggressively at players</Russian>
+<Chinesesimp>AI Advanced awareness - Enemy infantry shoot aggressively at players</Chinesesimp>
+<French>AI Advanced awareness - Enemy infantry shoot aggressively at players</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
+<English>Enemy infantry granted frequent ammo refills</English>
+<Spanish>Enemy infantry granted frequent ammo refills</Spanish>
+<Portuguese>Enemy infantry granted frequent ammo refills</Portuguese>
+<Korean>Enemy infantry granted frequent ammo refills</Korean>
+<Japanese>Enemy infantry granted frequent ammo refills</Japanese>
+<Original>Enemy infantry granted frequent ammo refills</Original>
+<Russian>Enemy infantry granted frequent ammo refills</Russian>
+<Chinesesimp>Enemy infantry granted frequent ammo refills</Chinesesimp>
+<French>Enemy infantry granted frequent ammo refills</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
 <English>Garrisoned infantry group count - occupy mode</English>

@@ -844,25 +844,32 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
-	class d_ai_aware {
+	class d_ai_awareness_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900AWARE";
-		values[] = {0, 1};
-		default = 0;
-		texts[] = {"No", "Yes"};
+		values[] = {-1, 10, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 400, 500, 750, 1000};
+		default = -1;
+		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m (recommended)", "750m", "1000m"};
 	};
 	
-	class d_ai_pursue_dist {
+	class d_ai_pursue_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900PURSUE";
 		values[] = {-1, 10, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 400, 500, 750, 1000};
 		default = -1;
-		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m", "750m", "1000m"};
+		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m (recommended)", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m", "750m", "1000m"};
 	};
 	
 	class d_ai_aggressiveshoot {
 		title = "$STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT";
 		values[] = {0, 1};
 		default = 0;
-		texts[] = {"No", "Yes"};
+		texts[] = {"Disabled", "Enabled"};
+	};
+	
+	class d_ai_quickammo {
+		title = "$STR_DOM_MISSIONSTRING_1900QUICKAMMO";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"Disabled", "Enabled"};
 	};
     	
 	class d_occ_cnt {

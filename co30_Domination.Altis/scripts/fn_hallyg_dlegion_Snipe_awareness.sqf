@@ -6,9 +6,8 @@
 
 // _unit - this unit
 // _targetSide - side the unit is engaging
-// _distanceThreshold - if nearest player is within _distanceThreshold and d_ai_pursue_dist > 0 then the unit will occasionally be ordered to move to the player position
-// _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis, useful when doSuppressiveFire causes the unit to use ammo rapidly
-params ["_unit", "_targetSide", "_distanceThreshold", "_isQuickAmmo"];
+// _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis (this is useful when doSuppressiveFire causes the unit to burn ammo rapidly)
+params ["_unit", "_targetSide", "_awarenessRadius", "_pursueRadius", "_aggressiveShoot", "_isQuickAmmo"];
 
 //by HallyG, dlegion
 private _isLOS = {
@@ -67,10 +66,15 @@ _unit disableAI "TARGET";
 
 sleep (90 + (random 45));
 
+private _startingPosition = getPosATL _unit;
+
 private _detectionRadius = 2000; //in meters
 private _lastFired = 0;
-private _lastMoveOrder = 0;
+private _lastMoveOrder = 0; //in seconds since game start
 private _moveOrderInterval = 30; //in seconds
+private _lastAmmoRefill = 0; //in seconds since game start
+private _ammoRefillInterval = 15; //in seconds
+
 
 private _isSniper = false;
 //hack - we only apply "forceWalk true" to sniper units
@@ -78,27 +82,21 @@ if (isForcedWalk _unit) then {
 	_isSniper = true;
 };
 
-_unit setCombatMode "RED";
-
-if (d_ai_pursue_dist < 0) then {
-	(group _unit) setSpeedMode "FULL";
-};
-
 //awareness loop
 while {true} do {
 	
-	if (d_ai_aware == 0 && d_ai_pursue_dist < 0) exitWith {};
+	if (_awarenessRadius > 0 && _pursueRadius < 0) exitWith {};
 		
 	_Dtargets = [];
 
 	{
 		if (alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side _x == _targetSide && {_x distance2D _unit < _detectionRadius}}}}) then {
-			if (d_ai_aware == 1) then {
+			if (_awarenessRadius > 0 && {_x getVariable ["xr_pluncon", false] || {_x getVariable ["ace_isunconscious", false]}}) then {
 				_unit reveal [_x, 4];
 			};
 			_Dtargets pushBack _x;
 		};
-	} forEach (_unit nearEntities 1400);
+	} forEach (_unit nearEntities _awarenessRadius);
 	
 	_fired = false;
 	
@@ -107,7 +105,7 @@ while {true} do {
 	if (count _playersSortedByDistance > 0) then {
 		
 		{
-			if (d_ai_aggressiveshoot == 1) then {
+			if (_aggressiveShoot == 1) then {
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
 					//to check if unit actually fired
                 	_ammoCount = _unit ammo primaryWeapon _unit;
@@ -127,20 +125,64 @@ while {true} do {
 		
 		_nearestTargetPlayer = _playersSortedByDistance select 0;
 		        	
-		if (d_ai_pursue_dist > 0 && (_nearestTargetPlayer distance2D _unit < _distanceThreshold)) then {
+		if (_pursueRadius > 0 && (_nearestTargetPlayer distance2D _unit < _pursueRadius)) then {
+			//unit is eligible for a move order
 			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
+				//unit has waited longer than the required interval
 				_unit doMove (getPosATL _nearestTargetPlayer);
+				_unit setCombatMode "RED";
+				(group _unit) setSpeedMode "FULL";
 				_lastMoveOrder = time;
 			};
 		};
 		
+	} else {
+		//no target nearby
+		if (leader _unit == _unit) then {
+			//unit is the group leader
+			//group must 1) resume existing waypoints or 2) return to the unit's original position and occupy a building
+			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
+				(group _unit) setCombatMode "YELLOW";
+				(group _unit) setSpeedMode "NORMAL";
+				//unit is eligible for a move order
+				if (count (waypoints leader _unit) > 0) then {
+					//unit is leader and has waypoints, find nearest waypoint and resume - todo
+					//hack, just resume at waypoint #1
+					(group _unit) setCurrentWaypoint [group _unit, 1];
+				} else {
+					if (((getPosATL _unit) distance2D _startingPosition) > 3) then {
+						//group will occupy a house at unit's original position
+						[
+							_startingPosition,											// Params: 1. Array, the building(s) nearest this position is used
+							group _unit,									//         2. Array of objects, the units that will garrison the building(s)
+							75,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+							false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+							true,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+							true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+							true,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+							0   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+						] call d_fnc_Zen_OccupyHouse;
+					};
+				};
+				sleep 15;
+				_lastMoveOrder = time;
+			};
+		} else {
+			sleep 15;
+		};
 	};
 		
 	if (_fired && (_isQuickAmmo || _isSniper)) then {
-		_unit setVehicleAmmo 1;
+		//unit is eligible for quick ammo refill
+		if ((time - _lastAmmoRefill) > _ammoRefillInterval) then {
+			//unit has waited longer than the required interval
+			_unit setVehicleAmmo 1;
+			_lastAmmoRefill = time;
+		};
 	};
 	
 	if (!_fired && _isSniper) then {
+		//sniper unit did not find a target, change the unit's body position
 		call {
 			if (unitPos _unit == "AUTO" || {unitPos _unit == "UP"}) exitWith {
 				//if standing upright and could not fire on a target then lay down for a while
