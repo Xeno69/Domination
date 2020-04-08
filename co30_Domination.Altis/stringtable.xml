@@ -12927,6 +12927,18 @@
 <Chinese>Low number of AI units and radio tower destroyed</Chinese>
 <French>Low number of AI units and radio tower destroyed</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2006">
+<English>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</English>
+<Spanish>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Spanish>
+<Portuguese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Portuguese>
+<Korean>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Korean>
+<Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Japanese>
+<Original>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Original>
+<Russian>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Russian>
+<Chinesesimp>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Chinesesimp>
+<Chinese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</Chinese>
+<French>Explosive removed. You are either in the air or too close to a MHQ (less than 9m)</French>
+</Key>
 </Container>
 </Package>
 </Project>

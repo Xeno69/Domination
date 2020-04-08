@@ -7,9 +7,16 @@ __TRACE("fn_playerfiredeh")
 
 __TRACE_1("","_this")
 
-if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this # 1) == "Put"}}) then {
+private _fnc_nearmhq = {
+	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
+	if (_ets isEqualTo []) exitWith {false};
+	(_ets findIf {_x getVariable ["d_vec_type", ""] == "MHQ"}) != -1
+};
+
+if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) then {
 	deleteVehicle (_this select 6);
 	player addMagazine (_this select 5);
+	systemChat (localize "STR_DOM_MISSIONSTRING_2006");
 } else {
 	if (d_player_in_base && {!d_pisadminp}) then {
 #ifndef __TT__
