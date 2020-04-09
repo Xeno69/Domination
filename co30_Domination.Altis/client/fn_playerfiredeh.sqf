@@ -9,8 +9,14 @@ __TRACE_1("","_this")
 
 private _fnc_nearmhq = {
 	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
-	if (_ets isEqualTo []) exitWith {false};
-	(_ets findIf {_x getVariable ["d_vec_type", ""] == "MHQ"}) != -1
+	if (_ets isEqualTo []) exitWith {
+		!((player nearEntities  ["ReammoBox_F", 25]) isEqualTo [])
+	};
+	if (count _ets == 1) then {
+		(_ets # 0) getVariable ["d_vec_type", ""] == "MHQ"
+	} else {
+		(_ets findIf {_x getVariable ["d_vec_type", ""] == "MHQ"}) != -1
+	};
 };
 
 if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) then {
@@ -58,12 +64,6 @@ if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halo
 			player setVariable ["d_p_f_b", 0];
 		};
 	} else {
-		if (count _this > 6 && {(_this # 1) == "Put"}) exitWith {
-		//if (count _this > 6 && {[_this # 4, 0] call d_fnc_checkammo}) exitWith {
-			if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
-				deleteVehicle (_this select 6);
-			};
-		};
 		if (d_with_ace) exitWith {};
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
 			__TRACE("7 is null")
