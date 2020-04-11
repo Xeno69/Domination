@@ -2,6 +2,7 @@
 
 - Added: Max_camp_cnt_method mission parameter by longtimegamer
 - Added: If a player (accidentally) places an explosive too close to a MHQ (< 9m) the explosive will be removed and put back into his/her inventory
+- Added: CUP BTR 80 versions to enemy AI vehicles
 - Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
 - Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
 - Changed: Teamkillers are no longer pushed to the server lobby (slot selection) but they now can listen to a song in jail (something with bananas :))
