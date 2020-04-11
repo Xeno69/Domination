@@ -227,17 +227,6 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 								//sniper mode - static forever
 								if (_unitMovementMode == 2) then {
-
-									//if defined, apply general skill modifier
-									if (d_snp_skill > 0) then {
-										_uuidx setSkill d_snp_skill;
-									};
-
-									//if defined, apply aimingShake skill modifier
-									if (d_snp_shake > 0) then {
-										_uuidx setSkill ["aimingShake", d_snp_shake];
-									};
-
 									if (d_snp_aware == 1) then {
 										//highly aware snipers
 										//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
@@ -288,9 +277,9 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 };//end for
 
 if (_doMove) then {
-	[_units, _unitIndex] spawn {
+	[_units, _unitIndex, _unitMovementMode] spawn {
 		scriptName "spawn_zoh_occupyhouse";
-		params ["_units", "_unitIndex"];
+		params ["_units", "_unitIndex", "_unitMovementMode"];
 
 		_usedUnits = _units select [0, _unitIndex];
 
