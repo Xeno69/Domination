@@ -109,7 +109,6 @@ if (_buildingRadius < 0) then {
 };
 
 if (count _buildingsArray == 0) exitWith {
-	player sideChat str "Zen_Occupy House Error : No buildings found.";
 	diag_log "Zen_Occupy House Error : No buildings found.";
 	[]
 };

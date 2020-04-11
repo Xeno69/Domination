@@ -847,78 +847,100 @@ class Params {
 	class d_ai_awareness_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900AWARE";
 		values[] = {-1, 10, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 400, 500, 750, 1000};
-		default = 500;
+		default = -1;
 		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m (recommended)", "750m", "1000m"};
+	};
+	
+	class d_snp_aware {
+		title = "$STR_DOM_MISSIONSTRING_1900D";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_snp_skill {
+		title = "$STR_DOM_MISSIONSTRING_1900E";
+		values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+		default = -1;
+		texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
+	};
+
+	class d_snp_shake {
+		title = "$STR_DOM_MISSIONSTRING_1900F";
+		values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+		default = -1;
+		texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
 	};
 	
 	class d_ai_pursue_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900PURSUE";
 		values[] = {-1, 10, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 400, 500, 750, 1000};
-		default = 200;
+		default = -1;
 		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m (recommended)", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m", "750m", "1000m"};
 	};
 	
 	class d_ai_aggressiveshoot {
 		title = "$STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT";
 		values[] = {0, 1};
-		default = 1;
-		texts[] = {"Disabled", "Enabled"};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+
 	};
 	
 	class d_ai_quickammo {
 		title = "$STR_DOM_MISSIONSTRING_1900QUICKAMMO";
 		values[] = {0, 1};
-		default = 1;
+		default = 0;
 		texts[] = {"Disabled", "Enabled"};
 	};
     	
 	class d_occ_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900A";
-		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
-		default = 0;
-		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+		default = 4;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "35", "40", "45", "50"};
 	};
 
 	class d_occ_rad {
 		title = "$STR_DOM_MISSIONSTRING_1902";
-		values[] = {125, 250, 350};
+		values[] = {125, 250, 350, 450, 550, 750, 1000};
 		default = 250;
-		texts[] = {"125m", "250m", "350m"};
+		texts[] = {"125m", "250m", "350m", "450m", "550m", "750m", "1000m"};
 	};
 	
 	class d_ovrw_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900AA";
-		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
-		default = 0;
-		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+		default = 2;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "35", "40", "45", "50"};
 	};
 	
 	class d_ovrw_rad {
 		title = "$STR_DOM_MISSIONSTRING_1902";
-		values[] = {125, 250, 350};
+		values[] = {125, 250, 350, 450, 550, 750, 1000};
 		default = 250;
-		texts[] = {"125m", "250m", "350m"};
+		texts[] = {"125m", "250m", "350m", "450m", "550m", "750m", "1000m"};
 	};
 
 	class d_amb_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900B";
-		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30};
-		default = 0;
-		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30"};
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 35, 40, 45, 50};
+		default = 2;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "35", "40", "45", "50"};
 	};
 
 	class d_amb_rad {
 		title = "$STR_DOM_MISSIONSTRING_1902";
-		values[] = {125, 250, 350, 425};
+		values[] = {125, 250, 350, 425, 500};
 		default = 250;
-		texts[] = {"125m", "250m", "350m", "425m"};
+		texts[] = {"125m", "250m", "350m", "425m", "500m"};
 	};
 
 	class d_snp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900C";
-		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45};
-		default = 0;
-		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45"};
+		values[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45, 50};
+		default = 2;
+		texts[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "50"};
 	};
 
 	class d_snp_rad {
@@ -928,38 +950,17 @@ class Params {
 		texts[] = {"250m", "425m", "650m", "900m"};
 	};
 
-	class d_snp_aware {
-		title = "$STR_DOM_MISSIONSTRING_1900D";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-
-	class d_snp_skill {
-        title = "$STR_DOM_MISSIONSTRING_1900E";
-        values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-        default = -1;
-        texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
-    };
-
-    class d_snp_shake {
-        title = "$STR_DOM_MISSIONSTRING_1900F";
-        values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-        default = -1;
-        texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
-    };
-
 	class d_max_bar_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1899";
 		values[] = {1, 2, 3, 4, 5, 6, 7};
-		default = 1;
+		default = 5;
 		texts[] = {"1", "2", "3", "4", "5", "6", "7"};
 	};
 
 	class d_max_camp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1930";
 		values[] = {1, 2, 3, 4, 5, -1};
-		default = 1;
+		default = -1;
 		texts[] = {"1", "2", "3", "4", "5", "3 to 5"};
 	};
 
@@ -973,7 +974,7 @@ class Params {
 	class d_WithAmbientRadio {
 		title = "$STR_DOM_MISSIONSTRING_1948";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
@@ -1108,14 +1109,14 @@ class Params {
 	class d_WithLessArmor {
 		title = "$STR_DOM_MISSIONSTRING_1132";
 		values[] = {0,1,2};
-		default = 2;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405"};
 	};
 
 	class d_WithLessArmor_side {
 		title = "$STR_DOM_MISSIONSTRING_1730";
 		values[] = {0,1,2};
-		default = 2;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405"};
 	};
 
@@ -1369,6 +1370,28 @@ class CfgSounds {
 	class ambientradior27 {name="ambientradior27";sound[]={"@rhsafrf\addons\rhs_s_radio\rc\rus_rc_36.wss",1,1};titles[]={};};
 #endif
 };
+
+/*class CfgMusic {
+	tracks[] = {};
+	class d_war {
+		name = "d_war";
+		sound[]	= { "sounds\aawar.ogg", db + 10, 1.0 };
+	};
+};*/
+
+/*class CfgEnvSounds {
+	sounds[] = {d_War};
+	class d_none {
+		name = "d_none";
+		sound[] = {"", db-10, 1.0};
+		titles[] = {};
+	};		
+	class d_War {
+		name = "d_War";
+		sound[] = {"sounds\aawar.ogg", db+10, 1.0};
+		titles[] = {};
+	};
+};*/
 
 class d_RscAnimatedLetters {
 	idd = -1;

@@ -11988,36 +11988,36 @@
 <French>Nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
-<English>Garrisoned infantry sniper mode - advanced awareness</English>
-<Spanish>Garrisoned infantry sniper mode - advanced awareness</Spanish>
-<Portuguese>Garrisoned infantry sniper mode - advanced awareness</Portuguese>
-<Korean>Garrisoned infantry sniper mode - advanced awareness</Korean>
-<Japanese>Garrisoned infantry sniper mode - advanced awareness</Japanese>
-<Original>Garrisoned infantry sniper mode - advanced awareness</Original>
+<English>AI Advanced awareness - advanced awareness snipers only</English>
+<Spanish>AI Advanced awareness - advanced awareness snipers only</Spanish>
+<Portuguese>AI Advanced awareness - advanced awareness snipers only</Portuguese>
+<Korean>AI Advanced awareness - advanced awareness snipers only</Korean>
+<Japanese>AI Advanced awareness - advanced awareness snipers only</Japanese>
+<Original>AI Advanced awareness - advanced awareness snipers only</Original>
 <Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
-<Chinesesimp>Garrisoned infantry sniper mode - advanced awareness</Chinesesimp>
+<Chinesesimp>AI Advanced awareness - advanced awareness snipers only</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - conscience avancée</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
-<English>Garrisoned infantry mode - general skill</English>
-<Spanish>Garrisoned infantry mode - general skill</Spanish>
-<Portuguese>Garrisoned infantry mode - general skill</Portuguese>
-<Korean>Garrisoned infantry mode - general skill</Korean>
-<Japanese>Garrisoned infantry mode - general skill</Japanese>
-<Original>Garrisoned infantry mode - general skill</Original>
+<English>AI Advanced awareness - general skill</English>
+<Spanish>AI Advanced awareness - general skill</Spanish>
+<Portuguese>AI Advanced awareness - general skill</Portuguese>
+<Korean>AI Advanced awareness - general skill</Korean>
+<Japanese>AI Advanced awareness - general skill</Japanese>
+<Original>AI Advanced awareness - general skill</Original>
 <Russian>Снайперский режим пехоты - общий навык</Russian>
-<Chinesesimp>Garrisoned infantry mode - general skill</Chinesesimp>
+<Chinesesimp>AI Advanced awareness - general skill</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - compétence générale</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900F">
-<English>Garrisoned infantry mode - aimingShake skill</English>
-<Spanish>Garrisoned infantry mode - aimingShake skill</Spanish>
-<Portuguese>Garrisoned infantry mode - aimingShake skill</Portuguese>
-<Korean>Garrisoned infantry mode - aimingShake skill</Korean>
-<Japanese>Garrisoned infantry mode - aimingShake skill</Japanese>
-<Original>Garrisoned infantry mode - aimingShake skill</Original>
+<English>AI Advanced awareness - aimingShake skill</English>
+<Spanish>AI Advanced awareness - aimingShake skill</Spanish>
+<Portuguese>AI Advanced awareness - aimingShake skill</Portuguese>
+<Korean>AI Advanced awareness - aimingShake skill</Korean>
+<Japanese>AI Advanced awareness - aimingShake skill</Japanese>
+<Original>AI Advanced awareness - aimingShake skill</Original>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
-<Chinesesimp>Garrisoned infantry mode - aimingShake skill</Chinesesimp>
+<Chinesesimp>AI Advanced awareness - aimingShake skill</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - visant la compétence trembler</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1902">
