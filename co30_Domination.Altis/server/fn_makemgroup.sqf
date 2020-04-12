@@ -81,12 +81,6 @@ if (side _grp == d_side_enemy) then {
 #endif
 (leader _grp) setRank "SERGEANT";
 #ifndef __TT__
-//if defined, apply general skill modifier
-if (d_snp_skill > 0) then {
-	{
-		_x setSkill d_snp_skill;
-	} forEach units _grp;
-};
 //if defined, apply aimingShake skill modifier
 if (d_snp_shake > 0) then {
 	{

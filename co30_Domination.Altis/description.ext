@@ -370,7 +370,7 @@ class Params {
 	class d_MissionType {
 		title = "$STR_DOM_MISSIONSTRING_1052";
 		values[] = {0,1,2};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
 	};
 
@@ -412,7 +412,7 @@ class Params {
 	class d_enable_fog {
 		title = "$STR_DOM_MISSIONSTRING_1164a";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -763,14 +763,14 @@ class Params {
 	class d_enablefatigue {
 		title = "$STR_DOM_MISSIONSTRING_1568";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_enablesway {
 		title = "$STR_DOM_MISSIONSTRING_1583";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -858,13 +858,6 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
-	class d_snp_skill {
-		title = "$STR_DOM_MISSIONSTRING_1900E";
-		values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-		default = -1;
-		texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
-	};
-
 	class d_snp_shake {
 		title = "$STR_DOM_MISSIONSTRING_1900F";
 		values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
@@ -1307,6 +1300,7 @@ class CfgSounds {
 	class d_Notebook {name="d_Notebook";sound[]={"\sounds\notebook.wss",db-15,1.0};titles[] = {};};
 	class d_Ui_cc {name="d_Ui_cc";sound[]={"\sounds\ui_cc.wss",db,1.0};titles[] = {};};
 	class d_fanfare {name = "d_fanfare";sound[] = {"sounds\fanfare.wss",1.0,1.0};titles[] = {};};
+	class d_war {name = "d_war";sound[] = {"sounds\aawar.ogg",db+10,1.0};titles[] = {};};
 	//class AR_Rappel_Loop {name = "AR_Rappel_Loop"; sound[] = {"sounds\AR_Rappel_Loop.ogg", db+20, 1}; titles[] = {0,""};};
 	//class AR_Rappel_Start {name = "AR_Rappel_Start"; sound[] = {"sounds\AR_Rappel_Start.ogg", db+20, 1};titles[] = {0,""};};
 	//class AR_Rappel_End {name = "AR_Rappel_End"; sound[] = {"sounds\AR_Rappel_End.ogg", db+20, 1}; titles[] = {0,""};};
