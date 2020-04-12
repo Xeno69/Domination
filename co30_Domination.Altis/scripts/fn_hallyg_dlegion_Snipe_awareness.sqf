@@ -113,7 +113,7 @@ while {true} do {
 					// execute aggressive shooting
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
-					sleep 7;
+					sleep 15;
 					if (_ammoCount > _unit ammo primaryWeapon _unit) then {
                     	//yes the unit actually fired
                     	_fired = true;
@@ -185,11 +185,11 @@ while {true} do {
 						_executingOccupyCommand = true;
 					};
 				};
-				sleep 10;
+				sleep 30;
 				_lastMoveOrder = time;
 			};
 		} else {
-			sleep 10;
+			sleep 30;
 		};
 	};
 		
