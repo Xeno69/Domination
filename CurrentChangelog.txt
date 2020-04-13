@@ -24,3 +24,4 @@
 - Fixed: When a player ejected with an ejection seat from an air vehicle on the ground it was still possible for an admin to unlock the vehicle via the isAdmin script and get into it
 - Fixed: Array holding all player base artillery vehicles was resized to 1 when using cluster artillery shells so only one artillery vehicle was firing even normal rounds afterwards
 - Fixed: Repack magazines could break and block access to the inventory completely
+- Fixed: In ranked mode no sidemission points got added to the player score because of a script error
