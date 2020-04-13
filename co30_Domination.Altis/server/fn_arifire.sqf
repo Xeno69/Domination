@@ -130,9 +130,9 @@ while {true} do {
 #endif
 
 #ifndef __TT__
-private _ari_vecs = d_arty_vecs;
+private _ari_vecs =+ d_arty_vecs;
 #else
-private _ari_vecs = [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor);
+private _ari_vecs =+ [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor);
 #endif
 
 {
