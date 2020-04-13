@@ -184,6 +184,7 @@ class cfgFunctions {
 			addc(csidechat);
 			addc(ttoutsidecheck);
 			addc(jail);
+			addc(repackgard);
 		};
 		class Dom_UI {
 			file = "clientui";

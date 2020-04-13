@@ -5,7 +5,11 @@
 
 if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
 
+if (!isNil "d_repack_gard") then {
+	terminate d_repack_gard;
+};
 d_inventory_blocked = true;
+d_repack_gard = 0 spawn d_fnc_repackgard;
 
 "d_ProgressBar2" cutRsc ["d_ProgressBar2", "PLAIN"];
 private _control = (uiNamespace getVariable "d_ProgressBar2") displayCtrl 3800;
@@ -103,11 +107,14 @@ for "_i" from 0 to 2 do {
 
 for "_i" from 3 to 5 do {
 	private _row = _ular # _i;
+	__TRACE_1("_row 3to5","_row")
 	if (_row isEqualType [] && {!(_row isEqualTo [])}) then {
 		private _searchrow = _row # 1;
+		__TRACE_1("_searchrow 3to5","_searchrow")
 		if !(_searchrow isEqualTo []) then {
 			{
-				if (count _x == 3) then {
+				__TRACE_1("_x 3to5","_x")
+				if (_x isEqualType [] && {count _x == 3}) then {
 					private _mag = _x # 0;
 					private _ammocount = _x # 2;
 					if (_mag isKindOf ["CA_Magazine", _conf] && {getNumber (_conf>>_mag>>"count") > 1 && {_ammocount < getNumber (_conf>>_mag>>"count")}}) then {
@@ -169,6 +176,9 @@ sleep 0.5;
 #endif
 
 "d_ProgressBar2" cutFadeOut 0;
+if (!isNil "d_repack_gard") then {
+	terminate d_repack_gard;
+};
 d_inventory_blocked = false;
 if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
 
