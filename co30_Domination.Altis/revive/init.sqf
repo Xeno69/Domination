@@ -38,7 +38,7 @@ xr_name_player = player call d_fnc_getplayername;
 xr_announce_ar = [];
 xr_announce_unit_ar = [];
 
-player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}];
+player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
 
 if (d_only_medics_canrevive != 0) then {
 	xr_pl_can_revive = true;

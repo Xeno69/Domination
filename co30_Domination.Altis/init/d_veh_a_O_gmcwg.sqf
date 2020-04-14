@@ -5,7 +5,7 @@
 ["gm_gc_army_brdm2","gm_gc_army_brdm2um"],
 ["gm_gc_army_brdm2","gm_gc_army_brdm2um"],
 ["gm_gc_army_brdm2","gm_gc_army_brdm2um","gm_gc_army_brdm2"],
-["gm_gc_army_fagot_launcher_tripod","gm_gc_bgs_searchlight_01"],
+["gm_gc_army_fagot_launcher_tripod"],
 ["gm_gc_army_fagot_launcher_tripod"],
 ["gm_gc_army_ural375d_refuel"],
 ["gm_gc_army_ural4320_repair"],

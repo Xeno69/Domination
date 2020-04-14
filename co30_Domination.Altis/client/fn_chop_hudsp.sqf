@@ -15,19 +15,10 @@ disableSerialization;
 #define __ui_right "pics\ui_tankdir_right_ca.paa"
 #define __ui_tohigh "pics\ui_tankdir_turret_ca.paa"
 #define __ui_ok "pics\ui_tankdir_tower_ca.paa"
-
-private _distvstr = localize "STR_DOM_MISSIONSTRING_192";
-private _typestr = localize "STR_DOM_MISSIONSTRING_193";
-private _liftstr = localize "STR_DOM_MISSIONSTRING_194";
-private _distgrstr = localize "STR_DOM_MISSIONSTRING_195";
-
 #define __CTRL2(B) (_chdispx displayCtrl B)
 #define __CTRL3(B) (_chdispx2 displayCtrl B)
 
-private _vec = vehicle player;
-private _doexitit = false;
-private _chophud_shown = false;
-private _chophud2_shown = false;
+[localize "STR_DOM_MISSIONSTRING_192", localize "STR_DOM_MISSIONSTRING_193", localize "STR_DOM_MISSIONSTRING_194", localize "STR_DOM_MISSIONSTRING_195", vehicle player, false, false, false] params ["_distvstr", "_typestr", "_liftstr", "_distgrstr", "_vec", "_doexitit", "_chophud_shown", "_chophud2_shown"];
 
 if (player == driver _vec) then {
 	private _vtype = _vec getVariable ["d_vec_type", ""];

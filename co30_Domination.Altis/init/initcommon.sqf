@@ -54,6 +54,7 @@ if (d_with_ace) then {
 	d_WithRevive = 1;
 	ace_medical_enableRevive = 1;
 	ace_medical_maxReviveTime = 300;
+	ace_medical_amountOfReviveLives = -1;
 };
 
 if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {

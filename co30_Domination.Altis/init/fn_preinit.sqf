@@ -829,7 +829,15 @@ if (!d_tt_tanoa) then {
 #ifdef __MALDEN__
 #include "d_specops_O_default.sqf"
 #endif
-	];	
+	];
+	
+#ifdef __GMCWG__
+	{
+		if (count _x > 5) then {
+			_x resize 5
+		};
+	} forEach d_specops_E;
+#endif
 
 	d_specops_W = call {
 		if (d_rhs) exitWith {
@@ -892,7 +900,7 @@ if (!d_tt_tanoa) then {
 	d_sniper_I = [["Indep","CUP_I_TK_GUE","Infantry","CUP_I_TK_GUE_SniperTeam"] call d_fnc_GetConfigGroup];
 #endif
 #ifdef __CUP_SARA__
-	d_sniper_E = [["East","CUP_O_SLA","Infantry","CUP_O_SLA_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_E = [["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_SniperTeam_Desert"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_RACS","Infantry","CUP_I_RACS_SniperTeam"] call d_fnc_GetConfigGroup];
 #endif
@@ -1045,6 +1053,9 @@ if (!d_tt_tanoa) then {
 			if (d_rhs) exitWith {
 				"RHS_C130J"
 			};
+			if (d_ifa3lite) exitWith {
+				""
+			};
 			"B_Heli_Transport_01_camo_F"
 		};
 #endif
@@ -1055,6 +1066,12 @@ if (!d_tt_tanoa) then {
 			};
 			if (d_rhs) exitWith {
 				"RHS_Mi8mt_Cargo_vv"
+			};
+			if (d_gmcwg) exitWith {
+				""
+			};
+			if (d_cup) exitWith {
+				""
 			};
 			"O_Heli_Light_02_unarmed_F"
 		};
@@ -1641,6 +1658,9 @@ d_base_apc_vec =
 				if (d_gmcwg) exitWith {
 					[]
 				};
+				if (d_ifa3lite) exitWith {
+					[]
+				};
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vvs"]
 				};
@@ -1649,13 +1669,36 @@ d_base_apc_vec =
 		};
 		case "W": {
 			call {
+				if (d_cup) exitWith {
+					[]
+				};
 				if (d_ifa3lite) exitWith {
 					["LIB_Ju87_Italy2"]
+				};
+				if (d_gmcwg) exitWith {
+					[]
 				};
 				if (d_rhs) exitWith {
 					["RHS_MELB_AH6M","RHS_UH1Y_d","RHS_UH1Y"]
 				};
 				["B_Heli_Light_01_armed_F"]
+			};
+		};
+		case "G": {
+			call {
+				if (d_cup) exitWith {
+					[]
+				};
+				if (d_ifa3lite) exitWith {
+					[]
+				};
+				if (d_rhs) exitWith {
+					[]
+				};
+				if (d_gmcwg) exitWith {
+					[]
+				};
+				["I_Heli_light_03_dynamicLoadout_F"]
 			};
 		};
 	};

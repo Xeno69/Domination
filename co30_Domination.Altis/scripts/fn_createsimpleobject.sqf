@@ -35,7 +35,7 @@
 	* bis_fnc_diagMacrosSimpleObjectData
 */
 
-params [["_input","",["",[]]], ["_pos",[],[[]]], ["_dir",0,[123]], ["_aligned",true,[true]], ["_forceSuperSimple",false,[true]]];
+params [["_input","",["",[]]], ["_pos",[],[[]]], ["_dir",0,[123]], ["_aligned",true,[true]], ["_forceSuperSimple",false,[true]], ["_loc", false]];
 
 if (_input isEqualType "" && {_input == ""}) exitWith {
 	__TRACE("Simple object input is corrupted!")
@@ -85,10 +85,10 @@ private _superSimple = _class == "" || {_forceSuperSimple};
 //create simple object
 private _object = if (_superSimple) then {
 	//World coords are used
-	createSimpleObject [_p3d,_pos];
+	createSimpleObject [_p3d, _pos, _loc];
 } else {
 	//ASL coords are used; fixed later by ASL to World offset
-	createSimpleObject [_class,_pos];
+	createSimpleObject [_class, _pos, _loc];
 };
 
 if (isNull _object) exitWith {

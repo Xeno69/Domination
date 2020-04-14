@@ -66,156 +66,158 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
-sleep 1.234;
-#ifndef __TT__
-private "_nrcamps";
-if (d_max_camp_cnt > 0) then {
-	_nrcamps = d_max_camp_cnt
-} else {
-	_nrcamps = (ceil random 5) max 3;
-};
-#else
-private _nrcamps = (ceil random 6) max 4;
-#endif
-
-d_sum_camps = _nrcamps;
-
-__TRACE_1("","_nrcamps")
-
-private _sizecamp = sizeOf d_wcamp;
-__TRACE_1("","_sizecamp")
-private _dist_for_points = -1;
-
-private _isFirstCamp = true;
-
-private _parray = [_trg_center, d_cur_target_radius + 200, 4, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
-
-for "_i" from 1 to _nrcamps do {
-	private _wf = objNull;
-	private _poss =+ _trg_center;
-
-	if (d_camp_center == 1 && {_isFirstCamp}) then {
-		//try to place the first camp very close (10m) to the center of the target
-		_poss set [2, 0];
-		_wf = createVehicle [d_wcamp, _poss, [], 10, "NONE"];
-		_wf allowDamage false;
-		_wf setDir (_wf getDir _trg_center);
-		_wf addEventHandler ["HandleDamage", {0}];
-		if (d_with_dynsim == 0) then {
-			[_wf, 5] spawn d_fnc_enabledynsim;
-		};
-		sleep 0.3;
-		_poss = getPosASL _wf;
-		_isFirstCamp = false;
+if (d_ao_check_for_ai in [0, 1]) then {
+	sleep 1.234;
+	#ifndef __TT__
+	private "_nrcamps";
+	if (d_max_camp_cnt > 0) then {
+		_nrcamps = d_max_camp_cnt
 	} else {
-		private _idx = floor random (count _parray);
-		_poss = _parray select _idx;
-		__TRACE_1("1","_poss")
+		_nrcamps = (ceil random 5) max 3;
+	};
+	#else
+	private _nrcamps = (ceil random 6) max 4;
+	#endif
 
-		if !(d_currentcamps isEqualTo []) then {
-			private _fidx = d_currentcamps findIf {_x distance2D _poss < 130};
-			if (_fidx != -1) then {
-				private _icounter = 0;
-				while {_icounter < 50 || {_fidx != -1}} do {
-					_idx = floor random (count _parray);
-					_poss = _parray select _idx;
-					_fidx = d_currentcamps findIf {_x distance2D _poss < 130};
-					_icounter = _icounter + 1;
+	d_sum_camps = _nrcamps;
+
+	__TRACE_1("","_nrcamps")
+
+	private _sizecamp = sizeOf d_wcamp;
+	__TRACE_1("","_sizecamp")
+	private _dist_for_points = -1;
+
+	private _isFirstCamp = true;
+
+	private _parray = [_trg_center, d_cur_target_radius + 200, 4, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+
+	for "_i" from 1 to _nrcamps do {
+		private _wf = objNull;
+		private _poss =+ _trg_center;
+
+		if (d_camp_center == 1 && {_isFirstCamp}) then {
+			//try to place the first camp very close (10m) to the center of the target
+			_poss set [2, 0];
+			_wf = createVehicle [d_wcamp, _poss, [], 10, "NONE"];
+			_wf allowDamage false;
+			_wf setDir (_wf getDir _trg_center);
+			_wf addEventHandler ["HandleDamage", {0}];
+			if (d_with_dynsim == 0) then {
+				[_wf, 5] spawn d_fnc_enabledynsim;
+			};
+			sleep 0.3;
+			_poss = getPosASL _wf;
+			_isFirstCamp = false;
+		} else {
+			private _idx = floor random (count _parray);
+			_poss = _parray select _idx;
+			__TRACE_1("1","_poss")
+
+			if !(d_currentcamps isEqualTo []) then {
+				private _fidx = d_currentcamps findIf {_x distance2D _poss < 130};
+				if (_fidx != -1) then {
+					private _icounter = 0;
+					while {_icounter < 50 || {_fidx != -1}} do {
+						_idx = floor random (count _parray);
+						_poss = _parray select _idx;
+						_fidx = d_currentcamps findIf {_x distance2D _poss < 130};
+						_icounter = _icounter + 1;
+					};
 				};
 			};
+
+			_poss set [2, 0];
+			_wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
+			_wf allowDamage false;
+			_wf setDir (_wf getDir _trg_center);
+			_wf addEventHandler ["HandleDamage", {0}];
+			if (d_with_dynsim == 0) then {
+				[_wf, 5] spawn d_fnc_enabledynsim;
+			};
+			sleep 0.3;
+			__TRACE_1("1111","_wf")
+
+			_parray deleteAt _idx;
 		};
 
-		_poss set [2, 0];
-		_wf = createVehicle [d_wcamp, _poss, [], 0, "NONE"];
-		_wf allowDamage false;
-		_wf setDir (_wf getDir _trg_center);
-		_wf addEventHandler ["HandleDamage", {0}];
+		__TRACE_1("5","_poss")
+		if (d_with_ranked || {d_database_found}) then {
+			if (_dist_for_points < _wf distance2D _trg_center) then {
+				_dist_for_points = _wf distance2D _trg_center;
+			};
+			__TRACE_1("","_dist_for_points")
+		};
+		d_currentcamps pushBack _wf;
+		_wf setVariable ["d_SIDE", d_enemy_side, true];
+		_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
+		_wf setVariable ["d_CURCAPTIME", 0, true];
+	#ifndef __TT__
+		_wf setVariable ["d_CURCAPTURER", d_own_side];
+	#else
+		_wf setVariable ["d_CURCAPTURER", ""];
+	#endif
+		_wf setVariable ["d_STALL", false, true];
+		_wf setVariable ["d_TARGET_MID_POS", _trg_center];
+		_fwfpos = getPosATL _wf;
+		_fwfpos set [2, 4.3];
+		__TRACE_1("","_fwfpos")
+		private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
+		_flagPole setPos _fwfpos;
+		_wf setVariable ["d_FLAG", _flagPole, true];
+		private _maname = format ["d_camp_%1", _wf];
+		__TRACE_2("","_i","_maname")
+		[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
+		_wf setVariable ["d_camp_mar", _maname];
+		_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 		if (d_with_dynsim == 0) then {
-			[_wf, 5] spawn d_fnc_enabledynsim;
+			[_flagPole, 5] spawn d_fnc_enabledynsim;
 		};
-		sleep 0.3;
-		__TRACE_1("1111","_wf")
 
-		_parray deleteAt _idx;
+	#ifndef __TT__
+		[_wf, _flagPole] execFSM "fsms\fn_HandleCamps2.fsm";
+	#else
+		[_wf, _flagPole] execFSM "fsms\fn_HandleCampsTT2.fsm";
+	#endif
+
+		sleep 0.5;
+
+		if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 30}) then {
+			private _retgr = ["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
+			(_retgr # 1) spawn {
+				sleep 20;
+				{
+					if (d_with_dynsim == 0) then {
+						_x enableDynamicSimulation false;
+						sleep 0.2;
+					};
+					if (animationState _x == "afalpercmstpsraswrfldnon") then {
+						private _hpos = getPosWorld _x;
+						_x setPos [_hpos # 0, _hpos # 1, 0];
+					};
+					if (d_with_dynsim == 0) then {
+						_x enableDynamicSimulation true;
+					};
+				} forEach (_this select {alive _x});
+			};
+		};
 	};
 
-	__TRACE_1("5","_poss")
+	publicVariable "d_currentcamps";
+	remoteExecCall ["d_fnc_curcampsclient", [0, -2] select isDedicated];
+	d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
+	d_campscaptured = 0; publicVariable "d_campscaptured";
+	
 	if (d_with_ranked || {d_database_found}) then {
-		if (_dist_for_points < _wf distance2D _trg_center) then {
-			_dist_for_points = _wf distance2D _trg_center;
-		};
-		__TRACE_1("","_dist_for_points")
+		d_dist_for_points = _dist_for_points + 10;
+		publicVariable "d_dist_for_points";
 	};
-	d_currentcamps pushBack _wf;
-	_wf setVariable ["d_SIDE", d_enemy_side, true];
-	_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
-	_wf setVariable ["d_CURCAPTIME", 0, true];
+	
 #ifndef __TT__
-	_wf setVariable ["d_CURCAPTURER", d_own_side];
+	[15, _nrcamps] call d_fnc_DoKBMsg;
 #else
-	_wf setVariable ["d_CURCAPTURER", ""];
+	[16, _nrcamps] call d_fnc_DoKBMsg;
 #endif
-	_wf setVariable ["d_STALL", false, true];
-	_wf setVariable ["d_TARGET_MID_POS", _trg_center];
-	_fwfpos = getPosATL _wf;
-	_fwfpos set [2, 4.3];
-	__TRACE_1("","_fwfpos")
-	private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
-	_flagPole setPos _fwfpos;
-	_wf setVariable ["d_FLAG", _flagPole, true];
-	private _maname = format ["d_camp_%1", _wf];
-	__TRACE_2("","_i","_maname")
-	[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
-	_wf setVariable ["d_camp_mar", _maname];
-	_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
-	if (d_with_dynsim == 0) then {
-		[_flagPole, 5] spawn d_fnc_enabledynsim;
-	};
-
-#ifndef __TT__
-	[_wf, _flagPole] execFSM "fsms\fn_HandleCamps2.fsm";
-#else
-	[_wf, _flagPole] execFSM "fsms\fn_HandleCampsTT2.fsm";
-#endif
-
-	sleep 0.5;
-
-	if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 10}) then {
-		private _retgr = ["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
-		(_retgr # 1) spawn {
-			sleep 20;
-			{
-				if (d_with_dynsim == 0) then {
-					_x enableDynamicSimulation false;
-					sleep 0.2;
-				};
-				if (animationState _x == "afalpercmstpsraswrfldnon") then {
-					private _hpos = getPosWorld _x;
-					_x setPos [_hpos # 0, _hpos # 1, 0];
-				};
-				if (d_with_dynsim == 0) then {
-					_x enableDynamicSimulation true;
-				};
-			} forEach (_this select {alive _x});
-		};
-	};
 };
-
-publicVariable "d_currentcamps";
-remoteExecCall ["d_fnc_curcampsclient", [0, -2] select isDedicated];
-d_numcamps = count d_currentcamps; publicVariable "d_numcamps";
-d_campscaptured = 0; publicVariable "d_campscaptured";
-
-if (d_with_ranked || {d_database_found}) then {
-	d_dist_for_points = _dist_for_points + 10;
-	publicVariable "d_dist_for_points";
-};
-
-#ifndef __TT__
-[15, _nrcamps] call d_fnc_DoKBMsg;
-#else
-[16, _nrcamps] call d_fnc_DoKBMsg;
-#endif
 
 if (d_with_minefield == 0 && {random 100 > 70}) then {
 	[_mtradius, _trg_center] call d_fnc_minefield;

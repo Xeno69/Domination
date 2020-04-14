@@ -19,6 +19,7 @@ params ["_reason", "_score"];
 // 10 - points for healing another unit
 // 11 - points for another player healing at a player mash
 // 12 - points for another player spawning at squad leader
+// 13 - points for transporting another player in a vehicle
 
 private _txt = call {
 	if (_reason == 1) exitWith {
@@ -56,6 +57,12 @@ private _txt = call {
 	};
 	if (_reason == 12) exitWith {
 		localize "STR_DOM_MISSIONSTRING_1989"
+	};
+	if (_reason == 13) exitWith {
+		localize "STR_DOM_MISSIONSTRING_2001"
+	};
+	if (_reason == 14) exitWith {
+		localize "STR_DOM_MISSIONSTRING_1856"
 	};
 	""
 };

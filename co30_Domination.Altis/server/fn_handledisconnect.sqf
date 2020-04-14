@@ -58,6 +58,20 @@ if (!isNil "_pa") then {
 		_pa set [10, ""];
 	};
 	(_pa # 4) call d_fnc_markercheck;
+	
+	private _jar = _unit getVariable "d_jailar";
+	__TRACE_1("","_jar")
+	if (!isNil "_jar") then {
+		private _dif = serverTime - (_jar # 0);
+		if (_dif >= (_jar # 1)) then {
+			_pa set [13, 0];
+		} else {
+			_pa set [13, (_jar # 1) - (round _dif)];
+		};
+		
+	} else {
+		_pa set [13, 0];
+	};
 	__TRACE_1("player store after change","_pa")
 };
 

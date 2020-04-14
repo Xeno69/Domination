@@ -183,6 +183,7 @@ class cfgFunctions {
 			addc(scoreaddqeue);
 			addc(csidechat);
 			addc(ttoutsidecheck);
+			addc(jail);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -298,6 +299,7 @@ class cfgFunctions {
 			addc(triggerrun);
 			addc(hascopilot);
 			addc(iscopilot);
+			addc(aftereject);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

@@ -144,15 +144,19 @@ d_bonus_vecs_db = _ar # 9;
 		_vec setVariable ["d_liftit", true, true];
 	};
 
-
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 
 	[_vec, 11] call d_fnc_setekmode;
 
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
-
+	
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	
+	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+	};
+	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
 } forEach d_bonus_vecs_db;
 #else
@@ -208,6 +212,10 @@ _fnc_tt_bonusvec = {
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 
+	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+	};
+	
 	_vec
 };
 

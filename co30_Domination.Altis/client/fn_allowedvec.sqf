@@ -4,8 +4,7 @@
 
 params ["_vec"];
 
-private _not_allowed = false;
-private _needed_rank = "";
+[false, ""] params ["_not_allowed", "_needed_rank"];
 
 private _index = rankId player;
 __TRACE_1("","_index")

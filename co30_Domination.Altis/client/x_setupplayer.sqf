@@ -151,7 +151,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 };
 
 if (d_WithRevive == 1 && {!d_with_ace}) then {
-	player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}];
+	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
 };
 
 if (!isServer) then {execVM "bikb\kbinit.sqf"};
@@ -462,7 +462,7 @@ d_points_needed_15 = (d_points_needed # 6) + 15000;
 	0 spawn d_fnc_playerrankloop;
 };
 
-diag_log ["Internal D Version: 4.23"];
+diag_log ["Internal D Version: 4.24"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -754,7 +754,9 @@ if (!d_with_ace) then {
 
 // by R34P3R
 d_p_isju = false;
-_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
+if (!d_with_ace) then {
+	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
+};
 
 d_vec_role_pl = [];
 player addEventhandler ["getInMan", {_this call d_fnc_getinmaneh}];

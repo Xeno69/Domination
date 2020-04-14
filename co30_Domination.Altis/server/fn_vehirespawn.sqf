@@ -76,6 +76,10 @@ if (unitIsUAV _vec) then {
 
 _vec setVariable ["d_OUT_OF_SPACE", -1];
 
+if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+};
+
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
@@ -230,6 +234,10 @@ while {true} do {
 		
 		if (!isNil "_nopylon") then {
 			_vec setVariable ["d_disable_pylonloadout", true, true];
+		};
+		
+		if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+			_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
 		};
 		
 		if (d_with_ranked) then {

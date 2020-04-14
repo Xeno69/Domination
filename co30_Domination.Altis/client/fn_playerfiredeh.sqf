@@ -7,9 +7,22 @@ __TRACE("fn_playerfiredeh")
 
 __TRACE_1("","_this")
 
-if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this # 1) == "Put"}}) then {
+private _fnc_nearmhq = {
+	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
+	if (_ets isEqualTo []) exitWith {
+		!((player nearEntities  ["ReammoBox_F", 25]) isEqualTo [])
+	};
+	if (count _ets == 1) then {
+		(_ets # 0) getVariable ["d_vec_type", ""] == "MHQ"
+	} else {
+		(_ets findIf {_x getVariable ["d_vec_type", ""] == "MHQ"}) != -1
+	};
+};
+
+if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) then {
 	deleteVehicle (_this select 6);
 	player addMagazine (_this select 5);
+	systemChat (localize "STR_DOM_MISSIONSTRING_2006");
 } else {
 	if (d_player_in_base && {!d_pisadminp}) then {
 #ifndef __TT__
@@ -51,21 +64,16 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this #
 			player setVariable ["d_p_f_b", 0];
 		};
 	} else {
-		if (count _this > 6 && {(_this # 1) == "Put"}) exitWith {
-		//if (count _this > 6 && {[_this # 4, 0] call d_fnc_checkammo}) exitWith {
-			if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
-				deleteVehicle (_this select 6);
-			};
-		};
 		if (d_with_ace) exitWith {};
 		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
 			__TRACE("7 is null")
+			if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {
+				__TRACE("ammo is laserDesignate")
+			};
 			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"weaponLockSystem") > 0}) then {
 				__TRACE("has manual control")
-				if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {
-					__TRACE("ammo is laserDesignate")
-				};
-				private _w = player getVariable ("d_" + (_this # 1));
+				//private _w = player getVariable ("d_" + (_this # 5));
+				private _w = player getVariable "d_rcoold";
 				__TRACE_1("1","_w")
 				if (!isNil "_w") then {
 					if (time < _w) then {
@@ -82,7 +90,8 @@ if (d_player_in_air && {animationState player == "halofreefall_non" && {(_this #
 				} else {
 					_w = time + d_launcher_cooldown;
 					__TRACE_1("2","_w")
-					player setVariable ["d_" + (_this # 1), _w];
+					//player setVariable ["d_" + (_this # 5), _w];
+					player setVariable ["d_rcoold", _w];
 				};
 			};
 		};
