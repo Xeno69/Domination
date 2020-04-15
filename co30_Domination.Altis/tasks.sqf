@@ -14,6 +14,9 @@ if (isNil "d_MaxNumAmmoboxes") then {
 private _bar = [
 	localize "STR_DOM_MISSIONSTRING_23", __BR,
 	"<font face='RobotoCondensed' size=52 color='#ffffff'>Domination! 4</font>", __BRBR,
+	"Check out the Domination Wiki for more information: https://github.com/Xeno69/Domination/wiki", __BRBR,
+	"Domination is also available on Discord: https://discordapp.com/invite/vYVNKV2", __BRBR,
+	"<font size=22>PLEASE NOTE THAT NEITHER THE DOMINATION GIT PAGE NOR THE DOMINATION DISCORD SERVER IS THE RIGHT PLACE TO ASK FOR SERVER BANS, YOU HAVE TO FIND THE SERVER DISCORD OR WEB PAGE AS ANYBODY CAN RUN DOMNINATION!!!!</font>", __BRBR,
 	localize "STR_DOM_MISSIONSTRING_24", __BR,
 	localize "STR_DOM_MISSIONSTRING_25", __BRBRBR,
 	localize "STR_DOM_MISSIONSTRING_26", __BRBR,
@@ -46,7 +49,6 @@ private _bar = [
 	localize "STR_DOM_MISSIONSTRING_58", __BRBR,
 	localize "STR_DOM_MISSIONSTRING_61", __BRBR,
 	"Thanks to all people who donate, you guys are great :-)", __BRBR
-	//"Domination also available on Discord: https://discordapp.com/invite/vYVNKV2"
 ];
 
 player createDiaryRecord ["Diary", ["Briefing", _bar joinString ""]];
