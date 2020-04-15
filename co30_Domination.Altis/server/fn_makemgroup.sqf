@@ -84,14 +84,20 @@ if (side _grp == d_side_enemy) then {
 //if defined, apply aimingShake skill modifier
 if (d_snp_shake > 0) then {
 	{
-		_x setSkill ["aimingShake", d_snp_shake];
+		_x setSkill ["aimingAccuracy", d_snp_shake];
 	} forEach units _grp;
 };
-if (d_ai_awareness_rad > 0) then {
+if (d_ai_awareness_rad > 0 || d_snp_aware > 0 || d_ai_pursue_rad > 0 || d_ai_aggressiveshoot > 0) then {
 	//advanced awareness
-	{
-		[_x, d_side_player, d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
-	} forEach units _grp;
+	if (["Sniper", groupId(_grp)] call BIS_fnc_inString) then {
+		{
+			[_x, d_side_player, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+		} forEach units _grp;
+	} else {
+		{
+			[_x, d_side_player, d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+		} forEach units _grp;
+	}
 };
 _ret call d_fnc_addceo;
 #endif

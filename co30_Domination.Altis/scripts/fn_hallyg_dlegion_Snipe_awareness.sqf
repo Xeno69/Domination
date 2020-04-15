@@ -79,14 +79,12 @@ private _executingOccupyCommand = false;
 
 private _isSniper = false;
 //hack - we only apply "forceWalk true" to sniper units
-if (isForcedWalk _unit) then {
+if (["Sniper", groupId(group _unit)] call BIS_fnc_inString) then {
 	_isSniper = true;
 };
 
 //awareness loop
 while {true} do {
-	
-	if (_awarenessRadius > 0 && _pursueRadius < 0) exitWith {};
 		
 	_Dtargets = [];
 
@@ -142,7 +140,7 @@ while {true} do {
 		
 	} else {
 		//no target nearby
-		if (leader _unit == _unit) then {
+		if (leader _unit == _unit && !_isSniper) then {
 			//unit is the group leader
 			//group must 1) resume existing waypoints or 2) return to the unit's original position and occupy a building
 			//hack - just get them back in buildings for now

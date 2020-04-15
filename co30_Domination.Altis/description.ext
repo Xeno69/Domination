@@ -843,12 +843,19 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_snp_shake {
+		title = "$STR_DOM_MISSIONSTRING_1900F";
+		values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
+		default = -1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007", "0.1", "0.2", "0.3", "0.4", "0.5", "0.6", "0.7", "0.8", "0.9", "1.0"};
+	};
 
 	class d_ai_awareness_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900AWARE";
 		values[] = {-1, 10, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 400, 500, 750, 1000};
 		default = -1;
-		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m (recommended)", "750m", "1000m"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007", "10m", "25m", "50m", "75m", "100m", "125m", "150m", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m (recommended)", "750m", "1000m"};
 	};
 	
 	class d_snp_aware {
@@ -858,18 +865,11 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
-	class d_snp_shake {
-		title = "$STR_DOM_MISSIONSTRING_1900F";
-		values[] = {-1, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1};
-		default = -1;
-		texts[] = {"default (recommended)", "0.1", "0.2", "0.3", "0.4 (low)", "0.5", "0.6 (medium)", "0.7", "0.8 (hard)", "0.9", "1.0 (insane)"};
-	};
-	
 	class d_ai_pursue_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900PURSUE";
 		values[] = {-1, 10, 25, 50, 75, 100, 125, 150, 175, 200, 225, 250, 275, 300, 400, 500, 750, 1000};
 		default = -1;
-		texts[] = {"Disabled", "10m", "25m", "50m", "75m", "100m", "125m", "150m (recommended)", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m", "750m", "1000m"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007", "10m", "25m", "50m", "75m", "100m", "125m", "150m (recommended)", "175m", "200m", "225m", "250m", "275m", "300m", "400m", "500m", "750m", "1000m"};
 	};
 	
 	class d_ai_aggressiveshoot {
@@ -884,7 +884,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1900QUICKAMMO";
 		values[] = {0, 1};
 		default = 0;
-		texts[] = {"Disabled", "Enabled"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007", "$STR_DOM_MISSIONSTRING_922"};
 	};
     	
 	class d_occ_cnt {
