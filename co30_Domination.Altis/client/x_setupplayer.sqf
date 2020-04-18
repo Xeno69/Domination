@@ -68,8 +68,6 @@ d_player_in_air = false;
 
 d_player_vecs = [];
 
-d_mt_marker_triggers = [];
-
 disableMapIndicators [true, true, false, false];
 
 d_actionkeys_teamswitch = actionKeys "TeamSwitch";

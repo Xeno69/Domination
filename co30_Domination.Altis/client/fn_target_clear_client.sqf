@@ -13,7 +13,6 @@ playSound "d_fanfare";
 	};
 	deleteVehicle _x;
 } forEach d_mt_marker_triggers;
-
 d_mt_marker_triggers = [];
 
 if (!isNil "d_deletecamptrigs") then {

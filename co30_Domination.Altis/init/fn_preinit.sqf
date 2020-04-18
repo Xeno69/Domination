@@ -2096,6 +2096,8 @@ if (hasInterface) then {
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
 	
+	d_mt_marker_triggers = [];
+	
 	// pre build in are:
 	// "CUP_"
 	// "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"
