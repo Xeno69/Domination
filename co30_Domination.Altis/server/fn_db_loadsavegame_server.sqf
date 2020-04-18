@@ -154,7 +154,7 @@ d_bonus_vecs_db = _ar # 9;
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 	
 	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 	};
 	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
@@ -213,7 +213,7 @@ _fnc_tt_bonusvec = {
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 
 	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 	};
 	
 	_vec

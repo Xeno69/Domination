@@ -1,3 +1,3 @@
 4.25
 
-- Fixed: It could happen that client side main target area markers still existed so creation of new ones broke
+- Fixed: Script error (call eventhandler code, copy and paste in several scripts) broke the mission completely! :(

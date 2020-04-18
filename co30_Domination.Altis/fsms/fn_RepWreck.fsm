@@ -268,7 +268,7 @@ class FSM
                          "_new_vec addEventHandler [""getOut"", {_this call d_fnc_sgetoutvec}];" \n
                          "" \n
                          "if (_new_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _new_vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1}) then {" \n
-                         "	_new_vec addEventHandler [""getOut"", {_this call d_fnc_aftereject];" \n
+                         "	_new_vec addEventHandler [""getOut"", {_this call d_fnc_aftereject}];" \n
                          "};" \n
                          "" \n
                          "if !(_new_vec isKindOf ""Air"") then {" \n

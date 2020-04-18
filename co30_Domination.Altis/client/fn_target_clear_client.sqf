@@ -1,6 +1,9 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_target_clear_client.sqf"
 #include "..\x_setup.sqf"
+
+__TRACE("Start")
 
 if (!hasInterface) exitWith {};
 
@@ -127,3 +130,4 @@ if (count d_resolved_targets < d_MainTargets) then {
 	"d_tt_winner" cutText [_winner_string, "PLAIN"];
 #endif
 };
+__TRACE("End")

@@ -5,6 +5,8 @@
 
 __TRACE("Start")
 
+__TRACE_1("","d_cur_tgt_pos")
+
 private _tile_size = (d_mttarget_radius_patrol * 2) / 7;
 
 private _tilesfull_half = (_tile_size * 7) / 2;
@@ -59,6 +61,7 @@ private _fnc_make_trig_mar = {
 		private _marname = format ["d_dommtmxe_%1", _marcounter];
 		__TRACE_1("","_marname")
 		if (getMarkerType _marname != "") then {
+			__TRACE_1("Marker exists already","_marname")
 			deleteMarkerLocal _marname;
 		};
 		[_marname, [_xpos1, _ypos1], "RECTANGLE", "ColorGreen", [_tilehalf, _tilehalf], "", 0, "", "", _alpha] call d_fnc_CreateMarkerLocal;

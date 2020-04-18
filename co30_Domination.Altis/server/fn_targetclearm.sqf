@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_targetclearm.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE("Start")
+
 d_target_clear = true; publicVariable "d_target_clear";
 
 #ifndef __TT__
@@ -30,3 +32,5 @@ if (d_bonus_vec_type in [2, 3]) then {
 d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Captured",["1","",d_cur_tgt_name,[d_cur_tgt_name]],"SIDE"];
 d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured",["1","",d_cur_tgt_name,[d_cur_tgt_name]],"SIDE"];
 #endif
+
+__TRACE("Start")
