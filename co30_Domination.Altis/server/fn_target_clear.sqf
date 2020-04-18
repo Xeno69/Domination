@@ -88,8 +88,10 @@ sleep 0.5;
 
 if !(d_maintargets_list isEqualTo []) then {
 	if (d_bonus_vec_type in [0, 1]) then {
+		__TRACE("spawning d_fnc_gettargetbonus")
 		0 spawn d_fnc_gettargetbonus;
 	} else {
+		__TRACE("calling d_fnc_targetclearm")
 		call d_fnc_targetclearm;
 	};
 } else {

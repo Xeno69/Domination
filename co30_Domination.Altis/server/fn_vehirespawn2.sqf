@@ -28,7 +28,7 @@ if (unitIsUAV _vec) then {
 };
 
 if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 };
 
 if (d_with_ranked) then {
@@ -78,7 +78,7 @@ while {true} do {
 		};
 #endif
 		if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-			_vec addEventHandler ["getOut", {_this call d_fnc_aftereject];
+			_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 		};
 		
 		if (d_with_ranked) then {
