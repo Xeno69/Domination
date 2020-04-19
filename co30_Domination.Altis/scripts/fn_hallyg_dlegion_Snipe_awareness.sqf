@@ -54,11 +54,7 @@ private _isVisible = {
 
 	_visiblity = parseNumber str ([objNull, "VIEW"] checkVisibility [_target_in_dir, _unit_in_dir]);
 
-	if (_visiblity > _visibleThreshold) then {
-		true
-	} else {
-		false
-	};
+	(_visiblity > _visibleThreshold)
 };
 
 //_unit disableAI "AIMINGERROR";
@@ -77,15 +73,10 @@ private _ammoRefillInterval = 15;
 private _executingOccupyCommand = false;
 
 
-private _isSniper = false;
-//hack - we only apply "forceWalk true" to sniper units
-if (["Sniper", groupId(group _unit)] call BIS_fnc_inString) then {
-	_isSniper = true;
-};
+private _isSniper = ["Sniper", groupId(group _unit)] call BIS_fnc_inString;
 
 //awareness loop
 while {true} do {
-		
 	_Dtargets = [];
 
 	{
@@ -102,7 +93,6 @@ while {true} do {
 	_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
 	
 	if (count _playersSortedByDistance > 0) then {
-		
 		{
 			if (_isAggressiveShoot == 1) then {
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
@@ -126,7 +116,7 @@ while {true} do {
 		
 		_nearestTargetPlayer = _playersSortedByDistance select 0;
 		        	
-		if (_pursueRadius > 0 && (_nearestTargetPlayer distance2D _unit < _pursueRadius)) then {
+		if (_pursueRadius > 0 && {_nearestTargetPlayer distance2D _unit < _pursueRadius}) then {
 			//unit is eligible for a move order
 			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
 				//unit has waited longer than the required interval
@@ -140,14 +130,11 @@ while {true} do {
 		
 	} else {
 		//no target nearby
-		if (leader _unit == _unit && !_isSniper) then {
+		if (!_isSniper && {leader _unit == _unit}) then {
 			//unit is the group leader
 			//group must 1) resume existing waypoints or 2) return to the unit's original position and occupy a building
 			//hack - just get them back in buildings for now
-			if (
-				(time - _lastMoveOrder) > _moveOrderInterval && !_executingOccupyCommand && !isNull group _unit && (getPos _unit distance [0,0,0]) > 0 
-					&& (count units group _unit) > 0 && (getPosATL _unit distance _startingPosition) > 10
-			) then {
+			if ((time - _lastMoveOrder) > _moveOrderInterval && {!_executingOccupyCommand && {!isNull group _unit && {(getPos _unit distance [0,0,0]) > 0 && {(count units group _unit) > 0 && {(getPosATL _unit distance _startingPosition) > 10}}}}}) then {
 				(group _unit) setCombatMode "YELLOW";
 				(group _unit) setSpeedMode "NORMAL";
 				//unit is eligible for a move order
@@ -191,7 +178,7 @@ while {true} do {
 		};
 	};
 		
-	if (_fired && ((_isQuickAmmo == 1) || _isSniper)) then {
+	if (_fired && {_isQuickAmmo == 1 || {_isSniper}}) then {
 		//unit is eligible for quick ammo refill
 		if ((time - _lastAmmoRefill) > _ammoRefillInterval) then {
 			//unit has waited longer than the required interval
@@ -200,7 +187,7 @@ while {true} do {
 		};
 	};
 	
-	if (!_fired && _isSniper) then {
+	if (!_fired && {_isSniper}) then {
 		//sniper unit did not find a target, change the unit's body position
 		call {
 			if (unitPos _unit == "AUTO" || {unitPos _unit == "UP"}) exitWith {
