@@ -9,7 +9,7 @@ params ["_wf"];
 disableSerialization;
 private _disp = uiNamespace getVariable "d_ProgressBar";
 private _ctrl = _disp displayCtrl 3800;
-private _newval = linearConversion [0, _wf getVariable "d_CAPTIME", _wf getVariable "d_CURCAPTIME", 0, ctrlPosition (_disp displayCtrl 3600) # 2];
+private _newval = linearConversion [0, _wf getVariable "d_CAPTIME", _wf getVariable "d_CURCAPTIME", 0, 0.38, true];
 __TRACE_1("","_newval")
 //progressSetPosition -> Is not as smooth as a ctrl commit
 _ctrl ctrlSetPositionW _newval;

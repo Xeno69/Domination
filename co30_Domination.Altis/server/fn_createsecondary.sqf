@@ -149,7 +149,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		};
 		d_currentcamps pushBack _wf;
 		_wf setVariable ["d_SIDE", d_enemy_side, true];
-		_wf setVariable ["d_CAPTIME", 40 + (floor random 10), true];
+		_wf setVariable ["d_CAPTIME", round (40 + (floor random 10)), true];
 		_wf setVariable ["d_CURCAPTIME", 0, true];
 	#ifndef __TT__
 		_wf setVariable ["d_CURCAPTURER", d_own_side];
