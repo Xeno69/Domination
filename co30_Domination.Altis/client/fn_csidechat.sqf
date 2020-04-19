@@ -63,7 +63,18 @@ if (_num == 9) exitWith {
 };
 
 if (_num == 10) exitWith {
-	[format [[localize "STR_DOM_MISSIONSTRING_509", localize "STR_DOM_MISSIONSTRING_508"] select (_param1 == 0), _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	if (_param1 == 0) exitWith {
+		[format [localize "STR_DOM_MISSIONSTRING_508", _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	};
+	if (_param1 == 1) exitWith {
+		[format [localize "STR_DOM_MISSIONSTRING_509", _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	};
+	if (_param1 == 2) exitWith {
+		[format [localize "STR_DOM_MISSIONSTRING_945", _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	};
+	if (_param1 == 3) exitWith {
+		[format [localize "STR_DOM_MISSIONSTRING_946", _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	};
 };
 
 if (_num == 11) exitWith {
