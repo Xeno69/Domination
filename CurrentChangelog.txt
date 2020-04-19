@@ -6,4 +6,5 @@
          - all enemy infantry bots: on an interval, check line-of-sight with players and doSuppressiveFire if LOS or isVisible are true within configurable radius
          - all enemy infantry bots: on an interval, if _fired is true then frequently do "setAmmo 1" (this helps to balance new shooting behavior vs running out of ammo too quickly)
          - all enemy infantry bots which are free to move: on an interval, if bot is a leader then order the group to move to location of nearest player within configurable radius
+- Changed: Wait 10 seconds before spawning the next enemy AI groups at barracks in the AO
 - Fixed: Round camp capture time and clip progress capture bar when max value is reached

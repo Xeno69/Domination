@@ -116,14 +116,16 @@ if (!_isman) then {
 					_doend = true;
 				};
 			};
-			if ((list _trig) isEqualTo []) exitWith {
+			if (time >= (_selobj getVariable ["d_nextspawn", -1]) && {(list _trig) isEqualTo []}) exitWith {
 				_do_end2 = true;
 			};
 		};
 		if (_doend || {_do_end2}) exitWith {};
 	};
 	if (_doend || {isNil "_selobj"}) exitWith {};
-		
+	
+	_selobj setVariable ["d_nextspawn", time + 10];
+	
 	private _d_mt_barracks_obj_pos = getPos _selobj;
 	__TRACE_1("","_d_mt_barracks_obj_pos")
 	_this set [1, [_d_mt_barracks_obj_pos]];

@@ -197,6 +197,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	d_bara_trig_ar pushBack _trig;
 	[_vec, 0] call d_fnc_checkmtrespawntarget;
 	d_mt_barracks_obj_ar pushBack _vec;
+	_vec setVariable ["d_nextspawn", -1];
 	sleep 0.1;
 	__TRACE_1("1111","_vec")
 
