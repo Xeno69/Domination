@@ -90,9 +90,9 @@ while {true} do {
 	
 	_fired = false;
 	
-	_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
-	
-	if (count _playersSortedByDistance > 0) then {
+	if (count _Dtargets > 0) then {
+		_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
+		
 		{
 			if (_isAggressiveShoot == 1) then {
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
