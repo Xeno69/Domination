@@ -109,7 +109,6 @@ if (_buildingRadius < 0) then {
 };
 
 if (count _buildingsArray == 0) exitWith {
-	player sideChat str "Zen_Occupy House Error : No buildings found.";
 	diag_log "Zen_Occupy House Error : No buildings found.";
 	[]
 };
@@ -204,12 +203,13 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 								};
 
 								//occupy mode - no special behavior
-								//if (_unitMovementMode == 0) then {
+								if (_unitMovementMode == 0) then {
 									//do nothing
-								//};
+								};
 
 								//ambush mode - static until firedNear within 69m restores unit ability to move and fire
 								if (_unitMovementMode == 1) then {
+
 									if !(_doMove) then {
 										_uuidx disableAI "TARGET";
 										_uuidx forceSpeed 0;
@@ -226,22 +226,11 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 								//sniper mode - static forever
 								if (_unitMovementMode == 2) then {
-
-									//if defined, apply general skill modifier
-									if (d_snp_skill > 0) then {
-										_uuidx setSkill d_snp_skill;
-									};
-
-									//if defined, apply aimingShake skill modifier
-									if (d_snp_shake > 0) then {
-										_uuidx setSkill ["aimingShake", d_snp_shake];
-									};
-
 									if (d_snp_aware == 1) then {
 										//highly aware snipers
-										[_uuidx, d_side_player] spawn d_fnc_hallyg_dlegion_Snipe;
+										//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
 									} else {
-										//common snipers with up/down script triggered by firedNear within 69m
+										//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
 										if (_isRoof) then {
 											_uuidx setUnitPos "MIDDLE";
 											_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
@@ -287,9 +276,9 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 };//end for
 
 if (_doMove) then {
-	[_units, _unitIndex] spawn {
+	[_units, _unitIndex, _unitMovementMode] spawn {
 		scriptName "spawn_zoh_occupyhouse";
-		params ["_units", "_unitIndex"];
+		params ["_units", "_unitIndex", "_unitMovementMode"];
 
 		_usedUnits = _units select [0, _unitIndex];
 

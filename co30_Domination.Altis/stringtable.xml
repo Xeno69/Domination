@@ -11899,6 +11899,50 @@
 <Chinese>敵軍步兵營的最大數量</Chinese>
 <French>Nombre maximum de casernes d'infanterie ennemies</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900AWARE">
+<English>AI Advanced - enhanced awareness (common units)</English>
+<Spanish>AI Advanced - enhanced awareness (common units)</Spanish>
+<Portuguese>AI Advanced - enhanced awareness (common units)</Portuguese>
+<Korean>AI Advanced - enhanced awareness (common units)</Korean>
+<Japanese>AI Advanced - enhanced awareness (common units)</Japanese>
+<Original>AI Advanced - enhanced awareness (common units)</Original>
+<Russian>AI Advanced - enhanced awareness (common units)</Russian>
+<Chinesesimp>AI Advanced - enhanced awareness (common units)</Chinesesimp>
+<French>AI Advanced - enhanced awareness (common units)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
+<English>AI Advanced - enemy active pursuit radius</English>
+<Spanish>AI Advanced - enemy active pursuit radius</Spanish>
+<Portuguese>AI Advanced - enemy active pursuit radius</Portuguese>
+<Korean>AI Advanced - enemy active pursuit radius</Korean>
+<Japanese>AI Advanced - enemy active pursuit radius</Japanese>
+<Original>AI Advanced - enemy active pursuit radius</Original>
+<Russian>AI Advanced - enemy active pursuit radius</Russian>
+<Chinesesimp>AI Advanced - enemy active pursuit radius</Chinesesimp>
+<French>AI Advanced - enemy active pursuit radius</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT">
+<English>AI Advanced - enemy shoots aggressively at players</English>
+<Spanish>AI Advanced - enemy shoots aggressively at players</Spanish>
+<Portuguese>AI Advanced - enemy shoots aggressively at players</Portuguese>
+<Korean>AI Advanced - enemy shoots aggressively at players</Korean>
+<Japanese>AI Advanced - enemy shoots aggressively at players</Japanese>
+<Original>AI Advanced - enemy shoots aggressively at players</Original>
+<Russian>AI Advanced - enemy shoots aggressively at players</Russian>
+<Chinesesimp>AI Advanced - enemy shoots aggressively at players</Chinesesimp>
+<French>AI Advanced - enemy shoots aggressively at players</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
+<English>AI Advanced - enemy granted frequent ammo refills</English>
+<Spanish>AI Advanced - enemy granted frequent ammo refills</Spanish>
+<Portuguese>AI Advanced - enemy granted frequent ammo refills</Portuguese>
+<Korean>AI Advanced - enemy granted frequent ammo refills</Korean>
+<Japanese>AI Advanced - enemy granted frequent ammo refills</Japanese>
+<Original>AI Advanced - enemy granted frequent ammo refills</Original>
+<Russian>AI Advanced - enemy granted frequent ammo refills</Russian>
+<Chinesesimp>AI Advanced - enemy granted frequent ammo refills</Chinesesimp>
+<French>AI Advanced - enemy granted frequent ammo refills</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
 <English>Garrisoned infantry group count - occupy mode</English>
 <Spanish>Garrisoned infantry group count - occupy mode</Spanish>
@@ -11944,36 +11988,36 @@
 <French>Nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
-<English>Garrisoned infantry sniper mode - advanced awareness</English>
-<Spanish>Garrisoned infantry sniper mode - advanced awareness</Spanish>
-<Portuguese>Garrisoned infantry sniper mode - advanced awareness</Portuguese>
-<Korean>수비하는 보병 스나이퍼 모드 - 향상된 인식</Korean>
-<Japanese>Garrisoned infantry sniper mode - advanced awareness</Japanese>
-<Original>Garrisoned infantry sniper mode - advanced awareness</Original>
+<English>AI Advanced - enhanced awareness (sniper units)</English>
+<Spanish>AI Advanced - enhanced awareness (sniper units)</Spanish>
+<Portuguese>AI Advanced - enhanced awareness (sniper units)</Portuguese>
+<Korean>AI Advanced - enhanced awareness (sniper units)</Korean>
+<Japanese>AI Advanced - enhanced awareness (sniper units)</Japanese>
+<Original>AI Advanced - enhanced awareness (sniper units)</Original>
 <Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
-<Chinesesimp>Garrisoned infantry sniper mode - advanced awareness</Chinesesimp>
+<Chinesesimp>AI Advanced - enhanced awareness (sniper units)</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - conscience avancée</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
-<English>Garrisoned infantry sniper mode - general skill</English>
-<Spanish>Garrisoned infantry sniper mode - general skill</Spanish>
-<Portuguese>Garrisoned infantry sniper mode - general skill</Portuguese>
-<Korean>수비하는 보병 스나이퍼 모드 - 기본 스킬</Korean>
-<Japanese>Garrisoned infantry sniper mode - general skill</Japanese>
-<Original>Garrisoned infantry sniper mode - general skill</Original>
+<English>AI Advanced - general skill</English>
+<Spanish>AI Advanced - general skill</Spanish>
+<Portuguese>AI Advanced - general skill</Portuguese>
+<Korean>AI Advanced - general skill</Korean>
+<Japanese>AI Advanced - general skill</Japanese>
+<Original>AI Advanced - general skill</Original>
 <Russian>Снайперский режим пехоты - общий навык</Russian>
-<Chinesesimp>Garrisoned infantry sniper mode - general skill</Chinesesimp>
+<Chinesesimp>AI Advanced - general skill</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - compétence générale</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900F">
-<English>Garrisoned infantry sniper mode - aimingShake skill</English>
-<Spanish>Garrisoned infantry sniper mode - aimingShake skill</Spanish>
-<Portuguese>Garrisoned infantry sniper mode - aimingShake skill</Portuguese>
-<Korean>수비하는 보병 스나이퍼 모드 - 흔들림 조준 스킬</Korean>
-<Japanese>Garrisoned infantry sniper mode - aimingShake skill</Japanese>
-<Original>Garrisoned infantry sniper mode - aimingShake skill</Original>
+<English>AI Advanced - aimingAccuracy skill</English>
+<Spanish>AI Advanced - aimingAccuracy skill</Spanish>
+<Portuguese>AI Advanced - aimingAccuracy skill</Portuguese>
+<Korean>AI Advanced - aimingAccuracy skill</Korean>
+<Japanese>AI Advanced - aimingAccuracy skill</Japanese>
+<Original>AI Advanced - aimingAccuracy skill</Original>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
-<Chinesesimp>Garrisoned infantry sniper mode - aimingShake skill</Chinesesimp>
+<Chinesesimp>AI Advanced - aimingAccuracy skill</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - visant la compétence trembler</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1902">
@@ -12572,7 +12616,7 @@
 <English>points for clearing the main target!</English>
 <Spanish>points for clearing the main target!</Spanish>
 <Portuguese>points for clearing the main target!</Portuguese>
-<<Korean>메인미션 점령에 대한 포인트!</Korean>
+<Korean>메인미션 점령에 대한 포인트!</Korean>
 <Japanese>points for clearing the main target!</Japanese>
 <Original>points for clearing the main target!</Original>
 <Russian>очков за выполнение основного задания!</Russian>

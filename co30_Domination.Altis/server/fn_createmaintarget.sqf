@@ -17,10 +17,26 @@ private _garrisonUnits = {
 			_unitlist deleteAt (ceil (random (count _unitlist - 1)));
 		};
 	};
+	
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+	
+	if (_unitMovementMode == 2) then {
+		//give the sniper group a random name prefixed with "Sniper" as a hint for d_fnc_makemgroup
+		_sniperGrpName = format["Sniper%1", floor(random 999999)];
+		_newgroup setGroupId [_sniperGrpName];
+	};
+	
 	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
+	
+	if (_unitMovementMode == 2) then {
+		{
+			_x disableAI "PATH";
+			_x forceSpeed 0;
+			_x setUnitPos "UP";
+		} forEach _units_to_garrison;
+	};
 	_newgroup deleteGroupWhenEmpty true;
-	sleep 1.0112;
+	sleep 0.2;
 	//_newgroup allowFleeing 0;
 	//_newgroup setVariable ["d_defend", true];
 	//[_newgroup, _poss] spawn d_fnc_taskDefend;
