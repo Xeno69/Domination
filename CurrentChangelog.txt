@@ -1,3 +1,8 @@
-4.25
+4.26
 
-- Fixed: Script error (call eventhandler code, copy and paste in several scripts) broke the mission completely! :(
+- Added: Angry bots by longtimegamer (has to be turned on)
+         There are four new AI settings for allmen and snipers bot behavior:
+         - all enemy infantry bots: on an interval, reveal nearby players with "reveal 4" within configurable radius
+         - all enemy infantry bots: on an interval, check line-of-sight with players and doSuppressiveFire if LOS or isVisible are true within configurable radius
+         - all enemy infantry bots: on an interval, if _fired is true then frequently do "setAmmo 1" (this helps to balance new shooting behavior vs running out of ammo too quickly)
+         - all enemy infantry bots which are free to move: on an interval, if bot is a leader then order the group to move to location of nearest player within configurable radius

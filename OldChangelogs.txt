@@ -2,6 +2,10 @@ Changelogs
 
 Old...
 
+4.25
+
+- Fixed: Script error (call eventhandler code, copy and paste in several scripts) broke the mission completely! :(
+
 4.24
 
 - Added: Max_camp_cnt_method mission parameter by longtimegamer

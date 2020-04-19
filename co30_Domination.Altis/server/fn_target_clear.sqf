@@ -128,7 +128,7 @@ sleep 3.321;
 
 if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
 
-_del_camps_stuff = [];
+private _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";
 	deleteMarker (_x getVariable "d_camp_mar");
