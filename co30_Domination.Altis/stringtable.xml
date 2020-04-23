@@ -11827,6 +11827,42 @@
 <Chinese>％1殺死了一名平民！扣除％2分的罰款</Chinese>
 <French>%1 a tué un civil! Pénalité de %2 points déduite.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1890CIVVEH">
+<English>Civilian vehicles - enabled</English>
+<Spanish>Civilian vehicles - enabled</Spanish>
+<Portuguese>Civilian vehicles - enabled</Portuguese>
+<Korean>시민 활성화 Civilian vehicles - enabled</Korean>
+<Japanese>Civilian vehicles - enabled</Japanese>
+<Original>Civilian vehicles - enabled</Original>
+<Russian>Включить гражданских Civilian vehicles - enabled</Russian>
+<Chinesesimp>启用平民 Civilian vehicles - enabled</Chinesesimp>
+<Chinese>啟用平民(Civilian vehicles - enabled)</Chinese>
+<French>Activer les civils Civilian vehicles - enabled</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHRAD">
+<English>Civilian vehicles - spawn radius</English>
+<Spanish>Civilian vehicles - spawn radius</Spanish>
+<Portuguese>Civilian vehicles - spawn radius</Portuguese>
+<Korean>시민 활성화 Civilian vehicles - spawn radius</Korean>
+<Japanese>Civilian vehicles - spawn radius</Japanese>
+<Original>Civilian vehicles - spawn radius</Original>
+<Russian>Включить гражданских Civilian vehicles - spawn radius</Russian>
+<Chinesesimp>启用平民 Civilian vehicles - spawn radius</Chinesesimp>
+<Chinese>啟用平民(Civilian vehicles - spawn radius)</Chinese>
+<French>Activer les civils Civilian vehicles - spawn radius</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHLOCKED">
+<English>Civilian vehicles - lock vehicles</English>
+<Spanish>Civilian vehicles - lock vehicles</Spanish>
+<Portuguese>Civilian vehicles - lock vehicles</Portuguese>
+<Korean>시민 활성화 Civilian vehicles - lock vehicles</Korean>
+<Japanese>Civilian vehicles - lock vehicles</Japanese>
+<Original>Civilian vehicles - lock vehicles</Original>
+<Russian>Включить гражданских Civilian vehicles - lock vehicles</Russian>
+<Chinesesimp>启用平民 Civilian vehicles - lock vehicles</Chinesesimp>
+<Chinese>啟用平民(Civilian vehicles - lock vehicles)</Chinese>
+<French>Activer les civils Civilian vehicles - lock vehicles</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
 <English>Enable civilians</English>
 <Spanish>Enable civilians</Spanish>

@@ -6,6 +6,9 @@
 
 // _unit - this unit
 // _targetSide - side the unit is engaging
+// _awarenessRadius - distance AI will be aware of players, radius in meters
+// _pursueRadius - distance AI will pursue a player, radius in meters
+// _isAggressiveShoot - boolean, true will order AI to frequently fire (doTarget and doSuppressiveFire) at player when line of sight is favorable
 // _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis (this is useful when doSuppressiveFire causes the unit to burn ammo rapidly)
 params ["_unit", "_targetSide", "_awarenessRadius", "_pursueRadius", "_isAggressiveShoot", "_isQuickAmmo"];
 
@@ -174,7 +177,7 @@ while {true} do {
 				_lastMoveOrder = time;
 			};
 		} else {
-			sleep 30;
+			sleep 3;
 		};
 	};
 		
