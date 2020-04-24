@@ -448,7 +448,7 @@ if (d_enable_civ_vehs > 0) then {
 
 	_roadList=_roadList call BIS_fnc_arrayShuffle;
 	
-	_carSpawns = round((count _roadList) * d_enable_civ_vehs);
+	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100);
 	
 	for "_i" from 1 to _carSpawns do {
 		_currentRoad=_roadList select _i;
