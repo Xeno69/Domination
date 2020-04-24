@@ -171,7 +171,22 @@ if (d_enable_civs == 1) then {
 		//diag_log [diag_frameno, diag_ticktime, time, format ["Deleting civ: %1", _x]];
 		deleteVehicle _x;
 	} forEach d_cur_tgt_civ_units;
+	
+	//cleanup civ vehicles after 300 secs
 	d_cur_tgt_civ_units = [];
+	private _tmpCivVehs = +d_cur_tgt_civ_vehicles;
+	d_cur_tgt_civ_vehicles = [];
+	
+	[_tmpCivVehs] spawn {
+		scriptName "spawn_delete_civ_vehicles";
+		params ["_tmpCivVehs"];
+		diag_log ["deleting civ vehicles", count _tmpCivVehs];
+		sleep 300;
+		{
+			deleteVehicle _x;
+		} forEach _tmpCivVehs;
+	};
+	
 };
 #endif
 

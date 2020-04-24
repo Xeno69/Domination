@@ -412,7 +412,78 @@ if (d_no_more_observers < 2) then {
 };
 
 #ifndef __TT__
-//garrison begin`
+//create civilian vehicles
+//adapted from script by h8ermaker https://www.youtube.com/watch?v=pE47H8lG8uc
+if (d_enable_civ_vehs > 0) then {
+	
+	_roadList= _trg_center nearroads d_enable_civ_vehs_rad;
+	
+	_civVehiclesWeighted = [
+		"C_Offroad_01_F", 0.10,
+		"C_Hatchback_01_F", 0.10,
+		"C_Truck_02_covered_F", 0.03,
+		"C_Truck_02_transport_F", 0.03, 
+		"C_Van_01_box_F", 0.05,
+		"C_Van_02_transport_F", 0.05,
+		"C_Hatchback_01_sport_F", 0.05,
+		"C_Offroad_02_unarmed_F", 0.07,
+		"C_Hatchback_01_F", 0.35,
+		"C_SUV_01_F", 0.16,
+		"C_Tractor_01_F", 0.01
+		];
+	
+	if (isNil "d_cur_tgt_civ_vehicles") then {
+		d_cur_tgt_civ_vehicles = [];
+	};	
+	_tmp = count _roadList;
+	{
+		_roadConnectedTo = roadsConnectedTo _x;
+		
+		if (count _roadConnectedTo > 2 || count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || ((nearestBuilding _x) distance2D _x) > 40) then {
+			//only has 2 connections, children also only have 2 connections, is within 40m of a building
+			_roadList=_roadList - [_x];	
+		};
+	} foreach _roadList;
+	diag_log["count _roadList filter before and after", _tmp, count _roadList];
+
+	_roadList=_roadList call BIS_fnc_arrayShuffle;
+	
+	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100);
+	
+	for "_i" from 1 to _carSpawns do {
+		_currentRoad=_roadList select _i;
+		if (!isNil "_currentRoad" && { !isNull _currentRoad }) then {
+			_roadConnectedTo = roadsConnectedTo _currentRoad;
+			_connectedRoad = _roadConnectedTo select 0;
+			_direction = [_currentRoad, _connectedRoad] call BIS_fnc_DirTo;
+			
+			_veh = createVehicle [selectRandomWeighted _civVehiclesWeighted, _currentRoad, [], 0, "NONE"];
+			if (d_enable_civ_vehs_locked == 1) then {
+				_veh lock true;
+			};
+			_veh enableSimulationGlobal false;
+			_veh allowDamage false;
+			_veh setDamage 0;
+			_veh setdir _direction;
+			_veh setPos [(getPos _veh select 0)+5.5, getPos _veh select 1, getPos _veh select 2];
+			d_cur_tgt_civ_vehicles pushBack _veh;
+		};
+	};
+	
+	sleep 10;
+	_badCars = 0;
+	{
+		if ((vectorUp _x) # 2 < 0.8) then {
+			_badCars = _badCars + 1;
+		};
+		_x enableSimulationGlobal true;
+		_x allowDamage true;
+		_x setDamage 0;
+	} forEach d_cur_tgt_civ_vehicles;
+	//hint format["badCars count: %1", _badCars];
+};
+
+//garrison begin
 
 if (d_occ_bldgs == 1) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
