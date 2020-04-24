@@ -9,3 +9,4 @@
 - Changed: Wait 10 seconds before spawning the next enemy AI groups at barracks in the AO
 - Fixed: Round camp capture time and clip progress capture bar when max value is reached
 - Fixed: Some kick player to lobby messages still showed up
+- Fixed: In the Altis RHS Blufor version the CH53 spawned in the ground and was therefore exploding at every spawn
