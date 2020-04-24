@@ -787,33 +787,12 @@ class Params {
 		default = 120;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","180","240","300"};
 	};
-	
-	class d_enable_civ_vehs {
-		title = "$STR_DOM_MISSIONSTRING_1890CIVVEH";
-		values[] = {0, 0.25, 0.50, 0.75, 1.0};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","Low","Medium","High","Maximum"};
-	};
-	
-	class d_enable_civ_vehs_rad {
-		title = "$STR_DOM_MISSIONSTRING_1890CIVVEHRAD";
-		values[] = {150,250,350,450};
-		default = 250;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","150m","250m","350m","450m"};
-	};
-	
-	class d_enable_civ_vehs_locked {
-		title = "$STR_DOM_MISSIONSTRING_1890CIVVEHLOCKED";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
 
 	class d_enable_civs {
 		title = "$STR_DOM_MISSIONSTRING_1890";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_civ_unitcount {
@@ -835,6 +814,27 @@ class Params {
 		values[] = {0,1,2,3,4,5,10,25,50,75,100};
 		default = 3;
 		texts[] = {"0","1","2","3","4","5","10","25","50","75","100"};
+	};
+	
+	class d_enable_civ_vehs {
+		title = "$STR_DOM_MISSIONSTRING_1890CIVVEH";
+		values[] = {0, 0.25, 0.50, 0.75, 1.0};
+		default = 0.50;
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","Low","Medium","High","Maximum"};
+	};
+	
+	class d_enable_civ_vehs_rad {
+		title = "$STR_DOM_MISSIONSTRING_1890CIVVEHRAD";
+		values[] = {150,250,350,450};
+		default = 250;
+		texts[] = {"150m","250m","350m","450m"};
+	};
+	
+	class d_enable_civ_vehs_locked {
+		title = "$STR_DOM_MISSIONSTRING_1890CIVVEHLOCKED";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_disable_airai {

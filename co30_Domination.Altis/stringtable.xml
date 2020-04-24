@@ -11804,16 +11804,16 @@
 <French>Désactiver le temps de recharge de l'artillerie</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1888">
-<English>Subtract score when a player kills a civilian:</English>
-<Spanish>Subtract score when a player kills a civilian:</Spanish>
-<Portuguese>Subtract score when a player kills a civilian:</Portuguese>
-<Korean>플레이어가 시민 사살 시 스코어 감소:</Korean>
-<Japanese>Subtract score when a player kills a civilian:</Japanese>
-<Original>Subtract score when a player kills a civilian:</Original>
-<Russian>Вычитать очки, когда игрок убивает гражданское лицо:</Russian>
-<Chinesesimp>当玩家杀死平民时减去分数:</Chinesesimp>
-<Chinese>玩家殺死平民時減去分數：</Chinese>
-<French>Soustrayez le score lorsqu'un joueur tue un civil:</French>
+<English>Civilians - subtract score when a player kills a civilian:</English>
+<Spanish>Civilians - subtract score when a player kills a civilian:</Spanish>
+<Portuguese>Civilians - subtract score when a player kills a civilian:</Portuguese>
+<Korean>Civilians - 플레이어가 시민 사살 시 스코어 감소:</Korean>
+<Japanese>Civilians - subtract score when a player kills a civilian:</Japanese>
+<Original>Civilians - subtract score when a player kills a civilian:</Original>
+<Russian>Civilians - Вычитать очки, когда игрок убивает гражданское лицо:</Russian>
+<Chinesesimp>Civilians - 当玩家杀死平民时减去分数:</Chinesesimp>
+<Chinese>Civilians - 玩家殺死平民時減去分數：</Chinese>
+<French>Civilians - soustrayez le score lorsqu'un joueur tue un civil:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1889">
 <English>%1 killed a civilian!  Penalty of %2 points deducted.</English>
@@ -11864,28 +11864,28 @@
 <French>Activer les civils Civilian vehicles - lock vehicles</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
-<English>Enable civilians</English>
-<Spanish>Enable civilians</Spanish>
-<Portuguese>Enable civilians</Portuguese>
-<Korean>시민 활성화</Korean>
-<Japanese>Enable civilians</Japanese>
-<Original>Enable civilians</Original>
-<Russian>Включить гражданских</Russian>
-<Chinesesimp>启用平民</Chinesesimp>
-<Chinese>啟用平民(Enable civilians)</Chinese>
-<French>Activer les civils</French>
+<English>Civilians - enable civilians</English>
+<Spanish>Civilians - enable civilians</Spanish>
+<Portuguese>Civilians - enable civilians</Portuguese>
+<Korean>Civilians - 시민 활성화</Korean>
+<Japanese>Civilians - enable civilians</Japanese>
+<Original>Civilians - enable civilians</Original>
+<Russian>Civilians - Включить гражданских</Russian>
+<Chinesesimp>Civilians - 启用平民</Chinesesimp>
+<Chinese>Civilians - 啟用平民 (enable civilians)</Chinese>
+<French>Civilians - Activer les civils</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
-<English>Civilian unit count per group</English>
-<Spanish>Civilian unit count per group</Spanish>
-<Portuguese>Civilian unit count per group</Portuguese>
-<Korean>그룹당 시민 수</Korean>
-<Japanese>Civilian unit count per group</Japanese>
-<Original>Civilian unit count per group</Original>
-<Russian>Количество гражданских групп</Russian>
-<Chinesesimp>每组平民单位数</Chinesesimp>
-<Chinese>每組平民單位數</Chinese>
-<French>Nombre d'unités civiles par groupe</French>
+<English>Civilians - civilian unit count per group</English>
+<Spanish>Civilians - civilian unit count per group</Spanish>
+<Portuguese>Civilians - civilian unit count per group</Portuguese>
+<Korean>Civilians - 그룹당 시민 수</Korean>
+<Japanese>Civilians - civilian unit count per group</Japanese>
+<Original>Civilians - civilian unit count per group</Original>
+<Russian>Civilians - Количество гражданских групп</Russian>
+<Chinesesimp>Civilians - 每组平民单位数</Chinesesimp>
+<Chinese>Civilians - 每組平民單位數</Chinese>
+<French>Civilians - nombre d'unités civiles par groupe</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
 <English>Disable enemy air</English>
@@ -11980,48 +11980,48 @@
 <French>AI Advanced - enemy granted frequent ammo refills</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
-<English>Garrisoned infantry group count - occupy mode</English>
-<Spanish>Garrisoned infantry group count - occupy mode</Spanish>
-<Portuguese>Garrisoned infantry group count - occupy mode</Portuguese>
-<Korean>수비하는 보병 그룹 수 - 점령 모드</Korean>
-<Japanese>Garrisoned infantry group count - occupy mode</Japanese>
-<Original>Garrisoned infantry group count - occupy mode</Original>
-<Russian>Количество пехотных групп - режим оккупации</Russian>
-<Chinesesimp>驻军步兵团计数 - 占领模式</Chinesesimp>
-<French>Nombre de groupes d'infanterie en garnison - mode occupé</French>
+<English>Enemy infantry - garrisoned group count - occupy mode</English>
+<Spanish>Enemy infantry - garrisoned infantry group count - occupy mode</Spanish>
+<Portuguese>Enemy infantry - garrisoned infantry group count - occupy mode</Portuguese>
+<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 점령 모드</Korean>
+<Japanese>Enemy infantry - garrisoned infantry group count - occupy mode</Japanese>
+<Original>Enemy infantry - garrisoned infantry group count - occupy mode</Original>
+<Russian>Enemy infantry - Количество пехотных групп - режим оккупации</Russian>
+<Chinesesimp>Enemy infantry - 驻军步兵团计数 - 占领模式</Chinesesimp>
+<French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode occupé</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AA">
-<English>Garrisoned infantry group count - overwatch mode</English>
-<Spanish>Garrisoned infantry group count - overwatch mode</Spanish>
-<Portuguese>Garrisoned infantry group count - overwatch mode</Portuguese>
-<Korean>수비하는 보병 그룹 수 - 협동작전 모드</Korean>
-<Japanese>Garrisoned infantry group count - overwatch mode</Japanese>
-<Original>Garrisoned infantry group count - overwatch mode</Original>
-<Russian>Garrisoned infantry group count - overwatch mode</Russian>
-<Chinesesimp>Garrisoned infantry group count - overwatch mode</Chinesesimp>
-<French>Nombres des groupes d'infanterie en garnison - mode surveillance</French>
+<English>Enemy infantry - garrisoned infantry group count - overwatch mode</English>
+<Spanish>Enemy infantry - garrisoned infantry group count - overwatch mode</Spanish>
+<Portuguese>Enemy infantry - garrisoned infantry group count - overwatch mode</Portuguese>
+<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 협동작전 모드</Korean>
+<Japanese>Enemy infantry - garrisoned infantry group count - overwatch mode</Japanese>
+<Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
+<Russian>Enemy infantry - garrisoned infantry group count - overwatch mode</Russian>
+<Chinesesimp>Enemy infantry - garrisoned infantry group count - overwatch mode</Chinesesimp>
+<French>Enemy infantry - nombres des groupes d'infanterie en garnison - mode surveillance</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
-<English>Garrisoned infantry group count - ambush mode</English>
-<Spanish>Garrisoned infantry group count - ambush mode</Spanish>
-<Portuguese>Garrisoned infantry group count - ambush mode</Portuguese>
-<Korean>수비하는 보병 그룹 수 - 기습 모드</Korean>
-<Japanese>Garrisoned infantry group count - ambush mode</Japanese>
-<Original>Garrisoned infantry group count - ambush mode</Original>
-<Russian>Количество пехотных групп - режим засады</Russian>
-<Chinesesimp>驻军步兵团计数 - 埋伏模式</Chinesesimp>
-<French>Nombre de groupes d'infanterie en garnison - mode embuscade</French>
+<English>Enemy infantry - garrisoned infantry group count - ambush mode</English>
+<Spanish>Enemy infantry - garrisoned infantry group count - ambush mode</Spanish>
+<Portuguese>Enemy infantry - garrisoned infantry group count - ambush mode</Portuguese>
+<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 기습 모드</Korean>
+<Japanese>Enemy infantry - garrisoned infantry group count - ambush mode</Japanese>
+<Original>Enemy infantry - garrisoned infantry group count - ambush mode</Original>
+<Russian>Enemy infantry - Количество пехотных групп - режим засады</Russian>
+<Chinesesimp>Enemy infantry - 驻军步兵团计数 - 埋伏模式</Chinesesimp>
+<French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
-<English>Garrisoned infantry group count - sniper mode</English>
-<Spanish>Garrisoned infantry group count - sniper mode</Spanish>
-<Portuguese>Garrisoned infantry group count - sniper mode</Portuguese>
-<Korean>수비하는 보병 그룹 수 - 스나이퍼 모드</Korean>
-<Japanese>Garrisoned infantry group count - sniper mode</Japanese>
-<Original>Garrisoned infantry group count - sniper mode</Original>
-<Russian>Количество пехотных групп - режим снайпера</Russian>
-<Chinesesimp>驻军步兵团计数 - 狙击手模式</Chinesesimp>
-<French>Nombre de groupes d'infanterie en garnison - mode sniper</French>
+<English>Enemy infantry - garrisoned infantry group count - sniper mode</English>
+<Spanish>Enemy infantry - garrisoned infantry group count - sniper mode</Spanish>
+<Portuguese>Enemy infantry - garrisoned infantry group count - sniper mode</Portuguese>
+<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 스나이퍼 모드</Korean>
+<Japanese>Enemy infantry - garrisoned infantry group count - sniper mode</Japanese>
+<Original>Enemy infantry - garrisoned infantry group count - sniper mode</Original>
+<Russian>Enemy infantry - Количество пехотных групп - режим снайпера</Russian>
+<Chinesesimp>Enemy infantry - 驻军步兵团计数 - 狙击手模式</Chinesesimp>
+<French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
 <English>AI Advanced - enhanced awareness (sniper units)</English>
@@ -12057,27 +12057,27 @@
 <French>Mode sniper d'infanterie en garnison - visant la compétence trembler</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1902">
-<English>Deployment radius</English>
-<Spanish>Deployment radius</Spanish>
-<Portuguese>Deployment radius</Portuguese>
-<Korean>전개 반경</Korean>
-<Japanese>Deployment radius</Japanese>
-<Original>Deployment radius</Original>
-<Russian>Deployment radius</Russian>
-<Chinesesimp>Deployment radius</Chinesesimp>
-<French>Rayon de déploiement</French>
+<English>Enemy infantry - deployment radius</English>
+<Spanish>Enemy infantry - deployment radius</Spanish>
+<Portuguese>Enemy infantry - deployment radius</Portuguese>
+<Korean>Enemy infantry - 전개 반경</Korean>
+<Japanese>Enemy infantry - deployment radius</Japanese>
+<Original>Enemy infantry - deployment radius</Original>
+<Russian>Enemy infantry - deployment radius</Russian>
+<Chinesesimp>Enemy infantry - deployment radius</Chinesesimp>
+<French>Enemy infantry - rayon de déploiement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
-<English>Civilian group count per target</English>
-<Spanish>Civilian group count per target</Spanish>
-<Portuguese>Civilian group count per target</Portuguese>
-<Korean>목표 당 시민 그룹 수</Korean>
-<Japanese>Civilian group count per target</Japanese>
-<Original>Civilian group count per target</Original>
-<Russian>Количество групп гражданских на город</Russian>
-<Chinesesimp>每个目标的平民群体数量</Chinesesimp>
-<Chinese>Civilian group count per target</Chinese>
-<French>Nombre de groupes civils par cible</French>
+<English>Civilians - civilian group count per target</English>
+<Spanish>Civilians - civilian group count per target</Spanish>
+<Portuguese>Civilians - civilian group count per target</Portuguese>
+<Korean>Civilians - 목표 당 시민 그룹 수</Korean>
+<Japanese>Civilians - civilian group count per target</Japanese>
+<Original>Civilians - civilian group count per target</Original>
+<Russian>Civilians - Количество групп гражданских на город</Russian>
+<Chinesesimp>Civilians - 每个目标的平民群体数量</Chinesesimp>
+<Chinese>Civilians - civilian group count per target</Chinese>
+<French>Civilians - nombre de groupes civils par cible</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1930">
 <English>Maximum number of enemy camps to capture</English>
