@@ -27,9 +27,9 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 	diag_log ["_this", _this];
 	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
 	diag_log "This may break scripts!!!!";
-	if (!isNull _pl) then {
-		remoteExecCall ["d_fnc_remplnounit", _pl];
-	};
+	//if (!isNull _pl) then {
+	//	remoteExecCall ["d_fnc_remplnounit", _pl];
+	//};
 };
 
 if (_pl isKindOf "VirtualSpectator_F") exitWith {
