@@ -101,11 +101,12 @@ while {true} do {
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
 					//to check if unit actually fired
                 	_ammoCount = _unit ammo primaryWeapon _unit;
+                	_magazineCount = count magazinesAmmo _unit; 
 					// execute aggressive shooting
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
 					sleep 15;
-					if (_ammoCount > _unit ammo primaryWeapon _unit) then {
+					if (_ammoCount > _unit ammo primaryWeapon _unit || _magazineCount > count magazinesAmmo _unit) then {
                     	//yes the unit actually fired
                     	_fired = true;
                     	_lastFired = time;
