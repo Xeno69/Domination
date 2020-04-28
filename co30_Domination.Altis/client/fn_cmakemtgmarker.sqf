@@ -5,6 +5,14 @@
 
 __TRACE("Start")
 
+if (isNil "d_cur_tgt_pos" || {d_cur_tgt_pos isEqualTo []}) exitWith {
+	diag_log "Attention!!!!! cmakemtgmarker d_cur_tgt_pos is empty!!!!!!";
+};
+
+if (isNil "d_mttarget_radius_patrol" || {d_mttarget_radius_patrol isEqualTo []}) exitWith {
+	diag_log "Attention!!!!! cmakemtgmarker d_mttarget_radius_patrol is empty!!!!!!";
+};
+
 __TRACE_1("","d_cur_tgt_pos")
 
 private _tile_size = (d_mttarget_radius_patrol * 2) / 7;
