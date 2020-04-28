@@ -1796,7 +1796,218 @@ d_base_apc_vec =
 	d_noambient_bf_sounds = false;
 	
 	d_dbox_idx = 0;
+	
+	//civ vehicle definitions for each environment
+	_civVehiclesWeightedCityWealthHigh = [
+		"C_Offroad_01_F", 0.15,
+		"C_Hatchback_01_F", 0.30,
+		"C_Truck_02_covered_F", 0.05, 
+		"C_Van_01_box_F", 0.05,
+		"C_Van_02_transport_F", 0.05,
+		"C_Hatchback_01_sport_F", 0.10,
+		"C_Offroad_02_unarmed_F", 0.15,
+		"C_SUV_01_F", 0.15
+	];
+	
+	_civVehiclesWeightedCityWealthLow = [
+		"C_Offroad_01_F", 0.10,
+		"C_Hatchback_01_F", 0.10,
+		"C_Truck_02_covered_F", 0.03,
+		"C_Truck_02_transport_F", 0.03, 
+		"C_Van_01_box_F", 0.05,
+		"C_Van_02_transport_F", 0.05,
+		"C_Hatchback_01_sport_F", 0.05,
+		"C_Offroad_02_unarmed_F", 0.07,
+		"C_Hatchback_01_F", 0.35,
+		"C_SUV_01_F", 0.16
+	];
+	
+	_civVehiclesWeightedRural = [
+		"C_Offroad_01_F", 0.30,
+		"C_Truck_02_covered_F", 0.10,
+		"C_Truck_02_transport_F", 0.10, 
+		"C_Van_01_box_F", 0.05,
+		"C_Offroad_02_unarmed_F", 0.25,
+		"C_SUV_01_F", 0.15,
+		"C_Tractor_01_F", 0.10
+	];
+	
+	_civVehiclesWeightedRuralCup = [
+		"CUP_C_Golf4_random_Civ", 0.25,
+		"CUP_C_Datsun", 0.25,
+		"CUP_C_Octavia_CIV", 0.25,
+		"CUP_C_V3S_Covered_TKC", 0.20,
+		"C_Tractor_01_F", 0.05
+	];
+	
+	_civVehiclesWeightedRuralCupRemote = [
+		"CUP_C_Datsun", 0.35,
+		"CUP_C_Datsun_4seat", 0.35,
+		"CUP_C_V3S_Covered_TKC", 0.15,
+		"C_Tractor_01_F", 0.15
+	];
+	
+	_civVehiclesWeightedRuralLivonia = [
+		"C_Offroad_01_F", 0.30,
+		"C_Truck_02_transport_F", 0.15, 
+		"C_Offroad_02_unarmed_F", 0.30,
+		"C_SUV_01_F", 0.15,
+		"C_Tractor_01_F", 0.10
+	];
+	
+	_civVehiclesWeightedRuralGmcwg = [
+		"C_Truck_02_transport_F", 0.10,
+		"gm_gc_civ_p601", 0.40,
+		"gm_ge_civ_typ1200", 0.40,
+		"C_Tractor_01_F", 0.10
+	];
+	
+	d_civ_vehicles_weighted =
+#ifdef __ALTIS__
+		_civVehiclesWeightedCityWealthHigh;
+#endif
+#ifdef __CUP_CHERNARUS__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __CUP_TAKISTAN__
+		_civVehiclesWeightedRuralCupRemote;
+#endif
+#ifdef __CUP_SARA__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __IFA3LITE__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __TANOA__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __STRATIS__
+		_civVehiclesWeightedCityWealthHigh;
+#endif
+#ifdef __MALDEN__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __ROSCHE__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __LIVONIA__
+		_civVehiclesWeightedRuralLivonia;
+#endif
+#ifdef __TT__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __GMCWG__
+		_civVehiclesWeightedRuralGmcwg;
+#endif
 };
+
+	//civilian faces
+	private _africanFaces = [
+		"AfricanHead_01",
+		"AfricanHead_02",
+		"AfricanHead_03"
+	];
+	private _asianFaces = [
+		"AsianHead_A3_01",
+		"AsianHead_A3_02",
+		"AsianHead_A3_03"
+	];
+	
+	private _greekFaces = [
+		"GreekHead_A3_01",
+		"GreekHead_A3_02",
+		"GreekHead_A3_03",
+		"GreekHead_A3_04",
+		"GreekHead_A3_05",
+		"GreekHead_A3_06",
+		"GreekHead_A3_07",
+		"GreekHead_A3_08",
+		"GreekHead_A3_09"
+		//GreekHead_A3_10_a //arid
+		//GreekHead_A3_10_l //lush
+		//GreekHead_A3_10_sa //unknown?
+	];
+	
+	private _persianFaces = [
+		"PersianHead_A3_01",
+		"PersianHead_A3_02",
+		"PersianHead_A3_03"
+		//PersianHead_A3_04_a
+		//PersianHead_A3_04_l
+		//PersianHead_A3_04_sa
+	];
+	
+	private _whiteFaces = [
+		"WhiteHead_01",
+		"WhiteHead_02",
+		"WhiteHead_03",
+		"WhiteHead_04",
+		"WhiteHead_05",
+		"WhiteHead_06",
+		"WhiteHead_07",
+		"WhiteHead_08",
+		"WhiteHead_09",
+		"WhiteHead_10",
+		"WhiteHead_11",
+		"WhiteHead_12",
+		"WhiteHead_13",
+		"WhiteHead_14",
+		"WhiteHead_15",
+		"WhiteHead_16",
+		"WhiteHead_17",
+		"WhiteHead_18",
+		"WhiteHead_19",
+		"WhiteHead_20",
+		"WhiteHead_21"
+		//WhiteHead_22_a
+		//WhiteHead_22_l
+		//WhiteHead_22_sa
+	];
+	
+	private _mixedFaces = _greekFaces + _persianFaces + _whiteFaces;
+	
+	//todo - do these work?
+	//WomanHead_A3
+	//MaskHead_A3
+	//BlackHead_A3
+
+	d_civ_faces =
+#ifdef __ALTIS__
+		_mixedFaces;
+#endif
+#ifdef __CUP_CHERNARUS__
+		_mixedFaces;
+#endif
+#ifdef __CUP_TAKISTAN__
+		(_greekFaces + _persianFaces);
+#endif
+#ifdef __CUP_SARA__
+		_mixedFaces;
+#endif
+#ifdef __IFA3LITE__
+		_mixedFaces;
+#endif
+#ifdef __TANOA__
+		_asianFaces;
+#endif
+#ifdef __STRATIS__
+		_mixedFaces;
+#endif
+#ifdef __MALDEN__
+		_mixedFaces;
+#endif
+#ifdef __ROSCHE__
+		_whiteFaces;
+#endif
+#ifdef __LIVONIA__
+		_whiteFaces;
+#endif
+#ifdef __TT__
+		_mixedFaces;
+#endif
+#ifdef __GMCWG__
+		_whiteFaces;
+#endif
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")

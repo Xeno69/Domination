@@ -418,20 +418,6 @@ if (d_enable_civ_vehs > 0) then {
 	
 	_roadList= _trg_center nearroads d_enable_civ_vehs_rad;
 	
-	_civVehiclesWeighted = [
-		"C_Offroad_01_F", 0.10,
-		"C_Hatchback_01_F", 0.10,
-		"C_Truck_02_covered_F", 0.03,
-		"C_Truck_02_transport_F", 0.03, 
-		"C_Van_01_box_F", 0.05,
-		"C_Van_02_transport_F", 0.05,
-		"C_Hatchback_01_sport_F", 0.05,
-		"C_Offroad_02_unarmed_F", 0.07,
-		"C_Hatchback_01_F", 0.35,
-		"C_SUV_01_F", 0.16,
-		"C_Tractor_01_F", 0.01
-		];
-	
 	if (isNil "d_cur_tgt_civ_vehicles") then {
 		d_cur_tgt_civ_vehicles = [];
 	};	
@@ -457,7 +443,7 @@ if (d_enable_civ_vehs > 0) then {
 			_connectedRoad = _roadConnectedTo select 0;
 			_direction = [_currentRoad, _connectedRoad] call BIS_fnc_DirTo;
 			
-			_veh = createVehicle [selectRandomWeighted _civVehiclesWeighted, _currentRoad, [], 0, "NONE"];
+			_veh = createVehicle [selectRandomWeighted d_civ_vehicles_weighted, _currentRoad, [], 0, "NONE"];
 			if (d_enable_civ_vehs_locked == 1) then {
 				_veh lock true;
 			};
