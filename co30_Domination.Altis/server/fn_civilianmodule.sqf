@@ -149,6 +149,19 @@ for "_i" from 0 to d_civ_groupcount do {
 			"CUP_C_TK_Man_03_Jack"
 		];
 #endif
+#ifdef __CUP_ZARGABAD__
+		_this setUnitLoadout selectRandom [
+			"CUP_C_TK_Man_05_Waist",
+			"CUP_C_TK_Man_06_Waist",
+			"CUP_C_TK_Man_01_Coat",
+			"CUP_C_TK_Man_08_Waist",
+			"CUP_C_TK_Man_03_Coat",
+			"CUP_C_TK_Man_01_Jack",
+			"CUP_C_TK_Man_06_Jack",
+			"CUP_C_TK_Man_03_Jack",
+			"CUP_C_TK_Man_03_Jack"
+		];
+#endif
 #ifdef __TANOA__
 		_this setUnitLoadout selectRandom [
 			"C_Man_casual_1_F_tanoan",

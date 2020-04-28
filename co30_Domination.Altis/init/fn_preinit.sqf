@@ -1872,6 +1872,9 @@ d_base_apc_vec =
 #ifdef __CUP_TAKISTAN__
 		_civVehiclesWeightedRuralCupRemote;
 #endif
+#ifdef __CUP_ZARGABAD__
+		_civVehiclesWeightedCityWealthLow;
+#endif
 #ifdef __CUP_SARA__
 		_civVehiclesWeightedCityWealthLow;
 #endif
@@ -1979,6 +1982,9 @@ d_base_apc_vec =
 		_mixedFaces;
 #endif
 #ifdef __CUP_TAKISTAN__
+		(_greekFaces + _persianFaces);
+#endif
+#ifdef __CUP_ZARGABAD__
 		(_greekFaces + _persianFaces);
 #endif
 #ifdef __CUP_SARA__
