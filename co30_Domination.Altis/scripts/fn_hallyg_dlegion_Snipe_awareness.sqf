@@ -106,7 +106,7 @@ while {true} do {
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
 					sleep 15;
-					if (_ammoCount > _unit ammo primaryWeapon _unit || _magazineCount > count magazinesAmmo _unit) then {
+					if (_ammoCount > _unit ammo primaryWeapon _unit || {_magazineCount > count magazinesAmmo _unit}) then {
                     	//yes the unit actually fired
                     	_fired = true;
                     	_lastFired = time;
