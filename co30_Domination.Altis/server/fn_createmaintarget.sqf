@@ -425,12 +425,12 @@ if (d_enable_civ_vehs > 0) then {
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
-		if (count _roadConnectedTo > 2 || count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || ((nearestBuilding _x) distance2D _x) > 40) then {
+		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 40}}}) then {
 			//only has 2 connections, children also only have 2 connections, is within 40m of a building
 			_roadList=_roadList - [_x];	
 		};
 	} foreach _roadList;
-	diag_log["count _roadList filter before and after", _tmp, count _roadList];
+	//diag_log["count _roadList filter before and after", _tmp, count _roadList];
 
 	_roadList=_roadList call BIS_fnc_arrayShuffle;
 	
