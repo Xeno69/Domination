@@ -25,12 +25,12 @@ if (!d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 		};
 		private _ctrtxt = [
 			format ["<img color='#FFFFFF' size='1.0' image='%1'/><t color='#b5f279' size='1.2'> %2</t><img color='#FFFFFF' size='1.0' image='%3'/><br/>",
-				_ct call d_fnc_getrankpic,
+				(_ct call d_fnc_getrankpic) # 0,
 				_name,
 				_icon
 			],
 			format ["<img color='#FFFFFF' size='1.0' image='%1'/><t color='#b5f279' size='1.2'> %2</t><img color='#FFFFFF'size='1.0' image='%3'/><br/><t color='#b5f279' size='0.8'>Damage: </t><t color='#FFFFFF' size='0.8'>%4</t>",
-				_ct call d_fnc_getrankpic,
+				(_ct call d_fnc_getrankpic) # 0,
 				_name,
 				_icon,
 				str(round ((damage _ct) * 90))

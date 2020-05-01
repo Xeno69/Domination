@@ -386,6 +386,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 #endif
 
 d_points_needed_15 = (d_points_needed # 6) + 15000;
+d_points_needed_16 = (d_points_needed # 6) + 30000;
 
 0 spawn {
 	scriptName "spawn_setupplayer1";

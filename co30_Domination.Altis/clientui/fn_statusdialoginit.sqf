@@ -179,7 +179,7 @@ if (d_current_target_index != -1) then {
 
 __ctrl2(11007) ctrlSetText _s;
 
-__ctrl2(12010) ctrlSetText (player call d_fnc_GetRankPic);
+__ctrl2(12010) ctrlSetText ((player call d_fnc_GetRankPicGetRankPic) # 0);
 __ctrl2(11014) ctrlSetText (player call d_fnc_GetRankString);
 
 __ctrl2(12016) ctrlSetText serverName;
