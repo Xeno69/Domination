@@ -216,11 +216,14 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 									};
 
 									_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
+										params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
 										scriptName "spawn_zoh_firednear1ambush";
-										(_this select 0) enableAI "TARGET";
-										(_this select 0) enableAI "AUTOTARGET";
-										(_this select 0) enableAI "MOVE";
-										(_this select 0) forceSpeed -1;
+										if (side _firer == d_side_player) then {
+											(_this select 0) enableAI "TARGET";
+											(_this select 0) enableAI "AUTOTARGET";
+											(_this select 0) enableAI "MOVE";
+											(_this select 0) forceSpeed -1;
+										};
 									}]];
 								};
 
