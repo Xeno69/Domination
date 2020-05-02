@@ -585,12 +585,16 @@ if (isServer) then {
 		if !(_dbresult isEqualTo []) then {
 			{
 				call {
-					if (toLowerANSI (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+					private _tla = toLowerANSI (_x # 0);
+					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 						if !((_x # 1) isEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (toLowerANSI (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time", "d_launcher_cooldown"]) exitWith {
+					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time"]) exitWith {
+						missionNamespace setVariable [_x # 0, _x # 1];
+					};
+					if (_tla in ["d_set_pl_score_db", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_launcher_cooldown"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1, true];
 					};
 #ifdef __TT__
