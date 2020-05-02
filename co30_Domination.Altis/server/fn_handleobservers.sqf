@@ -38,7 +38,7 @@ while {d_nr_observers > 0} do {
 			sleep 2.321;
 		} forEach (d_obs_array select {alive _x});
 	};
-	sleep 5.123;
+	sleep 8.123;
 	if (!_e_ari_avail && {time > _nextaritime}) then {_e_ari_avail = true};
 };
 

@@ -122,7 +122,6 @@ class cfgFunctions {
 			addc(upd_aop);
 			addc(dfps);
 			addc(getcorners);
-			addc(playerrankloop);
 			addc(waitforgps);
 			addc(waitartycompmap);
 			addc(waitforuavmap);
@@ -436,7 +435,6 @@ class cfgFunctions {
 			addc(makemtgmarker);
 			addc(addppoints);
 			addc(storeploadout);
-			addc(sendfps);
 			addc(dpcpbv);
 			addc(addceo);
 			addc(buildingchanged);

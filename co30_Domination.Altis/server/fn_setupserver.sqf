@@ -146,4 +146,9 @@ if (d_with_ranked) then {
 0 spawn d_fnc_scheck_uav;
 #endif
 
-0 spawn d_fnc_sendfps;
+0 spawn {
+	sleep 10;
+	["dom_sendfps", {
+		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+	}, 3] call d_fnc_eachframeadd;
+};

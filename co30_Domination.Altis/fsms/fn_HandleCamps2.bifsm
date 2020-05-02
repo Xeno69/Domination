@@ -3,7 +3,7 @@ class GraphItems
 {
 	class Item0
 	{
-		Flags=4346;
+		Flags=250;
 		BasicText="";
 		Left=-25;
 		Top=-175;
@@ -15,7 +15,7 @@ class GraphItems
 			Text="Start";
 			lStyle=-842150451;
 			Shape=6;
-			FontFace="Arial";
+			FontFace="";
 			FontHeight=10;
 			FontWeight=700;
 			FontUnderline=1;
@@ -235,7 +235,7 @@ class GraphItems
 	};
 	class Item9
 	{
-		Flags=250;
+		Flags=4346;
 		BasicText="";
 		Left=-25;
 		Top=175;
@@ -246,7 +246,7 @@ class GraphItems
 		{
 			Text="Check";
 			lStyle=-842150451;
-			FontFace="";
+			FontFace="Arial";
 			FontHeight=10;
 			FontWeight=0;
 			FontCharSet=0;
@@ -699,7 +699,7 @@ class Globals
 	NextGroupID=1;
 	NextID=23;
 	FSMName="HandleCamps2";
-	CompileConfig="E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
+	CompileConfig="G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg";
 	class DefaultLink
 	{
 		ArrowSize=0;
@@ -723,10 +723,10 @@ class Window
 	MaxPosY=-1;
 	MinPosX=-1;
 	MinPosY=-1;
-	Left=312;
-	Top=312;
-	Right=1272;
-	Bottom=1030;
+	Left=208;
+	Top=208;
+	Right=1168;
+	Bottom=926;
 	ShowCmd=3;
 	SplitPos=1658;
 };

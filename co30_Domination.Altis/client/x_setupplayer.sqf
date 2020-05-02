@@ -458,7 +458,9 @@ d_points_needed_16 = (d_points_needed # 6) + 30000;
 	if (d_database_found && {!isNil "d_points_needed_db" && {d_set_pl_score_db}}) then {
 		d_points_needed = d_points_needed_db;
 	};
-	0 spawn d_fnc_playerrankloop;
+	["dom_plrank_tr", {
+		call d_fnc_PlayerRank;
+	}, 5.12] call d_fnc_eachframeadd;
 };
 
 diag_log ["Internal D Version: 4.25"];

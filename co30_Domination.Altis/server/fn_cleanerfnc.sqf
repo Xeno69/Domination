@@ -16,7 +16,7 @@ while {true} do {
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
-	sleep 4;
+	sleep 8;
 	_helperx = allMissionObjects "WeaponHolder_Single_F";
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
@@ -61,7 +61,7 @@ while {true} do {
 		} forEach (_allmisobjs select {!isNull _x});
 	};
 	_allmisobjs = nil;
-	sleep 3;
+	sleep 4;
 	if (!isNil "d_player_created") then {
 		{
 			private _hastime = _x getVariable "d_end_time";
@@ -77,7 +77,7 @@ while {true} do {
 		} forEach (d_player_created select {!isNull _x});
 		d_player_created = d_player_created - [objNull];
 	};
-	sleep 3;
+	sleep 4;
 	if (!isNil "d_airboxes" && {!(d_airboxes isEqualTo [])}) then {
 		{
 			private _mname = _x getVariable "d_mname";

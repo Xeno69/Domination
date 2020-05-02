@@ -11,20 +11,20 @@ if (isNil "_xm") then {
 			[getText(configFile>>"CfgRanks">>str _r>>"texture"), 0.4]
 		};
 		if (_r > 6 && {score _this > d_points_needed_16}) exitWith {
-			[getMissionPath "pics\mstar.paa", 0.6]
+			[getMissionPath "pics\6star.paa", 0.7]
 		};
 		if (_r > 6 && {score _this > d_points_needed_15}) exitWith {
-			[getMissionPath "pics\5star.paa", 1.6]
+			[getMissionPath "pics\5star.paa", 0.7]
 		};
 		[getText(configFile>>"CfgRanks">>str _r>>"texture"), 0.4]
 	} else {
 		[getText(configFile>>"CfgRanks">>str ((rank _this) call d_fnc_getrankindex)>>"texture"), 0.4]
 	};
 } else {
-	private _r = _this getVariable "d_mstar";
+	private _r = _this getVariable "d_6star";
 	if (isNil "_r") then {
-		_r = getMissionPath "pics\mstar.paa";
-		_this setVariable ["d_mstar", _r];
+		_r = getMissionPath "pics\6star.paa";
+		_this setVariable ["d_6star", [_r, 0.7]];
 	};
-	[_r, 1.6]
+	_r
 };
