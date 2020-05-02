@@ -178,52 +178,45 @@ if !(d_show_player_marker isEqualTo 0) then {
 
 __TRACE_1("","d_marker_vecs")
 
-private _rdel = false;
 private ["_isc", "_mt"];
 private _d_mark_loc261 = d_mark_loc261;
 private _d_mark_loc1825 = d_mark_loc1825;
 private _marker_vecs = d_marker_vecs;
 {
-	if (!isNull _x) then {
-		if (_x distance2D _mapmid < _drawdist) then {
-			if (isNil {_x getVariable "d_mvs_not"}) then {
-				_isc = [_x, objNull, true] call _fnc_gmi;
-				__TRACE_1("","_isc")
-				_mt = call {
-					if (!alive _x) exitWith {
-						format [_d_mark_loc1825, _x getVariable "d_ma_text"];
-					};
-					if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
-						format [_d_mark_loc261, _x getVariable "d_ma_text"];
-					};
-					_x getVariable "d_ma_text"
+	if (_x distance2D _mapmid < _drawdist) then {
+		if (isNil {_x getVariable "d_mvs_not"}) then {
+			_isc = [_x, objNull, true] call _fnc_gmi;
+			__TRACE_1("","_isc")
+			_mt = call {
+				if (!alive _x) exitWith {
+					format [_d_mark_loc1825, _x getVariable "d_ma_text"];
 				};
-				_map drawIcon [
-					_isc # 0,
-					_isc # 2,
-					visiblePositionASL _x,
-					_isc # 1,
-					_isc # 1,
-					getDirVisual _x,
-					_mt,
-					1,
-					0.05,
-					"puristaMedium",
-					"right"
-				];
-			} else {
-				_x setVariable ["d_mvs_not", nil];
+				if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
+					format [_d_mark_loc261, _x getVariable "d_ma_text"];
+				};
+				_x getVariable "d_ma_text"
 			};
+			_map drawIcon [
+				_isc # 0,
+				_isc # 2,
+				visiblePositionASL _x,
+				_isc # 1,
+				_isc # 1,
+				getDirVisual _x,
+				_mt,
+				1,
+				0.05,
+				"puristaMedium",
+				"right"
+			];
 		} else {
-			if (!isNil {_x getVariable "d_mvs_not"}) then {
-				_x setVariable ["d_mvs_not", nil];
-			};
+			_x setVariable ["d_mvs_not", nil];
 		};
 	} else {
-		_rdel = true;
+		if (!isNil {_x getVariable "d_mvs_not"}) then {
+			_x setVariable ["d_mvs_not", nil];
+		};
 	};
-} forEach _marker_vecs;
+} forEach _marker_vecs select {!isNull _x};
 
-if (_rdel) then {
-	d_marker_vecs = d_marker_vecs - [objNull];
-};
+d_marker_vecs = d_marker_vecs - [objNull];
