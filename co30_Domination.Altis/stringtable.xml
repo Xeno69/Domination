@@ -16,7 +16,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2">
 <English>Plane Service</English>
-<Spanish>Plane Service</Spanish>
+<Spanish>Servicio de Avión</Spanish>
 <Portuguese>Plane Service</Portuguese>
 <Korean>고정익 정비</Korean>
 <Japanese>Jet Service</Japanese>
@@ -388,7 +388,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_43">
 <English>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</English>
-<Spanish>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Spanish>
+<Spanish>Los operadores de artillería pueden ejecutar ataques de artillería (los objetivos de la artillería tienen que ser marcados primero, necesita un designador láser).</Spanish>
 <Portuguese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Portuguese>
 <Korean>포병반장은 포격 효력사를 실행 할 수 있습니다 (먼저 목표물에 대해 표시를 해야합니다, 레이저 표시기가 필요합니다).</Korean>
 <Japanese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Japanese>
@@ -2522,7 +2522,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_326">
 <English>You have to wait %1 seconds until you can repair a vehicle at base again.</English>
-<Spanish>You have to wait %1 seconds until you can repair a vehicle at base again.</Spanish>
+<Spanish>Tienes que esperar %1 segundo hasta que puedas reparar un vehículo en la base de nuevo..</Spanish>
 <Portuguese>You have to wait %1 seconds until you can repair a vehicle at base again.</Portuguese>
 <Korean>당신은 베이스에서 차량을 재수리하려면 %1 초를 기다리셔야 합니다.</Korean>
 <Japanese>You have to wait %1 seconds until you can repair a vehicle at base again.</Japanese>
@@ -2678,7 +2678,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_351">
 <English>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</English>
-<Spanish>Una puñetera mierda. Finalmente algunos posibles avisos contra los helicópteros de ataque.</Spanish>
+<Spanish>Muy bien. Por fin es posible dar algunas advertencias tempranas contra esos helicópteros de ataque.</Spanish>
 <Portuguese>Jolly Sangrento caga bem. Finalmente alguns os avisos temporões possíveis contra aquele ataque choppers.</Portuguese>
 <Korean>매우 아주 훌륭합니다. 마침내 공격 헬기에대한 조기경보가 가능해졌습니다. </Korean>
 <Japanese>非常に、非常に素晴らしいです。最終的に攻撃ヘリコプターの早期警報が可能となりました。</Japanese>
@@ -3050,7 +3050,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_507a">
 <English>%1 was out into jail because of team killing, number team kills: %2</English>
-<Spanish>%1 was out into jail because of team killing, number team kills: %2</Spanish>
+<Spanish>%1 fue a la cárcel por los asesinatos del equipo, los asesinatos del equipo de número: %2</Spanish>
 <Portuguese>%1 was out into jail because of team killing, number team kills: %2</Portuguese>
 <Korean>%1 (이)가 팀킬로 인해 교도소에 수감 되었습니다, 팀킬횟수: %2</Korean>
 <Japanese>%1 was out into jail because of team killing, number team kills: %2</Japanese>
@@ -3326,7 +3326,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_541">
 <English>- Codenames for launching saboteur attacks on or base</English>
-<Spanish>- Codenames for launching saboteur attacks on or base</Spanish>
+<Spanish>- Nombres en clave para lanzar ataques de saboteadores en o desde la base</Spanish>
 <Portuguese>- Codenames for launching saboteur attacks on or base</Portuguese>
 <Korean>-  특정한 장소 또는 기지를 공격하는 게릴라작전 암호명</Korean>
 <Japanese>- Codenames for launching saboteur attacks on or base</Japanese>
@@ -3986,7 +3986,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_637">
 <English>Air taxi heading to its destination in a few seconds !!!</English>
-<Spanish>Air taxi heading to its destination in a few seconds !!!</Spanish>
+<Spanish>Taxi aéreo que se dirige a su destino en unos pocos segundos !!!</Spanish>
 <Portuguese>Air taxi heading to its destination in a few seconds !!!</Portuguese>
 <Korean>잠시 후 목적지로 출발합니다!!!</Korean>
 <Japanese>Air taxi heading to its destination in a few seconds !!!</Japanese>
@@ -4885,7 +4885,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_732">
 <English>There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.</English>
-<Spanish>There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.</Spanish>
+<Spanish>Hay un faro en una isla. Los barcos enemigos lo usan para encontrar el camino a la costa, para destruirlo....</Spanish>
 <Portuguese>There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.</Portuguese>
 <Korean>섬에 등대가 있습니다. 적의 선박들은 등대를 이용하여 해안 주변지역을 순찰 하고 있습니다, 그것을 파괴하십시오.</Korean>
 <Japanese>There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.</Japanese>
@@ -4909,7 +4909,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_738">
 <English>The enemy uses a radio tower to command its armored troops. Simple task, destroy it.</English>
-<Spanish>The enemy uses a radio tower to command its armored troops. Simple task, destroy it.</Spanish>
+<Spanish>El enemigo utiliza una torre de radio para comandar sus tropas blindadas. Una tarea simple, destruirla.</Spanish>
 <Portuguese>The enemy uses a radio tower to command its armored troops. Simple task, destroy it.</Portuguese>
 <Korean>산 정상에 라디오 타워가 있습니다. 적은 해당 기지를 통해 기갑병력을 통솔하고있다 합니다. 목표는 간단합니다, 그것을 파괴하십시오.</Korean>
 <Japanese>Lysina山の頂上にラジオタワーがある。敵はこれを装甲車両隊の指揮に利用してるようだ。それを破壊しろ。</Japanese>
@@ -4981,7 +4981,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_757">
 <English>The enemy uses a fuelstation to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</English>
-<Spanish>The enemy uses a fuelstation to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Spanish>
+<Spanish>El enemigo utiliza una estación de combustible para repostar sus vehículos. Una tarea simple, destruirla para reducir el suministro de combustible.</Spanish>
 <Portuguese>The enemy uses a fuelstation to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Portuguese>
 <Korean>적군이 저유소를 이용하여 장비들에게 연료를 재보급하고 있습니다. 간단한 임무입니다, 그것을 파괴하여 연료보급을 차단하십시오.</Korean>
 <Japanese>The enemy uses a fuelstation to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Japanese>
@@ -5041,7 +5041,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_775">
 <English>We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.</English>
-<Spanish>We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.</Spanish>
+<Spanish>Queremos provocar al enemigo. Encuentren la bandera enemiga y llévenla a la bandera de su base.</Spanish>
 <Portuguese>We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.</Portuguese>
 <Korean>우리는 적을 도발하고자 합니다. 적의 깃발을 찾으십시오 그리고 그 깃발을 기지로 가져 오십시오.</Korean>
 <Japanese>We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.</Japanese>
@@ -5065,7 +5065,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_780">
 <English>The enemy is building a prison. Destroy the building so that they can not arrest innocent people.</English>
-<Spanish>The enemy is building a prison. Destroy the building so that they can not arrest innocent people.</Spanish>
+<Spanish>El enemigo está construyendo una prisión. Destruye el edificio para que no puedan arrestar a gente inocente.</Spanish>
 <Portuguese>The enemy is building a prison. Destroy the building so that they can not arrest innocent people.</Portuguese>
 <Korean>적군이 수용소를 건설중입니다. 적군이 무고한 시민들을 체포하지 못하도록 수용소를 파괴하십시오.</Korean>
 <Japanese>The enemy is building a prison. Destroy the building so that they can not arrest innocent people.</Japanese>
@@ -5089,7 +5089,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_782">
 <English>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</English>
-<Spanish>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Spanish>
+<Spanish>El enemigo está produciendo armas biológicas. Encuentra la torre de agua que se necesita para la producción y destrúyela..</Spanish>
 <Portuguese>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Portuguese>
 <Korean>적군이 생물학 무기를 생산중입니다. 그들의 무기 생산에 필요한 급수탑을 찾아 파괴하십시오.</Korean>
 <Japanese>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Japanese>
@@ -5305,7 +5305,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_814">
 <English>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</English>
-<Spanish>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Spanish>
+<Spanish>El enemigo está construyendo un hangar. Lo curioso es que no hay ningún aeródromo cerca de esa posición. Así que, destruye ese hangar antes de que sepamos realmente para qué sirve.</Spanish>
 <Portuguese>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Portuguese>
 <Korean>적군이 격납고를 건설중입니다. 재미 있는점은, 그 위치에 활주로가 없습니다. 그냥, 우리가 진짜 용도를 알 필요가 없으니 파괴해 버리세요.</Korean>
 <Japanese>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Japanese>
@@ -5329,7 +5329,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_816">
 <English>There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.</English>
-<Spanish>There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.</Spanish>
+<Spanish>Hay una instalación de entrenamiento del enemigo. Destruye el edificio principal para reducir sus posibilidades de entrenar a nuevos soldados.</Spanish>
 <Portuguese>There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.</Portuguese>
 <Korean>적군의 훈련소가 있습니다. 주요건물을 파괴하여 새로운 병사를 훈련시킬 가능성을 차단하십시오.</Korean>
 <Japanese>There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.</Japanese>
@@ -5365,7 +5365,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_821a">
 <English>Good job. The plane is destroyed.</English>
-<Spanish>Good job. The plane is destroyed.</Spanish>
+<Spanish>Buen trabajo. El avión está destruido.</Spanish>
 <Portuguese>Good job. The plane is destroyed.</Portuguese>
 <Korean>잘하셨습니다. 비행기체가 파괴되었습니다.</Korean>
 <Japanese>よくやった。飛行機は破壊された。</Japanese>
@@ -5377,7 +5377,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_826">
 <English>A terrorist leader called Nib Nedal hides somewhere. Your task is to find him and eliminate him!</English>
-<Spanish>A terrorist leader called Nib Nedal hides somewhere. Your task is to find him and eliminate him!</Spanish>
+<Spanish>Un líder terrorista llamado Nib Nedal se esconde en algún lugar. ¡Tu tarea es encontrarlo y eliminarlo!</Spanish>
 <Portuguese>A terrorist leader called Nib Nedal hides somewhere. Your task is to find him and eliminate him!</Portuguese>
 <Korean>Nib Nedal의 어떤곳에 테러리스트 리더가 숨었습니다. 귀관의 임무는 그를 찾아 사살 하는것 입니다!</Korean>
 <Japanese>A terrorist leader called Nib Nedal hides somewhere. Your task is to find him and eliminate him!</Japanese>
@@ -5401,7 +5401,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_858">
 <English>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</English>
-<Spanish>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Spanish>
+<Spanish>El enemigo está produciendo armas químicas. Encuentra el camión de carga que tiene algunos de los productos químicos para la producción y destrúyelo.</Spanish>
 <Portuguese>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Portuguese>
 <Korean>적군이 화학무기를 생산중입니다. 생산에 사용되는 화학물질을 실은 화물트럭을 찾아 파괴하십시오.</Korean>
 <Japanese>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Japanese>
@@ -5413,7 +5413,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_861c">
 <English>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</English>
-<Spanish>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</Spanish>
+<Spanish>Un oficial enemigo está en un paseo por un bosque cercano. Esta es una buena oportunidad para arrestarlo y llevarlo a su base.</Spanish>
 <Portuguese>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</Portuguese>
 <Korean>적 장교가 숲 근처에서 산책 중입니다. 그를 체포하여 기지로 데려올 좋은 기회입니다</Korean>
 <Japanese>敵の将校が近くの森で散歩中だ。 彼を逮捕し、基地に連行するいいチャンスだ。</Japanese>
@@ -5425,7 +5425,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_864">
 <English>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</English>
-<Spanish>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</Spanish>
+<Spanish>El enemigo está produciendo rodamientos de bolas en una fábrica. Destruye los tanques de combustible para detener la producción.</Spanish>
 <Portuguese>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</Portuguese>
 <Korean>적군이 공장에서 볼 베어링을 생산중입니다. 연료탱크를 파괴하여 생산을 중단 시키십시오.</Korean>
 <Japanese>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</Japanese>
@@ -5473,7 +5473,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_878">
 <English>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</English>
-<Spanish>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Spanish>
+<Spanish>El enemigo está probando un nuevo prototipo de helicóptero. Destrúyelo antes de que las tropas enemigas lo usen.</Spanish>
 <Portuguese>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Portuguese>
 <Korean>적군이 새로운 타입의 헬기 시제품을 테스트중입니다. 적 병력이 그것을 사용하지 전에 파괴하십시오.</Korean>
 <Japanese>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Japanese>
@@ -5485,7 +5485,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_878c">
 <English>The enemy tests a new plane prototype. Destroy it before enemy troops use it.</English>
-<Spanish>The enemy tests a new plane prototype. Destroy it before enemy troops use it.</Spanish>
+<Spanish>El enemigo prueba un nuevo prototipo de avión. Destrúyelo antes de que las tropas enemigas lo usen.</Spanish>
 <Portuguese>The enemy tests a new plane prototype. Destroy it before enemy troops use it.</Portuguese>
 <Korean>적군이 새로운 타입의 전투기 시제품을 테스트중입니다. 적 병력이 그것을 사용하지 전에 파괴하십시오.</Korean>
 <Japanese>敵軍が新型航空機をテスト中だ。敵軍がこれを使用する前に破壊しろ。</Japanese>
@@ -5749,7 +5749,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_916">
 <English>You get %1 extra life(s) and %2 points for reviving another player</English>
-<Spanish>Ha recibido %1 vida(s) extra(s) %2 por revivir a otro jugador</Spanish>
+<Spanish>Ha recibido %1 vida(s) extra (s) %2 por revivir a otro jugador</Spanish>
 <Portuguese>Consegue 1 vida extra %(s) e %2 pontos a favor que revivem outro jogador</Portuguese>
 <Korean>다른 플레이어를 살려 %1 추가 생명과 %2 포인트를 얻었습니다.</Korean>
 <Japanese>ほかのプレーヤーを蘇生したので%2ポイントと残りライフ%1追加</Japanese>
@@ -9429,7 +9429,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1528">
 <English>Request salvoes:</English>
-<Spanish>Solicitud salvas:</Spanish>
+<Spanish>Solicitar salvas:</Spanish>
 <Portuguese>Petição salvoes:</Portuguese>
 <Korean>요청 효력사 수:</Korean>
 <Japanese>要請数:</Japanese>
@@ -10113,7 +10113,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1705">
 <English>Respawn at Squad Leader:</English>
-<Spanish>Respawn en el Líder del pelotón:</Spanish>
+<Spanish>Reparecer en el líder del pelotón:</Spanish>
 <Portuguese>Respawn no Líder do Time:</Portuguese>
 <Korean>분대장 위치로 재투입</Korean>
 <Japanese>リーダーの場所へ復活:</Japanese>
@@ -10149,7 +10149,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1707">
 <English>You can't parajump into the enemy area!</English>
-<Spanish>No se puede ParaJump en la zona enemiga!</Spanish>
+<Spanish>No se puede Saltar en paracaidas en la zona enemiga!</Spanish>
 <Portuguese>Pode não parajump ao área de inimigo!</Portuguese>
 <Korean>적지내로 공수낙하 할 수 없습니다.</Korean>
 <Japanese>敵の領域にはパラジャンプできません</Japanese>
@@ -10161,7 +10161,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1708">
 <English>Sidemission resolved</English>
-<Spanish>Misión lado resuelto</Spanish>
+<Spanish>Misión segundaria resuelto</Spanish>
 <Portuguese>Sidemission Resolveu</Portuguese>
 <Korean>보조미션 성공</Korean>
 <Japanese>サイドミッション解決</Japanese>
@@ -10185,7 +10185,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1711">
 <English>Call CAS</English>
-<Spanish>Call CAS</Spanish>
+<Spanish>Llamar a CAS</Spanish>
 <Portuguese>Call CAS</Portuguese>
 <Korean>Call CAS</Korean>
 <Japanese>Call CAS</Japanese>
@@ -10713,7 +10713,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1757">
 <English>DB Top Players</English>
-<Spanish>DB Top Players</Spanish>
+<Spanish>Mejores jugadores de DB</Spanish>
 <Portuguese>DB Top Players</Portuguese>
 <Korean>데이터베이스 최상위 플레이어들</Korean>
 <Japanese>DB Top Players</Japanese>
@@ -10725,7 +10725,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1758">
 <English>AI can drive vehicle without a player inside:</English>
-<Spanish>AI can drive vehicle without a player inside:</Spanish>
+<Spanish>La IA puede conducir un vehículo sin un jugador adentro:</Spanish>
 <Portuguese>AI can drive vehicle without a player inside:</Portuguese>
 <Korean>AI 플레이어가 미 탑승 시 운전 운전가능 여부:</Korean>
 <Japanese>AI can drive vehicle without a player inside:</Japanese>
@@ -10737,7 +10737,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1759">
 <English>With BIS Dynamic Groups (Squad Mgmt):</English>
-<Spanish>With BIS Dynamic Groups (Squad Mgmt):</Spanish>
+<Spanish>Con grupos dinámicos BIS (gestión de escuadrón):</Spanish>
 <Portuguese>With BIS Dynamic Groups (Squad Mgmt):</Portuguese>
 <Korean>BIS 다이나믹 그룹 기능여부(그룹기능):</Korean>
 <Japanese>With BIS Dynamic Groups (Squad Mgmt):</Japanese>
@@ -10749,7 +10749,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1760">
 <English>Airfield</English>
-<Spanish>Airfield</Spanish>
+<Spanish>Aeródromo</Spanish>
 <Portuguese>Airfield</Portuguese>
 <Korean>공항</Korean>
 <Japanese>Airfield</Japanese>
@@ -10761,7 +10761,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1761">
 <English>Service Point</English>
-<Spanish>Service Point</Spanish>
+<Spanish>Punto de servicio</Spanish>
 <Portuguese>Ponto de serviço</Portuguese>
 <Korean>정비지점</Korean>
 <Japanese>Service Point</Japanese>
@@ -10785,7 +10785,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1800">
 <English>The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations</English>
-<Spanish>The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations</Spanish>
+<Spanish>El enemigo tiene un pequeño puesto avanzado. Arresta al oficial allí y tráelo de vuelta a tu base para obtener información vital</Spanish>
 <Portuguese>The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations</Portuguese>
 <Korean>적군의 작은 전초기지가 있습니다. 그곳의 지휘관을 체포하여 기지로 데려온다면 우리는 적의 중추적인 정보를 획득 할 수 있습니다</Korean>
 <Japanese>The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations</Japanese>
@@ -10797,7 +10797,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1801">
 <English>Intel reports about an enemy convoy is on route. Find it and destroy the convoy, before it reaches its destination!</English>
-<Spanish>Intel reports about an enemy convoy is on route. Find it and destroy the convoy, before it reaches its destination!</Spanish>
+<Spanish>Intel informa que un convoy enemigo está en ruta. ¡Encuéntralo y destruye el convoy, antes de que llegue a su destino!</Spanish>
 <Portuguese>Intel reports about an enemy convoy is on route. Find it and destroy the convoy, before it reaches its destination!</Portuguese>
 <Korean>정보원의 보고에 따르면 적군의 수송단이 이 경로로 이동합니다. 수송단이 목적지에 도달하기 전에 찾아서 파괴 하십시오!</Korean>
 <Japanese>Intel reports about an enemy convoy is on route. Find it and destroy the convoy, before it reaches its destination!</Japanese>
@@ -10809,7 +10809,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1803">
 <English>One of our choppers was shot down. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive</English>
-<Spanish>One of our choppers was shot down. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive</Spanish>
+<Spanish>Uno de nuestros helicópteros fue derribado. Encuentra y rescata a la tripulación y llévalos a la base. Atención, las unidades enemigas también están en camino hacia el helicóptero. Tienes unos 15 minutos antes de que lleguen</Spanish>
 <Portuguese>One of our choppers was shot down. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive</Portuguese>
 <Korean>우리의 헬기중 한대가 격추되었습니다. 승무원을 찾고 구조해서 기지로 데려오십시오. 주의, 적군부대도 헬기로 향하고 있습니다. 그들이 살아있을 시간이 15분 밖에 남지 않았습니다</Korean>
 <Japanese>One of our choppers was shot down. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive</Japanese>
@@ -10821,7 +10821,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1804">
 <English>Energy is key in any modern war. We want you to sabotage the enemy power supplies. Destroy the transformer station!</English>
-<Spanish>Energy is key in any modern war. We want you to sabotage the enemy power supplies. Destroy the transformer station!</Spanish>
+<Spanish>La energía es clave en cualquier guerra moderna. Queremos que sabotees los suministros de energía del enemigo. Destruye la estación transformadora!</Spanish>
 <Portuguese>Energy is key in any modern war. We want you to sabotage the enemy power supplies. Destroy the transformer station!</Portuguese>
 <Korean>에너지는 현대 전쟁에서 중요한 키 포인트 입니다. 우리는 적군의 전력공급시설에 대해서 사보타주 실시를 원합니다. 변전소를 파괴하십시오!</Korean>
 <Japanese>Energy is key in any modern war. We want you to sabotage the enemy power supplies. Destroy the transformer station!</Japanese>
@@ -10833,7 +10833,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805">
 <English>Some civilians are held hostage. You have to free them and bring at least 8 civilians/prisoners back alive to your base!</English>
-<Spanish>Some civilians are held hostage. You have to free them and bring at least 8 civilians/prisoners back alive to your base!</Spanish>
+<Spanish>Algunos civiles son rehenes. ¡Tienes que liberarlos y traer al menos 8 civiles / prisioneros con vida a tu base!</Spanish>
 <Portuguese>Some civilians are held hostage. You have to free them and bring at least 8 civilians/prisoners back alive to your base!</Portuguese>
 <Korean>몇몇의 시민들이 인질로 잡혀있습니다. 그들을 구출하고 최소한 8 시민/포로 을(를) 살려서 기지로 데려오십시오!</Korean>
 <Japanese>Some civilians are held hostage. You have to free them and bring at least 8 civilians/prisoners back alive to your base!</Japanese>
@@ -10845,7 +10845,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
 <English>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
-<Spanish>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Spanish>
+<Spanish>Intel tiene alguna información sobre la ubicación de un campamento enemigo. Encuéntralo y elimina todos los specops allí antes de que intenten sabotear algo</Spanish>
 <Portuguese>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Portuguese>
 <Korean>정보원이 적 초소 위치들에 대한 정보를 획득했습니다. 그곳을 찾고 어떤 파괴공작을 하기전에 특수부대들을 모두 사살 하십시오</Korean>
 <Japanese>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</Japanese>
@@ -10857,7 +10857,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1807">
 <English>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
-<Spanish>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</Spanish>
+<Spanish>Las fuerzas enemigas están preparando un prototipo de avión. Esta es una buena oportunidad para robar y llevarlo a tu base, antes de que las tropas enemigas lo usen</Spanish>
 <Portuguese>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</Portuguese>
 <Korean>적군이 시제품 비행기를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 비행기를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
 <Japanese>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
@@ -10869,7 +10869,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1808">
 <English>Enemy forces are preparing an enhanced prototype tank. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
-<Spanish>Enemy forces are preparing an enhanced prototype tank. This is a good chance to steal and bring it to your base, before enemy troops use it</Spanish>
+<Spanish>Las fuerzas enemigas están preparando un tanque prototipo mejorado. Esta es una buena oportunidad para robar y llevarlo a tu base, antes de que las tropas enemigas lo usen</Spanish>
 <Portuguese>Enemy forces are preparing an enhanced prototype tank. This is a good chance to steal and bring it to your base, before enemy troops use it</Portuguese>
 <Korean>적군이 향상된 성능의 시제품 탱크를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 탱크를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
 <Japanese>Enemy forces are preparing an enhanced prototype tank. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
@@ -10881,7 +10881,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1809">
 <English>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
-<Spanish>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</Spanish>
+<Spanish>Las fuerzas enemigas están preparando un helicóptero prototipo mejorado. Esta es una buena oportunidad para robar y llevarlo a tu base, antes de que las tropas enemigas lo usen</Spanish>
 <Portuguese>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</Portuguese>
 <Korean>적군이 시제품 헬기를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 탱크를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
 <Japanese>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
@@ -10893,7 +10893,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1810">
 <English>Intel has found an enemy tank depot. Destroy all tanks there to weaken the enemy troops.</English>
-<Spanish>Intel has found an enemy tank depot. Destroy all tanks there to weaken the enemy troops.</Spanish>
+<Spanish>Intel ha encontrado un depósito de tanques enemigo. Destruye todos los tanques allí para debilitar a las tropas enemigas.</Spanish>
 <Portuguese>Intel has found an enemy tank depot. Destroy all tanks there to weaken the enemy troops.</Portuguese>
 <Korean>정보원이 적군 탱크 보급소를 찾았습니다. 그곳의 모든 탱크들을 파괴하여 적 세력을 약화 시키십시오.</Korean>
 <Japanese>Intel has found an enemy tank depot. Destroy all tanks there to weaken the enemy troops.</Japanese>
@@ -10905,7 +10905,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1811">
 <English>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</English>
-<Spanish>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Spanish>
+<Spanish>Intel tiene alguna información sobre la ubicación de un vehículo de artillería enemigo. ¡Encuéntralo y destrúyelo!</Spanish>
 <Portuguese>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Portuguese>
 <Korean>정보원이 적군의 포병대의 위치에 대한 정보를 획득하였습니다. 그것을 찾아 파괴하십시오!</Korean>
 <Japanese>Intel has got some information about the location of an enemy artillery vehicle. Find and destroy it!</Japanese>
@@ -10917,7 +10917,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1812">
 <English>Good job! The vehicle is destroyed</English>
-<Spanish>Good job! The vehicle is destroyed</Spanish>
+<Spanish>¡Buen trabajo! El vehículo es destruido</Spanish>
 <Portuguese>Good job! The vehicle is destroyed</Portuguese>
 <Korean>훌륭합니다! 장비가 파괴되었습니다</Korean>
 <Japanese>Good job! The vehicle is destroyed</Japanese>
@@ -10929,7 +10929,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1813">
 <English>Intel has got some information about the location of a high enemy officer. Find and eliminate him!</English>
-<Spanish>Intel has got some information about the location of a high enemy officer. Find and eliminate him!</Spanish>
+<Spanish>Intel tiene alguna información sobre la ubicación de un alto oficial enemigo. ¡Encuéntralo y elimínalo!</Spanish>
 <Portuguese>Intel has got some information about the location of a high enemy officer. Find and eliminate him!</Portuguese>
 <Korean>정보원이 고위급 장교의 위치에 대한 정보를 획득하였습니다. 그를 찾아 사살하십시오!</Korean>
 <Japanese>Intel has got some information about the location of a high enemy officer. Find and eliminate him!</Japanese>
@@ -10941,7 +10941,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1814">
 <English>Find and eliminate the sniper that's been seen by the locals. We are unsure of his target so eliminate him!</English>
-<Spanish>Find and eliminate the sniper that's been seen by the locals. We are unsure of his target so eliminate him!</Spanish>
+<Spanish>Encuentra y elimina al francotirador que han visto los lugareños. No estamos seguros de su objetivo, ¡así que elimínelo!</Spanish>
 <Portuguese>Find and eliminate the sniper that's been seen by the locals. We are unsure of his target so eliminate him!</Portuguese>
 <Korean>지역주민에게 목격되었던 스나이퍼를 찾아 사살하십시오. 우리는 그의 목표가 의심스럽다 그러니 제거하십시오!</Korean>
 <Japanese>Find and eliminate the sniper that's been seen by the locals. We are unsure of his target so eliminate him!</Japanese>
@@ -10953,7 +10953,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1815">
 <English>Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it!</English>
-<Spanish>Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it!</Spanish>
+<Spanish>Nuestro reconocimiento ha detectado una señal de radio. Parece que esta es una de las muchas torres de radio que el enemigo usa para comunicarse con sus tropas. Tarea simple, ¡destrúyelo!</Spanish>
 <Portuguese>Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it!</Portuguese>
 <Korean>아군의 정찰 작전중 무선신호가 탐지되었다. 이것은 적군의 교신에 사용되는 여러 많은 라디오 타워중 하나로 보입니다. 간단한 목표입니다, 파괴하십시오!</Korean>
 <Japanese>Our reconnaissance has detected a radio signal. It looks like this is one of the many radio towers that the enemy uses to communicate with its troops. Simple task, destroy it!</Japanese>
@@ -10965,7 +10965,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1816">
 <English>Create ATV</English>
-<Spanish>Create ATV</Spanish>
+<Spanish>Crear ATV</Spanish>
 <Portuguese>Create ATV</Portuguese>
 <Korean>ATV 생성</Korean>
 <Japanese>Create ATV</Japanese>
@@ -10977,7 +10977,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1817">
 <English>A high enemy government member is visiting some enemy troops. Find him and elimante him!</English>
-<Spanish>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Spanish>
+<Spanish>Un alto miembro del gobierno enemigo está visitando algunas tropas enemigas. ¡Encuéntralo y elimínalo!</Spanish>
 <Portuguese>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Portuguese>
 <Korean>적 정부의 고위급 인사가 적 부대를 방문 중입니다. 그를 찾고 사살하십시오!</Korean>
 <Japanese>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Japanese>
@@ -10989,7 +10989,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1818">
 <English>The enemy government member is dead. Job done!</English>
-<Spanish>The enemy government member is dead. Job done!</Spanish>
+<Spanish>El miembro del gobierno enemigo está muerto. ¡Trabajo hecho!</Spanish>
 <Portuguese>The enemy government member is dead. Job done!</Portuguese>
 <Korean>적 정부의 고위급 인사가 죽었습니다. 작업 완료!</Korean>
 <Japanese>The enemy government member is dead. Job done!</Japanese>
@@ -11001,7 +11001,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1819">
 <English>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
-<Spanish>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Spanish>
+<Spanish>Las fuerzas enemigas están preparando un prototipo de APC mejorado. Esta es una buena oportunidad para robar y llevarlo a tu base, antes de que las tropas enemigas lo usen</Spanish>
 <Portuguese>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Portuguese>
 <Korean>적군이 향상된 성능의 시제품 APC를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 탱크를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
 <Japanese>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
@@ -11013,7 +11013,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1820">
 <English>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</English>
-<Spanish>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Spanish>
+<Spanish>Todos los enemigos principales objetivo inf cuarteles abajo. Ahora ya no habrá más refuerzos inf en el aire no aéreos.</Spanish>
 <Portuguese>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Portuguese>
 <Korean>메인 미션지내 적의 모든 보병대 병영이 파괴되었습니다. 지금부터 공수부대를 제외한 보병 증원이 없을것입니다.</Korean>
 <Japanese>All main target enemy inf barracks down. Now there will be no further enemy non airborne inf reinforcements.</Japanese>
@@ -11025,7 +11025,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1821">
 <English>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</English>
-<Spanish>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Spanish>
+<Spanish>El objetivo principal del móvil móvil fuerza a HQ hacia abajo. Ahora no habrá más refuerzos de vehículos enemigos..</Spanish>
 <Portuguese>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Portuguese>
 <Korean>메인 미션지내 기동부대의 HQ가 파괴되었습니다. 지금부터 기갑 장비증원이 없을것입니다.</Korean>
 <Japanese>Main target enemy mobile forces HQ down. Now there will be no further enemy vehicle reinforcements.</Japanese>
@@ -11037,7 +11037,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1822">
 <English>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</English>
-<Spanish>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Spanish>
+<Spanish>Intel conoce varios cuarteles enemigos y un cuartel general de fuerzas móviles en el objetivo principal. ¡Encuéntralos y destrúyelos para cortar el inf infierno y los refuerzos de armadura!</Spanish>
 <Portuguese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Portuguese>
 <Korean>메인미션지내 다양한 적 병영과 기동부대의 HQ가 정보로 확인되었습니다. 그것들을 찾아 파괴하여 적군의 보병과 기갑장비의 증원을 차단 하십시오!</Korean>
 <Japanese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Japanese>
@@ -11049,7 +11049,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1823">
 <English>You have to wait %1 seconds to create a new vehicle at a MHQ!</English>
-<Spanish>You have to wait %1 seconds to create a new vehicle at a MHQ!</Spanish>
+<Spanish>¡Tienes que esperar %1 segundos para crear un nuevo vehículo en un MHQ!</Spanish>
 <Portuguese>You have to wait %1 seconds to create a new vehicle at a MHQ!</Portuguese>
 <Korean>새로운 MHQ 생성에 %1 초가 소요되니 기다려주십시오!</Korean>
 <Japanese>You have to wait %1 seconds to create a new vehicle at a MHQ!</Japanese>
@@ -11061,7 +11061,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1824">
 <English>Seconds till a player can create a new vec at MHQ:</English>
-<Spanish>Seconds till a player can create a new vec at MHQ:</Spanish>
+<Spanish>Segundos hasta que un jugador puede crear un nuevo vec en MHQ:</Spanish>
 <Portuguese>Seconds till a player can create a new vec at MHQ:</Portuguese>
 <Korean>플레이어가 새로운 MHQ 생성 할 수 있는 소요시간:</Korean>
 <Japanese>Seconds till a player can create a new vec at MHQ:</Japanese>
@@ -11085,7 +11085,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1826">
 <English>Respawn</English>
-<Spanish>Respawn</Spanish>
+<Spanish>Reaparecer</Spanish>
 <Portuguese>Respawn</Portuguese>
 <Korean>리스폰</Korean>
 <Japanese>Respawn</Japanese>
@@ -11097,7 +11097,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1827">
 <English>%1 tries to revive you...</English>
-<Spanish>%1 tries to revive you...</Spanish>
+<Spanish>%1 intenta revivirte...</Spanish>
 <Portuguese>%1 tries to revive you...</Portuguese>
 <Korean>%1 이(가) 리바이브 중...</Korean>
 <Japanese>%1 tries to revive you...</Japanese>
@@ -11109,7 +11109,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1828">
 <English>Seize various main targets and resolve side missions...</English>
-<Spanish>Seize various main targets and resolve side missions...</Spanish>
+<Spanish>Agarra varios objetivos principales y resuelve misiones secundarias...</Spanish>
 <Portuguese>Seize various main targets and resolve side missions...</Portuguese>
 <Korean>다양한 메인미션을 점령하고 보조과제를 해결...</Korean>
 <Japanese>Seize various main targets and resolve side missions...</Japanese>
@@ -11121,7 +11121,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1829">
 <English>Use only mod weapons in Virtual Arsenal:</English>
-<Spanish>Use only mod weapons in Virtual Arsenal:</Spanish>
+<Spanish>Usa solo armas mod en el Arsenal Virtual:</Spanish>
 <Portuguese>Use only mod weapons in Virtual Arsenal:</Portuguese>
 <Korean>버츄얼 아스널에서만 무기 모드 사용:</Korean>
 <Japanese>Use only mod weapons in Virtual Arsenal:</Japanese>
@@ -11133,7 +11133,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1830">
 <English>Enemy AI vehicles can be air lifted:</English>
-<Spanish>Enemy AI vehicles can be air lifted:</Spanish>
+<Spanish>Los vehículos enemigos  pueden ser transportados por aire:</Spanish>
 <Portuguese>Enemy AI vehicles can be air lifted:</Portuguese>
 <Korean>적군 AI 차량 리프트 가능:</Korean>
 <Japanese>Enemy AI vehicles can be air lifted:</Japanese>
@@ -11145,7 +11145,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1831">
 <English>Mortar bag packs in Virtual Arsenal:</English>
-<Spanish>Mortar bag packs in Virtual Arsenal:</Spanish>
+<Spanish>Paquetes de bolsas de mortero en Virtual Arsenal:</Spanish>
 <Portuguese>Mortar bag packs in Virtual Arsenal:</Portuguese>
 <Korean>버츄얼 아스널에 박격포 가방 추가:</Korean>
 <Japanese>Mortar bag packs in Virtual Arsenal:</Japanese>
@@ -11157,7 +11157,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1832">
 <English>Add action menu "Spawn vehicle" to FARPs:</English>
-<Spanish>Add action menu "Spawn vehicle" to FARPs:</Spanish>
+<Spanish>Agregar menú de acción "Vehículo engendrado" a las FARP:</Spanish>
 <Portuguese>Add action menu "Spawn vehicle" to FARPs:</Portuguese>
 <Korean>FARP(재보급소)에 "차량 생성" 액션메뉴 추가:</Korean>
 <Japanese>Add action menu "Spawn vehicle" to FARPs:</Japanese>
@@ -11169,7 +11169,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1833">
 <English>%1, uid %2, is shooting at a MHQ vehicle!!!!</English>
-<Spanish>%1, uid %2, is shooting at a MHQ vehicle!!!!</Spanish>
+<Spanish>%1, uid %2, está disparando a un vehículo MHQ!!!!</Spanish>
 <Portuguese>%1, uid %2, is shooting at a MHQ vehicle!!!!</Portuguese>
 <Korean>%1, uid %2, 유저가 MHQ(지휘차량)에 발포 중입니다!!!!</Korean>
 <Japanese>%1, uid %2, is shooting at a MHQ vehicle!!!!</Japanese>
@@ -11181,7 +11181,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1834">
 <English>%1 is shooting at a MHQ vehicle!!!!</English>
-<Spanish>%1 is shooting at a MHQ vehicle!!!!</Spanish>
+<Spanish>%1 está disparando a un vehículo MHQ!!!!</Spanish>
 <Portuguese>%1 is shooting at a MHQ vehicle!!!!</Portuguese>
 <Korean>%1 유저가 MHQ(지휘차량)에 발포 중입니다!!!!</Korean>
 <Japanese>%1 is shooting at a MHQ vehicle!!!!</Japanese>
@@ -11193,7 +11193,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1835">
 <English>Attention, the enemy launches a saboteur attack on the base...</English>
-<Spanish>Attention, the enemy launches a saboteur attack on the base...</Spanish>
+<Spanish>Atención, el enemigo lanza un ataque de saboteador en la base....</Spanish>
 <Portuguese>Attention, the enemy launches a saboteur attack on the base...</Portuguese>
 <Korean>주의, 적 특수부대가 아군 기지에 사포타주를 실시합니다...</Korean>
 <Japanese>Attention, the enemy launches a saboteur attack on the base...</Japanese>
@@ -11205,7 +11205,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1836">
 <English>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</English>
-<Spanish>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Spanish>
+<Spanish>Hmm Interesante. Los nombres en clave se usan cuando están lanzando ataques contra nuestra base. Podría ser útil.</Spanish>
 <Portuguese>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Portuguese>
 <Korean>음. 흥미롭습니다. 적군이 우리기지를 공격할 때 사용되는 코드네임 입니다. 유용 할 수도 있습니다.</Korean>
 <Japanese>Hmm. Interresting. Codenames used when they are launching attack on our base. Could be useful.</Japanese>
@@ -11217,7 +11217,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1837">
 <English>With base sabotage:</English>
-<Spanish>With base sabotage:</Spanish>
+<Spanish>Con sabotaje en labase:</Spanish>
 <Portuguese>With base sabotage:</Portuguese>
 <Korean>베이스 사보타주:</Korean>
 <Japanese>With base sabotage:</Japanese>
@@ -11229,7 +11229,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1838">
 <English>Sending data... Please wait!</English>
-<Spanish>Sending data... Please wait!</Spanish>
+<Spanish>Enviando datos ... Por favor espere!</Spanish>
 <Portuguese>Sending data... Please wait!</Portuguese>
 <Korean>데이터 전송중... 기다려 주세요!</Korean>
 <Japanese>Sending data... Please wait!</Japanese>
@@ -11241,7 +11241,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1839">
 <English>Send data</English>
-<Spanish>Send data</Spanish>
+<Spanish>Enviar datos</Spanish>
 <Portuguese>Send data</Portuguese>
 <Korean>데이터 전송하기</Korean>
 <Japanese>Send data</Japanese>
@@ -11253,7 +11253,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1840">
 <English>The data terminal was destroyed before the data was uploaded!</English>
-<Spanish>The data terminal was destroyed before the data was uploaded</Spanish>
+<Spanish>El terminal de datos se destruyó antes de que se cargaran los datos.</Spanish>
 <Portuguese>The data terminal was destroyed before the data was uploaded</Portuguese>
 <Korean>데이터를 업로드하기 전에 데이터 터미널이 파괴되었습니다</Korean>
 <Japanese>The data terminal was destroyed before the data was uploaded</Japanese>
@@ -11265,7 +11265,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1841">
 <English>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</English>
-<Spanish>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Spanish>
+<Spanish>Conocemos la ubicación de una terminal de datos enemiga con datos importantes. Llegue allí y suba los datos a uno de nuestros servidores.!</Spanish>
 <Portuguese>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Portuguese>
 <Korean>우리는 중요한 데이터를 포함하고 있는 적군의 데이터 터미널의 위치를 알고 있습니다. 데이터 터미널을 획득하고 우리의 서버들중 하나에 데이터를 업로드 하세요!</Korean>
 <Japanese>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Japanese>
@@ -11277,7 +11277,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1842">
 <English>Fantastic! You have uploaded the data!</English>
-<Spanish>Fantastic! You have uploaded the data!</Spanish>
+<Spanish>¡Fantástico! Has subido los datos!</Spanish>
 <Portuguese>Fantastic! You have uploaded the data!</Portuguese>
 <Korean>환상적입니다! 데이터를 업로드 하셨습니다!</Korean>
 <Japanese>Fantastic! You have uploaded the data!</Japanese>
@@ -11289,7 +11289,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1843">
 <English>Data uploaded!</English>
-<Spanish>Data uploaded!</Spanish>
+<Spanish>Datos cargados!</Spanish>
 <Portuguese>Data uploaded!</Portuguese>
 <Korean>데이터 업로드됨!</Korean>
 <Japanese>Data uploaded!</Japanese>
@@ -11301,7 +11301,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1844">
 <English>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</English>
-<Spanish>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Spanish>
+<Spanish>El enemigo está usando un dispositivo avanzado para crear terremotos. Tu misión, destrúyela!</Spanish>
 <Portuguese>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Portuguese>
 <Korean>적군이 기괴한 장비를 이용해 지진을 발생시키고 있습니다. 당신의 임무는, 그것을 파괴하는것입니다!</Korean>
 <Japanese>The enemy is using a weird device to create earthquakes. Your mission, destroy it!</Japanese>
@@ -11313,7 +11313,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1845">
 <English>Good job! The device was destroyed.</English>
-<Spanish>Good job! The device was destroyed.</Spanish>
+<Spanish>Buen trabajo! El dispositivo fue destruido.</Spanish>
 <Portuguese>Good job! The device was destroyed.</Portuguese>
 <Korean>훌륭합니다! 장비가 파괴되었습니다.</Korean>
 <Japanese>Good job! The device was destroyed.</Japanese>
@@ -11325,7 +11325,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1846">
 <English>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</English>
-<Spanish>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Spanish>
+<Spanish>Un lanzador SAM enemigo nos causa muchos problemas. Destruye el radar y el lanzador SAM!</Spanish>
 <Portuguese>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Portuguese>
 <Korean>적군의 지대공미사일 부대가 아군에게 많은 문제가 되고 있습니다. 레이더와 지대공미사일 런처를 파괴하세요!</Korean>
 <Japanese>An enemy SAM site gives us a lot of trouble. Destroy the radar and the SAM launcher!</Japanese>
@@ -11337,7 +11337,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1847">
 <English>Good work! The SAM site is out of business.</English>
-<Spanish>Good work! The SAM site is out of business.</Spanish>
+<Spanish>¡Buen trabajo! El sitio de SAM está fuera del negocio.</Spanish>
 <Portuguese>Good work! The SAM site is out of business.</Portuguese>
 <Korean>잘하셨습니다! 지대공미사일 부대는 폐업 했습니다.</Korean>
 <Japanese>Good work! The SAM site is out of business.</Japanese>
@@ -11349,7 +11349,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1848">
 <English>You were not able to clear the mines fast enough...</English>
-<Spanish>You were not able to clear the mines fast enough...</Spanish>
+<Spanish>No pudiste limpiar las minas lo suficientemente rápido...</Spanish>
 <Portuguese>You were not able to clear the mines fast enough...</Portuguese>
 <Korean>귀관은 지뢰를 충분히 신속하게 제거하지 못했다...</Korean>
 <Japanese>You were not able to clear the mines fast enough...</Japanese>
@@ -11361,7 +11361,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1849">
 <English>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</English>
-<Spanish>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Spanish>
+<Spanish>¡Tu tarea es buscar un caché de armas reportado por los lugareños y destruirlo! Tienes unos 30 minutos para resolver la tarea.</Spanish>
 <Portuguese>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Portuguese>
 <Korean>귀관의 임무는 지역주민들이 제보한 무기 은닉처를 찾아 파괴하는것입니다! 귀관은 이 임무를 30분내로 해결 해야합니다</Korean>
 <Japanese>Your task is to search for a weapon cache reported by locals and destroy it! You have about 30 minutes for solving the task</Japanese>
@@ -11373,7 +11373,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1850">
 <English>Good job! The cache is destroyed</English>
-<Spanish>Good job! The cache is destroyed</Spanish>
+<Spanish>¡Buen trabajo! El caché está destruido</Spanish>
 <Portuguese>Good job! The cache is destroyed</Portuguese>
 <Korean>잘하셨습니다! 무기은닉처가 파괴되었습니다</Korean>
 <Japanese>Good job! The cache is destroyed</Japanese>
@@ -11385,7 +11385,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1851">
 <English>The supply truck was destroyed before it could reach the point of destination.</English>
-<Spanish>The supply truck was destroyed before it could reach the point of destination.</Spanish>
+<Spanish>El camión de suministros fue destruido antes de que pudiera llegar al punto de destino..</Spanish>
 <Portuguese>The supply truck was destroyed before it could reach the point of destination.</Portuguese>
 <Korean>보급트럭이 목표 지점에 도달하기 전에 파괴하십시오.</Korean>
 <Japanese>The supply truck was destroyed before it could reach the point of destination.</Japanese>
@@ -11397,7 +11397,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1852">
 <English>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</English>
-<Spanish>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Spanish>
+<Spanish>¡Atención !!!!\n\nAI solo puede conducir un vehículo si un jugador está dentro del vehículo!</Spanish>
 <Portuguese>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Portuguese>
 <Korean>주의!!!!\n\nAI 드라이버는 플레이어가 차량에 탑승하고 있을때만 허락됩니다!</Korean>
 <Japanese>Attention!!!!\n\nAI is only allowed to drive a vehicle if a player is inside the vehicle!</Japanese>
@@ -11409,7 +11409,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1853">
 <English>Cancel Artillery</English>
-<Spanish>Cancel Artillery</Spanish>
+<Spanish>Cancelar artillería</Spanish>
 <Portuguese>Cancel Artillery</Portuguese>
 <Korean>포격취소</Korean>
 <Japanese>Cancel Artillery</Japanese>
@@ -11421,7 +11421,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1854">
 <English>Artillery canceled</English>
-<Spanish>Artillery canceled</Spanish>
+<Spanish>Artillería cancelada</Spanish>
 <Portuguese>Artillery canceled</Portuguese>
 <Korean>포격이 취소되었습니다</Korean>
 <Japanese>Artillery canceled</Japanese>
@@ -11433,7 +11433,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1855">
 <English>One main target enemy inf barrack down. %1 left...</English>
-<Spanish>One main target enemy inf barrack down. %1 left...</Spanish>
+<Spanish>Uno de los objetivos principales: cuarteles destruidos. %1 menos ...</Spanish>
 <Portuguese>One main target enemy inf barrack down. %1 left...</Portuguese>
 <Korean>적군 보병 병영이 파괴되었습니다. %1 남았습니다...</Korean>
 <Japanese>One main target enemy inf barrack down. %1 left...</Japanese>
@@ -11445,7 +11445,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1856">
 <English>points for bringing a wreck to the wreck repair point!</English>
-<Spanish>points for bringing a wreck to the wreck repair point!</Spanish>
+<Spanish>puntos para llevar un vehiculo destruido al punto de reparación!</Spanish>
 <Portuguese>points for bringing a wreck to the wreck repair point!</Portuguese>
 <Korean>귀관은 잔해수리 지점에 잔해를 가져다 놓아 %1 포인트를 획득하였습니다!</Korean>
 <Japanese>points for bringing a wreck to the wreck repair point!</Japanese>
@@ -11457,7 +11457,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1857">
 <English>Dynamic Pylon Loadout</English>
-<Spanish>Dynamic Pylon Loadout</Spanish>
+<Spanish>Carga dinámica de pilón</Spanish>
 <Portuguese>Dynamic Pylon Loadout</Portuguese>
 <Korean>다이나믹 항공무장 로드아웃</Korean>
 <Japanese>Dynamic Pylon Loadout</Japanese>
@@ -11469,7 +11469,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1858">
 <English>Apply</English>
-<Spanish>Apply</Spanish>
+<Spanish>Aplicar</Spanish>
 <Portuguese>Apply</Portuguese>
 <Korean>적용</Korean>
 <Japanese>Apply</Japanese>
@@ -11481,7 +11481,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1859">
 <English>Mirror</English>
-<Spanish>Mirror</Spanish>
+<Spanish>Espejo</Spanish>
 <Portuguese>Mirror</Portuguese>
 <Korean>대칭</Korean>
 <Japanese>Mirror</Japanese>
@@ -11493,7 +11493,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1860">
 <English>Select Preset</English>
-<Spanish>Select Preset</Spanish>
+<Spanish>Seleccionar preestablecido</Spanish>
 <Portuguese>Select Preset</Portuguese>
 <Korean>프리셋 선택</Korean>
 <Japanese>Select Preset</Japanese>
@@ -11505,7 +11505,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1861">
 <English>New pylon loadout applied!</English>
-<Spanish>New pylon loadout applied!</Spanish>
+<Spanish>Nueva carga de pilón aplicada!</Spanish>
 <Portuguese>New pylon loadout applied!</Portuguese>
 <Korean>새로운 항공 무장이 적용되었습니다!</Korean>
 <Japanese>New pylon loadout applied!</Japanese>
@@ -11517,7 +11517,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1862">
 <English>Change Pylon Loadout</English>
-<Spanish>Change Pylon Loadout</Spanish>
+<Spanish>Mudança de Pylon Loadout</Spanish>
 <Portuguese>Change Pylon Loadout</Portuguese>
 <Korean>항공 무장 로드아웃 변경</Korean>
 <Japanese>Change Pylon Loadout</Japanese>
@@ -11529,7 +11529,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1863">
 <English>Rappel Self</English>
-<Spanish>Rappel Self</Spanish>
+<Spanish>Baja por la cuerda</Spanish>
 <Portuguese>Rappel Self</Portuguese>
 <Korean>레펠하기</Korean>
 <Japanese>Rappel Self</Japanese>
@@ -11541,7 +11541,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1864">
 <English>Rappel AI Units</English>
-<Spanish>Rappel AI Units</Spanish>
+<Spanish>Bajar a las unidas AI por la cuerda</Spanish>
 <Portuguese>Rappel AI Units</Portuguese>
 <Korean>AI 유닛 레펠</Korean>
 <Japanese>Rappel AI Units</Japanese>
@@ -11553,7 +11553,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1865">
 <English>Detach Rappel Device</English>
-<Spanish>Detach Rappel Device</Spanish>
+<Spanish>Desengancha las cuerdas</Spanish>
 <Portuguese>Detach Rappel Device</Portuguese>
 <Korean>레펠장비 분리</Korean>
 <Japanese>Detach Rappel Device</Japanese>
@@ -11565,7 +11565,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1866">
 <English>Server Rules</English>
-<Spanish>Server Rules</Spanish>
+<Spanish>Reglas del servidor</Spanish>
 <Portuguese>Server Rules</Portuguese>
 <Korean>서버 규칙</Korean>
 <Japanese>Server Rules</Japanese>
@@ -11577,7 +11577,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1867">
 <English>Jump position too close to main target!!!</English>
-<Spanish>Jump position too close to main target!!!</Spanish>
+<Spanish>Posición de salto demasiado cerca del objetivo principal!!!</Spanish>
 <Portuguese>Jump position too close to main target!!!</Portuguese>
 <Korean>공수강하 위치가 메인 미션지와 너무 가깝습니다!!!</Korean>
 <Japanese>Jump position too close to main target!!!</Japanese>
@@ -11589,7 +11589,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1868">
 <English>With enemy AI house patrol at main targets:</English>
-<Spanish>With enemy AI house patrol at main targets:</Spanish>
+<Spanish>Con la patrulla de la IA enemiga en los objetivos principales:</Spanish>
 <Portuguese>With enemy AI house patrol at main targets:</Portuguese>
 <Korean>메인 미션지 적 AI 하우스 패트롤:</Korean>
 <Japanese>With enemy AI house patrol at main targets:</Japanese>
@@ -11601,7 +11601,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1869">
 <English>Earplugs in</English>
-<Spanish>Earplugs in</Spanish>
+<Spanish>Tapones de Oídos Activado</Spanish>
 <Portuguese>Earplugs in</Portuguese>
 <Korean>이어플러그 적용</Korean>
 <Japanese>Earplugs in</Japanese>
@@ -11613,7 +11613,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1870">
 <English>Earplugs out</English>
-<Spanish>Earplugs out</Spanish>
+<Spanish>Tapones de Oídos Desactivado</Spanish>
 <Portuguese>Earplugs out</Portuguese>
 <Korean>이어플러그 해제</Korean>
 <Japanese>Earplugs out</Japanese>
@@ -11625,7 +11625,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1871">
 <English>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</English>
-<Spanish>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Spanish>
+<Spanish>El jugador %1 intentó cambiar de lado. El tiempo de espera para el cambio de bando es de 30 minutos después de dejar el servidor. Le quedan %2 minutos...</Spanish>
 <Portuguese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Portuguese>
 <Korean>플레이어 %1 이(가)진영 변경을 하려고 노력중입니다. 진영 변경 대기시간은 서버를 떠난 후 30 분입니다. %2 분 남았습니다...</Korean>
 <Japanese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Japanese>
@@ -11637,7 +11637,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1872">
 <English>TRANSFER SCORE DIALOG</English>
-<Spanish>TRANSFER SCORE DIALOG</Spanish>
+<Spanish>DIÁLOGO DE TRANSFERENCIA DE PUNTAJE</Spanish>
 <Portuguese>TRANSFER SCORE DIALOG</Portuguese>
 <Korean>스코어 다이얼로그 전송</Korean>
 <Japanese>TRANSFER SCORE DIALOG</Japanese>
@@ -11649,7 +11649,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1873">
 <English>Transfer</English>
-<Spanish>Transfer</Spanish>
+<Spanish>Transferencia</Spanish>
 <Portuguese>Transfer</Portuguese>
 <Korean>전송하기</Korean>
 <Japanese>Transfer</Japanese>
@@ -11661,7 +11661,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1874">
 <English>Your current score:</English>
-<Spanish>Your current score:</Spanish>
+<Spanish>Su puntuación actual:</Spanish>
 <Portuguese>Your current score:</Portuguese>
 <Korean>귀관의 현재 스코어:</Korean>
 <Japanese>Your current score:</Japanese>
@@ -11673,7 +11673,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1875">
 <English>Your new score:</English>
-<Spanish>Your new score:</Spanish>
+<Spanish>Tu nueva puntuación:</Spanish>
 <Portuguese>Your new score:</Portuguese>
 <Korean>귀관의 새로운 스코어:</Korean>
 <Japanese>Your new score:</Japanese>
@@ -11685,7 +11685,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1876">
 <English>Score to transfer:</English>
-<Spanish>Score to transfer:</Spanish>
+<Spanish>Puntuación para la transferencia:</Spanish>
 <Portuguese>Score to transfer:</Portuguese>
 <Korean>전송 할 스코어:</Korean>
 <Japanese>Score to transfer:</Japanese>
@@ -11697,7 +11697,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1877">
 <English>Are you sure you want to transfer %1 score points to %2?</English>
-<Spanish>Are you sure you want to transfer %1 score points to %2?</Spanish>
+<Spanish>¿Estás seguro de que quieres transferir %1 puntos de puntuación a %2?</Spanish>
 <Portuguese>Are you sure you want to transfer %1 score points to %2?</Portuguese>
 <Korean>%1 스코어 포인트를 %2에게 전송하기를 원하는게 맞습니까?</Korean>
 <Japanese>Are you sure you want to transfer %1 score points to %2?</Japanese>
@@ -11709,7 +11709,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1878">
 <English>Confirm</English>
-<Spanish>Confirm</Spanish>
+<Spanish>Confirmar</Spanish>
 <Portuguese>Confirm</Portuguese>
 <Korean>확인</Korean>
 <Japanese>Confirm</Japanese>
@@ -11721,7 +11721,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1879">
 <English>You received %1 score points from %2!</English>
-<Spanish>You received %1 score points from %2!</Spanish>
+<Spanish>¡Recibió %1 puntos de puntuación de %2!</Spanish>
 <Portuguese>You received %1 score points from %2!</Portuguese>
 <Korean>귀관은 %1 스코어 포인트를 %2에게 받았습니다!</Korean>
 <Japanese>You received %1 score points from %2!</Japanese>
@@ -11733,7 +11733,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1880">
 <English>Transfer score</English>
-<Spanish>Transfer score</Spanish>
+<Spanish>La puntuación de la transferencia</Spanish>
 <Portuguese>Transfer score</Portuguese>
 <Korean>스코어 전송</Korean>
 <Japanese>Transfer score</Japanese>
@@ -11745,7 +11745,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1881">
 <English>Air taxi canceled...</English>
-<Spanish>Air taxi canceled...</Spanish>
+<Spanish>El taxi aéreo se canceló...</Spanish>
 <Portuguese>Air taxi canceled...</Portuguese>
 <Korean>후송헬기가 취소되었습니다...</Korean>
 <Japanese>Air taxi canceled...</Japanese>
@@ -11757,7 +11757,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1882">
 <English>Air taxi destination</English>
-<Spanish>Air taxi destination</Spanish>
+<Spanish>Destino del taxi aéreo</Spanish>
 <Portuguese>Air taxi destination</Portuguese>
 <Korean>후송헬기 목적지</Korean>
 <Japanese>Air taxi destination</Japanese>
@@ -11769,7 +11769,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1883">
 <English>Call air taxi to base or select another destination by clicking on the map:</English>
-<Spanish>Call air taxi to base or select another destination by clicking on the map:</Spanish>
+<Spanish>Llame al taxi aéreo a la base o seleccione otro destino haciendo clic en el mapa:</Spanish>
 <Portuguese>Call air taxi to base or select another destination by clicking on the map:</Portuguese>
 <Korean>후송헬기가 향할 곳을 기지 또는 다른 목적지를 맵에서 선택하여 주세요:</Korean>
 <Japanese>Call air taxi to base or select another destination by clicking on the map:</Japanese>
@@ -11781,7 +11781,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1884">
 <English>Call Air Taxi</English>
-<Spanish>Call Air Taxi</Spanish>
+<Spanish>Llame a Taxi Aéreo</Spanish>
 <Portuguese>Call Air Taxi</Portuguese>
 <Korean>후송헬기 호출</Korean>
 <Japanese>Call Air Taxi</Japanese>
@@ -11793,7 +11793,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1885">
 <English>Disable artillery cooldown</English>
-<Spanish>Disable artillery cooldown</Spanish>
+<Spanish>Desactivar el enfriamiento de la artillería</Spanish>
 <Portuguese>Disable artillery cooldown</Portuguese>
 <Korean>포병장비 냉각시간 비활성화</Korean>
 <Japanese>Disable artillery cooldown</Japanese>
@@ -11805,7 +11805,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1888">
 <English>Civilians - subtract score when a player kills a civilian:</English>
-<Spanish>Civilians - subtract score when a player kills a civilian:</Spanish>
+<Spanish>Restar la puntuación cuando un jugador mata a un civil:</Spanish>
 <Portuguese>Civilians - subtract score when a player kills a civilian:</Portuguese>
 <Korean>Civilians - 플레이어가 시민 사살 시 스코어 감소:</Korean>
 <Japanese>Civilians - subtract score when a player kills a civilian:</Japanese>
@@ -11817,7 +11817,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1889">
 <English>%1 killed a civilian!  Penalty of %2 points deducted.</English>
-<Spanish>%1 killed a civilian!  Penalty of %2 points deducted.</Spanish>
+<Spanish>%1 mató a un civil!  Penalización de %2 puntos deducidos.</Spanish>
 <Portuguese>%1 killed a civilian!  Penalty of %2 points deducted.</Portuguese>
 <Korean>%1 이(가) 시민을 사살했습니다! 패널티로 %2 포인트를 차감합니다.</Korean>
 <Japanese>%1 killed a civilian!  Penalty of %2 points deducted.</Japanese>
@@ -11829,7 +11829,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEH">
 <English>Civilian vehicles - enabled</English>
-<Spanish>Civilian vehicles - enabled</Spanish>
+<Spanish>Vehículos civiles - habilitados</Spanish>
 <Portuguese>Civilian vehicles - enabled</Portuguese>
 <Korean>시민 활성화 Civilian vehicles - enabled</Korean>
 <Japanese>Civilian vehicles - enabled</Japanese>
@@ -11841,7 +11841,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHRAD">
 <English>Civilian vehicles - spawn radius</English>
-<Spanish>Civilian vehicles - spawn radius</Spanish>
+<Spanish>Vehículos civiles - radio de desove</Spanish>
 <Portuguese>Civilian vehicles - spawn radius</Portuguese>
 <Korean>시민 활성화 Civilian vehicles - spawn radius</Korean>
 <Japanese>Civilian vehicles - spawn radius</Japanese>
@@ -11853,7 +11853,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHLOCKED">
 <English>Civilian vehicles - lock vehicles</English>
-<Spanish>Civilian vehicles - lock vehicles</Spanish>
+<Spanish>Vehículos civiles - vehículos de bloqueo</Spanish>
 <Portuguese>Civilian vehicles - lock vehicles</Portuguese>
 <Korean>시민 활성화 Civilian vehicles - lock vehicles</Korean>
 <Japanese>Civilian vehicles - lock vehicles</Japanese>
@@ -11865,7 +11865,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
 <English>Civilians - enable civilians</English>
-<Spanish>Civilians - enable civilians</Spanish>
+<Spanish>Habilitar civiles</Spanish>
 <Portuguese>Civilians - enable civilians</Portuguese>
 <Korean>Civilians - 시민 활성화</Korean>
 <Japanese>Civilians - enable civilians</Japanese>
@@ -11877,7 +11877,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
 <English>Civilians - civilian unit count per group</English>
-<Spanish>Civilians - civilian unit count per group</Spanish>
+<Spanish>Recuento de unidades civiles por grupo</Spanish>
 <Portuguese>Civilians - civilian unit count per group</Portuguese>
 <Korean>Civilians - 그룹당 시민 수</Korean>
 <Japanese>Civilians - civilian unit count per group</Japanese>
@@ -11889,7 +11889,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
 <English>Disable enemy air</English>
-<Spanish>Disable enemy air</Spanish>
+<Spanish>Desactivar el aire enemigo</Spanish>
 <Portuguese>Disable enemy air</Portuguese>
 <Korean>적 항공 비활성화</Korean>
 <Japanese>Disable enemy air</Japanese>
@@ -11901,7 +11901,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1895">
 <English>Punish for killing a civilian</English>
-<Spanish>Punish for killing a civilian</Spanish>
+<Spanish>Castigar por matar a un civil</Spanish>
 <Portuguese>Punish for killing a civilian</Portuguese>
 <Korean>시민 사살 시 처벌</Korean>
 <Japanese>Punish for killing a civilian</Japanese>
@@ -11913,7 +11913,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
 <English>Enemy AI will occupy buildings</English>
-<Spanish>Enemy AI will occupy buildings</Spanish>
+<Spanish>La IA enemiga ocupará los edificios</Spanish>
 <Portuguese>Enemy AI will occupy buildings</Portuguese>
 <Korean>적 AI가 건물을 점령 할 것입니다</Korean>
 <Japanese>Enemy AI will occupy buildings</Japanese>
@@ -11925,7 +11925,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1899">
 <English>Maximum number of enemy infantry barracks</English>
-<Spanish>Maximum number of enemy infantry barracks</Spanish>
+<Spanish>Número máximo de cuarteles de la infantería enemiga</Spanish>
 <Portuguese>Maximum number of enemy infantry barracks</Portuguese>
 <Korean>적군 보병 병영 최대 수</Korean>
 <Japanese>Maximum number of enemy infantry barracks</Japanese>
@@ -11937,7 +11937,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AWARE">
 <English>AI Advanced - enhanced awareness (common units)</English>
-<Spanish>AI Advanced - enhanced awareness (common units)</Spanish>
+<Spanish>AI Avanzado - mayor conciencia (unidades comunes)</Spanish>
 <Portuguese>AI Advanced - enhanced awareness (common units)</Portuguese>
 <Korean>AI Advanced - enhanced awareness (common units)</Korean>
 <Japanese>AI Advanced - enhanced awareness (common units)</Japanese>
@@ -11948,7 +11948,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
 <English>AI Advanced - enemy active pursuit radius</English>
-<Spanish>AI Advanced - enemy active pursuit radius</Spanish>
+<Spanish>IA Avanzada - radio de persecución activa del enemigo</Spanish>
 <Portuguese>AI Advanced - enemy active pursuit radius</Portuguese>
 <Korean>AI Advanced - enemy active pursuit radius</Korean>
 <Japanese>AI Advanced - enemy active pursuit radius</Japanese>
@@ -11959,7 +11959,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT">
 <English>AI Advanced - enemy shoots aggressively at players</English>
-<Spanish>AI Advanced - enemy shoots aggressively at players</Spanish>
+<Spanish>IA Avanzada - el enemigo dispara agresivamente a los jugadores</Spanish>
 <Portuguese>AI Advanced - enemy shoots aggressively at players</Portuguese>
 <Korean>AI Advanced - enemy shoots aggressively at players</Korean>
 <Japanese>AI Advanced - enemy shoots aggressively at players</Japanese>
@@ -11970,7 +11970,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
 <English>AI Advanced - enemy granted frequent ammo refills</English>
-<Spanish>AI Advanced - enemy granted frequent ammo refills</Spanish>
+<Spanish>Inteligencia Artificial Avanzada - el enemigo recibe frecuentes recargas de munición</Spanish>
 <Portuguese>AI Advanced - enemy granted frequent ammo refills</Portuguese>
 <Korean>AI Advanced - enemy granted frequent ammo refills</Korean>
 <Japanese>AI Advanced - enemy granted frequent ammo refills</Japanese>
@@ -11981,7 +11981,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
 <English>Enemy infantry - garrisoned group count - occupy mode</English>
-<Spanish>Enemy infantry - garrisoned infantry group count - occupy mode</Spanish>
+<Spanish>Infantería enemiga - recuento del grupo de infantería de guarnición - modo de ocupación</Spanish>
 <Portuguese>Enemy infantry - garrisoned infantry group count - occupy mode</Portuguese>
 <Korean>Enemy infantry - 수비하는 보병 그룹 수 - 점령 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - occupy mode</Japanese>
@@ -11992,7 +11992,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AA">
 <English>Enemy infantry - garrisoned infantry group count - overwatch mode</English>
-<Spanish>Enemy infantry - garrisoned infantry group count - overwatch mode</Spanish>
+<Spanish>Infantería enemiga - recuento de grupos de infantería de guarnición - modo de vigilancia</Spanish>
 <Portuguese>Enemy infantry - garrisoned infantry group count - overwatch mode</Portuguese>
 <Korean>Enemy infantry - 수비하는 보병 그룹 수 - 협동작전 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - overwatch mode</Japanese>
@@ -12003,7 +12003,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
 <English>Enemy infantry - garrisoned infantry group count - ambush mode</English>
-<Spanish>Enemy infantry - garrisoned infantry group count - ambush mode</Spanish>
+<Spanish>Infantería enemiga - recuento de grupos de infantería de guarnición - modo emboscada</Spanish>
 <Portuguese>Enemy infantry - garrisoned infantry group count - ambush mode</Portuguese>
 <Korean>Enemy infantry - 수비하는 보병 그룹 수 - 기습 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - ambush mode</Japanese>
@@ -12014,7 +12014,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
 <English>Enemy infantry - garrisoned infantry group count - sniper mode</English>
-<Spanish>Enemy infantry - garrisoned infantry group count - sniper mode</Spanish>
+<Spanish>Infantería enemiga - recuento de grupos de infantería de guarnición - modo francotirador</Spanish>
 <Portuguese>Enemy infantry - garrisoned infantry group count - sniper mode</Portuguese>
 <Korean>Enemy infantry - 수비하는 보병 그룹 수 - 스나이퍼 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - sniper mode</Japanese>
@@ -12025,7 +12025,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
 <English>AI Advanced - enhanced awareness (sniper units)</English>
-<Spanish>AI Advanced - enhanced awareness (sniper units)</Spanish>
+<Spanish>AI Avanzado - mayor conciencia (unidades de francotiradores)</Spanish>
 <Portuguese>AI Advanced - enhanced awareness (sniper units)</Portuguese>
 <Korean>AI Advanced - enhanced awareness (sniper units)</Korean>
 <Japanese>AI Advanced - enhanced awareness (sniper units)</Japanese>
@@ -12036,7 +12036,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
 <English>AI Advanced - general skill</English>
-<Spanish>AI Advanced - general skill</Spanish>
+<Spanish>AI Avanzado - habilidad general</Spanish>
 <Portuguese>AI Advanced - general skill</Portuguese>
 <Korean>AI Advanced - general skill</Korean>
 <Japanese>AI Advanced - general skill</Japanese>
@@ -12047,7 +12047,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900F">
 <English>AI Advanced - aimingAccuracy skill</English>
-<Spanish>AI Advanced - aimingAccuracy skill</Spanish>
+<Spanish>AI Avanzado - ApuntandoHabilidad de precisión</Spanish>
 <Portuguese>AI Advanced - aimingAccuracy skill</Portuguese>
 <Korean>AI Advanced - aimingAccuracy skill</Korean>
 <Japanese>AI Advanced - aimingAccuracy skill</Japanese>
@@ -12058,7 +12058,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1902">
 <English>Enemy infantry - deployment radius</English>
-<Spanish>Enemy infantry - deployment radius</Spanish>
+<Spanish>Infantería enemiga - radio de despliegue</Spanish>
 <Portuguese>Enemy infantry - deployment radius</Portuguese>
 <Korean>Enemy infantry - 전개 반경</Korean>
 <Japanese>Enemy infantry - deployment radius</Japanese>
@@ -12069,7 +12069,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
 <English>Civilians - civilian group count per target</English>
-<Spanish>Civilians - civilian group count per target</Spanish>
+<Spanish>Civiles - recuento de grupos de civiles por objetivo</Spanish>
 <Portuguese>Civilians - civilian group count per target</Portuguese>
 <Korean>Civilians - 목표 당 시민 그룹 수</Korean>
 <Japanese>Civilians - civilian group count per target</Japanese>
@@ -12081,7 +12081,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1930">
 <English>Maximum number of enemy camps to capture</English>
-<Spanish>Maximum number of enemy camps to capture</Spanish>
+<Spanish>El número máximo de campos enemigos a capturar</Spanish>
 <Portuguese>Maximum number of enemy camps to capture</Portuguese>
 <Korean>점령해야 되는 최대 초소 숫자</Korean>
 <Japanese>Maximum number of enemy camps to capture</Japanese>
@@ -12093,7 +12093,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1931">
 <English>Locate the first enemy camp to capture near the center of the main target</English>
-<Spanish>Locate the first enemy camp to capture near the center of the main target</Spanish>
+<Spanish>Localiza el primer campamento enemigo para capturar cerca del centro del objetivo principal</Spanish>
 <Portuguese>Locate the first enemy camp to capture near the center of the main target</Portuguese>
 <Korean>점령 해야되는 처음 적군 초소가 메인 미션지 중앙 근처에 위치</Korean>
 <Japanese>Locate the first enemy camp to capture near the center of the main target</Japanese>
@@ -12105,7 +12105,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901A">
 <English>Enemy placement target fill radius - occupy infantry</English>
-<Spanish>Enemy placement target fill radius - occupy infantry</Spanish>
+<Spanish>Radio de relleno del objetivo de la colocación del enemigo - ocupar la infantería</Spanish>
 <Portuguese>Enemy placement target fill radius - occupy infantry</Portuguese>
 <Korean>목표로 부터 적군 배치 채울 반경  - 점령 보병</Korean>
 <Japanese>Enemy placement target fill radius - occupy infantry</Japanese>
@@ -12116,7 +12116,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901B">
 <English>Enemy placement target fill radius - ambush infantry</English>
-<Spanish>Enemy placement target fill radius - ambush infantry</Spanish>
+<Spanish>Radio de relleno del objetivo de colocación del enemigo - emboscada de la infantería</Spanish>
 <Portuguese>Enemy placement target fill radius - ambush infantry</Portuguese>
 <Korean>목표로 부터 적군 배치 채울 반경 - 기습 보병</Korean>
 <Japanese>Enemy placement target fill radius - ambush infantry</Japanese>
@@ -12127,7 +12127,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901C">
 <English>Enemy placement target fill radius - sniper infantry</English>
-<Spanish>Enemy placement target fill radius - sniper infantry</Spanish>
+<Spanish>Radio de relleno del objetivo de la colocación del enemigo - infantería de francotirador</Spanish>
 <Portuguese>Enemy placement target fill radius - sniper infantry</Portuguese>
 <Korean>목표로 부터 적군 배치 채울 반경 - 스나이퍼 보병</Korean>
 <Japanese>Enemy placement target fill radius - sniper infantry</Japanese>
@@ -12138,7 +12138,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
 <English>Destination:</English>
-<Spanish>Destination:</Spanish>
+<Spanish>Destino:</Spanish>
 <Portuguese>Destination:</Portuguese>
 <Korean>목적지:</Korean>
 <Japanese>Destination:</Japanese>
@@ -12150,7 +12150,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1933">
 <English>Select vehicle type:</English>
-<Spanish>Select vehicle type:</Spanish>
+<Spanish>Seleccione el tipo de vehículo:</Spanish>
 <Portuguese>Select vehicle type:</Portuguese>
 <Korean>장비타입 선택:</Korean>
 <Japanese>Select vehicle type:</Japanese>
@@ -12162,7 +12162,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1934">
 <English>Change Air Taxi dest</English>
-<Spanish>Change Air Taxi dest</Spanish>
+<Spanish>Cambiar el destino del taxi aéreo</Spanish>
 <Portuguese>Change Air Taxi dest</Portuguese>
 <Korean>후송헬기 목적지 변경</Korean>
 <Japanese>Change Air Taxi dest</Japanese>
@@ -12174,7 +12174,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1935">
 <English>Select another air taxi destination by clicking on the map:</English>
-<Spanish>Select another air taxi destination by clicking on the map:</Spanish>
+<Spanish>Seleccione otro destino de taxi aéreo haciendo clic en el mapa:</Spanish>
 <Portuguese>Select another air taxi destination by clicking on the map:</Portuguese>
 <Korean>후송헬기의 다른 목적지를 맵에서 클릭하여 주세요:</Korean>
 <Japanese>Select another air taxi destination by clicking on the map:</Japanese>
@@ -12186,7 +12186,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1936">
 <English>Set new destination</English>
-<Spanish>Set new destination</Spanish>
+<Spanish>Establecer nuevo destino</Spanish>
 <Portuguese>Set new destination</Portuguese>
 <Korean>새로운 목적지 설정</Korean>
 <Japanese>Set new destination</Japanese>
@@ -12198,7 +12198,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1937">
 <English>Air taxi destination changed</English>
-<Spanish>Air taxi destination changed</Spanish>
+<Spanish>Cambio de destino de taxi aéreo</Spanish>
 <Portuguese>Air taxi destination changed</Portuguese>
 <Korean>후송헬기의 목적지가 변경되었습니다</Korean>
 <Japanese>Air taxi destination changed</Japanese>
@@ -12210,7 +12210,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1938">
 <English>Pylon loadout enabled:</English>
-<Spanish>Pylon loadout enabled:</Spanish>
+<Spanish>Carga del pilón activada:</Spanish>
 <Portuguese>Pylon loadout enabled:</Portuguese>
 <Korean>항공무장 로드아웃 활성화:</Korean>
 <Japanese>Pylon loadout enabled:</Japanese>
@@ -12222,7 +12222,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1939">
 <English>Repacking magazines</English>
-<Spanish>Repacking magazines</Spanish>
+<Spanish>Reempacar cargadores</Spanish>
 <Portuguese>Repacking magazines</Portuguese>
 <Korean>탄창 재포장</Korean>
 <Japanese>Repacking magazines</Japanese>
@@ -12234,7 +12234,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1940">
 <English>Repack Magazines</English>
-<Spanish>Repack Magazines</Spanish>
+<Spanish>Reemplazar cargadores</Spanish>
 <Portuguese>Repack Magazines</Portuguese>
 <Korean>탄창 재포장하기</Korean>
 <Japanese>Repack Magazines</Japanese>
@@ -12246,7 +12246,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1941">
 <English>Starting to repack magazines...</English>
-<Spanish>Starting to repack magazines...</Spanish>
+<Spanish>Empezando a reempaquetar cargadores...</Spanish>
 <Portuguese>Starting to repack magazines...</Portuguese>
 <Korean>탄창 재포장을 시작합니다...</Korean>
 <Japanese>Starting to repack magazines...</Japanese>
@@ -12258,7 +12258,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1942">
 <English>Magazines repacked...</English>
-<Spanish>Magazines repacked...</Spanish>
+<Spanish>cargadores reempaquetados...</Spanish>
 <Portuguese>Magazines repacked...</Portuguese>
 <Korean>탄창이 재포장 되었습니다...</Korean>
 <Japanese>Magazines repacked...</Japanese>
@@ -12270,7 +12270,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1943">
 <English>Lock Backpack</English>
-<Spanish>Lock Backpack</Spanish>
+<Spanish>Cerrar la mochila</Spanish>
 <Portuguese>Lock Backpack</Portuguese>
 <Korean>백팩 잠그기</Korean>
 <Japanese>Lock Backpack</Japanese>
@@ -12282,7 +12282,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1944">
 <English>Unlock Backpack</English>
-<Spanish>Unlock Backpack</Spanish>
+<Spanish>Abrir la mochila</Spanish>
 <Portuguese>Unlock Backpack</Portuguese>
 <Korean>백팩 잠금해제</Korean>
 <Japanese>Unlock Backpack</Japanese>
@@ -12294,7 +12294,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1945">
 <English>Backpack locked</English>
-<Spanish>Backpack locked</Spanish>
+<Spanish>Mochila cerrada</Spanish>
 <Portuguese>Backpack locked</Portuguese>
 <Korean>백팩이 잠겼습니다</Korean>
 <Japanese>Backpack locked</Japanese>
@@ -12306,7 +12306,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1946">
 <English>3D user markers turned on!</English>
-<Spanish>3D user markers turned on!</Spanish>
+<Spanish>¡Marcadores de usuario 3D encendidos!</Spanish>
 <Portuguese>3D user markers turned on!</Portuguese>
 <Korean>3D 유저마크가 켜졌습니다!</Korean>
 <Japanese>3D user markers turned on!</Japanese>
@@ -12318,7 +12318,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1947">
 <English>3D user markers turned off!</English>
-<Spanish>3D user markers turned off!</Spanish>
+<Spanish>Marcadores de usuario 3D desactivados!</Spanish>
 <Portuguese>3D user markers turned off!</Portuguese>
 <Korean>3D 유저마크가 꺼졌습니다!</Korean>
 <Japanese>3D user markers turned off!</Japanese>
@@ -12330,7 +12330,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1948">
 <English>With ambient radio:</English>
-<Spanish>With ambient radio:</Spanish>
+<Spanish>Con radio ambiental:</Spanish>
 <Portuguese>With ambient radio:</Portuguese>
 <Korean>주변 라디오:</Korean>
 <Japanese>With ambient radio:</Japanese>
@@ -12341,7 +12341,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1949">
 <English>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</English>
-<Spanish>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Spanish>
+<Spanish>Intel conoce varios cuarteles enemigos en el objetivo principal. ¡Encuéntralos y destrúyelos para cortar los refuerzos inf enemigos!</Spanish>
 <Portuguese>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Portuguese>
 <Korean>메인 미션지에 위치한 여러가지의 적군의 병영에 대한 부분을 첩보를 통해 알고 있다. 그것을 찾아 파괴하여 적 보병대의 증원을 차단하십시오!</Korean>
 <Japanese>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Japanese>
@@ -12352,7 +12352,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1950">
 <English>The %1 team destroyed a main target barrack and gets %2 points.</English>
-<Spanish>The %1 team destroyed a main target barrack and gets %2 points.</Spanish>
+<Spanish>El equipo %1 destruyó un cuartel objetivo principal y obtiene %2 puntos.</Spanish>
 <Portuguese>The %1 team destroyed a main target barrack and gets %2 points.</Portuguese>
 <Korean>%1 이(가) 메인미션지내 병영을 파괴하였고 %2 포인트를 획득하였습니다.</Korean>
 <Japanese>The %1 team destroyed a main target barrack and gets %2 points.</Japanese>
@@ -12363,7 +12363,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1951">
 <English>Without sidemission bonus vehicles:</English>
-<Spanish>Without sidemission bonus vehicles:</Spanish>
+<Spanish>Sin vehículos de bonificación de emisiones laterales:</Spanish>
 <Portuguese>Without sidemission bonus vehicles:</Portuguese>
 <Korean>보조미션 보너스 장비 없음:</Korean>
 <Japanese>Without sidemission bonus vehicles:</Japanese>
@@ -12374,7 +12374,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
 <English>Attention. You were spotted by enemy FACs. Incoming air strike!!!</English>
-<Spanish>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Spanish>
+<Spanish>Atención. Fueron vistos por los FAC enemigos. ¡¡Ataque aéreo entrante!!</Spanish>
 <Portuguese>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Portuguese>
 <Korean>주의. 귀관은 적 FACs(전방항공통제병)에게 탐지되었습니다. 공습이 옵니다!!!</Korean>
 <Japanese>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Japanese>
@@ -12385,7 +12385,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1953">
 <English>Players can select next main target:</English>
-<Spanish>Players can select next main target:</Spanish>
+<Spanish>Los jugadores pueden seleccionar el siguiente objetivo principal:</Spanish>
 <Portuguese>Players can select next main target:</Portuguese>
 <Korean>플레이어가 다음 메인미션지를 선택 할 지 여부:</Korean>
 <Japanese>Players can select next main target:</Japanese>
@@ -12396,7 +12396,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1953A">
 <English>Players can select from available targets:</English>
-<Spanish>Players can select from available targets:</Spanish>
+<Spanish>Los jugadores pueden seleccionar entre los objetivos disponibles:</Spanish>
 <Portuguese>Players can select from available targets:</Portuguese>
 <Korean>플레이어가 유효한 목표를 선택 가능:</Korean>
 <Japanese>Players can select from available targets:</Japanese>
@@ -12407,7 +12407,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
 <English>Main target selection time left</English>
-<Spanish>Main target selection time left</Spanish>
+<Spanish>Tiempo restante de selección del objetivo principal</Spanish>
 <Portuguese>Main target selection time left</Portuguese>
 <Korean>메인미션 선택 할 수 있는 시간</Korean>
 <Japanese>Main target selection time left</Japanese>
@@ -12418,7 +12418,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1955">
 <English>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</English>
-<Spanish>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Spanish>
+<Spanish>¡Abre el mapa! Ahora tienes 30 segundos para seleccionar el siguiente objetivo principal haciendo clic en uno de los nuevos objetivos amarillos disponibles\n\nA ¡Un objetivo seleccionado se volverá azul!</Spanish>
 <Portuguese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Portuguese>
 <Korean>맵을 여세요! 귀관은 지금부터 30초 안에 유효한 노란색의 미션지 중 하나를 클릭하여 다음 메인 미션지를 선택 할 수 있습니다\n\n 목표 선택 시 블루로 변경됩니다!</Korean>
 <Japanese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Japanese>
@@ -12429,7 +12429,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1956">
 <English>New target selection is over!</English>
-<Spanish>New target selection is over!</Spanish>
+<Spanish>¡La selección del nuevo objetivo ha terminado!</Spanish>
 <Portuguese>New target selection is over!</Portuguese>
 <Korean>새로운 미션 선택이 끝났습니다!</Korean>
 <Japanese>New target selection is over!</Japanese>
@@ -12440,7 +12440,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1957">
 <English>Players have selected %1 as new main target!</English>
-<Spanish>Players have selected %1 as new main target!</Spanish>
+<Spanish>¡Los jugadores han seleccionado a %1 como nuevo objetivo principal!</Spanish>
 <Portuguese>Players have selected %1 as new main target!</Portuguese>
 <Korean>플레이어들이 %1 을(를) 새로운 메인 미션지로 선택 하였습니다!</Korean>
 <Japanese>Players have selected %1 as new main target!</Japanese>
@@ -12451,7 +12451,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1958">
 <English>No new target had enough votes or none was voted for! Choosing random one...</English>
-<Spanish>No new target had enough votes or none was voted for! Choosing random one...</Spanish>
+<Spanish>¡Ningún nuevo objetivo tuvo suficientes votos o ninguno fue votado! El Sistema Elegio uno al azar...</Spanish>
 <Portuguese>No new target had enough votes or none was voted for! Choosing random one...</Portuguese>
 <Korean>새로운 미션지에 대한 투표가 충분하지 않았거나 투표가 없었습니다! 랜덤으로 하나를 선택합니다...</Korean>
 <Japanese>No new target had enough votes or none was voted for! Choosing random one...</Japanese>
@@ -12462,7 +12462,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1959">
 <English>Barracks left:</English>
-<Spanish>Barracks left:</Spanish>
+<Spanish>Cuartel a la izquierda:</Spanish>
 <Portuguese>Barracks left:</Portuguese>
 <Korean>병영 두기:</Korean>
 <Japanese>Barracks left:</Japanese>
@@ -12473,7 +12473,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1960">
 <English>With minefield at main targets:</English>
-<Spanish>With minefield at main targets:</Spanish>
+<Spanish>Con el campo minado en los objetivos principales:</Spanish>
 <Portuguese>With minefield at main targets:</Portuguese>
 <Korean>메인 미션지내 지뢰:</Korean>
 <Japanese>With minefield at main targets:</Japanese>
@@ -12484,7 +12484,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1961">
 <English>With 3D draw icon above wreck repair/ammo point:</English>
-<Spanish>With 3D draw icon above wreck repair/ammo point:</Spanish>
+<Spanish>Con el ícono de dibujo 3D sobre reparación de restos/punto de munición:</Spanish>
 <Portuguese>With 3D draw icon above wreck repair/ammo point:</Portuguese>
 <Korean>잔해 수리/탄약상자 적재소 위에 3D 그림 아이콘:</Korean>
 <Japanese>With 3D draw icon above wreck repair/ammo point:</Japanese>
@@ -12495,7 +12495,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1962">
 <English>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</English>
-<Spanish>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Spanish>
+<Spanish>¡¡¡Atención!!! ¡Has recogido el casco NVG! Quitándolo ahora, elija otro casco!</Spanish>
 <Portuguese>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Portuguese>
 <Korean>주의!!! 귀관은 NVG(야투경) 헤드기어를 들었습니다! 지금 제거하십시오, 다른 헤드기어를 선택하여 주시길 바랍니다!</Korean>
 <Japanese>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Japanese>
@@ -12506,7 +12506,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1963">
 <English>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</English>
-<Spanish>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Spanish>
+<Spanish>¡¡Atención!! ¡Has recogido el casco de TI! ¡Quitándoselo ahora, por favor elija otro casco!</Spanish>
 <Portuguese>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Portuguese>
 <Korean>주의!!! 귀관은 TI(열화상) 헤드기어를 들었습니다! 지금 제거하십시오, 다른 헤드기어를 선택하여 주시길 바랍니다!</Korean>
 <Japanese>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Japanese>
@@ -12517,7 +12517,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1964">
 <English>Auto viewdistance change at main target:</English>
-<Spanish>Auto viewdistance change at main target:</Spanish>
+<Spanish>Cambio de distancia de vista automática en el objetivo principal:</Spanish>
 <Portuguese>Auto viewdistance change at main target:</Portuguese>
 <Korean>메인미션중 시야거리 자동변경:</Korean>
 <Japanese>Auto viewdistance change at main target:</Japanese>
@@ -12528,7 +12528,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1965">
 <English>Auto Viewdistance change at main targets enabled!</English>
-<Spanish>Auto Viewdistance change at main targets enabled!</Spanish>
+<Spanish>Cambio de distancia de vista automática en objetivos principales habilitados!</Spanish>
 <Portuguese>Auto Viewdistance change at main targets enabled!</Portuguese>
 <Korean>메인미션중 시야거리 자동변경 기능이 활성화 되었습니다!</Korean>
 <Japanese>Auto Viewdistance change at main targets enabled!</Japanese>
@@ -12539,7 +12539,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1966">
 <English>Auto Viewdistance change at main targets disabled!</English>
-<Spanish>Auto Viewdistance change at main targets disabled!</Spanish>
+<Spanish>Cambio de distancia de vista automática en objetivos principales deshabilitado!</Spanish>
 <Portuguese>Auto Viewdistance change at main targets disabled!</Portuguese>
 <Korean>메인미션중 시야거리 자동변경 기능이 비활성화 되었습니다!</Korean>
 <Japanese>Auto Viewdistance change at main targets disabled!</Japanese>
@@ -12550,7 +12550,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1967">
 <English>Stall</English>
-<Spanish>Stall</Spanish>
+<Spanish>Puesto</Spanish>
 <Portuguese>Stall</Portuguese>
 <Korean>실속</Korean>
 <Japanese>Stall</Japanese>
@@ -12561,7 +12561,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1968">
 <English>Don't forget to deploy the MHQ</English>
-<Spanish>Don't forget to deploy the MHQ</Spanish>
+<Spanish>No olvides desplegar el MHQ</Spanish>
 <Portuguese>Don't forget to deploy the MHQ</Portuguese>
 <Korean>MHQ(지휘차량)을 전개(deploy) 하는것을 잊지 마십시오</Korean>
 <Japanese>Don't forget to deploy the MHQ</Japanese>
@@ -12572,7 +12572,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1969">
 <English>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</English>
-<Spanish>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Spanish>
+<Spanish>%1 fase de enfriamiento... Tienes que esperar %2 segundos para disparar de nuevo!!!</Spanish>
 <Portuguese>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Portuguese>
 <Korean>%1 냉각 단계... 귀관은 %2 초 기다린 뒤에 재 발포 할수 있습니다!!!</Korean>
 <Japanese>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Japanese>
@@ -12583,7 +12583,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1970">
 <English>points for reviving another player</English>
-<Spanish>points for reviving another player</Spanish>
+<Spanish>Puntos por revivir a otro jugador</Spanish>
 <Portuguese>points for reviving another player</Portuguese>
 <Korean>다른 플레이어에 대한 리라이브 포인트</Korean>
 <Japanese>points for reviving another player</Japanese>
@@ -12594,7 +12594,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1971">
 <English>points for destroying an enemy barracks building</English>
-<Spanish>points for destroying an enemy barracks building</Spanish>
+<Spanish>Puntos por destruir un cuartel enemigo</Spanish>
 <Portuguese>points for destroying an enemy barracks building</Portuguese>
 <Korean>적 병영 건물 파괴에 대한 포인트</Korean>
 <Japanese>points for destroying an enemy barracks building</Japanese>
@@ -12605,7 +12605,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1972">
 <English>points for destroying the enemy mobile HQ</English>
-<Spanish>points for destroying the enemy mobile HQ</Spanish>
+<Spanish>Puntos por destruir el cuartel general móvil del enemigo</Spanish>
 <Portuguese>points for destroying the enemy mobile HQ</Portuguese>
 <Korean>적 이동 지휘소(HQ) 파괴에 대한 포인트</Korean>
 <Japanese>points for destroying the enemy mobile HQ</Japanese>
@@ -12616,7 +12616,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1973">
 <English>points for destroying the enemy radio tower</English>
-<Spanish>points for destroying the enemy radio tower</Spanish>
+<Spanish>Puntos por destruir la torre de radio enemiga</Spanish>
 <Portuguese>points for destroying the enemy radio tower</Portuguese>
 <Korean>적 라디오 타워 파괴에 대한 포인트</Korean>
 <Japanese>points for destroying the enemy radio tower</Japanese>
@@ -12627,7 +12627,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1974">
 <English>points for seizing an enemy camp</English>
-<Spanish>points for seizing an enemy camp</Spanish>
+<Spanish>Puntos por apoderarse de un campamento enemigo</Spanish>
 <Portuguese>points for seizing an enemy camp</Portuguese>
 <Korean>적 초소 점령에 대한 포인트</Korean>
 <Japanese>points for seizing an enemy camp</Japanese>
@@ -12638,7 +12638,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1975">
 <English>points for resolving the main target mission</English>
-<Spanish>points for resolving the main target mission</Spanish>
+<Spanish>puntos por resolver la misión objetivo principal</Spanish>
 <Portuguese>points for resolving the main target mission</Portuguese>
 <Korean>메인 미션지의 미션 해결에 대한 포인트</Korean>
 <Japanese>points for resolving the main target mission</Japanese>
@@ -12650,7 +12650,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1976">
 <English>points for clearing the main target!</English>
-<Spanish>points for clearing the main target!</Spanish>
+<Spanish>puntos para despejar el objetivo principal!</Spanish>
 <Portuguese>points for clearing the main target!</Portuguese>
 <Korean>메인미션 점령에 대한 포인트!</Korean>
 <Japanese>points for clearing the main target!</Japanese>
@@ -12662,7 +12662,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1977">
 <English>points for helping solving the sidemission!</English>
-<Spanish>points for helping solving the sidemission!</Spanish>
+<Spanish>puntos por ayudar a resolver la misión secundaria!</Spanish>
 <Portuguese>points for helping solving the sidemission!</Portuguese>
 <Korean>보조과제 해결에 대한 도움 포인트!</Korean>
 <Japanese>points for helping solving the sidemission!</Japanese>
@@ -12674,7 +12674,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1978">
 <English>Remove cluster ammo from pylon loadout</English>
-<Spanish>Remove cluster ammo from pylon loadout</Spanish>
+<Spanish>Retire la munición del racimo de la carga del pilón</Spanish>
 <Portuguese>Remove cluster ammo from pylon loadout</Portuguese>
 <Korean>항공무장 로드아웃에서 클러스터탄 제거</Korean>
 <Japanese>Remove cluster ammo from pylon loadout</Japanese>
@@ -12709,7 +12709,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1981">
 <English>Players</English>
-<Spanish>Players</Spanish>
+<Spanish>Jugadores</Spanish>
 <Portuguese>Players</Portuguese>
 <Korean>플레이어</Korean>
 <Japanese>Players</Japanese>
@@ -12721,7 +12721,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1982">
 <English>Rank</English>
-<Spanish>Rank</Spanish>
+<Spanish>Rango</Spanish>
 <Portuguese>Rank</Portuguese>
 <Korean>계급</Korean>
 <Japanese>Rank</Japanese>
@@ -12733,7 +12733,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1983">
 <English>Camps</English>
-<Spanish>Camps</Spanish>
+<Spanish>Campamentos</Spanish>
 <Portuguese>Camps</Portuguese>
 <Korean>초소</Korean>
 <Japanese>Camps</Japanese>
@@ -12745,7 +12745,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1984">
 <English>Barracks</English>
-<Spanish>Barracks</Spanish>
+<Spanish>Cuarteles</Spanish>
 <Portuguese>Barracks</Portuguese>
 <Korean>병영</Korean>
 <Japanese>Barracks</Japanese>
@@ -12757,7 +12757,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1985">
 <English>Points</English>
-<Spanish>Points</Spanish>
+<Spanish>Puntos</Spanish>
 <Portuguese>Points</Portuguese>
 <Korean>포인트</Korean>
 <Japanese>Points</Japanese>
@@ -12769,7 +12769,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1986">
 <English>Launcher Cooldown Time in seconds:</English>
-<Spanish>Launcher Cooldown Time in seconds:</Spanish>
+<Spanish>Tiempo de recuperación del iniciador en segundos:</Spanish>
 <Portuguese>Launcher Cooldown Time in seconds:</Portuguese>
 <Korean>아군 치료에 대한 포인트!</Korean>
 <Japanese>Launcher Cooldown Time in seconds:</Japanese>
@@ -12781,7 +12781,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1987">
 <English>points for usage of your mash for healing!</English>
-<Spanish>points for usage of your mash for healing!</Spanish>
+<Spanish>puntos por usar una carpa médica para el tratamiento!</Spanish>
 <Portuguese>points for usage of your mash for healing!</Portuguese>
 <Korean>이동식의무실(mash)를 이용한 치료에 대한 포인트!</Korean>
 <Japanese>points for usage of your mash for healing!</Japanese>
@@ -12793,7 +12793,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1988">
 <English>You can teleport from the base flag to other positions, no need to waste choppers...</English>
-<Spanish>You can teleport from the base flag to other positions, no need to waste choppers...</Spanish>
+<Spanish>Puede teletransportarse desde la bandera base a otras posiciones, sin necesidad de desperdiciar helicópteros...</Spanish>
 <Portuguese>You can teleport from the base flag to other positions, no need to waste choppers...</Portuguese>
 <Korean>귀관은 베이스의 텔레포트 기능으로 다른 위치로 갈 수 있다,헬기를 낭비 할 필요가 없다...</Korean>
 <Japanese>You can teleport from the base flag to other positions, no need to waste choppers...</Japanese>
@@ -12805,7 +12805,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1989">
 <English>points for another player spawning at you!</English>
-<Spanish>points for another player spawning at you!</Spanish>
+<Spanish>puntos por otro jugador que te genera!</Spanish>
 <Portuguese>points for another player spawning at you!</Portuguese>
 <Korean>귀관의 위치로 다른 플레이어가 스폰한것에 대한 포인트!</Korean>
 <Japanese>points for another player spawning at you!</Japanese>
@@ -12817,7 +12817,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1990">
 <English>You can select an alternative position by left click inside the circle</English>
-<Spanish>You can select an alternative position by left click inside the circle</Spanish>
+<Spanish>Puede seleccionar una posición alternativa haciendo clic izquierdo dentro del círculo</Spanish>
 <Portuguese>You can select an alternative position by left click inside the circle</Portuguese>
 <Korean>당신은 원 안을 왼쪽 클릭하여 다른 위치를 선택 하실수 있습니다.</Korean>
 <Japanese>You can select an alternative position by left click inside the circle</Japanese>
@@ -12829,7 +12829,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1991">
 <English>ALT click inside the circle resets the position to the default position</English>
-<Spanish>ALT click inside the circle resets the position to the default position</Spanish>
+<Spanish>OPRIMA LA TECLA ALT y clic dentro del círculo restablece la posición a la predeterminada</Spanish>
 <Portuguese>ALT click inside the circle resets the position to the default position</Portuguese>
 <Korean>원 안에서 ALT 클릭 시 기본 위치로 초기화 됩니다</Korean>
 <Japanese>ALT click inside the circle resets the position to the default position</Japanese>
@@ -12841,7 +12841,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1992">
 <English>Limit Virtual Arsenal ammo box access too 1000</English>
-<Spanish>Limit Virtual Arsenal ammo box access too 1000</Spanish>
+<Spanish>Limite el acceso a la caja de munición del Arsenal virtual a 1000</Spanish>
 <Portuguese>Limit Virtual Arsenal ammo box access too 1000</Portuguese>
 <Korean>가상 탄약상자 접근을 1000으로 제한</Korean>
 <Japanese>Limit Virtual Arsenal ammo box access too 1000</Japanese>
@@ -12853,7 +12853,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1993">
 <English>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</English>
-<Spanish>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Spanish>
+<Spanish>¡ATENCIÓN !!!!\n\nUSTED ESTÁ EN UNA ZONA RESTRINGIDA !!!!\n\nRETIRATE INMEDIATAMENTE O MORIRÁ!!!!</Spanish>
 <Portuguese>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Portuguese>
 <Korean>주의!!!!\n\n귀관은 접근 금지 구역에 있습니다!!!!\n\n즉시 떠나지 않으면 사망 할 것입니다!!!!</Korean>
 <Japanese>ATTENTION!!!!\n\nYOU ARE IN A NOGO AREA!!!!\n\nLEAVE IMMEDIATELY OR YOU WILL DIE!!!!</Japanese>
@@ -12865,7 +12865,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1994">
 <English>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</English>
-<Spanish>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Spanish>
+<Spanish>ATENCION!!!!\n\nULTIMA ADVERTENCIA !!!! ¡DEJA O MORIRÁS!!!!!!</Spanish>
 <Portuguese>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Portuguese>
 <Korean>주목!!!!\n\n마지막 경고!!!! 떠나지 않으면 사망합니다!!!!!!</Korean>
 <Japanese>ATTENTION!!!!\n\nLAST WARNING!!!! LEAVE OR YOU WILL DIE!!!!!!</Japanese>
@@ -12877,7 +12877,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1995">
 <English>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</English>
-<Spanish>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Spanish>
+<Spanish>Estás en la cárcel porque %1 Asesinaste a los aliados), tiempo en la cárcel %2 segundos!!!!</Spanish>
 <Portuguese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Portuguese>
 <Korean>귀관은 %1 팀킬 수로 인해 교도소에 수감되었습니다, 수감시간은 %2 초 입니다!!!!</Korean>
 <Japanese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Japanese>
@@ -12889,7 +12889,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1996">
 <English>Rest jail time:</English>
-<Spanish>Rest jail time:</Spanish>
+<Spanish>Descanse en la cárcel:</Spanish>
 <Portuguese>Rest jail time:</Portuguese>
 <Korean>수감시간 초기화:</Korean>
 <Japanese>Rest jail time:</Japanese>
@@ -12901,7 +12901,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1997">
 <English>%1 seconds</English>
-<Spanish>%1 seconds</Spanish>
+<Spanish>%1 segundos</Spanish>
 <Portuguese>%1 seconds</Portuguese>
 <Korean>%1 초</Korean>
 <Japanese>%1 seconds</Japanese>
@@ -12913,7 +12913,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1998">
 <English>You are free again! Behave properly!</English>
-<Spanish>You are free again! Behave properly!</Spanish>
+<Spanish>Eres libre de nuevo! ¡COMPORTATE ADECUADAMENTE!</Spanish>
 <Portuguese>You are free again! Behave properly!</Portuguese>
 <Korean>석방되었습니다! 올바른 행동을 하세요!</Korean>
 <Japanese>You are free again! Behave properly!</Japanese>
@@ -12925,7 +12925,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1999">
 <English>You are beeing transfered to jail because of too much teamkilling!!!</English>
-<Spanish>You are beeing transfered to jail because of too much teamkilling!!!</Spanish>
+<Spanish>¡ESTÁS SIENDO TRANSFERIDO A LA CÁRCEL DEBIDO A DEMASIADOS ASESINATOS EN EQUIPO!</Spanish>
 <Portuguese>You are beeing transfered to jail because of too much teamkilling!!!</Portuguese>
 <Korean>귀관은 너무 많은 팀킬로 교도소로 이송 될 것입니다!!!</Korean>
 <Japanese>You are beeing transfered to jail because of too much teamkilling!!!</Japanese>
@@ -12937,7 +12937,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2000">
 <English>You are beeing transfered back to base!!!</English>
-<Spanish>You are beeing transfered back to base!!!</Spanish>
+<Spanish>¡ESTÁS SIENDO TRANSFERIDO DE REGRESO A LA BASE!</Spanish>
 <Portuguese>You are beeing transfered back to base!!!</Portuguese>
 <Korean>귀관은 기지로 이송되고 있습니다!!!</Korean>
 <Japanese>You are beeing transfered back to base!!!</Japanese>
@@ -12949,7 +12949,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2001">
 <English>points for transporting another player in a vehicle!</English>
-<Spanish>points for transporting another player in a vehicle!</Spanish>
+<Spanish>¡Puntos para transportar a otro jugador en un vehículo!</Spanish>
 <Portuguese>points for transporting another player in a vehicle!</Portuguese>
 <Korean>차량으로 다른 플레이어 수송에 대한 포인트!</Korean>
 <Japanese>points for transporting another player in a vehicle!</Japanese>
@@ -12961,7 +12961,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2002">
 <English>Seize condition for main target:</English>
-<Spanish>Seize condition for main target:</Spanish>
+<Spanish>Aprovechar la condición para el objetivo principal:</Spanish>
 <Portuguese>Seize condition for main target:</Portuguese>
 <Korean>Seize condition for main target:</Korean>
 <Japanese>Seize condition for main target:</Japanese>
@@ -12973,7 +12973,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2003">
 <English>All camps captured and radio tower destroyed</English>
-<Spanish>All camps captured and radio tower destroyed</Spanish>
+<Spanish>Todos los campamentos capturados y la torre de radio destruida</Spanish>
 <Portuguese>All camps captured and radio tower destroyed</Portuguese>
 <Korean>All camps captured and radio tower destroyed</Korean>
 <Japanese>All camps captured and radio tower destroyed</Japanese>
@@ -12985,7 +12985,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2004">
 <English>Low number of AI units, all camps captured and radio tower destroyed</English>
-<Spanish>Low number of AI units, all camps captured and radio tower destroyed</Spanish>
+<Spanish>Bajo número de unidades de IA, todos los campamentos capturados y la torre de radio destruida</Spanish>
 <Portuguese>Low number of AI units, all camps captured and radio tower destroyed</Portuguese>
 <Korean>Low number of AI units, all camps captured and radio tower destroyed</Korean>
 <Japanese>Low number of AI units, all camps captured and radio tower destroyed</Japanese>
@@ -12997,7 +12997,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2005">
 <English>Low number of AI units and radio tower destroyed</English>
-<Spanish>Low number of AI units and radio tower destroyed</Spanish>
+<Spanish>Bajo número de unidades de IA y torre de radio destruida</Spanish>
 <Portuguese>Low number of AI units and radio tower destroyed</Portuguese>
 <Korean>Low number of AI units and radio tower destroyed</Korean>
 <Japanese>Low number of AI units and radio tower destroyed</Japanese>
@@ -13009,7 +13009,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2006">
 <English>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</English>
-<Spanish>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Spanish>
+<Spanish>Explosivo eliminado. Estás en el aire o demasiado cerca de un MHQ (menos de 9 m) o demasiado cerca de una caja de munición caída</Spanish>
 <Portuguese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Portuguese>
 <Korean>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Korean>
 <Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Japanese>
