@@ -20,7 +20,7 @@ __TRACE_2("","_mchelper","_doreduce")
 
 private _ret = [];
 
-if (_doreduce && {count _unitliste > 2}) then {
+if (d_smallgrps == 0 && {_doreduce && {count _unitliste > 2}}) then {
 	__TRACE("in doreduce")
 	private _nump = count (allPlayers - entities "HeadlessClient_F");
 	// 30-40 0.15

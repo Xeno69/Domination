@@ -963,6 +963,13 @@ class Params {
 		default = 5;
 		texts[] = {"1", "2", "3", "4", "5", "6", "7"};
 	};
+	
+	class d_smallgrps {
+		title = "$STR_DOM_MISSIONSTRING_2007";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_max_camp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1930";

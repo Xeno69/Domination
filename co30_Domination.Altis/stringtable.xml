@@ -13025,6 +13025,17 @@
 <Chinese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Chinese>
 <French>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2007">
+<English>Reduce number of AI units in groups depending on player numbers</English>
+<Spanish>Reduce number of AI units in groups depending on player numbers</Spanish>
+<Portuguese>Reduce number of AI units in groups depending on player numbers</Portuguese>
+<Korean>Reduce number of AI units in groups depending on player numbers</Korean>
+<Japanese>Reduce number of AI units in groups depending on player numbers</Japanese>
+<Original>Reduce number of AI units in groups depending on player numbers</Original>
+<Russian>Reduce number of AI units in groups depending on player numbers</Russian>
+<Chinesesimp>Reduce number of AI units in groups depending on player numbers</Chinesesimp>
+<French>Reduce number of AI units in groups depending on player numbers</French>
+</Key>
 </Container>
 </Package>
 </Project>
