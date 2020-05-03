@@ -463,7 +463,7 @@ d_points_needed_16 = (d_points_needed # 6) + 30000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log ["Internal D Version: 4.25"];
+diag_log ["Internal D Version: 4.26"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
