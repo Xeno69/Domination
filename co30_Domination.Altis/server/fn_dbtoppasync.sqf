@@ -52,7 +52,7 @@ while {true} do {
 			};
 		};
 		sleep 0.3;
-	} forEach (allPlayers - entities "HeadlessClient_F");
+	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 	sleep 10;
 #ifndef __INTERCEPTDB__
 	_dbresult = parseSimpleArray ("extdb3" callExtension "2:dom:getTop10Players");

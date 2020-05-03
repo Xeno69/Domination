@@ -80,7 +80,7 @@ if (isServer) then {
 				_ran = [2,4] call d_fnc_GetRandomRangeInt;
 				for "_i" from 1 to _ran do {
 					_newgroup = [d_fnc_enemy_side] call d_fnc_creategroup;
-					_units = [_estart_pos, _unit_array, _newgroup] call d_fnc_makemgroup;
+					_units = [_estart_pos, _unit_array, _newgroup, true, true] call d_fnc_makemgroup;
 					sleep 1.045;
 					_leader = leader _newgroup;
 					_leader setRank "LIEUTENANT";

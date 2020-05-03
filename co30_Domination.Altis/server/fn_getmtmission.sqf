@@ -19,7 +19,7 @@ _poss set [2, 0];
 
 #define __specops \
 _newgroup = [d_side_enemy] call d_fnc_creategroup;\
-private _specus = [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;\
+private _specus = [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true] call d_fnc_makemgroup;\
 sleep 1.0112;\
 _newgroup deleteGroupWhenEmpty true; \
 _newgroup allowFleeing 0;\

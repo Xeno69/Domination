@@ -26,7 +26,7 @@ private _garrisonUnits = {
 		_newgroup setGroupId [_sniperGrpName];
 	};
 	
-	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false] call d_fnc_makemgroup;
+	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 	
 	if (_unitMovementMode == 2) then {
 		{
@@ -378,7 +378,7 @@ if (d_no_more_observers < 2) then {
 		private _xpos = _wp_array_inf select _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
 		__TRACE("from createmaintarget 1")
-		private _observer = ([_xpos, _unit_array, _agrp] call d_fnc_makemgroup) # 0;
+		private _observer = ([_xpos, _unit_array, _agrp, true, false] call d_fnc_makemgroup) # 0;
 		_agrp deleteGroupWhenEmpty true;
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;
 		_agrp setVariable ["d_PATR", true];

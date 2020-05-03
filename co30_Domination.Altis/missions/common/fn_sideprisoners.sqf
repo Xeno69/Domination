@@ -15,7 +15,7 @@ private _newgroup = [d_own_side] call d_fnc_creategroup;
 #else
 private _newgroup = [civilian] call d_fnc_creategroup;
 #endif
-private _units = [_pos, call d_fnc_getunitlistc, _newgroup, false] call d_fnc_makemgroup;
+private _units = [_pos, call d_fnc_getunitlistc, _newgroup, false, false] call d_fnc_makemgroup;
 private _leader = leader _newgroup;
 _leader setSkill 1;
 _newgroup allowFleeing 0;
