@@ -7,7 +7,7 @@
          - all enemy infantry bots: on an interval, if _fired is true then frequently do "setAmmo 1" (this helps to balance new shooting behavior vs running out of ammo too quickly)
          - all enemy infantry bots which are free to move: on an interval, if bot is a leader then order the group to move to location of nearest player within configurable radius
 - Changed: Wait 10 seconds before spawning the next enemy AI groups at barracks in the AO
-- Changed: Number of units in enemy AI inf groups now depends on player numbers making the mission more friendly for lower player numbers (nothing changes for higher player numbers)
+- Changed: Number of units in enemy AI inf groups now depends on player numbers making the mission more friendly for lower player numbers (nothing changes for higher player numbers); can be disabled in params, d_smallgrps
 - Fixed: Round camp capture time and clip progress capture bar when max value is reached
 - Fixed: Some kick player to lobby messages still showed up
 - Fixed: In the Altis RHS Blufor version the CH53 spawned in the ground and was therefore exploding at every spawn
