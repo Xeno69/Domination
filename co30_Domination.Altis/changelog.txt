@@ -11,4 +11,5 @@
 - Fixed: Round camp capture time and clip progress capture bar when max value is reached
 - Fixed: Some kick player to lobby messages still showed up
 - Fixed: In the Altis RHS Blufor version the CH53 spawned in the ground and was therefore exploding at every spawn
+- Fixed: Players with enhanced movement mod could escape jail
 - Updated: Spanish and Protuguese translation by Linux

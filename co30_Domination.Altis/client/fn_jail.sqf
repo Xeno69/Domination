@@ -5,6 +5,19 @@
 
 d_goto_jail = true;
 
+private _enhmm = isClass (configFile>>"CfgPatches">>"BaBe_EM");
+
+private "_keyeh";
+if (_enhmm) then {
+	d_usactckey = [];
+	for "_i" from 1 to 20 do {
+		d_usactckey append (actionKeys format ["User%1", _i]);
+	};
+	_keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+		((_this select 1) in d_usactckey)
+	}];
+};
+
 if (!alive player) then {
 	waitUntil {alive player};
 };
@@ -133,4 +146,8 @@ cutText ["", "BLACK IN", 0.2];
 sleep 8;
 if (isNil "d_goto_jail") then {
 	"d_jail" cutText ["", "PLAIN"];
+};
+
+if (_enhmm) then {
+	(findDisplay 46) displayRemoveEventHandler ["KeyDown", _keyeh];
 };
