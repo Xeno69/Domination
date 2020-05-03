@@ -7177,6 +7177,18 @@
 <Chinese>玩家能禁用草:</Chinese>
 <French>Le joueur peut désactiver l'herbe:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENABLESIMCAMPS">
+<English>Enable simulation for enemy camps:</English>
+<Spanish>Enable simulation for enemy camps:</Spanish>
+<Portuguese>Enable simulation for enemy camps:</Portuguese>
+<Korean>Enable simulation for enemy camps:</Korean>
+<Japanese>Enable simulation for enemy camps:</Japanese>
+<Original>Enable simulation for enemy camps:</Original>
+<Russian>Enable simulation for enemy camps:</Russian>
+<Chinesesimp>Enable simulation for enemy camps:</Chinesesimp>
+<Chinese>Enable simulation for enemy camps:</Chinese>
+<French>Enable simulation for enemy camps:</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1176">
 <English>Recruit AI (max.):</English>
 <Spanish>Recrutar AI (máx.):</Spanish>

@@ -151,8 +151,10 @@ private _multiplyMatrixFunc = {
 #ifdef __CUP__
 			if (!(_type isKindOf "StaticWeapon") && {_type isKindOf "Tank_F" || {_type isKindOf "Car_F" || {_type == "Land_tent_east"}}}) then {
 				_newObj lock true;
-				_newObj enableSimulationGlobal false;
-				_newObj allowDamage false;
+				if (d_EnableSimulationCamps == 0) then {
+					_newObj enableSimulationGlobal false;
+					_newObj allowDamage false;
+				};
 				clearWeaponCargoGlobal _newObj;
 				clearMagazineCargoGlobal _newObj;
 				clearItemCargoGlobal _newObj;
@@ -172,7 +174,7 @@ private _multiplyMatrixFunc = {
 				_newPos = _newPos vectorAdd [0, 0, 0.1];
 			};
 			__TRACE_2("","_newPos","AGLToASL _newPos")
-			_newObj = [_type, AGLToASL _newPos, 0, true, false, _loc] call d_fnc_createSimpleObject;
+			_newObj = [_type, _newPos, 0, true, false, _loc] call d_fnc_createSimpleObject;
 			_newObj setDir (_azi + _azimuth);
 			_newPos = getPosWorld _newObj;
 			__TRACE_1("before","_newPos")

@@ -83,12 +83,17 @@ if (_class == "" && {_p3d == ""}) exitWith {
 private _superSimple = _class == "" || {_forceSuperSimple};
 
 //create simple object
-private _object = if (_superSimple) then {
+private _object = nil;
+if (_superSimple) then {
 	//World coords are used
-	createSimpleObject [_p3d, _pos, _loc];
+	_object = createSimpleObject [_p3d, _pos, _loc];
 } else {
-	//ASL coords are used; fixed later by ASL to World offset
-	createSimpleObject [_class, _pos, _loc];
+	if (d_EnableSimulationCamps > 0) then {
+		_object = createVehicle [_class, _pos, [], 0, "NONE"];
+	} else {
+		//ASL coords are used; fixed later by ASL to World offset
+		_object = createSimpleObject [_class, AGLToASL _pos, _loc];
+	};
 };
 
 if (isNull _object) exitWith {
