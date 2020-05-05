@@ -147,6 +147,7 @@ if (d_with_ranked) then {
 #endif
 
 0 spawn {
+	scriptname "spawn sendfpssetupserver";
 	sleep 10;
 	["dom_sendfps", {
 		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];

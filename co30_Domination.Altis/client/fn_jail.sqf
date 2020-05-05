@@ -45,6 +45,7 @@ private _jailpos = if !(d_cur_tgt_pos isEqualTo []) then {
 };
 
 private _soundspawn = 0 spawn {
+	scriptname "spawn jail1";
 	while {true} do {
 		playSound "d_war";
 		sleep 3.78;
@@ -52,6 +53,7 @@ private _soundspawn = 0 spawn {
 };
 
 private _disresbspawn = 0 spawn {
+	scriptname "spawn jail2";
 	waitUntil {!isNull (findDisplay 49)};
 	((findDisplay 49) displayCtrl 1010) ctrlEnable false;
 };

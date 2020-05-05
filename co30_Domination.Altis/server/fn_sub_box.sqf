@@ -14,6 +14,7 @@ if (!isNil "_perc") then {
 	_perc = _perc - 1;
 	if (_perc < 0) then {
 		_box spawn {
+			scriptname "spawn sub_box";
 			[_this] remoteExecCall ["d_fnc_RemABoxC"];
 			sleep 0.5;
 			[_this, objNull] call d_fnc_RemABox;

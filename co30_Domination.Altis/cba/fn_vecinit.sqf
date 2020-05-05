@@ -14,6 +14,7 @@ params ["_vec"];
 if (_vec isKindOf "ParachuteBase" || {unitIsUAV _vec}) exitWith {};
 
 _vec spawn {
+	scriptName "spawn vecinit";
 	sleep 15;
 	if (alive _this && {isNil {_this getVariable "d_nodyn"} && {!dynamicSimulationEnabled  _this}}) then {
 		_this enableDynamicSimulation true; 

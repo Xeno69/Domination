@@ -43,6 +43,7 @@ if (local _vehicle) then {
 
 		// Force heli to specific position
 		[_vehicle, _positionASL] spawn {
+			scriptName "spawn 2_AR_rappel_all_cargo";
 			params ["_vehicle", "_positionASL"];
 
 			while {alive _vehicle && {_vehicle getVariable ["AR_Units_Rappelling", false]}} do {

@@ -458,6 +458,7 @@ if (!d_mt_radio_down) then {
 };
 
 [_vecs_ar, _crews_ar] spawn {
+	scriptname "spawn 4_createpara";
 	params ["_vecs_ar", "_crews_ar"];
 	sleep 120;
 	{

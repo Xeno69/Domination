@@ -27,7 +27,8 @@ private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 _pilot1 allowDamage false;
 _pilot1 spawn {
 	scriptName "spawn_sideevac1";
-	sleep 5;
+	sleep 20;
+	_this setDamage 0;
 	_this allowDamage true;
 };
 __TRACE_1("","_pilot1")
@@ -41,7 +42,8 @@ private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "
 _pilot2 allowDamage false;
 _pilot2 spawn {
 	scriptName "spawn_sideevac2";
-	sleep 5;
+	sleep 20;
+	_this setDamage 0;
 	_this allowDamage true;
 };
 __TRACE_1("","_pilot2")

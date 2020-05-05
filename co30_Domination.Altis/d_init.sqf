@@ -371,8 +371,13 @@ if (isServer) then {
 			d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
 			d_MainTargets_num = count d_target_names;
 		} else {
-			// create random list of targets
-			d_maintargets_list = call d_fnc_createrandomtargets;
+			if (d_MainTargets_num == -2) then { // order like placed in the editor
+				d_maintargets_list = call d_fnc_makteolpmttargets;
+				d_MainTargets_num = count d_target_names;
+			} else {
+				// create random list of targets
+				d_maintargets_list = call d_fnc_createrandomtargets;
+			};
 		};
 		//d_maintargets_list = [0,1,2,3];
 		__TRACE_1("","d_maintargets_list")
@@ -385,8 +390,12 @@ if (isServer) then {
 	};
 	publicVariable "d_MainTargets";
 
-	// create random list of side missions
-	d_side_missions_random = d_sm_array call d_fnc_RandomArray;
+	if (d_sm_dorandom == 0) then {
+		// create random list of side missions
+		d_side_missions_random = d_sm_array call d_fnc_RandomArray;
+	} else {
+		d_side_missions_random =+ d_sm_array;
+	};
 	__TRACE_1("","d_side_missions_random")
 
 	d_current_mission_counter = 0;

@@ -21,6 +21,7 @@ while {!(d_scoreadd_qeue isEqualTo [])} do {
 	_ctrl ctrlSetFade 1;
 	_ctrl ctrlCommit 0.3;
 	_ctrl spawn {
+		scriptname "spawn scoreaddqeue";
 		disableSerialization;
 		sleep 1;
 		ctrlDelete _this;

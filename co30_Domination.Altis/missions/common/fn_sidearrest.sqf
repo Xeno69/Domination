@@ -14,7 +14,9 @@ if (isNull _officer) then {
 	_ogroup deleteGroupWhenEmpty true;
 	_officer allowDamage false;
 	_officer spawn {
+		scriptName "spawn sidearrest";
 		sleep 20;
+		_this setDamage 0;
 		_this allowDamage true;
 	};
 	_poss set [2, 0];
@@ -53,7 +55,7 @@ if (_docreatearmor) then {
 d_sm_arrest_not_failed = true;
 
 while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolved}}}} do {
-	if (!alive _officer) exitWith {_is_dead = true;};
+	if (!alive _officer) exitWith {_is_dead = true};
 	if (!_rescued) then {
 		private _nobjs = (_officer nearEntities ["CAManBase", 20]) select {(_x call d_fnc_isplayer) && {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 		if !(_nobjs isEqualTo []) then {

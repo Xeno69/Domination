@@ -30,6 +30,7 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec setVectorUp [0,0,1];
 	_onevec forceFollowRoad true;
 	_onevec spawn {
+		scriptname "spawn sideconvoy";
 		sleep 30;
 		_this allowDamage true;
 	};

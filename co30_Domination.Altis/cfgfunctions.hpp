@@ -551,6 +551,7 @@ class cfgFunctions {
 			addc(nodamoff);
 			addc(umadel);
 			addc(moveboxm);
+			addc(makteolpmttargets);
 		};
 		class Dom_PrePostInit {
 			file = "init";

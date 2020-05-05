@@ -65,6 +65,7 @@ if !(_lo # 0 isEqualTo []) then {
 
 if (_this select 13 > 0) then {
 	_this spawn {
+		scriptname "spawn plstuffjail";
 		waitUntil {sleep 0.2; !d_still_in_intro};
 		[_this select 7, _this select 13] spawn d_fnc_jail;
 	};

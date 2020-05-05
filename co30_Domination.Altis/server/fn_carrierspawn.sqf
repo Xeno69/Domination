@@ -12,6 +12,7 @@ _vec setVariable ["d_posasl", getPosASL _vec];
 
 _vec allowDamage false;
 [_vec] spawn {
+	scriptname "spawn carrierspawn";
 	params ["_vec"];
 	sleep 1;
 	_vec setPosASL (_vec getVariable "d_posasl");

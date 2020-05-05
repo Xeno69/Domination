@@ -13048,6 +13048,29 @@
 <Chinesesimp>Reduce number of AI units in groups depending on player numbers</Chinesesimp>
 <French>Reduce number of AI units in groups depending on player numbers</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2008">
+<English>Order like placed in the editor</English>
+<Spanish>Order like placed in the editor</Spanish>
+<Portuguese>Order like placed in the editor</Portuguese>
+<Korean>Order like placed in the editor</Korean>
+<Japanese>Order like placed in the editor</Japanese>
+<Original>Order like placed in the editor</Original>
+<Russian>Order like placed in the editor</Russian>
+<Chinesesimp>Order like placed in the editor</Chinesesimp>
+<Chinese>Order like placed in the editor</Chinese>
+<French>Order like placed in the editor</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2009">
+<English>Random side missions:</English>
+<Spanish>Random side missions:</Spanish>
+<Portuguese>Random side missions:</Portuguese>
+<Korean>Random side missions:</Korean>
+<Japanese>Random side missions:</Japanese>
+<Original>Random side missions:</Original>
+<Russian>Random side missions:</Russian>
+<Chinesesimp>Random side missions:</Chinesesimp>
+<French>Random side missions:</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -73,6 +73,7 @@ while {true} do {
 			if (!isNil "_aslpos") then {
 				_vec setVariable ["d_posasl", _aslpos];
 				[_vec] spawn {
+					scriptname "spawn vrespawn2";
 					params ["_vec"];
 					sleep 1;
 					_vec setPosASL (_vec getVariable "d_posasl");

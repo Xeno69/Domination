@@ -261,52 +261,52 @@ class Params {
 	class d_MainTargets_num {
 		title = "$STR_DOM_MISSIONSTRING_965";
 #ifdef __ALTIS__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,34};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","34"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,34};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
 #endif
 #ifdef __CUP_CHERNARUS__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __CUP_SARA__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __CUP_TAKISTAN__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __TT__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,30};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","30"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
 #ifdef __TANOA__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __STRATIS__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __IFA3LITE__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,30};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","30"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
 #ifdef __MALDEN__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
 #ifdef __ROSCHE__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","21"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __GMCWG__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,31};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","31"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,31};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
 #endif
 #ifdef __LIVONIA__
-		values[] = {-1,2,4,6,8,10,12,14,16,18,20,25,31};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","2","4","6","8","10","12","14","16","18","20","25","31"};
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,31};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
 #endif
 		default = -1;
 	};
@@ -373,11 +373,18 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
 	};
-
+	
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1};
 		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
+	class d_sm_dorandom {
+		title = "$STR_DOM_MISSIONSTRING_2009";
+		values[] = {0,1};
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 

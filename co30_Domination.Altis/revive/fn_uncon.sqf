@@ -82,6 +82,7 @@ __TRACE("starting main uncon loop")
 		player setVariable ["d_old_eng_can_repfuel", nil];
 
 		0 spawn {
+			scriptname "spawn 1uncon";
 			if (!xr_u_remactions) then {
 				__TRACE("xr_u_remactions")
 				{
@@ -122,6 +123,7 @@ __TRACE("starting main uncon loop")
 					"xr_revtxt" cutText ["","BLACK IN", 6];
 					if (xr_max_lives != -1) then {
 						0 spawn {
+							scriptname "spawn 2uncon";
 							sleep 7;
 							hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 						};
