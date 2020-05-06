@@ -30,6 +30,9 @@ _newgroup deleteGroupWhenEmpty true;
 
 d_x_sm_rem_ar append _units;
 
+private _otrig = [_leader, [800, 800, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "[thisTrigger, 0] call d_fnc_trigwork", "[thisTrigger, 1] call d_fnc_trigwork"]] call d_fnc_createtriggerlocal;
+_otrig setVariable ["d_objs", _units];
+
 __TRACE_1("","_units")
 
 if (d_with_dynsim == 0) then {
@@ -86,6 +89,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 			{
 				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
 					_rescued = true;
+					deleteVehicle _otrig;
 					_mforceendtime = time + 2400;
 					__TRACE_2("rescued","_rescued","_mforceendtime")
 					_rescuer = _x;
@@ -172,5 +176,8 @@ sleep 5.123;
 		deleteVehicle _x;
 	};
 } forEach (_units select {!isNull _x});
+if (!isNull _otrig) then {
+	deleteVehicle _otrig;
+};
 sleep 0.5321;
 if (!isNull _newgroup) then {deleteGroup _newgroup};

@@ -356,6 +356,7 @@ class cfgFunctions {
 			addc(createarmor);
 			addc(cdoquake);
 			addc(doquake);
+			addc(trigwork);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";

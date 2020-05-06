@@ -13,12 +13,6 @@ if (isNull _officer) then {
 	[_officer] joinSilent _ogroup;
 	_ogroup deleteGroupWhenEmpty true;
 	_officer allowDamage false;
-	_officer spawn {
-		scriptName "spawn sidearrest";
-		sleep 20;
-		_this setDamage 0;
-		_this allowDamage true;
-	};
 	_poss set [2, 0];
 	[_officer, _poss] call d_fnc_setposagls;
 	_officer call d_fnc_removenvgoggles_fak;
@@ -34,6 +28,9 @@ if (isNull _officer) then {
 	};
 	sleep 2;
 };
+
+private _otrig = [_officer, [800, 800, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "[thisTrigger, 0] call d_fnc_trigwork", "[thisTrigger, 1] call d_fnc_trigwork"]] call d_fnc_createtriggerlocal;
+_otrig setVariable ["d_objs", [_officer]];
 
 private _offz_at_base = false;
 private _is_dead = false;
@@ -68,6 +65,7 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 
 			d_sm_arrest_mp_unit = _rescuer;
 			[_rescuer, 16] call d_fnc_setekmode;
+			deleteVehicle _otrig;
 		};
 	} else {
 #ifndef __TT__
@@ -119,6 +117,9 @@ if (!isNull objectParent _officer) then {
 	(objectParent _officer) deleteVehicleCrew _officer;
 } else {
 	deleteVehicle _officer;
+};
+if (!isNull _otrig) then {
+	deleteVehicle _otrig;
 };
 sleep 0.5;
 
