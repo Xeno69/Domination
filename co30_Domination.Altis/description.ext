@@ -246,6 +246,7 @@ class CfgRemoteExec {
 		class setFeatureType {};
 #ifdef __TT__
 		class deleteMarkerLocal {allowedTargets = 1;};
+		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
 	};
 };

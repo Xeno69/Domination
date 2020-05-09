@@ -19,4 +19,5 @@
 - Fixed: In the Altis RHS Blufor version the CH53 spawned in the ground and was therefore exploding at every spawn
 - Fixed: Players with enhanced movement mod could escape jail
 - Fixed: Statusbar was updating every frame in non TT versions instead of every 2 seconds only
+- Fixed: When ACE was used in the TT version and a dropped box was moved the box marker was visible for the other side
 - Updated: Spanish and Protuguese translation by Linux
