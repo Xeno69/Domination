@@ -77,11 +77,11 @@ while {true} do {
 				scoreSide east
 			];
 		};
+#endif
 		private _timeend = time + 2;
 		while {time < _timeend && {alive player}} do {
 			sleep 0.3;
 		};
-#endif
 	} else {
 		(_disp displayCtrl 1102) ctrlSetStructuredText text "";
 		waitUntil {
