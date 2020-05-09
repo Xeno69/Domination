@@ -128,11 +128,9 @@ if !(d_show_player_marker isEqualTo 0) then {
 	//} forEach (d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}});
 	} forEach _allplayermapd;
 
-	if !(_drawn_v isEqualTo []) then {
-		{
-			_x setVariable ["d_v_drawn", nil];
-		} forEach _drawn_v;
-	};
+	{
+		_x setVariable ["d_v_drawn", nil];
+	} forEach _drawn_v;
 
 	if (_w_ai) then {
 		private ["_isc", "_text"];
@@ -219,4 +217,4 @@ private _marker_vecs = d_marker_vecs;
 	};
 } forEach _marker_vecs select {!isNull _x};
 
-d_marker_vecs = d_marker_vecs - [objNull];
+_marker_vecs = _marker_vecs - [objNull];

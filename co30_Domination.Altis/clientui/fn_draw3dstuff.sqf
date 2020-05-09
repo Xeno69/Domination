@@ -68,7 +68,7 @@ private _d_mhq_3ddraw = d_mhq_3ddraw;
 
 if !(d_cur_tgt_pos isEqualTo [] && {!(d_currentcamps isEqualTo [])}) then {
 	private _d_currentcamps = d_currentcamps;
-	if (!(_d_currentcamps isEqualTo []) && {player distance2D d_cur_tgt_pos < 1500}) then {
+	if (player distance2D d_cur_tgt_pos < 1500) then {
 		private _own_sides = d_own_sides;
 		{
 			_distp = _pos_cam distance _x;
@@ -91,20 +91,18 @@ if !(d_cur_tgt_pos isEqualTo [] && {!(d_currentcamps isEqualTo [])}) then {
 if (d_showallnearusermarkers) then {
 	private "_pos";
 	private _toshow = d_allnearusermarkers # currentChannel;
-	if !(_toshow isEqualTo []) then {
-		{
-			_pos = markerPos _x;
-			_pos set [2, 10];
-			_distp = _pos_cam distance _pos;
-			if (_distp < 1000) then {
-				_m = 1 - (_distp / 1000);
-				_col = getArray (configfile>>"CfgMarkerColors">>(getMarkerColor _x)>>"color");
-				if (_col isEqualTo []) then {_col = [1, 1, 1, 1]};
-				_col set [3, _m];
-				//drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.033 - (_distp / 15000), "RobotoCondensed"];
-				drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
-			};
-		} forEach _toshow select {!(getMarkerColor _x isEqualTo "")};
-	};
+	{
+		_pos = markerPos _x;
+		_pos set [2, 10];
+		_distp = _pos_cam distance _pos;
+		if (_distp < 1000) then {
+			_m = 1 - (_distp / 1000);
+			_col = getArray (configfile>>"CfgMarkerColors">>(getMarkerColor _x)>>"color");
+			if (_col isEqualTo []) then {_col = [1, 1, 1, 1]};
+			_col set [3, _m];
+			//drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.033 - (_distp / 15000), "RobotoCondensed"];
+			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
+		};
+	} forEach _toshow select {!(getMarkerColor _x isEqualTo "")};
 };
 #endif
