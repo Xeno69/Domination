@@ -22,7 +22,6 @@ if !(d_show_player_marker isEqualTo 0) then {
 	private _w_ai = d_with_ai;
 	private _fnc_ispl = d_fnc_isplayer;
 	private _s_pl_ma = d_show_player_marker;
-	private _fnc_GDN = d_fnc_GetDisplayName;
 	private _fnc_ghpn = d_fnc_gethpname;
 	private _fnc_gpln = d_fnc_getplayername;
 	private _d_mark_loc280 = d_mark_loc280;
@@ -66,7 +65,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
-									_nmt = [typeOf _v, "CfgVehicles"] call _fnc_GDN;
+									_nmt = getText (configFile>>(typeOf _v)>>"CfgVehicles">>"displayName");
 									_v setVariable ["d_ma_text", _nmt];
 								};
 								_nt = [_nmt, ": "];
@@ -92,7 +91,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 						} else {
 							private _nmt = _v getVariable "d_ma_text";
 							if (isNil "_nmt") then {
-								_nmt = [typeOf _v, "CfgVehicles"] call _fnc_GDN;
+								_nmt = getText (configFile>>(typeOf _v)>>"CfgVehicles">>"displayName");
 								_v setVariable ["d_ma_text", _nmt];
 							};
 							_nmt

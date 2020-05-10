@@ -21,3 +21,4 @@
 - Fixed: Statusbar was updating every frame in non TT versions instead of every 2 seconds only
 - Fixed: When ACE was used in the TT version and a dropped box was moved the box marker was visible for the other side
 - Updated: Spanish and Protuguese translation by Linux
+- Optimization: Lots of scripts optimized yet again (mapondraw runs now about 200 micro seconds faster for example)
