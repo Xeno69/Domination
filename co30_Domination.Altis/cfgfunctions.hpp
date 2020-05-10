@@ -300,6 +300,7 @@ class cfgFunctions {
 			addc(hascopilot);
 			addc(iscopilot);
 			addc(aftereject);
+			addc(hasrespirator);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
