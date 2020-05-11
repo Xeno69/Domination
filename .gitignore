@@ -16,7 +16,9 @@
 /co40_MP_Paradrop.Chernarus/*
 /co50_AirCavA3.Chernarus/*
 /co20_HighMountains.Sara/*
-/dom_maker/*
+/dom_maker/*.pbo
+/dom_maker/DePbo.dll
+/dom_maker/MakePbo.exe
 co30_Domination.Altis.7z
 /co30_Domination.Altis - Kopie/*
 /co30_Domination.Altis - Copy/*
