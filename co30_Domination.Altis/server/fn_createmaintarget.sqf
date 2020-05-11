@@ -438,10 +438,10 @@ if (d_enable_civ_vehs > 0) then {
 	
 	for "_i" from 1 to _carSpawns do {
 		_currentRoad=_roadList select _i;
-		if (!isNil "_currentRoad" && { !isNull _currentRoad }) then {
+		if (!isNil "_currentRoad" && {!isNull _currentRoad}) then {
 			_roadConnectedTo = roadsConnectedTo _currentRoad;
 			_connectedRoad = _roadConnectedTo select 0;
-			if (isNil "_connectedRoad" || isNull _connectedRoad) exitWith {};
+			if (isNil "_connectedRoad" || {isNull _connectedRoad}) exitWith {};
 			_direction = [_currentRoad, _connectedRoad] call BIS_fnc_DirTo;
 			
 			_veh = createVehicle [selectRandomWeighted d_civ_vehicles_weighted, _currentRoad, [], 0, "NONE"];
