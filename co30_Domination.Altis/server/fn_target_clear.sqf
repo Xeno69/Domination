@@ -241,6 +241,7 @@ if !(d_maintargets_list isEqualTo []) then {
 			};
 #endif
 		};
+		sleep 5;
 		d_the_end = true; publicVariable "d_the_end";
 		0 spawn d_fnc_DomEnd;
 	};
