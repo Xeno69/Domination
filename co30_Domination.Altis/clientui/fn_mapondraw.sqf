@@ -45,23 +45,32 @@ if !(d_show_player_marker isEqualTo 0) then {
 			if (_dodraw) then {
 				_text = if !(_type isEqualTo 1) then {
 					if (!_inv) then {
-						if (_s_pl_ma isEqualTo 1) then {
-							[_x] call _fnc_ghpn;
-						} else {
-							if (_s_pl_ma isEqualTo 2) then {
-								""
+						_vc = _x getVariable "d_ut_c";
+						if (isNil "_vc" || {_vc > 20}) then {
+							_x setVariable ["d_ut_c", 0];
+							if (_s_pl_ma isEqualTo 1) then {
+								_res = [_x] call _fnc_ghpn;
 							} else {
-								if (_s_pl_ma isEqualTo 3) then {
-									format [_d_mark_loc280, 9 - round(9 * damage _x)]
+								if (_s_pl_ma isEqualTo 2) then {
+									_res = "";
 								} else {
-									""
+									if (_s_pl_ma isEqualTo 3) then {
+										_res = format [_d_mark_loc280, 9 - round(9 * damage _x)];
+									} else {
+										_res = "";
+									};
 								};
 							};
+							_x setVariable ["d_u_text", _res];
+							_res
+						} else {
+							_x setVariable ["d_ut_c", _vc + 1];
+							_x getVariable "d_u_text";
 						};
 					} else {
 						if (player distance2D _v < 3000) then {
 							_vc = _v getVariable "d_vma_c";
-							if (isNil "_vc" || {_vc > 7}) then {
+							if (isNil "_vc" || {_vc > 20}) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
