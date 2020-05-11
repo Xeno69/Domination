@@ -1,5 +1,6 @@
 rem Domination Build Batch, really shitty batch file :D
 rem needs makepbo from mikero https://mikero.bytex.digital/Downloads needs makePBO and dePBO
+rem just copy MakePBO.exe and DePbo.dll in the dom_maker folder
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
