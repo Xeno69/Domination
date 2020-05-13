@@ -454,8 +454,7 @@
 <Japanese>The trucks are destroyed! Good job!</Japanese>
 <Original>The trucks are destroyed! Good job!</Original>
 <Russian>Грузовик был уничтожен! Отличная работа!</Russian>
-<Chinesesimp>
-</Chinesesimp>
+<Chinesesimp>卡車被摧毀了！做得好！</Chinesesimp>
 <Chinese>卡車被摧毀了！做得好！</Chinese>
 <French>Les camions sont détruits! Bon travail!</French>
 </Key>
@@ -508,16 +507,16 @@
 <French>Ouvrez la page des paramètres dans l'acceuil du serveur pour voir une liste des fonctionnalités disponibles que vous pouvez modifier dans le jeu avant le début de la mission (un administrateur doit le faire).</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_58">
-<English>Mission ® 2007 - 2019 by Xeno</English>
-<Spanish>Misión ® 2007 - 2019 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
-<Portuguese>Mission ® 2007 - 2019 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
-<Korean>Missons ® 2007 - 2019 by Xeno</Korean>
-<Japanese>Mission ® 2007 - 2019 by Xeno</Japanese>
-<Original>Mission ® 2007 - 2019 by Xeno</Original>
-<Russian>Миссиия ® 2007 - 2019 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
-<Chinesesimp>任务 ® 2017 - 2019 Xeno制作 CHL汉化</Chinesesimp>
-<Chinese>任務 ® 2017 - 2019 Xeno製作 leo小新漢化</Chinese>
-<French>Mission ® 2007 - 2019 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
+<English>Mission ® 2007 - 2020 by Xeno</English>
+<Spanish>Misión ® 2007 - 2020 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
+<Portuguese>Mission ® 2007 - 2020 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
+<Korean>Missons ® 2007 - 2020 by Xeno</Korean>
+<Japanese>Mission ® 2007 - 2020 by Xeno</Japanese>
+<Original>Mission ® 2007 - 2020 by Xeno</Original>
+<Russian>Миссиия ® 2007 - 2020 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
+<Chinesesimp>任务 ® 2017 - 2020 Xeno制作 CHL汉化</Chinesesimp>
+<Chinese>任務 ® 2017 - 2020 Xeno製作 leo小新漢化</Chinese>
+<French>Mission ® 2007 - 2020 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_61">
 <English>Have a lot of fun!</English>
@@ -10544,8 +10543,7 @@
 <Japanese>AIグループを援軍としてメインターゲットにリスポーンさせる:</Japanese>
 <Original>Respawn main target enemy AI groups as reinforcements:</Original>
 <Russian>Возрождение ИИ групп на главном задании как подкрепления:</Russian>
-<Chinesesimp>
-</Chinesesimp>
+<Chinesesimp>重新生成主要目標的敵方AI當做增援：</Chinesesimp>
 <Chinese>重新生成主要目標的敵方AI當做增援：</Chinese>
 <French>Réapparition du groupe d'IA en renfort de l'objectif principal:</French>
 </Key>
@@ -13070,6 +13068,30 @@
 <Russian>Random side missions:</Russian>
 <Chinesesimp>Random side missions:</Chinesesimp>
 <French>Random side missions:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2010">
+<English>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</English>
+<Spanish>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Spanish>
+<Portuguese>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Portuguese>
+<Korean>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Korean>
+<Japanese>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Japanese>
+<Original>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Original>
+<Russian>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Russian>
+<Chinesesimp>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Chinesesimp>
+<Chinese>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Chinese>
+<French>An enemy attack has caused a toxic gas leak. Get there and fix the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2011">
+<English>You have sealed the leak!</English>
+<Spanish>You have sealed the leak!</Spanish>
+<Portuguese>You have sealed the leak!</Portuguese>
+<Korean>You have sealed the leak!</Korean>
+<Japanese>You have sealed the leak!</Japanese>
+<Original>You have sealed the leak!</Original>
+<Russian>You have sealed the leak!</Russian>
+<Chinesesimp>You have sealed the leak!</Chinesesimp>
+<Chinese>You have sealed the leak!</Chinese>
+<French>You have sealed the leak!</French>
 </Key>
 </Container>
 </Package>
