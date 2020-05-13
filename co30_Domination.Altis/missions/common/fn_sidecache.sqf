@@ -70,7 +70,7 @@ for "_i" from 0 to (_num_mines - 1) do {
 };
 
 private _cache_dest = false;
-private _endtime = time + 2000;
+private _endtime = time + 3600;
 
 while {true} do {
 	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
