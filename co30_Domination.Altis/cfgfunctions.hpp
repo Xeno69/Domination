@@ -554,6 +554,7 @@ class cfgFunctions {
 			addc(umadel);
 			addc(moveboxm);
 			addc(makteolpmttargets);
+			addc(serverinit);
 		};
 		class Dom_PrePostInit {
 			file = "init";

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "serverinit.sqf"
+#define THIS_FILE "fn_serverinit.sqf"
 #include "..\x_setup.sqf"
 
 d_delvecsmt = [];

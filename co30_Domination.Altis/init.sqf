@@ -17,8 +17,8 @@ enableTeamSwitch false;
 addMissionEventhandler ["EachFrame", {
 	if (isNil "d_init_processed") then {
 		call compile preprocessFileLineNumbers "d_init.sqf";
+		removeMissionEventHandler ["EachFrame", _thisEventHandler];
 	};
-	removeMissionEventHandler ["EachFrame", _thisEventHandler];
 }];
 
 #ifdef __IFA3LITE__

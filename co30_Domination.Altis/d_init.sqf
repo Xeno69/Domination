@@ -331,7 +331,7 @@ if (hasInterface) then {
 if (isServer) then {
 	execVM "bikb\kbinit.sqf";
 
-	call compile preprocessFileLineNumbers "server\serverinit.sqf";
+	call d_fnc_serverinit;
 
 #ifndef __TT__
 	0 spawn {
