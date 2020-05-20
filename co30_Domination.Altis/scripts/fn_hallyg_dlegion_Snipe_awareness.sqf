@@ -211,4 +211,7 @@ while {true} do {
 			};
 		};
 	};
+	
+	sleep (3 + random 3);
+	
 };
