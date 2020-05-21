@@ -1,3 +1,4 @@
 4.27
 
 - Added: Players can now change the Earplugs and 3DMarker toggle keys in the status/settings dialog (you still need to set the user action key in the A3 key/control settings)
+- Fixed: If some AI advanced features were enabled then a snipe awareness script was running every frame on the server

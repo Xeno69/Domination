@@ -111,7 +111,7 @@ if (side _grp == d_side_enemy) then {
 #endif
 (leader _grp) setRank "SERGEANT";
 #ifndef __TT__
-if (d_ai_awareness_rad > 0 || d_snp_aware > 0 || d_ai_pursue_rad > 0 || d_ai_aggressiveshoot > 0) then {
+if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}) then {
 	//advanced awareness
 	if (["Sniper", groupId(_grp)] call BIS_fnc_inString) then {
 		{

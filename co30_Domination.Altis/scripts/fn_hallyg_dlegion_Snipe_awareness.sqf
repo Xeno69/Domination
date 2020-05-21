@@ -17,7 +17,7 @@ private _isLOS = {
 	params ["_looker", "_target", "_FOV"];
 
 	if ([position _looker, getDir _looker, _FOV, position _target] call BIS_fnc_inAngleSector) then {
-		_lineIntersections = lineIntersectsSurfaces [(AGLtoASL (_looker modelToWorldVisual (_looker selectionPosition "pilot"))), getPosASL _target, _target, _looker, true, 1,"GEOM","NONE"];
+		_lineIntersections = lineIntersectsSurfaces [(AGLtoASL (_looker modelToWorldVisual (_looker selectionPosition "pilot"))), getPosASL _target, _target, _looker, true, 1, "GEOM", "NONE"];
 		if (count (_lineIntersections) > 0) exitWith {
 			false
 		};
@@ -100,26 +100,26 @@ while {true} do {
 			if (_isAggressiveShoot == 1) then {
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
 					//to check if unit actually fired
-                	_ammoCount = _unit ammo primaryWeapon _unit;
-                	_magazineCount = count magazinesAmmo _unit; 
+					_ammoCount = _unit ammo primaryWeapon _unit;
+					_magazineCount = count magazinesAmmo _unit; 
 					// execute aggressive shooting
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
 					sleep 15;
 					if (_ammoCount > _unit ammo primaryWeapon _unit || {_magazineCount > count magazinesAmmo _unit}) then {
-                    	//yes the unit actually fired
-                    	_fired = true;
-                    	_lastFired = time;
-                    };
+						//yes the unit actually fired
+						_fired = true;
+						_lastFired = time;
+					};
                     if (_fired) exitWith {
-                    	_executingOccupyCommand = false; //we broke out of the occupy move order
-                    };
+						_executingOccupyCommand = false; //we broke out of the occupy move order
+					};
 				};
 			};
 		} forEach (_playersSortedByDistance);
 		
 		_nearestTargetPlayer = _playersSortedByDistance select 0;
-		        	
+
 		if (_pursueRadius > 0 && {_nearestTargetPlayer distance2D _unit < _pursueRadius}) then {
 			//unit is eligible for a move order
 			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
@@ -131,7 +131,6 @@ while {true} do {
 				_executingOccupyCommand = false; //we broke out of the occupy move order
 			};
 		};
-		
 	} else {
 		//no target nearby
 		if (!_isSniper && {leader _unit == _unit}) then {
@@ -213,5 +212,4 @@ while {true} do {
 	};
 	
 	sleep (3 + random 3);
-	
 };
