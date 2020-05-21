@@ -245,6 +245,7 @@ class cfgFunctions {
 			addc(rmapclick);
 			addc(beam_tele);
 			addc(pcheck);
+			addc(userkeyselchanged);
 		};
 		class Dom_Common {
 			file = "common";

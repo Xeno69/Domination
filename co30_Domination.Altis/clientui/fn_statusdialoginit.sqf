@@ -232,3 +232,15 @@ __ctrl2(2004) ctrlSetText str(d_points_needed # 3);
 __ctrl2(2005) ctrlSetText str(d_points_needed # 4);
 __ctrl2(2006) ctrlSetText str(d_points_needed # 5);
 __ctrl2(2007) ctrlSetText str(d_points_needed # 6);
+
+for "_i" from 1 to 20 do {
+	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
+	private _endstr = (localize format ["str_usract_user_%1", _i]);
+	if !(_usera isEqualTo []) then {
+		_endstr = _endstr + " " + (_usera joinString ",");
+	};
+	__ctrl2(3302) lbAdd _endstr;
+	__ctrl2(3402) lbAdd _endstr;
+};
+__ctrl2(3302) lbSetCurSel d_earplugs_userakey;
+__ctrl2(3402) lbSetCurSel d_3dmarker_userakey;

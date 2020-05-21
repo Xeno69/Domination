@@ -2,6 +2,32 @@ Changelogs
 
 Old...
 
+4.26
+
+- Added: Angry bots by longtimegamer (has to be turned on)
+         There are four new AI settings for allmen and snipers bot behavior:
+         - all enemy infantry bots: on an interval, reveal nearby players with "reveal 4" within configurable radius
+         - all enemy infantry bots: on an interval, check line-of-sight with players and doSuppressiveFire if LOS or isVisible are true within configurable radius
+         - all enemy infantry bots: on an interval, if _fired is true then frequently do "setAmmo 1" (this helps to balance new shooting behavior vs running out of ammo too quickly)
+         - all enemy infantry bots which are free to move: on an interval, if bot is a leader then order the group to move to location of nearest player within configurable radius
+- Added: Parameter to allow camps to simulate penetration and damage by longtimegamer (d_EnableSimulationCamps)
+- Added: Parameter option for very low number of civilian vehicles
+- Added: Parked civilian vehicles (configurable) by longtimegamer (d_enable_civ_vehs, d_enable_civ_vehs_rad, d_enable_civ_vehs_locked in description.ext)
+- Added: New parameter d_sm_dorandom (in description.ext), "Random side missions:" in server lobby. If set to 1/No then side missions are not random but the order is always the same
+- Changed: Wait 10 seconds before spawning the next enemy AI groups at barracks in the AO
+- Changed: Number of units in enemy AI inf groups now depends on player numbers making the mission more friendly for lower player numbers (nothing changes for higher player numbers); can be disabled in params, d_smallgrps
+- Changed: Added new option for d_MainTargets_num (Main Targets in Params server lobby): Order like placed in the editor; target select has to be turned off for it
+- Changed: Civilian unit types, faces, and vehicles now determined by which map is being played (by longtimegamer)
+- Changed: Increased the mission endtime for destroy cache side missions to 1 hour instead of 33 minutes
+- Fixed: Round camp capture time and clip progress capture bar when max value is reached
+- Fixed: Some kick player to lobby messages still showed up
+- Fixed: In the Altis RHS Blufor version the CH53 spawned in the ground and was therefore exploding at every spawn
+- Fixed: Players with enhanced movement mod could escape jail
+- Fixed: Statusbar was updating every frame in non TT versions instead of every 2 seconds only
+- Fixed: When ACE was used in the TT version and a dropped box was moved the box marker was visible for the other side
+- Updated: Spanish and Protuguese translation by Linux
+- Optimization: Lots of scripts optimized yet again (mapondraw runs now about 200 micro seconds faster for example)
+
 4.25
 
 - Fixed: Script error (call eventhandler code, copy and paste in several scripts) broke the mission completely! :(

@@ -13093,6 +13093,30 @@
 <Chinese>You have sealed the leak!</Chinese>
 <French>You have sealed the leak!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2012">
+<English>Earplugs A3 User Action Key:</English>
+<Spanish>Earplugs A3 User Action Key:</Spanish>
+<Portuguese>Earplugs A3 User Action Key:</Portuguese>
+<Korean>Earplugs A3 User Action Key:</Korean>
+<Japanese>Earplugs A3 User Action Key:</Japanese>
+<Original>Earplugs A3 User Action Key:</Original>
+<Russian>Earplugs A3 User Action Key:</Russian>
+<Chinesesimp>Earplugs A3 User Action Key:</Chinesesimp>
+<Chinese>Earplugs A3 User Action Key:</Chinese>
+<French>Earplugs A3 User Action Key:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2013">
+<English>3D Marker A3 User Action Key:</English>
+<Spanish>3D Marker A3 User Action Key:</Spanish>
+<Portuguese>3D Marker A3 User Action Key:</Portuguese>
+<Korean>3D Marker A3 User Action Key:</Korean>
+<Japanese>3D Marker A3 User Action Key:</Japanese>
+<Original>3D Marker A3 User Action Key:</Original>
+<Russian>3D Marker A3 User Action Key:</Russian>
+<Chinesesimp>3D Marker A3 User Action Key:</Chinesesimp>
+<Chinese>3D Marker A3 User Action Key:</Chinese>
+<French>3D Marker A3 User Action Key:</French>
+</Key>
 </Container>
 </Package>
 </Project>
