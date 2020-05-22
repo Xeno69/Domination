@@ -148,6 +148,9 @@ __TRACE_1("","_trg_center")
 __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
+if (d_MissionType == 3) then {
+	d_sm_nearby_cleared = false;
+};
 d_groups_respawn_time_add = 0;
 //limit barracks by d_max_bar_cnt, default is very high but may be lower if mission settings are non-default
 d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;

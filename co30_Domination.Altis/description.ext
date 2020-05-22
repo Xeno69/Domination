@@ -370,9 +370,9 @@ class Params {
 
 	class d_MissionType {
 		title = "$STR_DOM_MISSIONSTRING_1052";
-		values[] = {0,1,2};
+		values[] = {0,1,2,3};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055","$STR_DOM_MISSIONSTRING_1055_MAIN_AND_SIDE"};
 	};
 	
 	class d_with_ranked {

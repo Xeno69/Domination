@@ -9,7 +9,7 @@ if (!isNil "d_sm_check_trigger") then {
 };
 
 private _waittime = 200 + random 10;
-if (d_MissionType != 2) then {
+if (d_MissionType == 0) then {
 	private _num_p = call d_fnc_PlayersNumber;
 	if (_num_p > 0) then {
 		private _fidx = d_time_until_next_sidemission findIf {_num_p <= _x # 0};
@@ -17,6 +17,10 @@ if (d_MissionType != 2) then {
 			_waittime = ((d_time_until_next_sidemission # _fidx # 1) max 20) + random 10;
 		};
 	};
+};
+
+if (d_MissionType == 3) then {
+	_waittime = 45;
 };
 
 sleep _waittime;

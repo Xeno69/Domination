@@ -6,6 +6,13 @@ if (!isServer) exitWith {};
 
 d_last_bonus_vec = "";
 
+d_sm_selected = [];
+d_sm_max_distance_from_mt = 1400;
+d_sm_nearby_cleared = true;
+if (d_MissionType == 3) then {
+	d_sm_nearby_cleared = false;
+};
+
 d_sm_triggervb = [
 	[0, 0, 0],
 	[0, 0, 0, false, 0],
@@ -19,23 +26,25 @@ d_sm_triggervb = [
 
 if (d_with_ai) then {0 spawn d_fnc_delaiserv};
 
-if (d_MissionType in [0,2]) then {
+if (d_MissionType in [0,2,3]) then {
 	0 spawn {
 		scriptName "spawn_serversetup_startsm";
 		sleep 20;
-		if (d_MissionType != 2) then {
+		private _waittime = 15;
+		if (d_MissionType == 0) then {
 			private _num_p = call d_fnc_PlayersNumber;
-			private _waittime = 200 + random 10;
+			_waittime = 200 + random 10;
 			if (_num_p > 0) then {
 				private _fidx = d_time_until_next_sidemission findIf {_num_p <= _x # 0};
 				if (_fidx > -1) then {
 					_waittime = ((d_time_until_next_sidemission # _fidx # 1) max 20) + random 10;
 				};
 			};
-			sleep _waittime;
-		} else {
-			sleep 15;
 		};
+		if (d_MissionType == 3) then {
+			_waittime = 45;
+		};
+		sleep _waittime;
 		0 spawn d_fnc_getsidemission;
 	};
 };
