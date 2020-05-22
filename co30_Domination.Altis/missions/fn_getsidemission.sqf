@@ -56,6 +56,7 @@ if (d_MissionType == 3) then {
 	} forEach d_sm_array;
 	
 	if ((count d_sm_selected) == _sm_selected_size_at_start) then {
+		//unable to find a sidemission that fits our criteria so just set cleared to true
 		d_sm_nearby_cleared = true;
 	};
 	

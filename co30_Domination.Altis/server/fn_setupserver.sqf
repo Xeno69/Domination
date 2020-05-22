@@ -8,7 +8,8 @@ d_last_bonus_vec = "";
 
 d_sm_selected = [];
 d_sm_max_distance_from_mt = 2000;
-d_sm_nearby_cleared = false;
+//if d_MissionType == 3 then this flag is later set to false in createmaintarget
+d_sm_nearby_cleared = true;
 
 d_sm_triggervb = [
 	[0, 0, 0],
