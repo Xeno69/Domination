@@ -32,37 +32,33 @@ private _cur_sm_idx = nil;
 private _smpos = [[0, 0, 0]];
 private _smkey = "";
 private _iter = 0;
+private _sm_selected_size_at_start = 0;
+
+if (!isNil "d_sm_selected" && {!(d_sm_selected isEqualTo [])}) then {
+	_sm_selected_size_at_start = count d_sm_selected;
+};
 
 if (d_MissionType == 3) then {	
 	
-	diag_log [diag_frameno, diag_ticktime, time, format["foooooooooooooo _smpos # 0: %1", _smpos # 0]];
-	diag_log [diag_frameno, diag_ticktime, time, format["foooooooooooooo _smkey: %1", _smkey]];
+	waitUntil {
+		!isNil "d_cur_tgt_pos" && {!(d_cur_tgt_pos isEqualTo []) && {!isNil "d_sm_array" && {!(d_sm_array isEqualTo [])}}}
+	};
 	
-	
-	while {true} do {
-		waitUntil {
-			!isNil "d_cur_tgt_pos" && !(d_cur_tgt_pos isEqualTo []) && !isNil "d_side_missions_random" && !(d_side_missions_random isEqualTo [])
-		};
-	
-		diag_log [diag_frameno, diag_ticktime, time, format["foooooooooooooo2 too far: %1 %2", _smkey, _smpos]];
-		_iter = _iter + 1;
-
-		_cur_sm_idx = d_side_missions_random # _iter;
-		_smkey = "d_sm_" + str _cur_sm_idx;
+	{
+		_smkey = "d_sm_" + str _x;
 		_smpos = _smkey call d_fnc_smmapos;
-		
 		//select sidemission if within max distance from main target and not previously selected
 		if ((d_cur_tgt_pos distance2D (_smpos # 0) < d_sm_max_distance_from_mt) && (d_sm_selected findIf { _x == _smkey } == -1)) exitWith {
 			//add to selected array
 			d_sm_selected pushBack _smkey;
+			_cur_sm_idx = _x;
 		};
-		if (_iter == d_number_side_missions) then {
-			//failed to find a sidemission near the main target, try again later
-			_iter = 0;
-			d_sm_nearby_cleared = true;
-			sleep 90;
-		};
+	} forEach d_sm_array;
+	
+	if ((count d_sm_selected) == _sm_selected_size_at_start) then {
+		d_sm_nearby_cleared = true;
 	};
+	
 } else {
 	_cur_sm_idx = d_side_missions_random # d_current_mission_counter;
 	d_current_mission_counter = d_current_mission_counter + 1;
@@ -73,4 +69,6 @@ __TRACE_1("","_cur_sm_idx")
 //_cur_sm_idx = _this select 0;
 //_cur_sm_idx = 50042;
 
-[_cur_sm_idx] spawn d_fnc_hcsmexec;
+if (!isNil "_cur_sm_idx") then {
+	[_cur_sm_idx] spawn d_fnc_hcsmexec;
+};

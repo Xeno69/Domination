@@ -6456,12 +6456,12 @@
 <French>Missions de type:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1053">
-<English>Main Targets and Side Missions (default)</English>
+<English>Main Targets and Side Missions (Default)</English>
 <Spanish>Misiones por Defecto</Spanish>
 <Portuguese>Tipo de missão padrão</Portuguese>
 <Korean>기본 미션 종류</Korean>
 <Japanese>デフォルトのミッションタイプ</Japanese>
-<Original>Main Targets and Side Missions (default)</Original>
+<Original>Main Targets and Side Missions (Default)</Original>
 <Russian>Города и доп.задания</Russian>
 <Chinesesimp>默认任务类型</Chinesesimp>
 <Chinese>默認任務類型</Chinese>
@@ -6492,14 +6492,14 @@
 <French>Missions secondaires uniquement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1055_MAIN_AND_SIDE">
-<English>Main Targets and Nearby Side Missions</English>
-<Spanish>Main Targets and Nearby Side Missions</Spanish>
-<Portuguese>Main Targets and Nearby Side Missions</Portuguese>
-<Korean>Main Targets and Nearby Side Missions</Korean>
-<Japanese>Main Targets and Nearby Side Missions</Japanese>
-<Original>Main Targets and Nearby Side Missions</Original>
-<Russian>Main Targets and Nearby Side Missions</Russian>
-<Chinesesimp>Main Targets and Nearby Side Missions</Chinesesimp>
+<English>Main Targets and Nearby Side Mission</English>
+<Spanish>Main Targets and Nearby Side Mission</Spanish>
+<Portuguese>Main Targets and Nearby Side Mission</Portuguese>
+<Korean>Main Targets and Nearby Side Mission</Korean>
+<Japanese>Main Targets and Nearby Side Mission</Japanese>
+<Original>Main Targets and Nearby Side Mission</Original>
+<Russian>Main Targets and Nearby Side Mission</Russian>
+<Chinesesimp>Main Targets and Nearby Side Mission</Chinesesimp>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1056">
 <English>Teleport or spawn at MHQ:</English>
@@ -11002,12 +11002,12 @@
 <French>Créer ATV</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1817">
-<English>A high enemy government member is visiting some enemy troops. Find him and elimante him!</English>
+<English>A high enemy government member is visiting some enemy troops. Find him and eliminate him!</English>
 <Spanish>Un alto miembro del gobierno enemigo está visitando algunas tropas enemigas. ¡Encuéntralo y elimínalo!</Spanish>
 <Portuguese>Um alto membro do governo inimigo está visitando algumas tropas inimigas. Encontrem-no e eliminem-no!</Portuguese>
 <Korean>적 정부의 고위급 인사가 적 부대를 방문 중입니다. 그를 찾고 사살하십시오!</Korean>
-<Japanese>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Japanese>
-<Original>A high enemy government member is visiting some enemy troops. Find him and elimante him!</Original>
+<Japanese>A high enemy government member is visiting some enemy troops. Find him and eliminate him!</Japanese>
+<Original>A high enemy government member is visiting some enemy troops. Find him and eliminate him!</Original>
 <Russian>Высокопоставленный член правительства решил посетить подразделения противника. Найдите и ликвидируйте его!</Russian>
 <Chinesesimp>一个敌方的高级政府成员正在慰问军队。找到他并消灭他！</Chinesesimp>
 <Chinese>一個敵方的高級政府成員正在慰問軍隊。找到他並消滅他！</Chinese>

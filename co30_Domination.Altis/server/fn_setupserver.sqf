@@ -7,11 +7,8 @@ if (!isServer) exitWith {};
 d_last_bonus_vec = "";
 
 d_sm_selected = [];
-d_sm_max_distance_from_mt = 1400;
-d_sm_nearby_cleared = true;
-if (d_MissionType == 3) then {
-	d_sm_nearby_cleared = false;
-};
+d_sm_max_distance_from_mt = 2000;
+d_sm_nearby_cleared = false;
 
 d_sm_triggervb = [
 	[0, 0, 0],
