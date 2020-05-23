@@ -150,7 +150,11 @@ __TRACE_1("","_this")
 
 if (d_MissionType == 3) then {
 	d_sm_nearby_cleared = false;
-	0 spawn d_fnc_getsidemission;
+	//0 spawn d_fnc_getsidemission;
+	//51 is a chopper pilot rescue and has been modified to randomly select chopper location
+	private _p = [[[_trg_center, [175,250] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos;
+	"d_sm_51" setMarkerPos _p;
+	[51] spawn d_fnc_hcsmexec;
 };
 d_groups_respawn_time_add = 0;
 //limit barracks by d_max_bar_cnt, default is very high but may be lower if mission settings are non-default

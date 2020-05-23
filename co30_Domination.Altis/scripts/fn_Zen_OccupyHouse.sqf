@@ -108,21 +108,41 @@ if (_buildingRadius < 0) then {
 	_buildingsArray = _buildingsArray0 arrayIntersect _buildingsArray1;
 };
 
-if (count _buildingsArray == 0) exitWith {
-	diag_log "Zen_Occupy House Error : No buildings found.";
-	[]
-};
-
 _buildingPosArray = [];
 0 = [_buildingsArray] call _Zen_ArrayShuffle;
+
+//try to avoid choosing buildings already occupied by players or friendlies
 {
 	_posArray = _x buildingPos -1;
 	if !(_posArray isEqualTo []) then {
-		_buildingPosArray pushBack _posArray;
+		
+		private _isEligible = true;
+		private _distancePlayerSideTooClose = 5;
+		{
+			
+			private _xx = _x; //_xx is the position being tested
+			
+			{
+				if (alive _x && {_x isKindOf "CAManBase" && {side _x == d_side_player }}) then {
+					_isEligible = false;
+				}
+			} forEach (_xx nearEntities _distancePlayerSideTooClose);
+			
+			if (_isEligible) then {
+				_buildingPosArray pushBack _posArray;
+			}	
+		
+		} forEach _posArray;
+		
 	};
 } forEach _buildingsArray;
 
 __TRACE_1("","_buildingPosArray")
+
+if (count _buildingsArray == 0) exitWith {
+	diag_log "Zen_Occupy House Error : No buildings found.";
+	[]
+};
 
 if (_sortHeight) then {
 	{
@@ -269,8 +289,8 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 								} else {
 									breakTo "while";
 								};
-							};
-						};
+							};//end if
+						};//end if
 					};//end if
 				};//end if
 			};//end if

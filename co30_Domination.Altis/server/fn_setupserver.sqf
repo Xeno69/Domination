@@ -24,7 +24,7 @@ d_sm_triggervb = [
 
 if (d_with_ai) then {0 spawn d_fnc_delaiserv};
 
-if (d_MissionType in [0,2,3]) then {
+if (d_MissionType in [0,2]) then {
 	0 spawn {
 		scriptName "spawn_serversetup_startsm";
 		sleep 20;
@@ -38,9 +38,6 @@ if (d_MissionType in [0,2,3]) then {
 					_waittime = ((d_time_until_next_sidemission # _fidx # 1) max 20) + random 10;
 				};
 			};
-		};
-		if (d_MissionType == 3) then {
-			_waittime = 45;
 		};
 		sleep _waittime;
 		0 spawn d_fnc_getsidemission;

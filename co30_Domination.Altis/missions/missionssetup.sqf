@@ -255,6 +255,11 @@ d_sm_folder = "ma3m";
 d_sm_folder = "mifa3";
 #endif
 
+//if mission type has an embedded sidemission then override the ifdefs above
+if (d_MissionType == 3) then {
+	d_sm_folder = "embed";
+};
+
 // Instead of a random vehicle chosen for winning a side mission you can setup it in the mission yourself now
 // Add d_current_sm_bonus_vec to the beginning of a sidemission script with a vehicle class string and that vehicle gets chosen instead of a random one.
 // Examples:
