@@ -88,7 +88,6 @@ if (isServer) then {
 		deleteMarker "d_base_chopper_sb";
 	};
 	deleteMarker "d_base_wreck_sb";
-	d_FLAG_BASE enableSimulationGlobal false;
 };
 
 // position base, side a and b length, direction and circle (false)/rectangle(true), like trigger; for the enemy at base area and marker
@@ -98,10 +97,6 @@ d_base_array = [[markerPos "d_base_marker" # 0, markerPos "d_base_marker" # 1, 1
 #else
 d_EFLAG_BASE allowDamage false;
 d_WFLAG_BASE allowDamage false;
-if (isServer) then {
-	d_EFLAG_BASE enableSimulationGlobal false;
-	d_WFLAG_BASE enableSimulationGlobal false;
-};
 
 "d_base_marker_w" setMarkerAlphaLocal 0;
 "d_base_marker_e" setMarkerAlphaLocal 0;
