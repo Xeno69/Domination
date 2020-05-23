@@ -398,7 +398,7 @@ class D_StatusDialog {
 			onCheckedChanged = "d_maintarget_auto_vd = !d_maintarget_auto_vd; if (d_maintarget_auto_vd) then {systemChat (localize 'STR_DOM_MISSIONSTRING_1965')} else {systemChat (localize 'STR_DOM_MISSIONSTRING_1966')};";
 		};
 #endif
-		class EarplugsUserCaption: AutoVDCaption {
+		class EarplugsUserCaption: ViewDistanceCaption {
 			idc = 3301;
 			y = "0.47 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_2012";
