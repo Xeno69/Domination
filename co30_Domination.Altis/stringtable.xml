@@ -13117,6 +13117,30 @@
 <Chinese>3D Marker A3 User Action Key:</Chinese>
 <French>3D Marker A3 User Action Key:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2014">
+<English>Nightvision mode is disabled by the server administrator!</English>
+<Spanish>Nightvision mode is disabled by the server administrator!</Spanish>
+<Portuguese>Nightvision mode is disabled by the server administrator!</Portuguese>
+<Korean>Nightvision mode is disabled by the server administrator!</Korean>
+<Japanese>Nightvision mode is disabled by the server administrator!</Japanese>
+<Original>Nightvision mode is disabled by the server administrator!</Original>
+<Russian>Nightvision mode is disabled by the server administrator!</Russian>
+<Chinesesimp>Nightvision mode is disabled by the server administrator!</Chinesesimp>
+<Chinese>Nightvision mode is disabled by the server administrator!‧</Chinese>
+<French>Nightvision mode is disabled by the server administrator!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2015">
+<English>Thermal vision mode is disabled by the server administrator!</English>
+<Spanish>Thermal vision mode is disabled by the server administrator!</Spanish>
+<Portuguese>Thermal vision mode is disabled by the server administrator!</Portuguese>
+<Korean>Thermal vision mode is disabled by the server administrator!</Korean>
+<Japanese>Thermal vision mode is disabled by the server administrator!</Japanese>
+<Original>Thermal vision mode is disabled by the server administrator!</Original>
+<Russian>Thermal vision mode is disabled by the server administrator!</Russian>
+<Chinesesimp>Thermal vision mode is disabled by the server administrator!</Chinesesimp>
+<Chinese>Thermal vision mode is disabled by the server administrator!‧</Chinese>
+<French>Thermal vision mode is disabled by the server administrator!</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -1,4 +1,5 @@
 4.28
 
 - Changed: Removed jump flags created at seized main targets in the TT version
+- Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass

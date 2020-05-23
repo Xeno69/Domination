@@ -184,6 +184,7 @@ class cfgFunctions {
 			addc(ttoutsidecheck);
 			addc(jail);
 			addc(repackgard);
+			addc(blockthermalnv);
 		};
 		class Dom_UI {
 			file = "clientui";

@@ -1125,6 +1125,12 @@ _trig = [
 0 spawn d_fnc_ttoutsidecheck;
 #endif
 
+#ifndef __IFA3__
+if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
+	0 spawn d_fnc_blockthermalnv;
+};
+#endif
+
 d_isvdreduced = false;
 #ifndef __TT__
 0 spawn d_fnc_vdhandler;
