@@ -162,10 +162,6 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 						deleteVehicle _otrig;
 					};
 				};
-				
-				if (!_rescued && {time - _resctimestarted > 3600}) then {
-					_is_dead = true;
-				};
 			};
 		} else {
 #ifndef __TT__
@@ -184,78 +180,11 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			if (alive _pilot1 && {!(leader (group _pilot1) call d_fnc_isplayer)} || {alive _pilot2 && {!(leader (group _pilot2) call d_fnc_isplayer)}}) then {
 				_rescued = false;
 			};
-			if (time - _resctimestarted > 3600) then {
-				_is_dead = true;
-			};
 		};
 	};
 
 	sleep 5.621;
-	if (_time_over > 0) then {
-		if (_time_over == 3) then {
-			if (_endtime - time <= 600) then {
-				_time_over = 2;
-#ifndef __TT__
-				[23] call d_fnc_DoKBMsg;
-#else
-				[24] call d_fnc_DoKBMsg;
-#endif
-			};
-		} else {
-			if (_time_over == 2) then {
-				if (_endtime - time <= 300) then {
-					_time_over = 1;
-#ifndef __TT__
-					[25] call d_fnc_DoKBMsg;
-#else
-					[26] call d_fnc_DoKBMsg;
-#endif
-				};
-			} else {
-				if (_time_over == 1) then {
-					if (_endtime - time <= 120) then {
-						_time_over = 0;
-#ifndef __TT__
-						[27] call d_fnc_DoKBMsg;
-#else
-						[28] call d_fnc_DoKBMsg;
-#endif
-					};
-				};
-			};
-		};
-	} else {
-		if (!_enemy_created) then {
-			_enemy_created = true;
-			if (alive _pilot1) then {
-				_pilot1 allowDamage true;
-			};
-			if (alive _pilot2) then {
-				_pilot2 allowDamage true;
-			};
-			deleteVehicle _otrig;
-			private _estart_pos = [_poss, 250] call d_fnc_GetRanPointCircleOuter;
-			private _unit_array = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
-			for "_i" from 1 to ([3,5] call d_fnc_GetRandomRangeInt) do {
-				private _newgroup = [d_enemy_side] call d_fnc_creategroup;
-				private _units = [_estart_pos, _unit_array, _newgroup, false, true] call d_fnc_makemgroup;
-				_newgroup deleteGroupWhenEmpty true;
-				sleep 1.045;
-				private _leader = leader _newgroup;
-				_leader setRank "LIEUTENANT";
-				_newgroup allowFleeing 0;
-				_newgroup setBehaviour "AWARE";
-				private _gwp = _newgroup addWaypoint [_poss, 30];
-				_gwp setWaypointtype "SAD";
-				_gwp setWaypointCombatMode "YELLOW";
-				_gwp setWaypointSpeed "FULL";
-				d_x_sm_rem_ar append _units;
-				{_x triggerDynamicSimulation true} forEach _units;
-				sleep 1.012;
-			};
-			_unit_array = nil;
-		};
-	};
+	
 };
 
 if (!d_sm_resolved) then {
