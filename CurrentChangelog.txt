@@ -1,5 +1,3 @@
-4.27
+4.28
 
-- Added: Players can now change the Earplugs and 3DMarker toggle keys in the status/settings dialog (you still need to set the user action key in the A3 key/control settings)
-- Fixed: If some AI advanced features were enabled then a snipe awareness script was running every frame on the server
-- Fixed: Stupid script error in fn_aftereject.sqf (yeah, suspending is not allowed in non scheduled environment)
+- Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
