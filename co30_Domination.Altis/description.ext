@@ -381,6 +381,13 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_transf_allow {
+		title = "$STR_DOM_MISSIONSTRING_2016";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_sm_dorandom {
 		title = "$STR_DOM_MISSIONSTRING_2009";

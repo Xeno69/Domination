@@ -108,7 +108,7 @@ if (!d_with_ace) then {
 	d_DomUserMenu pushBack [[localize "STR_DOM_MISSIONSTRING_1727", localize "STR_DOM_MISSIONSTRING_1726"] select d_earplugs_fitted, [call _fnc_inc_num], "", -5, [["expression", "40 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
 
-if (d_with_ranked) then {
+if (d_with_ranked && {d_transf_allow == 0}) then {
 	if (count d_allplayers - 1 > 0) then {
 		d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 

@@ -13141,6 +13141,18 @@
 <Chinese>Thermal vision mode is disabled by the server administrator!‧</Chinese>
 <French>Thermal vision mode is disabled by the server administrator!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2016">
+<English>Allow transfer of points to other players in ranked mode:</English>
+<Spanish>Allow transfer of points to other players in ranked mode:</Spanish>
+<Portuguese>Allow transfer of points to other players in ranked mode:</Portuguese>
+<Korean>Allow transfer of points to other players in ranked mode:</Korean>
+<Japanese>Allow transfer of points to other players in ranked mode:</Japanese>
+<Original>Allow transfer of points to other players in ranked mode:</Original>
+<Russian>Allow transfer of points to other players in ranked mode:</Russian>
+<Chinesesimp>Allow transfer of points to other players in ranked mode:</Chinesesimp>
+<Chinese>Allow transfer of points to other players in ranked mode:</Chinese>
+<French>Allow transfer of points to other players in ranked mode:</French>
+</Key>
 </Container>
 </Package>
 </Project>
