@@ -35,7 +35,9 @@ private _vec = createVehicle [d_illum_tower, _poss, [], 0, "NONE"];
 _vec setVectorUp [0,0,1];
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
-["d_main_target_radiotower", _poss,"ICON","ColorBlack",[0.5,0.5],localize "STR_DOM_MISSIONSTRING_521",0,"mil_dot"] call d_fnc_CreateMarkerGlobal;
+if (d_ao_markers == 1) then {
+	["d_main_target_radiotower", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+};
 
 if (d_with_dynsim == 0) then {
 	[_vec, 5] spawn d_fnc_enabledynsim;
@@ -166,8 +168,10 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		_wf setVariable ["d_FLAG", _flagPole, true];
 		private _maname = format ["d_camp_%1", _wf];
 		__TRACE_2("","_i","_maname")
-		[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
-		_wf setVariable ["d_camp_mar", _maname];
+		if (d_ao_markers == 1) then {
+			[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
+			_wf setVariable ["d_camp_mar", _maname];
+		};
 		_flagPole setFlagTexture (call d_fnc_getenemyflagtex);
 		if (d_with_dynsim == 0) then {
 			[_flagPole, 5] spawn d_fnc_enabledynsim;

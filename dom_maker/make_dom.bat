@@ -14,11 +14,6 @@ del *.pbo
 
 md %MASTER%
 xcopy ..\%BASE_MASTER%\*.* %MASTER% /E /Y
-cd %MASTER%
-cd fsms
-del *.bifsm
-cd ..
-cd ..
 
 rem Blufor Altis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.altis

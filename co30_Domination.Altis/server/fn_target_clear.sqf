@@ -133,7 +133,9 @@ if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn 
 private _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";
-	deleteMarker (_x getVariable "d_camp_mar");
+	if (d_ao_markers == 1) then {
+		deleteMarker (_x getVariable "d_camp_mar");
+	};
 	_del_camps_stuff pushBack _x;
 	if (!isNull _flag) then {
 		_del_camps_stuff pushBack _flag;

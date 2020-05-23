@@ -13153,6 +13153,17 @@
 <Chinese>Allow transfer of points to other players in ranked mode:</Chinese>
 <French>Allow transfer of points to other players in ranked mode:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2017">
+<English>Turn off markers at AO for tower and camps:</English>
+<Spanish>Turn off markers at AO for tower and camps:</Spanish>
+<Portuguese>Turn off markers at AO for tower and camps:</Portuguese>
+<Korean>Turn off markers at AO for tower and camps:</Korean>
+<Japanese>Turn off markers at AO for tower and camps:</Japanese>
+<Original>Turn off markers at AO for tower and camps:</Original>
+<Russian>Turn off markers at AO for tower and camps:</Russian>
+<Chinesesimp>Turn off markers at AO for tower and camps:</Chinesesimp>
+<French>Turn off markers at AO for tower and camps:</French>
+</Key>
 </Container>
 </Package>
 </Project>
