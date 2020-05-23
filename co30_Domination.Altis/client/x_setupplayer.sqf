@@ -334,6 +334,7 @@ if (d_ParaAtBase == 0) then {
 #endif
 };
 
+#ifndef __TT__
 if (d_MissionType != 2) then {
 	{
 		if (d_jumpflag_vec == "") then {
@@ -343,6 +344,7 @@ if (d_MissionType != 2) then {
 		};
 	} forEach ((allMissionObjects d_flag_pole) select {!isNil {_x getVariable "d_is_jf"} && {isNil {_x getVariable "d_jf_id"}}});
 };
+#endif
 
 if (d_all_sm_res) then {d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_522"} else {[false] spawn d_fnc_getsidemissionclient};
 

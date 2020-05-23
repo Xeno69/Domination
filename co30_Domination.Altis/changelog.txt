@@ -1,3 +1,4 @@
 4.28
 
+- Changed: Removed jump flags created at seized main targets in the TT version
 - Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass

@@ -126,7 +126,9 @@ if !(d_maintargets_list isEqualTo []) then {
 
 sleep 3.321;
 
+#ifndef __TT__
 if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
+#endif
 
 private _del_camps_stuff = [];
 {
