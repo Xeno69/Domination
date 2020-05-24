@@ -180,8 +180,6 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						ropeDestroy _x;
 					} forEach (_ropes select {!isNull _x});
 
-					_oldmass = (_chopper getVariable "d_lobm") select 1;
-
 					if (_oldmass > -1) then {
 						[_liftobj, _oldmass] remoteExecCall ["setMass"];
 						_chopper setVariable ["d_lobm", nil, true];
