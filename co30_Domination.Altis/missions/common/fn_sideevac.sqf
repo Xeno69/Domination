@@ -55,22 +55,22 @@ _otrig setVariable ["d_objs", [_pilot1, _pilot2]];
 if (d_MissionType == 3) then {
 
 	[
-		_poss,											// Params: 1. Array, the building(s) nearest this position is used
+		([[[_poss, 35]],[]] call BIS_fnc_randomPos),											// Params: 1. Array, the building(s) nearest this position is used
 		[_pilot1],									//         2. Array of objects, the units that will garrison the building(s)
-		65,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+		-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
 		false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
-		true,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+		false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 		true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 		false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 		2   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
 	] call d_fnc_Zen_OccupyHouse;
 	
 	[
-		([[[_poss, [15,45] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos),											// Params: 1. Array, the building(s) nearest this position is used
+		([[[_poss, 35]],[]] call BIS_fnc_randomPos),											// Params: 1. Array, the building(s) nearest this position is used
 		[_pilot2],									//         2. Array of objects, the units that will garrison the building(s)
-		65,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+		-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
 		false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
-		true,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+		false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 		true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 		false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 		2   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
@@ -80,6 +80,8 @@ if (d_MissionType == 3) then {
 	sleep 1;
 	_pilot1 setUnitPos "DOWN";
 	_pilot2 setUnitPos "DOWN";
+	_pilot1 forceSpeed 0;
+	_pilot2 forceSpeed 0;
 	_owngroup setCombatMode "BLUE";
 	sleep 180;
 	//180 seconds then good luck, boys.
@@ -89,7 +91,7 @@ if (d_MissionType == 3) then {
 	if (alive _pilot2) then {
 		_pilot2 allowDamage true;
 	};
-	_distanceToEnablePilotMovement = 1.5;
+	_distanceToEnablePilotMovement = 3;
 };
 
 sleep 15;
@@ -117,6 +119,7 @@ private _pcheck_fnc = {
 		private _ogroup = group _x;
 		_x setUnitPos "AUTO";
 		_x enableAI "PATH";
+		_x forceSpeed -1;
 		[_x] join _p;
 		deleteGroup _ogroup;
 	} forEach _u;
@@ -227,3 +230,4 @@ if (!isNull _otrig) then {
 sleep 0.5;
 
 d_sm_resolved = true;
+d_sm_nearby_cleared = true;
