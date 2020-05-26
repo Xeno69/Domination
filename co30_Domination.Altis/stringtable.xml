@@ -12898,7 +12898,7 @@
 <Korean>귀관은 %1 팀킬 수로 인해 교도소에 수감되었습니다, 수감시간은 %2 초 입니다!!!!</Korean>
 <Japanese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Japanese>
 <Original>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Original>
-<Russian>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Russian>
+<Russian>Вы наказаны за teamkill(s) %1 , время наказания %2 секунд!!!!</Russian>
 <Chinesesimp>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Chinesesimp>
 <Chinese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Chinese>
 <French>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</French>
@@ -12910,7 +12910,7 @@
 <Korean>수감시간 초기화:</Korean>
 <Japanese>Rest jail time:</Japanese>
 <Original>Rest jail time:</Original>
-<Russian>Rest jail time:</Russian>
+<Russian>Время наказания:</Russian>
 <Chinesesimp>Rest jail time:</Chinesesimp>
 <Chinese>Rest jail time:</Chinese>
 <French>Rest jail time:</French>
@@ -12922,7 +12922,7 @@
 <Korean>%1 초</Korean>
 <Japanese>%1 seconds</Japanese>
 <Original>%1 seconds</Original>
-<Russian>%1 seconds</Russian>
+<Russian>%1 секунд</Russian>
 <Chinesesimp>%1 seconds</Chinesesimp>
 <Chinese>%1 seconds</Chinese>
 <French>%1 seconds</French>
@@ -12934,7 +12934,7 @@
 <Korean>석방되었습니다! 올바른 행동을 하세요!</Korean>
 <Japanese>You are free again! Behave properly!</Japanese>
 <Original>You are free again! Behave properly!</Original>
-<Russian>You are free again! Behave properly!</Russian>
+<Russian>Вы отбыли наказание! Ведите себя подобающе!</Russian>
 <Chinesesimp>You are free again! Behave properly!</Chinesesimp>
 <Chinese>You are free again! Behave properly!</Chinese>
 <French>You are free again! Behave properly!</French>
@@ -12946,7 +12946,7 @@
 <Korean>귀관은 너무 많은 팀킬로 교도소로 이송 될 것입니다!!!</Korean>
 <Japanese>You are beeing transfered to jail because of too much teamkilling!!!</Japanese>
 <Original>You are beeing transfered to jail because of too much teamkilling!!!</Original>
-<Russian>You are beeing transfered to jail because of too much teamkilling!!!</Russian>
+<Russian>Вам вынесено наказание из-за слишком большого количества teamkilling!!!</Russian>
 <Chinesesimp>You are beeing transfered to jail because of too much teamkilling!!!</Chinesesimp>
 <Chinese>You are beeing transfered to jail because of too much teamkilling!!!</Chinese>
 <French>You are beeing transfered to jail because of too much teamkilling!!!</French>
@@ -12958,7 +12958,7 @@
 <Korean>귀관은 기지로 이송되고 있습니다!!!</Korean>
 <Japanese>You are beeing transfered back to base!!!</Japanese>
 <Original>You are beeing transfered back to base!!!</Original>
-<Russian>You are beeing transfered back to base!!!</Russian>
+<Russian>Вы возвращаетесь на базу!!!</Russian>
 <Chinesesimp>You are beeing transfered back to base!!!</Chinesesimp>
 <Chinese>You are beeing transfered back to base!!!</Chinese>
 <French>You are beeing transfered back to base!!!</French>
@@ -12970,7 +12970,7 @@
 <Korean>차량으로 다른 플레이어 수송에 대한 포인트!</Korean>
 <Japanese>points for transporting another player in a vehicle!</Japanese>
 <Original>points for transporting another player in a vehicle!</Original>
-<Russian>points for transporting another player in a vehicle!</Russian>
+<Russian>очков за перевозку другого игрока в транспортном средстве!</Russian>
 <Chinesesimp>points for transporting another player in a vehicle!</Chinesesimp>
 <Chinese>points for transporting another player in a vehicle!</Chinese>
 <French>points for transporting another player in a vehicle!</French>
@@ -12982,7 +12982,7 @@
 <Korean>Seize condition for main target:</Korean>
 <Japanese>Seize condition for main target:</Japanese>
 <Original>Seize condition for main target:</Original>
-<Russian>Seize condition for main target:</Russian>
+<Russian>Выполнить условие для главной цели:</Russian>
 <Chinesesimp>Seize condition for main target:</Chinesesimp>
 <Chinese>Seize condition for main target:</Chinese>
 <French>Seize condition for main target:</French>
@@ -12994,7 +12994,7 @@
 <Korean>All camps captured and radio tower destroyed</Korean>
 <Japanese>All camps captured and radio tower destroyed</Japanese>
 <Original>All camps captured and radio tower destroyed</Original>
-<Russian>All camps captured and radio tower destroyed</Russian>
+<Russian>Захватить все бункеры и уничтожить радиовышку</Russian>
 <Chinesesimp>All camps captured and radio tower destroyed</Chinesesimp>
 <Chinese>All camps captured and radio tower destroyed</Chinese>
 <French>All camps captured and radio tower destroyed</French>
@@ -13006,7 +13006,7 @@
 <Korean>Low number of AI units, all camps captured and radio tower destroyed</Korean>
 <Japanese>Low number of AI units, all camps captured and radio tower destroyed</Japanese>
 <Original>Low number of AI units, all camps captured and radio tower destroyed</Original>
-<Russian>Low number of AI units, all camps captured and radio tower destroyed</Russian>
+<Russian>Небольшое количество подразделений AI, захватить все бункеры и уничтожить радиовышку</Russian>
 <Chinesesimp>Low number of AI units, all camps captured and radio tower destroyed</Chinesesimp>
 <Chinese>Low number of AI units, all camps captured and radio tower destroyed</Chinese>
 <French>Low number of AI units, all camps captured and radio tower destroyed</French>
@@ -13018,7 +13018,7 @@
 <Korean>Low number of AI units and radio tower destroyed</Korean>
 <Japanese>Low number of AI units and radio tower destroyed</Japanese>
 <Original>Low number of AI units and radio tower destroyed</Original>
-<Russian>Low number of AI units and radio tower destroyed</Russian>
+<Russian>Небольшое количество подразделений AI и уничтожить радиовышку</Russian>
 <Chinesesimp>Low number of AI units and radio tower destroyed</Chinesesimp>
 <Chinese>Low number of AI units and radio tower destroyed</Chinese>
 <French>Low number of AI units and radio tower destroyed</French>
@@ -13030,7 +13030,7 @@
 <Korean>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Korean>
 <Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Japanese>
 <Original>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Original>
-<Russian>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Russian>
+<Russian>Взрывчатка удалена. Вы находитесь либо воздухе или слишком близко к MHQ (меньше, чем 9м) или слишком близко к ящику с боеприпасами</Russian>
 <Chinesesimp>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Chinesesimp>
 <Chinese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Chinese>
 <French>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</French>
@@ -13042,7 +13042,7 @@
 <Korean>Reduce number of AI units in groups depending on player numbers</Korean>
 <Japanese>Reduce number of AI units in groups depending on player numbers</Japanese>
 <Original>Reduce number of AI units in groups depending on player numbers</Original>
-<Russian>Reduce number of AI units in groups depending on player numbers</Russian>
+<Russian>Уменьшить кол-во юнитов в группах AI в зависимости от кол-ва игроков на сервере</Russian>
 <Chinesesimp>Reduce number of AI units in groups depending on player numbers</Chinesesimp>
 <French>Reduce number of AI units in groups depending on player numbers</French>
 </Key>
@@ -13053,7 +13053,7 @@
 <Korean>Order like placed in the editor</Korean>
 <Japanese>Order like placed in the editor</Japanese>
 <Original>Order like placed in the editor</Original>
-<Russian>Order like placed in the editor</Russian>
+<Russian>Сайл-миссии по нумерации в редакторе</Russian>
 <Chinesesimp>Order like placed in the editor</Chinesesimp>
 <Chinese>Order like placed in the editor</Chinese>
 <French>Order like placed in the editor</French>
@@ -13065,7 +13065,7 @@
 <Korean>Random side missions:</Korean>
 <Japanese>Random side missions:</Japanese>
 <Original>Random side missions:</Original>
-<Russian>Random side missions:</Russian>
+<Russian>Случайные сайд-миссии:</Russian>
 <Chinesesimp>Random side missions:</Chinesesimp>
 <French>Random side missions:</French>
 </Key>
@@ -13076,7 +13076,7 @@
 <Korean>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Korean>
 <Japanese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Japanese>
 <Original>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Original>
-<Russian>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Russian>
+<Russian>Атака противника вызвала утечку токсичного газа. Доберитесь до места и немедленно устраните утечку! Внимание, враг все еще находится в этом районе! Не забудьте респиратор!</Russian>
 <Chinesesimp>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Chinesesimp>
 <Chinese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Chinese>
 <French>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</French>
@@ -13088,7 +13088,7 @@
 <Korean>You have sealed the leak!</Korean>
 <Japanese>You have sealed the leak!</Japanese>
 <Original>You have sealed the leak!</Original>
-<Russian>You have sealed the leak!</Russian>
+<Russian>Вы устранили утечку!</Russian>
 <Chinesesimp>You have sealed the leak!</Chinesesimp>
 <Chinese>You have sealed the leak!</Chinese>
 <French>You have sealed the leak!</French>
@@ -13100,7 +13100,7 @@
 <Korean>Earplugs A3 User Action Key:</Korean>
 <Japanese>Earplugs A3 User Action Key:</Japanese>
 <Original>Earplugs A3 User Action Key:</Original>
-<Russian>Earplugs A3 User Action Key:</Russian>
+<Russian>Беруши A3 User Action Key:</Russian>
 <Chinesesimp>Earplugs A3 User Action Key:</Chinesesimp>
 <Chinese>Earplugs A3 User Action Key:</Chinese>
 <French>Earplugs A3 User Action Key:</French>
@@ -13112,7 +13112,7 @@
 <Korean>3D Marker A3 User Action Key:</Korean>
 <Japanese>3D Marker A3 User Action Key:</Japanese>
 <Original>3D Marker A3 User Action Key:</Original>
-<Russian>3D Marker A3 User Action Key:</Russian>
+<Russian>3D-Маркер A3 User Action Key:</Russian>
 <Chinesesimp>3D Marker A3 User Action Key:</Chinesesimp>
 <Chinese>3D Marker A3 User Action Key:</Chinese>
 <French>3D Marker A3 User Action Key:</French>
@@ -13124,7 +13124,7 @@
 <Korean>Nightvision mode is disabled by the server administrator!</Korean>
 <Japanese>Nightvision mode is disabled by the server administrator!</Japanese>
 <Original>Nightvision mode is disabled by the server administrator!</Original>
-<Russian>Nightvision mode is disabled by the server administrator!</Russian>
+<Russian>Режим ночного видения отключен администратором сервера!</Russian>
 <Chinesesimp>Nightvision mode is disabled by the server administrator!</Chinesesimp>
 <Chinese>Nightvision mode is disabled by the server administrator!‧</Chinese>
 <French>Nightvision mode is disabled by the server administrator!</French>
@@ -13136,7 +13136,7 @@
 <Korean>Thermal vision mode is disabled by the server administrator!</Korean>
 <Japanese>Thermal vision mode is disabled by the server administrator!</Japanese>
 <Original>Thermal vision mode is disabled by the server administrator!</Original>
-<Russian>Thermal vision mode is disabled by the server administrator!</Russian>
+<Russian>Режим тепловизора отключен администратором сервера!</Russian>
 <Chinesesimp>Thermal vision mode is disabled by the server administrator!</Chinesesimp>
 <Chinese>Thermal vision mode is disabled by the server administrator!‧</Chinese>
 <French>Thermal vision mode is disabled by the server administrator!</French>
@@ -13148,7 +13148,7 @@
 <Korean>Allow transfer of points to other players in ranked mode:</Korean>
 <Japanese>Allow transfer of points to other players in ranked mode:</Japanese>
 <Original>Allow transfer of points to other players in ranked mode:</Original>
-<Russian>Allow transfer of points to other players in ranked mode:</Russian>
+<Russian>Разрешить передачу очков другим игрокам в ранговом режиме:</Russian>
 <Chinesesimp>Allow transfer of points to other players in ranked mode:</Chinesesimp>
 <Chinese>Allow transfer of points to other players in ranked mode:</Chinese>
 <French>Allow transfer of points to other players in ranked mode:</French>
@@ -13160,7 +13160,7 @@
 <Korean>Turn off markers at AO for tower and camps:</Korean>
 <Japanese>Turn off markers at AO for tower and camps:</Japanese>
 <Original>Turn off markers at AO for tower and camps:</Original>
-<Russian>Turn off markers at AO for tower and camps:</Russian>
+<Russian>Выключить маркеры для радиовышки и бункеров:</Russian>
 <Chinesesimp>Turn off markers at AO for tower and camps:</Chinesesimp>
 <French>Turn off markers at AO for tower and camps:</French>
 </Key>
