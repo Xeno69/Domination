@@ -103,7 +103,7 @@ if (count d_resolved_targets < d_MainTargets) then {
 			0 spawn {
 				scriptName "spawn_x_target_clear_client_sendscore";
 				sleep (0.5 + random 2);
-				[player, d_ranked_a # 9, 6] remoteExecCall ["d_fnc_addscore", 2];
+				[player, 6] remoteExecCall ["d_fnc_addscore", 2];
 			};
 		};
 	};

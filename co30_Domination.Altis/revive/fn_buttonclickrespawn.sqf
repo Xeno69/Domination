@@ -34,7 +34,7 @@ if (d_beam_target == "D_BASE_D") then {
 		_respawn_pos = [(vehicle _lead) modelToWorldVisual [0, -8, 0], getPosASL _lead] select (isNull objectParent _lead);
 		_respawn_pos set [2, _lead distance (getPos _lead)];
 		if (d_with_ranked || {d_database_found}) then {
-			[_lead, 1, 12] remoteExecCall ["d_fnc_addscore", 2];
+			[_lead, 12] remoteExecCall ["d_fnc_addscore", 2];
 		};
 		if (!d_tt_ver) then {
 			d_player_in_base = player inArea d_base_array;

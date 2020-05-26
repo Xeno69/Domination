@@ -82,21 +82,21 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
 			systemChat format [localize "STR_DOM_MISSIONSTRING_334", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
 			if (d_with_ranked || {d_database_found}) then {
-				private _addscore = if (d_orig_sfunc_obj isKindOf "Air") then {
-					(d_ranked_a # 1) # 0
+				private _extra = if (d_orig_sfunc_obj isKindOf "Air") then {
+					0
 				} else {
 					if (d_orig_sfunc_obj isKindOf "Tank") then {
-						(d_ranked_a # 1) # 1
+						1
 					} else {
 						if (d_orig_sfunc_obj isKindOf "Car") then {
-							(d_ranked_a # 1) # 2
+							2
 						} else {
-							(d_ranked_a # 1) # 3
+							3
 						};
 					};
 				};
-				if (_addscore > 0) then {
-					[player, _addscore, 9] remoteExecCall ["d_fnc_addscore", 2];
+				if (_extra > 0) then {
+					[player, 9, _extra] remoteExecCall ["d_fnc_addscore", 2];
 				};
 #ifndef __TT__
 				if (player inArea d_base_array) then {

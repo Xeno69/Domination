@@ -238,6 +238,24 @@ if (isServer) then {
 		case 2: {[0.4,0.2]};
 		case 3: {[0.6,0.3]};
 	};
+	if (isNil "d_addscore_a") then {
+		d_addscore_a = [
+			5, // 1 - barracks building destroyed at main target
+			5, // 2 - mobile HQ building destroyed at main target
+			5, // 3 - radio tower destroyed at main target
+			5, // 4 - player has taken camp
+			5, // 5 - player has resolved main target mission
+			30, // 6 - extra points seizing the main target
+			10, // 7 - points for reviving another player
+			10 // 8 - points for helping solving the sidemission
+			[3,2,1,0], // 9 - points for repairing/refueling a vehicle
+			5, // 10 - points for healing another unit
+			3, // 11 - points for another player healing at a player mash
+			1, // 12 - points for another player spawning at squad leader
+			1, // 13 - points for transporting another player in a vehicle
+			20 // 14 - points for bringing a wreck to the wreck repair point
+		];
+	};
 };
 
 if (isNil "d_ranked_a") then {

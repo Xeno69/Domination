@@ -6,5 +6,6 @@
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
 - Changed: Russian translation updated, by Babayka
+- Changed: Award points, for example points a player gets for destroying a barrack building, can now be changed in d_addscore_a array (available in initcommon.sqf and database dom_settings table). Only available in ranked and database mode
 - Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
 - Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
