@@ -408,7 +408,7 @@ class D_StatusDialog {
 			y = "0.5 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this, 0] call d_fnc_userkeyselchanged"; 
 		};
-		class ThreeDMarkerUserCaption: AutoVDCaption {
+		class ThreeDMarkerUserCaption: ViewDistanceCaption {
 			idc = 3401;
 			y = "0.55 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_2013";
