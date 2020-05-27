@@ -247,7 +247,7 @@ if (isServer) then {
 			5, // 5 - player has resolved main target mission
 			30, // 6 - extra points seizing the main target
 			10, // 7 - points for reviving another player
-			10 // 8 - points for helping solving the sidemission
+			10, // 8 - points for helping solving the sidemission
 			[3,2,1,0], // 9 - points for repairing/refueling a vehicle
 			5, // 10 - points for healing another unit
 			3, // 11 - points for another player healing at a player mash
