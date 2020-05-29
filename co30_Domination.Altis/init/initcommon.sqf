@@ -38,7 +38,8 @@ if (isNil "paramsArray") then {
 	};
 };
 
-d_with_ranked = d_with_ranked == 0;
+d_no_ranked_weapons = d_with_ranked == 2;
+d_with_ranked = d_with_ranked == 0 || {d_with_ranked == 2};
 #ifndef __TT__
 d_with_ai = d_with_ai == 0;
 #else

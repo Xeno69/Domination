@@ -13164,6 +13164,18 @@
 <Chinesesimp>Turn off markers at AO for tower and camps:</Chinesesimp>
 <French>Turn off markers at AO for tower and camps:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2018">
+<English>Ranked mode on but weapons not ranked</English>
+<Spanish>Ranked mode on but weapons not ranked</Spanish>
+<Portuguese>Ranked mode on but weapons not ranked</Portuguese>
+<Korean>Ranked mode on but weapons not ranked</Korean>
+<Japanese>Ranked mode on but weapons not ranked</Japanese>
+<Original>Ranked mode on but weapons not ranked</Original>
+<Russian>Ranked mode on but weapons not ranked</Russian>
+<Chinesesimp>Ranked mode on but weapons not ranked</Chinesesimp>
+<Chinese>Ranked mode on but weapons not ranked‧</Chinese>
+<French>Ranked mode on but weapons not ranked</French>
+</Key>
 </Container>
 </Package>
 </Project>
