@@ -3,7 +3,7 @@
 - Added: New server lobby param/description.ext param to disable transfer of points from one player to another in ranked mode ("Allow transfer of points to other players in ranked mode:", d_transf_allow)
 - Added: New server lobby param/description.ext param to disable AO tower and camps markers ("Turn off markers at AO for tower and camps:", d_ao_markers)
 - Added: TT gameplay change: When all camps are seized and all barracks are destroyed by one side a one minute timer will run to give the other team a chance to retake a camp (timer visual on screen)
-- Added: You can now select also select ranked mode with no weapons ranked (value 2 for d_with_ranked in description.ext or in params "Ranked:" values "Ranked mode on but weapons not ranked") 
+- Added: You can now also select ranked mode with no weapons ranked (value 2 for d_with_ranked in description.ext or in params "Ranked:" values "Ranked mode on but weapons not ranked") 
 - Changed: Removed jump flags created at seized main targets in the TT version
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
