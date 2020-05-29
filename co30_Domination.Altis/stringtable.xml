@@ -13176,6 +13176,42 @@
 <Chinese>Ranked mode on but weapons not ranked‧</Chinese>
 <French>Ranked mode on but weapons not ranked</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2019">
+<English>Last chance to retake a camp...</English>
+<Spanish>Last chance to retake a camp...</Spanish>
+<Portuguese>Last chance to retake a camp...</Portuguese>
+<Korean>Last chance to retake a camp...</Korean>
+<Japanese>Last chance to retake a camp...</Japanese>
+<Original>Last chance to retake a camp...</Original>
+<Russian>Last chance to retake a camp...</Russian>
+<Chinesesimp>Last chance to retake a camp...</Chinesesimp>
+<Chinese>Last chance to retake a camp...</Chinese>
+<French>Last chance to retake a camp...</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2020">
+<English>TI Mode:</English>
+<Spanish>TI Mode:</Spanish>
+<Portuguese>TI Mode:</Portuguese>
+<Korean>TI Mode:!</Korean>
+<Japanese>TI Mode:</Japanese>
+<Original>TI Mode:</Original>
+<Russian>TI Mode:</Russian>
+<Chinesesimp>TI Mode:！</Chinesesimp>
+<Chinese>TI Mode:</Chinese>
+<French>TI Mode:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2021">
+<English>WHOT</English>
+<Spanish>WHOT</Spanish>
+<Portuguese>WHOT</Portuguese>
+<Korean>WHOT</Korean>
+<Japanese>WHOT</Japanese>
+<Original>WHOT</Original>
+<Russian>WHOT</Russian>
+<Chinesesimp>WHOT</Chinesesimp>
+<Chinese>WHOT</Chinese>
+<French>WHOT</French>
+</Key>
 </Container>
 </Package>
 </Project>

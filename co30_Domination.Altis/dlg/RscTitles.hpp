@@ -645,7 +645,7 @@ class d_sat_timode {
 			idc=-1;
 			style="16+512";
 			lineSpacing=0.95;
-			text="TI Mode:";
+			text = "$STR_DOM_MISSIONSTRING_2020";
 			x = "SafeZoneX + SafeZoneW - 0.2";
 			y = "SafeZoneY + (SafeZoneH / 2)";
 			w=0.3;
@@ -658,7 +658,7 @@ class d_sat_timode {
 		};
 		class ti_text: ti_caption {
 			idc = 50;
-			text="WHOT";
+			text="$STR_DOM_MISSIONSTRING_2021";
 			y = "SafeZoneY + (SafeZoneH / 2) + 0.05";
 		};
 	};
@@ -756,7 +756,7 @@ class d_RscLastChance {
 		class LCText: RscText2 {
 			idc = 3900;
 			style = 0;
-			text = "Last chance to retake a camp...";
+			text = "$STR_DOM_MISSIONSTRING_2019";
 			x = SafeZoneX + 0.05;
 			y = SafeZoneY + 0.3;
 			font = DEFAULTFONT;
