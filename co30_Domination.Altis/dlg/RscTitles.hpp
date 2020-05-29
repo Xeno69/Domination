@@ -742,3 +742,36 @@ class d_infobar {
 		};
 	};
 };
+
+class d_RscLastChance {
+	idd = -1;
+	movingEnable = 0;
+	duration = 1e+011;
+	fadeout = 1;
+	name = "d_RscLastChance";
+	sizeEx = 256;
+	onLoad = "uiNamespace setVariable ['d_RscLastChance', _this select 0]";
+	onUnLoad = "uiNamespace setVariable ['d_RscLastChance', nil]";
+	class controls {
+		class LCText: RscText2 {
+			idc = 3900;
+			style = 0;
+			text = "Last chance to retake a camp...";
+			x = SafeZoneX + 0.05;
+			y = SafeZoneY + 0.3;
+			font = DEFAULTFONT;
+			w = 0.3;
+			h = 0.1;
+			sizeEx = 0.035;
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+		};
+		class Pic: D_RscPicture {
+			idc = 50;
+			x = SafeZoneX + 0.118; y = SafeZoneY + 0.4; w = 0.11; h = 0.11;
+			text = "\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_0_ca.paa";
+			sizeEx = 256;
+			colorText[] = {1, 1, 1, 0.8};
+		};
+	};
+};
