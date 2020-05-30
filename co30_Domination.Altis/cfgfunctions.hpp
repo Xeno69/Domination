@@ -367,7 +367,6 @@ class cfgFunctions {
 			addc(sidearti);
 			addc(sideconvoy);
 			addc(sideevac);
-			addc(sideevac_event);
 			addc(sidefactory);
 			addc(sideflag);
 			addc(sideprisoners);
@@ -384,6 +383,10 @@ class cfgFunctions {
 			addc(sideobjects);
 			addc(sidetransferdata);
 			addc(sidecache);
+		};
+		class Dom_MainTarget_Events {
+			file = "missions\events";
+			addc(sideevac_event);
 		};
 		class Dom_Server {
 			file = "server";

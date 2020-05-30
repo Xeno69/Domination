@@ -5,7 +5,9 @@
 
 params ["_target_radius", "_target_center"];
 
-// Shot down chopper as an event
+// Shot down chopper as an event - no timer.
+// Random crash site location, pilots are teleported to a nearby building and ordered posture down.
+// The pilots are vulnerable to damage after 30 seconds.
 
 if !(isServer) exitWith {};
 
@@ -16,6 +18,7 @@ if (true) exitWith {};
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
+//position the crash site near target center at max distance 250m and min 150m 
 d_x_mt_event_pos = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
 d_x_mt_event_ar = [];
 
