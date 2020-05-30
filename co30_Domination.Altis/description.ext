@@ -355,18 +355,11 @@ class Params {
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
 
-	class d_with_targetselect {
-		title = "$STR_DOM_MISSIONSTRING_1953";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
 	class d_with_targetselect_count {
 		title = "$STR_DOM_MISSIONSTRING_1953A";
-		values[] = {4,8,12,-1};
+		values[] = {0,4,8,12,-1};
 		default = 4;
-		texts[] = {"4 targets","8 targets","12 targets","Entire map"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363", "4 targets","8 targets","12 targets","Entire map"};
 	};
 
 	class d_MissionType {

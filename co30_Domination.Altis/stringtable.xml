@@ -12399,17 +12399,6 @@
 <Chinesesimp>注意. 你被敌人的空军前进控制员发现了. 空袭即将到来!!!</Chinesesimp>
 <French>Attention. Vous avez été repéré par les FAC ennemis. Frappe aérienne entrante!!!</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1953">
-<English>Players can select next main target:</English>
-<Spanish>Los jugadores pueden seleccionar el siguiente objetivo principal:</Spanish>
-<Portuguese>Os jogadores podem selecionar o próximo alvo principal:</Portuguese>
-<Korean>플레이어가 다음 메인미션지를 선택 할 지 여부:</Korean>
-<Japanese>Players can select next main target:</Japanese>
-<Original>Players can select next main target:</Original>
-<Russian>Игроки могут выбрать следующую основную цель:</Russian>
-<Chinesesimp>玩家可以选择下一个主要目标:</Chinesesimp>
-<French>Les joueurs peuvent sélectionner la prochaine cible principale:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1953A">
 <English>Players can select from available targets:</English>
 <Spanish>Los jugadores pueden seleccionar entre los objetivos disponibles:</Spanish>

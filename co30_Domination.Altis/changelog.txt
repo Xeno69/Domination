@@ -9,6 +9,7 @@
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
 - Changed: Russian translation updated, by Babayka
 - Changed: Award points, for example points a player gets for destroying a barrack building, can now be changed in d_addscore_a array (available in initcommon.sqf and database dom_settings table). Only available in ranked and database mode
+- Changed: Removed d_with_targetselect/"Players can select next main target:" and integrated it in d_with_targetselect_count/"Players can select from available targets:"
 - Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
 - Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
 - Fixed: When a player changed the TeamSwitch key in the A3 settings when the mission was running the mission didn't pick up the new key

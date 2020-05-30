@@ -22,7 +22,7 @@ if (d_first_time_after_start) then {
 	};
 };
 
-if (d_with_targetselect == 0 && {!d_tt_ver}) then {
+if (d_with_targetselect_count > 0 && {!d_tt_ver}) then {
 	call d_fnc_selectnexttarget;
 };
 
