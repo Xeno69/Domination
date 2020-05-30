@@ -247,6 +247,7 @@ class cfgFunctions {
 			addc(beam_tele);
 			addc(pcheck);
 			addc(userkeyselchanged);
+			addc(lastchanceclient);
 		};
 		class Dom_Common {
 			file = "common";
@@ -559,6 +560,7 @@ class cfgFunctions {
 			addc(moveboxm);
 			addc(makteolpmttargets);
 			addc(serverinit);
+			addc(lastchance);
 		};
 		class Dom_PrePostInit {
 			file = "init";

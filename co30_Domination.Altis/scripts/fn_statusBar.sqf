@@ -1,5 +1,5 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_statusbar.sqf"
+#define THIS_FILE "scripts\fn_statusbar.sqf"
 #include "..\x_setup.sqf"
 
 disableSerialization;

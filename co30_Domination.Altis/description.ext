@@ -217,6 +217,7 @@ class CfgRemoteExec {
 		class d_fnc_AddKills {allowedTargets = 2;};
 		class d_fnc_addgrhcace {allowedTargets = 1;};
 		class d_fnc_ttpvkill {allowedTargets = 2;};
+		class d_fnc_lastchanceclient {allowedTargets = 1;};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -384,9 +385,9 @@ class Params {
 	
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2018"};
 	};
 	
 	class d_transf_allow {
