@@ -15,10 +15,7 @@ sleep 0.01;
 
 if (!d_side_main_done) then {
 	if (alive d_fixor_var) then {
-		sleep 30 + random 30;
-		if (alive d_fixor_var) then {
-			d_fixor_var setDamage 1;
-		};	
+		d_fixor_var setDamage 1;
 	};
 	d_side_main_done = true;
 };

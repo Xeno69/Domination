@@ -86,7 +86,7 @@ _tsar = call {
 };
 #else
 //_tsar = ["d_mt_radio_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = 0 spawn d_fnc_target_clear", ""];
-_tsar1 = ["d_mt_radio_down && {!d_lastchancerunning && {!d_lastchanceover && {&& {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}}", "d_lastchancerunning = true; 0 = 0 spawn d_fnc_lastchance", ""];
+private _tsar1 = ["d_mt_radio_down && {!d_lastchancerunning && {!d_lastchanceover && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}}", "d_lastchancerunning = true; 0 = 0 spawn d_fnc_lastchance", ""];
 _tsar = ["d_mt_radio_down && {d_lastchanceover && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}", "0 = 0 spawn d_fnc_target_clear", ""];
 #endif
 

@@ -215,7 +215,6 @@ d_num_barracks_tt = d_num_barracks_objs;
 publicVariable "d_num_barracks_objs";
 publicVariable "d_num_barracks_tt";
 
-#ifndef __TT__
 private _idx = floor random (count _parray);
 _poss = _parray select _idx;
 __TRACE_1("1","_poss")
@@ -248,6 +247,7 @@ d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
 sleep 0.1;
 
+#ifndef __TT__
 if (d_enable_civs == 1) then {
 	[_trg_center] spawn d_fnc_civilianmodule;
 };
@@ -257,9 +257,7 @@ if (d_enable_civs == 1) then {
 {
 	[str _x, getPos _x, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 } forEach d_mt_barracks_obj_ar;
-if (!d_tt_ver) then {
-	[str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
-};
+[str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 
 private _wp_array_inf = [_trg_center, _radius, 0, 0, 0.7, 2] call d_fnc_getwparray;

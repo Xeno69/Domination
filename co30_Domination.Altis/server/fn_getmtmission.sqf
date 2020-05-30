@@ -1,4 +1,5 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_getmtmission.sqf"
 #include "..\x_setup.sqf"
 
@@ -316,6 +317,10 @@ switch (_sec_kind) do {
 		__specops;
 	};
 };
+
+#ifdef __DEBUG__
+[str d_fixor_var, d_fixor_var, "ICON", "ColorBlack", [0.5, 0.5], "Main target mission", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+#endif
 
 d_sec_kind = _sec_kind; publicVariable "d_sec_kind";
 private _s = "";

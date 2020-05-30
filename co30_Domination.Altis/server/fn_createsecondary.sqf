@@ -70,16 +70,16 @@ d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_ra
 
 if (d_ao_check_for_ai in [0, 1]) then {
 	sleep 1.234;
-	#ifndef __TT__
+#ifndef __TT__
 	private "_nrcamps";
 	if (d_max_camp_cnt > 0) then {
 		_nrcamps = d_max_camp_cnt
 	} else {
 		_nrcamps = (ceil random 5) max 3;
 	};
-	#else
+#else
 	private _nrcamps = (ceil random 6) max 4;
-	#endif
+#endif
 
 	d_sum_camps = _nrcamps;
 

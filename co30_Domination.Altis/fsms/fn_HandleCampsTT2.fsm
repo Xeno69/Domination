@@ -34,7 +34,7 @@ link14[] = {12,13};
 link15[] = {13,8};
 link16[] = {14,12};
 globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-367.563843,704.661621,873.183167,-366.072449,796,1254,1};
-window[] = {2,-1,-1,-1,-1,744,26,986,26,3,814};
+window[] = {2,-1,-1,-1,-1,1030,312,1272,312,3,814};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -404,7 +404,7 @@ class FSM
                          "	};" \n
                          "};" \n
                          "" \n
-                         "d_recapturedcamp = true;" \n
+                         "if (d_lastchancerunning) then {d_recapturedcamp = true};" \n
                          "" \n
                          "private _timeend = time + _delay;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

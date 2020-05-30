@@ -44,28 +44,19 @@ if (surfaceIsWater (d_enemyai_respawn_pos # 0)) then {
 	d_enemyai_respawn_pos set [0, _tmppos];
 	d_enemyai_respawn_pos set [2, (d_cur_tgt_pos getDir _tmppos) + 180];
 };
-
-d_enemyai_mt_camp_pos = [d_enemyai_respawn_pos # 0, 600, 400, d_enemyai_respawn_pos # 1] call d_fnc_GetRanPointSquare;
-if (d_enemyai_mt_camp_pos isEqualTo []) then {
-	private _al = 800;
-	private _bl = 600;
+#else
+private _rpos = [d_cur_tgt_pos, d_mttarget_radius_patrol + 500, d_mttarget_radius_patrol + 1200, 2, 0, 0.7] call d_fnc_findSafePos;
+if (_rpos isEqualTo [] || {surfaceIsWater _rpos}) then {
 	private _counter = 0;
-	while {true} do {
-		d_enemyai_mt_camp_pos = [d_enemyai_respawn_pos # 0, _al, _bl, d_enemyai_respawn_pos # 1] call d_fnc_GetRanPointSquare;
-		if !(d_enemyai_mt_camp_pos isEqualTo []) exitWith {};
-		_al = _al + 200;
-		_bl = _bl + 200;
-		_counter = _counter + 1;
-		if (_counter > 50) exitWith {d_enemyai_mt_camp_pos = d_cur_tgt_pos};
-		sleep 0.2;
+	while {_counter < 50} do {
+		_rpos = [d_cur_tgt_pos, d_mttarget_radius_patrol + 500, d_mttarget_radius_patrol + 1200, 2, 0, 0.7] call d_fnc_findSafePos;
+		if (!(_rpos isEqualTo []) && {!surfaceIsWater _rpos}) exitWith {};
+	};
+	if (_rpos isEqualTo [] || {surfaceIsWater _rpos}) then {
+		_rpos =+ d_cur_tgt_pos;
 	};
 };
-#endif
-#ifdef __GROUPDEBUG__
-if (!d_tt_ver) then {
-	if (markerType "enemyai_mt_camp_pos" != "") then {deleteMarkerLocal "enemyai_mt_camp_pos"};
-	["enemyai_mt_camp_pos", d_enemyai_mt_camp_pos, "ICON", "ColorBlack", [1,1], "enemy camp pos", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
-};
+d_enemyai_respawn_pos = [_rpos, d_cur_tgt_pos getDir _rpos];
 #endif
 
 [d_cur_tgt_pos, d_cur_target_radius] spawn d_fnc_createmaintarget;

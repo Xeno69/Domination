@@ -49,13 +49,11 @@ if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
 		if (!_istatatic) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if (!_ismen) then {
-				if (!d_tt_ver) then {
-					{
-						[_x, 3] call d_fnc_setekmode;
-						_x setVariable ["d_respawninfo", [_grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
-						_x setVariable ["d_thevecs", _vecs];
-					} forEach _vecs;
-				};
+				{
+					[_x, 3] call d_fnc_setekmode;
+					_x setVariable ["d_respawninfo", [_grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
+					_x setVariable ["d_thevecs", _vecs];
+				} forEach _vecs;
 			} else {
 				{
 					[_x, 3] call d_fnc_setekmode;
