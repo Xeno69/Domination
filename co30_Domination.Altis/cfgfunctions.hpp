@@ -367,6 +367,7 @@ class cfgFunctions {
 			addc(sidearti);
 			addc(sideconvoy);
 			addc(sideevac);
+			addc(sideevac_event);
 			addc(sidefactory);
 			addc(sideflag);
 			addc(sideprisoners);
@@ -553,6 +554,7 @@ class cfgFunctions {
 			addc(addscore);
 			addc(sub_box);
 			addc(nodamoff);
+			addc(nodamoffdyn);
 			addc(umadel);
 			addc(moveboxm);
 			addc(makteolpmttargets);

@@ -375,6 +375,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
 	};
 	
+	class d_with_MainTargetEvents {
+		title = "$STR_DOM_MISSIONSTRING_1052_EVENTS";
+		values[] = {0,1,2,-1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418","$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_399B","$STR_DOM_MISSIONSTRING_418B"};
+	};
+	
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1};
