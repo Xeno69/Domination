@@ -42,7 +42,11 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 				//	[player, player, true] call ace_arsenal_fnc_openBox;
 				//};
 			} else {
-				["Open", [nil, player]] call bis_fnc_arsenal;
+				if (!d_no_ranked_weapons) then {
+					["Open", [nil, player]] call bis_fnc_arsenal;
+				} else {
+					["Open", true] call bis_fnc_arsenal;
+				};
 			};
 		};
 	};

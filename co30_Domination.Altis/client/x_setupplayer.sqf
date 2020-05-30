@@ -70,8 +70,6 @@ d_player_vecs = [];
 
 disableMapIndicators [true, true, false, false];
 
-d_actionkeys_teamswitch = actionKeys "TeamSwitch";
-
 if !(d_additional_respawn_points isEqualTo []) then {
 	private _helparrp = [];
 	{
@@ -209,58 +207,60 @@ if (d_weather == 0) then {
 };
 
 if (d_with_ranked) then {
-	// basic rifle at start
-	private _weapp = "";
-	private _magp = "";
-	switch (d_own_side) do {
-		case "WEST": {
-			if (d_rhs) exitWith {
-				_weapp = "rhs_weap_m16a4";
-				_magp = "rhs_mag_30Rnd_556x45_M855_Stanag";
+	if (!d_no_ranked_weapons) then {
+		// basic rifle at start
+		private _weapp = "";
+		private _magp = "";
+		switch (d_own_side) do {
+			case "WEST": {
+				if (d_rhs) exitWith {
+					_weapp = "rhs_weap_m16a4";
+					_magp = "rhs_mag_30Rnd_556x45_M855_Stanag";
+				};
+				if (d_cup) exitWith {
+					_weapp = "CUP_arifle_M16A2";
+					_magp = "CUP_30Rnd_556x45_Stanag";
+				};
+				if (d_ifa3lite) exitWith {
+					_weapp = "LIB_K98";
+					_magp = "LIB_5Rnd_792x57";
+				};
+				if (d_gmcwg) exitWith {
+					_weapp = "gm_g3a3_oli";
+					_magp = "gm_20rnd_762x51mm_b_t_dm21_g3_blk";
+				};
+				_weapp = "arifle_MX_F";
+				_magp = "30Rnd_65x39_caseless_mag";
 			};
-			if (d_cup) exitWith {
-				_weapp = "CUP_arifle_M16A2";
-				_magp = "CUP_30Rnd_556x45_Stanag";
+			case "EAST": {
+				if (d_rhs) exitWith {
+					_weapp = "rhs_weap_ak74";
+					_magp = "rhs_30Rnd_545x39_AK";
+				};
+				if (d_cup) exitWith {
+					_weapp = "CUP_arifle_AK74";
+					_magp = "CUP_30Rnd_545x39_AK_M";
+				};
+				if (d_ifa3lite) exitWith {
+					_weapp = "LIB_M1903A3_Springfield";
+					_magp = "LIB_5Rnd_762x63";
+				};
+				if (d_gmcwg) exitWith {
+					_weapp = "gm_mpiak74n_brn";
+					_magp = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
+				};
+				_weapp = "arifle_MX_F";
+				_magp = "30Rnd_65x39_caseless_mag";
 			};
-			if (d_ifa3lite) exitWith {
-				_weapp = "LIB_K98";
-				_magp = "LIB_5Rnd_792x57";
+			case "GUER": {
+				_weapp = "arifle_MX_F";
+				_magp = "30Rnd_65x39_caseless_mag";
 			};
-			if (d_gmcwg) exitWith {
-				_weapp = "gm_g3a3_oli";
-				_magp = "gm_20rnd_762x51mm_b_t_dm21_g3_blk";
-			};
-			_weapp = "arifle_MX_F";
-			_magp = "30Rnd_65x39_caseless_mag";
 		};
-		case "EAST": {
-			if (d_rhs) exitWith {
-				_weapp = "rhs_weap_ak74";
-				_magp = "rhs_30Rnd_545x39_AK";
-			};
-			if (d_cup) exitWith {
-				_weapp = "CUP_arifle_AK74";
-				_magp = "CUP_30Rnd_545x39_AK_M";
-			};
-			if (d_ifa3lite) exitWith {
-				_weapp = "LIB_M1903A3_Springfield";
-				_magp = "LIB_5Rnd_762x63";
-			};
-			if (d_gmcwg) exitWith {
-				_weapp = "gm_mpiak74n_brn";
-				_magp = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
-			};
-			_weapp = "arifle_MX_F";
-			_magp = "30Rnd_65x39_caseless_mag";
-		};
-		case "GUER": {
-			_weapp = "arifle_MX_F";
-			_magp = "30Rnd_65x39_caseless_mag";
-		};
+		removeAllWeapons player;
+		player addMagazines [_magp, 6];
+		player addWeapon _weapp;
 	};
-	removeAllWeapons player;
-	player addMagazines [_magp, 6];
-	player addWeapon _weapp;
 
 	player setVariable ["d_pprimweap", primaryWeapon player];
 	player setVariable ["d_psecweap", secondaryWeapon player];
@@ -990,7 +990,7 @@ if (d_arsenal_mod == 0) then {
 
 for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	private _proceed = true;
-	if (d_with_ranked && {!(_i in [5, 22, 23, 26])}) then {
+	if (d_with_ranked && {d_no_ranked_weapons && {!(_i in [5, 22, 23, 26])}}) then {
 		_proceed = false;
 	};
 	if (_proceed && {!((d_remove_from_arsenal # _i) isEqualTo []) && {!((bis_fnc_arsenal_data # _i) isEqualTo [])}}) then {

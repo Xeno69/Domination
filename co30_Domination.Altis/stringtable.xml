@@ -12808,15 +12808,15 @@
 <French>points pour l'utilisation de tentes Medic pour la guérison!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1988">
-<English>You can teleport from the base flag to other positions, no need to waste choppers...</English>
+<English>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</English>
 <Spanish>Puede teletransportarse desde la bandera base a otras posiciones, sin necesidad de desperdiciar helicópteros...</Spanish>
 <Portuguese>Você pode se teleportar da bandeira base para outras posições, sem necessidade de desperdiçar helicópteros...</Portuguese>
 <Korean>귀관은 베이스의 텔레포트 기능으로 다른 위치로 갈 수 있다,헬기를 낭비 할 필요가 없다...</Korean>
-<Japanese>You can teleport from the base flag to other positions, no need to waste choppers...</Japanese>
-<Original>You can teleport from the base flag to other positions, no need to waste choppers...</Original>
+<Japanese>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</Japanese>
+<Original>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</Original>
 <Russian>Вы можете телепортироваться от флага на другие позиции, не нужно тратить вертолеты...</Russian>
-<Chinesesimp>You can teleport from the base flag to other positions, no need to waste choppers...</Chinesesimp>
-<Chinese>You can teleport from the base flag to other positions, no need to waste choppers...</Chinese>
+<Chinesesimp>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</Chinesesimp>
+<Chinese>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</Chinese>
 <French>Vous pouvez vous téléporter du drapeau de la base vers d'autres positions, pas besoin de gaspiller des hélicoptères...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1989">
