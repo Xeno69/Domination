@@ -18,7 +18,7 @@ if (!hasInterface || {(_this # 3) != "Heal" || {isNil {(_this # 0) getVariable "
 	if (d_with_ranked || {d_database_found}) then {
 		private _ow = (_this select 0) getVariable "d_owner";
 		if (!isNil "_ow") then {
-			[_ow, d_ranked_a # 7, 11] remoteExecCall ["d_fnc_addscore", 2]
+			[_ow, 11] remoteExecCall ["d_fnc_addscore", 2]
 		};
 	};
 };

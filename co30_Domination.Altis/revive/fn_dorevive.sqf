@@ -12,11 +12,11 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 			if (xr_max_lives != -1) then {
 				if (d_with_ranked) then {
 					hintSilent format [localize "STR_DOM_MISSIONSTRING_916", xr_help_bonus, d_ranked_a # 21];
-					[player, d_ranked_a # 21, 7] remoteExecCall ["d_fnc_addscore", 2];
+					[player, 7] remoteExecCall ["d_fnc_addscore", 2];
 				} else {
 					hintSilent format [localize "STR_DOM_MISSIONSTRING_915", xr_help_bonus];
 					if (d_database_found) then {
-						[player, d_ranked_a # 21, 7] remoteExecCall ["d_fnc_addscore", 2];
+						[player, 7] remoteExecCall ["d_fnc_addscore", 2];
 					 };
 				};
 				if (xr_max_lives > -1) then {
@@ -27,7 +27,7 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 				};
 			} else {
 				if (d_database_found) then {
-					[player, d_ranked_a # 21, 7] remoteExecCall ["d_fnc_addscore", 2];
+					[player, 7] remoteExecCall ["d_fnc_addscore", 2];
 				};
 			};
 		};

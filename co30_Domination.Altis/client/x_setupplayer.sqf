@@ -1039,7 +1039,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	};
 };
 
-if (d_with_ranked) then {
+if (d_with_ranked && {!d_no_ranked_weapons}) then {
 	0 spawn d_fnc_weaponcargo_ranked;
 };
 

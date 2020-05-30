@@ -53,6 +53,9 @@ d_sum_camps = -91;
 
 #ifdef __TT__
 d_mt_barracks_down = false;
+d_lastchanceover = false;
+d_lastchancerunning = false;
+d_recapturedcamp = false;
 #endif
 
 #ifndef __TT__
@@ -83,9 +86,13 @@ _tsar = call {
 };
 #else
 //_tsar = ["d_mt_radio_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = 0 spawn d_fnc_target_clear", ""];
-_tsar = ["d_mt_radio_down && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}", "0 = 0 spawn d_fnc_target_clear", ""];
+_tsar1 = ["d_mt_radio_down && {!d_lastchancerunning && {!d_lastchanceover && {&& {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}}", "d_lastchancerunning = true; 0 = 0 spawn d_fnc_lastchance", ""];
+_tsar = ["d_mt_radio_down && {d_lastchanceover && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}", "0 = 0 spawn d_fnc_target_clear", ""];
 #endif
 
 __TRACE_1("","_tsar")
 d_current_trigger = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", false], _tsar] call d_fnc_createtriggerlocal;
 __TRACE_1("","d_current_trigger")
+#ifdef __TT__
+d_current_triggerTT = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", true], _tsar1] call d_fnc_createtriggerlocal;
+#endif
