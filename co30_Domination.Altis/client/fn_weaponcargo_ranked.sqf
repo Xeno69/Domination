@@ -3,6 +3,35 @@
 #define THIS_FILE "fn_weaponcargo_ranked.sqf"
 #include "..\x_setup.sqf"
 
+// bis_fnc_arsenal_data indices
+// 0 primary weapon
+// 1 launcher
+// 2 handgun
+// 3 uniform
+// 4 vest
+// 5 backpack
+// 6 helmet
+// 7 goggles
+// 8 nvgoggles
+// 9 binoculars
+// 10 map
+// 11 GPS, UavTerminal
+// 12 Radio
+// 13 Compass
+// 14 Watch
+// 15 Heads
+// 16 Voice
+// 17 Badge
+// 18 ?
+// 19 ?
+// 20 ?
+// 21 ?
+// 22 Grenades
+// 23 Explosives
+// 24 Detectors, First Aid Kit
+// 25 ?
+// 26 magazines
+
 waitUntil {!d_arsenal_opened};
 
 private _rank = rank player;
@@ -22,6 +51,23 @@ _helperar append (d_misc_store getVariable (_rank + "_PISTOLS"));
 __TRACE_1("PISTOLS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
+[_vec, bis_fnc_arsenal_data # 7, false, false] call BIS_fnc_addVirtualItemCargo;
+
+_helperar =+ bis_fnc_arsenal_data # 10;
+_helperar = _helperar - ["ItemMap"];
+[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
+_helperar =+ bis_fnc_arsenal_data # 11;
+_helperar = _helperar - ["ItemGPS"];
+[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
+_helperar =+ bis_fnc_arsenal_data # 12;
+_helperar = _helperar - ["ItemRadio"];
+[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
+_helperar =+ bis_fnc_arsenal_data # 13;
+_helperar = _helperar - ["ItemCompass"];
+[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
+_helperar =+ bis_fnc_arsenal_data # 14;
+_helperar = _helperar - ["ItemWatch"];
+[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 
 [_vec, bis_fnc_arsenal_data # 22, false, false] call BIS_fnc_addVirtualMagazineCargo;
 [_vec, bis_fnc_arsenal_data # 23, false, false] call BIS_fnc_addVirtualMagazineCargo;
