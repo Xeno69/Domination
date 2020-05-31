@@ -1040,6 +1040,17 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 };
 
 if (d_with_ranked && {!d_no_ranked_weapons}) then {
+	d_non_check_items = [];
+	d_non_check_items append (bis_fnc_arsenal_data # 7);
+	d_non_check_items append (bis_fnc_arsenal_data # 8);
+	d_non_check_items append (bis_fnc_arsenal_data # 9);
+	d_non_check_items append (bis_fnc_arsenal_data # 10);
+	d_non_check_items append (bis_fnc_arsenal_data # 11);
+	d_non_check_items append (bis_fnc_arsenal_data # 12);
+	d_non_check_items append (bis_fnc_arsenal_data # 13);
+	d_non_check_items append (bis_fnc_arsenal_data # 14);
+	d_non_check_items append (bis_fnc_arsenal_data # 24);
+	d_non_check_items apply {toLowerANSI _x};
 	0 spawn d_fnc_weaponcargo_ranked;
 };
 

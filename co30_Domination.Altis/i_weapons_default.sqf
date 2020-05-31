@@ -223,6 +223,7 @@ private _all_weapons_items_blufor = [
 		]
 	],
 	// additional weapons and items, no rank
+	// no longer used!
 	[
 		0,  // 0 = always added for each rank in the ranked version
 		"ITEMS",
@@ -450,6 +451,7 @@ private _all_weapons_items_opfor = [
 		]
 	],
 	// additional weapons and items, no rank
+	// no longer used!
 	[
 		0,  // 0 = always added for each rank in the ranked version
 		"ITEMS",

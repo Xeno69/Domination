@@ -16,7 +16,9 @@ if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 	_unit unlinkItem _item;
 };
 
-if (!d_with_ranked) exitWith {};
+if (!d_with_ranked || {d_no_ranked_weapons}) exitWith {};
+
+_item = toLowerANSI _item;
 
 private _cfgi = configFile>>"CfgWeapons">>_item;
 
@@ -24,14 +26,16 @@ if (!isClass(_cfgi)) exitWith {
 	__TRACE_1("not of type weapon","_item")
 };
 
-_item = toLowerANSI _item;
+if (_item in d_non_check_items) exitWith {
+	__TRACE_1("item is in d non check items","_item")
+};
 
 private _rank = rank player;
 __TRACE_1("","_rank")
 private _isvalid = _item in (d_misc_store getVariable (_rank + "_ONED"));
 
 private _exit_it = false;
-if (!_isvalid && {!(_item in d_non_check_items)}) then {
+if (!_isvalid) then {
 	private _prw = player getVariable "d_pprimweap";
 	if (_prw != primaryWeapon player) then {
 		player removeWeapon (primaryWeapon player);

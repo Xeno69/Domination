@@ -52,22 +52,14 @@ __TRACE_1("PISTOLS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
 [_vec, bis_fnc_arsenal_data # 7, false, false] call BIS_fnc_addVirtualItemCargo;
-
-_helperar =+ bis_fnc_arsenal_data # 10;
-_helperar = _helperar - ["ItemMap"];
-[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
-_helperar =+ bis_fnc_arsenal_data # 11;
-_helperar = _helperar - ["ItemGPS"];
-[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
-_helperar =+ bis_fnc_arsenal_data # 12;
-_helperar = _helperar - ["ItemRadio"];
-[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
-_helperar =+ bis_fnc_arsenal_data # 13;
-_helperar = _helperar - ["ItemCompass"];
-[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
-_helperar =+ bis_fnc_arsenal_data # 14;
-_helperar = _helperar - ["ItemWatch"];
-[_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 8, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 9, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 10, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 11, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 12, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 13, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 14, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 24, false, false] call BIS_fnc_addVirtualItemCargo;
 
 [_vec, bis_fnc_arsenal_data # 22, false, false] call BIS_fnc_addVirtualMagazineCargo;
 [_vec, bis_fnc_arsenal_data # 23, false, false] call BIS_fnc_addVirtualMagazineCargo;
