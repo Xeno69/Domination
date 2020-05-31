@@ -379,7 +379,7 @@ class Params {
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1,2};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2018"};
 	};
 	
@@ -1352,6 +1352,7 @@ class CfgSounds {
 	class d_Ui_cc {name="d_Ui_cc";sound[]={"\sounds\ui_cc.wss",db,1.0};titles[] = {};};
 	class d_fanfare {name = "d_fanfare";sound[] = {"sounds\fanfare.wss",1.0,1.0};titles[] = {};};
 	class d_war {name = "d_war";sound[] = {"sounds\aawar.ogg",db+10,1.0};titles[] = {};};
+	class d_rankup {name = "d_rankup";sound[] = {"sounds\rankup.ogg",db+10,1.0};titles[] = {};};
 	//class AR_Rappel_Loop {name = "AR_Rappel_Loop"; sound[] = {"sounds\AR_Rappel_Loop.ogg", db+20, 1}; titles[] = {0,""};};
 	//class AR_Rappel_Start {name = "AR_Rappel_Start"; sound[] = {"sounds\AR_Rappel_Start.ogg", db+20, 1};titles[] = {0,""};};
 	//class AR_Rappel_End {name = "AR_Rappel_End"; sound[] = {"sounds\AR_Rappel_End.ogg", db+20, 1}; titles[] = {0,""};};
