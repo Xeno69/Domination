@@ -55,7 +55,8 @@ private _garrisonUnits = {
 		_fillEvenly,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 		_fillTopDown,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 		_disableTeleport,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-		_unitMovementMode   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+		_unitMovementMode,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+		true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
 	] call d_fnc_Zen_OccupyHouse;
 	sleep 0.01;
 	__TRACE_1("","_unitsNotGarrisoned")
@@ -594,5 +595,20 @@ if (d_occ_bldgs == 1) then {
 #endif
 
 [_wp_array_vecs, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
+
+if (d_with_MainTargetEvents != 0) then {
+	// todo - add more events - stop an execution, kidnap an officer, defuse a bomb, convoys through warzone
+	private _doEvent = false;
+	if (d_with_MainTargetEvents == -1) then {
+		_doEvent = true;
+	} else {
+		if (d_with_MainTargetEvents == 1 && {(random 100 < 30)}) then { _doEvent = true; };
+		if (d_with_MainTargetEvents == 2 && {(random 100 < 70)}) then { _doEvent = true; };
+	};
+	
+	if (_doEvent) then {
+		[d_cur_target_radius, _trg_center] spawn d_fnc_sideevac_event;
+	};
+};
 
 _wp_array_pat = nil;

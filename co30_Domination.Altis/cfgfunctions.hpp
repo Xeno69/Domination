@@ -385,6 +385,10 @@ class cfgFunctions {
 			addc(sidetransferdata);
 			addc(sidecache);
 		};
+		class Dom_MainTarget_Events {
+			file = "missions\events";
+			addc(sideevac_event);
+		};
 		class Dom_Server {
 			file = "server";
 			addc(addkillsai);
@@ -554,6 +558,7 @@ class cfgFunctions {
 			addc(addscore);
 			addc(sub_box);
 			addc(nodamoff);
+			addc(nodamoffdyn);
 			addc(umadel);
 			addc(moveboxm);
 			addc(makteolpmttargets);

@@ -18,6 +18,7 @@ d_mt_spotted = false;
 d_mt_radio_down = false;
 d_mt_barracks_down = false;
 d_mt_mobile_hq_down = false;
+d_mt_event_resolved = false;
 
 addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
 if (d_MissionType != 2) then {

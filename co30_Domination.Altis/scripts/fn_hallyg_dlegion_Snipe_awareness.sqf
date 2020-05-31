@@ -154,7 +154,8 @@ while {true} do {
 						true,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 						true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 						true,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-						1   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+						1,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+						true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
 					] call d_fnc_Zen_OccupyHouse;
 					_executingOccupyCommand = true;
 				} else {
@@ -168,7 +169,8 @@ while {true} do {
 							false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 							true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 							true,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-							1   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+							1,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+							true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
 						] call d_fnc_Zen_OccupyHouse;
 						_executingOccupyCommand = true;
 					};

@@ -23,6 +23,7 @@
 //                0 - unit is free to move immediately (default: 0)
 //                1 - unit is free to move after a firedNear event is triggered
 //                2 - unit is static, no movement allowed
+//  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -43,7 +44,8 @@ params [
 	["_fillEvenly", false, [true]],
 	["_sortHeight", false, [true]],
 	["_doMove", false, [true]],
-	["_unitMovementMode", 0, [0]]
+	["_unitMovementMode", 0, [0]],
+	["_isRequireRoofOverhead", false, [true]]
 ];
 
 if (_center isEqualTo [0,0,0]) exitWith {
@@ -98,6 +100,18 @@ _Zen_ArrayShuffle = {
 			_array set [_j, _temp];
 		};
 	};
+};
+
+//by Killzone Kid (modified)
+KK_fnc_inHouse_pos = {	
+	private _firstIntersectedItem = [];
+	_firstIntersectedItem = lineIntersectsSurfaces [
+		_this, 
+		_this vectorAdd [0, 0, 50], 
+		objNull, objNull, true, 1, "GEOM", "NONE"
+	];
+	if (((_firstIntersectedItem # 0) select 2) isKindOf "House") exitWith {true};
+	false
 };
 
 if (_buildingRadius < 0) then {
@@ -156,6 +170,8 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		__TRACE_1("","_housePosArray")
 		_posArray deleteAt 0;
 		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
+		
+		if (_isRequireRoofOverhead && {!(_housePos call KK_fnc_inHouse_pos)}) exitWith {};
 
 		_startAngle = (round random 10) * (round random 36);
 		for "_i" from _startAngle to (_startAngle + 350) step 10 do {
