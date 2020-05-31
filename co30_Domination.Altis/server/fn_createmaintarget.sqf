@@ -602,8 +602,8 @@ if (d_with_MainTargetEvents != 0) then {
 	if (d_with_MainTargetEvents == -1) then {
 		_doEvent = true;
 	} else {
-		if (d_with_MainTargetEvents == 1 && {(random 100 < 30)}) then { _doEvent = true; };
-		if (d_with_MainTargetEvents == 2 && {(random 100 < 70)}) then { _doEvent = true; };
+		if (d_with_MainTargetEvents == 1 && {(random 100 < 30)}) then {_doEvent = true};
+		if (d_with_MainTargetEvents == 2 && {(random 100 < 70)}) then {_doEvent = true};
 	};
 	
 	if (_doEvent) then {

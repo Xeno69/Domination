@@ -28,7 +28,7 @@ d_x_mt_event_start = "";
 private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","d_x_mt_event_start = time",""]] call d_fnc_CreateTrigger;
 publicVariable "d_x_mt_event_start";
 
-waitUntil { !(d_x_mt_event_start isEqualTo "") };
+waitUntil {!(d_x_mt_event_start isEqualTo "")};
 
 private _wreck = createVehicle [d_sm_wrecktype, _poss, [], 0, "NONE"];
 _wreck setDir (random 360);

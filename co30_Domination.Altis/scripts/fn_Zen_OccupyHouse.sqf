@@ -103,15 +103,13 @@ _Zen_ArrayShuffle = {
 };
 
 //by Killzone Kid (modified)
-KK_fnc_inHouse_pos = {	
-	private _firstIntersectedItem = [];
-	_firstIntersectedItem = lineIntersectsSurfaces [
+private _fnc_inHouse_pos = {	
+	private _firstIntersectedItem = lineIntersectsSurfaces [
 		_this, 
 		_this vectorAdd [0, 0, 50], 
 		objNull, objNull, true, 1, "GEOM", "NONE"
 	];
-	if (((_firstIntersectedItem # 0) select 2) isKindOf "House") exitWith {true};
-	false
+	(((_firstIntersectedItem # 0) select 2) isKindOf "House")
 };
 
 if (_buildingRadius < 0) then {
@@ -171,7 +169,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		_posArray deleteAt 0;
 		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
 		
-		if (_isRequireRoofOverhead && {!(_housePos call KK_fnc_inHouse_pos)}) exitWith {};
+		if (_isRequireRoofOverhead && {!(_housePos call _fnc_inHouse_pos)}) exitWith {};
 
 		_startAngle = (round random 10) * (round random 36);
 		for "_i" from _startAngle to (_startAngle + 350) step 10 do {
