@@ -408,10 +408,7 @@ if (isServer) then {
 #ifndef __TT__
 	// editor varname, unique number, true = respawn only when the chopper is completely destroyed, false = respawn after some time when no crew is in the chopper or chopper is destroyed
 	// unique number must be between 3000 and 3999
-	private _choppers = [];
-	{
-		_choppers pushBack _x;
-	} forEach ([[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}});
+	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}};
 
 	if (!isNil "d_additional_wreck") then {
 		{
@@ -437,10 +434,7 @@ if (isServer) then {
 	// editor varname, unique number
 	//0-99 = MHQ, 100-199 = Medic vehicles, 200-299 = Fuel, Repair, Reammo trucks, 300-399 = Engineer Salvage trucks, 400-499 = Transport trucks
 	// new in 3.70  third parameter for MHQ means a message will be displayed for a MHQ if it gets destroyed
-	private _vecsar = [];
-	{
-		_vecsar pushBack _x;
-	} forEach ([[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x select 0}});
+	private _vecsar = [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x select 0}};
 	{
 		_vecsar pushBack [_x, 500 + _forEachIndex];
 	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
@@ -455,15 +449,73 @@ if (isServer) then {
 		[_x, 300, false] spawn d_fnc_vehirespawn;
 	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
 #else
-	[[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
-	[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] call d_fnc_inithelirespawn2;
+	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
+		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x select 0}};
+	
+	//[[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
+	//[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] call d_fnc_inithelirespawn2;
+	
+	if (!isNil "d_additional_wreck_b") then {
+		{
+			_choppers pushBack [_x, 3000 + 10 + _forEachIndex , false, 600];
+		} forEach d_additional_wreck_b;
+	};
+	if (!isNil "d_additional_wreck_o") then {
+		{
+			_choppers pushBack [_x, 4000 + 10 + _forEachIndex , false, 600];
+		} forEach d_additional_wreck_o;
+	};
 
-	[
+	if (!isNil "d_additional_lift_b") then {
+		{
+			_choppers pushBack [_x, 3000 + 30 + _forEachIndex , true];
+		} forEach d_additional_lift_b;
+	};
+	if (!isNil "d_additional_lift_o") then {
+		{
+			_choppers pushBack [_x, 4000 + 30 + _forEachIndex , true];
+		} forEach d_additional_lift_o;
+	};
+
+	if (!isNil "d_additional_trans_b") then {
+		{
+			_choppers pushBack [_x, 3000 + 40 + _forEachIndex , true];
+		} forEach d_additional_trans_b;
+	};
+	if (!isNil "d_additional_trans_o") then {
+		{
+			_choppers pushBack [_x, 4000 + 40 + _forEachIndex , true];
+		} forEach d_additional_trans_o;
+	};
+
+	if !(_choppers isEqualTo []) then {
+		_choppers call d_fnc_inithelirespawn2;
+	};
+
+	private _vecsar = [
 		[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1,localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],
 		[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401],
 		[d_vec_mhqo_1,1000,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhqo_2,1001,localize "STR_DOM_MISSIONSTRING_13"],[d_vec_medo_1,1100],[d_vec_repo_1,1200],[d_vec_fuelo_1,1201],[d_vec_ammoo_1,1202], [d_vec_repo_2,1203],
-		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]
-	] call d_fnc_initvrespawn2;
+		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]] select {!isNil {_x select 0}};
+		
+	if (!isNil "d_additional_mhqs_o") then {
+		{
+			private _num = 2 + _forEachIndex;
+			_vecsar pushBack [_x, 1000 + _num, "MHQ " + str (_num)];
+		} forEach d_additional_mhqs_o;
+	};
+	if (!isNil "d_additional_mhqs_b") then {
+		{
+			private _num = 2 + _forEachIndex;
+			_vecsar pushBack [_x, _num, "MHQ " + str (_num)];
+		} forEach d_additional_mhqs_b;
+	};
+
+	_vecsar call d_fnc_initvrespawn2;
+	
+	{
+		[_x, 300, false] spawn d_fnc_vehirespawn;
+	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
 #endif
 	0 spawn d_fnc_initrepwreck;
 

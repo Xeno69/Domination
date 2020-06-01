@@ -44,6 +44,7 @@ if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
 	} forEach (allMapMarkers select {_x select [0, 18] == "d_cup_chopper_lift"});
 };
 #endif
+#ifndef __TT__
 {
 	d_additional_mhqs pushBack _x;
 } forEach (vehicles select {(str _x) select [0, 10] isEqualTo "d_mhq_add_"});
@@ -81,3 +82,86 @@ if (d_additional_wreck isEqualTo []) then {
 } else {
 	publicVariable "d_additional_wreck";
 };
+#else
+d_additional_mhqs_o = [];
+d_additional_mhqs_b = [];
+{
+	d_additional_mhqs_o pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_mhq_add_o_"});
+__TRACE_1("","d_additional_mhqs_o")
+{
+	d_additional_mhqs_b pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_mhq_add_b_"});
+__TRACE_1("","d_additional_mhqs_b")
+
+d_additional_lift_o = [];
+d_additional_lift_b = [];
+{
+	d_additional_lift_o pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 13] isEqualTo "d_lift_add_o_"});
+{
+	d_additional_lift_b pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 13] isEqualTo "d_lift_add_b_"});
+
+d_additional_wreck_o = [];
+d_additional_wreck_b = [];
+{
+	d_additional_wreck_o pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_wreck_add_o_"});
+{
+	d_additional_wreck_b pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_wreck_add_b_"});
+
+d_additional_trans_o = [];
+d_additional_trans_b = [];
+{
+	d_additional_trans_o pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_trans_add_o_"});
+{
+	d_additional_trans_b pushBack _x;
+} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_trans_add_b_"});
+
+if (d_additional_mhqs_o isEqualTo []) then {
+	d_additional_mhqs_o = nil;
+} else {
+	publicVariable "d_additional_mhqs_o";
+};
+if (d_additional_mhqs_b isEqualTo []) then {
+	d_additional_mhqs_b = nil;
+} else {
+	publicVariable "d_additional_mhqs_b";
+};
+
+if (d_additional_lift_o isEqualTo []) then {
+	d_additional_lift_o = nil;
+} else {
+	publicVariable "d_additional_lift_o";
+};
+if (d_additional_lift_b isEqualTo []) then {
+	d_additional_lift_b = nil;
+} else {
+	publicVariable "d_additional_lift_b";
+};
+
+if (d_additional_trans_o isEqualTo []) then {
+	d_additional_trans_o = nil;
+} else {
+	publicVariable "d_additional_trans_o";
+};
+if (d_additional_trans_b isEqualTo []) then {
+	d_additional_trans_b = nil;
+} else {
+	publicVariable "d_additional_trans_b";
+};
+
+if (d_additional_wreck_b isEqualTo []) then {
+	d_additional_wreck_b = nil;
+} else {
+	publicVariable "d_additional_wreck_o";
+};
+if (d_additional_wreck_b isEqualTo []) then {
+	d_additional_wreck_b = nil;
+} else {
+	publicVariable "d_additional_wreck_b";
+};
+#endif

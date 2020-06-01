@@ -8,6 +8,12 @@ ATTENTION: Altis Blufor Carrier version mission.sqm file has changed
 - Added: You can now also select ranked mode with no weapons ranked (value 2 for d_with_ranked in description.ext or in params "Ranked:" values "Ranked mode on but weapons not ranked")
 - Added: New main target "events" for non-TvT with optional complex mission scenarios embedded in maintarget (first "event" scenario Blackhawk Down rescue), by longtimegamer
 - Added: Boat MHQ to the Altis Blufor Carrier version
+- Added: In the TT version you can now also add additional base vehicles by simple giving them specific unique var names, they must start with:
+         * d_mhq_add_o_ and d_mhq_add_b_ for additonal MHQs
+		 * d_lift_add_o_ and d_lift_add_b_ for additonal lift choppers
+		 * d_wreck_add_o_ and d_wreck_add_b_ for additonal wreck lift choppers
+		 * d_trans_add_o_ and d_trans_add_b_ for additonal transport choppers
+- Added: Support for boat respawn in the TT version (the var name must start with d_boat
 - Changed: Removed jump flags created at seized main targets in the TT version
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
