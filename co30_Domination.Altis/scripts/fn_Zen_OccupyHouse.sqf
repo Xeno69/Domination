@@ -24,6 +24,7 @@
 //                1 - unit is free to move after a firedNear event is triggered
 //                2 - unit is static, no movement allowed
 //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
+//  (opt.) 10. Boolean, true to allow the selected position to be near an enemy (default: false)
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -34,8 +35,6 @@
 #define ROOF_CHECK 4
 #define ROOF_EDGE 2
 
-private ["_Zen_ExtendPosition", "_buildingsArray", "_buildingPosArray", "_buildingPositions", "_posArray", "_unitIndex", "_j", "_building", "_posArray", "_randomIndex", "_housePos", "_startAngle", "_i", "_checkPos", "_hitCount", "_isRoof", "_edge", "_k", "_array", "_Zen_InsertionSort", "_Zen_ArrayShuffle"];
-
 params [
 	["_center", [0,0,0], [[]], 3],
 	["_units", [objNull], [[]]],
@@ -45,7 +44,33 @@ params [
 	["_sortHeight", false, [true]],
 	["_doMove", false, [true]],
 	["_unitMovementMode", 0, [0]],
-	["_isRequireRoofOverhead", false, [true]]
+	["_isRequireRoofOverhead", false, [true]],
+	["_isAllowSpawnNearEnemy", false, [true]]
+];
+
+private [
+	"_Zen_ExtendPosition",
+	"_buildingsArray",
+	"_buildingsArrayFiltered",
+	"_buildingPosArray",
+	"_buildingPositions",
+	"_posArray",
+	"_unitIndex",
+	"_j",
+	"_building",
+	"_posArray",
+	"_randomIndex",
+	"_housePos",
+	"_startAngle",
+	"_i",
+	"_checkPos",
+	"_hitCount",
+	"_isRoof",
+	"_edge",
+	"_k",
+	"_array",
+	"_Zen_InsertionSort",
+	"_Zen_ArrayShuffle"
 ];
 
 if (_center isEqualTo [0,0,0]) exitWith {
@@ -103,7 +128,7 @@ _Zen_ArrayShuffle = {
 };
 
 //by Killzone Kid (modified)
-private _fnc_inHouse_pos = {	
+private _fnc_inHouse_pos = {
 	private _firstIntersectedItem = lineIntersectsSurfaces [
 		_this, 
 		_this vectorAdd [0, 0, 50], 
@@ -112,17 +137,49 @@ private _fnc_inHouse_pos = {
 	(((_firstIntersectedItem # 0) select 2) isKindOf "House")
 };
 
+isOccupiedByEnemy = {
+	params ["_bldg", "_sideHostile"];
+	private _distancePlayerSideTooClose = 7;
+	private _isOccupiedByEnemy = false;
+	private _pa = _bldg buildingPos -1;
+	if !(_pa isEqualTo []) then {
+		private _p = _pa select 0; //just test for enemies around pos # 0 in each building
+		{
+			if (alive _x && {_x isKindOf "CAManBase" && {side _x == _sideHostile }}) then {
+				_isOccupiedByEnemy = true;
+			};
+		} forEach (_p nearEntities _distancePlayerSideTooClose);
+	};
+	_isOccupiedByEnemy;
+};
+
 if (_buildingRadius < 0) then {
 	_buildingsArray = [nearestBuilding _center];
 } else {
-	_buildingsArray0 = nearestObjects [_center, ["house"], _buildingRadius];
-	_buildingsArray1 = nearestObjects [_center, ["building"], _buildingRadius];
+	private _buildingsArray0 = nearestObjects [_center, ["house"], _buildingRadius];
+	private _buildingsArray1 = nearestObjects [_center, ["building"], _buildingRadius];
 	_buildingsArray = _buildingsArray0 arrayIntersect _buildingsArray1;
 };
 
 if (count _buildingsArray == 0) exitWith {
 	diag_log "Zen_Occupy House Error : No buildings found.";
 	[]
+};
+
+_buildingsArrayFiltered = [];
+
+if !(_isAllowSpawnNearEnemy) then {
+	{
+    	if (!((_x buildingPos -1) isEqualTo []) && {!([_x, d_side_player] call isOccupiedByEnemy)}) then {
+    		_buildingsArrayFiltered pushBack _x;
+    	};
+    } forEach _buildingsArray;
+} else {
+	{
+		if (!((_x buildingPos -1) isEqualTo [])) then {
+			_buildingsArrayFiltered pushBack _x;
+		};
+	} forEach _buildingsArray;
 };
 
 _buildingPosArray = [];

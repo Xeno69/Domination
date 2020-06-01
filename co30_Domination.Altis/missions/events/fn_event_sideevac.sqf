@@ -1,6 +1,6 @@
 // by Xeno (modified by Longtime)
 //#define __DEBUG__
-#define THIS_FILE "fn_sideevac_event.sqf"
+#define THIS_FILE "fn_event_sideevac.sqf"
 #include "..\..\x_setup.sqf"
 
 params ["_target_radius", "_target_center"];
@@ -21,6 +21,7 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 //position the crash site near target center at max distance 250m and min 150m 
 d_x_mt_event_pos = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
 d_x_mt_event_ar = [];
+d_mt_event_resolved = false;
 
 publicVariable "d_x_mt_event_pos";
 private _poss = d_x_mt_event_pos;
