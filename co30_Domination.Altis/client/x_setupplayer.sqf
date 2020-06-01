@@ -1150,7 +1150,11 @@ d_isvdreduced = false;
 call d_fnc_initservicepoints;
 
 if (isMultiplayer) then {
-	execVM "client\x_intro2.sqf";
+	if (!d_ifa3lite) then {
+		execVM "client\x_intro2.sqf";
+	} else {
+		execVM "client\x_intro.sqf";
+	};
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
 	0 spawn {
