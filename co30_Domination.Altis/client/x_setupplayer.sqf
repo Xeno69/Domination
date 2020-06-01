@@ -1051,6 +1051,29 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 	d_non_check_items append (bis_fnc_arsenal_data # 14);
 	d_non_check_items append (bis_fnc_arsenal_data # 24);
 	d_non_check_items apply {toLowerANSI _x};
+	
+	{
+		private _maxload = getNumber(configFile>>"CfgVehicles">>_x>>"maximumLoad");
+		private _toadd = call {
+			if (_maxload < 200) exitWith {
+				["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
+			};
+			if (_maxload < 300) exitWith {
+				["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
+			};
+			if (_maxload < 400) exitWith {
+				["MAJOR","COLONEL"]
+			};
+			["COLONEL"]
+		};
+		private _bagclass = toLowerANSI _x;
+		{
+			private _entry = d_misc_store getVariable [format ["%1_BAGS", _x], []];
+			_entry pushBack _bagclass;
+			d_misc_store setVariable [format ["%1_BAGS", _x], _entry];
+		} forEach _toadd;
+	} forEach (bis_fnc_arsenal_data # 5);
+	
 	0 spawn d_fnc_weaponcargo_ranked;
 };
 

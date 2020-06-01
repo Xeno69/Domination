@@ -81,4 +81,5 @@ __TRACE_1("ITEMS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 
-[_vec, bis_fnc_arsenal_data # 5, false, false] call BIS_fnc_addVirtualBackpackCargo;
+//[_vec, bis_fnc_arsenal_data # 5, false, false] call BIS_fnc_addVirtualBackpackCargo;
+[_vec, d_misc_store getVariable (_rank + "_BAGS"), false, false] call BIS_fnc_addVirtualBackpackCargo;
