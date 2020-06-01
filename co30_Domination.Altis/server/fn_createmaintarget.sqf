@@ -607,7 +607,15 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 	
 	if (_doEvent) then {
-		[d_cur_target_radius, _trg_center] spawn d_fnc_sideevac_event;
+		switch (selectRandom d_x_mt_event_types) do {
+        	case "PILOT_RESCUE": {
+        		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
+			};
+        	case "POW_RESCUE": {
+        		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+			};
+			default {};
+		};
 	};
 };
 

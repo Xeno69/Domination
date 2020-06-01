@@ -19,6 +19,13 @@ d_mt_radio_down = false;
 d_mt_barracks_down = false;
 d_mt_mobile_hq_down = false;
 d_mt_event_resolved = false;
+d_x_mt_event_types = [
+	"PILOT_RESCUE",
+	"POW_RESCUE"
+];
+d_x_mt_event_ar = [];
+d_x_mt_event_pos = [];
+d_x_mt_event_start = "";
 
 addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
 if (d_MissionType != 2) then {
