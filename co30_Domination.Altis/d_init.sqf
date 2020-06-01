@@ -387,6 +387,9 @@ if (isServer) then {
 		d_MainTargets = count d_maintargets_list;
 	} else {
 		d_MainTargets = count d_target_names;
+		if (d_with_targetselect_count == -1) then {
+			d_with_targetselect_count = d_MainTargets;
+		};
 		d_mttargets_ar =+ d_target_names;
 		d_cur_tar_obj = d_FLAG_BASE;
 	};
