@@ -4,33 +4,33 @@
 #include "..\x_setup.sqf"
 
 // bis_fnc_arsenal_data indices
-// 0 primary weapon
-// 1 launcher
-// 2 handgun
-// 3 uniform
-// 4 vest
-// 5 backpack
-// 6 helmet
-// 7 goggles
-// 8 nvgoggles
-// 9 binoculars
-// 10 map
-// 11 GPS, UavTerminal
-// 12 Radio
-// 13 Compass
-// 14 Watch
-// 15 Heads
-// 16 Voice
-// 17 Badge
-// 18 ?
-// 19 ?
-// 20 ?
-// 21 ?
-// 22 Grenades
-// 23 Explosives
-// 24 Detectors, First Aid Kit
-// 25 ?
-// 26 magazines
+// PRIMARYWEAPON    0
+// SECONDARYWEAPON    1
+// HANDGUN            2
+// UNIFORM            3
+// VEST            4
+// BACKPACK        5
+// HEADGEAR        6
+// GOGGLES            7
+// NVGS            8
+// BINOCULARS        9
+// MAP                10
+// GPS                11
+// RADIO            12
+// COMPASS            13
+// WATCH            14
+// FACE            15
+// VOICE            16
+// INSIGNIA        17
+// ITEMOPTIC        18
+// ITEMACC            19
+// ITEMMUZZLE        20
+// CARGOMAG        21
+// CARGOTHROW        22
+// CARGOPUT        23
+// CARGOMISC        24
+// ITEMBIPOD        25
+// CARGOMAGALL        26
 
 waitUntil {!d_arsenal_opened};
 
