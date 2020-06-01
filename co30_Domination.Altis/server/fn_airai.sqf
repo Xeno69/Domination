@@ -68,7 +68,7 @@ while {true} do {
 		};
 		if (_type == "LAC") exitWith {
 			_heli_type = selectRandom d_light_attack_chopper;
-			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
+			_numair = [d_number_light_attack_choppers, ceil (random d_number_light_attack_choppers)] select (d_number_light_attack_choppers > 1);
 			_height = 150;
 			_heightASL = [150, 100 + (random 50), 150 + (random 150)];
 		};

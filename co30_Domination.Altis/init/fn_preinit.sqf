@@ -1039,6 +1039,7 @@ if (!d_tt_tanoa) then {
 
 	d_number_attack_planes = 1;
 	d_number_attack_choppers = 1;
+	d_number_light_attack_choppers = 1;
 	d_number_attack_uavs = 1;
 	
 	// Type of aircraft, that will air drop stuff
