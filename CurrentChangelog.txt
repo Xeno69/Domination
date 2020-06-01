@@ -16,3 +16,4 @@
 - Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
 - Fixed: When a player changed the TeamSwitch key in the A3 settings when the mission was running the mission didn't pick up the new key
 - Fixed: Added missing items like goggles in Virtual Arsenal in ranked mode
+- Fixed: Some colors in the game class CfgMarkerColors are stored as string instead of number resulting in broken 3D marker drawing

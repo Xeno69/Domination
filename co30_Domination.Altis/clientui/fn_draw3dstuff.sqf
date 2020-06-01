@@ -97,7 +97,7 @@ if (d_showallnearusermarkers) then {
 		_distp = _pos_cam distance _pos;
 		if (_distp < 1000) then {
 			_m = 1 - (_distp / 1000);
-			_col = getArray (configfile>>"CfgMarkerColors">>(getMarkerColor _x)>>"color");
+			_col = d_color_store getVariable (getMarkerColor _x);
 			if (_col isEqualTo []) then {_col = [1, 1, 1, 1]};
 			_col set [3, _m];
 			//drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.033 - (_distp / 15000), "RobotoCondensed"];

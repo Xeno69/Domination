@@ -2379,6 +2379,22 @@ if (hasInterface) then {
 		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base" || {_this isKindOf "B_Mortar_01_support_F"}}];
 	};
 	
+	d_color_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+
+	{
+		private _col = getArray(_x>>"color");
+		if !(_col isEqualTo []) then {
+			for "_e" from 0 to 3 do {
+				if ((_col # _e) isEqualType "") then {
+					_col set [_e, call compile (_col # _e)];
+				};
+			};
+		} else {
+			_col = [0, 0, 0, 1];
+		};
+		d_color_store setVariable [configName _x, _col];
+	} forEach ("true" configClasses (configFile >> "CfgMarkerColors"));
+	
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	
 		d_preloaddone = true;
 		diag_log [diag_frameno, diag_ticktime, time, "Preload finished"];
