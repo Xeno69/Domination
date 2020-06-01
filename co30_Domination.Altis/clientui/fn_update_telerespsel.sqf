@@ -44,7 +44,7 @@ if (_uidx == -1) then {
 				if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (!(_mrs isKindOf "Ship") && {surfaceIsWater (getPosWorld _mrs)}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_594", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (!alive _mrs) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_595", _ctrl lbText _sel, _logtxt]; __COLRED};
-				if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _ctrl lbText _sel, _logtxt]; __COLRED};
+				if (!(_mrs isKindOf "Ship") && {!(_mrs getVariable ["d_MHQ_Deployed", false])}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (_mrs getVariable ["d_enemy_near", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_597", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_2023", _ctrl lbText _sel, _logtxt]; __COLRED};
 				_not_avail_array deleteAt _curaridx;
@@ -95,7 +95,7 @@ private _end_pos = if (_uidx == -1) then {
 			visiblePosition (leader (group player));
 		};
 		private _rppp = visiblePosition (missionNamespace getVariable _data);
-		if (_mravailable) then {
+		if (_mravailable && {!((missionNamespace getVariable _data) isKindOf "Ship")}) then {
 			d_cur_map_endpos = _rppp;
 		};
 		_rppp

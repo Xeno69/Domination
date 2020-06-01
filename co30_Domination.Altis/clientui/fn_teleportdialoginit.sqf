@@ -92,7 +92,7 @@ private _logtxt = "";
 			if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _x # 1] + _logtxt + "\n"; __COLRED};
 			if (!(_mrs isKindOf "Ship") && {surfaceIsWater (getPosWorld _mrs)}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_594", _x # 1, _logtxt]; __COLRED};
 			if (!alive _mrs) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_595", _x # 1, _logtxt]; __COLRED};
-			if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _x # 1, _logtxt]; __COLRED};
+			if ( !(_mrs isKindOf "Ship") && {!(_mrs getVariable ["d_MHQ_Deployed", false])}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _x # 1, _logtxt]; __COLRED};
 			if (_mrs getVariable ["d_enemy_near", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_597", _x # 1, _logtxt]; __COLRED};
 			if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_2023", _x # 1, _logtxt]; __COLRED};
 			[1,1,1,1];
@@ -180,6 +180,7 @@ if (_logtxt != "") then {
 };
 
 private _can_add_mapclick = true;
+
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
 	__CTRL(100102) ctrlEnable false;
 	_can_add_mapclick = false;

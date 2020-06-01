@@ -124,8 +124,13 @@ if (d_ifa3lite || {d_gmcwg}) then {
 	__control(44460) ctrlShow false;
 };
 
-if (_vec isKindOf "Ship" && {ctrlShown __control(44452)}) then {
-	__control(44452) ctrlEnable false;
+if (_vec isKindOf "Ship") then {
+	if (ctrlShown __control(44452)) then {
+		__control(44452) ctrlEnable false;
+	};
+	if (ctrlShown __control(44462)) then {
+		__control(44462) ctrlEnable false;
+	};
 };
 
 0 spawn {

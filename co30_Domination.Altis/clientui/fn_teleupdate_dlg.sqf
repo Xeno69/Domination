@@ -38,7 +38,7 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 						if (speed _mrs > 4) exitWith {__COLRED};
 						if (!(_mrs isKindOf "Ship") && {surfaceIsWater (getPosWorld _mrs)}) exitWith {__COLRED};
 						if (!alive _mrs) exitWith {__COLRED};
-						if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {__COLRED};
+						if (!(_mrs isKindOf "Ship") && {!(_mrs getVariable ["d_MHQ_Deployed", false])}) exitWith {__COLRED};
 						if (_mrs getVariable ["d_enemy_near", false]) exitWith {__COLRED};
 						if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {__COLRED};
 						_mravailable = true;
