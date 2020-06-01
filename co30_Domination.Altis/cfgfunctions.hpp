@@ -387,7 +387,8 @@ class cfgFunctions {
 		};
 		class Dom_MainTarget_Events {
 			file = "missions\events";
-			addc(sideevac_event);
+			addc(event_sideevac);
+			addc(event_sideprisoners);
 		};
 		class Dom_Server {
 			file = "server";

@@ -4799,6 +4799,18 @@
 <Chinese>沒有或者少於8名俘虜活著返回了基地...</Chinese>
 <French>Pas ou moins de 8 prisonniers sont retournés vivants à la base...</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_719_MILITARY">
+<English>None of the soldiers made it back to base...</English>
+<Spanish>None of the soldiers made it back to base...</Spanish>
+<Portuguese>None of the soldiers made it back to base...</Portuguese>
+<Korean>None of the soldiers made it back to base...</Korean>
+<Japanese>None of the soldiers made it back to base...</Japanese>
+<Original>None of the soldiers made it back to base...</Original>
+<Russian>None of the soldiers made it back to base...</Russian>
+<Chinesesimp>None of the soldiers made it back to base...</Chinesesimp>
+<Chinese>None of the soldiers made it back to base...</Chinese>
+<French>None of the soldiers made it back to base...</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_720">
 <English>The enemy officer was killed...</English>
 <Spanish>El oficial enemigo murió...</Spanish>
@@ -10907,6 +10919,18 @@
 <Chinese>一些平民被扣為人質。你必須釋放他們並將至少8名平民/囚犯帶回你的基地！</Chinese>
 <French>Certains civils sont retenus en otages. Vous devez les libérer et ramener au moins 8 civils/prisonniers vivants dans votre base!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1805_MILITARY">
+<English>One of our pilots has been captured. Free them and bring them back alive to your base!</English>
+<Spanish>One of our pilots has been captured. Free them and bring them back alive to your base!</Spanish>
+<Portuguese>One of our pilots has been captured. Free them and bring them back alive to your base!</Portuguese>
+<Korean>One of our pilots has been captured. Free them and bring them back alive to your base!</Korean>
+<Japanese>One of our pilots has been captured. Free them and bring them back alive to your base!</Japanese>
+<Original>One of our pilots has been captured. Free them and bring them back alive to your base!</Original>
+<Russian>One of our pilots has been captured. Free them and bring them back alive to your base!</Russian>
+<Chinesesimp>One of our pilots has been captured. Free them and bring them back alive to your base!</Chinesesimp>
+<Chinese>One of our pilots has been captured. Free them and bring them back alive to your base!</Chinese>
+<French>One of our pilots has been captured. Free them and bring them back alive to your base!</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
 <English>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
 <Spanish>Intel tiene alguna información sobre la ubicación de un campamento enemigo. Encuéntralo y elimina todos los specops allí antes de que intenten sabotear algo</Spanish>
@@ -10917,7 +10941,7 @@
 <Russian>У нас есть информация о тренеровочном лагере боевиков. Найдите и уничтожьте его!</Russian>
 <Chinesesimp>已获得有关敌方阵营位置的一些信息。找到它并在他们试图破坏某些东西之前消除那里的所有指控</Chinesesimp>
 <Chinese>已獲得有關敵方陣營位置的一些信息。找到它並在他們試圖破壞某些東西之前消除那裡的所有指控</Chinese>
-<French>Certains civils sont retenus en otages. Vous devez les libérer et ramener au moins 8 civils/prisonniers vivants dans votre base!</French>
+<French>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1807">
 <English>Enemy forces are preparing a prototype plane. This is a good chance to steal and bring it to your base, before enemy troops use it</English>

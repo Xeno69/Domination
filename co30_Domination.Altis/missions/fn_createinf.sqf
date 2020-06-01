@@ -5,6 +5,15 @@
 
 __TRACE_1("","_this")
 
+// parameters:
+// 0. type of infantry ie-- "specops"
+// 1. _ngr number of groups?
+// 2. _typenr type of unit ie-- "allmen" 
+// 3. _ngr number of groups?
+// 4. _pos_center
+// 5. _radius
+// 6. _do_patrol
+
 private _pos_center = _this select 4;
 if (isNil "_pos_center") exitWith {
 	diag_log "_pos_center in fn_createinf undefined!!!";
