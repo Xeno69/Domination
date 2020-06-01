@@ -18,3 +18,4 @@
 - Fixed: Added missing items like goggles in Virtual Arsenal in ranked mode
 - Fixed: Some colors in the game class CfgMarkerColors are stored as string instead of number resulting in broken 3D marker drawing
 - Fixed: Target select entire map caused a script error
+- Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes)

@@ -13285,6 +13285,18 @@
 <Chinese>Entire map</Chinese>
 <French>Entire map</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2023">
+<English>No empty cargo positions in %1...</English>
+<Spanish>No empty cargo positions in %1...</Spanish>
+<Portuguese>Normal</Portuguese>
+<Korean>No empty cargo positions in %1...</Korean>
+<Japanese>No empty cargo positions in %1...</Japanese>
+<Original>No empty cargo positions in %1...</Original>
+<Russian>No empty cargo positions in %1...</Russian>
+<Chinesesimp>No empty cargo positions in %1...</Chinesesimp>
+<Chinese>No empty cargo positions in %1...</Chinese>
+<French>No empty cargo positions in %1...</French>
+</Key>
 </Container>
 </Package>
 </Project>

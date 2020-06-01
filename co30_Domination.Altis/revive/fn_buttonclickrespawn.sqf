@@ -91,12 +91,16 @@ if (d_beam_target != "D_BASE_D" && {d_beam_target != "D_SQL_D" && {!(d_beam_targ
 [player, 105] remoteExecCall ["xr_fnc_handlenet"];
 __TRACE_1("","_mhqobj")
 if (!isNull _mhqobj) then {
-	private _newppos = _mhqobj call d_fnc_posbehindvec;
-	(boundingBoxReal _mhqobj) params ["_p1", "_p2"];
-	private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-	_newppos set [2, (_mhqobj distance (getPos _mhqobj)) - _maxHeight];
-	player setDir (getDirVisual _mhqobj);
-	player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
+	if !(_mhqobj isKindOf "Ship") then {
+		private _newppos = _mhqobj call d_fnc_posbehindvec;
+		(boundingBoxReal _mhqobj) params ["_p1", "_p2"];
+		private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+		_newppos set [2, (_mhqobj distance (getPos _mhqobj)) - _maxHeight];
+		player setDir (getDirVisual _mhqobj);
+		player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
+	} else {
+		player moveInCargo _mhqobj;
+	};
 	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
 	if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
 		call d_fnc_retrieve_layoutgear;

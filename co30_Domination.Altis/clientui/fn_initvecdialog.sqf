@@ -124,6 +124,10 @@ if (d_ifa3lite || {d_gmcwg}) then {
 	__control(44460) ctrlShow false;
 };
 
+if (_vec isKindOf "Ship" && {ctrlShown __control(44452)}) then {
+	__control(44452) ctrlEnable false;
+};
+
 0 spawn {
 	scriptName "spawn_initvecdialog";
 	waitUntil {!isNil "d_vec_dialog_open" && {!d_vec_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
