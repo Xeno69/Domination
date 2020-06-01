@@ -5,7 +5,7 @@
 
 params ["_target_radius", "_target_center"];
 
-// Rescue captive friendly soldiers guarded by specops.  If the specops damage exceeds 15% they will kill the hostages.
+// Rescue captive friendly soldiers guarded by specops.  If the specops are injured they will kill the hostages.
 
 if !(isServer) exitWith {};
 
@@ -123,7 +123,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 	};
 	
 	{
-    	if (damage _x > 0.15) then {
+    	if (damage _x > 0.02) then {
     		//if any unit in enemyGuardGroup is wounded more than 0.15 then set flag to shoot prisoners
     		_isExecutePrisoners = true;
     	};
