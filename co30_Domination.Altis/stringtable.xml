@@ -13273,6 +13273,18 @@
 <Chinese>WHOT</Chinese>
 <French>WHOT</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2022">
+<English>Entire map</English>
+<Spanish>Entire map</Spanish>
+<Portuguese>Entire map</Portuguese>
+<Korean>Entire map</Korean>
+<Japanese>Entire map</Japanese>
+<Original>Entire map</Original>
+<Russian>Entire map</Russian>
+<Chinesesimp>Entire map</Chinesesimp>
+<Chinese>Entire map</Chinese>
+<French>Entire map</French>
+</Key>
 </Container>
 </Package>
 </Project>
