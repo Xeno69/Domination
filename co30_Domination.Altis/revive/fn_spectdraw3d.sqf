@@ -23,19 +23,21 @@ private _phudgc = d_pnhudgroupcolor;
 			_dodraw = if (isNull objectParent _x) then {
 				true
 			} else {
-				if (crew _vu isEqualTo 1) exitWith {true};
-				if (_x == commander _vu) exitWith {true};
-				if (_x == gunner _vu && {!((commander _vu) call _fnc_ispl)}) exitWith {true};
-				if (_x == driver _vu && {!((commander _vu) call _fnc_ispl) && {!((gunner _vu) call _fnc_ispl)}}) exitWith {true};
-				false
+				call {
+					if (crew _vu isEqualTo 1) exitWith {true};
+					if (_x == commander _vu) exitWith {true};
+					if (_x == gunner _vu && {!((commander _vu) call _fnc_ispl)}) exitWith {true};
+					if (_x == driver _vu && {!((commander _vu) call _fnc_ispl) && {!((gunner _vu) call _fnc_ispl)}}) exitWith {true};
+					false
+				};
 			};
 			if (_dodraw) then {
-				_tex = "";
-				_rtex = "";
-				if (_distu <= 150) then {
+				//_tex = "";
+				//_rtex = "";
+				_rsize = 0.4;
+				if (_distu <= 200) then {
 					_tex = [_x] call _fnc_ghpn;
 					if (isNil "_tex") then {_tex = _x call _fnc_gpn};
-					_rtex = _x call _fnc_grp;
 					_hh = _x call _nfc_grp;
 					_rtex = _hh # 0;
 					_rsize = _hh # 1;
