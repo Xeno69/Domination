@@ -119,7 +119,9 @@ INSERT INTO `dom_settings` (`name`, `value`) VALUES
 	('d_number_attack_choppers', '1'),
 	('d_number_light_attack_choppers', '1'),
 	('d_number_attack_uavs', '1'),
-	('d_noambient_bf_sounds', 'false');
+	('d_noambient_bf_sounds', 'false'),
+	('d_time_until_next_sidemission', '[[10,300],[20,400],[30,500],[500,600]]'),
+	('d_airai_respawntime', '120');
 /*!40000 ALTER TABLE `dom_settings` ENABLE KEYS */;
 
 -- Daten Export vom Benutzer nicht ausgewählt

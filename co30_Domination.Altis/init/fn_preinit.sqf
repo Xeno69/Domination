@@ -591,7 +591,7 @@ if (isServer) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs", "d_noambient_bf_sounds"]) exitWith {
+					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs", "d_noambient_bf_sounds", "d_time_until_next_sidemission"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1];
 					};
 					if (_tla in ["d_set_pl_score_db", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_launcher_cooldown"]) exitWith {
@@ -1224,17 +1224,21 @@ if (!d_tt_tanoa) then {
 	d_car_count_for_target_clear = 1;
 		
 	// time (in sec) between attack planes and choppers over main target will respawn once they were shot down (a random value between 0 and 240 will be added)
-	d_airai_respawntime = 1200;
+	if (isNil "d_airai_respawntime") then {
+		d_airai_respawntime = 1200;
+	};
 
 	d_side_missions_random = [];
 	d_player_created = [];
 
-	d_time_until_next_sidemission = [
-		[10,300], // if player number <= 10, it'll take 300 seconds until the next sidemission
-		[20,400], // if player number <= 20, it'll take 400 seconds until the next sidemission
-		[30,500], // if player number <= 30, it'll take 500 seconds until the next sidemission
-		[500,600] // if player number > 30, it'll take 600 seconds until the next sidemission
-	];
+	if (isNil "d_time_until_next_sidemission") then {
+		d_time_until_next_sidemission = [
+			[10,300], // if player number <= 10, it'll take 300 seconds until the next sidemission
+			[20,400], // if player number <= 20, it'll take 400 seconds until the next sidemission
+			[30,500], // if player number <= 30, it'll take 500 seconds until the next sidemission
+			[500,600] // if player number > 30, it'll take 600 seconds until the next sidemission
+		];
+	};
 
 	if (d_gmcwg) then {
 		d_civilians_t = ["gm_gc_civ_man_01_80_blk","gm_gc_civ_man_01_80_blu","gm_gc_civ_man_02_80_brn","gm_gc_civ_man_02_80_gry","gm_gc_pol_officer_80_blu"];
@@ -1806,7 +1810,9 @@ d_base_apc_vec =
 	};
 	
 	// set to true to disable ambient battlefield sounds at main targets
-	d_noambient_bf_sounds = false;
+	if (isNil "d_noambient_bf_sounds") then {
+		d_noambient_bf_sounds = false;
+	};
 	
 	d_dbox_idx = 0;
 	
