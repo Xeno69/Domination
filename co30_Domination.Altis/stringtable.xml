@@ -2898,7 +2898,7 @@
 <Korean>Medium</Korean>
 <Japanese>Medium</Japanese>
 <Original>Medium</Original>
-<Russian>Medium</Russian>
+<Russian>Средний</Russian>
 <Chinesesimp>Medium</Chinesesimp>
 <Chinese>Medium</Chinese>
 <French>Medium</French>
@@ -2946,7 +2946,7 @@
 <Korean>Always</Korean>
 <Japanese>Always</Japanese>
 <Original>Always</Original>
-<Russian>Always</Russian>
+<Russian>Всегда</Russian>
 <Chinesesimp>Always</Chinesesimp>
 <Chinese>Always</Chinese>
 <French>Always</French>
@@ -3354,7 +3354,7 @@
 <Korean>-  특정한 장소 또는 기지를 공격하는 게릴라작전 암호명</Korean>
 <Japanese>- Codenames for launching saboteur attacks on or base</Japanese>
 <Original>- Codenames for launching saboteur attacks on or base</Original>
-<Russian>- Codenames for launching saboteur attacks on or base</Russian>
+<Russian>- Кодовое имя для активации нападения диверсантов на базу</Russian>
 <Chinesesimp>没有支线任务...</Chinesesimp>
 <Chinese>沒有支現任務...</Chinese>
 <French>- Noms de code pour lancer des attaques de saboteurs sur ou à la base</French>
@@ -4806,7 +4806,7 @@
 <Korean>None of the soldiers made it back to base...</Korean>
 <Japanese>None of the soldiers made it back to base...</Japanese>
 <Original>None of the soldiers made it back to base...</Original>
-<Russian>None of the soldiers made it back to base...</Russian>
+<Russian>Никто из солдат не вернулся на базу...</Russian>
 <Chinesesimp>None of the soldiers made it back to base...</Chinesesimp>
 <Chinese>None of the soldiers made it back to base...</Chinese>
 <French>None of the soldiers made it back to base...</French>
@@ -6498,7 +6498,7 @@
 <Korean>Main target random events:</Korean>
 <Japanese>Main target random events:</Japanese>
 <Original>Main target random events:</Original>
-<Russian>Main target random events:</Russian>
+<Russian>С случайными событиями на главной цели:</Russian>
 <Chinesesimp>Main target random events:</Chinesesimp>
 <Chinese>Main target random events:</Chinese>
 <French>Main target random events:</French>
@@ -10253,7 +10253,7 @@
 <Korean>Call CAS</Korean>
 <Japanese>Call CAS</Japanese>
 <Original>Call CAS</Original>
-<Russian>Call CAS</Russian>
+<Russian>Вызвать CAS</Russian>
 <Chinesesimp>Call CAS</Chinesesimp>
 <Chinese>在激光指示點呼叫空中支援</Chinese>
 <French>Demande CAS</French>
@@ -10926,7 +10926,7 @@
 <Korean>One of our pilots has been captured. Free them and bring them back alive to your base!</Korean>
 <Japanese>One of our pilots has been captured. Free them and bring them back alive to your base!</Japanese>
 <Original>One of our pilots has been captured. Free them and bring them back alive to your base!</Original>
-<Russian>One of our pilots has been captured. Free them and bring them back alive to your base!</Russian>
+<Russian>Один из наших пилотов был захвачен в плен. Освободите пилота и верните его живым на свою базу!</Russian>
 <Chinesesimp>One of our pilots has been captured. Free them and bring them back alive to your base!</Chinesesimp>
 <Chinese>One of our pilots has been captured. Free them and bring them back alive to your base!</Chinese>
 <French>One of our pilots has been captured. Free them and bring them back alive to your base!</French>
@@ -12198,7 +12198,7 @@
 <Korean>목표로 부터 적군 배치 채울 반경  - 점령 보병</Korean>
 <Japanese>Enemy placement target fill radius - occupy infantry</Japanese>
 <Original>Enemy placement target fill radius - occupy infantry</Original>
-<Russian>Enemy placement target fill radius - occupy infantry</Russian>
+<Russian>Радиус размещения противника на главной цели - пехота</Russian>
 <Chinesesimp>Enemy placement target fill radius - occupy infantry</Chinesesimp>
 <French>Rayon de remplissage de la cible de placement ennemi - occupez l'infanterie</French>
 </Key>
@@ -12209,7 +12209,7 @@
 <Korean>목표로 부터 적군 배치 채울 반경 - 기습 보병</Korean>
 <Japanese>Enemy placement target fill radius - ambush infantry</Japanese>
 <Original>Enemy placement target fill radius - ambush infantry</Original>
-<Russian>Enemy placement target fill radius - ambush infantry</Russian>
+<Russian>Радиус размещения противника на главной цели - пехота режим засады</Russian>
 <Chinesesimp>Enemy placement target fill radius - ambush infantry</Chinesesimp>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie embuscade</French>
 </Key>
@@ -12220,7 +12220,7 @@
 <Korean>목표로 부터 적군 배치 채울 반경 - 스나이퍼 보병</Korean>
 <Japanese>Enemy placement target fill radius - sniper infantry</Japanese>
 <Original>Enemy placement target fill radius - sniper infantry</Original>
-<Russian>Enemy placement target fill radius - sniper infantry</Russian>
+<Russian>Радиус размещения противника на главной цели - снайперские группы</Russian>
 <Chinesesimp>Enemy placement target fill radius - sniper infantry</Chinesesimp>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie de tireurs d'élite</French>
 </Key>
@@ -13280,7 +13280,7 @@
 <Korean>Entire map</Korean>
 <Japanese>Entire map</Japanese>
 <Original>Entire map</Original>
-<Russian>Entire map</Russian>
+<Russian>Вся карта</Russian>
 <Chinesesimp>Entire map</Chinesesimp>
 <Chinese>Entire map</Chinese>
 <French>Entire map</French>
