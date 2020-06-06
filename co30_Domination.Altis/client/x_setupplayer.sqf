@@ -1074,6 +1074,34 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 5);
 	
+	private _vpl = vest player;
+	{
+		private _toadd = if (_vpl == _x) then {
+			["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
+		} else {
+			private _maxload = getNumber(configFile>>"CfgVehicles">>getText(configFile>>"CfgWeapons">>_x>>"ItemInfo">>"containerClass")>>"maximumLoad");
+			call {
+				if (_maxload < 100) exitWith {
+					["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
+				};
+				if (_maxload < 121) exitWith {
+					["SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
+				};
+				if (_maxload < 141) exitWith {
+					["MAJOR","COLONEL"]
+				};
+				["COLONEL"]
+			};
+		};
+
+		private _vestclass = toLowerANSI _x;
+		{
+			private _entry = d_misc_store getVariable [format ["%1_VESTS", _x], []];
+			_entry pushBack _vestclass;
+			d_misc_store setVariable [format ["%1_VESTS", _x], _entry];
+		} forEach _toadd;
+	} forEach (bis_fnc_arsenal_data # 4);
+	
 	0 spawn d_fnc_weaponcargo_ranked;
 };
 
