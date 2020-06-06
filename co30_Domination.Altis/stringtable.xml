@@ -2682,7 +2682,7 @@
 <Korean>매우 아주 훌륭합니다. 마침내 공격 헬기에대한 조기경보가 가능해졌습니다. </Korean>
 <Japanese>非常に、非常に素晴らしいです。最終的に攻撃ヘリコプターの早期警報が可能となりました。</Japanese>
 <Original>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</Original>
-<Russian>Jolly bloody crap good. Finally some early warnings possible against those attack choppers.</Russian>
+<Russian>Прекрасно. Теперь мы узнаем если появятся вражеские вертолеты</Russian>
 <Chinesesimp>真是个好消息.终于对敌军攻击直升机有预警了.</Chinesesimp>
 <Chinese>真是個好消息.終於對敵軍攻擊直升機有預警了‧</Chinese>
 <French>Une putain de merde. Enfin quelques avertissements possibles contre les hélicoptères d'attaque.</French>
@@ -3072,16 +3072,16 @@
 <French>%1 a été renvoyé à l'acceuil en raison des TK, du nombre de TK: %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_507a">
-<English>%1 was out into jail because of team killing, number team kills: %2</English>
+<English>%1 was put into jail because of team killing, number team kills: %2</English>
 <Spanish>%1 fue a la cárcel por los asesinatos del equipo, los asesinatos del equipo de número: %2</Spanish>
 <Portuguese>%1  foi preso por causa da morte de equipes, número de equipes que matam: %2</Portuguese>
 <Korean>%1 (이)가 팀킬로 인해 교도소에 수감 되었습니다, 팀킬횟수: %2</Korean>
-<Japanese>%1 was out into jail because of team killing, number team kills: %2</Japanese>
-<Original>%1 was out into jail because of team killing, number team kills: %2</Original>
-<Russian>%1 was out into jail because of team killing, number team kills: %2</Russian>
-<Chinesesimp>%1 was out into jail because of team killing, number team kills: %2</Chinesesimp>
-<Chinese>%1 was out into jail because of team killing, number team kills: %2</Chinese>
-<French>%1 was out into jail because of team killing, number team kills: %2</French>
+<Japanese>%1 was put into jail because of team killing, number team kills: %2</Japanese>
+<Original>%1 was put into jail because of team killing, number team kills: %2</Original>
+<Russian>%1 был наказан за teamkill, кол-во teamkills: %2</Russian>
+<Chinesesimp>%1 was put into jail because of team killing, number team kills: %2</Chinesesimp>
+<Chinese>%1 was put into jail because of team killing, number team kills: %2</Chinese>
+<French>%1 was put into jail because of team killing, number team kills: %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_508">
 <English>%1 was kicked to the lobby automatically because of too much unnecessary shooting at base</English>
@@ -3366,7 +3366,7 @@
 <Korean>- 공수지원의 암호명으로 주미션지에 상대측 공수병력 투하에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに空挺隊を送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</Original>
-<Russian>- Codename for airdrop to provide early warning whenever the enemy sends airdropped troops to the main target</Russian>
+<Russian>- Позывные для десантирования обеспечат нам ранее предупреждение о скором приближении десанта врага на основной цели.</Russian>
 <Chinesesimp>- 当敌军向主要目标空投部队时的空投预警代号</Chinesesimp>
 <Chinese>- 當敵軍向主要目標空投部隊時的空投預警代號</Chinese>
 <French>- Nom de code qui donne un avertissement précoce lorsqu'un ennemi envoie un escadron aéroporté vers l'objectif principal</French>
@@ -3378,7 +3378,7 @@
 <Korean>- 항공공격의 암호명으로 주미션지에 상대측 항공공격에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに攻撃機を送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</Original>
-<Russian>- Codename for attack planes to provide early warning whenever the enemy sends an attack plane to the main target</Russian>
+<Russian>- Позывные самолетов обеспечат нам ранее предупреждение о скором приближении самолетов врага на основной цели.</Russian>
 <Chinesesimp>- 当敌军向主要目标呼叫空中打击的预警代号</Chinesesimp>
 <Chinese>- 當敵軍向主要目標呼叫空中打擊的預警代號</Chinese>
 <French>- Nom de code qui donne un avertissement précoce lorsqu'un ennemi envoie un avion d'attaque à l'objectif principal</French>
@@ -3390,7 +3390,7 @@
 <Korean>- 헬기공격의 암호명으로 주미션지에 상대측 헬기공격에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに攻撃ヘリコプターを送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</Original>
-<Russian>- Codename for attack helicopters to provide early warning whenever the enemy sends an attack chopper to the main target</Russian>
+<Russian>- Позывные вертолетов обеспечат нам ранее предупреждение о скором приближении вертолетов врага на основной цели</Russian>
 <Chinesesimp>- 当敌军向主要目标呼叫攻击直升机的预警代号</Chinesesimp>
 <Chinese>- 當敵軍向主要目標呼叫攻擊直升機的預警代號</Chinese>
 <French>- Nom de code qui donne un avertissement précoce lorsqu'un ennemi envoie un hélicoptère d'attaque à l'objectif principal</French>
@@ -3402,7 +3402,7 @@
 <Korean>- 헬기공격의 암호명으로 주미션지에 상대측 헬기공격(경량)에 대한 조기경고를 제공합니다.</Korean>
 <Japanese>- 敵が主ターゲットに軽攻撃ヘリコプターを送るたびに、早期警告を発するコードネーム</Japanese>
 <Original>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</Original>
-<Russian>- Codename for light attack helicopters to provide early warning whenever the enemy sends a light attack chopper to the main target</Russian>
+<Russian>- Позывные легких вертолетов обеспечат нам ранее предупреждение о скором приближении легких вертолетов врага на основной цели</Russian>
 <Chinesesimp>- 当敌军向主要目标呼叫轻型攻击直升机预警代号</Chinesesimp>
 <Chinese>- 當敵軍向主要目標呼叫輕型攻擊直升機預警代號</Chinese>
 <French>-Nom de code qui donne un avertissement précoce lorsqu'un ennemi envoie un hélicoptère d'attaque léger à l'objectif principal</French>
@@ -4770,7 +4770,7 @@
 <Korean>적이 보조미션의 목표를 자체적으로 파괴하였습니다.</Korean>
 <Japanese>敵は自らサイドミッションターゲットを破壊することに決めました...</Japanese>
 <Original>The enemy decided to destroy the sidemission target by itself...</Original>
-<Russian>The enemy decided to destroy the sidemission target by itself...</Russian>
+<Russian>Противник решил уничтожить цель Доп. задания сам...</Russian>
 <Chinesesimp>敌人决定自己把支线任务目标破坏掉...</Chinesesimp>
 <Chinese>敵人決定自己把支線任務目標破壞掉...</Chinese>
 <French>L'ennemi a décidé de détruire la cible de la mission secondaire ...</French>
@@ -5874,7 +5874,7 @@
 <Korean>CPR</Korean>
 <Japanese>CPR</Japanese>
 <Original>CPR</Original>
-<Russian>CPR</Russian>
+<Russian>Сердечно-лёгочная реанимация</Russian>
 <Chinesesimp>人工呼吸</Chinesesimp>
 <Chinese>CPR人工呼吸</Chinese>
 <French>CPR</French>
@@ -6438,7 +6438,7 @@
 <Korean>AI 기능만, AI 모집없음</Korean>
 <Japanese>AI機能あり,AI募集なし:</Japanese>
 <Original>With AI features but no AI recruit:</Original>
-<Russian>With AI features but no AI recruit:</Russian>
+<Russian>С характеристиками ИИ, но без набора ИИ:</Russian>
 <Chinesesimp>AI特性但没有AI招聘:</Chinesesimp>
 <Chinese>有AI功能但不能招聘AI:</Chinese>
 <French>Avec des fonctionnalités d'IA mais pas de recrutement d'IA:</French>
@@ -7231,7 +7231,7 @@
 <Korean>Enable simulation for enemy camps:</Korean>
 <Japanese>Enable simulation for enemy camps:</Japanese>
 <Original>Enable simulation for enemy camps:</Original>
-<Russian>Enable simulation for enemy camps:</Russian>
+<Russian>Включить симуляцию для вражеских лагерей:</Russian>
 <Chinesesimp>Enable simulation for enemy camps:</Chinesesimp>
 <Chinese>Enable simulation for enemy camps:</Chinese>
 <French>Enable simulation for enemy camps:</French>
@@ -10710,7 +10710,7 @@
 <Korean>아래에 저장된 게임 이름을 클릭하여 불어오십시오%1%2</Korean>
 <Japanese>Click on a save game name below to load it%1%2</Japanese>
 <Original>Click on a save game name below to load it%1%2</Original>
-<Russian>Click on a save game name below to load it%1%2</Russian>
+<Russian>Нажмите на название игры для сохранения %1%2</Russian>
 <Chinesesimp>点击下面的保存游戏名称加载 %1%2</Chinesesimp>
 <Chinese>點擊下面的保存遊戲名稱加載 %1%2</Chinese>
 <French>Cliquez sur un nom de sauvegarde ci-dessous pour le charger %1%2</French>
@@ -11538,7 +11538,7 @@
 <Korean>귀관은 잔해수리 지점에 잔해를 가져다 놓아 %1 포인트를 획득하였습니다!</Korean>
 <Japanese>points for bringing a wreck to the wreck repair point!</Japanese>
 <Original>points for bringing a wreck to the wreck repair point!</Original>
-<Russian>points for bringing a wreck to the wreck repair point!</Russian>
+<Russian>Вы получаете %1 очков за доставку врэка (уничтож. приз. техники) на точку ремонта!</Russian>
 <Chinesesimp>points for bringing a wreck to the wreck repair point!</Chinesesimp>
 <Chinese>points for bringing a wreck to the wreck repair point!</Chinese>
 <French>points for bringing a wreck to the wreck repair point!</French>
@@ -12030,7 +12030,7 @@
 <Korean>AI Advanced - enhanced awareness (common units)</Korean>
 <Japanese>AI Advanced - enhanced awareness (common units)</Japanese>
 <Original>AI Advanced - enhanced awareness (common units)</Original>
-<Russian>AI Advanced - enhanced awareness (common units)</Russian>
+<Russian>AI Advanced - повышенная осведомленность (common units)</Russian>
 <Chinesesimp>AI Advanced - enhanced awareness (common units)</Chinesesimp>
 <French>AI Advanced - enhanced awareness (common units)</French>
 </Key>
@@ -12041,7 +12041,7 @@
 <Korean>AI Advanced - enemy active pursuit radius</Korean>
 <Japanese>AI Advanced - enemy active pursuit radius</Japanese>
 <Original>AI Advanced - enemy active pursuit radius</Original>
-<Russian>AI Advanced - enemy active pursuit radius</Russian>
+<Russian>AI Advanced - радиус активного преследования противника</Russian>
 <Chinesesimp>AI Advanced - enemy active pursuit radius</Chinesesimp>
 <French>AI Advanced - enemy active pursuit radius</French>
 </Key>
@@ -12052,7 +12052,7 @@
 <Korean>AI Advanced - enemy shoots aggressively at players</Korean>
 <Japanese>AI Advanced - enemy shoots aggressively at players</Japanese>
 <Original>AI Advanced - enemy shoots aggressively at players</Original>
-<Russian>AI Advanced - enemy shoots aggressively at players</Russian>
+<Russian>AI Advanced - враг агрессивно стреляет в игроков</Russian>
 <Chinesesimp>AI Advanced - enemy shoots aggressively at players</Chinesesimp>
 <French>AI Advanced - enemy shoots aggressively at players</French>
 </Key>
@@ -12063,7 +12063,7 @@
 <Korean>AI Advanced - enemy granted frequent ammo refills</Korean>
 <Japanese>AI Advanced - enemy granted frequent ammo refills</Japanese>
 <Original>AI Advanced - enemy granted frequent ammo refills</Original>
-<Russian>AI Advanced - enemy granted frequent ammo refills</Russian>
+<Russian>AI Advanced - врагу часто выдают патроны</Russian>
 <Chinesesimp>AI Advanced - enemy granted frequent ammo refills</Chinesesimp>
 <French>AI Advanced - enemy granted frequent ammo refills</French>
 </Key>
@@ -12085,7 +12085,7 @@
 <Korean>Enemy infantry - 수비하는 보병 그룹 수 - 협동작전 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - overwatch mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
-<Russian>Enemy infantry - garrisoned infantry group count - overwatch mode</Russian>
+<Russian>Количество гарнизонных пехотных групп - режим наблюдения</Russian>
 <Chinesesimp>Enemy infantry - garrisoned infantry group count - overwatch mode</Chinesesimp>
 <French>Enemy infantry - nombres des groupes d'infanterie en garnison - mode surveillance</French>
 </Key>
@@ -12151,7 +12151,7 @@
 <Korean>Enemy infantry - 전개 반경</Korean>
 <Japanese>Enemy infantry - deployment radius</Japanese>
 <Original>Enemy infantry - deployment radius</Original>
-<Russian>Enemy infantry - deployment radius</Russian>
+<Russian>Enemy infantry - Радиус развертывания</Russian>
 <Chinesesimp>Enemy infantry - deployment radius</Chinesesimp>
 <French>Enemy infantry - rayon de déploiement</French>
 </Key>
@@ -12544,7 +12544,7 @@
 <Korean>병영 두기:</Korean>
 <Japanese>Barracks left:</Japanese>
 <Original>Barracks left:</Original>
-<Russian>Barracks left:</Russian>
+<Russian>Осталось казарм:</Russian>
 <Chinesesimp>离开营房:</Chinesesimp>
 <French>Caserne restante:</French>
 </Key>
@@ -12555,7 +12555,7 @@
 <Korean>메인 미션지내 지뢰:</Korean>
 <Japanese>With minefield at main targets:</Japanese>
 <Original>With minefield at main targets:</Original>
-<Russian>With minefield at main targets:</Russian>
+<Russian>WiС минным полем в главных целях:</Russian>
 <Chinesesimp>雷区是主要目标:</Chinesesimp>
 <French>Avec champ de mines sur les objectifs principaux:</French>
 </Key>
@@ -12566,7 +12566,7 @@
 <Korean>잔해 수리/탄약상자 적재소 위에 3D 그림 아이콘:</Korean>
 <Japanese>With 3D draw icon above wreck repair/ammo point:</Japanese>
 <Original>With 3D draw icon above wreck repair/ammo point:</Original>
-<Russian>With 3D draw icon above wreck repair/ammo point:</Russian>
+<Russian>С иконкой 3D Draw над точкой ремонта/загрузки боеприпасов:</Russian>
 <Chinesesimp>使用沉船维修/弹药点上方的3D绘制图标:</Chinesesimp>
 <French>Avec l'icône de dessin 3D au-dessus du point de réparation/munitions de l'épave:</French>
 </Key>
@@ -12923,7 +12923,7 @@
 <Korean>가상 탄약상자 접근을 1000으로 제한</Korean>
 <Japanese>Limit Virtual Arsenal ammo box access too 1000</Japanese>
 <Original>Limit Virtual Arsenal ammo box access too 1000</Original>
-<Russian>Limit Virtual Arsenal ammo box access too 1000</Russian>
+<Russian>Ограничить доступ к боеприпасам виртуального арсенала до 1000</Russian>
 <Chinesesimp>Limit Virtual Arsenal ammo box access too 1000</Chinesesimp>
 <Chinese>Limit Virtual Arsenal ammo box access too 1000</Chinese>
 <French>Limiter l'accès aux boîtes de munitions de l'Arsenal virtuel à 1000</French>
