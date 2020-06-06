@@ -591,7 +591,7 @@ if (isServer) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs"]) exitWith {
+					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs", "d_noambient_bf_sounds"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1];
 					};
 					if (_tla in ["d_set_pl_score_db", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_launcher_cooldown"]) exitWith {

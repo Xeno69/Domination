@@ -118,7 +118,8 @@ INSERT INTO `dom_settings` (`name`, `value`) VALUES
 	('d_number_attack_planes', '1'),
 	('d_number_attack_choppers', '1'),
 	('d_number_light_attack_choppers', '1'),
-	('d_number_attack_uavs', '1');
+	('d_number_attack_uavs', '1'),
+	('d_noambient_bf_sounds', 'false');
 /*!40000 ALTER TABLE `dom_settings` ENABLE KEYS */;
 
 -- Daten Export vom Benutzer nicht ausgewählt
