@@ -114,7 +114,11 @@ INSERT INTO `dom_settings` (`name`, `value`) VALUES
 	('d_points_needed_db', '[500,2000,5000,9000,14000,20000,30000]'),
 	('d_ai_groups_respawn_time', '[250,150,320,170]'),
 	('d_set_pl_score_db', 'true'),
-	('d_launcher_cooldown', '120');
+	('d_launcher_cooldown', '120'),
+	('d_number_attack_planes', '1'),
+	('d_number_attack_choppers', '1'),
+	('d_number_light_attack_choppers', '1'),
+	('d_number_attack_uavs', '1');
 /*!40000 ALTER TABLE `dom_settings` ENABLE KEYS */;
 
 -- Daten Export vom Benutzer nicht ausgewählt
