@@ -136,7 +136,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 		_victim setCaptive false;
     };
     
-    if (_isExecutePrisoners || !(captive _victim)) then {
+    if (_isExecutePrisoners || {!(captive _victim)}) then {
 		{	
 			//todo - play a sound?
 			_x forceSpeed -1;
