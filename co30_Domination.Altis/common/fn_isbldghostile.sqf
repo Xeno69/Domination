@@ -1,4 +1,4 @@
-//by Killzone Kid and modified by Longtime
+//by Longtime
 //#define __DEBUG__
 #define THIS_FILE "fn_isbldghostile.sqf"
 #include "..\x_setup.sqf"
