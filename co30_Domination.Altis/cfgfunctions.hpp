@@ -304,6 +304,8 @@ class cfgFunctions {
 			addc(iscopilot);
 			addc(aftereject);
 			addc(hasrespirator);
+			addc(isinhouse);
+			addc(isbldghostile);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
