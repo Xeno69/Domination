@@ -127,32 +127,6 @@ _Zen_ArrayShuffle = {
 	};
 };
 
-//by Killzone Kid (modified)
-private _fnc_inHouse_pos = {
-	private _firstIntersectedItem = lineIntersectsSurfaces [
-		_this, 
-		_this vectorAdd [0, 0, 50], 
-		objNull, objNull, true, 1, "GEOM", "NONE"
-	];
-	(((_firstIntersectedItem # 0) select 2) isKindOf "House")
-};
-
-isOccupiedByEnemy = {
-	params ["_bldg", "_sideHostile"];
-	private _distancePlayerSideTooClose = 7;
-	private _isOccupiedByEnemy = false;
-	private _pa = _bldg buildingPos -1;
-	if !(_pa isEqualTo []) then {
-		private _p = _pa select 0; //just test for enemies around pos # 0 in each building
-		{
-			if (alive _x && {_x isKindOf "CAManBase" && {side _x == _sideHostile }}) then {
-				_isOccupiedByEnemy = true;
-			};
-		} forEach (_p nearEntities _distancePlayerSideTooClose);
-	};
-	_isOccupiedByEnemy;
-};
-
 if (_buildingRadius < 0) then {
 	_buildingsArray = [nearestBuilding _center];
 } else {
@@ -170,7 +144,7 @@ _buildingsArrayFiltered = [];
 
 if !(_isAllowSpawnNearEnemy) then {
 	{
-    	if (!((_x buildingPos -1) isEqualTo []) && {!([_x, d_side_player] call isOccupiedByEnemy)}) then {
+    	if (!((_x buildingPos -1) isEqualTo []) && {!([_x, d_side_player] call d_fnc_isbldghostile)}) then {
     		_buildingsArrayFiltered pushBack _x;
     	};
     } forEach _buildingsArray;
@@ -226,7 +200,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		_posArray deleteAt 0;
 		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
 		
-		if (_isRequireRoofOverhead && {!(_housePos call _fnc_inHouse_pos)}) exitWith {};
+		if (_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}) exitWith {};
 
 		_startAngle = (round random 10) * (round random 36);
 		for "_i" from _startAngle to (_startAngle + 350) step 10 do {
