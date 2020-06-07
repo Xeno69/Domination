@@ -41,9 +41,9 @@ private _distanceToEnablePilotMovement = 3; //in meters
 
 sleep 2;
 
-private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_538", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
+private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_CRASH", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
 
-[localize "STR_DOM_MISSIONSTRING_1803_NO_TIMER", "SIDE"] call d_fnc_HintChatMsg;
+d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvac",d_kbtel_chan];
 
 private _owngroup = [d_side_player] call d_fnc_creategroup;
 if (d_with_ai) then {
@@ -204,9 +204,9 @@ while {!_pilots_at_base && {!_is_dead && {!d_mt_event_resolved}}} do {
 };
 
 if (_pilots_at_base) then {
-	[localize "STR_DOM_MISSIONSTRING_812", "SIDE"] call d_fnc_HintChatMsg;
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacSucceed",d_kbtel_chan];
 } else {
-	[localize "STR_DOM_MISSIONSTRING_722", "SIDE"] call d_fnc_HintChatMsg;
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacFail",d_kbtel_chan];
 };
 
 d_mt_event_resolved = true;

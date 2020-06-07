@@ -29,9 +29,9 @@ publicVariable "d_x_mt_event_start";
 
 waitUntil { !(d_x_mt_event_start isEqualTo "") };
 
-[localize "STR_DOM_MISSIONSTRING_1805_MILITARY", "SIDE"] call d_fnc_HintChatMsg;
+d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_chan];
 
-private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_538", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
+private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERS", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
 
 private _newgroup = [d_own_side] call d_fnc_creategroup;
 
@@ -80,7 +80,7 @@ if (d_with_dynsim == 0) then {
 
 sleep 2.333;
 
-private _enemyGuardGroup = ["specops", 1, "allmen", 3, _poss , 25, false] call d_fnc_CreateInf select 0;
+private _enemyGuardGroup = ["specops", 1, "allmen", 2, _poss , 25, false] call d_fnc_CreateInf select 0;
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
@@ -136,15 +136,15 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 		_victim setCaptive false;
     };
     
-    {
-    	if (_isExecutePrisoners || !(captive _victim)) then {
-    		//todo - play a sound?
-    		_x forceSpeed -1;
+    if (_isExecutePrisoners || !(captive _victim)) then {
+		{	
+			//todo - play a sound?
+			_x forceSpeed -1;
 			_enemyGuardGroup reveal [_victim, 4];
 			_x doTarget _victim;
 			_x doSuppressiveFire _victim;
-    	}; 
-    } forEach (units _enemyGuardGroup);
+		} forEach (units _enemyGuardGroup);
+    };
     
     if (_isExecutePrisoners) then {
 		sleep 5;
@@ -191,9 +191,9 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 __TRACE_3("over","_hostages_reached_dest","_all_dead","_rescued")
 
 if (_hostages_reached_dest) then {
-	[localize "STR_DOM_MISSIONSTRING_789", "SIDE"] call d_fnc_HintChatMsg;
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
 } else {
-	[localize "STR_DOM_MISSIONSTRING_719_MILITARY", "SIDE"] call d_fnc_HintChatMsg;
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersFail",d_kbtel_chan];
 };
 
 d_mt_event_resolved = true;
