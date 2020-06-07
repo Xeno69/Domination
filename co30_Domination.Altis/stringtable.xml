@@ -12632,7 +12632,7 @@
 <Korean>실속</Korean>
 <Japanese>Stall</Japanese>
 <Original>Stall</Original>
-<Russian>Stall</Russian>
+<Russian>Противник в бункере</Russian>
 <Chinesesimp>停顿</Chinesesimp>
 <French>Pause</French>
 </Key>
@@ -13292,7 +13292,7 @@
 <Korean>No empty cargo positions in %1...</Korean>
 <Japanese>No empty cargo positions in %1...</Japanese>
 <Original>No empty cargo positions in %1...</Original>
-<Russian>No empty cargo positions in %1...</Russian>
+<Russian>Нет свободного места в %1...</Russian>
 <Chinesesimp>No empty cargo positions in %1...</Chinesesimp>
 <Chinese>No empty cargo positions in %1...</Chinese>
 <French>No empty cargo positions in %1...</French>
