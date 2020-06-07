@@ -200,9 +200,6 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		_posArray deleteAt 0;
 		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
 		
-		//if ((count _housePos) != 3) exitWith {};
-		
-		//if (_isRequireRoofOverhead && {!(_housePos call _fnc_inHouse_pos_horizontal_check)}) exitWith {};
 		if (_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}) exitWith {};
 
 		_startAngle = (round random 10) * (round random 36);
