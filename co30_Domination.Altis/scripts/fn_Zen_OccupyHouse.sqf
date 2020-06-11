@@ -53,7 +53,6 @@ private [
 	"_buildingsArray",
 	"_buildingsArrayFiltered",
 	"_buildingPosArray",
-	"_buildingPositions",
 	"_posArray",
 	"_unitIndex",
 	"_j",

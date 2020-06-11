@@ -17,7 +17,7 @@ if (_dovup) then {
 
 d_data_was_send = false;
 publicVariable "d_data_was_send";
-_smvec remoteExecCall ["d_fnc_addactionstd", [0, -2] select isDedicated, _smvec];
+[_smvec, 0] remoteExecCall ["d_fnc_addactionssm", [0, -2] select isDedicated, _smvec];
 
 d_x_sm_vec_rem_ar pushBack _smvec;
 
@@ -42,7 +42,22 @@ while {!d_data_was_send && {alive _smvec && {!d_sm_resolved}}} do {
 if (!alive _smvec) then {
 	d_sm_winner = -1000;
 } else {
+#ifndef __TT__
 	d_sm_winner = 2;
+#else
+	if (d_sm_side_caller == blufor) then {
+		d_sm_winner = 2;
+	} else {
+		if (d_sm_side_caller == opfor) then {
+			d_sm_winner = 1;
+		} else {
+			d_sm_winner = -1000;
+		};
+	};
+	d_sm_side_caller = nil;
+#endif
 };
+
+d_data_was_send = nil;
 
 d_sm_resolved = true;

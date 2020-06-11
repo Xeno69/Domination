@@ -34,6 +34,6 @@ d_current_mission_counter = d_current_mission_counter + 1;
 __TRACE_1("","_cur_sm_idx")
 
 //_cur_sm_idx = _this select 0;
-//_cur_sm_idx = 50042;
+//_cur_sm_idx = 50040;
 
 [_cur_sm_idx] spawn d_fnc_hcsmexec;

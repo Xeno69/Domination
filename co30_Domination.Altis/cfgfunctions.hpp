@@ -350,7 +350,7 @@ class cfgFunctions {
 			addc(addsmpoints);
 			addc(getbymarkersm);
 			addc(clearsidemission);
-			addc(addactionstd);
+			addc(addactionssm);
 			addc(smsurprise);
 			addc(sm_dist);
 			addc(smkilledeh);
@@ -363,6 +363,8 @@ class cfgFunctions {
 			addc(cdoquake);
 			addc(doquake);
 			addc(trigwork);
+			addc(createtrigsm);
+			addc(smcough);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
@@ -386,6 +388,7 @@ class cfgFunctions {
 			addc(sideobjects);
 			addc(sidetransferdata);
 			addc(sidecache);
+			addc(gleak);
 		};
 		class Dom_MainTarget_Events {
 			file = "missions\events";

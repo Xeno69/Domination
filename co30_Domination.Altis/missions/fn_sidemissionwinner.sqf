@@ -11,6 +11,15 @@ __TRACE_1("","_this")
 
 sleep 1;
 
+if (!isNil "d_sm_curptrigger") then {
+	deleteVehicle d_sm_curptrigger;
+	d_sm_curptrigger = nil;
+};
+if (!isNil "d_sm_curptrig_script") then {
+	terminate d_sm_curptrig_script;
+	d_sm_curptrig_script = nil;
+};
+
 d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_712";
 
 if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {

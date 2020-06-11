@@ -52,13 +52,14 @@
 // d_smm|669|sam
 // d_smm|670|cache
 // d_smm|671|trucks
+// d_smm|701|gleak
 
 private _dallsidemissions = [];
 
 private _smtypes = ["convoy", "stealflag", "tankdepot", "arrest", "artibase", "deliver", "evac", "radiotower", "prisoners",
 	"stealapc", "stealchopper", "stealtank", "stealplane", "specops", "eliminateofficer", "eliminategovmember", "fuelstation",
 	"transformer", "barracks", "hangar", "eliminatesniper", "cargotruck", "minesland", "minesnaval", "dataterminal", "device",
-	"sam", "cache", "trucks", "artycannon"] apply {toLowerANSI _x};
+	"sam", "cache", "trucks", "artycannon", "gleak"] apply {toLowerANSI _x};
 private _subtypes = ["start", "end", "flag", "tank", "time", "radius"] apply {toLowerANSI _x};
 
 private _infhelper_fnc = {
@@ -567,6 +568,20 @@ __TRACE_1("","_eee")
 					if (hasInterface && {_onesmar # 5 == ""}) then {
 						_onesmar set [5, "49"];
 						_onesmar set [6, "50"];
+					};
+				};
+			};
+		};
+		
+		if (_smtype == "gleak") exitWith {
+			call {
+				if (_subtype == "") exitWith {
+					if ((_onesmar # 2) isEqualTo []) then {
+						(_onesmar # 2) pushBack (markerPos _curmar);
+					};
+					if (hasInterface && {_onesmar # 5 == ""}) then {
+						_onesmar set [5, "2010"];
+						_onesmar set [6, "2011"];
 					};
 				};
 			};
