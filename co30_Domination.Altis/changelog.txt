@@ -15,6 +15,7 @@ ATTENTION: Altis Blufor Carrier version mission.sqm file has changed
 		 * d_trans_add_o_ and d_trans_add_b_ for additonal transport choppers
 - Added: Support for boat respawn in the TT version (the var name must start with d_boat
 - Added: Gas leak side mission type
+- Added: New GMCWG 1.2 APCs and choppers. The GMCWG version now has lift support and a chopper MHQ
 - Changed: Removed jump flags created at seized main targets in the TT version
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
@@ -36,4 +37,5 @@ ATTENTION: Altis Blufor Carrier version mission.sqm file has changed
 - Fixed: Possible script error in fn_spectdraw3d.sqf
 - Fixed: Side cache mission could break when no building with positions were available or buildings were null
 - Fixed: "Data uploaded!" message was displayed when the data upload was iterrupted and not when the data was uploaded in the transfer data sidemisssions
+- Fixed: The GMCWG winter version did use some wrong class names for winter units
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)

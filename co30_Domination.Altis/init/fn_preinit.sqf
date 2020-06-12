@@ -1061,7 +1061,10 @@ if (!d_tt_tanoa) then {
 				"CUP_B_C130J_Cargo_USMC"
 			};
 			if (d_gmcwg) exitWith {
-				""
+				if (d_gmcwgwinter) exitWith {
+					"gm_ge_airforce_do28d2_un"
+				};
+				"gm_ge_airforce_do28d2"
 			};
 			if (d_rhs) exitWith {
 				"RHS_C130J"
@@ -1539,7 +1542,10 @@ d_base_apc_vec =
 					["O_Heli_Attack_02_F","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Ka50_SLA"]
 				};
 				if (d_gmcwg) exitWith {
-					[]
+					if (d_gmcwgwinter) exitWith {
+						["gm_gc_airforce_mi2urn_un"]
+					};
+					["gm_gc_airforce_mi2urn"]
 				};
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vdv","RHS_Mi24V_vdv","RHS_Ka52_vvsc","RHS_Mi24P_vvsc","RHS_Mi24Vt_vvsc","rhs_mi28n_vvsc"]
@@ -1580,7 +1586,9 @@ d_base_apc_vec =
 #ifdef __GMCWG__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {[]};
+		case "E": {
+			["gm_gc_airforce_l410s_salon","gm_gc_airforce_l410t"]
+		};
 		case "W": {[]};
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
@@ -1673,7 +1681,10 @@ d_base_apc_vec =
 					["O_Heli_Attack_02_black_F", "CUP_O_Mi8_RU"]
 				};
 				if (d_gmcwg) exitWith {
-					[]
+					if (d_gmcwgwinter) exitWith {
+						["gm_gc_airforce_mi2us_un"]
+					};
+					["gm_gc_airforce_mi2us"]
 				};
 				if (d_ifa3lite) exitWith {
 					[]
@@ -2246,7 +2257,10 @@ if (hasInterface) then {
 				["CUP_B_MV22_USMC"]
 			};
 			if (d_gmcwg) exitWith {
-				[]
+				if (d_gmcwgwinter) exitWith {
+					["gm_ge_army_ch53g_un"]
+				};
+				["gm_ge_army_ch53g"]
 			};
 			if (d_rhs) exitWith {
 				["RHS_UH60M2"]
