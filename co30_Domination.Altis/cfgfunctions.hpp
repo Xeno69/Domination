@@ -394,6 +394,7 @@ class cfgFunctions {
 			file = "missions\events";
 			addc(event_sideevac);
 			addc(event_sideprisoners);
+			addc(event_tanksincoming);
 		};
 		class Dom_Server {
 			file = "server";
