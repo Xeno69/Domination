@@ -17,17 +17,16 @@ if (true) exitWith {};
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 //position the event site near target center at max distance 250m and min 150m 
-d_x_mt_event_pos = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
+private _poss = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
 d_x_mt_event_ar = [];
 d_mt_event_resolved = false;
 
-publicVariable "d_x_mt_event_pos";
-private _poss = d_x_mt_event_pos;
-d_x_mt_event_start = "";
-private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","d_x_mt_event_start = time",""]] call d_fnc_CreateTrigger;
-publicVariable "d_x_mt_event_start";
+//d_x_mt_event_pos = _poss;
+//publicVariable "d_x_mt_event_pos";
 
-waitUntil { !(d_x_mt_event_start isEqualTo "") };
+private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
+
+waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_chan];
 
@@ -122,14 +121,10 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 		_all_dead = true;
 	};
 	
-	{
-    	if (damage _x > 0.02) then {
-    		//if any unit in enemyGuardGroup is wounded more than 0.15 then set flag to shoot prisoners
-    		_isExecutePrisoners = true;
-    	};
-    } forEach (units _enemyGuardGroup);
-    
-    
+	if ((units _enemyGuardGroup) findIf {damage _x > 0.02} != -1) then {
+		//if any unit in enemyGuardGroup is wounded more than 0.15 then set flag to shoot prisoners
+    	_isExecutePrisoners = true;
+	};
     
     if (_isExecutePrisoners) then {
 		_victim = selectRandom _units;

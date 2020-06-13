@@ -595,6 +595,7 @@ if (d_occ_bldgs == 1) then {
 
 [_wp_array_vecs, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
 
+#ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
 	// todo - add more events - stop an execution, kidnap an officer, defuse a bomb, convoys through warzone
 	private _doEvent = false;
@@ -616,9 +617,9 @@ if (d_with_MainTargetEvents != 0) then {
 			case "GUERRILLA_TANKS": {
 				[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 			};
-			default {};
 		};
 	};
 };
+#endif
 
 _wp_array_pat = nil;

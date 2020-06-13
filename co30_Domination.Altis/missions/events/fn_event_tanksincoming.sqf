@@ -21,23 +21,11 @@ private _tries = 0;
 private _townNearbyName = "";
 private _townNearbyPos = [];
 
-while {!_chosen} do {
-	private _towns = nearestLocations [_target_center, ["NameCityCapital","NameCity","NameVillage"], 10000];
-	
-	// _towns select 1 <= this fails, can't figure out why so doing a weird forEach...
-	_i = 0;
-	{
-		if (_i == 1) exitWith {
-			//all this code just to select 1  :(
-			_townNearbyPos = position _x;
-			_townNearbyName = text _x;
-		};
-		_i = _i + 1;
-	} forEach _towns;
-	
-    _chosen = true;
-	_tries = _tries + 1;
-	if (_tries > 100) exitWith {};
+private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
+if (count _towns > 1) then {
+	private _loc = _towns # 1;
+	_townNearbyPos = getPos _loc;
+	_townNearbyName = text _loc;
 };
 
 if (_townNearbyPos isEqualTo []) exitWith {
@@ -48,27 +36,24 @@ if (_townNearbyPos isEqualTo []) exitWith {
 d_x_mt_event_ar = [];
 d_mt_event_resolved = false;
 
-d_x_mt_event_pos = _townNearbyPos;
-publicVariable "d_x_mt_event_pos";
+//d_x_mt_event_pos = _townNearbyPos;
+//publicVariable "d_x_mt_event_pos";
 
-d_x_mt_event_start = "";
-private _trigger = [_target_center, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","d_x_mt_event_start = time",""]] call d_fnc_CreateTrigger;
-publicVariable "d_x_mt_event_start";
+private _trigger = [_target_center, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
-waitUntil { !(d_x_mt_event_start isEqualTo "") };
+waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideGuerrTanks",d_kbtel_chan];
+d_kb_logic1 kbTell [d_kb_logic2 ,d_kb_topic_side, "MTEventSideGuerrTanks", d_kbtel_chan];
 
 private _newgroups = [];
 
-private _roadList = [];
-_roadList = _townNearbyPos nearroads 200;
+private _roadList = _townNearbyPos nearroads 200;
 if (_roadList isEqualTo []) exitWith {
 	diag_log ["exiting mission event, no roads found to spawn vehicles"];
 };
 
 for "_i" from 1 to 2 do {
-	private _veh = createVehicle ["I_MBT_03_cannon_F", (_roadList select _i), [], 0, "NONE"];
+	private _veh = createVehicle ["I_MBT_03_cannon_F", _roadList select _i, [], 0, "NONE"];
 	d_x_mt_event_ar pushBack _veh;
 	_veh call d_fnc_nodamoff;
 	sleep 3;

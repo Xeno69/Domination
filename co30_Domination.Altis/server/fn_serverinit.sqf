@@ -26,7 +26,6 @@ d_x_mt_event_types = [
 ];
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];
-d_x_mt_event_start = "";
 
 addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
 if (d_MissionType != 2) then {
