@@ -13297,6 +13297,54 @@
 <Chinese>No empty cargo positions in %1...</Chinese>
 <French>No empty cargo positions in %1...</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2024">
+<English>Open Terminal</English>
+<Spanish>Open Terminal</Spanish>
+<Portuguese>Open Terminal</Portuguese>
+<Korean>Open Terminal</Korean>
+<Japanese>Open Terminal</Japanese>
+<Original>Open Terminal</Original>
+<Russian>Open Terminal</Russian>
+<Chinesesimp>Open Terminal</Chinesesimp>
+<Chinese>Open Terminal</Chinese>
+<French>Open Terminal</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2025">
+<English>Seal leak</English>
+<Spanish>Seal leak</Spanish>
+<Portuguese>Seal leak</Portuguese>
+<Korean>Seal leak</Korean>
+<Japanese>Seal leak</Japanese>
+<Original>Seal leak</Original>
+<Russian>Seal leak</Russian>
+<Chinesesimp>Seal leak</Chinesesimp>
+<Chinese>Seal leak</Chinese>
+<French>Seal leak</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2026">
+<English>Sealing leak... Please wait!</English>
+<Spanish>Sealing leak... Please wait!</Spanish>
+<Portuguese>Sealing leak... Please wait!</Portuguese>
+<Korean>Sealing leak... Please wait!</Korean>
+<Japanese>Sealing leak... Please wait!</Japanese>
+<Original>Sealing leak... Please wait!</Original>
+<Russian>Sealing leak... Please wait!</Russian>
+<Chinesesimp>Sealing leak... Please wait!</Chinesesimp>
+<Chinese>Sealing leak... Please wait!</Chinese>
+<French>Sealing leak... Please wait!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2027">
+<English>Leak sealed!</English>
+<Spanish>Leak sealed!</Spanish>
+<Portuguese>Leak sealed!</Portuguese>
+<Korean>Leak sealed!</Korean>
+<Japanese>Leak sealed!</Japanese>
+<Original>Leak sealed!</Original>
+<Russian>Leak sealed!</Russian>
+<Chinesesimp>Leak sealed!</Chinesesimp>
+<Chinese>Leak sealed!</Chinese>
+<French>Leak sealed!</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028">
 <English>Attention: Guerrilla tanks are moving into the city.</English>
 <Spanish>Attention: Guerrilla tanks are moving into the city.</Spanish>
