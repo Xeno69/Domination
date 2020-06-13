@@ -13297,6 +13297,18 @@
 <Chinese>No empty cargo positions in %1...</Chinese>
 <French>No empty cargo positions in %1...</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2024">
+<English>Attention: Guerrilla tanks are moving into the city.</English>
+<Spanish>Attention: Guerrilla tanks are moving into the city.</Spanish>
+<Portuguese>Attention: Guerrilla tanks are moving into the city.</Portuguese>
+<Korean>Attention: Guerrilla tanks are moving into the city.</Korean>
+<Japanese>Attention: Guerrilla tanks are moving into the city.</Japanese>
+<Original>Attention: Guerrilla tanks are moving into the city.</Original>
+<Russian>Attention: Guerrilla tanks are moving into the city.</Russian>
+<Chinesesimp>Attention: Guerrilla tanks are moving into the city.</Chinesesimp>
+<Chinese>Attention: Guerrilla tanks are moving into the city.</Chinese>
+<French>Attention: Guerrilla tanks are moving into the city.</French>
+</Key>    
 </Container>
 </Package>
 </Project>

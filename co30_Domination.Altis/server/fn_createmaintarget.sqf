@@ -419,8 +419,8 @@ if (d_enable_civ_vehs > 0) then {
 	
 	if (isNil "d_cur_tgt_civ_vehicles") then {
 		d_cur_tgt_civ_vehicles = [];
-	};	
-	_tmp = count _roadList;
+	};
+	
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
@@ -429,7 +429,6 @@ if (d_enable_civ_vehs > 0) then {
 			_roadList=_roadList - [_x];	
 		};
 	} foreach _roadList;
-	//diag_log["count _roadList filter before and after", _tmp, count _roadList];
 
 	_roadList=_roadList call BIS_fnc_arrayShuffle;
 	
@@ -613,6 +612,9 @@ if (d_with_MainTargetEvents != 0) then {
 			};
         	case "POW_RESCUE": {
         		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+			};
+			case "GUERRILLA_TANKS": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 			};
 			default {};
 		};

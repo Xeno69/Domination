@@ -371,6 +371,11 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class MTEventSideGuerrTanks {
+		text = "$STR_DOM_MISSIONSTRING_2024";
+		speech[] = {};
+		class Arguments {};
+	};
 };
 class Arguments{};
 class Special{};

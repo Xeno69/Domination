@@ -21,7 +21,8 @@ d_mt_mobile_hq_down = false;
 d_mt_event_resolved = false;
 d_x_mt_event_types = [
 	"PILOT_RESCUE",
-	"POW_RESCUE"
+	"POW_RESCUE",
+	"GUERRILLA_TANKS"
 ];
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];
