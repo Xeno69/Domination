@@ -24,11 +24,8 @@ d_livonia = false;
 d_livonia = true;
 #endif
 
-#ifdef __TANOATT__
-d_tt_tanoa = true;
+#ifdef __TTTANOA__
 d_tanoa = true;
-#else
-d_tt_tanoa = false;
 #endif
 
 #ifndef __IFA3LITE__
@@ -198,12 +195,14 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __LIVONIA__
 #include "sm_bonus_vec_ar_tanoa.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "sm_bonus_vec_ar_tt.sqf"
-} else {
+#endif
+#ifdef __TTTANOA__
 #include "sm_bonus_vec_ar_tt_tanoa.sqf"
-};
+#endif
+#ifdef __TTMALDEN__
+#include "sm_bonus_vec_ar_tt.sqf"
 #endif
 #ifdef __TANOA__
 #include "sm_bonus_vec_ar_tanoa.sqf"
@@ -242,12 +241,14 @@ if (!d_tt_tanoa) then {
 #ifdef __IFA3LITE__
 #include "mt_bonus_vec_ar_ifa3.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "mt_bonus_vec_ar_tt.sqf"
-} else {
+#endif
+#ifdef __TTMALDEN__
+#include "mt_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TTTANOA__
 #include "mt_bonus_vec_ar_tt_tanoa.sqf"
-};
 #endif
 #ifdef __TANOA__
 #include "mt_bonus_vec_ar_tanoa.sqf"
@@ -743,12 +744,11 @@ if (!d_gmcwgwinter) then {
 #ifdef __IFA3LITE__
 #include "d_allmen_O_default.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "d_allmen_O_default.sqf"
-} else {
+#endif
+#ifdef __TTTANOA__
 #include "d_allmen_O_tanoa.sqf"
-}
 #endif
 #ifdef __TANOA__
 #include "d_allmen_O_tanoa.sqf"
@@ -757,6 +757,9 @@ if (!d_tt_tanoa) then {
 #include "d_allmen_O_default.sqf"
 #endif
 #ifdef __MALDEN__
+#include "d_allmen_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
 #include "d_allmen_O_default.sqf"
 #endif
 	];
@@ -817,12 +820,11 @@ if (!d_gmcwgwinter) then {
 #ifdef __IFA3LITE__
 #include "d_specops_O_default.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "d_specops_O_default.sqf"
-} else {
+#endif
+#ifdef __TTTANOA__
 #include "d_specops_O_tanoa.sqf"
-}
 #endif
 #ifdef __TANOA__
 #include "d_specops_O_tanoa.sqf"
@@ -831,6 +833,9 @@ if (!d_tt_tanoa) then {
 #include "d_specops_O_default.sqf"
 #endif
 #ifdef __MALDEN__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
 #include "d_specops_O_default.sqf"
 #endif
 	];
@@ -944,8 +949,14 @@ if (!d_tt_tanoa) then {
 #ifdef __IFA3LITE__
 #include "d_veh_a_O_default.sqf"
 #endif
-#ifdef __TT__
+#ifdef __TTALTIS__
 #include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "d_veh_a_O_tanoa.sqf"
 #endif
 #ifdef __TANOA__
 #include "d_veh_a_O_tanoa.sqf"
@@ -957,14 +968,6 @@ if (!d_tt_tanoa) then {
 #include "d_veh_a_O_default.sqf"
 #endif
 	];
-
-#ifdef __TT__
-	if (d_tt_tanoa) then {
-		d_veh_a_E = [
-			#include "d_veh_a_O_tanoa.sqf"
-		];
-	};
-#endif
 
 #ifdef __GMCWG__
 	if (d_gmcwgwinter) then {
@@ -1061,7 +1064,10 @@ if (!d_tt_tanoa) then {
 				"CUP_B_C130J_Cargo_USMC"
 			};
 			if (d_gmcwg) exitWith {
-				""
+				if (d_gmcwgwinter) exitWith {
+					"gm_ge_airforce_do28d2_un"
+				};
+				"gm_ge_airforce_do28d2"
 			};
 			if (d_rhs) exitWith {
 				"RHS_C130J"
@@ -1539,7 +1545,10 @@ d_base_apc_vec =
 					["O_Heli_Attack_02_F","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Ka50_SLA"]
 				};
 				if (d_gmcwg) exitWith {
-					[]
+					if (d_gmcwgwinter) exitWith {
+						["gm_gc_airforce_mi2urn_un"]
+					};
+					["gm_gc_airforce_mi2urn"]
 				};
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vdv","RHS_Mi24V_vdv","RHS_Ka52_vvsc","RHS_Mi24P_vvsc","RHS_Mi24Vt_vvsc","rhs_mi28n_vvsc"]
@@ -1580,7 +1589,9 @@ d_base_apc_vec =
 #ifdef __GMCWG__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {[]};
+		case "E": {
+			["gm_gc_airforce_l410s_salon","gm_gc_airforce_l410t"]
+		};
 		case "W": {[]};
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
@@ -1673,7 +1684,10 @@ d_base_apc_vec =
 					["O_Heli_Attack_02_black_F", "CUP_O_Mi8_RU"]
 				};
 				if (d_gmcwg) exitWith {
-					[]
+					if (d_gmcwgwinter) exitWith {
+						["gm_gc_airforce_mi2us_un"]
+					};
+					["gm_gc_airforce_mi2us"]
 				};
 				if (d_ifa3lite) exitWith {
 					[]
@@ -2246,7 +2260,10 @@ if (hasInterface) then {
 				["CUP_B_MV22_USMC"]
 			};
 			if (d_gmcwg) exitWith {
-				[]
+				if (d_gmcwgwinter) exitWith {
+					["gm_ge_army_ch53g_un"]
+				};
+				["gm_ge_army_ch53g"]
 			};
 			if (d_rhs) exitWith {
 				["RHS_UH60M2"]

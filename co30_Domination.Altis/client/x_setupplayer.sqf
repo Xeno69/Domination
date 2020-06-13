@@ -199,7 +199,7 @@ if (d_weather == 0) then {
 #ifdef __LIVONIA__
 		d_withsandstorm = 1;
 #endif
-#ifdef __TANOATT__
+#ifdef __TTTANOA__
 		d_withsandstorm = 1;
 #endif
 		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
