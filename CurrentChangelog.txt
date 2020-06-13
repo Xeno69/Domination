@@ -1,6 +1,6 @@
 4.30
 
-ATTENTION: Altis Blufor Carrier and both Weferlingen mission.sqm files have changed
+ATTENTION: Altis Blufor Carrier, Chernarus (autumn), Chernarus (winter) and both Weferlingen mission.sqm files have changed
 
 - Added: New server lobby param/description.ext param to disable transfer of points from one player to another in ranked mode ("Allow transfer of points to other players in ranked mode:", d_transf_allow)
 - Added: New server lobby param/description.ext param to disable AO tower and camps markers ("Turn off markers at AO for tower and camps:", d_ao_markers)
@@ -16,6 +16,7 @@ ATTENTION: Altis Blufor Carrier and both Weferlingen mission.sqm files have chan
 - Added: Support for boat respawn in the TT version (the var name must start with d_boat
 - Added: Gas leak side mission type
 - Added: New GMCWG 1.2 APCs and choppers. The GMCWG version now has lift support and a chopper MHQ
+- Added: Malden TT version by Babyka
 - Changed: Removed jump flags created at seized main targets in the TT version
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)

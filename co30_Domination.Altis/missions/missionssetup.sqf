@@ -36,24 +36,28 @@ d_sm_array =
 	20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,
 	40,41,42,44,45,46,47,48,49,50,51,52];
 #endif
-#ifdef __TT__
+#ifdef __TTALTIS__
 d_sm_array =
-	if (!d_tt_tanoa) then {
-		[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,
-		20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
-		41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
-		61,62,63,64,65,66,67,68,69,70,71,72,73,74]}
-	else {
+	[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,
+	20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+	41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
+	61,62,63,64,65,66,67,68,69,70,71,72,73,74];
+#endif
+#ifdef __TTTANOA__
+d_sm_array =
 		[0,1,2,4,5,6,7,8,9,10,11,12,13,14,15,16,17,19,
 		20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,
 		40,41,42,44,47,48,49,50,51,52,53,64];
-	};
+#endif
+#ifdef __TTMALDEN__
+d_sm_array =
+		[0];
 #endif
 #ifdef __TANOA__
 d_sm_array =
-	[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,19,
-	20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,
-	40,41,42,44,47,48,49,50,51,52,53,64,100,101,102,103,104,105,106];
+	[0,1,2,3,4,5,6,7,15,16,17,19,
+	20,21,22,30,31,32,33,35,39,
+	40,41,42,44,49,50,51,52,53,64,106];
 #endif
 #ifdef __STRATIS__
 d_sm_array =
@@ -68,7 +72,7 @@ d_sm_array =
 #ifdef __MALDEN__
 d_sm_array =
 	[
-		1,2,3,4,5,6,7, //arrest an officer
+		1,3,4,5,6,7, //arrest an officer
 		15,16,17,18, //artillery base
 		19,20,21,22, //stop a convoy
 		30,31,32,33,35, //deliver a truck/troops
@@ -141,19 +145,25 @@ if (isServer) then {
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
 #endif
-#ifdef __TT__
-	if (!d_tt_tanoa) then {
-		d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
-			case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
-			case "W": {["B_MRAP_01_hmg_F","B_APC_Wheeled_01_cannon_F", "B_MRAP_01_gmg_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Wheeled_01_cannon_F"]};
-			case "G": {["I_MRAP_03_hmg_F","I_APC_Wheeled_03_cannon_F", "I_MRAP_03_gmg_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_Wheeled_03_cannon_F"]};
-		};
-	} else {
-		d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
-			case "E": {["O_T_MRAP_02_gmg_ghex_F","O_T_APC_Tracked_02_cannon_ghex_F", "O_T_MBT_02_cannon_ghex_F", "O_T_Truck_03_covered_ghex_F", "O_T_Truck_03_fuel_ghex_F", "O_T_Truck_03_ammo_ghex_F", "O_T_APC_Tracked_02_AA_ghex_F"]};
-			case "W": {["B_MRAP_01_gmg_F","B_APC_Tracked_01_rcws_F", "B_MBT_01_cannon_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Tracked_01_AA_F"]};
-			case "G": {["I_MRAP_03_hmg_F","I_APC_Wheeled_03_cannon_F", "I_MRAP_03_gmg_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_Wheeled_03_cannon_F"]};
-		};
+#ifdef __TTALTIS__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
+		case "W": {["B_MRAP_01_hmg_F","B_APC_Wheeled_01_cannon_F", "B_MRAP_01_gmg_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Wheeled_01_cannon_F"]};
+		case "G": {["I_MRAP_03_hmg_F","I_APC_Wheeled_03_cannon_F", "I_MRAP_03_gmg_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_Wheeled_03_cannon_F"]};
+	};
+#endif
+#ifdef __TTMALDEN__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
+		case "W": {["B_MRAP_01_hmg_F","B_APC_Wheeled_01_cannon_F", "B_MRAP_01_gmg_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Wheeled_01_cannon_F"]};
+		case "G": {["I_MRAP_03_hmg_F","I_APC_Wheeled_03_cannon_F", "I_MRAP_03_gmg_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_Wheeled_03_cannon_F"]};
+	};
+#endif
+#ifdef __TTTANOA__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["O_T_MRAP_02_gmg_ghex_F","O_T_APC_Tracked_02_cannon_ghex_F", "O_T_MBT_02_cannon_ghex_F", "O_T_Truck_03_covered_ghex_F", "O_T_Truck_03_fuel_ghex_F", "O_T_Truck_03_ammo_ghex_F", "O_T_APC_Tracked_02_AA_ghex_F"]};
+		case "W": {["B_MRAP_01_gmg_F","B_APC_Tracked_01_rcws_F", "B_MBT_01_cannon_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Tracked_01_AA_F"]};
+		case "G": {["I_MRAP_03_hmg_F","I_APC_Wheeled_03_cannon_F", "I_MRAP_03_gmg_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_Wheeled_03_cannon_F"]};
 	};
 #endif
 #ifdef __TANOA__
@@ -235,12 +245,11 @@ d_sm_folder = "moa";
 #ifdef __CUP_SARA__
 d_sm_folder = "msara";
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
-	d_sm_folder = "ma3a";
-} else {
-	d_sm_folder = "ma3t";
-};
+#ifdef __TTALTIS__
+d_sm_folder = "ma3a";
+#endif
+#ifdef __TTTANOA__
+d_sm_folder = "ma3t";
 #endif
 #ifdef __TANOA__
 d_sm_folder = "ma3t";
@@ -249,6 +258,9 @@ d_sm_folder = "ma3t";
 d_sm_folder = "ma3s";
 #endif
 #ifdef __MALDEN__
+d_sm_folder = "ma3m";
+#endif
+#ifdef __TTMALDEN__
 d_sm_folder = "ma3m";
 #endif
 #ifdef __IFA3LITE__

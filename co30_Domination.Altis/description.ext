@@ -279,11 +279,15 @@ class Params {
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
-#ifdef __TT__
+#ifdef __TTALTIS__
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
 #ifdef __TANOA__
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
+#endif
+#ifdef __TTTANOA__
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
@@ -296,6 +300,10 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
 #ifdef __MALDEN__
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
+#endif
+#ifdef __TTMALDEN__
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
@@ -327,10 +335,10 @@ class Params {
 		default = 5;
 #endif
 #ifdef __CUP_SARA__
-		default = 5;
+		default = 7;
 #endif
 #ifdef __CUP_TAKISTAN__
-		default = 5;
+		default = 7;
 #endif
 #ifdef __IFA3LITE__
 		default = 5;
@@ -456,6 +464,9 @@ class Params {
 #ifdef __TANOA__
 		default = 1;
 #endif
+#ifdef __TTANOA__
+		default = 1;
+#endif
 #ifdef __CUP_CHERNARUS__
 		default = 1;
 #endif
@@ -468,11 +479,14 @@ class Params {
 #ifdef __IFA3LITE__
 		default = 1;
 #endif
-#ifdef __TT__
+#ifdef __TTALTIS__
 		default = 1;
 #endif
 #ifdef __MALDEN__
 		default = 0;
+#endif
+#ifdef __TTMALDEN__
+		default = 1;
 #endif
 #ifdef __ROSCHE__
 		default = 1;

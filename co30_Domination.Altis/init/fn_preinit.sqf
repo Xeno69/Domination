@@ -24,11 +24,8 @@ d_livonia = false;
 d_livonia = true;
 #endif
 
-#ifdef __TANOATT__
-d_tt_tanoa = true;
+#ifdef __TTTANOA__
 d_tanoa = true;
-#else
-d_tt_tanoa = false;
 #endif
 
 #ifndef __IFA3LITE__
@@ -198,12 +195,14 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __LIVONIA__
 #include "sm_bonus_vec_ar_tanoa.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "sm_bonus_vec_ar_tt.sqf"
-} else {
+#endif
+#ifdef __TTTANOA__
 #include "sm_bonus_vec_ar_tt_tanoa.sqf"
-};
+#endif
+#ifdef __TTMALDEN__
+#include "sm_bonus_vec_ar_tt.sqf"
 #endif
 #ifdef __TANOA__
 #include "sm_bonus_vec_ar_tanoa.sqf"
@@ -242,12 +241,14 @@ if (!d_tt_tanoa) then {
 #ifdef __IFA3LITE__
 #include "mt_bonus_vec_ar_ifa3.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "mt_bonus_vec_ar_tt.sqf"
-} else {
+#endif
+#ifdef __TTMALDEN__
+#include "mt_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TTTANOA__
 #include "mt_bonus_vec_ar_tt_tanoa.sqf"
-};
 #endif
 #ifdef __TANOA__
 #include "mt_bonus_vec_ar_tanoa.sqf"
@@ -743,12 +744,11 @@ if (!d_gmcwgwinter) then {
 #ifdef __IFA3LITE__
 #include "d_allmen_O_default.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "d_allmen_O_default.sqf"
-} else {
+#endif
+#ifdef __TTTANOA__
 #include "d_allmen_O_tanoa.sqf"
-}
 #endif
 #ifdef __TANOA__
 #include "d_allmen_O_tanoa.sqf"
@@ -757,6 +757,9 @@ if (!d_tt_tanoa) then {
 #include "d_allmen_O_default.sqf"
 #endif
 #ifdef __MALDEN__
+#include "d_allmen_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
 #include "d_allmen_O_default.sqf"
 #endif
 	];
@@ -817,12 +820,11 @@ if (!d_gmcwgwinter) then {
 #ifdef __IFA3LITE__
 #include "d_specops_O_default.sqf"
 #endif
-#ifdef __TT__
-if (!d_tt_tanoa) then {
+#ifdef __TTALTIS__
 #include "d_specops_O_default.sqf"
-} else {
+#endif
+#ifdef __TTTANOA__
 #include "d_specops_O_tanoa.sqf"
-}
 #endif
 #ifdef __TANOA__
 #include "d_specops_O_tanoa.sqf"
@@ -831,6 +833,9 @@ if (!d_tt_tanoa) then {
 #include "d_specops_O_default.sqf"
 #endif
 #ifdef __MALDEN__
+#include "d_specops_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
 #include "d_specops_O_default.sqf"
 #endif
 	];
@@ -944,8 +949,14 @@ if (!d_tt_tanoa) then {
 #ifdef __IFA3LITE__
 #include "d_veh_a_O_default.sqf"
 #endif
-#ifdef __TT__
+#ifdef __TTALTIS__
 #include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "d_veh_a_O_tanoa.sqf"
 #endif
 #ifdef __TANOA__
 #include "d_veh_a_O_tanoa.sqf"
@@ -957,14 +968,6 @@ if (!d_tt_tanoa) then {
 #include "d_veh_a_O_default.sqf"
 #endif
 	];
-
-#ifdef __TT__
-	if (d_tt_tanoa) then {
-		d_veh_a_E = [
-			#include "d_veh_a_O_tanoa.sqf"
-		];
-	};
-#endif
 
 #ifdef __GMCWG__
 	if (d_gmcwgwinter) then {

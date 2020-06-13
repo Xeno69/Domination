@@ -558,6 +558,31 @@ cd ..
 makePbo -AJNP %NEW_VER%
 rmdir /S /Q %NEW_VER%
 
+rem TT Malden
+set NEW_VER=tvt%D_NUM_PLAYERS_TT%_domination_%D_VER%_tt.malden
+set MISSION_SQM=..\mission_sqm\mission_tt_malden_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_tt_malden.sqf
+md %NEW_VER%
+xcopy %MASTER%\*.* %NEW_VER% /E /Y
+echo d | xcopy %MISSION_SQM% %NEW_VER%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %NEW_VER%\x_setup.sqf /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q mifa3
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
+cd ..
+cd ..
+makePbo -AJNP %NEW_VER%
+rmdir /S /Q %NEW_VER%
+
 rem cleanup
 rmdir /S /Q %MASTER%
 del ddmnew.sqm
