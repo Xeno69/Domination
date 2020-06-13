@@ -38,4 +38,5 @@ ATTENTION: Altis Blufor Carrier and both Weferlingen mission.sqm files have chan
 - Fixed: Side cache mission could break when no building with positions were available or buildings were null
 - Fixed: "Data uploaded!" message was displayed when the data upload was iterrupted and not when the data was uploaded in the transfer data sidemisssions
 - Fixed: The GMCWG winter version did use some wrong class names for winter units
+- Fixed: The Chernarus autumn and winter versions still had the editor placed Teleporter marker at base
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
