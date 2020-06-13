@@ -50,8 +50,7 @@ d_sm_array =
 		40,41,42,44,47,48,49,50,51,52,53,64];
 #endif
 #ifdef __TTMALDEN__
-d_sm_array =
-		[0];
+d_sm_array = [];
 #endif
 #ifdef __TANOA__
 d_sm_array =
