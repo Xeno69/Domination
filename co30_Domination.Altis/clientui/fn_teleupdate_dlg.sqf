@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_teleupdate_dlg.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface || {d_x_loop_end}) exitWith {};
+if (d_x_loop_end) exitWith {};
 
 disableSerialization;
 
@@ -36,10 +36,11 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 						if (!xr_respawn_available) exitWith {__COLRED};
 						if (_mrs getVariable ["d_in_air", false]) exitWith {__COLRED};
 						if (speed _mrs > 4) exitWith {__COLRED};
-						if (surfaceIsWater (getPosWorld _mrs)) exitWith {__COLRED};
+						if (!(_mrs isKindOf "Ship") && {surfaceIsWater (getPosWorld _mrs)}) exitWith {__COLRED};
 						if (!alive _mrs) exitWith {__COLRED};
-						if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {__COLRED};
+						if (!(_mrs isKindOf "Ship") && {!(_mrs getVariable ["d_MHQ_Deployed", false])}) exitWith {__COLRED};
 						if (_mrs getVariable ["d_enemy_near", false]) exitWith {__COLRED};
+						if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {__COLRED};
 						_mravailable = true;
 						[1,1,1,1.0];
 					};
@@ -69,7 +70,6 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 					private _leadavail = false;
 					private _emptycargo = [0, (vehicle _leader) emptyPositions "cargo"] select (!isNull objectParent _leader);
 					private _lbcolor = if (xr_respawn_available && {alive _leader} && {!(_leader getVariable ["xr_pluncon", false])} && {!(_leader getVariable ["ace_isunconscious", false])} && {_emptycargo > 0 || {(getPos _leader) # 2 < 10}} && {!(_leader call d_fnc_isswimming)} && {!underwater _leader}) then {
-					//private _lbcolor = if (xr_respawn_available && {alive _leader && {!(_leader getVariable ["xr_pluncon", false]) && {isNull objectParent _leader && {(getPos _leader) # 2 < 10}}}}) then {
 						_leadavail = true;
 						[1,1,1,1.0]
 					} else {
@@ -115,8 +115,3 @@ if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes && {ctrlEnabled __CTRL(100102)}})
 if (!xr_respawn_available && {ctrlEnabled __CTRL(100102)}) then {
 	__CTRL(100102) ctrlEnable false;
 };
-
-/*if (_wone == 1 && {xr_respawn_available} && {!ctrlEnabled __CTRL(100102)}) then {
-	__TRACE("Enable")
-	__CTRL(100102) ctrlEnable true;
-};*/

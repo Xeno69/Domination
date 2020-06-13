@@ -14,7 +14,7 @@
 #endif
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 			
-			private _units = [_pos, [_x, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;
+			private _units = [_pos, [_x, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true] call d_fnc_makemgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			_newgroup allowFleeing 0;
 			
@@ -26,11 +26,7 @@
 			_wp setWaypointCombatMode "YELLOW";
 
 			if (d_with_dynsim == 0) then {
-				_newgroup spawn {
-					scriptName "spawn_smsurprise";
-					sleep 15;
-					_this enableDynamicSimulation true;
-				};
+				[_newgroup, 15] spawn d_fnc_enabledynsim;
 			};
 			
 			d_x_sm_rem_ar append _units;

@@ -65,7 +65,7 @@ __TRACE("starting main uncon loop")
 		call xr_fnc_uncon_oneframe;
 	} else {
 		["dom_xr_uncon_of"] call d_fnc_eachframeremove;
-		
+
 		xr_u_dcounter = nil;
 		xr_u_xxstarttime = nil;
 		xr_u_plposm = nil;
@@ -73,15 +73,16 @@ __TRACE("starting main uncon loop")
 		xr_u_respawn = nil;
 		xr_u_nextcrytime = nil;
 		xr_u_doend_of = nil;
-		
+
 		xr_uncon_units = xr_uncon_units - [player, objNull];
-		
+
 		if (!d_player_in_base && {!isNil {player getVariable "d_old_eng_can_repfuel"}}) then {
 			d_eng_can_repfuel = false;
 		};
 		player setVariable ["d_old_eng_can_repfuel", nil];
-		
+
 		0 spawn {
+			scriptname "spawn 1uncon";
 			if (!xr_u_remactions) then {
 				__TRACE("xr_u_remactions")
 				{
@@ -122,6 +123,7 @@ __TRACE("starting main uncon loop")
 					"xr_revtxt" cutText ["","BLACK IN", 6];
 					if (xr_max_lives != -1) then {
 						0 spawn {
+							scriptname "spawn 2uncon";
 							sleep 7;
 							hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 						};
@@ -143,6 +145,9 @@ __TRACE("starting main uncon loop")
 				d_current_ai_num = 0;
 			};
 		};
+		{
+			player remoteExecCall ["xr_fnc_announcenearrem", _x];
+		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}});
 		__TRACE("uncon ended, one frame removed")
 	};
 }, 0.02] call d_fnc_eachframeadd;

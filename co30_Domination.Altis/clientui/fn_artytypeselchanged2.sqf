@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_artytypeselchanged2.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 params ["_selection"];
 

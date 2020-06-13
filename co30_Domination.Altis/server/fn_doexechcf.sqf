@@ -29,7 +29,6 @@ if (_type == 0) then {
 		} forEach (d_bara_trig_ar select {!isNull _x});
 		d_bara_trig_ar = [];
 	};
-#ifndef __TT__
 	if (!isNull d_mt_mobile_hq_obj) then {
 		d_mt_mobile_hq_obj spawn {
 			scriptName "spawn doexechcf2";
@@ -38,6 +37,5 @@ if (_type == 0) then {
 			deleteVehicle _this;
 		};
 	};
-#endif
 	(_this select 1) execFSM "fsms\fn_DeleteUnits.fsm";
 };

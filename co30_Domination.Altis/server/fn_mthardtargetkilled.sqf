@@ -5,7 +5,9 @@
 
 d_mt_spotted = false;
 d_mt_radio_down = true;
-deleteMarker "d_main_target_radiotower";
+if (d_ao_markers == 1) then {
+	deleteMarker "d_main_target_radiotower";
+};
 #ifndef __TT__
 [37] call d_fnc_DoKBMsg;
 #else
@@ -20,9 +22,12 @@ if (isNull _killer) then {
 };
 if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
 	[d_tt_points # 2, _killer] call d_fnc_AddPoints;
-	switch (side (group _killer)) do {
-		case blufor: {[39, "WEST"] call d_fnc_DoKBMsg};
-		case opfor: {[39, "EAST"] call d_fnc_DoKBMsg};
+	if (side (group _killer) == blufor) then {
+		[39, "WEST"] call d_fnc_DoKBMsg;
+	} else {
+		if (side (group _killer) == opfor) then {
+			[39, "EAST"] call d_fnc_DoKBMsg
+		};
 	};
 };
 #endif

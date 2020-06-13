@@ -10,7 +10,6 @@ params ["_vec"];
 private _eindex = -1;
 private _egoindex = -1;
 while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
-	//if (player == driver _vec) then {
 	if (player == currentPilot _vec) then {
 		if (_egoindex == -1) then {
 			_egoindex = __vaeh ["getOut", {_this call d_fnc_getOutEHPoints}];
@@ -22,7 +21,6 @@ while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", 
 			_eindex = __vaeh ["getIn", {if ((_this select 2) call d_fnc_isplayer) then {(_this select 2) setVariable ["d_TRANS_START", getPosASL (_this select 0)]}}];
 		};
 	};
-	//if (player != driver _vec) then {
 	if (player != currentPilot _vec) then {
 		if (_eindex != -1) then {
 			__vreh ["getIn",_eindex];

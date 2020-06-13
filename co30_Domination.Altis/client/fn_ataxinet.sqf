@@ -5,21 +5,21 @@
 
 if (!hasInterface) exitWith {};
 
-private _strout = switch (_this) do {
-	case 0: {localize "STR_DOM_MISSIONSTRING_634"};
-	case 1: {d_heli_taxi_available = true; localize "STR_DOM_MISSIONSTRING_635"};
-	case 2: {d_heli_taxi_available = true; localize "STR_DOM_MISSIONSTRING_636"};
-	case 3: {localize "STR_DOM_MISSIONSTRING_637"};
-	case 4: {d_heli_taxi_available = true; localize "STR_DOM_MISSIONSTRING_638"};
-	case 5: {localize "STR_DOM_MISSIONSTRING_639"};
-	case 6: {localize "STR_DOM_MISSIONSTRING_640"};
-	case 7: {localize "STR_DOM_MISSIONSTRING_142"};
-	case 200: {
+private _strout = call {
+	if (_this == 0) exitWith {localize "STR_DOM_MISSIONSTRING_634"};
+	if (_this == 1) exitWith {d_heli_taxi_available = true; localize "STR_DOM_MISSIONSTRING_635"};
+	if (_this == 2) exitWith {d_heli_taxi_available = true; localize "STR_DOM_MISSIONSTRING_636"};
+	if (_this == 3) exitWith {localize "STR_DOM_MISSIONSTRING_637"};
+	if (_this == 4) exitWith {d_heli_taxi_available = true; localize "STR_DOM_MISSIONSTRING_638"};
+	if (_this == 5) exitWith {localize "STR_DOM_MISSIONSTRING_639"};
+	if (_this == 6) exitWith {localize "STR_DOM_MISSIONSTRING_640"};
+	if (_this == 7) exitWith {localize "STR_DOM_MISSIONSTRING_142"};
+	if (_this == 200) exitWith {
 		player setVariable ["d_can_change_taxi", player getVariable "d_can_change_taxix"];
 		player setVariable ["d_can_change_taxix", nil];
 	};
-	default {""};
-};
+	""
+}; 
 if (_strout != "") then {
 	[playerSide, "HQ"] sideChat _strout;
 };

@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_tranfserscoremsgdialog.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 private _disp = uiNamespace getVariable "d_TransferScoreDialog";

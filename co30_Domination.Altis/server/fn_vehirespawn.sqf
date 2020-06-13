@@ -70,17 +70,15 @@ if (unitIsUAV _vec) then {
 	};
 } else {
 	if (d_with_dynsim == 0) then {
-		_vec spawn {
-			scriptName "spawn enable dyn";
-			sleep 10;
-			if (alive _this) then {
-				_this enableDynamicSimulation true;
-			};
-		};
+		[_vec, 10] spawn d_fnc_enabledynsim;
 	};
 };
 
 _vec setVariable ["d_OUT_OF_SPACE", -1];
+
+if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+};
 
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
@@ -110,7 +108,7 @@ while {true} do {
 					};
 				} else {
 					if (time > _empty_respawn) then {
-						private _runits = (allPlayers - entities "HeadlessClient_F") select {!isNil "_x" && {!isNull _x}};
+						private _runits = (allPlayers - entities "HeadlessClient_F") select {!isNull _x};
 						sleep 0.1;
 						if (!(_runits isEqualTo []) && {_runits findIf {_x distance2D _vec < 100} == -1}) then {
 							_disabled = true;
@@ -129,10 +127,14 @@ while {true} do {
 			
 			if (alive _vec && {_vec call d_fnc_OutOfBounds}) then {
 				private _outb = _vec getVariable "d_OUT_OF_SPACE";
-				if (_outb != -1) then {
-					if (time > _outb) then {_disabled = true};
+					if (!isNil "_outb") then {
+					if (_outb != -1) then {
+						if (time > _outb) then {_disabled = true};
+					} else {
+						_vec setVariable ["d_OUT_OF_SPACE", time + 600];
+					};
 				} else {
-					_vec setVariable ["d_OUT_OF_SPACE", time + 600];
+					_vec setVariable ["d_OUT_OF_SPACE", -1];
 				};
 			} else {
 				_vec setVariable ["d_OUT_OF_SPACE", -1];
@@ -146,6 +148,7 @@ while {true} do {
 		private _isitlocked = _vec getVariable "d_vec_islocked";
 		private _fuelleft = _vec getVariable ["d_fuel", 1];
 		private _skinpoly = [_vec] call d_fnc_getskinpoly;
+		private _canloadbox = _vec getVariable ["d_canloadbox", false];
 #ifdef __GMCWG__
 		private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
 #endif
@@ -178,13 +181,7 @@ while {true} do {
 			};
 		} else {
 			if (d_with_dynsim == 0) then {
-				_vec spawn {
-					scriptName "spawn enable dyn";
-					sleep 10;
-					if (alive _this) then {
-						_this enableDynamicSimulation true;
-					};
-				};
+				[_vec, 10] spawn d_fnc_enabledynsim;
 			};
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;
@@ -212,6 +209,9 @@ while {true} do {
 				_vec setDamage 0;
 			};
 		};*/
+		if (_canloadbox) then {
+			_vec setVariable ["d_canloadbox", true, true];
+		};
 		if (isNil "_startposasl") then {
 			_vec allowDamage true;
 			_vec setDamage 0;
@@ -234,6 +234,10 @@ while {true} do {
 		
 		if (!isNil "_nopylon") then {
 			_vec setVariable ["d_disable_pylonloadout", true, true];
+		};
+		
+		if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+			_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 		};
 		
 		if (d_with_ranked) then {

@@ -5,8 +5,6 @@
 
 #define __CTRL2(A) ((uiNamespace getVariable "d_AdminDialog") displayCtrl A)
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 if (!d_pisadminp && {isMultiplayer}) exitWith {

@@ -27,9 +27,9 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 	diag_log ["_this", _this];
 	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
 	diag_log "This may break scripts!!!!";
-	if (!isNull _pl) then {
-		remoteExecCall ["d_fnc_remplnounit", _pl];
-	};
+	//if (!isNull _pl) then {
+	//	remoteExecCall ["d_fnc_remplnounit", _pl];
+	//};
 };
 
 if (_pl isKindOf "VirtualSpectator_F") exitWith {
@@ -37,6 +37,10 @@ if (_pl isKindOf "VirtualSpectator_F") exitWith {
 		d_virtual_spectators pushBack _uid;
 	};
 };
+
+#ifndef __TT__
+[_pl, 18] call d_fnc_setekmode;
+#endif
 
 private _name = (name _pl) splitString """'" joinString "";
 _pl setVariable ["d_plname", _name, true];
@@ -46,18 +50,19 @@ private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (isNil "_p") then {
-	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
+	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0];
 	d_player_store setVariable [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
 } else {
 	__TRACE_1("player store before change","_p")
 	if (_name != _p # 6) then {
-		[format [localize "STR_DOM_MISSIONSTRING_506", _name, _p # 6], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+		[22, _name, _p # 6] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 		diag_log format [localize "STR_DOM_MISSIONSTRING_942", _name, _p # 6, _uid];
 	};
-	if (time - (_p # 9) > 900) then {
-		_p set [8, xr_max_lives];
+	if ((_p # 9) # 0 > 0 && {time - ((_p # 9) # 0) > 900}) then {
+		_p set [8, [-2, xr_max_lives] select (xr_max_lives != -1)];
+		_p set [9, [0, (_p # 9) # 1]];
 	};
 	if (_p # 0 > -1) then {
 		_p set [0, time + (_p # 0)];
@@ -67,7 +72,7 @@ if (isNil "_p") then {
 	_p set [6, _name];
 #ifdef __TT__
 	if (_sidepl != _p # 5) then {
-		if (time - (_p # 9) < 1800) then {
+		if ((_p # 9) # 1 > 0 && {time - ((_p # 9) # 1) < 1800}) then {
 			_pl setVariable ["d_no_side_change", true, true];
 		} else {
 			_p set [5, _sidepl];
@@ -75,6 +80,9 @@ if (isNil "_p") then {
 			d_player_store setVariable [_uid + "_scores", nil];
 			_p set [11, []];
 			_p set [12, []];
+			if ((_p # 9) # 1 > 0) then {
+				_p set [9, [(_p # 9) # 0, 0]];
+			};
 		};
 	};
 #endif
@@ -100,13 +108,13 @@ if (d_database_found) then {
 	//	D_DB_plgetts_query dbBindValue _uid;
 	//};
 	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
-	
+
 	if (d_interceptdb) then {
 		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
 	};
 #endif
 	diag_log ["Dom Database playerGetTS result", _dbresult];
-	
+
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
 		// create new database entry for UID
@@ -142,36 +150,7 @@ if (d_database_found) then {
 			__TRACE_1("","_dbresult select 0")
 			__TRACE_1("","score _pl")
 			d_player_store setVariable [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
-			[_pl, _dbresult # 0] spawn {
-				scriptName "spawn_init_playerserver";
-				params ["_pl", "_ar"];
-				sleep 10;
-				if (isNull _pl) exitWith {
-					diag_log ["initPlayerServer spawn_init_playerserver, _pl is null", "_pl", _pl, "_ar", _ar];
-				};
-				private _plsar = getPlayerScores _pl;
-				__TRACE_1("","_plsar")
-				if (!(_plsar isEqualTo []) && {!(_ar isEqualTo [])}) then {
-					_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
-				} else {
-					diag_log ["initPlayerServer spawn_init_playerserver, _plsar or _ar empty", "_plsar", _plsar, "_ar", _ar];
-				};
-				if (_ar isEqualTo []) exitWith {};
-				__TRACE_1("","getPlayerScores _pl")
-				__TRACE_1("","score _pl")
-				sleep 1;
-				__TRACE_1("1","getPlayerScores _pl")
-				__TRACE_1("1","score _pl")
-				__TRACE_2("Adding score","_pl","_ar")
-				if (_ar # 0 != score _pl) then {
-					if (score _pl > 0) then {
-						_pl addScore -(score _pl);
-					};
-					_pl addScore ((_ar # 0) - score _pl);
-				};
-				__TRACE_1("2","getPlayerScores _pl")
-				__TRACE_1("2","score _pl")
-			};
+			[_pl, _dbresult # 0] spawn d_fnc_initdbplscores;
 		};
 #ifndef __INTERCEPTDB__
 		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);

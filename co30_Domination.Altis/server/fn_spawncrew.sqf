@@ -10,19 +10,20 @@ private _crew = crew _vec;
 if (count _crew > 0) then {
 	_crew joinSilent _grp;
 	deleteGroup _uavgrp;
-	
+
 	private _subskill = if (diag_fps > 29) then {
 		(0.1 + (random 0.2))
 	} else {
 		(0.12 + (random 0.04))
 	};
-	
+
 	if (unitIsUAV _vec) then {
 		{
 			_x setSkill ["spotDistance", 1];
-		} forEach _crew;	
-	};	
-	
+		} forEach _crew;
+	};
+
+	private _addus = [];
 	if (!_nocargo) then {
 		private _ran =
 #ifdef __IFA3LITE__
@@ -39,7 +40,6 @@ if (count _crew > 0) then {
 					private _munits = ["allmen", side _grp] call d_fnc_getunitlistm;
 					__TRACE_1("","_munits")
 					if !(_munits isEqualTo []) then {
-						private _addus = [];
 						private _pos = getPos _vec;
 						private _nightorfog = call d_fnc_nightfograin;
 						for "_i" from 1 to _counter do {
@@ -60,11 +60,7 @@ if (count _crew > 0) then {
 								[_one_unit, 4] call d_fnc_setekmode;
 							};
 							if (d_with_dynsim == 0) then {
-								_one_unit spawn {
-									scriptName "spawn spawncrew dyn";
-									sleep 15;
-									_this enableDynamicSimulation true;
-								};
+								[_one_unit, 10] spawn d_fnc_enabledynsim;
 							};
 #ifdef __GROUPDEBUG__
 							// does not subtract if a unit dies!
@@ -74,13 +70,12 @@ if (count _crew > 0) then {
 #endif
 							_addus pushBack _one_unit;
 						};
-						_crew append _addus;
 					};
 				};
 			};
 		};
 	};
-	
+
 	{
 		_x call d_fnc_removenvgoggles_fak;
 #ifdef __TT__
@@ -96,6 +91,9 @@ if (count _crew > 0) then {
 		//_x enableFatigue false;
 		_x disableAI "RADIOPROTOCOL";
 	} forEach _crew;
+	if !(_addus isEqualTo []) then {
+		_crew append _addus;
+	};
 	if !(isNull (driver _vec)) then {(driver _vec) setRank "LIEUTENANT"};
 	if !(isNull (gunner _vec)) then {(gunner _vec) setRank "SERGEANT"};
 	if !(isNull (effectiveCommander _vec)) then {(effectiveCommander _vec) setRank "CORPORAL"};

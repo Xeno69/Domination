@@ -14,7 +14,10 @@ if (!d_tt_ver) then {
 	_dbresult = if (_sender != objNull) then {
 		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet:%1", toLower (worldName + _sname)]);
 	} else {
-		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
+		__TRACE("Before")
+		_res = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
+		__TRACE_1("","_res")
+		_res
 	};
 	if (_dbresult # 0 == 1) then {
 		_dbresult = _dbresult # 1;
@@ -55,9 +58,15 @@ if (!d_tt_ver) then {
 
 __TRACE_1("","_dbresult")
 
+#ifdef __DEBUG__
+{
+	diag_log _x;
+} forEach (_dbresult # 0);
+#endif
+
 if (_dbresult isEqualTo []) exitWith {
 	if (!isNull _sender) then {
-		[format [localize "STR_DOM_MISSIONSTRING_1752", _sname], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", _sender];
+		[7, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 	} else {
 		diag_log format [localize "STR_DOM_MISSIONSTRING_1752", _sname];
 	};
@@ -75,7 +84,7 @@ d_maintargets_list = _ar # 1;
 //publicVariable "d_cur_sm_idx";
 d_resolved_targets = _ar # 4;
 publicVariable "d_resolved_targets";
-if (d_with_targetselect == 0) then {
+if (d_with_targetselect_count > 0) then {
 	d_mttargets_ar = [];
 	{
 		if !((_x # 3) in d_resolved_targets) then {
@@ -134,16 +143,20 @@ d_bonus_vecs_db = _ar # 9;
 		if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 		_vec setVariable ["d_liftit", true, true];
 	};
-	
 
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 
 	[_vec, 11] call d_fnc_setekmode;
-	
-	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
+	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
+	
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	
+	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+	};
+	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
 } forEach d_bonus_vecs_db;
 #else
@@ -189,7 +202,7 @@ _fnc_tt_bonusvec = {
 		};
 		_vec setVariable ["d_liftit", true, true];
 	};
-	
+
 	_vec setDir _dir;
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
@@ -198,6 +211,10 @@ _fnc_tt_bonusvec = {
 	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+
+	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+	};
 	
 	_vec
 };
@@ -224,7 +241,7 @@ publicVariable "d_points_array";
 #else
 	private _res = _x # 0;
 #endif
-	
+
 	private _tgt_ar = d_target_names # _res;
 	private _mar = format ["d_%1_dommtm", _tgt_ar # 1];
 	[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2]] call d_fnc_CreateMarkerGlobal;
@@ -233,5 +250,5 @@ publicVariable "d_points_array";
 
 
 if (!isNull _sender) then {
-	[_sender, ["dDBLoad", [localize "STR_DOM_MISSIONSTRING_1750", "<font face='RobotoCondensed' size=24 color='#ffffff'>" + format [localize "STR_DOM_MISSIONSTRING_1753", _sname] + "</font>"]]] remoteExecCall ["createDiaryRecord", _sender];
+	[8, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 };

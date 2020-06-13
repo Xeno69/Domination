@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_ataxselchanged.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 params ["_selection"];

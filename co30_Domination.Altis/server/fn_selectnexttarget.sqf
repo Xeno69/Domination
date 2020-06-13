@@ -100,9 +100,9 @@ if (count d_mttargets_ar > 1) then {
 	d_maintargets_list = [d_mttargets_ar # _idx # 3];
 	
 	if (_was_selected) then {
-		[format [localize "STR_DOM_MISSIONSTRING_1957", d_mttargets_ar # _idx # 1], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+		[18, d_mttargets_ar # _idx # 1] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 	} else {
-		[localize "STR_DOM_MISSIONSTRING_1958", "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+		[19] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 	};
 	
 	d_mttargets_ar deleteAt _idx;
@@ -114,6 +114,6 @@ if (count d_mttargets_ar > 1) then {
 	__TRACE_1("","d_maintargets_list")
 } else {
 	d_cur_tar_obj = d_mttargets_ar # 0 # 4;
+	d_maintargets_list = [d_mttargets_ar # 0 # 3];
 	d_mttargets_ar deleteAt 0;
-	d_maintargets_list = [];
 };

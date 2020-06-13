@@ -1,17 +1,41 @@
-4.10
+4.30
 
-ATTENTION: ALL mission.sqm files have changed!!!!!!
+ATTENTION: Altis Blufor Carrier and both Weferlingen mission.sqm files have changed
 
-- Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
-- Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
-- Optimized: Using toLowerANSI/toUpperANSI where possible
-- Added: Parameter to allow players more target selections across the map, discrete parameters for each of the three garrison behaviors (by longtimegamer)
-- Fixed: Removed occupy buildings troop level parameter, replaced with three parameters for garrison behaviors (by longtimegamer)
-- Optimized: Repwreck, including constant check for a wreck object, now only starts on the server when a player is nearby and ends when the player is gone (or the wreck is repaired)
-- Changed: Disabled AI Radioprotocol
-- Changed: Show score on the main display in the ranked version or when a SQL database is running
-- Optimized: (Capture)CampDialog FSM now only runs if a player is near a Camp and not constantly
-- Changed: Service triggers are now only created on clients, editor placed ones removed, by lelik
-- Optimized: Entity killed eventhandler, now only uses one variable instead of 17
-- Changed: Replaced Land_Factory_Main_F with Land_IndustrialShed_01_F in "find IED factory" main target mission
-- Changed: Display "Stall" in the camp capture progress dialog if there is a stall between players and enemies at a camp
+- Added: New server lobby param/description.ext param to disable transfer of points from one player to another in ranked mode ("Allow transfer of points to other players in ranked mode:", d_transf_allow)
+- Added: New server lobby param/description.ext param to disable AO tower and camps markers ("Turn off markers at AO for tower and camps:", d_ao_markers)
+- Added: TT gameplay change: When all camps are seized and all barracks are destroyed by one side a one minute timer will run to give the other team a chance to retake a camp (timer visual on screen)
+- Added: You can now also select ranked mode with no weapons ranked (value 2 for d_with_ranked in description.ext or in params "Ranked:" values "Ranked mode on but weapons not ranked")
+- Added: New main target "events" for non-TvT with optional complex mission scenarios embedded in maintarget (first "event" scenario Blackhawk Down rescue), by longtimegamer
+- Added: Boat MHQ to the Altis Blufor Carrier version
+- Added: In the TT version you can now also add additional base vehicles by simple giving them specific unique var names, they must start with:
+         * d_mhq_add_o_ and d_mhq_add_b_ for additonal MHQs
+		 * d_lift_add_o_ and d_lift_add_b_ for additonal lift choppers
+		 * d_wreck_add_o_ and d_wreck_add_b_ for additonal wreck lift choppers
+		 * d_trans_add_o_ and d_trans_add_b_ for additonal transport choppers
+- Added: Support for boat respawn in the TT version (the var name must start with d_boat
+- Added: Gas leak side mission type
+- Added: New GMCWG 1.2 APCs and choppers. The GMCWG version now has lift support and a chopper MHQ
+- Changed: Removed jump flags created at seized main targets in the TT version
+- Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
+- Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
+- Changed: Russian translation updated, by Babayka
+- Changed: Award points, for example points a player gets for destroying a barrack building, can now be changed in d_addscore_a array (available in initcommon.sqf and database dom_settings table). Only available in ranked and database mode
+- Changed: Removed d_with_targetselect/"Players can select next main target:" and integrated it in d_with_targetselect_count/"Players can select from available targets:"
+- Changed: There is now also an enemy AI vehicle MHQ at main targets in the TT version like it is in the normal coop version
+- Changed: Setting d_number_attack_planes, d_number_attack_choppers, d_number_light_attack_choppers or d_number_attack_uavs to 0 in init\fn_preinit.sqf does not spawn air vehicles for the specific class
+- Changed: In ranked mode bagpacks are now added to the ranks by their maximumLoad property, < 200 for all ranks, < 300 for ranks starting at sergeant, < 400 for ranks starting at major and everything above for colonel and better 
+- Changed: In ranked mode vests are now added to the ranks by their maximumLoad supply property, < 101 for all ranks, < 121 for ranks starting at sergeant, < 141 for ranks starting at major and everything above for colonel and better 
+- Changed: Added d_number_attack_planes, d_number_attack_choppers, d_number_light_attack_choppers, d_number_attack_uavs, d_noambient_bf_sounds, d_time_until_next_sidemission and d_airai_respawntime to dom_settings table, means, those values can now be changed in the Domination SQL database
+- Changed: Transfer data sidemissions should now also work in the TT version
+- Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
+- Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
+- Fixed: When a player changed the TeamSwitch key in the A3 settings when the mission was running the mission didn't pick up the new key
+- Fixed: Added missing items like goggles in Virtual Arsenal in ranked mode
+- Fixed: Some colors in the game class CfgMarkerColors are stored as string instead of number resulting in broken 3D marker drawing
+- Fixed: Target select entire map caused a script error
+- Fixed: Possible script error in fn_spectdraw3d.sqf
+- Fixed: Side cache mission could break when no building with positions were available or buildings were null
+- Fixed: "Data uploaded!" message was displayed when the data upload was iterrupted and not when the data was uploaded in the transfer data sidemisssions
+- Fixed: The GMCWG winter version did use some wrong class names for winter units
+- Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)

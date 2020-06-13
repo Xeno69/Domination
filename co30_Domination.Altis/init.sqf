@@ -17,8 +17,8 @@ enableTeamSwitch false;
 addMissionEventhandler ["EachFrame", {
 	if (isNil "d_init_processed") then {
 		call compile preprocessFileLineNumbers "d_init.sqf";
+		removeMissionEventHandler ["EachFrame", _thisEventHandler];
 	};
-	removeMissionEventHandler ["EachFrame", _thisEventHandler];
 }];
 
 #ifdef __IFA3LITE__
@@ -29,8 +29,8 @@ if (isServer) then {
 };
 #endif
 
-if (productVersion # 2 < 195) exitWith {
-	diag_log [diag_frameno, diag_ticktime, time, "You need at least A3 patch 1.95 to run the mission!!!!"];
+if (productVersion # 2 < 198) exitWith {
+	diag_log [diag_frameno, diag_ticktime, time, "You need at least A3 patch 1.98 to run the mission!!!!"];
 	endMission "END1";
 	forceEnd;
 };

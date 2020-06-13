@@ -12,5 +12,5 @@ if (d_without_nvg == 0) then {
 };
 
 if (d_no_faks == 0) then {
-	_this removeItem "FirstAidKit";
+	_this removeItems "FirstAidKit";
 };

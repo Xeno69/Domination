@@ -23,9 +23,14 @@ for "_i" from 0 to (_numconfv - 1) do {
 	private _reta = [1, _pos_start, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
 	_reta params ["_vehicles"];
 	_vehicles params ["_onevec"];
+	if (d_with_dynsim == 0) then {
+		_onevec setVariable ["d_nodyn", true];
+	};
 	_onevec allowDamage false;
 	_onevec setVectorUp [0,0,1];
+	_onevec forceFollowRoad true;
 	_onevec spawn {
+		scriptname "spawn sideconvoy";
 		sleep 30;
 		_this allowDamage true;
 	};
@@ -47,8 +52,7 @@ for "_i" from 0 to (_numconfv - 1) do {
 	sleep 1.933;
 };
 
-private _leader = leader _newgroup;
-_leader setRank "LIEUTENANT";
+(leader _newgroup) setRank "LIEUTENANT";
 _newgroup allowFleeing 0;
 _newgroup setCombatMode "GREEN";
 _newgroup setFormation "COLUMN";
@@ -89,7 +93,9 @@ while {true} do {
 		_convoy_reached_dest = true;
 	};
 	if (d_with_ranked || {d_database_found}) then {
-		[missionNamespace, ["d_sm_p_pos", getPosATL _leader]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+		if (!isNull (leader _newgroup)) then {
+			[missionNamespace, ["d_sm_p_pos", leader _newgroup]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+		};
 	};
 	if (time > _mforceendtime) exitWith {_convoy_reached_dest = true};
 	sleep 5.123;

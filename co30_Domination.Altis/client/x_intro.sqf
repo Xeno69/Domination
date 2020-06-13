@@ -115,7 +115,7 @@ switch (d_MissionType) do {
 	};
 };
 
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.10  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.30  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 _camera camSetTarget player;
 _p_tpos = [_pspsxx # 0, _pspsxx # 1, (player modelToWorld [0,0,2]) # 2];
@@ -187,11 +187,17 @@ sleep 5;
 ] spawn bis_fnc_typeText;
 
 sleep 8;
-"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames "User16", actionKeysNames "User15"], "PLAIN"];
+"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames d_3dmarker_userakey_str, actionKeysNames d_earplugs_userakey_str], "PLAIN"];
 xr_phd_invulnerable = false;
 
 uiNamespace setVariable ["D_DomLabel", nil];
 uiNamespace setVariable ["d_DomFour", nil];
+
+0 spawn d_fnc_statusbar;
+
+sleep 3;
+
+"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
 
 if (name player == "Error: No unit" || {!isPlayer player}) then {
 	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";

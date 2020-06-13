@@ -43,7 +43,7 @@ while {true} do {
 			_counter = _counter + 1;
 		};
 	};
-	
+
 	private _grpskill = 0.6 + (random 0.3);
 	__TRACE_2("","_pos","_grpskill")
 
@@ -51,35 +51,35 @@ while {true} do {
 	__TRACE_1("","_grp")
 	private _heli_type = "";
 	private _height = 150;
-	private _heightASL = [150,150,150];	
+	private _heightASL = [150,150,150];
 	private _numair = 0;
-	switch (_type) do {
-		case "HAC": {
+	call {
+		if (_type == "HAC") exitWith {
 			_heli_type = selectRandom d_airai_attack_chopper;
 			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
 			_height = 250;
 			_heightASL = [250, 100 + (random 100), 250 + (random 250)];
 		};
-		case "AP": {
+		if (_type == "AP") exitWith {
 			_heli_type = selectRandom d_airai_attack_plane;
 			_numair = [d_number_attack_planes, ceil (random d_number_attack_planes)] select (d_number_attack_planes > 1);
 			_height = 700;
 			_heightASL = [700, 500 + (random 100), 700 + (random 700)];
 		};
-		case "LAC": {
+		if (_type == "LAC") exitWith {
 			_heli_type = selectRandom d_light_attack_chopper;
-			_numair = [d_number_attack_choppers, ceil (random d_number_attack_choppers)] select (d_number_attack_choppers > 1);
+			_numair = [d_number_light_attack_choppers, ceil (random d_number_light_attack_choppers)] select (d_number_light_attack_choppers > 1);
 			_height = 150;
 			_heightASL = [150, 100 + (random 50), 150 + (random 150)];
 		};
-		case "UAV": {
+		if (_type == "UAV") exitWith {
 			_heli_type = selectRandom d_airai_attack_uav;
 			_numair = [d_number_attack_uavs, ceil (random d_number_attack_uavs)] select (d_number_attack_uavs > 1);
 			_height = 400;
 			_heightASL = [400, 250 + (random 100), 400 + (random 200)];
-		};		
+		};
 	};
-	
+
 	__TRACE_2("","_heli_type","_numair")
 
 	while {true} do {
@@ -89,28 +89,31 @@ while {true} do {
 	private _cdir = _pos getDir d_island_center;
 	__TRACE_1("","_cdir")
 #ifndef __TT__
-	switch (_type) do {
-		case "AP": {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
-		case "HAC": {if (d_searchintel # 2 == 1) then {[1] call d_fnc_DoKBMsg}};
-		case "LAC": {if (d_searchintel # 3 == 1) then {[2] call d_fnc_DoKBMsg}};
+	call {
+		if (_type == "AP") exitWith {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
+		if (_type == "HAC") exitWith {if (d_searchintel # 2 == 1) then {[1] call d_fnc_DoKBMsg}};
+		if (_type == "LAC") exitWith {if (d_searchintel # 3 == 1) then {[2] call d_fnc_DoKBMsg}};
 	};
 #endif
 	for "_xxx" from 1 to _numair do {
 		private _vec_array = [[_pos # 0, _pos # 1, 400], _cdir, _heli_type, _grp] call d_fnc_spawnVehicle;
 		__TRACE_1("","_vec_array")
-		
+
 		_vec_array params ["_vec"];
+		if (d_with_dynsim == 0) then {
+			_vec setVariable ["d_nodyn", true];
+		};
 		//_vec setPos [_pos # 0, _pos # 1, 400];
 		_vehicles pushBack _vec;
 		__TRACE_1("","_vehicles")
-		
+
 		_funits append (_vec_array # 1);
 		__TRACE_1("","_funits")
 
 		addToRemainsCollector [_vec];
 		[_vec, 2] remoteExec ["setFeatureType", [0, -2] select isDedicated];
-		[_veh, 17] call d_fnc_setekmode;
-		
+		[_vec, 17] call d_fnc_setekmode;
+
 		if (d_LockAir == 0) then {_vec lock true};
 	        _vec flyInHeight _height;
 	        _vec flyInHeightASL _heightASL;
@@ -120,14 +123,14 @@ while {true} do {
 		sleep 0.1;
 	};
 	_grp deleteGroupWhenEmpty true;
-	
+
 	(leader _grp) setSkill _grpskill;
-	
+
 	sleep 1.011;
-	
+
 	_grp allowFleeing 0;
 	_grp call d_fnc_addgrp2hc;
-	
+
 	while {true} do {
 		sleep 0.323;
 		if (d_current_target_index >= 0) exitWith {};
@@ -148,18 +151,17 @@ while {true} do {
 		};
 		_cur_tgt_pos =+ d_cur_tgt_pos;
 		_cur_tgt_pos set [2, 0];
-		
+
 		sleep 3 + random 2;
-		
-		private _radius = switch (_type) do {
-			case "HAC";
-			case "LAC": {d_cur_target_radius * 3};
-			case "AP": {d_cur_target_radius * 5};
-			default {d_cur_target_radius};
+
+		private _radius = call {
+			if (_type == "HAC" || {_type == "LAC"}) exitWith {d_cur_target_radius * 3};
+			if (_type == "AP") exitWith {d_cur_target_radius * 5};
+			d_cur_target_radius
 		};
-		
+
 		__TRACE_1("","_radius")
-		
+
 #define __patternpos \
 _pat_pos = _cur_tgt_pos getPos [random _radius, random 360]; \
 _pat_pos set [2, _cur_tgt_pos select 2]
@@ -197,7 +199,11 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				__TRACE_1("HACLAC","_pat_pos")
 				[_grp, 1] setWaypointPosition [_pat_pos, 0];
 				_grp setSpeedMode "NORMAL";
-				_grp setBehaviour __wp_behave;
+				if (_type != "UAV") then {
+					_grp setBehaviour __wp_behave;
+				} else {
+					_grp setBehaviour "COMBAT";
+				};
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight _height;
@@ -210,7 +216,11 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				__TRACE_1("plane","_pat_pos")
 				[_grp, 1] setWaypointPosition [_pat_pos, 0];
 				_grp setSpeedMode "LIMITED";
-				_grp setBehaviour __wp_behave;
+				if (_type != "UAV") then {
+					_grp setBehaviour __wp_behave;
+				} else {
+					_grp setBehaviour "COMBAT";
+				};
 				_old_pos = getPosASL _curvec;
 				{
 					_x flyInHeight _height;
@@ -220,7 +230,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 			};
 		};
 		__TRACE_1("","_xcounter")
-		
+
 		sleep 3 + random 2;
 
 		if !(_vehicles isEqualTo []) then {
@@ -233,7 +243,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 							__TRACE("deleting airai vehicle")
 							scriptName "spawn_x_airai_delvec1";
 							private _vec = _this;
-							sleep 200;
+							sleep 100;
 							if (alive _vec && {canMove _vec}) exitWith {};
 							if (!isNull _vec) then {_vec call d_fnc_DelVecAndCrew};
 						};
@@ -241,6 +251,9 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					_vehicles set [_forEachIndex, -1];
 				} else {
 					_x setFuel 1;
+					if (random 2 > 1.25) then {
+					   _x setVehicleAmmo (random 0.5);
+					};
 				};
 			} forEach _vehicles;
 			_vehicles = _vehicles - [-1];

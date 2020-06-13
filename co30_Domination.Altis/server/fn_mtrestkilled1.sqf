@@ -4,7 +4,11 @@
 #include "..\x_setup.sqf"
 
 d_mt_mobile_hq_down = true;
+#ifndef __TT__
 [53] call d_fnc_DoKBMsg;
+#else
+[60] call d_fnc_DoKBMsg;
+#endif
 (_this select 0) spawn {
 	scriptName "spawn checkmtrespawntarget2";
 	sleep (60 + random 60);
@@ -22,6 +26,6 @@ if (d_database_found) then {
 		};
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 5] call addScore;
+		[_killer, 2] call d_fnc_addScore;
 	};
 };

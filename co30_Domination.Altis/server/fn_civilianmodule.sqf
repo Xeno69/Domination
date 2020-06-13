@@ -22,46 +22,46 @@ if (isNil "d_cur_tgt_civ_modules_presenceunit") then {
 //create civilian module
 private _placeCivilianSpotsAndUnits = {
 	//_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
-	_ms1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+	_ms1 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms1 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms1;
 	__TRACE_1("","_ms1")
-	
-	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_ms2 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms2 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms2;
 	__TRACE_1("","_ms2")
-	
-	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_ms3 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms3 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms3;
 	__TRACE_1("","_ms3")
-	
-	_ms4 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,125] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_ms4 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms4 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms4;
 	__TRACE_1("","_ms4")
-	
-	_ms5 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_ms5 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms5 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms5;
 	__TRACE_1("","_ms5")
-	
-	_ms6 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_ms6 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms6 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms6;
 	__TRACE_1("","_ms6")
-	
-	_ms7 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,200] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_ms7 = _grp createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,100] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	_ms7 call _civModuleSetVars;
 	d_cur_tgt_civ_modules_presencesafespot pushBack _ms7;
 	__TRACE_1("","_ms7")
 
-	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+	_mu1 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
 	__TRACE_1("","_mu1")
-	
-	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,50] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
+
+	_mu2 = _grp createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,25] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
 	d_cur_tgt_civ_modules_presenceunit pushBack _mu2;
 	__TRACE_1("","_mu2")
 };
@@ -90,17 +90,17 @@ for "_i" from 0 to d_civ_groupcount do {
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
 	_grp = createGroup civilian;
-	
+
 	__TRACE("Placing a civilian module...")
 	call _placeCivilianSpotsAndUnits;
-	
+
 	private _m = _grp createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
-	
+
 	d_cur_tgt_civ_modules_presence pushBack _m;
-	
+
 	//_m setVariable ["#debug", true]; // Debug mode on
-	 
-	_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray 
+
+	_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray
 	_m setVariable ["#useagents", true];
 	_m setVariable ["#usepanicmode", false];
 	_m setVariable ["#unitcount", d_civ_unitcount];
@@ -109,5 +109,79 @@ for "_i" from 0 to d_civ_groupcount do {
 		_this addEventHandler ["Killed", {
 			_this call d_fnc_civmodulekilleh;
 		}];
+		[_this, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _this];
+#ifdef __CUP_CHERNARUS__
+		_this setUnitLoadout selectRandom [
+			"CUP_C_C_Citizen_01",
+			"CUP_C_C_Citizen_02",
+			"CUP_C_C_Citizen_03",
+			"CUP_C_C_Citizen_04",
+			"CUP_C_C_Worker_01",
+			"CUP_C_C_Worker_02",
+			"CUP_C_C_Worker_03",
+			"CUP_C_C_Worker_04",
+			"CUP_C_C_Profiteer_01",
+			"CUP_U_C_Profiteer_01",
+			"CUP_C_C_Profiteer_02",
+			"CUP_C_C_Profiteer_03",
+			"CUP_C_C_Profiteer_04",
+			"CUP_C_C_Woodlander_01",
+			"CUP_C_C_Woodlander_02",
+			"CUP_C_C_Woodlander_03",
+			"CUP_C_C_Woodlander_04",
+			"CUP_C_C_Villager_01",
+			"CUP_C_C_Villager_02",
+			"CUP_C_C_Villager_03",	
+			"CUP_C_C_Villager_04",
+			"CUP_C_C_Priest_01"
+		];
+#endif
+#ifdef __CUP_TAKISTAN__
+		_this setUnitLoadout selectRandom [
+			"CUP_C_TK_Man_05_Waist",
+			"CUP_C_TK_Man_06_Waist",
+			"CUP_C_TK_Man_01_Coat",
+			"CUP_C_TK_Man_08_Waist",
+			"CUP_C_TK_Man_03_Coat",
+			"CUP_C_TK_Man_01_Jack",
+			"CUP_C_TK_Man_06_Jack",
+			"CUP_C_TK_Man_03_Jack",
+			"CUP_C_TK_Man_03_Jack"
+		];
+#endif
+#ifdef __CUP_ZARGABAD__
+		_this setUnitLoadout selectRandom [
+			"CUP_C_TK_Man_05_Waist",
+			"CUP_C_TK_Man_06_Waist",
+			"CUP_C_TK_Man_01_Coat",
+			"CUP_C_TK_Man_08_Waist",
+			"CUP_C_TK_Man_03_Coat",
+			"CUP_C_TK_Man_01_Jack",
+			"CUP_C_TK_Man_06_Jack",
+			"CUP_C_TK_Man_03_Jack",
+			"CUP_C_TK_Man_03_Jack"
+		];
+#endif
+#ifdef __TANOA__
+		_this setUnitLoadout selectRandom [
+			"C_Man_casual_1_F_tanoan",
+			"C_Man_casual_2_F_tanoan",
+			"C_Man_casual_3_F_tanoan",
+			"C_Man_casual_4_F_tanoan",
+			"C_Man_casual_5_F_tanoan",
+			"C_Man_casual_6_F_tanoan"
+		];
+#endif
+#ifdef __LIVONIA__
+		_this setUnitLoadout selectRandom [
+			"C_Man_1_enoch_F",
+			"C_Man_2_enoch_F",
+			"C_Man_3_enoch_F",
+			"C_Man_4_enoch_F",
+			"C_Man_5_enoch_F",
+			"C_Man_6_enoch_F",
+			"C_Farmer_01_enoch_F"
+		];
+#endif
 	}];
 };

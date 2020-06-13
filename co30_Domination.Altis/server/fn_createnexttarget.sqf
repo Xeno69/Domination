@@ -22,7 +22,7 @@ if (d_first_time_after_start) then {
 	};
 };
 
-if (d_with_targetselect == 0 && {!d_tt_ver}) then {
+if (d_with_targetselect_count > 0 && {!d_tt_ver}) then {
 	call d_fnc_selectnexttarget;
 };
 
@@ -53,12 +53,15 @@ d_sum_camps = -91;
 
 #ifdef __TT__
 d_mt_barracks_down = false;
+d_lastchanceover = false;
+d_lastchancerunning = false;
+d_recapturedcamp = false;
 #endif
 
 #ifndef __TT__
-private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 6)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger", ""];
+private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 5)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger", ""];
 #else
-private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 6)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,'HQ_W','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,'HQ_E','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];deleteVehicle d_check_trigger;", ""];
+private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 5)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,'HQ_W','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,'HQ_E','Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],'SIDE'];deleteVehicle d_check_trigger;", ""];
 #endif
 
 d_check_trigger = [d_cur_tgt_pos, [d_cur_target_radius + 200, d_cur_target_radius + 200, 0, false], [d_enemy_side, "PRESENT", false], _tsar] call d_fnc_createtriggerlocal;
@@ -70,16 +73,26 @@ while {!d_update_target} do {sleep 2.123};
 __TRACE("!d_update_target done")
 
 #ifndef __TT__
-_tsar = if (d_ao_check_for_ai == 1) then {
-	["d_mt_radio_down && {d_campscaptured == d_sum_camps && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}}", "0 = 0 spawn d_fnc_target_clear", ""]
-} else {
-	["d_mt_radio_down && {d_campscaptured == d_sum_camps}", "0 = 0 spawn d_fnc_target_clear", ""]
+_tsar = call {
+	if (d_ao_check_for_ai == 0) exitWith {
+		["d_mt_radio_down && {d_campscaptured == d_sum_camps}", "0 = 0 spawn d_fnc_target_clear", ""]
+	};
+	if (d_ao_check_for_ai == 1) exitWith {
+		["d_mt_radio_down && {d_campscaptured == d_sum_camps && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}}", "0 = 0 spawn d_fnc_target_clear", ""]
+	};
+	if (d_ao_check_for_ai == 2) exitWith {
+		["d_mt_radio_down && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}", "0 = 0 spawn d_fnc_target_clear", ""]
+	};
 };
 #else
 //_tsar = ["d_mt_radio_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}} && {('Car' countType thislist <= d_car_count_for_target_clear)} && {('Tank' countType thislist <= d_tank_count_for_target_clear)} && {('Man' countType thislist <= d_man_count_for_target_clear)}", "0 = 0 spawn d_fnc_target_clear", ""];
-_tsar = ["d_mt_radio_down && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}", "0 = 0 spawn d_fnc_target_clear", ""];
+private _tsar1 = ["d_mt_radio_down && {!d_lastchancerunning && {!d_lastchanceover && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}}", "d_lastchancerunning = true; 0 = 0 spawn d_fnc_lastchance", ""];
+_tsar = ["d_mt_radio_down && {d_lastchanceover && {d_mt_barracks_down && {d_campscaptured_w == d_sum_camps || {d_campscaptured_e == d_sum_camps}}}}", "0 = 0 spawn d_fnc_target_clear", ""];
 #endif
 
 __TRACE_1("","_tsar")
 d_current_trigger = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", false], _tsar] call d_fnc_createtriggerlocal;
 __TRACE_1("","d_current_trigger")
+#ifdef __TT__
+d_current_triggerTT = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", true], _tsar1] call d_fnc_createtriggerlocal;
+#endif

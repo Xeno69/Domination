@@ -5,10 +5,4 @@
 
 params ["_v"];
 {_v deleteVehicleCrew _x} forEach (crew _v);
-_v spawn {
-	scriptName "spawn handledeadvec";
-	sleep 5;
-	if (!isNull _this) then {
-		_this enableSimulationGlobal false;
-	};
-};
+[_v, 5] spawn d_fnc_disglobalsim;

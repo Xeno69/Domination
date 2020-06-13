@@ -15,10 +15,7 @@ sleep 0.01;
 
 if (!d_side_main_done) then {
 	if (alive d_fixor_var) then {
-		sleep 30 + random 30;
-		if (alive d_fixor_var) then {
-			d_fixor_var setDamage 1;
-		};	
+		d_fixor_var setDamage 1;
 	};
 	d_side_main_done = true;
 };
@@ -31,6 +28,8 @@ d_old_radius = d_cur_target_radius;
 if (!isNil "d_parahhandle" && {!isNull d_parahhandle}) then {
 	terminate d_parahhandle;
 };
+
+[d_old_target_pos, d_mttarget_radius_patrol] spawn d_fnc_umadel;
 
 #ifndef __TT__
 d_resolved_targets pushBack d_current_target_index;
@@ -74,9 +73,11 @@ publicVariable "d_resolved_targets";
 sleep 0.5;
 d_public_points = false;
 __TRACE_1("","d_mt_winner")
-d_num_barracks_tt = -1;
-publicVariable "d_num_barracks_tt";
 #endif
+d_num_barracks_tt = 0;
+publicVariable "d_num_barracks_tt";
+d_num_barracks_objs = 0;
+publicVariable "d_num_barracks_objs";
 
 call d_fnc_dodelintelu;
 
@@ -84,8 +85,10 @@ sleep 0.5;
 
 if !(d_maintargets_list isEqualTo []) then {
 	if (d_bonus_vec_type in [0, 1]) then {
+		__TRACE("spawning d_fnc_gettargetbonus")
 		0 spawn d_fnc_gettargetbonus;
 	} else {
+		__TRACE("calling d_fnc_targetclearm")
 		call d_fnc_targetclearm;
 	};
 } else {
@@ -120,12 +123,16 @@ if !(d_maintargets_list isEqualTo []) then {
 
 sleep 3.321;
 
+#ifndef __TT__
 if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
+#endif
 
-_del_camps_stuff = [];
+private _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";
-	deleteMarker (_x getVariable "d_camp_mar");
+	if (d_ao_markers == 1) then {
+		deleteMarker (_x getVariable "d_camp_mar");
+	};
 	_del_camps_stuff pushBack _x;
 	if (!isNull _flag) then {
 		_del_camps_stuff pushBack _flag;
@@ -165,7 +172,22 @@ if (d_enable_civs == 1) then {
 		//diag_log [diag_frameno, diag_ticktime, time, format ["Deleting civ: %1", _x]];
 		deleteVehicle _x;
 	} forEach d_cur_tgt_civ_units;
+	
+	//cleanup civ vehicles after 300 secs
 	d_cur_tgt_civ_units = [];
+	private _tmpCivVehs = +d_cur_tgt_civ_vehicles;
+	d_cur_tgt_civ_vehicles = [];
+	
+	[_tmpCivVehs] spawn {
+		scriptName "spawn_delete_civ_vehicles";
+		params ["_tmpCivVehs"];
+		diag_log ["deleting civ vehicles", count _tmpCivVehs];
+		sleep 300;
+		{
+			deleteVehicle _x;
+		} forEach _tmpCivVehs;
+	};
+	
 };
 #endif
 
@@ -174,6 +196,8 @@ sleep 0.245;
 [d_old_target_pos, d_old_radius, _del_camps_stuff] execFSM "fsms\fn_DeleteEmpty.fsm";
 
 0 spawn d_fnc_rebbuil;
+
+__TRACE_1("","d_maintargets_list")
 
 if !(d_maintargets_list isEqualTo []) then {
 	if (d_MHQDisableNearMT != 0) then {
@@ -199,25 +223,26 @@ if !(d_maintargets_list isEqualTo []) then {
 	if (d_tt_ver) then {
 		if (d_database_found && {d_db_auto_save}) then {
 #ifndef __INTERCEPTDB__
-			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
+			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
 #else
 			if (d_interceptdb) then {
-				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingName)]] call dsi_fnc_queryconfigasync;
+				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call dsi_fnc_queryconfigasync;
 			};
 #endif
 		};
-	d_the_end = true; publicVariable "d_the_end";
-	0 spawn d_fnc_DomEnd;
+		d_the_end = true; publicVariable "d_the_end";
+		0 spawn d_fnc_DomEnd;
 	} else {
 		if (d_database_found && {d_db_auto_save}) then {
 #ifndef __INTERCEPTDB__
-			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingName)];
+			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
 #else
 			if (d_interceptdb) then {
-				["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingName)]] call dsi_fnc_queryconfigasync;
+				["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call dsi_fnc_queryconfigasync;
 			};
 #endif
 		};
+		sleep 5;
 		d_the_end = true; publicVariable "d_the_end";
 		0 spawn d_fnc_DomEnd;
 	};

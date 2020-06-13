@@ -10,6 +10,9 @@ if !(_npos isEqualTo []) then {_pos = _npos};
 private _vec = createVehicle [_vtype, _pos, [], 0, "NONE"];
 _vec setDir direction _unit;
 _vec remoteExecCall ["d_fnc_stocbike", _unit];
+if (d_with_dynsim == 0) then {
+	[_vec, 5] spawn d_fnc_enabledynsim;
+};
 if (_b_mode != 1) then {
 	//_vec setVariable ["d_end_time", _this select 3];
 	_vec setVariable ["d_end_time", time + 1200];

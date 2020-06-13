@@ -1,7 +1,7 @@
-/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,4346,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
+item0[] = {"Start",0,250,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
 item1[] = {"_",8,218,-25.000000,-100.000000,75.000000,-50.000000,0.000000,""};
 item2[] = {"Loop",2,250,-25.000000,-25.000000,75.000000,25.000000,0.000000,"Loop"};
 item3[] = {"target_clear",4,218,-175.000000,-25.000000,-75.000000,25.000000,10.000000,"target_clear"};
@@ -41,7 +41,7 @@ link18[] = {15,16};
 link19[] = {16,17};
 link20[] = {17,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,23,6316128,1,-475.005005,576.946411,618.342163,-186.015808,1640,1254,1};
-window[] = {2,-1,-1,-1,-1,1030,312,1272,312,3,1658};
+window[] = {2,-1,-1,-1,-1,744,26,986,26,3,1658};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -238,8 +238,7 @@ class FSM
                 {
                         name = "Captured";
                         itemno = 11;
-                        init = /*%FSM<STATEINIT""">*/"private _mar = _wf getVariable ""d_camp_mar"";" \n
-                         "private _texture = """";" \n
+                        init = /*%FSM<STATEINIT""">*/"private _texture = """";" \n
                          "private _mcolor = """";" \n
                          "switch (_curside) do {" \n
                          "	case d_enemy_side: {" \n
@@ -263,7 +262,9 @@ class FSM
                          "if (!isNull _flag) then {" \n
                          "	_flag setFlagTexture _texture;" \n
                          "};" \n
-                         "_mar setMarkerColor _mcolor;" \n
+                         "if (d_ao_markers == 1) then {" \n
+                         "	(_wf getVariable ""d_camp_mar"") setMarkerColor _mcolor;" \n
+                         "};" \n
                          "_wf setVariable [""D_CURCAPTIME"", 0, true];" \n
                          "" \n
                          "private _sent = switch (_wf getVariable ""D_SIDE"") do {" \n

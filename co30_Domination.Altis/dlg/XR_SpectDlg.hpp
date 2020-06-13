@@ -39,9 +39,9 @@ class xr_SpectDlg {
 			};
 		};
 		class Help: RscText {
-			x = SafeZoneX + SafeZoneW - 0.37;
+			x = SafeZoneX + SafeZoneW - 0.42;
 			y = SafeZoneY + SafeZoneH - 0.17;
-			w = 0.34;
+			w = 0.41;
 			h = 0.04;
 			size = 0.028;
 			sizeEx = 0.028;
@@ -152,7 +152,7 @@ class xr_SpectDlg {
 		class ShowPlayersButton: MapButton {
 			idc = 1003;
 			text = "$STR_DOM_MISSIONSTRING_1334"; 
-			action = "if (ctrlShown ((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 3000)) then {ctrlShow [3000, false];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1002) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1333');};if (ctrlShown ((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1000)) then {ctrlShow [1000, false];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1003) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1334')} else {ctrlShow [1000, true];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1003) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1334a')}";
+			action = "if (ctrlShown ((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 3000)) then {ctrlShow [3000, false];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1002) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1333');d_x_loop_end = true;};if (ctrlShown ((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1000)) then {ctrlShow [1000, false];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1003) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1334')} else {ctrlShow [1000, true];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1003) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1334a')}";
 			x = "SafeZoneX + 0.03";
 		};
 		class NVGButton: MapButton {
@@ -239,6 +239,20 @@ class xr_SpectDlg {
 					sizeEx = 0.032;
 					text = "";
 					colorText[] = {1,1,0,1};
+				};
+				class Helptext: Tdestination {
+					idc = 11003;
+					x = 0.31;
+					y = 0.77;
+					w = 0.7;
+					text = "$STR_DOM_MISSIONSTRING_1990";
+					shadow = 1;
+					colorText[] = {1,1,1,1};
+				};
+				class Helptext2: Helptext {
+					idc = 11004;
+					y = 0.8;
+					text = "$STR_DOM_MISSIONSTRING_1991";
 				};
 			};
 		};

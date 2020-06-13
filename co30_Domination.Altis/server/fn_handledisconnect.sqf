@@ -29,20 +29,21 @@ if (!isNil "_abl") then {
 private _gru = group _unit;
 __TRACE_1("","_gru")
 if (!isNil "_gru" && {!isNull _gru}) then {
-	_gru spawn {
-		scriptName "spawn handledisconnect";
-		sleep 2;
-		if (!isNil "_this" && {!isNull _this}) then {
-			remoteExecCall ["xr_fnc_changeleader", _this];
-		};
-	};
+	_gru spawn d_fnc_hdsellead;
 };
 
 private _pa = d_player_store getVariable _uid;
 if (!isNil "_pa") then {
 	__TRACE_1("player store before change","_pa")
 	_pa set [0, [time - (_pa # 0), -1] select (time - (_pa # 0) < 0)];
-	_pa set [9, time];
+	if ((_pa # 9) # 0 == 0) then {
+		_pa set [9, [time, (_pa # 9) # 1]];
+	};
+#ifdef __TT__
+	if ((_pa # 9) # 1 == 0) then {
+		_pa set [9, [(_pa # 9) # 0, time]];
+	};
+#endif
 	private _mname = (_pa # 4) + "_xr_dead";
 	__TRACE_1("","_mname")
 	if !(markerPos _mname isEqualTo [0,0,0]) then {
@@ -57,6 +58,20 @@ if (!isNil "_pa") then {
 		_pa set [10, ""];
 	};
 	(_pa # 4) call d_fnc_markercheck;
+	
+	private _jar = _unit getVariable "d_jailar";
+	__TRACE_1("","_jar")
+	if (!isNil "_jar") then {
+		private _dif = serverTime - (_jar # 0);
+		if (_dif >= (_jar # 1)) then {
+			_pa set [13, 0];
+		} else {
+			_pa set [13, (_jar # 1) - (round _dif)];
+		};
+		
+	} else {
+		_pa set [13, 0];
+	};
 	__TRACE_1("player store after change","_pa")
 };
 
@@ -82,15 +97,6 @@ if !(_ar isEqualTo []) then {
 
 removeAllOwnedMines _unit;
 
-_unit spawn {
-	scriptName "spawn handledisconnect2";
-	params ["_unit"];
-	sleep 10;
-	if (isNull objectParent _unit) then {
-		deleteVehicle _unit;
-	} else {
-		(vehicle _unit) deleteVehicleCrew _unit;
-	};
-};
+_unit spawn d_fnc_hddelu;
 
 false

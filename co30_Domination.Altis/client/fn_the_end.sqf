@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_the_end.sqf"
 #include "..\x_setup.sqf"
 
-if (_this == 0) then {
+if (_this == 0 && {hasInterface}) then {
 	if (isNil "d_end_cam_running") then {
 		execVM "client\x_endcam.sqf";
 	};

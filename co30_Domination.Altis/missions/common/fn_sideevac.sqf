@@ -25,11 +25,6 @@ private _nposss = _poss findEmptyPosition [20, 100, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 _pilot1 allowDamage false;
-_pilot1 spawn {
-	scriptName "spawn_sideevac1";
-	sleep 5;
-	_this allowDamage true;
-};
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
 [_pilot1, getPos _pilot1] call d_fnc_setposagls;
@@ -39,11 +34,6 @@ _pilot1 disableAI "RADIOPROTOCOL";
 
 private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
 _pilot2 allowDamage false;
-_pilot2 spawn {
-	scriptName "spawn_sideevac2";
-	sleep 5;
-	_this allowDamage true;
-};
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
 [_pilot2, getPos _pilot2] call d_fnc_setposagls;
@@ -51,6 +41,9 @@ _pilot2 call d_fnc_removenvgoggles_fak;
 _pilot2 enableStamina false;
 _pilot2 enableFatigue false;
 _pilot2 disableAI "RADIOPROTOCOL";
+
+private _otrig = [_pilot1, [800, 800, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "[thisTrigger, 0] call d_fnc_trigwork", "[thisTrigger, 1] call d_fnc_trigwork"]] call d_fnc_createtriggerlocal;
+_otrig setVariable ["d_objs", [_pilot1, _pilot2]];
 
 sleep 15;
 _pilot1 disableAI "PATH";
@@ -61,7 +54,7 @@ _pilot2 setDamage 0.5;
 _owngroup deleteGroupWhenEmpty true;
 
 if (d_with_dynsim == 0) then {
-	_owngroup enableDynamicSimulation true;
+	[_owngroup] spawn d_fnc_enabledynsim;
 };
 
 private _is_dead = false;
@@ -107,6 +100,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 					_resctimestarted = time;
 					_rescued = true;
 					[[_pilot1, _pilot2], _nobjs # 0] call _pcheck_fnc;
+					deleteVehicle _otrig;
 				};
 			};
 			
@@ -118,6 +112,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 						_resctimestarted = time;
 						_rescued = true;
 						[[_pilot1, _pilot2], _nobjs # 0] call _pcheck_fnc;
+						deleteVehicle _otrig;
 					};
 				};
 				
@@ -185,11 +180,18 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 	} else {
 		if (!_enemy_created) then {
 			_enemy_created = true;
+			if (alive _pilot1) then {
+				_pilot1 allowDamage true;
+			};
+			if (alive _pilot2) then {
+				_pilot2 allowDamage true;
+			};
+			deleteVehicle _otrig;
 			private _estart_pos = [_poss, 250] call d_fnc_GetRanPointCircleOuter;
 			private _unit_array = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 			for "_i" from 1 to ([3,5] call d_fnc_GetRandomRangeInt) do {
 				private _newgroup = [d_enemy_side] call d_fnc_creategroup;
-				private _units = [_estart_pos, _unit_array, _newgroup] call d_fnc_makemgroup;
+				private _units = [_estart_pos, _unit_array, _newgroup, false, true] call d_fnc_makemgroup;
 				_newgroup deleteGroupWhenEmpty true;
 				sleep 1.045;
 				private _leader = leader _newgroup;
@@ -243,6 +245,9 @@ sleep 2.123;
 		};
 	};
 } forEach [_pilot1, _pilot2];
+if (!isNull _otrig) then {
+	deleteVehicle _otrig;
+};
 sleep 0.5;
 
 d_sm_resolved = true;

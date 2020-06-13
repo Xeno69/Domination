@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_fillRecruit.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 private _dspx = uiNamespace getVariable "d_AIRecruitDialog";
 private _ctrl = _dspx displayCtrl 1000;

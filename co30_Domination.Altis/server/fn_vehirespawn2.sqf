@@ -23,14 +23,12 @@ if (unitIsUAV _vec) then {
 	};
 } else {
 	if (d_with_dynsim == 0) then {
-		_vec spawn {
-			scriptName "spawn enable dyn";
-			sleep 10;
-			if (alive _this) then {
-				_this enableDynamicSimulation true;
-			};
-		};
+		[_vec, 10] spawn d_fnc_enabledynsim;
 	};
+};
+
+if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 };
 
 if (d_with_ranked) then {
@@ -69,13 +67,7 @@ while {true} do {
 			};
 		} else {
 			if (d_with_dynsim == 0) then {
-				_vec spawn {
-					scriptName "spawn enable dyn";
-					sleep 10;
-					if (alive _this) then {
-						_this enableDynamicSimulation true;
-					};
-				};
+				[_vec, 10] spawn d_fnc_enabledynsim;
 			};
 		};
 		[_vec, _skinpoly] call d_fnc_skinpolyresp;
@@ -85,6 +77,10 @@ while {true} do {
 			[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
 		};
 #endif
+		if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+			_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+		};
+		
 		if (d_with_ranked) then {
 			clearWeaponCargoGlobal _vec;
 		};

@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_pmselchanged.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 private _selIdx = (_this select 0) select 1;

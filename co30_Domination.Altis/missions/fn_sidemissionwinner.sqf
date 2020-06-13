@@ -11,6 +11,15 @@ __TRACE_1("","_this")
 
 sleep 1;
 
+if (!isNil "d_sm_curptrigger") then {
+	deleteVehicle d_sm_curptrigger;
+	d_sm_curptrigger = nil;
+};
+if (!isNil "d_sm_curptrig_script") then {
+	terminate d_sm_curptrig_script;
+	d_sm_curptrig_script = nil;
+};
+
 d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_712";
 
 if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
@@ -26,12 +35,10 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 			};
 		};
 		if (_get_points) then {
-			private _smppoi = [d_ranked_a # 11, (d_ranked_a # 11) * 2] select (d_without_sm_bonus == 0);
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_713", _smppoi];
-			_smppoi spawn {
+			0 spawn {
 				scriptName "spawn_sidemissionwinner";
 				sleep (0.5 + random 2);
-				player addScore _this;
+				[player, 8] remoteExecCall ["d_fnc_addscore", 2];
 			};
 		};
 		d_sm_p_pos = nil;

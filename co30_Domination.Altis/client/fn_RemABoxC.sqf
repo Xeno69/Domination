@@ -8,7 +8,7 @@ if !(hasInterface) exitWith {};
 params ["_box"];
 
 {
-	if (_x # 0 == _box || {isNull (_x # 0)}) exitWith {
+	if (_x # 0 == _box || {!alive (_x # 0)}) then {
 		d_all_p_a_boxes set [_forEachIndex, -1];
 	};
 } forEach d_all_p_a_boxes;

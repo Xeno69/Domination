@@ -4,8 +4,8 @@
 #include "..\x_macros.sqf"
 
 __TRACE_1("","_this")
-switch (_this select 1) do {
-	case 100: {
+call {
+	if (_this select 1 == 100) exitWith {
 		__TRACE("Die case 100")
 		if (local (_this select 0)) then {
 			//(_this select 0) playActionNow "Die";
@@ -13,7 +13,7 @@ switch (_this select 1) do {
 			//(_this select 0) switchMove "AinjPpneMstpSnonWrflDnon";
 		};
 	};
-	case 101: {
+	if (_this select 1 == 101) exitWith {
 		params ["_u"];
 		_u switchMove "AmovPpneMstpSnonWnonDnon_healed";
 		_u playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
@@ -24,17 +24,21 @@ switch (_this select 1) do {
 			//_u switchMove "AinjPpneMstpSnonWrflDnon";
 		};
 	};
-	case 102: {
+	if (_this select 1 == 102) exitWith {
 		params ["_u"];
 		_u switchMove "AmovPpneMstpSnonWnonDnon_healed";
 		_u playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
 		//_u switchMove "AfdsPpneMstpSnonWnonDnon_AfdsPpneMstpSrasWrflDnon"; // not working, player can't walk or run
 	};
-	case 103: {
+	if (_this select 1 == 103) exitWith {
 		params ["_u"];
 		_u switchMove "";
 		if (local _u) then {_u moveInCargo (_this select 2)};
 	};
-	case 104: {if (local (_this select 0)) then {unassignVehicle (_this select 0)}};
-	case 105: {(_this select 0) switchMove ""};
+	if (_this select 1 == 104) exitWith {
+		if (local (_this select 0)) then {unassignVehicle (_this select 0)};
+	};
+	if (_this select 1 == 105) then {
+		(_this select 0) switchMove "";
+	};
 };

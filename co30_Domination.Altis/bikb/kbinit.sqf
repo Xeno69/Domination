@@ -208,25 +208,25 @@ if (d_own_side == "GUER" || {d_ifa3lite}) then {
 };
 
 #ifndef __TT__
-d_kb_logic1 = switch (d_own_side) do {
-	case "WEST": {d_hq_logic_blufor1};
-	case "EAST": {d_hq_logic_opfor1};
-	case "GUER": {d_hq_logic_guer1};
+d_kb_logic1 = call {
+	if (d_own_side == "WEST") exitWith {d_hq_logic_blufor1};
+	if (d_own_side == "EAST") exitWith {d_hq_logic_opfor1};
+	d_hq_logic_guer1;
 };
-d_kb_logic2 = switch (d_own_side) do {
-	case "WEST": {d_hq_logic_blufor2};
-	case "EAST": {d_hq_logic_opfor2};
-	case "GUER": {d_hq_logic_guer2};
+d_kb_logic2 = call {
+	if (d_own_side == "WEST") exitWith {d_hq_logic_blufor2};
+	if (d_own_side == "EAST") exitWith {d_hq_logic_opfor2};
+	d_hq_logic_guer2;
 };
-d_kb_topic_side = switch (d_own_side) do {
-	case "WEST": {"HQ_W"};
-	case "EAST": {"HQ_E"};
-	case "GUER": {"HQ_I"};
+d_kb_topic_side = call {
+	if (d_own_side == "WEST") exitWith {"HQ_W"};
+	if (d_own_side == "EAST") exitWith {"HQ_E"};
+	"HQ_I";
 };
-d_kb_topic_side_arti = switch (d_own_side) do {
-	case "WEST": {"HQ_ART_W"};
-	case "EAST": {"HQ_ART_E"};
-	case "GUER": {"HQ_ART_I"};
+d_kb_topic_side_arti = call {
+	if (d_own_side == "WEST") exitWith {"HQ_ART_W"};
+	if (d_own_side == "EAST") exitWith {"HQ_ART_E"};
+	"HQ_ART_I";
 };
 #endif
 
@@ -239,36 +239,37 @@ if (hasInterface) then {
 		};
 	};
 	private _pside = side (group player);
-	switch (_pside) do {
-		case blufor: {player kbAddTopic["HQ_W", _kbscript]};
-		case opfor: {player kbAddTopic["HQ_E", _kbscript]};
-		case independent: {player kbAddTopic["HQ_I", _kbscript]};
+	call {
+		if (_pside == blufor) exitWith {player kbAddTopic ["HQ_W", _kbscript]};
+		if (_pside == opfor) exitWith {player kbAddTopic ["HQ_E", _kbscript]};
+		player kbAddTopic ["HQ_I", _kbscript];
 	};
 	_strp = str player;
 	player kbAddTopic["PL" + _strp, _kbscript];
 #ifndef __TT__
 	d_kb_logic1 kbAddTopic["PL" + _strp, _kbscript];
 #else
-	private _ll = switch (_pside) do {
-		case blufor: {d_hq_logic_blufor1};
-		case opfor: {d_hq_logic_opfor1};
-		case independent: {d_hq_logic_guer1};
-	};
+	private _ll = call {
+		if (_pside == blufor) exitWith {d_hq_logic_blufor1};
+		if (_pside == opfor) exitWith {d_hq_logic_opfor1};
+		d_hq_logic_guer1;
+	}; 
 	_ll kbAddTopic["PL" + _strp, _kbscript];
 #endif
 	if (d_no_ai) then {
 		if (_strp in d_can_use_artillery || {_strp in d_can_mark_artillery}) then {
-			switch (_pside) do {
-				case blufor: {player kbAddTopic["HQ_ART_W", _kbscript]};
-				case opfor: {player kbAddTopic["HQ_ART_E", _kbscript]};
-				case independent: {player kbAddTopic["HQ_ART_I", _kbscript]};
+			call {
+				if (_pside == blufor) exitWith {player kbAddTopic ["HQ_ART_W", _kbscript]};
+				if (_pside == opfor) exitWith {player kbAddTopic ["HQ_ART_E", _kbscript]};
+				player kbAddTopic ["HQ_ART_I", _kbscript];
 			};
 		};
 	} else {
-		switch (_pside) do {
-			case blufor: {player kbAddTopic["HQ_ART_W", _kbscript]};
-			case opfor: {player kbAddTopic["HQ_ART_E", _kbscript]};
-			case independent: {player kbAddTopic["HQ_ART_I", _kbscript]};
+		call {
+			if (_pside == blufor) exitWith {player kbAddTopic ["HQ_ART_W", _kbscript]};
+			if (_pside == opfor) exitWith {player kbAddTopic ["HQ_ART_E", _kbscript]};
+			player kbAddTopic ["HQ_ART_I", _kbscript];
 		};
 	};
 };
+;

@@ -5,7 +5,7 @@
 
 private _killer = _this select 1;
 if !(_killer call d_fnc_isplayer) exitWith {};
-private _points = _this select 0;
+params ["_points"];
 call {
 	private _side = side (group _killer);
 	if (_side == blufor) exitWith {d_points_blufor = d_points_blufor + _points};

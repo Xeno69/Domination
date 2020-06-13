@@ -16,7 +16,7 @@ if (alive (_this # 2)) then {
 		[(_this # 2), (_this # 2) getVariable "d_plyonloadoutaction"] call bis_fnc_holdActionRemove;
 		(_this # 2) setVariable ["d_plyonloadoutaction", nil];
 	};
-	
+
 	if (!d_with_ace) then {
 		private _aidx = (_this # 2) getVariable "d_rappel_self_action";
 		if (!isNil "_aidx") then {
@@ -50,7 +50,7 @@ if (getPos player # 2 > 5) then {
 		if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}}) then {
 #endif
 			d_player_in_base = true;
-		};			
+		};
 	};
 } else {
 #ifndef __TT__

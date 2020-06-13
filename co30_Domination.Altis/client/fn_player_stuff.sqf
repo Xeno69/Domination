@@ -11,7 +11,7 @@ d_player_autokick_time = _this select 0;
 if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitWith {
 	0 spawn {
 		scriptName "spawn_playerstuffparking";
-		waitUntil {!d_still_in_intro};
+		waitUntil {sleep 0.1; !d_still_in_intro};
 		__TRACE("player_stuff, calling park_player")
 		player setVariable ["xr_lives", -1, true];
 		xr_pl_no_lifes = true;
@@ -20,18 +20,21 @@ if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitW
 };
 
 #ifdef __TT__
-if (!isNil {player getVariable "d_no_side_change"}) then {
-	private _rtime = time - (_this select 9);
-	[format [localize "STR_DOM_MISSIONSTRING_1871", d_name_pl, _rtime], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
-	0 spawn {
-		scriptName "spawn_endmissionloser";
-		sleep 1.5;
-		endMission "LOSER";
-	};
-} else {
-	private _prev_side = _this select 5;
-	if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
-		[format [localize "STR_DOM_MISSIONSTRING_641", d_name_pl, _prev_side, d_player_side], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", -2];
+_this spawn {
+	waitUntil {sleep 0.1; !d_still_in_intro};
+	if (!isNil {player getVariable "d_no_side_change"}) then {
+		private _rtime = serverTime - ((_this # 9) # 1);
+		[3, profileName, round (30 - (_rtime / 60))] remoteExecCall ["d_fnc_csidechat", -2];
+		0 spawn {
+			scriptName "spawn_endmissionloser";
+			sleep 1.5;
+			endMission "LOSER";
+		};
+	} else {
+		private _prev_side = _this select 5;
+		if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
+			[4, profileName, _prev_side, d_player_side] remoteExecCall ["d_fnc_csidechat", -2];
+		};
 	};
 };
 #endif
@@ -50,12 +53,20 @@ if !(_lo # 0 isEqualTo []) then {
 	};
 };
 
-if (_this select 7 >= d_maxnum_tks_forkick) then {
+/*if (_this select 7 >= d_maxnum_tks_forkick) then {
 	0 spawn {
 		scriptName "spawn_endmissionloser2";
 		hint "You will be kicked back to the lobby because of too much teamkilling!!!!";
 		titleText "You will be kicked back to the lobby because of too much teamkilling!!!!";
 		sleep 5;
 		endMission "LOSER";
+	};
+};*/
+
+if (_this select 13 > 0) then {
+	_this spawn {
+		scriptname "spawn plstuffjail";
+		waitUntil {sleep 0.2; !d_still_in_intro};
+		[_this select 7, _this select 13] spawn d_fnc_jail;
 	};
 };

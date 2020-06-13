@@ -122,11 +122,7 @@ if (d_player_side == blufor) then {
 
 #ifdef __TT__
 __ctrl(11279);
-if (d_num_barracks_tt != -1) then {
-	_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
-} else {
-	_ctrl ctrlSetText "0/0";
-};
+_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
 #endif
 
 __ctrl(11009);
@@ -183,7 +179,7 @@ if (d_current_target_index != -1) then {
 
 __ctrl2(11007) ctrlSetText _s;
 
-__ctrl2(12010) ctrlSetText (player call d_fnc_GetRankPic);
+__ctrl2(12010) ctrlSetText ((player call d_fnc_GetRankPicGetRankPic) # 0);
 __ctrl2(11014) ctrlSetText (player call d_fnc_GetRankString);
 
 __ctrl2(12016) ctrlSetText serverName;
@@ -237,4 +233,14 @@ __ctrl2(2005) ctrlSetText str(d_points_needed # 4);
 __ctrl2(2006) ctrlSetText str(d_points_needed # 5);
 __ctrl2(2007) ctrlSetText str(d_points_needed # 6);
 
-//ctrlSetFocus __ctrl2(1212);
+for "_i" from 1 to 20 do {
+	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
+	private _endstr = (localize format ["str_usract_user_%1", _i]);
+	if !(_usera isEqualTo []) then {
+		_endstr = _endstr + " " + (_usera joinString ",");
+	};
+	__ctrl2(3302) lbAdd _endstr;
+	__ctrl2(3402) lbAdd _endstr;
+};
+__ctrl2(3302) lbSetCurSel d_earplugs_userakey;
+__ctrl2(3402) lbSetCurSel d_3dmarker_userakey;

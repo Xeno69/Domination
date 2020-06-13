@@ -39,12 +39,17 @@ if (d_with_ai) then {
 	_grp setVariable ["d_do_not_delete", true];
 };
 private _spos = [_dstart_pos # 0, _dstart_pos # 1, 300];
-private _veca = [_spos, _spos getDir _playerpos, _ttype, _grp, false] call d_fnc_spawnVehicle;
+private _veca = [_spos, _spos getDir _playerpos, _ttype, _grp, false, true] call d_fnc_spawnVehicle;
 _grp deleteGroupWhenEmpty true;
 _veca params ["_vec", "_crew"];
+if (d_with_dynsim == 0) then {
+	_vec setVariable ["d_nodyn", true];
+};
 private _unit = driver _vec;
 addToRemainsCollector [_vec];
 _unit setSkill 1;
+_vec allowDamage false;
+_unit allowDamage false;
 
 d_airtaxi_driver = _unit;
 _unit setVariable ["d_type", _ttype];
@@ -156,7 +161,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_ataxiNet", _player];
 	};
-	
+
 	sleep 30 + random 5;
 	_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 	if (!isNil "_player" && {!isNull _player}) then {
@@ -197,14 +202,14 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		sleep 2.012
 	};
 	if (_doend) exitWith {};
-	
+
 	_endtime = time + 820;
 	while {alive _unit && {alive _vec && {alive _player && {(_player in crew _vec) && {canMove _vec}}}}} do {
 		sleep 3.221;
 		if (time > _endtime) exitWith {};
 	};
 	sleep 20 + random 5;
-	
+
 	if (alive _unit && {alive _vec && {canMove _vec}}) then {
 		_player = [player , objectFromNetId _callernetid] select isMultiplayer;
 		if (!isNil "_player" && {!isNull _player}) then {

@@ -26,7 +26,7 @@ switch (_this select 0) do {
 };
 
 private _vec = _this select 1;
-private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select ((toLowerANSI (typeOf _vec)) in d_check_ammo_load_vecs);
+private _welcome_str4 = [localize "STR_DOM_MISSIONSTRING_191", localize "STR_DOM_MISSIONSTRING_190"] select (_vec getVariable ["d_canloadbox", false]);
 
 private _end_welcome = time + 14;
 "d_chopper_hud" cutRsc ["d_chopper_hud", "PLAIN"];

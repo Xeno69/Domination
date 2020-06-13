@@ -7,8 +7,7 @@ if (_enterer != player) exitWith {};
 
 params ["_vec"];
 
-private _exit_it = false;
-private _d_side = _vec getVariable "d_side";
+[false, _vec getVariable "d_side"] params ["_exit_it", "_d_side"];
 if (!isNil "_d_side") then {
 	if (d_player_side == blufor && {_d_side == opfor}) then {
 		_exit_it = true;

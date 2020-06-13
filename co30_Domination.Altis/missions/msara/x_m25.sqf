@@ -54,6 +54,6 @@ if (isServer) then {
 	["specops", 1, "allmen", 0, d_x_sm_pos # 18, 80, true] spawn d_fnc_CreateInf;
 	sleep 2.123;
 	if (d_with_dynsim == 0) then {
-		_sm_vec enableDynamicSimulation true;
+		[_sm_vec, 1] spawn d_fnc_enabledynsim;
 	};
 };

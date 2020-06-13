@@ -130,13 +130,14 @@ while {true} do {
 #endif
 
 #ifndef __TT__
-private _ari_vecs = d_arty_vecs;
+private _ari_vecs =+ d_arty_vecs;
 #else
-private _ari_vecs = [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor);
+private _ari_vecs =+ [d_arty_vecsb, d_arty_vecso] select (_side_arti_op == opfor);
 #endif
 
 {
 	_x enableSimulationGlobal true;
+	_x enableDynamicSimulation true;
 	_x setVariable ["d_who_fired", _arti_operator];
 } forEach _ari_vecs;
 
@@ -167,7 +168,7 @@ if (_ari_vecs isEqualTo []) exitWith {
 	remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) exitWith {};
-	[_aop , localize "STR_DOM_MISSIONSTRING_1519"] remoteExecCall ["sideChat", _aop];
+	[6] remoteExecCall ["d_fnc_csidechat", _aop];
 };
 
 private _eta_time = (_ari_vecs # 0) getArtilleryETA [_ari_tgt_pos, _ari_type];
@@ -215,19 +216,25 @@ for "_series" from 1 to _ari_salvos do {
 	if (d_arty_stopp) exitWith {
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
 	};
+	d_arty_projectiles = [];
 #else
 	if (_side_arti_op == opfor && {d_arty_stopp_e || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
 	};
+	if (_side_arti_op == opfor) then {
+		d_arty_projectiles_o = [];
+	} else {
+		d_arty_projectiles_b = [];
+	};
 #endif
-	{	
+	{
 		_x setVehicleAmmo 1;
 		_x setFuel 1;
 		_x setDamage 0;
-		
+
 		private _radius = 20 + random 10;
 		private _angle = floor random 360;
-		
+
 		_x doArtilleryFire [[(_ari_tgt_pos # 0) - ((random _radius) * sin _angle), (_ari_tgt_pos # 1) - ((random _radius) * cos _angle), 0], _ari_type, 1];
 		sleep 0.2;
 	} forEach _ari_vecs;
@@ -235,12 +242,12 @@ for "_series" from 1 to _ari_salvos do {
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
-	
-	[_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
+
+	private _spawn_handle = [_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
 		scriptName "spawn arifire";
 		params ["_eta_time", "_arti_operator", "_logic", "_logic1", "_topicside_arti", "_series", "_channel"];
 		sleep (_eta_time - 1);
-	
+
 		private _aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 		_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
@@ -258,14 +265,22 @@ for "_series" from 1 to _ari_salvos do {
 		if (time > _endtime || {(_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {};
 	};
 	#endif
-	
-	
+
+
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
+		terminate _spawn_handle;
+		{deleteVehicle _x} forEach d_arty_projectiles;
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
 	};
 #else
 	if (_side_arti_op == opfor && {d_arty_stopp_e || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {
+		terminate _spawn_handle;
+		if (_side_arti_op == opfor) then {
+			{deleteVehicle _x} forEach d_arty_projectiles_o;
+		} else {
+			{deleteVehicle _x} forEach d_arty_projectiles_b;
+		};
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
 	};
 #endif
@@ -298,6 +313,7 @@ if (_side_arti_op == opfor) then {
 
 {
 	_x enableSimulationGlobal false;
+	_x enableDynamicSimulation false;
 	_x setVariable ["d_who_fired", nil];
 } forEach _ari_vecs;
 _ari_vecs = nil;

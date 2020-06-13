@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_fillunload.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 private _control = (uiNamespace getVariable "d_UnloadDialog") displayCtrl 101115;
 lbClear _control;

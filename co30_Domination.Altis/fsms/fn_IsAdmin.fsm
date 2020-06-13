@@ -4,7 +4,7 @@
 item0[] = {"Start",0,250,-25.000000,-350.000000,75.000000,-300.000000,0.000000,"Start"};
 item1[] = {"_",8,218,-25.000000,-275.000000,75.000000,-225.000000,0.000000,""};
 item2[] = {"Loop",2,250,-25.000000,-200.000000,75.000000,-150.000000,0.000000,"Loop"};
-item3[] = {"__alive_player",4,4314,200.000000,-200.000000,300.000000,-150.000000,20.000000,"!alive player"};
+item3[] = {"__alive_player",4,218,200.000000,-200.000000,300.000000,-150.000000,20.000000,"!alive player"};
 item4[] = {"Dummy",2,250,-25.000000,-50.000000,75.000000,0.000000,0.000000,"Dummy"};
 item5[] = {"_",8,218,-25.000000,25.000000,75.000000,75.000000,0.000000,""};
 item6[] = {"Check_for_nearEn",2,250,-25.000000,325.000000,75.000000,375.000000,0.000000,"Check for" \n "nearEntities"};
@@ -12,7 +12,7 @@ item7[] = {"Logged_out_or__a",4,218,200.000000,325.000000,300.000000,375.000000,
 item8[] = {"Reset",1,250,200.000000,-125.000000,300.000000,-75.000000,0.000000,"Reset"};
 item9[] = {"__isNull__vec",4,218,-25.000000,400.000000,75.000000,450.000000,1.000000,"!isNull _vec"};
 item10[] = {"Delay_2s",4,218,-175.000000,325.000000,-75.000000,375.000000,0.000000,"Delay 2s"};
-item11[] = {"Check",2,250,-25.000000,475.000000,75.000000,525.000000,0.000000,"Check"};
+item11[] = {"Check",2,4346,-25.000000,475.000000,75.000000,525.000000,0.000000,"Check"};
 item12[] = {"isNull__vec",4,218,125.000000,475.000000,225.000000,525.000000,1.000000,"isNull _vec"};
 item13[] = {"Check_1",2,250,125.000000,550.000000,225.000000,600.000000,0.000000,"Check"};
 item14[] = {"",7,210,-129.000000,496.000000,-121.000008,504.000000,0.000000,""};
@@ -48,8 +48,8 @@ link21[] = {18,19};
 link22[] = {19,20};
 link23[] = {20,4};
 link24[] = {21,4};
-globals[] = {0.000000,0,0,0,0,640,480,1,38,6316128,1,-389.664490,412.011230,632.773071,-461.422485,655,894,1};
-window[] = {2,-1,-1,-1,-1,770,52,1012,52,3,673};
+globals[] = {0.000000,0,0,0,0,640,480,1,38,6316128,1,-389.664490,412.011230,632.773071,-461.422485,655,1254,1};
+window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,673};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -236,6 +236,7 @@ class FSM
                          "			d_admin_idd = -9999;" \n
                          "		};" \n
                          "		if (_vec call d_fnc_isVecLocked) then {" \n
+                         "			if (_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n
                          "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n
                          "			d_adm_currentvec_lockstate = true;" \n
                          "		} else {" \n
@@ -251,6 +252,7 @@ class FSM
                          "		} else {" \n
                          "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n
                          "				d_adm_currentvec removeAction d_admin_idd;" \n
+                         "				if (_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n
                          "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n
                          "				d_adm_currentvec_lockstate = true;" \n
                          "			};" \n

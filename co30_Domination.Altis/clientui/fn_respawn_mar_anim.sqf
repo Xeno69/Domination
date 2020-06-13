@@ -63,4 +63,7 @@ if (!isNil "d_respawn_anim_markers") then {
 d_respawn_anim_markers = nil;
 d_respawn_mar_str = nil;
 
+deleteMarkerLocal "d_exactpos_radius_mar";
+deleteMarkerLocal "d_exactpos_sel_mar";
+
 __TRACE("Off")

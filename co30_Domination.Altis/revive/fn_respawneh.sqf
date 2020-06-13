@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_respawneh.sqf"
 #include "..\x_macros.sqf"
 
+if (!isNil "d_goto_jail") exitWith {};
+
 private _tmpeh = player addEventhandler ["handleDamage", {0}];
 
 enableRadio false;

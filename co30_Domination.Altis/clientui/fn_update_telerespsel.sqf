@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_update_telerespsel.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 params ["_cparams", "_wone"];
 _cparams params ["_ctrl", "_sel"];
 
@@ -40,20 +38,21 @@ if (_uidx == -1) then {
 		private _mrs = missionNamespace getVariable [_data, objNull];
 		__TRACE_1("","_mrs")
 		if (!isNull _mrs) then {
-			private _curaridx = _not_avail_array pushBack _data; 
+			private _curaridx = _not_avail_array pushBack _data;
 			private _lbcolor = call {
 				if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592",  _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _ctrl lbText _sel, _logtxt]; __COLRED};
-				if (surfaceIsWater (getPosWorld _mrs)) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_594", _ctrl lbText _sel, _logtxt]; __COLRED};
+				if (!(_mrs isKindOf "Ship") && {surfaceIsWater (getPosWorld _mrs)}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_594", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (!alive _mrs) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_595", _ctrl lbText _sel, _logtxt]; __COLRED};
-				if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _ctrl lbText _sel, _logtxt]; __COLRED};
+				if (!(_mrs isKindOf "Ship") && {!(_mrs getVariable ["d_MHQ_Deployed", false])}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _ctrl lbText _sel, _logtxt]; __COLRED};
 				if (_mrs getVariable ["d_enemy_near", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_597", _ctrl lbText _sel, _logtxt]; __COLRED};
+				if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_2023", _ctrl lbText _sel, _logtxt]; __COLRED};
 				_not_avail_array deleteAt _curaridx;
 				_mravailable = true;
 				[1,1,1,1.0];
 			};
 			_ctrl lbSetColor [_sel, _lbcolor];
-			
+
 			if (_logtxt != "" && {!d_lb_tele_first}) then {
 				__CTRL(11002) ctrlSetText _logtxt;
 			};
@@ -69,7 +68,7 @@ if (_uidx == -1) then {
 					[1,1,1,1.0]
 				} else {
 					_not_avail_array pushBack "D_SQL_D";
-					__CTRL(11002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1706");				
+					__CTRL(11002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1706");
 					__COLRED
 				};
 				_ctrl lbSetColor [_sel, _lbcolor];
@@ -84,15 +83,22 @@ __TRACE_1("","d_additional_respawn_points")
 
 __TRACE_1("","_uidx")
 
+d_cur_map_endpos = nil;
+d_alt_map_pos = nil;
+
 private _end_pos = if (_uidx == -1) then {
-	if (_data == "D_BASE_D") then {
-		getPosATL d_FLAG_BASE;
-	} else {
-		if (_data == "D_SQL_D") then {
-			visiblePosition (leader (group player));
-		} else {
-			visiblePosition (missionNamespace getVariable _data);
+	call {
+		if (_data == "D_BASE_D") exitWith {
+			getPosATL d_FLAG_BASE;
 		};
+		if (_data == "D_SQL_D") exitWith {
+			visiblePosition (leader (group player));
+		};
+		private _rppp = visiblePosition (missionNamespace getVariable _data);
+		if (_mravailable && {!((missionNamespace getVariable _data) isKindOf "Ship")}) then {
+			d_cur_map_endpos = _rppp;
+		};
+		_rppp
 	};
 } else {
 	(d_additional_respawn_points # _uidx) # 1;
@@ -147,5 +153,25 @@ ctrlMapAnimClear _ctrlmap;
 
 _ctrlmap ctrlMapAnimAdd [0, 1, getPosATL player];
 _ctrlmap ctrlMapAnimAdd [1.2, 1, _end_pos];
-_ctrlmap ctrlMapAnimAdd [0.8, 0.1, _end_pos];
+if (!isNil "d_cur_map_endpos") then {
+	_ctrlmap ctrlMapAnimAdd [0.8, (2 * 110 / d_island_x_max) / (safeZoneH * 0.717), _end_pos];
+} else {
+	_ctrlmap ctrlMapAnimAdd [0.8, 0.5, _end_pos];
+};
 ctrlMapAnimCommit _ctrlmap;
+
+if (!isNil "d_cur_map_endpos") then {
+	"d_exactpos_radius_mar" setMarkerPosLocal _end_pos;
+	"d_exactpos_radius_mar" setMarkerAlphaLocal 1;
+	"d_exactpos_sel_mar" setMarkerPosLocal _end_pos;
+	"d_exactpos_sel_mar" setMarkerAlphaLocal 1;
+	__CTRL(11003) ctrlShow true;
+	__CTRL(11004) ctrlShow true;
+} else {
+	"d_exactpos_radius_mar" setMarkerPosLocal [0, 0, 0];
+	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
+	"d_exactpos_sel_mar" setMarkerPosLocal [0, 0, 0];
+	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
+	__CTRL(11003) ctrlShow false;
+	__CTRL(11004) ctrlShow false;
+};

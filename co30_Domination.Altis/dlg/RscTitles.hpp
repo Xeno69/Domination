@@ -645,7 +645,7 @@ class d_sat_timode {
 			idc=-1;
 			style="16+512";
 			lineSpacing=0.95;
-			text="TI Mode:";
+			text = "$STR_DOM_MISSIONSTRING_2020";
 			x = "SafeZoneX + SafeZoneW - 0.2";
 			y = "SafeZoneY + (SafeZoneH / 2)";
 			w=0.3;
@@ -658,7 +658,7 @@ class d_sat_timode {
 		};
 		class ti_text: ti_caption {
 			idc = 50;
-			text="WHOT";
+			text="$STR_DOM_MISSIONSTRING_2021";
 			y = "SafeZoneY + (SafeZoneH / 2) + 0.05";
 		};
 	};
@@ -706,6 +706,72 @@ class d_RscPIP {
 			y = "(9 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 20) + (safezoneY + safezoneH - (((safezoneW / safezoneH) min 1.2) / 1.2))) + (0.5 * 	0.67 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 20))";
 			w = "(6 * (((safezoneW / safezoneH) min 1.2) / 32)) - (2 * 	0.5 * 0.67 * (((safezoneW / safezoneH) min 1.2) / 32))";
 			h = "((6 * (((safezoneW / safezoneH) min 1.2) / 32))) - (2 * 0.5 * 0.67 * ((((safezoneW / safezoneH) min 1.2) / 1.2) / 20))";
+		};
+	};
+};
+
+class d_infobar {
+	idd = -1;
+	onLoad = "uiNamespace setVariable ['d_infobar', _this select 0]";
+	onUnload = "uiNamespace setVariable ['d_infobar', nil]";
+	onDestroy = "uiNamespace setVariable ['d_infobar', nil]";
+	fadein = 0;
+	fadeout = 0;
+	duration = 10e10;
+	movingEnable = 0;
+	controlsBackground[] = {};
+	objects[] = {};
+	class controls {
+		class statusBarText {
+			idc = 1102;
+			x = safezoneX + safezoneW - 1.80;
+			y = safezoneY + safezoneH - 0.04;
+			w = 1.25;
+			h = 0.04;
+			shadow = 1;
+			colorBackground[] = { 1, 0.3, 0, 0.0 };
+			font = "PuristaSemibold";
+			size = 0.03;
+			type = 13;
+			style = 0;
+			text="";
+			class Attributes {
+				align="right";
+				color = "#B0F0FFFF";
+			};
+		};
+	};
+};
+
+class d_RscLastChance {
+	idd = -1;
+	movingEnable = 0;
+	duration = 1e+011;
+	fadeout = 1;
+	name = "d_RscLastChance";
+	sizeEx = 256;
+	onLoad = "uiNamespace setVariable ['d_RscLastChance', _this select 0]";
+	onUnLoad = "uiNamespace setVariable ['d_RscLastChance', nil]";
+	class controls {
+		class LCText: RscText2 {
+			idc = 3900;
+			style = 0;
+			text = "$STR_DOM_MISSIONSTRING_2019";
+			x = SafeZoneX + 0.05;
+			y = SafeZoneY + 0.3;
+			font = DEFAULTFONT;
+			w = 0.3;
+			h = 0.1;
+			sizeEx = 0.035;
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+		};
+		class Pic: D_RscPicture {
+			idc = 50;
+			x = SafeZoneX + 0.118; y = SafeZoneY + 0.4; w = 0.11; h = 0.11;
+			text = "\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_0_ca.paa";
+			sizeEx = 256;
+			colorText[] = {1, 1, 1, 0.8};
 		};
 	};
 };

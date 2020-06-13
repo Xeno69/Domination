@@ -10,39 +10,39 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 
-params ["_player","_heli"];
+params ["_player", "_heli"];
 
 if (isServer) then {
 	if (!(_player in _heli) || {_player getVariable ["AR_Is_Rappelling", false]}) exitWith {};
 
 	// Find next available rappel anchor
-	_rappelPoints = [_heli] call AR_fnc_Get_Heli_Rappel_Points;
-	_rappelPointIndex = 0;
+	private _rappelPoints = [_heli] call AR_fnc_Get_Heli_Rappel_Points;
+	private _rappelPointIndex = 0;
 	{
-		_rappellingPlayer = _heli getVariable ["AR_Rappelling_Player_" + str _rappelPointIndex, objNull];
+		private _rappellingPlayer = _heli getVariable ["AR_Rappelling_Player_" + str _rappelPointIndex, objNull];
 		if (isNull _rappellingPlayer) exitWith {};
 		_rappelPointIndex = _rappelPointIndex + 1;
 	} forEach _rappelPoints;
-	
+
 	// All rappel anchors are taken by other players. Hint player to try again.
 	if (count _rappelPoints == _rappelPointIndex) exitWith {
 		if (_player call d_fnc_isplayer) then {
-			"All rappel anchors in use. Please try again." remoteExecCall ["hint", _player];
+			[24] remoteExecCall ["d_fnc_csidechat", _player];
 		};
 	};
-	
+
 	_heli setVariable ["AR_Rappelling_Player_" + str _rappelPointIndex, _player];
 
 	_player setVariable ["AR_Is_Rappelling", true, true];
 
 	// Start rappelling (client side)
 	[_player, _heli, _rappelPoints select _rappelPointIndex] spawn AR_fnc_Client_Rappel_From_Heli;
-	
+
 	// Wait for player to finish rappeling before freeing up anchor
 	[_player, _heli, _rappelPointIndex] spawn {
 		scriptName "spawn_AR_rappel_from_heli";
 		params ["_player", "_heli", "_rappelPointIndex"];
-		
+
 		while {true} do {
 			if (!alive _player || {!(_player getVariable ["AR_Is_Rappelling", false])}) exitWith {};
 			sleep 2;

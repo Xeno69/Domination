@@ -15,7 +15,7 @@ while {true} do {
 			_x remoteExecCall ["d_fnc_rem_uav"];
 			_x setVariable ["d_vcheck", nil, true];
 		};
-		sleep 0.5;
+		sleep 0.7;
 	} forEach allUnitsUAV;
 	sleep 60;
 };

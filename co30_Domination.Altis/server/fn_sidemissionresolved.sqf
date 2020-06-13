@@ -17,6 +17,7 @@ __TRACE_2("","d_sm_winner","d_current_sm_bonus_vec")
 if (d_sm_winner > 0) then {
 	__TRACE("Calling getbonus")
 	if (d_without_sm_bonus == 1) then {
+		__TRACE("d_sm_bonus_wait true")
 		d_sm_bonus_wait = true;
 		[d_sm_winner, d_current_sm_bonus_vec] spawn d_fnc_getbonus;
 	} else {
@@ -63,9 +64,11 @@ if (d_database_found && {d_db_auto_save}) then {
 				sleep 0.1;
 				if (isNil "d_sm_bonus_wait") exitWith {};
 			};
+			__TRACE("saving after wait")
 			["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 		};
 	} else {
+		__TRACE("saving immediately")
 		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 	};
 };

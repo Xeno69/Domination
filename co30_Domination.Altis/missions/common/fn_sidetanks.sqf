@@ -26,9 +26,9 @@ for "_ii" from 1 to (count _posi_array) - 1 do {
 };
 
 sleep 2.333;
-["specops", (floor (random 4)) min 2, "allmen", (floor (random 4)) min 2, _posi_array # 0, 300, true] spawn d_fnc_CreateInf;
+["specops", (floor (random 3)) min 1, "allmen", (floor (random 3)) min 1, _posi_array # 0, 300, true] spawn d_fnc_CreateInf;
 sleep 2.333;
-[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _posi_array # 0, 1, 400, true] spawn d_fnc_CreateArmor;
+[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 2, _posi_array # 0, 1, 400, true] spawn d_fnc_CreateArmor;
 sleep 1;
 ["stat_mg", 1, "stat_gl", 1, "", 0, _posi_array # 0, 1, 100, false] spawn d_fnc_CreateArmor;
 

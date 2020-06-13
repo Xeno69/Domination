@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 #define __CTRL2(A) (_display displayCtrl A)
 
-if (!hasInterface || {d_beam_target == "" || {d_x_loop_end}}) exitWith {};
+if (d_beam_target == "" || {d_x_loop_end}) exitWith {};
 
 d_x_loop_end = true;
 
@@ -26,6 +26,7 @@ if (_wone == 0) then {
 private _global_pos = [];
 private _global_dir = 180;
 private _typepos = 0;
+private _mrsv = objNull;
 
 if (d_beam_target == "D_BASE_D") then {
 #ifndef __TT__
@@ -51,6 +52,9 @@ if (d_beam_target == "D_BASE_D") then {
 		} else {
 			_typepos = 2;
 		};
+		if (d_with_ranked || {d_database_found}) then {
+			[_lead, 12] remoteExecCall ["d_fnc_addscore", 2];
+		};
 #ifndef __TT__
 		d_player_in_base = player inArea d_base_array;
 #else
@@ -69,13 +73,25 @@ if (d_beam_target == "D_BASE_D") then {
 			d_player_in_base = false;
 		} else {
 			private _mrs = missionNamespace getVariable [d_beam_target, objNull];
-			_global_pos = _mrs call d_fnc_posbehindvec;
-			(boundingBoxReal _mrs) params ["_p1", "_p2"];
-			private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-			_global_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
-			__TRACE_1("","_mrs distance (getPos _mrs)")
-			_global_dir = getDirVisual _mrs;
-			_typepos = 1;
+			if !(_mrs isKindOf "Ship") then {
+				if (isNil "d_alt_map_pos") then {
+					_global_pos = _mrs call d_fnc_posbehindvec;
+					__TRACE_1("1","_global_pos")
+					(boundingBoxReal _mrs) params ["_p1", "_p2"];
+					private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+					__TRACE_1("","_maxHeight")
+					_global_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+				} else {
+					_global_pos = d_alt_map_pos;
+					_global_pos set [2, 0];
+				};
+				__TRACE_1("2","_global_pos")
+				_global_dir = getDirVisual _mrs;
+				_typepos = 1;
+			} else {
+				_typepos = 3;
+				_mrsv = _mrs;
+			};
 			d_player_in_base = false;
 		};
 	};
@@ -98,6 +114,10 @@ if (_typepos == 1) then {
 	} else {
 		if (_typepos == 2) then {
 			player moveInCargo (vehicle leader (group player));
+		} else {
+			if (_typepos == 3) then {
+				player moveInCargo _mrsv;
+			};
 		};
 	};
 };

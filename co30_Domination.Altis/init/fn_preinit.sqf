@@ -374,7 +374,7 @@ d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
 d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 d_ef_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_events = [];
+d_ef_trig_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 d_ef_running = -1;
 
 d_cargo_chute =
@@ -504,8 +504,12 @@ private _confmapsize = call {
 		deleteMarkerLocal "d_whole_island";
 		_ret
 	};
+	if (worldName == "cup_chernarus_A3") exitWith {
+		worldSize
+	};
 	getNumber(configFile>>"CfgWorlds">>worldName>>"mapSize")
 };
+if (_confmapsize == 0) then {_confmapsize = worldSize};
 d_island_center = [_confmapsize / 2, _confmapsize / 2, 300];
 
 d_island_x_max = _confmapsize;
@@ -522,8 +526,6 @@ if (isServer) then {
 	d_hc_counter = 0;
 	d_virtual_spectators = [];
 	
-	d_fifo_counter = 0;
-
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
 	d_database_found = false;
@@ -576,16 +578,23 @@ if (isServer) then {
 			_dbresult = ["getDomSettings"] call dsi_fnc_queryconfig;
 		};
 #endif
-		diag_log ["Dom Database result loading dom_settings:", _dbresult];
+		diag_log "Dom Database result loading dom_settings:";
+		{
+			diag_log _x;
+		} forEach _dbresult;
 		if !(_dbresult isEqualTo []) then {
 			{
 				call {
-					if (toLowerANSI (_x # 0) in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+					private _tla = toLowerANSI (_x # 0);
+					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
 						if !((_x # 1) isEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (toLowerANSI (_x # 0) in ["d_use_sql_settings", "d_db_auto_save", "d_set_pl_score_db", "d_cas_available_time", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_ai_groups_respawn_time"]) exitWith {
+					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs", "d_noambient_bf_sounds", "d_time_until_next_sidemission"]) exitWith {
+						missionNamespace setVariable [_x # 0, _x # 1];
+					};
+					if (_tla in ["d_set_pl_score_db", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_launcher_cooldown"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1, true];
 					};
 #ifdef __TT__
@@ -614,7 +623,10 @@ if (isServer) then {
 				_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call dsi_fnc_queryconfig
 			};
 #endif
-			diag_log ["Dom Database result standard params:", _dbresult];
+			diag_log "Dom Database result standard params:";
+			{
+				diag_log _x;
+			} forEach _dbresult;
 			if !(_dbresult isEqualTo []) then {
 				if (isClass (getMissionConfig "Params")) then {
 					private _conf = getMissionConfig "Params";
@@ -658,7 +670,7 @@ if (isServer) then {
 		0 setOvercast (random 1);
 		if (d_enable_fog == 0) then {
 			private _fog = if (random 100 > 90) then {
-				[random 0.1, 0.2, 20 + (random 40)]
+				[random 0.1, 0.1, 20 + (random 40)]
 			} else {
 				[0,0,0]
 			};
@@ -822,6 +834,15 @@ if (!d_tt_tanoa) then {
 #include "d_specops_O_default.sqf"
 #endif
 	];
+	
+#ifdef __GMCWG__
+	{
+		if (count _x > 5) then {
+			_x resize 5
+		};
+	} forEach d_specops_E;
+#endif
+
 	d_specops_W = call {
 		if (d_rhs) exitWith {
 			[["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup]
@@ -831,6 +852,17 @@ if (!d_tt_tanoa) then {
 		};
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup]
 	};
+	
+	if (d_tanoa || {d_livonia}) then {
+		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+	} else {
+		d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+	};
+	
 #ifdef __RHS__
 	d_specops_E = [
 		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_2mg"] call d_fnc_GetConfigGroup,
@@ -856,6 +888,35 @@ if (!d_tt_tanoa) then {
 	d_sabotage_E = [[["gm_gc_army_demolition_mpiaks74n_80_str"], ["gm_gc_army_demolition_mpiaks74n_80_win"]] select d_gmcwgwinter];
 	d_sabotage_W = [["gm_ge_army_demolition_g3a4_80_ols"]];
 	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
+	
+	d_sniper_E = [[["gm_gc_army_squadleader_mpiak74n_80_str", "gm_gc_army_rifleman_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win", "gm_gc_army_rifleman_mpiak74n_80_win"]] select d_gmcwgwinter];
+	d_sniper_W = [[["gm_ge_army_squadleader_g3a3_p2a1_80_ols", "gm_ge_army_rifleman_g3a3_80_ols"], ["gm_ge_army_squadleader_g3a3_p2a1_parka_80_win", "gm_ge_army_rifleman_g3a3_parka_80_win"]] select d_gmcwgwinter];
+#endif
+
+#ifdef __CUP_CHERNARUS__
+	d_sniper_E = [["East","CUP_O_RU","Infantry","CUP_O_RU_SniperTeam_VDV_M_EMR"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __CUP_TAKISTAN__
+	d_sniper_E = [["East","CUP_O_TK","Infantry","CUP_O_TK_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_TK_GUE","Infantry","CUP_I_TK_GUE_SniperTeam"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __CUP_SARA__
+	d_sniper_E = [["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_SniperTeam_Desert"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","CUP_I_RACS","Infantry","CUP_I_RACS_SniperTeam"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __IFA3LITE__
+	d_sniper_E = [["East","LIB_RKKA","Infantry","LIB_SOV_sniper_team"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","LIB_WEHRMACHT","Infantry","LIB_GER_sniper_team"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","LIB_US_ARMY","Infantry","LIB_US_Sniper_Team"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __RHS__
+	d_sniper_E = [["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
+	d_sniper_G = [["Indep","rhssaf_faction_army","rhssaf_group_army_m10_digital_infantry","rhssaf_group_army_m10_digital_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
 #endif
 
 	d_veh_a_E = [
@@ -945,7 +1006,7 @@ if (!d_tt_tanoa) then {
 	d_arti_observer_E = [[["gm_gc_army_squadleader_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win"]] select d_gmcwgwinter];
 #endif
 #ifdef __CUP_CHERNARUS__
-	d_arti_observer_E = [["O_recon_JTAC_F"]];
+	d_arti_observer_E = [["CUP_O_RUS_SpecOps_Scout_Autumn"]];
 #endif
 #ifdef __CUP_TAKISTAN__
 	d_arti_observer_E = [["CUP_O_RUS_SpecOps_Scout_Autumn"]];
@@ -976,9 +1037,18 @@ if (!d_tt_tanoa) then {
 #endif
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
-	d_number_attack_planes = 1;
-	d_number_attack_choppers = 1;
-	d_number_attack_uavs = 1;
+	if (isNil "d_number_attack_planes") then {
+		d_number_attack_planes = 1;
+	};
+	if (isNil "d_number_attack_choppers") then {
+		d_number_attack_choppers = 1;
+	};
+	if (isNil "d_number_light_attack_choppers") then {
+		d_number_light_attack_choppers = 1;
+	};
+	if (isNil "d_number_attack_uavs") then {
+		d_number_attack_uavs = 1;
+	};
 	
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
@@ -991,10 +1061,16 @@ if (!d_tt_tanoa) then {
 				"CUP_B_C130J_Cargo_USMC"
 			};
 			if (d_gmcwg) exitWith {
-				""
+				if (d_gmcwgwinter) exitWith {
+					"gm_ge_airforce_do28d2_un"
+				};
+				"gm_ge_airforce_do28d2"
 			};
 			if (d_rhs) exitWith {
 				"RHS_C130J"
+			};
+			if (d_ifa3lite) exitWith {
+				""
 			};
 			"B_Heli_Transport_01_camo_F"
 		};
@@ -1006,6 +1082,12 @@ if (!d_tt_tanoa) then {
 			};
 			if (d_rhs) exitWith {
 				"RHS_Mi8mt_Cargo_vv"
+			};
+			if (d_gmcwg) exitWith {
+				""
+			};
+			if (d_cup) exitWith {
+				""
 			};
 			"O_Heli_Light_02_unarmed_F"
 		};
@@ -1100,6 +1182,43 @@ if (!d_tt_tanoa) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 
+#ifdef __ALTIS__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __ROSCHE__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "d_compositions_CUP_Chernarus.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_compositions_CUP_Takistan.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_compositions_CUP_Chernarus.sqf"
+#endif
+//#ifdef __GMCWG__
+// no compositions
+//#endif
+//#ifdef __IFA3LITE__
+// no compositions
+//#endif
+#ifdef __TT__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_compositions_default.sqf"
+#endif
+#ifdef __MALDEN__
+#include "d_compositions_default.sqf"
+#endif
+
 	// max men for main target clear
 	d_man_count_for_target_clear = 6;
 	// max tanks for main target clear
@@ -1108,17 +1227,21 @@ if (!d_tt_tanoa) then {
 	d_car_count_for_target_clear = 1;
 		
 	// time (in sec) between attack planes and choppers over main target will respawn once they were shot down (a random value between 0 and 240 will be added)
-	d_airai_respawntime = 1200;
+	if (isNil "d_airai_respawntime") then {
+		d_airai_respawntime = 1200;
+	};
 
 	d_side_missions_random = [];
 	d_player_created = [];
 
-	d_time_until_next_sidemission = [
-		[10,300], // if player number <= 10, it'll take 300 seconds until the next sidemission
-		[20,400], // if player number <= 20, it'll take 400 seconds until the next sidemission
-		[30,500], // if player number <= 30, it'll take 500 seconds until the next sidemission
-		[500,600] // if player number > 30, it'll take 600 seconds until the next sidemission
-	];
+	if (isNil "d_time_until_next_sidemission") then {
+		d_time_until_next_sidemission = [
+			[10,300], // if player number <= 10, it'll take 300 seconds until the next sidemission
+			[20,400], // if player number <= 20, it'll take 400 seconds until the next sidemission
+			[30,500], // if player number <= 30, it'll take 500 seconds until the next sidemission
+			[500,600] // if player number > 30, it'll take 600 seconds until the next sidemission
+		];
+	};
 
 	if (d_gmcwg) then {
 		d_civilians_t = ["gm_gc_civ_man_01_80_blk","gm_gc_civ_man_01_80_blu","gm_gc_civ_man_02_80_brn","gm_gc_civ_man_02_80_gry","gm_gc_pol_officer_80_blu"];
@@ -1162,6 +1285,88 @@ if (!d_tt_tanoa) then {
 			"LIB_61k"
 		};
 		"O_APC_Tracked_02_AA_F"
+	};
+#endif
+#ifdef __TT__
+	"";
+#endif
+d_base_tank_vec =
+#ifdef __OWN_SIDE_INDEPENDENT__
+	"I_MBT_03_cannon_F";
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_B_M1A1_Woodland_US_Army"
+		};
+		if (d_rhs) exitWith	{
+			"rhsusf_m1a1aimwd_usarmy"
+		};
+		if (d_gmcwg) exitWith {
+			if (d_gmcwgwinter) exitWith {
+				"gm_ge_army_Leopard1a1a1_win"
+			};
+			"gm_ge_army_Leopard1a1a1"
+		};
+		if (d_tanoa || {d_livonia}) exitWith {
+			"B_T_MBT_01_cannon_F"
+		};
+		"B_MBT_01_cannon_F";
+	};
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_O_T72_RU"
+		};
+		if (d_rhs) exitWith	{
+			"rhs_t90_tv"
+		};
+		if (d_ifa3lite) exitWith {
+			"LIB_T34_85"
+		};
+		"O_MBT_02_cannon_F"
+	};
+#endif
+#ifdef __TT__
+	"";
+#endif
+d_base_apc_vec =
+#ifdef __OWN_SIDE_INDEPENDENT__
+	"I_APC_tracked_03_cannon_F";
+#endif
+#ifdef __OWN_SIDE_BLUFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_B_M2Bradley_USA_W"
+		};
+		if (d_rhs) exitWith	{
+			"RHS_M2A2_wd"
+		};
+		if (d_gmcwg) exitWith {
+			if (d_gmcwgwinter) exitWith {
+				"gm_ge_army_m113a1g_apc_win"
+			};
+			"gm_ge_army_m113a1g_apc"
+		};
+		if (d_tanoa || {d_livonia}) exitWith {
+			"B_T_APC_Wheeled_01_cannon_F"
+		};
+		"B_APC_Wheeled_01_cannon_F";
+	};
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+	call {
+		if (d_cup) exitWith {
+			"CUP_O_BMP2_RU"
+		};
+		if (d_rhs) exitWith	{
+			"rhs_bmp2d_tv"
+		};
+		if (d_ifa3lite) exitWith {
+			"LIB_SOV_M3_Halftrack"
+		};
+		"O_APC_Tracked_02_cannon_F"
 	};
 #endif
 #ifdef __TT__
@@ -1224,7 +1429,7 @@ if (!d_tt_tanoa) then {
 		"G_40mm_HE" // dpicm
 	];
 
-	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE"];
+	d_hd_sim_types = ["SHOTPIPEBOMB", "SHOTTIMEBOMB", "SHOTDIRECTIONALBOMB", "SHOTMINE", "shotboundingmine"];
 	d_hd_sim_types = d_hd_sim_types apply {toLowerANSI _x};
 
 	d_isle_defense_marker = "n_mech_inf";
@@ -1337,7 +1542,10 @@ if (!d_tt_tanoa) then {
 					["O_Heli_Attack_02_F","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Ka50_SLA"]
 				};
 				if (d_gmcwg) exitWith {
-					[]
+					if (d_gmcwgwinter) exitWith {
+						["gm_gc_airforce_mi2urn_un"]
+					};
+					["gm_gc_airforce_mi2urn"]
 				};
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vdv","RHS_Mi24V_vdv","RHS_Ka52_vvsc","RHS_Mi24P_vvsc","RHS_Mi24Vt_vvsc","rhs_mi28n_vvsc"]
@@ -1378,7 +1586,9 @@ if (!d_tt_tanoa) then {
 #ifdef __GMCWG__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {[]};
+		case "E": {
+			["gm_gc_airforce_l410s_salon","gm_gc_airforce_l410t"]
+		};
 		case "W": {[]};
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
@@ -1471,6 +1681,12 @@ if (!d_tt_tanoa) then {
 					["O_Heli_Attack_02_black_F", "CUP_O_Mi8_RU"]
 				};
 				if (d_gmcwg) exitWith {
+					if (d_gmcwgwinter) exitWith {
+						["gm_gc_airforce_mi2us_un"]
+					};
+					["gm_gc_airforce_mi2us"]
+				};
+				if (d_ifa3lite) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
@@ -1481,13 +1697,36 @@ if (!d_tt_tanoa) then {
 		};
 		case "W": {
 			call {
+				if (d_cup) exitWith {
+					[]
+				};
 				if (d_ifa3lite) exitWith {
 					["LIB_Ju87_Italy2"]
+				};
+				if (d_gmcwg) exitWith {
+					[]
 				};
 				if (d_rhs) exitWith {
 					["RHS_MELB_AH6M","RHS_UH1Y_d","RHS_UH1Y"]
 				};
 				["B_Heli_Light_01_armed_F"]
+			};
+		};
+		case "G": {
+			call {
+				if (d_cup) exitWith {
+					[]
+				};
+				if (d_ifa3lite) exitWith {
+					[]
+				};
+				if (d_rhs) exitWith {
+					[]
+				};
+				if (d_gmcwg) exitWith {
+					[]
+				};
+				["I_Heli_light_03_dynamicLoadout_F"]
 			};
 		};
 	};
@@ -1580,7 +1819,231 @@ if (!d_tt_tanoa) then {
 		// can also be put into the dom_settings in Domination sql DB
 		d_ai_groups_respawn_time = [250, 150, 320, 170];
 	};
+	
+	// set to true to disable ambient battlefield sounds at main targets
+	if (isNil "d_noambient_bf_sounds") then {
+		d_noambient_bf_sounds = false;
+	};
+	
+	d_dbox_idx = 0;
+	
+	//civ vehicle definitions for each environment
+	_civVehiclesWeightedCityWealthHigh = [
+		"C_Offroad_01_F", 0.15,
+		"C_Hatchback_01_F", 0.30,
+		"C_Truck_02_covered_F", 0.05, 
+		"C_Van_01_box_F", 0.05,
+		"C_Van_02_transport_F", 0.05,
+		"C_Hatchback_01_sport_F", 0.10,
+		"C_Offroad_02_unarmed_F", 0.15,
+		"C_SUV_01_F", 0.15
+	];
+	
+	_civVehiclesWeightedCityWealthLow = [
+		"C_Offroad_01_F", 0.10,
+		"C_Hatchback_01_F", 0.10,
+		"C_Truck_02_covered_F", 0.03,
+		"C_Truck_02_transport_F", 0.03, 
+		"C_Van_01_box_F", 0.05,
+		"C_Van_02_transport_F", 0.05,
+		"C_Hatchback_01_sport_F", 0.05,
+		"C_Offroad_02_unarmed_F", 0.07,
+		"C_Hatchback_01_F", 0.35,
+		"C_SUV_01_F", 0.16
+	];
+	
+	_civVehiclesWeightedRural = [
+		"C_Offroad_01_F", 0.30,
+		"C_Truck_02_covered_F", 0.10,
+		"C_Truck_02_transport_F", 0.10, 
+		"C_Van_01_box_F", 0.05,
+		"C_Offroad_02_unarmed_F", 0.25,
+		"C_SUV_01_F", 0.15,
+		"C_Tractor_01_F", 0.10
+	];
+	
+	_civVehiclesWeightedRuralCup = [
+		"CUP_C_Golf4_random_Civ", 0.25,
+		"CUP_C_Datsun", 0.25,
+		"CUP_C_Octavia_CIV", 0.25,
+		"CUP_C_V3S_Covered_TKC", 0.20,
+		"C_Tractor_01_F", 0.05
+	];
+	
+	_civVehiclesWeightedRuralCupRemote = [
+		"CUP_C_Datsun", 0.35,
+		"CUP_C_Datsun_4seat", 0.35,
+		"CUP_C_V3S_Covered_TKC", 0.15,
+		"C_Tractor_01_F", 0.15
+	];
+	
+	_civVehiclesWeightedRuralLivonia = [
+		"C_Offroad_01_F", 0.30,
+		"C_Truck_02_transport_F", 0.15, 
+		"C_Offroad_02_unarmed_F", 0.30,
+		"C_SUV_01_F", 0.15,
+		"C_Tractor_01_F", 0.10
+	];
+	
+	_civVehiclesWeightedRuralGmcwg = [
+		"C_Truck_02_transport_F", 0.10,
+		"gm_gc_civ_p601", 0.40,
+		"gm_ge_civ_typ1200", 0.40,
+		"C_Tractor_01_F", 0.10
+	];
+	
+	d_civ_vehicles_weighted =
+#ifdef __ALTIS__
+		_civVehiclesWeightedCityWealthHigh;
+#endif
+#ifdef __CUP_CHERNARUS__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __CUP_TAKISTAN__
+		_civVehiclesWeightedRuralCupRemote;
+#endif
+#ifdef __CUP_ZARGABAD__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __CUP_SARA__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __IFA3LITE__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __TANOA__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __STRATIS__
+		_civVehiclesWeightedCityWealthHigh;
+#endif
+#ifdef __MALDEN__
+		_civVehiclesWeightedCityWealthLow;
+#endif
+#ifdef __ROSCHE__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __LIVONIA__
+		_civVehiclesWeightedRuralLivonia;
+#endif
+#ifdef __TT__
+		_civVehiclesWeightedRural;
+#endif
+#ifdef __GMCWG__
+		_civVehiclesWeightedRuralGmcwg;
+#endif
 };
+
+	//civilian faces
+	private _africanFaces = [
+		"AfricanHead_01",
+		"AfricanHead_02",
+		"AfricanHead_03"
+	];
+	private _asianFaces = [
+		"AsianHead_A3_01",
+		"AsianHead_A3_02",
+		"AsianHead_A3_03"
+	];
+	
+	private _greekFaces = [
+		"GreekHead_A3_01",
+		"GreekHead_A3_02",
+		"GreekHead_A3_03",
+		"GreekHead_A3_04",
+		"GreekHead_A3_05",
+		"GreekHead_A3_06",
+		"GreekHead_A3_07",
+		"GreekHead_A3_08",
+		"GreekHead_A3_09"
+		//GreekHead_A3_10_a //arid
+		//GreekHead_A3_10_l //lush
+		//GreekHead_A3_10_sa //unknown?
+	];
+	
+	private _persianFaces = [
+		"PersianHead_A3_01",
+		"PersianHead_A3_02",
+		"PersianHead_A3_03"
+		//PersianHead_A3_04_a
+		//PersianHead_A3_04_l
+		//PersianHead_A3_04_sa
+	];
+	
+	private _whiteFaces = [
+		"WhiteHead_01",
+		"WhiteHead_02",
+		"WhiteHead_03",
+		"WhiteHead_04",
+		"WhiteHead_05",
+		"WhiteHead_06",
+		"WhiteHead_07",
+		"WhiteHead_08",
+		"WhiteHead_09",
+		"WhiteHead_10",
+		"WhiteHead_11",
+		"WhiteHead_12",
+		"WhiteHead_13",
+		"WhiteHead_14",
+		"WhiteHead_15",
+		"WhiteHead_16",
+		"WhiteHead_17",
+		"WhiteHead_18",
+		"WhiteHead_19",
+		"WhiteHead_20",
+		"WhiteHead_21"
+		//WhiteHead_22_a
+		//WhiteHead_22_l
+		//WhiteHead_22_sa
+	];
+	
+	private _mixedFaces = _greekFaces + _persianFaces + _whiteFaces;
+	
+	//todo - do these work?
+	//WomanHead_A3
+	//MaskHead_A3
+	//BlackHead_A3
+
+	d_civ_faces =
+#ifdef __ALTIS__
+		_mixedFaces;
+#endif
+#ifdef __CUP_CHERNARUS__
+		_mixedFaces;
+#endif
+#ifdef __CUP_TAKISTAN__
+		(_greekFaces + _persianFaces);
+#endif
+#ifdef __CUP_ZARGABAD__
+		(_greekFaces + _persianFaces);
+#endif
+#ifdef __CUP_SARA__
+		_mixedFaces;
+#endif
+#ifdef __IFA3LITE__
+		_mixedFaces;
+#endif
+#ifdef __TANOA__
+		_asianFaces;
+#endif
+#ifdef __STRATIS__
+		_mixedFaces;
+#endif
+#ifdef __MALDEN__
+		_mixedFaces;
+#endif
+#ifdef __ROSCHE__
+		_whiteFaces;
+#endif
+#ifdef __LIVONIA__
+		_whiteFaces;
+#endif
+#ifdef __TT__
+		_mixedFaces;
+#endif
+#ifdef __GMCWG__
+		_whiteFaces;
+#endif
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")
@@ -1666,6 +2129,7 @@ if (hasInterface) then {
 	d_current_mission_resolved_text = "";
 	
 	d_allplayers = [];
+	d_allplayermapd = [];
 	d_allplayerai = [];
 #ifndef __TT__
 	d_showallnearusermarkers = true;
@@ -1770,36 +2234,6 @@ if (hasInterface) then {
 #endif
 
 	d_chophud_on = true;
-
-	d_jump_helo =
-#ifdef __OWN_SIDE_BLUFOR__
-	call {
-		if (d_rhs) exitWith {
-			"RHS_UH1Y_UNARMED_d"
-		};
-		if (d_gmcwg) exitWith {
-			""
-		};
-		"B_Heli_Transport_01_F"
-	};
-#endif
-#ifdef __OWN_SIDE_OPFOR__
-	call {
-		if (d_ifa3lite) exitWith {
-			"LIB_Ju87_Italy2"
-		};
-		if (d_rhs) exitWith {
-			"RHS_Mi8mt_vvs"
-		};
-		"O_Heli_Light_02_unarmed_F"
-	};
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	"I_Heli_light_03_unarmed_F";
-#endif
-#ifdef __TT__
-	"I_Heli_light_03_unarmed_F";
-#endif
 	
 	d_headbug_vehicle = "B_Quadbike_01_F";
 	
@@ -1823,7 +2257,10 @@ if (hasInterface) then {
 				["CUP_B_MV22_USMC"]
 			};
 			if (d_gmcwg) exitWith {
-				[]
+				if (d_gmcwgwinter) exitWith {
+					["gm_ge_army_ch53g_un"]
+				};
+				["gm_ge_army_ch53g"]
 			};
 			if (d_rhs) exitWith {
 				["RHS_UH60M2"]
@@ -1842,6 +2279,13 @@ if (hasInterface) then {
 #ifdef __TT__
 		["O_Heli_Light_02_unarmed_F"];
 #endif
+
+	if (isNil "d_launcher_cooldown") then {
+		// player AT launcher cooldown time, means, a player can't use a guided launcher like the Titan for 60
+		// The projectile gets deleted and a magazine added again to the player inventory
+		// can be changed in the database dom_settings table too
+		d_launcher_cooldown = d_launcher_cooldownp;
+	};
 	
 	// internal variables
 	d_flag_vec = objNull;
@@ -1863,6 +2307,8 @@ if (hasInterface) then {
 	d_ao_arty_vecs = [];
 	d_misc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_mhqvec_create_cooldown_time = -1;
+	d_scoreadd_qeue = [];
+	d_scoreadd_script = scriptNull;
 	
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];
 	
@@ -1900,6 +2346,8 @@ if (hasInterface) then {
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
 	
+	d_mt_marker_triggers = [];
+	
 	// pre build in are:
 	// "CUP_"
 	// "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"
@@ -1921,48 +2369,61 @@ if (hasInterface) then {
 	// can either be a class name (string) or code
 	// if code then _this is the classname
 	d_remove_from_arsenal = [
-		[], // rifles
-		[], // launchers
-		[], // handguns
-		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}, {_this select [0, 4] == "U_C_"}, {_this == "U_OrestesBody"}], // uniforms
-		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}], // vests
-		[{_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}, {_this find "UAV_" != -1 || {_this find "UGV_" != -1}}], // backpacks
-		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}], // headgear
-		[], // glasses
-		[], // goggles
-		[], // binoculars
-		[], // ItemMap
-		[], // ItemGPS, UAV Terminal
-		[], // ItemRadio
-		[], // ItemCompass
-		[], // ItemWatch
-		[], // Heads
-		[], // Language?
-		[], // signs
-		[],
-		[],
-		[],
-		[],
-		[], // Grenades
-		["APERSMineDispenser_Mag"], // Charges
-		[], // MineDector, FirstAidkit, MediKit
-		[],
-		[] // magazines
+		[], // PRIMARYWEAPON
+		[], // SECONDARYWEAPON
+		[], // HANDGUN
+		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}, {_this select [0, 4] == "U_C_" || {_this select [0, 6] == "U_I_C_"}}, {_this == "U_OrestesBody"}, "U_Marshal", "U_Rangemaster", "U_Competitor"], // uniforms
+		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}, "V_Press_F", {_this select [0, 7] == "V_Plain"}], // VEST
+		[{_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this isKindOf "B_HMG_02_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}, {_this find "UAV_" != -1 || {_this find "UGV_" != -1}}, {_this select [1, 11] == "_Messenger_"}], // BACKPACK
+		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}], // HEADGEAR
+		[], // GOGGLES
+		[], // NVGS
+		[], // BINOCULARS
+		[], // MAP
+		[], // GPS, UAV Terminal
+		[], // RADIO
+		[], // COMPASS
+		[], // WATCH
+		[], // FACE
+		[], // VOICE
+		[], // INSIGNIA
+		[], // ITEMOPTIC
+		[], // ITEMACC
+		[], // ITEMMUZZLE
+		[], // CARGOMAG
+		[], // CARGOTHROW
+		["APERSMineDispenser_Mag"], // CARGOPUT
+		[], // CARGOMISC
+		[], // ITEMBIPOD
+		[] // CARGOMAGALL
 	];
+	
 #ifdef __CUP__
-	(d_remove_from_arsenal # 5) append [{_this isKindOf "CUP_B_DShkM_Gun_Bag"}, {_this isKindOf "CUP_B_DShkM_TripodHigh_Bag"}];
 	(d_remove_from_arsenal # 4) append [{_this select [0, 15] == "CUP_V_B_LHDVest"}];
-#endif
-#ifdef __RHS__
-	(d_remove_from_arsenal # 5) append [{_this isKindOf "RHS_NSV_Tripod_Bag"}, {_this isKindOf "RHS_NSV_Gun_Bag"}, {_this isKindOf "RHS_M2_Gun_Bag"}, {_this isKindOf "RHS_M2_Tripod_Bag"}];
 #endif
 #ifdef __GMCWG__
 	(d_remove_from_arsenal # 1) pushBack "gm_p2a1_launcher_blk";
 #endif
 
 	if (d_no_mortar_ar == 1) then {
-		(d_remove_from_arsenal # 5) append [{_this isKindOf "B_Mortar_01_weapon_F"}, {_this isKindOf "B_Mortar_01_support_F"}];
+		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base" || {_this isKindOf "B_Mortar_01_support_F"}}];
 	};
+	
+	d_color_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+
+	{
+		private _col = getArray(_x>>"color");
+		if !(_col isEqualTo []) then {
+			for "_e" from 0 to 3 do {
+				if ((_col # _e) isEqualType "") then {
+					_col set [_e, call compile (_col # _e)];
+				};
+			};
+		} else {
+			_col = [0, 0, 0, 1];
+		};
+		d_color_store setVariable [configName _x, _col];
+	} forEach ("true" configClasses (configFile >> "CfgMarkerColors"));
 	
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	
 		d_preloaddone = true;

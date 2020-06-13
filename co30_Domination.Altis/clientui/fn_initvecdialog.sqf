@@ -5,8 +5,6 @@
 
 #define __control(numcontrol) (_display displayCtrl numcontrol)
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 private _vec = d_curvec_dialog;
@@ -33,7 +31,7 @@ __control(44445) ctrlSetText _vec_name;
 private _hasbox = _vec getVariable ["d_ammobox", false];
 private _ttyp = toLowerANSI (typeOf _vec);
 
-private _canloadunloadbox = _ttyp in d_check_ammo_load_vecs;
+private _canloadunloadbox = _vec getVariable ["d_canloadbox", false];
 if (_canloadunloadbox) then {
 	if (_hasbox) then {
 		__control(44447) ctrlSetText "pics\objective_complete_ca.paa";
@@ -49,7 +47,6 @@ if (_canloadunloadbox) then {
 
 private _move_controls = false;
 
-//if (_caller != driver _vec) then {
 if (_caller != currentPilot _vec) then {
 	if ((_vec getVariable ["d_vec_type", ""]) == "MHQ") then {
 		if !(_caller in _vec) then {
@@ -83,24 +80,24 @@ if (_move_controls) then {
 	__control(44459) ctrlShow false;
 	__control(44460) ctrlShow false;
 	__control(44462) ctrlShow false;
-	
-	private _control = _display displayCtrl 44454;
+
+	private _control = __control(44454);
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.14);
 	_control ctrlCommit 0;
-	_control = _display displayCtrl 44446;
-	
+
+	_control = __control(44446);
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
-	
-	_control = _display displayCtrl 44447;
+
+	_control = __control(44447);
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
-	
-	_control = _display displayCtrl 44448;
+
+	_control = __control(44448);
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
-	
-	_control = _display displayCtrl 44452;
+
+	_control = __control(44452);
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
 } else {
@@ -125,6 +122,15 @@ if (_move_controls) then {
 if (d_ifa3lite || {d_gmcwg}) then {
 	__control(44459) ctrlShow false;
 	__control(44460) ctrlShow false;
+};
+
+if (_vec isKindOf "Ship") then {
+	if (ctrlShown __control(44452)) then {
+		__control(44452) ctrlEnable false;
+	};
+	if (ctrlShown __control(44462)) then {
+		__control(44462) ctrlEnable false;
+	};
 };
 
 0 spawn {

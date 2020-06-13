@@ -3,6 +3,35 @@
 #define THIS_FILE "fn_weaponcargo_ranked.sqf"
 #include "..\x_setup.sqf"
 
+// bis_fnc_arsenal_data indices
+// PRIMARYWEAPON    0
+// SECONDARYWEAPON    1
+// HANDGUN            2
+// UNIFORM            3
+// VEST            4
+// BACKPACK        5
+// HEADGEAR        6
+// GOGGLES            7
+// NVGS            8
+// BINOCULARS        9
+// MAP                10
+// GPS                11
+// RADIO            12
+// COMPASS            13
+// WATCH            14
+// FACE            15
+// VOICE            16
+// INSIGNIA        17
+// ITEMOPTIC        18
+// ITEMACC            19
+// ITEMMUZZLE        20
+// CARGOMAG        21
+// CARGOTHROW        22
+// CARGOPUT        23
+// CARGOMISC        24
+// ITEMBIPOD        25
+// CARGOMAGALL        26
+
 waitUntil {!d_arsenal_opened};
 
 private _rank = rank player;
@@ -22,6 +51,15 @@ _helperar append (d_misc_store getVariable (_rank + "_PISTOLS"));
 __TRACE_1("PISTOLS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
+[_vec, bis_fnc_arsenal_data # 7, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 8, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 9, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 10, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 11, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 12, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 13, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 14, false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, bis_fnc_arsenal_data # 24, false, false] call BIS_fnc_addVirtualItemCargo;
 
 [_vec, bis_fnc_arsenal_data # 22, false, false] call BIS_fnc_addVirtualMagazineCargo;
 [_vec, bis_fnc_arsenal_data # 23, false, false] call BIS_fnc_addVirtualMagazineCargo;
@@ -43,4 +81,7 @@ __TRACE_1("ITEMS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 
-[_vec, bis_fnc_arsenal_data # 5, false, false] call BIS_fnc_addVirtualBackpackCargo;
+
+[_vec, d_misc_store getVariable (_rank + "_BAGS"), false, false] call BIS_fnc_addVirtualBackpackCargo;
+
+[_vec, d_misc_store getVariable (_rank + "_VESTS"), false, false] call BIS_fnc_addVirtualItemCargo;

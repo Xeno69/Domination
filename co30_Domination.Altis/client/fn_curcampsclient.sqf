@@ -2,6 +2,8 @@
 #define THIS_FILE "fn_curcampsclient.sqf"
 #include "..\x_setup.sqf"
 
+if (!hasInterface) exitWith {};
+
 d_deletecamptrigs = [];
 
 {
@@ -10,7 +12,7 @@ d_deletecamptrigs = [];
 			_x,
 			[12, 12, getDir _x, true, 20],
 			["ANYPLAYER", "PRESENT", true],
-			["(vehicle player) in thislist",
+			["(vehicle player) in thislist && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}",
 				"thisTrigger setVariable ['d_noplayer', false]; 0 = [thisTrigger getVariable 'd_wf', thisTrigger] execFSM 'fsms\fn_CampDialog.fsm'",
 				"thisTrigger setVariable ['d_noplayer', true]"
 			]

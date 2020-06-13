@@ -23,11 +23,11 @@ if !(_vec isKindOf "Air") then {
 };
 
 if (_docreateinf) then {
-	["specops", (floor (random 4)) min 2, "allmen", (floor (random 4)) min 2, _vpos, 300, true] spawn d_fnc_CreateInf;
+	["specops", (floor (random 3)) min 1, "allmen", (floor (random 3)) min 1, _vpos, 300, true] spawn d_fnc_CreateInf;
 	sleep 2.333;
 };
 if (_docreatearmor) then {
-	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _vpos, 1, 400, true] spawn d_fnc_CreateArmor;
+	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 2, _vpos, 1, 400, true] spawn d_fnc_CreateArmor;
 	sleep 2.333;
 	["stat_mg", 1, "stat_gl", 1, "", 0, _vpos, 1, 100, false] spawn d_fnc_CreateArmor;
 	sleep 1;

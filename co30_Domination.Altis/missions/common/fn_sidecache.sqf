@@ -20,34 +20,50 @@ if (_createinf) then {
 	["specops", 2, "allmen", (floor (random 4)) min 2, _poss, 150, true] spawn d_fnc_CreateInf;
 };
 
-private _houseArray = (nearestTerrainObjects [_poss, ["House"], 150, false, true]) select {getDammage _x < 0.4};
+private _houseArray = nearestTerrainObjects [_poss, ["House"], 150, false, true];
+{
+	_x setDamage 0;
+} forEach _houseArray;
+__TRACE_1("","_houseArray")
 private _created = false;
 private _cache = objNull;
 
 while {!_created} do {
     private _idx = floor random count _houseArray;
+	__TRACE_2("","floor random count _houseArray","_idx")
 	private _house = _houseArray select _idx;
-	private	_pos = [_house] call bis_fnc_buildingPositions;
-	_houseArray deleteAt _idx;
-	__TRACE_1("","_pos")
-	if !(_pos isEqualTo []) then {
-		_pos = _pos select floor random count _pos;
-		_pos set [2, (_pos select 2) + 0.2];
+	if (!isNil "_house" && {!isNull _house}) then {
+		__TRACE_1("","_house")
+		private	_pos = [_house] call bis_fnc_buildingPositions;
+		_houseArray deleteAt _idx;
 		__TRACE_1("","_pos")
-		_cache = createVehicle [selectRandom d_sm_cache, _pos, [], 0, "NONE"];
-		_cache setPos _pos;
-		_cache setDir ceil random 360;
-		__TRACE_1("","_cache")
-		if (!isNull _cache) then {
-			_cache call d_fnc_addKilledEHSM;
-			_created = true;
+		if !(_pos isEqualTo []) then {
+			_pos = _pos select floor random count _pos;
+			_pos set [2, (_pos select 2) + 0.2];
+			__TRACE_1("","_pos")
+			_cache = createVehicle [selectRandom d_sm_cache, _pos, [], 0, "NONE"];
+			_cache setPos _pos;
+			_cache setDir ceil random 360;
+			__TRACE_1("","_cache")
+			if (!isNull _cache) then {
+				_cache call d_fnc_addKilledEHSM;
+				_created = true;
 #ifdef __DEBUG__
-			[format["cache_%1",_cache], _pos,"ICON","ColorBlack",[0.5,0.5],"Cache",0,"n_Ordnance"] call d_fnc_CreateMarkerGlobal;
+				[format["cache_%1",_cache], _pos,"ICON","ColorBlack",[0.5,0.5],"Cache",0,"n_Ordnance"] call d_fnc_CreateMarkerGlobal;
 #endif
-			clearWeaponCargoGlobal _cache;
+				clearWeaponCargoGlobal _cache;
+			};
 		};
+	} else {
+		_houseArray deleteAt _idx;
 	};
+	if (!_created && {_houseArray isEqualTo []}) exitWith {};
 	sleep 1;
+};
+
+if (isNull _cache) exitWith {
+	d_sm_winner = -2;
+	d_sm_resolved = true;
 };
 
 private _num_mines = (floor (random 15)) max 10;
@@ -55,22 +71,26 @@ private _num_mines = (floor (random 15)) max 10;
 for "_i" from 0 to (_num_mines - 1) do {
 	private _idx = floor random count _houseArray;
 	private _house = _houseArray select _idx;
-	private	_pos_b = [_house] call bis_fnc_buildingPositions;
-	_houseArray deleteAt _idx;
-	if !(_pos_b isEqualTo []) then {
-		_pos_b = _pos_b select floor random count _pos_b;
-		_pos_b set [2,(_pos_b select 2) + 0.01];
-		private _mine = createMine [selectRandom ["APERSBoundingMine","APERSTripMine","APERSMine"], _pos_b, [], 0];
-		d_side_enemy revealMine _mine;
-		d_x_sm_vec_rem_ar pushBack _mine;
+	if (!isNil "_house" && {!isNull _house}) then {
+		private	_pos_b = [_house] call bis_fnc_buildingPositions;
+		_houseArray deleteAt _idx;
+		if !(_pos_b isEqualTo []) then {
+			_pos_b = _pos_b select floor random count _pos_b;
+			_pos_b set [2,(_pos_b select 2) + 0.01];
+			private _mine = createMine [selectRandom ["APERSBoundingMine", "APERSTripMine", "APERSMine"], _pos_b, [], 0];
+			d_side_enemy revealMine _mine;
+			d_x_sm_vec_rem_ar pushBack _mine;
 #ifdef __DEBUG__
-		[format["mines_%1",_mine], _mine,"ICON","ColorWhite",[0.5,0.5],"Mine",0,"Minefield"] call d_fnc_CreateMarkerGlobal;
+			[format["mines_%1",_mine], _mine,"ICON","ColorWhite",[0.5,0.5],"Mine",0,"Minefield"] call d_fnc_CreateMarkerGlobal;
 #endif
+		};
+	} else {
+		_houseArray deleteAt _idx;
 	};
 };
 
 private _cache_dest = false;
-private _endtime = time + 2000;
+private _endtime = time + 3600;
 
 while {true} do {
 	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {

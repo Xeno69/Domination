@@ -12,4 +12,4 @@ if (isNil "_receiver" || {isNull _receiver}) exitWith {};
 _origpl addScore (-_transscore);
 _receiver addScore _transscore;
 
-[format [localize "STR_DOM_MISSIONSTRING_1879", _transscore, _origpl call d_fnc_getplayername], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", _receiver];
+[9, _transscore, _origpl call d_fnc_getplayername] remoteExecCall ["d_fnc_csidechat", _receiver];

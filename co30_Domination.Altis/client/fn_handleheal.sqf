@@ -14,11 +14,6 @@ if (!d_with_ace) then {
 			sleep 3;
 			if (alive _healed && {alive _healer && {_healed != _healer && {!(_healed getVariable ["xr_pluncon", false]) && {!(_healer getVariable ["xr_pluncon", false])}}}}) then {
 				[_healer, d_ranked_a select 17] remoteExecCall ["addScore", 2];
-				if (isMultiplayer) then {
-					[[playerSide, "HQ"], format [localize "STR_DOM_MISSIONSTRING_288", d_ranked_a select 17]] remoteExecCall ["sideChat", _healer];
-				} else {
-					[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_288", d_ranked_a select 17];
-				};
 			};
 		};
 	};
@@ -44,8 +39,8 @@ if (!d_with_ace) then {
 		if (_medicPoints > 0) then {
 			[_healer, _medicPoints] remoteExecCall ["addScore", 2];
 			// Display chat message to player
-			if (isMultiplayer) then {
-				[[playerSide, "HQ"], format [localize "STR_DOM_MISSIONSTRING_288", _medicPoints]] remoteExecCall ["sideChat", _healer];
+			if (isMultiplayer) then {			
+				[23, _medicPoints] remoteExecCall ["d_fnc_csidechat", _healer];
 			} else {
 				[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_288", _medicPoints];
 			};

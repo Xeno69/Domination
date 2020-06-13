@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_admindialog.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 if (isMultiplayer && {!d_pisadminp}) exitWith {

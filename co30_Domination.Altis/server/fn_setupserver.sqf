@@ -78,7 +78,7 @@ if (d_MissionType == 2) then {
 
 0 spawn d_fnc_cleanerfnc;
 
-diag_log ["Internal D Version: 4.10"];
+diag_log ["Internal D Version: 4.30"];
 
 private _av_check_fnc = {
 	_this addEventHandler ["handleDamage", {_this call d_fnc_pshootatarti;0}];
@@ -102,19 +102,19 @@ private _av_check_fnc = {
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
 	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
-	_this spawn {
-		scriptName "spawn setupserver3";
-		sleep 2;
-		_this enableSimulationGlobal false;
-	};
+	_this addEventhandler ["fired", {_this call d_fnc_arifired}];
+	[_this, 2] spawn d_fnc_disglobalsim;
 };
 
 private _fnc_artvec = {
-	params ["_num", "_name"];
+	params ["_num", "_name", ["_side", sideUnknown]];
 	private _retar = vehicles select {(str _x) select [0, _num] == _name};
 	if !(_retar isEqualTo []) then {
 		{
 			_x call _av_check_fnc;
+			if !(_side isEqualTo sideUnknown) then {
+				_x setVariable ["d_fside", _side];
+			};
 		} forEach _retar;
 	};
 	_retar
@@ -123,8 +123,8 @@ private _fnc_artvec = {
 #ifndef __TT__
 d_arty_vecs = [10, "d_artyvec_"] call _fnc_artvec;
 #else
-d_arty_vecsb = [11, "d_artyvecb_"] call _fnc_artvec;
-d_arty_vecso = [11, "d_artyveco_"] call _fnc_artvec;
+d_arty_vecsb = [11, "d_artyvecb_", blufor] call _fnc_artvec;
+d_arty_vecso = [11, "d_artyveco_", opfor] call _fnc_artvec;
 #endif
 
 {
@@ -146,4 +146,10 @@ if (d_with_ranked) then {
 0 spawn d_fnc_scheck_uav;
 #endif
 
-0 spawn d_fnc_sendfps;
+0 spawn {
+	scriptname "spawn sendfpssetupserver";
+	sleep 10;
+	["dom_sendfps", {
+		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+	}, 3] call d_fnc_eachframeadd;
+};

@@ -59,9 +59,12 @@ if (d_with_ai) then {
 	_grp setVariable ["d_do_not_delete", true];
 };
 private _spos = [_dstart_pos # 0, _dstart_pos # 1, 300];
-private _veca = [_spos, _spos getDir _drop_pos, d_drop_aircraft, _grp, false] call d_fnc_spawnVehicle;
+private _veca = [_spos, _spos getDir _drop_pos, d_drop_aircraft, _grp, false, true] call d_fnc_spawnVehicle;
 _grp deleteGroupWhenEmpty true;
 _veca params ["_chopper"];
+if (d_with_dynsim == 0) then {
+	_chopper setVariable ["d_nodyn", true];
+};
 addToRemainsCollector [_chopper];
 _chopper lock true;
 removeAllWeapons _chopper;
@@ -141,27 +144,29 @@ if (_may_exit) exitWith {
 	private _vec = objNull;
 	private _is_ammo = false;
 	private _para = objNull;
-	private _chopposx = getPosATL _chopper;
+	private _chopposx = getPos _chopper;
 	_chopposx set [2, (_chopposx # 2) - 10];
 	if (_drop_type isKindOf "ReammoBox_F") then {
 		_is_ammo = true;
 		_para = createVehicle [d_cargo_chute, _chopposx, [], 0, "FLY"];
+		_para allowDamage false;
 		_para setPos _chopposx;
 		_para setVelocity (velocity _chopper);
 	} else {
 		_vec = createVehicle [_drop_type, _chopposx, [], 0, "NONE"];
 		_vec setPos _chopposx;
 		_para = createVehicle [d_cargo_chute, _chopposx, [], 0, "FLY"];
-		_para setPos (_vec modelToWorld [0,0,2]);
-		_vec attachTo [_para,[0,0,0]];
+		_para allowDamage false;
+		_para setPos _chopposx;
+		_vec attachTo [_para, [0,0,0]];
 		_para setVelocity (velocity _chopper);
 		addToRemainsCollector [_vec];
 	};
+	[_vec, _drop_pos, d_drop_radius, _drop_type, _para, _is_ammo] spawn d_fnc_mando_chute;
 	
 	if (!isNil "_player" && {!isNull _player}) then {
 		4 remoteExecCall ["d_fnc_dropansw", _player];
 	};
-	[_vec, _drop_pos, d_drop_radius, _drop_type, _para, _is_ammo] spawn d_fnc_mando_chute;
 };
 
 _drop_pos = nil;

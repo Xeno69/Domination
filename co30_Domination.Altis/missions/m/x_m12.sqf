@@ -38,7 +38,7 @@ if (isServer) then {
 	_newgroup setBehaviour "AWARE";
 	_leader disableAI "PATH";
 	if (d_with_dynsim == 0) then {
-		_sm_vec enableDynamicSimulation true;
+		[_sm_vec, 1] spawn d_fnc_enabledynsim;
 	};
 	sleep 2.123;
 	["specops", 2, "allmen", 1, _poss, 0] spawn d_fnc_CreateInf;

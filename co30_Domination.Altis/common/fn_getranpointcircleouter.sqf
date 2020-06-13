@@ -14,7 +14,8 @@ if (_center isEqualTo []) exitWith {
 	[]
 };
 
-private _ret_val = [];
+private _ret_val = [_center, _radius - 5, _radius, 2, 0, 0.7] call d_fnc_findSafePos;
+/*private _ret_val = [];
 for "_co" from 0 to 99 do {
 	private _isFlat = (_center getPos [_radius, random 360]) isFlatEmpty [
 		2,	//--- Minimal distance from another object
@@ -28,5 +29,5 @@ for "_co" from 0 to 99 do {
 	if !(_isFlat isEqualTo []) exitWith {
 		_ret_val = ASLToATL _isFlat;
 	};
-};
+};*/
 _ret_val

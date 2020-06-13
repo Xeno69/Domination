@@ -28,6 +28,6 @@ if (isServer) then {
 	_ogroup allowFleeing 0;
 	_ogroup setBehaviour "AWARE";
 	if (d_with_dynsim == 0) then {
-		_sm_vec enableDynamicSimulation true;
+		[_sm_vec, 1] spawn d_fnc_enabledynsim;
 	};
 };

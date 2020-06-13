@@ -38,7 +38,8 @@ if (isNil "paramsArray") then {
 	};
 };
 
-d_with_ranked = d_with_ranked == 0;
+d_no_ranked_weapons = d_with_ranked == 2;
+d_with_ranked = d_with_ranked == 0 || {d_with_ranked == 2};
 #ifndef __TT__
 d_with_ai = d_with_ai == 0;
 #else
@@ -54,6 +55,7 @@ if (d_with_ace) then {
 	d_WithRevive = 1;
 	ace_medical_enableRevive = 1;
 	ace_medical_maxReviveTime = 300;
+	ace_medical_amountOfReviveLives = -1;
 };
 
 if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
@@ -96,7 +98,7 @@ if (isServer) then {
 #endif
 			];
 
-			// allmost the same like above
+			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
 #ifndef __TT__
@@ -154,11 +156,11 @@ if (isServer) then {
 				[[1,1], 1] // jeep with gl
 			];
 
-			// allmost the same like above
+			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
-				[1,1], // basic groups
-				[1,1] // specop groups
+				[2,1], // basic groups
+				[2,1] // specop groups
 			];
 			d_footunits_patrol = [
 				[4,2], // basic groups
@@ -202,7 +204,7 @@ if (isServer) then {
 				[[2,1], 1] // jeep with gl
 			];
 
-			// allmost the same like above
+			// almost the same like above
 			// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
 			d_footunits_guard = [
 				[3,1], // basic groups
@@ -237,49 +239,67 @@ if (isServer) then {
 		case 2: {[0.4,0.2]};
 		case 3: {[0.6,0.3]};
 	};
+	if (isNil "d_addscore_a") then {
+		d_addscore_a = [
+			5, // 1 - barracks building destroyed at main target
+			5, // 2 - mobile HQ building destroyed at main target
+			5, // 3 - radio tower destroyed at main target
+			5, // 4 - player has taken camp
+			5, // 5 - player has resolved main target mission
+			30, // 6 - extra points seizing the main target
+			10, // 7 - points for reviving another player
+			10, // 8 - points for helping solving the sidemission
+			[3,2,1,0], // 9 - points for repairing/refueling a vehicle
+			5, // 10 - points for healing another unit
+			3, // 11 - points for another player healing at a player mash
+			1, // 12 - points for another player spawning at squad leader
+			1, // 13 - points for transporting another player in a vehicle
+			20 // 14 - points for bringing a wreck to the wreck repair point
+		];
+	};
+};
+
+if (isNil "d_ranked_a") then {
+	d_ranked_a = [
+		20, // points that an engineer must have to repair/refuel a vehicle
+		[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
+		10, // points an artillery operator needs for a strike
+		3, // points in the AI version for recruiting one soldier
+		10, // points a player needs for an AAHALO parajump
+		10, // points that get subtracted for creating a vehicle at a MHQ
+		20, // points needed to create a vehicle at a MHQ
+		3, // points a medic gets if someone heals at his Mash
+		["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
+		30, // points that get added if a player is xxx m in range of a main target when it gets cleared
+		400, // range the player has to be in to get the main target extra points
+		10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
+		200, // range the player has to be in to get the sidemission extra points
+		20, // points needed for an egineer to rebuild the support buildings at base
+		10, // not used anymore !!! Was points needed to build MG Nest before
+		5, // points needed in AI Ranked to call in an airtaxi
+		20, // points needed to call in an air drop
+		4, // points a medic gets when he heals another unit
+		1, // points that a player gets when transporting others
+		20, // points needed for activating satellite view
+		20, // points needed to build a FARP (engineer)
+		10, // points a player gets for reviving another player
+		20, // points a Squad Leader needs for CAS
+		20  // points a player gets for bringing a wreck to the repair point
+	];
+} else {
+	if (count d_ranked_a < 24) then {
+		if (count d_ranked_a == 22) then {
+			d_ranked_a append [20, 20];
+		} else {
+			if (count d_ranked_a == 23) then {
+				d_ranked_a pushBack 20;
+			};
+		};
+	};
 };
 
 if (hasInterface) then {
 	if (d_with_ai) then {d_current_ai_num = 0};
-
-	if (isNil "d_ranked_a") then {
-		d_ranked_a = [
-			20, // points that an engineer must have to repair/refuel a vehicle
-			[3,2,1,0], // points engineers get for repairing an air vehicle, tank, car, other
-			10, // points an artillery operator needs for a strike
-			3, // points in the AI version for recruiting one soldier
-			10, // points a player needs for an AAHALO parajump
-			10, // points that get subtracted for creating a vehicle at a MHQ
-			20, // points needed to create a vehicle at a MHQ
-			3, // points a medic gets if someone heals at his Mash
-			["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"], // Ranks needed to drive different vehicles, starting with: kindof wheeled APC, kindof Tank, kindof Helicopter (except the inital 4 helis), Plane, Ships/Boats, StaticWeapon
-			30, // points that get added if a player is xxx m in range of a main target when it gets cleared
-			400, // range the player has to be in to get the main target extra points
-			10, // points that get added if a player is xxx m in range of a sidemission when the sidemission is resolved
-			200, // range the player has to be in to get the sidemission extra points
-			20, // points needed for an egineer to rebuild the support buildings at base
-			10, // not used anymore !!! Was points needed to build MG Nest before
-			5, // points needed in AI Ranked to call in an airtaxi
-			20, // points needed to call in an air drop
-			4, // points a medic gets when he heals another unit
-			1, // points that a player gets when transporting others
-			20, // points needed for activating satellite view
-			20, // points needed to build a FARP (engineer)
-			10, // points a player gets for reviving another player
-			20, // points a Squad Leader needs for CAS
-			20  // points a player gets for bringing a wreck to the repair point
-		];
-	} else {
-		if (count d_ranked_a < 24) then {
-			if (count d_ranked_a == 22) then {
-				d_ranked_a append [20, 20];
-			} else {
-				if (count d_ranked_a == 23) then {
-					d_ranked_a pushBack 20;
-				};
-			};
-		};
-	};
 
 	// distance a player has to transport others to get points
 	d_transport_distance = 500;

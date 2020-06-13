@@ -10,13 +10,11 @@ if (!isNil "_trig") then {
 	deleteVehicle _trig;
 };
 d_num_barracks_objs = d_num_barracks_objs - 1;
-d_groups_respawn_time_add = d_groups_respawn_time_add + 20 + (random 20);
+d_groups_respawn_time_add = d_groups_respawn_time_add + 20 + (random 10);
 if ({alive _x} count d_mt_barracks_obj_ar != d_num_barracks_objs) then {
 	d_num_barracks_objs = {alive _x} count d_mt_barracks_obj_ar;
 };
-#ifdef __TT__
 publicVariable "d_num_barracks_objs";
-#endif
 __TRACE_1("","d_num_barracks_objs")
 if (d_num_barracks_objs == 0) then {
 	d_mt_barracks_down = true;
@@ -44,24 +42,28 @@ if (d_database_found) then {
 		};
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 5] call addScore;
+		[_killer, 1] call d_fnc_addScore;
 #ifdef __TT__
-	[d_tt_points # 2, _killer] call d_fnc_AddPoints;
-	switch (side (group _killer)) do {
-		case blufor: {[59, "WEST"] call d_fnc_DoKBMsg};
-		case opfor: {[59, "EAST"] call d_fnc_DoKBMsg};
-	};
+		[d_tt_points # 2, _killer] call d_fnc_AddPoints;
+		if (side (group _killer) == blufor) then {
+			[59, "WEST"] call d_fnc_DoKBMsg
+		} else {
+			if (side (group _killer) == opfor) then {
+				[59, "EAST"] call d_fnc_DoKBMsg
+			};
+		};
 #endif
 	};
 };
 if ((typeOf _obj) == d_barracks_building) then {
 	private _epos = _obj getVariable "d_v_pos";
 	private _edir = getDir _obj;
+	private _vup = vectorUp _obj;
 	deleteVehicle _obj;
 	_obj = createVehicle ["Land_Slum_House02_ruins_F", _epos, [], 0, "NONE"];
 	_obj setDir _edir;
 	_obj setPos _epos;
-	_obj setVectorUp [0,0,1];
+	_obj setVectorUp _vup;
 };
 _obj spawn {
 	scriptName "spawn checkmtrespawntarget1";

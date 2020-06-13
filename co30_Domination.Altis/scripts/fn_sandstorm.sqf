@@ -13,7 +13,7 @@ while {true} do {
 		private _velocity = [-8 + (random 16), -8 + (random 16), 0];
 		private _color = [1.0 * __COLORCOEF, 0.9 * __COLORCOEF, 0.8 * __COLORCOEF];
 
-		private _ps = "#particleSource" createVehicleLocal getPosWorld _obj;  
+		private _ps = "#particleSource" createVehicleLocal getPosWorld _obj;
 		_ps setParticleParams [["\A3\data_f\ParticleEffects\Universal\Universal", 16, 12, 8, 0], "", "Billboard", 1, __DURATION, [-((_velocity # 1) * (__DURATION / 2)), 0, -6], _velocity, 1, 1.275, 1, 0, [5], [_color + [0], _color + [0.2  + random 0.02], _color + [0]], [1000], 1, 0, "", "", _obj];
 		_ps setParticleRandom [3, [10, 10, 0], [0, 0, 0], 1, 0, [0, 0, 0, 0.05], 0, 0];
 		_ps setParticleCircle [0.1, [0, 0, 0]];

@@ -33,12 +33,14 @@ if (d_beam_target == "D_BASE_D") then {
 		private _lead = leader (group player);
 		_respawn_pos = [(vehicle _lead) modelToWorldVisual [0, -8, 0], getPosASL _lead] select (isNull objectParent _lead);
 		_respawn_pos set [2, _lead distance (getPos _lead)];
+		if (d_with_ranked || {d_database_found}) then {
+			[_lead, 12] remoteExecCall ["d_fnc_addscore", 2];
+		};
 		if (!d_tt_ver) then {
 			d_player_in_base = player inArea d_base_array;
 		} else {
 			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
 		};
-
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		if (_uidx != -1) then {
@@ -49,10 +51,15 @@ if (d_beam_target == "D_BASE_D") then {
 			d_player_in_base = false;
 		} else {
 			private _mrs = missionNamespace getVariable [d_beam_target, objNull];
-			_respawn_pos = _mrs call d_fnc_posbehindvec;
-			(boundingBoxReal _mrs) params ["_p1", "_p2"];
-			private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-			_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+			if (isNil "d_alt_map_pos") then {
+				_respawn_pos = _mrs call d_fnc_posbehindvec;
+				(boundingBoxReal _mrs) params ["_p1", "_p2"];
+				private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+				_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+			} else {
+				_respawn_pos = d_alt_map_pos;
+				_respawn_pos set [2, 0];
+			};
 			d_player_in_base = false;
 		};
 	};
@@ -84,12 +91,16 @@ if (d_beam_target != "D_BASE_D" && {d_beam_target != "D_SQL_D" && {!(d_beam_targ
 [player, 105] remoteExecCall ["xr_fnc_handlenet"];
 __TRACE_1("","_mhqobj")
 if (!isNull _mhqobj) then {
-	private _newppos = _mhqobj call d_fnc_posbehindvec;
-	(boundingBoxReal _mhqobj) params ["_p1", "_p2"];
-	private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-	_newppos set [2, (_mhqobj distance (getPos _mhqobj)) - _maxHeight];
-	player setDir (getDirVisual _mhqobj);
-	player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
+	if !(_mhqobj isKindOf "Ship") then {
+		private _newppos = _mhqobj call d_fnc_posbehindvec;
+		(boundingBoxReal _mhqobj) params ["_p1", "_p2"];
+		private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+		_newppos set [2, (_mhqobj distance (getPos _mhqobj)) - _maxHeight];
+		player setDir (getDirVisual _mhqobj);
+		player setVehiclePosition [_newppos, [], 0, "NONE"]; // CAN_COLLIDE ?
+	} else {
+		player moveInCargo _mhqobj;
+	};
 	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
 	if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
 		call d_fnc_retrieve_layoutgear;
@@ -144,7 +155,7 @@ if (xr_max_lives != -1) then {
 0 spawn {
 	scriptName "spawn_buttonclickrespawn2";
 	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
-		player action ["NVGoggles",player];
+		player action ["NVGoggles", player];
 	};
 };
 __TRACE("MapClickRespawn done")

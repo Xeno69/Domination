@@ -16,7 +16,7 @@ for "_n" from 0 to _nnvnum do {
 	__TRACE_1("","_npos")
 	private _nnpos = _npos findEmptyPosition [0, 70, _vname];
 	if !(_nnpos isEqualTo []) then {_npos = _nnpos};
-	private _vec_ar = [_npos, [floor random 360, _dir] select (_dir != -1.111), _vname, _grp, true] call d_fnc_spawnVehicle;
+	private _vec_ar = [_npos, [floor random 360, _dir] select (_dir != -1.111), _vname, _grp, true, _nocargo] call d_fnc_spawnVehicle;
 	_vec_ar params ["_vec"];
 	_crews append (_vec_ar # 1);
 	
@@ -29,11 +29,7 @@ for "_n" from 0 to _nnvnum do {
 	addToRemainsCollector [_vec];
 	
 	if (_dyna && {d_with_dynsim == 0 && {!unitIsUAV _vec}}) then {
-		_vec spawn {
-			scriptName "spawn make vec dyn";
-			sleep 20;
-			_this enableDynamicSimulation true;
-		};
+		[_vec] spawn d_fnc_enabledynsim;
 	};
 	
 	private _is_locked = false;

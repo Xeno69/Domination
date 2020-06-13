@@ -25,9 +25,9 @@ if (isServer) then {
 	sleep 2.123;
 	["specops", 2, "basic", 3, _poss, 150,true] spawn d_fnc_CreateInf;
 	sleep 2.123;
-	["DSHKM",1,"AGS",0,"",0,[_poss, 100] call d_fnc_GetRanPointCircle,1,100,false] spawn d_fnc_CreateArmor;
+	["DSHKM",1,"AGS",0,"",0,[_poss, 100, 2] call d_fnc_GetRanPointCircle,1,100,false] spawn d_fnc_CreateArmor;
 	sleep 2.123;
-	["DSHKM",0,"AGS",1,"",0,[_poss, 100] call d_fnc_GetRanPointCircle,1,100,false] spawn d_fnc_CreateArmor;
+	["DSHKM",0,"AGS",1,"",0,[_poss, 100, 2] call d_fnc_GetRanPointCircle,1,100,false] spawn d_fnc_CreateArmor;
 	sleep 2.123;
     [selectRandom ["uaz_grenade","uaz_mg"],1,selectRandom ["brdm","tank","bmp"],1,"shilka",selectRandom [0,1],[_poss, 100] call d_fnc_GetRanPointCircleOuter,1,300,true] spawn d_fnc_CreateArmor;
 };

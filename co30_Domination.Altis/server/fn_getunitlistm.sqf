@@ -9,15 +9,18 @@ params ["_grptype", "_side"];
 
 private _ret =+ selectRandom (missionNamespace getVariable format ["d_%1_%2", _grptype, [switch (_side) do {case opfor: {"E"};case blufor: {"W"};case independent: {"G"};case civilian: {"W"};}, _side] select (_side isEqualType "")]);
 
-__TRACE_2("1","count _ret","_ret")
-
-// for now reduce inf groups to 5 or 7 units max to save a little bit performance
-private _cm = [selectRandom [5, 6, 7], selectRandom [4, 5, 6]] select (_grptype == "specops");
-if (count _ret > _cm) then {
-	while {count _ret > _cm} do {
-		_ret deleteAt (ceil (random (count _ret - 1)));
+if (!d_with_ace) then {
+	if (count _ret > 7) then {
+		_ret resize (selectRandom [6, 7]);
+	};
+} else {
+	if (count _ret > 5) then {
+		_ret resize (selectRandom [4, 5, 6]);
 	};
 };
-__TRACE_2("2","count _ret","_ret")
+
+if (_ret isEqualTo []) then {
+	diag_log ["Attention in getunitlistm!!! Current _grptype returns empty list, _grptype:", _grptype, ", _side:", _side];
+};
 
 _ret

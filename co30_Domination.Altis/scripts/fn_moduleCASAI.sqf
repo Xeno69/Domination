@@ -19,18 +19,18 @@ __TRACE_1("","_planeCfg")
 
 #ifndef __IFA3LITE__
 //--- Detect gun
-private _weaponTypes = switch _wtype do {
-	case 0: {["machinegun"]};
-	case 1: {["rocketlauncher"]};
-	case 2: {["machinegun", "rocketlauncher"]};
-	default {[]};
+private _weaponTypes = call {
+	if (_wtype == 0) exitWith {["machinegun"]};
+	if (_wtype == 1) exitWith {["rocketlauncher"]};
+	if (_wtype == 2) exitWith {["machinegun", "rocketlauncher"]};
+	[]
 };
 #else
-private _weaponTypes = switch _wtype do {
-	case 0: {["machinegun"]};
-	case 1: {["vehicleweapon"]};
-	case 2: {["vehicleweapon"]};
-	default {[]};
+private _weaponTypes = call {
+	if (_wtype == 0) exitWith {["machinegun"]};
+	if (_wtype == 1) exitWith {["vehicleweapon"]};
+	if (_wtype == 2) exitWith {["vehicleweapon"]};
+	[]
 };
 #endif
 
@@ -98,6 +98,9 @@ _planePos set [2, (_pos # 2) + _alt];
 __TRACE_3("","_plane","_crew","_group")
 
 _plane setPosasl _planePos;
+if (d_with_dynsim == 0) then {
+	_plane setVariable ["d_nodyn", true];
+};
 _plane move ([_pos,_dis,_dir] call bis_fnc_relpos);
 _plane disableAi "move";
 _plane disableAi "target";

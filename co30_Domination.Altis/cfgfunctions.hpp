@@ -122,7 +122,6 @@ class cfgFunctions {
 			addc(upd_aop);
 			addc(dfps);
 			addc(getcorners);
-			addc(playerrankloop);
 			addc(waitforgps);
 			addc(waitartycompmap);
 			addc(waitforuavmap);
@@ -173,6 +172,19 @@ class cfgFunctions {
 			addc(rem_ti_nvg_items);
 			addc(curcampsclient);
 			addc(initservicepoints);
+			addc(taskcreate);
+			addc(tasksetstate);
+			addc(artywait);
+			addc(bikewait);
+			addc(dlgopenxwait);
+			addc(initplname);
+			addc(scoreadded);
+			addc(scoreaddqeue);
+			addc(csidechat);
+			addc(ttoutsidecheck);
+			addc(jail);
+			addc(repackgard);
+			addc(blockthermalnv);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -233,7 +245,9 @@ class cfgFunctions {
 			addc(selnthandler);
 			addc(rmapclick);
 			addc(beam_tele);
-			addc(cutscore);
+			addc(pcheck);
+			addc(userkeyselchanged);
+			addc(lastchanceclient);
 		};
 		class Dom_Common {
 			file = "common";
@@ -285,8 +299,13 @@ class cfgFunctions {
 			addc(eachframeadd);
 			addc(eachframerun);
 			addc(eachframeremove);
+			addc(triggerrun);
 			addc(hascopilot);
 			addc(iscopilot);
+			addc(aftereject);
+			addc(hasrespirator);
+			addc(isinhouse);
+			addc(isbldghostile);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
@@ -299,7 +318,18 @@ class cfgFunctions {
 			addc(HousePatrol);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
+			addc(hallyg_dlegion_Snipe_awareness);
 			addc(ambientradiochatter);
+			addc(place);
+			addc(adjustEntity);
+			addc(statusbar);
+			addc(objectsmapper);
+			addc(createsimpleobject);
+			addc(findsafepos);
+		};
+		class Dom_cba_Scripts {
+			file = "cba";
+			addc(vecinit);
 		};
 		class Dom_KBTell {
 			file = "bikb";
@@ -320,7 +350,7 @@ class cfgFunctions {
 			addc(addsmpoints);
 			addc(getbymarkersm);
 			addc(clearsidemission);
-			addc(addactionstd);
+			addc(addactionssm);
 			addc(smsurprise);
 			addc(sm_dist);
 			addc(smkilledeh);
@@ -332,6 +362,9 @@ class cfgFunctions {
 			addc(createarmor);
 			addc(cdoquake);
 			addc(doquake);
+			addc(trigwork);
+			addc(createtrigsm);
+			addc(smcough);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
@@ -355,6 +388,12 @@ class cfgFunctions {
 			addc(sideobjects);
 			addc(sidetransferdata);
 			addc(sidecache);
+			addc(gleak);
+		};
+		class Dom_MainTarget_Events {
+			file = "missions\events";
+			addc(event_sideevac);
+			addc(event_sideprisoners);
 		};
 		class Dom_Server {
 			file = "server";
@@ -397,7 +436,6 @@ class cfgFunctions {
 			addc(bonusvecfnc);
 			addc(cleanerfnc);
 			addc(p_o_ar);
-			addc(ampoi);
 			addc(mhqdepls);
 			addc(mhq_net);
 			addc(at_serv);
@@ -412,7 +450,6 @@ class cfgFunctions {
 			addc(makemtgmarker);
 			addc(addppoints);
 			addc(storeploadout);
-			addc(sendfps);
 			addc(dpcpbv);
 			addc(addceo);
 			addc(buildingchanged);
@@ -517,6 +554,22 @@ class cfgFunctions {
 			addc(weatherserver);
 			addc(initrepwreck);
 			addc(parahandler);
+			addc(arifired);
+			addc(initdbplscores);
+			addc(enabledynsim);
+			addc(hdsellead);
+			addc(hddelu);
+			addc(carrierspawn);
+			addc(playerboxkilled);
+			addc(addscore);
+			addc(sub_box);
+			addc(nodamoff);
+			addc(nodamoffdyn);
+			addc(umadel);
+			addc(moveboxm);
+			addc(makteolpmttargets);
+			addc(serverinit);
+			addc(lastchance);
 		};
 		class Dom_PrePostInit {
 			file = "init";
@@ -569,6 +622,7 @@ class cfgFunctions {
 			addc(xcpr);
 			addc(rmsg);
 			addc(announcenear);
+			addc(announcenearrem);
 			addc(nearplayercheck);
 			addc(nearplayercheckui);
 			addc(yougetrevivedm);

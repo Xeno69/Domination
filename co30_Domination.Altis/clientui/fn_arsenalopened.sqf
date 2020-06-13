@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_arsenalopened.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 d_arsenal_opened = true;
 
 __TRACE_1("","d_arsenal_opened")
@@ -31,9 +33,7 @@ if (d_with_ranked) then {
 	if (!d_with_ace) then {
 		(_disp displayCtrl 44147) ctrlEnable false; // Load
 		(_disp displayCtrl 44146) ctrlEnable false; // Save
-		_disp displayAddEventHandler ["KeyDown", {
-			_this # 3 && {_this # 1 == DIK_O}
-		}];
+		_disp displayAddEventHandler ["KeyDown", {(_this # 3)}];
 	} else {
 		(_disp displayCtrl 1003) ctrlEnable false;
 	};

@@ -7,7 +7,7 @@ if (!hasInterface) exitWith {};
 params ["_unit", "_caller"];
 
 private _chatfunc = {
-	if (vehicle (_this select 0) == _this select 0) then {
+	if (vehicle (_this select 1) == _this select 0) then {
 		(_this select 0) vehicleChat (_this select 2);
 	} else {
 		(_this select 1) sideChat (_this select 2);
@@ -16,7 +16,6 @@ private _chatfunc = {
 
 if (_unit == _caller) then {_unit = d_curvec_dialog};
 
-//if (_caller != driver _unit && {!isNil {_unit getVariable "d_choppertype"}}) exitWith {};
 if (_caller != currentPilot _unit && {!isNil {_unit getVariable "d_choppertype"}}) exitWith {};
 
 if ((_unit call d_fnc_GetHeight) > 3) exitWith {_unit vehicleChat (localize "STR_DOM_MISSIONSTRING_267")};
@@ -33,7 +32,7 @@ if (_nobjs isEqualTo []) exitWith {[_unit, _caller, localize "STR_DOM_MISSIONSTR
 private _box = _nobjs # 0;
 [_box] remoteExecCall ["d_fnc_RemABoxC"];
 sleep 0.5;
-[_box] remoteExecCall ["d_fnc_RemABox", 2];
+[_box, _unit] remoteExecCall ["d_fnc_RemABox", 2];
 _unit setVariable ["d_ammobox", true, true];
 _unit setVariable ["d_ammobox_next", time + d_drop_ammobox_time, true];
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_273"] call _chatfunc;

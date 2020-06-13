@@ -8,7 +8,15 @@
 // center position, radius of the circle
 // example: _random_point = [position trigger1, 200] call d_fnc_GetRanPointCircle;
 __TRACE_1("","_this")
-params ["_rcenter", "_rradius", ["_mindist", 2], ["_maxgrad", 0.7], ["_gradar", 4]];
+params ["_rcenter", "_rradius", ["_mindist", 1], ["_maxgrad", 0.7], ["_water", 0], ["_waterin25", false], ["_checkroad", false]];
+
+if (_mindist == 0) then {
+	_mindist = 1
+} else {
+	if (_mindist == -1) then {
+		_mindist = 0;
+	};
+};
 
 if (_rcenter isEqualTo []) exitWith {
 	diag_log ["getranpointcircle, _rcenter is empty", _this];
@@ -16,23 +24,8 @@ if (_rcenter isEqualTo []) exitWith {
 };
 
 __TRACE_2("","_rcenter","_rradius")
-private _ret_val = [];
-for "_co" from 0 to 99 do {
-	//private _isFlat = ([[[_rcenter, _rradius]]] call BIS_fnc_randomPos) isFlatEmpty [
-	private _isFlat = (_rcenter getPos [_rradius * sqrt random 1, random 360]) isFlatEmpty [
-		_mindist,	//--- Minimal distance from another object
-		-1,			//--- If 0, just check position. If >0, select new one // 0
-		_maxgrad,	//--- Max gradient
-		_gradar,	//--- Gradient area
-		0,			//--- 0 for restricted water, 2 for required water,
-		false,		//--- True if some water can be in 25m radius
-		objNull		//--- Ignored object
-	];
-	__TRACE_1("","_isFlat")
-	if !(_isFlat isEqualTo []) exitWith {
-		_ret_val = ASLToATL _isFlat;
-	};
-};
+private _ret_val = [_rcenter, 0, _rradius, _mindist, _water, _maxgrad, [0, 1] select _waterin25, [], [], _checkroad] call d_fnc_findSafePos;
+
 if (_ret_val isEqualTo []) then {_ret_val = _rcenter};
 __TRACE_1("","_ret_val")
 _ret_val

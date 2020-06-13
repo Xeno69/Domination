@@ -3,7 +3,7 @@
 ["East","CUP_O_SLA","Infantry","CUP_O_SLA_InfantrySectionAT"] call d_fnc_GetConfigGroup,
 ["East","CUP_O_SLA","Infantry","CUP_O_SLA_InfantrySectionMG"] call d_fnc_GetConfigGroup,
 ["East","CUP_O_SLA","Infantry","CUP_O_SLA_InfantrySectionAA"] call d_fnc_GetConfigGroup,
-["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_InfantrySquad"] call d_fnc_GetConfigGroup,
+["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_InfantrySquad_Desert"] call d_fnc_GetConfigGroup,
 ["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_InfantrySection_Desert"] call d_fnc_GetConfigGroup,
 ["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_InfantrySectionAT_Desert"] call d_fnc_GetConfigGroup,
 ["East","CUP_O_SLA","Infantry_Desert","CUP_O_SLA_InfantrySectionMG_Desert"] call d_fnc_GetConfigGroup,

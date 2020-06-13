@@ -16,17 +16,10 @@ if (!isNull _killer && {(_killer call d_fnc_isplayer) && {vehicle _killer != veh
 	private _namek = [_par # 6, "Unknown"] select (isNil "_par");
 	if (!_killedfriendly) then {
 		d_points_blufor = d_points_blufor + (d_tt_points # 8);
-		format [localize ["STR_DOM_MISSIONSTRING_515", "STR_DOM_MISSIONSTRING_514"] select (d_WithRevive == 0), _namek, _namep, "WEST", d_tt_points # 8] remoteExecCall ["sideChat", [0, -2] select isDedicated];
+		[14, _namek, _namep] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 	} else {
 		[_namek, _namep, _killer] call d_fnc_TKKickCheck;
-		
-		private _hmsg = if (d_sub_tk_points != 0) then {
-			[format [localize "STR_DOM_MISSIONSTRING_502", _namep, _namek, d_sub_tk_points], "GLOBAL"]
-		} else {
-			[format [localize "STR_DOM_MISSIONSTRING_503", _namep, _namek], "GLOBAL"]
-		};
-		
-		_hmsg remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
+		[13, _namep, _namek] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 	};
 };
 

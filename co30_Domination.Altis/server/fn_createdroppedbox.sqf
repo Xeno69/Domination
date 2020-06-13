@@ -14,19 +14,31 @@ clearMagazineCargoGlobal _box;
 clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box enableRopeAttach false;
+if (d_with_dynsim == 0) then {
+	[_box, 5] spawn d_fnc_enabledynsim;
+};
+private _percent = (_this # 1) getVariable "d_abox_perc";
+if (!isNil "_percent") then {
+	_box setVariable ["d_abox_perc", _percent, true];
+	(_this # 1) setVariable ["d_abox_perc", nil, true];
+};
 private _mname = format ["d_bm_%1", _box];
 #ifndef __TT__
-d_ammo_boxes pushBack [_box, _mname];
-_box setVariable ["d_box_params", [_box, _mname]]:
+d_ammo_boxes pushBack [d_dbox_idx, _box, _mname];
+_box setVariable ["d_box_params", [d_dbox_idx, _box, _mname]]:
 #else
-d_ammo_boxes pushBack [_box, _mname, _this select 2];
-_box setVariable ["d_box_params", [_box, _mname, _this select 2]];
+d_ammo_boxes pushBack [d_dbox_idx, _box, _mname, _this select 2];
+_box setVariable ["d_box_params", [d_dbox_idx, _box, _mname, _this select 2]];
 #endif
 publicVariable "d_ammo_boxes";
+d_dbox_idx = d_dbox_idx + 1;
 [_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
 _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_this select 2 == blufor)];
 #endif
+if (d_with_ace) then {
+	[_box, _mname] spawn d_fnc_moveboxm;
+};
 
 [_box, 12] call d_fnc_setekmode;
 

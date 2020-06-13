@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_artmselchanged.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 __TRACE_1("","_this")

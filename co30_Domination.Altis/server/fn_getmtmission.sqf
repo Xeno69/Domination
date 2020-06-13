@@ -1,31 +1,33 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_getmtmission.sqf"
 #include "..\x_setup.sqf"
 
 params ["_wp_array", "_mtradius", "_trg_center"];
 
 #define __getPos \
-_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_GetRanPointCircleBig;\
+_poss = [d_cur_tgt_pos, d_cur_target_radius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;\
+private _iccount = 0;\
 while {_poss isEqualTo []} do {\
-	_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_GetRanPointCircleBig;\
-	sleep 0.01;\
-}
+	_iccount = _iccount + 1;\
+	_poss = [d_cur_tgt_pos, d_cur_target_radius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;\
+	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};\
+};\
+if (isNil "_poss" || {_poss isEqualTo []}) then {\
+	_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_getranpointcircle;\
+};\
+_poss set [2, 0];
 
 #define __specops \
 _newgroup = [d_side_enemy] call d_fnc_creategroup;\
-private _specus = [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;\
+private _specus = [_poss, ["specops", d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true] call d_fnc_makemgroup;\
 sleep 1.0112;\
 _newgroup deleteGroupWhenEmpty true; \
 _newgroup allowFleeing 0;\
 _newgroup setVariable ["d_defend", true]; \
 [_newgroup, _poss] spawn d_fnc_taskDefend; \
 if (d_with_dynsim == 0) then { \
-	_newgroup spawn { \
-		scriptName "spawn getmtmission"; \
-		sleep 10; \
-		_this enableDynamicSimulation true; \
-		_this call d_fnc_addgrp2hc; \
-	}; \
+	[_newgroup, 10] spawn d_fnc_enabledynsim; \
 }; \
 d_delinfsm append _specus; \
 if (d_mt_respawngroups == 0) then { \
@@ -39,7 +41,7 @@ if (d_mt_respawngroups == 0) then { \
 
 if !(isServer) exitWith {};
 
-sleep 3.120;
+sleep 1.120;
 private _poss = _wp_array select ((count _wp_array) call d_fnc_RandomFloor);
 
 private _sec_kind = (floor (random 10)) + 1;
@@ -53,7 +55,7 @@ switch (_sec_kind) do {
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = sizeOf d_soldier_officer;
+		private _svec = 1;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
@@ -82,7 +84,7 @@ switch (_sec_kind) do {
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
-			_vec enableDynamicSimulation true;
+			[_vec, 0] spawn d_fnc_enabledynsim;
 		};
 #ifdef __TT__
 		[_vec, 0] call d_fnc_setekmode;
@@ -91,36 +93,28 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 2: {
+		private _svec = 8;
 		__getPos;
 		private _vec = createVehicle [d_air_radar2, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_air_radar2;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1) then {
-			if (_poss distance2D _isFlat < 100) then {
-				_isFlat set [2,0];
-				_poss = _isFlat;
-			};
-		};
 		_vec setDir (random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(radar_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
 	case 3: {
+		private _svec = 6;
 		__getPos;
 		private _vec = createVehicle [d_sm_ammotrucktype, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_sm_ammotrucktype;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
+		_vec call d_fnc_nodamoff;
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
+		//_vec setPos _poss;
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "ammo_down";
@@ -129,19 +123,23 @@ switch (_sec_kind) do {
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
 	case 4: {
 		private _vec = createVehicle [d_sm_medtrucktype, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_sm_medtrucktype;
+		_vec call d_fnc_nodamoff;
+		private _svec = 6;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
 			_poss = _isFlat;
 		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
+		//_vec setPos _poss;
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "med_down";
@@ -150,84 +148,79 @@ switch (_sec_kind) do {
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
 	case 5: {
+		private _svec = sizeOf d_enemy_hq;
 		__getPos;
 		private _vec = createVehicle [d_enemy_hq, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_enemy_hq;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
+		//_vec setPos _poss;
 		_vec lock true;
 		__vkilled(hq_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
 	case 6: {
+		private _svec = 6;
 		__getPos;
 		private _vec = createVehicle ["Land_dp_transformer_F", _poss, [], 0, "NONE"];
-		private _svec = sizeOf "Land_dp_transformer_F";
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(light_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
 	case 7: {
+		private _fact = "Land_IndustrialShed_01_F";
+		private _svec = 15;
 		__getPos;
 		/*_fact = switch (d_enemy_side_short) do {
 			case "E": {"Land_spp_Transformer_F"};
 			case "W": {"Land_spp_Transformer_F"};
 			case "G": {"Land_spp_Transformer_F"};
 		};*/
-		private _fact = "Land_IndustrialShed_01_F";
 		private _vec = createVehicle [_fact, _poss, [], 0, "NONE"];
-		private _svec = sizeOf _fact;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(heavy_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
 	case 8: {
+		private _svec = sizeOf d_air_radar;
 		__getPos;
 		private _vec = createVehicle [d_air_radar, _poss, [], 0, "NONE"];
-		private _svec = sizeOf d_air_radar;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
-		};
 		_vec setDir (floor random 360);
-		_vec setPos _poss;
-		_vec setVectorUp [0,0,1];
+		//_vec setPos _poss;
+		//_vec setVectorUp [0,0,1];
 		__vkilled(airrad_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		if (d_with_dynsim == 0) then {
+			[_vec, 5] spawn d_fnc_enabledynsim;
+		};
 		sleep 1.0112;
 		__specops;
 	};
@@ -238,7 +231,7 @@ switch (_sec_kind) do {
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = sizeOf _ctype;
+		private _svec = 1;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
@@ -269,7 +262,7 @@ switch (_sec_kind) do {
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
-			_vec enableDynamicSimulation true;
+			[_vec, 0] spawn d_fnc_enabledynsim;
 		};
 #ifdef __TT__
 		[_vec, 0] call d_fnc_setekmode;
@@ -284,7 +277,7 @@ switch (_sec_kind) do {
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = sizeOf _ctype;
+		private _svec = 1;
 		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
 		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
 			_isFlat set [2,0];
@@ -315,7 +308,7 @@ switch (_sec_kind) do {
 		removeFromRemainsCollector [_vec];
 		[_vec] call d_fnc_addceo;
 		if (d_with_dynsim == 0) then {
-			_vec enableDynamicSimulation true;
+			[_vec, 0] spawn d_fnc_enabledynsim;
 		};
 #ifdef __TT__
 		[_vec, 0] call d_fnc_setekmode;
@@ -324,6 +317,10 @@ switch (_sec_kind) do {
 		__specops;
 	};
 };
+
+#ifdef __DEBUG__
+[str d_fixor_var, d_fixor_var, "ICON", "ColorBlack", [0.5, 0.5], "Main target mission", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+#endif
 
 d_sec_kind = _sec_kind; publicVariable "d_sec_kind";
 private _s = "";

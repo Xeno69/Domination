@@ -13,9 +13,10 @@ if (!isNil "_p") then {
 	_p set [7, _numtk];
 	if (_numtk >= d_maxnum_tks_forkick) exitWith {
 		private _pna = _p # 6;
-		diag_log format ["Player %1 was kicked automatically because of teamkilling, # team kills: %3, ArmA 3 Key: %2", _pna, _uid, _numtk];
-		[format [localize "STR_DOM_MISSIONSTRING_507", _pna, _numtk], "GLOBAL"] remoteExecCall ["d_fnc_HintChatMsg", [0, -2] select isDedicated];
-		"LOSER" remoteExecCall ["endMission", _tk];
+		//diag_log format ["Player %1 was kicked automatically because of teamkilling, # team kills: %3, ArmA 3 Key: %2", _pna, _uid, _numtk];
+		diag_log format ["Player %1 put into jail because of too much teamkilling, # team kills: %3, ArmA 3 Key: %2", _pna, _uid, _numtk];
+		[20, _pna, _numtk, _tk] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
+		//"LOSER" remoteExecCall ["endMission", _tk];
 		if (d_database_found) then {
 #ifndef __INTERCEPTDB__
 			"extdb3" callExtension format ["1:dom:teankillsAdd:%1", _uid];

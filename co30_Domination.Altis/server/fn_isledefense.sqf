@@ -26,6 +26,7 @@ while {true} do {
 	sleep 10;
 #endif
 	{
+		__TRACE_1("","_x")
 		if (count _x == 3) then {
 			_x params ["_igrp"];
 			private _make_new = false;
@@ -36,7 +37,7 @@ while {true} do {
 				if ((units _igrp) findIf {alive _x} == -1) then {
 					_make_new = true;
 				} else {
-					(_x # 2) findIf {
+					private _dummy = (_x # 2) findIf {
 #ifndef __DEBUG__
 						private _ret = (alive _x && {_x distance2D (_x getVariable ["d_cur_pos", [0, 0, 0]]) < 100}) || {!canMove _x};
 #else
@@ -56,7 +57,11 @@ while {true} do {
 			__TRACE_2("","_igrp","_make_new")
 			sleep 0.3;
 			if (_make_new) then {
+#ifndef __DEBUG__
 				_x pushBack (time + 300 + random 300);
+#else
+				_x pushBack (time + 30 + random 30);
+#endif
 			};
 		} else {
 			if (time > (_x # 3)) then {

@@ -5,21 +5,17 @@
 
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom d_init.sqf"];
 
-#ifdef __GMCWG__
 if (isServer) then {
 	call d_fnc_gmcwgextra;
 };
-#endif
 
 if (!isServer) then {
 	call compile preprocessFileLineNumbers "init\initcommon.sqf";
 };
 
-#ifdef __GMCWG__
 if (hasInterface) then {
 	call d_fnc_gmcwgextrac;
 };
-#endif
 
 #ifdef __GROUPDEBUG__
 call compile preprocessFileLineNumbers "x_gdbfunctions.sqf";
@@ -33,6 +29,16 @@ if (hasInterface) then {
 	setViewDistance _vd;
 	setObjectViewDistance (_vd + 100);
 	
+	d_curviewdistance = _vd;
+	d_curobjectdistance = _vd + 100;
+	
+	d_earplugs_userakey = profileNamespace getVariable ["dom_earplugs_userakey", 0];
+	d_3dmarker_userakey = profileNamespace getVariable ["dom_3dmarker_userakey", 0];
+	if (d_earplugs_userakey < 0 || {d_earplugs_userakey > 19}) then {d_earplugs_userakey = 0};
+	if (d_3dmarker_userakey < 0 || {d_3dmarker_userakey > 19}) then {d_3dmarker_userakey = 0};
+	d_earplugs_userakey_str = format ["User%1", d_earplugs_userakey + 1];
+	d_3dmarker_userakey_str = format ["User%1", d_3dmarker_userakey + 1];
+
 	if (isMultiplayer) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
 	};
@@ -82,7 +88,6 @@ if (isServer) then {
 		deleteMarker "d_base_chopper_sb";
 	};
 	deleteMarker "d_base_wreck_sb";
-	d_FLAG_BASE enableSimulationGlobal false;
 };
 
 // position base, side a and b length, direction and circle (false)/rectangle(true), like trigger; for the enemy at base area and marker
@@ -92,10 +97,6 @@ d_base_array = [[markerPos "d_base_marker" # 0, markerPos "d_base_marker" # 1, 1
 #else
 d_EFLAG_BASE allowDamage false;
 d_WFLAG_BASE allowDamage false;
-if (isServer) then {
-	d_EFLAG_BASE enableSimulationGlobal false;
-	d_WFLAG_BASE enableSimulationGlobal false;
-};
 
 "d_base_marker_w" setMarkerAlphaLocal 0;
 "d_base_marker_e" setMarkerAlphaLocal 0;
@@ -115,10 +116,10 @@ if (isServer) then {
 
 if (d_with_dynsim == 0) then {
 	enableDynamicSimulationSystem true;
-	"Group" setDynamicSimulationDistance 1000;
+	"Group" setDynamicSimulationDistance 1400;
 	"Vehicle" setDynamicSimulationDistance 3000;
 	"EmptyVehicle" setDynamicSimulationDistance 1000;
-	"Prop" setDynamicSimulationDistance 1000;
+	"Prop" setDynamicSimulationDistance 600;
 	"IsMoving" setDynamicSimulationDistanceCoef 2;
 } else {
 	enableDynamicSimulationSystem false;
@@ -128,11 +129,11 @@ if (isServer) then {
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
 	private _allMapMarkers = allMapMarkers select {_x select [0, 20] isEqualTo "d_player_ammobox_pos"};
-	
+
 	private _fnc_boxset = {
 		params ["_ma"];
 		private _bpos = markerPos _ma;
-		private _box = createVehicle [d_the_base_box, [0, 0, 0], [], 0, "NONE"];
+		private _box = createVehicle [d_the_base_box, _bpos, [], 0, "NONE"];
 		_box setPos _bpos;
 		_box setDir (markerDir _ma);
 		if (surfaceIsWater _bpos) then {
@@ -142,16 +143,18 @@ if (isServer) then {
 				_box setPosASL [_bpos # 0, _bpos # 1, _aslh];
 			};
 		};
+		_box setVariable ["d_bpos", getPosASL _box];
+		_box setVariable ["d_bdir", markerDir _ma];
 		clearWeaponCargoGlobal _box;
 		clearMagazineCargoGlobal _box;
 		clearBackpackCargoGlobal _box;
 		clearItemCargoGlobal _box;
-		_box allowDamage false;
 		_box enableRopeAttach false;
 		_box enableSimulationGlobal false;
+		_box addEventhandler ["killed", {_this call d_fnc_playerboxkilled}];
 		_box
 	};
-	
+
 #ifndef __TT__
 	d_player_ammoboxes = [];
 	{
@@ -159,14 +162,14 @@ if (isServer) then {
 	} forEach _allMapMarkers;
 #else
 	d_player_ammoboxes = [[], []];
-	
+
 	private _tempar = d_player_ammoboxes # 1;
 	private _rem = _allMapMarkers select {_x select [0, 22] isEqualTo "d_player_ammobox_pos_e"};
 	{
 		_tempar pushBack ([_x] call _fnc_boxset);
 	} forEach _rem;
 	_allMapMarkers = _allMapMarkers - _rem;
-	
+
 	_tempar = d_player_ammoboxes # 0;
 	{
 		_tempar pushBack ([_x] call _fnc_boxset);
@@ -234,7 +237,7 @@ if (isNil "d_searchbody") then {
 	d_searchbody = objNull;
 };
 if (isNil "d_searchintel") then {
-	d_searchintel = [0,0,0,0,0,0,0];
+	d_searchintel = [0,0,0,0,0,1,0]; // TODO search intel for island patrol groups disabled as those groups are disabled too
 };
 #ifndef __TT__
 if (isNil "d_ari_blocked") then {
@@ -312,18 +315,25 @@ if (isNil "d_cas_available_w") then {
 if (isNil "d_cas_available_e") then {
 	d_cas_available_e = true;
 };
-if (isNil "d_num_barracks_tt") then {
-	d_num_barracks_tt = -1;
-};
 #endif
+if (isNil "d_num_barracks_tt") then {
+	d_num_barracks_tt = 0;
+};
+if (isNil "d_num_barracks_objs") then {
+	d_num_barracks_objs = 0;
+};
 if (isNil "d_winterw") then {
 	d_winterw = 0;
 };
 
+if (hasInterface) then {
+	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
+};
+
 if (isServer) then {
 	execVM "bikb\kbinit.sqf";
-	
-	call compile preprocessFileLineNumbers "server\serverinit.sqf";
+
+	call d_fnc_serverinit;
 
 #ifndef __TT__
 	0 spawn {
@@ -333,7 +343,7 @@ if (isServer) then {
 
 		private _mmm = markerPos "d_base_sb_ammoload";
 		__TRACE_1("","_mmm")
-		
+
 		if !(_mmm isEqualTo [0,0,0]) then {
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
 			_mmm set [2, 3.3];
@@ -341,79 +351,90 @@ if (isServer) then {
 			_fac setDir (markerDir "d_base_sb_ammoload");
 			_fac setPos _mmm;
 		};
-
-		if (d_base_aa_vec isEqualTo "") exitWith {};
-		
-		[d_own_side, d_base_aa_vec] call d_fnc_cgraa;
+		if (!isNil "d_base_aa_vec" && {!(d_base_aa_vec isEqualTo "")}) then {
+			[d_own_side, d_base_aa_vec, "d_base_anti_air"] call d_fnc_cgraa;
+		};
+		if (!isNil "d_base_tank_vec" && {!(d_base_tank_vec isEqualTo "")}) then {
+			[d_own_side, d_base_tank_vec, "d_base_tank"] call d_fnc_cgraa;
+		};
+		if (!isNil "d_base_apc_vec" && {!(d_base_apc_vec isEqualTo "")}) then {
+			[d_own_side, d_base_apc_vec, "d_base_apc"] call d_fnc_cgraa;
+		};
 	};
 #endif
-	
+
 	if (d_weather == 0) then {0 spawn d_fnc_weatherserver};
-	if (d_with_targetselect == 1 || {d_tt_ver}) then {
+	if (d_with_targetselect_count == 0 || {d_tt_ver}) then {
 		if (d_MainTargets_num > count d_target_names) then {
 			d_MainTargets_num = count d_target_names;
 		};
-		
+
 		if (d_MainTargets_num == -1) then {
 			d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
 			d_MainTargets_num = count d_target_names;
 		} else {
-			// create random list of targets
-			d_maintargets_list = call d_fnc_createrandomtargets;
+			if (d_MainTargets_num == -2) then { // order like placed in the editor
+				d_maintargets_list = call d_fnc_makteolpmttargets;
+				d_MainTargets_num = count d_target_names;
+			} else {
+				// create random list of targets
+				d_maintargets_list = call d_fnc_createrandomtargets;
+			};
 		};
 		//d_maintargets_list = [0,1,2,3];
 		__TRACE_1("","d_maintargets_list")
-		
+
 		d_MainTargets = count d_maintargets_list;
 	} else {
 		d_MainTargets = count d_target_names;
+		if (d_with_targetselect_count == -1) then {
+			d_with_targetselect_count = d_MainTargets;
+		};
 		d_mttargets_ar =+ d_target_names;
 		d_cur_tar_obj = d_FLAG_BASE;
 	};
 	publicVariable "d_MainTargets";
-	
-	// create random list of side missions
-	d_side_missions_random = d_sm_array call d_fnc_RandomArray;
+
+	if (d_sm_dorandom == 0) then {
+		// create random list of side missions
+		d_side_missions_random = d_sm_array call d_fnc_RandomArray;
+	} else {
+		d_side_missions_random =+ d_sm_array;
+	};
 	__TRACE_1("","d_side_missions_random")
-	
+
 	d_current_mission_counter = 0;
 
 #ifndef __TT__
 	// editor varname, unique number, true = respawn only when the chopper is completely destroyed, false = respawn after some time when no crew is in the chopper or chopper is destroyed
 	// unique number must be between 3000 and 3999
-	private _choppers = [];
-	{
-		_choppers pushBack _x;
-	} forEach ([[d_chopper_1,3001,true],[d_chopper_2,3002,true],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,1500],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}});
-	
+	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}};
+
 	if (!isNil "d_additional_wreck") then {
 		{
 			_choppers pushBack [_x, 3000 + 10 + _forEachIndex , false, 600];
 		} forEach d_additional_wreck;
 	};
-	
+
 	if (!isNil "d_additional_lift") then {
 		{
 			_choppers pushBack [_x, 3000 + 30 + _forEachIndex , true];
 		} forEach d_additional_lift;
 	};
-	
+
 	if (!isNil "d_additional_trans") then {
 		{
 			_choppers pushBack [_x, 3000 + 40 + _forEachIndex , true];
 		} forEach d_additional_trans;
 	};
-	
+
 	if !(_choppers isEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
 	// editor varname, unique number
 	//0-99 = MHQ, 100-199 = Medic vehicles, 200-299 = Fuel, Repair, Reammo trucks, 300-399 = Engineer Salvage trucks, 400-499 = Transport trucks
 	// new in 3.70  third parameter for MHQ means a message will be displayed for a MHQ if it gets destroyed
-	private _vecsar = [];
-	{
-		_vecsar pushBack _x;
-	} forEach ([[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x select 0}});
+	private _vecsar = [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x select 0}};
 	{
 		_vecsar pushBack [_x, 500 + _forEachIndex];
 	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
@@ -428,25 +449,83 @@ if (isServer) then {
 		[_x, 300, false] spawn d_fnc_vehirespawn;
 	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
 #else
-	[[d_chopper_1,3001,true],[d_chopper_2,3002,true],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,1500],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
-	[d_choppero_1,4001,true],[d_choppero_2,4002,true],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,1500],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] call d_fnc_inithelirespawn2;
+	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
+		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x select 0}};
 	
-	[
+	//[[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
+	//[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] call d_fnc_inithelirespawn2;
+	
+	if (!isNil "d_additional_wreck_b") then {
+		{
+			_choppers pushBack [_x, 3000 + 10 + _forEachIndex , false, 600];
+		} forEach d_additional_wreck_b;
+	};
+	if (!isNil "d_additional_wreck_o") then {
+		{
+			_choppers pushBack [_x, 4000 + 10 + _forEachIndex , false, 600];
+		} forEach d_additional_wreck_o;
+	};
+
+	if (!isNil "d_additional_lift_b") then {
+		{
+			_choppers pushBack [_x, 3000 + 30 + _forEachIndex , true];
+		} forEach d_additional_lift_b;
+	};
+	if (!isNil "d_additional_lift_o") then {
+		{
+			_choppers pushBack [_x, 4000 + 30 + _forEachIndex , true];
+		} forEach d_additional_lift_o;
+	};
+
+	if (!isNil "d_additional_trans_b") then {
+		{
+			_choppers pushBack [_x, 3000 + 40 + _forEachIndex , true];
+		} forEach d_additional_trans_b;
+	};
+	if (!isNil "d_additional_trans_o") then {
+		{
+			_choppers pushBack [_x, 4000 + 40 + _forEachIndex , true];
+		} forEach d_additional_trans_o;
+	};
+
+	if !(_choppers isEqualTo []) then {
+		_choppers call d_fnc_inithelirespawn2;
+	};
+
+	private _vecsar = [
 		[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1,localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],
 		[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401],
 		[d_vec_mhqo_1,1000,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhqo_2,1001,localize "STR_DOM_MISSIONSTRING_13"],[d_vec_medo_1,1100],[d_vec_repo_1,1200],[d_vec_fuelo_1,1201],[d_vec_ammoo_1,1202], [d_vec_repo_2,1203],
-		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]
-	] call d_fnc_initvrespawn2;
+		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]] select {!isNil {_x select 0}};
+		
+	if (!isNil "d_additional_mhqs_o") then {
+		{
+			private _num = 2 + _forEachIndex;
+			_vecsar pushBack [_x, 1000 + _num, "MHQ " + str (_num)];
+		} forEach d_additional_mhqs_o;
+	};
+	if (!isNil "d_additional_mhqs_b") then {
+		{
+			private _num = 2 + _forEachIndex;
+			_vecsar pushBack [_x, _num, "MHQ " + str (_num)];
+		} forEach d_additional_mhqs_b;
+	};
+
+	_vecsar call d_fnc_initvrespawn2;
+	
+	{
+		[_x, 300, false] spawn d_fnc_vehirespawn;
+	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
 #endif
 	0 spawn d_fnc_initrepwreck;
-	
+
 #ifdef __TT__
 	d_public_points = true;
 #endif
 
 	call d_fnc_setupserver;
 	if (d_MissionType != 2) then {0 spawn d_fnc_createnexttarget};
-	
+
 #ifdef __TT__
 	d_points_blufor = 0;
 	d_points_opfor = 0;
@@ -455,10 +534,10 @@ if (isServer) then {
 	d_points_array = [0,0,0,0];
 	publicVariable "d_points_array";
 #endif
-	
+
 	//addMissionEventHandler ["PlayerConnected", {_this call d_fnc_playerconnected}];
 	addMissionEventHandler ["PlayerDisconnected", {_this call d_fnc_playerdisconnected}];
-	
+
 	addMissionEventHandler ["HandleDisconnect", {_this call d_fnc_handledisconnect}];
 	if (d_MissionType != 2) then {
 		addMissionEventhandler ["BuildingChanged", {_this call d_fnc_buildingchanged}];
@@ -484,7 +563,7 @@ if (hasInterface) then {
 	} forEach ((allMissionObjects "Land_HelipadSquare_F") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	if (d_carrier) then {
-		["d_service_point", d_serviceall_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
+		["d_service_point", d_serviceall_trigger_5,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	};
 #else
 	if (!isNil "d_wreck_rep") then {
@@ -501,7 +580,7 @@ if (hasInterface) then {
 	};
 	["d_Ammobox_Reload", d_AMMOLOAD,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	["d_teleporter", d_WFLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
-	
+
 	if (!isNil "d_wreck_rep2") then {
 		["d_wreck_serviceR", d_wreck_rep2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};

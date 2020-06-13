@@ -1,4 +1,6 @@
 .idea/
+*.iml
+*.ipr
 /co30_Domination4.Altis/*
 /co30_Domination.Malden/*
 /co30_Domination.Sara/*
@@ -14,7 +16,9 @@
 /co40_MP_Paradrop.Chernarus/*
 /co50_AirCavA3.Chernarus/*
 /co20_HighMountains.Sara/*
-/dom_maker/*
+/dom_maker/*.pbo
+/dom_maker/DePbo.dll
+/dom_maker/MakePbo.exe
 co30_Domination.Altis.7z
 /co30_Domination.Altis - Kopie/*
 /co30_Domination.Altis - Copy/*
@@ -22,4 +26,5 @@ co30_Domination.Altis.7z
 /co40_Domination.gm_weferlingen_winter/*
 /co30_Domination.Enoch/*
 /~co30_Domination.Altis/*
+/co40_Domination.cup_chernarus_A3/*
 todo.txt

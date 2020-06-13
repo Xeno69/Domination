@@ -3,18 +3,53 @@
 #define THIS_FILE "fn_makemgroup.sqf"
 #include "..\x_setup.sqf"
 
-params ["_pos", "_unitliste", "_grp", ["_mchelper", true]];
+params ["_pos", "_unitliste", "_grp", ["_mchelper", true], ["_doreduce", false]];
 
 if (isNil "_unitliste") exitWith {
 	diag_log ["Attention, _unitlist (param 2) is nil, returning []", "_pos", _pos, "_grp", _grp];
 	[]
 };
 
+if (_unitliste isEqualTo []) exitWith {
+	diag_log ["Attention, _unitlist (param 2) is empty, returning []", "_pos", _pos, "_grp", _grp];
+	[]
+};
+
 __TRACE_3("","_pos","_unitliste","_grp")
-__TRACE_1("","_mchelper")
+__TRACE_2("","_mchelper","_doreduce")
 
 private _ret = [];
+
+if (d_smallgrps == 0 && {_doreduce && {count _unitliste > 2}}) then {
+	__TRACE("in doreduce")
+	private _nump = count (allPlayers - entities "HeadlessClient_F");
+	// 30-40 0.15
+	// 20-30 0.2
+	// 1-20 0.26
+	private _factor = call {
+		if (_nump > 29) exitWith {
+			0.15
+		};
+		if (_nump > 19) exitWith {
+			0.2
+		};
+		0.26
+	};
+	private _maxunits = round (_factor * _nump) max (selectRandom [2, 3]);
+	__TRACE_3("","_nump","_factor","_maxunits")
+	if (_maxunits < count _unitliste) then {
+		private _tmpar =+ _unitliste;
+		_unitliste = [_tmpar # 0];
+		_tmpar deleteAt 0;
+		while {count _unitliste < _maxunits} do {
+			_unitliste pushBack (selectRandom _tmpar);
+		};
+	};
+	__TRACE_1("after","_unitliste")
+};
+
 _ret resize (count _unitliste);
+
 private _subskill = if (diag_fps > 29) then {
 	(0.1 + (random 0.2))
 } else {
@@ -57,6 +92,11 @@ private _nightorfog = call d_fnc_nightfograin;
 		d_infunitswithoutleader = d_infunitswithoutleader + 1;
 	};
 #endif
+	private _bino = binocular _one_unit;
+	__TRACE_1("","_bino")
+	if !(_bino isEqualTo "") then {
+		_one_unit removeWeapon _bino;
+	};
 } forEach _unitliste;
 _ret joinSilent _grp;
 #ifdef __TT__
@@ -71,6 +111,18 @@ if (side _grp == d_side_enemy) then {
 #endif
 (leader _grp) setRank "SERGEANT";
 #ifndef __TT__
+if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}) then {
+	//advanced awareness
+	if (["Sniper", groupId(_grp)] call BIS_fnc_inString) then {
+		{
+			[_x, d_side_player, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+		} forEach units _grp;
+	} else {
+		{
+			[_x, d_side_player, d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+		} forEach units _grp;
+	}
+};
 _ret call d_fnc_addceo;
 #endif
 _ret

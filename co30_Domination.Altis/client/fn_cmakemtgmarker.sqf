@@ -5,6 +5,16 @@
 
 __TRACE("Start")
 
+if (isNil "d_cur_tgt_pos" || {d_cur_tgt_pos isEqualTo []}) exitWith {
+	diag_log "Attention!!!!! cmakemtgmarker d_cur_tgt_pos is empty!!!!!!";
+};
+
+if (isNil "d_mttarget_radius_patrol" || {d_mttarget_radius_patrol isEqualTo []}) exitWith {
+	diag_log "Attention!!!!! cmakemtgmarker d_mttarget_radius_patrol is empty!!!!!!";
+};
+
+__TRACE_1("","d_cur_tgt_pos")
+
 private _tile_size = (d_mttarget_radius_patrol * 2) / 7;
 
 private _tilesfull_half = (_tile_size * 7) / 2;
@@ -58,6 +68,10 @@ private _fnc_make_trig_mar = {
 		private _alpha = _i call _fnc_2_use;
 		private _marname = format ["d_dommtmxe_%1", _marcounter];
 		__TRACE_1("","_marname")
+		if (getMarkerType _marname != "") then {
+			__TRACE_1("Marker exists already","_marname")
+			deleteMarkerLocal _marname;
+		};
 		[_marname, [_xpos1, _ypos1], "RECTANGLE", "ColorGreen", [_tilehalf, _tilehalf], "", 0, "", "", _alpha] call d_fnc_CreateMarkerLocal;
 		
 		private _trigger = [
@@ -67,7 +81,8 @@ private _fnc_make_trig_mar = {
 			["this",
 				"0 = [thistrigger, true] call d_fnc_trigsetmarker",
 				"0 = [thistrigger, false] call d_fnc_trigsetmarker"
-			]
+			],
+			1
 		] call d_fnc_createtriggerlocal;
 		__TRACE_1("","_trigger")
 		

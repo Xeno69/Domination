@@ -17,14 +17,14 @@ private _dd = 599;
 		_mhq = _x;
 		_dd = _distt;
 	};
-} forEach ((player nearEntities [["LandVehicle", "Air"], 10]) select {!isNull _x && {!(_x isKindOf "ParachuteBase") && {!(_x isKindOf "BIS_Steerable_Parachute") && {(_x getVariable ["d_vec_type", ""]) == "MHQ"}}}});
+} forEach ((player nearEntities [["LandVehicle", "Air", "Ship"], 10]) select {!isNull _x && {!(_x isKindOf "ParachuteBase") && {(_x getVariable ["d_vec_type", ""]) == "MHQ"}}});
 
 if (isNull _mhq) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_1451")};
 
 #ifndef __TT__
-if (_mhq inArea d_base_array || {surfaceIsWater (getPosATLVisual d_curvec_dialog)}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_213")};
+if (_mhq inArea d_base_array || {!(d_curvec_dialog isKindOf "Ship") && {surfaceIsWater (getPosATLVisual d_curvec_dialog)}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_213")};
 #else
-if (_mhq inArea (d_base_array # 0) || {_mhq inArea (d_base_array # 1) || {surfaceIsWater (getPosATLVisual d_curvec_dialog)}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_213")};
+if (_mhq inArea (d_base_array # 0) || {_mhq inArea (d_base_array # 1) || {!(d_curvec_dialog isKindOf "Ship") && {surfaceIsWater (getPosATLVisual d_curvec_dialog)}}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_213")};
 #endif
 
 if ((_mhq getVariable ["d_MHQ_Depltime", -1]) > time) exitWith {
@@ -41,7 +41,7 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 		__TRACE("MHQ not empty")
 	};
 
-	if (d_with_mhq_camo == 0 && {!(_mhq isKindOf "Air")}) then {
+	if (d_with_mhq_camo == 0 && {!(_mhq isKindOf "Air") && {!(_mhq isKindOf "Ship")}}) then {
 		_mhq remoteExecCall ["d_fnc_mhq_net", 2];
 	};
 	_mhq setVariable ["d_MHQ_Deployed", true, true];

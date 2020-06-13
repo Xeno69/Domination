@@ -58,18 +58,18 @@ if !(isclass _planeCfg) exitwith {
 
 #ifndef __IFA3LITE__
 //--- Detect gun
-private _weaponTypes = switch _wtype do {
-	case 0: {["machinegun"]};
-	case 1: {["rocketlauncher"]};
-	case 2: {["machinegun", "rocketlauncher"]};
-	default {[]};
+private _weaponTypes = call {
+	if (_wtype == 0) exitWith {["machinegun"]};
+	if (_wtype == 1) exitWith {["rocketlauncher"]};
+	if (_wtype == 2) exitWith {["machinegun", "rocketlauncher"]};
+	[]
 };
 #else
-private _weaponTypes = switch _wtype do {
-	case 0: {["machinegun"]};
-	case 1: {["vehicleweapon"]};
-	case 2: {["vehicleweapon"]};
-	default {[]};
+private _weaponTypes = call {
+	if (_wtype == 0) exitWith {["machinegun"]};
+	if (_wtype == 1) exitWith {["vehicleweapon"]};
+	if (_wtype == 2) exitWith {["vehicleweapon"]};
+	[]
 };
 #endif
 
@@ -166,6 +166,9 @@ private _planePos = _pos getPos [_dis, [_dir + 90, _dir - 90] select (random 100
 _planePos set [2, (_pos # 2) + _alt];
 ([_planePos, _dir, _planeClass, (getNumber (_planeCfg>>"side")) call bis_fnc_sideType] call d_fnc_spawnVehicle) params ["_plane", "_crew", "_group"];
 _plane setPosasl _planePos;
+if (d_with_dynsim == 0) then {
+	_plane setVariable ["d_nodyn", true];
+};
 _plane move ([_pos,_dis,_dir] call bis_fnc_relpos);
 if (d_with_ai) then {
 	_group setVariable ["d_do_not_delete", true];

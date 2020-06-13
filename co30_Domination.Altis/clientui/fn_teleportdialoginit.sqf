@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_teleportdialoginit.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 disableSerialization;
 
 #define __CTRL(A) (_display displayCtrl A)
@@ -40,6 +38,9 @@ if (_dtype == 0) then {
 	};
 };
 
+__CTRL(11003) ctrlShow false;
+__CTRL(11004) ctrlShow false;
+
 private _addbase = true;
 if (d_WithTeleToBase == 1 && {d_tele_dialog > 0 && {_dtype == 0}}) then {
 	_addbase = false;
@@ -55,6 +56,7 @@ d_tele_prev_sel = -1;
 
 d_respawn_anim_markers = [];
 d_respawn_posis = [];
+d_respawn_ismhq = [];
 
 if (_addbase) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1251");
@@ -71,6 +73,7 @@ if (_addbase) then {
 	d_respawn_anim_markers pushBack "D_BASE_D";
 	d_respawn_mar_str = "D_BASE_D";
 	d_respawn_posis pushBack (getPosASL d_FLAG_BASE);
+	d_respawn_ismhq pushBack false;
 } else {
 	d_respawn_mar_str = "";
 };
@@ -87,10 +90,11 @@ private _logtxt = "";
 		private _lbcolor = call {
 			if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592", _x # 1, _logtxt]; __COLRED};
 			if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _x # 1] + _logtxt + "\n"; __COLRED};
-			if (surfaceIsWater (getPosWorld _mrs)) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_594", _x # 1, _logtxt]; __COLRED};
+			if (!(_mrs isKindOf "Ship") && {surfaceIsWater (getPosWorld _mrs)}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_594", _x # 1, _logtxt]; __COLRED};
 			if (!alive _mrs) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_595", _x # 1, _logtxt]; __COLRED};
-			if !(_mrs getVariable ["d_MHQ_Deployed", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _x # 1, _logtxt]; __COLRED};
+			if ( !(_mrs isKindOf "Ship") && {!(_mrs getVariable ["d_MHQ_Deployed", false])}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_596", _x # 1, _logtxt]; __COLRED};
 			if (_mrs getVariable ["d_enemy_near", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_597", _x # 1, _logtxt]; __COLRED};
+			if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_2023", _x # 1, _logtxt]; __COLRED};
 			[1,1,1,1];
 		};
 		_cidx = _listctrl lbAdd (_x # 1);
@@ -110,6 +114,7 @@ private _logtxt = "";
 		[_x # 0, visiblePositionASL _mrs, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 		d_respawn_anim_markers pushBack (_x # 0);
 		d_respawn_posis pushBack (visiblePositionASL _mrs);
+		d_respawn_ismhq pushBack true;
 	};
 } forEach d_mob_respawns;
 
@@ -132,6 +137,7 @@ private _logtxt = "";
 	[_x # 0, _x # 1, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack (_x # 0);
 	d_respawn_posis pushBack (_x # 1);
+	d_respawn_ismhq pushBack false;
 } forEach d_additional_respawn_points;
 
 private _has_sql = 0;
@@ -164,6 +170,7 @@ if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {cou
 	["D_SQL_D", visiblePositionASL _leader, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_SQL_D";
 	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _leader);
+	d_respawn_ismhq pushBack false;
 };
 
 __TRACE_1("","_logtxt")
@@ -173,6 +180,7 @@ if (_logtxt != "") then {
 };
 
 private _can_add_mapclick = true;
+
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
 	__CTRL(100102) ctrlEnable false;
 	_can_add_mapclick = false;
@@ -182,6 +190,10 @@ if (!xr_respawn_available) then {
 };
 
 if (_can_add_mapclick) then {
+	["d_exactpos_radius_mar", [0, 0, 0], "ELLIPSE", "ColorBlack", [40, 40], "", 0, "", "BDiagonal", 1] call d_fnc_CreateMarkerLocal;
+	["d_exactpos_sel_mar", [0, 0, 0], "ICON", "ColorWhite", [1,1], "", 0, "waypoint"] call d_fnc_CreateMarkerLocal;
+	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
+	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
 	d_rmapclick_type = _dtype;
 	d_resp_map_click_eh = addMissionEventHandler ["MapSingleClick", {
 		_this call d_fnc_rmapclick

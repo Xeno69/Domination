@@ -6,6 +6,11 @@
 params ["_v", "_u", ["_m", false]];
 __TRACE_1("","_this")
 
+private _rr = _v getVariable "d_v_not_m";
+if (!isNil "_rr") exitWith {
+	_rr
+};
+
 private _i = _v getVariable (["d_ma_type", "d_icon_type"] select (!_m));
 if (isNil "_i") then {
 	_i = getText (configFile >>"CfgVehicles">>typeOf _v>>"icon");
@@ -28,25 +33,29 @@ if (isNil "_s") then {
 __TRACE_1("","_i")
 
 if (!_m) then {
-	private _a = [0.7, 0.9] select (!isNull _u && {(group _u) isEqualTo (group player)});
+	//private _a = [0.7, 0.9] select (!isNull _u && {(group _u) isEqualTo (group player)});
 
 #ifdef __OWN_SIDE_BLUFOR__
-	private _c = [0, 0.3, 0.6, _a];
+	private _c = [0, 0.3, 0.6, 0.9];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-	private _c = [0.5, 0, 0, _a];
+	private _c = [0.5, 0, 0, 0.9];
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
-	private _c = [0, 0.5, 0, _a];
+	private _c = [0, 0.5, 0, 0.9];
 #endif
 #ifdef __TT__
-	private _c = [0, 0.5, 0, _a];
+	private _c = [0, 0.5, 0, 0.9];
 #endif
-	[_i, _s, _c]
+	private _r = [_i, _s, _c];
+	_v setVariable ["d_v_not_m", _r];
+	_r
 } else {
 #ifdef __DEBUG__
 	_res = [_i, _s, _v getVariable "d_ma_color"];
 	__TRACE_1("","_res")
 #endif
-	[_i, _s, _v getVariable "d_ma_color"]
+	private _r = [_i, _s, _v getVariable "d_ma_color"];
+	_v setVariable ["d_v_not_m", _r];
+	_r
 };

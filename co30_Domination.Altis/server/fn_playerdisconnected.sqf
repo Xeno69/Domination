@@ -17,6 +17,7 @@ if (_uid isEqualTo "") exitWith {};
 if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}) exitWith {
 	diag_log ["DOM playerdisconnected, headless client disconnect: _this", _this];
 	0 spawn {
+		scriptname "spawn pldisconnected";
 		sleep 2;
 		d_hc_array = d_hc_array - [objNull, grpNull];
 		if !(d_hc_array isEqualTo []) then {

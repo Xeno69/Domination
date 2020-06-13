@@ -5,6 +5,15 @@
 
 __TRACE_1("","_this")
 
+// parameters:
+// 0. type of infantry ie-- "specops"
+// 1. _ngr number of groups?
+// 2. _typenr type of unit ie-- "allmen" 
+// 3. _ngr number of groups?
+// 4. _pos_center
+// 5. _radius
+// 6. _do_patrol
+
 private _pos_center = _this select 4;
 if (isNil "_pos_center") exitWith {
 	diag_log "_pos_center in fn_createinf undefined!!!";
@@ -28,10 +37,10 @@ for "_nr" from 0 to 1 do {
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 			private "_pos";
 			if (_radius > 0) then {
-				_pos = [_pos_center, _radius, 0, 0, 0.7, 2] call d_fnc_GetRanPointCircle;
+				_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
 				if (_pos isEqualTo []) then {
 					for "_ee" from 0 to 99 do {
-						_pos = [_pos_center, _radius, 0, 0, 0.7, 2] call d_fnc_GetRanPointCircle;
+						_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
 						if !(_pos isEqualTo []) exitWith {};
 					};
 					if (_pos isEqualTo []) then {
@@ -42,7 +51,7 @@ for "_nr" from 0 to 1 do {
 				_pos = _pos_center;
 			};
 			__TRACE("from createinf")
-			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup] call d_fnc_makemgroup;
+			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true] call d_fnc_makemgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			_newgroup allowFleeing 0;
 			if (!_do_patrol) then {
@@ -56,11 +65,7 @@ for "_nr" from 0 to 1 do {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30], "", 0] spawn d_fnc_MakePatrolWPX;
 			};
 			if (d_with_dynsim == 0) then {
-				_newgroup spawn {
-					scriptName "spawn createinf";
-					sleep 15;
-					_this enableDynamicSimulation true;
-				};
+				[_newgroup, 15] spawn d_fnc_enabledynsim;
 			};
 			_ret_grps pushBack _newgroup;
 			d_x_sm_rem_ar append _units;

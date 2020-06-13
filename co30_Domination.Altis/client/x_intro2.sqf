@@ -51,7 +51,7 @@ if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 
-titleText ["", "BLACK IN", 1.5];
+titleText ["", "BLACK IN", 3];
 if (!isNil "BIS_fnc_establishingShot_fakeUAV") then {
 	camDestroy BIS_fnc_establishingShot_fakeUAV;
 };
@@ -69,7 +69,7 @@ sleep 1;
 "d_DomLabel" cutRsc ["d_DomLabel", "PLAIN"];
 "d_ArmaLogo" cutRsc ["d_ArmaLogo", "PLAIN"];
 sleep 2;
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.10  </t>"], [safeZoneX + 0.1,safeZoneY + safeZoneH - 0.2,0.9,0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.30  </t>"], [safeZoneX + 0.1, safeZoneY + safeZoneH - 0.2, 0.9, 0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 waitUntil {scriptDone _bfehandle};
 enableSaving [false, false];
@@ -120,9 +120,14 @@ sleep 5;
 ] spawn bis_fnc_typeText;
 
 sleep 8;
-"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames "User16", actionKeysNames "User15"], "PLAIN"];
+"d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames d_3dmarker_userakey_str, actionKeysNames d_earplugs_userakey_str], "PLAIN"];
 xr_phd_invulnerable = false;
 
+0 spawn d_fnc_statusbar;
+
+sleep 3;
+
+"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
 
 if (name player == "Error: No unit" || {!isPlayer player}) then {
 	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";
