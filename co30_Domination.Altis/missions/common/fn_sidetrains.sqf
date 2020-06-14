@@ -30,18 +30,18 @@ while {true} do {
 	if ({damage _x >= 0.9 || {!alive _x}} count _trains == _num_t) exitWith {};
 	sleep 5.321;
 	__TRACE_1("","_trains")
-	#ifdef __DEBUG__
+#ifdef __DEBUG__
 	{
 		__TRACE_3("","_x","damage _x","alive _x")
 	} forEach _trains;
-	#endif
+#endif
 	if (d_sm_resolved) exitWith {};
 };
 
 if (!d_sm_resolved) then {
-	#ifndef __TT__
+#ifndef __TT__
 	d_sm_winner = 2;
-	#else
+#else
 	if (d_sm_points_blufor > d_sm_points_opfor) then {
 		d_sm_winner = 2;
 	} else {
@@ -53,6 +53,6 @@ if (!d_sm_resolved) then {
 			};
 		};
 	};
-	#endif
+#endif
 };
 d_sm_resolved = true;

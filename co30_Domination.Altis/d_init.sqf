@@ -125,54 +125,70 @@ if (d_with_dynsim == 0) then {
 	enableDynamicSimulationSystem false;
 };
 
+private _allmissobjs = allMissionObjects "FlagCarrier";
+d_all_farp_flags = _allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
+
 if (isServer) then {
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
 	private _allMapMarkers = allMapMarkers select {_x select [0, 20] isEqualTo "d_player_ammobox_pos"};
 
-	private _fnc_boxset = {
-		params ["_ma"];
-		private _bpos = markerPos _ma;
-		private _box = createVehicle [d_the_base_box, _bpos, [], 0, "NONE"];
-		_box setPos _bpos;
-		_box setDir (markerDir _ma);
-		if (surfaceIsWater _bpos) then {
-			// we assume it is the carrier
-			private _aslh = d_the_carrier getVariable "d_asl_height";
-			if (!isNil "_aslh") then {
-				_box setPosASL [_bpos # 0, _bpos # 1, _aslh];
+#ifndef __TT__
+	private _farpmarkers = allMapMarkers select {_x select [0, 13] == "d_farp_marker"};
+
+	d_player_ammoboxes = [];
+	private _smmcounter = 1243;
+	private _remf = [];
+	private _icounter = 1;
+	{
+		private _mark = _x;
+		private _markerpos = markerPos _mark;
+		private _idxflag = -1;
+		if (_markerpos distance2D d_the_carrier > 300) then {
+			_idxflag = d_all_farp_flags findIf {_markerpos distance2D _x < 20};
+			if (_idxflag != -1) then {
+				if (isNil {(d_all_farp_flags # _idxflag) getVariable "d_farptaken"}) then {
+					(d_all_farp_flags # _idxflag) setVariable ["d_farp_aboxmarker", _mark];
+					_mark setMarkerAlpha 0;
+					private _name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter, true];
+					(d_all_farp_flags # _idxflag) setVariable ["d_name", _name];
+					_icounter = _icounter + 1;
+				} else {
+					_idxflag = -1;
+				};
+			};
+			if (_idxflag != -1) then {
+				private _idx = _farpmarkers findIf {_markerpos distance2D markerPos _x < 20};
+				if (_idx != -1) then {
+					(d_all_farp_flags # _idxflag) setVariable ["d_farp_marker", _farpmarkers # _idx];
+					(_farpmarkers # _idx) setMarkerAlpha 0;
+				};
 			};
 		};
-		_box setVariable ["d_bpos", getPosASL _box];
-		_box setVariable ["d_bdir", markerDir _ma];
-		clearWeaponCargoGlobal _box;
-		clearMagazineCargoGlobal _box;
-		clearBackpackCargoGlobal _box;
-		clearItemCargoGlobal _box;
-		_box enableRopeAttach false;
-		_box enableSimulationGlobal false;
-		_box addEventhandler ["killed", {_this call d_fnc_playerboxkilled}];
-		_box
-	};
-
-#ifndef __TT__
-	d_player_ammoboxes = [];
-	{
-		d_player_ammoboxes pushBack ([_x] call _fnc_boxset);
+		if (_idxflag == -1) then {
+			d_player_ammoboxes pushBack ([_x] call d_fnc_aboxcreate);
+		} else {
+			[format ["d_smm|%1|farp", _smmcounter], (d_all_farp_flags # _idxflag), "ICON", "ColorBlack", [1, 1], "", 0, "Empty"] call d_fnc_CreateMarkerGlobal;
+			_smmcounter = _smmcounter + 1;
+			_remf pushBack (d_all_farp_flags # _idxflag);
+		};
 	} forEach _allMapMarkers;
+	if !(_remf isEqualTo []) then {
+		d_all_farp_flags = d_all_farp_flags - _remf;
+	};
 #else
 	d_player_ammoboxes = [[], []];
 
 	private _tempar = d_player_ammoboxes # 1;
 	private _rem = _allMapMarkers select {_x select [0, 22] isEqualTo "d_player_ammobox_pos_e"};
 	{
-		_tempar pushBack ([_x] call _fnc_boxset);
+		_tempar pushBack ([_x] call d_fnc_aboxcreate);
 	} forEach _rem;
 	_allMapMarkers = _allMapMarkers - _rem;
 
 	_tempar = d_player_ammoboxes # 0;
 	{
-		_tempar pushBack ([_x] call _fnc_boxset);
+		_tempar pushBack ([_x] call d_fnc_aboxcreate);
 	} forEach _allMapMarkers;
 #endif
 	publicVariable "d_player_ammoboxes";
@@ -604,7 +620,6 @@ if (hasInterface) then {
 	private _icounter_o = 0;
 	private _icounter_b = 0;
 	private _icounter_i = 0;
-	private _allmissobjs = allMissionObjects "FlagCarrier";
 	{
 		private _side = _x getVariable ["d_flagside", blufor];
 		private _name = _x getVariable "d_name";
@@ -624,7 +639,8 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x];
-	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"});
+	} forEach d_all_farp_flags;
+	d_all_farp_flags = nil;
 	_icounter_o = 0;
 	_icounter_b = 0;
 	_icounter_i = 0;

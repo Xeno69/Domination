@@ -65,3 +65,28 @@ if (_type == 1) exitWith {
 		/* 14 show unconscious */			false
 	] call bis_fnc_holdActionAdd;
 };
+
+if (_type == 2) exitWith {
+	private _idx = [
+		/* 0 object */						_obj,
+		/* 1 action title */				localize "STR_DOM_MISSIONSTRING_2031",
+		/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
+		/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
+		/* 4 condition to show */			"!d_sm_farpseized && {player distance2D _target <= 6 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}}",
+		/* 5 condition for action */		"true",
+		/* 6 code executed on start */		{systemChat (localize "STR_DOM_MISSIONSTRING_2032")},
+		/* 7 code executed per tick */		{},
+		/* 8 code executed on completion */	{
+			d_sm_farpseized = true;
+			publicVariable "d_sm_farpseized";
+			systemChat (localize "STR_DOM_MISSIONSTRING_2030");
+		},
+		/* 9 code executed on interruption */	{},
+		/* 10 arguments */					[],
+		/* 11 action duration */			12,
+		/* 12 priority */					-1,
+		/* 13 remove on completion */		true,
+		/* 14 show unconscious */			false
+	] call bis_fnc_holdActionAdd;
+	_obj setVariable ["d_sm_holdactionidx", _idx];
+};

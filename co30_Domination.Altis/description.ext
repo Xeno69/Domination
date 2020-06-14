@@ -141,6 +141,7 @@ class CfgRemoteExec {
 		class d_fnc_mhq_net {allowedTargets = 2;};
 		class d_fnc_at_serv {allowedTargets = 2;};
 		class d_fnc_air_box {allowedTargets = 1;};
+		class d_fnc_ccreateboxfarp {allowedTargets = 1;};
 		class d_fnc_the_end {allowedTargets = 1;};
 		class d_fnc_doarti {allowedTargets = 1;};
 		class d_fnc_updatesupportrsc {allowedTargets = 1;};
@@ -210,6 +211,7 @@ class CfgRemoteExec {
 		class d_fnc_scoreadded {allowedTargets = 1;};
 		class d_fnc_sub_box {allowedTargets = 2;};
 		class d_fnc_csidechat {allowedTargets = 1;};
+		class d_fnc_remactionssm {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

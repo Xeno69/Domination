@@ -159,7 +159,10 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 		[d_x_sm_pos # 0, _sm_ar # 7, [d_sm_ammotrucktype, d_sm_fueltrucktype, d_sm_cargotrucktype], false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, true, true] spawn d_fnc_sideobjects;
 	};
 	case "gleak": {
-		[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_gleak;
+		[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidegleak;
+	};
+	case "farp": {
+		[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideseizefarp;
 	};
 };
 

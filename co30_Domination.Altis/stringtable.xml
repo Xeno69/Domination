@@ -13357,6 +13357,54 @@
 <Chinese>Attention: Guerrilla tanks are moving into the city.</Chinese>
 <French>Attention: Guerrilla tanks are moving into the city.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2029">
+<English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
+<Spanish>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Spanish>
+<Portuguese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Portuguese>
+<Korean>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Korean>
+<Japanese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Japanese>
+<Original>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Original>
+<Russian>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Russian>
+<Chinesesimp>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Chinesesimp>
+<Chinese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Chinese>
+<French>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2030">
+<English>Congrats, you have taken back the farp! It's now available as a respawn point again.</English>
+<Spanish>Congrats, you have taken back the farp! It's now available as a respawn point again.</Spanish>
+<Portuguese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Portuguese>
+<Korean>Congrats, you have taken back the farp! It's now available as a respawn point again.</Korean>
+<Japanese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Japanese>
+<Original>Congrats, you have taken back the farp! It's now available as a respawn point again.</Original>
+<Russian>Congrats, you have taken back the farp! It's now available as a respawn point again.</Russian>
+<Chinesesimp>Congrats, you have taken back the farp! It's now available as a respawn point again.</Chinesesimp>
+<Chinese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Chinese>
+<French>Congrats, you have taken back the farp! It's now available as a respawn point again.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2031">
+<English>Retake Farp</English>
+<Spanish>Retake Farp</Spanish>
+<Portuguese>Retake Farp</Portuguese>
+<Korean>Retake Farp</Korean>
+<Japanese>Retake Farp</Japanese>
+<Original>Retake Farp</Original>
+<Russian>Retake Farp</Russian>
+<Chinesesimp>Retake Farp</Chinesesimp>
+<Chinese>Retake Farp</Chinese>
+<French>Retake Farp</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2032">
+<English>Retaking Farp... Please wait!</English>
+<Spanish>Retaking Farp... Please wait!</Spanish>
+<Portuguese>Retaking Farp... Please wait!</Portuguese>
+<Korean>Retaking Farp... Please wait!</Korean>
+<Japanese>Retaking Farp... Please wait!</Japanese>
+<Original>Retaking Farp... Please wait!</Original>
+<Russian>Retaking Farp... Please wait!</Russian>
+<Chinesesimp>Retaking Farp... Please wait!</Chinesesimp>
+<Chinese>Retaking Farp... Please wait!</Chinese>
+<French>Retaking Farp... Please wait!</French>
+</Key>
 </Container>
 </Package>
 </Project>

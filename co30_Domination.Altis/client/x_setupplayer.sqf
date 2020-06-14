@@ -70,7 +70,11 @@ d_player_vecs = [];
 
 disableMapIndicators [true, true, false, false];
 
-if !(d_additional_respawn_points isEqualTo []) then {
+d_additional_respawn_points_orig =+ d_additional_respawn_points;
+
+call d_fnc_buildaddrespoints;
+
+/*if !(d_additional_respawn_points isEqualTo []) then {
 	private _helparrp = [];
 	{
 		_helparrp pushBack [_x # 2, _forEachIndex];
@@ -145,6 +149,7 @@ if !(d_additional_respawn_points isEqualTo []) then {
 		d_add_resp_points_pos pushBack (_x # 1);
 	} forEach d_additional_respawn_points;
 };
+*/
 
 if (d_WithRevive == 1 && {!d_with_ace}) then {
 	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
@@ -711,11 +716,7 @@ if (isNil "d_the_carrier") then {
 };
 
 {
-	player reveal _x;
-	[_x] call d_fnc_weaponcargo;
-	_x enableRopeAttach false;
-	_x allowDamage false;
-	[format ["d_pab_%1", _x], _x, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerLocal;
+	[objNull, _x] call d_fnc_ccreateboxfarp;
 #ifndef __TT__
 } forEach d_player_ammoboxes;
 #else

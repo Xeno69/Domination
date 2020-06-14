@@ -109,6 +109,7 @@ class cfgFunctions {
 			addc(clean_craters);
 			addc(RemABoxC);
 			addc(air_box);
+			addc(ccreateboxfarp);
 			addc(the_end);
 			addc(doarti);
 			addc(sm_res_client);
@@ -185,6 +186,7 @@ class cfgFunctions {
 			addc(jail);
 			addc(repackgard);
 			addc(blockthermalnv);
+			addc(buildaddrespoints);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -365,6 +367,7 @@ class cfgFunctions {
 			addc(trigwork);
 			addc(createtrigsm);
 			addc(smcough);
+			addc(remactionssm);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
@@ -388,7 +391,8 @@ class cfgFunctions {
 			addc(sideobjects);
 			addc(sidetransferdata);
 			addc(sidecache);
-			addc(gleak);
+			addc(sidegleak);
+			addc(sideseizefarp);
 		};
 		class Dom_MainTarget_Events {
 			file = "missions\events";
@@ -571,6 +575,7 @@ class cfgFunctions {
 			addc(makteolpmttargets);
 			addc(serverinit);
 			addc(lastchance);
+			addc(aboxcreate);
 		};
 		class Dom_PrePostInit {
 			file = "init";
