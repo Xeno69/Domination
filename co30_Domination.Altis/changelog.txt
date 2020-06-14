@@ -2,6 +2,8 @@
 
 ATTENTION: Altis Blufor Carrier, Chernarus (autumn), Chernarus (winter) and both Weferlingen mission.sqm files have changed
 
+ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL database has a new row called d_retaken_farpspos, VARCHAR, 1000, no null
+
 - Added: New server lobby param/description.ext param to disable transfer of points from one player to another in ranked mode ("Allow transfer of points to other players in ranked mode:", d_transf_allow)
 - Added: New server lobby param/description.ext param to disable AO tower and camps markers ("Turn off markers at AO for tower and camps:", d_ao_markers)
 - Added: TT gameplay change: When all camps are seized and all barracks are destroyed by one side a one minute timer will run to give the other team a chance to retake a camp (timer visual on screen)

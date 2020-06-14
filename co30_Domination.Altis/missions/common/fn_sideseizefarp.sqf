@@ -23,9 +23,6 @@ d_sm_farpseized = false;
 publicVariable "d_sm_farpseized";
 [_flag, 2] remoteExecCall ["d_fnc_addactionssm", [0, -2] select isDedicated, _flag];
 
-_createarmor = false;
-_createinf = false;
-
 if (_createarmor) then {
 	__TRACE("Creating armor")
 	sleep 2.22;

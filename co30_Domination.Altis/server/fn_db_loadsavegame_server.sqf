@@ -159,6 +159,33 @@ d_bonus_vecs_db = _ar # 9;
 	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
 } forEach d_bonus_vecs_db;
+
+d_retaken_farpspos = _ar # 12;
+if !(d_retaken_farpspos isEqualTo []) then {
+	private _allflags = (allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
+	{
+		private _poss = _x;
+		private _flag = objNull;
+		private _idx = _allflags findIf {
+			private _ret = _x distance2D _poss < 50;
+			if (_ret) then {
+				_flag = _x;
+			};
+			_ret
+		};
+		if (_idx != -1) then {
+			private _box = [_flag getVariable "d_farp_aboxmarker"] call d_fnc_aboxcreate;
+			[_flag, _box] remoteExecCall ["d_fnc_ccreateboxfarp", [0, -2] select isDedicated];
+			d_player_ammoboxes pushBack _box;
+			publicVariable "d_player_ammoboxes";
+
+			private _ma = _flag getVariable "d_farp_marker";
+			if (!isNil "_ma") then {
+				_ma setMarkerAlpha 1;
+			};
+		};
+	} forEach d_retaken_farpspos;
+};
 #else
 d_maintargets = _ar # 0;
 publicVariable "d_maintargets";
