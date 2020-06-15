@@ -22,7 +22,6 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Changed: Removed jump flags created at seized main targets in the TT version
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
-- Changed: Russian translation updated, by Babayka
 - Changed: Award points, for example points a player gets for destroying a barrack building, can now be changed in d_addscore_a array (available in initcommon.sqf and database dom_settings table). Only available in ranked and database mode
 - Changed: Removed d_with_targetselect/"Players can select next main target:" and integrated it in d_with_targetselect_count/"Players can select from available targets:"
 - Changed: There is now also an enemy AI vehicle MHQ at main targets in the TT version like it is in the normal coop version
@@ -44,3 +43,5 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Fixed: The GMCWG winter version did use some wrong class names for winter units
 - Fixed: The Chernarus autumn and winter versions still had the editor placed Teleporter marker at base
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
+- Updated: Russian translation by Babayka
+- Updated: Chineseimp translation by CHL198011
