@@ -40,7 +40,7 @@ while {!d_sm_farpseized && {!d_sm_resolved}} do {
 	sleep 2.5;
 };
 
-_flag setVariable ["d_farptaken", true];
+_flag setVariable ["d_farptaken", true, true];
 
 [_flag] remoteExecCall ["d_fnc_remactionssm", [0, -2] select isDedicated];
 remoteExecCall ["", _flag];
@@ -58,8 +58,6 @@ if (!isNil "_ma") then {
 };
 
 // 1243 - 1245
-
-//TODO Save retaken FARPs to SQL database -> d_retaken_farpspos
 
 d_sm_farpseized = nil;
 
