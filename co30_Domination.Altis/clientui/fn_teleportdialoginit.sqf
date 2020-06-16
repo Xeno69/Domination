@@ -59,6 +59,7 @@ d_respawn_posis = [];
 d_respawn_ismhq = [];
 
 if (_addbase) then {
+	__TRACE_1("","_addbase")
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1251");
 	_listctrl lbSetData [_cidx, "D_BASE_D"];
 	_selidx = _cidx;
@@ -172,6 +173,9 @@ if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {cou
 	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _leader);
 	d_respawn_ismhq pushBack false;
 };
+
+__TRACE_1("","d_respawn_posis")
+__TRACE_1("","d_respawn_posis")
 
 __TRACE_1("","_logtxt")
 

@@ -150,7 +150,7 @@ if (isServer) then {
 					(_all_farp_flags # _idxflag) setVariable ["d_farp_aboxmarker", _mark];
 					_mark setMarkerAlpha 0;
 					private _name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter, true];
-					(_all_farp_flags # _idxflag) setVariable ["d_name", _name];
+					(_all_farp_flags # _idxflag) setVariable ["d_name", _name, true];
 					_icounter = _icounter + 1;
 				} else {
 					_idxflag = -1;
@@ -621,6 +621,7 @@ if (hasInterface) then {
 	private _icounter_o = 0;
 	private _icounter_b = 0;
 	private _icounter_i = 0;
+	private _allmissobjs = allMissionObjects "FlagCarrier";
 	{
 		private _side = _x getVariable ["d_flagside", blufor];
 		private _name = _x getVariable "d_name";
@@ -640,7 +641,7 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x];
-	} forEach (((allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) select {!isNil {_x getVariable "d_farptaken"}});
+	} forEach ((_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) select {!isNil {_x getVariable "d_farptaken"}});
 	_icounter_o = 0;
 	_icounter_b = 0;
 	_icounter_i = 0;
@@ -663,7 +664,7 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
-	} forEach (((allMissionObjects "FlagCarrier")) select {(str _x) select [0, 9] isEqualTo "d_respawn_point"});
+	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_respawn_point"});
 
 	if (d_with_ranked) then {
 		if (d_rhs) then {

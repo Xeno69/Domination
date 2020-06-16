@@ -1,4 +1,5 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_ccreateboxfarp.sqf"
 #include "..\x_setup.sqf"
 
@@ -15,5 +16,6 @@ _box allowDamage false;
 if (isNull _flag) exitWith {};
 
 d_additional_respawn_points_orig pushBack [format ["d_add_farp_%1", _flag], str _flag, _flag getVariable "d_name", blufor, d_vec_at_farp == 0, getPosASL _flag];
+__TRACE_1("","d_additional_respawn_points_orig")
 
 call d_fnc_buildaddrespoints;

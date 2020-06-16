@@ -11,6 +11,7 @@ if !(d_additional_respawn_points_orig isEqualTo []) then {
 		_helparrp pushBack [_x # 2, _forEachIndex];
 	} forEach d_additional_respawn_points_orig;
 	_helparrp sort true;
+	__TRACE_1("","_helparrp")
 
 	private _tempar =+ d_additional_respawn_points_orig;
 	__TRACE_1("","_tempar")
@@ -85,6 +86,8 @@ if !(d_additional_respawn_points_orig isEqualTo []) then {
 		deleteMarkerLocal _x;
 	} forEach (allMapMarkers select {_x select [0, 15] == _whichm});
 #endif
+	__TRACE_1("","d_additional_respawn_points")
+	__TRACE_1("","d_add_resp_points_uni")
 	d_add_resp_points_pos pushBack (getPos D_FLAG_BASE);
 	{
 		d_add_resp_points_pos pushBack (_x # 1);
