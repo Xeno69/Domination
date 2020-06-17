@@ -641,7 +641,11 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x];
+#ifndef __TT__
 	} forEach ((_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) select {!isNil {_x getVariable "d_farptaken"}});
+#else
+	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"});
+#endif
 	_icounter_o = 0;
 	_icounter_b = 0;
 	_icounter_i = 0;
