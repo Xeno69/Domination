@@ -640,7 +640,7 @@ if (hasInterface) then {
 			};
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
-		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x];
+		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x, _x];
 #ifndef __TT__
 	} forEach ((_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) select {!isNil {_x getVariable "d_farptaken"}});
 #else
@@ -667,7 +667,7 @@ if (hasInterface) then {
 			};
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
-		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x];
+		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x, _x];
 	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_respawn_point"});
 
 	if (d_with_ranked) then {

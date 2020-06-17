@@ -31,6 +31,7 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Changed: Added d_number_attack_planes, d_number_attack_choppers, d_number_light_attack_choppers, d_number_attack_uavs, d_noambient_bf_sounds, d_time_until_next_sidemission and d_airai_respawntime to dom_settings table, means, those values can now be changed in the Domination SQL database
 - Changed: Transfer data sidemissions should now also work in the TT version
 - Changed: Gameplay change. In the normal non TT versions FARPs are no longer available at mission start. They now have to be retaken in side missions to make them available for respawn.
+- Changed: Pylon loadout no longer available at FARPs, only at bases and additional respawn points
 - Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
 - Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
 - Fixed: When a player changed the TeamSwitch key in the A3 settings when the mission was running the mission didn't pick up the new key

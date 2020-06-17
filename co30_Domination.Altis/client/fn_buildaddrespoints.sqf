@@ -90,6 +90,8 @@ if !(d_additional_respawn_points_orig isEqualTo []) then {
 	__TRACE_1("","d_add_resp_points_uni")
 	d_add_resp_points_pos pushBack (getPos D_FLAG_BASE);
 	{
-		d_add_resp_points_pos pushBack (_x # 1);
+		if (isNil {(_x # 6) getVariable "d_farptaken"}) then {
+			d_add_resp_points_pos pushBack (_x # 1);
+		};
 	} forEach d_additional_respawn_points;
 };
