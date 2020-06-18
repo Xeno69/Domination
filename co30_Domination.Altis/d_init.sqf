@@ -139,11 +139,15 @@ if (isServer) then {
 	private _smmcounter = 1243;
 	private _remf = [];
 	private _icounter = 1;
+	private _the_carrier = d_the_carrier;
+	if (isNil "_the_carrier") then {
+		_the_carrier = [0,0,0];
+	};
 	{
 		private _mark = _x;
 		private _markerpos = markerPos _mark;
 		private _idxflag = -1;
-		if (_markerpos distance2D d_the_carrier > 200) then {
+		if (_markerpos distance2D _the_carrier > 200) then {
 			_idxflag = _all_farp_flags findIf {_markerpos distance2D _x < 20};
 			if (_idxflag != -1) then {
 				if (isNil {(_all_farp_flags # _idxflag) getVariable "d_farptaken"}) then {
