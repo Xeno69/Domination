@@ -21,7 +21,13 @@ clearMagazineCargoGlobal _vec;
 clearBackpackCargoGlobal _vec;
 clearItemCargoGlobal _vec;
 _vec addItemCargoGlobal ["ToolKit",1];
-_vec addItemCargoGlobal ["FirstAidKit",3];
+call {
+	if (d_gmcwg) exitWith {
+		_vec addItemCargoGlobal ["gm_ge_army_gauzeBandage", 3];
+		_vec addItemCargoGlobal ["gm_ge_army_burnBandage", 3];
+	};
+	_vec addItemCargoGlobal ["FirstAidKit", 3];
+};
 _vec setVariable ["d_liftit", true, true];
 d_x_sm_vec_rem_ar pushBack _vec;
 

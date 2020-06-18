@@ -13,4 +13,7 @@ if (d_without_nvg == 0) then {
 
 if (d_no_faks == 0) then {
 	_this removeItems "FirstAidKit";
+	if (d_gmcwg) then {
+		_this removeItems "gm_ge_army_gauzeBandage";
+	};
 };
