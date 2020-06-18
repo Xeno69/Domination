@@ -8,7 +8,7 @@ private _bpos = markerPos _ma;
 private _box = createVehicle [d_the_base_box, _bpos, [], 0, "NONE"];
 _box setPos _bpos;
 _box setDir (markerDir _ma);
-if (surfaceIsWater _bpos) then {
+if (surfaceIsWater _bpos && {!isNil "d_the_carrier"}) then {
 	// we assume it is the carrier
 	private _aslh = d_the_carrier getVariable "d_asl_height";
 	if (!isNil "_aslh") then {

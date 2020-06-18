@@ -74,6 +74,8 @@ if (_dbresult isEqualTo []) exitWith {
 
 _dbresult params ["_ar"];
 
+__TRACE_1("","_ar")
+
 #ifndef __TT__
 d_maintargets = _ar # 0;
 publicVariable "d_MainTargets";
@@ -160,7 +162,11 @@ d_bonus_vecs_db = _ar # 9;
 	d_bonus_vecs_db set [_forEachIndex, _vec];
 } forEach d_bonus_vecs_db;
 
-d_retaken_farpspos = _ar # 12;
+d_retaken_farpspos = if (count _ar >= 12) then {
+	_ar # 12
+} else {
+	[]
+};
 if !(d_retaken_farpspos isEqualTo []) then {
 	private _allflags = (allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
 	{
