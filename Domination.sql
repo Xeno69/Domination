@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `dom_settings` (
 /*!40000 ALTER TABLE `dom_settings` DISABLE KEYS */;
 INSERT IGNORE INTO `dom_settings` (`name`, `value`) VALUES
 	('d_use_sql_settings', 'true'),
-	('d_db_auto_save', 'false'),
+	('d_db_auto_save', 'true'),
 	('d_reserved_slot', '[]'),
 	('d_uid_reserved_slots', '[]'),
 	('d_uids_for_reserved_slots', '[]'),
