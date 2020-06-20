@@ -163,10 +163,11 @@ d_bonus_vecs_db = _ar # 9;
 } forEach d_bonus_vecs_db;
 
 d_retaken_farpspos = if (count _ar >= 12) then {
-	_ar # 12
+	_ar # 11
 } else {
 	[]
 };
+__TRACE_1("","d_retaken_farpspos")
 if !(d_retaken_farpspos isEqualTo []) then {
 	private _allflags = (allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
 	{
@@ -179,6 +180,7 @@ if !(d_retaken_farpspos isEqualTo []) then {
 			};
 			_ret
 		};
+		__TRACE_3("","_poss","_idx","_flag")
 		if (_idx != -1) then {
 			private _box = [_flag getVariable "d_farp_aboxmarker"] call d_fnc_aboxcreate;
 			[_flag, _box] remoteExecCall ["d_fnc_ccreateboxfarp", [0, -2] select isDedicated];
@@ -189,6 +191,7 @@ if !(d_retaken_farpspos isEqualTo []) then {
 			if (!isNil "_ma") then {
 				_ma setMarkerAlpha 1;
 			};
+			_flag setVariable ["d_farptaken", true, true];
 		};
 	} forEach d_retaken_farpspos;
 };

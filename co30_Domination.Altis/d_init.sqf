@@ -627,6 +627,10 @@ if (hasInterface) then {
 	private _icounter_i = 0;
 	private _allmissobjs = allMissionObjects "FlagCarrier";
 	{
+#ifndef __TT__
+		private _fla = _x;
+		if (d_additional_respawn_points isEqualTo [] || {d_additional_respawn_points findIf {(_x # 7) == _fla} == -1}) Then {
+#endif
 		private _side = _x getVariable ["d_flagside", blufor];
 		private _name = _x getVariable "d_name";
 		if (isNil "_name") then {
@@ -644,8 +648,10 @@ if (hasInterface) then {
 			};
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1762", _icounter];
 		};
+		__TRACE_2("","_x","_name")
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x, _x];
 #ifndef __TT__
+		};
 	} forEach ((_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) select {!isNil {_x getVariable "d_farptaken"}});
 #else
 	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"});
