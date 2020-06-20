@@ -14,6 +14,12 @@ if !(isServer) exitWith {};
 if (true) exitWith {};
 #endif
 
+private _eventArmor = "I_MBT_03_cannon_F";
+
+#ifdef __IFA3LITE__
+_eventArmor = "LIB_StuG_III_G";
+#endif
+
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _chosen = false;
@@ -53,7 +59,7 @@ if (_roadList isEqualTo []) exitWith {
 };
 
 for "_i" from 1 to 2 do {
-	private _veh = createVehicle ["I_MBT_03_cannon_F", _roadList select _i, [], 0, "NONE"];
+	private _veh = createVehicle [_eventArmor, _roadList select _i, [], 0, "NONE"];
 	d_x_mt_event_ar pushBack _veh;
 	_veh call d_fnc_nodamoff;
 	sleep 3;
