@@ -65,11 +65,10 @@ if (!xr_pl_no_lifes) then {
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
-		_helperls pushBack [-100, xr_name_player, xr_strpl, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudgroupcolor];
+		_helperls pushBack [-100, xr_name_player, xr_strpl, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
 	};
 
 	private _vecpplxp = vehicle player;
-	private _grppl = group player;
 	private ["_dist", "_pic"];
 	{
 		_dist = (vehicle _x) distance2D _vecpplxp;
@@ -77,7 +76,7 @@ if (!xr_pl_no_lifes) then {
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
-		_helperls pushBack [_dist, format [(_x call _fnc_gpn) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [d_pnhudothercolor, d_pnhudgroupcolor] select (group _x == _grppl)];
+		_helperls pushBack [_dist, format [(_x call _fnc_gpn) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
 	} forEach (d_allplayers select {_x != player});
 
 } else {
@@ -90,7 +89,7 @@ if (!xr_pl_no_lifes) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [_distup, _x call _fnc_gpn, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), d_pnhudothercolor];
+			_helperls pushBack [_distup, _x call _fnc_gpn, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
 		};
 	} forEach (d_allplayers select {_x != player});
 };

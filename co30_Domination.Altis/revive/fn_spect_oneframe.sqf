@@ -55,8 +55,6 @@ if (xr_MouseButtons # 0) then {
 private _fnc_gpln = d_fnc_getplayername;
 private _helperls = [];
 if (time > xr_spect_timer) then {
-	private _pnhudothercolor = d_pnhudothercolor;
-	private _pnhudgroupcolor = d_pnhudgroupcolor;
 	__TRACE_1("","xr_spect_timer")
 	if (!xr_pl_no_lifes) then {
 		if (xr_x_withresp) then {
@@ -64,11 +62,10 @@ if (time > xr_spect_timer) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [-100, xr_name_player, xr_strpl, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), _pnhudgroupcolor];
+			_helperls pushBack [-100, xr_name_player, xr_strpl, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
 		};
 		
 		private _vecp = vehicle player;
-		private _grppl = group player;
 		private ["_dist", "_pic"];
 		{
 			_dist = (vehicle _x) distance2D _vecp;
@@ -76,7 +73,7 @@ if (time > xr_spect_timer) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [_dist, format ["%3 (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false]), _x call _fnc_gpln], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [_pnhudothercolor, _pnhudgroupcolor] select (group _x == _grppl)];
+			_helperls pushBack [_dist, format ["%3 (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false]), _x call _fnc_gpln], str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
 		} forEach (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
@@ -88,7 +85,7 @@ if (time > xr_spect_timer) then {
 				if (_pic != "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
-				_helperls pushBack [_distup, _x call _fnc_gpln, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), _pnhudothercolor];
+				_helperls pushBack [_distup, _x call _fnc_gpln, str _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
 			};
 		} forEach (d_allplayers select {_x != player});
 	};

@@ -9,7 +9,7 @@ d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable ["xr_pluncon", false])}) then {
 		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
-		[group player, positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_pnhudothercolor, d_pnhudgroupcolor, d_fnc_getplayername, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_grpp", "_cam2world", "_d_pn_hud", "_s_p_namesx", "_pnhoc", "_pnhgc", "_fnc_gpn", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
+		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_getplayername, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_gpn", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
 		{
 			_distu = _cam2world distance _x;
 			if (_distu <= _d_pn_hud) then {
@@ -43,13 +43,17 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 							};
 							if (isNil "_tex") then {_tex = _x call _fnc_gpn};
 							_hh = _x call _nfc_grp;
-							_rtex = _hh # 0;
-							_rsize = _hh # 1;
+							if (_hh isEqualType []) then {
+								_rtex = _hh # 0;
+								_rsize = _hh # 1;
+							};
 						} else {
 							_tex = "*";
 							_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 						};
-						d_pl_name_huddo_ar pushBack [_rtex, [_pnhoc, _pnhgc] select (group _x == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+						if (!isNil "_rtex") then {
+							d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+						};
 					};
 				};
 			};

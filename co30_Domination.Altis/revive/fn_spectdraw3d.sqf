@@ -5,15 +5,12 @@
 
 #define __d_textsize_dr3d  0.03333
 
-private _grpp = group player;
 private _cam2world = positionCameraToWorld [0,0,0];
 private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
 private _d_pn_hud = d_dist_pname_hud;
 private _fnc_ispl = d_fnc_isplayer;
 private _fnc_ghpn = d_fnc_gethpname;
 private _fnc_grp = d_fnc_getrankpic;
-private _phudoc = d_pnhudothercolor;
-private _phudgc = d_pnhudgroupcolor;
 {
 	_distu = _cam2world distance _x;
 	if (_distu <= _d_pn_hud) then {
@@ -35,17 +32,22 @@ private _phudgc = d_pnhudgroupcolor;
 				//_tex = "";
 				//_rtex = "";
 				_rsize = 0.4;
+				private _rtex = "";
 				if (_distu <= 200) then {
 					_tex = [_x] call _fnc_ghpn;
 					if (isNil "_tex") then {_tex = _x call _fnc_gpn};
 					_hh = _x call _nfc_grp;
-					_rtex = _hh # 0;
-					_rsize = _hh # 1;
+					if (_hh isEqualType []) then {
+						_rtex = _hh # 0;
+						_rsize = _hh # 1;
+					};
 				} else {
 					_tex = "*";
 					_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 				};
-				drawIcon3D [_rtex, [_phudoc, _phudgc] select (group _x == _grpp), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
+				if (!isNil "_rtex") then {
+					drawIcon3D [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
+				};
 			};
 		};
 	};
