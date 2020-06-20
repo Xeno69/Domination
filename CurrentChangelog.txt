@@ -43,6 +43,7 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Fixed: "Data uploaded!" message was displayed when the data upload was iterrupted and not when the data was uploaded in the transfer data sidemisssions
 - Fixed: The GMCWG winter version did use some wrong class names for winter units
 - Fixed: The Chernarus autumn and winter versions still had the editor placed Teleporter marker at base
+- Fixed: Script error in StatusDialog
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
 - Updated: Russian translation by Babayka
 - Updated: Chineseimp translation by CHL198011

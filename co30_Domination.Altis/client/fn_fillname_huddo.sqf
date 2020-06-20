@@ -43,17 +43,13 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 							};
 							if (isNil "_tex") then {_tex = _x call _fnc_gpn};
 							_hh = _x call _nfc_grp;
-							if (_hh isEqualType []) then {
-								_rtex = _hh # 0;
-								_rsize = _hh # 1;
-							};
+							_rtex = _hh # 0;
+							_rsize = _hh # 1;
 						} else {
 							_tex = "*";
 							_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 						};
-						if (!isNil "_rtex") then {
-							d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
-						};
+						d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 					};
 				};
 			};

@@ -6,7 +6,7 @@
 private _xm = _this getVariable "d_isxman";
 if (isNil "_xm") then {
 	private _c = _this getVariable "d_pl_ra_pi";
-	if (isNil "_c") then {
+	if (isNil "_c" || {_c isEqualType ""}) then {
 		private _r = _this getVariable "d_player_old_rank";
 		if (!isNil "_r") then {
 			if (_r <= 6) exitWith {
@@ -38,8 +38,8 @@ if (isNil "_xm") then {
 } else {
 	private _r = _this getVariable "d_6star";
 	if (isNil "_r") then {
-		_r = getMissionPath "pics\6star.paa";
-		_this setVariable ["d_6star", [_r, 0.7]];
+		_r = [getMissionPath "pics\6star.paa", 0.7];
+		_this setVariable ["d_6star", _r];
 	};
 	_r
 };
