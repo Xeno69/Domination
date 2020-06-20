@@ -1,6 +1,6 @@
 4.30
 
-ATTENTION: Altis Blufor Carrier, Chernarus (autumn), Chernarus (winter), Chernarus 2020 and both Weferlingen mission.sqm files have changed
+ATTENTION: Altis Blufor Carrier, Chernarus (autumn), Chernarus (winter), Chernarus 2020, Malden and both Weferlingen mission.sqm files have changed
 
 ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL database has a new row called d_retaken_farpspos, VARCHAR, 1000, no null
 
