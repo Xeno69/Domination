@@ -19,9 +19,10 @@ __TRACE_1("","_allmissiono")
 } forEach (_allmissiono select {(str _x) select [0, 17] isEqualTo "d_chopper_trigger"});
 
 {
+	private _height = [10, 20] select (surfaceIsWater (getPosASL _x));
 	private _trig = [
 		_x,
-		[5.5, 5.5, getDir _x, true, 10],
+		[5.5, 5.5, getDir _x, true, _height],
 		["ANY", "PRESENT", true],
 		["[thislist, thisTrigger] call d_fnc_tvecservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""]
 	] call d_fnc_createtriggerlocal;
