@@ -45,6 +45,7 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Fixed: The GMCWG winter version did use some wrong class names for winter units
 - Fixed: The Chernarus autumn and winter versions still had the editor placed Teleporter marker at base
 - Fixed: Script error in StatusDialog
+- Fixed: Cache side mission now really works, no more you are too close to a ammo box message anymore
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
 - Updated: Russian translation by Babayka
 - Updated: Chineseimp translation by CHL198011

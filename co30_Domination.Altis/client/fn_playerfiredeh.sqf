@@ -10,7 +10,9 @@ __TRACE_1("","_this")
 private _fnc_nearmhq = {
 	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
 	if (_ets isEqualTo []) exitWith {
-		!((player nearEntities  ["ReammoBox_F", 25]) isEqualTo [])
+		_ets = player nearEntities  ["ReammoBox_F", 25];
+		if (_ets isEqualTo [] || {!isNil {(_ets # 0) getVariable "d_nocheck"}}) exitWith {false};
+		true
 	};
 	if (count _ets == 1) then {
 		(_ets # 0) getVariable ["d_vec_type", ""] == "MHQ"
