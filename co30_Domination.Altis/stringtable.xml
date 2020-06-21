@@ -13003,28 +13003,28 @@
 <French>You are free again! Behave properly!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1999">
-<English>You are beeing transfered to jail because of too much teamkilling!!!</English>
+<English>You are being transferred to jail because of too much teamkilling!!!</English>
 <Spanish>¡ESTÁS SIENDO TRANSFERIDO A LA CÁRCEL DEBIDO A DEMASIADOS ASESINATOS EN EQUIPO!</Spanish>
 <Portuguese>Você está sendo transferido para a cadeia por causa de muita matança em equipe!!!</Portuguese>
 <Korean>귀관은 너무 많은 팀킬로 교도소로 이송 될 것입니다!!!</Korean>
-<Japanese>You are beeing transfered to jail because of too much teamkilling!!!</Japanese>
-<Original>You are beeing transfered to jail because of too much teamkilling!!!</Original>
+<Japanese>You are being transferred to jail because of too much teamkilling!!!</Japanese>
+<Original>You are being transferred to jail because of too much teamkilling!!!</Original>
 <Russian>Вам вынесено наказание из-за слишком большого количества teamkilling!!!</Russian>
 <Chinesesimp>你因杀死过多队友而被送入监狱！！！</Chinesesimp>
-<Chinese>You are beeing transfered to jail because of too much teamkilling!!!</Chinese>
-<French>You are beeing transfered to jail because of too much teamkilling!!!</French>
+<Chinese>You are being transferred to jail because of too much teamkilling!!!</Chinese>
+<French>You are being transferred to jail because of too much teamkilling!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2000">
-<English>You are beeing transfered back to base!!!</English>
+<English>You are being transferred back to base!!!</English>
 <Spanish>¡ESTÁS SIENDO TRANSFERIDO DE REGRESO A LA BASE!</Spanish>
 <Portuguese>Você está sendo transferido de volta para a base!!!</Portuguese>
 <Korean>귀관은 기지로 이송되고 있습니다!!!</Korean>
-<Japanese>You are beeing transfered back to base!!!</Japanese>
-<Original>You are beeing transfered back to base!!!</Original>
+<Japanese>You are being transferred back to base!!!</Japanese>
+<Original>You are being transferred back to base!!!</Original>
 <Russian>Вы возвращаетесь на базу!!!</Russian>
 <Chinesesimp>你将被转移回基地！！！</Chinesesimp>
-<Chinese>You are beeing transfered back to base!!!</Chinese>
-<French>You are beeing transfered back to base!!!</French>
+<Chinese>You are being transferred back to base!!!</Chinese>
+<French>You are being transferred back to base!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2001">
 <English>points for transporting another player in a vehicle!</English>
@@ -13348,16 +13348,16 @@
 <French>Leak sealed!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028">
-<English>Attention: Guerrilla tanks are moving into the city.</English>
-<Spanish>Attention: Guerrilla tanks are moving into the city.</Spanish>
-<Portuguese>Attention: Guerrilla tanks are moving into the city.</Portuguese>
-<Korean>Attention: Guerrilla tanks are moving into the city.</Korean>
-<Japanese>Attention: Guerrilla tanks are moving into the city.</Japanese>
-<Original>Attention: Guerrilla tanks are moving into the city.</Original>
-<Russian>Attention: Guerrilla tanks are moving into the city.</Russian>
-<Chinesesimp>注意：游击队坦克正在进入城市。</Chinesesimp>
-<Chinese>Attention: Guerrilla tanks are moving into the city.</Chinese>
-<French>Attention: Guerrilla tanks are moving into the city.</French>
+<English>Attention: Guerrilla tanks are moving into the city from %1.</English>
+<Spanish>Attention: Guerrilla tanks are moving into the city from %1.</Spanish>
+<Portuguese>Attention: Guerrilla tanks are moving into the city from %1.</Portuguese>
+<Korean>Attention: Guerrilla tanks are moving into the city from %1.</Korean>
+<Japanese>Attention: Guerrilla tanks are moving into the city from %1.</Japanese>
+<Original>Attention: Guerrilla tanks are moving into the city from %1.</Original>
+<Russian>Attention: Guerrilla tanks are moving into the city from %1.</Russian>
+<Chinesesimp>注意：游击队坦克正在进入城市。%1</Chinesesimp>
+<Chinese>Attention: Guerrilla tanks are moving into the city from %1.</Chinese>
+<French>Attention: Guerrilla tanks are moving into the city from %1.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
 <English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
@@ -13406,6 +13406,30 @@
 <Chinesesimp>夺回油料与弹药补给点...请稍候！</Chinesesimp>
 <Chinese>Retaking Farp... Please wait!</Chinese>
 <French>Retaking Farp... Please wait!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CRASH">
+<English>crash site</English>
+<Spanish>crash site</Spanish>
+<Portuguese>crash site</Portuguese>
+<Korean>crash site</Korean>
+<Japanese>crash site</Japanese>
+<Original>crash site</Original>
+<Russian>crash site</Russian>
+<Chinesesimp>crash site</Chinesesimp>
+<Chinese>crash site</Chinese>
+<French>crash site</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_PRISONERS">
+<English>prisoners</English>
+<Spanish>prisoners</Spanish>
+<Portuguese>prisoners</Portuguese>
+<Korean>prisoners</Korean>
+<Japanese>prisoners</Japanese>
+<Original>prisoners</Original>
+<Russian>prisoners</Russian>
+<Chinesesimp>prisoners</Chinesesimp>
+<Chinese>prisoners</Chinese>
+<French>prisoners</French>
 </Key>
 </Container>
 </Package>

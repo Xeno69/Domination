@@ -6,13 +6,14 @@
 __TRACE_1("","_this")
 
 // parameters:
-// 0. type of infantry ie-- "specops"
-// 1. _ngr number of groups?
-// 2. _typenr type of unit ie-- "allmen" 
-// 3. _ngr number of groups?
+// 0. first type of infantry ie-- "specops"
+// 1. _nrg number of groups for first type (+2 added if parameters set to "no enemy armor") 
+// 2. _typenr second type of infantry ie-- "allmen" 
+// 3. _nrg number of groups for second type (+2 added if parameters set to "no enemy armor")
 // 4. _pos_center
 // 5. _radius
 // 6. _do_patrol
+// 7. _isArmorAdjustmentDisabled (default: false) if true do not modify the specified number of groups regardless of "no enemy armor" setting
 
 private _pos_center = _this select 4;
 if (isNil "_pos_center") exitWith {
@@ -25,13 +26,14 @@ if (isNil "_pos_center") exitWith {
 private _radius = _this select 5;
 private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {_this select 6} else {false}};
 private _ret_grps = [];
+private _isArmorAdjustmentDisabled = if (count _this > 7) then {_this select 7} else {false};
 
 for "_nr" from 0 to 1 do {
 	private _nrg = _this select (1 + (_nr * 2));
 	__TRACE_1("","_nrg")
 	if (_nrg > 0) then {
-		if (d_MissionType == 2) then {_nrg = _nrg + 2};
-		if (d_WithLessArmor_side == 2) then {_nrg = _nrg + 2};
+		if (d_MissionType == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
+		if (d_WithLessArmor_side == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
 		private _typenr = _this select (_nr * 2);
 		for "_i" from 1 to _nrg do {
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
