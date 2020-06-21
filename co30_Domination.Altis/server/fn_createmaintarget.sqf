@@ -166,6 +166,17 @@ private _allbars = [];
 private _doexit = false;
 d_bara_trig_ar = [];
 
+private _barcompo = [
+	["Land_HBarrier_Big_F",[-0.0566406,-8.74609,0],180,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[-0.423828,9.06641,0],180,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[-8.7041,-5.40234,0],90,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[8.12695,6.13281,0],87,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[8.64355,-5.38477,0],87,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[-9.32813,6.06836,0],90,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[-5.53125,14.1602,0],180,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[4.18848,14.6484,0],0,1,0,[],"","",true,false]
+];
+
 for "_i" from 1 to d_num_barracks_objs do {
 	private _idx = floor random (count _parray);
 	_poss = _parray select _idx;
@@ -206,6 +217,8 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_parray deleteAt _idx;
 
 	_allbars pushBack _vec;
+	
+	d_delvecsmt append ([getPos _vec, getDir _vec, _barcompo] call d_fnc_objectsMapper);
 
 	sleep 0.1;
 };
