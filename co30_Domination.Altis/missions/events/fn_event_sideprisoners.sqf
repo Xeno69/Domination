@@ -32,20 +32,20 @@ d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_c
 
 private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERS", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
 
-private _newgroup = [d_own_side] call d_fnc_creategroup;
+private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
-private _distanceToEnableFriendlyMovement = 0.5; //in meters
+private _distanceToEnableFriendlyMovement = 3; //in meters
 
 private _allActors = [];
 
 if (d_with_ai) then {
-	_newgroup setVariable ["d_do_not_delete", true];
+	_prisonerGroup setVariable ["d_do_not_delete", true];
 };
-__TRACE_1("","_newgroup")
+__TRACE_1("","_prisonerGroup")
 private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
-private _pilot1 = _newgroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
+private _pilot1 = _prisonerGroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 d_x_mt_event_ar pushBack _pilot1;
 _allActors pushBack _pilot1;
 [_pilot1, 30] call d_fnc_nodamoffdyn;
@@ -62,11 +62,12 @@ private _units = [_pilot1];
     _x enableFatigue false;
     _x disableAI "PATH";
     _x disableAI "RADIOPROTOCOL";
+    _x forceSpeed 0;
 } forEach _units;
-private _leader = leader _newgroup;
+private _leader = leader _prisonerGroup;
 _leader setSkill 1;
-_newgroup allowFleeing 0;
-_newgroup deleteGroupWhenEmpty true;
+_prisonerGroup allowFleeing 0;
+_prisonerGroup deleteGroupWhenEmpty true;
 
 private _otrig = [_leader, [800, 800, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "[thisTrigger, 0] call d_fnc_trigwork", "[thisTrigger, 1] call d_fnc_trigwork"]] call d_fnc_createtriggerlocal;
 _otrig setVariable ["d_objs", _units];
@@ -74,12 +75,12 @@ _otrig setVariable ["d_objs", _units];
 __TRACE_1("","_units")
 
 if (d_with_dynsim == 0) then {
-	[_newgroup] spawn d_fnc_enabledynsim;
+	[_prisonerGroup] spawn d_fnc_enabledynsim;
 };
 
 sleep 2.333;
 
-private _enemyGuardGroup = ["specops", 1, "allmen", 2, _poss , 25, false] call d_fnc_CreateInf select 0;
+private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 25, false, true] call d_fnc_CreateInf select 0;
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
@@ -96,7 +97,7 @@ _unitsNotGarrisoned = [
 	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 	true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 	false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-	0,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+	2,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
 	true,                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
 	true                                                //  (opt.) 10. Boolean, true to allow the selected position to be near an enemy (default: false)
 ] call d_fnc_Zen_OccupyHouse;
@@ -146,7 +147,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 	};
     
 	if (!_rescued) then {
-		_leader = leader _newgroup;
+		_leader = leader _prisonerGroup;
 		private _nobjs = (_leader nearEntities ["CAManBase", _distanceToEnableFriendlyMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 		if !(_nobjs isEqualTo []) then {
 			{
@@ -157,6 +158,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 					{
 						_x setCaptive false;
 						_x enableAI "PATH";
+						_x forceSpeed -1;
 					} forEach (_units select {alive _x});
 					_units join _rescuer;
 					doStop _units;
@@ -173,9 +175,9 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
 		if (!_hostages_reached_dest) then {
 			private _fidx = _units findIf {alive _x};
 			if (_fidx > -1) then {
-				_newgroup = group (_units # _fidx);
+				_prisonerGroup = group (_units # _fidx);
 			};
-			if !((leader _newgroup) call d_fnc_isplayer) then {
+			if !((leader _prisonerGroup) call d_fnc_isplayer) then {
 				_rescued = false;
 			};
 		};

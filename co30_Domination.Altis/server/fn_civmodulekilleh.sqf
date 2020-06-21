@@ -29,7 +29,7 @@ if (isNil "_punishMe") exitWith {};
 diag_log [diag_frameno, diag_ticktime, time, format ["Player (_punishMe) %1 killed a civilian.", _punishMe]];
 #endif
 
-d_hq_logic_blufor1 kbTell [
+d_kb_logic1 kbTell [
 	d_kb_logic2,
 	d_kb_topic_side,
 	"PenaltyKilledCivilian",

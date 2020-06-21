@@ -49,7 +49,13 @@ private _trigger = [_target_center, [225,225,0,false], [d_own_side,"PRESENT",tru
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-d_kb_logic1 kbTell [d_kb_logic2 ,d_kb_topic_side, "MTEventSideGuerrTanks", d_kbtel_chan];
+d_kb_logic1 kbTell [
+	d_kb_logic2,
+	d_kb_topic_side,
+	"MTEventSideGuerrTanks",
+	["1", "", _townNearbyName, []],
+	d_kbtel_chan
+];
 
 private _newgroups = [];
 
