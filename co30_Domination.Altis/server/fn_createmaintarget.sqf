@@ -167,13 +167,13 @@ private _doexit = false;
 d_bara_trig_ar = [];
 
 private _barcompo = [
-	["Land_HBarrier_Big_F",[-0.0566406,-8.74609,0],180,1,0,[],"","",true,false], 
-	["Land_HBarrier_Big_F",[-0.423828,9.06641,0],180,1,0,[],"","",true,false], 
-	["Land_HBarrier_Big_F",[-8.7041,-5.40234,0],90,1,0,[],"","",true,false], 
-	["Land_HBarrier_Big_F",[8.12695,6.13281,0],87,1,0,[],"","",true,false], 
-	["Land_HBarrier_Big_F",[8.64355,-5.38477,0],87,1,0,[],"","",true,false], 
-	["Land_HBarrier_Big_F",[-9.32813,6.06836,0],90,1,0,[],"","",true,false], 
-	["Land_HBarrier_Big_F",[-5.53125,14.1602,0],180,1,0,[],"","",true,false], 
+	["Land_HBarrier_Big_F",[-0.0566406,-8.74609,0],180,1,0,[],"","",true,false],
+	["Land_HBarrier_Big_F",[-0.423828,9.06641,0],180,1,0,[],"","",true,false],
+	["Land_HBarrier_Big_F",[-8.7041,-5.40234,0],90,1,0,[],"","",true,false],
+	["Land_HBarrier_Big_F",[8.12695,6.13281,0],87,1,0,[],"","",true,false],
+	["Land_HBarrier_Big_F",[8.64355,-5.38477,0],87,1,0,[],"","",true,false],
+	["Land_HBarrier_Big_F",[-9.32813,6.06836,0],90,1,0,[],"","",true,false],
+	["Land_HBarrier_Big_F",[-5.53125,14.1602,0],180,1,0,[],"","",true,false],
 	["Land_HBarrier_Big_F",[4.18848,14.6484,0],0,1,0,[],"","",true,false]
 ];
 
