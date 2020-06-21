@@ -146,4 +146,3 @@ sleep 60;
 _x_mt_event_ar = [];
 
 deleteVehicle _trigger;
-deleteMarker _marker;
