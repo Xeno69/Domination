@@ -20,11 +20,7 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 //position the crash site near target center at max distance 250m and min 150m 
 private _poss = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
-d_x_mt_event_ar = [];
-d_mt_event_resolved = false;
-
-//d_x_mt_event_pos = _poss;
-//publicVariable "d_x_mt_event_pos";
+private _x_mt_event_ar = [];
 
 private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
@@ -34,13 +30,13 @@ private _wreck = createVehicle [d_sm_wrecktype, _poss, [], 0, "NONE"];
 _wreck setDir (random 360);
 _wreck setPos _poss;
 _wreck lock true;
-d_x_mt_event_ar pushBack _wreck;
+_x_mt_event_ar pushBack _wreck;
 
 private _distanceToEnablePilotMovement = 3; //in meters
 
 sleep 2;
 
-private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_CRASH", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
+private _marker = ["d_mt_event_marker_sideevac", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_CRASH", 0, "mil_warning"] call d_fnc_CreateMarkerGlobal;
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvac",d_kbtel_chan];
 
@@ -53,7 +49,7 @@ private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
-d_x_mt_event_ar pushBack _pilot1;
+_x_mt_event_ar pushBack _pilot1;
 [_pilot1, 30] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
@@ -72,7 +68,7 @@ _pilot1 addEventHandler ["Killed", {
 }];
 
 private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
-d_x_mt_event_ar pushBack _pilot2;
+_x_mt_event_ar pushBack _pilot2;
 [_pilot2, 30] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
@@ -155,14 +151,7 @@ private _pcheck_fnc = {
 	} forEach _u;
 };
 
-while {!_pilots_at_base && {!_is_dead && {!d_mt_event_resolved}}} do {
-
-	//if maintarget is done then just exit the while loop and proceed to cleanup
-	if (d_mt_done) exitWith {
-		d_mt_event_resolved = true;
-		publicVariable "d_mt_event_resolved";
-	};
-	
+while {!_pilots_at_base && {!_is_dead && {!d_mt_done}}} do {	
 	if (!alive _pilot1 && {!alive _pilot2}) then {
 		_is_dead = true;
 	} else {
@@ -208,8 +197,6 @@ if (_pilots_at_base) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacFail",d_kbtel_chan];
 };
 
-d_mt_event_resolved = true;
-
 sleep 5.432;
 
 {
@@ -240,8 +227,8 @@ sleep 0.5;
 			};
 		};
 	};
-} forEach d_x_mt_event_ar;
-d_x_mt_event_ar = [];
+} forEach _x_mt_event_ar;
+_x_mt_event_ar = [];
 
 deleteVehicle _trigger;
 deleteMarker _marker; 

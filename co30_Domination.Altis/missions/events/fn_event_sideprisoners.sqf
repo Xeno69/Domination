@@ -18,11 +18,7 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 //position the event site near target center at max distance 250m and min 150m 
 private _poss = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
-d_x_mt_event_ar = [];
-d_mt_event_resolved = false;
-
-//d_x_mt_event_pos = _poss;
-//publicVariable "d_x_mt_event_pos";
+_x_mt_event_ar = [];
 
 private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
@@ -30,7 +26,7 @@ waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_chan];
 
-private _marker = ["d_mt_event_marker", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERS", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
+private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERS", 0, "mil_unknown"] call d_fnc_CreateMarkerGlobal;
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
@@ -46,7 +42,7 @@ private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _prisonerGroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
-d_x_mt_event_ar pushBack _pilot1;
+_x_mt_event_ar pushBack _pilot1;
 _allActors pushBack _pilot1;
 [_pilot1, 30] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot1")
@@ -85,7 +81,7 @@ private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 25, false, true] 
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
 	_allActors pushBack _x;
-	d_x_mt_event_ar pushBack _x;
+	_x_mt_event_ar pushBack _x;
 } forEach (units _enemyGuardGroup);
 
 //occupy a building using Zenophon script
@@ -111,12 +107,7 @@ private _rescuer = objNull;
 private _isExecutePrisoners = false;
 private _victim = objNull;
 
-while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {                                             
-	//if maintarget is done then just exit the while loop and proceed to cleanup
-	if (d_mt_done) exitWith {
-		d_mt_event_resolved = true;
-		publicVariable "d_mt_event_resolved";
-	};
+while {!_hostages_reached_dest && {!_all_dead && {!d_mt_done}}} do {                                             
 	if (_units findIf {alive _x} == -1) exitWith {
 		__TRACE("All dead exiting")
 		_all_dead = true;
@@ -130,6 +121,9 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_event_resolved}}} do {
     if (_isExecutePrisoners) then {
 		_victim = selectRandom _units;
 		_victim setCaptive false;
+		{
+        	_x forceSpeed -1;
+        } forEach (units _enemyGuardGroup);
     };
     
     if (_isExecutePrisoners || {!(captive _victim)}) then {
@@ -193,8 +187,6 @@ if (_hostages_reached_dest) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersFail",d_kbtel_chan];
 };
 
-d_mt_event_resolved = true;
-
 sleep 30;
 
 //cleanup
@@ -213,8 +205,8 @@ sleep 30;
 			};
 		};
 	};
-} forEach d_x_mt_event_ar;
-d_x_mt_event_ar = [];
+} forEach _x_mt_event_ar;
+_x_mt_event_ar = [];
 
 deleteVehicle _trigger;
 deleteMarker _marker;

@@ -36,11 +36,9 @@ if (count _towns > 1) then {
 
 if (_townNearbyPos isEqualTo []) exitWith {
 	diag_log ["unable to find a location to spawn tanks for mission event", d_cur_tgt_name];
-	d_mt_event_resolved = true;
 };
 
-d_x_mt_event_ar = [];
-d_mt_event_resolved = false;
+_x_mt_event_ar = [];
 
 //d_x_mt_event_pos = _townNearbyPos;
 //publicVariable "d_x_mt_event_pos";
@@ -66,7 +64,7 @@ if (_roadList isEqualTo []) exitWith {
 
 for "_i" from 1 to 2 do {
 	private _veh = createVehicle [_eventArmor, _roadList select _i, [], 0, "NONE"];
-	d_x_mt_event_ar pushBack _veh;
+	_x_mt_event_ar pushBack _veh;
 	_veh call d_fnc_nodamoff;
 	sleep 3;
 	private _hhe = createVehicle [d_HeliHEmpty, getPosATL _veh, [], 0, "NONE"];
@@ -108,13 +106,7 @@ sleep 2.333;
 
 private _all_dead = false;
 
-while {!d_mt_event_resolved && {!_all_dead}} do {                                             
-	//if maintarget is done then just exit the while loop and proceed to cleanup
-	if (d_mt_done) exitWith {
-		d_mt_event_resolved = true;
-		publicVariable "d_mt_event_resolved";
-	};
-	
+while {!d_mt_done && {!_all_dead}} do {                                             	
 	private _foundAlive = false;
 	{
 		private _grp = _x;
@@ -150,8 +142,8 @@ sleep 60;
 			};
 		};
 	};
-} forEach d_x_mt_event_ar;
-d_x_mt_event_ar = [];
+} forEach _x_mt_event_ar;
+_x_mt_event_ar = [];
 
 deleteVehicle _trigger;
 deleteMarker _marker;
