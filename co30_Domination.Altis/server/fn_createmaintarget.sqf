@@ -613,23 +613,31 @@ if (d_occ_bldgs == 1) then {
 if (d_with_MainTargetEvents != 0) then {
 	// todo - add more events - stop an execution, kidnap an officer, defuse a bomb, convoys through warzone
 	private _doEvent = false;
-	if (d_with_MainTargetEvents == -1) then {
+	if (d_with_MainTargetEvents < 0) then {
 		_doEvent = true;
 	} else {
 		if (d_with_MainTargetEvents == 1 && {(random 100 < 30)}) then {_doEvent = true};
 		if (d_with_MainTargetEvents == 2 && {(random 100 < 70)}) then {_doEvent = true};
 	};
 	
-	if (_doEvent) then {
-		switch (selectRandom d_x_mt_event_types) do {
-        	case "PILOT_RESCUE": {
-        		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
-			};
-        	case "POW_RESCUE": {
-        		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
-			};
-			case "GUERRILLA_TANKS": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+	if (d_with_MainTargetEvents == -2) then {
+		//create simultaneous events
+		//todo - when there are more events the script should select three randomly but just run all events for now
+		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
+		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+		[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+	} else {
+		if (_doEvent) then {
+			switch (selectRandom d_x_mt_event_types) do {
+				case "PILOT_RESCUE": {
+					[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
+				};
+				case "POW_RESCUE": {
+					[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+				};
+				case "GUERRILLA_TANKS": {
+					[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+				};
 			};
 		};
 	};

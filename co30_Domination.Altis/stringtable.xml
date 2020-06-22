@@ -2952,6 +2952,18 @@
 <Chinese>Always</Chinese>
 <French>Always</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_418C">
+<English>Always, multiple events</English>
+<Spanish>Always, multiple events</Spanish>
+<Portuguese>Always, multiple events</Portuguese>
+<Korean>Always, multiple events</Korean>
+<Japanese>Always, multiple events</Japanese>
+<Original>Always, multiple events</Original>
+<Russian>Always, multiple events</Russian>
+<Chinesesimp>Always, multiple events</Chinesesimp>
+<Chinese>Always, multiple events</Chinese>
+<French>Always, multiple events</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
 <English>(Dead)</English>
 <Spanish>(Muerto)</Spanish>
@@ -10922,16 +10934,16 @@
 <French>Certains civils sont retenus en otages. Vous devez les libérer et ramener au moins 8 civils/prisonniers vivants dans votre base!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_MILITARY">
-<English>One of our pilots has been captured. Free them and bring them back alive to your base!</English>
-<Spanish>One of our pilots has been captured. Free them and bring them back alive to your base!</Spanish>
-<Portuguese>One of our pilots has been captured. Free them and bring them back alive to your base!</Portuguese>
-<Korean>One of our pilots has been captured. Free them and bring them back alive to your base!</Korean>
-<Japanese>One of our pilots has been captured. Free them and bring them back alive to your base!</Japanese>
-<Original>One of our pilots has been captured. Free them and bring them back alive to your base!</Original>
-<Russian>Один из наших пилотов был захвачен в плен. Освободите пилота и верните его живым на свою базу!</Russian>
-<Chinesesimp>我们的一名飞行员被抓获。解救他们并带回基地！</Chinesesimp>
-<Chinese>One of our pilots has been captured. Free them and bring them back alive to your base!</Chinese>
-<French>One of our pilots has been captured. Free them and bring them back alive to your base!</French>
+<English>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</English>
+<Spanish>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Spanish>
+<Portuguese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Portuguese>
+<Korean>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Korean>
+<Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
+<Original>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Original>
+<Russian>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Russian>
+<Chinesesimp>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinesesimp>
+<Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
+<French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
 <English>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
