@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_vehirespawn.sqf"
 #include "..\x_setup.sqf"
 
@@ -82,6 +82,11 @@ if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _ve
 
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
+};
+
+if (_vec isKindOf "Boat_F" || {_vec isKindOf "Boat"}) then {
+	__TRACE_1("isboat","_vec");
+	_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 };
 
 sleep 5;

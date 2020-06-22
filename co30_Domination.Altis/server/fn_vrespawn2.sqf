@@ -158,6 +158,9 @@ while {true} do {
 			if (isNil "_aslpos") then {
 				_vec allowDamage true;
 			};
+			if (_vec isKindOf "Boat_F" || {_vec isKindOf "Boat"}) then {
+				_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
+			};
 		};
 		sleep (8 + random 5);
 	} forEach d_vrespawn2_ar;
