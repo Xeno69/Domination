@@ -31,7 +31,8 @@ private _findmodfnc = {
 	private _csallow = toLowerANSI (_csal # 0);
 	//__TRACE_1("_findmodfnc","_csallow")
 	_mods findIf {
-		_ret = _csallow find _x != -1;
+		//_ret = _csallow find _x != -1;
+		_ret = (_csallow select [0, count _x]) isEqualTo _x;
 		if (_ret) then {
 			_res = 1;
 		};
