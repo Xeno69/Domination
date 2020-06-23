@@ -27,7 +27,7 @@ private _tries = 0;
 private _townNearbyName = "";
 private _townNearbyPos = [];
 private _numberOfTanks = 2;
-if (d_WithLessArmor == 0) then { _numberOfTanks = 4; }
+if (d_WithLessArmor == 0) then { _numberOfTanks = 4; };
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
 if (count _towns > 1) then {
@@ -41,9 +41,6 @@ if (_townNearbyPos isEqualTo []) exitWith {
 };
 
 _x_mt_event_ar = [];
-
-//d_x_mt_event_pos = _townNearbyPos;
-//publicVariable "d_x_mt_event_pos";
 
 private _trigger = [_target_center, [600,600,0,false], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
