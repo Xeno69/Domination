@@ -13,7 +13,7 @@ if (isClass(configFile>>"CfgVehicles">>"CUP_B_UH1D_GER_KSK")) then {
 	{
 		private _pos = markerPos _x;
 		_pos set [2, 0];
-		private _ne = nearEntities [["Air", "Car", "Tank"], 7];		
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
 		if (_ne isEqualTo []) then {
 			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
 			_vec setDir (markerDir _x);
@@ -24,7 +24,7 @@ if (isClass(configFile>>"CfgVehicles">>"CUP_B_UH1D_GER_KSK")) then {
 	{
 		private _pos = markerPos _x;
 		_pos set [2, 0];
-		private _ne = nearEntities [["Air", "Car", "Tank"], 7];		
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
 		if (_ne isEqualTo []) then {
 			private _vec = createVehicle ["CUP_B_UH1D_GER_KSK", _pos, [], 0, "NONE"];
 			_vec setDir (markerDir _x);
@@ -36,7 +36,7 @@ if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
 	{
 		private _pos = markerPos _x;
 		_pos set [2, 0];
-		private _ne = nearEntities [["Air", "Car", "Tank"], 7];		
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
 		if (_ne isEqualTo []) then {
 			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
 			_vec setDir (markerDir _x);
@@ -47,7 +47,7 @@ if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
 	{
 		private _pos = markerPos _x;
 		_pos set [2, 0];
-		private _ne = nearEntities [["Air", "Car", "Tank"], 7];		
+		private _ne = _pos nearEntities [["Air", "Car", "Tank"], 7];		
 		if (_ne isEqualTo []) then {
 			private _vec = createVehicle ["CUP_B_CH53E_VIV_GER", _pos, [], 0, "NONE"];
 			_vec setDir (markerDir _x);
