@@ -76,7 +76,7 @@ if (d_with_dynsim == 0) then {
 
 sleep 2.333;
 
-private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 25, false, true] call d_fnc_CreateInf select 0;
+private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 12, false, true, 3] call d_fnc_CreateInf select 0;
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;

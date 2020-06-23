@@ -13,7 +13,8 @@ __TRACE_1("","_this")
 // 4. _pos_center
 // 5. _radius
 // 6. _do_patrol
-// 7. _isArmorAdjustmentDisabled (default: false) if true do not modify the specified number of groups regardless of "no enemy armor" setting
+// 7. _isArmorAdjustmentDisabled (optional, default: false) if true do not modify the specified number of groups regardless of "no enemy armor" setting
+// 8. _unitsPerGroup (optional) if defined then this number sets the number of units created per group (will not be randomized)
 
 private _pos_center = _this select 4;
 if (isNil "_pos_center") exitWith {
@@ -27,6 +28,7 @@ private _radius = _this select 5;
 private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {_this select 6} else {false}};
 private _ret_grps = [];
 private _isArmorAdjustmentDisabled = if (count _this > 7) then {_this select 7} else {false};
+private _unitsPerGroup = if (count _this > 8) then {_this select 8} else {-1};
 
 for "_nr" from 0 to 1 do {
 	private _nrg = _this select (1 + (_nr * 2));
@@ -53,7 +55,7 @@ for "_nr" from 0 to 1 do {
 				_pos = _pos_center;
 			};
 			__TRACE("from createinf")
-			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true] call d_fnc_makemgroup;
+			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true, _unitsPerGroup] call d_fnc_makemgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			_newgroup allowFleeing 0;
 			if (!_do_patrol) then {

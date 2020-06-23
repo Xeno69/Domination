@@ -13360,16 +13360,16 @@
 <French>Leak sealed!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028">
-<English>Attention: Guerrilla tanks are moving into the city from %1.</English>
-<Spanish>Attention: Guerrilla tanks are moving into the city from %1.</Spanish>
-<Portuguese>Attention: Guerrilla tanks are moving into the city from %1.</Portuguese>
-<Korean>Attention: Guerrilla tanks are moving into the city from %1.</Korean>
-<Japanese>Attention: Guerrilla tanks are moving into the city from %1.</Japanese>
-<Original>Attention: Guerrilla tanks are moving into the city from %1.</Original>
-<Russian>Attention: Guerrilla tanks are moving into the city from %1.</Russian>
-<Chinesesimp>注意：游击队坦克正在进入城市。%1</Chinesesimp>
-<Chinese>Attention: Guerrilla tanks are moving into the city from %1.</Chinese>
-<French>Attention: Guerrilla tanks are moving into the city from %1.</French>
+<English>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</English>
+<Spanish>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Spanish>
+<Portuguese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Portuguese>
+<Korean>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Korean>
+<Japanese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
+<Original>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
+<Russian>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Russian>
+<Chinesesimp>注意：游击队坦克正在进入城市。%1 The guerrillas are friendly to Blufor and hostile to Opfor.</Chinesesimp>
+<Chinese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
+<French>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
 <English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
