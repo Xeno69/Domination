@@ -14,11 +14,44 @@ if !(isServer) exitWith {};
 if (true) exitWith {};
 #endif
 
-private _eventArmor = "I_MBT_03_cannon_F";
+//armor types
+private _eventArmorHeavy = "I_MBT_03_cannon_F";
+private _eventArmorMedium = "I_APC_tracked_03_cannon_F";
+private _eventArmorLight = "I_LT_01_cannon_F";
 
 #ifdef __IFA3LITE__
-_eventArmor = "LIB_StuG_III_G";
+_eventArmorHeavy = "LIB_PzKpfwIV_H";
+_eventArmorMedium = "LIB_StuG_III_G";
+_eventArmorLight = "LIB_SdKfz251";
 #endif
+
+//array of armor vehicles to create
+private _eventArmorAll = [];
+switch (d_WithLessArmor) do {
+	case 0: {
+		_eventArmorAll = [
+			_eventArmorHeavy,
+			_eventArmorHeavy,
+			_eventArmorMedium,
+			_eventArmorLight
+		];
+	};
+	case 1: {
+		_eventArmorAll = [
+			_eventArmorHeavy,
+			_eventArmorMedium,
+			_eventArmorLight,
+			_eventArmorLight
+		];	
+	};
+	case 2: {
+		_eventArmorAll = [
+			_eventArmorMedium,
+			_eventArmorLight,
+			_eventArmorLight
+		];
+	};
+};
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
@@ -61,24 +94,19 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-for "_i" from 1 to _numberOfTanks do {
-	private _veh = createVehicle [_eventArmor, _roadList select _i, [], 0, "NONE"];
+private _iter = 0;
+{
+	private _veh = createVehicle [_x, _roadList select _iter, [], 0, "NONE"];
+	_iter = _iter + 1;
 	_x_mt_event_ar pushBack _veh;
 	_veh call d_fnc_nodamoff;
-	sleep 3;
-	private _hhe = createVehicle [d_HeliHEmpty, getPosATL _veh, [], 0, "NONE"];
-    _veh setPos (getPosATL _hhe);
-    deleteVehicle _hhe;
-    sleep 3;
+	sleep 5;
 	private _newgroup = createVehicleCrew _veh;
 	_newgroups pushBack _newgroup;
-	{
-		_x call d_fnc_nodamoff;
-	} forEach units _newgroup;
     if (d_with_ai) then {
     	_newgroup setVariable ["d_do_not_delete", true];
     };
-};
+} forEach _eventArmorAll;
 
 sleep 3.14;
 

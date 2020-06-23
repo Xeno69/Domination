@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makemgroup.sqf"
 #include "..\x_setup.sqf"
 
-params ["_pos", "_unitliste", "_grp", ["_mchelper", true], ["_doreduce", false]];
+params ["_pos", "_unitliste", "_grp", ["_mchelper", true], ["_doreduce", false], ["_unitsPerGroup", -1]];
 
 if (isNil "_unitliste") exitWith {
 	diag_log ["Attention, _unitlist (param 2) is nil, returning []", "_pos", _pos, "_grp", _grp];
@@ -35,7 +35,16 @@ if (d_smallgrps == 0 && {_doreduce && {count _unitliste > 2}}) then {
 		};
 		0.26
 	};
-	private _maxunits = round (_factor * _nump) max (selectRandom [2, 3]);
+	
+	
+	private _maxunits = 99;
+	
+	if (_unitsPerGroup > 0) then {
+    	_maxunits = _unitsPerGroup;
+    } else {
+    	_maxunits = round (_factor * _nump) max (selectRandom [2, 3]);
+    };
+	
 	__TRACE_3("","_nump","_factor","_maxunits")
 	if (_maxunits < count _unitliste) then {
 		private _tmpar =+ _unitliste;
