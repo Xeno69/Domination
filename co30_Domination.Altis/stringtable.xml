@@ -13318,7 +13318,7 @@
 <Korean>Open Terminal</Korean>
 <Japanese>Open Terminal</Japanese>
 <Original>Open Terminal</Original>
-<Russian>Open Terminal</Russian>
+<Russian>Открыть терминал</Russian>
 <Chinesesimp>打开终端</Chinesesimp>
 <Chinese>Open Terminal</Chinese>
 <French>Open Terminal</French>
@@ -13330,7 +13330,7 @@
 <Korean>Seal leak</Korean>
 <Japanese>Seal leak</Japanese>
 <Original>Seal leak</Original>
-<Russian>Seal leak</Russian>
+<Russian>Устранить утечку</Russian>
 <Chinesesimp>密封泄漏</Chinesesimp>
 <Chinese>Seal leak</Chinese>
 <French>Seal leak</French>
@@ -13342,7 +13342,7 @@
 <Korean>Sealing leak... Please wait!</Korean>
 <Japanese>Sealing leak... Please wait!</Japanese>
 <Original>Sealing leak... Please wait!</Original>
-<Russian>Sealing leak... Please wait!</Russian>
+<Russian>Устранение утечки... Пожалуйста подождите!</Russian>
 <Chinesesimp>密封泄漏...请稍候！</Chinesesimp>
 <Chinese>Sealing leak... Please wait!</Chinese>
 <French>Sealing leak... Please wait!</French>
@@ -13354,7 +13354,7 @@
 <Korean>Leak sealed!</Korean>
 <Japanese>Leak sealed!</Japanese>
 <Original>Leak sealed!</Original>
-<Russian>Leak sealed!</Russian>
+<Russian>Утечка устранена!</Russian>
 <Chinesesimp>泄漏密封！</Chinesesimp>
 <Chinese>Leak sealed!</Chinese>
 <French>Leak sealed!</French>
@@ -13366,7 +13366,7 @@
 <Korean>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Korean>
 <Japanese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
 <Original>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
-<Russian>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Russian>
+<Russian>Внимание: Партизанские танки движутся в город из %1. Партизаны сотрудничают с Blufor и враждебны с Opfor.</Russian>
 <Chinesesimp>注意：游击队坦克正在进入城市。%1 The guerrillas are friendly to Blufor and hostile to Opfor.</Chinesesimp>
 <Chinese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
 <French>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
@@ -13378,7 +13378,7 @@
 <Korean>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Korean>
 <Japanese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Japanese>
 <Original>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Original>
-<Russian>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Russian>
+<Russian>Вы имеете шанс вернуть один из наших Farp, захваченных противником некоторое время назад. Вернитесь назад</Russian>
 <Chinesesimp>我们有机会夺回敌人前一阵子占领我们的油料与弹药补给点。抢占回来！</Chinesesimp>
 <Chinese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Chinese>
 <French>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</French>
@@ -13390,7 +13390,7 @@
 <Korean>Congrats, you have taken back the farp! It's now available as a respawn point again.</Korean>
 <Japanese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Japanese>
 <Original>Congrats, you have taken back the farp! It's now available as a respawn point again.</Original>
-<Russian>Congrats, you have taken back the farp! It's now available as a respawn point again.</Russian>
+<Russian>Поздравляем, Вы отвоевали Farp! Теперь он доступен в качестве точки возрождения.</Russian>
 <Chinesesimp>恭喜，你已经收占领了油料与弹药补给点！ 现在可以再次用作重生点。</Chinesesimp>
 <Chinese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Chinese>
 <French>Congrats, you have taken back the farp! It's now available as a respawn point again.</French>
@@ -13402,7 +13402,7 @@
 <Korean>Retake Farp</Korean>
 <Japanese>Retake Farp</Japanese>
 <Original>Retake Farp</Original>
-<Russian>Retake Farp</Russian>
+<Russian>Перевзятие Farp</Russian>
 <Chinesesimp>重夺油料与弹药补给点</Chinesesimp>
 <Chinese>Retake Farp</Chinese>
 <French>Retake Farp</French>
@@ -13414,7 +13414,7 @@
 <Korean>Retaking Farp... Please wait!</Korean>
 <Japanese>Retaking Farp... Please wait!</Japanese>
 <Original>Retaking Farp... Please wait!</Original>
-<Russian>Retaking Farp... Please wait!</Russian>
+<Russian>Перевзятие Farp... Пожалуйста подождите!</Russian>
 <Chinesesimp>夺回油料与弹药补给点...请稍候！</Chinesesimp>
 <Chinese>Retaking Farp... Please wait!</Chinese>
 <French>Retaking Farp... Please wait!</French>
@@ -13426,7 +13426,7 @@
 <Korean>crash site</Korean>
 <Japanese>crash site</Japanese>
 <Original>crash site</Original>
-<Russian>crash site</Russian>
+<Russian>место аварии</Russian>
 <Chinesesimp>crash site</Chinesesimp>
 <Chinese>crash site</Chinese>
 <French>crash site</French>
@@ -13438,7 +13438,7 @@
 <Korean>prisoners</Korean>
 <Japanese>prisoners</Japanese>
 <Original>prisoners</Original>
-<Russian>prisoners</Russian>
+<Russian>заключенных</Russian>
 <Chinesesimp>prisoners</Chinesesimp>
 <Chinese>prisoners</Chinese>
 <French>prisoners</French>
@@ -13450,7 +13450,7 @@
 <Korean>Push Boat</Korean>
 <Japanese>Push Boat</Japanese>
 <Original>Push Boat</Original>
-<Russian>Push Boat</Russian>
+<Russian>Толкнуть лодку</Russian>
 <Chinesesimp>Push Boat</Chinesesimp>
 <Chinese>Push Boat</Chinese>
 <French>Push Boat</French>
