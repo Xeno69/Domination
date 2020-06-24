@@ -24,5 +24,7 @@ If you want to bundle or modify maps other than Altis then follow these steps:
 * delete `co30_Domination.Altis/x_setup.sqf`
 * copy the appropriate `x_setup.sqf` file from `mission_sqm` folder into `co30_Domination.Altis`
 * rename the file you copied to `x_setup.sqf`
+* rename `co30_Domination.Altis` folder to `co30_Domination.NewMap` (for example `co30_Domination.Malden`)
+* run your preferred PBO tool with PBO source folder `co30_Domination.Malden`
 
 Remember that your modifications can only be shared with the community if you contribute your work back to the source repository.
