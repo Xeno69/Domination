@@ -1697,7 +1697,7 @@
 <English>You have cleared the island</English>
 <Spanish>Usted ha limpiado la isla</Spanish>
 <Portuguese>Tem aclarado a ilha</Portuguese>
-<Korean>You have cleared the island</Korean>
+<Korean>섬을 점령하였습니다.</Korean>
 <Japanese>全島を制圧しました</Japanese>
 <Original>You have cleared the island</Original>
 <Russian>Вы освободили остров от врага</Russian>
@@ -2896,7 +2896,7 @@
 <English>Medium</English>
 <Spanish>Medium</Spanish>
 <Portuguese>Medium</Portuguese>
-<Korean>Medium</Korean>
+<Korean>중간</Korean>
 <Japanese>Medium</Japanese>
 <Original>Medium</Original>
 <Russian>Средний</Russian>
@@ -2944,7 +2944,7 @@
 <English>Always</English>
 <Spanish>Always</Spanish>
 <Portuguese>Always</Portuguese>
-<Korean>Always</Korean>
+<Korean>항상</Korean>
 <Japanese>Always</Japanese>
 <Original>Always</Original>
 <Russian>Всегда</Russian>
@@ -2956,7 +2956,7 @@
 <English>Always, multiple events</English>
 <Spanish>Always, multiple events</Spanish>
 <Portuguese>Always, multiple events</Portuguese>
-<Korean>Always, multiple events</Korean>
+<Korean>항상, 다중 이벤트</Korean>
 <Japanese>Always, multiple events</Japanese>
 <Original>Always, multiple events</Original>
 <Russian>Always, multiple events</Russian>
@@ -4816,7 +4816,7 @@
 <English>None of the soldiers made it back to base...</English>
 <Spanish>None of the soldiers made it back to base...</Spanish>
 <Portuguese>None of the soldiers made it back to base...</Portuguese>
-<Korean>None of the soldiers made it back to base...</Korean>
+<Korean>군인중 누구도 기지로 복귀하지 못했습니다...</Korean>
 <Japanese>None of the soldiers made it back to base...</Japanese>
 <Original>None of the soldiers made it back to base...</Original>
 <Russian>Никто из солдат не вернулся на базу...</Russian>
@@ -5884,7 +5884,7 @@
 <English>CPR</English>
 <Spanish>CPR</Spanish>
 <Portuguese>CPR</Portuguese>
-<Korean>CPR</Korean>
+<Korean>인공호흡</Korean>
 <Japanese>CPR</Japanese>
 <Original>CPR</Original>
 <Russian>Сердечно-лёгочная реанимация</Russian>
@@ -6508,7 +6508,7 @@
 <English>Main target random events:</English>
 <Spanish>Main target random events:</Spanish>
 <Portuguese>Main target random events:</Portuguese>
-<Korean>Main target random events:</Korean>
+<Korean>메인미션 무작위 이벤트:</Korean>
 <Japanese>Main target random events:</Japanese>
 <Original>Main target random events:</Original>
 <Russian>С случайными событиями на главной цели:</Russian>
@@ -7241,7 +7241,7 @@
 <English>Enable simulation for enemy camps:</English>
 <Spanish>Enable simulation for enemy camps:</Spanish>
 <Portuguese>Enable simulation for enemy camps:</Portuguese>
-<Korean>Enable simulation for enemy camps:</Korean>
+<Korean>적 초소 시뮬레이션 활성화:</Korean>
 <Japanese>Enable simulation for enemy camps:</Japanese>
 <Original>Enable simulation for enemy camps:</Original>
 <Russian>Включить симуляцию для вражеских лагерей:</Russian>
@@ -8333,7 +8333,7 @@
 <English>UAV</English>
 <Spanish>UAV</Spanish>
 <Portuguese>UAV</Portuguese>
-<Korean>UAV</Korean>
+<Korean>무인기</Korean>
 <Japanese>UAV</Japanese>
 <Original>UAV</Original>
 <Russian>ПБЛА</Russian>
@@ -10264,7 +10264,7 @@
 <English>Call CAS</English>
 <Spanish>Llamar a CAS</Spanish>
 <Portuguese>Call CAS</Portuguese>
-<Korean>Call CAS</Korean>
+<Korean>CAS 요청</Korean>
 <Japanese>Call CAS</Japanese>
 <Original>Call CAS</Original>
 <Russian>Вызвать CAS</Russian>
@@ -10937,7 +10937,7 @@
 <English>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</English>
 <Spanish>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Spanish>
 <Portuguese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Portuguese>
-<Korean>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Korean>
+<Korean>아군 파일럿중 한명이 억류 되었습니다. 파일럿을 구출해 베이스로 데려오십시오! 경비병들을 곧바로 사살하십시오. 만약 경비병들이 부상상태로 생존한다면 그들은 포로를 처형 할 것입니다!</Korean>
 <Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
 <Original>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Original>
 <Russian>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Russian>
@@ -12041,7 +12041,7 @@
 <English>AI Advanced - enhanced awareness (common units)</English>
 <Spanish>AI Avanzado - mayor conciencia (unidades comunes)</Spanish>
 <Portuguese>AI Advanced - maior conscientização (unidades comuns)</Portuguese>
-<Korean>AI Advanced - enhanced awareness (common units)</Korean>
+<Korean>AI 향상 - 탐지 증가 (공통적용)</Korean>
 <Japanese>AI Advanced - enhanced awareness (common units)</Japanese>
 <Original>AI Advanced - enhanced awareness (common units)</Original>
 <Russian>AI Advanced - повышенная осведомленность (common units)</Russian>
@@ -12052,7 +12052,7 @@
 <English>AI Advanced - enemy active pursuit radius</English>
 <Spanish>IA Avanzada - radio de persecución activa del enemigo</Spanish>
 <Portuguese>AI Advanced - raio de perseguição ativo inimigo</Portuguese>
-<Korean>AI Advanced - enemy active pursuit radius</Korean>
+<Korean>AI 향상 - 적 추격활동 반경</Korean>
 <Japanese>AI Advanced - enemy active pursuit radius</Japanese>
 <Original>AI Advanced - enemy active pursuit radius</Original>
 <Russian>AI Advanced - радиус активного преследования противника</Russian>
@@ -12063,7 +12063,7 @@
 <English>AI Advanced - enemy shoots aggressively at players</English>
 <Spanish>IA Avanzada - el enemigo dispara agresivamente a los jugadores</Spanish>
 <Portuguese>AI Advanced - inimigo atira agressivamente nos jogadores</Portuguese>
-<Korean>AI Advanced - enemy shoots aggressively at players</Korean>
+<Korean>AI 향상 - 플레이어를 향해서 적군이 공격적으로 발포</Korean>
 <Japanese>AI Advanced - enemy shoots aggressively at players</Japanese>
 <Original>AI Advanced - enemy shoots aggressively at players</Original>
 <Russian>AI Advanced - враг агрессивно стреляет в игроков</Russian>
@@ -12074,7 +12074,7 @@
 <English>AI Advanced - enemy granted frequent ammo refills</English>
 <Spanish>Inteligencia Artificial Avanzada - el enemigo recibe frecuentes recargas de munición</Spanish>
 <Portuguese>AI Advanced - inimigo com frequentes reabastecimentos de munição</Portuguese>
-<Korean>AI Advanced - enemy granted frequent ammo refills</Korean>
+<Korean>AI 향상 - 적군의 잦은 탄약충전 승인</Korean>
 <Japanese>AI Advanced - enemy granted frequent ammo refills</Japanese>
 <Original>AI Advanced - enemy granted frequent ammo refills</Original>
 <Russian>AI Advanced - врагу часто выдают патроны</Russian>
@@ -12085,7 +12085,7 @@
 <English>Enemy infantry - garrisoned group count - occupy mode</English>
 <Spanish>Infantería enemiga - recuento del grupo de infantería de guarnición - modo de ocupación</Spanish>
 <Portuguese>Infantaria inimiga - contagem dos grupos de infantaria guarnecidos - modo de ocupação</Portuguese>
-<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 점령 모드</Korean>
+<Korean>적군 수비병 - 수비하는 보병 그룹 수 - 점령 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - occupy mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - occupy mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим оккупации</Russian>
@@ -12096,7 +12096,7 @@
 <English>Enemy infantry - garrisoned infantry group count - overwatch mode</English>
 <Spanish>Infantería enemiga - recuento de grupos de infantería de guarnición - modo de vigilancia</Spanish>
 <Portuguese>Infantaria inimiga - contagem de grupos de infantaria guarnecidos - modo sobreposição</Portuguese>
-<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 협동작전 모드</Korean>
+<Korean>적군 수비병 - 수비하는 보병 그룹 수 - 협동작전 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - overwatch mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
 <Russian>Количество гарнизонных пехотных групп - режим наблюдения</Russian>
@@ -12107,7 +12107,7 @@
 <English>Enemy infantry - garrisoned infantry group count - ambush mode</English>
 <Spanish>Infantería enemiga - recuento de grupos de infantería de guarnición - modo emboscada</Spanish>
 <Portuguese>Infantaria inimiga - contagem dos grupos de infantaria guarnecidos - modo emboscada</Portuguese>
-<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 기습 모드</Korean>
+<Korean>적군 수비병 - 수비하는 보병 그룹 수 - 기습 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - ambush mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - ambush mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим засады</Russian>
@@ -12118,7 +12118,7 @@
 <English>Enemy infantry - garrisoned infantry group count - sniper mode</English>
 <Spanish>Infantería enemiga - recuento de grupos de infantería de guarnición - modo francotirador</Spanish>
 <Portuguese>Infantaria inimiga - contagem dos grupos de infantaria guarnecidos - modo sniper</Portuguese>
-<Korean>Enemy infantry - 수비하는 보병 그룹 수 - 스나이퍼 모드</Korean>
+<Korean>적군 수비병 - 수비하는 보병 그룹 수 - 스나이퍼 모드</Korean>
 <Japanese>Enemy infantry - garrisoned infantry group count - sniper mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - sniper mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим снайпера</Russian>
@@ -12129,7 +12129,7 @@
 <English>AI Advanced - enhanced awareness (sniper units)</English>
 <Spanish>AI Avanzado - mayor conciencia (unidades de francotiradores)</Spanish>
 <Portuguese>IA avançada - maior conscientização (unidades sniper)</Portuguese>
-<Korean>AI Advanced - enhanced awareness (sniper units)</Korean>
+<Korean>AI 향상 - 인식 향상 (스나이퍼들만)</Korean>
 <Japanese>AI Advanced - enhanced awareness (sniper units)</Japanese>
 <Original>AI Advanced - enhanced awareness (sniper units)</Original>
 <Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
@@ -12140,7 +12140,7 @@
 <English>AI Advanced - general skill</English>
 <Spanish>AI Avanzado - habilidad general</Spanish>
 <Portuguese>AI Avançado - habilidade geral</Portuguese>
-<Korean>AI Advanced - general skill</Korean>
+<Korean>AI 향상 - 일반 스킬</Korean>
 <Japanese>AI Advanced - general skill</Japanese>
 <Original>AI Advanced - general skill</Original>
 <Russian>Снайперский режим пехоты - общий навык</Russian>
@@ -12151,7 +12151,7 @@
 <English>AI Advanced - aimingAccuracy skill</English>
 <Spanish>AI Avanzado - ApuntandoHabilidad de precisión</Spanish>
 <Portuguese>AI Avançado - aimingAccuracy skill</Portuguese>
-<Korean>AI Advanced - aimingAccuracy skill</Korean>
+<Korean>AI 향상 - 조준정확도 스킬</Korean>
 <Japanese>AI Advanced - aimingAccuracy skill</Japanese>
 <Original>AI Advanced - aimingAccuracy skill</Original>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
@@ -12162,7 +12162,7 @@
 <English>Enemy infantry - deployment radius</English>
 <Spanish>Infantería enemiga - radio de despliegue</Spanish>
 <Portuguese>Infantaria inimiga - raio de implantação</Portuguese>
-<Korean>Enemy infantry - 전개 반경</Korean>
+<Korean>적 수비병 - 전개 반경</Korean>
 <Japanese>Enemy infantry - deployment radius</Japanese>
 <Original>Enemy infantry - deployment radius</Original>
 <Russian>Enemy infantry - Радиус развертывания</Russian>
@@ -12173,7 +12173,7 @@
 <English>Civilians - civilian group count per target</English>
 <Spanish>Civiles - recuento de grupos de civiles por objetivo</Spanish>
 <Portuguese>Civis - contagem do grupo civil por alvo</Portuguese>
-<Korean>Civilians - 목표 당 시민 그룹 수</Korean>
+<Korean>시민들 - 목표 당 시민 그룹 수</Korean>
 <Japanese>Civilians - civilian group count per target</Japanese>
 <Original>Civilians - civilian group count per target</Original>
 <Russian>Civilians - Количество групп гражданских на город</Russian>
@@ -13054,7 +13054,7 @@
 <English>Seize condition for main target:</English>
 <Spanish>Aprovechar la condición para el objetivo principal:</Spanish>
 <Portuguese>Condição de apreensão para o alvo principal:</Portuguese>
-<Korean>Seize condition for main target:</Korean>
+<Korean>메인미션 점령조건:</Korean>
 <Japanese>Seize condition for main target:</Japanese>
 <Original>Seize condition for main target:</Original>
 <Russian>Выполнить условие для главной цели:</Russian>
@@ -13066,7 +13066,7 @@
 <English>All camps captured and radio tower destroyed</English>
 <Spanish>Todos los campamentos capturados y la torre de radio destruida</Spanish>
 <Portuguese>Todos os campos capturados e torres de rádio destruídas</Portuguese>
-<Korean>All camps captured and radio tower destroyed</Korean>
+<Korean>모든초소 점령 및 통신탑 타워 파괴</Korean>
 <Japanese>All camps captured and radio tower destroyed</Japanese>
 <Original>All camps captured and radio tower destroyed</Original>
 <Russian>Захватить все бункеры и уничтожить радиовышку</Russian>
@@ -13078,7 +13078,7 @@
 <English>Low number of AI units, all camps captured and radio tower destroyed</English>
 <Spanish>Bajo número de unidades de IA, todos los campamentos capturados y la torre de radio destruida</Spanish>
 <Portuguese>Baixo número de unidades de IA, todos os campos capturados e torre de rádio destruídos</Portuguese>
-<Korean>Low number of AI units, all camps captured and radio tower destroyed</Korean>
+<Korean>적은 AI 생존, 모든초소 점령 및 통신탑 타워 파괴</Korean>
 <Japanese>Low number of AI units, all camps captured and radio tower destroyed</Japanese>
 <Original>Low number of AI units, all camps captured and radio tower destroyed</Original>
 <Russian>Небольшое количество подразделений AI, захватить все бункеры и уничтожить радиовышку</Russian>
@@ -13090,7 +13090,7 @@
 <English>Low number of AI units and radio tower destroyed</English>
 <Spanish>Bajo número de unidades de IA y torre de radio destruida</Spanish>
 <Portuguese>Baixo número de unidades de IA e torre de rádio destruídas</Portuguese>
-<Korean>Low number of AI units and radio tower destroyed</Korean>
+<Korean>적은 AI 생존 및 통신탑 타워 파괴</Korean>
 <Japanese>Low number of AI units and radio tower destroyed</Japanese>
 <Original>Low number of AI units and radio tower destroyed</Original>
 <Russian>Небольшое количество подразделений AI и уничтожить радиовышку</Russian>
@@ -13102,7 +13102,7 @@
 <English>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</English>
 <Spanish>Explosivo eliminado. Estás en el aire o demasiado cerca de un MHQ (menos de 9 m) o demasiado cerca de una caja de munición caída</Spanish>
 <Portuguese>Explosivo removido. Você está no ar ou muito perto de um MHQ (menos de 9m) ou muito perto de uma caixa de amoboas gotejadas.</Portuguese>
-<Korean>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Korean>
+<Korean>폭발물이 제거되었습니다. 귀관은 공중에 있거나 MHQ에 근접해 있습니다 (9m 이내) 또는 아머박스가 있는곳에서 너무 가깝습니다.</Korean>
 <Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Japanese>
 <Original>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Original>
 <Russian>Взрывчатка удалена. Вы находитесь либо воздухе или слишком близко к MHQ (меньше, чем 9м) или слишком близко к ящику с боеприпасами</Russian>
@@ -13114,7 +13114,7 @@
 <English>Reduce number of AI units in groups depending on player numbers</English>
 <Spanish>Reduce number of AI units in groups depending on player numbers</Spanish>
 <Portuguese>Reduce number of AI units in groups depending on player numbers</Portuguese>
-<Korean>Reduce number of AI units in groups depending on player numbers</Korean>
+<Korean>플레이어 숫자에 따라서 적군 그룹내 AI 숫자 감소</Korean>
 <Japanese>Reduce number of AI units in groups depending on player numbers</Japanese>
 <Original>Reduce number of AI units in groups depending on player numbers</Original>
 <Russian>Уменьшить кол-во юнитов в группах AI в зависимости от кол-ва игроков на сервере</Russian>
@@ -13125,7 +13125,7 @@
 <English>Order like placed in the editor</English>
 <Spanish>Order like placed in the editor</Spanish>
 <Portuguese>Order like placed in the editor</Portuguese>
-<Korean>Order like placed in the editor</Korean>
+<Korean>에디터에 배치된것 같은 명령</Korean>
 <Japanese>Order like placed in the editor</Japanese>
 <Original>Order like placed in the editor</Original>
 <Russian>Сайл-миссии по нумерации в редакторе</Russian>
@@ -13137,7 +13137,7 @@
 <English>Random side missions:</English>
 <Spanish>Random side missions:</Spanish>
 <Portuguese>Random side missions:</Portuguese>
-<Korean>Random side missions:</Korean>
+<Korean>무작위 보조과제:</Korean>
 <Japanese>Random side missions:</Japanese>
 <Original>Random side missions:</Original>
 <Russian>Случайные сайд-миссии:</Russian>
@@ -13148,7 +13148,7 @@
 <English>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</English>
 <Spanish>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Spanish>
 <Portuguese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Portuguese>
-<Korean>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Korean>
+<Korean>적군의 공격으로인해 유독가스가 누출 되고 있습니다. 즉시 그곳에 가서 유독가스 누출을 밀폐 하십시오! 주의, 적군은 여전히 그곳에 있습니다! 산소 호흡기를 잊지마십시오!</Korean>
 <Japanese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Japanese>
 <Original>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Original>
 <Russian>Атака противника вызвала утечку токсичного газа. Доберитесь до места и немедленно устраните утечку! Внимание, враг все еще находится в этом районе! Не забудьте респиратор!</Russian>
@@ -13160,7 +13160,7 @@
 <English>You have sealed the leak!</English>
 <Spanish>You have sealed the leak!</Spanish>
 <Portuguese>You have sealed the leak!</Portuguese>
-<Korean>You have sealed the leak!</Korean>
+<Korean>귀관은 독성가스 누출을 밀폐 했습니다!</Korean>
 <Japanese>You have sealed the leak!</Japanese>
 <Original>You have sealed the leak!</Original>
 <Russian>Вы устранили утечку!</Russian>
@@ -13172,7 +13172,7 @@
 <English>Earplugs A3 User Action Key:</English>
 <Spanish>Earplugs A3 User Action Key:</Spanish>
 <Portuguese>Earplugs A3 User Action Key:</Portuguese>
-<Korean>Earplugs A3 User Action Key:</Korean>
+<Korean>이어플러그 A3 사용자 활성화 키:</Korean>
 <Japanese>Earplugs A3 User Action Key:</Japanese>
 <Original>Earplugs A3 User Action Key:</Original>
 <Russian>Беруши A3 User Action Key:</Russian>
@@ -13184,7 +13184,7 @@
 <English>3D Marker A3 User Action Key:</English>
 <Spanish>3D Marker A3 User Action Key:</Spanish>
 <Portuguese>3D Marker A3 User Action Key:</Portuguese>
-<Korean>3D Marker A3 User Action Key:</Korean>
+<Korean>3D 마커 A3 사용자 활성화 키:</Korean>
 <Japanese>3D Marker A3 User Action Key:</Japanese>
 <Original>3D Marker A3 User Action Key:</Original>
 <Russian>3D-Маркер A3 User Action Key:</Russian>
@@ -13196,7 +13196,7 @@
 <English>Nightvision mode is disabled by the server administrator!</English>
 <Spanish>Nightvision mode is disabled by the server administrator!</Spanish>
 <Portuguese>Nightvision mode is disabled by the server administrator!</Portuguese>
-<Korean>Nightvision mode is disabled by the server administrator!</Korean>
+<Korean>서버 관리자가 야간투시경을 비활성화 시켰습니다!</Korean>
 <Japanese>Nightvision mode is disabled by the server administrator!</Japanese>
 <Original>Nightvision mode is disabled by the server administrator!</Original>
 <Russian>Режим ночного видения отключен администратором сервера!</Russian>
@@ -13208,7 +13208,7 @@
 <English>Thermal vision mode is disabled by the server administrator!</English>
 <Spanish>Thermal vision mode is disabled by the server administrator!</Spanish>
 <Portuguese>Thermal vision mode is disabled by the server administrator!</Portuguese>
-<Korean>Thermal vision mode is disabled by the server administrator!</Korean>
+<Korean>서버 관리자가 열화상을 비활성화 시켰습니다!</Korean>
 <Japanese>Thermal vision mode is disabled by the server administrator!</Japanese>
 <Original>Thermal vision mode is disabled by the server administrator!</Original>
 <Russian>Режим тепловизора отключен администратором сервера!</Russian>
@@ -13220,7 +13220,7 @@
 <English>Allow transfer of points to other players in ranked mode:</English>
 <Spanish>Allow transfer of points to other players in ranked mode:</Spanish>
 <Portuguese>Allow transfer of points to other players in ranked mode:</Portuguese>
-<Korean>Allow transfer of points to other players in ranked mode:</Korean>
+<Korean>랭크모드에서 사용자끼리 포인트 전달을 허락:</Korean>
 <Japanese>Allow transfer of points to other players in ranked mode:</Japanese>
 <Original>Allow transfer of points to other players in ranked mode:</Original>
 <Russian>Разрешить передачу очков другим игрокам в ранговом режиме:</Russian>
@@ -13232,7 +13232,7 @@
 <English>Turn off markers at AO for tower and camps:</English>
 <Spanish>Turn off markers at AO for tower and camps:</Spanish>
 <Portuguese>Turn off markers at AO for tower and camps:</Portuguese>
-<Korean>Turn off markers at AO for tower and camps:</Korean>
+<Korean>점령지 내 초소 및 통신탑 표시 비활성화:</Korean>
 <Japanese>Turn off markers at AO for tower and camps:</Japanese>
 <Original>Turn off markers at AO for tower and camps:</Original>
 <Russian>Выключить маркеры для радиовышки и бункеров:</Russian>
@@ -13243,7 +13243,7 @@
 <English>Ranked mode on but weapons not ranked</English>
 <Spanish>Ranked mode on but weapons not ranked</Spanish>
 <Portuguese>Ranked mode on but weapons not ranked</Portuguese>
-<Korean>Ranked mode on but weapons not ranked</Korean>
+<Korean>랭크모드이나 무기는 비활성화</Korean>
 <Japanese>Ranked mode on but weapons not ranked</Japanese>
 <Original>Ranked mode on but weapons not ranked</Original>
 <Russian>Ранговый режим включен, но оружие не ранжировано</Russian>
@@ -13255,7 +13255,7 @@
 <English>Last chance to retake a camp...</English>
 <Spanish>Last chance to retake a camp...</Spanish>
 <Portuguese>Last chance to retake a camp...</Portuguese>
-<Korean>Last chance to retake a camp...</Korean>
+<Korean>초소를 탈환 할 수 있는 마지막 기회 ...</Korean>
 <Japanese>Last chance to retake a camp...</Japanese>
 <Original>Last chance to retake a camp...</Original>
 <Russian>Последний шанс вернуть город...</Russian>
@@ -13267,7 +13267,7 @@
 <English>TI Mode:</English>
 <Spanish>TI Mode:</Spanish>
 <Portuguese>TI Mode:</Portuguese>
-<Korean>TI Mode:!</Korean>
+<Korean>TI 모드:</Korean>
 <Japanese>TI Mode:</Japanese>
 <Original>TI Mode:</Original>
 <Russian>TI режим:</Russian>
@@ -13279,7 +13279,7 @@
 <English>WHOT</English>
 <Spanish>WHOT</Spanish>
 <Portuguese>WHOT</Portuguese>
-<Korean>WHOT</Korean>
+<Korean>열화상모드</Korean>
 <Japanese>WHOT</Japanese>
 <Original>WHOT</Original>
 <Russian>Режим тепловизора</Russian>
@@ -13291,7 +13291,7 @@
 <English>Entire map</English>
 <Spanish>Entire map</Spanish>
 <Portuguese>Entire map</Portuguese>
-<Korean>Entire map</Korean>
+<Korean>모든맵상 도시</Korean>
 <Japanese>Entire map</Japanese>
 <Original>Entire map</Original>
 <Russian>Вся карта</Russian>
@@ -13303,7 +13303,7 @@
 <English>No empty cargo positions in %1...</English>
 <Spanish>No empty cargo positions in %1...</Spanish>
 <Portuguese>Normal</Portuguese>
-<Korean>No empty cargo positions in %1...</Korean>
+<Korean>%1 화물 장소가 비어있지 않습니다...</Korean>
 <Japanese>No empty cargo positions in %1...</Japanese>
 <Original>No empty cargo positions in %1...</Original>
 <Russian>Нет свободного места в %1...</Russian>
@@ -13315,7 +13315,7 @@
 <English>Open Terminal</English>
 <Spanish>Open Terminal</Spanish>
 <Portuguese>Open Terminal</Portuguese>
-<Korean>Open Terminal</Korean>
+<Korean>터미널 열기</Korean>
 <Japanese>Open Terminal</Japanese>
 <Original>Open Terminal</Original>
 <Russian>Открыть терминал</Russian>
@@ -13327,7 +13327,7 @@
 <English>Seal leak</English>
 <Spanish>Seal leak</Spanish>
 <Portuguese>Seal leak</Portuguese>
-<Korean>Seal leak</Korean>
+<Korean>가스 밀폐</Korean>
 <Japanese>Seal leak</Japanese>
 <Original>Seal leak</Original>
 <Russian>Устранить утечку</Russian>
@@ -13339,7 +13339,7 @@
 <English>Sealing leak... Please wait!</English>
 <Spanish>Sealing leak... Please wait!</Spanish>
 <Portuguese>Sealing leak... Please wait!</Portuguese>
-<Korean>Sealing leak... Please wait!</Korean>
+<Korean>가스 밀폐중... 대기하십시오!</Korean>
 <Japanese>Sealing leak... Please wait!</Japanese>
 <Original>Sealing leak... Please wait!</Original>
 <Russian>Устранение утечки... Пожалуйста подождите!</Russian>
@@ -13351,7 +13351,7 @@
 <English>Leak sealed!</English>
 <Spanish>Leak sealed!</Spanish>
 <Portuguese>Leak sealed!</Portuguese>
-<Korean>Leak sealed!</Korean>
+<Korean>가스가 밀폐되었습니다!</Korean>
 <Japanese>Leak sealed!</Japanese>
 <Original>Leak sealed!</Original>
 <Russian>Утечка устранена!</Russian>
@@ -13363,7 +13363,7 @@
 <English>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</English>
 <Spanish>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Spanish>
 <Portuguese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Portuguese>
-<Korean>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Korean>
+<Korean>주의: %1 부터 게릴라 탱크부대가 도시로 이동중입니다. 게릴라는 청군에 우호적이고 대항군에 적대적입니다.</Korean>
 <Japanese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
 <Original>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
 <Russian>Внимание: Партизанские танки движутся в город из %1. Партизаны сотрудничают с Blufor и враждебны с Opfor.</Russian>
@@ -13375,7 +13375,7 @@
 <English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
 <Spanish>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Spanish>
 <Portuguese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Portuguese>
-<Korean>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Korean>
+<Korean>적이 전에 점령한 재보급소들 중 하나를 탈환할 기회가 생겼습니다. 재보급소를 되찾아 오십시오!</Korean>
 <Japanese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Japanese>
 <Original>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Original>
 <Russian>Вы имеете шанс вернуть один из наших Farp, захваченных противником некоторое время назад. Вернитесь назад</Russian>
@@ -13387,7 +13387,7 @@
 <English>Congrats, you have taken back the farp! It's now available as a respawn point again.</English>
 <Spanish>Congrats, you have taken back the farp! It's now available as a respawn point again.</Spanish>
 <Portuguese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Portuguese>
-<Korean>Congrats, you have taken back the farp! It's now available as a respawn point again.</Korean>
+<Korean>축하합니다, 재보급소를 점령하였습니다! 다시 리스폰 포인트로 사용 가능합니다.</Korean>
 <Japanese>Congrats, you have taken back the farp! It's now available as a respawn point again.</Japanese>
 <Original>Congrats, you have taken back the farp! It's now available as a respawn point again.</Original>
 <Russian>Поздравляем, Вы отвоевали Farp! Теперь он доступен в качестве точки возрождения.</Russian>
@@ -13399,7 +13399,7 @@
 <English>Retake Farp</English>
 <Spanish>Retake Farp</Spanish>
 <Portuguese>Retake Farp</Portuguese>
-<Korean>Retake Farp</Korean>
+<Korean>재보급소 탈환</Korean>
 <Japanese>Retake Farp</Japanese>
 <Original>Retake Farp</Original>
 <Russian>Перевзятие Farp</Russian>
@@ -13411,7 +13411,7 @@
 <English>Retaking Farp... Please wait!</English>
 <Spanish>Retaking Farp... Please wait!</Spanish>
 <Portuguese>Retaking Farp... Please wait!</Portuguese>
-<Korean>Retaking Farp... Please wait!</Korean>
+<Korean>재보급소를 탈환중입니다... 대기하십시오!</Korean>
 <Japanese>Retaking Farp... Please wait!</Japanese>
 <Original>Retaking Farp... Please wait!</Original>
 <Russian>Перевзятие Farp... Пожалуйста подождите!</Russian>
@@ -13423,7 +13423,7 @@
 <English>crash site</English>
 <Spanish>crash site</Spanish>
 <Portuguese>crash site</Portuguese>
-<Korean>crash site</Korean>
+<Korean>추락 지점</Korean>
 <Japanese>crash site</Japanese>
 <Original>crash site</Original>
 <Russian>место аварии</Russian>
@@ -13435,7 +13435,7 @@
 <English>prisoners</English>
 <Spanish>prisoners</Spanish>
 <Portuguese>prisoners</Portuguese>
-<Korean>prisoners</Korean>
+<Korean>포로들</Korean>
 <Japanese>prisoners</Japanese>
 <Original>prisoners</Original>
 <Russian>заключенных</Russian>
@@ -13447,7 +13447,7 @@
 <English>Push Boat</English>
 <Spanish>Push Boat</Spanish>
 <Portuguese>Push Boat</Portuguese>
-<Korean>Push Boat</Korean>
+<Korean>보트 밀기</Korean>
 <Japanese>Push Boat</Japanese>
 <Original>Push Boat</Original>
 <Russian>Толкнуть лодку</Russian>

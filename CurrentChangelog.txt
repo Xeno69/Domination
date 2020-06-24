@@ -51,4 +51,5 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
 - Improved: Boats can be pushed if they are on the beach
 - Updated: Russian translation by Babayka
+- Updated: Korean translation by kkim
 - Updated: Chineseimp translation by CHL198011
