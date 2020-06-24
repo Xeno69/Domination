@@ -132,6 +132,9 @@ if (_vec isKindOf "Air") then {
 		d_playerInMHQ = true;
 		[_vec] spawn d_fnc_mhqCheckNearTarget;
 	};
+	if (_vec isKindOf "Tank" || {_vec isKindOf "Truck_F" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "MRAP_01_base_F" || {_vec isKindOf "MRAP_02_base_F"}}}}) then {
+		_vec spawn d_fnc_LowGear_Init;
+	};
 };
 if (_do_exit) exitWith {};
 

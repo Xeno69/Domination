@@ -329,6 +329,8 @@ class cfgFunctions {
 			addc(objectsmapper);
 			addc(createsimpleobject);
 			addc(findsafepos);
+			addc(LowGear_Init);
+			addc(LowGearOn);
 		};
 		class Dom_cba_Scripts {
 			file = "cba";

@@ -13455,6 +13455,30 @@
 <Chinese>Push Boat</Chinese>
 <French>Push Boat</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2034">
+<English>Low Gear On</English>
+<Spanish>Low Gear On</Spanish>
+<Portuguese>Low Gear On</Portuguese>
+<Korean>Low Gear On</Korean>
+<Japanese>Low Gear On</Japanese>
+<Original>Low Gear On</Original>
+<Russian>Low Gear On</Russian>
+<Chinesesimp>Low Gear On</Chinesesimp>
+<Chinese>Low Gear On</Chinese>
+<French>Low Gear On</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2035">
+<English>Low Gear Off</English>
+<Spanish>Low Gear Off</Spanish>
+<Portuguese>Low Gear Off</Portuguese>
+<Korean>Low Gear Off</Korean>
+<Japanese>Low Gear Off</Japanese>
+<Original>Low Gear Off</Original>
+<Russian>Low Gear Off</Russian>
+<Chinesesimp>Low Gear Off</Chinesesimp>
+<Chinese>Low Gear Off</Chinese>
+<French>Low Gear Off</French>
+</Key>
 </Container>
 </Package>
 </Project>
