@@ -660,6 +660,43 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+#ifndef __TT__
+	class d_params_dl_9 {
+		title = "$STR_DOM_MISSIONSTRING_1575";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+
+	class d_with_ai {
+		title = "$STR_DOM_MISSIONSTRING_1023";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
+	class d_with_ai_features {
+		title = "$STR_DOM_MISSIONSTRING_1024";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
+	class d_max_ai {
+		title = "$STR_DOM_MISSIONSTRING_1176";
+		values[] = {4,6,8,10,12,14,16};
+		default = 8;
+		texts[] = {"4","6","8","10","12","14","16"};
+	};
+
+	class d_ai_alone_in_vehicle {
+		title = "$STR_DOM_MISSIONSTRING_1758";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+#endif
 
 	class d_params_dl_3 {
 		title = "$STR_DOM_MISSIONSTRING_1571";
@@ -1046,43 +1083,6 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-
-#ifndef __TT__
-	class d_params_dl_9 {
-		title = "$STR_DOM_MISSIONSTRING_1575";
-		values[] = {-99999};
-		default = -99999;
-		texts[] = {""};
-	};
-
-	class d_with_ai {
-		title = "$STR_DOM_MISSIONSTRING_1023";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_with_ai_features {
-		title = "$STR_DOM_MISSIONSTRING_1024";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_max_ai {
-		title = "$STR_DOM_MISSIONSTRING_1176";
-		values[] = {4,6,8,10,12,14,16};
-		default = 8;
-		texts[] = {"4","6","8","10","12","14","16"};
-	};
-
-	class d_ai_alone_in_vehicle {
-		title = "$STR_DOM_MISSIONSTRING_1758";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-#endif
 
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
