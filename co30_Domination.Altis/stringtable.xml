@@ -12931,15 +12931,15 @@
 <French>Un clic ALT à l'intérieur du cercle réinitialise la position à la position par défaut</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1992">
-<English>Limit Virtual Arsenal ammo box access too 1000</English>
+<English>Limit Virtual Arsenal ammo box access to 1000</English>
 <Spanish>Limite el acceso a la caja de munición del Arsenal virtual a 1000</Spanish>
 <Portuguese>Limite de acesso à caixa de munição do Arsenal Virtual também 1000</Portuguese>
 <Korean>가상 탄약상자 접근을 1000으로 제한</Korean>
-<Japanese>Limit Virtual Arsenal ammo box access too 1000</Japanese>
-<Original>Limit Virtual Arsenal ammo box access too 1000</Original>
+<Japanese>Limit Virtual Arsenal ammo box access to 1000</Japanese>
+<Original>Limit Virtual Arsenal ammo box access to 1000</Original>
 <Russian>Ограничить доступ к боеприпасам виртуального арсенала до 1000</Russian>
 <Chinesesimp>限制使用虚拟武库弹药的数量为1000</Chinesesimp>
-<Chinese>Limit Virtual Arsenal ammo box access too 1000</Chinese>
+<Chinese>Limit Virtual Arsenal ammo box access to 1000</Chinese>
 <French>Limiter l'accès aux boîtes de munitions de l'Arsenal virtuel à 1000</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1993">
