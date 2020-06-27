@@ -179,7 +179,7 @@ _plane disableAi "autotarget";
 _plane setCombatMode "blue";
 
 private _vectorDir = [_planePos,_pos] call bis_fnc_vectorFromXtoY;
-private _velocity = [_vectorDir,_speed] call bis_fnc_vectorMultiply;
+private _velocity = _vectorDir vectorMultiply _speed;
 _plane setVectordir _vectorDir;
 [_plane,-90 + atan (_dis / _alt),0] call bis_fnc_setpitchbank;
 private _vectorUp = vectorUp _plane;
@@ -217,7 +217,7 @@ waitUntil {
 		_planePos = [_pos,_dis, _dir + 180] call bis_fnc_relpos;
 		_planePos set [2, (_pos # 2) + _alt];
 		_vectorDir = [_planePos, _pos] call bis_fnc_vectorFromXtoY;
-		_velocity = [_vectorDir, _speed] call bis_fnc_vectorMultiply;
+		_velocity = _vectorDir vectorMultiply _speed;
 		_plane setVectordir _vectorDir;
 		//[_plane,-90 + atan (_dis / _alt),0] call bis_fnc_setpitchbank;
 		_vectorUp = vectorUp _plane;
