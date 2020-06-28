@@ -1,12 +1,12 @@
-["O_MBT_02_cannon_F","O_MBT_04_cannon_F","O_MBT_04_command_F"],
-["O_APC_Tracked_02_cannon_F"],
-["O_APC_Wheeled_02_rcws_F"],
-["O_APC_Tracked_02_AA_F"],
-["O_MRAP_02_hmg_F","O_MRAP_02_gmg_F"],
-["O_G_Offroad_01_armed_F","O_LSV_02_AT_F","O_G_Offroad_01_AT_F"],
-["O_GMG_01_F","O_GMG_01_high_F"], //O_GMG_01_A_F, removed because it creates an invisible gunner (UAV type)
-["O_HMG_01_F","O_HMG_01_high_F","O_static_AA_F","O_static_AT_F","O_G_HMG_02_F","O_G_HMG_02_high_F"], // O_HMG_01_A_F, removed because it creates an invisible gunner (UAV type)
-["O_Mortar_01_F"],
-["O_Truck_02_fuel_F"],
-["O_Truck_02_box_F"],
-["O_Truck_02_Ammo_F"]
+["uns_ot34_85_nva","uns_t34_85_nva","uns_t54_nva","uns_to55_nva"],
+["uns_pt76","uns_Type63_mg"],
+["uns_BTR152_DSHK"],
+["pook_ZSU_NVA","pook_ZSU57_NVA","uns_BTR152_ZPU","uns_Type55_ZU","uns_nvatruck_zpu"],
+["uns_Type55_RR57","uns_Type55_RR73","uns_Type55_MG"],
+["uns_Type55_twinMG","uns_Type55_LMG"],
+["uns_dshk_armoured_NVA","uns_dshk_high_NVA","uns_dshk_low_NVA","uns_dshk_wheeled_NVA"],
+["uns_SPG9_73mm_NVA","uns_pk_bunker_low_NVA","uns_pk_bunker_open_NVA","uns_mg42_low_NVA"],
+["uns_m1941_82mm_mortarNVA_arty","uns_m1941_82mm_mortarNVA_pvp","uns_m1941_82mm_mortarNVA","uns_m1941_82mm_mortarVC"],
+["uns_nvatruck_refuel"],
+["uns_nvatruck_repair"],
+["uns_nvatruck_reammo"]
