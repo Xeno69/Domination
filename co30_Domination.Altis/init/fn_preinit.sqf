@@ -72,6 +72,12 @@ d_gmcwgwinter = false;
 d_gmcwgwinter = true;
 #endif
 
+#ifdef __UNSUNG__
+d_unsung = true;
+#else
+d_unsung = false;
+#endif
+
 d_HeliHEmpty = "Land_HelipadEmpty_F";
 
 // BLUFOR, OPFOR or INDEPENDENT for own side, setup in x_setup.sqf
@@ -216,6 +222,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __RHS__
 #include "sm_bonus_vec_ar_rhs.sqf"
 #endif
+#ifdef __UNSUNG__
+#include "sm_bonus_vec_ar_uns.sqf"
+#endif
 
 #ifdef __ALTIS__
 #include "mt_bonus_vec_ar_altis.sqf"
@@ -262,6 +271,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __RHS__
 #include "mt_bonus_vec_ar_rhs.sqf"
 #endif
+#ifdef __UNSUNG__
+#include "mt_bonus_vec_ar_uns.sqf"
+#endif
 
 #ifndef __TT__
 d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
@@ -288,6 +300,9 @@ d_x_drop_array =
 		if (d_gmcwg) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", ["gm_ge_army_u1300l_cargo", "gm_ge_army_u1300l_cargo_win"] select d_gmcwgwinter], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
+		if (d_unsung) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "uns_willys_2"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
 #endif
@@ -312,15 +327,7 @@ d_drop_side = d_own_side;
 // d_jumpflag_vec = empty ("") means normal jump flags for HALO jump get created
 // if you add a vehicle typename to d_jumpflag_vec (d_jumpflag_vec = "B_Quadbike_01_F"; for example) only a vehicle gets created and no HALO jump is available
 //d_jumpflag_vec = "B_Quadbike_01_F";
-d_jumpflag_vec = call {
-	if (d_gmcwg) exitWith {
-		if (d_gmcwgwinter) exitWith {
-			"gm_ge_army_iltis_cargo_win"
-		};
-		"gm_ge_army_iltis_cargo"
-	};
-	""
-};
+d_jumpflag_vec = "";
 
 d_servicepoint_building = "Land_Cargo_House_V2_F";
 
@@ -360,6 +367,9 @@ d_wcamp =
 	"Land_Cargo_Patrol_V1_F";
 #endif
 #ifdef __GMCWG__
+	"Land_Cargo_Patrol_V4_F";
+#endif
+#ifdef __UNSUNG__
 	"Land_Cargo_Patrol_V4_F";
 #endif
 
@@ -763,6 +773,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __TTMALDEN__
 #include "d_allmen_O_default.sqf"
 #endif
+#ifdef __UNSUNG__
+#include "d_allmen_O_uns.sqf"
+#endif
 	];
 	d_allmen_W = [
 #ifndef __IFA3LITE__
@@ -838,6 +851,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __TTMALDEN__
 #include "d_specops_O_default.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "d_specops_O_uns.sqf"
 #endif
 	];
 	
@@ -924,6 +940,10 @@ if (!d_gmcwgwinter) then {
 	d_sniper_W = [["West","rhs_faction_usarmy_d","rhs_group_nato_usarmy_d_infantry","rhs_group_nato_usarmy_d_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
 	d_sniper_G = [["Indep","rhssaf_faction_army","rhssaf_group_army_m10_digital_infantry","rhssaf_group_army_m10_digital_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
 #endif
+#ifdef __UNSUNG__
+	d_sniper_E = [["uns_men_VC_mainforce_Rmrk", "uns_men_VC_mainforce_Roff"]];
+	d_sabotage_E = [["uns_men_VC_mainforce_68_Roff","uns_men_VC_mainforce_68_Ra1", "uns_men_VC_mainforce_68_Ra2", "uns_men_VC_mainforce_68_Rmg"]];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
@@ -967,6 +987,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __MALDEN__
 #include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "d_veh_a_O_uns.sqf"
 #endif
 	];
 
@@ -1039,6 +1062,9 @@ if (!d_gmcwgwinter) then {
 	d_arti_observer_W = [["rhsusf_army_ocp_jfo"], ["rhsusf_army_ucp_fso"], ["rhsusf_usmc_marpat_d_fso"], ["rhsusf_usmc_marpat_d_jfo"]];
 	d_arti_observer_E = [["rhs_vmf_recon_rifleman_scout_akm"], ["rhs_vmf_recon_rifleman_scout"]];
 #endif
+#ifdef __UNSUNG__
+	d_arti_observer_E = [["uns_men_VC_mainforce_68_RTO"]];
+#endif
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
 	if (isNil "d_number_attack_planes") then {
@@ -1072,6 +1098,9 @@ if (!d_gmcwgwinter) then {
 			};
 			if (d_rhs) exitWith {
 				"RHS_C130J"
+			};
+			if (d_unsung) exitWith {
+				"uns_C130_H"
 			};
 			if (d_ifa3lite) exitWith {
 				""
@@ -1117,6 +1146,9 @@ if (!d_gmcwgwinter) then {
 			if (d_gmcwg) exitWith {
 				""
 			};
+			if (d_unsung) exitWith {
+				"uns_A1J_CAS"
+			};
 			if (d_rhs) exitWith {
 				"RHS_A10"
 			};
@@ -1161,6 +1193,9 @@ if (!d_gmcwgwinter) then {
 			};
 			if (d_gmcwg) exitWith {
 				""
+			};
+			if (d_unsung) exitWith {
+				"uns_Mig21_CAS"
 			};
 			if (d_rhs) exitWith {
 				"RHS_Su25SM_vvsc"
@@ -1247,9 +1282,13 @@ if (!d_gmcwgwinter) then {
 		];
 	};
 
-	if (d_gmcwg) then {
-		d_civilians_t = ["gm_gc_civ_man_01_80_blk","gm_gc_civ_man_01_80_blu","gm_gc_civ_man_02_80_brn","gm_gc_civ_man_02_80_gry","gm_gc_pol_officer_80_blu"];
-	} else {
+	call {
+		if (d_gmcwg) exitWith {
+			d_civilians_t = ["gm_gc_civ_man_01_80_blk","gm_gc_civ_man_01_80_blu","gm_gc_civ_man_02_80_brn","gm_gc_civ_man_02_80_gry","gm_gc_pol_officer_80_blu"];
+		};
+		if (d_unsung) exitWith {
+			d_civilians_t = ["uns_civilian1","uns_civilian2","uns_civilian3","uns_civilian4"];
+		};
 		d_civilians_t = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F"];
 	};
 
@@ -1270,6 +1309,9 @@ if (!d_gmcwgwinter) then {
 				"gm_ge_army_gepard1a1_win"
 			};
 			"gm_ge_army_gepard1a1"
+		};
+		if (d_unsung) exitWith	{
+			"uns_m163"
 		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_APC_Tracked_01_AA_F"
@@ -1312,6 +1354,9 @@ d_base_tank_vec =
 			};
 			"gm_ge_army_Leopard1a1a1"
 		};
+		if (d_unsung) exitWith	{
+			"uns_m48a3"
+		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_MBT_01_cannon_F"
 		};
@@ -1352,6 +1397,9 @@ d_base_apc_vec =
 				"gm_ge_army_m113a1g_apc_win"
 			};
 			"gm_ge_army_m113a1g_apc"
+		};
+		if (d_unsung) exitWith	{
+			"uns_M113_M2"
 		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_APC_Wheeled_01_cannon_F"
@@ -1418,6 +1466,9 @@ d_base_apc_vec =
 #ifdef __RHS__
 #include "d_sm_classes_rhs.sqf"
 #endif
+#ifdef __UNSUNG__
+#include "d_sm_classes_uns.sqf"
+#endif
 
 	d_intel_unit = objNull;
 
@@ -1469,6 +1520,9 @@ d_base_apc_vec =
 				if (d_rhs) exitWith {
 					["rhs_mig29s_vmf","rhs_mig29sm_vmf","rhs_mig29s_vvsc","rhs_mig29sm_vvsc","RHS_Su25SM_vvsc","RHS_Su25SM_vvs","RHS_T50_vvs_generic_ext","RHS_T50_vvs_blueonblue"]
 				};
+				if (d_unsung) exitWith {
+					["uns_Mig21_CAS", "uns_Mig21_CBU", "uns_Mig21_HCAS"]
+				};
 				["O_Plane_CAS_02_F"]
 			};
 		};
@@ -1497,6 +1551,9 @@ d_base_apc_vec =
 					[]
 				};
 				if (d_rhs) exitWith {
+					[]
+				};
+				if (d_unsung) exitWith {
 					[]
 				};
 				if (d_ifa3lite) exitWith {
@@ -1554,6 +1611,9 @@ d_base_apc_vec =
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vdv","RHS_Mi24V_vdv","RHS_Ka52_vvsc","RHS_Mi24P_vvsc","RHS_Mi24Vt_vvsc","rhs_mi28n_vvsc"]
 				};
+				if (d_unsung) exitWith {
+					["uns_Mi8TV_VPAF_MG"]
+				};
 				["O_Heli_Attack_02_F"]
 			};
 		};
@@ -1595,9 +1655,6 @@ d_base_apc_vec =
 		};
 		case "W": {[]};
 		case "G": {["I_Heli_Transport_02_F"]};
-	};
-	if (d_enemy_side_short == "E" && {isClass(configFile>>"CfgVehicles">>"CUP_O_Mi8_VIV_RU")}) then {
-		d_transport_chopper = ["CUP_O_Mi8_VIV_RU"];
 	};
 #endif
 #ifdef __TANOA__
@@ -1676,6 +1733,13 @@ d_base_apc_vec =
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
 #endif
+#ifdef __UNSUNG__
+	d_transport_chopper = switch (d_enemy_side_short) do {
+		case "E": {["uns_an2"]};
+		case "W": {["B_Heli_Light_01_F"]};
+		case "G": {["I_Heli_Transport_02_F"]};
+	};
+#endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
 	d_light_attack_chopper = switch (d_enemy_side_short) do {
@@ -1689,6 +1753,9 @@ d_base_apc_vec =
 						["gm_gc_airforce_mi2us_un"]
 					};
 					["gm_gc_airforce_mi2us"]
+				};
+				if (d_unsung) exitWith {
+					["uns_Mi8TV_VPAF_MG"]
 				};
 				if (d_ifa3lite) exitWith {
 					[]
@@ -1776,6 +1843,9 @@ d_base_apc_vec =
 #ifdef __GMCWG__
 		"Land_BagBunker_01_large_green_F";
 #endif
+#ifdef __UNSUNG__
+		"Land_BagBunker_01_large_green_F";
+#endif
 	
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
@@ -1816,7 +1886,9 @@ d_base_apc_vec =
 #ifdef __GMCWG__
 		"Land_Cargo_HQ_V4_F";
 #endif
-	
+#ifdef __UNSUNG__
+		"Land_Cargo_HQ_V4_F";
+#endif
 	if (isNil "d_ai_groups_respawn_time") then {
 		// inf base time, inf min time, vehicle base time, vehicle min time, all in seconds
 		// means, inf base time minus number of players but at least wait 130 to respawn a group, same for vehicles
@@ -1896,6 +1968,13 @@ d_base_apc_vec =
 		"C_Tractor_01_F", 0.10
 	];
 	
+	_civVehiclesWeightedRuraluns = [
+		"C_Truck_02_transport_F", 0.10,
+		"uns_willys_2", 0.40,
+		"uns_willys_2", 0.40,
+		"C_Tractor_01_F", 0.10
+	];
+	
 	d_civ_vehicles_weighted =
 #ifdef __ALTIS__
 		_civVehiclesWeightedCityWealthHigh;
@@ -1935,6 +2014,9 @@ d_base_apc_vec =
 #endif
 #ifdef __GMCWG__
 		_civVehiclesWeightedRuralGmcwg;
+#endif
+#ifdef __UNSUNG__
+		_civVehiclesWeightedRuraluns;
 #endif
 };
 
@@ -2048,6 +2130,9 @@ d_base_apc_vec =
 #ifdef __GMCWG__
 		_whiteFaces;
 #endif
+#ifdef __UNSUNG__
+		_asianFaces;
+#endif
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")
@@ -2088,6 +2173,9 @@ if (hasInterface) then {
 		};
 		if (d_rhs) exitWith {
 			["rhsusf_mrzr4_d"]
+		};
+		if (d_unsung) exitWith {
+			["uns_willys"]
 		};
 		["B_Quadbike_01_F", "B_LSV_01_unarmed_F"]
 	};
@@ -2269,6 +2357,9 @@ if (hasInterface) then {
 			if (d_rhs) exitWith {
 				["RHS_UH60M2"]
 			};
+			if (d_unsung) exitWith {
+				["uns_UH1H_m60"]
+			};
 			["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
 		};
 #endif
@@ -2360,11 +2451,6 @@ if (hasInterface) then {
 	// "gm_"
 	// if you use CUP then only CUP stuff will be shown in Virtual Arsenal
 	d_arsenal_mod_prestrings = [];
-	
-	if (isClass(configFile>>"CfgPatches">>"uns_main")) then {
-		// now Virtual Arsenal will only show Unsung stuff; of course if you add other modes it will show them too
-		d_arsenal_mod_prestrings pushBack "uns_";
-	};
 	
 	// same as above but will remove specific mods
 	// for example: "gm_" will remove Global Mobilization

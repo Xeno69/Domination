@@ -99,6 +99,9 @@ d_sm_array =
 d_sm_array =
 	[0,1,3,4,6,8,9,12,14,19,20,23,29,31,32,36,40,42,44];
 #endif
+#ifdef __UNSUNG__
+d_sm_array = [];
+#endif
 
 call d_fnc_create_sm_bymarkers;
 
@@ -221,6 +224,13 @@ if (isServer) then {
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
 #endif
+#ifdef __UNSUNG__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["uns_BTR152_DSHK","uns_BTR152_ZPU", "uns_Type55_RR57", "uns_nvatruck_reammo", "uns_nvatruck_refuel", "uns_nvatruck_repair", "uns_nvatruck_zu23"]};
+		case "W": {["rhsusf_M1117_D","RHS_M6", "RHS_M2A3_BUSKIII", "rhsusf_M977A4_REPAIR_usarmy_d", "rhsusf_M977A4_AMMO_usarmy_d", "rhsusf_M978A4_usarmy_d", "RHS_M2A2_BUSKI"]};
+		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
+	};
+#endif
 };
 
 #ifdef __ALTIS__
@@ -264,6 +274,9 @@ d_sm_folder = "ma3m";
 #endif
 #ifdef __IFA3LITE__
 d_sm_folder = "mifa3";
+#endif
+#ifdef __UNSUNG__
+d_sm_folder = "ma3a";
 #endif
 
 // Instead of a random vehicle chosen for winning a side mission you can setup it in the mission yourself now

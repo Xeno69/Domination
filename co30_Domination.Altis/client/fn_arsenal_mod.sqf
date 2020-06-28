@@ -12,7 +12,7 @@ if (!d_gmcwg) then {
 	_items_no append ["FirstAidKit", "Medikit","ItemCompass", "ItemWatch"];
 };
 
-if (!d_ifa3lite && {!d_gmcwg}) then {
+if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
 	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "MineDetector"];
 };
 

@@ -8,7 +8,7 @@ if (!hasInterface) exitWith {};
 private "_pos_lt";
 private _do_exit = false;
 
-if (!d_ifa3lite && {!d_gmcwg}) then {
+if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
 	private _lt = laserTarget player;
 
 	__TRACE_1("","_lt")

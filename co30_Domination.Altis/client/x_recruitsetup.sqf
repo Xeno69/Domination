@@ -116,6 +116,13 @@ if (isNil "d_UnitsToRecruit") then {
 	};
 	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_Exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
 #endif
+#ifdef __UNSUNG__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {["uns_men_US_11ACR_RIFLEMAN", "uns_men_US_11ACR_GL", "uns_men_US_11ACR_AT", "uns_men_US_11ACR_HMG", "uns_men_US_11ACR_MED", "uns_men_US_11ACR_ENG", "uns_men_US_6SFG_MRK2"]};
+		case opfor: {[]};
+		case independent: {[]};
+	};
+#endif
 };
 
 player setVariable ["d_recdbusy", false];
