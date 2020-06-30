@@ -193,7 +193,9 @@ xr_phd_invulnerable = false;
 uiNamespace setVariable ["D_DomLabel", nil];
 uiNamespace setVariable ["d_DomFour", nil];
 
-0 spawn d_fnc_statusbar;
+if (d_showstatusbars == 1) then {
+	0 spawn d_fnc_statusbar;
+};
 
 sleep 3;
 

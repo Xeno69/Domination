@@ -1093,6 +1093,20 @@ default = 7;
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_showstatusbars {
+		title = "$STR_DOM_MISSIONSTRING_2036";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_showfps {
+		title = "$STR_DOM_MISSIONSTRING_2037";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";

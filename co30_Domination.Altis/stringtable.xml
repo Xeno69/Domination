@@ -13479,6 +13479,30 @@
 <Chinese>Low Gear Off</Chinese>
 <French>Low Gear Off</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2036">
+<English>Show status bars</English>
+<Spanish>Show status bars</Spanish>
+<Portuguese>Show status bars</Portuguese>
+<Korean>Show status bars</Korean>
+<Japanese>Show status bars</Japanese>
+<Original>Show status bars</Original>
+<Russian>Show status bars</Russian>
+<Chinesesimp>Show status bars</Chinesesimp>
+<Chinese>Show status bars</Chinese>
+<French>Show status bars</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2037">
+<English>Show FPS</English>
+<Spanish>Show FPS</Spanish>
+<Portuguese>Show FPS</Portuguese>
+<Korean>Show FPS</Korean>
+<Japanese>Show FPS</Japanese>
+<Original>Show FPS</Original>
+<Russian>Show FPS</Russian>
+<Chinesesimp>Show FPS</Chinesesimp>
+<Chinese>Show FPS</Chinese>
+<French>Show FPS</French>
+</Key>
 </Container>
 </Package>
 </Project>
