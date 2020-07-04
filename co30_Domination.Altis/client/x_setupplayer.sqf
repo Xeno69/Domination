@@ -384,11 +384,8 @@ d_points_needed_16 = (d_points_needed # 6) + 30000;
 
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
 
-	if (d_showfps == 1) then {
+	if (!isStreamFriendlyUIEnabled) then {
 		"d_fpsresource" cutRsc ["d_fpsresource", "PLAIN"];
-	};
-	
-	if (d_showstatusbars == 1) then {
 		if (d_player_can_call_arti > 0 || {d_player_can_call_drop > 0 || {d_string_player in d_can_call_cas || {!d_no_ai}}}) then {
 			"d_RscSupportL" cutRsc ["d_RscSupportL", "PLAIN"];
 		};
@@ -1167,7 +1164,9 @@ if (isMultiplayer) then {
 			};
 		};
 	};
-	//0 spawn d_fnc_statusbar;
+	if (!isStreamFriendlyUIEnabled) then {
+		0 spawn d_fnc_statusbar;
+	};
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

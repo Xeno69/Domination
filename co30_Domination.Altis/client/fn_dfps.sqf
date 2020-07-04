@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_dfps.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
+if (!hasInterface || {isStreamFriendlyUIEnabled}) exitWith {};
 
 disableSerialization;
 private _disp = uiNamespace getVariable "d_fpsresource";

@@ -123,7 +123,7 @@ sleep 8;
 "d_introtxt1" cutText [format [localize "STR_DOM_MISSIONSTRING_1434", actionKeysNames "TeamSwitch", actionKeysNames d_3dmarker_userakey_str, actionKeysNames d_earplugs_userakey_str], "PLAIN"];
 xr_phd_invulnerable = false;
 
-if (d_showstatusbars == 1) then {
+if (!isStreamFriendlyUIEnabled) then {
 	0 spawn d_fnc_statusbar;
 };
 

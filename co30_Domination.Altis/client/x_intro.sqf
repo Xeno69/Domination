@@ -193,7 +193,7 @@ xr_phd_invulnerable = false;
 uiNamespace setVariable ["D_DomLabel", nil];
 uiNamespace setVariable ["d_DomFour", nil];
 
-if (d_showstatusbars == 1) then {
+if (!isStreamFriendlyUIEnabled) then {
 	0 spawn d_fnc_statusbar;
 };
 
