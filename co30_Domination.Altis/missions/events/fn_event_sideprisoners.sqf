@@ -181,7 +181,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_done}}} do {
 
 __TRACE_3("over","_hostages_reached_dest","_all_dead","_rescued")
 
-if (_hostages_reached_dest) then {
+if (_hostages_reached_dest || {_rescued && {!_all_dead}}) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
 } else {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersFail",d_kbtel_chan];

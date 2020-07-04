@@ -142,9 +142,13 @@ private _pcheck_fnc = {
 	{
 		private _ogroup = group _x;
 		_ogroup setCombatMode "YELLOW";
+		_x setUnitPos "UP";
+		sleep 0.5;
 		_x setUnitPos "AUTO";
 		_x enableAI "PATH";
 		_x forceSpeed -1;
+		sleep 0.5;
+		doStop _x;
 		[_x] join _p;
 		deleteGroup _ogroup;
 		doStop _x;
@@ -191,7 +195,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_mt_done}}} do {
 	
 };
 
-if (_pilots_at_base) then {
+if (_pilots_at_base || {_rescued && {!_is_dead}}) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacSucceed",d_kbtel_chan];
 } else {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacFail",d_kbtel_chan];
