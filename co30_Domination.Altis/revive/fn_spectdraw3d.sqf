@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_spectdraw3d.sqf"
 #include "..\x_macros.sqf"
 
