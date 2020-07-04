@@ -167,14 +167,11 @@ private _doexit = false;
 d_bara_trig_ar = [];
 
 private _barcompo = [
-	["Land_HBarrier_Big_F",[-0.0566406,-8.74609,0],180,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[-0.423828,9.06641,0],180,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[-8.7041,-5.40234,0],90,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[8.12695,6.13281,0],87,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[8.64355,-5.38477,0],87,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[-9.32813,6.06836,0],90,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[-5.53125,14.1602,0],180,1,0,[],"","",true,false],
-	["Land_HBarrier_Big_F",[4.18848,14.6484,0],0,1,0,[],"","",true,false]
+	["Land_PillboxWall_01_6m_round_F",[-5.8418,-0.578125,0],270,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[-2.8291,6.4375,0],0,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[2.97852,6.44922,0],0,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[0.556641,-7.11914,0],180,1,0,[],"","",true,false], 
+	["Land_PillboxWall_01_6m_round_F",[7.28906,-0.634766,0],90,1,0,[],"","",true,false]
 ];
 
 for "_i" from 1 to d_num_barracks_objs do {
