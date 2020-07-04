@@ -508,6 +508,34 @@ makePbo -AJNP %NEW_VER%
 rmdir /S /Q %NEW_VER%
 
 
+
+rem Opfor Unsung
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_usnung.song_bin_tanh
+set MISSION_SQM=..\mission_sqm\mission_blufor_unsung_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_unsung.sqf
+md %NEW_VER%
+xcopy %MASTER%\*.* %NEW_VER% /E /Y
+echo d | xcopy %MISSION_SQM% %NEW_VER%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %NEW_VER%\x_setup.sqf /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_default.sqf
+del i_weapons_CUP.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+rmdir /S /Q mifa3
+cd ..
+cd ..
+makePbo -AJNP %NEW_VER%
+rmdir /S /Q %NEW_VER%
+
+
 rem TT Altis
 set NEW_VER=tvt%D_NUM_PLAYERS_TT%_domination_%D_VER%_tt.altis
 set MISSION_SQM=..\mission_sqm\mission_tt_altis_bin.sqm
