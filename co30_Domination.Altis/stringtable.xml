@@ -13371,6 +13371,18 @@
 <Chinese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
 <French>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2028_INFANTRY">
+<English>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</English>
+<Spanish>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Spanish>
+<Portuguese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Portuguese>
+<Korean>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Korean>
+<Japanese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
+<Original>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
+<Russian>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Russian>
+<Chinesesimp>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinesesimp>
+<Chinese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
+<French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
 <English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
 <Spanish>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Spanish>
