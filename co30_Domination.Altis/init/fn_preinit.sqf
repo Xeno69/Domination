@@ -2452,6 +2452,13 @@ if (hasInterface) then {
 	// if you use CUP then only CUP stuff will be shown in Virtual Arsenal
 	d_arsenal_mod_prestrings = [];
 	
+#ifndef __UNSUNG__
+	if (isClass(configFile>>"CfgPatches">>"uns_main")) then {
+		// now Virtual Arsenal will only show Unsung stuff; of course if you add other modes it will show them too
+		d_arsenal_mod_prestrings pushBack "uns_";
+	};
+#endif
+	
 	// same as above but will remove specific mods
 	// for example: "gm_" will remove Global Mobilization
 	d_arsenal_mod_remove_strings = [];

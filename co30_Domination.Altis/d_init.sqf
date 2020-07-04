@@ -693,7 +693,11 @@ if (hasInterface) then {
 					if (d_gmcwg) then {
 						call compile preprocessFileLineNumbers "i_weapons_gmcwg.sqf";
 					} else {
-						call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+						if (d_unsung) then {
+							call compile preprocessFileLineNumbers "i_weapons_UNSUNG.sqf";
+						} else {
+							call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+						};
 					};
 				};
 			};
