@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_spectdraw3d.sqf"
 #include "..\x_macros.sqf"
 
@@ -11,6 +11,7 @@ private _d_pn_hud = d_dist_pname_hud;
 private _fnc_ispl = d_fnc_isplayer;
 private _fnc_ghpn = d_fnc_gethpname;
 private _fnc_grp = d_fnc_getrankpic;
+private _fnc_gpn = d_fnc_getplayername;
 {
 	_distu = _cam2world distance _x;
 	if (_distu <= _d_pn_hud) then {
@@ -29,14 +30,14 @@ private _fnc_grp = d_fnc_getrankpic;
 				};
 			};
 			if (_dodraw) then {
-				//_tex = "";
-				//_rtex = "";
 				_rsize = 0.4;
-				private _rtex = "";
 				if (_distu <= 200) then {
 					_tex = [_x] call _fnc_ghpn;
+					__TRACE_1("1","_tex")
 					if (isNil "_tex") then {_tex = _x call _fnc_gpn};
+					__TRACE_1("2","_tex")
 					_hh = _x call _nfc_grp;
+					__TRACE_1("","_hh")
 					_rtex = _hh # 0;
 					_rsize = _hh # 1;
 				} else {
