@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_updatesupportrsc.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
+if (!hasInterface || {isStreamFriendlyUIEnabled}) exitWith {};
 
 disableSerialization;
 
