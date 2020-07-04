@@ -72,7 +72,7 @@ if (_add_to_ar_type > 0) then {
 
 _grp allowFleeing (((floor random 3) + 1) / 10);
 
-private _sleepti = [5, 15] select _ismen;
+private _sleepti = [15, 30] select _ismen;
 
 private _wpstatements = if (d_house_patrol == 0 && {_ismen && {_type in ["patrol", "patrol2mt"]}}) then {
 	//"if (random 100 < 50) then {0 = [thisList] spawn d_fnc_dohousepatrol}"

@@ -64,6 +64,11 @@ if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 
 if (isServer) then {
 	skipTime d_TimeOfDay;
+
+#ifdef __UNSUNG__
+	d_WithLessArmor = 1;
+	d_WithLessArmor_side = 1;
+#endif
 	
 	// first element (array. for example: [2,1]): number of vehicle groups that will get spawned, the first number is the max number that will get spawned,
 	// the second one the minimum. So [2,0] means, there can be no vehicle groups at all or a maximum of 2 groups of this kind
