@@ -51,14 +51,14 @@ private _midpoint_pos = [
 ];
 private _newgroups = [];
 private _guerrillaForce = ["allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "specops"];
-private _guerrillaSkill = 0.35;
+private _guerrillaBaseSkill = 0.35;
 
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _units = [_midpoint_pos, _unitlist, _newgroup, false, true, 5] call d_fnc_makemgroup;
+	private _units = [_midpoint_pos, _unitlist, _newgroup, false, true, 5, opfor] call d_fnc_makemgroup;
 	{
-		_x setSkill _guerrillaSkill;
+		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];
 		_x setSkill ["spotDistance", 0.6];
 		_x setSkill ["courage", 1];
