@@ -36,6 +36,7 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Changed: Pylon loadout no longer available at FARPs, only at bases and additional respawn points
 - Changed: Service points should now also work on water (for boats for example)
 - Changed: AI barrack bunkers at main targets are now a little bit more sheltered
+- Fixed: Auto viewdistance at main target checkbox did not show the correct checked state
 - Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
 - Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
 - Fixed: When a player changed the TeamSwitch key in the A3 settings when the mission was running the mission didn't pick up the new key

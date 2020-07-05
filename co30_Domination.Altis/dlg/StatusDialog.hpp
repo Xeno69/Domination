@@ -394,8 +394,6 @@ class D_StatusDialog {
 			y = "0.424 * safezoneH + safezoneY";
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";
-			checked = 1;
-			onCheckedChanged = "d_maintarget_auto_vd = !d_maintarget_auto_vd; if (d_maintarget_auto_vd) then {systemChat (localize 'STR_DOM_MISSIONSTRING_1965')} else {systemChat (localize 'STR_DOM_MISSIONSTRING_1966')};";
 		};
 #endif
 		class EarplugsUserCaption: ViewDistanceCaption {

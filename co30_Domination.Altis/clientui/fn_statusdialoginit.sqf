@@ -233,6 +233,18 @@ __ctrl2(2005) ctrlSetText str(d_points_needed # 4);
 __ctrl2(2006) ctrlSetText str(d_points_needed # 5);
 __ctrl2(2007) ctrlSetText str(d_points_needed # 6);
 
+#ifndef __TT__
+__ctrl2(1610) cbSetChecked d_maintarget_auto_vd;
+__ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
+	d_maintarget_auto_vd = !d_maintarget_auto_vd;
+	if (d_maintarget_auto_vd) then {
+		systemChat (localize "STR_DOM_MISSIONSTRING_1965");
+	} else {
+		systemChat (localize "STR_DOM_MISSIONSTRING_1966");
+	};
+}];
+#endif
+
 for "_i" from 1 to 20 do {
 	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
 	private _endstr = (localize format ["str_usract_user_%1", _i]);

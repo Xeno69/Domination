@@ -51,6 +51,7 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Fixed: Cache side mission now really works, no more you are too close to a ammo box message anymore
 - Fixed: Virtual Arsenal did still show vanilla weapons and items sometimes when using third party mods
 - Fixed: Script error in spectdraw3d
+- Fixed: Auto viewdistance at main target checkbox did not show the correct checked state 
 - Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
 - Improved: Boats can be pushed if they are on the beach
 - Updated: Russian translation by Babayka
