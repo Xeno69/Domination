@@ -622,6 +622,7 @@ if (d_with_MainTargetEvents != 0) then {
 		//todo - when there are more events the script should select three randomly but just run all events for now
 		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
 		[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+		[d_cur_target_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
 		if (random 5 <= 1) then {
 			[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 		};
@@ -636,6 +637,9 @@ if (d_with_MainTargetEvents != 0) then {
 				};
 				case "GUERRILLA_TANKS": {
 					[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+				};
+				case "GUERRILLA_INFANTRY": {
+					[d_cur_target_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
 				};
 			};
 		};

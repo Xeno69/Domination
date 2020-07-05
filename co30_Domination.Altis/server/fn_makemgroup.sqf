@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makemgroup.sqf"
 #include "..\x_setup.sqf"
 
-params ["_pos", "_unitliste", "_grp", ["_mchelper", true], ["_doreduce", false], ["_unitsPerGroup", -1]];
+params ["_pos", "_unitliste", "_grp", ["_mchelper", true], ["_doreduce", false], ["_unitsPerGroup", -1], ["_sideToEngage", d_side_player]];
 
 if (isNil "_unitliste") exitWith {
 	diag_log ["Attention, _unitlist (param 2) is nil, returning []", "_pos", _pos, "_grp", _grp];
@@ -124,11 +124,11 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_
 	//advanced awareness
 	if (["Sniper", groupId(_grp)] call BIS_fnc_inString) then {
 		{
-			[_x, d_side_player, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+			[_x, _sideToEngage, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 		} forEach units _grp;
 	} else {
 		{
-			[_x, d_side_player, d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+			[_x, _sideToEngage, d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 		} forEach units _grp;
 	}
 };
