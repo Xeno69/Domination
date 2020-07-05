@@ -27,6 +27,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -53,6 +55,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -79,6 +83,8 @@ cd %NEW_VER%
 del i_weapons_default.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -105,6 +111,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -131,6 +139,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q mifa3
@@ -157,6 +167,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q mifa3
@@ -183,6 +195,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -208,6 +222,8 @@ cd %NEW_VER%
 del i_weapons_default.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -233,6 +249,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_default.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
@@ -258,6 +276,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_default.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
@@ -283,6 +303,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_IFA3.sqf
 del i_weapons_default.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
@@ -308,6 +330,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_IFA3.sqf
 del i_weapons_default.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -333,6 +357,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_IFA3.sqf
 del i_weapons_default.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -359,6 +385,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -385,6 +413,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -412,6 +442,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_default.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -439,6 +471,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_default.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -467,6 +501,7 @@ del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
 del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -494,6 +529,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_default.sqf
 del i_weapons_CUP.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -521,6 +558,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_default.sqf
 del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -548,6 +587,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -573,6 +614,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -598,6 +641,8 @@ cd %NEW_VER%
 del i_weapons_rhs.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_UNSUNG.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q mifa3
