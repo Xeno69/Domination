@@ -2832,6 +2832,18 @@
 <Chinese>關閉</Chinese>
 <French>Off</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_363_ON">
+<English>On</English>
+<Spanish>On</Spanish>
+<Portuguese>On</Portuguese>
+<Korean>On</Korean>
+<Japanese>On</Japanese>
+<Original>On</Original>
+<Russian>On</Russian>
+<Chinesesimp>On</Chinesesimp>
+<Chinese>On</Chinese>
+<French>On</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_363a">
 <English>Cursortarget</English>
 <Spanish>Objetivo del cursor</Spanish>
@@ -6575,18 +6587,6 @@
 <Chinesesimp>距离主要目标如果小于 x 米 禁用基地车:</Chinesesimp>
 <Chinese>距離主要目標如果小於 x 米 禁用基地車:</Chinese>
 <French>Désactivez MHQ si à moins de x m de l'objectif principal:</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1058">
-<English>Off</English>
-<Spanish>Desactivado</Spanish>
-<Portuguese>Fora</Portuguese>
-<Korean>끄기</Korean>
-<Japanese>off</Japanese>
-<Original>Off</Original>
-<Russian>Выкл</Russian>
-<Chinesesimp>关闭</Chinesesimp>
-<Chinese>off</Chinese>
-<French>Off</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1062">
 <English>No MHQ tele when enemy near:</English>
