@@ -51,7 +51,7 @@ class D_StatusDialog {
 			y = "0.07 * safezoneH + safezoneY";
 			w = "0.543806 * safezoneW";
 			h = "0.04 * safezoneH";
-			sizeEx = 0.031;
+			sizeEx = 0.050;
 			style = ST_LEFT;
 			text = "$STR_DOM_MISSIONSTRING_1306";
 			action = "[0] call d_fnc_showsidemain_d";
@@ -71,7 +71,7 @@ class D_StatusDialog {
 		class SideMissionTxt: RscText2 {
 			idc = 11002;
 			style = ST_MULTI;
-			sizeEx = 0.028;
+			sizeEx = 0.035;
 			lineSpacing = 1;
 			colorBackground[] = __GUI_BCG_RGB;
 			x = "0.0203532 * safezoneW + safezoneX";
@@ -86,7 +86,7 @@ class D_StatusDialog {
 			y = "0.28 * safezoneH + safezoneY";
 			w = "0.543806 * safezoneW";
 			h = "0.04 * safezoneH";
-			sizeEx = 0.031;
+			sizeEx = 0.050;
 			colorBackground[] = {1, 1, 1, 0};
 			colorText[] = {1, 1, 1, 1};
 			text = "$STR_DOM_MISSIONSTRING_1308";
@@ -97,16 +97,19 @@ class D_StatusDialog {
 			y = "0.32 * safezoneH + safezoneY";
 			w = "0.28 * safezoneW";
 			h = "0.11 * safezoneH";
+			sizeEx = 0.035;
 		};
 		class IntelCaption: SecondaryCaption {
 			idc = 11019;
 			y = "0.45 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1309";
+			sizeEx = 0.050;
 		};
 		class IntelTxt: SideMissionTxt {
 			idc = 11018;
 			y = "0.49 * safezoneH + safezoneY";
 			h = "0.09 * safezoneH";
+			sizeEx = 0.035;
 		};
 		class MainTargetNumber: RscText2 {
 			idc = 11006;
