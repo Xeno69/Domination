@@ -8053,18 +8053,6 @@
 <Chinese>設置</Chinese>
 <French>Paramètres</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1303">
-<English>Fix Headbug</English>
-<Spanish>Corregir Error</Spanish>
-<Portuguese>Fixa Headbug</Portuguese>
-<Korean>머리버그 수정</Korean>
-<Japanese>ヘッドバグを修正</Japanese>
-<Original>Fix Headbug</Original>
-<Russian>Исправить баг</Russian>
-<Chinesesimp>修复头部bug</Chinesesimp>
-<Chinese>修復頭部bug</Chinese>
-<French>Correction Érreur</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1305">
 <English>Admin Dialog</English>
 <Spanish>Menú Admin</Spanish>
