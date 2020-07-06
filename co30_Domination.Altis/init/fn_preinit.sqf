@@ -2327,8 +2327,6 @@ if (hasInterface) then {
 
 	d_chophud_on = true;
 	
-	d_headbug_vehicle = "B_Quadbike_01_F";
-	
 	d_drop_max_dist = 500;
 
 	// if the array is empty, anybody with a pilot uniform and headgear can fly (if the latter is enabled)
