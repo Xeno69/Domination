@@ -1,5 +1,7 @@
 # Domination
-Domination - A multiplayer mission for Arma 3 where human players fight bots and/or other humans for combat objective victories. This award winning game mission stands as one of the oldest missions of the Arma franchise. Domination was created by Xeno.
+An Arma3 multiplayer mode for up to 50 players. Seize various (random) targets and solve side missions. Available as Coop and PvPvE version.
+
+This award winning game mission stands as one of the oldest missions of the Arma franchise. Domination was created by Xeno.
 
 # Resources
 
