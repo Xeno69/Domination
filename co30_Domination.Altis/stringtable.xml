@@ -2773,12 +2773,12 @@
 <French>Vue Distance: %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_359">
-<English>No Gras</English>
+<English>No Grass</English>
 <Spanish>Sin Hierba</Spanish>
 <Portuguese>Nenhum Gras</Portuguese>
 <Korean>숲풀 없음</Korean>
 <Japanese>草無し</Japanese>
-<Original>No Gras</Original>
+<Original>No Grass</Original>
 <Russian>Без травы</Russian>
 <Chinesesimp>没有草丛</Chinesesimp>
 <Chinese>沒有草叢</Chinese>
@@ -2797,24 +2797,24 @@
 <French>Herbeux</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_361">
-<English>Full Gras</English>
+<English>Full Grass</English>
 <Spanish>Mucha Hierba</Spanish>
 <Portuguese>Cheio Gras</Portuguese>
 <Korean>숲풀 최대</Korean>
 <Japanese>草量 フル</Japanese>
-<Original>Full Gras</Original>
+<Original>Full Grass</Original>
 <Russian>Много травы</Russian>
 <Chinesesimp>全部草丛</Chinesesimp>
 <Chinese>全部草叢</Chinese>
 <French>Pleine Herbe</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_362">
-<English>Gras Layer</English>
+<English>Grass Layer</English>
 <Spanish>Capa de Hierba</Spanish>
 <Portuguese>Gras Capa</Portuguese>
 <Korean>숲풀 레이어</Korean>
 <Japanese>草層</Japanese>
-<Original>Gras Layer</Original>
+<Original>Grass Layer</Original>
 <Russian>Уровень травы</Russian>
 <Chinesesimp>植被</Chinesesimp>
 <Chinese>&gt;植被</Chinese>
@@ -4501,12 +4501,12 @@
 <French>Il n'y a plus d'ennemis dans la base</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_686">
-<English>Gras layer set to: %1</English>
+<English>Grass layer set to: %1</English>
 <Spanish>Establece Capa de Hierba: %1</Spanish>
 <Portuguese>Gras A capa posta a: %1</Portuguese>
 <Korean>풀숲 레이어 설정: %1</Korean>
 <Japanese>草むら層の設定: %1</Japanese>
-<Original>Gras layer set to: %1</Original>
+<Original>Grass layer set to: %1</Original>
 <Russian>Уровень травы установить: %1.</Russian>
 <Chinesesimp>草层设定为: %1</Chinesesimp>
 <Chinese>草層設定為: %1</Chinese>
@@ -7970,12 +7970,12 @@
 <French> Distance Visuelle</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1287">
-<English>Select Gras Layer</English>
+<English>Select Grass Layer</English>
 <Spanish>Selec. Capa de Hierba</Spanish>
 <Portuguese>Seleciona Gras Capa</Portuguese>
 <Korean>숲과 풀 표시여부</Korean>
 <Japanese>下草のレイヤーを選択</Japanese>
-<Original>Select Gras Layer</Original>
+<Original>Select Grass Layer</Original>
 <Russian>Выбрать уровень травы</Russian>
 <Chinesesimp>选择草层</Chinesesimp>
 <Chinese>選擇草層</Chinese>
