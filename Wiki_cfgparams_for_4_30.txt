@@ -140,14 +140,14 @@
 > Default: 0 (Yes, enabled; 1 or No to disable<br/>
 #### **d_GrasAtStart / Grass:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
-> If disabled then no gras is rendered (changes terraingrid)<br/>
+> If disabled then no grass is rendered (changes terraingrid)<br/>
 #### **d_Terraindetail / Player can disable grass:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
-> If disabled players can not turn off gras (change terraingrid)<br/>
+> If disabled players can not turn off grass (change terraingrid)<br/>
 #### **d_EnableSimulationCamps / Enable simulation for enemy camps:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled the simulation for object compositions at main targets is enabled (means they can be destroyed)<br/>
-> If disabled players can not turn off gras (change terraingrid)<br/>
+> If disabled players can not turn off grass (change terraingrid)<br/>
 #### **d_WithRevive / With revive:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled no revive is available, players can then only spawn at one of the available spawn points when they die<br/>

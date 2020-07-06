@@ -803,7 +803,7 @@ default = 7;
 		title = "$STR_DOM_MISSIONSTRING_1160";
 		values[] = {0,1,2};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1058","$STR_DOM_MISSIONSTRING_1161", "$STR_DOM_MISSIONSTRING_1163"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_1161", "$STR_DOM_MISSIONSTRING_1163"};
 	};
 
 	class d_no_3rd_person {
@@ -817,7 +817,7 @@ default = 7;
 		title = "$STR_DOM_MISSIONSTRING_1177";
 		values[] = {0,1,2,3};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1058","$STR_DOM_MISSIONSTRING_1178","$STR_DOM_MISSIONSTRING_1179","$STR_DOM_MISSIONSTRING_1163"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_1178","$STR_DOM_MISSIONSTRING_1179","$STR_DOM_MISSIONSTRING_1163"};
 	};
 
 	class d_params_dl_8 {
@@ -887,7 +887,7 @@ default = 7;
 		title = "$STR_DOM_MISSIONSTRING_1890";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_363_ON"};
 	};
 
 	class d_civ_unitcount {
@@ -1112,7 +1112,7 @@ default = 7;
 		title = "$STR_DOM_MISSIONSTRING_1057";
 		values[] = {0,500,700,900,1000,2000};
 		default = 500;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1058","500 m","700 m","900 m","1000 m","2000 m"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","500 m","700 m","900 m","1000 m","2000 m"};
 	};
 
 	class d_NoMHQTeleEnemyNear {

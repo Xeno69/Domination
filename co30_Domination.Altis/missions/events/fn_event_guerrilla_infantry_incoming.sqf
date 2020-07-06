@@ -1,6 +1,6 @@
 // by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_event_tanksincoming.sqf"
+#define THIS_FILE "fn_event_guerrilla_infantry_incoming.sqf"
 #include "..\..\x_setup.sqf"
 
 params ["_target_radius", "_target_center"];
