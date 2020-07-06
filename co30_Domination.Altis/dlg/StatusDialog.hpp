@@ -21,17 +21,11 @@ class D_StatusDialog {
 			//w = "0.3 * safezoneW";
 			w = 0.3;
 		};
-		class FixHeadBugButton: TeamStatusButton {
-			idc = -1;
-			text = "$STR_DOM_MISSIONSTRING_1303"; 
-			action = "closeDialog 0;player spawn d_fnc_FixHeadBug";
-			y = "0.67 * safezoneH + safezoneY";
-		};
 		class AdminButton: TeamStatusButton {
 			idc = 123123;
 			text = "$STR_DOM_MISSIONSTRING_1305";
 			action = "closeDialog 0;call d_fnc_admindialog";
-			y = "0.73 * safezoneH + safezoneY";
+			y = "0.67 * safezoneH + safezoneY";
 		};
 		class SaveDBButton: TeamStatusButton {
 			idc = 123124;
