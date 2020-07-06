@@ -41,6 +41,7 @@ class D_StatusDialog {
 		};
 		__CANCELCLOSEB3(-1)
 		class ShowSideButton: RscLinkButtonBase {
+			idc = 123126;
 			x = "0.0203532 * safezoneW + safezoneX";
 			y = "0.07 * safezoneH + safezoneY";
 			w = "0.543806 * safezoneW";
@@ -76,6 +77,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 		class SecondaryCaption: RscText2 {
+			idc = 11090;
 			x = "0.0203532 * safezoneW + safezoneX";
 			y = "0.28 * safezoneH + safezoneY";
 			w = "0.543806 * safezoneW";
@@ -195,6 +197,7 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1313";
 		};
 		class RankCaption: RscText2 {
+			idc = 12009;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.34 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
@@ -414,6 +417,7 @@ class D_StatusDialog {
 			onLBSelChanged = "[_this, 1] call d_fnc_userkeyselchanged";
 		};
 		class PointsCaption: RscText2 {
+			idc = 3403;
 			y = "0.635 * safezoneH + safezoneY";
 			x = "0.35 * safezoneW + safezoneX";
 			w = "0.25 * safezoneW";
@@ -424,10 +428,12 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1294";
 		};
 		class PointsCaption2: PointsCaption {
+			idc = 3404;
 			y = "0.665 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1295";
 		};
 		class CorporalPic: D_RscPicture {
+			idc = 3405;
 			x = "0.35 * safezoneW + safezoneX";
 			y = "0.705 * safezoneH + safezoneY";
 			w = "0.025 * safezoneW";
@@ -437,6 +443,7 @@ class D_StatusDialog {
 			colorText[] = {1, 1, 1, 1};
 		};
 		class CorporalString: RscText2 {
+			idc = 3406;
 			x = "0.38 * safezoneW + safezoneX";
 			y = "0.67 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
@@ -452,10 +459,12 @@ class D_StatusDialog {
 			text = "";
 		};
 		class SergeantPic: CorporalPic {
+			idc = 3407;
 			y = "0.735 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"2">>"texture"));
 		};
 		class SergeantString: CorporalString {
+			idc = 3408;
 			y = "0.7 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"2">>"displayName"));
 		};
@@ -465,10 +474,12 @@ class D_StatusDialog {
 			text = "";
 		};
 		class LieutenantPic: CorporalPic {
+			idc = 3409;
 			y = "0.765 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"3">>"texture"));
 		};
 		class LieutenantString: CorporalString {
+			idc = 3410;
 			y = "0.73 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"3">>"displayName"));
 		};
@@ -478,10 +489,12 @@ class D_StatusDialog {
 			text = "";
 		};
 		class CaptainPic: CorporalPic {
+			idc = 3411;
 			y = "0.795 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"4">>"texture"));
 		};
 		class CaptainString: CorporalString {
+			idc = 3412;
 			y = "0.76 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"4">>"displayName"));
 		};
@@ -491,10 +504,12 @@ class D_StatusDialog {
 			text = "";
 		};
 		class MajorPic: CorporalPic {
+			idc = 3413;
 			y = "0.825 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"5">>"texture"));
 		};
 		class MajorString: CorporalString {
+			idc = 3414;
 			y = "0.79 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"5">>"displayName"));
 		};
@@ -504,10 +519,12 @@ class D_StatusDialog {
 			text = "";
 		};
 		class ColonelPic: CorporalPic {
+			idc = 3415;
 			y = "0.855 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"6">>"texture"));
 		};
 		class ColonelString: CorporalString {
+			idc = 3416;
 			y = "0.82 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"6">>"displayName"));
 		};
@@ -517,10 +534,12 @@ class D_StatusDialog {
 			text = "";
 		};
 		class GeneralPic: CorporalPic {
+			idc = 3417;
 			y = "0.885 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"texture"));
 		};
 		class GeneralString: CorporalString {
+			idc = 3418;
 			y = "0.85 * safezoneH + safezoneY";
 			text = __EVAL(getText(configfile>>"CfgRanks">>"7">>"displayName"));
 		};

@@ -23,6 +23,49 @@ if (d_with_bis_dynamicgroups == 1) then {
 	__ctrl2(11009) ctrlShow false;
 };
 
+if (d_MissionType == 1) then {
+	//sidemissions are off
+	__ctrl2(123126) ctrlShow false;
+	__ctrl2(11002) ctrlShow false;
+};
+
+if (d_MissionType == 2) then {
+	//maintargets are off
+	__ctrl2(11090) ctrlShow false;
+	__ctrl2(11007) ctrlShow false;
+};
+
+if (!d_with_ranked) then {
+	//ranked is off
+	__ctrl2(12009) ctrlShow false;
+	__ctrl2(12010) ctrlShow false;
+	__ctrl2(11014) ctrlShow false;
+	__ctrl2(3403) ctrlShow false;
+	__ctrl2(3404) ctrlShow false;
+	__ctrl2(3405) ctrlShow false;
+	__ctrl2(3406) ctrlShow false;
+	__ctrl2(2001) ctrlShow false;
+	__ctrl2(3407) ctrlShow false;
+	__ctrl2(3408) ctrlShow false;
+	__ctrl2(2002) ctrlShow false;
+	__ctrl2(3409) ctrlShow false;
+	__ctrl2(3410) ctrlShow false;
+	__ctrl2(2003) ctrlShow false;
+	__ctrl2(3411) ctrlShow false;
+	__ctrl2(3412) ctrlShow false;
+	__ctrl2(2004) ctrlShow false;
+	__ctrl2(3413) ctrlShow false;
+	__ctrl2(3414) ctrlShow false;
+	__ctrl2(2005) ctrlShow false;
+	__ctrl2(3415) ctrlShow false;
+	__ctrl2(3416) ctrlShow false;
+	__ctrl2(2006) ctrlShow false;
+	__ctrl2(3417) ctrlShow false;
+	__ctrl2(3418) ctrlShow false;
+	__ctrl2(2007) ctrlShow false;
+};
+
+
 private _tgt_ar = [];
 
 private _cur_tgt_name = if (d_current_target_index != -1) then {
