@@ -151,7 +151,6 @@ private _pcheck_fnc = {
 		doStop _x;
 		[_x] join _p;
 		deleteGroup _ogroup;
-		doStop _x;
 	} forEach _u;
 };
 
