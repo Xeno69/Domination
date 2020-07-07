@@ -35,7 +35,7 @@ if (d_MissionType == 2) then {
 	__ctrl2(11007) ctrlShow false;
 };
 
-if (!d_with_ranked) then {
+if (!d_with_ranked && {!d_database_found}) then {
 	//ranked is off
 	__ctrl2(12009) ctrlShow false;
 	__ctrl2(12010) ctrlShow false;
