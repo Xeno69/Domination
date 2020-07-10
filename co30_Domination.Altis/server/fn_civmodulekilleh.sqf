@@ -40,13 +40,3 @@ d_kb_logic1 kbTell [
 
 //subtract penalty for killing a civilian
 _punishMe addScore (d_civ_pnts * -1);
-// removing for now... Not nice when the pilot of an air vehicle kills a civilian unit and all other players die because the pilot gets kicked out
-/*if (d_pun_civ == 1) then {
-	//check if killer is in a vehicle
-	//THIS IS BUGGY, if guilty user is in a vehicle the entire vehicle will explode :)
-	if (!isNull objectParent _punishMe) then {
-		//hint "ejecting";
-		_punishMe action ["Eject", vehicle _punishMe];
-	};
-	_punishMe setDamage 1;
-};*/

@@ -234,8 +234,6 @@
 > Default: 0 (No, air ai enabled; 1 or Yes to disable air ai)<br/>
 #### **d_arty_unlimited / Disable artillery cooldown**
 > Default: 0 (No, artillery cooldown enabled; 1 or Yes to disable artillery cooldown)<br/>
-#### **d_pun_civ / Punish for killing a civilian**
-> Default: 0 (No, disabled; 1 or Yes to enable score punishment when killing a civilian)<br/>
 #### **d_occ_bldgs / Enemy AI will occupy buildings**
 > Default: 1 (Yes, enabled; 0 or No to disable)<br/>
 #### **d_ai_awareness_rad / AI Advanced - enhanced awareness (common units)**

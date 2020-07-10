@@ -9732,6 +9732,54 @@
 <Chinese>---------------------------- Client -------------------------------</Chinese>
 <French>---------------------------- Client -------------------------------</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1574_CIV">
+<English>---------------------------- Civilians -------------------------------</English>
+<Spanish>---------------------------- Civilians -------------------------------</Spanish>
+<Portuguese>---------------------------- Civilians -------------------------------</Portuguese>
+<Korean>---------------------- Civilians ----------------------</Korean>
+<Japanese>-------------------------- Civilians -----------------------------</Japanese>
+<Original>---------------------------- Civilians -------------------------------</Original>
+<Russian>--------------------------- Civilians --------------------------</Russian>
+<Chinesesimp>---------------------------- Civilians -------------------------------</Chinesesimp>
+<Chinese>---------------------------- Civilians -------------------------------</Chinese>
+<French>---------------------------- Civilians -------------------------------</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1574_ENEMY_AI">
+<English>---------------------------- Enemy AI -------------------------------</English>
+<Spanish>---------------------------- Enemy AI -------------------------------</Spanish>
+<Portuguese>---------------------------- Enemy AI -------------------------------</Portuguese>
+<Korean>---------------------- Enemy AI ----------------------</Korean>
+<Japanese>-------------------------- Enemy AI -----------------------------</Japanese>
+<Original>---------------------------- Enemy AI -------------------------------</Original>
+<Russian>--------------------------- Enemy AI --------------------------</Russian>
+<Chinesesimp>---------------------------- Enemy AI -------------------------------</Chinesesimp>
+<Chinese>---------------------------- Enemy AI -------------------------------</Chinese>
+<French>---------------------------- Enemy AI -------------------------------</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1574_OBJ">
+<English>---------------------------- Main Target Objectives -------------------------------</English>
+<Spanish>---------------------------- Main Target Objectives -------------------------------</Spanish>
+<Portuguese>---------------------------- Main Target Objectives -------------------------------</Portuguese>
+<Korean>---------------------- Main Target Objectives ----------------------</Korean>
+<Japanese>-------------------------- Main Target Objectives -----------------------------</Japanese>
+<Original>---------------------------- Main Target Objectives -------------------------------</Original>
+<Russian>--------------------------- Main Target Objectives --------------------------</Russian>
+<Chinesesimp>---------------------------- Main Target Objectives -------------------------------</Chinesesimp>
+<Chinese>---------------------------- Main Target Objectives -------------------------------</Chinese>
+<French>---------------------------- Main Target Objectives -------------------------------</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1574_ENV">
+<English>---------------------------- Environment -------------------------------</English>
+<Spanish>---------------------------- Environment -------------------------------</Spanish>
+<Portuguese>---------------------------- Environment -------------------------------</Portuguese>
+<Korean>---------------------- Environment ----------------------</Korean>
+<Japanese>-------------------------- Environment -----------------------------</Japanese>
+<Original>---------------------------- Environment -------------------------------</Original>
+<Russian>--------------------------- Environment --------------------------</Russian>
+<Chinesesimp>---------------------------- Environment -------------------------------</Chinesesimp>
+<Chinese>---------------------------- Environment -------------------------------</Chinese>
+<French>---------------------------- Environment -------------------------------</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1575">
 <English>------------------------------- AI --------------------------------</English>
 <Spanish>------------------------------- AI --------------------------------</Spanish>
@@ -11989,18 +12037,6 @@
 <Chinese>Disable enemy air</Chinese>
 <French>Désactiver l'aérien ennemi</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1895">
-<English>Punish for killing a civilian</English>
-<Spanish>Castigar por matar a un civil</Spanish>
-<Portuguese>Punir por matar um civil</Portuguese>
-<Korean>시민 사살 시 처벌</Korean>
-<Japanese>Punish for killing a civilian</Japanese>
-<Original>Punish for killing a civilian</Original>
-<Russian>Наказывать за убийство гражданских</Russian>
-<Chinesesimp>惩罚杀害平民</Chinesesimp>
-<Chinese>殺害平民的懲罰</Chinese>
-<French>Punir pour avoir tué un civil</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
 <English>Enemy AI will occupy buildings</English>
 <Spanish>La IA enemiga ocupará los edificios</Spanish>
@@ -13108,6 +13144,17 @@
 <Russian>Уменьшить кол-во юнитов в группах AI в зависимости от кол-ва игроков на сервере</Russian>
 <Chinesesimp>根据玩家人数减少组中的AI单位数量</Chinesesimp>
 <French>Reduce number of AI units in groups depending on player numbers</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2007_FPS">
+<English>Adjust AI subskill if server FPS is low</English>
+<Spanish>Adjust AI subskill if server FPS is low</Spanish>
+<Portuguese>Adjust AI subskill if server FPS is low</Portuguese>
+<Korean>Adjust AI subskill if server FPS is low</Korean>
+<Japanese>Adjust AI subskill if server FPS is low</Japanese>
+<Original>Adjust AI subskill if server FPS is low</Original>
+<Russian>Adjust AI subskill if server FPS is low</Russian>
+<Chinesesimp>Adjust AI subskill if server FPS is low</Chinesesimp>
+<French>Adjust AI subskill if server FPS is low</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2008">
 <English>Order like placed in the editor</English>

@@ -59,10 +59,15 @@ if (d_smallgrps == 0 && {_doreduce && {count _unitliste > 2}}) then {
 
 _ret resize (count _unitliste);
 
-private _subskill = if (diag_fps > 29) then {
-	(0.1 + (random 0.2))
-} else {
+private _subskill = if (diag_fps < 29 && {d_skillfps == 0}) then {
 	(0.12 + (random 0.04))
+} else {
+	//(0.1 + (random 0.2))
+	switch (d_EnemySkill) do {
+		case 1: {(0.1 + (random 0.1))};
+		case 2: {(0.1 + (random 0.2))};
+		case 3: {(0.1 + (random 0.3))};
+	};
 };
 
 if (!_mchelper) then {
