@@ -20,7 +20,7 @@ ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL 
 - Added: New GMCWG 1.2 APCs and choppers. The GMCWG version now has lift support and a chopper MHQ
 - Added: Malden TT version by Babyka
 - Added: Low Gear by WINSE, for tanks, trucks, wheeled APCs and MRAPS. Gives better acceleration when speed is under 30, and breaks automatically if speed is above 40 when turned on
-- Added: Unsung version (mission.sqm from PK IllinoisFIN)
+- Added: Unsung Song Bin Tanh, Mekong Delta, version (mission.sqm from PK IllinoisFIN)
 - Changed: Removed jump flags created at seized main targets in the TT version
 - Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
 - Changed: Enabled simulation on base flags again to show flags (if it really is a flag)

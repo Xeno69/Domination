@@ -3,7 +3,7 @@
 #define THIS_FILE "i_weapons_default.sqf"
 #include "x_setup.sqf"
 
-// TODO
+// Could be better
 
 // please note that in the non ranked version all weapons and items are available, no matter which rank the player has
 
@@ -15,37 +15,44 @@ private _all_weapons_items_blufor = [
 		"RIFLES",
 		// private rifles
 		[
-			"uns_uzif","uns_uzi","uns_mac10","uns_sten","uns_owen","uns_Sterling","uns_Sterling_f","uns_SterlingSD","uns_SterlingSD_f","uns_f1_smg","uns_m50","uns_m50f","uns_m45",
-			"uns_m45f","uns_mp40","uns_thompson","uns_thompsonvc","uns_m3a1","uns_pm63f","uns_pm63","uns_sa61f","uns_sa61","uns_mat49","uns_type100","uns_PPS43","uns_PPS43f",
-			"uns_PPS52","uns_k50m","uns_k50mdrum","uns_ppsh41","uns_type50","uns_ithaca37","uns_ithaca37_grip","uns_m1897","uns_m1897riot","uns_model12","uns_baikal",
-			"uns_baikal_sawnoff","uns_m870","uns_m870_mk1","uns_STG_44","uns_m1carbine","uns_m1carbine_pouch","uns_m1carbine_gl","uns_m1carbine_pouch_gl","uns_m2carbine","uns_m2carbine_shorty",
-			"uns_m2carbine_gl","uns_m3carbine","uns_m1garand","uns_m1garand_gl","uns_m1903","uns_m14","uns_model70_iron","uns_M40_base","uns_l1a1","uns_l1a1_enfield","uns_l1a1_blk",
-			"uns_l2a1","uns_l2a1_shorty","uns_l1a1gl","uns_sks","uns_mosin","uns_kar98k","uns_svt","uns_svd_base","uns_SVD_CAMO_base","uns_smle","uns_smle_sniper","uns_mas36",
-			"uns_mas36_gl","uns_mas36short","uns_mas36short_gl","uns_type99","uns_type99_gl","uns_mas4956","uns_mas4956_gl","uns_t233","uns_m16","uns_m16_camo","uns_M16A1",
-			"uns_M16A1_HBAR","uns_m16a1_m203","uns_m16a1_xm148","uns_m16A1_camo","uns_M16_dm","uns_m16_m203","uns_m16_xm148","uns_m16_xm148_camo","uns_xm177e1","uns_xm177e1_dm",
-			"uns_xm177e1_m203","uns_xm177e1_xm148","uns_xm177e2","uns_xm177e2_grip","uns_xm177e2_short","uns_xm177e2_stock","uns_xm177e2_m203","uns_xm177e2_xm148",
-			"uns_ak47","uns_aks47","uns_aks47f","uns_type56","uns_sa58p","uns_sa58p_camo","uns_sa58v","uns_sa58vf","uns_ak47_49","uns_ak47_52","uns_akm","uns_akm_drum",
-			"uns_akms","uns_akmsf","uns_akms_drum","uns_akmsf_drum","uns_M63a_AR_base","uns_M63a_drum","uns_M63a_LMG","uns_m63asupport","uns_bar","uns_m1919a6",
-			"uns_m60","uns_m60support","uns_m60grip","uns_m60shorty","uns_RPK_40","uns_RPK_drum","uns_rpd","uns_RPDsupport","uns_rpdsog","uns_DP28_base","uns_PK",
-			"uns_PKsupport","uns_ukvz59","uns_MG42","uns_mg42_bakelite","uns_MG42support","uns_m79","uns_ex41"
+			"uns_ak47","uns_aks47","uns_aks47f","uns_uzif","uns_uzi","uns_ak47_49","uns_ak47_52","uns_akm","uns_akms","uns_akmsf","uns_DP28_base","uns_f1_smg","uns_m60grip","uns_m60shorty","uns_m60support",
+			"uns_m60","uns_m45","uns_mp40","uns_thompson","uns_thompsonvc","uns_RPK_40","uns_m16A1_camo","uns_M16_dm","uns_m16","uns_m16_camo","uns_M16A1","uns_sks",
+			"uns_mac10","uns_sten","uns_owen","uns_m50","uns_m50f",
+			"uns_m3a1","uns_pm63f","uns_pm63","uns_sa61f","uns_sa61","uns_mat49","uns_type100","uns_PPS43","uns_PPS43f",
+			"uns_PPS52","uns_ppsh41","uns_type50","uns_ithaca37","uns_ithaca37_grip","uns_m1897","uns_m1897riot","uns_model12","uns_baikal",
+			"uns_baikal_sawnoff","uns_m870","uns_m870_mk1","uns_STG_44",
+			"uns_m3carbine","uns_m1903","uns_model70_iron",
+			"uns_type56","uns_sa58p","uns_sa58p_camo","uns_sa58v","uns_sa58vf",
+			"uns_M63a_AR_base","uns_M63a_LMG","uns_m63asupport",
+			"uns_rpd","uns_RPDsupport","uns_rpdsog","uns_PK",
+			"uns_ukvz59"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
+			"uns_xm177e1","uns_xm177e1_dm","uns_xm177e1_m203","uns_xm177e1_xm148","uns_xm177e2","uns_xm177e2_grip","uns_xm177e2_short","uns_xm177e2_stock","uns_xm177e2_xm148",
+			"uns_akm_drum","uns_type99","uns_k50m","uns_bar","uns_m45f","uns_Sterling","uns_Sterling_f","uns_SterlingSD","uns_SterlingSD_f","uns_m1garand","uns_PKsupport"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
+			"uns_m14","uns_m1carbine","uns_m1carbine_pouch","uns_xm177e2_m203","uns_akms_drum","uns_akmsf_drum","uns_m2carbine","uns_m2carbine_shorty","uns_m16a1_m203","uns_RPK_drum",
+			"uns_M16A1_HBAR","uns_m16a1_xm148","uns_m16_m203","uns_m16_xm148","uns_m16_xm148_camo","uns_m1garand_gl","uns_M63a_drum"
 		],
 		// lieutenant rifles (gets added to...)
 		[
+			"uns_t233","uns_type99_gl","uns_k50mdrum","uns_l2a1","uns_l2a1_shorty","uns_smle","uns_m2carbine_gl","uns_MG42","uns_mg42_bakelite","uns_MG42support",
+			"uns_mas36","uns_mas36_gl","uns_mas36short","uns_mas36short_gl","uns_mas4956","uns_mas4956_gl"
 		],
 		// captain rifles (gets added...)
 		[
+			"uns_m1carbine_gl","uns_m1carbine_pouch_gl","uns_l1a1_enfield","uns_l1a1_blk","uns_l1a1","uns_mosin","uns_kar98k","uns_svt","uns_svd_base","uns_SVD_CAMO_base","uns_M40_base"
 		],
 		// major rifles (gets...)
 		[
+			"uns_ex41","uns_l1a1gl","uns_m1919a6"
 		],
 		// colonel rifles (...)
 		[
+			"uns_smle_sniper","uns_m79"
 		]
 	],
 	[
