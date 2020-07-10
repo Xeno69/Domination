@@ -450,6 +450,13 @@ default = 7;
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_params_dl_8_env {
+		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
 
 	class d_weather {
 		title = "$STR_DOM_MISSIONSTRING_1164";
@@ -615,17 +622,6 @@ default = 7;
 		title = "$STR_DOM_MISSIONSTRING_1978";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_without_sm_bonus {
-		title = "$STR_DOM_MISSIONSTRING_1951";
-		values[] = {0,1};
-#ifdef __NOBONUS__
-		default = 0;
-#else
-		default = 1;
-#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -826,6 +822,20 @@ default = 7;
 		default = -99999;
 		texts[] = {""};
 	};
+	
+	class d_WithAmbientRadio {
+		title = "$STR_DOM_MISSIONSTRING_1948";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+
+	class d_with_3Dicon {
+		title = "$STR_DOM_MISSIONSTRING_1961";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_AutoKickTime {
 		title = "$STR_DOM_MISSIONSTRING_1107";
@@ -882,6 +892,20 @@ default = 7;
 		default = 120;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","180","240","300"};
 	};
+	
+	class d_arty_unlimited {
+		title = "$STR_DOM_MISSIONSTRING_1885";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_params_dl_8_civ {
+		title = "$STR_DOM_MISSIONSTRING_1574_CIV";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
 
 	class d_enable_civs {
 		title = "$STR_DOM_MISSIONSTRING_1890";
@@ -931,23 +955,16 @@ default = 7;
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_params_dl_8_enemy_ai {
+		title = "$STR_DOM_MISSIONSTRING_1574_ENEMY_AI";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
 
 	class d_disable_airai {
 		title = "$STR_DOM_MISSIONSTRING_1894";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-
-	class d_arty_unlimited {
-		title = "$STR_DOM_MISSIONSTRING_1885";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-    };
-
-	class d_pun_civ {
-		title = "$STR_DOM_MISSIONSTRING_1895";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
@@ -1051,19 +1068,19 @@ default = 7;
 		default = 425;
 		texts[] = {"250m", "425m", "650m", "900m"};
 	};
+	
+	class d_params_dl_8_obj {
+		title = "$STR_DOM_MISSIONSTRING_1574_OBJ";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
 
 	class d_max_bar_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1899";
 		values[] = {1, 2, 3, 4, 5, 6, 7};
 		default = 5;
 		texts[] = {"1", "2", "3", "4", "5", "6", "7"};
-	};
-	
-	class d_smallgrps {
-		title = "$STR_DOM_MISSIONSTRING_2007";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_max_camp_cnt {
@@ -1077,20 +1094,6 @@ default = 7;
 		title = "$STR_DOM_MISSIONSTRING_1931";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-
-	class d_WithAmbientRadio {
-		title = "$STR_DOM_MISSIONSTRING_1948";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-
-	class d_with_3Dicon {
-		title = "$STR_DOM_MISSIONSTRING_1961";
-		values[] = {0,1};
-		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
@@ -1201,6 +1204,31 @@ default = 7;
 
 	class d_WithIsleDefense {
 		title = "$STR_DOM_MISSIONSTRING_1128";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_without_sm_bonus {
+		title = "$STR_DOM_MISSIONSTRING_1951";
+		values[] = {0,1};
+#ifdef __NOBONUS__
+		default = 0;
+#else
+		default = 1;
+#endif
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_smallgrps {
+		title = "$STR_DOM_MISSIONSTRING_2007";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_skillfps {
+		title = "$STR_DOM_MISSIONSTRING_2007_FPS";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
