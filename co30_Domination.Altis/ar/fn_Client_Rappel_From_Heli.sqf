@@ -61,20 +61,22 @@ if (local _player) then {
 		_player setVariable ["AR_RANDOM_DECEND_SPEED_ADJUSTMENT", 0];
 
 		_ropeKeyDownHandler = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-			if (_this select 1 in (actionKeys "MoveBack")) then {
+			if ((_this # 1) in (actionKeys "MoveBack")) then {
 				player setVariable ["AR_DECEND_PRESSED", true];
-			};
-			if (_this select 1 in (actionKeys "Turbo")) then {
-				player setVariable ["AR_FAST_DECEND_PRESSED", true];
+			} else {
+				if ((_this # 1) in (actionKeys "Turbo")) then {
+					player setVariable ["AR_FAST_DECEND_PRESSED", true];
+				};
 			};
 		}];
 
 		_ropeKeyUpHandler = (findDisplay 46) displayAddEventHandler ["KeyUp", {
-			if (_this select 1 in (actionKeys "MoveBack")) then {
+			if ((_this # 1) in (actionKeys "MoveBack")) then {
 				player setVariable ["AR_DECEND_PRESSED", false];
-			};
-			if (_this select 1 in (actionKeys "Turbo")) then {
-				player setVariable ["AR_FAST_DECEND_PRESSED", false];
+			} else {
+				if ((_this # 1) in (actionKeys "Turbo")) then {
+					player setVariable ["AR_FAST_DECEND_PRESSED", false];
+				};
 			};
 		}];
 	} else {

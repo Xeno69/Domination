@@ -8,7 +8,7 @@
 __TRACE_1("","_this")
 
 private _res = false;
-if (_this select 1 == DIK_N) then {
+if ((_this # 1) == DIK_N) then {
 	if (!xr_camnvgon) then {
 		camUseNVG true;
 		xr_camnvgon = true;
@@ -20,7 +20,7 @@ if (_this select 1 == DIK_N) then {
 	};
 	_res = true;
 } else {
-	if (_this select 1 == DIK_M) then {
+	if ((_this # 1) == DIK_M) then {
 		__TRACE("DIK M")
 		if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1000)) then {
 			__TRACE("1000 shown")
@@ -40,7 +40,7 @@ if (_this select 1 == DIK_N) then {
 		};
 		_res = true;
 	} else {
-		if (_this select 1 == DIK_P) then {
+		if ((_this # 1) == DIK_P) then {
 			__TRACE("DIK P")
 			if (ctrlShown ((uiNamespace getVariable "XR_SpectDlg") displayCtrl 3000)) then {
 				ctrlShow [3000, false];

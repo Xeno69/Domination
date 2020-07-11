@@ -34,7 +34,7 @@ private _d3d_locs4a = d_d3d_locs4a;
 	} else {
 		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [_d3d_locs4a, round (_cwt - serverTime)], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach (_d_3draw_ar select {alive (_x select 0) && {_pos_cam distance2D (_x select 0) < 250}});
+} forEach (_d_3draw_ar select {alive (_x # 0) && {_pos_cam distance2D (_x # 0) < 250}});
 
 private _d_all_p_a_boxes = d_all_p_a_boxes;
 {
@@ -49,7 +49,7 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	} else {
 		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach (_d_all_p_a_boxes select {!isNull (_x select 0) && {_pos_cam distance2D (_x select 0) < 80}});
+} forEach (_d_all_p_a_boxes select {!isNull (_x # 0) && {_pos_cam distance2D (_x # 0) < 80}});
 
 if (d_with_ai) then {
 	private _d_allai_recruit_objs = d_allai_recruit_objs;

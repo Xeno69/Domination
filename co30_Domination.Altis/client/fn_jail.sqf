@@ -14,7 +14,7 @@ if (_enhmm) then {
 		d_usactckey append (actionKeys format ["User%1", _i]);
 	};
 	_keyeh = (findDisplay 46) displayAddEventHandler ["KeyDown", {
-		((_this select 1) in d_usactckey)
+		((_this # 1) in d_usactckey)
 	}];
 };
 
