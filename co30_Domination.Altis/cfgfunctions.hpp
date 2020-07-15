@@ -188,6 +188,7 @@ class cfgFunctions {
 			addc(blockthermalnv);
 			addc(buildaddrespoints);
 			addc(addpushaction);
+			addc(storepitems);
 		};
 		class Dom_UI {
 			file = "clientui";

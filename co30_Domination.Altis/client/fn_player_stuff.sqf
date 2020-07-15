@@ -49,6 +49,8 @@ if !(_lo # 0 isEqualTo []) then {
 			player setUnitLoadout [_this # 0, false];
 			call d_fnc_save_respawngear;
 			call d_fnc_save_layoutgear;
+			call d_fnc_store_rwitems;
+			call d_fnc_storepitems;
 		};
 	};
 };

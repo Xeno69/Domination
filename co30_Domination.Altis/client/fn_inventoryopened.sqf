@@ -15,10 +15,7 @@ if (!isNil {_box getVariable "d_islocked"} && {_box getVariable "d_islocked" != 
 	true
 };
 
-player setVariable ["d_uniformp", uniform player];
-player setVariable ["d_vestp", vest player];
-player setVariable ["d_backpackp", backpack player];
-player setVariable ["d_headgearp", headgear player];
+call d_fnc_storepitems;
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	private _canopen = true;
@@ -35,6 +32,7 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	if (_canopen) then {
 		_box spawn {
 			scriptName "spawn_inventoryopened1";
+			d_has_opened_arsenal = true;
 			if (!d_with_ranked) then {
 				//if (!d_with_ace) then {
 					["Open", true] call bis_fnc_arsenal;

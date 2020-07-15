@@ -1,3 +1,5 @@
 4.31
 
+- Changed: If you play a mod version like CUP, GMCWG or UNSUNG and use only mod weapons and items then a player can no longer load vanilla weapons in Virtual Arsenal
+- Fixed: When ACE was running the mission still used ace_arsenal_displayOpened and ace_arsenal_displayClosed eventhandlers even though only BI arsenal was used
 - Updated: Russian translation

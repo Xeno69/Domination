@@ -196,17 +196,13 @@ if (d_with_ranked) then {
 		player addMagazines [_magp, 6];
 		player addWeapon _weapp;
 	};
-
-	player setVariable ["d_pprimweap", primaryWeapon player];
-	player setVariable ["d_psecweap", secondaryWeapon player];
-	player setVariable ["d_phandgweap", handgunWeapon player];
-	player setVariable ["d_pprimweapitems", primaryWeaponItems player];
-	player setVariable ["d_psecweapitems", secondaryWeaponItems player];
-	player setVariable ["d_phandgweapitems", handgunItems player];
+	
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
 
 	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
 };
+
+call d_fnc_store_rwitems;
 
 if (d_with_ranked || {d_database_found}) then {
 	d_sm_p_pos = nil;
@@ -828,23 +824,23 @@ if (isNil "d_cas_plane_avail") then {
 player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
 player addEventhandler["InventoryClosed", {_this call d_fnc_inventoryclosed}];
 
-if (!d_with_ace || {d_with_ranked}) then {
-	[missionNamespace, "arsenalOpened", {
-		_this call d_fnc_arsenalopened;
-	}] call BIS_fnc_addScriptedEventHandler;
+//if (!d_with_ace || {d_with_ranked}) then {
+[missionNamespace, "arsenalOpened", {
+	_this call d_fnc_arsenalopened;
+}] call BIS_fnc_addScriptedEventHandler;
 
-	[missionNamespace, "arsenalClosed", {
-		call d_fnc_arsenalclosed;
-	}] call BIS_fnc_addScriptedEventHandler;
-} else {
-	["ace_arsenal_displayOpened", {
-		_this call d_fnc_arsenalopened;
-	}] call CBA_fnc_addEventHandler;
+[missionNamespace, "arsenalClosed", {
+	call d_fnc_arsenalclosed;
+}] call BIS_fnc_addScriptedEventHandler;
+//} else {
+//	["ace_arsenal_displayOpened", {
+//		_this call d_fnc_arsenalopened;
+//	}] call CBA_fnc_addEventHandler;
 
-	["ace_arsenal_displayClosed", {
-		_this call d_fnc_arsenalopened;
-	}] call CBA_fnc_addEventHandler;
-};
+//	["ace_arsenal_displayClosed", {
+//		_this call d_fnc_arsenalopened;
+//	}] call CBA_fnc_addEventHandler;
+//};
 
 player addEventhandler ["HandleRating", {
 	if ((_this select 1) < 0) then {0} else {_this select 1}

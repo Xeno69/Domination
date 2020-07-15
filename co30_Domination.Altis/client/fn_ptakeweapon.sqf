@@ -56,7 +56,7 @@ if (!_isvalid) then {
 			
 			private _secits = player getVariable "d_psecweapitems";
 			if !(secondaryWeaponItems player isEqualTo _secits) then {
-				// removeAllSecondaryWeaponItems player; // this command does not exist in A3 even after 3 year...
+				// removeAllSecondaryWeaponItems player; // this command does not exist in A3 even after 3 years...
 				{
 					player removeSecondaryWeaponItem _x;
 				} forEach (secondaryWeaponItems player);

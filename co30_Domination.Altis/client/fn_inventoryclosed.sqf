@@ -5,7 +5,11 @@
 
 __TRACE_1("","_this")
 
-call d_fnc_pcheck;
+if (isNil "d_has_opened_arsenal") then {
+	call d_fnc_pcheck;
+} else {
+	d_has_opened_arsenal = nil;
+};
 
 d_inventory_open = nil;
 if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
