@@ -95,3 +95,7 @@ if !(d_additional_respawn_points_orig isEqualTo []) then {
 		};
 	} forEach d_additional_respawn_points;
 };
+
+if (d_add_resp_points_pos isEqualTo []) then {
+	d_add_resp_points_pos pushBack (getPos D_FLAG_BASE);
+};
