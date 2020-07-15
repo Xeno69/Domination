@@ -5,4 +5,5 @@
 - Fixed: Ammo point and wreck repair point markers did not show in the Unsung version
 - Fixed: Pylon loadout didn't work anymore in base
 - Fixed: The mission did no longer recognize additional respawn points placed with an object with d_respawn_point_x as variable name
+- Fixed: Helicopters on board of the aircraft carrier in the Carrier version constantly exploded on respawn
 - Updated: Russian translation
