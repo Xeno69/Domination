@@ -678,7 +678,7 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x, _x];
-	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_respawn_point"});
+	} forEach (_allmissobjs select {(str _x) select [0, 15] isEqualTo "d_respawn_point"});
 
 	if (d_with_ranked) then {
 		if (d_rhs) then {

@@ -4,4 +4,5 @@
 - Fixed: When ACE was running the mission still used ace_arsenal_displayOpened and ace_arsenal_displayClosed eventhandlers even though only BI arsenal was used
 - Fixed: Ammo point and wreck repair point markers did not show in the Unsung version
 - Fixed: Pylon loadout didn't work anymore in base
+- Fixed: The mission did no longer recognize additional respawn points placed with an object with d_respawn_point_x as variable name
 - Updated: Russian translation
