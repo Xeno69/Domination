@@ -5,19 +5,9 @@
 
 while {true} do {
 	sleep (300 + random 150);
-	private _allmisobjs = allMissionObjects "groundWeaponHolder";
+	private _allmisobjs = allMissionObjects "WeaponHolder";
 	sleep 8;
-	private _helperx = allMissionObjects "WeaponHolder";
-	if !(_helperx isEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 8;
-	_helperx = entities [["WeaponHolderSimulated", "Plane_Canopy_Base_F", "Ejection_Seat_Base_F"], []];
-	if !(_helperx isEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 8;
-	_helperx = allMissionObjects "WeaponHolder_Single_F";
+	private _helperx = entities [["WeaponHolderSimulated", "Plane_Canopy_Base_F", "Ejection_Seat_Base_F"], []];
 	if !(_helperx isEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
