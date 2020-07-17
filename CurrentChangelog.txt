@@ -1,7 +1,7 @@
 4.32
 
-- Fixed: Move side mission groups to a head client later. Prevents inf AI units from dying
+- Fixed: Move side mission groups to a headless client later. Prevents inf AI units from dying
 - Fixed: Chinese string accidentally added to Russian translation
 - Fixed: Wreck repair point (and probably other repair points) did not work in the Unsung version (and maybe other 3rd party mod versions)
 - Fixed: Ammo load point did not work in the Unsung version
-- Fixed: If a player removed a weapon in Virtual Arsenal and did not add a new one the weapon before he opened Virtual Arsenal was added again
+- Fixed: If a player removed a weapon in Virtual Arsenal and did not add a new one the previous weapon was added again when he closed Virtual Arsenal
