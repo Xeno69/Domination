@@ -404,6 +404,7 @@ class cfgFunctions {
 			addc(event_sideprisoners);
 			addc(event_tanksincoming);
 			addc(event_guerrilla_infantry_incoming);
+			addc(event_rabbitrescue);
 		};
 		class Dom_Server {
 			file = "server";
