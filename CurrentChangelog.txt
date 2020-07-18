@@ -1,9 +1,7 @@
-4.31
+4.32
 
-- Changed: If you play a mod version like CUP, GMCWG or Unsung and use only mod weapons and items then a player can no longer load vanilla weapons in Virtual Arsenal
-- Fixed: When ACE was running the mission still used ace_arsenal_displayOpened and ace_arsenal_displayClosed eventhandlers even though only BI arsenal was used
-- Fixed: Ammo point and wreck repair point markers did not show in the Unsung version
-- Fixed: Pylon loadout didn't work anymore in base
-- Fixed: The mission did no longer recognize additional respawn points placed with an object with d_respawn_point_x as variable name
-- Fixed: Helicopters on board of the aircraft carrier in the Carrier version constantly exploded on respawn
-- Updated: Russian translation
+- Fixed: Move side mission groups to a headless client later. Prevents inf AI units from dying
+- Fixed: Chinese string accidentally added to Russian translation
+- Fixed: Wreck repair point (and probably other repair points) did not work in the Unsung version (and maybe other 3rd party mod versions)
+- Fixed: Ammo load point did not work in the Unsung version
+- Fixed: If a player removed a weapon in Virtual Arsenal and did not add a new one the previous weapon was added again when he closed Virtual Arsenal

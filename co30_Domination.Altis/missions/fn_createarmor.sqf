@@ -62,10 +62,14 @@ for "_nr" from 0 to 2 do {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30]] spawn d_fnc_MakePatrolWPX;
 			};
 			_ret_grps pushBack _newgroup;
-			if (d_with_dynsim == 0) then {
-				[_newgroup, 15] spawn d_fnc_enabledynsim;
+			[_newgroup, 15] spawn {
+				scriptName "spawn createarmor";
+				sleep (_this select 1);
+				(_this select 0) call d_fnc_addgrp2hc;
+				if (d_with_dynsim == 0) then {
+					(_this select 0) enableDynamicSimulation true;
+				};
 			};
-			_newgroup call d_fnc_addgrp2hc;
 		};
 	};
 };

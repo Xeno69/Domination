@@ -25,12 +25,15 @@
 			_wp setWaypointFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","DIAMOND"];
 			_wp setWaypointCombatMode "YELLOW";
 
-			if (d_with_dynsim == 0) then {
-				[_newgroup, 15] spawn d_fnc_enabledynsim;
-			};
-			
 			d_x_sm_rem_ar append _units;
-			_newgroup call d_fnc_addgrp2hc;
+			[_newgroup, 30] spawn {
+				scriptName "spawn smsurprise";
+				sleep (_this select 1);
+				(_this select 0) call d_fnc_addgrp2hc;
+				if (d_with_dynsim == 0) then {
+					(_this select 0) enableDynamicSimulation true;
+				};
+			};
 		};
 	};
 	sleep 1;

@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_initservicepoints.sqf"
 #include "..\x_setup.sqf"
 
-private _allmissiono = (allMissionObjects "Land_HelipadSquare_F") + (allMissionObjects "Land_HelipadEmpty_F");
+private _allmissiono = allMissionObjects "HeliH";
 
 __TRACE_1("","_allmissiono")
 
