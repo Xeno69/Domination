@@ -87,6 +87,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				if (_chopper getVariable ["d_vec_attached", false]) then {
 					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_251"], {_this call d_fnc_heli_release}, -1, 100000, false, true, "", "currentPilot _target == player"];
 					private _ropes = [];
+					private _oldmass = -1;
 					if (isNull (_chopper getVariable ["d_Attached_Vec", objNull])) then {
 						_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_252");
 						_chopper setVariable ["d_Attached_Vec", _liftobj, true];
@@ -111,7 +112,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						__TRACE_2("","_maxload","_slipos")
 						//_chopper addEventhandler ["RopeAttach", {player sideChat str(_this);player sideChat "bla"}];
 
-						private _oldmass = getMass _liftobj;
+						_oldmass = getMass _liftobj;
 						private _newmass = -1;
 						__TRACE_2("1","_liftobj","_oldmass")
 						if (_oldmass > _maxload - 200) then {
