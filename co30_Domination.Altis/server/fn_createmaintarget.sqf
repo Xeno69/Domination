@@ -641,6 +641,9 @@ if (d_with_MainTargetEvents != 0) then {
 				case "GUERRILLA_INFANTRY": {
 					[d_cur_target_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
 				};
+				case "RABBIT_RESCUE": {
+					[d_cur_target_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
+				};
 			};
 		};
 	};

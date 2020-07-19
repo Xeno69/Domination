@@ -23,7 +23,8 @@ d_x_mt_event_types = [
 	"PILOT_RESCUE",
 	"POW_RESCUE",
 	"GUERRILLA_TANKS",
-	"GUERRILLA_INFANTRY"
+	"GUERRILLA_INFANTRY",
+	"RABBIT_RESCUE"
 ];
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];

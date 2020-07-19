@@ -4872,6 +4872,18 @@
 <Chinese>飛行員在返回基地前被殺死了...</Chinese>
 <French>Les pilotes ont été tués avant d'atteindre la base...</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_722_GENERIC_NAME">
+<English>%1 was killed! The enemy will pay for this...</English>
+<Spanish>%1 was killed! The enemy will pay for this...</Spanish>
+<Portuguese>%1 was killed! The enemy will pay for this...</Portuguese>
+<Korean>%1 was killed! The enemy will pay for this...</Korean>
+<Japanese>%1 was killed! The enemy will pay for this...</Japanese>
+<Original>%1 was killed! The enemy will pay for this...</Original>
+<Russian>%1 was killed! The enemy will pay for this...</Russian>
+<Chinesesimp>%1 was killed! The enemy will pay for this...</Chinesesimp>
+<Chinese>%1 was killed! The enemy will pay for this...</Chinese>
+<French>%1 was killed! The enemy will pay for this...</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_723">
 <English>The enemies reached the cruise missile before us...</English>
 <Spanish>Los enemigos llegaron al misil de crucero antes que nosotros...</Spanish>
@@ -5364,6 +5376,18 @@
 <Chinesesimp>干的好!机组人员已经成功返回基地.</Chinesesimp>
 <Chinese>幹的好!機組人員已經成功返回基地.</Chinese>
 <French>Bon travail. L'équipage est de retour à la base.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_812_GENERIC_NAME">
+<English>Good job. %1 is back at base.</English>
+<Spanish>Buen trabajo. %1 está de vuelta en la base.</Spanish>
+<Portuguese>Trabalho bom. %1 está de volta em base.</Portuguese>
+<Korean>Good job. %1 is back at base.</Korean>
+<Japanese>Good job. %1 is back at base.</Japanese>
+<Original>Good job. %1 is back at base.</Original>
+<Russian>Отличная работа! %1 спасен и доставлен на базу!</Russian>
+<Chinesesimp>Good job. %1 is back at base.</Chinesesimp>
+<Chinese>Good job. %1 is back at base.</Chinese>
+<French>Good job. %1 is back at base.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_814">
 <English>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</English>
@@ -13417,6 +13441,18 @@
 <Chinesesimp>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinesesimp>
 <Chinese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
 <French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT">
+<English>Attention: Our lucky pet rabbit is lost.  Find %1!</English>
+<Spanish>Attention: Our lucky pet rabbit is lost.  Find %1!</Spanish>
+<Portuguese>Attention: Our lucky pet rabbit is lost.  Find %1!</Portuguese>
+<Korean>Attention: Our lucky pet rabbit is lost.  Find %1!</Korean>
+<Japanese>Attention: Our lucky pet rabbit is lost.  Find %1!</Japanese>
+<Original>Attention: Our lucky pet rabbit is lost.  Find %1!</Original>
+<Russian>Attention: Our lucky pet rabbit is lost.  Find %1!</Russian>
+<Chinesesimp>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinesesimp>
+<Chinese>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinese>
+<French>Attention: Our lucky pet rabbit is lost.  Find %1!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
 <English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
