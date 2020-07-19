@@ -1,7 +1,3 @@
-4.32
+4.33
 
-- Fixed: Move side mission groups to a headless client later. Prevents inf AI units from dying
-- Fixed: Chinese string accidentally added to Russian translation
-- Fixed: Wreck repair point (and probably other repair points) did not work in the Unsung version (and maybe other 3rd party mod versions)
-- Fixed: Ammo load point did not work in the Unsung version
-- Fixed: If a player removed a weapon in Virtual Arsenal and did not add a new one the previous weapon was added again when he closed Virtual Arsenal
+- Fixed: Script error in fn_helilift.sqf, _oldmass undefined error
