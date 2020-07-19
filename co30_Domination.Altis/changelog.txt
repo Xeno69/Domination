@@ -1,4 +1,5 @@
 4.33
 
+- Added: rabbit rescue event, by longtimegamer
 - Fixed: Script error in fn_helilift.sqf, _oldmass undefined error
 - Updated: Russian translation
