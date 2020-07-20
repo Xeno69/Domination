@@ -64,9 +64,11 @@ private _subskill = if (diag_fps < 29 && {d_skillfps == 0}) then {
 } else {
 	//(0.1 + (random 0.2))
 	switch (d_EnemySkill) do {
+		case 0: {(0.1 + (random 0.05))};
 		case 1: {(0.1 + (random 0.1))};
 		case 2: {(0.1 + (random 0.2))};
 		case 3: {(0.1 + (random 0.3))};
+		case 4: {(0.1 + (random 0.4))};
 	};
 };
 

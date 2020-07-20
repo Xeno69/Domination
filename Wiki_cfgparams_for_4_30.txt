@@ -313,8 +313,8 @@
 > Default: 0<br/>
 > Available options: 0 (Normal), 1 (Less) and 2 (None)<br/>
 #### **d_EnemySkill / Skill Enemy:**
-> Default: 0<br/>
-> Available options: 1 (Low), 2 (Normal) and 3 (High)<br/>
+> Default: 2<br/>
+> Available options: 0 (Very Low), 1 (Low), 2 (Normal), 3 (High) and 4 (Very High)<br/>
 #### **d_WithIsleDefense / With isle defense:**
 > Default: 0 (Yes, enabled; 1 or No to disable<br/>
 > Currently completely disabled as AI driving and path finding is not a strength of the game<br/>

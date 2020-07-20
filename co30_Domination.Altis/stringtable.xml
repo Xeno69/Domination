@@ -2892,6 +2892,18 @@
 <Chinese>生命值</Chinese>
 <French>Santé</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_399_VERYLOW">
+<English>Very Low</English>
+<Spanish>Very Low</Spanish>
+<Portuguese>Very Low</Portuguese>
+<Korean>Very Low</Korean>
+<Japanese>Very Low</Japanese>
+<Original>Very Low</Original>
+<Russian>Very Low</Russian>
+<Chinesesimp>Very Low</Chinesesimp>
+<Chinese>Very Low</Chinese>
+<French>Very Low</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_399">
 <English>Low</English>
 <Spanish>Poca</Spanish>
@@ -2927,6 +2939,18 @@
 <Chinesesimp>高</Chinesesimp>
 <Chinese>高</Chinese>
 <French>Élevé</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_400_VERYHIGH">
+<English>Very High</English>
+<Spanish>Very High</Spanish>
+<Portuguese>Very High</Portuguese>
+<Korean>Very High</Korean>
+<Japanese>Very High</Japanese>
+<Original>Very High</Original>
+<Russian>Very High</Russian>
+<Chinesesimp>Very High</Chinesesimp>
+<Chinese>Very High</Chinese>
+<French>Very High</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
 <English>None</English>
