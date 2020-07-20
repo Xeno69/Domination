@@ -1197,9 +1197,9 @@ default = 7;
 
 	class d_EnemySkill {
 		title = "$STR_DOM_MISSIONSTRING_1124";
-		values[] = {1,2,3};
+		values[] = {0,1,2,3,4};
 		default = 2;
-		texts[] = {"$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_400"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_399_VERYLOW","$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_400","$STR_DOM_MISSIONSTRING_400_VERYHIGH"};
 	};
 
 	class d_WithIsleDefense {

@@ -63,6 +63,7 @@ private _guerrillaBaseSkill = 0.35;
 		_x setSkill ["spotDistance", 0.6];
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
+		_x_mt_event_ar pushBack _x;
 	} forEach _units;
 	_newgroup deleteGroupWhenEmpty true;
 	_newgroups pushBack _newgroup;
