@@ -217,7 +217,16 @@ if (d_current_target_index != -1) then {
 		};
 	};
 } else {
-	_s = localize "STR_DOM_MISSIONSTRING_568";
+	if (d_mt_event_messages_array isEqualTo []) then {
+		_s = localize "STR_DOM_MISSIONSTRING_568";
+	};
+};
+
+if (!(d_mt_event_messages_array isEqualTo [])) then {
+	{
+		_s = composeText [_s, '\n', _x];
+	} forEach d_mt_event_messages_array;
+	_s = str _s;
 };
 
 __ctrl2(11007) ctrlSetText _s;

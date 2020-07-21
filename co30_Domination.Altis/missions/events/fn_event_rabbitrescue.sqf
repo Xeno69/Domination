@@ -22,6 +22,9 @@ waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 _bunnyName = selectRandom ['Captain Fluffbutt', 'Ivan Ironfluff', 'Oreo FlopEar Rabbitton III', 'Thumper von Pinknose', 'Snowball the Terrible'];
 
+_eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_RABBIT", _bunnyName];
+d_mt_event_messages_array pushBack _eventDescription;
+
 d_kb_logic1 kbTell [
 	d_kb_logic2,
 	d_kb_topic_side,
@@ -100,3 +103,5 @@ if (_is_rescued || !_is_dead) then {
 
 deleteVehicle _rabbit;
 deleteVehicle _trigger;
+
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

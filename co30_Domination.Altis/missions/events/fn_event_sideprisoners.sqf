@@ -24,6 +24,9 @@ private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["thi
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
+_eventDescription = localize "STR_DOM_MISSIONSTRING_1805_MILITARY";
+d_mt_event_messages_array pushBack _eventDescription;
+
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_chan];
 
 private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERS", 0, "mil_unknown"] call d_fnc_CreateMarkerGlobal;
@@ -210,3 +213,5 @@ _x_mt_event_ar = [];
 
 deleteVehicle _trigger;
 deleteMarker _marker;
+
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

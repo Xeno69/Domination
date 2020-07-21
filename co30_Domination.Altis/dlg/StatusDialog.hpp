@@ -92,8 +92,8 @@ class D_StatusDialog {
 			idc = 11007;
 			y = "0.32 * safezoneH + safezoneY";
 			w = "0.28 * safezoneW";
-			h = "0.11 * safezoneH";
-			sizeEx = 0.035;
+			h = "0.135 * safezoneH";
+			sizeEx = 0.030;
 		};
 		class IntelCaption: SecondaryCaption {
 			idc = 11019;

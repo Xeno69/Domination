@@ -26,6 +26,9 @@ private _trigger = [_poss, [225,225,0,false], [d_own_side,"PRESENT",true], ["thi
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
+_eventDescription = localize "STR_DOM_MISSIONSTRING_1803_NO_TIMER";
+d_mt_event_messages_array pushBack _eventDescription;
+
 private _wreck = createVehicle [d_sm_wrecktype, _poss, [], 0, "NONE"];
 _wreck setDir (random 360);
 _wreck setPos _poss;
@@ -235,3 +238,5 @@ _x_mt_event_ar = [];
 
 deleteVehicle _trigger;
 deleteMarker _marker; 
+
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
