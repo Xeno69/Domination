@@ -346,6 +346,9 @@ if (isNil "d_num_barracks_objs") then {
 if (isNil "d_winterw") then {
 	d_winterw = 0;
 };
+if (isNil "d_mt_event_messages_array") then {
+	d_mt_event_messages_array = [];
+};
 
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};

@@ -36,6 +36,9 @@ private _trigger = [_target_center, [600,600,0,false], [d_own_side,"PRESENT",tru
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
+_eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
+d_mt_event_messages_array pushBack _eventDescription;
+
 d_kb_logic1 kbTell [
 	d_kb_logic2,
 	d_kb_topic_side,
@@ -132,3 +135,5 @@ sleep 60;
 _x_mt_event_ar = [];
 
 deleteVehicle _trigger;
+
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
