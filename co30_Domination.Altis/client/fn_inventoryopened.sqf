@@ -34,11 +34,12 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 			scriptName "spawn_inventoryopened1";
 			d_has_opened_arsenal = true;
 			if (!d_with_ranked) then {
-				//if (!d_with_ace) then {
+				if (d_with_ace && d_arsenal_mod == 1) then {
+					[player, player, true] call ace_arsenal_fnc_openBox;
+
+				} else {
 					["Open", true] call bis_fnc_arsenal;
-				//} else {
-				//	[player, player, true] call ace_arsenal_fnc_openBox;
-				//};
+				};
 			} else {
 				if (!d_no_ranked_weapons) then {
 					["Open", [nil, player]] call bis_fnc_arsenal;
