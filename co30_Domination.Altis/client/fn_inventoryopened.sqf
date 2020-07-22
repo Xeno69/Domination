@@ -36,7 +36,6 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 			if (!d_with_ranked) then {
 				if (d_with_ace && {d_arsenal_mod == 1}) then {
 					[player, player, true] call ace_arsenal_fnc_openBox;
-
 				} else {
 					["Open", true] call bis_fnc_arsenal;
 				};
