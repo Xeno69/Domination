@@ -16,16 +16,14 @@ d_mt_mobile_hq_down = true;
 	deleteVehicle _this;
 };
 (_this select 0) removeAllEventHandlers "killed";
-if (d_database_found) then {
-	private _killer = _this select 2;
-	if (isNull _killer) then {
-		if (!d_with_ace) then {
-			_killer = (_this select 0) getVariable ["d_last_damager", _killer];
-		} else {
-			_killer = (_this select 0) getVariable ["ace_medical_lastDamageSource", _killer];
-		};
+private _killer = _this select 2;
+if (isNull _killer) then {
+	if (!d_with_ace) then {
+		_killer = (_this select 0) getVariable ["d_last_damager", _killer];
+	} else {
+		_killer = (_this select 0) getVariable ["ace_medical_lastDamageSource", _killer];
 	};
-	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 2] call d_fnc_addScore;
-	};
+};
+if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
+	[_killer, 2] call d_fnc_addScore;
 };

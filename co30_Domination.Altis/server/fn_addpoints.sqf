@@ -3,9 +3,8 @@
 #define THIS_FILE "fn_addpoints.sqf"
 #include "..\x_setup.sqf"
 
-private _killer = _this select 1;
-if !(_killer call d_fnc_isplayer) exitWith {};
-params ["_points"];
+params ["_points", "_killer", ["_dopcheck", true]];
+if (_dopcheck && {!(_killer call d_fnc_isplayer)}) exitWith {};
 call {
 	private _side = side (group _killer);
 	if (_side == blufor) exitWith {d_points_blufor = d_points_blufor + _points};

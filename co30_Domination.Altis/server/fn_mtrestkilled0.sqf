@@ -32,29 +32,29 @@ if (d_num_barracks_objs == 0) then {
 };
 d_mt_barracks_obj_ar = d_mt_barracks_obj_ar - [_obj, objNull];
 __TRACE_1("","d_mt_barracks_obj_ar")
-if (d_database_found) then {
-	private _killer = _this select 2;
-	if (isNull _killer) then {
-		if (!d_with_ace) then {
-			_killer = _obj getVariable ["d_last_damager", _killer];
-		} else {
-			_killer = _obj getVariable ["ace_medical_lastDamageSource", _killer];
-		};
-	};
-	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-		[_killer, 1] call d_fnc_addScore;
-#ifdef __TT__
-		[d_tt_points # 2, _killer] call d_fnc_AddPoints;
-		if (side (group _killer) == blufor) then {
-			[59, "WEST"] call d_fnc_DoKBMsg
-		} else {
-			if (side (group _killer) == opfor) then {
-				[59, "EAST"] call d_fnc_DoKBMsg
-			};
-		};
-#endif
+
+private _killer = _this # 2;
+if (isNull _killer) then {
+	if (!d_with_ace) then {
+		_killer = _obj getVariable ["d_last_damager", _killer];
+	} else {
+		_killer = _obj getVariable ["ace_medical_lastDamageSource", _killer];
 	};
 };
+if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
+	[_killer, 1] call d_fnc_addScore;
+#ifdef __TT__
+	[d_tt_points # 2, _killer, false] call d_fnc_AddPoints;
+	if (side (group _killer) == blufor) then {
+		[59, "WEST"] call d_fnc_DoKBMsg
+	} else {
+		if (side (group _killer) == opfor) then {
+			[59, "EAST"] call d_fnc_DoKBMsg
+		};
+	};
+#endif
+};
+
 if ((typeOf _obj) == d_barracks_building) then {
 	private _epos = _obj getVariable "d_v_pos";
 	private _edir = getDir _obj;

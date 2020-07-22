@@ -2,4 +2,6 @@
 
 - Added: rabbit rescue event, by longtimegamer
 - Fixed: Script error in fn_helilift.sqf, _oldmass undefined error
+- Fixed: Score/points for destroying a barrack at main targets were only added and shown if a database was available
+- Fixed: Players got two times score added when a barrack at main target was destroyed in the TT version
 - Updated: Russian translation

@@ -21,7 +21,7 @@ if (isNull _killer) then {
 	};
 };
 if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
-	[d_tt_points # 2, _killer] call d_fnc_AddPoints;
+	[d_tt_points # 2, _killer, false] call d_fnc_AddPoints;
 	if (side (group _killer) == blufor) then {
 		[39, "WEST"] call d_fnc_DoKBMsg;
 	} else {
