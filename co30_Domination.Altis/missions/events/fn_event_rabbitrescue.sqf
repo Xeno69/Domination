@@ -24,6 +24,7 @@ _bunnyName = selectRandom ['Captain Fluffbutt', 'Ivan Ironfluff', 'Oreo FlopEar 
 
 _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_RABBIT", _bunnyName];
 d_mt_event_messages_array pushBack _eventDescription;
+publicVariable "d_mt_event_messages_array";
 
 d_kb_logic1 kbTell [
 	d_kb_logic2,
@@ -105,3 +106,4 @@ deleteVehicle _rabbit;
 deleteVehicle _trigger;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";

@@ -81,6 +81,7 @@ waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028", _townNearbyName];
 d_mt_event_messages_array pushBack _eventDescription;
+publicVariable "d_mt_event_messages_array";
 
 private _newgroups = [];
 
@@ -178,3 +179,4 @@ _x_mt_event_ar = [];
 deleteVehicle _trigger;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";

@@ -26,6 +26,7 @@ waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 _eventDescription = localize "STR_DOM_MISSIONSTRING_1805_MILITARY";
 d_mt_event_messages_array pushBack _eventDescription;
+publicVariable "d_mt_event_messages_array";
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_chan];
 
@@ -215,3 +216,4 @@ deleteVehicle _trigger;
 deleteMarker _marker;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";
