@@ -646,7 +646,7 @@ if (d_with_MainTargetEvents != 0) then {
 			_tmpMtEvents = + d_x_mt_event_types;
 			// remove "guerrilla tanks" event from the temp array, do not select it here
 			_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_TANKS");
-			for "_i" from 0 to 3 do {
+			for "_i" from 0 to 2 do {
 				_tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);

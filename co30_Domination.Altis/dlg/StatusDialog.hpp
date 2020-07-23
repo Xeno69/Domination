@@ -40,6 +40,7 @@ class D_StatusDialog {
 			y = "0.85 * safezoneH + safezoneY";
 		};
 		__CANCELCLOSEB3(-1)
+		// top left title
 		class ShowSideButton: RscLinkButtonBase {
 			idc = 123126;
 			x = "0.0203532 * safezoneW + safezoneX";
@@ -48,10 +49,11 @@ class D_StatusDialog {
 			h = "0.04 * safezoneH";
 			sizeEx = 0.050;
 			style = ST_LEFT;
-			text = "$STR_DOM_MISSIONSTRING_1306";
+			text = "$STR_DOM_MISSIONSTRING_1306"; // Side Mission:
 			action = "[0] call d_fnc_showsidemain_d";
 			shadow = 0;
 		};
+		// top right
 		class ShowMainButton: RscLinkButtonBase {
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.09 * safezoneH + safezoneY";
@@ -59,10 +61,11 @@ class D_StatusDialog {
 			h = "0.04 * safezoneH";
 			style = ST_LEFT;
 			sizeEx = 0.032;
-			text = "$STR_DOM_MISSIONSTRING_1307";
+			text = "$STR_DOM_MISSIONSTRING_1307"; // Main Target:
 			action = "[1] call d_fnc_showsidemain_d";
 			shadow = 0;
 		};
+		// top left box
 		class SideMissionTxt: RscText2 {
 			idc = 11002;
 			style = ST_MULTI;
@@ -72,35 +75,39 @@ class D_StatusDialog {
 			x = "0.0203532 * safezoneW + safezoneX";
 			y = "0.11 * safezoneH + safezoneY";
 			w = "0.28 * safezoneW";
-			h = "0.15 * safezoneH";
+			h = "0.125 * safezoneH";
 			text = "";
 			shadow = 0;
 		};
+		// middle left (upper) title
 		class SecondaryCaption: RscText2 {
 			idc = 11090;
 			x = "0.0203532 * safezoneW + safezoneX";
-			y = "0.28 * safezoneH + safezoneY";
+			y = "0.235 * safezoneH + safezoneY";
 			w = "0.543806 * safezoneW";
 			h = "0.04 * safezoneH";
 			sizeEx = 0.050;
 			colorBackground[] = {1, 1, 1, 0};
 			colorText[] = {1, 1, 1, 1};
-			text = "$STR_DOM_MISSIONSTRING_1308";
+			text = "$STR_DOM_MISSIONSTRING_1308"; // Secondary Main Target Mission:
 			shadow = 0;
 		};
+		// middle left (upper) box
 		class SecondaryTxt: SideMissionTxt {
 			idc = 11007;
-			y = "0.32 * safezoneH + safezoneY";
+			y = "0.275 * safezoneH + safezoneY";
 			w = "0.28 * safezoneW";
-			h = "0.135 * safezoneH";
-			sizeEx = 0.030;
+			h = "0.173 * safezoneH";
+			sizeEx = 0.035;
 		};
+		// middle left (lower) title
 		class IntelCaption: SecondaryCaption {
 			idc = 11019;
 			y = "0.45 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1309";
 			sizeEx = 0.050;
 		};
+		// middle left (lower) box
 		class IntelTxt: SideMissionTxt {
 			idc = 11018;
 			y = "0.49 * safezoneH + safezoneY";
@@ -165,6 +172,7 @@ class D_StatusDialog {
 			text = "";
 		};
 #endif
+		// bottom left box (map display with no caption)
 		class Map: D_RscMapControl {
 			idc = 11010;
 			colorBackground[] = {0.9, 0.9, 0.9, 0.9};
