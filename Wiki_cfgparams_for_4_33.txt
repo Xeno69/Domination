@@ -25,6 +25,9 @@
 >   - Default Mission Type (0), means main targets and side missions can be played<br/>
 >   - Main Targets Only (1), only main targets will spawn<br/>
 >   - Side Missions Only (2), only side missions will show up<br/>
+#### **d_retakefarps / Retake Farps**
+> Default: 0 (Yes), 1 (No) to turn it off<br/>
+> If disabled (1, No) then all Farps are available at mission start<br/>
 #### **d_with_MainTargetEvents / Main target random events:**
 > Default: 0 (Never)<br/>
 > Available options:<br/>
