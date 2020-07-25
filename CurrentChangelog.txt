@@ -1,6 +1,7 @@
 4.33
 
 - Added: rabbit rescue event, by longtimegamer
+- Added: New parameter d_retakefarps, default 0 = Yes, On. If set to 1/No all Farps will be available at mission start
 - Changed: ACE arsenal box back in non ranked version and d_arsenal_mod set to 1
 - Fixed: Script error in fn_helilift.sqf, _oldmass undefined error
 - Fixed: Score/points for destroying a barrack at main targets were only added and shown if a database was available

@@ -150,6 +150,9 @@ if (isServer) then {
 		if (_markerpos distance2D _the_carrier > 200) then {
 			_idxflag = _all_farp_flags findIf {_markerpos distance2D _x < 20};
 			if (_idxflag != -1) then {
+				if (d_retakefarps == 1) then {
+					(_all_farp_flags # _idxflag) setVariable ["d_farptaken", true, true];
+				};
 				if (isNil {(_all_farp_flags # _idxflag) getVariable "d_farptaken"}) then {
 					(_all_farp_flags # _idxflag) setVariable ["d_farp_aboxmarker", _mark];
 					_mark setMarkerAlpha 0;
@@ -177,8 +180,10 @@ if (isServer) then {
 		if (_idxflag == -1) then {
 			d_player_ammoboxes pushBack ([_x] call d_fnc_aboxcreate);
 		} else {
-			[format ["d_smm|%1|farp", _smmcounter], (_all_farp_flags # _idxflag), "ICON", "ColorBlack", [1, 1], "", 0, "Empty"] call d_fnc_CreateMarkerGlobal;
-			_smmcounter = _smmcounter + 1;
+			if (d_retakefarps == 0) then {
+				[format ["d_smm|%1|farp", _smmcounter], (_all_farp_flags # _idxflag), "ICON", "ColorBlack", [1, 1], "", 0, "Empty"] call d_fnc_CreateMarkerGlobal;
+				_smmcounter = _smmcounter + 1;
+			};
 		};
 	} forEach _allMapMarkers;
 #else

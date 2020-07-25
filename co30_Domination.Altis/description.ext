@@ -402,6 +402,13 @@ default = 7;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
 	};
 	
+	class d_retakefarps {
+		title = "$STR_DOM_MISSIONSTRING_2036";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
 	class d_with_MainTargetEvents {
 		title = "$STR_DOM_MISSIONSTRING_1052_EVENTS";
 		values[] = {0,1,2,-1,-2};

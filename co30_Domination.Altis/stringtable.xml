@@ -13586,6 +13586,18 @@
 <Chinese>Low Gear Off</Chinese>
 <French>Low Gear Off</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2036">
+<English>Retake Farps</English>
+<Spanish>Retake Farps</Spanish>
+<Portuguese>Retake Farps</Portuguese>
+<Korean>Retake Farps</Korean>
+<Japanese>Retake Farps</Japanese>
+<Original>Retake Farps</Original>
+<Russian>Retake Farps</Russian>
+<Chinesesimp>Retake Farps</Chinesesimp>
+<Chinese>Retake Farps</Chinese>
+<French>Retake Farps</French>
+</Key>
 </Container>
 </Package>
 </Project>
