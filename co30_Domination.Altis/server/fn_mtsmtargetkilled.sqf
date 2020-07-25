@@ -34,7 +34,7 @@ if (!isNull _killer) then {
 	};
 };
 #else
-[42, (["sec_over", _type] select (side (group (_this select 1)) == d_side_player)) call d_fnc_GetSMTargetMessage] call d_fnc_DoKBMsg;
+[42, (["sec_over", _type] select (d_side_player getFriend side (group (_this select 1)) >= 0.6)) call d_fnc_GetSMTargetMessage] call d_fnc_DoKBMsg;
 #endif
 if (d_database_found) then {
 #ifndef __TT__
