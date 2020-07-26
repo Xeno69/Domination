@@ -2499,6 +2499,9 @@ if (hasInterface) then {
 #endif
 #ifdef __GMCWG__
 	(d_remove_from_arsenal # 1) pushBack "gm_p2a1_launcher_blk";
+	(d_remove_from_arsenal # 0) pushBack "gm_c7a1_oli";
+	(d_remove_from_arsenal # 0) pushBack "gm_c7a1_blk";
+	(d_remove_from_arsenal # 0) pushBack "gm_gvm95_blk";
 #endif
 
 	if (d_no_mortar_ar == 1) then {
