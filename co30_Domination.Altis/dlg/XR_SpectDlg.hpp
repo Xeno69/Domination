@@ -145,9 +145,9 @@ class xr_SpectDlg {
 			colorBackgroundActive[] = {1,1,1,0.1};
 			text = "$STR_DOM_MISSIONSTRING_1333"; 
 			action = "if (ctrlShown ((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1000)) then {ctrlShow [1000, false];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1003) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1334');};if (ctrlShown ((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 3000)) then {ctrlShow [3000, false];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1002) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1333');d_x_loop_end = true;} else {ctrlShow [3000, true];((uiNamespace getVariable 'XR_SpectDlg') displayCtrl 1002) ctrlSetText (localize 'STR_DOM_MISSIONSTRING_1333a'); call xr_fnc_updaterlb}";
-			x = "SafeZoneX + SafeZoneW - 0.33";
+			x = "SafeZoneX + SafeZoneW - 0.35";
 			y = "SafeZoneY + SafeZoneH - 0.063";
-			w = 0.3;
+			w = 0.32;
 		};
 		class ShowPlayersButton: MapButton {
 			idc = 1003;

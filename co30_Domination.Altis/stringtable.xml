@@ -8426,16 +8426,16 @@
 <French>Réaparition disponible:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1333">
-<English>Show Map</English>
-<Spanish>Mostrar Mapa</Spanish>
-<Portuguese>Mostrar Mapa</Portuguese>
-<Korean>지도 보기</Korean>
-<Japanese>地図を開く</Japanese>
-<Original>Show Map</Original>
-<Russian>Открыть карту</Russian>
-<Chinesesimp>显示地图</Chinesesimp>
-<Chinese>顯示地圖</Chinese>
-<French>Afficher Carte</French>
+<English>Select Respawn/Show Map</English>
+<Spanish>Select Respawn/Show Map</Spanish>
+<Portuguese>Select Respawn/Show Map</Portuguese>
+<Korean>Select Respawn/Show Map</Korean>
+<Japanese>Select Respawn/Show Map</Japanese>
+<Original>Select Respawn/Show Map</Original>
+<Russian>Select Respawn/Show Map</Russian>
+<Chinesesimp>Select Respawn/Show Map</Chinesesimp>
+<Chinese>Select Respawn/Show Map</Chinese>
+<French>Select Respawn/Show Map</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1333a">
 <English>Hide Map</English>
