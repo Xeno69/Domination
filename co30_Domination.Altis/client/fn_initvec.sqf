@@ -117,6 +117,7 @@ if (_d_vec < 100) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
+	_vec setVariable ["d_canloadbox", true];
 #ifdef __TT__
 	if (d_player_side == blufor) then {
 #endif
@@ -325,6 +326,7 @@ if (_d_vec < 1100) exitWith {
 		_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false, true, "", "true", 7];
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
+	_vec setVariable ["d_canloadbox", true];
 	__sidee;
 	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver}];
 	if (d_player_side != opfor) then {

@@ -1,10 +1,3 @@
-4.33
+4.34
 
-- Added: rabbit rescue event, by longtimegamer
-- Added: New parameter d_retakefarps, default 0 = Yes, On. If set to 1/No all Farps will be available at mission start
-- Changed: ACE arsenal box back in non ranked version and d_arsenal_mod set to 1
-- Fixed: Script error in fn_helilift.sqf, _oldmass undefined error
-- Fixed: Score/points for destroying a barrack at main targets were only added and shown if a database was available
-- Fixed: Players got two times score added when a barrack at main target was destroyed in the TT version
-- Fixed: Main target mission objective could fail because of wrong friendly units check
-- Updated: Russian translation
+- Fixed: New chopper MHQ couldn't load ammo boxes in the GMCWG versions
