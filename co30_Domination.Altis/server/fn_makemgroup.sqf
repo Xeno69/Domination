@@ -36,7 +36,6 @@ if (d_smallgrps == 0 && {_doreduce && {count _unitliste > 2}}) then {
 		0.26
 	};
 	
-	
 	private _maxunits = 99;
 	
 	if (_unitsPerGroup > 0) then {
@@ -81,9 +80,12 @@ private _nightorfog = call d_fnc_nightfograin;
 
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
+	_one_unit allowDamage false;
+	_one_unit setDamage 0;
 	//if (d_with_dynsim == 1) then {
 	if (_mchelper) then {
-		_one_unit spawn d_fnc_mchelper;
+		_one_unit setVehiclePosition [getPosWorld _one_unit, [], 0, "CAN_COLLIDE"];
+		//_one_unit spawn d_fnc_mchelper;
 	};
 	//};
 #ifdef __TT__
@@ -113,6 +115,8 @@ private _nightorfog = call d_fnc_nightfograin;
 	if !(_bino isEqualTo "") then {
 		_one_unit removeWeapon _bino;
 	};
+	_one_unit setDamage 0;
+	_one_unit allowDamage true;
 } forEach _unitliste;
 _ret joinSilent _grp;
 #ifdef __TT__

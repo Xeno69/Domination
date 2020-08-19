@@ -1,4 +1,4 @@
-4.34
+4.40
 
-- Fixed: New chopper MHQ couldn't load ammo boxes in the GMCWG versions
-- Fixed: Use correct event handler for ACE arsenal, by jilillis
+- Changed: Make use of loiter waypoints now in airai, attack planes/choppers at main targets (the new A3 patch has introduced a loiter altitude scripting command)
+- Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
