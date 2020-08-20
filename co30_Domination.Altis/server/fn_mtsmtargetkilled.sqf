@@ -7,8 +7,15 @@ __TRACE_1("","_this")
 
 d_side_main_done = true;
 private _type = _this select (count _this - 1);
+private _killer = _this # 2;
+if (isNull _killer) then {
+	if (!d_with_ace) then {
+		_killer = (_this # 0) getVariable ["d_last_damager", _killer];
+	} else {
+		_killer = (_this # 0) getVariable ["ace_medical_lastDamageSource", _killer];
+	};
+};
 #ifdef __TT__
-private _killer = _this select 2;
 private _si = side (group _killer);
 __TRACE_3("","_type","_killer","_si")
 if !(_si in [blufor, opfor]) then {_type = "sec_over"};
@@ -34,12 +41,9 @@ if (!isNull _killer) then {
 	};
 };
 #else
-[42, (["sec_over", _type] select (d_side_player getFriend side (group (_this select 1)) >= 0.6)) call d_fnc_GetSMTargetMessage] call d_fnc_DoKBMsg;
+[42, (["sec_over", _type] select (d_side_player getFriend side (group _killer) >= 0.6)) call d_fnc_GetSMTargetMessage] call d_fnc_DoKBMsg;
 #endif
 if (d_database_found) then {
-#ifndef __TT__
-	private _killer = _this select 2;
-#endif
 	if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
 		[_killer, 3] call d_fnc_addppoints;
 	};

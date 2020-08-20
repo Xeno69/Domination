@@ -37,7 +37,8 @@ if (d_mt_respawngroups == 0) then { \
 	_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _mtradius], false, []]]; \
 };
 
-#define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]
+#define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]; \
+_vec addEventHandler ["handleDamage", {_this call d_fnc_hdsmtcheck}];
 
 if !(isServer) exitWith {};
 

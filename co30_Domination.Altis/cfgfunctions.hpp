@@ -582,6 +582,7 @@ class cfgFunctions {
 			addc(serverinit);
 			addc(lastchance);
 			addc(aboxcreate);
+			addc(hdsmtcheck);
 		};
 		class Dom_PrePostInit {
 			file = "init";
