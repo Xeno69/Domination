@@ -7,10 +7,15 @@ __TRACE_1("","_this")
 
 params ["_dvec", "", "_killer"];
 
-// Ace damagehandler fix
-if (d_with_ace && {isNull _killer}) then {
-	_killer = _dvec getVariable ["ace_medical_lastDamageSource", _killer];
+if (isNull _killer) then {
+	if (!d_with_ace) then {
+		_killer = _dvec getVariable ["d_last_damager", _killer];
+	} else {
+		_killer = _dvec getVariable ["ace_medical_lastDamageSource", _killer];
+	};
 };
+
+__TRACE_1("","_killer")
 
 if !(_dvec isKindOf "CAManBase") then {
 	addToRemainsCollector [_dvec];
@@ -21,6 +26,7 @@ if (!isNull _killer && {_killer != _dvec}) then {
 } else {
 	d_sm_winner = -1;
 };
+__TRACE_1("","d_sm_winner")
 #else
 if (side (group _killer) == opfor) then {
 	d_sm_points_opfor = d_sm_points_opfor + 1000;
