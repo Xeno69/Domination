@@ -131,5 +131,6 @@ if (!_isman) then {
 	_this set [1, [_d_mt_barracks_obj_pos]];
 	_this set [11, _d_mt_barracks_obj_pos];
 	__TRACE_1("respawning","_this")
+	sleep 0.1;
 	_this call d_fnc_makegroup;
 };
