@@ -22,8 +22,8 @@ if (d_with_ai) then {0 spawn d_fnc_delaiserv};
 if (d_MissionType in [0,2]) then {
 	0 spawn {
 		scriptName "spawn_serversetup_startsm";
-		sleep 20;
 #ifndef __SMDEBUG__
+		sleep 20;
 		if (d_MissionType != 2) then {
 			private _num_p = call d_fnc_PlayersNumber;
 			private _waittime = 200 + random 10;
@@ -37,6 +37,8 @@ if (d_MissionType in [0,2]) then {
 		} else {
 			sleep 15;
 		};
+#else
+		sleep 10;
 #endif
 		0 spawn d_fnc_getsidemission;
 	};

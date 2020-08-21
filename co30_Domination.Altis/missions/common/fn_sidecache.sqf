@@ -6,6 +6,9 @@ if !(isServer) exitWith {};
 
 params ["_poss", ["_createarmor", false], ["_createinf", false]];
 
+
+_createarmor = false;_createinf = false;
+
 if (_createarmor) then {
 sleep 2.22;
 	__TRACE("Creating armor")
@@ -39,7 +42,7 @@ while {!_created} do {
 		__TRACE_1("","_pos")
 		if !(_pos isEqualTo []) then {
 			_pos = _pos select floor random count _pos;
-			_pos set [2, (_pos select 2) + 0.2];
+			_pos set [2, (_pos select 2) + 0.3];
 			__TRACE_1("","_pos")
 			_cache = createVehicle [selectRandom d_sm_cache, _pos, [], 0, "NONE"];
 			_cache setPos _pos;
@@ -90,8 +93,24 @@ for "_i" from 0 to (_num_mines - 1) do {
 	};
 };
 
+private _cachemarker = ["d_sm_cache123", _poss, "ELLIPSE", "ColorWhite", [150, 150], "", 0, "", "BDiagonal", 0.4] call d_fnc_CreateMarkerGlobal;
+
 private _cache_dest = false;
 private _endtime = time + 3600;
+private _mtimes = [time + 600, time + 1000, time + 1300, time + 1500];
+private _curmtime = 0;
+private _cmnpos =+ _poss;
+private _cursize = 150;
+private _curalpha = 0.5;
+
+private _cmfunc = {
+	_cmnpos = _cmnpos getPos [(_cmnpos distance2D _cache) / 2, _cmnpos getDir _cache];
+	_cachemarker setMarkerAlpha _curalpha;
+	_curalpha = _curalpha + 0.1;
+	_cachemarker setMarkerPos _cmnpos;
+	_cursize = _cursize - 30;
+	_cachemarker setMarkerSize [_cursize, _cursize];
+};
 
 while {true} do {
 	if (isMultiplayer && {(call d_fnc_PlayersNumber) == 0}) then {
@@ -103,6 +122,10 @@ while {true} do {
 		_endtime = time + _endtime;
 	};
 	sleep 0.1;
+	if (_curmtime < 4 && {time > (_mtimes # _curmtime)}) then {
+		call _cmfunc;		
+		_curmtime = _curmtime + 1;
+	};
 	if (time > _endtime) exitWith {
 		_cache_dest = true;
 		if (!isNull _cache) then {
@@ -114,6 +137,8 @@ while {true} do {
 	sleep 5.123;
 	if (d_sm_resolved) exitWith {};
 };
+
+deleteMarker _cachemarker;
 
 if (!d_sm_resolved) then {
 	if (_cache_dest) then {
