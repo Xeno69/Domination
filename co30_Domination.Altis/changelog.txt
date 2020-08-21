@@ -1,6 +1,5 @@
 4.40
 
-- Changed: Make use of loiter waypoints now in airai, attack planes/choppers at main targets (the new A3 patch has introduced a loiter altitude scripting command)
 - Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
 - Fixed: ACRE radios were not available in Virtual Arsenal in ranked mode
 - Fixed: Better handling for destroying side mission objects (last damager was not taken into account, broke side missions like the arty cannon sm)
