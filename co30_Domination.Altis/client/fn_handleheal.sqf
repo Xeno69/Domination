@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-if (!d_with_ace) then {
+if (!d_with_ace || {d_ACEMedicalR == 1}) then {
 	params ["_healed", "_healer"];
 	if (alive _healed && {alive _healer && {_healed != _healer && {!(_healed getVariable ["xr_pluncon", false]) && {!(_healer getVariable ["xr_pluncon", false])}}}}) then {
 		[_healed, _healer] spawn {
