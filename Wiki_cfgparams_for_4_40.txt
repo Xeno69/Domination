@@ -151,6 +151,9 @@
 #### **d_WithRevive / With revive:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled no revive is available, players can then only spawn at one of the available spawn points when they die<br/>
+#### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
+> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+> If disabled the mission uses it's own revive instead of the ACE one<br/>
 #### **d_WithReviveSpectating / With revive spectating:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled players can only see themself when they are in unconscious state<br/>

@@ -3,6 +3,7 @@
 - Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
 - Changed: A marker will show up after some time in cache side missions and get smaller too help players find the caches
 - Changed: Better CUP island check for internal objectsmapper
+- Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, Use ACE Medical Revive and not mission Revive (if ACE is available) in lobby)
 - Fixed: ACRE radios were not available in Virtual Arsenal in ranked mode
 - Fixed: Better handling for destroying side mission objects (last damager was not taken into account, broke side missions like the arty cannon sm)
 - Fixed: Better handling for destroying main target side mission objects (last damager was not taken into account)
