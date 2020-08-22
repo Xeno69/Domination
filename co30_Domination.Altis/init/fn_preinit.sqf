@@ -526,6 +526,9 @@ d_island_center = [_confmapsize / 2, _confmapsize / 2, 300];
 d_island_x_max = _confmapsize;
 d_island_y_max = _confmapsize;
 
+private _wname = toLowerANSI worldName;
+d_iscup_island = _wname in ["chernarus_summer", "Chernarus_Winter", "chernarus", "eden", "abel", "noe", "sara", "takistan", "sara_dbe1", "zargabad"] || {(_wname select [0, 4]) isEqualTo "cup_"};
+
 if (isServer) then {
 	d_player_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_placed_objs_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];

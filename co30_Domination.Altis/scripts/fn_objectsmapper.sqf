@@ -76,7 +76,7 @@ if (!isNil "_script") then {
 
 //Make sure there are definitions in the final object array
 if (count _objs == 0) exitWith {
-	__TRACE("[BIS_fnc_objectMapper] No elements in the object composition array!")
+	__TRACE("[d_fnc_objectMapper] No elements in the object composition array!")
 };
 
 private _newObjs = [];
@@ -130,11 +130,11 @@ private _multiplyMatrixFunc = {
 		//_newObj = createSimpleObject [_type, AGLToASL _newPos];
 		
 		private _checkfunc = {
-#ifndef __CUP__
-		(_this isKindOf "StaticWeapon" || {_this isKindOf "BagBunker_base_F"})
-#else
-		(_this isKindOf "StaticWeapon" || {_this isKindOf "BagBunker_base_F" || {_this isKindOf "Tank_F" || {_this isKindOf "Car_F" || {_this == "Land_tent_east"}}}})
-#endif
+			if (!d_iscup_island) then {
+				(_this isKindOf "StaticWeapon" || {_this isKindOf "BagBunker_base_F"})
+			} else {
+				(_this isKindOf "StaticWeapon" || {_this isKindOf "BagBunker_base_F" || {_this isKindOf "Tank_F" || {_this isKindOf "Car_F" || {_this == "Land_tent_east"}}}})
+			}
 		};
 		
 		private _dosurface = true;
@@ -148,27 +148,27 @@ private _multiplyMatrixFunc = {
 				_newObj setPos [_newPos # 0, _newPos # 1, 0];
 				_newObj setVectorUp (surfaceNormal (getPos _newObj));
 			};
-#ifdef __CUP__
-			if (!(_type isKindOf "StaticWeapon") && {_type isKindOf "Tank_F" || {_type isKindOf "Car_F" || {_type == "Land_tent_east"}}}) then {
-				_newObj lock true;
-				if (d_EnableSimulationCamps == 0) then {
-					_newObj enableSimulationGlobal false;
-					_newObj allowDamage false;
+			if (d_iscup_island) then {
+				if (!(_type isKindOf "StaticWeapon") && {_type isKindOf "Tank_F" || {_type isKindOf "Car_F" || {_type == "Land_tent_east"}}}) then {
+					_newObj lock true;
+					if (d_EnableSimulationCamps == 0) then {
+						_newObj enableSimulationGlobal false;
+						_newObj allowDamage false;
+					};
+					clearWeaponCargoGlobal _newObj;
+					clearMagazineCargoGlobal _newObj;
+					clearItemCargoGlobal _newObj;
+					clearBackpackCargoGlobal _newObj;
+				} else {
+					if (d_with_dynsim == 0) then {
+						[_newObj, 10] spawn d_fnc_enabledynsim;
+					};
 				};
-				clearWeaponCargoGlobal _newObj;
-				clearMagazineCargoGlobal _newObj;
-				clearItemCargoGlobal _newObj;
-				clearBackpackCargoGlobal _newObj;
 			} else {
 				if (d_with_dynsim == 0) then {
 					[_newObj, 10] spawn d_fnc_enabledynsim;
 				};
 			};
-#else
-			if (d_with_dynsim == 0) then {
-				[_newObj, 10] spawn d_fnc_enabledynsim;
-			};
-#endif
 		} else {
 			if (_type isKindOf "Car") then {
 				_newPos = _newPos vectorAdd [0, 0, 0.1];
@@ -178,9 +178,9 @@ private _multiplyMatrixFunc = {
 			_newObj setDir (_azi + _azimuth);
 			_newPos = getPosWorld _newObj;
 			__TRACE_1("before","_newPos")
-#ifdef __CUP__
-			_newPos = _newPos vectorAdd [0, 0, (boundingCenter _newObj) # 2];
-#endif
+			if (d_iscup_island) then {
+				_newPos = _newPos vectorAdd [0, 0, (boundingCenter _newObj) # 2];
+			};
 			__TRACE_1("after","_newPos")
 			_newObj setPosWorld _newPos;
 			if (toLowerANSI _type in d_struct_patches_ar) then {
