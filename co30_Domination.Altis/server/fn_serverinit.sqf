@@ -35,7 +35,7 @@ if (d_MissionType != 2) then {
 };
 
 // start air AI after some time
-if (d_MissionType != 2 && d_disable_airai != 1) then {
+if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 	0 spawn {
 		scriptName "spawn_init_airai";
 		__TRACE("spawn_init_airai start")
