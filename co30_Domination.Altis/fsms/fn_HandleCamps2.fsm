@@ -41,7 +41,7 @@ link18[] = {15,16};
 link19[] = {16,17};
 link20[] = {17,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,26,6316128,1,-585.459900,687.401184,702.799683,-270.473389,1640,1254,1};
-window[] = {2,-1,-1,-1,-1,744,26,986,26,3,1658};
+window[] = {2,-1,-1,-1,-1,796,78,1038,78,3,1658};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -153,7 +153,7 @@ class FSM
                         name = "Reset_cap_time";
                         itemno = 7;
                         init = /*%FSM<STATEINIT""">*/"private _timeend = time + _delay;" \n
-                         "diag_log ""reset cap time"";" \n
+                         "" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

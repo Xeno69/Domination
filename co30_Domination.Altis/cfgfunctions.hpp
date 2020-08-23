@@ -252,6 +252,7 @@ class cfgFunctions {
 			addc(pcheck);
 			addc(userkeyselchanged);
 			addc(lastchanceclient);
+			addc(correctwname);
 		};
 		class Dom_Common {
 			file = "common";

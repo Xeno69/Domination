@@ -8,9 +8,13 @@ if (!d_with_ranked) then {
 	private _primweap = primaryWeapon player;
 	__TRACE_2("","_prw","_primweap")
 	if (_primweap != "" && {_prw != _primweap}) then {
+		private _origprimw = _primweap;
+		
+		_primweap = _primweap call d_fnc_correctwname;
+		
 		if ((bis_fnc_arsenal_data # 0) find _primweap == -1) then {
 			__TRACE("Prim weap not found")
-			player removeWeapon _primweap;
+			player removeWeapon _origprimw;
 			player addWeapon _prw;
 			
 			private _secits = player getVariable "d_pprimweapitems";
@@ -44,9 +48,13 @@ if (!d_with_ranked) then {
 	private _hgweap = handgunWeapon player;
 	__TRACE_2("","_phw","_hgweap")
 	if (_hgweap != "" && {_phw != _secweap}) then {
+		private _origsecw = _secweap;
+		
+		_secweap = _secweap call d_fnc_correctwname;
+		
 		if ((bis_fnc_arsenal_data # 2) find _hgweap == -1) then {
 			__TRACE("Handgun weap not found")
-			player removeWeapon _hgweap;
+			player removeWeapon _origsecw;
 			player addWeapon _phw;
 			
 			private _secits = player getVariable "d_phandgweapitems";

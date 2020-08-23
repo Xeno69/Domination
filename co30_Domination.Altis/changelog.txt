@@ -7,3 +7,4 @@
 - Fixed: ACRE radios were not available in Virtual Arsenal in ranked mode
 - Fixed: Better handling for destroying side mission objects (last damager was not taken into account, broke side missions like the arty cannon sm)
 - Fixed: Better handling for destroying main target side mission objects (last damager was not taken into account)
+- Fixed: Inventory weapon check is now checking all available weapons instead of just the ones in BI arsenal (which are missing Hamr, pointer, ACO, etc, etc)
