@@ -1892,6 +1892,48 @@ d_base_apc_vec =
 #ifdef __UNSUNG__
 		"Land_Cargo_HQ_V4_F";
 #endif
+
+d_b_small_static_high =
+#ifdef __ALTIS__
+		"Land_BagBunker_Small_F";
+#endif
+#ifdef __CUP_CHERNARUS__
+		"";
+#endif
+#ifdef __CUP_TAKISTAN__
+		"";
+#endif
+#ifdef __CUP_SARA__
+		"";
+#endif
+#ifdef __IFA3LITE__
+		"";
+#endif
+#ifdef __TANOA__
+		"Land_BagBunker_01_small_green_F";
+#endif
+#ifdef __STRATIS__
+		"Land_BagBunker_Small_F";
+#endif
+#ifdef __MALDEN__
+		"Land_BagBunker_Small_F";
+#endif
+#ifdef __ROSCHE__
+		"Land_BagBunker_01_small_green_F";
+#endif
+#ifdef __LIVONIA__
+		"Land_BagBunker_01_small_green_F";
+#endif
+#ifdef __TT__
+		"Land_BagBunker_Small_F";
+#endif
+#ifdef __GMCWG__
+		"";
+#endif
+#ifdef __UNSUNG__
+		"";
+#endif
+
 	if (isNil "d_ai_groups_respawn_time") then {
 		// inf base time, inf min time, vehicle base time, vehicle min time, all in seconds
 		// means, inf base time minus number of players but at least wait 130 to respawn a group, same for vehicles

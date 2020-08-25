@@ -26,6 +26,7 @@ for "_nr" from 0 to 2 do {
 	if (_nrg > 0) then {
 		if (d_MissionType == 2) then {_nrg = _nrg + 2};
 		private _typenr = _this select (_nr * 2);
+		private _istatatic = _typenr in ["stat_mg", "stat_gl"];
 		__TRACE_1("","_typenr")
 		for "_i" from 1 to _nrg do {
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
@@ -52,6 +53,7 @@ for "_nr" from 0 to 2 do {
 			d_x_sm_vec_rem_ar append (_reta # 0);
 			if (random 100 < 80) then {{_x allowCrewInImmobile true} forEach (_reta # 0)};
 			d_x_sm_rem_ar append (_reta # 1);
+			
 			_newgroup allowFleeing 0;
 			if (!_do_patrol) then {
 				_newgroup setCombatMode "YELLOW";
@@ -62,6 +64,9 @@ for "_nr" from 0 to 2 do {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30]] spawn d_fnc_MakePatrolWPX;
 			};
 			_ret_grps pushBack _newgroup;
+			if (_istatatic && {!(d_b_small_static_high isEqualTo "")}) then {
+				d_x_sm_rem_ar append ((_reta # 0) call d_fnc_highbunker);
+			};
 			[_newgroup, 15] spawn {
 				scriptName "spawn createarmor";
 				sleep (_this select 1);

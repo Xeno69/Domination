@@ -140,6 +140,10 @@ call {
 	};
 };
 
+if (_istatatic && {!(d_b_small_static_high isEqualTo "")}) then {
+	d_delvecsmt append (_vecs call d_fnc_highbunker);
+};
+
 [_grp, _sleepti] spawn {
 	scriptName "spawn makegroup";
 	sleep (_this select 1);
