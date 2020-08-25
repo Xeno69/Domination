@@ -24,8 +24,7 @@ if (isNil "_xm") then {
 		};
 		_this setVariable ["d_pl_ra_pi", _c];
 	} else {
-		private _h = _this getVariable "d_pl_ra_cc";
-		if (isNil "_h") then {_h = 0};
+		private _h = _this getVariable ["d_pl_ra_cc", 0];
 		_h = _h + 1;
 		if (_h >= diag_fps) then {
 			_this setVariable ["d_pl_ra_cc", 0];

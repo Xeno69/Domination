@@ -1,4 +1,4 @@
-4.40
+4.34
 
 - Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
 - Changed: A marker will show up after some time in cache side missions and get smaller too help players find the caches

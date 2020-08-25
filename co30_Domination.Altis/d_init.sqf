@@ -137,7 +137,6 @@ if (isServer) then {
 
 	d_player_ammoboxes = [];
 	private _smmcounter = 1243;
-	private _remf = [];
 	private _icounter = 1;
 	private _the_carrier = d_the_carrier;
 	if (isNil "_the_carrier") then {
