@@ -118,7 +118,9 @@ if !(d_maintargets_list isEqualTo []) then {
 sleep 2.123;
 
 if !(d_maintargets_list isEqualTo []) then {
-	[1, d_current_target_index] call d_fnc_doexechcf;
+	[1, d_current_target_index, d_mt_barracks_obj_ar, d_bara_trig_ar, d_mt_mobile_hq_obj] call d_fnc_doexechcf;
+	d_mt_barracks_obj_ar = [];
+	d_bara_trig_ar = [];
 };
 
 sleep 3.321;
