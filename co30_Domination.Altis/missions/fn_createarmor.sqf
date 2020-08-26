@@ -37,6 +37,9 @@ for "_nr" from 0 to 2 do {
 				if (_pos isEqualTo []) then {
 					for "_ee" from 0 to 99 do {
 						_pos = [_pos_center, _radius, 2] call d_fnc_GetRanPointCircle;
+						if (_istatatic && {isOnRoad _pos}) then {
+							_pos = [];
+						};
 						if !(_pos isEqualTo []) exitWith {};
 					};
 					if (_pos isEqualTo []) then {
@@ -58,7 +61,13 @@ for "_nr" from 0 to 2 do {
 			if (!_do_patrol) then {
 				_newgroup setCombatMode "YELLOW";
 				_newgroup setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","DIAMOND"];
-				_newgroup setFormDir (floor random 360);
+				if (!_istatatic) then {
+					_newgroup setFormDir (floor random 360);
+				} else {
+					{
+						[_x] call d_fnc_checkintersects;
+					} forEach (_reta # 0);
+				};
 				_newgroup setSpeedMode "NORMAL";
 			} else {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30]] spawn d_fnc_MakePatrolWPX;

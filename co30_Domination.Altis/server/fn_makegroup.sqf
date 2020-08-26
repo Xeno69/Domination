@@ -28,6 +28,17 @@ if (_numvecs > 0) then {
 		_vecs = _vecar # 0;
 		_uinf = _vecar # 1;
 	} else {
+		if (isOnRoad _pos) then {
+			private _cc = 0;
+			while {true} do {
+				private _npos = selectRandom _wp_array;
+				if !(isOnRoad _npos) exitWith {
+					_pos = _npos;
+				};
+				_cc = _cc + 1;
+				if (_cc == 50) exitWith {};
+			};
+		};
 		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup;
 		_vecs = _vecar # 0;
 		_uinf = _vecar # 1;
@@ -140,8 +151,13 @@ call {
 	};
 };
 
-if (_istatatic && {!(d_b_small_static_high isEqualTo "")}) then {
-	d_delvecsmt append (_vecs call d_fnc_highbunker);
+if (_istatatic) then {
+	{
+		[_x] call d_fnc_checkintersects;
+	} forEach _vecs;
+	if !(d_b_small_static_high isEqualTo "") then {
+		d_delvecsmt append (_vecs call d_fnc_highbunker);
+	};
 };
 
 [_grp, _sleepti] spawn {

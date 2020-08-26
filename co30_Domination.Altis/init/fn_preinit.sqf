@@ -1898,13 +1898,13 @@ d_b_small_static_high =
 		"Land_BagBunker_Small_F";
 #endif
 #ifdef __CUP_CHERNARUS__
-		"";
+		"Land_BagBunker_01_small_green_F";
 #endif
 #ifdef __CUP_TAKISTAN__
-		"";
+		"Land_BagBunker_Small_F";
 #endif
 #ifdef __CUP_SARA__
-		"";
+		"Land_BagBunker_01_small_green_F";
 #endif
 #ifdef __IFA3LITE__
 		"";
@@ -1928,10 +1928,10 @@ d_b_small_static_high =
 		"Land_BagBunker_Small_F";
 #endif
 #ifdef __GMCWG__
-		"";
+		"Land_BagBunker_01_small_green_F";
 #endif
 #ifdef __UNSUNG__
-		"";
+		"Land_BagBunker_01_small_green_F";
 #endif
 
 	if (isNil "d_ai_groups_respawn_time") then {

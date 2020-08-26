@@ -585,6 +585,7 @@ class cfgFunctions {
 			addc(aboxcreate);
 			addc(hdsmtcheck);
 			addc(highbunker);
+			addc(checkintersects);
 		};
 		class Dom_PrePostInit {
 			file = "init";

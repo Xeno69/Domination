@@ -6,8 +6,7 @@
 private _newv = [];
 
 {
-	// TODO... CUP? CUP_KORD_High_Base for example
-	if (_x isKindOf "HMG_01_high_base_F" || {_x isKindOf "GMG_01_high_base_F" || {_x isKindOf "HMG_02_high_base_F"}}) then {
+	if (_x isKindOf "HMG_01_high_base_F" || {_x isKindOf "GMG_01_high_base_F" || {_x isKindOf "HMG_02_high_base_F" || {getText(configFile >> "CfgVehicles" >> typeOf _x >> "Turrets" >> "MainTurret" >> "gunnerAction") find "low" == -1}}}) then {
 		private _veh = createVehicle [d_b_small_static_high, _x, [], 0, "CAN_COLLIDE"];
 		private _pos = getPos _x;
 		_pos set [2, (_pos # 2) - 0.1];
