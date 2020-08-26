@@ -169,6 +169,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		private _maname = format ["d_camp_%1", _wf];
 		__TRACE_2("","_i","_maname")
 		if (d_ao_markers == 1) then {
+			deleteMarker _maname;
 			[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 			_wf setVariable ["d_camp_mar", _maname];
 		};
