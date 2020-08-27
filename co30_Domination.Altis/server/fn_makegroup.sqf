@@ -39,6 +39,7 @@ if (_numvecs > 0) then {
 				if (_cc == 50) exitWith {};
 			};
 		};
+		_vec_dir = (_center_rad # 0) getDir _pos;
 		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, true] call d_fnc_makevgroup;
 		_vecs = _vecar # 0;
 		_uinf = _vecar # 1;
