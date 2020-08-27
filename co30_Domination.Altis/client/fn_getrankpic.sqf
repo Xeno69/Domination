@@ -12,10 +12,14 @@ if (isNil "_xm") then {
 			if (_r <= 6) exitWith {
 				_c = [getText(configFile>>"CfgRanks">>str _r>>"texture"), 0.4];
 			};
-			if (_r > 6 && {score _this > d_points_needed_16}) exitWith {
+			private _s = score _this;
+			if (_r > 6 && {_s > d_points_needed_17}) exitWith {
+				_c = [getMissionPath "pics\8star.paa", 0.7];
+			};
+			if (_r > 6 && {_s > d_points_needed_16}) exitWith {
 				_c = [getMissionPath "pics\6star.paa", 0.7];
 			};
-			if (_r > 6 && {score _this > d_points_needed_15}) exitWith {
+			if (_r > 6 && {_s > d_points_needed_15}) exitWith {
 				_c = [getMissionPath "pics\5star.paa", 0.7];
 			};
 			_c = [getText(configFile>>"CfgRanks">>str _r>>"texture"), 0.4];
@@ -35,10 +39,10 @@ if (isNil "_xm") then {
 	};
 	_c
 } else {
-	private _r = _this getVariable "d_6star";
+	private _r = _this getVariable "d_8star";
 	if (isNil "_r") then {
-		_r = [getMissionPath "pics\6star.paa", 0.7];
-		_this setVariable ["d_6star", _r];
+		_r = [getMissionPath "pics\8star.paa", 0.7];
+		_this setVariable ["d_8star", _r];
 	};
 	_r
 };
