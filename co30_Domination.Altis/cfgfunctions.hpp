@@ -25,7 +25,6 @@ class cfgFunctions {
 			addc(chopper_welcome2);
 			addc(vec_welcome_message);
 			addc(hintchatmsg);
-			addc(fixheadbug);
 			addc(getranjumppoint);
 			addc(handleheal);
 			addc(save_respawngear);
