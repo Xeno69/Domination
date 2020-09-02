@@ -12,3 +12,4 @@
 - Fixed: Destroying a respawn barrack or vehicle MHQ at a taken main target still added points to players and displayed a destroyed message
 - Fixed: Static weapons should spawn on roads less often
 - Fixed: Static weapons should no longer point at walls
+- Fixed: hallyg_dlegion_Snipe_awareness script did not end when a unit it was running for was no longer alive

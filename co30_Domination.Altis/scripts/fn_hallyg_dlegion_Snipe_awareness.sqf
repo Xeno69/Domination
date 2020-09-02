@@ -82,6 +82,7 @@ private _isSniper = ["Sniper", groupId(group _unit)] call BIS_fnc_inString;
 while {true} do {
 	_Dtargets = [];
 
+	if (!alive _unit) exitWith {};
 	{
 		if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side _x == _targetSide && {_x distance2D _unit < _detectionRadius}}}}}) then {
 			if (_awarenessRadius > 0 && {_x getVariable ["xr_pluncon", false] || {_x getVariable ["ace_isunconscious", false]}}) then {
@@ -96,8 +97,9 @@ while {true} do {
 	if (count _Dtargets > 0) then {
 		_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
 		
-		{
-			if (_isAggressiveShoot == 1) then {
+		if (_isAggressiveShoot == 1) then {
+			{
+				if (!alive _unit) exitWith {};
 				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
 					//to check if unit actually fired
 					_ammoCount = _unit ammo primaryWeapon _unit;
@@ -106,17 +108,20 @@ while {true} do {
 					_unit doTarget _x;
 					_unit doSuppressiveFire _x;
 					sleep 15;
+					if (!alive _unit) exitWith {};
 					if (_ammoCount > _unit ammo primaryWeapon _unit || {_magazineCount > count magazinesAmmo _unit}) then {
 						//yes the unit actually fired
 						_fired = true;
 						_lastFired = time;
 					};
-                    if (_fired) exitWith {
+					if (_fired) exitWith {
 						_executingOccupyCommand = false; //we broke out of the occupy move order
 					};
 				};
-			};
-		} forEach (_playersSortedByDistance);
+			} forEach _playersSortedByDistance;
+		};
+		
+		if (!alive _unit) exitWith {};
 		
 		_nearestTargetPlayer = _playersSortedByDistance select 0;
 
@@ -175,6 +180,7 @@ while {true} do {
 						_executingOccupyCommand = true;
 					};
 				};
+				if (!alive _unit) exitWith {};
 				sleep 30;
 				_lastMoveOrder = time;
 			};
@@ -182,6 +188,8 @@ while {true} do {
 			sleep 3;
 		};
 	};
+	
+	if (!alive _unit) exitWith {};
 		
 	if (_fired && {_isQuickAmmo == 1 || {_isSniper}}) then {
 		//unit is eligible for quick ammo refill
@@ -212,6 +220,8 @@ while {true} do {
 			};
 		};
 	};
+	
+	if (!alive _unit) exitWith {};
 	
 	sleep (3 + random 3);
 };
