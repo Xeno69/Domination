@@ -3,7 +3,16 @@
 #define THIS_FILE "fn_makemgroup.sqf"
 #include "..\x_setup.sqf"
 
-params ["_pos", "_unitliste", "_grp", ["_mchelper", true], ["_doreduce", false], ["_unitsPerGroup", -1], ["_sideToEngage", d_side_player]];
+params [
+	["_pos", ""],
+	["_unitliste", ""],
+	["_grp", ""],
+	["_mchelper", true],					// man create helper function for positioning
+	["_doreduce", false],					// allows the caller to disable d_smallgrps
+	["_unitsPerGroup", -1],					// allows the caller to specify max unit count
+	["_sideToEngage", nil, [sideUnknown]],		// only used when AI awareness parameters are enabled, not used in TvT
+	["_missionType", ""]					// optional string "MAIN" or "SIDE" - associate the new group with a mission type, useful for special handling later (ie-- corpse cleanup for MAIN or SIDE)
+];
 
 if (isNil "_unitliste") exitWith {
 	diag_log ["Attention, _unitlist (param 2) is nil, returning []", "_pos", _pos, "_grp", _grp];
@@ -104,6 +113,33 @@ private _nightorfog = call d_fnc_nightfograin;
 	//_one_unit enableFatigue false;
 	_one_unit disableAI "RADIOPROTOCOL";	
 	
+	if (d_ai_persistent_corpses == 0 && {_missionType != ""}) then {
+		switch (_missionType) do {
+			case "MAIN": {
+				if (isNil "d_cur_tgt_inf_units") then {
+					d_cur_tgt_inf_units = [];
+				};
+				removeFromRemainsCollector [_one_unit];
+				d_cur_tgt_inf_units pushBack _one_unit;
+				_one_unit addEventHandler ["Killed", {
+					_this spawn {
+						scriptName "special cleanup rules for persistent corpses - maintarget";
+						waitUntil {sleep 20; d_mt_done};
+						deleteVehicle (_this select 0);
+					};
+				}];
+			};
+			case "SIDE": {
+				//if (isNil "d_cur_sm_inf_units") then {
+				//	d_cur_sm_inf_units = [];
+				//};
+				// TODO
+				// persistent corpses not implemented yet for sidemissions
+				// sidemissions need something similar to "d_mt_done" to support Killed event handler corpse cleanup
+			};
+		};
+	};
+
 #ifdef __GROUPDEBUG__
 	// does not subtract if a unit dies!
 	if (side _grp == d_side_enemy) then {

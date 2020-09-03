@@ -175,6 +175,14 @@ if (d_enable_civs == 1) then {
 		deleteVehicle _x;
 	} forEach d_cur_tgt_civ_units;
 	
+	//cleanup mgroup units
+	if (d_ai_persistent_corpses == 0) then {
+		{
+			deleteVehicle _x;
+		} forEach d_cur_tgt_inf_units;
+		d_cur_tgt_inf_units = [];
+	};
+	
 	//cleanup civ vehicles after 300 secs
 	d_cur_tgt_civ_units = [];
 	private _tmpCivVehs = +d_cur_tgt_civ_vehicles;
