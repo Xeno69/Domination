@@ -168,6 +168,17 @@ if (side _grp == d_side_enemy) then {
 (leader _grp) setRank "SERGEANT";
 #ifndef __TT__
 if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}) then {
+	if (isNil "_sideToEngage") then {
+		//not working, not sure why???
+		//_sideToEngage = d_player_side; // output:  Error Undefined variable in expression: d_player_side ????
+		//workaround
+		if (side (leader _grp) == east) then {
+			_sideToEngage = west;
+		} else {
+			_sideToEngage = east;
+		};
+	};
+	
 	//advanced awareness
 	if (["Sniper", groupId(_grp)] call BIS_fnc_inString) then {
 		{
