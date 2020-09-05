@@ -61,7 +61,7 @@ private _helperls = [];
 private _fnc_gpn = d_fnc_getplayername;
 if (!xr_pl_no_lifes) then {
 	if (_withresp) then {
-		private _pic = getText (configFile >>"CfgVehicles">>typeOf player>>"icon");
+		private _pic = getText ((configOf player)>>"icon");
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
@@ -72,7 +72,7 @@ if (!xr_pl_no_lifes) then {
 	private ["_dist", "_pic"];
 	{
 		_dist = (vehicle _x) distance2D _vecpplxp;
-		_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+		_pic = getText ((configOf _x)>>"icon");
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
@@ -85,7 +85,7 @@ if (!xr_pl_no_lifes) then {
 	{
 		_distup = (vehicle _x) distance2D _sfm;
 		if (_distup > 100) then {
-			_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+			_pic = getText ((configOf _x)>>"icon");
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};

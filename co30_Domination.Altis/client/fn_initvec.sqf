@@ -5,13 +5,13 @@
 #define __vecmarker _vec setVariable ["d_ma_text", _car select 5]; \
 _vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_car select 3)>>"icon")]; \
 _vec setVariable ["d_ma_color", d_color_store getVariable (_car select 4)]; \
-_vec setVariable ["d_icon_type", getText (configFile >>"CfgVehicles">>typeOf _vec>>"icon")]; \
+_vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")]; \
 _vec setVariable ["d_icon_size", 28];
 
 #define __chopmarker _vec setVariable ["d_ma_text", _car select 6]; \
 _vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_car select 4)>>"icon")]; \
 _vec setVariable ["d_ma_color", d_color_store getVariable (_car select 5)]; \
-_vec setVariable ["d_icon_type", getText (configFile >>"CfgVehicles">>typeOf _vec>>"icon")]; \
+_vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")]; \
 _vec setVariable ["d_icon_size", 28];
 
 #define __chopset private _index = _car select 1;\
@@ -50,7 +50,7 @@ __TRACE_1("","_vec")
 private _desm = _vec getVariable ["d_deserted_marker", ""];
 
 if (_desm != "" && {!(markerPos _desm isEqualTo [0,0,0])}) then {
-	[_desm, _vec, "ICON", "ColorBlack", [1, 1], format [localize "STR_DOM_MISSIONSTRING_260", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
+	[_desm, _vec, "ICON", "ColorBlack", [1, 1], format [localize "STR_DOM_MISSIONSTRING_260", [_vec] call d_fnc_GetDisplayName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
 };
 
 private _d_vec = _vec getVariable "d_vec";
@@ -81,7 +81,7 @@ if (_d_vec isEqualType []) exitWith {
 			_vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>_ma_type>>"icon")];
 			_vec setVariable ["d_ism_vec", true];
 		};
-		_vec setVariable ["d_icon_type", getText (configFile >>"CfgVehicles">>typeOf _vec>>"icon")];
+		_vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")];
 		if (_ma_col != "") then {
 			_vec setVariable ["d_ma_color", d_color_store getVariable _ma_col];
 		};

@@ -879,7 +879,7 @@ player addEventhandler ["WeaponAssembled", {
 
 {
 	_x call d_fnc_initvec;
-	if (unitIsUAV _x && {isClass (configFile>>"CfgVehicles">>(typeOf _x)>>"Components">>"TransportPylonsComponent")}) then {
+	if (unitIsUAV _x && {isClass ((configOf _x)>>"Components">>"TransportPylonsComponent")}) then {
 		_x call d_fnc_addpylon_action;
 	};
 	if (_x isKindOf "Boat_F" || {_x isKindOf "Boat"}) then {

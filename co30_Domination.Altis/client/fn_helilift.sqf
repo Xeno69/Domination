@@ -107,7 +107,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 
 						[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
 
-						private _maxload = getNumber(configFile>>"CfgVehicles">>(typeOf _chopper)>>"maximumLoad");
+						private _maxload = getNumber((configOf _chopper)>>"maximumLoad");
 						private _slipos = [[0,0,1], _chopper selectionPosition "slingload0"] select !(_chopper selectionPosition "slingload0" isEqualTo [0,0,0]);
 						__TRACE_2("","_maxload","_slipos")
 						//_chopper addEventhandler ["RopeAttach", {player sideChat str(_this);player sideChat "bla"}];
@@ -134,7 +134,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						//__TRACE_1("","_lobmm")
 						//#endif
 
-						private _slcmp = getArray(configFile>>"CfgVehicles">>(typeOf _liftobj)>>"slingLoadCargoMemoryPoints");
+						private _slcmp = getArray((configOf _liftobj)>>"slingLoadCargoMemoryPoints");
 
 						// Fix for vehicles with slingload points at null position (lots of mod vehicles...)
 						private _slcmp_null = true;

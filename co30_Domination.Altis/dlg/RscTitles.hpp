@@ -583,6 +583,11 @@ class d_fpsresource {
 			text="";
 			x = "SafeZoneX + 0.1";
 		};
+		class csys_time: client_out {
+			idc = 52;
+			text="";
+			x = "SafeZoneX + 0.2";
+		};
 	};
 };
 

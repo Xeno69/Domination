@@ -17,8 +17,7 @@ private _alreadyremoved = [];
 } forEach getPylonMagazines _vec;
 __TRACE_1("2","weapons _vec")
 
-private _tvec = typeOf _vec;
-private _cfg = configFile>>"CfgVehicles">>_tvec>>"Components">>"TransportPylonsComponent">>"pylons";
+private _cfg = (configOf _vec)>>"Components">>"TransportPylonsComponent">>"pylons";
 private _pylonowners = _vec getVariable ["d_pylon_owners", []];
 __TRACE_1("","_pylonowners")
 private _oldpylonowners =+ _pylonowners;
@@ -39,7 +38,7 @@ for "_i" from 0 to (count _cfg - 1) do {
 			};
 		} else {
 			__TRACE("_ctrl_drivgun is nil")
-			_vec setPylonLoadOut [_cname, _mag, true, getArray (configFile>>"CfgVehicles">>_tvec>>"Components">>"TransportPylonsComponent">>"Pylons">>_cname>>"turret")];
+			_vec setPylonLoadOut [_cname, _mag, true, getArray ((configOf _vec)>>"Components">>"TransportPylonsComponent">>"Pylons">>_cname>>"turret")];
 		};
 	} else {
 		__TRACE("no pylon")

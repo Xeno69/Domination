@@ -28,7 +28,7 @@ if (d_database_found) then {
 if (unitIsUAV _vec) then {
 	private _uavgrp = createVehicleCrew _vec;
 	_vec allowCrewInImmobile true;
-	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+	if (isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 	_uavgrp deleteGroupWhenEmpty true;
@@ -203,7 +203,7 @@ if (d_with_ranked) then {
 if (unitIsUAV _vec) then {
 	private _uavgrp = createVehicleCrew _vec;
 	_vec allowCrewInImmobile true;
-	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+	if (isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 	_uavgrp deleteGroupWhenEmpty true;
@@ -224,7 +224,7 @@ if (!isNull _vec2) then {
 	if (unitIsUAV _vec2) then {
 		private _uavgrp = createVehicleCrew _vec2;
 		_vec2 allowCrewInImmobile true;
-		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+		if (isClass ((configOf _vec2)>>"Components">>"TransportPylonsComponent")) then {
 			_vec2 remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
 		_uavgrp deleteGroupWhenEmpty true;
@@ -241,7 +241,7 @@ _vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
 
 _vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 
-if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 };
 #ifdef __TT__
@@ -250,7 +250,7 @@ if (!isNull _vec2) then {
 
 	_vec2 addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 	
-	if (_vec2 isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec2 >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	if (_vec2 isKindOf "Air" && {getNumber ((configOf _vec2) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec2 addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 	};
 };

@@ -12,3 +12,5 @@ if (isNil "_disp" || {isNull _disp}) then {
 };
 (_disp displayCtrl 50) ctrlSetText str (round _this);
 (_disp displayCtrl 51) ctrlSetText str (round diag_fps);
+private _stime = systemTime;
+(_disp displayCtrl 52) ctrlSetText format ["%1 %2:%3", localize "STR_DOM_MISSIONSTRING_2037", _stime # 3, _stime # 4];

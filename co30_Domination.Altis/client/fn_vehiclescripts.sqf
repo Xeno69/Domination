@@ -30,7 +30,7 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 if (_do_exit) exitWith {};
 
 if (_vec isKindOf "Air") then {
-	if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {_this select 1 == "driver" && {isClass (configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}}) then {
+	if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {_this select 1 == "driver" && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}}) then {
 		_vec call d_fnc_addpylon_action;
 	};
 	if (_vec isKindOf "Helicopter") then {

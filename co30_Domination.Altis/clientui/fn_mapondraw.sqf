@@ -74,7 +74,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
-									_nmt = getText (configFile>>(typeOf _v)>>"CfgVehicles">>"displayName");
+									_nmt = getText ((configOf _v)>>"displayName");
 									_v setVariable ["d_ma_text", _nmt];
 								};
 								_nt = [_nmt, ": "];
@@ -100,7 +100,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 						} else {
 							private _nmt = _v getVariable "d_ma_text";
 							if (isNil "_nmt") then {
-								_nmt = getText (configFile>>(typeOf _v)>>"CfgVehicles">>"displayName");
+								_nmt = getText ((configOf _v)>>"displayName");
 								_v setVariable ["d_ma_text", _nmt];
 							};
 							_nmt

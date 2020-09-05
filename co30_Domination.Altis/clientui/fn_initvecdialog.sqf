@@ -12,8 +12,8 @@ private _caller = d_curcaller_dialog;
 
 private _display = uiNamespace getVariable "d_VecDialog";
 
-if (getText (configFile>>"CfgVehicles">>typeOf _vec>>"picture") != "picturestaticobject") then {
-	__control(44444) ctrlSetText getText (configFile>>"CfgVehicles">>typeOf _vec>>"picture");
+if (getText ((configOf _vec)>>"picture") != "picturestaticobject") then {
+	__control(44444) ctrlSetText getText ((configOf _vec)>>"picture");
 } else {
 	__control(44444) ctrlSetText "";
 };

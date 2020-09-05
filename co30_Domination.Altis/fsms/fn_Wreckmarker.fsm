@@ -71,8 +71,8 @@ link34[] = {28,13};
 link35[] = {29,30};
 link36[] = {30,31};
 link37[] = {31,18};
-globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2176.285645,1125.746094,757,1254,1};
-window[] = {2,-1,-1,-1,-1,900,182,1142,182,3,775};
+globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2191.562012,717.986206,757,1254,1};
+window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,775};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -283,7 +283,7 @@ class FSM
                          "_sav_pos set [2, 0];" \n
                          "_vec setPos _sav_pos;" \n
                          "_vec setVelocity [0,0,0];" \n
-                         "[_mname, _vec,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [typeOf _vec, ""CfgVehicles""] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n
+                         "[_mname, _vec,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [_vec] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n
                          "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != -1);" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;

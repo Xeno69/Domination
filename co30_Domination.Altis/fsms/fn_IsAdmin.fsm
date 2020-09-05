@@ -48,8 +48,8 @@ link21[] = {18,19};
 link22[] = {19,20};
 link23[] = {20,4};
 link24[] = {21,4};
-globals[] = {0.000000,0,0,0,0,640,480,1,38,6316128,1,-389.664490,412.011230,632.773071,-461.422485,655,1254,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,673};
+globals[] = {0.000000,0,0,0,0,640,480,1,38,6316128,1,-389.664490,412.011230,632.773071,-461.422485,480,865,1};
+window[] = {0,-1,-1,-1,-1,1349,312,2232,312,1,498};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -236,7 +236,7 @@ class FSM
                          "			d_admin_idd = -9999;" \n
                          "		};" \n
                          "		if (_vec call d_fnc_isVecLocked) then {" \n
-                         "			if (_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n
+                         "			if (_vec isKindOf ""Air"" && {getNumber ((configOf _vec) >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText ((configOf _vec) >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n
                          "			d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n
                          "			d_adm_currentvec_lockstate = true;" \n
                          "		} else {" \n
@@ -252,7 +252,7 @@ class FSM
                          "		} else {" \n
                          "			if (!d_adm_currentvec_lockstate && {(_vec call d_fnc_isVecLocked)}) then {" \n
                          "				d_adm_currentvec removeAction d_admin_idd;" \n
-                         "				if (_vec isKindOf ""Air"" && {getNumber (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText (configFile >> ""CfgVehicles"" >> typeOf _vec >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n
+                         "				if (_vec isKindOf ""Air"" && {getNumber ((configOf _vec) >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1 && {_vec animationPhase (getText ((configOf _vec) >> ""EjectionSystem"" >> ""CanopyHideAnim"")) > 0.01}}) exitWith {};" \n
                          "				d_admin_idd = _vec addAction [format [""<t color='#AAD9EF'>%1</t>"", localize ""STR_DOM_MISSIONSTRING_1418""], {_this call d_fnc_lockc}, 1, -1, false, true, """", ""true"", 10];" \n
                          "				d_adm_currentvec_lockstate = true;" \n
                          "			};" \n

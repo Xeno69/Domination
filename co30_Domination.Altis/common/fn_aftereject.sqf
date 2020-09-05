@@ -16,7 +16,7 @@ _vec spawn {
 	sleep 20;
 	if (!alive _this) exitWith {};
 
-	if (_this animationPhase (getText (configFile >> "CfgVehicles" >> typeOf _this >> "EjectionSystem" >> "CanopyHideAnim")) > 0.01) then {
+	if (_this animationPhase (getText ((configOf _this) >> "EjectionSystem" >> "CanopyHideAnim")) > 0.01) then {
 		_this setDamage 1;
 	} else {
 		_this setVariable ["d_eject_check", nil];

@@ -16,7 +16,7 @@ if !(_animnames isEqualTo []) then {
 private _airar = [];
 if (_vec isKindOf "Air") then {
 	_airar pushBack (getPylonMagazines _vec);
-	_airar pushBack ((configProperties [configFile >> "CfgVehicles" >> typeOf _vec >> "Components" >> "TransportPylonsComponent" >> "Pylons", "isClass _x"]) apply {getArray (_x >> "turret")});
+	_airar pushBack ((configProperties [(configOf _vec) >> "Components" >> "TransportPylonsComponent" >> "Pylons", "isClass _x"]) apply {getArray (_x >> "turret")});
 };
 
 [getObjectTextures _vec, _anims, _airar]

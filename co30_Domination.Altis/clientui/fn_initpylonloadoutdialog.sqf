@@ -11,7 +11,7 @@ private _vec = d_pylon_vec;
 
 private _display = uiNamespace getVariable "D_PylonLoadoutDialog";
 
-private _cfg = configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent";
+private _cfg = (configOf _vec)>>"Components">>"TransportPylonsComponent";
 __TRACE_1("","_cfg")
 
 #ifdef __DEBUG__
@@ -19,7 +19,7 @@ _mmm = getText(_cfg>>"UIPicture");
 __TRACE_1("","_mmm")
 #endif
 __control(1000) ctrlSetText getText(_cfg>>"UIPicture");
-__control(1003) ctrlSetText getText(configFile>>"CfgVehicles">>(typeOf _vec)>>"Displayname");
+__control(1003) ctrlSetText getText((configOf _vec)>>"Displayname");
 
 private _pylons = _cfg>>"pylons";
 __TRACE_1("","_pylons")

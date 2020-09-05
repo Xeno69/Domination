@@ -1,10 +1,12 @@
 4.34
 
+- Added: Your local system time is displayed beside the FPS number
 - Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
 - Changed: A marker will show up after some time in cache side missions and get smaller too help players find the caches
 - Changed: Better CUP island check for internal objectsmapper
 - Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, Use ACE Medical Revive and not mission Revive (if ACE is available) in lobby)
 - Changed: Add small bunkers to high static weapons (currently only available for non 3rd party versions)
+- Improved: Make use of new configOf scripting command where possible
 - Fixed: ACRE radios were not available in Virtual Arsenal in ranked mode
 - Fixed: Better handling for destroying side mission objects (last damager was not taken into account, broke side missions like the arty cannon sm)
 - Fixed: Better handling for destroying main target side mission objects (last damager was not taken into account)
@@ -13,3 +15,6 @@
 - Fixed: Static weapons should spawn on roads less often
 - Fixed: Static weapons should no longer point at walls
 - Fixed: hallyg_dlegion_Snipe_awareness script did not end when a unit it was running for was no longer alive
+- Fixed: Map on draw was not drawing displayname for vehicles correctly
+- Fixed: Copy and paste error resulting in non existent variables when loading a DB savegame
+- Fixed: Copy and paste error in getbonus script

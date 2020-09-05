@@ -13598,6 +13598,18 @@
 <Chinese>Retake Farps</Chinese>
 <French>Retake Farps</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2037">
+<English>Your time:</English>
+<Spanish>Your time:</Spanish>
+<Portuguese>Your time:</Portuguese>
+<Korean>Your time:</Korean>
+<Japanese>Your time:</Japanese>
+<Original>Your time:</Original>
+<Russian>Your time:</Russian>
+<Chinesesimp>Your time:</Chinesesimp>
+<Chinese>Your time:</Chinese>
+<French>Your time:</French>
+</Key>
 </Container>
 </Package>
 </Project>

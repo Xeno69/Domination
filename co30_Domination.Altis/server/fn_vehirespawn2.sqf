@@ -18,7 +18,7 @@ if (unitIsUAV _vec) then {
 	_vec allowCrewInImmobile true;
 	_uavgrp deleteGroupWhenEmpty true;
 	[_vec, 7] call d_fnc_setekmode;
-	if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+	if (isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")) then {
 		_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 	};
 } else {
@@ -27,7 +27,7 @@ if (unitIsUAV _vec) then {
 	};
 };
 
-if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 	_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 };
 
@@ -66,7 +66,7 @@ while {true} do {
 			_vec allowCrewInImmobile true;
 			_uavgrp deleteGroupWhenEmpty true;
 			[_vec, 7] call d_fnc_setekmode;
-			if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+			if (isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")) then {
 				_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 			};
 		} else {
@@ -81,7 +81,7 @@ while {true} do {
 			[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
 		};
 #endif
-		if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+		if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 			_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 		};
 		

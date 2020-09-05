@@ -13,7 +13,7 @@ if (!isNil "_rr") exitWith {
 
 private _i = _v getVariable (["d_ma_type", "d_icon_type"] select (!_m));
 if (isNil "_i") then {
-	_i = getText (configFile >>"CfgVehicles">>typeOf _v>>"icon");
+	_i = getText ((configOf _v)>>"icon");
 	_v setVariable ["d_icon_type", _i];
 };
 __TRACE_1("","_i")

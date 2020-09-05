@@ -59,12 +59,11 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 		/* 5 condition for action */		"isNull objectParent player && {alive _this}",
 		/* 6 code executed on start */		{
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
-			systemChat format [localize "STR_DOM_MISSIONSTRING_328", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
+			systemChat format [localize "STR_DOM_MISSIONSTRING_328", [d_orig_sfunc_obj] call d_fnc_GetDisplayName];
 		},
 		/* 7 code executed per tick */	{
 			__TRACE_1("tick","_this select 4")
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
-			//systemChat format [localize "STR_DOM_MISSIONSTRING_328", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
 			private _damage = damage d_orig_sfunc_obj;
 			if (_damage > 0) then {
 				_damage = _damage - d_et_dam_sub;
@@ -80,7 +79,7 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 			d_orig_sfunc_obj setDamage 0;
 			[d_orig_sfunc_obj, 1] remoteExecCall ["setFuel", d_orig_sfunc_obj];
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
-			systemChat format [localize "STR_DOM_MISSIONSTRING_334", [typeOf d_orig_sfunc_obj, "CfgVehicles"] call d_fnc_GetDisplayName];
+			systemChat format [localize "STR_DOM_MISSIONSTRING_334", [d_orig_sfunc_obj] call d_fnc_GetDisplayName];
 			if (d_with_ranked || {d_database_found}) then {
 				private _extra = if (d_orig_sfunc_obj isKindOf "Air") then {
 					0

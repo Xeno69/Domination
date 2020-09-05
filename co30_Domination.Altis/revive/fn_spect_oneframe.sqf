@@ -58,7 +58,7 @@ if (time > xr_spect_timer) then {
 	__TRACE_1("","xr_spect_timer")
 	if (!xr_pl_no_lifes) then {
 		if (xr_x_withresp) then {
-			private _pic = getText (configFile >>"CfgVehicles">>typeOf player>>"icon");
+			private _pic = getText ((configOf player)>>"icon");
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
@@ -69,7 +69,7 @@ if (time > xr_spect_timer) then {
 		private ["_dist", "_pic"];
 		{
 			_dist = (vehicle _x) distance2D _vecp;
-			_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+			_pic = getText ((configOf _x)>>"icon");
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
@@ -81,7 +81,7 @@ if (time > xr_spect_timer) then {
 		{
 			_distup = _x distance2D _sfm;
 			if (_distup > 100) then {
-				_pic = getText (configFile >>"CfgVehicles">>typeOf _x>>"icon");
+				_pic = getText ((configOf _x)>>"icon");
 				if (_pic != "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};

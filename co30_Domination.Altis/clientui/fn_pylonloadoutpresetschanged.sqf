@@ -27,7 +27,7 @@ if (_selIdx == 0) then {
 } else {
 	__TRACE_1("","_ctrl lbData _selIdx")
 	__TRACE_1("","d_pylondialog_ctrls")
-	private _attachment = getArray(configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent">>"Presets">>(_ctrl lbData _selIdx)>>"attachment");
+	private _attachment = getArray((configOf _vec)>>"Components">>"TransportPylonsComponent">>"Presets">>(_ctrl lbData _selIdx)>>"attachment");
 	if !(_attachment isEqualTo []) then {
 		{
 			__TRACE_1("config Presets","_x","_forEachIndex")

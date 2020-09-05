@@ -9,7 +9,7 @@ __TRACE_1("","_vec")
 
 if (isNull _vec) exitWith {false};
 
-private _tur = configFile >> "CfgVehicles" >> (typeOf _vec) >> "turrets";
+private _tur = (configOf _vec) >> "turrets";
 private _ret = false;
 
 for "_i" from 0 to (count _tur - 1) do {

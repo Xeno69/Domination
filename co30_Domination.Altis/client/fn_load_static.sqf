@@ -21,8 +21,7 @@ private _cargo = nearestObject [_vec, "StaticWeapon"];
 if (isNull _cargo) exitWith {hintSilent (localize "STR_DOM_MISSIONSTRING_70")};
 if (!alive _cargo) exitWith {hintSilent (localize "STR_DOM_MISSIONSTRING_71")};
 
-private _cargo_type = typeOf _cargo;
-private _type_name = [_cargo_type, "CfgVehicles"] call d_fnc_GetDisplayName;
+private _type_name = [_cargo] call d_fnc_GetDisplayName;
 if (_cargo distance2D _vec > 10) exitwith {hintSilent format [localize "STR_DOM_MISSIONSTRING_72", _type_name]};
 if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
 
@@ -33,7 +32,7 @@ _tr_cargo_ar = _vec getVariable ["d_CARGO_AR", []];
 if (count _tr_cargo_ar >= d_max_truck_cargo) then {
 	systemChat format [localize "STR_DOM_MISSIONSTRING_69", d_max_truck_cargo];
 } else {
-	_tr_cargo_ar pushBack _cargo_type;
+	_tr_cargo_ar pushBack (typeOf _cargo);
 	_vec setVariable ["d_CARGO_AR", _tr_cargo_ar, true];
 };
 private _alive = true;

@@ -5,7 +5,7 @@
 
 params ["_vec", "_unit"];
 
-private _trts = configFile >> "CfgVehicles" >> typeOf _vec >> "turrets";
+private _trts = (configOf _vec) >> "turrets";
 private _ret = false;
 
 for "_i" from 0 to (count _trts - 1) do {

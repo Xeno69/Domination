@@ -43,7 +43,7 @@ if (_vec isKindOf "Air") then {
 			_vec setVariable ["d_plyonloadoutaction", nil];
 		};
 	} else {
-		if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {isClass (configFile>>"CfgVehicles">>(typeOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}) then {
+		if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}) then {
 			_vec call d_fnc_addpylon_action;
 		};
 	};

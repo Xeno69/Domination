@@ -107,7 +107,7 @@ d_bonus_vecs_db = _ar # 9;
 		_uavgrp deleteGroupWhenEmpty true;
 		_vec allowCrewInImmobile true;
 		[_vec, 7] call d_fnc_setekmode;
-		if (isClass (configFile>>"CfgVehicles">>_vec_type>>"Components">>"TransportPylonsComponent")) then {
+		if (isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")) then {
 			_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
 	};
@@ -120,7 +120,7 @@ d_bonus_vecs_db = _ar # 9;
 			d_bap_counter = d_bap_counter + 1;
 			if (d_bap_counter > (count d_bonus_air_positions - 1)) then {d_bap_counter = 0};
 		} else {
-			if (getNumber(configFile >> "CfgVehicles" >> _x >> "tailHook") != 1) then {
+			if (getNumber((configOf _vec) >> "tailHook") != 1) then {
 				_endpos = (d_bonus_air_positions # d_bap_counter) # 0;
 				_dir = (d_bonus_air_positions # d_bap_counter) # 1;
 				d_bap_counter = d_bap_counter + 1;
@@ -155,7 +155,7 @@ d_bonus_vecs_db = _ar # 9;
 	
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 	
-	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 	};
 	
@@ -248,7 +248,7 @@ _fnc_tt_bonusvec = {
 
 	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
 
-	if (_vec isKindOf "Air" && {getNumber (configFile >> "CfgVehicles" >> typeOf _vec >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
+	if (_vec isKindOf "Air" && {getNumber((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
 	};
 	

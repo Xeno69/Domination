@@ -56,7 +56,7 @@ if !(_s_ai isEqualTo []) then {
 	_s_p pushBack "</t>";
 };
 
-private _t = format ["<t color='#FFFFFF' size='0.8'><t align='right'>%1 %2:<br/>%3%4", localize "STR_DOM_MISSIONSTRING_538", [typeOf _ct, "CfgVehicles"] call d_fnc_GetDisplayName, _s_p joinString "", _s_ai joinString ""];
+private _t = format ["<t color='#FFFFFF' size='0.8'><t align='right'>%1 %2:<br/>%3%4", localize "STR_DOM_MISSIONSTRING_538", [_ct] call d_fnc_GetDisplayName, _s_p joinString "", _s_ai joinString ""];
 "d_rscCrewText" cutRsc ["d_rscCrewText", "PLAIN"];
 disableSerialization;
 private _ctrl = (uiNamespace getVariable "d_rscCrewText") displayCtrl 9999;

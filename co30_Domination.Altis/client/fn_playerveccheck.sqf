@@ -16,7 +16,7 @@ if ((assignedVehicleRole player) # 0 == "Cargo" || {!isNil {_vec getVariable "d_
 
 if (_not_allowed) then {
 	player action ["getOut", _vec];
-	[format [localize "STR_DOM_MISSIONSTRING_308", (rank player) call d_fnc_GetRankString, _needed_rank, [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName], "HQ"] call d_fnc_HintChatMsg;
+	[format [localize "STR_DOM_MISSIONSTRING_308", (rank player) call d_fnc_GetRankString, _needed_rank, [_vec] call d_fnc_GetDisplayName], "HQ"] call d_fnc_HintChatMsg;
 } else {
 	d_vec_role_pl = assignedVehicleRole player;
 };

@@ -23,9 +23,6 @@ if (_object isEqualType []) then {
 
 if (isNull _object || {_object isKindOf "ParachuteBase"}) exitWith {};
 
-private _type = typeOf _object;
-__TRACE_2("","_object","_type")
-
 private _isUav = unitIsUAV _object;
 
 #ifdef __TT__
@@ -55,8 +52,10 @@ if (isNil "d_reload_time_factor") then {d_reload_time_factor = 1};
 __NOALIEX
 [_object, 0] remoteExecCall ["setFuel", _object];
 
-private _type_name = [_type, "CfgVehicles"] call d_fnc_GetDisplayName;
-if (_type_name == "") then {_type_name = _type};
+private _cfgv = configOf _object;
+
+private _type_name = [_cfgv] call d_fnc_GetDisplayName;
+if (_type_name == "") then {_type_name = typeOf _object};
 if (hasInterface) then {
 	if (!_isUav) then {
 		_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_701", _type_name];
@@ -78,8 +77,6 @@ __TRACE_1("","_magazinesxx")
 
 private _magsallturrets = magazinesAllTurrets _object;
 __TRACE_1("","_magsallturrets")
-
-private _cfgv = configFile>>"CfgVehicles">>_type;
 
 //private _removedX = [];
 {

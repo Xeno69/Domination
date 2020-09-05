@@ -122,12 +122,12 @@ while {d_player_in_vec} do {
 						};
 
 						if (_prev_liftobj != _liftobj) then {
-							private _tofn = typeOf _liftobj;
+							private _tofn = configOf _liftobj;
 
-							private _type_name = [_tofn, "CfgVehicles"] call d_fnc_GetDisplayName;
+							private _type_name = [_tofn] call d_fnc_GetDisplayName;
 							__CTRL2(64438) ctrlSetText ([format [_liftstr, _type_name], format [_typestr, _type_name]] select !(_vec getVariable ["d_vec_attached", false]));
 
-							private _picstat = getText (configFile>>"CfgVehicles">>_tofn>>"picture");
+							private _picstat = getText (_tofn>>"picture");
 							private _picvcicons = getText (configFile>>"CfgVehicleIcons">>_picstat);
 							__CTRL2(64439) ctrlSetText ([_picstat, _picvcicons] select (_picvcicons != ""));
 							if (!isPiPEnabled) then {
