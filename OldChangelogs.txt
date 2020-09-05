@@ -2,11 +2,6 @@ Changelogs
 
 Old...
 
-4.34
-
-- Fixed: New chopper MHQ couldn't load ammo boxes in the GMCWG versions
-- Fixed: Use correct event handler for ACE arsenal, by jilillis
-
 4.33
 
 - Added: rabbit rescue event, by longtimegamer
