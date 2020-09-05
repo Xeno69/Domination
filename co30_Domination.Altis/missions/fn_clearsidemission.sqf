@@ -23,7 +23,14 @@ if (d_MissionType != 2) then {
 private _waittime = 10;
 #endif
 
-sleep _waittime;
+private _deltime = 180;
+if (_waittime < 180) then {
+	_deltime = _waittime / 2;
+};
+
+_waittime = _waittime - _deltime;
+
+sleep _deltime;
 
 {
 	if !(isNull _x) then {
@@ -44,5 +51,8 @@ sleep _waittime;
 d_x_sm_vec_rem_ar = [];
 {deleteVehicle _x} forEach (d_x_sm_rem_ar select {!isNull _x});
 d_x_sm_rem_ar = [];
+
+sleep _waittime;
+
 d_sm_resolved = false;
 0 spawn d_fnc_getsidemission;

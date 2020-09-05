@@ -7,7 +7,7 @@ item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"
 link0[] = {0,1};
 link1[] = {1,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,748,768,1};
-window[] = {0,-1,-1,-1,-1,966,26,1614,26,1,766};
+window[] = {0,-1,-1,-1,-1,1148,208,1796,208,1,766};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -68,7 +68,7 @@ class FSM
                          "		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {" \n
                          "			_x call d_fnc_DelVecAndCrew;" \n
                          "		} else {" \n
-                         "			_x remoteExecCall [""d_fnc_dpcpbv"", 2];" \n
+                         "			_x call d_fnc_dpcpbv;" \n
                          "		};" \n
                          "	} forEach _no;" \n
                          "};" \n

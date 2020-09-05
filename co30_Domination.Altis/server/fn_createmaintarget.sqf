@@ -27,7 +27,7 @@ private _garrisonUnits = {
 	};
 
 #ifndef __TT__
-	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true, -1, d_side_player, "MAIN"] call d_fnc_makemgroup;
+	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup;
 #else
 	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 #endif	
@@ -413,7 +413,7 @@ if (d_no_more_observers < 2) then {
 		_wp_array_inf deleteAt _xx_ran;
 		__TRACE("from createmaintarget 1")
 #ifndef __TT__
-		private _observer = ([_xpos, _unit_array, _agrp, true, false, -1, d_side_player, "MAIN"] call d_fnc_makemgroup) # 0;
+		private _observer = ([_xpos, _unit_array, _agrp, true, false, -1, d_side_player] call d_fnc_makemgroup) # 0;
 #else
 		private _observer = ([_xpos, _unit_array, _agrp, true, false] call d_fnc_makemgroup) # 0;
 #endif
