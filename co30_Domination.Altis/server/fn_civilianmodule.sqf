@@ -106,6 +106,10 @@ for "_i" from 0 to d_civ_groupcount do {
 	_m setVariable ["#unitcount", d_civ_unitcount];
 	_m setVariable ["#onCreated", {
 		d_cur_tgt_civ_units pushBack _this;
+		if (d_ai_persistent_corpses == 0) then {
+			// civ corposes are removed when civ module is deleted
+			removeFromRemainsCollector [_this];
+		};
 		_this addEventHandler ["Killed", {
 			_this call d_fnc_civmodulekilleh;
 		}];

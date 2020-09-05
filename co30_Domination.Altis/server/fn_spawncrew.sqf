@@ -6,6 +6,22 @@
 params ["_vec", "_grp", ["_nocargo", false]];
 
 private _uavgrp = createVehicleCrew _vec;
+if (d_ai_persistent_corpses == 0) then {
+	if (isNil "d_cur_tgt_inf_units") then {
+    	d_cur_tgt_inf_units = [];
+    };
+	{
+		removeFromRemainsCollector [_x];
+		d_cur_tgt_inf_units pushBack _x;
+		_x addEventHandler ["Killed", {
+			_this spawn {
+				scriptName "special cleanup rules for persistent corpses";
+				waitUntil {sleep 63.14; d_mt_done};
+				deleteVehicle (_this select 0);
+			};
+		}];
+	} forEach (units _uavgrp);
+};
 private _crew = crew _vec;
 if (count _crew > 0) then {
 	_crew joinSilent _grp;
