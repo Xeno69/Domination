@@ -10693,6 +10693,18 @@
 <Chinese>重新生成主要目標的敵方AI當做增援：</Chinese>
 <French>Réapparition du groupe d'IA en renfort de l'objectif principal:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1741_CORPSES">
+<English>Persistent AI corpses</English>
+<Spanish>Persistent AI corpses</Spanish>
+<Portuguese>Persistent AI corpses</Portuguese>
+<Korean>Persistent AI corpses</Korean>
+<Japanese>Persistent AI corpses</Japanese>
+<Original>Persistent AI corpses</Original>
+<Russian>Persistent AI corpses</Russian>
+<Chinesesimp>Persistent AI corpses</Chinesesimp>
+<Chinese>Persistent AI corpses</Chinese>
+<French>Persistent AI corpses</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1742">
 <English>Attach wreck</English>
 <Spanish>Adjuntar Chatarra</Spanish>

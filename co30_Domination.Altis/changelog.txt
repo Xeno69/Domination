@@ -1,6 +1,7 @@
 4.34
 
 - Added: Your local system time is displayed beside the FPS number
+- Added: Param d_ai_persistent_corpses (Persistent AI corpses), maintarget AI leave persistent corpses until the target is cleared, by longtimegamer
 - Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
 - Changed: A marker will show up after some time in cache side missions and get smaller too help players find the caches
 - Changed: Better CUP island check for internal objectsmapper
