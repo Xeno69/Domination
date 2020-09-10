@@ -2836,7 +2836,7 @@
 <English>On</English>
 <Spanish>On</Spanish>
 <Portuguese>On</Portuguese>
-<Korean>On</Korean>
+<Korean>켜기(On)</Korean>
 <Japanese>On</Japanese>
 <Original>On</Original>
 <Russian>On</Russian>
@@ -2896,7 +2896,7 @@
 <English>Very Low</English>
 <Spanish>Very Low</Spanish>
 <Portuguese>Very Low</Portuguese>
-<Korean>Very Low</Korean>
+<Korean>매우 낮음</Korean>
 <Japanese>Very Low</Japanese>
 <Original>Very Low</Original>
 <Russian>Very Low</Russian>
@@ -2944,7 +2944,7 @@
 <English>Very High</English>
 <Spanish>Very High</Spanish>
 <Portuguese>Very High</Portuguese>
-<Korean>Very High</Korean>
+<Korean>매우 높음</Korean>
 <Japanese>Very High</Japanese>
 <Original>Very High</Original>
 <Russian>Very High</Russian>
@@ -4900,7 +4900,7 @@
 <English>%1 was killed! The enemy will pay for this...</English>
 <Spanish>%1 was killed! The enemy will pay for this...</Spanish>
 <Portuguese>%1 was killed! The enemy will pay for this...</Portuguese>
-<Korean>%1 was killed! The enemy will pay for this...</Korean>
+<Korean>%1 사망하였습니다! 적군은 이것에 대한 대가를 치루게 될것입니다...</Korean>
 <Japanese>%1 was killed! The enemy will pay for this...</Japanese>
 <Original>%1 was killed! The enemy will pay for this...</Original>
 <Russian>%1 was killed! The enemy will pay for this...</Russian>
@@ -5405,7 +5405,7 @@
 <English>Good job. %1 is back at base.</English>
 <Spanish>Buen trabajo. %1 está de vuelta en la base.</Spanish>
 <Portuguese>Trabalho bom. %1 está de volta em base.</Portuguese>
-<Korean>Good job. %1 is back at base.</Korean>
+<Korean>훌륭합니다. %1 기지로 귀환하였습니다.</Korean>
 <Japanese>Good job. %1 is back at base.</Japanese>
 <Original>Good job. %1 is back at base.</Original>
 <Russian>Отличная работа! %1 спасен и доставлен на базу!</Russian>
@@ -8429,7 +8429,7 @@
 <English>Select Respawn/Show Map</English>
 <Spanish>Select Respawn/Show Map</Spanish>
 <Portuguese>Select Respawn/Show Map</Portuguese>
-<Korean>Select Respawn/Show Map</Korean>
+<Korean>재투입/맵 보기 선택</Korean>
 <Japanese>Select Respawn/Show Map</Japanese>
 <Original>Select Respawn/Show Map</Original>
 <Russian>Select Respawn/Show Map</Russian>
@@ -10697,7 +10697,7 @@
 <English>Persistent AI corpses</English>
 <Spanish>Persistent AI corpses</Spanish>
 <Portuguese>Persistent AI corpses</Portuguese>
-<Korean>Persistent AI corpses</Korean>
+<Korean>AI 시체들 유지</Korean>
 <Japanese>Persistent AI corpses</Japanese>
 <Original>Persistent AI corpses</Original>
 <Russian>Persistent AI corpses</Russian>
@@ -13209,7 +13209,7 @@
 <English>Adjust AI subskill if server FPS is low</English>
 <Spanish>Adjust AI subskill if server FPS is low</Spanish>
 <Portuguese>Adjust AI subskill if server FPS is low</Portuguese>
-<Korean>Adjust AI subskill if server FPS is low</Korean>
+<Korean>서버 FPS가 낮은 경우 AI 하위스킬 조정</Korean>
 <Japanese>Adjust AI subskill if server FPS is low</Japanese>
 <Original>Adjust AI subskill if server FPS is low</Original>
 <Russian>Отрегулировать навыки AI, если FPS сервера низкий</Russian>
@@ -13470,7 +13470,7 @@
 <English>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</English>
 <Spanish>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Spanish>
 <Portuguese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Portuguese>
-<Korean>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Korean>
+<Korean>주의: %1 부터 게릴라 보병부대가 도시로 이동중입니다. 게릴라는 청군에 우호적이고 대항군에 적대적입니다.</Korean>
 <Japanese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
 <Original>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
 <Russian>Внимание: Партизанские отряды движутся в город из %1. Партизаны дружат с Blufor и враждебны к Opfor.</Russian>
@@ -13482,7 +13482,7 @@
 <English>Attention: Our lucky pet rabbit is lost.  Find %1!</English>
 <Spanish>Attention: Our lucky pet rabbit is lost.  Find %1!</Spanish>
 <Portuguese>Attention: Our lucky pet rabbit is lost.  Find %1!</Portuguese>
-<Korean>Attention: Our lucky pet rabbit is lost.  Find %1!</Korean>
+<Korean>주의: 우리 길조 토끼가 사라졌습니다. %1 찾으세요!</Korean>
 <Japanese>Attention: Our lucky pet rabbit is lost.  Find %1!</Japanese>
 <Original>Attention: Our lucky pet rabbit is lost.  Find %1!</Original>
 <Russian>Attention: Our lucky pet rabbit is lost.  Find %1!</Russian>
@@ -13578,7 +13578,7 @@
 <English>Low Gear On</English>
 <Spanish>Low Gear On</Spanish>
 <Portuguese>Low Gear On</Portuguese>
-<Korean>Low Gear On</Korean>
+<Korean>적은 장비 켜기</Korean>
 <Japanese>Low Gear On</Japanese>
 <Original>Low Gear On</Original>
 <Russian>Пониженная передача (ВКЛ)</Russian>
@@ -13590,7 +13590,7 @@
 <English>Low Gear Off</English>
 <Spanish>Low Gear Off</Spanish>
 <Portuguese>Low Gear Off</Portuguese>
-<Korean>Low Gear Off</Korean>
+<Korean>적은 장비 끄기</Korean>
 <Japanese>Low Gear Off</Japanese>
 <Original>Low Gear Off</Original>
 <Russian>Пониженная передача (ВЫКЛ)</Russian>
@@ -13602,7 +13602,7 @@
 <English>Retake Farps</English>
 <Spanish>Retake Farps</Spanish>
 <Portuguese>Retake Farps</Portuguese>
-<Korean>Retake Farps</Korean>
+<Korean>재보급소들 탈환</Korean>
 <Japanese>Retake Farps</Japanese>
 <Original>Retake Farps</Original>
 <Russian>Retake Farps</Russian>
@@ -13614,7 +13614,7 @@
 <English>Your time:</English>
 <Spanish>Your time:</Spanish>
 <Portuguese>Your time:</Portuguese>
-<Korean>Your time:</Korean>
+<Korean>시간:</Korean>
 <Japanese>Your time:</Japanese>
 <Original>Your time:</Original>
 <Russian>Your time:</Russian>
