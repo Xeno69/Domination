@@ -188,6 +188,7 @@ class cfgFunctions {
 			addc(buildaddrespoints);
 			addc(addpushaction);
 			addc(storepitems);
+			addc(camouflage);
 		};
 		class Dom_UI {
 			file = "clientui";

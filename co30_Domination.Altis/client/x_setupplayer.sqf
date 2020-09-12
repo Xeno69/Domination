@@ -448,6 +448,7 @@ if (!d_no_ai) then {
 	};
 };
 player setUnitTrait ["explosiveSpecialist", true];
+player setUnitTrait ["UAVHacker", true];
 
 private _respawn_marker = "";
 private _base_spawn_m = "base_spawn_1";
@@ -1146,6 +1147,8 @@ d_isvdreduced = false;
 #ifndef __TT__
 0 spawn d_fnc_vdhandler;
 #endif
+
+0 spawn d_fnc_camouflage;
 
 call d_fnc_initservicepoints;
 
