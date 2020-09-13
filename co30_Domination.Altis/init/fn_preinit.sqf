@@ -1809,8 +1809,8 @@ d_base_apc_vec =
 	// Needs a building which can be entered by AI (as they will respawn inside)
 	// can only be destroyed by satchel charges!!!
 	// no marker gets created!
-	d_barracks_building =
-#ifdef __ALTIS__
+	d_barracks_building = "Land_BagBunker_01_large_green_F";
+/*#ifdef __ALTIS__
 		"Land_BagBunker_Large_F";
 #endif
 #ifdef __CUP_CHERNARUS__
@@ -1848,7 +1848,7 @@ d_base_apc_vec =
 #endif
 #ifdef __UNSUNG__
 		"Land_BagBunker_01_large_green_F";
-#endif
+#endif*/
 	
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
