@@ -259,7 +259,7 @@ private _glindex = -1;
 {
 	private _index = _ctrl lbAdd _x;
 	if (d_graslayer_index == _index) then {_glindex = _index};
-} forEach [localize "STR_DOM_MISSIONSTRING_359", localize "STR_DOM_MISSIONSTRING_360", localize "STR_DOM_MISSIONSTRING_361"];
+} forEach [localize "STR_DOM_MISSIONSTRING_359", localize "STR_DOM_MISSIONSTRING_360", localize "STR_DOM_MISSIONSTRING_361", localize "STR_DOM_MISSIONSTRING_400", localize "STR_DOM_MISSIONSTRING_400_VERYHIGH"];
 
 _ctrl lbSetCurSel _glindex;
 if (d_Terraindetail == 1) then {
