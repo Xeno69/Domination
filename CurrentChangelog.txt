@@ -23,4 +23,5 @@
 - Fixed: Map on draw was not drawing displayname for vehicles correctly
 - Fixed: Copy and paste error resulting in non existent variables when loading a DB savegame
 - Fixed: Copy and paste error in getbonus script
+- Fixed: Respawned Inf AI could get stuck in the wall in front of a respawn barrack
 - Updated: Korean translation by kkim
