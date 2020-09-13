@@ -8,6 +8,7 @@
 - Changed: Better CUP island check for internal objectsmapper
 - Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, Use ACE Medical Revive and not mission Revive (if ACE is available) in lobby)
 - Changed: Add small bunkers to high static weapons (currently only available for non 3rd party versions)
+- Changed: Two new grass settings, one can now select: none / medium / full / high / very high, by longtimegamer
 - Improved: Make use of new configOf scripting command where possible
 - Fixed: New chopper MHQ couldn't load ammo boxes in the GMCWG versions
 - Fixed: Use correct event handler for ACE arsenal, by jilillis
