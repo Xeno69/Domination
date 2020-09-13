@@ -7321,6 +7321,18 @@
 <Chinese>玩家標誌:</Chinese>
 <French>Marqueur joueur:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1177_BIRDS">
+<English>Birds</English>
+<Spanish>Birds</Spanish>
+<Portuguese>Birds</Portuguese>
+<Korean>Birds</Korean>
+<Japanese>Birds</Japanese>
+<Original>Birds</Original>
+<Russian>Birds</Russian>
+<Chinesesimp>Birds</Chinesesimp>
+<Chinese>Birds</Chinese>
+<French>Birds</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1178">
 <English>Name only</English>
 <Spanish>Sólo nombre</Spanish>

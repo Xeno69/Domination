@@ -175,6 +175,13 @@ if (d_enable_civs == 1) then {
 		deleteVehicle _x;
 	} forEach d_cur_tgt_civ_units;
 	
+	//cleanup crows
+	if (d_show_birds == 0) then {
+		{
+			deleteVehicle _x;
+		} forEach d_bis_crows;
+	};
+
 	//cleanup civ vehicles after 300 secs
 	d_cur_tgt_civ_units = [];
 	private _tmpCivVehs = +d_cur_tgt_civ_vehicles;

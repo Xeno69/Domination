@@ -828,6 +828,13 @@ default = 7;
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_1178","$STR_DOM_MISSIONSTRING_1179","$STR_DOM_MISSIONSTRING_1163"};
 	};
+	
+	class d_show_birds {
+		title = "$STR_DOM_MISSIONSTRING_1177_BIRDS";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_params_dl_8 {
 		title = "$STR_DOM_MISSIONSTRING_1574";

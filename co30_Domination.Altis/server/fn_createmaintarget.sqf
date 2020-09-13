@@ -671,3 +671,7 @@ if (d_with_MainTargetEvents != 0) then {
 #endif
 
 _wp_array_pat = nil;
+
+if (d_show_birds == 0) then {
+	d_bis_crows = [_trg_center, 450, 20] call BIS_fnc_crows;
+};
