@@ -103,6 +103,9 @@ d_current_ai_units pushBack _unit;
 
 _unit call d_fnc_removenvgoggles_fak;
 
+_unit enableDynamicSimulation false;
+_unit triggerDynamicSimulation true;
+
 if (!d_with_ace) then {
 	_unit addEventhandler ["handleDamage", {_this call d_fnc_handledamageai}];
 };

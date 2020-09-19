@@ -24,4 +24,5 @@
 - Fixed: Copy and paste error resulting in non existent variables when loading a DB savegame
 - Fixed: Copy and paste error in getbonus script
 - Fixed: Respawned Inf AI could get stuck in the wall in front of a respawn barrack
+- Fixed: Recruited AI (when with AI is enabled) was subject of dyanmic simulation thus stopping those player controlled if they were too far away; they did also not trigger dyn sim
 - Updated: Korean translation by kkim
