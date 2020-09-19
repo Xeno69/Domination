@@ -2499,7 +2499,7 @@ if (hasInterface) then {
 #ifndef __UNSUNG__
 	if (isClass(configFile>>"CfgPatches">>"uns_main")) then {
 		// now Virtual Arsenal will only show Unsung stuff; of course if you add other modes it will show them too
-		d_arsenal_mod_prestrings pushBack "uns_";
+		d_arsenal_mod_prestrings pushBackUnique "uns_";
 	};
 #endif
 	

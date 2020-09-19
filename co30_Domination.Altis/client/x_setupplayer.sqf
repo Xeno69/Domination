@@ -905,19 +905,19 @@ if (d_arsenal_mod == 0) then {
 		["WW2_"] call d_fnc_arsenal_mod;
 	} else {
 		if (d_cup) then {
-			d_arsenal_mod_prestrings pushBack "CUP_";
+			d_arsenal_mod_prestrings pushBackUnique "CUP_";
 		};
 		if (d_rhs) then {
 			d_arsenal_mod_prestrings append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
 		};
 		if (d_gmcwg) then {
-			d_arsenal_mod_prestrings pushBack "gm_";
+			d_arsenal_mod_prestrings pushBackUnique "gm_";
 		};
 		if (d_unsung) then {
-			d_arsenal_mod_prestrings pushBack "uns_";
+			d_arsenal_mod_prestrings pushBackUnique "uns_";
 		};
 		if (d_with_ace && {!(d_arsenal_mod_prestrings isEqualTo [])}) then {
-			d_arsenal_mod_prestrings pushBack "ace_";
+			d_arsenal_mod_prestrings pushBackUnique "ace_";
 		};
 		if !(d_arsenal_mod_prestrings isEqualTo []) then {
 			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;

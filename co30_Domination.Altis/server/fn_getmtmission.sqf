@@ -103,6 +103,9 @@ switch (_sec_kind) do {
 		__vkilled(radar_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -124,6 +127,9 @@ switch (_sec_kind) do {
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -149,6 +155,9 @@ switch (_sec_kind) do {
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -165,6 +174,9 @@ switch (_sec_kind) do {
 		__vkilled(hq_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -181,6 +193,9 @@ switch (_sec_kind) do {
 		__vkilled(light_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -203,6 +218,9 @@ switch (_sec_kind) do {
 		__vkilled(heavy_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -219,6 +237,9 @@ switch (_sec_kind) do {
 		__vkilled(airrad_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
+		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
+		d_mtmissionobj2 setDir (getDir _vec);
+		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
