@@ -368,7 +368,7 @@ class d_ProgressBar2 {
 	idd = -1;
 	movingEnable = 0;
 	objects[] = {};
-	duration = 1e+011;
+	duration = 180;
 	name = "d_ProgressBar2";
 	onLoad = "uiNamespace setVariable ['d_ProgressBar2', _this select 0]; ((_this select 0) displayCtrl 3800) progressSetPosition 0";
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar2', nil]";
