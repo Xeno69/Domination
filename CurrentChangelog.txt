@@ -25,4 +25,5 @@
 - Fixed: Copy and paste error in getbonus script
 - Fixed: Respawned Inf AI could get stuck in the wall in front of a respawn barrack
 - Fixed: Recruited AI (when with AI is enabled) was subject of dyanmic simulation thus stopping those player controlled if they were too far away; they did also not trigger dyn sim
+- Fixed: Shooting at objects which can only be destroyed by satchels no longer resets the object damage to zero
 - Updated: Korean translation by kkim
