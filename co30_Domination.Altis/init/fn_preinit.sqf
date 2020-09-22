@@ -919,7 +919,7 @@ if (!d_gmcwgwinter) then {
 #endif
 
 #ifdef __CUP_CHERNARUS__
-	d_sniper_E = [["East","CUP_O_RU","Infantry","CUP_O_RU_SniperTeam_VDV_M_EMR"] call d_fnc_GetConfigGroup];
+	d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","CUP_B_USMC","Infantry","CUP_B_USMC_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_NAPA","Infantry","CUP_I_NAPA_GrpInf_TeamSniper"] call d_fnc_GetConfigGroup];
 #endif
