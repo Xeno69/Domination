@@ -181,9 +181,6 @@
 >   - Off (0)<br/>
 >   - Names (1)<br/>
 >   - Health (2)<br/>
-#### **d_no_3rd_person / No 3rd person:**
-> Default: 1 (No, disabled; 0 or Yes to enable 3rd person)<br/>
-> If enabled turns off 3rd person view for players on foot (infantry) when 3rd person is enabled on the server<br/>
 #### **d_show_player_marker / Player marker:**
 > Default: 1<br/>
 > Available options:<br/>

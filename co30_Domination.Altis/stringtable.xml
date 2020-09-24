@@ -7549,18 +7549,6 @@
 <Chinese>沒有隊友傷害:</Chinese>
 <French>Pas de TK possible:</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1209">
-<English>No 3rd person:</English>
-<Spanish>Desactivada la 3ª persona del jugador:</Spanish>
-<Portuguese>No 3rd person:</Portuguese>
-<Korean>보병 3인칭 제한 여부</Korean>
-<Japanese>三人称視点無し:</Japanese>
-<Original>No 3rd person:</Original>
-<Russian>Вид от 3-го лица:</Russian>
-<Chinesesimp>没有三人称视角:</Chinesesimp>
-<Chinese>沒有第三人稱視角:</Chinese>
-<French>Désactiver la vue à la 3ème personne:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1213">
 <English>MT Tower Satchels only:</English>
 <Spanish>La Torre de la MP cae sólo con Cargas Concentradas:</Spanish>
@@ -9011,18 +8999,6 @@
 <Chinesesimp>敌人在你的基地附近</Chinesesimp>
 <Chinese>敵人在你的基地附近</Chinese>
 <French>Unités ennemies près de votre base</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1410">
-<English>3rd person view not available outside vehicles</English>
-<Spanish>La vista en 3ª persona no está dispible fuera de vehículos</Spanish>
-<Portuguese>3.Âª pessoa vê não veículos exteriores disponíveis</Portuguese>
-<Korean>3인칭은 장비안에서만 가능합니다.</Korean>
-<Japanese>車外では三人称視点は利用できません</Japanese>
-<Original>3rd person view not available outside vehicles</Original>
-<Russian>Обзор от 3-го лица вне техники недоступен</Russian>
-<Chinesesimp>载具外无法使用第三人称视角</Chinesesimp>
-<Chinese>載具外無法使用第三人稱視角</Chinese>
-<French>Vue à la 3ème personne non disponible à l'extérieur des véhicules</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1411">
 <English>Maximum number ammo boxes (%1) already loaded... Please pick up a dropped box...</English>

@@ -815,13 +815,6 @@ default = 7;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_1161", "$STR_DOM_MISSIONSTRING_1163"};
 	};
 
-	class d_no_3rd_person {
-		title = "$STR_DOM_MISSIONSTRING_1209";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
 	class d_show_player_marker {
 		title = "$STR_DOM_MISSIONSTRING_1177";
 		values[] = {0,1,2,3};

@@ -616,10 +616,6 @@ player setVariable ["d_p_f_b", 0];
 
 player addEventHandler ["firedMan", {_this call d_fnc_playerfiredeh}];
 
-if (d_no_3rd_person == 0) then {
-	execFSM "fsms\fn_3rdperson.fsm";
-};
-
 d_mark_loc280 = localize "STR_DOM_MISSIONSTRING_280";
 d_mark_loc261 = localize "STR_DOM_MISSIONSTRING_261";
 d_mark_loc1825 = localize "STR_DOM_MISSIONSTRING_1825";
