@@ -75,6 +75,9 @@ class Header {
 #ifdef __LIVONIA__
 	maxPlayers = 46;
 #endif
+#ifdef __GABRETA__
+	maxPlayers = 46;
+#endif
 };
 
 joinUnassigned = false; // auto assign
@@ -325,6 +328,10 @@ class Params {
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18"};
 #endif
+#ifdef __GABRETA__
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,28};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","28"};
+#endif
 		default = -1;
 	};
 
@@ -369,6 +376,9 @@ class Params {
 #endif
 #ifdef __UNSUNG__
 default = 7;
+#endif
+#ifdef __GABRETA__
+		default = 5;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
@@ -542,6 +552,9 @@ default = 7;
 		default = 1;
 #endif
 #ifdef __UNSUNG__
+		default = 1;
+#endif
+#ifdef __GABRETA__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
@@ -1883,6 +1896,16 @@ class CfgIdentities {
 	class GMDHQ_OP2: GMDHQ_OP1 {
 		name = "Ehrlich, HQ";
 		speaker = "gm_voice_male_deu_01";
+	};
+#endif
+#ifdef __GABRETA__
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
 	};
 #endif
 };

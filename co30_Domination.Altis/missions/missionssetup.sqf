@@ -102,6 +102,9 @@ d_sm_array =
 #ifdef __UNSUNG__
 d_sm_array = [];
 #endif
+#ifdef __CSLA__
+d_sm_array = [];
+#endif
 
 call d_fnc_create_sm_bymarkers;
 
@@ -231,6 +234,13 @@ if (isServer) then {
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
 #endif
+#ifdef __CSLA__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
+		case "W": {["US85_LAV25","US85_LAV25", "US85_M998SFGT", "US85_M923r", "US85_M923f", "US85_M923r", "US85_M1025_M60"]};
+		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
+	}; 
+#endif
 };
 
 #ifdef __ALTIS__
@@ -276,6 +286,9 @@ d_sm_folder = "ma3m";
 d_sm_folder = "mifa3";
 #endif
 #ifdef __UNSUNG__
+d_sm_folder = "ma3a";
+#endif
+#ifdef __CSLA__
 d_sm_folder = "ma3a";
 #endif
 

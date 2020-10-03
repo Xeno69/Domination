@@ -11,6 +11,8 @@ private _garrisonUnits = {
 	__TRACE_1("_garrisonUnits","_this")
 
 	private _unitlist = [["allmen", "sniper"] select (_unitMovementMode == 2), d_enemy_side_short] call d_fnc_getunitlistm;
+	
+	__TRACE_1("","_unitlist")
 
 	if (count _unitlist > _numUnits) then {
 		while {count _unitlist > _numUnits} do {
@@ -46,6 +48,9 @@ private _garrisonUnits = {
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
+
+	_units_to_garrison = _units_to_garrison - [objNull];
+	__TRACE_1("","_units_to_garrison")
 
 	//AI soldiers will be garrisoned in a building (window/roof)
 	__TRACE("Placing units in a building...")

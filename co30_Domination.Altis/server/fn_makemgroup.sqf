@@ -168,4 +168,5 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_
 };
 _ret call d_fnc_addceo;
 #endif
+__TRACE_1("","_ret")
 _ret

@@ -133,6 +133,9 @@ if (d_weather == 0) then {
 #ifdef __UNSUNG__
 		d_withsandstorm = 1;
 #endif
+#ifdef __CSLA__
+		d_withsandstorm = 1;
+#endif
 		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
 	};
 };
@@ -183,6 +186,10 @@ if (d_with_ranked) then {
 				if (d_gmcwg) exitWith {
 					_weapp = "gm_mpiak74n_brn";
 					_magp = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
+				};
+				if (d_csla) exitWith {
+					_weapp = "CSLA_Sa58P";
+					_magp = "CSLA_Sa58_30rnd_7_62vz43";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -724,11 +731,15 @@ if (d_player_side == opfor && {!(markerPos "d_runwaymarker_o" isEqualTo [0,0,0])
 player call d_fnc_removenvgoggles_fak;
 #ifndef __IFA3LITE__
 if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!(player call d_fnc_hasnvgoggles)}}}) then {
-	player linkItem (switch (d_player_side) do {
-		case opfor: {"NVGoggles_OPFOR"};
-		case independent: {"NVGoggles_INDEP"};
-		default {"NVGoggles"};
-	});
+	if (!d_csla) then {
+		player linkItem (switch (d_player_side) do {
+			case opfor: {"NVGoggles_OPFOR"};
+			case independent: {"NVGoggles_INDEP"};
+			default {"NVGoggles"};
+		});
+	} else {
+		player linkItem "CSLA_nokto";
+	};
 };
 private _bino = binocular player;
 call {
@@ -740,6 +751,11 @@ call {
 	if (d_unsung) exitWith {
 		if (_bino == "") then {
 			player addWeapon "uns_binocular_army";
+		};
+	};
+	if (d_csla) exitWith {
+		if (_bino == "") then {
+			player addWeapon "CSLA_bino";
 		};
 	};
 	if (d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery || {d_string_player in d_can_call_cas}}) then {
@@ -794,7 +810,7 @@ private _fnc_artvec = {
 #endif
 
 if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
 		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {_this call d_fnc_mark_artillery} , 0, 9, true, false, "", "alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 	} else {
 		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {_this call d_fnc_mark_artillery} , 0, 9, true, false, "", "alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
@@ -804,7 +820,7 @@ if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d
 if (isNil "d_cas_plane_avail") then {
 	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
-		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {_this call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}}}"]];
 		} else {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {_this call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}}}"]];
@@ -889,6 +905,10 @@ player addEventhandler ["WeaponAssembled", {
 if (!d_gmcwg) then {
 	d_arsenal_mod_remove_strings pushBack "gm_";
 };
+if (!d_csla) then {
+	d_arsenal_mod_remove_strings pushBack "CSLA_";
+	d_arsenal_mod_remove_strings pushBack "US85_";
+};
 
 if (d_arsenal_mod_remove_strings isEqualTo []) then {
 	d_arsenal_mod_remove_strings call d_fnc_arsenal_mod_rem;
@@ -908,6 +928,9 @@ if (d_arsenal_mod == 0) then {
 		};
 		if (d_gmcwg) then {
 			d_arsenal_mod_prestrings pushBackUnique "gm_";
+		};
+		if (d_csla) then {
+			d_arsenal_mod_prestrings append ["CSLA_", "US85_"];
 		};
 		if (d_unsung) then {
 			d_arsenal_mod_prestrings pushBackUnique "uns_";

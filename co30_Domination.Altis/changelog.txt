@@ -1,4 +1,5 @@
 4.34
+ADDED: CSLA Opfor version
 
 - Added: Your local system time is displayed beside the FPS number
 - Added: Param d_ai_persistent_corpses (Persistent AI corpses), maintarget AI leave persistent corpses until the target is cleared, by longtimegamer

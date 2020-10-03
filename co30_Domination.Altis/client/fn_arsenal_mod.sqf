@@ -12,7 +12,7 @@ if (!d_gmcwg) then {
 	_items_no append ["FirstAidKit", "Medikit","ItemCompass", "ItemWatch"];
 };
 
-if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
 	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "MineDetector"];
 };
 
@@ -25,14 +25,21 @@ if (d_with_ace) then {
 _items_no = _items_no apply {toLowerANSI _x};
 
 private _findmodfnc = {
-	//__TRACE_1("_findmodfnc","_this")
+	__TRACE_1("_findmodfnc","_this")
 	params ["_csal"];
 	private _res = -1;
 	private _csallow = toLowerANSI (_csal # 0);
-	//__TRACE_1("_findmodfnc","_csallow")
+	__TRACE_1("_findmodfnc","_csallow")
+	__TRACE_1("_findmodfnc","_mods")
 	_mods findIf {
-		//_ret = _csallow find _x != -1;
-		_ret = (_csallow select [0, count _x]) isEqualTo _x;
+		__TRACE_1("_findmodfnc","_x")
+		__TRACE_1("_findmodfnc","count _x")
+		__TRACE_1("_findmodfnc","count _csallow")
+		_ret = if (count _x >= count _csallow) then {
+			(_x select [0, count _csallow]) isEqualTo _csallow
+		} else {
+			(_csallow select [0, count _x]) isEqualTo _x
+		};
 		if (_ret) then {
 			_res = 1;
 		};
