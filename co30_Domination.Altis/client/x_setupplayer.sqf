@@ -1071,6 +1071,8 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 4);
 	
+	d_usave =+ bis_fnc_arsenal_data # 6;
+	
 	0 spawn d_fnc_weaponcargo_ranked;
 };
 
