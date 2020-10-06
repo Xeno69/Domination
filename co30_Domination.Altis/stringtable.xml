@@ -2839,7 +2839,7 @@
 <Korean>켜기(On)</Korean>
 <Japanese>On</Japanese>
 <Original>On</Original>
-<Russian>On</Russian>
+<Russian>Включено</Russian>
 <Chinesesimp>On</Chinesesimp>
 <Chinese>On</Chinese>
 <French>On</French>
@@ -2899,7 +2899,7 @@
 <Korean>매우 낮음</Korean>
 <Japanese>Very Low</Japanese>
 <Original>Very Low</Original>
-<Russian>Very Low</Russian>
+<Russian>Очень низкий</Russian>
 <Chinesesimp>Very Low</Chinesesimp>
 <Chinese>Very Low</Chinese>
 <French>Very Low</French>
@@ -2947,7 +2947,7 @@
 <Korean>매우 높음</Korean>
 <Japanese>Very High</Japanese>
 <Original>Very High</Original>
-<Russian>Very High</Russian>
+<Russian>Очень высокий</Russian>
 <Chinesesimp>Very High</Chinesesimp>
 <Chinese>Very High</Chinese>
 <French>Very High</French>
@@ -4903,7 +4903,7 @@
 <Korean>%1 사망하였습니다! 적군은 이것에 대한 대가를 치루게 될것입니다...</Korean>
 <Japanese>%1 was killed! The enemy will pay for this...</Japanese>
 <Original>%1 was killed! The enemy will pay for this...</Original>
-<Russian>%1 was killed! The enemy will pay for this...</Russian>
+<Russian>%1 был убит! За это враг заплатит...</Russian>
 <Chinesesimp>%1 was killed! The enemy will pay for this...</Chinesesimp>
 <Chinese>%1 was killed! The enemy will pay for this...</Chinese>
 <French>%1 was killed! The enemy will pay for this...</French>
@@ -8420,7 +8420,7 @@
 <Korean>재투입/맵 보기 선택</Korean>
 <Japanese>Select Respawn/Show Map</Japanese>
 <Original>Select Respawn/Show Map</Original>
-<Russian>Select Respawn/Show Map</Russian>
+<Russian>Выберите Респаун/Показать карту:</Russian>
 <Chinesesimp>Select Respawn/Show Map</Chinesesimp>
 <Chinese>Select Respawn/Show Map</Chinese>
 <French>Select Respawn/Show Map</French>
@@ -10676,7 +10676,7 @@
 <Korean>AI 시체들 유지</Korean>
 <Japanese>Persistent AI corpses</Japanese>
 <Original>Persistent AI corpses</Original>
-<Russian>Persistent AI corpses</Russian>
+<Russian>Не удалять трупы AI до выполнения основной задачи</Russian>
 <Chinesesimp>Persistent AI corpses</Chinesesimp>
 <Chinese>Persistent AI corpses</Chinese>
 <French>Persistent AI corpses</French>
@@ -12937,7 +12937,7 @@
 <Korean>이동식의무실(mash)를 이용한 치료에 대한 포인트!</Korean>
 <Japanese>points for usage of your mash for healing!</Japanese>
 <Original>points for usage of your mash for healing!</Original>
-<Russian>points for usage of your mash for healing!</Russian>
+<Russian>Очки за использование палатки для лечения!</Russian>
 <Chinesesimp>使用医疗帐篷进行治疗的积分！</Chinesesimp>
 <Chinese>points for usage of your mash for healing!</Chinese>
 <French>points pour l'utilisation de tentes Medic pour la guérison!</French>
@@ -13461,7 +13461,7 @@
 <Korean>주의: 우리 길조 토끼가 사라졌습니다. %1 찾으세요!</Korean>
 <Japanese>Attention: Our lucky pet rabbit is lost.  Find %1!</Japanese>
 <Original>Attention: Our lucky pet rabbit is lost.  Find %1!</Original>
-<Russian>Attention: Our lucky pet rabbit is lost.  Find %1!</Russian>
+<Russian>Внимание: Наш счастливый кролик пропал. Найти %1!</Russian>
 <Chinesesimp>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinesesimp>
 <Chinese>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinese>
 <French>Attention: Our lucky pet rabbit is lost.  Find %1!</French>
@@ -13581,7 +13581,7 @@
 <Korean>재보급소들 탈환</Korean>
 <Japanese>Retake Farps</Japanese>
 <Original>Retake Farps</Original>
-<Russian>Retake Farps</Russian>
+<Russian>Перевзятие Farps</Russian>
 <Chinesesimp>Retake Farps</Chinesesimp>
 <Chinese>Retake Farps</Chinese>
 <French>Retake Farps</French>
@@ -13593,7 +13593,7 @@
 <Korean>시간:</Korean>
 <Japanese>Your time:</Japanese>
 <Original>Your time:</Original>
-<Russian>Your time:</Russian>
+<Russian>Ваше время:</Russian>
 <Chinesesimp>Your time:</Chinesesimp>
 <Chinese>Your time:</Chinese>
 <French>Your time:</French>

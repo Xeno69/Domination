@@ -31,3 +31,4 @@ ADDED: CSLA Opfor version
 - Fixed: The CUP team renamed some CfgGroups RU infantry class names yet again resulting in less units spawning
 - Removed: d_no_3rd_person parameter (No 3rd person), allowed 3rd person view in vehicles only. There is now a new A3 game difficulty setting (see https://forums.bohemia.net/forums/topic/140837-development-branch-changelog/?do=findComment&comment=3411692)
 - Updated: Korean translation by kkim
+- Updated: Russian translation by Babayka
