@@ -327,7 +327,7 @@ d_x_drop_array =
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
 		};
 		if (d_ifa3lite) exitWith {
-			[[], [localize "STR_DOM_MISSIONSTRING_22", "CSLA_AZU_para"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "O_T_LSV_02_unarmed_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 	};
@@ -902,7 +902,7 @@ if (!d_gmcwgwinter) then {
 			[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
 		};
 		if (d_csla) exitWith {
-			[["West","US85","US85_SpecForUnits","US85_sfSqd"] call d_fnc_GetConfigGroup]
+			[]
 		};
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup]
 	};
@@ -978,9 +978,9 @@ if (!d_gmcwgwinter) then {
 #endif
 
 #ifdef __CSLA__
-	d_sabotage_W = [["West","US85","US85_SpecForUnits","US85_sfSqd"] call d_fnc_GetConfigGroup];
+	d_sabotage_W = [];
 	
-	d_sniper_W = [["US85_sfM21G", "US85_sfSptG"]];
+	d_sniper_W = [];
 #endif
 
 	d_veh_a_E = [
@@ -1109,7 +1109,7 @@ if (!d_gmcwgwinter) then {
 	d_arti_observer_E = [["uns_men_VC_mainforce_68_RTO"]];
 #endif
 #ifdef __CSLA__
-	d_arti_observer_W = [["US85_mcRTO"]];
+	d_arti_observer_W = [];
 #endif
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
@@ -1163,7 +1163,7 @@ if (!d_gmcwgwinter) then {
 				"RHS_Mi8mt_Cargo_vv"
 			};
 			if (d_csla) exitWith {
-				"CSLA_Mi17"
+				""
 			};
 			if (d_gmcwg) exitWith {
 				""
@@ -1348,9 +1348,9 @@ if (!d_gmcwgwinter) then {
 			d_civilians_t = ["uns_civilian1","uns_civilian2","uns_civilian3","uns_civilian4"];
 		};
 		if (d_csla) exitWith {
-			d_civilians_t = ["CSLA_CIV_Citizen","CSLA_CIV_Citizen_V2","CSLA_CIV_Citizen_V3","CSLA_CIV_Citizen_V4","CSLA_CIV_Doctor","CSLA_CIV_Foreman","CSLA_CIV_Foreman_V2"];
+			d_civilians_t = [];
 		};
-		d_civilians_t = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","CSLA_CIV_Woodlander","CSLA_CIV_Woodlander_V2","CSLA_CIV_Woodlander_V3","CSLA_CIV_Woodlander_V4","CSLA_CIV_Functionary","CSLA_CIV_Functionary_V2","CSLA_CIV_Villager","CSLA_CIV_Villager_V2","CSLA_CIV_Villager_V3","CSLA_CIV_Villager_V4","CSLA_CIV_Worker","CSLA_CIV_Worker_V2","CSLA_CIV_Worker_V3","CSLA_CIV_Worker_V4"];
+		d_civilians_t = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F"];
 	};
 
 	d_base_aa_vec =
@@ -1389,7 +1389,7 @@ if (!d_gmcwgwinter) then {
 			"rhs_zsu234_aa"
 		};
 		if (d_csla) exitWith	{
-			"CSLA_PLdvK59V3S"
+			""
 		};
 		if (d_ifa3lite) exitWith {
 			"LIB_61k"
@@ -1436,7 +1436,7 @@ d_base_tank_vec =
 			"rhs_t90_tv"
 		};
 		if (d_csla) exitWith	{
-			"CSLA_T72M1"
+			""
 		};
 		if (d_ifa3lite) exitWith {
 			"LIB_T34_85"
@@ -1483,7 +1483,7 @@ d_base_apc_vec =
 			"rhs_bmp2d_tv"
 		};
 		if (d_csla) exitWith	{
-			"CSLA_BVP1"
+			""
 		};
 		if (d_ifa3lite) exitWith {
 			"LIB_SOV_M3_Halftrack"
@@ -1705,7 +1705,7 @@ d_base_apc_vec =
 					["RHS_AH64D","RHS_AH64DGrey","RHS_AH64D_wd","RHS_AH1Z","RHS_AH1Z_wd"]
 				};
 				if (d_csla) exitWith {
-					["US85_MH60FFAR"]
+					[]
 				};
 				["B_Heli_Attack_01_F"]
 			};
@@ -1825,7 +1825,7 @@ d_base_apc_vec =
 #ifdef __CSLA__
 	d_transport_chopper = switch (d_enemy_side_short) do {
 		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["US85_UH60"]};
+		case "W": {[]};
 		case "G": {["I_Heli_Transport_02_F"]};
 	};
 #endif
@@ -1864,7 +1864,7 @@ d_base_apc_vec =
 					["LIB_Ju87_Italy2"]
 				};
 				if (d_csla) exitWith {
-					["US85_UH60M240"]
+					[]
 				};
 				if (d_gmcwg) exitWith {
 					[]

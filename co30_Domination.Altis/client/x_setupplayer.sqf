@@ -188,8 +188,8 @@ if (d_with_ranked) then {
 					_magp = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
 				};
 				if (d_csla) exitWith {
-					_weapp = "CSLA_Sa58P";
-					_magp = "CSLA_Sa58_30rnd_7_62vz43";
+					_weapp = "";
+					_magp = "";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -738,7 +738,7 @@ if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!(player call d_fnc_hasnvg
 			default {"NVGoggles"};
 		});
 	} else {
-		player linkItem "CSLA_nokto";
+		
 	};
 };
 private _bino = binocular player;
@@ -755,7 +755,7 @@ call {
 	};
 	if (d_csla) exitWith {
 		if (_bino == "") then {
-			player addWeapon "CSLA_bino";
+			
 		};
 	};
 	if (d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery || {d_string_player in d_can_call_cas}}) then {
