@@ -53,6 +53,13 @@ private _midpoint_pos = [
 	((_target_center # 0) + (_townNearbyPos # 0))/2,
 	((_target_center # 1) + (_townNearbyPos # 1))/2
 ];
+
+private _spawn_pos = _midpoint_pos;
+if ((_midpoint_pos distance2D _target_center) < 250) then {
+	// midpoint is too close to maintarget, instead use location position
+	_spawn_pos = _townNearbyPos;
+};
+
 private _newgroups = [];
 private _guerrillaForce = ["allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "specops"];
 private _guerrillaBaseSkill = 0.35;
@@ -60,7 +67,7 @@ private _guerrillaBaseSkill = 0.35;
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _units = [_midpoint_pos, _unitlist, _newgroup, false, true, 5, opfor] call d_fnc_makemgroup;
+	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, opfor] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];
