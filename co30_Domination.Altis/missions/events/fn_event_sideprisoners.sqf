@@ -34,7 +34,7 @@ private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack"
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
-private _distanceToEnableFriendlyMovement = 3; //in meters
+private _distance_to_rescue = 3; //in meters
 
 private _allActors = [];
 
@@ -53,26 +53,18 @@ __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
 [_pilot1, getPos _pilot1] call d_fnc_setposagls;
 
-private _units = [_pilot1];
-
-{
-	removeAllWeapons _x;
-	_x setCaptive true;
-	_x enableStamina false;
-    _x enableFatigue false;
-    _x disableAI "PATH";
-    _x disableAI "RADIOPROTOCOL";
-    _x forceSpeed 0;
-} forEach _units;
+removeAllWeapons _pilot1;
+_pilot1 setCaptive true;
+_pilot1 enableStamina false;
+_pilot1 enableFatigue false;
+_pilot1 disableAI "PATH";
+_pilot1 disableAI "RADIOPROTOCOL";
+_pilot1 forceSpeed 0;
 private _leader = leader _prisonerGroup;
 _leader setSkill 1;
 _prisonerGroup allowFleeing 0;
 _prisonerGroup deleteGroupWhenEmpty true;
 
-private _otrig = [_leader, [800, 800, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "[thisTrigger, 0] call d_fnc_trigwork", "[thisTrigger, 1] call d_fnc_trigwork"]] call d_fnc_createtriggerlocal;
-_otrig setVariable ["d_objs", _units];
-
-__TRACE_1("","_units")
 
 if (d_with_dynsim == 0) then {
 	[_prisonerGroup] spawn d_fnc_enabledynsim;
@@ -109,12 +101,16 @@ private _all_dead = false;
 private _rescued = false;
 private _rescuer = objNull;
 private _isExecutePrisoners = false;
-private _victim = objNull;
+                                             
+while {!d_mt_done} do {
 
-while {!_hostages_reached_dest && {!_all_dead && {!d_mt_done}}} do {                                             
-	if (_units findIf {alive _x} == -1) exitWith {
-		__TRACE("All dead exiting")
-		_all_dead = true;
+	if (!alive _pilot1) exitWith { _all_dead = true };
+	
+	private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+	if !(_nobjs isEqualTo []) exitWith {
+		__TRACE("rescued _pilot1")
+		deleteVehicle _pilot1;
+		// todo announce player
 	};
 	
 	if ((units _enemyGuardGroup) findIf {damage _x > 0.02} != -1) then {
@@ -123,72 +119,34 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_mt_done}}} do {
 	};
     
     if (_isExecutePrisoners) then {
-		_victim = selectRandom _units;
-		_victim setCaptive false;
+		_pilot1 setCaptive false;
 		{
         	_x forceSpeed -1;
         } forEach (units _enemyGuardGroup);
     };
     
-    if (_isExecutePrisoners || {!(captive _victim)}) then {
+    if (_isExecutePrisoners || {!(captive _pilot1)}) then {
 		{	
 			//todo - play a sound?
 			_x forceSpeed -1;
-			_enemyGuardGroup reveal [_victim, 4];
-			_x doTarget _victim;
-			_x doSuppressiveFire _victim;
+			_enemyGuardGroup reveal [_pilot1, 4];
+			_x doTarget _pilot1;
+			_x doSuppressiveFire _pilot1;
 		} forEach (units _enemyGuardGroup);
     };
     
+    // gimme three steps mister
     if (_isExecutePrisoners) then {
-		sleep 5;
+		sleep 3;
 	};
-    
-	if (!_rescued) then {
-		_leader = leader _prisonerGroup;
-		private _nobjs = (_leader nearEntities ["CAManBase", _distanceToEnableFriendlyMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-		if !(_nobjs isEqualTo []) then {
-			{
-				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
-					_rescued = true;
-					deleteVehicle _otrig;
-					_rescuer = _x;
-					{
-						_x setCaptive false;
-						_x enableAI "PATH";
-						_x forceSpeed -1;
-					} forEach (_units select {alive _x});
-					_units join _rescuer;
-					doStop _units;
-				};
-				sleep 0.01;
-			} forEach _nobjs;
-		};
-	} else {
-		private _tmp_flag = d_FLAG_BASE;
-		_hostages_reached_dest = _units findIf {alive _x && {(vehicle _x) distance2D _tmp_flag < 50 || {!isNil "d_flag_airfield" && {(vehicle _x) distance2D d_flag_airfield < 50}}}} > -1;
-		
-		__TRACE_1("1","_hostages_reached_dest")
-		
-		if (!_hostages_reached_dest) then {
-			private _fidx = _units findIf {alive _x};
-			if (_fidx > -1) then {
-				_prisonerGroup = group (_units # _fidx);
-			};
-			if !((leader _prisonerGroup) call d_fnc_isplayer) then {
-				_rescued = false;
-			};
-		};
-	};
+	
 	sleep 3.14;
 };
 
-__TRACE_3("over","_hostages_reached_dest","_all_dead","_rescued")
-
-if (_hostages_reached_dest || {_rescued && {!_all_dead}}) then {
-	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
-} else {
+if (_all_dead) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersFail",d_kbtel_chan];
+} else {
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
 };
 
 sleep 30;
