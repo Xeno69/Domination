@@ -148,8 +148,6 @@ if (d_with_dynsim == 0) then {
 private _is_dead1 = false;
 private _is_dead2 = false;
 private _is_dead_all = false;
-private _pilots_rescued_with_losses = false;
-private _pilots_rescued = false;
 private _rescued1 = false;
 private _rescued2 = false;
 
