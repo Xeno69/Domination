@@ -96,10 +96,7 @@ _unitsNotGarrisoned = [
 
 {deleteVehicle _x} forEach _unitsNotGarrisoned;
 
-private _hostages_reached_dest = false;
 private _all_dead = false;
-private _rescued = false;
-private _rescuer = objNull;
 private _isExecutePrisoners = false;
                                              
 while {!d_mt_done} do {
