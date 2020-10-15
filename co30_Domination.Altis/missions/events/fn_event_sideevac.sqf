@@ -7,7 +7,7 @@ params ["_target_radius", "_target_center"];
 
 // Shot down chopper as an event - no timer.
 // Random crash site location, pilots are teleported to a nearby building and ordered posture down.
-// The pilots are vulnerable to damage after 30 seconds.
+// The pilots are vulnerable to damage after 30 seconds.  Rescue magically by being near the pilots.
 
 if !(isServer) exitWith {};
 
@@ -44,15 +44,16 @@ private _marker = ["d_mt_event_marker_sideevac", _poss, "ICON","ColorBlack", [1,
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvac",d_kbtel_chan];
 
-private _owngroup = [d_side_player] call d_fnc_creategroup;
+private _owngroup1 = [d_side_player] call d_fnc_creategroup;
 if (d_with_ai) then {
-	_owngroup setVariable ["d_do_not_delete", true];
+	_owngroup1 setVariable ["d_do_not_delete", true];
 };
-__TRACE_1("","_owngroup")
+__TRACE_1("","_owngroup1")
 private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
-private _pilot1 = _owngroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
+private _pilot1 = _owngroup1 createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
+[_pilot1] joinSilent _owngroup1;
 _x_mt_event_ar pushBack _pilot1;
 [_pilot1, 30] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot1")
@@ -71,13 +72,18 @@ _pilot1 addEventHandler ["Killed", {
 	};
 }];
 
-private _pilot2 = _owngroup createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
+private _owngroup2 = [d_side_player] call d_fnc_creategroup;
+if (d_with_ai) then {
+	_owngroup2 setVariable ["d_do_not_delete", true];
+};
+__TRACE_1("","_owngroup2")
+private _pilot2 = _owngroup2 createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
+[_pilot2] joinSilent _owngroup2;
 _x_mt_event_ar pushBack _pilot2;
 [_pilot2, 30] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
 [_pilot2, getPos _pilot2] call d_fnc_setposagls;
-[_pilot1, _pilot2] joinSilent _owngroup;
 _pilot2 enableStamina false;
 _pilot2 enableFatigue false;
 _pilot2 disableAI "RADIOPROTOCOL";
@@ -121,7 +127,8 @@ _pilot1 setUnitPos "DOWN";
 _pilot2 setUnitPos "DOWN";
 _pilot1 forceSpeed 0;
 _pilot2 forceSpeed 0;
-_owngroup setCombatMode "BLUE";
+_owngroup1 setCombatMode "BLUE";
+_owngroup2 setCombatMode "BLUE";
 
 sleep 3.14;
 
@@ -130,67 +137,60 @@ _pilot1 setDamage 0.5;
 _pilot2 disableAI "PATH";
 _pilot2 setDamage 0.5;
 
-_owngroup deleteGroupWhenEmpty true;
+_owngroup1 deleteGroupWhenEmpty true;
+_owngroup2 deleteGroupWhenEmpty true;
 
 if (d_with_dynsim == 0) then {
-	[_owngroup] spawn d_fnc_enabledynsim;
+	[_owngroup1] spawn d_fnc_enabledynsim;
+	[_owngroup2] spawn d_fnc_enabledynsim;
 };
 
-private _is_dead = false;
-private _pilots_at_base = false;
-private _rescued = false;
-private _resctimestarted = time;
+private _is_dead1 = false;
+private _is_dead2 = false;
+private _is_dead_all = false;
+private _pilots_rescued_with_losses = false;
+private _pilots_rescued = false;
+private _rescued1 = false;
+private _rescued2 = false;
 
-private _pcheck_fnc = {
-	params ["_u", "_p"];
-	{
-		private _ogroup = group _x;
-		_ogroup setCombatMode "YELLOW";
-		_x setUnitPos "UP";
-		sleep 0.5;
-		_x setUnitPos "AUTO";
-		_x enableAI "PATH";
-		_x forceSpeed -1;
-		sleep 0.5;
-		doStop _x;
-		[_x] join _p;
-		deleteGroup _ogroup;
-	} forEach _u;
-};
+while { !d_mt_done } do {
 
-while {!_pilots_at_base && {!_is_dead && {!d_mt_done}}} do {	
-	if (!alive _pilot1 && {!alive _pilot2}) then {
-		_is_dead = true;
-	} else {
-		if (!_rescued) then {
-			__TRACE("not rescued")
-			if (alive _pilot1) then {
-				__TRACE("_pilot1 alive")
-				private _nobjs = (_pilot1 nearEntities ["CAManBase", _distanceToEnablePilotMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-				if !(_nobjs isEqualTo []) then {
-					_resctimestarted = time;
-					_rescued = true;
-					[[_pilot1, _pilot2], _nobjs # 0] call _pcheck_fnc;
-				};
-			};
-			
-			if (!_rescued) then {
-				if (alive _pilot2) then {
-					__TRACE("_pilot2 alive")
-					private _nobjs = (_pilot2 nearEntities ["CAManBase", _distanceToEnablePilotMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-					if !(_nobjs isEqualTo []) then {
-						_resctimestarted = time;
-						_rescued = true;
-						[[_pilot1, _pilot2], _nobjs # 0] call _pcheck_fnc;
-					};
-				};
+	// if both pilots are dead then exit
+	if (_is_dead1 && {_is_dead2}) exitWith { _is_dead_all = true };
+	
+	private _resolved1 = (_rescued1 || _is_dead1);
+	private _resolved2 = (_rescued2 || _is_dead2);
+	
+	// if both pilots are resolved then exit
+	if (_resolved1 && {_resolved2}) exitWith {};
+	
+	// is pilot1 resolved?
+	if (!_resolved1) then {
+		if (alive _pilot1) then {
+			private _nobjs = (_pilot1 nearEntities ["CAManBase", _distanceToEnablePilotMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+			if !(_nobjs isEqualTo []) then {
+				_rescued1 = true;
+				__TRACE("rescued1")
+				deleteVehicle _pilot1;
+				// todo announce
 			};
 		} else {
-			if (_pilot1 distance2D d_FLAG_BASE < 50 || {_pilot2 distance2D d_FLAG_BASE < 50}) exitWith {_pilots_at_base = true};
-			if (!isNil "d_flag_airfield" && {_pilot1 distance2D d_flag_airfield < 50 || {_pilot2 distance2D d_flag_airfield < 50}}) exitWith {_pilots_at_base = true};
-			if (alive _pilot1 && {!(leader (group _pilot1) call d_fnc_isplayer)} || {alive _pilot2 && {!(leader (group _pilot2) call d_fnc_isplayer)}}) then {
-				_rescued = false;
+			_is_dead1 = true;
+		};
+	};
+	
+	// is pilot2 resolved?
+	if (!_resolved2) then {
+		if (alive _pilot2) then {
+			private _nobjs = (_pilot2 nearEntities ["CAManBase", _distanceToEnablePilotMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+			if !(_nobjs isEqualTo []) then {
+				_rescued2 = true;
+				__TRACE("rescued2")
+				deleteVehicle _pilot2;
+				// todo announce
 			};
+		} else {
+			_is_dead2 = true;
 		};
 	};
 
@@ -198,10 +198,10 @@ while {!_pilots_at_base && {!_is_dead && {!d_mt_done}}} do {
 	
 };
 
-if (_pilots_at_base || {_rescued && {!_is_dead}}) then {
-	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacSucceed",d_kbtel_chan];
-} else {
+if (_is_dead_all) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacFail",d_kbtel_chan];
+} else {
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacSucceed",d_kbtel_chan];
 };
 
 sleep 5.432;
