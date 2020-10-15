@@ -55,7 +55,7 @@ private _midpoint_pos = [
 ];
 
 private _spawn_pos = _midpoint_pos;
-if ((_midpoint_pos distance2D _target_center) < 250) then {
+if ((_midpoint_pos distance2D _target_center) < 375) then {
 	// midpoint is too close to maintarget, instead use location position
 	_spawn_pos = _townNearbyPos;
 };
