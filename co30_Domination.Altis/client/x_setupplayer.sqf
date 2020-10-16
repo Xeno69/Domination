@@ -8,6 +8,7 @@
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom x_setupplayer.sqf"];
 
 d_string_player = str player;
+d_player_uid = getPlayerUID player;
 #ifdef __OWN_SIDE_BLUFOR__
 d_player_side = blufor;
 #endif
@@ -133,9 +134,6 @@ if (d_weather == 0) then {
 #ifdef __UNSUNG__
 		d_withsandstorm = 1;
 #endif
-#ifdef __CSLA__
-		d_withsandstorm = 1;
-#endif
 		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
 	};
 };
@@ -186,10 +184,6 @@ if (d_with_ranked) then {
 				if (d_gmcwg) exitWith {
 					_weapp = "gm_mpiak74n_brn";
 					_magp = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
-				};
-				if (d_csla) exitWith {
-					_weapp = "";
-					_magp = "";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -327,7 +321,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 
 d_points_needed_15 = (d_points_needed # 6) + 15000;
 d_points_needed_16 = (d_points_needed # 6) + 30000;
-d_points_needed_17 = (d_points_needed # 6) + 60000;
+d_points_needed_17 = (d_points_needed # 6) + 80000;
 
 0 spawn {
 	scriptName "spawn_setupplayer1";
@@ -737,8 +731,6 @@ if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!(player call d_fnc_hasnvg
 			case independent: {"NVGoggles_INDEP"};
 			default {"NVGoggles"};
 		});
-	} else {
-		
 	};
 };
 private _bino = binocular player;
@@ -751,11 +743,6 @@ call {
 	if (d_unsung) exitWith {
 		if (_bino == "") then {
 			player addWeapon "uns_binocular_army";
-		};
-	};
-	if (d_csla) exitWith {
-		if (_bino == "") then {
-			
 		};
 	};
 	if (d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery || {d_string_player in d_can_call_cas}}) then {
@@ -887,7 +874,7 @@ player setVariable ["xr_isleader", false];
 };
 
 player addEventhandler ["WeaponAssembled", {
-	["aw", d_string_player, _this # 1] remoteExecCall ["d_fnc_p_o_ar", 2];
+	["aw", d_player_uid, _this # 1] remoteExecCall ["d_fnc_p_o_ar", 2];
 }];
 
 {
@@ -904,10 +891,6 @@ player addEventhandler ["WeaponAssembled", {
 
 if (!d_gmcwg) then {
 	d_arsenal_mod_remove_strings pushBack "gm_";
-};
-if (!d_csla) then {
-	d_arsenal_mod_remove_strings pushBack "CSLA_";
-	d_arsenal_mod_remove_strings pushBack "US85_";
 };
 
 if (d_arsenal_mod_remove_strings isEqualTo []) then {
@@ -928,9 +911,6 @@ if (d_arsenal_mod == 0) then {
 		};
 		if (d_gmcwg) then {
 			d_arsenal_mod_prestrings pushBackUnique "gm_";
-		};
-		if (d_csla) then {
-			d_arsenal_mod_prestrings append ["CSLA_", "US85_"];
 		};
 		if (d_unsung) then {
 			d_arsenal_mod_prestrings pushBackUnique "uns_";

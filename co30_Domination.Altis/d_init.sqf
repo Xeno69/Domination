@@ -703,11 +703,7 @@ if (hasInterface) then {
 						if (d_unsung) then {
 							call compile preprocessFileLineNumbers "i_weapons_UNSUNG.sqf";
 						} else {
-							if (d_csla) then {
-								call compile preprocessFileLineNumbers "i_weapons_csla.sqf";
-							} else {
-								call compile preprocessFileLineNumbers "i_weapons_default.sqf";
-							};
+							call compile preprocessFileLineNumbers "i_weapons_default.sqf";
 						};
 					};
 				};

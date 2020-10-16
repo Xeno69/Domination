@@ -83,6 +83,8 @@ if (_todelete != -1) then {
 	_jailobjects deleteAt _todelete;
 };
 
+["aj", d_player_uid, _jailobjects] remoteExecCall ["d_fnc_p_o_ar", 2];
+
 player setPos _pmovepos;
 
 sleep 2;
@@ -141,9 +143,11 @@ player allowDamage true;
 
 cutText ["", "BLACK IN", 0.2];
 
+__TRACE("Deleting objects")
 {
 	deleteVehicle _x;
 } forEach _jailobjects;
+["ajr", d_player_uid] remoteExecCall ["d_fnc_p_o_ar", 2];
 
 sleep 8;
 if (isNil "d_goto_jail") then {

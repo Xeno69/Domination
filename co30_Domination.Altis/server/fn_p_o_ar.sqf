@@ -42,9 +42,9 @@ call {
 		};
 		[_this select 2, 7] call d_fnc_setekmode;
 	};
-	if (_this select 0 == "r") exitWith {
+	if (_this select 0 == "ar") exitWith {
 		private _ar = d_placed_objs_store getVariable (_this select 1);
-		__TRACE_1("r","_ar")
+		__TRACE_1("ar","_ar")
 		if (!isNil "_ar") then {
 			private _fidx = _ar findIf {_x # 1 == (_this select 2)};
 			if (_fidx > -1) then {
@@ -79,5 +79,25 @@ call {
 			d_placed_objs_store3 setVariable [_this select 1, [_this select 2]];
 		};
 		(_this select 2) setVariable ["d_time_aw", time + 1800];
+	};
+	if (_this select 0 == "aj") exitWith {
+		private _ar = d_placed_objs_store4 getVariable (_this select 1);
+		__TRACE_1("aj","_ar")
+		if (!isNil "_ar") then {
+			{
+				deleteVehicle _x;
+			} forEach _ar;
+		};
+		d_placed_objs_store4 setVariable [_this select 1, _this select 2];
+	};
+	if (_this select 0 == "ajr") exitWith {
+		private _ar = d_placed_objs_store4 getVariable (_this select 1);
+		__TRACE_1("ajr","_ar")
+		if (!isNil "_ar") then {
+			{
+				deleteVehicle _x;
+			} forEach _ar;
+		};
+		d_placed_objs_store4 setVariable [_this select 1, nil];
 	};
 };

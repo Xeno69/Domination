@@ -57,7 +57,8 @@ if (!isNil "_pa") then {
 		};
 		_pa set [10, ""];
 	};
-	(_pa # 4) call d_fnc_markercheck;
+	__TRACE("Calling markercheck")
+	[_uid] call d_fnc_markercheck;
 	
 	private _jar = _unit getVariable "d_jailar";
 	__TRACE_1("","_jar")
@@ -88,6 +89,7 @@ if (!isNil "_jipid") then {
 };
 
 private _ar = _unit getVariable ["d_all_p_vecs_s", []];
+__TRACE_1("","_ar")
 if !(_ar isEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];

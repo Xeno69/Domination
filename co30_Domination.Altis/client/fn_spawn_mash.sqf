@@ -1,5 +1,4 @@
 // by Xeno
-// by Xeno
 #define THIS_FILE "fn_spawn_mash.sqf"
 #include "..\x_setup.sqf"
 
@@ -83,7 +82,7 @@ publicVariable "d_mashes";
 
 systemChat (localize "STR_DOM_MISSIONSTRING_285");
 
-["a", d_string_player, [_medic_tent, "Mash " + d_string_player, d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+["a", d_player_uid, [_medic_tent, "Mash " + d_string_player, d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
 
 _medic_tent setVariable ["d_owner", player, true];
 
@@ -107,7 +106,7 @@ _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MI
 
 		systemChat (localize "STR_DOM_MISSIONSTRING_318");
 		player setVariable ["d_medtent", []];
-		["r", d_string_player, "Mash " + d_string_player] remoteExecCall ["d_fnc_p_o_ar", 2];
+		["ar", d_player_uid, "Mash " + d_string_player] remoteExecCall ["d_fnc_p_o_ar", 2];
 	};
 }, [], -1, false, true, "", "isNull objectParent player", 5];
 

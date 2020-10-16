@@ -110,7 +110,7 @@ d_farps pushBack _farp;
 publicVariable "d_farps";
 
 systemChat (localize "STR_DOM_MISSIONSTRING_248");
-["a", d_string_player, [_farp, "FARP " + d_string_player, d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+["a", d_player_uid, [_farp, "FARP " + d_string_player, d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
 if (isMultiplayer) then {
 	[_farp, player] remoteExecCall ["d_fnc_farp_e", d_player_side];
 } else {
@@ -140,7 +140,7 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 
 		systemChat (localize "STR_DOM_MISSIONSTRING_316");
 		player setVariable ["d_farp_pos", []];
-		["r", d_string_player, "FARP " + d_string_player] remoteExecCall ["d_fnc_p_o_ar", 2];
+		["ar", d_player_uid, "FARP " + d_string_player] remoteExecCall ["d_fnc_p_o_ar", 2];
 	};
 }];
 

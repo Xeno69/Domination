@@ -57,7 +57,7 @@ INSERT IGNORE INTO `dom_settings` (`name`, `value`) VALUES
 
 -- Exportiere Struktur von Tabelle domination.missionsave
 CREATE TABLE IF NOT EXISTS `missionsave` (
-  `name` varchar(80) COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `d_maintargets` int(11) NOT NULL,
   `d_maintargets_list` varchar(1000) COLLATE utf8mb4_bin NOT NULL,
   `d_current_target_index` int(11) NOT NULL,
@@ -68,9 +68,9 @@ CREATE TABLE IF NOT EXISTS `missionsave` (
   `d_current_mission_counter` int(11) NOT NULL,
   `d_searchintel` varchar(50) COLLATE utf8mb4_bin NOT NULL,
   `d_bonus_vecs_db` varchar(2000) COLLATE utf8mb4_bin NOT NULL,
-  `d_worldname` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  `d_combiname` varchar(130) COLLATE utf8mb4_bin NOT NULL,
-  `missionname` varchar(130) COLLATE utf8mb4_bin NOT NULL,
+  `d_worldname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `d_combiname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `missionname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `d_retaken_farpspos` varchar(1000) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `missionsave` (
 
 -- Exportiere Struktur von Tabelle domination.missionsavett
 CREATE TABLE IF NOT EXISTS `missionsavett` (
-  `name` varchar(80) COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `d_maintargets` int(11) NOT NULL,
   `d_maintargets_list` varchar(1000) COLLATE utf8mb4_bin NOT NULL,
   `d_current_target_index` int(11) NOT NULL,
@@ -97,9 +97,9 @@ CREATE TABLE IF NOT EXISTS `missionsavett` (
   `d_points_opfor` int(11) NOT NULL,
   `d_kill_points_blufor` int(11) NOT NULL,
   `d_kill_points_opfor` int(11) NOT NULL,
-  `d_points_array` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  `d_combiname` varchar(130) COLLATE utf8mb4_bin NOT NULL,
-  `missionname` varchar(130) COLLATE utf8mb4_bin NOT NULL
+  `d_points_array` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `d_combiname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
+  `missionname` varchar(200) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Exportiere Daten aus Tabelle domination.missionsavett: ~0 rows (ungefähr)

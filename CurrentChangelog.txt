@@ -1,7 +1,5 @@
 4.34
 
-ADDED: CSLA Opfor version (co40_domination_4_34_opfor.stozec.pbo)
-
 - Added: Your local system time is displayed beside the FPS number
 - Added: Param d_ai_persistent_corpses (Persistent AI corpses), maintarget AI leave persistent corpses until the target is cleared, by longtimegamer
 - Added: Camouflage script, changes camouflage trait depending on stance
@@ -27,8 +25,9 @@ ADDED: CSLA Opfor version (co40_domination_4_34_opfor.stozec.pbo)
 - Fixed: Copy and paste error in getbonus script
 - Fixed: Respawned Inf AI could get stuck in the wall in front of a respawn barrack
 - Fixed: Recruited AI (when with AI is enabled) was subject of dyanmic simulation thus stopping those player controlled if they were too far away; they did also not trigger dyn sim
-- Fixed: Shooting at objects which can only be destroyed by satchels no longer resets the object damage to zero
+- Fixed: Shooting at objects which can only be destroyed by satchels no longer resets the object damage to zero (like main target radio tower for example)
 - Fixed: The CUP team renamed some CfgGroups RU infantry class names yet again resulting in less units spawning
+- Fixed: Possible non remote jail objects did not get deleted when a jailed user disconnected
 - Removed: d_no_3rd_person parameter (No 3rd person), allowed 3rd person view in vehicles only. There is now a new A3 game difficulty setting (see https://forums.bohemia.net/forums/topic/140837-development-branch-changelog/?do=findComment&comment=3411692)
 - Updated: Korean translation by kkim
 - Updated: Russian translation by Babayka

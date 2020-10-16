@@ -4,11 +4,13 @@
 #include "..\x_setup.sqf"
 if (!isServer) exitWith {};
 
-private _pvar_name = _this;
+params ["_uid"];
 
-__TRACE_1("","_pvar_name")
+__TRACE_1("","_uid")
 
-private _val = d_placed_objs_store getVariable _pvar_name;
+if (_uid isEqualTo "") exitWith {};
+
+private _val = d_placed_objs_store getVariable _uid;
 __TRACE_1("1","_val")
 if (!isNil "_val") then {
 	{
@@ -42,10 +44,10 @@ if (!isNil "_val") then {
 			deleteVehicle (_x # 0);
 		};
 	} forEach _val;
-	d_placed_objs_store setVariable [_pvar_name, nil];
+	d_placed_objs_store setVariable [_uid, nil];
 };
 
-_val = d_placed_objs_store2 getVariable _pvar_name;
+_val = d_placed_objs_store2 getVariable _uid;
 __TRACE_1("2","_val")
 if (!isNil "_val") then {
 	{
@@ -55,14 +57,23 @@ if (!isNil "_val") then {
 		};
 		deleteVehicle _x;
 	} forEach (_val select {!isNull _x});
-	d_placed_objs_store2 setVariable [_pvar_name, nil];
+	d_placed_objs_store2 setVariable [_uid, nil];
 };
 
-_val = d_placed_objs_store3 getVariable _pvar_name;
+_val = d_placed_objs_store3 getVariable _uid;
 __TRACE_1("3","_val")
 if (!isNil "_val") then {
 	{
 		deleteVehicle _x;
 	} forEach (_val select {!isNull _x});
-	d_placed_objs_store3 setVariable [_pvar_name, nil];
+	d_placed_objs_store3 setVariable [_uid, nil];
+};
+
+_val = d_placed_objs_store4 getVariable _uid;
+__TRACE_1("4","_val")
+if (!isNil "_val") then {
+	{
+		deleteVehicle _x;
+	} forEach (_val select {!isNull _x});
+	d_placed_objs_store4 setVariable [_uid, nil];
 };

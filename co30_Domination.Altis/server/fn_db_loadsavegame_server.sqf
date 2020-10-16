@@ -288,3 +288,5 @@ publicVariable "d_points_array";
 if (!isNull _sender) then {
 	[8, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 };
+
+diag_log format [localize "STR_DOM_MISSIONSTRING_1753", _sname];

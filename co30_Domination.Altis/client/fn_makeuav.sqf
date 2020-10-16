@@ -41,7 +41,7 @@ player connectTerminalToUav _vecu;
 
 player action ["UAVTerminalOpen"];
 
-["a2", d_string_player, _vecu] remoteExecCall ["d_fnc_p_o_ar", 2];
+["a2", d_player_uid, _vecu] remoteExecCall ["d_fnc_p_o_ar", 2];
 
 //diag_log ["UAVControl", UAVControl _vecu];
 
@@ -66,7 +66,7 @@ _vecu spawn {
 	};
 	
 	if (!isNull _uav) then {
-		["a2r", d_string_player, _uav] remoteExecCall ["d_fnc_p_o_ar", 2];
+		["a2r", d_player_uid, _uav] remoteExecCall ["d_fnc_p_o_ar", 2];
 	};
 	{_uav deleteVehicleCrew _x} forEach (crew _uav);
 	deleteVehicle _uav;
