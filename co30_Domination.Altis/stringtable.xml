@@ -2840,7 +2840,7 @@
 <Japanese>On</Japanese>
 <Original>On</Original>
 <Russian>Включено</Russian>
-<Chinesesimp>On</Chinesesimp>
+<Chinesesimp>打开</Chinesesimp>
 <Chinese>On</Chinese>
 <French>On</French>
 </Key>
@@ -2900,7 +2900,7 @@
 <Japanese>Very Low</Japanese>
 <Original>Very Low</Original>
 <Russian>Очень низкий</Russian>
-<Chinesesimp>Very Low</Chinesesimp>
+<Chinesesimp>极低</Chinesesimp>
 <Chinese>Very Low</Chinese>
 <French>Very Low</French>
 </Key>
@@ -2948,7 +2948,7 @@
 <Japanese>Very High</Japanese>
 <Original>Very High</Original>
 <Russian>Очень высокий</Russian>
-<Chinesesimp>Very High</Chinesesimp>
+<Chinesesimp>极高</Chinesesimp>
 <Chinese>Very High</Chinese>
 <French>Very High</French>
 </Key>
@@ -2996,7 +2996,7 @@
 <Japanese>Always, multiple events</Japanese>
 <Original>Always, multiple events</Original>
 <Russian>Всегда, несколько событий</Russian>
-<Chinesesimp>Always, multiple events</Chinesesimp>
+<Chinesesimp>总是，多个事件</Chinesesimp>
 <Chinese>Always, multiple events</Chinese>
 <French>Always, multiple events</French>
 </Key>
@@ -4904,7 +4904,7 @@
 <Japanese>%1 was killed! The enemy will pay for this...</Japanese>
 <Original>%1 was killed! The enemy will pay for this...</Original>
 <Russian>%1 был убит! За это враг заплатит...</Russian>
-<Chinesesimp>%1 was killed! The enemy will pay for this...</Chinesesimp>
+<Chinesesimp>%1被杀死！敌人将为此付出代价...</Chinesesimp>
 <Chinese>%1 was killed! The enemy will pay for this...</Chinese>
 <French>%1 was killed! The enemy will pay for this...</French>
 </Key>
@@ -8421,7 +8421,7 @@
 <Japanese>Select Respawn/Show Map</Japanese>
 <Original>Select Respawn/Show Map</Original>
 <Russian>Выберите Респаун/Показать карту:</Russian>
-<Chinesesimp>Select Respawn/Show Map</Chinesesimp>
+<Chinesesimp>选择重生/显示地图</Chinesesimp>
 <Chinese>Select Respawn/Show Map</Chinese>
 <French>Select Respawn/Show Map</French>
 </Key>
@@ -9764,7 +9764,7 @@
 <Japanese>-------------------------- Civilians -----------------------------</Japanese>
 <Original>---------------------------- Civilians -------------------------------</Original>
 <Russian>--------------------------- Civilians --------------------------</Russian>
-<Chinesesimp>---------------------------- Civilians -------------------------------</Chinesesimp>
+<Chinesesimp>---------------------------- 平民 -------------------------------</Chinesesimp>
 <Chinese>---------------------------- Civilians -------------------------------</Chinese>
 <French>---------------------------- Civilians -------------------------------</French>
 </Key>
@@ -9776,7 +9776,7 @@
 <Japanese>-------------------------- Enemy AI -----------------------------</Japanese>
 <Original>---------------------------- Enemy AI -------------------------------</Original>
 <Russian>--------------------------- Enemy AI --------------------------</Russian>
-<Chinesesimp>---------------------------- Enemy AI -------------------------------</Chinesesimp>
+<Chinesesimp>---------------------------- 敌人AI -------------------------------</Chinesesimp>
 <Chinese>---------------------------- Enemy AI -------------------------------</Chinese>
 <French>---------------------------- Enemy AI -------------------------------</French>
 </Key>
@@ -9788,7 +9788,7 @@
 <Japanese>-------------------------- Main Target Objectives -----------------------------</Japanese>
 <Original>---------------------------- Main Target Objectives -------------------------------</Original>
 <Russian>--------------------------- Main Target Objectives --------------------------</Russian>
-<Chinesesimp>---------------------------- Main Target Objectives -------------------------------</Chinesesimp>
+<Chinesesimp>---------------------------- 主要目标 -------------------------------</Chinesesimp>
 <Chinese>---------------------------- Main Target Objectives -------------------------------</Chinese>
 <French>---------------------------- Main Target Objectives -------------------------------</French>
 </Key>
@@ -9800,7 +9800,7 @@
 <Japanese>-------------------------- Environment -----------------------------</Japanese>
 <Original>---------------------------- Environment -------------------------------</Original>
 <Russian>--------------------------- Environment --------------------------</Russian>
-<Chinesesimp>---------------------------- Environment -------------------------------</Chinesesimp>
+<Chinesesimp>---------------------------- 环境 -------------------------------</Chinesesimp>
 <Chinese>---------------------------- Environment -------------------------------</Chinese>
 <French>---------------------------- Environment -------------------------------</French>
 </Key>
@@ -10677,7 +10677,7 @@
 <Japanese>Persistent AI corpses</Japanese>
 <Original>Persistent AI corpses</Original>
 <Russian>Не удалять трупы AI до выполнения основной задачи</Russian>
-<Chinesesimp>Persistent AI corpses</Chinesesimp>
+<Chinesesimp>永久显示AI尸体</Chinesesimp>
 <Chinese>Persistent AI corpses</Chinese>
 <French>Persistent AI corpses</French>
 </Key>
@@ -11013,7 +11013,7 @@
 <Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
 <Original>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Original>
 <Russian>Один из наших пилотов был захвачен в плен. Верните пилота живым на свою базу! Быстро устраните охранников. Если они окажутся ранеными, то они казнят заключенного!</Russian>
-<Chinesesimp>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinesesimp>
+<Chinesesimp>我们的一名飞行员被抓获。让飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决囚犯！</Chinesesimp>
 <Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
 <French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
@@ -12009,7 +12009,7 @@
 <Japanese>Civilian vehicles - enabled</Japanese>
 <Original>Civilian vehicles - enabled</Original>
 <Russian>Включить гражданских Civilian vehicles - enabled</Russian>
-<Chinesesimp>启用平民 Civilian vehicles - enabled</Chinesesimp>
+<Chinesesimp>启用平民 民用车辆-已启用</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - enabled)</Chinese>
 <French>Activer les civils Civilian vehicles - enabled</French>
 </Key>
@@ -12021,7 +12021,7 @@
 <Japanese>Civilian vehicles - spawn radius</Japanese>
 <Original>Civilian vehicles - spawn radius</Original>
 <Russian>Включить гражданских Civilian vehicles - spawn radius</Russian>
-<Chinesesimp>启用平民 Civilian vehicles - spawn radius</Chinesesimp>
+<Chinesesimp>启用平民 民用车辆-产生半径</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - spawn radius)</Chinese>
 <French>Activer les civils Civilian vehicles - spawn radius</French>
 </Key>
@@ -12033,7 +12033,7 @@
 <Japanese>Civilian vehicles - lock vehicles</Japanese>
 <Original>Civilian vehicles - lock vehicles</Original>
 <Russian>Включить гражданских Civilian vehicles - lock vehicles</Russian>
-<Chinesesimp>启用平民 Civilian vehicles - lock vehicles</Chinesesimp>
+<Chinesesimp>启用平民 民用车辆-锁车</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - lock vehicles)</Chinese>
 <French>Activer les civils Civilian vehicles - lock vehicles</French>
 </Key>
@@ -12045,7 +12045,7 @@
 <Japanese>Civilians - enable civilians</Japanese>
 <Original>Civilians - enable civilians</Original>
 <Russian>Civilians - Включить гражданских</Russian>
-<Chinesesimp>Civilians - 启用平民</Chinesesimp>
+<Chinesesimp>平民 - 启用平民</Chinesesimp>
 <Chinese>Civilians - 啟用平民 (enable civilians)</Chinese>
 <French>Civilians - Activer les civils</French>
 </Key>
@@ -12057,7 +12057,7 @@
 <Japanese>Civilians - civilian unit count per group</Japanese>
 <Original>Civilians - civilian unit count per group</Original>
 <Russian>Civilians - Количество гражданских групп</Russian>
-<Chinesesimp>Civilians - 每组平民单位数</Chinesesimp>
+<Chinesesimp>平民 - 每组平民单位数</Chinesesimp>
 <Chinese>Civilians - 每組平民單位數</Chinese>
 <French>Civilians - nombre d'unités civiles par groupe</French>
 </Key>
@@ -13438,7 +13438,7 @@
 <Japanese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
 <Original>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
 <Russian>Внимание: Партизанские танки движутся в город из %1. Партизаны сотрудничают с Blufor и враждебны с Opfor.</Russian>
-<Chinesesimp>注意：游击队坦克正在进入城市。%1 The guerrillas are friendly to Blufor and hostile to Opfor.</Chinesesimp>
+<Chinesesimp>注意：游击队坦克正在进入城市。%1游击队对蓝方友好而对红方敌视。</Chinesesimp>
 <Chinese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
 <French>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
@@ -13450,7 +13450,7 @@
 <Japanese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
 <Original>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
 <Russian>Внимание: Партизанские отряды движутся в город из %1. Партизаны дружат с Blufor и враждебны к Opfor.</Russian>
-<Chinesesimp>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinesesimp>
+<Chinesesimp>注意：游击队已从%1迁入该城市。游击队对蓝方友好，对红方敌对。</Chinesesimp>
 <Chinese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
 <French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
@@ -13462,7 +13462,7 @@
 <Japanese>Attention: Our lucky pet rabbit is lost.  Find %1!</Japanese>
 <Original>Attention: Our lucky pet rabbit is lost.  Find %1!</Original>
 <Russian>Внимание: Наш счастливый кролик пропал. Найти %1!</Russian>
-<Chinesesimp>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinesesimp>
+<Chinesesimp>注意：我们的幸运宠物兔子迷路了。 查找%1！</Chinesesimp>
 <Chinese>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinese>
 <French>Attention: Our lucky pet rabbit is lost.  Find %1!</French>
 </Key>
@@ -13522,7 +13522,7 @@
 <Japanese>crash site</Japanese>
 <Original>crash site</Original>
 <Russian>место аварии</Russian>
-<Chinesesimp>crash site</Chinesesimp>
+<Chinesesimp>坠机现场</Chinesesimp>
 <Chinese>crash site</Chinese>
 <French>crash site</French>
 </Key>
@@ -13534,7 +13534,7 @@
 <Japanese>prisoners</Japanese>
 <Original>prisoners</Original>
 <Russian>заключенных</Russian>
-<Chinesesimp>prisoners</Chinesesimp>
+<Chinesesimp>囚犯</Chinesesimp>
 <Chinese>prisoners</Chinese>
 <French>prisoners</French>
 </Key>
@@ -13546,7 +13546,7 @@
 <Japanese>Push Boat</Japanese>
 <Original>Push Boat</Original>
 <Russian>Толкнуть лодку</Russian>
-<Chinesesimp>Push Boat</Chinesesimp>
+<Chinesesimp>推船</Chinesesimp>
 <Chinese>Push Boat</Chinese>
 <French>Push Boat</French>
 </Key>
@@ -13558,7 +13558,7 @@
 <Japanese>Low Gear On</Japanese>
 <Original>Low Gear On</Original>
 <Russian>Пониженная передача (ВКЛ)</Russian>
-<Chinesesimp>Low Gear On</Chinesesimp>
+<Chinesesimp>低档开启</Chinesesimp>
 <Chinese>Low Gear On</Chinese>
 <French>Low Gear On</French>
 </Key>
@@ -13570,7 +13570,7 @@
 <Japanese>Low Gear Off</Japanese>
 <Original>Low Gear Off</Original>
 <Russian>Пониженная передача (ВЫКЛ)</Russian>
-<Chinesesimp>Low Gear Off</Chinesesimp>
+<Chinesesimp>低档关闭</Chinesesimp>
 <Chinese>Low Gear Off</Chinese>
 <French>Low Gear Off</French>
 </Key>
@@ -13582,7 +13582,7 @@
 <Japanese>Retake Farps</Japanese>
 <Original>Retake Farps</Original>
 <Russian>Перевзятие Farps</Russian>
-<Chinesesimp>Retake Farps</Chinesesimp>
+<Chinesesimp>补给站</Chinesesimp>
 <Chinese>Retake Farps</Chinese>
 <French>Retake Farps</French>
 </Key>
@@ -13594,7 +13594,7 @@
 <Japanese>Your time:</Japanese>
 <Original>Your time:</Original>
 <Russian>Ваше время:</Russian>
-<Chinesesimp>Your time:</Chinesesimp>
+<Chinesesimp>你的时间：</Chinesesimp>
 <Chinese>Your time:</Chinese>
 <French>Your time:</French>
 </Key>
