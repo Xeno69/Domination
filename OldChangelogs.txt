@@ -2,6 +2,40 @@ Changelogs
 
 Old...
 
+4.34
+
+- Added: Your local system time is displayed beside the FPS number
+- Added: Param d_ai_persistent_corpses (Persistent AI corpses), maintarget AI leave persistent corpses until the target is cleared, by longtimegamer
+- Added: Camouflage script, changes camouflage trait depending on stance
+- Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
+- Changed: A marker will show up after some time in cache side missions and get smaller too help players find the caches
+- Changed: Better CUP island check for internal objectsmapper
+- Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, Use ACE Medical Revive and not mission Revive (if ACE is available) in lobby)
+- Changed: Add small bunkers to high static weapons (currently only available for non 3rd party versions)
+- Changed: Two new grass settings, one can now select: none / medium / full / high / very high, by longtimegamer
+- Improved: Make use of new configOf scripting command where possible
+- Fixed: New chopper MHQ couldn't load ammo boxes in the GMCWG versions
+- Fixed: Use correct event handler for ACE arsenal, by jilillis
+- Fixed: ACRE radios were not available in Virtual Arsenal in ranked mode
+- Fixed: Better handling for destroying side mission objects (last damager was not taken into account, broke side missions like the arty cannon sm)
+- Fixed: Better handling for destroying main target side mission objects (last damager was not taken into account)
+- Fixed: Inventory weapon check is now checking all available weapons instead of just the ones in BI arsenal (which are missing Hamr, pointer, ACO, etc, etc)
+- Fixed: Destroying a respawn barrack or vehicle MHQ at a taken main target still added points to players and displayed a destroyed message
+- Fixed: Static weapons should spawn on roads less often
+- Fixed: Static weapons should no longer point at walls
+- Fixed: hallyg_dlegion_Snipe_awareness script did not end when a unit it was running for was no longer alive
+- Fixed: Map on draw was not drawing displayname for vehicles correctly
+- Fixed: Copy and paste error resulting in non existent variables when loading a DB savegame
+- Fixed: Copy and paste error in getbonus script
+- Fixed: Respawned Inf AI could get stuck in the wall in front of a respawn barrack
+- Fixed: Recruited AI (when with AI is enabled) was subject of dyanmic simulation thus stopping those player controlled if they were too far away; they did also not trigger dyn sim
+- Fixed: Shooting at objects which can only be destroyed by satchels no longer resets the object damage to zero (like main target radio tower for example)
+- Fixed: The CUP team renamed some CfgGroups RU infantry class names yet again resulting in less units spawning
+- Fixed: Possible non remote jail objects did not get deleted when a jailed user disconnected
+- Removed: d_no_3rd_person parameter (No 3rd person), allowed 3rd person view in vehicles only. There is now a new A3 game difficulty setting (see https://forums.bohemia.net/forums/topic/140837-development-branch-changelog/?do=findComment&comment=3411692)
+- Updated: Korean translation by kkim
+- Updated: Russian translation by Babayka
+
 4.33
 
 - Added: rabbit rescue event, by longtimegamer
