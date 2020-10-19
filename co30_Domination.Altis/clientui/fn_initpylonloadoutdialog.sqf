@@ -140,9 +140,18 @@ for "_i" from 0 to (count _pylons - 1) do {
 		__TRACE_1("","toLowerANSI _x in _excludemags")
 		__TRACE_1("","toLowerANSI _x")
 		if !(toLowerANSI _x in _excludemags) then {
-			private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
-			__TRACE_1("","_sub")
-			if (_sub isEqualTo []) then {
+#ifdef __DEBUG__
+			private _xxm = getText (configFile>>"CfgMagazines">>_x>>"ammo");
+			__TRACE_1("ammo","_xxm")
+#endif
+			private _doadd = call {
+				private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
+				__TRACE_1("","_sub")
+				if !(_sub isEqualTo []) exitWith {false};
+				if (toLowerANSI getText (configfile >> "CfgMagazines" >> _x >> "pylonWeapon") in ["fir_rkt_launcher", "fir_apkws_launcher"]) exitWith {false};
+				true
+			};
+			if (_doadd) then {
 				__TRACE_1("adding","_x")
 				_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
 				_ctrl lbSetData [_idx, _x];
