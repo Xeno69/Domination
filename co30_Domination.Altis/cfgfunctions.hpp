@@ -333,6 +333,7 @@ class cfgFunctions {
 			addc(findsafepos);
 			addc(LowGear_Init);
 			addc(LowGearOn);
+			addc(seapatrol);
 		};
 		class Dom_cba_Scripts {
 			file = "cba";
@@ -586,6 +587,7 @@ class cfgFunctions {
 			addc(hdsmtcheck);
 			addc(highbunker);
 			addc(checkintersects);
+			addc(hanbuilddam);
 		};
 		class Dom_PrePostInit {
 			file = "init";

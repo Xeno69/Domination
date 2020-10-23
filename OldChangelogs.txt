@@ -2,6 +2,12 @@ Changelogs
 
 Old...
 
+4.35
+
+- Changed: FIR Rocket Launchers removed from pylon loadout when FIR AWS is loaded (some hundred Hydra rockets at once at the AO will bring even the fastest server down)
+- Fixed: Somehow a weird Altis TT version managed to get into the download 7z file
+- Updated: Chineseimp translation by CHL198011
+
 4.34
 
 - Added: Your local system time is displayed beside the FPS number

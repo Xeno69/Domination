@@ -5,16 +5,6 @@
 
 __TRACE_1("","_this")
 
-/*params ["_name", "_code", ["_delta", 0], ["_type", "seconds"]];
-
-_type = [1, 0] select (_type == "seconds");
-
-d_ef_store setVariable [_name, [_code, _delta, -1, _type]];
-
-if (d_ef_running == -1) then {
-	d_ef_running = addMissionEventhandler ["EachFrame", {call d_fnc_eachframerun}];
-};*/
-
 params ["_name", "_code", ["_delta", 0], ["_type", "seconds"]];
 
 _type = [1, 0] select (_type == "seconds");

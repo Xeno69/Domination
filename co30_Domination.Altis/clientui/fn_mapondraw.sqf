@@ -7,7 +7,7 @@ __TRACE_1("","_this")
 
 params ["_map", "_type"]; // _type = 0 normal map control, 1 = GPS, 2 = custom map resources
 
-_map = _map select 0;
+_map = _map # 0;
 
 __TRACE_1("","d_show_player_marker")
 
@@ -19,13 +19,7 @@ private _fnc_gmi = d_fnc_getmapicon;
 if !(d_show_player_marker isEqualTo 0) then {
 	private _drawn_v = [];
 	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
-	private _w_ai = d_with_ai;
-	private _fnc_ispl = d_fnc_isplayer;
-	private _s_pl_ma = d_show_player_marker;
-	private _fnc_ghpn = d_fnc_gethpname;
-	private _fnc_gpln = d_fnc_getplayername;
-	private _d_mark_loc280 = d_mark_loc280;
-	private _allplayermapd = d_allplayermapd;
+	[d_with_ai, d_fnc_isplayer, d_show_player_marker, d_fnc_gethpname, d_fnc_getplayername, d_mark_loc280] params ["_w_ai", "_fnc_ispl", "_s_pl_ma", "_fnc_ghpn", "_fnc_gpln", "_d_mark_loc280"];
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
@@ -46,7 +40,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 				_text = if !(_type isEqualTo 1) then {
 					if (!_inv) then {
 						_vc = _x getVariable "d_ut_c";
-						if (isNil "_vc" || {_vc > 20}) then {
+						if (isNil "_vc" || {_vc > 32}) then {
 							_x setVariable ["d_ut_c", 0];
 							if (_s_pl_ma isEqualTo 1) then {
 								_res = [_x] call _fnc_ghpn;
@@ -70,7 +64,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 					} else {
 						if (player distance2D _v < 3000) then {
 							_vc = _v getVariable "d_vma_c";
-							if (isNil "_vc" || {_vc > 20}) then {
+							if (isNil "_vc" || {_vc > 30}) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
@@ -133,12 +127,9 @@ if !(d_show_player_marker isEqualTo 0) then {
 				};
 			};
 		};
-	//} forEach (d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}});
-	} forEach _allplayermapd;
+	} forEach d_allplayermapd;
 
-	{
-		_x setVariable ["d_v_drawn", nil];
-	} forEach _drawn_v;
+	_drawn_v apply {_x setVariable ["d_v_drawn", nil]};
 
 	if (_w_ai) then {
 		private ["_isc", "_text"];
@@ -147,13 +138,13 @@ if !(d_show_player_marker isEqualTo 0) then {
 				_isc = [_x, _x] call _fnc_gmi;
 
 				_text = if !(_type isEqualTo 1) then {
-					if (_s_pl_ma == 1) then {
+					if (_s_pl_ma isEqualTo 1) then {
 						_ut = str _x; _ut select [count _ut - 1]
 					} else {
-						if (_s_pl_ma == 2) then {
+						if (_s_pl_ma isEqualTo 2) then {
 							""
 						} else {
-							if (_s_pl_ma == 3) then {
+							if (_s_pl_ma isEqualTo 3) then {
 								format [_d_mark_loc280, 9 - round(9 * damage _x)]
 							} else {
 								""
@@ -178,13 +169,13 @@ if !(d_show_player_marker isEqualTo 0) then {
 					"right"
 				];
 			};
-		} forEach ((units (group player)) select {alive _x && {!(_x call _fnc_ispl) && {isNull (objectParent _x)}}});
+		} forEach ((units (group player)) select {alive _x && {isNull (objectParent _x) && {!(_x call _fnc_ispl)}}});
 	};
 };
 
 __TRACE_1("","d_marker_vecs")
 
-private ["_isc", "_mt"];
+private ["_isc", "_mt", "_ee"];
 private _d_mark_loc261 = d_mark_loc261;
 private _d_mark_loc1825 = d_mark_loc1825;
 private _marker_vecs = d_marker_vecs;
@@ -195,10 +186,20 @@ private _marker_vecs = d_marker_vecs;
 			__TRACE_1("","_isc")
 			_mt = call {
 				if (!alive _x) exitWith {
-					format [_d_mark_loc1825, _x getVariable "d_ma_text"];
+					_ee = _x getVariable "d_mvdes";
+					if (isNil "_ee") then {
+						_ee = format [_d_mark_loc1825, _x getVariable "d_ma_text"];
+						_x setVariable ["d_mvdes", _ee];
+					};
+					_ee
 				};
 				if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
-					format [_d_mark_loc261, _x getVariable "d_ma_text"];
+					_ee = _x getVariable "d_mvdep";
+					if (isNil "_ee") then {
+						format [_d_mark_loc261, _x getVariable "d_ma_text"];
+						_x setVariable ["d_mvdep", _ee];
+					};
+					_ee
 				};
 				_x getVariable "d_ma_text"
 			};

@@ -92,7 +92,7 @@ private _nightorfog = call d_fnc_nightfograin;
 	_one_unit setDamage 0;
 	//if (d_with_dynsim == 1) then {
 	if (_mchelper) then {
-		_one_unit setVehiclePosition [getPosWorld _one_unit, [], 0, "CAN_COLLIDE"];
+		_one_unit setVehiclePosition [getPos _one_unit, [], 0, "CAN_COLLIDE"];
 		//_one_unit spawn d_fnc_mchelper;
 	};
 	//};

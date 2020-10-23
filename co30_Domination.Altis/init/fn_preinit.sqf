@@ -1186,9 +1186,7 @@ if (!d_gmcwgwinter) then {
 			if (d_rhs) exitWith {
 				"RHS_Su25SM_vvsc"
 			};
-			if (d_csla) exitWith {
-				""
-			};
+
 			"O_Plane_CAS_02_F"
 		};
 #endif
@@ -1237,9 +1235,6 @@ if (!d_gmcwgwinter) then {
 			if (d_cup) exitWith {
 				"CUP_B_A10_CAS_USA"
 			};
-			if (d_csla) exitWith {
-				""
-			};
 			if (d_rhs) exitWith {
 				"RHS_A10"
 			};
@@ -1249,6 +1244,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __TT__
 		"I_Plane_Fighter_03_CAS_F";
 #endif
+
+	// TODO
+	d_sm_speedboat = "O_Boat_Armed_01_hmg_F";
 
 #ifdef __ALTIS__
 #include "d_compositions_default.sqf"

@@ -83,6 +83,11 @@ call d_fnc_dodelintelu;
 
 sleep 0.5;
 
+d_buildings_main_ar apply {_x removeAllEventHandlers "handleDamage"};
+d_buildings_main_ar = [];
+
+sleep 0.5;
+
 if !(d_maintargets_list isEqualTo []) then {
 	if (d_bonus_vec_type in [0, 1]) then {
 		__TRACE("spawning d_fnc_gettargetbonus")

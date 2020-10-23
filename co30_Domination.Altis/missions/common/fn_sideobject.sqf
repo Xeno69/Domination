@@ -12,7 +12,7 @@ params ["_poss", "_type", ["_dir", 0], ["_dovup", true], ["_dolock", false], ["_
 private _vec = createVehicle [_type, _poss, [], 0, "NONE"];
 _vec setDir _dir;
 //_vec setPos _poss;
-_vec setVehiclePosition [getPosWorld _vec, [], 0, "CAN_COLLIDE"];
+_vec setVehiclePosition [getPos _vec, [], 0, "CAN_COLLIDE"];
 if (_dovup) then {
 	_vec setVectorUp [0,0,1];
 };

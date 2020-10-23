@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 
 // supports also patrols in square areas, including angle
-params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 1], ["_full", false]];
+params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 1], ["_full", false], ["_water", 0]];
 
 __TRACE_1("","_this")
 
@@ -37,7 +37,7 @@ private _no_pos_found = false;
 for "_i" from 0 to (2 + (floor (random 3))) do {
 	private _wp_pos = call {
 		if (count _wp_array == 2) exitWith {
-			[_wp_array # 0, _wp_array # 1, _mindist] call d_fnc_GetRanPointCircle
+			[_wp_array # 0, _wp_array # 1, _mindist, 0.7, _water, false, false] call d_fnc_GetRanPointCircle
 		};
 		if (count _wp_array == 4) exitWith {
 			_wp_array call d_fnc_GetRanPointSquare
@@ -51,7 +51,7 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 	while {_wp_pos distance2D _cur_pos < ((_wp_array # 1)/6) && {_counter < 100}} do {
 		_wp_pos = call {
 			if (count _wp_array == 2) exitWith {
-				[_wp_array # 0, _wp_array # 1, _mindist] call d_fnc_GetRanPointCircle
+				[_wp_array # 0, _wp_array # 1, _mindist, 0.7, _water, false, false] call d_fnc_GetRanPointCircle
 			};
 			if (count _wp_array == 4) exitWith {
 				_wp_array call d_fnc_GetRanPointSquare

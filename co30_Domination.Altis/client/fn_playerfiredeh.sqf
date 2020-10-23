@@ -21,9 +21,9 @@ private _fnc_nearmhq = {
 	};
 };
 
-if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) then {
-	deleteVehicle (_this select 6);
-	player addMagazine (_this select 5);
+if ((_this # 1) isEqualTo "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) then {
+	deleteVehicle (_this # 6);
+	player addMagazine (_this # 5);
 	systemChat (localize "STR_DOM_MISSIONSTRING_2006");
 } else {
 	if (d_player_in_base && {!d_pisadminp}) then {
@@ -33,10 +33,9 @@ if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halo
 		if (player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}) then {
 #endif
 			__TRACE("Player in Base")
-			if ((_this # 1) == "Put") then {
-			//if ([_this # 4, 0] call d_fnc_checkammo) then {
+			if ((_this # 1) isEqualTo "Put") then {
 				if (count _this > 6) then {
-					deleteVehicle (_this select 6);
+					deleteVehicle (_this # 6);
 				};
 				[player, d_name_pl, 1] remoteExecCall ["d_fnc_RptMsgBS", 2];
 			} else {
@@ -67,14 +66,10 @@ if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halo
 		};
 	} else {
 		if (d_with_ace) exitWith {};
-		if (d_launcher_cooldown > 0 && {isNull (_this select 7)}) then {
+		if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {getText (configFile>>"CfgAmmo">>(_this # 4)>>"simulation") == "shotMissile"}}) then {
 			__TRACE("7 is null")
-			if (getText (configFile>>"CfgAmmo">>(_this select 4)>>"simulation") == "laserDesignate") exitWith {
-				__TRACE("ammo is laserDesignate")
-			};
-			if (getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this select 4)>>"weaponLockSystem") > 0}) then {
+			if (getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"weaponLockSystem") > 0}) then {
 				__TRACE("has manual control")
-				//private _w = player getVariable ("d_" + (_this # 5));
 				private _w = player getVariable "d_rcoold";
 				__TRACE_1("1","_w")
 				if (!isNil "_w") then {
@@ -90,12 +85,10 @@ if ((_this # 1) == "Put" && {(d_player_in_air && {animationState player == "halo
 						systemChat _str;
 					};
 				} else {
-					_w = time + d_launcher_cooldown;
-					__TRACE_1("2","_w")
-					//player setVariable ["d_" + (_this # 5), _w];
-					player setVariable ["d_rcoold", _w];
+					player setVariable ["d_rcoold", time + d_launcher_cooldown];
 				};
 			};
+			__TRACE("Running through")
 		};
 	};
 };

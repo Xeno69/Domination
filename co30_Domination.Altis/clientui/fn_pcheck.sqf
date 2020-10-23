@@ -29,9 +29,14 @@ if (!d_with_ranked) then {
 	private _secweap = secondaryWeapon player;
 	__TRACE_2("","_psw","_secweap")
 	if (_secweap != "" && {_psw != _secweap}) then {
+		__TRACE("in sec")
+		private _origsw = _secweap;
+		
+		_secweap = _secweap call d_fnc_correctwname;
+		
 		if ((bis_fnc_arsenal_data # 1) find _secweap == -1) then {
 			__TRACE("Sec weap not found")
-			player removeWeapon _secweap;
+			player removeWeapon _origsw;
 			player addWeapon _psw;
 			
 			private _secits = player getVariable "d_psecweapitems";
@@ -47,14 +52,14 @@ if (!d_with_ranked) then {
 	private _phw = player getVariable "d_phandgweap";
 	private _hgweap = handgunWeapon player;
 	__TRACE_2("","_phw","_hgweap")
-	if (_hgweap != "" && {_phw != _secweap}) then {
-		private _origsecw = _secweap;
+	if (_hgweap != "" && {_phw != _hgweap}) then {
+		private _orighgw = _hgweap;
 		
-		_secweap = _secweap call d_fnc_correctwname;
+		_hgweap = _hgweap call d_fnc_correctwname;
 		
 		if ((bis_fnc_arsenal_data # 2) find _hgweap == -1) then {
 			__TRACE("Handgun weap not found")
-			player removeWeapon _origsecw;
+			player removeWeapon _orighgw;
 			player addWeapon _phw;
 			
 			private _secits = player getVariable "d_phandgweapitems";

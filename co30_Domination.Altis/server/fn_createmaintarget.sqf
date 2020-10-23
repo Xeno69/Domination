@@ -205,6 +205,16 @@ private _barcompo = [
 	["Land_PillboxWall_01_6m_round_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
 ];
 
+d_buildings_main_ar = nearestObjects [_trg_center, ["House", "Building"], d_cur_target_radius + 50, true];
+{
+	if (getText(configOf _x>>"destrType") == "DestructDefault") then {
+		_x addEventhandler ["handleDamage", {_this call d_fnc_hanbuilddam}];
+	} else {
+		d_buildings_main_ar set [_forEachIndex, -1];
+	};
+} forEach d_buildings_main_ar;
+d_buildings_main_ar = d_buildings_main_ar - [-1];
+
 for "_i" from 1 to d_num_barracks_objs do {
 	private _idx = floor random (count _parray);
 	_poss = _parray select _idx;

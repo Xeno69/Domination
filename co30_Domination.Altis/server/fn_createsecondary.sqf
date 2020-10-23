@@ -229,5 +229,9 @@ if (d_with_minefield == 0 && {random 100 > 70}) then {
 	[_mtradius, _trg_center] call d_fnc_minefield;
 };
 
+sleep 1;
+
+[_trg_center, _mtradius] spawn d_fnc_seapatrol;
+
 sleep 5.213;
 d_main_target_ready = true;
