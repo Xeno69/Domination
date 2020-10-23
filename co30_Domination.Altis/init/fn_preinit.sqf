@@ -556,11 +556,11 @@ if (isServer) then {
 	d_hc_counter = 0;
 	d_virtual_spectators = [];
 	d_retaken_farpspos = [];
-	
+
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
 	d_database_found = false;
-	
+
 #ifdef __INTERCEPTDB__
 	if (d_interceptdb) then {
 		call dsi_fnc_createdbconn;
@@ -591,10 +591,10 @@ if (isServer) then {
 	};
 #endif
 	publicVariable "d_database_found";
-	
+
 	if (d_database_found) then {
 		d_use_sql_settings = false;
-		
+
 		private _dbresult = [];
 #ifndef __INTERCEPTDB__
 		_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
@@ -636,11 +636,11 @@ if (isServer) then {
 				};
 			} forEach _dbresult;
 		};
-		
+
 		if (!isMultiplayer && {isNil "paramsArray"}) then {
 			paramsArray = [];
 		};
-		
+
 		if (d_use_sql_settings) then {
 #ifndef __INTERCEPTDB__
 			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
@@ -668,7 +668,7 @@ if (isServer) then {
 						private _cname = configName (_conf select _i);
 						private _fidx = _dbresult findIf {_x # 0 == _cname};
 						if (_fidx != -1) then {
-							paramsArray set [_i, _dbresult # _fidx # 1];							
+							paramsArray set [_i, _dbresult # _fidx # 1];
 						};
 					};
 					publicVariable "paramsArray";
@@ -691,12 +691,12 @@ if (isServer) then {
 		};
 	};
 	call compile preprocessFileLineNumbers "init\initcommon.sqf";
-	
+
 	d_house_objects = [];
 	d_house_objects2 = [];
-	
+
 	calculatePlayerVisibilityByFriendly false;
-	
+
 	if (d_weather == 0) then {
 		0 setOvercast (random 1);
 		if (d_enable_fog == 0) then {
@@ -732,13 +732,13 @@ if (isServer) then {
 			};
 		};
 	};
-	
+
 	if (d_timemultiplier > 1) then {
 		setTimeMultiplier d_timemultiplier;
 	} else {
 		0 spawn d_fnc_nightmultiplier;
 	};
-	
+
 	d_fifo_ar = [];
 
 	// _E = Opfor
@@ -878,7 +878,7 @@ if (!d_gmcwgwinter) then {
 #include "d_specops_O_uns.sqf"
 #endif
 	];
-	
+
 #ifdef __GMCWG__
 	{
 		if (count _x > 5) then {
@@ -896,7 +896,7 @@ if (!d_gmcwgwinter) then {
 		};
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup]
 	};
-	
+
 	if (d_tanoa || {d_livonia}) then {
 		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup];
 		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup];
@@ -906,7 +906,7 @@ if (!d_gmcwgwinter) then {
 		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup];
 		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 	};
-	
+
 #ifdef __RHS__
 	d_specops_E = [
 		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_2mg"] call d_fnc_GetConfigGroup,
@@ -932,7 +932,7 @@ if (!d_gmcwgwinter) then {
 	d_sabotage_E = [[["gm_gc_army_demolition_mpiaks74n_80_str"], ["gm_gc_army_demolition_mpiaks74n_80_win"]] select d_gmcwgwinter];
 	d_sabotage_W = [["gm_ge_army_demolition_g3a4_80_ols"]];
 	d_sabotage_G = [["CUP_I_GUE_Saboteur"]];
-	
+
 	d_sniper_E = [[["gm_gc_army_squadleader_mpiak74n_80_str", "gm_gc_army_rifleman_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win", "gm_gc_army_rifleman_mpiak74n_80_win"]] select d_gmcwgwinter];
 	d_sniper_W = [[["gm_ge_army_squadleader_g3a3_p2a1_80_ols", "gm_ge_army_rifleman_g3a3_80_ols"], ["gm_ge_army_squadleader_g3a3_p2a1_parka_80_win", "gm_ge_army_rifleman_g3a3_parka_80_win"]] select d_gmcwgwinter];
 #endif
@@ -1038,7 +1038,7 @@ if (!d_gmcwgwinter) then {
 		#include "d_veh_a_O_RHS.sqf"
 	];
 #endif
-		
+
 	d_veh_a_G = [
 		#include "d_veh_a_G_default.sqf"
 	];
@@ -1102,7 +1102,7 @@ if (!d_gmcwgwinter) then {
 	if (isNil "d_number_attack_uavs") then {
 		d_number_attack_uavs = 1;
 	};
-	
+
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
 #ifdef __OWN_SIDE_INDEPENDENT__
@@ -1157,7 +1157,7 @@ if (!d_gmcwgwinter) then {
 		publicVariable "d_drop_aircraft_avail";
 	};
 
-	d_cas_plane = 
+	d_cas_plane =
 #ifdef __OWN_SIDE_INDEPENDENT__
 		"I_Plane_Fighter_03_CAS_F";
 #endif
@@ -1245,8 +1245,62 @@ if (!d_gmcwgwinter) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 
-	// TODO
-	d_sm_speedboat = "O_Boat_Armed_01_hmg_F";
+	d_sm_speedboat = switch (d_enemy_side_short) do {
+		case "E": {
+			call {
+				if (d_cup) exitWith {
+					"CUP_O_ZUBR_RU"
+				};
+				if (d_gmcwg) exitWith {
+					""
+				};
+				if (d_rhs) exitWith {
+					""
+				};
+				if (d_unsung) exitWith {
+					"UNS_ASSAULT_BOAT_VC"
+				};
+				if (d_ifa3lite) exitWith {
+					""
+				};
+				"O_Boat_Armed_01_hmg_F"
+			};
+		};
+		case "W": {
+			call {
+				if (d_cup) exitWith {
+					"CUP_B_RHIB_USMC"
+				};
+				if (d_ifa3lite) exitWith {
+					""
+				};
+				if (d_rhs) exitWith {
+					""
+				};
+				if (d_gmcwg) exitWith {
+					""
+				};
+				if (d_csla) exitWith {
+					""
+				};
+				"B_Boat_Armed_01_minigun_F"
+			};
+		};
+		case "G": {
+			call {
+				if (d_cup) exitWith {
+					"CUP_I_RHIB_RACS"
+				};
+				if (d_ifa3lite) exitWith {
+					""
+				};
+				if (d_rhs) exitWith {
+					""
+				};
+				"I_Boat_Armed_01_minigun_F"
+			};
+		};
+	};
 
 #ifdef __ALTIS__
 #include "d_compositions_default.sqf"
@@ -1294,7 +1348,7 @@ if (!d_gmcwgwinter) then {
 	d_tank_count_for_target_clear = 1;
 	// max cars for main target clear
 	d_car_count_for_target_clear = 1;
-		
+
 	// time (in sec) between attack planes and choppers over main target will respawn once they were shot down (a random value between 0 and 240 will be added)
 	if (isNil "d_airai_respawntime") then {
 		d_airai_respawntime = 1200;
@@ -1527,7 +1581,7 @@ d_base_apc_vec =
 		case "E": {"Land_Radar_Small_F"};
 		case "G": {"Land_Radar_Small_F"};
 	};
-	
+
 	d_air_radar2 = switch (d_enemy_side_short) do {
 		case "W": {"Land_MobileRadar_01_radar_F"};
 		case "E": {"Land_MobileRadar_01_radar_F"};
@@ -1602,7 +1656,7 @@ d_base_apc_vec =
 			call {
 				if (d_cup) exitWith {
 					["CUP_B_USMC_DYN_MQ9"]
-				};			
+				};
 				if (d_ifa3lite) exitWith {
 					[]
 				};
@@ -1622,7 +1676,7 @@ d_base_apc_vec =
 			call {
 				if (d_cup) exitWith {
 					[]
-				};			
+				};
 				if (d_ifa3lite) exitWith {
 					[]
 				};
@@ -1633,7 +1687,7 @@ d_base_apc_vec =
 			};
 		};
 	};
-	
+
 	// type of enemy chopper that will fly over the main target
 	d_airai_attack_chopper = switch (d_enemy_side_short) do {
 		case "E": {
@@ -1885,7 +1939,7 @@ d_base_apc_vec =
 #ifdef __UNSUNG__
 		"Land_BagBunker_01_large_green_F";
 #endif*/
-	
+
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
 	d_vehicle_building =
@@ -1982,31 +2036,31 @@ d_b_small_static_high =
 		// can also be put into the dom_settings in Domination sql DB
 		d_ai_groups_respawn_time = [250, 150, 320, 170];
 	};
-	
+
 	// set to true to disable ambient battlefield sounds at main targets
 	if (isNil "d_noambient_bf_sounds") then {
 		d_noambient_bf_sounds = false;
 	};
-	
+
 	d_dbox_idx = 0;
-	
+
 	//civ vehicle definitions for each environment
 	_civVehiclesWeightedCityWealthHigh = [
 		"C_Offroad_01_F", 0.15,
 		"C_Hatchback_01_F", 0.30,
-		"C_Truck_02_covered_F", 0.05, 
+		"C_Truck_02_covered_F", 0.05,
 		"C_Van_01_box_F", 0.05,
 		"C_Van_02_transport_F", 0.05,
 		"C_Hatchback_01_sport_F", 0.10,
 		"C_Offroad_02_unarmed_F", 0.15,
 		"C_SUV_01_F", 0.15
 	];
-	
+
 	_civVehiclesWeightedCityWealthLow = [
 		"C_Offroad_01_F", 0.10,
 		"C_Hatchback_01_F", 0.10,
 		"C_Truck_02_covered_F", 0.03,
-		"C_Truck_02_transport_F", 0.03, 
+		"C_Truck_02_transport_F", 0.03,
 		"C_Van_01_box_F", 0.05,
 		"C_Van_02_transport_F", 0.05,
 		"C_Hatchback_01_sport_F", 0.05,
@@ -2014,17 +2068,17 @@ d_b_small_static_high =
 		"C_Hatchback_01_F", 0.35,
 		"C_SUV_01_F", 0.16
 	];
-	
+
 	_civVehiclesWeightedRural = [
 		"C_Offroad_01_F", 0.30,
 		"C_Truck_02_covered_F", 0.10,
-		"C_Truck_02_transport_F", 0.10, 
+		"C_Truck_02_transport_F", 0.10,
 		"C_Van_01_box_F", 0.05,
 		"C_Offroad_02_unarmed_F", 0.25,
 		"C_SUV_01_F", 0.15,
 		"C_Tractor_01_F", 0.10
 	];
-	
+
 	_civVehiclesWeightedRuralCup = [
 		"CUP_C_Golf4_random_Civ", 0.25,
 		"CUP_C_Datsun", 0.25,
@@ -2032,36 +2086,36 @@ d_b_small_static_high =
 		"CUP_C_V3S_Covered_TKC", 0.20,
 		"C_Tractor_01_F", 0.05
 	];
-	
+
 	_civVehiclesWeightedRuralCupRemote = [
 		"CUP_C_Datsun", 0.35,
 		"CUP_C_Datsun_4seat", 0.35,
 		"CUP_C_V3S_Covered_TKC", 0.15,
 		"C_Tractor_01_F", 0.15
 	];
-	
+
 	_civVehiclesWeightedRuralLivonia = [
 		"C_Offroad_01_F", 0.30,
-		"C_Truck_02_transport_F", 0.15, 
+		"C_Truck_02_transport_F", 0.15,
 		"C_Offroad_02_unarmed_F", 0.30,
 		"C_SUV_01_F", 0.15,
 		"C_Tractor_01_F", 0.10
 	];
-	
+
 	_civVehiclesWeightedRuralGmcwg = [
 		"C_Truck_02_transport_F", 0.10,
 		"gm_gc_civ_p601", 0.40,
 		"gm_ge_civ_typ1200", 0.40,
 		"C_Tractor_01_F", 0.10
 	];
-	
+
 	_civVehiclesWeightedRuraluns = [
 		"C_Truck_02_transport_F", 0.10,
 		"uns_willys_2", 0.40,
 		"uns_willys_2", 0.40,
 		"C_Tractor_01_F", 0.10
 	];
-	
+
 	d_civ_vehicles_weighted =
 #ifdef __ALTIS__
 		_civVehiclesWeightedCityWealthHigh;
@@ -2121,7 +2175,7 @@ d_b_small_static_high =
 		"AsianHead_A3_02",
 		"AsianHead_A3_03"
 	];
-	
+
 	private _greekFaces = [
 		"GreekHead_A3_01",
 		"GreekHead_A3_02",
@@ -2136,7 +2190,7 @@ d_b_small_static_high =
 		//GreekHead_A3_10_l //lush
 		//GreekHead_A3_10_sa //unknown?
 	];
-	
+
 	private _persianFaces = [
 		"PersianHead_A3_01",
 		"PersianHead_A3_02",
@@ -2145,7 +2199,7 @@ d_b_small_static_high =
 		//PersianHead_A3_04_l
 		//PersianHead_A3_04_sa
 	];
-	
+
 	private _whiteFaces = [
 		"WhiteHead_01",
 		"WhiteHead_02",
@@ -2172,9 +2226,9 @@ d_b_small_static_high =
 		//WhiteHead_22_l
 		//WhiteHead_22_sa
 	];
-	
+
 	private _mixedFaces = _greekFaces + _persianFaces + _whiteFaces;
-	
+
 	//todo - do these work?
 	//WomanHead_A3
 	//MaskHead_A3
@@ -2244,7 +2298,7 @@ if (hasInterface) then {
 		d_uid_reserved_slots = [];
 		d_uids_for_reserved_slots = [];
 	};
-	
+
 	// this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
 	// IMPORTANT !!!! for ranked version !!!!
 	// if there is more than one vehicle defined in the array the vehicle will be selected by player rank
@@ -2294,7 +2348,7 @@ if (hasInterface) then {
 	if (d_weather == 1) then {
 		0 setOvercast 0;
 	};
-	
+
 #ifdef __OWN_SIDE_BLUFOR__
 	d_UAV_Small = "B_UAV_01_F";
 	d_UAV_Terminal = "B_UavTerminal";
@@ -2307,12 +2361,12 @@ if (hasInterface) then {
 	d_UAV_Small = "I_UAV_01_F";
 	d_UAV_Terminal = "I_UavTerminal";
 #endif
-	
+
 	d_still_in_intro = true;
 
 	d_cur_sm_txt = "";
 	d_current_mission_resolved_text = "";
-	
+
 	d_allplayers = [];
 	d_allplayermapd = [];
 	d_allplayerai = [];
@@ -2345,7 +2399,7 @@ if (hasInterface) then {
 #ifdef __TT__
 	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F"];
 #endif
-	
+
 	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLowerANSI _x};
 
 	d_weapon_respawn = true;
@@ -2364,7 +2418,7 @@ if (hasInterface) then {
 			500 // General
 		];
 	};
-	
+
 	if (isNil "d_points_needed_db") then {
 		d_points_needed_db = [
 			500, // Corporal
@@ -2388,7 +2442,7 @@ if (hasInterface) then {
 			8000 // General
 		];
 	};
-	
+
 	if (isNil "d_points_needed_db") then {
 		d_points_needed_db = [
 			500, // Corporal
@@ -2420,7 +2474,7 @@ if (hasInterface) then {
 #endif
 
 	d_chophud_on = true;
-	
+
 	d_drop_max_dist = 500;
 
 	// if the array is empty, anybody with a pilot uniform and headgear can fly (if the latter is enabled)
@@ -2429,7 +2483,7 @@ if (hasInterface) then {
 	// for example: ["pilot_1","pilot_2"];, case sensitiv
 	// PLEASE DO NOT CHANGE THIS FOR THE TT VERSION, IT SHOULD BE AN EMPTY ARRAY!!!!
 	d_only_pilots_can_fly = [];
-	
+
 	// array now so players can select different air taxi types
 	d_taxi_aircrafts =
 #ifdef __OWN_SIDE_INDEPENDENT__
@@ -2473,7 +2527,7 @@ if (hasInterface) then {
 		// can be changed in the database dom_settings table too
 		d_launcher_cooldown = d_launcher_cooldownp;
 	};
-	
+
 	// internal variables
 	d_flag_vec = objNull;
 	d_rscspect_on = false;
@@ -2496,11 +2550,11 @@ if (hasInterface) then {
 	d_mhqvec_create_cooldown_time = -1;
 	d_scoreadd_qeue = [];
 	d_scoreadd_script = scriptNull;
-	
+
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];
-	
+
 	d_last_beam_target = "";
-	
+
 	d_misc_sc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 
 	// If you want to add additional non MHQ respawn points like additional bases for example
@@ -2514,27 +2568,27 @@ if (hasInterface) then {
 	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor]
 	//];
 	d_additional_respawn_points = [];
-	
+
 #ifdef __CARRIER__
 	d_additional_respawn_points pushBack ["d_air_base", "d_flag_airfield", localize "STR_DOM_MISSIONSTRING_1760", blufor, true, getPosASL D_FLAG_BASE];
 #endif
 
 	d_add_resp_points_uni = [];
 	d_add_resp_points_pos = [];
-	
+
 	d_earplugs_fitted = false;
 #ifndef __TT__
 	d_maintarget_auto_vd = true;
 #else
 	d_maintarget_auto_vd = false;
 #endif
-	
+
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
-	
+
 	d_mt_marker_triggers = [];
-	
+
 	// pre build in are:
 	// "CUP_"
 	// "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"
@@ -2543,18 +2597,18 @@ if (hasInterface) then {
 	// "gm_"
 	// if you use CUP then only CUP stuff will be shown in Virtual Arsenal
 	d_arsenal_mod_prestrings = [];
-	
+
 #ifndef __UNSUNG__
 	if (isClass(configFile>>"CfgPatches">>"uns_main")) then {
 		// now Virtual Arsenal will only show Unsung stuff; of course if you add other modes it will show them too
 		d_arsenal_mod_prestrings pushBackUnique "uns_";
 	};
 #endif
-	
+
 	// same as above but will remove specific mods
 	// for example: "gm_" will remove Global Mobilization
 	d_arsenal_mod_remove_strings = [];
-	
+
 	// can either be a class name (string) or code
 	// if code then _this is the classname
 	d_remove_from_arsenal = [
@@ -2586,7 +2640,7 @@ if (hasInterface) then {
 		[], // ITEMBIPOD
 		[] // CARGOMAGALL
 	];
-	
+
 #ifdef __CUP__
 	(d_remove_from_arsenal # 4) append [{_this select [0, 15] == "CUP_V_B_LHDVest"}];
 #endif
@@ -2600,7 +2654,7 @@ if (hasInterface) then {
 	if (d_no_mortar_ar == 1) then {
 		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base" || {_this isKindOf "B_Mortar_01_support_F"}}];
 	};
-	
+
 	d_color_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 
 	{
@@ -2616,14 +2670,14 @@ if (hasInterface) then {
 		};
 		d_color_store setVariable [configName _x, _col];
 	} forEach ("true" configClasses (configFile >> "CfgMarkerColors"));
-	
-	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {	
+
+	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {
 		d_preloaddone = true;
 		diag_log [diag_frameno, diag_ticktime, time, "Preload finished"];
 		removeMissionEventHandler ["PreloadFinished", d_prl_fin_id];
 		d_prl_fin_id = nil;
 	}];
-	
+
 	addMissionEventhandler ["EachFrame", {
 		if (!isNull player) then {
 			if (isMultiplayer && {isNil "xr_phd_invulnerable"}) then {

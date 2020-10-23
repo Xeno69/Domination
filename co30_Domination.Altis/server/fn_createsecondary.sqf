@@ -231,7 +231,9 @@ if (d_with_minefield == 0 && {random 100 > 70}) then {
 
 sleep 1;
 
-[_trg_center, _mtradius] spawn d_fnc_seapatrol;
+if (!isNil "d_sm_speedboat" && {d_sm_speedboat != ""}) then {
+	[_trg_center, _mtradius] spawn d_fnc_seapatrol;
+};
 
 sleep 5.213;
 d_main_target_ready = true;
