@@ -18,13 +18,18 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
+private _minimumDistanceFromMaintarget = 500;
+private _maximumDistanceFromMaintarget = 800;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
-if (count _towns > 1) then {
-	private _loc = _towns # 1;
-	_townNearbyPos = getPos _loc;
-	_townNearbyName = text _loc;
-};
+
+// find a town outside the minimum distance
+{
+	if (_target_center distance2D getPos _x > _minimumDistanceFromMaintarget) exitWith {
+        _townNearbyPos = getPos _x;
+        _townNearbyName = text _x;
+	};
+} forEach _towns;
 
 if (_townNearbyPos isEqualTo []) exitWith {
 	diag_log ["unable to find a location to spawn infantry for guerrilla mission event", d_cur_tgt_name];
@@ -48,16 +53,18 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-// find a midpoint between chosen location and maintarget, too far for infantry to walk from location to location
-private _midpoint_pos = [
-	((_target_center # 0) + (_townNearbyPos # 0))/2,
-	((_target_center # 1) + (_townNearbyPos # 1))/2
-];
+private _spawn_pos = _townNearbyPos;
 
-private _spawn_pos = _midpoint_pos;
-if ((_midpoint_pos distance2D _target_center) < 375) then {
-	// midpoint is too close to maintarget, instead use location position
-	_spawn_pos = _townNearbyPos;
+if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) then {
+	// try to find a midpoint between chosen location and maintarget, too far for infantry to walk from location to location
+	private _midpoint_pos = [
+		((_target_center # 0) + (_townNearbyPos # 0))/2,
+		((_target_center # 1) + (_townNearbyPos # 1))/2
+	];
+	if ((_midpoint_pos distance2D _target_center) > _minimumDistanceFromMaintarget) then {
+		// if midpoint is not too close then use it instead of _townNearbyPos
+		_spawn_pos = _midpoint_pos;
+	};
 };
 
 private _newgroups = [];
