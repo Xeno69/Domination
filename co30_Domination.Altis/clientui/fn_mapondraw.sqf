@@ -196,7 +196,7 @@ private _marker_vecs = d_marker_vecs;
 				if (_x getVariable ["d_MHQ_Deployed", false]) exitWith {
 					_ee = _x getVariable "d_mvdep";
 					if (isNil "_ee") then {
-						format [_d_mark_loc261, _x getVariable "d_ma_text"];
+						_ee = format [_d_mark_loc261, _x getVariable "d_ma_text"];
 						_x setVariable ["d_mvdep", _ee];
 					};
 					_ee

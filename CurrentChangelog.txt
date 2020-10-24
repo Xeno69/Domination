@@ -1,6 +1,3 @@
-4.36
+4.37
 
-- Added: Boat patrols when sea or rivers are near a main target, by Lelik
-- Fixed: Secondary weapons (launchers) got removed in arsenal/inventory even when they were valid weapons (stupid copy and paste error)
-- Fixed: min/max spawn radius for guerrilla infantry spawn to avoid creating guerrillas too close or too far from maintarget
-- Fixed: Side mission objects like radio towers were spawning in the air (at least in the UNSUNG version)
+- Fixed: mapondraw script error introduced in 4.36
