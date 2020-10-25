@@ -1,4 +1,5 @@
 4.37
 
 - Added: In params "With AI recruitment" you can now select "Yes, but AI may not enter static weapons" (description.ext d_with_ai value 2)
+- Changed: CfgRemoteExec functions and commands mode is set to 1 (only whitelisted functions/commands are allowed for remote execution) in description.ext now; please note that might block scripting commands and functions used in addons/mods
 - Optimized: Only broadcast the last global marker command over the network and not all

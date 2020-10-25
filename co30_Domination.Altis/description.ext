@@ -25,12 +25,6 @@ saving = 0;
 loadScreen = "pics\domls.paa";
 overviewText = "$STR_DOM_MISSIONSTRING_1828";
 
-// Set to 1 if you use addons, etc, which still uses createVehicleLocal
-// Check also https://community.bistudio.com/wiki/createVehicleLocal
-// and https://community.bistudio.com/wiki/Description.ext#unsafeCVL
-// setting it to 1 allows using createVehicleLocal with all objects on clients which is quite unsafe
-unsafeCVL = 0;
-
 #ifdef __DEBUG__
 enableDebugConsole = 2;
 #endif
@@ -112,7 +106,7 @@ class CfgRemoteExec {
 	// List of script functions allowed to be sent from client via remoteExec
 	class Functions {
 		// State of remoteExec: 0-turned off, 1-turned on, taking whitelist into account, 2-turned on, however, ignoring whitelists (default because of backward compatibility)
-		mode = 2;
+		mode = 1;
 		// Ability to send jip messages: 0-disabled, 1-enabled (default)
 		jip = 0;
 		//your functions here
@@ -228,7 +222,7 @@ class CfgRemoteExec {
 	};
 	// List of script commands allowed to be sent from client via remoteExec
 	class Commands {
-		mode = 2;
+		mode = 1;
 		jip = 0;
 		//your commands here
 		//class YourCommand1 { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
