@@ -130,8 +130,12 @@
 > Default: 0 (Yes, enabled; 1 or No for no vd change)<br/>
 > If disabled players can not change their client viewdistance<br/>
 #### **d_with_ai / With AI recruitment:**
-> Default: 1 (No, disabled; 0 or Yes to enable<br/>
+> Default: 1<br/>
 > When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics.</br>
+> Available options:<br/>
+>   - Enabled (0)<br/>
+>   - Disabled (1)<br/>
+>   - Enabled but block recruited AI from entering static weapons (2)<br/>
 #### **d_with_ai_features / With AI features but no AI recruit:**
 > Default: 1 (No, disabled; 0 or Yes to enable<br/>
 > Same as d_with_ai above, just no AI recruitment<br/>
