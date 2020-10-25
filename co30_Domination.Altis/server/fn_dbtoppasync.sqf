@@ -39,12 +39,13 @@ while {true} do {
 						};
 
 #ifndef __INTERCEPTDB__
-						"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid];
+						"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _uid];
 #else
 						if (d_interceptdb) then {
-							["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _uid]] call dsi_fnc_queryconfigasync;
+							["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _uid]] call dsi_fnc_queryconfigasync;
 						};
 #endif
+						_pa set [14, 0];
 
 						__TRACE("extDB3 called")
 					};
