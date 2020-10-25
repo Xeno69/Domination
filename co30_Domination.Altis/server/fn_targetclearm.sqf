@@ -7,8 +7,9 @@ __TRACE("Start")
 
 d_target_clear = true; publicVariable "d_target_clear";
 
+private _mname = "d_" + d_cur_tgt_name + "_dommtm";
 #ifndef __TT__
-("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
+_mname setMarkerAlpha d_e_marker_color_alpha;
 
 if (d_bonus_vec_type in [2, 3]) then {
 	"" remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
@@ -24,8 +25,8 @@ private _mtcol = if (d_mt_winner == 1) then {
 		"ColorGreen"
 	};
 };
-("d_" + d_cur_tgt_name + "_dommtm") setMarkerColor _mtcol;
-("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
+_mname setMarkerColorLocal _mtcol;
+_mname setMarkerAlpha d_e_marker_color_alpha;
 if (d_bonus_vec_type in [2, 3]) then {
 	["",""] remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 };

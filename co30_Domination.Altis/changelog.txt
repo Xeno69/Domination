@@ -1,3 +1,3 @@
 4.37
 
-- Fixed: mapondraw script error introduced in 4.36
+- Optimized: Only broadcast the last global marker command over the network and not all

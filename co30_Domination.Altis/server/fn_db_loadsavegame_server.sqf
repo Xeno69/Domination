@@ -280,8 +280,7 @@ publicVariable "d_points_array";
 
 	private _tgt_ar = d_target_names # _res;
 	private _mar = format ["d_%1_dommtm", _tgt_ar # 1];
-	[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2]] call d_fnc_CreateMarkerGlobal;
-	_mar setMarkerAlpha d_e_marker_color_alpha;
+	[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2], "", 0, "", "", d_e_marker_color_alpha] call d_fnc_CreateMarkerGlobal;
 } forEach d_resolved_targets;
 
 

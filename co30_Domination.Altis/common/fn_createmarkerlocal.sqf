@@ -31,20 +31,20 @@ if (_m_col != "") then {_ma setMarkerColorLocal _m_col};
 if !(_m_size isEqualTo []) then {_ma setMarkerSizeLocal _m_size};
 private _co = count _this;
 if (_co > 5) then {
-	if (_this select 5 != "") then {
-		_ma setMarkerTextLocal (_this select 5);
+	if (_this # 5 != "") then {
+		_ma setMarkerTextLocal (_this # 5);
 	};
 	if (_co > 6) then {
-		_ma setMarkerDirLocal (_this select 6);
+		_ma setMarkerDirLocal (_this # 6);
 		if (_co > 7) then {
-			if (_this select 7 != "") then {
-				_ma setMarkerTypeLocal (_this select 7);
+			if (_this # 7 != "") then {
+				_ma setMarkerTypeLocal (_this # 7);
 			};
 			if (_co > 8) then {
-				if (_this select 8 != "") then {
-					_ma setMarkerBrushLocal (_this select 8);
+				if (_this # 8 != "") then {
+					_ma setMarkerBrushLocal (_this # 8);
 				};
-				if (_co > 9) then {_ma setMarkerAlphaLocal (_this select 9)};
+				if (_co > 9) then {_ma setMarkerAlphaLocal (_this # 9)};
 			};
 		};
 	};

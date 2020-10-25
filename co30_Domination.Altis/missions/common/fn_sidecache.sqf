@@ -105,9 +105,9 @@ private _curalpha = 0.5;
 
 private _cmfunc = {
 	_cmnpos = _cmnpos getPos [(_cmnpos distance2D _cache) / 2, _cmnpos getDir _cache];
-	_cachemarker setMarkerAlpha _curalpha;
+	_cachemarker setMarkerAlphaLocal _curalpha;
 	_curalpha = _curalpha + 0.1;
-	_cachemarker setMarkerPos _cmnpos;
+	_cachemarker setMarkerPosLocal _cmnpos;
 	_cursize = _cursize - 30;
 	_cachemarker setMarkerSize [_cursize, _cursize];
 };

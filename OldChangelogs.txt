@@ -2,6 +2,10 @@ Changelogs
 
 Old...
 
+4.37
+
+- Fixed: mapondraw script error introduced in 4.36
+
 4.36
 
 - Added: Boat patrols when sea or rivers are near a main target, by Lelik
