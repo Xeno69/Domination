@@ -25,6 +25,8 @@ saving = 0;
 loadScreen = "pics\domls.paa";
 overviewText = "$STR_DOM_MISSIONSTRING_1828";
 
+unsafeCVL = 0;
+
 #ifdef __DEBUG__
 enableDebugConsole = 2;
 #endif
