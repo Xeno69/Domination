@@ -152,24 +152,6 @@ if (!d_with_ranked) then {
 #endif
 addToRemainsCollector [_unit];
 
-if (d_ai_alone_in_vehicle == 1) then {
-	_unit addEventhandler ["getInMan", {_this call d_fnc_getinmanai}];
-	/*_unit addEventhandler ["SeatSwitchedMan", {
-		//unit1: Object - Unit switching seat.
-		//unit2: Object - Unit with which unit1 is switching seat.
-		//vehicle: Object - Vehicle where switching seats is taking place.
-		params ["_unit1", "_unit2", "_vec"];
-		if ((assignedVehicleRole _unit1) # 0 == "driver") then {
-			if ((crew _vec) findIf {_x call d_fnc_isplayer} == -1}) then {
-				private _old_assigned = [];
-				if (!isNull _unit2) then {
-					_old_assigned = assignedVehicleRole _unit1;
-					moveOut _unit2;
-				};
-			};
-		};
-
-	}];*/
-};
+_unit addEventhandler ["getInMan", {_this call d_fnc_getinmanai}];
 
 player setVariable ["d_recdbusy", false];

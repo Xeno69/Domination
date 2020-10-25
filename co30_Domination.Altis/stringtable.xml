@@ -13598,6 +13598,18 @@
 <Chinese>Your time:</Chinese>
 <French>Your time:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2038">
+<English>Yes, but AI may not enter static weapons</English>
+<Spanish>Yes, but AI may not enter static weapons</Spanish>
+<Portuguese>Yes, but AI may not enter static weapons</Portuguese>
+<Korean>Yes, but AI may not enter static weapons</Korean>
+<Japanese>Yes, but AI may not enter static weapons</Japanese>
+<Original>Yes, but AI may not enter static weapons</Original>
+<Russian>Yes, but AI may not enter static weapons</Russian>
+<Chinesesimp>Yes, but AI may not enter static weapons</Chinesesimp>
+<Chinese>Yes, but AI may not enter static weapons</Chinese>
+<French>Yes, but AI may not enter static weapons</French>
+</Key>
 </Container>
 </Package>
 </Project>

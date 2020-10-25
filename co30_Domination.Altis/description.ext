@@ -703,9 +703,9 @@ default = 7;
 
 	class d_with_ai {
 		title = "$STR_DOM_MISSIONSTRING_1023";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2038"};
 	};
 
 	class d_with_ai_features {

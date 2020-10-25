@@ -1,3 +1,4 @@
 4.37
 
+- Added: In params "With AI recruitment" you can now select "Yes, but AI may not enter static weapons" (description.ext d_with_ai value 2) 
 - Optimized: Only broadcast the last global marker command over the network and not all
