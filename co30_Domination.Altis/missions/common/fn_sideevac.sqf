@@ -17,9 +17,6 @@ d_x_sm_vec_rem_ar pushBack _wreck;
 sleep 2;
 
 private _owngroup = [d_side_player] call d_fnc_creategroup;
-if (d_with_ai) then {
-	_owngroup setVariable ["d_do_not_delete", true];
-};
 __TRACE_1("","_owngroup")
 private _nposss = _poss findEmptyPosition [20, 100, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};

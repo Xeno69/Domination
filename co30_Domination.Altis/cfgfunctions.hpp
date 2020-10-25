@@ -139,7 +139,6 @@ class cfgFunctions {
 			addc(engtrig1fnc);
 			addc(checkammo);
 			addc(allplayers);
-			addc(hchelper);
 			addc(getoutmaneh);
 			addc(getinmaneh);
 			addc(addpylon_action);
@@ -153,7 +152,6 @@ class cfgFunctions {
 			addc(earplugs);
 			addc(jumpover);
 			addc(draw3d_ace);
-			addc(cmchanged);
 			addc(toggle3dm);
 			addc(keydown_dyng);
 			addc(keyup_dyng);

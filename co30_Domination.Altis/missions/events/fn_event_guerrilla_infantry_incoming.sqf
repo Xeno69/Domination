@@ -88,9 +88,6 @@ private _guerrillaBaseSkill = 0.35;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
-	if (d_with_ai) then {
-		_newgroup setVariable ["d_do_not_delete", true];
-	};
 } forEach _guerrillaForce;
 
 sleep 3.14;

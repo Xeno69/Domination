@@ -1078,20 +1078,11 @@ d_last_placed_zeus_obj = objNull;
 			if (!isGroupDeletedWhenEmpty _grp) then {
 				_grp deleteGroupWhenEmpty true;
 			};
-			if (d_with_ai && {side _grp in d_own_sides_o && {isNil {_grp getVariable "d_do_not_delete"}}}) then {
-				[_grp, ["d_do_not_delete", true]] remoteExecCall ["setVariable", 2];
-				_grp setVariable ["d_do_not_delete", true];
-			};
 		};
 #endif
 		_this select 1
 	}];
 } forEach allCurators;
-
-if (d_with_ai) then {
-	d_hchelperhandle = scriptNull;
-	addMissionEventHandler ["CommandModeChanged", {_this call d_fnc_cmchanged}];
-};
 
 #ifndef __IFA3LITE__
 0 spawn d_fnc_uav_check;

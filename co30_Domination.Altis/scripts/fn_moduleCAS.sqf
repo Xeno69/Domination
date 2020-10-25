@@ -170,9 +170,6 @@ if (d_with_dynsim == 0) then {
 	_plane setVariable ["d_nodyn", true];
 };
 _plane move ([_pos,_dis,_dir] call bis_fnc_relpos);
-if (d_with_ai) then {
-	_group setVariable ["d_do_not_delete", true];
-};
 _plane disableAi "move";
 _plane disableAi "target";
 _plane disableAi "autotarget";

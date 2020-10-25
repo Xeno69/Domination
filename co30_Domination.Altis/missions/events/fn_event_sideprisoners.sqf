@@ -38,9 +38,6 @@ private _distance_to_rescue = 3; //in meters
 
 private _allActors = [];
 
-if (d_with_ai) then {
-	_prisonerGroup setVariable ["d_do_not_delete", true];
-};
 __TRACE_1("","_prisonerGroup")
 private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];

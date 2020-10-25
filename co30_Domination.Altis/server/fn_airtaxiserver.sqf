@@ -35,9 +35,6 @@ private _dstart_pos = call d_fnc_GetRanPointOuterAir;
 __TRACE_2("","_sidep","_dstart_pos")
 
 private _grp = [_sidep] call d_fnc_creategroup;
-if (d_with_ai) then {
-	_grp setVariable ["d_do_not_delete", true];
-};
 private _spos = [_dstart_pos # 0, _dstart_pos # 1, 300];
 private _veca = [_spos, _spos getDir _playerpos, _ttype, _grp, false, true] call d_fnc_spawnVehicle;
 _grp deleteGroupWhenEmpty true;

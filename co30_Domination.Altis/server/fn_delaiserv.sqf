@@ -29,7 +29,7 @@ while {true} do {
 #ifndef __DEBUG__
 		sleep 2;
 #endif
-	} forEach (allGroups select {side _x in d_own_sides_o && {isNil {_x getVariable "d_do_not_delete"}}});
+	} forEach (allGroups select {side _x in d_own_sides_o && {!isNil {_x getVariable "d_pl_gr"} || {!isNil {_x getVariable "bis_dg_ins"}}}});
 	if !(_remar isEqualTo []) then {
 		{
 			_x remoteExec ["deleteGroup", groupOwner _x];

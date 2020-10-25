@@ -35,9 +35,6 @@ d_kb_logic1 kbTell [
 ];
 
 private _rabbitgroup = [independent] call d_fnc_creategroup;
-if (d_with_ai) then {
-	_rabbitgroup setVariable ["d_do_not_delete", true];
-};
 //private _rabbit = _rabbitgroup createUnit ["Rabbit_F", _target_center, [], 0, "NONE"];
 private _rabbit = createAgent ["Rabbit_F", _target_center, [], 5, "NONE"];
 [_rabbit, 30] call d_fnc_nodamoffdyn;
@@ -49,9 +46,6 @@ _rabbitgroup setBehaviour "COMBAT";
 
 if (d_with_dynsim == 0) then {
 	[_rabbitgroup, 0] spawn d_fnc_enabledynsim;
-};
-if (d_with_ai) then {
-	_rabbitgroup setVariable ["d_do_not_delete", true];
 };
 
 sleep 3.14;

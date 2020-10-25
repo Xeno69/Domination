@@ -14,9 +14,6 @@ _killed removeAllEventHandlers "handleDamage";
 deleteVehicle _killed;
 if (isNull _kgrp) then {
 	_kgrp = [_side] call d_fnc_creategroup;
-	if (d_with_ai) then {
-		_kgrp setVariable ["d_do_not_delete", true];
-	};
 };
 private _pkilled = getPos _killed;
 private _unit = _kgrp createUnit [typeOf _killed, _pkilled, [], 0, "NONE"];

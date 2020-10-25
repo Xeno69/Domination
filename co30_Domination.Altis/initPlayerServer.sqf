@@ -27,9 +27,6 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 	diag_log ["_this", _this];
 	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
 	diag_log "This may break scripts!!!!";
-	//if (!isNull _pl) then {
-	//	remoteExecCall ["d_fnc_remplnounit", _pl];
-	//};
 };
 
 if (_pl isKindOf "VirtualSpectator_F") exitWith {
@@ -190,3 +187,5 @@ diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerServer.sqf processed
 if (d_MissionType != 2) then {
 	_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
 };
+
+(group _pl) setVariable ["d_pl_gr", true];

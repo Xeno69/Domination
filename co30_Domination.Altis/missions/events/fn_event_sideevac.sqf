@@ -45,9 +45,6 @@ private _marker = ["d_mt_event_marker_sideevac", _poss, "ICON","ColorBlack", [1,
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvac",d_kbtel_chan];
 
 private _owngroup1 = [d_side_player] call d_fnc_creategroup;
-if (d_with_ai) then {
-	_owngroup1 setVariable ["d_do_not_delete", true];
-};
 __TRACE_1("","_owngroup1")
 private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
@@ -73,9 +70,6 @@ _pilot1 addEventHandler ["Killed", {
 }];
 
 private _owngroup2 = [d_side_player] call d_fnc_creategroup;
-if (d_with_ai) then {
-	_owngroup2 setVariable ["d_do_not_delete", true];
-};
 __TRACE_1("","_owngroup2")
 private _pilot2 = _owngroup2 createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
 [_pilot2] joinSilent _owngroup2;

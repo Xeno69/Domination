@@ -9,9 +9,6 @@ if (isServer) then {
 		__TRACE_1("","_grpen")
 		d_hq_logic_blufor1 = _grpen createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_blufor1] joinSilent _grpen;
-		if (d_with_ai) then {
-			_grpen setVariable ["d_do_not_delete", true];
-		};
 		_grpen deleteGroupWhenEmpty true;
 		d_hq_logic_blufor1 enableSimulationGlobal false;
 		publicVariable "d_hq_logic_blufor1";
@@ -33,9 +30,6 @@ if (isServer) then {
 		__TRACE_1("","_grpru")
 		d_hq_logic_opfor1 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_opfor1] joinSilent _grpru;
-		if (d_with_ai) then {
-			_grpru setVariable ["d_do_not_delete", true];
-		};
 		_grpru deleteGroupWhenEmpty true;
 		d_hq_logic_opfor1 enableSimulationGlobal false;
 		d_hq_logic_opfor1 addEventHandler ["handleDamage", {0}];
@@ -58,9 +52,6 @@ if (isServer) then {
 		__TRACE_1("","_grprn")
 		d_hq_logic_guer1 = _grprn createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_guer1] joinSilent _grprn;
-		if (d_with_ai) then {
-			_grprn setVariable ["d_do_not_delete", true];
-		};
 		_grprn deleteGroupWhenEmpty true;
 		d_hq_logic_guer1 enableSimulationGlobal false;
 		d_hq_logic_guer1 addEventHandler ["handleDamage", {0}];

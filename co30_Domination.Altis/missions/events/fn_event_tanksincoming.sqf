@@ -107,9 +107,6 @@ private _iter = 0;
 	sleep 5;
 	private _newgroup = createVehicleCrew _veh;
 	_newgroups pushBack _newgroup;
-    if (d_with_ai) then {
-    	_newgroup setVariable ["d_do_not_delete", true];
-    };
 } forEach _eventArmorAll;
 
 sleep 3.14;

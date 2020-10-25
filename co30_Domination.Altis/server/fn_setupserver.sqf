@@ -100,10 +100,6 @@ private _av_check_fnc = {
 		_x setCaptive true;
 	} forEach (crew _this);
 	
-	if (d_with_ai) then {
-		(group (gunner _this)) setVariable ["d_do_not_delete", true];
-	};
-	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
 	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
 	_this addEventhandler ["fired", {_this call d_fnc_arifired}];
