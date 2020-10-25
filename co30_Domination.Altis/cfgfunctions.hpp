@@ -189,6 +189,7 @@ class cfgFunctions {
 			addc(addpushaction);
 			addc(storepitems);
 			addc(camouflage);
+			addc(noaan);
 		};
 		class Dom_UI {
 			file = "clientui";
