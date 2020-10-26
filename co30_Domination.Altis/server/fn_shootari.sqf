@@ -17,7 +17,7 @@ private _type = call {
 
 private _num_shells = if (_kind in [0, 1]) then {
 #ifndef __TT__
-	if (d_searchintel # 4 == 1) then {
+	if (d_searchintel # 4 == 1 || { d_tell_arty_cas == 1 }) then {
 #else
 	if (floor random 3 == 0) then {
 #endif

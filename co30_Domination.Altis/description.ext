@@ -977,6 +977,13 @@ default = 7;
 		default = -99999;
 		texts[] = {""};
 	};
+	
+	class d_tell_arty_cas {
+		title = "$STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_disable_airai {
 		title = "$STR_DOM_MISSIONSTRING_1894";
