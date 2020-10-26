@@ -7,23 +7,23 @@ class D_ParajumpDialog {
 	class controlsBackground {
 		COMMON_BACKGROUND_VIGNETTE
 		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1266)
+		__DDIALOG_BGN($STR_DOM_MISSIONSTRING_1266)
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB3(-1)
 		class Map: D_RscMapControl {
 			idc = -1;
 			colorBackground[] = {0.9, 0.9, 0.9, 0.9};
-			x = 0.06;
-			y = 0.14;
-			w = 0.885;
-			h = 0.7;
+			x = "0.0203532 * safezoneW + safezoneX";
+			y = "0.12 * safezoneH + safezoneY";
+			w = "0.96 * safezoneW";
+			h = "0.78 * safezoneH";
 			showCountourInterval = false;
 			onMouseButtonClick = "_pp = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];if ([_pp, _this select 0] call d_fnc_checkpjumppos) then {d_global_jump_pos = _pp;closeDialog 0;};";
 		};
 		class ParaMapText: RscText2 {
-			x = 0.06;
-			y = 0.05;
+			x = "0.0203532 * safezoneW + safezoneX";
+			y = "0.07 * safezoneH + safezoneY";
 			w = 0.7;
 			h = 0.1;
 			sizeEx = 0.035;
@@ -32,16 +32,16 @@ class D_ParajumpDialog {
 			text = "$STR_DOM_MISSIONSTRING_1267";
 		};
 		class ParaMapText2: ParaMapText {
-			y = 0.83;
+			y = "0.89 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1269";
 		};
 		class ParaMapText3: ParaMapText {
-			y = 0.86;
+			y = "0.911 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1271";
 		};
 		class ParaMapText4: ParaMapText2 {
 			idc = 1000;
-			x = 0.5;
+			x = "0.48 * safezoneW + safezoneX";
 			text = "";
 		};
 	};
