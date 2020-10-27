@@ -180,7 +180,7 @@ __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
 // set enemy mode
-d_WithLessArmor spawn d_fnc_setenemymode;
+d_WithLessArmor call d_fnc_setenemymode;
 
 d_groups_respawn_time_add = 0;
 //limit barracks by d_max_bar_cnt, default is very high but may be lower if mission settings are non-default

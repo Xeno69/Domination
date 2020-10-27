@@ -1,6 +1,6 @@
 // by Xeno modified by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_getenemycount.sqf"
+#define THIS_FILE "fn_setenemycount.sqf"
 #include "..\x_setup.sqf"
 
 // set global arrays that determine which enemies are present at the maintarget
@@ -14,10 +14,8 @@ __TRACE_1("","_this")
 
 params ["_enemyMode"];
 
-_modes = [0, 1, 2];
-
 if (_enemyMode == -1) then {
-	d_enemy_mode_current_maintarget = selectRandom _modes;
+	d_enemy_mode_current_maintarget = selectRandom [0, 1, 2];
 	_enemyMode = d_enemy_mode_current_maintarget;
 };
 

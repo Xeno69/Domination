@@ -73,7 +73,7 @@ if (isServer) then {
 #endif
 
 	// set enemy mode
-	d_WithLessArmor spawn d_fnc_setenemymode;
+	d_WithLessArmor call d_fnc_setenemymode;
 
 	// enemy ai skill: [base skill, random value (random 0.3) that gets added to the base skill]
 	d_skill_array = switch (d_EnemySkill) do {

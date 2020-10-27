@@ -242,6 +242,8 @@
 > Available options (in meters): 150, 250, 350 and 450<br/>
 #### **d_enable_civ_vehs_locked / Civilian vehicles - lock vehicles**
 > Default: 1 (Yes, enabled; 0 or No to disable)<br/>
+#### **d_tell_arty_cas / Always announce enemy artillery / CAS**
+> Default: 0 (No, enabled; 1 or Yes to disable it)<br/>
 #### **d_disable_airai / Disable enemy air**
 > Default: 0 (No, air ai enabled; 1 or Yes to disable air ai)<br/>
 #### **d_occ_bldgs / Enemy AI will occupy buildings**
@@ -317,10 +319,10 @@
 > If enabled a player needs pilot headgear and pilot uniform to fly<br/>
 #### **d_WithLessArmor / Armor at main targets:**
 > Default: 0<br/>
-> Available options: 0 (Normal), 1 (Less) and 2 (None)<br/>
+> Available options: 0 (Normal), 1 (Less), 2 (None) and -1 (Random)<br/>
 #### **d_WithLessArmor_side / Armor at side missions:**
 > Default: 0<br/>
-> Available options: 0 (Normal), 1 (Less) and 2 (None)<br/>
+> Available options: 0 (Normal), 1 (Less) 2 (None) and -1 (Random)<br/>
 #### **d_EnemySkill / Skill Enemy:**
 > Default: 2<br/>
 > Available options: 0 (Very Low), 1 (Low), 2 (Normal), 3 (High) and 4 (Very High)<br/>
