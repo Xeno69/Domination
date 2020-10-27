@@ -48,6 +48,7 @@ private _current_mission_counter = if (d_cur_sm_idx == -1) then {
 };
 if (_current_mission_counter < 0) then {_current_mission_counter = 0};
 
+__TRACE_1("","_current_mission_counter")
 __TRACE_1("","_maintargets_list")
 __TRACE_1("","d_current_target_index")
 __TRACE_1("","d_maintargets_list")
@@ -58,6 +59,7 @@ if (isNil "d_db_savegames") then {
 };
 
 if !(_sname in d_db_savegames) then {
+	__TRACE("mission insert")
 	d_db_savegames pushBack _sname;
 	publicVariable "d_db_savegames";
 	private _recapgone = [];
@@ -79,10 +81,11 @@ if !(_sname in d_db_savegames) then {
 	};
 #endif
 } else {
+	__TRACE("mission update")
 	private _recapgone = [];
 #ifndef __INTERCEPTDB__
 	if (!d_tt_ver) then {
-		"extdb3" callExtension format ["1:dom:missionUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower (worldName + _sname), d_retaken_farpspos];
+		"extdb3" callExtension format ["1:dom:missionUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, d_retaken_farpspos, tolower (worldName + _sname)];
 	} else {
 		"extdb3" callExtension format ["1:dom:missionTTUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname)];
 	};

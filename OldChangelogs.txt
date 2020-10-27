@@ -2,6 +2,22 @@ Changelogs
 
 Old...
 
+4.38
+
+ATTENTION: extDB3 domination-custom.ini file has changed. You need to copy the one from the download file @extDB3\sql_custom folder to your server @extDB3\sql_custom folder
+
+ATTENTION2: mode was set to 1 in description.ext CfgRemoteExec Functions and Commands. That means only script commands and functions defined in CfgRemoteExec are allowed to be executed remotely now. Set to 2 to disable it if it causes issues
+
+- Added: In params "With AI recruitment" you can now select "Yes, but AI may not enter static weapons" (description.ext d_with_ai value 2)
+- Added: Parameter to announce enemy artillery or CAS without capturing intel (d_tell_arty_cas, "Always announce enemy artillery / CAS"), by Longtimegamer
+- Added: Parameter to randomize armor at maintarget and side missions (-1 fir d_WithLessArmor and d_WithLessArmor_side), by Longtimegamer
+- Changed: CfgRemoteExec functions and commands mode is set to 1 (only whitelisted functions/commands are allowed for remote execution) in description.ext now; please note that it might block scripting commands and functions used in addons/mods
+- Changed: Show the number of votes a main target got as number beside the marker
+- Changed: Bigger parajump dialog
+- Fixed: Number of player teamkills did not get added correctly to the SQL database
+- Fixed: If with AI recruitment is enabled you can now use additional addons which create AI on the player side without the mission deleting them
+- Optimized: Only broadcast the last global marker command over the network and not all
+
 4.37
 
 - Fixed: mapondraw script error introduced in 4.36
