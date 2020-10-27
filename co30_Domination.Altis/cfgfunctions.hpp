@@ -562,7 +562,6 @@ class cfgFunctions {
 			addc(ttpvkill);
 			addc(gmcwgextra);
 			addc(maketarget_names);
-			addc(playerconnected);
 			addc(weatherserver);
 			addc(initrepwreck);
 			addc(parahandler);
