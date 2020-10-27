@@ -20,8 +20,14 @@ private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 10)
 __TRACE_3("","_pos_center","_radius","_do_patrol")
 private _ret_grps = [];
 
+_with_less_armor_side = if (d_WithLessArmor_side == -1) then {
+	selectRandom [0, 1, 2];
+} else {
+	d_WithLessArmor_side;
+};
+
 for "_nr" from 0 to 2 do {
-	private _nrg = [_this select (1 + (_nr * 2)), selectRandom [0, 1]] select (d_WithLessArmor_side == 1);
+	private _nrg = [_this select (1 + (_nr * 2)), selectRandom [0, 1]] select (_with_less_armor_side == 1);
 	__TRACE_1("","_nrg")
 	if (_nrg > 0) then {
 		if (d_MissionType == 2) then {_nrg = _nrg + 2};
