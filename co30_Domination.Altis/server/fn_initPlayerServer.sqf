@@ -1,23 +1,14 @@
 // by Xeno
-#define __DEBUG__
-#define THIS_FILE "fn_playerconnected.sqf"
+//#define __DEBUG__
+#define THIS_FILE "fn_initPlayerServer.sqf"
 #include "..\x_setup.sqf"
 
-__TRACE_1("Start","_this")
+#ifdef __DEBUG__
+diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initPlayerServer.sqf"];
+#endif
+__TRACE_1("","_this")
 
-params ["_id", "_uid", "_name", "_jip", "_owner", "_idstr"];
-
-if (_name == "__SERVER__") exitWith {
-	diag_log ["DOM playerconnected, Server connect: _this", _this];
-};
-
-if (_uid isEqualTo "") exitWith {};
-
-//if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}) exitWith {};
-
-private _pl = objectFromNetId _id;
-
-__TRACE_1("","_pl")
+params ["_pl"];
 
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
@@ -30,15 +21,7 @@ if (_pl isKindOf "HeadlessClient_F") exitWith {
 	};
 };
 
-if (isNull _pl || {_uid isEqualTo ""}) exitWith {
-	diag_log "Domination ATTENTION!!!!!! A player connected as null object or with an empty UID";
-	diag_log ["_this", _this];
-	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
-	diag_log "This may break scripts!!!!";
-	if (!isNull _pl) then {
-		remoteExecCall ["d_fnc_remplnounit", _pl];
-	};
-};
+private _uid = getPlayerUID _pl;
 
 if (_pl isKindOf "VirtualSpectator_F") exitWith {
 	if (d_database_found) then {
@@ -46,7 +29,18 @@ if (_pl isKindOf "VirtualSpectator_F") exitWith {
 	};
 };
 
-_name = _name splitString """'" joinString "";
+if (isNull _pl || {_uid isEqualTo ""}) exitWith {
+	diag_log "Domination ATTENTION!!!!!! A player connected as null object or with an empty UID";
+	diag_log ["_this", _this];
+	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
+	diag_log "This may break scripts!!!!";
+};
+
+#ifndef __TT__
+[_pl, 18] call d_fnc_setekmode;
+#endif
+
+private _name = (name _pl) splitString """'" joinString "";
 _pl setVariable ["d_plname", _name, true];
 
 private _p = d_player_store getVariable _uid;
@@ -54,18 +48,19 @@ private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (isNil "_p") then {
-	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), 0, "", [], []];
+	_p = [time + d_AutoKickTime, time, "", 0, str _pl, _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0];
 	d_player_store setVariable [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
 } else {
 	__TRACE_1("player store before change","_p")
 	if (_name != _p # 6) then {
-		[11, _name, _p # 6] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
+		[22, _name, _p # 6] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 		diag_log format [localize "STR_DOM_MISSIONSTRING_942", _name, _p # 6, _uid];
 	};
-	if (time - (_p # 9) > 900) then {
-		_p set [8, xr_max_lives];
+	if ((_p # 9) # 0 > 0 && {time - ((_p # 9) # 0) > 900}) then {
+		_p set [8, [-2, xr_max_lives] select (xr_max_lives != -1)];
+		_p set [9, [0, (_p # 9) # 1]];
 	};
 	if (_p # 0 > -1) then {
 		_p set [0, time + (_p # 0)];
@@ -73,9 +68,10 @@ if (isNil "_p") then {
 	_p set [1, time];
 	_p set [4, str _pl];
 	_p set [6, _name];
+	_p set [14, 0];
 #ifdef __TT__
 	if (_sidepl != _p # 5) then {
-		if (time - (_p # 9) < 1800) then {
+		if ((_p # 9) # 1 > 0 && {time - ((_p # 9) # 1) < 1800}) then {
 			_pl setVariable ["d_no_side_change", true, true];
 		} else {
 			_p set [5, _sidepl];
@@ -83,6 +79,9 @@ if (isNil "_p") then {
 			d_player_store setVariable [_uid + "_scores", nil];
 			_p set [11, []];
 			_p set [12, []];
+			if ((_p # 9) # 1 > 0) then {
+				_p set [9, [(_p # 9) # 0, 0]];
+			};
 		};
 	};
 #endif
@@ -108,13 +107,13 @@ if (d_database_found) then {
 	//	D_DB_plgetts_query dbBindValue _uid;
 	//};
 	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
-	
+
 	if (d_interceptdb) then {
 		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
 	};
 #endif
 	diag_log ["Dom Database playerGetTS result", _dbresult];
-	
+
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
 		// create new database entry for UID
@@ -182,8 +181,12 @@ _pl spawn {
 	[_this] call d_fnc_addceo;
 };
 
+#ifdef __DEBUG__
+diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerServer.sqf processed"];
+#endif
+
 if (d_MissionType != 2) then {
 	_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
 };
 
-__TRACE_1("End","_this")
+(group _pl) setVariable ["d_pl_gr", true];
