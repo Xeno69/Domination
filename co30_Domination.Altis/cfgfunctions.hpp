@@ -587,6 +587,7 @@ class cfgFunctions {
 			addc(highbunker);
 			addc(checkintersects);
 			addc(hanbuilddam);
+			addc(setenemymode);
 		};
 		class Dom_PrePostInit {
 			file = "init";

@@ -27,7 +27,14 @@ _eventArmorLight = "LIB_SdKfz251";
 
 //array of armor vehicles to create
 private _eventArmorAll = [];
-switch (d_WithLessArmor) do {
+
+_with_less_armor = if (!isNil "d_enemy_mode_current_maintarget") then {
+	d_enemy_mode_current_maintarget;
+} else {
+	d_WithLessArmor;
+};
+
+switch (_with_less_armor) do {
 	case 0: {
 		_eventArmorAll = [
 			_eventArmorHeavy,
@@ -60,7 +67,7 @@ private _tries = 0;
 private _townNearbyName = "";
 private _townNearbyPos = [];
 private _numberOfTanks = 2;
-if (d_WithLessArmor == 0) then { _numberOfTanks = 4; };
+if (_with_less_armor == 0) then { _numberOfTanks = 4; };
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
 if (count _towns > 1) then {

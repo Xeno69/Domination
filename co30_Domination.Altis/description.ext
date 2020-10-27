@@ -1198,16 +1198,16 @@ default = 7;
 
 	class d_WithLessArmor {
 		title = "$STR_DOM_MISSIONSTRING_1132";
-		values[] = {0,1,2};
+		values[] = {0,1,2,-1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405", "$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 
 	class d_WithLessArmor_side {
 		title = "$STR_DOM_MISSIONSTRING_1730";
-		values[] = {0,1,2};
+		values[] = {0,1,2,-1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405", "$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 
 	class d_EnemySkill {
