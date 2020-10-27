@@ -46,34 +46,14 @@ if (count d_mttargets_ar > 1) then {
 	
 	private _markers = [];
 	{
-		_ma = [format ["d_sel_mar_%1", _x], _x, "ICON", "ColorYellow", [1.5, 1.5], "  0", 0, "hd_objective"] call d_fnc_CreateMarkerGlobal;
+		_ma = [format ["d_sel_mar_%1", _x], _x, "ICON", "ColorYellow", [1.5, 1.5], "", 0, "hd_objective"] call d_fnc_CreateMarkerGlobal;
 		_x setVariable ["d_sel_mar", _ma, true];
 		_markers pushBack _ma;
 	} forEach d_next_sels_ar;
 	
-	private _uscript = 0 spawn {
-		scriptName "spawn selectnexttarget";
-		while {true} do {
-			sleep 1;
-			if (isNil "d_next_sels_ar") exitWith {};
-			{
-				private _mar = _x getVariable "d_sel_mar";
-				if (!isNil "_mar") then {
-					private _num = _x getVariable ["d_selectionsmt", 0];
-					if (!isNil "_num") then {
-						_mar setMarkerText format ["  %1", _num];
-					};
-				};
-				sleep 0.001;
-			} forEach d_next_sels_ar;
-		};
-	};
-	
 	0 remoteExecCall ["d_fnc_clienttargetsel", [0, -2] select isDedicated];
 	
 	sleep 30;
-
-	terminate _uscript;
 	
 	1 remoteExecCall ["d_fnc_clienttargetsel", [0, -2] select isDedicated];
 	

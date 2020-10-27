@@ -562,7 +562,6 @@ class cfgFunctions {
 			addc(ttpvkill);
 			addc(gmcwgextra);
 			addc(maketarget_names);
-			addc(playerconnected);
 			addc(weatherserver);
 			addc(initrepwreck);
 			addc(parahandler);
@@ -587,6 +586,7 @@ class cfgFunctions {
 			addc(highbunker);
 			addc(checkintersects);
 			addc(hanbuilddam);
+			addc(initPlayerServer);
 		};
 		class Dom_PrePostInit {
 			file = "init";

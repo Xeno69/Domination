@@ -20,7 +20,37 @@ if (_type == 0) then {
 	_control ctrlCommit 0;
 	_control ctrlSetPositionW 0;
 	_control ctrlCommit 30;
+	
+	d_clienttargetsel_scr = 0 spawn {
+		scriptName "spawn clienttargetsel";
+		{
+			private _mar = _x getVariable "d_sel_mar";
+			if (!isNil "_mar") then {
+				private _num = _x getVariable ["d_selectionsmt", 0];
+				if (!isNil "_num") then {
+					_mar setMarkerTextLocal format ["  %1", _num];
+				};
+			};
+		} forEach d_next_sels_ar;
+		while {true} do {
+			sleep 1;
+			if (isNil "d_next_sels_ar") exitWith {};
+			{
+				private _mar = _x getVariable "d_sel_mar";
+				if (!isNil "_mar") then {
+					private _num = _x getVariable ["d_selectionsmt", 0];
+					if (!isNil "_num") then {
+						_mar setMarkerTextLocal format ["  %1", _num];
+					};
+				};
+				sleep 0.001;
+			} forEach d_next_sels_ar;
+		};
+	};
 } else {
+	terminate d_clienttargetsel_scr;
+	d_clienttargetsel_scr = nil;
+	
 	"d_ProgressBar3" cutFadeOut 0;
 	[localize "STR_DOM_MISSIONSTRING_1956", "GLOBAL"] call d_fnc_HintChatMsg;
 	
