@@ -585,7 +585,6 @@ class cfgFunctions {
 			addc(hdsmtcheck);
 			addc(highbunker);
 			addc(checkintersects);
-			addc(hanbuilddam);
 			addc(initPlayerServer);
 			addc(setenemymode);
 		};
