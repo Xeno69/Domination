@@ -12073,6 +12073,18 @@
 <Chinese>Disable enemy air</Chinese>
 <French>Désactiver l'aérien ennemi</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS">
+<English>Always announce enemy artillery / CAS</English>
+<Spanish>Always announce enemy artillery / CAS</Spanish>
+<Portuguese>Always announce enemy artillery / CAS</Portuguese>
+<Korean>Always announce enemy artillery / CAS</Korean>
+<Japanese>Always announce enemy artillery / CAS</Japanese>
+<Original>Always announce enemy artillery / CAS</Original>
+<Russian>Always announce enemy artillery / CAS</Russian>
+<Chinesesimp>Always announce enemy artillery / CAS</Chinesesimp>
+<Chinese>Always announce enemy artillery / CAS</Chinese>
+<French>Always announce enemy artillery / CAS</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
 <English>Enemy AI will occupy buildings</English>
 <Spanish>La IA enemiga ocupará los edificios</Spanish>
