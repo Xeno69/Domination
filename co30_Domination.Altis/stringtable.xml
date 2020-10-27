@@ -6312,6 +6312,18 @@
 <Chinese>NO</Chinese>
 <French>Non</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1007_RANDOM">
+<English>Random</English>
+<Spanish>Random</Spanish>
+<Portuguese>Random</Portuguese>
+<Korean>Random</Korean>
+<Japanese>Random</Japanese>
+<Original>Random</Original>
+<Russian>Random</Russian>
+<Chinesesimp>Random</Chinesesimp>
+<Chinese>Random</Chinese>
+<French>Random</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1008">
 <English>Only medics can revive:</English>
 <Spanish>Sólo los médicos pueden revivir:</Spanish>

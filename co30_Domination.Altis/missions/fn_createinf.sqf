@@ -30,12 +30,18 @@ private _ret_grps = [];
 private _isArmorAdjustmentDisabled = if (count _this > 7) then {_this select 7} else {false};
 private _unitsPerGroup = if (count _this > 8) then {_this select 8} else {-1};
 
+_with_less_armor_side = if (d_WithLessArmor_side == -1) then {
+	selectRandom [0, 1, 2];
+} else {
+	d_WithLessArmor_side;
+};
+
 for "_nr" from 0 to 1 do {
 	private _nrg = _this select (1 + (_nr * 2));
 	__TRACE_1("","_nrg")
 	if (_nrg > 0) then {
 		if (d_MissionType == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
-		if (d_WithLessArmor_side == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
+		if (_with_less_armor_side == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
 		private _typenr = _this select (_nr * 2);
 		for "_i" from 1 to _nrg do {
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
