@@ -5,7 +5,7 @@
 
 if (!hasInterface) exitWith {};
 
-if (d_string_player == _this) then {
+if (player == _this) then {
 	if (player getUnitTrait "Medic") then {
 		player setVariable ["d_medtent", []];
 		player setVariable ["d_medic_tent", objNull];

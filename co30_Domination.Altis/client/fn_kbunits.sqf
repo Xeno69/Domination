@@ -5,4 +5,5 @@
 if (!hasInterface) exitWith {};
 
 if ((_this select 1) getFriend side (group player) < 0.6) exitWith {};
-(missionNamespace getVariable (_this select 0)) kbAddTopic["PL" + str player, "bikb\domkba3.bikb"];
+private _strp = ["dplayerstr", netId player] select isMultiplayer;
+(missionNamespace getVariable (_this select 0)) kbAddTopic["PL" + _strp, "bikb\domkba3.bikb"];

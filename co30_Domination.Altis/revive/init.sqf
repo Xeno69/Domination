@@ -26,8 +26,7 @@ xr_death_pos = [];
 private _grpl = group player;
 xr_side_pl = [playerSide, side _grpl] select (!isNull _grpl);
 
-xr_strpl = str player;
-xr_strpldead = xr_strpl + "_xr_dead";
+xr_strpldead = (netId player) + "_xr_dead";
 
 player addEventHandler ["killed", {_this call xr_fnc_killedEH}];
 

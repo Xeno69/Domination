@@ -8,15 +8,13 @@ params ["_obj"];
 __TRACE_1("","_obj")
 
 private _val = _obj getVariable "d_owner";
+__TRACE_1("","_val")
 if (!isNil "_val") then {
-	if !(_val isEqualType "") then {
-		_val = str _val;
-	};
-	__TRACE_1("","_val")
-	private _ar = d_placed_objs_store getVariable _val;
+	private _ar = d_placed_objs_store getVariable (getPlayerUID _val);
 	if (!isNil "_ar") then {
 		__TRACE_1("","_ar")
 		private _fidx = _ar findIf {_x # 0 == _obj};
+		__TRACE_1("","_fidx")
 		if (_fidx > -1) then {
 			deleteMarker (_ar # _fidx # 1);
 			_ar deleteAt _fidx;

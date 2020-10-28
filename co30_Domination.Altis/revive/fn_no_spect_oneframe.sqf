@@ -29,7 +29,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		};
 	};
 	xr_spectcamtarget = player;
-	xr_spectcamtargetstr = xr_strpl;
+	xr_spectcamtargetstr = netId player;
 	xr_spectcam camSetPos xr_no_spect_campos;
 	xr_spectcam cameraEffect ["Internal", "Back"];
 	xr_spectcam camSetTarget xr_spectcamtarget;

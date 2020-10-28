@@ -235,7 +235,7 @@ if (hasInterface) then {
 		if (_pside == opfor) exitWith {player kbAddTopic ["HQ_E", _kbscript]};
 		player kbAddTopic ["HQ_I", _kbscript];
 	};
-	_strp = str player;
+	private _strp = ["dplayerstr", netId player] select isMultiplayer;
 	player kbAddTopic["PL" + _strp, _kbscript];
 #ifndef __TT__
 	d_kb_logic1 kbAddTopic["PL" + _strp, _kbscript];
@@ -248,7 +248,7 @@ if (hasInterface) then {
 	_ll kbAddTopic["PL" + _strp, _kbscript];
 #endif
 	if (d_no_ai) then {
-		if (_strp in d_can_use_artillery || {_strp in d_can_mark_artillery}) then {
+		if ((str player) in d_can_use_artillery || {(str player) in d_can_mark_artillery}) then {
 			call {
 				if (_pside == blufor) exitWith {player kbAddTopic ["HQ_ART_W", _kbscript]};
 				if (_pside == opfor) exitWith {player kbAddTopic ["HQ_ART_E", _kbscript]};

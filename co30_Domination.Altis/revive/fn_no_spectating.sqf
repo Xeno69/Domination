@@ -50,7 +50,7 @@ private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
 xr_no_spect_campos = [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 3];
 xr_spectcam = "camera" camCreate xr_no_spect_campos;
 xr_spectcamtarget = player;
-xr_spectcamtargetstr = xr_strpl;
+xr_spectcamtargetstr = netId player;
 xr_spectcam cameraEffect ["Internal", "Back"];
 xr_spectcam camSetTarget xr_spectcamtarget;
 xr_spectcam camCommit 0;
