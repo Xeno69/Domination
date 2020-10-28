@@ -3,5 +3,6 @@
 - Fixed: Database mission progress autosave (already in the 4.38 reupload at GitHub)
 - Fixed: Revive spectating was using missionnamespace var name for unit reference which sometimes doesn't return anything; switched to netId
 - Fixed: If a mash got destroyed (or a FARP) then the marker was not removed correctly
+- Fixed: Call CAS was broken because of a wrong variable name
 - Updated: Russian translation by Babayka
  
