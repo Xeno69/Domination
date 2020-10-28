@@ -60,6 +60,11 @@ if (d_with_ace) then {
 	ace_medical_amountOfReviveLives = -1;
 };
 
+if (d_WithRevive == 0 && {hasInterface}) then {
+	xr_pl_can_revive = true;
+	xr_uncon_units = [];
+};
+
 if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 	d_sub_kill_points = d_sub_kill_points * -1;
 };
