@@ -2,7 +2,9 @@
 //#define __DEBUG__
 #define THIS_FILE "fn_playerdisconnected.sqf"
 #include "..\x_setup.sqf"
-if (!isServer || {!d_database_found}) exitWith{};
+if (!isServer) exitWith{};
+
+diag_log ["DOM playerdisconnected: _this", _this];
 
 params ["", "_uid", "_name"];
 
@@ -11,6 +13,12 @@ __TRACE_1("","_this")
 if (_name == "__SERVER__") exitWith {
 	diag_log ["DOM playerdisconnected, Server disconnect: _this", _this];
 };
+
+private _mname = "_USER_DEFINED #" + (_this # 5);
+__TRACE_1("12","_mname")
+{
+	deleteMarker _x;
+} forEach (allMapMarkers select {_x select [0, count _mname] == _mname});
 
 if (_uid isEqualTo "") exitWith {};
 
@@ -33,6 +41,8 @@ if (_uid in d_virtual_spectators) exitWith {
 	d_virtual_spectators = d_virtual_spectators - [_uid];
 };
 
+if (!d_database_found) exitWith {};
+
 private _unit = objNull;
 (allPlayers - entities "HeadlessClient_F") findIf {
 	if (getPlayerUID _x == _uid) then {
@@ -42,11 +52,10 @@ private _unit = objNull;
 		false
 	};
 };
+
 __TRACE_1("","allPlayers")
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")
-
-diag_log ["DOM playerdisconnected: _this", _this];
 
 if (isNil "_unit" || {!isNil {_unit getVariable "d_no_side_change"}}) exitWith {
 	__TRACE_2("No database update","_unit","_name")

@@ -11,8 +11,8 @@ __TRACE_1("","_uid")
 if (_uid isEqualTo "") exitWith {};
 
 private _val = d_placed_objs_store getVariable _uid;
-__TRACE_1("1","_val")
 if (!isNil "_val") then {
+	__TRACE_1("1","_val")
 	{
 		__TRACE_1("","_x")
 		deleteMarker (_x # 1);
@@ -48,8 +48,8 @@ if (!isNil "_val") then {
 };
 
 _val = d_placed_objs_store2 getVariable _uid;
-__TRACE_1("2","_val")
 if (!isNil "_val") then {
+	__TRACE_1("2","_val")
 	{
 		if (unitIsUAV _x) then {
 			private _v = _x;
@@ -61,8 +61,8 @@ if (!isNil "_val") then {
 };
 
 _val = d_placed_objs_store3 getVariable _uid;
-__TRACE_1("3","_val")
 if (!isNil "_val") then {
+	__TRACE_1("3","_val")
 	{
 		deleteVehicle _x;
 	} forEach (_val select {!isNull _x});
@@ -70,8 +70,8 @@ if (!isNil "_val") then {
 };
 
 _val = d_placed_objs_store4 getVariable _uid;
-__TRACE_1("4","_val")
 if (!isNil "_val") then {
+	__TRACE_1("4","_val")
 	{
 		deleteVehicle _x;
 	} forEach (_val select {!isNull _x});

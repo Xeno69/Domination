@@ -44,21 +44,17 @@ if (!isNil "_pa") then {
 		_pa set [9, [(_pa # 9) # 0, time]];
 	};
 #endif
-	private _mname = (_pa # 4) + "_xr_dead";
-	__TRACE_1("","_mname")
-	if !(markerPos _mname isEqualTo [0,0,0]) then {
-		deleteMarker _mname;
-	};
+	private _mname = format ["xr_dead_%1", netId _unit];
+	__TRACE_1("1234","_mname")
+	deleteMarker _mname;
 	private _amark = _pa # 10;
 	__TRACE_1("","_amark")
 	if (_amark != "") then {
-		if !(markerPos _amark isEqualTo [0,0,0]) then {
-			deleteMarker _amark;
-		};
+		deleteMarker _amark;
 		_pa set [10, ""];
 	};
 	__TRACE("Calling markercheck")
-	[_uid] call d_fnc_markercheck;
+	[_uid] spawn d_fnc_markercheck;
 	
 	private _jar = _unit getVariable "d_jailar";
 	__TRACE_1("","_jar")
