@@ -26,7 +26,7 @@ private ["_grp", "_newGrp"];
 params ["_posv1", "_azi", "_typev1", ["_sideorgrp", sideUnknown], ["_addkills", true], ["_nocargo", false]];
 __TRACE_1("","_this")
 
-if (!isClass (configFile>>"CfgVehicles">>_typev1) exitWith {
+if (!isClass (configFile>>"CfgVehicles">>_typev1)´) exitWith {
 	diag_log ["ATTENTION: Couldn't spawn vehicle, fn_spawnvehicle.sqf, the following class does not exist (anymore):", _typev1];
 	[objNull, [], grpNull]
 };
