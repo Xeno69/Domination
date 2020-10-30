@@ -65,7 +65,7 @@ if (!xr_pl_no_lifes) then {
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
-		_helperls pushBack [-100, xr_name_player, netId player, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
+		_helperls pushBack [-100, xr_name_player, getPlayerUID player, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
 	};
 
 	private _vecpplxp = vehicle player;
@@ -76,7 +76,7 @@ if (!xr_pl_no_lifes) then {
 		if (_pic != "") then {
 			_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 		};
-		_helperls pushBack [_dist, format [(_x call _fnc_gpn) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], netId _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
+		_helperls pushBack [_dist, format [(_x call _fnc_gpn) + " (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false])], getPlayerUID _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
 	} forEach (d_allplayers select {_x != player});
 
 } else {
@@ -89,7 +89,7 @@ if (!xr_pl_no_lifes) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [_distup, _x call _fnc_gpn, netId _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
+			_helperls pushBack [_distup, _x call _fnc_gpn, getPlayerUID _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
 		};
 	} forEach (d_allplayers select {_x != player});
 };
@@ -123,7 +123,7 @@ if (!xr_pl_no_lifes) then {
 	private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
 	xr_spectcam = "camera" camCreate [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 	xr_spectcamtarget = player;
-	xr_spectcamtargetstr = netId player;
+	xr_spectcamtargetstr = getPlayerUID player;
 	xr_spectcam cameraEffect ["INTERNAL", "Back"];
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;
@@ -149,7 +149,7 @@ if (!xr_pl_no_lifes) then {
 	private _nposvis = ASLToATL (visiblePositionASL (vehicle _visobj));
 	xr_spectcam = "camera" camCreate [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 	xr_spectcamtarget = _visobj;
-	xr_spectcamtargetstr = netId _visobj;
+	xr_spectcamtargetstr = getPlayerUID _visobj;
 	xr_spectcam cameraEffect ["INTERNAL", "Back"];
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;

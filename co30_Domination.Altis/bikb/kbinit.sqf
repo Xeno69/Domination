@@ -235,7 +235,7 @@ if (hasInterface) then {
 		if (_pside == opfor) exitWith {player kbAddTopic ["HQ_E", _kbscript]};
 		player kbAddTopic ["HQ_I", _kbscript];
 	};
-	private _strp = ["dplayerstr", netId player] select isMultiplayer;
+	private _strp = ["dplayerstr", getPlayerUID player] select isMultiplayer;
 	player kbAddTopic["PL" + _strp, _kbscript];
 #ifndef __TT__
 	d_kb_logic1 kbAddTopic["PL" + _strp, _kbscript];

@@ -62,7 +62,7 @@ if (time > xr_spect_timer) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [-100, xr_name_player, netId player, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
+			_helperls pushBack [-100, xr_name_player, getPlayerUID player, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
 		};
 		
 		private _vecp = vehicle player;
@@ -73,7 +73,7 @@ if (time > xr_spect_timer) then {
 			if (_pic != "") then {
 				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 			};
-			_helperls pushBack [_dist, format ["%3 (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false]), _x call _fnc_gpln], netId _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
+			_helperls pushBack [_dist, format ["%3 (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false]), _x call _fnc_gpln], getPlayerUID _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
 		} forEach (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
@@ -85,7 +85,7 @@ if (time > xr_spect_timer) then {
 				if (_pic != "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
-				_helperls pushBack [_distup, _x call _fnc_gpln, netId _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
+				_helperls pushBack [_distup, _x call _fnc_gpln, getPlayerUID _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
 			};
 		} forEach (d_allplayers select {_x != player});
 	};
@@ -125,7 +125,7 @@ _helperls = nil;
 
 if (!isNull xr_cur_world_obj && {xr_MouseButtons # 0 && {xr_cur_world_obj != xr_spectcamtarget}}) then {
 	private _lbctr = (uiNamespace getVariable "xr_SpectDlg") displayCtrl 1000;
-	private _str = netId xr_cur_world_obj;
+	private _str = getPlayerUID xr_cur_world_obj;
 	for "_i" from 0 to (lbSize _lbctr) - 1 do {
 		if (_str == _lbctr lbData _i) exitWith {
 			[_lbctr, _i] call xr_fnc_targetsslbchange;
@@ -157,7 +157,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 	};
 	if (!xr_pl_no_lifes) then {
 		xr_spectcamtarget = player;
-		xr_spectcamtargetstr = netId player;
+		xr_spectcamtargetstr = getPlayerUID player;
 		xr_spectcam cameraEffect ["INTERNAL", "Back"];
 		xr_spectcam camCommit 0;
 		cameraEffectEnableHUD true;
@@ -177,7 +177,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		private _campos = [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 		xr_spectcam = "camera" camCreate _campos;
 		xr_spectcamtarget = _visobj;
-		xr_spectcamtargetstr = netId _visobj;
+		xr_spectcamtargetstr = getPlayerUID _visobj;
 		xr_spectcam cameraEffect ["INTERNAL", "Back"];
 		xr_spectcam camCommit 0;
 		cameraEffectEnableHUD true;
@@ -194,7 +194,7 @@ if (isNull xr_spectcamtarget) then { // player disconnect !?!
 	//private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
 	//private _campos = [(_nposvis # 0) - 1 + random 2, (_nposvis # 1) - 1 + random 2, 2];
 	xr_spectcamtarget = player;
-	xr_spectcamtargetstr = netId player;
+	xr_spectcamtargetstr = getPlayerUID player;
 	xr_spectcam cameraEffect ["INTERNAL", "Back"];
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;

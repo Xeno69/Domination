@@ -137,7 +137,6 @@ private _logic1 = d_kb_logic1;
 private _channel = d_kbtel_chan;
 #endif
 
-private _callero = objectFromNetId _caller;
 if (isNil "_callero" || {isNull _callero}) then {_callero = _logic};
 _logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
 sleep 1;

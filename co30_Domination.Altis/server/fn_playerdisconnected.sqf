@@ -14,8 +14,11 @@ if (_name == "__SERVER__") exitWith {
 	diag_log ["DOM playerdisconnected, Server disconnect: _this", _this];
 };
 
+// TODO doesn't work, no matter what I try.
+// I can't delete markers here.
 private _mname = "_USER_DEFINED #" + (_this # 5);
 __TRACE_1("12","_mname")
+__TRACE_1("13","count _mname")
 {
 	deleteMarker _x;
 } forEach (allMapMarkers select {_x select [0, count _mname] == _mname});

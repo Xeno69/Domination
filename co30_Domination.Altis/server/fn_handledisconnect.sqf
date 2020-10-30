@@ -44,9 +44,7 @@ if (!isNil "_pa") then {
 		_pa set [9, [(_pa # 9) # 0, time]];
 	};
 #endif
-	private _mname = format ["xr_dead_%1", netId _unit];
-	__TRACE_1("1234","_mname")
-	deleteMarker _mname;
+	deleteMarker format ["xr_dead_%1", _uid];
 	private _amark = _pa # 10;
 	__TRACE_1("","_amark")
 	if (_amark != "") then {

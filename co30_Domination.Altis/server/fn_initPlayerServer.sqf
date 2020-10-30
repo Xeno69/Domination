@@ -66,7 +66,6 @@ if (isNil "_p") then {
 		_p set [0, time + (_p # 0)];
 	};
 	_p set [1, time];
-	//_p set [4, netId _pl];
 	_p set [6, _name];
 	_p set [14, 0];
 #ifdef __TT__

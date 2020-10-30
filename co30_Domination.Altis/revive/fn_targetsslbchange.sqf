@@ -13,7 +13,7 @@ if (_selIdx == -1) exitWith {};
 private _data = lbData [1000, _selIdx];
 __TRACE_1("","_data")
 if (_data == xr_spectcamtargetstr) exitWith {};
-private _unit = objectFromNetId _data;
+private _unit = _data call BIS_fnc_getUnitByUID;
 if (isNil "_unit" || {isNull _unit}) exitWith {};
 __TRACE_1("","_unit")
 xr_spectcamtargetstr = _data;
