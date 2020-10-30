@@ -57,5 +57,6 @@ private _logic = switch (d_player_side) do {
 };
 player kbTell [_logic, _topicside, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], "SIDE"];
 #endif
+__TRACE_1("","_arele")
 [_arele # 2, _arele # 3, netId player, _arele # 0] remoteExec ["d_fnc_arifire", 2];
 d_arti_did_fire = true;

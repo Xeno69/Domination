@@ -9,11 +9,14 @@ if (!isServer || {!d_ari_available}) exitWith {};
 if (!isServer || {!d_ari_available_w && {!d_ari_available_e}}) exitWith {};
 #endif
 
+__TRACE_1("","_this")
+
 params ["_ari_type", "_ari_salvos", "_arti_operator", "_sel_ari_mkr"];
 
 private _ari_tgt_pos = markerPos _sel_ari_mkr;
+private _aop = objNull;
 #ifdef __TT__
-private _aop = objectFromNetId _arti_operator;
+_aop = objectFromNetId _arti_operator;
 private _side_arti_op = side (group _aop);
 private _topicside_arti = ["HQ_ART_W", "HQ_ART_E"] select (_side_arti_op == opfor);
 private _topicside = ["HQ_W", "HQ_E"] select (_side_arti_op == opfor);
@@ -74,7 +77,7 @@ while {true} do {
 };
 #endif
 
-private _aop = objectFromNetId _arti_operator;
+_aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 #ifndef __TT__
 if (!d_arty_stopp) then {
