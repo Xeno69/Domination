@@ -76,11 +76,15 @@ if (!d_with_ranked) then {
 // uniform
 if !((bis_fnc_arsenal_data # 3) isEqualTo []) then {
 	private _unip = uniform player;
+	__TRACE_1("","_unip")
 	if (_unip != "") then {
 		if ((bis_fnc_arsenal_data # 3) find _unip == -1) then {
-			removeUniform player;
 			private _ounip = player getVariable "d_uniformp";
-			if (!isNil "_ounip" && {_unip != _ounip && {_ounip != ""}}) then {
+			__TRACE_1("","_ounip")		
+			if (!isNil "_ounip") then {
+				__TRACE("removing uniform")
+				if (_ounip == _unip || {_ounip == ""}) exitWith {};
+				removeUniform player;
 				player addUniform _ounip;
 			};
 		};
@@ -89,11 +93,15 @@ if !((bis_fnc_arsenal_data # 3) isEqualTo []) then {
 // vest
 if !((bis_fnc_arsenal_data # 4) isEqualTo []) then {
 	private _vest = vest player;
+	__TRACE_1("","_vest")
 	if (_vest != "") then {
 		if ((bis_fnc_arsenal_data # 4) find _vest == -1) then {
-			removeVest player;
 			private _ovestp = player getVariable "d_vestp";
-			if (!isNil "_ovestp" && {_vest != _ovestp && {_ovestp != ""}}) then {
+			__TRACE_1("","_ovestp")		
+			if (!isNil "_ovestp") then {
+				__TRACE("removing vest")
+				if (_ovestp == _vest || {_ovestp == ""}) exitWith {};
+				removeVest player;
 				player addVest _ovestp;
 			};
 		};
@@ -102,11 +110,15 @@ if !((bis_fnc_arsenal_data # 4) isEqualTo []) then {
 // headgear
 if !((bis_fnc_arsenal_data # 6) isEqualTo []) then {
 	private _headg = headgear player;
+	__TRACE_1("","_headg")
 	if (_headg != "") then {
 		if ((bis_fnc_arsenal_data # 6) find _headg == -1) then {
-			removeHeadgear player;
 			private _ohgp = player getVariable "d_headgearp";
-			if (!isNil "_ohgp" && {_headg != _ohgp && {_ohgp != ""}}) then {
+			__TRACE_1("","_ohgp")		
+			if (!isNil "_ohgp") then {
+				__TRACE("removing headgear")
+				if (_ohgp == _headg || {_ohgp == ""}) exitWith {};
+				removeHeadgear player;
 				player addHeadgear _ohgp;
 			};
 		};
@@ -115,11 +127,15 @@ if !((bis_fnc_arsenal_data # 6) isEqualTo []) then {
 // backpack
 if !((bis_fnc_arsenal_data # 5) isEqualTo []) then {
 	private _bpp = backpack player;
+	__TRACE_1("","_bpp")
 	if (_bpp != "") then {
 		if ((bis_fnc_arsenal_data # 5) find _bpp == -1) then {
-			removeBackpack player;
 			private _obpp = player getVariable "d_backpackp";
-			if (!isNil "_obpp" && {_bpp != _obpp && {_obpp != ""}}) then {
+			__TRACE_1("","_obpp")		
+			if (!isNil "_obpp") then {
+				__TRACE("removing backpack")
+				if (_obpp == _bpp || {_obpp == ""}) exitWith {};
+				removeBackpack player;
 				player addBackpack _obpp;
 			};
 		};
@@ -127,6 +143,7 @@ if !((bis_fnc_arsenal_data # 5) isEqualTo []) then {
 };
 // goggles
 private _goggs = goggles player;
+__TRACE_1("","_goggs")
 if (_goggs != "") then {
 	if ((bis_fnc_arsenal_data # 7) isEqualTo []) then {
 		removeGoggles player;
@@ -134,6 +151,7 @@ if (_goggs != "") then {
 	if ((bis_fnc_arsenal_data # 7) find _goggs == -1) then {
 		removeGoggles player;
 		private _ogoggs = player getVariable "d_gogglesp";
+		__TRACE_1("","_ogoggs")
 		if (!isNil "_ogoggs" && {_goggs != _ogoggs && {_ogoggs != ""}}) then {
 			player addGoggles _ogoggs;
 		};
