@@ -49,23 +49,41 @@ private _sec_kind = (floor (random 10)) + 1;
 
 d_fixor_var = objNull;
 
+private _fnc_makefortress = {
+	private _fortress = createVehicle [d_sm_fortress, _this, [], 0, "NONE"];
+	_fortress setDir (random 360);
+	private _res = [_fortress] call BIS_fnc_buildingPositions;
+	if (_res isEqualTo []) then {
+		deleteVehicle _fortress;
+	};
+	[_res, _fortress]
+};
+
 switch (_sec_kind) do {
 	case 1: {
+		private _forar = _poss call _fnc_makefortress;
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _vec = _newgroup createUnit [d_soldier_officer, _poss, [], 0, "NONE"];
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = 1;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
+		
+		if ((_forar # 0) isEqualTo []) then {
+			private _svec = 1;
+			private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
+			if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
+				_isFlat set [2,0];
+				_poss = _isFlat;
+			};
+			_vec setPos _poss;
+		} else {
+			_vec setPos (_forar # 0);
+			d_mtmissionobj = _forar # 1;
 		};
-		_vec setPos _poss;
 		_vec setRank "COLONEL";
 		_vec setSkill 0.3;
 		_vec disableAI "PATH";
+
 		d_delinfsm pushBack _vec;
 		d_fixor_var = _vec;
 		if ({_x == 1} count d_searchintel < count d_searchintel) then {
@@ -247,19 +265,25 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 9: {
+		private _forar = _poss call _fnc_makefortress;
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _ctype = "C_man_polo_6_F";
 		private _vec = _newgroup createUnit [_ctype, _poss, [], 0, "NONE"];
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = 1;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
+		if ((_forar # 0) isEqualTo []) then {
+			private _svec = 1;
+			private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
+			if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
+				_isFlat set [2,0];
+				_poss = _isFlat;
+			};
+			_vec setPos _poss;
+		} else {
+			_vec setPos (_forar # 0);
+			d_mtmissionobj = _forar # 1;
 		};
-		_vec setPos _poss;
 		_vec setRank "COLONEL";
 		_vec setSkill 0.3;
 		_vec disableAI "PATH";
@@ -293,19 +317,25 @@ switch (_sec_kind) do {
 		__specops;
 	};
 	case 10: {
+		private _forar = _poss call _fnc_makefortress;
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _ctype = "C_man_1_3_F";
 		private _vec = _newgroup createUnit [_ctype, _poss, [], 0, "NONE"];
 		[_vec] joinSilent _newgroup;
 		_newgroup deleteGroupWhenEmpty true;
 		_vec call d_fnc_removenvgoggles_fak;
-		private _svec = 1;
-		private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
-		if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
-			_isFlat set [2,0];
-			_poss = _isFlat;
+		if ((_forar # 0) isEqualTo []) then {
+			private _svec = 1;
+			private _isFlat = (getPosATL _vec) isFlatEmpty [_svec / 2, -1, 0.7, _svec, 0, false, _vec]; // 150
+			if (count _isFlat > 1 && {_poss distance2D _isFlat < 100}) then {
+				_isFlat set [2,0];
+				_poss = _isFlat;
+			};
+			_vec setPos _poss;
+		} else {
+			_vec setPos (_forar # 0);
+			d_mtmissionobj = _forar # 1;
 		};
-		_vec setPos _poss;
 		_vec setRank "COLONEL";
 		_vec setSkill 0.3;
 		d_fixor_var = _vec;
