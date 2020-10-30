@@ -166,7 +166,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 		_flagPole setPos _fwfpos;
 		_wf setVariable ["d_FLAG", _flagPole, true];
-		private _maname = format ["d_camp_%1", netId _wf];
+		private _maname = format ["d_camp_%1", _wf];
 		__TRACE_2("","_i","_maname")
 		if (d_ao_markers == 1) then {
 			deleteMarker _maname;

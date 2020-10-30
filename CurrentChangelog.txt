@@ -4,5 +4,6 @@
 - Fixed: Revive spectating was using missionnamespace var name for unit reference which sometimes doesn't return anything; switched to UID
 - Fixed: If a mash got destroyed (or a FARP) then the marker was not removed correctly
 - Fixed: Call CAS was broken because of a wrong variable name
+- Fixed: Class rhsgref_BRDM2_ATGM_msv no longer exists in RHS leading to script errors during vehicle creation
 - Updated: Russian translation by Babayka
  
