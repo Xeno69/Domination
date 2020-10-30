@@ -310,6 +310,7 @@ class cfgFunctions {
 			addc(hasrespirator);
 			addc(isinhouse);
 			addc(isbldghostile);
+			addc(getunitbyuid);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_playerdisconnected.sqf"
 #include "..\x_setup.sqf"
 if (!isServer) exitWith{};
@@ -16,12 +16,12 @@ if (_name == "__SERVER__") exitWith {
 
 // TODO doesn't work, no matter what I try.
 // I can't delete markers here.
-private _mname = "_USER_DEFINED #" + (_this # 5);
+/*private _mname = "_USER_DEFINED #" + (_this # 5);
 __TRACE_1("12","_mname")
 __TRACE_1("13","count _mname")
 {
 	deleteMarker _x;
-} forEach (allMapMarkers select {_x select [0, count _mname] == _mname});
+} forEach (allMapMarkers select {_x select [0, count _mname] == _mname});*/
 
 if (_uid isEqualTo "") exitWith {};
 
@@ -46,15 +46,7 @@ if (_uid in d_virtual_spectators) exitWith {
 
 if (!d_database_found) exitWith {};
 
-private _unit = objNull;
-(allPlayers - entities "HeadlessClient_F") findIf {
-	if (getPlayerUID _x == _uid) then {
-		_unit = _x;
-		true
-	} else {
-		false
-	};
-};
+private _unit = _uid call d_fnc_getunitbyuid;
 
 __TRACE_1("","allPlayers")
 __TRACE_2("","_uid","_name")
