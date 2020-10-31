@@ -8,6 +8,8 @@ __TRACE_1("","_this")
 __TRACE_1("","owner d_kb_logic1");
 __TRACE_1("","owner d_kb_logic2");
 
+if (isStreamFriendlyUIEnabled) exitWith {};
+
 switch (_this select 0) do {
 	case 0: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirSUAttack",d_kbtel_chan]};
 	case 1: {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirAttackChopperAttack",d_kbtel_chan]};
