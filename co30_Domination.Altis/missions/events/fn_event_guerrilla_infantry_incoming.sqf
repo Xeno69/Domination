@@ -107,7 +107,7 @@ sleep 2.333;
 
 private _all_dead = false;
 
-while {!d_mt_done && {!_all_dead}} do {                                             	
+while {sleep 1 && {!d_mt_done && {!_all_dead}}} do {                                             	
 	private _foundAlive = false;
 	{
 		private _grp = _x;
