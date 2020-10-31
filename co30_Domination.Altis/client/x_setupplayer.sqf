@@ -9,6 +9,10 @@ diag_log [diag_frameno, diag_ticktime, time, "Executing Dom x_setupplayer.sqf"];
 
 d_string_player = str player;
 d_player_uid = getPlayerUID player;
+
+if (isNil "d_name_pl") then {
+	d_name_pl = (name player) splitString """'" joinString "";
+};
 #ifdef __OWN_SIDE_BLUFOR__
 d_player_side = blufor;
 #endif

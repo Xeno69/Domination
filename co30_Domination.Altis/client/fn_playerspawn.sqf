@@ -149,20 +149,6 @@ if (_rtype == 0) then { // player died
 	player setFatigue 0;
 	player setBleedingRemaining 0;
 
-	/*0 spawn {
-		scriptName "spawn_playerspawn_vu2";
-		sleep (1 + random 1);
-		private _np = player getVariable ["d_plname", ""];
-		if (_np isEqualTo "" || {_np isEqualTo "Error: No unit"}) then {
-			_np = profileName splitString """'" joinString "";
-			if (_np isEqualTo "Error: No unit") then {
-				_np = (name player) splitString """'" joinString "";
-			};
-			player setVariable ["d_plname", _np, true];
-			d_name_pl = _np;
-		};
-	};*/
-
 	player disableConversation true;
 	if (!d_with_ai) then {
 		enableSentences false;
