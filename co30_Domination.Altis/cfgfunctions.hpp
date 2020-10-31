@@ -588,6 +588,7 @@ class cfgFunctions {
 			addc(checkintersects);
 			addc(initPlayerServer);
 			addc(setenemymode);
+			addc(ulreduce);
 		};
 		class Dom_PrePostInit {
 			file = "init";

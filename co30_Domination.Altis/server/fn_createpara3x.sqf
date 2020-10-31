@@ -158,9 +158,13 @@ private _make_jump = {
 				if (count _real_units > 6) then {
 					_real_units resize 6;
 				};
+				if (d_smallgrps == 0) then {
+					_real_units = [_real_units, -1] call d_fnc_ulreduce;
+				};
 				private _nightorfog = call d_fnc_nightfograin;
 				__TRACE_1("","_nightorfog")
 				private _aunits = [];
+				sleep 0.1;
 				_paragrp = [d_side_enemy] call d_fnc_creategroup;
 				_paragrp setVariable ["d_respawninfo", ["allmen", [], d_cur_tgt_pos, 0, selectRandom ["patrol", "patrol2"], d_enemy_side_short, 0, -1.111, 1, [d_cur_tgt_pos, d_cur_target_radius], false, []]];
 				{

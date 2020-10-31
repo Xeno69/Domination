@@ -6,5 +6,6 @@
 - Fixed: Call CAS was broken because of a wrong variable name
 - Fixed: Class rhsgref_BRDM2_ATGM_msv no longer exists in RHS leading to script errors during vehicle creation
 - Fixed: Don't delete uniform, vest, headgear or backpack if players ends up with none of them when Virtual Arsenal gets closed
+- Fixed: Number of units did get reduced for paratroopers over main targets when d_smallgrps was on
 - Updated: Russian translation by Babayka
  
