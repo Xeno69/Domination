@@ -38,7 +38,7 @@ if (d_mt_respawngroups == 0) then { \
 };
 
 #define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]; \
-_vec addEventHandler ["handleDamage", {_this call d_fnc_hdsmtcheck}];
+_vec addEventHandler ["handleDamage", {_this call d_fnc_checkmtshothd}];
 
 if !(isServer) exitWith {};
 
@@ -53,15 +53,23 @@ private _fnc_makefortress = {
 	private _fortress = createVehicle [d_sm_fortress, _this, [], 0, "NONE"];
 	_fortress setDir (random 360);
 	private _res = [_fortress] call BIS_fnc_buildingPositions;
+	__TRACE_1("","_res")
 	if (_res isEqualTo []) then {
 		deleteVehicle _fortress;
+	} else {
+		_res = selectRandom _res;
 	};
 	[_res, _fortress]
 };
 
+#ifdef __DEBUG__
+_sec_kind = 8;
+#endif
+
 switch (_sec_kind) do {
 	case 1: {
 		private _forar = _poss call _fnc_makefortress;
+		__TRACE_1("","_forar")
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _vec = _newgroup createUnit [d_soldier_officer, _poss, [], 0, "NONE"];
 		[_vec] joinSilent _newgroup;
@@ -121,9 +129,6 @@ switch (_sec_kind) do {
 		__vkilled(radar_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
-		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
-		d_mtmissionobj2 setDir (getDir _vec);
-		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -192,9 +197,6 @@ switch (_sec_kind) do {
 		__vkilled(hq_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
-		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
-		d_mtmissionobj2 setDir (getDir _vec);
-		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -236,9 +238,6 @@ switch (_sec_kind) do {
 		__vkilled(heavy_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
-		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
-		d_mtmissionobj2 setDir (getDir _vec);
-		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -255,9 +254,6 @@ switch (_sec_kind) do {
 		__vkilled(airrad_down);
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
-		d_mtmissionobj2 = createVehicle ["CamoNet_wdl_big_F", getPos _vec, [], 0, "NONE"];
-		d_mtmissionobj2 setDir (getDir _vec);
-		d_mtmissionobj2 setPos (getPos _vec);
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
@@ -266,6 +262,7 @@ switch (_sec_kind) do {
 	};
 	case 9: {
 		private _forar = _poss call _fnc_makefortress;
+		__TRACE_1("","_forar")
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _ctype = "C_man_polo_6_F";
 		private _vec = _newgroup createUnit [_ctype, _poss, [], 0, "NONE"];
@@ -318,6 +315,7 @@ switch (_sec_kind) do {
 	};
 	case 10: {
 		private _forar = _poss call _fnc_makefortress;
+		__TRACE_1("","_forar")
 		private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 		private _ctype = "C_man_1_3_F";
 		private _vec = _newgroup createUnit [_ctype, _poss, [], 0, "NONE"];

@@ -583,7 +583,6 @@ class cfgFunctions {
 			addc(serverinit);
 			addc(lastchance);
 			addc(aboxcreate);
-			addc(hdsmtcheck);
 			addc(highbunker);
 			addc(checkintersects);
 			addc(initPlayerServer);

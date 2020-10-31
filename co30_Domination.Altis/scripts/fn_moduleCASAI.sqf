@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_moduleCASAI.sqf"
 #include "..\x_setup.sqf"
 
-params ["_lpos", "_callero", "_wtype"];
+params ["_lpos", "_callero", "_wtype", "_enemy"];
 
 __TRACE_1("","_this")
 
@@ -127,6 +127,9 @@ __TRACE_1("","_currentWeapons")
 private _fire = [] spawn {
 	scriptName "spawn_modulcas";
 	waitUntil {false}
+};
+if (!isNull _enemy && {_enemy distance2D _logico < 200}) then {
+	_logico setPos (getPos _enemy);
 };
 private _fireNull = true;
 private _time = time;

@@ -21,7 +21,7 @@ while {d_nr_observers > 0} do {
 							if (selectRandom [0, 1] == 0 && {d_no_more_observers < 1}) then {
 								[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
 							} else {
-								[getPosWorld _enemy, _x, 2] spawn d_fnc_moduleCASAI;
+								[getPosWorld _enemy, _x, 2, _enemy] spawn d_fnc_moduleCASAI;
 							};
 						} else {
 							[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
