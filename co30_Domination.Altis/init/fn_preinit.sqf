@@ -1420,7 +1420,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __TT__
 	"";
 #endif
-d_base_tank_vec =
+	d_base_tank_vec =
 #ifdef __OWN_SIDE_INDEPENDENT__
 	"I_MBT_03_cannon_F";
 #endif
@@ -1464,7 +1464,7 @@ d_base_tank_vec =
 #ifdef __TT__
 	"";
 #endif
-d_base_apc_vec =
+	d_base_apc_vec =
 #ifdef __OWN_SIDE_INDEPENDENT__
 	"I_APC_tracked_03_cannon_F";
 #endif
@@ -1986,7 +1986,7 @@ d_base_apc_vec =
 		"Land_Cargo_HQ_V4_F";
 #endif
 
-d_b_small_static_high =
+	d_b_small_static_high =
 #ifdef __ALTIS__
 		"Land_BagBunker_Small_F";
 #endif

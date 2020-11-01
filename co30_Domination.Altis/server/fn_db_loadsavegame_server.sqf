@@ -101,7 +101,14 @@ d_searchintel = _ar # 8;
 publicVariable "d_searchintel";
 d_bonus_vecs_db = _ar # 9;
 {
-	private _vec = createVehicle [_x, d_bonus_create_pos, [], 0, "NONE"];
+	private _isar = false;
+	private _vtype = if (_x isEqualType []) then {
+		_isar = true;
+		_x # 0
+	} else {
+		_x
+	};
+	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 0, "NONE"];
 	if (unitIsUAV _vec) then {
 		private _uavgrp = createVehicleCrew _vec;
 		_uavgrp deleteGroupWhenEmpty true;
@@ -146,8 +153,13 @@ d_bonus_vecs_db = _ar # 9;
 		_vec setVariable ["d_liftit", true, true];
 	};
 
-	_vec setDir _dir;
-	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+	if (!_isar) then {
+		_vec setDir _dir;
+		_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+	} else {
+		_vec setDir (_x # 2);
+		_vec setVehiclePosition [_x # 1, [], 0, "NONE"];
+	};
 
 	[_vec, 11] call d_fnc_setekmode;
 
@@ -194,6 +206,44 @@ if (d_retaken_farpspos isEqualType [] && {!(d_retaken_farpspos isEqualTo [])}) t
 			_flag setVariable ["d_farptaken", true, true];
 		};
 	} forEach d_retaken_farpspos;
+};
+
+if (count _ar >= 13 && {(_ar # 12) isEqualType []}) then {
+	__TRACE_1("","d_vrespawn2_ar")
+	{
+		__TRACE_1("","_x")
+		private _mvr2 = _x;
+		_mvr2 params ["_num_v"];
+		{
+			if (_num_v == (_x # 1)) then {
+				private _vec = _x # 0;
+				_vec setDir (_mvr2 # 2);
+				_vec setVehiclePosition [_mvr2 # 1, [], 0, "NONE"];
+				if ((_mvr2 # 3) > 0) then {
+					if ((_mvr2 # 3) == 1) then {
+						_vec setVariable ["d_ammobox", true, true];
+					} else {
+						private _boxpos = _vec modelToWorldVisual [4,0,0];
+						__TRACE_1("","_boxpos")
+						(boundingBoxReal _vec) params ["_p1", "_p2"];
+						private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+						__TRACE_1("","_maxHeight")
+						_boxpos set [2, ((_vec distance (getPos _vec)) - _maxHeight) max 0];
+						__TRACE_1("","_boxpos")
+						[_boxpos, _vec] call d_fnc_CreateDroppedBox;
+					};
+				};
+				if (count _mvr2 == 5 && {(_mvr2 # 4)}) then {
+					if (d_with_mhq_camo == 0 && {!(_vec isKindOf "Air") && {!(_vec isKindOf "Ship")}}) then {
+						_vec call d_fnc_mhq_net;
+					};
+					_vec setVariable ["d_MHQ_Deployed", true, true];
+					[_vec, true] call d_fnc_mhqdepls;
+					_vec setVariable ["d_MHQ_Depltime", time + 10, true]
+				};
+			};
+		} forEach d_vrespawn2_ar;
+	} forEach (_ar # 12);
 };
 #else
 d_maintargets = _ar # 0;

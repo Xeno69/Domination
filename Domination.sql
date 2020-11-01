@@ -67,11 +67,12 @@ CREATE TABLE IF NOT EXISTS `missionsave` (
   `d_side_missions_random` varchar(1000) COLLATE utf8mb4_bin NOT NULL,
   `d_current_mission_counter` int(11) NOT NULL,
   `d_searchintel` varchar(50) COLLATE utf8mb4_bin NOT NULL,
-  `d_bonus_vecs_db` varchar(2000) COLLATE utf8mb4_bin NOT NULL,
+  `d_bonus_vecs_db` varchar(4000) COLLATE utf8mb4_bin NOT NULL,
   `d_worldname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `d_combiname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `missionname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `d_retaken_farpspos` varchar(1000) COLLATE utf8mb4_bin NOT NULL
+  `d_vrespawn_vecs` varchar(4000) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Exportiere Daten aus Tabelle domination.missionsave: ~0 rows (ungefähr)

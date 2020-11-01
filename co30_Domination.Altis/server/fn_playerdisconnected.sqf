@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_playerdisconnected.sqf"
 #include "..\x_setup.sqf"
 if (!isServer) exitWith{};
@@ -12,6 +12,10 @@ __TRACE_1("","_this")
 
 if (_name == "__SERVER__") exitWith {
 	diag_log ["DOM playerdisconnected, Server disconnect: _this", _this];
+	if (d_database_found && {d_db_auto_save}) then {
+		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
+		diag_log ["DOM playerdisconnected, mission progress auto save"];
+	};
 };
 
 // TODO doesn't work, no matter what I try.

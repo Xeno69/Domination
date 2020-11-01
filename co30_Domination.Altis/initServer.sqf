@@ -98,6 +98,7 @@ if (isNil "d_set_pl_score_db") then {
 };
 
 if (d_database_found && {d_db_auto_save}) then {
+	__TRACE("Calling autosave")
 	["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
 };
 

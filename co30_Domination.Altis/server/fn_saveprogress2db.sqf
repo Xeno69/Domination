@@ -15,7 +15,33 @@ _sname = toLower _sname;
 
 #ifndef __TT__
 d_bonus_vecs_db = d_bonus_vecs_db - [objNull];
-private _bonus_vecs_db = d_bonus_vecs_db apply {typeOf _x};
+private _bonus_vecs_db = d_bonus_vecs_db apply {[typeOf _x, [typeOf _x, getPos _x, getDir _x]] select (alive _x && {((getPos _x) # 2) < 5 && {_x distance2D d_FLAG_BASE > 700}})};
+private _mvr2_ar =+ d_vrespawn2_ar;
+{
+	__TRACE_1("","_x")
+	_x params ["_vec"];
+	if (alive _vec && {((getPos _vec) # 2) < 5 && {_vec distance2D d_FLAG_BASE > 700}}) then {
+		private _toadd = [_x # 1, getPos _vec, getDir _vec];
+		private _hasbox = 0;
+		if (_vec getVariable ["d_ammobox", false]) then {
+			_hasbox = 1;
+		} else {
+			private _nobjs = nearestObjects [_vec, [d_the_box], 20];
+			if !(_nobjs isEqualTo []) then {
+				_hasbox = 2;
+			};
+		};
+		_toadd pushBack _hasbox;
+		if ((_x # 1) < 100) then {
+			_toadd pushBack (_vec getVariable ["d_MHQ_Deployed", false]);
+		};
+		_mvr2_ar set [_forEachIndex, _toadd];
+	} else {
+		_mvr2_ar set [_forEachIndex, -1];
+	};
+} forEach _mvr2_ar;
+_mvr2_ar = _mvr2_ar - [-1];
+__TRACE_1("","_mvr2_ar")
 #else
 d_bonus_vecs_db_w = d_bonus_vecs_db_w - [objNull];
 private _bonus_vecs_db_w = d_bonus_vecs_db_w apply {typeOf _x};
@@ -65,7 +91,7 @@ if !(_sname in d_db_savegames) then {
 	private _recapgone = [];
 #ifndef __INTERCEPTDB__
 	if (!d_tt_ver) then {
-		"extdb3" callExtension format ["1:dom:missionInsert:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15", _sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos];
+		"extdb3" callExtension format ["1:dom:missionInsert:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16", _sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos, _mvr2_ar];
 	} else {
 		"extdb3" callExtension format ["1:dom:missionttInsert:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:%18:%19:%20", _sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)];
 	};
@@ -85,7 +111,7 @@ if !(_sname in d_db_savegames) then {
 	private _recapgone = [];
 #ifndef __INTERCEPTDB__
 	if (!d_tt_ver) then {
-		"extdb3" callExtension format ["1:dom:missionUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, d_retaken_farpspos, tolower (worldName + _sname)];
+		"extdb3" callExtension format ["1:dom:missionUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, d_retaken_farpspos, _mvr2_ar, tolower (worldName + _sname)];
 	} else {
 		"extdb3" callExtension format ["1:dom:missionTTUpdate:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17", d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname)];
 	};
