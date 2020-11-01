@@ -91,7 +91,7 @@ for "_i" from 0 to d_civ_groupcount do {
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
 	_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
-	_grp = createGroup civilian;
+	_grp = createGroup [civilian, true];
 
 	__TRACE("Placing a civilian module...")
 	[_randomPos, _grp] call _placeCivilianSpotsAndUnits;
