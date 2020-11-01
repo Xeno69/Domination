@@ -15,5 +15,6 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Fixed: Don't delete uniform, vest, headgear or backpack if players ends up with none of them when Virtual Arsenal gets closed
 - Fixed: Number of units did get reduced for paratroopers over main targets when d_smallgrps was on
 - Fixed: Vanilla Altis OPFOR version was broken, d_allmen_W was not defined at all
+- Fixed: Create a unique group for each civ module isntead of using the same group, by longtimegamer
 - Updated: Russian translation by Babayka
  
