@@ -9,8 +9,8 @@ params ["_grptype", "_side"];
 
 private _ret =+ selectRandom (missionNamespace getVariable format ["d_%1_%2", _grptype, [switch (_side) do {case opfor: {"E"};case blufor: {"W"};case independent: {"G"};case civilian: {"W"};}, _side] select (_side isEqualType "")]);
 
-if !(_ret isEqualType []) exitWith {
-	diag_log ["Attention in getunitlistm!!! Current _grptype returns mo array, _grptype:", _grptype, ", _side:", _side, "typename", ["nil", typeName _ret] select (!isNil "_ret")];
+if (isNil "_ret") exitWith {
+	diag_log ["Attention in getunitlistm!!! Current _grptype returns nil, _grptype:", _grptype, ", _side:", _side];
 	[]
 };
 

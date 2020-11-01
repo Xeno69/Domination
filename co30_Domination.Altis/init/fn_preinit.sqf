@@ -810,7 +810,9 @@ if (!d_gmcwgwinter) then {
 				#include "d_allmen_O_RHS.sqf"
 			];
 		};
-		#include "d_allmen_B_default.sqf"
+		d_allmen_W = [
+			#include "d_allmen_B_default.sqf"
+		];
 	};
 
 #ifdef __IFA3LITE__
