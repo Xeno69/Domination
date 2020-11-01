@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `missionsave` (
   `d_worldname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `d_combiname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
   `missionname` varchar(200) COLLATE utf8mb4_bin NOT NULL,
-  `d_retaken_farpspos` varchar(1000) COLLATE utf8mb4_bin NOT NULL
+  `d_retaken_farpspos` varchar(1000) COLLATE utf8mb4_bin NOT NULL,
   `d_vrespawn_vecs` varchar(4000) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
