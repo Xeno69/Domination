@@ -2494,7 +2494,7 @@ if (hasInterface) then {
 #ifdef __OWN_SIDE_BLUFOR__
 		call {
 			if (d_cup) exitWith {
-				["CUP_B_MV22_USMC"]
+				["CUP_B_UH60M_US", "CUP_B_MH6J_USA", "CUP_B_CH47F_USA"]
 			};
 			if (d_gmcwg) exitWith {
 				if (d_gmcwgwinter) exitWith {
