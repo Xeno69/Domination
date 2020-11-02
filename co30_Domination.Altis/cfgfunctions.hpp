@@ -310,6 +310,8 @@ class cfgFunctions {
 			addc(hasrespirator);
 			addc(isinhouse);
 			addc(isbldghostile);
+			addc(getbuildings);
+			addc(getcoveredpositions);
 			addc(getunitbyuid);
 		};
 		class Dom_ext_Scripts {
