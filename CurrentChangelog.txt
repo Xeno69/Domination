@@ -16,5 +16,6 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Fixed: Number of units did get reduced for paratroopers over main targets when d_smallgrps was on
 - Fixed: Vanilla Altis OPFOR version was broken, d_allmen_W was not defined at all
 - Fixed: Create a unique group for each civ module isntead of using the same group, by longtimegamer
+- Fixed: Fix CUP BLUFOR air taxis by using different aircraft, by jlillis
 - Updated: Russian translation by Babayka
  
