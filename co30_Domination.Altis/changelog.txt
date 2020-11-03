@@ -19,5 +19,6 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Fixed: Vanilla Altis OPFOR version was broken, d_allmen_W was not defined at all
 - Fixed: Create a unique group for each civ module isntead of using the same group, by longtimegamer
 - Fixed: Fix CUP BLUFOR air taxis by using different aircraft, by jlillis
+- Fixed: Don't throw an error if the number of d_target_x is not the same in the mission as in the save
 - Updated: Russian translation by Babayka
  
