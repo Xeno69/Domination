@@ -389,7 +389,7 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
 
-	if (!isStreamFriendlyUIEnabled) then {
+	if (!isStreamFriendlyUIEnabled && d_force_isstreamfriendlyui != 1) then {
 		"d_fpsresource" cutRsc ["d_fpsresource", "PLAIN"];
 		if (d_player_can_call_arti > 0 || {d_player_can_call_drop > 0 || {d_string_player in d_can_call_cas || {!d_no_ai}}}) then {
 			"d_RscSupportL" cutRsc ["d_RscSupportL", "PLAIN"];
@@ -1170,7 +1170,7 @@ if (isMultiplayer) then {
 			};
 		};
 	};
-	if (!isStreamFriendlyUIEnabled) then {
+	if (!isStreamFriendlyUIEnabled && d_force_isstreamfriendlyui != 1) then {
 		0 spawn d_fnc_statusbar;
 	};
 };

@@ -7333,6 +7333,18 @@
 <Chinese>玩家標誌:</Chinese>
 <French>Marqueur joueur:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1177_FORCE_NO_HUD">
+<English>Force no HUD</English>
+<Spanish>Force no HUD</Spanish>
+<Portuguese>Force no HUD</Portuguese>
+<Korean>Force no HUD</Korean>
+<Japanese>Force no HUD</Japanese>
+<Original>Force no HUD</Original>
+<Russian>Force no HUD</Russian>
+<Chinesesimp>Force no HUD</Chinesesimp>
+<Chinese>Force no HUD</Chinese>
+<French>Force no HUD</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1178">
 <English>Name only</English>
 <Spanish>Sólo nombre</Spanish>
