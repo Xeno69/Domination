@@ -186,9 +186,9 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 	xr_spect_timer = -1;
 	__TRACE("ctrl not shown anymore, black in")
 	"xr_revtxt" cutText ["","BLACK IN", 1];
-	if (xr_pl_no_lifes) then {
+	/*if (xr_pl_no_lifes) then {
 		endMission "KILLED";
-	};
+	};*/
 };
 if (isNull xr_spectcamtarget) then { // player disconnect !?!
 	//private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
