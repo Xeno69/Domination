@@ -321,6 +321,12 @@ d_points_array = _ar # 15;
 publicVariable "d_points_array";
 #endif
 
+#ifdef __DEBUG__
+	{
+		__TRACE_2("","_forEachIndex","_x")
+	} forEach d_target_names;
+#endif
+
 {
 #ifndef __TT__
 	private _res = _x;
@@ -328,9 +334,15 @@ publicVariable "d_points_array";
 	private _res = _x # 0;
 #endif
 
-	private _tgt_ar = d_target_names # _res;
-	private _mar = format ["d_%1_dommtm", _tgt_ar # 1];
-	[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2], "", 0, "", "", d_e_marker_color_alpha] call d_fnc_CreateMarkerGlobal;
+	if (_res < count d_target_names) then {
+		private _tgt_ar = d_target_names # _res;
+		private _mar = format ["d_%1_dommtm", _tgt_ar # 1];
+		__TRACE_3("","_res","_tgt_ar","_mar")
+		[_mar, _tgt_ar # 0, "ELLIPSE", "ColorGreen", [ _tgt_ar # 2,  _tgt_ar # 2], "", 0, "", "", d_e_marker_color_alpha] call d_fnc_CreateMarkerGlobal;
+	} else {
+		diag_log format ["ATTENTION!!!, save %1 has more targets than are available in the mission (d_target_x)", _sname];
+		diag_log ["_res", _res];
+	};
 } forEach d_resolved_targets;
 
 
