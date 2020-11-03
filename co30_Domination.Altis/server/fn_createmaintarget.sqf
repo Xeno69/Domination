@@ -295,7 +295,7 @@ sleep 0.1;
 
 #ifndef __TT__
 if (d_enable_civs == 1) then {
-	[_trg_center] spawn d_fnc_civilianmodule;
+	[_trg_center, 300] spawn d_fnc_civilianmodule;
 };
 #endif
 
