@@ -31,8 +31,6 @@ if (isServer) then {
 };
 #endif
 
-execVM "PF\init.sqf";
-
 if (d_enable_civ_furniture > 0) then {
 	execVM "PF\init.sqf";
 };
