@@ -33,4 +33,6 @@ if (isServer) then {
 
 execVM "PF\init.sqf";
 
+execVM "PF\init.sqf";
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom init.sqf processed"];
