@@ -50,7 +50,6 @@ params [
 
 private [
 	"_Zen_ExtendPosition",
-	"_buildingsArray",
 	"_buildingsArrayFiltered",
 	"_buildingPosArray",
 	"_posArray",
@@ -126,43 +125,16 @@ _Zen_ArrayShuffle = {
 	};
 };
 
-if (_buildingRadius < 0) then {
-	_buildingsArray = [nearestBuilding _center];
-} else {
-	private _buildingsArray0 = nearestObjects [_center, ["house"], _buildingRadius];
-	private _buildingsArray1 = nearestObjects [_center, ["building"], _buildingRadius];
-	_buildingsArray = _buildingsArray0 arrayIntersect _buildingsArray1;
-};
-
-if (count _buildingsArray == 0) exitWith {
-	diag_log "Zen_Occupy House Error : No buildings found.";
-	[]
-};
-
-_buildingsArrayFiltered = [];
-
-if !(_isAllowSpawnNearEnemy) then {
-	{
-    	if (!((_x buildingPos -1) isEqualTo []) && {!([_x, d_side_player] call d_fnc_isbldghostile)}) then {
-    		_buildingsArrayFiltered pushBack _x;
-    	};
-    } forEach _buildingsArray;
-} else {
-	{
-		if (!((_x buildingPos -1) isEqualTo [])) then {
-			_buildingsArrayFiltered pushBack _x;
-		};
-	} forEach _buildingsArray;
-};
+_buildingsArrayFiltered = [_center, _buildingRadius, d_side_enemy] call d_fnc_getbuildings;
 
 _buildingPosArray = [];
-0 = [_buildingsArray] call _Zen_ArrayShuffle;
+0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;
 {
 	_posArray = _x buildingPos -1;
 	if !(_posArray isEqualTo []) then {
 		_buildingPosArray pushBack _posArray;
 	};
-} forEach _buildingsArray;
+} forEach _buildingsArrayFiltered;
 
 __TRACE_1("","_buildingPosArray")
 
@@ -180,12 +152,12 @@ _unitIndex = 0;
 for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}}, {I(_j)}] do {
 	scopeName "for";
 
-	_building = _buildingsArray select (_j % (count _buildingsArray));
+	_building = _buildingsArrayFiltered select (_j % (count _buildingsArrayFiltered));
 	_posArray = _buildingPosArray select (_j % (count _buildingPosArray));
 	__TRACE_2("","_building","_posArray")
 
 	if (count _posArray == 0) then {
-		_buildingsArray deleteAt (_j % (count _buildingsArray));
+		_buildingsArrayFiltered deleteAt (_j % (count _buildingsArrayFiltered));
 		_buildingPosArray deleteAt (_j % (count _buildingPosArray));
 	};
 
