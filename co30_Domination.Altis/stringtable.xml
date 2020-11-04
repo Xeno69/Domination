@@ -13646,6 +13646,42 @@
 <Chinese>Yes, but AI may not enter static weapons</Chinese>
 <French>Yes, but AI may not enter static weapons</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2039">
+<English>You can not respawn anymore!!!</English>
+<Spanish>You can not respawn anymore!!!</Spanish>
+<Portuguese>You can not respawn anymore!!!</Portuguese>
+<Korean>You can not respawn anymore!!!</Korean>
+<Japanese>You can not respawn anymore!!!</Japanese>
+<Original>You can not respawn anymore!!!</Original>
+<Russian>You can not respawn anymore!!!</Russian>
+<Chinesesimp>You can not respawn anymore!!!</Chinesesimp>
+<Chinese>You can not respawn anymore!!!</Chinese>
+<French>You can not respawn anymore!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2040">
+<English>No more lives left!!!</English>
+<Spanish>No more lives left!!!</Spanish>
+<Portuguese>No more lives left!!!</Portuguese>
+<Korean>No more lives left!!!</Korean>
+<Japanese>No more lives left!!!</Japanese>
+<Original>No more lives left!!!</Original>
+<Russian>No more lives left!!!</Russian>
+<Chinesesimp>No more lives left!!!</Chinesesimp>
+<Chinese>No more lives left!!!</Chinese>
+<French>No more lives left!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2041">
+<English>Press X to exit!!!</English>
+<Spanish>Press X to exit!!!</Spanish>
+<Portuguese>Press X to exit!!!</Portuguese>
+<Korean>Press X to exit!!!</Korean>
+<Japanese>Press X to exit!!!</Japanese>
+<Original>Press X to exit!!!</Original>
+<Russian>Press X to exit!!!</Russian>
+<Chinesesimp>Press X to exit!!!</Chinesesimp>
+<Chinese>Press X to exit!!!</Chinese>
+<French>Press X to exit!!!</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -111,6 +111,8 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes && {ctrlEnabled __CTRL(100102)}}) then {
 	__CTRL(100102) ctrlEnable false;
+	__CTRL(123321) ctrlEnable false;
+	__CTRL(1500) ctrlEnable false;
 };
 if (!xr_respawn_available && {ctrlEnabled __CTRL(100102)}) then {
 	__CTRL(100102) ctrlEnable false;

@@ -30,7 +30,6 @@ if (player getVariable "xr_pluncon") then {
 			xr_phd_invulnerable = true;
 			[true] spawn xr_fnc_park_player;
 			player removeAllEventHandlers "killed";
-			player removeAllEventHandlers "respawn";
 			_do_black = false;
 		};
 	};

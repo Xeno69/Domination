@@ -188,7 +188,7 @@ class xr_SpectDlg {
 					h = 0.04;
 				};
 				class PPosButton: RscLinkButtonBase {
-					idc = -1;
+					idc = 123321;
 					x = 1 - 0.31;
 					y = 0;
 					w = 0.3;

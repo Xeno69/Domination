@@ -154,6 +154,8 @@ if (!xr_pl_no_lifes) then {
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;
 	__dspctrl(1010) ctrlSetText (_visobj call _fnc_gpn);
+	
+	"d_nomorelifes" cutText [format ["<t color='#ff0000' size='5'>%1<br/>%2<br/>%3</t>", localize "STR_DOM_MISSIONSTRING_2039", localize "STR_DOM_MISSIONSTRING_2040", localize "STR_DOM_MISSIONSTRING_2041"], "PLAIN", -1, true, true];
 };
 
 xr_meh_draw3d = addMissionEventhandler ["Draw3D", {call xr_fnc_spectdraw3d}];

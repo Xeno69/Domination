@@ -9,6 +9,7 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Changed: Enemy AI CAS now adjust firing position if player has moved
 - Changed: Main target sidemission non AI objects must now also be destroyed by satchels
 - Changed: Refactored building selection for garrisoned enemies, by Longtimegamer
+- Changed: A player with no revive lives left can exit revive spectating with the X key
 - Fixed: Database mission progress autosave (already in the 4.38 reupload at GitHub)
 - Fixed: Revive spectating was using missionnamespace var name for unit reference which sometimes doesn't return anything; switched to UID
 - Fixed: If a mash got destroyed (or a FARP) then the marker was not removed correctly
@@ -20,5 +21,6 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Fixed: Create a unique group for each civ module isntead of using the same group, by longtimegamer
 - Fixed: Fix CUP BLUFOR air taxis by using different aircraft, by jlillis
 - Fixed: Don't throw an error if the number of d_target_x is not the same in the mission as in the save
+- Improved: If a player has no revive lives left show a message in the spectating dialog so he actually knows it :)
 - Updated: Russian translation by Babayka
  

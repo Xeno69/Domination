@@ -3,6 +3,11 @@
 #define THIS_FILE "fn_respawneh.sqf"
 #include "..\x_macros.sqf"
 
+if (player getVariable "xr_lives" == -1) exitWith {
+	player removeAllEventHandlers "respawn";
+	deleteVehicle (_this # 1);
+};
+
 if (!isNil "d_goto_jail") exitWith {};
 
 private _tmpeh = player addEventhandler ["handleDamage", {0}];
@@ -22,7 +27,7 @@ player setVariable ["xr_pluncon", true, true]; // just to be sure
 _this spawn {
 	scriptName "xr respawn eh spawn";
 	sleep 1.6;
-	private _old = _this select 1;
+	private _old = _this # 1;
 	__TRACE_1("","_old")
 	private _norm_resp = false;
 	if (xr_death_pos isEqualTo []) then {

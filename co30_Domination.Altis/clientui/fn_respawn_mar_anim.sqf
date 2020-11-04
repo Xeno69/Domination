@@ -8,7 +8,7 @@ private _cur_ang = 0;
 
 private _has_sql = _this;
 
-while {!isNil "d_teleport_off"} do {
+while {!isNil "d_teleport_off" && {player getVariable ["xr_lives", 0] > -1}} do {
 	if (d_respawn_mar_str != _old_respmar) then {
 		__TRACE_2("","d_respawn_mar_str","_old_respmar")
 		_cur_ang = 0;
