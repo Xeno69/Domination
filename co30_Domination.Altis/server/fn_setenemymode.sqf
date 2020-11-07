@@ -42,7 +42,7 @@ switch (_enemyMode) do {
 			[[1,1], 1], // tracked apc
 			[[1,1], 1], // wheeled apc
 			[[1,1], 1], // jeep with mg
-			[[1,1], 1] // jeep with gl
+			[[1,1], 1], // jeep with gl
 			[[1,1], 1]  // uav
 #else
 			[[1,1], 1], // tanks
