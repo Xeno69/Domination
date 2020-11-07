@@ -667,15 +667,15 @@ if (d_with_MainTargetEvents != 0) then {
 				_tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);
+				// if guerrilla infantry are randomly selected then there is a 1 in 2 chance of guerrilla tanks
+				if (_tmpRandomEvent == "GUERRILLA_INFANTRY" && {(random 2 <= 1)}) then {
+					[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+				};
 			};
 		} else {
 			// create one event
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
-	};
-	// if _doEvent is true then 1-in-5 chance of guerilla tanks appearing as well
-	if (_doEvent && {(random 5 <= 1)}) then {
-		[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 	};
 };
 #endif

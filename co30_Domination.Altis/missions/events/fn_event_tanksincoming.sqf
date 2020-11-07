@@ -38,14 +38,12 @@ switch (_with_less_armor) do {
 	case 0: {
 		_eventArmorAll = [
 			_eventArmorHeavy,
-			_eventArmorHeavy,
 			_eventArmorMedium,
 			_eventArmorLight
 		];
 	};
 	case 1: {
 		_eventArmorAll = [
-			_eventArmorHeavy,
 			_eventArmorMedium,
 			_eventArmorLight,
 			_eventArmorLight
@@ -53,7 +51,7 @@ switch (_with_less_armor) do {
 	};
 	case 2: {
 		_eventArmorAll = [
-			_eventArmorMedium,
+			_eventArmorLight,
 			_eventArmorLight,
 			_eventArmorLight
 		];
