@@ -896,16 +896,16 @@ if (!d_gmcwgwinter) then {
 		if (d_ifa3lite) exitWith {
 			[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
 		};
-		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup]
+		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup,["West","BLU_F","Infantry","BUS_ReconSquad"] call d_fnc_GetConfigGroup]
 	};
 
 	if (d_tanoa || {d_livonia}) then {
-		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup];
-		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup,["O_T_ghillie_tna_F","O_T_ghillie_tna_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"]];
+		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup,["B_T_ghillie_tna_F","B_T_ghillie_tna_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"]];
 		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 	} else {
-		d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup];
-		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup,["O_ghillie_ard_F","O_ghillie_ard_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"],["O_ghillie_sard_F","O_ghillie_sard_F"]];
+		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup,["B_ghillie_ard_F","B_ghillie_ard_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"],["B_ghillie_sard_F","B_ghillie_sard_F"]];
 		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 	};
 
