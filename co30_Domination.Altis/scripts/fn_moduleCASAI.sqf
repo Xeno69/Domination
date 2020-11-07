@@ -128,7 +128,7 @@ private _fire = [] spawn {
 	scriptName "spawn_modulcas";
 	waitUntil {false}
 };
-if (!isNull _enemy && {_enemy distance2D _logico < 200}) then {
+if (alive _enemy && {alive _callero && {_callero knowsAbout _enemy >= 1.5 && {_enemy distance2D _logico < 100}}}) then {
 	_logico setPos (getPos _enemy);
 };
 private _fireNull = true;
