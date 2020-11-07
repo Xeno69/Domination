@@ -18,7 +18,7 @@ __TRACE_1("","_grp")
 
 _grptype = toLowerANSI _grptype;
 
-private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty", "uav"];
+private _istatatic = _grptype in ["stat_mg", "stat_gl", "arty"];
 private _ismen = _grptype in ["allmen", "specops"];
 
 private _msize = 0;
@@ -63,7 +63,7 @@ _grp deleteGroupWhenEmpty true;
 
 if (_add_to_ar_type > 0) then {
 	if (d_mt_respawngroups == 0) then {
-		if (!_istatatic) then { // don't add static weapons !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
+		if (!_istatatic && {_grptype != "uav"}) then { // don't add static weapons or UAVs !!!!, respawn doesn't make sense, they can't travel from the respawn camp to another location
 			if (!_ismen) then {
 				{
 					[_x, 3] call d_fnc_setekmode;

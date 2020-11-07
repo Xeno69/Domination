@@ -167,9 +167,15 @@ private _type_list_patrol = [
 
 private _d_veh_li = missionNamespace getVariable format ["d_veh_a_%1", d_enemy_side_short];
 
+__TRACE_1("","_d_veh_li")
+__TRACE_1("","count _d_veh_li")
+
 if (count _d_veh_li > 12) then {
+	__TRACE("Pushing back UAV")
 	_type_list_patrol pushBack ["uav", [d_vec_numbers_patrol, 5] call _selectit, [d_vec_numbers_patrol,5] call _selectitvec];
 };
+
+__TRACE_1("","_type_list_patrol")
 
 private _type_list_guard_static2 = [
 	["stat_mg", 1, ceil (random 4)],
@@ -398,6 +404,7 @@ sleep 0.233;
 } forEach (_type_list_guard_static2 select {_x # 2 > 0});
 
 {
+	__TRACE_1("patrol","_x")
 	if ((_x # 0) call _fnc_dospawnr) then {
 		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
