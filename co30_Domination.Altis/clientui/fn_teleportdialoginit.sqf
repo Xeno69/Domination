@@ -187,6 +187,8 @@ private _can_add_mapclick = true;
 
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
 	__CTRL(100102) ctrlEnable false;
+	__CTRL(123321) ctrlEnable false;
+	__CTRL(1500) ctrlEnable false;
 	_can_add_mapclick = false;
 };
 if (!xr_respawn_available) then {

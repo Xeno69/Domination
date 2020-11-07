@@ -55,6 +55,12 @@ if ((_this # 1) == DIK_N) then {
 				((uiNamespace getVariable "XR_SpectDlg") displayCtrl 1003) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1334a");
 			};
 			_res = true;
+		} else {
+			if ((_this # 1) == DIK_X && {player getVariable ["xr_lives", 0] == -1}) then {
+				xr_stopspect = true;
+				endMission "END1";
+				forceEnd;
+			};
 		};
 	};
 };
