@@ -6577,16 +6577,16 @@
 <French>Missions de type:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1052_EVENTS">
-<English>Main target random events:</English>
-<Spanish>Main target random events:</Spanish>
-<Portuguese>Main target random events:</Portuguese>
+<English>Random events at main target:</English>
+<Spanish>Random events at main target:</Spanish>
+<Portuguese>Random events at main target:</Portuguese>
 <Korean>메인미션 무작위 이벤트:</Korean>
-<Japanese>Main target random events:</Japanese>
-<Original>Main target random events:</Original>
+<Japanese>Random events at main target:</Japanese>
+<Original>Random events at main target:</Original>
 <Russian>С случайными событиями на главной цели:</Russian>
 <Chinesesimp>主要目标随机事件：</Chinesesimp>
-<Chinese>Main target random events:</Chinese>
-<French>Main target random events:</French>
+<Chinese>Random events at main target:</Chinese>
+<French>Random events at main target:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1053">
 <English>Main Targets and Side Missions (Default)</English>

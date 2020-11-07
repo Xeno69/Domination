@@ -68,7 +68,16 @@ if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) t
 };
 
 private _newgroups = [];
-private _guerrillaForce = ["allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "specops"];
+// calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
+private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
+// default guerrilla force
+private _guerrillaForce = ["allmen", "allmen", "specops"];
+if (_targetGroupCount > 10) then {
+	_guerrillaForce = ["allmen", "allmen", "allmen", "specops"];
+};
+if (_targetGroupCount > 20) then {
+	_guerrillaForce = ["allmen", "allmen", "allmen", "allmen", "specops"];
+};
 private _guerrillaBaseSkill = 0.35;
 
 {
