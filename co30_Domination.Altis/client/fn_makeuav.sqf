@@ -21,7 +21,7 @@ if !(d_UAV_Terminal in (assignedItems player)) then {
 	player linkItem d_UAV_Terminal;
 };
 
-private _uav = [getPosATL player, 0, d_UAV_Small, d_player_side, false, false, true] call bis_fnc_spawnVehicle;
+private _uav = [getPosATL player, 0, d_UAV_Small, d_player_side, false, false] call bis_fnc_spawnVehicle;
 __TRACE_1("","_uav")
 _uav params ["_vecu", "_crew", "_grp"];
 
@@ -32,6 +32,8 @@ _vecu allowCrewInImmobile true;
 _vecu setVehicleReceiveRemoteTargets true;
 _vecu setVehicleReportRemoteTargets true;
 _vecu setVehicleRadar 1;
+
+_vecu allowDamage false;
 
 {
 	_x setSkill ["spotDistance", 1];
@@ -45,30 +47,31 @@ player action ["UAVTerminalOpen"];
 
 //diag_log ["UAVControl", UAVControl _vecu];
 
-_vecu spawn {
+_uav spawn {
 	scriptName "spawn_makuav";
-	params ["_uav"];
-	__TRACE_1("spawn","_uav")
+	params ["_uav", "_crew"];
+	__TRACE_1("spawn","_this")
 	private _exit_it = false;
+	sleep 1;
 	while {true} do {
-		while {!isNull (findDisplay 160) && {!isNull (getConnectedUav player) && {alive player && {!(player getVariable ["xr_pluncon", false]) && {alive _uav && {!(player getVariable ["ace_isunconscious", false])}}}}}} do {
-			sleep 1.1;
-		};
-		if ((isNull (findDisplay 160) && {(UAVControl _uav) # 1 == ""}) || {!alive player || {player getVariable ["xr_pluncon", false] || {!alive _uav || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
-		while {(UAVControl _uav) # 1 != "" && {alive player && {!(player getVariable ["xr_pluncon", false]) && {alive _uav && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
-			sleep 1.1;
-		};
-		if ((isNull (findDisplay 160) && {(UAVControl _uav) # 1 == ""}) || {!alive player || {player getVariable ["xr_pluncon", false] || {!alive _uav || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
+		if (!alive player || {!alive _uav || {(isNull (findDisplay 160) && ((UAVControl _uav) # 1) isEqualTo "") || {isNull (getConnectedUav player) || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}) exitWith {};
+		sleep 1.1;
 	};
+	__TRACE("uav spawn while over")
+	
+	["a2r", d_player_uid, _uav] remoteExecCall ["d_fnc_p_o_ar", 2];
+	
+	__TRACE_1("uav spawn","findDisplay 160")
+	if (!isNull (findDisplay 160)) then {
+		(findDisplay 160) closeDisplay 1;
+	};
+
+	{_uav deleteVehicleCrew _x} forEach _crew;
+	deleteVehicle _uav;
+	
 	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {player getVariable ["d_has_gps", false] && {!(player getVariable ["ace_isunconscious", false])}}}) then {
 		player linkItem "ItemGPS";
 		player setVariable ["d_has_gps", false];
 	};
-	
-	if (!isNull _uav) then {
-		["a2r", d_player_uid, _uav] remoteExecCall ["d_fnc_p_o_ar", 2];
-	};
-	{_uav deleteVehicleCrew _x} forEach (crew _uav);
-	deleteVehicle _uav;
-	(findDisplay 160) closeDisplay 1;
+	__TRACE("UAV spawn over")
 };
