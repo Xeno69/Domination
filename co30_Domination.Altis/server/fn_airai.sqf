@@ -288,7 +288,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					      _oneveh setVariable ["d_enemyAir_nextRearmTime",(diag_tickTime + 300),false];
 					 };
 				    };				
-				    if (_type isEqualTo "SU") then {
+				    if (_type isEqualTo "AP") then {
 					private _allPlayers =  allPlayers - entities "HeadlessClient_F";
 					if !(_allPlayers isEqualTo []) then {
 					       {
@@ -303,10 +303,6 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					        } count _allPlayers;					
 					    };
 				        };				
-					_x setFuel 1;
-					if (random 2 > 1.25) then {
-					   _x setVehicleAmmo (random 0.5);
-					};
 				};
 			} forEach _vehicles;
 			_vehicles = _vehicles - [-1];
