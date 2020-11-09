@@ -23,17 +23,23 @@ while {true} do {
 	private _vec = objNull;
 	private _vehicles = [];
 	private _funits = [];
-	private _num_p = call d_fnc_PlayersNumber;
-#ifndef __DEBUG__
-	sleep (call {
-		if (_num_p < 5) exitWith {1800};
-		if (_num_p < 10) exitWith {1500};
-		if (_num_p < 20) exitWith {1200};
-		if (_num_p < 30) exitWith {1000};
-		800;
-	});
-#endif
-	__TRACE_1("","_num_p")
+	
+	private _limit_p = call {
+	    if (_type isEqualTo "AP") exitWith {12};
+	    if (_type isEqualTo "HAC") exitWith {10};
+	    if (_type isEqualTo "UAV") exitWith {5};
+	    3;
+	};
+	__TRACE_1("","_limit_p")
+	#ifndef __DEBUG__
+	while {true} do {
+		if (!d_mt_radio_down && {(d_fnc_PlayersNumber) >= _limit_p && {diag_fps > 15}}) exitWith {
+		    __TRACE("spawning airai vehicle")
+		};
+		sleep (5 + random 10);
+        };
+	#endif		
+
 	while {d_mt_radio_down} do {sleep 6.123};
 	private _pos = call d_fnc_GetRanPointOuterAir;
 	if !(d_cur_tgt_pos isEqualTo []) then {
@@ -89,11 +95,13 @@ while {true} do {
 	private _cdir = _pos getDir d_island_center;
 	__TRACE_1("","_cdir")
 #ifndef __TT__
-	call {
+	if !((toUpperANSI _heli_type) in ["B_PLANE_FIGHTER_01_STEALTH_F","O_PLANE_FIGHTER_02_STEALTH_F"]) then {
+	     call {
 		if (_type == "AP") exitWith {if (d_searchintel # 1 == 1) then {[0] call d_fnc_DoKBMsg}};
 		if (_type == "HAC") exitWith {if (d_searchintel # 2 == 1) then {[1] call d_fnc_DoKBMsg}};
 		if (_type == "LAC") exitWith {if (d_searchintel # 3 == 1) then {[2] call d_fnc_DoKBMsg}};
-	};
+	    };
+	 };
 #endif
 	for "_xxx" from 1 to _numair do {
 		private _vec_array = [[_pos # 0, _pos # 1, 400], _cdir, _heli_type, _grp] call d_fnc_spawnVehicle;
@@ -116,9 +124,29 @@ while {true} do {
 
 		if (d_LockAir == 0) then {_vec lock true};
 	        _vec flyInHeight _height;
-	        _vec flyInHeightASL _heightASL;
-
-		_vec spawn d_fnc_airmarkermove;
+	        _vec flyInHeightASL _heightASL;		
+#ifndef __TT__
+	       if !((toUpperANSI _heli_type) in ["B_PLANE_FIGHTER_01_STEALTH_F","O_PLANE_FIGHTER_02_STEALTH_F"]) then {
+	          call {
+		     if (_type == "AP") exitWith {if (d_searchintel # 1 == 1) then {_vec spawn d_fnc_airmarkermove;}};
+		     if (_type == "HAC") exitWith {if (d_searchintel # 2 == 1) then {_vec spawn d_fnc_airmarkermove;}};
+		     if (_type == "LAC") exitWith {if (d_searchintel # 3 == 1) then {_vec spawn d_fnc_airmarkermove;}};
+	          };
+	       };
+#endif				
+	        if (_vec isKindOf "Plane") then {
+	            _vec setVehicleRadar 1;
+	        };
+	        {
+		      _x disableAI "LIGHTS";
+	              _x setVehicleReceiveRemoteTargets true;	
+                      _x setVehicleReportRemoteTargets true;		   
+	        } forEach (crew _vec);		
+                _vec setCollisionLight true;
+		_vec setPilotLight false;	 
+	        _vec setVehicleReceiveRemoteTargets true;	
+                _vec setVehicleReportRemoteTargets true;		
+                _vec setVariable ["d_enemyAir_nextRearmTime",(diag_tickTime + 300),false];
 		__TRACE_1("","_vec")
 		sleep 0.1;
 	};
@@ -129,6 +157,8 @@ while {true} do {
 	sleep 1.011;
 
 	_grp allowFleeing 0;
+	_grp setCombatMode "RED";
+        _grp enableAttack true;
 	_grp call d_fnc_addgrp2hc;
 
 	while {true} do {
@@ -250,6 +280,29 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					};
 					_vehicles set [_forEachIndex, -1];
 				} else {
+				    private _oneveh = _x;
+				    if (!isNil {_oneveh getVariable "d_enemyAir_nextRearmTime"}) then {
+				         if (diag_tickTime > (_oneveh getVariable "d_enemyAir_nextRearmTime")) then {
+				              _oneveh setFuel 1;
+					      _oneveh setVehicleAmmo 1;
+					      _oneveh setVariable ["d_enemyAir_nextRearmTime",(diag_tickTime + 300),false];
+					 };
+				    };				
+				    if (_type isEqualTo "SU") then {
+					private _allPlayers =  allPlayers - entities "HeadlessClient_F";
+					if !(_allPlayers isEqualTo []) then {
+					       {
+						   if ((objectParent _x) isKindOf "Plane") then {
+						       if (_x isEqualTo (currentPilot (objectParent _x))) then {
+							    (group (currentPilot _oneveh)) reveal [(objectParent _x),4];
+							    if (isNull (getAttackTarget (currentPilot _oneveh))) then {
+								 (currentPilot _oneveh) doTarget (objectParent _x);
+							    };
+							};
+						    };						
+					        } count _allPlayers;					
+					    };
+				        };				
 					_x setFuel 1;
 					if (random 2 > 1.25) then {
 					   _x setVehicleAmmo (random 0.5);
@@ -284,13 +337,13 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 #ifndef __DEBUG__
 	_num_p = call d_fnc_PlayersNumber;
 	private _re_random = (call {
-		if (_num_p < 5) exitWith {1800};
-		if (_num_p < 10) exitWith {1500};
-		if (_num_p < 20) exitWith {1200};
-		if (_num_p < 30) exitWith {1000};
-		800;
+		if (_num_p < 5) exitWith {1000};
+		if (_num_p < 10) exitWith {800};
+		if (_num_p < 15) exitWith {600};
+		if (_num_p < 20) exitWith {400};
+		200;
 	});
-	sleep (d_airai_respawntime + _re_random + (random _re_random));
+	sleep (d_airai_respawntime + _re_random);
 #else
 	sleep 10;
 #endif
