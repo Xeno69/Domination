@@ -5,7 +5,7 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 
 - Added: Force streamfriendlyui through param, by Longtimegamer
 - Changed: In the non TT versions the positions of the default Domination base vehicles and all bonus vehicles is now saved to missionsave too, if those vehicles are alive and more than 700 meters away from base
-           Additionally, if an ammobox is loaded is saved too and if MHQs are deployed is also saved
+           Additionally, if an ammobox is loaded it is saved too and if MHQs are deployed is also saved
 - Changed: Enemy AI CAS now adjust firing position if player has moved
 - Changed: Main target sidemission non AI objects must now also be destroyed by satchels
 - Changed: Refactored building selection for garrisoned enemies, by Longtimegamer
