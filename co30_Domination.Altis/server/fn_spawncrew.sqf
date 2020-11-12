@@ -22,6 +22,12 @@ if (count _crew > 0) then {
 			_x setSkill ["spotDistance", 1];
 		} forEach _crew;
 	};
+        if (_vec isKindOf "StaticWeapon") then {
+	     {
+	         _x setSkill ["spotDistance",1];
+		 _x setSkill ["aimingAccuracy",(random [0.05,0.1,0.125])];
+	     } forEach _crew;
+        };	
 
 	private _addus = [];
 	if (!_nocargo) then {
