@@ -12,7 +12,7 @@ if (count _crew > 0) then {
 	deleteGroup _uavgrp;
 
 	private _subskill = if (diag_fps > 29) then {
-		(0.1 + (random 0.2))
+		(0.1 + (random 0.1))
 	} else {
 		(0.12 + (random 0.04))
 	};
@@ -24,8 +24,8 @@ if (count _crew > 0) then {
 	};
         if (_vec isKindOf "StaticWeapon") then {
 	     {
-	         _x setSkill ["spotDistance",1];
-		 _x setSkill ["aimingAccuracy",(random [0.05,0.1,0.125])];
+	         _x setSkill ["spotDistance", 1];
+		 _x setSkill ["aimingAccuracy",(random [0.05, 0.1, 0.125])];
 	     } forEach _crew;
         };	
 
