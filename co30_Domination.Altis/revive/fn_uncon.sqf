@@ -80,6 +80,10 @@ __TRACE("starting main uncon loop")
 			d_eng_can_repfuel = false;
 		};
 		player setVariable ["d_old_eng_can_repfuel", nil];
+		
+		if (!isNull (attachedTo player)) then {
+			detach player;
+		};
 
 		0 spawn {
 			scriptname "spawn 1uncon";

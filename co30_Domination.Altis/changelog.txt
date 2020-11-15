@@ -23,6 +23,7 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Fixed: Fix CUP BLUFOR air taxis by using different aircraft, by jlillis
 - Fixed: Don't throw an error if the number of d_target_x is not the same in the mission as in the save
 - Fixed: UAVs created at MHQs are now indestructible. Prevents players from beeing stuck in some weird camera mode
+- Fixed: It could happen that a player was still attached to a remote player after revive (because of dragging or carrying)
 - Improved: If a player has no revive lives left show a message in the spectating dialog so he actually knows it :)
 - Improved: More different enemy groups, by lelik
 - Updated: Russian translation by Babayka

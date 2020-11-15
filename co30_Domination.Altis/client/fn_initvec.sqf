@@ -122,6 +122,7 @@ if (_d_vec < 100) exitWith {
 	if (d_player_side == blufor) then {
 #endif
 	_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false, true, "", "true", 7];
+	player reveal _vec;
 #ifdef __TT__
 	} else {
 		_vec setVariable ["d_liftit", false];
@@ -324,6 +325,7 @@ if (_d_vec < 1100) exitWith {
 	if (!alive _vec) exitWith {};
 	if (d_player_side == opfor) then {
 		_vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_262"], {_this call d_fnc_vecdialog}, _d_vec, -1, false, true, "", "true", 7];
+		player reveal _vec;
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
 	_vec setVariable ["d_canloadbox", true];
