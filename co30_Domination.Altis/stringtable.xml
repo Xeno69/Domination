@@ -13682,6 +13682,18 @@
 <Chinese>Press X to exit!!!</Chinese>
 <French>Press X to exit!!!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_AI_SILENT">
+<English>Bots are silent</English>
+<Spanish>Bots are silent</Spanish>
+<Portuguese>Bots are silent</Portuguese>
+<Korean>Bots are silent</Korean>
+<Japanese>Bots are silent</Japanese>
+<Original>Bots are silent</Original>
+<Russian>Bots are silent</Russian>
+<Chinesesimp>Bots are silent</Chinesesimp>
+<Chinese>Bots are silent</Chinese>
+<French>Bots are silent</French>
+</Key>
 </Container>
 </Package>
 </Project>
