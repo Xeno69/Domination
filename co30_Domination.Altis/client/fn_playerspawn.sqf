@@ -163,4 +163,22 @@ if (_rtype == 0) then { // player died
 	};
 #endif
 	showChat true;
+	if (isStreamFriendlyUIEnabled || d_force_isstreamfriendlyui == 1) then {
+		showChat false;
+		enableSentences false;
+		showSubtitles false;
+		/*
+		hud: Boolean - show scripted HUD (same as normal showHUD true/false)
+		info: Boolean - show vehicle + soldier info (hides weapon info from the HUD as well)
+		radar: Boolean - show vehicle radar
+		compass: Boolean - show vehicle compass
+		direction: Boolean - show tank direction indicator (not present in vanilla Arma 3)
+		menu: Boolean - show commanding menu (hides HC related menus)
+		group: Boolean - show group info bar (hides squad leader info bar)
+		cursors: Boolean - show HUD weapon cursors (connected with scripted HUD)
+		panels: Boolean - show vehicle panels
+		kills: Boolean - show "x killed by y" systemChat messages
+		*/
+		showHUD [true, true, true, true, true, true, false, true, true, false];
+	};
 };
