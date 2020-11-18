@@ -13,6 +13,6 @@
 ["Indep","IND_C_F","Infantry","ParaCombatGroup"] call d_fnc_GetConfigGroup,
 ["Indep","IND_C_F","Infantry","ParaShockTeam"] call d_fnc_GetConfigGroup,
 //Syndikat
-["Indep","IND_G_F","Infantry","IRG_InfSquad"] call d_fnc_GetConfigGroup,
-["Indep","IND_G_F","Infantry","IRG_InfSquad_Weapons"] call d_fnc_GetConfigGroup
+["Indep","IND_G_F","Infantry","I_G_InfTeam_Light"] call d_fnc_GetConfigGroup,
+["Indep","IND_G_F","Infantry","I_G_InfSquad_Assault"] call d_fnc_GetConfigGroup
 #endif
