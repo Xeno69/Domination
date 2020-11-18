@@ -725,6 +725,13 @@ default = 7;
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_ai_silent {
+		title = "$STR_DOM_MISSIONSTRING_AI_SILENT";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 #endif
 
 	class d_params_dl_3 {

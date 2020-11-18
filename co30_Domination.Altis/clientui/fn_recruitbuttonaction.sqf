@@ -154,4 +154,8 @@ addToRemainsCollector [_unit];
 
 _unit addEventhandler ["getInMan", {_this call d_fnc_getinmanai}];
 
+if (d_ai_silent == 1) then {
+	[_unit, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+};
+
 player setVariable ["d_recdbusy", false];
