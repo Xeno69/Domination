@@ -33,7 +33,7 @@ while {true} do {
 	__TRACE_1("","_limit_p")
 	#ifndef __DEBUG__
 	while {true} do {
-		if (!d_mt_radio_down && {(d_fnc_PlayersNumber) >= _limit_p && {diag_fps > 15}}) exitWith {
+		if (!d_mt_radio_down && {(call d_fnc_PlayersNumber) >= _limit_p && {diag_fps > 15}}) exitWith {
 		    __TRACE("spawning airai vehicle")
 		};
 		sleep (5 + random 10);
