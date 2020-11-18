@@ -1353,7 +1353,7 @@ if (!d_gmcwgwinter) then {
 
 	// time (in sec) between attack planes and choppers over main target will respawn once they were shot down (a random value between 0 and 240 will be added)
 	if (isNil "d_airai_respawntime") then {
-		d_airai_respawntime = 1200;
+		d_airai_respawntime = 1000;
 	};
 
 	d_side_missions_random = [];
