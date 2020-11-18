@@ -12,6 +12,7 @@ ATTENTION2: The missionsave table in the Domination sql database has changed, ei
 - Changed: Refactored building selection for garrisoned enemies, by Longtimegamer
 - Changed: A player with no revive lives left can exit revive spectating with the X key
 - Changed: UAV patrols at main targets (if UAVs are available), by lelik
+- Changed: Better air ai integration, by lelik
 - Fixed: Database mission progress autosave (already in the 4.38 reupload at GitHub)
 - Fixed: Revive spectating was using missionnamespace var name for unit reference which sometimes doesn't return anything; switched to UID
 - Fixed: If a mash got destroyed (or a FARP) then the marker was not removed correctly
