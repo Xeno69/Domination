@@ -163,4 +163,7 @@ if (_rtype == 0) then { // player died
 	};
 #endif
 	showChat true;
+	if (isStreamFriendlyUIEnabled || d_force_isstreamfriendlyui == 1) then {
+		[] spawn d_fnc_showhud;
+	};
 };

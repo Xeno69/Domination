@@ -64,6 +64,11 @@ player disableConversation true;
 if (!d_with_ai) then {
 	enableSentences false;
 };
+
+if (isStreamFriendlyUIEnabled || d_force_isstreamfriendlyui == 1) then {
+	[] spawn d_fnc_showhud;
+};
+
 [player, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
 
 player setVariable ["d_tk_cutofft", time + 3];
