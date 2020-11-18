@@ -42,20 +42,20 @@ if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 		sleep 30;
 		__TRACE("spawn_init_airai 30 secs over")
 		if (d_number_light_attack_choppers > 0 && {!(d_light_attack_chopper isEqualTo [])}) then {
-			sleep 1200;
+			sleep (120 + random 120);
 			__TRACE("spawn_init_airai 30 exec LAC")
 			["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
 		};
 		if (d_number_attack_choppers > 0 && {!(d_airai_attack_chopper isEqualTo [])}) then {
-			sleep 1200;
+			sleep (120 + random 120);
 			["HAC"] spawn d_fnc_airai; // HAC = Heavy Attack Chopper
 		};
 		if (d_number_attack_planes > 0 && {!(d_airai_attack_plane isEqualTo [])}) then {
-			sleep 1200;
+			sleep (120 + random 120);
 			["AP"] spawn d_fnc_airai; // AP = Attack Plane
 		};
 		if (d_number_attack_uavs > 0 && {!(d_airai_attack_uav isEqualTo [])}) then {
-			sleep (60 + random 120);
+			sleep (120 + random 120);
 			["UAV"] spawn d_fnc_airai; // UAV = Attack UAV
 		};		
 	};
