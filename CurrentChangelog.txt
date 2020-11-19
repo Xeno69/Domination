@@ -1,6 +1,6 @@
 4.39
 
-ATTENTION: domination-custom.ini file has changed (update it with the one available in the 7z download file)
+ATTENTION: extDB3 domination-custom.ini file has changed (update it with the one available in the Domination_4_39.7z download file)
 ATTENTION2: The missionsave table in the Domination sql database has changed, either execute DAddColumn_d_vrespawn_vecs_4_39.sql (in Heidi for example) or make the changes yourself 
 
 - Added: Force streamfriendlyui through param, by Longtimegamer
