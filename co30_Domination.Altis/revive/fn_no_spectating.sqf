@@ -5,7 +5,7 @@
 
 if (!hasInterface) exitWith {};
 
-if (player getVariable "xr_lives" == -1) exitWith {
+if (xr_max_lives != -1 && {player getVariable "xr_lives" == -1}) exitWith {
 	[false] spawn xr_fnc_spectating;
 };
 

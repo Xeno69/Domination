@@ -1,32 +1,3 @@
-4.39
+4.40
 
-ATTENTION: extDB3 domination-custom.ini file has changed (update it with the one available in the Domination_4_39.7z download file)
-ATTENTION2: The missionsave table in the Domination sql database has changed, either execute DAddColumn_d_vrespawn_vecs_4_39.sql (in Heidi for example) or make the changes yourself 
-
-- Added: Force streamfriendlyui through param, by Longtimegamer
-- Added: "Bots are silent" Parameter (description.ext d_ai_silent) to silence recruited AI radio chatter, by longtimegamer
-- Changed: In the non TT versions the positions of the default Domination base vehicles and all bonus vehicles is now saved to missionsave too, if those vehicles are alive and more than 700 meters away from base
-           Additionally, if an ammobox is loaded it is saved too and if MHQs are deployed it is also saved
-- Changed: Enemy AI CAS now adjust firing position if player has moved
-- Changed: Main target sidemission non AI objects must now also be destroyed by satchels
-- Changed: Refactored building selection for garrisoned enemies, by Longtimegamer
-- Changed: A player with no revive lives left can exit revive spectating with the X key
-- Changed: UAV patrols at main targets (if UAVs are available), by lelik
-- Changed: Better air ai integration, by lelik
-- Fixed: Database mission progress autosave (already in the 4.38 reupload at GitHub)
-- Fixed: Revive spectating was using missionnamespace var name for unit reference which sometimes doesn't return anything; switched to UID
-- Fixed: If a mash got destroyed (or a FARP) then the marker was not removed correctly
-- Fixed: Call CAS was broken because of a wrong variable name
-- Fixed: Class rhsgref_BRDM2_ATGM_msv no longer exists in RHS leading to script errors during vehicle creation
-- Fixed: Don't delete uniform, vest, headgear or backpack if players ends up with none of them when Virtual Arsenal gets closed
-- Fixed: Number of units did not get reduced for paratroopers over main targets when d_smallgrps was activated
-- Fixed: Vanilla Altis OPFOR version was broken, d_allmen_W was not defined at all
-- Fixed: Create a unique group for each civ module instead of using the same group, by longtimegamer
-- Fixed: Fix CUP BLUFOR air taxis by using different aircraft, by jlillis
-- Fixed: Don't throw an error if the number of d_target_x is not the same in the mission as in the SQL DB data save
-- Fixed: UAVs created at MHQs are now indestructible. Prevents players from beeing stuck in some weird camera mode
-- Fixed: It could happen that a player was still attached to a remote player after revive (because of dragging or carrying)
-- Improved: If a player has no revive lives left show a message in the spectating dialog so he actually knows it :)
-- Improved: More different enemy groups, by lelik
-- Updated: Russian translation by Babayka
- 
+- Fixed: Major gamebreaker, revive screen stayed black when a player died an revive max lives was set to unlimited

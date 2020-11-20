@@ -3,9 +3,12 @@
 #define THIS_FILE "fn_respawneh.sqf"
 #include "..\x_macros.sqf"
 
-if (player getVariable "xr_lives" == -1) exitWith {
+__TRACE("Start")
+
+if (xr_max_lives != -1 && {player getVariable "xr_lives" == -1}) exitWith {
 	player removeAllEventHandlers "respawn";
 	deleteVehicle (_this # 1);
+	__TRACE("Exiting because xr_lives = -1")
 };
 
 if (!isNil "d_goto_jail") exitWith {};
@@ -109,3 +112,5 @@ player removeEventHandler ["handleDamage", _tmpeh];
 };
 
 showChat true;
+
+__TRACE("End")
