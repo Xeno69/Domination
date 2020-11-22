@@ -167,7 +167,7 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 };
 
 if (toLowerANSI (_sm_ar # 1) != "convoy") then {
-	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
+	if ((_sm_ar # 3) isEqualType [] && {(_sm_ar # 3) isNotEqualTo []}) then {
 		(_sm_ar # 3) spawn {
 			scriptName "spawn_getbymarkersmarmor";
 			__TRACE("Creating armor")
@@ -177,7 +177,7 @@ if (toLowerANSI (_sm_ar # 1) != "convoy") then {
 			} forEach _this;
 		};
 	};
-	if ((_sm_ar # 4) isEqualType [] && {!((_sm_ar # 4) isEqualTo [])}) then {
+	if ((_sm_ar # 4) isEqualType [] && {(_sm_ar # 4) isNotEqualTo []}) then {
 		(_sm_ar # 4) spawn {
 			scriptName "spawn_getbymarkersminf";
 			__TRACE("Creating inf")

@@ -23,18 +23,18 @@ for "_i" from 1 to _ran do {
 	private _estart_pos = [];
 	for "_i" from 0 to 49 do {
 		_estart_pos = [_water, _radiusw, 2, 0.7, 4, 2] call d_fnc_getranpointcircle;
-		if (!(_estart_pos isEqualTo []) && {surfaceIsWater _estart_pos && {(getTerrainHeightASL _estart_pos) < -5}}) exitWith {};
+		if (_estart_pos isNotEqualTo [] && {surfaceIsWater _estart_pos && {(getTerrainHeightASL _estart_pos) < -5}}) exitWith {};
 		_radiusw = _radiusw + 50;
 	};
 	_pos = [];
 	for "_i" from 0 to 49 do {
 		_pos = _estart_pos findEmptyPosition [20, _radiusw, d_sm_speedboat];
-		if (!(_estart_pos isEqualTo []) && {surfaceIsWater _estart_pos && {(getTerrainHeightASL _estart_pos) < -5}}) exitWith {};
+		if (_estart_pos isNotEqualTo [] && {surfaceIsWater _estart_pos && {(getTerrainHeightASL _estart_pos) < -5}}) exitWith {};
 	};
 	__TRACE_1("","_pos")
-	if !(_pos isEqualTo []) then {
+	if (_pos isNotEqualTo []) then {
 		private _bestpos = selectBestPlaces [_pos, 15, "waterdepth", 2, 5];
-		if !(_bestpos isEqualTo []) then {
+		if (_bestpos isNotEqualTo []) then {
 			_pos = (_bestpos # 0) # 0;
 			_pos set [2, 0];
 			private _newgrp = [d_side_enemy] call d_fnc_creategroup;

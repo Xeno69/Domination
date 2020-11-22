@@ -21,7 +21,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 		if (!(_chopper getVariable ["d_vec_attached", false]) && {_pos # 2 > 2.5 && {_pos # 2 < 11}}) then {
 			_liftobj = objNull;
 			private _nobjects = nearestObjects [_chopper, ["LandVehicle", "Air"], 50];
-			if !(_nobjects isEqualTo []) then {
+			if (_nobjects isNotEqualTo []) then {
 				_nobjects params ["_dummy"];
 				if (_dummy == _chopper) then {
 					if (count _nobjects > 1) then {_liftobj = _nobjects # 1};
@@ -108,7 +108,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
 
 						private _maxload = getNumber((configOf _chopper)>>"maximumLoad");
-						private _slipos = [[0,0,1], _chopper selectionPosition "slingload0"] select !(_chopper selectionPosition "slingload0" isEqualTo [0,0,0]);
+						private _slipos = [[0,0,1], _chopper selectionPosition "slingload0"] select (_chopper selectionPosition "slingload0" isNotEqualTo [0,0,0]);
 						__TRACE_2("","_maxload","_slipos")
 						//_chopper addEventhandler ["RopeAttach", {player sideChat str(_this);player sideChat "bla"}];
 
@@ -138,9 +138,9 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 
 						// Fix for vehicles with slingload points at null position (lots of mod vehicles...)
 						private _slcmp_null = true;
-						if !(_slcmp isEqualTo []) then {
+						if (_slcmp isNotEqualTo []) then {
 							{
-								if !(_liftobj selectionPosition _x isEqualTo [0,0,0]) exitWith {_slcmp_null = false};
+								if (_liftobj selectionPosition _x isNotEqualTo [0,0,0]) exitWith {_slcmp_null = false};
 							} forEach _slcmp;
 						};
 

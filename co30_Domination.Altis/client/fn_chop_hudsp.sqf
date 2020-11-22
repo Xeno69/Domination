@@ -74,7 +74,7 @@ while {d_player_in_vec} do {
 						private _nobjects = nearestObjects [_vec, ["LandVehicle", "Air"], _search_height];
 						__TRACE_2("","_vec","_nobjects")
 
-						if !(_nobjects isEqualTo []) then {
+						if (_nobjects isNotEqualTo []) then {
 							_nobjects params ["_dummy"];
 							if (isNil "_vec") then {_vec = vehicle player};
 							if (_dummy == _vec) then {

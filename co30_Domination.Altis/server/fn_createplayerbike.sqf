@@ -6,7 +6,7 @@
 params ["_unit", "_vtype", "_b_mode"];
 private _pos = getPosATL _unit;
 private _npos = _pos findEmptyPosition [0, 50, _vtype];
-if !(_npos isEqualTo []) then {_pos = _npos};
+if (_npos isNotEqualTo []) then {_pos = _npos};
 private _vec = createVehicle [_vtype, _pos, [], 0, "NONE"];
 _vec setDir direction _unit;
 _vec remoteExecCall ["d_fnc_stocbike", _unit];
@@ -19,7 +19,7 @@ if (_b_mode != 1) then {
 	d_player_created pushBack _vec;
 } else {
 	private _ar = _unit getVariable ["d_all_p_vecs_s", []];
-	if !(_ar isEqualTo []) then {
+	if (_ar isNotEqualTo []) then {
 		_ar = _ar - [objNull];
 	};
 	_ar pushBack _vec;

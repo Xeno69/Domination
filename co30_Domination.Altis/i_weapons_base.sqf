@@ -14,10 +14,10 @@
 private _dd_add_gearf = {
 	params ["_ranks", "_curarx", "_typeu"];
 
-	private _arw = (_curarx select {!(_x isEqualTo "")}) apply {toLowerANSI _x};
+	private _arw = (_curarx select {_x isNotEqualTo ""}) apply {toLowerANSI _x};
 	__TRACE_1("_dd_add_gearf","_arw")
 
-	if !(_arw isEqualTo []) then {
+	if (_arw isNotEqualTo []) then {
 		{
 			(d_misc_store getVariable format ["%1_%2", _x, _typeu]) append _arw;
 			(d_misc_store getVariable (_x + "_ONED")) append _arw;

@@ -34,7 +34,7 @@ d_bonus_vec_positions = [];
 } forEach (_allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_vec_positions_" && {([_x select [22, 23]] call BIS_fnc_parseNumber) != -1}});
 if (!isNil "d_the_carrier") then {
 	private _nobs = nearestObjects [d_the_carrier, ["FlagCarrier"], 200];
-	if !(_nobs isEqualTo []) then {
+	if (_nobs isNotEqualTo []) then {
 		d_the_carrier setVariable ["d_asl_height", (getPosASL (_nobs # 0) # 2) + 0.01];
 	};
 };
@@ -96,7 +96,7 @@ if (isServer) then {
 			scriptName "spawn_ServicePoint_Building";
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
 
-			if !((d_service_buildings # 0) isEqualTo []) then {
+			if ((d_service_buildings # 0) isNotEqualTo []) then {
 				private _pos = (d_service_buildings # 0) # 0;
 				_pos set [2, 3.3];
 				private _fac = createSimpleObject [_stype # 1, _pos];
@@ -104,7 +104,7 @@ if (isServer) then {
 				_fac setPos _pos;
 			};
 
-			if !((d_service_buildings # 1) isEqualTo []) then {
+			if ((d_service_buildings # 1) isNotEqualTo []) then {
 				private _pos = (d_service_buildings # 1) # 0;
 				_pos set [2, 3.3];
 				private _fac = createSimpleObject [_stype # 1, _pos];
@@ -112,7 +112,7 @@ if (isServer) then {
 				_fac setPos _pos;
 			};
 
-			if !((d_service_buildings # 2) isEqualTo []) then {
+			if ((d_service_buildings # 2) isNotEqualTo []) then {
 				private _pos = (d_service_buildings # 2) # 0;
 				_pos set [2, 3.3];
 				private _fac = createSimpleObject [_stype # 1, _pos];

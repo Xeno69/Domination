@@ -11,7 +11,7 @@ sleep 5;
 
 while {true} do {
 	sleep 1;
-	if !(d_cur_tgt_pos isEqualTo []) exitWith {};
+	if (d_cur_tgt_pos isNotEqualTo []) exitWith {};
 };
 
 while {true} do {

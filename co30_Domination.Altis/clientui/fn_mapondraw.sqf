@@ -16,7 +16,7 @@ private _mapmid = _map ctrlMapScreenToWorld [0.5, 0.5];
 
 private _fnc_gmi = d_fnc_getmapicon;
 
-if !(d_show_player_marker isEqualTo 0) then {
+if (d_show_player_marker isNotEqualTo 0) then {
 	private _drawn_v = [];
 	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
 	[d_with_ai, d_fnc_isplayer, d_show_player_marker, d_fnc_gethpname, d_fnc_getplayername, d_mark_loc280] params ["_w_ai", "_fnc_ispl", "_s_pl_ma", "_fnc_ghpn", "_fnc_gpln", "_d_mark_loc280"];
@@ -37,7 +37,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 			__TRACE_1("","_dodraw")
 
 			if (_dodraw) then {
-				_text = if !(_type isEqualTo 1) then {
+				_text = if (_type isNotEqualTo 1) then {
 					if (!_inv) then {
 						_vc = _x getVariable "d_ut_c";
 						if (isNil "_vc" || {_vc > 32}) then {
@@ -137,7 +137,7 @@ if !(d_show_player_marker isEqualTo 0) then {
 			if (_x distance2D _mapmid < _drawdist) then {
 				_isc = [_x, _x] call _fnc_gmi;
 
-				_text = if !(_type isEqualTo 1) then {
+				_text = if (_type isNotEqualTo 1) then {
 					if (_s_pl_ma isEqualTo 1) then {
 						_ut = str _x; _ut select [count _ut - 1]
 					} else {

@@ -78,7 +78,7 @@ while {true} do {
 					};
 				};
 				private _dodelu = true;
-				if (alive _lead && {!(((allPlayers - entities "HeadlessClient_F") select {_x distance2D _lead < 1000}) isEqualTo [])}) then {
+				if (alive _lead && {((allPlayers - entities "HeadlessClient_F") select {_x distance2D _lead < 1000}) isNotEqualTo []}) then {
 					_dodelu = false;
 				};
 				__TRACE("Time reached for new group")

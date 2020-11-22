@@ -18,7 +18,7 @@ if (!d_with_ranked) then {
 			player addWeapon _prw;
 			
 			private _secits = player getVariable "d_pprimweapitems";
-			if !(primaryWeaponItems player isEqualTo _secits) then {
+			if (primaryWeaponItems player isNotEqualTo _secits) then {
 				removeAllPrimaryWeaponItems player;
 				{player addPrimaryWeaponItem _x} forEach (_secits select {_x != ""});
 			};
@@ -40,7 +40,7 @@ if (!d_with_ranked) then {
 			player addWeapon _psw;
 			
 			private _secits = player getVariable "d_psecweapitems";
-			if !(secondaryWeaponItems player isEqualTo _secits) then {
+			if (secondaryWeaponItems player isNotEqualTo _secits) then {
 				{
 					player removeSecondaryWeaponItem _x;
 				} forEach (secondaryWeaponItems player);
@@ -63,7 +63,7 @@ if (!d_with_ranked) then {
 			player addWeapon _phw;
 			
 			private _secits = player getVariable "d_phandgweapitems";
-			if !(handgunItems player isEqualTo _secits) then {
+			if (handgunItems player isNotEqualTo _secits) then {
 				removeAllHandgunItems player;
 				{player addHandgunItem _x} forEach (_secits select {_x != ""});
 			};
@@ -74,7 +74,7 @@ if (!d_with_ranked) then {
 };
 
 // uniform
-if !((bis_fnc_arsenal_data # 3) isEqualTo []) then {
+if ((bis_fnc_arsenal_data # 3) isNotEqualTo []) then {
 	private _unip = uniform player;
 	__TRACE_1("","_unip")
 	if (_unip != "") then {
@@ -91,7 +91,7 @@ if !((bis_fnc_arsenal_data # 3) isEqualTo []) then {
 	};
 };
 // vest
-if !((bis_fnc_arsenal_data # 4) isEqualTo []) then {
+if ((bis_fnc_arsenal_data # 4) isNotEqualTo []) then {
 	private _vest = vest player;
 	__TRACE_1("","_vest")
 	if (_vest != "") then {
@@ -108,7 +108,7 @@ if !((bis_fnc_arsenal_data # 4) isEqualTo []) then {
 	};
 };
 // headgear
-if !((bis_fnc_arsenal_data # 6) isEqualTo []) then {
+if ((bis_fnc_arsenal_data # 6) isNotEqualTo []) then {
 	private _headg = headgear player;
 	__TRACE_1("","_headg")
 	if (_headg != "") then {
@@ -125,7 +125,7 @@ if !((bis_fnc_arsenal_data # 6) isEqualTo []) then {
 	};
 };
 // backpack
-if !((bis_fnc_arsenal_data # 5) isEqualTo []) then {
+if ((bis_fnc_arsenal_data # 5) isNotEqualTo []) then {
 	private _bpp = backpack player;
 	__TRACE_1("","_bpp")
 	if (_bpp != "") then {

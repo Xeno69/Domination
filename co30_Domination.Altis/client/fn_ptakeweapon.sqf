@@ -42,7 +42,7 @@ if (!_isvalid) then {
 		player addWeapon _prw;
 		
 		private _secits = player getVariable "d_pprimweapitems";
-		if !(primaryWeaponItems player isEqualTo _secits) then {
+		if (primaryWeaponItems player isNotEqualTo _secits) then {
 			removeAllPrimaryWeaponItems player;
 			{player addPrimaryWeaponItem _x} forEach (_secits select {_x != ""});
 		};
@@ -55,7 +55,7 @@ if (!_isvalid) then {
 			player addWeapon _psw;
 			
 			private _secits = player getVariable "d_psecweapitems";
-			if !(secondaryWeaponItems player isEqualTo _secits) then {
+			if (secondaryWeaponItems player isNotEqualTo _secits) then {
 				// removeAllSecondaryWeaponItems player; // this command does not exist in A3 even after 3 years...
 				{
 					player removeSecondaryWeaponItem _x;
@@ -71,7 +71,7 @@ if (!_isvalid) then {
 				player addWeapon _phw;
 				
 				private _secits = player getVariable "d_phandgweapitems";
-				if !(handgunItems player isEqualTo _secits) then {
+				if (handgunItems player isNotEqualTo _secits) then {
 					removeAllHandgunItems player;
 					{player addHandgunItem _x} forEach (_secits select {_x != ""});
 				};

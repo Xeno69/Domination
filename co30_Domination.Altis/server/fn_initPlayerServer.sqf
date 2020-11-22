@@ -164,9 +164,9 @@ if (d_database_found) then {
 #endif
 		diag_log ["Dom Database playerGet result", _dbresult];
 		__TRACE_1("","_dbresult")
-		if !(_dbresult isEqualTo []) then {
+		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];
-			if !(_pres isEqualTo []) then {
+			if (_pres isNotEqualTo []) then {
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
 				[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
 			};

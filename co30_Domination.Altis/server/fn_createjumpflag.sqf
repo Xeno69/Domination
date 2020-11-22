@@ -11,7 +11,7 @@ while {_posi isEqualTo []} do {
 	sleep 0.04;
 };
 
-if !(_posi isEqualTo []) then {
+if (_posi isNotEqualTo []) then {
 	private _flag = createVehicle [d_flag_pole, _posi, [], 0, "NONE"];
 	_flag setFlagTexture
 #ifdef __OWN_SIDE_BLUFOR__

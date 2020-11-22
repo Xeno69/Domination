@@ -85,7 +85,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 	if (!_rescued) then {
 		_leader = leader _newgroup;
 		private _nobjs = _leader nearEntities ["CAManBase", 20];
-		if !(_nobjs isEqualTo []) then {
+		if (_nobjs isNotEqualTo []) then {
 			{
 				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
 					_rescued = true;

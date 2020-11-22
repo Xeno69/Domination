@@ -51,7 +51,7 @@ for "_nr" from 0 to 1 do {
 				if (_pos isEqualTo []) then {
 					for "_ee" from 0 to 99 do {
 						_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
-						if !(_pos isEqualTo []) exitWith {};
+						if (_pos isNotEqualTo []) exitWith {};
 					};
 					if (_pos isEqualTo []) then {
 						_pos = _pos_center;

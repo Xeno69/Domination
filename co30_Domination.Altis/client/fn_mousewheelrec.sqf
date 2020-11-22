@@ -50,7 +50,7 @@ private _s_ai = [];
 		};
 	};
 } forEach _fc;
-if !(_s_ai isEqualTo []) then {
+if (_s_ai isNotEqualTo []) then {
 	_s_ai pushBack "</t>";
 } else {
 	_s_p pushBack "</t>";

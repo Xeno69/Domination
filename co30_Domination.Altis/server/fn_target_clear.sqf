@@ -83,7 +83,7 @@ call d_fnc_dodelintelu;
 
 sleep 0.5;
 
-if !(d_maintargets_list isEqualTo []) then {
+if (d_maintargets_list isNotEqualTo []) then {
 	if (d_bonus_vec_type in [0, 1]) then {
 		__TRACE("spawning d_fnc_gettargetbonus")
 		0 spawn d_fnc_gettargetbonus;
@@ -117,7 +117,7 @@ if !(d_maintargets_list isEqualTo []) then {
 
 sleep 2.123;
 
-if !(d_maintargets_list isEqualTo []) then {
+if (d_maintargets_list isNotEqualTo []) then {
 	[1, d_current_target_index, d_mt_barracks_obj_ar, d_bara_trig_ar, d_mt_mobile_hq_obj] call d_fnc_doexechcf;
 	d_mt_barracks_obj_ar = [];
 	d_bara_trig_ar = [];
@@ -126,7 +126,7 @@ if !(d_maintargets_list isEqualTo []) then {
 sleep 3.321;
 
 #ifndef __TT__
-if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
+if (d_WithJumpFlags == 1 && {d_maintargets_list isNotEqualTo []}) then {0 spawn d_fnc_createjumpflag};
 #endif
 
 private _del_camps_stuff = [];
@@ -201,7 +201,7 @@ sleep 0.245;
 
 __TRACE_1("","d_maintargets_list")
 
-if !(d_maintargets_list isEqualTo []) then {
+if (d_maintargets_list isNotEqualTo []) then {
 	if (d_MHQDisableNearMT != 0) then {
 		{
 			private _fux = _x getVariable "d_vecfuelmhq";

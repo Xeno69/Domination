@@ -61,7 +61,7 @@ private _helperh = d_HeliHEmpty createVehicle [0,0,0];
 _unit setVariable ["d_hempty", _helperh];
 200 remoteExecCall ["d_fnc_ataxiNet", _player];
 private _nendpos = _playerpos findEmptyPosition [10, 200, _ttype];
-if !(_nendpos isEqualTo []) then {_nendpos = _playerpos};
+if (_nendpos isNotEqualTo []) then {_nendpos = _playerpos};
 _unit doMove _nendpos;
 _helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
@@ -168,7 +168,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	_nendpos = _unit getVariable "d_newdest";
 	if (isNil "_nendpos") then {
 		_nendpos = _destination findEmptyPosition [10, 200, _ttype];
-		if !(_nendpos isEqualTo []) then {_nendpos = _destination};
+		if (_nendpos isNotEqualTo []) then {_nendpos = _destination};
 	};
 	_unit doMove _nendpos;
 	_unit setVariable ["d_isondestway", true];

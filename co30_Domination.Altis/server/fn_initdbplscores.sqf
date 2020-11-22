@@ -10,7 +10,7 @@ if (isNull _pl) exitWith {
 };
 private _plsar = getPlayerScores _pl;
 __TRACE_1("","_plsar")
-if (!(_plsar isEqualTo []) && {!(_ar isEqualTo [])}) then {
+if (_plsar isNotEqualTo [] && {_ar isNotEqualTo []}) then {
 	_pl addPlayerScores [(_ar # 1) - (_plsar # 0), _ar # 2 - (_plsar # 1), _ar # 3 - (_plsar # 2), _ar # 4 - (_plsar # 3), _ar # 5 - (_plsar # 4)];
 } else {
 	diag_log ["initPlayerServer spawn_init_playerserver, _plsar or _ar empty", "_plsar", _plsar, "_ar", _ar];

@@ -225,7 +225,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_poss = _parray select _idx;
 	__TRACE_1("1","_poss")
 
-	if !(_allbars isEqualTo []) then {
+	if (_allbars isNotEqualTo []) then {
 		private _fidx = _allbars findIf {_x distance2D _poss < 115};
 		if (_fidx != -1) then {
 			private _icounter = 0;
@@ -277,7 +277,7 @@ private _idx = floor random (count _parray);
 _poss = _parray select _idx;
 __TRACE_1("1","_poss")
 
-if !(_allbars isEqualTo []) then {
+if (_allbars isNotEqualTo []) then {
 	private _fidx = _allbars findIf {_x distance2D _poss < 115};
 	if (_fidx != -1) then {
 		private _icounter = 0;
@@ -341,9 +341,9 @@ private _comppost = [];
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
 			private _ppos = _curar select _wp_ran;
 			private _iscompost = false;
-			if (!isNil "d_compositions" && {!(d_compositions isEqualTo []) && {(_x # 0) in ["allmen", "specops"]}}) then {
+			if (!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 12, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				if !(_nppos isEqualTo []) then {
+				if (_nppos isNotEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
 						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
@@ -374,7 +374,7 @@ sleep 0.233;
 			private _iscompost = false;
 			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				if !(_nppos isEqualTo []) then {
+				if (_nppos isNotEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
 						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
@@ -590,7 +590,7 @@ if (d_occ_bldgs == 1) then {
 
 	if (_buildingsArrayRaw isEqualTo []) exitWith {};
 
-	private _buildingsArrayUsable = _buildingsArrayRaw select {!((_x buildingPos -1) isEqualTo [])};
+	private _buildingsArrayUsable = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
 
 	if (_buildingsArrayUsable isEqualTo []) exitWith {};
 

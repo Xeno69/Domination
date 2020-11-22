@@ -65,7 +65,7 @@ if (d_with_ai) then {
 	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 5 + (_distp * 0.05)]), 1, 1, 0, "MHQ " + (_x getVariable "d_ma_text"), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 } forEach (d_mhq_3ddraw select {alive _x && {_pos_cam distance2D _x < 150}});
 
-if (!(d_cur_tgt_pos isEqualTo []) && {!(d_currentcamps isEqualTo [])}) then {
+if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	if (_pos_cam distance2D d_cur_tgt_pos < 1500) then {
 		private _own_sides = d_own_sides;
 		{
@@ -102,6 +102,6 @@ if (d_showallnearusermarkers) then {
 			};
 			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
 		};
-	} forEach (d_allnearusermarkers # currentChannel) select {!(getMarkerColor _x isEqualTo "")};
+	} forEach (d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
 };
 #endif

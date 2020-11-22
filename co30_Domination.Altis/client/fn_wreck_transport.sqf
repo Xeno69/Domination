@@ -22,7 +22,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 			_transobj = objNull;
 			private _nobjects = nearestObjects [_vec, ["LandVehicle", "Air"], 70];
 			__TRACE_1("","_nobjects")
-			if !(_nobjects isEqualTo []) then {
+			if (_nobjects isNotEqualTo []) then {
 				_nobjects params ["_dummy"];
 				if (_dummy == _vec) then {
 					if (count _nobjects > 1) then {_transobj = _nobjects # 1};

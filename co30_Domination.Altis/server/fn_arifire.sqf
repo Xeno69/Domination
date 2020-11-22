@@ -327,7 +327,7 @@ _aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 _logic1 kbTell [_aop, _topicside_arti, "ArtilleryComplete", ["1","",_aristr,[]], _channel];
 
-if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (markerPos _sel_ari_mkr)}) then {
+if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (markerPos _sel_ari_mkr)}) then {
 	deleteMarker _sel_ari_mkr;
 #ifdef __TT__
 	private _jipid = _aop getVariable "d_artmark_jip_id";

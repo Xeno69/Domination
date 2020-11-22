@@ -71,7 +71,7 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 	_wp setWaypointType "MOVE";
 	_wp setWaypointCompletionRadius (0 + random 10);
 	
-	if !(_timeout isEqualTo []) then {
+	if (_timeout isNotEqualTo []) then {
 		_wp setWaypointTimeout _timeout;
 	};
 	
@@ -105,7 +105,7 @@ if (_no_pos_found) exitWith {
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointCompletionRadius (10 + random 10);
 
-if !(_timeout isEqualTo []) then {
+if (_timeout isNotEqualTo []) then {
 	_wp1 setWaypointTimeout _timeout;
 };
 if (_wpstatements != "") then {

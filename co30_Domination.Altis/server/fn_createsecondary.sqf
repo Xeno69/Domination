@@ -25,7 +25,7 @@ private _iccount = 0;
 while {_poss isEqualTo []} do {
 	_iccount = _iccount + 1;
 	_poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
-	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};
+	if (_iccount >= 50 && {_poss isNotEqualTo []}) exitWith {};
 };
 if (isNil "_poss" || {_poss isEqualTo []}) then {
 	_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
@@ -63,9 +63,9 @@ sleep 1.234;
 d_mt_spotted = false;
 d_create_new_paras = false;
 #ifndef __TT__
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[12] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary3';if (!d_create_new_paras) then {d_create_new_paras = true;if (d_transport_chopper isNotEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[12] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #else
-d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if !(d_transport_chopper isEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
+d_f_check_trigger = ([d_cur_tgt_pos, [d_cur_target_radius + 300, d_cur_target_radius + 300, 0, false], ["ANYPLAYER", d_enemy_side + " D", false], ["this", "0 = 0 spawn {scriptName 'spawn createsecondary4';if (!d_create_new_paras) then {d_create_new_paras = true;if (d_transport_chopper isNotEqualTo []) then {d_parahhandle = 0 spawn d_fnc_parahandler}};d_mt_spotted = true;[13] call d_fnc_DoKBMsg;0 spawn d_fnc_createambient;sleep 5; deleteVehicle d_f_check_trigger}", ""]] call d_fnc_createtriggerlocal);
 #endif
 
 if (d_ao_check_for_ai in [0, 1]) then {
@@ -115,7 +115,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_poss = _parray select _idx;
 			__TRACE_1("1","_poss")
 
-			if !(d_currentcamps isEqualTo []) then {
+			if (d_currentcamps isNotEqualTo []) then {
 				private _fidx = d_currentcamps findIf {_x distance2D _poss < 130};
 				if (_fidx != -1) then {
 					private _icounter = 0;

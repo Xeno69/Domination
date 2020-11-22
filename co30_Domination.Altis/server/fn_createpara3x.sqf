@@ -61,7 +61,7 @@ private _make_jump = {
 	if (_landheli) then {
 		_helperh = d_HeliHEmpty createVehicle [0,0,0];
 		private _nendpos = _attackpoint findEmptyPosition [10, 200, typeOf _vec];
-		if !(_nendpos isEqualTo []) then {_nendpos = _attackpoint};
+		if (_nendpos isNotEqualTo []) then {_nendpos = _attackpoint};
 		_driver_vec doMove _nendpos;
 		__TRACE_1("","_helperh")
 	} else {
@@ -191,7 +191,7 @@ private _make_jump = {
 					[_one_unit, 3] call d_fnc_setekmode;
 					sleep 0.01;
 					private _bino = binocular _one_unit;
-					if !(_bino isEqualTo "") then {
+					if (_bino isNotEqualTo "") then {
 						_one_unit removeWeapon _bino;
 					};
 					if (!alive _vec) exitWith {
@@ -453,7 +453,7 @@ if (!d_mt_radio_down) then {
 	if (d_mt_radio_down) exitWith {
 		d_create_new_paras = false;
 	};
-	if !(d_c_attacking_grps isEqualTo []) then {
+	if (d_c_attacking_grps isNotEqualTo []) then {
 		[d_c_attacking_grps] spawn d_fnc_handleattackgroups;
 	} else {
 		d_c_attacking_grps = [];

@@ -37,7 +37,7 @@ call {
 		if (isNil "_ar") then {
 			d_placed_objs_store2 setVariable [_this select 1, [_this select 2]];
 		} else {
-			if !(_ar isEqualTo []) then {_ar = _ar - [objNull]};
+			if (_ar isNotEqualTo []) then {_ar = _ar - [objNull]};
 			_ar pushBack (_this select 2);
 		};
 		[_this select 2, 7] call d_fnc_setekmode;
@@ -64,7 +64,7 @@ call {
 		private _ar = d_placed_objs_store3 getVariable (_this select 1);
 		__TRACE_1("aw","_ar")
 		if (!isNil "_ar") then {
-			if !(_ar isEqualTo []) then {
+			if (_ar isNotEqualTo []) then {
 				private ["_t"];
 				{
 					_t = _x getVariable ["d_time_aw", -1];

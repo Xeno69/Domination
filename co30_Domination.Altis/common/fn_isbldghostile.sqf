@@ -9,7 +9,7 @@ params ["_bldg", "_sideHostile"];
 private _distancePlayerSideTooClose = 7;
 private _isOccupiedByEnemy = false;
 private _pa = _bldg buildingPos -1;
-if !(_pa isEqualTo []) then {
+if (_pa isNotEqualTo []) then {
 	private _p = _pa select 0; //just test for enemies around pos # 0 in each building
 	{
 		if (alive _x && {_x isKindOf "CAManBase" && {side group _x == _sideHostile }}) then { // always use side group _x

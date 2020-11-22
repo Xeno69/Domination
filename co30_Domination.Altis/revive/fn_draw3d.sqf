@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_draw3d.sqf"
 #include "..\x_macros.sqf"
 
-if (alive player && {!(xr_uncon_units isEqualTo [])}) then {
+if (alive player && {xr_uncon_units isNotEqualTo []}) then {
 	private _cam2world = positionCameraToWorld [0,0,0];
 	private "_dist";
 	private _fnc_gpln = d_fnc_getplayername;

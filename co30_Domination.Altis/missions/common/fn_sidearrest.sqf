@@ -55,7 +55,7 @@ while {!_offz_at_base && {!_is_dead && {d_sm_arrest_not_failed && {!d_sm_resolve
 	if (!alive _officer) exitWith {_is_dead = true};
 	if (!_rescued) then {
 		private _nobjs = (_officer nearEntities ["CAManBase", 20]) select {(_x call d_fnc_isplayer) && {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-		if !(_nobjs isEqualTo []) then {
+		if (_nobjs isNotEqualTo []) then {
 			_nobjs params ["_rescuer"];
 			_rescued = true;
 			_officer enableAI "PATH";

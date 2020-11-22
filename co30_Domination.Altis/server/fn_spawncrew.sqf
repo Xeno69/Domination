@@ -45,7 +45,7 @@ if (count _crew > 0) then {
 				if (_counter > 0) then {
 					private _munits = ["allmen", side _grp] call d_fnc_getunitlistm;
 					__TRACE_1("","_munits")
-					if !(_munits isEqualTo []) then {
+					if (_munits isNotEqualTo []) then {
 						private _pos = getPos _vec;
 						private _nightorfog = call d_fnc_nightfograin;
 						for "_i" from 1 to _counter do {
@@ -103,7 +103,7 @@ if (count _crew > 0) then {
 		};
 	} forEach _crew;
 	
-	if !(_addus isEqualTo []) then {
+	if (_addus isNotEqualTo []) then {
 		_crew append _addus;
 	};
 	if !(isNull (driver _vec)) then {(driver _vec) setRank "LIEUTENANT"};

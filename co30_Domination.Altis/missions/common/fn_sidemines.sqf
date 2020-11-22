@@ -19,7 +19,7 @@ if (_type isEqualTo "naval") then {
 } else {
 	private _roads = (_pos nearRoads 150) select {count roadsConnectedto _x > 1};
 	__TRACE_1("","count _roads");
-	if !(_roads isEqualTo []) then {
+	if (_roads isNotEqualTo []) then {
 	    for "_i" from 1 to (4 + round random 4) do {
 	       private _road = selectRandom _roads;
 		   _roads = _roads - [_road];
@@ -62,7 +62,7 @@ if (_docreatearmor) then {
 	};
 	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 1, d_x_sm_pos # 0, 1, 400, true] spawn d_fnc_CreateArmor;
 	sleep 2.333;
-	if !(_type isEqualTo "naval") then {
+	if (_type isNotEqualTo "naval") then {
 		["stat_mg", 1, "stat_gl", 1, "", 0, d_x_sm_pos # 0, 1, 100, false] spawn d_fnc_CreateArmor;
 	};
 	sleep 1;
@@ -96,4 +96,4 @@ while {!d_sm_resolved} do {
 		d_sm_resolved = true;
 	};
 };
-if !(_arrows isEqualTo []) then {{deleteVehicle _x} forEach _arrows};
+if (_arrows isNotEqualTo []) then {{deleteVehicle _x} forEach _arrows};

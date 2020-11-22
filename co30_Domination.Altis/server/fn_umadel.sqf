@@ -40,7 +40,7 @@ private _mmarkers = [];
 } forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
 __TRACE_1("","_musers")
 __TRACE_1("","_mmarkers")
-if !(_musers isEqualTo []) then {
+if (_musers isNotEqualTo []) then {
 	{
 		if (count _x > 6) then {
 			{

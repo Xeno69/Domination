@@ -8,7 +8,7 @@
 		private _pos = [d_x_sm_pos # 0, (random 300) max 200] call d_fnc_getranpointcircleouter;
 		__TRACE_1("","_pos")
 		
-		if !(_pos isEqualTo []) then {
+		if (_pos isNotEqualTo []) then {
 #ifdef __DEBUG__
 			[format ["d_x_y_z_%1", _pos], _pos, "ICON", "ColorBlack", [0.8, 0.8], "AI Pos", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif

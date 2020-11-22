@@ -49,7 +49,7 @@ private _subskill = if (diag_fps < 29 && {d_skillfps == 0}) then {
 
 if (!_mchelper) then {
 	private _nnpos = _pos findEmptyPosition [0, 30, _unitliste # 0];
-	if !(_nnpos isEqualTo []) then {_pos = _nnpos};
+	if (_nnpos isNotEqualTo []) then {_pos = _nnpos};
 };
 
 private _nightorfog = call d_fnc_nightfograin;
@@ -92,7 +92,7 @@ private _nightorfog = call d_fnc_nightfograin;
 #endif
 	private _bino = binocular _one_unit;
 	__TRACE_1("","_bino")
-	if !(_bino isEqualTo "") then {
+	if (_bino isNotEqualTo "") then {
 		_one_unit removeWeapon _bino;
 	};
 	_one_unit setDamage 0;

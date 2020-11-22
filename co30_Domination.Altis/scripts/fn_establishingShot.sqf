@@ -280,7 +280,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 			};
 
 			// Show icons
-			if !(BIS_fnc_establishingShot_icons isEqualTo []) then {
+			if (BIS_fnc_establishingShot_icons isNotEqualTo []) then {
 				_drawEH = addMissionEventHandler [
 					"Draw3D",
 					{

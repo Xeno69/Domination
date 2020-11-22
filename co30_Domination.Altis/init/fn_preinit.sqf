@@ -525,7 +525,7 @@ d_the_base_box = switch (d_own_side) do {
 };
 
 private _confmapsize = call {
-	if !(markerPos "d_whole_island" isEqualTo [0,0,0]) exitWith {
+	if (markerPos "d_whole_island" isNotEqualTo [0,0,0]) exitWith {
 		private _ret = (markerSize "d_whole_island" # 0) * 2;
 		deleteMarkerLocal "d_whole_island";
 		_ret
@@ -613,12 +613,12 @@ if (isServer) then {
 		{
 			diag_log _x;
 		} forEach _dbresult;
-		if !(_dbresult isEqualTo []) then {
+		if (_dbresult isNotEqualTo []) then {
 			{
 				call {
 					private _tla = toLowerANSI (_x # 0);
 					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
-						if !((_x # 1) isEqualTo []) then {
+						if ((_x # 1) isNotEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
@@ -658,7 +658,7 @@ if (isServer) then {
 			{
 				diag_log _x;
 			} forEach _dbresult;
-			if !(_dbresult isEqualTo []) then {
+			if (_dbresult isNotEqualTo []) then {
 				if (isClass (getMissionConfig "Params")) then {
 					private _conf = getMissionConfig "Params";
 					if (paramsArray isEqualTo []) then {
@@ -2661,7 +2661,7 @@ if (hasInterface) then {
 
 	{
 		private _col = getArray(_x>>"color");
-		if !(_col isEqualTo []) then {
+		if (_col isNotEqualTo []) then {
 			for "_e" from 0 to 3 do {
 				if ((_col # _e) isEqualType "") then {
 					_col set [_e, call compile (_col # _e)];

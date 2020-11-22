@@ -55,7 +55,7 @@ private _weapons = [];
 	if (toLowerANSI ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
 		private _modes = getArray (configFile>>"cfgweapons">>_x>>"modes");
 		__TRACE_1("","_modes")
-		if !(_modes isEqualTo []) then {
+		if (_modes isNotEqualTo []) then {
 			_modes params ["_mode"];
 			if (_mode == "this") then {_mode = _x;};
 			_weapons pushBack [_x, _mode];

@@ -232,7 +232,7 @@ if (d_with_ranked || {d_database_found}) then {
 player addEventhandler ["Take", {_this call d_fnc_ptakeweapon}];
 
 if (d_MissionType != 2) then {
-	if !(d_resolved_targets isEqualTo []) then {
+	if (d_resolved_targets isNotEqualTo []) then {
 		private _codtn = count d_target_names;
 		for "_i" from 0 to (count d_resolved_targets - 1) do {
 			if (isNil "d_resolved_targets" || {_i >= count d_resolved_targets}) exitWith {};
@@ -250,7 +250,7 @@ if (d_MissionType != 2) then {
 	};
 
 	d_current_seize = "";
-	if (d_current_target_index != -1 && {!d_target_clear && {!(d_cur_tgt_pos isEqualTo [])}}) then {
+	if (d_current_target_index != -1 && {!d_target_clear && {d_cur_tgt_pos isNotEqualTo []}}) then {
 		d_current_seize = d_cur_tgt_name;
 		"d_dummy_marker" setMarkerPosLocal d_cur_tgt_pos;
 		private _tname = format ["d_obj%1", d_current_target_index + 2];
@@ -308,7 +308,7 @@ player setVariable ["d_currentvisionmode", 0];
 // one entry: [box_object, color as array (R, G, B, Alpha), "Text to show above box"]
 d_all_p_a_boxes = [];
 
-if !(d_ammo_boxes isEqualTo []) then {
+if (d_ammo_boxes isNotEqualTo []) then {
 	{
 		private _boxnew = _x # 1;
 		_boxnew enableRopeAttach false;
@@ -537,7 +537,7 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 
 {
 	private _farpc = _x getVariable ["d_objcont", []];
-	if !(_farpc isEqualTo []) then {
+	if (_farpc isNotEqualTo []) then {
 		_farpc params ["_trig"];
 		_trig setTriggerActivation ["ANY", "PRESENT", true];
 		_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
@@ -616,7 +616,7 @@ if (_primw != "") then {
 };
 
 if (d_MissionType != 2) then {
-	if !(d_currentcamps isEqualTo []) then {
+	if (d_currentcamps isNotEqualTo []) then {
 		call d_fnc_curcampsclient;
 	};
 
@@ -722,15 +722,15 @@ if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 #ifdef __TT__
 if (d_player_side == blufor) then {
 #endif
-if !(markerPos "d_runwaymarker" isEqualTo [0,0,0]) then {
+if (markerPos "d_runwaymarker" isNotEqualTo [0,0,0]) then {
 	private _msize = markerSize "d_runwaymarker";
-	[[markerPos "d_runwaymarker" # 0, markerPos "d_runwaymarker" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker", true, 2], ["ANY", "PRESENT", true], ["!((thislist unitsBelowHeight 1) isEqualTo [])", "'d_runwaymarker' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
+	[[markerPos "d_runwaymarker" # 0, markerPos "d_runwaymarker" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
 };
 #ifdef __TT__
 };
-if (d_player_side == opfor && {!(markerPos "d_runwaymarker_o" isEqualTo [0,0,0])}) then {
+if (d_player_side == opfor && {markerPos "d_runwaymarker_o" isNotEqualTo [0,0,0]}) then {
 	private _msize = markerSize "d_runwaymarker_o";
-	[[markerPos "d_runwaymarker_o" # 0, markerPos "d_runwaymarker_o" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker_o", true, 2], ["ANY", "PRESENT", true], ["!((thislist unitsBelowHeight 1) isEqualTo [])", "'d_runwaymarker_o' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker_o' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
+	[[markerPos "d_runwaymarker_o" # 0, markerPos "d_runwaymarker_o" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker_o", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker_o' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker_o' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
 };
 #endif
 
@@ -797,7 +797,7 @@ private _vehicles = vehicles select {!(_x isKindOf "WeaponHolderSimulated")};
 private _fnc_artvec = {
 	params ["_num", "_name"];
 	private _ar = _vehicles select {(str _x) select [0, _num] == _name};
-	if !(_ar isEqualTo []) then {
+	if (_ar isNotEqualTo []) then {
 		d_areArtyVecsAvailable = true;
 		d_ao_arty_vecs append _ar;
 	};
@@ -927,10 +927,10 @@ if (d_arsenal_mod == 0) then {
 		if (d_unsung) then {
 			d_arsenal_mod_prestrings pushBackUnique "uns_";
 		};
-		if (d_with_ace && {!(d_arsenal_mod_prestrings isEqualTo [])}) then {
+		if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 			d_arsenal_mod_prestrings pushBackUnique "ace_";
 		};
-		if !(d_arsenal_mod_prestrings isEqualTo []) then {
+		if (d_arsenal_mod_prestrings isNotEqualTo []) then {
 			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
 		};
 	};
@@ -942,7 +942,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	if (d_with_ranked && {d_no_ranked_weapons && {!(_i in [5, 22, 23, 26])}}) then {
 		_proceed = false;
 	};
-	if (_proceed && {!((d_remove_from_arsenal # _i) isEqualTo []) && {!((bis_fnc_arsenal_data # _i) isEqualTo [])}}) then {
+	if (_proceed && {(d_remove_from_arsenal # _i) isNotEqualTo [] && {(bis_fnc_arsenal_data # _i) isNotEqualTo []}}) then {
 		private _badar = bis_fnc_arsenal_data # _i;
 		private _codes = [];
 		private _classes = [];
@@ -954,7 +954,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 			};
 		} forEach (d_remove_from_arsenal # _i);
 
-		if !(_classes isEqualTo []) then {
+		if (_classes isNotEqualTo []) then {
 			_classes = _classes apply {toLowerANSI _x};
 		};
 
@@ -966,7 +966,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 		private ["_changed"];
 		{
 			_changed = false;
-			if !(_codes isEqualTo []) then {
+			if (_codes isNotEqualTo []) then {
 				private _curnum = _forEachIndex;
 				private _curele = _x;
 				__TRACE_1("","_codes")
@@ -977,7 +977,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 					};
 				} forEach _codes;
 			};
-			if (!_changed && {!(_classes isEqualTo []) && {toLowerANSI _x in _classes}}) then {
+			if (!_changed && {_classes isNotEqualTo [] && {toLowerANSI _x in _classes}}) then {
 				__TRACE("in second")
 				_badar set [_forEachIndex, -1];
 			};

@@ -38,7 +38,7 @@ if (getText(_ammoconf>>"effectFlare") != "CounterMeasureFlare" && {getText(_ammo
 	_no = _curmar_pos nearEntities [_man_types, 20];
 };
 
-if !(_no isEqualTo []) exitWith {
+if (_no isNotEqualTo []) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_151");
 };
 #endif

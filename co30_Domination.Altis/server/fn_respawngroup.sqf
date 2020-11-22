@@ -85,7 +85,7 @@ if (_doend) exitWith {
 if (!_isman) then {
 	private _resp_mid = _this select 11;
 	__TRACE_1("","_resp_mid")
-	if (!isNil "_resp_mid" && {!(_resp_mid isEqualTo [])}) then {
+	if (!isNil "_resp_mid" && {_resp_mid isNotEqualTo []}) then {
 		_this set [1, [[_resp_mid select 0, 600, 400, _resp_mid select 1] call d_fnc_GetRanPointSquare]];
 		__TRACE_1("respawning","_this")
 		_this call d_fnc_makegroup;

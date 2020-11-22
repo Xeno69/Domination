@@ -606,6 +606,6 @@ __TRACE_1("","_eee")
 	d_sm_store setVariable [_idx, _onesmar];
 } forEach (allMapMarkers select {_x select [0, 6] == "d_smm|"});
 
-if (isServer && {!(_dallsidemissions isEqualTo [])}) then {
+if (isServer && {_dallsidemissions isNotEqualTo []}) then {
 	d_sm_array append _dallsidemissions;
 };

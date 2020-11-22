@@ -24,7 +24,7 @@ private _vec = objNull;
 	if (isNull _vec) then {
 		private _nnextpos = _poss findEmptyPosition [0, 70, _x];
 		__TRACE_1("null vec","_nnextpos")
-		if !(_nnextpos isEqualTo []) then {_poss = _nnextpos};
+		if (_nnextpos isNotEqualTo []) then {_poss = _nnextpos};
 	} else {
 		private _nnextpos = [];
 		private _maxdist = 100;
@@ -36,7 +36,7 @@ private _vec = objNull;
 			sleep 0.1;
 		};
 		__TRACE_1("vec ok","_nnextpos")
-		if !(_nnextpos isEqualTo []) then {_poss = _nnextpos};
+		if (_nnextpos isNotEqualTo []) then {_poss = _nnextpos};
 	};
 	_vec = createVehicle [_x, _poss, [], 0, "NONE"];
 	_vec allowDamage false;

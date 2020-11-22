@@ -40,7 +40,7 @@ while {!_created} do {
 		private	_pos = [_house] call bis_fnc_buildingPositions;
 		_houseArray deleteAt _idx;
 		__TRACE_1("","_pos")
-		if !(_pos isEqualTo []) then {
+		if (_pos isNotEqualTo []) then {
 			_pos = _pos select floor random count _pos;
 			_pos set [2, (_pos select 2) + 0.3];
 			__TRACE_1("","_pos")
@@ -78,7 +78,7 @@ for "_i" from 0 to (_num_mines - 1) do {
 	if (!isNil "_house" && {!isNull _house}) then {
 		private	_pos_b = [_house] call bis_fnc_buildingPositions;
 		_houseArray deleteAt _idx;
-		if !(_pos_b isEqualTo []) then {
+		if (_pos_b isNotEqualTo []) then {
 			_pos_b = _pos_b select floor random count _pos_b;
 			_pos_b set [2,(_pos_b select 2) + 0.01];
 			private _mine = createMine [selectRandom ["APERSBoundingMine", "APERSTripMine", "APERSMine"], _pos_b, [], 0];

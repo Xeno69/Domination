@@ -90,7 +90,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 
 	private _turret = getArray(_pylon>>"turret");
 	__TRACE_1("","_turret")
-	if !(_turret isEqualTo []) then {
+	if (_turret isNotEqualTo []) then {
 		private _ctrl2 = _display ctrlCreate ["RscActivePictureKeepAspect", 8000 + _i];
 		//private _ctrl2 = _display ctrlCreate ["RscButton", 8000 + _i];
 		if !(_pyl_owns_empty) then {
@@ -147,7 +147,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 			private _doadd = call {
 				private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
 				__TRACE_1("","_sub")
-				if !(_sub isEqualTo []) exitWith {false};
+				if (_sub isNotEqualTo []) exitWith {false};
 				if (toLowerANSI getText (configfile >> "CfgMagazines" >> _x >> "pylonWeapon") in ["fir_rkt_launcher", "fir_apkws_launcher"]) exitWith {false};
 				true
 			};

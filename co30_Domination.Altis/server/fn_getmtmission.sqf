@@ -11,7 +11,7 @@ private _iccount = 0;\
 while {_poss isEqualTo []} do {\
 	_iccount = _iccount + 1;\
 	_poss = [d_cur_tgt_pos, d_cur_target_radius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;\
-	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};\
+	if (_iccount >= 50 && {_poss isNotEqualTo []}) exitWith {};\
 };\
 if (isNil "_poss" || {_poss isEqualTo []}) then {\
 	_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_getranpointcircle;\

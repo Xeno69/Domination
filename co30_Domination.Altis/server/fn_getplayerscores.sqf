@@ -7,7 +7,7 @@ while {true} do {
 	{
 		if (!isNull _x) then {
 			private _ps = getPlayerScores _x;
-			if !(_ps isEqualTo []) then {
+			if (_ps isNotEqualTo []) then {
 				private _p = d_player_store getVariable (getPlayerUID _x);
 				if (!isNil "_p") then {
 					_p set [12, _ps];

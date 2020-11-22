@@ -93,7 +93,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			if (alive _pilot1) then {
 				__TRACE("_pilot1 alive")
 				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-				if !(_nobjs isEqualTo []) then {
+				if (_nobjs isNotEqualTo []) then {
 					_resctimestarted = time;
 					_rescued = true;
 					[[_pilot1, _pilot2], _nobjs # 0] call _pcheck_fnc;
@@ -105,7 +105,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 				if (alive _pilot2) then {
 					__TRACE("_pilot2 alive")
 					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-					if !(_nobjs isEqualTo []) then {
+					if (_nobjs isNotEqualTo []) then {
 						_resctimestarted = time;
 						_rescued = true;
 						[[_pilot1, _pilot2], _nobjs # 0] call _pcheck_fnc;

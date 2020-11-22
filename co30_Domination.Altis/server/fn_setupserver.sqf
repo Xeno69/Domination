@@ -109,10 +109,10 @@ private _av_check_fnc = {
 private _fnc_artvec = {
 	params ["_num", "_name", ["_side", sideUnknown]];
 	private _retar = vehicles select {(str _x) select [0, _num] == _name};
-	if !(_retar isEqualTo []) then {
+	if (_retar isNotEqualTo []) then {
 		{
 			_x call _av_check_fnc;
-			if !(_side isEqualTo sideUnknown) then {
+			if (_side isNotEqualTo sideUnknown) then {
 				_x setVariable ["d_fside", _side];
 			};
 		} forEach _retar;

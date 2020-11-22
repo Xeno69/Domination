@@ -20,7 +20,7 @@ if (!isNil "_val") then {
 		if (!isNull (_x # 0)) then {
 			private _content = (_x # 0) getVariable ["d_objcont", []];
 			__TRACE_1("","_content")
-			if !(_content isEqualTo []) then {
+			if (_content isNotEqualTo []) then {
 				{deleteVehicle _x} forEach _content;
 			};
 			

@@ -43,23 +43,23 @@ if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 		sleep 30;
 		__TRACE("spawn_init_airai 30 secs over")
 		private _first = false;
-		if (d_number_light_attack_choppers > 0 && {!(d_light_attack_chopper isEqualTo [])}) then {
+		if (d_number_light_attack_choppers > 0 && {d_light_attack_chopper isNotEqualTo []}) then {
 			sleep 900;
 			_first = true;
 			__TRACE("spawn_init_airai 30 exec LAC")
 			["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
 		};
-		if (d_number_attack_choppers > 0 && {!(d_airai_attack_chopper isEqualTo [])}) then {
+		if (d_number_attack_choppers > 0 && {d_airai_attack_chopper isNotEqualTo []}) then {
 			sleep ([900, 120 + random 120] select _first);
 			_first = true;
 			["HAC"] spawn d_fnc_airai; // HAC = Heavy Attack Chopper
 		};
-		if (d_number_attack_planes > 0 && {!(d_airai_attack_plane isEqualTo [])}) then {
+		if (d_number_attack_planes > 0 && {d_airai_attack_plane isNotEqualTo []}) then {
 			sleep ([900, 120 + random 120] select _first);
 			_first = true;
 			["AP"] spawn d_fnc_airai; // AP = Attack Plane
 		};
-		if (d_number_attack_uavs > 0 && {!(d_airai_attack_uav isEqualTo [])}) then {
+		if (d_number_attack_uavs > 0 && {d_airai_attack_uav isNotEqualTo []}) then {
 			sleep ([900, 120 + random 120] select _first);
 			["UAV"] spawn d_fnc_airai; // UAV = Attack UAV
 		};		
@@ -67,10 +67,10 @@ if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 };
 
 // TODO disabled for now. AI is simply too stupid too drive around the islands with vehicles
-// if !(d_with_isledefense isEqualTo []) then {0 spawn d_fnc_isledefense};
+// if (d_with_isledefense isNotEqualTo []) then {0 spawn d_fnc_isledefense};
 
 #ifndef __TT__
-if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0 && {!(d_transport_chopper isEqualTo [])}}}) then {execFSM "fsms\fn_Infilrate.fsm"};
+if (!d_carrier && {!d_ifa3lite && {d_with_base_sabotage == 0 && {d_transport_chopper isNotEqualTo []}}}) then {execFSM "fsms\fn_Infilrate.fsm"};
 #endif
 
 0 spawn d_fnc_ai_loop;

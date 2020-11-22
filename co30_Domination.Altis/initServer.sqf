@@ -31,7 +31,7 @@ if (d_database_found) then {
 		};
 #endif
 		__TRACE_1("","_dbresult")
-		if !(_dbresult isEqualTo []) then {
+		if (_dbresult isNotEqualTo []) then {
 			d_db_savegames = [];
 			{
 				d_db_savegames pushBack (_x # 0);
@@ -56,7 +56,7 @@ if (d_database_found) then {
 		};
 #endif
 		__TRACE_1("","_dbresult")
-		if !(_dbresult isEqualTo []) then {
+		if (_dbresult isNotEqualTo []) then {
 			d_db_savegames = [];
 			{
 				d_db_savegames pushBack (_x # 0);
@@ -79,7 +79,7 @@ if (d_database_found) then {
 	};
 #endif
 	__TRACE_1("","_dbresult")
-	if !(_dbresult isEqualTo []) then {
+	if (_dbresult isNotEqualTo []) then {
 		{
 			_x set [1, (_x # 1) call d_fnc_convtime];
 		} forEach _dbresult;

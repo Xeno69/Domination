@@ -222,7 +222,7 @@ if (d_current_target_index != -1) then {
 	};
 };
 
-if (!(d_mt_event_messages_array isEqualTo [])) then {
+if (d_mt_event_messages_array isNotEqualTo []) then {
 	{
 		_s = composeText [_s, _x, '\n'];
 	} forEach d_mt_event_messages_array;
@@ -300,7 +300,7 @@ __ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
 for "_i" from 1 to 20 do {
 	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
 	private _endstr = (localize format ["str_usract_user_%1", _i]);
-	if !(_usera isEqualTo []) then {
+	if (_usera isNotEqualTo []) then {
 		_endstr = _endstr + " " + (_usera joinString ",");
 	};
 	__ctrl2(3302) lbAdd _endstr;

@@ -280,7 +280,7 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 	__TRACE_1("","_endpos")
 	if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}) then {
 		private _nendpos = _endpos findEmptyPosition [20, 100, _vec_type];
-		if !(_nendpos isEqualTo []) then {_endpos = _nendpos};
+		if (_nendpos isNotEqualTo []) then {_endpos = _nendpos};
 	};
 	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 } else {
@@ -388,7 +388,7 @@ if (!isNull _vec2) then {
 _vec setDir _dir;
 if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}) then {
 	private _nendpos = _endpos findEmptyPosition [20, 100, _vec_type];
-	if !(_nendpos isEqualTo []) then {_endpos = _nendpos};
+	if (_nendpos isNotEqualTo []) then {_endpos = _nendpos};
 };
 _vec setVehiclePosition [_endpos, [], 0, "NONE"];
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
@@ -418,7 +418,7 @@ if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
 	if (_vec_type2 isKindOf "VTOL_01_base_F" || {_vec_type2 isKindOf "VTOL_02_base_F"}) then {
 		private _nendpos2 = _endpos2 findEmptyPosition [20, 100, _vec_type2];
-		if !(_nendpos2 isEqualTo []) then {_endpos2 = _nendpos2};
+		if (_nendpos2 isNotEqualTo []) then {_endpos2 = _nendpos2};
 	};
 	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];

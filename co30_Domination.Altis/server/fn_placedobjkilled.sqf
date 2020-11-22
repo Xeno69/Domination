@@ -24,7 +24,7 @@ if (!isNil "_val") then {
 };
 
 private _content = _obj getVariable ["d_objcont", []];
-if !(_content isEqualTo []) then {
+if (_content isNotEqualTo []) then {
 	{
 		deleteVehicle _x;
 	} forEach _content;

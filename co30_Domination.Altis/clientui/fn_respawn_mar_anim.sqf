@@ -46,7 +46,7 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 				_opos = [-1,-1,-1];
 			};
 			private _vpos = visiblePositionASL _mrs;
-			if !(_opos isEqualTo _vpos) then {
+			if (_opos isNotEqualTo _vpos) then {
 				(_x # 0) setMarkerPosLocal _vpos;
 				_mrs setVariable ["d_vispos_m", _vpos];
 			};

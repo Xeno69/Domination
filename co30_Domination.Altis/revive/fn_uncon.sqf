@@ -144,7 +144,7 @@ __TRACE("starting main uncon loop")
 			d_DomCommandingMenuBlocked = false;
 			d_commandingMenuIniting = false;
 			showCommandingMenu "";
-			if (d_with_ai && {player != leader (group player) && {!(d_current_ai_units isEqualTo [])}}) then {
+			if (d_with_ai && {player != leader (group player) && {d_current_ai_units isNotEqualTo []}}) then {
 				d_current_ai_units = [];
 				d_current_ai_num = 0;
 			};

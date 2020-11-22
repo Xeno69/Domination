@@ -39,9 +39,9 @@ private _ma = createMarker [_m_name, _m_pos];
 _ma setMarkerShapeLocal _m_shape;
 _ma setMarkerColorLocal _m_col;
 _ma setMarkerSizeLocal _m_size;
-if !(_m_text isEqualTo "") then {_ma setMarkerTextLocal _m_text};
-if !(_m_dir isEqualTo 0) then {_ma setMarkerDirLocal _m_dir};
-if !(_m_type isEqualTo "") then {_ma setMarkerTypeLocal _m_type};
-if !(_m_brush isEqualTo "") then {_ma setMarkerBrushLocal _m_brush};
+if (_m_text isNotEqualTo "") then {_ma setMarkerTextLocal _m_text};
+if (_m_dir isNotEqualTo 0) then {_ma setMarkerDirLocal _m_dir};
+if (_m_type isNotEqualTo "") then {_ma setMarkerTypeLocal _m_type};
+if (_m_brush isNotEqualTo "") then {_ma setMarkerBrushLocal _m_brush};
 _ma setMarkerAlpha _m_alpha;
 _ma

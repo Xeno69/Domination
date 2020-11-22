@@ -288,7 +288,7 @@ d_compositions = _compositions_o;
 #ifdef __TT__
 d_compositions = _compositions_i;
 #endif
-if !(_common isEqualTo []) then {
+if (_common isNotEqualTo []) then {
 	d_compositions append _common;
 };
 };

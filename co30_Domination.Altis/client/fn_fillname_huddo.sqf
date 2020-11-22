@@ -15,7 +15,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 			if (_distu <= _d_pn_hud) then {
 				_vu = vehicle _x;
 				_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
-				if !(_targetPos isEqualTo []) then {
+				if (_targetPos isNotEqualTo []) then {
 					_dodraw = if (isNull objectParent _x) then {
 						true
 					} else {
@@ -59,7 +59,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 				_distu = _cam2world distance _x;
 				if (_distu <= _d_pn_hud) then {
 					_targetPos = _x modelToWorldVisual (_x selectionPosition "Head");
-					if !(_targetPos isEqualTo []) then {
+					if (_targetPos isNotEqualTo []) then {
 						if (_distu <= 200) then {
 							_tex = if (_s_p_namesx == 1) then {
 								[_x] call _fnc_ghpnai

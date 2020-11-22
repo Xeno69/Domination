@@ -78,10 +78,10 @@ if (_add_to_ar_type > 0) then {
 			};
 		};
 	};
-	if !(_vecs isEqualTo []) then {
+	if (_vecs isNotEqualTo []) then {
 		d_delvecsmt append _vecs;
 	};
-	if !(_uinf isEqualTo []) then {
+	if (_uinf isNotEqualTo []) then {
 		d_delinfsm append _uinf;
 	};
 };
@@ -160,7 +160,7 @@ if (_istatatic) then {
 	{
 		[_x] call d_fnc_checkintersects;
 	} forEach _vecs;
-	if !(d_b_small_static_high isEqualTo "") then {
+	if (d_b_small_static_high isNotEqualTo "") then {
 		d_delvecsmt append (_vecs call d_fnc_highbunker);
 	};
 };

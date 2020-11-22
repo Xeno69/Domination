@@ -74,7 +74,7 @@ if (player distance2D d_AI_HUT < 20) then {
 } else {
 	if (!isNil "d_additional_recruit_buildings") then {
 		private _har = d_additional_recruit_buildings select {!isNil "_x" && {!isNull _x && {player distance2D _x < 20}}};
-		if !(_har isEqualTo []) then {
+		if (_har isNotEqualTo []) then {
 			_spawnpos = player modelToWorldVisual [0,-15,0];
 		};
 	};

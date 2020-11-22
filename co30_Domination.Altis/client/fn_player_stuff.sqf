@@ -41,7 +41,7 @@ _this spawn {
 
 private _lo = _this select 11;
 __TRACE_1("","_lo")
-if !(_lo # 0 isEqualTo []) then {
+if (_lo # 0 isNotEqualTo []) then {
 	_lo spawn {
 		scriptName "spawn_player_stuff";
 		waitUntil {!isNil "d_player_side"};

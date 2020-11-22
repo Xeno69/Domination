@@ -6,7 +6,7 @@
 disableSerialization;
 private _disp = uiNamespace getVariable "xr_SpectDlg";
 #define __dspctrl(ctrlid) (_disp displayCtrl ctrlid)
-if !(xr_near_players isEqualTo []) then {
+if (xr_near_players isNotEqualTo []) then {
 	private _s_p = [];
 	{
 		_s_p pushBack format ["%1<br/>", _x call d_fnc_getplayername];

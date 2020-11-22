@@ -38,7 +38,7 @@ player setVariable ["d_jailar", [serverTime, _secs], true];
 private _laodout =+ getUnitLoadout player;
 player setUnitLoadout (configFile >> "EmptyLoadout");
 
-private _jailpos = if !(d_cur_tgt_pos isEqualTo []) then {
+private _jailpos = if (d_cur_tgt_pos isNotEqualTo []) then {
 	[d_FLAG_BASE, 800, 10000, 3, 0, 0.3, 0, [[d_cur_tgt_pos, 1000]]] call d_fnc_findsafepos
 } else {
 	[d_FLAG_BASE, 800, 10000, 3, 0, 0.3] call d_fnc_findsafepos

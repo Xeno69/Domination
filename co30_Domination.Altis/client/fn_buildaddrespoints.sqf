@@ -5,7 +5,7 @@
 
 __TRACE_1("","d_additional_respawn_points_orig")
 
-if !(d_additional_respawn_points_orig isEqualTo []) then {
+if (d_additional_respawn_points_orig isNotEqualTo []) then {
 	private _helparrp = [];
 	{
 		_helparrp pushBack [_x # 2, _forEachIndex];
@@ -28,7 +28,7 @@ if !(d_additional_respawn_points_orig isEqualTo []) then {
 
 	{
 		if (_x # 1 isEqualType "") then {
-			if !(markerPos (_x # 1) isEqualTo [0,0,0]) then {
+			if (markerPos (_x # 1) isNotEqualTo [0,0,0]) then {
 #ifdef __TT__
 				if (d_player_side != _x # 3) then {
 					(_x # 1) setMarkerAlphaLocal 0;

@@ -9,7 +9,7 @@ if (player getUnitTrait "engineer") then {
 };
 if (_this select 1 != player) then {
 	private _farpc = (_this select 0) getVariable ["d_objcont", []];
-	if !(_farpc isEqualTo []) then {
+	if (_farpc isNotEqualTo []) then {
 		_farpc params ["_trig"];
 		_trig setTriggerActivation ["ANY", "PRESENT", true];
 		_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];

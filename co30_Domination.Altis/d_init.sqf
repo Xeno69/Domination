@@ -71,13 +71,13 @@ call d_fnc_maketarget_names;
 d_service_buildings = [[], [], []];
 #ifndef __TT__
 if (!d_ifa3lite) then {
-	if !(markerPos "d_base_jet_sb" isEqualTo [0,0,0]) then {
+	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
-	if !(markerPos "d_base_chopper_sb" isEqualTo [0,0,0]) then {
+	if (markerPos "d_base_chopper_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [1, [markerPos "d_base_chopper_sb", markerDir "d_base_chopper_sb"]];
 	};
-	if !(markerPos "d_base_wreck_sb" isEqualTo [0,0,0]) then {
+	if (markerPos "d_base_wreck_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [2, [markerPos "d_base_wreck_sb", markerDir "d_base_wreck_sb"]];
 	};
 };
@@ -372,20 +372,20 @@ if (isServer) then {
 		private _mmm = markerPos "d_base_sb_ammoload";
 		__TRACE_1("","_mmm")
 
-		if !(_mmm isEqualTo [0,0,0]) then {
+		if (_mmm isNotEqualTo [0,0,0]) then {
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
 			_mmm set [2, 3.3];
 			private _fac = createSimpleObject [_stype # 1, _mmm];
 			_fac setDir (markerDir "d_base_sb_ammoload");
 			_fac setPos _mmm;
 		};
-		if (!isNil "d_base_aa_vec" && {!(d_base_aa_vec isEqualTo "")}) then {
+		if (!isNil "d_base_aa_vec" && {d_base_aa_vec isNotEqualTo ""}) then {
 			[d_own_side, d_base_aa_vec, "d_base_anti_air"] call d_fnc_cgraa;
 		};
-		if (!isNil "d_base_tank_vec" && {!(d_base_tank_vec isEqualTo "")}) then {
+		if (!isNil "d_base_tank_vec" && {d_base_tank_vec isNotEqualTo ""}) then {
 			[d_own_side, d_base_tank_vec, "d_base_tank"] call d_fnc_cgraa;
 		};
-		if (!isNil "d_base_apc_vec" && {!(d_base_apc_vec isEqualTo "")}) then {
+		if (!isNil "d_base_apc_vec" && {d_base_apc_vec isNotEqualTo ""}) then {
 			[d_own_side, d_base_apc_vec, "d_base_apc"] call d_fnc_cgraa;
 		};
 	};
@@ -456,7 +456,7 @@ if (isServer) then {
 		} forEach d_additional_trans;
 	};
 
-	if !(_choppers isEqualTo []) then {
+	if (_choppers isNotEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
 	// editor varname, unique number
@@ -475,7 +475,7 @@ if (isServer) then {
 	_vecsar call d_fnc_initvrespawn2;
 	{
 		[_x, 300, false] spawn d_fnc_vehirespawn;
-	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
+	} forEach (vehicles select {(str _x) select [0, 7] isEqualToisEqualTo "d_boat_"});
 #else
 	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
 		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x select 0}};
@@ -516,7 +516,7 @@ if (isServer) then {
 		} forEach d_additional_trans_o;
 	};
 
-	if !(_choppers isEqualTo []) then {
+	if (_choppers isNotEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
 

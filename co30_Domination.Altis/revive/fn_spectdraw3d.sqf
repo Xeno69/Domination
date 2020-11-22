@@ -12,7 +12,7 @@ private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_
 	if (_distu <= _d_pn_hud) then {
 		_vu = vehicle _x;
 		_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
-		if !(_targetPos isEqualTo []) then {
+		if (_targetPos isNotEqualTo []) then {
 			_dodraw = if (isNull objectParent _x) then {
 				true
 			} else {

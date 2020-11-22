@@ -46,7 +46,7 @@ for "_nr" from 0 to 2 do {
 						if (_istatatic && {isOnRoad _pos}) then {
 							_pos = [];
 						};
-						if !(_pos isEqualTo []) exitWith {};
+						if (_pos isNotEqualTo []) exitWith {};
 					};
 					if (_pos isEqualTo []) then {
 						_pos = _pos_center;
@@ -83,7 +83,7 @@ for "_nr" from 0 to 2 do {
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30]] spawn d_fnc_MakePatrolWPX;
 			};
 			_ret_grps pushBack _newgroup;
-			if (_istatatic && {!(d_b_small_static_high isEqualTo "")}) then {
+			if (_istatatic && {d_b_small_static_high isNotEqualTo ""}) then {
 				d_x_sm_rem_ar append ((_reta # 0) call d_fnc_highbunker);
 			};
 			[_newgroup, 15] spawn {

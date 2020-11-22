@@ -41,7 +41,7 @@ _this spawn {
 	__TRACE_1("","_norm_resp")
 	private _d_pos = xr_death_pos;
 	__TRACE_1("","_d_pos")
-	if !(_d_pos isEqualTo []) then {
+	if (_d_pos isNotEqualTo []) then {
 		__TRACE("pos to old pos and dir")
 		player setDir (_d_pos # 1);
 		player setPos (_d_pos # 0);

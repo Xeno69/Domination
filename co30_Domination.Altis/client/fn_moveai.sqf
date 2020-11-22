@@ -21,7 +21,7 @@ if (units (group player) findIf {alive _x} > -1) then {
 		if (_hasunits) then {
 			sleep 0.2;
 			private _wps = waypoints (group player);
-			if !(_wps isEqualTo []) then {
+			if (_wps isNotEqualTo []) then {
 				(_wps # 0) setWPPos (getPos player);
 				_wps spawn {
 					scriptName "spawn_moveai";

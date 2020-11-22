@@ -66,13 +66,13 @@ private _defaultCenterPos = [_defaultMaxDistance, _defaultMaxDistance, 0];
 
 private _fnc_defaultPos = {
 	_defaultPos = _defaultPos param [parseNumber _this, []];
-	if !(_defaultPos isEqualTo []) exitWith {_defaultPos};
+	if (_defaultPos isNotEqualTo []) exitWith {_defaultPos};
 	
 	_defaultPos = getArray (configFile >> "CfgWorlds" >> worldName >> "Armory" >> ["positionStart", "positionStartWater"] select _this);
-	if !(_defaultPos isEqualTo []) exitWith {_defaultPos};
+	if (_defaultPos isNotEqualTo []) exitWith {_defaultPos};
 		
 	_defaultPos = getArray (configFile >> "CfgWorlds" >> worldName >> "centerPosition");
-	if !(_defaultPos isEqualTo []) exitWith {_defaultPos};
+	if (_defaultPos isNotEqualTo []) exitWith {_defaultPos};
 		
 	_defaultCenterPos
 };
@@ -88,7 +88,7 @@ if (_maxDistance < 0) then  {
 };
 
 private _checkProximity = _objectProximity > 0;
-private _checkBlacklist = !(_posBlacklist isEqualTo []);
+private _checkBlacklist = _posBlacklist isNotEqualTo [];
 
 _shoreMode = _shoreMode != 0;
 
@@ -118,10 +118,10 @@ for "_i" from 1 to MAX_TRIES do {
 		if (_this isFlatEmpty [-1, -1, _maxGradient, _gradientRadius, _waterMode, _shoreMode] isEqualTo []) exitWith {};
 		
 		// away from other objects
-		if (_checkProximity && {!(nearestTerrainObjects [_this, [], _objectProximity, false, true] isEqualTo [])}) exitWith {};	
+		if (_checkProximity && {nearestTerrainObjects [_this, [], _objectProximity, false, true] isNotEqualTo []}) exitWith {};	
 		
 		// not inside something
-		if !(lineIntersectsSurfaces [AGLtoASL _this, AGLtoASL _this vectorAdd [0, 0, 50], objNull, objNull, false, 1, "GEOM", "NONE"] isEqualTo []) exitWith {};
+		if (lineIntersectsSurfaces [AGLtoASL _this, AGLtoASL _this vectorAdd [0, 0, 50], objNull, objNull, false, 1, "GEOM", "NONE"] isNotEqualTo []) exitWith {};
 		
 		// not in blacklist
 		if (_checkBlacklist && {{if (_this inArea _x) exitWith {true}; false} forEach _posBlacklist}) exitWith {};

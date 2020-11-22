@@ -29,13 +29,13 @@ _buildingsArrayFiltered = [];
 
 if !(isNil "_sideHostile") then {
 	{
-    	if (!((_x buildingPos -1) isEqualTo []) && {!([_x, _sideHostile] call d_fnc_isbldghostile)}) then {
+    	if ((_x buildingPos -1) isNotEqualTo [] && {!([_x, _sideHostile] call d_fnc_isbldghostile)}) then {
     		_buildingsArrayFiltered pushBack _x;
     	};
     } forEach _buildingsArray;
 } else {
 	{
-		if (!((_x buildingPos -1) isEqualTo [])) then {
+		if ((_x buildingPos -1) isNotEqualTo []) then {
 			_buildingsArrayFiltered pushBack _x;
 		};
 	} forEach _buildingsArray;

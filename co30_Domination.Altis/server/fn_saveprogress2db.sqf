@@ -27,7 +27,7 @@ private _mvr2_ar =+ d_vrespawn2_ar;
 			_hasbox = 1;
 		} else {
 			private _nobjs = nearestObjects [_vec, [d_the_box], 20];
-			if !(_nobjs isEqualTo []) then {
+			if (_nobjs isNotEqualTo []) then {
 				_hasbox = 2;
 			};
 		};

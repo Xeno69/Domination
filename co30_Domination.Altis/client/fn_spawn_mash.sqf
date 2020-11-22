@@ -19,7 +19,7 @@ if ((player call d_fnc_GetHeight) > 5) exitWith {
 };
 
 private _d_medtent = player getVariable "d_medtent";
-if !(_d_medtent isEqualTo []) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_281")};
+if (_d_medtent isNotEqualTo []) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_281")};
 
 _d_medtent = player modelToWorldVisual [0,1,0];
 _d_medtent set [2,0];
@@ -98,7 +98,7 @@ _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MI
 		publicVariable "d_mashes";
 
 		private _medtent_content = (player getVariable "d_medic_tent") getVariable ["d_objcont", []];
-		if !(_medtent_content isEqualTo []) then {
+		if (_medtent_content isNotEqualTo []) then {
 			{deleteVehicle _x} forEach _medtent_content;
 		};
 		deleteVehicle (player getVariable "d_medic_tent");

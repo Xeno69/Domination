@@ -180,7 +180,7 @@ d_retaken_farpspos = if (count _ar >= 12) then {
 	[]
 };
 __TRACE_1("","d_retaken_farpspos")
-if (d_retaken_farpspos isEqualType [] && {!(d_retaken_farpspos isEqualTo [])}) then {
+if (d_retaken_farpspos isEqualType [] && {d_retaken_farpspos isNotEqualTo []}) then {
 	private _allflags = (allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
 	{
 		private _poss = _x;

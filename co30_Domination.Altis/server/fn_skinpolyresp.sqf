@@ -9,13 +9,13 @@ if (_skinpoly isEqualTo ([_vec] call d_fnc_getskinpoly)) exitWith {};
 
 _skinpoly params ["_textures", "_anims", "_airar"];
 
-if (!(_textures isEqualTo []) && {!(getObjectTextures _vec isEqualTo _textures)}) then {
+if (_textures isNotEqualTo [] && {getObjectTextures _vec isNotEqualTo _textures}) then {
 	for "_i" from 0 to count _textures - 1 do {
 		_vec setObjectTextureGlobal [_i, _textures select _i];
 	};
 };
 
-if !(_anims isEqualTo []) then {
+if (_anims isNotEqualTo []) then {
 	{_vec animate _x} forEach _anims;
 };
 

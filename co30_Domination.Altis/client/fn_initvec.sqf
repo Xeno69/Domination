@@ -30,7 +30,7 @@ _vec addEventHandler ["getOut", {_this call d_fnc_checkhelipilotout}]
 
 #define __staticl \
 _vec addAction[format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_256"], {_this spawn d_fnc_load_static}, _d_vec, -1, false, true, "","count (_target getVariable ['d_CARGO_AR', []]) < d_max_truck_cargo"];\
-_vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_257"], {_this spawn d_fnc_unload_static}, _d_vec, -2, false, true, "","isNull objectParent player && {!((_target getVariable ['d_CARGO_AR', []]) isEqualTo [])}"]
+_vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_257"], {_this spawn d_fnc_unload_static}, _d_vec, -2, false, true, "","isNull objectParent player && {(_target getVariable ['d_CARGO_AR', []]) isNotEqualTo []}"]
 
 #define __addchopm _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_258"], {_this call d_fnc_vecdialog}, [], -1, false, true, "", "true", 8]
 
@@ -49,7 +49,7 @@ __TRACE_1("","_vec")
 
 private _desm = _vec getVariable ["d_deserted_marker", ""];
 
-if (_desm != "" && {!(markerPos _desm isEqualTo [0,0,0])}) then {
+if (_desm != "" && {markerPos _desm isNotEqualTo [0,0,0]}) then {
 	[_desm, _vec, "ICON", "ColorBlack", [1, 1], format [localize "STR_DOM_MISSIONSTRING_260", [_vec] call d_fnc_GetDisplayName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
 };
 
@@ -97,7 +97,7 @@ if (_d_vec < 100) exitWith {
 #else
 	__pvecss(blufor);
 #endif
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -145,7 +145,7 @@ if (_d_vec < 200) exitWith {
 #else
 	__pvecss(blufor);
 #endif
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -180,7 +180,7 @@ if (_d_vec < 300) exitWith {
 #else
 	__pvecss(blufor);
 #endif
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -212,7 +212,7 @@ if (_d_vec < 400) exitWith {
 #else
 	__pvecss(blufor);
 #endif
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -249,7 +249,7 @@ if (_d_vec < 500) exitWith {
 #else
 	__pvecss(blufor);
 #endif
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -281,7 +281,7 @@ if (_d_vec < 600) exitWith {
 #else
 	__pvecss(blufor);
 #endif
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -310,7 +310,7 @@ if (_d_vec < 600) exitWith {
 if (_d_vec < 1100) exitWith {
 	private _car = [];
 	__pvecss(opfor);
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -342,7 +342,7 @@ if (_d_vec < 1100) exitWith {
 if (_d_vec < 1200) exitWith {
 	private _car = [];
 	__pvecss(opfor);
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -366,7 +366,7 @@ if (_d_vec < 1200) exitWith {
 if (_d_vec < 1300) exitWith {
 	private _car = [];
 	__pvecss(opfor);
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -387,7 +387,7 @@ if (_d_vec < 1300) exitWith {
 if (_d_vec < 1400) exitWith {
 	private _car = [];
 	__pvecss(opfor);
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -413,7 +413,7 @@ if (_d_vec < 1400) exitWith {
 if (_d_vec < 1500) exitWith {
 	private _car = [];
 	__pvecss(opfor);
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -434,7 +434,7 @@ if (_d_vec < 1500) exitWith {
 if (_d_vec < 1600) exitWith {
 	private _car = [];
 	__pvecss(blufor);
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
@@ -462,7 +462,7 @@ if (_d_vec < 4000) exitWith {
 	private _fidx = d_choppers_blufor findIf {_x # 3 == _d_vec}; if (_fidx > -1) then {_car = d_choppers_blufor # _fidx};
 #endif
 	__TRACE_1("","_car")
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		if (!alive _vec) exitWith {};
 		missionNamespace setVariable [_car # 0, _vec];
 		__chopname;
@@ -493,7 +493,7 @@ if (_d_vec < 5000) exitWith {
 	private _car = [];
 	private _fidx = d_choppers_opfor findIf {_x # 3 == _d_vec}; if (_fidx > -1) then {_car = d_choppers_opfor # _fidx};
 	__TRACE_1("","_car")
-	if !(_car isEqualTo []) then {
+	if (_car isNotEqualTo []) then {
 		if (!alive _vec) exitWith {};
 		missionNamespace setVariable [_car # 0, _vec];
 		__chopname;

@@ -84,7 +84,7 @@ if (!isNil "_jipid") then {
 
 private _ar = _unit getVariable ["d_all_p_vecs_s", []];
 __TRACE_1("","_ar")
-if !(_ar isEqualTo []) then {
+if (_ar isNotEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];
 		d_player_created pushBack _vec;

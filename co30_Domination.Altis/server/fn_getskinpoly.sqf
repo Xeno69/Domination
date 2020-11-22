@@ -7,7 +7,7 @@ params ["_vec"];
 
 private _anims = [];
 private _animnames = animationNames _vec;
-if !(_animnames isEqualTo []) then {
+if (_animnames isNotEqualTo []) then {
 	for "_i" from 0 to count _animnames -1 do {
 		_anims pushBack [_animnames select _i, _vec animationPhase (_animnames select _i)];
 	};

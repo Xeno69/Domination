@@ -19,7 +19,7 @@ if ((player call d_fnc_GetHeight) > 5) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-if !((player getVariable "d_farp_pos") isEqualTo []) exitWith {
+if ((player getVariable "d_farp_pos") isNotEqualTo []) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_242");
 	d_commandingMenuIniting = false;
 };
@@ -133,7 +133,7 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 		publicVariable "d_farps";
 
 		private _farpcont = _farp getVariable ["d_objcont", []];
-		if !(_farpcont isEqualTo []) then {
+		if (_farpcont isNotEqualTo []) then {
 			{deleteVehicle _x} forEach _farpcont;
 		};
 		deleteVehicle _farp;
