@@ -475,7 +475,7 @@ if (isServer) then {
 	_vecsar call d_fnc_initvrespawn2;
 	{
 		[_x, 300, false] spawn d_fnc_vehirespawn;
-	} forEach (vehicles select {(str _x) select [0, 7] isEqualToisEqualTo "d_boat_"});
+	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
 #else
 	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
 		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x select 0}};
