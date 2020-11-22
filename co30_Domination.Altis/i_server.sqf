@@ -145,11 +145,7 @@ if (isServer) then {
 
 if (!isServer) exitWith {};
 
-private _civcenter = createCenter civilian;
-
 #ifdef __OWN_SIDE_BLUFOR__
-private _opforcenter = createCenter opfor;
-private _independentcenter = createCenter independent;
 blufor setFriend [opfor, 0];
 opfor setFriend [blufor, 0];
 blufor setFriend [independent, 1];
@@ -160,8 +156,6 @@ independent setFriend [opfor, 0];
 
 #ifdef __OWN_SIDE_OPFOR__
 if (!d_ifa3lite) then {
-	private _bluforcenter = createCenter blufor;
-	private _independentcenter = createCenter independent;
 	blufor setFriend [opfor, 0];
 	opfor setFriend [blufor, 0];
 	blufor setFriend [independent, 0];
@@ -169,7 +163,6 @@ if (!d_ifa3lite) then {
 	opfor setFriend [independent, 1];
 	independent setFriend [opfor, 1];
 } else {
-	private _bluforcenter = createCenter blufor;
 	blufor setFriend [opfor, 0];
 	opfor setFriend [blufor, 0];
 	independent setFriend [blufor, 0];
@@ -180,8 +173,6 @@ if (!d_ifa3lite) then {
 #endif
 
 #ifdef __OWN_SIDE_INDEPENDENT__
-private _bluforcenter = createCenter blufor;
-private _opforcenter = createCenter opfor;
 blufor setFriend [opfor, 0];
 opfor setFriend [blufor, 0];
 independent setFriend [blufor, 0];
@@ -191,7 +182,6 @@ opfor setFriend [independent, 0];
 #endif
 
 #ifdef __TT__
-private _independentcenter = createCenter independent;
 blufor setFriend [independent, 0.1];
 independent setFriend [blufor, 0.1];
 opfor setFriend [independent, 0.1];
