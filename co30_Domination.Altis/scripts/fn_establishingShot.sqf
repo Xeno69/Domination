@@ -257,8 +257,8 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 		// Static fade-in
 		"BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
-		waitUntil {!isNull (uiNamespace getVariable "RscStatic_display") || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
-		waitUntil {isNull (uiNamespace getVariable "RscStatic_display")  || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+		waitUntil {!isNull (uiNamespace getVariable ["RscStatic_display", displayNull]) || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+		waitUntil {isNull (uiNamespace getVariable ["RscStatic_display", displayNull])  || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
 
 		if (isNil "BIS_fnc_establishingShot_skip" && {!( player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
 			// Show interlacing
@@ -465,8 +465,8 @@ if (_mode == 0) then {
 	2 fadeSound 0;
 
 	"BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
-	waitUntil {!isNull (uiNamespace getVariable "RscStatic_display")};
-	waitUntil {isNull (uiNamespace getVariable "RscStatic_display")};
+	waitUntil {!isNull (uiNamespace getVariable ["RscStatic_display", displayNull])};
+	waitUntil {isNull (uiNamespace getVariable ["RscStatic_display", displayNull])};
 
 	// Delete sound logics and group
 	{if (!isNil _x) then {deleteVehicle (missionNamespace getVariable _x)}} forEach ["BIS_fnc_establishingShot_logic1", "BIS_fnc_establishingShot_logic2", "BIS_fnc_establishingShot_logic3"];

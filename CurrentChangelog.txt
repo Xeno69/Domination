@@ -6,3 +6,4 @@
 - Fixed: For whatever reason the ToolKit was removed from Virtual Arsenal in the CUP versions
 - Fixed: Many CUP launchers did get removed from the player inventory when he/she closed the Virtual Arsenal (because of "_Loaded" at the end of the class name)
 - Fixed: If only CUP Chernarus 2020 was loaded with CUP Terrains Core some buildings are missing which breaks transfomer station side missions
+- Fixed: SAT View on a deployed MHQ script was broken
