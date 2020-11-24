@@ -4,3 +4,4 @@
 - Fixed: In the Chernarus 2020 version class names of side mission 46 buildings have changed breaking the side mission
 - Fixed: The hovercraft in the CUP versions spawning near main targets are virtually invincible, removed
 - Fixed: For whatever reason the ToolKit was removed from Virtual Arsenal in the CUP versions
+- Fixed: Many CUP launchers did get removed from the player inventory when he/she closed the Virtual Arsenal (because of "_Loaded" at the end of the class name)
