@@ -2,6 +2,10 @@ Changelogs
 
 Old...
 
+4.40
+
+- Fixed: Major gamebreaker, revive screen stayed black when a player died an revive max lives was set to unlimited
+
 4.39
 
 ATTENTION: extDB3 domination-custom.ini file has changed (update it with the one available in the Domination_4_39.7z download file)

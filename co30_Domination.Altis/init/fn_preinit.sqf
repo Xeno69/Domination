@@ -1251,7 +1251,7 @@ if (!d_gmcwgwinter) then {
 		case "E": {
 			call {
 				if (d_cup) exitWith {
-					"CUP_O_ZUBR_RU"
+					""
 				};
 				if (d_gmcwg) exitWith {
 					""
