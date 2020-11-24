@@ -11,7 +11,7 @@ d_sm_hangar = "Land_Hangar_F";
 d_sm_tent = "Land_TentA_F";
 
 d_sm_land_tankbig = "Land_dp_bigTank_F";
-d_sm_land_transformer = "Land_dp_transformer_F";
+d_sm_land_transformer = if (worldName != "cup_chernarus_A3") then {"Land_dp_transformer_F"} else {"Land_Trafostanica_mala"};
 d_sm_barracks = "Land_i_Barracks_V2_F";
 d_sm_land_tanksmall = "Land_dp_smallTank_F";
 d_sm_land_factory = "Land_u_Barracks_V2_F";
