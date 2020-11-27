@@ -22,6 +22,13 @@ while {d_nr_observers > 0} do {
 								[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
 							} else {
 								[getPosWorld _enemy, _x, 2, _enemy] spawn d_fnc_moduleCASAI;
+#ifndef __TT__
+								if (d_searchintel # 1 == 1 || { d_tell_arty_cas == 1 }) then {
+#else
+								if (floor random 3 == 0) then {
+#endif
+									[getPosWorld _enemy, 1] remoteExecCall ["d_fnc_doarti", [0, -2] select isDedicated];
+								};
 							};
 						} else {
 							[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
