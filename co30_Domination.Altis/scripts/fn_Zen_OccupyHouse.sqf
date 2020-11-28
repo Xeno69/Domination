@@ -97,12 +97,13 @@ _Zen_InsertionSort = {
 	private ["_element", "_value"];
 
 	for "_i" from 1 to (count _array - 1) do {
+		scopeName "forI";
 		_element = _array select _i;
 		_value = EVAL(_element);
 
 		for [{_j = _i}, {_j >= 1}, {_j = _j - 1}] do {
 			if (_value > EVAL(_array select (_j - 1))) then {
-				break;
+				breakTo "forI";
 			};
 			_array set [_j, _array select (_j - 1)];
 		};
