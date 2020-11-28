@@ -122,7 +122,7 @@ while {true} do {
 			_vec setDamage 0;
 			[_vec, _skinpoly] call d_fnc_skinpolyresp;
 			
-			_vec addEventhandler ["local", {_this call d_fnc_heli_local_check}];
+			_vec addEventhandler ["local", {call d_fnc_heli_local_check}];
 			
 			_vec_a set [0, _vec];
 			_vec setVariable ["d_OUT_OF_SPACE", -1];

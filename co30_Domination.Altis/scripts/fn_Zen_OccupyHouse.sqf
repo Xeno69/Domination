@@ -231,13 +231,13 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 									};
 
 									_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
-										params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+										params ["_unit", "_firer"];
 										scriptName "spawn_zoh_firednear1ambush";
 										if (d_side_player getFriend side (group _firer) >= 0.6) then {
-											(_this select 0) enableAI "TARGET";
-											(_this select 0) enableAI "AUTOTARGET";
-											(_this select 0) enableAI "MOVE";
-											(_this select 0) forceSpeed -1;
+											_unit enableAI "TARGET";
+											_unit enableAI "AUTOTARGET";
+											_unit enableAI "MOVE";
+											_unit forceSpeed -1;
 										};
 									}]];
 								};
@@ -253,13 +253,13 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											_uuidx setUnitPos "MIDDLE";
 											_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
 												scriptName "spawn_zoh_firednear1";
-												[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+												[_this # 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 											}]];
 										} else {
 											_uuidx setUnitPos "UP";
 											_uuidx setVariable ["zen_fn_idx",_uuidx addEventHandler ["FiredNear", {
 												scriptName "spawn_zoh_firednear2";
-												[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+												[_this # 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 											}]];
 										};
 

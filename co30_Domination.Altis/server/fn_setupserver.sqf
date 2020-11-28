@@ -85,7 +85,7 @@ if (d_MissionType == 2) then {
 diag_log ["Internal D Version: 4.41"];
 
 private _av_check_fnc = {
-	_this addEventHandler ["handleDamage", {_this call d_fnc_pshootatarti;0}];
+	_this addEventHandler ["handleDamage", {call d_fnc_pshootatarti;0}];
 	_this lockDriver true;
 	_this lock 2;
 	
@@ -101,8 +101,8 @@ private _av_check_fnc = {
 	} forEach (crew _this);
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
-	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
-	_this addEventhandler ["fired", {_this call d_fnc_arifired}];
+	_this addEventhandler ["fired", {call d_fnc_casfired}];
+	_this addEventhandler ["fired", {call d_fnc_arifired}];
 	[_this, 2] spawn d_fnc_disglobalsim;
 };
 

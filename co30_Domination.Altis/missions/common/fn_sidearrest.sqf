@@ -16,7 +16,7 @@ if (isNull _officer) then {
 	_poss set [2, 0];
 	[_officer, _poss] call d_fnc_setposagls;
 	_officer call d_fnc_removenvgoggles_fak;
-	_officer addEventhandler ["killed", {_this call d_fnc_KilledSMTarget500}];
+	_officer addEventhandler ["killed", {call d_fnc_KilledSMTarget500}];
 	d_x_sm_rem_ar pushBack _officer;
 	removeAllWeapons _officer;
 	sleep 2.123;

@@ -23,5 +23,5 @@ clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box enableRopeAttach false;
 _box enableSimulationGlobal false;
-_box addEventhandler ["killed", {_this call d_fnc_playerboxkilled}];
+_box addEventhandler ["killed", {call d_fnc_playerboxkilled}];
 _box

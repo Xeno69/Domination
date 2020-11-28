@@ -18,7 +18,7 @@ waitUntil {!isNil "d_init_processed" && {time > 0}};
 d_is_hc = true;
 
 if (d_with_ace) then {
-	addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
+	addMissionEventHandler ["EntityKilled", {call d_fnc_entitykilled}];
 };
 
 diag_log [diag_frameno, diag_tickTime, time, "Dom setuphc done"];

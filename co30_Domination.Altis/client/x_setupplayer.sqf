@@ -85,7 +85,7 @@ d_additional_respawn_points_orig =+ d_additional_respawn_points;
 call d_fnc_buildaddrespoints;
 
 if (d_WithRevive == 1 && {!d_with_ace}) then {
-	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
+	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
 };
 
 if (!isServer) then {execVM "bikb\kbinit.sqf"};
@@ -212,7 +212,7 @@ if (d_with_ranked) then {
 	
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
 
-	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
+	player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedman}];
 };
 
 call d_fnc_store_rwitems;
@@ -220,7 +220,7 @@ call d_fnc_store_rwitems;
 if (d_with_ranked || {d_database_found}) then {
 	d_sm_p_pos = nil;
 	if (!d_with_ace) then {
-		player addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
+		player addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 	} else {
 		["ace_treatmentSucceded", {_this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
@@ -229,7 +229,7 @@ if (d_with_ranked || {d_database_found}) then {
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
-player addEventhandler ["Take", {_this call d_fnc_ptakeweapon}];
+player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
 
 if (d_MissionType != 2) then {
 	if (d_resolved_targets isNotEqualTo []) then {
@@ -293,7 +293,7 @@ if (d_MissionType != 2) then {
 if (d_all_sm_res) then {d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_522"} else {[false] spawn d_fnc_getsidemissionclient};
 
 #ifndef __TT__
-player addEventHandler ["Killed", {_this call d_fnc_pkilledeh}];
+player addEventHandler ["Killed", {call d_fnc_pkilledeh}];
 #else
 if (d_player_side == blufor) then {
 	player addEventHandler ["Killed", {[_this, 0] call d_fnc_pkilledeh}];
@@ -301,7 +301,7 @@ if (d_player_side == blufor) then {
 	player addEventHandler ["Killed", {[_this, 1] call d_fnc_pkilledeh}];
 };
 #endif
-player addEventHandler ["respawn", {_this call d_fnc_prespawned}];
+player addEventHandler ["respawn", {call d_fnc_prespawned}];
 
 player setVariable ["d_currentvisionmode", 0];
 
@@ -627,7 +627,7 @@ if (d_MissionType != 2) then {
 
 player setVariable ["d_p_f_b", 0];
 
-player addEventHandler ["firedMan", {_this call d_fnc_playerfiredeh}];
+player addEventHandler ["firedMan", {call d_fnc_playerfiredeh}];
 
 d_mark_loc280 = localize "STR_DOM_MISSIONSTRING_280";
 d_mark_loc261 = localize "STR_DOM_MISSIONSTRING_261";
@@ -659,7 +659,7 @@ if (isNil "d_the_carrier") then {
 
 private _dsp46 = findDisplay 46;
 
-_dsp46 displayAddEventHandler ["MouseZChanged", {_this call d_fnc_MouseWheelRec}];
+_dsp46 displayAddEventHandler ["MouseZChanged", {call d_fnc_MouseWheelRec}];
 
 if (d_WithRevive == 0) then {
 	call compile preprocessFileLineNumbers "revive.sqf";
@@ -672,18 +672,18 @@ if (d_with_bis_dynamicgroups == 0) then {
 	0 spawn {
 		scriptName "spawn_setupplayer3";
 		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
-		(findDisplay 46) displayAddEventHandler ["KeyDown", {_this call d_fnc_keydown_dyng}];
-		(findDisplay 46) displayAddEventHandler ["KeyUp", {_this call d_fnc_keyup_dyng}];
+		(findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_keydown_dyng}];
+		(findDisplay 46) displayAddEventHandler ["KeyUp", {call d_fnc_keyup_dyng}];
 	};
 } else {
-	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_keydown_dyng}];
-	_dsp46 displayAddEventHandler ["KeyUp", {_this call d_fnc_keyup_dyng}];
+	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_keydown_dyng}];
+	_dsp46 displayAddEventHandler ["KeyUp", {call d_fnc_keyup_dyng}];
 };
 
-_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_earplugs}];
+_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_earplugs}];
 #ifndef __TT__
 if (!d_with_ace) then {
-	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_toggle3dm}];
+	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_toggle3dm}];
 } else {
 	d_showallnearusermarkers = false;
 };
@@ -692,14 +692,14 @@ if (!d_with_ace) then {
 // by R34P3R
 d_p_isju = false;
 if (!d_with_ace) then {
-	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
+	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_jumpover}];
 };
 
 d_vec_role_pl = [];
-player addEventhandler ["getInMan", {_this call d_fnc_getinmaneh}];
-player addEventhandler ["getOutMan", {_this call d_fnc_getoutmaneh}];
+player addEventhandler ["getInMan", {call d_fnc_getinmaneh}];
+player addEventhandler ["getOutMan", {call d_fnc_getoutmaneh}];
 
-player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedmanvs}];
+player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedmanvs}];
 
 d_pisadminp = false;
 if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
@@ -834,8 +834,8 @@ if (isNil "d_cas_plane_avail") then {
 	};
 };
 
-player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
-player addEventhandler["InventoryClosed", {_this call d_fnc_inventoryclosed}];
+player addEventhandler["InventoryOpened", {call d_fnc_inventoryopened}];
+player addEventhandler["InventoryClosed", {call d_fnc_inventoryclosed}];
 
 if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalOpened", {
@@ -856,7 +856,7 @@ if (!d_with_ace || {d_with_ranked}) then {
 };
 
 player addEventhandler ["HandleRating", {
-	if ((_this select 1) < 0) then {0} else {_this select 1}
+	if ((_this # 1) < 0) then {0} else {_this # 1}
 }];
 
 ["d_scacheck", {call d_fnc_SCACheck}] call d_fnc_eachframeadd;
@@ -1079,17 +1079,17 @@ if (d_with_ace) then {
 d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
-		_this call d_fnc_place;
+		call d_fnc_place;
 #ifndef __TT__
-		addToRemainsCollector [_this select 1];
-		private _grp = group (_this select 1);
+		addToRemainsCollector [_this # 1];
+		private _grp = group (_this # 1);
 		if (!isNull _grp) then {
 			if (!isGroupDeletedWhenEmpty _grp) then {
 				_grp deleteGroupWhenEmpty true;
 			};
 		};
 #endif
-		_this select 1
+		_this # 1
 	}];
 } forEach allCurators;
 

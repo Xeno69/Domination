@@ -454,7 +454,6 @@ if (d_no_more_observers < 2) then {
 				[4] call d_fnc_DoKBMsg;
 #endif
 			};
-			(_this select 0) removeAllEventHandlers "killed";
 		}];
 		d_obs_array set [_xx, _observer];
 		sleep 0.2;

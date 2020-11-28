@@ -185,7 +185,7 @@ diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerServer.sqf processed
 #endif
 
 if (d_MissionType != 2) then {
-	_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
+	_pl addEventhandler ["HandleScore", {call d_fnc_handlescore}];
 };
 
 (group _pl) setVariable ["d_pl_gr", true];

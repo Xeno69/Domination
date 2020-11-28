@@ -563,11 +563,11 @@ if (isServer) then {
 	publicVariable "d_points_array";
 #endif
 
-	addMissionEventHandler ["PlayerDisconnected", {_this call d_fnc_playerdisconnected}];
+	addMissionEventHandler ["PlayerDisconnected", {call d_fnc_playerdisconnected}];
 
-	addMissionEventHandler ["HandleDisconnect", {_this call d_fnc_handledisconnect}];
+	addMissionEventHandler ["HandleDisconnect", {call d_fnc_handledisconnect}];
 	if (d_MissionType != 2) then {
-		addMissionEventhandler ["BuildingChanged", {_this call d_fnc_buildingchanged}];
+		addMissionEventhandler ["BuildingChanged", {call d_fnc_buildingchanged}];
 	};
 };
 

@@ -67,7 +67,7 @@ if (call AR_fnc_Has_Addon_Animations_Installed) then {
 
 private _animationEventHandler = -1;
 if (local _player) then {
-	_animationEventHandler = _player addEventHandler ["AnimChanged", {_this call ar_fnc_animchangedeh}];
+	_animationEventHandler = _player addEventHandler ["AnimChanged", {call ar_fnc_animchangedeh}];
 };
 
 if (!local _player) then {

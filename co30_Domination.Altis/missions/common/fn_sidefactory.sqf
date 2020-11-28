@@ -16,7 +16,7 @@ private _barray = [];
 	if (!isNull _x) then {
 		_barray pushBack _x;
 #ifdef __TT__
-		_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+		_x addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 	};
 } forEach _this;

@@ -39,10 +39,10 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec addEventHandler ["killed", {
 		d_confvdown = d_confvdown + 1;
 		(_this select 0) removeAllEventHandlers "killed";
-		{(_this select 0) deleteVehicleCrew _x} forEach (crew (_this select 0));
+		{(_this select 0) deleteVehicleCrew _x} forEach (crew (_this # 0));
 	}];
 #ifdef __TT__
-	_onevec addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_onevec addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 	_allSMVecs pushBack _onevec;
 	d_x_sm_vec_rem_ar append _vehicles;

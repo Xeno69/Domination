@@ -7,6 +7,6 @@ disableSerialization;
 
 params ["_disp"];
 
-_disp displayAddEventHandler ["KeyDown", {_this call xr_fnc_spectkeyeh}];
+_disp displayAddEventHandler ["KeyDown", {call xr_fnc_spectkeyeh}];
 
 false

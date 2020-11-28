@@ -54,7 +54,7 @@ private _vec = objNull;
 	};
 	_vecs pushBack _vec;
 	d_x_sm_vec_rem_ar pushBack _vec;
-	_vec addEventHandler ["handleDamage", {_this call d_fnc_CheckSMShotHD}];
+	_vec addEventHandler ["handleDamage", {call d_fnc_CheckSMShotHD}];
 	d_x_sm_vec_rem_ar pushBack _vec;
 	if (_camo) then {
 		sleep 0.25;
@@ -67,7 +67,7 @@ private _vec = objNull;
 			sleep 5; _this allowDamage true;
 		};
 		d_x_sm_vec_rem_ar pushBack _camonet;
-		_camonet addEventhandler ["killed", {deleteVehicle (param [0])}];
+		_camonet addEventhandler ["killed", {deleteVehicle (_this # 0)}];
 	};
 	sleep 1;
 } forEach _usevecs;

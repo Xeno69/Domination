@@ -55,7 +55,7 @@ if (_rtype == 0) then { // player died
 	showCommandingMenu "";
 	__TRACE("adding player handleDamage eventhandler non ace")
 	if (!d_with_ace) then {
-		player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
+		player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
 	};
 	xr_phd_invulnerable = true;
 	player setFatigue 0;

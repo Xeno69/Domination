@@ -28,7 +28,7 @@ if (player getVariable "d_bike_b_mode" == 1) then {
 	};
 } else {
 	d_flag_vec = _vec;
-	d_flag_vec addEventHandler ["killed", {_this spawn d_fnc_bikekilled}]; 
+	d_flag_vec addEventHandler ["killed", {spawn d_fnc_bikekilled}]; 
 	d_player_vecs pushBack d_flag_vec;
 	d_flag_vec setVariable ["d_fl_v_kc", 0];
 };

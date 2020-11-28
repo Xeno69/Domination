@@ -11,7 +11,7 @@ if (_type == 0) then {
 	
 	d_cur_sel_tar_obj = objNull;
 	
-	d_nt_sel_handler = addMissionEventHandler ["MapSingleClick", {_this call d_fnc_selnthandler}];
+	d_nt_sel_handler = addMissionEventHandler ["MapSingleClick", {call d_fnc_selnthandler}];
 	
 	"d_ProgressBar3" cutRsc ["d_ProgressBar3", "PLAIN"];
 	private _control = (uiNamespace getVariable "d_ProgressBar3") displayCtrl 3800;

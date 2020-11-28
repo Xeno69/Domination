@@ -29,9 +29,9 @@ d_x_mt_event_types = [
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];
 
-addMissionEventHandler ["EntityKilled", {_this call d_fnc_entitykilled}];
+addMissionEventHandler ["EntityKilled", {call d_fnc_entitykilled}];
 if (d_MissionType != 2) then {
-	addMissionEventHandler ["EntityRespawned", {(_this # 0) addEventhandler ["HandleScore", {_this call d_fnc_handlescore; true}]}];
+	addMissionEventHandler ["EntityRespawned", {(_this # 0) addEventhandler ["HandleScore", {call d_fnc_handlescore; true}]}];
 };
 
 // start air AI after some time

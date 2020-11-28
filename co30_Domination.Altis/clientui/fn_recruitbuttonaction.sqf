@@ -93,7 +93,7 @@ if (surfaceIsWater _spawnpos) then {
 _unit setSkill 1;
 _unit setRank "PRIVATE";
 if (!d_with_ace && {d_with_ranked || {d_database_found}}) then {
-	_unit addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
+	_unit addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 };
 if (d_WithRevive == 0 && {_unit getUnitTrait "Medic"}) then {
 	[_unit] execFSM "fsms\fn_AIRevive.fsm";
@@ -107,7 +107,7 @@ _unit enableDynamicSimulation false;
 _unit triggerDynamicSimulation true;
 
 if (!d_with_ace) then {
-	_unit addEventhandler ["handleDamage", {_this call d_fnc_handledamageai}];
+	_unit addEventhandler ["handleDamage", {call d_fnc_handledamageai}];
 };
 
 if (d_current_ai_num == d_max_ai) then {
@@ -152,7 +152,7 @@ if (!d_with_ranked) then {
 #endif
 addToRemainsCollector [_unit];
 
-_unit addEventhandler ["getInMan", {_this call d_fnc_getinmanai}];
+_unit addEventhandler ["getInMan", {call d_fnc_getinmanai}];
 
 if (d_ai_silent == 1) then {
 	[_unit, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];

@@ -101,7 +101,7 @@ while {true} do {
 					_vec setVariable ["d_vec_is_mhq", [_vec_a # 5, _number_v]];
 				};
 				[_vec, 10] call d_fnc_setekmode;
-				_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+				_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
 #ifndef __TT__
 				private _flag = call {
 					if (d_own_side == "EAST") exitWith {"\a3\data_f\flags\flag_red_co.paa"};

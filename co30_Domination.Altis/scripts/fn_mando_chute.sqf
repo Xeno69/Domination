@@ -120,7 +120,7 @@ if (_is_ammo) then {
 	_box enableRopeAttach false;
 	_box enableSimulationGlobal false;
 	_box addEventHandler ["killed",{
-		deleteVehicle (_this select 0);
+		deleteVehicle (_this # 0);
 	}];
 #ifndef __TT__
 	private _mname = format ["d_ab_%1", _box];

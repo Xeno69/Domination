@@ -38,7 +38,7 @@ if (d_mt_respawngroups == 0) then { \
 };
 
 #define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]; \
-_vec addEventHandler ["handleDamage", {_this call d_fnc_checkmtshothd}];
+_vec addEventHandler ["handleDamage", {call d_fnc_checkmtshothd}];
 
 if !(isServer) exitWith {};
 

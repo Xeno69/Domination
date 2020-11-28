@@ -19,10 +19,10 @@ _vec setVariable ["d_choppertype", _index];\
 _vec setVariable ["d_vec_type", "chopper"];\
 call {\
 	if (_index == 0) exitWith {_vec addEventHandler ["getin", {[_this,0] call d_fnc_checkhelipilot}]};\
-	if (_index == 1) exitWith {_vec addEventHandler ["getin", {_this call d_fnc_checkhelipilot_wreck}]};\
+	if (_index == 1) exitWith {_vec addEventHandler ["getin", {call d_fnc_checkhelipilot_wreck}]};\
 	if (_index == 2) exitWith {_vec addEventHandler ["getin", {[_this,1] call d_fnc_checkhelipilot}]};\
 };\
-_vec addEventHandler ["getOut", {_this call d_fnc_checkhelipilotout}]
+_vec addEventHandler ["getOut", {call d_fnc_checkhelipilotout}]
 
 #define __vecname _vec setVariable ["d_vec_name", _car select 6]
 #define __chopname _vec setVariable ["d_vec_name", _car select 7]
@@ -37,7 +37,7 @@ _vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTR
 #ifdef __TT__
 #define __sidew _vec setVariable ["d_side", blufor]
 #define __sidee _vec setVariable ["d_side", opfor]
-#define __checkenterer _vec addEventHandler ["getin", {_this call d_fnc_checkenterer}]
+#define __checkenterer _vec addEventHandler ["getin", {call d_fnc_checkenterer}]
 #define __pvecss(sname) private _fidx = d_p_vecs_##sname findIf {_x select 1 == _d_vec}; if (_fidx > -1) then {_car = d_p_vecs_##sname select _fidx}
 #endif
 
@@ -131,10 +131,10 @@ if (_d_vec < 100) exitWith {
 	_vec setVariable ["d_vec_type", "MHQ"];
 #ifdef __TT__
 	__sidew;
-	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver}];
+	_vec addEventHandler ["getin", {call d_fnc_checkdriver}];
 #endif
 	if (!isServer) then {
-		_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+		_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
 	};
 };
 
@@ -231,7 +231,7 @@ if (_d_vec < 400) exitWith {
 	if (!d_no_ai || {player getUnitTrait "engineer"}) then {
 		__staticl;
 	} else {
-		_vec addEventHandler ["getin", {_this call d_fnc_checktrucktrans}];
+		_vec addEventHandler ["getin", {call d_fnc_checktrucktrans}];
 	};
 	_vec setVariable ["d_vec_type", "Engineer"];
 #ifdef __TT__
@@ -303,7 +303,7 @@ if (_d_vec < 600) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
-	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver_wreck}];
+	_vec addEventHandler ["getin", {call d_fnc_checkdriver_wreck}];
 };
 
 #ifdef __TT__
@@ -330,12 +330,12 @@ if (_d_vec < 1100) exitWith {
 	_vec setVariable ["d_vec_type", "MHQ"];
 	_vec setVariable ["d_canloadbox", true];
 	__sidee;
-	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver}];
+	_vec addEventHandler ["getin", {call d_fnc_checkdriver}];
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
 	if (!isServer) then {
-		_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+		_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
 	};
 };
 
@@ -401,7 +401,7 @@ if (_d_vec < 1400) exitWith {
 	if (!d_no_ai || {player getUnitTrait "engineer"}) then {
 		__staticl;
 	} else {
-		_vec addEventHandler ["getin", {_this call d_fnc_checktrucktrans}];
+		_vec addEventHandler ["getin", {call d_fnc_checktrucktrans}];
 	};
 	_vec setVariable ["d_vec_type", "Engineer"];
 	__sidee;
@@ -446,7 +446,7 @@ if (_d_vec < 1600) exitWith {
 	};
 	if (!alive _vec) exitWith {};
 	__sidew;
-	_vec addEventHandler ["getin", {_this call d_fnc_checkdriver_wreck}];
+	_vec addEventHandler ["getin", {call d_fnc_checkdriver_wreck}];
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};

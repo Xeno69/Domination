@@ -14,7 +14,7 @@ if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	0 spawn {
 		scriptName "spawn_adminspectate";
 		sleep 2;
-		d_spect_disp_handler = (["GetDisplay"] call BIS_fnc_EGSpectator) displayAddEventHandler ["KeyDown", {_this call d_fnc_egspectkeyeh}];
+		d_spect_disp_handler = (["GetDisplay"] call BIS_fnc_EGSpectator) displayAddEventHandler ["KeyDown", {call d_fnc_egspectkeyeh}];
 	};
 	"d_adminspecttxt" cutText [localize "STR_DOM_MISSIONSTRING_1511", "PLAIN"];
 } else {

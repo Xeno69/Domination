@@ -44,7 +44,7 @@ d_num_species = 0;
 		(_this select 0) removeAllEventHandlers "killed";
 	}];
 #ifdef __TT__
-	_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_x addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 } forEach _units;
 

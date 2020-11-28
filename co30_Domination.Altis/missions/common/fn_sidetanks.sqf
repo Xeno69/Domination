@@ -19,7 +19,7 @@ for "_ii" from 1 to (count _posi_array) - 1 do {
 	d_x_sm_vec_rem_ar pushBack _tank;
 	_tank lock true;
 #ifdef __TT__
-	_tank addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_tank addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 	_tanks_ar pushBack _tank;
 	sleep 0.512;

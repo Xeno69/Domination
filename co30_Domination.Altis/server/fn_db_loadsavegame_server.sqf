@@ -163,12 +163,12 @@ d_bonus_vecs_db = _ar # 9;
 
 	[_vec, 11] call d_fnc_setekmode;
 
-	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
+	_vec addEventHandler ["getIn", {call d_fnc_sgetinvec}];
 	
-	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	_vec addEventHandler ["getOut", {call d_fnc_sgetoutvec}];
 	
 	if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
 	};
 	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
@@ -294,12 +294,12 @@ _fnc_tt_bonusvec = {
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec setVariable ["d_isspecialvec", true, true];
 	[_vec, 11] call d_fnc_setekmode;
-	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
+	_vec addEventHandler ["getIn", {call d_fnc_sgetinvec}];
 
-	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	_vec addEventHandler ["getOut", {call d_fnc_sgetoutvec}];
 
 	if (_vec isKindOf "Air" && {getNumber((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
 	};
 	
 	_vec

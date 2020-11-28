@@ -9,8 +9,8 @@ __TRACE_1("","_this")
 d_sm_points_blufor = 0;
 d_sm_points_opfor = 0;
 
-_this addEventhandler ["handleDamage", {_this call d_fnc_smhandledeh}];
-_this addEventHandler ["hit", {_this call d_fnc_smhiteh2}];
+_this addEventhandler ["handleDamage", {call d_fnc_smhandledeh}];
+_this addEventHandler ["hit", {call d_fnc_smhiteh2}];
 #endif
 
-_this addEventhandler ["killed", {_this call d_fnc_KilledSMTargetNormal}];
+_this addEventhandler ["killed", {call d_fnc_KilledSMTargetNormal}];

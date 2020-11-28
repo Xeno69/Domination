@@ -190,7 +190,7 @@ private _currentWeapons = weapons _plane;
 } forEach _currentWeapons;
 
 _plane setVariable ["d_who_fired", _caller];
-_plane addEventhandler ["fired", {_this call d_fnc_casfired}];
+_plane addEventhandler ["fired", {call d_fnc_casfired}];
 
 //--- Approach
 private _fire = [] spawn {

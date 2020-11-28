@@ -38,7 +38,7 @@ d_vrespawn2_ar = [];
 				[_vec, 14] call d_fnc_setekmode;
 			};
 			[_vec, 10] call d_fnc_setekmode;
-			_vec addEventHandler ["handleDamage", {_this call d_fnc_pshootatmhq}];
+			_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
 #ifndef __TT__
 			private _flag = call {
 			     if (d_own_side == "EAST") exitWith {"\a3\data_f\flags\flag_red_co.paa"};

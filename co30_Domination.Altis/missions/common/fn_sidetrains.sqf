@@ -20,7 +20,7 @@ sleep 15.321;
 d_sm_points_blufor = 0;
 d_sm_points_opfor = 0;
 {
-	_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_x addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 } forEach _trains;
 #endif
 

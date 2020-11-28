@@ -14,7 +14,7 @@ if (isServer) then {
 		publicVariable "d_hq_logic_blufor1";
 		d_hq_logic_blufor1 setVariable ["d_hq_logic_name", "d_hq_logic_blufor1"];
 		d_hq_logic_blufor1 setVariable ["d_hq_logic_side", blufor];
-		d_hq_logic_blufor1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+		d_hq_logic_blufor1 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 		
 		d_hq_logic_blufor2 = _grpen createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_blufor2] joinSilent _grpen;
@@ -23,7 +23,7 @@ if (isServer) then {
 		publicVariable "d_hq_logic_blufor2";
 		d_hq_logic_blufor2 setVariable ["d_hq_logic_name", "d_hq_logic_blufor2"];
 		d_hq_logic_blufor2 setVariable ["d_hq_logic_side", blufor];
-		d_hq_logic_blufor2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+		d_hq_logic_blufor2 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 	};
 	if (d_tt_ver || {d_own_side == "EAST"}) then {
 		private _grpru = [opfor] call d_fnc_creategroup;
@@ -36,7 +36,7 @@ if (isServer) then {
 		publicVariable "d_hq_logic_opfor1";
 		d_hq_logic_opfor1 setVariable ["d_hq_logic_name", "d_hq_logic_opfor1"];
 		d_hq_logic_opfor1 setVariable ["d_hq_logic_side", opfor];
-		d_hq_logic_opfor1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+		d_hq_logic_opfor1 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 		
 		d_hq_logic_opfor2 = _grpru createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_opfor2] joinSilent _grpru;
@@ -45,7 +45,7 @@ if (isServer) then {
 		publicVariable "d_hq_logic_opfor2";
 		d_hq_logic_opfor2 setVariable ["d_hq_logic_name", "d_hq_logic_opfor2"];
 		d_hq_logic_opfor2 setVariable ["d_hq_logic_side", opfor];
-		d_hq_logic_opfor2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+		d_hq_logic_opfor2 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 	};
 	if (d_own_side == "GUER" || {d_ifa3lite}) then {
 		private _grprn = [independent] call d_fnc_creategroup;
@@ -58,7 +58,7 @@ if (isServer) then {
 		publicVariable "d_hq_logic_guer1";
 		d_hq_logic_guer1 setVariable ["d_hq_logic_name", "d_hq_logic_guer1"];
 		d_hq_logic_guer1 setVariable ["d_hq_logic_side", independent];
-		d_hq_logic_guer1 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+		d_hq_logic_guer1 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 		
 		d_hq_logic_guer2 = _grprn createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
 		[d_hq_logic_guer2] joinSilent _grprn;
@@ -67,7 +67,7 @@ if (isServer) then {
 		publicVariable "d_hq_logic_guer2";
 		d_hq_logic_guer2 setVariable ["d_hq_logic_name", "d_hq_logic_guer2"];
 		d_hq_logic_guer2 setVariable ["d_hq_logic_side", independent];
-		d_hq_logic_guer2 addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+		d_hq_logic_guer2 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 	};
 };
 
