@@ -1,3 +1,9 @@
-4.40
+4.41
 
-- Fixed: Major gamebreaker, revive screen stayed black when a player died an revive max lives was set to unlimited
+- Fixed: In the Chernarus versions satchels placed near the cache in the huge radio tower on Green Mountain disappeared
+- Fixed: In the Chernarus 2020 version class names of side mission 46 buildings have changed breaking the side mission
+- Fixed: The hovercraft in the CUP versions spawning near main targets are virtually invincible, removed
+- Fixed: For whatever reason the ToolKit was removed from Virtual Arsenal in the CUP versions
+- Fixed: Many CUP launchers did get removed from the player inventory when he/she closed the Virtual Arsenal (because of "_Loaded" at the end of the class name)
+- Fixed: If only CUP Chernarus 2020 was loaded with CUP Terrains Core some buildings are missing which breaks transfomer station side missions
+- Fixed: SAT View on a deployed MHQ script was broken

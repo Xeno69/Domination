@@ -18,6 +18,7 @@ if (isServer) then {
 	_vec setPosASL [3717.11,5985.61,422.656];
 	d_x_sm_vec_rem_ar pushBack _vec;
 	_vec call d_fnc_addKilledEHSM;
+	_vec setVariable ["d_nocheck", true, true];
 	sleep 2.22;
 	["aa", 1, "tracked_apc", 1, "tank", 1, _poss, 1, 300, false] spawn d_fnc_CreateArmor;
 	sleep 2.333;

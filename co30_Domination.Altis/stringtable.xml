@@ -13195,16 +13195,16 @@
 <French>Low number of AI units and radio tower destroyed</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2006">
-<English>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</English>
+<English>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</English>
 <Spanish>Explosivo eliminado. Estás en el aire o demasiado cerca de un MHQ (menos de 9 m) o demasiado cerca de una caja de munición caída</Spanish>
 <Portuguese>Explosivo removido. Você está no ar ou muito perto de um MHQ (menos de 9m) ou muito perto de uma caixa de amoboas gotejadas.</Portuguese>
 <Korean>폭발물이 제거되었습니다. 귀관은 공중에 있거나 MHQ에 근접해 있습니다 (9m 이내) 또는 아머박스가 있는곳에서 너무 가깝습니다.</Korean>
-<Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Japanese>
-<Original>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Original>
+<Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</Japanese>
+<Original>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</Original>
 <Russian>Взрывчатка удалена. Вы находитесь либо воздухе или слишком близко к MHQ (меньше, чем 9м) или слишком близко к ящику с боеприпасами</Russian>
 <Chinesesimp>爆炸物已移除。你要么处于空中，要么离基地车（小于9米）太近，或者离放置的弹药箱太近</Chinesesimp>
-<Chinese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</Chinese>
-<French>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a droped ammobox</French>
+<Chinese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</Chinese>
+<French>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2007">
 <English>Reduce number of AI units in groups depending on player numbers</English>
