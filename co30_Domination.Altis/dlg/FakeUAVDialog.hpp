@@ -11,7 +11,7 @@ class D_FakeUAVDialog {
 	};
 	class controls {
 		__CANCELCLOSEB(-1)
-		class FakeMapText : RscText2 {
+		class FakeMapText : RscText {
 			x = 0.02; y = 0.02;
 			w = 0.5; h = 0.1;
 			colorBackground[] = {1, 1, 1, 0};

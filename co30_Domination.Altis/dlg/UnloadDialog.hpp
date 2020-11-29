@@ -30,7 +30,7 @@ class D_UnloadDialog {
 			rowHeight = 0.06;
 			style = ST_LEFT;
 		};
-		class UnloadCaption: RscText2 {
+		class UnloadCaption: RscText {
 			x = 0.37;
 			y = 0.08;
 			w = 0.4;

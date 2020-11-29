@@ -11,7 +11,7 @@ class D_DBSaveDialog {
 	};
 	class controls {
 		__CANCELCLOSEB(-1)
-		class SaveNameCaption: RscText2 {
+		class SaveNameCaption: RscText {
 			x = 0.08; y = 0.08;
 			w = 0.7; h = 0.1;
 			sizeEx = 0.064;
@@ -37,7 +37,7 @@ class D_DBSaveDialog {
 			action = "[ctrlText ((uiNamespace getVariable 'D_DBSaveDialog') displayCtrl 100), player] remoteExec ['d_fnc_saveprogress2db', 2];closeDialog 0";
 			x = 1 - 0.28; y = 0.22; w = 0.2;
 		};
-		class SavedNamesCaption: RscText2 {
+		class SavedNamesCaption: RscText {
 			x = 0.08; y = 0.32; w = 0.4; h = 0.07;
 			text = "Saved games in database";
 		};

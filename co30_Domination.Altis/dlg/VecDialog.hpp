@@ -17,7 +17,7 @@ class D_VecDialog {
 			text="";
 			sizeEx = 256;
 		};
-		class VecDialogCaption2: RscText2 {
+		class VecDialogCaption2: RscText {
 			idc = 44445;
 			x = 0.55;
 			y = 0.15;

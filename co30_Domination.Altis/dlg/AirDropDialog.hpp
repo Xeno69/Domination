@@ -31,7 +31,7 @@ class D_AirDropDialog {
 			action = "d_x_drop_type = (d_X_Drop_Array select 0) select 1;closeDialog 0";
 			y = 0.20;
 		};
-		class DropMapText: RscText2 {
+		class DropMapText: RscText {
 			x = 0.02; y = 0.02;
 			w = 0.5; h = 0.1;
 			colorBackground[] = {1, 1, 1, 0};

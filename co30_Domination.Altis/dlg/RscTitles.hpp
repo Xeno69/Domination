@@ -333,7 +333,7 @@ class d_ProgressBar {
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar', nil]";
 	controlsBackground[] = {};
 	class controls {
-		class ProgressBarBackground: RscText2 {
+		class ProgressBarBackground: RscText {
 			style = 128;
 			idc = 3600;
 			x = 0.3;
@@ -342,7 +342,7 @@ class d_ProgressBar {
 			h = 0.06;
 			colorBackground[] = {0,0,0,0.5};
 		};
-		class ProgressBar: RscText2 {
+		class ProgressBar: RscText {
 			style = 128;
 			idc = 3800;
 			x = 0.31;
@@ -351,7 +351,7 @@ class d_ProgressBar {
 			h = 0.04;
 			colorBackground[] = {0.543, 0.5742, 0.4102, 0.8};
 		};
-		class Progress_Label: RscText2 {
+		class Progress_Label: RscText {
 			idc = 3900;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1272";
@@ -374,7 +374,7 @@ class d_ProgressBar2 {
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar2', nil]";
 	controlsBackground[] = {};
 	class controls {
-		class ProgressBar: RscText2 {
+		class ProgressBar: RscText {
 			style = 128;
 			idc = 3800;
 			x = 0.3;
@@ -383,7 +383,7 @@ class d_ProgressBar2 {
 			h = 0.04;
 			colorBackground[] = {0.543, 0.5742, 0.4102, 0.8};
 		};
-		class Progress_Label: RscText2 {
+		class Progress_Label: RscText {
 			idc = 3900;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1939";
@@ -406,7 +406,7 @@ class d_ProgressBar3 {
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar3', nil]";
 	controlsBackground[] = {};
 	class controls {
-		class ProgressBar: RscText2 {
+		class ProgressBar: RscText {
 			style = 128;
 			idc = 3800;
 			x = 0.3;
@@ -415,7 +415,7 @@ class d_ProgressBar3 {
 			h = 0.04;
 			colorBackground[] = {0, 0, 0, 0.8};
 		};
-		class Progress_Label: RscText2 {
+		class Progress_Label: RscText {
 			idc = 3900;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1954";
@@ -556,7 +556,7 @@ class d_fpsresource {
 	onLoad = "uiNamespace setVariable ['d_fpsresource', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_fpsresource', nil]";
 	class controls {
-		class server_cap: RscText2 {
+		class server_cap: RscText {
 			idc=-1;
 			style="16+512";
 			lineSpacing=0.95;
@@ -646,7 +646,7 @@ class d_sat_timode {
 	onLoad = "uiNamespace setVariable ['d_sat_timode', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_sat_timode', nil]";
 	class controls {
-		class ti_caption: RscText2 {
+		class ti_caption: RscText {
 			idc=-1;
 			style="16+512";
 			lineSpacing=0.95;
@@ -758,7 +758,7 @@ class d_RscLastChance {
 	onLoad = "uiNamespace setVariable ['d_RscLastChance', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_RscLastChance', nil]";
 	class controls {
-		class LCText: RscText2 {
+		class LCText: RscText {
 			idc = 3900;
 			style = 0;
 			text = "$STR_DOM_MISSIONSTRING_2019";

@@ -21,7 +21,7 @@ class D_ParajumpDialog {
 			showCountourInterval = false;
 			onMouseButtonClick = "_pp = (_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3];if ([_pp, _this select 0] call d_fnc_checkpjumppos) then {d_global_jump_pos = _pp;closeDialog 0;};";
 		};
-		class ParaMapText: RscText2 {
+		class ParaMapText: RscText {
 			x = "0.0203532 * safezoneW + safezoneX";
 			y = "0.07 * safezoneH + safezoneY";
 			w = 0.7;

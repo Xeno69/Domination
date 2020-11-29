@@ -10,7 +10,7 @@ class D_MarkArtilleryDialog {
 		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1524)
 	};
 	class controls {
-		class SalvosText: RscText2 {
+		class SalvosText: RscText {
 			idc = 11009;
 			x = 0.68; y = 0.425;
 			w = 0.3; h = 0.1;
@@ -43,7 +43,7 @@ class D_MarkArtilleryDialog {
 			action = "call d_fnc_firearty2;closeDialog 0";
 			x = 0.68; y = 0.7; w = 0.3;
 		};
-		class Ordnance: RscText2 {
+		class Ordnance: RscText {
 			x = 0.68; y = 0.11;
 			w = 0.3; h = 0.1;
 			colorBackground[] = {1, 1, 1, 0};

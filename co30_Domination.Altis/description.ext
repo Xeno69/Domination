@@ -1539,7 +1539,7 @@ class d_RscAnimatedLetters {
 	onUnLoad = "uiNamespace setVariable ['d_RscAnimatedLetters', nil]";
 	class Controls {
 		__EXEC(idc = 5000)
-		class L1: RscText2 {
+		class L1: RscText {
 			idc = __EVAL(idc);
 			style = "0x01 + 0x10 + 0x200 + 0x100";
 			x = 0.5; y = 0.5;

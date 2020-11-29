@@ -11,7 +11,7 @@ class d_TransferScoreDialog {
 	};
 	class controls {
 		__CANCELCLOSEB(-1)
-		class SelectPlayerComboCaption: RscText2 {
+		class SelectPlayerComboCaption: RscText {
 			x = 0.08; y = 0.08;
 			w = 0.2; h = 0.1;
 			sizeEx = 0.032;
