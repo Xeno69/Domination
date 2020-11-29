@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_preinit.sqf"
 #include "..\x_setup.sqf"
 #include "..\x_dbsetup.sqf"
-diag_log format ["############################# %1 #############################", missionName];
+diag_log format ["############################# %1 %2 #############################", missionName, missionNameSource];
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom fn_preinit.sqf"];
 
 #ifndef __TT__
