@@ -37,21 +37,19 @@ _with_less_armor = if (!isNil "d_enemy_mode_current_maintarget") then {
 switch (_with_less_armor) do {
 	case 0: {
 		_eventArmorAll = [
-			_eventArmorHeavy,
 			_eventArmorMedium,
+			_eventArmorLight,
 			_eventArmorLight
 		];
 	};
 	case 1: {
 		_eventArmorAll = [
 			_eventArmorMedium,
-			_eventArmorLight,
 			_eventArmorLight
 		];	
 	};
 	case 2: {
 		_eventArmorAll = [
-			_eventArmorLight,
 			_eventArmorLight,
 			_eventArmorLight
 		];

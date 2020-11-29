@@ -36,6 +36,7 @@
 >   - Medium (2)<br/>
 >   - Always (-1)<br/>
 >   - Always, multiple events (-2)<br/>
+>   - Always, multiple events with guerrillas (-3)<br/>
 #### **d_with_ranked / Ranked:**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 > If ranked mode is enabled then players need a specific rank to have access to better weapons, to fly attack planes and choppers. Calling in for example CAS costs score and so on<br/>

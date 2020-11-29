@@ -22,7 +22,7 @@ d_mt_event_resolved = false;
 d_x_mt_event_types = [
 	"PILOT_RESCUE",
 	"POW_RESCUE",
-	"GUERRILLA_TANKS",
+	//"GUERRILLA_TANKS", //not in the random events list, guerrilla tanks event depends on presence of guerrilla infantry
 	"GUERRILLA_INFANTRY",
 	"RABBIT_RESCUE"
 ];

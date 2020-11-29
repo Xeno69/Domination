@@ -673,14 +673,17 @@ if (d_with_MainTargetEvents != 0) then {
 		if (d_with_MainTargetEvents == -2) then {
 			// create three simultaneous events		
 			_tmpMtEvents = + d_x_mt_event_types;
-			// remove "guerrilla tanks" event from the temp array, do not select it here
-			_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_TANKS");
+			if (d_with_MainTargetEvents != -3) then {
+            	// guerrilla events are only eligible if d_with_MainTargetEvents == -3
+            	// remove guerrilla events from the temp array, do not select it here
+            	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
+			};
 			for "_i" from 0 to 2 do {
 				_tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);
-				// if guerrilla infantry are randomly selected then there is a 1 in 2 chance of guerrilla tanks
-				if (_tmpRandomEvent == "GUERRILLA_INFANTRY" && {(random 2 <= 1)}) then {
+				// if guerrilla infantry are randomly selected then there is a 1 in 3 chance of guerrilla tanks
+				if (_tmpRandomEvent == "GUERRILLA_INFANTRY" && {(random 3 <= 1)}) then {
 					[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 				};
 			};

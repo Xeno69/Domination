@@ -71,12 +71,12 @@ private _newgroups = [];
 // calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
 private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
 // default guerrilla force
-private _guerrillaForce = ["allmen", "allmen", "specops"];
+private _guerrillaForce = ["allmen", "allmen"];
 if (_targetGroupCount > 10) then {
-	_guerrillaForce = ["allmen", "allmen", "allmen", "specops"];
+	_guerrillaForce = ["allmen", "allmen", "specops"];
 };
 if (_targetGroupCount > 20) then {
-	_guerrillaForce = ["allmen", "allmen", "allmen", "allmen", "specops"];
+	_guerrillaForce = ["allmen", "allmen", "allmen", "specops"];
 };
 private _guerrillaBaseSkill = 0.35;
 

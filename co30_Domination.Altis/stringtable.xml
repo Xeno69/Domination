@@ -3000,6 +3000,18 @@
 <Chinese>Always, multiple events</Chinese>
 <French>Always, multiple events</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
+<English>Always, multiple events with guerrillas</English>
+<Spanish>Always, multiple events with guerrillas</Spanish>
+<Portuguese>Always, multiple events with guerrillas</Portuguese>
+<Korean>항상, 다중 이벤트 with guerrillas</Korean>
+<Japanese>Always, multiple events with guerrillas</Japanese>
+<Original>Always, multiple events with guerrillas</Original>
+<Russian>Всегда, несколько событий with guerrillas</Russian>
+<Chinesesimp>总是，多个事件 with guerrillas</Chinesesimp>
+<Chinese>Always, multiple events with guerrillas</Chinese>
+<French>Always, multiple events with guerrillas</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
 <English>(Dead)</English>
 <Spanish>(Muerto)</Spanish>
