@@ -577,6 +577,13 @@ default = 7;
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_with_suppress {
+		title = "$STR_DOM_MISSIONSTRING_2042";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_timemultiplier {
 		title = "$STR_DOM_MISSIONSTRING_1533";

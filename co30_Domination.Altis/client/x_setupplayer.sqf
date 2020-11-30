@@ -1093,6 +1093,22 @@ d_last_placed_zeus_obj = objNull;
 	}];
 } forEach allCurators;
 
+if (!d_with_ace && {d_with_suppress == 0}) then {
+	d_impactCC = ppEffectCreate ["colorCorrections", 1500];
+	d_impactCC ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 0]];
+	d_impactCC ppEffectEnable true;
+	d_impactCC ppEffectCommit 0;
+
+	d_impactBlur = ppEffectCreate ["RadialBlur", 1010];
+	d_impactBlur ppEffectAdjust [0, 0, 0, 0];
+	d_impactBlur ppEffectCommit 0;
+	d_impactBlur ppEffectEnable true;
+	
+	d_lastshotat = -1;
+	
+	player setVariable ["d_psuppressed", player addEventHandler ["Suppressed", {call d_fnc_suppressed}]];
+};
+
 #ifndef __IFA3LITE__
 0 spawn d_fnc_uav_check;
 #endif

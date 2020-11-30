@@ -1,4 +1,5 @@
 4.42
 
+- Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext

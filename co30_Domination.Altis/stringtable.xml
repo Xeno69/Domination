@@ -13706,6 +13706,17 @@
 <Chinese>Bots are silent</Chinese>
 <French>Bots are silent</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2042">
+<English>Player can be suppressed</English>
+<Spanish>Player can be suppressed</Spanish>
+<Portuguese>Player can be suppressed</Portuguese>
+<Korean>Player can be suppressed</Korean>
+<Japanese>Player can be suppressed</Japanese>
+<Original>Player can be suppressed</Original>
+<Russian>Player can be suppressed</Russian>
+<Chinesesimp>Player can be suppressed</Chinesesimp>
+<French>Player can be suppressed</French>
+</Key>
 </Container>
 </Package>
 </Project>

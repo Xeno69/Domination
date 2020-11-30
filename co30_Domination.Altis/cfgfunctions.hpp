@@ -188,6 +188,7 @@ class cfgFunctions {
 			addc(storepitems);
 			addc(camouflage);
 			addc(noaan);
+			addc(suppressed);
 		};
 		class Dom_UI {
 			file = "clientui";
