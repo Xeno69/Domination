@@ -170,12 +170,6 @@ class RscButtonBase: RscShortcutButton {
 	};
 };
 
-class RscButtonBase2: RscButtonBase {
-	colorBackground[] = __GUI_BCG_RGB;
-	colorBackground2[] = {1,1,1,1};
-	color2[] = {0.95,0.95,0.95,1};
-};
-
 class RscButtonMenu: RscShortcutButton {
 	idc = -1;
 	type = 16;

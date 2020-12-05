@@ -44,7 +44,7 @@ private _d3d_locs4a = d_d3d_locs4a;
 	_col = _x # 1;
 	_col set [3, 1 - (_distp / 200)];
 	_hasp = _box getVariable "d_abox_perc";
-	_txt = [_x # 2, format ["%1 (%2)", _x # 2, _hasp / 10]] select (!isNil "_hasp");
+	_txt = [_x # 2, format ["%1 (%2)", _x # 2, _hasp]] select (!isNil "_hasp");
 	if (_with_3Di == 1) then {
 		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} else {
@@ -56,13 +56,13 @@ if (d_with_ai) then {
 	private _d3d_locsaire = d_d3d_locsaire;
 	{
 		_distp = _pos_cam distance _x;
-		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [1,1,0,1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 3 + (_distp * 0.05)]), 1, 1, 0, _d3d_locsaire, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [1, 1, 0, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 3 + (_distp * 0.05)]), 1, 1, 0, _d3d_locsaire, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} forEach (d_allai_recruit_objs select {alive _x && {_pos_cam distance2D _x < 150}});
 };
 
 {
 	_distp = _pos_cam distance _x;
-	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 5 + (_distp * 0.05)]), 1, 1, 0, "MHQ " + (_x getVariable "d_ma_text"), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 5 + (_distp * 0.05)]), 1, 1, 0, "MHQ " + (_x getVariable "d_ma_text"), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 } forEach (d_mhq_3ddraw select {alive _x && {_pos_cam distance2D _x < 150}});
 
 if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
@@ -80,7 +80,7 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 				"\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_24_ca.paa"
 			};
 
-			drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0,0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+			drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		} forEach d_currentcamps select {_pos_cam distance2D _x < 150};
 	};
 };
