@@ -5,11 +5,12 @@
 
 params ["_cur_sm_idx"];
 
-private _sm_ar = d_sm_store getVariable (str (_cur_sm_idx - 50000));
-__TRACE_1("","_sm_ar")
-if (isNil "_sm_ar") then {
+if !((_cur_sm_idx - 50000) in d_sm_hash) exitWith {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
+
+private _sm_ar = d_sm_hash get (_cur_sm_idx - 50000);
+__TRACE_1("","_sm_ar")
 
 if (toLowerANSI (_sm_ar # 1) != "tankdepot") then {
 	d_x_sm_pos = _sm_ar # 2;

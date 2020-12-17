@@ -16,7 +16,7 @@ if (_delta == 0 || {_type == 1}) then {
 	__TRACE("First")
 	d_ef_hash set [_name, [_code, _delta, -1, _type]];
 
-	if (d_ef_running == -1) then {
+	if (isNil "d_ef_running") then {
 		d_ef_running = addMissionEventhandler ["EachFrame", {call d_fnc_eachframerun}];
 	};
 } else {

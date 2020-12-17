@@ -12,7 +12,7 @@ if (_name in (keys d_ef_hash)) then {
 
 	if ((count d_ef_hash) isEqualTo 0) then {
 		removeMissionEventHandler ["EachFrame", d_ef_running];
-		d_ef_running = -1;
+		d_ef_running = nil;
 		d_ef_hash = nil;
 	};
 } else {

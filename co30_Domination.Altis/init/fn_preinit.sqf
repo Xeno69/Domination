@@ -398,9 +398,6 @@ d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
-d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_running = -1;
-
 d_cargo_chute =
 #ifdef __OWN_SIDE_BLUFOR__
 	"B_Parachute_02_F";
@@ -548,7 +545,8 @@ if (isServer) then {
 	d_placed_objs_store2 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_placed_objs_store3 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
 	d_placed_objs_store4 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_misc_s_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	
+	d_misc_s_hash = createHashMap;
 
 	d_hc_array = [];
 	d_hc_counter = 0;
