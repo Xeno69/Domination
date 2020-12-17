@@ -2553,7 +2553,7 @@ if (hasInterface) then {
 
 	d_last_beam_target = "";
 
-	d_misc_sc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_misc_sc_hash = createHashMap;
 
 	// If you want to add additional non MHQ respawn points like additional bases for example
 	// Usage: Each point array needs a unique name, position or marker name, description and a side (side is only valid for the TT version), optional: add create atv action menue entry(true/false; default false)
