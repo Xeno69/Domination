@@ -4,9 +4,9 @@
 #include "..\x_setup.sqf"
 
 private "_e";
-private _ef_st = d_ef_store;
+private _ef_st = d_ef_hash;
 {
-	_e = _ef_st getVariable _x;
+	_e = _y;
 	if (!isNil "_e") then {
 		if (_e # 1 == 0) exitWith {
 			call (_e # 0);
@@ -18,4 +18,4 @@ private _ef_st = d_ef_store;
 			__TRACE_1("3","_e")
 		};
 	};
-} forEach (allVariables _ef_st);
+} forEach _ef_st;
