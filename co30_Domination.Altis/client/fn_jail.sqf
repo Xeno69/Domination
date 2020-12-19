@@ -87,6 +87,17 @@ if (_todelete != -1) then {
 
 player setPos _pmovepos;
 
+sleep 0.1;
+
+private _movecheck_fnc = _pmovepos spawn {
+	while {true} do {
+		if (player distance _this > 12) then {
+			player setPos _pmovepos;
+		};
+		sleep 1;
+	};
+};
+
 sleep 2;
 cutText ["", "BLACK IN", 2];
 sleep 2;
@@ -113,6 +124,7 @@ sleep 2;
 
 terminate _soundspawn;
 terminate _disresbspawn;
+terminate _movecheck_fnc;
 
 player setVariable ["d_jailar", nil, true];
 
