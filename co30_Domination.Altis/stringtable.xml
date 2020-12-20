@@ -13717,6 +13717,18 @@
 <Chinesesimp>Player can be suppressed</Chinesesimp>
 <French>Player can be suppressed</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2043">
+<English>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</English>
+<Spanish>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
+<Portuguese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
+<Korean>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
+<Japanese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
+<Original>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Original>
+<Russian>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Russian>
+<Chinesesimp>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinesesimp>
+<Chinese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
+<French>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</French>
+</Key>
 </Container>
 </Package>
 </Project>

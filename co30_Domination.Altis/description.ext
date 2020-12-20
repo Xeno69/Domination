@@ -212,6 +212,7 @@ class CfgRemoteExec {
 		class d_fnc_remactionssm {allowedTargets = 1;};
 		class d_fnc_addpushaction {allowedTargets = 1;};
 		class d_fnc_initPlayerServer {allowedTargets = 2;};
+		class d_fnc_incjail {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

@@ -93,6 +93,15 @@ private _movecheck_fnc = _pmovepos spawn {
 	while {true} do {
 		if (player distance _this > 12) then {
 			player setPos _pmovepos;
+			(getPlayerUID player) remoteExecCall ["d_fnc_incjail", 2];
+			d_player_jescape = d_player_jescape + 1;
+			if (d_player_jescape > 10) then {
+				0 spawn {
+					"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
+					endMission "LOSER";
+					forceEnd;
+				};
+			};
 		};
 		sleep 1;
 	};

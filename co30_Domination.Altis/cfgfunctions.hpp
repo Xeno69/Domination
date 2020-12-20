@@ -591,6 +591,7 @@ class cfgFunctions {
 			addc(initPlayerServer);
 			addc(setenemymode);
 			addc(ulreduce);
+			addc(incjail);
 		};
 		class Dom_PrePostInit {
 			file = "init";

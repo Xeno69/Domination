@@ -1,6 +1,6 @@
 4.42
 
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
-- Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away
+- Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
