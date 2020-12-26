@@ -16,11 +16,12 @@ PF_BlacklistLoc=[
 
 PF_BlacklistObj=[];									//List of building classnames to avoid spawning furniture in
 
-PF_Dbug=TRUE;										//TRUE enables debug mode, FALSE disables it
+//PF_Dbug=TRUE;										//TRUE enables debug mode, FALSE disables it
+PF_Dbug=FALSE;										//TRUE enables debug mode, FALSE disables it
 
 PF_Chance=95;										//% Chance for furniture to spawn per house
 
-//PF_Optimize=TRUE;								//TRUE enables hiding all furniture until player is within 150m, FALSE disables it
-PF_Optimize=FALSE;								//TRUE enables hiding all furniture until player is within 150m, FALSE disables it
+PF_Optimize=TRUE;								//TRUE enables hiding all furniture until player is within 150m, FALSE disables it
+
 //DON'T EDIT BELOW
 publicVariable"PF_Optimize";
