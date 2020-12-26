@@ -288,7 +288,12 @@ if (canMove _plane) then {
 [_side, _logic1, _logic, _topicside, _channel] spawn {
 	scriptName "spawn_cas_available";
 	params ["_side", "_logic1", "_logic", "_topicside", "_channel"];
-	sleep d_cas_available_time;
+	if (d_arty_unlimited == 1) then {
+		sleep 90;
+	} else {
+		sleep d_cas_available_time;
+	};
+	
 #ifndef __TT__
 	d_cas_available = true; publicVariable "d_cas_available";
 #else
