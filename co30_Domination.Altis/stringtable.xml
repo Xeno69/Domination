@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Domination">
 <Package name="Domination">
 <Container name="Mission">
@@ -12072,6 +12072,18 @@
 <Chinesesimp>启用平民 民用车辆-锁车</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - lock vehicles)</Chinese>
 <French>Activer les civils Civilian vehicles - lock vehicles</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1890CIVFURNITURE">
+<English>Phronk's Furniture (experimental)</English>
+<Spanish>Phronk's Furniture (experimental)</Spanish>
+<Portuguese>Phronk's Furniture (experimental)</Portuguese>
+<Korean>Phronk's Furniture (experimental)</Korean>
+<Japanese>Phronk's Furniture (experimental)</Japanese>
+<Original>Phronk's Furniture (experimental)</Original>
+<Russian>Phronk's Furniture (experimental)</Russian>
+<Chinesesimp>Phronk's Furniture (experimental)</Chinesesimp>
+<Chinese>Phronk's Furniture (experimental)</Chinese>
+<French>Phronk's Furniture (experimental)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
 <English>Civilians - enable civilians</English>
