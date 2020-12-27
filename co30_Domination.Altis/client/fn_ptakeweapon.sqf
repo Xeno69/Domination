@@ -10,7 +10,7 @@ __TRACE_1("","_this")
 params ["_unit"];
 if (_unit != player) exitWith {};
 
-private _item = _this select 2;
+private _item = _this # 2;
 
 if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 	_unit unlinkItem _item;
@@ -83,7 +83,7 @@ if (!_isvalid) then {
 };
 
 if (_exit_it) exitWith {
-	(_this select 1) addItemCargo [_item, 1];
+	(_this # 1) addItemCargo [_item, 1];
 	systemChat format [localize "STR_DOM_MISSIONSTRING_1564", _rank, getText(_cfgi>>"displayname")];
 };
 

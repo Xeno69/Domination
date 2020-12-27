@@ -5,5 +5,7 @@
 - Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
 - Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
 - Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer
+- Fixed: In ranked mode players with rank private ended up with just one uniform in Virtual Arsenal
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
+- Added slightly more debug output (possible with improved A3 logging)

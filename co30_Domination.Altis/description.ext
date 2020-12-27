@@ -426,7 +426,7 @@ default = 7;
 	class d_with_ranked {
 		title = "$STR_DOM_MISSIONSTRING_1112";
 		values[] = {0,1,2};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2018"};
 	};
 	
