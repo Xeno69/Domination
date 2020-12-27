@@ -41,13 +41,13 @@ _vec setVariable ["bis_addVirtualWeaponCargo_cargo", [[], [], [], []]];
 
 private _helperar = [];
 
-_helperar append (d_misc_store getVariable (_rank + "_RIFLES"));
+_helperar append (d_misc_hash get (_rank + "_RIFLES"));
 __TRACE_1("RIFLES","_helperar")
 
-_helperar append (d_misc_store getVariable (_rank + "_LAUNCHERS"));		
+_helperar append (d_misc_hash get (_rank + "_LAUNCHERS"));		
 __TRACE_1("LAUNCHERS","_helperar")
 
-_helperar append (d_misc_store getVariable (_rank + "_PISTOLS"));
+_helperar append (d_misc_hash get (_rank + "_PISTOLS"));
 __TRACE_1("PISTOLS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualWeaponCargo;
@@ -67,25 +67,25 @@ __TRACE_1("PISTOLS","_helperar")
 
 _helperar = [];
 
-_helperar append (d_misc_store getVariable (_rank + "_OPTICS"));
+_helperar append (d_misc_hash get (_rank + "_OPTICS"));
 __TRACE_1("OPTICS","_helperar")
 
-_helperar append (d_misc_store getVariable (_rank + "_MUZZLES"));
+_helperar append (d_misc_hash get (_rank + "_MUZZLES"));
 __TRACE_1("MUZZLES","_helperar")
 
-if (d_misc_store getVariable "private_uniforms" isEqualTo []) then {
+if ((d_misc_hash getOrDefault ["private_uniforms", []]) isEqualTo []) then {
 	_helperar append d_usave;
 } else {
-	_helperar append (d_misc_store getVariable (_rank + "_UNIFORMS"));
+	_helperar append (d_misc_hash get (_rank + "_UNIFORMS"));
 };
 __TRACE_1("UNIFORMS","_helperar")
 
-_helperar append (d_misc_store getVariable (_rank + "_ITEMS"));
+_helperar append (d_misc_hash get (_rank + "_ITEMS"));
 __TRACE_1("ITEMS","_helperar")
 
 [_vec, _helperar, false, false] call BIS_fnc_addVirtualItemCargo;
 
 
-[_vec, d_misc_store getVariable (_rank + "_BAGS"), false, false] call BIS_fnc_addVirtualBackpackCargo;
+[_vec, d_misc_hash get (_rank + "_BAGS"), false, false] call BIS_fnc_addVirtualBackpackCargo;
 
-[_vec, d_misc_store getVariable (_rank + "_VESTS"), false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, d_misc_hash get (_rank + "_VESTS"), false, false] call BIS_fnc_addVirtualItemCargo;

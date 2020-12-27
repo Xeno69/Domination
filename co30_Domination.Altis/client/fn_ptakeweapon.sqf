@@ -32,7 +32,7 @@ if (_item in d_non_check_items) exitWith {
 
 private _rank = rank player;
 __TRACE_1("","_rank")
-private _isvalid = _item in (d_misc_store getVariable (_rank + "_ONED"));
+private _isvalid = _item in (d_misc_hash get (_rank + "_ONED"));
 
 private _exit_it = false;
 if (!_isvalid) then {

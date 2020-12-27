@@ -1029,9 +1029,9 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		};
 		private _bagclass = toLowerANSI _x;
 		{
-			private _entry = d_misc_store getVariable [format ["%1_BAGS", _x], []];
+			private _entry = d_misc_hash getOrDefault [format ["%1_BAGS", _x], []];
 			_entry pushBack _bagclass;
-			d_misc_store setVariable [format ["%1_BAGS", _x], _entry];
+			d_misc_hash set [format ["%1_BAGS", _x], _entry];
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 5);
 	
@@ -1057,9 +1057,9 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 
 		private _vestclass = toLowerANSI _x;
 		{
-			private _entry = d_misc_store getVariable [format ["%1_VESTS", _x], []];
+			private _entry = d_misc_hash getOrDefault [format ["%1_VESTS", _x], []];
 			_entry pushBack _vestclass;
-			d_misc_store setVariable [format ["%1_VESTS", _x], _entry];
+			d_misc_hash set [format ["%1_VESTS", _x], _entry];
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 4);
 	

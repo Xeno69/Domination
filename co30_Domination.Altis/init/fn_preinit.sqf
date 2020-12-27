@@ -2543,7 +2543,7 @@ if (hasInterface) then {
 	d_clientScriptsAr = [false, false];
 	d_areArtyVecsAvailable = false;
 	d_ao_arty_vecs = [];
-	d_misc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_misc_hash = createHashMap;
 	d_mhqvec_create_cooldown_time = -1;
 	d_scoreadd_qeue = [];
 	d_scoreadd_script = scriptNull;
