@@ -16,8 +16,7 @@ PF_BlacklistLoc=[
 
 PF_BlacklistObj=[];									//List of building classnames to avoid spawning furniture in
 
-//PF_Dbug=TRUE;										//TRUE enables debug mode, FALSE disables it
-PF_Dbug=FALSE;										//TRUE enables debug mode, FALSE disables it
+PF_Dbug=TRUE;										//TRUE enables debug mode, FALSE disables it
 
 PF_Chance=95;										//% Chance for furniture to spawn per house
 
