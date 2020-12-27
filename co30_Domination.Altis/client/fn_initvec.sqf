@@ -4,13 +4,13 @@
 #include "..\x_setup.sqf"
 #define __vecmarker _vec setVariable ["d_ma_text", _car select 5]; \
 _vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_car select 3)>>"icon")]; \
-_vec setVariable ["d_ma_color", d_color_store getVariable (_car select 4)]; \
+_vec setVariable ["d_ma_color", d_color_hash get (_car select 4)]; \
 _vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")]; \
 _vec setVariable ["d_icon_size", 28];
 
 #define __chopmarker _vec setVariable ["d_ma_text", _car select 6]; \
 _vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_car select 4)>>"icon")]; \
-_vec setVariable ["d_ma_color", d_color_store getVariable (_car select 5)]; \
+_vec setVariable ["d_ma_color", d_color_hash get (_car select 5)]; \
 _vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")]; \
 _vec setVariable ["d_icon_size", 28];
 
@@ -83,7 +83,7 @@ if (_d_vec isEqualType []) exitWith {
 		};
 		_vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")];
 		if (_ma_col != "") then {
-			_vec setVariable ["d_ma_color", d_color_store getVariable _ma_col];
+			_vec setVariable ["d_ma_color", d_color_hash get _ma_col];
 		};
 		d_marker_vecs pushBack _vec;
 		__TRACE_1("","d_marker_vecs")

@@ -88,14 +88,14 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 #ifndef __TT__
 if (d_showallnearusermarkers) then {
 	private "_pos";
-	private _col_s = d_color_store;
+	private _col_s = d_color_hash;
 	{
 		_pos = markerPos _x;
 		_pos set [2, 10];
 		_distp = _pos_cam distance _pos;
 		if (_distp < 1000) then {
 			_m = 1 - (_distp / 1000);
-			_col = _col_s getVariable (getMarkerColor _x);
+			_col = _col_s get (getMarkerColor _x);
 			if (_col isEqualTo []) then {
 				_col = [1, 1, 1, _m];
 			} else {

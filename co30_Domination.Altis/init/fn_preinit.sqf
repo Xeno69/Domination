@@ -2654,7 +2654,7 @@ if (hasInterface) then {
 		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base" || {_this isKindOf "B_Mortar_01_support_F"}}];
 	};
 
-	d_color_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_color_hash = createHashMap;
 
 	{
 		private _col = getArray(_x>>"color");
@@ -2667,7 +2667,7 @@ if (hasInterface) then {
 		} else {
 			_col = [0, 0, 0, 1];
 		};
-		d_color_store setVariable [configName _x, _col];
+		d_color_hash set [configName _x, _col];
 	} forEach ("true" configClasses (configFile >> "CfgMarkerColors"));
 
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {
