@@ -43,13 +43,13 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 private _name = (name _pl) splitString """'" joinString "";
 _pl setVariable ["d_plname", _name, true];
 
-private _p = d_player_store getVariable _uid;
+private _p = d_player_hash getOrDefault [_uid, []];
 private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
-if (isNil "_p") then {
+if (_p isEqualTo []) then {
 	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0];
-	d_player_store setVariable [_uid, _p];
+	d_player_hash set [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
 } else {
@@ -75,7 +75,7 @@ if (isNil "_p") then {
 		} else {
 			_p set [5, _sidepl];
 			_f_c = true;
-			d_player_store setVariable [_uid + "_scores", nil];
+			d_player_hash deleteAt (_uid + "_scores");
 			_p set [11, []];
 			_p set [12, []];
 			if ((_p # 9) # 1 > 0) then {
@@ -135,19 +135,15 @@ if (d_database_found) then {
 		};
 #endif
 		__TRACE_1("","_f_c")
-#ifdef __DEBUG__
-		_uidscores = isNil {d_player_store getVariable (_uid + "_scores")};
-		__TRACE_1("","_uidscores")
-#endif
 		if (isNil "d_set_pl_score_db") then {
 			d_set_pl_score_db = true;
 			publicVariable "d_set_pl_score_db";
 		};
-		if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
+		if (d_set_pl_score_db && {_f_c && {(d_player_hash getOrDefault [_uid + "_scores", []]) isEqualTo []}}) then {
 			__TRACE("Adding score");
 			__TRACE_1("","_dbresult select 0")
 			__TRACE_1("","score _pl")
-			d_player_store setVariable [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
+			d_player_hash set [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
 			[_pl, _dbresult # 0] spawn d_fnc_initdbplscores;
 		};
 #ifndef __INTERCEPTDB__

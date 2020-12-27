@@ -9,8 +9,8 @@ params ["_plnid", "_apos", "_npl", "_aritype", "_ari_salv"];
 private _mname = format ["d_arttmx|%1|%2|%3", ["1", _plnid] select (isMultiplayer), _aritype, _ari_salv];
 __TRACE_1("","_mname")
 private _pl = objectFromNetId _plnid;
-private _pa = d_player_store getVariable (getPlayerUID _pl);
-if (!isNil "_pa") then {
+private _pa = d_player_hash getOrDefault [getPlayerUID _pl, []];
+if (_pa isNotEqualTo []) then {
 	private _omar = _pa # 10;
 	__TRACE_1("","_omar")
 	if (_omar != "" && {markerPos _omar isNotEqualTo [0,0,0]}) then {

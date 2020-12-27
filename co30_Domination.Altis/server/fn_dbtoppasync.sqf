@@ -10,20 +10,20 @@ while {true} do {
 		if (!isNull _x) then {
 			_uid = getPlayerUID _x;
 			if (_uid isNotEqualTo []) then {
-				_pa = d_player_store getVariable _uid;
-				if (!isNil "_pa") then {
+				_pa = d_player_hash getOrDefault [_uid, []];
+				if (_pa isNotEqualTo []) then {
 					_ps = getPlayerScores _x;
 					//diag_log ["DOM dbtoppasync: player", _x, "getPlayerScores", _ps];
 					if !(_ps isEqualTo [] && {_ps isNotEqualTo [0, 0, 0, 0, 0, 0]}) then {
 						_usc = _uid + "_scores";
-						_t_ps = d_player_store getVariable [_usc, [0, 0, 0, 0, 0, 0]];
+						_t_ps = d_player_hash getOrDefault [_usc, [0, 0, 0, 0, 0, 0]];
 						_infkills = (_ps # 0) - (_t_ps # 0);
 						_softveckills = (_ps # 1) - (_t_ps # 1);
 						_armorkills = (_ps # 2) - (_t_ps # 2);
 						_airkills = (_ps # 3) - (_t_ps # 3);
 						_deaths = (_ps # 4) - (_t_ps # 4);
 						_totalscore = _ps # 5;
-						d_player_store setVariable [_usc, _ps];
+						d_player_hash set [_usc, _ps];
 
 						__TRACE_3("","_infkills","_softveckills","_armorkills")
 						__TRACE_3("","_airkills","_deaths","_totalscore")

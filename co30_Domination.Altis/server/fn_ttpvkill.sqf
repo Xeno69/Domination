@@ -11,8 +11,8 @@ if ((_this # 0) == 1) then {
 	};
 };
 	
-private _kpar = d_player_store getVariable (getPlayerUID (_this # 0));
-if (isNil "_kpar") exitWith {};
+private _kpar = d_player_hash getOrDefault [getPlayerUID (_this # 0), []];
+if (_kpar isEqualTo []) exitWith {};
 
 if ((_this # 0) < 1 || {(_this # 0) > 2}) exitWith {};
 

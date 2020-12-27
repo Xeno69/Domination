@@ -8,8 +8,8 @@ while {true} do {
 		if (!isNull _x) then {
 			private _ps = getPlayerScores _x;
 			if (_ps isNotEqualTo []) then {
-				private _p = d_player_store getVariable (getPlayerUID _x);
-				if (!isNil "_p") then {
+				private _p = d_player_hash getOrDefault [getPlayerUID _x, []];
+				if (_p isNotEqualTo []) then {
 					_p set [12, _ps];
 				};
 			};
