@@ -41,7 +41,7 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 		__TRACE("MHQ not empty")
 	};
 
-	if (d_with_mhq_camo == 0 && {!(_mhq isKindOf "Air") && {!(_mhq isKindOf "Ship")}}) then {
+	if (d_with_mhq_camo == 0 && {d_deploy_mhq_camo && {!(_mhq isKindOf "Air") && {!(_mhq isKindOf "Ship")}}}) then {
 		_mhq remoteExecCall ["d_fnc_mhq_net", 2];
 	};
 	_mhq setVariable ["d_MHQ_Deployed", true, true];

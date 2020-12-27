@@ -13729,6 +13729,18 @@
 <Chinese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
 <French>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2044">
+<English>Deploy with camo net</English>
+<Spanish>Deploy with camo net</Spanish>
+<Portuguese>Deploy with camo net</Portuguese>
+<Korean>Deploy with camo net</Korean>
+<Japanese>Deploy with camo net</Japanese>
+<Original>Deploy with camo net</Original>
+<Russian>Deploy with camo net</Russian>
+<Chinesesimp>Deploy with camo net</Chinesesimp>
+<Chinese>Deploy with camo net</Chinese>
+<French>Deploy with camo net</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -109,5 +109,21 @@ class D_VecDialog {
 			x = 0.37;
 			y = 0.8;
 		};
+		class CamoCheckText: RscText {
+			idc = 44466;
+			x = 0.39;
+			y = 0.85;
+			w = 0.15;
+			style = ST_RIGHT;
+			SizeEx = 0.028;
+			text = "$STR_DOM_MISSIONSTRING_2044";
+		};
+		class CamoCheckBox: RscCheckBox {
+			idc = 44464;
+			x = 0.55;
+			y = 0.85;
+			w = 0.035;
+			h = 0.035;
+		};
 	};
 };

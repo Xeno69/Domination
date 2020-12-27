@@ -1,6 +1,7 @@
 4.42
 
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
+- Added: If d_with_mhq_camo is enabled it is now possible too deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
 - Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
 - Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
 - Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus

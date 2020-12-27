@@ -2580,6 +2580,8 @@ if (hasInterface) then {
 	d_maintarget_auto_vd = false;
 #endif
 
+	d_deploy_mhq_camo = true;
+
 	d_player_jescape = 0;
 
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";

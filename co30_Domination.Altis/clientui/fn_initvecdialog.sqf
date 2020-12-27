@@ -47,8 +47,10 @@ if (_canloadunloadbox) then {
 
 private _move_controls = false;
 
+private _ismhq = _vec getVariable ["d_vec_type", ""] == "MHQ";
+
 if (_caller != currentPilot _vec) then {
-	if ((_vec getVariable ["d_vec_type", ""]) == "MHQ") then {
+	if (_ismhq) then {
 		if !(_caller in _vec) then {
 			lbClear 44449;
 			{
@@ -110,12 +112,28 @@ if (_move_controls) then {
 			__control(44448) ctrlEnable false;
 			__control(44452) ctrlEnable true;
 		};
+		__control(44464) ctrlShow false;
+		__control(44466) ctrlShow false;
 	} else {
 		__control(44453) ctrlEnable false;
 		__control(44459) ctrlEnable false;
 		__control(44451) ctrlEnable false;
 		__control(44449) ctrlEnable false;
 		__control(44460) ctrlEnable false;
+		if (_ismhq) then {
+			if (d_with_mhq_camo == 0 && {!(_vec isKindOf "Air") && {!(_vec isKindOf "Ship")}}) then {
+				__control(44464) cbSetChecked d_deploy_mhq_camo;
+				__control(44464) ctrlAddEventHandler ["CheckedChanged", {
+					d_deploy_mhq_camo = !d_deploy_mhq_camo;
+				}];
+			} else {
+				__control(44464) ctrlShow false;
+				__control(44466) ctrlShow false;
+			};
+		} else {
+			__control(44464) ctrlShow false;
+			__control(44466) ctrlShow false;
+		};
 	};
 };
 
