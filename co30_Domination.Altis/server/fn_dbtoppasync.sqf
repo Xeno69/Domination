@@ -14,7 +14,7 @@ while {true} do {
 				if (_pa isNotEqualTo []) then {
 					_ps = getPlayerScores _x;
 					//diag_log ["DOM dbtoppasync: player", _x, "getPlayerScores", _ps];
-					if !(_ps isEqualTo [] && {_ps isNotEqualTo [0, 0, 0, 0, 0, 0]}) then {
+					if (_ps isNotEqualTo [] && {_ps isNotEqualTo [0, 0, 0, 0, 0, 0]}) then {
 						_usc = _uid + "_scores";
 						_t_ps = d_player_hash getOrDefault [_usc, [0, 0, 0, 0, 0, 0]];
 						_infkills = (_ps # 0) - (_t_ps # 0);
@@ -33,9 +33,8 @@ while {true} do {
 
 						__TRACE_1("","_playtime")
 
-						//diag_log ["DOM dbtoppasync: _totalscore", _totalscore];
 						if (_totalscore <= 0) exitWith {
-							//diag_log ["DOM dbtoppasync _totalscore <= 0"];
+							diag_log ["DOM dbtoppasync, totalscore <= 0, _uid:", _uid, "name:", name _x];
 						};
 
 #ifndef __INTERCEPTDB__
@@ -48,6 +47,8 @@ while {true} do {
 						_pa set [14, 0];
 
 						__TRACE("extDB3 called")
+					} else {
+						diag_log ["DOM dbtoppasync, playerscores are empty or zero, _ps:", _ps, "_uid:", _uid, "name:", name _x];
 					};
 				};
 			};

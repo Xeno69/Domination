@@ -10,8 +10,8 @@ __TRACE_1("","_obj")
 private _val = _obj getVariable "d_owner";
 __TRACE_1("","_val")
 if (!isNil "_val") then {
-	private _ar = d_placed_objs_store getVariable (getPlayerUID _val);
-	if (!isNil "_ar") then {
+	private _ar = d_placed_objs_hash getOrDefault [getPlayerUID _val, []];
+	if (_ar isNotEqualTo []) then {
 		__TRACE_1("","_ar")
 		private _fidx = _ar findIf {_x # 0 == _obj};
 		__TRACE_1("","_fidx")

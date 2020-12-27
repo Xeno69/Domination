@@ -540,13 +540,12 @@ private _wname = toLowerANSI worldName;
 d_iscup_island = _wname in ["chernarus_summer", "chernarus_winter", "chernarus", "eden", "abel", "noe", "sara", "takistan", "sara_dbe1", "zargabad"] || {(_wname select [0, 4]) isEqualTo "cup_"};
 
 if (isServer) then {
-	d_placed_objs_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store2 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store3 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store4 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	
 	d_player_hash = createHashMap;
 	d_misc_s_hash = createHashMap;
+	d_placed_objs_hash = createHashMap;
+	d_placed_objs_hash2 = createHashMap;
+	d_placed_objs_hash3 = createHashMap;
+	d_placed_objs_hash4 = createHashMap;
 
 	d_hc_array = [];
 	d_hc_counter = 0;
