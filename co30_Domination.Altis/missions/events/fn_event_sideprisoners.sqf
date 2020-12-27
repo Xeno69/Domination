@@ -16,8 +16,8 @@ if (true) exitWith {};
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
-//position the event site near target center at max distance 250m and min 150m 
-private _poss = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
+//position the event site near target center at max distance 125m and min 15m 
+private _poss = [[[_target_center, 125]],[[_target_center, 15]]] call BIS_fnc_randomPos;
 _x_mt_event_ar = [];
 
 private _trigger = [_poss, [225,225,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
@@ -40,7 +40,7 @@ private _allActors = [];
 
 __TRACE_1("","_prisonerGroup")
 private _nposss = [];
-_nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
+_nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];//pilot is moved later?
 if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _prisonerGroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 _x_mt_event_ar pushBack _pilot1;
@@ -69,7 +69,7 @@ if (d_with_dynsim == 0) then {
 
 sleep 2.333;
 
-private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 12, false, true, 3] call d_fnc_CreateInf select 0;
+private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 12, false, true, 3] call d_fnc_CreateInf select 0;//too many enemies, maybe special clothing
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
