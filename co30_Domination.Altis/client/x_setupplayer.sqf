@@ -391,6 +391,17 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 	{
 		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2, 0];
 	} forEach d_all_ammoloads;
+	
+	d_dr3dca_hash = createHashMap;
+	
+	for "_i" from 0 to 24 do {
+		d_dr3dca_hash set [_i, format ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_%1_ca.paa", _i]];
+	};
+	
+	d_dr3dar_hash = createHashMap;
+	d_dr3dar_hash set [0, "a3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa"];
+	d_dr3dar_hash set [1, "a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"];
+	d_dr3dar_hash set [2, "a3\ui_f\data\IGUI\Cfg\Actions\loadVehicle_ca.paa"];
 
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
 

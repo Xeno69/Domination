@@ -14,18 +14,7 @@ private _d3d_locs4a = d_d3d_locs4a;
 	if (_with_3Di == 1) then {
 		_tex = _obj getVariable "d_tex";
 		if (isNil "_tex") then {
-			_tex = call {
-				if (_x # 3 == 0) exitWith {
-					"a3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa"
-				};
-				if (_x # 3 == 1) exitWith {
-					"a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"
-				};
-				if (_x # 3 == 2) exitWith {
-					"a3\ui_f\data\IGUI\Cfg\Actions\loadVehicle_ca.paa"
-				};
-				"#(argb,8,8,3)color(0,0,0,0)"
-			};
+			_tex = d_dr3dar_hash getOrDefault [_x # 3, "#(argb,8,8,3)color(0,0,0,0)"];
 			_obj setVariable ["d_tex", _tex];
 		};
 	} else {
@@ -74,7 +63,7 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 			_ico = if !((_x getVariable "d_SIDE") in _own_sides) then {
 				_lin = floor (linearConversion [0, _x getVariable "d_CAPTIME", _x getVariable "d_CURCAPTIME", 0, 24]) min 24;
 				_col = [[1, 1, 0, _m], [1 - (_lin * 0.04), _lin * 0.04, 0, _m]] select !(_x getVariable "d_STALL");
-				format ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_%1_ca.paa", _lin]
+				d_dr3dca_hash get _lin
 			} else {
 				_col = [0, 1, 0, _m];
 				"\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_24_ca.paa"
