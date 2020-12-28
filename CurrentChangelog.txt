@@ -7,6 +7,7 @@
 - Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
 - Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer
 - Fixed: In ranked mode players with rank private ended up with just one uniform in Virtual Arsenal
+- Fixed: incorrect logic in maintarget event selection, improved dashboard list and line breaks, by longtimegamer
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Added slightly more debug output (possible with improved A3 logging)
