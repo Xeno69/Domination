@@ -11,7 +11,9 @@ showChat false;
 
 while {true} do {
 	sleep 0.112;
-	if (!isNil "d_preloaddone") exitWith {};
+	if (!isNil "d_preloaddone") exitWith {
+		sleep 0.3;
+	};
 };
 
 private _campos = if (isNil "d_cur_tgt_pos" || {d_cur_tgt_pos isEqualTo []}) then {player} else {d_cur_tgt_pos};
@@ -62,13 +64,14 @@ private _bfehandle = [_campos, _txt, 200, 250, 75, 1,
 	   [_plicon, _color, player, 1, 1, 0, profileName, 0]
 	]
 ] spawn BIS_fnc_establishingShot;
-//, 0, true, 5] spawn BIS_fnc_establishingShot;
 
 sleep 1;
 "d_Xlabel" cutRsc ["d_Xlabel", "PLAIN"];
 "d_DomLabel" cutRsc ["d_DomLabel", "PLAIN"];
 "d_ArmaLogo" cutRsc ["d_ArmaLogo", "PLAIN"];
 sleep 2;
+"d_chand" cutRsc ["d_rscchand", "PLAIN"];
+
 0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.41  </t>"], [safeZoneX + 0.1, safeZoneY + safeZoneH - 0.2, 0.9, 0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 waitUntil {scriptDone _bfehandle};

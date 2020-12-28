@@ -528,24 +528,6 @@ class d_rscCrewText {
 	};
 };
 
-class d_RscText {
-	access = 0;
-	type = 0;
-	idc = -1;
-	colorBackground[] = {0,0,0,0};
-	colorText[] = {0.8784,0.8471,0.651,1};
-	text = "";
-	fixedWidth = 0;
-	x = 0;
-	y = 0;
-	h = 0.037;
-	w = 0.3;
-	style = 0;
-	shadow = 2;
-	font = DEFAULTFONT;
-	SizeEx = 0.03921;
-};
-
 class d_fpsresource {
 	idd=-1;
 	movingEnable=0;
@@ -777,6 +759,28 @@ class d_RscLastChance {
 			text = "\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_0_ca.paa";
 			sizeEx = 256;
 			colorText[] = {1, 1, 1, 0.8};
+		};
+	};
+};
+
+class d_rscchand {
+	idd=-1;
+	movingEnable=0;
+	duration = 5;
+	fadein = 2;
+	fadeout = 1;
+	class controls {
+		class server_cap: RscText {
+			idc=-1;
+			text = "I'm gonna swing from the chandelier...";
+			x = safezoneX + safezoneW - 0.51;
+			y = safezoneY + 0.04;
+			w = 0.5;
+			h = 0.1;
+			sizeEx = 0.05;
+			shadow = 0;
+			style = ST_RIGHT;
+			colorText[] = {1,1,1,0.5};
 		};
 	};
 };
