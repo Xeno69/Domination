@@ -8,15 +8,14 @@
 d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable ["xr_pluncon", false])}) then {
-		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh", "_vis"];
+		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
 		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_getplayername, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_gpn", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
 		private _epp = eyePos player;
 		{
 			_distu = _cam2world distance _x;
 			if (_distu <= _d_pn_hud) then {
 				_vu = vehicle _x;
-				_vis = [objNull, "VIEW"] checkVisibility [_epp, eyePos (crew _vu # 0)];
-				if (_vis > 0) then {
+				if ([objNull, "VIEW"] checkVisibility [_epp, eyePos (crew _vu # 0)] > 0) then {
 					_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
 					if (_targetPos isNotEqualTo []) then {
 						_dodraw = if (isNull objectParent _x) then {
@@ -62,9 +61,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 			{
 				_distu = _cam2world distance _x;
 				if (_distu <= _d_pn_hud) then {
-					_vu = vehicle _x;
-					_vis = [objNull, "VIEW"] checkVisibility [_epp, eyePos (crew _vu # 0)];
-					if (_vis > 0) then {
+					if ([objNull, "VIEW"] checkVisibility [_epp, eyePos _x] > 0) then {
 						_targetPos = _x modelToWorldVisual (_x selectionPosition "Head");
 						if (_targetPos isNotEqualTo []) then {
 							if (_distu <= 200) then {
