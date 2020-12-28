@@ -12,3 +12,4 @@
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Added slightly more debug output (possible with improved A3 logging)
+- And more optimizations
