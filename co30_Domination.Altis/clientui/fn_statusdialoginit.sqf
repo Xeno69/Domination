@@ -216,20 +216,19 @@ if (d_current_target_index != -1) then {
 			localize "STR_DOM_MISSIONSTRING_568"
 		};
 	};
-} else {
-	if (d_mt_event_messages_array isEqualTo []) then {
-		_s = localize "STR_DOM_MISSIONSTRING_568";
-	};
+	_s = format ["*** %1", _s];
 };
 
-if (!(d_mt_event_messages_array isEqualTo [])) then {
-	{
-		_s = composeText [_s, _x, '\n'];
-	} forEach d_mt_event_messages_array;
-	_s = str _s;
-};
+_s2 = "";
+{
+	_s2 = composeText [_s2, (format ["!!! %1", _x]), '\n'];
+} forEach d_mt_event_messages_array;
 
-__ctrl2(11007) ctrlSetText _s;
+_s_all = composeText [_s, _s2];
+
+_s_all = str _s_all;
+
+__ctrl2(11007) ctrlSetText _s_all;
 
 __ctrl2(12010) ctrlSetText ((player call d_fnc_GetRankPic) # 0);
 __ctrl2(11014) ctrlSetText (player call d_fnc_GetRankString);
