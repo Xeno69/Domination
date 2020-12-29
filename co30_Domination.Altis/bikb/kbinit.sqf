@@ -263,4 +263,91 @@ if (hasInterface) then {
 		};
 	};
 };
-;
+
+if (isServer) then {
+	d_kb_hash = createHashMapFromArray [
+		[0, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirSUAttack",d_kbtel_chan]}],
+		[1, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirAttackChopperAttack",d_kbtel_chan]}],
+		[2, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirLightAttackChopperAttack",d_kbtel_chan]}],
+		[3, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"AllObserversDown",d_kbtel_chan]}],
+#ifdef __TT__
+		[4, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","AllObserversDown","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","AllObserversDown","SIDE"]}],
+#endif
+		[6, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellNrObservers",["1","",str(_val1),[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[7, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","TellNrObservers",["1","",str(_val1),[]],"SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","TellNrObservers",["1","",str(_val1),[]],"SIDE"]}],
+#endif
+		[9, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTRadioTower",d_kbtel_chan]}],
+#ifdef __TT__
+		[10, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTRadioTower","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTRadioTower","SIDE"]}],
+#endif
+		[12, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'MTSightedByEnemy',d_kbtel_chan]}],
+#ifdef __TT__
+		[13, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,'HQ_W','MTSightedByEnemy',"SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,'HQ_E','MTSightedByEnemy',"SIDE"]}],
+#endif
+		[15, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"CampAnnounce",["1","",str(_val1),[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[16, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","CampAnnounce",["1","",str(_val1),[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","CampAnnounce",["1","",str(_val1),[]],"SIDE"]}],
+#endif
+		[17, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"Dummy",["1","",_val1,[]],d_kbtel_chan]}],
+		[18, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellSecondaryMTM",["1","",_val1,[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[19, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","TellSecondaryMTM",["1","",_val1,[]],"SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","TellSecondaryMTM",["1","",_val1,[]],"SIDE"]}],
+#endif
+		[23, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TimeLimitSM",["1","","10",[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[24, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"TimeLimitSM",["1","","10",[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"TimeLimitSM",["1","","10",[]],"SIDE"]}],
+#endif
+		[25, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TimeLimitSM",["1","","5",[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[26, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"TimeLimitSM",["1","","5",[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"TimeLimitSM",["1","","5",[]],"SIDE"]}],
+#endif
+		[27, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TimeLimitSMTwoM",d_kbtel_chan]}],
+#ifdef __TT__
+		[28, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"TimeLimitSMTwoM","SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"TimeLimitSMTwoM","SIDE"]}],
+#endif
+		[29, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TimeLimitSM",["1","","10",[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[30, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"TimeLimitSM",["1","","10",[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"TimeLimitSM",["1","","10",[]],"SIDE"]}],
+#endif
+		[31, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TimeLimitSM",["1","","5",[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[32, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"TimeLimitSM",["1","","5",[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"TimeLimitSM",["1","","5",[]],"SIDE"]}],
+#endif
+		[33, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TimeLimitSMTwoM",d_kbtel_chan]}],
+#ifdef __TT__
+		[34, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"TimeLimitSMTwoM","SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"TimeLimitSMTwoM","SIDE"]}],
+#endif
+		[35, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MissionFailure",d_kbtel_chan]}],
+#ifdef __TT__
+		[36, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MissionFailure","SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MissionFailure","SIDE"]}],
+#endif
+		[37, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTRadioTowerDown",d_kbtel_chan]}],
+#ifdef __TT__
+		[38, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTRadioTowerDown","SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTRadioTowerDown","SIDE"]}],
+		[39, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTRadioAnnounce",["1","",_val1,[]],["2","",str(d_tt_points # 2),[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTRadioAnnounce",["1","",_val1,[]],["2","",str(d_tt_points # 2),[]],"SIDE"]}],
+		[40, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Dummy",["1","",_val1,[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Dummy",["1","",_val2,[]],"SIDE"]}],
+		[41, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTSMAnnounce",["1","",_val1,[]],["2","",str(d_tt_points # 3),[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTSMAnnounce",["1","",_val1,[]],["2","",str(d_tt_points # 3),[]],"SIDE"]}],
+#endif
+		[42, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"Dummy",["1","",_val1,[]],d_kbtel_chan]}],
+		[43, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirDropAttack",d_kbtel_chan]}],
+		[44, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,_val1,d_kbtel_chan]}],
+#ifdef __TT__
+		[45, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W",_val1,"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E",_val1,"SIDE"]}],
+#endif
+		[47, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MHQDestroyed",["1","",_val1,[]],d_kbtel_chan]}],
+#ifdef __TT__
+		[48, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MHQDestroyed",["1","",_val1,[]],"SIDE"]}],
+		[49, {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MHQDestroyed",["1","",_val1,[]],"SIDE"]}],
+#endif
+		[51, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTBarracksDown",d_kbtel_chan]}],
+		[53, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTVecBuildingDown",d_kbtel_chan]}],
+		[54, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTHQaBarracksBuilding",d_kbtel_chan]}],
+		[55, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"OneMTBarrackDown",["1","",str (_val1),[]],d_kbtel_chan]}],
+		[56, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTHQaBarracksBuildingTT","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTHQaBarracksBuildingTT","SIDE"]}],
+		[57, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTBarracksDown","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTBarracksDown","SIDE"]}],
+		[58, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","OneMTBarrackDown",["1","",str (_val1),[]],"SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","OneMTBarrackDown",["1","",str (_val1),[]],"SIDE"]}],
+		[59, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","TTBArracksAnnounce",["1","",_val1,[]],["2","",str(d_tt_points # 2),[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","TTBArracksAnnounce",["1","",_val1,[]],["2","",str(d_tt_points # 2),[]],"SIDE"]}],
+		[60, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTVecBuildingDown","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTVecBuildingDown","SIDE"]}]
+	];
+};

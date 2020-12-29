@@ -2159,7 +2159,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 		_civVehiclesWeightedRuralLivonia;
 #endif
-};
 
 	//civilian faces
 	private _africanFaces = [
@@ -2277,6 +2276,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 		_mixedFaces;
 #endif
+};
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")
