@@ -34,14 +34,14 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 							//_rtex = "";
 							_rsize = 0.4;
 							if (_distu <= 200) then {
-								_tex = if (_s_p_namesx == 1) then {
-									[_x] call _fnc_ghpn
-								} else {
-									if (_s_p_namesx == 2) then {
-										str(9 - round(9 * damage _x))
-									} else {
-										""
+								_tex = call {
+									if (_s_p_namesx == 1) exitWith {
+										[_x] call _fnc_ghpn
 									};
+									if (_s_p_namesx == 2) exitWith {
+										str(9 - round(9 * damage _x))
+									};
+									""
 								};
 								if (isNil "_tex") then {_tex = _x call _fnc_gpn};
 								_hh = _x call _nfc_grp;
@@ -65,14 +65,14 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 						_targetPos = _x modelToWorldVisual (_x selectionPosition "Head");
 						if (_targetPos isNotEqualTo []) then {
 							if (_distu <= 200) then {
-								_tex = if (_s_p_namesx == 1) then {
-									[_x] call _fnc_ghpnai
-								} else {
-									if (_s_p_namesx == 2) then {
-										str(9 - round(9 * damage _x))
-									} else {
-										""
+								_tex = call {
+									if (_s_p_namesx == 1) exitWith {
+										[_x] call _fnc_ghpnai
 									};
+									if (_s_p_namesx == 2) exitWith {
+										str(9 - round(9 * damage _x))
+									};
+									""
 								};
 							} else {
 								_tex = "*";

@@ -20,11 +20,7 @@ private _d3d_locs4a = d_d3d_locs4a;
 	} else {
 		_tex = "#(argb,8,8,3)color(0,0,0,0)";
 	};
-	if (_x # 4 == 0) then {
-		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, _x # 1, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
-	} else {
-		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [_d3d_locs4a, round ((_obj getVariable ["d_curreptime" , -1]) - serverTime) max 0], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
-	};
+	[drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [_d3d_locs4a, round ((_obj getVariable ["d_curreptime" , -1]) - serverTime) max 0], 1, 0.033 - (_distp / 9000), "RobotoCondensed"], drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, _x # 1, 1, 0.033 - (_distp / 9000), "RobotoCondensed"]] select (_x # 4 == 0);
 } forEach (d_3draw_ar select {alive (_x # 0) && {_pos_cam distance2D (_x # 0) < 250}});
 
 {
@@ -34,11 +30,7 @@ private _d3d_locs4a = d_d3d_locs4a;
 	_col set [3, 1 - (_distp / 200)];
 	_hasp = _box getVariable "d_abox_perc";
 	_txt = [_x # 2, format ["%1 (%2)", _x # 2, _hasp]] select (!isNil "_hasp");
-	if (_with_3Di == 1) then {
-		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
-	} else {
-		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
-	};
+	[drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"], drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"]] select (_with_3Di == 1);
 } forEach (d_all_p_a_boxes select {!isNull (_x # 0) && {_pos_cam distance2D (_x # 0) < 80}});
 
 if (d_with_ai) then {

@@ -42,18 +42,17 @@ if (d_show_player_marker isNotEqualTo 0) then {
 						_vc = _x getVariable "d_ut_c";
 						if (isNil "_vc" || {_vc > 32}) then {
 							_x setVariable ["d_ut_c", 0];
-							if (_s_pl_ma isEqualTo 1) then {
-								_res = [_x] call _fnc_ghpn;
-							} else {
-								if (_s_pl_ma isEqualTo 2) then {
-									_res = "";
-								} else {
-									if (_s_pl_ma isEqualTo 3) then {
-										_res = format [_d_mark_loc280, 9 - round(9 * damage _x)];
-									} else {
-										_res = "";
-									};
+							call {
+								if (_s_pl_ma isEqualTo 1) exitWith {
+									_res = [_x] call _fnc_ghpn;
 								};
+								if (_s_pl_ma isEqualTo 2) exitWith {
+									_res = "";
+								};
+								if (_s_pl_ma isEqualTo 3) exitWith {
+									_res = format [_d_mark_loc280, 9 - round(9 * damage _x)];
+								};
+								_res = "";
 							};
 							_x setVariable ["d_u_text", _res];
 							_res
@@ -136,20 +135,19 @@ if (d_show_player_marker isNotEqualTo 0) then {
 		{
 			if (_x distance2D _mapmid < _drawdist) then {
 				_isc = [_x, _x] call _fnc_gmi;
-
+				
 				_text = if (_type isNotEqualTo 1) then {
-					if (_s_pl_ma isEqualTo 1) then {
-						_ut = str _x; _ut select [count _ut - 1]
-					} else {
-						if (_s_pl_ma isEqualTo 2) then {
-							""
-						} else {
-							if (_s_pl_ma isEqualTo 3) then {
-								format [_d_mark_loc280, 9 - round(9 * damage _x)]
-							} else {
-								""
-							};
+					call {
+						if (_s_pl_ma isEqualTo 1) exitWith {
+							_ut = str _x; _ut select [count _ut - 1]
 						};
+						if (_s_pl_ma isEqualTo 2) exitWith {
+							""
+						};
+						if (_s_pl_ma isEqualTo 3) exitWith {
+							format [_d_mark_loc280, 9 - round(9 * damage _x)]
+						};
+						""
 					};
 				} else {
 					""
