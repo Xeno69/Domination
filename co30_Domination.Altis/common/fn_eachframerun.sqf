@@ -12,7 +12,7 @@ private _ef_st = d_ef_hash;
 			call (_e # 0);
 			__TRACE_1("1","_e")
 		};
-		if (diag_frameno >= (_e # 2)) then {
+		if (diag_frameno >= (_e # 2)) exitWith {
 			call (_e # 0);
 			_e set [2, diag_frameno + (_e # 1)];
 			__TRACE_1("3","_e")
