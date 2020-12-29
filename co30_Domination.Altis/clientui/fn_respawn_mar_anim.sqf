@@ -41,10 +41,7 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 	{
 		private _mrs = missionNamespace getVariable [_x # 0, objNull];
 		if (!isNull _mrs) then {
-			private _opos = _mrs getVariable "d_vispos_m";
-			if (isNil "_opos") then {
-				_opos = [-1,-1,-1];
-			};
+			private _opos = _mrs getVariable ["d_vispos_m", [-1,-1,-1]];
 			private _vpos = visiblePositionASL _mrs;
 			if (_opos isNotEqualTo _vpos) then {
 				(_x # 0) setMarkerPosLocal _vpos;

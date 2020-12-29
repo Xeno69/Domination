@@ -39,8 +39,8 @@ if (d_show_player_marker isNotEqualTo 0) then {
 			if (_dodraw) then {
 				_text = if (_type isNotEqualTo 1) then {
 					if (!_inv) then {
-						_vc = _x getVariable "d_ut_c";
-						if (isNil "_vc" || {_vc > 32}) then {
+						_vc = _x getVariable ["d_ut_c", 33];
+						if (_vc > 32) then {
 							_x setVariable ["d_ut_c", 0];
 							call {
 								if (_s_pl_ma isEqualTo 1) exitWith {
@@ -62,8 +62,8 @@ if (d_show_player_marker isNotEqualTo 0) then {
 						};
 					} else {
 						if (player distance2D _v < 3000) then {
-							_vc = _v getVariable "d_vma_c";
-							if (isNil "_vc" || {_vc > 30}) then {
+							_vc = _v getVariable ["d_vma_c", 31];
+							if (_vc > 30) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
