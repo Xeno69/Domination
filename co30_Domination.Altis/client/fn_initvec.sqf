@@ -43,6 +43,8 @@ _vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTR
 
 if (!hasInterface) exitWith {};
 
+d_marker_vecs = d_marker_vecs - [objNull];
+
 private _vec = _this;
 
 __TRACE_1("","_vec")

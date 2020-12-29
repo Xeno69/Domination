@@ -225,5 +225,3 @@ private _marker_vecs = d_marker_vecs;
 		};
 	};
 } forEach _marker_vecs select {!isNull _x};
-
-_marker_vecs = _marker_vecs - [objNull];
