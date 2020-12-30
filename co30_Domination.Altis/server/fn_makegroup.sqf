@@ -167,10 +167,10 @@ if (_istatatic) then {
 
 [_grp, _sleepti] spawn {
 	scriptName "spawn makegroup";
-	sleep (_this select 1);
-	(_this select 0) call d_fnc_addgrp2hc;
+	sleep (_this # 1);
+	(_this # 0) call d_fnc_addgrp2hc;
 	if (d_with_dynsim == 0) then {
-		(_this select 0) enableDynamicSimulation true;
+		(_this # 0) enableDynamicSimulation true;
 	};
 };
 

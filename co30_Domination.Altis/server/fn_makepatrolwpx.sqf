@@ -20,7 +20,7 @@ if !(_wp_array isEqualType []) exitWith {
 	diag_log ["makepatrolwpx, _wp_array is no array", _this];
 };
 
-if (count _wp_array == 4 && {(_wp_array select 0) isEqualTo []}) exitWith {
+if (count _wp_array == 4 && {(_wp_array # 0) isEqualTo []}) exitWith {
 	diag_log ["makepatrolwpx, _wp_array 0 is an empty array", _this];
 };
 

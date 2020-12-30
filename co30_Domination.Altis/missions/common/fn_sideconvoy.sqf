@@ -38,8 +38,8 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec allowCrewInImmobile true;
 	_onevec addEventHandler ["killed", {
 		d_confvdown = d_confvdown + 1;
-		(_this select 0) removeAllEventHandlers "killed";
-		{(_this select 0) deleteVehicleCrew _x} forEach (crew (_this # 0));
+		(_this # 0) removeAllEventHandlers "killed";
+		{(_this # 0) deleteVehicleCrew _x} forEach (crew (_this # 0));
 	}];
 #ifdef __TT__
 	_onevec addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];

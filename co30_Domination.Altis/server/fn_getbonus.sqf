@@ -5,8 +5,8 @@
 
 if (!isServer) exitWith {};
 
-d_sm_winner = _this select 0;
-d_current_sm_bonus_vec = _this select 1;
+d_sm_winner = _this # 0;
+d_current_sm_bonus_vec = _this # 1;
 
 __TRACE("Starting")
 

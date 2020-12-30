@@ -226,7 +226,7 @@ private _make_jump = {
 					params ["_grp", "_pos"];
 					sleep 5;
 					if ((units _grp) findIf {alive _x} > -1) then {
-						[_grp, _pos, [_pos, _this select 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
+						[_grp, _pos, [_pos, _this # 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
 						_grp setVariable ["d_PATR", true];
 						if (d_with_dynsim == 0) then {
 							[_grp, 0] spawn d_fnc_enabledynsim;
@@ -318,7 +318,7 @@ private _make_jump = {
 					params ["_grp", "_pos"];
 					sleep 40;
 					if ((units _grp) findIf {alive _x} > -1) then {
-						[_grp, _pos, [_pos, _this select 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
+						[_grp, _pos, [_pos, _this # 2], [10, 20, 50], "", 0] spawn d_fnc_MakePatrolWPX;
 						_grp setVariable ["d_PATR", true];
 						if (d_with_dynsim == 0) then {
 							[_grp, 0] spawn d_fnc_enabledynsim;

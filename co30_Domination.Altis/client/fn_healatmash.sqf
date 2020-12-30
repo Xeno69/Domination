@@ -16,7 +16,7 @@ if (!hasInterface || {(_this # 3) != "Heal" || {isNil {(_this # 0) getVariable "
 	player setBleedingRemaining 0;
 	
 	if (d_with_ranked || {d_database_found}) then {
-		private _ow = (_this select 0) getVariable "d_owner";
+		private _ow = (_this # 0) getVariable "d_owner";
 		if (!isNil "_ow") then {
 			[_ow, 11] remoteExecCall ["d_fnc_addscore", 2]
 		};

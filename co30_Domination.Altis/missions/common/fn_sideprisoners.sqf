@@ -5,7 +5,7 @@
 
 if !(isServer) exitWith {};
 
-(_this select 0) params ["_pos"];
+(_this # 0) params ["_pos"];
 
 if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 

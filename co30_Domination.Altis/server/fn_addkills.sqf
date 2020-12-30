@@ -10,7 +10,7 @@
 // second change: distance to target, the lower the higher, Only for infantry!!!!
 params ["_points", "_killer", "_killed", "_insti"];
 
-if (isNull _insti) then {_insti = UAVControl vehicle _killer select 0};
+if (isNull _insti) then {_insti = UAVControl vehicle _killer # 0};
 if (!isNull _insti) then {_killer = _insti};
 
 if (d_with_ace && {isNull _killer}) then {

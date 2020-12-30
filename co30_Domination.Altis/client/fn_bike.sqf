@@ -4,7 +4,7 @@
 
 if (!hasInterface) exitWith {};
 
-(_this select 3) params ["_create_bike", "_b_mode", ["_ismhq", false]];
+(_this # 3) params ["_create_bike", "_b_mode", ["_ismhq", false]];
 
 private _disp_name = [_create_bike, "CfgVehicles"] call d_fnc_GetDisplayName;
 private _exitit = false;

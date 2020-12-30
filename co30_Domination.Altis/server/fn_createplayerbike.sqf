@@ -14,7 +14,6 @@ if (d_with_dynsim == 0) then {
 	[_vec, 5] spawn d_fnc_enabledynsim;
 };
 if (_b_mode != 1) then {
-	//_vec setVariable ["d_end_time", _this select 3];
 	_vec setVariable ["d_end_time", time + 1200];
 	d_player_created pushBack _vec;
 } else {

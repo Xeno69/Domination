@@ -112,7 +112,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_isFirstCamp = false;
 		} else {
 			private _idx = floor random (count _parray);
-			_poss = _parray select _idx;
+			_poss = _parray # _idx;
 			__TRACE_1("1","_poss")
 
 			if (d_currentcamps isNotEqualTo []) then {
@@ -121,7 +121,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 					private _icounter = 0;
 					while {_icounter < 50 || {_fidx != -1}} do {
 						_idx = floor random (count _parray);
-						_poss = _parray select _idx;
+						_poss = _parray # _idx;
 						_fidx = d_currentcamps findIf {_x distance2D _poss < 130};
 						_icounter = _icounter + 1;
 					};
