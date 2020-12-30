@@ -9,7 +9,7 @@ if ("Helicopter" countType _list == 0) exitWith {
 	__TRACE("No heli inside trigger")
 	false
 };
-if (!isTouchingGround (_list select 0)) exitWith {
+if (!isTouchingGround (_list # 0)) exitWith {
 	__TRACE("Heli is not touching ground")
 	false
 };

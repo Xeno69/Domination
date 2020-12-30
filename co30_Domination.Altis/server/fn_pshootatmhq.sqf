@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-private _shooter = _this select 6;
+private _shooter = _this # 6;
 __TRACE_1("","_shooter")
 if (isNull _shooter) exitWith {};
 if !(_shooter call d_fnc_isplayer) exitWith {};

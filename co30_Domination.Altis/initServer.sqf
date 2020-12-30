@@ -4,6 +4,7 @@
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initServer.sqf"];
 if (d_with_bis_dynamicgroups == 0) then {
+	diag_log "DOM initServer.sqf: BIS DynamicGroups initialzing!";
 	["Initialize", [true]] call BIS_fnc_dynamicGroups;
 };
 
@@ -14,6 +15,7 @@ if (isNil "d_db_auto_save") then {
 };
 
 if (d_database_found) then {
+	diag_log "DOM initServer.sqf: Reading DB data!";
 	if (!d_tt_ver) then {
 		d_bonus_vecs_db = [];
 		__TRACE_1("","worldname")
@@ -98,7 +100,7 @@ if (isNil "d_set_pl_score_db") then {
 };
 
 if (d_database_found && {d_db_auto_save}) then {
-	__TRACE("Calling autosave")
+	diag_log "DOM initServer.sqf: Trying to read db autosave";
 	["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
 };
 

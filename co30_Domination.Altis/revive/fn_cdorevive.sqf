@@ -5,6 +5,6 @@
 
 if (!hasInterface) exitWith {};
 
-player setVariable ["xr_cursorTarget", _this select 0];
+player setVariable ["xr_cursorTarget", _this # 0];
 
 call xr_fnc_dorevive;

@@ -11,16 +11,16 @@ if ("LandVehicle" countType _list == 0 && {"Plane" countType _list == 0 && {"Hel
 	__TRACE("No vehicle inside trigger")
 	false
 };
-if (!((_list select 0) isKindOf "Ship") && {!isTouchingGround (_list select 0)}) exitWith {
+if (!((_list # 0) isKindOf "Ship") && {!isTouchingGround (_list # 0)}) exitWith {
 	__TRACE("Vec is not touching ground")
 	false
 };
 
-if !((_list select 0) isKindOf "Plane") then {
+if !((_list # 0) isKindOf "Plane") then {
 	_trig setVariable ["d_list", _list];
 	true
 } else {
-	if (speed (_list select 0) >= 10) exitWith {false};
+	if (speed (_list # 0) >= 10) exitWith {false};
 	_trig setVariable ["d_list", _list];
 	true
 };

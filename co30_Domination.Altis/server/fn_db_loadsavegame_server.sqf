@@ -5,6 +5,8 @@
 
 params ["_sname", "_sender"];
 
+diag_log ["DOM db loadsavegame _this:", _this];
+
 __TRACE_1("","_sname")
 
 private _dbresult = [];
@@ -65,6 +67,7 @@ __TRACE_1("","_dbresult")
 #endif
 
 if (_dbresult isEqualTo []) exitWith {
+	diag_log ["DOM db loadsavegame _dbresult is []:", _this];
 	if (!isNull _sender) then {
 		[7, _sname] remoteExecCall ["d_fnc_csidechat", _sender];
 	} else {

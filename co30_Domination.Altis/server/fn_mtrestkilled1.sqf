@@ -11,20 +11,20 @@ if (!d_mt_done) then {
 	[60] call d_fnc_DoKBMsg;
 #endif
 };
-(_this select 0) spawn {
+(_this # 0) spawn {
 	scriptName "spawn checkmtrespawntarget2";
 	sleep (60 + random 60);
 	_this setDamage 0;
 	deleteVehicle _this;
 };
-(_this select 0) removeAllEventHandlers "killed";
+(_this # 0) removeAllEventHandlers "killed";
 if (!d_mt_done) then {
-	private _killer = _this select 2;
+	private _killer = _this # 2;
 	if (isNull _killer) then {
 		if (!d_with_ace) then {
-			_killer = (_this select 0) getVariable ["d_last_damager", _killer];
+			_killer = (_this # 0) getVariable ["d_last_damager", _killer];
 		} else {
-			_killer = (_this select 0) getVariable ["ace_medical_lastDamageSource", _killer];
+			_killer = (_this # 0) getVariable ["ace_medical_lastDamageSource", _killer];
 		};
 	};
 	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {

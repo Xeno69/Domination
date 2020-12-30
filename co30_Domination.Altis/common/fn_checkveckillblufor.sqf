@@ -4,7 +4,7 @@
 
 params ["_vec", "_killer", "_insti"];
 
-if (isNull _insti) then {_insti = UAVControl vehicle _killer select 0}; // UAV/UGV player operated road kill
+if (isNull _insti) then {_insti = UAVControl vehicle _killer # 0}; // UAV/UGV player operated road kill
 if (!isNull _insti) then {_killer = _insti}; // player driven vehicle road kill
 
 if (d_with_ace && {isNull _killer}) then {

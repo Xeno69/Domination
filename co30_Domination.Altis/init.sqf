@@ -23,6 +23,7 @@ addMissionEventhandler ["EachFrame", {
 
 #ifdef __IFA3LITE__
 if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1944..."];
 	private _date = date;
 	_date set [0, 1944];
 	setDate _date;

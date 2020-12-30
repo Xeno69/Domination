@@ -11,7 +11,7 @@ if ("LandVehicle" countType _list == 0 && {"Ship" countType _list == 0}) exitWit
 	__TRACE("No vec inside trigger")
 	false
 };
-if (!((_list select 0) isKindOf "Ship") && {!isTouchingGround (_list select 0)}) exitWith {
+if (!((_list # 0) isKindOf "Ship") && {!isTouchingGround (_list # 0)}) exitWith {
 	__TRACE("Vec is not touching ground")
 	false
 };
