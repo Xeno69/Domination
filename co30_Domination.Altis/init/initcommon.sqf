@@ -147,6 +147,22 @@ if (isNil "d_ranked_a") then {
 	};
 };
 
+if (isServer) then {
+	d_sc_hash = createHashMapFromArray [
+		[0, (d_ranked_a # 3) * -1],
+		[1, (d_ranked_a # 2) * -1],
+		[2, (d_ranked_a # 15) * -1],
+		[3, (d_ranked_a # 5) * -1],
+		[4, (d_ranked_a # 16) * -1],
+		[5, d_ranked_a # 17],
+		[6, (d_ranked_a # 19) * -1],
+		[7, d_ranked_a # 17],
+		[8, (d_ranked_a # 4) * -1],
+		[9, (d_ranked_a # 19) * -1],
+		[10, (d_ranked_a # 20) * -1]
+	];
+};
+
 if (hasInterface) then {
 	if (d_with_ai) then {d_current_ai_num = 0};
 
