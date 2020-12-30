@@ -1187,7 +1187,7 @@ call d_fnc_initservicepoints;
 
 if (isMultiplayer) then {
 	if (!d_ifa3lite) then {
-		0 spawn d_fnc_intro2.sqf;
+		0 spawn d_fnc_intro2;
 	} else {
 		execVM "client\x_intro.sqf";
 	};
