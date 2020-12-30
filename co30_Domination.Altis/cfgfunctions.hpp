@@ -189,6 +189,9 @@ class cfgFunctions {
 			addc(camouflage);
 			addc(noaan);
 			addc(suppressed);
+			addc(intro2);
+			addc(setdbstart);
+			addc(emiss);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -314,6 +317,11 @@ class cfgFunctions {
 			addc(getbuildings);
 			addc(getcoveredpositions);
 			addc(getunitbyuid);
+			addc(setleader);
+			addc(sd180);
+			addc(setvel0);
+			addc(seturinf);
+			addc(setbcnil);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
@@ -377,6 +385,7 @@ class cfgFunctions {
 			addc(createtrigsm);
 			addc(smcough);
 			addc(remactionssm);
+			addc(smsvpos);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
@@ -590,8 +599,10 @@ class cfgFunctions {
 			addc(checkintersects);
 			addc(initPlayerServer);
 			addc(setenemymode);
+			addc(asfnc);
 			addc(ulreduce);
 			addc(incjail);
+			addc(ascfc);
 		};
 		class Dom_PrePostInit {
 			file = "init";
@@ -657,6 +668,7 @@ class cfgFunctions {
 			addc(spectdraw3d);
 			addc(bloodpool);
 			addc(hasfak);
+			addc(phogl);
 		};
 	};
 	class Dom_AR {

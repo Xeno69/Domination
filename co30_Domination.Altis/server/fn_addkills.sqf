@@ -24,7 +24,11 @@ private _endpoints = if (isNull objectParent _killer) then {
 	if (!d_with_ace) then {
 		_killer addScore round ((_points # 0) / 5);
 	} else {
-		[_killer, round ((_points # 0) / 5)] remoteExecCall ["addScore", 2];
+		if (isServer) then {
+			_killer addScore (round ((_points # 0) / 5));
+		} else {
+			[_killer, round ((_points # 0) / 5), player] remoteExecCall ["d_fnc_asfnc", 2];
+		};
 	};
 	((_points # 0) * _coef)
 } else {

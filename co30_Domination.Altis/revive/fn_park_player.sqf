@@ -19,7 +19,7 @@ if (_dosleep) then {
 };
 //player setPos (markerPos "xr_playerparkmarker");
 player setVehiclePosition [markerPos "xr_playerparkmarker", [], 0, "NONE"]; // CAN_COLLIDE ?
-player remoteExecCall ["hideObjectGlobal", 2];
+player remoteExecCall ["xr_fnc_phogl", 2];
 [false] spawn xr_fnc_spectating;
 __TRACE("park_player, black in")
 "xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_931", "BLACK IN", 1];

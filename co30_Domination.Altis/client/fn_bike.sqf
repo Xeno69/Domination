@@ -54,7 +54,7 @@ if (_b_mode == 0 && {alive d_flag_vec}) exitWith {
 };
 
 if (d_with_ranked || {d_database_found}) then {
-	[player, (d_ranked_a # 5) * -1] remoteExecCall ["addScore", 2];
+	[player, 3] remoteExecCall ["d_fnc_ascfc", 2];
 };
 
 systemChat format [localize "STR_DOM_MISSIONSTRING_161", _disp_name];

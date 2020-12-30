@@ -20,11 +20,10 @@ sleep 1.5;
 player setVariable ["xr_pisinaction", true];
 _dragee setVariable ["xr_dragged", true, true];
 
-[_dragee, "ainjpfalmstpsnonwrfldnon_carried_up"] remoteExecCall ["switchMove"];
-[_unit, "acinpknlmstpsraswrfldnon_acinpercmrunsraswrfldnon"] remoteExecCall ["switchMove"];
+[_dragee, 1] remoteExecCall ["d_fnc_swm"];
+[_unit, 2] remoteExecCall ["d_fnc_swm"];
 sleep 10;
 _dragee attachTo [_unit,  [-0,-0.1,-1.2], "RightShoulder"];
-//[_dragee, 180] remoteExecCall ["setDir"];
 
 if (isNil "xr_loadAction") then {
 	xr_loadAction = - 3333;
@@ -46,7 +45,7 @@ while {xr_carry} do {
 	if (alive _dragee && {!(_dragee getVariable ["xr_pluncon", false])}) exitWith {
 		detach _dragee;
 		sleep 0.5;
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		player removeAction xr_dropAction;
 		xr_dropAction = -3333;
@@ -66,7 +65,7 @@ while {xr_carry} do {
 				[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 			};
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		xr_carry = false;
 	};
 	sleep 0.1;

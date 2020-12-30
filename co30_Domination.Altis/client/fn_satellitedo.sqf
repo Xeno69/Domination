@@ -10,11 +10,11 @@ if (d_with_ranked || {d_database_found}) then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_76", score player, d_ranked_a # 19];
 		_exitj = true;
 	} else {
-		[player, (d_ranked_a # 19) * -1] remoteExecCall ["addScore", 2];
+		[player, 9] remoteExecCall ["d_fnc_ascfc", 2];
 	};
 };
 if (_exitj) exitWith {};
 
 __TRACE_1("","_this")
 
-[(_this select 0) ctrlMapScreenToWorld [_this select 2, _this select 3], "", 500, 200, 360, 0, 0] spawn d_fnc_establishingShot;
+[(_this # 0) ctrlMapScreenToWorld [_this # 2, _this # 3], "", 500, 200, 360, 0, 0] spawn d_fnc_establishingShot;

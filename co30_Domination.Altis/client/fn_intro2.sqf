@@ -1,5 +1,5 @@
 // by Xeno
-#define THIS_FILE "x_intro2.sqf"
+#define THIS_FILE "fn_intro2.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

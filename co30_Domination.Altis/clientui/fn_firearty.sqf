@@ -43,7 +43,7 @@ if (_no isNotEqualTo []) exitWith {
 };
 #endif
 
-if ((d_with_ranked || {d_database_found}) && {d_ranked_a # 2 > 0}) then {[player, (d_ranked_a # 2) * -1] remoteExecCall ["addScore", 2]};
+if ((d_with_ranked || {d_database_found}) && {d_ranked_a # 2 > 0}) then {[player, 1] remoteExecCall ["d_fnc_ascfc", 2]};
 #ifndef __TT__
 player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], d_kbtel_chan];
 #else

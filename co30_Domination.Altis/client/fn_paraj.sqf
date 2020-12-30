@@ -37,7 +37,7 @@ if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player ge
 #ifndef __TT__
 		[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;
 		if (d_with_ranked || {d_database_found}) then {
-			[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
+			[player, 8] remoteExecCall ["d_fnc_ascfc", 2];
 		};
 #else
 		if (d_player_side == blufor) then {
@@ -46,7 +46,7 @@ if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player ge
 			};
 			[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;
 			if (d_with_ranked || {d_database_found}) then {
-				[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
+				[player, 8] remoteExecCall ["d_fnc_ascfc", 2];
 			};
 		} else {
 			if (d_player_side == opfor) then {
@@ -55,7 +55,7 @@ if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player ge
 				};
 				[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;
 				if (d_with_ranked || {d_database_found}) then {
-					[player, (d_ranked_a # 4) * -1] remoteExecCall ["addScore", 2];
+					[player, 8] remoteExecCall ["d_fnc_ascfc", 2];
 				};
 			};
 		};

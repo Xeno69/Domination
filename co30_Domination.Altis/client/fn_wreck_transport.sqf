@@ -114,7 +114,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 
 					if (!isNull _transobj) then {
 						detach _transobj;
-						[_transobj, [0,0,0]] remoteExecCall ["setVelocity", _transobj];
+						_transobj remoteExecCall ["d_fnc_setvel0", _transobj];
 						_transobj setPos (_vec modelToWorldVisual [0, -2, 0]);
 					};
 
@@ -130,8 +130,6 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 
 					private _npos = getPosATLVisual _transobj;
 					_transobj setPos [_npos # 0, _npos # 1, 0];
-
-					//[_transobj, [0,0,0]] remoteExecCall ["setVelocity", _transobj];
 
 					sleep 1.012;
 				};

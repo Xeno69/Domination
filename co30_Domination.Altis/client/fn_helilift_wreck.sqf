@@ -119,7 +119,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 
 					if (!isNull _liftobj) then {
 						detach _liftobj;
-						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+						_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 					};
 
 					_chopper setVariable ["d_vec_attached", nil, true];
@@ -145,7 +145,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						};
 
 						detach _liftobj;
-						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+						_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 					};
 
 					sleep 1.012;

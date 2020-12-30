@@ -48,7 +48,7 @@ if (d_with_ranked) then {
 		_exitj = true;
 	};
 	// each AI soldier costs score points
-	[player, (d_ranked_a # 3) * -1] remoteExecCall ["addScore", 2];
+	[player, 0] remoteExecCall ["d_fnc_ascfc", 2];
 };
 
 if (_exitj) exitWith {

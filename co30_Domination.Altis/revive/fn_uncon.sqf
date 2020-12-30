@@ -16,7 +16,7 @@ if (d_earplugs_fitted) then {
 	player remoteExecCall ["xr_fnc_addActions", _x];
 } forEach d_own_sides_o;
 if (!captive player) then {
-	[player, true] remoteExecCall ["setCaptive"];
+	player setCaptive true;
 };
 
 closeDialog 0;
@@ -102,7 +102,7 @@ __TRACE("starting main uncon loop")
 				};
 			};
 			__TRACE("set capture false player")
-			[player, false] remoteExecCall ["setCaptive"];
+			player setCaptive false;
 			enableRadio true;
 			__TRACE_1("","xr_u_pl_died")
 			if (!xr_u_pl_died) then {

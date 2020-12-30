@@ -29,12 +29,11 @@ player remoteExec ["xr_fnc_draghelper", _dragee];
 _unit playMoveNow "acinpknlmstpsraswrfldnon";
 sleep 2;
 
-[_dragee, "AinjPpneMstpSnonWrflDnon"] remoteExecCall ["switchMove"];
-//[_dragee, "AinjPpneMrunSnonWnonDb"] remoteExecCall ["switchMove"];
+[_dragee, 4] remoteExecCall ["d_fnc_swm"];
 _dragee attachto [_unit,[0.1, 1.01, 0]];
 
 sleep 0.02;
-[_dragee, 180] remoteExecCall ["setDir", _dragee];
+_dragee remoteExecCall ["d_fnc_sd180", _dragee];
 
 xr_drag = true;
 sleep 0.02;
@@ -67,7 +66,7 @@ while {xr_drag} do {
 		} else {
 			[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};
@@ -86,7 +85,7 @@ while {xr_drag} do {
 		} else {
 			[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};
@@ -104,7 +103,7 @@ while {xr_drag} do {
 		} else {
 			[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};
@@ -117,7 +116,7 @@ while {xr_drag} do {
 			xr_carryAction = -3333;
 		};
 		detach _unit;
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};

@@ -214,12 +214,12 @@ if (!d_sm_resolved) then {
 	} else {
 		if (d_with_ranked || {d_database_found}) then {
 	#ifndef __TT__
-			[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+			(getPosATL d_FLAG_BASE) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 	#else
 			if (d_sm_winner == 1) then {
-				[missionNamespace, ["d_sm_p_pos", getPosATL d_EFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+				(getPosATL d_EFLAG_BASE) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 			} else {
-				[missionNamespace, ["d_sm_p_pos", getPosATL d_WFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+				(getPosATL d_WFLAG_BASE) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 			};
 	#endif
 		};

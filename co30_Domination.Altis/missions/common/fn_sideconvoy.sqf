@@ -94,7 +94,7 @@ while {true} do {
 	};
 	if (d_with_ranked || {d_database_found}) then {
 		if (!isNull (leader _newgroup)) then {
-			[missionNamespace, ["d_sm_p_pos", leader _newgroup]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+			(leader _newgroup) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 		};
 	};
 	if (time > _mforceendtime) exitWith {_convoy_reached_dest = true};

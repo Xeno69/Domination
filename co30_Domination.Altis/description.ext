@@ -213,6 +213,17 @@ class CfgRemoteExec {
 		class d_fnc_addpushaction {allowedTargets = 1;};
 		class d_fnc_initPlayerServer {allowedTargets = 2;};
 		class d_fnc_incjail {allowedTargets = 2;};
+		class d_fnc_setleader {};
+		class d_fnc_swm {};
+		class d_fnc_sd180 {};
+		class d_fnc_setvel0 {};
+		class xr_fnc_phogl {allowedTargets = 2;};
+		class d_fnc_smsvpos {};
+		class d_fnc_setdbstart {allowedTargets = 1;};
+		class d_fnc_seturinf {allowedTargets = 1;};
+		class d_fnc_setbcnil {};
+		class d_fnc_ascfc {allowedTargets = 2;};
+		class d_fnc_emiss {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};
@@ -222,6 +233,7 @@ class CfgRemoteExec {
 		class d_fnc_addgrhcace {allowedTargets = 1;};
 		class d_fnc_ttpvkill {allowedTargets = 2;};
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
+		class d_fnc_asfnc {allowedTargets = 2;};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -231,21 +243,13 @@ class CfgRemoteExec {
 		//your commands here
 		//class YourCommand1 { allowedTargets=0; jip=0; } // can target anyone, sending jip is turned off (overrides settings in the Commands class)
 		class setFuel {};
-		class setCaptive {};
-		class switchMove {};
-		class setDir {};
 		class lock {};
 		class selectLeader {};
 		class join {};
 		class joinSilent {};
-		class setVelocity {};
 		class engineOn {};
 		class setMass {};
-		class addScore {allowedTargets = 2;};
-		class hideObjectGlobal {allowedTargets = 2;};
 		class deleteMarker {allowedTargets = 2;};
-		class setVariable {};
-		class endMission {allowedTargets = 1;};
 		class deleteGroup {allowedTargets=0;};
 		class setSpeaker {allowedTargets = 1;};
 		class setFeatureType {};

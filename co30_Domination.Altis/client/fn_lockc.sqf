@@ -9,7 +9,7 @@ if (!isNull objectParent player) exitWith {
 };
 
 params ["_vec"];
-private _arg = _this select 3;
+private _arg = _this # 3;
 
 if (_arg == 0 && {_vec call d_fnc_isVecLocked}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_275")};
 
@@ -27,5 +27,5 @@ switch (_arg) do {
 };
 
 d_adm_currentvec = objNull;
-_vec removeAction (_this select 2);
+_vec removeAction (_this # 2);
 d_admin_idd =  -9999;

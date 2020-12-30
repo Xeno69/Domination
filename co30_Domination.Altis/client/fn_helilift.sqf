@@ -185,7 +185,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						[_liftobj, _oldmass] remoteExecCall ["setMass"];
 						_chopper setVariable ["d_lobm", nil, true];
 					};
-					[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+					_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 
 					[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
 					if ((getPosVisual _liftobj) # 2 > 5) then {
@@ -225,7 +225,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						private _npos = getPosVisual _liftobj;
 						_liftobj setPos [_npos # 0, _npos # 1, 0];
 					};
-					[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+					_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 
 					sleep 1.012;
 				};

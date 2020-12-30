@@ -42,8 +42,6 @@ ctrlmapanimcommit _ctrl;
 private _endtime = time + 30;
 waitUntil {!isNil "d_u_r_inf" || {!d_admin_dialog_open || {!alive player || {time > _endtime}}}};
 
-d_u_r_inf = d_u_r_inf # 1;
-
 if (d_u_r_inf isEqualTo [] || {!d_admin_dialog_open || {!alive player || {time > _endtime}}}) exitWith {};
 
 _control ctrlEnable true;

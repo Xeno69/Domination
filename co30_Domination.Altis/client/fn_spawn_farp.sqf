@@ -49,7 +49,7 @@ if ([_d_farp_pos, 5] call d_fnc_getslope > 0.2) exitWith {
 
 player setVariable ["d_isinaction", true];
 
-if (d_with_ranked || {d_database_found}) then {[player, (d_ranked_a # 20) * -1] remoteExecCall ["addScore", 2]};
+if (d_with_ranked || {d_database_found}) then {[player, 10] remoteExecCall ["d_fnc_ascfc", 2]};
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 1;

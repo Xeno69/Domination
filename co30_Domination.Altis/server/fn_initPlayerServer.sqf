@@ -164,7 +164,7 @@ if (d_database_found) then {
 			_dbresult params ["_pres"];
 			if (_pres isNotEqualTo []) then {
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
-				[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
+				_pres remoteExecCall ["d_fnc_setdbstart", _pl];
 			};
 		};
 	};

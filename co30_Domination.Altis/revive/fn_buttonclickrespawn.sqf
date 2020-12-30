@@ -77,7 +77,7 @@ __TRACE("stopspect = true")
 xr_stopspect = true;
 player setVariable ["xr_plno3dd", true, true];
 player setVariable ["xr_pluncon", false, true];
-[player, false] remoteExecCall ["setCaptive"];
+player setCaptive false;
 sleep 0.5;
 
 private _mhqobj = objNull;

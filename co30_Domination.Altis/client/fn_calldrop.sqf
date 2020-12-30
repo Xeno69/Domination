@@ -54,7 +54,7 @@ if (d_x_drop_type != "") then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_166", d_drop_max_dist];
 	};
 	player sideChat format [localize "STR_DOM_MISSIONSTRING_167", [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName];
-	if (d_with_ranked || {d_database_found}) then {[player, (d_ranked_a # 16) * -1] remoteExecCall ["addScore", 2]};
+	if (d_with_ranked || {d_database_found}) then {[player, 4] remoteExecCall ["d_fnc_ascfc", 2]};
 	[d_x_drop_type, _mpdz, player] remoteExec ["d_fnc_createdrop", 2];
 } else {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_168");

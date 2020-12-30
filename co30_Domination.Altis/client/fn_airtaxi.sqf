@@ -14,7 +14,7 @@ if (d_with_ranked || {d_database_found}) then {
 		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_1424", score player, d_ranked_a # 15];
 		_exitj = true;
 	};
-	[player, (d_ranked_a # 15) * -1] remoteExecCall ["addScore", 2];
+	[player, 2] remoteExecCall ["d_fnc_ascfc", 2];
 };
 
 if (_exitj) exitWith {};

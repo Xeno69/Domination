@@ -26,11 +26,11 @@ __TRACE_1("","_new_lead")
 
 if (_isLeader && {_new_lead != player}) then {
 	player setVariable ["xr_isleader", false];
-	[_new_lead, ["xr_isleader", true]] remoteExecCall ["setVariable", _new_lead];
+	[_new_lead, true] remoteExecCall ["d_fnc_setleader", _new_lead];
 } else {
 	if (!_isLeader && {_new_lead == player}) then {
 		player setVariable ["xr_isleader", true];
-		[_old_lead, ["xr_isleader", false]] remoteExecCall ["setVariable", _old_lead];
+		[_old_lead, false] remoteExecCall ["d_fnc_setleader", _old_lead];
 	};
 };
 

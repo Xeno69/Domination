@@ -19,7 +19,7 @@ enableRadio false;
 0 fadeSound 0;
 //player setPos (markerPos "xr_resp_marker");
 player setVehiclePosition [markerPos "xr_resp_marker", [], 0, "NONE"]; // CAN_COLLIDE ?
-[player, true] remoteExecCall ["setCaptive"];
+player setCaptive true;
 if (player getVariable "xr_isdead") exitWith {};
 __TRACE("playActionNow Die/setuncon")
 player switchAction "Die";

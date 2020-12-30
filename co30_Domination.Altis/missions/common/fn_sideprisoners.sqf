@@ -134,7 +134,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 #else
 		private _tmp_flag = if (_winner == 1) then {d_EFLAG_BASE} else {d_WFLAG_BASE};
 #endif
-		[missionNamespace, ["d_sm_p_pos", getPosATL _tmp_flag]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+		(getPosATL _tmp_flag) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 	};
 	if (time > _mforceendtime) exitWith {
 		{
