@@ -4,6 +4,7 @@
 #include "..\x_setup.sqf"
 
 private _ef_st = d_ef_hash;
+__TRACE_1("","_ef_st")
 {
 	call {
 		if (_y # 1 == 0) exitWith {

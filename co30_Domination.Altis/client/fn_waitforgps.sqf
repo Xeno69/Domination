@@ -7,7 +7,7 @@ disableSerialization;
 sleep 10;
 __TRACE_1("","uiNamespace getVariable 'IGUI_displays'")
 while {true} do {
-	sleep 0.1;
+	sleep 0.3;
 	if (visibleGPS) exitWith {};
 };
 __TRACE("starting")
