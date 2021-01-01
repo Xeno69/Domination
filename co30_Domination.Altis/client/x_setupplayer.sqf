@@ -1208,3 +1208,36 @@ if (isMultiplayer) then {
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
+
+/*
+isNil {(calculatePath ["car","safe",[14743.4,16786.5,0],[13997.6,18721,0]]) addEventHandler ["PathCalculated", { 
+ { 
+  private _marker = createMarker ["marker" + str _forEachIndex, _x]; 
+  _marker setMarkerType "mil_dot"; 
+  _marker setMarkerText str _forEachIndex; 
+ } forEach (_this select 1); 
+}]}
+*/
+
+/*0 spawn {
+	private _opos = getPosWorld player;
+	private _m = 0;
+	private _vm = 0;
+	private ["_npos", "_dst"];
+	
+	while {true} do {
+		sleep 0.2;
+		isNil {
+			private _npos = getPosWorld player;
+			private _dst = _opos distance _npos;
+			if (_dst > 0.1) then {
+				if (isNull objectParent player) then {
+					_m = _m + _dst;
+				} else {
+					_vm = _vm + _dst;
+				};
+				_opos = _npos;
+			};
+		};
+	};
+};*/

@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_eachframerun.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE("Eachframerun")
+
 private _ef_st = d_ef_hash;
 __TRACE_1("","_ef_st")
 {
