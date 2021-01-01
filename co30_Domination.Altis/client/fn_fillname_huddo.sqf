@@ -1,6 +1,9 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_fillname_huddo.sqf"
 #include "..\x_setup.sqf"
+
+__TRACE("fillname_huddo")
 
 #define __d_textsize_dr3d  0.03333
 #define __d_textsize_dr3d_ai  0.028

@@ -10,14 +10,23 @@ params ["_name", "_code", ["_delta", 0], ["_type", "seconds"]];
 _type = [1, 0] select (_type == "seconds");
 
 if (_delta == 0 || {_type == 1}) then {
-	if (isNil "d_ef_hash") then {
-		d_ef_hash = createHashMap;
-	};
-	__TRACE("First")
-	d_ef_hash set [_name, [_code, _delta, -1, _type]];
+	if (_delta == 0) then {
+		if (isNil "d_ef_n_hash") then {
+			d_ef_n_hash = createHashMap;
+		};
+		__TRACE("First 1")
+		
+		d_ef_n_hash set [_name, addMissionEventhandler ["EachFrame", _code]];
+	} else {
+		if (isNil "d_ef_hash") then {
+			d_ef_hash = createHashMap;
+		};
+		__TRACE("First")
+		d_ef_hash set [_name, [_code, _delta, -1, _type]];
 
-	if (isNil "d_ef_running") then {
-		d_ef_running = addMissionEventhandler ["EachFrame", {call d_fnc_eachframerun}];
+		if (isNil "d_ef_running") then {
+			d_ef_running = addMissionEventhandler ["EachFrame", {call d_fnc_eachframerun}];
+		};
 	};
 } else {
 	if (isNil "d_ef_trig_hash") then {
