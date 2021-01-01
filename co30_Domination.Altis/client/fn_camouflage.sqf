@@ -8,16 +8,16 @@ sleep 10;
 
 while {true} do {
 	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
-		if (stance player != _oldstance) then {
+		if (stance player isNotEqualTo _oldstance) then {
 			_oldstance = stance player;
 			call {
-				if (_oldstance == "STANCE") exitWith {
+				if (_oldstance isEqualTo "STAND") exitWith {
 					player setUnitTrait ["camouflageCoef", 1];
 				};
-				if (_oldstance == "CROUCH") exitWith {
+				if (_oldstance isEqualTo "CROUCH") exitWith {
 					player setUnitTrait ["camouflageCoef", 0.8];
 				};
-				if (_oldstance == "PRONE") exitWith {
+				if (_oldstance isEqualTo "PRONE") exitWith {
 					player setUnitTrait ["camouflageCoef", 0.5];
 				};
 				player setUnitTrait ["camouflageCoef", 1];

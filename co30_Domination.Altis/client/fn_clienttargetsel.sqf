@@ -26,7 +26,7 @@ if (_type == 0) then {
 		{
 			private _mar = _x getVariable "d_sel_mar";
 			if (!isNil "_mar") then {
-				private _num = _x getVariable ["d_selectionsmt", 0];
+				private _num = _x getVariable "d_selectionsmt";
 				if (!isNil "_num") then {
 					_mar setMarkerTextLocal format ["  %1", _num];
 				};
@@ -38,7 +38,7 @@ if (_type == 0) then {
 			{
 				private _mar = _x getVariable "d_sel_mar";
 				if (!isNil "_mar") then {
-					private _num = _x getVariable ["d_selectionsmt", 0];
+					private _num = _x getVariable "d_selectionsmt";
 					if (!isNil "_num") then {
 						_mar setMarkerTextLocal format ["  %1", _num];
 					};
