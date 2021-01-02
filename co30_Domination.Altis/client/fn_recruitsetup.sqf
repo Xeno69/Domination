@@ -1,5 +1,5 @@
 // by Xeno
-#define THIS_FILE "x_recruitsetup.sqf"
+#define THIS_FILE "fn_recruitsetup.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

@@ -6,6 +6,7 @@ class cfgFunctions {
 		tag = "d";
 		class Dom_Client {
 			file = "client";
+			addc(setupplayer);
 			addc(playerspawn);
 			addc(dlgopenx);
 			addc(prespawned);
@@ -192,6 +193,7 @@ class cfgFunctions {
 			addc(intro2);
 			addc(setdbstart);
 			addc(emiss);
+			addc(recruitsetup);
 		};
 		class Dom_UI {
 			file = "clientui";

@@ -87,7 +87,8 @@ if (_p isEqualTo []) then {
 	__TRACE_1("player store after change","_p")
 };
 
-_p remoteExecCall ["d_fnc_player_stuff", owner _pl];
+if (remoteExecutedOwner isEqualTo 0) exitWith {};
+_p remoteExecCall ["d_fnc_player_stuff", remoteExecutedOwner];
 
 if (d_database_found) then {
 	private _dbresult = [];
@@ -164,7 +165,8 @@ if (d_database_found) then {
 			_dbresult params ["_pres"];
 			if (_pres isNotEqualTo []) then {
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
-				_pres remoteExecCall ["d_fnc_setdbstart", _pl];
+				if (remoteExecutedOwner isEqualTo 0) exitWith {};
+				_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
 			};
 		};
 	};

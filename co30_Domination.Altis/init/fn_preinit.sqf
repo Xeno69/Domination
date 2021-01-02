@@ -2746,7 +2746,7 @@ if (hasInterface) then {
 				if (!isNil "d_preloaddone" && {!isNull (findDisplay 46)}) then {
 					diag_log [diag_frameno, diag_tickTime, time, "Executing Dom local player pre start"];
 					if !(player isKindOf "VirtualSpectator_F") then {
-						call compile preprocessFileLineNumbers "client\x_setupplayer.sqf";
+						call d_fnc_setupplayer;
 					};
 					removeMissionEventHandler ["EachFrame", _thisEventHandler];
 				};

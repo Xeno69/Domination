@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_setupplayer.sqf"
+#define THIS_FILE "fn_setupplayer.sqf"
 #include "..\x_setup.sqf"
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
@@ -434,10 +434,10 @@ if (!d_no_ai) then {
 					sleep 0.512;
 					if (!isNil "d_AI_HUT") exitWith {};
 				};
-				call compile preprocessFileLineNumbers "client\x_recruitsetup.sqf";
+				call d_fnc_recruitsetup;
 			};
 		} else {
-			call compile preprocessFileLineNumbers "client\x_recruitsetup.sqf";
+			call d_fnc_recruitsetup;
 		};
 
 		private _grpp = group player;

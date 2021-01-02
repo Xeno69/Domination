@@ -3,4 +3,5 @@
 #define THIS_FILE "fn_getadminarray.sqf"
 #include "..\x_setup.sqf"
 
-(d_player_hash getOrDefault [_this # 1, []]) remoteExecCall ["d_fnc_seturinf", _this # 0];
+if (remoteExecutedOwner isEqualTo 0) exitWith {};
+(d_player_hash getOrDefault [_this, []]) remoteExecCall ["d_fnc_seturinf", remoteExecutedOwner];

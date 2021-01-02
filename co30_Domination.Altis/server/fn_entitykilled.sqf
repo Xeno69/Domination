@@ -20,9 +20,7 @@ if (_ar # 18 == 1) exitWith {
 	_this call d_fnc_plcheckkill;
 	true
 };
-#endif
-
-#ifdef __TT__
+#else
 if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 	if (_ar # 0 > 0) then {
 		call {
