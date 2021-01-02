@@ -7,8 +7,9 @@
 // _center - position
 // _buildingRadius - set nearestObjects radius, -1 to return only the nearest building
 // _sideHostile - (optional) side, return only buildings that are not occupied by a hostile unit
+// _minimumNumberOfPositions - (optional) return only buildings that have this many positions in the building
 
-params ["_center", "_buildingRadius", "_sideHostile"];
+params ["_center", "_buildingRadius", "_sideHostile", ["_minimumNumberOfPositions", 0, [0]]];
 
 _buildingsArray = [];
 
@@ -27,18 +28,16 @@ if (count _buildingsArray == 0) exitWith {
 
 _buildingsArrayFiltered = [];
 
-if !(isNil "_sideHostile") then {
-	{
-    	if (!((_x buildingPos -1) isEqualTo []) && {!([_x, _sideHostile] call d_fnc_isbldghostile)}) then {
-    		_buildingsArrayFiltered pushBack _x;
-    	};
-    } forEach _buildingsArray;
-} else {
-	{
-		if (!((_x buildingPos -1) isEqualTo [])) then {
-			_buildingsArrayFiltered pushBack _x;
-		};
-	} forEach _buildingsArray;
-};
-
+{
+	private _keep = true;
+	// check if bldg has enough positions available for units TODO: check if positions are already occupied!!
+	if ((_x buildingPos -1) isEqualTo []) then { _keep = false; };
+	// (optional) check if bldg has hostile units present
+	if (!isNil "_sideHostile" && {([_x, _sideHostile] call d_fnc_isbldghostile)}) then { _keep = false; };
+	// (optional) check if bldg has minimum number of positions
+	if (_minimumNumberOfPositions != 0 && {count (_x buildingPos -1) < _minimumNumberOfPositions}) then { _keep = false; };
+	if (_keep) then {
+		_buildingsArrayFiltered pushBack _x;
+	};
+} forEach _buildingsArray;
 _buildingsArrayFiltered

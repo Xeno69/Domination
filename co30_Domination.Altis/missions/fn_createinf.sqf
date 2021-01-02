@@ -25,7 +25,7 @@ if (isNil "_pos_center") exitWith {
 	diag_log ["fn_createinf.sqf _this: ", _this];
 };
 private _radius = _this select 5;
-private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 7) then {_this select 6} else {false}};
+private _do_patrol = if (_radius < 50) then {false} else {if (count _this > 6) then {_this select 6} else {false}};
 private _ret_grps = [];
 private _isArmorAdjustmentDisabled = if (count _this > 7) then {_this select 7} else {false};
 private _unitsPerGroup = if (count _this > 8) then {_this select 8} else {-1};

@@ -14,7 +14,7 @@ This award winning game mission stands as one of the oldest missions of the Arma
 To run the Domination mission locally:
 
 * copy the mission folder `co30_Domination.Altis` into your local `mpmission` directory
-* load the mission in Eden editor and click Play -> Multiplayer -> OK to run your local code
+* load the mission in Eden editor and click **Play** -> **Multiplayer** -> **OK** to run your local code
 
 # Editing the mission
 
@@ -22,7 +22,7 @@ The Domination mission may be modified in Eden editor.
 
 All maps supported by Domination are released as PBOs.  However you can use any PBO tool to modify and bundle your own mission modifications.  Choose `co30_Domination.Altis` as the PBO source to bundle the default map (Altis).
 
-If you want to bundle or modify maps other than Altis then follow these steps:
+If you want to bundle or modify maps other than Altis follow these steps:
 
 * delete `co30_Domination.Altis/mission.sqm`
 * copy the appropriate `mission.sqm` file from `mission_sqm` folder into `co30_Domination.Altis`

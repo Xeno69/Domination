@@ -313,6 +313,8 @@ class cfgFunctions {
 			addc(getbuildings);
 			addc(getcoveredpositions);
 			addc(getunitbyuid);
+			addc(sortarraybydistance);
+			addc(isvisible);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
