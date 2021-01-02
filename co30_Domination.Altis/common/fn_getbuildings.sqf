@@ -30,11 +30,11 @@ _buildingsArrayFiltered = [];
 
 {
 	private _keep = true;
-	// check if bldg has enough positions available for units TODO: check if positions are already occupied!!
+	// check if bldg has any positions available for units
 	if ((_x buildingPos -1) isEqualTo []) then { _keep = false; };
 	// (optional) check if bldg has hostile units present
 	if (!isNil "_sideHostile" && {([_x, _sideHostile] call d_fnc_isbldghostile)}) then { _keep = false; };
-	// (optional) check if bldg has minimum number of positions
+	// (optional) check if bldg has minimum number of positions TODO: check if positions are already occupied!!
 	if (_minimumNumberOfPositions != 0 && {count (_x buildingPos -1) < _minimumNumberOfPositions}) then { _keep = false; };
 	if (_keep) then {
 		_buildingsArrayFiltered pushBack _x;
