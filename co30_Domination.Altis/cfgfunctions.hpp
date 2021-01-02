@@ -324,6 +324,8 @@ class cfgFunctions {
 			addc(setvel0);
 			addc(seturinf);
 			addc(setbcnil);
+			addc(sortarraybydistance);
+			addc(isvisible);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

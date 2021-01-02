@@ -681,7 +681,6 @@ if (d_with_MainTargetEvents != 0) then {
 			for "_i" from 0 to 2 do {
 				_tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
-				diag_log [format ["fooooooooooo %1", _tmpRandomEvent]];
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);
 				// if guerrilla infantry are randomly selected then there is a 1 in 3 chance of guerrilla tanks
 				if (_tmpRandomEvent == "GUERRILLA_INFANTRY" && {(random 3 <= 1)}) then {

@@ -25,6 +25,7 @@
 //                2 - unit is static, no movement allowed
 //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
 //  (opt.) 10. Boolean, true to allow the selected position to be near an enemy (default: false)
+//  (opt.) 11. Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -45,7 +46,8 @@ params [
 	["_doMove", false, [true]],
 	["_unitMovementMode", 0, [0]],
 	["_isRequireRoofOverhead", false, [true]],
-	["_isAllowSpawnNearEnemy", false, [true]]
+	["_isAllowSpawnNearEnemy", false, [true]],
+	["_isDryRun", false, [true]]
 ];
 
 private [
@@ -171,7 +173,11 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		_posArray deleteAt 0;
 		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
 		
-		if (_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}) exitWith {};
+		if (_isRequireRoofOverhead) then {
+			if (!((_housePos) call d_fnc_isinhouse)) exitWith {
+				// the position is not inside a house
+			};
+		};
 
 		_startAngle = (round random 10) * (round random 36);
 		for "_i" from _startAngle to (_startAngle + 350) step 10 do {
@@ -206,79 +212,80 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 							};
 
 							if (!_isRoof || {_edge}) then {
-								private _uuidx = _units select _unitIndex;
-								_uuidx doWatch ([_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
-
-								if (_doMove) then {
-									_uuidx doMove ASLToATL ([_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT]);
-								} else {
-									_uuidx setPosASL [_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT];
-									_uuidx setDir _i;
-
-									doStop _uuidx;
-								};
-
-								//occupy mode - no special behavior
-								if (_unitMovementMode == 0) then {
-									//do nothing
-								};
-
-								//ambush mode - static until firedNear within 69m restores unit ability to move and fire
-								if (_unitMovementMode == 1) then {
-
-									if !(_doMove) then {
-										_uuidx disableAI "TARGET";
-										_uuidx forceSpeed 0;
-									};
-
-									_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
-										params ["_unit", "_firer"];
-										scriptName "spawn_zoh_firednear1ambush";
-										if (d_side_player getFriend side (group _firer) >= 0.6) then {
-											_unit enableAI "TARGET";
-											_unit enableAI "AUTOTARGET";
-											_unit enableAI "MOVE";
-											_unit forceSpeed -1;
-										};
-									}]];
-								};
-
-								//sniper mode - static forever
-								if (_unitMovementMode == 2) then {
-									if (d_snp_aware == 1) then {
-										//highly aware snipers
-										//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
+								if (!_isDryRun) then {
+									private _uuidx = _units select _unitIndex;
+									_uuidx doWatch ([_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
+								
+									if (_doMove) then {
+										_uuidx doMove ASLToATL ([_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT]);
 									} else {
-										//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
-										if (_isRoof) then {
-											_uuidx setUnitPos "MIDDLE";
-											_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
-												scriptName "spawn_zoh_firednear1";
-												[_this # 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-											}]];
-										} else {
-											_uuidx setUnitPos "UP";
-											_uuidx setVariable ["zen_fn_idx",_uuidx addEventHandler ["FiredNear", {
-												scriptName "spawn_zoh_firednear2";
-												[_this # 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-											}]];
+										_uuidx setPosASL [_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT];
+										_uuidx setDir _i;
+	
+										doStop _uuidx;
+									};
+	
+									//occupy mode - no special behavior
+									if (_unitMovementMode == 0) then {
+										//do nothing
+									};
+	
+									//ambush mode - static until firedNear within 69m restores unit ability to move and fire
+									if (_unitMovementMode == 1) then {
+	
+										if !(_doMove) then {
+											_uuidx disableAI "TARGET";
+											_uuidx forceSpeed 0;
 										};
-
+	
+										_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
+											params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+											scriptName "spawn_zoh_firednear1ambush";
+											if (d_side_player getFriend side (group _firer) >= 0.6) then {
+												(_this select 0) enableAI "TARGET";
+												(_this select 0) enableAI "AUTOTARGET";
+												(_this select 0) enableAI "MOVE";
+												(_this select 0) forceSpeed -1;
+											};
+										}]];
+									};
+	
+									//sniper mode - static forever
+									if (_unitMovementMode == 2) then {
+										if (d_snp_aware == 1) then {
+											//highly aware snipers
+											//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
+										} else {
+											//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
+											if (_isRoof) then {
+												_uuidx setUnitPos "MIDDLE";
+												_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
+													scriptName "spawn_zoh_firednear1";
+													[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+												}]];
+											} else {
+												_uuidx setUnitPos "UP";
+												_uuidx setVariable ["zen_fn_idx",_uuidx addEventHandler ["FiredNear", {
+													scriptName "spawn_zoh_firednear2";
+													[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
+												}]];
+											};
+	
+											if !(_doMove) then {
+												_uuidx disableAI "TARGET";
+												_uuidx forceSpeed 0;
+											};
+										};
+									};
+									
+									//overwatch mode - static forever but without special sniper behaviors
+									if (_unitMovementMode == 3) then {
 										if !(_doMove) then {
 											_uuidx disableAI "TARGET";
 											_uuidx forceSpeed 0;
 										};
 									};
-								};
-								
-								//overwatch mode - static forever but without special sniper behaviors
-								if (_unitMovementMode == 3) then {
-									if !(_doMove) then {
-										_uuidx disableAI "TARGET";
-										_uuidx forceSpeed 0;
-									};
-								};
-
+								};//end if _isDryRun
 								I(_unitIndex)
 								if (_fillEvenly) then {
 									breakTo "for";

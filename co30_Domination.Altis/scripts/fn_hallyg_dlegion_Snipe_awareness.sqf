@@ -27,39 +27,6 @@ private _isLOS = {
 	};
 };
 
-//by Jezuro
-private _sortArrayByDistance = {
-	params ["_unitArray", "_fromPosition"];
-	_unsorted = _unitArray;
-	_sorted = [];
-	_pos = _fromPosition;
-
-	{
-		_closest = _unsorted # 0;
-		{if ((getPos _x distance _pos) < (getPos _closest distance _pos)) then {_closest = _x}} forEach _unsorted;
-		_sorted pushBack _closest;
-		_unsorted = _unsorted - [_closest]
-	} forEach _unsorted;
-
-	_sorted
-};
-
-//by sarogahtyp
-private _isVisible = {
-	params ["_unit", "_target"];
-	_visibleThreshold = 0.015;
-	_targetEye = eyepos _target;
-	_unitEye = eyepos _unit;
-
-	//vector origins are half meter away from looker and target (uses 0.5 of a normalized vector which by definition is 1 meter)
-	_unit_in_dir = _unitEye vectorAdd ((_unitEye vectorFromTo _targetEye) vectorMultiply 0.5);
-	_target_in_dir = _targetEye vectorAdd ((_targetEye vectorFromTo _unitEye) vectorMultiply 0.5);
-
-	_visiblity = parseNumber str ([objNull, "VIEW"] checkVisibility [_target_in_dir, _unit_in_dir]);
-
-	(_visiblity > _visibleThreshold)
-};
-
 //_unit disableAI "AIMINGERROR";
 _unit disableAI "TARGET";
 
@@ -95,12 +62,12 @@ while {true} do {
 	_fired = false;
 	
 	if (count _Dtargets > 0) then {
-		_playersSortedByDistance = [_Dtargets, getPos _unit] call _sortArrayByDistance;
+		_playersSortedByDistance = [_Dtargets, getPos _unit] call d_fnc_sortarraybydistance;
 		
 		if (_isAggressiveShoot == 1) then {
 			{
 				if (!alive _unit) exitWith {};
-				if (([_unit, _x] call _isVisible) || {[_unit, _x, 360] call _isLOS}) then {
+				if (([_unit, _x] call d_fnc_isvisible) || {[_unit, _x, 360] call _isLOS}) then {
 					//to check if unit actually fired
 					_ammoCount = _unit ammo primaryWeapon _unit;
 					_magazineCount = count magazinesAmmo _unit; 

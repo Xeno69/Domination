@@ -5,19 +5,19 @@
 
 // check if a position is inside a house (tests if intersections isKindOf "House" in several different directions)
 
-// That line doesn't do anything
-//if (count _housePos != 3) then { false; };
-
-private _isInHouse = true;
-private _testMeHorizontalPlane = [[6,3,0], [6,-3,0], [-6,3,0], [-6,-3,0], [0,0,50]];
+private _is_in_house = true;
+private _test_vector_endpoints = [[6,3,0], [6,-3,0], [-6,3,0], [-6,-3,0], [0,0,50]];
+private _eye_height = 1.53;
+private _position_under_test_plus_eyeheight = [_this # 0, _this # 1, (_this # 2) + _eye_height];
 {
-	private _firstIntersectedItem = lineIntersectsSurfaces [
-		_this,
-		_this vectorAdd _x,
+	private _first_intersected_item = lineIntersectsSurfaces [
+		_position_under_test_plus_eyeheight,
+		_position_under_test_plus_eyeheight vectorAdd _x,
 		objNull, objNull, true, 1, "GEOM", "NONE"
 	];
-	if !(((_firstIntersectedItem # 0) select 2) isKindOf "House") then {
-		_isInHouse = false;
-	}
-} forEach _testMeHorizontalPlane;
-_isInHouse
+	private _fii = (_first_intersected_item # 0) select 2;
+	if (isNil "_fii" || {!(_fii isKindOf "House")}) exitWith {
+		_is_in_house = false;
+	};
+} forEach _test_vector_endpoints;
+_is_in_house
