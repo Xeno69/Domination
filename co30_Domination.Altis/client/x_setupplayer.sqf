@@ -1222,22 +1222,36 @@ isNil {(calculatePath ["car","safe",[14743.4,16786.5,0],[13997.6,18721,0]]) addE
 /*0 spawn {
 	private _opos = getPosWorld player;
 	private _m = 0;
-	private _vm = 0;
-	private ["_npos", "_dst"];
+	private _lvm = 0;
+	private _avm = 0;
+	private _svm = 0;
+	private ["_npos", "_dst", "_v"];
 	
 	while {true} do {
 		sleep 0.2;
 		isNil {
 			private _npos = getPosWorld player;
-			private _dst = _opos distance _npos;
-			if (_dst > 0.1) then {
+			if (speed player > 0) then {
+				private _dst = _opos distance2D _npos;
 				if (isNull objectParent player) then {
 					_m = _m + _dst;
 				} else {
-					_vm = _vm + _dst;
+					_v = vehicle player;
+					call {
+						if (_v isKindOf "LandVehicle") exitWith {
+							_lvm = _lvm + _dst;
+						};
+						if (_v isKindOf "Air") exitWith {
+							_avm = _avm + _dst;
+						};
+						if (_v isKindOf "Ship") exitWith {
+							_svm = _svm + _dst;
+						};
+					};
 				};
-				_opos = _npos;
 			};
+			_opos = getPosWorld player;
 		};
+		//dddd = ["_m", _m, "_lvm", _lvm, "_avm", _avm, "_svm", _svm];
 	};
 };*/

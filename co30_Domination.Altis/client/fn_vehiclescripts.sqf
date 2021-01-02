@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_vehiclescripts.sqf"
 #include "..\x_setup.sqf"
 
-private _vec = _this select 2;
+private _vec = _this # 2;
 
 if (_vec isKindOf "ParachuteBase") exitWith {};
 private _do_exit = false;
@@ -31,7 +31,7 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 if (_do_exit) exitWith {};
 
 if (_vec isKindOf "Air") then {
-	if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {_this select 1 == "driver" && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}}) then {
+	if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {_this # 1 == "driver" && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}}) then {
 		_vec call d_fnc_addpylon_action;
 	};
 	if (_vec isKindOf "Helicopter") then {
@@ -46,7 +46,7 @@ if (_vec isKindOf "Air") then {
 		_do_exit = true;
 	};
 	if (!d_with_ace) then {
-		if (_this select 1 == "driver") then {
+		if (_this # 1 == "driver") then {
 			_vec setVariable ["d_rappel_self_action", [
 					/* 0 object */						_vec,
 					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
