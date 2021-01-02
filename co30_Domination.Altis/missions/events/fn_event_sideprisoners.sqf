@@ -16,8 +16,8 @@ if (true) exitWith {};
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
-//position the event site near target center at max distance 250m and min 150m 
-private _poss = [[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos;
+//position the event site near target center at max distance 125m and min 15m 
+private _poss = [[[_target_center, 125]],[[_target_center, 15]]] call BIS_fnc_randomPos;
 _x_mt_event_ar = [];
 
 private _trigger = [_poss, [225,225,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
@@ -34,20 +34,25 @@ private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack"
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
-private _distance_to_rescue = 3; //in meters
+private _distance_to_rescue = 1.5; //in meters
 
 private _allActors = [];
 
 __TRACE_1("","_prisonerGroup")
+// select a starting point, units will be moved later to occupy a building if possible
 private _nposss = [];
 _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
+
+// create pilot1
 private _pilot1 = _prisonerGroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 _x_mt_event_ar pushBack _pilot1;
 _allActors pushBack _pilot1;
 [_pilot1, 30] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
+removeHeadgear _pilot1;
+_pilot1 unlinkItem (hmd _pilot1); //remove nvgs
 [_pilot1, getPos _pilot1] call d_fnc_setposagls;
 
 removeAllWeapons _pilot1;
@@ -69,29 +74,37 @@ if (d_with_dynsim == 0) then {
 
 sleep 2.333;
 
-private _enemyGuardGroup = ["specops", 1, "allmen", 0, _poss , 12, false, true, 3] call d_fnc_CreateInf select 0;
+// create 3 enemy guards with unusual hat/bandanna to help players identify them
+private _hat_type = selectRandom ["H_Cap_red", "H_Cap_blu", "H_Cap_grn"];
+private _bandanna_type = selectRandom ["G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator"];
+private _enemyGuardGroup = ["specops", 1, "allmen", 0, _nposss , 5, false, true, 3] call d_fnc_CreateInf select 0;
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
+	_x unlinkItem (hmd _x); //remove nvgs
+	removeHeadgear _x;
+	_x addHeadgear _hat_type;
+	_x addGoggles _bandanna_type;
 	_allActors pushBack _x;
 	_x_mt_event_ar pushBack _x;
 } forEach (units _enemyGuardGroup);
 
-//occupy a building using Zenophon script
-_unitsNotGarrisoned = [
-	_poss,											// Params: 1. Array, the building(s) nearest this position is used
-	_allActors,									//         2. Array of objects, the units that will garrison the building(s)
-	-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
-	false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
-	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
-	true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
-	false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-	2,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
-	true,                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
-	true                                                //  (opt.) 10. Boolean, true to allow the selected position to be near an enemy (default: false)
-] call d_fnc_Zen_OccupyHouse;
+//find a suitable building and occupy
+_buildings_array_sorted_by_distance = [[_poss, 200, nil, (count _allActors)] call d_fnc_getbuildings, _poss] call d_fnc_sortarraybydistance;
+private _unitsNotGarrisoned = [];
+{
+	//dry run to find a suitable building
+	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse;
+	if (count _unitsNotGarrisoned == 0) exitWith {
+		// building is suitable
+		_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+	};
 
-{deleteVehicle _x} forEach _unitsNotGarrisoned;
+} forEach _buildings_array_sorted_by_distance;
+
+{
+	//diag_log [format ["failed to garrison and will remain in starting position: %1", _x]];
+} forEach _unitsNotGarrisoned;
 
 private _all_dead = false;
 private _isExecutePrisoners = false;
@@ -108,30 +121,22 @@ while {!d_mt_done} do {
 	};
 	
 	if ((units _enemyGuardGroup) findIf {damage _x > 0.02} != -1) then {
-		//if any unit in enemyGuardGroup is wounded more than 0.15 then set flag to shoot prisoners
-    	_isExecutePrisoners = true;
-	};
-    
-    if (_isExecutePrisoners) then {
+		//a unit in enemyGuardGroup was wounded, soon guards will shoot prisoner and a bomb will explode
 		_pilot1 setCaptive false;
-		{
-        	_x forceSpeed -1;
-        } forEach (units _enemyGuardGroup);
-    };
-    
-    if (_isExecutePrisoners || {!(captive _pilot1)}) then {
+		// brief delay until the guards attempt to execute the prisoner
+		sleep 2;
 		{	
 			//todo - play a sound?
 			_x forceSpeed -1;
-			_enemyGuardGroup reveal [_pilot1, 4];
-			_x doTarget _pilot1;
-			_x doSuppressiveFire _pilot1;
 		} forEach (units _enemyGuardGroup);
-    };
-    
-    // gimme three steps mister
-    if (_isExecutePrisoners) then {
-		sleep 3;
+		// another brief delay, players must kill all guards or an explosion will occur
+		sleep 5;
+		if (({alive _x} count units _enemyGuardGroup) > 0) then {
+			// not all of the guards were killed so a suicide bomb is triggered
+			_bomb_type = "Rocket_04_HE_F"; //TODO: bigger??
+			_bomb = _bomb_type createVehicle [0,0,5000];
+			_bomb setPosASL eyePos _pilot1;
+        };
 	};
 	
 	sleep 3.14;
