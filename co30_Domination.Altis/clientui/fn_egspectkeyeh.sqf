@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
 
-if (_this select 1 == DIK_X) then {
+if (_this # 1 == DIK_X) then {
 	xr_phd_invulnerable = false;
 	(["GetDisplay"] call BIS_fnc_EGSpectator) displayRemoveEventHandler ["KeyDown" ,d_spect_disp_handler];
 	["Terminate"] call BIS_fnc_EGSpectator;

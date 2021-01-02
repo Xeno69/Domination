@@ -7,7 +7,7 @@ __TRACE_1("","_this")
 
 disableSerialization;
 
-private _selIdx = (_this select 0) select 1;
+private _selIdx = (_this # 0) # 1;
 __TRACE_1("","_selIdx")
 if (_selIdx == -1) exitWith {};
 

@@ -87,7 +87,7 @@ while {alive _chuto && {((ASLtoATL getPosASL _chuto) # 2) > 5}} do {
 	_chuto setPos (_cone modelToWorld [0 ,0, 2]);
 	_chuto setDir _dir;
 
-	if (!_is_ammo && {!_detached && {(ASLtoATL getPosASL _man) select 2 <= 4}}) then {
+	if (!_is_ammo && {!_detached && {(ASLtoATL getPosASL _man) # 2 <= 4}}) then {
 		detach _man;
 		_detached = true;
 		private _pos_man = ASLtoATL getPosASL _man;

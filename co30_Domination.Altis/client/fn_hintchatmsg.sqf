@@ -26,11 +26,12 @@ for "_i" from 0 to count _msg - 1 do {
 hintSilent parseText format ["<t color='#34ebe8' size='1.3' align='center'>%1</t>", _ar joinString ""];
 private _msg_chat = _msg call d_fnc_removelinebreak;
 
-switch (toLowerANSI _type_chat) do {
-	case "hq": {[playerSide, "HQ"] sideChat _msg_chat};
-	case "side": {player sideChat _msg_chat};
-	case "global": {systemChat _msg_chat};
-	case "group": {player groupChat _msg_chat};
+private _lowc = toLowerANSI _type_chat;
+call {
+	if (_lowc == "hq") exitWith {[playerSide, "HQ"] sideChat _msg_chat};
+	if (_lowc == "side") exitWith {player sideChat _msg_chat};
+	if (_lowc == "global") exitWith {systemChat _msg_chat};
+	if (_lowc == "group") exitWith {player groupChat _msg_chat};
 };
 
 if (_docut) then {

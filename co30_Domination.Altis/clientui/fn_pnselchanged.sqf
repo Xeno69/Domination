@@ -8,7 +8,7 @@ if (d_pnsel_first) exitWith {
 	d_pnsel_first = false;
 };
 
-private _selIdx = (_this select 0) select 1;
+private _selIdx = (_this # 0) # 1;
 if (_selIdx == -1) exitWith {};
 
 if (d_show_player_namesx != _selIdx) then {

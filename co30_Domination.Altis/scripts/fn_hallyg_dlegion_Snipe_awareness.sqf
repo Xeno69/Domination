@@ -35,7 +35,7 @@ private _sortArrayByDistance = {
 	_pos = _fromPosition;
 
 	{
-		_closest = _unsorted select 0;
+		_closest = _unsorted # 0;
 		{if ((getPos _x distance _pos) < (getPos _closest distance _pos)) then {_closest = _x}} forEach _unsorted;
 		_sorted pushBack _closest;
 		_unsorted = _unsorted - [_closest]
@@ -123,7 +123,7 @@ while {true} do {
 		
 		if (!alive _unit) exitWith {};
 		
-		_nearestTargetPlayer = _playersSortedByDistance select 0;
+		_nearestTargetPlayer = _playersSortedByDistance # 0;
 
 		if (_pursueRadius > 0 && {_nearestTargetPlayer distance2D _unit < _pursueRadius}) then {
 			//unit is eligible for a move order

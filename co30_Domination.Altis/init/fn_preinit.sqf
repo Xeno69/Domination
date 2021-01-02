@@ -508,15 +508,17 @@ if (isNil "d_cas_available_time") then {
 
 d_non_steer_para = "NonSteerable_Parachute_F";
 
-d_the_box = switch (d_own_side) do {
-	case "GUER": {"Box_IND_Wps_F"};
-	case "EAST": {"Box_East_Wps_F"};
-	case "WEST": {"Box_NATO_Wps_F"};
-};
-d_the_base_box = switch (d_own_side) do {
-	case "GUER": {"I_supplyCrate_F"};//Box_IND_WpsSpecial_F
-	case "EAST": {"O_supplyCrate_F"};//Box_East_WpsSpecial_F
-	case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
+call {
+	if (d_own_side == "WEST") exitWith {
+		d_the_box = "Box_NATO_Wps_F";
+		d_the_base_box = "B_supplyCrate_F";
+	};
+	if (d_own_side == "EAST") exitWith {
+		d_the_box = "Box_East_Wps_F";
+		d_the_base_box = "O_supplyCrate_F";
+	};
+	d_the_box = "Box_IND_Wps_F";
+	d_the_base_box = "I_supplyCrate_F";
 };
 
 private _confmapsize = call {
@@ -1572,23 +1574,21 @@ if (!d_gmcwgwinter) then {
 	d_hd_sim_types = d_hd_sim_types apply {toLowerANSI _x};
 
 	d_isle_defense_marker = "n_mech_inf";
-
-	d_air_radar = switch (d_enemy_side_short) do {
-		case "W": {"Land_Radar_Small_F"};
-		case "E": {"Land_Radar_Small_F"};
-		case "G": {"Land_Radar_Small_F"};
-	};
-
-	d_air_radar2 = switch (d_enemy_side_short) do {
-		case "W": {"Land_MobileRadar_01_radar_F"};
-		case "E": {"Land_MobileRadar_01_radar_F"};
-		case "G": {"Land_MobileRadar_01_radar_F"};
-	};
-
-	d_enemy_hq = switch (d_enemy_side_short) do {
-		case "E": {"Land_Cargo_HQ_V1_F"};
-		case "W": {"Land_Cargo_HQ_V1_F"};
-		case "G": {"Land_Cargo_HQ_V1_F"};
+	
+	call {
+		if (d_enemy_side_short == "E") exitWith {
+			d_air_radar = "Land_Radar_Small_F";
+			d_air_radar2 = "Land_MobileRadar_01_radar_F";
+			d_enemy_hq = "Land_Cargo_HQ_V1_F";
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			d_air_radar = "Land_Radar_Small_F";
+			d_air_radar2 = "Land_MobileRadar_01_radar_F";
+			d_enemy_hq = "Land_Cargo_HQ_V1_F";
+		};
+		d_air_radar = "Land_Radar_Small_F";
+		d_air_radar2 = "Land_MobileRadar_01_radar_F";
+		d_enemy_hq = "Land_Cargo_HQ_V1_F";
 	};
 
 	// type of enemy plane that will fly over the main target
@@ -1723,117 +1723,176 @@ if (!d_gmcwgwinter) then {
 
 #ifdef __ALTIS__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __ROSCHE__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __GMCWG__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
 			["gm_gc_airforce_l410s_salon","gm_gc_airforce_l410t"]
 		};
-		case "W": {[]};
-		case "G": {["I_Heli_Transport_02_F"]};
+		if (d_enemy_side_short == "W") exitWith {
+			[]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __TANOA__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __LIVONIA__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __STRATIS__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __MALDEN__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __IFA3LITE__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["LIB_RBAF_Ju87"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["LIB_RBAF_Ju87"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __TT__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __CUP_CHERNARUS__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["CUP_O_MI6T_RU"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["CUP_O_MI6T_RU"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __CUP_SARA__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["CUP_O_Mi8_SLA_1"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["CUP_O_Mi8_SLA_1"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __CUP_TAKISTAN__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["CUP_O_AN2_TK"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["CUP_O_AN2_TK"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __RHS__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["RHS_Mi8MTV3_vvsc"]};
-		case "W": {["rhsusf_CH53E_USMC"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["RHS_Mi8MTV3_vvsc"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["rhsusf_CH53E_USMC"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __UNSUNG__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["uns_an2"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["uns_an2"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["rhsusf_CH53E_USMC"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
-	d_light_attack_chopper = switch (d_enemy_side_short) do {
-		case "E": {
+	d_light_attack_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["O_Heli_Attack_02_black_F", "CUP_O_Mi8_RU"]
@@ -1856,7 +1915,7 @@ if (!d_gmcwgwinter) then {
 				["O_Heli_Attack_02_black_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
 					[]
@@ -1873,22 +1932,20 @@ if (!d_gmcwgwinter) then {
 				["B_Heli_Light_01_armed_F"]
 			};
 		};
-		case "G": {
-			call {
-				if (d_cup) exitWith {
-					[]
-				};
-				if (d_ifa3lite) exitWith {
-					[]
-				};
-				if (d_rhs) exitWith {
-					[]
-				};
-				if (d_gmcwg) exitWith {
-					[]
-				};
-				["I_Heli_light_03_dynamicLoadout_F"]
+		call {
+			if (d_cup) exitWith {
+				[]
 			};
+			if (d_ifa3lite) exitWith {
+				[]
+			};
+			if (d_rhs) exitWith {
+				[]
+			};
+			if (d_gmcwg) exitWith {
+				[]
+			};
+			["I_Heli_light_03_dynamicLoadout_F"]
 		};
 	};
 

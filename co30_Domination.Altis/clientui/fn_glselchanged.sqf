@@ -5,7 +5,7 @@
 
 disableSerialization;
 
-private _selIdx = (_this select 0) select 1;
+private _selIdx = (_this # 0) # 1;
 if (_selIdx == -1) exitWith {};
 
 if (d_graslayer_index != _selIdx) then {

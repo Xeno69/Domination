@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-private _pos = _this select 1;
+private _pos = _this # 1;
 
 if (!isNil "d_next_sels_ar") then {
 	private _idx = d_next_sels_ar findIf {_x != d_cur_sel_tar_obj && {_x distance2D _pos < 300}};
