@@ -13586,6 +13586,54 @@
 <Chinese>prisoners</Chinese>
 <French>prisoners</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES">
+<English>prisoners + explosives</English>
+<Spanish>prisoners + explosives</Spanish>
+<Portuguese>prisoners + explosives</Portuguese>
+<Korean>포로들 + explosives</Korean>
+<Japanese>prisoners + explosives</Japanese>
+<Original>prisoners + explosives</Original>
+<Russian>заключенных + explosives</Russian>
+<Chinesesimp>囚犯 + explosives</Chinesesimp>
+<Chinese>prisoners + explosives</Chinese>
+<French>prisoners + explosives</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_PRESENT">
+<English>Warning: enemy explosive device may be present.</English>
+<Spanish>Warning: enemy explosive device may be present.</Spanish>
+<Portuguese>Warning: enemy explosive device may be present.</Portuguese>
+<Korean>Warning: enemy explosive device may be present.</Korean>
+<Japanese>Warning: enemy explosive device may be present.</Japanese>
+<Original>Warning: enemy explosive device may be present.</Original>
+<Russian>Warning: enemy explosive device may be present.</Russian>
+<Chinesesimp>Warning: enemy explosive device may be present.</Chinesesimp>
+<Chinese>Warning: enemy explosive device may be present.</Chinese>
+<French>Warning: enemy explosive device may be present.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_FAIL">
+<English>The enemy detonated a device. Failure.</English>
+<Spanish>The enemy detonated a device. Failure.</Spanish>
+<Portuguese>The enemy detonated a device. Failure.</Portuguese>
+<Korean>The enemy detonated a device. Failure.</Korean>
+<Japanese>The enemy detonated a device. Failure.</Japanese>
+<Original>The enemy detonated a device. Failure.</Original>
+<Russian>The enemy detonated a device. Failure.</Russian>
+<Chinesesimp>The enemy detonated a device. Failure.</Chinesesimp>
+<Chinese>The enemy detonated a device. Failure.</Chinese>
+<French>The enemy detonated a device. Failure.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS">
+<English>Enemy explosive device disabled. Success!</English>
+<Spanish>Enemy explosive device disabled. Success!</Spanish>
+<Portuguese>Enemy explosive device disabled. Success!</Portuguese>
+<Korean>Enemy explosive device disabled. Success!</Korean>
+<Japanese>Enemy explosive device disabled. Success!</Japanese>
+<Original>Enemy explosive device disabled. Success!</Original>
+<Russian>Enemy explosive device disabled. Success!</Russian>
+<Chinesesimp>Enemy explosive device disabled. Success!</Chinesesimp>
+<Chinese>Enemy explosive device disabled. Success!</Chinese>
+<French>Enemy explosive device disabled. Success!</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2033">
 <English>Push Boat</English>
 <Spanish>Push Boat</Spanish>

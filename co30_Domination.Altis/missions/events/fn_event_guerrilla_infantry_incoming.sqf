@@ -134,9 +134,14 @@ while {sleep 1; !d_mt_done && {!_all_dead}} do {
 	sleep 15;
 };
 
-sleep 60;
+if (d_ai_persistent_corpses == 0) then {
+	waitUntil {sleep 10; d_mt_done};
+} else {
+	sleep 120;
+};
 
 //cleanup
+<<<<<<< HEAD
 {
 	if !(isNull _x) then {
 		if (_x isKindOf "House") then {
@@ -154,6 +159,9 @@ sleep 60;
 	};
 } forEach _x_mt_event_ar;
 _x_mt_event_ar = [];
+=======
+_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
+>>>>>>> master
 
 deleteVehicle _trigger;
 

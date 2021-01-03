@@ -29,8 +29,9 @@ d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_chan];
+d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonatePresent",d_kbtel_chan];
 
-private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERS", 0, "mil_unknown"] call d_fnc_CreateMarkerGlobal;
+private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES", 0, "mil_unknown"] call d_fnc_CreateMarkerGlobal;
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
@@ -103,13 +104,13 @@ private _unitsNotGarrisoned = [];
 } forEach _buildings_array_sorted_by_distance;
 
 {
-	//diag_log [format ["failed to garrison and will remain in starting position: %1", _x]];
+	diag_log [format ["fn_event_sideprisoners: failed to garrison and will remain in starting position: %1", _x]];
 } forEach _unitsNotGarrisoned;
 
 private _all_dead = false;
 private _isExecutePrisoners = false;
                                              
-while {!d_mt_done} do {
+while {sleep 1; !d_mt_done} do {
 
 	if (!alive _pilot1) exitWith { _all_dead = true };
 	
@@ -120,7 +121,7 @@ while {!d_mt_done} do {
 		// todo announce player
 	};
 	
-	if ((units _enemyGuardGroup) findIf {damage _x > 0.02} != -1) then {
+	if ((units _enemyGuardGroup) findIf {(damage _x) > 0.05} != -1) then {
 		//a unit in enemyGuardGroup was wounded, soon guards will shoot prisoner and a bomb will explode
 		_pilot1 setCaptive false;
 		// brief delay until the guards attempt to execute the prisoner
@@ -136,6 +137,8 @@ while {!d_mt_done} do {
 			_bomb_type = "Rocket_04_HE_F"; //TODO: bigger??
 			_bomb = _bomb_type createVehicle [0,0,5000];
 			_bomb setPosASL eyePos _pilot1;
+			sleep 7;
+			d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateFail",d_kbtel_chan];
         };
 	};
 	
@@ -146,8 +149,10 @@ if (_all_dead) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersFail",d_kbtel_chan];
 } else {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
+	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateSuccess",d_kbtel_chan];
 };
 
+<<<<<<< HEAD
 sleep 30;
 
 //cleanup
@@ -169,8 +174,19 @@ sleep 30;
 } forEach _x_mt_event_ar;
 _x_mt_event_ar = [];
 
+=======
+>>>>>>> master
 deleteVehicle _trigger;
 deleteMarker _marker;
+
+if (d_ai_persistent_corpses == 0) then {
+	waitUntil {sleep 10; d_mt_done};
+} else {
+	sleep 120;
+};
+
+//cleanup
+_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
