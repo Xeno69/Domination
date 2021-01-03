@@ -208,29 +208,15 @@ sleep 5.432;
 	};
 } forEach [_pilot1, _pilot2];
 
-sleep 0.5;
-
-//cleanup
-{
-	if !(isNull _x) then {
-		if (_x isKindOf "House") then {
-			_x setDamage 0;
-			deleteVehicle _x;
-		} else {
-			if (_x isKindOf "LandVehicle" && {!((crew _x) isEqualTo [])}) then {
-				if ({(_x call d_fnc_isplayer) && {alive _x}} count (crew _x) == 0) then {
-					_x call d_fnc_DelVecAndCrew;
-				};
-			} else {
-				deleteVehicle _x;
-			};
-		};
-	};
-} forEach _x_mt_event_ar;
-_x_mt_event_ar = [];
-
 deleteVehicle _trigger;
 deleteMarker _marker; 
+
+//this mission only has a few objects, prefer to leave them until the maintarget is complete
+//it looks bad when the crashed helicopter is suddenly deleted during cleanup
+waitUntil {sleep 10; d_mt_done};
+
+//cleanup
+_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
