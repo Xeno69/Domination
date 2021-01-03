@@ -1128,11 +1128,6 @@ if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
-if (d_database_found) then {
-	d_p_distar = [0, 0, 0, 0];
-	0 spawn d_fnc_movecheck;
-};
-
 #ifdef __TT__
 ["d_nogo_w", [-2000, d_island_y_max / 2, 0], "RECTANGLE", "ColorYellow", [2000, d_island_y_max / 2], "", 0, "", "BDiagonal", 0.7] call d_fnc_CreateMarkerLocal;
 

@@ -82,10 +82,13 @@ if (_this # 13 > 0) then {
 };
 
 if (d_database_found) then {
+	private "_p_distar";
 	private _dar = _this # 15;
-	if (_dar isEqualTo []) exitWith {};
-	if (isNil "d_p_distar") then {
-		d_p_distar = [0, 0, 0, 0];
+	__TRACE_1("","_dar")
+	if (_dar isEqualTo []) then {
+		_p_distar = [0, 0, 0, 0];
+	} else {
+		_p_distar = _dar;
 	};
-	d_p_distar = [(d_p_distar # 0) + (_dar # 0), (d_p_distar # 1) + (_dar # 1), (d_p_distar # 2) + (_dar # 2), (d_p_distar # 3) + (_dar # 3)];
+	_p_distar spawn d_fnc_movecheck;
 };

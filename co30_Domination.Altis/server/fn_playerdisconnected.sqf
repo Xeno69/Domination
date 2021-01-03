@@ -101,18 +101,23 @@ if (_totalscore <= 0) exitWith {
 	diag_log ["DOM playerdisconnected _totalscore <= 0, _this:", _this];
 };
 
-private _playtime = if (!isNil "_pa") then {[0, round (time - (_pa # 1))] select (!isNil "_pa")} else {0};
+private _playtime = round (time - (_pa # 1));
 
 diag_log ["DOM playerdisconnected: _playtime", _playtime];
 
-private _tks = if (!isNil "_pa") then {_pa # 14} else {0};
+private _tks = _pa # 14;
+
+__TRACE_1("","_tks")
+
+private _distar = _pa # 15;
+__TRACE_1("","_distar")
 
 #ifndef __INTERCEPTDB__
-"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _uid, _pa # 15];
+"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _uid];
 __TRACE("extDB3 called")
 #else
 if (d_interceptdb) then {
-	["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _uid, _pa # 15]] call dsi_fnc_queryconfigasync;
+	["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _uid]] call dsi_fnc_queryconfigasync;
 };
 
 __TRACE("interceptDB called")

@@ -161,8 +161,12 @@ if (d_database_found) then {
 		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];
 			if (_pres isNotEqualTo []) then {
-				_p set [15, _pres # 14];
+				if (count _pres > 14) then {
+					_p set [15, _pres # 14];
+				};
+				__TRACE_1("44","_p")
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
+				__TRACE_1("44","_pres")
 				if (remoteExecutedOwner isEqualTo 0) exitWith {};
 				_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
 			};
