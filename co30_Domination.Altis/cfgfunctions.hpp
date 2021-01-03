@@ -315,6 +315,7 @@ class cfgFunctions {
 			addc(getunitbyuid);
 			addc(sortarraybydistance);
 			addc(isvisible);
+			addc(deletearrayunitsvehicles);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

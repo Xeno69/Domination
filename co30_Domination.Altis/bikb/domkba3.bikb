@@ -406,6 +406,21 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class MTEventDetonatePresent {
+		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_PRESENT";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventDetonateFail {
+		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_FAIL";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventDetonateSuccess {
+		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS";
+		speech[] = {};
+		class Arguments {};
+	};
 };
 class Arguments{};
 class Special{};
