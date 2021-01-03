@@ -224,6 +224,7 @@ class CfgRemoteExec {
 		class d_fnc_setbcnil {};
 		class d_fnc_ascfc {allowedTargets = 2;};
 		class d_fnc_emiss {allowedTargets = 1;};
+		class d_fnc_pdistar {allowedTargets = 2;};	
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

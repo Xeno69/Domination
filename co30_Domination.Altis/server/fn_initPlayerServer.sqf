@@ -48,7 +48,7 @@ private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (_p isEqualTo []) then {
-	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0];
+	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, []];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
@@ -86,9 +86,6 @@ if (_p isEqualTo []) then {
 #endif
 	__TRACE_1("player store after change","_p")
 };
-
-if (remoteExecutedOwner isEqualTo 0) exitWith {};
-_p remoteExecCall ["d_fnc_player_stuff", remoteExecutedOwner];
 
 if (d_database_found) then {
 	private _dbresult = [];
@@ -164,6 +161,7 @@ if (d_database_found) then {
 		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];
 			if (_pres isNotEqualTo []) then {
+				_p set [15, _pres # 14];
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
 				if (remoteExecutedOwner isEqualTo 0) exitWith {};
 				_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
@@ -171,6 +169,9 @@ if (d_database_found) then {
 		};
 	};
 };
+
+if (remoteExecutedOwner isEqualTo 0) exitWith {};
+_p remoteExecCall ["d_fnc_player_stuff", remoteExecutedOwner];
 
 _pl spawn {
 	scriptName "spawn_init_playerserver2";

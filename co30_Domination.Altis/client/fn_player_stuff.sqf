@@ -80,3 +80,12 @@ if (_this # 13 > 0) then {
 		[_this # 7, _this # 13] spawn d_fnc_jail;
 	};
 };
+
+if (d_database_found) then {
+	private _dar = _this # 15;
+	if (_dar isEqualTo []) exitWith {};
+	if (isNil "d_p_distar") then {
+		d_p_distar = [0, 0, 0, 0];
+	};
+	d_p_distar = [(d_p_distar # 0) + (_dar # 0), (d_p_distar # 1) + (_dar # 1), (d_p_distar # 2) + (_dar # 2), (d_p_distar # 3) + (_dar # 3)];
+};

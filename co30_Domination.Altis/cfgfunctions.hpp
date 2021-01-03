@@ -194,6 +194,7 @@ class cfgFunctions {
 			addc(setdbstart);
 			addc(emiss);
 			addc(recruitsetup);
+			addc(movecheck);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -607,6 +608,7 @@ class cfgFunctions {
 			addc(ulreduce);
 			addc(incjail);
 			addc(ascfc);
+			addc(pdistar);
 		};
 		class Dom_PrePostInit {
 			file = "init";

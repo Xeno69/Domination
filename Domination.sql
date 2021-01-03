@@ -125,6 +125,7 @@ CREATE TABLE IF NOT EXISTS `players` (
   `mtsmkills` int(11) NOT NULL DEFAULT 0,
   `teamkills` int(11) NOT NULL DEFAULT 0,
   `revives` int(11) NOT NULL DEFAULT 0,
+  `distar` varchar(240) COLLATE utf8mb4_bin NOT NULL,
   PRIMARY KEY (`uid`),
   UNIQUE KEY `playerid` (`playerid`),
   KEY `name` (`name`)

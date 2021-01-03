@@ -1128,6 +1128,11 @@ if (d_WithAmbientRadio == 1) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
+if (d_database_found) then {
+	d_p_distar = [0, 0, 0, 0];
+	0 spawn d_fnc_movecheck;
+};
+
 #ifdef __TT__
 ["d_nogo_w", [-2000, d_island_y_max / 2, 0], "RECTANGLE", "ColorYellow", [2000, d_island_y_max / 2], "", 0, "", "BDiagonal", 0.7] call d_fnc_CreateMarkerLocal;
 
@@ -1218,40 +1223,3 @@ isNil {(calculatePath ["car","safe",[14743.4,16786.5,0],[13997.6,18721,0]]) addE
  } forEach (_this select 1); 
 }]}
 */
-
-/*0 spawn {
-	private _opos = getPosWorld player;
-	private _m = 0;
-	private _lvm = 0;
-	private _avm = 0;
-	private _svm = 0;
-	private ["_npos", "_dst", "_v"];
-	
-	while {true} do {
-		sleep 0.2;
-		isNil {
-			private _npos = getPosWorld player;
-			if (speed player > 0) then {
-				private _dst = _opos distance2D _npos;
-				if (isNull objectParent player) then {
-					_m = _m + _dst;
-				} else {
-					_v = vehicle player;
-					call {
-						if (_v isKindOf "LandVehicle") exitWith {
-							_lvm = _lvm + _dst;
-						};
-						if (_v isKindOf "Air") exitWith {
-							_avm = _avm + _dst;
-						};
-						if (_v isKindOf "Ship") exitWith {
-							_svm = _svm + _dst;
-						};
-					};
-				};
-			};
-			_opos = getPosWorld player;
-		};
-		//dddd = ["_m", _m, "_lvm", _lvm, "_avm", _avm, "_svm", _svm];
-	};
-};*/
