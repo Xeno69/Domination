@@ -208,30 +208,6 @@ sleep 5.432;
 	};
 } forEach [_pilot1, _pilot2];
 
-<<<<<<< HEAD
-sleep 0.5;
-
-//cleanup
-{
-	if !(isNull _x) then {
-		if (_x isKindOf "House") then {
-			_x setDamage 0;
-			deleteVehicle _x;
-		} else {
-			if (_x isKindOf "LandVehicle" && {(crew _x) isNotEqualTo []}) then {
-				if ({(_x call d_fnc_isplayer) && {alive _x}} count (crew _x) == 0) then {
-					_x call d_fnc_DelVecAndCrew;
-				};
-			} else {
-				deleteVehicle _x;
-			};
-		};
-	};
-} forEach _x_mt_event_ar;
-_x_mt_event_ar = [];
-
-=======
->>>>>>> master
 deleteVehicle _trigger;
 deleteMarker _marker; 
 

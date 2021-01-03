@@ -9,12 +9,10 @@ params ["_obj"];
 
 if (d_database_found) then {
 	if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
-			private _insti = _this # 2;
-			if (!isNull _insti && {isNull objectParent _insti}) then {
-				if (_insti call d_fnc_isplayer) then {
-					// TODO ADD HEADSHOT TO DB
-				};
-			};
+		private _insti = _this # 2;
+		if (!isNull _insti && {isNull objectParent _insti && {_insti call d_fnc_isplayer}}) then {
+			_insti call d_fnc_addheadshot;
+			// TODO Add UI
 		};
 	};
 };

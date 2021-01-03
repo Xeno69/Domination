@@ -152,30 +152,6 @@ if (_all_dead) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateSuccess",d_kbtel_chan];
 };
 
-<<<<<<< HEAD
-sleep 30;
-
-//cleanup
-{
-	if !(isNull _x) then {
-		if (_x isKindOf "House") then {
-			_x setDamage 0;
-			deleteVehicle _x;
-		} else {
-			if (_x isKindOf "LandVehicle" && {(crew _x) isNotEqualTo []}) then {
-				if ({(_x call d_fnc_isplayer) && {alive _x}} count (crew _x) == 0) then {
-					_x call d_fnc_DelVecAndCrew;
-				};
-			} else {
-				deleteVehicle _x;
-			};
-		};
-	};
-} forEach _x_mt_event_ar;
-_x_mt_event_ar = [];
-
-=======
->>>>>>> master
 deleteVehicle _trigger;
 deleteMarker _marker;
 

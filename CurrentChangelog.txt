@@ -1,6 +1,6 @@
 4.42
 
-ATTENTION:	SQL database table players has changed. Either run DAddColumn_distar_4_42.sql (from the Domination 7z download) once or add the column manually behind the revives column: distar, VARCHAR 240, UTF8MB4_BIN, NOT NULL, default []
+ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
 			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
 
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext

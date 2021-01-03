@@ -141,27 +141,7 @@ if (d_ai_persistent_corpses == 0) then {
 };
 
 //cleanup
-<<<<<<< HEAD
-{
-	if !(isNull _x) then {
-		if (_x isKindOf "House") then {
-			_x setDamage 0;
-			deleteVehicle _x;
-		} else {
-			if (_x isKindOf "LandVehicle" && {(crew _x) isNotEqualTo []}) then {
-				if ({(_x call d_fnc_isplayer) && {alive _x}} count (crew _x) == 0) then {
-					_x call d_fnc_DelVecAndCrew;
-				};
-			} else {
-				deleteVehicle _x;
-			};
-		};
-	};
-} forEach _x_mt_event_ar;
-_x_mt_event_ar = [];
-=======
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
->>>>>>> master
 
 deleteVehicle _trigger;
 

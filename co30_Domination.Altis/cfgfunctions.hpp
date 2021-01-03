@@ -609,6 +609,7 @@ class cfgFunctions {
 			addc(incjail);
 			addc(ascfc);
 			addc(pdistar);
+			addc(addheadshot);
 		};
 		class Dom_PrePostInit {
 			file = "init";
