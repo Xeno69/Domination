@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_movecheck.sqf"
 #include "..\x_setup.sqf"
 
+// TODO Add UI element
+
 private _opos = getPosWorld player;
 private _m = 0;
 private _lvm = 0;
