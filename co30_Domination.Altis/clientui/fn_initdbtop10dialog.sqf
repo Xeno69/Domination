@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_initdbtop10dialog.sqf"
 #include "..\x_setup.sqf"
 
@@ -10,21 +10,21 @@ disableSerialization;
 
 private _ctrl = (uiNamespace getVariable "D_DBTop10Dialog") displayCtrl 100;
 
-_ctrl lnbAddColumn 0.1;
-_ctrl lnbAddColumn 0.16;
-_ctrl lnbAddColumn 0.22;
-_ctrl lnbAddColumn 0.28;
-_ctrl lnbAddColumn 0.34;
-_ctrl lnbAddColumn 0.40;
-_ctrl lnbAddColumn 0.46;
-_ctrl lnbAddColumn 0.52;
-_ctrl lnbAddColumn 0.58;
-_ctrl lnbAddColumn 0.64;
-_ctrl lnbAddColumn 0.70;
-_ctrl lnbAddColumn 0.76;
-_ctrl lnbAddColumn 0.82;
+private _colwidth = 0.9 / 14;
 
-private _rowidx = _ctrl lnbAddRow ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills", "Revives"];
+__TRACE_1("","_colwidth")
+__TRACE_1("","safeZoneW")
+
+private _start = 0.1;
+
+private _row = ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills", "Revives", "Headshots"];
+
+private _rowidx = _ctrl lnbAddRow _row;
+
+for "_i" from 0 to count _row - 1 do {
+	_ctrl lnbAddColumn (_start + (_i * _colwidth));
+};
+
 _ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 _ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 _ctrl lnbAddRow [""];

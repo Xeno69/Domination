@@ -12,7 +12,6 @@ if (d_database_found) then {
 		private _insti = _this # 2;
 		if (!isNull _insti && {isNull objectParent _insti && {_insti call d_fnc_isplayer}}) then {
 			_insti call d_fnc_addheadshot;
-			// TODO Add UI
 		};
 	};
 };

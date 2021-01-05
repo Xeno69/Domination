@@ -16,7 +16,7 @@ class D_DBTop10Dialog {
 			drawSideArrows = 1;
 			idcRight = 147;
 			idcLeft = 146;
-			sizeEx = 0.032;
+			sizeEx = 0.028;
 		};
 	};
 };
