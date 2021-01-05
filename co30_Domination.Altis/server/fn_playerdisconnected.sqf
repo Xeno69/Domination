@@ -107,7 +107,7 @@ private _headshots = _pa # 16;
 __TRACE_1("","_headshots")
 
 #ifndef __INTERCEPTDB__
-"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _uid];
+"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _uid];
 __TRACE("extDB3 called")
 #else
 if (d_interceptdb) then {
