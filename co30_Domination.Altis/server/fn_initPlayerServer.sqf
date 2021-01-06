@@ -170,6 +170,8 @@ if (d_database_found) then {
 				__TRACE_1("44","_p")
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
 				__TRACE_1("44","_pres")
+				_pres deleteAt 14;
+				__TRACE_1("55","_pres")
 				if (remoteExecutedOwner isEqualTo 0) exitWith {};
 				_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
 			};

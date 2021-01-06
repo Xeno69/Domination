@@ -25,19 +25,19 @@ class D_StatusDialog {
 			idc = 123123;
 			text = "$STR_DOM_MISSIONSTRING_1305";
 			action = "closeDialog 0;call d_fnc_admindialog";
-			y = "0.67 * safezoneH + safezoneY";
+			y = "0.655 * safezoneH + safezoneY";
 		};
 		class SaveDBButton: TeamStatusButton {
 			idc = 123124;
 			text = "$STR_DOM_MISSIONSTRING_1754";
 			action = "closeDialog 0;createDialog 'D_DBSaveDialog'";
-			y = "0.79* safezoneH + safezoneY";
+			y = "0.7* safezoneH + safezoneY";
 		};
 		class DBTop10Button: TeamStatusButton {
 			idc = 123125;
 			text = "$STR_DOM_MISSIONSTRING_1757";
 			action = "closeDialog 0;createDialog 'D_DBTop10Dialog'";
-			y = "0.85 * safezoneH + safezoneY";
+			y = "0.745 * safezoneH + safezoneY";
 		};
 		__CANCELCLOSEB3(-1)
 		// top left title
@@ -555,6 +555,58 @@ class D_StatusDialog {
 			idc = 2007;
 			y = "0.85 * safezoneH + safezoneY";
 			text = "";
+		};
+		class DistTraveled: RscText {
+			idc = 6000;
+			x = "0.71 * safezoneW + safezoneX";
+			y = "0.78 * safezoneH + safezoneY";
+			w = "0.25 * safezoneW";
+			h = "0.1 * safezoneH";
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+			sizeEx = 0.032;
+			text = "$STR_DOM_MISSIONSTRING_2045";
+			shadow = 0;
+		};
+		class ByFoot: DistTraveled {
+			idc = 6001;
+			text = "$STR_DOM_MISSIONSTRING_2046";
+			y = "0.82 * safezoneH + safezoneY";
+		};
+		class ByFootVal: ByFoot {
+			idc = 6002;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
+		};
+		class ByLandvehicle: ByFoot {
+			idc = 6003;
+			text = "$STR_DOM_MISSIONSTRING_2047";
+			y = "0.84 * safezoneH + safezoneY";
+		};
+		class ByLandvehicleVal: ByLandvehicle {
+			idc = 6004;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
+		};
+		class ByAir: ByFoot {
+			idc = 6005;
+			text = "$STR_DOM_MISSIONSTRING_2048";
+			y = "0.86 * safezoneH + safezoneY";
+		};
+		class ByAirVal: ByAir {
+			idc = 6006;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
+		};
+		class ByShip: ByFoot {
+			idc = 6007;
+			text = "$STR_DOM_MISSIONSTRING_2049";
+			y = "0.88 * safezoneH + safezoneY";
+		};
+		class ByShipVal: ByShip {
+			idc = 6008;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
 		};
 	};
 };

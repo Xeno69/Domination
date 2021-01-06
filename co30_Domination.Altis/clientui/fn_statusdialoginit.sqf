@@ -65,6 +65,18 @@ if (!d_with_ranked && {!d_database_found}) then {
 	__ctrl2(2007) ctrlShow false;
 };
 
+if (!d_database_found) then {
+	for "_i" from 6000 to 6008 do {
+	__ctrl2(_i) ctrlShow false;
+	};
+} else {
+	private _p_distar = player getVariable "d_p_distar";
+	if (isNil "_p_distar") exitWith {};
+	__ctrl2(6002) ctrlSetText str(round (_p_distar # 0));
+	__ctrl2(6004) ctrlSetText str(round (_p_distar # 1));
+	__ctrl2(6006) ctrlSetText str(round (_p_distar # 2));
+	__ctrl2(6008) ctrlSetText str(round (_p_distar # 3));
+};
 
 private _tgt_ar = [];
 

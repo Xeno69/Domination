@@ -13789,6 +13789,66 @@
 <Chinese>Deploy with camo net</Chinese>
 <French>Deploy with camo net</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2045">
+<English>Distance traveled, in meters:</English>
+<Spanish>Distance traveled, in meters:</Spanish>
+<Portuguese>Distance traveled, in meters:</Portuguese>
+<Korean>Distance traveled, in meters:</Korean>
+<Japanese>Distance traveled, in meters:</Japanese>
+<Original>Distance traveled, in meters:</Original>
+<Russian>Distance traveled, in meters:</Russian>
+<Chinesesimp>Distance traveled, in meters:</Chinesesimp>
+<Chinese>Distance traveled, in meters:</Chinese>
+<French>Distance traveled, in meters:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2046">
+<English>By foot:</English>
+<Spanish>By foot:</Spanish>
+<Portuguese>By foot:</Portuguese>
+<Korean>By foot:</Korean>
+<Japanese>By foot:</Japanese>
+<Original>By foot:</Original>
+<Russian>By foot:</Russian>
+<Chinesesimp>By foot:</Chinesesimp>
+<Chinese>By foot:</Chinese>
+<French>By foot:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2047">
+<English>Landvehicle:</English>
+<Spanish>Landvehicle:</Spanish>
+<Portuguese>Landvehicle:</Portuguese>
+<Korean>Landvehicle:</Korean>
+<Japanese>Landvehicle:</Japanese>
+<Original>Landvehicle:</Original>
+<Russian>Landvehicle:</Russian>
+<Chinesesimp>Landvehicle:</Chinesesimp>
+<Chinese>Landvehicle:</Chinese>
+<French>Landvehicle:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2048">
+<English>Air:</English>
+<Spanish>Air:</Spanish>
+<Portuguese>Air:</Portuguese>
+<Korean>Air:</Korean>
+<Japanese>Air:</Japanese>
+<Original>Air:</Original>
+<Russian>Air:</Russian>
+<Chinesesimp>Air:</Chinesesimp>
+<Chinese>Air:</Chinese>
+<French>Air:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2049">
+<English>Ship/Boat:</English>
+<Spanish>Ship/Boat:</Spanish>
+<Portuguese>Ship/Boat:</Portuguese>
+<Korean>Ship/Boat:</Korean>
+<Japanese>Ship/Boat:</Japanese>
+<Original>Ship/Boat:</Original>
+<Russian>Ship/Boat:</Russian>
+<Chinesesimp>Ship/Boat:</Chinesesimp>
+<Chinese>Ship/Boat:</Chinese>
+<French>Ship/Boat:</French>
+</Key>
 </Container>
 </Package>
 </Project>
