@@ -5,9 +5,6 @@
 
 disableSerialization;
 
-// TODO Fix dialog rows, maybe too much columns in a row
-// maybe use just one column but structured text, if possible
-
 #define __totscorecol [1, 1, 0, 1]
 
 private _ctrl = (uiNamespace getVariable "D_DBTop10Dialog") displayCtrl 100;
