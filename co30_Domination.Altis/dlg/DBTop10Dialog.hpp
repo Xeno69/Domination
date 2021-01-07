@@ -13,10 +13,12 @@ class D_DBTop10Dialog {
 		class Top10LNListbox: RscListNBox {
 			idc = 100;
 			x = safezoneX; y = safezoneY + (1 / 25) + 0.02; w = safeZoneW; h = safeZoneH - 0.1;
-			drawSideArrows = 1;
-			idcRight = 147;
-			idcLeft = 146;
+			drawSideArrows = 0;
+			columns[] = {};
+			idcRight = -1;
+			idcLeft = -1;
 			sizeEx = 0.032;
+			rowHeight = 0.04;
 		};
 	};
 };

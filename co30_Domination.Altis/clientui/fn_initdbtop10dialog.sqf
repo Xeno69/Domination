@@ -20,7 +20,6 @@ private _start = 0.001;
 
 private _row = ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills", "Revives", "Headshots"];
 
-
 for "_i" from 0 to count _row - 1 do {
 	_ctrl lnbAddColumn (_start + (_i * _colwidth));
 };
@@ -29,6 +28,7 @@ private _rowidx = _ctrl lnbAddRow _row;
 
 _ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 _ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
+
 _ctrl lnbAddRow [""];
 {
 	__TRACE_1("","_x")
