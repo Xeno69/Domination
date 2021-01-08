@@ -22,7 +22,7 @@ if (d_with_ace) then {
 		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
 };
 
-if (d_cup) then {
+if (d_cup || {d_unsung}) then {
 	_items_no pushBack "ToolKit";
 };
 
