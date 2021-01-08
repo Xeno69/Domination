@@ -637,6 +637,9 @@ if (d_MissionType != 2) then {
 };
 
 player setVariable ["d_p_f_b", 0];
+if (isNil "d_p_rounds") then {
+	d_p_rounds = 0;
+};
 
 player addEventHandler ["firedMan", {call d_fnc_playerfiredeh}];
 

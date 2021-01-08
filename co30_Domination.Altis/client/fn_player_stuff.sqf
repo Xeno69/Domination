@@ -90,5 +90,10 @@ if (d_database_found) then {
 	} else {
 		_p_distar = _dar;
 	};
+	if (!isNil "d_p_rounds") then {
+		d_p_rounds = d_p_rounds + _this # 17;
+	} else {
+		d_p_rounds = _this # 17;
+	};
 	_p_distar spawn d_fnc_movecheck;
 };

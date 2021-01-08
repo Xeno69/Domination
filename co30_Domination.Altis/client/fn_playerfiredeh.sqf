@@ -7,6 +7,12 @@ __TRACE("fn_playerfiredeh")
 
 __TRACE_1("","_this")
 
+if (d_database_found) then {
+	if !((_this # 1) in ["Put", "Throw"]) then {
+		d_p_rounds = d_p_rounds + 1;
+	};
+};
+
 private _fnc_nearmhq = {
 	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
 	if (_ets isEqualTo []) exitWith {

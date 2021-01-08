@@ -9,13 +9,13 @@ disableSerialization;
 
 private _ctrl = (uiNamespace getVariable "D_DBTop10Dialog") displayCtrl 100;
 
-private _colwidth = 0.98 / 15;
-
 __TRACE_1("","_colwidth")
 
 private _start = 0.001;
 
-private _row = ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills", "Revives", "Headshots"];
+private _row = ["Name", "Playtime", "Infkills", "Softveckills", "Armorkills", "Airkills", "Deaths", "Totalscore", "Radiotowerkills", "MT SM Kills", "Num played", "Camps captured", "Teamkills", "Revives", "Headshots", "Rounds fired"];
+
+private _colwidth = 0.98 / (count _row);
 
 for "_i" from 0 to count _row - 1 do {
 	_ctrl lnbAddColumn (_start + (_i * _colwidth));
@@ -41,4 +41,5 @@ if (!isNil "d_pl_db_mstart") then {
 	_ctrl lnbSetText [[_rowidx, 7], score player];
 	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
+	_ctrl lnbSetText [[_rowidx, 15], d_p_rounds];
 };

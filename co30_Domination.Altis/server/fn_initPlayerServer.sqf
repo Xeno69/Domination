@@ -48,7 +48,7 @@ private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (_p isEqualTo []) then {
-	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0];
+	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
@@ -166,6 +166,9 @@ if (d_database_found) then {
 				};
 				if (count _pres > 15) then {
 					_p set [16, _pres # 15];
+				};
+				if (count _pres > 16) then {
+					_p set [17, _pres # 16];
 				};
 				__TRACE_1("44","_p")
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
