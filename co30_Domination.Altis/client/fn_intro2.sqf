@@ -96,13 +96,13 @@ if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}
 private _uidcheck_done = false;
 if (d_reserved_slot isNotEqualTo [] && {str player in d_reserved_slot}) then {
 	_uidcheck_done = true;
-	execVM "client\x_reservedslot.sqf";
+	0 spawn d_fnc_reservedslot;
 };
 if (!_uidcheck_done && {d_uid_reserved_slots isNotEqualTo []} && {d_uids_for_reserved_slots isNotEqualTo []}) then {
 	d_uid_reserved_slots = d_uid_reserved_slots apply {toLowerANSI _x};
 	if ((toLowerANSI str player) in d_uid_reserved_slots) then {
 		if !(getPlayerUID player in d_uids_for_reserved_slots) then {
-			execVM "client\x_reservedslot2.sqf";
+			0 spawn d_fnc_reservedslot2;
 		};
 		d_uid_reserved_slots = nil;
 		d_uids_for_reserved_slots = nil;

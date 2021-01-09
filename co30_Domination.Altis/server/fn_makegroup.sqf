@@ -24,6 +24,7 @@ private _ismen = _grptype in ["allmen", "specops"];
 private _msize = 0;
 if (_numvecs > 0) then {
 	if (!_istatatic) then {
+		_grp setVariable ["d_is_v_gr", true];
 		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, false, false, true] call d_fnc_makevgroup;
 		_vecs = _vecar # 0;
 		_uinf = _vecar # 1;

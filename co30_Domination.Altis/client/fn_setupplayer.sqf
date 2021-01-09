@@ -1192,7 +1192,7 @@ if (isMultiplayer) then {
 	if (!d_ifa3lite) then {
 		0 spawn d_fnc_intro2;
 	} else {
-		execVM "client\x_intro.sqf";
+		0 spawn d_fnc_intro;
 	};
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});

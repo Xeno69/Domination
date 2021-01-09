@@ -50,7 +50,8 @@ sleep 0.31;
 
 _agrp setVariable ["d_PATR", true];
 _agrp setVariable ["d_PATR_ISLE", true];
-[_agrp, _start_point, [d_with_isledefense # 0, d_with_isledefense # 1, d_with_isledefense # 2, d_with_isledefense # 3], [], "", 1, false, 0, true] spawn d_fnc_MakePatrolWPX;
+_agrp setVariable ["d_is_v_gr", true];
+[_agrp, _start_point, [d_with_isledefense # 0, d_with_isledefense # 1, d_with_isledefense # 2, d_with_isledefense # 3]] spawn d_fnc_MakePatrolWPX;
 #ifndef __TT__
 if (d_searchintel # 5 == 1) then {
 	_agrp spawn d_fnc_IsleDefMarkerMove;

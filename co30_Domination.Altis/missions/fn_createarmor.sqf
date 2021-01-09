@@ -80,6 +80,7 @@ for "_nr" from 0 to 2 do {
 				};
 				_newgroup setSpeedMode "NORMAL";
 			} else {
+				_newgroup setVariable ["d_is_v_gr", true];
 				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30]] spawn d_fnc_MakePatrolWPX;
 			};
 			_ret_grps pushBack _newgroup;

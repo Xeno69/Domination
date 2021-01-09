@@ -190,11 +190,15 @@ class cfgFunctions {
 			addc(camouflage);
 			addc(noaan);
 			addc(suppressed);
+			addc(intro);
 			addc(intro2);
 			addc(setdbstart);
 			addc(emiss);
 			addc(recruitsetup);
 			addc(movecheck);
+			addc(endcam);
+			addc(reservedslot);
+			addc(reservedslot2);
 		};
 		class Dom_UI {
 			file = "clientui";

@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 
 // supports also patrols in square areas, including angle
-params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 1], ["_full", false], ["_water", 0], ["_isvec", false]];
+params ["_grp", "_start_pos", "_wp_array", ["_timeout", []], ["_wpstatements", ""], ["_mindist", 1], ["_full", false], ["_water", 0]];
 
 __TRACE_1("","_this")
 
@@ -78,7 +78,7 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 	if (!_full) then {
 		if (_i == 0) then {
 			_wp setWaypointSpeed "LIMITED";
-			if (!_isvec) then {
+			if (isNil {_grp getVariable "d_is_v_gr"}) then {
 				_wp setWaypointFormation "STAG COLUMN";
 			} else {
 				_wp setWaypointFormation "COLUMN";
