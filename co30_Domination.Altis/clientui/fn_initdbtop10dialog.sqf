@@ -38,8 +38,8 @@ _ctrl lnbAddRow [""];
 
 if (!isNil "d_pl_db_mstart") then {
 	_rowidx = _ctrl lnbAddRow (d_pl_db_mstart apply {if (_x isEqualType "") then {_x} else {str _x}});
-	_ctrl lnbSetText [[_rowidx, 7], score player];
+	_ctrl lnbSetText [[_rowidx, 7], str (score player)];
+	_ctrl lnbSetText [[_rowidx, 15], str d_p_rounds];
 	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
-	_ctrl lnbSetText [[_rowidx, 15], d_p_rounds];
 };
