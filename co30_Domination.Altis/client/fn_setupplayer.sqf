@@ -1211,13 +1211,3 @@ if (isMultiplayer) then {
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
-
-/*
-isNil {(calculatePath ["car","safe",[14743.4,16786.5,0],[13997.6,18721,0]]) addEventHandler ["PathCalculated", { 
- { 
-  private _marker = createMarker ["marker" + str _forEachIndex, _x]; 
-  _marker setMarkerType "mil_dot"; 
-  _marker setMarkerText str _forEachIndex; 
- } forEach (_this select 1); 
-}]}
-*/
