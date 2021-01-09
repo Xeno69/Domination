@@ -10,7 +10,7 @@ sleep 5;
 d_all_igrps_vecs = [];
 #endif
 
-d_old_old_start = [0,0,0];
+d_old_old_start = [0, 0, 0];
 
 private _isle_grps = [];
 for "_i" from 1 to (d_with_isledefense # 4) do {
@@ -92,7 +92,7 @@ while {true} do {
 			};
 		};
 #ifndef __DEBUG__
-		sleep 50 + random 50;
+		sleep 70 + random 70;
 #else
 		sleep 5;
 #endif

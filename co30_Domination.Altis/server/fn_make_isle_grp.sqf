@@ -31,7 +31,7 @@ private _npos = _start_point;
 private _var = [];
 _var resize (selectRandom [2, 3]);
 for "_e" from 0 to (count _var - 1) do {
-	_var set [_e, ["wheeled_apc", d_enemy_side_short] call d_fnc_getunitlistv];
+	_var set [_e, [selectRandom ["jeep_mg", "wheeled_apc", "jeep_gl"], d_enemy_side_short] call d_fnc_getunitlistv];
 };
 {
 	private _rand = floor random 2;
@@ -50,7 +50,7 @@ sleep 0.31;
 
 _agrp setVariable ["d_PATR", true];
 _agrp setVariable ["d_PATR_ISLE", true];
-[_agrp, _start_point, [d_with_isledefense # 0, d_with_isledefense # 1, d_with_isledefense # 2, d_with_isledefense # 3]] spawn d_fnc_MakePatrolWPX;
+[_agrp, _start_point, [d_with_isledefense # 0, d_with_isledefense # 1, d_with_isledefense # 2, d_with_isledefense # 3], [], "", 1, false, 0, true] spawn d_fnc_MakePatrolWPX;
 #ifndef __TT__
 if (d_searchintel # 5 == 1) then {
 	_agrp spawn d_fnc_IsleDefMarkerMove;
