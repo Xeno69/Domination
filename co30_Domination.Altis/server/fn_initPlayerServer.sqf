@@ -89,49 +89,44 @@ if (_p isEqualTo []) then {
 
 if (d_database_found) then {
 	private _dbresult = [];
-#ifndef __INTERCEPTDB__
-	_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGetTS:%1", _uid]);
-	if (_dbresult # 0 == 1) then {
-		_dbresult = _dbresult # 1;
-	} else {
-		_dbresult = [];
+	call {
+		if (d_db_type == 0) exitWith {
+			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGetTS:%1", _uid]);
+			if (_dbresult # 0 == 1) then {
+				_dbresult = _dbresult # 1;
+			} else {
+				_dbresult = [];
+			};
+		};
+		if (d_db_type == 1) exitWith {
+			_dbresult = ["playerGetTS", [_uid]] call d_fnc_queryconfig;
+		};
 	};
-#else
-	// TODO Does the following work?
-	//if (isNil "D_DB_plgetts_query") then {
-	//	D_DB_plgetts_query = dbPrepareQueryConfig ["playerGetTS", [_uid]];
-	//} else {
-	//	D_DB_plgetts_query dbBindValue _uid;
-	//};
-	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
-
-	if (d_interceptdb) then {
-		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
-	};
-#endif
 	diag_log ["Dom Database playerGetTS result", _dbresult];
 
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
 		// create new database entry for UID
 		__TRACE("creating new db entry");
-#ifndef __INTERCEPTDB__
-		"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
-#else
-		if (d_interceptdb) then {
-			["playerInsert", [_uid, _name]] call dsi_fnc_queryconfigasync;
+		call {
+			if (d_db_type == 0) exitWith {
+				"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
+			};
+			if (d_db_type == 1) exitWith {
+				["playerInsert", [_uid, _name]] call d_fnc_queryconfigasync;
+			};
 		};
-#endif
 	} else {
 		__TRACE("adding nums played for player in db");
-#ifndef __INTERCEPTDB__
-		"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
-		diag_log ["Dom Database extdb3 updating numplayed"];
-#else
-		if (d_interceptdb) then {
-			["numplayedAdd", [_name, _uid]] call dsi_fnc_queryconfigasync;
+		call {
+			if (d_db_type == 0) exitWith {
+				"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
+				diag_log ["Dom Database extdb3 updating numplayed"];
+			};
+			if (d_db_type == 1) exitWith {
+				["numplayedAdd", [_name, _uid]] call d_fnc_queryconfigasync;
+			};
 		};
-#endif
 		__TRACE_1("","_f_c")
 		if (isNil "d_set_pl_score_db") then {
 			d_set_pl_score_db = true;
@@ -144,18 +139,19 @@ if (d_database_found) then {
 			d_player_hash set [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
 			[_pl, _dbresult # 0] spawn d_fnc_initdbplscores;
 		};
-#ifndef __INTERCEPTDB__
-		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
-		if (_dbresult # 0 == 1) then {
-			_dbresult = _dbresult # 1;
-		} else {
-			_dbresult = [];
+		call {
+			if (d_db_type == 0) exitWith {
+				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
+				if (_dbresult # 0 == 1) then {
+					_dbresult = _dbresult # 1;
+				} else {
+					_dbresult = [];
+				};
+			};
+			if (d_db_type == 1) exitWith {
+				_dbresult = ["playerGet", [_uid]] call d_fnc_queryconfig;
+			};
 		};
-#else
-		if (d_interceptdb) then {
-			_dbresult = ["playerGet", [_uid]] call dsi_fnc_queryconfig;
-		};
-#endif
 		diag_log ["Dom Database playerGet result", _dbresult];
 		__TRACE_1("","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
@@ -175,8 +171,12 @@ if (d_database_found) then {
 				__TRACE_1("44","_pres")
 				_pres deleteAt 14;
 				__TRACE_1("55","_pres")
-				if (remoteExecutedOwner isEqualTo 0) exitWith {};
-				_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
+				if (isMultiplayer) then {
+					if (remoteExecutedOwner isEqualTo 0) exitWith {};
+					_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
+				} else {
+					_pres call d_fnc_setdbstart;
+				};
 			};
 		};
 	};

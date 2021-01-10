@@ -37,13 +37,14 @@ while {true} do {
 							diag_log ["DOM dbtoppasync, totalscore <= 0, _uid:", _uid, "name:", name _x];
 						};
 
-#ifndef __INTERCEPTDB__
-						"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _pa # 15, _pa # 16, _pa # 17, _uid];
-#else
-						if (d_interceptdb) then {
-							["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _pa # 15, _pa # 16, _pa # 17, _uid]] call dsi_fnc_queryconfigasync;
+						call {
+							if (d_db_type == 0) exitWith {
+								"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _pa # 15, _pa # 16, _pa # 17, _uid];
+							};
+							if (d_db_type == 1) exitWith {
+								["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _pa # 15, _pa # 16, _pa # 17, _uid]] call d_fnc_queryconfigasync;
+							};
 						};
-#endif
 						_pa set [14, 0];
 
 						__TRACE("extDB3 called")
@@ -56,24 +57,25 @@ while {true} do {
 		sleep 0.3;
 	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 	sleep 10;
-#ifndef __INTERCEPTDB__
-	_dbresult = parseSimpleArray ("extdb3" callExtension "2:dom:getTop10Players");
-	__TRACE_1("","_dbresult")
-	if (_dbresult # 0 == 2) then {
-		sleep 3;
-		_dbresult = parseSimpleArray ("extdb3" callExtension format ["4:%1", _dbresult # 1]);
-		while {_dbresult # 0 == 3} do {sleep 3};
-		sleep 0.1;
-		if (_dbresult # 0 == 1) then {
-			{
-				_x set [1, (_x # 1) call d_fnc_convtime];
-			} forEach (_dbresult # 1);
-			missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
+	call {
+		if (d_db_type == 0) exitWith {
+			_dbresult = parseSimpleArray ("extdb3" callExtension "2:dom:getTop10Players");
+			__TRACE_1("","_dbresult")
+			if (_dbresult # 0 == 2) then {
+				sleep 3;
+				_dbresult = parseSimpleArray ("extdb3" callExtension format ["4:%1", _dbresult # 1]);
+				while {_dbresult # 0 == 3} do {sleep 3};
+				sleep 0.1;
+				if (_dbresult # 0 == 1) then {
+					{
+						_x set [1, (_x # 1) call d_fnc_convtime];
+					} forEach (_dbresult # 1);
+					missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
+				};
+			};
+		};
+		if (d_db_type == 1) exitWith {
+			call d_fnc_gettopplayers;
 		};
 	};
-#else
-	if (d_interceptdb) then {
-		call dsi_fnc_gettopplayers;
-	};
-#endif
 };

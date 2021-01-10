@@ -20,19 +20,20 @@ if (d_database_found) then {
 		d_bonus_vecs_db = [];
 		__TRACE_1("","worldname")
 		private _dbresult = [];
-#ifndef __INTERCEPTDB__
-		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsGet:%1", tolower worldname]);
-		if (_dbresult # 0 == 1) then {
-			_dbresult = _dbresult # 1;
-		} else {
-			_dbresult = [];
+		call {
+			if (d_db_type == 0) exitWith {
+				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsGet:%1", tolower worldname]);
+				if (_dbresult # 0 == 1) then {
+					_dbresult = _dbresult # 1;
+				} else {
+					_dbresult = [];
+				};
+			};
+			if (d_db_type == 1) exitWith {
+				_dbresult = ["missionsGet", [tolower worldname]] call d_fnc_queryconfig;
+			};
 		};
-#else
-		if (d_interceptdb) then {
-			_dbresult = ["missionsGet", [tolower worldname]] call dsi_fnc_queryconfig;
-		};
-#endif
-		__TRACE_1("","_dbresult")
+		__TRACE_1("missionsGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
 			d_db_savegames = [];
 			{
@@ -45,19 +46,20 @@ if (d_database_found) then {
 		d_bonus_vecs_db_w = [];
 		d_bonus_vecs_db_e = [];
 		private _dbresult = [];
-#ifndef __INTERCEPTDB__
-		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsttGet:%1", tolower worldname]);
-		if (_dbresult # 0 == 1) then {
-			_dbresult = _dbresult # 1;
-		} else {
-			_dbresult = [];
+		call {
+			if (d_db_type == 0) exitWith {
+				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionsttGet:%1", tolower worldname]);
+				if (_dbresult # 0 == 1) then {
+					_dbresult = _dbresult # 1;
+				} else {
+					_dbresult = [];
+				};
+			};
+			if (d_db_type == 1) exitWith {
+				_dbresult = ["missionsttGet", [tolower worldname]] call d_fnc_queryconfig;
+			};
 		};
-#else
-		if (d_interceptdb) then {
-			_dbresult = ["missionsttGet", [tolower worldname]] call dsi_fnc_queryconfig;
-		};
-#endif
-		__TRACE_1("","_dbresult")
+		__TRACE_1("missionsttGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
 			d_db_savegames = [];
 			{
@@ -68,26 +70,29 @@ if (d_database_found) then {
 		};
 	};
 
-#ifndef __INTERCEPTDB__
-	_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getTop10Players");
-	if (_dbresult # 0 == 1) then {
-		_dbresult = _dbresult # 1;
-	} else {
-		_dbresult = [];
-	};
-#else
-	if (d_interceptdb) then {
-		_dbresult = ["getTop10Players"] call dsi_fnc_queryconfig;
-	};
-#endif
-	__TRACE_1("","_dbresult")
-	if (_dbresult isNotEqualTo []) then {
-		{
-			_x set [1, (_x # 1) call d_fnc_convtime];
-		} forEach _dbresult;
-		missionNamespace setVariable ["d_top10_db_players", _dbresult, true];
+	call {
+		if (d_db_type == 0) exitWith {
+			_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getTop10Players");
+			if (_dbresult # 0 == 1) then {
+				_dbresult = _dbresult # 1;
+			} else {
+				_dbresult = [];
+			};
+			__TRACE_1("getTop10Players","_dbresult")
+			if (_dbresult isNotEqualTo []) then {
+				{
+					_x set [1, (_x # 1) call d_fnc_convtime];
+				} forEach _dbresult;
+				missionNamespace setVariable ["d_top10_db_players", _dbresult, true];
 
-		0 spawn d_fnc_dbtoppasync;
+				0 spawn d_fnc_dbtoppasync;
+			};
+		};
+		if (d_db_type == 1) exitWith {
+			call d_fnc_gettoppplayers;
+			//_dbresult = ["getTop10Players"] call d_fnc_queryconfig;
+			0 spawn d_fnc_dbtoppasync;
+		};
 	};
 
 	0 spawn d_fnc_getplayerscores;

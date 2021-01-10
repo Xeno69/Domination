@@ -109,15 +109,15 @@ __TRACE_1("","_headshots")
 private _rounds = _pa # 17;
 __TRACE_1("","_rounds")
 
-#ifndef __INTERCEPTDB__
-"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _rounds, _uid];
-__TRACE("extDB3 called")
-#else
-if (d_interceptdb) then {
-	["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _rounds, _uid]] call dsi_fnc_queryconfigasync;
+call {
+	if (d_db_type == 0) exitWith {
+		"extdb3" callExtension format ["1:dom:updatePlayer:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12", _infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _rounds, _uid];
+		__TRACE("extDB3 called")
+	};
+	if (d_db_type == 1) exitWith {
+		["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _rounds, _uid]] call d_fnc_queryconfigasync;
+		__TRACE("interceptDB called")
+	};
 };
-
-__TRACE("interceptDB called")
-#endif
 
 _pa set [14, 0];

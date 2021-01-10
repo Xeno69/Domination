@@ -12,50 +12,52 @@ __TRACE_1("","_sname")
 private _dbresult = [];
 
 if (!d_tt_ver) then {
-#ifndef __INTERCEPTDB__
-	_dbresult = if (_sender != objNull) then {
-		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet:%1", toLower (worldName + _sname)]);
-	} else {
-		__TRACE("Before")
-		_res = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
-		__TRACE_1("","_res")
-		_res
-	};
-	if (_dbresult # 0 == 1) then {
-		_dbresult = _dbresult # 1;
-	} else {
-		_dbresult = [];
-	};
-#else
-	if (d_interceptdb) then {
-		if (_sender != objNull) then {
-			_dbresult = ["missionGet", [toLower (worldName + _sname)]] call dsi_fnc_queryconfig;
-		} else {
-			_dbresult = ["missionGet2", [toLower (worldName + _sname + briefingname)]] call dsi_fnc_queryconfig;
+	call {
+		if (d_db_type == 0) exitWith {
+			_dbresult = if (_sender != objNull) then {
+				parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet:%1", toLower (worldName + _sname)]);
+			} else {
+				__TRACE("Before")
+				_res = parseSimpleArray ("extdb3" callExtension format ["0:dom:missionGet2:%1", tolower (worldName + _sname + briefingname)]);
+				__TRACE_1("","_res")
+				_res
+			};
+			if (_dbresult # 0 == 1) then {
+				_dbresult = _dbresult # 1;
+			} else {
+				_dbresult = [];
+			};
+		};
+		if (d_db_type == 1) exitWith {
+			if (_sender != objNull) then {
+				_dbresult = ["missionGet", [toLower (worldName + _sname)]] call d_fnc_queryconfig;
+			} else {
+				_dbresult = ["missionGet2", [toLower (worldName + _sname + briefingname)]] call d_fnc_queryconfig;
+			};
 		};
 	};
-#endif
 } else {
-#ifndef __INTERCEPTDB__
-	_dbresult = if (_sender != objNull) then {
-		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet:%1", tolower (worldName + _sname)]);
-	} else {
-		parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet2:%1", tolower (worldName + _sname + briefingname)]);
-	};
-	if (_dbresult # 0 == 1) then {
-		_dbresult = _dbresult # 1;
-	} else {
-		_dbresult = [];
-	};
-#else
-	if (d_interceptdb) then {
-		if (_sender != objNull) then {
-			_dbresult = ["missionttGet", [toLower (worldName + _sname)]] call dsi_fnc_queryconfig;
-		} else {
-			_dbresult = ["missionttGet2", [toLower (worldName + _sname + briefingname)]] call dsi_fnc_queryconfig;
+	call {
+		if (d_db_type == 0) exitWith {
+			_dbresult = if (_sender != objNull) then {
+				parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet:%1", tolower (worldName + _sname)]);
+			} else {
+				parseSimpleArray ("extdb3" callExtension format ["0:dom:missionttGet2:%1", tolower (worldName + _sname + briefingname)]);
+			};
+			if (_dbresult # 0 == 1) then {
+				_dbresult = _dbresult # 1;
+			} else {
+				_dbresult = [];
+			};
+		};
+		if (d_db_type == 1) exitWith {
+			if (_sender != objNull) then {
+				_dbresult = ["missionttGet", [toLower (worldName + _sname)]] call d_fnc_queryconfig;
+			} else {
+				_dbresult = ["missionttGet2", [toLower (worldName + _sname + briefingname)]] call d_fnc_queryconfig;
+			};
 		};
 	};
-#endif
 };
 
 __TRACE_1("","_dbresult")

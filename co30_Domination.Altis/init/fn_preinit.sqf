@@ -557,19 +557,28 @@ if (isServer) then {
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
 	d_database_found = false;
+	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
 
-#ifdef __INTERCEPTDB__
-	if (d_interceptdb) then {
-		call dsi_fnc_createdbconn;
+	if (fileExists "@InterceptDB\domination.sqf") then {
+		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
 	};
-#else
-	if (!isNil "extDB3_var_loaded") then {
-		private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
-			call extDB3_var_loaded
-		} else {
-			extDB3_var_loaded
+	if (isNil "d_interceptdb") then {d_interceptdb = false};
+	if (d_interceptdb) then {
+		call d_fnc_createdbconn;
+		diag_log ["Dom Intercept DB created:", D_DB_CON];
+		d_database_found = true;
+		d_db_type = 1;
+	} else {
+		private _isextdb3loaded = false;
+		if (!isNil "extDB3_var_loaded") then {
+			_isextdb3loaded = if (extDB3_var_loaded isEqualType {}) then {
+				call extDB3_var_loaded
+			} else {
+				extDB3_var_loaded
+			};
 		};
-		if (_extdb3laoded) then {
+		if (_isextdb3loaded) then {
+			d_db_type = 0;
 			private _uins = uiNamespace getVariable "d_database_init";
 			if (isNil "_uins") then {
 				private _result = "extdb3" callExtension "9:ADD_DATABASE:Domination";
@@ -580,32 +589,30 @@ if (isServer) then {
 				if (_result != "[1]" && {_result != "[0,""Error Protocol Name Already Taken""]"}) exitWith {};
 				"extDB3" callExtension "9:LOCK";
 				uiNamespace setVariable ["d_database_init", true];
-				d_database_found = true;
-			} else {
-				d_database_found = true;
 			};
+			d_database_found = true;
 		};
 	};
-#endif
 	publicVariable "d_database_found";
 
 	if (d_database_found) then {
 		d_use_sql_settings = false;
 
 		private _dbresult = [];
-#ifndef __INTERCEPTDB__
-		_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
-		if (_dbresult # 0 != 1) then {
-			_dbresult = [];
-		} else {
-			_dbresult = _dbresult # 1;
+		call {
+			if (d_db_type == 0) exitWith {
+				_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+				if (_dbresult # 0 != 1) then {
+					_dbresult = [];
+				} else {
+					_dbresult = _dbresult # 1;
+				};
+			};
+			if (d_db_type == 1) exitWith {
+				_dbresult = ["getDomSettings"] call d_fnc_queryconfig;
+			};
 		};
-#else
-		if (isNil "d_interceptdb") then {d_interceptdb = false};
-		if (d_interceptdb) then {
-			_dbresult = ["getDomSettings"] call dsi_fnc_queryconfig;
-		};
-#endif
+		__TRACE_1("getDomSettings","_dbresult")
 		diag_log "Dom Database result loading dom_settings:";
 		{
 			diag_log _x;
@@ -639,18 +646,20 @@ if (isServer) then {
 		};
 
 		if (d_use_sql_settings) then {
-#ifndef __INTERCEPTDB__
-			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
-			if (_dbresult # 0 != 1) then {
-				_dbresult = [];
-			} else {
-				_dbresult = _dbresult # 1;
+			call {
+				if (d_db_type == 0) exitWith {
+					_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
+					if (_dbresult # 0 != 1) then {
+						_dbresult = [];
+					} else {
+						_dbresult = _dbresult # 1;
+					};
+				};
+				if (d_db_type == 1) exitWith {
+					_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call d_fnc_queryconfig;
+				};
 			};
-#else
-			if (d_interceptdb) then {
-				_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call dsi_fnc_queryconfig
-			};
-#endif
+			__TRACE_1("getDomParams2","_dbresult")
 			diag_log "Dom Database result standard params:";
 			{
 				diag_log _x;
@@ -677,7 +686,14 @@ if (isServer) then {
 						private _paramName = configName (_conf select _i);
 						private _paramval = getNumber (_conf>>_paramName>>"default");
 						if (_paramval != -99999) then {
-							"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
+							call {
+								if (d_db_type == 0) exitWith {
+									"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
+								};
+								if (d_db_type == 1) exitWith {
+									["domParamsInsertN", [__DOMDBPARAMNAME, _paramName, _paramval]] call d_fnc_queryconfigasync;
+								};
+							};
 						};
 					};
 				};

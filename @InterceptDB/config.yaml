@@ -1,0 +1,112 @@
+#See https://intercept-database.readthedocs.io/en/stable/intro/config-file.html for more information
+global:
+ enableDynamicQueries: false #Allow queries to be created from SQF, if false only statements from config are allowed
+
+accounts:
+ domination: #production db, don't break things here!
+  ip: 127.0.0.1
+  username: domination
+  password: <your_database_password_here>
+  database: domination
+  port: 3306 #optional
+
+schemas:
+ test: schema.sql
+
+statements:
+ playerInsert: >
+  INSERT INTO players
+   (playerid, name)
+   VALUES(?,?);
+ playerGet: >
+  SELECT name, playtime, infkills, softveckills, armorkills, airkills, deaths, totalscore, radiotowerkills, mtsmkills, numplayedonserver, campscaptured, teamkills, revives, distar, headshots, rounds
+  FROM players
+  WHERE playerid=?;
+ playerGetTS: >
+  SELECT totalscore, infkills, softveckills, armorkills, airkills, deaths
+  FROM players
+  WHERE playerid=?;
+ numplayedAdd: >
+  UPDATE players SET numplayedonserver = numplayedonserver + 1, name = ?
+  WHERE playerid=?;
+ campAdd: >
+  UPDATE players SET campscaptured = campscaptured + 1
+  WHERE playerid=?;
+ radiotAdd: >
+  UPDATE players SET radiotowerkills = radiotowerkills + 1
+  WHERE playerid=?;
+ mtsmAdd: >
+  UPDATE players SET mtsmkills = mtsmkills + 1
+  WHERE playerid=?;
+ teankillsAdd: >
+  UPDATE players SET teamkills = teamkills + 1
+  WHERE playerid=?;
+ revivesAdd: >
+  UPDATE players SET revives = revives + 1
+  WHERE playerid=?;
+ updatePlayer: >
+  UPDATE players SET infkills = infkills + ?, softveckills = softveckills + ?, armorkills = armorkills + ?, airkills = airkills + ?, deaths = deaths + ?, totalscore = ?, playtime = playtime + ?, teamkills = teamkills + ?, distar = ?, headshots = ?, rounds = ?
+  WHERE playerid = ?;
+ missionInsert: >
+  INSERT INTO missionsave
+  (name, d_maintargets, d_maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, d_recapture_indices, d_side_missions_random, d_current_mission_counter, d_searchintel, d_bonus_vecs_db, d_worldname, d_combiname, missionname, d_retaken_farpspos, d_vrespawn_vecs)
+  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+ missionttInsert: >
+  INSERT INTO missionsavett
+  (name, d_maintargets, d_maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, d_recapture_indices, d_side_missions_random, d_current_mission_counter, d_searchintel, d_bonus_vecs_db_w, d_bonus_vecs_db_e, d_worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, d_combiname, missionname)
+  VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?);
+ missionUpdate: >
+  UPDATE missionsave
+  SET d_maintargets=?, d_maintargets_list=?, d_current_target_index=?, d_cur_sm_idx=?, d_resolved_targets=?, d_recapture_indices=?, d_side_missions_random=?, d_current_mission_counter=?, d_searchintel=?, d_bonus_vecs_db=?, d_retaken_farpspos=?, d_vrespawn_vecs=?
+  WHERE d_combiname=?;
+ missionTTUpdate: >
+  UPDATE missionsavett
+  SET d_maintargets=?, d_maintargets_list=?, d_current_target_index=?, d_cur_sm_idx=?, d_resolved_targets=?, d_recapture_indices=?, d_side_missions_random=?, d_current_mission_counter=?, d_searchintel=?, d_bonus_vecs_db_w=?, d_bonus_vecs_db_e=?, d_points_blufor=?, d_points_opfor=?, d_kill_points_blufor=?, d_kill_points_opfor=?, d_points_array=?
+  WHERE d_combiname=?;
+ missionGet: >
+  SELECT d_maintargets, d_maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, d_recapture_indices, d_side_missions_random, d_current_mission_counter, d_searchintel, d_bonus_vecs_db, missionname, d_retaken_farpspos, d_vrespawn_vecs
+  FROM missionsave
+  WHERE d_combiname=?;
+ missionttGet: >
+  SELECT d_maintargets, d_maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, d_recapture_indices, d_side_missions_random, d_current_mission_counter, d_searchintel, d_bonus_vecs_db_w, d_bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, missionname
+  FROM missionsavett
+  WHERE d_combiname=?;
+ missionGet2: >
+  SELECT d_maintargets, d_maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, d_recapture_indices, d_side_missions_random, d_current_mission_counter, d_searchintel, d_bonus_vecs_db, d_combiname, d_retaken_farpspos, d_vrespawn_vecs
+  FROM missionsave
+  WHERE missionname=?;
+ missionttGet2: >
+  SELECT d_maintargets, d_maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, d_recapture_indices, d_side_missions_random, d_current_mission_counter, d_searchintel, d_bonus_vecs_db_w, d_bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, d_combiname
+  FROM missionsavett
+  WHERE missionname=?;
+ missionsGet: >
+  SELECT name
+  FROM missionsave
+  WHERE d_worldname=?;
+ missionsttGet: >
+  SELECT name
+  FROM missionsavett
+  WHERE d_worldname=?;
+ missionsaveDel: >
+  DELETE
+  FROM missionsave
+  WHERE missionname=?;
+ missionsaveDelTT: >
+  DELETE
+  FROM missionsavett
+  WHERE missionname=?;
+ getTop10Players: >
+  SELECT name, playtime, infkills, softveckills, armorkills, airkills, deaths, totalscore, radiotowerkills, mtsmkills, numplayedonserver, campscaptured, teamkills, revives, headshots, rounds
+  FROM players
+  ORDER BY totalscore DESC LIMIT 0, 25;
+ domParamsInsertN: >
+  INSERT INTO dom_params2
+  (params_title,param_name,param_value)
+  VALUES(?,?,?);
+ getDomParams2: >
+  SELECT param_name, param_value
+  FROM dom_params2
+  WHERE params_title=?;
+ getDomSettings: >
+  SELECT name, value FROM dom_settings;
+ 

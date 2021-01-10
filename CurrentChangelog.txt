@@ -3,6 +3,7 @@
 ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
 			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
 
+- Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
 - Added: If d_with_mhq_camo is enabled it is now possible too deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
 - Added: Utility functions created fixed or improved: isinhouse, getbuildings, isvisible, sortarraybydistance, makemgroup now respects units per group, added dry run to occupy house script, by longtimegamer
