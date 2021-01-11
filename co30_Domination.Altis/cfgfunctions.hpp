@@ -199,6 +199,7 @@ class cfgFunctions {
 			addc(endcam);
 			addc(reservedslot);
 			addc(reservedslot2);
+			addc(flare40);
 		};
 		class Dom_UI {
 			file = "clientui";

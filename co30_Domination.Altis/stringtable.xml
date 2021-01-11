@@ -13849,6 +13849,17 @@
 <Chinese>Ship/Boat:</Chinese>
 <French>Ship/Boat:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2050">
+<English>Illuminate main target:</English>
+<German>Illuminate main target:</German>
+<Italian>Illuminate main target:</Italian>
+<Spanish>Iluminación de Misión Principal:</Spanish>
+<Czech>Illuminate main target:</Czech>
+<Russian>Illuminate main target:</Russian>
+<Polish>Illuminate main target:</Polish>
+<French>Illuminate main target:</French>
+<Hungarian>Illuminate main target:</Hungarian>
+</Key>
 </Container>
 </Package>
 </Project>
