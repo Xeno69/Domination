@@ -128,9 +128,9 @@ if (d_show_player_marker isNotEqualTo 0) then {
 		};
 	} forEach d_allplayermapd;
 
-	_drawn_v apply {_x setVariable ["d_v_drawn", nil]};
-
 	if (_w_ai) then {
+		_drawn_v apply {_x setVariable ["d_v_drawn", nil]};
+		
 		private ["_isc", "_text"];
 		{
 			if (_x distance2D _mapmid < _drawdist) then {
