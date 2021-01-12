@@ -26,7 +26,7 @@ __TRACE_2("","_obj","_ar")
 
 #ifndef __TT__
 if (_ar # 18 == 1) exitWith {
-	_this call d_fnc_plcheckkill;
+	call d_fnc_plcheckkill;
 	true
 };
 #else
@@ -46,11 +46,11 @@ if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 	};
 	
 	if (_ar # 1 == 1) then {
-		_this call d_fnc_checkveckillblufor;
+		call d_fnc_checkveckillblufor;
 	};
 
 	if (_ar # 2 == 1) then {
-		_this call d_fnc_checkveckillopfor;
+		call d_fnc_checkveckillopfor;
 	};
 };
 if (!isNil "d_is_hc") exitWith {true};

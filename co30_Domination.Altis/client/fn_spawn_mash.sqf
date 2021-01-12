@@ -87,7 +87,7 @@ systemChat (localize "STR_DOM_MISSIONSTRING_285");
 _medic_tent setVariable ["d_owner", player, true];
 
 _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_286"], {
-	_this call { // workaround to avoid exitWith problems here
+	call { // workaround to avoid exitWith problems here
 		if (isNil {player getVariable "d_medic_tent"}) exitWith {};
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 1;

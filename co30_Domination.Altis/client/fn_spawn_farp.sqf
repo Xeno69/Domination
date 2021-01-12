@@ -120,7 +120,7 @@ if (isMultiplayer) then {
 _farp setVariable ["d_owner", player, true];
 
 _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_249"], {
-	_this call {
+	call {
 		private _farp = player getVariable ["d_farp_obj", objNull];
 		if (isNull _farp) exitWith {};
 

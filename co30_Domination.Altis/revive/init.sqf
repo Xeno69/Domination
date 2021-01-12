@@ -51,7 +51,7 @@ if (d_only_medics_canrevive != 0) then {
 			scriptName "spawn xr init";
 			sleep 1;
 			if (alive _this && {_this getVariable ["xr_pluncon", false]}) then {
-				_this call xr_fnc_addActions;
+				call xr_fnc_addActions;
 			};
 		};
 		xr_uncon_units pushBackUnique _x;

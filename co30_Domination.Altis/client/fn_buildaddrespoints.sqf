@@ -48,7 +48,7 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 				} else {
 					private _dadao = missionNamespace getVariable (_x # 1);
 					_x set [1, getPos _dadao];
-					_dadao addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}];
+					_dadao addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}];
 					if (d_ParaAtBase == 0) then {
 						_dadao setVariable ["d_jf_id", _dadao addAction [format ["<t color='#D64C30' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 0]];
 					};
@@ -60,7 +60,7 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 				private _dadao = missionNamespace getVariable (_x # 1);
 				_x set [1, getPos _dadao];
 				if (isNil {_dadao getVariable "d_teleidx"}) then {
-					_dadao setVariable ["d_teleidx", _dadao addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}]];
+					_dadao setVariable ["d_teleidx", _dadao addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}]];
 				};
 				if (d_ParaAtBase == 0) then {
 					if (isNil {_dadao getVariable "d_jf_id"}) then {

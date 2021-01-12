@@ -40,7 +40,7 @@ sleep 0.02;
 
 
 if (xr_dropAction != -3333) then {player removeAction xr_dropAction;xr_dropAction = -3333};
-xr_dropAction = player addAction [format["<t color='#FF0000'>%2 %1</t>",_name_dragee, localize "STR_DOM_MISSIONSTRING_1733"], {_this call xr_fnc_drop_body}, [_dragee, 0], 0, false, true];
+xr_dropAction = player addAction [format["<t color='#FF0000'>%2 %1</t>",_name_dragee, localize "STR_DOM_MISSIONSTRING_1733"], {call xr_fnc_drop_body}, [_dragee, 0], 0, false, true];
 xr_carryAction = player addAction [format["<t color='#FF0000'>%2 %1</t>",_name_dragee, localize "STR_DOM_MISSIONSTRING_1734"], {_this spawn xr_fnc_carry}, _dragee, 0, false, true];
 sleep 1;
 

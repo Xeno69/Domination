@@ -2473,6 +2473,20 @@ if (hasInterface) then {
 	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLowerANSI _x};
 
 	d_weapon_respawn = true;
+	
+	d_i_r_hash = createHashMapFromArray [
+		[0, getText(configFile>>"CfgRanks">>"0">>"texture")],
+		[1, getText(configFile>>"CfgRanks">>"1">>"texture")],
+		[2, getText(configFile>>"CfgRanks">>"2">>"texture")],
+		[3, getText(configFile>>"CfgRanks">>"3">>"texture")],
+		[4, getText(configFile>>"CfgRanks">>"4">>"texture")],
+		[5, getText(configFile>>"CfgRanks">>"5">>"texture")],
+		[6, getText(configFile>>"CfgRanks">>"6">>"texture")],
+		[7, getText(configFile>>"CfgRanks">>"7">>"texture")],
+		[8, getMissionPath "pics\8star.paa"],
+		[9, getMissionPath "pics\6star.paa"],
+		[10, getMissionPath "pics\5star.paa"]
+	];
 
 	// points needed to get a specific rank
 	// gets even used in the unranked versions

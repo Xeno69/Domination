@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
@@ -40,7 +40,7 @@ link17[] = {15,6};
 link18[] = {16,17};
 link19[] = {17,13};
 globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-455.676758,559.340210,904.643738,-90.048965,1025,1254,1};
-window[] = {2,-1,-1,-1,-1,1186,182,2329,182,3,1043};
+window[] = {2,-1,-1,-1,-1,1108,104,2251,104,3,1043};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -257,9 +257,13 @@ class FSM
                          "if (!d_tt_ver) then {" \n
                          "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n
                          "} else {" \n
-                         "	switch (_rep_station_side) do {" \n
-                         "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n
-                         "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n
+                         "	call {" \n
+                         "		if (_rep_station_side == blufor) exitWith {" \n
+                         "			d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]" \n
+                         "		};" \n
+                         "		if (_rep_station_side == opfor) exitWith {" \n
+                         "			d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]" \n
+                         "		};" \n
                          "	};" \n
                          "};" \n
                          "" \n

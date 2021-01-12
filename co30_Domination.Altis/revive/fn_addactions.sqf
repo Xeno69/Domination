@@ -16,7 +16,7 @@ if (_unit getVariable ["xr_ReviveAction", -9999] == -9999) then {
 		/* 5 condition for action */		"true",
 		/* 6 code executed on start */		{(player call d_fnc_getplayername) remoteExecCall ["xr_fnc_yougetrevivedm", _this # 0]},
 		/* 7 code executed per tick */		{},
-		/* 8 code executed on completion */	{_this call xr_fnc_cdorevive},
+		/* 8 code executed on completion */	{call xr_fnc_cdorevive},
 		/* 9 code executed on interruption*/{},
 		/* 10 arguments */					[_unit],
 		/* 11 action duration */			[6, 3] select (player getUnitTrait "medic"),

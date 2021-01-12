@@ -37,7 +37,7 @@ if (d_mt_respawngroups == 0) then { \
 	_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _mtradius], false, []]]; \
 };
 
-#define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]; \
+#define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; call d_fnc_MTSMTargetKilled}]; \
 _vec addEventHandler ["handleDamage", {call d_fnc_checkmtshothd}];
 
 if !(isServer) exitWith {};
@@ -145,8 +145,8 @@ switch (_sec_kind) do {
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "ammo_down";
-			_this call d_fnc_MTSMTargetKilled;
-			_this call d_fnc_handleDeadVec;
+			call d_fnc_MTSMTargetKilled;
+			call d_fnc_handleDeadVec;
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
@@ -173,8 +173,8 @@ switch (_sec_kind) do {
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "med_down";
-			_this call d_fnc_MTSMTargetKilled;
-			_this call d_fnc_handleDeadVec;
+			call d_fnc_MTSMTargetKilled;
+			call d_fnc_handleDeadVec;
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
