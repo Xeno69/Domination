@@ -75,7 +75,7 @@ while {true} do {
 			};
 		};
 		if (d_db_type == 1) exitWith {
-			call d_fnc_gettopplayers;
+			call d_fnc_gettoppplayers;
 		};
 	};
 };
