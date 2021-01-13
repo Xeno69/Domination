@@ -2627,6 +2627,8 @@ if (hasInterface) then {
 
 	d_misc_sc_hash = createHashMap;
 	
+	d_misc_sc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	
 	d_i_r_hash = createHashMapFromArray [
 		[0, getText(configFile>>"CfgRanks">>"0">>"texture")],
 		[1, getText(configFile>>"CfgRanks">>"1">>"texture")],

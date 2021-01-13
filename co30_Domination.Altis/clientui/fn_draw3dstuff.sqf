@@ -13,10 +13,6 @@ private _d3d_locs4a = d_d3d_locs4a;
 	_distp = _pos_cam distance _obj;
 	if (_with_3Di == 1) then {
 		_tex = _obj getVariable "d_tex";
-		if (isNil "_tex") then {
-			_tex = d_dr3dar_hash getOrDefault [_x # 3, "#(argb,8,8,3)color(0,0,0,0)"];
-			_obj setVariable ["d_tex", _tex];
-		};
 	} else {
 		_tex = "#(argb,8,8,3)color(0,0,0,0)";
 	};

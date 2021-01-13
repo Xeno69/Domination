@@ -200,6 +200,7 @@ class cfgFunctions {
 			addc(reservedslot);
 			addc(reservedslot2);
 			addc(flare40);
+			addc(checkammo2);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -264,6 +265,7 @@ class cfgFunctions {
 			addc(userkeyselchanged);
 			addc(lastchanceclient);
 			addc(correctwname);
+			addc(addto3drawar);
 		};
 		class Dom_Common {
 			file = "common";

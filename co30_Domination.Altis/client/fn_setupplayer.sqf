@@ -343,53 +343,49 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 	};
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
-	d_3draw_ar = [
-		[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0]
-	];
+	[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
 	if (!isNil "d_vecre_trigger") then {
-		d_3draw_ar pushBack [d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0];
+		[d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_jet_trigger") then {
-		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0];
+		[d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	private _allmhs = allMissionObjects "HeliH";
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1];
+		[_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
 	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
 
 	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
-		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0];
+		[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (d_carrier) then {
-		d_3draw_ar pushBack [d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0];
+		[d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0] call d_fnc_addto3drawar;
 	};
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0];
+		[_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0] call d_fnc_addto3drawar;
 	} forEach (_allmhs select {(str _x) select [0, 20] == "d_serviceall_trigger"});
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
 	};
 #else
-	d_3draw_ar = [
-		[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0]
-	];
+	[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
 
 	if (!isNil "d_vecre_trigger") then {
-		d_3draw_ar pushBack [[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0];
+		[[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_jet_trigger") then {
-		d_3draw_ar pushBack [[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0];
+		[[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_chopper_trigger") then {
-		d_3draw_ar pushBack [[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0];
+		[[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_wreck_rep") then {
-		d_3draw_ar pushBack [[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1];
+		[[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
 	};
 #endif
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2, 0];
+		[_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2, 0] call d_fnc_addto3drawar;
 	} forEach d_all_ammoloads;
 	
 	d_dr3dca_hash = createHashMap;
@@ -397,11 +393,6 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 	for "_i" from 0 to 24 do {
 		d_dr3dca_hash set [_i, format ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_%1_ca.paa", _i]];
 	};
-	
-	d_dr3dar_hash = createHashMap;
-	d_dr3dar_hash set [0, "a3\ui_f\data\IGUI\Cfg\Actions\arrow_up_gs.paa"];
-	d_dr3dar_hash set [1, "a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa"];
-	d_dr3dar_hash set [2, "a3\ui_f\data\IGUI\Cfg\Actions\loadVehicle_ca.paa"];
 
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
 
