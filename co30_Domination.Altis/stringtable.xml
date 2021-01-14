@@ -9936,6 +9936,18 @@
 <Chinese>------------------------ 殘骸處理 ---------------------------</Chinese>
 <French>------------------------ Gestion Épaves ---------------------------</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ADVANCED">
+<English>------------------------ Advanced ---------------------------</English>
+<Spanish>------------------------ Advanced ---------------------------</Spanish>
+<Portuguese>------------------------ Advanced ---------------------------</Portuguese>
+<Korean>---------------------- Advanced ----------------------</Korean>
+<Japanese>---------------------- Advanced -------------------------</Japanese>
+<Original>------------------------ Advanced ---------------------------</Original>
+<Russian>--------------------------- Advanced --------------------------</Russian>
+<Chinesesimp>------------------------ Advanced ---------------------------</Chinesesimp>
+<Chinese>------------------------ Advanced ---------------------------</Chinese>
+<French>------------------------ Advanced ---------------------------</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1583">
 <English>Disable sway:</English>
 <Spanish>Desactivar balanceo:</Spanish>
@@ -13717,6 +13729,18 @@
 <Chinesesimp>Bots are silent</Chinesesimp>
 <Chinese>Bots are silent</Chinese>
 <French>Bots are silent</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE">
+<English>Load domination.cfg (requires -filePatching on server)</English>
+<Spanish>Load domination.cfg (requires -filePatching on server)</Spanish>
+<Portuguese>Load domination.cfg (requires -filePatching on server)</Portuguese>
+<Korean>Load domination.cfg (requires -filePatching on server)</Korean>
+<Japanese>Load domination.cfg (requires -filePatching on server)</Japanese>
+<Original>Load domination.cfg (requires -filePatching on server)</Original>
+<Russian>Load domination.cfg (requires -filePatching on server)</Russian>
+<Chinesesimp>Load domination.cfg (requires -filePatching on server)</Chinesesimp>
+<Chinese>Load domination.cfg (requires -filePatching on server)</Chinese>
+<French>Load domination.cfg (requires -filePatching on server)</French>
 </Key>
 </Container>
 </Package>
