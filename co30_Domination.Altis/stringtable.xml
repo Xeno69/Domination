@@ -9936,6 +9936,18 @@
 <Chinese>------------------------ 殘骸處理 ---------------------------</Chinese>
 <French>------------------------ Gestion Épaves ---------------------------</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ADVANCED">
+<English>------------------------ Advanced ---------------------------</English>
+<Spanish>------------------------ Advanced ---------------------------</Spanish>
+<Portuguese>------------------------ Advanced ---------------------------</Portuguese>
+<Korean>---------------------- Advanced ----------------------</Korean>
+<Japanese>---------------------- Advanced -------------------------</Japanese>
+<Original>------------------------ Advanced ---------------------------</Original>
+<Russian>--------------------------- Advanced --------------------------</Russian>
+<Chinesesimp>------------------------ Advanced ---------------------------</Chinesesimp>
+<Chinese>------------------------ Advanced ---------------------------</Chinese>
+<French>------------------------ Advanced ---------------------------</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1583">
 <English>Disable sway:</English>
 <Spanish>Desactivar balanceo:</Spanish>
@@ -13754,6 +13766,18 @@
 <Chinese>Bots are silent</Chinese>
 <French>Bots are silent</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE">
+<English>Load domination.cfg (requires -filePatching on server)</English>
+<Spanish>Load domination.cfg (requires -filePatching on server)</Spanish>
+<Portuguese>Load domination.cfg (requires -filePatching on server)</Portuguese>
+<Korean>Load domination.cfg (requires -filePatching on server)</Korean>
+<Japanese>Load domination.cfg (requires -filePatching on server)</Japanese>
+<Original>Load domination.cfg (requires -filePatching on server)</Original>
+<Russian>Load domination.cfg (requires -filePatching on server)</Russian>
+<Chinesesimp>Load domination.cfg (requires -filePatching on server)</Chinesesimp>
+<Chinese>Load domination.cfg (requires -filePatching on server)</Chinese>
+<French>Load domination.cfg (requires -filePatching on server)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2042">
 <English>Player can be suppressed</English>
 <Spanish>Player can be suppressed</Spanish>
@@ -13862,6 +13886,29 @@
 <Chinesesimp>Illuminate main target:</Chinesesimp>
 <Chinese>Illuminate main target:</Chinese>
 <Portuguese>Illuminate main target:</Portuguese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_STATICWEAPONS">
+<English>Defend with static weapons</English>
+<Spanish>Defend with static weapons</Spanish>
+<Portuguese>Defend with static weapons</Portuguese>
+<Korean>Defend with static weapons</Korean>
+<Japanese>Defend with static weapons</Japanese>
+<Original>Defend with static weapons</Original>
+<Russian>Defend with static weapons</Russian>
+<Chinesesimp>Defend with static weapons</Chinesesimp>
+<Chinese>Defend with static weapons</Chinese>
+<French>Defend with static weapons</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2051">
+<English>Disable ACE medical revive (if ACE is used) and use mission revive</English>
+<Spanish>Disable ACE medical revive (if ACE is used) and use mission revive</Spanish>
+<Portuguese>Disable ACE medical revive (if ACE is used) and use mission revive</Portuguese>
+<Korean>Disable ACE medical revive (if ACE is used) and use mission revive</Korean>
+<Japanese>Disable ACE medical revive (if ACE is used) and use mission revive</Japanese>
+<Original>Disable ACE medical revive (if ACE is used) and use mission revive</Original>
+<Russian>Disable ACE medical revive (if ACE is used) and use mission revive</Russian>
+<Chinesesimp>Disable ACE medical revive (if ACE is used) and use mission revive</Chinesesimp>
+<French>Disable ACE medical revive (if ACE is used) and use mission revive</French>
 </Key>
 </Container>
 </Package>

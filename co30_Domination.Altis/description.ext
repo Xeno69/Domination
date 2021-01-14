@@ -803,6 +803,13 @@ default = 7;
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_ACEMedicalR {
+		title = "$STR_DOM_MISSIONSTRING_2051";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class xr_max_lives {
 		title = "$STR_DOM_MISSIONSTRING_1009";

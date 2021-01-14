@@ -36,13 +36,10 @@ if (isNil "paramsArray") then {
 			};
 		};
 	};
-	if (isServer && { d_load_overrides_file == 1 }) then {
+	if (isServer && {d_load_overrides_file == 1}) then {
 		// requires -filePatch server parameter
-		_filePath = "\domination.cfg";
-		// todo: replace with fileExists (currently in dev branch)
-		if !(loadFile _filePath isEqualTo "") then {
-			diag_log [ format ["Load overrides from: %1", _filePath]];
-			call compile loadFile _filePath;
+		if (fileExists "domination.cfg") then {
+			call compile preprocessFileLineNumbers "domination.cfg";
 		};
 	};	
 };
@@ -62,7 +59,7 @@ d_pilots_only = 1;
 d_no_ai = !d_with_ai && {d_with_ai_features == 1};
 d_enemy_mode_current_maintarget = nil; // nil unless d_WithLessArmor is set to random
 
-if (d_with_ace) then {
+if (d_with_ace && {d_ACEMedicalR == 1}) then {
 	d_WithRevive = 1;
 	ace_medical_enableRevive = 1;
 	ace_medical_maxReviveTime = 300;
