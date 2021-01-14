@@ -1147,6 +1147,13 @@ default = 7;
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_camp_static_weapons {
+		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
@@ -1437,6 +1444,20 @@ default = 7;
 		values[] = {100,500,1000,2000,3000,5000,10000000};
 		default = 500;
 		texts[] = {"100 m","500 m","1000 m","2000 m","3000 m","5000 m","$STR_DOM_MISSIONSTRING_1137"};
+	};
+	
+	class d_params_dl_19 {
+		title = "$STR_DOM_MISSIONSTRING_ADVANCED";
+		values[] = {-99999};
+		default = -99999;
+		texts[] = {""};
+	};
+	
+	class d_load_overrides_file {
+		title = "$STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 };
 

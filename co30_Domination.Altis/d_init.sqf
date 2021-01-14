@@ -54,7 +54,7 @@ if (d_GrasAtStart == 1) then {
 		private _tg = profileNamespace getVariable ["dom_terraingrid", getTerrainGrid];
 		if (_tg != getTerrainGrid) then {
 			setTerrainGrid _tg;
-			private _tmpidx = [50, 25, 12.5] find _tg;
+			private _tmpidx = [50, 25, 12.5, 6.25, 3.125] find _tg;
 			if (_tmpidx != -1) then {
 				d_graslayer_index = _tmpidx;
 			};

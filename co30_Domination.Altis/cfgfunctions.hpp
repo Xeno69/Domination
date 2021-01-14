@@ -334,6 +334,7 @@ class cfgFunctions {
 			addc(setbcnil);
 			addc(sortarraybydistance);
 			addc(isvisible);
+			addc(deletearrayunitsvehicles);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
