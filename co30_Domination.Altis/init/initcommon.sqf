@@ -36,6 +36,15 @@ if (isNil "paramsArray") then {
 			};
 		};
 	};
+	if (isServer && { d_load_overrides_file == 1 }) then {
+		// requires -filePatch server parameter
+		_filePath = "\domination.cfg";
+		// todo: replace with fileExists (currently in dev branch)
+		if !(loadFile _filePath isEqualTo "") then {
+			diag_log [ format ["Load overrides from: %1", _filePath]];
+			call compile loadFile _filePath;
+		};
+	};	
 };
 
 d_no_ranked_weapons = d_with_ranked == 2;
