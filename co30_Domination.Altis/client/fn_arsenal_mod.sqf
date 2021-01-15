@@ -26,6 +26,10 @@ if (d_cup || {d_unsung}) then {
 	_items_no pushBack "ToolKit";
 };
 
+if (d_cup) then {
+	_items_no append ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"];
+};
+
 _items_no = _items_no apply {toLowerANSI _x};
 
 private _findmodfnc = {
