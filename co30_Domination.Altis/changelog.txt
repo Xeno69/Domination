@@ -24,6 +24,7 @@ ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_
 - Fixed: Camouflage script had the wrong stance in it, "STANCE" instead of "STAND"
 - Fixed: ToolKit was missing in the unsung version in VA
 - Fixed: Choppers exploded on the carrier in the carrier version (yet again)
+- Fixed: Fog, overcast and date can be set again by Zeus
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
