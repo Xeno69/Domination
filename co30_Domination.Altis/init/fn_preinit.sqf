@@ -556,13 +556,18 @@ if (isServer) then {
 
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
+	diag_log ["Dom d_with_ace:", d_with_ace];
 	d_database_found = false;
 	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
 
 	if (fileExists "@InterceptDB\domination.sqf") then {
+		diag_log "DOM InterceptDB domination.sqf file found!";
 		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
 	};
-	if (isNil "d_interceptdb") then {d_interceptdb = false};
+	if (isNil "d_interceptdb") then {
+		diag_log "DOM InterceptDB d_interceptdb is nil";
+		d_interceptdb = false
+	};
 	if (d_interceptdb) then {
 		call d_fnc_createdbconn;
 		diag_log ["Dom Intercept DB created:", D_DB_CON];
@@ -577,6 +582,7 @@ if (isServer) then {
 				extDB3_var_loaded
 			};
 		};
+		diag_log ["DOM extDB3 _isextdb3loaded:", _isextdb3loaded];
 		if (_isextdb3loaded) then {
 			d_db_type = 0;
 			private _uins = uiNamespace getVariable "d_database_init";
@@ -594,6 +600,7 @@ if (isServer) then {
 		};
 	};
 	publicVariable "d_database_found";
+	diag_log ["DOM d_database_found:", d_database_found, "d_db_type:", d_db_type];
 
 	if (d_database_found) then {
 		d_use_sql_settings = false;
@@ -646,6 +653,7 @@ if (isServer) then {
 		};
 
 		if (d_use_sql_settings) then {
+			diag_log ["DOM database d_use_sql_settings", d_use_sql_settings];
 			call {
 				if (d_db_type == 0) exitWith {
 					_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);

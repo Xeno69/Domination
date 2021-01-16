@@ -48,3 +48,5 @@ d_fnc_gettoppplayers = {
 		};
 	}];
 };
+
+diag_log "Dom InterceptDB domination.sqf loaded and compiled";
