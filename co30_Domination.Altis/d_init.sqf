@@ -27,6 +27,7 @@ if (hasInterface) then {
 		_vd = d_MaxViewDistance;
 	};
 	setViewDistance _vd;
+	diag_log ["DOM viewdistance at start:", _vd];
 	setObjectViewDistance (_vd + 100);
 	
 	d_curviewdistance = _vd;
@@ -52,6 +53,7 @@ if (d_GrasAtStart == 1) then {
 } else {
 	if (hasInterface) then {
 		private _tg = profileNamespace getVariable ["dom_terraingrid", getTerrainGrid];
+		diag_log ["DOM terraingrid at start:", _tg];
 		if (_tg != getTerrainGrid) then {
 			setTerrainGrid _tg;
 			private _tmpidx = [50, 25, 12.5, 6.25, 3.125] find _tg;

@@ -15,7 +15,7 @@ if (isNil "d_db_auto_save") then {
 };
 
 if (d_database_found) then {
-	diag_log "DOM initServer.sqf: Reading DB data!";
+	diag_log ["DOM initServer.sqf: Reading DB data! World name:", worldname];
 	if (!d_tt_ver) then {
 		d_bonus_vecs_db = [];
 		__TRACE_1("","worldname")
@@ -102,6 +102,7 @@ if (d_database_found) then {
 if (isNil "d_set_pl_score_db") then {
 	d_set_pl_score_db = true;
 	publicVariable "d_set_pl_score_db";
+	diag_log ["DOM initServer d_set_pl_score_db:", d_set_pl_score_db];
 };
 
 if (d_database_found && {d_db_auto_save}) then {
@@ -114,6 +115,7 @@ if (isDedicated) then {
 		scriptName "spawn_initserver";
 		waitUntil {time > 0};
 		enableEnvironment [false, false];
+		diag_log "DOM initServer environment disabled!";
 	};
 };
 
