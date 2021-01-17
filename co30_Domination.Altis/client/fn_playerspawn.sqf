@@ -175,13 +175,6 @@ if (_rtype == 0) then { // player died
 	};
 	[player , "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
 
-#ifndef __TT__
-	0 spawn {
-		scriptName "spawn_playerspawn_vu3";
-		sleep 1;
-		[player] remoteExecCall ["d_fnc_addceo", 2];
-	};
-#endif
 	showChat true;
 	if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 		[] spawn d_fnc_showhud;
