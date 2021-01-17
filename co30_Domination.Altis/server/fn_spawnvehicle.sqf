@@ -118,6 +118,10 @@ if (_addkills) then {
 	};
 };
 
+if !(_veh isKindOf "Ship") then {
+	_veh addEventHandler ["handleDamage", {call d_fnc_v_hd}];
+};
+
 #ifndef __TT__
 [_veh] call d_fnc_addceo;
 #endif
