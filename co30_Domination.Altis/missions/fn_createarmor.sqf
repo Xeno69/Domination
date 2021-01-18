@@ -7,7 +7,7 @@ if (d_WithLessArmor_side == 2) exitWith {[]};
 
 __TRACE_1("","_this")
 
-private _pos_center = _this select 6;
+private _pos_center = _this # 6;
 if (isNil "_pos_center") exitWith {
 	diag_log "_pos_center in fn_createarmor.sqf undefined!!!";
 	if (!isNil "_fnc_scriptNameParent") then {
@@ -15,8 +15,8 @@ if (isNil "_pos_center") exitWith {
 	};
 	diag_log ["fn_createarmor.sqf _this: ", _this];
 };
-private _radius = _this select 8;
-private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 10) then {_this select 9} else {false}};
+private _radius = _this # 8;
+private _do_patrol = if (_radius < 50) then {false} else {if (count _this == 10) then {_this # 9} else {false}};
 __TRACE_3("","_pos_center","_radius","_do_patrol")
 private _ret_grps = [];
 
@@ -27,7 +27,7 @@ _with_less_armor_side = if (d_WithLessArmor_side == -1) then {
 };
 
 for "_nr" from 0 to 2 do {
-	private _nrg = [_this select (1 + (_nr * 2)), selectRandom [0, 1]] select (_with_less_armor_side == 1);
+	private _nrg = [_this # (1 + (_nr * 2)), selectRandom [0, 1]] select (_with_less_armor_side == 1);
 	__TRACE_1("","_nrg")
 	if (_nrg > 0) then {
 		if (d_MissionType == 2) then {_nrg = _nrg + 2};
@@ -60,7 +60,7 @@ for "_nr" from 0 to 2 do {
 			if (_istatatic) then {
 				_vdir = _pos_center getDir _pos;
 			};
-			private _reta = [_this select 7, _pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistv, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
+			private _reta = [_this # 7, _pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistv, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
 			_newgroup deleteGroupWhenEmpty true;
 			__TRACE_1("","_reta")
 			d_x_sm_vec_rem_ar append (_reta # 0);
@@ -89,10 +89,10 @@ for "_nr" from 0 to 2 do {
 			};
 			[_newgroup, 15] spawn {
 				scriptName "spawn createarmor";
-				sleep (_this select 1);
-				(_this select 0) call d_fnc_addgrp2hc;
+				sleep (_this # 1);
+				(_this # 0) call d_fnc_addgrp2hc;
 				if (d_with_dynsim == 0) then {
-					(_this select 0) enableDynamicSimulation true;
+					(_this # 0) enableDynamicSimulation true;
 				};
 			};
 		};

@@ -39,8 +39,8 @@ if (d_show_player_marker isNotEqualTo 0) then {
 			if (_dodraw) then {
 				_text = if (_type isNotEqualTo 1) then {
 					if (!_inv) then {
-						_vc = _x getVariable ["d_ut_c", 33];
-						if (_vc > 32) then {
+						_vc = _x getVariable ["d_ut_c", 37];
+						if (_vc > 36) then {
 							_x setVariable ["d_ut_c", 0];
 							call {
 								if (_s_pl_ma isEqualTo 1) exitWith {

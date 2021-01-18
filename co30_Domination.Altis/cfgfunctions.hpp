@@ -201,6 +201,7 @@ class cfgFunctions {
 			addc(reservedslot2);
 			addc(flare40);
 			addc(checkammo2);
+			addc(initgrhc);
 		};
 		class Dom_UI {
 			file = "clientui";

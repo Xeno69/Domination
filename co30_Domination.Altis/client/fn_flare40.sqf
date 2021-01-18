@@ -13,8 +13,11 @@ _foo setLightFlareMaxDistance 600;
 _foo setLightDayLight true;
 _foo setLightAttenuation [4, 0, 0, 0.2, 1000, 2000];
 
-waitUntil {
-	sleep 0.1;
-	!alive _this;
+_foo spawn {
+	scriptName "spawn fn_flare40";
+	waitUntil {
+		sleep 0.1;
+		!alive _this;
+	};
+	deletevehicle _this;
 };
-deletevehicle _foo;

@@ -229,6 +229,7 @@ class CfgRemoteExec {
 		class bis_fnc_setfog {allowedTargets = 2;};
 		class bis_fnc_setovercast {allowedTargets = 2;};
 		class bis_fnc_setdate {allowedTargets = 2;};
+		class d_fnc_initgrhc {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_addpoints {allowedTargets = 2;};
 		class d_fnc_addsmpoints {allowedTargets = 2;};

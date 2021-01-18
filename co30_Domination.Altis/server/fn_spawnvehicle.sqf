@@ -120,6 +120,9 @@ if (_addkills) then {
 
 if !(_veh isKindOf "Ship") then {
 	_veh addEventHandler ["handleDamage", {call d_fnc_v_hd}];
+	private _gvecs = _grp getVariable ["d_gvecs", []];
+	_gvecs pushBack _veh;
+	_grp setVariable ["d_gvecs", _gvecs];
 };
 
 #ifndef __TT__
