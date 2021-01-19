@@ -906,6 +906,10 @@ player addEventhandler ["WeaponAssembled", {
 
 ["Preload"] call bis_fnc_arsenal;
 
+if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
+	(bis_fnc_arsenal_data # 24) append (["ACRE_VHF30108","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST","ACRE_SEM52SL","ACRE_SEM70","ACRE_PRC117F","ACRE_PRC148","ACRE_PRC152","ACRE_PRC343","ACRE_PRC77"] apply {toLowerANSI _x});
+};
+
 if (!d_gmcwg) then {
 	d_arsenal_mod_remove_strings pushBack "gm_";
 };
@@ -936,6 +940,12 @@ if (d_arsenal_mod == 0) then {
 			d_arsenal_mod_prestrings pushBackUnique "ace_";
 		};
 		if (d_arsenal_mod_prestrings isNotEqualTo []) then {
+			if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
+				d_arsenal_mod_prestrings pushBackUnique "ACRE_";
+			};
+			if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
+				d_arsenal_mod_prestrings pushBackUnique "task_";
+			};
 			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
 		};
 	};
@@ -1013,13 +1023,15 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 	d_non_check_items append (bis_fnc_arsenal_data # 24);
 	d_non_check_items apply {toLowerANSI _x};
 	
-	if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
-		private _hear = ["ACRE_VHF30108","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST","ACRE_SEM52SL","ACRE_SEM70","ACRE_PRC117F","ACRE_PRC148","ACRE_PRC152","ACRE_PRC343","ACRE_PRC77"] apply {toLowerANSI _x};
-		(bis_fnc_arsenal_data # 24) append _hear;
+	
+	private _radiosb = [];
+	if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
+		_radiosb = ((bis_fnc_arsenal_data # 5) select {_x select [0, 3] == "TF_"}) apply {toLowerANSI _x};
 	};
 	
 	{
-		private _maxload = getNumber(configFile>>"CfgVehicles">>_x>>"maximumLoad");
+		private _bagclass = toLowerANSI _x;
+		private _maxload = [getNumber(configFile>>"CfgVehicles">>_x>>"maximumLoad"), 0] select (_bagclass in _radiosb);
 		private _toadd = call {
 			if (_maxload < 200) exitWith {
 				["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
@@ -1032,7 +1044,6 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 			};
 			["COLONEL"]
 		};
-		private _bagclass = toLowerANSI _x;
 		{
 			private _entry = d_misc_hash getOrDefault [format ["%1_BAGS", _x], []];
 			_entry pushBack _bagclass;
