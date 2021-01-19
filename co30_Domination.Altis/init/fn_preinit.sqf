@@ -2648,7 +2648,8 @@ if (hasInterface) then {
 		[7, getText(configFile>>"CfgRanks">>"7">>"texture")],
 		[8, getMissionPath "pics\8star.paa"],
 		[9, getMissionPath "pics\6star.paa"],
-		[10, getMissionPath "pics\5star.paa"]
+		[10, getMissionPath "pics\5star.paa"],
+		[11, getMissionPath "pics\8star2.paa"]
 	];
 
 	// If you want to add additional non MHQ respawn points like additional bases for example

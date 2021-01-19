@@ -41,7 +41,7 @@ if (isNil "_xm") then {
 } else {
 	private _r = _this getVariable "d_8star";
 	if (isNil "_r") then {
-		_r = [d_i_r_hash get 8, 0.7];
+		_r = [d_i_r_hash get 11, 0.7];
 		_this setVariable ["d_8star", _r];
 	};
 	_r
