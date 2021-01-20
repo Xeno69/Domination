@@ -2681,6 +2681,7 @@ if (hasInterface) then {
 	d_deploy_mhq_camo = true;
 
 	d_player_jescape = 0;
+	d_player_canu = true;
 
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";

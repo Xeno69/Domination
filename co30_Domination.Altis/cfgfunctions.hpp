@@ -202,6 +202,7 @@ class cfgFunctions {
 			addc(flare40);
 			addc(checkammo2);
 			addc(initgrhc);
+			addc(canu);
 		};
 		class Dom_UI {
 			file = "clientui";

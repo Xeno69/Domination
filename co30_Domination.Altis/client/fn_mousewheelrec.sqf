@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_mousewheelrec.sqf"
 #include "..\x_setup.sqf"
 
-if (!isNil "d_is_sat_on" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {false};
+if (!isNil "d_is_sat_on" || {!d_player_canu}) exitWith {false};
 
 private _pin_v = false;
 private _ct = if (isNull objectParent player) then {

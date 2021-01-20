@@ -73,6 +73,7 @@ if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false];
+["dom_alive_not_uncon", {call d_fnc_canu}] call d_fnc_eachframeadd;
 d_player_in_base = true;
 d_player_in_air = false;
 
@@ -1088,7 +1089,7 @@ missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 
 0 spawn d_fnc_allplayers;
 
-if (d_with_ace) then {
+if (d_with_ace && {d_ACEMedicalR == 1}) then {
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3d_ace}];
 };
 
