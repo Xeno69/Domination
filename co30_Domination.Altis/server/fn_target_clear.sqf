@@ -224,12 +224,13 @@ if (d_maintargets_list isNotEqualTo []) then {
 } else {
 	if (d_tt_ver) then {
 		if (d_database_found && {d_db_auto_save}) then {
-		call {
-			if (d_db_type == 0) exitWith {
-				"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-			};
-			if (d_db_type == 1) exitWith {
-				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+			call {
+				if (d_db_type == 0) exitWith {
+					"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+				};
+				if (d_db_type == 1) exitWith {
+					["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+				};
 			};
 		};
 		d_the_end = true; publicVariable "d_the_end";

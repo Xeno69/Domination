@@ -177,6 +177,8 @@ class CfgRemoteExec {
 		class xr_fnc_selleader {allowedTargets = 2;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
+		class bis_fnc_setIdentity {};
+		class bis_fnc_curatorrespawn {};
 		class d_fnc_addppoints {allowedTargets = 2;};
 		class d_fnc_moduleCAS {allowedTargets = 2;};
 		class d_fnc_storeploadout {allowedTargets = 2;};
