@@ -70,7 +70,7 @@ if (_dospawn) then {
 		private _vecp = vehicle player;
 		while {true} do {
 			sleep 0.221;
-			if (time > d_rscCrewTextShownTimeEnd || {!alive player || {player getVariable ["xr_pluncon", false] || {vehicle player != _vecp || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
+			if (time > d_rscCrewTextShownTimeEnd || {!d_player_canu || {vehicle player != _vecp}}) exitWith {};
 		};
 		"d_rscCrewText" cutFadeOut 0;
 		d_rscCrewTextShownTimeEnd = -1;

@@ -153,7 +153,7 @@ if (_vec isKindOf "Ship") then {
 
 0 spawn {
 	scriptName "spawn_initvecdialog";
-	waitUntil {!isNil "d_vec_dialog_open" && {!d_vec_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+	waitUntil {!isNil "d_vec_dialog_open" && {!d_vec_dialog_open || {!d_player_canu}}};
 
 	if (d_vec_dialog_open) then {closeDialog 0};
 };

@@ -18,9 +18,9 @@ if (_tr_cargo_ar isEqualTo []) exitWith {};
 d_current_truck_cargo_array = _tr_cargo_ar;
 createDialog "d_UnloadDialog";
 
-waitUntil {!isNil "d_unload_dialog_open" && {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+waitUntil {!isNil "d_unload_dialog_open" && {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!d_player_canu}}}};
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {if (d_unload_dialog_open) then {closeDialog 0}};
+if (!d_player_canu) exitWith {if (d_unload_dialog_open) then {closeDialog 0}};
 
 if (d_cargo_selected_index == -1) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_82")};
 
@@ -72,7 +72,7 @@ while {d_e_placing_running == 0} do {
 		systemChat (localize "STR_DOM_MISSIONSTRING_87");
 		_place_error = true;
 	};
-	if (!alive player || {!alive _vec || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {
+	if (!d_player_canu || {!alive _vec}) exitWith {
 		_place_error = true;
 		if (d_e_placing_id1 != -1000) then {
 			player removeAction d_e_placing_id1;

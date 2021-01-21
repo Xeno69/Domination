@@ -9,7 +9,7 @@ if (!hasInterface) exitWith {};
 params ["_vec"];
 private _eindex = -1;
 private _egoindex = -1;
-while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+while {d_player_in_vec && {d_player_canu}} do {
 	if (player == currentPilot _vec) then {
 		if (_egoindex == -1) then {
 			_egoindex = __vaeh ["getOut", {call d_fnc_getOutEHPoints}];

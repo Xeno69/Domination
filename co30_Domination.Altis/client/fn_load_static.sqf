@@ -23,7 +23,7 @@ if (!alive _cargo) exitWith {hintSilent (localize "STR_DOM_MISSIONSTRING_71")};
 
 private _type_name = [_cargo] call d_fnc_GetDisplayName;
 if (_cargo distance2D _vec > 10) exitwith {hintSilent format [localize "STR_DOM_MISSIONSTRING_72", _type_name]};
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+if (!d_player_canu) exitWith {};
 
 if (player getVariable ["d_currently_loading", false]) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_73")};
 
@@ -38,7 +38,7 @@ if (count _tr_cargo_ar >= d_max_truck_cargo) then {
 private _alive = true;
 for "_i" from 10 to 1 step -1 do {
 	hintSilent format [localize "STR_DOM_MISSIONSTRING_74", _type_name, _i];
-	if (!alive player || {!alive _vec || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {_alive = false};
+	if (!d_player_canu || {!alive _vec}) exitWith {_alive = false};
 	sleep 1;
 };
 if (_alive) then {

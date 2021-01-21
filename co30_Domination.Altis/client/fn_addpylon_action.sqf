@@ -6,9 +6,9 @@
 if (!hasInterface || {!isNil {_this getVariable "d_plyonloadoutaction"}}) exitWith {};
 
 private _condstr = if (!unitIsUAV _this) then {
-	"speed _target == 0 && {!isEngineOn _target && {player == driver _target && {d_add_resp_points_pos findIf {_x distance2D _target < 700} > -1 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}}}}"
+	"speed _target == 0 && {!isEngineOn _target && {d_player_canu && {player == driver _target && {d_add_resp_points_pos findIf {_x distance2D _target < 700} > -1}}}}"
 } else {
-	"speed _target == 0 && {!isEngineOn _target && {d_add_resp_points_pos findIf {_x distance2D _target < 700} > -1 && {isNil {_target getVariable 'd_pylon_blocked'} && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}}}}"
+	"speed _target == 0 && {!isEngineOn _target && {d_add_resp_points_pos findIf {_x distance2D _target < 700} > -1 && {isNil {_target getVariable 'd_pylon_blocked'} && {d_player_canu}}}}"
 }; 
 
 _this setVariable ["d_plyonloadoutaction", [

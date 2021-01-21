@@ -9,7 +9,7 @@ d_x_airtaximarker = "d_air_taxi_" + str player;
 
 d_change_taxi_tmp = true;
 createDialog "D_AirTaxiDialog";
-waitUntil {!isNil "d_airdtaxi_dialog_open" && {d_x_do_call_taxi || {!d_airdtaxi_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+waitUntil {!isNil "d_airdtaxi_dialog_open" && {d_x_do_call_taxi || {!d_airdtaxi_dialog_open || {!d_player_canu}}}};
 
 private _destination = markerPos d_x_airtaximarker;
 

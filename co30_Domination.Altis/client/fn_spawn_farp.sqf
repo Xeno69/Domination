@@ -53,9 +53,9 @@ if (d_with_ranked || {d_database_found}) then {[player, 10] remoteExecCall ["d_f
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 1;
-waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
 d_commandingMenuIniting = false;
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_247");
 	player setVariable ["d_isinaction", false];
 };
@@ -126,8 +126,8 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 1;
-		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
-		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
+		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
+		if (!d_player_canu) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
 
 		d_farps = d_farps - [_farp];
 		publicVariable "d_farps";

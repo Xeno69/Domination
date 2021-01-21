@@ -9,14 +9,14 @@ if (!hasInterface) exitWith {};
 params ["_obj", "_type"];
 
 if (_type == 0) exitWith {
-	_obj addAction [localize "STR_DOM_MISSIONSTRING_2024", {[_this select 0, 3] call BIS_fnc_dataTerminalAnimate}, nil, 1, true, true, "", "_target animationSourcePhase 'Antenna_source' == 0 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}", 5];
+	_obj addAction [localize "STR_DOM_MISSIONSTRING_2024", {[_this select 0, 3] call BIS_fnc_dataTerminalAnimate}, nil, 1, true, true, "", "_target animationSourcePhase 'Antenna_source' == 0 && {d_player_canu}", 5];
 
 	[
 		/* 0 object */						_obj,
 		/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1839",
 		/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 		/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-		/* 4 condition to show */			"_target animationSourcePhase 'Antenna_source' == 3 && {!d_data_was_send && {player distance2D _target <= 5 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}}}",
+		/* 4 condition to show */			"_target animationSourcePhase 'Antenna_source' == 3 && {!d_data_was_send && {player distance2D _target <= 5 && {d_player_canu}}}",
 		/* 5 condition for action */		"true",
 		/* 6 code executed on start */		{systemChat (localize "STR_DOM_MISSIONSTRING_1838")},
 		/* 7 code executed per tick */		{},
@@ -44,7 +44,7 @@ if (_type == 1) exitWith {
 		/* 1 action title */				localize "STR_DOM_MISSIONSTRING_2025",
 		/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
 		/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
-		/* 4 condition to show */			"!d_sm_leak_sealed && {player distance2D _target <= 6 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}}",
+		/* 4 condition to show */			"!d_sm_leak_sealed && {player distance2D _target <= 6 && {d_player_canu}}",
 		/* 5 condition for action */		"true",
 		/* 6 code executed on start */		{systemChat (localize "STR_DOM_MISSIONSTRING_2026")},
 		/* 7 code executed per tick */		{},
@@ -72,7 +72,7 @@ if (_type == 2) exitWith {
 		/* 1 action title */				localize "STR_DOM_MISSIONSTRING_2031",
 		/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
 		/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
-		/* 4 condition to show */			"!d_sm_farpseized && {player distance2D _target <= 6 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false])}}}}",
+		/* 4 condition to show */			"!d_sm_farpseized && {player distance2D _target <= 6 && {d_player_canu}}",
 		/* 5 condition for action */		"true",
 		/* 6 code executed on start */		{systemChat (localize "STR_DOM_MISSIONSTRING_2032")},
 		/* 7 code executed per tick */		{},

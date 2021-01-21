@@ -2,15 +2,15 @@
 #define THIS_FILE "fn_healatmash.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface || {(_this # 3) != "Heal" || {isNil {(_this # 0) getVariable "d_mplayer"} || {(_this # 0) getVariable "d_mplayer" == player || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}}) exitWith {};
+if (!hasInterface || {(_this # 3) != "Heal" || {isNil {(_this # 0) getVariable "d_mplayer"} || {(_this # 0) getVariable "d_mplayer" == player || {!d_player_canu}}}}) exitWith {};
 
 ((_this # 0) getVariable "d_mplayer") spawn {
 	scriptName "spawn_healatmash";
 	player setVariable ["d_isinaction", true];
 
-	waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+	waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
 	player setVariable ["d_isinaction", false];
-	if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+	if (!d_player_canu) exitWith {};
 
 	player setDamage 0;
 	player setBleedingRemaining 0;

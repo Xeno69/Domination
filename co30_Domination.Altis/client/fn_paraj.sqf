@@ -31,8 +31,8 @@ if (d_HALOWaitTime > 0 && {_mode == 0 && {player distance2D _jumpobj < 15 && {d_
 d_global_jump_pos = [];
 createDialog "d_ParajumpDialog";
 
-waitUntil {!isNil "d_parajump_dialog_open" && {!d_parajump_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
-if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
+waitUntil {!isNil "d_parajump_dialog_open" && {!d_parajump_dialog_open || {!d_player_canu}}};
+if (d_player_canu) then {
 	if (d_global_jump_pos isNotEqualTo []) then {
 #ifndef __TT__
 		[[d_global_jump_pos, 200, d_HALOJumpHeight] call d_fnc_GetRanJumpPoint] spawn d_fnc_pjump;

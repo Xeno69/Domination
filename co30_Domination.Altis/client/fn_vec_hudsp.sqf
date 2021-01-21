@@ -22,7 +22,7 @@ if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
 	};
 
 	private _fuelcap = getNumber((configOf _vec)>>"fuelCapacity");
-	while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+	while {d_player_in_vec && {d_player_canu}} do {
 		if (player == currentPilot _vec || {player == gunner _vec || {player == commander _vec}}) then {
 			private _vec_string = localize "STR_DOM_MISSIONSTRING_631" + ([_vec] call d_fnc_GetDisplayName);
 			"d_vec_hud" cutRsc ["d_vec_hud", "PLAIN"];
@@ -58,7 +58,7 @@ if (_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) then {
 	};
 } else {
 	if (_vec isKindOf "StaticWeapon" && {!(_vec isKindOf "StaticATWeapon")}) then {
-		while {d_player_in_vec && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+		while {d_player_in_vec && {d_player_canu}} do {
 			if (player == gunner _vec) then {
 				private _vec_string = localize "STR_DOM_MISSIONSTRING_631" + ([typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName);
 				private _type_weap = (getArray((configOf _vec)>>"Turrets">>"MainTurret">>"weapons")) # 0;

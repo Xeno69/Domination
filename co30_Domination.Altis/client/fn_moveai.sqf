@@ -35,9 +35,9 @@ if (units (group player) findIf {alive _x} > -1) then {
 	} else {
 		while {true} do {
 			sleep 0.1;
-			if ((vehicle player isKindOf "ParachuteBase") || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
+			if ((vehicle player isKindOf "ParachuteBase") || {!d_player_canu}) exitWith {};
 		};
-		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+		if (!d_player_canu) exitWith {};
 		private _pos_p = getPos player;
 		private _veloc = velocity player;
 		private _dir = getDir player;

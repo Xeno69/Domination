@@ -38,9 +38,9 @@ player setVariable ["d_isinaction", true];
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 1;
-waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
 d_commandingMenuIniting = false;
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_247");
 	player setVariable ["d_isinaction", false];
 };
@@ -91,8 +91,8 @@ _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MI
 		if (isNil {player getVariable "d_medic_tent"}) exitWith {};
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 1;
-		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
-		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
+		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
+		if (!d_player_canu) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
 
 		d_mashes = d_mashes - [player getVariable "d_medic_tent"];
 		publicVariable "d_mashes";

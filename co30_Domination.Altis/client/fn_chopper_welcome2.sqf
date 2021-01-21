@@ -33,6 +33,6 @@ private _t = format ["<t color='#b5f279' size='1.9'><t align='center'>%1</t><br/
 
 while {true} do {
 	sleep 0.223;
-	if (time >= _end_welcome || {isNull objectParent player || {player != currentPilot _vec || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}) exitWith {};
+	if (time >= _end_welcome || {isNull objectParent player || {player != currentPilot _vec || {!d_player_canu}}}) exitWith {};
 };
 "d_chopper_hud" cutFadeOut 0;

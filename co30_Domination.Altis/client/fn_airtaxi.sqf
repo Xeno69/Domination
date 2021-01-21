@@ -28,7 +28,7 @@ d_x_airtaximarker = "d_air_taxi_" + str player;
 d_ataxi_unit_type = "";
 
 createDialog "D_AirTaxiDialog";
-waitUntil {!isNil "d_airdtaxi_dialog_open" && {d_x_do_call_taxi || {!d_airdtaxi_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+waitUntil {!isNil "d_airdtaxi_dialog_open" && {d_x_do_call_taxi || {!d_airdtaxi_dialog_open || {!d_player_canu}}}};
 
 if (!d_x_do_call_taxi) exitWith {
 	player sideChat (localize "STR_DOM_MISSIONSTRING_1881");

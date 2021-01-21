@@ -7,7 +7,7 @@ private _oldstance = stance player;
 sleep 10;
 
 while {true} do {
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
+	if (d_player_canu) then {
 		if (stance player isNotEqualTo _oldstance) then {
 			_oldstance = stance player;
 			call {
@@ -24,7 +24,7 @@ while {true} do {
 			};
 		};
 	} else {
-		waitUntil {sleep 1; alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}};
+		waitUntil {sleep 1; d_player_canu};
 	};
 	sleep 2;
 };

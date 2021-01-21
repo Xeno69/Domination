@@ -35,7 +35,7 @@ if !(_markername in _dsmd) then {
 	_markername spawn {
 		scriptName "spawn_d_fnc_showsidemain_d_marker";
 		private _m = _this; private _a = 1; private _aas = -0.06;
-		while {d_showstatus_dialog_open && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+		while {d_showstatus_dialog_open && {d_player_canu}} do {
 			_m setMarkerAlphaLocal _a;
 			_a = _a + _aas;
 			if (_a < 0.3) then {_a = 0.3; _aas = _aas * -1};

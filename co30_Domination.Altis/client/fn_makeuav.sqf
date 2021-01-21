@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_makeuav.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {};
+if (!hasInterface || {!d_player_canu}) exitWith {};
 
 private _exitj = false;
 if (d_with_ranked || {d_database_found}) then {
@@ -54,7 +54,7 @@ _uav spawn {
 	private _exit_it = false;
 	sleep 1;
 	while {true} do {
-		if (!alive player || {!alive _uav || {(isNull (findDisplay 160) && ((UAVControl _uav) # 1) isEqualTo "") || {isNull (getConnectedUav player) || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}) exitWith {};
+		if (!d_player_canu || {!alive _uav || {(isNull (findDisplay 160) && ((UAVControl _uav) # 1) isEqualTo "") || {isNull (getConnectedUav player)}}}) exitWith {};
 		sleep 1.1;
 	};
 	__TRACE("uav spawn while over")
@@ -69,7 +69,7 @@ _uav spawn {
 	{_uav deleteVehicleCrew _x} forEach _crew;
 	deleteVehicle _uav;
 	
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {player getVariable ["d_has_gps", false] && {!(player getVariable ["ace_isunconscious", false])}}}) then {
+	if (d_player_canu && {player getVariable ["d_has_gps", false]}) then {
 		player linkItem "ItemGPS";
 		player setVariable ["d_has_gps", false];
 	};

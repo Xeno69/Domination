@@ -36,11 +36,11 @@ d_x_drop_type = "";
 createDialog "d_AirDropDialog";
 d_commandingMenuIniting = false;
 
-waitUntil {!isNil "d_airdrop_dialog_open" && {d_x_drop_type != "" || {!d_airdrop_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+waitUntil {!isNil "d_airdrop_dialog_open" && {d_x_drop_type != "" || {!d_airdrop_dialog_open || {!d_player_canu}}}};
 
 deleteMarkerLocal "d_drop_marker_1";
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	if (d_airdrop_dialog_open) then {closeDialog 0};
 	deleteMarkerLocal "d_drop_zone";
 	if (!d_no_ai) then {

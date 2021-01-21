@@ -13,11 +13,11 @@ private _isleader = _old_lead == player;
 
 __TRACE_2("","_old_lead","_isleader")
 
-while {alive player && {!(player getVariable ["xr_pluncon", false]) && {!isNull _disp && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+while {d_player_canu && {!isNull _disp}} do {
 	sleep 0.5;
 };
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) then {
+if (!d_player_canu) then {
 	_disp closeDisplay 1;
 };
 
