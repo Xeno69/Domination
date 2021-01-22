@@ -3,6 +3,7 @@
 #define THIS_FILE "fn_swm.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
 
 params ["_u", "_n"];
 

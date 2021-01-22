@@ -1,8 +1,8 @@
-// by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_jumpover.sqf"
 #include "..\x_setup.sqf"
 
-if ((_this # 1) in actionKeys "GetOver" && {d_player_canu && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}}) then {
+if ((_this # 1) in actionKeys "GetOver" && {d_player_canu && {speed player > 11 && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}}) then {
 	d_p_isju = true;
 	0 spawn {
 		scriptName "spawn jumpover";
@@ -11,6 +11,7 @@ if ((_this # 1) in actionKeys "GetOver" && {d_player_canu && {currentWeapon play
 		private _veloL = _v vectorAdd [0, 0, -1];
 		private _maxHight = (getPosATL player # 2) + 1.3;
 
+		__TRACE("Calling d_fnc_swm")
 		[player, 0] remoteExecCall ["d_fnc_swm"];
 		sleep 0.05;
 		while {animationState player == "AovrPercMrunSrasWrflDf"} do {
