@@ -2651,6 +2651,19 @@ if (hasInterface) then {
 		[10, getMissionPath "pics\5star.paa"],
 		[11, getMissionPath "pics\8star2.paa"]
 	];
+	
+	d_num_hash = createHashMapFromArray [
+		[0, "00"],
+		[1, "01"],
+		[2, "02"],
+		[3, "03"],
+		[4, "04"],
+		[5, "05"],
+		[6, "06"],
+		[7, "07"],
+		[8, "08"],
+		[9, "09"]
+	];
 
 	// If you want to add additional non MHQ respawn points like additional bases for example
 	// Usage: Each point array needs a unique name, position or marker name, description and a side (side is only valid for the TT version), optional: add create atv action menue entry(true/false; default false)

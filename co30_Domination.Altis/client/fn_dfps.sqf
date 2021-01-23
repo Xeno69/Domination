@@ -12,4 +12,4 @@ if (isNil "_disp" || {isNull _disp}) then {
 };
 (_disp displayCtrl 50) ctrlSetText str _this;
 (_disp displayCtrl 51) ctrlSetText str (round diag_fps);
-(_disp displayCtrl 52) ctrlSetText format ["%1 %2:%3", d_yt_loc2037, systemTime # 3, systemTime # 4];
+(_disp displayCtrl 52) ctrlSetText format ["%1 %2:%3", d_yt_loc2037, d_num_hash getOrDefault [systemTime # 3, systemTime # 3], d_num_hash getOrDefault [systemTime # 4, systemTime # 4]];
