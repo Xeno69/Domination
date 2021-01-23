@@ -150,6 +150,6 @@ if (d_with_ranked) then {
 	scriptname "spawn sendfpssetupserver";
 	sleep 10;
 	["dom_sendfps", {
-		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+		(round diag_fps) remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
 	}, 3] call d_fnc_eachframeadd;
 };
