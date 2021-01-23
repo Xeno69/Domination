@@ -30,18 +30,17 @@ private _s_ai = [];
 	_x params ["_uni"];
 	if (alive _uni) then {
 		private _role = _x # 1;
-		private _rpic = if (_role == "commander") then {
-			"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_commander_ca.paa";
-		} else {
-			if (_role == "driver") then {
-				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_driver_ca.paa";
-			} else {
-				if (_role == "gunner" || {_role == "turret"}) then {
-					"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_gunner_ca.paa"
-				} else {
-					"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_cargo_ca.paa"
-				};
+		private _rpic = call {
+			if (_role == "commander") exitWith {
+				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_commander_ca.paa";
 			};
+			if (_role == "driver") exitWith {
+				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_driver_ca.paa";
+			};
+			if (_role == "gunner" || {_role == "turret"}) exitWith {
+				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_gunner_ca.paa"
+			};
+			"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_cargo_ca.paa"
 		};
 		if (_uni call d_fnc_isplayer) then {
 			_s_p pushBack format ["%1<img color='#FFFFFF' image='%2'/> <br/>", [_uni] call d_fnc_gethpname, _rpic];

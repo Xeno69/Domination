@@ -2,8 +2,6 @@
 #define THIS_FILE "fn_reservedslot2.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 sleep 1;
 
 for "_i" from 1 to 3 do {

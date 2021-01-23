@@ -12,7 +12,7 @@ isNil {
 	if (hasInterface) then {
 		0 spawn d_fnc_initplname;
 		
-		execVM "tasks.sqf";
+		0 spawn d_fnc_tasks;
 	};
 
 	player enableAttack false;

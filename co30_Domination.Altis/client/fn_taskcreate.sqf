@@ -1,4 +1,3 @@
-// by Xeno
 #define THIS_FILE "fn_taskcreate.sqf"
 #include "..\x_setup.sqf"
 

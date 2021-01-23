@@ -5,4 +5,4 @@
 
 if (!hasInterface) exitWith {};
 
-[playerSide, "HQ"] sideChat format [localize ("STR_DOM_MISSIONSTRING_" + str(649 + (_this select 0))), _this select 1];
+[playerSide, "HQ"] sideChat format [localize ("STR_DOM_MISSIONSTRING_" + str(649 + (_this # 0))), _this # 1];

@@ -128,7 +128,6 @@ class cfgFunctions {
 			addc(waitforuavmap);
 			addc(seatswitchedman);
 			addc(allowedvec);
-			addc(removelinebreak);
 			addc(medicequip);
 			addc(wreck_transport);
 			addc(checkdriver_wreck);
@@ -203,6 +202,7 @@ class cfgFunctions {
 			addc(checkammo2);
 			addc(initgrhc);
 			addc(canu);
+			addc(tasks);
 		};
 		class Dom_UI {
 			file = "clientui";

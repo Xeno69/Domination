@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "tasks.sqf"
-#include "x_setup.sqf"
+#define THIS_FILE "fn_tasks.sqf"
+#include "..\x_setup.sqf"
 
 if (isNil "d_MaxNumAmmoboxes") then {
 	waitUntil {!isNil "d_MaxNumAmmoboxes"};

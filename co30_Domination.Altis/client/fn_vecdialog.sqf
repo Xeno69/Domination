@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_vecdialog.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 params ["_vec"];
 
 __TRACE_1("","_this")

@@ -7,10 +7,10 @@ if (!hasInterface) exitWith {};
 params ["_unit", "_caller"];
 
 private _chatfunc = {
-	if (vehicle (_this select 1) == _this select 0) then {
-		(_this select 0) vehicleChat (_this select 2);
+	if (vehicle (_this # 1) == _this # 0) then {
+		(_this # 0) vehicleChat (_this # 2);
 	} else {
-		(_this select 1) sideChat (_this select 2);
+		(_this # 1) sideChat (_this # 2);
 	};
 };
 

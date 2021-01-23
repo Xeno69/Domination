@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_pjump.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 params ["_startLocation"];
 
 if (d_HALOWaitTime > 0) then {d_next_jump_time = time + d_HALOWaitTime};
