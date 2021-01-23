@@ -946,6 +946,7 @@ if (d_arsenal_mod == 0) then {
 			};
 			if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
 				d_arsenal_mod_prestrings pushBackUnique "task_";
+				d_arsenal_mod_prestrings pushBackUnique "tf_";
 			};
 			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
 		};
