@@ -180,6 +180,9 @@ private _multiplyMatrixFunc = {
 			__TRACE_1("before","_newPos")
 			if (d_iscup_island) then {
 				_newPos = _newPos vectorAdd [0, 0, (boundingCenter _newObj) # 2];
+				if (_type == "Land_ConcreteWall_01_l_8m_F") then {
+					_newPos = _newPos vectorAdd [0, 0, -0.3];
+				};
 			};
 			__TRACE_1("after","_newPos")
 			_newObj setPosWorld _newPos;
