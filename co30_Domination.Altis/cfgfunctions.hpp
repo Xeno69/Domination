@@ -275,7 +275,6 @@ class cfgFunctions {
 			addc(hasnvgoggles);
 			addc(hastoolkit);
 			addc(randomfloor);
-			addc(randomarray);
 			addc(randomindexarray);
 			addc(getconfiggroup);
 			addc(randomfloorarray);

@@ -427,7 +427,7 @@ if (isServer) then {
 
 	if (d_sm_dorandom == 0) then {
 		// create random list of side missions
-		d_side_missions_random = d_sm_array call d_fnc_RandomArray;
+		d_side_missions_random = d_sm_array call BIS_fnc_arrayShuffle;
 	} else {
 		d_side_missions_random =+ d_sm_array;
 	};

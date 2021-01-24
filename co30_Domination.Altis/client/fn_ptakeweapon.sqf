@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_ptakeweapon.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 __TRACE_1("","_this")
 
 params ["_unit"];

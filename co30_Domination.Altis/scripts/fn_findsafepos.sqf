@@ -96,8 +96,8 @@ if (_checkBlacklist) then {
 	_posBlacklist = _posBlacklist apply {
 		// top-left, bottom-right coordinates 
 		if (_x isEqualTypeParams [[],[]]) then {
-			_x select 0 params [["_x0", 0], ["_y0", 0]];
-			_x select 1 params [["_x1", 0], ["_y1", 0]];
+			_x # 0 params [["_x0", 0], ["_y0", 0]];
+			_x # 1 params [["_x1", 0], ["_y1", 0]];
 			private _a = (_x1 - _x0) / 2;
 			private _b = (_y0 - _y1) / 2;
 			[[_x0 + _a, _y0 - _b], abs _a, abs _b, 0, true]

@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_store_rwitems.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 player setVariable ["d_pprimweap", primaryWeapon player];
 player setVariable ["d_psecweap", secondaryWeapon player];
 player setVariable ["d_phandgweap", handgunWeapon player];
