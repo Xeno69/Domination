@@ -123,9 +123,9 @@ private _buildings = [_trg_center, _radius] call d_fnc_getbuildings;
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
 	if (count _buildings < 1) exitWith {};
-	_civPos = _this select 0;
-	_grp = _this select 1;
-	_unitCount = _this select 2;
+	_civPos = _this # 0;
+	_grp = _this # 1;
+	_unitCount = _this # 2;
 	_bldg = selectRandom _buildings;
 	_buildings deleteAt (_buildings find _bldg);
 	_posArray = _bldg buildingPos -1;

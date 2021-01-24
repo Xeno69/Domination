@@ -82,8 +82,8 @@ for "_i" from 0 to (count _pylons - 1) do {
 	} forEach _pos;
 	_pos pushBack 0.17;
 	_pos pushBack 0.032;
-	_pos set [0, (_pos select 0) + 0.062];
-	_pos set [1, (_pos select 1) + 0.18];
+	_pos set [0, (_pos # 0) + 0.062];
+	_pos set [1, (_pos # 1) + 0.18];
 	_ctrl ctrlSetPosition _pos;
 	__TRACE_1("","_pos")
 	_ctrl ctrlCommit 0;
