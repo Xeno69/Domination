@@ -560,7 +560,7 @@ if (isServer) then {
 	d_database_found = false;
 	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
 
-	if (fileExists "@InterceptDB\domination.sqf") then {
+	if (isMultiplayer && {fileExists "@InterceptDB\domination.sqf"}) then {
 		diag_log "DOM InterceptDB domination.sqf file found!";
 		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
 	};
@@ -2695,7 +2695,6 @@ if (hasInterface) then {
 
 	d_player_jescape = 0;
 	d_player_canu = true;
-	d_cr = toString [10];
 
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
