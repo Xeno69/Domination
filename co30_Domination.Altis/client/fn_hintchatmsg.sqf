@@ -12,7 +12,7 @@ params ["_msg", "_type_chat", ["_docut", false]];
 
 if (count _msg < 2) exitWith {};
 
-private _ar = _msg splitString "\n";
+private _ar = _msg splitString d_cr;
 
 hintSilent parseText format ["<t color='#34ebe8' size='1.3' align='center'>%1</t>", _ar joinString "<br/>"];
 private _msg_chat = _ar joinString " ";

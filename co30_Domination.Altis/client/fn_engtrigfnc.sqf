@@ -34,14 +34,14 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 
 	d_orig_sfunc_obj = d_objectID2;
 
-	private _rep_count = if (d_orig_sfunc_obj isKindOf "Air") then {
-		0.05
-	} else {
-		if (d_orig_sfunc_obj isKindOf "Tank") then {
-			0.1
-		} else {
-			0.2
+	private _rep_count = call {
+		if (d_orig_sfunc_obj isKindOf "Air") exitWith {
+			0.05
 		};
+		if (d_orig_sfunc_obj isKindOf "Tank") exitWith {
+			0.1
+		};
+		0.2
 	};
 	private _reptime = ceil (((damage d_orig_sfunc_obj) / _rep_count) max ((1 - (fuel d_orig_sfunc_obj)) / _rep_count));
 
@@ -81,18 +81,17 @@ if (alive player && {!(player getVariable ["d_has_sfunc_aid", false]) && {(playe
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_327", fuel d_orig_sfunc_obj, damage d_orig_sfunc_obj];
 			systemChat format [localize "STR_DOM_MISSIONSTRING_334", [d_orig_sfunc_obj] call d_fnc_GetDisplayName];
 			if (d_with_ranked || {d_database_found}) then {
-				private _extra = if (d_orig_sfunc_obj isKindOf "Air") then {
-					0
-				} else {
-					if (d_orig_sfunc_obj isKindOf "Tank") then {
-						1
-					} else {
-						if (d_orig_sfunc_obj isKindOf "Car") then {
-							2
-						} else {
-							3
-						};
+				private _extra = call {
+					if (d_orig_sfunc_obj isKindOf "Air") exitWith {
+						0
 					};
+					if (d_orig_sfunc_obj isKindOf "Tank") exitWith {
+						1
+					};
+					if (d_orig_sfunc_obj isKindOf "Car") exitWith {
+						2
+					};
+					3
 				};
 				if (_extra > 0) then {
 					[player, 9, _extra] remoteExecCall ["d_fnc_addscore", 2];
