@@ -38,7 +38,7 @@ if (alive (_this # 2)) then {
 	};
 };
 
-if (getPos player # 2 > 5) then {
+if (!isTouchingGround (vehicle player)) then {
 	d_player_in_air = true;
 	0 spawn {
 		scriptName "spawn_getoutmaneh";

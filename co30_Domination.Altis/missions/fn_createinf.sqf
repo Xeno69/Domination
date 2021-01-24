@@ -78,10 +78,10 @@ for "_nr" from 0 to 1 do {
 			d_x_sm_rem_ar append _units;
 			[_newgroup, 30] spawn {
 				scriptName "spawn createinf";
-				sleep (_this select 1);
-				(_this select 0) call d_fnc_addgrp2hc;
+				sleep (_this # 1);
+				(_this # 0) call d_fnc_addgrp2hc;
 				if (d_with_dynsim == 0) then {
-					(_this select 0) enableDynamicSimulation true;
+					(_this # 0) enableDynamicSimulation true;
 				};
 			};
 		};

@@ -7,12 +7,12 @@
 // parameters: array
 // example: _myrandomarray = _myNormalArray call d_fnc_RandomArray;
 
-private _ar = _this;
+private _ar =+ _this;
 private _res = [];
 _res resize (count _ar);
-for "_i" from 0 to (count _ar -1) do {
-	private _idx = floor random (_i + 1);
-	_res set [_i, _res # _idx];
-	_res set [_idx, _ar # _i];
+for "_i" from 0 to (count _res -1) do {
+	private _idx = floor random (count _ar);
+	_res set [_i, _ar # _idx];
+	_ar deleteAt _idx;
 };
 _res

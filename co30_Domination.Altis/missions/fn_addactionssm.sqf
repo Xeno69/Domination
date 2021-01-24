@@ -9,7 +9,7 @@ if (!hasInterface) exitWith {};
 params ["_obj", "_type"];
 
 if (_type == 0) exitWith {
-	_obj addAction [localize "STR_DOM_MISSIONSTRING_2024", {[_this select 0, 3] call BIS_fnc_dataTerminalAnimate}, nil, 1, true, true, "", "_target animationSourcePhase 'Antenna_source' == 0 && {d_player_canu}", 5];
+	_obj addAction [localize "STR_DOM_MISSIONSTRING_2024", {[_this # 0, 3] call BIS_fnc_dataTerminalAnimate}, nil, 1, true, true, "", "_target animationSourcePhase 'Antenna_source' == 0 && {d_player_canu}", 5];
 
 	[
 		/* 0 object */						_obj,
