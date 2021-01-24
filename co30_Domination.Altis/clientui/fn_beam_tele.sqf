@@ -100,6 +100,8 @@ if (d_beam_target == "D_BASE_D") then {
 d_last_beam_target = d_beam_target;
 d_beam_target = "";
 
+player setVariable ["d_travel", getPosWorld player];
+
 if (_typepos == 1) then {
 	player setDir _global_dir;
 	player setVehiclePosition [_global_pos, [], 0, "NONE"]; // CAN_COLLIDE ?

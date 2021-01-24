@@ -19,33 +19,45 @@ player setVariable ["d_p_distar", _p_distar];
 private _ntime = time + 30 + (random 30);
 __TRACE_1("","_ntime")
 
+private _cfunc = {
+	if (isNil {!isNil {player getVariable "d_travel"}}) then {
+		_dst = _opos distance2D (getPosWorld player);
+	} else {
+		_dst = _opos distance2D (player getVariable "d_travel");
+		player setVariable ["d_travel", nil];
+	};
+	__TRACE_1("","_dst")
+	if (isNull objectParent player) then {
+		_m = _m + _dst;
+	} else {
+		_v = vehicle player;
+		call {
+			if (_v isKindOf "LandVehicle") exitWith {
+				_lvm = _lvm + _dst;
+			};
+			if (_v isKindOf "Air") exitWith {
+				_avm = _avm + _dst;
+			};
+			if (_v isKindOf "Ship") exitWith {
+				_svm = _svm + _dst;
+			};
+		};
+	};
+	_opos = getPosWorld player;
+};
+
 while {true} do {
 	sleep 0.2;
 	isNil {
 		if (speed player > 0) then {
-			_dst = _opos distance2D (getPosWorld player);
-			__TRACE_1("","_dst")
-			if (isNull objectParent player) then {
-				_m = _m + _dst;
-			} else {
-				_v = vehicle player;
-				call {
-					if (_v isKindOf "LandVehicle") exitWith {
-						_lvm = _lvm + _dst;
-					};
-					if (_v isKindOf "Air") exitWith {
-						_avm = _avm + _dst;
-					};
-					if (_v isKindOf "Ship") exitWith {
-						_svm = _svm + _dst;
-					};
-				};
-			};
+			call _cfunc;
 		};
-		_opos = getPosWorld player;
 	};
 	sleep 0.01;
-	if (time > _ntime) then {
+	if (time > _ntime || {!alive player || {!isNil {player getVariable "d_travel"}}}) then {
+		if (!alive player || {!isNil {player getVariable "d_travel"}}) then {
+			call _cfunc;
+		};
 		_p_distar = [(_p_distar # 0) + _m, (_p_distar # 1) + _lvm, (_p_distar # 2) + _avm, (_p_distar # 3) + _svm];
 		__TRACE_1("","_p_distar")
 		if (_p_distar isNotEqualTo (player getVariable ["d_p_distar", []])) then {
@@ -54,5 +66,10 @@ while {true} do {
 		};
 		_ntime = time + 30 + (random 30);
 		__TRACE_1("","_ntime")
+	};
+	if (!d_canu) then {
+		waitUntil {sleep 0.2; d_canu};
+		_opos = getPosWorld player;
+		_ntime = time + 30 + (random 30);
 	};
 };
