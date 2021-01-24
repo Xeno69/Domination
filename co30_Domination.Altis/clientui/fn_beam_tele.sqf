@@ -100,7 +100,10 @@ if (d_beam_target == "D_BASE_D") then {
 d_last_beam_target = d_beam_target;
 d_beam_target = "";
 
-player setVariable ["d_travel", getPosWorld player];
+if (d_database_found) then {
+	player setVariable ["d_move_stop", getPosWorld player];
+	call d_fnc_updatemove;
+};
 
 if (_typepos == 1) then {
 	player setDir _global_dir;
@@ -123,6 +126,12 @@ if (_typepos == 1) then {
 		};
 	};
 };
+
+if (d_database_found) then {
+	player setVariable ["d_move_opos", getPosWorld player];
+	player setVariable ["d_move_stop", nil];
+};
+
 [_wone, _typepos] spawn {
 	scriptName "spawn_beam_tele";
 	params ["_wone", "_typepos"];

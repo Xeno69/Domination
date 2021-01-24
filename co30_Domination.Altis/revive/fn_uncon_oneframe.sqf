@@ -71,6 +71,10 @@ if (_tt <= 0) exitWith {
 		player setDamage 0;
 		[player, 105] remoteExecCall ["xr_fnc_handlenet"];
 		call d_fnc_retrieve_layoutgear;
+		if (d_database_found) then {
+			player setVariable ["d_move_opos", getPosWorld player];
+			player setVariable ["d_move_stop", nil];
+		};
 		sleep 1.3;
 		__TRACE("time over black in")
 		"xr_revtxt" cutText ["","BLACK IN", 2];

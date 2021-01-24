@@ -17,6 +17,10 @@ if (_rtype == 0) then { // player died
 	if (d_WithRevive == 1) then {
 		player setVariable ["d_is_leader", [objNull, group player] select (player == leader (group player))];
 		setPlayerRespawnTime 20;
+		if (d_database_found) then {
+			player setVariable ["d_move_opos", getPosWorld player];
+			player setVariable ["d_move_stop", nil];
+		};
 	};
 	if (!isNil {player getVariable "d_ld_action"}) then {
 		player removeAction (player getVariable "d_ld_action");

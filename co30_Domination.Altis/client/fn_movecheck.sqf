@@ -3,73 +3,40 @@
 #define THIS_FILE "fn_movecheck.sqf"
 #include "..\x_setup.sqf"
 
-private _opos = getPosWorld player;
-private _m = 0;
-private _lvm = 0;
-private _avm = 0;
-private _svm = 0;
+player setVariable ["d_move_opos", getPosWorld player];
+
 private ["_dst", "_v"];
 
-private _p_distar = _this;
+__TRACE_1("","_this")
 
-__TRACE_1("","_p_distar")
-
-player setVariable ["d_p_distar", _p_distar];
+player setVariable ["d_p_distar", _this];
+private _ar2 =+ _this;
+player setVariable ["d_p_odistar", _ar2];
 
 private _ntime = time + 30 + (random 30);
 __TRACE_1("","_ntime")
 
-private _cfunc = {
-	if (isNil {!isNil {player getVariable "d_travel"}}) then {
-		_dst = _opos distance2D (getPosWorld player);
-	} else {
-		_dst = _opos distance2D (player getVariable "d_travel");
-		player setVariable ["d_travel", nil];
-	};
-	__TRACE_1("","_dst")
-	if (isNull objectParent player) then {
-		_m = _m + _dst;
-	} else {
-		_v = vehicle player;
-		call {
-			if (_v isKindOf "LandVehicle") exitWith {
-				_lvm = _lvm + _dst;
-			};
-			if (_v isKindOf "Air") exitWith {
-				_avm = _avm + _dst;
-			};
-			if (_v isKindOf "Ship") exitWith {
-				_svm = _svm + _dst;
-			};
-		};
-	};
-	_opos = getPosWorld player;
-};
-
 while {true} do {
 	sleep 0.2;
 	isNil {
-		if (speed player > 0) then {
-			call _cfunc;
+		if (isNil {player getVariable "d_move_stop"}) then {
+			call d_fnc_updatemove;
 		};
 	};
-	sleep 0.01;
-	if (time > _ntime || {!alive player || {!isNil {player getVariable "d_travel"}}}) then {
-		if (!alive player || {!isNil {player getVariable "d_travel"}}) then {
-			call _cfunc;
-		};
-		_p_distar = [(_p_distar # 0) + _m, (_p_distar # 1) + _lvm, (_p_distar # 2) + _avm, (_p_distar # 3) + _svm];
-		__TRACE_1("","_p_distar")
-		if (_p_distar isNotEqualTo (player getVariable ["d_p_distar", []])) then {
-			[player, _p_distar, d_p_rounds] remoteExecCall ["d_fnc_pdistar", 2];
-			player setVariable ["d_p_distar", _p_distar];
+	sleep 0.1;
+	
+	if (time > _ntime || {!d_player_canu}) then {
+		if ((player getVariable "d_p_odistar") isNotEqualTo (player getVariable "d_p_distar")) then {
+			_ar2 =+ (player getVariable "d_p_distar");
+			[player, _ar2, d_p_rounds] remoteExecCall ["d_fnc_pdistar", 2];
+			player setVariable ["d_p_odistar", _ar2];
 		};
 		_ntime = time + 30 + (random 30);
 		__TRACE_1("","_ntime")
 	};
-	if (!d_canu) then {
-		waitUntil {sleep 0.2; d_canu};
-		_opos = getPosWorld player;
+	if (!d_player_canu || {!isNil {player getVariable "d_move_stop"}}) then {
+		waitUntil {sleep 0.2; d_player_canu && {isNil {player getVariable "d_move_stop"}}};
+		player setVariable ["d_move_opos", getPosWorld player];
 		_ntime = time + 30 + (random 30);
 	};
 };

@@ -203,6 +203,7 @@ class cfgFunctions {
 			addc(initgrhc);
 			addc(canu);
 			addc(tasks);
+			addc(updatemove);
 		};
 		class Dom_UI {
 			file = "clientui";

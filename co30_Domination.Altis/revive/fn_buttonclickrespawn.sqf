@@ -152,6 +152,11 @@ if (xr_max_lives != -1) then {
 	};
 };
 
+if (d_database_found) then {
+	player setVariable ["d_move_opos", getPosWorld player];
+	player setVariable ["d_move_stop", nil];
+};
+
 0 spawn {
 	scriptName "spawn_buttonclickrespawn2";
 	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
