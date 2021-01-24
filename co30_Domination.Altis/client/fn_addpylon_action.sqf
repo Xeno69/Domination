@@ -21,7 +21,7 @@ _this setVariable ["d_plyonloadoutaction", [
 		/* 6 code executed on start */		{},
 		/* 7 code executed per tick */		{},
 		/* 8 code executed on completion */	{
-			d_pylon_vec = _this select 0;
+			d_pylon_vec = _this # 0;
 			private _do_exit = false;
 			if (unitIsUAV d_pylon_vec) then {
 				if (d_pylon_vec getVariable ["d_pylon_blocked", false]) exitWith {

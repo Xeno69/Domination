@@ -45,16 +45,16 @@ private _place_error = false;
 systemChat (localize "STR_DOM_MISSIONSTRING_84");
 d_e_placing_running = 0; // 0 = running, 1 = placed, 2 = placing canceled
 d_e_placing_id1 = player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_85"], {
-	private _caller = _this select 1;
+	private _caller = _this # 1;
 	d_e_placing_running = 2;
-	_caller removeAction (_this select 2);
+	_caller removeAction (_this # 2);
 	_caller removeAction d_e_placing_id2;
 	d_e_placing_id1 = -1000;
 	d_e_placing_id2 = -1000;
 }];
 d_e_placing_id2 = player addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_86"], {
-	private _caller = _this select 1;
-	private _id = _this select 2;
+	private _caller = _this # 1;
+	private _id = _this # 2;
 	d_e_placing_running = 1;
 	_caller removeAction _id;
 	_caller removeAction d_e_placing_id1;

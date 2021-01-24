@@ -3,9 +3,7 @@
 #define THIS_FILE "fn_vec_welcome_message.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
-private _vtype = _this select 1;
+private _vtype = _this # 1;
 
 private _vec_msg1 = if (_vtype == "MHQ") then {
 	localize "STR_DOM_MISSIONSTRING_628"

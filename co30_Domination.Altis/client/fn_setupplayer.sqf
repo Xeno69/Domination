@@ -640,7 +640,7 @@ d_mark_loc261 = localize "STR_DOM_MISSIONSTRING_261";
 d_mark_loc1825 = localize "STR_DOM_MISSIONSTRING_1825";
 
 d_map_ameh = addMissionEventHandler ["Map", {
-	if (_this select 0) then {
+	if (_this # 0) then {
 		findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", {[_this, 0] call d_fnc_mapondraw}];
 	};
 	removeMissionEventHandler ["Map", d_map_ameh];

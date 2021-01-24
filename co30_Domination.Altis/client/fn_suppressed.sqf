@@ -10,7 +10,7 @@ __TRACE_1("","_this")
 if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
 if (!isNull objectParent player && {!isTurnedOut player}) exitWith {};
 
-if (isNull _insti) then {_insti = UAVControl vehicle _shooter select 0};
+if (isNull _insti) then {_insti = UAVControl vehicle _shooter # 0};
 if (isNull _insti) exitWith {};
 
 if (_dist > getNumber(_ammoConf>>"suppressionRadiusBulletClose")) exitWith {};

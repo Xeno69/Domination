@@ -12,6 +12,6 @@ if (!alive _vec) exitWith {
 };
 
 d_curvec_dialog = _vec;
-d_curcaller_dialog = _this select 1;
+d_curcaller_dialog = _this # 1;
 
 createDialog "d_VecDialog";
