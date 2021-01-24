@@ -399,17 +399,22 @@ if (isServer) then {
 			d_MainTargets_num = count d_target_names;
 		};
 
-		if (d_MainTargets_num == -1) then {
-			d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
-			d_MainTargets_num = count d_target_names;
-		} else {
-			if (d_MainTargets_num == -2) then { // order like placed in the editor
-				d_maintargets_list = call d_fnc_makteolpmttargets;
+		if (!d_tt_ver) then {
+			if (d_MainTargets_num == -1) then {
+				d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
 				d_MainTargets_num = count d_target_names;
 			} else {
-				// create random list of targets
-				d_maintargets_list = call d_fnc_createrandomtargets;
+				if (d_MainTargets_num == -2) then { // order like placed in the editor
+					d_maintargets_list = call d_fnc_makteolpmttargets;
+					d_MainTargets_num = count d_target_names;
+				} else {
+					// create random list of targets
+					d_maintargets_list = call d_fnc_createrandomtargets;
+				};
 			};
+		} else {
+			d_MainTargets_num = count d_target_names;
+			d_maintargets_list = call d_fnc_createrandomtargets;
 		};
 		//d_maintargets_list = [0,1,2,3];
 		__TRACE_1("","d_maintargets_list")

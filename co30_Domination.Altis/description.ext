@@ -528,7 +528,7 @@ default = 7;
 #ifdef __TANOA__
 		default = 1;
 #endif
-#ifdef __TTANOA__
+#ifdef __TTTANOA__
 		default = 1;
 #endif
 #ifdef __CUP_CHERNARUS__

@@ -29,6 +29,7 @@ ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_
 - Fixed: TFAR radios are now no longer removed when another mod version like CUP is played
 - Fixed: ACE medical items were not available in ranked mode
 - Fixed: Line breaks were broken in hintChat function
+- Fixed: Main target creation in the TT version was broken
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
