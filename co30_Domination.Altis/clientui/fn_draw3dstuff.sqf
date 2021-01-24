@@ -19,7 +19,7 @@ private _d3d_locs4a = d_d3d_locs4a;
 	if (_x # 4 == 0) then {
 		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, _x # 1, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} else {
-		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [_d3d_locs4a, round ((_obj getVariable ["d_curreptime" , -1]) - serverTime) max 0], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [_d3d_locs4a, round ((_obj getVariable ["d_curreptime" , -1]) - serverTime) max 0], 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
 } forEach (d_3draw_ar select {alive (_x # 0) && {_pos_cam distance2D (_x # 0) < 250}});
 
@@ -31,9 +31,9 @@ private _d3d_locs4a = d_d3d_locs4a;
 	_hasp = _box getVariable "d_abox_perc";
 	_txt = [_x # 2, format ["%1 (%2)", _x # 2, _hasp]] select (!isNil "_hasp");
 	if (_with_3Di == 1) then {
-		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} else {
-		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
 } forEach (d_all_p_a_boxes select {!isNull (_x # 0) && {_pos_cam distance2D (_x # 0) < 80}});
 
@@ -41,13 +41,13 @@ if (d_with_ai) then {
 	private _d3d_locsaire = d_d3d_locsaire;
 	{
 		_distp = _pos_cam distance _x;
-		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [1, 1, 0, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 3 + (_distp * 0.05)]), 1, 1, 0, _d3d_locsaire, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [1, 1, 0, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 3 + (_distp * 0.05)]), 1, 1, 0, _d3d_locsaire, 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} forEach (d_allai_recruit_objs select {alive _x && {_pos_cam distance2D _x < 150}});
 };
 
 {
 	_distp = _pos_cam distance _x;
-	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 5 + (_distp * 0.05)]), 1, 1, 0, "MHQ " + (_x getVariable "d_ma_text"), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 5 + (_distp * 0.05)]), 1, 1, 0, "MHQ " + (_x getVariable "d_ma_text"), 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
 } forEach (d_mhq_3ddraw select {alive _x && {_pos_cam distance2D _x < 150}});
 
 if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
@@ -65,7 +65,7 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 				"\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_24_ca.paa"
 			};
 
-			drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+			drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
 		} forEach d_currentcamps select {_pos_cam distance2D _x < 150};
 	};
 };
@@ -86,7 +86,7 @@ if (d_showallnearusermarkers) then {
 			} else {
 				_col set [3, _m];
 			};
-			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
+			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 2, 0.055 - (_distp / 15000), "RobotoCondensed"];
 		};
 	} forEach (d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
 };

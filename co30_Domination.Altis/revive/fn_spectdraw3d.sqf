@@ -39,7 +39,7 @@ private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_
 					_tex = "*";
 					_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 				};
-				drawIcon3D [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
+				drawIcon3D [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 2, __d_textsize_dr3d, "RobotoCondensed"]; // PuristaSemibold PuristaMedium
 			};
 		};
 	};

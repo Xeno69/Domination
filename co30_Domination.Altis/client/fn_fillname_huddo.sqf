@@ -19,7 +19,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 			if (_distu <= _d_pn_hud) then {
 				_vu = vehicle _x;
 				if ([objNull, "VIEW"] checkVisibility [_epp, eyePos (crew _vu # 0)] > 0) then {
-					_targetPos = _vu modelToWorldVisual (_x selectionPosition "Head");
+					_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
 					if (_targetPos isNotEqualTo []) then {
 						_dodraw = if (isNull objectParent _x) then {
 							true
@@ -54,7 +54,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 								_tex = "*";
 								_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 							};
-							d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+							d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 2, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 						};
 					};
 				};
@@ -65,7 +65,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 				_distu = _cam2world distance _x;
 				if (_distu <= _d_pn_hud) then {
 					if ([objNull, "VIEW"] checkVisibility [_epp, eyePos _x] > 0) then {
-						_targetPos = _x modelToWorldVisual (_x selectionPosition "Head");
+						_targetPos = _x modelToWorldVisual (_x selectionPosition "Pilot");
 						if (_targetPos isNotEqualTo []) then {
 							if (_distu <= 200) then {
 								_tex = call {
@@ -80,7 +80,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 							} else {
 								_tex = "*";
 							};
-							d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.4 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+							d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 2, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 						};
 					};
 				};
