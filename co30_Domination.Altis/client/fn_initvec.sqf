@@ -103,6 +103,7 @@ if (_d_vec < 100) exitWith {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
+		_vec setVariable ["d_mhq_txt", "MHQ" +  (_car # 5)];
 #ifndef __TT__
 		d_marker_vecs pushBack _vec;
 		_vec setVariable ["d_ism_vec", true];
@@ -316,6 +317,7 @@ if (_d_vec < 1100) exitWith {
 		missionNamespace setVariable [_car # 0, _vec];
 		if (!alive _vec) exitWith {};
 		__vecmarker;
+		_vec setVariable ["d_mhq_txt", "MHQ " +  (_car # 5)];
 		if (d_player_side == opfor) then {
 			d_marker_vecs pushBack _vec;
 			_vec setVariable ["d_ism_vec", true];
