@@ -32,8 +32,6 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 						};
 					};
 					if (_dodraw) then {
-						//_tex = "";
-						//_rtex = "";
 						_rsize = 0.4;
 						if (_distu <= 200) then {
 							_tex = call {
