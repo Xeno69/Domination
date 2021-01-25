@@ -47,7 +47,7 @@ if (d_with_ai) then {
 
 {
 	_distp = _pos_cam distance _x;
-	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 5 + (_distp * 0.05)]), 1, 1, 0, _x getVariable "d_mhq_txt", 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
+	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 5 + (_distp * 0.05)]), 1, 1, 0, _x getVariable "d_mhq_txt", 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 } forEach (d_mhq_3ddraw select {alive _x && {_pos_cam distance2D _x < 150}});
 
 if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
