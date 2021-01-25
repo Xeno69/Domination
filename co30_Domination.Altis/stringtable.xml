@@ -13761,7 +13761,7 @@
 <Korean>Bots are silent</Korean>
 <Japanese>Bots are silent</Japanese>
 <Original>Bots are silent</Original>
-<Russian>Bots are silent</Russian>
+<Russian>Боты не разговаривают</Russian>
 <Chinesesimp>Bots are silent</Chinesesimp>
 <Chinese>Bots are silent</Chinese>
 <French>Bots are silent</French>
@@ -13773,7 +13773,7 @@
 <Korean>Load domination.cfg (requires -filePatching on server)</Korean>
 <Japanese>Load domination.cfg (requires -filePatching on server)</Japanese>
 <Original>Load domination.cfg (requires -filePatching on server)</Original>
-<Russian>Load domination.cfg (requires -filePatching on server)</Russian>
+<Russian>Загрузить domination.cfg (требуется -filePatching на сервере)</Russian>
 <Chinesesimp>Load domination.cfg (requires -filePatching on server)</Chinesesimp>
 <Chinese>Load domination.cfg (requires -filePatching on server)</Chinese>
 <French>Load domination.cfg (requires -filePatching on server)</French>
@@ -13785,7 +13785,7 @@
 <Korean>Player can be suppressed</Korean>
 <Japanese>Player can be suppressed</Japanese>
 <Original>Player can be suppressed</Original>
-<Russian>Player can be suppressed</Russian>
+<Russian>Подавление огнем</Russian>
 <Chinesesimp>Player can be suppressed</Chinesesimp>
 <French>Player can be suppressed</French>
 </Key>
@@ -13796,7 +13796,7 @@
 <Korean>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
 <Japanese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
 <Original>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Original>
-<Russian>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Russian>
+<Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
 <Chinesesimp>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinesesimp>
 <Chinese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
 <French>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</French>
@@ -13808,7 +13808,7 @@
 <Korean>Deploy with camo net</Korean>
 <Japanese>Deploy with camo net</Japanese>
 <Original>Deploy with camo net</Original>
-<Russian>Deploy with camo net</Russian>
+<Russian>Развернуть с камуфляжной сетью</Russian>
 <Chinesesimp>Deploy with camo net</Chinesesimp>
 <Chinese>Deploy with camo net</Chinese>
 <French>Deploy with camo net</French>
@@ -13820,7 +13820,7 @@
 <Korean>Distance traveled, in meters:</Korean>
 <Japanese>Distance traveled, in meters:</Japanese>
 <Original>Distance traveled, in meters:</Original>
-<Russian>Distance traveled, in meters:</Russian>
+<Russian>Пройденное расстояние, в метрах:</Russian>
 <Chinesesimp>Distance traveled, in meters:</Chinesesimp>
 <Chinese>Distance traveled, in meters:</Chinese>
 <French>Distance traveled, in meters:</French>
@@ -13832,7 +13832,7 @@
 <Korean>By foot:</Korean>
 <Japanese>By foot:</Japanese>
 <Original>By foot:</Original>
-<Russian>By foot:</Russian>
+<Russian>Пешком:</Russian>
 <Chinesesimp>By foot:</Chinesesimp>
 <Chinese>By foot:</Chinese>
 <French>By foot:</French>
@@ -13844,7 +13844,7 @@
 <Korean>Landvehicle:</Korean>
 <Japanese>Landvehicle:</Japanese>
 <Original>Landvehicle:</Original>
-<Russian>Landvehicle:</Russian>
+<Russian>Наземный транспорт:</Russian>
 <Chinesesimp>Landvehicle:</Chinesesimp>
 <Chinese>Landvehicle:</Chinese>
 <French>Landvehicle:</French>
@@ -13856,7 +13856,7 @@
 <Korean>Air:</Korean>
 <Japanese>Air:</Japanese>
 <Original>Air:</Original>
-<Russian>Air:</Russian>
+<Russian>Авиация:</Russian>
 <Chinesesimp>Air:</Chinesesimp>
 <Chinese>Air:</Chinese>
 <French>Air:</French>
@@ -13868,7 +13868,7 @@
 <Korean>Ship/Boat:</Korean>
 <Japanese>Ship/Boat:</Japanese>
 <Original>Ship/Boat:</Original>
-<Russian>Ship/Boat:</Russian>
+<Russian>Катера/Лодки:</Russian>
 <Chinesesimp>Ship/Boat:</Chinesesimp>
 <Chinese>Ship/Boat:</Chinese>
 <French>Ship/Boat:</French>
@@ -13894,7 +13894,7 @@
 <Korean>Defend with static weapons</Korean>
 <Japanese>Defend with static weapons</Japanese>
 <Original>Defend with static weapons</Original>
-<Russian>Defend with static weapons</Russian>
+<Russian>Оборонять статическим вооружением</Russian>
 <Chinesesimp>Defend with static weapons</Chinesesimp>
 <Chinese>Defend with static weapons</Chinese>
 <French>Defend with static weapons</French>
@@ -13906,7 +13906,7 @@
 <Korean>Disable ACE medical revive (if ACE is used) and use mission revive</Korean>
 <Japanese>Disable ACE medical revive (if ACE is used) and use mission revive</Japanese>
 <Original>Disable ACE medical revive (if ACE is used) and use mission revive</Original>
-<Russian>Disable ACE medical revive (if ACE is used) and use mission revive</Russian>
+<Russian>Отключите ревайв ACE (если используется ACE) и используйте ревайв миссии</Russian>
 <Chinesesimp>Disable ACE medical revive (if ACE is used) and use mission revive</Chinesesimp>
 <French>Disable ACE medical revive (if ACE is used) and use mission revive</French>
 </Key>

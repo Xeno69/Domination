@@ -33,6 +33,7 @@ ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
+- Updated: Russian translation by Babayka
 - Workaround: If an enemy AI vehicle is under water for whatever reasons it virtually can't be destroyed; the workaround adds more damage in that case
 - Added slightly more debug output (possible with improved A3 logging)
 - And more optimizations like for example eachframerun
