@@ -8,7 +8,7 @@ __TRACE("fn_playerfiredeh")
 __TRACE_1("","_this")
 
 if (d_database_found) then {
-	if !((_this # 1) in ["Put", "Throw"]) then {
+	if ((_this # 6) isKindOf "BulletCore" || {(_this # 6) isKindOf "ShotgunCore"}) then {
 		d_p_rounds = d_p_rounds + 1;
 	};
 };
