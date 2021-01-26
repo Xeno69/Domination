@@ -2475,7 +2475,7 @@ if (hasInterface) then {
 	["I_MRAP_03_F", "I_Heli_light_03_unarmed_F","I_E_Heli_light_03_unarmed_F"];
 #endif
 #ifdef __TT__
-	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F"];
+	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F", "O_MRAP_02_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F"];
 #endif
 
 	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLowerANSI _x};
