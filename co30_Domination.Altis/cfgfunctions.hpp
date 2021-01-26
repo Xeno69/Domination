@@ -269,6 +269,7 @@ class cfgFunctions {
 			addc(lastchanceclient);
 			addc(correctwname);
 			addc(addto3drawar);
+			addc(optioncontrol);
 		};
 		class Dom_Common {
 			file = "common";

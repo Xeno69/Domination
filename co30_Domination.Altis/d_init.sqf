@@ -39,6 +39,11 @@ if (hasInterface) then {
 	if (d_3dmarker_userakey < 0 || {d_3dmarker_userakey > 19}) then {d_3dmarker_userakey = 0};
 	d_earplugs_userakey_str = format ["User%1", d_earplugs_userakey + 1];
 	d_3dmarker_userakey_str = format ["User%1", d_3dmarker_userakey + 1];
+	
+	d_ak_earplugs = actionKeys d_earplugs_userakey_str;
+	d_ak_3dtoggle = actionKeys d_3dmarker_userakey_str;
+	d_ak_getover = actionKeys "GetOver";
+	d_ak_teamswitch = actionKeys "TeamSwitch";
 
 	if (isMultiplayer) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
