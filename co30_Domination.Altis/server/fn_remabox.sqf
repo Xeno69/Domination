@@ -20,4 +20,9 @@ if (_idx > -1) then {
 	d_ammo_boxes deleteAt _idx;
 };
 publicVariable "d_ammo_boxes";
+private _jipid = _box getVariable "d_box_drop2_jip_id";
+__TRACE_1("","_jipid")
+if (!isNil "_jipid") then {
+	remoteExecCall ["", _jipid];
+};
 deleteVehicle _box;

@@ -9,10 +9,11 @@ __TRACE_1("","_this")
 
 #ifndef __TT__
 params ["_box", "_unit"];
+__TRACE_2("","_box","_unit")
 #else
 params ["_box", "_unit", "_bside"];
+__TRACE_3("","_box","_unit","_bside")
 #endif
-__TRACE_2("","_box","_unit")
 player reveal _box;
 _box enableRopeAttach false;
 #ifndef __TT__

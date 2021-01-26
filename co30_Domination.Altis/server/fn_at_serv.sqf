@@ -24,7 +24,7 @@ private _jipid = _pl getVariable "d_artmark_jip_id";
 if (!isNil "_jipid") then {
 	remoteExecCall ["", _jipid];
 };
-_pl setVariable ["d_artmark_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _pl) == blufor)], true];
+_pl setVariable ["d_artmark_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _pl) == blufor)]];
 #endif
 
 if (d_no_ai) then {

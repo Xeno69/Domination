@@ -55,7 +55,7 @@ if (d_x_drop_type != "") then {
 	};
 	player sideChat format [localize "STR_DOM_MISSIONSTRING_167", [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName];
 	if (d_with_ranked || {d_database_found}) then {[player, 4] remoteExecCall ["d_fnc_ascfc", 2]};
-	[d_x_drop_type, _mpdz, player] remoteExec ["d_fnc_createdrop", 2];
+	[d_x_drop_type, _mpdz, player, d_player_side] remoteExec ["d_fnc_createdrop", 2];
 } else {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_168");
 	deleteMarkerLocal "d_drop_zone";

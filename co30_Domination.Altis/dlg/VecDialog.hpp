@@ -89,12 +89,14 @@ class D_VecDialog {
 			action = "closeDialog 0;call d_fnc_teleportx";
 			y = 0.59;
 		};
+#ifndef __TT__
 		class SATViewButton: DropAmmoButton {
 			idc = 44459;
 			text = "$STR_DOM_MISSIONSTRING_1327"; 
 			action = "closeDialog 0;createDialog 'D_FakeUAVDialog'";
 			y = 0.65;
 		};
+#endif
 		class UAVButton: DropAmmoButton {
 			idc = 44460;
 			text = "$STR_DOM_MISSIONSTRING_1327a"; 

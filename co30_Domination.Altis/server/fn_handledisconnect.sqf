@@ -76,6 +76,12 @@ if (!isNil "_jipid") then {
 	remoteExecCall ["", _jipid];
 };
 
+_jipid = _unit getVariable "d_dropz_jip_id";
+__TRACE_1("","_jipid")
+if (!isNil "_jipid") then {
+	remoteExecCall ["", _jipid];
+};
+
 _jipid = _unit getVariable "d_artmark_jip_id";
 __TRACE_1("","_jipid")
 if (!isNil "_jipid") then {
