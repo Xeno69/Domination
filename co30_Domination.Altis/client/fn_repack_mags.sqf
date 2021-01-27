@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_repack_mags.sqf"
 #include "..\x_setup.sqf"
 
-if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
+if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
 
 if (!isNil "d_repack_gard") then {
 	terminate d_repack_gard;
@@ -180,7 +180,7 @@ if (!isNil "d_repack_gard") then {
 	terminate d_repack_gard;
 };
 d_inventory_blocked = false;
-if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
+if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
 
 hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t>", localize "STR_DOM_MISSIONSTRING_1942"];
 

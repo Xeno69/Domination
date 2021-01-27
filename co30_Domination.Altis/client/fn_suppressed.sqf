@@ -7,7 +7,7 @@ params ["", "_dist", "_shooter", "_insti", "", "", "_ammoConf"];
 
 __TRACE_1("","_this")
 
-if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
+if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
 if (!isNull objectParent player && {!isTurnedOut player}) exitWith {};
 
 if (isNull _insti) then {_insti = UAVControl vehicle _shooter # 0};

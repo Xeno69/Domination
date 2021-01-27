@@ -5,7 +5,7 @@
 
 while {true} do {
 	d_allplayers = (allPlayers - entities "HeadlessClient_F") select {!isNull _x && {d_player_side getFriend side (group _x) >= 0.6}};
-	d_allplayermapd = d_allplayers select {!isNull _x && {!(_x getVariable ["xr_pluncon", false]) && {isNil {_x getVariable "xr_plno3dd"}}}};
+	d_allplayermapd = d_allplayers select {!isNull _x && {!(_x getVariable "xr_pluncon") && {isNil {_x getVariable "xr_plno3dd"}}}};
 	if (d_with_ai) then {
 		sleep 0.2;
 		private _tmpgrps = [];

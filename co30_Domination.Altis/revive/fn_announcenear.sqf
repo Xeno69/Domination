@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {
+if (!alive player || {player getVariable "xr_pluncon"}) exitWith {
 	hintSilent "";
 	xr_announce_ar = [];
 	xr_announce_unit_ar = [];

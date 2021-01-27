@@ -148,7 +148,7 @@ if (xr_max_lives != -1) then {
 		if (xr_max_lives != -1) then {
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 		};
-		if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false])}}) then {[] spawn d_fnc_moveai};
+		if (d_with_ai && {alive player && {!(player getVariable "xr_pluncon")}}) then {[] spawn d_fnc_moveai};
 	};
 };
 

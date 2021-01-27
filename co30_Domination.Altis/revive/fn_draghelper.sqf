@@ -9,7 +9,7 @@ params ["_dragger"];
 
 while {player getVariable ["xr_dragged", false]} do {
 	if (isNull _dragger) exitWith {
-		if ((alive player && {player getVariable ["xr_pluncon", false]}) || {!alive player}) then {
+		if ((alive player && {player getVariable "xr_pluncon"}) || {!alive player}) then {
 			[player, 101] remoteExecCall ["xr_fnc_handlenet"];
 		} else {
 			[player, 102] remoteExecCall ["xr_fnc_handlenet"];
