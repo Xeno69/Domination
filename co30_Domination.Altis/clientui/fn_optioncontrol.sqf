@@ -10,4 +10,6 @@ while {true} do {
 	d_ak_3dtoggle = actionKeys d_3dmarker_userakey_str;
 	d_ak_getover = actionKeys "GetOver";
 	d_ak_teamswitch = actionKeys "TeamSwitch";
+	d_ak_hra = actionKeys "HeliRopeAction";
+	d_ak_hslm = actionKeys "HeliSlingLoadManager";
 };

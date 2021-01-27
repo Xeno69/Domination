@@ -44,6 +44,8 @@ if (hasInterface) then {
 	d_ak_3dtoggle = actionKeys d_3dmarker_userakey_str;
 	d_ak_getover = actionKeys "GetOver";
 	d_ak_teamswitch = actionKeys "TeamSwitch";
+	d_ak_hra = actionKeys "HeliRopeAction";
+	d_ak_hslm = actionKeys "HeliSlingLoadManager";
 
 	if (isMultiplayer) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
