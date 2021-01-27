@@ -2,10 +2,12 @@
 
 ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
 			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
+			
+ATTENTION: The following mission file(s) has/have changed: TT Malden
 
 - Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
-- Added: If d_with_mhq_camo is enabled it is now possible too deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
+- Added: If d_with_mhq_camo is enabled it is now possible to deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
 - Added: Utility functions created fixed or improved: isinhouse, getbuildings, isvisible, sortarraybydistance, makemgroup now respects units per group, added dry run to occupy house script, by longtimegamer
 - Added: If a SQL database is available then player movement on foot, in land, air and maritime vehicles is added to the database (in meter)
 - Added: If a SQL database is available then number of player headshots and number of rounds fired are added to the database
@@ -39,6 +41,7 @@ ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
 - Updated: Russian translation by Babayka
+- Updated: Malden TT mission file by Babayka
 - Workaround: If an enemy AI vehicle is under water for whatever reasons it virtually can't be destroyed; the workaround adds more damage in that case
 - Added slightly more debug output (possible with improved A3 logging)
 - And more optimizations like for example eachframerun
