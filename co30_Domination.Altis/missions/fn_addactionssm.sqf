@@ -44,7 +44,7 @@ if (_type == 1) exitWith {
 		/* 1 action title */				localize "STR_DOM_MISSIONSTRING_2025",
 		/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
 		/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_hack_ca.paa",
-		/* 4 condition to show */			"!d_sm_leak_sealed && {player distance2D _target <= 6 && {d_player_canu}}",
+		/* 4 condition to show */			"!d_sm_leak_sealed && {player distance2D _target <= 7 && {d_player_canu}}",
 		/* 5 condition for action */		"true",
 		/* 6 code executed on start */		{systemChat (localize "STR_DOM_MISSIONSTRING_2026")},
 		/* 7 code executed per tick */		{},

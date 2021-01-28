@@ -11,6 +11,12 @@ params ["_poss", ["_createarmor", false], ["_createinf", false]];
 
 private _vec = createVehicle ["Land_ReservoirTank_V1_F", _poss, [], 0, "NONE"];
 _vec allowDamage false;
+_vec addEventhandler ["handleDamage", {0}];
+_vec setDamage 0;
+
+#ifdef __TT__
+d_sm_side_caller = sideUnknown;
+#endif
 
 if (_createarmor) then {
 	__TRACE("Creating armor")
@@ -38,7 +44,7 @@ d_x_sm_vec_rem_ar pushBack _vec;
 
 [_vec, 0] remoteExecCall ["d_fnc_createtrigsm", [0, -2] select isDedicated, _vec];
 
-while {!d_sm_leak_sealed && {!d_sm_resolved}} do {
+while {!d_sm_leak_sealed && {!d_sm_resolved && {alive _vec}}} do {
 	sleep 2.5;
 };
 
@@ -46,6 +52,9 @@ deleteVehicle _module;
 
 #ifndef __TT__
 d_sm_winner = 2;
+if (!alive _vec) then {
+	d_sm_winner = -1000;
+};
 #else
 if (d_sm_side_caller == blufor) then {
 	d_sm_winner = 2;
@@ -57,8 +66,10 @@ if (d_sm_side_caller == blufor) then {
 	};
 };
 d_sm_side_caller = nil;
+publicVariable "d_sm_side_caller";
 #endif
 
 d_sm_leak_sealed = nil;
+publicVariable "d_sm_leak_sealed";
 
 d_sm_resolved = true;

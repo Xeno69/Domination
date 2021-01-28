@@ -59,5 +59,6 @@ if (!alive _smvec) then {
 };
 
 d_data_was_send = nil;
+publicVariable "d_data_was_send";
 
 d_sm_resolved = true;

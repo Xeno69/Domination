@@ -5,7 +5,7 @@
 
 params ["_cur_sm_idx"];
 
-if !((_cur_sm_idx - 50000) in d_sm_hash) exitWith {
+if !((_cur_sm_idx - 50000) in (keys d_sm_hash)) exitWith {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
 

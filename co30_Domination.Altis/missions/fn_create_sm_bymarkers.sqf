@@ -107,15 +107,17 @@ __TRACE_1("","_eee")
 	
 	private "_onesmar";
 	
-	if !(_idx in d_sm_hash) then {
-		_dallsidemissions pushBack ((parseNumber _idx) + 50000);
+	_idx = parseNumber _idx;
+	
+	if !(_idx in (keys d_sm_hash)) then {
+		_dallsidemissions pushBack (_idx + 50000);
 		private _smposis = if (_smtype == "convoy") then {
 			[[], []]
 		} else {
 			[]
 		};
 
-		_onesmar = [parseNumber _idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 7 = d_current_mission_resolved_text
+		_onesmar = [_idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 7 = d_current_mission_resolved_text
 	} else {
 		_onesmar = d_sm_hash get _idx;
 	};
