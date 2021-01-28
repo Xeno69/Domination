@@ -38,6 +38,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden
 - Fixed: Friendly shooting at MHQ was displayed for the enemy side too instead of only for the side the MHQ belongs to
 - Fixed: MHQs in the Malden TT version could not load ammo boxes at ammo points
 - Fixed: Main target viewdistance reduction was based on camera position not on the player position
+- Fixed: If the enemy AI vehicle or group type was not defined in the scripts which create the AI at side missions the scripts ended with a script error
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
