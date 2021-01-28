@@ -156,6 +156,8 @@ _unit addEventhandler ["getInMan", {call d_fnc_getinmanai}];
 
 if (d_ai_silent == 1) then {
 	[_unit, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+	
+	_unit disableAI "RADIOPROTOCOL";
 };
 
 player setVariable ["d_recdbusy", false];

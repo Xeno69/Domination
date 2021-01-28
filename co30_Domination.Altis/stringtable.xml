@@ -13910,6 +13910,42 @@
 <Chinesesimp>Disable ACE medical revive (if ACE is used) and use mission revive</Chinesesimp>
 <French>Disable ACE medical revive (if ACE is used) and use mission revive</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2052">
+<English>Disable RADIOPROTOCOL for the player unit:</English>
+<Spanish>Disable RADIOPROTOCOL for the player unit:</Spanish>
+<Portuguese>Disable RADIOPROTOCOL for the player unit:</Portuguese>
+<Korean>Disable RADIOPROTOCOL for the player unit:</Korean>
+<Japanese>Disable RADIOPROTOCOL for the player unit:</Japanese>
+<Original>Disable RADIOPROTOCOL for the player unit:</Original>
+<Russian>Disable RADIOPROTOCOL for the player unit:</Russian>
+<Chinesesimp>Disable RADIOPROTOCOL for the player unit:</Chinesesimp>
+<Chinese>Disable RADIOPROTOCOL for the player unit:</Chinese>
+<French>Disable RADIOPROTOCOL for the player unit:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2053">
+<English>RADIOPROTOCOL for the player enabled!</English>
+<Spanish>RADIOPROTOCOL for the player enabled!</Spanish>
+<Portuguese>RADIOPROTOCOL for the player enabled!</Portuguese>
+<Korean>RADIOPROTOCOL for the player enabled!</Korean>
+<Japanese>RADIOPROTOCOL for the player enabled!</Japanese>
+<Original>RADIOPROTOCOL for the player enabled!</Original>
+<Russian>RADIOPROTOCOL for the player enabled!</Russian>
+<Chinesesimp>RADIOPROTOCOL for the player enabled!</Chinesesimp>
+<Chinese>RADIOPROTOCOL for the player enabled!</Chinese>
+<French>RADIOPROTOCOL for the player enabled!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2054">
+<English>RADIOPROTOCOL for the player disabled!</English>
+<Spanish>RADIOPROTOCOL for the player disabled!</Spanish>
+<Portuguese>RADIOPROTOCOL for the player disabled!</Portuguese>
+<Korean>RADIOPROTOCOL for the player disabled!</Korean>
+<Japanese>RADIOPROTOCOL for the player disabled!</Japanese>
+<Original>RADIOPROTOCOL for the player disabled!</Original>
+<Russian>RADIOPROTOCOL for the player disabled!</Russian>
+<Chinesesimp>RADIOPROTOCOL for the player disabled!</Chinesesimp>
+<Chinese>RADIOPROTOCOL for the player disabled!</Chinese>
+<French>RADIOPROTOCOL for the player disabled!</French>
+</Key>
 </Container>
 </Package>
 </Project>

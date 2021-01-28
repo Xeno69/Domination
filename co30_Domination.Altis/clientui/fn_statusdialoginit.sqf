@@ -307,6 +307,19 @@ __ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
 }];
 #endif
 
+__ctrl2(1612) cbSetChecked d_player_radioprotocol;
+__ctrl2(1612) ctrlAddEventHandler ["CheckedChanged", {
+	d_player_radioprotocol = !d_player_radioprotocol;
+	if (d_player_radioprotocol) then {
+		systemChat (localize "STR_DOM_MISSIONSTRING_2054");
+		player disableAI "RADIOPROTOCOL";
+	} else {
+		systemChat (localize "STR_DOM_MISSIONSTRING_2053");
+		player enableAI "RADIOPROTOCOL";
+	};
+	profileNamespace setVariable ["dom_player_radioprotocol", d_player_radioprotocol];
+}];
+
 for "_i" from 1 to 20 do {
 	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
 	private _endstr = (localize format ["str_usract_user_%1", _i]);

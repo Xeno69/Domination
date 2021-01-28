@@ -13,6 +13,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden
 - Added: If a SQL database is available then number of player headshots and number of rounds fired are added to the database
 - Added: Main target illumination flares when it is dark (can be disabled in lobby "Illuminate main target:" or d_IllumMainTarget in description.ext)
 - Added: Parameter to enable/disable static weapon defenses at maintarget, by longtimegamer
+- Added: RADIOPROTOCOL for the player can be disabled in the Status Dialog (not sure yet if it really does what it should)
 - Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
 - Changed: Added visibility check for player and AI names over the head, means, players see the names above head if the unit is visible and not all the time
 - Changed: Maintarget prisoner event now has a suicide bomb if the rescue is botched, by longtimegamer

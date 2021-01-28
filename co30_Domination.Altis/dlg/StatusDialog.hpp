@@ -393,17 +393,29 @@ class D_StatusDialog {
 #ifndef __TT__
 		class AutoVDCaption: ViewDistanceCaption {
 			idc = 1609;
-			y = "0.42 * safezoneH + safezoneY";
+			y = "0.40 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1964";
 		};
 		class AutoVDCheckBox: RscCheckBox {
 			idc = 1610;
 			x = "0.48 * safezoneW + safezoneX";
-			y = "0.424 * safezoneH + safezoneY";
+			y = "0.404 * safezoneH + safezoneY";
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";
 		};
 #endif
+		class RadioProtocolCaption: ViewDistanceCaption {
+			idc = 1611;
+			y = "0.43 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_2052";
+		};
+		class RadioProtocolCheckBox: RscCheckBox {
+			idc = 1612;
+			x = "0.48 * safezoneW + safezoneX";
+			y = "0.434 * safezoneH + safezoneY";
+			w = "0.02 * safezoneW";
+			h = "0.025 * safezoneH";
+		};
 		class EarplugsUserCaption: ViewDistanceCaption {
 			idc = 3301;
 			y = "0.47 * safezoneH + safezoneY";

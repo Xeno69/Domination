@@ -71,6 +71,10 @@ if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 
 [player, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
 
+if (d_player_radioprotocol) then {
+	player disableAI "RADIOPROTOCOL";
+};
+
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false];
 ["dom_alive_not_uncon", {call d_fnc_canu}] call d_fnc_eachframeadd;
