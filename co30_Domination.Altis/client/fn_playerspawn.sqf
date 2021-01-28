@@ -39,29 +39,27 @@ if (_rtype == 0) then { // player died
 		};
 		player setVariable ["d_has_sfunc_aid", false];
 	};
-	if (!d_with_ace) then {
-		private _ehi = player getVariable "xr_hd_eh_i";
-		if (!isNil "_ehi") then {
-			player removeEventHandler ["handleDamage", _ehi];
-			player setVariable ["xr_hd_eh_i", nil];
-		};
-		if (d_with_suppress == 0) then {
-			d_impactCC = ppEffectCreate ["colorCorrections", 1500];
-			d_impactCC ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 0]];
-			d_impactCC ppEffectEnable true;
-			d_impactCC ppEffectCommit 0;
+	private _ehi = player getVariable "xr_hd_eh_i";
+	if (!isNil "_ehi") then {
+		player removeEventHandler ["handleDamage", _ehi];
+		player setVariable ["xr_hd_eh_i", nil];
+	};
+	if (!d_with_ace && {d_with_suppress == 0}) then {
+		d_impactCC = ppEffectCreate ["colorCorrections", 1500];
+		d_impactCC ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 0]];
+		d_impactCC ppEffectEnable true;
+		d_impactCC ppEffectCommit 0;
 
-			d_impactBlur = ppEffectCreate ["RadialBlur", 1010];
-			d_impactBlur ppEffectAdjust [0, 0, 0, 0];
-			d_impactBlur ppEffectCommit 0;
-			d_impactBlur ppEffectEnable true;
-			
-			d_lastshotat = -1;
-			_ehi = player getVariable "d_psuppressed";
-			if (!isNil "_ehi") then {
-				player removeEventHandler ["Suppressed", _ehi];
-				player setVariable ["d_psuppressed", nil];
-			};
+		d_impactBlur = ppEffectCreate ["RadialBlur", 1010];
+		d_impactBlur ppEffectAdjust [0, 0, 0, 0];
+		d_impactBlur ppEffectCommit 0;
+		d_impactBlur ppEffectEnable true;
+		
+		d_lastshotat = -1;
+		_ehi = player getVariable "d_psuppressed";
+		if (!isNil "_ehi") then {
+			player removeEventHandler ["Suppressed", _ehi];
+			player setVariable ["d_psuppressed", nil];
 		};
 	};
 } else { // _rtype = 1, player has respawned
@@ -75,12 +73,14 @@ if (_rtype == 0) then { // player died
 	};
 #endif
 	showCommandingMenu "";
-	__TRACE("adding player handleDamage eventhandler non ace")
-	if (!d_with_ace) then {
-		player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
-		if (d_with_suppress == 0) then {
-			player setVariable ["d_psuppressed", player addEventHandler ["Suppressed", {call d_fnc_suppressed}]];
+	__TRACE("adding player handleDamage eventhandler")
+	if (d_WithRevive == 0) then {
+		if (!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}) then {
+			player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
 		};
+	};
+	if (!d_with_ace && {d_with_suppress == 0}) then {
+		player setVariable ["d_psuppressed", player addEventHandler ["Suppressed", {call d_fnc_suppressed}]];
 	};
 	xr_phd_invulnerable = true;
 	player setFatigue 0;

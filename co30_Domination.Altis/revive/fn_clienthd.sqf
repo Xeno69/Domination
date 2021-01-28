@@ -5,11 +5,8 @@
 
 #define __shots ["shotBullet","shotShell","shotRocket","shotMissile","shotTimeBomb","shotMine","shotGrenade","shotSpread","shotSubmunitions","shotDeploy","shotBoundingMine","shotDirectionalBomb"]
 
-if (!hasInterface) exitWith {};
-
 params ["_unit", "_part", "_dam", "_source", "_ammo", "_idx", "_injurer"];
 __TRACE_1("","_this")
-if (!local _unit) exitWith {};
 if (!alive _unit) exitWith {
 	__TRACE("unit not alive, removing hd EH")
 	private _ehi = player getVariable "xr_hd_eh_i";
@@ -25,7 +22,7 @@ if (_dam == 0) exitWith {
 	__TRACE_1("exiting, unit healing","_dam")
 	_dam
 };
-if (_unit getVariable ["xr_pluncon", false] || {xr_phd_invulnerable}) exitWith {
+if (_unit getVariable "xr_pluncon" || {xr_phd_invulnerable}) exitWith {
 	__TRACE_2("exiting, unit uncon or invulnerable","_part")
 	0
 };
