@@ -7,8 +7,10 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
+private _isman = _obj isKindOf "CAManBase";
+
 if (d_database_found) then {
-	if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
+	if (_isman && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
 		private _insti = _this # 2;
 		if (!isNull _insti && {isNull objectParent _insti && {_insti call d_fnc_isplayer}}) then {
 			_insti call d_fnc_addheadshot;
@@ -75,6 +77,20 @@ if (_ar # 4 > 0) then {
 	};
 };
 
+if (_ar # 15 == 1) then {
+	d_sm_flag_failed = true;
+};
+
+if (_ar # 16 == 1) then {
+	d_sm_arrest_mp_unit = nil;
+	d_sm_arrest_not_failed = false;
+};
+
+if (!_isman) exitWith {
+	_obj setVariable ["d_hkx", nil];
+	true
+};
+
 if (_ar # 5 == 1) then {
 	_obj call d_fnc_handleDeadVec;
 };
@@ -114,15 +130,6 @@ if (_ar # 13 == 1) then {
 
 if (_ar # 14 == 1) then {
 	[_obj, 1] call d_fnc_removeMHQEnemyTeleTrig;
-};
-
-if (_ar # 15 == 1) then {
-	d_sm_flag_failed = true;
-};
-
-if (_ar # 16 == 1) then {
-	d_sm_arrest_mp_unit = nil;
-	d_sm_arrest_not_failed = false;
 };
 
 if (_ar # 17 == 1) then {
