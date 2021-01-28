@@ -29,4 +29,6 @@ if (!d_still_in_intro) then {
 	hintSilent parseText format ["<t color='#ff0000' size='1.5' align='center'>%1</t>", format [localize "STR_DOM_MISSIONSTRING_204", d_cur_tgt_name]];
 };
 
+#ifndef __TT__
 call d_fnc_cmakemtgmarker;
+#endif

@@ -108,7 +108,6 @@ if (d_maintargets_list isNotEqualTo []) then {
 		};
 	};
 	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor _mtcol;
-	("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
 	["", ""] remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
 	d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];

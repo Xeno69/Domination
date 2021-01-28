@@ -19,6 +19,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden
 - Changed: Enemy AI vehicle island patrols are back
 - Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, "Disable ACE medical revive (if ACE is used) and use mission revive" in lobby, finally in, somehow got lost before)
 - Changed: SAT View removed from MHQs in the TT version (enemy could spott opponent MHQ too easily)
+- Changed: Removed the marker tiles at main targets in the TT version, back to solid filled circle again
 - Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
 - Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
 - Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer

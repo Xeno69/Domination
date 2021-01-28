@@ -261,8 +261,9 @@ if (d_MissionType != 2) then {
 			d_obj00_task = nil;
 			["d_obj00", "Succeeded", false] call d_fnc_taskSetState;
 		};
-
+#ifndef __TT__
 		call d_fnc_cmakemtgmarker;
+#endif
 	};
 };
 
