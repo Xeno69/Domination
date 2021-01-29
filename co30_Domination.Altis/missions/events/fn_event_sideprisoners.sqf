@@ -143,6 +143,8 @@ while {sleep 1; !d_mt_done; !_is_rescued} do {
 		if (_nobjs isNotEqualTo []) exitWith {
 			__TRACE("rescued _pilot1")
 			_is_rescued = true;
+			_pilot1 setDamage 0;
+			sleep 7;
 			deleteVehicle _pilot1;
 			// todo announce player
 		};
