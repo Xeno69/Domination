@@ -60,6 +60,7 @@ if (!isNil "_ma") then {
 // 1243 - 1245
 
 d_sm_farpseized = nil;
+publicVariable "d_sm_farpseized";
 
 d_sm_winner = 2;
 d_sm_resolved = true;

@@ -5,8 +5,8 @@
 
 __TRACE_1("","_this")
 
-private _p = d_player_store getVariable (getPlayerUID (_this select 0));
-if (!isNil "_p") then {
+private _p = d_player_hash getOrDefault [getPlayerUID (_this # 0), []];
+if (_p isNotEqualTo []) then {
 	__TRACE_1("","_p")
-	_p set [11, [_this select 1, _this select 2]];
+	_p set [11, [_this # 1, _this # 2]];
 };

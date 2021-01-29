@@ -21,7 +21,7 @@ class D_PylonLoadoutDialog {
 	};
 	class controls {
 		__CANCELCLOSEB(-1)
-		class PresetCaption: RscText2 {
+		class PresetCaption: RscText {
 			x = 0.05; y = 0.035;
 			w = 0.2; h = 0.1;
 			sizeEx = 0.036;
@@ -47,7 +47,7 @@ class D_PylonLoadoutDialog {
 			h = 0.04;
 			onCheckedChanged = "_this call d_fnc_pylonloadoutdialogcbselchanged";
 		};
-		class MirrorCaption: RscText2 {
+		class MirrorCaption: RscText {
 			x = 0.84; y = 0.08;
 			w = 0.2; h = 0.1;
 			sizeEx = 0.036;

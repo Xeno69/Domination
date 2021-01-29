@@ -31,6 +31,6 @@ _unit setVariable ["d_kddata", _kdata];
 _unit setIdentity (_kdata # 1);
 _unit setRank "COLONEL";
 _unit setGroupIdGlobal [_kdata # 2];
-_unit addEventHandler ["killed", {_this call d_fnc_kEHflogic}];
+_unit addEventHandler ["killed", {call d_fnc_kEHflogic}];
 removeAllWeapons _unit;
 [_var, _side] remoteExecCall ["d_fnc_kbunits", [0, -2] select isDedicated];

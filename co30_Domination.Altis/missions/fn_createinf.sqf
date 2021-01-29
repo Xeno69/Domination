@@ -43,45 +43,47 @@ for "_nr" from 0 to 1 do {
 		if (d_MissionType == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
 		if (_with_less_armor_side == 2 && {!_isArmorAdjustmentDisabled}) then {_nrg = _nrg + 2};
 		private _typenr = _this select (_nr * 2);
-		for "_i" from 1 to _nrg do {
-			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-			private "_pos";
-			if (_radius > 0) then {
-				_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
-				if (_pos isEqualTo []) then {
-					for "_ee" from 0 to 99 do {
-						_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
-						if !(_pos isEqualTo []) exitWith {};
-					};
+		if (_typenr isNotEqualTo "") then {
+			for "_i" from 1 to _nrg do {
+				private _newgroup = [d_side_enemy] call d_fnc_creategroup;
+				private "_pos";
+				if (_radius > 0) then {
+					_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
 					if (_pos isEqualTo []) then {
-						_pos = _pos_center;
+						for "_ee" from 0 to 99 do {
+							_pos = [_pos_center, _radius] call d_fnc_GetRanPointCircle;
+							if (_pos isNotEqualTo []) exitWith {};
+						};
+						if (_pos isEqualTo []) then {
+							_pos = _pos_center;
+						};
+					};				
+				} else {
+					_pos = _pos_center;
+				};
+				__TRACE("from createinf")
+				private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true, _unitsPerGroup] call d_fnc_makemgroup;
+				_newgroup deleteGroupWhenEmpty true;
+				_newgroup allowFleeing 0;
+				if (!_do_patrol) then {
+					_newgroup setCombatMode "YELLOW";
+					_newgroup setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","DIAMOND"];
+					_newgroup setFormDir (floor random 360);
+					_newgroup setSpeedMode "NORMAL";
+					_newgroup setVariable ["d_defend", true];
+					[_newgroup, _pos_center] spawn d_fnc_taskDefend;
+				} else {
+					[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30], "", 0] spawn d_fnc_MakePatrolWPX;
+				};
+				_ret_grps pushBack _newgroup;
+				d_x_sm_rem_ar append _units;
+				[_newgroup, 30] spawn {
+					scriptName "spawn createinf";
+					sleep (_this # 1);
+					(_this # 0) call d_fnc_addgrp2hc;
+					if (d_with_dynsim == 0) then {
+						(_this # 0) enableDynamicSimulation true;
 					};
-				};				
-			} else {
-				_pos = _pos_center;
-			};
-			__TRACE("from createinf")
-			private _units = [_pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true, _unitsPerGroup] call d_fnc_makemgroup;
-			_newgroup deleteGroupWhenEmpty true;
-			_newgroup allowFleeing 0;
-			if (!_do_patrol) then {
-				_newgroup setCombatMode "YELLOW";
-				_newgroup setFormation selectRandom ["COLUMN","STAG COLUMN","WEDGE","ECH LEFT","ECH RIGHT","VEE","LINE","DIAMOND"];
-				_newgroup setFormDir (floor random 360);
-				_newgroup setSpeedMode "NORMAL";
-				_newgroup setVariable ["d_defend", true];
-				[_newgroup, _pos_center] spawn d_fnc_taskDefend;
-			} else {
-				[_newgroup, _pos, [_pos_center, _radius], [5, 15, 30], "", 0] spawn d_fnc_MakePatrolWPX;
-			};
-			_ret_grps pushBack _newgroup;
-			d_x_sm_rem_ar append _units;
-			[_newgroup, 30] spawn {
-				scriptName "spawn createinf";
-				sleep (_this select 1);
-				(_this select 0) call d_fnc_addgrp2hc;
-				if (d_with_dynsim == 0) then {
-					(_this select 0) enableDynamicSimulation true;
 				};
 			};
 		};

@@ -45,12 +45,12 @@ if (!isServer) exitWith{};
 		_this allowDamage true;
 	};
 	
-	_vec addEventHandler ["getIn", {_this call d_fnc_sgetinvec}];
+	_vec addEventHandler ["getIn", {call d_fnc_sgetinvec}];
 
-	_vec addEventHandler ["getOut", {_this call d_fnc_sgetoutvec}];
+	_vec addEventHandler ["getOut", {call d_fnc_sgetoutvec}];
 	
 	if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
-		_vec addEventHandler ["getOut", {_this call d_fnc_aftereject}];
+		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
 	};
 	
 	if !(_vec isKindOf "Air") then {

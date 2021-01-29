@@ -8,7 +8,7 @@ if (!hasInterface || {d_inventory_blocked}) exitWith {
 };
 
 __TRACE_1("","_this")
-private _box = _this select 1;
+private _box = _this # 1;
 
 if (!isNil {_box getVariable "d_islocked"} && {_box getVariable "d_islocked" != player}) exitWith {
 	hintSilent (localize "STR_DOM_MISSIONSTRING_1945");
@@ -50,13 +50,13 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	};
 	true
 } else {
-	if (!d_with_ace && {_this select 0 == player}) then {
+	if (!d_with_ace && {_this # 0 == player}) then {
 		0 spawn {
 			scriptName "spawn_inventoryopened2";
 			private _disp = displayNull;
-			waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable ["xr_pluncon", false]}}};
+			waitUntil {_disp = findDisplay 602;!isNull _disp || {!alive player || {player getVariable "xr_pluncon"}}};
 
-			if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
+			if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
 
 			private _ctrl = _disp ctrlCreate ["RscButtonMenu", 12000];
 
@@ -91,10 +91,10 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 				private _bpc = backpackContainer player;
 				if (!isNil {_bpc getVariable "d_islocked"}) then {
 					_bpc setVariable ["d_islocked", nil, true];
-					(_this select 0) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1943");
+					(_this # 0) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1943");
 				} else {
 					_bpc setVariable ["d_islocked", player, true];
-					(_this select 0)  ctrlSetText (localize "STR_DOM_MISSIONSTRING_1944");
+					(_this # 0)  ctrlSetText (localize "STR_DOM_MISSIONSTRING_1944");
 				};
 			}];
 

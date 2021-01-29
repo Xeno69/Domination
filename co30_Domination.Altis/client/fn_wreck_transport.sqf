@@ -22,7 +22,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 			_transobj = objNull;
 			private _nobjects = nearestObjects [_vec, ["LandVehicle", "Air"], 70];
 			__TRACE_1("","_nobjects")
-			if !(_nobjects isEqualTo []) then {
+			if (_nobjects isNotEqualTo []) then {
 				_nobjects params ["_dummy"];
 				if (_dummy == _vec) then {
 					if (count _nobjects > 1) then {_transobj = _nobjects # 1};
@@ -47,7 +47,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 			if ((_transobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair]) > 0 && {!isNull _transobj && {_transobj != _vec getVariable ["d_Attached_Vec", objNull]}}) then {
 				if (_vec inArea [_transobj, 10, 10, 0, false]) then {
 					if (!_menu_trans_shown) then {
-						_id = _vec addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_1742"], {_this call d_fnc_heli_action},-1,100000];
+						_id = _vec addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_1742"], {call d_fnc_heli_action},-1,100000];
 						_menu_trans_shown = true;
 					};
 				} else {
@@ -78,7 +78,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 				};
 			} else {
 				if (_vec getVariable ["d_vec_attached", false]) then {
-					_release_id = _vec addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000];
+					_release_id = _vec addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {call d_fnc_heli_release}, -1, 100000];
 					_vec vehicleChat (localize "STR_DOM_MISSIONSTRING_1743");
 					_vec setVariable ["d_Attached_Vec", _transobj];
 
@@ -114,7 +114,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 
 					if (!isNull _transobj) then {
 						detach _transobj;
-						[_transobj, [0,0,0]] remoteExecCall ["setVelocity", _transobj];
+						_transobj remoteExecCall ["d_fnc_setvel0", _transobj];
 						_transobj setPos (_vec modelToWorldVisual [0, -2, 0]);
 					};
 
@@ -130,8 +130,6 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 
 					private _npos = getPosATLVisual _transobj;
 					_transobj setPos [_npos # 0, _npos # 1, 0];
-
-					//[_transobj, [0,0,0]] remoteExecCall ["setVelocity", _transobj];
 
 					sleep 1.012;
 				};

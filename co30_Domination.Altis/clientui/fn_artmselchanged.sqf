@@ -9,10 +9,10 @@ __TRACE_1("","_this")
 
 private _disp = uiNamespace getVariable "d_ArtilleryDialog2";
 
-private _selIdx = _this select 1;
+private _selIdx = _this # 1;
 if (_selIdx == -1) exitWith {};
 
-private _lbctrl = _this select 0;
+private _lbctrl = _this # 0;
 
 private _arele = d_cur_art_marker_ar select (_lbctrl lbValue _selIdx);
 

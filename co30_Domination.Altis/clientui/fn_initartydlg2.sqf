@@ -35,7 +35,7 @@ private _disp = uiNamespace getVariable "d_ArtilleryDialog2";
 private _ctrllb = _disp displayCtrl 1000;
 lbClear _ctrllb;
 
-if !(d_cur_art_marker_ar isEqualTo []) then {
+if (d_cur_art_marker_ar isNotEqualTo []) then {
 	{
 		private _name = if (isMultiplayer) then {
 			(objectFromNetId  (_x # 1)) call d_fnc_getplayername

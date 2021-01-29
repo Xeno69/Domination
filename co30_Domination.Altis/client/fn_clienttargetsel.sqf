@@ -11,7 +11,7 @@ if (_type == 0) then {
 	
 	d_cur_sel_tar_obj = objNull;
 	
-	d_nt_sel_handler = addMissionEventHandler ["MapSingleClick", {_this call d_fnc_selnthandler}];
+	d_nt_sel_handler = addMissionEventHandler ["MapSingleClick", {call d_fnc_selnthandler}];
 	
 	"d_ProgressBar3" cutRsc ["d_ProgressBar3", "PLAIN"];
 	private _control = (uiNamespace getVariable "d_ProgressBar3") displayCtrl 3800;
@@ -26,7 +26,7 @@ if (_type == 0) then {
 		{
 			private _mar = _x getVariable "d_sel_mar";
 			if (!isNil "_mar") then {
-				private _num = _x getVariable ["d_selectionsmt", 0];
+				private _num = _x getVariable "d_selectionsmt";
 				if (!isNil "_num") then {
 					_mar setMarkerTextLocal format ["  %1", _num];
 				};
@@ -38,7 +38,7 @@ if (_type == 0) then {
 			{
 				private _mar = _x getVariable "d_sel_mar";
 				if (!isNil "_mar") then {
-					private _num = _x getVariable ["d_selectionsmt", 0];
+					private _num = _x getVariable "d_selectionsmt";
 					if (!isNil "_num") then {
 						_mar setMarkerTextLocal format ["  %1", _num];
 					};

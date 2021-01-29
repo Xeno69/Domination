@@ -79,7 +79,7 @@ if (_center isEqualTo [0,0,0]) exitWith {
 	[]
 };
 
-if (_units isEqualTo [] || {isNull (_units select 0)}) exitWith {
+if (_units isEqualTo [] || {isNull (_units # 0)}) exitWith {
 	player sideChat str "Zen_Occupy House Error : No units given.";
 	diag_log "Zen_Occupy House Error : No units given.";
 	([])
@@ -88,7 +88,7 @@ if (_units isEqualTo [] || {isNull (_units select 0)}) exitWith {
 _Zen_ExtendPosition = {
 	params ["_center", "_dist", "_phi"];
 
-	([(_center select 0) + (_dist * (cos _phi)), (_center select 1) + (_dist * (sin _phi)), _this select 3])
+	([(_center # 0) + (_dist * (cos _phi)), (_center # 1) + (_dist * (sin _phi)), _this # 3])
 };
 
 _Zen_InsertionSort = {
@@ -133,7 +133,7 @@ _buildingPosArray = [];
 0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;
 {
 	_posArray = _x buildingPos -1;
-	if !(_posArray isEqualTo []) then {
+	if (_posArray isNotEqualTo []) then {
 		_buildingPosArray pushBack _posArray;
 	};
 } forEach _buildingsArrayFiltered;

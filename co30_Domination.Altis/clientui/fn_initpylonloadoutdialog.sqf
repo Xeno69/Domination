@@ -82,15 +82,15 @@ for "_i" from 0 to (count _pylons - 1) do {
 	} forEach _pos;
 	_pos pushBack 0.17;
 	_pos pushBack 0.032;
-	_pos set [0, (_pos select 0) + 0.062];
-	_pos set [1, (_pos select 1) + 0.18];
+	_pos set [0, (_pos # 0) + 0.062];
+	_pos set [1, (_pos # 1) + 0.18];
 	_ctrl ctrlSetPosition _pos;
 	__TRACE_1("","_pos")
 	_ctrl ctrlCommit 0;
 
 	private _turret = getArray(_pylon>>"turret");
 	__TRACE_1("","_turret")
-	if !(_turret isEqualTo []) then {
+	if (_turret isNotEqualTo []) then {
 		private _ctrl2 = _display ctrlCreate ["RscActivePictureKeepAspect", 8000 + _i];
 		//private _ctrl2 = _display ctrlCreate ["RscButton", 8000 + _i];
 		if !(_pyl_owns_empty) then {
@@ -147,7 +147,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 			private _doadd = call {
 				private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
 				__TRACE_1("","_sub")
-				if !(_sub isEqualTo []) exitWith {false};
+				if (_sub isNotEqualTo []) exitWith {false};
 				if (toLowerANSI getText (configfile >> "CfgMagazines" >> _x >> "pylonWeapon") in ["fir_rkt_launcher", "fir_apkws_launcher"]) exitWith {false};
 				true
 			};

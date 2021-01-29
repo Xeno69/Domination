@@ -12,4 +12,4 @@ _camo setDir getDir _this;
 _camo setVectorUp (vectorUp _this);
 _camo setPosASL (getPosASL _this);		
 _this setVariable ["d_MHQ_Camo", _camo, true];
-_camo addEventhandler ["killed", {deleteVehicle (_this select 0)}];
+_camo addEventhandler ["killed", {deleteVehicle (_this # 0)}];

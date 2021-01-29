@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_sfunc.sqf"
 #include "..\x_setup.sqf"
 
-if (alive player && {!(player getVariable ["xr_pluncon", false]) && {isNull objectParent player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
+if (d_player_canu && {isNull objectParent player}) then {
 	d_objectID2 = cursorObject;
 	__TRACE_1("","d_objectID2")
 	if (!(d_objectID2 isKindOf "LandVehicle") && {!(d_objectID2 isKindOf "Air")}) exitWith {false};

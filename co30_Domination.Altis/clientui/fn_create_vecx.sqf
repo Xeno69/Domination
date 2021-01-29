@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_create_vecx.sqf"
 #include "..\x_setup.sqf"
 
-if (!alive player || {player getVariable ["xr_pluncon", false] ||{player getVariable ["ace_isunconscious", false]}}) exitWith {};
+if (!d_player_canu) exitWith {};
 
 disableSerialization;
 private _idx = lbCurSel ((uiNamespace getVariable "d_VecDialog") displayCtrl 44449);

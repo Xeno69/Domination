@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_earplugs.sqf"
 #include "..\x_setup.sqf"
 
-if ((_this # 1) in actionKeys d_earplugs_userakey_str && {alive player && {!(player getVariable "xr_pluncon") && {!(player getVariable ["ace_isunconscious", false]) && {!(_this # 2) && {!(_this # 3) && {!(_this # 4)}}}}}}) then {
+if ((_this # 1) in d_ak_earplugs && {d_player_canu && {!(_this # 2) && {!(_this # 3) && {!(_this # 4)}}}}) then {
 	if (d_earplugs_fitted) then {
 		d_earplugs_fitted = false;
 		2 fadeSound 1;

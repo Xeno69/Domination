@@ -28,7 +28,7 @@ if (_m_pos isEqualType objNull && {isNull _m_pos}) exitWith {
 private _ma = createMarkerLocal [_m_name, _m_pos];
 if (_m_shape != "") then {_ma setMarkerShapeLocal _m_shape};
 if (_m_col != "") then {_ma setMarkerColorLocal _m_col};
-if !(_m_size isEqualTo []) then {_ma setMarkerSizeLocal _m_size};
+if (_m_size isNotEqualTo []) then {_ma setMarkerSizeLocal _m_size};
 private _co = count _this;
 if (_co > 5) then {
 	if (_this # 5 != "") then {

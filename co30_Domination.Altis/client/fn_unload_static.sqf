@@ -18,9 +18,9 @@ if (_tr_cargo_ar isEqualTo []) exitWith {};
 d_current_truck_cargo_array = _tr_cargo_ar;
 createDialog "d_UnloadDialog";
 
-waitUntil {!isNil "d_unload_dialog_open" && {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+waitUntil {!isNil "d_unload_dialog_open" && {d_cargo_selected_index != -1 || {!d_unload_dialog_open || {!d_player_canu}}}};
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {if (d_unload_dialog_open) then {closeDialog 0}};
+if (!d_player_canu) exitWith {if (d_unload_dialog_open) then {closeDialog 0}};
 
 if (d_cargo_selected_index == -1) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_82")};
 
@@ -45,16 +45,16 @@ private _place_error = false;
 systemChat (localize "STR_DOM_MISSIONSTRING_84");
 d_e_placing_running = 0; // 0 = running, 1 = placed, 2 = placing canceled
 d_e_placing_id1 = player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_85"], {
-	private _caller = _this select 1;
+	private _caller = _this # 1;
 	d_e_placing_running = 2;
-	_caller removeAction (_this select 2);
+	_caller removeAction (_this # 2);
 	_caller removeAction d_e_placing_id2;
 	d_e_placing_id1 = -1000;
 	d_e_placing_id2 = -1000;
 }];
 d_e_placing_id2 = player addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_86"], {
-	private _caller = _this select 1;
-	private _id = _this select 2;
+	private _caller = _this # 1;
+	private _id = _this # 2;
 	d_e_placing_running = 1;
 	_caller removeAction _id;
 	_caller removeAction d_e_placing_id1;
@@ -72,7 +72,7 @@ while {d_e_placing_running == 0} do {
 		systemChat (localize "STR_DOM_MISSIONSTRING_87");
 		_place_error = true;
 	};
-	if (!alive player || {!alive _vec || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {
+	if (!d_player_canu || {!alive _vec}) exitWith {
 		_place_error = true;
 		if (d_e_placing_id1 != -1000) then {
 			player removeAction d_e_placing_id1;

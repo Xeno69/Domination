@@ -160,7 +160,7 @@ while { !d_mt_done } do {
 	if (!_resolved1) then {
 		if (alive _pilot1) then {
 			private _nobjs = (_pilot1 nearEntities ["CAManBase", _distanceToEnablePilotMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-			if !(_nobjs isEqualTo []) then {
+			if (_nobjs isNotEqualTo []) then {
 				_rescued1 = true;
 				__TRACE("rescued1")
 				deleteVehicle _pilot1;
@@ -175,7 +175,7 @@ while { !d_mt_done } do {
 	if (!_resolved2) then {
 		if (alive _pilot2) then {
 			private _nobjs = (_pilot2 nearEntities ["CAManBase", _distanceToEnablePilotMovement]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-			if !(_nobjs isEqualTo []) then {
+			if (_nobjs isNotEqualTo []) then {
 				_rescued2 = true;
 				__TRACE("rescued2")
 				deleteVehicle _pilot2;

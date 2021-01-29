@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_checkenterer.sqf"
 #include "..\x_setup.sqf"
 
-private _enterer = _this select 2;
+private _enterer = _this # 2;
 if (_enterer != player) exitWith {};
 
 params ["_vec"];

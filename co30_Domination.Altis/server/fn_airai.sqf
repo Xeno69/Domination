@@ -42,7 +42,7 @@ while {true} do {
 
 	while {d_mt_radio_down} do {sleep 6.123};
 	private _pos = call d_fnc_GetRanPointOuterAir;
-	if !(d_cur_tgt_pos isEqualTo []) then {
+	if (d_cur_tgt_pos isNotEqualTo []) then {
 		private _counter = 0;
 		while {_pos distance2D d_cur_tgt_pos < 2000 && {_counter < 100}} do {
 			_pos = call d_fnc_GetRanPointOuterAir;
@@ -198,7 +198,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 
 		_curvec = objNull;
 		private _mmvevs = _vehicles select {alive _x && {canMove _x}};
-		if !(_mmvevs isEqualTo []) then {
+		if (_mmvevs isNotEqualTo []) then {
 			_curvec = _mmvevs # 0;
 			if (_old_pos isEqualTo []) then {
 				_old_pos = getPosASL _curvec;
@@ -263,7 +263,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 
 		sleep 3 + random 2;
 
-		if !(_vehicles isEqualTo []) then {
+		if (_vehicles isNotEqualTo []) then {
 			__TRACE("_vehicles array not empty")
 			{
 				if (isNull _x || {!alive _x || {!canMove _x}}) then {
@@ -290,7 +290,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 				    };
 				    if (_type isEqualTo "AP") then {
 					private _allPlayers =  allPlayers - entities "HeadlessClient_F";
-					if !(_allPlayers isEqualTo []) then {
+					if (_allPlayers isNotEqualTo []) then {
 					       {
 						   if ((objectParent _x) isKindOf "Plane") then {
 								if (_x isEqualTo (currentPilot (objectParent _x))) then {

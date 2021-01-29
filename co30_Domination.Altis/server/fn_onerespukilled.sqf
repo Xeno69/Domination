@@ -5,10 +5,12 @@
 
 __TRACE_1("","_this")
 
+if (d_mt_done) exitWith {};
+
 params ["_killed"];
 
 if (_killed isKindOf "CAManBase") then {
-	if (d_mt_done || {d_mt_barracks_down}) exitWith {
+	if (d_mt_barracks_down) exitWith {
 		__TRACE("mt done or barracks down")
 	};
 	
@@ -32,7 +34,7 @@ if (_killed isKindOf "CAManBase") then {
 		};
 	};
 } else {
-	if (d_mt_done || {d_mt_mobile_hq_down}) exitWith {
+	if (d_mt_mobile_hq_down) exitWith {
 		__TRACE("mt done or mobile hq down")
 	};
 	

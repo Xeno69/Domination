@@ -82,10 +82,10 @@ if (d_MissionType == 2) then {
 
 0 spawn d_fnc_cleanerfnc;
 
-diag_log ["Internal D Version: 4.41"];
+diag_log ["Internal D Version: 4.42"];
 
 private _av_check_fnc = {
-	_this addEventHandler ["handleDamage", {_this call d_fnc_pshootatarti;0}];
+	_this addEventHandler ["handleDamage", {call d_fnc_pshootatarti;0}];
 	_this lockDriver true;
 	_this lock 2;
 	
@@ -101,18 +101,18 @@ private _av_check_fnc = {
 	} forEach (crew _this);
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
-	_this addEventhandler ["fired", {_this call d_fnc_casfired}];
-	_this addEventhandler ["fired", {_this call d_fnc_arifired}];
+	_this addEventhandler ["fired", {call d_fnc_casfired}];
+	_this addEventhandler ["fired", {call d_fnc_arifired}];
 	[_this, 2] spawn d_fnc_disglobalsim;
 };
 
 private _fnc_artvec = {
 	params ["_num", "_name", ["_side", sideUnknown]];
 	private _retar = vehicles select {(str _x) select [0, _num] == _name};
-	if !(_retar isEqualTo []) then {
+	if (_retar isNotEqualTo []) then {
 		{
 			_x call _av_check_fnc;
-			if !(_side isEqualTo sideUnknown) then {
+			if (_side isNotEqualTo sideUnknown) then {
 				_x setVariable ["d_fside", _side];
 			};
 		} forEach _retar;
@@ -150,6 +150,6 @@ if (d_with_ranked) then {
 	scriptname "spawn sendfpssetupserver";
 	sleep 10;
 	["dom_sendfps", {
-		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+		(round diag_fps) remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
 	}, 3] call d_fnc_eachframeadd;
 };

@@ -30,11 +30,11 @@ if (xr_MouseButtons # 0) then {
 	private _cursObj = objNull;
 	private _intsecs = [_mpx, _mpy, xr_spectcamtarget, vehicle xr_spectcamtarget] call BIS_fnc_getIntersectionsUnderCursor;
 	
-	if !(_intsecs isEqualTo []) then {
+	if (_intsecs isNotEqualTo []) then {
 		_cursObj = (_intsecs # 0) # 3;
 	};
 	if (!isNull _cursObj && {!(_cursObj isKindOf "CAManBase")}) then {
-		if !(crew _cursObj isEqualTo []) then {
+		if (crew _cursObj isNotEqualTo []) then {
 			(crew _cursObj) findIf {
 				_ret = _x call d_fnc_isplayer;
 				if (_ret) then {
@@ -108,7 +108,7 @@ if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
 	} forEach _helperls;
 	__TRACE_1("","_helperls")
 	private _setidx = -1;
-	if !(_helperls isEqualTo []) then {
+	if (_helperls isNotEqualTo []) then {
 		lbSortByValue _lbctr;
 		_setidx = 0;
 		private _spectcamtargetstr = xr_spectcamtargetstr;

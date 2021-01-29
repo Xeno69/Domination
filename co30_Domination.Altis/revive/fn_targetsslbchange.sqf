@@ -8,7 +8,7 @@ if (!hasInterface) exitWith {};
 __TRACE_1("","_this")
 
 disableSerialization;
-private _selIdx = _this select 1;
+private _selIdx = _this # 1;
 if (_selIdx == -1) exitWith {};
 private _data = lbData [1000, _selIdx];
 __TRACE_1("","_data")

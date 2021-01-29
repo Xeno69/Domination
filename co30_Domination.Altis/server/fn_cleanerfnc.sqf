@@ -8,26 +8,26 @@ while {true} do {
 	private _allmisobjs = allMissionObjects "WeaponHolder";
 	sleep 8;
 	private _helperx = entities [["WeaponHolderSimulated", "Plane_Canopy_Base_F", "Ejection_Seat_Base_F"], []];
-	if !(_helperx isEqualTo []) then {
+	if (_helperx isNotEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
 	sleep 8;
 	_helperx = allMissionObjects "Chemlight_base";
-	if !(_helperx isEqualTo []) then {
+	if (_helperx isNotEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
 	sleep 8;
 	_helperx = allMissionObjects "Crater";
-	if !(_helperx isEqualTo []) then {
+	if (_helperx isNotEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
 	sleep 8;
 	_helperx = allMissionObjects "CraterLong";
-	if !(_helperx isEqualTo []) then {
+	if (_helperx isNotEqualTo []) then {
 		_allmisobjs append _helperx;
 	};
 	sleep 8;
-	if !(_allmisobjs isEqualTo []) then {
+	if (_allmisobjs isNotEqualTo []) then {
 		{
 			if (!isNull _x) then {
 				private _ct = _x getVariable ["d_checktime", -1];
@@ -68,11 +68,16 @@ while {true} do {
 		d_player_created = d_player_created - [objNull];
 	};
 	sleep 4;
-	if (!isNil "d_airboxes" && {!(d_airboxes isEqualTo [])}) then {
+	if (!isNil "d_airboxes" && {d_airboxes isNotEqualTo []}) then {
 		{
 			private _mname = _x getVariable "d_mname";
 			if (!isNil "_mname") then {
 				deleteMarker _mname;
+			};
+			private _jipid = _x getVariable "d_box_drop_jip_id";
+			__TRACE_1("","_jipid")
+			if (!isNil "_jipid") then {
+				remoteExecCall ["", _jipid];
 			};
 			deleteVehicle _x;
 		} forEach (d_airboxes select {time > _x getVariable ["d_airboxtime", -1]});

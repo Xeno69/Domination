@@ -38,7 +38,7 @@ player setVariable ["d_jailar", [serverTime, _secs], true];
 private _laodout =+ getUnitLoadout player;
 player setUnitLoadout (configFile >> "EmptyLoadout");
 
-private _jailpos = if !(d_cur_tgt_pos isEqualTo []) then {
+private _jailpos = if (d_cur_tgt_pos isNotEqualTo []) then {
 	[d_FLAG_BASE, 800, 10000, 3, 0, 0.3, 0, [[d_cur_tgt_pos, 1000]]] call d_fnc_findsafepos
 } else {
 	[d_FLAG_BASE, 800, 10000, 3, 0, 0.3] call d_fnc_findsafepos
@@ -87,6 +87,26 @@ if (_todelete != -1) then {
 
 player setPos _pmovepos;
 
+sleep 0.1;
+
+private _movecheck_fnc = _pmovepos spawn {
+	while {true} do {
+		if (player distance _this > 12) then {
+			player setPos _pmovepos;
+			(getPlayerUID player) remoteExecCall ["d_fnc_incjail", 2];
+			d_player_jescape = d_player_jescape + 1;
+			if (d_player_jescape > 10) then {
+				0 spawn {
+					"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
+					endMission "LOSER";
+					forceEnd;
+				};
+			};
+		};
+		sleep 1;
+	};
+};
+
 sleep 2;
 cutText ["", "BLACK IN", 2];
 sleep 2;
@@ -113,6 +133,7 @@ sleep 2;
 
 terminate _soundspawn;
 terminate _disresbspawn;
+terminate _movecheck_fnc;
 
 player setVariable ["d_jailar", nil, true];
 

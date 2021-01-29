@@ -5,7 +5,7 @@
 
 private _r = call {
 	if (_this isEqualType "") exitWith {
-		_this call d_fnc_getrankindex
+		call d_fnc_getrankindex
 	};
 	if (_this isEqualType 1) exitWith {
 		_this

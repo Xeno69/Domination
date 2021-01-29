@@ -32,8 +32,8 @@ if (!isNil "_gru" && {!isNull _gru}) then {
 	_gru spawn d_fnc_hdsellead;
 };
 
-private _pa = d_player_store getVariable _uid;
-if (!isNil "_pa") then {
+private _pa = d_player_hash getOrDefault [_uid, []];
+if (_pa isNotEqualTo []) then {
 	__TRACE_1("player store before change","_pa")
 	_pa set [0, [time - (_pa # 0), -1] select (time - (_pa # 0) < 0)];
 	if ((_pa # 9) # 0 == 0) then {
@@ -76,6 +76,12 @@ if (!isNil "_jipid") then {
 	remoteExecCall ["", _jipid];
 };
 
+_jipid = _unit getVariable "d_dropz_jip_id";
+__TRACE_1("","_jipid")
+if (!isNil "_jipid") then {
+	remoteExecCall ["", _jipid];
+};
+
 _jipid = _unit getVariable "d_artmark_jip_id";
 __TRACE_1("","_jipid")
 if (!isNil "_jipid") then {
@@ -84,7 +90,7 @@ if (!isNil "_jipid") then {
 
 private _ar = _unit getVariable ["d_all_p_vecs_s", []];
 __TRACE_1("","_ar")
-if !(_ar isEqualTo []) then {
+if (_ar isNotEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];
 		d_player_created pushBack _vec;

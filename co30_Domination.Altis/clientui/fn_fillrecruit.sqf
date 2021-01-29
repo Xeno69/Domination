@@ -40,7 +40,7 @@ private ["_tt", "_pic", "_idx"];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
 } forEach d_current_ai_units;
 
-if !(d_current_ai_units isEqualTo []) then {
+if (d_current_ai_units isNotEqualTo []) then {
 	_ctrl lbSetCurSel 0;
 };
 

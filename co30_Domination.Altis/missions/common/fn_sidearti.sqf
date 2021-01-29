@@ -46,7 +46,7 @@ for "_i" from 0 to (__count_arti - 1) do {
 		{_v deleteVehicleCrew _x} forEach (crew _v);
 	}];
 #ifdef __TT__
-	_arti addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_arti addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 	_arti lock true;
 	_arti allowCrewInImmobile true;

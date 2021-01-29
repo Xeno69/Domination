@@ -87,8 +87,8 @@ _pos params ["_posX", "_posY"];
 private _multiplyMatrixFunc = {
 	params ["_array1", "_array2"];
 	private _result = [
-		(((_array1 select 0) select 0) * (_array2 select 0)) + (((_array1 select 0) select 1) * (_array2 select 1)),
-		(((_array1 select 1) select 0) * (_array2 select 0)) + (((_array1 select 1) select 1) * (_array2 select 1))
+		(((_array1 # 0) # 0) * (_array2 # 0)) + (((_array1 # 0) # 1) * (_array2 # 1)),
+		(((_array1 # 1) # 0) * (_array2 # 0)) + (((_array1 # 1) # 1) * (_array2 # 1))
 	];
 
 	_result
@@ -101,13 +101,13 @@ private _multiplyMatrixFunc = {
 		_x params ["_type", "_relPos", "_azimuth"];
 		
 		//Optionally map certain features for backwards compatibility
-		if (count _x > 3) then {_fuel = _x select 3};
-		if (count _x > 4) then {_damage = _x select 4};
-		if (count _x > 5) then {_orientation = _x select 5};
-		if (count _x > 6) then {_varName = _x select 6};
-		if (count _x > 7) then {_init = _x select 7};
-		if (count _x > 8) then {_simulation = _x select 8};
-		if (count _x > 9) then {_ASL = _x select 9};
+		if (count _x > 3) then {_fuel = _x # 3};
+		if (count _x > 4) then {_damage = _x # 4};
+		if (count _x > 5) then {_orientation = _x # 5};
+		if (count _x > 6) then {_varName = _x # 6};
+		if (count _x > 7) then {_init = _x # 7};
+		if (count _x > 8) then {_simulation = _x # 8};
+		if (count _x > 9) then {_ASL = _x # 9};
 		if (isNil "_ASL") then {_ASL = false;};
 	
 		//Rotate the relative position using a rotation matrix
@@ -119,11 +119,11 @@ private _multiplyMatrixFunc = {
 	
 		//Backwards compatability causes for height to be optional
 		private ["_z"];
-		if (count _relPos > 2) then {_z = _relPos select 2} else {_z = 0};
+		if (count _relPos > 2) then {_z = _relPos # 2} else {_z = 0};
 		
 		__TRACE_1("","_z")
 	
-		private _newPos = [_posX + (_newRelPos select 0), _posY + (_newRelPos select 1), _z];
+		private _newPos = [_posX + (_newRelPos # 0), _posY + (_newRelPos # 1), _z];
 	
 		//Create the object and make sure it's in the correct location
 		//_newObj = _type createVehicle _newPos;
@@ -180,6 +180,9 @@ private _multiplyMatrixFunc = {
 			__TRACE_1("before","_newPos")
 			if (d_iscup_island) then {
 				_newPos = _newPos vectorAdd [0, 0, (boundingCenter _newObj) # 2];
+				if (_type == "Land_ConcreteWall_01_l_8m_F") then {
+					_newPos = _newPos vectorAdd [0, 0, -0.3];
+				};
 			};
 			__TRACE_1("after","_newPos")
 			_newObj setPosWorld _newPos;

@@ -115,7 +115,7 @@ while {sleep 1; !d_mt_done} do {
 	if (!alive _pilot1) exitWith { _all_dead = true };
 	
 	private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-	if !(_nobjs isEqualTo []) exitWith {
+	if (_nobjs isNotEqualTo []) exitWith {
 		__TRACE("rescued _pilot1")
 		deleteVehicle _pilot1;
 		// todo announce player

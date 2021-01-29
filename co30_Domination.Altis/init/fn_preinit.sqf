@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_preinit.sqf"
 #include "..\x_setup.sqf"
 #include "..\x_dbsetup.sqf"
-diag_log format ["############################# %1 #############################", missionName];
+diag_log format ["############################# %1 %2 #############################", missionName, missionNameSource];
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom fn_preinit.sqf"];
 
 #ifndef __TT__
@@ -398,11 +398,6 @@ d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
 
-d_sm_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_trig_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-d_ef_running = -1;
-
 d_cargo_chute =
 #ifdef __OWN_SIDE_BLUFOR__
 	"B_Parachute_02_F";
@@ -513,19 +508,21 @@ if (isNil "d_cas_available_time") then {
 
 d_non_steer_para = "NonSteerable_Parachute_F";
 
-d_the_box = switch (d_own_side) do {
-	case "GUER": {"Box_IND_Wps_F"};
-	case "EAST": {"Box_East_Wps_F"};
-	case "WEST": {"Box_NATO_Wps_F"};
-};
-d_the_base_box = switch (d_own_side) do {
-	case "GUER": {"I_supplyCrate_F"};//Box_IND_WpsSpecial_F
-	case "EAST": {"O_supplyCrate_F"};//Box_East_WpsSpecial_F
-	case "WEST": {"B_supplyCrate_F"};//Box_NATO_WpsSpecial_F
+call {
+	if (d_own_side == "WEST") exitWith {
+		d_the_box = "Box_NATO_Wps_F";
+		d_the_base_box = "B_supplyCrate_F";
+	};
+	if (d_own_side == "EAST") exitWith {
+		d_the_box = "Box_East_Wps_F";
+		d_the_base_box = "O_supplyCrate_F";
+	};
+	d_the_box = "Box_IND_Wps_F";
+	d_the_base_box = "I_supplyCrate_F";
 };
 
 private _confmapsize = call {
-	if !(markerPos "d_whole_island" isEqualTo [0,0,0]) exitWith {
+	if (markerPos "d_whole_island" isNotEqualTo [0,0,0]) exitWith {
 		private _ret = (markerSize "d_whole_island" # 0) * 2;
 		deleteMarkerLocal "d_whole_island";
 		_ret
@@ -542,15 +539,15 @@ d_island_x_max = _confmapsize;
 d_island_y_max = _confmapsize;
 
 private _wname = toLowerANSI worldName;
-d_iscup_island = _wname in ["chernarus_summer", "Chernarus_Winter", "chernarus", "eden", "abel", "noe", "sara", "takistan", "sara_dbe1", "zargabad"] || {(_wname select [0, 4]) isEqualTo "cup_"};
+d_iscup_island = _wname in ["chernarus_summer", "chernarus_winter", "chernarus", "eden", "abel", "noe", "sara", "takistan", "sara_dbe1", "zargabad"] || {(_wname select [0, 4]) isEqualTo "cup_"};
 
 if (isServer) then {
-	d_player_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store2 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store3 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_placed_objs_store4 = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-	d_misc_s_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_player_hash = createHashMap;
+	d_misc_s_hash = createHashMap;
+	d_placed_objs_hash = createHashMap;
+	d_placed_objs_hash2 = createHashMap;
+	d_placed_objs_hash3 = createHashMap;
+	d_placed_objs_hash4 = createHashMap;
 
 	d_hc_array = [];
 	d_hc_counter = 0;
@@ -559,20 +556,35 @@ if (isServer) then {
 
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");
 	publicVariable "d_with_ace";
+	diag_log ["Dom d_with_ace:", d_with_ace];
 	d_database_found = false;
+	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
 
-#ifdef __INTERCEPTDB__
-	if (d_interceptdb) then {
-		call dsi_fnc_createdbconn;
+	if (isMultiplayer && {fileExists "@InterceptDB\domination.sqf"}) then {
+		diag_log "DOM InterceptDB domination.sqf file found!";
+		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
 	};
-#else
-	if (!isNil "extDB3_var_loaded") then {
-		private _extdb3laoded = if (extDB3_var_loaded isEqualType {}) then {
-			call extDB3_var_loaded
-		} else {
-			extDB3_var_loaded
+	if (isNil "d_interceptdb") then {
+		diag_log "DOM InterceptDB d_interceptdb is nil";
+		d_interceptdb = false
+	};
+	if (d_interceptdb) then {
+		call d_fnc_createdbconn;
+		diag_log ["Dom Intercept DB created:", D_DB_CON];
+		d_database_found = true;
+		d_db_type = 1;
+	} else {
+		private _isextdb3loaded = false;
+		if (!isNil "extDB3_var_loaded") then {
+			_isextdb3loaded = if (extDB3_var_loaded isEqualType {}) then {
+				call extDB3_var_loaded
+			} else {
+				extDB3_var_loaded
+			};
 		};
-		if (_extdb3laoded) then {
+		diag_log ["DOM extDB3 _isextdb3loaded:", _isextdb3loaded];
+		if (_isextdb3loaded) then {
+			d_db_type = 0;
 			private _uins = uiNamespace getVariable "d_database_init";
 			if (isNil "_uins") then {
 				private _result = "extdb3" callExtension "9:ADD_DATABASE:Domination";
@@ -583,42 +595,41 @@ if (isServer) then {
 				if (_result != "[1]" && {_result != "[0,""Error Protocol Name Already Taken""]"}) exitWith {};
 				"extDB3" callExtension "9:LOCK";
 				uiNamespace setVariable ["d_database_init", true];
-				d_database_found = true;
-			} else {
-				d_database_found = true;
 			};
+			d_database_found = true;
 		};
 	};
-#endif
 	publicVariable "d_database_found";
+	diag_log ["DOM d_database_found:", d_database_found, "d_db_type:", d_db_type];
 
 	if (d_database_found) then {
 		d_use_sql_settings = false;
 
 		private _dbresult = [];
-#ifndef __INTERCEPTDB__
-		_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
-		if (_dbresult # 0 != 1) then {
-			_dbresult = [];
-		} else {
-			_dbresult = _dbresult # 1;
+		call {
+			if (d_db_type == 0) exitWith {
+				_dbresult = parseSimpleArray ("extdb3" callExtension "0:dom:getDomSettings");
+				if (_dbresult # 0 != 1) then {
+					_dbresult = [];
+				} else {
+					_dbresult = _dbresult # 1;
+				};
+			};
+			if (d_db_type == 1) exitWith {
+				_dbresult = ["getDomSettings"] call d_fnc_queryconfig;
+			};
 		};
-#else
-		if (isNil "d_interceptdb") then {d_interceptdb = false};
-		if (d_interceptdb) then {
-			_dbresult = ["getDomSettings"] call dsi_fnc_queryconfig;
-		};
-#endif
+		__TRACE_1("getDomSettings","_dbresult")
 		diag_log "Dom Database result loading dom_settings:";
 		{
 			diag_log _x;
 		} forEach _dbresult;
-		if !(_dbresult isEqualTo []) then {
+		if (_dbresult isNotEqualTo []) then {
 			{
 				call {
 					private _tla = toLowerANSI (_x # 0);
 					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
-						if !((_x # 1) isEqualTo []) then {
+						if ((_x # 1) isNotEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
@@ -642,23 +653,26 @@ if (isServer) then {
 		};
 
 		if (d_use_sql_settings) then {
-#ifndef __INTERCEPTDB__
-			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
-			if (_dbresult # 0 != 1) then {
-				_dbresult = [];
-			} else {
-				_dbresult = _dbresult # 1;
+			diag_log ["DOM database d_use_sql_settings", d_use_sql_settings];
+			call {
+				if (d_db_type == 0) exitWith {
+					_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:getDomParams2:%1", __DOMDBPARAMNAME]);
+					if (_dbresult # 0 != 1) then {
+						_dbresult = [];
+					} else {
+						_dbresult = _dbresult # 1;
+					};
+				};
+				if (d_db_type == 1) exitWith {
+					_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call d_fnc_queryconfig;
+				};
 			};
-#else
-			if (d_interceptdb) then {
-				_dbresult = ["getDomParams2", [__DOMDBPARAMNAME]] call dsi_fnc_queryconfig
-			};
-#endif
+			__TRACE_1("getDomParams2","_dbresult")
 			diag_log "Dom Database result standard params:";
 			{
 				diag_log _x;
 			} forEach _dbresult;
-			if !(_dbresult isEqualTo []) then {
+			if (_dbresult isNotEqualTo []) then {
 				if (isClass (getMissionConfig "Params")) then {
 					private _conf = getMissionConfig "Params";
 					if (paramsArray isEqualTo []) then {
@@ -680,7 +694,14 @@ if (isServer) then {
 						private _paramName = configName (_conf select _i);
 						private _paramval = getNumber (_conf>>_paramName>>"default");
 						if (_paramval != -99999) then {
-							"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
+							call {
+								if (d_db_type == 0) exitWith {
+									"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
+								};
+								if (d_db_type == 1) exitWith {
+									["domParamsInsertN", [__DOMDBPARAMNAME, _paramName, _paramval]] call d_fnc_queryconfigasync;
+								};
+							};
 						};
 					};
 				};
@@ -1577,23 +1598,21 @@ if (!d_gmcwgwinter) then {
 	d_hd_sim_types = d_hd_sim_types apply {toLowerANSI _x};
 
 	d_isle_defense_marker = "n_mech_inf";
-
-	d_air_radar = switch (d_enemy_side_short) do {
-		case "W": {"Land_Radar_Small_F"};
-		case "E": {"Land_Radar_Small_F"};
-		case "G": {"Land_Radar_Small_F"};
-	};
-
-	d_air_radar2 = switch (d_enemy_side_short) do {
-		case "W": {"Land_MobileRadar_01_radar_F"};
-		case "E": {"Land_MobileRadar_01_radar_F"};
-		case "G": {"Land_MobileRadar_01_radar_F"};
-	};
-
-	d_enemy_hq = switch (d_enemy_side_short) do {
-		case "E": {"Land_Cargo_HQ_V1_F"};
-		case "W": {"Land_Cargo_HQ_V1_F"};
-		case "G": {"Land_Cargo_HQ_V1_F"};
+	
+	call {
+		if (d_enemy_side_short == "E") exitWith {
+			d_air_radar = "Land_Radar_Small_F";
+			d_air_radar2 = "Land_MobileRadar_01_radar_F";
+			d_enemy_hq = "Land_Cargo_HQ_V1_F";
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			d_air_radar = "Land_Radar_Small_F";
+			d_air_radar2 = "Land_MobileRadar_01_radar_F";
+			d_enemy_hq = "Land_Cargo_HQ_V1_F";
+		};
+		d_air_radar = "Land_Radar_Small_F";
+		d_air_radar2 = "Land_MobileRadar_01_radar_F";
+		d_enemy_hq = "Land_Cargo_HQ_V1_F";
 	};
 
 	// type of enemy plane that will fly over the main target
@@ -1728,117 +1747,176 @@ if (!d_gmcwgwinter) then {
 
 #ifdef __ALTIS__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __ROSCHE__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __GMCWG__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
 			["gm_gc_airforce_l410s_salon","gm_gc_airforce_l410t"]
 		};
-		case "W": {[]};
-		case "G": {["I_Heli_Transport_02_F"]};
+		if (d_enemy_side_short == "W") exitWith {
+			[]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __TANOA__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __LIVONIA__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __STRATIS__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __MALDEN__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __IFA3LITE__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["LIB_RBAF_Ju87"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["LIB_RBAF_Ju87"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __TT__
 	// enemy parachute troops transport chopper
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["O_T_VTOL_02_infantry_grey_F"]};
-		case "W": {["B_T_VTOL_01_infantry_blue_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __CUP_CHERNARUS__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["CUP_O_MI6T_RU"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["CUP_O_MI6T_RU"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __CUP_SARA__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["CUP_O_Mi8_SLA_1"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["CUP_O_Mi8_SLA_1"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __CUP_TAKISTAN__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["CUP_O_AN2_TK"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["CUP_O_AN2_TK"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __RHS__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["RHS_Mi8MTV3_vvsc"]};
-		case "W": {["rhsusf_CH53E_USMC"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["RHS_Mi8MTV3_vvsc"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["rhsusf_CH53E_USMC"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 #ifdef __UNSUNG__
-	d_transport_chopper = switch (d_enemy_side_short) do {
-		case "E": {["uns_an2"]};
-		case "W": {["B_Heli_Light_01_F"]};
-		case "G": {["I_Heli_Transport_02_F"]};
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["uns_an2"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["rhsusf_CH53E_USMC"]
+		};
+		["I_Heli_Transport_02_F"]
 	};
 #endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
-	d_light_attack_chopper = switch (d_enemy_side_short) do {
-		case "E": {
+	d_light_attack_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["O_Heli_Attack_02_black_F", "CUP_O_Mi8_RU"]
@@ -1861,7 +1939,7 @@ if (!d_gmcwgwinter) then {
 				["O_Heli_Attack_02_black_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
 					[]
@@ -1878,22 +1956,20 @@ if (!d_gmcwgwinter) then {
 				["B_Heli_Light_01_armed_F"]
 			};
 		};
-		case "G": {
-			call {
-				if (d_cup) exitWith {
-					[]
-				};
-				if (d_ifa3lite) exitWith {
-					[]
-				};
-				if (d_rhs) exitWith {
-					[]
-				};
-				if (d_gmcwg) exitWith {
-					[]
-				};
-				["I_Heli_light_03_dynamicLoadout_F"]
+		call {
+			if (d_cup) exitWith {
+				[]
 			};
+			if (d_ifa3lite) exitWith {
+				[]
+			};
+			if (d_rhs) exitWith {
+				[]
+			};
+			if (d_gmcwg) exitWith {
+				[]
+			};
+			["I_Heli_light_03_dynamicLoadout_F"]
 		};
 	};
 
@@ -2164,7 +2240,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 		_civVehiclesWeightedRuralLivonia;
 #endif
-};
 
 	//civilian faces
 	private _africanFaces = [
@@ -2282,6 +2357,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 		_mixedFaces;
 #endif
+};
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")
@@ -2399,7 +2475,7 @@ if (hasInterface) then {
 	["I_MRAP_03_F", "I_Heli_light_03_unarmed_F","I_E_Heli_light_03_unarmed_F"];
 #endif
 #ifdef __TT__
-	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F"];
+	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F", "O_MRAP_02_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F"];
 #endif
 
 	d_check_ammo_load_vecs = d_check_ammo_load_vecs apply {toLowerANSI _x};
@@ -2548,7 +2624,7 @@ if (hasInterface) then {
 	d_clientScriptsAr = [false, false];
 	d_areArtyVecsAvailable = false;
 	d_ao_arty_vecs = [];
-	d_misc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_misc_hash = createHashMap;
 	d_mhqvec_create_cooldown_time = -1;
 	d_scoreadd_qeue = [];
 	d_scoreadd_script = scriptNull;
@@ -2557,8 +2633,38 @@ if (hasInterface) then {
 
 	d_last_beam_target = "";
 
+	d_misc_sc_hash = createHashMap;
+	
 	d_misc_sc_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
-
+	
+	d_i_r_hash = createHashMapFromArray [
+		[0, getText(configFile>>"CfgRanks">>"0">>"texture")],
+		[1, getText(configFile>>"CfgRanks">>"1">>"texture")],
+		[2, getText(configFile>>"CfgRanks">>"2">>"texture")],
+		[3, getText(configFile>>"CfgRanks">>"3">>"texture")],
+		[4, getText(configFile>>"CfgRanks">>"4">>"texture")],
+		[5, getText(configFile>>"CfgRanks">>"5">>"texture")],
+		[6, getText(configFile>>"CfgRanks">>"6">>"texture")],
+		[7, getText(configFile>>"CfgRanks">>"7">>"texture")],
+		[8, getMissionPath "pics\8star.paa"],
+		[9, getMissionPath "pics\6star.paa"],
+		[10, getMissionPath "pics\5star.paa"],
+		[11, getMissionPath "pics\8star2.paa"]
+	];
+	
+	d_num_hash = createHashMapFromArray [
+		[0, "00"],
+		[1, "01"],
+		[2, "02"],
+		[3, "03"],
+		[4, "04"],
+		[5, "05"],
+		[6, "06"],
+		[7, "07"],
+		[8, "08"],
+		[9, "09"]
+	];
+	
 	// If you want to add additional non MHQ respawn points like additional bases for example
 	// Usage: Each point array needs a unique name, position or marker name, description and a side (side is only valid for the TT version), optional: add create atv action menue entry(true/false; default false)
 	// please note, markerPos "somemarker" does not work in prenit, same for getPos some_object, it always returns [0,0,0] as position, so only use the marker name or the object name as string (with "")
@@ -2585,9 +2691,15 @@ if (hasInterface) then {
 	d_maintarget_auto_vd = false;
 #endif
 
+	d_deploy_mhq_camo = true;
+
+	d_player_jescape = 0;
+	d_player_canu = true;
+
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
+	d_yt_loc2037 = localize "STR_DOM_MISSIONSTRING_2037";
 
 	d_mt_marker_triggers = [];
 
@@ -2657,11 +2769,11 @@ if (hasInterface) then {
 		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base" || {_this isKindOf "B_Mortar_01_support_F"}}];
 	};
 
-	d_color_store = createSimpleObject [d_HeliHEmpty, [0,0,0], true];
+	d_color_hash = createHashMap;
 
 	{
 		private _col = getArray(_x>>"color");
-		if !(_col isEqualTo []) then {
+		if (_col isNotEqualTo []) then {
 			for "_e" from 0 to 3 do {
 				if ((_col # _e) isEqualType "") then {
 					_col set [_e, call compile (_col # _e)];
@@ -2670,7 +2782,7 @@ if (hasInterface) then {
 		} else {
 			_col = [0, 0, 0, 1];
 		};
-		d_color_store setVariable [configName _x, _col];
+		d_color_hash set [configName _x, _col];
 	} forEach ("true" configClasses (configFile >> "CfgMarkerColors"));
 
 	d_prl_fin_id = addMissionEventHandler ["PreloadFinished", {
@@ -2690,7 +2802,7 @@ if (hasInterface) then {
 				if (!isNil "d_preloaddone" && {!isNull (findDisplay 46)}) then {
 					diag_log [diag_frameno, diag_tickTime, time, "Executing Dom local player pre start"];
 					if !(player isKindOf "VirtualSpectator_F") then {
-						call compile preprocessFileLineNumbers "client\x_setupplayer.sqf";
+						call d_fnc_setupplayer;
 					};
 					removeMissionEventHandler ["EachFrame", _thisEventHandler];
 				};

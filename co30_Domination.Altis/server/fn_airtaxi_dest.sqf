@@ -8,7 +8,7 @@ if (isNil "d_airtaxi_driver" || {isNull d_airtaxi_driver}) exitWith {};
 params ["_destination"];
 
 private _nendpos = _destination findEmptyPosition [10, 200, d_airtaxi_driver getVariable "d_type"];
-if !(_nendpos isEqualTo []) then {_nendpos = _destination};
+if (_nendpos isNotEqualTo []) then {_nendpos = _destination};
 if (!isNil {d_airtaxi_driver getVariable "d_isondestway"}) then {
 	d_airtaxi_driver doMove _nendpos;
 	(d_airtaxi_driver getVariable "d_hempty") setVehiclePosition [_nendpos, [], 0, "NONE"];

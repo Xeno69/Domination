@@ -29,7 +29,10 @@ if (!isNil "_player" && {!isNull _player}) then {
 };
 
 private _mname = "d_drop_zone_" + str _player;
-[_mname, _drop_pos, "ICON", "ColorBlue", [0.8,0.8], format [localize "STR_DOM_MISSIONSTRING_1648", _player call d_fnc_getplayername], 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+[_mname, _drop_pos, "ICON", "ColorBlue", [0.8, 0.8], format [localize "STR_DOM_MISSIONSTRING_1648", _player call d_fnc_getplayername], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+#ifdef __TT__
+_player setVariable ["d_dropz_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _player) == blufor)]];
+#endif
 
 _mname spawn {
 	scriptName "spawn createdrop";
@@ -159,7 +162,7 @@ if (_may_exit) exitWith {
 		_para setVelocity (velocity _chopper);
 		addToRemainsCollector [_vec];
 	};
-	[_vec, _drop_pos, d_drop_radius, _drop_type, _para, _is_ammo] spawn d_fnc_mando_chute;
+	[_vec, _drop_pos, d_drop_radius, _drop_type, _para, _is_ammo, _this # 3] spawn d_fnc_mando_chute;
 	
 	if (!isNil "_player" && {!isNull _player}) then {
 		4 remoteExecCall ["d_fnc_dropansw", _player];

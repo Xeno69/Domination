@@ -9,11 +9,11 @@ params ["_plnid", "_apos", "_npl", "_aritype", "_ari_salv"];
 private _mname = format ["d_arttmx|%1|%2|%3", ["1", _plnid] select (isMultiplayer), _aritype, _ari_salv];
 __TRACE_1("","_mname")
 private _pl = objectFromNetId _plnid;
-private _pa = d_player_store getVariable (getPlayerUID _pl);
-if (!isNil "_pa") then {
+private _pa = d_player_hash getOrDefault [getPlayerUID _pl, []];
+if (_pa isNotEqualTo []) then {
 	private _omar = _pa # 10;
 	__TRACE_1("","_omar")
-	if (_omar != "" && {!(markerPos _omar isEqualTo [0,0,0])}) then {
+	if (_omar != "" && {markerPos _omar isNotEqualTo [0,0,0]}) then {
 		deleteMarker _omar;
 	};
 	_pa set [10, _mname];
@@ -24,7 +24,7 @@ private _jipid = _pl getVariable "d_artmark_jip_id";
 if (!isNil "_jipid") then {
 	remoteExecCall ["", _jipid];
 };
-_pl setVariable ["d_artmark_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _pl) == blufor)], true];
+_pl setVariable ["d_artmark_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _pl) == blufor)]];
 #endif
 
 if (d_no_ai) then {

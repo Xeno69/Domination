@@ -22,8 +22,12 @@ if (d_with_ace) then {
 		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
 };
 
-if (d_cup) then {
+if (d_cup || {d_unsung}) then {
 	_items_no pushBack "ToolKit";
+};
+
+if (d_cup) then {
+	_items_no append ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"];
 };
 
 _items_no = _items_no apply {toLowerANSI _x};

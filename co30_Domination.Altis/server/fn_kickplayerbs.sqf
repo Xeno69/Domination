@@ -5,7 +5,7 @@
 
 params ["_pl", "_pl_name", "_reason"];
 private _uid = getPlayerUID _pl;
-"LOSER" remoteExecCall ["endMission", _pl];
+remoteExecCall ["d_fnc_emiss", _pl];
 if (_reason != -1) then {
 	if (_reason == 2) then {
 		diag_log format [localize "STR_DOM_MISSIONSTRING_945", _pl_name, _uid];

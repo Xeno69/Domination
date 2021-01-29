@@ -19,14 +19,14 @@ if (isNil "_i") then {
 __TRACE_1("","_i")
 private _s = _v getVariable "d_icon_size";
 if (isNil "_s") then {
-	_s = if (_v isKindOf "Man") then {
-		22
-	} else {
-		if (_v isKindOf "LandVehicle" || {_v isKindOf "Air"}) then {
-			28
-		} else {
-			26 // Ship
+	_s = call {
+		if (_v isKindOf "Man") exitWith {
+			22
 		};
+		if (_v isKindOf "LandVehicle" || {_v isKindOf "Air"}) exitWith {
+			28
+		};
+		26 // Ship
 	};
 	_v setVariable ["d_icon_size", _s];
 };

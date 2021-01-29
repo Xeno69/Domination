@@ -77,7 +77,7 @@ __TRACE("stopspect = true")
 xr_stopspect = true;
 player setVariable ["xr_plno3dd", true, true];
 player setVariable ["xr_pluncon", false, true];
-[player, false] remoteExecCall ["setCaptive"];
+player setCaptive false;
 sleep 0.5;
 
 private _mhqobj = objNull;
@@ -102,7 +102,7 @@ if (!isNull _mhqobj) then {
 		player moveInCargo _mhqobj;
 	};
 	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
-	if !((player nearEntities  ["ReammoBox_F", 30]) isEqualTo []) then {
+	if ((player nearEntities  ["ReammoBox_F", 30]) isNotEqualTo []) then {
 		call d_fnc_retrieve_layoutgear;
 	};
 } else {
@@ -148,8 +148,13 @@ if (xr_max_lives != -1) then {
 		if (xr_max_lives != -1) then {
 			hintSilent format [localize "STR_DOM_MISSIONSTRING_933", player getVariable "xr_lives"];
 		};
-		if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false])}}) then {[] spawn d_fnc_moveai};
+		if (d_with_ai && {alive player && {!(player getVariable "xr_pluncon")}}) then {[] spawn d_fnc_moveai};
 	};
+};
+
+if (d_database_found) then {
+	player setVariable ["d_move_opos", getPosWorld player];
+	player setVariable ["d_move_stop", nil];
 };
 
 0 spawn {

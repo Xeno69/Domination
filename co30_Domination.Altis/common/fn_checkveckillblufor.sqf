@@ -2,10 +2,10 @@
 #define THIS_FILE "fn_checkveckillblufor.sqf"
 #include "..\x_setup.sqf"
 
-params ["_vec", "_killer", "_instigator"];
+params ["_vec", "_killer", "_insti"];
 
-if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0}; // UAV/UGV player operated road kill
-if (!isNull _instigator) then {_killer = _instigator}; // player driven vehicle road kill
+if (isNull _insti) then {_insti = UAVControl vehicle _killer # 0}; // UAV/UGV player operated road kill
+if (!isNull _insti) then {_killer = _insti}; // player driven vehicle road kill
 
 if (d_with_ace && {isNull _killer}) then {
 	_killer = _vec getVariable ["ace_medical_lastDamageSource", _killer];

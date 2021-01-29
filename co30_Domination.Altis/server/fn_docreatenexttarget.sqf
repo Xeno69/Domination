@@ -51,7 +51,7 @@ if (_rpos isEqualTo [] || {surfaceIsWater _rpos}) then {
 	private _counter = 0;
 	while {_counter < 50} do {
 		_rpos = [d_cur_tgt_pos, d_mttarget_radius_patrol + 500, d_mttarget_radius_patrol + 1200, 2, 0, 0.7] call d_fnc_findSafePos;
-		if (!(_rpos isEqualTo []) && {!surfaceIsWater _rpos}) exitWith {};
+		if (_rpos isNotEqualTo [] && {!surfaceIsWater _rpos}) exitWith {};
 	};
 	if (_rpos isEqualTo [] || {surfaceIsWater _rpos}) then {
 		_rpos =+ d_cur_tgt_pos;

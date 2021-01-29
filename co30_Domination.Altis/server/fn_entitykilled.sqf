@@ -7,6 +7,17 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
+private _isman = _obj isKindOf "CAManBase";
+
+if (d_database_found) then {
+	if (_isman && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
+		private _insti = _this # 2;
+		if (!isNull _insti && {isNull objectParent _insti && {_insti call d_fnc_isplayer}}) then {
+			_insti call d_fnc_addheadshot;
+		};
+	};
+};
+
 private _ar = _obj getVariable "d_hkx";
 if (isNil "_ar") exitWith {
 	__TRACE_1("does not have d_hkx","_obj")
@@ -17,12 +28,10 @@ __TRACE_2("","_obj","_ar")
 
 #ifndef __TT__
 if (_ar # 18 == 1) exitWith {
-	_this call d_fnc_plcheckkill;
+	call d_fnc_plcheckkill;
 	true
 };
-#endif
-
-#ifdef __TT__
+#else
 if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 	if (_ar # 0 > 0) then {
 		call {
@@ -39,11 +48,11 @@ if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 	};
 	
 	if (_ar # 1 == 1) then {
-		_this call d_fnc_checkveckillblufor;
+		call d_fnc_checkveckillblufor;
 	};
 
 	if (_ar # 2 == 1) then {
-		_this call d_fnc_checkveckillopfor;
+		call d_fnc_checkveckillopfor;
 	};
 };
 if (!isNil "d_is_hc") exitWith {true};
@@ -66,6 +75,20 @@ if (_ar # 4 > 0) then {
 			[8, _this # 1, _this # 2] spawn d_fnc_addkillsai
 		};
 	};
+};
+
+if (_ar # 15 == 1) then {
+	d_sm_flag_failed = true;
+};
+
+if (_ar # 16 == 1) then {
+	d_sm_arrest_mp_unit = nil;
+	d_sm_arrest_not_failed = false;
+};
+
+if (!_isman) exitWith {
+	_obj setVariable ["d_hkx", nil];
+	true
 };
 
 if (_ar # 5 == 1) then {
@@ -107,15 +130,6 @@ if (_ar # 13 == 1) then {
 
 if (_ar # 14 == 1) then {
 	[_obj, 1] call d_fnc_removeMHQEnemyTeleTrig;
-};
-
-if (_ar # 15 == 1) then {
-	d_sm_flag_failed = true;
-};
-
-if (_ar # 16 == 1) then {
-	d_sm_arrest_mp_unit = nil;
-	d_sm_arrest_not_failed = false;
 };
 
 if (_ar # 17 == 1) then {

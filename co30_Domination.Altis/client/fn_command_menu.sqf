@@ -4,7 +4,7 @@
 #include "..\x_setup.sqf"
 
 __TRACE("frame")
-if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
+if (d_player_canu) then {
 	#ifdef __DEBUG__
 	_cmdm = commandingMenu;
 	__TRACE_1("","_cmdm")

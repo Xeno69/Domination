@@ -5,7 +5,7 @@
 
 if (!hasInterface) exitWith {};
 
-if (!alive player || {isNull objectParent player && {(getPos player) # 2 > 10} || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {
+if (!d_player_canu || {isNull objectParent player && {(getPos player) # 2 > 10}}) exitWith {
 	d_commandingMenuIniting = false;
 };
 

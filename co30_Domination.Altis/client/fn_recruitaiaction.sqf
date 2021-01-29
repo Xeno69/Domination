@@ -5,7 +5,7 @@
 
 if (!hasInterface) exitWith {};
 
-if (_this select 1 != player) exitWith {
+if (_this # 1 != player) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_1565");
 };
 
@@ -17,10 +17,10 @@ if (player != leader _grpplayer) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_311");
 };
 
-if (player distance2D (_this select 0) > 50) exitWith {
+if (player distance2D (_this # 0) > 50) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_312");
 };
 
-d_current_ai_num = {!(_x call d_fnc_isplayer) && {alive _x}} count (units _grpplayer);
+d_current_ai_num = {alive _x && {!(_x call d_fnc_isplayer)}} count (units _grpplayer);
 
 createDialog "d_AIRecruitDialog";

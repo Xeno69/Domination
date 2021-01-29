@@ -59,7 +59,7 @@ while {d_player_in_vec} do {
 			private _pip_cam_on = false;
 			private _prev_liftobj = objNull;
 
-			while {d_player_in_vec && {alive player && {player == currentPilot _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
+			while {d_player_in_vec && {d_player_canu && {player == currentPilot _vec}}} do {
 				if (d_chophud_on && {!visibleMap}) then {
 					if (isNil "_vec") then {_vec = vehicle player};
 					_hudoff = false;
@@ -74,7 +74,7 @@ while {d_player_in_vec} do {
 						private _nobjects = nearestObjects [_vec, ["LandVehicle", "Air"], _search_height];
 						__TRACE_2("","_vec","_nobjects")
 
-						if !(_nobjects isEqualTo []) then {
+						if (_nobjects isNotEqualTo []) then {
 							_nobjects params ["_dummy"];
 							if (isNil "_vec") then {_vec = vehicle player};
 							if (_dummy == _vec) then {
@@ -263,7 +263,7 @@ while {d_player_in_vec} do {
 			};
 			_chdispx2 = uiNamespace getVariable "d_chopper_lift_hud2";
 			__CTRL3(61422) ctrlSetText (localize "STR_DOM_MISSIONSTRING_200");
-			while {d_player_in_vec && {alive player && {player == currentPilot _vec && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}}} do {
+			while {d_player_in_vec && {d_player_canu && {player == currentPilot _vec}}} do {
 				sleep 0.421;
 			};
 			_doexitit = true;

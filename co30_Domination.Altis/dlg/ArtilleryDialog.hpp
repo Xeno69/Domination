@@ -41,7 +41,7 @@ class D_ArtilleryDialog2 {
 			action = "call d_fnc_FireArty; closeDialog 0";
 			x = 0.6; y = 0.85;
 		};
-		class ReqFromTxt: RscText2 {
+		class ReqFromTxt: RscText {
 			idc = -1;
 			x = 0.55; y = 0.55;
 			w = 0.3; h = 0.1;

@@ -7,6 +7,12 @@ __TRACE("fn_playerfiredeh")
 
 __TRACE_1("","_this")
 
+if (d_database_found) then {
+	if ((_this # 6) isKindOf "BulletCore" || {(_this # 6) isKindOf "ShotgunCore"}) then {
+		d_p_rounds = d_p_rounds + 1;
+	};
+};
+
 private _fnc_nearmhq = {
 	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
 	if (_ets isEqualTo []) exitWith {
@@ -66,7 +72,7 @@ if ((_this # 1) isEqualTo "Put" && {(d_player_in_air && {animationState player =
 		};
 	} else {
 		if (d_with_ace) exitWith {};
-		if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {getText (configFile>>"CfgAmmo">>(_this # 4)>>"simulation") == "shotMissile"}}) then {
+		if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {(_this # 1) isKindOf ["LauncherCore", configFile >> "CfgWeapons"] && {getText (configFile>>"CfgAmmo">>(_this # 4)>>"simulation") == "shotMissile"}}}) then {
 			__TRACE("7 is null")
 			if (getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"weaponLockSystem") > 0}) then {
 				__TRACE("has manual control")

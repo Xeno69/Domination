@@ -3,7 +3,7 @@
 
 if (!hasInterface) exitWith {};
 
-private _dragee	= (_this select 3) select 0;
+private _dragee	= (_this # 3) # 0;
 
 if (xr_dropAction != -3333) then {
 	player removeAction xr_dropAction;
@@ -20,6 +20,6 @@ detach player;
 detach _dragee;
 
 [_dragee, 101] remoteExecCall ["xr_fnc_handlenet"];
-if ((_this select 3) select 1 == 0) then {
-	[player, ""] remoteExecCall ["switchMove"];
+if ((_this # 3) # 1 == 0) then {
+	[player, 3] remoteExecCall ["d_fnc_swm"];
 };

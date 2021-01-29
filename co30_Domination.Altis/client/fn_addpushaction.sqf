@@ -21,7 +21,6 @@ _vec setVariable ["d_push_action", [
 		/* 6 code executed on start */		{},
 		/* 7 code executed per tick */		{},
 		/* 8 code executed on completion */	{
-			// todo, check if there is water in about 2-3 meters away from the pushers direction
 			_target setVelocity [(sin (direction _caller)) * 3, (cos (direction _caller)) * 3, 0];
 		},
 		/* 9 code executed on interruption */	{},

@@ -5,11 +5,12 @@
 
 params ["_cur_sm_idx"];
 
-private _sm_ar = d_sm_store getVariable (str (_cur_sm_idx - 50000));
-__TRACE_1("","_sm_ar")
-if (isNil "_sm_ar") then {
+if !((_cur_sm_idx - 50000) in (keys d_sm_hash)) exitWith {
 	diag_log format ["Side mission idx %1 not found!!!!", _cur_sm_idx];
 };
+
+private _sm_ar = d_sm_hash get (_cur_sm_idx - 50000);
+__TRACE_1("","_sm_ar")
 
 if (toLowerANSI (_sm_ar # 1) != "tankdepot") then {
 	d_x_sm_pos = _sm_ar # 2;
@@ -167,7 +168,7 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 };
 
 if (toLowerANSI (_sm_ar # 1) != "convoy") then {
-	if ((_sm_ar # 3) isEqualType [] && {!((_sm_ar # 3) isEqualTo [])}) then {
+	if ((_sm_ar # 3) isEqualType [] && {(_sm_ar # 3) isNotEqualTo []}) then {
 		(_sm_ar # 3) spawn {
 			scriptName "spawn_getbymarkersmarmor";
 			__TRACE("Creating armor")
@@ -177,7 +178,7 @@ if (toLowerANSI (_sm_ar # 1) != "convoy") then {
 			} forEach _this;
 		};
 	};
-	if ((_sm_ar # 4) isEqualType [] && {!((_sm_ar # 4) isEqualTo [])}) then {
+	if ((_sm_ar # 4) isEqualType [] && {(_sm_ar # 4) isNotEqualTo []}) then {
 		(_sm_ar # 4) spawn {
 			scriptName "spawn_getbymarkersminf";
 			__TRACE("Creating inf")

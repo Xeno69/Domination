@@ -19,7 +19,7 @@ if ((player call d_fnc_GetHeight) > 5) exitWith {
 };
 
 private _d_medtent = player getVariable "d_medtent";
-if !(_d_medtent isEqualTo []) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_281")};
+if (_d_medtent isNotEqualTo []) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_281")};
 
 _d_medtent = player modelToWorldVisual [0,1,0];
 _d_medtent set [2,0];
@@ -38,9 +38,9 @@ player setVariable ["d_isinaction", true];
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 1;
-waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
 d_commandingMenuIniting = false;
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_247");
 	player setVariable ["d_isinaction", false];
 };
@@ -87,18 +87,18 @@ systemChat (localize "STR_DOM_MISSIONSTRING_285");
 _medic_tent setVariable ["d_owner", player, true];
 
 _medic_tent addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_286"], {
-	_this call { // workaround to avoid exitWith problems here
+	call { // workaround to avoid exitWith problems here
 		if (isNil {player getVariable "d_medic_tent"}) exitWith {};
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 1;
-		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
-		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
+		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
+		if (!d_player_canu) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
 
 		d_mashes = d_mashes - [player getVariable "d_medic_tent"];
 		publicVariable "d_mashes";
 
 		private _medtent_content = (player getVariable "d_medic_tent") getVariable ["d_objcont", []];
-		if !(_medtent_content isEqualTo []) then {
+		if (_medtent_content isNotEqualTo []) then {
 			{deleteVehicle _x} forEach _medtent_content;
 		};
 		deleteVehicle (player getVariable "d_medic_tent");

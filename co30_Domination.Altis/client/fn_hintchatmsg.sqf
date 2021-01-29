@@ -12,27 +12,31 @@ params ["_msg", "_type_chat", ["_docut", false]];
 
 if (count _msg < 2) exitWith {};
 
-private _ar = [];
+private _arh = [];
+private _arc = [];
 
 for "_i" from 0 to count _msg - 1 do {
 	if (_msg select [_i, 2] == "\n") then {
-		_ar pushBack "<br/>";
+		_arh pushBack "<br/>";
+		_arc pushBack " ";
 		_i = _i + 1;
 	} else {
-		_ar pushBack (_msg select [_i, 1]);
+		_arh pushBack (_msg select [_i, 1]);
+		_arc pushBack (_msg select [_i, 1]);
 	};
 };
 
-hintSilent parseText format ["<t color='#34ebe8' size='1.3' align='center'>%1</t>", _ar joinString ""];
-private _msg_chat = _msg call d_fnc_removelinebreak;
+private _msg_struct = _arh joinString "";
+hintSilent parseText format ["<t color='#34ebe8' size='1.3' align='center'>%1</t>", _msg_struct];
+private _msg_chat = _arc joinString "";
 
-switch (toLowerANSI _type_chat) do {
-	case "hq": {[playerSide, "HQ"] sideChat _msg_chat};
-	case "side": {player sideChat _msg_chat};
-	case "global": {systemChat _msg_chat};
-	case "group": {player groupChat _msg_chat};
+call {
+	if (_type_chat == "hq") exitWith {[playerSide, "HQ"] sideChat _msg_chat};
+	if (_type_chat == "side") exitWith {player sideChat _msg_chat};
+	if (_type_chat == "global") exitWith {systemChat _msg_chat};
+	if (_type_chat == "group") exitWith {player groupChat _msg_chat};
 };
 
 if (_docut) then {
-	"d_hc_msg" cutText [format ["<t color='#ff0000' size='2'>%1</t>", _msg_chat], "PLAIN DOWN", -1, true, true];
+	"d_hc_msg" cutText [format ["<t color='#ff0000' size='2'>%1</t>", _msg_struct], "PLAIN DOWN", -1, true, true];
 };

@@ -36,8 +36,8 @@ clearBackpackCargoGlobal _box;
 clearItemCargoGlobal _box;
 _box enableRopeAttach false;
 _box enableSimulationGlobal false;
-_box addEventhandler ["killed", {_this call d_fnc_playerboxkilled}];
-[_box] remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
+_box addEventhandler ["killed", {call d_fnc_playerboxkilled}];
+[_box, nil] remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
 
 d_player_ammoboxes pushBack _box;
 publicVariable "d_player_ammoboxes";

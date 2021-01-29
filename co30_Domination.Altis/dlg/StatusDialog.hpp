@@ -25,19 +25,19 @@ class D_StatusDialog {
 			idc = 123123;
 			text = "$STR_DOM_MISSIONSTRING_1305";
 			action = "closeDialog 0;call d_fnc_admindialog";
-			y = "0.67 * safezoneH + safezoneY";
+			y = "0.655 * safezoneH + safezoneY";
 		};
 		class SaveDBButton: TeamStatusButton {
 			idc = 123124;
 			text = "$STR_DOM_MISSIONSTRING_1754";
 			action = "closeDialog 0;createDialog 'D_DBSaveDialog'";
-			y = "0.79* safezoneH + safezoneY";
+			y = "0.7* safezoneH + safezoneY";
 		};
 		class DBTop10Button: TeamStatusButton {
 			idc = 123125;
 			text = "$STR_DOM_MISSIONSTRING_1757";
 			action = "closeDialog 0;createDialog 'D_DBTop10Dialog'";
-			y = "0.85 * safezoneH + safezoneY";
+			y = "0.745 * safezoneH + safezoneY";
 		};
 		__CANCELCLOSEB3(-1)
 		// top left title
@@ -66,7 +66,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 		// top left box
-		class SideMissionTxt: RscText2 {
+		class SideMissionTxt: RscText {
 			idc = 11002;
 			style = ST_MULTI;
 			sizeEx = 0.035;
@@ -80,7 +80,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 		// middle left (upper) title
-		class SecondaryCaption: RscText2 {
+		class SecondaryCaption: RscText {
 			idc = 11090;
 			x = "0.0203532 * safezoneW + safezoneX";
 			y = "0.235 * safezoneH + safezoneY";
@@ -114,7 +114,7 @@ class D_StatusDialog {
 			h = "0.09 * safezoneH";
 			sizeEx = 0.035;
 		};
-		class MainTargetNumber: RscText2 {
+		class MainTargetNumber: RscText {
 			idc = 11006;
 			x = "0.81 * safezoneW + safezoneX";
 			y = "0.09 * safezoneH + safezoneY";
@@ -126,7 +126,7 @@ class D_StatusDialog {
 			text = "";
 			shadow = 0;
 		};
-		class MainTarget: RscText2 {
+		class MainTarget: RscText {
 			idc = 11003;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.15 * safezoneH + safezoneY";
@@ -139,7 +139,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 #ifdef __TT__
-		class TTNPointsCaption : RscText2 {
+		class TTNPointsCaption : RscText {
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.2 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
@@ -150,7 +150,7 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1311";
 			shadow = 0;
 		};
-		class TTGamePoints : RscText2 {
+		class TTGamePoints : RscText {
 			idc = 11011;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.23 * safezoneH + safezoneY";
@@ -192,7 +192,7 @@ class D_StatusDialog {
 			x = "0.11 * safezoneW + safezoneX";
 			text = "";
 		};
-		class HintCaption: RscText2 {
+		class HintCaption: RscText {
 			idc = -1;
 			x = "0.4 * safezoneW + safezoneX";
 			y = "0.02 * safezoneH + safezoneY";
@@ -204,7 +204,7 @@ class D_StatusDialog {
 			colorBackground[] = {0, 0, 0, 0};
 			text = "$STR_DOM_MISSIONSTRING_1313";
 		};
-		class RankCaption: RscText2 {
+		class RankCaption: RscText {
 			idc = 12009;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.34 * safezoneH + safezoneY";
@@ -226,7 +226,7 @@ class D_StatusDialog {
 			sizeEx = 256;
 			colorText[] = {1, 1, 1, 1};
 		};
-		class RankString: RscText2 {
+		class RankString: RscText {
 			idc = 11014;
 			x = "0.75 * safezoneW + safezoneX";
 			y = "0.378 * safezoneH + safezoneY";
@@ -242,7 +242,7 @@ class D_StatusDialog {
 			y = "0.42 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1315";
 		};
-		class ScoreP: RscText2 {
+		class ScoreP: RscText {
 			idc = 11233;
 			x = "0.85 * safezoneW + safezoneX";
 			y = "0.42 * safezoneH + safezoneY";
@@ -254,7 +254,7 @@ class D_StatusDialog {
 			text = "0";
 			shadow = 0;
 		};
-		class CampsCaption: RscText2 {
+		class CampsCaption: RscText {
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.465 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
@@ -265,7 +265,7 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1316";
 			shadow = 0;
 		};
-		class CampsNumber: RscText2 {
+		class CampsNumber: RscText {
 			idc = 11278;
 			x = "0.85 * safezoneW + safezoneX";
 			y = "0.465 * safezoneH + safezoneY";
@@ -278,7 +278,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 #ifdef __TT__
-	class BarracksCaption: RscText2 {
+	class BarracksCaption: RscText {
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.482 * safezoneH + safezoneY";
 			w = "0.25 * safezoneW";
@@ -289,7 +289,7 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1959";
 			shadow = 0;
 		};
-		class BarrackNumber: RscText2 {
+		class BarrackNumber: RscText {
 			idc = 11279;
 			x = "0.85 * safezoneW + safezoneX";
 			y = "0.482 * safezoneH + safezoneY";
@@ -302,7 +302,7 @@ class D_StatusDialog {
 			shadow = 0;
 		};
 #endif
-		class RLivesCaption: RscText2 {
+		class RLivesCaption: RscText {
 			idc = 30000;
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.51 * safezoneH + safezoneY";
@@ -314,7 +314,7 @@ class D_StatusDialog {
 			text = "$STR_DOM_MISSIONSTRING_1317";
 			shadow = 0;
 		};
-		class RLivesNumber: RscText2 {
+		class RLivesNumber: RscText {
 			idc = 30001;
 			x = "0.85 * safezoneW + safezoneX";
 			y = "0.51 * safezoneH + safezoneY";
@@ -326,7 +326,7 @@ class D_StatusDialog {
 			text = "0";
 			shadow = 0;
 		};
-		class SettingsCaption: RscText2 {
+		class SettingsCaption: RscText {
 			idc = -1;
 			x = "0.35 * safezoneW + safezoneX";
 			y = "0.07 * safezoneH + safezoneY";
@@ -336,7 +336,7 @@ class D_StatusDialog {
 			style = ST_LEFT;
 			text = "$STR_DOM_MISSIONSTRING_1302";
 		};
-		class ViewDistanceCaption: RscText2 {
+		class ViewDistanceCaption: RscText {
 			idc = 1999;
 			x = "0.35 * safezoneW + safezoneX";
 			y = "0.1 * safezoneH + safezoneY";
@@ -393,17 +393,29 @@ class D_StatusDialog {
 #ifndef __TT__
 		class AutoVDCaption: ViewDistanceCaption {
 			idc = 1609;
-			y = "0.42 * safezoneH + safezoneY";
+			y = "0.40 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1964";
 		};
 		class AutoVDCheckBox: RscCheckBox {
 			idc = 1610;
 			x = "0.48 * safezoneW + safezoneX";
-			y = "0.424 * safezoneH + safezoneY";
+			y = "0.404 * safezoneH + safezoneY";
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";
 		};
 #endif
+		class RadioProtocolCaption: ViewDistanceCaption {
+			idc = 1611;
+			y = "0.43 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_2052";
+		};
+		class RadioProtocolCheckBox: RscCheckBox {
+			idc = 1612;
+			x = "0.48 * safezoneW + safezoneX";
+			y = "0.434 * safezoneH + safezoneY";
+			w = "0.02 * safezoneW";
+			h = "0.025 * safezoneH";
+		};
 		class EarplugsUserCaption: ViewDistanceCaption {
 			idc = 3301;
 			y = "0.47 * safezoneH + safezoneY";
@@ -424,7 +436,7 @@ class D_StatusDialog {
 			y = "0.58 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this, 1] call d_fnc_userkeyselchanged";
 		};
-		class PointsCaption: RscText2 {
+		class PointsCaption: RscText {
 			idc = 3403;
 			y = "0.635 * safezoneH + safezoneY";
 			x = "0.35 * safezoneW + safezoneX";
@@ -450,7 +462,7 @@ class D_StatusDialog {
 			sizeEx = 256;
 			colorText[] = {1, 1, 1, 1};
 		};
-		class CorporalString: RscText2 {
+		class CorporalString: RscText {
 			idc = 3406;
 			x = "0.38 * safezoneW + safezoneX";
 			y = "0.67 * safezoneH + safezoneY";
@@ -555,6 +567,58 @@ class D_StatusDialog {
 			idc = 2007;
 			y = "0.85 * safezoneH + safezoneY";
 			text = "";
+		};
+		class DistTraveled: RscText {
+			idc = 6000;
+			x = "0.71 * safezoneW + safezoneX";
+			y = "0.78 * safezoneH + safezoneY";
+			w = "0.25 * safezoneW";
+			h = "0.1 * safezoneH";
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+			sizeEx = 0.032;
+			text = "$STR_DOM_MISSIONSTRING_2045";
+			shadow = 0;
+		};
+		class ByFoot: DistTraveled {
+			idc = 6001;
+			text = "$STR_DOM_MISSIONSTRING_2046";
+			y = "0.82 * safezoneH + safezoneY";
+		};
+		class ByFootVal: ByFoot {
+			idc = 6002;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
+		};
+		class ByLandvehicle: ByFoot {
+			idc = 6003;
+			text = "$STR_DOM_MISSIONSTRING_2047";
+			y = "0.84 * safezoneH + safezoneY";
+		};
+		class ByLandvehicleVal: ByLandvehicle {
+			idc = 6004;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
+		};
+		class ByAir: ByFoot {
+			idc = 6005;
+			text = "$STR_DOM_MISSIONSTRING_2048";
+			y = "0.86 * safezoneH + safezoneY";
+		};
+		class ByAirVal: ByAir {
+			idc = 6006;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
+		};
+		class ByShip: ByFoot {
+			idc = 6007;
+			text = "$STR_DOM_MISSIONSTRING_2049";
+			y = "0.88 * safezoneH + safezoneY";
+		};
+		class ByShipVal: ByShip {
+			idc = 6008;
+			text = "";
+			x = "0.77 * safezoneW + safezoneX";
 		};
 	};
 };

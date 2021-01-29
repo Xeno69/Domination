@@ -6,15 +6,15 @@
 __TRACE_1("","_this")
 
 call {
-	if (_this select 0 == "a") exitWith {
-		private _ar = d_placed_objs_store getVariable (_this select 1);
+	if (_this # 0 == "a") exitWith {
+		private _ar = d_placed_objs_hash getOrDefault [_this # 1, []];
 		__TRACE_1("a","_ar")
-		if (!isNil "_ar") then {
-			_ar pushBack (_this select 2);
+		if (_ar isNotEqualTo []) then {
+			_ar pushBack (_this # 2);
 		} else {
-			d_placed_objs_store setVariable [_this select 1, [_this select 2]];
+			d_placed_objs_hash set [_this # 1, [_this # 2]];
 		};
-		_ar = _this select 2;
+		_ar = _this # 2;
 		__TRACE_1("","_ar")
 		[_ar # 0, 13] call d_fnc_setekmode;
 		if ((_ar # 0) isKindOf d_mash) then {
@@ -31,73 +31,71 @@ call {
 			};
 		};
 	};
-	if (_this select 0 == "a2") exitWith {
-		private _ar = d_placed_objs_store2 getVariable (_this select 1);
+	if (_this # 0 == "a2") exitWith {
+		private _ar = d_placed_objs_hash2 getOrDefault [_this # 1, []];
 		__TRACE_1("a2","_ar")
-		if (isNil "_ar") then {
-			d_placed_objs_store2 setVariable [_this select 1, [_this select 2]];
+		if (_ar isEqualTo []) then {
+			d_placed_objs_hash2 set [_this # 1, [_this # 2]];
 		} else {
-			if !(_ar isEqualTo []) then {_ar = _ar - [objNull]};
-			_ar pushBack (_this select 2);
+			_ar = _ar - [objNull];
+			_ar pushBack (_this # 2);
 		};
-		[_this select 2, 7] call d_fnc_setekmode;
+		[_this # 2, 7] call d_fnc_setekmode;
 	};
-	if (_this select 0 == "ar") exitWith {
-		private _ar = d_placed_objs_store getVariable (_this select 1);
+	if (_this # 0 == "ar") exitWith {
+		private _ar = d_placed_objs_hash getOrDefault [_this # 1, []];
 		__TRACE_1("ar","_ar")
-		if (!isNil "_ar") then {
-			private _fidx = _ar findIf {_x # 1 == (_this select 2)};
+		if (_ar isNotEqualTo []) then {
+			private _fidx = _ar findIf {_x # 1 == (_this # 2)};
 			if (_fidx > -1) then {
 				_ar deleteAt _fidx;
 			};
 		};
-		deleteMarker (_this select 2);
+		deleteMarker (_this # 2);
 	};
-	if (_this select 0 == "a2r") exitWith {
-		private _ar = d_placed_objs_store2 getVariable (_this select 1);
+	if (_this # 0 == "a2r") exitWith {
+		private _ar = d_placed_objs_hash2 getOrDefault [_this # 1, []];
 		__TRACE_1("a2r","_ar")
-		if (!isNil "_ar") then {
-			_ar = _ar - [_this select 2, objNull];
+		if (_ar isNotEqualTo []) then {
+			_ar = _ar - [_this # 2, objNull];
 		};
 	};
-	if (_this select 0 == "aw") exitWith {
-		private _ar = d_placed_objs_store3 getVariable (_this select 1);
+	if (_this # 0 == "aw") exitWith {
+		private _ar = d_placed_objs_hash3 getOrDefault [_this # 1, []];
 		__TRACE_1("aw","_ar")
-		if (!isNil "_ar") then {
-			if !(_ar isEqualTo []) then {
-				private ["_t"];
-				{
-					_t = _x getVariable ["d_time_aw", -1];
-					if (_t != -1 && {time > _t}) then {
-						deleteVehicle _x;
-					};
-				} forEach (_ar select {!isNull _x});
-				_ar = _ar - [objNull];
-			};
-			_ar pushBack (_this select 2);
+		if (_ar isNotEqualTo []) then {
+			private ["_t"];
+			{
+				_t = _x getVariable ["d_time_aw", -1];
+				if (_t != -1 && {time > _t}) then {
+					deleteVehicle _x;
+				};
+			} forEach (_ar select {!isNull _x});
+			_ar = _ar - [objNull];
+			_ar pushBack (_this # 2);
 		} else {
-			d_placed_objs_store3 setVariable [_this select 1, [_this select 2]];
+			d_placed_objs_hash3 set [_this # 1, [_this # 2]];
 		};
-		(_this select 2) setVariable ["d_time_aw", time + 1800];
+		(_this # 2) setVariable ["d_time_aw", time + 1800];
 	};
-	if (_this select 0 == "aj") exitWith {
-		private _ar = d_placed_objs_store4 getVariable (_this select 1);
+	if (_this # 0 == "aj") exitWith {
+		private _ar = d_placed_objs_hash4 getOrDefault [_this # 1, []];
 		__TRACE_1("aj","_ar")
-		if (!isNil "_ar") then {
+		if (_ar isNotEqualTo []) then {
 			{
 				deleteVehicle _x;
 			} forEach _ar;
 		};
-		d_placed_objs_store4 setVariable [_this select 1, _this select 2];
+		d_placed_objs_hash4 set [_this # 1, _this # 2];
 	};
-	if (_this select 0 == "ajr") exitWith {
-		private _ar = d_placed_objs_store4 getVariable (_this select 1);
+	if (_this # 0 == "ajr") exitWith {
+		private _ar = d_placed_objs_hash4 getOrDefault [_this # 1, []];
 		__TRACE_1("ajr","_ar")
-		if (!isNil "_ar") then {
+		if (_ar isNotEqualTo []) then {
 			{
 				deleteVehicle _x;
 			} forEach _ar;
 		};
-		d_placed_objs_store4 setVariable [_this select 1, nil];
+		d_placed_objs_hash4 deleteAt (_this # 1);
 	};
 };

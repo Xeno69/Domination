@@ -13,9 +13,9 @@ xr_phd_invulnerable = true;
 
 createDialog "d_AdminDialog";
 
-waitUntil {!isNil "d_admin_dialog_open" || {!d_admin_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}};
+waitUntil {!isNil "d_admin_dialog_open" || {!d_admin_dialog_open || {!d_player_canu}}};
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	if (d_admin_dialog_open) then {closeDialog 0};
 };
 

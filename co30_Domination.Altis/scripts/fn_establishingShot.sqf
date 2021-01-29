@@ -175,7 +175,7 @@ if (_mode == 1) then {
 __TRACE("After waitUntil 1")
 
 // Wait for the camera to load
-waitUntil {camPreloaded BIS_fnc_establishingShot_fakeUAV || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+waitUntil {camPreloaded BIS_fnc_establishingShot_fakeUAV || {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}}};
 __TRACE("After waitUntil 2")
 
 private _drawEH = -1;
@@ -230,7 +230,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 		d_do_end_rose = false;
 		0 spawn d_fnc_cam_rose;
-		while {isNil "BIS_fnc_establishingShot_skip" && {!( player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+		while {isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}} do {
 			_ang = _ang - 0.5;
 			if (_ang < 0) then {_ang = _ang + 360};
 
@@ -240,7 +240,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 			BIS_fnc_establishingShot_fakeUAV camPreparePos _coords;
 			BIS_fnc_establishingShot_fakeUAV camCommitPrepared 0.5;
 
-			waitUntil {camCommitted BIS_fnc_establishingShot_fakeUAV || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+			waitUntil {camCommitted BIS_fnc_establishingShot_fakeUAV || {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}}};
 
 			BIS_fnc_establishingShot_fakeUAV camPreparePos _coords;
 			BIS_fnc_establishingShot_fakeUAV camCommitPrepared 0;
@@ -251,16 +251,16 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 	sleep 1;
 	__TRACE("After sleep 1")
-	if (isNil "BIS_fnc_establishingShot_skip" && {!( player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
+	if (isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}) then {
 		enableEnvironment [false, true];
 		2 fadeSound 1;
 
 		// Static fade-in
 		"BIS_layerStatic" cutRsc ["RscStatic", "PLAIN"];
-		waitUntil {!isNull (uiNamespace getVariable ["RscStatic_display", displayNull]) || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
-		waitUntil {isNull (uiNamespace getVariable ["RscStatic_display", displayNull])  || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+		waitUntil {!isNull (uiNamespace getVariable ["RscStatic_display", displayNull]) || {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}}};
+		waitUntil {isNull (uiNamespace getVariable ["RscStatic_display", displayNull])  || {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}}};
 
-		if (isNil "BIS_fnc_establishingShot_skip" && {!( player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
+		if (isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}) then {
 			// Show interlacing
 			"BIS_layerInterlacing" cutRsc ["RscInterlacing", "PLAIN"];
 
@@ -280,7 +280,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 			};
 
 			// Show icons
-			if !(BIS_fnc_establishingShot_icons isEqualTo []) then {
+			if (BIS_fnc_establishingShot_icons isNotEqualTo []) then {
 				_drawEH = addMissionEventHandler [
 					"Draw3D",
 					{
@@ -328,7 +328,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 					disableSerialization;
 
-					if (isNil "BIS_fnc_establishingShot_skip" && {!( player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
+					if (isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}) then {
 						// Display instructions
 						"BIS_layerTitlecard" cutRsc ["RscDynamicText", "PLAIN"];
 
@@ -363,7 +363,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 						_ctrlText ctrlCommit 1;
 
 						// Wait for video to finish
-						waitUntil {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}};
+						waitUntil {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}};
 
 						// Remove instructions
 						_ctrlText ctrlSetFade 1;
@@ -373,7 +373,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 				sleep 1;
 
-				if (isNil "BIS_fnc_establishingShot_skip" && {!(player getVariable ["xr_pluncon", false]) && {alive player && {!(player getVariable ["ace_isunconscious", false])}}}) then {
+				if (isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}) then {
 					/*((uiNamespace getVariable "RscEstablishingShot") displayCtrl 2500) ctrlSetPosition [
 						(((safeZoneW / safeZoneH) min 1.2) / 40) + safeZoneX,
 						((((safeZoneW / safeZoneH) min 1.2) / 1.2) / 25) + safeZoneY,
@@ -435,10 +435,10 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 						"<t align = 'left' size = '1.0' font = 'PuristaLight'>%1</t>"
 					] spawn BIS_fnc_typeText2;
 
-					waitUntil {scriptDone BIS_fnc_establishingShot_SITREP || {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+					waitUntil {scriptDone BIS_fnc_establishingShot_SITREP || {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}}};
 
 					private _time = time + 2;
-					waitUntil {time >= _time || {isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false] || {!alive player || {player getVariable ["ace_isunconscious", false]}}}}};
+					waitUntil {time >= _time || {isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}}};
 
 					if (isNil "BIS_fnc_establishingShot_skip") then {
 						// Register the UAV finished
@@ -452,7 +452,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 if (_mode == 0) then {
 	__TRACE("Before waitUntil 4")
-	waitUntil {!isNil "BIS_fnc_establishingShot_skip" || {player getVariable ["xr_pluncon", false]} || {!alive player}};
+	waitUntil {!isNil "BIS_fnc_establishingShot_skip" || {!d_player_canu}};
 	__TRACE("After waitUntil 4")
 
 	// Remove skipping eventhandler if it wasn't removed already

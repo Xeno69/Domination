@@ -26,7 +26,7 @@ _grp setBehaviour "SAFE";
 private _units = (units _grp) - [leader _grp];
 
 {
-	if (random 1 > 0.2 && {!(_units isEqualTo [])}) then {
+	if (random 1 > 0.2 && {_units isNotEqualTo []}) then {
 		private _unit = _units select ((count _units) - 1);
 		_unit assignAsGunner _x;
 		[_unit] orderGetIn true;

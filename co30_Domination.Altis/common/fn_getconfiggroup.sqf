@@ -3,4 +3,4 @@
 #define THIS_FILE "fn_getconfiggroup.sqf"
 #include "..\x_setup.sqf"
 
-"true" configClasses(configFile>>"CfgGroups">>(_this select 0)>>(_this select 1)>>(_this select 2)>>(_this select 3)) apply {getText (_x>>"vehicle")}
+"true" configClasses(configFile>>"CfgGroups">>(_this # 0)>>(_this # 1)>>(_this # 2)>>(_this # 3)) apply {getText (_x>>"vehicle")}

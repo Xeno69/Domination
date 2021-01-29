@@ -94,7 +94,7 @@ private _weapons = [];
 	if (toLowerANSI ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
 		private _modes = getArray (configFile>>"cfgweapons">>_x>>"modes");
 		__TRACE_1("","_modes")
-		if !(_modes isEqualTo []) then {
+		if (_modes isNotEqualTo []) then {
 			_modes params ["_mode"];
 			if (_mode == "this") then {_mode = _x;};
 			_weapons pushBack [_x, _mode];
@@ -190,7 +190,7 @@ private _currentWeapons = weapons _plane;
 } forEach _currentWeapons;
 
 _plane setVariable ["d_who_fired", _caller];
-_plane addEventhandler ["fired", {_this call d_fnc_casfired}];
+_plane addEventhandler ["fired", {call d_fnc_casfired}];
 
 //--- Approach
 private _fire = [] spawn {

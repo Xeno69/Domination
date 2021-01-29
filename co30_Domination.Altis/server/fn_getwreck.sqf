@@ -3,7 +3,8 @@
 #define THIS_FILE "fn_getwreck.sqf"
 #include "..\x_setup.sqf"
 
-params ["_rep_station", "_types"];
+//params ["_rep_station", "_types"];
+params ["_rep_station"];
 __TRACE_1("","_this")
 //private _no = nearestObjects [_rep_station, _types, 10, false];
 private _no = nearestObjects [_rep_station, ["Air", "Car", "Tank", "Ship"], 10, false];

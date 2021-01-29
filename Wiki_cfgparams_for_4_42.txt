@@ -36,7 +36,6 @@
 >   - Medium (2)<br/>
 >   - Always (-1)<br/>
 >   - Always, multiple events (-2)<br/>
->   - Always, multiple events with guerrillas (-3)<br/>
 #### **d_with_ranked / Ranked:**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 > If ranked mode is enabled then players need a specific rank to have access to better weapons, to fly attack planes and choppers. Calling in for example CAS costs score and so on<br/>
@@ -85,6 +84,8 @@
 #### **d_no_faks / Remove Fist Aid Kits:**
 > Default: 1 (No, disabled; 0 or Yes to remove FAKs)<br/>
 > Removes first aid kits, makes only sense when using it in combination with FAK revive<br/>
+#### **d_with_suppress / Player can be suppressed**
+> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_timemultiplier / Time Multiplier (1 real second = x ingame seconds):**
 > Default: 1 (disabled)<br/>
 > If a value bigger than 1 is used time will run faster<br/>
@@ -145,6 +146,8 @@
 > Available options: 4, 6, 8, 10, 12, 14 and 16<br/>
 #### **d_ai_alone_in_vehicle / AI can drive vehicle without a player inside:**
 > Default: 0 (Yes, enabled; 1 or No to disable<br/>
+#### **d_ai_silent / Bots are silent**
+> Default: 0 (Yes, enabled; 1 or No to disable<br/>
 #### **d_GrasAtStart / Grass:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled then no grass is rendered (changes terraingrid)<br/>
@@ -158,14 +161,14 @@
 #### **d_WithRevive / With revive:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled no revive is available, players can then only spawn at one of the available spawn points when they die<br/>
-#### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
-> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
-> If disabled the mission uses it's own revive instead of the ACE one<br/>
 #### **d_WithReviveSpectating / With revive spectating:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled players can only see themself when they are in unconscious state<br/>
 #### **d_only_medics_canrevive / Only medics can revive:**
 > Default: 1 (disabled)<br/>
+#### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
+> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+> If disabled the mission uses it's own revive instead of the ACE one<br/>
 #### **xr_max_lives / Max lives (revive):**
 > Default: 30<br/>
 > Determines how many lives a player has<br/>
@@ -193,6 +196,8 @@
 >   - Name only (1)<br/>
 >   - Marker only (2)<br/>
 >   - Health (3)<br/>
+#### **d_force_isstreamfriendlyui / Force no HUD**
+> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_WithAmbientRadio / With ambient radio:**
 > Default: 1 (Yes, enabled; 0 or No to disable<br/>
 #### **d_with_3Dicon / With 3D draw icon above wreck repair/ammo point:**
@@ -293,6 +298,8 @@
 > Available options: -1 (3-5), 1, 2, 3, 4 and 5<br/>
 #### **d_camp_center / Locate the first enemy camp to capture near the center of the main target**
 > Default: 0 (No, disabled; 1 or Yes to spawn the first camp close to the main target center)<br/>
+#### **d_camp_static_weapons / Defend with static weapons**
+> Default: 1 (Yes, enabled; 0 or No to disable<br/>
 #### **d_WithMHQTeleport / Teleport or spawn at MHQ:**
 > Default: 0 (Yes, enabled; 1 or No to disable<br/>
 #### **d_MHQDisableNearMT / Disable MHQ if less than x m away from MT:**
@@ -312,6 +319,8 @@
 #### **d_MTTowerSatchelsOnly / MT Tower Satchels only:**
 > Default: 0 (Yes, enabled; 1 or No to disable<br/>
 > Main target can only be destroyed by satchels if enabled<br/>
+#### **d_IllumMainTarget / Illuminate main target:**
+> Default: 0 (Yes, enabled; 1 or No to disable<br/>
 #### **d_sub_kill_points / Subtract score when a player dies:**
 > Default: 0<br/>
 > Available options: 0 (No), 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>

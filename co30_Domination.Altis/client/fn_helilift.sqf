@@ -21,7 +21,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 		if (!(_chopper getVariable ["d_vec_attached", false]) && {_pos # 2 > 2.5 && {_pos # 2 < 11}}) then {
 			_liftobj = objNull;
 			private _nobjects = nearestObjects [_chopper, ["LandVehicle", "Air"], 50];
-			if !(_nobjects isEqualTo []) then {
+			if (_nobjects isNotEqualTo []) then {
 				_nobjects params ["_dummy"];
 				if (_dummy == _chopper) then {
 					if (count _nobjects > 1) then {_liftobj = _nobjects # 1};
@@ -46,7 +46,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				if !(_liftobj getVariable ["d_MHQ_Deployed", false]) then {
 					if (_chopper inArea [_liftobj, 10, 10, 0, false]) then {
 						if (!_menu_lift_shown) then {
-							_id = _chopper addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_250"], {_this call d_fnc_heli_action}, -1, 100000, false, true, "", "currentPilot _target == player"];
+							_id = _chopper addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_250"], {call d_fnc_heli_action}, -1, 100000, false, true, "", "currentPilot _target == player"];
 							_menu_lift_shown = true;
 						};
 					} else {
@@ -85,7 +85,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				};
 			} else {
 				if (_chopper getVariable ["d_vec_attached", false]) then {
-					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_251"], {_this call d_fnc_heli_release}, -1, 100000, false, true, "", "currentPilot _target == player"];
+					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_251"], {call d_fnc_heli_release}, -1, 100000, false, true, "", "currentPilot _target == player"];
 					private _ropes = [];
 					private _oldmass = -1;
 					if (isNull (_chopper getVariable ["d_Attached_Vec", objNull])) then {
@@ -108,7 +108,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
 
 						private _maxload = getNumber((configOf _chopper)>>"maximumLoad");
-						private _slipos = [[0,0,1], _chopper selectionPosition "slingload0"] select !(_chopper selectionPosition "slingload0" isEqualTo [0,0,0]);
+						private _slipos = [[0,0,1], _chopper selectionPosition "slingload0"] select (_chopper selectionPosition "slingload0" isNotEqualTo [0,0,0]);
 						__TRACE_2("","_maxload","_slipos")
 						//_chopper addEventhandler ["RopeAttach", {player sideChat str(_this);player sideChat "bla"}];
 
@@ -138,9 +138,9 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 
 						// Fix for vehicles with slingload points at null position (lots of mod vehicles...)
 						private _slcmp_null = true;
-						if !(_slcmp isEqualTo []) then {
+						if (_slcmp isNotEqualTo []) then {
 							{
-								if !(_liftobj selectionPosition _x isEqualTo [0,0,0]) exitWith {_slcmp_null = false};
+								if (_liftobj selectionPosition _x isNotEqualTo [0,0,0]) exitWith {_slcmp_null = false};
 							} forEach _slcmp;
 						};
 
@@ -185,7 +185,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						[_liftobj, _oldmass] remoteExecCall ["setMass"];
 						_chopper setVariable ["d_lobm", nil, true];
 					};
-					[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+					_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 
 					[_liftobj, false] remoteExecCall ["engineOn", _liftobj];
 					if ((getPosVisual _liftobj) # 2 > 5) then {
@@ -225,7 +225,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						private _npos = getPosVisual _liftobj;
 						_liftobj setPos [_npos # 0, _npos # 1, 0];
 					};
-					[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+					_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 
 					sleep 1.012;
 				};

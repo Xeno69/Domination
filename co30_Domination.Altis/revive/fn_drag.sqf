@@ -23,25 +23,24 @@ private _name_dragee = [_dragee] call d_fnc_gethpname;
 if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = _dragee call d_fnc_getplayername};
 
 xr_drag_keys_ar = [DIK_C] + (actionKeys "NetworkStats") + (actionKeys "Crouch") + (actionKeys "Stand");
-xr_drag_keyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", {_this call xr_fnc_dragkeydown}];
+xr_drag_keyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", {call xr_fnc_dragkeydown}];
 _dragee setVariable ["xr_dragged", true, true];
 player remoteExec ["xr_fnc_draghelper", _dragee];
 _unit playMoveNow "acinpknlmstpsraswrfldnon";
 sleep 2;
 
-[_dragee, "AinjPpneMstpSnonWrflDnon"] remoteExecCall ["switchMove"];
-//[_dragee, "AinjPpneMrunSnonWnonDb"] remoteExecCall ["switchMove"];
+[_dragee, 4] remoteExecCall ["d_fnc_swm"];
 _dragee attachto [_unit,[0.1, 1.01, 0]];
 
 sleep 0.02;
-[_dragee, 180] remoteExecCall ["setDir", _dragee];
+_dragee remoteExecCall ["d_fnc_sd180", _dragee];
 
 xr_drag = true;
 sleep 0.02;
 
 
 if (xr_dropAction != -3333) then {player removeAction xr_dropAction;xr_dropAction = -3333};
-xr_dropAction = player addAction [format["<t color='#FF0000'>%2 %1</t>",_name_dragee, localize "STR_DOM_MISSIONSTRING_1733"], {_this call xr_fnc_drop_body}, [_dragee, 0], 0, false, true];
+xr_dropAction = player addAction [format["<t color='#FF0000'>%2 %1</t>",_name_dragee, localize "STR_DOM_MISSIONSTRING_1733"], {call xr_fnc_drop_body}, [_dragee, 0], 0, false, true];
 xr_carryAction = player addAction [format["<t color='#FF0000'>%2 %1</t>",_name_dragee, localize "STR_DOM_MISSIONSTRING_1734"], {_this spawn xr_fnc_carry}, _dragee, 0, false, true];
 sleep 1;
 
@@ -67,7 +66,7 @@ while {xr_drag} do {
 		} else {
 			[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};
@@ -86,7 +85,7 @@ while {xr_drag} do {
 		} else {
 			[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};
@@ -104,7 +103,7 @@ while {xr_drag} do {
 		} else {
 			[_dragee, 102] remoteExecCall ["xr_fnc_handlenet"];
 		};
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};
@@ -117,7 +116,7 @@ while {xr_drag} do {
 			xr_carryAction = -3333;
 		};
 		detach _unit;
-		[_unit, ""] remoteExecCall ["switchMove"];
+		[_unit, 3] remoteExecCall ["d_fnc_swm"];
 		sleep 1;
 		xr_drag = false;
 	};

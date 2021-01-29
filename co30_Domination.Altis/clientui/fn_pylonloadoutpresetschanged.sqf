@@ -28,7 +28,7 @@ if (_selIdx == 0) then {
 	__TRACE_1("","_ctrl lbData _selIdx")
 	__TRACE_1("","d_pylondialog_ctrls")
 	private _attachment = getArray((configOf _vec)>>"Components">>"TransportPylonsComponent">>"Presets">>(_ctrl lbData _selIdx)>>"attachment");
-	if !(_attachment isEqualTo []) then {
+	if (_attachment isNotEqualTo []) then {
 		{
 			__TRACE_1("config Presets","_x","_forEachIndex")
 			if (_forEachIndex == count d_pylondialog_ctrls) exitWith {};

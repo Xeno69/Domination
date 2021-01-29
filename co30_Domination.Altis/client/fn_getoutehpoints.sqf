@@ -2,9 +2,7 @@
 #define THIS_FILE "fn_getoutehpoints.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
-private _unit = _this select 2;
+private _unit = _this # 2;
 if !(_unit call d_fnc_isplayer) exitWith {};
 if (alive player && {_unit != player && {alive _unit}}) then {
 	private _var = _unit getVariable "d_TRANS_START";

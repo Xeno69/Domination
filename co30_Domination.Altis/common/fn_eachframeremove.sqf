@@ -5,34 +5,37 @@
 
 __TRACE_1("","_this")
 
-/*params ["_name"];
-
-d_ef_store setVariable [_name, nil];
-
-if ((allVariables d_ef_store) isEqualTo []) then {
-	removeMissionEventHandler ["EachFrame", d_ef_running];
-	d_ef_running = -1;
-};*/
-
 params ["_name"];
 
-if (_name in (allVariables d_ef_store)) then {
-	d_ef_store setVariable [_name, nil];
+if (_name in (keys d_ef_hash)) exitWith {
+	d_ef_hash deleteAt _name;
 
-	if ((allVariables d_ef_store) isEqualTo []) then {
+	if ((count d_ef_hash) isEqualTo 0) then {
 		removeMissionEventHandler ["EachFrame", d_ef_running];
-		d_ef_running = -1;
+		d_ef_running = nil;
+		d_ef_hash = nil;
 	};
-} else {
-	{
-		private _trig = d_ef_trig_store getVariable _x;
-		__TRACE_2("","_x","_trig")
-		if (!isNil {_trig getVariable _name}) exitWith {
-			_trig setVariable [_name, nil];
-			if ((allVariables _trig) isEqualTo []) then {
-				d_ef_trig_store deleteAt _forEachIndex;
-				deleteVehicle _trig;
-			};
-		};
-	} forEach (allVariables d_ef_trig_store);
 };
+
+if (_name in (keys d_ef_n_hash)) exitWith {
+	removeMissionEventHandler ["EachFrame", d_ef_n_hash get _name];
+	d_ef_n_hash deleteAt _name;
+	
+	if ((count d_ef_n_hash) isEqualTo 0) then {
+		d_ef_n_hash = nil;
+	};
+};
+
+private "_todel";
+{
+	private _trig = _y;
+	__TRACE_2("","_x","_trig")
+	if (!isNil {_trig getVariable _name}) exitWith {
+		_trig setVariable [_name, nil];
+		if ((allVariables _trig) isEqualTo []) then {
+			deleteVehicle _trig;
+			d_ef_trig_hash deleteAt _x;
+		};
+		break;
+	};
+} forEach d_ef_trig_hash;

@@ -54,6 +54,8 @@
 // d_smm|671|trucks
 // d_smm|701|gleak
 
+d_sm_hash = createHashMap;
+
 private _dallsidemissions = [];
 
 private _smtypes = ["convoy", "stealflag", "tankdepot", "arrest", "artibase", "deliver", "evac", "radiotower", "prisoners",
@@ -103,17 +105,21 @@ __TRACE_1("","_eee")
 	};
 	__TRACE_2("","_subtype","_subtypeidx")
 	
-	private _onesmar = d_sm_store getVariable _idx;
+	private "_onesmar";
 	
-	if (isNil "_onesmar") then {
-		_dallsidemissions pushBack ((parseNumber _idx) + 50000);
+	_idx = parseNumber _idx;
+	
+	if !(_idx in (keys d_sm_hash)) then {
+		_dallsidemissions pushBack (_idx + 50000);
 		private _smposis = if (_smtype == "convoy") then {
 			[[], []]
 		} else {
 			[]
 		};
 
-		_onesmar = [parseNumber _idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 7 = d_current_mission_resolved_text
+		_onesmar = [_idx, _smtype, _smposis, [], [], "", "", -4.5]; // array idx 2 = sm positions like convoy start/end or flags or tanks, etc; idx 3 = armor positions, idx 4 = inf positions, client only: idx 5 = d_cur_sm_txt, idx 7 = d_current_mission_resolved_text
+	} else {
+		_onesmar = d_sm_hash get _idx;
 	};
 	
 	if (isServer) then {
@@ -603,9 +609,9 @@ __TRACE_1("","_eee")
 	};
 	
 	__TRACE_1("","_onesmar");
-	d_sm_store setVariable [_idx, _onesmar];
+	d_sm_hash set [_idx, _onesmar];
 } forEach (allMapMarkers select {_x select [0, 6] == "d_smm|"});
 
-if (isServer && {!(_dallsidemissions isEqualTo [])}) then {
+if (isServer && {_dallsidemissions isNotEqualTo []}) then {
 	d_sm_array append _dallsidemissions;
 };

@@ -201,9 +201,7 @@ if (_can_add_mapclick) then {
 	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
 	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
 	d_rmapclick_type = _dtype;
-	d_resp_map_click_eh = addMissionEventHandler ["MapSingleClick", {
-		_this call d_fnc_rmapclick
-	}];
+	d_resp_map_click_eh = addMissionEventHandler ["MapSingleClick", {call d_fnc_rmapclick}];
 };
 
 d_lb_tele_first = true;

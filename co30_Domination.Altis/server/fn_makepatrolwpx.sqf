@@ -20,7 +20,7 @@ if !(_wp_array isEqualType []) exitWith {
 	diag_log ["makepatrolwpx, _wp_array is no array", _this];
 };
 
-if (count _wp_array == 4 && {(_wp_array select 0) isEqualTo []}) exitWith {
+if (count _wp_array == 4 && {(_wp_array # 0) isEqualTo []}) exitWith {
 	diag_log ["makepatrolwpx, _wp_array 0 is an empty array", _this];
 };
 
@@ -71,14 +71,18 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 	_wp setWaypointType "MOVE";
 	_wp setWaypointCompletionRadius (0 + random 10);
 	
-	if !(_timeout isEqualTo []) then {
+	if (_timeout isNotEqualTo []) then {
 		_wp setWaypointTimeout _timeout;
 	};
 	
 	if (!_full) then {
 		if (_i == 0) then {
 			_wp setWaypointSpeed "LIMITED";
-			_wp setWaypointFormation "STAG COLUMN";
+			if (isNil {_grp getVariable "d_is_v_gr"}) then {
+				_wp setWaypointFormation "STAG COLUMN";
+			} else {
+				_wp setWaypointFormation "COLUMN";
+			};
 		};
 	} else {
 		if (_i > 0) then {
@@ -105,7 +109,7 @@ if (_no_pos_found) exitWith {
 _wp1 setWaypointType "MOVE";
 _wp1 setWaypointCompletionRadius (10 + random 10);
 
-if !(_timeout isEqualTo []) then {
+if (_timeout isNotEqualTo []) then {
 	_wp1 setWaypointTimeout _timeout;
 };
 if (_wpstatements != "") then {

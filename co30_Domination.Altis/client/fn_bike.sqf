@@ -4,7 +4,7 @@
 
 if (!hasInterface) exitWith {};
 
-(_this select 3) params ["_create_bike", "_b_mode", ["_ismhq", false]];
+(_this # 3) params ["_create_bike", "_b_mode", ["_ismhq", false]];
 
 private _disp_name = [_create_bike, "CfgVehicles"] call d_fnc_GetDisplayName;
 private _exitit = false;
@@ -54,7 +54,7 @@ if (_b_mode == 0 && {alive d_flag_vec}) exitWith {
 };
 
 if (d_with_ranked || {d_database_found}) then {
-	[player, (d_ranked_a # 5) * -1] remoteExecCall ["addScore", 2];
+	[player, 3] remoteExecCall ["d_fnc_ascfc", 2];
 };
 
 systemChat format [localize "STR_DOM_MISSIONSTRING_161", _disp_name];

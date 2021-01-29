@@ -8,7 +8,7 @@
    Moves a chute to the landing position
 */
 
-params ["_man", "_target_pos", "_rad", "_bla", "_chuto", "_is_ammo"];
+params ["_man", "_target_pos", "_rad", "_bla", "_chuto", "_is_ammo", "_pside"];
 
 __TRACE_1("","_this")
 
@@ -87,7 +87,7 @@ while {alive _chuto && {((ASLtoATL getPosASL _chuto) # 2) > 5}} do {
 	_chuto setPos (_cone modelToWorld [0 ,0, 2]);
 	_chuto setDir _dir;
 
-	if (!_is_ammo && {!_detached && {(ASLtoATL getPosASL _man) select 2 <= 4}}) then {
+	if (!_is_ammo && {!_detached && {(ASLtoATL getPosASL _man) # 2 <= 4}}) then {
 		detach _man;
 		_detached = true;
 		private _pos_man = ASLtoATL getPosASL _man;
@@ -111,7 +111,7 @@ if (_is_ammo) then {
 	clearMagazineCargoGlobal _box;
 	clearBackpackCargoGlobal _box;
 	clearItemCargoGlobal _box;
-	[_box] remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
+	[_box, _pside] remoteExecCall ["d_fnc_air_box", [0, -2] select isDedicated];
 	if (isNil "d_airboxes") then {
 		d_airboxes = [];
 	};
@@ -120,12 +120,13 @@ if (_is_ammo) then {
 	_box enableRopeAttach false;
 	_box enableSimulationGlobal false;
 	_box addEventHandler ["killed",{
-		deleteVehicle (_this select 0);
+		deleteVehicle (_this # 0);
 	}];
-#ifndef __TT__
 	private _mname = format ["d_ab_%1", _box];
 	[_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
 	_box setVariable ["d_mname", _mname];
+#ifdef __TT__
+	_box setVariable ["d_box_drop_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_pside == blufor)]];
 #endif
 } else {
 	if (position _man # 2 <= -1) then {

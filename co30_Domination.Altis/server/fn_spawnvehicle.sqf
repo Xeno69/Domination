@@ -27,7 +27,7 @@ params ["_posv1", "_azi", "_typev1", ["_sideorgrp", sideUnknown], ["_addkills", 
 __TRACE_1("","_this")
 
 if (!isClass (configFile>>"CfgVehicles">>_typev1)) exitWith {
-	diag_log ["ATTENTION: Couldn't spawn vehicle, fn_spawnvehicle.sqf, the following class does not exist (anymore):", _typev1];
+	diag_log ["ATTENTION: Couldn't spawn vehicle, fn_spawnvehicle.sqf, the following class does not exist (anymore):", _typev1, "_this:", _this];
 	[objNull, [], grpNull]
 };
 
@@ -116,6 +116,13 @@ if (_addkills) then {
 			[_veh, 4, 3] call d_fnc_setekmode;
 		};
 	};
+};
+
+if !(_veh isKindOf "Ship") then {
+	_veh addEventHandler ["handleDamage", {call d_fnc_v_hd}];
+	private _gvecs = _grp getVariable ["d_gvecs", []];
+	_gvecs pushBack _veh;
+	_grp setVariable ["d_gvecs", _gvecs];
 };
 
 #ifndef __TT__

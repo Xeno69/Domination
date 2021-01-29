@@ -36,13 +36,10 @@ if (isNil "paramsArray") then {
 			};
 		};
 	};
-	if (isServer && { d_load_overrides_file == 1 }) then {
+	if (isServer && {d_load_overrides_file == 1}) then {
 		// requires -filePatch server parameter
-		_filePath = "\domination.cfg";
-		// todo: replace with fileExists (currently in dev branch)
-		if !(loadFile _filePath isEqualTo "") then {
-			diag_log [ format ["Load overrides from: %1", _filePath]];
-			call compile loadFile _filePath;
+		if (fileExists "domination.cfg") then {
+			call compile preprocessFileLineNumbers "domination.cfg";
 		};
 	};	
 };
@@ -62,7 +59,7 @@ d_pilots_only = 1;
 d_no_ai = !d_with_ai && {d_with_ai_features == 1};
 d_enemy_mode_current_maintarget = nil; // nil unless d_WithLessArmor is set to random
 
-if (d_with_ace) then {
+if (d_with_ace && {d_ACEMedicalR == 1}) then {
 	d_WithRevive = 1;
 	ace_medical_enableRevive = 1;
 	ace_medical_maxReviveTime = 300;
@@ -90,13 +87,8 @@ if (isServer) then {
 	d_WithLessArmor call d_fnc_setenemymode;
 
 	// enemy ai skill: [base skill, random value (random 0.3) that gets added to the base skill]
-	d_skill_array = switch (d_EnemySkill) do {
-		case 0: {[0.15,0.1]};
-		case 1: {[0.2,0.1]};
-		case 2: {[0.4,0.2]};
-		case 3: {[0.6,0.3]};
-		case 4: {[0.65,0.3]};
-	};
+	d_skill_array = [[0.15,0.1], [0.2,0.1], [0.4,0.2], [0.6,0.3], [0.65,0.3]] select d_EnemySkill;
+	
 	if (isNil "d_addscore_a") then {
 		d_addscore_a = [
 			5, // 1 - barracks building destroyed at main target
@@ -154,6 +146,22 @@ if (isNil "d_ranked_a") then {
 			};
 		};
 	};
+};
+
+if (isServer) then {
+	d_sc_hash = createHashMapFromArray [
+		[0, (d_ranked_a # 3) * -1],
+		[1, (d_ranked_a # 2) * -1],
+		[2, (d_ranked_a # 15) * -1],
+		[3, (d_ranked_a # 5) * -1],
+		[4, (d_ranked_a # 16) * -1],
+		[5, d_ranked_a # 17],
+		[6, (d_ranked_a # 19) * -1],
+		[7, d_ranked_a # 17],
+		[8, (d_ranked_a # 4) * -1],
+		[9, (d_ranked_a # 19) * -1],
+		[10, (d_ranked_a # 20) * -1]
+	];
 };
 
 if (hasInterface) then {

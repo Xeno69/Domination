@@ -4,7 +4,7 @@
 
 disableSerialization;
 
-while {!(d_scoreadd_qeue isEqualTo [])} do {
+while {d_scoreadd_qeue isNotEqualTo []} do {
 	private _nextele = d_scoreadd_qeue # 0;
 	d_scoreadd_qeue deleteAt 0;
 	

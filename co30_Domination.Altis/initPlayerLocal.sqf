@@ -5,12 +5,14 @@
 diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initPlayerLocal.sqf"];
 __TRACE_1("","_this")
 
+diag_log ["DOM initPlayerLocal.sqf, sending this to init player on server:", _this];
+
 _this remoteExec ["d_fnc_initPlayerServer", 2];
 
 if (hasInterface) then {
 	0 spawn d_fnc_initplname;
 	
-	execVM "tasks.sqf";
+	0 spawn d_fnc_tasks;
 };
 
 player enableAttack false;

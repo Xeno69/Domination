@@ -2,8 +2,6 @@
 #define THIS_FILE "fn_teleportx.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 if (!isNull objectParent player) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_583")};
 
 if (!isNull (flag player)) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_584")};

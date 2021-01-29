@@ -1,5 +1,5 @@
 // by Xeno
-#define THIS_FILE "x_endcam.sqf"
+#define THIS_FILE "fn_endcam.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

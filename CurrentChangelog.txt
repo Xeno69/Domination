@@ -1,9 +1,50 @@
-4.41
+4.42
 
-- Fixed: In the Chernarus versions satchels placed near the cache in the huge radio tower on Green Mountain disappeared
-- Fixed: In the Chernarus 2020 version class names of side mission 46 buildings have changed breaking the side mission
-- Fixed: The hovercraft in the CUP versions spawning near main targets are virtually invincible, removed
-- Fixed: For whatever reason the ToolKit was removed from Virtual Arsenal in the CUP versions
-- Fixed: Many CUP launchers did get removed from the player inventory when he/she closed the Virtual Arsenal (because of "_Loaded" at the end of the class name)
-- Fixed: If only CUP Chernarus 2020 was loaded with CUP Terrains Core some buildings are missing which breaks transfomer station side missions
-- Fixed: SAT View on a deployed MHQ script was broken
+ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
+			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
+			
+ATTENTION: The following mission file(s) has/have changed: TT Malden
+
+- Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
+- Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
+- Added: If d_with_mhq_camo is enabled it is now possible to deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
+- Added: Utility functions created fixed or improved: isinhouse, getbuildings, isvisible, sortarraybydistance, makemgroup now respects units per group, added dry run to occupy house script, by longtimegamer
+- Added: If a SQL database is available then player movement on foot, in land, air and maritime vehicles is added to the database (in meter)
+- Added: If a SQL database is available then number of player headshots and number of rounds fired are added to the database
+- Added: Main target illumination flares when it is dark (can be disabled in lobby "Illuminate main target:" or d_IllumMainTarget in description.ext)
+- Added: Parameter to enable/disable static weapon defenses at maintarget, by longtimegamer
+- Added: RADIOPROTOCOL for the player can be disabled in the Status Dialog (not sure yet if it really does what it should)
+- Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
+- Changed: Added visibility check for player and AI names over the head, means, players see the names above head if the unit is visible and not all the time
+- Changed: Maintarget prisoner event now has a suicide bomb if the rescue is botched, by longtimegamer
+- Changed: Enemy AI vehicle island patrols are back
+- Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, "Disable ACE medical revive (if ACE is used) and use mission revive" in lobby, finally in, somehow got lost before)
+- Changed: SAT View removed from MHQs in the TT version (enemy could spott opponent MHQ too easily)
+- Changed: Removed the marker tiles at main targets in the TT version, back to solid filled circle again
+- Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
+- Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
+- Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer
+- Fixed: In ranked mode players with rank private ended up with just one uniform in Virtual Arsenal
+- Fixed: incorrect logic in maintarget event selection, improved dashboard list and line breaks, by longtimegamer
+- Fixed: Camouflage script had the wrong stance in it, "STANCE" instead of "STAND"
+- Fixed: ToolKit was missing in the unsung version in VA
+- Fixed: Choppers exploded on the carrier in the carrier version (yet again)
+- Fixed: Fog, overcast and date can be set again by Zeus
+- Fixed: In the CUP Chernarus 2020 version Land_trafostanica_velka objects do not exist near Zelenogorsk which broke the side mission
+- Fixed: TFAR radios are now no longer removed when another mod version like CUP is played
+- Fixed: ACE medical items were not available in ranked mode
+- Fixed: Line breaks were broken in hintChat function
+- Fixed: Main target creation in the TT version was broken
+- Fixed: In the TT version the 3D icon above dropped ammo boxes (drop called by squad leader) was also visible for the enemy
+- Fixed: Friendly shooting at MHQ was displayed for the enemy side too instead of only for the side the MHQ belongs to
+- Fixed: MHQs in the Malden TT version could not load ammo boxes at ammo points
+- Fixed: Main target viewdistance reduction was based on camera position not on the player position
+- Fixed: If the enemy AI vehicle or group type was not defined in the scripts which create the AI at side missions the scripts ended with a script error
+- Improved: Make use of new A3 2.02 scripting commands where possible
+- Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
+- Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
+- Updated: Russian translation by Babayka
+- Updated: Malden TT mission file by Babayka
+- Workaround: If an enemy AI vehicle is under water for whatever reasons it virtually can't be destroyed; the workaround adds more damage in that case
+- Added slightly more debug output (possible with improved A3 logging)
+- And more optimizations like for example eachframerun

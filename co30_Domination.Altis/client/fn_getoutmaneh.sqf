@@ -38,25 +38,25 @@ if (alive (_this # 2)) then {
 	};
 };
 
-if (getPos player # 2 > 5) then {
+if (!isTouchingGround (vehicle player)) then {
 	d_player_in_air = true;
 	0 spawn {
 		scriptName "spawn_getoutmaneh";
-		while {alive player && {!(player getVariable ["xr_pluncon", false]) && {getPos player # 2 > 2 && {!(player getVariable ["ace_isunconscious", false])}}}} do {sleep 1};
+		while {d_player_canu && {getPos player # 2 > 2}} do {sleep 1};
 		d_player_in_air = false;
 #ifndef __TT__
-		if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {player inArea d_base_array && {!(player getVariable ["ace_isunconscious", false])}}}}) then {
+		if (d_player_canu && {player inArea d_base_array}) then {
 #else
-		if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}}) then {
+		if (d_player_canu && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}) then {
 #endif
 			d_player_in_base = true;
 		};
 	};
 } else {
 #ifndef __TT__
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {player inArea d_base_array}}}) then {
+	if (d_player_canu && {player inArea d_base_array}) then {
 #else
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}}}) then {
+	if (d_player_canu && {player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}}) then {
 #endif
 		d_player_in_base = true;
 	};

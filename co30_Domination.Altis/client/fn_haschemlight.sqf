@@ -3,8 +3,6 @@
 #define THIS_FILE "fn_haschemlight.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 private _chemar = [];
 {
 	_chemar pushBackUnique _x;

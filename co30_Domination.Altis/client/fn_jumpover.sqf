@@ -1,8 +1,8 @@
-// by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_jumpover.sqf"
 #include "..\x_setup.sqf"
 
-if ((_this # 1) in actionKeys "GetOver" && {alive player && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {speed player > 11 && {stance player == "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) &&  {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false]) && {!d_p_isju}}}}}}}}}}}) then {
+if ((_this # 1) in d_ak_getover && {d_player_canu && {speed player > 11 && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}}) then {
 	d_p_isju = true;
 	0 spawn {
 		scriptName "spawn jumpover";
@@ -11,7 +11,8 @@ if ((_this # 1) in actionKeys "GetOver" && {alive player && {currentWeapon playe
 		private _veloL = _v vectorAdd [0, 0, -1];
 		private _maxHight = (getPosATL player # 2) + 1.3;
 
-		[player, "AovrPercMrunSrasWrflDf"] remoteExecCall ["switchMove"];
+		__TRACE("Calling d_fnc_swm")
+		[player, 0] remoteExecCall ["d_fnc_swm"];
 		sleep 0.05;
 		while {animationState player == "AovrPercMrunSrasWrflDf"} do {
 			if (getPosATL player # 2 > _maxHight) then {

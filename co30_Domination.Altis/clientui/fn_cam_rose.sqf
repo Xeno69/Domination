@@ -22,20 +22,17 @@ private _char_w = _disp displayCtrl 64435;
 
 private _correctit_fnc = {
 	params ["_pos", "_dir"];
-	if (_dir >= 270 || {_dir <= 90}) then {
-		_pos set [1, (_pos # 1) + __y_offset]
-	} else {
-		if (_dir >= 0 && {_dir <= 180}) then {
-			_pos set [0, (_pos # 0) - __x_offset]
-		} else {
-			if (_dir >= 90 && {_dir <= 270}) then {
-				_pos set [1, (_pos # 1) - __y_offset]
-			} else {
-				if (_dir >= 180 && {_dir <= 360}) then {
-					_pos set [0, (_pos # 0) + __x_offset]
-				};
-			};
+	call {
+		if (_dir >= 270 || {_dir <= 90}) exitWith {
+			_pos set [1, (_pos # 1) + __y_offset]
 		};
+		if (_dir >= 0 && {_dir <= 180}) exitWith {
+			_pos set [0, (_pos # 0) - __x_offset]
+		};
+		if (_dir >= 90 && {_dir <= 270}) exitWith {
+			_pos set [1, (_pos # 1) - __y_offset]
+		};
+		_pos set [0, (_pos # 0) + __x_offset];
 	};
 	_pos
 };

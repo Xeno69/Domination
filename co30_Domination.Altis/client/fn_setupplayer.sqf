@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_setupplayer.sqf"
+#define THIS_FILE "fn_setupplayer.sqf"
 #include "..\x_setup.sqf"
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
@@ -71,8 +71,13 @@ if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 
 [player, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
 
+if (d_player_radioprotocol) then {
+	player disableAI "RADIOPROTOCOL";
+};
+
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false];
+["dom_alive_not_uncon", {call d_fnc_canu}] call d_fnc_eachframeadd;
 d_player_in_base = true;
 d_player_in_air = false;
 
@@ -85,7 +90,7 @@ d_additional_respawn_points_orig =+ d_additional_respawn_points;
 call d_fnc_buildaddrespoints;
 
 if (d_WithRevive == 1 && {!d_with_ace}) then {
-	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {_this call xr_fnc_ClientHD}]];
+	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
 };
 
 if (!isServer) then {execVM "bikb\kbinit.sqf"};
@@ -212,7 +217,7 @@ if (d_with_ranked) then {
 	
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
 
-	player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedman}];
+	player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedman}];
 };
 
 call d_fnc_store_rwitems;
@@ -220,19 +225,19 @@ call d_fnc_store_rwitems;
 if (d_with_ranked || {d_database_found}) then {
 	d_sm_p_pos = nil;
 	if (!d_with_ace) then {
-		player addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
+		player addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 	} else {
-		["ace_treatmentSucceded", {_this call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
+		["ace_treatmentSucceded", {call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
 	};
 
 	inGameUISetEventHandler ["Action", "_this call d_fnc_healatmash; false"];
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
-player addEventhandler ["Take", {_this call d_fnc_ptakeweapon}];
+player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
 
 if (d_MissionType != 2) then {
-	if !(d_resolved_targets isEqualTo []) then {
+	if (d_resolved_targets isNotEqualTo []) then {
 		private _codtn = count d_target_names;
 		for "_i" from 0 to (count d_resolved_targets - 1) do {
 			if (isNil "d_resolved_targets" || {_i >= count d_resolved_targets}) exitWith {};
@@ -250,7 +255,7 @@ if (d_MissionType != 2) then {
 	};
 
 	d_current_seize = "";
-	if (d_current_target_index != -1 && {!d_target_clear && {!(d_cur_tgt_pos isEqualTo [])}}) then {
+	if (d_current_target_index != -1 && {!d_target_clear && {d_cur_tgt_pos isNotEqualTo []}}) then {
 		d_current_seize = d_cur_tgt_name;
 		"d_dummy_marker" setMarkerPosLocal d_cur_tgt_pos;
 		private _tname = format ["d_obj%1", d_current_target_index + 2];
@@ -260,8 +265,9 @@ if (d_MissionType != 2) then {
 			d_obj00_task = nil;
 			["d_obj00", "Succeeded", false] call d_fnc_taskSetState;
 		};
-
+#ifndef __TT__
 		call d_fnc_cmakemtgmarker;
+#endif
 	};
 };
 
@@ -293,7 +299,7 @@ if (d_MissionType != 2) then {
 if (d_all_sm_res) then {d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_522"} else {[false] spawn d_fnc_getsidemissionclient};
 
 #ifndef __TT__
-player addEventHandler ["Killed", {_this call d_fnc_pkilledeh}];
+player addEventHandler ["Killed", {call d_fnc_pkilledeh}];
 #else
 if (d_player_side == blufor) then {
 	player addEventHandler ["Killed", {[_this, 0] call d_fnc_pkilledeh}];
@@ -301,14 +307,14 @@ if (d_player_side == blufor) then {
 	player addEventHandler ["Killed", {[_this, 1] call d_fnc_pkilledeh}];
 };
 #endif
-player addEventHandler ["respawn", {_this call d_fnc_prespawned}];
+player addEventHandler ["respawn", {call d_fnc_prespawned}];
 
 player setVariable ["d_currentvisionmode", 0];
 
 // one entry: [box_object, color as array (R, G, B, Alpha), "Text to show above box"]
 d_all_p_a_boxes = [];
 
-if !(d_ammo_boxes isEqualTo []) then {
+if (d_ammo_boxes isNotEqualTo []) then {
 	{
 		private _boxnew = _x # 1;
 		_boxnew enableRopeAttach false;
@@ -343,54 +349,56 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 	};
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
-	d_3draw_ar = [
-		[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0]
-	];
+	[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
 	if (!isNil "d_vecre_trigger") then {
-		d_3draw_ar pushBack [d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0];
+		[d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_jet_trigger") then {
-		d_3draw_ar pushBack [d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0];
+		[d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	private _allmhs = allMissionObjects "HeliH";
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1];
+		[_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
 	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
 
 	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
-		d_3draw_ar pushBack [d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0];
+		[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (d_carrier) then {
-		d_3draw_ar pushBack [d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0];
+		[d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0] call d_fnc_addto3drawar;
 	};
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0];
+		[_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0] call d_fnc_addto3drawar;
 	} forEach (_allmhs select {(str _x) select [0, 20] == "d_serviceall_trigger"});
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
 	};
 #else
-	d_3draw_ar = [
-		[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0]
-	];
+	[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
 
 	if (!isNil "d_vecre_trigger") then {
-		d_3draw_ar pushBack [[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0];
+		[[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_jet_trigger") then {
-		d_3draw_ar pushBack [[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0];
+		[[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_chopper_trigger") then {
-		d_3draw_ar pushBack [[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0];
+		[[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 	};
 	if (!isNil "d_wreck_rep") then {
-		d_3draw_ar pushBack [[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1];
+		[[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
 	};
 #endif
 	{
-		d_3draw_ar pushBack [_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2, 0];
+		[_x, localize "STR_DOM_MISSIONSTRING_531", 5, 2, 0] call d_fnc_addto3drawar;
 	} forEach d_all_ammoloads;
+	
+	d_dr3dca_hash = createHashMap;
+	
+	for "_i" from 0 to 24 do {
+		d_dr3dca_hash set [_i, format ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_%1_ca.paa", _i]];
+	};
 
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3dstuff}];
 
@@ -412,7 +420,7 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log ["Internal D Version: 4.41"];
+diag_log ["Internal D Version: 4.42"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -423,10 +431,10 @@ if (!d_no_ai) then {
 					sleep 0.512;
 					if (!isNil "d_AI_HUT") exitWith {};
 				};
-				call compile preprocessFileLineNumbers "client\x_recruitsetup.sqf";
+				call d_fnc_recruitsetup;
 			};
 		} else {
-			call compile preprocessFileLineNumbers "client\x_recruitsetup.sqf";
+			call d_fnc_recruitsetup;
 		};
 
 		private _grpp = group player;
@@ -527,17 +535,17 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 	player setVariable ["d_farp_pos", []];
 
 	if (d_engineerfull == 0 || {!d_no_ai}) then {
-		{_x addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {_this call d_fnc_restoreeng}]} forEach d_farps;
+		{_x addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {call d_fnc_restoreeng}]} forEach d_farps;
 	};
 };
 
 {
-	_x addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_286a"], {_this call d_fnc_healatmash}, 0, -1, false, false, "", "damage player > 0 && {alive player && {!(player getVariable 'xr_pluncon') && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable 'd_isinaction')}}}}"];
+	_x addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_286a"], {call d_fnc_healatmash}, 0, -1, false, false, "", "damage player > 0 && {d_player_canu && {!(player getVariable 'd_isinaction')}}"];
 } forEach d_mashes;
 
 {
 	private _farpc = _x getVariable ["d_objcont", []];
-	if !(_farpc isEqualTo []) then {
+	if (_farpc isNotEqualTo []) then {
 		_farpc params ["_trig"];
 		_trig setTriggerActivation ["ANY", "PRESENT", true];
 		_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
@@ -559,15 +567,15 @@ if (player getUnitTrait "Medic") then {
 d_x_loop_end = false;
 if (d_WithMHQTeleport == 0) then {
 #ifndef __TT__
-	d_FLAG_BASE addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}];
+	d_FLAG_BASE addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}];
 #else
 	private _base_flag = [d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor);
-	_base_flag addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {_this call d_fnc_teleportx}];
+	_base_flag addAction [format ["<t color='#FF0000' size='1.5'>%1</t>", localize "STR_DOM_MISSIONSTRING_533"], {call d_fnc_teleportx}];
 #endif
 };
 
 #ifndef __TT__
-d_FLAG_BASE addaction [format ["<t color='#3F3F3F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1745"], {_this call d_fnc_playerspectate}];
+d_FLAG_BASE addaction [format ["<t color='#3F3F3F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1745"], {call d_fnc_playerspectate}];
 #endif
 
 if (d_ParaAtBase == 1) then {
@@ -616,7 +624,7 @@ if (_primw != "") then {
 };
 
 if (d_MissionType != 2) then {
-	if !(d_currentcamps isEqualTo []) then {
+	if (d_currentcamps isNotEqualTo []) then {
 		call d_fnc_curcampsclient;
 	};
 
@@ -626,15 +634,18 @@ if (d_MissionType != 2) then {
 };
 
 player setVariable ["d_p_f_b", 0];
+if (isNil "d_p_rounds") then {
+	d_p_rounds = 0;
+};
 
-player addEventHandler ["firedMan", {_this call d_fnc_playerfiredeh}];
+player addEventHandler ["firedMan", {call d_fnc_playerfiredeh}];
 
 d_mark_loc280 = localize "STR_DOM_MISSIONSTRING_280";
 d_mark_loc261 = localize "STR_DOM_MISSIONSTRING_261";
 d_mark_loc1825 = localize "STR_DOM_MISSIONSTRING_1825";
 
 d_map_ameh = addMissionEventHandler ["Map", {
-	if (_this select 0) then {
+	if (_this # 0) then {
 		findDisplay 12 displayCtrl 51 ctrlAddEventHandler ["Draw", {[_this, 0] call d_fnc_mapondraw}];
 	};
 	removeMissionEventHandler ["Map", d_map_ameh];
@@ -659,7 +670,7 @@ if (isNil "d_the_carrier") then {
 
 private _dsp46 = findDisplay 46;
 
-_dsp46 displayAddEventHandler ["MouseZChanged", {_this call d_fnc_MouseWheelRec}];
+_dsp46 displayAddEventHandler ["MouseZChanged", {call d_fnc_MouseWheelRec}];
 
 if (d_WithRevive == 0) then {
 	call compile preprocessFileLineNumbers "revive.sqf";
@@ -672,18 +683,18 @@ if (d_with_bis_dynamicgroups == 0) then {
 	0 spawn {
 		scriptName "spawn_setupplayer3";
 		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
-		(findDisplay 46) displayAddEventHandler ["KeyDown", {_this call d_fnc_keydown_dyng}];
-		(findDisplay 46) displayAddEventHandler ["KeyUp", {_this call d_fnc_keyup_dyng}];
+		(findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_keydown_dyng}];
+		(findDisplay 46) displayAddEventHandler ["KeyUp", {call d_fnc_keyup_dyng}];
 	};
 } else {
-	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_keydown_dyng}];
-	_dsp46 displayAddEventHandler ["KeyUp", {_this call d_fnc_keyup_dyng}];
+	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_keydown_dyng}];
+	_dsp46 displayAddEventHandler ["KeyUp", {call d_fnc_keyup_dyng}];
 };
 
-_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_earplugs}];
+_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_earplugs}];
 #ifndef __TT__
 if (!d_with_ace) then {
-	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_toggle3dm}];
+	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_toggle3dm}];
 } else {
 	d_showallnearusermarkers = false;
 };
@@ -692,14 +703,14 @@ if (!d_with_ace) then {
 // by R34P3R
 d_p_isju = false;
 if (!d_with_ace) then {
-	_dsp46 displayAddEventHandler ["KeyDown", {_this call d_fnc_jumpover}];
+	_dsp46 displayAddEventHandler ["KeyDown", {call d_fnc_jumpover}];
 };
 
 d_vec_role_pl = [];
-player addEventhandler ["getInMan", {_this call d_fnc_getinmaneh}];
-player addEventhandler ["getOutMan", {_this call d_fnc_getoutmaneh}];
+player addEventhandler ["getInMan", {call d_fnc_getinmaneh}];
+player addEventhandler ["getOutMan", {call d_fnc_getoutmaneh}];
 
-player addEventhandler ["SeatSwitchedMan", {_this call d_fnc_seatswitchedmanvs}];
+player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedmanvs}];
 
 d_pisadminp = false;
 if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
@@ -722,15 +733,15 @@ if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 #ifdef __TT__
 if (d_player_side == blufor) then {
 #endif
-if !(markerPos "d_runwaymarker" isEqualTo [0,0,0]) then {
+if (markerPos "d_runwaymarker" isNotEqualTo [0,0,0]) then {
 	private _msize = markerSize "d_runwaymarker";
-	[[markerPos "d_runwaymarker" # 0, markerPos "d_runwaymarker" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker", true, 2], ["ANY", "PRESENT", true], ["!((thislist unitsBelowHeight 1) isEqualTo [])", "'d_runwaymarker' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
+	[[markerPos "d_runwaymarker" # 0, markerPos "d_runwaymarker" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
 };
 #ifdef __TT__
 };
-if (d_player_side == opfor && {!(markerPos "d_runwaymarker_o" isEqualTo [0,0,0])}) then {
+if (d_player_side == opfor && {markerPos "d_runwaymarker_o" isNotEqualTo [0,0,0]}) then {
 	private _msize = markerSize "d_runwaymarker_o";
-	[[markerPos "d_runwaymarker_o" # 0, markerPos "d_runwaymarker_o" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker_o", true, 2], ["ANY", "PRESENT", true], ["!((thislist unitsBelowHeight 1) isEqualTo [])", "'d_runwaymarker_o' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker_o' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
+	[[markerPos "d_runwaymarker_o" # 0, markerPos "d_runwaymarker_o" # 1, 1.9], [_msize # 0, _msize # 1, markerDir "d_runwaymarker_o", true, 2], ["ANY", "PRESENT", true], ["(thislist unitsBelowHeight 1) isNotEqualTo []", "'d_runwaymarker_o' setMarkerColorLocal 'ColorRed'", "'d_runwaymarker_o' setMarkerColorLocal 'ColorGreen'"]] call d_fnc_createtriggerlocal;
 };
 #endif
 
@@ -797,7 +808,7 @@ private _vehicles = vehicles select {!(_x isKindOf "WeaponHolderSimulated")};
 private _fnc_artvec = {
 	params ["_num", "_name"];
 	private _ar = _vehicles select {(str _x) select [0, _num] == _name};
-	if !(_ar isEqualTo []) then {
+	if (_ar isNotEqualTo []) then {
 		d_areArtyVecsAvailable = true;
 		d_ao_arty_vecs append _ar;
 	};
@@ -810,9 +821,9 @@ private _fnc_artvec = {
 
 if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
 	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
-		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {_this call d_fnc_mark_artillery} , 0, 9, true, false, "", "alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
+		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
 	} else {
-		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {_this call d_fnc_mark_artillery} , 0, 9, true, false, "", "alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
+		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
 	};
 };
 
@@ -820,26 +831,26 @@ if (isNil "d_cas_plane_avail") then {
 	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
 		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
-			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {_this call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}}}"]];
+			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		} else {
-			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {_this call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}}}"]];
+			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
 		};
 #else
 		if (d_player_side == blufor) then {
-			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {_this call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_w && {alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 0)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}}}"]];
+			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_w && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 0)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		} else {
-			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {_this call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_e && {alive player && {!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 0)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}}}"]];
+			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_e && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 0)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		};
 #endif
 	};
 };
 
-player addEventhandler["InventoryOpened", {_this call d_fnc_inventoryopened}];
-player addEventhandler["InventoryClosed", {_this call d_fnc_inventoryclosed}];
+player addEventhandler["InventoryOpened", {call d_fnc_inventoryopened}];
+player addEventhandler["InventoryClosed", {call d_fnc_inventoryclosed}];
 
 if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalOpened", {
-		_this call d_fnc_arsenalopened;
+		call d_fnc_arsenalopened;
 	}] call BIS_fnc_addScriptedEventHandler;
 
 	[missionNamespace, "arsenalClosed", {
@@ -847,16 +858,16 @@ if (!d_with_ace || {d_with_ranked}) then {
 	}] call BIS_fnc_addScriptedEventHandler;
 } else {
 	["ace_arsenal_displayOpened", {
-		_this call d_fnc_arsenalopened;
+		call d_fnc_arsenalopened;
 	}] call CBA_fnc_addEventHandler;
 
 	["ace_arsenal_displayClosed", {
-		_this call d_fnc_arsenalclosed;
+		call d_fnc_arsenalclosed;
 	}] call CBA_fnc_addEventHandler;
 };
 
 player addEventhandler ["HandleRating", {
-	if ((_this select 1) < 0) then {0} else {_this select 1}
+	if ((_this # 1) < 0) then {0} else {_this # 1}
 }];
 
 ["d_scacheck", {call d_fnc_SCACheck}] call d_fnc_eachframeadd;
@@ -880,7 +891,7 @@ player setVariable ["xr_isleader", false];
 	player setVariable ["xr_isleader", _islead];
 	if (_islead) then {
 		{
-			[_x, ["xr_isleader", false]] remoteExecCall ["setVariable", _x];
+			[_x, false] remoteExecCall ["d_fnc_setleader", _x];
 		} forEach ((units (group player)) - [player]);
 	};
 };
@@ -900,6 +911,12 @@ player addEventhandler ["WeaponAssembled", {
 } forEach _vehicles;
 
 ["Preload"] call bis_fnc_arsenal;
+
+bis_fnc_arsenal_data set [16, []];
+
+if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
+	(bis_fnc_arsenal_data # 24) append (["ACRE_VHF30108","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST","ACRE_SEM52SL","ACRE_SEM70","ACRE_PRC117F","ACRE_PRC148","ACRE_PRC152","ACRE_PRC343","ACRE_PRC77"] apply {toLowerANSI _x});
+};
 
 if (!d_gmcwg) then {
 	d_arsenal_mod_remove_strings pushBack "gm_";
@@ -927,10 +944,17 @@ if (d_arsenal_mod == 0) then {
 		if (d_unsung) then {
 			d_arsenal_mod_prestrings pushBackUnique "uns_";
 		};
-		if (d_with_ace && {!(d_arsenal_mod_prestrings isEqualTo [])}) then {
+		if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 			d_arsenal_mod_prestrings pushBackUnique "ace_";
 		};
-		if !(d_arsenal_mod_prestrings isEqualTo []) then {
+		if (d_arsenal_mod_prestrings isNotEqualTo []) then {
+			if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
+				d_arsenal_mod_prestrings pushBackUnique "ACRE_";
+			};
+			if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
+				d_arsenal_mod_prestrings pushBackUnique "task_";
+				d_arsenal_mod_prestrings pushBackUnique "tf_";
+			};
 			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
 		};
 	};
@@ -942,7 +966,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	if (d_with_ranked && {d_no_ranked_weapons && {!(_i in [5, 22, 23, 26])}}) then {
 		_proceed = false;
 	};
-	if (_proceed && {!((d_remove_from_arsenal # _i) isEqualTo []) && {!((bis_fnc_arsenal_data # _i) isEqualTo [])}}) then {
+	if (_proceed && {(d_remove_from_arsenal # _i) isNotEqualTo [] && {(bis_fnc_arsenal_data # _i) isNotEqualTo []}}) then {
 		private _badar = bis_fnc_arsenal_data # _i;
 		private _codes = [];
 		private _classes = [];
@@ -954,7 +978,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 			};
 		} forEach (d_remove_from_arsenal # _i);
 
-		if !(_classes isEqualTo []) then {
+		if (_classes isNotEqualTo []) then {
 			_classes = _classes apply {toLowerANSI _x};
 		};
 
@@ -966,7 +990,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 		private ["_changed"];
 		{
 			_changed = false;
-			if !(_codes isEqualTo []) then {
+			if (_codes isNotEqualTo []) then {
 				private _curnum = _forEachIndex;
 				private _curele = _x;
 				__TRACE_1("","_codes")
@@ -977,7 +1001,7 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 					};
 				} forEach _codes;
 			};
-			if (!_changed && {!(_classes isEqualTo []) && {toLowerANSI _x in _classes}}) then {
+			if (!_changed && {_classes isNotEqualTo [] && {toLowerANSI _x in _classes}}) then {
 				__TRACE("in second")
 				_badar set [_forEachIndex, -1];
 			};
@@ -1008,13 +1032,15 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 	d_non_check_items append (bis_fnc_arsenal_data # 24);
 	d_non_check_items apply {toLowerANSI _x};
 	
-	if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
-		private _hear = ["ACRE_VHF30108","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST","ACRE_SEM52SL","ACRE_SEM70","ACRE_PRC117F","ACRE_PRC148","ACRE_PRC152","ACRE_PRC343","ACRE_PRC77"] apply {toLowerANSI _x};
-		(bis_fnc_arsenal_data # 24) append _hear;
+	
+	private _radiosb = [];
+	if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
+		_radiosb = ((bis_fnc_arsenal_data # 5) select {_x select [0, 3] == "TF_"}) apply {toLowerANSI _x};
 	};
 	
 	{
-		private _maxload = getNumber(configFile>>"CfgVehicles">>_x>>"maximumLoad");
+		private _bagclass = toLowerANSI _x;
+		private _maxload = [getNumber(configFile>>"CfgVehicles">>_x>>"maximumLoad"), 0] select (_bagclass in _radiosb);
 		private _toadd = call {
 			if (_maxload < 200) exitWith {
 				["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"]
@@ -1027,11 +1053,10 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 			};
 			["COLONEL"]
 		};
-		private _bagclass = toLowerANSI _x;
 		{
-			private _entry = d_misc_store getVariable [format ["%1_BAGS", _x], []];
+			private _entry = d_misc_hash getOrDefault [format ["%1_BAGS", _x], []];
 			_entry pushBack _bagclass;
-			d_misc_store setVariable [format ["%1_BAGS", _x], _entry];
+			d_misc_hash set [format ["%1_BAGS", _x], _entry];
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 5);
 	
@@ -1057,13 +1082,13 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 
 		private _vestclass = toLowerANSI _x;
 		{
-			private _entry = d_misc_store getVariable [format ["%1_VESTS", _x], []];
+			private _entry = d_misc_hash getOrDefault [format ["%1_VESTS", _x], []];
 			_entry pushBack _vestclass;
-			d_misc_store setVariable [format ["%1_VESTS", _x], _entry];
+			d_misc_hash set [format ["%1_VESTS", _x], _entry];
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 4);
 	
-	d_usave =+ bis_fnc_arsenal_data # 6;
+	d_usave =+ bis_fnc_arsenal_data # 3;
 	
 	0 spawn d_fnc_weaponcargo_ranked;
 };
@@ -1072,26 +1097,42 @@ missionNamespace setVariable ["BIS_dynamicGroups_allowInterface", false];
 
 0 spawn d_fnc_allplayers;
 
-if (d_with_ace) then {
+if (d_with_ace && {d_ACEMedicalR == 1}) then {
 	addMissionEventHandler ["Draw3D", {call d_fnc_draw3d_ace}];
 };
 
 d_last_placed_zeus_obj = objNull;
 {
 	_x addEventhandler ["CuratorObjectPlaced", {
-		_this call d_fnc_place;
+		call d_fnc_place;
 #ifndef __TT__
-		addToRemainsCollector [_this select 1];
-		private _grp = group (_this select 1);
+		addToRemainsCollector [_this # 1];
+		private _grp = group (_this # 1);
 		if (!isNull _grp) then {
 			if (!isGroupDeletedWhenEmpty _grp) then {
 				_grp deleteGroupWhenEmpty true;
 			};
 		};
 #endif
-		_this select 1
+		_this # 1
 	}];
 } forEach allCurators;
+
+if (!d_with_ace && {d_with_suppress == 0}) then {
+	d_impactCC = ppEffectCreate ["colorCorrections", 1500];
+	d_impactCC ppEffectAdjust [1, 1, 0, [0, 0, 0, 0], [1, 1, 1, 1], [1, 1, 1, 0]];
+	d_impactCC ppEffectEnable true;
+	d_impactCC ppEffectCommit 0;
+
+	d_impactBlur = ppEffectCreate ["RadialBlur", 1010];
+	d_impactBlur ppEffectAdjust [0, 0, 0, 0];
+	d_impactBlur ppEffectCommit 0;
+	d_impactBlur ppEffectEnable true;
+	
+	d_lastshotat = -1;
+	
+	player setVariable ["d_psuppressed", player addEventHandler ["Suppressed", {call d_fnc_suppressed}]];
+};
 
 #ifndef __IFA3LITE__
 0 spawn d_fnc_uav_check;
@@ -1160,9 +1201,9 @@ call d_fnc_initservicepoints;
 
 if (isMultiplayer) then {
 	if (!d_ifa3lite) then {
-		execVM "client\x_intro2.sqf";
+		0 spawn d_fnc_intro2;
 	} else {
-		execVM "client\x_intro.sqf";
+		0 spawn d_fnc_intro;
 	};
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
@@ -1179,5 +1220,7 @@ if (isMultiplayer) then {
 		0 spawn d_fnc_statusbar;
 	};
 };
+
+0 spawn d_fnc_optioncontrol;
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

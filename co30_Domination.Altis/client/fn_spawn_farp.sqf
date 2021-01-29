@@ -19,7 +19,7 @@ if ((player call d_fnc_GetHeight) > 5) exitWith {
 	d_commandingMenuIniting = false;
 };
 
-if !((player getVariable "d_farp_pos") isEqualTo []) exitWith {
+if ((player getVariable "d_farp_pos") isNotEqualTo []) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_242");
 	d_commandingMenuIniting = false;
 };
@@ -49,13 +49,13 @@ if ([_d_farp_pos, 5] call d_fnc_getslope > 0.2) exitWith {
 
 player setVariable ["d_isinaction", true];
 
-if (d_with_ranked || {d_database_found}) then {[player, (d_ranked_a # 20) * -1] remoteExecCall ["addScore", 2]};
+if (d_with_ranked || {d_database_found}) then {[player, 10] remoteExecCall ["d_fnc_ascfc", 2]};
 
 player playMove "AinvPknlMstpSlayWrflDnon_medic";
 sleep 1;
-waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
+waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
 d_commandingMenuIniting = false;
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_247");
 	player setVariable ["d_isinaction", false];
 };
@@ -120,20 +120,20 @@ if (isMultiplayer) then {
 _farp setVariable ["d_owner", player, true];
 
 _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_249"], {
-	_this call {
+	call {
 		private _farp = player getVariable ["d_farp_obj", objNull];
 		if (isNull _farp) exitWith {};
 
 		player playMove "AinvPknlMstpSlayWrflDnon_medic";
 		sleep 1;
-		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}};
-		if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
+		waitUntil {animationState player != "AinvPknlMstpSlayWrflDnon_medic" || {!d_player_canu}};
+		if (!d_player_canu) exitWith {systemChat (localize "STR_DOM_MISSIONSTRING_315")};
 
 		d_farps = d_farps - [_farp];
 		publicVariable "d_farps";
 
 		private _farpcont = _farp getVariable ["d_objcont", []];
-		if !(_farpcont isEqualTo []) then {
+		if (_farpcont isNotEqualTo []) then {
 			{deleteVehicle _x} forEach _farpcont;
 		};
 		deleteVehicle _farp;

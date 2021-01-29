@@ -27,6 +27,7 @@ if (hasInterface) then {
 		_vd = d_MaxViewDistance;
 	};
 	setViewDistance _vd;
+	diag_log ["DOM viewdistance at start:", _vd];
 	setObjectViewDistance (_vd + 100);
 	
 	d_curviewdistance = _vd;
@@ -38,6 +39,15 @@ if (hasInterface) then {
 	if (d_3dmarker_userakey < 0 || {d_3dmarker_userakey > 19}) then {d_3dmarker_userakey = 0};
 	d_earplugs_userakey_str = format ["User%1", d_earplugs_userakey + 1];
 	d_3dmarker_userakey_str = format ["User%1", d_3dmarker_userakey + 1];
+	
+	d_ak_earplugs = actionKeys d_earplugs_userakey_str;
+	d_ak_3dtoggle = actionKeys d_3dmarker_userakey_str;
+	d_ak_getover = actionKeys "GetOver";
+	d_ak_teamswitch = actionKeys "TeamSwitch";
+	d_ak_hra = actionKeys "HeliRopeAction";
+	d_ak_hslm = actionKeys "HeliSlingLoadManager";
+	
+	d_player_radioprotocol = profileNamespace getVariable ["dom_player_radioprotocol", false];
 
 	if (isMultiplayer) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
@@ -52,6 +62,7 @@ if (d_GrasAtStart == 1) then {
 } else {
 	if (hasInterface) then {
 		private _tg = profileNamespace getVariable ["dom_terraingrid", getTerrainGrid];
+		diag_log ["DOM terraingrid at start:", _tg];
 		if (_tg != getTerrainGrid) then {
 			setTerrainGrid _tg;
 			private _tmpidx = [50, 25, 12.5, 6.25, 3.125] find _tg;
@@ -71,13 +82,13 @@ call d_fnc_maketarget_names;
 d_service_buildings = [[], [], []];
 #ifndef __TT__
 if (!d_ifa3lite) then {
-	if !(markerPos "d_base_jet_sb" isEqualTo [0,0,0]) then {
+	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
-	if !(markerPos "d_base_chopper_sb" isEqualTo [0,0,0]) then {
+	if (markerPos "d_base_chopper_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [1, [markerPos "d_base_chopper_sb", markerDir "d_base_chopper_sb"]];
 	};
-	if !(markerPos "d_base_wreck_sb" isEqualTo [0,0,0]) then {
+	if (markerPos "d_base_wreck_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [2, [markerPos "d_base_wreck_sb", markerDir "d_base_wreck_sb"]];
 	};
 };
@@ -262,7 +273,7 @@ if (isNil "d_searchbody") then {
 	d_searchbody = objNull;
 };
 if (isNil "d_searchintel") then {
-	d_searchintel = [0,0,0,0,0,1,0]; // TODO search intel for island patrol groups disabled as those groups are disabled too
+	d_searchintel = [0,0,0,0,0,0,0]; // TODO search intel for island patrol groups disabled as those groups are disabled too
 };
 #ifndef __TT__
 if (isNil "d_ari_blocked") then {
@@ -372,20 +383,20 @@ if (isServer) then {
 		private _mmm = markerPos "d_base_sb_ammoload";
 		__TRACE_1("","_mmm")
 
-		if !(_mmm isEqualTo [0,0,0]) then {
+		if (_mmm isNotEqualTo [0,0,0]) then {
 			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
 			_mmm set [2, 3.3];
 			private _fac = createSimpleObject [_stype # 1, _mmm];
 			_fac setDir (markerDir "d_base_sb_ammoload");
 			_fac setPos _mmm;
 		};
-		if (!isNil "d_base_aa_vec" && {!(d_base_aa_vec isEqualTo "")}) then {
+		if (!isNil "d_base_aa_vec" && {d_base_aa_vec isNotEqualTo ""}) then {
 			[d_own_side, d_base_aa_vec, "d_base_anti_air"] call d_fnc_cgraa;
 		};
-		if (!isNil "d_base_tank_vec" && {!(d_base_tank_vec isEqualTo "")}) then {
+		if (!isNil "d_base_tank_vec" && {d_base_tank_vec isNotEqualTo ""}) then {
 			[d_own_side, d_base_tank_vec, "d_base_tank"] call d_fnc_cgraa;
 		};
-		if (!isNil "d_base_apc_vec" && {!(d_base_apc_vec isEqualTo "")}) then {
+		if (!isNil "d_base_apc_vec" && {d_base_apc_vec isNotEqualTo ""}) then {
 			[d_own_side, d_base_apc_vec, "d_base_apc"] call d_fnc_cgraa;
 		};
 	};
@@ -397,17 +408,22 @@ if (isServer) then {
 			d_MainTargets_num = count d_target_names;
 		};
 
-		if (d_MainTargets_num == -1) then {
-			d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
-			d_MainTargets_num = count d_target_names;
-		} else {
-			if (d_MainTargets_num == -2) then { // order like placed in the editor
-				d_maintargets_list = call d_fnc_makteolpmttargets;
+		if (!d_tt_ver) then {
+			if (d_MainTargets_num == -1) then {
+				d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
 				d_MainTargets_num = count d_target_names;
 			} else {
-				// create random list of targets
-				d_maintargets_list = call d_fnc_createrandomtargets;
+				if (d_MainTargets_num == -2) then { // order like placed in the editor
+					d_maintargets_list = call d_fnc_makteolpmttargets;
+					d_MainTargets_num = count d_target_names;
+				} else {
+					// create random list of targets
+					d_maintargets_list = call d_fnc_createrandomtargets;
+				};
 			};
+		} else {
+			d_MainTargets_num = count d_target_names;
+			d_maintargets_list = call d_fnc_createrandomtargets;
 		};
 		//d_maintargets_list = [0,1,2,3];
 		__TRACE_1("","d_maintargets_list")
@@ -425,7 +441,7 @@ if (isServer) then {
 
 	if (d_sm_dorandom == 0) then {
 		// create random list of side missions
-		d_side_missions_random = d_sm_array call d_fnc_RandomArray;
+		d_side_missions_random = d_sm_array call BIS_fnc_arrayShuffle;
 	} else {
 		d_side_missions_random =+ d_sm_array;
 	};
@@ -436,7 +452,7 @@ if (isServer) then {
 #ifndef __TT__
 	// editor varname, unique number, true = respawn only when the chopper is completely destroyed, false = respawn after some time when no crew is in the chopper or chopper is destroyed
 	// unique number must be between 3000 and 3999
-	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x select 0}};
+	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600]] select {!isNil {_x # 0}};
 
 	if (!isNil "d_additional_wreck") then {
 		{
@@ -456,13 +472,13 @@ if (isServer) then {
 		} forEach d_additional_trans;
 	};
 
-	if !(_choppers isEqualTo []) then {
+	if (_choppers isNotEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
 	// editor varname, unique number
 	//0-99 = MHQ, 100-199 = Medic vehicles, 200-299 = Fuel, Repair, Reammo trucks, 300-399 = Engineer Salvage trucks, 400-499 = Transport trucks
 	// new in 3.70  third parameter for MHQ means a message will be displayed for a MHQ if it gets destroyed
-	private _vecsar = [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x select 0}};
+	private _vecsar = [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x # 0}};
 	{
 		_vecsar pushBack [_x, 500 + _forEachIndex];
 	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
@@ -478,7 +494,7 @@ if (isServer) then {
 	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
 #else
 	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
-		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x select 0}};
+		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x # 0}};
 	
 	//[[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
 	//[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] call d_fnc_inithelirespawn2;
@@ -516,7 +532,7 @@ if (isServer) then {
 		} forEach d_additional_trans_o;
 	};
 
-	if !(_choppers isEqualTo []) then {
+	if (_choppers isNotEqualTo []) then {
 		_choppers call d_fnc_inithelirespawn2;
 	};
 
@@ -524,7 +540,7 @@ if (isServer) then {
 		[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1,localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],
 		[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401],
 		[d_vec_mhqo_1,1000,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhqo_2,1001,localize "STR_DOM_MISSIONSTRING_13"],[d_vec_medo_1,1100],[d_vec_repo_1,1200],[d_vec_fuelo_1,1201],[d_vec_ammoo_1,1202], [d_vec_repo_2,1203],
-		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]] select {!isNil {_x select 0}};
+		[d_vec_fuelo_2,1204], [d_vec_ammoo_2,1205], [d_vec_engo_1,1300], [d_vec_engo_2,1301], [d_vec_transo_1,1400], [d_vec_transo_2,1401]] select {!isNil {_x # 0}};
 		
 	if (!isNil "d_additional_mhqs_o") then {
 		{
@@ -563,11 +579,11 @@ if (isServer) then {
 	publicVariable "d_points_array";
 #endif
 
-	addMissionEventHandler ["PlayerDisconnected", {_this call d_fnc_playerdisconnected}];
+	addMissionEventHandler ["PlayerDisconnected", {call d_fnc_playerdisconnected}];
 
-	addMissionEventHandler ["HandleDisconnect", {_this call d_fnc_handledisconnect}];
+	addMissionEventHandler ["HandleDisconnect", {call d_fnc_handledisconnect}];
 	if (d_MissionType != 2) then {
-		addMissionEventhandler ["BuildingChanged", {_this call d_fnc_buildingchanged}];
+		addMissionEventhandler ["BuildingChanged", {call d_fnc_buildingchanged}];
 	};
 };
 

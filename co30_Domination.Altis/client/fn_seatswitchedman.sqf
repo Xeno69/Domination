@@ -37,7 +37,7 @@ if (_not_allowed) then {
 			player moveInTurret [_vec, d_vec_role_pl # 1];
 		};
 	};
-	if (!isNull _unit2 && {!(_old_assigned isEqualTo [])}) then {
+	if (!isNull _unit2 && {_old_assigned isNotEqualTo []}) then {
 		private _co = count _old_assigned;
 		__TRACE_1("","_co")
 		

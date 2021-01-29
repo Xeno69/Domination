@@ -16,7 +16,7 @@ private _mapmid = _map ctrlMapScreenToWorld [0.5, 0.5];
 
 private _fnc_gmi = d_fnc_getmapicon;
 
-if !(d_show_player_marker isEqualTo 0) then {
+if (d_show_player_marker isNotEqualTo 0) then {
 	private _drawn_v = [];
 	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
 	[d_with_ai, d_fnc_isplayer, d_show_player_marker, d_fnc_gethpname, d_fnc_getplayername, d_mark_loc280] params ["_w_ai", "_fnc_ispl", "_s_pl_ma", "_fnc_ghpn", "_fnc_gpln", "_d_mark_loc280"];
@@ -37,23 +37,22 @@ if !(d_show_player_marker isEqualTo 0) then {
 			__TRACE_1("","_dodraw")
 
 			if (_dodraw) then {
-				_text = if !(_type isEqualTo 1) then {
+				_text = if (_type isNotEqualTo 1) then {
 					if (!_inv) then {
-						_vc = _x getVariable "d_ut_c";
-						if (isNil "_vc" || {_vc > 32}) then {
+						_vc = _x getVariable ["d_ut_c", 37];
+						if (_vc > 36) then {
 							_x setVariable ["d_ut_c", 0];
-							if (_s_pl_ma isEqualTo 1) then {
-								_res = [_x] call _fnc_ghpn;
-							} else {
-								if (_s_pl_ma isEqualTo 2) then {
-									_res = "";
-								} else {
-									if (_s_pl_ma isEqualTo 3) then {
-										_res = format [_d_mark_loc280, 9 - round(9 * damage _x)];
-									} else {
-										_res = "";
-									};
+							call {
+								if (_s_pl_ma isEqualTo 1) exitWith {
+									_res = [_x] call _fnc_ghpn;
 								};
+								if (_s_pl_ma isEqualTo 2) exitWith {
+									_res = "";
+								};
+								if (_s_pl_ma isEqualTo 3) exitWith {
+									_res = format [_d_mark_loc280, 9 - round(9 * damage _x)];
+								};
+								_res = "";
 							};
 							_x setVariable ["d_u_text", _res];
 							_res
@@ -63,8 +62,8 @@ if !(d_show_player_marker isEqualTo 0) then {
 						};
 					} else {
 						if (player distance2D _v < 3000) then {
-							_vc = _v getVariable "d_vma_c";
-							if (isNil "_vc" || {_vc > 30}) then {
+							_vc = _v getVariable ["d_vma_c", 31];
+							if (_vc > 30) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
@@ -129,27 +128,26 @@ if !(d_show_player_marker isEqualTo 0) then {
 		};
 	} forEach d_allplayermapd;
 
-	_drawn_v apply {_x setVariable ["d_v_drawn", nil]};
-
 	if (_w_ai) then {
+		_drawn_v apply {_x setVariable ["d_v_drawn", nil]};
+		
 		private ["_isc", "_text"];
 		{
 			if (_x distance2D _mapmid < _drawdist) then {
 				_isc = [_x, _x] call _fnc_gmi;
-
-				_text = if !(_type isEqualTo 1) then {
-					if (_s_pl_ma isEqualTo 1) then {
-						_ut = str _x; _ut select [count _ut - 1]
-					} else {
-						if (_s_pl_ma isEqualTo 2) then {
-							""
-						} else {
-							if (_s_pl_ma isEqualTo 3) then {
-								format [_d_mark_loc280, 9 - round(9 * damage _x)]
-							} else {
-								""
-							};
+				
+				_text = if (_type isNotEqualTo 1) then {
+					call {
+						if (_s_pl_ma isEqualTo 1) exitWith {
+							_ut = str _x; _ut select [count _ut - 1]
 						};
+						if (_s_pl_ma isEqualTo 2) exitWith {
+							""
+						};
+						if (_s_pl_ma isEqualTo 3) exitWith {
+							format [_d_mark_loc280, 9 - round(9 * damage _x)]
+						};
+						""
 					};
 				} else {
 					""
@@ -225,5 +223,3 @@ private _marker_vecs = d_marker_vecs;
 		};
 	};
 } forEach _marker_vecs select {!isNull _x};
-
-_marker_vecs = _marker_vecs - [objNull];

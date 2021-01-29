@@ -10,4 +10,4 @@ private _ran_ar = [];
 _ran_ar resize _this;
 for "_i" from 0 to (_this - 1) do {_ran_ar set [_i, _i]};
 __TRACE_1("","_ran_ar")
-(_ran_ar call d_fnc_RandomArray)
+(_ran_ar call BIS_fnc_arrayShuffle)

@@ -123,9 +123,9 @@ private _buildings = [_trg_center, _radius] call d_fnc_getbuildings;
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
 	if (count _buildings < 1) exitWith {};
-	_civPos = _this select 0;
-	_grp = _this select 1;
-	_unitCount = _this select 2;
+	_civPos = _this # 0;
+	_grp = _this # 1;
+	_unitCount = _this # 2;
 	_bldg = selectRandom _buildings;
 	_buildings deleteAt (_buildings find _bldg);
 	_posArray = _bldg buildingPos -1;
@@ -143,7 +143,7 @@ private _placeCivilianCluster = {
 			};
 		};
 		_civAgent setVariable ["civ_hide", _civAgent addEventHandler ["FiredNear", {
-			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+			params ["_unit"];
 			if (((animationState _unit) find "sit") > 0) then {
 				_unit call BIS_fnc_ambientAnim__terminate;
 			};
@@ -155,7 +155,7 @@ private _placeCivilianCluster = {
 			removeFromRemainsCollector [_this];
 		};
 		_civAgent addEventHandler ["Killed", {
-			_this call d_fnc_civmodulekilleh;
+			call d_fnc_civmodulekilleh;
 		}];
 		[_civAgent, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civAgent];
 	};
@@ -230,7 +230,7 @@ _m setVariable ["#onCreated", {
 		removeFromRemainsCollector [_this];
 	};
 	_this addEventHandler ["Killed", {
-		_this call d_fnc_civmodulekilleh;
+		call d_fnc_civmodulekilleh;
 	}];
 	[_this, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _this];
 	_this setUnitLoadout selectRandom d_civArray;

@@ -83,7 +83,7 @@ call d_fnc_dodelintelu;
 
 sleep 0.5;
 
-if !(d_maintargets_list isEqualTo []) then {
+if (d_maintargets_list isNotEqualTo []) then {
 	if (d_bonus_vec_type in [0, 1]) then {
 		__TRACE("spawning d_fnc_gettargetbonus")
 		0 spawn d_fnc_gettargetbonus;
@@ -108,7 +108,6 @@ if !(d_maintargets_list isEqualTo []) then {
 		};
 	};
 	("d_" + _cur_tgt_name + "_dommtm") setMarkerColor _mtcol;
-	("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
 	["", ""] remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
 	d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
@@ -117,7 +116,7 @@ if !(d_maintargets_list isEqualTo []) then {
 
 sleep 2.123;
 
-if !(d_maintargets_list isEqualTo []) then {
+if (d_maintargets_list isNotEqualTo []) then {
 	[1, d_current_target_index, d_mt_barracks_obj_ar, d_bara_trig_ar, d_mt_mobile_hq_obj] call d_fnc_doexechcf;
 	d_mt_barracks_obj_ar = [];
 	d_bara_trig_ar = [];
@@ -126,7 +125,7 @@ if !(d_maintargets_list isEqualTo []) then {
 sleep 3.321;
 
 #ifndef __TT__
-if (d_WithJumpFlags == 1 && {!(d_maintargets_list isEqualTo [])}) then {0 spawn d_fnc_createjumpflag};
+if (d_WithJumpFlags == 1 && {d_maintargets_list isNotEqualTo []}) then {0 spawn d_fnc_createjumpflag};
 #endif
 
 private _del_camps_stuff = [];
@@ -201,7 +200,7 @@ sleep 0.245;
 
 __TRACE_1("","d_maintargets_list")
 
-if !(d_maintargets_list isEqualTo []) then {
+if (d_maintargets_list isNotEqualTo []) then {
 	if (d_MHQDisableNearMT != 0) then {
 		{
 			private _fux = _x getVariable "d_vecfuelmhq";
@@ -224,25 +223,27 @@ if !(d_maintargets_list isEqualTo []) then {
 } else {
 	if (d_tt_ver) then {
 		if (d_database_found && {d_db_auto_save}) then {
-#ifndef __INTERCEPTDB__
-			"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-#else
-			if (d_interceptdb) then {
-				["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call dsi_fnc_queryconfigasync;
+			call {
+				if (d_db_type == 0) exitWith {
+					"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+				};
+				if (d_db_type == 1) exitWith {
+					["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+				};
 			};
-#endif
 		};
 		d_the_end = true; publicVariable "d_the_end";
 		0 spawn d_fnc_DomEnd;
 	} else {
 		if (d_database_found && {d_db_auto_save}) then {
-#ifndef __INTERCEPTDB__
-			"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-#else
-			if (d_interceptdb) then {
-				["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call dsi_fnc_queryconfigasync;
+			call {
+				if (d_db_type == 0) exitWith {
+					"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+				};
+				if (d_db_type == 1) exitWith {
+					["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+				};
 			};
-#endif
 		};
 		sleep 5;
 		d_the_end = true; publicVariable "d_the_end";

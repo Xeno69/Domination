@@ -48,7 +48,7 @@ if (d_with_ranked) then {
 		_exitj = true;
 	};
 	// each AI soldier costs score points
-	[player, (d_ranked_a # 3) * -1] remoteExecCall ["addScore", 2];
+	[player, 0] remoteExecCall ["d_fnc_ascfc", 2];
 };
 
 if (_exitj) exitWith {
@@ -74,7 +74,7 @@ if (player distance2D d_AI_HUT < 20) then {
 } else {
 	if (!isNil "d_additional_recruit_buildings") then {
 		private _har = d_additional_recruit_buildings select {!isNil "_x" && {!isNull _x && {player distance2D _x < 20}}};
-		if !(_har isEqualTo []) then {
+		if (_har isNotEqualTo []) then {
 			_spawnpos = player modelToWorldVisual [0,-15,0];
 		};
 	};
@@ -93,7 +93,7 @@ if (surfaceIsWater _spawnpos) then {
 _unit setSkill 1;
 _unit setRank "PRIVATE";
 if (!d_with_ace && {d_with_ranked || {d_database_found}}) then {
-	_unit addEventHandler ["handleHeal", {_this call d_fnc_handleheal}];
+	_unit addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 };
 if (d_WithRevive == 0 && {_unit getUnitTrait "Medic"}) then {
 	[_unit] execFSM "fsms\fn_AIRevive.fsm";
@@ -107,7 +107,7 @@ _unit enableDynamicSimulation false;
 _unit triggerDynamicSimulation true;
 
 if (!d_with_ace) then {
-	_unit addEventhandler ["handleDamage", {_this call d_fnc_handledamageai}];
+	_unit addEventhandler ["handleDamage", {call d_fnc_handledamageai}];
 };
 
 if (d_current_ai_num == d_max_ai) then {
@@ -140,9 +140,9 @@ _control lbSetColor [_index, [1, 1, 0, 0.8]];
 
 if (!d_with_ranked) then {
 	private _code = if (!d_with_ace) then {
-		{["Open", [true, nil, _this select 0]] call bis_fnc_arsenal}
+		{["Open", [true, nil, _this # 0]] call bis_fnc_arsenal}
 	} else {
-		{[_this select 0, _this select 0, true] call ace_arsenal_fnc_openBox}
+		{[_this # 0, _this # 0, true] call ace_arsenal_fnc_openBox}
 	};
 	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "true", 3];
 };
@@ -152,10 +152,12 @@ if (!d_with_ranked) then {
 #endif
 addToRemainsCollector [_unit];
 
-_unit addEventhandler ["getInMan", {_this call d_fnc_getinmanai}];
+_unit addEventhandler ["getInMan", {call d_fnc_getinmanai}];
 
 if (d_ai_silent == 1) then {
 	[_unit, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+	
+	_unit disableAI "RADIOPROTOCOL";
 };
 
 player setVariable ["d_recdbusy", false];

@@ -100,6 +100,11 @@ if (d_beam_target == "D_BASE_D") then {
 d_last_beam_target = d_beam_target;
 d_beam_target = "";
 
+if (d_database_found) then {
+	player setVariable ["d_move_stop", getPosWorld player];
+	call d_fnc_updatemove;
+};
+
 if (_typepos == 1) then {
 	player setDir _global_dir;
 	player setVehiclePosition [_global_pos, [], 0, "NONE"]; // CAN_COLLIDE ?
@@ -121,6 +126,12 @@ if (_typepos == 1) then {
 		};
 	};
 };
+
+if (d_database_found) then {
+	player setVariable ["d_move_opos", getPosWorld player];
+	player setVariable ["d_move_stop", nil];
+};
+
 [_wone, _typepos] spawn {
 	scriptName "spawn_beam_tele";
 	params ["_wone", "_typepos"];
@@ -132,5 +143,5 @@ if (_typepos == 1) then {
 
 	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
 
-	if (d_with_ai && {alive player && {!(player getVariable ["xr_pluncon", false]) && {_typepos != 2 && {!(player getVariable ["ace_isunconscious", false])}}}}) then {[] spawn d_fnc_moveai};
+	if (d_with_ai && {d_player_canu && {_typepos != 2}}) then {[] spawn d_fnc_moveai};
 };

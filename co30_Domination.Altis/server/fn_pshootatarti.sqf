@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_pshootatarti.sqf"
 #include "..\x_setup.sqf"
 
-private _shooter = _this select 6;
+private _shooter = _this # 6;
 if !(_shooter call d_fnc_isplayer) exitWith {};
 
 params ["_vec"];

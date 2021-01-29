@@ -99,7 +99,7 @@ d_sm_resolved = true;
 sleep 2.123;
 
 if (!isNull _vec && {alive _vec}) then {
-	if !((crew _vec) isEqualTo []) then {
+	if ((crew _vec) isNotEqualTo []) then {
 		{moveOut _x} forEach (crew _vec);
 	};
 	[_vec, true] call d_fnc_l_v;

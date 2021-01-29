@@ -9,6 +9,7 @@ if (!hasInterface) exitWith {};
 
 playSound "d_fanfare";
 
+#ifndef __TT__
 {
 	private _mname = _x getVariable "d_trigmarker";
 	if (!isNil "_mname") then {
@@ -17,6 +18,7 @@ playSound "d_fanfare";
 	deleteVehicle _x;
 } forEach d_mt_marker_triggers;
 d_mt_marker_triggers = [];
+#endif
 
 if (!isNil "d_deletecamptrigs") then {
 	{

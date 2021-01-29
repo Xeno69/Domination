@@ -5,7 +5,7 @@
 
 if !(isServer) exitWith {};
 
-(_this select 0) params ["_pos"];
+(_this # 0) params ["_pos"];
 
 if (d_with_ranked || {d_database_found}) then {d_sm_p_pos = nil};
 
@@ -85,7 +85,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 	if (!_rescued) then {
 		_leader = leader _newgroup;
 		private _nobjs = _leader nearEntities ["CAManBase", 20];
-		if !(_nobjs isEqualTo []) then {
+		if (_nobjs isNotEqualTo []) then {
 			{
 				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
 					_rescued = true;
@@ -134,7 +134,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 #else
 		private _tmp_flag = if (_winner == 1) then {d_EFLAG_BASE} else {d_WFLAG_BASE};
 #endif
-		[missionNamespace, ["d_sm_p_pos", getPosATL _tmp_flag]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+		(getPosATL _tmp_flag) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 	};
 	if (time > _mforceendtime) exitWith {
 		{

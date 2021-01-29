@@ -41,10 +41,10 @@ d_num_species = 0;
 	_x allowFleeing 0;
 	_x addEventHandler ["killed", {
 		d_num_species = d_num_species + 1;
-		(_this select 0) removeAllEventHandlers "killed";
+		(_this # 0) removeAllEventHandlers "killed";
 	}];
 #ifdef __TT__
-	_x addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_x addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 } forEach _units;
 

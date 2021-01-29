@@ -38,7 +38,7 @@ while {true} do {
 		_disp = uiNamespace getVariable "d_infobar";
 	};
 	sleep 0.1;
-	if (alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}) then {
+	if (d_player_canu) then {
 #ifndef __TT__
 		(_disp displayCtrl 1102) ctrlSetStructuredText parseText format[
 			_formatstr,
@@ -81,14 +81,14 @@ while {true} do {
 #endif
 		sleep 0.1;
 		private _timeend = time + 2;
-		while {time < _timeend && {alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}}} do {
+		while {time < _timeend && {d_player_canu}} do {
 			sleep 0.3;
 		};
 	} else {
 		(_disp displayCtrl 1102) ctrlSetStructuredText text "";
 		waitUntil {
 			sleep 0.3;
-			alive player && {!(player getVariable ["xr_pluncon", false]) && {!(player getVariable ["ace_isunconscious", false])}}
+			d_player_canu
 		};
 	};
 };

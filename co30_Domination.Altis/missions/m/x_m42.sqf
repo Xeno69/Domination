@@ -20,7 +20,7 @@ if (isServer) then {
 	_poss set [2, 0];
 	[_sm_vec, _poss] call d_fnc_setposagls;
 	_sm_vec call d_fnc_removenvgoggles_fak;
-	_sm_vec addEventhandler ["killed", {_this call d_fnc_KilledSMTarget500}];
+	_sm_vec addEventhandler ["killed", {call d_fnc_KilledSMTarget500}];
 	d_x_sm_rem_ar pushBack _sm_vec;
 	removeAllWeapons _sm_vec;
 	sleep 2.123;

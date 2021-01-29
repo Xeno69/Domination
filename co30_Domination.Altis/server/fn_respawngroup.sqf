@@ -7,7 +7,7 @@ __TRACE_1("","_this")
 
 if (d_mt_done) exitWith {};
 
-private _grptype = toLowerANSI (_this select 0);
+private _grptype = toLowerANSI (_this # 0);
 
 private _isman = _grptype in ["allmen", "specops"];
 
@@ -83,12 +83,12 @@ if (_doend) exitWith {
 };
 
 if (!_isman) then {
-	private _resp_mid = _this select 11;
+	private _resp_mid = _this # 11;
 	__TRACE_1("","_resp_mid")
-	if (!isNil "_resp_mid" && {!(_resp_mid isEqualTo [])}) then {
-		_this set [1, [[_resp_mid select 0, 600, 400, _resp_mid select 1] call d_fnc_GetRanPointSquare]];
+	if (!isNil "_resp_mid" && {_resp_mid isNotEqualTo []}) then {
+		_this set [1, [[_resp_mid # 0, 600, 400, _resp_mid # 1] call d_fnc_GetRanPointSquare]];
 		__TRACE_1("respawning","_this")
-		_this call d_fnc_makegroup;
+		call d_fnc_makegroup;
 	} else {
 		diag_log ["respawngroup, _resp_mid is either nil or empty", _this];
 	};
@@ -132,5 +132,5 @@ if (!_isman) then {
 	_this set [11, _d_mt_barracks_obj_pos];
 	__TRACE_1("respawning","_this")
 	sleep 0.1;
-	_this call d_fnc_makegroup;
+	call d_fnc_makegroup;
 };

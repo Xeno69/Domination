@@ -10,6 +10,9 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
+if (!isNil {_pl getVariable "d_ips_i"}) exitWith {};
+_pl setVariable ["d_ips_i", true];
+
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
 	d_hc_array pushBack _pl;
@@ -43,13 +46,13 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 private _name = (name _pl) splitString """'" joinString "";
 _pl setVariable ["d_plname", _name, true];
 
-private _p = d_player_store getVariable _uid;
+private _p = d_player_hash getOrDefault [_uid, []];
 private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
-if (isNil "_p") then {
-	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0];
-	d_player_store setVariable [_uid, _p];
+if (_p isEqualTo []) then {
+	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0];
+	d_player_hash set [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
 } else {
@@ -75,7 +78,7 @@ if (isNil "_p") then {
 		} else {
 			_p set [5, _sidepl];
 			_f_c = true;
-			d_player_store setVariable [_uid + "_scores", nil];
+			d_player_hash deleteAt (_uid + "_scores");
 			_p set [11, []];
 			_p set [12, []];
 			if ((_p # 9) # 1 > 0) then {
@@ -87,92 +90,103 @@ if (isNil "_p") then {
 	__TRACE_1("player store after change","_p")
 };
 
-_p remoteExecCall ["d_fnc_player_stuff", owner _pl];
-
 if (d_database_found) then {
 	private _dbresult = [];
-#ifndef __INTERCEPTDB__
-	_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGetTS:%1", _uid]);
-	if (_dbresult # 0 == 1) then {
-		_dbresult = _dbresult # 1;
-	} else {
-		_dbresult = [];
+	call {
+		if (d_db_type == 0) exitWith {
+			_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGetTS:%1", _uid]);
+			if (_dbresult # 0 == 1) then {
+				_dbresult = _dbresult # 1;
+			} else {
+				_dbresult = [];
+			};
+		};
+		if (d_db_type == 1) exitWith {
+			_dbresult = ["playerGetTS", [_uid]] call d_fnc_queryconfig;
+		};
 	};
-#else
-	// TODO Does the following work?
-	//if (isNil "D_DB_plgetts_query") then {
-	//	D_DB_plgetts_query = dbPrepareQueryConfig ["playerGetTS", [_uid]];
-	//} else {
-	//	D_DB_plgetts_query dbBindValue _uid;
-	//};
-	//_res = D_DB_CON dbExecute D_DB_plgetts_query;
-
-	if (d_interceptdb) then {
-		_dbresult = ["playerGetTS", [_uid]] call dsi_fnc_queryconfig;
-	};
-#endif
 	diag_log ["Dom Database playerGetTS result", _dbresult];
 
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
 		// create new database entry for UID
 		__TRACE("creating new db entry");
-#ifndef __INTERCEPTDB__
-		"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
-#else
-		if (d_interceptdb) then {
-			["playerInsert", [_uid, _name]] call dsi_fnc_queryconfigasync;
+		call {
+			if (d_db_type == 0) exitWith {
+				"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
+			};
+			if (d_db_type == 1) exitWith {
+				["playerInsert", [_uid, _name]] call d_fnc_queryconfigasync;
+			};
 		};
-#endif
 	} else {
 		__TRACE("adding nums played for player in db");
-#ifndef __INTERCEPTDB__
-		"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
-		diag_log ["Dom Database extdb3 updating numplayed"];
-#else
-		if (d_interceptdb) then {
-			["numplayedAdd", [_name, _uid]] call dsi_fnc_queryconfigasync;
+		call {
+			if (d_db_type == 0) exitWith {
+				"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
+				diag_log ["Dom Database extdb3 updating numplayed"];
+			};
+			if (d_db_type == 1) exitWith {
+				["numplayedAdd", [_name, _uid]] call d_fnc_queryconfigasync;
+			};
 		};
-#endif
 		__TRACE_1("","_f_c")
-#ifdef __DEBUG__
-		_uidscores = isNil {d_player_store getVariable (_uid + "_scores")};
-		__TRACE_1("","_uidscores")
-#endif
 		if (isNil "d_set_pl_score_db") then {
 			d_set_pl_score_db = true;
 			publicVariable "d_set_pl_score_db";
 		};
-		if (d_set_pl_score_db && {_f_c && {isNil {d_player_store getVariable (_uid + "_scores")}}}) then {
+		if (d_set_pl_score_db && {_f_c && {(d_player_hash getOrDefault [_uid + "_scores", []]) isEqualTo []}}) then {
 			__TRACE("Adding score");
 			__TRACE_1("","_dbresult select 0")
 			__TRACE_1("","score _pl")
-			d_player_store setVariable [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
+			d_player_hash set [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
 			[_pl, _dbresult # 0] spawn d_fnc_initdbplscores;
 		};
-#ifndef __INTERCEPTDB__
-		_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
-		if (_dbresult # 0 == 1) then {
-			_dbresult = _dbresult # 1;
-		} else {
-			_dbresult = [];
+		call {
+			if (d_db_type == 0) exitWith {
+				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
+				if (_dbresult # 0 == 1) then {
+					_dbresult = _dbresult # 1;
+				} else {
+					_dbresult = [];
+				};
+			};
+			if (d_db_type == 1) exitWith {
+				_dbresult = ["playerGet", [_uid]] call d_fnc_queryconfig;
+			};
 		};
-#else
-		if (d_interceptdb) then {
-			_dbresult = ["playerGet", [_uid]] call dsi_fnc_queryconfig;
-		};
-#endif
 		diag_log ["Dom Database playerGet result", _dbresult];
 		__TRACE_1("","_dbresult")
-		if !(_dbresult isEqualTo []) then {
+		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];
-			if !(_pres isEqualTo []) then {
+			if (_pres isNotEqualTo []) then {
+				if (count _pres > 14) then {
+					_p set [15, _pres # 14];
+				};
+				if (count _pres > 15) then {
+					_p set [16, _pres # 15];
+				};
+				if (count _pres > 16) then {
+					_p set [17, _pres # 16];
+				};
+				__TRACE_1("44","_p")
 				_pres set [1, (_pres # 1) call d_fnc_convtime];
-				[missionNamespace, ["d_pl_db_mstart", _pres]] remoteExecCall ["setVariable", _pl];
+				__TRACE_1("44","_pres")
+				_pres deleteAt 14;
+				__TRACE_1("55","_pres")
+				if (isMultiplayer) then {
+					if (remoteExecutedOwner isEqualTo 0) exitWith {};
+					_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
+				} else {
+					_pres call d_fnc_setdbstart;
+				};
 			};
 		};
 	};
 };
+
+if (remoteExecutedOwner isEqualTo 0) exitWith {};
+_p remoteExecCall ["d_fnc_player_stuff", remoteExecutedOwner];
 
 _pl spawn {
 	scriptName "spawn_init_playerserver2";
@@ -185,7 +199,7 @@ diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerServer.sqf processed
 #endif
 
 if (d_MissionType != 2) then {
-	_pl addEventhandler ["HandleScore", {_this call d_fnc_handlescore}];
+	_pl addEventhandler ["HandleScore", {call d_fnc_handlescore}];
 };
 
 (group _pl) setVariable ["d_pl_gr", true];

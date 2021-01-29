@@ -21,7 +21,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 		if (!(_chopper getVariable ["d_vec_attached", false]) && {_pos # 2 > 2.5 && {_pos # 2 < 50}}) then {
 			_liftobj = objNull;
 			private _nobjects = nearestObjects [_chopper, ["LandVehicle","Air"], 70];
-			if !(_nobjects isEqualTo []) then {
+			if (_nobjects isNotEqualTo []) then {
 				_nobjects params ["_dummy"];
 				if (_dummy == _chopper) then {
 					if (count _nobjects > 1) then {_liftobj = _nobjects # 1};
@@ -45,7 +45,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 			if ((_liftobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair]) > 0 && {!isNull _liftobj && {_liftobj != _chopper getVariable ["d_Attached_Vec", objNull]}}) then {
 				if (_chopper inArea [_liftobj, 10, 10, 0, false]) then {
 					if (!_menu_lift_shown) then {
-						_id = _chopper addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_254"], {_this call d_fnc_heli_action}, -1, 100000, false, true, "", "currentPilot _target == player"];
+						_id = _chopper addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_254"], {call d_fnc_heli_action}, -1, 100000, false, true, "", "currentPilot _target == player"];
 						_menu_lift_shown = true;
 					};
 				} else {
@@ -81,7 +81,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 			} else {
 				__TRACE_1("","_liftobj")
 				if (_chopper getVariable ["d_vec_attached", false]) then {
-					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {_this call d_fnc_heli_release}, -1, 100000, false, true, "", "currentPilot _target == player"];
+					_release_id = _chopper addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_255"], {call d_fnc_heli_release}, -1, 100000, false, true, "", "currentPilot _target == player"];
 					if (isNull (_chopper getVariable ["d_Attached_Vec", objNull])) then {
 						_chopper vehicleChat (localize "STR_DOM_MISSIONSTRING_252");
 						_chopper setVariable ["d_Attached_Vec", _liftobj, true];
@@ -119,7 +119,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 
 					if (!isNull _liftobj) then {
 						detach _liftobj;
-						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+						_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 					};
 
 					_chopper setVariable ["d_vec_attached", nil, true];
@@ -145,7 +145,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						};
 
 						detach _liftobj;
-						[_liftobj, [0,0,0]] remoteExecCall ["setVelocity", _liftobj];
+						_liftobj remoteExecCall ["d_fnc_setvel0", _liftobj];
 					};
 
 					sleep 1.012;

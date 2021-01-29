@@ -17,7 +17,7 @@ class D_VecDialog {
 			text="";
 			sizeEx = 256;
 		};
-		class VecDialogCaption2: RscText2 {
+		class VecDialogCaption2: RscText {
 			idc = 44445;
 			x = 0.55;
 			y = 0.15;
@@ -89,12 +89,14 @@ class D_VecDialog {
 			action = "closeDialog 0;call d_fnc_teleportx";
 			y = 0.59;
 		};
+#ifndef __TT__
 		class SATViewButton: DropAmmoButton {
 			idc = 44459;
 			text = "$STR_DOM_MISSIONSTRING_1327"; 
 			action = "closeDialog 0;createDialog 'D_FakeUAVDialog'";
 			y = 0.65;
 		};
+#endif
 		class UAVButton: DropAmmoButton {
 			idc = 44460;
 			text = "$STR_DOM_MISSIONSTRING_1327a"; 
@@ -108,6 +110,22 @@ class D_VecDialog {
 			action = "closeDialog 0;call d_fnc_deploy_mhq";
 			x = 0.37;
 			y = 0.8;
+		};
+		class CamoCheckText: RscText {
+			idc = 44466;
+			x = 0.39;
+			y = 0.85;
+			w = 0.15;
+			style = ST_RIGHT;
+			SizeEx = 0.028;
+			text = "$STR_DOM_MISSIONSTRING_2044";
+		};
+		class CamoCheckBox: RscCheckBox {
+			idc = 44464;
+			x = 0.55;
+			y = 0.85;
+			w = 0.035;
+			h = 0.035;
 		};
 	};
 };

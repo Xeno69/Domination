@@ -2,9 +2,9 @@
 #define THIS_FILE "fn_artywait.sqf"
 #include "..\x_setup.sqf"
 
-waitUntil {!isNil "d_arti_dialog_open" && {!isNil "d_arti_did_fire" || {!d_arti_dialog_open || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}}}};
+waitUntil {!isNil "d_arti_dialog_open" && {!isNil "d_arti_did_fire" || {!d_arti_dialog_open || {!d_player_canu}}}};
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {
+if (!d_player_canu) exitWith {
 	if (d_arti_dialog_open) then {closeDialog 0};
 #ifndef __TT__
 	missionNamespace setVariable ["d_ari_blocked", false, true];

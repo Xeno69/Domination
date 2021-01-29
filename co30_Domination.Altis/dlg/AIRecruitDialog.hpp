@@ -11,7 +11,7 @@ class D_AIRecruitDialog {
 	};
 	class controls {
 		__CANCELCLOSEB(-1)
-		class UnitsListBoxCaption: RscText2 {
+		class UnitsListBoxCaption: RscText {
 			x = 0.08; y = 0.11;
 			w = 0.2; h = 0.1;
 			sizeEx = 0.029;

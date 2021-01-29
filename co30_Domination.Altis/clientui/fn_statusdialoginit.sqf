@@ -65,6 +65,18 @@ if (!d_with_ranked && {!d_database_found}) then {
 	__ctrl2(2007) ctrlShow false;
 };
 
+if (!d_database_found) then {
+	for "_i" from 6000 to 6008 do {
+	__ctrl2(_i) ctrlShow false;
+	};
+} else {
+	private _p_distar = player getVariable "d_p_distar";
+	if (isNil "_p_distar") exitWith {};
+	__ctrl2(6002) ctrlSetText str(round (_p_distar # 0));
+	__ctrl2(6004) ctrlSetText str(round (_p_distar # 1));
+	__ctrl2(6006) ctrlSetText str(round (_p_distar # 2));
+	__ctrl2(6008) ctrlSetText str(round (_p_distar # 3));
+};
 
 private _tgt_ar = [];
 
@@ -236,7 +248,6 @@ __ctrl2(11014) ctrlSetText (player call d_fnc_GetRankString);
 __ctrl2(12016) ctrlSetText serverName;
 
 
-
 if (d_disable_viewdistance) then {
 	__ctrl2(1000) ctrlEnable false;
 	__ctrl2(1999) ctrlSetText (localize "STR_DOM_MISSIONSTRING_357");
@@ -296,10 +307,23 @@ __ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
 }];
 #endif
 
+__ctrl2(1612) cbSetChecked d_player_radioprotocol;
+__ctrl2(1612) ctrlAddEventHandler ["CheckedChanged", {
+	d_player_radioprotocol = !d_player_radioprotocol;
+	if (d_player_radioprotocol) then {
+		systemChat (localize "STR_DOM_MISSIONSTRING_2054");
+		player disableAI "RADIOPROTOCOL";
+	} else {
+		systemChat (localize "STR_DOM_MISSIONSTRING_2053");
+		player enableAI "RADIOPROTOCOL";
+	};
+	profileNamespace setVariable ["dom_player_radioprotocol", d_player_radioprotocol];
+}];
+
 for "_i" from 1 to 20 do {
 	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
 	private _endstr = (localize format ["str_usract_user_%1", _i]);
-	if !(_usera isEqualTo []) then {
+	if (_usera isNotEqualTo []) then {
 		_endstr = _endstr + " " + (_usera joinString ",");
 	};
 	__ctrl2(3302) lbAdd _endstr;

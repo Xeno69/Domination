@@ -6,9 +6,9 @@
 if (!hasInterface) exitWith {};
 
 __TRACE_1("","_this")
-d_player_autokick_time = _this select 0;
+d_player_autokick_time = _this # 0;
 
-if (d_WithRevive == 0 && {(_this select 8) == -1 && {xr_max_lives != -1}}) exitWith {
+if (d_WithRevive == 0 && {(_this # 8) == -1 && {xr_max_lives != -1}}) exitWith {
 	0 spawn {
 		scriptName "spawn_playerstuffparking";
 		waitUntil {sleep 0.1; !d_still_in_intro};
@@ -31,7 +31,7 @@ _this spawn {
 			endMission "LOSER";
 		};
 	} else {
-		private _prev_side = _this select 5;
+		private _prev_side = _this # 5;
 		if (_prev_side != sideUnknown && {d_player_side != _prev_side}) then {
 			[4, profileName, _prev_side, d_player_side] remoteExecCall ["d_fnc_csidechat", -2];
 		};
@@ -39,9 +39,9 @@ _this spawn {
 };
 #endif
 
-private _lo = _this select 11;
+private _lo = _this # 11;
 __TRACE_1("","_lo")
-if !(_lo # 0 isEqualTo []) then {
+if (_lo # 0 isNotEqualTo []) then {
 	_lo spawn {
 		scriptName "spawn_player_stuff";
 		waitUntil {!isNil "d_player_side"};
@@ -55,20 +55,45 @@ if !(_lo # 0 isEqualTo []) then {
 	};
 };
 
-/*if (_this select 7 >= d_maxnum_tks_forkick) then {
+/*if (_this # 7 >= d_maxnum_tks_forkick) then {
 	0 spawn {
 		scriptName "spawn_endmissionloser2";
 		hint "You will be kicked back to the lobby because of too much teamkilling!!!!";
 		titleText "You will be kicked back to the lobby because of too much teamkilling!!!!";
 		sleep 5;
 		endMission "LOSER";
+		forceEnd;
 	};
 };*/
 
-if (_this select 13 > 0) then {
+d_player_jescape = _this # 3;
+
+if (d_player_jescape > 10) then {
+	endMission "LOSER";
+	forceEnd;
+};
+
+if (_this # 13 > 0) then {
 	_this spawn {
 		scriptname "spawn plstuffjail";
 		waitUntil {sleep 0.2; !d_still_in_intro};
-		[_this select 7, _this select 13] spawn d_fnc_jail;
+		[_this # 7, _this # 13] spawn d_fnc_jail;
 	};
+};
+
+if (d_database_found) then {
+	private "_p_distar";
+	private _dar = _this # 15;
+	__TRACE_1("","_dar")
+	if (_dar isEqualTo []) then {
+		_p_distar = [0, 0, 0, 0];
+	} else {
+		_p_distar = _dar;
+	};
+	if (!isNil "d_p_rounds") then {
+		d_p_rounds = d_p_rounds + _this # 17;
+	} else {
+		d_p_rounds = _this # 17;
+	};
+	_p_distar spawn d_fnc_movecheck;
 };

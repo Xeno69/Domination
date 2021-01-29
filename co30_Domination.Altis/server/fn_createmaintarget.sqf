@@ -225,16 +225,16 @@ private _barcompo = [
 
 for "_i" from 1 to d_num_barracks_objs do {
 	private _idx = floor random (count _parray);
-	_poss = _parray select _idx;
+	_poss = _parray # _idx;
 	__TRACE_1("1","_poss")
 
-	if !(_allbars isEqualTo []) then {
+	if (_allbars isNotEqualTo []) then {
 		private _fidx = _allbars findIf {_x distance2D _poss < 115};
 		if (_fidx != -1) then {
 			private _icounter = 0;
 			while {_icounter < 50 || {_fidx != -1}} do {
 				_idx = floor random (count _parray);
-				_poss = _parray select _idx;
+				_poss = _parray # _idx;
 				_fidx = _allbars findIf {_x distance2D _poss < 115};
 				_icounter = _icounter + 1;
 			};
@@ -277,16 +277,16 @@ publicVariable "d_num_barracks_objs";
 publicVariable "d_num_barracks_tt";
 
 private _idx = floor random (count _parray);
-_poss = _parray select _idx;
+_poss = _parray # _idx;
 __TRACE_1("1","_poss")
 
-if !(_allbars isEqualTo []) then {
+if (_allbars isNotEqualTo []) then {
 	private _fidx = _allbars findIf {_x distance2D _poss < 115};
 	if (_fidx != -1) then {
 		private _icounter = 0;
 		while {_icounter < 50 || {_fidx != -1}} do {
 			_idx = floor random (count _parray);
-			_poss = _parray select _idx;
+			_poss = _parray # _idx;
 			_fidx = _allbars findIf {_x distance2D _poss < 115};
 			_icounter = _icounter + 1;
 		};
@@ -342,11 +342,11 @@ private _comppost = [];
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			private _ppos = _curar select _wp_ran;
+			private _ppos = _curar # _wp_ran;
 			private _iscompost = false;
-			if (!isNil "d_compositions" && {!(d_compositions isEqualTo []) && {(_x # 0) in ["allmen", "specops"]}}) then {
+			if (!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 12, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				if !(_nppos isEqualTo []) then {
+				if (_nppos isNotEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
 						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
@@ -373,11 +373,11 @@ sleep 0.233;
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			private _ppos = _curar select _wp_ran;
+			private _ppos = _curar # _wp_ran;
 			private _iscompost = false;
 			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
 				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				if !(_nppos isEqualTo []) then {
+				if (_nppos isNotEqualTo []) then {
 					_ppos = _nppos;
 					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
 						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
@@ -400,7 +400,7 @@ sleep 0.233;
 {
 	for "_xxx" from 1 to (_x # 2) do {
 		private _wp_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
-		[_x # 0, [_wp_array_inf select _wp_ran], _trg_center, _x # 1, "guardstatic2", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
+		[_x # 0, [_wp_array_inf # _wp_ran], _trg_center, _x # 1, "guardstatic2", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius]] call d_fnc_makegroup;
 		_wp_array_inf deleteAt _wp_ran;
 		sleep 0.1;
 	};
@@ -412,7 +412,7 @@ sleep 0.233;
 		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			[_x # 0, [_curar select _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
+			[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;
 			sleep 0.2;
 		};
@@ -435,7 +435,7 @@ if (d_no_more_observers < 2) then {
 	for "_xx" from 0 to d_nr_observers - 1 do {
 		private _agrp = [d_side_enemy] call d_fnc_creategroup;
 		private _xx_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
-		private _xpos = _wp_array_inf select _xx_ran;
+		private _xpos = _wp_array_inf # _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
 		__TRACE("from createmaintarget 1")
 #ifndef __TT__
@@ -457,7 +457,6 @@ if (d_no_more_observers < 2) then {
 				[4] call d_fnc_DoKBMsg;
 #endif
 			};
-			(_this select 0) removeAllEventHandlers "killed";
 		}];
 		d_obs_array set [_xx, _observer];
 		sleep 0.2;
@@ -500,10 +499,10 @@ if (d_enable_civ_vehs > 0) then {
 	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100);
 	
 	for "_i" from 1 to _carSpawns do {
-		_currentRoad=_roadList select _i;
+		_currentRoad = _roadList # _i;
 		if (!isNil "_currentRoad" && {!isNull _currentRoad}) then {
 			_roadConnectedTo = roadsConnectedTo _currentRoad;
-			_connectedRoad = _roadConnectedTo select 0;
+			_connectedRoad = _roadConnectedTo # 0;
 			if (isNil "_connectedRoad" || {isNull _connectedRoad}) exitWith {};
 			_direction = [_currentRoad, _connectedRoad] call BIS_fnc_DirTo;
 			
@@ -515,7 +514,7 @@ if (d_enable_civ_vehs > 0) then {
 			_veh allowDamage false;
 			_veh setDamage 0;
 			_veh setdir _direction;
-			_veh setPos [(getPos _veh select 0)+5.5, getPos _veh select 1, getPos _veh select 2];
+			_veh setPos [(getPos _veh # 0) + 5.5, getPos _veh # 1, getPos _veh # 2];
 			d_cur_tgt_civ_vehicles pushBack _veh;
 		};
 	};
@@ -593,14 +592,14 @@ if (d_occ_bldgs == 1) then {
 
 	if (_buildingsArrayRaw isEqualTo []) exitWith {};
 
-	private _buildingsArrayUsable = _buildingsArrayRaw select {!((_x buildingPos -1) isEqualTo [])};
+	private _buildingsArrayUsable = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
 
 	if (_buildingsArrayUsable isEqualTo []) exitWith {};
 
 	__TRACE_1("","_buildingsArrayUsable")
 
 	//sort by building height
-	//_buildingsArraySorted = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x select 1) select 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
+	//_buildingsArraySorted = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x # 1) # 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
 
 	//sort by elevation - sort by highest position in each building
 	private _buildingsArraySorted = [
@@ -613,7 +612,7 @@ if (d_occ_bldgs == 1) then {
 			_posArray = _bldg buildingPos -1;
 
 			{
-				_currentElevation = _x select 2; //Z axis
+				_currentElevation = _x # 2; //Z axis
 				if (_currentElevation > _topElevation) then {_topElevation = _currentElevation};
 			} forEach _posArray;
 

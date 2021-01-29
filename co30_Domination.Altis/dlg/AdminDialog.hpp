@@ -18,7 +18,7 @@ class D_AdminDialog {
 			w = 0.84; h = 0.33;
 			showCountourInterval = false;
 		};
-		class UnitsComboCaption: RscText2 {
+		class UnitsComboCaption: RscText {
 			x = 0.08; y = 0.08;
 			w = 0.2; h = 0.1;
 			sizeEx = 0.032;

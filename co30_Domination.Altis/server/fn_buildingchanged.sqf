@@ -15,7 +15,7 @@ if (damage _building == 0) exitWith {
 	__TRACE_1("No damage","_building")
 };
 
-if (!isNil "d_cur_tgt_pos" && {!(d_cur_tgt_pos isEqualTo []) && {_building distance2D d_cur_tgt_pos < 1000}}) then {
+if (!isNil "d_cur_tgt_pos" && {d_cur_tgt_pos isNotEqualTo [] && {_building distance2D d_cur_tgt_pos < 1000}}) then {
 	d_house_objects pushBackUnique _building;
 } else {
 	d_house_objects2 pushBackUnique _building;

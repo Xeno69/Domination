@@ -11,7 +11,7 @@ private _iccount = 0;\
 while {_poss isEqualTo []} do {\
 	_iccount = _iccount + 1;\
 	_poss = [d_cur_tgt_pos, d_cur_target_radius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;\
-	if (_iccount >= 50 && {!(_poss isEqualTo [])}) exitWith {};\
+	if (_iccount >= 50 && {_poss isNotEqualTo []}) exitWith {};\
 };\
 if (isNil "_poss" || {_poss isEqualTo []}) then {\
 	_poss = [d_cur_tgt_pos, d_cur_target_radius] call d_fnc_getranpointcircle;\
@@ -37,8 +37,8 @@ if (d_mt_respawngroups == 0) then { \
 	_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _mtradius], false, []]]; \
 };
 
-#define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; _this call d_fnc_MTSMTargetKilled}]; \
-_vec addEventHandler ["handleDamage", {_this call d_fnc_checkmtshothd}];
+#define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; call d_fnc_MTSMTargetKilled}]; \
+_vec addEventHandler ["handleDamage", {call d_fnc_checkmtshothd}];
 
 if !(isServer) exitWith {};
 
@@ -145,8 +145,8 @@ switch (_sec_kind) do {
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "ammo_down";
-			_this call d_fnc_MTSMTargetKilled;
-			_this call d_fnc_handleDeadVec;
+			call d_fnc_MTSMTargetKilled;
+			call d_fnc_handleDeadVec;
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;
@@ -173,8 +173,8 @@ switch (_sec_kind) do {
 		_vec lock true;
 		_vec addEventHandler ["killed", {
 			_this pushBack "med_down";
-			_this call d_fnc_MTSMTargetKilled;
-			_this call d_fnc_handleDeadVec;
+			call d_fnc_MTSMTargetKilled;
+			call d_fnc_handleDeadVec;
 		}];
 		d_fixor_var = _vec;
 		d_mtmissionobj = _vec;

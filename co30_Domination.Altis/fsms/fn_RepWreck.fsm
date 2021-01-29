@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, RepWreck">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"Start"};
@@ -257,18 +257,22 @@ class FSM
                          "if (!d_tt_ver) then {" \n
                          "	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],d_kbtel_chan];" \n
                          "} else {" \n
-                         "	switch (_rep_station_side) do {" \n
-                         "		case blufor: {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n
-                         "		case opfor: {d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]};" \n
+                         "	call {" \n
+                         "		if (_rep_station_side == blufor) exitWith {" \n
+                         "			d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,""HQ_W"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]" \n
+                         "		};" \n
+                         "		if (_rep_station_side == opfor) exitWith {" \n
+                         "			d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,""HQ_E"",""WreckRepaired"",[""1"","""",_type_name,[]],[""2"","""",_name,[]],""SIDE""]" \n
+                         "		};" \n
                          "	};" \n
                          "};" \n
                          "" \n
-                         "_new_vec addEventHandler [""getIn"", {_this call d_fnc_sgetinvec}];" \n
+                         "_new_vec addEventHandler [""getIn"", {call d_fnc_sgetinvec}];" \n
                          "" \n
-                         "_new_vec addEventHandler [""getOut"", {_this call d_fnc_sgetoutvec}];" \n
+                         "_new_vec addEventHandler [""getOut"", {call d_fnc_sgetoutvec}];" \n
                          "" \n
                          "if (_new_vec isKindOf ""Air"" && {getNumber ((configOf _new_vec) >> ""EjectionSystem"" >> ""EjectionSeatEnabled"") == 1}) then {" \n
-                         "	_new_vec addEventHandler [""getOut"", {_this call d_fnc_aftereject}];" \n
+                         "	_new_vec addEventHandler [""getOut"", {call d_fnc_aftereject}];" \n
                          "};" \n
                          "" \n
                          "if !(_new_vec isKindOf ""Air"") then {" \n

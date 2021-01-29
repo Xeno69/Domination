@@ -18,7 +18,7 @@ if (!_issniper) then {
 	sleep 2.123;
 } else {
 	private _nposs = [_poss, 150] call d_fnc_GetRanPointCircle;
-	if (!(_nposs isEqualTo []) || {!(_nposs isEqualTo [0,0,0])}) then {
+	if (_nposs isNotEqualTo [] || {_nposs isNotEqualTo [0,0,0]}) then {
 		_poss = _nposs;
 	};
 };

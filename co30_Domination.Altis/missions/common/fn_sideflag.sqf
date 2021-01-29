@@ -44,7 +44,7 @@ while {true} do {
 #ifndef __TT__
 	if (!isNull _owner && {_owner distance2D d_FLAG_BASE < 40 || {!isNil "d_flag_airfield" && {_owner distance2D d_flag_airfield < 40}}}) exitWith {
 		if (d_with_ranked || {d_database_found}) then {
-			[missionNamespace, ["d_sm_p_pos", getPosATL d_FLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+			(getPosATL d_FLAG_BASE) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 		};
 		_flag setFlagOwner objNull;
 		if (!d_sm_resolved) then {
@@ -55,7 +55,7 @@ while {true} do {
 #else
 	if (!isNull _owner && {(_owner distance2D d_EFLAG_BASE < 40)}) exitWith {
 		if (d_with_ranked || {d_database_found}) then {
-			[missionNamespace, ["d_sm_p_pos", getPosATL d_EFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+			(getPosATL d_EFLAG_BASE) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 		};
 		_flag setFlagOwner objNull;
 		if (!d_sm_resolved) then {
@@ -65,7 +65,7 @@ while {true} do {
 	};
 	if (!isNull _owner && {(_owner distance2D d_WFLAG_BASE < 40)}) exitWith {
 		if (d_with_ranked || {d_database_found}) then {
-			[missionNamespace, ["d_sm_p_pos", getPosATL d_WFLAG_BASE]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+			(getPosATL d_WFLAG_BASE) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 		};
 		_flag setFlagOwner objNull;
 		if (!d_sm_resolved) then {

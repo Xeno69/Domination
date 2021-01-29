@@ -217,7 +217,7 @@ class xr_SpectDlg {
 					h = 0.04;
 					default = true;
 				};
-				class LogTxt: RscText2 {
+				class LogTxt: RscText {
 					idc = 11002;
 					style = ST_MULTI;
 					sizeEx = 0.028;

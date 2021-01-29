@@ -71,7 +71,7 @@ class d_TeleportDialog {
 			default = false;
 		};
 		
-		class LogTxt: RscText2 {
+		class LogTxt: RscText {
 			idc = 11002;
 			style = ST_MULTI;
 			sizeEx = 0.028;

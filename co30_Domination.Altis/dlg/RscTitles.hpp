@@ -333,7 +333,7 @@ class d_ProgressBar {
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar', nil]";
 	controlsBackground[] = {};
 	class controls {
-		class ProgressBarBackground: RscText2 {
+		class ProgressBarBackground: RscText {
 			style = 128;
 			idc = 3600;
 			x = 0.3;
@@ -342,7 +342,7 @@ class d_ProgressBar {
 			h = 0.06;
 			colorBackground[] = {0,0,0,0.5};
 		};
-		class ProgressBar: RscText2 {
+		class ProgressBar: RscText {
 			style = 128;
 			idc = 3800;
 			x = 0.31;
@@ -351,7 +351,7 @@ class d_ProgressBar {
 			h = 0.04;
 			colorBackground[] = {0.543, 0.5742, 0.4102, 0.8};
 		};
-		class Progress_Label: RscText2 {
+		class Progress_Label: RscText {
 			idc = 3900;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1272";
@@ -374,7 +374,7 @@ class d_ProgressBar2 {
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar2', nil]";
 	controlsBackground[] = {};
 	class controls {
-		class ProgressBar: RscText2 {
+		class ProgressBar: RscText {
 			style = 128;
 			idc = 3800;
 			x = 0.3;
@@ -383,7 +383,7 @@ class d_ProgressBar2 {
 			h = 0.04;
 			colorBackground[] = {0.543, 0.5742, 0.4102, 0.8};
 		};
-		class Progress_Label: RscText2 {
+		class Progress_Label: RscText {
 			idc = 3900;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1939";
@@ -406,7 +406,7 @@ class d_ProgressBar3 {
 	onUnLoad = "uiNamespace setVariable ['d_ProgressBar3', nil]";
 	controlsBackground[] = {};
 	class controls {
-		class ProgressBar: RscText2 {
+		class ProgressBar: RscText {
 			style = 128;
 			idc = 3800;
 			x = 0.3;
@@ -415,7 +415,7 @@ class d_ProgressBar3 {
 			h = 0.04;
 			colorBackground[] = {0, 0, 0, 0.8};
 		};
-		class Progress_Label: RscText2 {
+		class Progress_Label: RscText {
 			idc = 3900;
 			style = 2;
 			text = "$STR_DOM_MISSIONSTRING_1954";
@@ -528,24 +528,6 @@ class d_rscCrewText {
 	};
 };
 
-class d_RscText {
-	access = 0;
-	type = 0;
-	idc = -1;
-	colorBackground[] = {0,0,0,0};
-	colorText[] = {0.8784,0.8471,0.651,1};
-	text = "";
-	fixedWidth = 0;
-	x = 0;
-	y = 0;
-	h = 0.037;
-	w = 0.3;
-	style = 0;
-	shadow = 2;
-	font = DEFAULTFONT;
-	SizeEx = 0.03921;
-};
-
 class d_fpsresource {
 	idd=-1;
 	movingEnable=0;
@@ -556,7 +538,7 @@ class d_fpsresource {
 	onLoad = "uiNamespace setVariable ['d_fpsresource', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_fpsresource', nil]";
 	class controls {
-		class server_cap: RscText2 {
+		class server_cap: RscText {
 			idc=-1;
 			style="16+512";
 			lineSpacing=0.95;
@@ -646,7 +628,7 @@ class d_sat_timode {
 	onLoad = "uiNamespace setVariable ['d_sat_timode', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_sat_timode', nil]";
 	class controls {
-		class ti_caption: RscText2 {
+		class ti_caption: RscText {
 			idc=-1;
 			style="16+512";
 			lineSpacing=0.95;
@@ -758,7 +740,7 @@ class d_RscLastChance {
 	onLoad = "uiNamespace setVariable ['d_RscLastChance', _this select 0]";
 	onUnLoad = "uiNamespace setVariable ['d_RscLastChance', nil]";
 	class controls {
-		class LCText: RscText2 {
+		class LCText: RscText {
 			idc = 3900;
 			style = 0;
 			text = "$STR_DOM_MISSIONSTRING_2019";
@@ -777,6 +759,28 @@ class d_RscLastChance {
 			text = "\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_0_ca.paa";
 			sizeEx = 256;
 			colorText[] = {1, 1, 1, 0.8};
+		};
+	};
+};
+
+class d_rscchand {
+	idd=-1;
+	movingEnable=0;
+	duration = 5;
+	fadein = 2;
+	fadeout = 1;
+	class controls {
+		class server_cap: RscText {
+			idc=-1;
+			text = "I'm gonna swing from the chandelier...";
+			x = safezoneX + safezoneW - 0.51;
+			y = safezoneY + 0.04;
+			w = 0.5;
+			h = 0.1;
+			sizeEx = 0.05;
+			shadow = 0;
+			style = ST_RIGHT;
+			colorText[] = {1,1,1,0.5};
 		};
 	};
 };

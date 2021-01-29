@@ -38,11 +38,11 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec allowCrewInImmobile true;
 	_onevec addEventHandler ["killed", {
 		d_confvdown = d_confvdown + 1;
-		(_this select 0) removeAllEventHandlers "killed";
-		{(_this select 0) deleteVehicleCrew _x} forEach (crew (_this select 0));
+		(_this # 0) removeAllEventHandlers "killed";
+		{(_this # 0) deleteVehicleCrew _x} forEach (crew (_this # 0));
 	}];
 #ifdef __TT__
-	_onevec addEventHandler ["handleDamage", {_this call d_fnc_AddSMPoints}];
+	_onevec addEventHandler ["handleDamage", {call d_fnc_AddSMPoints}];
 #endif
 	_allSMVecs pushBack _onevec;
 	d_x_sm_vec_rem_ar append _vehicles;
@@ -94,7 +94,7 @@ while {true} do {
 	};
 	if (d_with_ranked || {d_database_found}) then {
 		if (!isNull (leader _newgroup)) then {
-			[missionNamespace, ["d_sm_p_pos", leader _newgroup]] remoteExecCall ["setVariable", [0, -2] select isDedicated];
+			(leader _newgroup) remoteExecCall ["d_fnc_smsvpos", [0, -2] select isDedicated];
 		};
 	};
 	if (time > _mforceendtime) exitWith {_convoy_reached_dest = true};

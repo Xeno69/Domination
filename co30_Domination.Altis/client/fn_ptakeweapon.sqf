@@ -3,14 +3,12 @@
 #define THIS_FILE "fn_ptakeweapon.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
-
 __TRACE_1("","_this")
 
 params ["_unit"];
 if (_unit != player) exitWith {};
 
-private _item = _this select 2;
+private _item = _this # 2;
 
 if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 	_unit unlinkItem _item;
@@ -32,7 +30,7 @@ if (_item in d_non_check_items) exitWith {
 
 private _rank = rank player;
 __TRACE_1("","_rank")
-private _isvalid = _item in (d_misc_store getVariable (_rank + "_ONED"));
+private _isvalid = _item in (d_misc_hash get (_rank + "_ONED"));
 
 private _exit_it = false;
 if (!_isvalid) then {
@@ -42,7 +40,7 @@ if (!_isvalid) then {
 		player addWeapon _prw;
 		
 		private _secits = player getVariable "d_pprimweapitems";
-		if !(primaryWeaponItems player isEqualTo _secits) then {
+		if (primaryWeaponItems player isNotEqualTo _secits) then {
 			removeAllPrimaryWeaponItems player;
 			{player addPrimaryWeaponItem _x} forEach (_secits select {_x != ""});
 		};
@@ -55,7 +53,7 @@ if (!_isvalid) then {
 			player addWeapon _psw;
 			
 			private _secits = player getVariable "d_psecweapitems";
-			if !(secondaryWeaponItems player isEqualTo _secits) then {
+			if (secondaryWeaponItems player isNotEqualTo _secits) then {
 				// removeAllSecondaryWeaponItems player; // this command does not exist in A3 even after 3 years...
 				{
 					player removeSecondaryWeaponItem _x;
@@ -71,7 +69,7 @@ if (!_isvalid) then {
 				player addWeapon _phw;
 				
 				private _secits = player getVariable "d_phandgweapitems";
-				if !(handgunItems player isEqualTo _secits) then {
+				if (handgunItems player isNotEqualTo _secits) then {
 					removeAllHandgunItems player;
 					{player addHandgunItem _x} forEach (_secits select {_x != ""});
 				};
@@ -83,7 +81,7 @@ if (!_isvalid) then {
 };
 
 if (_exit_it) exitWith {
-	(_this select 1) addItemCargo [_item, 1];
+	(_this # 1) addItemCargo [_item, 1];
 	systemChat format [localize "STR_DOM_MISSIONSTRING_1564", _rank, getText(_cfgi>>"displayname")];
 };
 

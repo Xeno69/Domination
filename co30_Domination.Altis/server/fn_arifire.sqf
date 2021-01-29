@@ -327,7 +327,7 @@ _aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
 _logic1 kbTell [_aop, _topicside_arti, "ArtilleryComplete", ["1","",_aristr,[]], _channel];
 
-if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (markerPos _sel_ari_mkr)}) then {
+if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (markerPos _sel_ari_mkr)}) then {
 	deleteMarker _sel_ari_mkr;
 #ifdef __TT__
 	private _jipid = _aop getVariable "d_artmark_jip_id";
@@ -353,7 +353,7 @@ if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (mark
 	d_ari_available = true; publicVariable "d_ari_available";
 	private _channel = d_kbtel_chan;
 #else
-	if (_this select 3 == opfor) then {
+	if (_this # 3 == opfor) then {
 		d_ari_available_e = true; publicVariable "d_ari_available_e";
 	} else {
 		d_ari_available_w = true; publicVariable "d_ari_available_w";
@@ -362,10 +362,10 @@ if (!(markerPos _sel_ari_mkr isEqualTo [0,0,0]) && {_ari_tgt_pos isEqualTo (mark
 #endif
 	remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
 #ifdef __TT__
-	private _topicside = ["HQ_W", "HQ_E"] select (_this select 3 == opfor);
-	private _logic = [d_hq_logic_blufor2, d_hq_logic_opfor2] select (_this select 3 == opfor);
-	(_this select 2) kbTell [_logic, _topicside, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
+	private _topicside = ["HQ_W", "HQ_E"] select (_this # 3 == opfor);
+	private _logic = [d_hq_logic_blufor2, d_hq_logic_opfor2] select (_this # 3 == opfor);
+	(_this # 2) kbTell [_logic, _topicside, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
 #else
-	(_this select 2) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
+	(_this # 2) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
 #endif
 };

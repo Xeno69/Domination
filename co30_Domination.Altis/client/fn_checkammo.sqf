@@ -7,13 +7,13 @@ __TRACE_1("","_this")
 
 if ((_this # 0) isEqualTo "") exitWith {true};
 
-private _ar = d_misc_sc_store getVariable (_this # 0);
-if (isNil "_ar") then {
+private _ar = d_misc_sc_hash getOrDefault [_this # 0, []];
+if (_ar isEqualTo []) then {
 	_ar = [
 		toLowerANSI getText(configFile>>"CfgAmmo">>(_this # 0)>>"simulation") in ["shotpipebomb", "shottimebomb", "shotdirectionalbomb", "shotmine", "shotboundingmine"],
 		toLowerANSI getText(configFile>>"CfgAmmo">>(_this # 0)>>"simulation") in ["shotsmoke", "shotilluminating", "shotnvgmarker", "shotcm", "shotsmokex"]
 	];
-	d_misc_sc_store setVariable [_this # 0, _ar];
+	d_misc_sc_hash set [_this # 0, _ar];
 };
 
 __TRACE_1("","_ar")

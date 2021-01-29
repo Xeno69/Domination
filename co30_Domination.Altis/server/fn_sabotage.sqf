@@ -37,14 +37,14 @@ while {(units _grp) findIf {alive _x} > -1} do {
 					private _shell_unit = objNull;
 					{
 						_one_shell = (magazines _x) select {_x == _pbmag};
-						if !(_one_shell isEqualTo []) exitWith {
+						if (_one_shell isNotEqualTo []) exitWith {
 							_shell_unit = _x;
 						};
 						sleep 0.01;
 					} forEach _units;
 					if (_shell_unit == objNull) exitWith {};
 					_units = _units - [_shell_unit];
-					if !(_one_shell isEqualTo []) then {
+					if (_one_shell isNotEqualTo []) then {
 						_shell_unit selectWeapon _muzzle;
 						if (_leader == _shell_unit) then {
 							_shell_unit doMove _obj_pos;

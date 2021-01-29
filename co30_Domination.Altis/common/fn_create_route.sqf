@@ -56,7 +56,7 @@ private _areas_done = 0;
 
 while {true} do {
 	private _cur_ar = _area_ar # _areas_done;
-	while {!(_cur_ar isEqualTo [])} do {
+	while {_cur_ar isNotEqualTo []} do {
 		private _curdistance = 100000000;
 		private _curclosest = -1;
 		{

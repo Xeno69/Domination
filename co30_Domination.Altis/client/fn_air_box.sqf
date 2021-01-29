@@ -4,8 +4,8 @@
 
 if (!hasInterface) exitWith {};
 
-params ["_box"];
+params ["_box", "_side"];
 
 player reveal _box;
-[_box] call d_fnc_weaponcargo;
+[_box, _side] call d_fnc_weaponcargo;
 _box enableRopeAttach false;

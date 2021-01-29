@@ -25,10 +25,10 @@ _dude removeAllEventHandlers "FiredNear";
 private _iterations = 0;
 
 while {alive _dude && {_iterations < 12}} do {
-	if (unitpos _dude == _stances select 0) then {
-		_dude setUnitPos (_stances select 1);
+	if (unitpos _dude == _stances # 0) then {
+		_dude setUnitPos (_stances # 1);
 	} else {
-		_dude setUnitPos (_stances select 0);
+		_dude setUnitPos (_stances # 0);
 	};
 
 	sleep (1.5 + (random 6));

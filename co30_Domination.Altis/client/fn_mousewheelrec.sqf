@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_mousewheelrec.sqf"
 #include "..\x_setup.sqf"
 
-if (!isNil "d_is_sat_on" || {!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}}) exitWith {false};
+if (!isNil "d_is_sat_on" || {!d_player_canu}) exitWith {false};
 
 private _pin_v = false;
 private _ct = if (isNull objectParent player) then {
@@ -30,18 +30,17 @@ private _s_ai = [];
 	_x params ["_uni"];
 	if (alive _uni) then {
 		private _role = _x # 1;
-		private _rpic = if (_role == "commander") then {
-			"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_commander_ca.paa";
-		} else {
-			if (_role == "driver") then {
-				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_driver_ca.paa";
-			} else {
-				if (_role == "gunner" || {_role == "turret"}) then {
-					"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_gunner_ca.paa"
-				} else {
-					"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_cargo_ca.paa"
-				};
+		private _rpic = call {
+			if (_role == "commander") exitWith {
+				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_commander_ca.paa";
 			};
+			if (_role == "driver") exitWith {
+				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_driver_ca.paa";
+			};
+			if (_role == "gunner" || {_role == "turret"}) exitWith {
+				"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_gunner_ca.paa"
+			};
+			"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_cargo_ca.paa"
 		};
 		if (_uni call d_fnc_isplayer) then {
 			_s_p pushBack format ["%1<img color='#FFFFFF' image='%2'/> <br/>", [_uni] call d_fnc_gethpname, _rpic];
@@ -50,7 +49,7 @@ private _s_ai = [];
 		};
 	};
 } forEach _fc;
-if !(_s_ai isEqualTo []) then {
+if (_s_ai isNotEqualTo []) then {
 	_s_ai pushBack "</t>";
 } else {
 	_s_p pushBack "</t>";
@@ -70,7 +69,7 @@ if (_dospawn) then {
 		private _vecp = vehicle player;
 		while {true} do {
 			sleep 0.221;
-			if (time > d_rscCrewTextShownTimeEnd || {!alive player || {player getVariable ["xr_pluncon", false] || {vehicle player != _vecp || {player getVariable ["ace_isunconscious", false]}}}}) exitWith {};
+			if (time > d_rscCrewTextShownTimeEnd || {!d_player_canu || {vehicle player != _vecp}}) exitWith {};
 		};
 		"d_rscCrewText" cutFadeOut 0;
 		d_rscCrewTextShownTimeEnd = -1;

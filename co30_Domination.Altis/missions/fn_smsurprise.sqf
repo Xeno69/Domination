@@ -8,7 +8,7 @@
 		private _pos = [d_x_sm_pos # 0, (random 300) max 200] call d_fnc_getranpointcircleouter;
 		__TRACE_1("","_pos")
 		
-		if !(_pos isEqualTo []) then {
+		if (_pos isNotEqualTo []) then {
 #ifdef __DEBUG__
 			[format ["d_x_y_z_%1", _pos], _pos, "ICON", "ColorBlack", [0.8, 0.8], "AI Pos", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
@@ -28,10 +28,10 @@
 			d_x_sm_rem_ar append _units;
 			[_newgroup, 30] spawn {
 				scriptName "spawn smsurprise";
-				sleep (_this select 1);
-				(_this select 0) call d_fnc_addgrp2hc;
+				sleep (_this # 1);
+				(_this # 0) call d_fnc_addgrp2hc;
 				if (d_with_dynsim == 0) then {
-					(_this select 0) enableDynamicSimulation true;
+					(_this # 0) enableDynamicSimulation true;
 				};
 			};
 		};

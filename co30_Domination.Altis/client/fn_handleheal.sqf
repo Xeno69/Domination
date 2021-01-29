@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-if (!d_with_ace || {d_ACEMedicalR == 1}) then {
+if (!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}) then {
 	params ["_healed", "_healer"];
 	if (alive _healed && {alive _healer && {_healed != _healer && {!(_healed getVariable ["xr_pluncon", false]) && {!(_healer getVariable ["xr_pluncon", false])}}}}) then {
 		[_healed, _healer] spawn {
@@ -13,7 +13,7 @@ if (!d_with_ace || {d_ACEMedicalR == 1}) then {
 			params ["_healed", "_healer"];
 			sleep 3;
 			if (alive _healed && {alive _healer && {_healed != _healer && {!(_healed getVariable ["xr_pluncon", false]) && {!(_healer getVariable ["xr_pluncon", false])}}}}) then {
-				[_healer, d_ranked_a select 17] remoteExecCall ["addScore", 2];
+				[_healer, 5] remoteExecCall ["d_fnc_ascfc", 2];
 			};
 		};
 	};
@@ -37,7 +37,7 @@ if (!d_with_ace || {d_ACEMedicalR == 1}) then {
 		
 		// Add points to player
 		if (_medicPoints > 0) then {
-			[_healer, _medicPoints] remoteExecCall ["addScore", 2];
+			[_healer, 7] remoteExecCall ["d_fnc_ascfc", 2];
 			// Display chat message to player
 			if (isMultiplayer) then {			
 				[23, _medicPoints] remoteExecCall ["d_fnc_csidechat", _healer];

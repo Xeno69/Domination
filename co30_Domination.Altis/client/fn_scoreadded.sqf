@@ -2,7 +2,7 @@
 #define THIS_FILE "fn_scoreadded.sqf"
 #include "..\x_setup.sqf"
 
-if (!alive player || {player getVariable ["xr_pluncon", false] || {player getVariable ["ace_isunconscious", false]}}) exitWith {};
+if (!d_player_canu) exitWith {};
 
 params ["_reason", "_score"];
 

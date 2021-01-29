@@ -12325,18 +12325,6 @@
 <Chinese>找到第一個敵人營地，以在主要目標的中心附近捕獲</Chinese>
 <French>Localiser le premier camp ennemi à capturer près du centre de l'objectif principal</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_STATICWEAPONS">
-<English>Defend with static weapons</English>
-<Spanish>Defend with static weapons</Spanish>
-<Portuguese>Defend with static weapons</Portuguese>
-<Korean>Defend with static weapons</Korean>
-<Japanese>Defend with static weapons</Japanese>
-<Original>Defend with static weapons</Original>
-<Russian>Defend with static weapons</Russian>
-<Chinesesimp>Defend with static weapons</Chinesesimp>
-<Chinese>Defend with static weapons</Chinese>
-<French>Defend with static weapons</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901A">
 <English>Enemy placement target fill radius - occupy infantry</English>
 <Spanish>Radio de relleno del objetivo de la colocación del enemigo - ocupar la infantería</Spanish>
@@ -13617,7 +13605,7 @@
 <Korean>포로들 + explosives</Korean>
 <Japanese>prisoners + explosives</Japanese>
 <Original>prisoners + explosives</Original>
-<Russian>заключенных + explosives</Russian>
+<Russian>заключенные + взрывчатка</Russian>
 <Chinesesimp>囚犯 + explosives</Chinesesimp>
 <Chinese>prisoners + explosives</Chinese>
 <French>prisoners + explosives</French>
@@ -13629,7 +13617,7 @@
 <Korean>Warning: enemy explosive device may be present.</Korean>
 <Japanese>Warning: enemy explosive device may be present.</Japanese>
 <Original>Warning: enemy explosive device may be present.</Original>
-<Russian>Warning: enemy explosive device may be present.</Russian>
+<Russian>Внимание: возможно наличие вражеского взрывного устройства.</Russian>
 <Chinesesimp>Warning: enemy explosive device may be present.</Chinesesimp>
 <Chinese>Warning: enemy explosive device may be present.</Chinese>
 <French>Warning: enemy explosive device may be present.</French>
@@ -13641,7 +13629,7 @@
 <Korean>The enemy detonated a device. Failure.</Korean>
 <Japanese>The enemy detonated a device. Failure.</Japanese>
 <Original>The enemy detonated a device. Failure.</Original>
-<Russian>The enemy detonated a device. Failure.</Russian>
+<Russian>Противник привел в действие взрывное устройство. Задача не выполнена.</Russian>
 <Chinesesimp>The enemy detonated a device. Failure.</Chinesesimp>
 <Chinese>The enemy detonated a device. Failure.</Chinese>
 <French>The enemy detonated a device. Failure.</French>
@@ -13653,7 +13641,7 @@
 <Korean>Enemy explosive device disabled. Success!</Korean>
 <Japanese>Enemy explosive device disabled. Success!</Japanese>
 <Original>Enemy explosive device disabled. Success!</Original>
-<Russian>Enemy explosive device disabled. Success!</Russian>
+<Russian>Выполнено! Взрывное устройство противника диактивированно!</Russian>
 <Chinesesimp>Enemy explosive device disabled. Success!</Chinesesimp>
 <Chinese>Enemy explosive device disabled. Success!</Chinese>
 <French>Enemy explosive device disabled. Success!</French>
@@ -13773,7 +13761,7 @@
 <Korean>Bots are silent</Korean>
 <Japanese>Bots are silent</Japanese>
 <Original>Bots are silent</Original>
-<Russian>Bots are silent</Russian>
+<Russian>Боты не разговаривают</Russian>
 <Chinesesimp>Bots are silent</Chinesesimp>
 <Chinese>Bots are silent</Chinese>
 <French>Bots are silent</French>
@@ -13785,10 +13773,178 @@
 <Korean>Load domination.cfg (requires -filePatching on server)</Korean>
 <Japanese>Load domination.cfg (requires -filePatching on server)</Japanese>
 <Original>Load domination.cfg (requires -filePatching on server)</Original>
-<Russian>Load domination.cfg (requires -filePatching on server)</Russian>
+<Russian>Загрузить domination.cfg (требуется -filePatching на сервере)</Russian>
 <Chinesesimp>Load domination.cfg (requires -filePatching on server)</Chinesesimp>
 <Chinese>Load domination.cfg (requires -filePatching on server)</Chinese>
 <French>Load domination.cfg (requires -filePatching on server)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2042">
+<English>Player can be suppressed</English>
+<Spanish>Player can be suppressed</Spanish>
+<Portuguese>Player can be suppressed</Portuguese>
+<Korean>Player can be suppressed</Korean>
+<Japanese>Player can be suppressed</Japanese>
+<Original>Player can be suppressed</Original>
+<Russian>Подавление огнем</Russian>
+<Chinesesimp>Player can be suppressed</Chinesesimp>
+<French>Player can be suppressed</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2043">
+<English>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</English>
+<Spanish>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
+<Portuguese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
+<Korean>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
+<Japanese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
+<Original>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Original>
+<Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
+<Chinesesimp>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinesesimp>
+<Chinese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
+<French>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2044">
+<English>Deploy with camo net</English>
+<Spanish>Deploy with camo net</Spanish>
+<Portuguese>Deploy with camo net</Portuguese>
+<Korean>Deploy with camo net</Korean>
+<Japanese>Deploy with camo net</Japanese>
+<Original>Deploy with camo net</Original>
+<Russian>Развернуть с камуфляжной сетью</Russian>
+<Chinesesimp>Deploy with camo net</Chinesesimp>
+<Chinese>Deploy with camo net</Chinese>
+<French>Deploy with camo net</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2045">
+<English>Distance traveled, in meters:</English>
+<Spanish>Distance traveled, in meters:</Spanish>
+<Portuguese>Distance traveled, in meters:</Portuguese>
+<Korean>Distance traveled, in meters:</Korean>
+<Japanese>Distance traveled, in meters:</Japanese>
+<Original>Distance traveled, in meters:</Original>
+<Russian>Пройденное расстояние, в метрах:</Russian>
+<Chinesesimp>Distance traveled, in meters:</Chinesesimp>
+<Chinese>Distance traveled, in meters:</Chinese>
+<French>Distance traveled, in meters:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2046">
+<English>By foot:</English>
+<Spanish>By foot:</Spanish>
+<Portuguese>By foot:</Portuguese>
+<Korean>By foot:</Korean>
+<Japanese>By foot:</Japanese>
+<Original>By foot:</Original>
+<Russian>Пешком:</Russian>
+<Chinesesimp>By foot:</Chinesesimp>
+<Chinese>By foot:</Chinese>
+<French>By foot:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2047">
+<English>Landvehicle:</English>
+<Spanish>Landvehicle:</Spanish>
+<Portuguese>Landvehicle:</Portuguese>
+<Korean>Landvehicle:</Korean>
+<Japanese>Landvehicle:</Japanese>
+<Original>Landvehicle:</Original>
+<Russian>Наземный транспорт:</Russian>
+<Chinesesimp>Landvehicle:</Chinesesimp>
+<Chinese>Landvehicle:</Chinese>
+<French>Landvehicle:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2048">
+<English>Air:</English>
+<Spanish>Air:</Spanish>
+<Portuguese>Air:</Portuguese>
+<Korean>Air:</Korean>
+<Japanese>Air:</Japanese>
+<Original>Air:</Original>
+<Russian>Авиация:</Russian>
+<Chinesesimp>Air:</Chinesesimp>
+<Chinese>Air:</Chinese>
+<French>Air:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2049">
+<English>Ship/Boat:</English>
+<Spanish>Ship/Boat:</Spanish>
+<Portuguese>Ship/Boat:</Portuguese>
+<Korean>Ship/Boat:</Korean>
+<Japanese>Ship/Boat:</Japanese>
+<Original>Ship/Boat:</Original>
+<Russian>Катера/Лодки:</Russian>
+<Chinesesimp>Ship/Boat:</Chinesesimp>
+<Chinese>Ship/Boat:</Chinese>
+<French>Ship/Boat:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2050">
+<English>Illuminate main target:</English>
+<German>Illuminate main target:</German>
+<Italian>Illuminate main target:</Italian>
+<Spanish>Iluminación de Misión Principal:</Spanish>
+<Czech>Illuminate main target:</Czech>
+<Russian>Illuminate main target:</Russian>
+<Polish>Illuminate main target:</Polish>
+<French>Illuminate main target:</French>
+<Hungarian>Illuminate main target:</Hungarian>
+<Chinesesimp>Illuminate main target:</Chinesesimp>
+<Chinese>Illuminate main target:</Chinese>
+<Portuguese>Illuminate main target:</Portuguese>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_STATICWEAPONS">
+<English>Defend with static weapons</English>
+<Spanish>Defend with static weapons</Spanish>
+<Portuguese>Defend with static weapons</Portuguese>
+<Korean>Defend with static weapons</Korean>
+<Japanese>Defend with static weapons</Japanese>
+<Original>Defend with static weapons</Original>
+<Russian>Оборонять статическим вооружением</Russian>
+<Chinesesimp>Defend with static weapons</Chinesesimp>
+<Chinese>Defend with static weapons</Chinese>
+<French>Defend with static weapons</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2051">
+<English>Disable ACE medical revive (if ACE is used) and use mission revive</English>
+<Spanish>Disable ACE medical revive (if ACE is used) and use mission revive</Spanish>
+<Portuguese>Disable ACE medical revive (if ACE is used) and use mission revive</Portuguese>
+<Korean>Disable ACE medical revive (if ACE is used) and use mission revive</Korean>
+<Japanese>Disable ACE medical revive (if ACE is used) and use mission revive</Japanese>
+<Original>Disable ACE medical revive (if ACE is used) and use mission revive</Original>
+<Russian>Отключите ревайв ACE (если используется ACE) и используйте ревайв миссии</Russian>
+<Chinesesimp>Disable ACE medical revive (if ACE is used) and use mission revive</Chinesesimp>
+<French>Disable ACE medical revive (if ACE is used) and use mission revive</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2052">
+<English>Disable RADIOPROTOCOL for the player unit:</English>
+<Spanish>Disable RADIOPROTOCOL for the player unit:</Spanish>
+<Portuguese>Disable RADIOPROTOCOL for the player unit:</Portuguese>
+<Korean>Disable RADIOPROTOCOL for the player unit:</Korean>
+<Japanese>Disable RADIOPROTOCOL for the player unit:</Japanese>
+<Original>Disable RADIOPROTOCOL for the player unit:</Original>
+<Russian>Disable RADIOPROTOCOL for the player unit:</Russian>
+<Chinesesimp>Disable RADIOPROTOCOL for the player unit:</Chinesesimp>
+<Chinese>Disable RADIOPROTOCOL for the player unit:</Chinese>
+<French>Disable RADIOPROTOCOL for the player unit:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2053">
+<English>RADIOPROTOCOL for the player enabled!</English>
+<Spanish>RADIOPROTOCOL for the player enabled!</Spanish>
+<Portuguese>RADIOPROTOCOL for the player enabled!</Portuguese>
+<Korean>RADIOPROTOCOL for the player enabled!</Korean>
+<Japanese>RADIOPROTOCOL for the player enabled!</Japanese>
+<Original>RADIOPROTOCOL for the player enabled!</Original>
+<Russian>RADIOPROTOCOL for the player enabled!</Russian>
+<Chinesesimp>RADIOPROTOCOL for the player enabled!</Chinesesimp>
+<Chinese>RADIOPROTOCOL for the player enabled!</Chinese>
+<French>RADIOPROTOCOL for the player enabled!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2054">
+<English>RADIOPROTOCOL for the player disabled!</English>
+<Spanish>RADIOPROTOCOL for the player disabled!</Spanish>
+<Portuguese>RADIOPROTOCOL for the player disabled!</Portuguese>
+<Korean>RADIOPROTOCOL for the player disabled!</Korean>
+<Japanese>RADIOPROTOCOL for the player disabled!</Japanese>
+<Original>RADIOPROTOCOL for the player disabled!</Original>
+<Russian>RADIOPROTOCOL for the player disabled!</Russian>
+<Chinesesimp>RADIOPROTOCOL for the player disabled!</Chinesesimp>
+<Chinese>RADIOPROTOCOL for the player disabled!</Chinese>
+<French>RADIOPROTOCOL for the player disabled!</French>
 </Key>
 </Container>
 </Package>

@@ -7,7 +7,7 @@ private _thermarheadgear = [];
 private _nvarheadgear = [];
 {
 	private _ar = getArray(configFile>>"CfgWeapons">>_x>>"subItems");
-	if !(_ar isEqualTo []) then {
+	if (_ar isNotEqualTo []) then {
 		{
 			private _visionmode = getArray(configFile>>"CfgWeapons">>_x>>"visionMode") apply {toLowerANSI _x};
 			if ("nvg" in _visionmode) then {

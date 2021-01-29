@@ -181,7 +181,7 @@ _fillTurrets = {
 	_turrets
 };
 
-if !(_cfgturrets isEqualTo []) then {
+if (_cfgturrets isNotEqualTo []) then {
 	[_cfgturrets, [], _object] call _fillTurrets;
 };
 */
@@ -190,7 +190,7 @@ __NOALIEX
 private _magazines = getArray(_cfgv>>"magazines");
 __TRACE_1("","_magazines")
 
-if !(_magazines isEqualTo []) then {
+if (_magazines isNotEqualTo []) then {
 	_removed = [];
 	{
 		_object removeMagazines _x;

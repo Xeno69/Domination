@@ -26,7 +26,7 @@ for "_co" from 0 to 99 do {
 		false,				//--- True if some water can be in 25m radius
 		objNull			//--- Ignored object
 	];
-	if !(_isFlat isEqualTo []) exitWith {
+	if (_isFlat isNotEqualTo []) exitWith {
 		_ret_val = ASLToATL _isFlat;
 	};
 };*/

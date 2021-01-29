@@ -108,7 +108,7 @@ private ["_idx"];
 	_lbctr lbSetPicture [_idx, _x # 3];
 	_lbctr lbSetColor [_idx, _x # 4];
 } forEach _helperls;
-if !(_helperls isEqualTo []) then {
+if (_helperls isNotEqualTo []) then {
 	__TRACE("LB Sort By Value")
 	lbSortByValue _lbctr;
 	_lbctr lbSetCurSel 0;

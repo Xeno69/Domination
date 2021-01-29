@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_repack_mags.sqf"
 #include "..\x_setup.sqf"
 
-if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
+if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
 
 if (!isNil "d_repack_gard") then {
 	terminate d_repack_gard;
@@ -29,7 +29,7 @@ private _conf = configFile>>"CfgMagazines";
 
 for "_i" from 3 to 5 do {
 	private _row = _ular # _i;
-	if (_row isEqualType [] && {!(_row isEqualTo [])}) then {
+	if (_row isEqualType [] && {_row isNotEqualTo []}) then {
 		private _containerar = [];
 		{
 			if (_x # 1 == 1 || {count _x == 2}) then {
@@ -53,7 +53,7 @@ private _fnc_search345 = {
 
 	for "_z" from 5 to _endrow step -1 do {
 		private _currow = _ular # _z;
-		if (_currow isEqualType [] && {!(_currow isEqualTo [])}) then {
+		if (_currow isEqualType [] && {_currow isNotEqualTo []}) then {
 			private _search_ar = _currow # 1;
 			if (_endidx + 1 < count _search_ar) then {
 				for "_b" from (count _search_ar - 1) to (_endidx + 1) step -1 do {
@@ -88,9 +88,9 @@ private _fnc_search345 = {
 
 for "_i" from 0 to 2 do {
 	private _row = _ular # _i;
-	if (_row isEqualType [] && {!(_row isEqualTo [])}) then {
+	if (_row isEqualType [] && {_row isNotEqualTo []}) then {
 		{
-			if (_x isEqualType [] && {!(_x isEqualTo [])}) then {
+			if (_x isEqualType [] && {_x isNotEqualTo []}) then {
 				private _mag = _x # 0;
 				private _ammocount = _x # 1;
 				if (_mag isKindOf ["CA_Magazine", _conf] && {getNumber (_conf>>_mag>>"count") > 1 && {_ammocount < getNumber (_conf>>_mag>>"count")}}) then {
@@ -108,10 +108,10 @@ for "_i" from 0 to 2 do {
 for "_i" from 3 to 5 do {
 	private _row = _ular # _i;
 	__TRACE_1("_row 3to5","_row")
-	if (_row isEqualType [] && {!(_row isEqualTo [])}) then {
+	if (_row isEqualType [] && {_row isNotEqualTo []}) then {
 		private _searchrow = _row # 1;
 		__TRACE_1("_searchrow 3to5","_searchrow")
-		if !(_searchrow isEqualTo []) then {
+		if (_searchrow isNotEqualTo []) then {
 			{
 				__TRACE_1("_x 3to5","_x")
 				if (_x isEqualType [] && {count _x == 3}) then {
@@ -132,7 +132,7 @@ for "_i" from 3 to 5 do {
 
 for "_i" from 3 to 5 do {
 	private _row = _ular # _i;
-	if !(_row isEqualTo []) then {
+	if (_row isNotEqualTo []) then {
 		private _containerar = [];
 
 		private _ar = _row # 1;
@@ -180,7 +180,7 @@ if (!isNil "d_repack_gard") then {
 	terminate d_repack_gard;
 };
 d_inventory_blocked = false;
-if (!alive player || {player getVariable ["xr_pluncon", false]}) exitWith {};
+if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
 
 hintSilent parseText format ["<t color='#00ff00' size='1.5' align='center'>%1</t>", localize "STR_DOM_MISSIONSTRING_1942"];
 

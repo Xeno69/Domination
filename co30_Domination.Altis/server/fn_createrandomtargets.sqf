@@ -17,7 +17,7 @@ for "_i" from 0 to (count _firstar - 2) do {
 
 __TRACE_1("","_add")
 
-if !(_add isEqualTo []) then {
+if (_add isNotEqualTo []) then {
 	_firstar = _firstar - [-999];
 	_firstar append _add;
 };

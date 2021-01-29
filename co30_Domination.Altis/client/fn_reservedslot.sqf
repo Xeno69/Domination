@@ -1,8 +1,6 @@
 // by Xeno
-#define THIS_FILE "x_reservedslot.sqf"
+#define THIS_FILE "fn_reservedslot.sqf"
 #include "..\x_setup.sqf"
-
-if (!hasInterface) exitWith {};
 
 sleep 5;
 

@@ -8,10 +8,10 @@
 // [points if the killer (player) is infantry unit, points if the killer is inside an APC, points if the killer is inside a tank, points if the player is inside an air vehicle]
 // now, the lowest points number should be given for air vehicles and the highest for inf units
 // second change: distance to target, the lower the higher, Only for infantry!!!!
-params ["_points", "_killer", "_killed", "_instigator"];
+params ["_points", "_killer", "_killed", "_insti"];
 
-if (isNull _instigator) then {_instigator = UAVControl vehicle _killer select 0};
-if (!isNull _instigator) then {_killer = _instigator};
+if (isNull _insti) then {_insti = UAVControl vehicle _killer # 0};
+if (!isNull _insti) then {_killer = _insti};
 
 if (d_with_ace && {isNull _killer}) then {
 	_killer = _killed getVariable ["ace_medical_lastDamageSource", _killer];
@@ -24,7 +24,11 @@ private _endpoints = if (isNull objectParent _killer) then {
 	if (!d_with_ace) then {
 		_killer addScore round ((_points # 0) / 5);
 	} else {
-		[_killer, round ((_points # 0) / 5)] remoteExecCall ["addScore", 2];
+		if (isServer) then {
+			_killer addScore (round ((_points # 0) / 5));
+		} else {
+			[_killer, round ((_points # 0) / 5), player] remoteExecCall ["d_fnc_asfnc", 2];
+		};
 	};
 	((_points # 0) * _coef)
 } else {

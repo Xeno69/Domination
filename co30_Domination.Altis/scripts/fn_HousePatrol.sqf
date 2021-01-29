@@ -85,7 +85,7 @@ private _name = vehicleVarName _unit;
 
 if (isNil "_name") then {
 	private _position = getPos _unit;
-	_name = format ["Guard x%1y%2", floor (_position select 0), floor (_position select 1)];
+	_name = format ["Guard x%1y%2", floor (_position # 0), floor (_position # 1)];
 };
 #endif
 

@@ -90,7 +90,7 @@ while {true} do {
 		
 		if (!alive _unit) exitWith {};
 		
-		_nearestTargetPlayer = _playersSortedByDistance select 0;
+		_nearestTargetPlayer = _playersSortedByDistance # 0;
 
 		if (_pursueRadius > 0 && {_nearestTargetPlayer distance2D _unit < _pursueRadius}) then {
 			//unit is eligible for a move order

@@ -24,7 +24,7 @@ private _vec = objNull;
 	if (isNull _vec) then {
 		private _nnextpos = _poss findEmptyPosition [0, 70, _x];
 		__TRACE_1("null vec","_nnextpos")
-		if !(_nnextpos isEqualTo []) then {_poss = _nnextpos};
+		if (_nnextpos isNotEqualTo []) then {_poss = _nnextpos};
 	} else {
 		private _nnextpos = [];
 		private _maxdist = 100;
@@ -36,7 +36,7 @@ private _vec = objNull;
 			sleep 0.1;
 		};
 		__TRACE_1("vec ok","_nnextpos")
-		if !(_nnextpos isEqualTo []) then {_poss = _nnextpos};
+		if (_nnextpos isNotEqualTo []) then {_poss = _nnextpos};
 	};
 	_vec = createVehicle [_x, _poss, [], 0, "NONE"];
 	_vec allowDamage false;
@@ -54,7 +54,7 @@ private _vec = objNull;
 	};
 	_vecs pushBack _vec;
 	d_x_sm_vec_rem_ar pushBack _vec;
-	_vec addEventHandler ["handleDamage", {_this call d_fnc_CheckSMShotHD}];
+	_vec addEventHandler ["handleDamage", {call d_fnc_CheckSMShotHD}];
 	d_x_sm_vec_rem_ar pushBack _vec;
 	if (_camo) then {
 		sleep 0.25;
@@ -67,7 +67,7 @@ private _vec = objNull;
 			sleep 5; _this allowDamage true;
 		};
 		d_x_sm_vec_rem_ar pushBack _camonet;
-		_camonet addEventhandler ["killed", {deleteVehicle (param [0])}];
+		_camonet addEventhandler ["killed", {deleteVehicle (_this # 0)}];
 	};
 	sleep 1;
 } forEach _usevecs;

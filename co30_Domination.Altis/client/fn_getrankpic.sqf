@@ -10,19 +10,19 @@ if (isNil "_xm") then {
 		private _r = _this getVariable "d_player_old_rank";
 		if (!isNil "_r") then {
 			if (_r <= 6) exitWith {
-				_c = [getText(configFile>>"CfgRanks">>str _r>>"texture"), 0.4];
+				_c = [d_i_r_hash get _r, 0.4];
 			};
 			private _s = score _this;
 			if (_r > 6 && {_s > d_points_needed_17}) exitWith {
-				_c = [getMissionPath "pics\8star.paa", 0.7];
+				_c = [d_i_r_hash get 8, 0.7];
 			};
 			if (_r > 6 && {_s > d_points_needed_16}) exitWith {
-				_c = [getMissionPath "pics\6star.paa", 0.7];
+				_c = [d_i_r_hash get 9, 0.7];
 			};
 			if (_r > 6 && {_s > d_points_needed_15}) exitWith {
-				_c = [getMissionPath "pics\5star.paa", 0.7];
+				_c = [d_i_r_hash get 10, 0.7];
 			};
-			_c = [getText(configFile>>"CfgRanks">>str _r>>"texture"), 0.4];
+			_c = [d_i_r_hash get _r, 0.4];
 		} else {
 			_c = [getText(configFile>>"CfgRanks">>str ((rank _this) call d_fnc_getrankindex)>>"texture"), 0.4];
 		};
@@ -41,7 +41,7 @@ if (isNil "_xm") then {
 } else {
 	private _r = _this getVariable "d_8star";
 	if (isNil "_r") then {
-		_r = [getMissionPath "pics\8star.paa", 0.7];
+		_r = [d_i_r_hash get 11, 0.7];
 		_this setVariable ["d_8star", _r];
 	};
 	_r
