@@ -76,16 +76,16 @@ if (d_with_dynsim == 0) then {
 sleep 2.333;
 
 // create 3 enemy guards with unusual hat/bandanna to help players identify them
-private _hat_type = selectRandom ["H_Cap_red", "H_Cap_blu", "H_Cap_grn"];
-private _bandanna_type = selectRandom ["G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator"];
-private _enemyGuardGroup = ["specops", 1, "allmen", 0, _nposss , 5, false, true, 3] call d_fnc_CreateInf select 0;
+private _hat_type = selectRandom ["H_Cap_red", "H_Shemag_olive_hs", "H_Bandanna_surfer"];
+private _enemyGuardGroup = ["specops", 0, "allmen", 1, _nposss , 5, false, true, 3] call d_fnc_CreateInf select 0;
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
 	_x unlinkItem (hmd _x); //remove nvgs
 	removeHeadgear _x;
 	_x addHeadgear _hat_type;
-	_x addGoggles _bandanna_type;
+	_x removeWeapon (secondaryWeapon _x); //remove launcher
+	removeBackpack _x;
 	_allActors pushBack _x;
 	_x_mt_event_ar pushBack _x;
 } forEach (units _enemyGuardGroup);
@@ -109,37 +109,45 @@ private _unitsNotGarrisoned = [];
 
 private _all_dead = false;
 private _isExecutePrisoners = false;
-                                             
-while {sleep 1; !d_mt_done} do {
+private _is_rescued = false;
+
+while {sleep 1; !d_mt_done; !_is_rescued} do {
 
 	if (!alive _pilot1) exitWith { _all_dead = true };
 	
-	private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-	if (_nobjs isNotEqualTo []) exitWith {
-		__TRACE("rescued _pilot1")
-		deleteVehicle _pilot1;
-		// todo announce player
-	};
-	
-	if ((units _enemyGuardGroup) findIf {(damage _x) > 0.05} != -1) then {
-		//a unit in enemyGuardGroup was wounded, soon guards will shoot prisoner and a bomb will explode
-		_pilot1 setCaptive false;
-		// brief delay until the guards attempt to execute the prisoner
-		sleep 2;
-		{	
-			//todo - play a sound?
-			_x forceSpeed -1;
-		} forEach (units _enemyGuardGroup);
-		// another brief delay, players must kill all guards or an explosion will occur
-		sleep 5;
-		if (({alive _x} count units _enemyGuardGroup) > 0) then {
-			// not all of the guards were killed so a suicide bomb is triggered
-			_bomb_type = "Rocket_04_HE_F"; //TODO: bigger??
-			_bomb = _bomb_type createVehicle [0,0,5000];
-			_bomb setPosASL eyePos _pilot1;
+	if (({alive _x} count units _enemyGuardGroup) > 0) then {
+		if ((units _enemyGuardGroup) findIf {(damage _x) > 0.05} != -1) then {
+			// a unit in enemyGuardGroup was wounded, soon guards will shoot prisoner and a bomb will explode
+			// brief delay until the guards are free to move and attempt to execute the prisoner
+			sleep 3;
+			_pilot1 setCaptive false;
+			{	
+				//todo - play a sound?
+				_x forceSpeed -1;
+			} forEach (units _enemyGuardGroup);
+			// another brief delay, players must kill all guards or an explosion will occur
+			sleep 5;
+			if (({alive _x} count units _enemyGuardGroup) > 0) then {
+				// not all of the guards were killed so a suicide bomb is triggered
+				_bomb_type = "Rocket_04_HE_F"; //TODO: bigger??
+				_bomb = _bomb_type createVehicle [0,0,5000];
+				_bomb setPosASL eyePos _pilot1;
+				// inform the players of the failure
+				sleep 7;
+				d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateFail",d_kbtel_chan];
+			};
+		};
+	} else {
+		// all enemy guards have been killed, pilot can now be "rescued" if players are near
+		private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+		if (_nobjs isNotEqualTo []) exitWith {
+			__TRACE("rescued _pilot1")
+			_is_rescued = true;
+			_pilot1 setDamage 0;
 			sleep 7;
-			d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateFail",d_kbtel_chan];
-        };
+			deleteVehicle _pilot1;
+			// todo announce player
+		};
 	};
 	
 	sleep 3.14;
