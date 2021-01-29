@@ -109,7 +109,7 @@ while {true} do {
 				_vec allowCrewInImmobile true;
 				_uavgrp deleteGroupWhenEmpty true;
 				[_vec, 7] call d_fnc_setekmode;
-				if (isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")) then {
+				if (d_pylon_lodout == 0 && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")}) then {
 					_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 				};	
 			} else {

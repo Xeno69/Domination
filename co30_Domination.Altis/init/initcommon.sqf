@@ -75,6 +75,10 @@ if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 	d_sub_kill_points = d_sub_kill_points * -1;
 };
 
+if (d_with_ace) then {
+	d_pylon_lodout = 0;
+};
+
 if (isServer) then {
 	skipTime d_TimeOfDay;
 
