@@ -12,8 +12,9 @@ if (!isNil "_trig") then {
 if (!d_mt_done) then {
 	d_num_barracks_objs = d_num_barracks_objs - 1;
 	d_groups_respawn_time_add = d_groups_respawn_time_add + 30 + (random 10);
-	if ({alive _x} count d_mt_barracks_obj_ar != d_num_barracks_objs) then {
-		d_num_barracks_objs = {alive _x} count d_mt_barracks_obj_ar;
+	private _numob = {alive _x} count d_mt_barracks_obj_ar;
+	if (_numob != d_num_barracks_objs) then {
+		d_num_barracks_objs = _numob;
 	};
 	publicVariable "d_num_barracks_objs";
 	__TRACE_1("","d_num_barracks_objs")
@@ -64,18 +65,25 @@ if (!d_mt_done) then {
 };
 
 if ((typeOf _obj) == d_barracks_building) then {
-	private _epos = _obj getVariable "d_v_pos";
-	private _edir = getDir _obj;
-	private _vup = vectorUp _obj;
-	deleteVehicle _obj;
-	_obj = createVehicle ["Land_Slum_House02_ruins_F", _epos, [], 0, "NONE"];
-	_obj setDir _edir;
-	_obj setPos _epos;
-	_obj setVectorUp _vup;
-};
-_obj spawn {
-	scriptName "spawn checkmtrespawntarget1";
-	sleep (10 + random 10);
-	_this setDamage 0;
-	deleteVehicle _this;
+	_obj spawn {
+		scriptName "spawn checkmtrestkilled0 1";
+		private _epos = _this getVariable "d_v_pos";
+		private _edir = getDir _this;
+		private _vup = vectorUp _this;
+		deleteVehicle _this;
+		private _obj = createVehicle ["Land_Slum_House02_ruins_F", _epos, [], 0, "NONE"];
+		_obj setDir _edir;
+		_obj setPos _epos;
+		_obj setVectorUp _vup;
+		sleep (10 + random 10);
+		_obj setDamage 0;
+		deleteVehicle _obj;
+	};
+} else {
+	_obj spawn {
+		scriptName "spawn checkmtrestkilled0 2";
+		sleep (10 + random 10);
+		_this setDamage 0;
+		deleteVehicle _this;
+	};
 };
