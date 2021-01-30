@@ -14,7 +14,7 @@ if (!alive _obj) exitWith {
 _mm = toLowerANSI(getText(configFile>>"CfgAmmo">>(_this # 4)>>"simulation"));
 __TRACE_1("","_mm")
 #endif
-private _r = if (d_MTTowerSatchelsOnly == 1 || {(_this # 4) call d_fnc_checksimminet}) then {
+private _r = if ((_this # 4) call d_fnc_checksimminet) then {
 	_this # 2
 } else {
 	0

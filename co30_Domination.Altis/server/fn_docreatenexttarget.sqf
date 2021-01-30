@@ -5,8 +5,7 @@
 
 __TRACE("docreatenexttarget start")
 
-d_mtmissionobj = objNull;
-d_mtmissionobj2 = objNull;
+d_mtmissionobjs = [];
 d_mt_done = false;
 if (isNil "d_sum_camps") then {d_sum_camps = -91};
 

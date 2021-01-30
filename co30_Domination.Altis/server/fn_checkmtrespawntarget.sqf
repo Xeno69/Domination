@@ -12,4 +12,6 @@ if (_type == 0) then {
 } else {
 	_vec addEventHandler ["killed", {call d_fnc_mtrestkilled1}];
 };
-_vec addEventHandler ["handleDamage", {call d_fnc_CheckMTShotHD}];
+if (d_MTTowerSatchelsOnly == 0) then {
+	_vec addEventHandler ["handleDamage", {call d_fnc_CheckMTShotHD}];
+};
