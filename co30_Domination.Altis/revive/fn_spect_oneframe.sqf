@@ -58,22 +58,40 @@ if (time > xr_spect_timer) then {
 	__TRACE_1("","xr_spect_timer")
 	if (!xr_pl_no_lifes) then {
 		if (xr_x_withresp) then {
-			private _pic = getText ((configOf player)>>"icon");
-			if (_pic != "") then {
-				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
+			private _pic = player getVariable "d_p_icon";
+			if (isNil "_pic") then {
+				_pic = getText ((configOf player)>>"icon");
+				if (_pic != "") then {
+					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
+				};
+				if (_pic == "") then {
+					_pic = "#(argb,8,8,3)color(1,1,1,0)";
+				};
+				player setVariable ["d_p_icon", _pic];
 			};
-			_helperls pushBack [-100, xr_name_player, getPlayerUID player, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [0, 1, 0, 0.9]];
+			_helperls pushBack [-100, xr_name_player, getPlayerUID player, _pic, [0, 1, 0, 0.9]];
 		};
 		
 		private _vecp = vehicle player;
-		private ["_dist", "_pic"];
+		private ["_dist", "_pic", "_n"];
 		{
 			_dist = (vehicle _x) distance2D _vecp;
-			_pic = getText ((configOf _x)>>"icon");
-			if (_pic != "") then {
-				_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
+			_pic = _x getVariable "d_p_icon";
+			if (isNil "_pic") then {
+				_pic = getText ((configOf _x)>>"icon");
+				if (_pic != "") then {
+					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
+				};
+				if (_pic == "") then {
+					_pic = "#(argb,8,8,3)color(1,1,1,0)";
+				};
+				_x setVariable ["d_p_icon", _pic];
 			};
-			_helperls pushBack [_dist, format ["%3 (%1 m) %2", round _dist, ["", " (Uncon)"] select (_x getVariable ["xr_pluncon", false]), _x call _fnc_gpln], getPlayerUID _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
+			_n = format ["%2 (%1 m)", round _dist, _x call _fnc_gpln];
+			if (_x getVariable ["xr_pluncon", false]) then {
+				_n = _n + " (Uncon)";
+			};
+			_helperls pushBack [_dist, _n, getPlayerUID _x, _pic, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player)];
 		} forEach (d_allplayers select {_x != player});
 	} else {
 		private _sfm = markerPos "xr_playerparkmarker";
@@ -81,11 +99,18 @@ if (time > xr_spect_timer) then {
 		{
 			_distup = _x distance2D _sfm;
 			if (_distup > 100) then {
-				_pic = getText ((configOf _x)>>"icon");
-				if (_pic != "") then {
-					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
+				_pic = _x getVariable "d_p_icon";
+				if (isNil "_pic") then {
+					_pic = getText ((configOf _x)>>"icon");
+					if (_pic != "") then {
+						_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
+					};
+					if (_pic == "") then {
+						_pic = "#(argb,8,8,3)color(1,1,1,0)";
+					};
+					_x setVariable ["d_p_icon", _pic];
 				};
-				_helperls pushBack [_distup, _x call _fnc_gpln, getPlayerUID _x, [_pic, "#(argb,8,8,3)color(1,1,1,0)"] select (_pic == ""), [1, 1, 1, 0.8]];
+				_helperls pushBack [_distup, _x call _fnc_gpln, getPlayerUID _x, _pic, [1, 1, 1, 0.8]];
 			};
 		} forEach (d_allplayers select {_x != player});
 	};

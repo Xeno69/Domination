@@ -424,7 +424,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 
 						sleep 8;
 					};
-					waitUntil {scriptDone _scrollIn || {!isNil "BIS_fnc_establishingShot_skip"} || {player getVariable ["xr_pluncon", false]} || {!alive player}};
+					waitUntil {scriptDone _scrollIn || {!isNil "BIS_fnc_establishingShot_skip"} || {player getVariable "xr_pluncon"} || {!alive player}};
 					*/
 					// Display SITREP
 					BIS_fnc_establishingShot_SITREP = [
