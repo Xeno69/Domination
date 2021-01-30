@@ -2,7 +2,6 @@
 //#define __DEBUG__
 #define THIS_FILE "fn_playerdisconnected.sqf"
 #include "..\x_setup.sqf"
-if (!isServer) exitWith{};
 
 diag_log ["DOM playerdisconnected: _this", _this];
 

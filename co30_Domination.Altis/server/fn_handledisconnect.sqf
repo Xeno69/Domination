@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #define THIS_FILE "fn_handledisconnect.sqf"
 #include "..\x_setup.sqf"
-if (!isServer) exitWith{};
+
 params ["_unit", "", "_uid", "_name"];
 
 __TRACE_1("","_this")
@@ -52,7 +52,7 @@ if (_pa isNotEqualTo []) then {
 		_pa set [10, ""];
 	};
 	__TRACE("Calling markercheck")
-	[_uid] spawn d_fnc_markercheck;
+	[_uid, getPlayerID _unit] spawn d_fnc_markercheck;
 	
 	private _jar = _unit getVariable "d_jailar";
 	__TRACE_1("","_jar")

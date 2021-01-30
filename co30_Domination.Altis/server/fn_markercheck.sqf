@@ -2,9 +2,8 @@
 //#define __DEBUG__
 #define THIS_FILE "fn_markercheck.sqf"
 #include "..\x_setup.sqf"
-if (!isServer) exitWith {};
 
-params ["_uid"];
+params ["_uid", "_id"];
 
 __TRACE_1("","_uid")
 
@@ -77,3 +76,9 @@ if (_val isNotEqualTo []) then {
 	} forEach (_val select {!isNull _x});
 	d_placed_objs_hash4 deleteAt _uid;
 };
+
+private _searchfor = "_USER_DEFINED #" + _id + "/";
+{
+	deleteMarker _x;
+	sleep 0.01;
+} forEach (allMapMarkers select {_x find _searchfor > -1});
