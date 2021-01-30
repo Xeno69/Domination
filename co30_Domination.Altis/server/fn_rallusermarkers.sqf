@@ -5,4 +5,4 @@
 
 {
 	deleteMarker _x;
-} forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
+} forEach (allMapMarkers select {_x find "_USER_DEFINED #" > -1});

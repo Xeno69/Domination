@@ -37,7 +37,7 @@ private _mmarkers = [];
 		};
 	};
 	sleep 0.01;
-} forEach (allMapMarkers select {_x select [0, 15] == "_USER_DEFINED #"});
+} forEach (allMapMarkers select {_x find "_USER_DEFINED #" > -1});
 __TRACE_1("","_musers")
 __TRACE_1("","_mmarkers")
 if (_musers isNotEqualTo []) then {
