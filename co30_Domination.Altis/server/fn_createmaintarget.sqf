@@ -311,6 +311,16 @@ _vec setVariable ["d_v_pos", getPos _vec];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
+[
+	getPos _vec,
+	2,		//unit count
+	8,		//fillRadius
+	true,	//fillRoof
+	false,	//fillEvenly
+	true,	//fillTopDown
+	false,	//disableTeleport
+	2		//unitMovementMode
+] call _garrisonUnits;
 sleep 0.1;
 
 #ifndef __TT__

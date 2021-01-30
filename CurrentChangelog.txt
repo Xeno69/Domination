@@ -22,6 +22,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden
 - Changed: SAT View removed from MHQs in the TT version (enemy could spott opponent MHQ too easily)
 - Changed: Removed the marker tiles at main targets in the TT version, back to solid filled circle again
 - Changed: If ACE is used the mission pylon loadout dialog is disabled and you have to use the ACE pylon dialog (razorclam wanted it so blame him for it :)
+- Changed: Enemy mobile HQs are now spawned with snipers on the roof
 - Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
 - Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
 - Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer

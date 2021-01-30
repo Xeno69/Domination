@@ -124,7 +124,7 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_
 	};
 	
 	//advanced awareness
-	if (["Sniper", groupId(_grp)] call BIS_fnc_inString) then {
+	if (["Sniper", groupId _grp] call BIS_fnc_inString) then {
 		{
 			[_x, _sideToEngage, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 		} forEach units _grp;
