@@ -73,6 +73,7 @@ d_vrespawn2_ar = [];
 		if (_vec isKindOf "Boat_F" || {_vec isKindOf "Boat"}) then {
 			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 		};
+		_vec setDamage 0;
 	};
 } forEach _this;
 

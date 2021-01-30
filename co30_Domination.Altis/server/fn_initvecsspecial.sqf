@@ -56,4 +56,5 @@ if (!isServer) exitWith{};
 	if !(_vec isKindOf "Air") then {
 		_vec setVariable ["d_liftit", true, true];
 	};
+	_vec setDamage 0;
 } forEach _this;

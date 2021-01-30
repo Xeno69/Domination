@@ -34,15 +34,15 @@ private _cache = objNull;
 while {!_created} do {
     private _idx = floor random count _houseArray;
 	__TRACE_2("","floor random count _houseArray","_idx")
-	private _house = _houseArray select _idx;
+	private _house = _houseArray # _idx;
 	if (!isNil "_house" && {!isNull _house}) then {
 		__TRACE_1("","_house")
 		private	_pos = [_house] call bis_fnc_buildingPositions;
 		_houseArray deleteAt _idx;
 		__TRACE_1("","_pos")
 		if (_pos isNotEqualTo []) then {
-			_pos = _pos select floor random count _pos;
-			_pos set [2, (_pos select 2) + 0.3];
+			_pos = _pos # (floor random count _pos);
+			_pos set [2, (_pos # 2) + 0.3];
 			__TRACE_1("","_pos")
 			_cache = createVehicle [selectRandom d_sm_cache, _pos, [], 0, "NONE"];
 			_cache setPos _pos;
@@ -74,13 +74,13 @@ private _num_mines = (floor (random 15)) max 10;
 
 for "_i" from 0 to (_num_mines - 1) do {
 	private _idx = floor random count _houseArray;
-	private _house = _houseArray select _idx;
+	private _house = _houseArray # _idx;
 	if (!isNil "_house" && {!isNull _house}) then {
 		private	_pos_b = [_house] call bis_fnc_buildingPositions;
 		_houseArray deleteAt _idx;
 		if (_pos_b isNotEqualTo []) then {
-			_pos_b = _pos_b select floor random count _pos_b;
-			_pos_b set [2,(_pos_b select 2) + 0.01];
+			_pos_b = _pos_b # (floor random count _pos_b);
+			_pos_b set [2,(_pos_b # 2) + 0.01];
 			private _mine = createMine [selectRandom ["APERSBoundingMine", "APERSTripMine", "APERSMine"], _pos_b, [], 0];
 			d_side_enemy revealMine _mine;
 			d_x_sm_vec_rem_ar pushBack _mine;
