@@ -93,7 +93,7 @@ private _checkBlacklist = _posBlacklist isNotEqualTo [];
 _shoreMode = _shoreMode != 0;
 
 if (_checkBlacklist) then {
-	_posBlacklist = _posBlacklist apply {
+	/*_posBlacklist = _posBlacklist apply {
 		// top-left, bottom-right coordinates 
 		if (_x isEqualTypeParams [[],[]]) then {
 			_x # 0 params [["_x0", 0], ["_y0", 0]];
@@ -105,7 +105,7 @@ if (_checkBlacklist) then {
 			// other area compatible formats
 			_x call BIS_fnc_getArea
 		};
-	};
+	};*/
 };
 
 private _off = (_minDistance / _maxDistance) ^ 2;
@@ -124,7 +124,7 @@ for "_i" from 1 to MAX_TRIES do {
 		if (lineIntersectsSurfaces [AGLtoASL _this, AGLtoASL _this vectorAdd [0, 0, 50], objNull, objNull, false, 1, "GEOM", "NONE"] isNotEqualTo []) exitWith {};
 		
 		// not in blacklist
-		if (_checkBlacklist && {{if (_this inArea _x) exitWith {true}; false} forEach _posBlacklist}) exitWith {};
+		if (_checkBlacklist && {_posBlacklist findIf {_this inArea _x} > -1}) exitWith {};
 		
 		if (_checkroad && {isOnRoad _this || {count (_this nearRoads _objectProximity) > 0}}) exitWith {};
 

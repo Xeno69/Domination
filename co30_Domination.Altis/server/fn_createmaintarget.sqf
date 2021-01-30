@@ -203,7 +203,11 @@ d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 
-private _parray = [_trg_center, d_cur_target_radius + 150, 11, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+private _parray = [_trg_center, d_cur_target_radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
+if (count _parray < 8) then {
+	diag_log "DOM Createmaintarget: Couldn't find enough positions with minimum distance 11m from next object, trying again without check!";
+	_parray = [_trg_center, d_cur_target_radius + 150, 8, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+};
 
 __TRACE_1("","_parray")
 
@@ -292,6 +296,7 @@ if (_allbars isNotEqualTo []) then {
 		};
 	};
 };
+_parray deleteAt _idx;
 _poss set [2, 0];
 _vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
 __TRACE_1("d_vehicle_building","_vec")
@@ -321,10 +326,8 @@ if (d_enable_civs == 1) then {
 [str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 
-private _wp_array_inf = [_trg_center, _radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
-private _wp_array_vecs = [_trg_center, _radius, 0, 2] call d_fnc_getwparray;
-private _wp_array_pat_inf = [_trg_center, _patrol_radius, 0, 0, 0.7, 2] call d_fnc_getwparray;
-private _wp_array_pat_vecs = [_trg_center, _patrol_radius, 0, 2] call d_fnc_getwparray;
+private _wp_array_inf = [_trg_center, _radius + 50, 0, 0, 0.7, true] call d_fnc_getwparray;
+private _wp_array_vecs = [_trg_center, _radius + 50, 0, 2, 0.7, true] call d_fnc_getwparray;
 
 sleep 0.112;
 
@@ -339,28 +342,33 @@ private _fnc_dospawnr = {
 private _comppost = [];
 {
 	if ((_x # 0) call _fnc_dospawnr) then {
-		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
-			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			private _ppos = _curar # _wp_ran;
+			private _ppos = [];
 			private _iscompost = false;
 			if (!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}) then {
-				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 12, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				if (_nppos isNotEqualTo []) then {
-					_ppos = _nppos;
-					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
-						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
+				_idx = floor random (count _parray);
+				_nppos = _parray # _idx;
+				_ppos = _nppos;
+				if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
+					d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
 #ifdef __DEBUG__
-						[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+					[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
-						_comppost pushBack _ppos;
-						_iscompost = true;
-						sleep 0.2;
-					};
+					_comppost pushBack _ppos;
+					_iscompost = true;
+					_parray deleteAt _idx;
+					sleep 0.2;
+				} else {
+					_ppos = [];
 				};
 			};
+			if (_ppos isEqualTo []) then {
+				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+				private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+				_ppos = _curar # _wp_ran;
+				_curar deleteAt _wp_ran;
+			};
 			[_x # 0, [_ppos], _trg_center, _x # 1, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
-			_curar deleteAt _wp_ran;
 			sleep 0.2;
 		};
 	};
@@ -370,28 +378,33 @@ sleep 0.233;
 
 {
 	if ((_x # 0) call _fnc_dospawnr) then {
-		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
-			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
-			private _ppos = _curar # _wp_ran;
+			private _ppos = [];
 			private _iscompost = false;
-			if (!isNil "d_compositions" && {(_x # 0) in ["allmen", "specops"]}) then {
-				private _nppos = [_trg_center, 0, d_cur_target_radius + 100, 8, 0, 0.7, 0, [], [], true] call d_fnc_findSafePos;
-				if (_nppos isNotEqualTo []) then {
-					_ppos = _nppos;
-					if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
-						d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
+			if (!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}) then {
+				_idx = floor random (count _parray);
+				_nppos = _parray # _idx;
+				_ppos = _nppos;
+				if (_comppost findIf {_x distance2D _ppos < 30} == -1) then {
+					d_delvecsmt append ([_ppos, random 360, selectRandom d_compositions] call d_fnc_objectsMapper);
 #ifdef __DEBUG__
-						[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+					[str _ppos, _ppos, "ICON", "ColorBlack", [0.5, 0.5], "Mapper", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
-						_comppost pushBack _ppos;
-						_iscompost = true;
-						sleep 0.2;
-					};
+					_comppost pushBack _ppos;
+					_iscompost = true;
+					_parray deleteAt _idx;
+					sleep 0.2;
+				} else {
+					_ppos = [];
 				};
 			};
+			if (_ppos isEqualTo []) then {
+				private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
+				private _wp_ran = (count _curar) call d_fnc_RandomFloor;
+				_ppos = _curar # _wp_ran;
+				_curar deleteAt _wp_ran;
+			};
 			[_x # 0, [_ppos], _trg_center, _x # 1, "guardstatic", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _radius], !_iscompost] call d_fnc_makegroup;
-			_curar deleteAt _wp_ran;
 			sleep 0.2;
 		};
 	};
@@ -409,7 +422,7 @@ sleep 0.233;
 {
 	__TRACE_1("patrol","_x")
 	if ((_x # 0) call _fnc_dospawnr) then {
-		private _curar = [_wp_array_pat_vecs, _wp_array_pat_inf] select (_x # 1 == 0);
+		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		for "_xxx" from 1 to (_x # 2) do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
 			[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
