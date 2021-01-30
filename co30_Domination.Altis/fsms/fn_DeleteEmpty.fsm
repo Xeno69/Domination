@@ -7,7 +7,7 @@ item2[] = {"End",1,4346,-34.630585,-38.744061,55.369446,11.255931,0.000000,"End"
 link0[] = {0,1};
 link1[] = {1,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,6,6316128,1,-302.111694,319.264893,218.814743,-311.019775,748,768,1};
-window[] = {0,-1,-1,-1,-1,1018,78,1666,78,1,766};
+window[] = {0,-1,-1,-1,-1,1044,104,1692,104,1,766};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -23,8 +23,8 @@ class FSM
                          "" \n
                          "private _delpos =+ _tpos;" \n
                          "" \n
-                         "private _mtmissionobj = d_mtmissionobj;" \n
-                         "private _mtmissionobj2 = d_mtmissionobj2;" \n
+                         "private _mtmissionobjs =+ d_mtmissionobjs;" \n
+                         "d_mtmissionobjs = [];" \n
                          "" \n
                          "private _delvecsmt =+ d_delvecsmt;" \n
                          "d_delvecsmt = [];" \n
@@ -74,8 +74,6 @@ class FSM
                          "	} forEach _no;" \n
                          "};" \n
                          "" \n
-                         "_no = nil;" \n
-                         "" \n
                          "if (_delfirebase_objects isNotEqualTo []) then {" \n
                          "	{" \n
                          "		private _d_v_p_mt_t = _x getVariable ""d_v_p_mt_t"";" \n
@@ -93,16 +91,11 @@ class FSM
                          "	deleteVehicle _x;" \n
                          "} forEach _delmines;" \n
                          "" \n
-                         "if (!isNull _mtmissionobj) then {" \n
-                         "	if (_mtmissionobj isKindOf ""House"") then {_mtmissionobj setDamage 0};" \n
-                         "	deleteVehicle _mtmissionobj;" \n
-                         "};" \n
-                         "if (!isNull _mtmissionobj2) then {" \n
-                         "	deleteVehicle _mtmissionobj2;" \n
-                         "};" \n
-                         "" \n
-                         "_delfirebase_objects = nil;" \n
-                         "_delmines = nil;"/*%FSM</STATEINIT""">*/;
+                         "{" \n
+                         "	if (_x isKindOf ""House"") then {_x setDamage 0};" \n
+                         "	deleteVehicle _x;" \n
+                         "} forEach (_mtmissionobjs select {!isNull _x});" \n
+                         ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
