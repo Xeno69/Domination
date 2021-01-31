@@ -44,7 +44,7 @@ if (_pa isNotEqualTo []) then {
 		_pa set [9, [(_pa # 9) # 0, time]];
 	};
 #endif
-	deleteMarker format ["xr_dead_%1", _uid];
+	deleteMarker format ["xr_dead_%1", getPlayerID _unit];
 	private _amark = _pa # 10;
 	__TRACE_1("","_amark")
 	if (_amark != "") then {
@@ -70,23 +70,7 @@ if (_pa isNotEqualTo []) then {
 	__TRACE_1("player store after change","_pa")
 };
 
-private _jipid = _unit getVariable "xr_dml_jip_id";
-__TRACE_1("","_jipid")
-if (!isNil "_jipid") then {
-	remoteExecCall ["", _jipid];
-};
-
-_jipid = _unit getVariable "d_dropz_jip_id";
-__TRACE_1("","_jipid")
-if (!isNil "_jipid") then {
-	remoteExecCall ["", _jipid];
-};
-
-_jipid = _unit getVariable "d_artmark_jip_id";
-__TRACE_1("","_jipid")
-if (!isNil "_jipid") then {
-	remoteExecCall ["", _jipid];
-};
+remoteExecCall ["", _unit];
 
 private _ar = _unit getVariable ["d_all_p_vecs_s", []];
 __TRACE_1("","_ar")
