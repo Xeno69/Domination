@@ -6,9 +6,10 @@
 private _ar = _this splitString "_";
 __TRACE_1("_ar 1","_ar")
 
-private "_i";
+private ["_i", "_s"];
 {
-	_i = _ar find _x;
+	_s = _x;
+	_i = _ar findIf {_x == _s};
 	if (_i > -1) then {
 		_ar deleteAt _i;
 	};

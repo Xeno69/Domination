@@ -14,7 +14,9 @@ if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 	_unit unlinkItem _item;
 };
 
-if (!d_with_ranked || {d_no_ranked_weapons}) exitWith {};
+if (!d_with_ranked || {d_no_ranked_weapons}) exitWith {
+	call d_fnc_pcheck;
+};
 
 _item = toLowerANSI _item;
 
