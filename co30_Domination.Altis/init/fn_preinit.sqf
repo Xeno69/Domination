@@ -2628,6 +2628,7 @@ if (hasInterface) then {
 	d_mhqvec_create_cooldown_time = -1;
 	d_scoreadd_qeue = [];
 	d_scoreadd_script = scriptNull;
+	d_weap_hash = createHashMap;
 
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];
 
