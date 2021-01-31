@@ -51,7 +51,7 @@ private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (_p isEqualTo []) then {
-	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0];
+	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0, getPlayerID _pl];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
 	__TRACE_3("Player not found","_uid","_name","_p")
@@ -71,6 +71,7 @@ if (_p isEqualTo []) then {
 	_p set [1, time];
 	_p set [6, _name];
 	_p set [14, 0];
+	_p set [18, getPlayerID _pl];
 #ifdef __TT__
 	if (_sidepl != _p # 5) then {
 		if ((_p # 9) # 1 > 0 && {time - ((_p # 9) # 1) < 1800}) then {

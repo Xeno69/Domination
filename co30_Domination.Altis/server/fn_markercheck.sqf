@@ -5,7 +5,7 @@
 
 params ["_uid", "_id"];
 
-__TRACE_1("","_uid")
+__TRACE_1("","_this")
 
 if (_uid isEqualTo "") exitWith {};
 
@@ -78,6 +78,7 @@ if (_val isNotEqualTo []) then {
 };
 
 private _searchfor = "_USER_DEFINED #" + _id + "/";
+__TRACE_1("","_searchfor")
 {
 	deleteMarker _x;
 	sleep 0.01;

@@ -44,7 +44,7 @@ if (_pa isNotEqualTo []) then {
 		_pa set [9, [(_pa # 9) # 0, time]];
 	};
 #endif
-	deleteMarker format ["xr_dead_%1", getPlayerID _unit];
+	deleteMarker format ["xr_dead_%1", _pa # 18];
 	private _amark = _pa # 10;
 	__TRACE_1("","_amark")
 	if (_amark != "") then {
@@ -52,7 +52,7 @@ if (_pa isNotEqualTo []) then {
 		_pa set [10, ""];
 	};
 	__TRACE("Calling markercheck")
-	[_uid, getPlayerID _unit] spawn d_fnc_markercheck;
+	[_uid, _pa # 18] spawn d_fnc_markercheck;
 	
 	private _jar = _unit getVariable "d_jailar";
 	__TRACE_1("","_jar")
