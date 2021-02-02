@@ -4,22 +4,22 @@ http://creativecommons.org/licenses/by-nc-nd/4.0/
 
 You are free to:
 
-Share ó copy and redistribute the material in any medium or format
+Share ?copy and redistribute the material in any medium or format
 
 The licensor cannot revoke these freedoms as long as you follow the license terms.
 
 
 Under the following terms:
 
-Attribution ó You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner,
+Attribution ?You must give appropriate credit, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner,
 but not in any way that suggests the licensor endorses you or your use.
 
-NonCommercial ó You may not use the material for commercial purposes.
+NonCommercial ?You may not use the material for commercial purposes.
 
-NoDerivatives ó If you remix, transform, or build upon the material, you may not distribute the modified material.
+NoDerivatives ?If you remix, transform, or build upon the material, you may not distribute the modified material.
 
 
-No additional restrictions ó You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+No additional restrictions ?You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
 ##################################################################################################################
 
@@ -31,7 +31,7 @@ To the extent this Public License may be interpreted as a contract, You are gran
 of these terms and conditions, and the Licensor grants You such rights in consideration of benefits the Licensor receives from making the
 Licensed Material available under these terms and conditions.
 
-Section 1 ñ Definitions.
+Section 1 ?Definitions.
 
 a. Adapted Material means material subject to Copyright and Similar Rights that is derived from or based upon the Licensed Material and in which the Licensed Material
    is translated, altered, arranged, transformed, or otherwise modified in a manner requiring permission under the Copyright and Similar Rights held by the Licensor.
@@ -59,7 +59,7 @@ j. Sui Generis Database Rights means rights other than copyright resulting from 
 k. You means the individual or entity exercising the Licensed Rights under this Public License. Your has a corresponding meaning.
 
 
-Section 2 ñ Scope.
+Section 2 ?Scope.
 
 a. License grant.
 	1.	Subject to the terms and conditions of this Public License, the Licensor hereby grants You a worldwide, royalty-free, non-sublicensable, non-exclusive,
@@ -75,7 +75,7 @@ a. License grant.
 		circumvent Effective Technological Measures. For purposes of this Public License, simply making modifications authorized by this Section 2(a)(4) never
 		produces Adapted Material.
 	5.	Downstream recipients.
-		A.	Offer from the Licensor ñ Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise
+		A.	Offer from the Licensor ?Licensed Material. Every recipient of the Licensed Material automatically receives an offer from the Licensor to exercise
 			the Licensed Rights under the terms and conditions of this Public License.
 		B.	No downstream restrictions. You may not offer or impose any additional or different terms or conditions on, or apply any Effective Technological Measures
 			to, the Licensed Material if doing so restricts exercise of the Licensed Rights by any recipient of the Licensed Material.
@@ -95,7 +95,7 @@ b. Other rights.
 		collect such royalties, including when the Licensed Material is used other than for NonCommercial purposes.
 
 	
-Section 3 ñ License Conditions.
+Section 3 ?License Conditions.
 
 Your exercise of the Licensed Rights is expressly made subject to the following conditions.
 
@@ -120,7 +120,7 @@ a.	Attribution.
 	3.	If requested by the Licensor, You must remove any of the information required by Section 3(a)(1)(A) to the extent reasonably practicable.
 
 	
-Section 4 ñ Sui Generis Database Rights.
+Section 4 ?Sui Generis Database Rights.
 
 Where the Licensed Rights include Sui Generis Database Rights that apply to Your use of the Licensed Material:
 
@@ -133,7 +133,7 @@ c.	You must comply with the conditions in Section 3(a) if You Share all or a sub
 For the avoidance of doubt, this Section 4 supplements and does not replace Your obligations under this Public License where the Licensed Rights include other Copyright and Similar Rights.
 
 
-Section 5 ñ Disclaimer of Warranties and Limitation of Liability.
+Section 5 ?Disclaimer of Warranties and Limitation of Liability.
 
 a.	Unless otherwise separately undertaken by the Licensor, to the extent possible, the Licensor offers the Licensed Material as-is and as-available, and makes no
 	representations or warranties of any kind concerning the Licensed Material, whether express, implied, statutory, or other. This includes, without limitation,
@@ -147,7 +147,7 @@ c.	The disclaimer of warranties and limitation of liability provided above shall
 	an absolute disclaimer and waiver of all liability.
 
 
-Section 6 ñ Term and Termination.
+Section 6 ?Term and Termination.
 
 a.	This Public License applies for the term of the Copyright and Similar Rights licensed here. However, if You fail to comply with this Public License, then Your rights under this Public License terminate automatically.
 b.	Where Your right to use the Licensed Material has terminated under Section 6(a), it reinstates:
@@ -162,14 +162,14 @@ c.	For the avoidance of doubt, the Licensor may also offer the Licensed Material
 d.	Sections 1, 5, 6, 7, and 8 survive termination of this Public License.
 
 
-Section 7 ñ Other Terms and Conditions.
+Section 7 ?Other Terms and Conditions.
 
 a.	The Licensor shall not be bound by any additional or different terms or conditions communicated by You unless expressly agreed.
 b.	Any arrangements, understandings, or agreements regarding the Licensed Material not stated herein are separate from and independent of the terms and conditions
 	of this Public License.
 
 
-Section 8 ñ Interpretation.
+Section 8 ?Interpretation.
 
 a.	For the avoidance of doubt, this Public License does not, and shall not be interpreted to, reduce, limit, restrict, or impose conditions on any use of the
 	Licensed Material that could lawfully be made without permission under this Public License.
@@ -180,9 +180,9 @@ d.	Nothing in this Public License constitutes or may be interpreted as a limitat
 	or You, including from the legal processes of any jurisdiction or authority.
 
 Creative Commons is not a party to its public licenses. Notwithstanding, Creative Commons may elect to apply one of its public licenses to material it publishes and
-in those instances will be considered the ìLicensor.î Except for the limited purpose of indicating that material is shared under a Creative Commons public license or
+in those instances will be considered the Êèïicensor.?Except for the limited purpose of indicating that material is shared under a Creative Commons public license or
 as otherwise permitted by the Creative Commons policies published at creativecommons.org/policies, Creative Commons does not authorize the use of the trademark
-ìCreative Commonsî or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any
+ÊèÖreative Commons?or any other trademark or logo of Creative Commons without its prior written consent including, without limitation, in connection with any
 unauthorized modifications to any of its public licenses or any other arrangements, understandings, or agreements concerning use of licensed material.
 For the avoidance of doubt, this paragraph does not form part of the public licenses.
 
