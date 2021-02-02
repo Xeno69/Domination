@@ -29,8 +29,8 @@ _vec addEventHandler ["getOut", {call d_fnc_checkhelipilotout}]
 #define __pvecs private _fidx = d_p_vecs findIf {_x select 1 == _d_vec}; if (_fidx > -1) then {_car = d_p_vecs select _fidx}
 
 #define __staticl \
-_vec addAction[format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_256"], {_this spawn d_fnc_load_static}, _d_vec, -1, false, true, "","count (_target getVariable ['d_CARGO_AR', []]) < d_max_truck_cargo"];\
-_vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_257"], {_this spawn d_fnc_unload_static}, _d_vec, -2, false, true, "","isNull objectParent player && {(_target getVariable ['d_CARGO_AR', []]) isNotEqualTo []}"]
+_vec addAction[format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_256"], {_this spawn d_fnc_load_static}, _d_vec, -1, false, true, "","count (_target getVariable ['d_CARGO_AR', []]) < d_max_truck_cargo", 10];\
+_vec addAction[format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_257"], {_this spawn d_fnc_unload_static}, _d_vec, -2, false, true, "","isNull objectParent player && {(_target getVariable ['d_CARGO_AR', []]) isNotEqualTo []}", 10]
 
 #define __addchopm _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_258"], {call d_fnc_vecdialog}, [], -1, false, true, "", "true", 8]
 
