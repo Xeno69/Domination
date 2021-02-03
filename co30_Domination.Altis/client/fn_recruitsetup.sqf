@@ -6,13 +6,13 @@ if (!hasInterface) exitWith {};
 
 player reveal d_AI_HUT;
 
-d_AI_HUT addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_314"], {call d_fnc_recruitaiaction}];
+d_AI_HUT addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_314"], {call d_fnc_recruitaiaction}, -1, 1.5, true, true, "", "true", 10];
 
 if (!isNil "d_additional_recruit_buildings") then {
 	{
 		["d_RecruitB_" + str _forEachIndex, _x, "ICON", "ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 
-		_x addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_314"], {call d_fnc_recruitaiaction}];
+		_x addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_314"], {call d_fnc_recruitaiaction}, -1, 1.5, true, true, "", "true", 10];
 		player reveal _x;
 	} forEach (d_additional_recruit_buildings select {!isNil "_x" && {!isNull _x}});
 };

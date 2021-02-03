@@ -144,6 +144,6 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 		player setVariable ["d_farp_pos", []];
 		["ar", d_player_uid, "d_FARP " + (netId player)] remoteExecCall ["d_fnc_p_o_ar", 2];
 	};
-}];
+}, -1, 1.5, true, true, "", "true", 10];
 
 player setVariable ["d_isinaction", false];
