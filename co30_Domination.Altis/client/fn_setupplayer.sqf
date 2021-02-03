@@ -1223,4 +1223,17 @@ if (isMultiplayer) then {
 
 0 spawn d_fnc_optioncontrol;
 
+if (isMultiplayer && {d_database_found}) then {
+	0 spawn {
+		scriptName "spawn_setupplayer8";
+		waitUntil {!isNull findDisplay 46};
+		findDisplay 46 displayAddEventHandler ["Unload", {
+			if (!isNil "d_movecheck_handle" && {!isNull d_movecheck_handle}) then {
+				terminate d_movecheck_handle;
+			};
+			[player, player getVariable "d_p_distar", d_p_rounds] remoteExecCall ["d_fnc_pdistar", 2];
+		}];
+	};
+};
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];

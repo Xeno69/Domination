@@ -95,5 +95,5 @@ if (d_database_found) then {
 	} else {
 		d_p_rounds = _this # 17;
 	};
-	_p_distar spawn d_fnc_movecheck;
+	d_movecheck_handle = _p_distar spawn d_fnc_movecheck;
 };
