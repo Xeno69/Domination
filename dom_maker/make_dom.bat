@@ -1,6 +1,9 @@
 rem Domination Build Batch, really shitty batch file :D
+rem 批量构建《统治》，真是糟糕的批处理文件 :D
 rem needs makepbo from mikero https://mikero.bytex.digital/Downloads needs makePBO and dePBO
+rem 需要 MakePBO 跟 DePbo 来自 mikero 下载 https://mikero.bytex.digital/Downloads
 rem just copy MakePBO.exe and DePbo.dll in the dom_maker folder
+rem 只需复制 MakePBO.exe和 DePbo.dll 到 dom_maker 文件夹中
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
@@ -16,6 +19,7 @@ md %MASTER%
 xcopy ..\%BASE_MASTER%\*.* %MASTER% /E /Y
 
 rem Blufor Altis
+rem 蓝方 Altis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.altis
 set MISSION_SQM=..\mission_sqm\mission_blufor_altis_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_altis.sqf
@@ -45,6 +49,7 @@ rmdir /S /Q %NEW_VER%
 
 
 rem Blufor Stratis
+rem 蓝方 Stratis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.stratis
 set MISSION_SQM=..\mission_sqm\mission_blufor_stratis_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_stratis.sqf
@@ -74,6 +79,7 @@ rmdir /S /Q %NEW_VER%
 
 
 rem Blufor RHS Altis
+rem 蓝方 RHS Altis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_rhs_blufor.altis
 set MISSION_SQM=..\mission_sqm\mission_blufor_rhs_altis_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_rhs_altis.sqf
@@ -103,6 +109,7 @@ rmdir /S /Q %NEW_VER%
 
 
 rem Blufor Carrier Altis
+rem 蓝方 Carrier Altis
 set NEW_VER=co%D_NUM_PLAYERS%_domination_carrier_%D_VER%_blufor.altis
 set MISSION_SQM=..\mission_sqm\mission_blufor_carrier_altis_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_carrier_altis.sqf
@@ -132,6 +139,7 @@ rmdir /S /Q %NEW_VER%
 
 
 rem Blufor Malden
+rem 蓝方 Malden
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.malden
 set MISSION_SQM=..\mission_sqm\mission_blufor_malden_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_malden.sqf
@@ -161,6 +169,7 @@ rmdir /S /Q %NEW_VER%
 
 
 rem Blufor NBV Malden
+rem 蓝方 NBV Malden
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_nbv.malden
 set MISSION_SQM=..\mission_sqm\mission_blufor_nbv_malden_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_nbv_malden.sqf

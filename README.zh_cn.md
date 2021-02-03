@@ -21,7 +21,7 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 《统治》任务可以在 Eden 编辑器中进行修改。
 
-All maps supported by Domination are released as PBOs.  However you can use any PBO tool to modify and bundle your own mission modifications.  Choose `co30_Domination.Altis` as the PBO source to bundle the default map (Altis).
+《统治》任务支持的所有地图均作为 PBO 发布。但是，您可以使用任何 PBO 工具来修改和捆绑您自己的任务修改。选择`co30_Domination.Altis`作为 PBO 源，以捆绑默认地图（Altis）。
 
 如果要捆绑或修改Altis以外的地图，请按照以下步骤操作：
 
