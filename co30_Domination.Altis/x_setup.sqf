@@ -33,3 +33,5 @@
 // #define __GMCWG__
 
 //#define __SMDEBUG__
+
+//#define __DOMCFGFUNCTIONS__

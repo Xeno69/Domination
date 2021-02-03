@@ -8,7 +8,12 @@
 #ifdef __DEBUG__
 allowFunctionsLog = 1;
 #endif
+#ifdef __DOMCFGFUNCTIONS__
 #include "cfgfunctions.hpp"
+#else
+#include "cfgfunctionsshort.hpp"
+#include "cfgfunctionscs.hpp"
+#endif
 
 author = "Xeno";
 OnLoadName = "Domination!";
