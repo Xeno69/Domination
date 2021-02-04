@@ -1142,8 +1142,9 @@ if (!d_gmcwgwinter) then {
 	if (isNil "d_number_attack_uavs") then {
 		d_number_attack_uavs = 1;
 	};
-
+#ifdef __ALTIS__
 	d_divers_E = [["East","OPF_F","SpecOps","OI_diverTeam"] call d_fnc_GetConfigGroup];
+#endif
 
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
