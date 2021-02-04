@@ -13946,6 +13946,18 @@
 <Chinese>RADIOPROTOCOL for the player disabled!</Chinese>
 <French>RADIOPROTOCOL for the player disabled!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2055">
+<English>You are not allowed to fly this chopper!!!</English>
+<Spanish>You are not allowed to fly this chopper!!!</Spanish>
+<Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
+<Korean>You are not allowed to fly this chopper!!!</Korean>
+<Japanese>You are not allowed to fly this chopper!!!</Japanese>
+<Original>You are not allowed to fly this chopper!!!</Original>
+<Russian>You are not allowed to fly this chopper!!!</Russian>
+<Chinesesimp>You are not allowed to fly this chopper!!!</Chinesesimp>
+<Chinese>You are not allowed to fly this chopper!!!</Chinese>
+<French>You are not allowed to fly this chopper!!!</French>
+</Key>
 </Container>
 </Package>
 </Project>

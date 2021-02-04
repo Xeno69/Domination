@@ -645,7 +645,7 @@ if (isServer) then {
 			{
 				call {
 					private _tla = toLowerANSI (_x # 0);
-					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots", "d_uids_def_choppers"]) exitWith {
 						if ((_x # 1) isNotEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
@@ -2392,6 +2392,13 @@ if (hasInterface) then {
 	if (isNil "d_uid_reserved_slots") then {
 		d_uid_reserved_slots = [];
 		d_uids_for_reserved_slots = [];
+	};
+	
+	if (isNil "d_uids_def_choppers") then {
+		// If d_uids_initial_vecs is filled with player UIDs as strings player UIDs which are not in the array are getting kicked from
+		// the initially placed choppers and MHQs on base
+		// d_uids_initial_vecs = ["1234567", "7654321"];
+		d_uids_def_choppers = [];
 	};
 
 	// this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag

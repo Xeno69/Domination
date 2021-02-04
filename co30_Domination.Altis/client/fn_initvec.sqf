@@ -139,6 +139,9 @@ if (_d_vec < 100) exitWith {
 	if (!isServer) then {
 		_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
 	};
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
+	};
 };
 
 if (_d_vec < 200) exitWith {
@@ -341,6 +344,9 @@ if (_d_vec < 1100) exitWith {
 	if (!isServer) then {
 		_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
 	};
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
+	};
 };
 
 if (_d_vec < 1200) exitWith {
@@ -490,6 +496,9 @@ if (_d_vec < 4000) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
+	};
 };
 
 #ifdef __TT__
@@ -513,6 +522,9 @@ if (_d_vec < 5000) exitWith {
 	__sidee;
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
+	};
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
 };
 #endif

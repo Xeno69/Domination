@@ -203,6 +203,7 @@ class cfgDomFuncs {
 			addc(canu);
 			addc(tasks);
 			addc(updatemove);
+			addc(chopcheck);
 		};
 		class Dom_UI {
 			file = "clientui";

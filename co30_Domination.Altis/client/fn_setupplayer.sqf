@@ -69,7 +69,9 @@ if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 	[] spawn d_fnc_showhud;
 };
 
-[player, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+if (speaker player != "NoVoice") then {
+	[player, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+};
 
 if (d_player_radioprotocol) then {
 	player disableAI "RADIOPROTOCOL";
