@@ -1145,6 +1145,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __ALTIS__
 	d_divers_E = [["East","OPF_F","SpecOps","OI_diverTeam"] call d_fnc_GetConfigGroup];
 #endif
+#ifdef __MALDEN__
+	d_divers_E = [["East","OPF_F","SpecOps","OI_diverTeam"] call d_fnc_GetConfigGroup];
+#endif
 
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
