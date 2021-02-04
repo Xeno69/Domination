@@ -48,19 +48,27 @@ __TRACE_1("","count _mines");
 sleep 2;
 
 if (_docreateinf) then {
-	_diam = 300;
+	private _diam = 300;
 	if (_type isEqualTo "naval") then {
 		_diam = 500;
+		
+		if ((missionNamespace getVariable [format ["d_divers_%1", d_enemy_side_short], []]) isNotEqualTo []) then {
+			private _agrp = [d_side_enemy] call d_fnc_creategroup;
+			private _npos = _pos vectorAdd [0, 0, -5];
+			d_x_sm_rem_ar append ([_npos, ["divers", d_enemy_side_short] call d_fnc_getunitlistm, _agrp, false] call d_fnc_makemgroup);
+			[_agrp, _npos, [_npos, 100], [5, 7, 10], "", 0, false, 1] spawn d_fnc_MakePatrolWPX;
+			sleep 0.2;
+		};
 	};
-	["specops", (floor (random 3)) min 1, "allmen", (floor (random 3)) min 1, d_x_sm_pos # 0, 300, true] spawn d_fnc_CreateInf;
+	["specops", (floor (random 3)) min 1, "allmen", (floor (random 3)) min 1, d_x_sm_pos # 0, _diam, true] spawn d_fnc_CreateInf;
 	sleep 2.333;
 };
 if (_docreatearmor) then {
-	_diam = 400;
+	private _diam = 400;
 	if (_type isEqualTo "naval") then {
 		_diam = 600;
 	};
-	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 1, d_x_sm_pos # 0, 1, 400, true] spawn d_fnc_CreateArmor;
+	[selectRandom ["aa", "tank"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 1, selectRandom ["jeep_mg", "jeep_gl"], 1, d_x_sm_pos # 0, 1, _diam, true] spawn d_fnc_CreateArmor;
 	sleep 2.333;
 	if (_type isNotEqualTo "naval") then {
 		["stat_mg", 1, "stat_gl", 1, "", 0, d_x_sm_pos # 0, 1, 100, false] spawn d_fnc_CreateArmor;

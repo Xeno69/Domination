@@ -1143,6 +1143,8 @@ if (!d_gmcwgwinter) then {
 		d_number_attack_uavs = 1;
 	};
 
+	d_divers_E = [["East","OPF_F","SpecOps","OI_diverTeam"] call d_fnc_GetConfigGroup];
+
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
 #ifdef __OWN_SIDE_INDEPENDENT__
