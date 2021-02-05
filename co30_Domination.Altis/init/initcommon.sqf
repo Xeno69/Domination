@@ -38,13 +38,6 @@ if (isNil "paramsArray") then {
 	};
 };
 
-if (isServer && {d_load_overrides_file == 1}) then {
-	// requires -filePatch server parameter
-	if (fileExists "domination.cfg") then {
-		call compile preprocessFileLineNumbers "domination.cfg";
-	};
-};
-
 d_no_ranked_weapons = d_with_ranked == 2;
 d_with_ranked = d_with_ranked == 0 || {d_with_ranked == 2};
 #ifndef __TT__

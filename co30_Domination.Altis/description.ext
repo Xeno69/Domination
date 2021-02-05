@@ -1477,13 +1477,6 @@ default = 7;
 		default = -99999;
 		texts[] = {""};
 	};
-	
-	class d_load_overrides_file {
-		title = "$STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
 };
 
 #include "dlg\define.hpp"
