@@ -13958,6 +13958,18 @@
 <Chinese>You are not allowed to fly this chopper!!!</Chinese>
 <French>You are not allowed to fly this chopper!!!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2056">
+<English>Disable all service points, including FARPs (no refuel, no repair, no rearm)</English>
+<Spanish>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Spanish>
+<Portuguese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Portuguese>
+<Korean>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Korean>
+<Japanese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Japanese>
+<Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
+<Russian>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Russian>
+<Chinesesimp>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinesesimp>
+<Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
+<French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
+</Key>
 </Container>
 </Package>
 </Project>

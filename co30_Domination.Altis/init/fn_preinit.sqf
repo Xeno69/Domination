@@ -728,7 +728,7 @@ if (isServer) then {
 			paramsArray = nil;
 		};
 	};
-	call compile preprocessFileLineNumbers "init\initcommon.sqf";
+	call compileScript ["init\initcommon.sqf", false];
 
 	d_house_objects = [];
 	d_house_objects2 = [];

@@ -20,7 +20,7 @@ if (isMultiplayer && {hasInterface}) then {
 enableSaving [false,false];
 enableTeamSwitch false;
 
-isNil {call compile preprocessFileLineNumbers "d_init.sqf"};
+isNil {call compileScript ["d_init.sqf", false]};
 
 #ifdef __IFA3LITE__
 if (isServer) then {

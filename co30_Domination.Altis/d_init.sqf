@@ -10,7 +10,7 @@ if (isServer) then {
 };
 
 if (!isServer) then {
-	call compile preprocessFileLineNumbers "init\initcommon.sqf";
+	call compileScript ["init\initcommon.sqf", false];
 };
 
 if (hasInterface) then {
@@ -18,7 +18,7 @@ if (hasInterface) then {
 };
 
 #ifdef __GROUPDEBUG__
-call compile preprocessFileLineNumbers "x_gdbfunctions.sqf";
+call compileScript ["x_gdbfunctions.sqf", false];
 #endif
 
 if (hasInterface) then {
@@ -81,7 +81,7 @@ call d_fnc_maketarget_names;
 
 d_service_buildings = [[], [], []];
 #ifndef __TT__
-if (!d_ifa3lite) then {
+if (!d_ifa3lite && {d_dis_servicep == 1}) then {
 	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
@@ -215,7 +215,7 @@ if (isServer) then {
 };
 
 if (isDedicated && {d_WithRevive == 0}) then {
-	call compile preprocessFileLineNumbers "revive.sqf";
+	call compileScript ["revive.sqf", false];
 };
 
 #include "missions\missionssetup.sqf"
@@ -592,34 +592,38 @@ if (hasInterface) then {
 	{
 		[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 11] == "d_wreck_rep"});
-	if (!isNil "d_jet_trigger") then {
-		["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
-	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
-		["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
-	if (!isNil "d_vecre_trigger") then {
-		["d_vec_service", d_vecre_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+	if (d_dis_servicep == 1) then {
+		if (!isNil "d_jet_trigger") then {
+			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (!isNil "d_vecre_trigger") then {
+			["d_vec_service", d_vecre_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (d_carrier) then {
+			["d_service_point", d_serviceall_trigger_5,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
+		};
 	};
 	{
 		[format ["d_Ammobox_Reload%1", _forEachIndex],_x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
-	if (d_carrier) then {
-		["d_service_point", d_serviceall_trigger_5,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_1761",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
-	};
 #else
 	if (!isNil "d_wreck_rep") then {
 		["d_wreck_service", d_wreck_rep,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};
-	if (!isNil "d_jet_trigger") then {
-		["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
-	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
-		["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
-	if (!isNil "d_vecre_trigger") then {
-		["d_vec_service", d_vecre_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+	if (d_dis_servicep == 1) then {
+		if (!isNil "d_jet_trigger") then {
+			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (!isNil "d_vecre_trigger") then {
+			["d_vec_service", d_vecre_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
 	};
 	["d_Ammobox_Reload", d_AMMOLOAD,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	["d_teleporter", d_WFLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
@@ -627,14 +631,16 @@ if (hasInterface) then {
 	if (!isNil "d_wreck_rep2") then {
 		["d_wreck_serviceR", d_wreck_rep2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
 	};
-	if (!isNil "d_jet_trigger2") then {
-		["d_aircraft_serviceR", d_jet_trigger2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
-	if (!isNil "d_chopper_triggerR") then {
-		["d_chopper_serviceR", d_chopper_triggerR,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
-	if (!isNil "d_vecre_trigger2") then {
-		["d_vehicle_serviceR", d_vecre_trigger2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+	if (d_dis_servicep == 1) then {
+		if (!isNil "d_jet_trigger2") then {
+			["d_aircraft_serviceR", d_jet_trigger2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (!isNil "d_chopper_triggerR") then {
+			["d_chopper_serviceR", d_chopper_triggerR,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
+		if (!isNil "d_vecre_trigger2") then {
+			["d_vehicle_serviceR", d_vecre_trigger2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_4",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
 	};
 	["d_Ammobox ReloadR", d_AMMOLOAD2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	["d_teleporter_1", d_EFLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
@@ -704,21 +710,21 @@ if (hasInterface) then {
 
 	if (d_with_ranked) then {
 		if (d_rhs) then {
-			call compile preprocessFileLineNumbers "i_weapons_rhs.sqf";
+			call compileScript ["i_weapons_rhs.sqf", false];
 		} else {
 			if (d_cup) then {
-				call compile preprocessFileLineNumbers "i_weapons_CUP.sqf";
+				call compileScript ["i_weapons_CUP.sqf", false];
 			} else {
 				if (d_ifa3lite) then {
-					call compile preprocessFileLineNumbers "i_weapons_IFA3.sqf";
+					call compileScript ["i_weapons_IFA3.sqf", false];
 				} else {
 					if (d_gmcwg) then {
-						call compile preprocessFileLineNumbers "i_weapons_gmcwg.sqf";
+						call compileScript ["i_weapons_gmcwg.sqf", false];
 					} else {
 						if (d_unsung) then {
-							call compile preprocessFileLineNumbers "i_weapons_UNSUNG.sqf";
+							call compileScript ["i_weapons_UNSUNG.sqf", false];
 						} else {
-							call compile preprocessFileLineNumbers "i_weapons_default.sqf";
+							call compileScript ["i_weapons_default.sqf", false];
 						};
 					};
 				};

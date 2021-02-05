@@ -686,6 +686,13 @@ default = 7;
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_dis_servicep {
+		title = "$STR_DOM_MISSIONSTRING_2056";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";

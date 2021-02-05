@@ -352,26 +352,29 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 	d_d3d_locs4a = localize "STR_DOM_MISSIONSTRING_1718";
 #ifndef __TT__
 	[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
-	if (!isNil "d_vecre_trigger") then {
-		[d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
-	};
-	if (!isNil "d_jet_trigger") then {
-		[d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
+	if (d_dis_servicep == 1) then {
+		if (!isNil "d_vecre_trigger") then {
+			[d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
+		};
+		if (!isNil "d_jet_trigger") then {
+			[d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
+		};
+		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+			[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
+		};
 	};
 	private _allmhs = allMissionObjects "HeliH";
 	{
 		[_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
 	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
-
-	if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
-		[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
-	};
 	if (d_carrier) then {
 		[d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0] call d_fnc_addto3drawar;
 	};
-	{
-		[_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0] call d_fnc_addto3drawar;
-	} forEach (_allmhs select {(str _x) select [0, 20] == "d_serviceall_trigger"});
+	if (d_dis_servicep == 1) then {
+		{
+			[_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0] call d_fnc_addto3drawar;
+		} forEach (_allmhs select {(str _x) select [0, 20] == "d_serviceall_trigger"});
+	};
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
@@ -379,14 +382,16 @@ d_points_needed_17 = (d_points_needed # 6) + 80000;
 #else
 	[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
 
-	if (!isNil "d_vecre_trigger") then {
-		[[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
-	};
-	if (!isNil "d_jet_trigger") then {
-		[[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
-	};
-	if (!isNil "d_chopper_trigger") then {
-		[[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
+	if (d_dis_servicep == 1) then {
+		if (!isNil "d_vecre_trigger") then {
+			[[d_vecre_trigger2, d_vecre_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
+		};
+		if (!isNil "d_jet_trigger") then {
+			[[d_jet_trigger2, d_jet_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
+		};
+		if (!isNil "d_chopper_trigger") then {
+			[[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
+		};
 	};
 	if (!isNil "d_wreck_rep") then {
 		[[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
@@ -545,14 +550,16 @@ if (d_string_player in d_is_engineer || {!d_no_ai}) then {
 	_x addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_286a"], {call d_fnc_healatmash}, 0, -1, false, false, "", "damage player > 0 && {d_player_canu && {!(player getVariable 'd_isinaction')}}", 10];
 } forEach d_mashes;
 
-{
-	private _farpc = _x getVariable ["d_objcont", []];
-	if (_farpc isNotEqualTo []) then {
-		_farpc params ["_trig"];
-		_trig setTriggerActivation ["ANY", "PRESENT", true];
-		_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
-	};
-} forEach d_farps;
+if (d_dis_servicep == 1) then {
+	{
+		private _farpc = _x getVariable ["d_objcont", []];
+		if (_farpc isNotEqualTo []) then {
+			_farpc params ["_trig"];
+			_trig setTriggerActivation ["ANY", "PRESENT", true];
+			_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
+		};
+	} forEach d_farps;
+};
 
 #ifndef __TT__
 // Enemy at base
@@ -675,7 +682,7 @@ private _dsp46 = findDisplay 46;
 _dsp46 displayAddEventHandler ["MouseZChanged", {call d_fnc_MouseWheelRec}];
 
 if (d_WithRevive == 0) then {
-	call compile preprocessFileLineNumbers "revive.sqf";
+	call compileScript ["revive.sqf", false];
 };
 
 0 spawn d_fnc_dcmcc;
@@ -1199,7 +1206,9 @@ d_isvdreduced = false;
 
 0 spawn d_fnc_camouflage;
 
-call d_fnc_initservicepoints;
+if (d_dis_servicep == 1) then {
+	call d_fnc_initservicepoints;
+};
 
 if (isMultiplayer) then {
 	if (!d_ifa3lite) then {

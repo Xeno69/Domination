@@ -7,7 +7,7 @@ if (!hasInterface) exitWith {};
 if (player getUnitTrait "engineer") then {
 	(_this # 0) addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_513"], {call d_fnc_restoreeng}, 0, -1, false, false, "", "!d_eng_can_repfuel && {alive player}", 10];
 };
-if (_this # 1 != player) then {
+if (d_dis_servicep == 1 && {_this # 1 != player}) then {
 	private _farpc = (_this # 0) getVariable ["d_objcont", []];
 	if (_farpc isNotEqualTo []) then {
 		_farpc params ["_trig"];
