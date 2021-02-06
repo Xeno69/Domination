@@ -27,6 +27,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden
 - Changed: Enemy mobile HQs are now spawned with snipers on the roof
 - Changed: If d_MTTowerSatchelsOnly if set to 1 (disabled) then it there is no satchel check for main target radio tower, main target side mission, main target barracks and mobile MHQ
 - Changed: Reduced radius of many addActions
+- Changed: ToolKit and MineDetector are now always available, not matter which version is beeing played
 - Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
 - Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
 - Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer
