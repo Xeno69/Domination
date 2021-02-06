@@ -29,6 +29,7 @@ _this spawn {
 			scriptName "spawn_endmissionloser";
 			sleep 1.5;
 			endMission "LOSER";
+			forceEnd;
 		};
 	} else {
 		private _prev_side = _this # 5;

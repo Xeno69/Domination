@@ -17,7 +17,13 @@ diag_log "Dom precompiling functions!!!";
 		private _type = getNumber(_x>>"type");
 		{
 			private _name = configName _x;
-			missionNamespace setVariable [format ["%1_fnc_%2", _tag, _name], compileScript [format ["%1\fn_%2.sqf", _file, _name], true]];
+			private _fncname = format ["%1_fnc_%2", _tag, _name];
+			if (!isNil {missionNamespace getVariable _fncname}) exitWith {
+				diag_log "I think you are a cheater....";
+				endMission "LOSER";
+				forceEnd;
+			};
+			missionNamespace setVariable [_fncname, compileScript [format ["%1\fn_%2.sqf", _file, _name], true]];
 		} forEach ("true" configClasses _x);
 	} forEach ("true" configClasses _x);
 } forEach ("true" configClasses (missionConfigFile>>"cfgDomFuncs"));
