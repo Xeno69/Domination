@@ -10,7 +10,6 @@ diag_log [diag_frameno, diag_ticktime, time, "Executing Dom fn_preinit.sqf"];
 diag_log "Dom precompiling functions!!!";
 {
 	// currently no check for type (aka client or server, etc)
-	// todo: check if variable name exists already and end mission, possible cheater?
 	private _tag = getText(_x>>"tag");
 	{
 		private _file = getText(_x>>"file");
