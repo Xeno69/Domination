@@ -8,15 +8,16 @@ diag_log [diag_frameno, diag_ticktime, time, "Executing Dom fn_preinit.sqf"];
 
 #ifndef __DOMCFGFUNCTIONS__
 diag_log "Dom precompiling functions!!!";
+private ["_tag", "_file", "_type", "_name", "_fncname"];
 {
 	// currently no check for type (aka client or server, etc)
-	private _tag = getText(_x>>"tag");
+	_tag = getText(_x>>"tag");
 	{
-		private _file = getText(_x>>"file");
-		private _type = getNumber(_x>>"type");
+		_file = getText(_x>>"file");
+		_type = getNumber(_x>>"type");
 		{
-			private _name = configName _x;
-			private _fncname = format ["%1_fnc_%2", _tag, _name];
+			_name = configName _x;
+			_fncname = format ["%1_fnc_%2", _tag, _name];
 			if (!isNil {missionNamespace getVariable _fncname}) exitWith {
 				diag_log "I think you are a cheater....";
 				endMission "LOSER";

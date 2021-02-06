@@ -28,22 +28,20 @@ private _findmodfnc = {
 	private ["_item", "_kind"];
 	{
 		_item = _x;
-		_kind = if (isClass (configFile >> "CfgWeapons" >> _x)) then {
-			"CfgWeapons"
-		} else {
-			if (isClass (configFile >> "CfgMagazines" >> _x)) then {
-				"CfgMagazines"
-			} else {
-				if (isClass (configFile >> "CfgVehicles" >> _x)) then {
-					"CfgVehicles"
-				} else {
-					if (isClass (configFile >> "CfgGlasses" >> _x)) then {
-						"CfgGlasses"
-					} else {
-						""
-					};
-				};
+		_kind = call {
+			if (isClass (configFile >> "CfgWeapons" >> _x)) exitWith {
+				"CfgWeapons"
 			};
+			if (isClass (configFile >> "CfgMagazines" >> _x)) exitWith {
+				"CfgMagazines"
+			};
+			if (isClass (configFile >> "CfgVehicles" >> _x)) exitWith {
+				"CfgVehicles"
+			};
+			if (isClass (configFile >> "CfgGlasses" >> _x)) exitWith {
+				"CfgGlasses"
+			};
+			""
 		};
 		__TRACE_1("","_kind")
 		__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")
