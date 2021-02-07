@@ -265,7 +265,7 @@ d_current_mission_counter = _ar # 7;
 d_searchintel = _ar # 8;
 publicVariable "d_searchintel";
 
-_fnc_tt_bonusvec = {
+private _fnc_tt_bonusvec = {
 	params ["_vec_type", "_d_bonus_create_pos", "_d_bonus_air_positions", "_d_bap_counter", "_d_bonus_vec_positions", "_d_bvp_counter", "_side"];
 	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "NONE"];
 	private ["_endpos", "_dir"];
@@ -312,11 +312,11 @@ _fnc_tt_bonusvec = {
 
 d_bonus_vecs_db_w = _ar # 9;
 {
-	d_bonus_vecs_db set [_forEachIndex, [_x, d_bonus_create_pos_w, d_bonus_air_positions_w, d_bap_counter_w, d_bonus_vec_positions_w, d_bvp_counter_w, 2] call _fnc_tt_bonusvec];
+	d_bonus_vecs_db_w set [_forEachIndex, [_x, d_bonus_create_pos_w, d_bonus_air_positions_w, d_bap_counter_w, d_bonus_vec_positions_w, d_bvp_counter_w, 2] call _fnc_tt_bonusvec];
 } forEach d_bonus_vecs_db_w;
 d_bonus_vecs_db_e = _ar # 10;
 {
-	d_bonus_vecs_db set [_forEachIndex, [_x, d_bonus_create_pos_e, d_bonus_air_positions_e, d_bap_counter_e, d_bonus_vec_positions_e, d_bvp_counter_e, 2] call _fnc_tt_bonusvec];
+	d_bonus_vecs_db_e set [_forEachIndex, [_x, d_bonus_create_pos_e, d_bonus_air_positions_e, d_bap_counter_e, d_bonus_vec_positions_e, d_bvp_counter_e, 2] call _fnc_tt_bonusvec];
 } forEach d_bonus_vecs_db_e;
 d_points_blufor = _ar # 11;
 d_points_opfor = _ar # 12;

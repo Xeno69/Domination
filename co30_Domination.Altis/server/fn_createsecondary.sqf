@@ -20,12 +20,12 @@ while {true} do {
 
 sleep 1.0123;
 
-private _poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
+private _poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
 while {_poss isEqualTo []} do {
 	_iccount = _iccount + 1;
-	_poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
-	if (_iccount >= 50 && {_poss isNotEqualTo []}) exitWith {};
+	_poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
+	if (_iccount >= 70 && {_poss isNotEqualTo []}) exitWith {};
 };
 if (isNil "_poss" || {_poss isEqualTo []}) then {
 	_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
