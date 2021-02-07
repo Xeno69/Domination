@@ -36,7 +36,7 @@ _vec setVectorUp [0,0,1];
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
 if (d_ao_markers == 1) then {
-	["d_main_target_radiotower", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+	["d_m_t_rt", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 };
 
 if (d_with_dynsim == 0) then {
@@ -166,9 +166,9 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 		_flagPole setPos _fwfpos;
 		_wf setVariable ["d_FLAG", _flagPole, true];
-		private _maname = format ["d_camp_%1", _wf];
-		__TRACE_2("","_i","_maname")
 		if (d_ao_markers == 1) then {
+			private _maname = format ["d_camp_%1", _wf call d_fnc_markername];
+			__TRACE_2("","_i","_maname")
 			deleteMarker _maname;
 			[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 			_wf setVariable ["d_camp_mar", _maname];

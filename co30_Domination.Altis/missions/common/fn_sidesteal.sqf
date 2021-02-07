@@ -37,7 +37,7 @@ private _reached_base = false;
 #ifdef __TT__
 private _winner = 0;
 #endif
-private _vma = format ["d_smvecposc_%1", _vec];
+private _vma = format ["d_smvecposc_%1", _vec call d_fnc_markername];
 
 private _oldpos = getPosAsl _vec;
 

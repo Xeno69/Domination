@@ -340,6 +340,7 @@ class cfgFunctions {
 			addc(isvisible);
 			addc(deletearrayunitsvehicles);
 			addc(swm);
+			addc(markername);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

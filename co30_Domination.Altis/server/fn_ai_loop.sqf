@@ -22,7 +22,7 @@ while {true} do {
 				[_x, _new_state] call d_fnc_changeskill;
 			};
 			sleep 0.3;
-		} forEach (allUnits select {!isPlayer _x && {local _x}});
+		} forEach ((units d_side_enemy) select {alive _x});
 	};
 #ifndef __DEBUG__
 	sleep 300;

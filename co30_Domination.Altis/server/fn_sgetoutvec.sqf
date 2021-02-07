@@ -10,7 +10,7 @@ if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vec distance2D d_FLA
 private _vside = _vec getVariable "D_VEC_SIDE";
 if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vside == 2 && {_vec distance2D d_WFLAG_BASE > 800} || {_vside == 1 && {_vec distance2D d_EFLAG_BASE > 800}}}}) then {
 #endif
-	private _mname = format ["%1_ab%2", _vec, time];
+	private _mname = format ["%1_ab%2", _vec call d_fnc_markername, time];
 	[_mname, _vec, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_1566", [_vec] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
 	_vec setVariable ["d_abandoned_ma", _mname];
 #ifdef __TT__

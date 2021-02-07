@@ -116,7 +116,11 @@ d_own_sides = ["WEST"];
 d_own_sides_o = [blufor];
 d_enemy_side = "EAST";
 d_enemy_side_short = "E";
+d_side_enemy = opfor;
 d_rhs_blufor = true;
+d_side_player = blufor;
+d_version_string = "Blufor";
+d_e_marker_color = "ColorOPFOR";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 d_own_side = "EAST";
@@ -124,7 +128,11 @@ d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3lite);
 d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3lite);
 d_enemy_side = "WEST";
 d_enemy_side_short = "W";
+d_side_enemy = blufor;
 d_rhs_blufor = false;
+d_side_player = opfor;
+d_version_string = "Opfor";
+d_e_marker_color = "ColorBLUFOR";
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 d_own_side = "GUER";
@@ -132,46 +140,20 @@ d_own_sides = ["GUER"];
 d_own_sides_o = [independent];
 d_enemy_side = "EAST";
 d_enemy_side_short = "E";
+d_side_enemy = opfor;
+d_side_player = independent;
+d_version_string = "GUER";
+d_e_marker_color = "ColorGUER";
 #endif
 #ifdef __TT__
 d_own_side = "WEST";
 d_own_sides = ["WEST"];
 d_enemy_side = "GUER";
 d_enemy_side_short = "G";
-#endif
-
-d_side_enemy = call {
-	if (d_enemy_side_short == "E") exitWith {opfor};
-	if (d_enemy_side_short == "W") exitWith {blufor};
-	if (d_enemy_side_short == "G") exitWith {independent};
-};
-
-d_side_player =
-#ifdef __OWN_SIDE_OPFOR__
-	opfor;
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-	blufor;
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	independent;
-#endif
-#ifdef __TT__
-	blufor;
-#endif
-
-d_version_string =
-#ifdef __OWN_SIDE_OPFOR__
-	"Opfor";
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-	"Blufor";
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	"GUER";
-#endif
-#ifdef __TT__
-	"Two Teams";
+d_side_enemy = independent;
+d_side_player = blufor;
+d_version_string = "Two Teams";
+d_e_marker_color = "ColorYellow";
 #endif
 
 #ifdef __IFA3LITE__
@@ -184,20 +166,6 @@ d_version_string = "Carrier";
 
 #ifdef __RHS__
 d_version_string = ["RHS Opfor", "RHS Blufor"] select d_rhs_blufor;
-#endif
-
-d_e_marker_color =
-#ifdef __OWN_SIDE_OPFOR__
-	"ColorBLUFOR";
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-	"ColorOPFOR";
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	"ColorGUER";
-#endif
-#ifdef __TT__
-	"ColorYellow";
 #endif
 
 #ifdef __IFA3LITE__

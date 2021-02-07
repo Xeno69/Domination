@@ -109,3 +109,7 @@ addToRemainsCollector [_static];
 private _str_placed = format [localize "STR_DOM_MISSIONSTRING_89", [_cargo, "CfgVehicles"] call d_fnc_GetDisplayName];
 hintSilent _str_placed;
 systemChat _str_placed;
+
+if (_tr_cargo_ar isEqualTo []) then {
+	_vec setVariable ["d_CARGO_AR", nil, true];
+};

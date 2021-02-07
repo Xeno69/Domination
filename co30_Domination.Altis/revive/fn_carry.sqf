@@ -72,4 +72,4 @@ while {xr_carry} do {
 };
 
 player setVariable ["xr_pisinaction", false];
-_dragee setVariable ["xr_dragged", false, true];
+_dragee setVariable ["xr_dragged", nil, true];

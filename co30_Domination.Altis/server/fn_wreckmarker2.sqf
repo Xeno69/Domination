@@ -26,7 +26,7 @@ if ((getPosATL _vec) # 2 < -20) then {
 	_aposs set [2, 0];
 	_vec setPos _aposs;
 };
-private _mname = format ["%1_%2", _vec, time];
+private _mname = format ["d%1_%2", _vec call d_fnc_markername, time];
 private _sav_pos = [getPosWorld _vec # 0, getPosWorld _vec # 1, 0];
 _vec setPos _sav_pos;
 _vec setVelocity [0,0,0];

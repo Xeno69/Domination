@@ -269,26 +269,14 @@ if (isNil "d_ammo_boxes") then {
 if (isNil "d_para_available") then {
 	d_para_available = true;
 };
-if (isNil "d_searchbody") then {
-	d_searchbody = objNull;
-};
 if (isNil "d_searchintel") then {
 	d_searchintel = [0,0,0,0,0,0,0]; // TODO search intel for island patrol groups disabled as those groups are disabled too
 };
 #ifndef __TT__
-if (isNil "d_ari_blocked") then {
-	d_ari_blocked = false;
-};
 if (isNil "d_arty_firing") then {
 	d_arty_firing = false;
 };
 #else
-if (isNil "d_ari_blocked_w") then {
-	d_ari_blocked_w = false;
-};
-if (isNil "d_ari_blocked_e") then {
-	d_ari_blocked_e = false;
-};
 if (isNil "d_arty_firing_w") then {
 	d_arty_firing_w = false;
 };
@@ -296,9 +284,6 @@ if (isNil "d_arty_firing_e") then {
 	d_arty_firing_e = false;
 };
 #endif
-if (!d_no_ai && {isNil "d_drop_blocked"}) then {
-	d_drop_blocked = false;
-};
 if (isNil "d_numcamps") then {
 	d_numcamps = 0;
 };

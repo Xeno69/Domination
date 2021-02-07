@@ -125,7 +125,7 @@ while {xr_drag} do {
 
 player setVariable ["xr_pisinaction", false];
 player setVariable ["xr_is_dragging", false];
-_dragee setVariable ["xr_dragged", false, true];
+_dragee setVariable ["xr_dragged", nil, true];
 
 (findDisplay 46) displayRemoveEventHandler ["KeyDown", xr_drag_keyDownEHId];
 

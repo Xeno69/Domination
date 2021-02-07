@@ -82,7 +82,7 @@ _this spawn {
 
 player setVariable ["xr_pisinaction", false];
 player setVariable ["xr_is_dragging", false];
-player setVariable ["xr_dragged", false, true];
+player setVariable ["xr_dragged", nil, true];
 
 0 spawn {
 	scriptName "xr respawn eh spawn3";

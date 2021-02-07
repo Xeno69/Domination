@@ -22,7 +22,7 @@ if (!isNil "_percent") then {
 	_box setVariable ["d_abox_perc", _percent, true];
 	(_this # 1) setVariable ["d_abox_perc", nil, true];
 };
-private _mname = format ["d_bm_%1", _box];
+private _mname = format ["d_bm_%1", _box call d_fnc_markername];
 #ifndef __TT__
 d_ammo_boxes pushBack [d_dbox_idx, _box, _mname];
 _box setVariable ["d_box_params", [d_dbox_idx, _box, _mname]]:

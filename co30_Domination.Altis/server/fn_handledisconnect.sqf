@@ -13,16 +13,16 @@ if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo ""
 private _abl = _unit getVariable "d_blocks_arty";
 __TRACE_1("","_abl")
 if (!isNil "_abl") then {
-	missionNamespace setVariable ["d_ari_blocked", false, true];
+	missionNamespace setVariable ["d_ari_blocked", nil, true];
 };
 #else
 private _abl = _unit getVariable "d_blocks_arty_w";
 if (!isNil "_abl") then {
-	missionNamespace setVariable ["d_ari_blocked_w", false, true];
+	missionNamespace setVariable ["d_ari_blocked_w", nil, true];
 };
 private _abl = _unit getVariable "d_blocks_arty_e";
 if (!isNil "_abl") then {
-	missionNamespace setVariable ["d_ari_blocked_e", false, true];
+	missionNamespace setVariable ["d_ari_blocked_e", nil, true];
 };
 #endif
 

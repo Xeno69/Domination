@@ -39,7 +39,7 @@ if ((_unit getVariable ["d_ammobox_next", -1]) > time) exitWith {[_unit, _caller
 
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_224"] call _chatfunc;
 
-_unit setVariable ["d_ammobox", false, true];
+_unit setVariable ["d_ammobox", nil, true];
 _unit setVariable ["d_ammobox_next", time + d_drop_ammobox_time, true];
 
 private _boxpos = _unit modelToWorldVisual [4,0,0];

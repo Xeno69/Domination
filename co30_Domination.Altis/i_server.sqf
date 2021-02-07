@@ -134,7 +134,7 @@ if (isServer) then {
 		d_AI_HUT enableSimulationGlobal false;
 		d_AI_HUT addEventHandler ["handleDamage", {0}];
 		publicVariable "d_AI_HUT";
-		["d_RecruitB_100010000", d_AI_HUT, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+		[format ["d_RecrB_%1", d_AI_HUT call d_fnc_markername], d_AI_HUT, "ICON","ColorYellow", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_313", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 		deleteMarker "d_pos_aihut";
 		if (d_with_dynsim == 0) then {
 			d_AI_HUT enableDynamicSimulation true;

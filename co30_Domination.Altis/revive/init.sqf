@@ -17,7 +17,7 @@ player setVariable ["xr_is_dragging", false];
 player setVariable ["xr_presptime", -1];
 player setVariable ["xr_pluncon", false, true];
 player setVariable ["xr_pisinaction", false];
-player setVariable ["xr_dragged", false, true];
+player setVariable ["xr_dragged", false];
 player setVariable ["xr_isdead", false];
 
 xr_uncon_units = [];
