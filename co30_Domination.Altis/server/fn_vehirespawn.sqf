@@ -84,7 +84,7 @@ if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
 };
 
-if (_vec isKindOf "Boat_F" || {_vec isKindOf "Boat"}) then {
+if (_vec isKindOf "Boat_F") then {
 	__TRACE_1("isboat","_vec");
 	_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 };

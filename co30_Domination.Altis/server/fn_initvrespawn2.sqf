@@ -70,7 +70,7 @@ d_vrespawn2_ar = [];
 		if (d_with_ranked) then {
 			clearWeaponCargoGlobal _vec;
 		};
-		if (_vec isKindOf "Boat_F" || {_vec isKindOf "Boat"}) then {
+		if (_vec isKindOf "Boat_F") then {
 			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 		};
 		_vec setDamage 0;

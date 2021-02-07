@@ -558,6 +558,7 @@ if (d_dis_servicep == 1) then {
 			_farpc params ["_trig"];
 			_trig setTriggerActivation ["ANY", "PRESENT", true];
 			_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
+			_trig setTriggerInterval 1;
 		};
 	} forEach d_farps;
 };
@@ -915,7 +916,7 @@ player addEventhandler ["WeaponAssembled", {
 	if (d_pylon_lodout == 0 && {unitIsUAV _x && {isClass ((configOf _x)>>"Components">>"TransportPylonsComponent")}}) then {
 		_x call d_fnc_addpylon_action;
 	};
-	if (_x isKindOf "Boat_F" || {_x isKindOf "Boat"}) then {
+	if (_x isKindOf "Boat_F") then {
 		_x call d_fnc_addpushaction;
 	};
 } forEach _vehicles;
