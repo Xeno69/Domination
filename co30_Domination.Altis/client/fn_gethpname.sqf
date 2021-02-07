@@ -9,7 +9,7 @@ private _n = "";
 if (alive _u) then {
 	_n = _u getVariable "d_phname";
 	if (isNil "_n") then {
-		_n = _u call d_fnc_getplayername;
+		_n = name _u;
 		if (_n == "") exitWith {};
 		if (d_no_ai && {_u getUnitTrait "Medic"}) then {
 			_n = _n + d_phud_loc884;
@@ -20,7 +20,7 @@ if (alive _u) then {
 } else {
 	_n = _u getVariable "d_phname_d";
 	if (isNil "_n") then {
-		_n = _u call d_fnc_getplayername;
+		_n = name _u;
 		if (_n == "") exitWith {};
 		if (d_no_ai && {_u getUnitTrait "Medic"}) then {
 			_n = _n + d_phud_loc884;

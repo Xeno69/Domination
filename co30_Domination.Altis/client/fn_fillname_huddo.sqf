@@ -12,7 +12,7 @@ d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable "xr_pluncon")}) then {
 		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
-		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_getplayername, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_gpn", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
+		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
 		private _epp = eyePos player;
 		{
 			_distu = _cam2world distance _x;
@@ -43,7 +43,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 								};
 								""
 							};
-							if (isNil "_tex") then {_tex = _x call _fnc_gpn};
+							if (isNil "_tex") then {_tex = name _x};
 							_hh = _x call _nfc_grp;
 							_rtex = _hh # 0;
 							_rsize = _hh # 1;

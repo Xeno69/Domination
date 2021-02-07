@@ -32,7 +32,7 @@ player addEventHandler ["killed", {call xr_fnc_killedEH}];
 
 player addEventHandler ["respawn", {call xr_fnc_respawneh}];
 
-xr_name_player = player call d_fnc_getplayername;
+xr_name_player = name player;
 
 xr_announce_ar = [];
 xr_announce_unit_ar = [];

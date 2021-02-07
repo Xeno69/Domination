@@ -19,7 +19,7 @@ private _fnc_gmi = d_fnc_getmapicon;
 if (d_show_player_marker isNotEqualTo 0) then {
 	private _drawn_v = [];
 	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
-	[d_with_ai, d_fnc_isplayer, d_show_player_marker, d_fnc_gethpname, d_fnc_getplayername, d_mark_loc280] params ["_w_ai", "_fnc_ispl", "_s_pl_ma", "_fnc_ghpn", "_fnc_gpln", "_d_mark_loc280"];
+	[d_with_ai, d_fnc_isplayer, d_show_player_marker, d_fnc_gethpname, d_mark_loc280] params ["_w_ai", "_fnc_ispl", "_s_pl_ma", "_fnc_ghpn", "_d_mark_loc280"];
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
@@ -75,7 +75,7 @@ if (d_show_player_marker isNotEqualTo 0) then {
 								_ccrwm1 = count _crw - 1;
 								{
 									if (alive _x) then {
-										_nt pushBack (_x call _fnc_gpln);
+										_nt pushBack (name _x);
 										if (_forEachIndex < _ccrwm1) then {
 											_nt pushBack ", ";
 										};

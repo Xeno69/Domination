@@ -6,7 +6,7 @@
 #define __d_textsize_dr3d  0.03333
 
 private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
-[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_fnc_isplayer, d_fnc_gethpname, d_fnc_getrankpic, d_fnc_getplayername] params ["_cam2world", "_d_pn_hud", "_fnc_ispl", "_fnc_ghpn", "_fnc_grp", "_fnc_gpn"];
+[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_fnc_isplayer, d_fnc_gethpname, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_fnc_ispl", "_fnc_ghpn", "_fnc_grp"];
 {
 	_distu = _cam2world distance _x;
 	if (_distu <= _d_pn_hud) then {
@@ -29,7 +29,7 @@ private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_
 				if (_distu <= 200) then {
 					_tex = [_x] call _fnc_ghpn;
 					__TRACE_1("1","_tex")
-					if (isNil "_tex") then {_tex = _x call _fnc_gpn};
+					if (isNil "_tex") then {_tex = name _x};
 					__TRACE_1("2","_tex")
 					_hh = _x call _fnc_grp;
 					__TRACE_1("","_hh")

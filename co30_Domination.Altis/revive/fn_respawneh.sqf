@@ -107,12 +107,6 @@ if (d_enablesway == 0) then {
 
 player removeEventHandler ["handleDamage", _tmpeh];
 
-0 spawn {
-	scriptName "xr respawn eh spawn4";
-	sleep 1;
-	xr_name_player = player call d_fnc_getplayername;
-};
-
 showChat true;
 
 __TRACE("End")

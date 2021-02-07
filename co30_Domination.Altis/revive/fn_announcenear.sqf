@@ -28,7 +28,7 @@ private _where = call {
 
 __TRACE_1("","_reldir")
 
-xr_announce_ar pushBack [time + 15, format [localize "STR_DOM_MISSIONSTRING_1719", _this call d_fnc_getplayername, _where]];
+xr_announce_ar pushBack [time + 15, format [localize "STR_DOM_MISSIONSTRING_1719", name _this, _where]];
 xr_announce_unit_ar pushBack _this;
 
 private _hintar = [];

@@ -175,7 +175,6 @@ class cfgFunctions {
 			addc(artywait);
 			addc(bikewait);
 			addc(dlgopenxwait);
-			addc(initplname);
 			addc(scoreadded);
 			addc(scoreaddqeue);
 			addc(csidechat);
@@ -312,7 +311,6 @@ class cfgFunctions {
 			addc(isnvgoggles);
 			addc(isswimming);
 			addc(posbehindvec);
-			addc(getplayername);
 			addc(checkveckillblufor);
 			addc(checkveckillopfor);
 			addc(create_route);

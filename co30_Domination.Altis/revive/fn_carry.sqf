@@ -5,7 +5,7 @@ if (!hasInterface) exitWith {};
 
 private _dragee	= _this # 3;
 private _name_dragee = [_dragee] call d_fnc_gethpname;
-if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = _dragee call d_fnc_getplayername};
+if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = name _dragee};
 private _unit = player;
 xr_carry = true;
 xr_drag = false;

@@ -10,8 +10,6 @@ diag_log ["DOM initPlayerLocal.sqf, sending this to init player on server:", _th
 _this remoteExec ["d_fnc_initPlayerServer", 2];
 
 if (hasInterface) then {
-	0 spawn d_fnc_initplname;
-	
 	0 spawn d_fnc_tasks;
 };
 

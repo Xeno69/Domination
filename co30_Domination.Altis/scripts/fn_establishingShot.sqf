@@ -43,7 +43,7 @@ BIS_fnc_establishingShot_icons = [
 
 _colortouse = d_player_side call BIS_fnc_sideColor;
 {
-	BIS_fnc_establishingShot_icons pushBack [getText(configFile>>"CfgVehicleIcons">>getText(configFile>>"CfgVehicles">>(typeOf _x)>>"icon")), _colortouse, _x, 0.8, 0.8, 0, _x call d_fnc_getplayername, 1];
+	BIS_fnc_establishingShot_icons pushBack [getText(configFile>>"CfgVehicleIcons">>getText(configFile>>"CfgVehicles">>(typeOf _x)>>"icon")), _colortouse, _x, 0.8, 0.8, 0, name _x, 1];
 } forEach ((allPlayers - entities "HeadlessClient_F") select {alive _x && {d_player_side getFriend side (group _x) >= 0.6 && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}});
 
 // Create fake UAV
