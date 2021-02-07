@@ -12,15 +12,35 @@ while {true} do {
 			_oldstance = stance player;
 			call {
 				if (_oldstance isEqualTo "STAND") exitWith {
-					player setUnitTrait ["camouflageCoef", 1];
+					if (player getUnitTrait "camouflageCoef" != 1) then {
+						player setUnitTrait ["camouflageCoef", 1];
+					};
+					if (player getUnitTrait "audibleCoef" != 1) then {
+						player setUnitTrait ["audibleCoef ", 1];
+					};
 				};
 				if (_oldstance isEqualTo "CROUCH") exitWith {
-					player setUnitTrait ["camouflageCoef", 0.8];
+					if (player getUnitTrait "camouflageCoef" != 0.8) then {
+						player setUnitTrait ["camouflageCoef", 0.8];
+					};
+					if (player getUnitTrait "audibleCoef" != 0.8) then {
+						player setUnitTrait ["audibleCoef ", 0.8];
+					};
 				};
 				if (_oldstance isEqualTo "PRONE") exitWith {
-					player setUnitTrait ["camouflageCoef", 0.5];
+					if (player getUnitTrait "camouflageCoef" != 0.5) then {
+						player setUnitTrait ["camouflageCoef", 0.5];
+					};
+					if (player getUnitTrait "audibleCoef" != 0.5) then {
+						player setUnitTrait ["audibleCoef ", 0.5];
+					};
 				};
-				player setUnitTrait ["camouflageCoef", 1];
+				if (player getUnitTrait "camouflageCoef" != 1) then {
+					player setUnitTrait ["camouflageCoef", 1];
+				};
+				if (player getUnitTrait "audibleCoef" != 1) then {
+					player setUnitTrait ["audibleCoef ", 1];
+				};
 			};
 		};
 	} else {

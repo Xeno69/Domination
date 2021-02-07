@@ -14,6 +14,13 @@ if (_score < d_points_needed # 0 && {_d_player_old_rank != 0}) exitWith {
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 1) then {
+				player setUnitTrait ["loadCoef", 1];
+			};
+		};
+	};
 };
 if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player_old_rank != 1}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 1) then {
@@ -29,6 +36,13 @@ if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player
 	player setVariable ["d_player_old_rank", _d_player_old_rank, true];
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
+	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.9) then {
+				player setUnitTrait ["loadCoef", 0.9];
+			};
+		};
 	};
 };
 if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player_old_rank != 2}}) exitWith {
@@ -46,6 +60,13 @@ if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.8) then {
+				player setUnitTrait ["loadCoef", 0.8];
+			};
+		};
+	};
 };
 if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player_old_rank != 3}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 3) then {
@@ -61,6 +82,13 @@ if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player
 	player setVariable ["d_player_old_rank", _d_player_old_rank, true];
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
+	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.7) then {
+				player setUnitTrait ["loadCoef", 0.7];
+			};
+		};
 	};
 };
 if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player_old_rank != 4}}) exitWith {
@@ -78,6 +106,13 @@ if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.6) then {
+				player setUnitTrait ["loadCoef", 0.6];
+			};
+		};
+	};
 };
 if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player_old_rank != 5}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 5) then {
@@ -94,6 +129,13 @@ if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.5) then {
+				player setUnitTrait ["loadCoef", 0.5];
+			};
+		};
+	};
 };
 if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player_old_rank != 6}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 6) then {
@@ -109,6 +151,13 @@ if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
 	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.4) then {
+				player setUnitTrait ["loadCoef", 0.4];
+			};
+		};
+	};
 };
 if (_score >= d_points_needed # 6 && {_d_player_old_rank != 7}) exitWith {
 	player setRank "Colonel";
@@ -119,5 +168,12 @@ if (_score >= d_points_needed # 6 && {_d_player_old_rank != 7}) exitWith {
 	player setVariable ["d_player_old_rank", 7, true];
 	if (d_with_ranked && {!d_no_ranked_weapons}) then {
 		0 spawn d_fnc_weaponcargo_ranked;
+	};
+	if (d_enablefatigue == 1) then {
+		if (d_with_ranked || {d_database_found}) then {
+			if (player getUnitTrait "loadCoef" != 0.3) then {
+				player setUnitTrait ["loadCoef", 0.3];
+			};
+		};
 	};
 };
