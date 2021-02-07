@@ -223,8 +223,12 @@ if (local _player) then {
 	deleteVehicle _anchor;
 	deleteVehicle _rappelDevice;
 
-	_player setVariable ["AR_Is_Rappelling", nil, true];
-	_player setVariable ["AR_Rappelling_Vehicle", nil, true];
+	if (!isNil {_player getVariable "AR_Is_Rappelling"}) then {
+		_player setVariable ["AR_Is_Rappelling", nil, true];
+	};
+	if (!isNil {_player getVariable "AR_Rappelling_Vehicle"}) then {
+		_player setVariable ["AR_Rappelling_Vehicle", nil, true];
+	};
 	_player setVariable ["AR_Detach_Rope", nil];
 
 	if (_ropeKeyDownHandler != -1) then {
