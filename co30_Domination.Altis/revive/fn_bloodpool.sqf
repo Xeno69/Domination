@@ -15,8 +15,6 @@ private _class = selectRandom [
 private _bp = createSimpleObject [_class, _injured modelToWorldWorld [0, 0, 0]];
 _bp setDir (random 359);
 private _posb = getPosWorld _bp;
-//_posb = _posb vectorAdd [0, 0, 0.01];
-//_bp setPosWorld _posb;
 _bp setPosATL [_posb # 0, _posb # 1, 0.01];
 _bp setVectorUp (surfaceNormal _posb);
 
