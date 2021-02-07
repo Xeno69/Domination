@@ -276,8 +276,8 @@ class CfgRemoteExec {
 class Params {
 	class d_params_dl_1 {
 		title = "$STR_DOM_MISSIONSTRING_1569";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -491,8 +491,8 @@ default = 7;
 	
 	class d_params_dl_8_env {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -696,8 +696,8 @@ default = 7;
 
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -725,8 +725,8 @@ default = 7;
 #ifndef __TT__
 	class d_params_dl_9 {
 		title = "$STR_DOM_MISSIONSTRING_1575";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -768,8 +768,8 @@ default = 7;
 
 	class d_params_dl_3 {
 		title = "$STR_DOM_MISSIONSTRING_1571";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -796,8 +796,8 @@ default = 7;
 
 	class d_params_dl_5 {
 		title = "$STR_DOM_MISSIONSTRING_1572";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -852,8 +852,8 @@ default = 7;
 
 	class d_params_dl_7 {
 		title = "$STR_DOM_MISSIONSTRING_1573";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -887,8 +887,8 @@ default = 7;
 
 	class d_params_dl_8 {
 		title = "$STR_DOM_MISSIONSTRING_1574";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 	
@@ -971,8 +971,8 @@ default = 7;
 	
 	class d_params_dl_8_civ {
 		title = "$STR_DOM_MISSIONSTRING_1574_CIV";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1027,8 +1027,8 @@ default = 7;
 	
 	class d_params_dl_8_enemy_ai {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENEMY_AI";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 	
@@ -1147,8 +1147,8 @@ default = 7;
 	
 	class d_params_dl_8_obj {
 		title = "$STR_DOM_MISSIONSTRING_1574_OBJ";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1182,8 +1182,8 @@ default = 7;
 
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1231,8 +1231,8 @@ default = 7;
 
 	class d_params_dl_11 {
 		title = "$STR_DOM_MISSIONSTRING_1577";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1252,8 +1252,8 @@ default = 7;
 
 	class d_params_dl_12 {
 		title = "$STR_DOM_MISSIONSTRING_1578";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1326,8 +1326,8 @@ default = 7;
 
 	class d_params_dl_13 {
 		title = "$STR_DOM_MISSIONSTRING_1579";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1361,8 +1361,8 @@ default = 7;
 
 	class d_params_dl_14 {
 		title = "$STR_DOM_MISSIONSTRING_1580";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1396,8 +1396,8 @@ default = 7;
 
 	class d_params_dl_16 {
 		title = "$STR_DOM_MISSIONSTRING_1581";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1431,8 +1431,8 @@ default = 7;
 
 	class d_params_dl_18 {
 		title = "$STR_DOM_MISSIONSTRING_1582";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1452,8 +1452,8 @@ default = 7;
 
 	class d_params_dl_17 {
 		title = "$STR_DOM_MISSIONSTRING_1716";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1473,8 +1473,8 @@ default = 7;
 	
 	class d_params_dl_19 {
 		title = "$STR_DOM_MISSIONSTRING_ADVANCED";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 };

@@ -19,9 +19,6 @@
 			__TRACE_2("","_locposnl0","_nl")
 			private _pos = [_locposnl0, locationPosition (_nl # 0)] select (_nl isNotEqualTo []);
 			_pos set [2, 0];
-			if (isServer) then {
-				_dtar setPos _pos;
-			};
 			_name = text (_nlocs # 0);
 			_dtar setVariable ["d_cityname", _name];
 			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];

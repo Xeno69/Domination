@@ -684,7 +684,7 @@ if (isServer) then {
 					for "_i" from 0 to (count _conf - 1) do {
 						private _paramName = configName (_conf select _i);
 						private _paramval = getNumber (_conf>>_paramName>>"default");
-						if (_paramval != -99999) then {
+						if (_paramval != -66) then {
 							call {
 								if (d_db_type == 0) exitWith {
 									"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
