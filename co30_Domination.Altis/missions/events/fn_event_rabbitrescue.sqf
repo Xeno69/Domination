@@ -20,9 +20,9 @@ private _trigger = [_target_center, [600,600,0,false,30], [d_own_side,"PRESENT",
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-_bunnyName = selectRandom ['Captain Fluffbutt', 'Ivan Ironfluff', 'Oreo FlopEar Rabbitton III', 'Thumper von Pinknose', 'Snowball the Terrible'];
+private _bunnyName = selectRandom ['Captain Fluffbutt', 'Ivan Ironfluff', 'Oreo FlopEar Rabbitton III', 'Thumper von Pinknose', 'Snowball the Terrible'];
 
-_eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_RABBIT", _bunnyName];
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_RABBIT", _bunnyName];
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
@@ -80,12 +80,12 @@ while {!d_mt_done && {!_is_dead && {!_is_rescued}}} do {
 
 if (_is_rescued || !_is_dead) then {
 	d_kb_logic1 kbTell [
-    	d_kb_logic2,
-    	d_kb_topic_side,
-    	"MTEventSideRescueGenericNameSucceed",
-    	["1", "", _bunnyName, []],
-    	d_kbtel_chan
-    ];
+		d_kb_logic2,
+		d_kb_topic_side,
+		"MTEventSideRescueGenericNameSucceed",
+		["1", "", _bunnyName, []],
+		d_kbtel_chan
+	];
 } else {
 	d_kb_logic1 kbTell [
 		d_kb_logic2,

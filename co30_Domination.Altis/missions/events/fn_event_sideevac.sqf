@@ -26,7 +26,7 @@ private _trigger = [_poss, [225,225,0,false,30], [d_own_side,"PRESENT",true], ["
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-_eventDescription = localize "STR_DOM_MISSIONSTRING_1803_NO_TIMER";
+private _eventDescription = localize "STR_DOM_MISSIONSTRING_1803_NO_TIMER";
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 

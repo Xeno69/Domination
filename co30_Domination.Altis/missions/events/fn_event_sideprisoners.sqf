@@ -18,13 +18,13 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 //position the event site near target center at max distance 125m and min 15m 
 private _poss = [[[_target_center, 125]],[[_target_center, 15]]] call BIS_fnc_randomPos;
-_x_mt_event_ar = [];
+private _x_mt_event_ar = [];
 
 private _trigger = [_poss, [225,225,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-_eventDescription = localize "STR_DOM_MISSIONSTRING_1805_MILITARY";
+private _eventDescription = localize "STR_DOM_MISSIONSTRING_1805_MILITARY";
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 

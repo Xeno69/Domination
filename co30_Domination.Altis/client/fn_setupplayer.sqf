@@ -162,8 +162,8 @@ if (d_with_ranked) then {
 		// basic rifle at start
 		private _weapp = "";
 		private _magp = "";
-		switch (d_own_side) do {
-			case "WEST": {
+		call {
+			if (d_own_side == "WEST") exitWith {
 				if (d_rhs) exitWith {
 					_weapp = "rhs_weap_m16a4";
 					_magp = "rhs_mag_30Rnd_556x45_M855_Stanag";
@@ -187,7 +187,7 @@ if (d_with_ranked) then {
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
-			case "EAST": {
+			if (d_own_side == "EAST") exitWith {
 				if (d_rhs) exitWith {
 					_weapp = "rhs_weap_ak74";
 					_magp = "rhs_30Rnd_545x39_AK";
@@ -207,7 +207,7 @@ if (d_with_ranked) then {
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
-			case "GUER": {
+			if (d_own_side == "GUER") exitWith {
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
@@ -342,6 +342,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 d_points_needed_15 = (d_points_needed # 6) + 15000;
 d_points_needed_16 = (d_points_needed # 6) + 30000;
 d_points_needed_17 = (d_points_needed # 6) + 80000;
+d_points_needed_18 = (d_points_needed # 6) + 150000;
 
 0 spawn {
 	scriptName "spawn_setupplayer1";
@@ -480,18 +481,18 @@ player setUnitTrait ["UAVHacker", true];
 
 private _respawn_marker = "";
 private _base_spawn_m = "base_spawn_1";
-switch (d_own_side) do {
-	case "GUER": {
+call {
+	if (d_own_side == "GUER") exitWith {
 		_respawn_marker = "respawn_guerrila";
 		deleteMarkerLocal "respawn_west";
 		deleteMarkerLocal "respawn_east";
 	};
-	case "WEST": {
+	if (d_own_side == "WEST") exitWith {
 		_respawn_marker = "respawn_west";
 		deleteMarkerLocal "respawn_guerrila";
 		deleteMarkerLocal "respawn_east";
 	};
-	case "EAST": {
+	if (d_own_side == "EAST") exitWith {
 		_respawn_marker = "respawn_east";
 		deleteMarkerLocal "respawn_west";
 		deleteMarkerLocal "respawn_guerrila";

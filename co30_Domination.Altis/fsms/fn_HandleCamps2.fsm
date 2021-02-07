@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCamps2">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"Start",0,250,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
@@ -12,7 +12,7 @@ item7[] = {"Reset_cap_time",2,250,250.000000,75.000000,350.000000,125.000000,0.0
 item8[] = {"Delay",4,218,250.000000,-25.000000,350.000000,25.000000,0.000000,"Delay"};
 item9[] = {"Check",2,250,-25.000000,175.000000,75.000000,225.000000,0.000000,"Check"};
 item10[] = {"_curcaptime____",4,218,-25.000000,275.000000,75.000000,325.000000,1.000000,"_curcaptime >= _captime"};
-item11[] = {"Captured",2,250,-25.000000,375.000000,75.000000,425.000000,0.000000,"Captured"};
+item11[] = {"Captured",2,4346,-25.000000,375.000000,75.000000,425.000000,0.000000,"Captured"};
 item12[] = {"",7,210,408.500000,196.000000,416.500000,204.000000,0.000000,""};
 item13[] = {"",7,210,408.500000,-4.000000,416.500000,4.000000,0.000000,""};
 item14[] = {"",7,210,408.500000,396.000000,416.500000,404.000000,0.000000,""};
@@ -41,7 +41,7 @@ link18[] = {15,16};
 link19[] = {16,17};
 link20[] = {17,2};
 globals[] = {0.000000,0,0,0,0,640,480,1,26,6316128,1,-585.459900,687.401184,702.799683,-270.473389,1640,1254,1};
-window[] = {2,-1,-1,-1,-1,744,26,986,26,3,1658};
+window[] = {2,-1,-1,-1,-1,978,260,1220,260,3,1658};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -241,8 +241,8 @@ class FSM
                         itemno = 11;
                         init = /*%FSM<STATEINIT""">*/"private _texture = """";" \n
                          "private _mcolor = """";" \n
-                         "switch (_curside) do {" \n
-                         "	case d_enemy_side: {" \n
+                         "call {" \n
+                         "	if (_curside == d_enemy_side) exitWith {" \n
                          "		_wf setVariable [""D_SIDE"", d_own_side, true];" \n
                          "		_texture = switch (d_own_side) do {" \n
                          "			case ""WEST"": {d_flag_str_blufor};" \n
@@ -253,7 +253,7 @@ class FSM
                          "		d_campscaptured = d_campscaptured + 1; publicVariable ""d_campscaptured"";" \n
                          "		[_wf, d_enemy_side] execFSM ""fsms\fn_RetakeCamp.fsm"";" \n
                          "	};" \n
-                         "	case d_own_side: {" \n
+                         "	if (_curside == d_own_side) exitWith {" \n
                          "		_wf setVariable [""D_SIDE"", d_enemy_side, true];" \n
                          "		_texture = call d_fnc_getenemyflagtex;" \n
                          "		_mcolor = ""ColorBlack"";" \n

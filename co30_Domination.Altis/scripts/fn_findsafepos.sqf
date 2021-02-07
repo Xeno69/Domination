@@ -92,7 +92,7 @@ private _checkBlacklist = _posBlacklist isNotEqualTo [];
 
 _shoreMode = _shoreMode != 0;
 
-if (_checkBlacklist) then {
+//if (_checkBlacklist) then {
 	/*_posBlacklist = _posBlacklist apply {
 		// top-left, bottom-right coordinates 
 		if (_x isEqualTypeParams [[],[]]) then {
@@ -106,7 +106,7 @@ if (_checkBlacklist) then {
 			_x call BIS_fnc_getArea
 		};
 	};*/
-};
+//};
 
 private _off = (_minDistance / _maxDistance) ^ 2;
 private _rem = 1 - _off;

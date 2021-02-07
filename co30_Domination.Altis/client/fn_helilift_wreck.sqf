@@ -90,12 +90,12 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						_liftobj attachTo [_chopper, [0, 0, -15]];
 						_chopper setVariable ["d_attachedto_v", _liftobj, true];
 					};
-					private _fuelloss = switch (true) do {
-						case (_liftobj isKindOf "Wheeled_APC" || {_liftobj isKindOf "Wheeled_APC_F"}): {0.0003};
-						case (_liftobj isKindOf "Car" || {_liftobj isKindOf "Car_F"}): {0.0002};
-						case (_liftobj isKindOf "Air"): {0.0004};
-						case (_liftobj isKindOf "TANK"): {0.0006};
-						default {0.0001};
+					private _fuelloss = call {
+						if (_liftobj isKindOf "Wheeled_APC" || {_liftobj isKindOf "Wheeled_APC_F"}) exitWith {0.0003};
+						if (_liftobj isKindOf "Car" || {_liftobj isKindOf "Car_F"}) exitWith {0.0002};
+						if (_liftobj isKindOf "Air") exitWith {0.0004};
+						if (_liftobj isKindOf "TANK") exitWith {0.0006};
+						0.0001
 					};
 					if (d_with_ranked || {d_database_found}) then {
 						_liftobj setVariable ["d_lift_pilot", player, true];

@@ -1297,8 +1297,8 @@ if (!d_gmcwgwinter) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 
-	d_sm_speedboat = switch (d_enemy_side_short) do {
-		case "E": {
+	d_sm_speedboat = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					""
@@ -1318,7 +1318,7 @@ if (!d_gmcwgwinter) then {
 				"O_Boat_Armed_01_hmg_F"
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
 					"CUP_B_RHIB_USMC"
@@ -1338,7 +1338,7 @@ if (!d_gmcwgwinter) then {
 				"B_Boat_Armed_01_minigun_F"
 			};
 		};
-		case "G": {
+		if (d_enemy_side_short == "G") exitWith {
 			call {
 				if (d_cup) exitWith {
 					"CUP_I_RHIB_RACS"
@@ -1645,8 +1645,8 @@ if (!d_gmcwgwinter) then {
 	};
 
 	// type of enemy plane that will fly over the main target
-	d_airai_attack_plane = switch (d_enemy_side_short) do {
-		case "E": {
+	d_airai_attack_plane = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["O_Plane_CAS_02_F","CUP_O_Su25_RU_3","CUP_O_Su25_RU_1","CUP_O_Su25_RU_2"]
@@ -1663,7 +1663,7 @@ if (!d_gmcwgwinter) then {
 				["O_Plane_CAS_02_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_ifa3lite) exitWith {
 					["LIB_FW190F8", "LIB_FW190F8_4", "LIB_FW190F8_2", "LIB_FW190F8_5", "LIB_FW190F8_3"]
@@ -1677,12 +1677,12 @@ if (!d_gmcwgwinter) then {
 				["B_Plane_CAS_01_F"]
 			};
 		};
-		case "G": {["I_Plane_Fighter_03_CAS_F"]};
+		if (d_enemy_side_short == "E") exitWith {["I_Plane_Fighter_03_CAS_F"]};
 	};
 
        // type of enemy UAV that will fly over the main target
-	d_airai_attack_uav = switch (d_enemy_side_short) do {
-		case "E": {
+	d_airai_attack_uav = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					[]
@@ -1702,7 +1702,7 @@ if (!d_gmcwgwinter) then {
 				["O_UAV_02_F","O_UAV_02_CAS_F","O_T_UAV_04_CAS_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["CUP_B_USMC_DYN_MQ9"]
@@ -1722,7 +1722,7 @@ if (!d_gmcwgwinter) then {
 				["B_T_UAV_03_F", "B_UAV_02_F", "B_UAV_05_F"]
 			};
 		};
-		case "G": {
+		if (d_enemy_side_short == "G") exitWith {
 			call {
 				if (d_cup) exitWith {
 					[]
@@ -1739,8 +1739,8 @@ if (!d_gmcwgwinter) then {
 	};
 
 	// type of enemy chopper that will fly over the main target
-	d_airai_attack_chopper = switch (d_enemy_side_short) do {
-		case "E": {
+	d_airai_attack_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["O_Heli_Attack_02_F","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Ka50_SLA"]
@@ -1760,7 +1760,7 @@ if (!d_gmcwgwinter) then {
 				["O_Heli_Attack_02_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_ifa3lite) exitWith {
 					["LIB_Ju87_Italy2", "LIB_Ju87_Italy", "LIB_Ju87"]
@@ -1771,7 +1771,7 @@ if (!d_gmcwgwinter) then {
 				["B_Heli_Attack_01_F"]
 			};
 		};
-		case "G": {["I_Heli_light_03_F"]};
+		if (d_enemy_side_short == "G") exitWith {["I_Heli_light_03_F"]};
 	};
 
 #ifdef __ALTIS__
@@ -2686,7 +2686,7 @@ if (hasInterface) then {
 		[8, getMissionPath "pics\8star.paa"],
 		[9, getMissionPath "pics\6star.paa"],
 		[10, getMissionPath "pics\5star.paa"],
-		[11, getMissionPath "pics\8star2.paa"]
+		[11, getMissionPath "pics\9star.paa"]
 	];
 	
 	d_num_hash = createHashMapFromArray [
