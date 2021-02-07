@@ -43,6 +43,8 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 [_pl, 18] call d_fnc_setekmode;
 #endif
 
+private _name = name _pl;
+
 private _p = d_player_hash getOrDefault [_uid, []];
 private _f_c = false;
 private _sidepl = side (group _pl);
