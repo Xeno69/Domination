@@ -53,6 +53,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden
 - Fixed: Adding additional respawn points with d_additional_respawn_points didn't work as described causing script errors
 - Fixed: If a headless client was available side specops units were transfered to the HC causing problems with server eventhandlers
 - Fixed: d_arsenal_mod_remove_strings didn't work anymore, no gear from the addons/mods defined in d_arsenal_mod_remove_strings as strings were removed
+- Fixed: Service marker was not created in the Carrier version on the carrier
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
