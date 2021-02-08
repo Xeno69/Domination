@@ -93,7 +93,7 @@ if (count d_farp_classes > 2) then {
 		_farp_o_pos = [_d_farp_pos, _mapSize] call d_fnc_getranpointcircleouter;
 		_farp_o_pos set [2, 0];
 		_farp_o = createVehicle [d_farp_classes # _i, _farp_o_pos, [], 0, "NONE"];
-		_farp_o setDir (random 360);
+		_farp_o setDir (_farp_o getDir _farp_seco);
 		_farp_o setPos _farp_o_pos;
 
 		_farpcont pushBack _farp_o;
