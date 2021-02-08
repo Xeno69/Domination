@@ -7,13 +7,21 @@ private _mods = _this apply {toLowerANSI _x};
 __TRACE_1("","_mods")
 
 private _findmodfnc = {
-	//__TRACE_1("_findmodfnc","_this")
+	__TRACE_1("_findmodfnc","_this")
 	params ["_csal"];
 	private _res = -1;
 	private _csallow = toLowerANSI (_csal # 0);
-	//__TRACE_1("_findmodfnc","_csallow")
+	__TRACE_1("_findmodfnc","_csallow")
+	__TRACE_1("_findmodfnc","_mods")
 	_mods findIf {
-		_ret = _csallow find _x != -1;
+		__TRACE_1("_findmodfnc","_x")
+		__TRACE_1("_findmodfnc","count _x")
+		__TRACE_1("_findmodfnc","count _csallow")
+		_ret = if (count _x >= count _csallow) then {
+			(_x select [0, count _csallow]) isEqualTo _csallow
+		} else {
+			(_csallow select [0, count _x]) isEqualTo _x
+		};
 		if (_ret) then {
 			_res = 1;
 		};

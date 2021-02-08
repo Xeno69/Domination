@@ -933,7 +933,7 @@ if (!d_gmcwg) then {
 	d_arsenal_mod_remove_strings pushBack "gm_";
 };
 
-if (d_arsenal_mod_remove_strings isEqualTo []) then {
+if (d_arsenal_mod_remove_strings isNotEqualTo []) then {
 	d_arsenal_mod_remove_strings call d_fnc_arsenal_mod_rem;
 
 	d_arsenal_mod_remove_strings = nil;
