@@ -642,7 +642,7 @@ if (hasInterface) then {
 	{
 #ifndef __TT__
 		private _fla = _x;
-		if (d_additional_respawn_points isEqualTo [] || {d_additional_respawn_points findIf {(_x # 7) == _fla} == -1}) Then {
+		if (d_additional_respawn_points isEqualTo [] || {d_additional_respawn_points findIf {count _x > 7 && {(_x # 7) == _fla}} == -1}) Then {
 #endif
 		private _side = _x getVariable ["d_flagside", blufor];
 		private _name = _x getVariable "d_name";

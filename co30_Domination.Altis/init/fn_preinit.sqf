@@ -2675,8 +2675,8 @@ if (hasInterface) then {
 	// please note, markerPos "somemarker" does not work in prenit, same for getPos some_object, it always returns [0,0,0] as position, so only use the marker name or the object name as string (with "")
 	// Example:
 	//d_additional_respawn_points = [
-	//	["D_UNIQUE_NAME_1", [1023, 5000, 4000], "My Cool Base", blufor],
-	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor],
+	//	["D_UNIQUE_NAME_1", [1023, 5000, 4000], "My Cool Base", blufor, true],
+	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor, false],
 	//	["D_UNIQUE_NAME_3", "opforbase", "The Opfor Base", opfor],
 	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor]
 	//];
