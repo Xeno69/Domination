@@ -1212,6 +1212,18 @@ if (d_dis_servicep == 1) then {
 	call d_fnc_initservicepoints;
 };
 
+#ifdef __ALTIS__
+private _cnames = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F", "B_APC_Tracked_01_AA_F", "B_APC_Tracked_01_rcws_F", "B_APC_Wheeled_01_cannon_F", "B_AFV_Wheeled_01_cannon_F", "B_AFV_Wheeled_01_up_cannon_F", "B_Plane_Fighter_01_F", "B_Plane_Fighter_01_Stealth_F",
+	"B_Plane_CAS_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Attack_01_dynamicLoadout_F"];
+{
+	private _curname = selectRandom _cnames;
+	private _obj = createSimpleObject [_curname, [0,0,0], true];
+	_obj attachTo [_x, [0,0,[0.9, 0.85] select (_curname isKindOf "Air")]];
+	_obj setObjectScale 0.1;
+	_cnames = _cnames - [_curname];
+} forEach ((allMissionObjects "HBarrier_base_F") select {"d_bar_x_" in (str _x)});
+#endif
+
 if (isMultiplayer) then {
 	if (!d_ifa3lite) then {
 		0 spawn d_fnc_intro2;
