@@ -39,7 +39,7 @@ while {true} do {
 				} else {
 					private _dummy = (_x # 2) findIf {
 #ifndef __DEBUG__
-						private _ret = (alive _x && {_x distance2D (_x getVariable ["d_cur_pos", [0, 0, 0]]) < 100}) || {!canMove _x};
+						private _ret = !alive _x || {!canMove _x || {_x distance2D (_x getVariable ["d_cur_pos", [0, 0, 0]]) < 100}};
 #else
 						private _ret = !alive _x || {!canMove _x || {_x distance2D (_x getVariable ["d_cur_pos", [0, 0, 0]]) < 10}};
 						
