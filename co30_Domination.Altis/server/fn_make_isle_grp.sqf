@@ -1,4 +1,5 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_make_isle_grp.sqf"
 #include "..\x_setup.sqf"
 
@@ -30,17 +31,17 @@ private _agrp = [d_side_enemy] call d_fnc_creategroup;
 private _npos = _start_point;
 private _var = [];
 _var resize (selectRandom [2, 3]);
-for "_e" from 0 to (count _var - 1) do {
-	_var set [_e, [selectRandom ["jeep_mg", "wheeled_apc", "jeep_gl"], d_enemy_side_short] call d_fnc_getunitlistv];
-};
+_var = _var apply {[selectRandom ["jeep_mg", "wheeled_apc", "jeep_gl"], d_enemy_side_short] call d_fnc_getunitlistv};
+private _firstdone = false;
 {
-	private _rand = floor random 2;
-	if (_rand > 0) then {
-		private _reta = [_rand, _npos, _x, _agrp, -1.111, false, false, false, true] call d_fnc_makevgroup;
+	if (!_firstdone || {selectRandom [0, 1] > 0}) then {
+		private _reta = [1, _npos, _x, _agrp, -1.111, false, false, false, true] call d_fnc_makevgroup;
+		__TRACE_1("","_reta")
 		_vecs append (_reta # 0);
 		_units append (_reta # 1);
 		sleep 0.73;
-		_npos = ((_reta # 0) # 0) modelToWorld [0,-12,0];
+		_npos = ((_reta # 0) # 0) modelToWorld [0, -12, 0];
+		if (!_firstdone) then {_firstdone = true};
 	};
 } forEach _var;
 // TODO if tanks show better driving behaviour change it back to mixed list?

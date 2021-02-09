@@ -21,6 +21,7 @@ if (d_WithRevive == 0 && {(_this # 8) == -1 && {xr_max_lives != -1}}) exitWith {
 
 #ifdef __TT__
 _this spawn {
+	scriptName "spawn_playerstuffTT";
 	waitUntil {sleep 0.1; !d_still_in_intro};
 	if (!isNil {player getVariable "d_no_side_change"}) then {
 		private _rtime = serverTime - ((_this # 9) # 1);

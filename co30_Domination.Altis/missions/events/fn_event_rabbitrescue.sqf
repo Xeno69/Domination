@@ -58,6 +58,7 @@ private _distanceToEnableRescue = 3; //in meters
 _rabbit setVariable ["BIS_fnc_animalBehaviour_disable", true];
 
 [_rabbit, _target_center, _move_order_interval] spawn {
+	scriptName "spawn rabbitrescue";
 	params ["_rabbit", "_target_center", "_move_order_interval"];
 	_rabbit playMove "Rabbit_Hop";
 	while { sleep 1; alive _rabbit } do
