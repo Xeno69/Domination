@@ -3,7 +3,7 @@
 ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
 			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
 			
-ATTENTION: The following mission file(s) has/have changed: TT Malden
+ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Blufor
 
 - Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext

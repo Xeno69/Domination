@@ -204,6 +204,7 @@ class cfgFunctions {
 			addc(tasks);
 			addc(updatemove);
 			addc(chopcheck);
+			addc(gimmick);
 		};
 		class Dom_UI {
 			file = "clientui";
