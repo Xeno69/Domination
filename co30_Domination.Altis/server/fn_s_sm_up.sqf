@@ -6,18 +6,16 @@
 __TRACE_1("","_this")
 d_cur_sm_idx = _this # 0;
 publicVariable "d_cur_sm_idx";
-private _pos_ar = _this # 1;
-d_x_sm_type = _this # 2;
 
 if (d_x_sm_type == "convoy") then {
-	[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], _pos_ar # 0, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_708", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
-	[format ["d_XMISSIONM2%1", d_cur_sm_idx + 1], _pos_ar # 1, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_709", 0, "mil_pickup"] call d_fnc_CreateMarkerGlobal;
+	[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], d_x_sm_pos # 0, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_708", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
+	[format ["d_XMISSIONM2%1", d_cur_sm_idx + 1], d_x_sm_pos # 1, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_709", 0, "mil_pickup"] call d_fnc_CreateMarkerGlobal;
 } else {
 	if (d_x_sm_type == "deliver") then {
-		[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], _pos_ar # 0, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_1702", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
-		[format ["d_XMISSIONM2%1", d_cur_sm_idx + 1], _pos_ar # 1, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_1703", 0, "mil_pickup"] call d_fnc_CreateMarkerGlobal;
+		[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], d_x_sm_pos # 0, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_1702", 0, "hd_start"] call d_fnc_CreateMarkerGlobal;
+		[format ["d_XMISSIONM2%1", d_cur_sm_idx + 1], d_x_sm_pos # 1, "ICON","ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_1703", 0, "mil_pickup"] call d_fnc_CreateMarkerGlobal;
 	} else {
-		[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], _pos_ar # 0, "ICON", "ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_707", 0, "hd_destroy"] call d_fnc_CreateMarkerGlobal;
+		[format ["d_XMISSIONM%1", d_cur_sm_idx + 1], d_x_sm_pos # 0, "ICON", "ColorRed", [1, 1], localize "STR_DOM_MISSIONSTRING_707", 0, "hd_destroy"] call d_fnc_CreateMarkerGlobal;
 	};
 };
 __TRACE("Calling getsidemissionclient")

@@ -394,7 +394,6 @@ class cfgFunctions {
 			addc(smhiteh);
 			addc(smhandledeh);
 			addc(smhiteh2);
-			addc(hcsmexec);
 			addc(createinf);
 			addc(createarmor);
 			addc(cdoquake);

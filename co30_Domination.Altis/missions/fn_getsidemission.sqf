@@ -31,9 +31,19 @@ if (d_MissionType != 2) then {
 private _cur_sm_idx = d_side_missions_random # d_current_mission_counter;
 d_current_mission_counter = d_current_mission_counter + 1;
 
+//_cur_sm_idx = _this # 0;
+//_cur_sm_idx = 50030;
+
 __TRACE_1("","_cur_sm_idx")
 
-//_cur_sm_idx = _this # 0;
-//_cur_sm_idx = 10;
+if (_cur_sm_idx < 50000) then {
+	execVM format ["missions\%3\%2%1.sqf", _cur_sm_idx, d_sm_fname, d_sm_folder];
+} else {
+	[_cur_sm_idx] call d_fnc_getbymarkersm;
+};
+sleep 7.012;
+[_cur_sm_idx] call d_fnc_s_sm_up;
 
-[_cur_sm_idx] spawn d_fnc_hcsmexec;
+if (random 100 > 50 && {!(toLowerANSI d_x_sm_type in ["convoy", "deliver", "prisoners", "evac", "specops"])}) then {
+	d_sm_check_trigger = [d_x_sm_pos # 0, [30, 30, 0, false], ["ANYPLAYER", "PRESENT", false], ["this", "0 spawn d_fnc_smsurprise; deleteVehicle d_sm_check_trigger", ""]] call d_fnc_createtriggerlocal;
+};
