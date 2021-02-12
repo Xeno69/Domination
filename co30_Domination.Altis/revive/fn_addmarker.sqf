@@ -13,6 +13,6 @@ __TRACE_1("","_mname")
 if (markerPos _mname isEqualTo [0,0,0]) then {
 	[_mname, _this # 1, "ICON", "ColorBlue", [0.4,0.4], format [localize "STR_DOM_MISSIONSTRING_910", name _unit], 0, "KIA"] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-	_unit setVariable ["xr_dml_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _unit) == blufor), true]];
+	_unit setVariable ["xr_dml_jip_id", [_mname, side (group _unit)] remoteExecCall ["d_fnc_delmaloc", 0, _unit]];
 #endif
 };

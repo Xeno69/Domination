@@ -15,9 +15,9 @@ if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vside == 2 && {_vec 
 	_vec setVariable ["d_abandoned_ma", _mname];
 #ifdef __TT__
 	if (_vside == 1) then {
-		_mname remoteExecCall ["deleteMarkerLocal", west];
+		_vec setVariable ["d_bandoned_ma_jipid", [_mname, east] remoteExecCall ["d_fnc_delmaloc", 0, _vec]];
 	} else {
-		_mname remoteExecCall ["deleteMarkerLocal", east];
+		_vec setVariable ["d_bandoned_ma_jipid", [_mname, west] remoteExecCall ["d_fnc_delmaloc", 0, _vec]];
 	};
 #endif
 };

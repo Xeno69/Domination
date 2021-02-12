@@ -31,7 +31,7 @@ if (!isNil "_player" && {!isNull _player}) then {
 private _mname = "d_drop_zone_" + str _player;
 [_mname, _drop_pos, "ICON", "ColorBlue", [0.8, 0.8], format [localize "STR_DOM_MISSIONSTRING_1648", name _player], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-private _jid = _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _player) == blufor), true];
+private _jid = [_mname, side (group _player)] remoteExecCall ["d_fnc_delmaloc", 0, _player];
 _player setVariable ["d_dropz_jip_id", _jid];
 #endif
 

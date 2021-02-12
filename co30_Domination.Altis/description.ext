@@ -248,6 +248,7 @@ class CfgRemoteExec {
 		class d_fnc_ttpvkill {allowedTargets = 2;};
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
 		class d_fnc_asfnc {allowedTargets = 2;};
+		class d_fnc_delmaloc {allowedTargets = 2; jip = 1;};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -263,12 +264,12 @@ class CfgRemoteExec {
 		class joinSilent {};
 		class engineOn {};
 		class setMass {};
-		class deleteMarker {allowedTargets = 2; jip = 1;};
+		class deleteMarker {allowedTargets = 2;};
 		class deleteGroup {};
 		class setSpeaker {allowedTargets = 1;};
 		class setFeatureType {jip = 1;};
+		class deleteMarkerLocal {allowedTargets = 2;};
 #ifdef __TT__
-		class deleteMarkerLocal {allowedTargets = 1; jip = 1;};
 		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
 	};

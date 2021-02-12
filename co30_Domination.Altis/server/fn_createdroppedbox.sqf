@@ -34,7 +34,7 @@ publicVariable "d_ammo_boxes";
 d_dbox_idx = d_dbox_idx + 1;
 [_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-_box setVariable ["d_box_drop2_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_this # 2 == blufor), true]];
+[_mname, _this # 2] remoteExecCall ["d_fnc_delmaloc", 0, _box];
 #endif
 if (d_with_ace) then {
 	[_box, _mname] spawn d_fnc_moveboxm;

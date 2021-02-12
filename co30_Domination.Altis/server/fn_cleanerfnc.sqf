@@ -74,11 +74,6 @@ while {true} do {
 			if (!isNil "_mname") then {
 				deleteMarker _mname;
 			};
-			private _jipid = _x getVariable "d_box_drop_jip_id";
-			__TRACE_1("","_jipid")
-			if (!isNil "_jipid") then {
-				remoteExecCall ["", _jipid];
-			};
 			deleteVehicle _x;
 		} forEach (d_airboxes select {time > _x getVariable ["d_airboxtime", -1]});
 		d_airboxes = d_airboxes - [objNull];
