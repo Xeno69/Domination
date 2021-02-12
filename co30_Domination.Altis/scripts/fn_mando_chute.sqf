@@ -126,7 +126,7 @@ if (_is_ammo) then {
 	[_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
 	_box setVariable ["d_mname", _mname];
 #ifdef __TT__
-	_box setVariable ["d_box_drop_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_pside == blufor)]];
+	_box setVariable ["d_box_drop_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_pside == blufor), _box]];
 #endif
 } else {
 	if (position _man # 2 <= -1) then {

@@ -263,12 +263,12 @@ class CfgRemoteExec {
 		class joinSilent {};
 		class engineOn {};
 		class setMass {};
-		class deleteMarker {allowedTargets = 2;};
+		class deleteMarker {allowedTargets = 2; jip = 1;};
 		class deleteGroup {};
 		class setSpeaker {allowedTargets = 1;};
-		class setFeatureType {};
+		class setFeatureType {jip = 1;};
 #ifdef __TT__
-		class deleteMarkerLocal {allowedTargets = 1;};
+		class deleteMarkerLocal {allowedTargets = 1; jip = 1;};
 		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
 	};

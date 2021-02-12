@@ -119,7 +119,7 @@ while {true} do {
 		__TRACE_1("","_funits")
 
 		addToRemainsCollector [_vec];
-		[_vec, 2] remoteExec ["setFeatureType", [0, -2] select isDedicated];
+		[_vec, 2] remoteExec ["setFeatureType", [0, -2] select isDedicated, _vec];
 		[_vec, 17] call d_fnc_setekmode;
 
 		if (d_LockAir == 0) then {_vec lock true};
