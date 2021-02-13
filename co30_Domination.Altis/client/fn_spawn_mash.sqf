@@ -82,7 +82,12 @@ publicVariable "d_mashes";
 
 systemChat (localize "STR_DOM_MISSIONSTRING_285");
 
+#ifndef __TT__
 ["a", d_player_uid, [_medic_tent, "d_Mash " + (netId player), d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+#else
+private _mbegin = ["d_Mash_opf ", "d_Mash_blu "] select (d_player_side == blufor);
+["a", d_player_uid, [_medic_tent, _mbegin + (netId player), d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+#endif
 
 _medic_tent setVariable ["d_owner", player, true];
 

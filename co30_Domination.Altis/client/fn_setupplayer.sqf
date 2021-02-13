@@ -39,6 +39,20 @@ if (side (group player) == blufor) then {
 
 	d_UAV_Small = "B_UAV_01_F";
 	d_UAV_Terminal = "B_UavTerminal";
+	if (didJIP) then {
+		{
+			deleteMarkerLocal _x;
+		} forEach (allMapMarkers select {_x select [0, 9] == "d_bm_opf_" || {_x select [0, 9] == "d_ab_opf_" || {_x select [0, 10] == "d_abm_opf_" || {_x select [0, 9] == "d_Mash_opf" || {_x select [0, 9] == "d_FARP_opf" || {_x select [0, 12] == "xr_opf_dead_"}}}}}});
+		{
+			(_x splitString "|") params ["", "_netid_ar"];
+			if (_netid_ar != "") then {
+				private _obj = objectFromNetId _netid_ar;
+				if (side (group _obj) != d_player_side) then {
+					deleteMarkerLocal _x;
+				};
+			};
+		} forEach (allMapMarkers select {_x select [0, 9] == "d_arttmx|"});
+	};
 } else {
 	d_mob_respawns = d_mob_respawns_opfor;
 	d_player_side = opfor;
@@ -54,6 +68,20 @@ if (side (group player) == blufor) then {
 
 	d_UAV_Small = "O_UAV_01_F";
 	d_UAV_Terminal = "O_UavTerminal";
+	if (didJIP) then {
+		{
+			deleteMarkerLocal _x;
+		} forEach (allMapMarkers select {_x select [0, 9] == "d_bm_blu_" || {_x select [0, 9] == "d_ab_blu_" || {_x select [0, 10] == "d_abm_blu_" || {_x select [0, 9] == "d_Mash_blu" || {_x select [0, 9] == "d_FARP_blu" || {_x select [0, 12] == "xr_blu_dead_"}}}}}});
+		{
+			(_x splitString "|") params ["", "_netid_ar"];
+			if (_netid_ar != "") then {
+				private _obj = objectFromNetId _netid_ar;
+				if (side (group _obj) != d_player_side) then {
+					deleteMarkerLocal _x;
+				};
+			};
+		} forEach (allMapMarkers select {_x select [0, 9] == "d_arttmx|"});
+	};
 };
 d_side_player = d_player_side;
 d_can_call_drop_ar = [];

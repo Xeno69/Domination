@@ -20,13 +20,13 @@ call {
 		if ((_ar # 0) isKindOf d_mash) then {
 			[_ar # 1, _ar # 0, "ICON", "ColorBlue", [0.5, 0.5], format ["Mash %1", _ar # 2], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-			[_ar # 1, _ar # 4] remoteExecCall ["d_fnc_delmaloc", [0, -2] select isDedicated];
+			(_ar # 1) remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select ((_ar # 4) == blufor)];
 #endif
 		} else {
 			if ((_ar # 0) isKindOf (d_farp_classes # 0)) then {
 				[_ar # 1, _ar # 0, "ICON", "ColorBlue", [0.5, 0.5], format ["FARP %1", _ar # 2], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-				[_ar # 1, _ar # 4] remoteExecCall ["d_fnc_delmaloc", [0, -2] select isDedicated];
+				(_ar # 1) remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select ((_ar # 4) == blufor)];
 #endif
 			};
 		};

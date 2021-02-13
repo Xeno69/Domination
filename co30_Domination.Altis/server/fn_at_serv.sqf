@@ -20,11 +20,7 @@ if (_pa isNotEqualTo []) then {
 };
 [_mname, _apos, "ICON", d_color_m_marker, [1, 1], _npl, 0, d_arty_m_marker] call d_fnc_CreateMarkerGlobal;
 #ifdef __TT__
-private _jipid = _pl getVariable "d_artmark_jip_id";
-if (!isNil "_jipid") then {
-	remoteExecCall ["", _jipid];
-};
-_pl setVariable ["d_artmark_jip_id", [_mname, side (group _pl)] remoteExecCall ["d_fnc_delmaloc", 0, _pl]];
+_mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (side (group _pl) == blufor)];
 #endif
 
 if (d_no_ai) then {

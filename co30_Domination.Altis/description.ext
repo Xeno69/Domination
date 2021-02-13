@@ -248,7 +248,6 @@ class CfgRemoteExec {
 		class d_fnc_ttpvkill {allowedTargets = 2;};
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
 		class d_fnc_asfnc {allowedTargets = 2;};
-		class d_fnc_delmaloc {allowedTargets = 2; jip = 1;};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec

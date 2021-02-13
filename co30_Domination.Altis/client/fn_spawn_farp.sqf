@@ -111,7 +111,12 @@ d_farps pushBack _farp;
 publicVariable "d_farps";
 
 systemChat (localize "STR_DOM_MISSIONSTRING_248");
+#ifndef __TT__
 ["a", d_player_uid, [_farp, "d_FARP " + (netId player), d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+#else
+private _mbegin = ["d_FARP_opf ", "d_FARP_blu "] select (d_player_side == blufor);
+["a", d_player_uid, [_farp, _mbegin + (netId player), d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+#endif
 if (isMultiplayer) then {
 	[_farp, player] remoteExecCall ["d_fnc_farp_e", d_player_side];
 } else {
