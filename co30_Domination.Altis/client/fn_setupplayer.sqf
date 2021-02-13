@@ -56,6 +56,7 @@ if (side (group player) == blufor) then {
 	d_UAV_Terminal = "O_UavTerminal";
 };
 d_side_player = d_player_side;
+d_can_call_drop_ar = [];
 #endif
 
 d_arsenal_opened = false;

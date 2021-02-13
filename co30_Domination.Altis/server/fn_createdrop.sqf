@@ -30,28 +30,11 @@ if (!isNil "_player" && {!isNull _player}) then {
 
 private _mname = "d_drop_zone_" + str _player;
 [_mname, _drop_pos, "ICON", "ColorBlue", [0.8, 0.8], format [localize "STR_DOM_MISSIONSTRING_1648", name _player], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
-#ifdef __TT__
-private _jid = [_mname, side (group _player)] remoteExecCall ["d_fnc_delmaloc", 0, _player];
-_player setVariable ["d_dropz_jip_id", _jid];
-#endif
 
-#ifndef __TT__
 _mname spawn {
-#else
-[_mname, _player, _jid] spawn {
-#endif
 	scriptName "spawn createdrop";
 	sleep 900;
-#ifndef __TT__
 	deleteMarker _this;
-#else
-	params ["_mname", "_player", "_jid"];
-	deleteMarker _mname;
-	if (!isNil "_player" && {!isNull _player}) then {
-		_player setVariable ["d_dropz_jip_id", nil];
-	};
-	remoteExecCall ["", _jid];
-#endif
 };
 
 _drop_pos = [_drop_pos # 0, _drop_pos # 1, 120];
@@ -195,9 +178,3 @@ while {time < _starttime && {canMove _chopper && {_chopper distance2D _end_pos >
 };
 
 __announce;
-#ifdef __TT__
-if (!isNil "_player" && {!isNull _player}) then {
-	_player setVariable ["d_dropz_jip_id", nil];
-};
-remoteExecCall ["", _jid];
-#endif
