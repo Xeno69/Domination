@@ -1645,7 +1645,7 @@ if (!d_gmcwgwinter) then {
 				["B_Plane_CAS_01_F"]
 			};
 		};
-		if (d_enemy_side_short == "E") exitWith {["I_Plane_Fighter_03_CAS_F"]};
+		if (d_enemy_side_short == "G") exitWith {["I_Plane_Fighter_03_CAS_F"]};
 	};
 
        // type of enemy UAV that will fly over the main target
