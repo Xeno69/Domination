@@ -3,16 +3,16 @@
 #define THIS_FILE "fn_event_rabbitrescue.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
+#ifdef __TT__
+//do not run this event in TvT (for now)
+if (true) exitWith {};
+#endif
 
 // One rabbit spawns in a location near the center of the maintarget and then moves around randomly, disappears when "caught"
 
 if !(isServer) exitWith {};
 
-#ifdef __TT__
-//do not run this event in TvT (for now)
-if (true) exitWith {};
-#endif
+params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 

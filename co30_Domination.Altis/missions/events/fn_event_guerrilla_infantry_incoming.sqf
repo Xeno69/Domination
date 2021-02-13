@@ -3,16 +3,16 @@
 #define THIS_FILE "fn_event_guerrilla_infantry_incoming.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
+#ifdef __TT__
+//do not run this event in TvT (for now)
+if (true) exitWith {};
+#endif
 
 // Guerilla infantry spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
 
 if !(isServer) exitWith {};
 
-#ifdef __TT__
-//do not run this event in TvT (for now)
-if (true) exitWith {};
-#endif
+params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 

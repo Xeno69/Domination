@@ -3,7 +3,10 @@
 #define THIS_FILE "fn_event_sideevac.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
+#ifdef __TT__
+//do not run this event in TvT (for now)
+if (true) exitWith {};
+#endif
 
 // Shot down chopper as an event - no timer.
 // Random crash site location, pilots are teleported to a nearby building and ordered posture down.
@@ -11,10 +14,7 @@ params ["_target_radius", "_target_center"];
 
 if !(isServer) exitWith {};
 
-#ifdef __TT__
-//do not run this event in TvT (for now)
-if (true) exitWith {};
-#endif
+params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 

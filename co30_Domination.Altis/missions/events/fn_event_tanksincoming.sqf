@@ -3,16 +3,16 @@
 #define THIS_FILE "fn_event_tanksincoming.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
+#ifdef __TT__
+//do not run this event in TvT (for now)
+if (true) exitWith {};
+#endif
 
 // Guerilla tanks spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
 
 if !(isServer) exitWith {};
 
-#ifdef __TT__
-//do not run this event in TvT (for now)
-if (true) exitWith {};
-#endif
+params ["_target_radius", "_target_center"];
 
 //armor types
 #ifndef __IFA3LITE__

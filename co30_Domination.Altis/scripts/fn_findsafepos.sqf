@@ -64,7 +64,7 @@ if (_checkPos isEqualType objNull) then {_checkPos = getPos _checkPos};
 private _defaultMaxDistance = worldSize / 2;
 private _defaultCenterPos = [_defaultMaxDistance, _defaultMaxDistance, 0];
 
-private _fnc_defaultPos = {
+/*private _fnc_defaultPos = {
 	_defaultPos = _defaultPos param [parseNumber _this, []];
 	if (_defaultPos isNotEqualTo []) exitWith {_defaultPos};
 	
@@ -75,7 +75,7 @@ private _fnc_defaultPos = {
 	if (_defaultPos isNotEqualTo []) exitWith {_defaultPos};
 		
 	_defaultCenterPos
-};
+};*/
 
 if (_checkPos isEqualTo []) then {
 	_checkPos = getArray (configFile >> "CfgWorlds" >> worldName >> "safePositionAnchor");
