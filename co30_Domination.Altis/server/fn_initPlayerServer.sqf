@@ -10,8 +10,7 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
-if (!isNil {_pl getVariable "d_ips_i"}) exitWith {};
-_pl setVariable ["d_ips_i", true];
+if (remoteExecutedOwner != owner _pl) exitWith {};
 
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
