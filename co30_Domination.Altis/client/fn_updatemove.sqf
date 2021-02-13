@@ -1,10 +1,12 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_updatemove.sqf"
 #include "..\x_setup.sqf"
 
 private _dst = (player getVariable "d_move_opos") distance2D (player getVariable ["d_move_stop", getPosWorld player]);
 __TRACE_1("","_dst")
 private _ar = player getVariable "d_p_distar";
+__TRACE_1("1","_ar")
 if (isNull objectParent player) then {
 	_ar set [0, (_ar # 0) + _dst];
 } else {
@@ -21,4 +23,5 @@ if (isNull objectParent player) then {
 		};
 	};
 };
+__TRACE_1("2","_ar")
 player setVariable ["d_move_opos", getPosWorld player];
