@@ -16,6 +16,9 @@ if (!isNil {_box getVariable "d_islocked"} && {_box getVariable "d_islocked" != 
 };
 
 call d_fnc_storepitems;
+if ((_this # 0) == player) then {
+	d_cur_inv_o_gear =+ getUnitLoadout player;
+};
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	private _canopen = true;
