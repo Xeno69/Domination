@@ -680,7 +680,7 @@ if (d_occ_bldgs == 1) then {
 //garrison end
 #endif
 
-[_wp_array_vecs, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
+[_wp_array_inf, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {

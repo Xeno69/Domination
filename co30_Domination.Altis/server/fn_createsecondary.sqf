@@ -225,11 +225,20 @@ if (d_ao_check_for_ai in [0, 1]) then {
 #endif
 };
 
+diag_log ["count _wp_array ", count _wp_array];
 d_mt_fires = [];
+private _hcount = 0;
 for "_i" from 1 to selectRandom [4,5,6,7] do {
 	if (_wp_array isEqualTo []) exitWith {};
 	private _ran = (count _wp_array) call d_fnc_RandomFloor;
-	d_mt_fires pushBack (createVehicle ["test_EmptyObjectForFireBig", _wp_array # _ran, [], 0, "NONE"]);
+	private _pos = _wp_array # _ran;
+	while {isOnRoad _pos} do {
+		_ran = (count _wp_array) call d_fnc_RandomFloor;
+		_pos = _wp_array # _ran;
+		_hcount = _hcount + 1;
+		if (_hcount > 20) exitWith {};
+	};
+	d_mt_fires pushBack (createVehicle ["test_EmptyObjectForFireBig", _pos, [], 0, "NONE"]);
 	_wp_array deleteAt _ran;
 };
 sleep 0.1;
