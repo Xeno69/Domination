@@ -17,10 +17,10 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 		if (_vec getVariable ["d_vec_type", ""] == "MHQ") exitWith {};
 		private _type = toLowerANSI (typeOf _vec);
 #ifndef __TT__
-		if ((_type in d_mt_bonus_vehicle_array || {_type in d_sm_bonus_vehicle_array}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
+		if ((_type in d_mt_bonus_vehicle_array || {_type in d_sm_b_vec_ar_c}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
 #else
 		private _numside = [1, 2] select (d_player_side == blufor);
-		if ((_type in (d_mt_bonus_vehicle_array # _numside) || {_type in (d_sm_bonus_vehicle_array # _numside)}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
+		if ((_type in (d_mt_bonus_vehicle_array # _numside) || {_type in (d_sm_b_vec_ar_c # _numside)}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
 #endif
 			player action ["getOut", _vec];
 			[format [localize "STR_DOM_MISSIONSTRING_1416", [_type, "CfgVehicles"] call d_fnc_GetDisplayName, round ((d_player_autokick_time - time) / 60) max 1], "HQ"] call d_fnc_HintChatMsg;

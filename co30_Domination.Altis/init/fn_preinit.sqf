@@ -279,11 +279,15 @@ d_e_marker_color_alpha = 0.8;
 #endif
 
 #ifndef __TT__
-d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
+d_sm_b_vec_ar_c = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
+d_sm_bonus_vehicle_array =+ d_sm_b_vec_ar_c;
 d_mt_bonus_vehicle_array = d_mt_bonus_vehicle_array apply {toLowerANSI _x};
 #else
-d_sm_bonus_vehicle_array set [0, (d_sm_bonus_vehicle_array # 0) apply {toLowerANSI _x}];
-d_sm_bonus_vehicle_array set [1, (d_sm_bonus_vehicle_array # 1) apply {toLowerANSI _x}];
+d_sm_b_vec_ar_c = [];
+d_sm_b_vec_ar_c pushBack ((d_sm_bonus_vehicle_array # 0) apply {toLowerANSI _x});
+d_sm_b_vec_ar_c pushBack ((d_sm_bonus_vehicle_array # 1) apply {toLowerANSI _x});
+d_sm_bonus_vehicle_array set [0, d_sm_b_vec_ar_c # 0];
+d_sm_bonus_vehicle_array set [1, d_sm_b_vec_ar_c # 1];
 d_mt_bonus_vehicle_array set [0, (d_mt_bonus_vehicle_array # 0) apply {toLowerANSI _x}];
 d_mt_bonus_vehicle_array set [1, (d_mt_bonus_vehicle_array # 1) apply {toLowerANSI _x}];
 #endif
