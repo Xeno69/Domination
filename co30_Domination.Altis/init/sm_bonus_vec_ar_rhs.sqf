@@ -11,5 +11,5 @@ switch (d_own_side) do {
 		"rhs_t80a","rhs_t80b","rhs_t80bk","rhs_t80bv","rhs_t80bvk","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80uk","rhs_t80um","rhs_t90_tv","rhs_t90a_tv","rhs_sprut_vdv","rhs_bmd1","rhs_bmd1k","rhs_bmd1p",
 		"rhs_bmd1pk","rhs_bmd1r","rhs_bmd2","rhs_bmd2k","rhs_bmd2m","rhs_bmd4_vdv","rhs_bmd4m_vdv","rhs_bmd4ma_vdv","RHS_Mi24P_vdv","RHS_Mi24V_vdv","rhs_mig29s_vmf","rhs_mig29sm_vmf","rhs_mig29s_vvsc","rhs_mig29sm_vvsc",
 		"RHS_Su25SM_vvsc","RHS_Ka52_vvsc","RHS_Mi24P_vvsc","RHS_Mi24V_vvsc","RHS_Mi24Vt_vvsc","rhs_mi28n_vvsc","rhs_mig29s_vvs","rhs_mig29sm_vvs","RHS_Su25SM_vvs","RHS_T50_vvs_generic","RHS_T50_vvs_051",
-		"RHS_T50_vvs_052","RHS_T50_vvs_053","RHS_T50_vvs_generic_ext","RHS_T50_vvs_054","RHS_T50_vvs_blueonblue","rhs_t14_tv"]};
+		"RHS_T50_vvs_052","RHS_T50_vvs_053","RHS_T50_vvs_generic_ext","RHS_T50_vvs_054","RHS_T50_vvs_blueonblue"]};
 };
