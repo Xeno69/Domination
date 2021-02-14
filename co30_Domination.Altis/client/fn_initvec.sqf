@@ -121,6 +121,7 @@ if (_d_vec < 100) exitWith {
 	};
 	if (!alive _vec) exitWith {};
 	_vec setVariable ["d_canloadbox", true];
+	d_check_ammo_load_vecs pushBackUnique toLowerANSI (typeOf _vec);
 #ifdef __TT__
 	if (d_player_side == blufor) then {
 #endif
@@ -336,6 +337,7 @@ if (_d_vec < 1100) exitWith {
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
 	_vec setVariable ["d_canloadbox", true];
+	d_check_ammo_load_vecs pushBackUnique toLowerANSI (typeOf _vec);
 	__sidee;
 	_vec addEventHandler ["getin", {call d_fnc_checkdriver}];
 	if (d_player_side != opfor) then {
