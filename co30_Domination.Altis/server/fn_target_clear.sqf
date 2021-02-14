@@ -194,6 +194,10 @@ if (d_enable_civs == 1) then {
 
 sleep 0.245;
 
+{deleteVehicle _x} forEach d_mt_fires;
+d_mt_fires = [];
+sleep 0.1;
+
 [d_old_target_pos, d_old_radius, _del_camps_stuff] execFSM "fsms\fn_DeleteEmpty.fsm";
 
 0 spawn d_fnc_rebbuil;

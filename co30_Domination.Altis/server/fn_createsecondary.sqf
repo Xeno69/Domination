@@ -225,6 +225,15 @@ if (d_ao_check_for_ai in [0, 1]) then {
 #endif
 };
 
+d_mt_fires = [];
+for "_i" from 1 to selectRandom [4,5,6,7] do {
+	if (_wp_array isEqualTo []) exitWith {};
+	private _ran = (count _wp_array) call d_fnc_RandomFloor;
+	d_mt_fires pushBack (createVehicle ["test_EmptyObjectForFireBig", _wp_array # _ran, [], 0, "NONE"]);
+	_wp_array deleteAt _ran;
+};
+sleep 0.1;
+
 if (d_with_minefield == 0 && {random 100 > 70}) then {
 	[_mtradius, _trg_center] call d_fnc_minefield;
 };
