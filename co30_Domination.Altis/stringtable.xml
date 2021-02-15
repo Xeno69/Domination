@@ -13947,7 +13947,7 @@
 <French>RADIOPROTOCOL for the player disabled!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2055">
-<English>You are not allowed to fly this chopper!!!</English>
+<English>Вам не разрешено управлять этим вертолетом !!!</English>
 <Spanish>You are not allowed to fly this chopper!!!</Spanish>
 <Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
 <Korean>You are not allowed to fly this chopper!!!</Korean>
@@ -13965,7 +13965,7 @@
 <Korean>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Korean>
 <Japanese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Japanese>
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
-<Russian>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Russian>
+<Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
 <Chinesesimp>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinesesimp>
 <Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
 <French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
