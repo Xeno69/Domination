@@ -33,7 +33,7 @@ if (_delta == 0 || {_type == 1}) then {
 		d_ef_trig_hash = createHashMap;
 	};
 	__TRACE("Second")
-	if !(_delta in d_ef_trig_hash) then {
+	if !(_delta in (keys d_ef_trig_hash)) then {
 		private _trig = [
 			[10, 10, 0],
 			[0, 0, 0, false],
