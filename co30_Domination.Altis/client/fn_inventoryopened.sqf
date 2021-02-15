@@ -35,7 +35,6 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	if (_canopen) then {
 		_box spawn {
 			scriptName "spawn_inventoryopened1";
-			d_has_opened_arsenal = true;
 			if (!d_with_ranked) then {
 				if (d_with_ace && {d_arsenal_mod == 1}) then {
 					[player, player, true] call ace_arsenal_fnc_openBox;

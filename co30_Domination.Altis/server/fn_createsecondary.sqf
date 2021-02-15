@@ -225,7 +225,6 @@ if (d_ao_check_for_ai in [0, 1]) then {
 #endif
 };
 
-diag_log ["count _wp_array ", count _wp_array];
 d_mt_fires = [];
 private _hcount = 0;
 for "_i" from 1 to selectRandom [4,5,6,7] do {
