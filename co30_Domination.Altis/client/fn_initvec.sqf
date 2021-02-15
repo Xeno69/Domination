@@ -120,7 +120,9 @@ if (_d_vec < 100) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setVariable ["d_canloadbox", true];
+	if (isNil {_vec getVariable "d_canloadbox"}) then {
+		_vec setVariable ["d_canloadbox", true];
+	};
 	d_check_ammo_load_vecs pushBackUnique toLowerANSI (typeOf _vec);
 #ifdef __TT__
 	if (d_player_side == blufor) then {
@@ -336,7 +338,9 @@ if (_d_vec < 1100) exitWith {
 		player reveal _vec;
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
-	_vec setVariable ["d_canloadbox", true];
+	if (isNil {_vec getVariable "d_canloadbox"}) then {
+		_vec setVariable ["d_canloadbox", true];
+	};
 	d_check_ammo_load_vecs pushBackUnique toLowerANSI (typeOf _vec);
 	__sidee;
 	_vec addEventHandler ["getin", {call d_fnc_checkdriver}];
