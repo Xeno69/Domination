@@ -13,7 +13,7 @@ if (!d_gmcwg) then {
 };
 
 if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
-	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
+	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
 };
 
 if (d_with_ace) then {
