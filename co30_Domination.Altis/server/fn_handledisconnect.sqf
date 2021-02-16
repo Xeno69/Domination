@@ -43,6 +43,7 @@ if (_pa isNotEqualTo []) then {
 	if ((_pa # 9) # 1 == 0) then {
 		_pa set [9, [(_pa # 9) # 0, time]];
 	};
+	__TRACE_1("TT","_pa")
 	deleteMarker format ["xr_opf_dead_%1", _pa # 18];
 	deleteMarker format ["xr_blu_dead_%1", _pa # 18];
 #else
