@@ -270,7 +270,7 @@ if (isNil "d_para_available") then {
 	d_para_available = true;
 };
 if (isNil "d_searchintel") then {
-	d_searchintel = [0,0,0,0,0,0,0]; // TODO search intel for island patrol groups disabled as those groups are disabled too
+	d_searchintel = [0,0,0,0,0,0,0];
 };
 #ifndef __TT__
 if (isNil "d_arty_firing") then {
