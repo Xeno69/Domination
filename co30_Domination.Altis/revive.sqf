@@ -1,6 +1,8 @@
 #define THIS_FILE "revive.sqf"
 #include "x_macros.sqf";
 
+diag_log "DOM initializing revive";
+
 // set max lives to -1 to have unlimited lives
 if (isNil "xr_max_lives") then {
 	xr_max_lives = 30;

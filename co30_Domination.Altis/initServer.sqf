@@ -35,9 +35,11 @@ if (d_database_found) then {
 		};
 		__TRACE_1("missionsGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
+			diag_log "DOM mission save games:";
 			d_db_savegames = [];
 			{
 				d_db_savegames pushBack (_x # 0);
+				diag_log ["DOM one save:", _x # 0];
 			} forEach _dbresult;
 			publicVariable "d_db_savegames";
 			__TRACE_1("","d_db_savegames")
@@ -61,9 +63,11 @@ if (d_database_found) then {
 		};
 		__TRACE_1("missionsttGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
+			diag_log "DOM mission save games:";
 			d_db_savegames = [];
 			{
 				d_db_savegames pushBack (_x # 0);
+				diag_log ["DOM one save:", _x # 0];
 			} forEach _dbresult;
 			publicVariable "d_db_savegames";
 			__TRACE_1("","d_db_savegames")
@@ -80,6 +84,7 @@ if (d_database_found) then {
 			};
 			__TRACE_1("getTop10Players","_dbresult")
 			if (_dbresult isNotEqualTo []) then {
+				diag_log "DOM Top 10 players found";
 				{
 					_x set [1, (_x # 1) call d_fnc_convtime];
 				} forEach _dbresult;

@@ -16,5 +16,6 @@ if (hasInterface) then {
 player enableAttack false;
 
 diag_log ["Dom d_database_found:", d_database_found];
+diag_log ["Dom name player:", name player];
 
 diag_log [diag_frameno, diag_ticktime, time, "MPF initPlayerLocal.sqf processed"];
