@@ -6,24 +6,20 @@
 private _mods = _this apply {toLowerANSI _x};
 __TRACE_1("","_mods")
 
-private _items_no = ["ItemMap", "ItemRadio"];
+private _items_no = ["ItemMap", "ItemRadio", "ToolKit", "MineDetector"];
 
 if (!d_gmcwg) then {
-	_items_no append ["FirstAidKit", "Medikit","ItemCompass", "ItemWatch"];
+	_items_no append ["FirstAidKit", "Medikit", "ItemCompass", "ItemWatch"];
 };
 
 if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
-	_items_no append ["Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "MineDetector"];
+	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
 };
 
 if (d_with_ace) then {
 	_items_no append ["ACE_atropine", "ACE_fieldDressing", "ACE_elasticBandage", "ACE_quikclot", "ACE_bloodIV", "ACE_bloodIV_500", "ACE_bloodIV_250",
 		"ACE_bodyBag", "ACE_bodyBagObject", "ACE_epinephrine", "ACE_morphine", "ACE_packingBandage", "ACE_personalAidKit", "ACE_plasmaIV", "ACE_plasmaIV_500",
 		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
-};
-
-if (d_cup || {d_unsung}) then {
-	_items_no pushBack "ToolKit";
 };
 
 if (d_cup) then {
@@ -63,22 +59,20 @@ private _findmodfnc = {
 	{
 		_item = _x;
 		if !(toLowerANSI _item in _items_no) then {
-			_kind = if (isClass (configFile >> "CfgWeapons" >> _x)) then {
-				"CfgWeapons"
-			} else {
-				if (isClass (configFile >> "CfgMagazines" >> _x)) then {
-					"CfgMagazines"
-				} else {
-					if (isClass (configFile >> "CfgVehicles" >> _x)) then {
-						"CfgVehicles"
-					} else {
-						if (isClass (configFile >> "CfgGlasses" >> _x)) then {
-							"CfgGlasses"
-						} else {
-							""
-						};
-					};
+			_kind = call {
+				if (isClass (configFile >> "CfgWeapons" >> _x)) exitWith {
+					"CfgWeapons"
 				};
+				if (isClass (configFile >> "CfgMagazines" >> _x)) exitWith {
+					"CfgMagazines"
+				};
+				if (isClass (configFile >> "CfgVehicles" >> _x)) exitWith {
+					"CfgVehicles"
+				};
+				if (isClass (configFile >> "CfgGlasses" >> _x)) exitWith {
+					"CfgGlasses"
+				};
+				"";
 			};
 			__TRACE_1("","_kind")
 			__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")

@@ -6,6 +6,29 @@
 diag_log format ["############################# %1 %2 #############################", missionName, missionNameSource];
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom fn_preinit.sqf"];
 
+#ifndef __DOMCFGFUNCTIONS__
+diag_log "Dom precompiling functions!!!";
+private ["_tag", "_file", "_type", "_name", "_fncname"];
+{
+	// currently no check for type (aka client or server, etc)
+	_tag = getText(_x>>"tag");
+	{
+		_file = getText(_x>>"file");
+		_type = getNumber(_x>>"type");
+		{
+			_name = configName _x;
+			_fncname = format ["%1_fnc_%2", _tag, _name];
+			if (!isNil {missionNamespace getVariable _fncname}) exitWith {
+				diag_log "I think you are a cheater....";
+				endMission "LOSER";
+				forceEnd;
+			};
+			missionNamespace setVariable [_fncname, compileScript [format ["%1\fn_%2.sqf", _file, _name], true]];
+		} forEach ("true" configClasses _x);
+	} forEach ("true" configClasses _x);
+} forEach ("true" configClasses (missionConfigFile>>"cfgDomFuncs"));
+#endif
+
 #ifndef __TT__
 d_tt_ver = false;
 #else
@@ -93,7 +116,11 @@ d_own_sides = ["WEST"];
 d_own_sides_o = [blufor];
 d_enemy_side = "EAST";
 d_enemy_side_short = "E";
+d_side_enemy = opfor;
 d_rhs_blufor = true;
+d_side_player = blufor;
+d_version_string = "Blufor";
+d_e_marker_color = "ColorOPFOR";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 d_own_side = "EAST";
@@ -101,7 +128,11 @@ d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3lite);
 d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3lite);
 d_enemy_side = "WEST";
 d_enemy_side_short = "W";
+d_side_enemy = blufor;
 d_rhs_blufor = false;
+d_side_player = opfor;
+d_version_string = "Opfor";
+d_e_marker_color = "ColorBLUFOR";
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 d_own_side = "GUER";
@@ -109,46 +140,20 @@ d_own_sides = ["GUER"];
 d_own_sides_o = [independent];
 d_enemy_side = "EAST";
 d_enemy_side_short = "E";
+d_side_enemy = opfor;
+d_side_player = independent;
+d_version_string = "GUER";
+d_e_marker_color = "ColorGUER";
 #endif
 #ifdef __TT__
 d_own_side = "WEST";
 d_own_sides = ["WEST"];
 d_enemy_side = "GUER";
 d_enemy_side_short = "G";
-#endif
-
-d_side_enemy = call {
-	if (d_enemy_side_short == "E") exitWith {opfor};
-	if (d_enemy_side_short == "W") exitWith {blufor};
-	if (d_enemy_side_short == "G") exitWith {independent};
-};
-
-d_side_player =
-#ifdef __OWN_SIDE_OPFOR__
-	opfor;
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-	blufor;
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	independent;
-#endif
-#ifdef __TT__
-	blufor;
-#endif
-
-d_version_string =
-#ifdef __OWN_SIDE_OPFOR__
-	"Opfor";
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-	"Blufor";
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	"GUER";
-#endif
-#ifdef __TT__
-	"Two Teams";
+d_side_enemy = independent;
+d_side_player = blufor;
+d_version_string = "Two Teams";
+d_e_marker_color = "ColorYellow";
 #endif
 
 #ifdef __IFA3LITE__
@@ -161,20 +166,6 @@ d_version_string = "Carrier";
 
 #ifdef __RHS__
 d_version_string = ["RHS Opfor", "RHS Blufor"] select d_rhs_blufor;
-#endif
-
-d_e_marker_color =
-#ifdef __OWN_SIDE_OPFOR__
-	"ColorBLUFOR";
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-	"ColorOPFOR";
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	"ColorGUER";
-#endif
-#ifdef __TT__
-	"ColorYellow";
 #endif
 
 #ifdef __IFA3LITE__
@@ -288,11 +279,15 @@ d_e_marker_color_alpha = 0.8;
 #endif
 
 #ifndef __TT__
-d_sm_bonus_vehicle_array = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
+d_sm_b_vec_ar_c = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
+d_sm_bonus_vehicle_array =+ d_sm_b_vec_ar_c;
 d_mt_bonus_vehicle_array = d_mt_bonus_vehicle_array apply {toLowerANSI _x};
 #else
-d_sm_bonus_vehicle_array set [0, (d_sm_bonus_vehicle_array # 0) apply {toLowerANSI _x}];
-d_sm_bonus_vehicle_array set [1, (d_sm_bonus_vehicle_array # 1) apply {toLowerANSI _x}];
+d_sm_b_vec_ar_c = [];
+d_sm_b_vec_ar_c pushBack ((d_sm_bonus_vehicle_array # 0) apply {toLowerANSI _x});
+d_sm_b_vec_ar_c pushBack ((d_sm_bonus_vehicle_array # 1) apply {toLowerANSI _x});
+d_sm_bonus_vehicle_array set [0, d_sm_b_vec_ar_c # 0];
+d_sm_bonus_vehicle_array set [1, d_sm_b_vec_ar_c # 1];
 d_mt_bonus_vehicle_array set [0, (d_mt_bonus_vehicle_array # 0) apply {toLowerANSI _x}];
 d_mt_bonus_vehicle_array set [1, (d_mt_bonus_vehicle_array # 1) apply {toLowerANSI _x}];
 #endif
@@ -628,7 +623,7 @@ if (isServer) then {
 			{
 				call {
 					private _tla = toLowerANSI (_x # 0);
-					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots"]) exitWith {
+					if (_tla in ["d_reserved_slot", "d_uid_reserved_slots", "d_uids_for_reserved_slots", "d_uids_def_choppers"]) exitWith {
 						if ((_x # 1) isNotEqualTo []) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
@@ -693,7 +688,7 @@ if (isServer) then {
 					for "_i" from 0 to (count _conf - 1) do {
 						private _paramName = configName (_conf select _i);
 						private _paramval = getNumber (_conf>>_paramName>>"default");
-						if (_paramval != -99999) then {
+						if (_paramval != -66) then {
 							call {
 								if (d_db_type == 0) exitWith {
 									"extdb3" callExtension format ["1:dom:domParamsInsertN:%1:%2:%3", __DOMDBPARAMNAME, _paramName, _paramval];
@@ -711,7 +706,7 @@ if (isServer) then {
 			paramsArray = nil;
 		};
 	};
-	call compile preprocessFileLineNumbers "init\initcommon.sqf";
+	call compileScript ["init\initcommon.sqf", false];
 
 	d_house_objects = [];
 	d_house_objects2 = [];
@@ -1125,6 +1120,12 @@ if (!d_gmcwgwinter) then {
 	if (isNil "d_number_attack_uavs") then {
 		d_number_attack_uavs = 1;
 	};
+#ifdef __ALTIS__
+	d_divers_E = [["East","OPF_F","SpecOps","OI_diverTeam"] call d_fnc_GetConfigGroup];
+#endif
+#ifdef __MALDEN__
+	d_divers_E = [["East","OPF_F","SpecOps","OI_diverTeam"] call d_fnc_GetConfigGroup];
+#endif
 
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
@@ -1268,8 +1269,8 @@ if (!d_gmcwgwinter) then {
 		"I_Plane_Fighter_03_CAS_F";
 #endif
 
-	d_sm_speedboat = switch (d_enemy_side_short) do {
-		case "E": {
+	d_sm_speedboat = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					""
@@ -1289,7 +1290,7 @@ if (!d_gmcwgwinter) then {
 				"O_Boat_Armed_01_hmg_F"
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
 					"CUP_B_RHIB_USMC"
@@ -1309,7 +1310,7 @@ if (!d_gmcwgwinter) then {
 				"B_Boat_Armed_01_minigun_F"
 			};
 		};
-		case "G": {
+		if (d_enemy_side_short == "G") exitWith {
 			call {
 				if (d_cup) exitWith {
 					"CUP_I_RHIB_RACS"
@@ -1616,8 +1617,8 @@ if (!d_gmcwgwinter) then {
 	};
 
 	// type of enemy plane that will fly over the main target
-	d_airai_attack_plane = switch (d_enemy_side_short) do {
-		case "E": {
+	d_airai_attack_plane = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["O_Plane_CAS_02_F","CUP_O_Su25_RU_3","CUP_O_Su25_RU_1","CUP_O_Su25_RU_2"]
@@ -1634,7 +1635,7 @@ if (!d_gmcwgwinter) then {
 				["O_Plane_CAS_02_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_ifa3lite) exitWith {
 					["LIB_FW190F8", "LIB_FW190F8_4", "LIB_FW190F8_2", "LIB_FW190F8_5", "LIB_FW190F8_3"]
@@ -1648,12 +1649,12 @@ if (!d_gmcwgwinter) then {
 				["B_Plane_CAS_01_F"]
 			};
 		};
-		case "G": {["I_Plane_Fighter_03_CAS_F"]};
+		if (d_enemy_side_short == "G") exitWith {["I_Plane_Fighter_03_CAS_F"]};
 	};
 
        // type of enemy UAV that will fly over the main target
-	d_airai_attack_uav = switch (d_enemy_side_short) do {
-		case "E": {
+	d_airai_attack_uav = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					[]
@@ -1673,7 +1674,7 @@ if (!d_gmcwgwinter) then {
 				["O_UAV_02_F","O_UAV_02_CAS_F","O_T_UAV_04_CAS_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["CUP_B_USMC_DYN_MQ9"]
@@ -1693,7 +1694,7 @@ if (!d_gmcwgwinter) then {
 				["B_T_UAV_03_F", "B_UAV_02_F", "B_UAV_05_F"]
 			};
 		};
-		case "G": {
+		if (d_enemy_side_short == "G") exitWith {
 			call {
 				if (d_cup) exitWith {
 					[]
@@ -1710,8 +1711,8 @@ if (!d_gmcwgwinter) then {
 	};
 
 	// type of enemy chopper that will fly over the main target
-	d_airai_attack_chopper = switch (d_enemy_side_short) do {
-		case "E": {
+	d_airai_attack_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
 			call {
 				if (d_cup) exitWith {
 					["O_Heli_Attack_02_F","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Ka50_SLA"]
@@ -1731,7 +1732,7 @@ if (!d_gmcwgwinter) then {
 				["O_Heli_Attack_02_F"]
 			};
 		};
-		case "W": {
+		if (d_enemy_side_short == "W") exitWith {
 			call {
 				if (d_ifa3lite) exitWith {
 					["LIB_Ju87_Italy2", "LIB_Ju87_Italy", "LIB_Ju87"]
@@ -1742,7 +1743,7 @@ if (!d_gmcwgwinter) then {
 				["B_Heli_Attack_01_F"]
 			};
 		};
-		case "G": {["I_Heli_light_03_F"]};
+		if (d_enemy_side_short == "G") exitWith {["I_Heli_light_03_F"]};
 	};
 
 #ifdef __ALTIS__
@@ -2376,6 +2377,13 @@ if (hasInterface) then {
 		d_uid_reserved_slots = [];
 		d_uids_for_reserved_slots = [];
 	};
+	
+	if (isNil "d_uids_def_choppers") then {
+		// If d_uids_initial_vecs is filled with player UIDs as strings player UIDs which are not in the array are getting kicked from
+		// the initially placed choppers and MHQs on base
+		// d_uids_initial_vecs = ["1234567", "7654321"];
+		d_uids_def_choppers = [];
+	};
 
 	// this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
 	// IMPORTANT !!!! for ranked version !!!!
@@ -2629,6 +2637,7 @@ if (hasInterface) then {
 	d_scoreadd_qeue = [];
 	d_scoreadd_script = scriptNull;
 	d_weap_hash = createHashMap;
+	d_cur_inv_o_gear = [];
 
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];
 
@@ -2650,7 +2659,7 @@ if (hasInterface) then {
 		[8, getMissionPath "pics\8star.paa"],
 		[9, getMissionPath "pics\6star.paa"],
 		[10, getMissionPath "pics\5star.paa"],
-		[11, getMissionPath "pics\8star2.paa"]
+		[11, getMissionPath "pics\9star.paa"]
 	];
 	
 	d_num_hash = createHashMapFromArray [
@@ -2671,8 +2680,8 @@ if (hasInterface) then {
 	// please note, markerPos "somemarker" does not work in prenit, same for getPos some_object, it always returns [0,0,0] as position, so only use the marker name or the object name as string (with "")
 	// Example:
 	//d_additional_respawn_points = [
-	//	["D_UNIQUE_NAME_1", [1023, 5000, 4000], "My Cool Base", blufor],
-	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor],
+	//	["D_UNIQUE_NAME_1", [1023, 5000, 4000], "My Cool Base", blufor, true],
+	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor, false],
 	//	["D_UNIQUE_NAME_3", "opforbase", "The Opfor Base", opfor],
 	//	["D_UNIQUE_NAME_2", "myevencoolerbase", "My Even Cooler Base", blufor]
 	//];
@@ -2730,10 +2739,10 @@ if (hasInterface) then {
 		[], // PRIMARYWEAPON
 		[], // SECONDARYWEAPON
 		[], // HANDGUN
-		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this == "U_O_V_Soldier_Viper_F" || {_this == "U_O_V_Soldier_Viper_hex_F"}}}, {_this select [0, 4] == "U_C_" || {_this select [0, 6] == "U_I_C_"}}, {_this == "U_OrestesBody"}, "U_Marshal", "U_Rangemaster", "U_Competitor"], // uniforms
-		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}, "V_Press_F", {_this select [0, 7] == "V_Plain"}], // VEST
-		[{_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this isKindOf "B_HMG_02_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}, {_this find "UAV_" != -1 || {_this find "UGV_" != -1}}, {_this select [1, 11] == "_Messenger_"}], // BACKPACK
-		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}], // HEADGEAR
+		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this in ["u_o_v_soldier_viper_f", "u_o_v_soldier_viper_hex_f"]}}, {_this select [0, 4] == "u_c_" || {_this select [0, 6] == "u_i_c_"}}, "U_OrestesBody", "U_Marshal", "U_Rangemaster", "U_Competitor", {_this find "paradeuniform" > -1}], // uniforms
+		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}, "V_Press_F", {_this select [0, 7] == "v_plain"}], // VEST
+		[{_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this isKindOf "B_HMG_02_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}, {_this find "uav_" != -1 || {_this find "ugv_" != -1}}, {_this select [1, 11] == "_messenger_"}, {_this find "_everyday_" > -1}, {_this find "_sport_" > -1}], // BACKPACK
+		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}, {_this find "paradedresscap" > -1}], // HEADGEAR
 		[], // GOGGLES
 		[], // NVGS
 		[], // BINOCULARS

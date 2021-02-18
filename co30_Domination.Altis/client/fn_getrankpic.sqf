@@ -13,6 +13,9 @@ if (isNil "_xm") then {
 				_c = [d_i_r_hash get _r, 0.4];
 			};
 			private _s = score _this;
+			if (_r > 6 && {_s > d_points_needed_18}) exitWith {
+				_c = [d_i_r_hash get 11, 0.7];
+			};
 			if (_r > 6 && {_s > d_points_needed_17}) exitWith {
 				_c = [d_i_r_hash get 8, 0.7];
 			};
@@ -39,10 +42,10 @@ if (isNil "_xm") then {
 	};
 	_c
 } else {
-	private _r = _this getVariable "d_8star";
+	private _r = _this getVariable "d_9star";
 	if (isNil "_r") then {
 		_r = [d_i_r_hash get 11, 0.7];
-		_this setVariable ["d_8star", _r];
+		_this setVariable ["d_9star", _r];
 	};
 	_r
 };

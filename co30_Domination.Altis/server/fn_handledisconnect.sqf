@@ -13,16 +13,16 @@ if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo ""
 private _abl = _unit getVariable "d_blocks_arty";
 __TRACE_1("","_abl")
 if (!isNil "_abl") then {
-	missionNamespace setVariable ["d_ari_blocked", false, true];
+	missionNamespace setVariable ["d_ari_blocked", nil, true];
 };
 #else
 private _abl = _unit getVariable "d_blocks_arty_w";
 if (!isNil "_abl") then {
-	missionNamespace setVariable ["d_ari_blocked_w", false, true];
+	missionNamespace setVariable ["d_ari_blocked_w", nil, true];
 };
 private _abl = _unit getVariable "d_blocks_arty_e";
 if (!isNil "_abl") then {
-	missionNamespace setVariable ["d_ari_blocked_e", false, true];
+	missionNamespace setVariable ["d_ari_blocked_e", nil, true];
 };
 #endif
 
@@ -43,8 +43,12 @@ if (_pa isNotEqualTo []) then {
 	if ((_pa # 9) # 1 == 0) then {
 		_pa set [9, [(_pa # 9) # 0, time]];
 	};
-#endif
+	__TRACE_1("TT","_pa")
+	deleteMarker format ["xr_opf_dead_%1", _pa # 18];
+	deleteMarker format ["xr_blu_dead_%1", _pa # 18];
+#else
 	deleteMarker format ["xr_dead_%1", _pa # 18];
+#endif
 	private _amark = _pa # 10;
 	__TRACE_1("","_amark")
 	if (_amark != "") then {

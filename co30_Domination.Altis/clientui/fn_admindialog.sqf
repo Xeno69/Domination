@@ -29,7 +29,7 @@ if (!d_player_canu) exitWith {
 			d_a_d_p_kicked = nil;
 			lbClear _ctrl;
 			{
-				private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
+				private _index = _ctrl lbAdd (name _x);
 				_ctrl lbSetData [_index, str _x];
 			} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
 			_ctrl lbSetCurSel 0;

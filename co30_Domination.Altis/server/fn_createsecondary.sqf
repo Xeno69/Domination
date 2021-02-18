@@ -20,12 +20,12 @@ while {true} do {
 
 sleep 1.0123;
 
-private _poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
+private _poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
 while {_poss isEqualTo []} do {
 	_iccount = _iccount + 1;
-	_poss = [_trg_center, _mtradius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
-	if (_iccount >= 50 && {_poss isNotEqualTo []}) exitWith {};
+	_poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
+	if (_iccount >= 70 && {_poss isNotEqualTo []}) exitWith {};
 };
 if (isNil "_poss" || {_poss isEqualTo []}) then {
 	_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
@@ -36,7 +36,7 @@ _vec setVectorUp [0,0,1];
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
 if (d_ao_markers == 1) then {
-	["d_main_target_radiotower", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+	["d_m_t_rt", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
 };
 
 if (d_with_dynsim == 0) then {
@@ -166,9 +166,9 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		private _flagPole = createVehicle [d_flag_pole, _fwfpos, [], 0, "NONE"];
 		_flagPole setPos _fwfpos;
 		_wf setVariable ["d_FLAG", _flagPole, true];
-		private _maname = format ["d_camp_%1", _wf];
-		__TRACE_2("","_i","_maname")
 		if (d_ao_markers == 1) then {
+			private _maname = format ["d_camp_%1", _wf call d_fnc_markername];
+			__TRACE_2("","_i","_maname")
 			deleteMarker _maname;
 			[_maname, _poss, "ICON", "ColorBlack", [0.5, 0.5], str _i, 0, d_strongpointmarker] call d_fnc_CreateMarkerGlobal;
 			_wf setVariable ["d_camp_mar", _maname];
@@ -224,6 +224,23 @@ if (d_ao_check_for_ai in [0, 1]) then {
 	[16, _nrcamps] call d_fnc_DoKBMsg;
 #endif
 };
+
+d_mt_fires = [];
+private _hcount = 0;
+for "_i" from 1 to selectRandom [4,5,6,7] do {
+	if (_wp_array isEqualTo []) exitWith {};
+	private _ran = (count _wp_array) call d_fnc_RandomFloor;
+	private _pos = _wp_array # _ran;
+	while {isOnRoad _pos} do {
+		_ran = (count _wp_array) call d_fnc_RandomFloor;
+		_pos = _wp_array # _ran;
+		_hcount = _hcount + 1;
+		if (_hcount > 20) exitWith {};
+	};
+	d_mt_fires pushBack (createVehicle ["test_EmptyObjectForFireBig", _pos, [], 0, "NONE"]);
+	_wp_array deleteAt _ran;
+};
+sleep 0.1;
 
 if (d_with_minefield == 0 && {random 100 > 70}) then {
 	[_mtradius, _trg_center] call d_fnc_minefield;

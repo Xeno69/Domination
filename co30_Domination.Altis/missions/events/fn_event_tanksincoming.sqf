@@ -3,32 +3,32 @@
 #define THIS_FILE "fn_event_tanksincoming.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
-
-// Guerilla tanks spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
-
-if !(isServer) exitWith {};
-
 #ifdef __TT__
 //do not run this event in TvT (for now)
 if (true) exitWith {};
 #endif
 
+// Guerilla tanks spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
+
+if !(isServer) exitWith {};
+
+params ["_target_radius", "_target_center"];
+
 //armor types
+#ifndef __IFA3LITE__
 private _eventArmorHeavy = "I_MBT_03_cannon_F";
 private _eventArmorMedium = "I_APC_tracked_03_cannon_F";
 private _eventArmorLight = "I_LT_01_cannon_F";
-
-#ifdef __IFA3LITE__
-_eventArmorHeavy = "LIB_PzKpfwIV_H";
-_eventArmorMedium = "LIB_StuG_III_G";
-_eventArmorLight = "LIB_SdKfz251";
+#else
+private _eventArmorHeavy = "LIB_PzKpfwIV_H";
+private _eventArmorMedium = "LIB_StuG_III_G";
+private _eventArmorLight = "LIB_SdKfz251";
 #endif
 
 //array of armor vehicles to create
 private _eventArmorAll = [];
 
-_with_less_armor = if (!isNil "d_enemy_mode_current_maintarget") then {
+private _with_less_armor = if (!isNil "d_enemy_mode_current_maintarget") then {
 	d_enemy_mode_current_maintarget;
 } else {
 	d_WithLessArmor;
@@ -76,13 +76,13 @@ if (_townNearbyPos isEqualTo []) exitWith {
 	diag_log ["unable to find a location to spawn tanks for mission event", d_cur_tgt_name];
 };
 
-_x_mt_event_ar = [];
+private _x_mt_event_ar = [];
 
 private _trigger = [_target_center, [600,600,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-_eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028", _townNearbyName];
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028", _townNearbyName];
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
@@ -103,7 +103,7 @@ d_kb_logic1 kbTell [
 
 private _iter = 0;
 {
-	private _veh = createVehicle [_x, _roadList select _iter, [], 0, "NONE"];
+	private _veh = createVehicle [_x, _roadList # _iter, [], 0, "NONE"];
 	_iter = _iter + 1;
 	_x_mt_event_ar pushBack _veh;
 	_veh call d_fnc_nodamoff;
@@ -120,10 +120,10 @@ sleep 3.14;
 	_x setSpeedMode "FULL";
 	_x setBehaviour "COMBAT";
 	_wp = _x addWaypoint[_target_center, 0];
-    _wp setWaypointBehaviour "SAFE";
-    _wp setWaypointSpeed "FULL";
-    _wp setwaypointtype "SAD";
-    _wp setWaypointFormation "FILE";
+	_wp setWaypointBehaviour "SAFE";
+	_wp setWaypointSpeed "FULL";
+	_wp setwaypointtype "SAD";
+	_wp setWaypointFormation "FILE";
 	
 } forEach _newgroups;
 
@@ -137,20 +137,10 @@ sleep 2.333;
 
 private _all_dead = false;
 
-while {!d_mt_done && {!_all_dead}} do {                                             	
-	private _foundAlive = false;
-	{
-		private _grp = _x;
-		{
-			if (alive _x) exitWith {
-				_foundAlive = true;
-			};
-		} forEach (units _grp);
-	} forEach _newgroups;
+while {!d_mt_done} do {
+	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
 	
-	if !(_foundAlive) then {
-		_all_dead = true;
-	};
+	if (!_foundAlive) exitWith {};
 	
 	sleep 15;
 };

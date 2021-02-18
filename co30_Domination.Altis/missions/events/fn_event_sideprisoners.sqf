@@ -3,28 +3,28 @@
 #define THIS_FILE "fn_event_sideprisoners.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
-
 // Rescue captive friendly soldiers guarded by specops.  If the specops are injured they will kill the hostages.
-
-if !(isServer) exitWith {};
 
 #ifdef __TT__
 //do not run this event in TvT (for now)
 if (true) exitWith {};
 #endif
 
+if (!isServer) exitWith {};
+
+params ["_target_radius", "_target_center"];
+
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 //position the event site near target center at max distance 125m and min 15m 
 private _poss = [[[_target_center, 125]],[[_target_center, 15]]] call BIS_fnc_randomPos;
-_x_mt_event_ar = [];
+private _x_mt_event_ar = [];
 
 private _trigger = [_poss, [225,225,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
-_eventDescription = localize "STR_DOM_MISSIONSTRING_1805_MILITARY";
+private _eventDescription = localize "STR_DOM_MISSIONSTRING_1805_MILITARY";
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
@@ -41,8 +41,7 @@ private _allActors = [];
 
 __TRACE_1("","_prisonerGroup")
 // select a starting point, units will be moved later to occupy a building if possible
-private _nposss = [];
-_nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
+private _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 
 // create pilot1
@@ -63,8 +62,7 @@ _pilot1 enableFatigue false;
 _pilot1 disableAI "PATH";
 _pilot1 disableAI "RADIOPROTOCOL";
 _pilot1 forceSpeed 0;
-private _leader = leader _prisonerGroup;
-_leader setSkill 1;
+(leader _prisonerGroup) setSkill 1;
 _prisonerGroup allowFleeing 0;
 _prisonerGroup deleteGroupWhenEmpty true;
 
@@ -77,7 +75,7 @@ sleep 2.333;
 
 // create 3 enemy guards with unusual hat/bandanna to help players identify them
 private _hat_type = selectRandom ["H_Cap_red", "H_Shemag_olive_hs", "H_Bandanna_surfer"];
-private _enemyGuardGroup = ["specops", 0, "allmen", 1, _nposss , 5, false, true, 3] call d_fnc_CreateInf select 0;
+private _enemyGuardGroup = (["specops", 0, "allmen", 1, _nposss , 5, false, true, 3] call d_fnc_CreateInf) # 0;
 {
 	[_x, 30] call d_fnc_nodamoffdyn;
 	_x forceSpeed 0;
@@ -111,8 +109,8 @@ private _all_dead = false;
 private _isExecutePrisoners = false;
 private _is_rescued = false;
 
+// this correct?
 while {sleep 1; !d_mt_done; !_is_rescued} do {
-
 	if (!alive _pilot1) exitWith { _all_dead = true };
 	
 	if (({alive _x} count units _enemyGuardGroup) > 0) then {

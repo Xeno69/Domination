@@ -1,7 +1,7 @@
 // by Xeno
 //#define __DEBUG__
 #define THIS_FILE "revive\init.sqf"
-#include "..\x_macros.sqf"
+#include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
 
@@ -17,7 +17,7 @@ player setVariable ["xr_is_dragging", false];
 player setVariable ["xr_presptime", -1];
 player setVariable ["xr_pluncon", false, true];
 player setVariable ["xr_pisinaction", false];
-player setVariable ["xr_dragged", false, true];
+player setVariable ["xr_dragged", false];
 player setVariable ["xr_isdead", false];
 
 xr_uncon_units = [];
@@ -26,13 +26,18 @@ xr_death_pos = [];
 private _grpl = group player;
 xr_side_pl = [playerSide, side _grpl] select (!isNull _grpl);
 
+#ifndef __TT__
 xr_strpldead = format ["xr_dead_%1", getPlayerID player];
+#else
+private _mbegin = ["xr_opf_dead_%1", "xr_blu_dead_%1"] select (xr_side_pl == blufor);
+xr_strpldead = format [_mbegin, getPlayerID player];
+#endif
 
 player addEventHandler ["killed", {call xr_fnc_killedEH}];
 
 player addEventHandler ["respawn", {call xr_fnc_respawneh}];
 
-xr_name_player = player call d_fnc_getplayername;
+xr_name_player = name player;
 
 xr_announce_ar = [];
 xr_announce_unit_ar = [];

@@ -3,16 +3,16 @@
 #define THIS_FILE "fn_getsmtargetmessage.sqf"
 #include "..\x_setup.sqf"
 
-switch (_this) do {
-	case "gov_dead": {localize "STR_DOM_MISSIONSTRING_949"};
-	case "radar_down": {localize "STR_DOM_MISSIONSTRING_951"};
-	case "ammo_down": {localize "STR_DOM_MISSIONSTRING_952"};
-	case "med_down": {localize "STR_DOM_MISSIONSTRING_953"};
-	case "hq_down": {localize "STR_DOM_MISSIONSTRING_954"};
-	case "light_down": {localize "STR_DOM_MISSIONSTRING_955"};
-	case "heavy_down": {localize "STR_DOM_MISSIONSTRING_956"};
-	case "airrad_down": {localize "STR_DOM_MISSIONSTRING_958"};
-	case "lopo_dead": {localize "STR_DOM_MISSIONSTRING_959"};
-	case "dealer_dead": {localize "STR_DOM_MISSIONSTRING_960"};
-	case "sec_over": {localize "STR_DOM_MISSIONSTRING_961"};
+call {
+	if (_this == "gov_dead") exitWith {localize "STR_DOM_MISSIONSTRING_949"};
+	if (_this == "radar_down") exitWith {localize "STR_DOM_MISSIONSTRING_951"};
+	if (_this == "ammo_down") exitWith {localize "STR_DOM_MISSIONSTRING_952"};
+	if (_this == "med_down") exitWith {localize "STR_DOM_MISSIONSTRING_953"};
+	if (_this == "hq_down") exitWith {localize "STR_DOM_MISSIONSTRING_954"};
+	if (_this == "light_down") exitWith {localize "STR_DOM_MISSIONSTRING_955"};
+	if (_this == "heavy_down") exitWith {localize "STR_DOM_MISSIONSTRING_956"};
+	if (_this == "airrad_down") exitWith {localize "STR_DOM_MISSIONSTRING_958"};
+	if (_this == "lopo_dead") exitWith {localize "STR_DOM_MISSIONSTRING_959"};
+	if (_this == "dealer_dead") exitWith {localize "STR_DOM_MISSIONSTRING_960"};
+	if (_this == "sec_over") exitWith {localize "STR_DOM_MISSIONSTRING_961"};
 };

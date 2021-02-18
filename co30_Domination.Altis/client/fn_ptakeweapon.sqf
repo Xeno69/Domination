@@ -5,7 +5,7 @@
 
 __TRACE_1("","_this")
 
-params ["_unit"];
+params ["_unit", "_obj"];
 if (_unit != player) exitWith {};
 
 private _item = _this # 2;
@@ -15,7 +15,17 @@ if (d_without_nvg == 0 && {_item call d_fnc_isnvgoggles}) then {
 };
 
 if (!d_with_ranked || {d_no_ranked_weapons}) exitWith {
+	__TRACE("No rank, safety pcheck")
 	call d_fnc_pcheck;
+};
+
+#ifdef __DEBUG__
+_eee = _obj isKindOf "WeaponHolderSimulated";
+__TRACE_2("","_eee","typeOf _obj")
+#endif
+
+if (!isNull _obj && {_obj isKindOf "CAManBase" || {_obj isKindOf "WeaponHolderSimulated"}}) exitWith {
+	__TRACE_1("","_obj")
 };
 
 _item = toLowerANSI _item;

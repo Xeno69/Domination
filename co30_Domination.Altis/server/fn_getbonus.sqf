@@ -48,43 +48,7 @@ switch (d_sm_winner) do {
 #ifndef __TT__
 private _vec_type = "";
 if (d_current_sm_bonus_vec == "") then {
-	private _airval = 72;
-	private _chance = 0;
-
-	if (d_land_bonus_vecs == 0) then {
-		_chance = _airval + 1;
-	} else {
-		if (d_air_bonus_vecs == 0) then {
-			_chance = 0;
-		} else {
-			if (d_air_bonus_vecs > d_land_bonus_vecs) then {
-				_airval = floor ((d_land_bonus_vecs / d_air_bonus_vecs) * 100);
-			};
-			_chance = floor (random 100);
-		};
-	};
-	
-	__TRACE_1("","_chance")
-
-	private _btype = "";
-
-	__TRACE_2("","d_land_bonus_vecs","d_air_bonus_vecs")
-	while {_btype == ""} do {
-		_vec_type = selectRandom d_sm_bonus_vehicle_array;
-		__TRACE_1("","_vec_type")
-		if (count d_sm_bonus_vehicle_array > 3 && {d_land_bonus_vecs > 2 && {d_air_bonus_vecs > 2}}) then {
-			private _vecclass = getText(configFile>>"CfgVehicles">>_vec_type>>"vehicleClass");
-			__TRACE_1("","_vecclass")
-			if (_chance > _airval) then {
-				if (_vecclass == "Air" && {d_last_bonus_vec != _vec_type}) then {_btype = _vec_type};
-			} else {
-				if (_vecclass != "Air" && {d_last_bonus_vec != _vec_type}) then {_btype = _vec_type};
-			};
-		} else {
-			_btype = _vec_type;
-		};
-		sleep 0.01;
-	};
+	_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array;
 } else {
 	_vec_type = d_current_sm_bonus_vec;
 	d_current_sm_bonus_vec = "";
@@ -104,26 +68,11 @@ private ["_d_bonus_create_pos", "_vec_type", "_d_bonus_air_positions", "_d_bonus
 switch (d_sm_winner) do {
 	case 1: {
 		if (d_current_sm_bonus_vec # 1 == "") then {
-			while {_btype_e == ""} do {
-				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 1);
-				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toLowerANSI (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
-					// 50 % chance for an Air vehicle now
-					if (_chance > _airval) then {
-						if (_vecclass == "air") then {_btype_e = _vec_typex};
-					} else {
-						if (_vecclass != "air") then {_btype_e = _vec_typex};
-					};
-				} else {
-					_btype_e = _vec_typex;
-				};
-				sleep 0.01;
-			};
+			_vec_type = selectRandomWeighted (d_sm_bonus_vehicle_array # 1);
 		} else {
-			_btype_e = d_current_sm_bonus_vec # 1;
+			_vec_type = d_current_sm_bonus_vec # 1;
 		};
 		_d_bonus_create_pos = d_bonus_create_pos_e;
-		_vec_type = _btype_e;
 		_d_bonus_air_positions = d_bonus_air_positions_e;
 		_d_bonus_vec_positions = d_bonus_vec_positions_e;
 		_d_bvp_counter = d_bvp_counter_e;
@@ -131,26 +80,11 @@ switch (d_sm_winner) do {
 	};
 	case 2: {
 		if (d_current_sm_bonus_vec # 0 == "") then {
-			while {_btype_w == ""} do {
-				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 0);
-				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toLowerANSI (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
-					// 50 % chance for an Air vehicle now
-					if (_chance > _airval) then {
-						if (_vecclass == "air") then {_btype_w = _vec_typex};
-					} else {
-						if (_vecclass != "air") then {_btype_w = _vec_typex};
-					};
-				} else {
-					_btype_w = _vec_typex;
-				};
-				sleep 0.01;
-			};
+			_vec_type = selectRandomWeighted (d_sm_bonus_vehicle_array # 0);
 		} else {
-			_btype_w = d_current_sm_bonus_vec # 0;
+			_vec_type = d_current_sm_bonus_vec # 0;
 		};
 		_d_bonus_create_pos = d_bonus_create_pos_w;
-		_vec_type = _btype_w;
 		_d_bonus_air_positions = d_bonus_air_positions_w;
 		_d_bonus_vec_positions = d_bonus_vec_positions_w;
 		_d_bvp_counter = d_bvp_counter_w;
@@ -158,53 +92,23 @@ switch (d_sm_winner) do {
 	};
 	case 123: {
 		if (d_current_sm_bonus_vec # 1 == "") then {
-			while {_btype_e == ""} do {
-				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 1);
-				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toLowerANSI (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
-					// 50 % chance for an Air vehicle now
-					if (_chance > _airval) then {
-						if (_vecclass == "air") then {_btype_e = _vec_typex};
-					} else {
-						if (_vecclass != "air") then {_btype_e = _vec_typex};
-					};
-				} else {
-					_btype_e = _vec_typex;
-				};
-				sleep 0.01;
-			};
+			_vec_type = selectRandomWeighted (d_sm_bonus_vehicle_array # 1);
 		} else {
-			_btype_e = d_current_sm_bonus_vec # 1;
+			_vec_type = d_current_sm_bonus_vec # 1;
 		};
 		_d_bonus_create_pos = d_bonus_create_pos_e;
-		_vec_type = _btype_e;
 		_d_bonus_air_positions = d_bonus_air_positions_e;
 		_d_bonus_vec_positions = d_bonus_vec_positions_e;
 		_d_bvp_counter = d_bvp_counter_e;
 		_d_bap_counter = d_bap_counter_e;
 		
 		if (d_current_sm_bonus_vec # 0 == "") then {
-			while {_btype_w == ""} do {
-				private _vec_typex = selectRandom (d_sm_bonus_vehicle_array # 0);
-				if (count d_sm_bonus_vehicle_array > 5) then {
-					private _vecclass = toLowerANSI (getText(configFile >> "CfgVehicles" >> _vec_typex >> "vehicleClass"));
-					// 50 % chance for an Air vehicle now
-					if (_chance > _airval) then {
-						if (_vecclass == "air") then {_btype_w = _vec_typex};
-					} else {
-						if (_vecclass != "air") then {_btype_w = _vec_typex};
-					};
-				} else {
-					_btype_w = _vec_typex;
-				};
-				sleep 0.01;
-			};
+			_vec_type2 = selectRandomWeighted (d_sm_bonus_vehicle_array # 0);
 		} else {
-			_btype_w = d_current_sm_bonus_vec # 0;
+			_vec_type2 = d_current_sm_bonus_vec # 0;
 		};
 		
 		_d_bonus_create_pos2 = d_bonus_create_pos_w;
-		_vec_type2 = _btype_w;
 		_d_bonus_air_positions2 = d_bonus_air_positions_w;
 		_d_bonus_vec_positions2 = d_bonus_vec_positions_w;
 		_d_bvp_counter2 = d_bvp_counter_w;

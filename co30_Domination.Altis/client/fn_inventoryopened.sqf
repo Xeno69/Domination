@@ -16,6 +16,9 @@ if (!isNil {_box getVariable "d_islocked"} && {_box getVariable "d_islocked" != 
 };
 
 call d_fnc_storepitems;
+if ((_this # 0) == player) then {
+	d_cur_inv_o_gear =+ getUnitLoadout player;
+};
 
 if (_box getVariable ["d_player_ammobox", false]) then {
 	private _canopen = true;
@@ -32,7 +35,6 @@ if (_box getVariable ["d_player_ammobox", false]) then {
 	if (_canopen) then {
 		_box spawn {
 			scriptName "spawn_inventoryopened1";
-			d_has_opened_arsenal = true;
 			if (!d_with_ranked) then {
 				if (d_with_ace && {d_arsenal_mod == 1}) then {
 					[player, player, true] call ace_arsenal_fnc_openBox;

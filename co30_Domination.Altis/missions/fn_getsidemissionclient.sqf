@@ -14,7 +14,7 @@ if (d_cur_sm_idx == -1) exitWith {};
 //if (isServer && {!isDedicated}) then {
 if (!isServer) then {
 	if (d_cur_sm_idx < 50000) then {
-		call compile preprocessFileLineNumbers format ["missions\%3\%2%1.sqf", d_cur_sm_idx, d_sm_fname, d_sm_folder];
+		call compileScript [format ["missions\%3\%2%1.sqf", d_cur_sm_idx, d_sm_fname, d_sm_folder], false];
 	} else {
 		[d_cur_sm_idx] call d_fnc_getbymarkersm;
 	};

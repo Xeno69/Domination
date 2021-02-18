@@ -128,4 +128,21 @@ _ypos1 = _ypos1 - _tile_size;
 
 [3] call _fnc_make_trig_mar;
 
+/*
+#ifndef __TT__
+private _circlep3d = call {
+	if (d_player_side == blufor) exitWith {
+		"a3\Modules_F_Curator\Multiplayer\surfacesectoreast500m.p3d"
+	};
+	if (d_player_side == opfor) exitWith {
+		"a3\Modules_F_Curator\Multiplayer\surfacesectorwest500m.p3d"
+	};
+	"a3\Modules_F_Curator\Multiplayer\surfaceSectorEast500m.p3d"
+};
+d_dircle_obj = createSimpleObject [_circlep3d, d_cur_tgt_pos, true];
+#else
+d_dircle_obj = createSimpleObject ["a3\Modules_F_Curator\Multiplayer\surfacesectorguer500m.p3d", d_cur_tgt_pos, true];
+#endif
+*/
+
 __TRACE("End")

@@ -5,13 +5,13 @@
 
 __TRACE_1("","_this")
 
-#define __shots ["shotBullet","shotShell","shotRocket","shotMissile","shotTimeBomb","shotMine","shotGrenade","shotSpread","shotSubmunitions","shotDeploy","shotBoundingMine","shotDirectionalBomb"]
+#define __shots ["shotbullet","shotshell","shotrocket","shotmissile","shottimebomb","shotmine","shotgrenade","shotspread","shotsubmunitions","shotdeploy","shotboundingmine","shotdirectionalbomb"]
 
 if (_this isEqualTo "") exitWith {false};
 
 private _v = d_misc_sc_store getVariable _this;
 if (isNil "_v") then {
-	_v = getText (configFile>>"CfgAmmo">>_this>>"simulation") in __shots;
+	_v = (toLowerANSI getText (configFile>>"CfgAmmo">>_this>>"simulation")) in __shots;
 	d_misc_sc_store setVariable [_this, _v];
 };
 

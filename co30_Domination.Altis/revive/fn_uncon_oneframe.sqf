@@ -47,10 +47,6 @@ if (_tt <= 0) exitWith {
 	__TRACE("_tt < =0, exit")
 	if (xr_with_marker) then {
 		xr_strpldead remoteExecCall ["deleteMarker", 2];
-		private _jipid = player getVariable "xr_dml_jip_id";
-		if (!isNil "_jipid") then {
-			remoteExecCall ["", _jipid];
-		};
 	};
 	{
 		player remoteExecCall ["xr_fnc_removeActions", _x];

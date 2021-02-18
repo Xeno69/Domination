@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `dom_params2` (
 -- Exportiere Struktur von Tabelle domination.dom_settings
 CREATE TABLE IF NOT EXISTS `dom_settings` (
   `name` varchar(80) COLLATE utf8mb4_bin DEFAULT NULL,
-  `value` varchar(400) COLLATE utf8mb4_bin DEFAULT NULL
+  `value` varchar(1000) COLLATE utf8mb4_bin DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Exportiere Daten aus Tabelle domination.dom_settings: ~13 rows (ungefähr)
@@ -52,7 +52,8 @@ INSERT IGNORE INTO `dom_settings` (`name`, `value`) VALUES
 	('d_number_attack_uavs', '1'),
 	('d_noambient_bf_sounds', 'false'),
 	('d_time_until_next_sidemission', '[[10,300],[20,400],[30,500],[500,600]]'),
-	('d_airai_respawntime', '120');
+	('d_airai_respawntime', '120'),
+	('d_uids_def_choppers', '[]');
 /*!40000 ALTER TABLE `dom_settings` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle domination.missionsave

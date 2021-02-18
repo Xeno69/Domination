@@ -8,7 +8,12 @@
 #ifdef __DEBUG__
 allowFunctionsLog = 1;
 #endif
+#ifdef __DOMCFGFUNCTIONS__
 #include "cfgfunctions.hpp"
+#else
+#include "cfgfunctionsshort.hpp"
+#include "cfgfunctionscs.hpp"
+#endif
 
 author = "Xeno";
 OnLoadName = "Domination!";
@@ -232,12 +237,13 @@ class CfgRemoteExec {
 		class bis_fnc_setovercast {allowedTargets = 2;};
 		class bis_fnc_setdate {allowedTargets = 2;};
 		class d_fnc_initgrhc {allowedTargets = 1;};
+		class BIS_fnc_effectKilledAirDestruction {};
+		class BIS_fnc_effectKilledSecondaries {};
+		class BIS_fnc_objectVar {};
+		class BIS_fnc_setCustomSoundController {};
 #ifdef __TT__
-		class d_fnc_addpoints {allowedTargets = 2;};
-		class d_fnc_addsmpoints {allowedTargets = 2;};
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
-		class d_fnc_AddKills {allowedTargets = 2;};
 		class d_fnc_addgrhcace {allowedTargets = 1;};
 		class d_fnc_ttpvkill {allowedTargets = 2;};
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
@@ -258,11 +264,11 @@ class CfgRemoteExec {
 		class engineOn {};
 		class setMass {};
 		class deleteMarker {allowedTargets = 2;};
-		class deleteGroup {allowedTargets=0;};
+		class deleteGroup {};
 		class setSpeaker {allowedTargets = 1;};
-		class setFeatureType {};
+		class setFeatureType {jip = 1;};
+		class deleteMarkerLocal {allowedTargets = 2;};
 #ifdef __TT__
-		class deleteMarkerLocal {allowedTargets = 1;};
 		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
 	};
@@ -271,8 +277,8 @@ class CfgRemoteExec {
 class Params {
 	class d_params_dl_1 {
 		title = "$STR_DOM_MISSIONSTRING_1569";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -486,8 +492,8 @@ default = 7;
 	
 	class d_params_dl_8_env {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -681,11 +687,18 @@ default = 7;
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_dis_servicep {
+		title = "$STR_DOM_MISSIONSTRING_2056";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_params_dl_2 {
 		title = "$STR_DOM_MISSIONSTRING_1570";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -713,8 +726,8 @@ default = 7;
 #ifndef __TT__
 	class d_params_dl_9 {
 		title = "$STR_DOM_MISSIONSTRING_1575";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -756,8 +769,8 @@ default = 7;
 
 	class d_params_dl_3 {
 		title = "$STR_DOM_MISSIONSTRING_1571";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -784,8 +797,8 @@ default = 7;
 
 	class d_params_dl_5 {
 		title = "$STR_DOM_MISSIONSTRING_1572";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -840,8 +853,8 @@ default = 7;
 
 	class d_params_dl_7 {
 		title = "$STR_DOM_MISSIONSTRING_1573";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -875,8 +888,8 @@ default = 7;
 
 	class d_params_dl_8 {
 		title = "$STR_DOM_MISSIONSTRING_1574";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 	
@@ -959,8 +972,8 @@ default = 7;
 	
 	class d_params_dl_8_civ {
 		title = "$STR_DOM_MISSIONSTRING_1574_CIV";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1015,8 +1028,8 @@ default = 7;
 	
 	class d_params_dl_8_enemy_ai {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENEMY_AI";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 	
@@ -1135,8 +1148,8 @@ default = 7;
 	
 	class d_params_dl_8_obj {
 		title = "$STR_DOM_MISSIONSTRING_1574_OBJ";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1170,8 +1183,8 @@ default = 7;
 
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1219,8 +1232,8 @@ default = 7;
 
 	class d_params_dl_11 {
 		title = "$STR_DOM_MISSIONSTRING_1577";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1240,8 +1253,8 @@ default = 7;
 
 	class d_params_dl_12 {
 		title = "$STR_DOM_MISSIONSTRING_1578";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1314,8 +1327,8 @@ default = 7;
 
 	class d_params_dl_13 {
 		title = "$STR_DOM_MISSIONSTRING_1579";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1349,8 +1362,8 @@ default = 7;
 
 	class d_params_dl_14 {
 		title = "$STR_DOM_MISSIONSTRING_1580";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1384,8 +1397,8 @@ default = 7;
 
 	class d_params_dl_16 {
 		title = "$STR_DOM_MISSIONSTRING_1581";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1419,8 +1432,8 @@ default = 7;
 
 	class d_params_dl_18 {
 		title = "$STR_DOM_MISSIONSTRING_1582";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1440,8 +1453,8 @@ default = 7;
 
 	class d_params_dl_17 {
 		title = "$STR_DOM_MISSIONSTRING_1716";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
 	};
 
@@ -1461,16 +1474,9 @@ default = 7;
 	
 	class d_params_dl_19 {
 		title = "$STR_DOM_MISSIONSTRING_ADVANCED";
-		values[] = {-99999};
-		default = -99999;
+		values[] = {-66};
+		default = -66;
 		texts[] = {""};
-	};
-	
-	class d_load_overrides_file {
-		title = "$STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 };
 

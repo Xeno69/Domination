@@ -19,7 +19,7 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 16)})
 	d_commandingMenuIniting = false;
 };
 
-if (!d_no_ai && {d_drop_blocked}) exitWith {
+if (!d_no_ai && {!isNil "d_drop_blocked"}) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_165");
 	d_commandingMenuIniting = false;
 };
@@ -44,7 +44,7 @@ if (!d_player_canu) exitWith {
 	if (d_airdrop_dialog_open) then {closeDialog 0};
 	deleteMarkerLocal "d_drop_zone";
 	if (!d_no_ai) then {
-		missionNamespace setVariable ["d_drop_blocked", false, true];
+		missionNamespace setVariable ["d_drop_blocked", nil, true];
 	};
 };
 if (d_x_drop_type != "") then {
@@ -62,5 +62,5 @@ if (d_x_drop_type != "") then {
 };
 
 if (!d_no_ai) then {
-	missionNamespace setVariable ["d_drop_blocked", false, true];
+	missionNamespace setVariable ["d_drop_blocked", nil, true];
 };

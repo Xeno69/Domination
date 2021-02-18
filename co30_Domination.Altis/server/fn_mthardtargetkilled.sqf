@@ -6,7 +6,7 @@
 d_mt_spotted = false;
 d_mt_radio_down = true;
 if (d_ao_markers == 1) then {
-	deleteMarker "d_main_target_radiotower";
+	deleteMarker "d_m_t_rt";
 };
 #ifndef __TT__
 [37] call d_fnc_DoKBMsg;

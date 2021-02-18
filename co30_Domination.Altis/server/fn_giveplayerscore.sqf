@@ -12,4 +12,4 @@ if (isNil "_receiver" || {isNull _receiver}) exitWith {};
 _origpl addScore (-_transscore);
 _receiver addScore _transscore;
 
-[9, _transscore, _origpl call d_fnc_getplayername] remoteExecCall ["d_fnc_csidechat", _receiver];
+[9, _transscore, name _origpl] remoteExecCall ["d_fnc_csidechat", _receiver];

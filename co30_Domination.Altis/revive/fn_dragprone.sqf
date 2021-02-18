@@ -12,7 +12,7 @@ player setVariable ["xr_is_dragging", true];
 
 private _unit = player;
 private _name_dragee = [_dragee] call d_fnc_gethpname;
-if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = _dragee call d_fnc_getplayername};
+if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = name _dragee};
 
 _dragee setVariable ["xr_dragged", true, true];
  
@@ -94,7 +94,7 @@ while {xr_drag} do {
 
 player setVariable ["xr_pisinaction", false];
 player setVariable ["xr_is_dragging", false];
-_dragee setVariable ["xr_dragged", false, true];
+_dragee setVariable ["xr_dragged", nil, true];
 
 (findDisplay 46) displayRemoveEventHandler ["KeyDown", xr_dragprone_keyDownEHId];
 

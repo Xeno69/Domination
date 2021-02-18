@@ -122,6 +122,8 @@
 #### **d_va_percentage / Limit Virtual Arsenal ammo box access too 1000**
 > Default: 0 (Yes, enabled; 1 or No for no limit)<br/>
 > If enabled players can only access a dropped ammo box about 1000 times before it gets deleted<br/>
+#### **d_dis_servicep / Disable all service points, including FARPs (no refuel, no repair, no rearm)**
+> Default: 1 (No; 0 or Yes to disable service points)<br/>
 #### **d_InitialViewDistance / Initial Viewdistance:**
 > Default: 1600 (meter)<br/>
 > Inital client viewdistance, available are (in meter) 1000, 1600, 2000, 3000, 3500, 4000, 4500 and 5000<br/>

@@ -1,4 +1,5 @@
 // by Xeno
+//#define __DEBUG__
 #define THIS_FILE "fn_setupserver.sqf"
 #include "..\x_setup.sqf"
 
@@ -48,22 +49,33 @@ if (d_MissionType in [0,2]) then {
 execfsm "fsms\fn_TTPoints.fsm";
 #endif
 
-#ifndef __TT__
-d_air_bonus_vecs = 0;
-d_land_bonus_vecs = 0;
-
-{
-	if (getText(configFile>>"CfgVehicles">>_x>>"vehicleClass") == "Air") then {
-		d_air_bonus_vecs = d_air_bonus_vecs + 1;
-	} else {
-		d_land_bonus_vecs = d_land_bonus_vecs + 1;
+private _applyfnc = {
+	__TRACE_1("","_this")
+	if (_this isKindOf "Plane") exitWith {
+		__TRACE("Plane")
+		[_this, 0.1]
 	};
-} forEach d_sm_bonus_vehicle_array;
-__TRACE_2("","d_air_bonus_vecs","d_land_bonus_vecs")
+	if (_this isKindOf "Helicopter") exitWith {
+		__TRACE("Helicopter")
+		[_this, 0.2]
+	};
+	if (_this isKindOf "Tank") exitWith {
+		__TRACE("Tank")
+		[_this, 0.7]
+	};
+	__TRACE("Another")
+	[_this, 1.3]
+};
+
+#ifndef __TT__
+d_sm_bonus_vehicle_array = flatten (d_sm_bonus_vehicle_array apply {_x call _applyfnc});
 
 private _bpos =+ d_base_array # 0;
 _bpos set [2, 1.9];
 [_bpos, [d_base_array # 1, d_base_array # 2, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'BaseUnderAtack',d_kbtel_chan]", ""]] call d_fnc_createtriggerlocal;
+#else
+d_sm_bonus_vehicle_array set [0, flatten ((d_sm_bonus_vehicle_array # 0) apply {_x call _applyfnc})]
+d_sm_bonus_vehicle_array set [1, flatten ((d_sm_bonus_vehicle_array # 1) apply {_x call _applyfnc})]
 #endif
 
 if (d_MissionType == 2) then {
@@ -150,6 +162,6 @@ if (d_with_ranked) then {
 	scriptname "spawn sendfpssetupserver";
 	sleep 10;
 	["dom_sendfps", {
-		(round diag_fps) remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
 	}, 3] call d_fnc_eachframeadd;
 };

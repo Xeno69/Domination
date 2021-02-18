@@ -3,16 +3,16 @@
 #define THIS_FILE "fn_event_guerrilla_infantry_incoming.sqf"
 #include "..\..\x_setup.sqf"
 
-params ["_target_radius", "_target_center"];
+#ifdef __TT__
+//do not run this event in TvT (for now)
+if (true) exitWith {};
+#endif
 
 // Guerilla infantry spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
 
 if !(isServer) exitWith {};
 
-#ifdef __TT__
-//do not run this event in TvT (for now)
-if (true) exitWith {};
-#endif
+params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
@@ -26,8 +26,8 @@ private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity
 // find a town outside the minimum distance
 {
 	if (_target_center distance2D getPos _x > _minimumDistanceFromMaintarget) exitWith {
-        _townNearbyPos = getPos _x;
-        _townNearbyName = text _x;
+		_townNearbyPos = getPos _x;
+		_townNearbyName = text _x;
 	};
 } forEach _towns;
 
@@ -35,13 +35,13 @@ if (_townNearbyPos isEqualTo []) exitWith {
 	diag_log ["unable to find a location to spawn infantry for guerrilla mission event", d_cur_tgt_name];
 };
 
-_x_mt_event_ar = [];
+private _x_mt_event_ar = [];
 
 private _trigger = [_target_center, [600,600,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
-waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
+waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
 
-_eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
@@ -106,30 +106,18 @@ sleep 3.14;
 	_x setSpeedMode "FULL";
 	_x setBehaviour "CARELESS";
 	_wp = _x addWaypoint[_target_center, 0];
-    _wp setWaypointBehaviour "SAFE";
-    _wp setWaypointSpeed "FULL";
-    _wp setwaypointtype "SAD";
-    _wp setWaypointFormation "STAG COLUMN";
+	_wp setWaypointBehaviour "SAFE";
+	_wp setWaypointSpeed "FULL";
+	_wp setwaypointtype "SAD";
+	_wp setWaypointFormation "STAG COLUMN";
 } forEach _newgroups;
 
 sleep 2.333;
 
-private _all_dead = false;
-
-while {sleep 1; !d_mt_done && {!_all_dead}} do {                                             	
-	private _foundAlive = false;
-	{
-		private _grp = _x;
-		{
-			if (alive _x) exitWith {
-				_foundAlive = true;
-			};
-		} forEach (units _grp);
-	} forEach _newgroups;
+while {sleep 1; !d_mt_done} do {
+	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
 	
-	if !(_foundAlive) then {
-		_all_dead = true;
-	};
+	if (!_foundAlive) exitWith {};
 	
 	sleep 15;
 };

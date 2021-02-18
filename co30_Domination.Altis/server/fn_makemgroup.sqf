@@ -28,7 +28,7 @@ __TRACE_2("","_mchelper","_doreduce")
 
 private _ret = [];
 
-if ((d_smallgrps == 0 && {_doreduce}) || _unitsPerGroup > 0) then {
+if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroup > 0}) then {
 	_unitliste = [_unitliste, _unitsPerGroup] call d_fnc_ulreduce;
 };
 

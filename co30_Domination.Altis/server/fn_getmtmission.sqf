@@ -101,7 +101,7 @@ switch (_sec_kind) do {
 			remoteExecCall ["d_fnc_s_b_client", [0, -2] select isDedicated];
 		} else {
 			if (!isNull d_searchbody) then {
-				d_searchbody = objNull; publicVariable "d_searchbody";
+				d_searchbody = nil; publicVariable "d_searchbody";
 			};
 		};
 		sleep 0.1;

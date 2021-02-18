@@ -120,7 +120,10 @@ if (_d_vec < 100) exitWith {
 		__vecname;
 	};
 	if (!alive _vec) exitWith {};
-	_vec setVariable ["d_canloadbox", true];
+	if (isNil {_vec getVariable "d_canloadbox"}) then {
+		_vec setVariable ["d_canloadbox", true];
+	};
+	d_check_ammo_load_vecs pushBackUnique toLowerANSI (typeOf _vec);
 #ifdef __TT__
 	if (d_player_side == blufor) then {
 #endif
@@ -138,6 +141,9 @@ if (_d_vec < 100) exitWith {
 #endif
 	if (!isServer) then {
 		_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
+	};
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
 };
 
@@ -332,7 +338,10 @@ if (_d_vec < 1100) exitWith {
 		player reveal _vec;
 	};
 	_vec setVariable ["d_vec_type", "MHQ"];
-	_vec setVariable ["d_canloadbox", true];
+	if (isNil {_vec getVariable "d_canloadbox"}) then {
+		_vec setVariable ["d_canloadbox", true];
+	};
+	d_check_ammo_load_vecs pushBackUnique toLowerANSI (typeOf _vec);
 	__sidee;
 	_vec addEventHandler ["getin", {call d_fnc_checkdriver}];
 	if (d_player_side != opfor) then {
@@ -340,6 +349,9 @@ if (_d_vec < 1100) exitWith {
 	};
 	if (!isServer) then {
 		_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
+	};
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
 };
 
@@ -490,6 +502,9 @@ if (_d_vec < 4000) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
+	};
 };
 
 #ifdef __TT__
@@ -513,6 +528,9 @@ if (_d_vec < 5000) exitWith {
 	__sidee;
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
+	};
+	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
+		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
 };
 #endif

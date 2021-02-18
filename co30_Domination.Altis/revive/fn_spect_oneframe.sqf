@@ -52,7 +52,6 @@ if (xr_MouseButtons # 0) then {
 	xr_cur_world_obj = _cursObj;
 };
 
-private _fnc_gpln = d_fnc_getplayername;
 private _helperls = [];
 if (time > xr_spect_timer) then {
 	__TRACE_1("","xr_spect_timer")
@@ -87,7 +86,7 @@ if (time > xr_spect_timer) then {
 				};
 				_x setVariable ["d_p_icon", _pic];
 			};
-			_n = format ["%2 (%1 m)", round _dist, _x call _fnc_gpln];
+			_n = format ["%2 (%1 m)", round _dist, name _x];
 			if (_x getVariable ["xr_pluncon", false]) then {
 				_n = _n + " (Uncon)";
 			};
@@ -110,7 +109,7 @@ if (time > xr_spect_timer) then {
 					};
 					_x setVariable ["d_p_icon", _pic];
 				};
-				_helperls pushBack [_distup, _x call _fnc_gpln, getPlayerUID _x, _pic, [1, 1, 1, 0.8]];
+				_helperls pushBack [_distup, name _x, getPlayerUID _x, _pic, [1, 1, 1, 0.8]];
 			};
 		} forEach (d_allplayers select {_x != player});
 	};
@@ -206,7 +205,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		xr_spectcam cameraEffect ["INTERNAL", "Back"];
 		xr_spectcam camCommit 0;
 		cameraEffectEnableHUD true;
-		__dspctrl(1010) ctrlSetText (_visobj call _fnc_gpln);
+		__dspctrl(1010) ctrlSetText (name _visobj);
 	};
 	xr_spect_timer = -1;
 	__TRACE("ctrl not shown anymore, black in")

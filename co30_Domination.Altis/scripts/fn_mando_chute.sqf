@@ -122,11 +122,16 @@ if (_is_ammo) then {
 	_box addEventHandler ["killed",{
 		deleteVehicle (_this # 0);
 	}];
-	private _mname = format ["d_ab_%1", _box];
+#ifndef __TT__
+	private _mname = format ["d_ab_%1", _box call d_fnc_markername];
 	[_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
 	_box setVariable ["d_mname", _mname];
-#ifdef __TT__
-	_box setVariable ["d_box_drop_jip_id", _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_pside == blufor)]];
+#else
+	private _mbegin = ["d_ab_opf_%1", "d_ab_blu_%1"] select (_pside == blufor);
+	private _mname = format [_mbegin, _box call d_fnc_markername];
+	[_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
+	_mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_pside == blufor)];
+	_box setVariable ["d_mname", _mname];
 #endif
 } else {
 	if (position _man # 2 <= -1) then {

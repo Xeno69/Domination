@@ -75,6 +75,7 @@ private _farptrig = [
 ["ANY", "PRESENT", true],
 ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""]
 ] call d_fnc_CreateTrigger;
+_farptrig setTriggerInterval 1;
 
 private _farpcont = [_farptrig];
 
@@ -92,7 +93,7 @@ if (count d_farp_classes > 2) then {
 		_farp_o_pos = [_d_farp_pos, _mapSize] call d_fnc_getranpointcircleouter;
 		_farp_o_pos set [2, 0];
 		_farp_o = createVehicle [d_farp_classes # _i, _farp_o_pos, [], 0, "NONE"];
-		_farp_o setDir (random 360);
+		_farp_o setDir (_farp_o getDir _farp_seco);
 		_farp_o setPos _farp_o_pos;
 
 		_farpcont pushBack _farp_o;
@@ -110,7 +111,12 @@ d_farps pushBack _farp;
 publicVariable "d_farps";
 
 systemChat (localize "STR_DOM_MISSIONSTRING_248");
+#ifndef __TT__
 ["a", d_player_uid, [_farp, "d_FARP " + (netId player), d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+#else
+private _mbegin = ["d_FARP_opf ", "d_FARP_blu "] select (d_player_side == blufor);
+["a", d_player_uid, [_farp, _mbegin + (netId player), d_name_pl, player, d_player_side]] remoteExecCall ["d_fnc_p_o_ar", 2];
+#endif
 if (isMultiplayer) then {
 	[_farp, player] remoteExecCall ["d_fnc_farp_e", d_player_side];
 } else {

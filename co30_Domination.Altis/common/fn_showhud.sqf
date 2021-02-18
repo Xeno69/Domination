@@ -13,9 +13,9 @@
 //cursors: Boolean - show HUD weapon cursors (connected with scripted HUD)
 //panels: Boolean - show vehicle panels
 //kills: Boolean - show "x killed by y" systemChat messages
-private _show_hud_cfg_array = [true, true, true, true, true, true, false, true, true, false];
+// TODO in 2.03: showIcon3D: Boolean - (Since Arma 3 v2.03.147265) show icons drawn with drawIcon3D even when the HUD is hidden. System default: false
 
 showChat false;
 enableSentences false;
 showSubtitles false;
-showHUD _show_hud_cfg_array;
+showHUD [true, true, true, true, true, true, false, true, true, false];

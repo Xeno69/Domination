@@ -175,7 +175,6 @@ class cfgFunctions {
 			addc(artywait);
 			addc(bikewait);
 			addc(dlgopenxwait);
-			addc(initplname);
 			addc(scoreadded);
 			addc(scoreaddqeue);
 			addc(csidechat);
@@ -204,6 +203,8 @@ class cfgFunctions {
 			addc(canu);
 			addc(tasks);
 			addc(updatemove);
+			addc(chopcheck);
+			addc(gimmick);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -311,7 +312,6 @@ class cfgFunctions {
 			addc(isnvgoggles);
 			addc(isswimming);
 			addc(posbehindvec);
-			addc(getplayername);
 			addc(checkveckillblufor);
 			addc(checkveckillopfor);
 			addc(create_route);
@@ -339,6 +339,7 @@ class cfgFunctions {
 			addc(isvisible);
 			addc(deletearrayunitsvehicles);
 			addc(swm);
+			addc(markername);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
@@ -393,7 +394,6 @@ class cfgFunctions {
 			addc(smhiteh);
 			addc(smhandledeh);
 			addc(smhiteh2);
-			addc(hcsmexec);
 			addc(createinf);
 			addc(createarmor);
 			addc(cdoquake);

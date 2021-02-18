@@ -96,10 +96,6 @@ __TRACE("starting main uncon loop")
 			if (xr_with_marker) then {
 				__TRACE("del marker")
 				xr_strpldead remoteExecCall ["deleteMarker", 2];
-				private _jipid = player getVariable "xr_dml_jip_id";
-				if (!isNil "_jipid") then {
-					remoteExecCall ["", _jipid];
-				};
 			};
 			__TRACE("set capture false player")
 			player setCaptive false;

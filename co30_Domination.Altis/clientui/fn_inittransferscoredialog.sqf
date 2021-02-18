@@ -13,7 +13,7 @@ private _ctrl = CTRL(1001);
 
 lbClear _ctrl;
 {
-	private _index = _ctrl lbAdd (_x call d_fnc_getplayername);
+	private _index = _ctrl lbAdd (name _x);
 	_ctrl lbSetData [_index, netId _x];
 #ifndef __DEBUG__
 } forEach (d_allplayers - [player]);

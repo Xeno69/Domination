@@ -16,7 +16,8 @@ __TRACE_1("","_this")
 // 7. _isArmorAdjustmentDisabled (optional, default: false) if true do not modify the specified number of groups regardless of "no enemy armor" setting
 // 8. _unitsPerGroup (optional) if defined then this number sets the number of units created per group (will not be randomized)
 
-private _pos_center = _this select 4;
+params ["", "", "", "", "_pos_center", "_radius", ["_do_patrol", false], ["_isArmorAdjustmentDisabled", false], ["_unitsPerGroup", -1], ["_dohc", true]];
+
 if (isNil "_pos_center") exitWith {
 	diag_log "_pos_center in fn_createinf undefined!!!";
 	if (!isNil "_fnc_scriptNameParent") then {
@@ -24,17 +25,13 @@ if (isNil "_pos_center") exitWith {
 	};
 	diag_log ["fn_createinf.sqf _this: ", _this];
 };
-private _radius = _this select 5;
-private _do_patrol = if (_radius < 50) then {false} else {if (count _this > 6) then {_this select 6} else {false}};
-private _ret_grps = [];
-private _isArmorAdjustmentDisabled = if (count _this > 7) then {_this select 7} else {false};
-private _unitsPerGroup = if (count _this > 8) then {_this select 8} else {-1};
 
-_with_less_armor_side = if (d_WithLessArmor_side == -1) then {
-	selectRandom [0, 1, 2];
-} else {
-	d_WithLessArmor_side;
+if (_radius < 50) then {
+	_do_patrol = false;
 };
+private _ret_grps = [];
+
+private _with_less_armor_side = [d_WithLessArmor_side, selectRandom [0, 1, 2]] select (d_WithLessArmor_side == -1);
 
 for "_nr" from 0 to 1 do {
 	private _nrg = _this select (1 + (_nr * 2));
@@ -77,10 +74,12 @@ for "_nr" from 0 to 1 do {
 				};
 				_ret_grps pushBack _newgroup;
 				d_x_sm_rem_ar append _units;
-				[_newgroup, 30] spawn {
+				[_newgroup, 30, _dohc] spawn {
 					scriptName "spawn createinf";
 					sleep (_this # 1);
-					(_this # 0) call d_fnc_addgrp2hc;
+					if (_this # 2) then {
+						(_this # 0) call d_fnc_addgrp2hc;
+					};
 					if (d_with_dynsim == 0) then {
 						(_this # 0) enableDynamicSimulation true;
 					};

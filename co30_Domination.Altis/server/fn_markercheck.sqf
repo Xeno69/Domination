@@ -15,7 +15,7 @@ if (_val isNotEqualTo []) then {
 	{
 		__TRACE_1("","_x")
 		deleteMarker (_x # 1);
-		(_x # 1) remoteExecCall ["deleteMarkerLocal", 1];
+		(_x # 1) remoteExecCall ["deleteMarkerLocal", [0, -2] select isDedicated];
 		if (!isNull (_x # 0)) then {
 			private _content = (_x # 0) getVariable ["d_objcont", []];
 			__TRACE_1("","_content")

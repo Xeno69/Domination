@@ -3,6 +3,10 @@
 #define THIS_FILE "fn_pcheck.sqf"
 #include "..\x_setup.sqf"
 
+if (d_cur_inv_o_gear isEqualTo (getUnitLoadout player)) exitWith {
+	d_cur_inv_o_gear = [];
+};
+
 if (!d_with_ranked) then {
 	private _prw = player getVariable "d_pprimweap";
 	private _primweap = primaryWeapon player;

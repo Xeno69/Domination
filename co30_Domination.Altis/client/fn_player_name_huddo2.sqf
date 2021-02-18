@@ -18,7 +18,7 @@ if (!d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 			0 spawn d_fnc_dosshowhuddo2spawn;
 		};
 		
-		private _name = [(_ct call d_fnc_getplayername) + d_phud_loc883, [getText((configOf _ct)>>"displayName") ,_ct call d_fnc_getplayername] select (_ct call d_fnc_isplayer)] select !(_ct getVariable ["xr_pluncon", false]);
+		private _name = [(name _ct) + d_phud_loc883, [getText((configOf _ct)>>"displayName") , name _ct] select (_ct call d_fnc_isplayer)] select !(_ct getVariable ["xr_pluncon", false]);
 		private _icon = getText((configOf _ct)>>"Icon");
 		if (_icon != "") then {
 			_icon = getText(configFile>>"CfgVehicleIcons">>_icon);

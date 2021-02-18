@@ -10,8 +10,7 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
-if (!isNil {_pl getVariable "d_ips_i"}) exitWith {};
-_pl setVariable ["d_ips_i", true];
+if (remoteExecutedOwner != owner _pl) exitWith {};
 
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
@@ -43,8 +42,7 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 [_pl, 18] call d_fnc_setekmode;
 #endif
 
-private _name = (name _pl) splitString """'" joinString "";
-_pl setVariable ["d_plname", _name, true];
+private _name = name _pl;
 
 private _p = d_player_hash getOrDefault [_uid, []];
 private _f_c = false;
@@ -54,7 +52,7 @@ if (_p isEqualTo []) then {
 	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0, getPlayerID _pl];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
-	__TRACE_3("Player not found","_uid","_name","_p")
+	__TRACE_3("Player not found in d_player_hash","_uid","_name","_p")
 } else {
 	__TRACE_1("player store before change","_p")
 	if (_name != _p # 6) then {
@@ -76,6 +74,7 @@ if (_p isEqualTo []) then {
 	if (_sidepl != _p # 5) then {
 		if ((_p # 9) # 1 > 0 && {time - ((_p # 9) # 1) < 1800}) then {
 			_pl setVariable ["d_no_side_change", true, true];
+			__TRACE_1("d_no_side_change set to","_pl")
 		} else {
 			_p set [5, _sidepl];
 			_f_c = true;

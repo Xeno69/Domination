@@ -21,14 +21,20 @@ if (d_WithRevive == 0 && {(_this # 8) == -1 && {xr_max_lives != -1}}) exitWith {
 
 #ifdef __TT__
 _this spawn {
+	scriptName "spawn_playerstuffTT";
 	waitUntil {sleep 0.1; !d_still_in_intro};
+	__TRACE("Intro over")
 	if (!isNil {player getVariable "d_no_side_change"}) then {
+		player enableSimulation false;
+		__TRACE("Player can not change side")
 		private _rtime = serverTime - ((_this # 9) # 1);
+		__TRACE_1("","_rtime")
 		[3, profileName, round (30 - (_rtime / 60))] remoteExecCall ["d_fnc_csidechat", -2];
 		0 spawn {
 			scriptName "spawn_endmissionloser";
 			sleep 1.5;
 			endMission "LOSER";
+			forceEnd;
 		};
 	} else {
 		private _prev_side = _this # 5;
@@ -95,5 +101,5 @@ if (d_database_found) then {
 	} else {
 		d_p_rounds = _this # 17;
 	};
-	_p_distar spawn d_fnc_movecheck;
+	d_movecheck_handle = _p_distar spawn d_fnc_movecheck;
 };

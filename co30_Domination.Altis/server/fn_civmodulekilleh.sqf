@@ -15,7 +15,7 @@ if (_cKiller call d_fnc_isplayer) then {
 		if (!isNil "_whof" && {!isNull _whof}) then {
 			private _guiltyArtyUser = objectFromNetId _whof;
 #ifdef __DEBUG__
-			diag_log [diag_frameno, diag_ticktime, time, format ["_guiltyUser is: %1", _guiltyArtyUser call d_fnc_getplayername]];
+			diag_log [diag_frameno, diag_ticktime, time, format ["_guiltyUser is: %1", name _guiltyArtyUser]];
 			diag_log [diag_frameno, diag_ticktime, time, format ["_whof is: %1", _whof]];
 #endif
 			_punishMe = _guiltyArtyUser;
@@ -33,7 +33,7 @@ d_kb_logic1 kbTell [
 	d_kb_logic2,
 	d_kb_topic_side,
 	"PenaltyKilledCivilian",
-	["1", "", _punishMe call d_fnc_getplayername, []],
+	["1", "", name _punishMe, []],
 	["2", "", str d_civ_pnts, []],
 	d_kbtel_chan
 ];
