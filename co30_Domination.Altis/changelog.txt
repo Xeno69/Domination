@@ -59,6 +59,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Bluf
 - Fixed: Service marker was not created in the Carrier version on the carrier
 - Fixed: In ranked mode players can now pick up weapons lying around or from dead enemy AI (respawn at MHQ or base/FARP will bring back the weapon they had at mission start or the last Virtual Arsenal access)
 - Fixed: LaserDesignator no longer gets removed in the RHS versions
+- Fixed: The "You can teleport to..." message was shown when d_WithMHQTeleport was turned off
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
