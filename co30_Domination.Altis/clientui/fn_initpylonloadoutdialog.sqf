@@ -183,3 +183,9 @@ for "_i" from 0 to (count _presets - 1) do {
 _ctrl lbSetCurSel 0;
 
 ctrlSetFocus _ctrl;
+
+0 spawn {
+	scriptName "spawn_initpylonloadoutdialog";
+	waitUntil {!isNil "d_pylonloadout_dialog_open" && {!d_pylonloadout_dialog_open || {!d_player_canu}}};
+	if (d_pylonloadout_dialog_open) then {closeDialog 0};
+};
