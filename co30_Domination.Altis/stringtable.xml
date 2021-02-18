@@ -13970,6 +13970,18 @@
 <Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
 <French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2057">
+<English>Player can spectate other players at base flag</English>
+<Spanish>Player can spectate other players at base flag</Spanish>
+<Portuguese>Player can spectate other players at base flag</Portuguese>
+<Korean>Player can spectate other players at base flag</Korean>
+<Japanese>Player can spectate other players at base flag</Japanese>
+<Original>Player can spectate other players at base flag</Original>
+<Russian>Player can spectate other players at base flag</Russian>
+<Chinesesimp>Player can spectate other players at base flag</Chinesesimp>
+<Chinese>Player can spectate other players at base flag</Chinese>
+<French>Player can spectate other players at base flag</French>
+</Key>
 </Container>
 </Package>
 </Project>

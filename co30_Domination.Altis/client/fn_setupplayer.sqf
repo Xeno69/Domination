@@ -615,7 +615,9 @@ if (d_WithMHQTeleport == 0) then {
 };
 
 #ifndef __TT__
-d_FLAG_BASE addaction [format ["<t color='#3F3F3F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1745"], {call d_fnc_playerspectate}, -1, 1.5, true, true, "", "true", 10];
+if (d_playerspectateatbase == 0) then {
+	d_FLAG_BASE addaction [format ["<t color='#3F3F3F'>%1</t>", localize "STR_DOM_MISSIONSTRING_1745"], {call d_fnc_playerspectate}, -1, 1.5, true, true, "", "true", 10];
+};
 #endif
 
 if (d_ParaAtBase == 1) then {
