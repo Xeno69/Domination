@@ -18,9 +18,9 @@ d_sm_land_factory = "Land_u_Barracks_V2_F";
 d_sm_small_radar = "Land_Radar_Small_F";
 
 d_soldier_officer = switch (d_enemy_side_short) do {
-	case "E": {"O_officer_F"};
-	case "W": {"B_officer_F"};
-	case "G": {"I_officer_F"};
+	case "E": {"O_Officer_Parade_Veteran_F"};
+	case "W": {"B_Officer_Parade_Veteran_F"};
+	case "G": {"I_Officer_Parade_Veteran_F"};
 };
 d_sniper = switch (d_enemy_side_short) do {
 	case "E": {"O_sniper_F"};
