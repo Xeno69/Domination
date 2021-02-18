@@ -22,13 +22,17 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 		private _numside = [1, 2] select (d_player_side == blufor);
 		if ((_type in (d_mt_bonus_vehicle_array # _numside) || {_type in (d_sm_b_vec_ar_c # _numside)}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
 #endif
-			player action ["getOut", _vec];
-			[format [localize "STR_DOM_MISSIONSTRING_1416", [_type, "CfgVehicles"] call d_fnc_GetDisplayName, round ((d_player_autokick_time - time) / 60) max 1], "HQ"] call d_fnc_HintChatMsg;
-			_do_exit = true;
+			if (isMultiplayer) then {
+				player action ["getOut", _vec];
+				[format [localize "STR_DOM_MISSIONSTRING_1416", [_type, "CfgVehicles"] call d_fnc_GetDisplayName, round ((d_player_autokick_time - time) / 60) max 1], "HQ"] call d_fnc_HintChatMsg;
+				_do_exit = true;
+			};
 		};
 	};
 };
 if (_do_exit) exitWith {};
+
+__TRACE_1("","Before")
 
 if (_vec isKindOf "Air") then {
 	if (d_pylon_lodout == 0 && {!unitIsUAV _vec && {_this # 1 == "driver" && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent") && {isNil {_vec getVariable "d_disable_pylonloadout"}}}}}) then {
