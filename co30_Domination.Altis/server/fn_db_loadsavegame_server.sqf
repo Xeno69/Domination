@@ -311,13 +311,21 @@ private _fnc_tt_bonusvec = {
 };
 
 d_bonus_vecs_db_w = _ar # 9;
-{
-	d_bonus_vecs_db_w set [_forEachIndex, [_x, d_bonus_create_pos_w, d_bonus_air_positions_w, d_bap_counter_w, d_bonus_vec_positions_w, d_bvp_counter_w, 2] call _fnc_tt_bonusvec];
-} forEach d_bonus_vecs_db_w;
+if (!isNil "d_bonus_vecs_db_w") then {
+	{
+		d_bonus_vecs_db_w set [_forEachIndex, [_x, d_bonus_create_pos_w, d_bonus_air_positions_w, d_bap_counter_w, d_bonus_vec_positions_w, d_bvp_counter_w, 2] call _fnc_tt_bonusvec];
+	} forEach d_bonus_vecs_db_w;
+} else {
+	d_bonus_vecs_db_w = [];
+};
 d_bonus_vecs_db_e = _ar # 10;
-{
-	d_bonus_vecs_db_e set [_forEachIndex, [_x, d_bonus_create_pos_e, d_bonus_air_positions_e, d_bap_counter_e, d_bonus_vec_positions_e, d_bvp_counter_e, 2] call _fnc_tt_bonusvec];
-} forEach d_bonus_vecs_db_e;
+if (!isNil "d_bonus_vecs_db_e") then {
+	{
+		d_bonus_vecs_db_e set [_forEachIndex, [_x, d_bonus_create_pos_e, d_bonus_air_positions_e, d_bap_counter_e, d_bonus_vec_positions_e, d_bvp_counter_e, 2] call _fnc_tt_bonusvec];
+	} forEach d_bonus_vecs_db_e;
+} else {
+	d_bonus_vecs_db_e = [];
+};
 d_points_blufor = _ar # 11;
 d_points_opfor = _ar # 12;
 d_kill_points_blufor = _ar # 13;
