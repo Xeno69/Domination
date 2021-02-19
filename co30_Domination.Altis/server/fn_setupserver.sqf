@@ -74,8 +74,9 @@ private _bpos =+ d_base_array # 0;
 _bpos set [2, 1.9];
 [_bpos, [d_base_array # 1, d_base_array # 2, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'BaseUnderAtack',d_kbtel_chan]", ""]] call d_fnc_createtriggerlocal;
 #else
-d_sm_bonus_vehicle_array set [0, flatten ((d_sm_bonus_vehicle_array # 0) apply {_x call _applyfnc})]
-d_sm_bonus_vehicle_array set [1, flatten ((d_sm_bonus_vehicle_array # 1) apply {_x call _applyfnc})]
+__TRACE_1("","d_sm_bonus_vehicle_array")
+d_sm_bonus_vehicle_array set [0, flatten ((d_sm_bonus_vehicle_array # 0) apply {_x call _applyfnc})];
+d_sm_bonus_vehicle_array set [1, flatten ((d_sm_bonus_vehicle_array # 1) apply {_x call _applyfnc})];
 #endif
 
 if (d_MissionType == 2) then {
