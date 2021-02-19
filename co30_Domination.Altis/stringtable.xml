@@ -514,7 +514,7 @@
 <Japanese>Mission ® 2007 - 2021 by Xeno</Japanese>
 <Original>Mission ® 2007 - 2021 by Xeno</Original>
 <Russian>Миссиия ® 2007 - 2021 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
-<Chinesesimp>任务 ® 2007 - 2021 Xeno制作 CHL汉化</Chinesesimp>
+<Chinesesimp>任务 ® 2007 - 2021 Xeno制作 CHL、SanJin汉化</Chinesesimp>
 <Chinese>任務 ® 2007 - 2021 Xeno製作 leo小新漢化</Chinese>
 <French>Mission ® 2007 - 2021 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
 </Key>
@@ -3008,7 +3008,7 @@
 <Japanese>Always, multiple events with guerrillas</Japanese>
 <Original>Always, multiple events with guerrillas</Original>
 <Russian>Всегда, несколько событий with guerrillas</Russian>
-<Chinesesimp>总是，多个事件 with guerrillas</Chinesesimp>
+<Chinesesimp>总是，游击队的多个事件</Chinesesimp>
 <Chinese>Always, multiple events with guerrillas</Chinese>
 <French>Always, multiple events with guerrillas</French>
 </Key>
@@ -4916,7 +4916,7 @@
 <Japanese>%1 was killed! The enemy will pay for this...</Japanese>
 <Original>%1 was killed! The enemy will pay for this...</Original>
 <Russian>%1 был убит! За это враг заплатит...</Russian>
-<Chinesesimp>%1被杀死！敌人将为此付出代价...</Chinesesimp>
+<Chinesesimp>%1 被杀死！敌人将为此付出代价...</Chinesesimp>
 <Chinese>%1 was killed! The enemy will pay for this...</Chinese>
 <French>%1 was killed! The enemy will pay for this...</French>
 </Key>
@@ -7317,7 +7317,7 @@
 <Japanese>Enable simulation for enemy camps:</Japanese>
 <Original>Enable simulation for enemy camps:</Original>
 <Russian>Включить симуляцию для вражеских лагерей:</Russian>
-<Chinesesimp>启用模拟敌方阵营：</Chinesesimp>
+<Chinesesimp>敌方阵营启用模拟：</Chinesesimp>
 <Chinese>Enable simulation for enemy camps:</Chinese>
 <French>Enable simulation for enemy camps:</French>
 </Key>
@@ -9812,7 +9812,7 @@
 <Japanese>-------------------------- Enemy AI -----------------------------</Japanese>
 <Original>---------------------------- Enemy AI -------------------------------</Original>
 <Russian>--------------------------- Enemy AI --------------------------</Russian>
-<Chinesesimp>---------------------------- 敌人 AI -------------------------------</Chinesesimp>
+<Chinesesimp>---------------------------- 敌方 AI -------------------------------</Chinesesimp>
 <Chinese>---------------------------- Enemy AI -------------------------------</Chinese>
 <French>---------------------------- Enemy AI -------------------------------</French>
 </Key>
@@ -10977,7 +10977,7 @@
 <Japanese>Farp</Japanese>
 <Original>Farp</Original>
 <Russian>Аванпост</Russian>
-<Chinesesimp>前哨</Chinesesimp>
+<Chinesesimp>前沿补给点</Chinesesimp>
 <Chinese>Farp</Chinese>
 <French>Farp</French>
 </Key>
@@ -11745,7 +11745,7 @@
 <Japanese>Change Pylon Loadout</Japanese>
 <Original>Change Pylon Loadout</Original>
 <Russian>Изменить загрузку пилонов.</Russian>
-<Chinesesimp>改变塔架装载</Chinesesimp>
+<Chinesesimp>改变挂架装载</Chinesesimp>
 <Chinese>Change Pylon Loadout</Chinese>
 <French>Modifier la charge du support armement</French>
 </Key>
@@ -12309,7 +12309,7 @@
 <Japanese>Maximum number of enemy camps to capture</Japanese>
 <Original>Maximum number of enemy camps to capture</Original>
 <Russian>Максимальное количество бункеров противника для захвата</Russian>
-<Chinesesimp>捕获的敌方阵营的最大数量</Chinesesimp>
+<Chinesesimp>最多可占领敌人营地数量</Chinesesimp>
 <Chinese>要佔領的最大敵人營地(camps)數量</Chinese>
 <French>Nombre maximum de camps ennemis à capturer</French>
 </Key>
@@ -12321,7 +12321,7 @@
 <Japanese>Locate the first enemy camp to capture near the center of the main target</Japanese>
 <Original>Locate the first enemy camp to capture near the center of the main target</Original>
 <Russian>Расположить первый бункер противника ближе к центру города</Russian>
-<Chinesesimp>找到第一个在主要目标中心附近捕获的敌人营地</Chinesesimp>
+<Chinesesimp>在主要目标中心附近找到第一个要占领的敌人营地</Chinesesimp>
 <Chinese>找到第一個敵人營地，以在主要目標的中心附近捕獲</Chinese>
 <French>Localiser le premier camp ennemi à capturer près du centre de l'objectif principal</French>
 </Key>
@@ -12333,7 +12333,7 @@
 <Japanese>Enemy placement target fill radius - occupy infantry</Japanese>
 <Original>Enemy placement target fill radius - occupy infantry</Original>
 <Russian>Радиус размещения противника на главной цели - пехота</Russian>
-<Chinesesimp>主要目标敌军半径 - 步兵</Chinesesimp>
+<Chinesesimp>敌人放置目标的填充半径 - 卫戍步兵</Chinesesimp>
 <French>Rayon de remplissage de la cible de placement ennemi - occupez l'infanterie</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901B">
@@ -12344,7 +12344,7 @@
 <Japanese>Enemy placement target fill radius - ambush infantry</Japanese>
 <Original>Enemy placement target fill radius - ambush infantry</Original>
 <Russian>Радиус размещения противника на главной цели - пехота режим засады</Russian>
-<Chinesesimp>主要目标敌军半径 - 埋伏</Chinesesimp>
+<Chinesesimp>敌人放置目标的填充半径 - 埋伏步兵</Chinesesimp>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901C">
@@ -12355,7 +12355,7 @@
 <Japanese>Enemy placement target fill radius - sniper infantry</Japanese>
 <Original>Enemy placement target fill radius - sniper infantry</Original>
 <Russian>Радиус размещения противника на главной цели - снайперские группы</Russian>
-<Chinesesimp>主要目标敌军半径 - 狙击</Chinesesimp>
+<Chinesesimp>敌人放置目标的填充半径 - 狙击步兵</Chinesesimp>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie de tireurs d'élite</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
@@ -13606,7 +13606,7 @@
 <Japanese>prisoners + explosives</Japanese>
 <Original>prisoners + explosives</Original>
 <Russian>заключенные + взрывчатка</Russian>
-<Chinesesimp>囚犯 + explosives</Chinesesimp>
+<Chinesesimp>囚犯 + 爆炸物</Chinesesimp>
 <Chinese>prisoners + explosives</Chinese>
 <French>prisoners + explosives</French>
 </Key>
@@ -13947,14 +13947,14 @@
 <French>RADIOPROTOCOL for the player disabled!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2055">
-<English>Вам не разрешено управлять этим вертолетом !!!</English>
+<English>You are not allowed to fly this chopper!!!</English>
 <Spanish>You are not allowed to fly this chopper!!!</Spanish>
 <Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
 <Korean>You are not allowed to fly this chopper!!!</Korean>
 <Japanese>You are not allowed to fly this chopper!!!</Japanese>
 <Original>You are not allowed to fly this chopper!!!</Original>
-<Russian>You are not allowed to fly this chopper!!!</Russian>
-<Chinesesimp>You are not allowed to fly this chopper!!!</Chinesesimp>
+<Russian>Вам не разрешено управлять этим вертолетом !!!</Russian>
+<Chinesesimp>你不被允许驾驶这架直升机！！！</Chinesesimp>
 <Chinese>You are not allowed to fly this chopper!!!</Chinese>
 <French>You are not allowed to fly this chopper!!!</French>
 </Key>
@@ -13966,7 +13966,7 @@
 <Japanese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Japanese>
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
 <Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
-<Chinesesimp>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinesesimp>
+<Chinesesimp>禁用所有服务点，包括 FARPs（不加油、不维修、不重新武装）</Chinesesimp>
 <Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
 <French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
 </Key>
