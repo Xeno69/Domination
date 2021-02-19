@@ -507,16 +507,16 @@
 <French>Ouvrez la page des paramètres dans l'acceuil du serveur pour voir une liste des fonctionnalités disponibles que vous pouvez modifier dans le jeu avant le début de la mission (un administrateur doit le faire).</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_58">
-<English>Mission ® 2007 - 2020 by Xeno</English>
-<Spanish>Misión ® 2007 - 2020 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
-<Portuguese>Mission ® 2007 - 2020 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
-<Korean>Missons ® 2007 - 2020 by Xeno</Korean>
-<Japanese>Mission ® 2007 - 2020 by Xeno</Japanese>
-<Original>Mission ® 2007 - 2020 by Xeno</Original>
-<Russian>Миссиия ® 2007 - 2020 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
-<Chinesesimp>任务 ® 2017 - 2020 Xeno制作 SanJin汉化</Chinesesimp>
-<Chinese>任務 ® 2017 - 2020 Xeno製作 leo小新漢化</Chinese>
-<French>Mission ® 2007 - 2020 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
+<English>Mission ® 2007 - 2021 by Xeno</English>
+<Spanish>Misión ® 2007 - 2021 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
+<Portuguese>Mission ® 2007 - 2021 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
+<Korean>Missons ® 2007 - 2021 by Xeno</Korean>
+<Japanese>Mission ® 2007 - 2021 by Xeno</Japanese>
+<Original>Mission ® 2007 - 2021 by Xeno</Original>
+<Russian>Миссиия ® 2007 - 2021 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
+<Chinesesimp>任务 ® 2007 - 2021 Xeno制作 CHL汉化</Chinesesimp>
+<Chinese>任務 ® 2007 - 2021 Xeno製作 leo小新漢化</Chinese>
+<French>Mission ® 2007 - 2021 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_61">
 <English>Have a lot of fun!</English>
@@ -7329,7 +7329,7 @@
 <Japanese>AI募集 (最大):</Japanese>
 <Original>Recruit AI (max.):</Original>
 <Russian>Наём ИИ (кол-во макс.):</Russian>
-<Chinesesimp>招募 AI (最大.)：</Chinesesimp>
+<Chinesesimp>招募 AI (最大。)：</Chinesesimp>
 <Chinese>招募 AI (最大.):</Chinese>
 <French>Recrutement IA (max.):</French>
 </Key>
@@ -7413,7 +7413,7 @@
 <Japanese>空中投下の最大距離:</Japanese>
 <Original>Airdrop max. dist:</Original>
 <Russian>Макс расстояние при запросе поддержки:</Russian>
-<Chinesesimp>空投 最大. 距离：</Chinesesimp>
+<Chinesesimp>空投最大距离：</Chinesesimp>
 <Chinese>空投 最大. 距離:</Chinese>
 <French>Larguage max. dist:</French>
 </Key>
@@ -7701,7 +7701,7 @@
 <Japanese>プレーヤーをBAN</Japanese>
 <Original>Ban player</Original>
 <Russian>Забанить игрока</Russian>
-<Chinesesimp>被封玩家</Chinesesimp>
+<Chinesesimp>被封禁玩家</Chinesesimp>
 <Chinese>被封鎖玩家</Chinese>
 <French>Bannir joueur</French>
 </Key>
@@ -9056,7 +9056,7 @@
 <Japanese>弾薬箱を搭載しています...動かずにお待ちください...</Japanese>
 <Original>Loading ammobox... please wait, don't move...</Original>
 <Russian>Ящик-арсенал загружается...ждите...</Russian>
-<Chinesesimp>正在装载弹药箱...请等待，不要移动...</Chinesesimp>
+<Chinesesimp>正在装载弹药箱...请耐心等待，不要移动...</Chinesesimp>
 <Chinese>正在裝載彈藥箱...請​​等待,不要移動...</Chinese>
 <French>Chargement de la caisse de munitions... veuillez patienter, ne bougez pas...</French>
 </Key>
@@ -9404,8 +9404,8 @@
 <Japanese>%1 %2[SPACE]%3 を押して終了, %2[N]%3 を押してTIモードを切り替える%4</Japanese>
 <Original>%1PRESS %2[SPACE]%3 TO EXIT, %2[N]%3 TO CHANGE TI MODE%4</Original>
 <Russian>%1 нажмите %2[SPACE]%3 для выхода, %2[N]]%3 для смены режима ТВП%4</Russian>
-<Chinesesimp>%1 按 %2[空格键]%3 退出， %2[N]%3 来转换模式 %4</Chinesesimp>
-<Chinese>%1按 %2[空格鍵]%3 退出， %2[N]%3 來轉換模式%4</Chinese>
+<Chinesesimp>%1 按 %2[SPACE]%3 退出， %2[N]%3 来转换模式 %4</Chinesesimp>
+<Chinese>%1按 %2[SPACE]%3 退出， %2[N]%3 來轉換模式%4</Chinese>
 <French>%1PRESS %2[ESPACE]%3 POUR QUITTER, %2[N]%3 POUR CHANGER LE MODE TI%4</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1513">
@@ -11733,7 +11733,7 @@
 <Japanese>New pylon loadout applied!</Japanese>
 <Original>New pylon loadout applied!</Original>
 <Russian>БК на пилоны загружено!</Russian>
-<Chinesesimp>应用了新的塔架装载！</Chinesesimp>
+<Chinesesimp>应用了新的挂架装载！</Chinesesimp>
 <Chinese>New pylon loadout applied!</Chinese>
 <French>Nouveau chargement support armement appliqué!</French>
 </Key>
@@ -11757,7 +11757,7 @@
 <Japanese>Rappel Self</Japanese>
 <Original>Rappel Self</Original>
 <Russian>Спуститься по тросу</Russian>
-<Chinesesimp>走下电缆</Chinesesimp>
+<Chinesesimp>索降</Chinesesimp>
 <Chinese>Rappel Self</Chinese>
 <French>Descente Rapide</French>
 </Key>
@@ -11769,7 +11769,7 @@
 <Japanese>Rappel AI Units</Japanese>
 <Original>Rappel AI Units</Original>
 <Russian>Спустить ИИ по тросам</Russian>
-<Chinesesimp>拉动电缆上的 AI</Chinesesimp>
+<Chinesesimp>AI 单位索降</Chinesesimp>
 <Chinese>Rappel AI Units</Chinese>
 <French>IA Descente Rapide</French>
 </Key>
@@ -11781,7 +11781,7 @@
 <Japanese>Detach Rappel Device</Japanese>
 <Original>Detach Rappel Device</Original>
 <Russian>Отцепить тросы</Russian>
-<Chinesesimp>取下电缆</Chinesesimp>
+<Chinesesimp>拆下绳索装置</Chinesesimp>
 <Chinese>Detach Rappel Device</Chinese>
 <French>Détacher le Dispositif de Rappel</French>
 </Key>
@@ -12220,7 +12220,7 @@
 <Japanese>Enemy infantry - garrisoned infantry group count - overwatch mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
 <Russian>Количество гарнизонных пехотных групп - режим наблюдения</Russian>
-<Chinesesimp>敌军步兵 - 驻军步兵团人数 - 守望先锋模式</Chinesesimp>
+<Chinesesimp>敌军步兵 - 驻军步兵团人数 - 封锁模式</Chinesesimp>
 <French>Enemy infantry - nombres des groupes d'infanterie en garnison - mode surveillance</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
@@ -12438,7 +12438,7 @@
 <Japanese>Pylon loadout enabled:</Japanese>
 <Original>Pylon loadout enabled:</Original>
 <Russian>Включить смену пилонов:</Russian>
-<Chinesesimp>启用铁塔装载：</Chinesesimp>
+<Chinesesimp>启用挂架装载：</Chinesesimp>
 <Chinese>Pylon loadout enabled:</Chinese>
 <French>Chargement du support armement activé:</French>
 </Key>
@@ -12558,7 +12558,7 @@
 <Japanese>With ambient radio:</Japanese>
 <Original>With ambient radio:</Original>
 <Russian>Радиопереговоры-фон:</Russian>
-<Chinesesimp>使用环境无线电：</Chinesesimp>
+<Chinesesimp>带环境无线电：</Chinesesimp>
 <French>Avec la radio ambiante:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1949">
@@ -13945,6 +13945,30 @@
 <Chinesesimp>玩家禁止使用 RADIOPROTOCOL ！</Chinesesimp>
 <Chinese>RADIOPROTOCOL for the player disabled!</Chinese>
 <French>RADIOPROTOCOL for the player disabled!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2055">
+<English>Вам не разрешено управлять этим вертолетом !!!</English>
+<Spanish>You are not allowed to fly this chopper!!!</Spanish>
+<Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
+<Korean>You are not allowed to fly this chopper!!!</Korean>
+<Japanese>You are not allowed to fly this chopper!!!</Japanese>
+<Original>You are not allowed to fly this chopper!!!</Original>
+<Russian>You are not allowed to fly this chopper!!!</Russian>
+<Chinesesimp>You are not allowed to fly this chopper!!!</Chinesesimp>
+<Chinese>You are not allowed to fly this chopper!!!</Chinese>
+<French>You are not allowed to fly this chopper!!!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2056">
+<English>Disable all service points, including FARPs (no refuel, no repair, no rearm)</English>
+<Spanish>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Spanish>
+<Portuguese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Portuguese>
+<Korean>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Korean>
+<Japanese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Japanese>
+<Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
+<Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
+<Chinesesimp>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinesesimp>
+<Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
+<French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
 </Key>
 </Container>
 </Package>

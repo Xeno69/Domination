@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_addpylon_action.sqf"
 #include "..\x_setup.sqf"
 
-if (!hasInterface || {d_pylon_lodout == 0 || {!isNil {_this getVariable "d_plyonloadoutaction"}}}) exitWith {};
+if (!hasInterface || {d_pylon_lodout == 1 || {!isNil {_this getVariable "d_plyonloadoutaction"}}}) exitWith {};
 
 private _condstr = if (!unitIsUAV _this) then {
 	"speed _target == 0 && {!isEngineOn _target && {d_player_canu && {player == driver _target && {d_add_resp_points_pos findIf {_x distance2D _target < 700} > -1}}}}"

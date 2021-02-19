@@ -70,7 +70,7 @@ if (d_sub_kill_points != 0 && {d_sub_kill_points > 0}) then {
 };
 
 if (d_with_ace) then {
-	d_pylon_lodout = 0;
+	d_pylon_lodout = 1;
 };
 
 if (isServer) then {

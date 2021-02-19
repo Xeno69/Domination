@@ -17,6 +17,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Bluf
 - Added: d_uids_def_choppers (also available in dom_settings table); if the array is filled with player UIDs (strings) only those players can fly the initial choppers at base
 - Added: Parameter d_dis_servicep/Disable all service points, including FARPs (no refuel, no repair, no rearm)
 - Added: Fires at main targets
+- Added: Parameter d_playerspectateatbase (Player can spectate other players at base flag), default 0 or Yes
 - Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
 - Changed: Added visibility check for player and AI names over the head, means, players see the names above head if the unit is visible and not all the time
 - Changed: Maintarget prisoner event now has a suicide bomb if the rescue is botched, by longtimegamer
@@ -59,6 +60,8 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Bluf
 - Fixed: Service marker was not created in the Carrier version on the carrier
 - Fixed: In ranked mode players can now pick up weapons lying around or from dead enemy AI (respawn at MHQ or base/FARP will bring back the weapon they had at mission start or the last Virtual Arsenal access)
 - Fixed: LaserDesignator no longer gets removed in the RHS versions
+- Fixed: The "You can teleport to..." message was shown when d_WithMHQTeleport was turned off
+- Fixed: Pylon dialog stayed open when a player was killed
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore

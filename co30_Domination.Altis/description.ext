@@ -30,6 +30,16 @@ saving = 0;
 loadScreen = "pics\domls.paa";
 overviewText = "$STR_DOM_MISSIONSTRING_1828";
 
+class CfgWorlds {
+	class Any {
+		author = "Xeno";
+		description = "$STR_DOM_MISSIONSTRING_265";
+		//pictureMap = "pics\domls.paa";
+		pictureShot = "pics\domls.paa";
+		loadingTexts[] = {"Domination is available for many mods and islands", "There is also a PvPvE named TT version available", "Don't forget to donate :)"};
+	};
+};
+
 unsafeCVL = 0;
 
 #ifdef __DEBUG__
@@ -718,6 +728,13 @@ default = 7;
 
 	class d_ViewdistanceChange {
 		title = "$STR_DOM_MISSIONSTRING_1041";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_playerspectateatbase {
+		title = "$STR_DOM_MISSIONSTRING_2057";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
