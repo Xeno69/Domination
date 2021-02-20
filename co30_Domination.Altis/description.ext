@@ -36,7 +36,13 @@ class CfgWorlds {
 		description = "$STR_DOM_MISSIONSTRING_265";
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
-		loadingTexts[] = {"Domination is available for many mods and islands", "There is also a PvPvE Domination TT (Two Teams) version available", "A donation is always welcome... :)", "Did you know that the first Domination version came out 2007 for Arma 1?"};
+		loadingTexts[] = {
+			"Domination is available for many mods and islands including CUP, RHS and IFA3",
+			"There is also a PvPvE Domination TT (Two Teams) version available",
+			"A donation is always welcome... :)",
+			"Did you know that the first Domination version came out 2007 for Arma 1?",
+			"You can configure Domination for your needs with 131 server params available in the lobby or via database"
+		};
 	};
 };
 
@@ -1494,13 +1500,6 @@ default = 7;
 		values[] = {100,500,1000,2000,3000,5000,10000000};
 		default = 500;
 		texts[] = {"100 m","500 m","1000 m","2000 m","3000 m","5000 m","$STR_DOM_MISSIONSTRING_1137"};
-	};
-	
-	class d_params_dl_19 {
-		title = "$STR_DOM_MISSIONSTRING_ADVANCED";
-		values[] = {-66};
-		default = -66;
-		texts[] = {""};
 	};
 };
 
