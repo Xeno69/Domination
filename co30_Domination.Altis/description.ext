@@ -34,9 +34,9 @@ class CfgWorlds {
 	class Any {
 		author = "Xeno";
 		description = "$STR_DOM_MISSIONSTRING_265";
-		//pictureMap = "pics\domls.paa";
+		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
-		loadingTexts[] = {"Domination is available for many mods and islands", "There is also a PvPvE named TT version available", "Don't forget to donate :)"};
+		loadingTexts[] = {"Domination is available for many mods and islands", "There is also a PvPvE Domination TT (Two Teams) version available", "A donation is always welcome... :)", "Did you know that the first Domination version came out 2007 for Arma 1?"};
 	};
 };
 

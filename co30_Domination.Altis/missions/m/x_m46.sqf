@@ -13,7 +13,7 @@ if (hasInterface) then {
 
 if (isServer) then {
 	d_x_sm_pos params ["_poss"];
-	private _objs = nearestObjects [_poss, ["Land_CementWorks_01_brick_F", "Land_Smokestack_03_F"], 30];
+	private _objs = nearestObjects [_poss, ["Land_Ind_Pec_03a", "Land_Ind_MalyKomin", "Land_Smokestack_03_F", "Land_CementWorks_01_brick_F"], 30];
 	__TRACE_1("","_objs")
 	sleep 2.123;
 	["specops", 2, "allmen", 1, _poss, 200, true] spawn d_fnc_CreateInf;

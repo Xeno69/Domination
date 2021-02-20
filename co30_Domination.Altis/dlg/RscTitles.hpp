@@ -774,7 +774,7 @@ class d_rscchand {
 			idc=-1;
 			text = "I'm gonna swing from the chandelier...";
 			x = safezoneX + safezoneW - 0.51;
-			y = safezoneY + 0.04;
+			y = safezoneY + 0.14;
 			w = 0.5;
 			h = 0.1;
 			sizeEx = 0.05;
