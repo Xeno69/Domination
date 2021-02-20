@@ -13947,13 +13947,13 @@
 <French>RADIOPROTOCOL for the player disabled!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2055">
-<English>Вам не разрешено управлять этим вертолетом !!!</English>
+<English>You are not allowed to fly this chopper!!!</English>
 <Spanish>You are not allowed to fly this chopper!!!</Spanish>
 <Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
 <Korean>You are not allowed to fly this chopper!!!</Korean>
 <Japanese>You are not allowed to fly this chopper!!!</Japanese>
 <Original>You are not allowed to fly this chopper!!!</Original>
-<Russian>You are not allowed to fly this chopper!!!</Russian>
+<Russian>Вам не разрешено управлять этим вертолетом !!!</Russian>
 <Chinesesimp>你不被允许驾驶这架直升机！！！</Chinesesimp>
 <Chinese>You are not allowed to fly this chopper!!!</Chinese>
 <French>You are not allowed to fly this chopper!!!</French>
@@ -13977,7 +13977,7 @@
 <Korean>Player can spectate other players at base flag</Korean>
 <Japanese>Player can spectate other players at base flag</Japanese>
 <Original>Player can spectate other players at base flag</Original>
-<Russian>Player can spectate other players at base flag</Russian>
+<Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
 <Chinesesimp>Player can spectate other players at base flag</Chinesesimp>
 <Chinese>Player can spectate other players at base flag</Chinese>
 <French>Player can spectate other players at base flag</French>
