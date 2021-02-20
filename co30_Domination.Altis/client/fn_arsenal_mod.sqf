@@ -16,12 +16,6 @@ if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
 	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
 };
 
-if (d_with_ace) then {
-	_items_no append ["ACE_atropine", "ACE_fieldDressing", "ACE_elasticBandage", "ACE_quikclot", "ACE_bloodIV", "ACE_bloodIV_500", "ACE_bloodIV_250",
-		"ACE_bodyBag", "ACE_bodyBagObject", "ACE_epinephrine", "ACE_morphine", "ACE_packingBandage", "ACE_personalAidKit", "ACE_plasmaIV", "ACE_plasmaIV_500",
-		"ACE_plasmaIV_250", "ACE_salineIV", "ACE_salineIV_500", "ACE_salineIV_250", "ACE_surgicalKit", "ACE_tourniquet"];
-};
-
 if (d_cup) then {
 	_items_no append ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"];
 };
@@ -55,10 +49,15 @@ private _findmodfnc = {
 {
 	private _ar = _x;
 	__TRACE_1("","_x")
-	private ["_item", "_kind"];
+	private ["_item", "_kind", "_ok"];
 	{
-		_item = _x;
-		if !(toLowerANSI _item in _items_no) then {
+		_item = toLowerANSI _x;
+		_ok = call {
+			if (_item in _items_no) exitWith {false};
+			if (d_with_ace && {(_item select [0, 4]) isEqualTo "ace_"}) exitWith {false};
+			true
+		};
+		if (_ok) then {
 			_kind = call {
 				if (isClass (configFile >> "CfgWeapons" >> _x)) exitWith {
 					"CfgWeapons"
