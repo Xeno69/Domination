@@ -757,17 +757,6 @@ player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedmanvs}];
 d_pisadminp = false;
 if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 	d_clientScriptsAr set [1, true];
-} else {
-	if (d_database_found) then {
-		0 spawn {
-			scriptName "spawn_setupplayer5";
-			sleep 30;
-			if (score player > 500) then {
-				d_clientScriptsAr set [1, true];
-				if (!isNil "d_player_autokick_time") then {d_player_autokick_time = nil};
-			};
-		};
-	};
 };
 
 0 spawn d_fnc_startClientScripts;
