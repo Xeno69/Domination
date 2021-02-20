@@ -5,8 +5,8 @@ global:
 accounts:
  domination: #production db, don't break things here!
   ip: 127.0.0.1
-  username: domination
-  password: <your_database_password_here>
+  username: yourdbuserwithaccesstodominationdb
+  password: thepasswordofthedatabaseuser
   database: domination
   port: 3306 #optional
 
