@@ -27,7 +27,7 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 * 删除 `co30_Domination.Altis/mission.sqm`
 * 复制适当的 `mission.sqm` 文件从 `mission_sqm` 文件夹到 `co30_Domination.Altis`
-* rename the file you copied to `mission.sqm`
+* 重命名您复制到 `mission.sqm` 的文件
 * 删除 `co30_Domination.Altis/x_setup.sqf`
 * 复制适当的 `x_setup.sqf` 文件从 `mission_sqm` 文件夹到 `co30_Domination.Altis`
 * 重命名复制到的文件 `x_setup.sqf`
