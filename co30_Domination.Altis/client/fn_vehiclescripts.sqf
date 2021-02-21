@@ -30,16 +30,13 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 		};
 	};
 };
-if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to_fly > -1}}}) then {
+if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to_fly > -1 && {score player < d_score_needed_to_fly}}}}) then {
 	if (_vec getVariable ["d_vec_type", ""] == "MHQ") exitWith {};
-	if (!isNil {_vec getVariable "d_vec"}) exitWith {};
-	if (score player < d_score_needed_to_fly) exitWith {	
-		if (isMultiplayer) then {
-			player action ["getOut", _vec];
-			[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;
-			_do_exit = true;
-		};
-	};
+	//if (isMultiplayer) then {
+		player action ["getOut", _vec];
+		[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;
+		_do_exit = true;
+	//};
 };
 if (_do_exit) exitWith {};
 

@@ -211,9 +211,9 @@
 > Autokick time means that a player who connects the first time during the mission will be kicked out of attack planes and choppers so he/she doesn't waste them<br/>
 > Available options in seconds: 0 (disabled), 60, 300, 1800 and 3600<br/>
 #### **d_score_needed_to_fly / Flying choppers and planes only allowed when a player has a score higher than:**
-> Default: 1000<br/>
+> Default: 100<br/>
 > If a SQL database is available players will get kicked out of air vehicles if their score is below d_score_needed_to_fly. Doesn't affect inital choppers like MHQ/transport; can be disabled with -1 (Disabled)<br/>
-> Available options in seconds: -1 (disabled), 100, 500, 1000, 2000 and 5000<br/>
+> Available options in seconds: -1 (disabled), 10, 50, 100, 500, 1000, 2000 and 5000<br/>
 #### **d_without_nvg / Without NVgoggles:**
 > Default: 1 (No, disabled; 0 or Yes to remove nv goggles)<br/>
 > If enabled removes night vision goggles from players and AI<br/>
