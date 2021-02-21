@@ -436,7 +436,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_49">
 <English>Intel reports about enemy supply trucks. Find and destroy them!</English>
-<Spanish>Intel reports about enemy supply trucks. Find and destroy them!</Spanish>
+<Spanish>Ordinar informa sobre los camiones de suministros enemigos. ¡Encuéntrelos y destrúyalos!</Spanish>
 <Portuguese>Intel reports about enemy supply trucks. Find and destroy them!</Portuguese>
 <Korean>적 보급트럭에 대해 첩보를 입수하였습니다. 찾아서 파괴 하십시오!</Korean>
 <Japanese>Intel reports about enemy supply trucks. Find and destroy them!</Japanese>
@@ -448,7 +448,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_50">
 <English>The trucks are destroyed! Good job!</English>
-<Spanish>The trucks are destroyed! Good job!</Spanish>
+<Spanish>¡Los camiones están destruidos! ¡Buen trabajo!</Spanish>
 <Portuguese>The trucks are destroyed! Good job!</Portuguese>
 <Korean>트럭이 파괴 되었습니다! 수고하셨습니다!</Korean>
 <Japanese>The trucks are destroyed! Good job!</Japanese>
@@ -556,7 +556,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_65">
 <English>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</English>
-<Spanish>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Spanish>
+<Spanish>No puedes saltar. ¡Debes esperar %1 minutos y %2 segundos tu próximo salto!</Spanish>
 <Portuguese>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Portuguese>
 <Korean>공수낙하를 하실 수 없습니다. 다음 공수낙하를 하실려면 기다려주십시오: %1 분 %2 초</Korean>
 <Japanese>You can not jump. You have to wait %1 minutes and %2 seconds for your next jump!!!</Japanese>
@@ -1539,7 +1539,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_214">
 <English>Wait %1 seconds before you can deploy/undeploy the MHQ again!</English>
-<Spanish>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Spanish>
+<Spanish>Espere %1 segundos antes de poder desplegar el MHQ nuevamente.</Spanish>
 <Portuguese>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Portuguese>
 <Korean>MHQ를 다시 deploy/undeploy 하실려면 %1 초 동안 기다려주십시오!</Korean>
 <Japanese>Wait %1 seconds before you can deploy/undeploy the MHQ again!</Japanese>
@@ -2354,7 +2354,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_298">
 <English>Respawn</English>
-<Spanish>Respawn</Spanish>
+<Spanish>Reappear</Spanish>
 <Portuguese>Respawn</Portuguese>
 <Korean>재투입</Korean>
 <Japanese>復活</Japanese>
@@ -2834,7 +2834,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_363_ON">
 <English>On</English>
-<Spanish>On</Spanish>
+<Spanish>Prendido</Spanish>
 <Portuguese>On</Portuguese>
 <Korean>켜기(On)</Korean>
 <Japanese>On</Japanese>
@@ -2894,7 +2894,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_399_VERYLOW">
 <English>Very Low</English>
-<Spanish>Very Low</Spanish>
+<Spanish>Muy Bajo</Spanish>
 <Portuguese>Very Low</Portuguese>
 <Korean>매우 낮음</Korean>
 <Japanese>Very Low</Japanese>
@@ -2918,7 +2918,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_399B">
 <English>Medium</English>
-<Spanish>Medium</Spanish>
+<Spanish>Medio</Spanish>
 <Portuguese>Medium</Portuguese>
 <Korean>중간</Korean>
 <Japanese>Medium</Japanese>
@@ -2942,7 +2942,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_400_VERYHIGH">
 <English>Very High</English>
-<Spanish>Very High</Spanish>
+<Spanish>Muy Alto</Spanish>
 <Portuguese>Very High</Portuguese>
 <Korean>매우 높음</Korean>
 <Japanese>Very High</Japanese>
@@ -2978,7 +2978,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418B">
 <English>Always</English>
-<Spanish>Always</Spanish>
+<Spanish>Siempre</Spanish>
 <Portuguese>Always</Portuguese>
 <Korean>항상</Korean>
 <Japanese>Always</Japanese>
@@ -2990,7 +2990,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C">
 <English>Always, multiple events</English>
-<Spanish>Always, multiple events</Spanish>
+<Spanish>Siempre, múltiples eventos</Spanish>
 <Portuguese>Always, multiple events</Portuguese>
 <Korean>항상, 다중 이벤트</Korean>
 <Japanese>Always, multiple events</Japanese>
@@ -3002,7 +3002,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
 <English>Always, multiple events with guerrillas</English>
-<Spanish>Always, multiple events with guerrillas</Spanish>
+<Spanish>Siempre, múltiples eventos con guerrillas</Spanish>
 <Portuguese>Always, multiple events with guerrillas</Portuguese>
 <Korean>항상, 다중 이벤트 with guerrillas</Korean>
 <Japanese>Always, multiple events with guerrillas</Japanese>
@@ -3926,7 +3926,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_612">
 <English>Fuel: %1 L</English>
-<Spanish>Fuel: %1 L</Spanish>
+<Spanish>Gasolina: %1 L</Spanish>
 <Portuguese>Fuel: %1 L</Portuguese>
 <Korean>연료: %1 L</Korean>
 <Japanese>燃料: %1 L</Japanese>
@@ -5942,7 +5942,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_923">
 <English>Revive</English>
-<Spanish>Revive</Spanish>
+<Spanish>Revivir</Spanish>
 <Portuguese>Revive</Portuguese>
 <Korean>소생</Korean>
 <Japanese>蘇生</Japanese>
@@ -5954,7 +5954,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_924">
 <English>CPR</English>
-<Spanish>CPR</Spanish>
+<Spanish>Resucitar</Spanish>
 <Portuguese>CPR</Portuguese>
 <Korean>인공호흡</Korean>
 <Japanese>CPR</Japanese>
@@ -6326,7 +6326,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1007_RANDOM">
 <English>Random</English>
-<Spanish>Random</Spanish>
+<Spanish>Aleatorio</Spanish>
 <Portuguese>Random</Portuguese>
 <Korean>Random</Korean>
 <Japanese>Random</Japanese>
@@ -6590,7 +6590,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1052_EVENTS">
 <English>Random events at main target:</English>
-<Spanish>Random events at main target:</Spanish>
+<Spanish>Eventos aleatorios en el objetivo principal:</Spanish>
 <Portuguese>Random events at main target:</Portuguese>
 <Korean>메인미션 무작위 이벤트:</Korean>
 <Japanese>Random events at main target:</Japanese>
@@ -7311,7 +7311,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLESIMCAMPS">
 <English>Enable simulation for enemy camps:</English>
-<Spanish>Enable simulation for enemy camps:</Spanish>
+<Spanish>Habilitar la simulación para campamentos enemigos:</Spanish>
 <Portuguese>Enable simulation for enemy camps:</Portuguese>
 <Korean>적 초소 시뮬레이션 활성화:</Korean>
 <Japanese>Enable simulation for enemy camps:</Japanese>
@@ -10719,7 +10719,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1741_CORPSES">
 <English>Persistent AI corpses</English>
-<Spanish>Persistent AI corpses</Spanish>
+<Spanish>Cadáveres persistentes</Spanish>
 <Portuguese>Persistent AI corpses</Portuguese>
 <Korean>AI 시체들 유지</Korean>
 <Japanese>Persistent AI corpses</Japanese>
@@ -11055,7 +11055,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_MILITARY">
 <English>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</English>
-<Spanish>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Spanish>
+<Spanish>Uno de nuestros pilotos ha sido capturado. ¡Trae al piloto de regreso a tu base! Mata a los guardias rápidamente. ¡Si resultan heridos, ejecutarán al prisionero!</Spanish>
 <Portuguese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Portuguese>
 <Korean>아군 파일럿중 한명이 억류 되었습니다. 파일럿을 구출해 베이스로 데려오십시오! 경비병들을 곧바로 사살하십시오. 만약 경비병들이 부상상태로 생존한다면 그들은 포로를 처형 할 것입니다!</Korean>
 <Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
@@ -12123,7 +12123,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS">
 <English>Always announce enemy artillery / CAS</English>
-<Spanish>Always announce enemy artillery / CAS</Spanish>
+<Spanish>Anunciar siempre la artillería enemiga / ataque aéreo</Spanish>
 <Portuguese>Always announce enemy artillery / CAS</Portuguese>
 <Korean>Always announce enemy artillery / CAS</Korean>
 <Japanese>Always announce enemy artillery / CAS</Japanese>
@@ -13232,7 +13232,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2007">
 <English>Reduce number of AI units in groups depending on player numbers</English>
-<Spanish>Reduce number of AI units in groups depending on player numbers</Spanish>
+<Spanish>Reducir el número de unidades de inteligencia artificial en grupos según el número de jugadores</Spanish>
 <Portuguese>Reduce number of AI units in groups depending on player numbers</Portuguese>
 <Korean>플레이어 숫자에 따라서 적군 그룹내 AI 숫자 감소</Korean>
 <Japanese>Reduce number of AI units in groups depending on player numbers</Japanese>
@@ -13243,7 +13243,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2007_FPS">
 <English>Adjust AI subskill if server FPS is low</English>
-<Spanish>Adjust AI subskill if server FPS is low</Spanish>
+<Spanish>Ajuste la habilidad del inteligencia artificial si el servidor cuadros por segundo es bajo</Spanish>
 <Portuguese>Adjust AI subskill if server FPS is low</Portuguese>
 <Korean>서버 FPS가 낮은 경우 AI 하위스킬 조정</Korean>
 <Japanese>Adjust AI subskill if server FPS is low</Japanese>
@@ -13277,7 +13277,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2010">
 <English>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</English>
-<Spanish>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Spanish>
+<Spanish>Un ataque enemigo ha provocado una fuga de gas tóxico. ¡Llegue y selle la fuga de inmediato! ¡Atención, el enemigo está en la zona! ¡No olvide un respirador!</Spanish>
 <Portuguese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Portuguese>
 <Korean>적군의 공격으로인해 유독가스가 누출 되고 있습니다. 즉시 그곳에 가서 유독가스 누출을 밀폐 하십시오! 주의, 적군은 여전히 그곳에 있습니다! 산소 호흡기를 잊지마십시오!</Korean>
 <Japanese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Japanese>
@@ -13420,7 +13420,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2022">
 <English>Entire map</English>
-<Spanish>Entire map</Spanish>
+<Spanish>Mapa completo</Spanish>
 <Portuguese>Entire map</Portuguese>
 <Korean>모든맵상 도시</Korean>
 <Japanese>Entire map</Japanese>
@@ -13444,7 +13444,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2024">
 <English>Open Terminal</English>
-<Spanish>Open Terminal</Spanish>
+<Spanish>Abre el terminal</Spanish>
 <Portuguese>Open Terminal</Portuguese>
 <Korean>터미널 열기</Korean>
 <Japanese>Open Terminal</Japanese>
@@ -13456,7 +13456,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2025">
 <English>Seal leak</English>
-<Spanish>Seal leak</Spanish>
+<Spanish>Sellar la fuga</Spanish>
 <Portuguese>Seal leak</Portuguese>
 <Korean>가스 밀폐</Korean>
 <Japanese>Seal leak</Japanese>
@@ -13468,7 +13468,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2026">
 <English>Sealing leak... Please wait!</English>
-<Spanish>Sealing leak... Please wait!</Spanish>
+<Spanish>Sellar la fuga... ¡Espere por favor!</Spanish>
 <Portuguese>Sealing leak... Please wait!</Portuguese>
 <Korean>가스 밀폐중... 대기하십시오!</Korean>
 <Japanese>Sealing leak... Please wait!</Japanese>
@@ -13480,7 +13480,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2027">
 <English>Leak sealed!</English>
-<Spanish>Leak sealed!</Spanish>
+<Spanish>¡La fuga está sellada!</Spanish>
 <Portuguese>Leak sealed!</Portuguese>
 <Korean>가스가 밀폐되었습니다!</Korean>
 <Japanese>Leak sealed!</Japanese>
@@ -13492,7 +13492,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028">
 <English>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</English>
-<Spanish>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Spanish>
+<Spanish>Atención: los tanques de guerrilla se están moviendo hacia la ciudad desde %1. La guerrilla es amigable con los Blufor y hostil con los Opfor.</Spanish>
 <Portuguese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Portuguese>
 <Korean>주의: %1 부터 게릴라 탱크부대가 도시로 이동중입니다. 게릴라는 청군에 우호적이고 대항군에 적대적입니다.</Korean>
 <Japanese>Attention: Guerrilla tanks are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
@@ -13504,7 +13504,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_INFANTRY">
 <English>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</English>
-<Spanish>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Spanish>
+<Spanish>Atención: la infantería guerrillera se está moviendo hacia la ciudad desde %1. La guerrilla es amigable con los Blufor y hostil con los Opfor.</Spanish>
 <Portuguese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Portuguese>
 <Korean>주의: %1 부터 게릴라 보병부대가 도시로 이동중입니다. 게릴라는 청군에 우호적이고 대항군에 적대적입니다.</Korean>
 <Japanese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Japanese>
@@ -13516,7 +13516,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT">
 <English>Attention: Our lucky pet rabbit is lost.  Find %1!</English>
-<Spanish>Attention: Our lucky pet rabbit is lost.  Find %1!</Spanish>
+<Spanish>Atención: Nuestro conejo de la suerte está perdido. ¡Encontrar a %1!</Spanish>
 <Portuguese>Attention: Our lucky pet rabbit is lost.  Find %1!</Portuguese>
 <Korean>주의: 우리 길조 토끼가 사라졌습니다. %1 찾으세요!</Korean>
 <Japanese>Attention: Our lucky pet rabbit is lost.  Find %1!</Japanese>
@@ -13588,7 +13588,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERS">
 <English>prisoners</English>
-<Spanish>prisoners</Spanish>
+<Spanish>prisioneros</Spanish>
 <Portuguese>prisoners</Portuguese>
 <Korean>포로들</Korean>
 <Japanese>prisoners</Japanese>
@@ -13744,7 +13744,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2041">
 <English>Press X to exit!!!</English>
-<Spanish>Press X to exit!!!</Spanish>
+<Spanish>Presione X para salir!!!</Spanish>
 <Portuguese>Press X to exit!!!</Portuguese>
 <Korean>Press X to exit!!!</Korean>
 <Japanese>Press X to exit!!!</Japanese>
@@ -13756,7 +13756,7 @@
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_AI_SILENT">
 <English>Bots are silent</English>
-<Spanish>Bots are silent</Spanish>
+<Spanish>Inteligencia artificial está en silencio</Spanish>
 <Portuguese>Bots are silent</Portuguese>
 <Korean>Bots are silent</Korean>
 <Japanese>Bots are silent</Japanese>
