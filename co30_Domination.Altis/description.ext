@@ -37,7 +37,7 @@ class CfgWorlds {
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands including CUP, RHS and IFA3",
+			"Domination is available for many mods and islands including CUP, RHS, IFA3 and Unsung",
 			"There is also a PvPvE Domination TT (Two Teams) version available",
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
