@@ -340,6 +340,7 @@ class cfgFunctions {
 			addc(deletearrayunitsvehicles);
 			addc(swm);
 			addc(markername);
+			addc(tanoafix);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

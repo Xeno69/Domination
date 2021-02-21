@@ -65,6 +65,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Bluf
 - Fixed: The "You can teleport to..." message was shown when d_WithMHQTeleport was turned off
 - Fixed: Pylon dialog stayed open when a player was killed
 - Fixed: CUP Chernarus side mission 46 did not work on Winter Chernarus and autumn Chernarus
+- Fixed: Don't spawn AI near Land_Canal_Wall_10m_F on Tanoa, AI spawns inside the walls
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore

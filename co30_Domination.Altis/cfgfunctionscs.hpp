@@ -341,6 +341,7 @@ class cfgDomFuncs {
 			addc(deletearrayunitsvehicles);
 			addc(swm);
 			addc(markername);
+			addc(tanoafix);
 		};
 		class Dom_ext_Scripts {
 			type = 0; // 0 = all, 1 = client, 2 = server
