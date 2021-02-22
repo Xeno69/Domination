@@ -13,7 +13,7 @@ if (!d_gmcwg) then {
 };
 
 if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
-	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS"];
+	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "arifle_SDAR_F"];
 };
 
 if (d_cup) then {
@@ -55,6 +55,7 @@ private _findmodfnc = {
 		_ok = call {
 			if (_item in _items_no) exitWith {false};
 			if (d_with_ace && {(_item select [0, 4]) isEqualTo "ace_"}) exitWith {false};
+			if (!d_ifa3lite && {"wetsuit" in _item || {"diving" in _item || {"rebreather" in _item}}}) exitWith {false};
 			true
 		};
 		if (_ok) then {
