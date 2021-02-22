@@ -16,7 +16,7 @@ if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
 	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "arifle_SDAR_F"];
 };
 
-if (d_cup) then {
+if (d_cup || {d_rhs}) then {
 	_items_no append ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"];
 };
 
