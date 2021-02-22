@@ -13978,7 +13978,7 @@
 <Japanese>Player can spectate other players at base flag</Japanese>
 <Original>Player can spectate other players at base flag</Original>
 <Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
-<Chinesesimp>Player can spectate other players at base flag</Chinesesimp>
+<Chinesesimp>玩家可以在基本标志处观看其他玩家</Chinesesimp>
 <Chinese>Player can spectate other players at base flag</Chinese>
 <French>Player can spectate other players at base flag</French>
 </Key>
@@ -13990,7 +13990,7 @@
 <Japanese>Flying choppers and planes only allowed when a player has a score higher than:</Japanese>
 <Original>Flying choppers and planes only allowed when a player has a score higher than:</Original>
 <Russian>Flying choppers and planes only allowed when a player has a score higher than:</Russian>
-<Chinesesimp>Flying choppers and planes only allowed when a player has a score higher than:</Chinesesimp>
+<Chinesesimp>要想被允许驾驶直升机和飞机，玩家的得分必须高于以下值：</Chinesesimp>
 <Chinese>Flying choppers and planes only allowed when a player has a score higher than:</Chinese>
 <French>Flying choppers and planes only allowed when a player has a score higher than:</French>
 </Key>
@@ -14002,7 +14002,7 @@
 <Japanese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Japanese>
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Original>
 <Russian>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Russian>
-<Chinesesimp>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Chinesesimp>
+<Chinesesimp>您尚未具备飞行资格，作为炮手进入或指挥 %1 。\n\n您需要总分 %2 ，您的当前分数是 %3。</Chinesesimp>
 <Chinese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Chinese>
 <French>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</French>
 </Key>
