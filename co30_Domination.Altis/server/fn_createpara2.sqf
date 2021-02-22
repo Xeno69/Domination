@@ -101,7 +101,18 @@ if (alive _chopper && {canMove _chopper && {alive driver _chopper}}) then {
 		_pposcx = getPosATL _chopper;
 		_para setPos [_pposcx # 0, _pposcx # 1, (_pposcx # 2) - 10];
 		_one_unit call d_fnc_removenvgoggles_fak;
-
+		if (_one_unit == leader _paragrp) then {
+	            private _smoke = createVehicle [(selectRandom ["SmokeShellRed", "SmokeShellPurple"]), objectParent _one_unit, [], 0, "FLY"];
+	            _smoke attachTo [objectParent _one_unit, [0, 0, 0]];
+		    [_one_unit, _smoke] spawn {
+			 params ["_unit","_smoke"];
+			 waitUntil {sleep 1; isTouchingGround _unit || {isNull _unit}};
+                         if (!isNull _smoke) then {
+			     detach _smoke;
+                             deleteVehicle _smoke;
+                         };							
+		     };
+                };
 		if (d_with_ai && {d_with_ranked}) then {
 			[_one_unit, 4] call d_fnc_setekmode;
 		};

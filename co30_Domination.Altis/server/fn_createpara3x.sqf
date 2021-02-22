@@ -194,6 +194,18 @@ private _make_jump = {
 					if (_bino isNotEqualTo "") then {
 						_one_unit removeWeapon _bino;
 					};
+		                        if (_one_unit == leader _paragrp) then {
+	                                     private _smoke = createVehicle [(selectRandom ["SmokeShellRed", "SmokeShellPurple"]), objectParent _one_unit, [], 0, "FLY"];
+	                                     _smoke attachTo [objectParent _one_unit, [0, 0, 0]];
+		                             [_one_unit, _smoke] spawn {
+			                          params ["_unit","_smoke"];
+			                          waitUntil {sleep 1; isTouchingGround _unit || {isNull _unit}};
+                                                  if (!isNull _smoke) then {
+			                              detach _smoke;
+                                                      deleteVehicle _smoke;
+                                                  };							
+		                             };
+                                        };					
 					if (!alive _vec) exitWith {
 						__TRACE("vec not alive")
 					};

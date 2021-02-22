@@ -1,0 +1,64 @@
+**Domination supports [extDB3](https://bitbucket.org/torndeco/extdb3/wiki/Home) from torndeco and [Intercept DB](https://github.com/intercept/intercept-database) from Dedmen Miller.**
+
+The following is based on the free mySQL database [mariaDB](https://mariadb.org/)
+<br/>
+<br/>
+1. You need to download the required files
+   - [mariaDB download](https://downloads.mariadb.org/)
+   - [InterceptDB download](https://github.com/intercept/intercept-database)
+     Intercept also needs [CBA](https://forums.bohemia.net/forums/topic/168277-cba-community-baseaddons-arma-3/)
+   - [extDB3 download](https://github.com/SteezCram/extDB3/)
+
+2. Install mariadb (and don't forget to install the HeidiSQL tool from mariadb too)
+
+3. 
+   - For **extDB3**, install @extDB3 (from the extDB3 download not from the Domination 7z) into your Arma 3 server folder (**don’t forget to copy the tbbmalloc dll files, both, from your extDB3 download to the A3 server folder or A3 game folder for a host**).<br/>
+   - For **InterceptDB**, copy @InterceptDB (from the InterceptDB download not from Domination 7z) into your Arma 3 server folder. InterceptDB also needs CBA so don’t forget that one.
+
+4. Open HeidiSQL and connect as root to the database (root password is set during mariaDB installation).
+   * Choose _File->Execute SQL_ and select the Domination.sql file which you can find inside the Domination 7z File (I hope it is _File->Execute SQL_ as I only have the german version of HeidiSQL). This should create the Domination database.
+   * Now open the user management in Tools (still HeidiSQL) and create a new user. It’s up to you how you name this new user. Just make sure that you add the Domination object (green button on the right, new object?) and give the user the following rights/credentials:
+
+   * ![DB Rights/Credentials](https://github.com/Xeno69/Domination/blob/master/rights.jpg)
+
+
+**extDB3**<br/><br/>
+5. Copy the domination-custom.ini file from the Domination 7z download @extDB3\sql_custom folder to the @extDB3\sql_custom folder in your Arma 3 server directory
+
+6. Do the same with the extdb3-conf.ini file from the Domination 7z download @extDB3 folder. Copy it to the @extDB3 folder in your Arma 3 server directory
+
+7. Open extdb3-conf.ini in your Arma 3 @extDB3 folder with a text editor and add the Domination user and the password for the Domination user (the ones from mariaDB that you set with HeidiSQL. **Don't use your root user and password**!).<br/><br/>
+    > [Domination]<br/>
+    > IP = 127.0.0.1<br/>
+    > Port = 3306<br/>
+    > Username = yourdbuserwithaccesstodominationdb<br/>
+    > Password =  thepasswordofthedatabaseuser<br/>
+    > Database = domination<br/>
+
+8. Now start your server with -servermod=@extDB3 and DB support should work as soon as you start the mission.
+<br/>
+
+**InterceptDB**<br/><br/>
+5. Copy the config.yaml and domination.sqf files from the Domination 7z @InterceptDB folder to
+your @InterceptDB folder in your Arma 3 server directory
+
+6. Open the config.yaml file in your Arma 3 server @InterceptDB folder with a text editor and add the Domination user and the password for the Domination user (the ones from mariaDB that you set with HeidiSQL. **Don't use your root user and password**!).<br/><br/>
+    > accounts:<br/>
+    >  domination: #production db, don't break things here!<br/>
+    >   ip: 127.0.0.1<br/>
+    >   username: yourdbuserwithaccesstodominationdb<br/>
+    >   password: thepasswordofthedatabaseuser<br/>
+    >   database: domination<br/>
+    >   port: 3306 #optional<br/>
+
+7. Now start your server with -servermod=@InterceptDB -mod=@CBA **-filepatching
+ (don’t forget -filepatching otherwise it won’t work)**
+
+
+<br/>
+
+**The first run of the mission will add all available Params from the mission to the dom_params2 table.** You are now able to change all params directly in the database dom_params2 table.
+Please don't forget that the values in dom_params2 table will always overwrite the params a logged in admin may choose in server lobby or changes you've made to description.ext!!!
+<br/>
+<br/>
+Now player stats will be saved to the players table in the database and mission progress can be saved to a missionsave table (from inside the mission or automatically).

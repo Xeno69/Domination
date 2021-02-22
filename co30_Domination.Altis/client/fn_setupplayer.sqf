@@ -757,17 +757,6 @@ player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedmanvs}];
 d_pisadminp = false;
 if (d_AutoKickTime == 0 || {d_with_ranked || {d_MissionType == 2}}) then {
 	d_clientScriptsAr set [1, true];
-} else {
-	if (d_database_found) then {
-		0 spawn {
-			scriptName "spawn_setupplayer5";
-			sleep 30;
-			if (score player > 500) then {
-				d_clientScriptsAr set [1, true];
-				if (!isNil "d_player_autokick_time") then {d_player_autokick_time = nil};
-			};
-		};
-	};
 };
 
 0 spawn d_fnc_startClientScripts;
@@ -953,6 +942,10 @@ player addEventhandler ["WeaponAssembled", {
 } forEach _vehicles;
 
 ["Preload"] call bis_fnc_arsenal;
+
+//if (d_with_ace) then {
+//	d_ace_arsenal_ar_save =+ (uiNamespace getVariable ["ace_arsenal_configItems", []]);
+//};
 
 bis_fnc_arsenal_data set [16, []];
 
@@ -1271,15 +1264,22 @@ if (isMultiplayer) then {
 
 0 spawn d_fnc_optioncontrol;
 
-if (isMultiplayer && {d_database_found}) then {
+if (isMultiplayer) then {
 	0 spawn {
 		scriptName "spawn_setupplayer8";
 		waitUntil {!isNull findDisplay 46};
 		findDisplay 46 displayAddEventHandler ["Unload", {
-			if (!isNil "d_movecheck_handle" && {!isNull d_movecheck_handle}) then {
-				terminate d_movecheck_handle;
+			if (d_database_found) then {
+				if (!isNil "d_movecheck_handle" && {!isNull d_movecheck_handle}) then {
+					terminate d_movecheck_handle;
+				};
+				[player, player getVariable "d_p_distar", d_p_rounds] remoteExecCall ["d_fnc_pdistar", 2];
 			};
-			[player, player getVariable "d_p_distar", d_p_rounds] remoteExecCall ["d_fnc_pdistar", 2];
+			/*if (d_with_ace) then {
+				if (d_ace_arsenal_ar_save isNotEqualTo []) then {
+					uiNamespace getVariable ["ace_arsenal_configItems", d_ace_arsenal_ar_save];
+				};
+			};*/
 		}];
 	};
 };

@@ -88,6 +88,12 @@ if (_this # 13 > 0) then {
 };
 
 if (d_database_found) then {
+	if (d_score_needed_to_fly > -1) then {
+		d_player_autokick_time = nil;
+		if (!isNil "d_clientScriptsAr") then {
+			d_clientScriptsAr set [1, true];
+		};
+	};
 	private "_p_distar";
 	private _dar = _this # 15;
 	__TRACE_1("","_dar")

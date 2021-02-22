@@ -22,9 +22,16 @@ sleep 1.0123;
 
 private _poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
 private _iccount = 0;
+if (d_tanoa) then {
+	_poss = [_poss] call d_fnc_tanoafix;
+};
+
 while {_poss isEqualTo []} do {
 	_iccount = _iccount + 1;
 	_poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
+	if (d_tanoa) then {
+		_poss = [_poss] call d_fnc_tanoafix;
+	};
 	if (_iccount >= 70 && {_poss isNotEqualTo []}) exitWith {};
 };
 if (isNil "_poss" || {_poss isEqualTo []}) then {
@@ -113,6 +120,17 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		} else {
 			private _idx = floor random (count _parray);
 			_poss = _parray # _idx;
+			if (d_tanoa) then {
+				_poss = [_poss] call d_fnc_tanoafix;
+				private _tcounter = 0;
+				while {_poss isEqualTo []} do {
+					_idx = floor random (count _parray);
+					_poss = _parray # _idx;
+					_poss = [_poss] call d_fnc_tanoafix;
+					if (_tcounter >= 70 && {_poss isNotEqualTo []}) exitWith {};
+					_tcounter = _tcounter + 1;
+				};
+			};
 			__TRACE_1("1","_poss")
 
 			if (d_currentcamps isNotEqualTo []) then {
