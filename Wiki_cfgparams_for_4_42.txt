@@ -216,13 +216,16 @@
 > Available options in seconds: -1 (disabled), 10, 50, 100, 500, 1000, 2000 and 5000<br/>
 #### **d_without_nvg / Without NVgoggles:**
 > Default: 1 (No, disabled; 0 or Yes to remove nv goggles)<br/>
-> If enabled removes night vision goggles from players and AI<br/>
+> If enabled removes night vision goggles from players and AI and blocks NV sights<br/>
+#### **d_without_ti / Disable Thermal Imaging (TI) for inf weapons/optics:**
+> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
+> If enabled thermal imaging for infantry weapons/optics is blocked<br/>
 #### **d_without_vec_ti / Disable vehicle TI:**
 > Default: 1 (No, disabled; 0 or Yes to remove termal imaging)<br/>
-> If enabled removes termal imaging from vehicles and weapons<br/>
+> If enabled removes termal imaging from vehicles<br/>
 #### **d_without_vec_nvg / Disable vehicle NVG:**
 > Default: 1 (No, disabled; 0 or Yes to remove night vision)<br/>
-> If enabled removes night vision from vehicles and weapons<br/>
+> If enabled removes night vision from vehicles<br/>
 #### **d_vec_at_farp / Add action menu "Spawn vehicle" to FARPs:**
 > Default: 0 (Yes, enabled; 1 or No to remove the acion menu)<br/>
 #### **d_engineerfull / Engineer full repair (old versions):**

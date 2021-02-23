@@ -950,6 +950,13 @@ default = 7;
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_without_ti {
+		title = "$STR_DOM_MISSIONSTRING_2060";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
 
 	class d_without_vec_ti {
 		title = "$STR_DOM_MISSIONSTRING_1101";

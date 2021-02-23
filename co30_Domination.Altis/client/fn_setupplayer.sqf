@@ -1220,7 +1220,7 @@ _trig = [
 0 spawn d_fnc_noaan;
 
 #ifndef __IFA3__
-if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
+if (d_without_nvg == 0 || {d_without_ti == 0}) then {
 	0 spawn d_fnc_blockthermalnv;
 };
 #endif

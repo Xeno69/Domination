@@ -14006,6 +14006,18 @@
 <Chinese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Chinese>
 <French>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2060">
+<English>Disable Thermal Imaging (TI) for inf weapons/optics:</English>
+<Spanish>Disable Thermal Imaging (TI) for inf weapons/optics:</Spanish>
+<Portuguese>Disable Thermal Imaging (TI) for inf weapons/optics:</Portuguese>
+<Korean>Disable Thermal Imaging (TI) for inf weapons/optics:</Korean>
+<Japanese>Disable Thermal Imaging (TI) for inf weapons/optics:</Japanese>
+<Original>Disable Thermal Imaging (TI) for inf weapons/optics:</Original>
+<Russian>Disable Thermal Imaging (TI) for inf weapons/optics:</Russian>
+<Chinesesimp>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinesesimp>
+<Chinese>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinese>
+<French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
+</Key>
 </Container>
 </Package>
 </Project>

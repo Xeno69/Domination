@@ -12,7 +12,7 @@ if (_headgear != "") then {
 		_rem = true;
 		systemChat localize "STR_DOM_MISSIONSTRING_1962";
 	};
-	if (!_rem && {d_without_vec_ti == 0 && {_subi find "integrated_nvg_ti" > -1}}) then {
+	if (!_rem && {d_without_ti == 0 && {_subi find "integrated_nvg_ti" > -1}}) then {
 		_rem = true;
 		systemChat localize "STR_DOM_MISSIONSTRING_1963";
 	};
