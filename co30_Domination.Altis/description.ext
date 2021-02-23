@@ -940,7 +940,7 @@ default = 7;
 	class d_score_needed_to_fly {
 		title = "$STR_DOM_MISSIONSTRING_2058";
 		values[] = {-1, 10, 50, 100, 500, 1000, 2000, 5000};
-		default = 100;
+		default = 10;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1063","10","50","100","500","1000","2000","5000"};
 	};
 
