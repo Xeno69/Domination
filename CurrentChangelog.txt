@@ -1,6 +1,6 @@
 4.42
 
-ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
+ATTENTION:	SQL database table players has changed. Run DOM_DB_Changes_for_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
 			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
 			
 ATTENTION2: The following mission file(s) has/have changed: TT Malden, Altis Blufor
