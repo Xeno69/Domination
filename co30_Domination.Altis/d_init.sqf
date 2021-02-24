@@ -174,7 +174,7 @@ if (isServer) then {
 				};
 			};
 			if (_idxflag != -1) then {
-				private _idx = _farpmarkers findIf {_markerpos distance2D markerPos _x < 20};
+				private _idx = _farpmarkers findIf {_markerpos distance2D markerPos _x < 40};
 				if (_idx != -1) then {
 					(_all_farp_flags # _idxflag) setVariable ["d_farp_marker", _farpmarkers # _idx];
 					(_farpmarkers # _idx) setMarkerAlpha 0;

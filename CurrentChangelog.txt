@@ -1,4 +1,7 @@
 4.43
 
+ATTENION: Altis Blufor and Opfor mission.sqm files have changed!
+
+- Added: New FARP compositions by Babayka
 - Fixed: Algorithm to check weapons when virtual arsenal was closed removed the RHS M4 Grip weapon (no grip is attached, the weapon gets completely replaced with another model)
 - Fixed: Removed shadow from player names above player heads again, caused flickering
