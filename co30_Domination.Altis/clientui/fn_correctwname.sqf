@@ -17,7 +17,7 @@ if (_cname isEqualTo "") then {
 		if (_i > -1) then {
 			_ar deleteAt _i;
 		};
-	} forEach ["pointer", "Hamr", "bipod", "arco", "snds", "holo", "Holo", "fl", "ACO", "SOS", "RCO", "DMS", "ARCO", "MRCO", "pointg", "Nstalker", "Loaded", "grip"];
+	} forEach ["pointer", "Hamr", "bipod", "arco", "snds", "holo", "Holo", "fl", "ACO", "SOS", "RCO", "DMS", "ARCO", "MRCO", "pointg", "Nstalker", "Loaded", "grip", "grip2", "grip3", "grip4"];
 
 	__TRACE_1("_ar 2","_ar")
 
