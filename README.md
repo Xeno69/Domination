@@ -10,6 +10,10 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 [Github](https://github.com/Xeno69/Domination)
 
+# 配置数据库
+
+[配置数据库](Domination.md)
+
 # 在本地执行任务
 
 要在本地执行《统治》任务：
