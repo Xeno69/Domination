@@ -940,12 +940,19 @@ default = 7;
 	class d_score_needed_to_fly {
 		title = "$STR_DOM_MISSIONSTRING_2058";
 		values[] = {-1, 10, 50, 100, 500, 1000, 2000, 5000};
-		default = 100;
+		default = 10;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1063","10","50","100","500","1000","2000","5000"};
 	};
 
 	class d_without_nvg {
 		title = "$STR_DOM_MISSIONSTRING_1100";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_without_ti {
+		title = "$STR_DOM_MISSIONSTRING_2060";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};

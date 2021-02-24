@@ -32,11 +32,11 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 };
 if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to_fly > -1 && {score player < d_score_needed_to_fly}}}}) then {
 	if (_vec getVariable ["d_vec_type", ""] == "MHQ") exitWith {};
-	//if (isMultiplayer) then {
+	if (player == driver _vec || {player == gunner _vec || {player == commander _vec || {player == currentPilot _vec || {[_vec, player] call d_fnc_iscopilot || {(fullCrew [_vec, "Turret"]) findIf {_x # 0 == player} > -1}}}}}) then {
 		player action ["getOut", _vec];
 		[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;
 		_do_exit = true;
-	//};
+	};
 };
 if (_do_exit) exitWith {};
 

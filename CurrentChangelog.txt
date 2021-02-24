@@ -1,9 +1,11 @@
 4.42
 
-ATTENTION:	SQL database table players has changed. Run DAddColumn_players_table_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
+ATTENTION:	SQL database table players has changed. Run DOM_DB_Changes_for_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
 			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
 			
-ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Blufor
+ATTENTION2: The following mission file(s) has/have changed: TT Malden, Altis Blufor
+
+ATTENTION3: If you run DOM_DB_Changes_for_4_42.sql check also the DOM_DB_Changes_for_4_42_IMPORTANT.txt file!!!! 
 
 - Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
 - Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
@@ -19,6 +21,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Bluf
 - Added: Fires at main targets
 - Added: Parameter d_playerspectateatbase (Player can spectate other players at base flag), default 0 or Yes
 - Added: Parameter d_score_needed_to_fly (Flying choppers and planes only allowed when a player has a score higher than:), only available when a SQL database is running, kicks player out of planes and choppers if score is too low (default 1000)
+- Added: Parameter d_without_ti (Disable Thermal Imaging (TI) for inf weapons/optics)
 - Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
 - Changed: Added visibility check for player and AI names over the head, means, players see the names above head if the unit is visible and not all the time
 - Changed: Maintarget prisoner event now has a suicide bomb if the rescue is botched, by longtimegamer
@@ -66,6 +69,7 @@ ATTENTION: The following mission file(s) has/have changed: TT Malden, Altis Bluf
 - Fixed: Pylon dialog stayed open when a player was killed
 - Fixed: CUP Chernarus side mission 46 did not work on Winter Chernarus and autumn Chernarus
 - Fixed: Don't spawn AI near Land_Canal_Wall_10m_F on Tanoa, AI spawns inside the walls
+- Fixed: Thermal or NV optics of infantry weapons are no longer removed if d_without_nvg or d_without_ti is enabled but correctly blocked
 - Improved: Make use of new A3 2.02 scripting commands where possible
 - Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
 - Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore

@@ -965,33 +965,33 @@ if (d_arsenal_mod_remove_strings isNotEqualTo []) then {
 
 if (d_arsenal_mod == 0) then {
 	if (d_ifa3lite) then {
-		["WW2_"] call d_fnc_arsenal_mod;
-	} else {
-		if (d_cup) then {
-			d_arsenal_mod_prestrings pushBackUnique "CUP_";
+		d_arsenal_mod_prestrings pushBackUnique "WW2_";
+	};
+	if (d_cup) then {
+		d_arsenal_mod_prestrings pushBackUnique "CUP_";
+	};
+	if (d_rhs) then {
+		d_arsenal_mod_prestrings append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
+	};
+	if (d_gmcwg) then {
+		d_arsenal_mod_prestrings pushBackUnique "gm_";
+	};
+	if (d_unsung) then {
+		d_arsenal_mod_prestrings pushBackUnique "uns_";
+	};
+	if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
+		d_arsenal_mod_prestrings pushBackUnique "ace_";
+	};
+	if (d_arsenal_mod_prestrings isNotEqualTo []) then {
+		if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
+			d_arsenal_mod_prestrings pushBackUnique "ACRE_";
 		};
-		if (d_rhs) then {
-			d_arsenal_mod_prestrings append ["rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
+		if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
+			d_arsenal_mod_prestrings pushBackUnique "task_";
+			d_arsenal_mod_prestrings pushBackUnique "tf_";
+			d_arsenal_mod_prestrings pushBackUnique "tfar_";
 		};
-		if (d_gmcwg) then {
-			d_arsenal_mod_prestrings pushBackUnique "gm_";
-		};
-		if (d_unsung) then {
-			d_arsenal_mod_prestrings pushBackUnique "uns_";
-		};
-		if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
-			d_arsenal_mod_prestrings pushBackUnique "ace_";
-		};
-		if (d_arsenal_mod_prestrings isNotEqualTo []) then {
-			if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
-				d_arsenal_mod_prestrings pushBackUnique "ACRE_";
-			};
-			if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
-				d_arsenal_mod_prestrings pushBackUnique "task_";
-				d_arsenal_mod_prestrings pushBackUnique "tf_";
-			};
-			d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
-		};
+		d_arsenal_mod_prestrings call d_fnc_arsenal_mod;
 	};
 	d_arsenal_mod_prestrings = nil;
 };
@@ -1220,7 +1220,7 @@ _trig = [
 0 spawn d_fnc_noaan;
 
 #ifndef __IFA3__
-if (d_without_nvg == 0 || {d_without_vec_ti == 0}) then {
+if (d_without_nvg == 0 || {d_without_ti == 0}) then {
 	0 spawn d_fnc_blockthermalnv;
 };
 #endif
