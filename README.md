@@ -1,36 +1,37 @@
-# Domination
-An Arma3 multiplayer mode for up to 50 players. Seize various (random) targets and solve side missions. Available as Coop and PvPvE version.
+# 统治
 
-This award winning game mission stands as one of the oldest missions of the Arma franchise. Domination was created by Xeno.
+Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目标并解决辅助任务。提供Coop和PvPvE版本。
 
-# Resources
+这项屡获殊荣的游戏任务是Arma系列中最古老的任务之一。统治是由Xeno创建的。
 
-[Domination on Steam](https://steamcommunity.com/sharedfiles/filedetails/comments/332088703)
+# 资源
 
-[Domination on Github](https://github.com/Xeno69/Domination)
+[Steam](https://steamcommunity.com/sharedfiles/filedetails/comments/332088703)
 
-# Running the mission locally
+[Github](https://github.com/Xeno69/Domination)
 
-To run the Domination mission locally:
+# 在本地执行任务
 
-* copy the mission folder `co30_Domination.Altis` into your local `mpmission` directory
-* load the mission in Eden editor and click **Play** -> **Multiplayer** -> **OK** to run your local code
+要在本地执行《统治》任务：
 
-# Editing the mission
+* 将任务文件夹 `co30_Domination.Altis` 复制到本地 `mpmission` 目录中
+* 将任务加载到 Eden 编辑器中，然后单击 **Play（玩）** -> **Multiplayer（多人游戏）** -> **OK（确定）** 以运行本地代码
 
-The Domination mission may be modified in Eden editor.
+# 编辑任务
 
-All maps supported by Domination are released as PBOs.  However you can use any PBO tool to modify and bundle your own mission modifications.  Choose `co30_Domination.Altis` as the PBO source to bundle the default map (Altis).
+《统治》任务可以在 Eden 编辑器中进行修改。
 
-If you want to bundle or modify maps other than Altis follow these steps:
+《统治》任务支持的所有地图均作为 PBO 发布。但是，您可以使用任何 PBO 工具来修改和捆绑您自己的任务修改。选择`co30_Domination.Altis`作为 PBO 源，以捆绑默认地图（Altis）。
 
-* delete `co30_Domination.Altis/mission.sqm`
-* copy the appropriate `mission.sqm` file from `mission_sqm` folder into `co30_Domination.Altis`
-* rename the file you copied to `mission.sqm`
-* delete `co30_Domination.Altis/x_setup.sqf`
-* copy the appropriate `x_setup.sqf` file from `mission_sqm` folder into `co30_Domination.Altis`
-* rename the file you copied to `x_setup.sqf`
-* rename `co30_Domination.Altis` folder to `co30_Domination.NewMap` (for example `co30_Domination.Malden`)
-* run your preferred PBO tool with PBO source folder `co30_Domination.Malden`
+如果要捆绑或修改Altis以外的地图，请按照以下步骤操作：
 
-Remember that your modifications can only be shared with the community if you contribute your work back to the source repository.
+* 删除 `co30_Domination.Altis/mission.sqm`
+* 复制适当的 `mission.sqm` 文件从 `mission_sqm` 文件夹到 `co30_Domination.Altis`
+* 重命名您复制到 `mission.sqm` 的文件
+* 删除 `co30_Domination.Altis/x_setup.sqf`
+* 复制适当的 `x_setup.sqf` 文件从 `mission_sqm` 文件夹到 `co30_Domination.Altis`
+* 重命名复制到的文件 `x_setup.sqf`
+* 改名 `co30_Domination.Altis` 为 `co30_Domination.NewMap` (例如 `co30_Domination.Malden`)
+* 使用您的首选 PBO 工具运行源文件 `co30_Domination.Malden`
+
+请记住，只有将工作贡献回源存储库，您才能与社区共享所做的修改。
