@@ -1,6 +1,6 @@
 4.43
 
-ATTENION: Altis Blufor and Opfor mission.sqm files have changed!
+ATTENION: Altis Blufor mission.sqm file has changed!
 
 - Added: New FARP compositions by Babayka for Altis
 - Added: New param d_ao_bfires/Big main target fires: in params lobby so you can disable the main target fires burning
