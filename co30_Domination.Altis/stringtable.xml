@@ -14018,6 +14018,18 @@
 <Chinese>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinese>
 <French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2061">
+<English>Big main target fires:</English>
+<Spanish>Big main target fires:</Spanish>
+<Portuguese>Big main target fires:</Portuguese>
+<Korean>Big main target fires:</Korean>
+<Japanese>Big main target fires:</Japanese>
+<Original>Big main target fires:</Original>
+<Russian>Big main target fires:</Russian>
+<Chinesesimp>Big main target fires:</Chinesesimp>
+<Chinese>Big main target fires:</Chinese>
+<French>Big main target fires:</French>
+</Key>
 </Container>
 </Package>
 </Project>
