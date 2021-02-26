@@ -51,7 +51,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 							_tex = "*";
 							_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 						};
-						d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 2, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+						d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 					};
 				};
 			};
@@ -75,7 +75,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 						} else {
 							_tex = "*";
 						};
-						d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 2, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+						d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 					};
 				};
 			} forEach (d_allplayerai select {alive _x && {isNull objectParent _x}});

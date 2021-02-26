@@ -1,82 +1,9 @@
-4.42
+4.43
 
-ATTENTION:	SQL database table players has changed. Run DOM_DB_Changes_for_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
-			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
-			
-ATTENTION2: The following mission file(s) has/have changed: TT Malden, Altis Blufor
+ATTENION: Altis Blufor mission.sqm file has changed!
 
-ATTENTION3: If you run DOM_DB_Changes_for_4_42.sql check also the DOM_DB_Changes_for_4_42_IMPORTANT.txt file!!!! 
-
-- Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
-- Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
-- Added: If d_with_mhq_camo is enabled it is now possible to deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
-- Added: Utility functions created fixed or improved: isinhouse, getbuildings, isvisible, sortarraybydistance, makemgroup now respects units per group, added dry run to occupy house script, by longtimegamer
-- Added: If a SQL database is available then player movement on foot, in land, air and maritime vehicles is added to the database (in meter)
-- Added: If a SQL database is available then number of player headshots and number of rounds fired are added to the database
-- Added: Main target illumination flares when it is dark (can be disabled in lobby "Illuminate main target:" or d_IllumMainTarget in description.ext)
-- Added: Parameter to enable/disable static weapon defenses at maintarget, by longtimegamer
-- Added: RADIOPROTOCOL for the player can be disabled in the Status Dialog (not sure yet if it really does what it should)
-- Added: d_uids_def_choppers (also available in dom_settings table); if the array is filled with player UIDs (strings) only those players can fly the initial choppers at base
-- Added: Parameter d_dis_servicep/Disable all service points, including FARPs (no refuel, no repair, no rearm)
-- Added: Fires at main targets
-- Added: Parameter d_playerspectateatbase (Player can spectate other players at base flag), default 0 or Yes
-- Added: Parameter d_score_needed_to_fly (Flying choppers and planes only allowed when a player has a score higher than:), only available when a SQL database is running, kicks player out of planes and choppers if score is too low (default 1000)
-- Added: Parameter d_without_ti (Disable Thermal Imaging (TI) for inf weapons/optics)
-- Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
-- Changed: Added visibility check for player and AI names over the head, means, players see the names above head if the unit is visible and not all the time
-- Changed: Maintarget prisoner event now has a suicide bomb if the rescue is botched, by longtimegamer
-- Changed: Enemy AI vehicle island patrols are back
-- Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, "Disable ACE medical revive (if ACE is used) and use mission revive" in lobby, finally in, somehow got lost before)
-- Changed: SAT View removed from MHQs in the TT version (enemy could spott opponent MHQ too easily)
-- Changed: Removed the marker tiles at main targets in the TT version, back to solid filled circle again
-- Changed: If ACE is used the mission pylon loadout dialog is disabled and you have to use the ACE pylon dialog (razorclam wanted it so blame him for it :)
-- Changed: Enemy mobile HQs are now spawned with snipers on the roof
-- Changed: If d_MTTowerSatchelsOnly if set to 1 (disabled) then it there is no satchel check for main target radio tower, main target side mission, main target barracks and mobile MHQ
-- Changed: Reduced radius of many addActions
-- Changed: ToolKit and MineDetector are now always available, no matter which version is beeing played
-- Changed: You may encounter divers at naval mines side missions now
-- Changed: MHQs should now be added automatically to the list of vehicles which can load an ammo box at an ammo point
-- Changed: Removed T-14 from RHS version (seems too be not ready yet)
-- Changed: MHQ dialog no longer closes when Deploy or Load/Drop Ammobox button is pressed
-- Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
-- Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
-- Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer
-- Fixed: In ranked mode players with rank private ended up with just one uniform in Virtual Arsenal
-- Fixed: incorrect logic in maintarget event selection, improved dashboard list and line breaks, by longtimegamer
-- Fixed: Camouflage script had the wrong stance in it, "STANCE" instead of "STAND"
-- Fixed: ToolKit was missing in the unsung version in VA
-- Fixed: Choppers exploded on the carrier in the carrier version (yet again)
-- Fixed: Fog, overcast and date can be set again by Zeus
-- Fixed: In the CUP Chernarus 2020 version Land_trafostanica_velka objects do not exist near Zelenogorsk which broke the side mission
-- Fixed: TFAR radios are now no longer removed when another mod version like CUP is played
-- Fixed: ACE medical items were not available in ranked mode
-- Fixed: Line breaks were broken in hintChat function
-- Fixed: Main target creation in the TT version was broken
-- Fixed: In the TT version the 3D icon above dropped ammo boxes (drop called by squad leader) was also visible for the enemy
-- Fixed: Friendly shooting at MHQ was displayed for the enemy side too instead of only for the side the MHQ belongs to
-- Fixed: MHQs in the Malden TT version could not load ammo boxes at ammo points
-- Fixed: Main target viewdistance reduction was based on camera position not on the player position
-- Fixed: If the enemy AI vehicle or group type was not defined in the scripts which create the AI at side missions the scripts ended with a script error
-- Fixed: There was a satchel check in the main target side mission eliminate local governour when d_MTTowerSatchelsOnly was enabled
-- Fixed: Script error loading DB save files in the TT version (bonus vecs creation failed)
-- Fixed: Adding additional respawn points with d_additional_respawn_points didn't work as described causing script errors
-- Fixed: If a headless client was available side specops units were transfered to the HC causing problems with server eventhandlers
-- Fixed: d_arsenal_mod_remove_strings didn't work anymore, no gear from the addons/mods defined in d_arsenal_mod_remove_strings as strings were removed
-- Fixed: Service marker was not created in the Carrier version on the carrier
-- Fixed: In ranked mode players can now pick up weapons lying around or from dead enemy AI (respawn at MHQ or base/FARP will bring back the weapon they had at mission start or the last Virtual Arsenal access)
-- Fixed: LaserDesignator no longer gets removed in the RHS versions
-- Fixed: The "You can teleport to..." message was shown when d_WithMHQTeleport was turned off
-- Fixed: Pylon dialog stayed open when a player was killed
-- Fixed: CUP Chernarus side mission 46 did not work on Winter Chernarus and autumn Chernarus
-- Fixed: Don't spawn AI near Land_Canal_Wall_10m_F on Tanoa, AI spawns inside the walls
-- Fixed: Thermal or NV optics of infantry weapons are no longer removed if d_without_nvg or d_without_ti is enabled but correctly blocked
-- Improved: Make use of new A3 2.02 scripting commands where possible
-- Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
-- Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
-- Updated: Russian translation by Babayka
-- Updated: Simplified Chinese translation by XinLau1996
-- Updated: Spanish translation by longtimegamer
-- Updated: Malden TT mission file by Babayka
-- Workaround: If an enemy AI vehicle is under water for whatever reasons it virtually can't be destroyed; the workaround adds more damage in that case
-- Added slightly more debug output (possible with improved A3 logging)
-- And more optimizations like for example eachframerun
+- Added: New FARP compositions by Babayka for Altis
+- Added: New param d_ao_bfires/Big main target fires: in params lobby so you can disable the main target fires burning
+- Fixed: Dead crew did not get deleted
+- Fixed: Algorithm to check weapons when virtual arsenal was closed removed the RHS M4 Grip weapon (no grip is attached, the weapon gets completely replaced with another model)
+- Fixed: Removed shadow from player names above player heads again, caused flickering

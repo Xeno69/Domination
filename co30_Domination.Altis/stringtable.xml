@@ -11926,7 +11926,7 @@
 <Original>Are you sure you want to transfer %1 score points to %2?</Original>
 <Russian>Вы уверены в переводе %1 очков игроку %2 ?</Russian>
 <Chinesesimp>你确定将 %1 分转移到玩家 %2 吗？</Chinesesimp>
-<Chinese>你確定將 %1 分轉移到玩家%2嗎？</Chinese>
+<Chinese>你確定將 %1 分轉移到玩家 %2 嗎？</Chinese>
 <French>Voulez-vous vraiment transférer %1 points de score à %2?</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1878">
@@ -14017,6 +14017,18 @@
 <Chinesesimp>禁用武器装备/光学装备的热成像功能(TI)：</Chinesesimp>
 <Chinese>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinese>
 <French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2061">
+<English>Big main target fires:</English>
+<Spanish>Big main target fires:</Spanish>
+<Portuguese>Big main target fires:</Portuguese>
+<Korean>Big main target fires:</Korean>
+<Japanese>Big main target fires:</Japanese>
+<Original>Big main target fires:</Original>
+<Russian>Big main target fires:</Russian>
+<Chinesesimp>主要目标火力：</Chinesesimp>
+<Chinese>Big main target fires:</Chinese>
+<French>Big main target fires:</French>
 </Key>
 </Container>
 </Package>

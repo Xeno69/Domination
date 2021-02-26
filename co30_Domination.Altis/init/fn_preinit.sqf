@@ -555,7 +555,7 @@ if (isServer) then {
 	d_database_found = false;
 	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
 
-	if (isMultiplayer && {fileExists "@InterceptDB\domination.sqf"}) then {
+	if (isMultiplayer && {isFilePatchingEnabled && {fileExists "@InterceptDB\domination.sqf"}}) then {
 		diag_log "DOM InterceptDB domination.sqf file found!";
 		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
 	};

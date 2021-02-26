@@ -62,6 +62,8 @@
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_ai_persistent_corpses / Persistent AI corpses**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
+#### **d_ao_bfires / Big main target fires:**
+> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 #### **d_weather / Internal weather system:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_enable_fog / Enable fog (internal weather system):**
