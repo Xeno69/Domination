@@ -12,9 +12,10 @@ d_arti_did_fire = nil;
 
 {
 	(_x splitString "|") params ["", "_netid_ar", "_type_ar", "_rounds_ar"];
+	__TRACE_1("","_x")
 	__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
 
-	if (_netid_ar != "") then {
+	if (!isMultiplayer || {_netid_ar != ""}) then {
 #ifdef __TT__
 		private _obj = objectFromNetId _netid_ar;
 		if (side (group _obj) == d_player_side) then {
@@ -42,6 +43,9 @@ if (d_cur_art_marker_ar isNotEqualTo []) then {
 		} else {
 			d_name_pl
 		};
+		private _lbAdd = _ctrllb lbAdd _name;	
+		_ctrllb lbSetvalue [_lbAdd, _forEachIndex];	
+		_ctrllb lbSetData [_lbAdd, _x # 0];
 	} forEach d_cur_art_marker_ar;
 	_ctrllb lbSetcursel 0;
 } else {
