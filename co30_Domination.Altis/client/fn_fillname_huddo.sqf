@@ -11,23 +11,36 @@ __TRACE("fillname_huddo")
 d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable "xr_pluncon")}) then {
-		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
+		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh", "_opax"];
 		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
 		private _epp = eyePos player;
 		{
 			_distu = _cam2world distance _x;
 			if (_distu <= _d_pn_hud) then {
-				_vu = vehicle _x;
-				if ([objNull, "VIEW"] checkVisibility [_epp, eyePos (crew _vu # 0)] > 0) then {
-					_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
-					_dodraw = if (isNull objectParent _x) then {
+				_opax = isNull objectParent _x;
+				if (!_opax || {[objNull, "VIEW"] checkVisibility [_epp, eyePos _x] > 0.15}) then {
+					_dodraw = if (_opax) then {
+						_targetPos = _x modelToWorldVisual (_x selectionPosition "Pilot");
 						true
 					} else {
+						_vu = vehicle _x;
 						call {
-							if (crew _vu isEqualTo 1) exitWith {true};
-							if (_x == commander _vu) exitWith {true};
-							if (_x == gunner _vu && {!((commander _vu) call _fnc_isp)}) exitWith {true};
-							if (_x == driver _vu && {!((commander _vu) call _fnc_isp) && {!((gunner _vu) call _fnc_isp)}}) exitWith {true};
+							if (crew _vu isEqualTo 1) exitWith {
+								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
+								true
+							};
+							if (_x == commander _vu) exitWith {
+								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
+								true
+							};
+							if (_x == gunner _vu && {!((commander _vu) call _fnc_isp)}) exitWith {
+								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
+								true
+							};
+							if (_x == driver _vu && {!((commander _vu) call _fnc_isp) && {!((gunner _vu) call _fnc_isp)}}) exitWith {
+								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
+								true
+							};
 							false
 						};
 					};
