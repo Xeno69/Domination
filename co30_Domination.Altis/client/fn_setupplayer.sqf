@@ -879,7 +879,25 @@ if (isNil "d_cas_plane_avail") then {
 player addEventhandler["InventoryOpened", {call d_fnc_inventoryopened}];
 player addEventhandler["InventoryClosed", {call d_fnc_inventoryclosed}];
 
-if (!d_with_ace || {d_with_ranked}) then {
+if (!d_with_ranked) then {
+	if (d_with_ace && {d_arsenal_mod == 1}) then {
+		["ace_arsenal_displayOpened", {
+			call d_fnc_arsenalopened;
+		}] call CBA_fnc_addEventHandler;
+
+		["ace_arsenal_displayClosed", {
+			call d_fnc_arsenalclosed;
+		}] call CBA_fnc_addEventHandler;
+	} else {
+		[missionNamespace, "arsenalOpened", {
+			call d_fnc_arsenalopened;
+		}] call BIS_fnc_addScriptedEventHandler;
+
+		[missionNamespace, "arsenalClosed", {
+			call d_fnc_arsenalclosed;
+		}] call BIS_fnc_addScriptedEventHandler;
+	};
+} else {
 	[missionNamespace, "arsenalOpened", {
 		call d_fnc_arsenalopened;
 	}] call BIS_fnc_addScriptedEventHandler;
@@ -887,14 +905,6 @@ if (!d_with_ace || {d_with_ranked}) then {
 	[missionNamespace, "arsenalClosed", {
 		call d_fnc_arsenalclosed;
 	}] call BIS_fnc_addScriptedEventHandler;
-} else {
-	["ace_arsenal_displayOpened", {
-		call d_fnc_arsenalopened;
-	}] call CBA_fnc_addEventHandler;
-
-	["ace_arsenal_displayClosed", {
-		call d_fnc_arsenalclosed;
-	}] call CBA_fnc_addEventHandler;
 };
 
 player addEventhandler ["HandleRating", {
