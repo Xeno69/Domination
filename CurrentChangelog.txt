@@ -1,3 +1,4 @@
 4.44
 
 - Fixed: Marked artillery targets did not show in the Call Artillery dialog (accidentally removed the code which adds them to a listbox)
+- Updated: Russian language by Babayka

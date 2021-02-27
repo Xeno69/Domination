@@ -4195,7 +4195,7 @@
 <Korean>%1 전개</Korean>
 <Japanese>%1が展開されました</Japanese>
 <Original>%1 deployed</Original>
-<Russian>%1 свернута</Russian>
+<Russian>%1 развернута</Russian>
 <Chinesesimp>%1 部署</Chinesesimp>
 <Chinese>%1 部署</Chinese>
 <French>%1 déployé</French>
@@ -13989,7 +13989,7 @@
 <Korean>Flying choppers and planes only allowed when a player has a score higher than:</Korean>
 <Japanese>Flying choppers and planes only allowed when a player has a score higher than:</Japanese>
 <Original>Flying choppers and planes only allowed when a player has a score higher than:</Original>
-<Russian>Flying choppers and planes only allowed when a player has a score higher than:</Russian>
+<Russian>Вертолеты и самолеты разрешены только в том случае, если игрок набрал больше, чем: </Russian>
 <Chinesesimp>要想被允许驾驶直升机和飞机，玩家的得分必须高于以下值：</Chinesesimp>
 <Chinese>Flying choppers and planes only allowed when a player has a score higher than:</Chinese>
 <French>Flying choppers and planes only allowed when a player has a score higher than:</French>
@@ -14001,7 +14001,7 @@
 <Korean>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Korean>
 <Japanese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Japanese>
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Original>
-<Russian>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Russian>
+<Russian>Вы еще не обладаете квалификацией, чтобы летать, заходить в качестве наводчика или командовать  %1.\n\nВам необходимо иметь %2 очков, ваш текущий счет %3.</Russian>
 <Chinesesimp>您尚未具备飞行资格，作为炮手进入或指挥 %1 。\n\n您需要总分 %2 ，您的当前分数是 %3。</Chinesesimp>
 <Chinese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Chinese>
 <French>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</French>
@@ -14013,7 +14013,7 @@
 <Korean>Disable Thermal Imaging (TI) for inf weapons/optics:</Korean>
 <Japanese>Disable Thermal Imaging (TI) for inf weapons/optics:</Japanese>
 <Original>Disable Thermal Imaging (TI) for inf weapons/optics:</Original>
-<Russian>Disable Thermal Imaging (TI) for inf weapons/optics:</Russian>
+<Russian>Отключить тепловизор (TI) для стрелкового вооружения (оптики): </Russian>
 <Chinesesimp>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinesesimp>
 <Chinese>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinese>
 <French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
@@ -14025,7 +14025,7 @@
 <Korean>Big main target fires:</Korean>
 <Japanese>Big main target fires:</Japanese>
 <Original>Big main target fires:</Original>
-<Russian>Big main target fires:</Russian>
+<Russian>Большие костры на основном задании:</Russian>
 <Chinesesimp>Big main target fires:</Chinesesimp>
 <Chinese>Big main target fires:</Chinese>
 <French>Big main target fires:</French>
