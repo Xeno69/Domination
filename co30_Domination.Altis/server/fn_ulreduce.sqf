@@ -6,26 +6,21 @@
 params ["_unitliste", "_unitsPerGroup"];
 
 if (count _unitliste > 2) then {
-	private _nump = count (allPlayers - entities "HeadlessClient_F");
-	// 30-40 0.15
-	// 20-30 0.2
-	// 1-20 0.26
-	private _factor = call {
-		if (_nump > 29) exitWith {
-			0.15
-		};
-		if (_nump > 19) exitWith {
-			0.2
-		};
-		0.26
-	};
+	private _nump = count (allPlayers - entities "HeadlessClient_F") min 40;
 	
-	private _maxunits = 99;
+	private "_maxunits";
 	
 	if (_unitsPerGroup > 0) then {
     	_maxunits = _unitsPerGroup;
     } else {
-    	_maxunits = round (_factor * _nump) max (selectRandom [2, 3]);
+		_maxunits = round (linearConversion [1, 40, _nump, 2, 6, true]);
+		if (_maxunits == 2) then {
+			_maxunits = selectRandom [2, 3];
+		} else {
+			if (_maxunits == 6) then {
+				_maxunits = selectRandom [5, 6];
+			};
+		};
     };
 	
 	__TRACE_3("","_nump","_factor","_maxunits")
