@@ -7,8 +7,8 @@ __TRACE_1("","_this")
 
 if ((_this # 0) isEqualTo "") exitWith {true};
 
-private _ar = d_misc_sc_hash getOrDefault [_this # 0, []];
-if (_ar isEqualTo []) then {
+private _ar = d_misc_sc_hash getOrDefault [_this # 0, -1];
+if (_ar isEqualType 1) then {
 	_ar = [
 		toLowerANSI getText(configFile>>"CfgAmmo">>(_this # 0)>>"simulation") in ["shotpipebomb", "shottimebomb", "shotdirectionalbomb", "shotmine", "shotboundingmine"],
 		toLowerANSI getText(configFile>>"CfgAmmo">>(_this # 0)>>"simulation") in ["shotsmoke", "shotilluminating", "shotnvgmarker", "shotcm", "shotsmokex"]
