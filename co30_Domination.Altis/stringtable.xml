@@ -6284,7 +6284,7 @@
 <Japanese>順に全て</Japanese>
 <Original>Complete, ordered</Original>
 <Russian>По окончанию, следующее</Russian>
-<Chinesesimp>完成, 命令</Chinesesimp>
+<Chinesesimp>完整, 有序</Chinesesimp>
 <Chinese>完成Complete, ordered</Chinese>
 <French>Complet, ordonné</French>
 </Key>
@@ -6620,7 +6620,7 @@
 <Japanese>メインターゲットのみ</Japanese>
 <Original>Main Targets Only</Original>
 <Russian>Только Основные задания:</Russian>
-<Chinesesimp>只有主要目标</Chinesesimp>
+<Chinesesimp>只有主线任务</Chinesesimp>
 <Chinese>只有主要目標</Chinese>
 <French>Objectifs principaux uniquement</French>
 </Key>
@@ -6956,7 +6956,7 @@
 <Japanese>階級による制限:</Japanese>
 <Original>Ranked:</Original>
 <Russian>Игра со ЗВАНИЯМИ:</Russian>
-<Chinesesimp>排名：</Chinesesimp>
+<Chinesesimp>等级模式：</Chinesesimp>
 <Chinese>排名:</Chinese>
 <French>Avec Grades:</French>
 </Key>
@@ -9956,7 +9956,7 @@
 <Japanese>Disable sway:</Japanese>
 <Original>Disable sway:</Original>
 <Russian>Отключить тряску прицела:</Russian>
-<Chinesesimp>禁止摇摆：</Chinesesimp>
+<Chinesesimp>消除摆动：</Chinesesimp>
 <Chinese>禁止搖擺:</Chinese>
 <French>Désactiver le balancement:</French>
 </Key>
@@ -10677,7 +10677,7 @@
 <Japanese>メインターゲットのボーナス車両無し</Japanese>
 <Original>No main target bonus vehicles</Original>
 <Russian>Нет призовой техники для главных заданий</Russian>
-<Chinesesimp>没有主要目标奖励载具</Chinesesimp>
+<Chinesesimp>没有主线任务奖励载具</Chinesesimp>
 <Chinese>沒有主要目標獎勵載具</Chinese>
 <French>Pas de véhicules bonus pour les Objectifs Principaux</French>
 </Key>
@@ -10689,7 +10689,7 @@
 <Japanese>ボーナス車両無し</Japanese>
 <Original>No bonus vehicles at all</Original>
 <Russian>Нет призовой техники для всех заданий</Russian>
-<Chinesesimp>没有奖励载具</Chinesesimp>
+<Chinesesimp>没有任何任务奖励载具</Chinesesimp>
 <Chinese>沒有獎勵載具</Chinese>
 <French>Pas de véhicules bonus du tout</French>
 </Key>
@@ -13260,7 +13260,7 @@
 <Japanese>Order like placed in the editor</Japanese>
 <Original>Order like placed in the editor</Original>
 <Russian>Сайл-миссии по нумерации в редакторе</Russian>
-<Chinesesimp>放置在编辑器中的命令</Chinesesimp>
+<Chinesesimp>在编辑器中放置的顺序</Chinesesimp>
 <Chinese>Order like placed in the editor</Chinese>
 <French>Order like placed in the editor</French>
 </Key>
@@ -13355,7 +13355,7 @@
 <Japanese>Allow transfer of points to other players in ranked mode:</Japanese>
 <Original>Allow transfer of points to other players in ranked mode:</Original>
 <Russian>Разрешить передачу очков другим игрокам в ранговом режиме:</Russian>
-<Chinesesimp>允许在排名模式下将积分转移给其他玩家：</Chinesesimp>
+<Chinesesimp>允许在等级模式下将积分转移给其他玩家：</Chinesesimp>
 <Chinese>Allow transfer of points to other players in ranked mode:</Chinese>
 <French>Allow transfer of points to other players in ranked mode:</French>
 </Key>
@@ -13402,7 +13402,7 @@
 <Japanese>TI Mode:</Japanese>
 <Original>TI Mode:</Original>
 <Russian>TI режим:</Russian>
-<Chinesesimp>TI 模式：</Chinesesimp>
+<Chinesesimp>TI（热成像） 模式：</Chinesesimp>
 <Chinese>TI Mode:</Chinese>
 <French>TI Mode:</French>
 </Key>
@@ -13690,7 +13690,7 @@
 <Japanese>Retake Farps</Japanese>
 <Original>Retake Farps</Original>
 <Russian>Перевзятие Farps</Russian>
-<Chinesesimp>补给站</Chinesesimp>
+<Chinesesimp>收复前沿补给点</Chinesesimp>
 <Chinese>Retake Farps</Chinese>
 <French>Retake Farps</French>
 </Key>

@@ -14,6 +14,10 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 [配置数据库](Domination.md)
 
+# 参数说明
+
+[参数说明](Parameter.md)
+
 # 在本地执行任务
 
 要在本地执行《统治》任务：
@@ -38,4 +42,8 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 * 改名 `co30_Domination.Altis` 为 `co30_Domination.NewMap` (例如 `co30_Domination.Malden`)
 * 使用您的首选 PBO 工具运行源文件 `co30_Domination.Malden`
 
-请记住，只有将工作贡献回源存储库，您才能与社区共享所做的修改。
+# 修改记录
+
+[修改记录](ChangeLog.md)
+
+> 请记住，只有将工作贡献回源存储库，您才能与社区共享所做的修改。

@@ -1,9 +1,0 @@
-4.43
-
-ATTENION: Altis Blufor mission.sqm file has changed!
-
-- Added: New FARP compositions by Babayka for Altis
-- Added: New param d_ao_bfires/Big main target fires: in params lobby so you can disable the main target fires burning
-- Fixed: Dead crew did not get deleted
-- Fixed: Algorithm to check weapons when virtual arsenal was closed removed the RHS M4 Grip weapon (no grip is attached, the weapon gets completely replaced with another model)
-- Fixed: Removed shadow from player names above player heads again, caused flickering
