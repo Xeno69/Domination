@@ -627,7 +627,7 @@ if (d_ParaAtBase == 1) then {
 #endif
 };
 
-if (!d_with_ace) then {
+//if (!d_with_ace) then {
 	0 spawn {
 		scriptName "spawn_setupplayer2";
 		// 0 = over head, 1 = cursor target
@@ -658,7 +658,7 @@ if (!d_with_ace) then {
 			["dom_player_hud2", {call d_fnc_player_name_huddo2}] call d_fnc_eachframeadd;
 		};
 	};
-};
+//};
 
 private _primw = primaryWeapon player;
 if (_primw != "") then {
