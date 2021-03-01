@@ -137,7 +137,7 @@ if (_move_controls) then {
 	};
 };
 
-if (d_ifa3lite || {d_gmcwg}) then {
+if (d_ifa3lite || {d_gmcwg || {d_unsung}}) then {
 	__control(44459) ctrlShow false;
 	__control(44460) ctrlShow false;
 };
