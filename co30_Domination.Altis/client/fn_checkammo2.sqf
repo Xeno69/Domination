@@ -9,10 +9,10 @@ __TRACE_1("","_this")
 
 if (_this isEqualTo "") exitWith {false};
 
-private _v = d_misc_sc_store getVariable _this;
-if (isNil "_v") then {
+private _v = d_misc_sc_hash2 getOrDefault [_this, -1];
+if (_v isEqualType 1) then {
 	_v = (toLowerANSI getText (configFile>>"CfgAmmo">>_this>>"simulation")) in __shots;
-	d_misc_sc_store setVariable [_this, _v];
+	d_misc_sc_hash2 set [_this, _v];
 };
 
 __TRACE_1("","_v")
