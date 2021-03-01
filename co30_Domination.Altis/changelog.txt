@@ -2,3 +2,4 @@
 
 - Fixed: When ACE was used player names above head and markers were not shown
 - Fixed: In the Unsung version UAV and Satellite buttons were available
+- Fixed: It could happen that only one headgear item showed up in Virtual Arsenal when ranked mode was activated

@@ -1132,6 +1132,15 @@ if (d_with_ranked && {!d_no_ranked_weapons}) then {
 			d_misc_hash set [format ["%1_VESTS", _x], _entry];
 		} forEach _toadd;
 	} forEach (bis_fnc_arsenal_data # 4);
+
+	{
+		private _headgearclass = toLowerANSI _x;
+			{
+				private _entry = d_misc_hash getOrDefault [format ["%1_HG", _x], []];
+				_entry pushBack _headgearclass;
+				d_misc_hash set [format ["%1_HG", _x], _entry];
+			} forEach ["PRIVATE","CORPORAL","SERGEANT","LIEUTENANT","CAPTAIN","MAJOR","COLONEL"];
+	} forEach (bis_fnc_arsenal_data # 6);
 	
 	d_usave =+ bis_fnc_arsenal_data # 3;
 	
