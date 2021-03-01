@@ -36,3 +36,8 @@ sleep 0.5;
 _unit setVariable ["d_ammobox", true, true];
 _unit setVariable ["d_ammobox_next", time + d_drop_ammobox_time, true];
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_273"] call _chatfunc;
+
+disableSerialization;
+private _disp = uiNamespace getVariable "d_VecDialog";
+(_disp displayCtrl 44448) ctrlEnable true;
+(_disp displayCtrl 44452) ctrlEnable false;

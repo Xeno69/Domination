@@ -57,3 +57,8 @@ __TRACE_1("","_boxpos")
 #endif
 
 [_unit, _caller, localize "STR_DOM_MISSIONSTRING_225"] call _chatfunc;
+
+disableSerialization;
+private _disp = uiNamespace getVariable "d_VecDialog";
+(_disp displayCtrl 44448) ctrlEnable false;
+(_disp displayCtrl 44452) ctrlEnable true;
