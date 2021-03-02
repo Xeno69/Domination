@@ -14,11 +14,11 @@
 > 任务开始时间，可用时间 00:00-23:00，以1小时为单位<br/>
 
 #### **d_enablefatigue / 禁用疲劳：**
-> 默认: 1 (No, 无效; 0 或 Yes 消除疲劳)<br/>
+> 默认: 1 (No, 无效； 0 或 Yes 消除疲劳)<br/>
 > 如果启用（0，Yes），则玩家不会感到疲劳<br/>
 
 #### **d_enablesway / 消除摆动：**
-> 默认: 1 (No, 无效; 0 or Yes 消除摆动)<br/>
+> 默认: 1 (No, 无效； 0 or Yes 消除摆动)<br/>
 > 如果启用（0，Yes），那么玩家将没有摆动<br/>
 
 #### **d_with_targetselect_count / 玩家可以从可用目标中选择：**
@@ -46,14 +46,14 @@
 >   - 总是， 多个事件 (-2)<br/>
 
 #### **d_with_ranked / 等级模式：**
-> 默认： 1 (No, 禁用; 0 or Yes 启用它)<br/>
+> 默认： 1 (No, 禁用； 0 or Yes 启用它)<br/>
 > 如果启用了等级模式，那么玩家需要特定的等级才能获得更好的武器，驾驶攻击机和直升机。例如，调用 CAS 需要花费分数等等<br/>
 
 #### **d_transf_allow / 允许在等级模式中向其他玩家转移分数：**
 > 默认： 0 (Yes), 1 (No) 关闭<br/>
 
 #### **d_sm_dorandom / 随机支线任务：**
-> 默认： 0 (Yes, 启用; 1 or No 禁用)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > 如果被禁用，支线任务的顺序总是相同的<br/>
 
 #### **d_bonus_vec_type / 奖励载具：**
@@ -64,16 +64,16 @@
 >   - 无主线任务奖励载具 (2)<br/>
 >   - 无任何任务奖励载具 (3)<br/>
 
-#### **d_ao_check_for_ai / Seize condition for main target:**
+#### **d_ao_check_for_ai / 完成主线任务条件：**
 > 注意：仅适用于 coop 版本，不适用于 TT 版本<br/>
 > 默认： 1<br/>
 > 可用选项：<br/>
->   - All camps captured and radio tower destroyed (0)<br/>
->   - Low number of AI units, all camps captured and radio tower destroyed (1)<br/>
->   - Low number of AI units and radio tower destroyed (2)<br/>
+>   - 占领所有营地并摧毁无线电塔 (0)<br/>
+>   - AI单位数量少，占领了所有营地，摧毁了无线电塔 (1)<br/>
+>   - 少量的AI单位和无线电塔被摧毁 (2)<br/>
 
-#### **d_mt_respawngroups / Respawn main target enemy AI groups as reinforcements:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+#### **d_mt_respawngroups / 重新生成主要目标敌方 AI 单位作为增援部队**
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
 #### **d_ai_persistent_corpses / Persistent AI corpses**
 > 默认： 1 (No, disabled; 0 or Yes to enable it)<br/>
@@ -82,10 +82,10 @@
 > 默认： 1 (No, disabled; 0 or Yes to enable it)<br/>
 
 #### **d_weather / Internal weather system:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
 #### **d_enable_fog / Enable fog (internal weather system):**
-> 默认： 0 (Yes, enables; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, enables; 1 or No 禁用)<br/>
 > A3 new fog system<br/>
 
 #### **d_WithWinterWeather / With winter weather:**
@@ -93,7 +93,7 @@
 > If enabled (0) it adds some winter weather elemnts like different environment coloring and snow<br/>
 
 #### **d_withsandstorm / With sandstorm:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > Enabled on islands where it makes sense, like Altis for example<br/>
 
 #### **d_MaxNumAmmoboxes/ Max. number ammo boxes:**
@@ -111,7 +111,7 @@
 > Removes first aid kits, makes only sense when using it in combination with FAK revive<br/>
 
 #### **d_with_suppress / Player can be suppressed**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
 #### **d_timemultiplier / Time Multiplier (1 real second = x ingame seconds):**
 > 默认： 1 (disabled)<br/>
@@ -119,16 +119,16 @@
 > Available values are 1, 6, 12, 30, 45, 60, 90 and 120<br/>
 
 #### **d_with_dynsim / Dynamic Simulation:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If enabled the mission uses the game internal [Dynamic Simulation](https://community.bistudio.com/wiki/Arma_3_Dynamic_Simulation)<br/>
 
 #### **d_with_bis_dynamicgroups / With BIS Dynamic Groups (Squad Mgmt):**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If enabled the mission uses BIs [Dynamic Groups management dialog](https://community.bistudio.com/wiki/Arma_3_Dynamic_Groups)<br/>
 > It's available in the mission via Status Dialog (hold U-key to access the mission Status Dialog)<br/>
 
 #### **d_arsenal_mod / Use only mod weapons in [Virtual Arsenal](https://community.bistudio.com/wiki/Arma_3_Arsenal):**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If enabled and you use a [CUP version](https://github.com/Xeno69/Domination/wiki/Versions-and-needed-mods-addons#CUP) of the mission then only CUP weapons will show up in Virtual Arsenal<br/>
 
 #### **d_no_mortar_ar / Mortar bag packs in [Virtual Arsenal](https://community.bistudio.com/wiki/Arma_3_Arsenal):**
@@ -143,22 +143,22 @@
 > If set to 0 (Yes) then every now and then a group of elite soldiers will drop over your base and try to sabotage you<br/>
 
 #### **d_house_patrol / With enemy AI house patrol at main targets:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
 #### **d_pylon_lodout / Pylon loadout enabled:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If enabled players will be able to change they [pylon loadout](https://community.bistudio.com/wiki/Arma_3_Vehicle_Loadouts) when they enter a vehicle (available via hold action menu on base)<br/>
 
 #### **d_pylon_noclust / Remove cluster ammo from pylon loadout**
-> 默认： 0 (Yes, enabled; 1 or No to add cluster bombs again)<br/>
+> 默认： 0 (Yes, 启用； 1 or No to add cluster bombs again)<br/>
 > Removes cluster bombs from pylon loadout if enabled because they cause too much lag in MP<br/>
 
 #### **d_with_minefield / With minefield at main targets:**
-> 默认： 0 (Yes, enabled; 1 or No to disable minefields)<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable minefields)<br/>
 > Sometimes spawns a random minefield at main targets if enabled<br/>
 
 #### **d_va_percentage / Limit Virtual Arsenal ammo box access too 1000**
-> 默认： 0 (Yes, enabled; 1 or No for no limit)<br/>
+> 默认： 0 (Yes, 启用； 1 or No for no limit)<br/>
 > If enabled players can only access a dropped ammo box about 1000 times before it gets deleted<br/>
 
 #### **d_dis_servicep / Disable all service points, including FARPs (no refuel, no repair, no rearm)**
@@ -173,11 +173,11 @@
 > Maximum viewdistance a client can select via Status Dialog. Available are (in meter) 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10000<br/>
 
 #### **d_ViewdistanceChange / Viewdistance changable:**
-> 默认： 0 (Yes, enabled; 1 or No for no vd change)<br/>
+> 默认： 0 (Yes, 启用； 1 or No for no vd change)<br/>
 > If disabled players can not change their client viewdistance<br/>
 
 #### **d_playerspectateatbase / Player can spectate other players at base flag:**
-> 默认： 0 (Yes, enabled; 1 or No too disable)<br/>
+> 默认： 0 (Yes, 启用； 1 or No too disable)<br/>
 
 #### **d_with_ai / With AI recruitment:**
 > 默认： 1<br/>
@@ -196,37 +196,37 @@
 > 可用选项： 4, 6, 8, 10, 12, 14 and 16<br/>
 
 #### **d_ai_alone_in_vehicle / AI can drive vehicle without a player inside:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_ai_silent / Bots are silent**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_GrasAtStart / Grass:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If disabled then no grass is rendered (changes terraingrid)<br/>
 
 #### **d_Terraindetail / Player can disable grass:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If disabled players can not turn off grass (change terraingrid)<br/>
 
 #### **d_EnableSimulationCamps / Enable simulation for enemy camps:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If disabled the simulation for object compositions at main targets is enabled (means they can be destroyed)<br/>
 > If disabled players can not turn off grass (change terraingrid)<br/>
 
 #### **d_WithRevive / With revive:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If disabled no revive is available, players can then only spawn at one of the available spawn points when they die<br/>
 
 #### **d_WithReviveSpectating / With revive spectating:**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If disabled players can only see themself when they are in unconscious state<br/>
 
 #### **d_only_medics_canrevive / Only medics can revive:**
 > 默认： 1 (disabled)<br/>
 
 #### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > If disabled the mission uses it's own revive instead of the ACE one<br/>
 
 #### **xr_max_lives / Max lives (revive):**
@@ -245,7 +245,7 @@
 > Available options in seconds: 5, 30, 60, 90, 120, 180, 240, 300 and 600<br/>
 
 #### **d_show_playernames / Show player names:**
-> 默认： 0 (Yes, enabled; 1 or No to show no player names for example above head)<br/>
+> 默认： 0 (Yes, 启用； 1 or No to show no player names for example above head)<br/>
 
 #### **d_playernames_state / Default player name state:**
 > 默认： 1<br/>
@@ -263,13 +263,13 @@
 >   - Health (3)<br/>
 
 #### **d_force_isstreamfriendlyui / Force no HUD**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
 #### **d_WithAmbientRadio / With ambient radio:**
-> 默认： 1 (Yes, enabled; 0 or No to disable<br/>
+> 默认： 1 (Yes, 启用； 0 or No to disable<br/>
 
 #### **d_with_3Dicon / With 3D draw icon above wreck repair/ammo point:**
-> 默认： 1 (Yes, enabled; 0 or No to disable<br/>
+> 默认： 1 (Yes, 启用； 0 or No to disable<br/>
 
 #### **d_AutoKickTime / Air vecs autokick time:**
 > 默认： 1800 (seconds)<br/>
@@ -298,7 +298,7 @@
 > If enabled removes night vision from vehicles<br/>
 
 #### **d_vec_at_farp / Add action menu "Spawn vehicle" to FARPs:**
-> 默认： 0 (Yes, enabled; 1 or No to remove the acion menu)<br/>
+> 默认： 0 (Yes, 启用； 1 or No to remove the acion menu)<br/>
 
 #### **d_engineerfull / Engineer full repair (old versions):**
 > 默认： 1 (No, disabled; 0 or Yes to enable it)<br/>
@@ -340,16 +340,16 @@
 > Available options (in meters): 150, 250, 350 and 450<br/>
 
 #### **d_enable_civ_vehs_locked / Civilian vehicles - lock vehicles**
-> 默认： 1 (Yes, enabled; 0 or No to disable)<br/>
+> 默认： 1 (Yes, 启用； 0 or No to disable)<br/>
 
 #### **d_tell_arty_cas / Always announce enemy artillery / CAS**
-> 默认： 0 (No, enabled; 1 or Yes to disable it)<br/>
+> 默认： 0 (No, 启用； 1 or Yes 禁用)<br/>
 
 #### **d_disable_airai / Disable enemy air**
 > 默认： 0 (No, air ai enabled; 1 or Yes to disable air ai)<br/>
 
 #### **d_occ_bldgs / Enemy AI will occupy buildings**
-> 默认： 1 (Yes, enabled; 0 or No to disable)<br/>
+> 默认： 1 (Yes, 启用； 0 or No to disable)<br/>
 
 #### **d_ai_awareness_rad / AI Advanced - enhanced awareness (common units)**
 > 默认： -1 (No)<br/>
@@ -412,10 +412,10 @@
 > 默认： 0 (No, disabled; 1 or Yes to spawn the first camp close to the main target center)<br/>
 
 #### **d_camp_static_weapons / Defend with static weapons**
-> 默认： 1 (Yes, enabled; 0 or No to disable<br/>
+> 默认： 1 (Yes, 启用； 0 or No to disable<br/>
 
 #### **d_WithMHQTeleport / Teleport or spawn at MHQ:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_MHQDisableNearMT / Disable MHQ if less than x m away from MT:**
 > 默认： 500 (meter)<br/>
@@ -427,21 +427,21 @@
 > Available options (in meter): 0 (Disabled), 50, 100, 200 and 500<br/>
 
 #### **d_with_mhq_camo / MHQ Camo enabled:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 > Spawns a camo net over the MHQ<br/>
 
 #### **d_WithTeleToBase / Enable teleport to base:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_respawnatsql / Respawn at Squad Leader:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_MTTowerSatchelsOnly / MT Tower Satchels only:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 > Main target can only be destroyed by satchels if enabled<br/>
 
 #### **d_IllumMainTarget / Illuminate main target:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_sub_kill_points / Subtract score when a player dies:**
 > 默认： 0<br/>
@@ -464,7 +464,7 @@
 > 可用选项： 0 (Very Low), 1 (Low), 2 (Normal), 3 (High) and 4 (Very High)<br/>
 
 #### **d_WithIsleDefense / With isle defense:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 > Currently completely disabled as AI driving and path finding is not a strength of the game<br/>
 
 #### **d_without_sm_bonus / Without sidemission bonus vehicles:**
@@ -472,14 +472,14 @@
 > If enabled no side mission bonus vehicle spawns if a side mission is resolved (see [Malden NBV version](https://github.com/Xeno69/Domination/wiki/Versions-and-needed-mods-addons#NBV) )</br>
 
 #### **d_smallgrps / Reduce number of AI units in groups depending on player numbers**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > Reduces enemy AI group size depending on player numbers. Lower player number, lower group count.<br/>
 
 #### **d_skillfps / Adjust AI subskill if server FPS is low**
-> 默认： 0 (Yes, enabled; 1 or No to disable it)<br/>
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
 #### **d_ParaAtBase / Parachute from base:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_HALOWaitTime / HALO at base wait time:**
 > 默认： 0<br/>
@@ -503,7 +503,7 @@
 > 默认： 1 (No, disabled; 1 or Yes to enable<br/>
 
 #### **d_enemy_vecs_lift / Enemy AI vehicles can be air lifted:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_maxnum_tks_forkick / Max number TKs for kick:**
 > 默认： 10<br/>
@@ -515,7 +515,7 @@
 > 可用选项： 2, 3, 5, 10, 20, 30 and 1000 (No kick)<br/>
 
 #### **d_no_teamkill / No teamkilling possible:**
-> 默认： 0 (Yes, enabled; 1 or No to disable<br/>
+> 默认： 0 (Yes, 启用； 1 or No to disable<br/>
 
 #### **d_sub_tk_points / Negative TK points:**
 > 默认： 10<br/>
