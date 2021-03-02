@@ -107,7 +107,7 @@ if (d_player_radioprotocol) then {
 };
 
 player setVariable ["d_tk_cutofft", time + 3];
-player setVariable ["xr_pluncon", false];
+player setVariable ["xr_pluncon", false, true];
 ["dom_alive_not_uncon", {call d_fnc_canu}] call d_fnc_eachframeadd;
 d_player_in_base = true;
 d_player_in_air = false;
@@ -120,7 +120,7 @@ d_additional_respawn_points_orig =+ d_additional_respawn_points;
 
 call d_fnc_buildaddrespoints;
 
-if (d_WithRevive == 1 && {!d_with_ace}) then {
+if (d_WithRevive == 1 && {!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}}) then {
 	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
 };
 
@@ -457,7 +457,7 @@ d_points_needed_18 = (d_points_needed # 6) + 150000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log ["Internal D Version: 4.44"];
+diag_log ["Internal D Version: 4.45"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {

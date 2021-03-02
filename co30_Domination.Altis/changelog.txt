@@ -4,3 +4,4 @@
 - Fixed: In the Unsung version UAV and Satellite buttons were available
 - Fixed: It could happen that only one headgear item showed up in Virtual Arsenal when ranked mode was activated
 - Fixed: MHQ dialog does not update button and listbox status (stays open now)
+- Fixed: Markers of other players were not visible when ACE was used
