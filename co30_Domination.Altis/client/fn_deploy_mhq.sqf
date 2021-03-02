@@ -28,10 +28,13 @@ if (_mhq inArea (d_base_array # 0) || {_mhq inArea (d_base_array # 1) || {!(d_cu
 #endif
 
 if ((_mhq getVariable ["d_MHQ_Depltime", -1]) > time) exitWith {
-	systemChat (format [localize "STR_DOM_MISSIONSTRING_214", round (time - (_mhq getVariable ["d_MHQ_Depltime", -1]))])
+	systemChat (format [localize "STR_DOM_MISSIONSTRING_214", abs round (time - (_mhq getVariable ["d_MHQ_Depltime", -1]))])
 };
 
 __TRACE("Before reading deploy var")
+
+disableSerialization;
+private _disp = uiNamespace getVariable "d_VecDialog";
 
 if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	__TRACE("MHQ not deployed")
@@ -48,6 +51,15 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	[_mhq, true] remoteExecCall ["d_fnc_mhqdepls", 2];
 	_mhq setVariable ["d_MHQ_Depltime", time + 10, true];
 	[_mhq, false] remoteExecCall ["engineOn", _mhq];
+	
+	(_disp displayCtrl 44453) ctrlEnable true;
+	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+		(_disp displayCtrl 44459) ctrlEnable true;
+		(_disp displayCtrl 44460) ctrlEnable true;
+	};
+	(_disp displayCtrl 44462) ctrlSetText (localize "STR_DOM_MISSIONSTRING_610");
+	(_disp displayCtrl 44449) ctrlEnable true;
+	(_disp displayCtrl 44451) ctrlEnable true;
 } else {
 	__TRACE("MHQ deployed")
 	private _camo = _mhq getVariable ["d_MHQ_Camo", objNull];
@@ -55,6 +67,15 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	_mhq setVariable ["d_MHQ_Deployed", nil, true];
 	[_mhq, false] remoteExecCall ["d_fnc_mhqdepls", 2];
 	_mhq setVariable ["d_MHQ_Depltime", time + 10, true];
+	
+	(_disp displayCtrl 44453) ctrlEnable false;
+	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+		(_disp displayCtrl 44459) ctrlEnable false;
+		(_disp displayCtrl 44460) ctrlEnable false;
+	};
+	(_disp displayCtrl 44462) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1328");
+	(_disp displayCtrl 44449) ctrlEnable false;
+	(_disp displayCtrl 44451) ctrlEnable false;
 };
 
 __TRACE("End")

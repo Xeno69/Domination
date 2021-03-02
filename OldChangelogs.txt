@@ -1,0 +1,1785 @@
+Changelogs
+
+Old...
+
+4.44
+
+- Fixed: Marked artillery targets did not show in the Call Artillery dialog (accidentally removed the code which adds them to a listbox)
+- Fixed: If ACE was found players respawned with the default unit gear not the one they selected at Virtual Arsenal
+- Updated: Russian language by Babayka
+
+4.43
+
+ATTENION: Altis Blufor mission.sqm file has changed!
+
+- Added: New FARP compositions by Babayka for Altis
+- Added: New param d_ao_bfires/Big main target fires: in params lobby so you can disable the main target fires burning
+- Fixed: Dead crew did not get deleted
+- Fixed: Algorithm to check weapons when virtual arsenal was closed removed the RHS M4 Grip weapon (no grip is attached, the weapon gets completely replaced with another model)
+- Fixed: Removed shadow from player names above player heads again, caused flickering
+
+4.42
+
+ATTENTION:	SQL database table players has changed. Run DOM_DB_Changes_for_4_42.sql once (in Heidi or any other SQL tool) too update your SQL DB
+			Your_A3_server_folder\@extDB3\sql_custom\domination-custom.ini has also changed. Please replace it with the version from the Domination 7z download
+			
+ATTENTION2: The following mission file(s) has/have changed: TT Malden, Altis Blufor
+
+ATTENTION3: If you run DOM_DB_Changes_for_4_42.sql check also the DOM_DB_Changes_for_4_42_IMPORTANT.txt file!!!! 
+
+- Added: Full InterceptDB support (see https://forums.bohemia.net/forums/topic/222595-intercept-database-sql-database-extension/ )
+- Added: Player suppression, can be disabled in params "Player can be suppressed" or d_with_suppress in description.ext
+- Added: If d_with_mhq_camo is enabled it is now possible to deploy a mhq without camo net by selecting it with the "Deploy with camo net" checkbox
+- Added: Utility functions created fixed or improved: isinhouse, getbuildings, isvisible, sortarraybydistance, makemgroup now respects units per group, added dry run to occupy house script, by longtimegamer
+- Added: If a SQL database is available then player movement on foot, in land, air and maritime vehicles is added to the database (in meter)
+- Added: If a SQL database is available then number of player headshots and number of rounds fired are added to the database
+- Added: Main target illumination flares when it is dark (can be disabled in lobby "Illuminate main target:" or d_IllumMainTarget in description.ext)
+- Added: Parameter to enable/disable static weapon defenses at maintarget, by longtimegamer
+- Added: RADIOPROTOCOL for the player can be disabled in the Status Dialog (not sure yet if it really does what it should)
+- Added: d_uids_def_choppers (also available in dom_settings table); if the array is filled with player UIDs (strings) only those players can fly the initial choppers at base
+- Added: Parameter d_dis_servicep/Disable all service points, including FARPs (no refuel, no repair, no rearm)
+- Added: Fires at main targets
+- Added: Parameter d_playerspectateatbase (Player can spectate other players at base flag), default 0 or Yes
+- Added: Parameter d_score_needed_to_fly (Flying choppers and planes only allowed when a player has a score higher than:), only available when a SQL database is running, kicks player out of planes and choppers if score is too low (default 1000)
+- Added: Parameter d_without_ti (Disable Thermal Imaging (TI) for inf weapons/optics)
+- Changed: CAS with very short cooldown (90 secs) if artillery is set to unlimited, by longtimegamer
+- Changed: Added visibility check for player and AI names over the head, means, players see the names above head if the unit is visible and not all the time
+- Changed: Maintarget prisoner event now has a suicide bomb if the rescue is botched, by longtimegamer
+- Changed: Enemy AI vehicle island patrols are back
+- Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, "Disable ACE medical revive (if ACE is used) and use mission revive" in lobby, finally in, somehow got lost before)
+- Changed: SAT View removed from MHQs in the TT version (enemy could spott opponent MHQ too easily)
+- Changed: Removed the marker tiles at main targets in the TT version, back to solid filled circle again
+- Changed: If ACE is used the mission pylon loadout dialog is disabled and you have to use the ACE pylon dialog (razorclam wanted it so blame him for it :)
+- Changed: Enemy mobile HQs are now spawned with snipers on the roof
+- Changed: If d_MTTowerSatchelsOnly if set to 1 (disabled) then it there is no satchel check for main target radio tower, main target side mission, main target barracks and mobile MHQ
+- Changed: Reduced radius of many addActions
+- Changed: ToolKit and MineDetector are now always available, no matter which version is beeing played
+- Changed: You may encounter divers at naval mines side missions now
+- Changed: MHQs should now be added automatically to the list of vehicles which can load an ammo box at an ammo point
+- Changed: Removed T-14 from RHS version (seems too be not ready yet)
+- Changed: MHQ dialog no longer closes when Deploy or Load/Drop Ammobox button is pressed
+- Fixed: If a player can escape jail with a mod like enhanced movement put him back again into the jail if he is too far away; if he does it 10 times then the player will be banned for the running session
+- Fixed: Object compositions were placed half in the ground on CUP Winter Chernarus
+- Fixed: Event triggers now have a defined height to prevent flyovers from triggering ground events, by longtimegamer
+- Fixed: In ranked mode players with rank private ended up with just one uniform in Virtual Arsenal
+- Fixed: incorrect logic in maintarget event selection, improved dashboard list and line breaks, by longtimegamer
+- Fixed: Camouflage script had the wrong stance in it, "STANCE" instead of "STAND"
+- Fixed: ToolKit was missing in the unsung version in VA
+- Fixed: Choppers exploded on the carrier in the carrier version (yet again)
+- Fixed: Fog, overcast and date can be set again by Zeus
+- Fixed: In the CUP Chernarus 2020 version Land_trafostanica_velka objects do not exist near Zelenogorsk which broke the side mission
+- Fixed: TFAR radios are now no longer removed when another mod version like CUP is played
+- Fixed: ACE medical items were not available in ranked mode
+- Fixed: Line breaks were broken in hintChat function
+- Fixed: Main target creation in the TT version was broken
+- Fixed: In the TT version the 3D icon above dropped ammo boxes (drop called by squad leader) was also visible for the enemy
+- Fixed: Friendly shooting at MHQ was displayed for the enemy side too instead of only for the side the MHQ belongs to
+- Fixed: MHQs in the Malden TT version could not load ammo boxes at ammo points
+- Fixed: Main target viewdistance reduction was based on camera position not on the player position
+- Fixed: If the enemy AI vehicle or group type was not defined in the scripts which create the AI at side missions the scripts ended with a script error
+- Fixed: There was a satchel check in the main target side mission eliminate local governour when d_MTTowerSatchelsOnly was enabled
+- Fixed: Script error loading DB save files in the TT version (bonus vecs creation failed)
+- Fixed: Adding additional respawn points with d_additional_respawn_points didn't work as described causing script errors
+- Fixed: If a headless client was available side specops units were transfered to the HC causing problems with server eventhandlers
+- Fixed: d_arsenal_mod_remove_strings didn't work anymore, no gear from the addons/mods defined in d_arsenal_mod_remove_strings as strings were removed
+- Fixed: Service marker was not created in the Carrier version on the carrier
+- Fixed: In ranked mode players can now pick up weapons lying around or from dead enemy AI (respawn at MHQ or base/FARP will bring back the weapon they had at mission start or the last Virtual Arsenal access)
+- Fixed: LaserDesignator no longer gets removed in the RHS versions
+- Fixed: The "You can teleport to..." message was shown when d_WithMHQTeleport was turned off
+- Fixed: Pylon dialog stayed open when a player was killed
+- Fixed: CUP Chernarus side mission 46 did not work on Winter Chernarus and autumn Chernarus
+- Fixed: Don't spawn AI near Land_Canal_Wall_10m_F on Tanoa, AI spawns inside the walls
+- Fixed: Thermal or NV optics of infantry weapons are no longer removed if d_without_nvg or d_without_ti is enabled but correctly blocked
+- Improved: Make use of new A3 2.02 scripting commands where possible
+- Improved: Use new import keyword to load UI configs from the game itself rather than copying them into description.ext
+- Improved security: The following scripting commands can no longer be executed over the network when remoteexec mode is set to 1: setVariable, switchMove, setDir, hideObjectGlobal, endMission, setCaptive and addScore
+- Updated: Russian translation by Babayka
+- Updated: Simplified Chinese translation by XinLau1996
+- Updated: Spanish translation by longtimegamer
+- Updated: Malden TT mission file by Babayka
+- Workaround: If an enemy AI vehicle is under water for whatever reasons it virtually can't be destroyed; the workaround adds more damage in that case
+- Added slightly more debug output (possible with improved A3 logging)
+- And more optimizations like for example eachframerun
+
+4.41
+
+- Fixed: In the Chernarus versions satchels placed near the cache in the huge radio tower on Green Mountain disappeared
+- Fixed: In the Chernarus 2020 version class names of side mission 46 buildings have changed breaking the side mission
+- Fixed: The hovercraft in the CUP versions spawning near main targets are virtually invincible, removed
+- Fixed: For whatever reason the ToolKit was removed from Virtual Arsenal in the CUP versions
+- Fixed: Many CUP launchers did get removed from the player inventory when he/she closed the Virtual Arsenal (because of "_Loaded" at the end of the class name)
+- Fixed: If only CUP Chernarus 2020 was loaded with CUP Terrains Core some buildings are missing which breaks transfomer station side missions
+- Fixed: SAT View on a deployed MHQ script was broken
+
+4.40
+
+- Fixed: Major gamebreaker, revive screen stayed black when a player died an revive max lives was set to unlimited
+
+4.39
+
+ATTENTION: extDB3 domination-custom.ini file has changed (update it with the one available in the Domination_4_39.7z download file)
+ATTENTION2: The missionsave table in the Domination sql database has changed, either execute DAddColumn_d_vrespawn_vecs_4_39.sql (in Heidi for example) or make the changes yourself 
+
+- Added: Force streamfriendlyui through param, by Longtimegamer
+- Added: "Bots are silent" Parameter (description.ext d_ai_silent) to silence recruited AI radio chatter, by longtimegamer
+- Changed: In the non TT versions the positions of the default Domination base vehicles and all bonus vehicles is now saved to missionsave too, if those vehicles are alive and more than 700 meters away from base
+           Additionally, if an ammobox is loaded it is saved too and if MHQs are deployed it is also saved
+- Changed: Enemy AI CAS now adjust firing position if player has moved
+- Changed: Main target sidemission non AI objects must now also be destroyed by satchels
+- Changed: Refactored building selection for garrisoned enemies, by Longtimegamer
+- Changed: A player with no revive lives left can exit revive spectating with the X key
+- Changed: UAV patrols at main targets (if UAVs are available), by lelik
+- Changed: Better air ai integration, by lelik
+- Fixed: Database mission progress autosave (already in the 4.38 reupload at GitHub)
+- Fixed: Revive spectating was using missionnamespace var name for unit reference which sometimes doesn't return anything; switched to UID
+- Fixed: If a mash got destroyed (or a FARP) then the marker was not removed correctly
+- Fixed: Call CAS was broken because of a wrong variable name
+- Fixed: Class rhsgref_BRDM2_ATGM_msv no longer exists in RHS leading to script errors during vehicle creation
+- Fixed: Don't delete uniform, vest, headgear or backpack if players ends up with none of them when Virtual Arsenal gets closed
+- Fixed: Number of units did not get reduced for paratroopers over main targets when d_smallgrps was activated
+- Fixed: Vanilla Altis OPFOR version was broken, d_allmen_W was not defined at all
+- Fixed: Create a unique group for each civ module instead of using the same group, by longtimegamer
+- Fixed: Fix CUP BLUFOR air taxis by using different aircraft, by jlillis
+- Fixed: Don't throw an error if the number of d_target_x is not the same in the mission as in the SQL DB data save
+- Fixed: UAVs created at MHQs are now indestructible. Prevents players from beeing stuck in some weird camera mode
+- Fixed: It could happen that a player was still attached to a remote player after revive (because of dragging or carrying)
+- Improved: If a player has no revive lives left show a message in the spectating dialog so he actually knows it :)
+- Improved: More different enemy groups, by lelik
+- Updated: Russian translation by Babayka
+
+4.38
+
+ATTENTION: extDB3 domination-custom.ini file has changed. You need to copy the one from the download file @extDB3\sql_custom folder to your server @extDB3\sql_custom folder
+
+ATTENTION2: mode was set to 1 in description.ext CfgRemoteExec Functions and Commands. That means only script commands and functions defined in CfgRemoteExec are allowed to be executed remotely now. Set to 2 to disable it if it causes issues
+
+- Added: In params "With AI recruitment" you can now select "Yes, but AI may not enter static weapons" (description.ext d_with_ai value 2)
+- Added: Parameter to announce enemy artillery or CAS without capturing intel (d_tell_arty_cas, "Always announce enemy artillery / CAS"), by Longtimegamer
+- Added: Parameter to randomize armor at maintarget and side missions (-1 fir d_WithLessArmor and d_WithLessArmor_side), by Longtimegamer
+- Changed: CfgRemoteExec functions and commands mode is set to 1 (only whitelisted functions/commands are allowed for remote execution) in description.ext now; please note that it might block scripting commands and functions used in addons/mods
+- Changed: Show the number of votes a main target got as number beside the marker
+- Changed: Bigger parajump dialog
+- Fixed: Number of player teamkills did not get added correctly to the SQL database
+- Fixed: If with AI recruitment is enabled you can now use additional addons which create AI on the player side without the mission deleting them
+- Optimized: Only broadcast the last global marker command over the network and not all
+
+4.37
+
+- Fixed: mapondraw script error introduced in 4.36
+
+4.36
+
+- Added: Boat patrols when sea or rivers are near a main target, by Lelik
+- Fixed: Secondary weapons (launchers) got removed in arsenal/inventory even when they were valid weapons (stupid copy and paste error)
+- Fixed: min/max spawn radius for guerrilla infantry spawn to avoid creating guerrillas too close or too far from maintarget
+- Fixed: Side mission objects like radio towers were spawning in the air (at least in the UNSUNG version)
+
+4.35
+
+- Changed: FIR Rocket Launchers removed from pylon loadout when FIR AWS is loaded (some hundred Hydra rockets at once at the AO will bring even the fastest server down)
+- Fixed: Somehow a weird Altis TT version managed to get into the download 7z file
+- Updated: Chineseimp translation by CHL198011
+
+4.34
+
+- Added: Your local system time is displayed beside the FPS number
+- Added: Param d_ai_persistent_corpses (Persistent AI corpses), maintarget AI leave persistent corpses until the target is cleared, by longtimegamer
+- Added: Camouflage script, changes camouflage trait depending on stance
+- Changed: Use setVehiclePosition instead of setPos units into the air and falling too avoid spawning in a rock
+- Changed: A marker will show up after some time in cache side missions and get smaller too help players find the caches
+- Changed: Better CUP island check for internal objectsmapper
+- Changed: You can now disable ACE medical system and use the internal mission Revive when ACE is running (d_ACEMedicalR in description.ext, Use ACE Medical Revive and not mission Revive (if ACE is available) in lobby)
+- Changed: Add small bunkers to high static weapons (currently only available for non 3rd party versions)
+- Changed: Two new grass settings, one can now select: none / medium / full / high / very high, by longtimegamer
+- Improved: Make use of new configOf scripting command where possible
+- Fixed: New chopper MHQ couldn't load ammo boxes in the GMCWG versions
+- Fixed: Use correct event handler for ACE arsenal, by jilillis
+- Fixed: ACRE radios were not available in Virtual Arsenal in ranked mode
+- Fixed: Better handling for destroying side mission objects (last damager was not taken into account, broke side missions like the arty cannon sm)
+- Fixed: Better handling for destroying main target side mission objects (last damager was not taken into account)
+- Fixed: Inventory weapon check is now checking all available weapons instead of just the ones in BI arsenal (which are missing Hamr, pointer, ACO, etc, etc)
+- Fixed: Destroying a respawn barrack or vehicle MHQ at a taken main target still added points to players and displayed a destroyed message
+- Fixed: Static weapons should spawn on roads less often
+- Fixed: Static weapons should no longer point at walls
+- Fixed: hallyg_dlegion_Snipe_awareness script did not end when a unit it was running for was no longer alive
+- Fixed: Map on draw was not drawing displayname for vehicles correctly
+- Fixed: Copy and paste error resulting in non existent variables when loading a DB savegame
+- Fixed: Copy and paste error in getbonus script
+- Fixed: Respawned Inf AI could get stuck in the wall in front of a respawn barrack
+- Fixed: Recruited AI (when with AI is enabled) was subject of dyanmic simulation thus stopping those player controlled if they were too far away; they did also not trigger dyn sim
+- Fixed: Shooting at objects which can only be destroyed by satchels no longer resets the object damage to zero (like main target radio tower for example)
+- Fixed: The CUP team renamed some CfgGroups RU infantry class names yet again resulting in less units spawning
+- Fixed: Possible non remote jail objects did not get deleted when a jailed user disconnected
+- Removed: d_no_3rd_person parameter (No 3rd person), allowed 3rd person view in vehicles only. There is now a new A3 game difficulty setting (see https://forums.bohemia.net/forums/topic/140837-development-branch-changelog/?do=findComment&comment=3411692)
+- Updated: Korean translation by kkim
+- Updated: Russian translation by Babayka
+
+4.33
+
+- Added: rabbit rescue event, by longtimegamer
+- Added: New parameter d_retakefarps, default 0 = Yes, On. If set to 1/No all Farps will be available at mission start
+- Changed: ACE arsenal box back in non ranked version and d_arsenal_mod set to 1
+- Fixed: Script error in fn_helilift.sqf, _oldmass undefined error
+- Fixed: Score/points for destroying a barrack at main targets were only added and shown if a database was available
+- Fixed: Players got two times score added when a barrack at main target was destroyed in the TT version
+- Fixed: Main target mission objective could fail because of wrong friendly units check
+- Updated: Russian translation
+
+4.32
+
+- Fixed: Move side mission groups to a headless client later. Prevents inf AI units from dying
+- Fixed: Chinese string accidentally added to Russian translation
+- Fixed: Wreck repair point (and probably other repair points) did not work in the Unsung version (and maybe other 3rd party mod versions)
+- Fixed: Ammo load point did not work in the Unsung version
+- Fixed: If a player removed a weapon in Virtual Arsenal and did not add a new one the previous weapon was added again when he closed Virtual Arsenal
+
+4.31
+
+- Changed: If you play a mod version like CUP, GMCWG or Unsung and use only mod weapons and items then a player can no longer load vanilla weapons in Virtual Arsenal
+- Fixed: When ACE was running the mission still used ace_arsenal_displayOpened and ace_arsenal_displayClosed eventhandlers even though only BI arsenal was used
+- Fixed: Ammo point and wreck repair point markers did not show in the Unsung version
+- Fixed: Pylon loadout didn't work anymore in base
+- Fixed: The mission did no longer recognize additional respawn points placed with an object with d_respawn_point_x as variable name
+- Fixed: Helicopters on board of the aircraft carrier in the Carrier version constantly exploded on respawn
+- Updated: Russian translation
+
+4.30
+
+ATTENTION: Altis Blufor Carrier, Chernarus (autumn), Chernarus (winter), Chernarus 2020, Malden and both Weferlingen mission.sqm files have changed
+
+ATTENTION2: domination-custom.ini has changed; And missionsave table in the SQL database has a new row called d_retaken_farpspos, VARCHAR, 1000, no null
+
+- Added: New server lobby param/description.ext param to disable transfer of points from one player to another in ranked mode ("Allow transfer of points to other players in ranked mode:", d_transf_allow)
+- Added: New server lobby param/description.ext param to disable AO tower and camps markers ("Turn off markers at AO for tower and camps:", d_ao_markers)
+- Added: TT gameplay change: When all camps are seized and all barracks are destroyed by one side a one minute timer will run to give the other team a chance to retake a camp (timer visual on screen)
+- Added: You can now also select ranked mode with no weapons ranked (value 2 for d_with_ranked in description.ext or in params "Ranked:" values "Ranked mode on but weapons not ranked")
+- Added: New main target "events" for non-TvT with optional complex mission scenarios embedded in maintarget (first "event" scenario Blackhawk Down rescue), by longtimegamer
+- Added: Boat MHQ to the Altis Blufor Carrier version
+- Added: In the TT version you can now also add additional base vehicles by simple giving them specific unique var names, they must start with:
+         * d_mhq_add_o_ and d_mhq_add_b_ for additonal MHQs
+		 * d_lift_add_o_ and d_lift_add_b_ for additonal lift choppers
+		 * d_wreck_add_o_ and d_wreck_add_b_ for additonal wreck lift choppers
+		 * d_trans_add_o_ and d_trans_add_b_ for additonal transport choppers
+- Added: Support for boat respawn in the TT version (the var name must start with d_boat
+- Added: Gas leak side mission type
+- Added: New GMCWG 1.2 APCs and choppers. The GMCWG version now has lift support and a chopper MHQ
+- Added: Malden TT version by Babyka
+- Added: Low Gear by WINSE, for tanks, trucks, wheeled APCs and MRAPS. Gives better acceleration when speed is under 30, and breaks automatically if speed is above 40 when turned on
+- Added: Unsung Song Bin Tanh, Mekong Delta, version (mission.sqm from PK IllinoisFIN)
+- Changed: Removed jump flags created at seized main targets in the TT version
+- Changed: If disable TI or disable NVG is turned on in the server lobby launchers sight will be blocked when either NV or TI mode is used
+- Changed: Enabled simulation on base flags again to show flags (if it really is a flag)
+- Changed: Award points, for example points a player gets for destroying a barrack building, can now be changed in d_addscore_a array (available in initcommon.sqf and database dom_settings table). Only available in ranked and database mode
+- Changed: Removed d_with_targetselect/"Players can select next main target:" and integrated it in d_with_targetselect_count/"Players can select from available targets:"
+- Changed: There is now also an enemy AI vehicle MHQ at main targets in the TT version like it is in the normal coop version
+- Changed: Setting d_number_attack_planes, d_number_attack_choppers, d_number_light_attack_choppers or d_number_attack_uavs to 0 in init\fn_preinit.sqf does not spawn air vehicles for the specific class
+- Changed: In ranked mode bagpacks are now added to the ranks by their maximumLoad property, < 200 for all ranks, < 300 for ranks starting at sergeant, < 400 for ranks starting at major and everything above for colonel and better 
+- Changed: In ranked mode vests are now added to the ranks by their maximumLoad supply property, < 101 for all ranks, < 121 for ranks starting at sergeant, < 141 for ranks starting at major and everything above for colonel and better 
+- Changed: Added d_number_attack_planes, d_number_attack_choppers, d_number_light_attack_choppers, d_number_attack_uavs, d_noambient_bf_sounds, d_time_until_next_sidemission and d_airai_respawntime to dom_settings table, means, those values can now be changed in the Domination SQL database
+- Changed: Transfer data sidemissions should now also work in the TT version
+- Changed: Gameplay change. In the normal non TT versions FARPs are no longer available at mission start. They now have to be retaken in side missions to make them available for respawn.
+- Changed: Pylon loadout no longer available at FARPs, only at bases and additional respawn points
+- Changed: Service points should now also work on water (for boats for example)
+- Changed: AI barrack bunkers at main targets are now a little bit more sheltered
+- Changed: Removed "Fix Headbug" from Status dialog, by longtimegamer
+- Changed: Some status dialog items are hidden if not relevant to mission parameters, by longtimegamer
+- Changed: If the player selects "stream friendly UI" in Configure -> Game settings then Domination status bars are hidden, by longtimegamer
+- Changed: Moved AI settings higher in description.ext, moved fatigue and sway to top of parameters; by longtimegamer
+- Fixed: When using earplugs in the TT version a dialog error appeared because of a missing gui baseclass
+- Fixed: Heli lift script did break with an error message when the mass of the lift object was lower than the max load of the chopper
+- Fixed: When a player changed the TeamSwitch key in the A3 settings when the mission was running the mission didn't pick up the new key
+- Fixed: Added missing items like goggles in Virtual Arsenal in ranked mode
+- Fixed: Some colors in the game class CfgMarkerColors are stored as string instead of number resulting in broken 3D marker drawing
+- Fixed: Target select entire map caused a script error
+- Fixed: Possible script error in fn_spectdraw3d.sqf
+- Fixed: Side cache mission could break when no building with positions were available or buildings were null
+- Fixed: "Data uploaded!" message was displayed when the data upload was iterrupted and not when the data was uploaded in the transfer data sidemisssions
+- Fixed: The GMCWG winter version did use some wrong class names for winter units
+- Fixed: The Chernarus autumn and winter versions still had the editor placed Teleporter marker at base
+- Fixed: Script error in StatusDialog
+- Fixed: Cache side mission now really works, no more you are too close to a ammo box message anymore
+- Fixed: Virtual Arsenal did still show vanilla weapons and items sometimes when using third party mods
+- Fixed: Script error in spectdraw3d
+- Fixed: Auto viewdistance at main target checkbox did not show the correct checked state 
+- Improved: Boats can now also be used as MHQs (needs empty cargo positions to spawn into a boat and can't load ammo boxes but doesn't need to get deployed)
+- Improved: Boats can be pushed if they are on the beach
+- Updated: Russian translation by Babayka
+- Updated: Korean translation by kkim
+- Updated: Chineseimp translation by CHL198011
+
+4.27
+
+- Added: Players can now change the Earplugs and 3DMarker toggle keys in the status/settings dialog (you still need to set the user action key in the A3 key/control settings)
+- Fixed: If some AI advanced features were enabled then a snipe awareness script was running every frame on the server
+- Fixed: Stupid script error in fn_aftereject.sqf (yeah, suspending is not allowed in non scheduled environment)
+
+4.26
+
+- Added: Angry bots by longtimegamer (has to be turned on)
+         There are four new AI settings for allmen and snipers bot behavior:
+         - all enemy infantry bots: on an interval, reveal nearby players with "reveal 4" within configurable radius
+         - all enemy infantry bots: on an interval, check line-of-sight with players and doSuppressiveFire if LOS or isVisible are true within configurable radius
+         - all enemy infantry bots: on an interval, if _fired is true then frequently do "setAmmo 1" (this helps to balance new shooting behavior vs running out of ammo too quickly)
+         - all enemy infantry bots which are free to move: on an interval, if bot is a leader then order the group to move to location of nearest player within configurable radius
+- Added: Parameter to allow camps to simulate penetration and damage by longtimegamer (d_EnableSimulationCamps)
+- Added: Parameter option for very low number of civilian vehicles
+- Added: Parked civilian vehicles (configurable) by longtimegamer (d_enable_civ_vehs, d_enable_civ_vehs_rad, d_enable_civ_vehs_locked in description.ext)
+- Added: New parameter d_sm_dorandom (in description.ext), "Random side missions:" in server lobby. If set to 1/No then side missions are not random but the order is always the same
+- Changed: Wait 10 seconds before spawning the next enemy AI groups at barracks in the AO
+- Changed: Number of units in enemy AI inf groups now depends on player numbers making the mission more friendly for lower player numbers (nothing changes for higher player numbers); can be disabled in params, d_smallgrps
+- Changed: Added new option for d_MainTargets_num (Main Targets in Params server lobby): Order like placed in the editor; target select has to be turned off for it
+- Changed: Civilian unit types, faces, and vehicles now determined by which map is being played (by longtimegamer)
+- Changed: Increased the mission endtime for destroy cache side missions to 1 hour instead of 33 minutes
+- Fixed: Round camp capture time and clip progress capture bar when max value is reached
+- Fixed: Some kick player to lobby messages still showed up
+- Fixed: In the Altis RHS Blufor version the CH53 spawned in the ground and was therefore exploding at every spawn
+- Fixed: Players with enhanced movement mod could escape jail
+- Fixed: Statusbar was updating every frame in non TT versions instead of every 2 seconds only
+- Fixed: When ACE was used in the TT version and a dropped box was moved the box marker was visible for the other side
+- Updated: Spanish and Protuguese translation by Linux
+- Optimization: Lots of scripts optimized yet again (mapondraw runs now about 200 micro seconds faster for example)
+
+4.25
+
+- Fixed: Script error (call eventhandler code, copy and paste in several scripts) broke the mission completely! :(
+
+4.24
+
+- Added: Max_camp_cnt_method mission parameter by longtimegamer
+- Added: If a player (accidentally) places an explosive too close to a MHQ (< 9m) the explosive will be removed and put back into his/her inventory
+- Added: CUP BTR 80 versions to enemy AI vehicles
+- Changed: Make use of new triggerinterval stuff to run scripts at a specific time 
+- Changed: Added setTriggerinterval as new parameter to createTrigger and createTriggerLocal functions (by alexvladn)
+- Changed: Teamkillers are no longer pushed to the server lobby (slot selection) but they now can listen to a song in jail (something with bananas :))
+- Changed: Updated Korean translation by kkim
+- Changed: Launcher cooldown time is no longer set by launcher class name but is the same for all
+- Changed: Removed searchlight from GMCWG version vehicles
+- Changed: Always use BIS Virtual Arsenal instead of ACE arsenal if ACE is available (ACE arsenal causes issues when mods like GM run, loads vanilla A3 weapons too instead of only GM weapons for example)
+- Changed: You can now select between
+             - All camps captured and radio tower destroyed
+             - Low number of AI units, all camps captured and radio tower destroyed
+             - Low number of AI units and radio tower destroyed
+           for "Seize condition for main target:" (d_ao_check_for_ai in description.ext).
+           Second one is default (d_ao_check_for_ai = 1)
+- Fixed: Added missing light attack chopper for independent side
+- Fixed: Some SLA CfgGroup names and sections got renamed in the CUP update resulting in spawning no groups
+- Fixed: CUP composition objects were spawned under or half in the ground
+- Fixed: In the GMCWG versions enemy AI infantry didn't spawn because CfgGroups class names have changed
+- Fixed: Some vehicles at base were placed half in the ground in the IFA3 version
+- Fixed: When a player ejected with an ejection seat from an air vehicle on the ground it was still possible for an admin to unlock the vehicle via the isAdmin script and get into it
+- Fixed: Array holding all player base artillery vehicles was resized to 1 when using cluster artillery shells so only one artillery vehicle was firing even normal rounds afterwards
+- Fixed: Repack magazines could break and block access to the inventory completely
+- Fixed: In ranked mode no sidemission points got added to the player score because of a script error
+
+4.23
+
+- Changed: Dropped box markers will move now when a player drags an ammo box when using ACE
+- Fixed: Don't show alternative respawn position markers when a MHQ is moving or not available
+- Fixed: Dynamic simulation was enabled for vehicles which should not use it like drop aircraft when CBA was available on the server (vehicles did no longer move)
+
+4.22
+
+- Added: Chernarus 2020 version
+- Added: Object compositions for CUP versions
+- Added: French translation by -mj-
+- Added: No Go zone for the TT version. Players may not go beyond the map, otherwise they will be killed
+- Changed: If CBA A3 is running on the server then all vehicles (including user placed vehicles) will be added to dynamic simulation (if enabled in the mission params)
+- Fixed: Do not select another respawn like squad leader inside the 40m MHQ alternative respawn area (now really fixed)
+- Fixed: Somehow a "p" landed at the end of d_launcher_cooldown in description.ext
+- Fixed: AI can now use vehicle service points again (and not only AI in UAVs)
+- Fixed: CUP Chernarus version was spawning a CSAT JTAC instead of a Russian one
+
+
+4.21
+
+- Added: Server param to turn off Virtual Arsenal ammo box limitation (d_va_percentage)
+- Fixed: Don't select another respawn/teleport point which may be inside the 40 m MHQ area by map click
+- Fixed: Some object classes return a sizeOf value of zero so positions might not fit for those objects
+- Fixed: Not all binoculars were removed from AI units
+
+4.20
+
+- Added: Parameters for enemy spawn radius for AI which occupies buildings by longtimegamer
+- Added: Overwatch mode for static infantry in building by longtimegamer
+- Added: Object compositions at main targets
+- Added: If a player wants to teleport or respawn at a MHQ he/she can select an alternative position 40 meter around the MHQ (zoom map and an extra markers shows you the possible alternative area; left click selects alternative position, ALT left click resets it)
+- Changed: Shorter names for some classes in CfgParams (note that you have to check your DB params too; best to recreate them completely)
+- Changed: Lift choppper (chopper 1) will now respawn after 10 minutes (if empty), like the wreck lift chopper
+- Changed: Remove user markers at a main target after target is seized (cleanup)
+- Changed: Parajump does no longer spawn a client side chopper for ejecting (caused issues without createVehicleLocal)
+- Changed: Placing explosives near ammo boxes is no longer possible (prevents idiots from placing thousands of mines around respawn points)
+- Changed: Dropped ammo boxes (e.g. from MHQ) can now only be accessed about 1000 times from players; they then get deleted
+- Changed: Moved player killed check to server entitykilled instead of sending a remoteExec from the killed client to the server everytime
+- Changed: Enabled AMRAAM type missiles for pylon loadout again
+- Changed: Squad leader gets one point when another group member spawns at his/her position (only available in ranked mode or a database is running)
+- Changed: Removed some more uniforms/vests and backpacks from Virtual Arsenal
+- Changed: More strict check and removal of disabled Virtual Arsenal uniforms/vests/backpacks and headgear
+- Fixed: Saving the player gear layout when closing arsenal to the server was missing side parameter which broke it
+- Fixed: Sometimes dropped box markers did not get deleted
+- Fixed: Removed binoculars from enemy AI group leaders so that they don't run around with a bino in their hands constantly
+- Fixed: No chat message when an ammobox near a vehicle was loaded
+- Fixed: Moved revive help message a little bit to the left to avoid cut off text
+- Fixed: AI inf barracks respawn handling did sometimes not select another barrack when one was destroyed
+- Fixed: Pressing the M key in the spectating dialog to open the (respawn) map did not close the player panel
+- Fixed: Loading gear setup in Virtual Arsenal was still possible in ranked mode with key combo CTRL-O
+- Fixed: Added missing shotboundingmine simulation to check for explosives laid at base
+- Fixed: Enemy AI vehicles should no longer explode during creation
+- Fixed: Camp dialog progress resource did not show again if a player was killed inside the camp area
+- Fixed: Carrier service trigger was created on sea level and not on the carrier flight deck
+- Fixed: When a player gets uncon over the sea, waterfix should no longer put the player object under a pier or rock at the beach
+- Fixed: Service point 3D marker was not drawn for all service points (especially not on carriers)
+- Fixed: Some remote messages were translated with the sender localization instead of the receiver client localization
+- Fixed: Enemy AI inf units should no longer longer hover near camps (hopefully fixed)
+
+4.17
+
+- Added: If there are markers at base which start with "d_base_tank" or "d_base_apc" friendly tanks or APCs will be added (no driver, just AI commander and AI gunner)
+- Fixed: Camps were not immediately set to indestructable after creation
+- Fixed: When engineer full was enabled repair and refuel ability was also restored when the player was revived or respawned at a MHQ/Farp/squad leader
+- Fixed: At player connect, time for resetting revive lives (15 minutes if a player leaves a server and reconnects) and side switching in the TT version (30 minutes) was not correctly resetted on the server
+- Fixed: CUP Winter Chernarus was missing CfgWorlds mapSize field resulting in markers not drawn and wrong bounds for vehicle respawn check (vehicles simply respawned because they were out of bounds)
+- Fixed: Engineer spawned FARPs did not use the new txxxservice format resulting in script errors
+- Fixed: If a unit classname array had four or less unit classnames it resulted in an array select script error
+- Fixed: Independent sniper classname variable was defined as d_sniper_I instead of d_sniper_G which prevented making a normal One Team version against an independent enemy
+
+4.16
+
+- Added: New parameter d_pylon_noclust, set it to one and cluster bombs should be there again (if not exlucded otherwise; "Remove cluster ammo from pylon loadout" in the server lobby params)
+- Added: Status Bar by Babayka (includes Score too -> Score resource on top removed)
+- Added: Launcher Cooldown can now also be changed in Params ("Launcher Cooldown Time in seconds", d_launcher_cooldownp in description.ext)
+- Changed: Added even more score messages to the new UI score message system
+- Changed: Remove weapon backpacks from loaded Virtual Arsenal save files
+- Changed: Remove all weapon bagpacks from Virtual Arsenal (it's still the d_no_mortar_ar param which enables/disables it)
+- Changed: You can now easily add an additional MHQ by adding a variable name that starts with "d_mhq_add_" to the vehicle. Same for additional lift: "d_lift_add_", additonal wreck lifter "d_wreck_add_" and additional transporter: "d_trans_add_"
+- Fixed: A destroyed MHQ vehicle was still displayed as deployed and not destroyed on the map
+- Fixed: Launcher cooldown did not work for 3rd party Addon/Mod launchers
+- Fixed: Sometimes a launcher mag was not readded when launcher cooldown deleted the missile projectile
+- Fixed: The crew of alive enemy AI vehicles at seized/resolved main targets did not get deleted at the same as the vehicles
+- Updated: Russian translation by Babayka
+
+4.15
+
+- Fixed: Player did not get extra points for helping solving the sidemission (score was added on the client not on the server; available in ranked mode and when SQL database is available)
+- Changed: All cluster/subammo type magazines removed from mission pylon loadout dialog (including 3rd party mods). Causes much too much lag!!!
+- Changed: Added more score messages to the new UI score message system
+- Fixed: Global Mobilization versions both had two accidentally placed blufor units
+- Fixed: Global Mobilization player artillery had no crew at all so artillery called by players did not fire
+- Fixed: Sniper teams were missing from all 3rd party mods/dlcs (d_sniper_x); Vanilla units got spawned instead of the correct mod/dlc ones
+- Added: Chinese translation by ??
+- Updated: Russian translation
+
+4.14
+
+- Fixed: Stupid bug which prevented the creation of the last main target when select targets was activated; this also rendered removing auf db autosave rows; game breaker because the mission did not end at all :/
+- Fixed: Points were not added to player score when a player destroyed a barracks building or a mobile HQ at main targets (if SQL database available)
+- Changed: Add score to players who revive other players too if database is found and revive lives are infinite
+- Changed: Show player message for changing sides in the TT version after intro is over
+
+4.12
+
+- Changed: Don't show score resource when the main map is open
+- Changed: Added d_launcher_cooldown; when a player fires a guided launcher like a Titan then he has too wait a specific time in seconds defined in d_launcher_cooldown (default 120 seconds, can be changed in dom_settings too; 0 to disable)
+- Fixed: UAV servicing at service points did not work at all, game breaker :(
+- Fixed: Some more minor issues and problems
+
+4.11
+
+- Changed: Increased dynamic "Group" simulation from 1000m to 1400m
+- Fixed: Mine sidemission 104 was spawning enemy AI far far away (marker moved by accident)
+- Changed: Reduced number of spawned enemy AI units slightly, seems 1.96 has some performance issues
+- Fixed: Really stupid script error in revive
+- Fixed: Script error in air AI script
+- Fixed: d_ranked_a array was not available on the server (in case a server is not using a SQL database table)
+- Fixed: Air vehicles para dropping or unloading AI over the main target got deleted way too early
+- Fixed: Really stupid error which did not delete AI groups of destroyed vehicles, game breaker
+- Fixed: Island patrol groups were spawning too much crew
+
+4.10
+
+ATTENTION: ALL mission.sqm files have changed!!!!!!
+
+ATTENTION: You need to replace the domination-custom.ini file in your @extDB3\sql_custom folder with the new one!!!!!!!!
+
+- Fixed: The key for turning on Domination Usermenu (TeamSwitch key) was displayed as number and not as key in the intro
+- Changed: Support for copilot (means a copilot is now able to also lift vehicles, drop ammo boxes, etc; should work in flight after a switch too)
+- Optimized: Using toLowerANSI/toUpperANSI where possible
+- Added: Parameter to allow players more target selections across the map, discrete parameters for each of the three garrison behaviors (by longtimegamer)
+- Fixed: Removed occupy buildings troop level parameter, replaced with three parameters for garrison behaviors (by longtimegamer)
+- Optimized: Repwreck, including constant check for a wreck object, now only starts on the server when a player is nearby and ends when the player is gone (or the wreck is repaired)
+- Changed: Disabled AI Radioprotocol
+- Changed: Show score on the main display in the ranked version or when a SQL database is running
+- Optimized: (Capture)CampDialog FSM now only runs if a player is near a Camp and not constantly
+- Changed: Service triggers are now only created on clients, editor placed ones removed, by lelik
+- Optimized: Entity killed eventhandler, now only uses one object space variable instead of 17 different ones (saves 17 getVariable calls)
+- Changed: Replaced Land_Factory_Main_F with Land_IndustrialShed_01_F in "find IED factory" main target mission
+- Changed: Display "Stall" in the camp capture progress dialog if there is a stall between players and enemies at a camp
+- Changed: Artillery projectiles on the way will now be deleted if an arty operator cancels an artillery strike
+- Fixed: If a player connects as leader of an existing group he/she should no longer change the assigned task of other players
+- Changed: 50/50 chance that airborne groups (main tower) now do not paradrop but the aircraft lands and they get out of the aircraft normally
+- Fixed: SM position in convoy sidemissions in ranked and DB mode did not get updated when the original leader of the group got killed
+- Changed: Force convoy sidemission vehicles to stay on road
+- Fixed: Who fired variable was still using missionnamespace variable instead of net ID of player object
+- Fixed: Script error when loading saved mission from SQL DB (ATTENTION: YOU NEED TO REPLACE domination-custom.ini)
+- Fixed: Vehicles placed on the carrier in the Carrier version did not spawn and respawn correctly
+- Fixed: One allmen group had no units in the Sahrani version (CUP_O_SLA_InfantrySquad_Desert)
+- Changed: If player ammobox at base gets destroyed delete it and create a new one so that the Inventory action shows up again
+- And various other improvements and optimizations
+
+4.06
+
+ATTENTION: Livonia/Enoch, Chernarus, Chernarus Winter, RHS Altis and normal Malden mission sqm files have changed
+
+- Fixed: Normal Malden version was using the Malden NBV version mission.sqm file
+- Fixed: After the last RHS update some editor placed vehicles spawned half in the ground
+- Fixed: Editor placed CUP CH-53 always sank into the ground in the Chernarus and Chernarus Winter versions
+- Fixed: Names for players in vehicles were not drawn on the map
+- Fixed: Wreck repair service building was spawned in the chopper repair area in the Livonia/Enoch version
+- Fixed: Wreck repair point was completely missing in the Livonia/Enoch version
+- Fixed: Enemy attack UAVs at main targets did not spawn (vehicle number was always zero)
+- Fixed: Livonia/Enoch version was missing Zeus module
+
+4.05
+- Changed: If d_without_nvg or d_without_vec_ti all optics and headgear which use either NVG or TI will be removed once arsenal or inventory closes (d_without_vec_ti also still turns off vehicle TI)
+- Added: Checkbox in StatusDialog to enable/disable automatic viewdistance change at main targets
+- Fixed: Enemy vehicle HQ could spawn under the ground
+- Fixed: One playable group in the Altis Blufor version was somehow moved outside the map and thus players spawned in the water
+- Lots of optimizations
+
+4.04
+- Changed: Better handling for enemy near MHQ trigger (no more format)
+- Changed: Rewrote camp and barracks creation code
+- Changed: Camp capture FSMs have now exactly the same code as in 3.99s
+- Changed: Removed disableRemoteSensors again
+- Changed: Switched waitUntil {sleep xxx;..} to while loops
+- Added: New param "With 3D draw icon above wreck repair/ammo point:" (d_with_3Dicon), default is on (1)
+- Fixed: While remote AI units on a headless client trigger a EntityKilled eventhandler on a server immediately, the alive status of the killed unit is not updated right away,
+		this broke respawn AI groups when they were transfered to headless clients
+
+4.03
+(Interims version only)
+
+4.02
+- Fixed: MHQ flag removed in TT version
+- Fixed: If "Locate the first enemy camp to capture near the center of the main target" was activated the camp marker of the first camp was not drawn
+- Fixed: In the TT version Viewdistance change slider in the Status Dialog did not work at all
+- Changed: Removed UAV and UGV backpacks from Virtual Arsenal
+- Fixed: In the TT version messages for capturing camps were gone
+- Changed: Server param "Armor at side missions" changed, available is "Normal", Less" and "None" now (d_WithLessArmor_side, 0 = normal, 1 = less, 2 = none)
+- Changed: If a player respawns at a MHQ and there is no ammobox dropped or nearby then he respawns with the same weapons and ammo as he/she had when he/she died
+- Changed: Do stop initPlayerServer if a player connects without a unit ("WARNING: Function 'name' - d_xxxxx has no unit" happens before that and breaks stuff)
+- Fixed: Don't play ambient radio chatter for UAVs
+- Changed: Boats (d_boat_xx) now use d_fnc_vehirespawn instead of a FSM (check 3.97 changelog for respawn params)
+- Fixed: d_WreckMaxRepair was saved as string instead of number to vehicle object space
+- Fixed: Zen_JBOY error messages
+
+4.01
+
+- Fixed: Gamebreaking bug which prevented to blow up radio towers and other main target objects with satchels only
+
+4.00
+
+Version number up to 4 because of many internal changes to the mission code (especially because of the headless client changes and ammo boxes)
+Don't worry, you can still use your 3.99s mission.sqm files :)
+
+ADDED: Livonia (Contact expansion) version
+
+ATTENTION: Weferlingen Summer and Winter sqm files have changed
+
+- Fixed: While there was a "Mortar bag packs in Virtual Arsenal yes/no" parameter it was never implemented
+- Fixed: Ammo point/ammo load marker was gone
+- Changed: Ammo boxes are no longer created locally with createVehicleLocal (BI security change in an upcoming patch prevents using createVehicleLocal in MP)
+- Changed: Removed all createVehicleLocal occurrences for an upcoming BI security change (see above)
+- Fixed: Ammo cargo was removed from all vehicles including ammo vehicles :/
+- Fixed: If With AI was enabled Zeus placed groups on the player side got deleted shortly after the placement
+- Changed: More use of simple objects
+- Fixed: Don't save player data to database if total score is zero while player is still playing
+- Changed: Nights are now handled with a time multiplier of 5 (no parameter to disable it, fyi)
+- Changed: If players are near a main target barracks building (AI respawn) then an AI group in the queue will not respawn (till players are gone, near = 50 meters)
+- Changed: Set the year to 1944 instead of 2035 in the IFA3 version
+- Changed: In the TT version you now also need to destroy all enemy inf AI respawn barracks to seize a main target
+- Changed: Ammo boxes dropped from a MHQ or other vehicles can now be destroyed so take care of those boxes (as they are no longer locally spawned on clients)
+- Fixed: Wrong Stringtable entry was used for marker created specops sidemission
+- Fixed: Unit array was pushed back to delete array instead of appended in sideprisoner side mission
+- Fixed: If NOBONUS was defined as macro then it worked exactly the other way around :(
+- Fixed: Tank depot sidemissions added by marker did not work at all, caused by a script error
+- Fixed: Mines sidemissions added by marker startet sidesteal script instead of sidemines script
+- Fixed: Destroy trucks sidemission did not spawn any enemy AI units
+- Fixed: Arrest sidemissions added by marker did end immediately because of a wrong unit reference (wrong scope)
+- Fixed: Mines sidemissions added by marker did not spawn enemy AI units
+- Fixed: In marker added arrest sidemissions a sniper instead of an officer was spawned
+- Fixed: Marker created steal apc sidemission did spawn a tank instead of an apc
+- Fixed: Marker placed eliminate sniper sidemission did not spawn any AI
+- Fixed: Client sidemission winner script broke with a non defined variable
+- Fixed: FINALLY!!!! Wrong totalscore was written to the SQL database when the server was closed and players were still playing :/
+- Fixed: If a vehicle class for create vehicle at a new flag was not empty it resulted in a script error
+- Fixed: Mash at base did not heal a player because simulation was disabled for the mash
+- Fixed: Repacking magazines added full magazines, rewrote repack magazines code completely
+- Changed: Disabled automatic view distance handler for TT version
+- Changed: Domination now supports more than one Headless Client (you still have to add headless client objects (HeadlessClient_F) if you want more than one HC)
+- Changed: If a Headless Client disconnects the mission will continue normally
+- Changed: If an additional Headless Client connects the groups will be rebalanced across the HCs (same if a HC disconnects and there is still another HC connected)
+- Added: New parameter "With minefield at main targets:" (d_with_minefield in description.ext), default is on
+- Fixed: Replaced deprecated "O_T_APC_Wheeled_02_rcws_ghex_F" class with O_T_APC_Wheeled_02_rcws_v2_ghex_F
+- Fixed: Players in virtual spectator slot did trigger database handling
+- Changed: Updated Simplified Chinese Translation by CHL198011
+- Changed: Revive moan sounds now either use Russian, English or Greek depending on player side, by lelik
+- Changed: The mission no longer uses any MP eventhandlers like MPKilled
+- Fixed: Artillery cluster subammo check sometimes broke because the checked config property can be both, text and array
+- Changed: Added "6Rnd_155mm_Mo_AT_mine_O" and "6Rnd_155mm_Mo_mine_O" to artillery mine magazine removal check
+- Changed: If the Global Mobilization Weferlingen versions find CUP vehicles on the server they will automatically spawn a BW UH1D MHQ, BW UH1D transport, BW CH53 lift and BW CH53 wreck chopper
+- Fixed: Shoot at MHQ message did not trigger when MHQ locality changed from the server to a client
+- Fixed: Wrong "all barracks down" message in TT version
+- Changed: Use current main target (if available) as location for intro, by lelik
+- Changed: You'll now also see enemy UAVs at main targets as attack aircraft (of course not in the IFA3 and GMCWG versions), by lelik
+- Changed: Air taxi landing position will now get marked by smoke or NVG target, by lelik
+- Added: Flags for MHQs, by lelik
+- Changed: Different flyin heights for different aircraft types for enemy air AI which patrols over the main target, by lelik
+- Optimized: Better visibility for enemy air AI patrols over main targets, by lelik
+- Added: Pilot and collisionlights turned on for air taxi vehicles, by lelik
+- Added: More audio messages for written kbTell messages, by lelik
+- Changed: New mash class for spawning mash, by lelik
+- Changed: Updated occupy house scripts, by longtimegamer
+- Added: You'll now also see friendly AI units names above their heads when with ai is enabled
+- And more optimizations and cosmetic changes
+
+3.99s
+ADDED: Livonia (Contact expansion) version (WIP)
+
+- Changed: If a player connects with Global Mobilization in a non GM session disable the GM weapons/items/uniforms/magazines/etc
+- Fixed: When a player created a UAV at a MHQ the UAV crew was not deleted once he dismissed it
+- Fixed: Missing UAV handling applied for all scripts with UAV respawn
+- Changed: Switched back to old draw3D handling again, new one stopped during a mission
+- Changed: Replaced bis_fnc_loop with own system; bis_fnc_loop is not reliable enough.
+- Added: Bloodpool script by lelik for uncon players
+- Changed: Increased size of database colums for bonus vehicles in mission save tables
+- Fixed: Markers did not work for additional vehicles when player side was not defined yet (d_add_vec_ and this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]];)
+- Fixed: Don't switch on dynamic simulation for civilian prisoners in prisoner sidemissions too early (results in those units dropping dead to the ground)
+- Fixed: On bigger islands like Altis the cutoff time for main target para troops transport choppers was too low resulting in no para drops
+
+3.99r
+ATTENTION: Weferlingen Summer and Winter sqm files have changed
+
+- Fixed: Don't auto change main target viewdistance when Zeus dialog gets enabled
+- Fixed: Don't mix up viewdistance change in status dialog when auto viewdistance at main targets kicks in
+- Fixed: In ranked mode or when a database is found and engineer full is activated last repair base was calculated wrong
+- Fixed: Reviewed all cleanup routines again, ALL units should now get deleted
+- Changed: Global Mobilization vehicle markings are restored after vehicle respawn
+- Changed: Replaced M113 with Fuchs as MHQ on Weferlingen maps
+
+3.99q
+ADDED: Global Mobilzation summer and winter version 
+
+- Fixed: Wreck transport with non airborne vehicles was broken
+- Fixed: Saving progress to a SQL database was broken (script error)
+- Fixed: Main target selection broke TT version
+
+3.99p
+- Fixed: Don't show MHQ and Chopper action menu 50 meters away from the vehicles
+- Changed: Remove weapon cargo from bonus vehicles in ranked mode
+- Added: Enemy AI respawn barracks at main targets in TT version
+- Fixed: Enemy AI barracks and mobile HQ were spawning too close together
+- Removed: Double d_tt_points entry from Domination.sql dom_settings table
+- Added: d_ai_groups_respawn_time to Domination.sql dom_settings table
+- Fixed: Two chinese strings had references to a server (I'm sorry but I'm too old to learn Chinese :))
+- Fixed: Don't try to save headless client score to a SQL database when it leaves the server
+- Fixed: Don't autosave mission progress after a sidemission is resolved before the bonus vehicles get created
+- Added: New mode sidemissions without bonus vehicles (description.ext d_without_sm_bonus, server lobby "Without sidemission bonus vehicles:")
+		 Does not create bonus vehicles if you solve a sidemission. It is now possible to place vehicles like attack choppers and planes or tanks, etc,
+		 which will be there at mission start but are handled like bonus vehicles (wreck handling; vehicle var names have to start with d_vecs_special_ )
+- Added: Blufor Malden NBV version which uses d_without_sm_bonus from above
+- Updated: Russian translation (by Topden)
+- Fixed: Some functions which were supposed to run on both, server or a headless client, still were exiting on a headless client
+- Added: Enemy AI now also can call in CAS strikes
+- Fixed: Some items were missing when using mods and in ranked mode
+- Added: If "Players can select next main target" (d_with_targetselect in description.ext, enabled by default for now) is enabled players can select the next main target (max 4 choices) by map clicking on a target
+- Changed: Don't update the database if getPlayerScores only returns zeros when saving player stats
+- Removed: APERS Mine Dispenser from Virtual Arsenal (causes FPS issues)
+- Added: Terraingrid is now saved to profileNamespace like viewdistance and will be set to what the player had selected last time
+- Changed: Players can now also select respawn/teleport target by map mouseclick
+- Various optimizations
+
+3.99o
+- Added: Chinese translation (by CHL198011)
+- Fixed: Remove killed eventhandlers from barracks and mobile HQ from resolved main target once cleared to prevent counting down the variables for the new main target
+
+3.99n
+- Changed: Draw MHQ 3D marker in every frame again
+- Fixed: Critical error (bonusVec script with DB crashes) and a faulty array of bonusVec positions when loading DB savefile (by Auge)
+- Fixed: Score was subtracted for parajumping from base/flag even if the player did not jump/closed the dialog
+- Fixed: Pylon loadout dialog was closed when a player openend the dialog with the space key (focus issue)
+- Changed: AI inf and vehicle groups respawn times at main targets can now be changed with d_ai_groups_respawn_time array (check fn_preinit.sqf; can also be added to dom_settings SQL DB table)
+- Added: New marker system at main targets. You'll see now areas with enememy AI units
+- Changed: Better mhq (bike) vehicle creation (by Auge)
+- Changed: Increase the time for enemy AI inf respawn groups with every barracks building destroyed to prevent respawning at one building of all groups
+
+3.99m
+- Fixed: Draw3D for other players in revive spectating was missing because of missing define
+- Changed: Calculate player positions for draw3D player names above heads in every frame again (every 4 frames is not smooth enough)
+- Changed: Added old Domination and A3 logo resources to new intro
+- Changed: Don't respawn enemy AI groups if there are no players on a persistent server
+- Changed: More robust move checks and deletion of enemy AI air units spawning at the edges of the map
+- Changed: More checks if a player is admin (every frame again instead of every 10 frames)
+
+3.99l
+- Added: New mission parameter to disable artillery cooldown (default 300 seconds) (by longtimegamer)
+- Added: Replaced the explicit user ID with #adminLogged for Zeus access (by longtimegamer)
+- Added: New parameter infantry can occupy buildings using script by Zenophon (by longtimegamer)
+- Added: New parameter probability of infantry being chosen to occupy a building (by longtimegamer)
+- Added: New parameter disable enemy air attack (by longtimegamer)
+- Added: New parameter punish for killing a civ (instant death) (by longtimegamer)
+- Added: New parameter maximum number of enemy infantry barracks, default 4 (by longtimegamer)
+- Added: Improved spawning of occupying enemy AI, now does not break up non-garrisoned groups (by longtimegamer)
+- Added: New parameter to configure the number of garrisoned groups to spawn at each target (by longtimegamer)
+- Fixed: Isle defense was broken when running on a headless client
+- Changed: Set damage to 0 when infantry AI units spawn in the air after some time
+- Added: Marker at UAV position with player name when a player connects to a UAV
+- Fixed: Main target units/vehicles did not get deleted correctly on a headless client
+- Fixed: When a headless client was used camp marker handling was broken
+- Fixed: When side missions only was selected a script error related to d_cur_tgt_pos was thrown
+- Fixed: New RscMapControl config properties introduced in 1.90 release candidate caused dialog error
+- Added: New parameter attempts to place the first enemy camp very near (10m) the center of the main target (by longtimegamer)
+- Added: Select air taxi type
+- Added: The player who called in an air taxi can now change it's destination after calling it in
+- Changed: You can now change pylon loadout for pilot and gunner individually in the pylon loadout dialog (like in 3DEN editor)
+- Fixed: Sabotage group choppers did not get deleted if they did not move (Arma problem, sometimes vehicles do not move even if they have a valid waypoint)
+- Added: AI inf unit spotdistance, spottime and aimingspeed changes at night or when there is fog or rain
+- Added: You can put this setVariable ["d_disable_pylonloadout", true] into the init field of an editor placed plane/chopper to disable pylon loadout for this air vehicle
+- Added: Pylon loadout can be disabled completely in the server lobby/params (d_pylon_lodout -> "Pylon loadout enabled:")
+- Added: Repack magazines (button available in inventory dialog)
+- Added: Lock player backpack for other players
+- Added: User markers now visible in 3D world (can be toggled on and off with User Key 16, please make sure to set the key up in A3 control settings; not available in ace)
+- Optimized: Moved calculation for draw3D stuff outside the 3D draw eventhandler (not everything needs to be calculated every frame)
+- Fixed: Multiple handleScore EH's got added in hosted environment (by Auge)
+- Fixed: "Killed" parachutes added/subracted points (by Auge)
+- Fixed: Small fixes for wreck repair point (by Auge)
+- Changed: Less enemy AI inf groups at main target but faster respawn (non TT versions)
+- Changed: Do not delete isle defense groups if players are less than 1000m away
+- Changed: Removed delete marker from specific user because the id inside the user defined marker is not the net id but some other whatever ID
+- Changed: Enemy AI inf and vehicle groups have different respawn times at main targets now
+- Changed: Any group leader can now rescue/arrest AI units in side missions and not just the artillery operators
+- Added: New A3 style intro which can be canceled immediately by pressing the space key
+- Changed: Only check for enemy AI infantry to announce a new main target (some vehicle types might not get spawned anymore :))
+- Added: Ambient vehicle radio chatter (by lelik). Check d_WithAmbientRadio in description.ext/With ambient radio: in server lobby params
+- Added: Ambient vehicle radio chatter for the RHS version (by lelik)
+- Fixed: Don't save player score to database if player score <= 0 to prevent overwriting DB values
+- Fixed: Loading and placing bonus vehicles from a database save file was not using the latest code from getbonus.
+- Fixed: Wrong trigger size was used for player placed FARP triggers on remote clients
+- More optimizations
+
+3.99k
+- Fixed: For whatever reason BI dynamic groups dialog script suddenly overwrote teamswitch key handling
+
+3.99j
+- Changed: Removed player shooting too much at base message (plus kick to server lobby with endmission)
+- Fixed: Player names over head were not showing if max revive lives were set to unlimited
+- Fixed: Script error in fn_vehirespawn.sqf and planes exploding when respawning
+- Fixed: Rare script error in createmarker functions
+- Changed: Removed d_rev_respawn_vec_types
+- Updated: Russian translation
+
+3.99i
+- Added: Rosche, Germany Blufor version ( https://forums.bohemia.net/forums/topic/219592-rosche-germany/ )
+- Fixed: Base AA vehicles could be lifted
+- Fixed: Stupid bug in fn_create_sm_bymarkers.sqf which broke creation of sidemissions by markers only completely :/
+
+3.99h
+ATTENTION: Altis Blufor, Altis Opfor, Altis RHS Blufor and Altis RHS Opfor mission.sqm files have changed
+
+- Changed: CAS plane now starts either 90 degree left or right of the player to prevent killing him if he calls CAS on a hill
+- Changed: You can now select another destination for an air taxi, till now it was base only (which still is default)
+- Fixed: UI in Status Dialog to make Russian translation fit better 
+- Fixed: Script error in Spectating Dialog (game breaker :/ )
+- Changed: Removed With AI mode in server lobby in the TT version again
+- Fixed: Memory leak in fn_airtaxiserver.sqf
+- Changed: Replaced air taxi choppers with VTOLs (where possible)
+- Fixed: Air Taxi script on the server did not end if a fast air taxi like a VTOL reached the endpos
+- Fixed: Air Taxi landing position is now using findEmptyPosition to find a suitable landing spot
+- Fixed: Script error in Get_Heli_Rappel_Points function (me too stupid to optimize :/)
+- Fixed: Spectating respawn button was immediately available when respawn_available_after timer was still running
+- Fixed: Spectating respawn button was available when clicking on non available MHQ
+- Fixed: Show main target color winner side in the TT version (green for draw) again
+- Added: Russian translation (WIP) to Stringtable
+- Fixed: Deliver sidemission start corrected in Altis mission.sqm files
+- Fixed: Sabotage at base did spawn default A3 unit instead of RHS units in the RHS versions
+- Fixed: Containers were floating at some Farps in the Altis versions
+
+3.99g
+ATTENTION: TT Altis Blufor mission.sqm file has changed
+
+ATTENTION 2: Change d_side_missions_random in missionsave and missionsavett in the SQL database from 300 to 600 (if you are saving mission progress)
+
+- Fixed: It's Papa Bear not Papa Baer (well, in German it is correct :))
+- Fixed: Altis TT version blufor respawn position at base corrected (respawn could happen on balcony of the nearby building)
+- Changed: Removed player spectate at base from TT version
+- Fixed: Side missions award did not spawn in the TT version because of empty spawn marker array :/ (Game Breaker)
+- Added: You can now put your earplugs in and out with user action key 15 (you have to set a key in the game/A3 control settings yourself, user 15!)
+- Changed: In the TT version players have to wait 30 minutes (outside the running mission) to switch sides, otherwise they get kicked to the lobby of the current server
+- Fixed: Do not show the "Nearby informed players:" message in spectating when a player has no lives left
+- Fixed: Disable spectating respawn button exec if player has no lives left
+- Fixed: Players who connect again immediately and have no revive lives left can play again
+- Added: Transfer score to another player dialog in ranked mode
+- Fixed: A IFA3 classname was used for spawning a side mission unit in the RHS version :(
+- Fixed: If a headless client was connected it overwrote player scores in SQL database
+
+3.99f
+ATTENTION: @extDB3\sql_custom\domination-custom.ini has changed!!!! You have to replace it with the new version!!!!!
+
+- Fixed: Vehicle ammoload did not work in the IFA3 version
+- Changed: Disabled loading and saving gear in Virtual Arsenal in the IFA3 version
+- Fixed: Arty operators were not able to call in artillery strikes anymore in the TT version
+- Fixed: Players were able to grind points by destroying their own vehicles
+- Fixed: Nasty bug in fire arty server script which broke arifire in the TT version
+- Fixed: Completely broke point handling in ranked mode (points needed for firing arty or calling in CAS) -> game breaker :(
+- Fixed: Don't send player overview for players who are not in the SQL database yet, broke initPlayerServer script
+- Fixed: In the TT version when a player switched sides SQL DB totalscore was not transfered to the new player in a running session (for the game it is a new player)
+- Fixed: Enemy spotted one of the teams was written twice on screen in the TT version
+- Fixed: When a player switched sides in the TT version he got the weapon he had saved while beeing on the other team side
+- Fixed: When ace was used in combination with ranked mode it broke Virtual Arsenal
+
+3.99
+- Changed: Rearanged i_weapons_default.sqf and added missing A3 weapons
+- Changed: Rewrote i_weapons_base.sqf, i_weapons_x now has a new format (weapons and other stuff now only needs the class names and no arrays with class names and other information anymore)
+- Changed: TT weapons and items are now handled inside the normal coop ranked part in i_weapons_x
+- Changed: i_weapons_x no longer loaded when ranked is not activated
+- Changed: Removed more stuff from Virtual Arsenal (like virtually all static weapon backpacks and civilian clothes)
+- Fixed: Night vision goggles and rangefinder were added in the IFA3 version
+- Changed: In ranked mode blufor only uses blufor weapons and opfor only opfor weapons
+- Added: CUP weapons and items for ranked mode
+- Removed: Self heal from x revive (who needs it in times of MedKits)
+- Changed: You can no longer parajump into a main target area
+- Fixed: Stupid copy and paste error in vehirespawn and getbonus scripts
+- Added: Random ambient battlefield sounds at main targets
+- Added: IFA3 weapons and items for ranked mode
+- Fixed: CAS did not work in the TT version
+- Fixed: Not much enemy AI was spawned in the Sahrani CUP version because of SLA group name related changes in CUP
+- Fixed: Ace arsenal now also saving weapons correctly for respawn when dialog closes
+- Changed: Viewdistance now persistent (after changing it Status Dialog)
+- Added: Random house patrol for AI inf units at main targets (can be enabled/disabled in server lobby "With enemy AI house patrol at main targets:" / d_house_patrol)
+- Fixed: Air taxi did not work in non with friendly AI versions
+- Added: If Unsung mod is found show only Unsung stuff in Virtual Arsenal
+- Optimized: When With AI is enabled run HighCommand helper script only if HC gets activated
+- Optimized: Ranked weaponcargo only called when rank changes now and not running in an extra script for all weapon crates
+- Fixed: In rare circumstances handleobserver script could break out with a nil variable value
+
+3.98
+ATTENTION: The following mission.sqm files have changed: Chernarus, Winter Chernarus, Takistan and Sahrani
+
+- Changed: The camp number is now written near an enemy camp at the maintarget on the map and above the camp in 3D
+- Fixed: Script error in engtrigfnc
+- Fixed: When ace was enabled and CUP or RHS was used Virtual Arsenal was showing all weapons instead of 3rd party mods weapons only
+- Fixed: It could happen that the number of the enemy inf barracks did not match the number of inf barracks internally used (-1 left)
+- Fixed: When a player was unconscious in the CUP versions he was standing and not lying uncon on the ground (game breaker :/)
+	     (missing "xr_respawn" marker, please replace the CUP mission.sqm files or add an empty "xr_resp_marker" marker in an area where nothing happens)
+- Fixed: Don't show rappel AI action anymore when the AI units are in action
+3.98a
+- Fixed: CUP planes do use mixed arrays for positions in Transportpylon config ({0.11, "0.12+0.2"})
+- Changed: You can exclude magazines from the pylon loadout now (see CfgVehicles.hpp in mission root folder)
+- Added: Board with server rules (only on the Blufor Altis version which has a little bit different base layout)
+
+3.97
+- Fixed: Server artillery scripts were using player scritping command instead of the correct player variable reference
+- Changed: Arty operators can now cancel arty strikes (does not cancel salvoes already on the way)
+- Fixed: Engineer repair and refuel capabilities are now only restored if the player is in base and not everytime he/she gets revived or respawns somewhere
+- Changed: There are now 2-4 enemy AI inf barrack buildings and enemy AI groups respawn randomly at one of them (as long there is a brrack building left)
+- Changed: If old engineer handling is enabled show the number of seconds an engineer has to wait till he can repair at base again
+- Changed: A wreck chopper pilot now gets 20 points for bringing a wreck to the wreck repair point (if database is found or in ranked mode)
+- Fixed: Various issues with wreck lifting (like Release Wreck action not going away)
+- Changed: AI airtaxi is now available in all versions except TT for all players (one taxi for all players)
+- Changed: Removed Special Purpose Suit from Virtual Arsenal uniforms when player is on Blufor side
+- Changed: Show the number of seconds a player has to wait before he/she can deploy/undeploy a MHQ again
+- Changed: It is now possible to remove entries from Virtual Arsenal by either code or classname (d_remove_from_arsenal in init\fn_preinit.sqf)
+- Changed: If database is found and player has a score higher than 500 remove auto kick from air vehicles after 30 seconds
+- Added: Dynamic pylon loadout editor. Just enter a plane or chopper which supports it while it doesn't move and engine is out at base and you get the action menu.
+		 For UAVs just walk to the UAV and use the hold action outside the UAV
+- Fixed: CAS plane rocketlauncher should now also work for dynamic loadout planes (like RHS A10 or SU25)
+- Changed: Respawn scripts for vehicles...
+		   - Give the vehicle a unique var name in the editor. The var name has to start with d_add_vec_
+		   - You can add the following setVariable options to the init line of the vehicle in the editor:
+		     * this setVariable ["d_respawn_delay", 100]; // default is 300, if you use -1 the vehicle respawns almost immediately if destroyed
+			 * this setVariable ["d_respawn_fuelcheck", false]; // if true, the vehicle respawns with the same fuel it had when it was destroyed, default true
+			 * this setVariable ["d_respawn_liftit", true]; // The vehicle can now be lifted by a lift chopper
+			 * this setVariable ["d_respawn_icon_text_col", ["n_support", "Vec 1", "ColorWhite"]]; // Adds a marker, text to the marker and a color for the marker to the vehicle
+			     (for available markers check the following page: https://community.bistudio.com/wiki/cfgMarkers )
+			 * this setVariable ["d_empty_respawn", 10]; // The vehicle will respawn after a specific time when no player was nearby (only available when d_respawn_delay != -1)
+- Added: Advanced rappeling from Duda
+- Fixed: Map drawing on GPS map (yet again)
+- Optimized: Map drawing, do only draw map icons and markers if they are actually visible
+- Changed: Replaced side mission bonus vec jet and attack chopper classes with the ones which support dynamic (pylon) loadout (including CUP)
+- Fixed: Do not immediately trigger refuel in engineer full mode when vehicle fuel ammount is under 1
+and many more fixes and optimizations
+
+3.96
+ATTENTION: The following mission.sqm files have changed: Altis, Malden, Carrier Altis, Opfor Altis, Tanoa, Tanoa TT, Blufor RHS and Opfor RHS
+
+- Fixed: Undefined variable d_rscspect_on when using player and admin spectate causing massive RPT spam, fix by Auge103
+- Changed: In the carrier version it is now possible to end a "bring something back to base" side mission at the air base too (and not only on the carrier)
+- Fixed: It could happen that a camp marker had the same name as the previous one
+- Changed: Turn on NVgoggles again if a player opened Virtual Arsenal with NV on (if goggles are still available)
+- Changed: Show also seconds for time to wait till next parajump from base/farp and not only minutes
+- Changed: When creating a vehicle at a MHQ or FARP find a correct empty vehicle position in a 50m radius
+- Added: A message is now written to the server rpt and a hint is shown when a player shoots at a MHQ vehicle
+- Changed: Add 10 points when reviving a player instead of just 2 (please change manually in dom_settings table if you use a sql DB)
+- Changed: Better uav respawn handling
+- Fixed: Show correct name of additional respawn point or farp instead of position when selecting a respawn pos in revive dialog
+- Fixed: Typo in fn_uncon_oneframe.sqf
+- Changed: Additional respawn points are now sorted by name
+- Changed: Vehicles will now respawn with correct pylons and animations (for example changed in editor via pylon editor or garage)
+- Improved: Better position handling for vehicle spawning (findEmptyPosition) 
+- Added: Encore update destroyers to carrier
+- Added: Base sabotage. Enemy will drop in assault soldiers with satchels and attack your base. Disabled by default, can be enabled by server lobby params (d_with_base_sabotage)
+- Changed: Score gets subtracted if a player dies and a SQL database is available (you have to change server lobby param d_sub_kill_points)
+- Changed: If a SQL database is available score gets subtracted when a player calls CAS, calls an air taxi, calls in artillery, creates a vehicle (at MHQ for example),
+           calls an air drop, calls a UAV at MHQ, makes a parajump from base, opens fake UAV at MHQ, builds a FARP (check d_ranked_a)
+- Changed: If database is available infantry player inside the main target area get more points when killing AI (inf only outside vehicles)
+- Added: New sidemission type send data with data terminal
+- Added: New sidemission type destroy earthquake device
+- Added: New sidemission type destroy SAM site
+- Added: New sidemission type destroy weapon cache (by Lelik)
+- Added: New sidemission type destroy support vehicles
+- Changed: Activated naval mines sidemissions again (Altis, Malden and Tanoa)
+- Fixed: Various Malden sidemissions (wrong markers for direction used and wrong localization strings)
+- Fixed: Don't create sandstorm over water
+- Fixed: getBonus bugged out when a side mission bonus vehicle was a carrier based plane
+- Fixed: Sidemission 7 on Malden causing broken create armor script because of missing second marker
+- Changed: Nicer UI above capture camps (circle and no longer just text)
+- Fixed: Script error when script didn't find new camp position
+- Fixed: Tanoa TT version Little Birds did explode at mission start
+- Fixed: Don't kick player AI out of a static weapon or parachute if d_ai_alone_in_vehicle is enabled (only available with ai mode)
+- Fixed: Wrong string to select arty vecs in the TT version
+
+3.95
+- Fixed: Rewrote deleting AI only groups on player side for UAVs (even Zeus placed) again when with AI is enabled, works now, I promise!
+- Fixed: Huge VTOL vehicles like Blackfish no longer explode when beeing spawned as sidemission reward
+- Changed: VR uniforms removed from BI Virtual Arsenal
+- Fixed: If "Parachute from base" is disabled then also disable it at additional respawn points like farps
+- Added: New server lobby parameter "Add action menu "Spawn vehicle" to FARPs:", default is Yes
+- Changed: If database is available add extra points (default 3) to the player who placed a mash if another player heals at that mash
+- Changed: If database is available add extra points (default 10) to players who were at the side mission (same points as in ranked mode, added to player total score; not available for all sidemissions)
+
+3.94
+- Changed: New server lobby param d_no_mortar_ar "Mortar bag packs in Virtual Arsenal", default no, means no mortar in VA
+- Fixed: Use correct position for barracks building fake ruin
+- Fixed: Island patrols did not work on headless client
+- Improved: Rope attachement points for helilift by Auge103
+- Fixed: Stupid "I forgot to remove a copy and paste text" in server\x_f\fn_getbonus.sqf which completely broke it (mission breaker :/)
+- Fixed: Do not delete UAV invisble crews when with AI is enabled, makes player placed drones work again
+
+3.93
+- Fixed: When With AI is enabled do not delete UAV AI
+- Changed: ace arsenal disabled in ranked mode
+- Fixed: Convoy side mission was broken (thx @auge103)
+- Fixed: When High Command groups on the player side are available do not delete them when with AI is enabled
+- Fixed: Used wrong mission files so 3.92 was still reporting version number 3.91
+- Fixed: Respawning on the Carrier in the carrier version was broken
+- Fixed: Do not delete Zeus placed groups which are friendly to the player side
+
+3.92
+- Changed: The following is available either in ranked mode or/and if extDB3 with a SQL database is running (uses points from d_ranked_a)
+           * Players get extra score for transporting others
+           * Players get extra score when they are near a main target when it gets cleared
+		   * Players get extra score for reviving another player
+		   * Players get extra score for destroying a radio tower, capturing a camp and solving a main target sidemission
+- Fixed: For whatever reason it can happen that when a player calls in artillery that arty vehicles at base shoot at each other resulting in the arty caller beeing blamed for shooting at the arty vecs
+- Fixed: dom_params2 was not filled with params thus making a hotfix release necessary :/
+
+3.91
+ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file have changed!!!!
+		   You can also delete dom_params table in the Domination sql database, a new one gets created called dom_params2 (run the server once to fill it)
+
+- Changed: Removed recapture main targets
+- Changed: Server lobby params (class Params) through SQL DB with a much better and more flexible system
+- Fixed: Don't run sandstorm script if player is unconscious
+- Fixed: Sidemission cleanup routine broken when HC was enabled. Variable got not initialized on HC anymore after cleanup
+- Added: New server lobby parameter "Use only mod weapons in Virtual Arsenal:" to disable mod only weapons in VA completely
+- Fixed: Deliver sidemission vehicles can be lifted again
+- Changed: Added more sleeps to move AI script and removed reveal for each AI unit, hopefully removes lags for some people (only gets called when With AI is enabled)
+- Fixed: Do not delete the kbTell unit groups when With AI is enabled because then many sidechat kbTell messages are gone too.
+- Added: New lobby parameter "Enemy AI vehicles can be air lifted:", default yes; if disabled no enemy AI vehicles can be airlifted
+- Added: Use vehicle setVariable ["d_no_lift", true, true] to remove it from lifting. Even if a vehicle is initialized with setVariable ["d_liftit", true, true] it won't get lifted then
+- Fixed: In the RHS version russians do speak russian now and not farsi :)
+- Changed: Dom general settings like use params from sql database were moved to dom_settings table (run Domination.sql file first, with Heidi for example)
+           Settings available in SQL DB settings table: d_use_sql_settings, d_db_auto_save, d_reserved_slot (attention d_reserved_slot has changed to array), d_uid_reserved_slots,
+		   d_uids_for_reserved_slots, d_cas_available_time, d_ranked_a, d_points_needed, d_points_needed_db, d_tt_points, d_set_pl_score_db
+- Fixed: Sidemission units should no longer spawn in rocks
+- Changed: Using player vehicle var name as references is broken if the game thinks that a player is a "Error: No unit", use allPlayers instead of d_player_entities (maybe one day BI will fix)
+- Changed: Better check if a unit is a player as isPlayer scripting command returns false if a player is "Error: No unit"
+- Changed: You no longer need to put the playable units var names into d_player_entities or d_entities_tt_blufor/d_entities_tt_opfor in init\fn_preinit.sqf anymore. The var names are still needed just not in those arrays anymore
+- Changed: When ace is found use ace arsenal instead of BI virtual arsenal (works also for ranked mode except uniforms and items for now)
+- Changed: Added ACE support for different medical items (by Boersencrash321)
+- Added: Support for special rank "General"
+- Fixed: Script error in fn_db_loadsavegame_server which broke bonus air positions (and probably others) when a DB save game was loaded
+- Fixed: Better ace support for killed eventhandler (killer might be null because of ace medical system) by Auge103
+- Changed: Player scores are now saved every few minutes to SQL DB (if extDB3 is enabled) instead of just when a player disconnects
+- Fixed: Search intel was using wrong index for intel array because of a removed intel
+- Changed: Deliver sidemission vehicle driver has to be a player now
+- Changed: No longer automatic radio messages spam when with AI is disabled
+and many more fixes and optimizations
+
+3.90
+ATTENTION: ALL mission.sqm files have changed
+
+ATTENTION: If you use a SQL database please remove the primary key (name) in the missionsave and missionsavett tables (otherwise you can't save a mission with the same name on different islands)!!!!
+
+- Added: RHS Altis Blufor version
+- Changed: You no longer need to add classes of vehicles which can be lifted by air lift to an array, it's done automatically now
+- Changed: Use instigator instead of killer or shooter in "killed", "mpkilled" and "handleDamage" eventhandler where it makes sense
+- Changed: Add 5 points score if a player destroys either the enemy inf barracks or the enemy mobile vehicles HQ
+- Fixed: If number of main targets selected in the lobby exceeds main targets available reduce it to the correct number
+- Changed: DB Top player list is now updated every 10 minutes (not all values as some values are only saved to DB when a player leaves the server)
+- Changed: Made use of new scripting commands findIf and disableMapIndicators (set to [true (disableFriendly), true (disableEnemy), false (disableMines), false (disablePing)])
+- Fixed: ACE medical items were not available in the ranked mode
+- Fixed: Drop RHS vehicles by air drop and not default A3 vehicles
+- Fixed: Additional unique (d_add_resp_points_uni) respawn points of other team got not removed in the TT version
+- Changed: More generic ToolKit check for engineers
+- Removed: Old ordered routes (like West, East, South, North) for a few islands and added new ordered route based on navigation algorithm for all islands, default now (still a little bit random)
+- Added: USS Freedom carrier to normal Altis Blufor and Malden Blufor version (Wasp bonus aircraft will spawn on it)
+- Fixed: When ace was used virtual arsenal was empty :/
+- Added: RHS weapons for ranked mode (OPFOR and BLUFOR), thx to Bagram
+- Fixed: When database params were used TT params got messed up
+- Fixed: Prevent database mission loading when the mission is already running
+- Fixed: Headless client unit was missing in the Malden version
+- Fixed many bugs/problems/script errors during play testing. And also many more optimzations and other small fixes
+
+3.89
+- Fixed: Additional FARP objects (FARP placed by engineer player) were spawning in the air
+- Fixed: Vehicle markers (MHQ, Lift choppers, etc) disappeared when players left a vehicle
+
+3.88
+- Fixed: Wrong size of artillery operator string in side arrest missions thus arresting was not possible in non AI versions
+- Fixed: Recruited AI got deleted after a few minutes in the AI version :/
+- Fixed: Empty island patrol group vehicles got not deleted (it's _x select 2 not _x select 3, grrrr)
+- Fixed: CAS could get deleted in the AI version :/
+
+3.87
+- Fixed: Viewdistance slider was still linked to old settings dialog thus was not updating viewdistance immediately
+- Fixed: Ammo box at base does now really respawn again (that was a real PEBKAC) :/
+- Fixed: In the ranked version items like MedKit, etc, was missing for all ranks except Colonel
+
+3.86
+- Fixed: Script error when respawning at base in the Carrier version :/
+
+3.85
+- Fixed: Air drop and air taxi groups and units got deleted after a short time :/
+
+3.84
+- Fixed: Calling artillery was completely broken in 3.83 (just a missing " :( :( )
+
+3.83
+ATTENTION: Domination.sql file (execute with Heidi) and domination-custom.ini file has changed!!!!
+ATTENTION: Carrier and Altis mission.sqm file has changed
+
+- Added: RHS Opfor version
+- Changed: XRevive now also allows more than one friendly side
+- Fixed: Player ammo box was not respawned at the correct position in the Carrier version
+- Added: Rank is now also displayed with name above head (draw3D)
+- Changed: In mod versions (CUP for example) only the mod weapons and uniforms will now be available in Virtual Arsenal
+- Changed: Removed settings dialog, settings are now part of the status dialog
+- Added: All mission params can now be changed in a new sql database table (dom_params table). Please run the mission once in MP mode if you have updated the dom custom sql ini file and execute Domination.sql with Heidi!
+		 Please note that database dom_params table will always overwrite the settings an admin selects in the lobby :)
+- Changed: Switched back from switchMove "AinjPpneMstpSnonWrflDnon" to switchAction "Die" again for players who get killed (and then are uncon). Looks better and smoother than the "oh yeah I have to move to my back" anim.
+- Fixed: If just one vehicle of an island patrol group gets stuck and not just the leader vehicle delete and recreate the whole island patrol group
+- Fixed: extDB3 1031 and higher now also supported (extDB3 extDB3_var_loaded was changed from a normal boolean to compileFinal which means it is no longer a boolean variable but code now)
+- Fixed: Deliver side missions were using normal A3 trucks in third party addon versions like CUP
+- Added: New system to create sidemissions with markers only, just place an empty marker and name it like this "d_smm|49|radiotower".
+         It will create a destroy radio tower sidemission including inf and armor automatically (compatible with the old system!), nothing more to do!
+- Changed: Rep engineer feature (when engineer full is enabled) moved to holdAction (like in revive) instead of normal action and medic animation
+- Changed: Switched search body feature from normal action to holdAction
+- Fixed: Malden reports wrong mapsize in config. 30000 instead of 12800
+- Changed: New gameplay feature, enemy AI barracks and mobile HQ building at main target (responsible for respawning enemy AI maint target inf inside the barracks and enemy AI armored vehicles outside the main target
+- Changed: Cooldown time till a player can create a new vehicle at a MHQ now (default 120 seconds, can be changed in the server lobby)
+- Fixed: 3DDraw script error when a wreck was placed on wreck repair point
+- Fixed: Wrong main target mission resolved text for "find truck concealed as medic vehicle"
+- Fixed: On one server d_AISpawn suddenly vanished which broke some scripts.
+- Changed: Markerpos of destroyed vehicles like MHQs is now also displayed on the map (till now no marker was drawn when a MHQ was destroyed)
+- Changed: Removed main target counterattack (did not add much to gameplay)
+- Fixed: Side prisoner mission was completely broken (gamebreaker :/)
+- Fixed: Teleport to an additional respawn point always showed the last point instead of the currently selected one (when using more than one additional respawn point)
+- and a lot of more (internal) fixes and changes
+
+3.82
+- Fixed: A really stupid error between my ears (in other words, cluster bombs dropped by planes should now really no longer destroy a radio tower)
+- Fixed: Convtime also for player play time
+
+3.81
+ATTENTION: ALTIS Blufor, Carrier, Chernarus and Winter Chernarus versions mission.sqm file was changed!!!!
+
+- Fixed: Convtime function which returned total nonsense results for how long a player played on a server (player top 10, only available when sql database is used)
+- Fixed: In the ranked version when a player called CAS score was not removed (player now needs 20 points to call in CAS)
+- Fixed: Vehicle service points should now really reload all vehicles correctly again, including aircraft pylons (even when loadout was edited in editor)
+- Changed: Routine to draw 3D text for service points, etc, simplified (no longer hardcoded)
+- Fixed: Check for Malden version was wrong, returned true when it was not the Malden version
+- Fixed: Don't draw player name on map if player selects respawn when he/she is unconscious (only start drawing when the player actually has respawned)
+- Changed: d_player_ammobox_pos no longer hardcoded, you can add as much as you want by adding a hidden d_player_ammobox_posX marker on the map; ammo boxes will be added automatically
+- Changed: Added three FARPs to the Altis Blufor version
+- Changed: You can add as many FARPs to the map as you want now (like in the Malden version), just make sure there is a flag with a var name which starts with "d_flag_bb", a marker which starts with d_player_ammobox_pos and a trigger for the service point where the name starts with d_serviceall_trigger
+- Changed: Database Top 10 dialog is now much easier to read (finally, still not perfect but at least one can really read it now)
+- Fixed: Option to respawn at squad leader should no longer appear if a player is squad leader
+- Changed: Removed who is artillery officer, engineer, etc, text boxes from Settings Dialog^(Settings Dialog is WIP)
+- Fixed: When setting the group leader in x_revive use the current group and not the one saved at mission start (player might switch group via squad mgmt)
+- Changed: Place the flag at base to the initial position, direction and set vector up it again every five minutes (sometimes the map board flips over and lies on the ground)
+- Fixed: Player scripting command instead of object reference was used in handleDisconnect which only runs on the server
+- Fixed: It was possible to destroy the radio tower with cluster bombs fired from planes because some cluster bomb sub ammunition has simulation shotMine
+- Fixed: Headless client unit was not set to playable in the Chernarus and Chernarus Winter version
+- and some more internal changes
+
+3.80
+- Changed: Replaced a lot of the side mission texts with generic ones (stringtable.xml went down from 708kb to 469kb, easier to translate now)
+- Changed: Editor placed boats now also respawn when they get moved more than 50 meters (d_boat_x)
+- Fixed: Environment was completely enabled again when using the (fake) UAV
+- Fixed: If a player name had a special char like " it broke some scripts (it actually broke BIs scripting commands like addAction)
+- Changed: Player markers are now also visible on the artillery computer and the UAV terminal map
+- Changed: In the AI version AI units are now transfered around the positon of the player when he parajumps to prevent injuries (20+ meters)
+- Fixed: Some other script errors in the moveai script, working fine now again
+- Added: Cleanup for ejection seats and canopies
+- Fixed: Players were able to use parajump at farps the whole time. Now they have to wait HALO waittime like at the flag at base
+- Changed: Show all service point messages for UAVs again if a player is connected to a UAV (otherwise players thought it would not reload weapons)
+- Fixed: Reload script (chopper service/vehicle server/plane service) was not working anymore, some turrets were skipped (rewrote that part without recursion)
+
+3.79
+- Fixed: Somebody (I think it was me) deleted Malden side mission 31 before 3.78 release :(
+- Changed: Farp at Malden version now has also a create ATV action menu entry
+- Fixed: When an uncon player pushed a button to respawn at base, MHQ, etc, in the uncon dialog other players could see 3D drawn name before the player body vanished
+
+3.78
+*please note* domination-custom.ini has changed, please replace it!
+
+- Added: Malden version based on the AAF version by Lelik (great version btw)
+- Added: Altis Carrier version (players can teleport from the carrier to the main Altis airfield and back to the carrier; all extra vehicles are spawned on the airfield except carrier planes)
+- Changed: Set velocity of paratroopers to the velocity of the transport aircraft
+- Changed: A MHQ can now be deployed on a building too. Players and other stuff no longer spawns on the ground but in the correct height behind/beside the MHQ
+- Fixed: Drawing of various 3D icons (texts, like Virtual Arsenal, MHQ x, repair points) is now using the correct height and no longer draws only a little bit above ground
+- Changed: Respawn is now also possible again on aircraft carriers
+- Changed: Switched from playActionNow "Die" to switchMove "AinjPpneMstpSnonWrflDnon" for players when they are unconscious (hopefully solves a problem with error no unit issue)
+- Fixed: Stupid typo in playerdisconnected (which is only used to write player data to the SQL DB)
+- Fixed: Adding player to Zeus curator objects did use player scripting command instead of correct object reference variable on the server
+- Fixed: In the IFA3 version a vanilla A3 vehicle was dropped in para drop instead of a jeep
+- Changed: In the TT version players of a team which has solved the sidemission now get score added (same as the whole team gets for solving a sidemission)
+- Fixed: Set correct velocity of spawned AI planes
+- Added: BIS Dynamic Groups (Squad Mgmt) can now be disabled in server lobby ("With BIS Dynamic Groups (Squad Mgmt)")
+- Fixed: Selecting leader of group was using groupOwner on clients instead of server
+- Fixed: Intro camera target height was wrong (did not work on carrier, read, player higher than ground level)
+- Fixed: Helicopters have problems spawning on the carrier (placed in the editor or after respawn; they fly straight up into the air and then explode on the carrier)
+- Fixed: d_additional_respawn_points had some serious troubles like not working at all and similar
+- Added: Better support for chopper MHQ
+- Changed: Replaced MHQ1 in the Carrier and Malden version with an unarmed Hellcat
+- Fixed: If a placed object got destroyed the wrong reference was used (object instead of string representation of the object), broke spawning mash for example (thx to Haz for reporting)
+- Fixed: Size of map custom mark (thx to Haz)
+- Changed: Removed distance check for vehicle crews on map draw (player names were only rendered on the map when the player was less than 3500 meters away)
+- Fixed: Drawing on GPS is working again (hopefully BI won't change it anymore). Names are now also drawn on GPS
+- Fixed: Heli lift does now also work on a carrier
+- Changed: Object viewdistance now also gets changed when a player changes the viewdistance via Dom UI (object viewdistance is normal viewdistance + 100)
+- Changed: Removed thundershort soundfile and replaced it with ingame thunder_2 sound
+
+3.74
+- Fixed: AI CAS plane gets no longer deleted immediately when it can not move anymore (destroyed, pilot dead, etc)
+- Fixed: Dying while parachuting could result in constant radial blurr on screen (BI bug)
+- Changed: Check if player is medic is no longer done via var name but with getUnitTrait "Medic" (also true for revive when only medics can revive)
+- Fixed: Enemy AI vehicles should no longer explode during creation when something goes wrong (wrong spot because of setpos command)
+- Fixed: Additional respawn points did not work at all (d_additional_respawn_points)
+- Changed: If SQL database is available and auto save is enabled also save progress to database after sidemission is finished (till now only after main target got cleared)
+- Fixed: Major problem with the algorithm which created the main target positions. It could pick up the wrong target if one werent a city but a village (instead of Aggelochori Kavala was chosen)
+- More optimizations
+
+3.73
+- Fixed: Don't draw MHQ lettering when a MHQ is in the air
+- Changed: AI in static weapons has no longer skill 1 but random skill
+- Fixed: Two Chernarus sidemissions still had an old variable name (sm 2 and 19)
+- Fixed: One steal plane sidemission in the IFA3 version did not spawn a plane
+
+3.72
+- Fixed: Non existing macro caused script error in sidemission 22 in the Chernarus version
+- Fixed: CAS did not work at all in the IFA3 version
+- Fixed: Missing engineer unit in the IFA3 version added again
+- Fixed: Various Winter Chernarus problems because of missing mapSize config entry in the Winter Chernarus config
+- Fixed: Major bug in updating the sql database when updating an existing mission progress (invalid number of inputs)
+
+3.71
+- Fixed: Parajump at base did not work in the IFA3 version (vehicles without cargo positions were not supported)
+- Fixed: Script error in airai script
+- Fixed: Some Team Bravo units still had Team Alpha in role description in the IFA3 version
+
+3.70
+ATTENTION: mission.sqm files of ALL versions were changed!!!!
+
+- Added: IFA3Lite version
+- Changed: It is now possible to have more than one side on the player side in the normal versions (for example WEST and GUER groups)
+- Added: Dynamic Simulation (it's possible to disable it in server parameters, default is on)
+- Added: External database support (extDB3) including saving mission progress (and autosave and autoload also available, check initServer.sqf)
+- Fixed: Correct "is swimming" check for leader in teleport/revive respawn
+- Fixed: Air AI units did not move to a new main target
+- Fixed: Uncon Draw3D was using player position instead of positionCameraToWorld [0,0,0]
+- Fixed: Two common sidemission files were still using outdated variable names so that the missions didn't end (Chernarus only) and sidetrafo was completely missing in cfgfunctions file
+- Fixed: Wrong path to particle resource in winter weather script
+- Fixed: Don't add a camo net when a player deploys a MHQ which is kindOf Air (if camo net is enabled)
+- Changed: You can now disable main target bonus vehicles or side mission bonus vehicles or both together in the server lobby
+- Fixed: Disabled near own side soldier check for artillery targets in the CUP versions as it always reported friendlies even though no own soldiers were near the target (bug in CUP?)
+- Fixed: Group could already be nil in handleDisconnect before beeing used in remoteExec
+- Changed: Ships/boats can now also only be entered as driver with a specific rank in the ranked version (can be changed in initcommon.sqf, d_ranked_a select 8)
+- Changed: In the ranked version players can now also enter vehicles in a cargo position even if their rank doesn't allow them to access other positions
+- Added: A kbTell message (sidechat) is now displayed when a MHQ gets destroyed
+- Changed: In the ranked version you need rank Corporal now to enter a static weapon (MG, GMG, mortar)
+- Added: The main target respawn groups (those are not the aerial reinforcements brought in by chopper or plane) can now be disabled in the lobby
+- Fixed: Issue where destroyed trains and trafo stations did not trigger end of sidemission (Chernarus version) (hopefully fixed)
+- Changed: Domination now uses the new engine group cleaning introduced in A3 1.67 and no longer a FSM
+- Added: Main target marker alpha value can now be changed in fn_preinit with d_e_marker_color_alpha, it's now 0.8 instead of 1
+- Fixed: n's are back in hint/sidechat messages :)
+- Changed: If "MT Tower Satchels only" is set to "No" a main target radio tower can be destroyed by any weapon now (and not only by satchels)
+- Changed: If "no parachute jump flags" is enabled then "parachute from base" is no longer disabled
+- Fixed: Air AI units should no longer spawn near main targets if a main target is close to the border of a map
+- Changed: Relaxed streaming, removed black screen when Streaming friendly UI was enabled and message which showed up every now and then on the bottom of the screen. 
+  Read, streaming and Youtube video upload now allowed BUT only it is not monetized (the non-commercial license is still valid that virtually 99,999999% of all the other user content made for A3 uses too)
+- Fixed: Camps at main targets now really do no longer spawn close to each other and the radio tower (if there is enough space at a main target)
+- Optimized: Ambient life (rabbits, snakes, etc) is now disabled!
+- Fixed: In ranked mode it is no longer possible to load Virtual Arsenal loadouts with CTRL-O (which was some kind of cheating)
+- Changed: Updated Spanish and Portuguese translation by Linux
+- Changed: CAS planes now use machinegun and rockets
+- Fixed: Stratis version was using a CUP Takistan sidemission breaking the sidemission system
+- Added: It is now also possible to have a normal vehicle wreck transport (no choppers available in WW2 mod IFA3). Simply drive with the wreck vehicle to the wreck, an action menu to load the wreck should appear!
+- Added: Spectate other players from flag at base
+- Fixed: Side mission 17 in the CUP Chernarus version had a wrong variable reference (_officer instead of d_soldier_officer)
+- Fuxed: If a player blocked artullery and disconnected artillery stayed blocked
+- Fixed: Admin dialog did not work in a hosted environment
+- Fixed: d_WreckMaxRepair for bonus vehicles was not applied to bonus vehicles in the non TT version
+- Added: A loged in admin or host can now end a side mission manually (admin dialog)
+- Fixed: Isle patrols should now spawn at least 2000m away from players
+- Added: Japanese translation by aki_hat
+- Added; Korean translation by Axion
+- Fixed: Ammo load at base did not work for CRV in opfor Altis version
+- Added: 3D text over MHQ
+- Fixed: Players should no longer die when respawning at base (in revive mode)
+- Fixed: Replaced the IED factory main target mission building with a correct factory building
+- Changed: Reduced size of stringtable.xml
+- Added: You can now press M for map dialog, N for nightvision and P for players dialog in revive spectating dialog
+- More optimizations
+
+KNOWN ISSUES:
+- In the IFA3Lite version the artillery on your own side won't fire when a player requested an arty strike.
+  Neither doArtilleryFire nor commandArtilleryFire work with the either IFA3 mortars or the BM21...
+
+(There are no versions between 3.64 and 3.70)
+
+3.64e
+- Fixed: Yet another script error in spectating scripts :(
+
+3.64d
+- Fixed: Script error in spectating scripts (wrong version chosen where lbSetColor index is still missing)
+
+3.64c
+- Changed: Better check for nightvision goggles (finds third party NV goggles too)
+- Changed: Turn on NVgoggles after revive (if nvg was on before)
+- Fixed: Artillery script was broken (script error)
+
+3.64b
+- Fixed: Changeleader was messed up (calling d_fnc instead of xr_fnc, etc)
+- Fixed: Target clear still broken
+- Fixed: Main target mission object was not deleted when it wasn't a unit
+
+3.64a
+- Fixed: Possible fix for ace treatment problem
+- Fixed: Possible fix for too much Error: No Unit names (should not happen anymore)
+- Fixed: Wrong unit variable name in handleDisconnect script
+- Fixed: UI resources were broken in 3.64
+
+3.64
+- Fixed: Some units where not available for Zeus (players, recruited AI in the AI version, etc)
+- Added: In the AI version (non ranked) a player can use Virtual Arsenal for AI units too (action menu entry for each unit; player has to be near the unit, 3m, only the player who created the unit has the action menu entry)
+- Fixed: Player names over head were not shown in static weapons
+- Fixed: When a player selected respawn or teleport at/to squad leader and squad leader was in a vehicle without empty cargo positions the player was moved exactly to the vehicle position instead of behind it
+- Changed: Show group members in revive player list in green color
+- Fixed: If a player teleported, respawned or did a parajump in the AI version dead player AI units were moved to the new player position too
+- More optimizations
+
+3.63
+ATTENTION: mission.sqm files of ALL versions were changed!!!!
+
+- Changed: Replaced fired eventhandler for player with new firedMan EH available in 1.66
+- Changed: Set fatigue to 0 when player respawns
+- Fixed: createUnit command in A3 ignores the group parameter completely since a few patches and adds the unit to the units config side instead to the provided group (bug in A3?)
+- Fixed: Wrong detected by sides in the triggers to activate enemy AI paratroopers in the TT version
+- Optimized: Use new 1.66 parameter for nearestTerrainObjects to search in 2D and not 3D
+- Fixed: Side mission 42 in the Chernarus version was missing a semicolon
+- Changed: Don't allways fill all cargo positions in enemy APCs with AI, choose a random number to save performance
+- Fixed: Side mission 19 (trains) was broken in the Chernarus version
+- Fixed: Side mission 15 in the Chernarus version still had a not existing macro
+- Added: Zeus suppport (not available in the TT versions).
+	     Please note that for security reasons you have to edit the mission and place a Game Master module and add A3 player UID (I've placed one in every mission file with my own UID to show you how it works,
+		 you have to place one Game Master module per player who is allowed to use Zeus with the UID of that player)
+- Added: Simple sandstorm script by Lelik (enabled by default on Altis, Stratis, Sahrani and Takistan). Can be enabled/disabled in the server lobby (parameters)
+
+3.62
+ATTENTION: mission.sqm files of ALL versions were changed!!!!
+
+- Fixed: The headless client unit was missing in the CUP Sahrani version
+- Fixed: Respawn at squad leader was available when the player was the only unit in a group
+- Added: New server parameter "Armor at side missions:" (options Normal or None), in addition with "Armor at main targets:" set to none you now have the option to play without any armor on the AI enemy side
+- Changed: Send player position to the server too to fix wrong air taxi landing position
+- Fixed: Air taxi was not set to available again in some cases
+- Optimized: Using inArea scripting command to check position of lift choppers near lift objects now
+- Fixed: Island patrol groups did not respawn when the crew jumped out of a damaged vehicle; crews now stay in damaged vehicles and respawn is triggered when one group vehicle can't move anymore
+- Fixed: The number of tracked armored vehicles for the island patrol now depends on the selection in "Armor at main targets:" server lobby parameter
+- Fixed: Some controls (player list and map) in the spectating dialog were not hidden immediately but were visible for a short time when the dialog opened for the first time
+- Changed: Better way to select unit under mouse cursor in revive spectating dialog (with lineintersects)
+- Fixed: medikit_ca.paa file was removed from ui_f pbo in Arma 3 1.66 (why?), so a new icon was necessary for uncon players (*)
+- Fixed: Wrong creation distance for vehicles in convoy sidemission
+- Changed: Convoy sidemissions now use a vehicle distance of 20 meters (new command setConvoySeparation)
+- Changed: Sidemission convoys now only have wheeled vehicles
+- Fixed: Wrong object placed near spawn in CUP Sahrani version
+- Changed: Reduced AI group respawn time at main targets (still depends on player numbers, higher player numbers = shorter time between respawns)
+- Fixed: UAV invisible crews no longer leave UAVs
+- Fixed: Wrong calculation (wrong number) for reinforcement AI choppers over main targets
+- Changed: Reinforcement choppers (for para troopers) now have a waypoint about 1500m behind a main target so that they don't do a full stop over a main target anymore
+			(why oh why BI have you changed that behaviour, if the next waypoint for AI is another move waypoint and no timeouts involved then let them fly and don't make them virtually full stop at each waypoint)
+- Fixed: Don't allow respawn at squad leader if squad leader is swimming
+- Changed: You can now also respawn or teleport in a vehicle cargo position if respawn at squad leader is enabled and the squad leader is in a vehicle with empty cargo positions
+- Fixed: Jump flags at main targets did spawn in buildings when main target was cleared
+- Fixed: If a player who drags another player leaves the server, the dragged player could get stuck in dragging animation
+- Added: Winter Chernarus version ( http://www.armaholic.com/page.php?id=29752 )
+- Added: Winter weather (light snow, only enabled in the Winter Chernarus version by default)
+- Added: Icons to revive spectating player list
+- Added: ACE support, if ACE is loaded as mod on the server, Domination revive gets disabled and Dom player handleDamage eventhandler removed (to use ACE medical system; scripts updated to check if a player is ace_isunconscious)
+- Fixed: Sometimes if a player was kicked immediately a remoteExec with a nil group was executed
+- Fixed: AI revive was enabled even when Dom revive was disabled
+- Fixed: Two Draw3D eventhandlers were drawing playernames above head when player was in revive spectating
+- Fixed: Bonus vehicles should no longer explode when they are created and all possible positions are already filled with other bonus vehicles
+- Changed: Replaced A3 Nato units and vehicles with CUP US Army/BAF units and vehicles in the Takistan version
+- Changed: Replaced A3 Nato units and vehicles with CUP US Marine Corps/BAF units and vehicles in the Chernarus version
+- Changed: Replaced A3 Nato units and vehicles with CUP US Army units and vehicles in the Sahrani version
+- Fixed: Added missing CUP vehicles for heli lift
+- Optimized: Only search once in an array of strings for the heli lift types to find out if a vehicle is liftable or not
+- Added: T90 to CUP Chernarus version
+- Fixed: When the AI version is enabled the player does recruit CUP AI units now instead of A3 AI units
+- Fixed: Use correct male CfgEntities speakers in CUP versions
+- Added: Enemy AI wheeled and tracked APCs now have additional infantry units in the cargo seats which get unloaded in combat
+- Fixed: Counterattack (main target) was spawning armored vehicles when armor was completely disabled
+- Changed: If old rep engineer is enabled update fuel and damage in every iteration of the loop instead of just at the end
+- Fixed: Main target enemy AI paratroopers were not added to main target cleanup routine
+- Fixed: The normal One Team version code should now also support independent player side (and not only blufor and opfor; at least I hope it works :P)
+- Changed: Replaced main target paratrooper choppers with Apex VTOL vehicles in the ALTIS, STRATIS and TANOA versions; CUP Sahrani version: Mi8 SLA, CUP Chernarus version: Mi6, CUP Takistan version: AN2 TKA
+- Fixed: Some dialogs were not initialized in dialog onLoad event leading to controls not being immediately invisible
+- Changed: Replaced some objects with simple objects (see https://community.bistudio.com/wiki/createSimpleObject)
+- Fixed: Independent FIA CfgGroups no longer exist (at least in 1.66, why @BI?) resulting in empty allmen groups in the TT version
+- Changed: Deploying an MHQ is now possible with other entities on board (players or AI). They get kicked out of the vehicle now.
+- Fixed: Secondary main target mission object was not deleted in main target cleanup routine (non CAManBase objects)
+- Changed: Vehicle reload script now also restores ammo, repair and fuel cargo (if a vehicles has the transport capacity; done without messages)
+- Changed: Global and side channel voice disabled by default now (check disableChannels in description.ext to change it)
+- Changed: Using internal A3 engine corpse and wreck manager now to remove dead bodies and destroyed vehicles
+- Fixed: Null divisor script error in mando chute script
+- Fixed: Air dropped boxes were never removed, now they get deleted after 30 minutes
+- Changed: Nearby repair truck no longer needed for an engineer to unflip a vehicle (only toolkit)
+- Fixed: Script error when AI was enabled causing AI not to be moved to the player position
+- Fixed: It could happen that ammo boxes with virtual arsenal got created before the variables were inited (causing a script error)
+- More optimizations
+
+3.61
+- Fixed: In the teleport and revive respawn dialog the position marker of MHQs moving were not updated (did not influence correct teleport or respawn position)
+- Fixed: Better handling of who is group leader internally (when changing groups with Squad dialog and at mission joining)
+- Fixed: Calling in an airtaxi (in the AI version) could block the Domination user menu
+- Fixed: In a prisoner side mission the mission timeout now gets reset to 2400 seconds if a player has rescued the prisoners
+- Fixed: Air taxi script broke when a player who called in an air taxi left the mission (AI version only)
+- Fixed: Virtual spectator clients did start client scripts
+- Fixed: Air AI could stop moving/patrolling over the AO
+- Changed: Drawing names of player in 3D world in revive spectating is now done by Draw3D eventhandler
+- Changed: Replaced the lift and wreck choppers with Hurons in the Altis Blufor version
+- Changed: In the non Tanoa versions players can now also create an unarmed Prowler/Qilin beside an ATV at a MHQ
+- Changed: Players can no longer call in CAS into the base
+- Plus some more changes between 3.60 and 3.61 which I forgot to add to the changelog
+
+3.60
+- Fixed: 3D player name on screen did draw in the wrong height when a player was above the ground
+- Fixed: Revive uncon near player check (including informing other players) gets called every minute now instead of only once
+- Added: Short message in revive spectating when another player starts to revive you
+- Fixed: GPS map player icon drawing
+- Fixed: Finally sorted out (oh the irony) the sort issues in the revive spectating dialog player listbox once and for all (why didn't anybody tell me that there is a lbSortByValue command :))
+- Fixed: Don't show (Medic) extension in the AI or With AI features versions where everybody is a medic
+- Added: Show player name in revive dialog when mouse hovers over player unit
+- Added: You can now simply click on another unit in 3D world in revive spectating to switch to it
+- Fixed: Sidemissions where you had to deactivate mines were broken when a headless client was running
+- Fixed: CAS was already available again after 5 seconds and not after 5 minutes
+
+3.59
+- Fixed: Player list in revive spectating dialog was sorted wrong
+- Fixed: Nearby player caption was shown in spectating dialog when player had no lives left
+- Fixed: Players in nearby vehicles did not get informed about an uncon player
+- Changed: Added medic and engineer traits for all players in the AI and with AI features versions and explosiveSpecialist trait for all players in all other versions
+- Fixed: Because of some internal changes server side saved player gear was not restored on clients after reconnect
+
+3.58
+- Fixed: Wrong object reference in revive uncon script (string instead of object)
+- Fixed: There were still issues with the respawn dialog (spectating that is)
+- Changed: Nearby players get a message when a player dies and can be revived, including relative direction (40 m)
+- Changed: Show distance to other players in revive spectating player listbox and if another player is uncon 
+- Changed: Players can't kill player AI units in the base anymore (AI version, only true if the player which the AI belongs to is also in the base, for performance reasons)
+- Changed: Moved PiP resource in chopper lift hud below GPS map position, removed border
+- Fixed: Sometimes after respawn some game radial blurr effect was still there (died while free fall before opening a chute for example), gets reset at respawn now
+- Added: Ear plugs, can be enabled and disabled via Commanding menu (press TeamSwitch key, default is U key for TeamSwitch to open the Domination menu)
+- Fixed: Wrong "you were revived by" message when an AI medic revives a player
+- More optimizations
+
+3.57
+- Fixed: More issues with respawn dialog (it was completely broken sometimes). All issues should be finally fixed now!
+- Changed: Wreck repair times
+- Added: Teleport to Squad Leader
+
+3.56
+- Changed: Set attached object mass before and after rope create in heli lift and not just after rope create
+- Fixed: In the AI version air taxi was not blocked immediately for other players so more than one player could call in an air taxi
+- Optimized: Save respawn gear only when player dies
+- Changed: Player names over head now default instead of cursor target
+- Changed: Replaced standard A3 OPFOR units with the correct ones for the CUP Chernarus, CUP Sahrani and CUP Takistan versions
+- Fixed: Small issues with respawn dialog
+- Fixed: Camps (to capture) should not spawn close to each other anymore (if there are enough possible places available at a main target)
+- Changed: When a wreck gets put on the wreck repair point the seconds it will take to rebuild the vehicle are also displayed (sidechat once and the 3D text over the wreck point will display the sconds too)
+- Added: Portuguese translation by Linux ©
+- Fixed: Problem with including arrays for the TT versions
+- More optimizations
+
+3.55
+- Changed: In the TT version a main target ends once one side has captured all camps and the radio tower is destroyed, no check for how many AI enemy units and vehicles are still at the AO
+           Can also be enabled in the normal version (lobby server parameter) but not in the TT version as it is default there
+- Changed: Show sidemission index number in ShowStatus dialog
+- Fixed: Enemy main target respawn camp positon was suddenly not behind main targets anymore
+- Fixed: Sometimes the enemy respawn camp (thus a main target) was not created because of a missing dist return value in a function needed for it (game breaker)
+- More optimizations
+
+3.54
+- Fixed: fn_teleupdate_dlg.sqf did throw an undefined variable error when a player teleported
+
+3.53
+- Added: Stratis Blufor version
+- Fixed: Possible workaround for (editor placed) base artillery vehicles falling through the map
+- Fixed: Switched back to attachTo for wreck heli lifting (normal non wreck lifting still uses game slingload)
+- Changed: In the Tanoa version squad leaders air drop an unarmed Prowler/Qilin now instead of a Hunter/Ifrit
+- Changed: In the Tanoa version players can create an unarmed Prowler/Qilin beside an ATV at a MHQ
+- Changed: Air drops (called by squad leaders) now drop exactly where the player placed the drop marker
+- Changed: Set overcast to zero if weather is disabled
+- Changed: Removed 6Rnd_155mm_Mo_AT_mine and 6Rnd_155mm_Mo_mine from artillery (dialog)
+- Changed: Replaced disableAI "MOVE" with dsiableAI "PATH" (introduced in A3 1.61)
+- Fixed: Script error in fn_vec_hudsp.sqf
+- Fixed: Possible fix for a script error in fn_chop_hudsp.sqf
+- Changed: Replaced scripting solution to check which enemy units got killed by artillery or CAS strike with new setShotParents command
+- Added: In respawn dialog better markers for respawn position (like in the BI respawn dialog) plus current selected one animates
+- Fixed: Respawn button in respawn dialog was often available even though respawn points were blocked/unavailable
+- Added: If a player leaves a running mission and joins the same mission again he/she will have the same gear loadout as before
+- Fixed: Killed message for main target sidemission was gone in the TT version
+- Fixed: Enemy AI artillery observers did call in artillery strikes even though their own inf was at the strike position in the TT version
+- More optimizations
+
+3.52
+ATTENTION: Tanoa version mission.sqm file has changed!
+ATTENTION: Tanoa TT version mission.sqm file has changed!
+ATTENTION: Chernarus version mission.sqm file has changed!
+
+- Changed: Better random positions especially on Tanoa (for example spawn and waypoint positions for infantry units in forrests/jungle)
+- Changed: Main target clear now happens also when there is still one enemy AI car or tank left
+- Fixed: Arty operator did not receive arty messages from already firing arty anymore when he/she died
+- Fixed: Fog was coming even if it was completely disabled (seems to be a bug in A3)
+- Fixed: Removed not working CfgGroups from preinit
+- Fixed: For whatever reason the CH-53 chopper suddenly was half in the ground in the Chernarus CUP version (in the editor already)
+- Fixed: Added missing Opfor vehicles for heli lift in the TT version
+- Changed: Replaced all base vehicles, player units and CSAT AI units and vehicles with Apex T versions in the normal and TT version
+- Fixed: Some choppers at base were placed above the ground in the normal Tanoa version
+- Added: Complete Spanish translation by Brigada_ESP
+- Changed: Removed loiter waypoints for airai introduced in 3.43 again (air AI units did not attack anymore)
+- Fixed: Convoy sidemission in TT version was broken (did not end)
+- Fixed: In the TT version the wrong bonus vehicles got spawned (opfor vehicles for blufor and vice versa)
+- Fixed: Blufor helilift types were added to opfor choppers in the TT version
+- Fixed: In the ranked TT version blufor players where getting the same gear as the opfor players (player object not initialized while checking for player side)
+- Changed: Servicing a drone on chopper service/vehicle service now also writes a message on the screen
+- Fixed: Virtual Aresenal 3D text was visible for para jumpers even when they were far away (distance2D check instead just distance)
+- Fixed: In the Tanoa AI version recruited AI did not wear tropical uniforms
+- Changed: Replaced all TahomaB fonts with RobotoCondensed
+- Fixed: Wrong KBTell message in the TT version for main target missions
+- Fixed: Opposite team got the message that a MHQ is too close to the main target too (TT version)
+- Fixed: The team which did not resolve the sidemission got the "sidemission resolved" hint in the TT version
+- Added: Missing localization for sidemission resolved
+- Changed: Disabling radio already in respawn eh (revive) and disabling sound till uncon script runs at respawn
+- Changed: Increased AI skill
+- Fixed: Missing kbTell for the TT version in fn_sm_up (announcing side mission in chat)
+- Fixed: fn_checkmthardtarget and fn_mtmtargetkilled were using the unit instead of the side of the unit in the TT version
+- Fixed: Typo in fn_preinit.sqf (it's ParaCombatGroup not ParaConbatGroup)
+- Fixed: TT version medics were missing in x revive init when only medics can revive was enabled
+- Fixed: Script error in fn_target_clear_client.sqf (undefined variable)
+- Fixed: Missing distance check for second wreck repair point in the TT version (fn_wreckmarker2.sqf)
+- Added: Close air support (CAS), available for Squad Leaders (works like artillery target marking with LD, but the CAS is available immediately, 10 minutes between two CAS strikes, rockets only).
+- Fixed: Removed XMIT from bikb config, was causing RPT entries
+- Fixed: Sometimes the flag spawned inside a building in the capture the flag side mission 31 on Tanoa
+- Changed: In the TT version MT killpoints are now also added for artillery and CAS strikes
+- Changed: Player UID gets stored only once now in the player store on the server
+- Changed: Default AI skill settings are now "Normal" and not "Low"
+- Fixed: Possible nil variable error in gear handling
+- Changed: Reduced chance to get fog from 30 to 10 percent
+- Optimized: 3D text over player heads (removed visibility check)
+- Fixed: No check if player was at delivery point in the deliver side missions if ranked was enabled
+- Added: Adding additional static respawn points is now available via d_additional_respawn_points variable in init\fn_preinit.sqf
+- Fixed: Outdated stringtable entries
+- Fixed: Time multiplier reduced to max 120 (the engine doesn't allow more anyway)
+- Fixed: Wrong number of maintargets got created by create random main targets function
+- More optimizations
+
+3.51
+Internal developement version, see 3.52 changelog
+
+3.50
+ATTENTION: Tanoa TT version mission.sqm file has changed!
+
+- Addded: Parameter to disable fog when the internal weather system is on
+- Fixed: Some blufor markers did not get deleted for the opfor side in the Tanoa TT version (wrong marker names in mission.sqm file)
+- Fixed: Headless Client was not working anymore. Somehow remoteExec lost the ability to use a HC as target
+- Changed: Respawning at base or at a MHQ gives you the complete Arsenal chosen weapons and magazine layout back
+- Changed: Renamed SQL in revive respawn dialog to Squad Leader
+- Fixed: Dropping an ammo box from a vehicle did create the Virtual Arsenal 3D text for the oponent team too in the TT version
+- Changed: Different progress icon for revive hold action
+- Fixed: In the Tanoa TT version the respawn marker for the opfor side had a wrong name thus the ofpor players were teleported into the sea
+
+3.49
+- Fixed: Marked artillery targets were visible for the opponent team in the TT version
+- Fixed: Ofpor arty operator did not see artillery messages in the TT version
+- Fixed: Oponent team in the TT version did see specific artillery messages of the other team (like artillery available again in a few minutes)
+- Fixed: Opening the artillery dialog as a blufor player blocked opening the artillery dialog for opfor players too
+- Fixed: When the independent AI enemy side in the TT version took a camp from blufor again the flag turned red instead of green (a little bit confusing that was)
+- Changed: Enabled parajump flags at main targets in the TT version
+- Fixed: Some kbTell messages were broadcasted globally instead of just for one side in the TT version
+- Changed: Added an enemy specops group to each camp at the main target to defend them (similar to radio tower at main target)
+
+3.48
+- Added: Tanoa TT version
+- Fixed: Added missing getflatarea function
+
+3.47
+- Fixed: Item STR_DOM_MISSIONSTRING_1705 listed twice
+- Fixed: Typo in Tanoa version (Lihnhaven instead of Lijnhaven)
+- Fixed: Dropping a box a second time from a vehicle resulted in 3D text over box not being drawn
+- Fixed: Loaded boxes were not removed from the 3D draw array (memory leak)
+
+3.46
+ATTENTION: Altis TT version mission.sqm file has changed!
+
+- Fixed: Wrong points for Captain in the TT version (were the same as for Seargeant). Resulted in an endless loop between getting promoted to Seargent and Captain
+- Changed: Simulation is no longer disabled for dead AI units so one can pick up ammo and weapons from dead AI units again!
+- Fixed: It was possible to respawn at squad leader when the squad leader was uncon or dead or even in a vehicle
+- Fixed: Vehicles created at MHQ stay longer again
+- Fixed: Yet another fix for the Tanoa time problem. Default mission start on Tanoa is now 7 am and not 5 am (was still pitch black night at 5)
+- Changed: Reduced wait time to drop or load an ammbox from/to a MHQ to 20 second
+- Added: Check in the TT version so that the Parajump dialog does not accept the enemy base area as jump target
+
+3.45
+- Added: Respawn at squad leader (only available when revive is used, not available for teleport from base)
+- Changed: Medics can now revive faster than normal units
+- Fixed: Player received two revive messages when he revived another player
+- Fixed: Uncon 3D draw eventhandler for marking uncon units were drawing the player name on the ground instead above the player when the player died in the first floor for example
+- Fixed: In the TT version uncon map markers got deleted for blufor side for own units (probably the same on the opfor side)
+- Fixed: Markers of uncon units of the opposing side were not removed for JIP players in the TT version
+- Fixed: Chopper (lift) hud script was broken in the TT version (wrong variable for accessing the object to lift)
+- Changed: Reduced time to spawn a vehicle at MHQ from 5 minutes to 1 minute
+- Fixed: Wrong start time for Tanoa version (mission.sqm file time was set to 12 noon instead 12 midnight)
+
+3.44
+- Fixed: Revive drag action menu was missing (whoever removed it, I'll find you!)
+- Fixed: Nasty respawn in the air bug at Tanoa base (I know who introduced it and I know where your house lives)
+- Changed: Reduced mass of heavy vehicles for chopper lifting even more
+- Changed: Parajump wait time at base removed from 30 minutes to 0 (time between two jumps from base)
+
+3.43
+ATTENTION: Altis version mission.sqm file has changed!
+
+- Added: Tanoa Blufor version
+- Added: Altis Opfor version
+- Fixed: Wrong isEqualTo scalar check for array in fn_target_clear.sqf
+- Changed: Air AI script uses loiter waypoint now which seems to be finally working in combination with flyinheight
+- Fixed: Next target on client could be created before d_current_seize was initialized (script error) depending on join time
+- Fixed: When TI mode was used in SAT view (MHQ) it stayed on even in revive camera
+- Fixed: Side mission tasks get now removed once a side mission is done
+- Fixed: Using pushBack with remoteExec does not work very well
+- Fixed: Player was not moved back into revive uncon animation after waterfix was running (prevents uncon players from lying on the ground of the sea, moves him to the shore)
+- Fixed: Revive waterfix (see above) removed the black screen (should stay till waterfix is done)
+- Fixed: Artillery targets can now be marked with any Laserdesignator not just the default vanilla one
+- Fixed: Typo in fn_killedsmtargetnormal.sqf
+- Changed: Made handling who killed a target of a side mission more robust for the TT version
+- Added: New deliver and mines sidemissions by Lelik (only available in the Altis non TT version)
+- Changed: Domination revive uses new APEX action menu now!
+- Changed: If a lifted vehicle dropped into the sea it did not respawn
+- Added: Even more naked women
+- And of course more optimizations
+
+3.42
+- Hotfix for the hotfix for the hotfix: nearestTerrainObjects sort parameter does not yet exist in 1.60... 
+
+3.41
+- Workaround: CUP versions were broken due to an addon problem. The headless client entity gets created even though there is no hc connected. Disabled for CUP versions to make them work again.
+- Changed: Moved outer air respawn point a little bit more away from the map sides
+- Fixed: Script for adding player score on the server was accidentally using a client side variable (only valid for the ranked version)
+- Fixed: Admin lock was broken, missing server lock function in CfgFunctions
+- Fixed: A player was still bleeding when healing at a mash
+- Fixed: RespawnGroups FSM ended when radio tower was killed and not when the main target was done
+- More optimizations
+
+3.40
+- Added: Support for hosted environment (might still be a little bit buggy, please report)
+- Added: Task for side missions
+- Fixed: Arrest side missions were broken due to a logic error (between my ears)
+- Changed: Better check which team won a radio tower sidemission in the TT version
+- Fixed: Added player ASL position instead of default position to playSound3D parameters in revive
+- More optimizations
+
+3.39
+- Changed: Use setWaypointForceBehaviour for specific AI groups
+- Fixed: Wrong topic side and logic for kbTell in server artillery script
+- Fixed: Vehicle creation should not result in vehicles falling over anymore
+- Fixed: Arrest side missions did not work at all in the TT version
+- Added: Missing weapons, mags and backpack in i_weapons.sqf for the ranked TT version (currently both contain the same weapons, mags and backpacks, at least it works now)
+- Changed: If a bonus vehicle gets killed over water/over the sea, it'll now be moved to the next beach so that it can still be picked up by a wreck chopper
+- Fixed: Stupid typo in server\x_f\fn_airtaxiserver.sqf (underline got lost)
+- More optimizations
+
+3.38
+- Fixed: Blufor players were kicked out of blufor vehicles, did only affect blufor players in the TT version, not used in the normal non TT version
+
+3.37
+- Tweaked: Player name hud color (if enabled)
+- Changed: Only arty ops and squad leaders can draw lines on the map
+- Fixed: In the CUP Chernarus version the bag fences at the jet reload point where positioned in the air
+- Fixed: In the CUP Sahrani version the bag fences at the jet reload point where positioned 90 degree in the wrong direction
+- Changed: Make use of the height parameter for triggers where possible
+- Changed: Air drop marker gets now created for every player which calls a drop (gets removed automatically after about 900 seconds)
+- Fixed: Make UAV at MHQ did not work in the TT version (for both sides)
+- Changed: Turn MHQ engine off before deploying it
+- Fixed: Drop answers when an air drop was executed was not working anymore
+- Fixed: Missing localization string STR_DOM_MISSIONSTRING_641 in TT version
+- Changed: If virtual arsenal box at base gets destroyed a new one reappears immediately
+- Fixed: Replaced d_player_entities with allPlayers in fn_helirespawn2.sqf, variable d_player_entities does not exist on the server in the TT version
+- Fixed: Engineers were kicked from engineer trucks in the TT version
+- Fixed: Map marker line drawing for AI group waypoint debugging (only for debugging purposes, not available in MP)
+- Changed: Progress bar for capping camps turns yellow now if capping is stalled beacuse of nearby enemies
+- Fixed: Side mission 39 in the CUP Chernarus version, side mission did not end at all because of missing killed eventhandler
+- More optimizations
+
+3.36
+- Fixed: Draw3D eventhandler drawing was only drawing when the player was near enough to an object and not the camera
+- Updated: Spanish translation (thanks to Brigada_ESP)
+- Added: The Two Teams (TT) PvPvE version is back... Yeah, Domi with PvP again!
+- Added: Tons of new bugs (due to the quite severe TT version changes)
+- Optimized: Replaced saving gear with 5 billion scripting commands with newly available getUnitLoadout and setUnitLoadout scripting commands
+- Added: (Lobby) param to disable NVG equipment (disableNVGEquipment)
+- Fixed: Stupid _d_pos script error in revive respawn eh script
+- Fixed: Another stupid script error in fnc_ampoi which adds points to the player who places a mash when someone heals at a mash in the ranked version
+- Fixed: When a player placed an object like a Mash and the object was killed the script was trying to access getVariable space with the player object instead of the player string name
+- Optimized: Player firing in base area check (no longer checks if player is in base area every shot)
+- Optimized: Non sidemission related buildings are now also restored if they get destroyed while solving a sidemission
+- Changed: disableRemoteSensors true on clients in ai version too (for testing purposes)
+- Fixed: NVG check for players was broken
+- Changed: Disabling TI (for vecs) and disabling NVG will now also remove infantry weapon optics which have these modes (after arsenal gets closed, easiest way and needs no unncessary script loop running)
+- Fixed: Retake camps was completely broken in the normal and TT version because of "OPFOR", "EAST", "BLUFOR", "INDEPENDENT", "GUER" inconsistencies
+- Fixed: Got rid of the short standing animation before a dead player moves into unconscious animation state (xr revive), was visible only for other players now gone
+- Added: Naked women
+- Many optimizations
+
+3.35
+- Fixed: Wrong references to engineer trucks in fn_repengineer.sqf
+- Fixed: Side mission 31 in CUP Takistan version was completely broken
+- Fixed: Non existent variable d_heli_taxi_available did break airtaxi script in AI version
+- Fixed: Side mission 23 (Special forces boats in a bay near Pacamac) in the CUP Sahrani version bailed out because of a script error
+- Fixed: Side mission 9 (Helicopter Prototype at Krasnostav Airfield) in the CUP Chernarus version (a non existent macro broke the mission)
+
+3.34
+- Fixed: CUP_O_Mi8_RU accidentally made it into the normal vanilla version
+- Changed: New main target index selection. Hopefully fixes the nilified index variable problem (I was still not able to reproduce it)
+- Fixed: If player left the server remoteExec dropanswer resulted in sending the message to a nil object
+- Fixed: When a player died in a building he was placed on the ground instead in the floor he died (xr_revive)
+
+3.33
+- Fixed: Some stringtable names were used twice
+- Fixed: Tasks should now work correctly (I think I now know how it works :P...)
+- Changed: d_can_mark_artillery units now get the same artillery messages as artillery operators
+- Changed: Air drop marker position is adjusted to the position of the dropped object once it is on the ground
+- Changed: Added some debug output to find an issue where the target center is missing when calling getranpointcircleold (and one possible fix added)
+
+3.32
+- Fixed: Counter attack was using wrong function to find enemy start positions
+- Changed: Counter attack starts earlier now (45-90 seconds instead of 120-240 seconds after main target is clear), check trigger for end condition gets also created a lot earlier now
+- Changed: Decreased minimal distance check in script which searches for random positions for bigger objects in a circle
+
+3.31
+- Fixed: Since 1.58 nore FSMs do not worked when added via CfgFunctions, switched to old execFSM way
+
+3.30
+- Changed: Parajump is now also possible with backpack
+- Fixed: Script error in map draw script (affected AI version)
+
+3.29
+- Added: Spanish translation (thx to Brigada_ESP)
+- Changed: Height check in client artillery script changed from getPosATL back to getPos
+- Fixed: Wrong variable was used to check if a player is engineer. Resulted in broken engineer functionality sometimes
+- Fixed: Automatic NVG in Virtual Arsenal dialog was not disabled when Virtual Arsenal was closed
+- Optimized: Replaced some triggers with new inArea command
+- Changed: New method to draw player and vehicle markers on map (does not use the game marker system anymore but draws directly on maps)
+- Fixed: Another try to make Ammoload working again if a player dies in a vehicle
+- Optimized: Using new string based engine layer system for resources (cutRsc, etc.)
+- Fixed: BIS_fnc_EGSpectator changes viewdistance. When BIS_fnc_EGSpectator exits viewdistance is set to the one before BIS_fnc_EGSpectator was started (BIS_fnc_EGSpectator is admin only)
+- Optimized: Using getInMan (and getOutMan) eventhandler now for vehicle scripts instead of the typical waituntil {vehicle player != player} script construct
+- Changed: Increased timeout in evac sidemissions from 30 minutes to 60 minutes
+- Changed: "Created" task state switched to "Assigned" to fix a problem with BI tasks overhaul
+- Added: North, east, south, west, full ordered routes for Altis, Chernarus and Takistan versions (means ordered main targets instead of random main targets)
+- Added: Message to deploy a MHQ when it gets dropped after a air lift or when a player drives a MHQ
+- Fixed: Sidemission 36 building got indestructible after game update
+- Fixed: In the ranked version (and AI enabled) AI counter was incremented even though no AI was created
+
+3.28
+- Fixed: If you want to change an element of an array use set and not setVariable (error in fn_p_o_ar, me dumb)
+- Changed, reset player in vehicle variable after respawn. Possible fix for ammoload problem (stops working after respawn if player is in a vehicle when he dies)
+- Fixed, player markers are now also shown when a player is in a non standard vehicle like a quad (new marker system is on the way anyway)
+- Added one missing drag prone animation
+- Changed, vehicles get now airlifted with four ropes instead of one (thanks to the get corners function by duda123), currently only available for normal non wreck lifting
+
+3.27
+- Fixed, wrong use of allowCrewInImmobile in armor creation script for side missions
+- Fixed script error in BIS_fnc_establishingShot
+- Fixed script errors when player created a UAV at MHQ (array instead the UAV object itself was send to server)
+- Fixed, UAVs created with MHQ menu now get correctly deleted and UAV terminals removed
+
+3.26
+- Fixed, retrieving respawn and layoutgear was broken as it was using the same container object for uniform, vest and backpack
+- Fixed, at respawn backpack content was doubled
+- Added: Cleanup routine for player assembled objects
+
+3.25
+- Fixed, drivers of the artillery vehicles in base did not get deleted thus they were driving around
+- Base artillery vehicle crews are now captive so they won't attack anything nor will they get attacked
+- Fixed an error in spectating which completely broke it
+- Fixed, wrong layer in spectating script caused black in to early before spectating started
+- Fixed some more sidemission related erros
+
+3.24
+- Fixed free prisoners sidemissions in AI version
+- Fixed artillery base sidemissions
+- Added first experimental Community Upgrade Project (CUP) Chernarus version
+
+3.23
+- Mission now works with 3DEN
+- mission.sqm file is now in 3DEN format (not binarized)
+- Fixed respawn (was completely broken)
+
+3.22
+- Fixed CreateTriggerLocal, instead of creating local triggers it created global triggers :(
+- 3D text "Virtual Arsenal" is now added above Virtual Arsenal ammo boxes
+
+3.21
+- Fixed chopper and vehicle respawn (note to myself: NEVER EVER USE BI SYSTEMS, THEY WILL FAIL LIKE THEY ALWAYS DO!!! This time it was BIS_fnc_loop which suddenly stopped working without a warning)
+- Changed CfgRemoteExec mode to 2-turned on, however, ignoring whitelists (default because of backward compatibility) There was a bis_fnc_execVM warning in RPT although Dom is not using bis_fnc_execVM
+- Vehicle overlay alignment corrected
+- Switched to enhanced BI task system
+- Fixed UI serialisation
+- Fixed various small bugs
+- Some optimizations
+
+3.20
+(only important changes)
+- Rewrote many scripts using improved A3 scripting commands (also the ones included in 1.56)
+- Many optimizations in virtually all scripts
+- Removed many unnecessary scripts
+- Replaced Dom network system with remoteExec/remoteExecCall from A3
+- Replaced Spectating with the new A3 Spectating
+- Replaced Domination Group Management System with Dynamic Groups System from A3
+- Fixed various side missions
+- Removed old Dom backpack system
+- Millions of bug fixes
+- And many many more things...
