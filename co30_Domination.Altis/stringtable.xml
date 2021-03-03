@@ -3668,7 +3668,7 @@
 <Japanese>メインターゲットの追加目標はありません...</Japanese>
 <Original>No secondary main target mission available...</Original>
 <Russian>Второстепенной задачи в городе нет...</Russian>
-<Chinesesimp>主要目标任务没有支线任务了...</Chinesesimp>
+<Chinesesimp>主线任务没有支线任务了...</Chinesesimp>
 <Chinese>主要目標任務沒有支線任務了...</Chinese>
 <French>Aucun objectif supplémentaire pour l'objectif principal...</French>
 </Key>
@@ -3728,7 +3728,7 @@
 <Japanese>Bluforチームは%1：%2のキルポイントでメインターゲットで勝利しました。\nBluforチームは%3メインポイントを獲得。</Japanese>
 <Original>The Blufor Team won the main target with %1 : %2 kill points.\nThe Blufor Team gets %3 main points.</Original>
 <Russian>Команда Синих победила на захвате главной цели с %1 : %2 очков за убийства.\n\n Команда Синих получает %3 очков.</Russian>
-<Chinesesimp>主要目标完成,蓝方胜利并获得了 %1 ：%2 击杀点数。\n蓝队获得 %3 主攻点数。</Chinesesimp>
+<Chinesesimp>主线任务完成,蓝方胜利并获得了 %1 ：%2 击杀点数。\n蓝队获得 %3 主攻点数。</Chinesesimp>
 <Chinese>主要目標完成,藍方勝利並獲得了 %1 : %2 擊殺點數.\n藍隊獲得 %3 主攻點數‧</Chinese>
 <French>L'équipe Blufor a remporté l'objectif principal avec %1: %2 points de destruction.\nL'équipe Blufor obtient %3 points principaux.</French>
 </Key>
@@ -3740,7 +3740,7 @@
 <Japanese>Opforチームは%1：%2のキルポイントでメインターゲットで勝利しました。\Opforチームは%3メインポイントを獲得。</Japanese>
 <Original>The Opfor Team won the main target with %1 : %2 kill points.\nThe Opfor Team gets %3 main points.</Original>
 <Russian>Команда Красных победила на захвате главной цели с %1 : %2 очков за убийства.\n\n Команда Красных получает %3 очков.</Russian>
-<Chinesesimp>主要目标完成,红方胜利并获得了 %1 ：%2 击杀点数。\n红队获得 %3 主攻点数。</Chinesesimp>
+<Chinesesimp>主线任务完成,红方胜利并获得了 %1 ：%2 击杀点数。\n红队获得 %3 主攻点数。</Chinesesimp>
 <Chinese>主要目標完成,紅方勝利並獲得了 %1 : %2 擊殺點數.\n紅隊獲得 %3 主攻點數‧</Chinese>
 <French>L'équipe Opfor a remporté l'objectif principal avec %1: %2 points de destruction.\nL'équipe Opfor obtient %3 points principaux.</French>
 </Key>
@@ -3752,7 +3752,7 @@
 <Japanese>両チーム%1キルポイント。\n両チームに%2メインポイント追加</Japanese>
 <Original>Both teams have %1 kill points.\nBoth teams get %2 main points.</Original>
 <Russian>Обе команды имеют %1 очков за убийства.\n\n Обе команды получают %3 очков.</Russian>
-<Chinesesimp>主要目标完成,红蓝双方胜利并获得了 %1 击杀点数。\n双方都获得 %3 主攻点数。</Chinesesimp>
+<Chinesesimp>主线任务完成,红蓝双方胜利并获得了 %1 击杀点数。\n双方都获得 %3 主攻点数。</Chinesesimp>
 <Chinese>主要目標完成,紅藍雙方勝利並獲得了 %1 擊殺點數.\n雙方都獲得 %3 主攻點數‧</Chinese>
 <French>Les deux équipes ont %1 points de mort.n\Les deux équipes obtiennent %2 points principaux.</French>
 </Key>
@@ -6716,7 +6716,7 @@
 <Japanese>基地からのHALOジャンプの待機時間:</Japanese>
 <Original>HALO at base wait time:</Original>
 <Russian>Затяжной прыжок каждые ...минут:</Russian>
-<Chinesesimp>在基地等待跳伞时间：</Chinesesimp>
+<Chinesesimp>在基地的跳伞间隔时间：</Chinesesimp>
 <Chinese>在基地等待跳傘時間:</Chinese>
 <French>Temps d'attente pour le parachutage de la base:</French>
 </Key>
@@ -6788,7 +6788,7 @@
 <Japanese>敵装甲車両を施錠:</Japanese>
 <Original>Lock armored enemy vecs:</Original>
 <Russian>Закрыть бронетехнику ИИ:</Russian>
-<Chinesesimp>锁定敌人的装甲：</Chinesesimp>
+<Chinesesimp>锁定敌人的地面装甲载具：</Chinesesimp>
 <Chinese>鎖定敵人的裝甲:</Chinese>
 <French>Verrouiller les véhicules ennemis blindés:</French>
 </Key>
@@ -6800,7 +6800,7 @@
 <Japanese>敵の車両を施錠:</Japanese>
 <Original>Lock enemy cars:</Original>
 <Russian>Закрыть машины ИИ:</Russian>
-<Chinesesimp>锁定敌人的汽车：</Chinesesimp>
+<Chinesesimp>锁定敌人的地面载具：</Chinesesimp>
 <Chinese>鎖定敵人的汽車:</Chinese>
 <French>Verrouillez les voitures ennemies:</French>
 </Key>
@@ -6812,7 +6812,7 @@
 <Japanese>敵の航空機を施錠:</Japanese>
 <Original>Lock enemy air vecs:</Original>
 <Russian>Закрыть авиацию ИИ:</Russian>
-<Chinesesimp>锁定敌人的飞机：</Chinesesimp>
+<Chinesesimp>锁定敌人的飞行载具：</Chinesesimp>
 <Chinese>鎖定敵人的飛機:</Chinese>
 <French>Verrouillez les véhicules aériens ennemis:</French>
 </Key>
@@ -6848,7 +6848,7 @@
 <Japanese>パラシュートジャンプ用の旗:</Japanese>
 <Original>No parachute jump flags:</Original>
 <Russian>Флаг с десантированием отсутствует:</Russian>
-<Chinesesimp>没有跳伞旗帜：</Chinesesimp>
+<Chinesesimp>没有跳伞标志：</Chinesesimp>
 <Chinese>沒有跳傘旗幟:</Chinese>
 <French>Pas de parachutage du drapeau:</French>
 </Key>
@@ -7112,7 +7112,7 @@
 <Japanese>島防衛あり:</Japanese>
 <Original>With isle defense:</Original>
 <Russian>Включить оборону острова:</Russian>
-<Chinesesimp>岛屿防卫：</Chinesesimp>
+<Chinesesimp>岛屿防御：</Chinesesimp>
 <Chinese>島嶼防衛:</Chinese>
 <French>Avec la défense des îles:</French>
 </Key>
@@ -7221,7 +7221,7 @@
 <Japanese>霧(独自の気象システム):</Japanese>
 <Original>Enable fog (internal weather system):</Original>
 <Russian>Включить туман:</Russian>
-<Chinesesimp>有雾(内部天气系统)：</Chinesesimp>
+<Chinesesimp>启用雾霾(内部天气系统)：</Chinesesimp>
 <Chinese>有霧(內部天氣系統):</Chinese>
 <French>Activer le brouillard (système météorologique interne):</French>
 </Key>
@@ -7245,7 +7245,7 @@
 <Japanese>残骸を削除するまでの時間:</Japanese>
 <Original>Delete wrecks after:</Original>
 <Russian>Удалять уничтоженную призовую технику через:</Russian>
-<Chinesesimp>残骸删除时间：</Chinesesimp>
+<Chinesesimp>残骸清除时间：</Chinesesimp>
 <Chinese>残骸删除时间:</Chinese>
 <French>Supprimer les épaves après:</French>
 </Key>
@@ -7281,7 +7281,7 @@
 <Japanese>残骸修復のの最大値:</Japanese>
 <Original>Wreck max repairs:</Original>
 <Russian>Макс кол-во восстановлений приз. техники</Russian>
-<Chinesesimp>残骸最大维修次数：</Chinesesimp>
+<Chinesesimp>残骸最大维修时间：</Chinesesimp>
 <Chinese>殘骸最大維修次數:</Chinese>
 <French>Réparations de l'épave max:</French>
 </Key>
@@ -7389,7 +7389,7 @@
 <Japanese>空中投下の範囲:</Japanese>
 <Original>Air drop radius:</Original>
 <Russian>Радиус сброса поддержки:</Russian>
-<Chinesesimp>空投半径范围：</Chinesesimp>
+<Chinesesimp>空投误差半径范围：</Chinesesimp>
 <Chinese>空投半徑範圍:</Chinese>
 <French>Rayon de largage:</French>
 </Key>
@@ -7449,7 +7449,7 @@
 <Japanese>エンジニアトラックの積載量:</Japanese>
 <Original>Engineer truck cargo capacity:</Original>
 <Russian>Вместимость инженерного транспорта:</Russian>
-<Chinesesimp>工程师卡车货运能力：</Chinesesimp>
+<Chinesesimp>工程卡车的载货量：</Chinesesimp>
 <Chinese>工程師卡車貨運能力:</Chinese>
 <French>Capacité de chargement du camion ingénieur:</French>
 </Key>
@@ -7461,7 +7461,7 @@
 <Japanese>キックまでのチームキル許容量:</Japanese>
 <Original>Max number TKs for kick:</Original>
 <Russian>Макс кол-во тимкиллов и потом кик:</Russian>
-<Chinesesimp>踢出最大攻击队友次数：</Chinesesimp>
+<Chinesesimp>最大允许攻击队友次数：</Chinesesimp>
 <Chinese>踢除最大次數:</Chinese>
 <French>Nombre max de TK avant d'être kické:</French>
 </Key>
@@ -7581,7 +7581,7 @@
 <Japanese>チームキル不可能:</Japanese>
 <Original>No teamkilling possible:</Original>
 <Russian>Отключить возможность тимкилла:</Russian>
-<Chinesesimp>没有队友伤害：</Chinesesimp>
+<Chinesesimp>关闭队友伤害：</Chinesesimp>
 <Chinese>沒有隊友傷害:</Chinese>
 <French>Pas de TK possible:</French>
 </Key>
@@ -9260,7 +9260,7 @@
 <Japanese>ファーストエイドキットを削除する：</Japanese>
 <Original>Remove Fist Aid Kits:</Original>
 <Russian>Удалить аптечки из арсенала:</Russian>
-<Chinesesimp>去除掉落急救箱显示：</Chinesesimp>
+<Chinesesimp>删除急救箱：</Chinesesimp>
 <Chinese>去除掉落急救箱顯示:</Chinese>
 <French>Retirez les kits de premiers soins:</French>
 </Key>
@@ -9608,7 +9608,7 @@
 <Japanese>時間の倍数 (1 現実の秒数 = x ゲーム内の秒数):</Japanese>
 <Original>Time Multiplier (1 real second = x ingame seconds):</Original>
 <Russian>Ускорить время в игре (1 реал. секунда = x секундам в игре):</Russian>
-<Chinesesimp>加倍时间 (真实 1 秒 = 游戏中 x 秒)：</Chinesesimp>
+<Chinesesimp>时间倍数 (真实 1 秒 = 游戏中 X 秒)：</Chinesesimp>
 <Chinese>加倍時間 (真實 1 秒 = 遊戲中 x 秒):</Chinese>
 <French>Multiplicateur Temps (1 seconde réelle = x secondes en jeu):</French>
 </Key>
@@ -10593,7 +10593,7 @@
 <Japanese>冬季気候:</Japanese>
 <Original>With winter weather:</Original>
 <Russian>Включить зиму:</Russian>
-<Chinesesimp>冬天的天气：</Chinesesimp>
+<Chinesesimp>冬季的天气：</Chinesesimp>
 <Chinese>冬天的天氣：</Chinese>
 <French>Avec météo hivernale:</French>
 </Key>
@@ -10941,7 +10941,7 @@
 <Japanese>With BIS Dynamic Groups (Squad Mgmt):</Japanese>
 <Original>With BIS Dynamic Groups (Squad Mgmt):</Original>
 <Russian>Включить BIS-меню групп:</Russian>
-<Chinesesimp>使用BIS动态组（小队管理）：</Chinesesimp>
+<Chinesesimp>使用 BIS 动态组（小队管理）：</Chinesesimp>
 <Chinese>使用BIS動態組（小隊管理）：</Chinese>
 <French>Avec Groupes Dynamiques BIS (Équipe Gestion):</French>
 </Key>
@@ -11337,7 +11337,7 @@
 <Japanese>Seize various main targets and resolve side missions...</Japanese>
 <Original>Seize various main targets and resolve side missions...</Original>
 <Russian>Захват городов и выполнение разных заданий...</Russian>
-<Chinesesimp>完成各种主要目标和解决支线任务...</Chinesesimp>
+<Chinesesimp>完成各种主线任务和解决支线任务...</Chinesesimp>
 <Chinese>完成各種主要目標和解決支線任務...</Chinese>
 <French>Capturer divers objectifs principaux et résoudre des missions secondaires ...</French>
 </Key>
@@ -11361,7 +11361,7 @@
 <Japanese>Enemy AI vehicles can be air lifted:</Japanese>
 <Original>Enemy AI vehicles can be air lifted:</Original>
 <Russian>Транспорт противника (ИИ) может быть подцеплен:</Russian>
-<Chinesesimp>敌军AI载具可以升空：</Chinesesimp>
+<Chinesesimp>敌方 AI 载具可以空运：</Chinesesimp>
 <Chinese>敵軍AI載具可以升空：</Chinese>
 <French>Les véhicules ennemis peuvent être transportés par avion:</French>
 </Key>
@@ -12591,7 +12591,7 @@
 <Japanese>Without sidemission bonus vehicles:</Japanese>
 <Original>Without sidemission bonus vehicles:</Original>
 <Russian>Без призовой техники с Доп.заданий:</Russian>
-<Chinesesimp>没有支线任务奖励车辆：</Chinesesimp>
+<Chinesesimp>没有支线任务载具奖励：</Chinesesimp>
 <French>Sans véhicules bonus pour les missions secondaires:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
