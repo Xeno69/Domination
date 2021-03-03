@@ -5,3 +5,4 @@
 - Fixed: It could happen that only one headgear item showed up in Virtual Arsenal when ranked mode was activated
 - Fixed: MHQ dialog does not update button and listbox status (stays open now)
 - Fixed: Markers of other players were not visible when ACE was used
+- Fixed: ACE doesn't trigger the game engine entityKilled eventhandler for vehicles, therefore enemy AI vehicle respawn at main targets did not work

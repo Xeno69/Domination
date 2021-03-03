@@ -632,6 +632,7 @@ class cfgDomFuncs {
 			addc(pdistar);
 			addc(addheadshot);
 			addc(v_hd);
+			addc(wa_ace_vec);
 		};
 	};
 	class Dom_Revive {
