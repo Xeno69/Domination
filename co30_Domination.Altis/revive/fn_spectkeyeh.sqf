@@ -58,7 +58,7 @@ if ((_this # 1) == DIK_N) then {
 		} else {
 			if ((_this # 1) == DIK_X && {xr_max_lives != -1 && {player getVariable ["xr_lives", 0] == -1}}) then {
 				xr_stopspect = true;
-				endMission "END1";
+				endMission "LOSER";
 				forceEnd;
 			};
 		};

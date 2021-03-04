@@ -100,7 +100,7 @@ private _movecheck_fnc = _pmovepos spawn {
 				0 spawn {
 					scriptname "spawn jail4";
 					"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
-					endMission "LOSER";
+					endMission "End2";
 					forceEnd;
 				};
 			};
