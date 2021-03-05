@@ -10,7 +10,7 @@ params [
 	["_mchelper", true],					// man create helper function for positioning
 	["_doreduce", false],					// allows the caller to disable d_smallgrps
 	["_unitsPerGroup", -1],					// allows the caller to specify max unit count
-	["_sideToEngage", nil, [sideUnknown]]		// only used when AI awareness parameters are enabled, not used in TvT
+	["_sideToEngage", [sideUnknown]]		// only used when AI awareness parameters are enabled
 ];
 
 if (isNil "_unitliste") exitWith {
@@ -110,21 +110,14 @@ if (side _grp == d_side_enemy) then {
 };
 #endif
 (leader _grp) setRank "SERGEANT";
-#ifndef __TT__
-if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}) then {
-	if (isNil "_sideToEngage") then {
-		//not working, not sure why???
-		//_sideToEngage = d_player_side; // output:  Error Undefined variable in expression: d_player_side ????
-		//workaround
-		if (side (leader _grp) == east) then {
-			_sideToEngage = west;
-		} else {
-			_sideToEngage = east;
-		};
-	};
-	
+
+if !(_sideToEngage isEqualType []) then {
+	_sideToEngage = [_sideToEngage];
+};
+
+if (!(sideUnknown in _sideToEngage) && {d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}}) then {
 	//advanced awareness
-	if (["Sniper", groupId _grp] call BIS_fnc_inString) then {
+	if ("sniper" in (toLowerANSI (groupId _grp))) then {
 		{
 			[_x, _sideToEngage, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
 		} forEach units _grp;
@@ -134,6 +127,7 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_
 		} forEach units _grp;
 	}
 };
+#ifndef __TT__
 _ret call d_fnc_addceo;
 #endif
 __TRACE_1("","_ret")

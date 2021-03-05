@@ -12,6 +12,14 @@
 // _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis (this is useful when doSuppressiveFire causes the unit to burn ammo rapidly)
 params ["_unit", "_targetSide", "_awarenessRadius", "_pursueRadius", "_isAggressiveShoot", "_isQuickAmmo"];
 
+__TRACE_1("","_this")
+
+if (_awarenessRadius <= 0) exitWith {};
+
+if (_targetSide isEqualType "") then {
+	_targetSide = [_targetSide];
+};
+
 //by HallyG, dlegion
 private _isLOS = {
 	params ["_looker", "_target", "_FOV"];
@@ -42,32 +50,36 @@ private _lastAmmoRefill = 0;
 private _ammoRefillInterval = 15;
 private _executingOccupyCommand = false;
 
-
-private _isSniper = ["Sniper", groupId(group _unit)] call BIS_fnc_inString;
+private _isSniper = "sniper" in (toLowerANSI (groupId (group _unit)));
 
 //awareness loop
 while {true} do {
-	_Dtargets = [];
+	private _Dtargets = [];
 
 	if (!alive _unit) exitWith {};
 	{
-		if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side _x == _targetSide && {_x distance2D _unit < _detectionRadius}}}}}) then {
-			if (_awarenessRadius > 0 && {_x getVariable ["xr_pluncon", false] || {_x getVariable ["ace_isunconscious", false]}}) then {
+		if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSide && {_x distance2D _unit < _detectionRadius}}}}}) then {
+			if (!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}) then {
 				_unit reveal [_x, 4];
 			};
-			_Dtargets pushBack _x;
+			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
 	} forEach (_unit nearEntities _awarenessRadius);
+	__TRACE_1("","_Dtargets")
 	
-	_fired = false;
+	private _fired = false;
 	
-	if (count _Dtargets > 0) then {
-		_playersSortedByDistance = [_Dtargets, getPos _unit] call d_fnc_sortarraybydistance;
+	if (_Dtargets isNotEqualTo []) then {
+		_Dtargets sort true;
+		_playersSortedByDistance = _Dtargets apply {_x # 1};
+		__TRACE_1("","_playersSortedByDistance")
 		
 		if (_isAggressiveShoot == 1) then {
+			__TRACE("Aggressive Shoot")
 			{
 				if (!alive _unit) exitWith {};
-				if (([_unit, _x] call d_fnc_isvisible) || {[_unit, _x, 360] call _isLOS}) then {
+				//if (([_unit, _x] call d_fnc_isvisible) || {[_unit, _x, 360] call _isLOS}) then {
+				if ([_unit, _x] call d_fnc_isvisible) then {
 					//to check if unit actually fired
 					_ammoCount = _unit ammo primaryWeapon _unit;
 					_magazineCount = count magazinesAmmo _unit; 
@@ -91,8 +103,10 @@ while {true} do {
 		if (!alive _unit) exitWith {};
 		
 		_nearestTargetPlayer = _playersSortedByDistance # 0;
+		__TRACE_1("","_nearestTargetPlayer")
 
 		if (_pursueRadius > 0 && {_nearestTargetPlayer distance2D _unit < _pursueRadius}) then {
+			__TRACE("pursue radius")
 			//unit is eligible for a move order
 			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
 				//unit has waited longer than the required interval
@@ -105,6 +119,7 @@ while {true} do {
 		};
 	} else {
 		//no target nearby
+		__TRACE("no target nearby")
 		if (!_isSniper && {leader _unit == _unit}) then {
 			//unit is the group leader
 			//group must 1) resume existing waypoints or 2) return to the unit's original position and occupy a building
@@ -114,6 +129,7 @@ while {true} do {
 				(group _unit) setSpeedMode "NORMAL";
 				//unit is eligible for a move order
 				if (count (waypoints leader _unit) > 0) then {
+					__TRACE("occupy building")
 					//unit is leader and has waypoints, find nearest waypoint and resume - todo
 					//hack, just resume at waypoint #1
 					//(group _unit) setCurrentWaypoint [group _unit, 1];
