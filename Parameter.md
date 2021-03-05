@@ -131,11 +131,11 @@
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 > 如果启用并且您使用的是 [CUP版本](https://github.com/Xeno69/Domination/wiki/Versions-and-needed-mods-addons#CUP) 的任务，只有 CUP 武器会出现在虚拟武库中<br/>
 
-#### **d_no_mortar_ar / Mortar bag packs in [Virtual Arsenal](https://community.bistudio.com/wiki/Arma_3_Arsenal):**
-> 默认： 1 (No, mortar bags; 0 or Yes to add them again)<br/>
-> If set to 1/No then no mortar bags will be added to [Virtual Arsenal](https://community.bistudio.com/wiki/Arma_3_Arsenal) (0 to make mortars show again)<br/>
+#### **d_no_mortar_ar / [虚拟武库](https://community.bistudio.com/wiki/Arma_3_Arsenal) 中的迫击炮背包：**
+> 默认： 1 (No, 迫击炮背包; 0 or Yes 再添加一次)<br/>
+> 如果设置 1/No 那么 [虚拟武库](https://community.bistudio.com/wiki/Arma_3_Arsenal) 就不需要再加迫击炮背包(0 迫击炮需再次添加)<br/>
 
-#### **d_ao_markers / Turn off markers at AO for tower and camps:**
+#### **d_ao_markers / 在 AO 处关闭塔楼和营地的标记：**
 > 默认： 1 (No, 无效； 0 or 启用)<br/>
 
 #### **d_with_base_sabotage / With base sabotage:**
@@ -484,7 +484,7 @@
 #### **d_HALOWaitTime / 在基地的跳伞间隔时间：**
 > 默认： 0<br/>
 > 可用选项（以秒为单位）： 0、 300、 600、 1800 和 3600<br/>
-> 玩家必须等到从基地开始下一次跳伞的时间 Time a player has to wait till the next parajump from base<br/>
+> 玩家必须等到从基地开始下一次跳伞的时间<br/>
 
 #### **d_WithJumpFlags / 没有跳伞标志：**
 > 默认： 1 (No, 无效； 1 or Yes to 有效<br/>
