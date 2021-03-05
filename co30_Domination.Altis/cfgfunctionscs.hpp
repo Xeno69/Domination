@@ -351,7 +351,6 @@ class cfgDomFuncs {
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);
-			addc(HousePatrol);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
 			addc(hallyg_dlegion_Snipe_awareness);
@@ -585,7 +584,6 @@ class cfgDomFuncs {
 			addc(sabotage);
 			addc(createpara2);
 			addc(createambient);
-			addc(dohousepatrol);
 			addc(nightfograin);
 			addc(changeskill);
 			addc(ai_loop);

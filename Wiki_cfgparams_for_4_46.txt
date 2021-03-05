@@ -110,8 +110,6 @@
 #### **d_with_base_sabotage / With base sabotage:**
 > Default: 1 (No)<br/>
 > If set to 0 (Yes) then every now and then a group of elite soldiers will drop over your base and try to sabotage you<br/>
-#### **d_house_patrol / With enemy AI house patrol at main targets:**
-> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_pylon_lodout / Pylon loadout enabled:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If enabled players will be able to change they [pylon loadout](https://community.bistudio.com/wiki/Arma_3_Vehicle_Loadouts) when they enter a vehicle (available via hold action menu on base)<br/>

@@ -11809,18 +11809,6 @@
 <Chinese>跳傘位置太靠近主要目標！</Chinese>
 <French>Parachutage trop proche de l'objectif principal!!!</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1868">
-<English>With enemy AI house patrol at main targets:</English>
-<Spanish>Con la patrulla de la IA enemiga en los objetivos principales:</Spanish>
-<Portuguese>Com a patrulha inimiga da IA nos principais objetivos:</Portuguese>
-<Korean>메인 미션지 적 AI 하우스 패트롤:</Korean>
-<Japanese>With enemy AI house patrol at main targets:</Japanese>
-<Original>With enemy AI house patrol at main targets:</Original>
-<Russian>С патрулированием домов ИИ на главном задании:</Russian>
-<Chinesesimp>在 AI 主要任务的巡逻中：</Chinesesimp>
-<Chinese>以敵人的AI房屋巡邏為主要目標：</Chinese>
-<French>Avec patrouille IA ennemie sur les objectifs principaux:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1869">
 <English>Earplugs in</English>
 <Spanish>Tapones de Oídos Activado</Spanish>
