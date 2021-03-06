@@ -56,6 +56,7 @@ if (_rpos isEqualTo [] || {surfaceIsWater _rpos}) then {
 		_rpos =+ d_cur_tgt_pos;
 	};
 };
+__TRACE_1("","_rpos")
 d_enemyai_respawn_pos = [_rpos, d_cur_tgt_pos getDir _rpos];
 #endif
 

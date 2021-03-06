@@ -14,6 +14,7 @@ if (remoteExecutedOwner != owner _pl) exitWith {};
 
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
+	diag_log ["Dom Headleass client connected"];
 	d_hc_array pushBack _pl;
 	if (time > 10) then {
 		if (!isNil "d_recreatehcs_handle") then {
@@ -52,6 +53,7 @@ if (_p isEqualTo []) then {
 	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0, getPlayerID _pl];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
+	diag_log [" Dom New player for this session:", _name];
 	__TRACE_3("Player not found in d_player_hash","_uid","_name","_p")
 } else {
 	__TRACE_1("player store before change","_p")
@@ -87,6 +89,7 @@ if (_p isEqualTo []) then {
 		};
 	};
 #endif
+	diag_log [" Dom Player joins session again:", _name];
 	__TRACE_1("player store after change","_p")
 };
 
@@ -114,9 +117,11 @@ if (d_database_found) then {
 		call {
 			if (d_db_type == 0) exitWith {
 				"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
+				diag_log ["Dom Database extdB3 player Insert", _name];
 			};
 			if (d_db_type == 1) exitWith {
 				["playerInsert", [_uid, _name]] call d_fnc_queryconfigasync;
+				diag_log ["Dom Database InterceptDB player Insert", _name];
 			};
 		};
 	} else {
@@ -124,10 +129,11 @@ if (d_database_found) then {
 		call {
 			if (d_db_type == 0) exitWith {
 				"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
-				diag_log ["Dom Database extdb3 updating numplayed"];
+				diag_log ["Dom Database extdB3 updating numplayed:", _name];
 			};
 			if (d_db_type == 1) exitWith {
 				["numplayedAdd", [_name, _uid]] call d_fnc_queryconfigasync;
+				diag_log ["Dom Database InterceptDB updating numplayed", _name];
 			};
 		};
 		__TRACE_1("","_f_c")

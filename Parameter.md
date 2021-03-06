@@ -135,170 +135,169 @@
 > 默认： 1 (No, 迫击炮背包; 0 or Yes 再添加一次)<br/>
 > 如果设置 1/No 那么 [虚拟武库](https://community.bistudio.com/wiki/Arma_3_Arsenal) 就不需要再加迫击炮背包(0 迫击炮需再次添加)<br/>
 
-#### **d_ao_markers / 在 AO 处关闭塔楼和营地的标记：**
+#### **d_ao_markers / 在 AO（占领区域） 处关闭塔楼和营地的标记：**
 > 默认： 1 (No, 无效； 0 or 启用)<br/>
 
-#### **d_with_base_sabotage / With base sabotage:**
+#### **d_with_base_sabotage / 基地破坏：**
 > 默认： 1 (No)<br/>
-> If set to 0 (Yes) then every now and then a group of elite soldiers will drop over your base and try to sabotage you<br/>
+> 如果设置为 0 (Yes)，那么时不时会有一群精锐士兵降落在你的基地上，并试图破坏基地<br/>
 
-#### **d_house_patrol / With enemy AI house patrol at main targets:**
+#### **d_house_patrol / 以敌方的 AI 房屋巡逻 为主要目标：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
-#### **d_pylon_lodout / Pylon loadout enabled:**
+#### **d_pylon_lodout / 启用载具挂架装载：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If enabled players will be able to change they [pylon loadout](https://community.bistudio.com/wiki/Arma_3_Vehicle_Loadouts) when they enter a vehicle (available via hold action menu on base)<br/>
+> 如果启用，玩家将能够改变他们的 [挂架装载](https://community.bistudio.com/wiki/Arma_3_Vehicle_Loadouts) ，当他们进入一载具（可通过基地上的保持行动菜单） 
 
-#### **d_pylon_noclust / Remove cluster ammo from pylon loadout**
-> 默认： 0 (Yes, 启用； 1 or No to add cluster bombs again)<br/>
-> Removes cluster bombs from pylon loadout if enabled because they cause too much lag in MP<br/>
+#### **d_pylon_noclust / 从 挂架装载 中删除 集束炸弹 **
+> 默认： 0 (Yes, 启用； 1 or No 再次添加集束炸弹)<br/>
+> 如果启用，则从塔挂载中删除 集束炸弹，因为它们导致 MP 的滞后时间<br/>
 
-#### **d_with_minefield / With minefield at main targets:**
+#### **d_with_minefield / 为主线任务生成雷区：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用雷区)<br/>
-> Sometimes spawns a random minefield at main targets if enabled<br/>
+> 如果启用，有时会在主要目标上产生一个随机雷区<br/>
 
-#### **d_va_percentage / Limit Virtual Arsenal ammo box access too 1000**
-> 默认： 0 (Yes, 启用； 1 or No for no limit)<br/>
-> If enabled players can only access a dropped ammo box about 1000 times before it gets deleted<br/>
+#### **d_va_percentage / 限制 虚拟武器库弹药箱 使用次数不超过1000次：**
+> 默认： 0 (Yes, 启用； 1 or No 没有限制)<br/>
+> 如果启用，玩家只能在掉落的弹药箱被删除之前使用它约1000次。<br/>
 
-#### **d_dis_servicep / Disable all service points, including FARPs (no refuel, no repair, no rearm)**
+#### **d_dis_servicep / 禁用所有服务点，包括 FARP 前沿补给点（不加油、不维修、不重新武装）**
 > 默认： 1 (No; 0 or Yes 禁用服务点)<br/>
 
-#### **d_InitialViewDistance / Initial Viewdistance:**
-> 默认： 1600 (meter)<br/>
-> Inital client viewdistance, available are (in meter) 1000, 1600, 2000, 3000, 3500, 4000, 4500 and 5000<br/>
+#### **d_InitialViewDistance / 初始视距：**
+> 默认： 1600 (米)<br/>
+> 初始客户端视野距离，可用的是 (以米为单位)  1000、1600、2000、3000、3500、4000、4500、5000<br/>
 
-#### **d_MaxViewDistance / Maximum Viewdistance:**
+#### **d_MaxViewDistance / 最大视距：**
 > 默认： 5000 (meter)<br/>
-> Maximum viewdistance a client can select via Status Dialog. Available are (in meter) 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10000<br/>
+> 客户端可以通过“状态对话框”调整最大视距。 可用的是 (以米为单位) 2000、3000、4000、5000、6000、7000、8000、9000、10000<br/>
 
-#### **d_ViewdistanceChange / Viewdistance changable:**
-> 默认： 0 (Yes, 启用； 1 or No for no vd change)<br/>
-> If disabled players can not change their client viewdistance<br/>
+#### **d_ViewdistanceChange / 调整视距：**
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
+> 如果禁用玩家无法调整其客户端的视距<br/>
 
-#### **d_playerspectateatbase / Player can spectate other players at base flag:**
-> 默认： 0 (Yes, 启用； 1 or No too disable)<br/>
+#### **d_playerspectateatbase / 玩家可以在基地标志处观看其他玩家：**
+> 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
-#### **d_with_ai / With AI recruitment:**
+#### **d_with_ai / AI 士兵招募：**
 > 默认： 1<br/>
-> When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics.</br>
+> 启用 AI 招募后，所有玩家都可以 标记炮兵目标，呼叫炮兵，呼叫飞机，呼叫CAS。他们也是工程师和医务人员。</br>
 > 可用选项：<br/>
->   - Enabled (0)<br/>
->   - Disabled (1)<br/>
->   - Enabled but block recruited AI from entering static weapons (2)<br/>
+>   - 启用 (0)<br/>
+>   - 禁用 (1)<br/>
+>   - 启用但阻止新招募的 AI 进入静态武器 (2)<br/>
 
-#### **d_with_ai_features / With AI features but no AI recruit:**
+#### **d_with_ai_features / 具有AI功能，但不招募AI：**
 > 默认： 1 (No, 无效； 0 or Yes to 有效<br/>
-> Same as d_with_ai above, just no AI recruitment<br/>
+> 与上面的 d_with_ai 相同（所有玩家都可以 标记炮兵目标，呼叫炮兵，呼叫飞机，呼叫CAS。他们也是工程师和医务人员），只是没有AI招募<br/>
 
-#### **d_max_ai / Recruit AI (max.):**
+#### **d_max_ai / 招募 AI 最大数量:**
 > 默认： 8<br/>
-> 可用选项： 4, 6, 8, 10, 12, 14 and 16<br/>
+> 可用选项：4、6、8、10、12、14、16<br/>
 
-#### **d_ai_alone_in_vehicle / AI can drive vehicle without a player inside:**
+#### **d_ai_alone_in_vehicle / AI 可以在没有玩家的情况下驾驶载具：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用<br/>
 
-#### **d_ai_silent / Bots are silent**
+#### **d_ai_silent / 机器人是沉默的：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用<br/>
 
-#### **d_GrasAtStart / Grass:**
+#### **d_GrasAtStart / 草植：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If disabled then no grass is rendered (changes terraingrid)<br/>
+> 如果禁用，则不渲染任何草植（更改地形网格）<br/>
 
-#### **d_Terraindetail / Player can disable grass:**
+#### **d_Terraindetail / 玩家可以禁用草植：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If disabled players can not turn off grass (change terraingrid)<br/>
+> 如果禁用 玩家不能关掉草植（改变地形网格）<br/>
 
-#### **d_EnableSimulationCamps / Enable simulation for enemy camps:**
+#### **d_EnableSimulationCamps / 敌方阵营启用模拟：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If disabled the simulation for object compositions at main targets is enabled (means they can be destroyed)<br/>
-> If disabled players can not turn off grass (change terraingrid)<br/>
+> 如果禁用，则启用对主要目标上的对象合成的模拟（意味着它们可以被销毁）<br/>
 
-#### **d_WithRevive / With revive:**
+#### **d_WithRevive / 复活：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If disabled no revive is available, players can then only spawn at one of the available spawn points when they die<br/>
+> 如果禁用，则无法复活，玩家死亡时只能在可用的出生点之一出生<br/>
 
-#### **d_WithReviveSpectating / With revive spectating:**
+#### **d_WithReviveSpectating / 等待复活时观战：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If disabled players can only see themself when they are in unconscious state<br/>
+> 如果禁用，玩家只有在处于昏迷状态时才能看到自己<br/>
 
-#### **d_only_medics_canrevive / Only medics can revive:**
-> 默认： 1 (disabled)<br/>
+#### **d_only_medics_canrevive / 只有医护人员才能进行复活：**
+> 默认： 1 (禁用；0 or Yes 启用)<br/>
 
-#### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
+#### **d_ACEMedicalR / 使用ACE医疗复活而不是任务复活(如果ACE可用):**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
-> If disabled the mission uses it's own revive instead of the ACE one<br/>
+> 如果被禁用，任务将使用自己的复活而不是ACE复活<br/>
 
-#### **xr_max_lives / Max lives (revive):**
+#### **xr_max_lives / 最大生命（重生）：**
 > 默认： 30<br/>
-> Determines how many lives a player has<br/>
-> 可用选项： 1, 5, 10, 20, 30, 40, 50 and Unlimited (-1)<br/>
+> 确定玩家有多少生命<br/>
+> 可用选项： 1、5、10、20、30、40、50 、-1（无限）<br/>
 
-#### **xr_lifetime / Life time:**
-> 默认： 300 (seconds)<br/>
-> Time a player stays in unconscious state if nobody revives him/her or he/she does not respawn. If the time is up the player respawns at base<br/>
-> 可用选项（以秒为单位）： 60, 120, 180, 240, 300, 600 and 1200<br/>
+#### **xr_lifetime / 昏迷等待时间：**
+> 默认： 300 (秒)<br/>
+> 如果没有人复活玩家 或 玩家没有选择重生，则玩家处于无意识状态的时间。如果时间到了，玩家将在基地处重生。<br/>
+> 可用选项（以秒为单位）： 60、120、180、240、300、600、1200<br/>
 
-#### **xr_respawn_available_after / Respawn possible after:**
-> 默认： 5 (seconds)<br/>
-> If a player dies it takes xr_respawn_available_after seconds until he/she can respawn<br/>
-> 可用选项（以秒为单位）： 5, 30, 60, 90, 120, 180, 240, 300 and 600<br/>
+#### **xr_respawn_available_after / 重生等待时间：**
+> 默认： 5 (秒)<br/>
+> 如果玩家死亡，需要等待多少时间，可以重生<br/>
+> 可用选项（以秒为单位）： 5、30、60、90、120、180、240、300、600<br/>
 
-#### **d_show_playernames / Show player names:**
-> 默认： 0 (Yes, 启用； 1 or No to show no player names for example above head)<br/>
+#### **d_show_playernames / 显示玩家名称：**
+> 默认： 0 (Yes, 启用； 1 or No 在头顶上方不显示任何玩家名称)<br/>
 
-#### **d_playernames_state / Default player name state:**
+#### **d_playernames_state / 默认的玩家名称状态：**
 > 默认： 1<br/>
 > 可用选项：<br/>
->   - Off (0)<br/>
->   - Names (1)<br/>
->   - Health (2)<br/>
+>   - 关闭 (0)<br/>
+>   - 名字 (1)<br/>
+>   - 健康 (2)<br/>
 
-#### **d_show_player_marker / Player marker:**
+#### **d_show_player_marker / 玩家标记：**
 > 默认： 1<br/>
 > 可用选项：<br/>
->   - Off (0)<br/>
->   - Name only (1)<br/>
->   - Marker only (2)<br/>
->   - Health (3)<br/>
+>   - 关闭 (0)<br/>
+>   - 仅名称 (1)<br/>
+>   - 仅标记 (2)<br/>
+>   - 健康 (3)<br/>
 
-#### **d_force_isstreamfriendlyui / Force no HUD**
+#### **d_force_isstreamfriendlyui / 强制无 HUD：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用)<br/>
 
-#### **d_WithAmbientRadio / With ambient radio:**
+#### **d_WithAmbientRadio / 带环境无线电：**
 > 默认： 1 (Yes, 启用； 0 or No 禁用<br/>
 
-#### **d_with_3Dicon / With 3D draw icon above wreck repair/ammo point:**
+#### **d_with_3Dicon / 使用残骸维修/弹药补给上方的3D绘制图标：**
 > 默认： 1 (Yes, 启用； 0 or No 禁用<br/>
 
-#### **d_AutoKickTime / Air vecs autokick time:**
-> 默认： 1800 (seconds)<br/>
-> Autokick time means that a player who connects the first time during the mission will be kicked out of attack planes and choppers so he/she doesn't waste them<br/>
-> 可用选项（以秒为单位）： 0 (disabled), 60, 300, 1800 and 3600<br/>
+#### **d_AutoKickTime / 航空载具占用自动踢出时间：**
+> 默认： 1800 (秒)<br/>
+> 自动踢出时间意味着在任务中第一次连接的玩家将被踢出攻击机和直升机，这样就不会浪费它们<br/>
+> 可用选项（以秒为单位）： 0 (禁用)、60、300、1800、3600<br/>
 
-#### **d_score_needed_to_fly / Flying choppers and planes only allowed when a player has a score higher than:**
+#### **d_score_needed_to_fly / 要想被允许驾驶直升机和飞机，玩家的得分必须高于以下值：**
 > 默认： 10<br/>
-> If a SQL database is available players will get kicked out of air vehicles if their score is below d_score_needed_to_fly. Doesn't affect inital choppers like MHQ/transport; can be disabled with -1 (Disabled)<br/>
-> 可用选项（以秒为单位）： -1 (disabled), 10, 50, 100, 500, 1000, 2000 and 5000<br/>
+> 如果有可用的SQL数据库，则球员的得分低于 `d_score_needed_to_fly` 时，他们将被踢出飞行器。 不会影响MHQ、初始运输直升机等；可以通过设置 `-1` 禁用(禁用)<br/>
+> 可用选项（以秒为单位）： -1 (禁用), 10, 50, 100, 500, 1000, 2000 and 5000<br/>
 
-#### **d_without_nvg / Without NVgoggles:**
-> 默认： 1 (No, 无效； 0 or Yes to remove nv goggles)<br/>
-> If enabled removes night vision goggles from players and AI and blocks NV sights<br/>
+#### **d_without_nvg / 禁用夜视仪:**
+> 默认： 1 (No, 无效； 0 or Yes to 移除夜视仪)<br/>
+> 如果启用，则从玩家和AI移除夜视仪，并禁用带夜视功能的瞄具<br/>
 
-#### **d_without_ti / Disable Thermal Imaging (TI) for inf weapons/optics:**
+#### **d_without_ti / 禁用武器装备/光学装备的热成像功能(TI)：**
 > 默认： 1 (No, 无效； 0 or 启用)<br/>
-> If enabled thermal imaging for infantry weapons/optics is blocked<br/>
+> 如果启用，步兵武器光学的热成像功能被禁用<br/>
 
-#### **d_without_vec_ti / Disable vehicle TI:**
-> 默认： 1 (No, 无效； 0 or Yes to remove termal imaging)<br/>
-> If enabled removes termal imaging from vehicles<br/>
+#### **d_without_vec_ti / 禁用载具热成像功能(TI)：**
+> 默认： 1 (No, 无效； 0 or Yes 禁用热成像)<br/>
+> 如果启用，则会从载具上移除热成像<br/>
 
-#### **d_without_vec_nvg / Disable vehicle NVG:**
-> 默认： 1 (No, 无效； 0 or Yes to remove night vision)<br/>
-> If enabled removes night vision from vehicles<br/>
+#### **d_without_vec_nvg / 禁用载具夜视仪(NVG)：**
+> 默认： 1 (No, 无效； 0 or Yes 禁用夜视仪)<br/>
+> 如果启用，则会从载具上移除夜视仪<br/>
 
-#### **d_vec_at_farp / Add action menu "Spawn vehicle" to FARPs:**
-> 默认： 0 (Yes, 启用； 1 or No to remove the acion menu)<br/>
+#### **d_vec_at_farp / 在 FARP（前哨补给站）中添加“生成載具”操作菜单：**
+> 默认： 0 (Yes, 启用； 1 or No 删除操作菜单)<br/>
 
 #### **d_engineerfull / Engineer full repair (old versions):**
 > 默认： 1 (No, 无效； 0 or 启用)<br/>
@@ -438,30 +437,30 @@
 
 #### **d_MTTowerSatchelsOnly / MT Tower Satchels only:**
 > 默认： 0 (Yes, 启用； 1 or No 禁用<br/>
-> Main target can only be destroyed by satchels if enabled<br/>
+> 如果启用，主要目标只能被挎包摧毁 Main target can only be destroyed by satchels if enabled<br/>
 
-#### **d_IllumMainTarget / Illuminate main target:**
+#### **d_IllumMainTarget / 照亮主要目标：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用<br/>
 
-#### **d_sub_kill_points / Subtract score when a player dies:**
+#### **d_sub_kill_points / 玩家死亡时减去分数：**
 > 默认： 0<br/>
-> 可用选项： 0 (No), 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
+> 可用选项： 0 (No)、1、2、3、4、5、6、7、8、9、10<br/>
 
-#### **d_pilots_only / Only pilots can fly:**
+#### **d_pilots_only / 仅限飞行员可飞行：**
 > 默认： 1 (No, 无效； 0 or Yes to 有效<br/>
-> If enabled a player needs pilot headgear and pilot uniform to fly<br/>
+> 如果启用，则玩家需要飞行员头饰和飞行员制服才能飞行<br/>
 
-#### **d_WithLessArmor / Armor at main targets:**
+#### **d_WithLessArmor / 主线任务的装甲车辆：**
 > 默认： 0<br/>
-> 可用选项： 0 (Normal), 1 (Less), 2 (None) and -1 (Random)<br/>
+> 可用选项： 0 (普通)、 1 (较少)、 2 (没有)、 -1 (随机)<br/>
 
-#### **d_WithLessArmor_side / Armor at side missions:**
+#### **d_WithLessArmor_side / 支线任务的装甲车辆：**
 > 默认： 0<br/>
-> 可用选项： 0 (Normal), 1 (Less) 2 (None) and -1 (Random)<br/>
+> 可用选项： 0 (普通)、 1 (较少)、 2 (没有)、 -1 (随机)<br/>
 
-#### **d_EnemySkill / Skill Enemy:**
+#### **d_EnemySkill / 敌军技能：**
 > 默认： 2<br/>
-> 可用选项： 0 (Very Low), 1 (Low), 2 (Normal), 3 (High) and 4 (Very High)<br/>
+> 可用选项： 0 (极低)、1 (低)、2 (普通)、3 (高)、4 (极高)<br/>
 
 #### **d_WithIsleDefense / 岛屿防御：**
 > 默认： 0 (Yes, 启用； 1 or No 禁用<br/>

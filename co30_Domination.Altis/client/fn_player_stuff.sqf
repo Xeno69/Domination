@@ -32,8 +32,7 @@ _this spawn {
 		[3, profileName, round (30 - (_rtime / 60))] remoteExecCall ["d_fnc_csidechat", -2];
 		0 spawn {
 			scriptName "spawn_endmissionloser";
-			sleep 1.5;
-			endMission "LOSER";
+			endMission "End3";
 			forceEnd;
 		};
 	} else {

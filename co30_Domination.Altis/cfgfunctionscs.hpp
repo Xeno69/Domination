@@ -165,7 +165,6 @@ class cfgDomFuncs {
 			addc(vdhandler);
 			addc(arsenal_mod_rem);
 			addc(gmcwgextrac);
-			addc(remplnounit);
 			addc(rem_ti_nvg_items);
 			addc(curcampsclient);
 			addc(initservicepoints);
@@ -632,6 +631,7 @@ class cfgDomFuncs {
 			addc(pdistar);
 			addc(addheadshot);
 			addc(v_hd);
+			addc(wa_ace_vec);
 		};
 	};
 	class Dom_Revive {

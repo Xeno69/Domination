@@ -226,7 +226,6 @@ class CfgRemoteExec {
 		class d_fnc_airtaxi_dest {allowedTargets = 2;};
 		class d_fnc_clienttargetsel {allowedTargets = 1;};
 		class d_fnc_addttp {allowedTargets = 2;};
-		class d_fnc_remplnounit {allowedTargets = 1;};
 		class d_fnc_curcampsclient {allowedTargets = 1;};
 		class d_fnc_addscore {allowedTargets = 2;};
 		class d_fnc_scoreadded {allowedTargets = 1;};
@@ -1860,6 +1859,49 @@ class d_RscAnimatedLetters {
 
 class RscTitles {
 	#include "dlg\RscTitles.hpp"
+};
+
+class CfgDebriefing {
+	class End1 {
+		title = "$STR_DOM_MISSIONSTRING_231";
+		subtitle = "";
+		description = "$STR_DOM_MISSIONSTRING_232";
+		pictureBackground = "";
+		picture = "b_inf";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class End2 {
+		title = "SESSION BAN";
+		subtitle = "";
+		description = "$STR_DOM_MISSIONSTRING_2043";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class End3 {
+		title = "KICKED BECAUSE OF SIDE CHANGE";
+		subtitle = "";
+		description = "You are not allowed to change the sides for 30 minutes!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class End4 {
+		title = "KICKED USING ADMIN SLOT";
+		subtitle = "";
+		description = "You selected an admin slot but didn't log in as admin!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class End5 {
+		title = "KICKED USING CHEAT TOOLS";
+		subtitle = "";
+		description = "You are probably using cheat tools!!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
 };
 
 class CfgIdentities {

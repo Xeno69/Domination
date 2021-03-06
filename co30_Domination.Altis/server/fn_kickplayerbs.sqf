@@ -5,7 +5,7 @@
 
 params ["_pl", "_pl_name", "_reason"];
 private _uid = getPlayerUID _pl;
-remoteExecCall ["d_fnc_emiss", _pl];
+
 if (_reason != -1) then {
 	if (_reason == 2) then {
 		diag_log format [localize "STR_DOM_MISSIONSTRING_945", _pl_name, _uid];
@@ -14,5 +14,8 @@ if (_reason != -1) then {
 			diag_log format [localize "STR_DOM_MISSIONSTRING_946", _pl_name, _uid];
 		};
 	};
+	_reason remoteExecCall ["d_fnc_emiss", _pl];
 	[10, _reason, _pl_name] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
+} else {
+	-1 remoteExecCall ["d_fnc_emiss", _pl];
 };

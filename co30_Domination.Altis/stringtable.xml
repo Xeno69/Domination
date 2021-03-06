@@ -6308,7 +6308,7 @@
 <Japanese>蘇生:</Japanese>
 <Original>With revive:</Original>
 <Russian>Со спасением (ревайв):</Russian>
-<Chinesesimp>救治：</Chinesesimp>
+<Chinesesimp>复活：</Chinesesimp>
 <Chinese>復活</Chinese>
 <French>Avec réanimation:</French>
 </Key>
@@ -6344,7 +6344,7 @@
 <Japanese>メディックだけが蘇生できる:</Japanese>
 <Original>Only medics can revive:</Original>
 <Russian>Только медики могут спасать (ревайв):</Russian>
-<Chinesesimp>只有医生才能救治：</Chinesesimp>
+<Chinesesimp>只有医护人员才能进行复活：</Chinesesimp>
 <Chinese>只有醫生才能救治:</Chinese>
 <French>Seuls les Medic peuvent réanimer:</French>
 </Key>
@@ -6356,7 +6356,7 @@
 <Japanese>最大ライフ (蘇生回数):</Japanese>
 <Original>Max lives (revive):</Original>
 <Russian>Макс кол-во жизней (ревайв):</Russian>
-<Chinesesimp>最多生命次数 (救治)：</Chinesesimp>
+<Chinesesimp>最多生命次数 (重生)：</Chinesesimp>
 <Chinese>最大復活次數</Chinese>
 <French>Vies Max (réanimation):</French>
 </Key>
@@ -6476,7 +6476,7 @@
 <Japanese>復活可能になるまでの時間:</Japanese>
 <Original>Respawn possible after:</Original>
 <Russian>Возродиться можно через:</Russian>
-<Chinesesimp>重生后等待时间：</Chinesesimp>
+<Chinesesimp>重生等待时间：</Chinesesimp>
 <Chinese>重生後等待時間:</Chinese>
 <French>Réapparition possible après:</French>
 </Key>
@@ -6572,7 +6572,7 @@
 <Japanese>視認距離変更可:</Japanese>
 <Original>Viewdistance changable:</Original>
 <Russian>Обзор можно изменить:</Russian>
-<Chinesesimp>改变视距：</Chinesesimp>
+<Chinesesimp>调整视距：</Chinesesimp>
 <Chinese>改變視野距離:</Chinese>
 <French>Distance Vue Modifiable</French>
 </Key>
@@ -6884,7 +6884,7 @@
 <Japanese>NVゴーグルなし:</Japanese>
 <Original>Without NVgoggles:</Original>
 <Russian>Отключить ПНВ:</Russian>
-<Chinesesimp>没有夜视仪：</Chinesesimp>
+<Chinesesimp>禁用夜视仪：</Chinesesimp>
 <Chinese>沒有夜視儀:</Chinese>
 <French>Sans NVG:</French>
 </Key>
@@ -6908,7 +6908,7 @@
 <Japanese>車両のナイトビジョン無効:</Japanese>
 <Original>Disable vehicle NVG:</Original>
 <Russian>Отключить ПНВ в технике:</Russian>
-<Chinesesimp>禁用车辆夜视仪：</Chinesesimp>
+<Chinesesimp>禁用载具夜视仪：</Chinesesimp>
 <Chinese>禁用車輛夜視儀:</Chinese>
 <French>Désactiver NVG des véhicules:</French>
 </Key>
@@ -6932,7 +6932,7 @@
 <Japanese>航空機の自動キックまでの時間:</Japanese>
 <Original>Air vecs autokick time:</Original>
 <Russian>Время автокика из авиации:</Russian>
-<Chinesesimp>空中控制系统自动踢出时间：</Chinesesimp>
+<Chinesesimp>航空载具占用自动踢出时间：</Chinesesimp>
 <Chinese>空中控制系統自動踢出時間:</Chinese>
 <French>Temps d'utilisation des avions:</French>
 </Key>
@@ -7124,7 +7124,7 @@
 <Japanese>メインターゲットの装甲車両:</Japanese>
 <Original>Armor at main targets:</Original>
 <Russian>Бронетехника в городах:</Russian>
-<Chinesesimp>主要目标的装甲：</Chinesesimp>
+<Chinesesimp>主线任务的装甲车辆：</Chinesesimp>
 <Chinese>主要目標的裝甲:</Chinese>
 <French>Blindés sur les objectifs principaux:</French>
 </Key>
@@ -7293,7 +7293,7 @@
 <Japanese>草:</Japanese>
 <Original>Grass:</Original>
 <Russian>Трава:</Russian>
-<Chinesesimp>草：</Chinesesimp>
+<Chinesesimp>草植：</Chinesesimp>
 <Chinese>草</Chinese>
 <French>Herbe:</French>
 </Key>
@@ -7305,7 +7305,7 @@
 <Japanese>プレーヤーが草を無効にできる:</Japanese>
 <Original>Player can disable grass:</Original>
 <Russian>Игрок может отключить траву:</Russian>
-<Chinesesimp>玩家能禁用草：</Chinesesimp>
+<Chinesesimp>玩家能禁用草植：</Chinesesimp>
 <Chinese>玩家能禁用草:</Chinese>
 <French>Le joueur peut désactiver l'herbe:</French>
 </Key>
@@ -7329,7 +7329,7 @@
 <Japanese>AI募集 (最大):</Japanese>
 <Original>Recruit AI (max.):</Original>
 <Russian>Наём ИИ (кол-во макс.):</Russian>
-<Chinesesimp>招募 AI (最大。)：</Chinesesimp>
+<Chinesesimp>招募 AI 最大数量：</Chinesesimp>
 <Chinese>招募 AI (最大.):</Chinese>
 <French>Recrutement IA (max.):</French>
 </Key>
@@ -9704,7 +9704,7 @@
 <Japanese>蘇生待機時の観戦:</Japanese>
 <Original>With revive spectating:</Original>
 <Russian>Спектатр при ожидании ревайва:</Russian>
-<Chinesesimp>救治观看：</Chinesesimp>
+<Chinesesimp>等待复活时观战：</Chinesesimp>
 <Chinese>救治觀看:</Chinese>
 <French>Avec spectateur réanimation:</French>
 </Key>
@@ -10929,7 +10929,7 @@
 <Japanese>AI can drive vehicle without a player inside:</Japanese>
 <Original>AI can drive vehicle without a player inside:</Original>
 <Russian>ИИ может управлять техникой без игрока внутри:</Russian>
-<Chinesesimp>AI可以在没有玩家的情况下驾驶车辆：</Chinesesimp>
+<Chinesesimp>AI 可以在没有玩家的情况下驾驶载具：</Chinesesimp>
 <Chinese>AI可以在沒有玩家的情況下駕駛車輛：</Chinese>
 <French>L'IA peut conduire un véhicule sans joueur à l'intérieur:</French>
 </Key>
@@ -11385,7 +11385,7 @@
 <Japanese>Add action menu "Spawn vehicle" to FARPs:</Japanese>
 <Original>Add action menu "Spawn vehicle" to FARPs:</Original>
 <Russian>Добавить меню "сделать транспорт" на Аванпосте:</Russian>
-<Chinesesimp>向前哨添加操作菜单“生成载具”：</Chinesesimp>
+<Chinesesimp>在 FARP（前哨补给站）中添加“生成載具”操作菜单：</Chinesesimp>
 <Chinese>向前哨(FARPs)添加操作菜單“生成載具”：</Chinese>
 <French>Ajoutez le menu action "Réaparition Véhicule" aux FARP:</French>
 </Key>
@@ -11817,7 +11817,7 @@
 <Japanese>With enemy AI house patrol at main targets:</Japanese>
 <Original>With enemy AI house patrol at main targets:</Original>
 <Russian>С патрулированием домов ИИ на главном задании:</Russian>
-<Chinesesimp>在 AI 主要任务的巡逻中：</Chinesesimp>
+<Chinesesimp>以敌方的 AI 房屋巡逻 为主要目标：</Chinesesimp>
 <Chinese>以敵人的AI房屋巡邏為主要目標：</Chinese>
 <French>Avec patrouille IA ennemie sur les objectifs principaux:</French>
 </Key>
@@ -12438,7 +12438,7 @@
 <Japanese>Pylon loadout enabled:</Japanese>
 <Original>Pylon loadout enabled:</Original>
 <Russian>Включить смену пилонов:</Russian>
-<Chinesesimp>启用挂架装载：</Chinesesimp>
+<Chinesesimp>启用载具挂架装载：</Chinesesimp>
 <Chinese>Pylon loadout enabled:</Chinese>
 <French>Chargement du support armement activé:</French>
 </Key>
@@ -12690,7 +12690,7 @@
 <Japanese>With minefield at main targets:</Japanese>
 <Original>With minefield at main targets:</Original>
 <Russian>WiС минным полем в главных целях:</Russian>
-<Chinesesimp>雷区是主要目标：</Chinesesimp>
+<Chinesesimp>主线任务生成雷区：</Chinesesimp>
 <French>Avec champ de mines sur les objectifs principaux:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1961">
@@ -12701,7 +12701,7 @@
 <Japanese>With 3D draw icon above wreck repair/ammo point:</Japanese>
 <Original>With 3D draw icon above wreck repair/ammo point:</Original>
 <Russian>С иконкой 3D Draw над точкой ремонта/загрузки боеприпасов:</Russian>
-<Chinesesimp>使用沉船维修/弹药点上方的3D绘制图标：</Chinesesimp>
+<Chinesesimp>使用残骸维修/弹药补给上方的3D绘制图标：</Chinesesimp>
 <French>Avec l'icône de dessin 3D au-dessus du point de réparation/munitions de l'épave:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1962">
@@ -12891,7 +12891,7 @@
 <Japanese>Remove cluster ammo from pylon loadout</Japanese>
 <Original>Remove cluster ammo from pylon loadout</Original>
 <Russian>Снять кассетные боеприпасы с пилона</Russian>
-<Chinesesimp>从塔架上卸下集束弹药</Chinesesimp>
+<Chinesesimp>从挂架装载中删除集束炸弹</Chinesesimp>
 <French>Retirer les bombes à sous-munitions du support armement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1979">
@@ -13058,7 +13058,7 @@
 <Japanese>Limit Virtual Arsenal ammo box access to 1000</Japanese>
 <Original>Limit Virtual Arsenal ammo box access to 1000</Original>
 <Russian>Ограничить доступ к боеприпасам виртуального арсенала до 1000</Russian>
-<Chinesesimp>限制使用虚拟武库弹药的数量为1000</Chinesesimp>
+<Chinesesimp>限制 虚拟武器库弹药箱 使用次数（1000次）</Chinesesimp>
 <Chinese>Limit Virtual Arsenal ammo box access to 1000</Chinese>
 <French>Limiter l'accès aux boîtes de munitions de l'Arsenal virtuel à 1000</French>
 </Key>
@@ -13367,7 +13367,7 @@
 <Japanese>Turn off markers at AO for tower and camps:</Japanese>
 <Original>Turn off markers at AO for tower and camps:</Original>
 <Russian>Выключить маркеры для радиовышки и бункеров:</Russian>
-<Chinesesimp>在 AO 处关闭塔楼和营地的标记：</Chinesesimp>
+<Chinesesimp>在 AO（占领区域） 处关闭塔楼和营地的标记：</Chinesesimp>
 <French>Turn off markers at AO for tower and camps:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2018">
@@ -13883,7 +13883,7 @@
 <Polish>Illuminate main target:</Polish>
 <French>Illuminate main target:</French>
 <Hungarian>Illuminate main target:</Hungarian>
-<Chinesesimp>阐明主要目标：</Chinesesimp>
+<Chinesesimp>照亮主要目标：</Chinesesimp>
 <Chinese>Illuminate main target:</Chinese>
 <Portuguese>Illuminate main target:</Portuguese>
 </Key>
@@ -13895,7 +13895,7 @@
 <Japanese>Defend with static weapons</Japanese>
 <Original>Defend with static weapons</Original>
 <Russian>Оборонять статическим вооружением</Russian>
-<Chinesesimp>用静态武器防御</Chinesesimp>
+<Chinesesimp>用静态武器防御：</Chinesesimp>
 <Chinese>Defend with static weapons</Chinese>
 <French>Defend with static weapons</French>
 </Key>
@@ -13966,7 +13966,7 @@
 <Japanese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Japanese>
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
 <Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
-<Chinesesimp>禁用所有服务点，包括 FARPs（不加油、不维修、不重新武装）</Chinesesimp>
+<Chinesesimp>禁用所有服务点，包括 FARP 前沿补给点（不加油、不维修、不重新武装）</Chinesesimp>
 <Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
 <French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
 </Key>
@@ -13978,7 +13978,7 @@
 <Japanese>Player can spectate other players at base flag</Japanese>
 <Original>Player can spectate other players at base flag</Original>
 <Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
-<Chinesesimp>玩家可以在基本标志处观看其他玩家</Chinesesimp>
+<Chinesesimp>玩家可以在基地标志处观看其他玩家</Chinesesimp>
 <Chinese>Player can spectate other players at base flag</Chinese>
 <French>Player can spectate other players at base flag</French>
 </Key>

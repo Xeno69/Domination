@@ -4,5 +4,13 @@
 
 if (remoteExecutedOwner != 2) exitWith {};
 
-endMission "LOSER";
+call {
+	if (_this == 2) exitWith {
+		endMission "End4";
+	};
+	if (_this == 3) exitWith {
+		endMission "End5";
+	};
+	endMission "Loser";
+};
 forceEnd;
