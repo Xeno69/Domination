@@ -8,13 +8,13 @@ if (d_with_bis_dynamicgroups == 0) then {
 	["Initialize", [true]] call BIS_fnc_dynamicGroups;
 };
 
-// Set to true to enable autosave to sql database each time a main target gets cleared (auto save entry in DB will get deleted after last main target)
-// Does load the autosave automatically if worldname and briefingName match to those saved at mission start
-if (isNil "d_db_auto_save") then {
-	d_db_auto_save = false;
-};
-
 if (d_database_found) then {
+	// Set to true to enable autosave to sql database each time a main target gets cleared (auto save entry in DB will get deleted after last main target)
+	// Does load the autosave automatically if worldname and briefingName match to those saved at mission start
+	if (isNil "d_db_auto_save") then {
+		d_db_auto_save = false;
+	};
+	
 	diag_log ["DOM initServer.sqf: Reading DB data! World name:", worldname];
 	if (!d_tt_ver) then {
 		d_bonus_vecs_db = [];
@@ -101,18 +101,18 @@ if (d_database_found) then {
 	};
 
 	0 spawn d_fnc_getplayerscores;
-};
-
-// if set to true player total score saved into the external database will be added to the player score at connect (only if d_database_found is true of course)
-if (isNil "d_set_pl_score_db") then {
-	d_set_pl_score_db = true;
-	publicVariable "d_set_pl_score_db";
-	diag_log ["DOM initServer d_set_pl_score_db:", d_set_pl_score_db];
-};
-
-if (d_database_found && {d_db_auto_save}) then {
-	diag_log "DOM initServer.sqf: Trying to read db autosave";
-	["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+	
+	// if set to true player total score saved into the external database will be added to the player score at connect (only if d_database_found is true of course)
+	if (isNil "d_set_pl_score_db") then {
+		d_set_pl_score_db = true;
+		publicVariable "d_set_pl_score_db";
+		diag_log ["DOM initServer d_set_pl_score_db:", d_set_pl_score_db];
+	};
+	
+	if (d_db_auto_save) then {
+		diag_log "DOM initServer.sqf: Trying to read db autosave";
+		["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+	};
 };
 
 if (isDedicated) then {
