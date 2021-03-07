@@ -101,6 +101,11 @@ call {
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));	
 		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
+		if (sunOrMoon != 1 && {_numvecs > 0 && {!_istatatic}}) then {
+			{
+				_x setPilotLight true;
+			} forEach _vecs;
+		};
 	};
 	if (_type == "patrol2mt") exitWith {
 		_grp setVariable ["d_PATR", true];
@@ -108,6 +113,11 @@ call {
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
 		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
+		if (sunOrMoon != 1 && {_numvecs > 0 && {!_istatatic}}) then {
+			{
+				_x setPilotLight true;
+			} forEach _vecs;
+		};
 	};
 	if (_type == "patrol2") exitWith {
 		_grp setVariable ["d_PATR", true];
@@ -115,6 +125,11 @@ call {
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
 		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize, true] spawn d_fnc_MakePatrolWPX;
+		if (sunOrMoon != 1 && {_numvecs > 0 && {!_istatatic}}) then {
+			{
+				_x setPilotLight true;
+			} forEach _vecs;
+		};
 	};
 	if (_type == "guard") exitWith {
 		if (_ismen) then {
