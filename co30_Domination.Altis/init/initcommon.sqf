@@ -162,19 +162,6 @@ if (isServer) then {
 	];
 };
 
-if (hasInterface) then {
-	if (d_with_ai) then {d_current_ai_num = 0};
-
-	// distance a player has to transport others to get points
-	d_transport_distance = 500;
-
-	// rank needed to fly the wreck lift chopper
-	d_wreck_lift_rank = "CAPTAIN";
-
-	d_graslayer_index = [1, 0] select (d_GrasAtStart == 1);
-
-	d_disable_viewdistance = d_ViewdistanceChange == 1;
-};
 // chopper varname, type (0 = lift chopper, 1 = wreck lift chopper, 2 = normal chopper), marker name, unique number (same as in d_init.sqf), marker type, marker color, marker text, chopper string name
 #ifndef __TT__
 d_choppers = [
@@ -243,6 +230,18 @@ d_p_vecs_opfor = [
 
 
 if (hasInterface) then {
+	if (d_with_ai) then {d_current_ai_num = 0};
+
+	// distance a player has to transport others to get points
+	d_transport_distance = 500;
+
+	// rank needed to fly the wreck lift chopper
+	d_wreck_lift_rank = "CAPTAIN";
+
+	d_graslayer_index = [1, 0] select (d_GrasAtStart == 1);
+
+	d_disable_viewdistance = d_ViewdistanceChange == 1;
+	
 	d_mob_respawns = [];
 #ifndef __TT__
 	{
@@ -258,15 +257,15 @@ if (hasInterface) then {
 		d_mob_respawns_opfor pushBack [_x # 0, _x # 6];
 	} forEach (d_p_vecs_opfor select {_x # 1 < 1100});
 #endif
-};
 
-if (hasInterface && {d_with_ai}) then {
-	// additional AI recruit buildings
-	// these have to be placed in the editor, give them a var name in the editor
-	// only client handling means, no damage handling done for those buildings (contrary to the standard AI hut)
-	// example:
-	// d_additional_recruit_buildings = [my_ai_building1, my_ai_building2];
-	d_additional_recruit_buildings = [];
+	if (d_with_ai) then {
+		// additional AI recruit buildings
+		// these have to be placed in the editor, give them a var name in the editor
+		// only client handling means, no damage handling done for those buildings (contrary to the standard AI hut)
+		// example:
+		// d_additional_recruit_buildings = [my_ai_building1, my_ai_building2];
+		d_additional_recruit_buildings = [];
+	};
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom initcommon.sqf processed"];
