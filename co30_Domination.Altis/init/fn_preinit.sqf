@@ -2700,6 +2700,12 @@ if (hasInterface) then {
 	d_maintarget_auto_vd = false;
 #endif
 
+	if (d_enable_civ_furniture == 1) then {
+		d_phronkfurniture = true;
+	} else {
+		d_phronkfurniture = false;
+	};
+
 	d_deploy_mhq_camo = true;
 
 	d_player_jescape = 0;

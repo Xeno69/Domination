@@ -48,6 +48,8 @@ if (hasInterface) then {
 	d_ak_hslm = actionKeys "HeliSlingLoadManager";
 	
 	d_player_radioprotocol = profileNamespace getVariable ["dom_player_radioprotocol", false];
+	
+	d_phronkfurniture = profileNamespace getVariable ["dom_phronkfurniture", d_phronkfurniture];
 
 	if (isMultiplayer) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;

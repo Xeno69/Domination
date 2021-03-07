@@ -12074,16 +12074,16 @@
 <French>Activer les civils Civilian vehicles - lock vehicles</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVFURNITURE">
-<English>Phronk's Furniture (experimental)</English>
-<Spanish>Phronk's Furniture (experimental)</Spanish>
-<Portuguese>Phronk's Furniture (experimental)</Portuguese>
-<Korean>Phronk's Furniture (experimental)</Korean>
-<Japanese>Phronk's Furniture (experimental)</Japanese>
-<Original>Phronk's Furniture (experimental)</Original>
-<Russian>Phronk's Furniture (experimental)</Russian>
-<Chinesesimp>Phronk's Furniture (experimental)</Chinesesimp>
-<Chinese>Phronk's Furniture (experimental)</Chinese>
-<French>Phronk's Furniture (experimental)</French>
+<English>Phronk's Furniture</English>
+<Spanish>Phronk's Furniture</Spanish>
+<Portuguese>Phronk's Furniture</Portuguese>
+<Korean>Phronk's Furniture</Korean>
+<Japanese>Phronk's Furniture</Japanese>
+<Original>Phronk's Furniture</Original>
+<Russian>Phronk's Furniture</Russian>
+<Chinesesimp>Phronk's Furniture</Chinesesimp>
+<Chinese>Phronk's Furniture</Chinese>
+<French>Phronk's Furniture</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890">
 <English>Civilians - enable civilians</English>

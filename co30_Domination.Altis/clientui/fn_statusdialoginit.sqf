@@ -65,6 +65,11 @@ if (!d_with_ranked && {!d_database_found}) then {
 	__ctrl2(2007) ctrlShow false;
 };
 
+if (d_enable_civ_furniture == 0) then {
+	__ctrl2(1613) ctrlShow false;
+	__ctrl2(1614) ctrlShow false;
+};
+
 if (!d_database_found) then {
 	for "_i" from 6000 to 6008 do {
 	__ctrl2(_i) ctrlShow false;
@@ -299,6 +304,7 @@ __ctrl2(2007) ctrlSetText str(d_points_needed # 6);
 __ctrl2(1610) cbSetChecked d_maintarget_auto_vd;
 __ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
 	d_maintarget_auto_vd = !d_maintarget_auto_vd;
+	d_phronkfurniture = !d_phronkfurniture;
 	if (d_maintarget_auto_vd) then {
 		systemChat (localize "STR_DOM_MISSIONSTRING_1965");
 	} else {
@@ -318,6 +324,22 @@ __ctrl2(1612) ctrlAddEventHandler ["CheckedChanged", {
 		player enableAI "RADIOPROTOCOL";
 	};
 	profileNamespace setVariable ["dom_player_radioprotocol", d_player_radioprotocol];
+}];
+
+__ctrl2(1614) cbSetChecked d_phronkfurniture;
+__ctrl2(1614) ctrlAddEventHandler ["CheckedChanged", {
+
+	d_phronkfurniture = !d_phronkfurniture;
+	/*
+	if (d_phronkfurniture) then {
+		systemChat (localize "STR_DOM_MISSIONSTRING_2054");
+		player disableAI "RADIOPROTOCOL";
+	} else {
+		systemChat (localize "STR_DOM_MISSIONSTRING_2053");
+		player enableAI "RADIOPROTOCOL";
+	};
+	*/
+	profileNamespace setVariable ["dom_phronkfurniture", d_phronkfurniture];
 }];
 
 for "_i" from 1 to 20 do {

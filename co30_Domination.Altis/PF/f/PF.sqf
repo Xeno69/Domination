@@ -133,8 +133,7 @@ _townDir=getNumber(_town>>"angle");
 	_m setMarkerShape"RECTANGLE";
 	_m setMarkerBrush"SolidBorder";
 	_m setMarkerSize[_tArea,_tArea];
-	//_m setMarkerAlpha 0.4;
-	_m setMarkerAlpha 0;
+	_m setMarkerAlpha 0.4;
 	_m setMarkerColor"ColorCiv";
 	_m setMarkerDir _townDir;
 	PF_Mkrs pushBack _m;};
@@ -151,25 +150,26 @@ sleep .02;
 	"{isPlayer _x}count thisList>0",
 
 	//TRIGGER ACTIVATION
-	"if(PF_Dbug)then{systemChat'Trigger Activated';};
+	"if(!d_phronkfurniture) exitWith {};
+	if(PF_Dbug)then{systemChat'Trigger Activated';};
 	private _tPos=getPosASL thisTrigger;
 	
 	private _nearH=nearestObjects[_tPos,PF_Houses,((triggerArea thisTrigger)select 0)+40,true];
 	if(PF_Dbug)then{systemChat format['%1 houses found',count _nearH];{if(getMarkerPos _x distance _tPos<=5)then{_x setMarkerAlpha 1;};}forEach PF_Mkrs;};
 
-		{if(PF_Chance>floor random 100)then{
-		if((isObjectHidden _x)||(damage _x>0.5))exitWith{};
+	{if(PF_Chance>floor random 100)then{
+	if((isObjectHidden _x)||(damage _x>0.5))exitWith{};
 
-		_isBL=false;
-		if(!(PF_Blacklist isEqualTo[])||{(PF_Blacklist isEqualTo[''])})then{_h=_x;{_isBL=_h inArea _x;if(_isBL)exitWith{_nearH=_nearH-[_H];};}count PF_Blacklist;};
-		if(_isBL)exitWith{};
-		_hPads=_x nearObjects['Land_HelipadEmpty_F',2];
-		if(count _hPads>0)exitWith{};
-		private _H=createVehicle['Land_HelipadEmpty_F',getPosATL _x,[],0,'can_collide'];
-		_H setDir(getDir _x);
-		if(PF_Optimize)then{_H setVariable['PF',true,true];}else{_H setVariable['PF',true,false];};
-		[_H,_x]call PF_spawn;};
-		}forEach _nearH;",
+	_isBL=false;
+	if(!(PF_Blacklist isEqualTo[])||{(PF_Blacklist isEqualTo[''])})then{_h=_x;{_isBL=_h inArea _x;if(_isBL)exitWith{_nearH=_nearH-[_H];};}count PF_Blacklist;};
+	if(_isBL)exitWith{};
+	_hPads=_x nearObjects['Land_HelipadEmpty_F',2];
+	if(count _hPads>0)exitWith{};
+	private _H=createVehicle['Land_HelipadEmpty_F',getPosATL _x,[],0,'can_collide'];
+	_H setDir(getDir _x);
+	if(PF_Optimize)then{_H setVariable['PF',true,true];}else{_H setVariable['PF',true,false];};
+	[_H,_x]call PF_spawn;};
+	}forEach _nearH;",
 
 	//TRIGGER DEACTIVATION
 	"private _tPos=getPosASL thisTrigger;

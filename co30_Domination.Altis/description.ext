@@ -1064,9 +1064,9 @@ default = 7;
 	
 	class d_enable_civ_furniture {
 		title = "$STR_DOM_MISSIONSTRING_1890CIVFURNITURE";
-		values[] = {0,1,2};
+		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_922EXTRA"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_params_dl_8_enemy_ai {

@@ -416,14 +416,26 @@ class D_StatusDialog {
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";
 		};
+		class FurnitureCaption: ViewDistanceCaption {
+			idc = 1613;
+			y = "0.459 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_1890CIVFURNITURE";
+		};
+		class FurnitureCheckBox: RscCheckBox {
+			idc = 1614;
+			x = "0.48 * safezoneW + safezoneX";
+			y = "0.463 * safezoneH + safezoneY";
+			w = "0.02 * safezoneW";
+			h = "0.025 * safezoneH";
+		};
 		class EarplugsUserCaption: ViewDistanceCaption {
 			idc = 3301;
-			y = "0.47 * safezoneH + safezoneY";
+			y = "0.488 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_2012";
 		};
 		class EarplugsUserCombo: PlayermarkerCombo {
 			idc = 3302;
-			y = "0.5 * safezoneH + safezoneY";
+			y = "0.518 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this, 0] call d_fnc_userkeyselchanged"; 
 		};
 		class ThreeDMarkerUserCaption: ViewDistanceCaption {
