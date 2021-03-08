@@ -230,7 +230,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 										//do nothing
 									};
 	
-									//ambush mode - static until firedNear within 69m restores unit ability to move and fire
+									//ambush mode - static until firedNear within 69m restores unit ability to move and fire or if d_priority_target is not nil
 									if (_unitMovementMode == 1) then {
 	
 										if !(_doMove) then {
@@ -248,6 +248,16 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 												(_this select 0) forceSpeed -1;
 											};
 										}]];
+										_uuidx spawn {
+											scriptName "allow movement if d_priority_target is set";
+											while { true } do {
+												sleep 10 + random 5;
+												if (!isNil "d_priority_target") then {
+													_this forceSpeed -1;
+													_this doMove getPosATL (d_priority_target);
+												};
+											};
+										};
 									};
 	
 									//sniper mode - static forever
