@@ -12050,16 +12050,16 @@
 <French>%1 has been marked for death.  Keep %1 alive for %2 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL">
-<English>Player %1 did not survive for %2 seconds.  Mission failed.</English>
-<Spanish>Player %1 did not survive for %2 seconds.  Mission failed.</Spanish>
-<Portuguese>Player %1 did not survive for %2 seconds.  Mission failed.</Portuguese>
-<Korean>Player %1 did not survive for %2 seconds.  Mission failed.</Korean>
-<Japanese>Player %1 did not survive for %2 seconds.  Mission failed.</Japanese>
-<Original>Player %1 did not survive for %2 seconds.  Mission failed.</Original>
-<Russian>Player %1 did not survive for %2 seconds.  Mission failed.</Russian>
-<Chinesesimp>Player %1 did not survive for %2 seconds.  Mission failed.</Chinesesimp>
-<Chinese>Player %1 did not survive for %2 seconds.  Mission failed.</Chinese>
-<French>Player %1 did not survive for %2 seconds.  Mission failed.</French>
+<English>Player %1 survived for %2 seconds.  Mission failed.</English>
+<Spanish>Player %1 survived for %2 seconds.  Mission failed.</Spanish>
+<Portuguese>Player %1 survived for %2 seconds.  Mission failed.</Portuguese>
+<Korean>Player %1 survived for %2 seconds but.  Mission failed.</Korean>
+<Japanese>Player %1 survived for %2 seconds.  Mission failed.</Japanese>
+<Original>Player %1 survived for %2 seconds.  Mission failed.</Original>
+<Russian>Player %1 survived for %2 seconds.  Mission failed.</Russian>
+<Chinesesimp>Player %1 survived for %2 seconds.  Mission failed.</Chinesesimp>
+<Chinese>Player %1 survived for %2 seconds.  Mission failed.</Chinese>
+<French>Player %1 survived for %2 seconds.  Mission failed.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED">
 <English>Success.  %1 survived for %2 seconds. + %3</English>

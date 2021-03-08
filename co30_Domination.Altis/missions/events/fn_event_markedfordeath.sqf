@@ -31,6 +31,7 @@ publicVariable "d_priority_target";
 _event_target_name = name d_priority_target;
 
 d_priority_target addEventHandler ["Killed", {
+	// reset
 	d_priority_target = nil;
 	publicVariable "d_priority_target";
 }];
@@ -45,7 +46,7 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-
+// waitUntil either killed EH or _event_survive_time duration
 waitUntil {sleep 3;isNil "d_priority_target" || {(time - _event_start_time) > _event_survive_time}};
 
 diag_log ["markedfordeath ended"];
@@ -57,7 +58,7 @@ if (isNil "d_priority_target") then {
     	d_kb_topic_side,
     	"PlayerMarkedForDeathFail",
     	["1", "", _event_target_name, []],
-    	["2", "", str _event_survive_time, []],
+    	["2", "", str (time - _event_start_time), []],
     	d_kbtel_chan
     ];
 } else {
@@ -71,6 +72,7 @@ if (isNil "d_priority_target") then {
 		["3", "", str _event_succeed_points, []],
 		d_kbtel_chan
 	];
+	// reset 
 	d_priority_target = nil;
 	publicVariable "d_priority_target";
 };
