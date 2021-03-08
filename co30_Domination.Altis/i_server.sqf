@@ -12,19 +12,17 @@ d_bonus_create_pos = markerPos "d_bonus_create_pos";
 deleteMarker "d_bonus_create_pos";
 d_bonus_air_positions = [];
 d_bonus_air_positions_carrier = [];
-private _rem = [];
+private _rem = _allmapmarkers select {_x select [0, 30] isEqualTo "d_bonus_air_positions_carrier_"};
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	_rem pushBack _x;
-} forEach (_allmapmarkers select {_x select [0, 30] isEqualTo "d_bonus_air_positions_carrier_"});
+} forEach _rem;
 _allmapmarkers = _allmapmarkers - _rem;
-_rem = [];
+_rem = _allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_air_positions_"};
 {
 	d_bonus_air_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-	_rem pushBack _x;
-} forEach (_allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_air_positions_"});
+} forEach _rem;
 _allmapmarkers = _allmapmarkers - _rem;
 d_bvp_counter = 0;
 d_bonus_vec_positions = [];

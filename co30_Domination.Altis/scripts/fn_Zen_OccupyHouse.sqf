@@ -238,7 +238,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											_uuidx forceSpeed 0;
 										};
 	
-										_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
+										_uuidx setVariable ["zen_fn_idx1", _uuidx addEventHandler ["FiredNear", {
 											params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
 											scriptName "spawn_zoh_firednear1ambush";
 											if (d_side_player getFriend side (group _firer) >= 0.6) then {
@@ -259,13 +259,13 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
 											if (_isRoof) then {
 												_uuidx setUnitPos "MIDDLE";
-												_uuidx setVariable ["zen_fn_idx", _uuidx addEventHandler ["FiredNear", {
-													scriptName "spawn_zoh_firednear1";
+												_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
+													scriptName "spawn_zoh_firednear2";
 													[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 												}]];
 											} else {
 												_uuidx setUnitPos "UP";
-												_uuidx setVariable ["zen_fn_idx",_uuidx addEventHandler ["FiredNear", {
+												_uuidx setVariable ["zen_fn_idx2",_uuidx addEventHandler ["FiredNear", {
 													scriptName "spawn_zoh_firednear2";
 													[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
 												}]];
@@ -278,12 +278,25 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 										};
 									};
 									
-									//overwatch mode - static forever but without special sniper behaviors
+									//overwatch mode - static but without special sniper behaviors, movement is allowed after an enemy fires a weapon nearby
 									if (_unitMovementMode == 3) then {
 										if !(_doMove) then {
 											_uuidx disableAI "TARGET";
 											_uuidx forceSpeed 0;
 										};
+										
+										_uuidx setVariable ["zen_fn_idx3", _uuidx addEventHandler ["FiredNear", {
+											params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+											scriptName "spawn_zoh_firednear3overwatch";
+											// enable movement if _firer is an enemy and within 13m
+											if (d_side_player getFriend side (group _firer) >= 0.6 && {_distance < 13}) then {
+												(_this select 0) enableAI "TARGET";
+												(_this select 0) enableAI "AUTOTARGET";
+												(_this select 0) enableAI "MOVE";
+												(_this select 0) forceSpeed -1;
+											};
+										}]];
+										
 									};
 								};//end if _isDryRun
 								I(_unitIndex)
