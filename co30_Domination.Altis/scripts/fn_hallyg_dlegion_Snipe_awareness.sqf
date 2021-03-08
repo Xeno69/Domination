@@ -72,8 +72,13 @@ while {true} do {
 	if (_Dtargets isNotEqualTo []) then {
 		_Dtargets sort true;
 		_playersSortedByDistance = _Dtargets apply {_x # 1};
-		__TRACE_1("","_playersSortedByDistance")
-		
+		if (!isNil "d_priority_target") then {
+			// if priority target exists then it should be first in the targets array
+			_targets = [d_priority_target] + _playersSortedByDistance;
+		} else {
+			_targets = _playersSortedByDistance;
+		};
+		__TRACE_1("","_targets")
 		if (_isAggressiveShoot == 1) then {
 			__TRACE("Aggressive Shoot")
 			{
@@ -97,20 +102,20 @@ while {true} do {
 						_executingOccupyCommand = false; //we broke out of the occupy move order
 					};
 				};
-			} forEach _playersSortedByDistance;
+			} forEach _targets;
 		};
 		
 		if (!alive _unit) exitWith {};
 		
-		_nearestTargetPlayer = _playersSortedByDistance # 0;
-		__TRACE_1("","_nearestTargetPlayer")
-
-		if (_pursueRadius > 0 && {_nearestTargetPlayer distance2D _unit < _pursueRadius}) then {
+		_target_move_dest = _targets # 0;
+		__TRACE_1("","_target_move_dest")
+		// if a priority target is defined or a target is within pursue radius then doMove
+		if (!isNil "d_priority_target" || {_pursueRadius > 0 && {_target_move_dest distance2D _unit < _pursueRadius}}) then {
 			__TRACE("pursue radius")
 			//unit is eligible for a move order
 			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
 				//unit has waited longer than the required interval
-				_unit doMove (getPosATL _nearestTargetPlayer);
+				_unit doMove (getPosATL _target_move_dest);
 				_unit setCombatMode "RED";
 				(group _unit) setSpeedMode "FULL";
 				_lastMoveOrder = time;
