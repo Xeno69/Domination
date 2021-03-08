@@ -1,8 +1,5 @@
-4.45
+4.46
 
-- Fixed: When ACE was used player names above head and markers were not shown
-- Fixed: In the Unsung version UAV and Satellite buttons were available
-- Fixed: It could happen that only one headgear item showed up in Virtual Arsenal when ranked mode was activated
-- Fixed: MHQ dialog does not update button and listbox status (stays open now)
-- Fixed: Markers of other players were not visible when ACE was used
-- Fixed: ACE doesn't trigger the game engine entityKilled eventhandler for vehicles, therefore enemy AI vehicle respawn at main targets did not work
+- Fixed: AI did not occupy buildings in the TT version
+- Changed: d_ai_awareness_rad, d_snp_aware, d_ai_pursue_rad, d_ai_aggressiveshoot now also work in the TT version
+- Removed: House patrol (d_house_patrol), was deactivated anyway and caused too much performance issues

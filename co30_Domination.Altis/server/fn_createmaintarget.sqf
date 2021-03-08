@@ -31,7 +31,7 @@ private _garrisonUnits = {
 #ifndef __TT__
 	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup;
 #else
-	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
+	private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true, -1, [blufor, opfor]] call d_fnc_makemgroup;
 #endif	
 	if (_unitMovementMode == 2) then {
 		{
@@ -337,7 +337,7 @@ if (d_enable_civs == 1) then {
 #endif
 
 private _wp_array_inf = [_trg_center, _radius + 50, 0, 0, 0.7, true] call d_fnc_getwparray;
-private _wp_array_vecs = [_trg_center, _radius + 50, 0, 2, 0.7, true] call d_fnc_getwparray;
+private _wp_array_vecs = [_trg_center, _radius + 50, 0, 4, 0.7, true] call d_fnc_getwparray;
 
 sleep 0.112;
 
@@ -554,7 +554,7 @@ if (d_enable_civ_vehs > 0) then {
 	} forEach d_cur_tgt_civ_vehicles;
 	//hint format["badCars count: %1", _badCars];
 };
-
+#endif
 //garrison begin
 
 if (d_occ_bldgs == 1) then {
@@ -678,7 +678,6 @@ if (d_occ_bldgs == 1) then {
 	//END create garrisoned groups of snipers
 };
 //garrison end
-#endif
 
 [_wp_array_inf, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
 

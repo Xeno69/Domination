@@ -55,7 +55,7 @@ if (_numvecs > 0) then {
 #ifndef __TT__
 	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true, -1, d_side_player] call d_fnc_makemgroup;
 #else
-	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true] call d_fnc_makemgroup;
+	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true ,-1, [blufor, opfor]] call d_fnc_makemgroup;
 #endif
 	__TRACE_1("","_uinf")
 };
@@ -94,28 +94,20 @@ _grp allowFleeing (((floor random 3) + 1) / 10);
 
 private _sleepti = [15, 30] select _ismen;
 
-private _wpstatements = "";
-//private _wpstatements = if (d_house_patrol == 0 && {_ismen && {_type in ["patrol", "patrol2mt"]}}) then {
-//	"if (random 100 < 50) then {0 = [thisList] spawn d_fnc_dohousepatrol}"
-//	""
-//} else {
-//	""
-//};
-
 call {
 	if (_type == "patrol") exitWith {
 		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));	
-		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
+		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	if (_type == "patrol2mt") exitWith {
 		_grp setVariable ["d_PATR", true];
 		private _min = 1 + random 15;
 		private _max = _min + (1 + random 15);
 		private _mid = _min + (random (_max - _min));
-		[_grp, _pos, _center_rad, [_min, _mid, _max], _wpstatements, _msize] spawn d_fnc_MakePatrolWPX;
+		[_grp, _pos, _center_rad, [_min, _mid, _max], "", _msize] spawn d_fnc_MakePatrolWPX;
 	};
 	if (_type == "patrol2") exitWith {
 		_grp setVariable ["d_PATR", true];

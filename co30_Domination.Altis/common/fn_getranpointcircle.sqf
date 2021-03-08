@@ -24,7 +24,7 @@ if (_rcenter isEqualTo []) exitWith {
 };
 
 __TRACE_2("","_rcenter","_rradius")
-private _ret_val = [_rcenter, 0, _rradius, _mindist, _water, _maxgrad, [0, 1] select _waterin25, _blacklist, [], _checkroad] call d_fnc_findSafePos;
+private _ret_val = [_rcenter, 0, _rradius, _mindist, _water, _maxgrad, [0, 1] select _waterin25, [], [], _checkroad] call d_fnc_findSafePos;
 
 if (_ret_val isEqualTo []) then {_ret_val = _rcenter};
 __TRACE_1("","_ret_val")

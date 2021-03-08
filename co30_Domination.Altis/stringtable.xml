@@ -6644,7 +6644,7 @@
 <Japanese>MHQでのテレポートまたは復活:</Japanese>
 <Original>Teleport or spawn at MHQ:</Original>
 <Russian>Телепорт или возраждение на КШМ:</Russian>
-<Chinesesimp>传送或在基地车（MHQ）重生：</Chinesesimp>
+<Chinesesimp>在基地车（MHQ）传送或重生：</Chinesesimp>
 <Chinese>傳送或在基地車重生:</Chinese>
 <French>Téléportation ou réapparition au MHQ:</French>
 </Key>
@@ -6656,7 +6656,7 @@
 <Japanese>MTからx m以内の距離のMHQを無効にする：</Japanese>
 <Original>Disable MHQ if less than x m away from MT:</Original>
 <Russian>Обездвижить КШМ если до главной цели ....метров:</Russian>
-<Chinesesimp>距离主要目标如果小于 x 米 禁用基地车（MHQ）：</Chinesesimp>
+<Chinesesimp>距离主线目标如果小于 X 米 基地车（MHQ）禁止移动：</Chinesesimp>
 <Chinese>距離主要目標如果小於 x 米 禁用基地車:</Chinese>
 <French>Désactivez MHQ si à moins de x m de l'objectif principal:</French>
 </Key>
@@ -6668,7 +6668,7 @@
 <Japanese>MHQ周辺x m以内に敵がいる時にテレポートが可能かどうか：</Japanese>
 <Original>No MHQ tele when enemy near:</Original>
 <Russian>Отключить телепорт если враг ближе чем ...м:</Russian>
-<Chinesesimp>附近有敌人时不能使用基地车（MHQ）监控：</Chinesesimp>
+<Chinesesimp>基地车（MHQ）附近范围内有敌人时不能使用基地车（MHQ）传送：</Chinesesimp>
 <Chinese>附近有敵人是不能使用基地車監控:</Chinese>
 <French>Pas de téléportation MHQ lorsque l'ennemi est proche:</French>
 </Key>
@@ -6704,7 +6704,7 @@
 <Japanese>基地へのテレポート:</Japanese>
 <Original>Enable teleport to base:</Original>
 <Russian>Телепорт на базу включен:</Russian>
-<Chinesesimp>可以传送到基地：</Chinesesimp>
+<Chinesesimp>启用传送到基地：</Chinesesimp>
 <Chinese>可以传送到基地:</Chinese>
 <French>Activer la téléportation vers la base:</French>
 </Key>
@@ -7425,7 +7425,7 @@
 <Japanese>エンジニアが完全な修理をできる(旧バージョン):</Japanese>
 <Original>Engineer full repair (old versions):</Original>
 <Russian>Инженеры полностью чинят технику:</Russian>
-<Chinesesimp>工程师全面修复(老版本)：</Chinesesimp>
+<Chinesesimp>工程师完全修复(旧版本)：</Chinesesimp>
 <Chinese>工程師全面修復(老版本):</Chinese>
 <French>Ingénieur réparation complète (anciennes versions):</French>
 </Key>
@@ -7593,7 +7593,7 @@
 <Japanese>MTラジオタワーは爆薬でのみ破壊できる:</Japanese>
 <Original>MT Tower Satchels only:</Original>
 <Russian>Радиовышка взрывается только взрывчаткой:</Russian>
-<Chinesesimp>仅基地车（MHQ）装载：</Chinesesimp>
+<Chinesesimp>主线任务无线电塔仅用炸药摧毁：</Chinesesimp>
 <Chinese>僅基地車裝載:</Chinese>
 <French>MP Les Tour ne tombent qu'avec des charges en sacoche:</French>
 </Key>
@@ -10304,7 +10304,7 @@
 <Japanese>リーダーの場所へ復活:</Japanese>
 <Original>Respawn at Squad Leader:</Original>
 <Russian>Возрождение на ком.отд.:</Russian>
-<Chinesesimp>重生到队长身边：</Chinesesimp>
+<Chinesesimp>重生到小队长身边：</Chinesesimp>
 <Chinese>重生到隊長身邊:</Chinese>
 <French>Réapparaître sur Chef d'Équipe:</French>
 </Key>
@@ -11809,18 +11809,6 @@
 <Chinese>跳傘位置太靠近主要目標！</Chinese>
 <French>Parachutage trop proche de l'objectif principal!!!</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1868">
-<English>With enemy AI house patrol at main targets:</English>
-<Spanish>Con la patrulla de la IA enemiga en los objetivos principales:</Spanish>
-<Portuguese>Com a patrulha inimiga da IA nos principais objetivos:</Portuguese>
-<Korean>메인 미션지 적 AI 하우스 패트롤:</Korean>
-<Japanese>With enemy AI house patrol at main targets:</Japanese>
-<Original>With enemy AI house patrol at main targets:</Original>
-<Russian>С патрулированием домов ИИ на главном задании:</Russian>
-<Chinesesimp>以敌方的 AI 房屋巡逻 为主要目标：</Chinesesimp>
-<Chinese>以敵人的AI房屋巡邏為主要目標：</Chinese>
-<French>Avec patrouille IA ennemie sur les objectifs principaux:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1869">
 <English>Earplugs in</English>
 <Spanish>Tapones de Oídos Activado</Spanish>
@@ -12057,7 +12045,7 @@
 <Japanese>Civilian vehicles - enabled</Japanese>
 <Original>Civilian vehicles - enabled</Original>
 <Russian>Включить гражданских Civilian vehicles - enabled</Russian>
-<Chinesesimp>启用平民 民用车辆-已启用</Chinesesimp>
+<Chinesesimp>启用平民 民用载具 - 已启用</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - enabled)</Chinese>
 <French>Activer les civils Civilian vehicles - enabled</French>
 </Key>
@@ -12069,7 +12057,7 @@
 <Japanese>Civilian vehicles - spawn radius</Japanese>
 <Original>Civilian vehicles - spawn radius</Original>
 <Russian>Включить гражданских Civilian vehicles - spawn radius</Russian>
-<Chinesesimp>启用平民 民用车辆-产生半径</Chinesesimp>
+<Chinesesimp>启用平民 民用载具 - 产生半径</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - spawn radius)</Chinese>
 <French>Activer les civils Civilian vehicles - spawn radius</French>
 </Key>
@@ -12081,7 +12069,7 @@
 <Japanese>Civilian vehicles - lock vehicles</Japanese>
 <Original>Civilian vehicles - lock vehicles</Original>
 <Russian>Включить гражданских Civilian vehicles - lock vehicles</Russian>
-<Chinesesimp>启用平民 民用车辆-锁车</Chinesesimp>
+<Chinesesimp>启用平民 民用载具 - 上锁</Chinesesimp>
 <Chinese>啟用平民(Civilian vehicles - lock vehicles)</Chinese>
 <French>Activer les civils Civilian vehicles - lock vehicles</French>
 </Key>
@@ -12117,7 +12105,7 @@
 <Japanese>Disable enemy air</Japanese>
 <Original>Disable enemy air</Original>
 <Russian>Отключить авиацию противника</Russian>
-<Chinesesimp>禁止敌方空袭</Chinesesimp>
+<Chinesesimp>禁止敌方空中载具</Chinesesimp>
 <Chinese>Disable enemy air</Chinese>
 <French>Désactiver l'aérien ennemi</French>
 </Key>
@@ -12129,7 +12117,7 @@
 <Japanese>Always announce enemy artillery / CAS</Japanese>
 <Original>Always announce enemy artillery / CAS</Original>
 <Russian>Всегда предупреждать об арт.обстрелах / CAS</Russian>
-<Chinesesimp>始终预警敌方炮火 / CAS</Chinesesimp>
+<Chinesesimp>始终预警敌方炮火 / CAS（空袭）</Chinesesimp>
 <Chinese>Always announce enemy artillery / CAS</Chinese>
 <French>Always announce enemy artillery / CAS</French>
 </Key>
@@ -12153,7 +12141,7 @@
 <Japanese>Maximum number of enemy infantry barracks</Japanese>
 <Original>Maximum number of enemy infantry barracks</Original>
 <Russian>Максимальное число казарм пехотинцев противника</Russian>
-<Chinesesimp>敌人步兵营的最大数量</Chinesesimp>
+<Chinesesimp>敌人营地的最大数量</Chinesesimp>
 <Chinese>敵軍步兵營的最大數量</Chinese>
 <French>Nombre maximum de casernes d'infanterie ennemies</French>
 </Key>
@@ -12165,7 +12153,7 @@
 <Japanese>AI Advanced - enhanced awareness (common units)</Japanese>
 <Original>AI Advanced - enhanced awareness (common units)</Original>
 <Russian>AI Advanced - повышенная осведомленность (common units)</Russian>
-<Chinesesimp>高级AI - 增强意识（常见单位）</Chinesesimp>
+<Chinesesimp>高级 AI - 增强意识（普通单位）</Chinesesimp>
 <French>AI Advanced - enhanced awareness (common units)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
@@ -12209,7 +12197,7 @@
 <Japanese>Enemy infantry - garrisoned infantry group count - occupy mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - occupy mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим оккупации</Russian>
-<Chinesesimp>敌军步兵 - 驻军步兵团计数 - 占领模式</Chinesesimp>
+<Chinesesimp>敌军步兵 - 防守步兵小队数 - 占领模式</Chinesesimp>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode occupé</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AA">
@@ -12220,7 +12208,7 @@
 <Japanese>Enemy infantry - garrisoned infantry group count - overwatch mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
 <Russian>Количество гарнизонных пехотных групп - режим наблюдения</Russian>
-<Chinesesimp>敌军步兵 - 驻军步兵团人数 - 封锁模式</Chinesesimp>
+<Chinesesimp>敌军步兵 - 防守步兵小队数 - 封锁模式</Chinesesimp>
 <French>Enemy infantry - nombres des groupes d'infanterie en garnison - mode surveillance</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
@@ -12231,7 +12219,7 @@
 <Japanese>Enemy infantry - garrisoned infantry group count - ambush mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - ambush mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим засады</Russian>
-<Chinesesimp>敌军步兵 - 驻军步兵团计数 - 埋伏模式</Chinesesimp>
+<Chinesesimp>敌军步兵 - 防守步兵小队数 - 埋伏模式</Chinesesimp>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
@@ -12242,7 +12230,7 @@
 <Japanese>Enemy infantry - garrisoned infantry group count - sniper mode</Japanese>
 <Original>Enemy infantry - garrisoned infantry group count - sniper mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим снайпера</Russian>
-<Chinesesimp>敌军步兵 - 驻军步兵团计数 - 狙击手模式</Chinesesimp>
+<Chinesesimp>敌军步兵 - 防守步兵小队数 - 狙击手模式</Chinesesimp>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
@@ -12253,7 +12241,7 @@
 <Japanese>AI Advanced - enhanced awareness (sniper units)</Japanese>
 <Original>AI Advanced - enhanced awareness (sniper units)</Original>
 <Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
-<Chinesesimp>高级AI - 增强意识（狙击部队）</Chinesesimp>
+<Chinesesimp>高级 AI - 增强意识（狙击部队）</Chinesesimp>
 <French>Mode sniper d'infanterie en garnison - conscience avancée</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
@@ -12321,7 +12309,7 @@
 <Japanese>Locate the first enemy camp to capture near the center of the main target</Japanese>
 <Original>Locate the first enemy camp to capture near the center of the main target</Original>
 <Russian>Расположить первый бункер противника ближе к центру города</Russian>
-<Chinesesimp>在主要目标中心附近找到第一个要占领的敌人营地</Chinesesimp>
+<Chinesesimp>在主线任务中心附近找到第一个要占领的敌人营地</Chinesesimp>
 <Chinese>找到第一個敵人營地，以在主要目標的中心附近捕獲</Chinese>
 <French>Localiser le premier camp ennemi à capturer près du centre de l'objectif principal</French>
 </Key>

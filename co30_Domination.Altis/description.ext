@@ -675,13 +675,6 @@ default = 7;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
-	class d_house_patrol {
-		title = "$STR_DOM_MISSIONSTRING_1868";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
 	class d_pylon_lodout {
 		title = "$STR_DOM_MISSIONSTRING_1938";
 		values[] = {0,1};
@@ -1123,7 +1116,6 @@ default = 7;
 		values[] = {0, 1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-
 	};
 	
 	class d_ai_quickammo {

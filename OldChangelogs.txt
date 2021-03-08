@@ -2,6 +2,15 @@ Changelogs
 
 Old...
 
+4.45
+
+- Fixed: When ACE was used player names above head and markers were not shown
+- Fixed: In the Unsung version UAV and Satellite buttons were available
+- Fixed: It could happen that only one headgear item showed up in Virtual Arsenal when ranked mode was activated
+- Fixed: MHQ dialog does not update button and listbox status (stays open now)
+- Fixed: Markers of other players were not visible when ACE was used
+- Fixed: ACE doesn't trigger the game engine entityKilled eventhandler for vehicles, therefore enemy AI vehicle respawn at main targets did not work
+
 4.44
 
 - Fixed: Marked artillery targets did not show in the Call Artillery dialog (accidentally removed the code which adds them to a listbox)
