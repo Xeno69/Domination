@@ -421,6 +421,31 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class PlayerMarkedForDeath {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class PlayerMarkedForDeathFail {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class PlayerMarkedForDeathSucceed {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+			class 3 {type = "simple";};
+		};
+	};
 };
 class Arguments{};
 class Special{};

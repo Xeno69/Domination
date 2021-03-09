@@ -134,6 +134,9 @@ private _doMainTargetEvent = {
 		case "RABBIT_RESCUE": {
 			[d_cur_target_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
 		};
+		case "MARKED_FOR_DEATH": {
+			[d_cur_target_radius, _trg_center] spawn d_fnc_event_markedfordeath;
+		};
 	};
 };
 
@@ -202,6 +205,8 @@ d_groups_respawn_time_add = 0;
 d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
+
+d_priority_target = nil;
 
 private _parray = [_trg_center, d_cur_target_radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {

@@ -1,5 +1,6 @@
 4.46
 
+- Added: marked for death - player survival event at maintarget, by longtimegamer
 - Added: overwatch units are allowed to move when an enemy fires a weapon nearby, by longtimegamer
 - Fixed: AI did not occupy buildings in the TT version
 - Fixed: penalty for civilian kills by artillery or CAS, by longtimegamer
