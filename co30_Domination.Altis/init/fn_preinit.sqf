@@ -189,9 +189,7 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __IFA3LITE__
 #include "sm_bonus_vec_ar_ifa3.sqf"
 #endif
-#ifdef __ROSCHE__
-#include "sm_bonus_vec_ar_altis.sqf"
-#endif
+
 #ifdef __GMCWG__
 #include "sm_bonus_vec_ar_gmcwg.sqf"
 #endif
@@ -231,9 +229,6 @@ d_e_marker_color_alpha = 0.8;
 #endif
 #ifdef __LIVONIA__
 #include "mt_bonus_vec_ar_tanoa.sqf"
-#endif
-#ifdef __ROSCHE__
-#include "mt_bonus_vec_ar_altis.sqf"
 #endif
 #ifdef __GMCWG__
 #include "mt_bonus_vec_ar_gmcwg.sqf"
@@ -363,9 +358,6 @@ d_wcamp =
 #endif
 #ifdef __MALDEN__
 	"Land_Cargo_Patrol_V1_F";
-#endif
-#ifdef __ROSCHE__
-	"Land_Cargo_Patrol_V4_F";
 #endif
 #ifdef __LIVONIA__
 	"Land_Cargo_Patrol_V4_F";
@@ -768,9 +760,6 @@ if (isServer) then {
 #ifdef __LIVONIA__
 #include "d_allmen_O_tanoa.sqf"
 #endif
-#ifdef __ROSCHE__
-#include "d_allmen_O_default.sqf"
-#endif
 #ifdef __GMCWG__
 if (!d_gmcwgwinter) then {
 #include "d_allmen_O_gmcwg.sqf"
@@ -851,9 +840,6 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __LIVONIA__
 #include "d_specops_O_livonia.sqf"
-#endif
-#ifdef __ROSCHE__
-#include "d_specops_O_default.sqf"
 #endif
 #ifdef __GMCWG__
 if (!d_gmcwgwinter) then {
@@ -993,9 +979,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __LIVONIA__
 #include "d_veh_a_O_tanoa.sqf"
 #endif
-#ifdef __ROSCHE__
-#include "d_veh_a_O_default.sqf"
-#endif
 #ifdef __GMCWG__
 #include "d_veh_a_O_gmcwg.sqf"
 #endif
@@ -1066,9 +1049,6 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __LIVONIA__
 	d_arti_observer_E = [["O_T_Recon_JTAC_F"]];
-#endif
-#ifdef __ROSCHE__
-	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
 #ifdef __GMCWG__
 	d_arti_observer_E = [[["gm_gc_army_squadleader_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win"]] select d_gmcwgwinter];
@@ -1332,9 +1312,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __LIVONIA__
 #include "d_compositions_default.sqf"
 #endif
-#ifdef __ROSCHE__
-#include "d_compositions_default.sqf"
-#endif
 #ifdef __CUP_CHERNARUS__
 #include "d_compositions_CUP_Chernarus.sqf"
 #endif
@@ -1541,9 +1518,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __LIVONIA__
 #include "d_sm_classes_default.sqf"
 #endif
-#ifdef __ROSCHE__
-#include "d_sm_classes_default.sqf"
-#endif
 #ifdef __GMCWG__
 #include "d_sm_classes_gmcwg.sqf"
 #endif
@@ -1747,18 +1721,6 @@ if (!d_gmcwgwinter) then {
 	};
 
 #ifdef __ALTIS__
-	// enemy parachute troops transport chopper
-	d_transport_chopper = call {
-		if (d_enemy_side_short == "E") exitWith {
-			["O_T_VTOL_02_infantry_grey_F"]
-		};
-		if (d_enemy_side_short == "W") exitWith {
-			["B_T_VTOL_01_infantry_blue_F"]
-		};
-		["I_Heli_Transport_02_F"]
-	};
-#endif
-#ifdef __ROSCHE__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = call {
 		if (d_enemy_side_short == "E") exitWith {
@@ -2003,9 +1965,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __MALDEN__
 		"Land_BagBunker_Large_F";
 #endif
-#ifdef __ROSCHE__
-		"Land_BagBunker_01_large_green_F";
-#endif
 #ifdef __LIVONIA__
 		"Land_BagBunker_01_large_green_F";
 #endif
@@ -2045,9 +2004,6 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __MALDEN__
 		"Land_Cargo_HQ_V1_F";
-#endif
-#ifdef __ROSCHE__
-		"Land_Cargo_HQ_V4_F";
 #endif
 #ifdef __LIVONIA__
 		"Land_Cargo_HQ_V4_F";
@@ -2089,9 +2045,6 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __MALDEN__
 		"Land_BagBunker_Small_F";
-#endif
-#ifdef __ROSCHE__
-		"Land_BagBunker_01_small_green_F";
 #endif
 #ifdef __LIVONIA__
 		"Land_BagBunker_01_small_green_F";
@@ -2223,9 +2176,6 @@ if (!d_gmcwgwinter) then {
 #ifdef __MALDEN__
 		_civVehiclesWeightedCityWealthLow;
 #endif
-#ifdef __ROSCHE__
-		_civVehiclesWeightedRural;
-#endif
 #ifdef __LIVONIA__
 		_civVehiclesWeightedRuralLivonia;
 #endif
@@ -2339,9 +2289,6 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __MALDEN__
 		_mixedFaces;
-#endif
-#ifdef __ROSCHE__
-		_whiteFaces;
 #endif
 #ifdef __LIVONIA__
 		_whiteFaces;

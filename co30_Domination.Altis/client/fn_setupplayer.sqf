@@ -164,9 +164,6 @@ if (d_weather == 0) then {
 #ifdef __IFA3LITE__
 		d_withsandstorm = 1;
 #endif
-#ifdef __ROSCHE__
-		d_withsandstorm = 1;
-#endif
 #ifdef __GMCWG__
 		d_withsandstorm = 1;
 #endif

@@ -6,3 +6,4 @@
 - Fixed: penalty for civilian kills by artillery or CAS, by longtimegamer
 - Changed: d_ai_awareness_rad, d_snp_aware, d_ai_pursue_rad, d_ai_aggressiveshoot now also work in the TT version
 - Removed: House patrol (d_house_patrol), was deactivated anyway and caused too much performance issues
+- Removed: Rosche version
