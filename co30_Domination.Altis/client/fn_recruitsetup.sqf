@@ -88,14 +88,6 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {[]};
 	};
 #endif
-#ifdef __ROSCHE__
-	private _pchar = switch (d_player_side) do {
-		case blufor: {"B"};
-		case opfor: {"O"};
-		case independent: {"I"};
-	};
-	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
-#endif
 #ifdef __GMCWG__
 	d_UnitsToRecruit = switch (d_player_side) do {
 		case blufor: {

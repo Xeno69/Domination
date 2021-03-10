@@ -86,9 +86,6 @@ class Header {
 #ifdef __MALDEN__
 	maxPlayers = 41;
 #endif
-#ifdef __ROSCHE__
-	maxPlayers = 46;
-#endif
 #ifdef __LIVONIA__
 	maxPlayers = 46;
 #endif
@@ -343,10 +340,6 @@ class Params {
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
-#ifdef __ROSCHE__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
-		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
-#endif
 #ifdef __GMCWG__
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,31};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
@@ -394,9 +387,6 @@ class Params {
 		default = 7;
 #endif
 #ifdef __MALDEN__
-		default = 7;
-#endif
-#ifdef __ROSCHE__
 		default = 7;
 #endif
 #ifdef __GMCWG__
@@ -578,9 +568,6 @@ default = 7;
 		default = 0;
 #endif
 #ifdef __TTMALDEN__
-		default = 1;
-#endif
-#ifdef __ROSCHE__
 		default = 1;
 #endif
 #ifdef __GMCWG__
@@ -1912,16 +1899,6 @@ class CfgIdentities {
 	};
 #endif
 #ifdef __ALTIS__
-	class DHQ_OP1: DHQ_BF1 {
-		name = "Aziz, HQ";
-		speaker = "male03per";
-	};
-	class DHQ_OP2: DHQ_BF1 {
-		name = "Horiz, HQ";
-		speaker = "male02per";
-	};
-#endif
-#ifdef __ROSCHE__
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";

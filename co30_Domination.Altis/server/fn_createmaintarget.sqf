@@ -341,8 +341,8 @@ if (d_enable_civs == 1) then {
 [str d_mt_mobile_hq_obj, getPos d_mt_mobile_hq_obj, "ICON", "ColorBlack", [0.5, 0.5], "Mobile forces HQ", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 #endif
 
-private _wp_array_inf = [_trg_center, _radius + 50, 0, 0, 0.7, true] call d_fnc_getwparray;
-private _wp_array_vecs = [_trg_center, _radius + 50, 0, 4, 0.7, true] call d_fnc_getwparray;
+private _wp_array_inf = [_trg_center, _radius + 50 + random 20, 0, 0, 0.4, true] call d_fnc_getwparray;
+private _wp_array_vecs = [_trg_center, _radius + 50 + random 20, 0, 4, 0.7, true] call d_fnc_getwparray;
 
 sleep 0.112;
 
