@@ -68,6 +68,7 @@ while {true} do {
 	__TRACE_1("","_Dtargets")
 	
 	private _fired = false;
+	private _targets = [];
 	
 	if (_Dtargets isNotEqualTo []) then {
 		_Dtargets sort true;
@@ -78,48 +79,50 @@ while {true} do {
 		} else {
 			_targets = _playersSortedByDistance;
 		};
-		__TRACE_1("","_targets")
-		if (_isAggressiveShoot == 1) then {
-			__TRACE("Aggressive Shoot")
-			{
-				if (!alive _unit) exitWith {};
-				//if (([_unit, _x] call d_fnc_isvisible) || {[_unit, _x, 360] call _isLOS}) then {
-				if ([_unit, _x] call d_fnc_isvisible) then {
-					//to check if unit actually fired
-					_ammoCount = _unit ammo primaryWeapon _unit;
-					_magazineCount = count magazinesAmmo _unit; 
-					// execute aggressive shooting
-					_unit doTarget _x;
-					_unit doSuppressiveFire _x;
-					sleep 15;
+		if (count _targets > 0) then {
+			__TRACE_1("","_targets")
+			if (_isAggressiveShoot == 1) then {
+				__TRACE("Aggressive Shoot")
+				{
 					if (!alive _unit) exitWith {};
-					if (_ammoCount > _unit ammo primaryWeapon _unit || {_magazineCount > count magazinesAmmo _unit}) then {
-						//yes the unit actually fired
-						_fired = true;
-						_lastFired = time;
+					//if (([_unit, _x] call d_fnc_isvisible) || {[_unit, _x, 360] call _isLOS}) then {
+					if ([_unit, _x] call d_fnc_isvisible) then {
+						//to check if unit actually fired
+						_ammoCount = _unit ammo primaryWeapon _unit;
+						_magazineCount = count magazinesAmmo _unit; 
+						// execute aggressive shooting
+						_unit doTarget _x;
+						_unit doSuppressiveFire _x;
+						sleep 15;
+						if (!alive _unit) exitWith {};
+						if (_ammoCount > _unit ammo primaryWeapon _unit || {_magazineCount > count magazinesAmmo _unit}) then {
+							//yes the unit actually fired
+							_fired = true;
+							_lastFired = time;
+						};
+						if (_fired) exitWith {
+							_executingOccupyCommand = false; //we broke out of the occupy move order
+						};
 					};
-					if (_fired) exitWith {
-						_executingOccupyCommand = false; //we broke out of the occupy move order
-					};
+				} forEach _targets;
+			};
+			
+			if (!alive _unit) exitWith {};
+			
+			_target_move_dest = _targets # 0;
+			__TRACE_1("","_target_move_dest")
+			// if a priority target is defined or a target is within pursue radius then doMove
+			if (!isNil "d_priority_target" || {_pursueRadius > 0 && {_target_move_dest distance2D _unit < _pursueRadius}}) then {
+				__TRACE("pursue radius")
+				//unit is eligible for a move order
+				if ((time - _lastMoveOrder) > _moveOrderInterval) then {
+					//unit has waited longer than the required interval
+					_unit doMove (getPosATL _target_move_dest);
+					_unit setCombatMode "RED";
+					(group _unit) setSpeedMode "FULL";
+					_lastMoveOrder = time;
+					_executingOccupyCommand = false; //we broke out of the occupy move order
 				};
-			} forEach _targets;
-		};
-		
-		if (!alive _unit) exitWith {};
-		
-		_target_move_dest = _targets # 0;
-		__TRACE_1("","_target_move_dest")
-		// if a priority target is defined or a target is within pursue radius then doMove
-		if (!isNil "d_priority_target" || {_pursueRadius > 0 && {_target_move_dest distance2D _unit < _pursueRadius}}) then {
-			__TRACE("pursue radius")
-			//unit is eligible for a move order
-			if ((time - _lastMoveOrder) > _moveOrderInterval) then {
-				//unit has waited longer than the required interval
-				_unit doMove (getPosATL _target_move_dest);
-				_unit setCombatMode "RED";
-				(group _unit) setSpeedMode "FULL";
-				_lastMoveOrder = time;
-				_executingOccupyCommand = false; //we broke out of the occupy move order
 			};
 		};
 	} else {
