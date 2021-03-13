@@ -18,7 +18,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 			_distu = _cam2world distance _x;
 			if (_distu <= _d_pn_hud) then {
 				_opax = isNull objectParent _x;
-				if (!_opax || {[objNull, "VIEW"] checkVisibility [_epp, eyePos _x] > 0.15}) then {
+				if (!_opax || {[objNull, "VIEW"] checkVisibility [_epp, eyePos _x] > 0.49}) then {
 					_dodraw = if (_opax) then {
 						_targetPos = _x modelToWorldVisual (_x selectionPosition "Pilot");
 						true

@@ -12044,7 +12044,7 @@
 <Korean>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Korean>
 <Japanese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Japanese>
 <Original>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Original>
-<Russian>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Russian>
+<Russian>%1 был отмечен, как убитый.  Возможно %1 останется живым еще %2 секунд.</Russian>
 <Chinesesimp>%1 已被标记为死亡。  保持 %1 存活 %2 秒。</Chinesesimp>
 <Chinese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Chinese>
 <French>%1 has been marked for death.  Keep %1 alive for %2 seconds.</French>
@@ -12056,7 +12056,7 @@
 <Korean>Player %1 survived for %2 seconds but.  Mission failed.</Korean>
 <Japanese>Player %1 survived for %2 seconds.  Mission failed.</Japanese>
 <Original>Player %1 survived for %2 seconds.  Mission failed.</Original>
-<Russian>Player %1 survived for %2 seconds.  Mission failed.</Russian>
+<Russian>Игрок %1 выжил %2 секунд.  Миссия провалена.</Russian>
 <Chinesesimp>玩家 %1 存活了 %2 秒。任务失败。</Chinesesimp>
 <Chinese>Player %1 survived for %2 seconds.  Mission failed.</Chinese>
 <French>Player %1 survived for %2 seconds.  Mission failed.</French>
@@ -12068,7 +12068,7 @@
 <Korean>Success.  %1 survived for %2 seconds. + %3</Korean>
 <Japanese>Success.  %1 survived for %2 seconds. + %3</Japanese>
 <Original>Success.  %1 survived for %2 seconds. + %3</Original>
-<Russian>Success.  %1 survived for %2 seconds. + %3</Russian>
+<Russian>Выполнено.  %1 выжил %2 секунд. + %3</Russian>
 <Chinesesimp>成功。 %1 存活了 %2 秒。 + %3</Chinesesimp>
 <Chinese>Success.  %1 survived for %2 seconds. + %3</Chinese>
 <French>Success.  %1 survived for %2 seconds. + %3</French>

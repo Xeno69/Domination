@@ -30,8 +30,12 @@ if (_vicon isNotEqualTo []) then {
 	_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
 };
 __TRACE_1("","_vicon")
+
 private _dempty_respawn = _vec getVariable ["d_empty_respawn", -1];
 __TRACE_1("","_dempty_respawn")
+
+private _dempty_dist = _vec getVariable ["d_empty_dist", -1];
+__TRACE_1("","_dempty_dist")
 
 private _startpos = if (_vec isKindOf "Air") then {
 	(getPosATL _vec) vectorAdd [0, 0, 0.1];
@@ -104,7 +108,14 @@ while {true} do {
 	if (alive _vec) then {
 		_empty = (crew _vec) findIf {alive _x} == -1;
 		__TRACE_2("","_vec","_empty")
-		if (_delay != -1 && {_dempty_respawn != -1}) then {
+		if (_empty && {_dempty_dist != -1}) then {
+			private _runits = (allPlayers - entities "HeadlessClient_F") select {!isNull _x};
+			sleep 0.1;
+			if (_runits isNotEqualTo [] && {_runits findIf {_x distance2D _vec < _dempty_dist} == -1}) then {
+				_disabled = true;
+			};
+		};
+		if (!_disabled && {_delay != -1 && {_dempty_respawn != -1}}) then {
 			if (_empty) then {
 				private _empty_respawn = _vec getVariable ["d_empty_respawn_time", -1];
 				if (_empty_respawn == -1) then {
@@ -196,24 +207,6 @@ while {true} do {
 			[_vec] spawn gm_core_vehicles_fnc_vehicleMarkingsInit;
 		};
 #endif
-		/*if (_vec isKindOf "Air" && {surfaceIsWater _startpos}) then {
-			private _cposc =+ _startpos;
-			private "_asl_height";
-			if (!isNil "d_the_carrier") then {
-				_asl_height = d_the_carrier getVariable "d_asl_height";
-			};
-			if (isNil "_asl_height") then {
-				_asl_height = (getPosASL d_FLAG_BASE) # 2;
-			};
-			_cposc set [2, _asl_height];
-			[_vec, _cposc] spawn {
-				scriptName "spawn vehirespawn";
-				params ["_vec", "_cposc"];
-				sleep 1;
-				_vec setPosASL _cposc;
-				_vec setDamage 0;
-			};
-		};*/
 		if (_canloadbox) then {
 			_vec setVariable ["d_canloadbox", true, true];
 		};
