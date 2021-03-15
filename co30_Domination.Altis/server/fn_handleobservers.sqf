@@ -13,7 +13,9 @@ while {d_nr_observers > 0} do {
 		{
 			if (alive _x) then {
 				private _enemy = _x findNearestEnemy _x;
-				if (!isNull _enemy && {alive _enemy && {_x knowsAbout _enemy >= 1.5 && {!((vehicle _enemy) isKindOf "Air") && {_x distance2D _enemy < 500}}}}) then {
+				// AI with awareness - if (isvisible enemy)
+				// AI without awareness (default) - if (knowsAbout enemy and distance to enemy < 500)
+				if (!isNull _enemy && {alive _enemy && {!((vehicle _enemy) isKindOf "Air") && {((d_ai_awareness_rad > 0) && [_enemy, _x] call d_fnc_isvisible) || {!(d_ai_awareness_rad > 0) && _x knowsAbout _enemy >= 1.5 && {_x distance2D _enemy < 500}}}}}) then {
 					if ((_enemy nearEntities [_man_type, 30]) isEqualTo []) then {
 						_e_ari_avail = false;
 						_nextaritime = time + 120 + (random 120);
