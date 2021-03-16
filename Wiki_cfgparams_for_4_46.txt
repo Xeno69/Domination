@@ -62,6 +62,9 @@
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_ai_persistent_corpses / Persistent AI corpses**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
+#### **d_del_crew_always / Kill ALL vehicle crew (even outside) when a vehicle gets destroyed**
+> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
+> Kills also crew members of a destroyed vehicle which has escaped the vehicle before the explosion
 #### **d_ao_bfires / Big main target fires:**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 #### **d_weather / Internal weather system:**

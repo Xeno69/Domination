@@ -9,6 +9,9 @@ while {alive _this} do {
 	sleep 1;
 };
 if (!isNull _this) then {
-	_this setVariable ["d_dead", true];
-	_this call d_fnc_onerespukilled;
+	isNil {
+		_this setVariable ["d_dead", true];
+		_this call d_fnc_onerespukilled;
+		_this call d_fnc_handleDeadVec;
+	};
 };

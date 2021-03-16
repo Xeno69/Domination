@@ -14054,6 +14054,18 @@
 <Chinese>Big main target fires:</Chinese>
 <French>Big main target fires:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2062">
+<English>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</English>
+<Spanish>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Spanish>
+<Portuguese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Portuguese>
+<Korean>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Korean>
+<Japanese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Japanese>
+<Original>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Original>
+<Russian>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Russian>
+<Chinesesimp>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Chinesesimp>
+<Chinese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Chinese>
+<French>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</French>
+</Key>
 </Container>
 </Package>
 </Project>
