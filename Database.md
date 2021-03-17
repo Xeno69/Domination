@@ -19,7 +19,7 @@
 
 #### A、extDB3
 
-> 对于 extDB3，请将 @extDB3（从 extDB3 下载，而不是从7z）安装到 Arma3 服务器文件夹（不要忘记将 tbbmalloc dll 文件从 extDB3下 载复制到 Arma3 服务器文件夹或主机的 Arma3 游戏文件夹）。
+> 对于 extDB3，请将 @extDB3（从 extDB3 下载，而不是从7z）安装到 Arma3 服务器文件夹（不要忘记将 `tbbmalloc.dll` 文件从 extDB3下 载复制到 Arma3 服务器文件夹或主机的 Arma3 游戏文件夹）。
 
 #### B、InterceptDB
 
