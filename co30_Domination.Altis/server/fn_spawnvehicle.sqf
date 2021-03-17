@@ -79,16 +79,28 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 } else {
 	_veh = createVehicle [_typev1, _posv1, [], 0, "NONE"];
 	_veh call d_fnc_nodamoff;
-	if (random 100 > 50) then {_veh allowCrewInImmobile true};
+	if (d_del_crew_always == 1) then {
+		if (random 100 > 50) then {_veh allowCrewInImmobile true};
+	} else {
+		_veh allowCrewInImmobile true;
+	};
 	_veh setDir _azi;
 	_veh setVehiclePosition [_veh, [], 0, "NONE"];
 };
 
+if (d_del_crew_always == 0) then {
+	_nocargo = true;
+};
 private _crew = [_veh, _grp, _nocargo] call d_fnc_spawnCrew;
 _grp addVehicle _veh;
 _grp deleteGroupWhenEmpty true;
 
-_veh setUnloadInCombat [true, false];
+if (d_del_crew_always == 1) then {
+	_veh setUnloadInCombat [true, false];
+} else {
+	_veh setUnloadInCombat [false, false];
+	_veh setVariable ["d_crew", _crew];
+};
 
 if (unitIsUAV _veh) then {
 	_veh allowCrewInImmobile true;

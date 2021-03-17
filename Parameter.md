@@ -78,6 +78,10 @@
 #### **d_ai_persistent_corpses / 永久显示 AI 尸体 **
 > 默认： 1 （No, 无效； 0 or Yes 启用）<br/>
 
+#### **d_del_crew_always / 载具击毁时杀死所有车辆乘员（甚至在外面） **
+> Default: 1 (No, 无效; 0 or Yes 启用)<br/>
+> 还会杀死爆炸前从载具中逃脱的被毁载具的机组人员。
+
 #### **d_ao_bfires / 主线任务火力： **
 > 默认： 1 （No, 无效； 0 or 启用）<br/>
 

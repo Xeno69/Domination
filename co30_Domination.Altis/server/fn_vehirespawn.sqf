@@ -210,17 +210,12 @@ while {true} do {
 		if (_canloadbox) then {
 			_vec setVariable ["d_canloadbox", true, true];
 		};
-		if (isNil "_startposasl") then {
+		[_vec] spawn {
+			scriptName "spawn vehirespawn2";
+			params ["_vec"];
+			sleep 2;
 			_vec allowDamage true;
 			_vec setDamage 0;
-		} else {
-			[_vec] spawn {
-				scriptName "spawn vehirespawn2";
-				params ["_vec"];
-				sleep 2;
-				_vec allowDamage true;
-				_vec setDamage 0;
-			};
 		};
 		if (_liftit) then {
 			_vec setVariable ["d_liftit", true, true];
