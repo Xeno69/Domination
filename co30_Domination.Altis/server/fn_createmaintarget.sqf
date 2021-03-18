@@ -116,30 +116,6 @@ private _selectitvec = {
 	};
 };
 
-private _doMainTargetEvent = {
-	params ["_event_string"];
-	switch (_event_string) do {
-		case "PILOT_RESCUE": {
-			[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
-		};
-		case "POW_RESCUE": {
-			[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
-		};
-		case "GUERRILLA_TANKS": {
-			[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
-		};
-		case "GUERRILLA_INFANTRY": {
-			[d_cur_target_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
-		};
-		case "RABBIT_RESCUE": {
-			[d_cur_target_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
-		};
-		case "MARKED_FOR_DEATH": {
-			[d_cur_target_radius, _trg_center] spawn d_fnc_event_markedfordeath;
-		};
-	};
-};
-
 private _type_list_guard = [
 	["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
 	["specops", 0, [d_footunits_guard, 1] call _selectitmen],
@@ -688,6 +664,30 @@ if (d_occ_bldgs == 1) then {
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
+	private _doMainTargetEvent = {
+		params ["_event_string"];
+		switch (_event_string) do {
+			case "PILOT_RESCUE": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
+			};
+			case "POW_RESCUE": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+			};
+			case "GUERRILLA_TANKS": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+			};
+			case "GUERRILLA_INFANTRY": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+			};
+			case "RABBIT_RESCUE": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
+			};
+			case "MARKED_FOR_DEATH": {
+				[d_cur_target_radius, _trg_center] spawn d_fnc_event_markedfordeath;
+			};
+		};
+	};
+	
 	// todo - add more events - stop an execution, kidnap an officer, defuse a bomb, convoys through warzone
 	private _doEvent = false;
 	if (d_with_MainTargetEvents < 0) then {
@@ -695,21 +695,23 @@ if (d_with_MainTargetEvents != 0) then {
 		_doEvent = true;
 	} else {
 		// random chance for an event
-		if (d_with_MainTargetEvents == 1 && {(random 100 < 30)}) then {_doEvent = true};
+		if (d_with_MainTargetEvents == 1) exitWith {
+			if (random 100 < 30) then {_doEvent = true};
+		};
 		if (d_with_MainTargetEvents == 2 && {(random 100 < 70)}) then {_doEvent = true};
 	};
 	// choose event(s)
 	if (_doEvent) then {
 		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3}) then {
 			// create three simultaneous events		
-			_tmpMtEvents = + d_x_mt_event_types;
+			private _tmpMtEvents = + d_x_mt_event_types;
 			if (d_with_MainTargetEvents != -3) then {
             	// guerrilla events are only eligible if d_with_MainTargetEvents == -3
             	// remove guerrilla events from the temp array, do not select it here
             	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
 			};
 			for "_i" from 0 to 2 do {
-				_tmpRandomEvent = selectRandom _tmpMtEvents;
+				private _tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);
 				// if guerrilla infantry are randomly selected then there is a 1 in 3 chance of guerrilla tanks
@@ -724,5 +726,3 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 };
 #endif
-
-_wp_array_pat = nil;
