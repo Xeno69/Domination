@@ -1,7 +1,7 @@
 ["uns_ot34_85_nva","uns_t34_85_nva","uns_t54_nva","uns_to55_nva"],
 ["uns_pt76","uns_Type63_mg"],
 ["uns_BTR152_DSHK"],
-["pook_ZSU_NVA","pook_ZSU57_NVA","uns_BTR152_ZPU","uns_Type55_ZU","uns_nvatruck_zpu"],
+["uns_nvatruck_s60","uns_nvatruck_type65","uns_BTR152_ZPU","uns_Type55_ZU","uns_nvatruck_zpu"],
 ["uns_Type55_RR57","uns_Type55_RR73","uns_Type55_MG"],
 ["uns_Type55_twinMG","uns_Type55_LMG"],
 ["uns_dshk_armoured_NVA","uns_dshk_high_NVA","uns_dshk_low_NVA","uns_dshk_wheeled_NVA"],
