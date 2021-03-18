@@ -4,6 +4,7 @@
 - Added: Overwatch units are allowed to move when an enemy fires a weapon nearby, by longtimegamer
 - Added: For vehicles added with d_add_vec_ there is now a new setVariable for init: this setVariable ["d_empty_dist", 1000], vec will respawn if empty and players are x meters away (example here 1000)
 - Added: New param d_del_crew_always ("Kill ALL vehicle crew (even outside) when a vehicle gets destroyed" in lobby), deletes all crew which might have jumped out of a vehicle too if the vehicle gets destroyed
+- Added: 1030 motor bikes to the Chernarus Winter version
 - Fixed: AI did not occupy buildings in the TT version
 - Fixed: penalty for civilian kills by artillery or CAS, by longtimegamer
 - Fixed: When ACE is used the dead crew of destroyed enemy AI vehicles doesn't get deleted
