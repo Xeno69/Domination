@@ -368,7 +368,7 @@ d_all_ammoloads = (allMissionObjects "HeliH") select {(str _x) select [0, 10] ==
 d_points_needed_15 = (d_points_needed # 6) + 15000;
 d_points_needed_16 = (d_points_needed # 6) + 30000;
 d_points_needed_17 = (d_points_needed # 6) + 80000;
-d_points_needed_18 = (d_points_needed # 6) + 150000;
+d_points_needed_18 = (d_points_needed # 6) + 200000;
 
 0 spawn {
 	scriptName "spawn_setupplayer1";
@@ -454,7 +454,7 @@ d_points_needed_18 = (d_points_needed # 6) + 150000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log ["Internal D Version: 4.45"];
+diag_log ["Internal D Version: 4.46"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -1235,11 +1235,9 @@ _trig = [
 
 0 spawn d_fnc_noaan;
 
-#ifndef __IFA3__
 if (d_without_nvg == 0 || {d_without_ti == 0}) then {
 	0 spawn d_fnc_blockthermalnv;
 };
-#endif
 
 d_isvdreduced = false;
 #ifndef __TT__

@@ -2,7 +2,7 @@ d_sm_fortress = "Land_Cargo_House_V2_F";
 d_functionary = "uns_civilian4";
 d_fuel_station = "Land_FuelStation_Build_F";//Land_FuelStation_Shed_F
 d_sm_cargo = switch (d_enemy_side_short) do {
-	case "E": {"pook_URAL_UTILITY_NVA"};
+	case "E": {"uns_nvatruck_camo"};
 	case "W": {"rhsusf_M1078A1P2_B_D_CP_fmtv_usarmy"};
 	case "G": {"I_Truck_02_box_F"};
 };

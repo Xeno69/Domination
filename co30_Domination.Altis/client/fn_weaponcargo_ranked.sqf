@@ -89,3 +89,4 @@ __TRACE_1("ITEMS","_helperar")
 [_vec, d_misc_hash get (_rank + "_BAGS"), false, false] call BIS_fnc_addVirtualBackpackCargo;
 
 [_vec, d_misc_hash get (_rank + "_VESTS"), false, false] call BIS_fnc_addVirtualItemCargo;
+[_vec, d_misc_hash get (_rank + "_HG"), false, false] call BIS_fnc_addVirtualItemCargo;
