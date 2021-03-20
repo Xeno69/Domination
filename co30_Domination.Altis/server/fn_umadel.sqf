@@ -6,6 +6,8 @@
 params ["_opos", "_radpatr"];
 _opos =+ _opos;
 
+_radpatr = _radpatr + 50;
+
 sleep 5;
 
 private _musers = [];
