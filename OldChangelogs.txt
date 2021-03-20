@@ -2,6 +2,24 @@ Changelogs
 
 Old...
 
+4.46
+
+- Added: Marked for death - player survival event at maintarget, by longtimegamer
+- Added: Overwatch units are allowed to move when an enemy fires a weapon nearby, by longtimegamer
+- Added: For vehicles added with d_add_vec_ there is now a new setVariable for init: this setVariable ["d_empty_dist", 1000], vec will respawn if empty and players are x meters away (example here 1000)
+- Added: New param d_del_crew_always ("Kill ALL vehicle crew (even outside) when a vehicle gets destroyed" in lobby), deletes all crew which might have jumped out of a vehicle too if the vehicle gets destroyed
+- Added: 1030 motor bikes to the Chernarus Winter version
+- Fixed: AI did not occupy buildings in the TT version
+- Fixed: Penalty for civilian kills by artillery or CAS, by longtimegamer
+- Fixed: When ACE is used the dead crew of destroyed enemy AI vehicles doesn't get deleted
+- Fixed: Pilot gear check did not work in Unsung version
+- Fixed: Disabling only TI for inf weapons also disabled NV mode and vice versa
+- Fixed: Removed pook vehicle class names in the Unsung version, they do not longer exist
+- Fixed: Headgear didn't show up in ranked mode (now really fixed)
+- Changed: d_ai_awareness_rad, d_snp_aware, d_ai_pursue_rad, d_ai_aggressiveshoot now also work in the TT version
+- Removed: House patrol (d_house_patrol), was deactivated anyway and caused too much performance issues
+- Removed: Rosche version
+
 4.45
 
 - Fixed: When ACE was used player names above head and markers were not shown
