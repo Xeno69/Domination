@@ -33,7 +33,7 @@ if (vehicle player != player) then {
 params ["_numtk", ["_isjip", 0]];
 
 private _secs = [_numtk * 60, _isjip] select (_isjip > 0);
-player setVariable ["d_jailar", [serverTime, _secs], true];
+player setVariable ["d_jailar", [time, _secs], true];
 
 private _laodout =+ getUnitLoadout player;
 player setUnitLoadout (configFile >> "EmptyLoadout");
@@ -91,18 +91,22 @@ sleep 0.1;
 
 private _movecheck_fnc = _pmovepos spawn {
 	scriptname "spawn jail3";
+	private _notfirst = false;
 	while {true} do {
-		if (player distance _this > 12) exitWith {
+		if (player distance _this > 12) then {
 			player setPos _pmovepos;
-			(getPlayerUID player) remoteExecCall ["d_fnc_incjail", 2];
-			d_player_jescape = d_player_jescape + 1;
-			if (d_player_jescape > 10) then {
-				0 spawn {
-					scriptname "spawn jail4";
-					"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
-					sleep 5;
-					endMission "End2";
-					forceEnd;
+			if (!_notfirst) then {
+				_notfirst = true;
+				(getPlayerUID player) remoteExecCall ["d_fnc_incjail", 2];
+				d_player_jescape = d_player_jescape + 1;
+				if (d_player_jescape > 10) then {
+					0 spawn {
+						scriptname "spawn jail4";
+						"d_jescape" cutText [format ["<t color='#ffffff' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_2043"], "PLAIN DOWN", -1, true, true];
+						sleep 5;
+						endMission "End2";
+						forceEnd;
+					};
 				};
 			};
 		};

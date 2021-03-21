@@ -61,7 +61,7 @@ if (_pa isNotEqualTo []) then {
 	private _jar = _unit getVariable "d_jailar";
 	__TRACE_1("","_jar")
 	if (!isNil "_jar") then {
-		private _dif = serverTime - (_jar # 0);
+		private _dif = time - (_jar # 0);
 		if (_dif >= (_jar # 1)) then {
 			_pa set [13, 0];
 		} else {
