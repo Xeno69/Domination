@@ -203,6 +203,8 @@ class cfgDomFuncs {
 			addc(updatemove);
 			addc(chopcheck);
 			addc(gimmick);
+			addc(forgive);
+			addc(aophfytk);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -270,6 +272,8 @@ class cfgDomFuncs {
 			addc(correctwname);
 			addc(addto3drawar);
 			addc(optioncontrol);
+			addc(forgive_keh);
+			addc(forgive_timehandler);
 		};
 		class Dom_Common {
 			file = "common";
@@ -631,6 +635,7 @@ class cfgDomFuncs {
 			addc(addheadshot);
 			addc(v_hd);
 			addc(wa_ace_vec);
+			addc(exectkpd);
 		};
 	};
 	class Dom_Revive {

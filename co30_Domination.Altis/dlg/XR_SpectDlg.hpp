@@ -73,6 +73,23 @@ class xr_SpectDlg {
 		class BorderBot: BorderTop {
 			y = SafeZoneY + SafeZoneH - 0.1;
 		};
+		class ForgiveCaption: RscText {
+			idc = 123456;
+			x = 0;
+			y = "SafeZoneY + 0.12";
+			w = 1;
+			h = 0.04;
+			sizeEx = 0.042;
+			shadow = 0;
+			style = ST_CENTER;
+			colorText[] = {1, 0, 0, 1};
+			text = "";
+		};
+		class ForgiveTimeCap: ForgiveCaption {
+			idc = 123457;
+			y = "SafeZoneY + 0.16";
+			text = "";
+		};
 		class FollowingCaption: RscText {
 			idc = -1;
 			x = "SafeZoneX + 0.05";
