@@ -18,8 +18,8 @@ if (_enhmm) then {
 	}];
 };
 
-if (!alive player) then {
-	waitUntil {alive player};
+if (!d_player_canu) then {
+	waitUntil {sleep 0.3; d_player_canu};
 };
 
 cutText [localize "STR_DOM_MISSIONSTRING_1999", "BLACK", 0];
@@ -33,7 +33,7 @@ if (vehicle player != player) then {
 params ["_numtk", ["_isjip", 0]];
 
 private _secs = [_numtk * 60, _isjip] select (_isjip > 0);
-player setVariable ["d_jailar", [time, _secs], true];
+player setVariable ["d_jailar", [serverTime, _secs], true];
 
 private _laodout =+ getUnitLoadout player;
 player setUnitLoadout (configFile >> "EmptyLoadout");
