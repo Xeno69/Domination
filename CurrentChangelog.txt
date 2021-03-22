@@ -3,3 +3,4 @@
 - Added: Teamkill forgive system (only available when mission revive and revive spectating is on)
 - Fixed: Wait till player is alive or not unconscious anymore before putting him into jail
 - Fixed: Jail escape counter was increased every second instead of just once per jail time
+- Fixed: Destroying a vehicle of the other player side caused a script error
