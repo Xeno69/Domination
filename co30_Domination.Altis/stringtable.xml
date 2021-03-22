@@ -14066,6 +14066,61 @@
 <Chinese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Chinese>
 <French>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2063">
+<English>Player can forgive teamkill (mission revive has too be enabled and spectating):</English>
+<Spanish>Player can forgive teamkill (mission revive has too be enabled and spectating):</Spanish>
+<Portuguese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Portuguese>
+<Korean>Player can forgive teamkill (mission revive has too be enabled and spectating):</Korean>
+<Japanese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Japanese>
+<Original>Player can forgive teamkill (mission revive has too be enabled and spectating):</Original>
+<Russian>Player can forgive teamkill (mission revive has too be enabled and spectating):</Russian>
+<Chinesesimp>玩家可以原谅队友的TK（任务复活已启用并可以观看）：</Chinesesimp>
+<French>Player can forgive teamkill (mission revive has too be enabled and spectating):</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2064">
+<English>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</English>
+<Spanish>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Spanish>
+<Portuguese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Portuguese>
+<Korean>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Korean>
+<Japanese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Japanese>
+<Original>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Original>
+<Russian>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Russian>
+<Chinesesimp>您被 %1 杀死了，是否原谅该玩家的TK行为？ F9（YES）、F11（NO）</Chinesesimp>
+<French>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2065">
+<English>You have forgiven %1</English>
+<Spanish>You have forgiven %1</Spanish>
+<Portuguese>You have forgiven %1</Portuguese>
+<Korean>You have forgiven %1</Korean>
+<Japanese>You have forgiven %1</Japanese>
+<Original>You have forgiven %1</Original>
+<Russian>You have forgiven %1</Russian>
+<Chinesesimp>您已原谅 %1 的TK行为</Chinesesimp>
+<French>You have forgiven %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2066">
+<English>Time to forgive: %1 seconds</English>
+<Spanish>Time to forgive: %1 seconds</Spanish>
+<Portuguese>Time to forgive: %1 seconds</Portuguese>
+<Korean>Time to forgive: %1 seconds</Korean>
+<Japanese>Time to forgive: %1 seconds</Japanese>
+<Original>Time to forgive: %1 seconds</Original>
+<Russian>Time to forgive: %1 seconds</Russian>
+<Chinesesimp>原谅的时间： %1 秒</Chinesesimp>
+<French>Time to forgive: %1 seconds</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2067">
+<English>%1 has forgiven teamkilling him! Don't do it again!</English>
+<Spanish>%1 has forgiven teamkilling him! Don't do it again!</Spanish>
+<Portuguese>Sim</Portuguese>
+<Korean>%1 has forgiven teamkilling him! Don't do it again!</Korean>
+<Japanese>%1 has forgiven teamkilling him! Don't do it again!</Japanese>
+<Original>%1 has forgiven teamkilling him! Don't do it again!</Original>
+<Russian>%1 has forgiven teamkilling him! Don't do it again!</Russian>
+<Chinesesimp>%1 原谅了他的TK行为! 注意禁止再次TK行为！</Chinesesimp>
+<French>%1 has forgiven teamkilling him! Don't do it again!</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -36,6 +36,14 @@ if (_dtype == 0) then {
 		__CTRL(3000) ctrlShow false;
 		__CTRL(1000) ctrlShow false;
 	};
+	if (isNil "d_forgive") then {
+		__CTRL(123456) ctrlShow false;
+		__CTRL(123457) ctrlShow false;
+	} else {
+		__CTRL(123456) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_2064", name d_forgive];
+		d_forgive_keyeh = _display displayAddEventHandler ["KeyDown", {call d_fnc_forgive_keh}];
+		_display spawn d_fnc_forgive_timehandler;
+	};
 };
 
 __CTRL(11003) ctrlShow false;
