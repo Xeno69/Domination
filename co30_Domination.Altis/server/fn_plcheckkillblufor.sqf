@@ -9,12 +9,8 @@ params ["_killed", "", "_killer"];
 private _killedfriendly = side (group _killer) == side (group _killed);
 
 if (!isNull _killer && {(_killer call d_fnc_isplayer) && {vehicle _killer != vehicle _killed}}) then {
-	private _par1 = d_player_hash getOrDefault [getPlayerUID _killed, []];
-	__TRACE_1("_killed",_par1);
-	private _namep = [_par1 # 6, "Unknown"] select (_par1 isEqualTo []);
-	private _par = d_player_hash getOrDefault [getPlayerUID _killer, []];
-	__TRACE_1("_killer",_par);
-	private _namek = [_par # 6, "Unknown"] select (_par isEqualTo []);
+	private _namep = name _killed;
+	private _namek = name _killer;
 	if (!_killedfriendly) then {
 		d_points_opfor = d_points_opfor + (d_tt_points # 8);
 		[12, _namek, _namep] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
