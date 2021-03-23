@@ -10,8 +10,7 @@ if (_objs isEqualTo []) exitWith {};
 
 sleep 1;
 
-private _cnames = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F", "B_APC_Tracked_01_AA_F", "B_APC_Tracked_01_rcws_F", "B_APC_Wheeled_01_cannon_F", "B_AFV_Wheeled_01_cannon_F", "B_AFV_Wheeled_01_up_cannon_F", "B_Plane_Fighter_01_F", "B_Plane_Fighter_01_Stealth_F",
-	"B_Plane_CAS_01_dynamicLoadout_F", "B_Heli_Light_01_dynamicLoadout_F", "B_Heli_Attack_01_dynamicLoadout_F"];
+private _cnames = ("getNumber (_x >> 'scope') >= 2 && {getText (_x >> 'vehicleClass') in ['Armored', 'Car', 'Air']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x};
 	
 private _objsar = [];
 	
@@ -22,7 +21,9 @@ while {true} do {
 	{
 		private _curname = selectRandom _cnamesew;
 		private _obj = createSimpleObject [_curname, [0,0,0], true];
-		_obj attachTo [_x, [0,0,[0.9, 0.85] select (_curname isKindOf "Air")]];
+		(0 boundingBoxReal _obj) params ["_p1", "_p2"];
+		private _z = (abs ((_p2 # 2) - (_p1 # 2)) / 2) * 0.1;
+		_obj attachTo [_x, [0.5, 0, 0.62 + _z]];
 		_obj setObjectScale 0.1;
 		_cnamesew = _cnamesew - [_curname];
 		_objsar pushBack _obj;
