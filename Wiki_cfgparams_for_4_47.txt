@@ -388,11 +388,14 @@
 > Default: 10<br/>
 > Available options: 2, 3, 5, 10, 20, 30 and 1000 (No kick)<br/>
 #### **d_no_teamkill / No teamkilling possible:**
-> Default: 0 (Yes, enabled; 1 or No to disable<br/>
+> Default: 1 (No, disabled; 0 or Yes to enable<br/>
 #### **d_sub_tk_points / Negative TK points:**
 > Default: 10<br/>
 > Available options: 0, 1, 5, 10, 20, 30 and 50<br/>
 > Score a player gets subtracted for killing another player<br/>
+#### **d_tk_forgive / Player can forgive teamkill (mission revive has too be enabled and spectating):**
+> Default: 0 (Yes, enabled; 1 or No to disable<br/>
+> Set d_no_teamkill to 1 to make this work
 #### **d_WreckDeleteTime / Delete wrecks after:**
 > Default: 3600<br/>
 > Available options: 1800, 3600, 5400, 7200 and -1 (Never)<br/>
