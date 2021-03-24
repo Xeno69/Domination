@@ -14073,7 +14073,7 @@
 <Korean>Player can forgive teamkill (mission revive has too be enabled and spectating):</Korean>
 <Japanese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Japanese>
 <Original>Player can forgive teamkill (mission revive has too be enabled and spectating):</Original>
-<Russian>Player can forgive teamkill (mission revive has too be enabled and spectating):</Russian>
+<Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
 <Chinesesimp>Player can forgive teamkill (mission revive has too be enabled and spectating):</Chinesesimp>
 <French>Player can forgive teamkill (mission revive has too be enabled and spectating):</French>
 </Key>
@@ -14084,7 +14084,7 @@
 <Korean>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Korean>
 <Japanese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Japanese>
 <Original>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Original>
-<Russian>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Russian>
+<Russian>Вы были убиты игроком вашей команды %1, простить игрока? F9 Да / F11 Нет</Russian>
 <Chinesesimp>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Chinesesimp>
 <French>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</French>
 </Key>
@@ -14095,7 +14095,7 @@
 <Korean>You have forgiven %1</Korean>
 <Japanese>You have forgiven %1</Japanese>
 <Original>You have forgiven %1</Original>
-<Russian>You have forgiven %1</Russian>
+<Russian>Вы прощены %1</Russian>
 <Chinesesimp>You have forgiven %1</Chinesesimp>
 <French>You have forgiven %1</French>
 </Key>
@@ -14106,7 +14106,7 @@
 <Korean>Time to forgive: %1 seconds</Korean>
 <Japanese>Time to forgive: %1 seconds</Japanese>
 <Original>Time to forgive: %1 seconds</Original>
-<Russian>Time to forgive: %1 seconds</Russian>
+<Russian>Время для прощения: %1 секунд</Russian>
 <Chinesesimp>Time to forgive: %1 seconds</Chinesesimp>
 <French>Time to forgive: %1 seconds</French>
 </Key>
@@ -14117,7 +14117,7 @@
 <Korean>%1 has forgiven teamkilling him! Don't do it again!</Korean>
 <Japanese>%1 has forgiven teamkilling him! Don't do it again!</Japanese>
 <Original>%1 has forgiven teamkilling him! Don't do it again!</Original>
-<Russian>%1 has forgiven teamkilling him! Don't do it again!</Russian>
+<Russian>%1 простил за тимкилл игрока! Не делай этого снова!</Russian>
 <Chinesesimp>%1 has forgiven teamkilling him! Don't do it again!</Chinesesimp>
 <French>%1 has forgiven teamkilling him! Don't do it again!</French>
 </Key>
