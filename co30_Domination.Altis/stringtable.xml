@@ -13814,16 +13814,16 @@
 <French>Player can be suppressed</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2043">
-<English>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</English>
-<Spanish>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
-<Portuguese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
-<Korean>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
-<Japanese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
-<Original>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Original>
+<English>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</English>
+<Spanish>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
+<Portuguese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
+<Korean>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
+<Japanese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
+<Original>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Original>
 <Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
 <Chinesesimp>你已经尝试10多次越狱。你被禁止参加跑步训练！！！！</Chinesesimp>
-<Chinese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
-<French>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</French>
+<Chinese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
+<French>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2044">
 <English>Deploy with camo net</English>
@@ -14067,15 +14067,15 @@
 <French>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2063">
-<English>Player can forgive teamkill (mission revive has too be enabled and spectating):</English>
-<Spanish>Player can forgive teamkill (mission revive has too be enabled and spectating):</Spanish>
-<Portuguese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Portuguese>
-<Korean>Player can forgive teamkill (mission revive has too be enabled and spectating):</Korean>
-<Japanese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Japanese>
-<Original>Player can forgive teamkill (mission revive has too be enabled and spectating):</Original>
+<English>Player can forgive teamkill (mission revive has to be enabled and spectating):</English>
+<Spanish>Player can forgive teamkill (mission revive has to be enabled and spectating):</Spanish>
+<Portuguese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Portuguese>
+<Korean>Player can forgive teamkill (mission revive has to be enabled and spectating):</Korean>
+<Japanese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Japanese>
+<Original>Player can forgive teamkill (mission revive has to be enabled and spectating):</Original>
 <Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
-<Chinesesimp>Player can forgive teamkill (mission revive has too be enabled and spectating):</Chinesesimp>
-<French>Player can forgive teamkill (mission revive has too be enabled and spectating):</French>
+<Chinesesimp>Player can forgive teamkill (mission revive has to be enabled and spectating):</Chinesesimp>
+<French>Player can forgive teamkill (mission revive has to be enabled and spectating):</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2064">
 <English>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</English>
@@ -14111,15 +14111,15 @@
 <French>Time to forgive: %1 seconds</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2067">
-<English>%1 has forgiven teamkilling him! Don't do it again!</English>
-<Spanish>%1 has forgiven teamkilling him! Don't do it again!</Spanish>
+<English>%1 has forgiven teamkilling! Don't do it again!</English>
+<Spanish>%1 has forgiven teamkilling! Don't do it again!</Spanish>
 <Portuguese>Sim</Portuguese>
-<Korean>%1 has forgiven teamkilling him! Don't do it again!</Korean>
-<Japanese>%1 has forgiven teamkilling him! Don't do it again!</Japanese>
-<Original>%1 has forgiven teamkilling him! Don't do it again!</Original>
+<Korean>%1 has forgiven teamkilling! Don't do it again!</Korean>
+<Japanese>%1 has forgiven teamkilling! Don't do it again!</Japanese>
+<Original>%1 has forgiven teamkilling! Don't do it again!</Original>
 <Russian>%1 простил за тимкилл игрока! Не делай этого снова!</Russian>
-<Chinesesimp>%1 has forgiven teamkilling him! Don't do it again!</Chinesesimp>
-<French>%1 has forgiven teamkilling him! Don't do it again!</French>
+<Chinesesimp>%1 has forgiven teamkilling! Don't do it again!</Chinesesimp>
+<French>%1 has forgiven teamkilling! Don't do it again!</French>
 </Key>
 </Container>
 </Package>
