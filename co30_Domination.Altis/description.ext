@@ -255,7 +255,7 @@ class CfgRemoteExec {
 		class BIS_fnc_setCustomSoundController {};
 		class d_fnc_forgive {allowedTargets = 1;};
 		class d_fnc_aophfytk {allowedTargets = 1;};
-		class d_fnc_exectkpd {allowedTargets = 1;};
+		class d_fnc_exectkpd {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
@@ -1451,7 +1451,7 @@ default = 7;
 	class d_no_teamkill {
 		title = "$STR_DOM_MISSIONSTRING_1208";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
