@@ -18,6 +18,12 @@ if (_enhmm) then {
 	}];
 };
 
+if (!isNil "xr_u_doend_of") then {
+	xr_u_doend_of = true;
+	waitUntil {d_uncon_finally_over};
+	d_uncon_finally_over = false;
+};
+
 if (!d_player_canu) then {
 	waitUntil {sleep 0.3; d_player_canu};
 };

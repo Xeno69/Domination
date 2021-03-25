@@ -58,6 +58,8 @@ false call xr_fnc_nearplayercheck;
 
 xr_uncon_units pushBack player;
 
+d_uncon_finally_over = false;
+
 __TRACE("starting main uncon loop")
 
 ["dom_xr_uncon_of", {
@@ -144,6 +146,7 @@ __TRACE("starting main uncon loop")
 				d_current_ai_units = [];
 				d_current_ai_num = 0;
 			};
+			d_uncon_finally_over = true;
 		};
 		{
 			player remoteExecCall ["xr_fnc_announcenearrem", _x];

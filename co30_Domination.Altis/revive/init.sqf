@@ -22,6 +22,8 @@ player setVariable ["xr_pisinaction", false];
 player setVariable ["xr_dragged", false];
 player setVariable ["xr_isdead", false];
 
+d_uncon_finally_over = false;
+
 xr_uncon_units = [];
 xr_death_pos = [];
 
