@@ -124,9 +124,11 @@ if (_num == 19) exitWith {
 };
 
 if (_num == 20) exitWith {
-	[format [localize "STR_DOM_MISSIONSTRING_507a", _param1, _param2], "GLOBAL"] call d_fnc_HintChatMsg;
-	if (_param3 == player) then {
-		[_param2, 0] spawn d_fnc_jail;
+	if (!isNil "d_goto_jail") then {
+		[format [localize "STR_DOM_MISSIONSTRING_507a", _param1, _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+		if (_param3 == player) then {
+			[_param2, 0] spawn d_fnc_jail;
+		};
 	};
 };
 

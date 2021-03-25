@@ -18,14 +18,14 @@ if (_enhmm) then {
 	}];
 };
 
-if (!isNil "xr_u_doend_of") then {
+if (!alive player) then {
+	waitUntil {sleep 0.3; alive player};
+};
+
+if (player getVariable "xr_pluncon") then {
 	xr_u_doend_of = true;
 	waitUntil {d_uncon_finally_over};
 	d_uncon_finally_over = false;
-};
-
-if (!d_player_canu) then {
-	waitUntil {sleep 0.3; d_player_canu};
 };
 
 cutText [localize "STR_DOM_MISSIONSTRING_1999", "BLACK", 0];
