@@ -83,6 +83,7 @@ class xr_SpectDlg {
 			shadow = 0;
 			style = ST_CENTER;
 			colorText[] = {1, 0, 0, 1};
+			font = "TahomaB";
 			text = "";
 		};
 		class ForgiveTimeCap: ForgiveCaption {
