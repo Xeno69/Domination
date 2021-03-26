@@ -485,7 +485,9 @@ if (!d_no_ai) then {
 	};
 
 	d_player_can_call_arti = 1;
-	d_player_can_call_drop = 1;
+	if (d_with_airdrop == 0) then {
+		d_player_can_call_drop = 1;
+	};
 	d_player_can_call_cas = 1;
 	player setUnitTrait ["Medic", true];
 	player setUnitTrait ["engineer", true];
@@ -495,7 +497,7 @@ if (!d_no_ai) then {
 	} else {
 		enableEngineArtillery false;
 	};
-	if (d_string_player in d_can_call_drop_ar) then {
+	if (d_with_airdrop == 0 && {d_string_player in d_can_call_drop_ar}) then {
 		d_player_can_call_drop = 1;
 	};
 	if (d_string_player in d_can_call_cas) then {

@@ -14169,6 +14169,29 @@
 <Chinese>%1 was kicked to lobby because of destryoing vehicles at base</Chinese>
 <French>%1 was kicked to lobby because of destryoing vehicles at base</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2072">
+<English>With AI air taxi (coop version only):</English>
+<Spanish>With AI air taxi (coop version only):</Spanish>
+<Portuguese>With AI air taxi (coop version only):</Portuguese>
+<Korean>With AI air taxi (coop version only):</Korean>
+<Japanese>With AI air taxi (coop version only):</Japanese>
+<Original>With AI air taxi (coop version only):</Original>
+<Russian>With AI air taxi (coop version only):</Russian>
+<Chinesesimp>With AI air taxi (coop version only):</Chinesesimp>
+<French>With AI air taxi (coop version only):</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2073">
+<English>With air drop:</English>
+<Spanish>With air drop:</Spanish>
+<Portuguese>With air drop:</Portuguese>
+<Korean>With air drop:</Korean>
+<Japanese>With air drop:</Japanese>
+<Original>With air drop:</Original>
+<Russian>With air drop:</Russian>
+<Chinesesimp>With air drop:</Chinesesimp>
+<Chinese>With air drop:</Chinese>
+<French>With air drop:</French>
+</Key>
 </Container>
 </Package>
 </Project>
