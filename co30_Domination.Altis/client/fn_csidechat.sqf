@@ -75,6 +75,9 @@ if (_num == 10) exitWith {
 	if (_param1 == 3) exitWith {
 		[format [localize "STR_DOM_MISSIONSTRING_946", _param2], "GLOBAL"] call d_fnc_HintChatMsg;
 	};
+	if (_param1 == 99) exitWith {
+		[format [localize "STR_DOM_MISSIONSTRING_2071", _param2], "GLOBAL"] call d_fnc_HintChatMsg;
+	};
 };
 
 if (_num == 11) exitWith {

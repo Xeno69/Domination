@@ -14145,6 +14145,30 @@
 <Chinese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Chinese>
 <French>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2070">
+<English>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</English>
+<Spanish>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Spanish>
+<Portuguese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Portuguese>
+<Korean>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Korean>
+<Japanese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Japanese>
+<Original>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Original>
+<Russian>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Russian>
+<Chinesesimp>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Chinesesimp>
+<Chinese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Chinese>
+<French>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2071">
+<English>%1 was kicked to lobby because of destryoing vehicles at base</English>
+<Spanish>%1 was kicked to lobby because of destryoing vehicles at base</Spanish>
+<Portuguese>%1 was kicked to lobby because of destryoing vehicles at base</Portuguese>
+<Korean>%1 was kicked to lobby because of destryoing vehicles at base</Korean>
+<Japanese>%1 was kicked to lobby because of destryoing vehicles at base</Japanese>
+<Original>%1 was kicked to lobby because of destryoing vehicles at base</Original>
+<Russian>%1 was kicked to lobby because of destryoing vehicles at base</Russian>
+<Chinesesimp>%1 was kicked to lobby because of destryoing vehicles at base</Chinesesimp>
+<Chinese>%1 was kicked to lobby because of destryoing vehicles at base</Chinese>
+<French>%1 was kicked to lobby because of destryoing vehicles at base</French>
+</Key>
 </Container>
 </Package>
 </Project>

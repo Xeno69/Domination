@@ -636,6 +636,7 @@ class cfgDomFuncs {
 			addc(v_hd);
 			addc(wa_ace_vec);
 			addc(exectkpd);
+			addc(bv_check);
 		};
 	};
 	class Dom_Revive {
