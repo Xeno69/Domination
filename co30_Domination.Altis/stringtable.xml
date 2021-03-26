@@ -2125,12 +2125,12 @@
 <French>Trop rapide pour charger une caisse de munitions, veuillez ralentir!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_269">
-<English>The loaded ammobox got filled up again!</English>
+<English>Loaded ammobox is filled up again!</English>
 <Spanish>La caja de munición cargada se llenó de nuevo.</Spanish>
 <Portuguese>O carregado ammobox conseguiu recheado outra vez!</Portuguese>
 <Korean>탄약상자가 재적재되었습니다.</Korean>
 <Japanese>搭載された弾薬箱が再び満たされた！</Japanese>
-<Original>The loaded ammobox got filled up again!</Original>
+<Original>Loaded ammobox is filled up again!</Original>
 <Russian>Вы не можете загрузить еще раз ящик!</Russian>
 <Chinesesimp>已装载的弹药箱再次补给完毕！</Chinesesimp>
 <Chinese>已裝載的彈藥箱再次補給完畢</Chinese>
@@ -5534,12 +5534,12 @@
 <French>Le chef terroriste est mort. Bon travail.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_861c">
-<English>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</English>
+<English>An enemy officer is on a walk in a forest nearby. This is a good chance to arrest him and bring him to your base.</English>
 <Spanish>Un oficial enemigo está en un paseo por un bosque cercano. Esta es una buena oportunidad para arrestarlo y llevarlo a su base.</Spanish>
 <Portuguese>Um oficial inimigo está em uma caminhada em uma floresta próxima. Esta é uma boa chance de prendê-lo e trazê-lo para sua base..</Portuguese>
 <Korean>적 장교가 숲 근처에서 산책 중입니다. 그를 체포하여 기지로 데려올 좋은 기회입니다</Korean>
 <Japanese>敵の将校が近くの森で散歩中だ。 彼を逮捕し、基地に連行するいいチャンスだ。</Japanese>
-<Original>An enemy officer is on a walk in a forrest nearby. This is a good chance to arrest him and bring him to your base.</Original>
+<Original>An enemy officer is on a walk in a forest nearby. This is a good chance to arrest him and bring him to your base.</Original>
 <Russian>Один из высших чинов протинока прогуливается по лесу. Ликвидируйте его!</Russian>
 <Chinesesimp>一个敌人军官在附近散步。这是一个很好的机会把他抓回来审讯。</Chinesesimp>
 <Chinese>一個敵人軍官在附近散步. 這是一個很好的機會把他抓回來審訊.</Chinese>
@@ -5570,12 +5570,12 @@
 <French>Bon travail. Les réservoirs de carburant sont détruits.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_866a">
-<English>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supllies.</English>
+<English>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supplies.</English>
 <Spanish>El enemigo tiene algunas bombas de petróleo muy productiva cerca de Nagara-1-Oilfield. Destruya las bombas para reducir el combustible.</Spanish>
-<Portuguese>O inimigo tem algum azeite muito produtivo bombea próximo Nagara-1-Oilfield. Destruir as bombas ali para cortar abaixo o combustível de inimigo supllies.</Portuguese>
+<Portuguese>O inimigo tem algum azeite muito produtivo bombea próximo Nagara-1-Oilfield. Destruir as bombas ali para cortar abaixo o combustível de inimigo supplies.</Portuguese>
 <Korean>Nagara-1-유전지대에 적군이 매우 생산적인 오일펌프를 보유중입니다. 펌프를 파괴하여 적 연료공급을 차단하십시오.</Korean>
 <Japanese>敵はNagara-1-油田の近くに非常に優良なオイルポンプをいくつか持っています。 敵の燃料供給を減らすためにそこにあるポンプを破壊しろ。</Japanese>
-<Original>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supllies.</Original>
+<Original>The enemy has some very productive oil pumps near Nagara-1-Oilfield. Destroy the pumps there to cut down the enemy fuel supplies.</Original>
 <Russian>Противник захватил нефтяные насосы около Нагары. Уничтожьте их чтобы ослабить обеспечение протинкиа!</Russian>
 <Chinesesimp>在 Nagara-1-油田 附近有一些油泵。摧毁这些油泵切断他们的油料补给。</Chinesesimp>
 <Chinese>在Nagara-1-油田附近有一些油泵. 摧毀這些油泵切斷他們的油料補給.</Chinese>
@@ -9181,16 +9181,16 @@
 <French>Le déchargement de munitions n'est possible que depuis le siège du pilote!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1434">
-<English>Domination action menus are available when you press the Teamswitch key (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</English>
-<Spanish>El Menú de acción de Domination está disponible al pulsar la tecla (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Spanish>
-<Portuguese>Cartas de ação da dominación são disponíveis quando pulsa o Teamswitch chave (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Portuguese>
-<Korean>도미네이션 액션메뉴는 팀변경키 (%1)를 눌러 보실 수 있습니다.!!!\n3D 유저마커를 끄실려면 (%2) 사용하시면 됩니다,단 키가 비어있을때 할당됩니다.!!!\n이어플러그를 착용하고 빼실려면 (%3) 사용하시면 됩니다,단 키가 비어있을때 할당됩니다!!!</Korean>
-<Japanese>Dominationアクションメニューはチームスイッチキー(%1)を押すと利用できます!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Japanese>
-<Original>Domination action menus are available when you press the Teamswitch key (%1)!!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Original>
-<Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (%1) !!!\nTurn off 3D user markers with User key (%2) When empty no key is assigned!!!\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned!!!</Russian>
+<English>Domination action menus are available when you press the Teamswitch key (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</English>
+<Spanish>El Menú de acción de Domination está disponible al pulsar la tecla (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Spanish>
+<Portuguese>Cartas de ação da dominación são disponíveis quando pulsa o Teamswitch chave (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Portuguese>
+<Korean>도미네이션 액션메뉴는 팀변경키 (%1)를 눌러 보실 수 있습니다.\n3D 유저마커를 끄실려면 (%2) 사용하시면 됩니다,단 키가 비어있을때 할당됩니다.\n이어플러그를 착용하고 빼실려면 (%3) 사용하시면 됩니다,단 키가 비어있을때 할당됩니다</Korean>
+<Japanese>Dominationアクションメニューはチームスイッチキー(%1)を押すと利用できます\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Japanese>
+<Original>Domination action menus are available when you press the Teamswitch key (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Original>
+<Russian>ДЛЯ ВКЛЮЧЕНИЯ МЕНЮ НАСТРОЕК НАЖМИТЕ (%1)\nTurn off 3D user markers with User key (%2) When empty no key is assigned\nPut in and take out earplugs with user markers with User key (%3) When empty no key is assigned</Russian>
 <Chinesesimp>按(%1)键打开游戏互动菜单！！！\n按(%2)键关闭3D用户标记，为空时没有分配按键！！！\n按(%3)键戴上或取下耳塞标记，为空时没有分配按键！！！</Chinesesimp>
-<Chinese>按(%1)鍵打開遊戲互動菜單!!!</Chinese>
-<French>Le menu Action de Domination est disponible en appuyant sur la touche (%1)!!!\nDésactiver les marqueurs utilisateur 3D avec la touche Utilisateur (%2) Lorsqu'elle est vide, aucune touche n'est attribuée!!!\nInsérez et retirez les bouchons d'oreille avec la touche Utilisateur (%3) Lorsqu'elle est vide, aucune clé n'est attribuée !!!</French>
+<Chinese>按(%1)鍵打開遊戲互動菜單</Chinese>
+<French>Le menu Action de Domination est disponible en appuyant sur la touche (%1)\nDésactiver les marqueurs utilisateur 3D avec la touche Utilisateur (%2) Lorsqu'elle est vide, aucune touche n'est attribuée\nInsérez et retirez les bouchons d'oreille avec la touche Utilisateur (%3) Lorsqu'elle est vide, aucune clé n'est attribuée </French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1446">
 <English>Over head</English>
@@ -9565,12 +9565,12 @@
 <French>Demande salves:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1529">
-<English>Lasertarget to close! Marking artillery target or calling CAS not possible!</English>
+<English>Lasertarget too close! Marking artillery target or calling CAS not possible!</English>
 <Spanish>Objetivo láser para cerrar! No es posible marcar el objetivo de artillería o llamar al CAS.</Spanish>
 <Portuguese>Lasertarget Para fechar! Marcando objetivo de artilharia ou chamando CAS não possível!</Portuguese>
 <Korean>레이저 조준이 너무 가깝습니다. 포격요청이나 CAS 요청을 할수 없습니다.</Korean>
 <Japanese>レーザー照準が近すぎる。砲撃要請やCAS要求をすることができません。</Japanese>
-<Original>Lasertarget to close! Marking artillery target or calling CAS not possible!</Original>
+<Original>Lasertarget too close! Marking artillery target or calling CAS not possible!</Original>
 <Russian>Наведение по лазеру не работает! Вызов Артиллерии или ВВС невозможен!</Russian>
 <Chinesesimp>激光指示目标过于接近！无法标记炮击目标或空袭目标！</Chinesesimp>
 <Chinese>激光指示目標過於接近!無法標記砲擊目標或空襲目標!</Chinese>
@@ -9625,7 +9625,7 @@
 <French>Le sniper est mort. Bon travail.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1548">
-<English>Find and Capture the sniper in a forest near Molos, he is wanted for killing innocent civilians. Don't spook him as he will run. Beware there are enemy patrols in the area.</English>
+<English>Find and capture the sniper in a forest near Molos, he is wanted for killing innocent civilians. Don't spook him as he will run. Beware there are enemy patrols in the area.</English>
 <Spanish>Busque y Capture a un francotirador en el bosque cerca de Molos, es buscado por el asesinato de civiles inocentes. Cuidado hay patrullas enemigas en la zona.</Spanish>
 <Portuguese>Encontra e Capturar o francotirador no bosque próximo Molos, está querido para matar civis inocentes. Não spook lhe tão corra. Beware Há patrulhas de inimigo no área.</Portuguese>
 <Korean>Molos 숲속에 숨어있는 저격수를 생포하십시오. 그는 무고한 시민을 사살하여 수배중입니다. 추가적인 정찰 병력이 있을 수 있으니 주의하십시오.</Korean>
@@ -9637,12 +9637,12 @@
 <French>Rechercher et capturer un tireur d'élite dans la forêt près de Molos, il est recherché pour le meurtre de civils innocents. Ne vous faites pas voir car il s'échapperas. Attention, il y a des patrouilles ennemies dans la région.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1549">
-<English>Well Done, now we can put him on trial for his crimes</English>
+<English>Well done, now we can put him on trial for his crimes</English>
 <Spanish>Bien hecho, ahora podemos llevarlo a juicio por sus crímenes</Spanish>
 <Portuguese>Bem Fato, agora lhe podemos pôr em cima prova para seus delitos</Portuguese>
 <Korean>수고하셨습니다. 그는 곧 심판을 통해 죗값을 치루게 될것입니다.</Korean>
 <Japanese>よくやった。彼は裁判で罪が問われるだろう</Japanese>
-<Original>Well Done, now we can put him on trial for his crimes</Original>
+<Original>Well done, now we can put him on trial for his crimes</Original>
 <Russian>Хорошо, теперь мы можем подвергнуть его суду за его преступления</Russian>
 <Chinesesimp>很好，现在我们可以审判他了！</Chinesesimp>
 <Chinese>很好,現在我們可以審判他了!</Chinese>
@@ -11414,12 +11414,12 @@
 <French>%1 tire sur un véhicule MHQ!!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1835">
-<English>Attention, the enemy launches a saboteur attack on the base...</English>
+<English>Attention, the enemy launched a saboteur attack on the base...</English>
 <Spanish>Atención, el enemigo lanza un ataque de saboteador en la base....</Spanish>
 <Portuguese>Atenção, o inimigo lança um ataque sabotador na base..</Portuguese>
 <Korean>주의, 적 특수부대가 아군 기지에 사포타주를 실시합니다...</Korean>
-<Japanese>Attention, the enemy launches a saboteur attack on the base...</Japanese>
-<Original>Attention, the enemy launches a saboteur attack on the base...</Original>
+<Japanese>Attention, the enemy launched a saboteur attack on the base...</Japanese>
+<Original>Attention, the enemy launched a saboteur attack on the base...</Original>
 <Russian>Внимание, противник решил напасть на нашу базу...</Russian>
 <Chinesesimp>注意，敌人在基地发动破坏攻击...</Chinesesimp>
 <Chinese>注意，敵人在基地發動破壞攻擊...</Chinese>
@@ -13814,16 +13814,16 @@
 <French>Player can be suppressed</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2043">
-<English>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</English>
-<Spanish>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
-<Portuguese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
-<Korean>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
-<Japanese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
-<Original>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Original>
+<English>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</English>
+<Spanish>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
+<Portuguese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
+<Korean>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
+<Japanese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
+<Original>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Original>
 <Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
 <Chinesesimp>你已经尝试10多次越狱。你被禁止参加跑步训练！！！！</Chinesesimp>
-<Chinese>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
-<French>You tried too escape the jail more than 10 times. You are banned for the running session!!!!</French>
+<Chinese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Chinese>
+<French>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2044">
 <English>Deploy with camo net</English>
@@ -14067,15 +14067,15 @@
 <French>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2063">
-<English>Player can forgive teamkill (mission revive has too be enabled and spectating):</English>
-<Spanish>Player can forgive teamkill (mission revive has too be enabled and spectating):</Spanish>
-<Portuguese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Portuguese>
-<Korean>Player can forgive teamkill (mission revive has too be enabled and spectating):</Korean>
-<Japanese>Player can forgive teamkill (mission revive has too be enabled and spectating):</Japanese>
-<Original>Player can forgive teamkill (mission revive has too be enabled and spectating):</Original>
+<English>Player can forgive teamkill (mission revive has to be enabled and spectating):</English>
+<Spanish>Player can forgive teamkill (mission revive has to be enabled and spectating):</Spanish>
+<Portuguese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Portuguese>
+<Korean>Player can forgive teamkill (mission revive has to be enabled and spectating):</Korean>
+<Japanese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Japanese>
+<Original>Player can forgive teamkill (mission revive has to be enabled and spectating):</Original>
 <Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
-<Chinesesimp>Player can forgive teamkill (mission revive has too be enabled and spectating):</Chinesesimp>
-<French>Player can forgive teamkill (mission revive has too be enabled and spectating):</French>
+<Chinesesimp>Player can forgive teamkill (mission revive has to be enabled and spectating):</Chinesesimp>
+<French>Player can forgive teamkill (mission revive has to be enabled and spectating):</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2064">
 <English>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</English>
@@ -14111,15 +14111,15 @@
 <French>Time to forgive: %1 seconds</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2067">
-<English>%1 has forgiven teamkilling him! Don't do it again!</English>
-<Spanish>%1 has forgiven teamkilling him! Don't do it again!</Spanish>
+<English>%1 has forgiven teamkilling! Don't do it again!</English>
+<Spanish>%1 has forgiven teamkilling! Don't do it again!</Spanish>
 <Portuguese>Sim</Portuguese>
-<Korean>%1 has forgiven teamkilling him! Don't do it again!</Korean>
-<Japanese>%1 has forgiven teamkilling him! Don't do it again!</Japanese>
-<Original>%1 has forgiven teamkilling him! Don't do it again!</Original>
+<Korean>%1 has forgiven teamkilling! Don't do it again!</Korean>
+<Japanese>%1 has forgiven teamkilling! Don't do it again!</Japanese>
+<Original>%1 has forgiven teamkilling! Don't do it again!</Original>
 <Russian>%1 простил за тимкилл игрока! Не делай этого снова!</Russian>
-<Chinesesimp>%1 has forgiven teamkilling him! Don't do it again!</Chinesesimp>
-<French>%1 has forgiven teamkilling him! Don't do it again!</French>
+<Chinesesimp>%1 has forgiven teamkilling! Don't do it again!</Chinesesimp>
+<French>%1 has forgiven teamkilling! Don't do it again!</French>
 </Key>
 </Container>
 </Package>
