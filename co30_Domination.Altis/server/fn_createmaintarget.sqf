@@ -184,10 +184,10 @@ d_mt_barracks_obj_ar = [];
 
 d_priority_target = nil;
 
-private _parray = [_trg_center, d_cur_target_radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
+private _parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {
 	diag_log "DOM Createmaintarget: Couldn't find enough positions with minimum distance 11m from next object, trying again without check!";
-	_parray = [_trg_center, d_cur_target_radius + 150, 8, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+	_parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 };
 
 __TRACE_1("","_parray")
@@ -660,7 +660,7 @@ if (d_occ_bldgs == 1) then {
 };
 //garrison end
 
-[_wp_array_inf, d_cur_target_radius, _trg_center] spawn d_fnc_createsecondary;
+[_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
@@ -668,22 +668,22 @@ if (d_with_MainTargetEvents != 0) then {
 		params ["_event_string"];
 		switch (_event_string) do {
 			case "PILOT_RESCUE": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideevac;
+				[_radius, _trg_center] spawn d_fnc_event_sideevac;
 			};
 			case "POW_RESCUE": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_sideprisoners;
+				[_radius, _trg_center] spawn d_fnc_event_sideprisoners;
 			};
 			case "GUERRILLA_TANKS": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+				[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 			};
 			case "GUERRILLA_INFANTRY": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+				[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
 			};
 			case "RABBIT_RESCUE": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
+				[_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
 			};
 			case "MARKED_FOR_DEATH": {
-				[d_cur_target_radius, _trg_center] spawn d_fnc_event_markedfordeath;
+				[_radius, _trg_center] spawn d_fnc_event_markedfordeath;
 			};
 		};
 	};
@@ -716,7 +716,7 @@ if (d_with_MainTargetEvents != 0) then {
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);
 				// if guerrilla infantry are randomly selected then there is a 1 in 3 chance of guerrilla tanks
 				if (_tmpRandomEvent == "GUERRILLA_INFANTRY" && {(random 3 <= 1)}) then {
-					[d_cur_target_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+					[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 				};
 			};
 		} else {
