@@ -112,7 +112,7 @@ private _make_jump = {
 		};
 		if (_stop_me) exitWith {};
 		sleep 0.01;
-		if (_landheli && {!_slower && {_attackpoint distance2D _vec < 1500}}) then {
+		if (_landheli && {!_slower && {_attackpoint distance2D _vec < 2000}}) then {
 			_slower = true;
 			_vgrp setSpeedMode "LIMITED";
 		};
