@@ -41,7 +41,8 @@ if (isNil "paramsArray") then {
 d_no_ranked_weapons = d_with_ranked == 2;
 d_with_ranked = d_with_ranked == 0 || {d_with_ranked == 2};
 #ifndef __TT__
-d_ai_no_statics = d_with_ai == 2;
+d_ai_no_statics = d_with_ai == 2 || {d_with_ai == 4};
+d_ai_dyn_recruit = d_with_ai == 3 || {d_with_ai == 4};
 d_with_ai = d_with_ai == 0 || {d_with_ai > 1};
 #else
 d_with_ai = false;

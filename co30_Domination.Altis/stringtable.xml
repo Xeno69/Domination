@@ -14121,6 +14121,30 @@
 <Chinesesimp>%1 has forgiven teamkilling! Don't do it again!</Chinesesimp>
 <French>%1 has forgiven teamkilling! Don't do it again!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2068">
+<English>Dynamic AI recruitment (more players, less AI recruitable):</English>
+<Spanish>Dynamic AI recruitment (more players, less AI recruitable):</Spanish>
+<Portuguese>Dynamic AI recruitment (more players, less AI recruitable):</Portuguese>
+<Korean>Dynamic AI recruitment (more players, less AI recruitable):</Korean>
+<Japanese>Dynamic AI recruitment (more players, less AI recruitable):</Japanese>
+<Original>Dynamic AI recruitment (more players, less AI recruitable):</Original>
+<Russian>Dynamic AI recruitment (more players, less AI recruitable):</Russian>
+<Chinesesimp>Dynamic AI recruitment (more players, less AI recruitable):</Chinesesimp>
+<Chinese>Dynamic AI recruitment (more players, less AI recruitable):</Chinese>
+<French>Dynamic AI recruitment (more players, less AI recruitable):</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2069">
+<English>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</English>
+<Spanish>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Spanish>
+<Portuguese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Portuguese>
+<Korean>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Korean>
+<Japanese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Japanese>
+<Original>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Original>
+<Russian>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Russian>
+<Chinesesimp>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Chinesesimp>
+<Chinese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Chinese>
+<French>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</French>
+</Key>
 </Container>
 </Package>
 </Project>
