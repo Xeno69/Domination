@@ -19,7 +19,7 @@ if (isNil {_obj getVariable "d_gvecs"}) then {
 		} else {
 			private _nval = (_bks # 0) + 1;
 			__TRACE_1("","_nval")
-			if (_nval == 3) then {
+			if (_nval == 2) then {
 				__TRACE("Kick")
 				[_insti, name _insti, 99] call d_fnc_kickplayerbs;
 			} else {
