@@ -1889,7 +1889,7 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End3 {
-		title = "KICKED! REASON SIDE CHANGE";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "You are not allowed to change the sides for 30 minutes!";
 		pictureBackground = "";
@@ -1897,7 +1897,7 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End4 {
-		title = "KICKED USING ADMIN SLOT";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "You selected an admin slot but didn't log in as admin!";
 		pictureBackground = "";
@@ -1905,7 +1905,7 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End5 {
-		title = "KICKED USING CHEAT TOOLS";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "You are probably using cheat tools!!";
 		pictureBackground = "";
@@ -1913,7 +1913,7 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End6 {
-		title = "KICKED! REASON DESTROYING VECS";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "Don't destroy friendly vehicles at base!!";
 		pictureBackground = "";
