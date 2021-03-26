@@ -145,6 +145,8 @@
 >   - Enabled (0)<br/>
 >   - Disabled (1)<br/>
 >   - Enabled but block recruited AI from entering static weapons (2)<br/>
+>   - Enabled with dynamic AI recruitment, 1 player d_max_ai, more players less AI recruitable, 20+ players no AI recruitment (3)<br/>
+>   - Enabled with dynamic AI recruitment (same as above) but block recruited AI from entering static weapons (4)<br/>
 #### **d_with_ai_features / With AI features but no AI recruit:**
 > Default: 1 (No, disabled; 0 or Yes to enable<br/>
 > Same as d_with_ai above, just no AI recruitment<br/>

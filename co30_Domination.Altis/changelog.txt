@@ -1,7 +1,7 @@
 4.47
 
 - Added: Teamkill forgive system (only available when mission revive and revive spectating is on)
-- Added: Dynamic AI recruitment values (1 player d_max_ai, more players less, over 20 players, no AI recruitment possible; d_with_ai values 3 and 4)
+- Added: Dynamic AI recruitment (1 player d_max_ai recruitable, more players less AI recruitable, over 20 players, no AI recruitment possible; d_with_ai values 3 and 4)
 - Fixed: Unconscious state and dialog doesn't end if a player has to go to jail
 - Fixed: Jail escape counter was increased every second instead of just once per jail time
 - Fixed: Destroying a vehicle of the other player side caused a script error in the TT version
