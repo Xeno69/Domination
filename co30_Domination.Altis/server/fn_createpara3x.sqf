@@ -112,9 +112,9 @@ private _make_jump = {
 		};
 		if (_stop_me) exitWith {};
 		sleep 0.01;
-		if (_landheli && {!_slower && {_attackpoint distance2D _vec > 1000}}) then {
+		if (_landheli && {!_slower && {_attackpoint distance2D _vec < 1500}}) then {
 			_slower = true;
-			_driver_vec setSpeedMode "LIMITED";
+			_vgrp setSpeedMode "LIMITED";
 		};
 		sleep 0.7;
 	};
