@@ -79,7 +79,8 @@ if (d_mt_respawngroups == 0) then {
 	} forEach _units_to_garrison;
 	_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
 };*/
-d_delinfsm append _units_to_garrison;
 _newgroup call d_fnc_addgrp2hc;
 __TRACE_1("","_newgroup")
 __TRACE_1("","_units_to_garrison")
+
+_units_to_garrison

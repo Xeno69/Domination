@@ -209,7 +209,7 @@ _vec setVariable ["d_v_pos", getPos _vec];
 [_vec, 1] call d_fnc_checkmtrespawntarget;
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
-[
+private _unitstog = [
 	getPos _vec,
 	3,		//unit count
 	_vec,		//fillRadius
@@ -219,6 +219,7 @@ d_mt_mobile_hq_obj = _vec;
 	false,	//disableTeleport
 	0		//unitMovementMode
 ] call d_fnc_garrisonUnits;
+d_delinfsm append _unitstog;
 sleep 0.1;
 
 #ifndef __TT__
@@ -459,7 +460,7 @@ if (d_occ_bldgs == 1) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
 	if (d_occ_cnt > 0) then {
 		for "_xx" from 0 to (d_occ_cnt - 1) do {
-			[
+			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [2, 3, 4],			//unit count
 				d_occ_rad,		//fillRadius
@@ -468,14 +469,15 @@ if (d_occ_bldgs == 1) then {
 				false,		//fillTopDown
 				false,		//disableTeleport
 				0		//unitMovementMode
-			] call d_fnc_garrisonUnits
+			] call d_fnc_garrisonUnits;
+			d_delinfsm append _unitstog;
 		};
 	};
 	
 	//create garrisoned "overwatch" groups of AI (movement disabled)
 	if (d_ovrw_cnt > 0) then {
 		for "_xx" from 0 to (d_ovrw_cnt - 1) do {
-			[
+			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [2, 3, 4],			//unit count
 				d_ovrw_rad,		//fillRadius
@@ -484,14 +486,15 @@ if (d_occ_bldgs == 1) then {
 				false,		//fillTopDown
 				false,		//disableTeleport
 				3		//unitMovementMode
-			] call d_fnc_garrisonUnits
+			] call d_fnc_garrisonUnits;
+			d_delinfsm append _unitstog;
 		};
 	};
 
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
 	if (d_amb_cnt > 0) then {
 		for "_xx" from 0 to (d_amb_cnt - 1) do {
-			[
+			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
 				selectRandom [3, 4],		//unit count
 				d_amb_rad,		//fillRadius
@@ -500,7 +503,8 @@ if (d_occ_bldgs == 1) then {
 				false,		//fillTopDown
 				false,		//disableTeleport
 				1		//unitMovementMode
-			] call d_fnc_garrisonUnits
+			] call d_fnc_garrisonUnits;
+			d_delinfsm append _unitstog;
 		};
 	};
 
@@ -562,7 +566,7 @@ if (d_occ_bldgs == 1) then {
 	{
 		//create the group but do not exceed the total number of positions in the building
 		__TRACE_2("","_x","count (_x buildingPos -1)")
-		[
+		private _unitstog = [
 			getPos _x,
 			2,		//unit count
 			-1,		//fillRadius
@@ -572,6 +576,7 @@ if (d_occ_bldgs == 1) then {
 			false,	//disableTeleport
 			2		//unitMovementMode
 		] call d_fnc_garrisonUnits;
+		d_delinfsm append _unitstog;
 	} forEach _buildingsArray;
 	//END create garrisoned groups of snipers
 };

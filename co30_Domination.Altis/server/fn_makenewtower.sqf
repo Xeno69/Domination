@@ -38,15 +38,16 @@ _utower addEventhandler ["Killed", {
 d_mtmissionobjs pushBack _vec;
 d_mtmissionobjs pushBack _utower;
 
-[
+private _unitstog = [
 	getPos _utower,
 	5,		//unit count
 	_utower,		//fillRadius
 	true,	//fillRoof
-	false,	//fillEvenly
+	true,	//fillEvenly
 	true,	//fillTopDown
 	false,	//disableTeleport
 	0		//unitMovementMode
 ] call d_fnc_garrisonUnits;
+d_delinfsm append _unitstog;
  
 _vec
