@@ -14128,7 +14128,7 @@
 <Korean>Dynamic AI recruitment (more players, less AI recruitable):</Korean>
 <Japanese>Dynamic AI recruitment (more players, less AI recruitable):</Japanese>
 <Original>Dynamic AI recruitment (more players, less AI recruitable):</Original>
-<Russian>Dynamic AI recruitment (more players, less AI recruitable):</Russian>
+<Russian>Динамический набор AI (больше игроков, меньше AI):</Russian>
 <Chinesesimp>Dynamic AI recruitment (more players, less AI recruitable):</Chinesesimp>
 <Chinese>Dynamic AI recruitment (more players, less AI recruitable):</Chinese>
 <French>Dynamic AI recruitment (more players, less AI recruitable):</French>
@@ -14140,7 +14140,7 @@
 <Korean>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Korean>
 <Japanese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Japanese>
 <Original>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Original>
-<Russian>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Russian>
+<Russian>Динамический набор AI (больше игроков, меньше AI), но AI не может использовать статическое оружие :</Russian>
 <Chinesesimp>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Chinesesimp>
 <Chinese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Chinese>
 <French>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</French>
@@ -14152,7 +14152,7 @@
 <Korean>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Korean>
 <Japanese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Original>
-<Russian>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Russian>
+<Russian>%1 был выгнан в лобби из-за уничтожения техники на базе ; UID: %2</Russian>
 <Chinesesimp>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Chinesesimp>
 <Chinese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Chinese>
 <French>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</French>
@@ -14164,7 +14164,7 @@
 <Korean>%1 was kicked to lobby because of destryoing vehicles at base</Korean>
 <Japanese>%1 was kicked to lobby because of destryoing vehicles at base</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base</Original>
-<Russian>%1 was kicked to lobby because of destryoing vehicles at base</Russian>
+<Russian>%1 был выгнан в лобби из-за уничтожения техники на базе</Russian>
 <Chinesesimp>%1 was kicked to lobby because of destryoing vehicles at base</Chinesesimp>
 <Chinese>%1 was kicked to lobby because of destryoing vehicles at base</Chinese>
 <French>%1 was kicked to lobby because of destryoing vehicles at base</French>
@@ -14176,7 +14176,7 @@
 <Korean>With AI air taxi (coop version only):</Korean>
 <Japanese>With AI air taxi (coop version only):</Japanese>
 <Original>With AI air taxi (coop version only):</Original>
-<Russian>With AI air taxi (coop version only):</Russian>
+<Russian>С воздушным такси AI (только для кооперативной версии) :</Russian>
 <Chinesesimp>With AI air taxi (coop version only):</Chinesesimp>
 <French>With AI air taxi (coop version only):</French>
 </Key>
@@ -14187,7 +14187,7 @@
 <Korean>With air drop:</Korean>
 <Japanese>With air drop:</Japanese>
 <Original>With air drop:</Original>
-<Russian>With air drop:</Russian>
+<Russian>С авиасбросом:</Russian>
 <Chinesesimp>With air drop:</Chinesesimp>
 <Chinese>With air drop:</Chinese>
 <French>With air drop:</French>
