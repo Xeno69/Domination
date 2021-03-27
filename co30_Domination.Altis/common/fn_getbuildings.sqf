@@ -13,12 +13,17 @@ params ["_center", "_buildingRadius", "_sideHostile", ["_minimumNumberOfPosition
 
 _buildingsArray = [];
 
-if (_buildingRadius < 0) then {
-	_buildingsArray = [nearestBuilding _center];
+if (_buildingRadius isEqualType objNull) then {
+	_buildingsArray = [_buildingRadius];
+	__TRACE_1("","_buildingsArray")
 } else {
-	private _buildingsArray0 = nearestObjects [_center, ["house"], _buildingRadius];
-	private _buildingsArray1 = nearestObjects [_center, ["building"], _buildingRadius];
-	_buildingsArray = _buildingsArray0 arrayIntersect _buildingsArray1;
+	if (_buildingRadius < 0) then {
+		_buildingsArray = [nearestBuilding _center];
+	} else {
+		private _buildingsArray0 = nearestObjects [_center, ["house"], _buildingRadius];
+		private _buildingsArray1 = nearestObjects [_center, ["building"], _buildingRadius];
+		_buildingsArray = _buildingsArray0 arrayIntersect _buildingsArray1;
+	};
 };
 
 if (count _buildingsArray == 0) exitWith {

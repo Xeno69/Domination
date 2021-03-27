@@ -334,6 +334,47 @@ d_jumpflag_vec = "";
 d_servicepoint_building = "Land_Cargo_House_V2_F";
 
 d_illum_tower = "Land_TTowerBig_2_F";
+d_cargotower =
+#ifdef __ALTIS__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __CUP_CHERNARUS__
+	"Land_Cargo_Tower_V1_F";
+#endif
+#ifdef __CUP_TAKISTAN__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __CUP_SARA__
+	"Land_Cargo_Tower_V1_F";
+#endif
+#ifdef __IFA3LITE__
+	"";
+#endif
+#ifdef __TANOA__
+	"Land_Cargo_Tower_V4_F";
+#endif
+#ifdef __STRATIS__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __MALDEN__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __LIVONIA__
+	"Land_Cargo_Tower_V1_F";
+#endif
+#ifdef __TT__
+	"";
+#endif
+#ifdef __GMCWG__
+	"";
+#endif
+#ifdef __UNSUNG__
+	"";
+#endif
+#ifdef __CSLA__
+	"";
+#endif
+
 d_wcamp =
 #ifdef __ALTIS__
 	"Land_Cargo_Patrol_V1_F";

@@ -5,10 +5,10 @@ if (!isServer || {diag_fps < 15}) exitWith {};
 
 params["_pos", "_radius"];
 
-private _water = [_pos, 150, _radius * 3, 0, 2, 0, 0, [], [], false] call d_fnc_findSafePos;
+private _water = [_pos, 130, _radius * 3, 0, 2, 0, 0, [], [], false] call d_fnc_findSafePos;
 sleep 0.1;
 if (_water isEqualTo []) then {
-	_water = [_pos, 150, _radius * 5, 0, 2, 0, 0, [], [], false] call d_fnc_findSafePos;
+	_water = [_pos, 130, _radius * 5, 0, 2, 0, 0, [], [], false] call d_fnc_findSafePos;
 	sleep 0.1;
 };
 

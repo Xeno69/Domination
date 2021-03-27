@@ -20,26 +20,76 @@ while {true} do {
 
 sleep 1.0123;
 
-private _poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
-private _iccount = 0;
-if (d_tanoa) then {
-	_poss = [_poss] call d_fnc_tanoafix;
+private _mindists = 5;
+private _mslope = 0.3;
+
+private _dobigtower = call {
+	if (d_cargotower isEqualTo "") exitWith {
+		false;
+	};
+	_mindists = 24;
+	_mslope = 0.1;
+	true
 };
 
-while {_poss isEqualTo []} do {
-	_iccount = _iccount + 1;
-	_poss = [_trg_center, _mtradius, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;
+private _get_possfortower = {
+	params ["_mdist", "_slope"];
+	__TRACE_1("_get_possfortower","_this")
+	private _npos = [_trg_center, _mtradius, _mdist, _slope, 0, false, true] call d_fnc_GetRanPointCircleBig;
+	private _iccount = 0;
 	if (d_tanoa) then {
-		_poss = [_poss] call d_fnc_tanoafix;
+		_npos = [_npos] call d_fnc_tanoafix;
 	};
-	if (_iccount >= 70 && {_poss isNotEqualTo []}) exitWith {};
+	__TRACE_1("_get_possfortower 1","_npos")
+	
+	if (_npos isEqualTo _trg_center) then {
+		_npos = [];
+	};
+
+	while {_npos isEqualTo []} do {
+		_iccount = _iccount + 1;
+		_npos = [_trg_center, _mtradius, _mdist, _slope, 0, false, true] call d_fnc_GetRanPointCircleBig;
+		if (d_tanoa) then {
+			_npos = [_npos] call d_fnc_tanoafix;
+		};
+		__TRACE_1("_get_possfortower 2","_npos")
+		if (_iccount >= 50) exitWith {
+			__TRACE_1("_get_possfortower ExitWith","_npos")
+			_npos = [];
+		};
+		if (_npos isEqualTo _trg_center) then {
+			_npos = [];
+		};
+		sleep 0.01;
+	};
+	_npos
 };
+
+private _poss = [_mindists, _mslope] call _get_possfortower;
+__TRACE_1("1","_poss")
+__TRACE_1("1","_trg_center")
+if (_trg_center isEqualTo _poss) then {
+	_poss = [];
+};
+if (_poss isEqualTo []) then {
+	_poss = [5, 0.3] call _get_possfortower;
+	__TRACE_1("2","_poss")
+	_dobigtower = false;
+};
+__TRACE_1("1","_dobigtower")
+
 if (isNil "_poss" || {_poss isEqualTo []}) then {
 	_poss = [_trg_center, _mtradius] call d_fnc_getranpointcircle;
+	_dobigtower = false;
 };
 _poss set [2, 0];
-private _vec = createVehicle [d_illum_tower, _poss, [], 0, "NONE"];
-_vec setVectorUp [0,0,1];
+private "_vec";
+if (_dobigtower) then {
+	_vec = _poss call d_fnc_makenewtower;
+} else {
+	_vec = createVehicle [d_illum_tower, _poss, [], 0, "NONE"];
+	_vec setVectorUp [0, 0, 1];
+};
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
 if (d_ao_markers == 1) then {

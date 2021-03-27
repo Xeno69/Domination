@@ -39,7 +39,7 @@
 params [
 	["_center", [0,0,0], [[]], 3],
 	["_units", [objNull], [[]]],
-	["_buildingRadius", -1, [0]],
+	["_buildingRadius", -1, [0, objNull]],
 	["_putOnRoof", false, [true]],
 	["_fillEvenly", false, [true]],
 	["_sortHeight", false, [true]],
