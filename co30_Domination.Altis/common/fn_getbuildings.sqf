@@ -47,4 +47,5 @@ private _buildingsArrayFiltered = [];
 		_buildingsArrayFiltered pushBack _x;
 	};
 } forEach _buildingsArray;
+
 _buildingsArrayFiltered
