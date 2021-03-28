@@ -253,6 +253,7 @@ class CfgRemoteExec {
 		class BIS_fnc_effectKilledSecondaries {};
 		class BIS_fnc_objectVar {};
 		class BIS_fnc_setCustomSoundController {};
+		class BIS_fnc_deleteTask {allowedTargets = 1;};
 		class d_fnc_forgive {allowedTargets = 1;};
 		class d_fnc_aophfytk {allowedTargets = 1;};
 		class d_fnc_exectkpd {allowedTargets = 2;};
