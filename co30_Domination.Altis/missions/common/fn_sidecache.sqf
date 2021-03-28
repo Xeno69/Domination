@@ -62,7 +62,14 @@ while {!_created} do {
 		_houseArray deleteAt _idx;
 	};
 	if (!_created && {_houseArray isEqualTo []}) exitWith {};
+	if (d_sm_resolved) exitWith {};
 	sleep 1;
+};
+
+if (d_sm_resolved) exitWith {
+	if (!isNull _cache) then {
+		deleteVehicle _cache;
+	};
 };
 
 if (isNull _cache) exitWith {
