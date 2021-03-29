@@ -92,18 +92,18 @@ if (!isNil {player getVariable "xr_dragged"}) then {
 	waitUntil {bis_fnc_feedback_allowPP || {time > _etime}};
 	bis_fnc_feedback_allowPP = false;
 };
-player setDamage 0;
-bis_fnc_feedback_burningTimer = 0;
-player enableAttack false;
-player setFatigue 0;
+//player setDamage 0;
+//bis_fnc_feedback_burningTimer = 0;
+//player enableAttack false;
+//player setFatigue 0;
 
-if (d_enablefatigue == 0) then {
-	player enableFatigue false;
-};
+//if (d_enablefatigue == 0) then {
+//	player enableFatigue false;
+//};
 
-if (d_enablesway == 0) then {
-	player setCustomAimCoef 0.1;
-};
+//if (d_enablesway == 0) then {
+//	player setCustomAimCoef 0.1;
+//};
 
 player removeEventHandler ["handleDamage", _tmpeh];
 

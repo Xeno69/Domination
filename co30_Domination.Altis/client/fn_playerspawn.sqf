@@ -149,8 +149,10 @@ if (_rtype == 0) then { // player died
 #endif
 		};
 	};
+	
 	if (d_enablefatigue == 0) then {
 		player enableFatigue false;
+		player enableStamina false;
 	};
 
 	if (d_enablesway == 0) then {
@@ -169,8 +171,10 @@ if (_rtype == 0) then { // player died
 	};
 	BIS_DeathBlur ppEffectAdjust [0.0];
 	BIS_DeathBlur ppEffectCommit 0.0;
+	
+	player setDamage 0;
+	bis_fnc_feedback_burningTimer = 0;
 
-	player setFatigue 0;
 	player setBleedingRemaining 0;
 
 	player disableConversation true;
