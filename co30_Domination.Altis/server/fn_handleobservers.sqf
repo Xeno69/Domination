@@ -18,7 +18,7 @@ while {d_nr_observers > 0} do {
 				if (!isNull _enemy && {alive _enemy && {!((vehicle _enemy) isKindOf "Air") && {((d_ai_awareness_rad > 0) && [_enemy, _x] call d_fnc_isvisible) || {!(d_ai_awareness_rad > 0) && _x knowsAbout _enemy >= 1.5 && {_x distance2D _enemy < 500}}}}}) then {
 					if ((_enemy nearEntities [_man_type, 30]) isEqualTo []) then {
 						_e_ari_avail = false;
-						_nextaritime = time + 120 + (random 120);
+						_nextaritime = time + 240 + (random 120);
 						if (d_cas_plane_ai != "") then {
 							if (selectRandom [0, 1] == 0 && {d_no_more_observers < 1}) then {
 								[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
@@ -37,7 +37,7 @@ while {d_nr_observers > 0} do {
 						};
 					} else {
 						_e_ari_avail = false;
-						_nextaritime = time + 120 + (random 120);
+						_nextaritime = time + 240 + (random 120);
 						if (random 100 < 15) then {// 1 to 6 chance for smoke
 							[getPosWorld _enemy, 2] spawn d_fnc_shootari;
 						};

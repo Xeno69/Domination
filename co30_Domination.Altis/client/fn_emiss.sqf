@@ -11,6 +11,9 @@ call {
 	if (_this == 3) exitWith {
 		endMission "End5";
 	};
+	if (_this == 99) exitWith {
+		endMission "End6";
+	};
 	endMission "Loser";
 };
 forceEnd;

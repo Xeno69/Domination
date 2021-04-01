@@ -334,6 +334,47 @@ d_jumpflag_vec = "";
 d_servicepoint_building = "Land_Cargo_House_V2_F";
 
 d_illum_tower = "Land_TTowerBig_2_F";
+d_cargotower =
+#ifdef __ALTIS__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __CUP_CHERNARUS__
+	"Land_Cargo_Tower_V1_F";
+#endif
+#ifdef __CUP_TAKISTAN__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __CUP_SARA__
+	"Land_Cargo_Tower_V1_F";
+#endif
+#ifdef __IFA3LITE__
+	"";
+#endif
+#ifdef __TANOA__
+	"Land_Cargo_Tower_V4_F";
+#endif
+#ifdef __STRATIS__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __MALDEN__
+	"Land_Cargo_Tower_V3_F";
+#endif
+#ifdef __LIVONIA__
+	"Land_Cargo_Tower_V1_F";
+#endif
+#ifdef __TT__
+	"";
+#endif
+#ifdef __GMCWG__
+	"";
+#endif
+#ifdef __UNSUNG__
+	"";
+#endif
+#ifdef __CSLA__
+	"";
+#endif
+
 d_wcamp =
 #ifdef __ALTIS__
 	"Land_Cargo_Patrol_V1_F";
@@ -2518,41 +2559,45 @@ if (hasInterface) then {
 	d_only_pilots_can_fly = [];
 
 	// array now so players can select different air taxi types
-	d_taxi_aircrafts =
+	if (d_with_airtaxi == 0) then {
+		d_taxi_aircrafts =
 #ifdef __OWN_SIDE_INDEPENDENT__
-		["I_Heli_Transport_02_F"];
+			["I_Heli_Transport_02_F"];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		call {
-			if (d_cup) exitWith {
-				["CUP_B_UH60M_US", "CUP_B_MH6J_USA", "CUP_B_CH47F_USA"]
-			};
-			if (d_gmcwg) exitWith {
-				if (d_gmcwgwinter) exitWith {
-					["gm_ge_army_ch53g_un"]
+			call {
+				if (d_cup) exitWith {
+					["CUP_B_UH60M_US", "CUP_B_MH6J_USA", "CUP_B_CH47F_USA"]
 				};
-				["gm_ge_army_ch53g"]
+				if (d_gmcwg) exitWith {
+					if (d_gmcwgwinter) exitWith {
+						["gm_ge_army_ch53g_un"]
+					};
+					["gm_ge_army_ch53g"]
+				};
+				if (d_rhs) exitWith {
+					["RHS_UH60M2"]
+				};
+				if (d_unsung) exitWith {
+					["uns_UH1H_m60"]
+				};
+				["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
 			};
-			if (d_rhs) exitWith {
-				["RHS_UH60M2"]
-			};
-			if (d_unsung) exitWith {
-				["uns_UH1H_m60"]
-			};
-			["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
-		};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
-		call {
-			if (d_rhs) exitWith {
-				["RHS_Mi8mt_Cargo_vv"]
+			call {
+				if (d_rhs) exitWith {
+					["RHS_Mi8mt_Cargo_vv"]
+				};
+				["O_T_VTOL_02_infantry_dynamicLoadout_F"]
 			};
-			["O_T_VTOL_02_infantry_dynamicLoadout_F"]
-		};
 #endif
 #ifdef __TT__
-		["O_Heli_Light_02_unarmed_F"];
+			["O_Heli_Light_02_unarmed_F"];
 #endif
+	} else {
+		d_taxi_aircrafts = [];
+	};
 
 	if (isNil "d_launcher_cooldown") then {
 		// player AT launcher cooldown time, means, a player can't use a guided launcher like the Titan for 60

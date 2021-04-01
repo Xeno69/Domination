@@ -454,7 +454,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log ["Internal D Version: 4.46"];
+diag_log ["Internal D Version: 4.47"];
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -485,7 +485,9 @@ if (!d_no_ai) then {
 	};
 
 	d_player_can_call_arti = 1;
-	d_player_can_call_drop = 1;
+	if (d_with_airdrop == 0) then {
+		d_player_can_call_drop = 1;
+	};
 	d_player_can_call_cas = 1;
 	player setUnitTrait ["Medic", true];
 	player setUnitTrait ["engineer", true];
@@ -495,7 +497,7 @@ if (!d_no_ai) then {
 	} else {
 		enableEngineArtillery false;
 	};
-	if (d_string_player in d_can_call_drop_ar) then {
+	if (d_with_airdrop == 0 && {d_string_player in d_can_call_drop_ar}) then {
 		d_player_can_call_drop = 1;
 	};
 	if (d_string_player in d_can_call_cas) then {
@@ -867,7 +869,7 @@ if (isNil "d_cas_plane_avail") then {
 		if (d_player_side == blufor) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_w && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 0)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		} else {
-			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_e && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 0)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
+			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_e && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea (d_base_array select 1)) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		};
 #endif
 	};

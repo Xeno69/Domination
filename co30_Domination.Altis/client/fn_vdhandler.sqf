@@ -21,7 +21,7 @@ while {true} do {
 			setObjectViewDistance 700;
 			d_isvdreduced = true;
 		} else {
-			if (d_isvdreduced && {!isNull (findDisplay 312) || {!isNull objectParent player || {player distance2D d_cur_tgt_pos >= 500}}}) then {			
+			if (d_isvdreduced && {alive player && {!isNull (findDisplay 312) || {!isNull objectParent player || {player distance2D d_cur_tgt_pos >= 500}}}}) then {			
 				setViewDistance d_curviewdistance;
 				setObjectViewDistance d_curobjectdistance;
 				d_isvdreduced = false;

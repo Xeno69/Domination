@@ -56,6 +56,18 @@ if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 if (!isNil "d_is_hc") exitWith {true};
 #endif
 
+if !(_obj isKindOf "CAManBase") then {
+#ifndef __TT__
+	if (isPlayer (_this # 2) && {_obj inArea d_base_array}) then {
+		call d_fnc_bv_check;
+	};
+#else
+	if (isPlayer (_this # 2) && {_obj inArea (d_base_array # 0) || {_obj inArea (d_base_array # 1)}}) then {
+		call d_fnc_bv_check;
+	};
+#endif
+};
+
 if (_ar # 3 == 1) then {
 	_obj setVariable ["d_dead", true];
 	_obj call d_fnc_onerespukilled;

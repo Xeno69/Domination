@@ -11,14 +11,17 @@
 
 params ["_center", "_buildingRadius", "_sideHostile", ["_minimumNumberOfPositions", 0, [0]]];
 
-_buildingsArray = [];
+private _buildingsArray = [];
 
-if (_buildingRadius < 0) then {
-	_buildingsArray = [nearestBuilding _center];
+if (_buildingRadius isEqualType objNull) then {
+	_buildingsArray = [_buildingRadius];
+	__TRACE_1("","_buildingsArray")
 } else {
-	private _buildingsArray0 = nearestObjects [_center, ["house"], _buildingRadius];
-	private _buildingsArray1 = nearestObjects [_center, ["building"], _buildingRadius];
-	_buildingsArray = _buildingsArray0 arrayIntersect _buildingsArray1;
+	if (_buildingRadius < 0) then {
+		_buildingsArray = [nearestBuilding _center];
+	} else {
+		_buildingsArray = (nearestObjects [_center, ["house"], _buildingRadius]) arrayIntersect (nearestObjects [_center, ["building"], _buildingRadius]);
+	};
 };
 
 if (count _buildingsArray == 0) exitWith {
@@ -26,18 +29,21 @@ if (count _buildingsArray == 0) exitWith {
 	[]
 };
 
-_buildingsArrayFiltered = [];
+private _buildingsArrayFiltered = [];
 
 {
 	private _keep = true;
-	// check if bldg has any positions available for units
-	if ((_x buildingPos -1) isEqualTo []) then { _keep = false; };
-	// (optional) check if bldg has hostile units present
-	if (!isNil "_sideHostile" && {([_x, _sideHostile] call d_fnc_isbldghostile)}) then { _keep = false; };
-	// (optional) check if bldg has minimum number of positions TODO: check if positions are already occupied!!
-	if (_minimumNumberOfPositions != 0 && {count (_x buildingPos -1) < _minimumNumberOfPositions}) then { _keep = false; };
+	call {
+		// check if bldg has any positions available for units
+		if ((_x buildingPos -1) isEqualTo []) exitWith {_keep = false};
+		// (optional) check if bldg has hostile units present
+		if (!isNil "_sideHostile" && {([_x, _sideHostile] call d_fnc_isbldghostile)}) exitWith {_keep = false};
+		// (optional) check if bldg has minimum number of positions TODO: check if positions are already occupied!!
+		if (_minimumNumberOfPositions != 0 && {count (_x buildingPos -1) < _minimumNumberOfPositions}) exitWith {_keep = false};
+	};
 	if (_keep) then {
 		_buildingsArrayFiltered pushBack _x;
 	};
 } forEach _buildingsArray;
+
 _buildingsArrayFiltered

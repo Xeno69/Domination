@@ -253,9 +253,10 @@ class CfgRemoteExec {
 		class BIS_fnc_effectKilledSecondaries {};
 		class BIS_fnc_objectVar {};
 		class BIS_fnc_setCustomSoundController {};
+		class BIS_fnc_deleteTask {allowedTargets = 1;};
 		class d_fnc_forgive {allowedTargets = 1;};
 		class d_fnc_aophfytk {allowedTargets = 1;};
-		class d_fnc_exectkpd {allowedTargets = 1;};
+		class d_fnc_exectkpd {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
@@ -742,6 +743,20 @@ default = 7;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_with_airtaxi {
+		title = "$STR_DOM_MISSIONSTRING_2072";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_with_airdrop {
+		title = "$STR_DOM_MISSIONSTRING_2073";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
 #ifndef __TT__
 	class d_params_dl_9 {
 		title = "$STR_DOM_MISSIONSTRING_1575";
@@ -752,9 +767,9 @@ default = 7;
 
 	class d_with_ai {
 		title = "$STR_DOM_MISSIONSTRING_1023";
-		values[] = {0,1,2};
+		values[] = {0,1,2,3,4};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2038"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2038","$STR_DOM_MISSIONSTRING_2068","$STR_DOM_MISSIONSTRING_2069"};
 	};
 
 	class d_with_ai_features {
@@ -1451,7 +1466,7 @@ default = 7;
 	class d_no_teamkill {
 		title = "$STR_DOM_MISSIONSTRING_1208";
 		values[] = {0,1};
-		default = 0;
+		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -1875,7 +1890,7 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End3 {
-		title = "KICKED BECAUSE OF SIDE CHANGE";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "You are not allowed to change the sides for 30 minutes!";
 		pictureBackground = "";
@@ -1883,7 +1898,7 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End4 {
-		title = "KICKED USING ADMIN SLOT";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "You selected an admin slot but didn't log in as admin!";
 		pictureBackground = "";
@@ -1891,9 +1906,17 @@ class CfgDebriefing {
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
 	};
 	class End5 {
-		title = "KICKED USING CHEAT TOOLS";
+		title = "YOU WERE KICKED!";
 		subtitle = "";
 		description = "You are probably using cheat tools!!";
+		pictureBackground = "";
+		picture = "";
+		pictureColor[] = { 0.0, 0.3, 0.6, 1 };
+	};
+	class End6 {
+		title = "YOU WERE KICKED!";
+		subtitle = "";
+		description = "Don't destroy friendly vehicles at base!!";
 		pictureBackground = "";
 		picture = "";
 		pictureColor[] = { 0.0, 0.3, 0.6, 1 };

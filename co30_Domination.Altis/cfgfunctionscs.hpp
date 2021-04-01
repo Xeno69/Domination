@@ -636,6 +636,9 @@ class cfgDomFuncs {
 			addc(v_hd);
 			addc(wa_ace_vec);
 			addc(exectkpd);
+			addc(bv_check);
+			addc(makenewtower);
+			addc(garrisonUnits);
 		};
 	};
 	class Dom_Revive {
