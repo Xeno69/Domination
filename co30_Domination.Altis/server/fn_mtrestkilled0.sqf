@@ -9,7 +9,8 @@ private _trig = _obj getVariable "d_bar_trig";
 if (!isNil "_trig") then {
 	deleteVehicle _trig;
 };
-if (!d_mt_done) then {
+private _mt_done = _obj getVariable ["d_mt_done", false];
+if (!_mt_done) then {
 	d_num_barracks_objs = d_num_barracks_objs - 1;
 	d_groups_respawn_time_add = d_groups_respawn_time_add + 30 + (random 10);
 	private _numob = {alive _x} count d_mt_barracks_obj_ar;
@@ -20,8 +21,8 @@ if (!d_mt_done) then {
 	__TRACE_1("","d_num_barracks_objs")
 };
 if (d_num_barracks_objs == 0) then {
-	d_mt_barracks_down = true;
-	if (!d_mt_done) then {
+	if (!_mt_done) then {
+		d_mt_barracks_down = true;
 #ifndef __TT__
 		[51] call d_fnc_DoKBMsg;
 #else
@@ -29,7 +30,7 @@ if (d_num_barracks_objs == 0) then {
 #endif
 	};
 } else {
-	if (!d_mt_done) then {
+	if (!_mt_done) then {
 #ifndef __TT__
 		[55, d_num_barracks_objs] call d_fnc_DoKBMsg;
 #else
@@ -40,7 +41,7 @@ if (d_num_barracks_objs == 0) then {
 d_mt_barracks_obj_ar = d_mt_barracks_obj_ar - [_obj, objNull];
 __TRACE_1("","d_mt_barracks_obj_ar")
 
-if (!d_mt_done) then {
+if (!_mt_done) then {
 	private _killer = _this # 2;
 	if (isNull _killer) then {
 		if (!d_with_ace) then {

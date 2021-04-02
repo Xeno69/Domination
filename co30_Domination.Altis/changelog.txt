@@ -1,5 +1,6 @@
 4.48
 
 - Fixed: AI medic revive routine did not end when a player was already revived
+- Fixed: When the main target was done it could happen that destroying a barracks building or AI vehicle MHQ at the old main target triggered variable change for the new main target
 - Improved: Destroying vehicles at base check
 - Improved: Cleanup routines after main target (should no longer cause performance issues)

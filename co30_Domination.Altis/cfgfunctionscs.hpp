@@ -579,8 +579,6 @@ class cfgDomFuncs {
 			addc(handleobservers);
 			addc(handleattackgroups);
 			addc(cgraa);
-			addc(dodelintelu);
-			addc(xdelct);
 			addc(delstuff);
 			addc(getflatarea);
 			addc(getmtmission);
