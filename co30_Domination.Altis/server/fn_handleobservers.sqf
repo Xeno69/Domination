@@ -18,11 +18,12 @@ while {d_nr_observers > 0} do {
 				if (!isNull _enemy && {alive _enemy && {!((vehicle _enemy) isKindOf "Air") && {((d_ai_awareness_rad > 0) && [_enemy, _x] call d_fnc_isvisible) || {!(d_ai_awareness_rad > 0) && _x knowsAbout _enemy >= 1.5 && {_x distance2D _enemy < 500}}}}}) then {
 					if ((_enemy nearEntities [_man_type, 30]) isEqualTo []) then {
 						_e_ari_avail = false;
-						_nextaritime = time + 240 + (random 120);
 						if (d_cas_plane_ai != "") then {
 							if (selectRandom [0, 1] == 0 && {d_no_more_observers < 1}) then {
+								_nextaritime = time + 240 + (random 120);
 								[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
 							} else {
+								_nextaritime = time + 380 + (random 120);
 								[getPosWorld _enemy, _x, 2, _enemy] spawn d_fnc_moduleCASAI;
 #ifndef __TT__
 								if (d_searchintel # 1 == 1 || { d_tell_arty_cas == 1 }) then {
@@ -33,6 +34,7 @@ while {d_nr_observers > 0} do {
 								};
 							};
 						} else {
+							_nextaritime = time + 240 + (random 120);
 							[getPosWorld _enemy, floor (random 2)] spawn d_fnc_shootari;
 						};
 					} else {
