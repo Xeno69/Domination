@@ -117,9 +117,19 @@ if (d_maintargets_list isNotEqualTo []) then {
 sleep 2.123;
 
 if (d_maintargets_list isNotEqualTo []) then {
-	[1, d_current_target_index, d_mt_barracks_obj_ar, d_bara_trig_ar, d_mt_mobile_hq_obj] call d_fnc_doexechcf;
+	private _mt_barracks_obj_ar =+ d_mt_barracks_obj_ar;
 	d_mt_barracks_obj_ar = [];
+	private _bara_trig_ar =+ d_bara_trig_ar;
 	d_bara_trig_ar = [];
+	private _mines_created = [];
+	if (!isNil "d_mines_created" && {d_mines_created isNotEqualTo []}) then {
+		_mines_created =+ d_mines_created;
+		d_mines_created = [];
+		{deleteVehicle _x} forEach d_mines_created;
+	};
+	private _mtunits =+ d_delinfsm;
+	d_delinfsm = [];
+	[d_current_target_index, _mt_barracks_obj_ar, _bara_trig_ar, d_mt_mobile_hq_obj, _mines_created, _mtunits] spawn d_fnc_delstuff;
 };
 
 sleep 3.321;
@@ -188,7 +198,6 @@ if (d_enable_civs == 1) then {
 			deleteVehicle _x;
 		} forEach _tmpCivVehs;
 	};
-	
 };
 #endif
 
@@ -198,9 +207,17 @@ sleep 0.245;
 d_mt_fires = [];
 sleep 0.1;
 
-[d_old_target_pos, d_old_radius, _del_camps_stuff] execFSM "fsms\fn_DeleteEmpty.fsm";
+private _mtmissionobjs =+ d_mtmissionobjs;
+d_mtmissionobjs = [];
+private _delvecsmt =+ d_delvecsmt;
+d_delvecsmt = [];
+private _delpos =+ d_old_target_pos;
+private _house_objects =+ d_house_objects;
+d_house_objects = [];
 
-0 spawn d_fnc_rebbuil;
+[_delpos, d_old_radius, _del_camps_stuff, _mtmissionobjs, _delvecsmt, _house_objects] spawn d_fnc_deleteempty;
+
+sleep 0.1;
 
 __TRACE_1("","d_maintargets_list")
 

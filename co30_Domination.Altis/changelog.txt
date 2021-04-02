@@ -2,3 +2,4 @@
 
 - Fixed: AI revive routine did not end when a player was revived
 - Improved: Destroying vehicles at base check
+- Improved: Cleanup routines after main target (should no longer cause performance issues)
