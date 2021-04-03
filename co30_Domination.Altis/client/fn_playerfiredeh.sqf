@@ -14,17 +14,17 @@ if (d_database_found) then {
 };
 
 private _fnc_nearmhq = {
-	private _ets = player nearEntities [["Air", "Car", "Tank"], 9];
+	private _ets = player nearEntities [["Air", "Car", "Tank"], 15];
 	if (_ets isEqualTo []) exitWith {
-		_ets = player nearEntities  ["ReammoBox_F", 25];
-		if (_ets isEqualTo [] || {!isNil {(_ets # 0) getVariable "d_nocheck"}}) exitWith {false};
-		true
+		false
 	};
-	if (count _ets == 1) then {
-		(_ets # 0) getVariable ["d_vec_type", ""] == "MHQ"
-	} else {
-		(_ets findIf {_x getVariable ["d_vec_type", ""] == "MHQ"}) != -1
-	};
+	private _mhqnear = [(_ets findIf {_x getVariable ["d_vec_type", ""] == "MHQ"}) != -1, (_ets # 0) getVariable ["d_vec_type", ""] == "MHQ"] select (count _ets == 1);
+	if (!_mhqnear) exitWith {
+		false
+	};	
+	_ets = player nearEntities ["ReammoBox_F", 25];
+	if (_ets isEqualTo [] || {!isNil {(_ets # 0) getVariable "d_nocheck"}}) exitWith {false};
+	true
 };
 
 if ((_this # 1) isEqualTo "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) then {

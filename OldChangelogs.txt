@@ -2,6 +2,15 @@ Changelogs
 
 Old...
 
+4.48
+
+- Fixed: AI medic revive routine did not end when a player was already revived
+- Fixed: When the main target was done it could happen that destroying a barracks building or AI vehicle MHQ at the old main target triggered variable change for the new main target
+- Fixed: Putting players in jail was not working at all
+- Fixed: Script error because of wrong blacklist area in jail script
+- Improved: Destroying vehicles at base check
+- Improved: Cleanup routines after main target (should no longer cause performance issues)
+
 4.47
 
 - Added: Teamkill forgive system (only available when mission revive and revive spectating is on)
