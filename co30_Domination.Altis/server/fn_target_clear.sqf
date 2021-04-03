@@ -112,7 +112,7 @@ if (d_maintargets_list isNotEqualTo []) then {
 } else {
 	d_target_clear = true; publicVariable "d_target_clear";
 #ifndef __TT__
-	("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
+	("d_" + _cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
 	"" remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, "Captured2", ["1", "", _cur_tgt_name, [_cur_tgt_name]],d_kbtel_chan];
 #else
