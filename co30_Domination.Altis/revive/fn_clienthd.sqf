@@ -3,9 +3,7 @@
 #define THIS_FILE "fn_clienthd.sqf"
 #include "..\x_macros.sqf"
 
-#define __shots ["shotBullet","shotShell","shotRocket","shotMissile","shotTimeBomb","shotMine","shotGrenade","shotSpread","shotSubmunitions","shotDeploy","shotBoundingMine","shotDirectionalBomb"]
-
-params ["_unit", "_part", "_dam", "_source", "_ammo", "_idx", "_injurer"];
+params ["_unit", "", "_dam", "", "_ammo", "_idx", "_injurer"];
 __TRACE_1("","_this")
 if (!alive _unit) exitWith {
 	__TRACE("unit not alive, removing hd EH")
@@ -23,12 +21,12 @@ if (_dam == 0) exitWith {
 	_dam
 };
 if (_unit getVariable "xr_pluncon" || {xr_phd_invulnerable}) exitWith {
-	__TRACE_2("exiting, unit uncon or invulnerable","_part")
+	__TRACE("exiting, unit uncon or invulnerable")
 	0
 };
 
-if (d_no_teamkill == 0 && {_dam >= 0.1 && {!isNull _injurer && {_injurer isNotEqualTo _unit && {(_injurer call d_fnc_isplayer) && {isNull objectParent _unit && {side (group _injurer) getFriend side (group _unit) >= 0.6}}}}}}) exitWith {
-	if (_idx == -1 && {_ammo isNotEqualTo "" && {time > (player getVariable "d_tk_cutofft") && {_ammo call d_fnc_checkammo2}}}) then {
+if (d_no_teamkill == 0 && {_dam >= 0.1 && {!isNull _injurer && {_injurer isNotEqualTo _unit && {side (group _injurer) getFriend side (group _unit) >= 0.6 && {isNull objectParent _unit && {_injurer call d_fnc_isplayer}}}}}}) exitWith {
+	if (_idx == -1 && {_ammo isNotEqualTo "" && {time > (player getVariable "d_tk_cutofft") && {call d_fnc_checkammo2}}}) then {
 		_unit setVariable ["d_tk_cutofft", time + 3];
 		hint format [localize "STR_DOM_MISSIONSTRING_497", name _injurer];
 		[_unit, _injurer] remoteExecCall ["d_fnc_TKR", 2];

@@ -58,11 +58,11 @@ if (!isNil "d_is_hc") exitWith {true};
 
 if !(_obj isKindOf "CAManBase") then {
 #ifndef __TT__
-	if (isPlayer (_this # 2) && {vehicle (_this # 2) != _obj && {_obj inArea d_base_array}}) then {
+	if (isPlayer (_this # 2) && {vehicle (_this # 2) inArea d_base_array && {_obj inArea d_base_array}}) then {
 		call d_fnc_bv_check;
 	};
 #else
-	if (isPlayer (_this # 2) && {vehicle (_this # 2) != _obj && {_obj inArea (d_base_array # 0) || {_obj inArea (d_base_array # 1)}}}) then {
+	if (isPlayer (_this # 2) && {vehicle (_this # 2) inArea (d_base_array # 0) && {_obj inArea (d_base_array # 0) || {vehicle (_this # 2) inArea (d_base_array # 1) && _obj inArea (d_base_array # 1)}}}}) then {
 		call d_fnc_bv_check;
 	};
 #endif

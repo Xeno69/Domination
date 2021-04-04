@@ -507,7 +507,6 @@ class cfgDomFuncs {
 			addc(dpcpbv);
 			addc(addceo);
 			addc(buildingchanged);
-			addc(rebbuil);
 			addc(saveprogress2db);
 			addc(targetclearm);
 			addc(mhqmsg);
@@ -580,9 +579,7 @@ class cfgDomFuncs {
 			addc(handleobservers);
 			addc(handleattackgroups);
 			addc(cgraa);
-			addc(dodelintelu);
-			addc(xdelct);
-			addc(doexechcf);
+			addc(delstuff);
 			addc(getflatarea);
 			addc(getmtmission);
 			addc(mchelper);
@@ -639,6 +636,7 @@ class cfgDomFuncs {
 			addc(bv_check);
 			addc(makenewtower);
 			addc(garrisonUnits);
+			addc(deleteempty);
 		};
 	};
 	class Dom_Revive {

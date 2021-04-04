@@ -75,10 +75,10 @@ class xr_SpectDlg {
 		};
 		class ForgiveCaption: RscText {
 			idc = 123456;
-			x = 0;
-			y = "SafeZoneY + 0.12";
-			w = 1;
-			h = 0.04;
+			x = "safeZoneX";
+			y = "safeZoneY + 0.12";
+			w = "safeZoneW";
+			h = 0.042;
 			sizeEx = 0.042;
 			shadow = 0;
 			style = ST_CENTER;

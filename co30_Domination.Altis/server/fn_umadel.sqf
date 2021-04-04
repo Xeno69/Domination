@@ -49,5 +49,6 @@ if (_musers isNotEqualTo []) then {
 				deleteMarker _x;
 			} forEach _x;
 		};
+		sleep 0.1;
 	} forEach _mmarkers;
 };

@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_tkr.sqf"
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 params ["_unit", "_killer"];
 private _namep = name _unit;
 private _namek = name _killer;

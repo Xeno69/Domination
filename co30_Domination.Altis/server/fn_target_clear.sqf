@@ -8,7 +8,22 @@ __TRACE_1("","_this")
 
 sleep 1.123;
 
-call d_fnc_xdelct;
+#ifdef __TT__
+deleteVehicle d_current_triggerTT;
+#endif
+deleteVehicle d_current_trigger;
+if (!isNil "d_f_check_trigger") then {
+	deleteVehicle d_f_check_trigger;
+};
+
+if (!isNil "d_handleobservers_handle" && {!isNull d_handleobservers_handle}) then {terminate d_handleobservers_handle};
+
+{
+	_x setVariable ["d_mt_done", true];
+} forEach (d_mt_barracks_obj_ar select {alive _x});
+if (alive d_mt_mobile_hq_obj) then {
+	d_mt_mobile_hq_obj setVariable ["d_mt_done", true];
+};
 d_mt_done = true;
 
 sleep 0.01;
@@ -79,7 +94,10 @@ publicVariable "d_num_barracks_tt";
 d_num_barracks_objs = 0;
 publicVariable "d_num_barracks_objs";
 
-call d_fnc_dodelintelu;
+if (!isNull d_intel_unit) then {
+	deleteVehicle d_intel_unit;
+	d_intel_unit = objNull;
+};
 
 sleep 0.5;
 
@@ -94,7 +112,7 @@ if (d_maintargets_list isNotEqualTo []) then {
 } else {
 	d_target_clear = true; publicVariable "d_target_clear";
 #ifndef __TT__
-	("d_" + d_cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
+	("d_" + _cur_tgt_name + "_dommtm") setMarkerAlpha d_e_marker_color_alpha;
 	"" remoteExec ["d_fnc_target_clear_client", [0, -2] select isDedicated];
 	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, "Captured2", ["1", "", _cur_tgt_name, [_cur_tgt_name]],d_kbtel_chan];
 #else
@@ -117,9 +135,20 @@ if (d_maintargets_list isNotEqualTo []) then {
 sleep 2.123;
 
 if (d_maintargets_list isNotEqualTo []) then {
-	[1, d_current_target_index, d_mt_barracks_obj_ar, d_bara_trig_ar, d_mt_mobile_hq_obj] call d_fnc_doexechcf;
+	private _mt_barracks_obj_ar =+ d_mt_barracks_obj_ar;
 	d_mt_barracks_obj_ar = [];
+	private _bara_trig_ar =+ d_bara_trig_ar;
 	d_bara_trig_ar = [];
+	private _mines_created = [];
+	if (!isNil "d_mines_created" && {d_mines_created isNotEqualTo []}) then {
+		_mines_created =+ d_mines_created;
+		d_mines_created = [];
+		{deleteVehicle _x} forEach d_mines_created;
+		sleep 0.1;
+	};
+	private _mtunits =+ d_delinfsm;
+	d_delinfsm = [];
+	[d_current_target_index, _mt_barracks_obj_ar, _bara_trig_ar, d_mt_mobile_hq_obj, _mines_created, _mtunits] spawn d_fnc_delstuff;
 };
 
 sleep 3.321;
@@ -139,6 +168,7 @@ private _del_camps_stuff = [];
 		_del_camps_stuff pushBack _flag;
 	};
 } forEach d_currentcamps;
+sleep 0.1;
 d_currentcamps = [];
 publicVariable "d_currentcamps";
 #ifdef __TT__
@@ -188,7 +218,6 @@ if (d_enable_civs == 1) then {
 			deleteVehicle _x;
 		} forEach _tmpCivVehs;
 	};
-	
 };
 #endif
 
@@ -198,9 +227,17 @@ sleep 0.245;
 d_mt_fires = [];
 sleep 0.1;
 
-[d_old_target_pos, d_old_radius, _del_camps_stuff] execFSM "fsms\fn_DeleteEmpty.fsm";
+private _mtmissionobjs =+ d_mtmissionobjs;
+d_mtmissionobjs = [];
+private _delvecsmt =+ d_delvecsmt;
+d_delvecsmt = [];
+private _delpos =+ d_old_target_pos;
+private _house_objects =+ d_house_objects;
+d_house_objects = [];
 
-0 spawn d_fnc_rebbuil;
+[_delpos, d_old_radius, _del_camps_stuff, _mtmissionobjs, _delvecsmt, _house_objects] spawn d_fnc_deleteempty;
+
+sleep 0.1;
 
 __TRACE_1("","d_maintargets_list")
 
@@ -223,6 +260,7 @@ if (d_maintargets_list isNotEqualTo []) then {
 	if (d_database_found && {d_db_auto_save}) then {
 		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 	};
+	sleep 1;
 	0 spawn d_fnc_createnexttarget;
 } else {
 	if (d_tt_ver) then {

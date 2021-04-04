@@ -499,7 +499,6 @@ class cfgFunctions {
 			addc(dpcpbv);
 			addc(addceo);
 			addc(buildingchanged);
-			addc(rebbuil);
 			addc(saveprogress2db);
 			addc(targetclearm);
 			addc(mhqmsg);
@@ -572,9 +571,7 @@ class cfgFunctions {
 			addc(handleobservers);
 			addc(handleattackgroups);
 			addc(cgraa);
-			addc(dodelintelu);
-			addc(xdelct);
-			addc(doexechcf);
+			addc(delstuff);
 			addc(getflatarea);
 			addc(getmtmission);
 			addc(mchelper);
@@ -631,6 +628,7 @@ class cfgFunctions {
 			addc(bv_check);
 			addc(makenewtower);
 			addc(garrisonUnits);
+			addc(deleteempty);
 		};
 		class Dom_PrePostInit {
 			file = "init";
