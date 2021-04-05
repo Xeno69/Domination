@@ -4,3 +4,4 @@
 - Fixed: If gras at start and player can't change gras layer was activated no gras was shown
 - Fixed: DeleteMarkerLocal was only allowed to be remotely executed on the server (which makes no sense)
 - Fixed: Server localization instead of client localization was used for many markers created on the server
+- Fixed: Use "CAN_COLLIDE" for vehicle creation of bonus vehicles to prevent them flying up in the air at creation if there is another vehicle at the same spot

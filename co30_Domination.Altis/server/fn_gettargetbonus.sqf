@@ -21,7 +21,7 @@ if (!isNil "_cur_tar_obj" && {!isNull _cur_tar_obj}) then {
 if (_vectypetouse == "") then {
 	_vectypetouse = selectRandom d_mt_bonus_vehicle_array;
 };
-private _vec = createVehicle [_vectypetouse, d_bonus_create_pos, [], 0, "NONE"];
+private _vec = createVehicle [_vectypetouse, d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
 if (d_database_found) then {
 	d_bonus_vecs_db pushBack _vec;
 };
@@ -54,7 +54,7 @@ if (_vec isKindOf "Air") then {
 	_vec setVariable ["d_liftit", true, true];
 };
 _vec setDir _dir;
-_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+_vec setVehiclePosition [_endpos, [], 0, "CAN_COLLIDE"];
 [_vec, 11] call d_fnc_setekmode;
 if (d_with_ranked) then {
 	clearWeaponCargoGlobal _vec;
@@ -89,7 +89,7 @@ private ["_d_bonus_air_positions", "_d_bonus_air_positions2", "_d_bvp_counter", 
 
 if (d_mt_winner == 1) then {
 	_vectypetouse_w = _vectypetouse_w_temp;
-	_vec = createVehicle [_vectypetouse_w, d_bonus_create_pos_w, [], 0, "NONE"];
+	_vec = createVehicle [_vectypetouse_w, d_bonus_create_pos_w, [], 0, "CAN_COLLIDE"];
 	if (d_database_found) then {
 		d_bonus_vecs_db_w pushBack _vec;
 	};
@@ -102,7 +102,7 @@ if (d_mt_winner == 1) then {
 } else {
 	if (d_mt_winner == 2) then {
 		_vectypetouse_e = _vectypetouse_e_temp;
-		_vec = createVehicle [_vectypetouse_e, d_bonus_create_pos_e, [], 0, "NONE"];
+		_vec = createVehicle [_vectypetouse_e, d_bonus_create_pos_e, [], 0, "CAN_COLLIDE"];
 		if (d_database_found) then {
 			d_bonus_vecs_db_e pushBack _vec;
 		};
@@ -115,11 +115,11 @@ if (d_mt_winner == 1) then {
 	} else {
 		_vectypetouse_w = _vectypetouse_w_temp;
 		_vectypetouse_e = _vectypetouse_e_temp;
-		_vec = createVehicle [_vectypetouse_w, d_bonus_create_pos_w, [], 0, "NONE"];
+		_vec = createVehicle [_vectypetouse_w, d_bonus_create_pos_w, [], 0, "CAN_COLLIDE"];
 		if (d_database_found) then {
 			d_bonus_vecs_db_w pushBack _vec;
 		};
-		_vec2 = createVehicle [_vectypetouse_e, d_bonus_create_pos_e, [], 0, "NONE"];
+		_vec2 = createVehicle [_vectypetouse_e, d_bonus_create_pos_e, [], 0, "CAN_COLLIDE"];
 		if (d_database_found) then {
 			d_bonus_vecs_db_e pushBack _vec;
 		};
@@ -193,7 +193,7 @@ if (!isNull _vec2) then {
 	};
 };
 
-_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+_vec setVehiclePosition [_endpos, [], 0, "CAN_COLLIDE"];
 _vec setDir _dir;
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 [_vec, 11] call d_fnc_setekmode;
@@ -215,7 +215,7 @@ if (unitIsUAV _vec) then {
 };
 if (!isNull _vec2) then {
 	_vec2 setDir _dir2;
-	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
+	_vec2 setVehiclePosition [_endpos2, [], 0, "CAN_COLLIDE"];
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	[_vec2, 11] call d_fnc_setekmode;
 	if (d_with_ranked) then {
