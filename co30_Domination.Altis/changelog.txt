@@ -1,5 +1,6 @@
 4.49
 
+- Changed: Added new mode "Block but not for missile launchers" to d_without_nvg and d_without_ti params
 - Fixed: MHQ near ammo box check when placing a satchel was still reporting true even when the MHQ was gone
 - Fixed: If gras at start and player can't change gras layer was activated no gras was shown
 - Fixed: DeleteMarkerLocal was only allowed to be remotely executed on the server (which makes no sense)

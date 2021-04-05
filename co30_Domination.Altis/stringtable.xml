@@ -14192,6 +14192,18 @@
 <Chinese>With air drop:</Chinese>
 <French>With air drop:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2074">
+<English>Block but not for missile launchers</English>
+<Spanish>Block but not for missile launchers</Spanish>
+<Portuguese>Block but not for missile launchers</Portuguese>
+<Korean>Block but not for missile launchers</Korean>
+<Japanese>Block but not for missile launchers</Japanese>
+<Original>Block but not for missile launchers</Original>
+<Russian>Block but not for missile launchers</Russian>
+<Chinesesimp>Block but not for missile launchers</Chinesesimp>
+<Chinese>Block but not for missile launchers</Chinese>
+<French>Block but not for missile launchers</French>
+</Key>
 </Container>
 </Package>
 </Project>

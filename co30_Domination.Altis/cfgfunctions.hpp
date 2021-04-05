@@ -207,6 +207,7 @@ class cfgFunctions {
 			addc(forgive);
 			addc(aophfytk);
 			addc(setmatxtloc);
+			addc(build_ranked_gear);
 		};
 		class Dom_UI {
 			file = "clientui";
