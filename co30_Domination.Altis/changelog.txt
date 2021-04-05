@@ -1,3 +1,4 @@
 4.49
 
 - Fixed: MHQ near ammo box check when placing a satchel was still reporting true even when the MHQ was gone
+- Fixed: If gras at start and player can't change gras layer was activated no gras was shown

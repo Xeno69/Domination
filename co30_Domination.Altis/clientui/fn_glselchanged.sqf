@@ -3,6 +3,8 @@
 #define THIS_FILE "fn_glselchanged.sqf"
 #include "..\x_setup.sqf"
 
+if (d_graslayer_index == 1) exitWith {};
+
 disableSerialization;
 
 private _selIdx = (_this # 0) # 1;
