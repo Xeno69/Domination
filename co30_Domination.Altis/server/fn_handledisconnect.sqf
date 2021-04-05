@@ -5,9 +5,14 @@
 
 params ["_unit", "", "_uid", "_name"];
 
+diag_log ["DOM handledisconnect _this:", _this];
+
 __TRACE_1("","_this")
 
-if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name == "__SERVER__" || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}}) exitWith {false};
+if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name == "__SERVER__" || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}}) exitWith {
+	diag_log "DOM handledisconnect, _unit is either nil or kindof VirtualSpectator or _uid is empty or is server or HC!";
+	false
+};
 
 #ifndef __TT__
 private _abl = _unit getVariable "d_blocks_arty";
@@ -34,7 +39,7 @@ if (!isNil "_gru" && {!isNull _gru}) then {
 
 private _pa = d_player_hash getOrDefault [_uid, []];
 if (_pa isNotEqualTo []) then {
-	__TRACE_1("player store before change","_pa")
+	diag_log ["DOM handledisconnect player hash:", _pa];
 	_pa set [0, [time - (_pa # 0), -1] select (time - (_pa # 0) < 0)];
 	if ((_pa # 9) # 0 == 0) then {
 		_pa set [9, [time, (_pa # 9) # 1]];
@@ -72,12 +77,14 @@ if (_pa isNotEqualTo []) then {
 		_pa set [13, 0];
 	};
 	__TRACE_1("player store after change","_pa")
+} else {
+	diag_log "DOM handledisconnect no player hash found!!!";
 };
 
 remoteExecCall ["", _unit];
 
 private _ar = _unit getVariable ["d_all_p_vecs_s", []];
-__TRACE_1("","_ar")
+diag_log ["DOM handledisconnect d_all_p_vecs_s:", _ar];
 if (_ar isNotEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];
@@ -88,5 +95,7 @@ if (_ar isNotEqualTo []) then {
 removeAllOwnedMines _unit;
 
 _unit spawn d_fnc_hddelu;
+
+diag_log "DOM handledisconnect exiting";
 
 false

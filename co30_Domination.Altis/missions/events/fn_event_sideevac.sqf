@@ -41,6 +41,7 @@ private _distanceToEnablePilotMovement = 3; //in meters
 sleep 2;
 
 private _marker = ["d_mt_event_marker_sideevac", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_CRASH", 0, "mil_warning"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_CRASH"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvac",d_kbtel_chan];
 

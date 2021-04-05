@@ -35,6 +35,7 @@ _box setVariable ["d_box_params", [d_dbox_idx, _box, _mname, _this # 2]];
 publicVariable "d_ammo_boxes";
 d_dbox_idx = d_dbox_idx + 1;
 [_mname, _box, "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_523", 0, d_dropped_box_marker] call d_fnc_CreateMarkerGlobal;
+[_mname, "STR_DOM_MISSIONSTRING_523"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 #ifdef __TT__
 _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select ((_this # 2) == blufor)];
 #endif

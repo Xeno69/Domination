@@ -14,6 +14,7 @@ if (alive _vec && {(crew _vec) findIf {alive _x} == -1 && {_vside == 2 && {_vec 
 	private _mname = format [_mbegin, _vec call d_fnc_markername, time];
 #endif
 	[_mname, _vec, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_1566", [_vec] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+	[_mname, "STR_DOM_MISSIONSTRING_1566", [_vec] call d_fnc_GetDisplayName] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 	_vec setVariable ["d_abandoned_ma", _mname];
 #ifdef __TT__
 	if (_vside == 1) then {

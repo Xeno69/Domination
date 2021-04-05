@@ -8,6 +8,7 @@ sleep 30;
 if (!isNull _grp && {(units _grp) findIf {alive _x} > -1}) then {
 	private _ma = format ["d_is_def_mm%1", _grp];
 	[_ma, [0,0,0], "ICON", d_e_marker_color, [0.5,0.5], localize "STR_DOM_MISSIONSTRING_964", 0, d_isle_defense_marker] call d_fnc_CreateMarkerGlobal;
+	[_ma, "STR_DOM_MISSIONSTRING_964"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 	while {!isNull _grp && {(units _grp) findIf {alive _x} > -1}} do {
 		private _lead = leader _grp;
 		if (!isNull _lead) then {

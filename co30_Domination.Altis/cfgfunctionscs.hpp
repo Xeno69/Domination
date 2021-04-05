@@ -205,6 +205,7 @@ class cfgDomFuncs {
 			addc(gimmick);
 			addc(forgive);
 			addc(aophfytk);
+			addc(setmatxtloc);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -693,6 +694,7 @@ class cfgDomFuncs {
 			addc(bloodpool);
 			addc(hasfak);
 			addc(phogl);
+			addc(setmatxtloc);
 		};
 	};
 	class Dom_AR {

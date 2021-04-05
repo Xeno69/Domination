@@ -49,7 +49,7 @@ _this spawn {
 		if (!_norm_resp) then {
 			0 spawn xr_fnc_uncon;
 			if (xr_with_marker) then {
-				[player, getPosWorld player] remoteExecCall ["xr_fnc_addmarker", 2];
+				[player, getPosWorld player, xr_strpldead] remoteExecCall ["xr_fnc_addmarker", 2];
 			};
 		} else {
 			__TRACE("spawning go uncon")
