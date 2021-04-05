@@ -82,7 +82,7 @@ private _vpl = vest player;
 
 d_usave =+ bis_fnc_arsenal_data # 3;
 
-#ifndef ___DEBUG__
+#ifndef __DEBUG__
 if (true) exitWith {};
 #endif
 
@@ -104,14 +104,15 @@ private _rankhash = createHashMapFromArray [
 	__TRACE_2("","_x","_muzzles")
 	private _inertia = getNumber(_cfg>>"inertia");
 	__TRACE_2("","_x","_inertia")
-	private _aimTransitionSpeed = getNumber(_cfg>>"aimTransitionSpeed");
+	/*private _aimTransitionSpeed = getNumber(_cfg>>"aimTransitionSpeed");
 	__TRACE_2("","_x","_aimTransitionSpeed")
 	private _dexterity = getNumber(_cfg>>"dexterity");
 	__TRACE_2("","_x","_dexterity")
 	private _maxZeroing = getNumber(_cfg>>"maxZeroing");
-	__TRACE_2("","_x","_maxZeroing")
+	__TRACE_2("","_x","_maxZeroing")*/
 	
 	// extra muzzle = not a private weapon
+	private _addtorank = "";
 	if (count _muzzles > 1) then {
 		for "_i" from 1 to (count _muzzles - 1) do {
 			private _muzzle = _muzzles # _i;
@@ -122,29 +123,102 @@ private _rankhash = createHashMapFromArray [
 			// should be arifle normally
 			call {
 				if (_cursor == "EmptyCursor") exitWith {
-					(_rankhash get "sergeant") pushBack _x;
+					_addtorank = "sergeant";
 				};
 				if (_cursor == "sgun") exitWith {
-					(_rankhash get "captain") pushBack _x;
+					_addtorank = "captain";
 				};
 				if (_cursor == "srifle") exitWith {
-					(_rankhash get "colonel") pushBack _x;
+					_addtorank = "colonel";
 				};
-				(_rankhash get "sergeant") pushBack _x;
+				_addtorank = "sergeant";
 			};
 		};
 	} else {
 		call {
 			if (_type == "arifle") exitWith {
+				call {
+					if (_inertia <= 0.5) exitWith {
+						_addtorank = "private";
+					};
+					if (_inertia <= 0.6) exitWith {
+						_addtorank = "corporal";
+					};
+					if (_inertia <= 0.7) exitWith {
+						_addtorank = "sergeant";
+					};
+					_addtorank = "lieutenant";
+				};
 			};
 			if (_type == "smg") exitWith {
+				call {
+					if (_inertia <= 0.3) exitWith {
+						_addtorank = "private";
+					};
+					if (_inertia <= 0.4) exitWith {
+						_addtorank = "corporal";
+					};
+					_addtorank = "sergeant";
+				};
 			};
 			if (_type == "srifle") exitWith {
+				call {
+					if (_inertia <= 0.5) exitWith {
+						_addtorank = "corporal";
+					};
+					if (_inertia <= 0.6) exitWith {
+						_addtorank = "sergeant";
+					};
+					if (_inertia <= 0.7) exitWith {
+						_addtorank = "lieutenant";
+					};
+					if (_inertia <= 0.8) exitWith {
+						_addtorank = "captain";
+					};
+					if (_inertia <= 1.1) exitWith {
+						_addtorank = "major";
+					};
+					_addtorank = "colonel";
+				};
 			};
 			if (_type == "mg") exitWith {
+				call {
+					if (_inertia <= 0.6) exitWith {
+						_addtorank = "private";
+					};
+					if (_inertia <= 0.7) exitWith {
+						_addtorank = "corporal";
+					};
+					if (_inertia <= 0.8) exitWith {
+						_addtorank = "sergeant";
+					};
+					if (_inertia <= 0.9) exitWith {
+						_addtorank = "lieutenant";
+					};
+					if (_inertia <= 1) exitWith {
+						_addtorank = "captain";
+					};
+					if (_inertia <= 1.1) exitWith {
+						_addtorank = "major";
+					};
+					_addtorank = "colonel";
+				};
+			};
+			if (_type == "sgun") exitWith {
+				call {
+					if (_inertia <= 0.5) exitWith {
+						_addtorank = "private";
+					};
+					if (_inertia <= 0.6) exitWith {
+						_addtorank = "corporal";
+					};
+					_addtorank = "lieutenant";
+				};
 			};
 		};
 	};
+	__TRACE_2("","_x","_addtorank")
+	(_rankhash get _addtorank) pushBack _x;
 } forEach (bis_fnc_arsenal_data # 0);
 
 #ifdef __DEBUG__
