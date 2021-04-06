@@ -102,8 +102,7 @@ private _rankhash = createHashMapFromArray [
 	__TRACE_2("","_x","_type")
 	private _muzzles = getArray(_cfg>>"muzzles");
 	__TRACE_2("","_x","_muzzles")
-	private _inertia = getNumber(_cfg>>"inertia");
-	__TRACE_2("","_x","_inertia")
+	
 	/*private _aimTransitionSpeed = getNumber(_cfg>>"aimTransitionSpeed");
 	__TRACE_2("","_x","_aimTransitionSpeed")
 	private _dexterity = getNumber(_cfg>>"dexterity");
@@ -135,6 +134,8 @@ private _rankhash = createHashMapFromArray [
 			};
 		};
 	} else {
+		private _inertia = getNumber(_cfg>>"inertia");
+		__TRACE_2("","_x","_inertia")
 		call {
 			if (_type == "arifle") exitWith {
 				call {
@@ -218,8 +219,54 @@ private _rankhash = createHashMapFromArray [
 		};
 	};
 	__TRACE_2("","_x","_addtorank")
-	(_rankhash get _addtorank) pushBack _x;
+	//(_rankhash get _addtorank) pushBack _x;
 } forEach (bis_fnc_arsenal_data # 0);
+
+{
+	private _cfg = configFile>>"CfgWeapons">>_x;
+	private _magazines = getArray(_cfg>>"magazines");
+	__TRACE_1("","_magazines")
+	private _magmodes = [];
+	private _manualctrl = [];
+	{
+		private _ammo = getText (configFile>>"CfgMagazines">>_x>>"ammo");
+		_magmodes pushBack getNumber(configFile>>"CfgAmmo">>_ammo>>"airLock");
+		_manualctrl pushBack ([0, 1] select (getNumber (configFile>>"CfgAmmo">>_ammo>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>_ammo>>"weaponLockSystem") > 0}));
+	} forEach _magazines;
+	__TRACE_1("","_magmodes")
+	__TRACE_1("","_manualctrl")
+	//airLock = 0; // Cannot target air units
+	//airLock = 1; // Can target air and ground units
+	//airLock = 2; // Can target air units ONLY
+	if (count _magmodes == 1 && {_magmodes # 0 == 2}) then {
+		// is AA launcher only
+		(_rankhash get "private") pushBack _x;
+	} else {
+		private _num = 0;
+		{_num = _num + _x} forEach _manualctrl;
+		__TRACE_1("","_num")
+		if (_num == 0) then {
+			(_rankhash get "private") pushBack _x;
+		};
+	};
+	
+	//f (getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"weaponLockSystem") > 0}) then {
+	
+	//inertia = 1.2;
+	//aimTransitionSpeed = 0.5;
+	//dexterity = 1;
+	//cmImmunity = 0;
+	
+	private _dexterity = getNumber(_cfg>>"dexterity");
+	__TRACE_2("","_x","_dexterity")
+	private _aimTransitionSpeed = getNumber(_cfg>>"aimTransitionSpeed");
+	__TRACE_2("","_x","_aimTransitionSpeed")
+	private _inertia = getNumber(_cfg>>"inertia");
+	__TRACE_2("","_x","_inertia")
+	private _cmImmunity = getNumber(_cfg>>"cmImmunity");
+	__TRACE_2("","_x","_cmImmunity")
+	
+} forEach (bis_fnc_arsenal_data # 1);
 
 #ifdef __DEBUG__
 {
