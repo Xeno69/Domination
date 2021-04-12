@@ -56,14 +56,8 @@
 - **Sahrani Blufor** (co40_domination_x_xx_blufor.sara.pbo)
 - **Takistan Blufor** (co40_domination_x_xx_blufor.takistan.pbo)
 
-  > 需要所有`Arma 3 CUP`插件以及`CBA`<br/>
-  > [CBA A3 Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=450814997) <br/>
-  > [CUP Units Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=497661914) <br/>
-  > [CUP Vehicles Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=541888371) <br/>
-  > [CUP Weapons Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=497660133) <br/>
-  > [CUP Terrains - Core Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=583496184) <br/>
-  > [CUP Terrains - Maps Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=583544987) <br/>
-  > [CUP Terrains - Maps 2.0 Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1981964169) <br/>
+  > 需要所有`Arma 3 CUP`插件以及`CBA`：
+  [CBA A3](https://steamcommunity.com/workshop/filedetails/?id=450814997) 、[CUP Units](https://steamcommunity.com/sharedfiles/filedetails/?id=497661914) 、[CUP Vehicles](https://steamcommunity.com/sharedfiles/filedetails/?id=541888371) 、[CUP Weapons](https://steamcommunity.com/sharedfiles/filedetails/?id=497660133) 、[CUP Terrains - Core](https://steamcommunity.com/workshop/filedetails/?id=583496184) 、[CUP Terrains - Maps](https://steamcommunity.com/sharedfiles/filedetails/?id=583544987) 、[CUP Terrains - Maps 2.0](https://steamcommunity.com/sharedfiles/filedetails/?id=1981964169)
 
 ---
 
@@ -80,7 +74,7 @@
 
 - **IFA3** (co40_domination_x_xx_opfor_ifa3.staszow.pbo)
 
-  > 需要 [IFA3](https://steamcommunity.com/sharedfiles/filedetails/?id=660460283) 和 [CUP Terrains - Core](https://steamcommunity.com/workshop/filedetails/?id=583496184) <br/>
+  > 需要 [IFA3](https://steamcommunity.com/sharedfiles/filedetails/?id=660460283) 和 [CUP Terrains - Core](https://steamcommunity.com/workshop/filedetails/?id=583496184)
 
 ---
 
@@ -88,7 +82,7 @@
 
 - **Rosche Blufor** (co40_domination_x_xx_blufor.wl_rosche.pbo)
 
-  > 需要[Rosche, Germany](https://steamcommunity.com/sharedfiles/filedetails/?id=1527410521) <br/>
+  > 需要 [Rosche, Germany](https://steamcommunity.com/sharedfiles/filedetails/?id=1527410521)
 
 ---
 
@@ -96,4 +90,4 @@
 
 - **Unsung Blufor** (co40_domination_4_30_blufor_usnung.song_bin_tanh.pbo)
 
-  > 需要[Unsung](https://steamcommunity.com/workshop/filedetails/?id=943001311) 模组
+  > 需要 [Unsung](https://steamcommunity.com/workshop/filedetails/?id=943001311) 模组
