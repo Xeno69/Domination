@@ -94,6 +94,7 @@ if (_dobigtower) then {
 d_mt_radio_down = false;
 if (d_ao_markers == 1) then {
 	["d_m_t_rt", _poss, "ICON","ColorBlack", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_521", 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+	["d_m_t_rt", "STR_DOM_MISSIONSTRING_521"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
 
 if (d_with_dynsim == 0) then {

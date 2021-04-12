@@ -124,7 +124,7 @@ sleep 1.012;
 private _endpos = [];
 private _dir = 0;
 #ifndef __TT__
-private _vec = createVehicle [_vec_type, d_bonus_create_pos, [], 0, "NONE"];
+private _vec = createVehicle [_vec_type, d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
 _vec allowDamage false;
 if (d_database_found) then {
 	d_bonus_vecs_db pushBack _vec;
@@ -186,7 +186,7 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 		private _nendpos = _endpos findEmptyPosition [20, 100, _vec_type];
 		if (_nendpos isNotEqualTo []) then {_endpos = _nendpos};
 	};
-	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+	_vec setVehiclePosition [_endpos, [], 0, "CAN_COLLIDE"];
 } else {
 	_vec setPosASL _endpos;
 	[_vec, _endpos] spawn {
@@ -212,13 +212,13 @@ private _vec2 = objNull;
 private _endpos2 = [];
 private _dir2 = 0;
 
-private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "NONE"];
+private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
 _vec allowDamage false;
 if (d_database_found) then {
 	d_bonus_vecs_db_e pushBack _vec;
 };
 if (d_sm_winner == 123) then {
-	_vec2 = createVehicle [_vec_type2, _d_bonus_create_pos2, [], 0, "NONE"];
+	_vec2 = createVehicle [_vec_type2, _d_bonus_create_pos2, [], 0, "CAN_COLLIDE"];
 	_vec2 allowDamage false;
 	if (d_database_found) then {
 		d_bonus_vecs_db_w pushBack _vec2;
@@ -294,7 +294,7 @@ if (_vec_type isKindOf "VTOL_01_base_F" || {_vec_type isKindOf "VTOL_02_base_F"}
 	private _nendpos = _endpos findEmptyPosition [20, 100, _vec_type];
 	if (_nendpos isNotEqualTo []) then {_endpos = _nendpos};
 };
-_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+_vec setVehiclePosition [_endpos, [], 0, "CAN_COLLIDE"];
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 [_vec, 11] call d_fnc_setekmode;
 _vec spawn {
@@ -324,7 +324,7 @@ if (!isNull _vec2) then {
 		private _nendpos2 = _endpos2 findEmptyPosition [20, 100, _vec_type2];
 		if (_nendpos2 isNotEqualTo []) then {_endpos2 = _nendpos2};
 	};
-	_vec2 setVehiclePosition [_endpos2, [], 0, "NONE"];
+	_vec2 setVehiclePosition [_endpos2, [], 0, "CAN_COLLIDE"];
 	_vec2 setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	[_vec2, 11] call d_fnc_setekmode;
 	_vec2 spawn {

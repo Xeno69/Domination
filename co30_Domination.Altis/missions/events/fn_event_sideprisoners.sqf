@@ -32,6 +32,7 @@ d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisoners",d_kbtel_c
 d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonatePresent",d_kbtel_chan];
 
 private _marker = ["d_mt_event_marker_sideprisoners", _poss, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES", 0, "mil_unknown"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 

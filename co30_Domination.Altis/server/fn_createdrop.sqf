@@ -30,6 +30,7 @@ if (!isNil "_player" && {!isNull _player}) then {
 
 private _mname = "d_drop_zone_" + str _player;
 [_mname, _drop_pos, "ICON", "ColorBlue", [0.8, 0.8], format [localize "STR_DOM_MISSIONSTRING_1648", name _player], 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+[_mname, "STR_DOM_MISSIONSTRING_1648", name _player] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 _mname spawn {
 	scriptName "spawn createdrop";
@@ -66,6 +67,7 @@ addToRemainsCollector [_chopper];
 _chopper lock true;
 removeAllWeapons _chopper;
 ["d_drop_marker", _chopper, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_940", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
+[_mname, "STR_DOM_MISSIONSTRING_940"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 sleep 0.1;
 private _crew = _veca # 1;
 {_x setCaptive true} forEach _crew;

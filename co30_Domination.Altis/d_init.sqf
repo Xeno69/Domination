@@ -59,15 +59,21 @@ if (hasInterface) then {
 
 if (d_GrasAtStart == 1) then {
 	setTerrainGrid 50;
+	d_graslayer_index = 2;
 } else {
 	if (hasInterface) then {
-		private _tg = profileNamespace getVariable ["dom_terraingrid", getTerrainGrid];
-		diag_log ["DOM terraingrid at start:", _tg];
-		if (_tg != getTerrainGrid) then {
-			setTerrainGrid _tg;
-			private _tmpidx = [50, 25, 12.5, 6.25, 3.125] find _tg;
-			if (_tmpidx != -1) then {
-				d_graslayer_index = _tmpidx;
+		if (d_Terraindetail == 1) then {
+			d_graslayer_index = 2;
+			setTerrainGrid 12.5;
+		} else {
+			private _tg = profileNamespace getVariable ["dom_terraingrid", getTerrainGrid];
+			diag_log ["DOM terraingrid at start:", _tg];
+			if (_tg != getTerrainGrid) then {
+				setTerrainGrid _tg;
+				private _tmpidx = [50, 25, 12.5, 6.25, 3.125] find _tg;
+				if (_tmpidx != -1) then {
+					d_graslayer_index = _tmpidx;
+				};
 			};
 		};
 	};

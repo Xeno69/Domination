@@ -7,8 +7,8 @@ rem 只需复制 MakePBO.exe和 DePbo.dll 到 dom_maker 文件夹中
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_48
-set D_BNVER=4.48
+set D_VER=4_49
+set D_BNVER=4.49
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40

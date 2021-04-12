@@ -75,6 +75,7 @@ private _reached_base = false;
 private _markern = format ["d_smvecposc_%1", _vec call d_fnc_markername];
 
 [_markern, [0, 0, 0], "ICON", "ColorBlue", [0.5, 0.5], localize "STR_DOM_MISSIONSTRING_1584" , 0, "mil_dot"] call d_fnc_CreateMarkerGlobal;
+[_markern, "STR_DOM_MISSIONSTRING_1584"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 	
 while {alive _vec && {!_reached_base && {!d_sm_resolved}}} do {
 	if ((call d_fnc_PlayersNumber) > 0) then {

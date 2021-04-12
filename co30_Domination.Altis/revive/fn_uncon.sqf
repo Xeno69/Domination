@@ -46,7 +46,7 @@ xr_u_remactions = false;
 xr_u_nextcrytime = time + 15 + (random 15);
 if (xr_with_marker) then {
 	__TRACE("creating marker")
-	[player, getPosWorld player] remoteExecCall ["xr_fnc_addmarker", 2];
+	[player, getPosWorld player, xr_strpldead] remoteExecCall ["xr_fnc_addmarker", 2];
 };
 xr_u_xxstarttime = time + 40;
 xr_u_plposm = getPosWorld player;

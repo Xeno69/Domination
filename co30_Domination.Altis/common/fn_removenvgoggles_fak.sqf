@@ -3,7 +3,7 @@
 #define THIS_FILE "fn_removenvgoggles_fak.sqf"
 #include "..\x_setup.sqf"
 
-if (d_without_nvg == 0) then {
+if (d_without_nvg != 1) then {
 	private _hmd = hmd _this;
 
 	if (_hmd != "" && {getText(configFile>>"CfgWeapons">>_hmd>>"simulation") == "NVGoggles"}) then {

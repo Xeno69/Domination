@@ -31,6 +31,12 @@ private _sav_pos = [getPosWorld _vec # 0, getPosWorld _vec # 1, 0];
 _vec setPos _sav_pos;
 _vec setVelocity [0,0,0];
 [_mname, _sav_pos, "ICON", "ColorBlue", [1,1], format [localize "STR_DOM_MISSIONSTRING_517", [_vec] call d_fnc_GetDisplayName], 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+#ifndef __TT__
+_mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_vec getVariable "D_VEC_SIDE" == 2)];
+[_mname, "STR_DOM_MISSIONSTRING_517", [_vec] call d_fnc_GetDisplayName] remoteExecCall ["d_fnc_setmatxtloc", [blufor, opfor] select (_vec getVariable "D_VEC_SIDE" == 1)];
+#else
+[_mname, "STR_DOM_MISSIONSTRING_517", [_vec] call d_fnc_GetDisplayName] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+#endif
 private _timedel = if (d_WreckDeleteTime != -1) then {time + d_WreckDeleteTime} else {time + (1e+011)};
 while {!isNull _vec && {_vec distance _sav_pos < 30 && {time < _timedel}}} do {sleep 3.321 + random 2.2};
 deleteMarker _mname;
