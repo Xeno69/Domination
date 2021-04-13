@@ -1,8 +1,12 @@
 # 统治
 
+---
+
 Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目标并解决辅助任务。提供Coop和PvPvE版本。
 
 这项屡获殊荣的游戏任务是Arma系列中最古老的任务之一。统治是由Xeno创建的。
+
+---
 
 # 资源
 
@@ -10,9 +14,13 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 [Github](https://github.com/Xeno69/Domination)
 
+---
+
 # 配置数据库
 
 [配置数据库](Database.md)
+
+---
 
 # 模组说明
 
@@ -20,7 +28,11 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 # 参数说明
 
+---
+
 [参数说明](Parameter.md)
+
+---
 
 # 在本地执行任务
 
@@ -28,6 +40,8 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 
 * 将任务文件夹 `co30_Domination.Altis` 复制到本地 `mpmission` 目录中
 * 将任务加载到 Eden 编辑器中，然后单击 **Play（玩）** -> **Multiplayer（多人游戏）** -> **OK（确定）** 以运行本地代码
+
+---
 
 # 编辑任务
 
@@ -46,10 +60,12 @@ Arma3多人游戏模式最多可容纳50名玩家。抓住各种（随机）目�
 * 改名 `co30_Domination.Altis` 为 `co30_Domination.NewMap` (例如 `co30_Domination.Malden`)
 * 使用您的首选 PBO 工具运行源文件 `co30_Domination.Malden`
 
+---
+
 # 更新日志
 
 [更新日志](ChangeLog.md)
 
 
--------------------
+---
 > 请记住，只有将工作贡献回 [源存储库](https://github.com/Xeno69/Domination), 您才能与社区共享所做的修改。
