@@ -1,0 +1,76 @@
+### Please note that you need to load 3rd party mods/addons on the server and the clients too!
+<br/>
+
+**[ACE 3](https://steamcommunity.com/sharedfiles/filedetails/?id=463939057) is automatically supported for all the versions below. If you run ACE 3 on the server the mission will start automatically in ACE mode.**
+
+***
+**Arma 3 Vanilla**
+* **Altis Blufor** (co40_domination_x_xx_blufor.altis.pbo)
+* **Altis Opfor** (co40_domination_x_xx_opfor.altis.pbo)
+* **Altis Blufor Carrier** (co40_domination_carrier_x_xx_blufor.altis.pbo)
+* **Malden Blufor** (co40_domination_x_xx_blufor.malden.pbo)
+* <a name="NBV"></a>**Malden Blufor NBV** (co40_domination_4_24_blufor_nbv.malden.pbo)
+* **Stratis Blufor** (co40_domination_x_xx_blufor.stratis.pbo)
+* **Altis TT PvPvE** (tvt50_domination_x_xx_tt.altis.pbo)
+* **Malden TT PvPvE** (tvt50_domination_4_30_tt.malden.pbo)<br/><br/>
+    > Those versions need just [Arma 3 vanilla](https://store.steampowered.com/app/107410/Arma_3/) (content from other A3 DLCs is also used but the missions run with A3 vanilla)
+
+***
+**Arma 3 Apex**
+* **Tanoa Blufor** (co40_domination_x_xx_blufor.tanoa.pbo)
+* **Tanoa TT PvPvE** (tvt50_domination_x_xx_tt.tanoa.pbo)<br/><br/>
+    > [Need A3 Apex expansion](https://store.steampowered.com/app/395180/Arma_3_Apex/)
+
+***
+**Arma 3 Contact**
+* **Livonia Blufor** (co40_domination_x_xx_blufor.enoch.pbo)<br/><br/>
+    > [Needs Contact DLC (Livonia/Enoch island is part of the Contact DLC)](https://store.steampowered.com/app/1021790/Arma_3_Contact/)
+
+***
+#### **Global Mobilization DLC**
+* **Weferlingen Blufor** (co40_domination_x_xx_blufor.gm_weferlingen_summer.pbo)
+* **Weferlingen Winter Blufor** (co40_domination_x_xx_blufor.gm_weferlingen_winter.pbo)<br/><br/>
+    > [Need Global Mobilization DLC](https://store.steampowered.com/app/1042220/Arma_3_Creator_DLC_Global_Mobilization__Cold_War_Germany/)
+
+***
+#### **CUP**
+* **Chernarus 2020 Blufor** (co40_domination_x_xx_blufor.cup_chernarus_A3.pbo)
+* **Chernarus Blufor** (co40_domination_x_xx_blufor.chernarus.pbo)
+* **Winter Chernarus Blufor** (co40_domination_x_xx_blufor.chernarus_winter.pbo)
+* **Sahrani Blufor** (co40_domination_x_xx_blufor.sara.pbo)
+* **Takistan Blufor** (co40_domination_x_xx_blufor.takistan.pbo)<br/><br/>
+    > Need **all **Arma 3 CUP addons plus CBA<br/>
+    > [CBA A3 Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=450814997)<br/>
+    > [CUP Units Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=497661914)<br/>
+    > [CUP Vehicles Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=541888371)<br/>
+    > [CUP Weapons Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=497660133)<br/>
+    > [CUP Terrains - Core Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=583496184)<br/>
+    > [CUP Terrains - Maps Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=583544987)<br/>
+    > [CUP Terrains - Maps 2.0 Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=1981964169)<br/>
+
+***
+#### **RHS**
+* **Altis RHS Blufor** (co40_domination_x_xx_rhs_blufor.altis.pbo)
+* **Altis RHS Opfor** (co40_domination_x_xx_rhs_opfor.altis.pbo)<br/><br/>
+    > Need all RHS addons<br/>
+    > [RHSUSAF Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=843577117)<br/>
+    > [RHSAFRF Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=843425103)<br/>
+    > [RHSSAF Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=843632231)<br/>
+    > [RHSGREF Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=843593391)<br/>
+
+***
+#### **IFA3**
+* **IFA3** (co40_domination_x_xx_opfor_ifa3.staszow.pbo)<br/><br/>
+    > Needs IFA3 and CUP Terrains - Core<br/>
+    > [IFA3 Steam Workshop](https://steamcommunity.com/sharedfiles/filedetails/?id=660460283)<br/>
+    > [CUP Terrains - Core Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=583496184)<br/>
+
+***
+#### **Unsung**
+* **Unsung Blufor** (co40_domination_x_xx_blufor_usnung.song_bin_tanh.pbo)<br/><br/>
+    > Needs the Unsung mod<br/>
+    > [Unsung Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=943001311)<br/>
+
+#### **Global Mobilization DLC**
+* **Weferlingen Blufor** (co40_domination_x_xx_blufor.cam_lao_nam.pbo)
+    > [Need S.O.G. Prairie Fire DLC](https://store.steampowered.com/app/1227700/Arma_3_Creator_DLC_SOG_Prairie_Fire/)

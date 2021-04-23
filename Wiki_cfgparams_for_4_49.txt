@@ -224,11 +224,19 @@
 > If a SQL database is available players will get kicked out of air vehicles if their score is below d_score_needed_to_fly. Doesn't affect inital choppers like MHQ/transport; can be disabled with -1 (Disabled)<br/>
 > Available options in seconds: -1 (disabled), 10, 50, 100, 500, 1000, 2000 and 5000<br/>
 #### **d_without_nvg / Without NVgoggles:**
-> Default: 1 (No, disabled; 0 or Yes to remove nv goggles)<br/>
+> Default: 1 (No, disabled)<br/>
 > If enabled removes night vision goggles from players and AI and blocks NV sights<br/>
+> Available options:<br/>
+>   - Yes (0)<br/>
+>   - No (1)<br/>
+>   - Block but not for missile launchers (2)<br/>
 #### **d_without_ti / Disable Thermal Imaging (TI) for inf weapons/optics:**
-> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
+> Default: 1 (No, disabled)<br/>
 > If enabled thermal imaging for infantry weapons/optics is blocked<br/>
+> Available options:<br/>
+>   - Yes (0)<br/>
+>   - No (1)<br/>
+>   - Block but not for missile launchers (2)<br/>
 #### **d_without_vec_ti / Disable vehicle TI:**
 > Default: 1 (No, disabled; 0 or Yes to remove termal imaging)<br/>
 > If enabled removes termal imaging from vehicles<br/>
@@ -247,8 +255,12 @@
 > Default: 120 (seconds)<br/>
 > Time it takes to fire a guided launcher again (too avoid players spamming targets with missiles)<br/>
 > Available options in seconds: 0 (disabled), 60, 120, 180, 240 and 300<br/>
+#### **d_disable_player_arty / Disable player artillery**
+> Default: 0 (No, player arty enabled; 1 or Yes to disable player artillery)<br/>
 #### **d_arty_unlimited / Disable artillery cooldown**
 > Default: 0 (No, artillery cooldown enabled; 1 or Yes to disable artillery cooldown)<br/>
+#### **d_disable_player_cas / Disable player CAS**
+> Default: 0 (No, player CAS enabled; 1 or Yes to disable player CAS)<br/>
 #### **d_enable_civs / Enable civilians**
 > Default: 0 (No, disabled; 1 or Yes to enable civilians)<br/>
 #### **d_civ_unitcount / Civilian unit count per group**
