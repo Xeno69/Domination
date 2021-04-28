@@ -6,7 +6,9 @@
 // When triggered an unconscious friendly pilot will be spawned in a building in the maintarget.
 // When players reach the area that pilot will become a priority target.
 // All moving enemies will move and attack that specific unit until dead.
-// Players must protect the pilot long enough to win the mission.
+// Players must protect the pilot long enough to win the event.
+
+// TODO - bug, sometimes the pilot is spawned in an exposed area and is impossible to defend
 
 #ifdef __TT__
 //do not run this event in TvT (for now)
@@ -74,7 +76,6 @@ private _bldg = nil;
 private _marker = nil;
 
 {
-	//dry run to find a suitable building
 	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse;
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
@@ -93,7 +94,7 @@ if (!isNil "_bldg") then {
 	diag_log [format ["fn_event_sidevipdefend: failed to garrison and will remain in starting position: %1", _x]];
 } forEach _unitsNotGarrisoned;
 
-// pilot cannot move
+// pilot cannot move for the entire event
 _pilot1 setUnconscious true;
 
 _event_target_name = name _pilot1;
