@@ -449,6 +449,7 @@ class cfgDomFuncs {
 			addc(event_guerrilla_infantry_incoming);
 			addc(event_rabbitrescue);
 			addc(event_markedfordeath);
+			addc(event_sidevipdefend);
 		};
 		class Dom_Server {
 			file = "server";
