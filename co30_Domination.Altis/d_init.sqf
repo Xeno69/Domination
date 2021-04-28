@@ -47,7 +47,7 @@ if (hasInterface) then {
 	d_ak_hra = actionKeys "HeliRopeAction";
 	d_ak_hslm = actionKeys "HeliSlingLoadManager";
 	
-	d_player_radioprotocol = profileNamespace getVariable ["dom_player_radioprotocol", false];
+	//d_player_radioprotocol = profileNamespace getVariable ["dom_player_radioprotocol", false];
 
 	if (isMultiplayer) then {
 		["d_server_name", [500, 500], "ICON", "ColorYellow", [2, 2], format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1583a", serverName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
@@ -59,12 +59,12 @@ if (hasInterface) then {
 
 if (d_GrasAtStart == 1) then {
 	setTerrainGrid 50;
-	d_graslayer_index = 2;
+	d_graslayer_index = 0;
 } else {
 	if (hasInterface) then {
 		if (d_Terraindetail == 1) then {
-			d_graslayer_index = 2;
-			setTerrainGrid 12.5;
+			d_graslayer_index = 1;
+			setTerrainGrid 25;
 		} else {
 			private _tg = profileNamespace getVariable ["dom_terraingrid", getTerrainGrid];
 			diag_log ["DOM terraingrid at start:", _tg];
@@ -74,6 +74,9 @@ if (d_GrasAtStart == 1) then {
 				if (_tmpidx != -1) then {
 					d_graslayer_index = _tmpidx;
 				};
+			} else {
+				setTerrainGrid 25;
+				d_graslayer_index = 1;
 			};
 		};
 	};
@@ -143,7 +146,7 @@ if (d_with_dynsim == 0) then {
 };
 
 if (isServer) then {
-	private _all_farp_flags = (allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
+	private _all_farp_flags = (allMissionObjects "FlagCarrierCore") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
 	
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
@@ -483,6 +486,11 @@ if (isServer) then {
 	{
 		[_x, 300, false] spawn d_fnc_vehirespawn;
 	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
+	
+	private _specialv = vehicles select {(str _x) select [0, 15] isEqualTo "d_vecs_special_"};
+	if (_specialv isNotEqualTo []) then {
+		_specialv call d_fnc_initvecsspecial;
+	};
 #else
 	private _choppers = [[d_chopper_1,3001,true,600],[d_chopper_2,3002,true,1500],[d_chopper_3,3003,false,1500],[d_chopper_4,3004,false,600],[d_chopper_5,3005,false,600],[d_chopper_6,3006,false,600],
 		[d_choppero_1,4001,true,600],[d_choppero_2,4002,true,1500],[d_choppero_3,4003,false,1500],[d_choppero_4,4004,false,600],[d_choppero_5,4005,false,600],[d_choppero_6,4006,false,600]] select {!isNil {_x # 0}};
@@ -644,7 +652,7 @@ if (hasInterface) then {
 	private _icounter_o = 0;
 	private _icounter_b = 0;
 	private _icounter_i = 0;
-	private _allmissobjs = allMissionObjects "FlagCarrier";
+	private _allmissobjs = allMissionObjects "FlagCarrierCore";
 	{
 #ifndef __TT__
 		private _fla = _x;
@@ -700,26 +708,26 @@ if (hasInterface) then {
 	} forEach (_allmissobjs select {(str _x) select [0, 15] isEqualTo "d_respawn_point"});
 
 	if (d_with_ranked) then {
-		if (d_rhs) then {
-			call compileScript ["i_weapons_rhs.sqf", false];
-		} else {
-			if (d_cup) then {
-				call compileScript ["i_weapons_CUP.sqf", false];
-			} else {
-				if (d_ifa3lite) then {
-					call compileScript ["i_weapons_IFA3.sqf", false];
-				} else {
-					if (d_gmcwg) then {
-						call compileScript ["i_weapons_gmcwg.sqf", false];
-					} else {
-						if (d_unsung) then {
-							call compileScript ["i_weapons_UNSUNG.sqf", false];
-						} else {
-							call compileScript ["i_weapons_default.sqf", false];
-						};
-					};
-				};
+		call {
+			if (d_rhs) exitWith {
+				call compileScript ["i_weapons_rhs.sqf", false];
 			};
+			if (d_cup) exitWith {
+				call compileScript ["i_weapons_CUP.sqf", false];
+			};
+			if (d_ifa3lite) exitWith {
+				call compileScript ["i_weapons_IFA3.sqf", false];
+			};
+			if (d_gmcwg) exitWith {
+				call compileScript ["i_weapons_gmcwg.sqf", false];
+			};
+			if (d_unsung) exitWith {
+				call compileScript ["i_weapons_UNSUNG.sqf", false];
+			};
+			if (d_vn) exitWith {
+				call compileScript ["i_weapons_vn.sqf", false];
+			};
+			call compileScript ["i_weapons_default.sqf", false];
 		};
 	};
 };

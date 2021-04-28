@@ -39,8 +39,8 @@ if (d_show_player_marker isNotEqualTo 0) then {
 			if (_dodraw) then {
 				_text = if (_type isNotEqualTo 1) then {
 					if (!_inv) then {
-						_vc = _x getVariable ["d_ut_c", 37];
-						if (_vc > 36) then {
+						_vc = _x getVariable ["d_ut_c", 47];
+						if (_vc > 46) then {
 							_x setVariable ["d_ut_c", 0];
 							call {
 								if (_s_pl_ma isEqualTo 1) exitWith {
@@ -58,12 +58,12 @@ if (d_show_player_marker isNotEqualTo 0) then {
 							_res
 						} else {
 							_x setVariable ["d_ut_c", _vc + 1];
-							_x getVariable "d_u_text";
+							_x getVariable "d_u_text"
 						};
 					} else {
 						if (player distance2D _v < 3000) then {
-							_vc = _v getVariable ["d_vma_c", 31];
-							if (_vc > 30) then {
+							_vc = _v getVariable ["d_vma_c", 41];
+							if (_vc > 40) then {
 								_nmt = _v getVariable "d_ma_text";
 								__TRACE_1("","_nmt")
 								if (isNil "_nmt") then {
@@ -74,16 +74,14 @@ if (d_show_player_marker isNotEqualTo 0) then {
 								_crw = crew _v;
 								_ccrwm1 = count _crw - 1;
 								{
-									if (alive _x) then {
-										_nt pushBack (name _x);
-										if (_forEachIndex < _ccrwm1) then {
-											_nt pushBack ", ";
-										};
+									_nt pushBack (name _x);
+									if (_forEachIndex < _ccrwm1) then {
+										_nt pushBack ", ";
 									};
-								} forEach _crw;
+								} forEach (_crw select {alive _x});
 								_v setVariable ["d_vma_c", 0];
 								__TRACE_1("","_nt")
-								_res = (_nt joinString "");
+								_res = _nt joinString "";
 								_v setVariable ["d_mac_text", _res];
 								_res
 							} else {

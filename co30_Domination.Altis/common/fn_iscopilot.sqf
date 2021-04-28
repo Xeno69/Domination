@@ -1,5 +1,5 @@
 // by samatra
-#define __DEBUG__
+//#define __DEBUG__
 #define THIS_FILE "fn_iscopilot.sqf"
 #include "..\x_setup.sqf"
 

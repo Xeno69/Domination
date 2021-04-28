@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_store_rwitems.sqf"
 #include "..\x_setup.sqf"
 
 player setVariable ["d_pprimweap", primaryWeapon player];

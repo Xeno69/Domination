@@ -1,6 +1,5 @@
 //#define __DEBUG__
 // by Xeno
-#define THIS_FILE "fn_intel_updnet.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

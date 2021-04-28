@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_call_cas.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
@@ -22,7 +21,7 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 private "_pos_lt";
 private _do_exit = false;
 
-if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
+if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 	private _lt = laserTarget player;
 
 	__TRACE_1("","_lt")

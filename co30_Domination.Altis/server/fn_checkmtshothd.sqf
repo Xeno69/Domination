@@ -15,7 +15,7 @@ _mm = toLowerANSI(getText(configFile>>"CfgAmmo">>(_this # 4)>>"simulation"));
 __TRACE_1("","_mm")
 #endif
 private _r = if ((_this # 4) call d_fnc_checksimminet) then {
-	_this # 2
+	(_this # 2) * 1.1
 } else {
 	0
 };

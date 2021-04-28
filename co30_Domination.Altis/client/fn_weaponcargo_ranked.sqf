@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_weaponcargo_ranked.sqf"
 #include "..\x_setup.sqf"
 
 // bis_fnc_arsenal_data indices

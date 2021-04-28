@@ -15,7 +15,11 @@ for "_i" from 1 to _num_mines do {
 };
 
 d_mines_created = [];
+#ifndef __VN__
 private _mtype = selectRandom ["APERSMine", "APERSBoundingMine", "SLAMDirectionalMine", "APERSTripMine"];
+#else
+private _mtype = selectRandom ["vn_mine_ammobox_range", "vn_mine_punji_01", "vn_mine_punji_02", "vn_mine_punji_03", "vn_mine_tm57"];
+#endif
 
 for "_i" from 0 to (_num_mines - 1) do {
 	private _mine = createMine [_mtype, _m_pos_ar # _i, [], 0];

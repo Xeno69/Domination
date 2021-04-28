@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_checkdriver_wreck.sqf"
 #include "..\x_setup.sqf"
 
 params ["_vec", "_position", "_enterer"];

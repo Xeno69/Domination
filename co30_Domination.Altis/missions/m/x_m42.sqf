@@ -16,7 +16,6 @@ if (isServer) then {
 	private _ogroup = [d_side_enemy] call d_fnc_creategroup;
 	private _sm_vec = _ogroup createUnit [d_soldier_officer, _poss, [], 0, "NONE"];
 	[_sm_vec] joinSilent _ogroup;
-	_ogroup deleteGroupWhenEmpty true;
 	_poss set [2, 0];
 	[_sm_vec, _poss] call d_fnc_setposagls;
 	_sm_vec call d_fnc_removenvgoggles_fak;

@@ -45,9 +45,9 @@
 ["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_MG"] call d_fnc_GetConfigGroup,
 ["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_support"] call d_fnc_GetConfigGroup,
 ["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_lite"] call d_fnc_GetConfigGroup,
-["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_fast"] call d_fnc_GetConfigGroup,
-["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team"] call d_fnc_GetConfigGroup,
-["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_MG"] call d_fnc_GetConfigGroup,
-["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_support"] call d_fnc_GetConfigGroup,
-["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_lite"] call d_fnc_GetConfigGroup,
-["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_fast"] call d_fnc_GetConfigGroup
+["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_d_infantry","rhs_group_nato_usmc_recon_d_infantry_team_fast"] call d_fnc_GetConfigGroup
+//["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team"] call d_fnc_GetConfigGroup,
+//["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_MG"] call d_fnc_GetConfigGroup,
+//["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_support"] call d_fnc_GetConfigGroup,
+//["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_lite"] call d_fnc_GetConfigGroup,
+//["West","rhs_faction_usmc_d","rhs_group_nato_usmc_recon_wd_infantry","rhs_group_nato_usmc_recon_wd_infantry_team_fast"] call d_fnc_GetConfigGroup

@@ -1,8 +1,24 @@
 4.49
 
+- Added: S.O.G. Prairie Fire version
+- Added: New "scud" side mission, destroy tactical ballistic missle and launcher (currently only for S.O.G. Prairie Fire)
+- Added: New param d_disable_player_arty (Disable player artillery), set to Yes / 1 will remove marking and calling artillery for players
+- Added: New param d_disable_player_cas (Disable player CAS), set to Yes / 1 will remove calling CAS for players
+- Added: T15 and M1A2SEPv2 in the RHS versions
 - Changed: Added new mode "Block but not for missile launchers" to d_without_nvg and d_without_ti params
+- Changed: Sway and fatigue now disabled by default, revive max lifes set to unlimited
+- Changed: Repair/refuel points checktime increased to two minutes because of engine startup times in the RHS versions
 - Fixed: MHQ near ammo box check when placing a satchel was still reporting true even when the MHQ was gone
 - Fixed: If gras at start and player can't change gras layer was activated no gras was shown
 - Fixed: DeleteMarkerLocal was only allowed to be remotely executed on the server (which makes no sense)
 - Fixed: Server localization instead of client localization was used for many markers created on the server
 - Fixed: Use "CAN_COLLIDE" for vehicle creation of bonus vehicles to prevent them flying up in the air at creation if there is another vehicle at the same spot
+- Fixed: Somehow initing special vehicles (handled like bonus vehicles from sidemissions) got lost
+- Fixed: SAM side missions objects now always have radar on
+- Fixed: Script error in admin dialog
+- Fixed: It could happen that when base respawn was inside a hangar that players spawned on the roof
+- Fixed: Teleporting and creating vehicles was not possible if the MHQ was a boat/ship
+- Fixed: Some kbTell messages like Camp captured didn't show up anymore
+- Fixed: Bipod check for RHS weapons was missing some bipods
+- Fixed: Some groups gone missing in the RHS blufor allmen arrays
+- Many scripts optimized again

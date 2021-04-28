@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_draw3d_ace.sqf"
 #include "..\x_setup.sqf"
 
 if (alive player && {!(player getVariable ["ace_isunconscious", false])}) then {

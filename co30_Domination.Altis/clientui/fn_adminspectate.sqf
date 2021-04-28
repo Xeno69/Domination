@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_adminspectate.sqf"
 #include "..\x_setup.sqf"
 
 if (isMultiplayer && {!d_pisadminp}) exitWith {d_commandingMenuIniting = false};

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_bikekilled.sqf"
 #include "..\x_setup.sqf"
 
 params ["_vec"];

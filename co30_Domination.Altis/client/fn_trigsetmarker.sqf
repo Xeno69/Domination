@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_trigsetmarker.sqf"
 #include "..\x_setup.sqf"
 
 private _mar = (_this # 0) getVariable "d_trigmarker";

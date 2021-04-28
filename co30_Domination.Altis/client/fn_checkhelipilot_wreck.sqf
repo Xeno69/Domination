@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_checkhelipilot_wreck.sqf"
 #include "..\x_setup.sqf"
 
 params ["_vec", "_position", "_enterer"];

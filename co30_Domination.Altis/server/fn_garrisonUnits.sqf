@@ -39,7 +39,6 @@ if (_unitMovementMode == 2) then {
 		_x setUnitPos "UP";
 	} forEach _units_to_garrison;
 };
-_newgroup deleteGroupWhenEmpty true;
 sleep 0.2;
 //_newgroup allowFleeing 0;
 //_newgroup setVariable ["d_defend", true];

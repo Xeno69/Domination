@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_unit_tk2.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

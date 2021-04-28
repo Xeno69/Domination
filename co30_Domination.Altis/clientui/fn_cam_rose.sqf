@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_cam_rose.sqf"
 #include "..\x_setup.sqf"
 
 "d_cam_rose" cutRsc ["d_cam_rose", "PLAIN"];

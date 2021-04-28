@@ -10,7 +10,6 @@ private _mlen = count _mname;
 {
 	private _grp = [_side] call d_fnc_creategroup;
 	(([1, markerPos _x, _type, _grp, markerDir _x, false, true] call d_fnc_makevgroup) # 0) params ["_av"];
-	_grp deleteGroupWhenEmpty true;
 	_av lock true;
 	if (_remdriver && {!isNull (driver _av)}) then {
 		_av lockDriver true;

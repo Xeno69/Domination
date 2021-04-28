@@ -5,4 +5,4 @@
 
 __TRACE("SCAcheck")
 
-d_pisadminp = (isMultiplayer && {(call BIS_fnc_admin) > 1}) || {isServer};
+d_pisadminp = (isMultiplayer && {serverCommandAvailable "#exec"}) || {isServer};

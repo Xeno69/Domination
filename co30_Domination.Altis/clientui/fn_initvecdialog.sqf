@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #define THIS_FILE "fn_initvecdialog.sqf"
 #include "..\x_setup.sqf"
 
@@ -49,6 +49,9 @@ private _move_controls = false;
 
 private _ismhq = _vec getVariable ["d_vec_type", ""] == "MHQ";
 
+__TRACE_1("","_ismhq")
+__TRACE_2("","_caller","currentPilot _vec")
+
 if (_caller != currentPilot _vec) then {
 	if (_ismhq) then {
 		if !(_caller in _vec) then {
@@ -68,7 +71,9 @@ if (_caller != currentPilot _vec) then {
 	_move_controls = true;
 };
 
+__TRACE_1("1","_move_controls")
 if (!_move_controls && {!isNil {_vec getVariable "d_choppertype"}}) then {_move_controls = true};
+__TRACE_1("2","_move_controls")
 
 if (d_WithMHQTeleport == 1) then {
 	__control(44453) ctrlShow false;
@@ -103,7 +108,7 @@ if (_move_controls) then {
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.17);
 	_control ctrlCommit 0;
 } else {
-	if (_vec getVariable ["d_MHQ_Deployed", false]) then {
+	if (_vec getVariable ["d_MHQ_Deployed", false] || {_ismhq && {_vec isKindOf "Ship"}}) then {
 		__control(44462) ctrlSetText (localize "STR_DOM_MISSIONSTRING_610");
 		if (_hasbox) then {
 			__control(44448) ctrlEnable true;
@@ -137,7 +142,7 @@ if (_move_controls) then {
 	};
 };
 
-if (d_ifa3lite || {d_gmcwg || {d_unsung}}) then {
+if (d_ifa3lite || {d_gmcwg || {d_unsung || {d_vn}}}) then {
 	__control(44459) ctrlShow false;
 	__control(44460) ctrlShow false;
 };

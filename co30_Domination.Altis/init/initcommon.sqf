@@ -81,6 +81,10 @@ if (isServer) then {
 	d_WithLessArmor = 1;
 	d_WithLessArmor_side = 1;
 #endif
+#ifdef __VN__
+	d_WithLessArmor = 1;
+	d_WithLessArmor_side = 1;
+#endif
 
 	// set enemy mode
 	d_WithLessArmor call d_fnc_setenemymode;
@@ -238,8 +242,6 @@ if (hasInterface) then {
 
 	// rank needed to fly the wreck lift chopper
 	d_wreck_lift_rank = "CAPTAIN";
-
-	d_graslayer_index = [1, 0] select (d_GrasAtStart == 1);
 
 	d_disable_viewdistance = d_ViewdistanceChange == 1;
 	

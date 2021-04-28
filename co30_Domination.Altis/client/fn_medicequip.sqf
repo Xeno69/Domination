@@ -1,5 +1,4 @@
 // by psycho
-#define THIS_FILE "fn_medicequip.sqf"
 #include "..\x_setup.sqf"
 params ["_healer"];
 

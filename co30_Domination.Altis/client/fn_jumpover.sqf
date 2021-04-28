@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_jumpover.sqf"
 #include "..\x_setup.sqf"
 
 if ((_this # 1) in d_ak_getover && {d_player_canu && {speed player > 11 && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}}) then {

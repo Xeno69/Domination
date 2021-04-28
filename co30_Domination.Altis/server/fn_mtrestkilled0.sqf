@@ -10,6 +10,7 @@ if (!isNil "_trig") then {
 	deleteVehicle _trig;
 };
 private _mt_done = _obj getVariable ["d_mt_done", false];
+__TRACE_1("","_mt_done")
 if (!_mt_done) then {
 	d_num_barracks_objs = d_num_barracks_objs - 1;
 	d_groups_respawn_time_add = d_groups_respawn_time_add + 30 + (random 10);
@@ -65,7 +66,7 @@ if (!_mt_done) then {
 	};
 };
 
-if ((typeOf _obj) == d_barracks_building) then {
+if (!d_vn && {(typeOf _obj) == d_barracks_building}) then {
 	_obj spawn {
 		scriptName "spawn checkmtrestkilled0 1";
 		private _epos = _this getVariable "d_v_pos";

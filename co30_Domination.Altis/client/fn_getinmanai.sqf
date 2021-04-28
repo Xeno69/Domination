@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_getinmanai.sqf"
 #include "..\x_setup.sqf"
 
 params ["_unit", "_pos", "_vec"];

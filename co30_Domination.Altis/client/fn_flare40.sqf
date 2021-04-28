@@ -1,4 +1,3 @@
-#define THIS_FILE "fn_flare40.sqf"
 #include "..\x_setup.sqf"
 
 params ["_lightp"];

@@ -26,7 +26,6 @@ private _ogroup = [d_side_enemy] call d_fnc_creategroup;
 private _sm_vec = _ogroup createUnit [_type, _poss, [], 0, "NONE"];
 [_sm_vec] joinSilent _ogroup;
 _sm_vec allowDamage false;
-_ogroup deleteGroupWhenEmpty true;
 _sm_vec spawn {
 	scriptName "spawn_sideelimo";
 	sleep 20;

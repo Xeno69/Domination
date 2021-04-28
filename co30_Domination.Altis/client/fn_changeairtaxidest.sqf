@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_changeairtaxidest.sqf"
 #include "..\x_setup.sqf"
 
 d_x_do_call_taxi = false;

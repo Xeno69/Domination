@@ -1,6 +1,5 @@
 // by Xeno, ACE support by Auge
 //#define __DEBUG__
-#define THIS_FILE "fn_handleheal.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("","_this")

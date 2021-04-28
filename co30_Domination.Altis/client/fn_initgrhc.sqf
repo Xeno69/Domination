@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_initgrhc.sqf"
 #include "..\x_setup.sqf"
 
 if ((_this # 1) isNotEqualTo []) then {

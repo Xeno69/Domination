@@ -19,6 +19,7 @@ if (_pa isNotEqualTo []) then {
 	
 	/*
 	// this would be better because it ends the loop once the condition is met
+	// Xeno: the forEach loop above sets _isOccupiedByEnemy to true, so all following elements in the array are ignored anyway.
 	((_pa # 0) nearEntities _distancePlayerSideTooClose) findIf {
 		private _ret = alive _x && {_x isKindOf "CAManBase" && {side group _x == _sideHostile }};
 		if (_ret) then {

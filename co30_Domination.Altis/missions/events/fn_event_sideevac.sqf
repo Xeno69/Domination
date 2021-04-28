@@ -132,9 +132,6 @@ _pilot1 setDamage 0.5;
 _pilot2 disableAI "PATH";
 _pilot2 setDamage 0.5;
 
-_owngroup1 deleteGroupWhenEmpty true;
-_owngroup2 deleteGroupWhenEmpty true;
-
 if (d_with_dynsim == 0) then {
 	[_owngroup1] spawn d_fnc_enabledynsim;
 	[_owngroup2] spawn d_fnc_enabledynsim;

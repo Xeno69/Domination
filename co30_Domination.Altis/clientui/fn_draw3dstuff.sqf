@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_draw3dstuff.sqf"
 #include "..\x_setup.sqf"
 
 private _pos_cam = positionCameraToWorld [0,0,0];

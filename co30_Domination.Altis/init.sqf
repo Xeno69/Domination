@@ -14,6 +14,7 @@ if (isMultiplayer && {hasInterface}) then {
 	enableRadio false;
 	showChat false;
 	0 fadeSound 0;
+	0 fadeEnvironment 0;
 	titleText ["", "BLACK FADED"];
 };
 

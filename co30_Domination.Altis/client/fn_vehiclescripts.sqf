@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_vehiclescripts.sqf"
 #include "..\x_setup.sqf"
 
 private _vec = _this # 2;
@@ -141,7 +140,7 @@ if (_vec isKindOf "Air") then {
 	if ((_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) || {_vec isKindOf "StaticWeapon" && {!(_vec isKindOf "StaticATWeapon")}}) then {
 		[_vec] spawn d_fnc_vec_hudsp;
 	};
-	if (d_MHQDisableNearMT != 0 && {!d_playerInMHQ && {(_vec getVariable ["d_vec_type", ""]) == "MHQ"}}) then {
+	if (d_MHQDisableNearMT != 0 && {!d_playerInMHQ && {!(_vec isKindOf "Ship") && {(_vec getVariable ["d_vec_type", ""]) == "MHQ"}}}) then {
 		d_playerInMHQ = true;
 		[_vec] spawn d_fnc_mhqCheckNearTarget;
 	};

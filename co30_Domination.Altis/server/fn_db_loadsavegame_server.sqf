@@ -113,7 +113,8 @@ d_bonus_vecs_db = _ar # 9;
 	} else {
 		_x
 	};
-	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
+	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 0, "NONE"];
+	_vec allowDamage false;
 	if (unitIsUAV _vec) then {
 		private _uavgrp = createVehicleCrew _vec;
 		_uavgrp deleteGroupWhenEmpty true;
@@ -160,10 +161,28 @@ d_bonus_vecs_db = _ar # 9;
 
 	if (!_isar) then {
 		_vec setDir _dir;
-		_vec setVehiclePosition [_endpos, [], 0, "CAN_COLLIDE"];
+		_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+		[_vec, _endpos] spawn {
+			sleep 0.2;
+			(_this # 0) setVehiclePosition [(_this # 1), [], 1, "NONE"];
+			sleep 0.2;
+			(_this # 0) setVectorUp [0, 0, 1];
+			sleep 0.5;
+			(_this # 0) setDamage 0;
+			(_this # 0) allowDamage true;
+		};
 	} else {
 		_vec setDir (_x # 2);
-		_vec setVehiclePosition [_x # 1, [], 0, "CAN_COLLIDE"];
+		_vec setVehiclePosition [_x # 1, [], 0, "NONE"];
+		[_vec, _x # 1] spawn {
+			sleep 0.2;
+			(_this # 0) setVehiclePosition [(_this # 1), [], 1, "NONE"];
+			sleep 0.2;
+			(_this # 0) setVectorUp [0, 0, 1];
+			sleep 0.5;
+			(_this # 0) setDamage 0;
+			(_this # 0) allowDamage true;
+		};
 	};
 
 	[_vec, 11] call d_fnc_setekmode;
@@ -186,7 +205,7 @@ d_retaken_farpspos = if (count _ar >= 12) then {
 };
 __TRACE_1("","d_retaken_farpspos")
 if (d_retaken_farpspos isEqualType [] && {d_retaken_farpspos isNotEqualTo []}) then {
-	private _allflags = (allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
+	private _allflags = (allMissionObjects "FlagCarrierCore") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
 	{
 		private _poss = _x;
 		private _flag = objNull;
@@ -267,7 +286,8 @@ publicVariable "d_searchintel";
 
 private _fnc_tt_bonusvec = {
 	params ["_vec_type", "_d_bonus_create_pos", "_d_bonus_air_positions", "_d_bap_counter", "_d_bonus_vec_positions", "_d_bvp_counter", "_side"];
-	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
+	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "NONE"];
+	_vec allowDamage false;
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
 		_endpos = (_d_bonus_air_positions # _d_bap_counter) # 0;
@@ -295,7 +315,16 @@ private _fnc_tt_bonusvec = {
 	};
 
 	_vec setDir _dir;
-	_vec setVehiclePosition [_endpos, [], 0, "CAN_COLLIDE"];
+	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+	[_vec, _endpos] spawn {
+		sleep 0.2;
+		(_this # 0) setVehiclePosition [(_this # 1), [], 1, "NONE"];
+		sleep 0.2;
+		(_this # 0) setVectorUp [0, 0, 1];
+		sleep 0.5;
+		(_this # 0) setDamage 0;
+		(_this # 0) allowDamage true;
+	};
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 	_vec setVariable ["d_isspecialvec", true, true];
 	[_vec, 11] call d_fnc_setekmode;

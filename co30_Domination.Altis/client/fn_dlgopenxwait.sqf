@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_dlgopenxwait.sqf"
 #include "..\x_setup.sqf"
 
 sleep 0.1;

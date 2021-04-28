@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_recruitsetup.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
@@ -118,6 +117,13 @@ if (isNil "d_UnitsToRecruit") then {
 #ifdef __CSLA__
 	d_UnitsToRecruit = switch (d_player_side) do {
 		case blufor: {[]};
+		case opfor: {[]};
+		case independent: {[]};
+	};
+#endif
+#ifdef __VN__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {["vn_b_men_army_15", "vn_b_men_army_07", "vn_b_men_army_12", "vn_b_men_army_06", "vn_b_men_army_03", "vn_b_men_army_04", "vn_b_men_army_05", "vn_b_men_army_10"]};
 		case opfor: {[]};
 		case independent: {[]};
 	};

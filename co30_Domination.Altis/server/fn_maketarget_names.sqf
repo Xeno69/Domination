@@ -3,13 +3,19 @@
 #define THIS_FILE "fn_maketarget_names.sqf"
 #include "..\x_setup.sqf"
 
+#ifndef __VN__
+private _cr = 300;
+#else
+private _cr = 250;
+#endif
+
 {
 	private _dtar = _x;
 	private _name = _dtar getVariable "d_cityname";
 	if (!isNil "_name") then {
 		private _pos = getPosWorld _dtar;
 		_pos set [2, 0];
-		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
+		d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", _cr], _forEachIndex, _dtar];
 	} else {
 		private _nlocs = nearestLocations [_dtar, ["NameCityCapital", "NameCity", "NameVillage"], 500];
 		__TRACE_2("","_dtar","_nlocs")
@@ -21,7 +27,7 @@
 			_pos set [2, 0];
 			_name = text (_nlocs # 0);
 			_dtar setVariable ["d_cityname", _name];
-			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", 300], _forEachIndex, _dtar];
+			d_target_names pushBack [_pos, _name, _dtar getVariable ["d_cityradius", _cr], _forEachIndex, _dtar];
 		} else {
 			private _strx = format ["DOM No city found near target location %1", str _dtar];
 			hint _strx;

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_fillunload.sqf"
 #include "..\x_setup.sqf"
 
 disableSerialization;

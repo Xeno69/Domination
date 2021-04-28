@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_heli_release.sqf"
 #include "..\x_setup.sqf"
 
 params ["_vec", "_caller"];

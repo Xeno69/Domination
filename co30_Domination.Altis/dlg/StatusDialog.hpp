@@ -15,7 +15,7 @@ class D_StatusDialog {
 			style = 0;
 			colorBackgroundActive[] = {1,1,1,0.1};
 			text = "$STR_DOM_MISSIONSTRING_1301";
-			action = "closeDialog 0;uiNamespace setVariable ['d_dyxn_gr_disp', findDisplay 46 createDisplay 'RscDisplayDynamicGroups'];0 spawn d_fnc_grouplead";
+			action = "closeDialog 0;uiNamespace setVariable ['d_dyxn_gr_disp', findDisplay 46 createDisplay 'd_RscDisplayDynamicGroups'];0 spawn d_fnc_grouplead";
 			x = "0.71 * safezoneW + safezoneX";
 			y = "0.61 * safezoneH + safezoneY";
 			//w = "0.3 * safezoneW";
@@ -404,7 +404,7 @@ class D_StatusDialog {
 			h = "0.025 * safezoneH";
 		};
 #endif
-		class RadioProtocolCaption: ViewDistanceCaption {
+		/*class RadioProtocolCaption: ViewDistanceCaption {
 			idc = 1611;
 			y = "0.43 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_2052";
@@ -415,7 +415,7 @@ class D_StatusDialog {
 			y = "0.434 * safezoneH + safezoneY";
 			w = "0.02 * safezoneW";
 			h = "0.025 * safezoneH";
-		};
+		};*/
 		class EarplugsUserCaption: ViewDistanceCaption {
 			idc = 3301;
 			y = "0.47 * safezoneH + safezoneY";

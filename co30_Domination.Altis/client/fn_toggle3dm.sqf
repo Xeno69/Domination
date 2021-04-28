@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_toggle3dm.sqf"
 #include "..\x_setup.sqf"
 
 if ((_this # 1) in d_ak_3dtoggle && {d_player_canu && {!(_this # 2) && {!(_this # 3) && {!(_this # 4)}}}}) then {

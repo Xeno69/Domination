@@ -64,7 +64,6 @@ for "_i" from 0 to (__count_arti - 1) do {
 if (d_with_dynsim == 0) then {
 	[_grp, 0] spawn d_fnc_enabledynsim;
 };
-_grp deleteGroupWhenEmpty true;
 
 _pos_array = nil;
 

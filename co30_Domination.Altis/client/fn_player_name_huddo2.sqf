@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_player_name_huddo2.sqf"
 #include "..\x_setup.sqf"
 
 d_pnhuddo2_frskip = d_pnhuddo2_frskip + 1;

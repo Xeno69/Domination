@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_the_end.sqf"
 #include "..\x_setup.sqf"
 
 if (remoteExecutedOwner != 2) exitWith {};

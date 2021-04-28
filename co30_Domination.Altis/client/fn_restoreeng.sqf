@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_restoreeng.sqf"
 #include "..\x_setup.sqf"
 
 if (player distance2D (_this # 0) > 20) exitWith {

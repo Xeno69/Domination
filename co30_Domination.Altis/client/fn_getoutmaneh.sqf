@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getoutmaneh.sqf"
 #include "..\x_setup.sqf"
 
 d_player_in_vec = false;

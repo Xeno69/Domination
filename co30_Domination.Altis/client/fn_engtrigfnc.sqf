@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_engtrigfnc.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE("fn_engtrigfnc")

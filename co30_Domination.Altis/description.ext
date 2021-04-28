@@ -8,12 +8,7 @@
 #ifdef __DEBUG__
 allowFunctionsLog = 1;
 #endif
-#ifdef __DOMCFGFUNCTIONS__
 #include "cfgfunctions.hpp"
-#else
-#include "cfgfunctionsshort.hpp"
-#include "cfgfunctionscs.hpp"
-#endif
 
 author = "Xeno";
 OnLoadName = "Domination!";
@@ -37,16 +32,14 @@ class CfgWorlds {
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands including CUP, RHS, IFA3 and Unsung",
+			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization and S.O.G. Prairie Fire",
 			"There is also a PvPvE Domination TT (Two Teams) version available",
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
-			"You can configure Domination for your needs with 131 server params available in the lobby or via database"
+			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database"
 		};
 	};
 };
-
-unsafeCVL = 0;
 
 #ifdef __DEBUG__
 enableDebugConsole = 2;
@@ -92,6 +85,9 @@ class Header {
 #ifdef __GABRETA__
 	maxPlayers = 46;
 #endif
+#ifdef __VNCLN__
+	maxPlayers = 46;
+#endif
 };
 
 joinUnassigned = false; // auto assign
@@ -103,6 +99,9 @@ enableItemsDropping = 0;
 
 //(0 - default, options based; 1 forced on; 2 forced off)
 forceRotorLibSimulation = 2;
+
+// When set to 0 will stop glasses set in player profile from being added to player's gear
+allowProfileGlasses = 0;
 
 /*0 = None - None of the units are managed by the manager
 1 = All - All units are managed by the manager
@@ -197,6 +196,7 @@ class CfgRemoteExec {
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class bis_fnc_setIdentity {};
 		class bis_fnc_curatorrespawn {};
+		class d_fnc_dynamicGroups {};
 		class d_fnc_addppoints {allowedTargets = 2;};
 		class d_fnc_moduleCAS {allowedTargets = 2;};
 		class d_fnc_storeploadout {allowedTargets = 2;};
@@ -362,6 +362,10 @@ class Params {
 		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,28};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","28"};
 #endif
+#ifdef __VNCLN__
+		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30,37};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30",37};
+#endif
 		default = -1;
 	};
 
@@ -402,10 +406,13 @@ class Params {
 		default = 7;
 #endif
 #ifdef __UNSUNG__
-default = 7;
+		default = 7;
 #endif
 #ifdef __GABRETA__
 		default = 6;
+#endif
+#ifdef __VNCLN__
+		default = 7;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
@@ -413,14 +420,14 @@ default = 7;
 	class d_enablefatigue {
 		title = "$STR_DOM_MISSIONSTRING_1568";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
 	class d_enablesway {
 		title = "$STR_DOM_MISSIONSTRING_1583";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -593,6 +600,9 @@ default = 7;
 		default = 1;
 #endif
 #ifdef __GABRETA__
+		default = 1;
+#endif
+#ifdef __VNCLN__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
@@ -770,7 +780,11 @@ default = 7;
 	class d_with_ai {
 		title = "$STR_DOM_MISSIONSTRING_1023";
 		values[] = {0,1,2,3,4};
+#ifndef __VN__
 		default = 1;
+#else
+		default = 0;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2038","$STR_DOM_MISSIONSTRING_2068","$STR_DOM_MISSIONSTRING_2069"};
 	};
 
@@ -869,7 +883,7 @@ default = 7;
 	class xr_max_lives {
 		title = "$STR_DOM_MISSIONSTRING_1009";
 		values[] = {1,5,10,20,30,40,50,-1};
-		default = 30;
+		default = -1;
 		texts[] = {"1","5","10","20","30","40","50","$STR_DOM_MISSIONSTRING_1010"};
 	};
 
@@ -1013,8 +1027,22 @@ default = 7;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","180","240","300"};
 	};
 	
+	class d_disable_player_arty {
+		title = "$STR_DOM_MISSIONSTRING_2077";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_arty_unlimited {
 		title = "$STR_DOM_MISSIONSTRING_1885";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_disable_player_cas {
+		title = "$STR_DOM_MISSIONSTRING_2078";
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
@@ -2075,6 +2103,16 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Horiz, HQ";
 		speaker = "male02per";
+	};
+#endif
+#ifdef __VNCLN__
+	class VNDHQ_OP1: DHQ_BF1 {
+		name = "Van Tý Duong";
+		speaker = "male03chi";
+	};
+	class VNDHQ_OP2: DHQ_BF1 {
+		name = "Min Duong";
+		speaker = "male02chi";
 	};
 #endif
 };

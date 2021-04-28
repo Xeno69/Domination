@@ -5,5 +5,5 @@
 
 (items _this) findIf {
 	private _it = toLowerANSI _x;
-	_it find "toolkit" > -1 || {_it find "repairkit" > -1}
+	"toolkit" in _it || {"repairkit" in _it}
 } > -1

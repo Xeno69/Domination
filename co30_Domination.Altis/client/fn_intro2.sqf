@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_intro2.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
@@ -21,6 +20,7 @@ __TRACE_1("","_campos")
 
 sleep 0.01;
 1 fadeSound 1;
+1 fadeEnvironment 1;
 
 d_still_in_intro = true;
 
@@ -70,17 +70,19 @@ sleep 1;
 "d_DomLabel" cutRsc ["d_DomLabel", "PLAIN"];
 "d_ArmaLogo" cutRsc ["d_ArmaLogo", "PLAIN"];
 sleep 2;
-"d_chand" cutRsc ["d_rscchand", "PLAIN"];
+"d_rscmtexts" cutRsc ["d_rscmtexts", "PLAIN"];
 
 0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.49  </t>"], [safeZoneX + 0.1, safeZoneY + safeZoneH - 0.2, 0.9, 0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 waitUntil {scriptDone _bfehandle};
 enableSaving [false, false];
+#ifndef __VN__
 0 spawn {
 	scriptName "spawn disable environment intro2";
 	sleep 15;
 	enableEnvironment [false, true];
 };
+#endif
 
 "d_Xlabel" cutFadeout 1;
 "d_DomLabel" cutFadeout 1;
@@ -136,8 +138,11 @@ if (d_WithMHQTeleport == 0) then {
 	"d_introtxt2" cutText [format ["<t color='#ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_1988"], "PLAIN DOWN", -1, true, true];
 };
 
-if (name player == "Error: No unit" || {!isPlayer player}) then {
-	hintC "Please rejoin again!!!! Your game has not connected correctly!!!!!";
+4 fadeMusic 0;
+0 spawn {
+	scriptName "spawn_music_intro2";
+	sleep 120;
+	0 fadeMusic 1;
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom intro ended"];

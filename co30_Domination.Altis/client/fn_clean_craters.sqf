@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_clean_craters.sqf"
 #include "..\x_setup.sqf"
 
 sleep 60;

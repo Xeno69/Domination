@@ -83,6 +83,12 @@ import RscListNBox;
 import RscEdit;
 import RscCheckBox;
 import RscMapControl;
+import RscDisplayDynamicGroups;
+
+class d_RscDisplayDynamicGroups: RscDisplayDynamicGroups {
+	onLoad = "[""onLoad"", _this] call d_fnc_rscdisplaydynamicgroups";
+	onUnload = "[""onUnload"", _this] call d_fnc_rscdisplaydynamicgroups";
+};
 
 class RscBG: RscText {
 	idc = -1;

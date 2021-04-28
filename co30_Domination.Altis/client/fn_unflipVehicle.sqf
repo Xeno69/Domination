@@ -1,4 +1,3 @@
-#define THIS_FILE "fn_unflipVehicle.sqf"
 #include "..\x_setup.sqf"
 
 player removeAction (_this # 2);

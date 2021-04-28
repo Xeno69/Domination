@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_healatmash.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface || {(_this # 3) != "Heal" || {isNil {(_this # 0) getVariable "d_mplayer"} || {(_this # 0) getVariable "d_mplayer" == player || {!d_player_canu}}}}) exitWith {};

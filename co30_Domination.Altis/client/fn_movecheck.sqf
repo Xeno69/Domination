@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_movecheck.sqf"
 #include "..\x_setup.sqf"
 
 player setVariable ["d_move_opos", getPosWorld player];

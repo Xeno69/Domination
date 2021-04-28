@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_bikewait.sqf"
 #include "..\x_setup.sqf"
 
 private _vec = _this;

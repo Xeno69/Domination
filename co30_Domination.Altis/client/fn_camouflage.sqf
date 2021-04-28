@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_camouflage.sqf"
 #include "..\x_setup.sqf"
 
 private _oldstance = stance player;

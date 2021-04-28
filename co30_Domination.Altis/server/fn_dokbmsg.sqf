@@ -10,4 +10,4 @@ __TRACE_1("","owner d_kb_logic2");
 
 params ["_num", ["_val1", ""], ["_val2", ""]];
 
-call (d_kb_hash get _num);
+[_val1, _val2] call (d_kb_hash get _num);

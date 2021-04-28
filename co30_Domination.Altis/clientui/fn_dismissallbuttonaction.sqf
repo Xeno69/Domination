@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_dismissallbuttonaction.sqf"
 #include "..\x_setup.sqf"
 
 if (player getVariable "d_recdbusy") exitWith {};

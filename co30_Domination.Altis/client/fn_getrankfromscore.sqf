@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getrankfromscore.sqf"
 #include "..\x_setup.sqf"
 
 if (_this < d_points_needed # 0) exitWith {"Private"};

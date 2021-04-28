@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getmapicon.sqf"
 #include "..\x_setup.sqf"
 
 params ["_v", "_u", ["_m", false]];
@@ -32,7 +31,7 @@ if (isNil "_s") then {
 };
 __TRACE_1("","_i")
 
-if (!_m) then {
+if (!_m) exitWith {
 	//private _a = [0.7, 0.9] select (!isNull _u && {(group _u) isEqualTo (group player)});
 
 #ifdef __OWN_SIDE_BLUFOR__
@@ -50,12 +49,11 @@ if (!_m) then {
 	private _r = [_i, _s, _c];
 	_v setVariable ["d_v_not_m", _r];
 	_r
-} else {
-#ifdef __DEBUG__
-	_res = [_i, _s, _v getVariable "d_ma_color"];
-	__TRACE_1("","_res")
-#endif
-	private _r = [_i, _s, _v getVariable "d_ma_color"];
-	_v setVariable ["d_v_not_m", _r];
-	_r
 };
+#ifdef __DEBUG__
+_res = [_i, _s, _v getVariable "d_ma_color"];
+__TRACE_1("","_res")
+#endif
+private _r = [_i, _s, _v getVariable "d_ma_color"];
+_v setVariable ["d_v_not_m", _r];
+_r

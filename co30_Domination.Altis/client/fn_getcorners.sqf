@@ -1,6 +1,5 @@
 // by duda123
 //#define __DEBUG__
-#define THIS_FILE "fn_getcorners.sqf"
 #include "..\x_setup.sqf"
 
 params ["_vec"];

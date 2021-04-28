@@ -368,6 +368,11 @@ class cfgFunctions {
 			addc(LowGear_Init);
 			addc(LowGearOn);
 			addc(seapatrol);
+			addc(rscdisplaydynamicgroups);
+			addc(dynamicgroups);
+			addc(dgkup);
+			addc(dgkdown);
+			addc(dgefmeh);
 		};
 		class Dom_cba_Scripts {
 			file = "cba";

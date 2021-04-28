@@ -11,7 +11,7 @@ params ["_poss", ["_createarmor", false], ["_createinf", false]];
 
 private _flag = objNull;
 
-((allMissionObjects "FlagCarrier") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) findIf {
+((allMissionObjects "FlagCarrierCore") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) findIf {
 	private _ret = _x distance2D _poss < 50;
 	if (_ret) then {
 		_flag = _x;

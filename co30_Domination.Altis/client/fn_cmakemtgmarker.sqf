@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_cmakemtgmarker.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE("Start")

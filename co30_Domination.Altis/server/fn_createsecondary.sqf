@@ -143,13 +143,13 @@ if (d_ao_check_for_ai in [0, 1]) then {
 
 	__TRACE_1("","_nrcamps")
 
-	private _sizecamp = sizeOf d_wcamp;
-	__TRACE_1("","_sizecamp")
+	//private _sizecamp = sizeOf d_wcamp;
+	//__TRACE_1("","_sizecamp")
 	private _dist_for_points = -1;
 
 	private _isFirstCamp = true;
 
-	private _parray = [_trg_center, d_cur_target_radius + 200, 4, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+	private _parray = [_trg_center, d_cur_target_radius + 200, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 
 	for "_i" from 1 to _nrcamps do {
 		private _wf = objNull;

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_respawn_mar_anim.sqf"
 #include "..\x_setup.sqf"
 
 private _old_respmar = "";

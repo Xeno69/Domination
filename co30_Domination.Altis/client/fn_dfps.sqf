@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_dfps.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface || {d_force_isstreamfriendlyui == 1 || {isStreamFriendlyUIEnabled}}) exitWith {};

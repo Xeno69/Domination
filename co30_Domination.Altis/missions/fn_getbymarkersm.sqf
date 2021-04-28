@@ -143,15 +143,20 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 	case "sam": {
 		private _samtypes = 
 #ifdef __OWN_SIDE_OPFOR__
-		["B_SAM_System_03_F", "B_Radar_System_01_F"];
+			["B_SAM_System_03_F", "B_Radar_System_01_F"];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
-		["O_SAM_System_04_F", "O_Radar_System_02_F"];
+			call {
+				if (d_vn) exitWith {
+					["vn_sa2", "vn_o_static_rsna75"]
+				};
+				["O_SAM_System_04_F", "O_Radar_System_02_F"];
+			};
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
-		["B_SAM_System_03_F", "B_Radar_System_01_F"];
+			["B_SAM_System_03_F", "B_Radar_System_01_F"];
 #endif
-		[d_x_sm_pos # 0, random 360, _samtypes, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideobjects;
+		[d_x_sm_pos # 0, random 360, _samtypes, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, false, false, true, true] spawn d_fnc_sideobjects;
 	};
 	case "cache": {
 		[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sidecache;
@@ -164,6 +169,9 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 	};
 	case "farp": {
 		[d_x_sm_pos # 0, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc] spawn d_fnc_sideseizefarp;
+	};
+	case "scud": {
+		[d_x_sm_pos # 0, _sm_ar # 7, [d_sm_scud], false, true, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, true, true] spawn d_fnc_sideobjects;
 	};
 };
 

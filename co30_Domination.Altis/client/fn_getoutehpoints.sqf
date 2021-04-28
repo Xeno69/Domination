@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_getoutehpoints.sqf"
 #include "..\x_setup.sqf"
 
 private _unit = _this # 2;

@@ -15,7 +15,6 @@
 			private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 			
 			private _units = [_pos, [_x, d_enemy_side_short] call d_fnc_getunitlistm, _newgroup, true, true] call d_fnc_makemgroup;
-			_newgroup deleteGroupWhenEmpty true;
 			_newgroup allowFleeing 0;
 			
 			private _wp = _newgroup addWaypoint [d_x_sm_pos # 0, 10];

@@ -46,7 +46,6 @@ private _firstdone = false;
 } forEach _var;
 // TODO if tanks show better driving behaviour change it back to mixed list?
 //} forEach ([d_enemy_side_short] call d_fnc_getmixedlist);
-_agrp deleteGroupWhenEmpty true;
 sleep 0.31;
 
 _agrp setVariable ["d_PATR", true];

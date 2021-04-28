@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_setmatxtloc.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("","_this")

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_updatemove.sqf"
 #include "..\x_setup.sqf"
 
 private _dst = (player getVariable "d_move_opos") distance2D (player getVariable ["d_move_stop", getPosWorld player]);

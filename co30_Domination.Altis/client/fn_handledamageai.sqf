@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_handledamageai.sqf"
 #include "..\x_setup.sqf"
 
 if (d_player_in_base && {player inArea d_base_array}) then {

@@ -48,8 +48,6 @@ _pilot1 setDamage 0.5;
 _pilot2 disableAI "PATH";
 _pilot2 setDamage 0.5;
 
-_owngroup deleteGroupWhenEmpty true;
-
 if (d_with_dynsim == 0) then {
 	[_owngroup] spawn d_fnc_enabledynsim;
 };
@@ -189,7 +187,6 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			for "_i" from 1 to ([3,5] call d_fnc_GetRandomRangeInt) do {
 				private _newgroup = [d_enemy_side] call d_fnc_creategroup;
 				private _units = [_estart_pos, _unit_array, _newgroup, false, true] call d_fnc_makemgroup;
-				_newgroup deleteGroupWhenEmpty true;
 				sleep 1.045;
 				private _leader = leader _newgroup;
 				_leader setRank "LIEUTENANT";

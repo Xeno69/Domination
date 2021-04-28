@@ -11,7 +11,6 @@ if (isNull _officer) then {
 	private _ogroup = [d_side_enemy] call d_fnc_creategroup;
 	_officer = _ogroup createUnit [d_soldier_officer, _poss, [], 0, "NONE"];
 	[_officer] joinSilent _ogroup;
-	_ogroup deleteGroupWhenEmpty true;
 	_officer allowDamage false;
 	_poss set [2, 0];
 	[_officer, _poss] call d_fnc_setposagls;

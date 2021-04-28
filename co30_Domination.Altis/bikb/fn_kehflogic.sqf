@@ -1,6 +1,5 @@
 //#define __DEBUG__
 // by Xeno
-#define THIS_FILE "fn_kehflogic.sqf"
 #include "..\x_setup.sqf"
 
 params ["_killed"];

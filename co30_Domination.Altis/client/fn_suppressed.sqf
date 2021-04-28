@@ -1,17 +1,13 @@
 // based on LAxemann, Jokoho482, modified by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_suppressed.sqf"
 #include "..\x_setup.sqf"
 
 params ["", "_dist", "_shooter", "_insti", "", "", "_ammoConf"];
 
 __TRACE_1("","_this")
 
-if (!alive player || {player getVariable "xr_pluncon"}) exitWith {};
+if (!alive player || {isNull _insti || {player getVariable "xr_pluncon"}}) exitWith {};
 if (!isNull objectParent player && {!isTurnedOut player}) exitWith {};
-
-if (isNull _insti) then {_insti = UAVControl vehicle _shooter # 0};
-if (isNull _insti) exitWith {};
 
 if (_dist > getNumber(_ammoConf>>"suppressionRadiusBulletClose")) exitWith {};
 

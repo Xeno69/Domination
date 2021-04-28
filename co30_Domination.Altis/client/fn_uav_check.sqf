@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_uav_check.sqf"
 #include "..\x_setup.sqf"
 
 while {true} do {

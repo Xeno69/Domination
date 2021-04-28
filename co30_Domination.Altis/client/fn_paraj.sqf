@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_paraj.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

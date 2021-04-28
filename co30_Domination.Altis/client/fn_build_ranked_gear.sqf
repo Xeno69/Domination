@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_build_ranked_gear.sqf"
 #include "..\x_setup.sqf"
 
 d_non_check_items = [];

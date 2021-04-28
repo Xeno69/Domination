@@ -60,7 +60,6 @@ for "_nr" from 0 to 2 do {
 					_vdir = _pos_center getDir _pos;
 				};
 				private _reta = [_num_v, _pos, [_typenr, d_enemy_side_short] call d_fnc_getunitlistv, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
-				_newgroup deleteGroupWhenEmpty true;
 				__TRACE_1("","_reta")
 				d_x_sm_vec_rem_ar append (_reta # 0);
 				if (random 100 < 80) then {{_x allowCrewInImmobile true} forEach (_reta # 0)};

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_checkhelipilotout.sqf"
 #include "..\x_setup.sqf"
 
 if (_this # 2 != player) exitWith {};

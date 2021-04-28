@@ -7,7 +7,7 @@ __TRACE_1("","_this")
 
 if !(isServer) exitWith {};
 
-params ["_poss", ["_dir", 0], "_types", ["_dovup", true], ["_dolock", false], ["_createarmor", false], ["_createinf", false], ["_random", false], ["_camo", false]];
+params ["_poss", ["_dir", 0], "_types", ["_dovup", true], ["_dolock", false], ["_createarmor", false], ["_createinf", false], ["_random", false], ["_camo", false], ["_makecrew", false], ["_radar", false]];
 
 private _vecs = [];
 private _usevecs = [];
@@ -18,6 +18,9 @@ if (!_random) then {
 		_usevecs pushBack selectRandom _types;
 	};
 };
+
+private _units = [];
+private _usedgrp = grpNull;
 
 private _vec = objNull;
 {
@@ -55,7 +58,22 @@ private _vec = objNull;
 	_vecs pushBack _vec;
 	d_x_sm_vec_rem_ar pushBack _vec;
 	_vec addEventHandler ["handleDamage", {call d_fnc_CheckSMShotHD}];
-	d_x_sm_vec_rem_ar pushBack _vec;
+
+	if (_makecrew || {_radar}) then {
+		private _usedgrp = createVehicleCrew _vec;
+		private _units = units _usedgrp;
+		if (_units isNotEqualTo []) then {
+			_usedgrp deleteGroupWhenEmpty true;
+			d_x_sm_rem_ar append _units;
+			_vec allowCrewInImmobile true;
+			[_vec, 7] call d_fnc_setekmode;
+		} else {
+			deleteGroup _usedgrp;
+		};
+	};
+	if (_radar) then {
+		_vec setVehicleRadar 1;
+	};
 	if (_camo) then {
 		sleep 0.25;
 		private _camonet = createVehicle [d_sm_camo_net, getPos _vec, [], 0, "NONE"];

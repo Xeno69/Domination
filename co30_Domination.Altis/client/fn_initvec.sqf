@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_initvec.sqf"
 #include "..\x_setup.sqf"
 #define __vecmarker _vec setVariable ["d_ma_text", _car select 5]; \
 _vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>(_car select 3)>>"icon")]; \

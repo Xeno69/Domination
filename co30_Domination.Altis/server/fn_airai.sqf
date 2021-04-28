@@ -150,7 +150,6 @@ while {true} do {
 		__TRACE_1("","_vec")
 		sleep 0.1;
 	};
-	_grp deleteGroupWhenEmpty true;
 
 	(leader _grp) setSkill _grpskill;
 

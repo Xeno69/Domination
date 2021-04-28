@@ -7,23 +7,22 @@
 params ["_curator", "_entity"];
 private _objects = lineIntersectsSurfaces [getPosASL curatorCamera, getPosASL _entity, curatorCamera, _entity];
 {
-	_x params ["_isectPos", "_surfNormal", "_isectObj", "_parObj"];
+	_x params ["_isectPos", "", "_isectObj", ""];
 	// systemChat str typeOf _isectObj;
 	// Freedom support
-	if (tolowerANSI(typeOf _isectObj) find "land_carrier_01" != -1) exitWith {
+	if ("land_carrier_01" in tolowerANSI(typeOf _isectObj)) exitWith {
 		systemChat "Freedom class found";
 		[_entity, _isectPos] call d_curatorcv_fnc_adjustEntity;
 	};
 	// Nimitz support
-	if (tolowerANSI(typeOf _isectObj) find "jdg_carrier" != -1) exitWith {
+	if ("jdg_carrier" in tolowerANSI(typeOf _isectObj)) exitWith {
 		systemChat "Nimitz class found";
 		[_entity, _isectPos] call d_curatorcv_fnc_adjustEntity;
 	};
 	// LHD support
-	if (tolowerANSI(typeOf _isectObj) find "cup_lhd" != -1) exitWith {
+	if ("cup_lhd" in tolowerANSI(typeOf _isectObj)) exitWith {
 		systemChat "LHD class found";
 		[_entity, _isectPos] call d_curatorcv_fnc_adjustEntity;
 	};
-
 } forEach _objects;
 _entity;

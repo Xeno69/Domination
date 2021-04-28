@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_adselchanged.sqf"
 #include "..\x_setup.sqf"
 
 #define __CTRL2(A) ((uiNamespace getVariable "d_AdminDialog") displayCtrl A)
@@ -42,11 +41,11 @@ ctrlmapanimcommit _ctrl;
 private _endtime = time + 30;
 waitUntil {!isNil "d_u_r_inf" || {!d_admin_dialog_open || {!alive player || {time > _endtime}}}};
 
-if (d_u_r_inf isEqualTo [] || {!d_admin_dialog_open || {!alive player || {time > _endtime}}}) exitWith {};
+if ((!isNil "d_u_r_inf" && {d_u_r_inf isEqualTo []}) || {!d_admin_dialog_open || {!alive player || {time > _endtime}}}) exitWith {};
 
 _control ctrlEnable true;
 
-if (d_u_r_inf isEqualTo []) exitWith {_ctrlinfo ctrlSetText format [localize "STR_DOM_MISSIONSTRING_690", d_a_d_cur_name]};
+if (!isNil "d_u_r_inf" && {d_u_r_inf isEqualTo []}) exitWith {_ctrlinfo ctrlSetText format [localize "STR_DOM_MISSIONSTRING_690", d_a_d_cur_name]};
 
 _ctrlinfo ctrlSetText format [localize "STR_DOM_MISSIONSTRING_691", d_a_d_cur_name];
 

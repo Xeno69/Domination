@@ -62,8 +62,6 @@ _pilot1 disableAI "RADIOPROTOCOL";
 _pilot1 forceSpeed 0;
 (leader _prisonerGroup) setSkill 1;
 _prisonerGroup allowFleeing 0;
-_prisonerGroup deleteGroupWhenEmpty true;
-
 
 if (d_with_dynsim == 0) then {
 	[_prisonerGroup] spawn d_fnc_enabledynsim;

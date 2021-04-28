@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_setupplayer.sqf"
 #include "..\x_setup.sqf"
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
@@ -98,13 +97,15 @@ if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 	[] spawn d_fnc_showhud;
 };
 
+player disableConversation true;
 if (speaker player != "NoVoice") then {
-	[player, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];
+	[player, "NoVoice"] remoteExecCall ["setSpeaker"];
 };
+{_x disableAI "RADIOPROTOCOL"; _x setSpeaker "NoVoice"} forEach (allPlayers - [player]);
 
-if (d_player_radioprotocol) then {
-	player disableAI "RADIOPROTOCOL";
-};
+//if (d_player_radioprotocol) then {
+//	player disableAI "RADIOPROTOCOL";
+//};
 
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false, true];
@@ -176,6 +177,9 @@ if (d_weather == 0) then {
 #ifdef __UNSUNG__
 		d_withsandstorm = 1;
 #endif
+#ifdef __VN__
+		d_withsandstorm = 1;
+#endif
 #ifdef __CSLA__
 		d_withsandstorm = 1;
 #endif
@@ -209,6 +213,10 @@ if (d_with_ranked) then {
 				if (d_unsung) exitWith {
 					_weapp = "uns_m16";
 					_magp = "uns_20Rnd_556x45_Stanag";
+				};
+				if (d_vn) exitWith {
+					_weapp = "vn_m16";
+					_magp = "vn_m16_20_mag";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -484,7 +492,9 @@ if (!d_no_ai) then {
 		};
 	};
 
-	d_player_can_call_arti = 1;
+	if (d_disable_player_arty == 0) then {
+		d_player_can_call_arti = 1;
+	};
 	if (d_with_airdrop == 0) then {
 		d_player_can_call_drop = 1;
 	};
@@ -492,7 +502,7 @@ if (!d_no_ai) then {
 	player setUnitTrait ["Medic", true];
 	player setUnitTrait ["engineer", true];
 } else {
-	if (d_string_player in d_can_use_artillery) then {
+	if (d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery}) then {
 		d_player_can_call_arti = 1;
 	} else {
 		enableEngineArtillery false;
@@ -720,7 +730,7 @@ if (d_WithRevive == 0) then {
 0 spawn d_fnc_dcmcc;
 
 if (d_with_bis_dynamicgroups == 0) then {
-	["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;
+	["InitializePlayer", [player]] call d_fnc_dynamicGroups;
 	0 spawn {
 		scriptName "spawn_setupplayer3";
 		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
@@ -777,7 +787,7 @@ if (d_player_side == opfor && {markerPos "d_runwaymarker_o" isNotEqualTo [0,0,0]
 
 player call d_fnc_removenvgoggles_fak;
 #ifndef __IFA3LITE__
-if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!(player call d_fnc_hasnvgoggles)}}}) then {
+if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!d_vn && {!(player call d_fnc_hasnvgoggles)}}}}) then {
 	if (!d_csla) then {
 		player linkItem (switch (d_player_side) do {
 			case opfor: {"NVGoggles_OPFOR"};
@@ -798,7 +808,12 @@ call {
 			player addWeapon "uns_binocular_army";
 		};
 	};
-	if (d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery || {d_string_player in d_can_call_cas}}) then {
+	if (d_vn) exitWith {
+		if (_bino == "") then {
+			player addWeapon "vn_mk21_binocs";
+		};
+	};
+	if ((d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) || {d_string_player in d_can_call_cas}) then {
 		if (!d_with_ranked && {_bino != "LaserDesignator"}) then {
 			if (_bino != "") then {
 				player removeWeapon _bino;
@@ -849,18 +864,20 @@ private _fnc_artvec = {
 [11, ["d_artyvecb_", "d_artyveco_"] select (d_player_side == opfor)] call _fnc_artvec;
 #endif
 
-if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
-		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
-	} else {
-		player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
+if (d_disable_player_arty == 0) then {
+	if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
+		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
+		} else {
+			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
+		};
 	};
 };
 
-if (isNil "d_cas_plane_avail") then {
+if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
-		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla}}}) then {
+		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		} else {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
@@ -910,7 +927,7 @@ player addEventhandler ["HandleRating", {
 	if ((_this # 1) < 0) then {0} else {_this # 1}
 }];
 
-["d_scacheck", {call d_fnc_SCACheck}] call d_fnc_eachframeadd;
+["d_scacheck", {call d_fnc_SCACheck}, 0.2] call d_fnc_eachframeadd;
 
 if (d_enablefatigue == 0) then {
 	player setFatigue 0;
@@ -988,6 +1005,9 @@ if (d_arsenal_mod == 0) then {
 	if (d_unsung) then {
 		d_arsenal_mod_prestrings pushBackUnique "uns_";
 	};
+	if (d_vn) then {
+		d_arsenal_mod_prestrings append ["weapons_f_vietnam_c", "characters_f_vietnam_c"];
+	};
 	if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 		d_arsenal_mod_prestrings pushBackUnique "ace_";
 	};
@@ -1062,7 +1082,7 @@ private _har = bis_fnc_arsenal_data # 9;
 _har = _har - ["Rangefinder"];
 bis_fnc_arsenal_data set [9, _har];
 #endif
-
+call d_fnc_build_ranked_gear;
 if (d_with_ranked && {!d_no_ranked_weapons}) then {
 	call d_fnc_build_ranked_gear;
 	
@@ -1175,18 +1195,17 @@ if (d_dis_servicep == 1) then {
 	call d_fnc_initservicepoints;
 };
 
-#ifdef __ALTIS__
 0 spawn d_fnc_gimmick;
-#endif
 
 if (isMultiplayer) then {
-	if (!d_ifa3lite) then {
+	if (!d_ifa3lite && {!d_vn}) then {
 		0 spawn d_fnc_intro2;
 	} else {
 		0 spawn d_fnc_intro;
 	};
 } else {
 	{_x enableSimulation false} forEach (switchableUnits select {_x != player});
+#ifndef __VN__
 	0 spawn {
 		scriptName "spawn_setupplayer7";
 		while {true} do {
@@ -1196,6 +1215,7 @@ if (isMultiplayer) then {
 			};
 		};
 	};
+#endif
 	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 		0 spawn d_fnc_statusbar;
 	};

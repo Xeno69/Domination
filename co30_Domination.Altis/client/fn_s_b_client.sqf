@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_s_b_client.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_beam_tele.sqf"
 #include "..\x_setup.sqf"
 #define __CTRL2(A) (_display displayCtrl A)
 
@@ -113,6 +112,9 @@ if (_typepos == 1) then {
 		player setDir _global_dir;
 		if (!surfaceIsWater _global_pos) then {
 			player setVehiclePosition [_global_pos, [], 0, "NONE"]; // CAN_COLLIDE ?
+			_global_pos = getPosWorld player;
+			_global_pos set [2, 0];
+			player setPos _global_pos;
 		} else {
 			player setPosASL _global_pos;
 		};

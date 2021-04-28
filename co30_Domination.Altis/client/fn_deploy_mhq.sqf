@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_deploy_mhq.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE("Starting")
@@ -53,7 +52,7 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	[_mhq, false] remoteExecCall ["engineOn", _mhq];
 	
 	(_disp displayCtrl 44453) ctrlEnable true;
-	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_vn}}}) then {
 		(_disp displayCtrl 44459) ctrlEnable true;
 		(_disp displayCtrl 44460) ctrlEnable true;
 	};
@@ -69,7 +68,7 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	_mhq setVariable ["d_MHQ_Depltime", time + 10, true];
 	
 	(_disp displayCtrl 44453) ctrlEnable false;
-	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung}}) then {
+	if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_vn}}}) then {
 		(_disp displayCtrl 44459) ctrlEnable false;
 		(_disp displayCtrl 44460) ctrlEnable false;
 	};

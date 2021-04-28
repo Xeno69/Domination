@@ -5,7 +5,7 @@
 diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initServer.sqf"];
 if (d_with_bis_dynamicgroups == 0) then {
 	diag_log "DOM initServer.sqf: BIS DynamicGroups initialzing!";
-	["Initialize", [true]] call BIS_fnc_dynamicGroups;
+	["Initialize", [true]] call d_fnc_dynamicGroups;
 };
 
 if (d_database_found) then {
@@ -115,6 +115,7 @@ if (d_database_found) then {
 	};
 };
 
+#ifndef __VN__
 if (isDedicated) then {
 	0 spawn {
 		scriptName "spawn_initserver";
@@ -123,5 +124,6 @@ if (isDedicated) then {
 		diag_log "DOM initServer environment disabled!";
 	};
 };
+#endif
 
 diag_log [diag_frameno, diag_ticktime, time, "MPF initServer.sqf processed"];

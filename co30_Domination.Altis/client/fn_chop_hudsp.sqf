@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_chop_hudsp.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

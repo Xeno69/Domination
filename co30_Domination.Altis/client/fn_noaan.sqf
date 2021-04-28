@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_noaan.sqf"
 #include "..\x_setup.sqf"
 
 sleep 10;

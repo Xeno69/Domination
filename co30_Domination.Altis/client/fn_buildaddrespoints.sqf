@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_buildaddrespoints.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("","d_additional_respawn_points_orig")

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_scoreadded.sqf"
 #include "..\x_setup.sqf"
 
 if (!d_player_canu) exitWith {};

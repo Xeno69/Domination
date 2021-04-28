@@ -92,7 +92,6 @@ private _guerrillaBaseSkill = 0.35;
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
 	} forEach _units;
-	_newgroup deleteGroupWhenEmpty true;
 	_newgroups pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_attachchemlight.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

@@ -37,7 +37,6 @@ __TRACE_2("","_sidep","_dstart_pos")
 private _grp = [_sidep] call d_fnc_creategroup;
 private _spos = [_dstart_pos # 0, _dstart_pos # 1, 300];
 private _veca = [_spos, _spos getDir _playerpos, _ttype, _grp, false, true] call d_fnc_spawnVehicle;
-_grp deleteGroupWhenEmpty true;
 _veca params ["_vec", "_crew"];
 if (d_with_dynsim == 0) then {
 	_vec setVariable ["d_nodyn", true];

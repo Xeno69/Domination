@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_dbsave_lbchanged.sqf"
 #include "..\x_setup.sqf"
 
 disableSerialization;

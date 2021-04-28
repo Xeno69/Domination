@@ -19,3 +19,4 @@ if (_p isNotEqualTo []) then {
 		[20, _pna, _numtk, _tk] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
 	};
 };
+

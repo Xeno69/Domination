@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_playerrank.sqf"
 #include "..\x_setup.sqf"
 
 private _score = score player;
 private _d_player_old_rank = player getVariable ["d_player_old_rank", 0];
+if (_score < d_points_needed # 0 && {_d_player_old_rank == 0}) exitWith {};
 if (_score < d_points_needed # 0 && {_d_player_old_rank != 0}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] >= d_points_needed # 0) then {[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_664", _d_player_old_rank call d_fnc_GetRankIndex2]};
 	_d_player_old_rank = 0;
@@ -22,6 +22,7 @@ if (_score < d_points_needed # 0 && {_d_player_old_rank != 0}) exitWith {
 		};
 	};
 };
+if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player_old_rank == 1}}) exitWith {};
 if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player_old_rank != 1}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 1) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_665");
@@ -45,6 +46,7 @@ if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player
 		};
 	};
 };
+if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player_old_rank == 2}}) exitWith {};
 if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player_old_rank != 2}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 2) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_667");
@@ -68,6 +70,7 @@ if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player
 		};
 	};
 };
+if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player_old_rank == 3}}) exitWith {};
 if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player_old_rank != 3}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 3) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_669");
@@ -91,6 +94,7 @@ if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player
 		};
 	};
 };
+if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player_old_rank == 4}}) exitWith {};
 if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player_old_rank != 4}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 4) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_671");
@@ -114,6 +118,7 @@ if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player
 		};
 	};
 };
+if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player_old_rank == 5}}) exitWith {};
 if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player_old_rank != 5}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 5) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_673");
@@ -137,6 +142,7 @@ if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player
 		};
 	};
 };
+if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player_old_rank == 6}}) exitWith {};
 if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player_old_rank != 6}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 6) then {
 		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_675");

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_keydown_dyng.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("","_this")
@@ -9,5 +8,5 @@ if ((_this # 1) in d_ak_teamswitch && {d_player_canu && {!(_this # 2) && {!(_thi
 	[0, _this] call d_fnc_KeyDownCommandingMenu;
 	true
 } else {
-	false
+	!d_player_canu
 }

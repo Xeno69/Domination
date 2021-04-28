@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_waitartycompmap.sqf"
 #include "..\x_setup.sqf"
 
 while {true} do {

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_farp_e.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

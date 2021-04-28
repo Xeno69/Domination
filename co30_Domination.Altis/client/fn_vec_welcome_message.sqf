@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_vec_welcome_message.sqf"
 #include "..\x_setup.sqf"
 
 private _vtype = _this # 1;

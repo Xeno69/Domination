@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_dcmcc.sqf"
 #include "..\x_setup.sqf"
 
 while {true} do {

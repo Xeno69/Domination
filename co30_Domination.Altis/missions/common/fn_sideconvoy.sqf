@@ -58,8 +58,6 @@ _newgroup setCombatMode "GREEN";
 _newgroup setFormation "COLUMN";
 _newgroup setSpeedMode "LIMITED";
 
-_newgroup deleteGroupWhenEmpty true;
-
 private _wp =_newgroup addWaypoint[_pos_start, 0];
 _wp setWaypointBehaviour "SAFE";
 _wp setWaypointSpeed "NORMAL";

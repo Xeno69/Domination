@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_spawn_mash.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
@@ -60,6 +59,9 @@ call {
 	if (d_gmcwg) exitWith {
 		_medic_tent addItemCargoGlobal ["gm_ge_army_gauzeBandage", 25];
 		_medic_tent addItemCargoGlobal ["gm_ge_army_burnBandage", 25];
+	};
+	if (d_vn) exitWith {
+		_medic_tent addItemCargoGlobal ["vn_b_item_firstaidkit", 25];
 	};
 	_medic_tent addItemCargoGlobal ["FirstAidKit", 25];
 };

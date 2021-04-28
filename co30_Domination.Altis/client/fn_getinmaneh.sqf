@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getinmaneh.sqf"
 #include "..\x_setup.sqf"
 
 d_player_in_base = false;

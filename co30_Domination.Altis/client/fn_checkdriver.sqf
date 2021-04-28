@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_checkdriver.sqf"
 #include "..\x_setup.sqf"
 
 private _enterer = _this # 2;

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_arsenalclosed.sqf"
 #include "..\x_setup.sqf"
 
 d_arsenal_opened = false;
@@ -24,3 +23,4 @@ if (!isNil "d_arsenal_nvg_used") then {
 if (player getVariable ["d_currentvisionmode", 0] == 1 && {player call d_fnc_hasnvgoggles}) then {
 	player action ["NVGoggles", player];
 };
+[player, "NoVoice"] remoteExec ["setSpeaker"];

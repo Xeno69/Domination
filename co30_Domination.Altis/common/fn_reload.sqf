@@ -29,16 +29,21 @@ private _isUav = unitIsUAV _object;
 private _uavside = [opfor, blufor] select (_object distance2D d_chopper_trigger < 200);
 #endif
 
+#ifndef __RHS__
+private _waitsecs = 60;
+#else
+private _waitsecs = 120;
+#endif
 private _lrl = _object getVariable ["d_last_reload", -1];
-if (_lrl != -1 && {(time - _lrl) < 60}) exitWith {
+if (_lrl != -1 && {(time - _lrl) < _waitsecs}) exitWith {
 	if (hasInterface) then {
 		if (!_isUav) then {
-			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_699", round (60 - (time - _lrl))];
+			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
 		} else {
 #ifdef __TT__
 			if (d_player_side == _uavside) then {
 #endif
-			systemChat format [localize "STR_DOM_MISSIONSTRING_699", round (60 - (time - _lrl))];
+			systemChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
 #ifdef __TT__
 			};
 #endif

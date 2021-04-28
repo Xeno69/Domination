@@ -763,7 +763,7 @@ class d_RscLastChance {
 	};
 };
 
-class d_rscchand {
+class d_rscmtexts {
 	idd=-1;
 	movingEnable=0;
 	duration = 5;
@@ -772,7 +772,7 @@ class d_rscchand {
 	class controls {
 		class server_cap: RscText {
 			idc=-1;
-			text = "I'm gonna swing from the chandelier...";
+			text = "Nothing else matters...";
 			x = safezoneX + safezoneW - 0.51;
 			y = safezoneY + 0.14;
 			w = 0.5;

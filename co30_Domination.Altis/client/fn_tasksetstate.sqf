@@ -1,4 +1,3 @@
-#define THIS_FILE "fn_tasksetstate.sqf"
 #include "..\x_setup.sqf"
 
 /*

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_pkilledeh.sqf"
 #include "..\x_setup.sqf"
 
 #ifdef __TT__

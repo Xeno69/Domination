@@ -30,12 +30,10 @@ private "_todel";
 {
 	private _trig = _y;
 	__TRACE_2("","_x","_trig")
-	if (!isNil {_trig getVariable _name}) exitWith {
-		_trig setVariable [_name, nil];
-		if ((allVariables _trig) isEqualTo []) then {
-			deleteVehicle _trig;
-			d_ef_trig_hash deleteAt _x;
-		};
-		break;
+	private _hm = _trig getVariable "d_trig_hm";
+	_hm deleteAt _name;
+	if (count _hm == 0) then {
+		d_ef_trig_hash deleteAt _x;
+		deleteVehicle _trig;
 	};
 } forEach d_ef_trig_hash;

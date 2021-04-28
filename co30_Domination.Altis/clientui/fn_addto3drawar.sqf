@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_addto3drawar.sqf"
 #include "..\x_setup.sqf"
 
 if (isNil "d_3draw_ar") then {

@@ -27,13 +27,14 @@ if (!isServer) exitWith{};
 		if (d_pylon_lodout == 0 && {isClass ((configOf _vec)>>"Components">>"TransportPylonsComponent")}) then {
 			_vec remoteExecCall ["d_fnc_addpylon_action", [0, -2] select isDedicated];
 		};
+	} else {
+		if (d_with_dynsim == 0) then {
+			[_vec, 10] spawn d_fnc_enabledynsim;
+		};
 	};
 	
 	if !(_vec isKindOf "Air") then {
 		_vec setVariable ["d_liftit", true, true];
-	};
-	if (!unitIsUAV _vec && {d_with_dynsim == 0}) then {
-		[_vec, 10] spawn d_fnc_enabledynsim;
 	};
 	if (d_with_ranked) then {
 		clearWeaponCargoGlobal _vec;
@@ -42,6 +43,7 @@ if (!isServer) exitWith{};
 	_vec spawn {
 		scriptName "spawn initvecsspecial";
 		sleep 10;
+		_this setDamage 0;
 		_this allowDamage true;
 	};
 	
@@ -51,10 +53,11 @@ if (!isServer) exitWith{};
 	
 	if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
+	} else {
+		if (_vec isKindOf "Boat_F") then {
+			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
+		};
 	};
 	
-	if !(_vec isKindOf "Air") then {
-		_vec setVariable ["d_liftit", true, true];
-	};
 	_vec setDamage 0;
 } forEach _this;

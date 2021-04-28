@@ -41,12 +41,14 @@ if (_delta == 0 || {_type == 1}) then {
 			["thisTrigger call d_fnc_triggerrun;false", "", ""],
 			_delta
 		] call d_fnc_createtriggerlocal;
-		_trig setVariable [_name, _code];
+		private _hm = createHashMap;
+		_hm set [_name, _code];
+		_trig setVariable ["d_trig_hm", _hm];
 		d_ef_trig_hash set [_delta, _trig];
 		__TRACE_1("1","_trig")
 	} else {
 		private _trig = d_ef_trig_hash get _delta;
-		_trig setVariable [_name, _code];
+		(_trig getVariable "d_trig_hm") set [_name, _code];
 		__TRACE_1("2","_trig")
 	};
 };

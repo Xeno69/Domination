@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_artywait.sqf"
 #include "..\x_setup.sqf"
 
 waitUntil {!isNil "d_arti_dialog_open" && {!isNil "d_arti_did_fire" || {!d_arti_dialog_open || {!d_player_canu}}}};

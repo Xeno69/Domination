@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_correctwname.sqf"
 #include "..\x_setup.sqf"
 
 private _cname = d_weap_hash getOrDefault [_this, ""];
@@ -17,7 +16,7 @@ if (_cname isEqualTo "") then {
 		if (_i > -1) then {
 			_ar deleteAt _i;
 		};
-	} forEach ["pointer", "Hamr", "bipod", "arco", "snds", "holo", "Holo", "fl", "ACO", "SOS", "RCO", "DMS", "ARCO", "MRCO", "pointg", "Nstalker", "Loaded", "grip", "grip2", "grip3", "grip4"];
+	} forEach ["pointer", "Hamr", "bipod", "arco", "snds", "holo", "Holo", "fl", "ACO", "SOS", "RCO", "DMS", "ARCO", "MRCO", "pointg", "Nstalker", "Loaded", "grip", "grip1", "grip2", "grip3", "grip4", "afg", "npz"];
 
 	__TRACE_1("_ar 2","_ar")
 
