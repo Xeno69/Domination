@@ -1,10 +1,9 @@
-#define addc(cname) class cname {headerType = -1;}
-class cfgFunctions {
-	version = 3.0;
-	createShortcuts = 1;
+#define addc(cname) class cname
+class cfgDomFuncs {
 	class Dom {
 		tag = "d";
 		class Dom_Client {
+			type = 1; // 0 = all, 1 = client, 2 = server
 			file = "client";
 			addc(setupplayer);
 			addc(playerspawn);
@@ -211,6 +210,7 @@ class cfgFunctions {
 		};
 		class Dom_UI {
 			file = "clientui";
+			type = 1; // 0 = all, 1 = client, 2 = server
 			addc(initartydlg2);
 			addc(initMarkArtyDlg);
 			addc(artytypeselchanged2);
@@ -279,6 +279,7 @@ class cfgFunctions {
 		};
 		class Dom_Common {
 			file = "common";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(removenvgoggles_fak);
 			addc(hasnvgoggles);
 			addc(hastoolkit);
@@ -348,6 +349,7 @@ class cfgFunctions {
 			addc(tanoafix);
 		};
 		class Dom_ext_Scripts {
+			type = 0; // 0 = all, 1 = client, 2 = server
 			file = "scripts";
 			addc(establishingShot);
 			addc(moduleCAS);
@@ -368,22 +370,20 @@ class cfgFunctions {
 			addc(LowGear_Init);
 			addc(LowGearOn);
 			addc(seapatrol);
-			addc(rscdisplaydynamicgroups);
-			addc(dynamicgroups);
-			addc(dgkup);
-			addc(dgkdown);
-			addc(dgefmeh);
 		};
 		class Dom_cba_Scripts {
 			file = "cba";
+			type = 2; // 0 = all, 1 = client, 2 = server
 			addc(vecinit);
 		};
 		class Dom_KBTell {
 			file = "bikb";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(kehflogic);
 		};
 		class Dom_SMMissions {
 			file = "missions";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(checksmshothd);
 			addc(killedsmtargetnormal);
 			addc(killedsmtarget500);
@@ -416,6 +416,7 @@ class cfgFunctions {
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(sidearrest);
 			addc(sidearti);
 			addc(sideconvoy);
@@ -441,6 +442,7 @@ class cfgFunctions {
 		};
 		class Dom_MainTarget_Events {
 			file = "missions\events";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(event_sideevac);
 			addc(event_sideprisoners);
 			addc(event_tanksincoming);
@@ -451,6 +453,7 @@ class cfgFunctions {
 		};
 		class Dom_Server {
 			file = "server";
+			type = 2; // 0 = all, 1 = client, 2 = server
 			addc(addkillsai);
 			addc(getwreck);
 			addc(placedobjkilled);
@@ -638,22 +641,12 @@ class cfgFunctions {
 			addc(garrisonUnits);
 			addc(deleteempty);
 		};
-		class Dom_PrePostInit {
-			file = "init";
-			class preinit {
-				preInit = 1;
-				headerType = -1;
-			};
-			class postinit {
-				postInit = 1;
-				headerType = -1;
-			};
-		};
 	};
 	class Dom_Revive {
 		tag = "xr";
 		class Dom_Revivexr {
 			file = "revive";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(handlenet);
 			addc(killedeh);
 			addc(respawneh);
@@ -708,15 +701,9 @@ class cfgFunctions {
 	};
 	class Dom_AR {
 		tag = "ar";
-		class Dom_AR_prestart {
-			file = "ar";
-			class postinit {
-				postInit = 1;
-				headerType = -1;
-			};
-		};
 		class Dom_AR {
 			file = "ar";
+			type = 0; // 0 = all, 1 = client, 2 = server
 			addc(Has_Addon_Animations_Installed);
 			addc(Has_Addon_Sounds_Installed);
 			addc(Rappel_All_Cargo);
