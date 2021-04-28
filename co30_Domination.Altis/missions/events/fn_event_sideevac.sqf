@@ -53,7 +53,7 @@ if (_nposss isEqualTo []) then {_nposss = _poss};
 private _pilot1 = _owngroup1 createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
 [_pilot1] joinSilent _owngroup1;
 _x_mt_event_ar pushBack _pilot1;
-[_pilot1, 30] call d_fnc_nodamoffdyn;
+[_pilot1, 120] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot1")
 _pilot1 call d_fnc_removenvgoggles_fak;
 [_pilot1, getPos _pilot1] call d_fnc_setposagls;
@@ -75,7 +75,7 @@ __TRACE_1("","_owngroup2")
 private _pilot2 = _owngroup2 createUnit [d_sm_pilottype, getPos _pilot1, [], 0, "NONE"];
 [_pilot2] joinSilent _owngroup2;
 _x_mt_event_ar pushBack _pilot2;
-[_pilot2, 30] call d_fnc_nodamoffdyn;
+[_pilot2, 120] call d_fnc_nodamoffdyn;
 __TRACE_1("","_pilot2")
 _pilot2 call d_fnc_removenvgoggles_fak;
 [_pilot2, getPos _pilot2] call d_fnc_setposagls;
