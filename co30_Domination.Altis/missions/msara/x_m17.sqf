@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m17.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[15318.3,9870.91,0], [15368.8,9875.38,0]]; // index: 17,   Officer in Valor

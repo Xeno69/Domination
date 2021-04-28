@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_updatesupportrsc.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface || {isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}}) exitWith {};

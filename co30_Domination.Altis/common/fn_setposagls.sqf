@@ -1,6 +1,5 @@
 // by KK
 //#define __DEBUG__
-#define THIS_FILE "fn_setposagls.sqf"
 #include "..\x_setup.sqf"
 
 params ["_obj", "_pos"];

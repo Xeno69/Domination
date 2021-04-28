@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_sidespecops.sqf"
 #include "..\..\x_setup.sqf"
 
 if !(isServer) exitWith {};

@@ -1,6 +1,5 @@
 ﻿// by WINSE
 //#define __DEBUG__
-#define THIS_FILE "fn_LowGearOn.sqf"
 #include "..\x_setup.sqf"
 
 private _direction = {

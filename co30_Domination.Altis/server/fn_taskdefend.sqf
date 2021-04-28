@@ -1,4 +1,3 @@
-#define THIS_FILE "fn_taskDefend.sqf"
 #include "..\x_setup.sqf"
 /*
 	File: taskDefend.sqf

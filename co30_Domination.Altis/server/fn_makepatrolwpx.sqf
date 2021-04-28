@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_makepatrolwpx.sqf"
 #include "..\x_setup.sqf"
 
 // supports also patrols in square areas, including angle

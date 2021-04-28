@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_sidemissionresolved.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE("In fn_sidemissionresolved")

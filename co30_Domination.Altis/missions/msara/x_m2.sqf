@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m2.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[18074.1,18206.8,0], [18151.5,18216.1,0]]; //  steal plane prototype, Antigua, second array position armor (Paraiso in TT version)

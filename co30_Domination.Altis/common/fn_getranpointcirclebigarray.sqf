@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getranpointcirclebigarray.sqf"
 #include "..\x_setup.sqf"
 
 // get an array of random points inside a circle for bigger objects

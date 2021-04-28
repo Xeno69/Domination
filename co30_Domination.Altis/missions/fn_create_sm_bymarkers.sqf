@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_create_sm_bymarkers.sqf"
 #include "..\x_setup.sqf"
 
 // example, number must be unique (d_smm|uniqe number|), otherwise it will overwrite the previous entry

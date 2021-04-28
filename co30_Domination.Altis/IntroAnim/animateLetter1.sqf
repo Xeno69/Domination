@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "animateLetter1.sqf"
 #include "..\x_setup.sqf"
 
 disableSerialization;

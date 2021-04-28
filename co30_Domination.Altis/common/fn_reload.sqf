@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_reload.sqf"
 #include "..\x_setup.sqf"
 
 #define __NOALIEX if (!alive _object) exitWith {};

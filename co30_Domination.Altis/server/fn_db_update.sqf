@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_db_update.sqf"
 #include "..\x_setup.sqf"
 
 if (_this # 1 == 0) exitWith {

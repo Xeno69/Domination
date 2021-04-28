@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getsidemission.sqf"
 #include "..\x_setup.sqf"
 
 if (!isServer || {d_all_sm_res}) exitWith{};

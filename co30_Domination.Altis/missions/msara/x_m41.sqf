@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m41.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11619.9,14336.6,0]]; // index: 41,   Prison camp, Tandag

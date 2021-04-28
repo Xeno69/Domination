@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_createambient.sqf"
 #include "..\x_setup.sqf"
 
 if (d_noambient_bf_sounds) exitWith {};

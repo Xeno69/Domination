@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_spect_oneframe.sqf"
 #include "..\x_macros.sqf"
 
 #define __dspctrl(ctrlid) ((uiNamespace getVariable "xr_SpectDlg") displayCtrl ctrlid)

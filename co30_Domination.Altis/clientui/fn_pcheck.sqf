@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_pcheck.sqf"
 #include "..\x_setup.sqf"
 
 if (d_cur_inv_o_gear isEqualTo (getUnitLoadout player)) exitWith {

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_pnselchanged.sqf"
 #include "..\x_setup.sqf"
 
 disableSerialization;

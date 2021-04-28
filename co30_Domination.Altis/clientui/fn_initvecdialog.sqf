@@ -1,6 +1,5 @@
 // by Xeno
 #define __DEBUG__
-#define THIS_FILE "fn_initvecdialog.sqf"
 #include "..\x_setup.sqf"
 
 #define __control(numcontrol) (_display displayCtrl numcontrol)

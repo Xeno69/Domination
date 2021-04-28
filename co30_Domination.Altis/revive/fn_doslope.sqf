@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_doslope.sqf"
 #include "..\x_macros.sqf"
 
 params ["_pos", "_sl", "_unit"];

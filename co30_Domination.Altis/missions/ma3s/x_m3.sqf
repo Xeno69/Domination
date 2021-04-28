@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m3.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_3" call d_fnc_smmapos; //  steal tank prototype, Kamino Coast, array 2 and 3 = infantry and armor positions

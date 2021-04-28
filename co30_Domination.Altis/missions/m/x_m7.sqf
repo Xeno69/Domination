@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m7.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[8076.35,9290.81,0], [8097.9,9234.6,0]]; // index: 7,   Training facility near Gorka

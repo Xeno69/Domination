@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m8.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13113,16509.7,0]]; // index: 8,   Radio tower at Pico de Revolucion

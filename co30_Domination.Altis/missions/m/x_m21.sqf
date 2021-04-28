@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m21.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[8828.15,11857.7,0], [9152.35,3899.26,0],286]; // index: 21,   Convoy Gvozdno to Pusta, start and end position

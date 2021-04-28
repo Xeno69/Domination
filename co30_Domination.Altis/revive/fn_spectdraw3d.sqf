@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_spectdraw3d.sqf"
 #include "..\x_macros.sqf"
 
 #define __d_textsize_dr3d  0.03333

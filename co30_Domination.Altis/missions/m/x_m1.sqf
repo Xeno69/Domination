@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m1.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11256.2,4294.15,0], [11075.9,4119.91,0]]; // Officer, Rog, second array = position Shilka

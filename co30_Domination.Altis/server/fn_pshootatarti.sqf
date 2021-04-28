@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_pshootatarti.sqf"
 #include "..\x_setup.sqf"
 
 private _shooter = _this # 6;

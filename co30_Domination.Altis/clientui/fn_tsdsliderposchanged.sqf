@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_tsdsliderposchanged.sqf"
 #include "..\x_setup.sqf"
 
 #define CTRL(A) (_disp displayCtrl A)

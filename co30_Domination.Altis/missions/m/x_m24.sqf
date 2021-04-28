@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m24.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[3616.66,3779.89,0]]; // index: 24,   Fuel station in camp near Bor

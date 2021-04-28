@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_ai_loop.sqf"
 #include "..\x_setup.sqf"
 
 private _cur_state = call d_fnc_nightfograin;

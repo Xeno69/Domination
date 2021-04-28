@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m4.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12104.7,17750,0], [12114.3,17739.1,0], [12110.8,17656.7,0]]; // index: 4,   Water tower (chemical weapons) Cabo Santa Lucia 

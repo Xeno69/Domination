@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m10.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11424.7,8573.97,0], [11354.3,8554.22,0]]; // index: 10,   Artillery at top of mount San Esteban

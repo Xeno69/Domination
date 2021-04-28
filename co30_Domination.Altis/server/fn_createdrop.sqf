@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_createdrop.sqf"
 #include "..\x_setup.sqf"
 #define __announce \
 d_para_available = true; publicVariable "d_para_available";\

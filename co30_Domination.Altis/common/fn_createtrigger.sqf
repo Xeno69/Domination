@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_createtrigger.sqf"
 #include "..\x_setup.sqf"
 
 private _trig = createTrigger ["EmptyDetector", _this # 0, true];

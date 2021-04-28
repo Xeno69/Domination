@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_setheight.sqf"
 #include "..\x_setup.sqf"
 
 // set only height of an object

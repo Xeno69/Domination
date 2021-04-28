@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_handleattackgroups.sqf"
 #include "..\x_setup.sqf"
 
 params ["_grps"];

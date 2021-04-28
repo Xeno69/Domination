@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_park_player.sqf"
 #include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};

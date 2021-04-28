@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m25.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[4436.46,8071.55,0]]; // Specop camp

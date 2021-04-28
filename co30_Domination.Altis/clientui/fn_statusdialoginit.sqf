@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_statusdialoginit.sqf"
 #include "..\x_setup.sqf"
 #define __ctrl(vctrl) _ctrl = _disp displayCtrl vctrl
 #define __ctrl2(ectrl) (_disp displayCtrl ectrl)

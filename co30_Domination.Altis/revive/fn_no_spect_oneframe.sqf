@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_no_spect_oneframe.sqf"
 #include "..\x_macros.sqf"
 
 #define __dspctrl(ctrlid) (_disp displayCtrl ctrlid)

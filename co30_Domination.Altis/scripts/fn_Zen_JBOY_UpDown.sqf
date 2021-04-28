@@ -11,7 +11,6 @@
 // *****************************************************
 //Zen_JBOY_UpDown
 
-#define THIS_FILE "fn_Zen_JBOY_UpDown.sqf"
 #include "..\x_setup.sqf"
 
 if (!isServer) exitWith {};

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m61.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_61" call d_fnc_smmapos; // index:61 steal Ifrit GMG prototype, At the Mine South of Charkia, array 2 and 3 = infantry and armor positions

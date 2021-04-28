@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m9.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[19225.5,13889.3,0], [19231.1,13939,0], [19236.2,13992.5,0],  [19198.6,13912.9,0]]; // index: 9,   Helicopter Prototype at Pita Airfield

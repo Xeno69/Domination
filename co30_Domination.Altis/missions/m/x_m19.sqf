@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m19.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10841.9,2695.45,0]]; // train in Elektrozavodsk

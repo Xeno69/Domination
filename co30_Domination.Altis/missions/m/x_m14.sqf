@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m14.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[2657.24,14153,0], [2659.99,14200,0]]; // index: 14,   Radio tower at mount Lysina

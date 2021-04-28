@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m71.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_71" call d_fnc_smmapos; // index: 71,   Tank Attacks near Kalochori

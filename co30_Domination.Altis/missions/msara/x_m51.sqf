@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m51.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13307.4,12891.5,0]]; // index: 51,   Shot down chopper

@@ -1,6 +1,5 @@
 //by sarogahtyp edited by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_isvisible.sqf"
 #include "..\x_setup.sqf"
 
 params ["_unit", "_target"];

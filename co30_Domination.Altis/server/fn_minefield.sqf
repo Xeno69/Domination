@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_minefield.sqf"
 #include "..\x_setup.sqf"
 
 params ["_radius", "_center"];

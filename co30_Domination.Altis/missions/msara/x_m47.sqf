@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m46.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[8975.58,8437.76,0]]; // index: 47,   Destroy factory building in Somato

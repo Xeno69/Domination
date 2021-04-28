@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getadminarray.sqf"
 #include "..\x_setup.sqf"
 
 if (remoteExecutedOwner isEqualTo 0) exitWith {};

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m70.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_70" call d_fnc_smmapos; // index: 70,   Officer near Ifestiona

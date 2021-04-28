@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getrandomrangeint.sqf"
 #include "..\x_setup.sqf"
 
 // gets a random integer number in a specific range

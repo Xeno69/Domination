@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "mando_chute.sqf"
 #include "..\x_setup.sqf"
 /*
    mando_chute.sqf v1.1

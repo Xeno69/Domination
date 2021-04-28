@@ -1,6 +1,5 @@
 //by Jezuro edited by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_sortarraybydistance.sqf"
 #include "..\x_setup.sqf"
 
 // how about using the sort command?

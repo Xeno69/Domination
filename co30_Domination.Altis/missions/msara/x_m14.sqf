@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m14.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[15681.9,11384.6,0], [15851.6,11431.2,0]]; // index: 14,   Radio tower at Monte Liberacion

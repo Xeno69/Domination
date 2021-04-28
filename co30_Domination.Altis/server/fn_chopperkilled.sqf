@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_chopperkilled.sqf"
 #include "..\x_setup.sqf"
 
 call d_fnc_fuelCheck;

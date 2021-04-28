@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_airtaxi_dest.sqf"
 #include "..\x_setup.sqf"
 
 if (isNil "d_airtaxi_driver" || {isNull d_airtaxi_driver}) exitWith {};

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m15.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10838.5,12636.7,0], [10886.6,12722.2,0]]; // index: 15,   Transformer station in Tlaloc

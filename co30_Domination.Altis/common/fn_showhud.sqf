@@ -1,6 +1,5 @@
 // by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_showhud.sqf"
 #include "..\x_setup.sqf"
 
 //hud: Boolean - show scripted HUD (same as normal showHUD true/false)

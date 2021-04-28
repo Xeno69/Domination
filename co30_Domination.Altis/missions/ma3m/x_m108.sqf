@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "x_m108.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_108" call d_fnc_smmapos; //  steal Speedboat

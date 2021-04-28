@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_hallyg_dlegion_Snipe_awareness.sqf"
 #include "..\x_setup.sqf"
 
 #define EYE_HEIGHT 1.53

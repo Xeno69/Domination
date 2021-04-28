@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m9.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12055.5,12620.4,0], [12051.6,12678.6,0], [11963.7,12726.2,0],  [12009.6,12636.6,0]]; // index: 9,   Helicopter Prototype at Krasnostav Airfield

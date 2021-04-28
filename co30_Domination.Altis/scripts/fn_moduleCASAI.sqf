@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_moduleCASAI.sqf"
 #include "..\x_setup.sqf"
 
 params ["_lpos", "_callero", "_wtype", "_enemy"];

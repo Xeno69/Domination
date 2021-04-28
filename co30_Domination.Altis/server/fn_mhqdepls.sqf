@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_mhqdepls.sqf"
 #include "..\x_setup.sqf"
 
 if (local (_this # 0)) then {

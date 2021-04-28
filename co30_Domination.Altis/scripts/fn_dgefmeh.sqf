@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_dgefmeh.sqf"
 #include "..\x_setup.sqf"
 #include "\A3\Functions_F_MP_Mark\DynamicGroupsCommonDefines.inc"
 

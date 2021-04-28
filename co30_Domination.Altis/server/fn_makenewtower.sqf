@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_makenewtower.sqf"
 #include "..\x_setup.sqf"
 
 private _utower = createVehicle ["Land_Cargo_Tower_V3_F", _this, [], 0, "NONE"];

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m35.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12492,10849,0],[12500.9,10883.5,0]]; // index: 35,   Government member Isla de Libertad (attention, the AI is placed in a Lighthouse)

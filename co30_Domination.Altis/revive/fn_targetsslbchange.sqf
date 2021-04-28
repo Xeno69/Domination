@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_targetsslbchange.sqf"
 #include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};

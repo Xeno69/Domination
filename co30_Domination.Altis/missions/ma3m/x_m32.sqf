@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "x_m32.sqf"
 #include "..\..\x_setup.sqf"
 
 // markerPos "d_sm_loga": sm pickup point, marker somewhere  on the player's base, where the vehicle will spawn

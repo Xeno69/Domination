@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m5.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_5" call d_fnc_smmapos; // Officer, second array = pos aa

@@ -1,6 +1,5 @@
 // by Xeno
 // #define __DEBUG__
-#define THIS_FILE "x_m37.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11300.6,16870.3,0]]; // index: 37,   Prison, Isla de Victoria

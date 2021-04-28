@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_establishingShot.sqf"
 #include "..\x_setup.sqf"
 /*
 	Author: Thomas Ryan

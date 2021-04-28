@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "initServer.sqf"
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initServer.sqf"];
 if (d_with_bis_dynamicgroups == 0) then {

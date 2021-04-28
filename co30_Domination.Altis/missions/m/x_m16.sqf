@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m16.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10895.2,7562.57,0], [10908.1,7569.58,0]]; // index: 16,   Radio tower mount Malinovka

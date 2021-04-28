@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m5.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10269.6,7353.71,0], [10268.4,7313.75,0]];  // index: 5,   King of Sedia at hotel in Vallejo

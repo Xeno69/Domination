@@ -1,6 +1,5 @@
 // by Xeno (modified by Longtime)
 //#define __DEBUG__
-#define THIS_FILE "fn_event_sideprisoners.sqf"
 #include "..\..\x_setup.sqf"
 
 // Rescue captive friendly soldiers guarded by specops.  If the specops are injured they will kill the hostages.

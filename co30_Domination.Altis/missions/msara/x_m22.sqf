@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m22.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[7736.82,15810.5,0], [14293.2,9450.24,0]]; // index: 22,   Convoy Hunapu to Modesta, start and end position

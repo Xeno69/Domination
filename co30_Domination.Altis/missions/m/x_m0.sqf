@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m0.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[3724.62,14491.7,0]]; // radar tower on Nebelspitze

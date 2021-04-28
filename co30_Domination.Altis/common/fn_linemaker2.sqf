@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_linemaker2.sqf"
 #include "..\x_setup.sqf"
 
 // _p1 and _p2 = positions, _mname = marker name

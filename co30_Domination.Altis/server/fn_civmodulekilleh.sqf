@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_civmodulekilleh.sqf"
 #include "..\x_setup.sqf"
 
 private _cKiller = _this # 1;

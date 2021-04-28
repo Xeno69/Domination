@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_mtrestkilled1.sqf"
 #include "..\x_setup.sqf"
 
 d_mt_mobile_hq_down = true;

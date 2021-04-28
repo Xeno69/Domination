@@ -1,6 +1,5 @@
 //by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_deletearrayunitsvehicles.sqf"
 #include "..\x_setup.sqf"
 
 // delete all items in an array of units and/or vehicles

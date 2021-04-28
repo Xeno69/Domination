@@ -1,6 +1,5 @@
 // by Xeno
 // #define __DEBUG__
-#define THIS_FILE "x_m39.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[16197.8,10336.2,0]]; // index: 39,   Radio tower on top of Monte Valor

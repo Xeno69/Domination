@@ -1,6 +1,5 @@
 //by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_getcoveredpositions.sqf"
 #include "..\x_setup.sqf"
 
 // get array of positions, return only positions that are covered (inside the building with walls on all sides)

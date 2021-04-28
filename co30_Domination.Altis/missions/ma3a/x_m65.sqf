@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m65.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_65" call d_fnc_smmapos; // index: 65,   Shot down chopper at the old Quarry South of Pyrgos

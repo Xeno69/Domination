@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getdisplayname.sqf"
 #include "..\x_setup.sqf"
 
 // get displayname of an object

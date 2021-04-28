@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m10.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_10" call d_fnc_smmapos; // index: 10,   Artillery at top of mount Sanginakt

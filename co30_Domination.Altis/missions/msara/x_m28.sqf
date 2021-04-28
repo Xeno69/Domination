@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m28.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10245.7,15784.9,0],[10276.6,15813.6,0],[10269.1,15751,0],[10287.4,15719.9,0]]; // index: 28,   Radio Tower at bunker near Mataredo

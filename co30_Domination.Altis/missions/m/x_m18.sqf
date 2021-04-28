@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m18.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13077,10094.4,0], [13063.8,10129.3,0]]; // index: 18,   Government member visit in Berezino shipyard

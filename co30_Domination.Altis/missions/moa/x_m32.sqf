@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m32.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_32" call d_fnc_smmapos; // index: 32,   Capture the flag, Imarat

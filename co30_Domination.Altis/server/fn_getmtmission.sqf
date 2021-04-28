@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getmtmission.sqf"
 #include "..\x_setup.sqf"
 
 params ["_wp_array", "_mtradius", "_trg_center"];

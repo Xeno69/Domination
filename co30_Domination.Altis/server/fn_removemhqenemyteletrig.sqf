@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_removemhqenemyteletrig.sqf"
 #include "..\x_setup.sqf"
 
 params ["_mhq", "_alive"];

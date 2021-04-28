@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m39.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[3717.11,5985.61,0]]; // index: 39,   Secret container in huge radio tower on mount Grüner Berg

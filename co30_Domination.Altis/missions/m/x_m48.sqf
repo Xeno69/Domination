@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m48.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[2270.01,5253.18,0]]; // index: 48,   Transformer station near Zelenogorsk

@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_getflatarea.sqf"
 #include "..\x_setup.sqf"
 
 params ["_position", "_maxradius", ["_isFlat", []], ["_maxgradient", 0.1] , ["_radius", 10]];

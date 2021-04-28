@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_initvrespawn2.sqf"
 #include "..\x_setup.sqf"
 
 if (!isServer) exitWith{};

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_showsidemain_d.sqf"
 #include "..\x_setup.sqf"
 
 params ["_which"];

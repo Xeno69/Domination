@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_teleupdate_dlg.sqf"
 #include "..\x_setup.sqf"
 
 if (d_x_loop_end) exitWith {};

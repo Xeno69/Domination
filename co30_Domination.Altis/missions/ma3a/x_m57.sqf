@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m57.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_57" call d_fnc_smmapos; // index:57 A lonewolf sniper has been sent to make attempt to kill the Civilian Leader of Orekokastro. Find and eliminate him Intel says hes near the Castle.

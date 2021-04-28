@@ -1,6 +1,5 @@
 // by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_event_markedfordeath.sqf"
 #include "..\..\x_setup.sqf"
 
 // When triggered the player closest to _target_center will become a priority target. All moving enemies will move and attack that specific player until dead.

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_handleobservers.sqf"
 #include "..\x_setup.sqf"
 
 private _e_ari_avail = true;

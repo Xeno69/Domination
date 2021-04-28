@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m13.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[1079.37,10382.9,0], [1077.04,10420.4,0]]; // index: 13,   Prime Minister,Lopatino

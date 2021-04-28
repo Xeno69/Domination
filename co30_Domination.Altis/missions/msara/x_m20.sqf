@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m20.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[17452.8,13577.6,0], [11851.9,14376.5,0]]; // index: 20,   Convoy Ixel to Tandag, start and end position

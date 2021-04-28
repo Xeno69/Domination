@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_hasrespirator.sqf"
 #include "..\x_setup.sqf"
 
 // sadly there is no better way than putting all class names in here

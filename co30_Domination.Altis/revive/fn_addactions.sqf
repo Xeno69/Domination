@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_addactions.sqf"
 #include "..\x_macros.sqf"
 
 if (!hasInterface || {player == _this}) exitWith {};

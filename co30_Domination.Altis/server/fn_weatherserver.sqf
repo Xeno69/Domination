@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_weatherserver.sqf"
 #include "..\x_setup.sqf"
 
 private _wchange = 1800 + random 600;

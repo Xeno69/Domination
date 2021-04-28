@@ -1,4 +1,3 @@
-#define THIS_FILE "fn_carry.sqf"
 #include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};

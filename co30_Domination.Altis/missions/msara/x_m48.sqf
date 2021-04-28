@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m48.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12956.3,8638.32,0]]; // index: 48,   Transformer station Corazol

@@ -1,6 +1,5 @@
 // by Xeno modified by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_setenemymode.sqf"
 #include "..\x_setup.sqf"
 
 // set global arrays that determine which enemies are present at the maintarget

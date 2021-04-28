@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m2.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[4678.83,2510.28,0], [4823.91,2453.85,0]]; //  steal plane prototype, Balota, second array position armor

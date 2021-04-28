@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_smkilledeh.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("killed","_this")

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m44.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[9529.46,3492.03,0], [9570.09,3566.11,0]]; // index: 44,   Steal chopper prototype on San Thomas

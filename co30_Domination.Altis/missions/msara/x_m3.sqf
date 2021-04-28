@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m3.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[14750.5,13925.6,0], [14750.4,13935.4,0], [14712.9,13992.4,0]]; //  steal tank prototype, Alcazar, array 2 and 3 = infantry and armor positions

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m1.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_1" call d_fnc_smmapos; // Officer, Camp in Red Spring mine, second array = pos aa

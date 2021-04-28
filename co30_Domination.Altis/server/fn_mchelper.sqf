@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_mchelper.sqf"
 #include "..\x_setup.sqf"
 
 _this allowDamage false;

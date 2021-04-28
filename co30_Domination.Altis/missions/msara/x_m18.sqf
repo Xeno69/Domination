@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m18.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[9709.64,11010.8,0], [9655.45,11026.4,0]]; // index: 18,   Government member visit in Rashidah shipyard

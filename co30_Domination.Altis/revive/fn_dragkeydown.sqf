@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_dragkeydown.sqf"
 #include "..\x_macros.sqf"
 
 #include "\a3\editor_f\Data\Scripts\dikCodes.h"

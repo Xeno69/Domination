@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_Zen_OccupyHouse.sqf"
 #include "..\x_setup.sqf"
 
 // Infantry Occupy House

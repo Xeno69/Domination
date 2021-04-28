@@ -1,6 +1,5 @@
 // by Xeno
 // #define __DEBUG__
-#define THIS_FILE "x_m37.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13978.5,15741.7,0]]; // index: 38,   Biological weapons near Passo Epone

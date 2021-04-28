@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_create_route.sqf"
 #include "..\x_setup.sqf"
 
 params [["_sector", 0]]; // 0 = west/east sector, 1 = north/south sector, 2 = 4 sectors, sw-ns-ne-se

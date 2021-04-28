@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getmixedlist.sqf"
 #include "..\x_setup.sqf"
 
 params ["_side"];

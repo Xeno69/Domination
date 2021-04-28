@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "x_m104.sqf"
 #include "..\..\x_setup.sqf"
 
 // clear naval mines

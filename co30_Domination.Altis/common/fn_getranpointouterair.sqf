@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getranpointouterair.sqf"
 #include "..\x_setup.sqf"
 
 // get a random point at the borders of the current island for spawning air vehicles (no slope check, no is water check, etc)

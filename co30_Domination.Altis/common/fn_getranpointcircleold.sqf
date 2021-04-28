@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getranpointcircleold.sqf"
 #include "..\x_setup.sqf"
 
 // no slope check, for patrolling

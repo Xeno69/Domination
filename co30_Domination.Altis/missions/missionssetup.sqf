@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "missionssetup.sqf"
 #include "..\x_setup.sqf"
 
 // I'm using x_mXX.sqf for the mission filename where XX (index number) has to be added to d_sm_array

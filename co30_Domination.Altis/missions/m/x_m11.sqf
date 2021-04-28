@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m11.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13699.1,2970.27,0], [13711.9,2914.49,0]]; // index: 11,   Lighthouse on Isle Skalisty

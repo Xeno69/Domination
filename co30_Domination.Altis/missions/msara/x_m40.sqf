@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m40.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[9379.85,5221,0]]; // index: 40,   Prison camp, Tiberia

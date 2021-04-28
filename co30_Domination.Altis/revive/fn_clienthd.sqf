@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_clienthd.sqf"
 #include "..\x_macros.sqf"
 
 params ["_unit", "", "_dam", "", "_ammo", "_idx", "_injurer"];

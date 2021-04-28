@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "x_m33.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_33" call d_fnc_smmapos; // index: 33,   Transformer station near Ioannina

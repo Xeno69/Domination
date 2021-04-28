@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m0.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[14258.5,15169.1,0]]; // radar tower on Pico de Perez

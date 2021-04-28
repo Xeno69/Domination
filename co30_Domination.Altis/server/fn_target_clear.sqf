@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_target_clear.sqf"
 #include "..\x_setup.sqf"
 if (!isServer) exitWith{};
 

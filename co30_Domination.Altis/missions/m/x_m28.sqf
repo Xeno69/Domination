@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m28.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6769.79,5603.09,0],[6756,5631.19,0]]; // index: 28,   Radio Tower at bunker near Vyshnoye

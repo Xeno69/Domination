@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_seapatrol.sqf"
 #include "..\x_setup.sqf"
 if (!isServer || {diag_fps < 15}) exitWith {};
 

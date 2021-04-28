@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_heli_local_check.sqf"
 #include "..\x_setup.sqf"
 
 params ["_chopper", "_local"];

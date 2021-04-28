@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_createarmor.sqf"
 #include "..\x_setup.sqf"
 
 if (d_WithLessArmor_side == 2) exitWith {[]};

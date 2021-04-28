@@ -1,6 +1,5 @@
 // by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_event_tanksincoming.sqf"
 #include "..\..\x_setup.sqf"
 
 #ifdef __TT__

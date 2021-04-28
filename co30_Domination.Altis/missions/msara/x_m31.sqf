@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m31.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[17563.9,9550.78,0], [17589,9571.56,0], [17572.9,9567.49,0], [17529.4,9573.4,0], [17563.9,9533.05,0], [17527.6,9532.41,0], [17600.9,9551.71,0]]; // index: 31,   Tank depot near Everon

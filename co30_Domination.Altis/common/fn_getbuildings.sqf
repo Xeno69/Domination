@@ -1,6 +1,5 @@
 //by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_getbuildings.sqf"
 #include "..\x_setup.sqf"
 
 // get array of buildings, return only buildings with defined positions inside

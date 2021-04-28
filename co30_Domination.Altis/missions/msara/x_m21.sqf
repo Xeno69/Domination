@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m21.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12723,8729.78,0], [6946.93,8226.66,0]]; // index: 21,   Convoy Corazol to Estrella, start and end position

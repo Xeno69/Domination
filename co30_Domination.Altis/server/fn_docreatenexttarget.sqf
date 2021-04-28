@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_docreatenexttarget.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE("docreatenexttarget start")

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m49.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[16551.3,12925.3,0]]; // index: 49,   Officer near Benoma

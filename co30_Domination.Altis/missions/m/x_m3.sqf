@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m3.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[9643.88,13506.9,0], [9639.43,13428.7,0], [9572.01,13385.5,0]]; //  steal tank prototype, Pobeda-Damm, array 2 and 3 = infantry and armor positions

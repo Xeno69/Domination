@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_moduleCAS.sqf"
 #include "..\x_setup.sqf"
 
 params ["_lpos", "_caller", "_wtype"];

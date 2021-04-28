@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_dlgevents.sqf"
 #include "..\x_macros.sqf"
 
 if (_this # 0 == "MouseButtonDown") exitWith {

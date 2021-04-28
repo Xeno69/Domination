@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_tkkickcheck.sqf"
 #include "..\x_setup.sqf"
 
 private _tk = _this # 2;

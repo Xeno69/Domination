@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_sandstorm.sqf"
 #include "..\x_setup.sqf"
 
 #define __DURATION 2

@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_checkveckillblufor.sqf"
 #include "..\x_setup.sqf"
 
 params ["_vec", "_killer", "_insti"];

@@ -1,7 +1,6 @@
 // by Xeno
 //#define __DEBUG__
 #include "..\x_setup.sqf"
-#define THIS_FILE "fn_createnexttarget.sqf"
 
 if (!isServer) exitWith{};
 

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_update_telerespsel.sqf"
 #include "..\x_setup.sqf"
 
 params ["_cparams", "_wone"];

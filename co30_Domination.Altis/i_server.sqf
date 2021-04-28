@@ -1,6 +1,5 @@
 // d_init include server
 #ifndef __XSETUP_INCL__
-#define THIS_FILE "i_server.sqf"
 #include "x_setup.sqf"
 #endif
 

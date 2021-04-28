@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_saveprogress2db.sqf"
 #include "..\x_setup.sqf"
 
 if (!isNil "d_saveprogess2db_inprogress") exitWith {};

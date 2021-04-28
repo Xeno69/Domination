@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_addpoints.sqf"
 #include "..\x_setup.sqf"
 
 params ["_points", "_killer", ["_dopcheck", true]];

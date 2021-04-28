@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "x_m171.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_171" call d_fnc_smmapos; //  rescue in sea

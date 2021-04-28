@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m26.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[7743.49,14452.7,0],[7959.68,14514.2], [7774.97,14422.1,0],[7667,14409.6,0]]; // index: 26,   Hangar on Trelobada

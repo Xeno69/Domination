@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_randomfloorarray.sqf"
 #include "..\x_setup.sqf"
 
 // get a random number, floored, from count array

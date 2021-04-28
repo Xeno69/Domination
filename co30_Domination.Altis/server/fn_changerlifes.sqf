@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_changerlifes.sqf"
 #include "..\x_setup.sqf"
 
 if (admin remoteExecutedOwner != 2) exitWith {};

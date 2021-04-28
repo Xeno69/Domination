@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m19.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10131.6,8377.25,0], [10115.8,8420.6,0]]; // index: 19,   Prime minister of Tadistan in Pesto

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m37.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[4936.54,6269.24,0]]; // index: 37,   Prison, Pogorevka

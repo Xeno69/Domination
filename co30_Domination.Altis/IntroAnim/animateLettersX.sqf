@@ -1,4 +1,3 @@
-#define THIS_FILE "animateLettersX.sqf"
 #include "..\x_setup.sqf"
 
 if (isDedicated) exitWith {};

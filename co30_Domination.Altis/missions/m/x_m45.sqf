@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m45.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10387.6,2191.64,0]]; // index: 45,   Destroy bank building in Elektrozavodsk,

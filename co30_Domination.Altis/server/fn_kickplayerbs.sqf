@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_kickplayerbs.sqf"
 #include "..\x_setup.sqf"
 
 params ["_pl", "_pl_name", "_reason"];

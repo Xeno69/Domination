@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m67.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_67" call d_fnc_smmapos; // index: 67,   Officer neaR Kalochori

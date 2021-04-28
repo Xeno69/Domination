@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_gmcwgextra.sqf"
 #include "..\x_setup.sqf"
 
 d_additional_mhqs = [];

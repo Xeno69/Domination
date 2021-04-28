@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m30.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[18239,2943.84,0],[18186.4,3081.09,0]]; // index: 30,   scientist on Monte Asharah

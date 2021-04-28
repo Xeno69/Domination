@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m50.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[16592.5,11844.6,0]]; // index: 50,   Artillery base

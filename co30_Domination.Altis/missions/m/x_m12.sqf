@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m12.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12101.3,3526.37,0], [12107.7,3497.51,0]]; // index: 12,   Officer in Kamyshovo

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m27.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10135.7,6187.1,0]]; // index: 27,   Radio tower on top of mount Baranchik

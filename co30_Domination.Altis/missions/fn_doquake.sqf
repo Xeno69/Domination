@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_doquake.sqf"
 #include "..\x_setup.sqf"
 
 private _next = time + 25 + random 25;

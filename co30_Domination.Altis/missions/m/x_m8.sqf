@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m8.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6223.51,4626.85,0]]; // index: 8,   Radio tower near Nadezhdino

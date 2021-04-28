@@ -1,6 +1,5 @@
 //by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_isbldghostile.sqf"
 #include "..\x_setup.sqf"
 
 // check if _bldg is occupied by units of _sideHostile

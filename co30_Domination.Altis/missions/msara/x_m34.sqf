@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "x_m34.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11388.3,9848.09,0]]; // index: 34,   Transformer station near Paraiso

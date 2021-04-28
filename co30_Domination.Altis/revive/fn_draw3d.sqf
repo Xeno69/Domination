@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_draw3d.sqf"
 #include "..\x_macros.sqf"
 
 if (alive player && {xr_uncon_units isNotEqualTo []}) then {

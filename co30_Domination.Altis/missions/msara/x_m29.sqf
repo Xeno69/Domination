@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m29.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[8166.81,17018.4,0], [8130.84,17010.5,0], [8121.2,16991.2,0], [8140.73,17030,0], [8149.6,17049.7,0], [8162.93,16994.6,0], [8154.33,16974.8,0]]; // index: 29,   Tank depot at Cabo Juventudo

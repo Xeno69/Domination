@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m16.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6107.75,16944.8,0], [6305.86,17354.5,0]]; // index: 16,   Radio tower near Cabo Valiente

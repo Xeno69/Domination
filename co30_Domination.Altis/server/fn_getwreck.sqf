@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_getwreck.sqf"
 #include "..\x_setup.sqf"
 
 //params ["_rep_station", "_types"];

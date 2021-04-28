@@ -1,6 +1,5 @@
 // by Xeno
 // #define __DEBUG__
-#define THIS_FILE "x_m38.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[1236.22,14668.1,0]]; // index: 38,   Biological weapons near Grozovoy Pass

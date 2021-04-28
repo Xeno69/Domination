@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_createpara3x.sqf"
 #include "..\x_setup.sqf"
 
 params ["_startpoint", "_attackpoint", "_flytopos", "_heliendpoint", "_number_vehicles"];

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m11.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[16582.7,4690.99,0], [16430.9,4617.28,0]]; // index: 11,   Lighthouse on Isla del Zorra

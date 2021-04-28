@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m23.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6896.19,11442.8,0]]; // Officer, Teufelsschloss

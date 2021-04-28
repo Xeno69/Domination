@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_isledefense.sqf"
 #include "..\x_setup.sqf"
 
 #ifndef __DEBUG__

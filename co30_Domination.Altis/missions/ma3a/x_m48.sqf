@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m48.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_48" call d_fnc_smmapos; // index: 48,   Officer on the south island

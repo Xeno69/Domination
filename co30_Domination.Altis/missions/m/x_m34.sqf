@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m34.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[7020.78,7634.42,0]]; // index: 34,   Transformer station near Novy Sobor

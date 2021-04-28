@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m7.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6400.09,7472.16,0], [6611.5,7652.1,0]]; // index: 7,   Training facility in San Peregrino

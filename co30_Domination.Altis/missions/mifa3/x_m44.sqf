@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m44.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_44" call d_fnc_smmapos; // index: 44,   Steal plane prototype

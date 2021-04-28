@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_addscore.sqf"
 #include "..\x_setup.sqf"
 
 params ["_pl", "_reason", ["_extra", -1]];

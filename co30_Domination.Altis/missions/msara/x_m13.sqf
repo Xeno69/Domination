@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m13.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11008.5,8028.66,0], [11016.7,7938.81,0]]; // index: 13,   Prime Minister, Valle Azul

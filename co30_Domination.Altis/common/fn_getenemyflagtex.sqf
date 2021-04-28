@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "fn_getenemyflagtex.sqf"
 #include "..\x_setup.sqf"
 
 if (d_enemy_side_short == "E") exitWith {

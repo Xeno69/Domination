@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_sidedeliver.sqf"
 #include "..\..\x_setup.sqf"
 
 if (!isServer) exitWith {};

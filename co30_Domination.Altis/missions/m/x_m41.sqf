@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m41.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12275.7,10915.1,0]]; // index: 41,   Prison camp, Khelm

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m6.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[1339.03,5830,0], [1271.66,5898.85,0], [1362.3,5702.23,0]]; // index: 6,   Hangar near Zelegonorsk

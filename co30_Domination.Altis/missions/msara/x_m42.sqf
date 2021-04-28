@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m42.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[9626.99,16344.6,0]]; // index: 42,   Officer in forrest Selva de Caza

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m6.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13938.3,16718.8,0], [13904.7,16694.1,0], [13836.9,16705.1,0]]; // index: 6,   Hangar at Roca del Dror

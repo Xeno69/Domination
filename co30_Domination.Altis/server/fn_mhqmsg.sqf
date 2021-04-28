@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_mhqmsg.sqf"
 #include "..\x_setup.sqf"
 
 private _mhqmsg = _this getVariable "d_vec_is_mhq";

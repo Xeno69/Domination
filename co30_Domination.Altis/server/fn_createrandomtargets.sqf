@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_createrandomtargets.sqf"
 #include "..\x_setup.sqf"
 
 private _firstar = (count d_target_names) call d_fnc_RandomIndexArray;

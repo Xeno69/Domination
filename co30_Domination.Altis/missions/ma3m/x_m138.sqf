@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m138.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_138" call d_fnc_smmapos; // Find and eliminate a sniper

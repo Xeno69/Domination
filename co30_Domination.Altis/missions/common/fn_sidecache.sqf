@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_sidecache.sqf"
 #include "..\..\x_setup.sqf"
 
 if !(isServer) exitWith {};

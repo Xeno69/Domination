@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "initcommon.sqf"
 #include "..\x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom initcommon.sqf"];
 

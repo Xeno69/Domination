@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_smhandledeh.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("handleDamage","_this")

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m6.sqf"
 #include "..\..\x_setup.sqf"
 private ["_vec", "_poss"];
 

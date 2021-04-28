@@ -1,5 +1,4 @@
 // by Xeno
-#define THIS_FILE "setuphc.sqf"
 #include "x_setup.sqf"
 
 diag_log [diag_frameno, diag_tickTime, time, "Executing Dom setuphc"];

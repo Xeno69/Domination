@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_uncon_oneframe.sqf"
 #include "..\x_macros.sqf"
 
 #define __spectdlg1005 ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1005)

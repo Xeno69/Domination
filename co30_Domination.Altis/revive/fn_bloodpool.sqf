@@ -1,5 +1,4 @@
 //#define __DEBUG__
-#define THIS_FILE "fn_bloodpool.sqf"
 #include "..\x_macros.sqf"
 
 params ["_injured"];

@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_announcenearrem.sqf"
 #include "..\x_macros.sqf"
 
 __TRACE_1("","_this")

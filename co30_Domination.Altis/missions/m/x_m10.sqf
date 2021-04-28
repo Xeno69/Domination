@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m10.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[6599.02,3409.95,0], [6616.04,3410.23,0]]; // index: 10,   Artillery at top of mount Vysota

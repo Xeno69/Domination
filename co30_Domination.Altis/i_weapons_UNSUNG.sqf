@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "i_weapons_default.sqf"
 #include "x_setup.sqf"
 
 // Could be better

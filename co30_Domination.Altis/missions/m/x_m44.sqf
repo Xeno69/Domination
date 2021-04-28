@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m44.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[11475.5,11326.4,0], [11492.6,11370.3,0]]; // index: 44,   Steal chopper prototype near mount Klen

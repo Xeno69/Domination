@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m4.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[13072.2,7071.04,0], [12980.7,7066.64,0], [12956.8,7196.31,0]]; // index: 4,   Water tower (chemical weapons) factory near Solnichniy

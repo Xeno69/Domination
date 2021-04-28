@@ -1,6 +1,5 @@
 // by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_event_sidevipdefend.sqf"
 #include "..\..\x_setup.sqf"
 
 // When triggered an unconscious friendly pilot will be spawned in a building in the maintarget.

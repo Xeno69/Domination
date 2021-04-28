@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "revive\init.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

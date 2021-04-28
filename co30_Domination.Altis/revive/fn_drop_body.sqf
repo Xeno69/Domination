@@ -1,4 +1,3 @@
-#define THIS_FILE "fn_drop_body.sqf"
 #include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};

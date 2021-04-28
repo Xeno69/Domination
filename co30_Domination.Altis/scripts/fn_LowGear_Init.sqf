@@ -1,6 +1,5 @@
 ﻿// by WINSE
 //#define __DEBUG__
-#define THIS_FILE "fn_LowGear_Init.sqf"
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};

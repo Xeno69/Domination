@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m27.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[12535.7,12699.6,0]]; // index: 27,   Radio tower at farm near Bagango

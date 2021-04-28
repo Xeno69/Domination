@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m23.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = [[10312.7,13407.5,0], [10284,13425.8,0], [10326.3,13397.6,0], [10335.9,13354.9,0], [10202.5,13416.8,0], [10309.9,13471.5,0], [10433.7,13239.7,0], [10319.8,13444.5,0]]; // index: 23,   Special forces boats in a bay near Pacamac

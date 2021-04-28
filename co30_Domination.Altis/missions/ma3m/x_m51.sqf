@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "x_m51.sqf"
 #include "..\..\x_setup.sqf"
 
 d_x_sm_pos = "d_sm_51" call d_fnc_smmapos; //  destroy transformer

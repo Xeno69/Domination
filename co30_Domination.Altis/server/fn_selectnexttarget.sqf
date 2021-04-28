@@ -1,6 +1,5 @@
 // by Xeno
 //#define __DEBUG__
-#define THIS_FILE "fn_selectnexttarget.sqf"
 #include "..\x_setup.sqf"
 
 __TRACE_1("","d_mttargets_ar")
