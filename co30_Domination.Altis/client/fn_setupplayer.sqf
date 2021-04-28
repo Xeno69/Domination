@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #include "..\x_setup.sqf"
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
@@ -1194,6 +1194,8 @@ d_isvdreduced = false;
 if (d_dis_servicep == 1) then {
 	call d_fnc_initservicepoints;
 };
+
+__TRACE_1("","d_isvdreduced")
 
 0 spawn d_fnc_gimmick;
 
