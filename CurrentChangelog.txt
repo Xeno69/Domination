@@ -23,4 +23,5 @@
 - Fixed: Bipod check for RHS weapons was missing some bipods
 - Fixed: Some groups gone missing in the RHS blufor allmen arrays
 - Fixed: Hostage event now is an exact marker location instead of an area search, pilots in rescue event given longer time with no damage, marked-for-death event is now enabled, by longtimegamer
+- Fixed: Tanoa CfgIdentities were missing
 - Many scripts optimized again

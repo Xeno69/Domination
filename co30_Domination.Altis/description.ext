@@ -1978,6 +1978,16 @@ class CfgIdentities {
 		speaker = "male02per";
 	};
 #endif
+#ifdef __TANOA__
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+#endif
 #ifdef __MALDEN__
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
