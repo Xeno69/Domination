@@ -2,7 +2,6 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-
 private _ars = [];
 private _res = round (_this / 86400);
 if (_res < 100) then {_ars pushBack "0"};

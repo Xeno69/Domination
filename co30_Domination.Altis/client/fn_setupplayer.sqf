@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
