@@ -628,6 +628,9 @@ if (d_with_MainTargetEvents != 0) then {
 			case "RESCUE_DEFEND": {
 				[_radius, _trg_center] spawn d_fnc_event_sidevipdefend;
 			};
+			case "RESCUE_DEFUSE": {
+				[_radius, _trg_center] spawn d_fnc_event_sideprisonerdefuse;
+			};
 		};
 	};
 	
@@ -645,15 +648,20 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 	// choose event(s)
 	if (_doEvent) then {
-		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3}) then {
-			// create three simultaneous events		
+		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then {
+			// create multiple simultaneous events		
 			private _tmpMtEvents = + d_x_mt_event_types;
 			if (d_with_MainTargetEvents != -3) then {
             	// guerrilla events are only eligible if d_with_MainTargetEvents == -3
             	// remove guerrilla events from the temp array, do not select it here
             	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
 			};
-			for "_i" from 0 to 2 do {
+			private _num_events_for = 2; // default three events for iterator starting at zero
+			if (d_with_MainTargetEvents == -4) then {
+				// "all" parameter selected so entire events array will be used
+				_num_events_for = (count _tmpMtEvents);
+			};
+			for "_i" from 0 to (_num_events_for - 1) do {
 				private _tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);

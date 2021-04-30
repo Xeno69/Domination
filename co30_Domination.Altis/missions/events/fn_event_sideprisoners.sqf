@@ -110,11 +110,9 @@ if (!isNil "_bldg") then {
 } forEach _unitsNotGarrisoned;
 
 private _all_dead = false;
-private _isExecutePrisoners = false;
 private _is_rescued = false;
 
-// this correct?
-while {sleep 1; !d_mt_done; !_is_rescued} do {
+while {sleep 3.14; !d_mt_done; !_is_rescued} do {
 	if (!alive _pilot1) exitWith { _all_dead = true };
 	
 	if (({alive _x} count units _enemyGuardGroup) > 0) then {
@@ -151,8 +149,6 @@ while {sleep 1; !d_mt_done; !_is_rescued} do {
 			// todo announce player
 		};
 	};
-	
-	sleep 3.14;
 };
 
 if (_all_dead) then {
