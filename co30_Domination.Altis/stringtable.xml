@@ -3012,6 +3012,18 @@
 <Chinese>Always, multiple events with guerrillas</Chinese>
 <French>Always, multiple events with guerrillas</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ALL">
+<English>All</English>
+<Spanish>All</Spanish>
+<Portuguese>All</Portuguese>
+<Korean>All</Korean>
+<Japanese>All</Japanese>
+<Original>All</Original>
+<Russian>All</Russian>
+<Chinesesimp>All</Chinesesimp>
+<Chinese>All</Chinese>
+<French>All</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
 <English>(Dead)</English>
 <Spanish>(Muerto)</Spanish>
@@ -11065,6 +11077,30 @@
 <Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
 <French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE">
+<English>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</English>
+<Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Spanish>
+<Portuguese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Portuguese>
+<Korean>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Korean>
+<Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
+<Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
+<Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
+<Chinesesimp>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinesesimp>
+<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinese>
+<French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW">
+<English>Defusing device...</English>
+<Spanish>Defusing device...</Spanish>
+<Portuguese>Defusing device...</Portuguese>
+<Korean>Defusing device...</Korean>
+<Japanese>Defusing device...</Japanese>
+<Original>Defusing device...</Original>
+<Russian>Defusing device...</Russian>
+<Chinesesimp>Defusing device...</Chinesesimp>
+<Chinese>Defusing device...</Chinese>
+<French>Defusing device...</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
 <English>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
 <Spanish>Intel tiene alguna información sobre la ubicación de un campamento enemigo. Encuéntralo y elimina todos los specops allí antes de que intenten sabotear algo</Spanish>
@@ -12072,6 +12108,30 @@
 <Chinesesimp>Success.  %1 survived for %2 seconds. + %3</Chinesesimp>
 <Chinese>Success.  %1 survived for %2 seconds. + %3</Chinese>
 <French>Success.  %1 survived for %2 seconds. + %3</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EVENTSUCCEED">
+<English>Success.  + %1</English>
+<Spanish>Success.  + %1</Spanish>
+<Portuguese>Success.  + %1</Portuguese>
+<Korean>Success.  + %1</Korean>
+<Japanese>Success.  + %1</Japanese>
+<Original>Success.  + %1</Original>
+<Russian>Выполнено.  + %1</Russian>
+<Chinesesimp>Success.  + %1</Chinesesimp>
+<Chinese>Success.  + %1</Chinese>
+<French>Success.  + %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EVENTWARNINGTIME">
+<English>Move quickly! Only %1 seconds.</English>
+<Spanish>Move quickly! Only %1 seconds.</Spanish>
+<Portuguese>Move quickly! Only %1 seconds.</Portuguese>
+<Korean>Move quickly! Only %1 seconds.</Korean>
+<Japanese>Move quickly! Only %1 seconds.</Japanese>
+<Original>Move quickly! Only %1 seconds.</Original>
+<Russian>Move quickly! Only %1 seconds.</Russian>
+<Chinesesimp>Move quickly! Only %1 seconds.</Chinesesimp>
+<Chinese>Move quickly! Only %1 seconds.</Chinese>
+<French>Move quickly! Only %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEH">
 <English>Civilian vehicles - enabled</English>
@@ -13634,6 +13694,18 @@
 <Chinese>defend</Chinese>
 <French>defend</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE">
+<English>defuse</English>
+<Spanish>defuse</Spanish>
+<Portuguese>defuse</Portuguese>
+<Korean>defuse</Korean>
+<Japanese>defuse</Japanese>
+<Original>defuse</Original>
+<Russian>defuse</Russian>
+<Chinesesimp>defuse</Chinesesimp>
+<Chinese>defuse</Chinese>
+<French>defuse</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES">
 <English>prisoners + explosives</English>
 <Spanish>prisoners + explosives</Spanish>
@@ -13671,16 +13743,16 @@
 <French>The enemy detonated a device. Failure.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS">
-<English>Enemy explosive device disabled. Success!</English>
-<Spanish>Enemy explosive device disabled. Success!</Spanish>
-<Portuguese>Enemy explosive device disabled. Success!</Portuguese>
-<Korean>Enemy explosive device disabled. Success!</Korean>
-<Japanese>Enemy explosive device disabled. Success!</Japanese>
-<Original>Enemy explosive device disabled. Success!</Original>
-<Russian>Выполнено! Взрывное устройство противника диактивированно!</Russian>
-<Chinesesimp>敌人的爆炸装置已禁用。成功！</Chinesesimp>
-<Chinese>Enemy explosive device disabled. Success!</Chinese>
-<French>Enemy explosive device disabled. Success!</French>
+<English>Enemy explosive device disabled.</English>
+<Spanish>Enemy explosive device disabled.</Spanish>
+<Portuguese>Enemy explosive device disabled.</Portuguese>
+<Korean>Enemy explosive device disabled.</Korean>
+<Japanese>Enemy explosive device disabled.</Japanese>
+<Original>Enemy explosive device disabled.</Original>
+<Russian>Взрывное устройство противника диактивированно.</Russian>
+<Chinesesimp>敌人的爆炸装置已禁用。</Chinesesimp>
+<Chinese>Enemy explosive device disabled.</Chinese>
+<French>Enemy explosive device disabled.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2033">
 <English>Push Boat</English>
