@@ -111,7 +111,7 @@ _unitsNotGarrisoned = [getPos _bldg, _allActors, -1, false, false, true, false, 
 
 _pilot1 setUnitPos "MIDDLE";
 
-_marker = ["d_mt_event_marker_sideprisoners", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+_marker = ["d_mt_event_marker_sideprisonerdefuse", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
 [_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 {

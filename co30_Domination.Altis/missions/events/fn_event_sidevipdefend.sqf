@@ -86,7 +86,7 @@ private _marker = nil;
 } forEach _buildings_array_sorted_by_distance;
 
 if (!isNil "_bldg") then {
-	_marker = ["d_mt_event_marker_sideprisoners", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_DEFEND", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+	_marker = ["d_mt_event_marker_sidevipdefend", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_DEFEND", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
     [_marker, "STR_DOM_MISSIONSTRING_DEFEND"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
 
