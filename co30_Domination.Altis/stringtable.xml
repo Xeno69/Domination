@@ -3012,6 +3012,18 @@
 <Chinese>Always, multiple events with guerrillas</Chinese>
 <French>Always, multiple events with guerrillas</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ALL">
+<English>All</English>
+<Spanish>All</Spanish>
+<Portuguese>All</Portuguese>
+<Korean>All</Korean>
+<Japanese>All</Japanese>
+<Original>All</Original>
+<Russian>All</Russian>
+<Chinesesimp>All</Chinesesimp>
+<Chinese>All</Chinese>
+<French>All</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
 <English>(Dead)</English>
 <Spanish>(Muerto)</Spanish>
