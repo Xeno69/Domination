@@ -132,10 +132,11 @@ while {sleep 3.14; !d_mt_done; !_is_rescued} do {
 	if (_nobjs isNotEqualTo []) exitWith {
 		__TRACE("rescued _pilot1")
 		_is_rescued = true;
+		sleep 2;
+		d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersDefuseNow",d_kbtel_chan];
 		_pilot1 setDamage 0;
-		sleep 7;
+		sleep 5;
 		deleteVehicle _pilot1;
-		// todo announce player
 	};
 	// check if 45 second warning
 	if ((_defuse_time_limit - _elapsed_time) < 45 && {!_warning_given}) then {

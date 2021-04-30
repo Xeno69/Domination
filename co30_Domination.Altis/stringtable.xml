@@ -11077,6 +11077,18 @@
 <Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW">
+<English>Defusing device...</English>
+<Spanish>Defusing device...</Spanish>
+<Portuguese>Defusing device...</Portuguese>
+<Korean>Defusing device...</Korean>
+<Japanese>Defusing device...</Japanese>
+<Original>Defusing device...</Original>
+<Russian>Defusing device...</Russian>
+<Chinesesimp>Defusing device...</Chinesesimp>
+<Chinese>Defusing device...</Chinese>
+<French>Defusing device...</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
 <English>Intel has got some information about the location of an enemy camp. Find it and eliminate all specops there before they try to sabotage something</English>
 <Spanish>Intel tiene alguna información sobre la ubicación de un campamento enemigo. Encuéntralo y elimina todos los specops allí antes de que intenten sabotear algo</Spanish>

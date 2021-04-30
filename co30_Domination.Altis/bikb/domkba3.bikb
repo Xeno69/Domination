@@ -361,6 +361,11 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class MTEventSidePrisonersDefuseNow {
+		text = "$STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW";
+		speech[] = {};
+		class Arguments {};
+	};
 	class MTEventSidePrisonersDefuse {
 		text = "$STR_DOM_MISSIONSTRING_1805_DEFUSE";
 		speech[] = {};
