@@ -26,7 +26,8 @@ d_x_mt_event_types = [
 	"GUERRILLA_INFANTRY",
 	"RABBIT_RESCUE",
 	"MARKED_FOR_DEATH",
-	"RESCUE_DEFEND"
+	"RESCUE_DEFEND",
+	"RESCUE_DEFUSE"
 ];
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];

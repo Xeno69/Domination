@@ -443,6 +443,7 @@ class cfgFunctions {
 			addc(event_rabbitrescue);
 			addc(event_markedfordeath);
 			addc(event_sidevipdefend);
+			addc(event_sideprisonerdefuse);
 		};
 		class Dom_Server {
 			file = "server";

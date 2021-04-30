@@ -361,6 +361,13 @@ class Sentences {
 		speech[] = {};
 		class Arguments {};
 	};
+	class MTEventSidePrisonersDefuse {
+		text = "$STR_DOM_MISSIONSTRING_1805_DEFUSE";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
 	class MTEventSidePrisonersFail {
 		text = "$STR_DOM_MISSIONSTRING_722";
 		speech[] = {};
@@ -444,6 +451,20 @@ class Sentences {
 			class 1 {type = "simple";};
 			class 2 {type = "simple";};
 			class 3 {type = "simple";};
+		};
+	};
+	class EventSucceed {
+		text = "$STR_DOM_MISSIONSTRING_EVENTSUCCEED";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class EventWarningTime {
+		text = "$STR_DOM_MISSIONSTRING_EVENTWARNINGTIME";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
 		};
 	};
 };
