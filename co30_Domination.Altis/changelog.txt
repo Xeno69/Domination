@@ -25,6 +25,7 @@
 - Fixed: Some groups gone missing in the RHS blufor allmen arrays
 - Fixed: Hostage event now is an exact marker location instead of an area search, pilots in rescue event given longer time with no damage, marked-for-death event is now enabled, by longtimegamer
 - Fixed: Tanoa CfgIdentities were missing
+- Fixed: Some client variables had to move from fn_preinit.sqf to initcommon.sqf because of not initialized variables in preinit (like air taxi)
 - Updated: Russian translation by Babayka
 - Udpated: Simplified Chinese translation by SanJinSix
 - Many scripts optimized again

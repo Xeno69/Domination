@@ -522,26 +522,6 @@ d_color_m_marker =
 	"ColorGUER";
 #endif
 
-#ifdef __TT__
-if (isNil "d_tt_points") then {
-	d_tt_points = [
-		30, // points for the main target winner team
-		7, // points if draw (main target)
-		15, // points for destroying main target radio tower
-		5, // points for main target mission
-		10, // points for sidemission
-		5, // points for capturing a camp (main target)
-		10, // points that get subtracted when loosing a mt camp again
-		4, // points for destroying a vehicle of the other team
-		2 // points for killing a member of the other team
-	];
-};
-#endif
-
-if (isNil "d_cas_available_time") then {
-	d_cas_available_time = 600; // time till CAS is available again!
-};
-
 d_non_steer_para = "NonSteerable_Parachute_F";
 
 call {
@@ -2414,28 +2394,6 @@ if (!d_gmcwgwinter) then {
 
 if (hasInterface) then {
 	__TRACE("preInit hasInterface")
-	// d_reserved_slot gives you the ability to add reserved slots for admins
-	// if you don't log in when you've chosen the slot, you'll get kicked after ~20 once the intro ended
-	// default is no check, example: d_reserved_slot = ["d_artop_1"];
-	if (isNil "d_reserved_slot") then {
-		d_reserved_slot = [];
-	};
-
-	// d_uid_reserved_slots and d_uids_for_reserved_slots gives you the possibility to limit a slot
-	// you have to add the var names of the units to d_uid_reserved_slots and in d_uids_for_reserved_slots the UIDs of valid players
-	// d_uid_reserved_slots = ["d_alpha_1", "d_bravo_3"];
-	// d_uids_for_reserved_slots = ["1234567", "7654321"];
-	if (isNil "d_uid_reserved_slots") then {
-		d_uid_reserved_slots = [];
-		d_uids_for_reserved_slots = [];
-	};
-	
-	if (isNil "d_uids_def_choppers") then {
-		// If d_uids_initial_vecs is filled with player UIDs as strings player UIDs which are not in the array are getting kicked from
-		// the initially placed choppers and MHQs on base
-		// d_uids_initial_vecs = ["1234567", "7654321"];
-		d_uids_def_choppers = [];
-	};
 
 	// this vehicle will be created if you use the "Create XXX" at a mobile respawn (old "Create Motorcycle") or at a jump flag
 	// IMPORTANT !!!! for ranked version !!!!
@@ -2485,10 +2443,6 @@ if (hasInterface) then {
 #ifdef __TT__
 	["O_Quadbike_01_F"];
 #endif
-
-	if (d_weather == 1) then {
-		0 setOvercast 0;
-	};
 
 #ifdef __OWN_SIDE_BLUFOR__
 	d_UAV_Small = "B_UAV_01_F";
@@ -2545,58 +2499,6 @@ if (hasInterface) then {
 
 	d_weapon_respawn = true;
 
-	// points needed to get a specific rank
-	// gets even used in the unranked versions
-#ifndef __TT__
-	if (isNil "d_points_needed") then {
-		d_points_needed = [
-			20, // Corporal
-			50, // Sergeant
-			90, // Lieutenant
-			140, // Captain
-			200, // Major
-			270, // Colonel
-			500 // General
-		];
-	};
-
-	if (isNil "d_points_needed_db") then {
-		d_points_needed_db = [
-			500, // Corporal
-			2000, // Sergeant
-			5000, // Lieutenant
-			9000, // Captain
-			14000, // Major
-			20000, // Colonel
-			30000 // General
-		];
-	};
-#else
-	if (isNil "d_points_needed") then {
-		d_points_needed = [
-			100, // Corporal
-			400, // Sergeant
-			800, // Lieutenant
-			1600, // Captain
-			3000, // Major
-			5000, // Colonel
-			8000 // General
-		];
-	};
-
-	if (isNil "d_points_needed_db") then {
-		d_points_needed_db = [
-			500, // Corporal
-			2000, // Sergeant
-			5000, // Lieutenant
-			9000, // Captain
-			14000, // Major
-			20000, // Colonel
-			30000 // General
-		];
-	};
-#endif
-
 	d_marker_vecs = [];
 	d_mhq_3ddraw = [];
 
@@ -2624,57 +2526,6 @@ if (hasInterface) then {
 	// for example: ["pilot_1","pilot_2"];, case sensitiv
 	// PLEASE DO NOT CHANGE THIS FOR THE TT VERSION, IT SHOULD BE AN EMPTY ARRAY!!!!
 	d_only_pilots_can_fly = [];
-
-	// array now so players can select different air taxi types
-	if (d_with_airtaxi == 0) then {
-		d_taxi_aircrafts =
-#ifdef __OWN_SIDE_INDEPENDENT__
-			["I_Heli_Transport_02_F"];
-#endif
-#ifdef __OWN_SIDE_BLUFOR__
-			call {
-				if (d_cup) exitWith {
-					["CUP_B_UH60M_US", "CUP_B_MH6J_USA", "CUP_B_CH47F_USA"]
-				};
-				if (d_gmcwg) exitWith {
-					if (d_gmcwgwinter) exitWith {
-						["gm_ge_army_ch53g_un"]
-					};
-					["gm_ge_army_ch53g"]
-				};
-				if (d_rhs) exitWith {
-					["RHS_UH60M2"]
-				};
-				if (d_unsung) exitWith {
-					["uns_UH1H_m60"]
-				};
-				if (d_vn) exitWith {
-					["vn_b_air_uh1c_07_04"]
-				};
-				["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
-			};
-#endif
-#ifdef __OWN_SIDE_OPFOR__
-			call {
-				if (d_rhs) exitWith {
-					["RHS_Mi8mt_Cargo_vv"]
-				};
-				["O_T_VTOL_02_infantry_dynamicLoadout_F"]
-			};
-#endif
-#ifdef __TT__
-			["O_Heli_Light_02_unarmed_F"];
-#endif
-	} else {
-		d_taxi_aircrafts = [];
-	};
-
-	if (isNil "d_launcher_cooldown") then {
-		// player AT launcher cooldown time, means, a player can't use a guided launcher like the Titan for 60
-		// The projectile gets deleted and a magazine added again to the player inventory
-		// can be changed in the database dom_settings table too
-		d_launcher_cooldown = d_launcher_cooldownp;
-	};
 
 	// internal variables
 	d_flag_vec = objNull;
@@ -2831,10 +2682,6 @@ if (hasInterface) then {
 #ifdef __VN__
 	(d_remove_from_arsenal # 5) append [{"_static_" in _this}, "vn_c_pack_01", "vn_c_pack_02"];
 #endif
-
-	if (d_no_mortar_ar == 1) then {
-		(d_remove_from_arsenal # 5) append [{_this isKindOf "Weapon_Bag_Base" || {_this isKindOf "B_Mortar_01_support_F"}}];
-	};
 
 	d_color_hash = createHashMap;
 

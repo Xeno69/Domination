@@ -41,7 +41,7 @@ d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 #ifndef __IFA3LITE__
 if (!d_tt_ver) then {
 	__TRACE_1("","d_taxi_aircrafts")
-	diag_log ["DOM trying to create air taxi menu entry, _is_para", _is_para, "d_taxi_aircrafts:", d_taxi_aircrafts, "d_heli_taxi_available:", d_heli_taxi_available];
+	//diag_log ["DOM trying to create air taxi menu entry, _is_para", _is_para, "d_taxi_aircrafts:", d_taxi_aircrafts, "d_heli_taxi_available:", d_heli_taxi_available];
 	if (!visibleMap && {!_is_para && {d_taxi_aircrafts isNotEqualTo []}}) then {
 		if (d_heli_taxi_available) then {
 			d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
