@@ -7,6 +7,7 @@
 - Added: T15 and M1A2SEPv2 in the RHS versions
 - Added: Maintarget event - defend unconscious pilot, by longtimegamer
 - Added: Maintarget event - prisoner explosive vest defuse rescue, by longtimegamer
+- Added: d_add_to_arsenal in fn_preinit.sqf too add weapons/items to Virtual Arsenal
 - Changed: Added new mode "Block but not for missile launchers" to d_without_nvg and d_without_ti params
 - Changed: Sway and fatigue now disabled by default, revive max lifes set to unlimited
 - Changed: Repair/refuel points checktime increased to two minutes because of engine startup times in the RHS versions

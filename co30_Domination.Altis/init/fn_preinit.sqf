@@ -2683,6 +2683,37 @@ if (hasInterface) then {
 	(d_remove_from_arsenal # 5) append [{"_static_" in _this}, "vn_c_pack_01", "vn_c_pack_02"];
 #endif
 
+	// add here the class names of the weapons which you want to add to Virtual Arsenal
+	d_add_to_arsenal = [
+		[], // PRIMARYWEAPON
+		[], // SECONDARYWEAPON
+		[], // HANDGUN
+		[], // uniforms
+		[], // VEST
+		[], // BACKPACK
+		[], // HEADGEAR
+		[], // GOGGLES
+		[], // NVGS
+		[], // BINOCULARS
+		[], // MAP
+		[], // GPS, UAV Terminal
+		[], // RADIO
+		[], // COMPASS
+		[], // WATCH
+		[], // FACE
+		[], // VOICE
+		[], // INSIGNIA
+		[], // ITEMOPTIC
+		[], // ITEMACC
+		[], // ITEMMUZZLE
+		[], // CARGOMAG
+		[], // CARGOTHROW
+		[], // CARGOPUT
+		[], // CARGOMISC
+		[], // ITEMBIPOD
+		[] // CARGOMAGALL
+	];
+
 	d_color_hash = createHashMap;
 
 	{

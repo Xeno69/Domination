@@ -1082,7 +1082,13 @@ private _har = bis_fnc_arsenal_data # 9;
 _har = _har - ["Rangefinder"];
 bis_fnc_arsenal_data set [9, _har];
 #endif
-call d_fnc_build_ranked_gear;
+
+{
+	if (_x isNotEqualTo []) then {
+		(bis_fnc_arsenal_data # _forEachIndex) append _x;
+	};
+} forEach d_add_to_arsenal;
+
 if (d_with_ranked && {!d_no_ranked_weapons}) then {
 	call d_fnc_build_ranked_gear;
 	
