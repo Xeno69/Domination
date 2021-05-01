@@ -864,7 +864,45 @@ if (!d_gmcwgwinter) then {
 #endif
 
 	d_allmen_G = [
-		#include "d_allmen_G_default.sqf"
+#ifdef __ALTIS__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __LIVONIA__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __GMCWG__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __CUP_CHERNARUS__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __CUP_TAKISTAN__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __CUP_SARA__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __IFA3LITE__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __STRATIS__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __TTMALDEN__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __UNSUNG__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __VN__
+#include "d_allmen_G_vn.sqf"
+#endif
 	];
 
 	d_specops_E = [
@@ -1009,9 +1047,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __VN__
 	d_sniper_E = [["vn_o_men_nva_10", "vn_o_men_nva_24"], ["vn_o_men_vc_local_31", "vn_o_men_vc_local_10"]];
 	d_sabotage_E = [["vn_o_men_nva_09","vn_o_men_nva_23"]];
-	d_sabotage_G = [
-		#include "d_allmen_G_vn.sqf"
-	];
+	d_sabotage_G = [["vn_i_men_ranger_05"], ["vn_i_men_sf_05"]];
 	d_specops_G = [
 		["Indep","VN_ARVN","vn_i_group_men_sf","vn_i_group_men_sf_01"] call d_fnc_GetConfigGroup,
 		["Indep","VN_ARVN","vn_i_group_men_sf","vn_i_group_men_sf_02"] call d_fnc_GetConfigGroup,
