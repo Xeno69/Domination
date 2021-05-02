@@ -20,6 +20,8 @@
 /dom_maker/*.pbo
 /dom_maker/DePbo.dll
 /dom_maker/MakePbo.exe
+/dom_maker/ArmaScriptCompiler.exe
+/dom_maker/libcsqfvm.dll
 co30_Domination.Altis.7z
 /co30_Domination.Altis - Kopie/*
 /co30_Domination.Altis - Copy/*

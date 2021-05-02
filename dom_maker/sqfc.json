@@ -1,0 +1,20 @@
+{
+  "inputDirs": [
+    "E:/DomSQFC/ar/",
+	"E:/DomSQFC/bikb/",
+	"E:/DomSQFC/client/",
+	"E:/DomSQFC/clientui/",
+	"E:/DomSQFC/common/",
+	"E:/DomSQFC/missions/",
+	"E:/DomSQFC/revive/",
+	"E:/DomSQFC/scripts/",
+	"E:/DomSQFC/server/"
+  ],
+  "includePaths": [
+    "E:/"
+  ],
+  "excludeList": [
+  ],
+  "outputDir": "E:/",
+  "workerThreads": 12
+}
