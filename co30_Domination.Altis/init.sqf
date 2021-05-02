@@ -30,5 +30,21 @@ if (isServer) then {
 	setDate _date;
 };
 #endif
+#ifdef __VN__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1971..."];
+	private _date = date;
+	_date set [0, 1971];
+	setDate _date;
+};
+#endif
+#ifdef __UNSUNG__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1971..."];
+	private _date = date;
+	_date set [0, 1971];
+	setDate _date;
+};
+#endif
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom init.sqf processed"];
