@@ -11,7 +11,7 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-	d_x_sm_pos _poss = x_sm_pos # ((floor random 14) + 1);
+	private _poss = d_x_sm_pos # ((floor random 14) + 1);
 	//private _fortress = createVehicle [d_sm_fortress, _poss, [], 0, "NONE"];
 	//_fortress setPos _poss;
 	//d_x_sm_vec_rem_ar pushBack _fortress;

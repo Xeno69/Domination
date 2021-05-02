@@ -1,5 +1,4 @@
 // Include common defines file
-#include "\A3\Functions_F_MP_Mark\DynamicGroupsCommonDefines.inc"
 
 params [["_mode", "", [""]], ["_params", [], [[]]]];
 
@@ -11,7 +10,7 @@ switch (_mode) do {
 	 * @param Whether or not to register all groups led by a player at mission start
 	 */
 	case "Initialize": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		private _registerInitialPlayerGroups = _params param [0, false, [true]];
 		private _maxUnitsPerGroup = _params param [1, 99, [0]];
@@ -22,16 +21,16 @@ switch (_mode) do {
 		if (["IsInitialized"] call d_fnc_dynamicgroups) exitWith {};
 
 		// Handle requests from clients
-		VAR_ON_CLIENT_MESSAGE addPublicVariableEventHandler [missionnamespace, {
+		"BIS_dynamicGroups_clientMessage" addPublicVariableEventHandler [missionnamespace, {
 			["OnClientMessage", _this] call d_fnc_dynamicgroups;
 		}];
 
 		// Initialized flag
-		missionNamespace setVariable [VAR_INITIALIZED, true, IS_PUBLIC];
+		missionNamespace setVariable ["BIS_dg_ini", true, true];
 
 		// Group unit count limit
 		if (_maxUnitsPerGroup < 99) then {
-			missionNamespace setVariable [VAR_MAX_UNITS_PER_GROUP, _maxUnitsPerGroup, IS_PUBLIC];
+			missionNamespace setVariable ["BIS_dg_mupg", _maxUnitsPerGroup, true];
 		};
 
 		// Initialize initial player groups
@@ -42,12 +41,12 @@ switch (_mode) do {
 		// Minimal interaction, only allows group leader to promote another team member to leader
 		// No other actions are allowed
 		if (_minimalInteraction) then {
-			missionNamespace setVariable [VAR_MINIMAL_INTERACTION, _minimalInteraction, IS_PUBLIC];
+			missionNamespace setVariable ["BIS_dg_mii", _minimalInteraction, true];
 		};
 
 		// The forced insignia if any
 		if (_forcedInsignia isNotEqualTo "") then {
-			missionNamespace setVariable [VAR_FORCED_INSIGNIA, _forcedInsignia, IS_PUBLIC];
+			missionNamespace setVariable ["BIS_dg_fia", _forcedInsignia, true];
 		};
 	};
 
@@ -56,27 +55,27 @@ switch (_mode) do {
 	 * Runs only on the server
 	 */
 	case "Terminate": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		// Clear client message event handler
-		VAR_ON_CLIENT_MESSAGE addPublicVariableEventHandler [missionnamespace, {}];
+		"BIS_dynamicGroups_clientMessage" addPublicVariableEventHandler [missionnamespace, {}];
 
 		// Public variables
-		missionNamespace setVariable [VAR_INITIALIZED, nil, IS_PUBLIC];
+		missionNamespace setVariable ["BIS_dg_ini", nil, true];
 	};
 
 	/**
 	 * Returns whether the dynamic groups system is initialized
 	 */
 	case "IsInitialized": {
-		missionNamespace getVariable [VAR_INITIALIZED, false];
+		missionNamespace getVariable ["BIS_dg_ini", false];
 	};
 
 	/**
 	 * Receives and handles client requests on the server
 	 */
 	case "OnClientMessage": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_variable", "", [""]], ["_message", [], [[]]]];
 
@@ -97,7 +96,7 @@ switch (_mode) do {
 	};
 
 	case "RegisterGroup": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_leader", objNull, [objNull]], ["_data", [], [[]]]];
 
@@ -107,19 +106,19 @@ switch (_mode) do {
 			private _private	= _data param [2, false, [true]];
 
 			// Flag as registered
-			_group setVariable [VAR_GROUP_REGISTERED, true, IS_PUBLIC];
+			_group setVariable ["BIS_dg_reg", true, true];
 
 			// Set the creator of this group
-			_group setVariable [VAR_GROUP_CREATOR, _leader, IS_PUBLIC];
+			_group setVariable ["BIS_dg_cre", _leader, true];
 
 			// Set random insignia
-			_group setVariable [VAR_GROUP_INSIGNIA, _insignia, IS_PUBLIC];
+			_group setVariable ["BIS_dg_ins", _insignia, true];
 
 			// Set lock status, unlocked by default
-			_group setVariable [VAR_GROUP_PRIVATE, _private, IS_PUBLIC];
+			_group setVariable ["BIS_dg_pri", _private, true];
 
 			// Set unique var
-			_group setVariable [VAR_GROUP_VAR, format ["%1_%2_%3", _name, getPlayerUID _leader, time], IS_PUBLIC];
+			_group setVariable ["BIS_dg_var", format ["%1_%2_%3", _name, getPlayerUID _leader, time], true];
 
 			// Set the default name of the group
 			_group setGroupIdGlobal [_name];
@@ -137,11 +136,11 @@ switch (_mode) do {
 
 		if (!isNull _group && {["IsGroupRegistered", [_group]] call d_fnc_dynamicgroups}) then {
 			if (_keep || {count units _group > 0}) then {
-				_group setVariable [VAR_GROUP_REGISTERED, nil, IS_PUBLIC];
-				_group setVariable [VAR_GROUP_CREATOR, nil, IS_PUBLIC];
-				_group setVariable [VAR_GROUP_INSIGNIA, nil, IS_PUBLIC];
-				_group setVariable [VAR_GROUP_PRIVATE, nil, IS_PUBLIC];
-				_group setVariable [VAR_GROUP_VAR, nil, IS_PUBLIC];
+				_group setVariable ["BIS_dg_reg", nil, true];
+				_group setVariable ["BIS_dg_cre", nil, true];
+				_group setVariable ["BIS_dg_ins", nil, true];
+				_group setVariable ["BIS_dg_pri", nil, true];
+				_group setVariable ["BIS_dg_var", nil, true];
 			} else {
 				["DeleteGroup", [_group]] call d_fnc_dynamicgroups;
 			};
@@ -151,7 +150,7 @@ switch (_mode) do {
 	case "IsGroupRegistered": {
 		private _group = _params param [0, grpNull, [grpNull]];
 
-		_group getVariable [VAR_GROUP_REGISTERED, false];
+		_group getVariable ["BIS_dg_reg", false];
 	};
 
 	case "DeleteGroup": {
@@ -173,7 +172,7 @@ switch (_mode) do {
 	};
 
 	case "SetName": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		private _group  = _params param [0, grpNull, [grpNull]];
 		private _name 	= _params param [1, "", [""]];
@@ -185,18 +184,18 @@ switch (_mode) do {
 	};
 
 	case "SetPrivateState": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		private _group  = _params param [0, grpNull, [grpNull]];
 		private _state 	= _params param [1, true, [true]];
 
 		if (!isNull _group) then {
-			_group setVariable [VAR_GROUP_PRIVATE, _state, IS_PUBLIC];
+			_group setVariable ["BIS_dg_pri", _state, true];
 		};
 	};
 
 	case "CreateGroupAndRegister": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		private _player = _params param [0, objNull, [objNull]];
 
@@ -213,18 +212,18 @@ switch (_mode) do {
 	};
 
 	case "SwitchLeader": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_player", objNull, [objNull]]];
 
 		if (!isNull _group && {!isNull _player && {_group == group _player}}) then {
 			// Select new leader
-			[_group, _player] remoteExec ["selectLeader", groupOwner _group];
+			[_group, _player] remoteExecCall ["selectLeader", groupOwner _group];
 		};
 	};
 
 	case "AddGroupMember": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_player", objNull, [objNull]]];
 
@@ -246,7 +245,7 @@ switch (_mode) do {
 	};
 
 	case "RemoveGroupMember": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_player", objNull, [objNull]]];
 
@@ -270,7 +269,7 @@ switch (_mode) do {
 	 * Switches a player from a group to another
 	 */
 	case "SwitchGroup": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_player", objNull, [objNull]]];
 
@@ -294,7 +293,7 @@ switch (_mode) do {
 	 * Kicks a player out of a group
 	 */
 	case "KickPlayer": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_leader", objNull, [objNull]], ["_player", objNull, [objNull]]];
 
@@ -303,13 +302,13 @@ switch (_mode) do {
 			["RemoveGroupMember", [_group, _player]] call d_fnc_dynamicgroups;
 
 			// The current list of group kicks this player has
-			private _kicks = _player getVariable [VAR_KICKED_BY, []];
+			private _kicks = _player getVariable ["BIS_dg_kic", []];
 
 			// Add new id
 			_kicks pushBack _group;
 
 			// Store this event, we want to be able to see if player was kicked out of a group
-			_player setVariable [VAR_KICKED_BY, _kicks, IS_PUBLIC];
+			_player setVariable ["BIS_dg_kic", _kicks, true];
 		};
 	};
 
@@ -317,20 +316,20 @@ switch (_mode) do {
 	 * Un-kicks a player from a group
 	 */
 	case "UnKickPlayer": {
-		CHECK(!isServer)
+		if (!isServer) exitWith {};
 
 		_params params [["_group", grpNull, [grpNull]], ["_player", objNull, [objNull]]];
 
 		if (!isNull _group && {!isNull _player && {["WasPlayerKickedFrom", [_group, _player]] call d_fnc_dynamicgroups}}) then {
 			// The current list of group kicks this player has
-			private _kicksOld = _player getVariable [VAR_KICKED_BY, []];
+			private _kicksOld = _player getVariable ["BIS_dg_kic", []];
 
 			// Remove given id from list if it exists
 			private _kicks = _kicksOld - [_group];
 
 			// Store this event, we want to be able to see if player was kicked out of a group
 			if !(_kicksOld isEqualTo _kicks) then {
-				_player setVariable [VAR_KICKED_BY, _kicks, IS_PUBLIC];
+				_player setVariable ["BIS_dg_kic", _kicks, true];
 			};
 		};
 	};
@@ -338,7 +337,7 @@ switch (_mode) do {
 	case "WasPlayerKickedFrom": {
 		_params params [["_group", grpNull, [grpNull]], ["_player", objNull, [objNull]]];
 
-		_group in (_player getVariable [VAR_KICKED_BY, []]);
+		_group in (_player getVariable ["BIS_dg_kic", []]);
 	};
 
 	/**
@@ -385,7 +384,7 @@ switch (_mode) do {
 		private _group  = grpNull;
 
 		{
-			if (_id == _x getVariable [VAR_GROUP_VAR, ""] && {side _x == _side}) exitWith {
+			if (_id == _x getVariable ["BIS_dg_var", ""] && {side _x == _side}) exitWith {
 				_group = _x;
 			};
 		} forEach allGroups;
@@ -430,7 +429,7 @@ switch (_mode) do {
 	 * Can only be run on machines which have a player
 	 */
 	case "InitializePlayer": {
-		CHECK(!hasInterface)
+		if (!hasInterface) exitWith {};
 
 		_params params [["_player", player, [objNull]], ["_registerInitialGroup", false, [true]]];
 
@@ -438,23 +437,23 @@ switch (_mode) do {
 
 		if (!local _player) exitWith {};
 
-		if (!isNil { _player getVariable VAR_INITIALIZED }) exitWith {};
+		if (!isNil { _player getVariable "BIS_dg_ini" }) exitWith {};
 
 		// Flag as initialized
-		_player setVariable [VAR_INITIALIZED, true, IS_PUBLIC];
+		_player setVariable ["BIS_dg_ini", true, true];
 
 		// Add key events for opening the Dynamic Groups interface and for invitation handling
 		["AddKeyEvents"] call d_fnc_dynamicgroups;
 
 		// When in the respawn screen, detect when we want to open dynamic groups
-		/*missionNamespace setVariable [VAR_PLAYER_RESPAWN_KEYDOWN,
+		/*missionNamespace setVariable ["BIS_dynamicGroups_respawnKeyDown",
 		[
 			missionnamespace,
 			"RscDisplayRespawnKeyDown",
 			{
 				private _key = _this param [1, -1, [0]];
 
-				if (_key in d_ak_teamswitch && {missionNamespace getVariable [VAR_ALLOW_INTERFACE, true]}) then {
+				if (_key in d_ak_teamswitch && {missionNamespace getVariable ["BIS_dynamicGroups_allowInterface", true]}) then {
 					(_this # 0) createDisplay "d_RscDisplayDynamicGroups";
 				};
 			}
@@ -475,22 +474,22 @@ switch (_mode) do {
 	 * Can only be run on machines which have a player
 	 */
 	case "TerminatePlayer": {
-		CHECK(!hasInterface)
+		if (!hasInterface) exitWith {};
 
 		private _player = _params param [0, player, [objNull]];
 
 		if (!local _player) exitWith {};
 
-		if (isNil { _player getVariable VAR_INITIALIZED }) exitWith {};
+		if (isNil { _player getVariable "BIS_dg_ini" }) exitWith {};
 
 		// Remove key events for opening the Dynamic Groups interface and for invitation handling
 		["RemoveKeyEvents"] call d_fnc_dynamicgroups;
 
 		// Remove respawn screen key down event handling
-		//[missionnamespace, "RscDisplayRespawnKeyDown", missionNamespace getVariable [VAR_PLAYER_RESPAWN_KEYDOWN, []]] call bis_fnc_removescriptedeventhandler;
+		//[missionnamespace, "RscDisplayRespawnKeyDown", missionNamespace getVariable ["BIS_dynamicGroups_respawnKeyDown", []]] call bis_fnc_removescriptedeventhandler;
 
 		// Stop the updating function
-		//removeMissionEventHandler ["EachFrame", missionnamespace getVariable [VAR_PLAYER_DRAW3D, -1]];
+		//removeMissionEventHandler ["EachFrame", missionnamespace getVariable ["BIS_dynamicGroups_draw3D", -1]];
 		//["dom_dg_eh"] call d_fnc_eachframeremove;
 		//player sidechat "draußen";
 	};
@@ -499,7 +498,7 @@ switch (_mode) do {
 	 * Sends a message to server from a client machine
 	 */
 	case "SendClientMessage" : {
-		CHECK(!hasInterface)
+		if (!hasInterface) exitWith {};
 
 		private _inMode         = _params param [0, "", [""]];
 		private _inParams       = _params param [1, [], [[]]];
@@ -508,7 +507,7 @@ switch (_mode) do {
 		if (isServer) then {
 			[_inMode, _inParams] call d_fnc_dynamicgroups;
 		} else {
-			missionNamespace setVariable [VAR_ON_CLIENT_MESSAGE, [_inMode, _inParams, player], IS_PUBLIC];
+			missionNamespace setVariable ["BIS_dynamicGroups_clientMessage", [_inMode, _inParams, player], true];
 		};
 	};
 
@@ -517,7 +516,7 @@ switch (_mode) do {
 	 */
 	case "AddKeyEvents": {
 		disableSerialization;
-		CHECK(!hasInterface)
+		if (!hasInterface) exitWith {};
 
 		private _display = _params param [0, displayNull, [displayNull]];
 
@@ -561,7 +560,7 @@ switch (_mode) do {
 	 */
 	case "RemoveKeyEvents": {
 		disableSerialization;
-		CHECK(!hasInterface)
+		if (!hasInterface) exitWith {};
 
 		private _display = _params param [0, displayNull, [displayNull]];
 
@@ -603,7 +602,7 @@ switch (_mode) do {
 		_params params ["_key"];
 		private _ctrl = _params # 3;
 
-		if (!_ctrl && {_key in actionKeys UI_OPEN_KEY}) then {
+		if (!_ctrl && {_key in actionKeys "TeamSwitch"}) then {
 			if (isNil {uiNamespace getVariable "BIS_dynamicGroups_keyDownTime"}) then {
 				uiNamespace setVariable ["BIS_dynamicGroups_keyDownTime", time];
 				uiNamespace setVariable ["BIS_dynamicGroups_ignoreInterfaceOpening", nil];
@@ -627,12 +626,12 @@ switch (_mode) do {
 
 		uiNamespace setVariable ["BIS_dynamicGroups_keyDownTime", nil];
 
-		if (!_ctrl && {_key in actionKeys UI_OPEN_KEY} && {isNil { uiNamespace getVariable "BIS_dynamicGroups_ignoreInterfaceOpening" }}) then {
+		if (!_ctrl && {_key in actionKeys "TeamSwitch"} && {isNil { uiNamespace getVariable "BIS_dynamicGroups_ignoreInterfaceOpening" }}) then {
 			if (isNull (findDisplay 60490) && {missionNamespace getVariable ["BIS_dynamicGroups_allowInterface", true]}) then {
 				([] call BIS_fnc_displayMission) createDisplay "d_RscDisplayDynamicGroups";
 			} else {
 				if (isNil {uiNamespace getVariable "BIS_dynamicGroups_hasFocus"}) then {
-					(["GetDisplay"] call d_fnc_rscdisplaydynamicgroups) closeDisplay IDC_CANCEL;
+					(["GetDisplay"] call d_fnc_rscdisplaydynamicgroups) closeDisplay 2;
 				};
 			};
 
@@ -647,7 +646,7 @@ switch (_mode) do {
 	 */
 	case "UpdateKeyDown": {
 		if (!isNil {uiNamespace getVariable "BIS_dynamicGroups_keyDownTime"} && {count (["GetPlayerInvites", [player]] call d_fnc_dynamicgroups) > 0}) then {
-			if ((time - (uiNamespace getVariable "BIS_dynamicGroups_keyDownTime")) >= HOLD_DOWN_TIME_FOR_INVITE_ACCEPT) then {
+			if ((time - (uiNamespace getVariable "BIS_dynamicGroups_keyDownTime")) >= 0.7) then {
 				private _invites = ["GetPlayerInvites", [player]] call d_fnc_dynamicgroups;
 
 				if (_invites isNotEqualTo []) then {
@@ -660,7 +659,7 @@ switch (_mode) do {
 					["RemoveInvite", [_group, player]] call d_fnc_dynamicgroups;
 
 					// Make sure group is not full
-					if (count units _group < missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99]) then {
+					if (count units _group < missionNamespace getVariable ["BIS_dg_mupg", 99]) then {
 						if !(["PlayerHasGroup", [player]] call d_fnc_dynamicgroups) then {
 							["SendClientMessage", ["AddGroupMember", [_group, player]]] call d_fnc_dynamicgroups;
 						} else {
@@ -691,7 +690,7 @@ switch (_mode) do {
 		if (isNull _to) exitWith {};
 
 		// Get current invites and requests
-		private _invitations = _to getVariable [VAR_INVITES, []];
+		private _invitations = _to getVariable ["BIS_dg_kic", []];
 
 		// The index if group already in list
 		private _index = _invitations findIf {_x # 0 == _group};
@@ -704,7 +703,7 @@ switch (_mode) do {
 		};
 
 		// Broadcast changes
-		_to setVariable [VAR_INVITES, _invitations, IS_PUBLIC];
+		_to setVariable ["BIS_dg_kic", _invitations, true];
 
 		// Fire event on target computer
 		["OnInvitationReceived", [_group, _to, _from]] remoteExecCall ["d_fnc_dynamicGroups", _to];
@@ -724,7 +723,7 @@ switch (_mode) do {
 		if (isNull _player) exitWith {};
 
 		// Get current invites and requests
-		private _container      = [] + (_player getVariable [VAR_INVITES, []]);
+		private _container      = [] + (_player getVariable ["BIS_dg_kic", []]);
 
 		// Go through the container, find matching group id, get index within container and delete it
 		private _index = _container findIf {_group == _x # 0 && {_player == _x # 2}};
@@ -732,7 +731,7 @@ switch (_mode) do {
 		if (_index < 0) exitWith {};
 
 		_container deleteAt _index;
-		_player setVariable [VAR_INVITES, _container, IS_PUBLIC];
+		_player setVariable ["BIS_dg_kic", _container, true];
 	};
 
 	/**
@@ -742,7 +741,7 @@ switch (_mode) do {
 		private _group	= _params param [0, grpNull, [grpNull]];
 		private _player	= _params param [1, objNull, [objNull]];
 
-		((_player getVariable [VAR_INVITES, []]) findIf {_group == (_x # 0) && {_player == (_x # 2) && {time <= (_x # 3) + INVITE_LIFETIME}}} > -1)
+		((_player getVariable ["BIS_dg_kic", []]) findIf {_group == (_x # 0) && {_player == (_x # 2) && {time <= (_x # 3) + 60}}} > -1)
 	};
 
 	/**
@@ -752,7 +751,7 @@ switch (_mode) do {
 		private _player         = _params param [0, objNull, [objNull]];
 		private _maxLifeTime    = _params param [1, 99999999, [0]];
 
-		((_player getVariable [VAR_INVITES, []]) select {!isNull (_x # 0) && {time - (_x # 3) < _maxLifeTime}})
+		((_player getVariable ["BIS_dg_kic", []]) select {!isNull (_x # 0) && {time - (_x # 3) < _maxLifeTime}})
 	};
 
 	/**
@@ -794,12 +793,12 @@ switch (_mode) do {
 	 * Event for invitation received
 	 */
 	case "OnInvitationReceived": {
-		CHECK(!hasInterface)
+		if (!hasInterface) exitWith {};
 
 		private _to     = _params param [1, objNull, [objNull]];
 		private _from   = _params param [2, objNull, [objNull]];
 
-		CHECK(player != _to)
+		if (player != _to) exitWith {};
 
 		if (!isNull _to && {!isNull _from && {_to != _from}}) then {
 			["LocalShowNotification", ["DynamicGroups_InviteReceived", [name _from], _to]] call d_fnc_dynamicgroups;
@@ -853,7 +852,7 @@ switch (_mode) do {
 
 	case "LoadRandomInsignia": {
 		private _insignias = ["LoadInsignias"] call d_fnc_dynamicgroups;
-		_insignias = _insignias - [DEFAULT_INSIGNIA];
+		_insignias = _insignias - ["BI"];
 		_insignias call bis_fnc_selectRandom;
 	};
 
@@ -887,7 +886,7 @@ switch (_mode) do {
 		_params params [["_player", objNull, [objNull]], ["_newGroup", grpNull, [grpNull]], ["_oldGroup", grpNull, [grpNull]]];
 
 		if (["IsGroupRegistered", [_newGroup]] call d_fnc_dynamicgroups) then {
-			[_player, _newGroup getVariable [VAR_GROUP_INSIGNIA, ""]] call BIS_fnc_setUnitInsignia;
+			[_player, _newGroup getVariable ["BIS_dg_ins", ""]] call BIS_fnc_setUnitInsignia;
 		} else {
 			[_player, ""] call BIS_fnc_setUnitInsignia;
 		};

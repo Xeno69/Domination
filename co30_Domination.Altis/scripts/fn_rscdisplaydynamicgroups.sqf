@@ -1,9 +1,6 @@
 // Do not serialize
 disableSerialization;
 
-// Include common defines file
-#include "\A3\Functions_F_MP_Mark\DynamicGroupsCommonDefines.inc"
-
 // Script parameters
 params [["_mode", "", [""]], ["_params", [], [[]]]];
 
@@ -15,35 +12,35 @@ switch _mode do {
 		uiNamespace setVariable ["d_dynamicGroups_display", _display];
 
 		// Reset
-		uiNamespace setVariable [VAR_SELECTED_MEMBER, nil];
-		uiNamespace setVariable [VAR_SELECTED_PLAYER, nil];
-		uiNamespace setVariable [VAR_SELECTED_GROUPORPLAYER, nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedMember", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedPlayer", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", nil];
 
 		// Sections
-		private _sectionGroups = _display displayCtrl IDC_DYNAMICGROUPS_SECTIONGROUPS;
-		private _sectionManage = _display displayCtrl IDC_DYNAMICGROUPS_SECTIONMANAGE;
+		private _sectionGroups = _display displayCtrl 10679;
+		private _sectionManage = _display displayCtrl 10677;
 
 		// List boxes
-		private _groupsListbox 	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
-		private _playersListbox	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS;
-		private _manageListbox 	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXMANAGE;
+		private _groupsListbox 	= _display displayCtrl 9877;
+		private _playersListbox	= _display displayCtrl 9880;
+		private _manageListbox 	= _display displayCtrl 9878;
 
 		// Buttons
-		private _createLeaveKickButton 	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONCREATELEAVEKICK;
-		private _promoteDisbandButton 	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONPROMOTEDISBAND;
-		private _joinButton 			= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONJOIN;
-		private _kickPlayerButton 		= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONKICK;
+		private _createLeaveKickButton 	= _display displayCtrl 9978;
+		private _promoteDisbandButton 	= _display displayCtrl 9979;
+		private _joinButton 			= _display displayCtrl 9977;
+		//private _kickPlayerButton 		= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONKICK;
 		private _invitePlayerButton 	= _display displayCtrl 9980;
-		private _closeInterfaceButton 	= _display displayCtrl IDC_DYNAMICGROUPS_CLOSEINTERFACE;
-		private _tabGroupsButton 		= _display displayCtrl IDC_DYNAMICGROUPS_TABBUTTONGROUPS;
-		private _tabPlayersButton 		= _display displayCtrl IDC_DYNAMICGROUPS_TABBUTTONPLAYERS;
+		//private _closeInterfaceButton 	= _display displayCtrl IDC_DYNAMICGROUPS_CLOSEINTERFACE;
+		private _tabGroupsButton 		= _display displayCtrl 9981;
+		private _tabPlayersButton 		= _display displayCtrl 9983;
 
 		// Check boxes
-		private _checkboxPrivate 	= _display displayCtrl IDC_DYNAMICGROUPS_CHECKBOXPRIVATE;
+		private _checkboxPrivate 	= _display displayCtrl 11177;
 
 		// Misc
-		private _iconPicture 		= _display displayCtrl IDC_DYNAMICGROUPS_GROUPICON;
-		private _editGroupName 		= _display displayCtrl IDC_DYNAMICGROUPS_EDITGROUPNAME;
+		private _iconPicture 		= _display displayCtrl 9577;
+		private _editGroupName 		= _display displayCtrl 9777;
 
 		// Add click events to list boxes
 		_groupsListbox ctrlAddEventHandler ["treeSelChanged", {['OnGroupsTreeSelChanged', _this] call d_fnc_rscdisplaydynamicgroups}];
@@ -64,7 +61,7 @@ switch _mode do {
 		_promoteDisbandButton ctrlAddEventHandler ["ButtonClick", {["OnPromoteDisbandButtonClick", _this] call d_fnc_rscdisplaydynamicgroups}];
 		_joinButton ctrlAddEventHandler ["ButtonClick", {["OnJoinButtonClick", _this] call d_fnc_rscdisplaydynamicgroups}];
 		_invitePlayerButton ctrlAddEventHandler ["ButtonClick", {["OnInvitePlayerButtonClick", _this] call d_fnc_rscdisplaydynamicgroups}];
-		_closeInterfaceButton ctrlAddEventHandler ["ButtonClick", {["CloseDisplay"] call d_fnc_rscdisplaydynamicgroups}];
+		//_closeInterfaceButton ctrlAddEventHandler ["ButtonClick", {["CloseDisplay"] call d_fnc_rscdisplaydynamicgroups}];
 		_tabGroupsButton ctrlAddEventHandler ["ButtonClick", {["OnTabGroupsButtonClick", _this] call d_fnc_rscdisplaydynamicgroups}];
 		_tabPlayersButton ctrlAddEventHandler ["ButtonClick", {["OnTabPlayersButtonClick", _this] call d_fnc_rscdisplaydynamicgroups}];
 
@@ -89,7 +86,7 @@ switch _mode do {
 		{_x ctrlSetFade 1; _x ctrlShow false; _x ctrlCommit 0} forEach [_sectionManage, _sectionGroups];
 
 		// We always default to showing groups
-		uiNamespace setVariable [VAR_SHOW_GROUPS, true];
+		uiNamespace setVariable ["BIS_dynamicGroups_showGroups", true];
 
 		// Add key down event for our display
 		["AddKeyEvents", [_display]] call d_fnc_dynamicgroups;
@@ -99,7 +96,7 @@ switch _mode do {
 		showCommandingMenu "";
 
 		// Reset collapsed groups variable
-		uiNamespace setVariable [VAR_COLLAPSED_GROUPS, []];
+		uiNamespace setVariable ["BIS_dynamicGroups_collapsedGroups", []];
 
 		// Initial update
 		["Update", [true]] call d_fnc_rscdisplaydynamicgroups;
@@ -115,17 +112,17 @@ switch _mode do {
 		};
 
 		uiNamespace setVariable ["d_dynamicGroups_display", nil];
-		uiNamespace setVariable [VAR_HAS_FOCUS, nil];
-		uiNamespace setVariable [VAR_OLD_GROUPS_LIST, nil];
-		uiNamespace setVariable [VAR_OLD_GROUPS_PLAYERS_LIST, nil];
-		uiNamespace setVariable [VAR_OLD_PLAYERS_LIST, nil];
-		uiNamespace setVariable [VAR_OLD_MEMBERS_LIST, nil];
-		uiNamespace setVariable [VAR_SHOW_GROUPS, nil];
-		uiNamespace setVariable [VAR_COLLAPSED_GROUPS, nil];
-		uiNamespace setVariable [VAR_LAST_PLAYER_GROUP, nil];
-		uiNamespace setVariable [VAR_SELECTED_MEMBER, nil];
-		uiNamespace setVariable [VAR_SELECTED_PLAYER, nil];
-		uiNamespace setVariable [VAR_SELECTED_GROUPORPLAYER, nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_hasFocus", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_oldGroupsList", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_oldGroupsPlayersList", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_oldPlayersList", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_oldMembersList", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_showGroups", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_collapsedGroups", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_lastPlayerGroup", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedMember", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedPlayer", nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", nil];
 
 		// Show hud and commanding menu
 		showHud true;
@@ -140,7 +137,7 @@ switch _mode do {
 	};
 
 	case "CloseDisplay": {
-		(uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) closeDisplay IDC_CANCEL;
+		(uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) closeDisplay 2;
 	};
 
 	case "Update": {
@@ -153,7 +150,7 @@ switch _mode do {
 		["UpdateManageSection", [_initialUpdate]] call d_fnc_rscdisplaydynamicgroups;
 
 		// Store last known player group
-		uiNamespace setVariable [VAR_LAST_PLAYER_GROUP, group player];
+		uiNamespace setVariable ["BIS_dynamicGroups_lastPlayerGroup", group player];
 	};
 
 	case "UpdateManageSection" : {
@@ -161,24 +158,24 @@ switch _mode do {
 		private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
 
 		// Make sure ourt display is valid
-		CHECK(isNull _display)
+		if (isNull _display) exitWith {};
 
 		// Controls
-		private _sectionManage 			= _display displayCtrl IDC_DYNAMICGROUPS_SECTIONMANAGE;
-		private _buttonPromoteDisband	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONPROMOTEDISBAND;
+		private _sectionManage 			= _display displayCtrl 10677;
+		private _buttonPromoteDisband	= _display displayCtrl 9979;
 		private _buttonInvite 			= _display displayCtrl 9980;
-		private _buttonCreateLeaveKick	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONCREATELEAVEKICK;
-		private _editGroupName 			= _display displayCtrl IDC_DYNAMICGROUPS_EDITGROUPNAME;
-		private _textNumberOfPlayers 	= _display displayCtrl IDC_DYNAMICGROUPS_TEXTPLAYERCOUNT;
-		private _listBoxMembers			= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXMANAGE;
-		private _listBoxGroups 			= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
-		private _listBoxPlayers			= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS;
-		private _checkboxPrivate 		= _display displayCtrl IDC_DYNAMICGROUPS_CHECKBOXPRIVATE;
-		private _sidePicture 			= _display displayCtrl IDC_DYNAMICGROUPS_PICTURESIDE;
-		private _groupIcon				= _display displayCtrl IDC_DYNAMICGROUPS_GROUPICON;
-		private _fillPlayerName			= _display displayCtrl IDC_DYNAMICGROUPS_TEXTPLAYERNAMEFILL;
-		private _fillPlayerSide			= _display displayCtrl IDC_DYNAMICGROUPS_TEXTPLAYERSIDEFILL;
-		private _fillPlayerScore		= _display displayCtrl IDC_DYNAMICGROUPS_TEXTPLAYERSCOREFILL;
+		private _buttonCreateLeaveKick	= _display displayCtrl 9978;
+		private _editGroupName 			= _display displayCtrl 9777;
+		private _textNumberOfPlayers 	= _display displayCtrl 9384;
+		private _listBoxMembers			= _display displayCtrl 9878;
+		private _listBoxGroups 			= _display displayCtrl 9877;
+		private _listBoxPlayers			= _display displayCtrl 9880;
+		private _checkboxPrivate 		= _display displayCtrl 11177;
+		private _sidePicture 			= _display displayCtrl 9578;
+		private _groupIcon				= _display displayCtrl 9577;
+		private _fillPlayerName			= _display displayCtrl 9387;
+		private _fillPlayerSide			= _display displayCtrl 9388;
+		private _fillPlayerScore		= _display displayCtrl 9389;
 
 		private _playerGroup 			= group player;
 		private _playerIsLeader			= player == leader _playerGroup;
@@ -187,7 +184,7 @@ switch _mode do {
 		if (!_playerGroupRegistered) then {
 			_sectionManage ctrlShow true;
 			_sectionManage ctrlSetFade 0.5;
-			_sectionManage ctrlCommit SECTION_FADE_TIME;
+			_sectionManage ctrlCommit 0.2;
 
 			_buttonCreateLeaveKick ctrlEnable true;
 			_buttonCreateLeaveKick ctrlSetText (localize "STR_A3_RscDisplayDynamicGroups_Button_Create");
@@ -218,20 +215,20 @@ switch _mode do {
 		} else {
 			private ["_groupName", "_groupPicture", "_groupInstance", "_groupLeader", "_groupPlayers", "_groupSide", "_groupIsPrivate"];
 			_groupName 		= groupId _playerGroup;
-			_groupPicture 	= _playerGroup getVariable [VAR_GROUP_INSIGNIA, ""];
-			_groupIsPrivate = _playerGroup getVariable [VAR_GROUP_PRIVATE, false];
+			_groupPicture 	= _playerGroup getVariable ["BIS_dg_ins", ""];
+			_groupIsPrivate = _playerGroup getVariable ["BIS_dg_pri", false];
 			_groupLeader 	= leader _playerGroup;
 			_groupPlayers 	= units _playerGroup;
 			_groupSide 		= side _playerGroup;
 
 			_sectionManage ctrlShow true;
 			_sectionManage ctrlSetFade 0;
-			_sectionManage ctrlCommit SECTION_FADE_TIME;
+			_sectionManage ctrlCommit 0.2;
 
 			// Update members
 			["FillPlayersListbox", [_listBoxMembers, _groupPlayers, true]] call d_fnc_rscdisplaydynamicgroups;
-			uiNamespace setVariable [VAR_OLD_MEMBERS, _groupPlayers];
-			uiNamespace setVariable [VAR_OLD_GROUP, _playerGroup];
+			uiNamespace setVariable ["BIS_dynamicGroups_oldMembers", _groupPlayers];
+			uiNamespace setVariable ["BIS_dynamicGroups_oldGroup", _playerGroup];
 
 			private ["_selectedMemberIndex", "_selectedMemberUid"];
 			_selectedMemberIndex 	= lnbCurSelRow _listBoxMembers;
@@ -242,21 +239,21 @@ switch _mode do {
 			};
 
 			_listBoxMembers ctrlEnable true;
-			_checkboxPrivate ctrlEnable (_playerIsLeader && {!(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false])});
+			_checkboxPrivate ctrlEnable (_playerIsLeader && {!(missionNamespace getVariable ["BIS_dg_mii", false])});
 			_checkboxPrivate cbSetChecked _groupIsPrivate;
 			_fillPlayerName ctrlSetText ([player] call BIS_fnc_getName);
 			_fillPlayerSide ctrlSetText (["GetSideFormattedString", [_groupSide]] call d_fnc_rscdisplaydynamicgroups);
 			_fillPlayerScore ctrlSetText str score player;
 
 			// Update edit box only if player is not leader (cannot edit)
-			private _lastPlayerGroup = uiNamespace getVariable [VAR_LAST_PLAYER_GROUP, grpNull];
+			private _lastPlayerGroup = uiNamespace getVariable ["BIS_dynamicGroups_lastPlayerGroup", grpNull];
 
 			if (!_playerIsLeader || {_initialUpdate || {_playerGroup != _lastPlayerGroup || {ctrlText _editGroupName == ["ClampString", [localize "STR_A3_RscDisplayDynamicGroups_Hint"]] call d_fnc_rscdisplaydynamicgroups}}}) then {
 				_editGroupName ctrlSetText _groupName;
 			};
 
 			// Enable edit box only for leader, because only leader can change group name
-			if (_playerIsLeader && {!(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false])}) then {
+			if (_playerIsLeader && {!(missionNamespace getVariable ["BIS_dg_mii", false])}) then {
 				_editGroupName ctrlEnable true;
 			} else {
 				_editGroupName ctrlEnable false;
@@ -286,15 +283,15 @@ switch _mode do {
 		private _initialUpdate = _params param [0, false, [true]];
 
 		private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		CHECK(isNull _display)
+		if (isNull _display) exitWith {};
 
 		// Show groups section
-		(_display displayCtrl IDC_DYNAMICGROUPS_SECTIONGROUPS) ctrlShow true;
+		(_display displayCtrl 10679) ctrlShow true;
 		_sectionGroups ctrlSetFade 0;
-		_sectionGroups ctrlCommit SECTION_FADE_TIME;
+		_sectionGroups ctrlCommit 0.2;
 
 		// Disable the join button since groups section was just updated
-		(_display displayCtrl IDC_DYNAMICGROUPS_BUTTONJOIN) ctrlEnable false;
+		(_display displayCtrl 9977) ctrlEnable false;
 
 		private _friendlyGroups = ["GetAllGroupsOfSide", [side group player]] call d_fnc_dynamicgroups;
 
@@ -304,22 +301,22 @@ switch _mode do {
 
 		private _sidePlayers = _pllist select {isPlayer _x && {side group _x == side group player}};
 
-		if (uiNamespace getVariable [VAR_SHOW_GROUPS, true]) then {
+		if (uiNamespace getVariable ["BIS_dynamicGroups_showGroups", true]) then {
 			["OnTabGroupsButtonClick"] call d_fnc_rscdisplaydynamicgroups;
 
-			["FillPlayersListbox", [_display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS, _sidePlayers]] call d_fnc_rscdisplaydynamicgroups;
-			uiNamespace setVariable [VAR_OLD_PLAYERS, _sidePlayers];
+			["FillPlayersListbox", [_display displayCtrl 9880, _sidePlayers]] call d_fnc_rscdisplaydynamicgroups;
+			uiNamespace setVariable ["BIS_dynamicGroups_oldPlayers", _sidePlayers];
 
 			["FillGroupsListbox", [_friendlyGroups, _unsortedPlayers]] call d_fnc_rscdisplaydynamicgroups;
-			uiNamespace setVariable [VAR_OLD_GROUPS, [_friendlyGroups, _unsortedPlayers]];
+			uiNamespace setVariable ["BIS_dynamicGroups_oldGroups", [_friendlyGroups, _unsortedPlayers]];
 		} else {
 			["OnTabPlayersButtonClick"] call d_fnc_rscdisplaydynamicgroups;
 
 			["FillGroupsListbox", [_friendlyGroups, _unsortedPlayers]] call d_fnc_rscdisplaydynamicgroups;
-			uiNamespace setVariable [VAR_OLD_GROUPS, [_friendlyGroups, _unsortedPlayers]];
+			uiNamespace setVariable ["BIS_dynamicGroups_oldGroups", [_friendlyGroups, _unsortedPlayers]];
 
-			["FillPlayersListbox", [_display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS, _sidePlayers]] call d_fnc_rscdisplaydynamicgroups;
-			uiNamespace setVariable [VAR_OLD_PLAYERS, _sidePlayers];
+			["FillPlayersListbox", [_display displayCtrl 9880, _sidePlayers]] call d_fnc_rscdisplaydynamicgroups;
+			uiNamespace setVariable ["BIS_dynamicGroups_oldPlayers", _sidePlayers];
 		};
 	};
 
@@ -331,10 +328,10 @@ switch _mode do {
 		private _totalIndex	= -1;
 
 		private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		CHECK(isNull _display)
+		if (isNull _display) exitWith {};
 
-		private _listbox = _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
-		CHECK(isNull _listbox)
+		private _listbox = _display displayCtrl 9877;
+		if (isNull _listbox) exitWith {};
 
 		// Clear the tree
 		tvClear _listbox;
@@ -345,19 +342,19 @@ switch _mode do {
 			_totalIndex = _totalIndex + 1;
 
 			private _groupName 		= groupId _x;
-			private _groupPicture 	= _x getVariable [VAR_GROUP_INSIGNIA, ["LoadRandomInsignia"] call d_fnc_dynamicgroups];
-			private _groupIsPrivate = _x getVariable [VAR_GROUP_PRIVATE, false];
+			private _groupPicture 	= _x getVariable ["BIS_dg_ins", ["LoadRandomInsignia"] call d_fnc_dynamicgroups];
+			private _groupIsPrivate = _x getVariable ["BIS_dg_pri", false];
 			private _groupLeader 	= leader _x;
 			private _groupPlayers 	= units _x;
 			private _wasKickedFrom	= ["WasPlayerKickedFrom", [_x, player]] call d_fnc_dynamicgroups;
 			private _hasInvite		= ["HasInvite", [_x, player]] call d_fnc_dynamicgroups;
 			private _locked			= (_groupIsPrivate || {_wasKickedFrom}) && {!(player in _groupPlayers)} && {!_hasInvite};
-			private _maxUnitCount	= missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99];
+			private _maxUnitCount	= missionNamespace getVariable ["BIS_dg_mupg", 99];
 			private _isFull			= count units _x >= _maxUnitCount;
-			private _autoName		= if (_maxUnitCount < 99) then {format ["%1  (%2/%3)", _groupName, count units _x, missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99]]} else { _groupName };
+			private _autoName		= if (_maxUnitCount < 99) then {format ["%1  (%2/%3)", _groupName, count units _x, missionNamespace getVariable ["BIS_dg_mupg", 99]]} else { _groupName };
 
 			// Selected group?
-			if ((uiNamespace getVariable [VAR_SELECTED_GROUPORPLAYER, [grpNull, objNull]]) select 0 == _x) then {
+			if ((uiNamespace getVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [grpNull, objNull]]) select 0 == _x) then {
 				_selectedIndex = [_index, -1];
 			};
 
@@ -374,34 +371,34 @@ switch _mode do {
 			if (_locked) then { _listbox tvSetPictureColor [[_parent], COLOR_LOCKED]; } else { _listbox tvSetPictureColor [[_parent], [1,1,1,1]]; };
 			_listbox tvSetPictureColorSelected [[_parent], [1,1,1,1]];
 			_listbox tvSetPictureColorDisabled [[_parent], [1,1,1,1]];
-			if (_x in (uiNamespace getVariable [VAR_COLLAPSED_GROUPS, []])) then { _listbox tvCollapse [_parent]; } else { _listbox tvExpand [_parent]; };
+			if (_x in (uiNamespace getVariable ["BIS_dynamicGroups_collapsedGroups", []])) then { _listbox tvCollapse [_parent]; } else { _listbox tvExpand [_parent]; };
 
 			{
 				private _groupPlayerName 	= [_x] call BIS_fnc_getName;
 				private _isLeader			= _x == _groupLeader;
 				private _sameGroup			= group player == group _x;
-				private _groupPlayerIcon	= if (!_isLeader) then { ["GetPlayerIcon", [_x]] call d_fnc_rscdisplaydynamicgroups; } else { ICON_GENERAL; };
+				private _groupPlayerIcon	= if (!_isLeader) then { ["GetPlayerIcon", [_x]] call d_fnc_rscdisplaydynamicgroups; } else { "a3\Ui_f\data\GUI\Cfg\Ranks\general_gs.paa"; };
 				private _isDead				= !alive _x;
 				private _isIncapacitated	= alive _x && {_x getVariable ["BIS_revive_incapacitated", false] || {_x getVariable ["xr_pluncon", false] || {_x getVariable ["ace_isunconscious", false]}}};
 
 				private _color = switch (true) do {
-					case (_isDead) : 			{ COLOR_DEAD };
-					case (_isIncapacitated) : 	{ COLOR_INCAPACITATED };
-					case (player == _x) : 		{ COLOR_SELF };
-					case (_sameGroup) : 		{ COLOR_GROUP };
-					default 					{ COLOR_DEFAULT };
+					case (_isDead) : 			{ [0.5, 0.5, 0.5, 0.6] };
+					case (_isIncapacitated) : 	{ [0.5, 0.0, 0.0, 1.0] };
+					case (player == _x) : 		{ [1.0, 0.6, 0.0, 1.0] };
+					case (_sameGroup) : 		{ [0.0, 0.5, 0.0, 1.0] };
+					default 					{ [1.0, 1.0, 1.0, 1.0] };
 				};
 
 				// Selected player?
-				if ((uiNamespace getVariable [VAR_SELECTED_GROUPORPLAYER, [grpNull, objNull]]) select 1 == _x) then {
+				if ((uiNamespace getVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [grpNull, objNull]]) select 1 == _x) then {
 					_selectedIndex = [_index, _forEachIndex];
 				};
 
 				if (_isDead) then {
 					_groupPlayerName = localize "STR_A3_rscdisplaydynamicgroups_deadplayer";
-					_groupPlayerIcon = ICON_KIA;
+					_groupPlayerIcon = "a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa";
 				} else {
-					if (_isIncapacitated) then {_groupPlayerIcon = ICON_REVIVE};
+					if (_isIncapacitated) then {_groupPlayerIcon = "A3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"};
 				};
 
 				private _child = _listbox tvAdd [[_parent], _groupPlayerName];
@@ -414,15 +411,15 @@ switch _mode do {
 
 		if (_unsortedPlayers isNotEqualTo []) then {
 			// Add unsorted players to the list
-			private _parent = _listbox tvAdd [[], UNSORTED_GROUP_ID];
-			_listbox tvSetData [[_parent], UNSORTED_GROUP_ID];
+			private _parent = _listbox tvAdd [[], localize "STR_A3_RscDisplayDynamicGroups_Ungrouped"];
+			_listbox tvSetData [[_parent], localize "STR_A3_RscDisplayDynamicGroups_Ungrouped"];
 			_listbox tvSort [[_parent], true];
 			_listbox tvExpand [_parent];
 
 			_totalIndex = _totalIndex + 1;
 
 			// Selected group?
-			if (isNull ((uiNamespace getVariable [VAR_SELECTED_GROUPORPLAYER, [grpNull, objNull]]) select 0)) then {
+			if (isNull ((uiNamespace getVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [grpNull, objNull]]) select 0)) then {
 				_selectedIndex = [count _groupsList, -1];
 			};
 
@@ -433,22 +430,22 @@ switch _mode do {
 				_isIncapacitated	= alive _x && {_x getVariable ["BIS_revive_incapacitated", false] || {_x getVariable ["xr_pluncon", false] || {_x getVariable ["ace_isunconscious", false]}}};
 
 				private _color = switch (true) do {
-					case (_isDead) : 		{ COLOR_DEAD };
-					case (_isIncapacitated) : 	{ COLOR_INCAPACITATED };
-					case (player == _x) : 		{ COLOR_SELF };
-					default 			{ COLOR_DEFAULT };
+					case (_isDead) : 		{ [0.5, 0.5, 0.5, 0.6] };
+					case (_isIncapacitated) : 	{ [0.5, 0.0, 0.0, 1.0] };
+					case (player == _x) : 		{ [1.0, 0.6, 0.0, 1.0] };
+					default 			{ [1.0, 1.0, 1.0, 1.0] };
 				};
 
 				// Selected player?
-				if ((uiNamespace getVariable [VAR_SELECTED_GROUPORPLAYER, [grpNull, objNull]]) select 1 == _x) then {
+				if ((uiNamespace getVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [grpNull, objNull]]) select 1 == _x) then {
 					_selectedIndex = [_totalIndex, _forEachIndex];
 				};
 
 				if (_isDead) then {
 					_unsortedPlayerName = localize "STR_A3_rscdisplaydynamicgroups_deadplayer";
-					_unsortedPlayerIcon = ICON_KIA;
+					_unsortedPlayerIcon = "a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa";
 				} else {
-					if (_isIncapacitated) then { _unsortedPlayerIcon = ICON_REVIVE; };
+					if (_isIncapacitated) then { _unsortedPlayerIcon = "A3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"; };
 				};
 
 				private _child = _listbox tvAdd [[_parent], _unsortedPlayerName];
@@ -457,7 +454,7 @@ switch _mode do {
 				_listbox tvSetPicture [[_parent, _child], _unsortedPlayerIcon];
 				_listbox tvSetPictureColor [[_parent, _child], _color];
 
-				if (UNSORTED_GROUP_ID in (uiNamespace getVariable [VAR_COLLAPSED_GROUPS, []])) then {
+				if (localize "STR_A3_RscDisplayDynamicGroups_Ungrouped" in (uiNamespace getVariable ["BIS_dynamicGroups_collapsedGroups", []])) then {
 					_listbox tvCollapse [_parent];
 				} else {
 					_listbox tvExpand [_parent];
@@ -478,8 +475,8 @@ switch _mode do {
 	case "FillPlayersListbox" : {
 		_params params [["_listbox", controlNull, [controlNull]], ["_playerList", [], [[]]], ["_isManageSection", false, [true]]];
 
-		//private _targetVar	= if (_isManageSection) then { VAR_SELECTED_MEMBER } else { VAR_SELECTED_PLAYER };
-		private _targetList	= if (_isManageSection) then { VAR_OLD_MEMBERS_LIST } else { VAR_OLD_PLAYERS_LIST };
+		//private _targetVar	= if (_isManageSection) then { "BIS_dynamicGroups_selectedMember" } else { "BIS_dynamicGroups_selectedPlayer" };
+		private _targetList	= if (_isManageSection) then { "BIS_dynamicGroups_oldMembersList" } else { "BIS_dynamicGroups_oldPlayersList" };
 
 		// All elements currently in list
 		private _unitElements = [];
@@ -516,17 +513,17 @@ switch _mode do {
 				private _isIncapacitated	= alive _x && {_x getVariable ["BIS_revive_incapacitated", false] || {_x getVariable ["xr_pluncon", false] || {_x getVariable ["ace_isunconscious", false]}}};
 
 				private _color = switch (true) do {
-					case (_isDead) : 		{ COLOR_DEAD };
-					case (_isIncapacitated) : 	{ COLOR_INCAPACITATED };
-					case (player == _x) : 		{ COLOR_SELF };
-					case (_sameGroup) : 		{ COLOR_GROUP };
+					case (_isDead) : 		{ [0.5, 0.5, 0.5, 0.6] };
+					case (_isIncapacitated) : 	{ [0.5, 0.0, 0.0, 1.0] };
+					case (player == _x) : 		{ [1.0, 0.6, 0.0, 1.0] };
+					case (_sameGroup) : 		{ [0.0, 0.5, 0.0, 1.0] };
 				};
 
 				if (_isDead) then {
 					_name = localize "STR_A3_rscdisplaydynamicgroups_deadplayer";
-					_texture = ICON_KIA;
+					_texture = "a3\Ui_F_Curator\Data\CfgMarkers\kia_ca.paa";
 				} else {
-					if (_isIncapacitated) then { _texture = ICON_REVIVE; };
+					if (_isIncapacitated) then { _texture = "A3\Ui_f\data\GUI\Rsc\RscDisplayEGSpectator\ReviveIcon_ca.paa"; };
 				};
 
 				private _index = ["LnbGetDataIndex", [_listbox, getPlayerUid _x]] call d_fnc_rscdisplaydynamicgroups;
@@ -643,7 +640,7 @@ switch _mode do {
 		// Make sure data is not empty
 		if (_data != "") then {
 			private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-			private _listbox = _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
+			private _listbox = _display displayCtrl 9877;
 
 			if (!isNull _listbox) then {
 				for "_i" from 0 to ((_listbox tvCount []) - 1) do {
@@ -661,7 +658,7 @@ switch _mode do {
 		// Make sure data is not empty
 		if (_data != "") then {
 			private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-			private _listbox = _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
+			private _listbox = _display displayCtrl 9877;
 
 			if (!isNull _listbox) then {
 				for "_i" from 0 to ((_listbox tvCount []) - 1) do {
@@ -684,7 +681,7 @@ switch _mode do {
 
 		private _display 		= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
 		private _inviteButton 	= _display displayCtrl 9980;
-		private _joinButton 	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONJOIN;
+		private _joinButton 	= _display displayCtrl 9977;
 
 		_joinButton ctrlEnable false;
 		_inviteButton ctrlEnable false;
@@ -692,8 +689,8 @@ switch _mode do {
 		private _data = _listbox tvData _index;
 
 		// If we are dealing with the unsorted group we exit
-		if (_data == UNSORTED_GROUP_ID) exitWith {
-			uiNamespace setVariable [VAR_SELECTED_GROUPORPLAYER, [grpNull, objNull]];
+		if (_data == localize "STR_A3_RscDisplayDynamicGroups_Ungrouped") exitWith {
+			uiNamespace setVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [grpNull, objNull]];
 		};
 
 		// The group
@@ -706,14 +703,14 @@ switch _mode do {
 		// Did the user just clicked a group or a player
 		if (!isNull _group) then {
 			// A group was selected
-			private _groupIsPrivate 	= _group getVariable [VAR_GROUP_PRIVATE, false];
+			private _groupIsPrivate 	= _group getVariable ["BIS_dg_pri", false];
 			private _wasKickedFrom		= ["WasPlayerKickedFrom", [_group, player]] call d_fnc_dynamicgroups;
 			private _isInGroup			= _group == group player;
 			private _hasInvite 			= ["HasInvite", [_group, player]] call d_fnc_dynamicgroups;
-			private _isFull				= count units _group >= missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99];
+			private _isFull				= count units _group >= missionNamespace getVariable ["BIS_dg_mupg", 99];
 
 			// Store the newly selected group
-			uiNamespace setVariable [VAR_SELECTED_GROUPORPLAYER, [_group, objNull]];
+			uiNamespace setVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [_group, objNull]];
 
 			if (_isInGroup || {_isFull} || {!_hasInvite && {_groupIsPrivate || {_wasKickedFrom}}}) then {
 				_joinButton ctrlEnable false;
@@ -729,7 +726,7 @@ switch _mode do {
 			private _noGroup	= !(["PlayerHasGroup", [player]] call d_fnc_dynamicgroups);
 
 			// Store the newly selected player
-			uiNamespace setVariable [VAR_SELECTED_GROUPORPLAYER, [group _player, _player]];
+			uiNamespace setVariable ["BIS_dynamicGroups_selectedGroupOrPlayer", [group _player, _player]];
 
 			switch (true) do {
 				case (_hasInvite): {
@@ -763,7 +760,7 @@ switch _mode do {
 
 		private _display 	= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
 		private _inviteButton 	= _display displayCtrl 9980;
-		private _joinButton 	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONJOIN;
+		private _joinButton 	= _display displayCtrl 9977;
 
 		_joinButton ctrlEnable false;
 		_inviteButton ctrlEnable false;
@@ -781,7 +778,7 @@ switch _mode do {
 		private _weAreLeader 	= player == leader group player;
 
 		// Store the newly selected player
-		uiNamespace setVariable [VAR_SELECTED_PLAYER, _clickedPlayer];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedPlayer", _clickedPlayer];
 
 		if (!_hasInvite && {!_inSameGroup && {_weAreLeader && {getPlayerUid player != _clickedUid}}}) then {
 			_inviteButton ctrlEnable true;
@@ -799,11 +796,11 @@ switch _mode do {
 		private _currentPlayerIsLeader 	= player == leader group player;
 
 		// Store the newly selected member
-		uiNamespace setVariable [VAR_SELECTED_MEMBER, _clickedPlayer];
+		uiNamespace setVariable ["BIS_dynamicGroups_selectedMember", _clickedPlayer];
 
 		private _display 				= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _buttonCreateLeaveKick 	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONCREATELEAVEKICK;
-		private _buttonPromoteDisband	= _display displayCtrl IDC_DYNAMICGROUPS_BUTTONPROMOTEDISBAND;
+		private _buttonCreateLeaveKick 	= _display displayCtrl 9978;
+		private _buttonPromoteDisband	= _display displayCtrl 9979;
 
 		_buttonCreateLeaveKick ctrlEnable false;
 		_buttonPromoteDisband ctrlEnable false;
@@ -811,7 +808,7 @@ switch _mode do {
 		// Did we click ourselves?
 		if (_clickedPlayer == player) then {
 			if (count units group player < 2) then {
-				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false]);
+				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable ["BIS_dg_mii", false]);
 				_buttonCreateLeaveKick ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_Leave";
 				_buttonCreateLeaveKick ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_LeaveGroup";
 
@@ -819,19 +816,19 @@ switch _mode do {
 				_buttonPromoteDisband ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_Disband";
 				_buttonPromoteDisband ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_KickAll";
 			} else {
-				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false]);
+				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable ["BIS_dg_mii", false]);
 				_buttonCreateLeaveKick ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_Leave";
 				_buttonCreateLeaveKick ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_LeaveGroup";
 
 				if (_currentPlayerIsLeader) then {
-					_buttonPromoteDisband ctrlEnable !(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false]);
+					_buttonPromoteDisband ctrlEnable !(missionNamespace getVariable ["BIS_dg_mii", false]);
 					_buttonPromoteDisband ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_Disband";
 					_buttonPromoteDisband ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_KickAll";
 				};
 			};
 		} else {
 			if (_currentPlayerIsLeader) then {
-				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false]);
+				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable ["BIS_dg_mii", false]);
 				_buttonCreateLeaveKick ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_KickBan";
 				_buttonCreateLeaveKick ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_KickPlayer";
 
@@ -839,7 +836,7 @@ switch _mode do {
 				_buttonPromoteDisband ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_Promote";
 				_buttonPromoteDisband ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_PromotePlayer";
 			} else {
-				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable [VAR_MINIMAL_INTERACTION, false]);
+				_buttonCreateLeaveKick ctrlEnable !(missionNamespace getVariable ["BIS_dg_mii", false]);
 				_buttonCreateLeaveKick ctrlSetText localize "STR_A3_RscDisplayDynamicGroups_Button_Leave";
 				_buttonCreateLeaveKick ctrlSetTooltip localize "STR_A3_RscDisplayDynamicGroups_Tooltip_LeaveGroup";
 			};
@@ -853,7 +850,7 @@ switch _mode do {
 		["SetDefaultFocus"] call d_fnc_rscdisplaydynamicgroups;
 
 		private _display 	= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _listbox 	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXMANAGE;
+		private _listbox 	= _display displayCtrl 9878;
 		private _listBoxIndex	= lnbCurSelRow _listbox;
 		private _selectedUid	= _listbox lnbData [_listBoxIndex, 0];
 
@@ -915,7 +912,7 @@ switch _mode do {
 		if (!_hasGroup && {!_hasEnoughPlayers} && {player == leader group player}) exitWith {};
 
 		private _display 	= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _listbox 	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXMANAGE;
+		private _listbox 	= _display displayCtrl 9878;
 		private _listBoxIndex	= lnbCurSelRow _listbox;
 		private _selectedUid	= _listbox lnbData [_listBoxIndex, 0];
 
@@ -969,7 +966,7 @@ switch _mode do {
 		["SetDefaultFocus"] call d_fnc_rscdisplaydynamicgroups;
 
 		private _display 	= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _listboxGroups 	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
+		private _listboxGroups 	= _display displayCtrl 9877;
 		private _index 		= tvCurSel _listboxGroups;
 		private _groupUniqueId 	= _listboxGroups tvData _index;
 
@@ -977,9 +974,9 @@ switch _mode do {
 
 		if (!isNull _group) then {
 			private _groupLeader		= leader _group;
-			private _groupIsPrivate 	= _group getVariable [VAR_GROUP_PRIVATE, false];
+			private _groupIsPrivate 	= _group getVariable ["BIS_dg_pri", false];
 			private _hasInvite		= ["HasInvite", [_group, player]] call d_fnc_dynamicgroups;
-			private _isFull			= count units _group >= missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99];
+			private _isFull			= count units _group >= missionNamespace getVariable ["BIS_dg_mupg", 99];
 
 			if ((!_groupIsPrivate || {_hasInvite}) && {!_isFull}) then {
 				if !(["PlayerHasGroup", [player]] call d_fnc_dynamicgroups) then {
@@ -1005,8 +1002,8 @@ switch _mode do {
 		["SetDefaultFocus"] call d_fnc_rscdisplaydynamicgroups;
 
 		private _display 	= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _isTree		= uiNamespace getVariable [VAR_SHOW_GROUPS, true];
-		private _listbox 	= if (_isTree) then { _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS; } else { _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS; };
+		private _isTree		= uiNamespace getVariable ["BIS_dynamicGroups_showGroups", true];
+		private _listbox 	= if (_isTree) then { _display displayCtrl 9877; } else { _display displayCtrl 9880; };
 		private _listboxIndex	= if (_isTree) then { tvCurSel _listbox; } else { lnbCurSelRow _listbox; };
 
 		// Validate selected player in list box
@@ -1020,9 +1017,7 @@ switch _mode do {
 		private _clickedPlayer = [_clickedUid] call BIS_fnc_getUnitByUid;
 
 		// Validate player object
-		if (isNull _clickedPlayer) exitWith {
-			["OnInvitePlayerButtonClick: Player with uid (%1) not found", _clickedUid] call BIS_fnc_error;
-		};
+		if (isNull _clickedPlayer) exitWith {};
 
 		// Add invite
 		if !(["HasInvite", [_group, _clickedPlayer]] call d_fnc_dynamicgroups) then {
@@ -1032,10 +1027,10 @@ switch _mode do {
 
 	case "OnTabGroupsButtonClick": {
 		private _display 		= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _listGroups		= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
-		private _listPlayers	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS;
-		private _buttonGroups	= _display displayCtrl IDC_DYNAMICGROUPS_TABBUTTONGROUPS;
-		private _buttonPlayers	= _display displayCtrl IDC_DYNAMICGROUPS_TABBUTTONPLAYERS;
+		private _listGroups		= _display displayCtrl 9877;
+		private _listPlayers	= _display displayCtrl 9880;
+		private _buttonGroups	= _display displayCtrl 9981;
+		private _buttonPlayers	= _display displayCtrl 9983;
 
 		_listGroups ctrlShow true;
 		_buttonGroups ctrlSetTextColor [1,1,1,1];
@@ -1047,15 +1042,15 @@ switch _mode do {
 		_buttonPlayers ctrlSetBackgroundColor [0,0,0,0.6];
 		_buttonPlayers ctrlSetActiveColor [0,0,0,0.6];
 
-		uiNamespace setVariable [VAR_SHOW_GROUPS, true];
+		uiNamespace setVariable ["BIS_dynamicGroups_showGroups", true];
 	};
 
 	case "OnTabPlayersButtonClick": {
 		private _display 		= uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
-		private _listGroups		= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXGROUPS;
-		private _listPlayers	= _display displayCtrl IDC_DYNAMICGROUPS_LISTBOXPLAYERS;
-		private _buttonGroups	= _display displayCtrl IDC_DYNAMICGROUPS_TABBUTTONGROUPS;
-		private _buttonPlayers	= _display displayCtrl IDC_DYNAMICGROUPS_TABBUTTONPLAYERS;
+		private _listGroups		= _display displayCtrl 9877;
+		private _listPlayers	= _display displayCtrl 9880;
+		private _buttonGroups	= _display displayCtrl 9981;
+		private _buttonPlayers	= _display displayCtrl 9983;
 
 		_listPlayers ctrlShow true;
 		_buttonPlayers ctrlSetTextColor [1,1,1,1];
@@ -1067,7 +1062,7 @@ switch _mode do {
 		_buttonGroups ctrlSetBackgroundColor [0,0,0,0.6];
 		_buttonGroups ctrlSetActiveColor [0,0,0,0.6];
 
-		uiNamespace setVariable [VAR_SHOW_GROUPS, false];
+		uiNamespace setVariable ["BIS_dynamicGroups_showGroups", false];
 	};
 
 	case "OnGroupIconMouseEnter": {};
@@ -1125,10 +1120,10 @@ switch _mode do {
 	case "OnGroupDoubleClick": {
 		_params params ["_group"];
 
-		private _groupPrivate 	= _group getVariable [VAR_GROUP_PRIVATE, false];
+		private _groupPrivate 	= _group getVariable ["BIS_dg_pri", false];
 		private _wasKickedFrom	= ["WasPlayerKickedFrom", [_group, player]] call d_fnc_dynamicgroups;
 		private _hasInvite	= ["HasInvite", [_group, player]] call d_fnc_dynamicgroups;
-		private _isFull		= count units _group >= missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99];
+		private _isFull		= count units _group >= missionNamespace getVariable ["BIS_dg_mupg", 99];
 
 		// Make sure that group is not private and player is not kicked from it, or player as invite
 		if (!_isFull && {_hasInvite || {!_groupPrivate && {!_wasKickedFrom}}}) then {
@@ -1153,8 +1148,8 @@ switch _mode do {
 			private _otherInGroup	= ["PlayerHasGroup", [_clickedPlayer]] call d_fnc_dynamicgroups;
 			private _hasInvite		= ["HasInvite", [group player, _clickedPlayer]] call d_fnc_dynamicgroups;
 			private _wasKicked		= ["WasPlayerKickedFrom", [group _clickedPlayer, player]] call d_fnc_dynamicgroups;
-			private _groupIsLocked	= (group _clickedPlayer) getVariable [VAR_GROUP_PRIVATE, false];
-			private _isFull			= count units (group _clickedPlayer) >= missionNamespace getVariable [VAR_MAX_UNITS_PER_GROUP, 99];
+			private _groupIsLocked	= (group _clickedPlayer) getVariable ["BIS_dg_pri", false];
+			private _isFull			= count units (group _clickedPlayer) >= missionNamespace getVariable ["BIS_dg_mupg", 99];
 
 			switch (true) do {
 				// Invite player
@@ -1179,7 +1174,7 @@ switch _mode do {
 
 		if (_key == 28 || {_key == 156 || {_key == -1}}) then {
 			// Lose focus
-			ctrlSetFocus ((uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) displayCtrl IDC_DYNAMICGROUPS_LISTBOXMANAGE);
+			ctrlSetFocus ((uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) displayCtrl 9878);
 		};
 	};
 
@@ -1209,7 +1204,7 @@ switch _mode do {
 		};
 
 		// Animate
-		private _backgroundGroupName = (uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) displayCtrl IDC_DYNAMICGROUPS_BACKGROUNDGROUPNAME;
+		private _backgroundGroupName = (uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) displayCtrl 9381;
 		private _color = switch (true) do {
 			case (_wasUpdated && {!_groupNameWasClamped}): 	{[RESISTANCE] call BIS_fnc_sideColor};
 			case (_wasUpdated && {_groupNameWasClamped}):  	{[CIVILIAN] call BIS_fnc_sideColor};
@@ -1235,12 +1230,12 @@ switch _mode do {
 		_params params ["_tree", "_index"];
 
 		private _data 				= _tree tvData _index;
-		private _collapsedGroups 	= uiNamespace getVariable [VAR_COLLAPSED_GROUPS, []];
+		private _collapsedGroups 	= uiNamespace getVariable ["BIS_dynamicGroups_collapsedGroups", []];
 		private _group				= ["GetGroupByName", [_data, side group player]] call d_fnc_dynamicgroups;
 
 		if (!isNull _group && {_group in _collapsedGroups}) then {
 			_collapsedGroups deleteAt (_collapsedGroups find _group);
-			uiNamespace setVariable [VAR_COLLAPSED_GROUPS, _collapsedGroups];
+			uiNamespace setVariable ["BIS_dynamicGroups_collapsedGroups", _collapsedGroups];
 		};
 	};
 
@@ -1248,28 +1243,28 @@ switch _mode do {
 		_params params ["_tree", "_index"];
 
 		private _data 				= _tree tvData _index;
-		private _collapsedGroups 	= uiNamespace getVariable [VAR_COLLAPSED_GROUPS, []];
+		private _collapsedGroups 	= uiNamespace getVariable ["BIS_dynamicGroups_collapsedGroups", []];
 		private _group				= ["GetGroupByName", [_data, side group player]] call d_fnc_dynamicgroups;
 
 		if (!isNull _group && {!(_group in _collapsedGroups)}) then {
 			_collapsedGroups pushBack _group;
-			uiNamespace setVariable [VAR_COLLAPSED_GROUPS, _collapsedGroups];
+			uiNamespace setVariable ["BIS_dynamicGroups_collapsedGroups", _collapsedGroups];
 		};
 	};
 
 	case "SetDefaultFocus" : {
-		ctrlSetFocus ((uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) displayCtrl IDC_CANCEL);
+		ctrlSetFocus ((uiNamespace getVariable ["d_dynamicGroups_display", displayNull]) displayCtrl 2);
 	};
 
 	case "OnGroupNameSetFocus" : {
 		// Flag
-		uiNamespace setVariable [VAR_HAS_FOCUS, true];
+		uiNamespace setVariable ["BIS_dynamicGroups_hasFocus", true];
 	};
 
 	case "OnGroupNameKillFocus" : {
 		_params params ["_editGroupName"];
 		// Flag
-		uiNamespace setVariable [VAR_HAS_FOCUS, nil];
+		uiNamespace setVariable ["BIS_dynamicGroups_hasFocus", nil];
 
 		// Apply group name change
 		["OnGroupNameChanged", [_editGroupName]] call d_fnc_rscdisplaydynamicgroups;
@@ -1330,7 +1325,7 @@ switch _mode do {
 	};
 
 	case "ClampString": {
-		_params params [["_inString", "", [""]], ["_maxSize", MAX_GROUP_NAME_SIZE, [0]]];
+		_params params [["_inString", "", [""]], ["_maxSize", 20, [0]]];
 
 		private _outString = "";
 		private _groupNameArray = toArray _inString;

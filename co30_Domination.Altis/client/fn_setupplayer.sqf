@@ -2,8 +2,6 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-#include "\A3\ui_f\hpp\defineDIKCodes.inc"
-
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom x_setupplayer.sqf"];
 
 d_string_player = str player;

@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_macros.sqf"
 
-#include "\a3\editor_f\Data\Scripts\dikCodes.h"
+#include "..\defineDIKCodes.inc"
 
 __TRACE_1("","_this")
 

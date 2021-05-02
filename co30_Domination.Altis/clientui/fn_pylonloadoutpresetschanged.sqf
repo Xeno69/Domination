@@ -15,11 +15,12 @@ private _vec = d_pylon_vec;
 if (_selIdx == 0) then {
 	{
 		__TRACE_1("d_startpylongmags","_x")
-		if (_forEachIndex == count (_vec getVariable "d_startpylongmags")) exitWith {};
+		if (_forEachIndex == count (_vec getVariable "d_startpylongmags")) then {break};
 		private _octrl = d_pylondialog_ctrls select _forEachIndex;
 		for "_i" from 0 to (lbSize _octrl - 1) do {
-			if (_octrl lbData _i == _x) exitWith {
+			if (_octrl lbData _i == _x) then {
 				_octrl lbSetCurSel _i;
+				break;
 			};
 		};
 	} forEach (_vec getVariable "d_startpylongmags");
@@ -29,12 +30,13 @@ if (_selIdx == 0) then {
 	private _attachment = getArray((configOf _vec)>>"Components">>"TransportPylonsComponent">>"Presets">>(_ctrl lbData _selIdx)>>"attachment");
 	if (_attachment isNotEqualTo []) then {
 		{
-			__TRACE_1("config Presets","_x","_forEachIndex")
-			if (_forEachIndex == count d_pylondialog_ctrls) exitWith {};
+			__TRACE_2("config Presets","_x","_forEachIndex")
+			if (_forEachIndex == count d_pylondialog_ctrls) then {break};
 			private _octrl = d_pylondialog_ctrls select _forEachIndex;
 			for "_i" from 0 to (lbSize _octrl - 1) do {
-				if (_octrl lbData _i == _x) exitWith {
+				if (_octrl lbData _i == _x) then {
 					_octrl lbSetCurSel _i;
+					break;
 				};
 			};
 		} forEach _attachment;

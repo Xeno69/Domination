@@ -4,7 +4,7 @@
 
 disableSerialization;
 
-#include "\A3\ui_f\hpp\defineDIKCodes.inc"
+#include "..\defineDIKCodes.inc"
 
 if ((_this # 1) == DIK_F11) then {
 	__TRACE_1("F11","_this")

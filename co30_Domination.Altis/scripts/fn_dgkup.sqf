@@ -1,6 +1,5 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
-#include "\A3\Functions_F_MP_Mark\DynamicGroupsCommonDefines.inc"
 
 disableSerialization;
 
@@ -11,7 +10,7 @@ if (!(_this # 3) && {(_this # 0) in d_ak_teamswitch && {isNil {uiNamespace getVa
 		([] call BIS_fnc_displayMission) createDisplay "d_RscDisplayDynamicGroups";
 	} else {
 		if (isNil {uiNamespace getVariable "BIS_dynamicGroups_hasFocus"}) then {
-			(["GetDisplay"] call d_fnc_rscdisplaydynamicgroups) closeDisplay IDC_CANCEL;
+			(["GetDisplay"] call d_fnc_rscdisplaydynamicgroups) closeDisplay 2;
 		};
 	};
 	true

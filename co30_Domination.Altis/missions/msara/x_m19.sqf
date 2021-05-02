@@ -11,7 +11,6 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
-	private _poss = d_x_sm_p
 	d_x_sm_pos params ["_poss"];
 	["aa", 1, "tracked_apc", 1, "tank", 1, d_x_sm_pos # 1, 1, 130, true] spawn d_fnc_CreateArmor;
 	sleep 2.123;

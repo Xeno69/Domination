@@ -1375,4 +1375,4 @@ if (!d_tt_ver) then {
 	};
 };
 
-#include "i_weapons_base.sqf";
+#include "i_weapons_base.sqf"
