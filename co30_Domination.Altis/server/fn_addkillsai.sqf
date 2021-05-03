@@ -4,9 +4,6 @@
 
 params ["_p", "_killer", "_insti"];
 
-if (isNull _insti) then {_insti = UAVControl vehicle _killer # 0}; // UAV/UGV player operated road kill
-if (isNull _insti) then {_insti = _killer}; // player driven vehicle road kill
-
 if (isNull _insti) exitWith {};
 
 if !(_insti call d_fnc_isplayer) then {

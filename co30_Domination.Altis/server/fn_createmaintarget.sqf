@@ -371,7 +371,6 @@ if (d_no_more_observers < 2) then {
 	d_nr_observers = floor random 4;
 	if (d_nr_observers < 2) then {d_nr_observers = 2};
 	d_obs_array = [];
-	d_obs_array resize d_nr_observers;
 	private _unit_array = ["arti_observer", d_enemy_side_short] call d_fnc_getunitlistm;
 	for "_xx" from 0 to d_nr_observers - 1 do {
 		private _agrp = [d_side_enemy] call d_fnc_creategroup;
@@ -389,8 +388,9 @@ if (d_no_more_observers < 2) then {
 		if (d_with_dynsim == 0) then {
 			[_agrp, 0] spawn d_fnc_enabledynsim;
 		};
-		_observer addEventHandler ["killed", {d_nr_observers = d_nr_observers - 1;
-			if (d_nr_observers == 0) then {
+		_observer addEventHandler ["killed", {
+			d_nr_observers = d_nr_observers - 1;
+			if (d_nr_observers <= 0) then {
 #ifndef __TT__
 				[3] call d_fnc_DoKBMsg;
 #else
@@ -398,7 +398,7 @@ if (d_no_more_observers < 2) then {
 #endif
 			};
 		}];
-		d_obs_array set [_xx, _observer];
+		d_obs_array pushBack _observer;
 		sleep 0.2;
 	};
 
@@ -418,8 +418,7 @@ if (d_no_more_observers < 2) then {
 //create civilian vehicles
 //adapted from script by h8ermaker https://www.youtube.com/watch?v=pE47H8lG8uc
 if (d_enable_civ_vehs > 0) then {
-	
-	_roadList= _trg_center nearroads d_enable_civ_vehs_rad;
+	_roadList = _trg_center nearroads d_enable_civ_vehs_rad;
 	
 	if (isNil "d_cur_tgt_civ_vehicles") then {
 		d_cur_tgt_civ_vehicles = [];

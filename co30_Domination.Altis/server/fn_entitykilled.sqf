@@ -10,7 +10,7 @@ if (d_database_found) then {
 	if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
 		private _insti = _this # 2;
 		if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
-			_insti call d_fnc_addheadshot;
+			_insti spawn d_fnc_addheadshot;
 		};
 	};
 };
@@ -56,15 +56,9 @@ if (!isNil "d_is_hc") exitWith {true};
 #endif
 
 if !(_obj isKindOf "CAManBase") then {
-#ifndef __TT__
-	if (isPlayer (_this # 2) && {vehicle (_this # 2) inArea d_base_array && {_obj inArea d_base_array}}) then {
-		call d_fnc_bv_check;
+	if (isPlayer (_this # 2)) then {
+		_this spawn d_fnc_bv_check;
 	};
-#else
-	if (isPlayer (_this # 2) && {vehicle (_this # 2) inArea (d_base_array # 0) && {_obj inArea (d_base_array # 0) || {vehicle (_this # 2) inArea (d_base_array # 1) && _obj inArea (d_base_array # 1)}}}}) then {
-		call d_fnc_bv_check;
-	};
-#endif
 };
 
 if (_ar # 3 == 1) then {

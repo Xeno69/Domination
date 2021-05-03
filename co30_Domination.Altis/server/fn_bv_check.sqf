@@ -4,6 +4,14 @@
 
 params ["_obj", "", "_insti"];
 
+#ifndef __TT__
+if !(vehicle _insti inArea d_base_array && {_obj inArea d_base_array}) exitWith {};
+#else
+private _c1 = vehicle _insti inArea (d_base_array # 0) && {_obj inArea (d_base_array # 0)};
+private _c2 = vehicle _insti inArea (d_base_array # 1) && {_obj inArea (d_base_array # 1)};
+if (!_c1 && !_c2) exitWith {};
+#endif
+
 if (isNil {_obj getVariable "d_gvecs"}) then {
 	private _bks = _insti getVariable ["d_ba_ki", []];
 	__TRACE_1("","_bks")
