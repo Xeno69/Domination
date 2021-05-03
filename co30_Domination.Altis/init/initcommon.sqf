@@ -391,7 +391,7 @@ if (hasInterface) then {
 					["uns_UH1H_m60"]
 				};
 				if (d_vn) exitWith {
-					["vn_b_air_uh1c_07_04"]
+					[""]
 				};
 				["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
 			};
