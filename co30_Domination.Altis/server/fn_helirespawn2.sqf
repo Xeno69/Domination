@@ -150,9 +150,6 @@ while {true} do {
 			if (isNil "_aslpos") then {
 				_vec allowDamage true;
 			};
-			if (d_with_ace) then {
-				_vec call d_fnc_aceattendant;
-			};
 			_vec setDamage 0;
 		};
 		sleep (20 + random 10);

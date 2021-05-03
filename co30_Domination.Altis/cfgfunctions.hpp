@@ -638,7 +638,6 @@ class cfgFunctions {
 			addc(makenewtower);
 			addc(garrisonUnits);
 			addc(deleteempty);
-			addc(aceattendant);
 		};
 		class Dom_PrePostInit {
 			file = "init";
