@@ -73,6 +73,10 @@ d_vrespawn2_ar = [];
 			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 		};
 		_vec setDamage 0;
+		
+		if (d_with_ace) then {
+			_vec call d_fnc_aceattendant;
+		};
 	};
 } forEach _this;
 

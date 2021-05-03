@@ -160,6 +160,10 @@ while {true} do {
 			if (_vec isKindOf "Boat_F") then {
 				_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 			};
+			if (d_with_ace) then {
+				_vec call d_fnc_aceattendant;
+			};
+			_vec setDamage 0;
 		};
 		sleep (8 + random 5);
 	} forEach d_vrespawn2_ar;

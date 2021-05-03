@@ -44,6 +44,9 @@ d_helirespawn2_ar = [];
 		if (d_with_ranked) then {
 			clearWeaponCargoGlobal _vec;
 		};
+		if (d_with_ace) then {
+			_vec call d_fnc_aceattendant;
+		};
 		_vec setDamage 0;
 	};
 } forEach _this;
