@@ -49,6 +49,8 @@ params [
 	["_isDryRun", false, [true]]
 ];
 
+__TRACE_1("","_this")
+
 private [
 	"_Zen_ExtendPosition",
 	"_buildingsArrayFiltered",
@@ -237,16 +239,21 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											_uuidx forceSpeed 0;
 										};
 	
-										_uuidx setVariable ["zen_fn_idx1", _uuidx addEventHandler ["FiredNear", {
-											params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-											scriptName "spawn_zoh_firednear1ambush";
-											if (d_side_player getFriend side (group _firer) >= 0.6) then {
-												(_this select 0) enableAI "TARGET";
-												(_this select 0) enableAI "AUTOTARGET";
-												(_this select 0) enableAI "MOVE";
-												(_this select 0) forceSpeed -1;
-											};
-										}]];
+										if (isNil {_uuidx getVariable "zen_fn_idx1"}) then {
+											_uuidx setVariable ["zen_fn_idx1", _uuidx addEventHandler ["FiredNear", {
+												__TRACE_1("firednear -1","_this")
+												params ["_unit", "_firer"];
+												scriptName "spawn_zoh_firednear1ambush";
+												
+												if (d_side_enemy getFriend side (group _firer) < 0.6 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}) then {
+													_unit enableAI "TARGET";
+													_unit enableAI "AUTOTARGET";
+													_unit enableAI "MOVE";
+													_unit forceSpeed -1;
+													_unit removeEventHandler ["FiredNear", _thisEventHandler];
+												};
+											}]];
+										};
 										_uuidx spawn {
 											scriptName "allow movement if d_priority_target is set";
 											while { true } do {
@@ -268,16 +275,28 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
 											if (_isRoof) then {
 												_uuidx setUnitPos "MIDDLE";
-												_uuidx setVariable ["zen_fn_idx2", _uuidx addEventHandler ["FiredNear", {
-													scriptName "spawn_zoh_firednear2";
-													[_this select 0, ["DOWN","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-												}]];
+												__TRACE_1("setupos MIDDLE","_uuidx")
+												if (isNil {_uuidx getVariable "d_zen_fneh"}) then {
+													__TRACE_1("add firednear 0","_uuidx")
+													_uuidx setVariable ["d_zen_fneh", _uuidx addEventHandler ["FiredNear", {
+														__TRACE_1("firednear 0","_this")
+														scriptName "spawn_zoh_firednear1";
+														[_this # 0, ["DOWN", "MIDDLE"], unitPos (_this # 0), 0] spawn d_fnc_Zen_JBOY_UpDown;
+														(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
+													}]];
+												};
 											} else {
 												_uuidx setUnitPos "UP";
-												_uuidx setVariable ["zen_fn_idx2",_uuidx addEventHandler ["FiredNear", {
-													scriptName "spawn_zoh_firednear2";
-													[_this select 0, ["UP","MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown;
-												}]];
+												__TRACE_1("setupos UP","_uuidx")
+												if (isNil {_uuidx getVariable "d_zen_fneh"}) then {
+													__TRACE_1("add firednear 0","_uuidx")
+													_uuidx setVariable ["d_zen_fneh", _uuidx addEventHandler ["FiredNear", {
+														__TRACE_1("firednear 1","_this")
+														scriptName "spawn_zoh_firednear2";
+														[_this # 0, ["UP", "MIDDLE"], unitPos (_this # 0), 1] spawn d_fnc_Zen_JBOY_UpDown;
+														(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
+													}]];
+												};
 											};
 	
 											if !(_doMove) then {
@@ -294,18 +313,21 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											_uuidx forceSpeed 0;
 										};
 										
-										_uuidx setVariable ["zen_fn_idx3", _uuidx addEventHandler ["FiredNear", {
-											params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-											scriptName "spawn_zoh_firednear3overwatch";
-											// enable movement if _firer is an enemy and within 13m
-											if (d_side_player getFriend side (group _firer) >= 0.6 && {_distance < 13}) then {
-												(_this select 0) enableAI "TARGET";
-												(_this select 0) enableAI "AUTOTARGET";
-												(_this select 0) enableAI "MOVE";
-												(_this select 0) forceSpeed -1;
-											};
-										}]];
-										
+										if (isNil {_uuidx getVariable "d_zen_fneh2"}) then {
+											_uuidx setVariable ["d_zen_fneh2", _uuidx addEventHandler ["FiredNear", {
+											__TRACE_1("firednear 2","_this")
+												params ["_unit", "_firer", "_distance"];
+												scriptName "spawn_zoh_firednear3overwatch";
+												// enable movement if _firer is an enemy and within 13m
+												if (d_side_enemy getFriend side (group _firer) < 0.6 && {_distance < 13 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}}) then {
+													_unit enableAI "TARGET";
+													_unit enableAI "AUTOTARGET";
+													_unit enableAI "MOVE";
+													_unit forceSpeed -1;
+													_unit removeEventHandler ["FiredNear", _thisEventHandler];
+												};
+											}]];
+										};
 									};
 								};//end if _isDryRun
 								I(_unitIndex)

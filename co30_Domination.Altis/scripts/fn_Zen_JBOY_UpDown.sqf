@@ -11,16 +11,17 @@
 // *****************************************************
 //Zen_JBOY_UpDown
 
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 if (!isServer) exitWith {};
 
+__TRACE_1("","_this")
+
 //  Parameters:
 
-params ["_dude", "_stances"];
+params ["_dude", "_stances", "_dudeOStance", "_type"];
 
-private _dudeOriginalStance = unitPos _dude;
-_dude removeAllEventHandlers "FiredNear";
 private _iterations = 0;
 
 while {alive _dude && {_iterations < 12}} do {
@@ -38,9 +39,20 @@ while {alive _dude && {_iterations < 12}} do {
 		//systemchat "no known enemies found";
 		_iterations = _iterations + 1;
 	};
-	sleep 0.1;
+	__TRACE_1("","_iterations")
+	sleep 0.12;
 };
 if (alive _dude) then {
-	_dude setUnitPos _dudeOriginalStance;
-	_dude addeventhandler ["FiredNear", {[_this # 0, ["DOWN", "MIDDLE"]] spawn d_fnc_Zen_JBOY_UpDown}];
+	_dude setUnitPos _dudeOStance;
+	if (_type == 0) then {
+		_dude addeventhandler ["FiredNear", {
+			[_this # 0, ["DOWN", "MIDDLE"], unitPos (_this # 0), 0] spawn d_fnc_Zen_JBOY_UpDown;
+			(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
+		}];
+	} else {
+		_dude addeventhandler ["FiredNear", {
+			[_this # 0, ["UP", "MIDDLE"], unitPos (_this # 0), 1] spawn d_fnc_Zen_JBOY_UpDown;
+			(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
+		}];
+	};
 };
