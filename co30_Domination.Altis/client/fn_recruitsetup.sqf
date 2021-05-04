@@ -121,6 +121,13 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {[]};
 	};
 #endif
+#ifdef __VN__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {["vn_b_men_army_15", "vn_b_men_army_07", "vn_b_men_army_12", "vn_b_men_army_06", "vn_b_men_army_03", "vn_b_men_army_04", "vn_b_men_army_05", "vn_b_men_army_10"]};
+		case opfor: {[]};
+		case independent: {[]};
+	};
+#endif
 };
 
 player setVariable ["d_recdbusy", false];
