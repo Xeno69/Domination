@@ -636,7 +636,6 @@ if (d_with_MainTargetEvents != 0) then {
 		};
 	};
 	
-	// todo - add more events - stop an execution, kidnap an officer, defuse a bomb, convoys through warzone
 	private _doEvent = false;
 	if (d_with_MainTargetEvents < 0) then {
 		// always do an event
