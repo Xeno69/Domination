@@ -292,6 +292,9 @@ d_x_drop_array =
 		if (d_unsung) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "uns_willys_2"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 		};
+		if (d_vn) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "vn_b_wheeled_m151_01"], [localize "STR_DOM_MISSIONSTRING_20", "vn_us_fort_common_crate_01"]]
+		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
 #endif
@@ -1215,6 +1218,9 @@ if (!d_gmcwgwinter) then {
 			if (d_unsung) exitWith {
 				"uns_C130_H"
 			};
+			if (d_vn) exitWith {
+				"vn_b_air_ch34_01_01"
+			};
 			if (d_ifa3lite) exitWith {
 				""
 			};
@@ -1264,6 +1270,9 @@ if (!d_gmcwgwinter) then {
 			};
 			if (d_rhs) exitWith {
 				"RHS_A10"
+			};
+			if (d_vn) exitWith {
+				"vn_b_air_f4c_ucas"
 			};
 			"B_Plane_CAS_01_F"
 		};
@@ -1355,6 +1364,9 @@ if (!d_gmcwgwinter) then {
 				};
 				if (d_ifa3lite) exitWith {
 					""
+				};
+				if (d_vn) exitWith {
+					"vn_o_boat_03_02"
 				};
 				"O_Boat_Armed_01_hmg_F"
 			};
@@ -1463,6 +1475,9 @@ if (!d_gmcwgwinter) then {
 		if (d_unsung) exitWith {
 			d_civilians_t = ["uns_civilian1","uns_civilian2","uns_civilian3","uns_civilian4"];
 		};
+		if (d_vn) exitWith {
+			d_civilians_t = ["vn_c_men_01","vn_c_men_02","vn_c_men_03","vn_c_men_04","vn_c_men_05","vn_c_men_06","vn_c_men_07","vn_c_men_08","vn_c_men_09","vn_c_men_10","vn_c_men_11","vn_c_men_12","vn_c_men_13","vn_c_men_14","vn_c_men_22","vn_c_men_23","vn_c_men_24","vn_c_men_25","vn_c_men_26","vn_c_men_27","vn_c_men_28","vn_c_men_29","vn_c_men_30","vn_c_men_31","vn_c_men_32"];
+		};
 		d_civilians_t = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F"];
 	};
 
@@ -1486,6 +1501,9 @@ if (!d_gmcwgwinter) then {
 		};
 		if (d_unsung) exitWith {
 			"uns_m163"
+		};
+		if (d_vn) exitWith {
+			"vn_b_sf_static_m45"
 		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_APC_Tracked_01_AA_F"
@@ -1530,6 +1548,9 @@ if (!d_gmcwgwinter) then {
 		};
 		if (d_unsung) exitWith {
 			"uns_m48a3"
+		};
+		if (d_vn) exitWith {
+			"vn_b_armor_m41_01_01"
 		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_MBT_01_cannon_F"
@@ -1809,6 +1830,9 @@ if (!d_gmcwgwinter) then {
 				if (d_unsung) exitWith {
 					["uns_Mi8TV_VPAF_MG"]
 				};
+				if (d_vn) exitWith {
+					["vn_o_air_mi2_04_06","vn_o_air_mi2_04_02"]
+				};
 				["O_Heli_Attack_02_F"]
 			};
 		};
@@ -2006,6 +2030,9 @@ if (!d_gmcwgwinter) then {
 				};
 				if (d_unsung) exitWith {
 					["uns_Mi8TV_VPAF_MG"]
+				};
+				if (d_vn) exitWith {
+					["vn_o_air_mi2_03_05"]
 				};
 				if (d_ifa3lite) exitWith {
 					[]
@@ -2428,6 +2455,9 @@ if (hasInterface) then {
 		};
 		if (d_unsung) exitWith {
 			["uns_willys"]
+		};
+		if (d_vn) exitWith {
+			["vn_b_wheeled_m151_01"]
 		};
 		["B_Quadbike_01_F", "B_LSV_01_unarmed_F"]
 	};
