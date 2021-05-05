@@ -1,6 +1,7 @@
 4.49
 
-- Added: S.O.G. Prairie Fire version
+ADDED: S.O.G. Prairie Fire version
+
 - Added: New "scud" side mission, destroy tactical ballistic missle and launcher (currently only for S.O.G. Prairie Fire)
 - Added: New param d_disable_player_arty (Disable player artillery), set to Yes / 1 will remove marking and calling artillery for players
 - Added: New param d_disable_player_cas (Disable player CAS), set to Yes / 1 will remove calling CAS for players

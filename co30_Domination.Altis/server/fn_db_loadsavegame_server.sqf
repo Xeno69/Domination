@@ -163,9 +163,9 @@ d_bonus_vecs_db = _ar # 9;
 		_vec setVehiclePosition [_endpos, [], 0, "NONE"];
 		[_vec, _endpos] spawn {
 			sleep 0.2;
-			(_this # 0) setVehiclePosition [(_this # 1), [], 1, "NONE"];
-			sleep 0.2;
-			(_this # 0) setVectorUp [0, 0, 1];
+			(_this # 0) setVehiclePosition [_this # 1, [], 1, "NONE"];
+			//sleep 0.2;
+			//(_this # 0) setVectorUp [0, 0, 1];
 			sleep 0.5;
 			(_this # 0) setDamage 0;
 			(_this # 0) allowDamage true;
@@ -175,9 +175,9 @@ d_bonus_vecs_db = _ar # 9;
 		_vec setVehiclePosition [_x # 1, [], 0, "NONE"];
 		[_vec, _x # 1] spawn {
 			sleep 0.2;
-			(_this # 0) setVehiclePosition [(_this # 1), [], 1, "NONE"];
-			sleep 0.2;
-			(_this # 0) setVectorUp [0, 0, 1];
+			(_this # 0) setVehiclePosition [_this # 1, [], 1, "NONE"];
+			//sleep 0.2;
+			//(_this # 0) setVectorUp [0, 0, 1];
 			sleep 0.5;
 			(_this # 0) setDamage 0;
 			(_this # 0) allowDamage true;
