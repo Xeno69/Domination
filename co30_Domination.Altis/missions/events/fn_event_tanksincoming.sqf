@@ -144,6 +144,9 @@ while {!d_mt_done} do {
 	sleep 15;
 };
 
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";
+
 if (d_ai_persistent_corpses == 0) then {
 	waitUntil {sleep 10; d_mt_done};
 } else {
@@ -153,6 +156,3 @@ if (d_ai_persistent_corpses == 0) then {
 //cleanup
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
 deleteVehicle _trigger;
-
-d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
-publicVariable "d_mt_event_messages_array";

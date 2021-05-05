@@ -449,6 +449,7 @@ class cfgFunctions {
 			addc(event_markedfordeath);
 			addc(event_sidevipdefend);
 			addc(event_sideprisonerdefuse);
+			addc(event_sidekilltriggerman);
 		};
 		class Dom_Server {
 			file = "server";
