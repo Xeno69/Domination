@@ -35,7 +35,7 @@ _event_start_time = _trigger getVariable "d_event_start_time";
 private _allActors = [];
 
 // select a starting point, units will be moved later to occupy a building if possible
-private _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
+private _nposss = _poss findEmptyPosition [0, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 
 private _rescueGroup = [d_own_side] call d_fnc_creategroup;
@@ -75,7 +75,7 @@ private _bldg = nil;
 private _marker = nil;
 
 {
-	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse;
+	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
@@ -85,7 +85,10 @@ private _marker = nil;
 } forEach _buildings_array_sorted_by_distance;
 
 if (!isNil "_bldg") then {
-	_marker = ["d_mt_event_marker_sidevipdefend", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_DEFEND", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+	private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_DEFEND", _event_survive_time];
+	d_mt_event_messages_array pushBack _eventDescription;
+	publicVariable "d_mt_event_messages_array";
+	_marker = ["d_mt_event_marker_sidevipdefend", getPos _bldg, "ICON","ColorBlack", [1, 1], _eventDescription, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
     [_marker, "STR_DOM_MISSIONSTRING_DEFEND"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
 
@@ -153,6 +156,9 @@ if (isNil "d_priority_target") then {
 	d_priority_target = nil;
 	publicVariable "d_priority_target";
 };
+
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";
 
 // cleanup
 deleteVehicle _trigger;

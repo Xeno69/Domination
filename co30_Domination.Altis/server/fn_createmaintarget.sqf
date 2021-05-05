@@ -630,6 +630,9 @@ if (d_with_MainTargetEvents != 0) then {
 			case "RESCUE_DEFUSE": {
 				[_radius, _trg_center] spawn d_fnc_event_sideprisonerdefuse;
 			};
+			case "KILL_TRIGGERMAN": {
+				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
+			};
 		};
 	};
 	
