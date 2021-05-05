@@ -630,10 +630,12 @@ if (d_with_MainTargetEvents != 0) then {
 			case "RESCUE_DEFUSE": {
 				[_radius, _trg_center] spawn d_fnc_event_sideprisonerdefuse;
 			};
+			case "KILL_TRIGGERMAN": {
+				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
+			};
 		};
 	};
 	
-	// todo - add more events - stop an execution, kidnap an officer, defuse a bomb, convoys through warzone
 	private _doEvent = false;
 	if (d_with_MainTargetEvents < 0) then {
 		// always do an event

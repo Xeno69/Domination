@@ -11077,6 +11077,18 @@
 <Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
 <French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1805_TRIGGERMAN">
+<English>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</English>
+<Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Spanish>
+<Portuguese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Portuguese>
+<Korean>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Korean>
+<Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
+<Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
+<Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
+<Chinesesimp>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinesesimp>
+<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinese>
+<French>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE">
 <English>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</English>
 <Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Spanish>
@@ -13705,6 +13717,18 @@
 <Chinesesimp>拆除</Chinesesimp>
 <Chinese>defuse</Chinese>
 <French>defuse</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_TRIGGERMAN">
+<English>kill triggerman</English>
+<Spanish>kill triggerman</Spanish>
+<Portuguese>kill triggerman</Portuguese>
+<Korean>kill triggerman</Korean>
+<Japanese>kill triggerman</Japanese>
+<Original>kill triggerman</Original>
+<Russian>kill triggerman</Russian>
+<Chinesesimp>kill triggerman</Chinesesimp>
+<Chinese>kill triggerman</Chinese>
+<French>kill triggerman</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES">
 <English>prisoners + explosives</English>

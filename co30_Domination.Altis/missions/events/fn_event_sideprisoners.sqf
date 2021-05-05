@@ -38,7 +38,7 @@ private _allActors = [];
 
 __TRACE_1("","_prisonerGroup")
 // select a starting point, units will be moved later to occupy a building if possible
-private _nposss = _poss findEmptyPosition [10, 25, d_sm_pilottype];
+private _nposss = _poss findEmptyPosition [0, 25, d_sm_pilottype];
 if (_nposss isEqualTo []) then {_nposss = _poss};
 
 // create pilot1
@@ -91,7 +91,7 @@ private _marker = nil;
 
 {
 	//dry run to find a suitable building
-	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse;
+	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
@@ -158,6 +158,9 @@ if (_all_dead) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateSuccess",d_kbtel_chan];
 };
 
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";
+
 deleteVehicle _trigger;
 deleteMarker _marker;
 
@@ -169,6 +172,3 @@ if (d_ai_persistent_corpses == 0) then {
 
 //cleanup
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
-
-d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
-publicVariable "d_mt_event_messages_array";

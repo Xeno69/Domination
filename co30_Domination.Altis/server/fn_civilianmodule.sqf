@@ -127,6 +127,9 @@ private _placeCivilianCluster = {
 	_unitCount = _this # 2;
 	_bldg = selectRandom _buildings;
 	_buildings deleteAt (_buildings find _bldg);
+	if (typeOf _bldg == d_barracks_building || {typeOf _bldg == d_vehicle_building}) exitWith {
+		// oops, we randomly chose a vehicle or infantry HQ, do not place the civilian cluster just skip
+	};
 	_posArray = _bldg buildingPos -1;
 	_posArrayCovered = [_posArray] call d_fnc_getcoveredpositions; 
 	for "_i" from 0 to _unitCount do {

@@ -205,6 +205,9 @@ sleep 5.432;
 	};
 } forEach [_pilot1, _pilot2];
 
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";
+
 deleteVehicle _trigger;
 deleteMarker _marker; 
 
@@ -214,6 +217,3 @@ waitUntil {sleep 10; d_mt_done};
 
 //cleanup
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
-
-d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
-publicVariable "d_mt_event_messages_array";

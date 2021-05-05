@@ -1,12 +1,10 @@
 // by Longtime
 //#define __DEBUG__
-#define THIS_FILE "fn_event_sideprisonerdefuse.sqf"
+#define THIS_FILE "fn_event_sidekilltriggerman.sqf"
 #include "..\..\x_setup.sqf"
 
-// When players are nearby spawn a friendly captive unit.
-// To win the event players must reach the unit before the time limit expires.
-// A bomb will detonate and kill the unit if players do not arrive in time.
-// TODO - maybe a smoke grenade to mark the location? 
+// When triggered an enemy is spawned and designated as the "trigger man" and a friendly pilot is the target to explode.
+// Players must kill the trigger man within X seconds to win the mission.
 
 #ifdef __TT__
 //do not run this event in TvT (for now)
@@ -46,32 +44,32 @@ _tempgroup deleteGroupWhenEmpty true;
 deleteVehicle _tempunit;
 
 if (isNil "_bldg") exitWith {
-	diag_log ["sideprisonerdefuse - No suitable building found, event skipped"];
+	diag_log ["killtriggerman - No suitable building found, event skipped"];
 };
 
-// only trigger the event when players are within 75x75 area of the captive pilot
-private _trigger = [getPos _bldg, [75,75,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
+// only trigger the event when players are within 125x125 area of the building
+private _trigger = [getPos _bldg, [125,125,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 // event begins
 private _distance_to_rescue = 1.5; // meters
-private _defuse_time_limit = 150; // seconds
+private _defuse_time_limit = 120; // seconds
 private _event_succeed_points = 0; // haha maybe someday
 
 private _allActors = [];
 
-private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_1805_DEFUSE", _defuse_time_limit];
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_1805_TRIGGERMAN", _defuse_time_limit];
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
 d_kb_logic1 kbTell [
-		d_kb_logic2,
-		d_kb_topic_side,
-		"MTEventSidePrisonersDefuse",
-		["1", "", str _defuse_time_limit, []],
-		d_kbtel_chan
-	];
+	d_kb_logic2,
+	d_kb_topic_side,
+	"MTEventSidePrisonersTriggerman",
+	["1", "", str _defuse_time_limit, []],
+	d_kbtel_chan
+];
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
@@ -107,44 +105,51 @@ if (d_with_dynsim == 0) then {
 
 sleep 2.333;
 
+// create 1 enemy with unusual hat/bandanna to help players identify them
+private _hat_type = selectRandom ["H_Cap_red", "H_Shemag_olive_hs", "H_Bandanna_surfer"];
+private _enemyGuardGroup = (["specops", 0, "allmen", 1, getPos _bldg , 5, false, true, 1] call d_fnc_CreateInf) # 0;
+{
+	[_x, 5] call d_fnc_nodamoffdyn;
+	_x forceSpeed 0;
+	_x unlinkItem (hmd _x); //remove nvgs
+	removeHeadgear _x;
+	_x addHeadgear _hat_type;
+	_x removeWeapon (secondaryWeapon _x); //remove launcher
+	removeBackpack _x;
+	_allActors pushBack _x;
+	_x_mt_event_ar pushBack _x;
+} forEach (units _enemyGuardGroup);
+
+private _triggerman = leader _enemyGuardGroup;
+
 _unitsNotGarrisoned = [getPos _bldg, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
-
-_pilot1 setUnitPos "MIDDLE";
-
-_marker = ["d_mt_event_marker_sideprisonerdefuse", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
-[_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 {
 	// log if garrison function fails
-	diag_log [format ["fn_event_sideprisoners: failed to garrison and will remain in starting position: %1", _x]];
+	diag_log [format ["fn_event_killtriggerman: failed to garrison and will remain in starting position: %1", _x]];
 } forEach _unitsNotGarrisoned;
 
+_marker = ["d_mt_event_marker_killtriggerman", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_TRIGGERMAN", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_TRIGGERMAN"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+
 private _all_dead = false;
-private _is_rescued = false;
+private _success = false;
 private _start_fuse = time;
 private _warning_given = false;
 
-while {sleep 3.14; !d_mt_done; !_is_rescued} do {
+while {sleep 3.14; !d_mt_done; !_all_dead} do {
 	private _elapsed_time = (time - _start_fuse);
-	if (!alive _pilot1) exitWith { _all_dead = true };
-	// check if player is close enough to "rescue" the pilot
-	private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
-	if (_nobjs isNotEqualTo []) exitWith {
-		__TRACE("rescued _pilot1")
-		_is_rescued = true;
-		sleep 2;
-		d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersDefuseNow",d_kbtel_chan];
-		_pilot1 setDamage 0;
-		sleep 5;
-		deleteVehicle _pilot1;
+	if (!alive _triggerman) exitWith {
+		_all_dead = true;
+		_success = true;
 	};
-	// check if 45 second warning
-	if ((_defuse_time_limit - _elapsed_time) < 45 && {!_warning_given}) then {
+	// check if 30 second warning
+	if ((_defuse_time_limit - _elapsed_time) < 30 && {!_warning_given}) then {
 		d_kb_logic1 kbTell [
 			d_kb_logic2,
 			d_kb_topic_side,
 			"EventWarningTime",
-			["1", "", "45", []],
+			["1", "", "30", []],
 			d_kbtel_chan
 		];
 		_warning_given = true;
@@ -161,12 +166,12 @@ while {sleep 3.14; !d_mt_done; !_is_rescued} do {
 	};
 };
 
-if (_all_dead) then {
+if (!_success) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersFail",d_kbtel_chan];
 } else {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateSuccess",d_kbtel_chan];
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
-	diag_log ["prisonerdefuse success"];
+	diag_log ["killtriggerman success"];
 	d_kb_logic1 kbTell [
 		d_kb_logic2,
 		d_kb_topic_side,
@@ -174,13 +179,15 @@ if (_all_dead) then {
 		["1", "", str _event_succeed_points, []],
 		d_kbtel_chan
 	];
+	sleep 1;
+	deleteVehicle _pilot1;
 };
-
-d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
-publicVariable "d_mt_event_messages_array";
 
 deleteVehicle _trigger;
 deleteMarker _marker;
+
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";
 
 if (d_ai_persistent_corpses == 0) then {
 	waitUntil {sleep 10; d_mt_done};
