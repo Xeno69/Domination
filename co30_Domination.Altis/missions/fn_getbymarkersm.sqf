@@ -146,9 +146,6 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 			call {
-				if (d_vn) exitWith {
-					["vn_sa2", "vn_o_static_rsna75"]
-				};
 				["O_SAM_System_04_F", "O_Radar_System_02_F"];
 			};
 #endif

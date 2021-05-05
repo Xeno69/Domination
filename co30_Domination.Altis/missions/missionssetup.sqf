@@ -237,13 +237,6 @@ if (isServer) then {
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	}; 
 #endif
-#ifdef __VN__
-	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
-		case "E": {["vn_o_wheeled_btr40_mg_01_nvam","vn_o_wheeled_btr40_mg_02_nvam", "vn_o_wheeled_btr40_mg_03_nvam", "vn_o_wheeled_z157_ammo_nvam", "vn_o_wheeled_z157_fuel_nvam", "vn_o_wheeled_z157_repair_nvam", "vn_o_wheeled_btr40_mg_02_nvam"]};
-		case "W": {["rhsusf_M1117_D","RHS_M6", "RHS_M2A3_BUSKIII", "rhsusf_M977A4_REPAIR_usarmy_d", "rhsusf_M977A4_AMMO_usarmy_d", "rhsusf_M978A4_usarmy_d", "RHS_M2A2_BUSKI"]};
-		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
-	};
-#endif
 };
 
 #ifdef __ALTIS__
