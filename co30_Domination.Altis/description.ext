@@ -780,11 +780,7 @@ class Params {
 	class d_with_ai {
 		title = "$STR_DOM_MISSIONSTRING_1023";
 		values[] = {0,1,2,3,4};
-#ifndef __VN__
 		default = 1;
-#else
-		default = 0;
-#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_2038","$STR_DOM_MISSIONSTRING_2068","$STR_DOM_MISSIONSTRING_2069"};
 	};
 
