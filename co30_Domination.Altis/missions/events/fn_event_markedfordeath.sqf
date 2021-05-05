@@ -33,6 +33,7 @@ d_priority_target addEventHandler ["Killed", {
 	// reset
 	d_priority_target = nil;
 	publicVariable "d_priority_target";
+	(_this # 0) removeEventHandler ["Killed", _thisEventhandler];
 }];
 
 diag_log [format["markedfordeath begins start time: %1 _event_target_name: %2", _event_start_time, _event_target_name]];
