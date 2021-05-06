@@ -5426,16 +5426,16 @@
 <French>Bon travail. L'équipage est de retour à la base.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_812_GENERIC_NAME">
-<English>Good job. %1 is back at base.</English>
-<Spanish>Buen trabajo. %1 está de vuelta en la base.</Spanish>
-<Portuguese>Trabalho bom. %1 está de volta em base.</Portuguese>
-<Korean>훌륭합니다. %1 기지로 귀환하였습니다.</Korean>
-<Japanese>Good job. %1 is back at base.</Japanese>
-<Original>Good job. %1 is back at base.</Original>
-<Russian>Отличная работа! %1 спасен и доставлен на базу!</Russian>
-<Chinesesimp>干得漂亮！ %1 返回基地。</Chinesesimp>
-<Chinese>Good job. %1 is back at base.</Chinese>
-<French>Good job. %1 is back at base.</French>
+<English>Good job. %1 is back at base. + %2</English>
+<Spanish>Buen trabajo. %1 está de vuelta en la base. + %2</Spanish>
+<Portuguese>Trabalho bom. %1 está de volta em base. + %2</Portuguese>
+<Korean>훌륭합니다. %1 기지로 귀환하였습니다. + %2</Korean>
+<Japanese>Good job. %1 is back at base. + %2</Japanese>
+<Original>Good job. %1 is back at base. + %2</Original>
+<Russian>Отличная работа! %1 спасен и доставлен на базу! + %2</Russian>
+<Chinesesimp>干得漂亮！ %1 返回基地。 + %2</Chinesesimp>
+<Chinese>Good job. %1 is back at base. + %2</Chinese>
+<French>Good job. %1 is back at base. + %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_814">
 <English>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</English>
@@ -12098,16 +12098,16 @@
 <French>%1 has been marked for death.  Keep %1 alive for %2 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL">
-<English>%1 survived for %2 seconds.  Mission failed.</English>
-<Spanish>%1 survived for %2 seconds.  Mission failed.</Spanish>
-<Portuguese>%1 survived for %2 seconds.  Mission failed.</Portuguese>
-<Korean>%1 survived for %2 seconds but.  Mission failed.</Korean>
-<Japanese>%1 survived for %2 seconds.  Mission failed.</Japanese>
-<Original>%1 survived for %2 seconds.  Mission failed.</Original>
+<English>%1 only survived for %2 seconds.  Mission failed.</English>
+<Spanish>%1 only survived for %2 seconds.  Mission failed.</Spanish>
+<Portuguese>%1 only survived for %2 seconds.  Mission failed.</Portuguese>
+<Korean>%1 only survived for %2 seconds but.  Mission failed.</Korean>
+<Japanese>%1 only survived for %2 seconds.  Mission failed.</Japanese>
+<Original>%1 only survived for %2 seconds.  Mission failed.</Original>
 <Russian>%1 выжил %2 секунд.  Миссия провалена.</Russian>
 <Chinesesimp>%1 存活了 %2 秒。任务失败。</Chinesesimp>
-<Chinese>%1 survived for %2 seconds.  Mission failed.</Chinese>
-<French>%1 survived for %2 seconds.  Mission failed.</French>
+<Chinese>%1 only survived for %2 seconds.  Mission failed.</Chinese>
+<French>%1 only survived for %2 seconds.  Mission failed.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED">
 <English>Success.  %1 survived for %2 seconds. + %3</English>

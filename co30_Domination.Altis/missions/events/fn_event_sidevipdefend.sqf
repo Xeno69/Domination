@@ -27,7 +27,7 @@ private _trigger = [_poss, [65,65,0,false,10], ["ANYPLAYER","PRESENT",true], ["t
 private _event_start_time = nil;
 private _event_target_name = nil;
 private _event_survive_time = 180; // in seconds
-private _event_succeed_points = 0; // haha maybe someday
+private _event_succeed_points = 5;
 
 waitUntil {sleep 5;!isNil {_trigger getVariable "d_event_start_time"}};
 _event_start_time = _trigger getVariable "d_event_start_time";
@@ -84,10 +84,11 @@ private _marker = nil;
 
 } forEach _buildings_array_sorted_by_distance;
 
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_MARKEDFORDEATH", name _pilot1, _event_survive_time];
+d_mt_event_messages_array pushBack _eventDescription;
+publicVariable "d_mt_event_messages_array";
+
 if (!isNil "_bldg") then {
-	private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_DEFEND", _event_survive_time];
-	d_mt_event_messages_array pushBack _eventDescription;
-	publicVariable "d_mt_event_messages_array";
 	_marker = ["d_mt_event_marker_sidevipdefend", getPos _bldg, "ICON","ColorBlack", [1, 1], _eventDescription, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
     [_marker, "STR_DOM_MISSIONSTRING_DEFEND"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
@@ -152,6 +153,9 @@ if (isNil "d_priority_target") then {
 		["3", "", str _event_succeed_points, []],
 		d_kbtel_chan
 	];
+	{
+		_x addScore _event_succeed_points;
+	} forEach d_allplayers;
 	// reset 
 	d_priority_target = nil;
 	publicVariable "d_priority_target";

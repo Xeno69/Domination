@@ -17,6 +17,8 @@ params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
+private _event_succeed_points = 5;
+
 //position the event site near target center at max distance 125m and min 15m 
 private _poss = [[[_target_center, 125]],[[_target_center, 15]]] call BIS_fnc_randomPos;
 private _x_mt_event_ar = [];
@@ -127,9 +129,9 @@ _owngroup2 setCombatMode "BLUE";
 sleep 3.14;
 
 _pilot1 disableAI "PATH";
-_pilot1 setDamage 0.5;
+_pilot1 setDamage 0.15;
 _pilot2 disableAI "PATH";
-_pilot2 setDamage 0.5;
+_pilot2 setDamage 0.15;
 
 if (d_with_dynsim == 0) then {
 	[_owngroup1] spawn d_fnc_enabledynsim;
@@ -191,6 +193,16 @@ if (_is_dead_all) then {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacFail",d_kbtel_chan];
 } else {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEvacSucceed",d_kbtel_chan];
+	d_kb_logic1 kbTell [
+		d_kb_logic2,
+		d_kb_topic_side,
+		"EventSucceed",
+		["1", "", str _event_succeed_points, []],
+		d_kbtel_chan
+	];
+	{
+		_x addScore _event_succeed_points;
+	} forEach d_allplayers;
 };
 
 sleep 5.432;

@@ -21,7 +21,7 @@ private _trigger = [_target_center, [120,120,0,false,10], ["ANYPLAYER","PRESENT"
 private _event_start_time = nil;
 private _event_target_name = nil;
 private _event_survive_time = 180; // in seconds
-private _event_succeed_points = 0; // haha maybe someday
+private _event_succeed_points = 5;
 
 waitUntil {sleep 5;!isNil {_trigger getVariable "d_event_start_time"}};
 _event_start_time = _trigger getVariable "d_event_start_time";
@@ -72,6 +72,9 @@ if (isNil "d_priority_target") then {
 		["3", "", str _event_succeed_points, []],
 		d_kbtel_chan
 	];
+	{
+		_x addScore _event_succeed_points;
+	} forEach d_allplayers;
 	// reset 
 	d_priority_target = nil;
 	publicVariable "d_priority_target";
