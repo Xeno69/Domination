@@ -2081,11 +2081,11 @@ if (!d_gmcwgwinter) then {
 	// Needs a building which can be entered by AI (as they will respawn inside)
 	// can only be destroyed by satchel charges!!!
 	// no marker gets created!
-#ifndef __VN__
+//#ifndef __VN__
 	d_barracks_building = "Land_BagBunker_01_large_green_F";
-#else
-	d_barracks_building = "Land_vn_o_shelter_05";
-#endif
+//#else
+	//d_barracks_building = "Land_vn_o_shelter_05";
+//#endif
 
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn

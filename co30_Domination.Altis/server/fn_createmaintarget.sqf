@@ -179,7 +179,9 @@ for "_i" from 1 to d_num_barracks_objs do {
 
 	_allbars pushBack _vec;
 	
+#ifndef __VN__
 	d_delvecsmt append ([getPos _vec, getDir _vec, _barcompo] call d_fnc_objectsMapper);
+#endif
 
 	sleep 0.1;
 };
