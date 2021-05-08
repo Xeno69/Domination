@@ -48,6 +48,7 @@ if (d_with_dynsim == 0) then {
 
 sleep 3.14;
 
+private _event_succeed_points = 25;
 private _is_dead = false;
 private _is_rescued = false;
 private _move_order_interval = 300;
@@ -78,13 +79,19 @@ while {!d_mt_done && {!_is_dead && {!_is_rescued}}} do {
 };
 
 if (_is_rescued || !_is_dead) then {
-	d_kb_logic1 kbTell [
-		d_kb_logic2,
-		d_kb_topic_side,
-		"MTEventSideRescueGenericNameSucceed",
-		["1", "", _bunnyName, []],
-		d_kbtel_chan
-	];
+	if (_is_rescued) then {
+		d_kb_logic1 kbTell [
+			d_kb_logic2,
+			d_kb_topic_side,
+			"MTEventSideRescueGenericNameSucceed",
+			["1", "", _bunnyName, []],
+			["2", "", str _event_succeed_points, []],
+			d_kbtel_chan
+		];
+		{
+			_x addScore _event_succeed_points;
+		} forEach d_allplayers;
+	};
 } else {
 	d_kb_logic1 kbTell [
 		d_kb_logic2,

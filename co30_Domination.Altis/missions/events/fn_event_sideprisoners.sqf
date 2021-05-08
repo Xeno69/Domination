@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\..\x_setup.sqf"
 
-// Rescue captive friendly soldiers guarded by specops.  If the specops are injured they will kill the hostages.
+// Rescue captive friendly soldiers guarded by specops.  If the specops are injured they will detonate a bomb and kill the hostages.
 
 #ifdef __TT__
 //do not run this event in TvT (for now)
@@ -33,7 +33,7 @@ d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonatePresent",d_kbtel
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
 private _distance_to_rescue = 1.5; //in meters
-
+private _event_succeed_points = 10;
 private _allActors = [];
 
 __TRACE_1("","_prisonerGroup")
@@ -156,6 +156,16 @@ if (_all_dead) then {
 } else {
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersSucceed",d_kbtel_chan];
 	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonateSuccess",d_kbtel_chan];
+	d_kb_logic1 kbTell [
+		d_kb_logic2,
+		d_kb_topic_side,
+		"EventSucceed",
+		["1", "", str _event_succeed_points, []],
+		d_kbtel_chan
+	];
+	{
+		_x addScore _event_succeed_points;
+	} forEach d_allplayers;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

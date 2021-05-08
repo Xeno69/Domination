@@ -57,7 +57,7 @@ waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 // event begins
 private _distance_to_rescue = 1.5; // meters
 private _defuse_time_limit = 150; // seconds
-private _event_succeed_points = 0; // haha maybe someday
+private _event_succeed_points = 10;
 
 private _allActors = [];
 
@@ -132,10 +132,9 @@ while {sleep 3.14; !d_mt_done; !_is_rescued} do {
 	if (_nobjs isNotEqualTo []) exitWith {
 		__TRACE("rescued _pilot1")
 		_is_rescued = true;
-		sleep 2;
 		d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersDefuseNow",d_kbtel_chan];
 		_pilot1 setDamage 0;
-		sleep 5;
+		sleep 7;
 		deleteVehicle _pilot1;
 	};
 	// check if 45 second warning
@@ -174,6 +173,9 @@ if (_all_dead) then {
 		["1", "", str _event_succeed_points, []],
 		d_kbtel_chan
 	];
+	{
+		_x addScore _event_succeed_points;
+	} forEach d_allplayers;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

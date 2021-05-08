@@ -2268,6 +2268,15 @@ if (!d_gmcwgwinter) then {
 		"uns_willys_2", 0.40,
 		"C_Tractor_01_F", 0.10
 	];
+	
+	_civVehiclesWeightedRuralVn = [
+		"C_Truck_02_covered_F", 0.15,
+		"C_Truck_02_transport_F", 0.15,
+		"C_Van_01_box_F", 0.15,
+		"C_Tractor_01_F", 0.05,
+		"vn_c_wheeled_m151_01", 0.25,
+		"vn_c_wheeled_m151_02", 0.25
+	];
 
 	d_civ_vehicles_weighted =
 #ifdef __ALTIS__
@@ -2313,7 +2322,7 @@ if (!d_gmcwgwinter) then {
 		_civVehiclesWeightedRuralLivonia;
 #endif
 #ifdef __VN__
-		_civVehiclesWeightedCityWealthHigh;
+		_civVehiclesWeightedRuralVn;
 #endif
 
 	//civilian faces

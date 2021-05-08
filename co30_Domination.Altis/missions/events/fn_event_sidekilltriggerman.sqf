@@ -55,7 +55,7 @@ waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 // event begins
 private _distance_to_rescue = 1.5; // meters
 private _defuse_time_limit = 120; // seconds
-private _event_succeed_points = 0; // haha maybe someday
+private _event_succeed_points = 5;
 
 private _allActors = [];
 
@@ -181,6 +181,9 @@ if (!_success) then {
 	];
 	sleep 1;
 	deleteVehicle _pilot1;
+	{
+		_x addScore _event_succeed_points;
+	} forEach d_allplayers;
 };
 
 deleteVehicle _trigger;

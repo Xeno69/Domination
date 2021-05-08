@@ -416,6 +416,7 @@ class Sentences {
 		speech[] = {};
 		class Arguments {
 			class 1 {type = "simple";};
+			class 2 {type = "simple";};
 		};
 	};
 	class MTEventSideRescueGenericNameFail {
