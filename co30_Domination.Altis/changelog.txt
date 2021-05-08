@@ -1,5 +1,6 @@
 4.50
 
+- Added: vn_arsenalShowMelee = 1 to description.ext so that SOG melee weapons show up in Virtual Arsenal (secondary/handgun slot)
 - Fixed: Short sound when taking a camp was not played on clients
 - Fixed: Players could end up at the roof of the hangar in the SOG version when spawning at base
 - Fixed: Dropped air ammobox didn't work in the SOG version

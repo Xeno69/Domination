@@ -121,6 +121,8 @@ wreckRemovalMaxTime = 360;
 // uncomment the following to delete corpses and wrecks only if players are at least 30m away; default is 0, means no nearby player check is done by the engine
 // minPlayerDistance = 30;
 
+vn_arsenalShowMelee = 1;
+
 class CfgRemoteExec {
 	// List of script functions allowed to be sent from client via remoteExec
 	class Functions {

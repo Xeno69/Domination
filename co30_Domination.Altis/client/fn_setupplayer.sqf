@@ -977,10 +977,6 @@ if (isClass (configFile>>"CfgPatches">>"acre_main")) then {
 	(bis_fnc_arsenal_data # 24) append (["ACRE_VHF30108","ACRE_VHF30108SPIKE","ACRE_VHF30108MAST","ACRE_SEM52SL","ACRE_SEM70","ACRE_PRC117F","ACRE_PRC148","ACRE_PRC152","ACRE_PRC343","ACRE_PRC77"] apply {toLowerANSI _x});
 };
 
-if (!d_gmcwg) then {
-	d_arsenal_mod_remove_strings pushBack "gm_";
-};
-
 if (d_arsenal_mod_remove_strings isNotEqualTo []) then {
 	d_arsenal_mod_remove_strings call d_fnc_arsenal_mod_rem;
 
