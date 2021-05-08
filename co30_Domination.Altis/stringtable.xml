@@ -394,8 +394,8 @@
 <Japanese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Japanese>
 <Original>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Original>
 <Russian>Арт.наводчик вызывает арт.удар (Сначала отмечаете цель лазер. целецказателем, нужна батарейка к нему).</Russian>
-<Chinesesimp>炮兵可以操作武器炮击 (首先要用激光指示仪标定炮击位置)。他们也可以拯救人质 (AI模式下所有人都可以)。炮兵需要将人质护送回地图上的基地。</Chinesesimp>
-<Chinese>砲兵可以操作武器砲擊 (首先要用激光指示儀標定砲擊位置). 他們也可以拯救人質 (AI模式下所有人都可以). 砲兵需要將人質護送回地圖上的基地‧</Chinese>
+<Chinesesimp>炮兵可以操作武器炮击 (首先要用激光指示仪标定炮击位置)。他们也可以营救人质 (AI模式下所有人都可以)。炮兵需要将人质护送回地图上的基地。</Chinesesimp>
+<Chinese>砲兵可以操作武器砲擊 (首先要用激光指示儀標定砲擊位置). 他們也可以营救人質 (AI模式下所有人都可以). 砲兵需要將人質護送回地圖上的基地‧</Chinese>
 <French>Les opérateurs d'artillerie peuvent exécuter des frappes d'artillerie (les cibles d'artillerie doivent être marquées en premier, au besoin d'un désignateur laser).</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_44">
@@ -11025,8 +11025,8 @@
 <Japanese>One of our choppers was shot down. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive</Japanese>
 <Original>One of our choppers was shot down. Find and rescue the crew and bring them back to base. Attention, enemy units are also on the way to the chopper. You have about 15 minutes before they arrive</Original>
 <Russian>Есть сообщение о сбитом вертолете. Нужно спасти экипаж и доставить его на базу. Внимание: противник тоже выдвинулся к цели! У нас есть 15 минут до его прибытия!</Russian>
-<Chinesesimp>我们的一架直升机被击落。找到并拯救机组成员并将他们带回基地。 注意，敌军也在通往直升机坠机点的路上。你要在敌军前15分钟到达</Chinesesimp>
-<Chinese>我們的一架直升機被擊落。找到並拯救機組成員並將他們帶回基地。注意，敵軍也在通往直升機墜機點的路上。你要在敵軍前15分鐘到達</Chinese>
+<Chinesesimp>我们的一架直升机被击落。找到并营救机组成员并将他们带回基地。 注意，敌军也在通往直升机坠机点的路上。你要在敌军前15分钟到达</Chinesesimp>
+<Chinese>我們的一架直升機被擊落。找到並营救機組成員並將他們帶回基地。注意，敵軍也在通往直升機墜機點的路上。你要在敵軍前15分鐘到達</Chinese>
 <French>Un de nos hélicoptères a été abattu. Trouvez et sauvez l'équipage et ramenez-le à la base. Attention, les unités ennemies sont également en route vers l'hélico. Vous avez environ 15 minutes avant leur arrivée</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1803_NO_TIMER">
@@ -11037,8 +11037,8 @@
 <Japanese>One of our choppers was shot down. Two pilots are alive and hiding near the crash site.  Find and rescue the crew.</Japanese>
 <Original>One of our choppers was shot down. Two pilots are alive and hiding near the crash site.  Find and rescue the crew.</Original>
 <Russian>Есть сообщение о сбитом вертолете. Нужно спасти экипаж и доставить его на базу.</Russian>
-<Chinesesimp>我们的一架直升机被击落。找到并拯救机组成员并将他们带回基地。</Chinesesimp>
-<Chinese>我們的一架直升機被擊落。找到並拯救機組成員並將他們帶回基地。注意，</Chinese>
+<Chinesesimp>我们的一架直升机被击落。找到并营救机组成员并将他们带回基地。</Chinesesimp>
+<Chinese>我們的一架直升機被擊落。找到並营救機組成員並將他們帶回基地。注意，</Chinese>
 <French>Un de nos hélicoptères a été abattu. Trouvez et sauvez l'équipage et ramenez-le à la base.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1804">
@@ -11085,7 +11085,7 @@
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
-<Chinesesimp>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinesesimp>
+<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
 <Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</French>
 </Key>
@@ -11097,7 +11097,7 @@
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
-<Chinesesimp>一个友善的战俘穿着爆炸背心。移动到标记的位置并拯救我们的飞行员！您有 %1 秒。</Chinesesimp>
+<Chinesesimp>一个友善的战俘穿着爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
 <Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
 </Key>
@@ -13726,7 +13726,7 @@
 <Japanese>kill triggerman</Japanese>
 <Original>kill triggerman</Original>
 <Russian>kill triggerman</Russian>
-<Chinesesimp>kill triggerman</Chinesesimp>
+<Chinesesimp>杀死爆破手</Chinesesimp>
 <Chinese>kill triggerman</Chinese>
 <French>kill triggerman</French>
 </Key>
