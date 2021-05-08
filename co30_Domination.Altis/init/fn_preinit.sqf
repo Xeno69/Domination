@@ -293,7 +293,7 @@ d_x_drop_array =
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "uns_willys_2"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 		};
 		if (d_vn) exitWith {
-			[[], [localize "STR_DOM_MISSIONSTRING_22", "vn_b_wheeled_m151_01"], [localize "STR_DOM_MISSIONSTRING_20", "vn_us_fort_common_crate_01"]]
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "vn_b_wheeled_m151_01"], [localize "STR_DOM_MISSIONSTRING_20", "vn_b_ammobox_05"]]
 		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
@@ -526,8 +526,14 @@ d_non_steer_para = "NonSteerable_Parachute_F";
 
 call {
 	if (d_own_side == "WEST") exitWith {
-		d_the_box = "Box_NATO_Wps_F";
-		d_the_base_box = "B_supplyCrate_F";
+		call {
+			if (d_vn) exitWith {
+				d_the_box = "vn_b_ammobox_04";
+				d_the_base_box = "vn_b_ammobox_06";
+			};
+			d_the_box = "Box_NATO_Wps_F";
+			d_the_base_box = "B_supplyCrate_F";
+		};
 	};
 	if (d_own_side == "EAST") exitWith {
 		d_the_box = "Box_East_Wps_F";

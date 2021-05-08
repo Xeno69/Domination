@@ -123,9 +123,15 @@ if (!isNull _mhqobj) then {
 		} else {
 			if (d_beam_target == "D_BASE_D") then {
 				player setVehiclePosition [_respawn_pos, [], 2, "NONE"];
-				_respawn_pos = getPosWorld player;
-				_respawn_pos set [2, 0];
-				player setPos _respawn_pos;
+#ifdef __VN__
+				if (markerPos "base_spawn_1" distance2D [15712, 7157.78, 0] < 10) then {
+					private _pasl = getPosASL player;
+					if (_pasl # 2 > 15.5) then {
+						_pasl set [2, 14.981];
+						player setPosASL _pasl;
+					};
+				};
+#endif
 			} else {
 				player setVehiclePosition [_respawn_pos, [], 0, "NONE"];
 			};
