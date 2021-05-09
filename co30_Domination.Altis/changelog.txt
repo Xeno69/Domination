@@ -1,7 +1,7 @@
 4.50
 
 - Added: vn_arsenalShowMelee = 1 to description.ext so that SOG melee weapons show up in Virtual Arsenal (secondary/handgun slot)
-- Added: Maintarget VN civilians and cars, by longtimegamer
+- Added: Maintarget SOG civilians and cars, by longtimegamer
 - Added: Scores awarded to players for completing maintarget events, by longtimegamer
 - Fixed: Short sound when taking a camp was not played on clients
 - Fixed: Players could end up at the roof of the hangar in the SOG version when spawning at base
