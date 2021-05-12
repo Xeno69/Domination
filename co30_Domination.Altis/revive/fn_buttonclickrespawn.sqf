@@ -126,10 +126,8 @@ if (!isNull _mhqobj) then {
 #ifdef __VN__
 				if (markerPos "base_spawn_1" distance2D [15712, 7157.78, 0] < 10) then {
 					private _pasl = getPosASL player;
-					if (_pasl # 2 > 15.5) then {
-						_pasl set [2, 14.981];
-						player setPosASL _pasl;
-					};
+					_pasl set [2, 14.981];
+					player setPosASL _pasl;
 				};
 #endif
 			} else {

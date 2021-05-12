@@ -1,6 +1,8 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 if ((_this # 1) in d_ak_getover && {d_player_canu && {speed player > 11 && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}}) then {
 	d_p_isju = true;
 	0 spawn {
@@ -24,7 +26,9 @@ if ((_this # 1) in d_ak_getover && {d_player_canu && {speed player > 11 && {curr
 		sleep 1;
 		d_p_isju = false;
 	};
+	__TRACE("true")
 	true
 } else {
+	__TRACE("false")
 	false
 };

@@ -119,7 +119,7 @@ d_additional_respawn_points_orig =+ d_additional_respawn_points;
 
 call d_fnc_buildaddrespoints;
 
-if (d_WithRevive == 1 && {!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}}) then {
+if (d_WithRevive == 1 && {!d_with_ace || {d_with_ace && {d_ACEMedicalR == 1}}}) then {
 	player setVariable ["xr_hd_eh_i", player addEventHandler ["handleDamage", {call xr_fnc_ClientHD}]];
 };
 

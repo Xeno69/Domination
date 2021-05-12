@@ -73,7 +73,7 @@ switch _mode do {
 		_iconPicture ctrlAddEventHandler ["MouseExit", {["OnGroupIconMouseExit", _this] call d_fnc_rscdisplaydynamicgroups}];
 
 		// Add event handlers for editing the group name
-		_editGroupName ctrlAddEventHandler ["KeyDown", {["SetGroupName", _this] call d_fnc_rscdisplaydynamicgroups}];
+		_editGroupName ctrlAddEventHandler ["KeyDown", {["SetGroupName", _this] call d_fnc_rscdisplaydynamicgroups;false}];
 		_editGroupName ctrlAddEventHandler ["SetFocus", {["OnGroupNameSetFocus", _this] call d_fnc_rscdisplaydynamicgroups}];
 		_editGroupName ctrlAddEventHandler ["KillFocus", {["OnGroupNameKillFocus", _this] call d_fnc_rscdisplaydynamicgroups}];
 

@@ -63,4 +63,5 @@ if ((_this # 1) == DIK_N) then {
 		};
 	};
 };
+__TRACE_1("","_res")
 _res
