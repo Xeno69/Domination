@@ -32,28 +32,22 @@ if (isNil "_s") then {
 __TRACE_1("","_i")
 
 if (!_m) exitWith {
-	//private _a = [0.7, 0.9] select (!isNull _u && {(group _u) isEqualTo (group player)});
-
-#ifdef __OWN_SIDE_BLUFOR__
-	private _c = [0, 0.3, 0.6, 0.9];
-#endif
-#ifdef __OWN_SIDE_OPFOR__
-	private _c = [0.5, 0, 0, 0.9];
-#endif
-#ifdef __OWN_SIDE_INDEPENDENT__
-	private _c = [0, 0.5, 0, 0.9];
-#endif
-#ifdef __TT__
-	private _c = [0, 0.5, 0, 0.9];
-#endif
+	private _c = call {
+		if (d_tt_ver) exitWith {
+			[0, 0.5, 0, 0.9];
+		};
+		if (d_side_player == blufor) exitWith {
+			[0, 0.3, 0.6, 0.9];
+		};
+		if (d_side_player == opfor) exitWith {
+			[0.5, 0, 0, 0.9];
+		};
+		[0, 0.5, 0, 0.9]
+	};
 	private _r = [_i, _s, _c];
 	_v setVariable ["d_v_not_m", _r];
 	_r
 };
-#ifdef __DEBUG__
-_res = [_i, _s, _v getVariable "d_ma_color"];
-__TRACE_1("","_res")
-#endif
 private _r = [_i, _s, _v getVariable "d_ma_color"];
 _v setVariable ["d_v_not_m", _r];
 _r

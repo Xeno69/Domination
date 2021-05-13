@@ -69,8 +69,7 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	};
 };
 
-#ifndef __TT__
-if (d_showallnearusermarkers) then {
+if (!d_tt_ver && {d_showallnearusermarkers}) then {
 	private "_pos";
 	private _col_s = d_color_hash;
 	{
@@ -89,4 +88,3 @@ if (d_showallnearusermarkers) then {
 		};
 	} forEach (d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
 };
-#endif

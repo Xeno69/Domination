@@ -13,10 +13,6 @@ private _display = uiNamespace getVariable "D_PylonLoadoutDialog";
 private _cfg = (configOf _vec)>>"Components">>"TransportPylonsComponent";
 __TRACE_1("","_cfg")
 
-#ifdef __DEBUG__
-_mmm = getText(_cfg>>"UIPicture");
-__TRACE_1("","_mmm")
-#endif
 __control(1000) ctrlSetText getText(_cfg>>"UIPicture");
 __control(1003) ctrlSetText getText((configOf _vec)>>"Displayname");
 
@@ -139,10 +135,6 @@ for "_i" from 0 to (count _pylons - 1) do {
 		__TRACE_1("","toLowerANSI _x in _excludemags")
 		__TRACE_1("","toLowerANSI _x")
 		if !(toLowerANSI _x in _excludemags) then {
-#ifdef __DEBUG__
-			private _xxm = getText (configFile>>"CfgMagazines">>_x>>"ammo");
-			__TRACE_1("ammo","_xxm")
-#endif
 			private _doadd = call {
 				private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
 				__TRACE_1("","_sub")

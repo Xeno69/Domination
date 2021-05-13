@@ -33,7 +33,11 @@ if (_withresp) then {
 };
 __TRACE("black in 3")
 "xr_revtxt" cutText ["","BLACK IN", 3];
-xr_pl_no_lifes = [false, player getVariable "xr_lives" == -1] select (xr_max_lives > -1);
+if (xr_max_lives == -1) then {
+	xr_pl_no_lifes = false;
+} else {
+	xr_pl_no_lifes = player getVariable "xr_lives" == -1;
+};
 __TRACE_1("","xr_pl_no_lifes")
 xr_camnvgon = false;
 d_x_loop_end = false;
