@@ -68,6 +68,7 @@ if (local _player) then {
 					player setVariable ["AR_FAST_DECEND_PRESSED", true];
 				};
 			};
+			false
 		}];
 
 		_ropeKeyUpHandler = (findDisplay 46) displayAddEventHandler ["KeyUp", {
@@ -78,6 +79,7 @@ if (local _player) then {
 					player setVariable ["AR_FAST_DECEND_PRESSED", false];
 				};
 			};
+			false
 		}];
 	} else {
 		_player setVariable ["AR_DECEND_PRESSED", false];

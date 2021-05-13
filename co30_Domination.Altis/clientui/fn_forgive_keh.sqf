@@ -2,6 +2,8 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 disableSerialization;
 
 #include "..\defineDIKCodes.inc"
@@ -22,5 +24,7 @@ if ((_this # 1) == DIK_F11) then {
 		d_forgive = nil;
 	};
 };
+
+__TRACE("false")
 
 false

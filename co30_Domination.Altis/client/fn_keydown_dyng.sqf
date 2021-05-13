@@ -8,5 +8,5 @@ if ((_this # 1) in d_ak_teamswitch && {d_player_canu && {!(_this # 2) && {!(_thi
 	[0, _this] call d_fnc_KeyDownCommandingMenu;
 	true
 } else {
-	!d_player_canu
-}
+	false
+};
