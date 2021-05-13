@@ -2,3 +2,4 @@
 
 - Fixed: Players could end up at the roof of the hangar in the SOG version when spawning at base... NOW REALLY FIXED!!!1!11!!!
 - Fixed: Chat could not be opened when a player was dead or unconscious
+- Fixed: Show text "Unlimited" in statusdialog/dashboard instead of -1 when player lives are not limited

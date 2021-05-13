@@ -128,7 +128,12 @@ if (d_WithRevive == 1) then {
 	__ctrl2(30000) ctrlShow false;
 	__ctrl2(30001) ctrlShow false;
 } else {
-	__ctrl2(30001) ctrlSetText str (player getVariable "xr_lives");
+	private _xltxt = if (xr_max_lives == -1) then {
+		localize "STR_DOM_MISSIONSTRING_1010"
+	} else {
+		str (player getVariable "xr_lives")
+	};
+	__ctrl2(30001) ctrlSetText _xltxt;
 };
 
 #ifndef __TT__
