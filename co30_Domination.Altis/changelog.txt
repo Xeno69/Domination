@@ -1,6 +1,3 @@
-4.51
+4.52
 
-- Fixed: Players could end up at the roof of the hangar in the SOG version when spawning at base... NOW REALLY FIXED!!!1!11!!!
-- Fixed: Chat could not be opened when a player was dead or unconscious
-- Fixed: Show text "Unlimited" in statusdialog/dashboard instead of -1 when player lives are not limited
-- Fixed: SQL import of negative numbers converts them into 0 resulting in wrong CfgParams values
+- Fixed: Removed sqfc files (compiled sqf), seems they don't work fully with 2.04; broke 4.51 completely

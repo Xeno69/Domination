@@ -707,7 +707,7 @@ if (isServer) then {
 						__TRACE_1("","_fidx")
 						if (_fidx != -1) then {
 							private _val = _dbresult # _fidx # 1;
-							if (_val == 0 && {_cname in ["xr_max_lives", "d_MainTargets_num", "d_ai_awareness_rad", "d_ai_pursue_rad", "d_max_camp_cnt"]}) then {
+							if (_val == 0 && {_cname in ["xr_max_lives", "d_MainTargets_num", "d_ai_awareness_rad", "d_ai_pursue_rad", "d_max_camp_cnt", "d_score_needed_to_fly", "d_ai_awareness_rad", "d_ai_pursue_rad", "d_max_camp_cnt"]}) then {
 								_val = -1;
 							};
 							__TRACE_1("","_val")

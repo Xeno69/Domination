@@ -36,7 +36,7 @@ _mname remoteExecCall ["deleteMarkerLocal", [blufor, opfor] select (_vec getVari
 #else
 [_mname, "STR_DOM_MISSIONSTRING_517", [_vec] call d_fnc_GetDisplayName] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 #endif
-private _timedel = if (d_WreckDeleteTime != -1) then {time + d_WreckDeleteTime} else {time + (1e+011)};
+private _timedel = if (d_WreckDeleteTime != 1010101) then {time + d_WreckDeleteTime} else {time + (1e+011)};
 while {!isNull _vec && {_vec distance _sav_pos < 30 && {time < _timedel}}} do {sleep 3.321 + random 2.2};
 deleteMarker _mname;
 if (time > _timedel && {_vec distance _sav_pos < 50}) then {

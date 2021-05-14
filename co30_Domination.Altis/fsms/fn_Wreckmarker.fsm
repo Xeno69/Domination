@@ -72,7 +72,7 @@ link35[] = {29,30};
 link36[] = {30,31};
 link37[] = {31,18};
 globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2191.562012,717.986206,757,1254,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,775};
+window[] = {2,-1,-1,-1,-1,796,78,1038,78,3,775};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -290,7 +290,7 @@ class FSM
                          "} else {" \n
                          "	[_mname, ""STR_DOM_MISSIONSTRING_517"", [_vec] call d_fnc_GetDisplayName] remoteExecCall [""d_fnc_setmatxtloc"", [0, -2] select isDedicated];" \n
                          "};" \n
-                         "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != -1);" \n
+                         "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != 1010101);" \n
                          "" \n
                          ""/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

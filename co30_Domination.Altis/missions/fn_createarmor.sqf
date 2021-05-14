@@ -21,7 +21,7 @@ if (_radius < 50) then {
 __TRACE_3("","_pos_center","_radius","_do_patrol")
 private _ret_grps = [];
 
-private _with_less_armor_side = [d_WithLessArmor_side, selectRandom [0, 1, 2]] select (d_WithLessArmor_side == -1);
+private _with_less_armor_side = [d_WithLessArmor_side, selectRandom [0, 1, 2]] select (d_WithLessArmor_side == 3);
 
 for "_nr" from 0 to 2 do {
 	private _nrg = [_this # (1 + (_nr * 2)), selectRandom [0, 1]] select (_with_less_armor_side == 1);

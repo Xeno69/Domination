@@ -4,7 +4,7 @@
 
 **Available params (first description.ext/database, second server lobby):**
 #### **d_MainTargets_num / Main Targets**
-> Default: Complete, ordered (-1 in description.ext)<br/>
+> Default: Complete, ordered (9998 in description.ext)<br/>
 > Number of main targets that will be played. Number depends on the island used<br/>
 > Complete, ordered means all targets will be used in proper sequence<br/>
 #### **d_TimeOfDay / Time of day**
@@ -18,7 +18,7 @@
 > If enabled (0, Yes) then players will have no sway<br/>
 #### **d_with_targetselect_count / Players can select from available targets:**
 > Default: 4<br/>
-> Number of main targets players can select next target, Entire map/-1 for all targets, Off/0 to turn off targetselect<br/>
+> Number of main targets players can select next target, Entire map/9999 for all targets, Off/0 to turn off targetselect<br/>
 #### **d_MissionType / Mission Type:**
 > Default: 0<br/>
 > Available options:<br/>
@@ -61,11 +61,6 @@
 #### **d_mt_respawngroups / Respawn main target enemy AI groups as reinforcements:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_ai_persistent_corpses / Persistent AI corpses**
-> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
-#### **d_del_crew_always / Kill ALL vehicle crew (even outside) when a vehicle gets destroyed**
-> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
-> Kills also crew members of a destroyed vehicle which has escaped the vehicle before the explosion
-#### **d_ao_bfires / Big main target fires:**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 #### **d_weather / Internal weather system:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
@@ -113,6 +108,8 @@
 #### **d_with_base_sabotage / With base sabotage:**
 > Default: 1 (No)<br/>
 > If set to 0 (Yes) then every now and then a group of elite soldiers will drop over your base and try to sabotage you<br/>
+#### **d_house_patrol / With enemy AI house patrol at main targets:**
+> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_pylon_lodout / Pylon loadout enabled:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If enabled players will be able to change they [pylon loadout](https://community.bistudio.com/wiki/Arma_3_Vehicle_Loadouts) when they enter a vehicle (available via hold action menu on base)<br/>
@@ -138,10 +135,6 @@
 > If disabled players can not change their client viewdistance<br/>
 #### **d_playerspectateatbase / Player can spectate other players at base flag:**
 > Default: 0 (Yes, enabled; 1 or No too disable)<br/>
-#### **d_with_airtaxi / With AI air taxi (coop version only):**
-> Default: 0 (Yes, enabled; 1 or No too disable)<br/>
-#### **d_with_airdrop / With air drop:**
-> Default: 0 (Yes, enabled; 1 or No too disable)<br/>
 #### **d_with_ai / With AI recruitment:**
 > Default: 1<br/>
 > When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics.</br>
@@ -149,8 +142,6 @@
 >   - Enabled (0)<br/>
 >   - Disabled (1)<br/>
 >   - Enabled but block recruited AI from entering static weapons (2)<br/>
->   - Enabled with dynamic AI recruitment, 1 player d_max_ai, more players less AI recruitable, 20+ players no AI recruitment (3)<br/>
->   - Enabled with dynamic AI recruitment (same as above) but block recruited AI from entering static weapons (4)<br/>
 #### **d_with_ai_features / With AI features but no AI recruit:**
 > Default: 1 (No, disabled; 0 or Yes to enable<br/>
 > Same as d_with_ai above, just no AI recruitment<br/>
@@ -224,19 +215,11 @@
 > If a SQL database is available players will get kicked out of air vehicles if their score is below d_score_needed_to_fly. Doesn't affect inital choppers like MHQ/transport; can be disabled with -1 (Disabled)<br/>
 > Available options in seconds: -1 (disabled), 10, 50, 100, 500, 1000, 2000 and 5000<br/>
 #### **d_without_nvg / Without NVgoggles:**
-> Default: 1 (No, disabled)<br/>
+> Default: 1 (No, disabled; 0 or Yes to remove nv goggles)<br/>
 > If enabled removes night vision goggles from players and AI and blocks NV sights<br/>
-> Available options:<br/>
->   - Yes (0)<br/>
->   - No (1)<br/>
->   - Block but not for missile launchers (2)<br/>
 #### **d_without_ti / Disable Thermal Imaging (TI) for inf weapons/optics:**
-> Default: 1 (No, disabled)<br/>
+> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 > If enabled thermal imaging for infantry weapons/optics is blocked<br/>
-> Available options:<br/>
->   - Yes (0)<br/>
->   - No (1)<br/>
->   - Block but not for missile launchers (2)<br/>
 #### **d_without_vec_ti / Disable vehicle TI:**
 > Default: 1 (No, disabled; 0 or Yes to remove termal imaging)<br/>
 > If enabled removes termal imaging from vehicles<br/>
@@ -255,12 +238,8 @@
 > Default: 120 (seconds)<br/>
 > Time it takes to fire a guided launcher again (too avoid players spamming targets with missiles)<br/>
 > Available options in seconds: 0 (disabled), 60, 120, 180, 240 and 300<br/>
-#### **d_disable_player_arty / Disable player artillery**
-> Default: 0 (No, player arty enabled; 1 or Yes to disable player artillery)<br/>
 #### **d_arty_unlimited / Disable artillery cooldown**
 > Default: 0 (No, artillery cooldown enabled; 1 or Yes to disable artillery cooldown)<br/>
-#### **d_disable_player_cas / Disable player CAS**
-> Default: 0 (No, player CAS enabled; 1 or Yes to disable player CAS)<br/>
 #### **d_enable_civs / Enable civilians**
 > Default: 0 (No, disabled; 1 or Yes to enable civilians)<br/>
 #### **d_civ_unitcount / Civilian unit count per group**
@@ -282,7 +261,7 @@
 > Default: 1 (Yes, enabled; 0 or No to disable)<br/>
 #### **d_tell_arty_cas / Always announce enemy artillery / CAS**
 > Default: 0 (No, enabled; 1 or Yes to disable it)<br/>
-#### **d_disable_airai / Disable enemy air**
+#### **d_disable_airai / Disable enemy air AI**
 > Default: 0 (No, air ai enabled; 1 or Yes to disable air ai)<br/>
 #### **d_occ_bldgs / Enemy AI will occupy buildings**
 > Default: 1 (Yes, enabled; 0 or No to disable)<br/>
@@ -361,10 +340,10 @@
 > If enabled a player needs pilot headgear and pilot uniform to fly<br/>
 #### **d_WithLessArmor / Armor at main targets:**
 > Default: 0<br/>
-> Available options: 0 (Normal), 1 (Less), 2 (None) and -1 (Random)<br/>
+> Available options: 0 (Normal), 1 (Less), 2 (None) and 3 (Random)<br/>
 #### **d_WithLessArmor_side / Armor at side missions:**
 > Default: 0<br/>
-> Available options: 0 (Normal), 1 (Less) 2 (None) and -1 (Random)<br/>
+> Available options: 0 (Normal), 1 (Less) 2 (None) and 3 (Random)<br/>
 #### **d_EnemySkill / Skill Enemy:**
 > Default: 2<br/>
 > Available options: 0 (Very Low), 1 (Low), 2 (Normal), 3 (High) and 4 (Very High)<br/>
@@ -406,17 +385,14 @@
 > Default: 10<br/>
 > Available options: 2, 3, 5, 10, 20, 30 and 1000 (No kick)<br/>
 #### **d_no_teamkill / No teamkilling possible:**
-> Default: 1 (No, disabled; 0 or Yes to enable<br/>
+> Default: 0 (Yes, enabled; 1 or No to disable<br/>
 #### **d_sub_tk_points / Negative TK points:**
 > Default: 10<br/>
 > Available options: 0, 1, 5, 10, 20, 30 and 50<br/>
 > Score a player gets subtracted for killing another player<br/>
-#### **d_tk_forgive / Player can forgive teamkill (mission revive has too be enabled and spectating):**
-> Default: 0 (Yes, enabled; 1 or No to disable<br/>
-> Set d_no_teamkill to 1 to make this work
 #### **d_WreckDeleteTime / Delete wrecks after:**
 > Default: 3600<br/>
-> Available options: 1800, 3600, 5400, 7200 and -1 (Never)<br/>
+> Available options: 1800, 3600, 5400, 7200 and 1010101 (Never)<br/>
 > This is only for bonus vehicle wrecks players get when solving a side mission or a main target<br/>
 #### **d_WreckMaxRepair / Wreck max repairs:**
 > Default: 3<br/>

@@ -7,13 +7,13 @@
 //   0 Normal
 //   1 Less
 //   2 None
-//   -1 Random, enemy mode is randomly chosen [0,1,2] each time a maintarget is created
+//   3 Random, enemy mode is randomly chosen [0,1,2] each time a maintarget is created
 
 __TRACE_1("","_this")
 
 params ["_enemyMode"];
 
-if (_enemyMode == -1) then {
+if (_enemyMode == 3) then {
 	d_enemy_mode_current_maintarget = selectRandom [0, 1, 2];
 	_enemyMode = d_enemy_mode_current_maintarget;
 };

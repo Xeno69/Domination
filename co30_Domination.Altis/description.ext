@@ -305,67 +305,67 @@ class Params {
 	class d_MainTargets_num {
 		title = "$STR_DOM_MISSIONSTRING_965";
 #ifdef __ALTIS__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,34};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
 #endif
 #ifdef __CUP_CHERNARUS__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __CUP_SARA__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __CUP_TAKISTAN__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __TTALTIS__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
 #ifdef __TANOA__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __TTTANOA__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __STRATIS__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,21};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
 #ifdef __IFA3LITE__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
 #ifdef __MALDEN__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
 #ifdef __TTMALDEN__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25"};
 #endif
 #ifdef __GMCWG__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,31};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
 #endif
 #ifdef __LIVONIA__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,31};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","31"};
 #endif
 #ifdef __UNSUNG__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18"};
 #endif
 #ifdef __GABRETA__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,28};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,28};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","28"};
 #endif
 #ifdef __VNCLN__
-		values[] = {-1,-2,2,4,6,8,10,12,14,16,18,20,25,30,37};
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30,37};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30",37};
 #endif
 		default = -1;
@@ -435,7 +435,7 @@ class Params {
 
 	class d_with_targetselect_count {
 		title = "$STR_DOM_MISSIONSTRING_1953A";
-		values[] = {0,4,8,12,-1};
+		values[] = {0,4,8,12,9999};
 		default = 4;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363", "4","8","12","$STR_DOM_MISSIONSTRING_2022"};
 	};
@@ -1349,14 +1349,14 @@ class Params {
 
 	class d_WithLessArmor {
 		title = "$STR_DOM_MISSIONSTRING_1132";
-		values[] = {0,1,2,-1};
+		values[] = {0,1,2,3};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405", "$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 
 	class d_WithLessArmor_side {
 		title = "$STR_DOM_MISSIONSTRING_1730";
-		values[] = {0,1,2,-1};
+		values[] = {0,1,2,3};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405", "$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
@@ -1521,7 +1521,7 @@ class Params {
 
 	class d_WreckDeleteTime {
 		title = "$STR_DOM_MISSIONSTRING_1170";
-		values[] = {1800,3600,5400,7200,-1};
+		values[] = {1800,3600,5400,7200,1010101};
 		default = 3600;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1093","$STR_DOM_MISSIONSTRING_1095","$STR_DOM_MISSIONSTRING_1171","$STR_DOM_MISSIONSTRING_1172","$STR_DOM_MISSIONSTRING_418"};
 	};

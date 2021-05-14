@@ -30,7 +30,7 @@ if (_radius < 50) then {
 };
 private _ret_grps = [];
 
-private _with_less_armor_side = [d_WithLessArmor_side, selectRandom [0, 1, 2]] select (d_WithLessArmor_side == -1);
+private _with_less_armor_side = [d_WithLessArmor_side, selectRandom [0, 1, 2]] select (d_WithLessArmor_side == 3);
 
 for "_nr" from 0 to 1 do {
 	private _nrg = _this select (1 + (_nr * 2));
