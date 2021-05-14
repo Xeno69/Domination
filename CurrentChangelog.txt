@@ -1,3 +1,4 @@
 4.52
 
 - Fixed: Removed sqfc files (compiled sqf), seems they don't work fully with 2.04; broke 4.51 completely
+- Updated: Japanese translation, by Schalldampfer
