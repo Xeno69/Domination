@@ -7,7 +7,7 @@
 <Spanish>Punto de Reparación de Chatarra</Spanish>
 <Portuguese>Ponto de Reparo de Chatarra Vossa base.</Portuguese>
 <Korean>잔해 수리</Korean>
-<Japanese>Wreck Repair Point</Japanese>
+<Japanese>残骸修理工場</Japanese>
 <Original>Wreck Repair Point</Original>
 <Russian>Ремонт Призовой техники</Russian>
 <Chinesesimp>载具修理点</Chinesesimp>
@@ -31,7 +31,7 @@
 <Spanish>Servicio de Helicópteros/UAV</Spanish>
 <Portuguese>Chopper/UAV Serviço</Portuguese>
 <Korean>회전익 무인기 정비</Korean>
-<Japanese>Chopper/UAV Service</Japanese>
+<Japanese>ヘリコプター/UAV 整備工場</Japanese>
 <Original>Chopper/UAV Service</Original>
 <Russian>Ремонт вертолетов\БПЛА</Russian>
 <Chinesesimp>飞机/无人机修理点</Chinesesimp>
@@ -43,7 +43,7 @@
 <Spanish>Servicio/UAV de Vehículos</Spanish>
 <Portuguese>Veículo/UAV Serviço</Portuguese>
 <Korean>차량 정비</Korean>
-<Japanese>Vehicle/UAV Service</Japanese>
+<Japanese>車両/UAV 整備工場</Japanese>
 <Original>Vehicle/UAV Service</Original>
 <Russian>Ремонт техники и БПА</Russian>
 <Chinesesimp>载具/无人机修理点</Chinesesimp>
@@ -55,7 +55,7 @@
 <Spanish>Punto de Municiones</Spanish>
 <Portuguese>Ponto de Munições</Portuguese>
 <Korean>탄약상자 적재소</Korean>
-<Japanese>Ammo Point</Japanese>
+<Japanese>弾薬集積所</Japanese>
 <Original>Ammo Point</Original>
 <Russian>Загрузка ящика-арсенала</Russian>
 <Chinesesimp>弹药箱提取点</Chinesesimp>
@@ -67,7 +67,7 @@
 <Spanish>TELETRASPORTAR / SALTO EN PARACAIDAS</Spanish>
 <Portuguese>TELETRASPORTAR / SALTO EN PARACAIDAS</Portuguese>
 <Korean>공수낙하</Korean>
-<Japanese>Teleporter / Parajump</Japanese>
+<Japanese>テレポート / 空挺</Japanese>
 <Original>Teleporter / Parajump</Original>
 <Russian>Телепорт</Russian>
 <Chinesesimp>传送 / 跳伞</Chinesesimp>
@@ -79,7 +79,7 @@
 <Spanish>Transporte Uno</Spanish>
 <Portuguese>Transporte Um</Portuguese>
 <Korean>차량수송</Korean>
-<Japanese>車両吊上げヘリ</Japanese>
+<Japanese>車両輸送ヘリ</Japanese>
 <Original>Lift One</Original>
 <Russian>Грузовой 1</Russian>
 <Chinesesimp>载具吊运</Chinesesimp>
@@ -91,7 +91,7 @@
 <Spanish>Transp. Chatarra</Spanish>
 <Portuguese>Transp. Chatarra</Portuguese>
 <Korean>잔해수송</Korean>
-<Japanese>残骸吊り上げヘリ</Japanese>
+<Japanese>残骸輸送ヘリ</Japanese>
 <Original>Wreck Lift</Original>
 <Russian>Врек вертолет</Russian>
 <Chinesesimp>残骸吊运</Chinesesimp>
@@ -115,7 +115,7 @@
 <Spanish>MHQ Uno</Spanish>
 <Portuguese>MHQ Um</Portuguese>
 <Korean>MHQ 1</Korean>
-<Japanese>MHQ One</Japanese>
+<Japanese>第一移動指揮所(MHQ)</Japanese>
 <Original>MHQ One</Original>
 <Russian>КШМ 1</Russian>
 <Chinesesimp>一号基地车（MHQ）</Chinesesimp>
@@ -127,7 +127,7 @@
 <Spanish>MHQ Dos</Spanish>
 <Portuguese>MHQ dois</Portuguese>
 <Korean>HMQ 2</Korean>
-<Japanese>MHQ Two</Japanese>
+<Japanese>第二移動指揮所(MHQ)</Japanese>
 <Original>MHQ Two</Original>
 <Russian>КШМ 2</Russian>
 <Chinesesimp>二号基地车（MHQ）</Chinesesimp>
@@ -187,7 +187,7 @@
 <Spanish>Para conquistar el objetivo hay que matar a todos los enemigos, destruir la torre de radio de la misión principal, resolver la misión adicional y capturar todos los campamentos.</Spanish>
 <Portuguese>Para aclarar um objetivo mata todos os inimigos, destruir a torre radiofónica no lugar de objetivo principal, solucionar o objetivo principal sidemission e capturar todos os depósitos.</Portuguese>
 <Korean>목적를 달성하기 위해서는 작전지역에 존재하는 모두 적 병력을 소탕, 통신탑을 파괴한 뒤, 주요 미션과 보조 과제를 완수하시면 됩니다.</Korean>
-<Japanese>ターゲットをクリアするには、すべての敵を殺し、メインターゲットサイトのラジオタワーを破壊し、メインターゲットとサイドミッションを解決し、すべてのデポをキャプチャします。</Japanese>
+<Japanese>主目標を達成するためには、すべての敵を殺し、主目標の電波塔を破壊し、副任務を達成し、すべての陣地を占領する必要があります。</Japanese>
 <Original>To clear a target kill all enemies, destroy the radio tower at the main target site, solve the main target sidemission and capture all depots.</Original>
 <Russian>Чтобы выполнить Главное Задание (города), Вам нужно убить всех ИИ противников, взорвать радиовышку, захватить все блокпосты и выполнить второстепенную городскую задачу.</Russian>
 <Chinesesimp>你的任务是消灭全部敌人,摧毁目标区域的主通讯塔,完成支线任务并占领所有的军需库。</Chinesesimp>
@@ -199,7 +199,7 @@
 <Spanish>Hay varias misiones secundarias disponibles, que si las resuelve, podrá conseguir algunos vehículos adicionales.</Spanish>
 <Portuguese>Há várias missões de lado disponíveis que conseguirá você alguns veículos extras se lhes soluciona.</Portuguese>
 <Korean>보조 과제을 완수할 경우, 추가적인 보상 또한 받으실 수 있습니다.</Korean>
-<Japanese>解決するとボーナス車両が得られるサイドミッションがあります</Japanese>
+<Japanese>解決すると報酬車両が得られるサイドミッションがあります</Japanese>
 <Original>There are several side missions available that will get you some extra vehicles if you solve them.</Original>
 <Russian>Так же существуют отдельные ДОП.ЗАДАНИЯ, за выполнение которых Вы получаете боевую ПРИЗОВУЮ технику.</Russian>
 <Chinesesimp>如果你完成了支线任务将会获得额外的载具奖励</Chinesesimp>
@@ -211,7 +211,7 @@
 <Spanish>Una vez que la misión principal esté conquistada, se creará una bandera al azar en el lugar, desde donde se puede saltar en paracaídas (si está activado, no disponible en la versión TT).</Spanish>
 <Portuguese>Uma vez um objetivo principal é claro, uma bandeira consegue criada em um lugar aleatório de onde pode você saltar com o HALO parajump guião (se habilitado, não disponível no TT versão).</Portuguese>
 <Korean>주목적지를 탈환하게되면, 깃대가 무작위 위치로 생성되며 해당 위치에서 공수 낙하 기능을 사용하실 수 있습니다. (활성화했을경우. TvT전에서는 사용하실 수 없습니다.</Korean>
-<Japanese>メインターゲットがクリアされると、HALOparajumpスクリプトでパラジャンプできる旗が作成されます（サーバー設定で有効な場合。TTバージョンでは使用できません）。</Japanese>
+<Japanese>主目標が達成されると、任意の位置からパラジャンプできる、旗が作成されます（サーバー設定で有効な場合。TTバージョンでは使用できません）。</Japanese>
 <Original>Once a main target is clear, a flag gets created in a random place from where you can jump with the HALO parajump script (if enabled, not available in the TT version).</Original>
 <Russian>Когда город захвачен, в нем создается флаг для десантирования (эвакуации игрока). Так же он есть на базах сторон.</Russian>
 <Chinesesimp>当一个主要的目标被清理完毕，将会出现一个随机的旗子并在旗子处生成一个HALO跳伞点 (如果启用, 在TT版本中不可用)。</Chinesesimp>
@@ -223,7 +223,7 @@
 <Spanish>Puede transportar todos los vehículos con sus helicópteros de transporte.</Spanish>
 <Portuguese>Pode transportar todos os veículos com vosso elevador choppers.</Portuguese>
 <Korean>차량 수송용 헬리콥터를 이용하여 모든 차량을 수송하실 수 있습니다.</Korean>
-<Japanese>空輸ヘリコプターですべての車両を輸送することができます。</Japanese>
+<Japanese>輸送ヘリコプターですべての車両を空輸することができます。</Japanese>
 <Original>You can transport all vehicles with your lift choppers.</Original>
 <Russian>Вы можете перевозить технику специальным транспортным вертолетом.</Russian>
 <Chinesesimp>你可以用你的吊运直升机吊运所有的载具.</Chinesesimp>
@@ -235,7 +235,7 @@
 <Spanish>Los MHQs son sus puntos de reapariciones móviles.</Spanish>
 <Portuguese>O MHQs é vosso móvel respawn pontos</Portuguese>
 <Korean>지휘차량(MHQ)은 여러분들의 모바일 리스폰 포인트입니다.</Korean>
-<Japanese>MHQは、あなたの移動復活ポイントです。</Japanese>
+<Japanese>展開した移動指揮所(MHQ)からリスポンできます。</Japanese>
 <Original>The MHQs are your mobile respawn points.</Original>
 <Russian>КШМ это Ваша мобильная точка возрождения. КШМ всего две.</Russian>
 <Chinesesimp>基地车（MHQ）是可以移动的重生点.</Chinesesimp>
@@ -247,7 +247,7 @@
 <Spanish>Puede cargar una caja de munición en un MHQ o si es piloto de un helicóptero (pero hay que cargar primero una caja en la base)</Spanish>
 <Portuguese>Pode carregar uma caixa de munição em um MHQ ou se é piloto de um helicóptero (mas Heno que carregar primeiro uma caixa na base)</Portuguese>
 <Korean>탄약상자 적재소(Ammo Point)에서 지휘차량에 탄약상자를 적재할 수 있습니다. 귀관이 헬리콥터 파일럿인 경우 헬리콥터에서도 같은 기능을 이용 하실 수 있습니다.</Korean>
-<Japanese>あなたはMHQから弾薬箱を降ろすことができます。もしあなたがヘリコプターの操縦士であればヘリコプターからも（しかし、最初にベースで積み込む必要があります）！</Japanese>
+<Japanese>あなたはヘリコプター及び移動指揮所から弾薬箱を降ろすことができます。（※基地の弾薬集積所で積載する必要があります！）</Japanese>
 <Original>You can drop an ammo crate from a MHQ or if you are the pilot of a helicopter (but you have to load a crate at base first)!</Original>
 <Russian>Вы можете перевозить ящик-арсенал в КШМ или в специальных вертолетах, предварительно загрузив его на базе.</Russian>
 <Chinesesimp>你可以从基地车（MHQ）中放下弹药箱,如果你是直升机驾驶员也可以从直升机上放下弹药箱(前提是你要先到弹药箱提取点装载弹药箱)！</Chinesesimp>
@@ -271,7 +271,7 @@
 <Spanish>Cargue una caja en el helicóptero 1,2,3 o W y en uno de los MHQs, de lo contrario el resultado final será en el próximo objetivo sin munición.</Spanish>
 <Portuguese>Reload Um crate a chopper 1,2,3 ou W ou em um do MHQs, otherwise acabará no objetivo próximo sem qualquer crate.</Portuguese>
 <Korean>탄약상자를 사용하시고 꼭 다시 실어주십시오. 탄약상자는 자동으로 생성되거나 제거되지 않습니다.</Korean>
-<Japanese>弾薬箱をヘリコプター1,2,3またはWまたはMHQのいずれかに再装填します。そうしないと、弾薬箱なしで次のターゲットに行くことになります。</Japanese>
+<Japanese>弾薬箱をヘリコプター1,2,3またはWまたは移動指揮所(MHQ)のいずれかに再積載してください。そうしないと、弾薬箱なしで次の目標へ行くことになります。</Japanese>
 <Original>Reload a crate into chopper 1,2,3 or W or in one of the MHQs, otherwise you will end up at the next target without any crate.</Original>
 <Russian>Не забывайте загружать ящик после выполненного задания обратно в транспорт, чтобы на новой миссии не остаться без арсенала.</Russian>
 <Chinesesimp>重新将弹药箱放进直升机或基地车（MHQ）内,否则下一个任务你可能没有弹药箱补给.</Chinesesimp>
@@ -283,7 +283,7 @@
 <Spanish>Una vez desplegado el MHQ se puede teletransportar de uno a otro, permite la vista de satélite o sacar una moto.</Spanish>
 <Portuguese>Reload Um crate a chopper 1,2,3 ou W ou em um do MHQs, otherwise acabará no objetivo próximo sem qualquer crate.</Portuguese>
 <Korean>지휘차량을 전개(Deploy)하면 순간이동(Teleport) 기능이 활성화 됩니다. 위성관측(Satellite view)를 통한 정찰기능또한 사용하실수있으시며, Quadbike 및 고기동경량차량인 Prowler를 소환 하실 수 있습니다.</Korean>
-<Japanese>一度展開すると、あるMHQから別のMHQにテレポートしたり、衛星視点を有効にしたり、乗り物を出すことができます。</Japanese>
+<Japanese>展開した移動指揮所からは、別の移動指揮所にテレポートしたり、偵察衛星を使用したり、乗り物を出すことができます。</Japanese>
 <Original>Once deployed you can teleport from one MHQ to the other, enable satellite view or create a bike.</Original>
 <Russian>Так же в КШМ Вам доступен квадроцикл, спутниковое наблюдение и вызов БПЛА (стационарно).</Russian>
 <Chinesesimp>展开基地车（MHQ）后,你可以传送到基地车（MHQ）旁,并可以使用卫星监控,也可以通过基地车（MHQ）取得载具。</Chinesesimp>
@@ -295,7 +295,7 @@
 <Spanish>Los ingenieros pueden reparar y repostar todos los vehículos y aeronaves (Es necesario un kit de herramientas y sólo está disponible en modo de ingeniero).</Spanish>
 <Portuguese>Os engenheiros podem consertar e refuel todos os veículos e aeronave (necessidades ToolKit e únicos disponíveis em engenheiro modo cheio).</Portuguese>
 <Korean>공병은 모든 차량과 항공기를 수리 혹은 보급할 수 있습니다. 도구모음을 가지고 있어야합니다.</Korean>
-<Japanese>エンジニアは、すべての車両と航空機を修理して補給することができます（ツールキットが必要、エンジニアフルモードでのみ使用可能）。</Japanese>
+<Japanese>工兵は、すべての車両と航空機を修理して補給することができます（ツールキットが必要で、エンジニアフルモードでのみ使用可能）。</Japanese>
 <Original>The engineers can repair and refuel all vehicles and aircraft (needs ToolKit and only available in engineer full mode).</Original>
 <Russian>Инженеры как всегда могут ремонтировать всю технику и при определенных настройках миссии им требуется ремнабор.</Russian>
 <Chinesesimp>工程兵可以修理并给载具和飞行器加油(需要工具包ToolKit，仅在工程兵模式有效).</Chinesesimp>
@@ -307,7 +307,7 @@
 <Spanish>Sólo funciona una vez, si no hay camión de ingeniero o de reparaciones y debe está cerca un ingeniero (recargar y repostar se puede hacer también en la base).</Spanish>
 <Portuguese>Aqueles trabalhos únicos uma vez se nenhum caminhão de engenheiro ou caminhão de reparo é perto um engenheiro (reload e refuel a capacidade pode ser restaurada em base).</Portuguese>
 <Korean>공병 트럭 혹은 수리 트럭은 공병이 주위에 없을 경우에만 가능합니다. (탄약및 유류 재보급은 본부에서 재 활성화 시킬수 있습니다.</Korean>
-<Japanese>エンジニアのトラックや修理トラックがエンジニアの近くにない場合、これは一度しか動作しません。（リロードと燃料補給能力はベースで元に戻すことができます）</Japanese>
+<Japanese>工兵トラックや修理トラックが工兵の近くにない場合、一度しか修理できません。（修理及び補給能力は基地に戻れば再び手に入ります）</Japanese>
 <Original>That only works once if no engineer truck or repair truck is near an engineer (reload and refuel capability can be restored at base).</Original>
 <Russian>Инженеры могут восстанавливать свою способность чинить возвращаясь на базу или к ремонтному грузовику.</Russian>
 <Chinesesimp>只有工程车在附近才可以修理(补充弹药和油料需要在主基地进行).</Chinesesimp>
@@ -319,7 +319,7 @@
 <Spanish>Los ingenieros también pueden cargar armas estáticas como morteros, etc, en sus camiones de reparaciones y descargarlas donde quiera.</Spanish>
 <Portuguese>Os engenheiros também podem carregar armas estáticas como morteiros, etc, a uns caminhões de engenheiro e lhes descarregar wherever querem.</Portuguese>
 <Korean>공병은 박격포와 같은 거치무기를 공병트럭에 적재하고, 어디서든 내릴 수 있습니다.</Korean>
-<Japanese>エンジニアは、迫撃砲などの設置兵器をエンジニアのトラックに積み込み、必要な場所に降ろすことができます。</Japanese>
+<Japanese>工兵は、迫撃砲などの設置兵器を工兵のトラックに積み込み、必要な場所に降ろすことができます。</Japanese>
 <Original>Engineers can also load static weapons like mortars, etc, into an engineer trucks and unload them wherever they want.</Original>
 <Russian>Так же инженеры могут загружать статичное вооружение в свой специальный инженерный грузовик.</Russian>
 <Chinesesimp>工程兵可以随时将固定武器，如迫击炮装载入卡车并卸载出来.</Chinesesimp>
@@ -331,7 +331,7 @@
 <Spanish>Los ingenieros también son capaces de voltear los vehículos que estén al revés cuando tiene un kit de herramientas (en la versión AI cada jugador puede hacer eso).</Spanish>
 <Portuguese>Os engenheiros são também capazes a veículos de dedo que é lying ao revés quando têm um Toolkit (no AI versão a cada jogador pode fazer aquele).</Portuguese>
 <Korean>공병은 도구모음을 가지고 있는 상태에서 뒤집어지거나 넘어진 차량을 뒤집을 수 있습니다. (AI전에서는 모든 유저 가능합니다.)</Korean>
-<Japanese>エンジニアは、ツールキットを持っているときに逆さまになっている車両を反転することもできます（AIのバージョンでは、すべてのプレーヤーがそれを行うことができます）。</Japanese>
+<Japanese>工兵は、ツールキットを持っているときに横転した車両を反転することができます（AIのバージョンでは、すべてのプレーヤーがそれを行うことができます）。</Japanese>
 <Original>Engineers are also able to flip vehicles that are lying upside down when they have a Toolkit (in the AI version every player can do that).</Original>
 <Russian>Еще им доступна функция переворота техники (требуется ремнабор).</Russian>
 <Chinesesimp>工程兵当他们有工具包 Toolkit 时还可以将翻车的车救治 (在AI模式中，任何人都可以).</Chinesesimp>
@@ -343,7 +343,7 @@
 <Spanish>%1 para ambos equipos</Spanish>
 <Portuguese>%1 para ambos equipos</Portuguese>
 <Korean>%1 for 양측 세력</Korean>
-<Japanese>%1 を両チームに</Japanese>
+<Japanese>両チームに %1</Japanese>
 <Original>%1 for both teams</Original>
 <Russian>Ящиков доступно одновременно на карте до %1 штук.</Russian>
 <Chinesesimp>%1 双方团队</Chinesesimp>
@@ -355,7 +355,7 @@
 <Spanish>El mapa de su base puede ser utilizado como un teletransportador a sus MHQs móviles o puede elegir saltar en paracaídas (si está activado).</Spanish>
 <Portuguese>O mapa de sua Base pode ser utilizado como um teletransportador um seus MHQs móveis ou pode eleger saltar em paracaídas (se está ativado).</Portuguese>
 <Korean>본부에 배치되여있는 지도로 지휘차량으로의 이동 혹은 공수낙하를 하실 수 있습니다. (활성화가 되어있을 시)</Korean>
-<Japanese>あなたの基地の地図はあなたのMHQへのテレポーターとして使うことができます。または、あなたがそこでパラジャンプを選択することもできます。（可能な場合）</Japanese>
+<Japanese>基地にある地図板・旗は、移動指揮所へのテレポーターになっています。または、あなたがそこでパラジャンプを選択することもできます。（可能な場合）</Japanese>
 <Original>The map at your base can be used as a teleporter to your mobile respawns or you can choose parajump there (if enabled).</Original>
 <Russian>Вы можете телепортироваться с базы на КШМ и обратно или использовать затяжной прыжок с базы (если доступен).</Russian>
 <Chinesesimp>主基地里的地图可以用来选择传送重生或者跳伞。(如果启用)</Chinesesimp>
@@ -367,7 +367,7 @@
 <Spanish>Si se destruye un vehículo que ha ganado por resolver una misión secundaria o eliminar un objetivo principal, se puede transportar la chatarra con el helicóptero 4 (W) hasta el punto de reparación de chatarra de su base y obtendrá uno nuevo después de algún tiempo.</Spanish>
 <Portuguese>Se um veículo que tem ganhado para solucionar um sidemission ou aclarando um objetivo principal consegue destruído pode você transportar o wreck com chopper 4 (W) ao wreck ponto de reparo em vossa base e você conseguirão um novo um após que algum tempo.</Portuguese>
 <Korean>만약 사용하던 장비가 작전 중 반파 되었을 경우, 4호 헬기 (W)를 통해 본부로 수송해온 뒤, 잔해 수리 지점에 배치하면 일정 시간뒤 동일 차량이 재 생성됩니다.</Korean>
-<Japanese>ミッションで手に入れた車両が破壊された場合、残骸を4番ヘリコプター(W)で修復ポイントに運ぶこび、しばらく待つことで新しい車両を手に入れることができます。</Japanese>
+<Japanese>ミッションで手に入れた車両が破壊された場合、残骸を4番ヘリコプター(W)で残骸修理工場に運び、しばらく待つことで新しい車両を手に入れることができます。</Japanese>
 <Original>If a vehicle that you've won for solving a sidemission or clearing a main target gets destroyed you can transport the wreck with chopper 4 (W) to the wreck repair point at your base and you'll get a new one after some time.</Original>
 <Russian>Если ПРИЗОВАЯ техника уничтожена по какой-то причине, Вы можете взять спецвертолет ('W' на карте -'врек') и отбуксировать эту технику на базу для восстановления.</Russian>
 <Chinesesimp>当支线任务奖励的载具被摧毁后，你可以通过直升机Chopper 4 (W)吊运回残骸到修理点修理，需要一定的时间修理。</Chinesesimp>
@@ -391,7 +391,7 @@
 <Spanish>Los operadores de artillería pueden ejecutar ataques de artillería (los objetivos de la artillería tienen que ser marcados primero, necesita un designador láser).</Spanish>
 <Portuguese>Os operadores de artilharia podem executar ataques de artilharia (os alvos de artilharia têm que ser marcados primeiro, precisa de um designador a laser).</Portuguese>
 <Korean>포병반장은 포격 효력사를 실행 할 수 있습니다 (먼저 목표물에 대해 표시를 해야합니다, 레이저 표시기가 필요합니다).</Korean>
-<Japanese>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Japanese>
+<Japanese>前線観測員は、砲撃を呼ぶことができます。(砲撃目標を先にレーザー指示装置で指定する必要があります。)</Japanese>
 <Original>The artillery operators can execute artillery strikes (artillery targets have to be marked first, needs laser designator).</Original>
 <Russian>Арт.наводчик вызывает арт.удар (Сначала отмечаете цель лазер. целецказателем, нужна батарейка к нему).</Russian>
 <Chinesesimp>炮兵可以操作武器炮击 (首先要用激光指示仪标定炮击位置)。他们也可以营救人质 (AI模式下所有人都可以)。炮兵需要将人质护送回地图上的基地。</Chinesesimp>
@@ -415,7 +415,7 @@
 <Spanish>Los médicos pueden colocar una tienda sanitaria.</Spanish>
 <Portuguese>Médicos podem colocar purés.</Portuguese>
 <Korean>의무병은 이동식 의무실(Mobile Army Sugical Hospital; MASH)를 설치할 수 있습니다.</Korean>
-<Japanese>メディックはメディックテント(Mobile Army Sugical Hospital; MASH)を設置できます。</Japanese>
+<Japanese>衛生兵はメディカルテント(Mobile Army Sugical Hospital; MASH)を設置できます。</Japanese>
 <Original>Medics can place mashes.</Original>
 <Russian>Медики могут строить полевые медпункты, от лечения в которых они получают дополнительные очки.</Russian>
 <Chinesesimp>医疗兵可以放置医疗帐篷.</Chinesesimp>
@@ -451,7 +451,7 @@
 <Spanish>¡Los camiones están destruidos! ¡Buen trabajo!</Spanish>
 <Portuguese>The trucks are destroyed! Good job!</Portuguese>
 <Korean>트럭이 파괴 되었습니다! 수고하셨습니다!</Korean>
-<Japanese>The trucks are destroyed! Good job!</Japanese>
+<Japanese>トラックは破壊された。よくやった！</Japanese>
 <Original>The trucks are destroyed! Good job!</Original>
 <Russian>Грузовик был уничтожен! Отличная работа!</Russian>
 <Chinesesimp>卡車被摧毀了！做得好！</Chinesesimp>
@@ -499,7 +499,7 @@
 <Spanish>Abra los parámetros en el vestíbulo del servidor para ver una lista de funciones disponibles que puede cambiar dentro del juego antes de iniciar la misión (un administrador tiene que hacer eso).</Spanish>
 <Portuguese>Aberto o paramaters diálogo no servidor lobby para ver uma lista de características disponíveis que pode você mudar ingame dantes de que início de missão (um admin tem que fazer aquele).</Portuguese>
 <Korean>매개변수창(paramaters)를 열어 미션을 시작하기 전 세부설정을 확인하고 수정하실 수 있습니다. (관리자만 가능합니다)</Korean>
-<Japanese>サーバロビーのパラメータダイアログを開いて、ミッション開始前に変更可能な機能のリストを表示します。（管理者がそれを行う必要があります）</Japanese>
+<Japanese>サーバロビーのパラメータダイアログを開いて、ミッション開始前に変更可能な機能のリストを表示します。（管理者のみ実行可能）</Japanese>
 <Original>Open the paramaters dialog in the server lobby to see a list of available features that you can change ingame before mission start (an admin must do that).</Original>
 <Russian>Все настройки миссии вы можете увидеть прямо в игре нажав карту и выбрав закладку -ЖУРНАЛ-.</Russian>
 <Chinesesimp>在服务器大厅打开参数对话框能看到正在使用的功能参数列表，你可以在任务开始时修改游戏参数（必须登录管理员才能修改）。</Chinesesimp>
@@ -535,7 +535,7 @@
 <Spanish>Esperando órdenes...</Spanish>
 <Portuguese>Esperando a ordens...</Portuguese>
 <Korean>새로운 명령 대기중...</Korean>
-<Japanese>命令を待っています...</Japanese>
+<Japanese>任務を待機中...</Japanese>
 <Original>Waiting for orders...</Original>
 <Russian>Ожидайте приказов...</Russian>
 <Chinesesimp>等待指令中...</Chinesesimp>
@@ -571,7 +571,7 @@
 <Spanish>Sólo los ingenieros pueden cargar armas estáticas</Spanish>
 <Portuguese>Os engenheiros únicos podem carregar armas estáticas</Portuguese>
 <Korean>오직 공병만 거치무기를 실을 수 있습니다.</Korean>
-<Japanese>エンジニアだけが設置兵器を積み込むことができます。</Japanese>
+<Japanese>工兵だけが設置兵器を積載することができます。</Japanese>
 <Original>Only engineers can load static weapons</Original>
 <Russian>Только инженеры могут грузить статику в технику</Russian>
 <Chinesesimp>只有工程兵可以装载固定武器</Chinesesimp>
@@ -631,7 +631,7 @@
 <Spanish>Está siendo cargado. Por favor espere a que termine</Spanish>
 <Portuguese>Já está carregando um elemento. Comprazer espera até que está acabamento</Portuguese>
 <Korean>이미 물품을 적재하고 있습니다. 해당 행동이 완료될 때까지 대기하여 주십시오.</Korean>
-<Japanese>既にアイテムを積み込んでいます。 終了するまでお待ちください</Japanese>
+<Japanese>他のアイテムの積載作業中です。 終了するまでお待ちください。</Japanese>
 <Original>You are already loading an item. Please wait until it is finished</Original>
 <Russian>Вы уже загружаете это. Дождитесь окончания процесса</Russian>
 <Chinesesimp>你已经在装载物品了，请等待动作结束。</Chinesesimp>
@@ -643,7 +643,7 @@
 <Spanish>%1 sera cargado en %2 seg.</Spanish>
 <Portuguese>%1 será carregado em %2 sec.</Portuguese>
 <Korean>%1이(가) %2 초 뒤에 적재됩니다.</Korean>
-<Japanese>%1 積み込み中 残り%2秒</Japanese>
+<Japanese>%1 積載中 残り%2秒</Japanese>
 <Original>%1 will be loaded in %2 sec.</Original>
 <Russian>%1 будет загружено через %2 сек.</Russian>
 <Chinesesimp>%1 将在 %2 秒内装载完毕。</Chinesesimp>
@@ -655,7 +655,7 @@
 <Spanish>%1 cargado y asegurado.</Spanish>
 <Portuguese>%1 carregado e sujeitou!</Portuguese>
 <Korean>%1이(가) 적재되었습니다!</Korean>
-<Japanese>%1 が積み込まれました</Japanese>
+<Japanese>%1 が積載されました</Japanese>
 <Original>%1 loaded and attached!</Original>
 <Russian>%1 загружен и подцеплен!</Russian>
 <Chinesesimp>%1 装载并附加完毕！</Chinesesimp>
@@ -679,7 +679,7 @@
 <Spanish>Debe tener %2 puntos para activar el UAV. Su puntuación actual es %1</Spanish>
 <Portuguese>Precisa %2 pontos a favor que ativam o UAV. Vossa pontuação atual é %1</Portuguese>
 <Korean>UAV를 활성화하기 위해서는 %2 포인트가 필요합니다. 현재 %1 포인트를 가지고 있습니다.</Korean>
-<Japanese>UAVを使うには %2 ポイントが必要です。あなたの現在のスコアは %1 ポイントです</Japanese>
+<Japanese>無人機を使うには %2 ポイントが必要です。あなたの現在のスコアは %1 ポイントです</Japanese>
 <Original>You need %2 points for activating the UAV. Your current score is %1</Original>
 <Russian>Вам нужно %2 очков для обзора через БПЛА. У вас сейчас %1 очков</Russian>
 <Chinesesimp>你需要 %2 点数激活无人机UAV，你现在的点数是 %1</Chinesesimp>
@@ -691,7 +691,7 @@
 <Spanish>Sólo los ingenieros pueden utilizar armas estáticas</Spanish>
 <Portuguese>Os engenheiros únicos podem colocar armas estáticas</Portuguese>
 <Korean>오직 공병만 거치무기를 거치할 수 있습니다.</Korean>
-<Japanese>エンジニアだけが設置兵器を配置することができます</Japanese>
+<Japanese>工兵だけが設置兵器を配置することができます</Japanese>
 <Original>Only engineers can place static weapons</Original>
 <Russian>Только инженеры могут грузить статику в технику</Russian>
 <Chinesesimp>只有工程兵可以放置固定武器</Chinesesimp>
@@ -727,7 +727,7 @@
 <Spanish>Busque un sitio adecuado para colorcar el arma estática. Puede colocarla a unos 20 metros del camión de reparaciones.</Spanish>
 <Portuguese>Estático placement modo de preestreno. Lugar de imprensa Estático de colocar o objeto. Pode colocar o objeto 20 m arround o caminhão de engenheiro</Portuguese>
 <Korean>배치 미리보기 모드. "거치하기"를 눌러 해당 물체를 배치하십시오. 트럭에서 반경 20미터내에서 하실 수 있습니다.</Korean>
-<Japanese>配置プレビューモード。 Place Staticを押してオブジェクトを配置します。 エンジニアトラックの周囲20m以内に配置することができます</Japanese>
+<Japanese>配置プレビューモード。 「設置兵器の配置」を押してオブジェクトを配置します。 工兵トラックの周囲20m以内に配置することができます</Japanese>
 <Original>Static placement preview mode. Press Place Static to place the object. You may place the object 20 m arround the engineer truck</Original>
 <Russian>Режим предварительного просмотра размещения статики. Вы можете разместить объект в пределах 20 м от инженерного грузовика</Russian>
 <Chinesesimp>固定放置预览模式。点击放置固定装置进行放置。你可以将物品放置在工程车20米范围内。</Chinesesimp>
@@ -751,7 +751,7 @@
 <Spanish>Colocar arma estática</Spanish>
 <Portuguese>O lugar Estático</Portuguese>
 <Korean>배치하기</Korean>
-<Japanese>Place Static</Japanese>
+<Japanese>設置兵器の配置</Japanese>
 <Original>Place Static</Original>
 <Russian>Выбор места</Russian>
 <Chinesesimp>放置固定</Chinesesimp>
@@ -799,7 +799,7 @@
 <Spanish>Taxi aéreo actualmente en ruta hacia su posición.</Spanish>
 <Portuguese>Um táxi de ar é já no caminho a vossa posição!</Portuguese>
 <Korean>후송헬기가 이미 유저 위치로 이동하고 있습니다.</Korean>
-<Japanese>搬送ヘリコプターがすでにユーザの位置に移動しています!</Japanese>
+<Japanese>輸送ヘリコプターは既に移動中です!</Japanese>
 <Original>An air taxi is already on the way to your position!</Original>
 <Russian>Транспорт эвакуации уже в пути к вашей позиции!</Russian>
 <Chinesesimp>空中运输已经接近你的位置！</Chinesesimp>
@@ -823,7 +823,7 @@
 <Spanish>Llamar a un taxi aéreo...</Spanish>
 <Portuguese>Chamando em táxi de ar...</Portuguese>
 <Korean>후송헬기를 불렀습니다...</Korean>
-<Japanese>搬送ヘリコプターを呼んでいます...</Japanese>
+<Japanese>輸送ヘリコプターを呼んでいます...</Japanese>
 <Original>Calling in air taxi...</Original>
 <Russian>Вызываем эвакуацию...</Russian>
 <Chinesesimp>呼叫空中运输接送...</Chinesesimp>
@@ -835,7 +835,7 @@
 <Spanish>El taxi aéreo sale en unos segundos, espere. Mantenga su posición.</Spanish>
 <Portuguese>Táxi de ar começará em uns quantos segundos, posição por. Estância em vossa posição!</Portuguese>
 <Korean>후송헬기 이륙대기중, 현 위치를 고수하십시오!</Korean>
-<Japanese>搬送ヘリコプターがすぐに来ます。そのままの位置でお待ちください。</Japanese>
+<Japanese>輸送ヘリコプターがすぐに来ます。その場でお待ちください。</Japanese>
 <Original>Air taxi will start in a few seconds, stand by. Stay at your position!</Original>
 <Russian>Эвакуация вылетает за Вами. Ждите на своей позиции!</Russian>
 <Chinesesimp>空中运输接送将在几秒钟内开始,不要移动,请你在原地等待！</Chinesesimp>
@@ -859,7 +859,7 @@
 <Spanish>No tiene suficientes puntos para pedir fuego de artillería. Debe tener %2 puntos para atacar, su puntuación actual es %1</Spanish>
 <Portuguese>Não tem bastantees pontos para pedir uma greve de artilharia. Precisa %2 pontos a favor uma greve, vossa pontuação atual é %1</Portuguese>
 <Korean>포인트가 부족하여 포격지원을 요청할 수 없습니다. 현재 %1 포인트 만큼 가지고 있으며, %2 포인트가 필요합니다.</Korean>
-<Japanese>あなたは砲撃を要求するのに十分なポイントがありません。 砲撃のためには %2 ポイントが必要です、あなたの現在のスコアは %1 です</Japanese>
+<Japanese>あなたは砲撃を要請するのに十分なポイントがありません。 砲撃のためには %2 ポイントが必要です、あなたの現在のスコアは %1 です</Japanese>
 <Original>You don't have enough points to request an artillery strike. You need %2 points for a strike, your current score is %1</Original>
 <Russian>Вы не можете вызвать АртУдар. Вам необходимо %2 очков для вызова, а у вас %1</Russian>
 <Chinesesimp>你没有足够的点数呼叫炮火打击.你需要 %2 点数进行呼叫，你现在的点数是 %1</Chinesesimp>
@@ -871,7 +871,7 @@
 <Spanish>Alguien ha pedido un ataque de artillería... tiene que intentarlo de nuevo más tarde...</Spanish>
 <Portuguese>Alguém mais está pedindo uma greve de artilharia... Tem que provar outra vez mais tarde...</Portuguese>
 <Korean>다른 유저가 포격지원을 요청하고있습니다. 잠시 뒤 다시 시도해주십시오.</Korean>
-<Japanese>他の誰かが砲撃を要求しています...後でもう一度試してください...</Japanese>
+<Japanese>他の誰かが砲撃を要請しています...後でもう一度試してください...</Japanese>
 <Original>Somebody else is requesting an artillery strike... you have to try again later...</Original>
 <Russian>Кто-то уже выполнил запрос на АртУдар, попробуйте позже...</Russian>
 <Chinesesimp>其他人在呼叫炮火打击...你需要稍后重试...</Chinesesimp>
@@ -883,7 +883,7 @@
 <Spanish>Alguien ha lanzado fuego de artillería, por el momento no esta disponible...</Spanish>
 <Portuguese>Alguém mais já executou uma greve de artilharia, artilharia atualmente não disponível...</Portuguese>
 <Korean>다른 유저가 이미 포격요청을 하였습니다. 일시적으로 포격지원이 가능치 않습니다.</Korean>
-<Japanese>他の誰かが既に砲撃を行いました、砲兵支援は現在利用できません...</Japanese>
+<Japanese>他の誰かが既に砲撃を実施しました、砲兵支援は現在利用できません...</Japanese>
 <Original>Somebody else already executed an artillery strike, artillery currently not available...</Original>
 <Russian>Кто-то уже запросил АртУдар, артиллерия пока не готова для Вас...</Russian>
 <Chinesesimp>炮火打击正在执行中，现在无法使用....</Chinesesimp>
@@ -978,7 +978,7 @@
 <Spanish>Creación de %1, Espere...</Spanish>
 <Portuguese>Criando %1, posição por...</Portuguese>
 <Korean>%1 소환 중, 기다리십시오...</Korean>
-<Japanese>%1を作成中、スタンバイ...</Japanese>
+<Japanese>%1を作成中、お待ち下さい...</Japanese>
 <Original>Creating %1, stand by...</Original>
 <Russian>Получаете %1, ОТОЙДИТЕ ОТ КШМ!...</Russian>
 <Chinesesimp>正在生成 %1, 请等待...</Chinesesimp>
@@ -1074,7 +1074,7 @@
 <Spanish>Opfor es el MHQ del enemigo.\n¡¡¡No está autorizado a entrar!!!</Spanish>
 <Portuguese>Isto é um Opfor móvel respawn vehículo.nyou Não é deixado para o introduzir !!!</Portuguese>
 <Korean>OPFOR의 지휘차량입니다. 사용하실 수 없습니다.</Korean>
-<Japanese>これはOpforの移動復活車両です。\nあなたは乗れません!!!</Japanese>
+<Japanese>これはOpforの移動指揮所です。\nあなたは乗れません!!!</Japanese>
 <Original>This is a Opfor mobile respawn vehicle.\nYou are not allowed to enter it !!!</Original>
 <Russian>Это КШМ Красных.\nВы не можете в него сесть !!!</Russian>
 <Chinesesimp>这是一个红方基地车（MHQ）。\n你禁止进入！！！</Chinesesimp>
@@ -1218,7 +1218,7 @@
 <Spanish>Sólo los ingenieros pueden entrar en un camión de reparaciones...</Spanish>
 <Portuguese>Os engenheiros únicos podem introduzir um caminhão de engenheiro...</Portuguese>
 <Korean>오직 공병만 탑승할 수 있습니다.</Korean>
-<Japanese>エンジニアトラックに乗れるのはエンジニアだけです...</Japanese>
+<Japanese>工兵トラックは工兵専用です...</Japanese>
 <Original>Only engineers can enter an engineer truck...</Original>
 <Russian>Только инженеры могут сесть в этот грузовик...</Russian>
 <Chinesesimp>只有工程兵可以进入工程车...</Chinesesimp>
@@ -1326,7 +1326,7 @@
 <Spanish>No puede cargar cajas de municiones.</Spanish>
 <Portuguese>NÃO é capaz de carregar um ammobox.</Portuguese>
 <Korean>탄약상자를 실을 수 없습니다.</Korean>
-<Japanese>弾薬箱の搭載はできません。</Japanese>
+<Japanese>弾薬箱の積載はできません。</Japanese>
 <Original>It is NOT able to load an ammobox.</Original>
 <Russian>В него НЕЛЬЗЯ загрузить ящик-арсенал.</Russian>
 <Chinesesimp>无法装载弹药箱。</Chinesesimp>
@@ -1350,7 +1350,7 @@
 <Spanish>Tipo: %1</Spanish>
 <Portuguese>Tipo: %1</Portuguese>
 <Korean>타입: %1</Korean>
-<Japanese>Type: %1</Japanese>
+<Japanese>形式: %1</Japanese>
 <Original>Type: %1</Original>
 <Russian>Тип: %1</Russian>
 <Chinesesimp>类型: %1</Chinesesimp>
@@ -1530,7 +1530,7 @@
 <Spanish>No puede desplegar el MHQ aquí</Spanish>
 <Portuguese>Não pode despregar um MHQ aqui!!!</Portuguese>
 <Korean>지휘차량을 이곳에 전개할 수 없습니다.</Korean>
-<Japanese>ここではMHQを展開できません!!!</Japanese>
+<Japanese>ここでは移動指揮所を展開できません!!!</Japanese>
 <Original>You can't deploy a MHQ here!!!</Original>
 <Russian>Вы не можете развернуть КШМ здесь!!!</Russian>
 <Chinesesimp>无法在这里展开基地车（MHQ）！！！</Chinesesimp>
@@ -1554,7 +1554,7 @@
 <Spanish>No se puede desplegar el MHQ cuando todavía hay tripulantes a bordo.</Spanish>
 <Portuguese>Não pode despregar um MHQ quando há tripulação quieta a bordo!</Portuguese>
 <Korean>내부에 인원이 탑승하고있어 지휘차량을 전개 할 수 없습니다.</Korean>
-<Japanese>乗員が乗っているときにMHQを展開することはできません！</Japanese>
+<Japanese>誰かが乗っているときに移動指揮所を展開することはできません！</Japanese>
 <Original>You can't deploy a MHQ when there is still crew on board!</Original>
 <Russian>Вы нее можете развернуть КШМ с экипажем внутри!</Russian>
 <Chinesesimp>基地车（MHQ）内有成员，无法部署！</Chinesesimp>
@@ -1578,7 +1578,7 @@
 <Spanish>No puede deja la caja cerca de un punto de municiones.</Spanish>
 <Portuguese>Não pode cair a caixa próxima Ammo Ponto.</Portuguese>
 <Korean>탄약상자 적재소 주변에선 탄약상자를 내릴 수 없습니다.</Korean>
-<Japanese>Ammo Pointの近くに弾薬箱を置くことはできません。</Japanese>
+<Japanese>弾薬集積所の近くに弾薬箱を展開することはできません。</Japanese>
 <Original>Can't drop box near Ammo Point.</Original>
 <Russian>Нельзя выложить ящик у этой точки</Russian>
 <Chinesesimp>无法在弹药箱附近放置箱子。</Chinesesimp>
@@ -1614,7 +1614,7 @@
 <Spanish>Número máximo (%1) de cajas disponibles. Recoja la caja suministrada...</Spanish>
 <Portuguese>Número máximo (%1) de ammo crates conseguiu! Apanhar uma caixa caída...</Portuguese>
 <Korean>탄약상자 최대치 (%1)에 도달하였습니다. 탄약상자를 수거해주십시오.</Korean>
-<Japanese>弾薬箱の最大数（%1）に達しました！ 投下した箱を拾ってください...</Japanese>
+<Japanese>弾薬箱の最大数（%1）に達しました！ 投下した箱を回収してください...</Japanese>
 <Original>Maximum number (%1) of ammo crates reached! Pick up a dropped box...</Original>
 <Russian>Вы достигли максимального количества ящиков на карте (%1). Подберите предыдущие...</Russian>
 <Chinesesimp>弹药箱最大数量(%1)已达到，请回收已放置的弹药箱...</Chinesesimp>
@@ -1626,7 +1626,7 @@
 <Spanish>No hay caja de munición cargada en el vehículo.</Spanish>
 <Portuguese>Nenhum ammobox carregado a este veículo !!!</Portuguese>
 <Korean>해당차량에 탄약상자가 없습니다.</Korean>
-<Japanese>この車両に弾薬箱は搭載されていません!!!</Japanese>
+<Japanese>この車両に弾薬箱は積載されていません!!!</Japanese>
 <Original>No ammobox loaded into this vehicle !!!</Original>
 <Russian>НЕЛЬЗЯ загрузить ящик в этот транспорт!!!</Russian>
 <Chinesesimp>该载具没有装载弹药箱！！！</Chinesesimp>
@@ -1794,7 +1794,7 @@
 <Spanish>¡¡¡ Que lo pase bien !!!</Spanish>
 <Portuguese>Passa bem !!</Portuguese>
 <Korean>Thank you for play!</Korean>
-<Japanese>Have a good time !!!</Japanese>
+<Japanese>楽しんでください !!!</Japanese>
 <Original>Have a good time !!!</Original>
 <Russian>Спасибо за игру!!!</Russian>
 <Chinesesimp>祝你玩的愉快！！！</Chinesesimp>
@@ -1818,7 +1818,7 @@
 <Spanish>El FARP de reparación ya esta montado. Tiene que desmontarlo para instalarlo en otro lugar.</Spanish>
 <Portuguese>Já tem colocado um FARP. Tem-o que sacar para construir um novo um.</Portuguese>
 <Korean>이미 재보급소(FARP)가 배치되였습니다. 제거해야 다시 건설 하실 수 있습니다.</Korean>
-<Japanese>あなたはすでにFARPを設置しています。 新しいFARPを作るためには以前のものを撤去しなければなりません。</Japanese>
+<Japanese>あなたはすでに前線補給所(FARP)を設置しています。 新しい前線補給所を作るためには以前のものを撤去しなければなりません。</Japanese>
 <Original>You have already placed a FARP. You have to remove it to build a new one.</Original>
 <Russian>Вы уже построили Аванпост. Нужно удалить старую, прежде чем строить опять.</Russian>
 <Chinesesimp>你已经放置了一个前线空中载具维修点。你需要移除后才可以放一个新的。</Chinesesimp>
@@ -1830,7 +1830,7 @@
 <Spanish>Ningún camión de reparaciones cercano para montar el FARP de reparación.</Spanish>
 <Portuguese>Nenhum caminhão de engenheiro próximo de construir um FARP!</Portuguese>
 <Korean>재보급소(FARP)를 짓기 위한 공병트럭이 주위에 없습니다.</Korean>
-<Japanese>FARPを建設するためのエンジニアトラックが近くにありません！</Japanese>
+<Japanese>前線補給所(FARP)を建設するための工兵トラックが近くにありません！</Japanese>
 <Original>No engineer truck nearby to build a FARP!</Original>
 <Russian>Рядом нет грузовика инженеров для пострройки Ремзоны!</Russian>
 <Chinesesimp>附近没有工程车可以建立前线空中载具维修点！</Chinesesimp>
@@ -1842,7 +1842,7 @@
 <Spanish>No es posible montar el FARP de reparación en el agua.</Spanish>
 <Portuguese>Não é possível de colocar um FARP a água.</Portuguese>
 <Korean>수면위에는 재보급소(FARP)을 배치할 수 없습니다.</Korean>
-<Japanese>FARPは水中には設置できません。</Japanese>
+<Japanese>前線補給所(FARP)は水中に設置できません。</Japanese>
 <Original>It is not possible to place a FARP into water.</Original>
 <Russian>Невозможно построить Аванпост в воде.</Russian>
 <Chinesesimp>无法在水中放置前线空中载具维修点。</Chinesesimp>
@@ -1854,7 +1854,7 @@
 <Spanish>Necesita %2 puntos para montar el FARP de reparación. Su puntuación actual es: %1</Spanish>
 <Portuguese>Precisa %2 pontos para construir um FARP. Vossa pontuação atual é: %1</Portuguese>
 <Korean>재보급소(FARP)를 배치하기 위해선 %2 포인트가 필요합니다. 현재 %1 포인트 만큼 가지고 있습니다.</Korean>
-<Japanese>FARPを建設するには %2 ポイントが必要です。 あなたの現在のスコア： %1</Japanese>
+<Japanese>前線補給所(FARP)を建設するには %2 ポイントが必要です。 あなたの現在のスコア： %1</Japanese>
 <Original>You need %2 points to build a FARP. Your current score is: %1</Original>
 <Russian>Вам нужно %2 очков для строительста Аванпоста. У вас сейчас %1 очков.</Russian>
 <Chinesesimp>你需要 %2 点数建立前线空中载具维修点。你现在的点数是：%1</Chinesesimp>
@@ -1890,7 +1890,7 @@
 <Spanish>FARP de reparación montado.</Spanish>
 <Portuguese>FARP A ponto.</Portuguese>
 <Korean>재보급소(FARP) 설치완료.</Korean>
-<Japanese>FARP準備完了。</Japanese>
+<Japanese>前線補給所の準備が完了しました。</Japanese>
 <Original>FARP ready.</Original>
 <Russian>Аванпост готов.</Russian>
 <Chinesesimp>前线空中载具维修点 准备完毕。</Chinesesimp>
@@ -1902,7 +1902,7 @@
 <Spanish>Desmontar FARP</Spanish>
 <Portuguese>Saca FARP</Portuguese>
 <Korean>재보급소(FARP) 제거</Korean>
-<Japanese>FARPを撤去</Japanese>
+<Japanese>前線補給所を撤去</Japanese>
 <Original>Remove FARP</Original>
 <Russian>Убрать Аванпост</Russian>
 <Chinesesimp>移除前线空中载具维修点</Chinesesimp>
@@ -1914,7 +1914,7 @@
 <Spanish>Levantar vehículo</Spanish>
 <Portuguese>Veículo de elevador</Portuguese>
 <Korean>차량 들어올리기</Korean>
-<Japanese>車両吊り下げ</Japanese>
+<Japanese>車両懸架</Japanese>
 <Original>Lift vehicle</Original>
 <Russian>Подцепить технику</Russian>
 <Chinesesimp>吊运载具</Chinesesimp>
@@ -1938,7 +1938,7 @@
 <Spanish>Vehículo enganchado al helicóptero</Spanish>
 <Portuguese>O veículo sujeitou a chopper</Portuguese>
 <Korean>슬링완료</Korean>
-<Japanese>車両を吊り上げました</Japanese>
+<Japanese>車両を懸架しました</Japanese>
 <Original>Vehicle attached to chopper</Original>
 <Russian>Техника подцеплена к вертолету</Russian>
 <Chinesesimp>载具已经加附到直升机</Chinesesimp>
@@ -1962,7 +1962,7 @@
 <Spanish>Enganchar chatarra</Spanish>
 <Portuguese>Elevador  chatarra</Portuguese>
 <Korean>잔해 들어올리기</Korean>
-<Japanese>残骸吊り上げ</Japanese>
+<Japanese>残骸懸架</Japanese>
 <Original>Lift wreck</Original>
 <Russian>Подцепить ВРЭК.</Russian>
 <Chinesesimp>吊起残骸</Chinesesimp>
@@ -1986,7 +1986,7 @@
 <Spanish>Cargar Estática</Spanish>
 <Portuguese>O ônus Estático</Portuguese>
 <Korean>거치무기 적재</Korean>
-<Japanese>設置兵器を積み込む</Japanese>
+<Japanese>設置兵器を積載</Japanese>
 <Original>Load Static</Original>
 <Russian>Загрузить статику</Russian>
 <Chinesesimp>装载固定设备</Chinesesimp>
@@ -2022,7 +2022,7 @@
 <Spanish>Abandonado %1</Spanish>
 <Portuguese>Desertado %1</Portuguese>
 <Korean>탈영 %1</Korean>
-<Japanese>%1は捨てられた</Japanese>
+<Japanese>%1は放棄された</Japanese>
 <Original>Deserted %1</Original>
 <Russian>Брошенный %1</Russian>
 <Chinesesimp>离开 %1</Chinesesimp>
@@ -2046,7 +2046,7 @@
 <Spanish>=Menú MHQ=</Spanish>
 <Portuguese>MHQ Carta</Portuguese>
 <Korean>MHQ 메뉴</Korean>
-<Japanese>MHQ メニュー</Japanese>
+<Japanese>移動指揮所メニュー</Japanese>
 <Original>MHQ Menu</Original>
 <Russian>КШМ Меню</Russian>
 <Chinesesimp>基地车（MHQ）菜单</Chinesesimp>
@@ -2070,7 +2070,7 @@
 <Spanish>Misiones Principales</Spanish>
 <Portuguese>Objetivos principais Só</Portuguese>
 <Korean>주미션 목표만</Korean>
-<Japanese>メインターゲットのみ</Japanese>
+<Japanese>主目標のみ</Japanese>
 <Original>Main Targets Only</Original>
 <Russian>Только Города</Russian>
 <Chinesesimp>仅限主要目标</Chinesesimp>
@@ -2082,7 +2082,7 @@
 <Spanish>Bienvenido a Domination</Spanish>
 <Portuguese>Bem-vindo a Dominación!</Portuguese>
 <Korean>BWB 도미네이션에 오신 걸 환영합니다.</Korean>
-<Japanese>Welcome to Domination!</Japanese>
+<Japanese>Dominationへようこそ!</Japanese>
 <Original>Welcome to Domination!</Original>
 <Russian>Добро пожаловать в Доминацию!</Russian>
 <Chinesesimp>欢迎来到 Domination！</Chinesesimp>
@@ -2105,7 +2105,7 @@
 <Spanish>Demasiado alto para coger/dejar la caja de munición, aterrice.</Spanish>
 <Portuguese>Demasiado alto para carregar um ammocrate, comprazer terra!</Portuguese>
 <Korean>탄약상자를 실기에 고도가 너무 높습니다. 착륙하여 주십시오.</Korean>
-<Japanese>弾薬箱を搭載するには高すぎます、着陸してください！</Japanese>
+<Japanese>弾薬箱を搭載するには高すぎます。着陸してください！</Japanese>
 <Original>Too high to load an ammocrate, please land!</Original>
 <Russian>Слишком высоко для загрузки ящика, спустите транспорт ниже!</Russian>
 <Chinesesimp>太高了，无法装载弹药箱，请着陆！</Chinesesimp>
@@ -2225,7 +2225,7 @@
 <Spanish>Deber ser un administrador para desplegar un MHQ :-)</Spanish>
 <Portuguese>Inclusive como um admin pode você não unlock um despregado MHQ :-)</Portuguese>
 <Korean>관리자라도 전개되어있는 지휘차량의 잠금을 풀 수 없습니다.</Korean>
-<Japanese>管理者であっても、展開されたMHQのロックを解除することはできません:-)</Japanese>
+<Japanese>管理者であっても、展開された移動指揮所の鍵は解除できません＼(^o^)／</Japanese>
 <Original>Even as an admin you can't unlock a deployed MHQ :-)</Original>
 <Russian>Даже Админ не может открыть развернутую КШМ!</Russian>
 <Chinesesimp>即使是管理员也无法解锁基地车（MHQ） :-)</Chinesesimp>
@@ -2273,7 +2273,7 @@
 <Spanish>Ya tiene la tienda sanitaria montada. Tiene que desmontarla para ubicarla en otro lugar.</Spanish>
 <Portuguese>Tem já construir um mash. Tem-o que sacar para construir um novo um.</Portuguese>
 <Korean>이미 의무실를 생성하였습니다. 기존에 지은 것을 해체하고 다시 생성하십시오.</Korean>
-<Japanese>あなたはすでにメディックテントを設置しています。 新しいメディックテントを作るためには以前のものを撤去しなければなりません。</Japanese>
+<Japanese>あなたはすでにメディカルテントを設置しています。 新しいメディカルテントを作るためには以前のものを撤去しなければなりません。</Japanese>
 <Original>You have already build a mash. You have to remove it to build a new one.</Original>
 <Russian>У вас уже поставлен медпункт. Удалите старый, прежде чем поставить новый.</Russian>
 <Chinesesimp>你已经建立了一个医疗帐篷。你需要移除后才能建立新的。</Chinesesimp>
@@ -2285,7 +2285,7 @@
 <Spanish>No es posible colocar la tienda sanitaria en el agua.</Spanish>
 <Portuguese>Não é possível de colocar um medic loja a água</Portuguese>
 <Korean>이동식의무실(MASH)은 물 위에 생성할 수 없습니다.</Korean>
-<Japanese>メディックテントは水中には設置できません。</Japanese>
+<Japanese>メディカルテントは水中には設置できません。</Japanese>
 <Original>It is not possible to place a medic tent into water.</Original>
 <Russian>Нельзя поставить его в воде!</Russian>
 <Chinesesimp>不可以在水中建立医疗帐篷。</Chinesesimp>
@@ -2297,7 +2297,7 @@
 <Spanish>Tienda sanitaria montada.</Spanish>
 <Portuguese>Loja sanitária montada</Portuguese>
 <Korean>이동식의무실(MASH) 준비.</Korean>
-<Japanese>メディックテント準備完了。</Japanese>
+<Japanese>メディカルテント準備完了。</Japanese>
 <Original>Mash ready.</Original>
 <Russian>Медпункт готов.</Russian>
 <Chinesesimp>医疗帐篷准备好了。</Chinesesimp>
@@ -2309,7 +2309,7 @@
 <Spanish>Desmontar tienda sanitaria</Spanish>
 <Portuguese>Desmonte de saúde loja</Portuguese>
 <Korean>이동식의무실(MASH) 제거</Korean>
-<Japanese>メディックテントを撤去</Japanese>
+<Japanese>メディカルテントを撤去</Japanese>
 <Original>Remove Mash</Original>
 <Russian>Удалить Медпункт</Russian>
 <Chinesesimp>移除医疗帐篷</Chinesesimp>
@@ -2321,7 +2321,7 @@
 <Spanish>Curarse en tienda sanitaria</Spanish>
 <Portuguese>Cura-se em mash</Portuguese>
 <Korean>이동식의무실(MASH)에서 치료</Korean>
-<Japanese>メディックテントで治療</Japanese>
+<Japanese>メディカルテントで治療</Japanese>
 <Original>Heal at mash</Original>
 <Russian>Лечиться</Russian>
 <Chinesesimp>在医疗帐篷进行治疗</Chinesesimp>
@@ -2393,7 +2393,7 @@
 <Spanish>Montar tienda sanitaria</Spanish>
 <Portuguese>Complexión Mash</Portuguese>
 <Korean>이동식의무실(MASH) 건설</Korean>
-<Japanese>メディックテントを設置</Japanese>
+<Japanese>メディカルテントを設置</Japanese>
 <Original>Build Mash</Original>
 <Russian>Поставить Медпункт</Russian>
 <Chinesesimp>建立医疗帐篷</Chinesesimp>
@@ -2453,7 +2453,7 @@
 <Spanish>Terminal de reclutamiento</Spanish>
 <Portuguese>Terminal de recruta</Portuguese>
 <Korean>모병소</Korean>
-<Japanese>Recruit Terminal</Japanese>
+<Japanese>AI募集所</Japanese>
 <Original>Recruit Terminal</Original>
 <Russian>Терминал наёма ИИ</Russian>
 <Chinesesimp>招募中心</Chinesesimp>
@@ -2501,7 +2501,7 @@
 <Spanish>tienda sanitaria desmontada.</Spanish>
 <Portuguese>Mash Sacou.</Portuguese>
 <Korean>이동식의무실(MASH)가 제거되었습니다.</Korean>
-<Japanese>メディックテントを撤去した。</Japanese>
+<Japanese>メディカルテントを撤去した。</Japanese>
 <Original>Mash removed.</Original>
 <Russian>Медпункт убран.</Russian>
 <Chinesesimp>医疗帐篷已移除。</Chinesesimp>
@@ -2513,7 +2513,7 @@
 <Spanish>Para reparar y repostar combustible, primero tiene que ir a su base o coger uno de los camiones de reparaciones.</Spanish>
 <Portuguese>Tem que restaurar vosso reparo/refuel capacidade em basear primeiro ou tomar um dos dois caminhões de engenheiro com você.</Portuguese>
 <Korean>귀관은 먼저 기지의 수리/기름 재보충 기능을 복구하거나 복수의 수리 트럭을 보유해야합니다.</Korean>
-<Japanese>基地で修理/補給能力を修復するか、2つのエンジニアトラックのいずれかを持ってきてください。</Japanese>
+<Japanese>基地で修理/補給能力を修復するか、2つの工兵トラックのいずれかを持ってきてください。</Japanese>
 <Original>You have to restore your repair/refuel capability at base first or take one of the two engineer trucks with you.</Original>
 <Russian>Вы восстановите возможность чинить и заправлять технику путем возврата на базу или берите с собой один из двух грузовиков (спец. для инженеров)</Russian>
 <Chinesesimp>你需要先在基地重新加油和维修或者你可以带上工程车。</Chinesesimp>
@@ -2525,7 +2525,7 @@
 <Spanish>Tienes que esperar %1 segundo hasta que puedas reparar un vehículo en la base de nuevo..</Spanish>
 <Portuguese>Você tem que esperar %1 segundos até que você possa reparar um veículo na base novamente..</Portuguese>
 <Korean>당신은 베이스에서 차량을 재수리하려면 %1 초를 기다리셔야 합니다.</Korean>
-<Japanese>You have to wait %1 seconds until you can repair a vehicle at base again.</Japanese>
+<Japanese>基地で再び修理ができるようになるまで、%1秒待ってください。</Japanese>
 <Original>You have to wait %1 seconds until you can repair a vehicle at base again.</Original>
 <Russian>Вам нужно подождать %1 секунд прежде чем снова ремонтировать транспорт на базе.</Russian>
 <Chinesesimp>你必须等待 %1 秒才能再次修理基地的车辆。</Chinesesimp>
@@ -2537,7 +2537,7 @@
 <Spanish>Estado vehículo:\n---------------------\nFuel: %1\nDaño: %2</Spanish>
 <Portuguese>Estado de veículo:n---------------------nFuel: %1nDamage: %2</Portuguese>
 <Korean>차량 상태:\n---------------------\n기름: %1\데미지: %2</Korean>
-<Japanese>車両ステータス:\n--------------------\n燃料: %1\nダメージ: %2</Japanese>
+<Japanese>車両の状態:\n--------------------\n燃料: %1\nダメージ: %2</Japanese>
 <Original>Vehicle status:\n---------------------\nFuel: %1\nDamage: %2</Original>
 <Russian>Состояние:\n---------------------\nТопл: %1\nУрон: %2</Russian>
 <Chinesesimp>载具状态：\n---------------------\n油料量： %1\n损伤度： %2</Chinesesimp>
@@ -2549,7 +2549,7 @@
 <Spanish>Reparando y repostando %1... Espere</Spanish>
 <Portuguese>Consertando e refuelling %1... Posição por</Portuguese>
 <Korean>수리 및 재보급 상태 %1... 기다려 주십시오.</Korean>
-<Japanese>%1 修復,給油中...スタンバイ</Japanese>
+<Japanese>%1 修復,給油中...お待ち下さい</Japanese>
 <Original>Repairing and refuelling %1... Stand by</Original>
 <Russian>Ремонт и заправка %1... Ждите</Russian>
 <Chinesesimp>%1 维修和油料补给中，请稍后</Chinesesimp>
@@ -2609,7 +2609,7 @@
 <Spanish>¡¡¡ Será expulsado ahora... !!!</Spanish>
 <Portuguese>Será chutado agora... !!!</Portuguese>
 <Korean>이제 당신은 서버에서 킥당할 겁니다.</Korean>
-<Japanese>排除します...!!!</Japanese>
+<Japanese>排除いたします...!!!</Japanese>
 <Original>You will be kicked now... !!!</Original>
 <Russian>Ну....держи пинка...!!!</Russian>
 <Chinesesimp>你将会被 T 出服务器... ！！！</Chinesesimp>
@@ -2633,7 +2633,7 @@
 <Spanish>El ingeniero está capacitado para reparar/repostar.</Spanish>
 <Portuguese>Reparo de engenheiro/refuel a capacidade restaurou</Portuguese>
 <Korean>엔지니어 수리/재보충 기능이 복구되었습니다.</Korean>
-<Japanese>エンジニアの修理/補給能力が回復しました。</Japanese>
+<Japanese>工兵の修理/補給能力が回復しました。</Japanese>
 <Original>Engineer repair/refuel capability restored.</Original>
 <Russian>Ваши инженерные способности восстановлены.</Russian>
 <Chinesesimp>工程兵维修补充油料的能力已经重置。</Chinesesimp>
@@ -2657,7 +2657,7 @@
 <Spanish>Muy bien. Parece que estos códigos de lanzamiento a los objetivos principales podrían ser útiles.</Spanish>
 <Portuguese>Muito bom. Parece estes airdrop os códigos para objetivos principais poderiam provar úteis.</Portuguese>
 <Korean>매우 훌륭합니다. 메인 목표를 위한 공수부대 작전코드가 유용할 것으로 보입니다.</Korean>
-<Japanese>非常に素晴らしい。 メインターゲットのためのこれらのエア・ドロップ・コードが有用であると思われる。</Japanese>
+<Japanese>非常に素晴らしい。 主目標のためのこれらのエア・ドロップ・コードが有用であると思われる。</Japanese>
 <Original>Very nice. Seems these airdrop codes for main targets could prove useful.</Original>
 <Russian>Отлично. Эти коды могут быть полезными для нас.</Russian>
 <Chinesesimp>很好，看来获得敌军对主目标进行空投的代码很有用。</Chinesesimp>
@@ -2837,7 +2837,7 @@
 <Spanish>Prendido</Spanish>
 <Portuguese>On</Portuguese>
 <Korean>켜기(On)</Korean>
-<Japanese>On</Japanese>
+<Japanese>オン</Japanese>
 <Original>On</Original>
 <Russian>Включено</Russian>
 <Chinesesimp>打开</Chinesesimp>
@@ -2897,7 +2897,7 @@
 <Spanish>Muy Bajo</Spanish>
 <Portuguese>Very Low</Portuguese>
 <Korean>매우 낮음</Korean>
-<Japanese>Very Low</Japanese>
+<Japanese>最低</Japanese>
 <Original>Very Low</Original>
 <Russian>Очень низкий</Russian>
 <Chinesesimp>极低</Chinesesimp>
@@ -2921,7 +2921,7 @@
 <Spanish>Medio</Spanish>
 <Portuguese>Medium</Portuguese>
 <Korean>중간</Korean>
-<Japanese>Medium</Japanese>
+<Japanese>中</Japanese>
 <Original>Medium</Original>
 <Russian>Средний</Russian>
 <Chinesesimp>中</Chinesesimp>
@@ -2945,7 +2945,7 @@
 <Spanish>Muy Alto</Spanish>
 <Portuguese>Very High</Portuguese>
 <Korean>매우 높음</Korean>
-<Japanese>Very High</Japanese>
+<Japanese>最高</Japanese>
 <Original>Very High</Original>
 <Russian>Очень высокий</Russian>
 <Chinesesimp>极高</Chinesesimp>
@@ -2981,7 +2981,7 @@
 <Spanish>Siempre</Spanish>
 <Portuguese>Always</Portuguese>
 <Korean>항상</Korean>
-<Japanese>Always</Japanese>
+<Japanese>常時</Japanese>
 <Original>Always</Original>
 <Russian>Всегда</Russian>
 <Chinesesimp>总是</Chinesesimp>
@@ -2993,7 +2993,7 @@
 <Spanish>Siempre, múltiples eventos</Spanish>
 <Portuguese>Always, multiple events</Portuguese>
 <Korean>항상, 다중 이벤트</Korean>
-<Japanese>Always, multiple events</Japanese>
+<Japanese>常時, 複数のイベント</Japanese>
 <Original>Always, multiple events</Original>
 <Russian>Всегда, несколько событий</Russian>
 <Chinesesimp>总是，多个事件</Chinesesimp>
@@ -3005,7 +3005,7 @@
 <Spanish>Siempre, múltiples eventos con guerrillas</Spanish>
 <Portuguese>Always, multiple events with guerrillas</Portuguese>
 <Korean>항상, 다중 이벤트 with guerrillas</Korean>
-<Japanese>Always, multiple events with guerrillas</Japanese>
+<Japanese>常時, 複数のイベント(ゲリラあり)</Japanese>
 <Original>Always, multiple events with guerrillas</Original>
 <Russian>Всегда, несколько событий with guerrillas</Russian>
 <Chinesesimp>总是，游击队的多个事件</Chinesesimp>
@@ -3017,7 +3017,7 @@
 <Spanish>All</Spanish>
 <Portuguese>All</Portuguese>
 <Korean>All</Korean>
-<Japanese>All</Japanese>
+<Japanese>全て</Japanese>
 <Original>All</Original>
 <Russian>All</Russian>
 <Chinesesimp>全部</Chinesesimp>
@@ -3149,7 +3149,7 @@
 <Spanish>%1 fue a la cárcel por los asesinatos del equipo, los asesinatos del equipo de número: %2</Spanish>
 <Portuguese>%1  foi preso por causa da morte de equipes, número de equipes que matam: %2</Portuguese>
 <Korean>%1 (이)가 팀킬로 인해 교도소에 수감 되었습니다, 팀킬횟수: %2</Korean>
-<Japanese>%1 was put into jail because of team killing, number team kills: %2</Japanese>
+<Japanese>%1は味方殺しの罪で投獄されました。被害者%2人</Japanese>
 <Original>%1 was put into jail because of team killing, number team kills: %2</Original>
 <Russian>%1 был наказан за teamkill, кол-во teamkills: %2</Russian>
 <Chinesesimp>%1 由于杀死队友而入狱，杀死队友数：%2</Chinesesimp>
@@ -3245,7 +3245,7 @@
 <Spanish>Buscar cuerpo</Spanish>
 <Portuguese>Corpo de busca</Portuguese>
 <Korean>몸 수색</Korean>
-<Japanese>ボディチェック</Japanese>
+<Japanese>身体検査</Japanese>
 <Original>Search body</Original>
 <Russian>Поиск тела</Russian>
 <Chinesesimp>搜索尸体</Chinesesimp>
@@ -3257,7 +3257,7 @@
 <Spanish>%2 desplazado cerca del objetivo principal (%1 metros), el combustible se le retira para evitar llegar cerca de la MP (Se volverá a llenar una vez hecho el objetivo principal)</Spanish>
 <Portuguese>%2 movido para fechar ao objetivo principal (%1 metros), o combustível sacou para impedir conseguindo para fechar ao MT (Will ser refilled uma vez o objetivo principal está fato)!</Portuguese>
 <Korean>%2 이(가) 주 목표 가까이 이동하였습니다 (%1 미터), MT로 너무 가까워지는 것을 방지하기위해 기름이 제거 되었습니다. (주 미션이 완수되면 다시 채워집니다)</Korean>
-<Japanese>%2がメインターゲットの近くに移動しました( %2 m)、これ以上MTに接近するのを防ぐために燃料が抜かれました!（メインターゲットが攻略されると補充されます）</Japanese>
+<Japanese>%2が主目標の近くに移動しました( %2 m)、これ以上目標に接近するのを防ぐために燃料供給が停止されました!（主目標が攻略されると復活します）</Japanese>
 <Original>%2 moved to close to the main target (%1 meters), fuel removed to prevent getting to close to the MT (Will be refilled once main target is done)!</Original>
 <Russian>%2 подъехала близко к главной цели (%1 метров), топливо слито. Будет восстановлено, когда главная цель будет захвачена!</Russian>
 <Chinesesimp>%2 已经移动到了主目标近处(%1 米)， 为了防止距离过近油料已为 0 ！(主目标任务完成后油料将恢复)</Chinesesimp>
@@ -3269,7 +3269,7 @@
 <Spanish>Torre de Radio</Spanish>
 <Portuguese>Radiotower</Portuguese>
 <Korean>통신탑</Korean>
-<Japanese>Radiotower</Japanese>
+<Japanese>通信塔</Japanese>
 <Original>Radiotower</Original>
 <Russian>Радиовышка</Russian>
 <Chinesesimp>通讯塔</Chinesesimp>
@@ -3281,7 +3281,7 @@
 <Spanish>¡Todas las misiones resueltas!</Spanish>
 <Portuguese>Todas as missões resolveram!</Portuguese>
 <Korean>모든 미션이 완수 되었습니다.</Korean>
-<Japanese>すべてのミッションが達成されました。!</Japanese>
+<Japanese>すべての任務が達成されました!</Japanese>
 <Original>All missions resolved!</Original>
 <Russian>Все миссии выполнены!</Russian>
 <Chinesesimp>所有任务都已完成！！！</Chinesesimp>
@@ -3293,7 +3293,7 @@
 <Spanish>Munición</Spanish>
 <Portuguese>Munição</Portuguese>
 <Korean>탄약</Korean>
-<Japanese>Ammo</Japanese>
+<Japanese>弾薬</Japanese>
 <Original>Ammo</Original>
 <Russian>Боеприпасы</Russian>
 <Chinesesimp>弹药</Chinesesimp>
@@ -3305,7 +3305,7 @@
 <Spanish>Punto de Servicio de Vehículos/UAV</Spanish>
 <Portuguese>Veículo/UAV Ponto de Serviço</Portuguese>
 <Korean>차량 / UGV 정비</Korean>
-<Japanese>Vehicle/UAV Service Point</Japanese>
+<Japanese>車両/UAV 整備工場</Japanese>
 <Original>Vehicle/UAV Service Point</Original>
 <Russian>Ремонт техники и ПБЛА.</Russian>
 <Chinesesimp>载具/无人机修理点</Chinesesimp>
@@ -3317,7 +3317,7 @@
 <Spanish>Punto de Servicio de Aviones</Spanish>
 <Portuguese>Ponto de Serviço do avião</Portuguese>
 <Korean>고정익 정비</Korean>
-<Japanese>Plane Service Point</Japanese>
+<Japanese>固定翼機整備工場</Japanese>
 <Original>Plane Service Point</Original>
 <Russian>Ремонт самолетов</Russian>
 <Chinesesimp>固定翼修理点</Chinesesimp>
@@ -3329,7 +3329,7 @@
 <Spanish>Punto de Servicio de Helicópteros/UAV</Spanish>
 <Portuguese>Chopper/UAV Ponto de serviço</Portuguese>
 <Korean>회전익 / UAV 정비</Korean>
-<Japanese>Chopper/UAV Service Point</Japanese>
+<Japanese>ヘリコプター/UAV 整備工場</Japanese>
 <Original>Chopper/UAV Service Point</Original>
 <Russian>Ремонт вертолетов и ПБЛА</Russian>
 <Chinesesimp>直升机/无人机修理点</Chinesesimp>
@@ -3341,7 +3341,7 @@
 <Spanish>Punto de carga de munición Box</Spanish>
 <Portuguese>Ammobox Ponto de ônus</Portuguese>
 <Korean>탄약상자 적재소</Korean>
-<Japanese>Ammobox load point</Japanese>
+<Japanese>弾薬集積所</Japanese>
 <Original>Ammobox load point</Original>
 <Russian>Загрузка ящика-арсенала</Russian>
 <Chinesesimp>弹药箱装载点</Chinesesimp>
@@ -3377,7 +3377,7 @@
 <Spanish>Pedido Taxi Aéreo</Spanish>
 <Portuguese>Táxi de ar</Portuguese>
 <Korean>후송헬기 요청</Korean>
-<Japanese>搬送ヘリコプターリクエスト</Japanese>
+<Japanese>輸送ヘリコプターの要請</Japanese>
 <Original>Air Taxi</Original>
 <Russian>Вызов эвакуации</Russian>
 <Chinesesimp>空中运输</Chinesesimp>
@@ -3389,7 +3389,7 @@
 <Spanish>Deje de disparar en la base o se le echará de forma automática...</Spanish>
 <Portuguese>Tiroteio de parón na base ou você conseguirão chutados automaticamente...</Portuguese>
 <Korean>즉시 본부안에서 사격을 중지하십시오! 불응시 킥처리 됩니다!</Korean>
-<Japanese>基地での射撃をやめないとあなたは自動的にキックされます</Japanese>
+<Japanese>基地内では発砲禁止です。発砲を続けた場合、あなたはキックされます！</Japanese>
 <Original>Stop shooting at base or you will get kicked automatically...</Original>
 <Russian>Не стреляйте на базе или Вас кикнет!..</Russian>
 <Chinesesimp>停止在基地射击否则你将被踢出服务器...</Chinesesimp>
@@ -3677,7 +3677,7 @@
 <Spanish>Ninguna misión adicional disponible en el objetivo principal...</Spanish>
 <Portuguese>Nenhuma missão de objetivo principal secundária disponível...</Portuguese>
 <Korean>메인미션 보조과제가 존재하지 않습니다.</Korean>
-<Japanese>メインターゲットの追加目標はありません...</Japanese>
+<Japanese>主目標の副任務はありません...</Japanese>
 <Original>No secondary main target mission available...</Original>
 <Russian>Второстепенной задачи в городе нет...</Russian>
 <Chinesesimp>主线任务没有支线任务了...</Chinesesimp>
@@ -3737,7 +3737,7 @@
 <Spanish>El equipo Blufor ganó la mano %1 : %2 puntos de matar.\nEl equipo Blufor obtiene %3 puntos de mano.</Spanish>
 <Portuguese>O Blufor a equipe ganhou o objetivo principal com %1 : %2 mata puntos.\nttenho Blufor A equipe consegue %3 pontos principais.</Portuguese>
 <Korean>BLUFOR가 주 목표 미션에서 %1:%2 킬 포인트로 승리하였습니다. \nBLUFOR가 %3 메인 포인트를 얻었습니다.</Korean>
-<Japanese>Bluforチームは%1：%2のキルポイントでメインターゲットで勝利しました。\nBluforチームは%3メインポイントを獲得。</Japanese>
+<Japanese>Bluforチームは%1：%2のキルポイントで主目標で勝利しました。\nBluforチームは%3メインポイントを獲得。</Japanese>
 <Original>The Blufor Team won the main target with %1 : %2 kill points.\nThe Blufor Team gets %3 main points.</Original>
 <Russian>Команда Синих победила на захвате главной цели с %1 : %2 очков за убийства.\n\n Команда Синих получает %3 очков.</Russian>
 <Chinesesimp>主线任务完成,蓝方胜利并获得了 %1 ：%2 击杀点数。\n蓝队获得 %3 主攻点数。</Chinesesimp>
@@ -3749,7 +3749,7 @@
 <Spanish>El equipo del Opfor ganó la mano %1 : %2 puntos de matar.\nEl equipo del Opfor obtiene %3 puntos de mano.</Spanish>
 <Portuguese>O Opfor a equipe ganhou o objetivo principal com %1 : %2 mata puntos.\nttenho Opfor A equipe consegue %3 pontos principais.</Portuguese>
 <Korean>OPFOR가 주 목표 미션에서 %1:%2 킬 포인트로 승리하였습니다. \nOPFOR가 %3 메인 포인트를 얻었습니다.</Korean>
-<Japanese>Opforチームは%1：%2のキルポイントでメインターゲットで勝利しました。\Opforチームは%3メインポイントを獲得。</Japanese>
+<Japanese>Opforチームは%1：%2のキルポイントで主目標で勝利しました。\Opforチームは%3メインポイントを獲得。</Japanese>
 <Original>The Opfor Team won the main target with %1 : %2 kill points.\nThe Opfor Team gets %3 main points.</Original>
 <Russian>Команда Красных победила на захвате главной цели с %1 : %2 очков за убийства.\n\n Команда Красных получает %3 очков.</Russian>
 <Chinesesimp>主线任务完成,红方胜利并获得了 %1 ：%2 击杀点数。\n红队获得 %3 主攻点数。</Chinesesimp>
@@ -3917,7 +3917,7 @@
 <Spanish>Replegar MHQ</Spanish>
 <Portuguese>Redobrar MHQ</Portuguese>
 <Korean>MHQ 철수</Korean>
-<Japanese>MHQを格納</Japanese>
+<Japanese>移動指揮所を撤収</Japanese>
 <Original>Undeploy MHQ</Original>
 <Russian>Свернуть КШМ</Russian>
 <Chinesesimp>收起基地车（MHQ）</Chinesesimp>
@@ -3989,7 +3989,7 @@
 <Spanish>Este es un vehículo respawn móvil. Puede cargar o descargar una caja de munición, si se ha implementado, se puede utilizar para reaparecer, teletransportarse, sacar un vehículo o vista por satélite.</Spanish>
 <Portuguese>Isto é um móvel respawn veículo. Pode carregar ou cair um ammocrate, e se despregou-se pode-o utilizar a respawn, teleport, criar um veículo ou vista de satélite.</Portuguese>
 <Korean>이것은 MHQ(지휘차량)입니다. 탄약상자를 적재하거나 하적할 수 있으며, 지휘차량을 전개(deploy)시, 해당 위치로 텔레포트, 재투입이 가능하며, 또한 차량 소환과 위성관측를 사용하실 수 있습니다.</Korean>
-<Japanese>これは移動復活車です。 弾薬箱を搭載または投下することができます。展開されている場合は、復活、テレポート、車両の作成、衛星視点の利用ができます。</Japanese>
+<Japanese>これは移動指揮所です。 弾薬箱を搭載または投下することができます。展開されている場合は、復活、テレポート、車両の作成、衛星視点の利用ができます。</Japanese>
 <Original>This is a mobile respawn vehicle. You can load or drop an ammocrate, and if deployed you can use it to respawn, teleport, create a vehicle or satellite view.</Original>
 <Russian>Это мобильная точка возрождения (КШМ). Можете загрузить в нее ящик-арсенал, телепортироваться с\на базу, возрождаться на ней и смотреть через спутник за противником.</Russian>
 <Chinesesimp>这是一个移动重生载具。你可以装载或卸载弹药箱，部署后你可以进行重生，传送，获得载具和卫星监控！</Chinesesimp>
@@ -4001,7 +4001,7 @@
 <Spanish>Se trata de un camión de reparaciones. Puede cargar armas estáticas y descargarlas.</Spanish>
 <Portuguese>Isto é um caminhão de engenheiro . Pode carregar armas estáticas e descarregar-lhes.</Portuguese>
 <Korean>이 차량은 공병트럭입니다. 거치무기를 적재하거나 하적할 수 있습니다.</Korean>
-<Japanese>これはエンジニアトラックです。 設置兵器の積み下ろしをすることができます。</Japanese>
+<Japanese>これは工兵トラックです。 設置兵器の積み下ろしをすることができます。</Japanese>
 <Original>This is an engineer truck. You can load static weapons and unload them.</Original>
 <Russian>Это транспорт для ИНЖЕНЕРОВ.Вы можете загружать в него статику !!!</Russian>
 <Chinesesimp>这是一个工程车。你可以装载和卸载固定武器！</Chinesesimp>
@@ -4025,7 +4025,7 @@
 <Spanish>No es posible en un vehículo...</Spanish>
 <Portuguese>Não possível em um veículo...</Portuguese>
 <Korean>차량내에서 가능하지 않습니다.</Korean>
-<Japanese>車両内ではできません...</Japanese>
+<Japanese>車両内では不可能です...</Japanese>
 <Original>Not possible in a vehicle...</Original>
 <Russian>В транспорте невозможно...</Russian>
 <Chinesesimp>载具内无法进行...</Chinesesimp>
@@ -4049,7 +4049,7 @@
 <Spanish>Taxi aéreo en camino... ¡¡¡ Mantenga la posición !!!</Spanish>
 <Portuguese>Táxi de ar é no caminho... Controle vossa posição!!!</Portuguese>
 <Korean>후송헬기 이동중, 현 위치를 고수하십시오.</Korean>
-<Japanese>搬送ヘリコプターが向かっています...現在の位置を保持してください!!!</Japanese>
+<Japanese>輸送ヘリコプターが向かっています...現在の位置を保持してください!!!</Japanese>
 <Original>Air taxi is on the way... hold your position!!!</Original>
 <Russian>Эвакуация в пути...Оставайтесь на позиции!!!</Russian>
 <Chinesesimp>空中运输正在路上...警戒你现在的位置！！！</Chinesesimp>
@@ -4061,7 +4061,7 @@
 <Spanish>Taxi aéreo cancelado, ¡¡¡ usted está muerto !!!</Spanish>
 <Portuguese>Táxi de ar cancelou, tem morrido !!!</Portuguese>
 <Korean>후송헬기가 취소되었습니다. 사망하셨습니다.</Korean>
-<Japanese>死亡したため搬送ヘリコプターはキャンセルされました</Japanese>
+<Japanese>あなたが死亡したため輸送ヘリコプターはキャンセルされました</Japanese>
 <Original>Air taxi canceled, you've died !!!</Original>
 <Russian>Эвакуация отменена, вы погибли...</Russian>
 <Chinesesimp>你死了，空中运输也取消了！！！</Chinesesimp>
@@ -4073,7 +4073,7 @@
 <Spanish>¡¡¡ Taxi aéreo dañado o destruído !!!</Spanish>
 <Portuguese>Táxi de ar avariado ou destruiu !!!</Portuguese>
 <Korean>후송헬기가 피해를 입거나 파괴되었습니다.</Korean>
-<Japanese>搬送ヘリコプターは損傷したか、破壊されました!!!</Japanese>
+<Japanese>輸送ヘリコプターは損傷したか、破壊されました!!!</Japanese>
 <Original>Air taxi damaged or destroyed !!!</Original>
 <Russian>Транспорт эвакуации был уничтожен !!!</Russian>
 <Chinesesimp>空中运输受损或被摧毁！！！</Chinesesimp>
@@ -4085,7 +4085,7 @@
 <Spanish>Taxi aéreo que se dirige a su destino en unos pocos segundos !!!</Spanish>
 <Portuguese>Táxi aéreo em direção ao seu destino em poucos segundos  !!!</Portuguese>
 <Korean>잠시 후 목적지로 출발합니다!!!</Korean>
-<Japanese>Air taxi heading to its destination in a few seconds !!!</Japanese>
+<Japanese>まもなく輸送ヘリが向かいます!!!</Japanese>
 <Original>Air taxi heading to its destination in a few seconds !!!</Original>
 <Russian>Транспорт эвакуации прибудет на базу через несколько секунд !!!</Russian>
 <Chinesesimp>空中运输将很快返回基地！！！</Chinesesimp>
@@ -4097,7 +4097,7 @@
 <Spanish>¡¡¡ Taxi aéreo sale ahora de la base, buenos días!!! </Spanish>
 <Portuguese>Táxi de ar que deixa agora, tem um dia bom !!!</Portuguese>
 <Korean>후송헬기가 이륙합니다. 즐거운 시간되십시오.</Korean>
-<Japanese>搬送ヘリコプターが離陸します。良い一日を!!!</Japanese>
+<Japanese>輸送ヘリコプターが離陸します。良い空の旅を!!!</Japanese>
 <Original>Air taxi leaving now, have a nice day !!!</Original>
 <Russian>Транспорт эвакуации улетает, удачи Вам!!!</Russian>
 <Chinesesimp>空中运输即将离开,祝你们好运！！！</Chinesesimp>
@@ -4109,7 +4109,7 @@
 <Spanish>¡¡¡ Taxi aéreo empieza ahora !!!</Spanish>
 <Portuguese>Inícios de táxi do ar agora !!!</Portuguese>
 <Korean>후송헬기가 출발했습니다.</Korean>
-<Japanese>搬送ヘリコプターが出発しました!!!</Japanese>
+<Japanese>輸送ヘリコプターが出発しました!!!</Japanese>
 <Original>Air taxi starts now !!!</Original>
 <Russian>Транспорт эвакуации выдвинулся!!!</Russian>
 <Chinesesimp>空中运输开始！！！</Chinesesimp>
@@ -4121,7 +4121,7 @@
 <Spanish>Taxi aéreo a punto de llegar, esté atento...</Spanish>
 <Portuguese>Táxi de ar almost ali, pendura em cima...</Portuguese>
 <Korean>후송헬기 거의 도착했으며, 현 위치에서 대기하십시오.</Korean>
-<Japanese>搬送ヘリコプターはすぐそこです、待機してください...</Japanese>
+<Japanese>輸送ヘリコプターはすぐそこです、待機してください...</Japanese>
 <Original>Air taxi almost there, hang on...</Original>
 <Russian>Транспорт эвакуации почти прибыл, держитесь...</Russian>
 <Chinesesimp>空中运输就快到了，坚持住...</Chinesesimp>
@@ -4169,7 +4169,7 @@
 <Spanish>El avión de suministros está llegando, espere.</Spanish>
 <Portuguese>Gota de ar almost ali, posição por!!!</Portuguese>
 <Korean>현재 투하위치에 거의 도착하였으며, 현 위치 고수할 것.</Korean>
-<Japanese>空中投下機が近づいています、スタンバイ!!!</Japanese>
+<Japanese>輸送機が近づいています、お待ち下さい。</Japanese>
 <Original>Air drop almost there, stand by!!!</Original>
 <Russian>Поддержка с воздуха на подходе, ждите!!!</Russian>
 <Chinesesimp>空投即将到达，请准备好！！！</Chinesesimp>
@@ -4181,7 +4181,7 @@
 <Spanish>Avión de suministros dañado o destruído</Spanish>
 <Portuguese>Veículo de gota do ar avariado ou destruiu !!!</Portuguese>
 <Korean>상공투하되던 차량에 피해가 발생하거나 파괴되었습니다.</Korean>
-<Japanese>空中投下機は損傷したか、破壊されました!!!</Japanese>
+<Japanese>輸送機が破壊されました!!!</Japanese>
 <Original>Air drop vehicle damaged or destroyed !!!</Original>
 <Russian>Поддержка с воздуха была уничтожена в пути !!!</Russian>
 <Chinesesimp>空投载具受损或被摧毁！！！</Chinesesimp>
@@ -4229,7 +4229,7 @@
 <Spanish>%1 ha encontrado una nueva información. Sabemos el nombre en clave de los paracaidistas enemigo, y puede proporcionar aviso cuando el enemigo envía tropas aerotransportadas en el objetivo principal.</Spanish>
 <Portuguese>%1 tem encontrado novo intel. Temos aprendido o inimigo codename para airdrop, e pode proporcionar temporão advertindo sempre que o inimigo envia airdropped tropas ao objetivo principal.</Portuguese>
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군의 항공투하에 대한 정보를 얻었으며, 언제 항공투하를 주미션에 할지에 대해 알게 되었습니다? 4879</Korean>
-<Japanese>%1が新情報を入手。敵の空中投下のコードネームがわかった、メインターゲットへの空挺降下の早期警戒情報を得た。</Japanese>
+<Japanese>%1が新情報を入手。敵の空中投下のコードネームがわかった、主目標への空挺降下の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Original>
 <Russian>%1 нашел новую информацию. We have learned the enemy codename for airdrop, and can provide early warning whenever the enemy sends airdropped troops to the main target.</Russian>
 <Chinesesimp>%1 发现了新情报。我们得到了敌军空投的代号，在他们空投增援部队前可以进行预警。</Chinesesimp>
@@ -4241,7 +4241,7 @@
 <Spanish>%1 ha encontrado una nueva información. Sabemos el nombre en clave del avión de ataque enemigo, y puede proporcionar aviso cuando el enemigo envíe un avión de ataque al objetivo principal.</Spanish>
 <Portuguese>%1 tem encontrado novo intel. Temos aprendido o inimigo codename para avião de ataque, e pode proporcionar temporão advertindo sempre que o inimigo envia um avião de ataque ao objetivo principal.</Portuguese>
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적군 공격항공기에 대한 암호명을 확보하였으며, 언제 적 공격항공기가 주미션에 출격하는지 미리 알수 있게 되었습니다.</Korean>
-<Japanese>%1が新情報を入手。敵の攻撃機のコードネームがわかった、メインターゲットへの航空攻撃の早期警戒情報を得た。</Japanese>
+<Japanese>%1が新情報を入手。敵の攻撃機のコードネームがわかった、主目標への航空攻撃の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Original>
 <Russian>%1 нашел новую информацию. We have learned the enemy codename for attack plane, and can provide early warning whenever the enemy sends an attack plane to the main target.</Russian>
 <Chinesesimp>%1 发现了新情报。我们得到了敌军攻击机出发的代号，在他们呼叫攻击机前可以进行预警。</Chinesesimp>
@@ -4253,7 +4253,7 @@
 <Spanish>%1 ha encontrado una nueva información. Se le avisará ahora, cada vez que el enemigo envíe un helicóptero de ataque para apoyar al objetivo principal.</Spanish>
 <Portuguese>%1 tem encontrado novo intel. Intel Agora será dado sempre que o inimigo envia um helicóptero de ataque para apoiar o objetivo principal.</Portuguese>
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 적의 공격헬기에 대한 암호명을 확보하였으며, 언제 적 공격헬기가 주미션에 출현하는지 미리 알수 있게 되었습니다.</Korean>
-<Japanese>%1が新情報を入手。敵の攻撃ヘリコプターのコードネームがわかった、情報部はメインターゲットへの攻撃ヘリ飛来が分かるようになるだろう。</Japanese>
+<Japanese>%1が新情報を入手。敵の攻撃ヘリコプターのコードネームがわかった、情報部は主目標への攻撃ヘリ飛来が分かるようになるだろう。</Japanese>
 <Original>%1 has found new intel. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Original>
 <Russian>%1 нашел новую информацию. Intel will now be given whenever the enemy sends an attack helicopter to support the main target.</Russian>
 <Chinesesimp>%1 发现了新情报。我们得到了敌军武装直升机的代号，在他们呼叫武装直升机支援前可以进行预警。</Chinesesimp>
@@ -4265,7 +4265,7 @@
 <Spanish>%1 ha encontrado una nueva información. Sabemos el nombre en clave de los aviones de transporte enemigos, y puede proporcionar un aviso cuando el enemigo envíe un avión de transporte para apoyar al objetivo principal.</Spanish>
 <Portuguese>%1 tem encontrado novo intel. Temos aprendido o inimigo codename para aeronave de transporte, e pode proporcionar temporão advertindo sempre que o inimigo envia uma aeronave de transporte para apoiar o objetivo principal.</Portuguese>
 <Korean>%1 이(가) 새로운 정보를 입수하였습니다. 수송항공기에 대한 암호명을 확보하였으며, 언제 수송항공기가 지원을 오는지 미리 알 수 있게 되었습니다.</Korean>
-<Japanese>%1が新情報を入手。敵の輸送機のコードネームがわかった、メインターゲットへの航空輸送の早期警戒情報を得た。</Japanese>
+<Japanese>%1が新情報を入手。敵の輸送機のコードネームがわかった、主目標への航空輸送の早期警戒情報を得た。</Japanese>
 <Original>%1 has found new intel. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Original>
 <Russian>%1 нашел новую информацию. We have learned the enemy codename for transport aircraft, and can provide early warning whenever the enemy sends a transport aircraft to support the main target.</Russian>
 <Chinesesimp>%1 发现了新情报。我们得到了敌军空中运输的代号，在他们进行空中运输之前可以进行预警。</Chinesesimp>
@@ -4313,7 +4313,7 @@
 <Spanish>¡¡¡ Su tienda de sanitario ha sido destruída !!!</Spanish>
 <Portuguese>Vosso mash esteve destruído !!!</Portuguese>
 <Korean>Mash가 파괴되었습니다.</Korean>
-<Japanese>あなたのメディックテントは破壊されました!!!</Japanese>
+<Japanese>メディカルテントが破壊されました!!!</Japanese>
 <Original>Your mash was destroyed !!!</Original>
 <Russian>Ваш МедПункт был уничтожен!!!</Russian>
 <Chinesesimp>你的医疗帐篷被摧毁了！！！</Chinesesimp>
@@ -4325,7 +4325,7 @@
 <Spanish>¡¡¡ Su FARP ha sido destruído !!!</Spanish>
 <Portuguese>Vosso FARP esteve destruído !!!</Portuguese>
 <Korean>FARP가 파괴되었습니다.</Korean>
-<Japanese>あなたのFARPは破壊されました!!!</Japanese>
+<Japanese>あなたの前線補給所は破壊されました!!!</Japanese>
 <Original>Your FARP was destroyed !!!</Original>
 <Russian>Ваша РемЗона была уничтожена!!!</Russian>
 <Chinesesimp>你的前线空中载具维修点被摧毁了！！！</Chinesesimp>
@@ -4493,7 +4493,7 @@
 <Spanish>You were degraded from %1 to Colonel !!!</Spanish>
 <Portuguese>You were degraded from %1 to Colonel !!!</Portuguese>
 <Korean>귀관은 %1에서 대령으로 강등되셨습니다</Korean>
-<Japanese>You were degraded from %1 to Colonel !!!</Japanese>
+<Japanese>あなたは%1から大佐に降格されました!!!</Japanese>
 <Original>You were degraded from %1 to Colonel !!!</Original>
 <Russian>Вы расжалованы с %1 до ПОЛКОВНИКА !!!</Russian>
 <Chinesesimp>你从 %1 降级为上校！</Chinesesimp>
@@ -4505,7 +4505,7 @@
 <Spanish>You were promoted to General, congratulations !!!</Spanish>
 <Portuguese>You were promoted to General, congratulations !!!</Portuguese>
 <Korean>준장으로 진급하셨습니다. 축하드립니다.</Korean>
-<Japanese>You were promoted to General, congratulations !!!</Japanese>
+<Japanese>あなたは将軍になりました、おめでとうございます!!!</Japanese>
 <Original>You were promoted to General, congratulations !!!</Original>
 <Russian>Вам присвоено великое звание МАСТЕР ПАБЛИКА, поздравляем !!!</Russian>
 <Chinesesimp>你晋升为将军，恭喜你！</Chinesesimp>
@@ -4517,7 +4517,7 @@
 <Spanish>PELIGRO:</Spanish>
 <Portuguese>PERIGO:</Portuguese>
 <Korean>위험:</Korean>
-<Japanese>DANGER:</Japanese>
+<Japanese>警報:</Japanese>
 <Original>DANGER:</Original>
 <Russian>УГРОЗА:</Russian>
 <Chinesesimp>危险：</Chinesesimp>
@@ -4541,7 +4541,7 @@
 <Spanish>BASE LIMPIA:</Spanish>
 <Portuguese>BASE LIMPA:</Portuguese>
 <Korean>클리어:</Korean>
-<Japanese>BASE CLEAR:</Japanese>
+<Japanese>警報解除:</Japanese>
 <Original>CLEAR:</Original>
 <Russian>ОТБОЙ УГРОЗЫ:</Russian>
 <Chinesesimp>安全：</Chinesesimp>
@@ -4565,7 +4565,7 @@
 <Spanish>Establece Capa de Hierba: %1</Spanish>
 <Portuguese>Gras A capa posta a: %1</Portuguese>
 <Korean>풀숲 레이어 설정: %1</Korean>
-<Japanese>草むら層の設定: %1</Japanese>
+<Japanese>草の濃さの設定: %1</Japanese>
 <Original>Grass layer set to: %1</Original>
 <Russian>Уровень травы установить: %1.</Russian>
 <Chinesesimp>草层设定为: %1</Chinesesimp>
@@ -4757,7 +4757,7 @@
 <Spanish>Misión Secundaria</Spanish>
 <Portuguese>Missão de lado</Portuguese>
 <Korean>보조 과제</Korean>
-<Japanese>Side Mission</Japanese>
+<Japanese>サイドミッション</Japanese>
 <Original>Side Mission</Original>
 <Russian>Доп.задание</Russian>
 <Chinesesimp>支线任务</Chinesesimp>
@@ -4769,7 +4769,7 @@
 <Spanish>Misión Secundaria, Inicio Convoy</Spanish>
 <Portuguese>Missão de lado, Início de Convoy</Portuguese>
 <Korean>보조 과제, 콘보이 시작</Korean>
-<Japanese>Side Mission, Convoy Start</Japanese>
+<Japanese>サイドミッション, 輸送隊出発地点</Japanese>
 <Original>Side Mission, Convoy Start</Original>
 <Russian>Доп.задание, Старт конвоя.</Russian>
 <Chinesesimp>支线任务，车队出发</Chinesesimp>
@@ -4781,7 +4781,7 @@
 <Spanish>Misión Secundaria, Final Convoy</Spanish>
 <Portuguese>Missão de lado, Fim de Convoy</Portuguese>
 <Korean>보조 과제, 콘보이 종료</Korean>
-<Japanese>Side Mission, Convoy End</Japanese>
+<Japanese>サイドミッション, 輸送隊目標地点</Japanese>
 <Original>Side Mission, Convoy End</Original>
 <Russian>Доп.задание, прибытие конвоя.</Russian>
 <Chinesesimp>支线任务，车队到达</Chinesesimp>
@@ -4877,7 +4877,7 @@
 <Spanish>None of the soldiers made it back to base...</Spanish>
 <Portuguese>None of the soldiers made it back to base...</Portuguese>
 <Korean>군인중 누구도 기지로 복귀하지 못했습니다...</Korean>
-<Japanese>None of the soldiers made it back to base...</Japanese>
+<Japanese>兵士たちは誰も帰還できなかった...</Japanese>
 <Original>None of the soldiers made it back to base...</Original>
 <Russian>Никто из солдат не вернулся на базу...</Russian>
 <Chinesesimp>没有一个士兵回到基地...</Chinesesimp>
@@ -5010,7 +5010,7 @@
 <Spanish>Hay un faro en una isla. Los barcos enemigos lo usan para encontrar el camino a la costa, para destruirlo....</Spanish>
 <Portuguese>Há um farol em uma ilha. Naves inimigas o usam para encontrar o caminho ao redor da costa, destruí-lo.</Portuguese>
 <Korean>섬에 등대가 있습니다. 적의 선박들은 등대를 이용하여 해안 주변지역을 순찰 하고 있습니다, 그것을 파괴하십시오.</Korean>
-<Japanese>There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.</Japanese>
+<Japanese>敵が沿岸の航行に、島にある灯台を使用している。灯台を破壊せよ。</Japanese>
 <Original>There is a lighthouse on an island. Enemy ships use it to find their way to the around the coast, destroy it.</Original>
 <Russian>На острове есть маяк. Корабли противника используют его для навигации. Уничтожьте его!</Russian>
 <Chinesesimp>岛上有一座灯塔。 敌军船只用于引导航行通往海岸。找到它！摧毁它！</Chinesesimp>
@@ -5034,7 +5034,7 @@
 <Spanish>El enemigo utiliza una torre de radio para comandar sus tropas blindadas. Una tarea simple, destruirla.</Spanish>
 <Portuguese>O inimigo usa uma torre de rádio para comandar suas tropas blindadas. Tarefa simples, destrua-a.</Portuguese>
 <Korean>산 정상에 라디오 타워가 있습니다. 적은 해당 기지를 통해 기갑병력을 통솔하고있다 합니다. 목표는 간단합니다, 그것을 파괴하십시오.</Korean>
-<Japanese>Lysina山の頂上にラジオタワーがある。敵はこれを装甲車両隊の指揮に利用してるようだ。それを破壊しろ。</Japanese>
+<Japanese>Lysina山の頂上に電波塔がある。敵はこれを装甲車両隊の指揮に利用してるようだ。それを破壊しろ。</Japanese>
 <Original>The enemy uses a radio tower to command its armored troops. Simple task, destroy it.</Original>
 <Russian>Противник использует радиовышку для вызова подкреплений. Задача проста - уничтожьте ее!</Russian>
 <Chinesesimp>敌人用无线电塔台指挥他们的装甲部队。任务很简单,摧毁这个通讯站。</Chinesesimp>
@@ -5106,7 +5106,7 @@
 <Spanish>El enemigo utiliza una estación de combustible para repostar sus vehículos. Una tarea simple, destruirla para reducir el suministro de combustible.</Spanish>
 <Portuguese>O inimigo utiliza uma estação de abastecimento de combustível para reabastecer seus veículos. Tarefa simples, destruí-lo para cortar o abastecimento de combustível..</Portuguese>
 <Korean>적군이 저유소를 이용하여 장비들에게 연료를 재보급하고 있습니다. 간단한 임무입니다, 그것을 파괴하여 연료보급을 차단하십시오.</Korean>
-<Japanese>The enemy uses a fuelstation to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Japanese>
+<Japanese>敵は車両の燃料補給に給油所を使用している。給油所を破壊せよ。</Japanese>
 <Original>The enemy uses a fuelstation to refuel its vehicles. Simple task, destroy it to cut down fuel supplies.</Original>
 <Russian>Противник использует заправочную станцию для дозаправки техники. Приказ - уничтожить ее!</Russian>
 <Chinesesimp>敌人使用加油站站给车辆加油。任务很简单，摧毁它减少敌军燃料供应。</Chinesesimp>
@@ -5166,7 +5166,7 @@
 <Spanish>Queremos provocar al enemigo. Encuentren la bandera enemiga y llévenla a la bandera de su base.</Spanish>
 <Portuguese>Nós queremos provocar o inimigo. Encontre a bandeira inimiga e traga-a de volta para a bandeira em sua base.</Portuguese>
 <Korean>우리는 적을 도발하고자 합니다. 적의 깃발을 찾으십시오 그리고 그 깃발을 기지로 가져 오십시오.</Korean>
-<Japanese>We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.</Japanese>
+<Japanese>敵に精神攻撃をしてやろう。敵の軍旗を探し、我々の基地まで持ち帰れ。</Japanese>
 <Original>We want to provoke the enemy. Find the enemy flag and bring it back to the flag at your base.</Original>
 <Russian>Вам приказано сломить моральный дух противника. Найдите вражеский флаг и доставьте его к нам на базу!</Russian>
 <Chinesesimp>我们要激怒敌人。找到敌人的旗帜，偷走它并带回基地的旗帜处。</Chinesesimp>
@@ -5190,7 +5190,7 @@
 <Spanish>El enemigo está construyendo una prisión. Destruye el edificio para que no puedan arrestar a gente inocente.</Spanish>
 <Portuguese>O inimigo está construindo uma prisão. Destruir o prédio para que não possam prender pessoas inocentes..</Portuguese>
 <Korean>적군이 수용소를 건설중입니다. 적군이 무고한 시민들을 체포하지 못하도록 수용소를 파괴하십시오.</Korean>
-<Japanese>The enemy is building a prison. Destroy the building so that they can not arrest innocent people.</Japanese>
+<Japanese>敵が強制収容所を建設している。無実の人々を救うため、破壊せよ。</Japanese>
 <Original>The enemy is building a prison. Destroy the building so that they can not arrest innocent people.</Original>
 <Russian>Противник построил тюрьму. Уничтожьте здание, чтобы спасти гражданских от арестов!</Russian>
 <Chinesesimp>敌人正在修建监狱。摧毁这个监狱，不要让他们监禁无辜的人。</Chinesesimp>
@@ -5214,7 +5214,7 @@
 <Spanish>El enemigo está produciendo armas biológicas. Encuentra la torre de agua que se necesita para la producción y destrúyela..</Spanish>
 <Portuguese>O inimigo está produzindo armas biológicas. Encontre a torre de água que é necessária para a produção e destrua-a.</Portuguese>
 <Korean>적군이 생물학 무기를 생산중입니다. 그들의 무기 생산에 필요한 급수탑을 찾아 파괴하십시오.</Korean>
-<Japanese>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Japanese>
+<Japanese>敵が生物兵器を生産している。給水塔を破壊し、兵器の生産を止めろ。</Japanese>
 <Original>The enemy is producing biological weapons. Find the watertower that is needed for the production and destroy it.</Original>
 <Russian>Враг производит биологическое оружие. Найдите водонапорную башню, которая нужна для производства и уничтожьте ее!</Russian>
 <Chinesesimp>敌军在生产生化武器。找到生产所用的水塔并摧毁！</Chinesesimp>
@@ -5238,7 +5238,7 @@
 <Spanish>En la torre de radio de la parte superior del monte de Green Mountain hay un IED, se ve como una caja de munición. Su trabajo es destruir el IED.</Spanish>
 <Portuguese>Na torre radiofónica enorme acima de montar a montanha Verde é um IED , parece um ammobox. Vosso trabalho é para destruir o IED.</Portuguese>
 <Korean>그린산 꼭대기에 위치한 거대한 라디오에 IED가 있습니다, 그것은 아머박스처럼 보입니다. 당신이 할 일은 IED를 찾아 파괴하는것입니다.</Korean>
-<Japanese>Green山の頂上にあるラジオタワーにIEDが仕掛けられた。それは大きな弾薬箱の形をしている。君の仕事はこれを破壊することだ。</Japanese>
+<Japanese>Green山の頂上にある電波塔にIEDが仕掛けられた。それは大きな弾薬箱の形をしている。君の仕事はこれを破壊することだ。</Japanese>
 <Original>In the huge radio tower on top of mount Green Mountain is a IED, it looks like an ammobox. Your job is it to destroy the IED.</Original>
 <Russian>Радиовышка заминирована фугасом, который выглядит как брошенный ящик. Найдите и уничтожьте фугас!</Russian>
 <Chinesesimp>在 Green Mountain 的巨型通讯站有一个IDE， 看起来象一个武器箱。你的任务是解除这个IDE。</Chinesesimp>
@@ -5406,7 +5406,7 @@
 <Spanish>Buen trabajo. Todas las piezas de artillería están destruídas. No aparecerán más observadores de artillería en los objetivos principales.</Spanish>
 <Portuguese>Trabalho bom. Todas pistolas de artilharia são abaixo. Nenhum observadores de artilharia aparecerão em objetivos principais anymore.</Portuguese>
 <Korean>훌륭합니다. 포병대의 장비가 모두 제거되었습니다. 메인미션에 포병활동이 발생하지 않습니다.</Korean>
-<Japanese>よくやった。すべての敵長距離砲を破壊した。砲兵観測手がメインターゲットに現れることはもうないだろう。</Japanese>
+<Japanese>よくやった。すべての敵長距離砲を破壊した。砲兵観測手が主目標に現れることはもうないだろう。</Japanese>
 <Original>Good job. All artillery guns are down. No artillery observers will appear at main targets anymore.</Original>
 <Russian>Отличная работа. Все артнаводчики уничтожены, теперь противник не сможет на нас наводить минометы.</Russian>
 <Chinesesimp>干得好！所有的敌人大炮都被摧毁了，主要目标不会再出现敌人炮兵观察手了。</Chinesesimp>
@@ -5418,7 +5418,7 @@
 <Spanish>Buen trabajo. La tripulación está de vuelta en la base.</Spanish>
 <Portuguese>Trabalho bom. A tripulação está de volta em base.</Portuguese>
 <Korean>잘하셨습니다. 승무원이 기지로 귀환하였습니다.</Korean>
-<Japanese>よくやった。クルーは無事基地に戻った。</Japanese>
+<Japanese>よくやった。 クルーは無事基地に戻った。</Japanese>
 <Original>Good job. The crew is back at base.</Original>
 <Russian>Отличная работа! Экипаж спасен и доставлен на базу!</Russian>
 <Chinesesimp>干的好！机组人员已经成功返回基地。</Chinesesimp>
@@ -5430,7 +5430,7 @@
 <Spanish>Buen trabajo. %1 está de vuelta en la base. + %2</Spanish>
 <Portuguese>Trabalho bom. %1 está de volta em base. + %2</Portuguese>
 <Korean>훌륭합니다. %1 기지로 귀환하였습니다. + %2</Korean>
-<Japanese>Good job. %1 is back at base. + %2</Japanese>
+<Japanese>よくやった。 %1は基地に帰ってきた + %2</Japanese>
 <Original>Good job. %1 is back at base. + %2</Original>
 <Russian>Отличная работа! %1 спасен и доставлен на базу! + %2</Russian>
 <Chinesesimp>干得漂亮！ %1 返回基地。 + %2</Chinesesimp>
@@ -5442,7 +5442,7 @@
 <Spanish>El enemigo está construyendo un hangar. Lo curioso es que no hay ningún aeródromo cerca de esa posición. Así que, destruye ese hangar antes de que sepamos realmente para qué sirve.</Spanish>
 <Portuguese>O inimigo está construindo um hangar. O engraçado é que não há aeródromo perto dessa posição. Então, destrua aquele hangar antes que realmente saibamos para que ele serve..</Portuguese>
 <Korean>적군이 격납고를 건설중입니다. 재미 있는점은, 그 위치에 활주로가 없습니다. 그냥, 우리가 진짜 용도를 알 필요가 없으니 파괴해 버리세요.</Korean>
-<Japanese>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Japanese>
+<Japanese>敵が格納庫を建設しているが、不思議なことに航空基地は周辺に存在しない。 我々が建設目的を思い知らされる前に、格納庫を破壊してしまえ。</Japanese>
 <Original>The enemy is building a hangar. Funny thing is, there is no airfield near that position. So, destroy that hangar before we really know what it is for.</Original>
 <Russian>Противник построил ангар для будующих испытаний техники. Приказ - уничтожить его полностью!</Russian>
 <Chinesesimp>敌人在建立了一个机库。有趣的是，附近没有机场。所以在我们弄清楚这机库到底是干什么用的之前摧毁机库！</Chinesesimp>
@@ -5466,7 +5466,7 @@
 <Spanish>Hay una instalación de entrenamiento del enemigo. Destruye el edificio principal para reducir sus posibilidades de entrenar a nuevos soldados.</Spanish>
 <Portuguese>Existe uma instalação de treinamento inimiga. Destruir o prédio principal para diminuir suas possibilidades de treinar novos soldados..</Portuguese>
 <Korean>적군의 훈련소가 있습니다. 주요건물을 파괴하여 새로운 병사를 훈련시킬 가능성을 차단하십시오.</Korean>
-<Japanese>There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.</Japanese>
+<Japanese>敵の訓練施設が発見された。 新兵の訓練を妨害するため、主要な建物を破壊せよ。</Japanese>
 <Original>There is an enemy training facility. Destroy the main building to cut down their possibilities to train new soldiers.</Original>
 <Russian>Обнаружен тренировочный лагерь боевиков! Уничтожьте основное здание чтобы разрушить инфраструктуру лагеря!</Russian>
 <Chinesesimp>有一个敌军训练营。摧毁主楼减少敌人的新兵培训能力。</Chinesesimp>
@@ -5514,7 +5514,7 @@
 <Spanish>Un líder terrorista llamado Nib Nedal se esconde en algún lugar. ¡Tu tarea es encontrarlo y eliminarlo!</Spanish>
 <Portuguese>Um líder terrorista chamado Nib Nedal se esconde em algum lugar. Sua tarefa é encontrá-lo e eliminá-lo!</Portuguese>
 <Korean>Nib Nedal의 어떤곳에 테러리스트 리더가 숨었습니다. 귀관의 임무는 그를 찾아 사살 하는것 입니다!</Korean>
-<Japanese>A terrorist leader called Nib Nedal hides somewhere. Your task is to find him and eliminate him!</Japanese>
+<Japanese>Nib Nedalというテロリストのリーダーがどこかに隠れている。 奴を探し出し、暗殺せよ。</Japanese>
 <Original>A terrorist leader called Nib Nedal hides somewhere. Your task is to find him and eliminate him!</Original>
 <Russian>Обнаружен лидер террористической организации острова. Срочно найдите и ликвидируйте его!</Russian>
 <Chinesesimp>一个恐怖份子的头目叫 Nib Nedal 隐藏在北部山区某处。你的任务是找到他并消灭他！</Chinesesimp>
@@ -5526,7 +5526,7 @@
 <Spanish>El líder terrorista ha muerto. Buen trabajo.</Spanish>
 <Portuguese>O dirigente terrorista é morrido. Trabalho bom.</Portuguese>
 <Korean>테러리스트 리더는 죽었습니다. 훌륭합니다.</Korean>
-<Japanese>テロリストリーダーの死亡を確認。よくやった</Japanese>
+<Japanese>テロリストのリーダーの死亡を確認。よくやった。</Japanese>
 <Original>The terrorist leader is dead. Good job.</Original>
 <Russian>Отличная работа! Лидер террористов ликвидирован!</Russian>
 <Chinesesimp>恐怖分子头目已经消灭。干得好！</Chinesesimp>
@@ -5538,7 +5538,7 @@
 <Spanish>El enemigo está produciendo armas químicas. Encuentra el camión de carga que tiene algunos de los productos químicos para la producción y destrúyelo.</Spanish>
 <Portuguese>O inimigo está produzindo armas químicas. Encontre o caminhão de carga que tem alguns dos produtos químicos para a produção e destrua-o..</Portuguese>
 <Korean>적군이 화학무기를 생산중입니다. 생산에 사용되는 화학물질을 실은 화물트럭을 찾아 파괴하십시오.</Korean>
-<Japanese>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Japanese>
+<Japanese>敵が化学兵器を生産している。 化学原料を積んだ輸送車両を見つけ、破壊せよ。</Japanese>
 <Original>The enemy is producing chemical weapons. Find the cargo truck that has some of the chemicals for the production and destroy it.</Original>
 <Russian>Противник производит химическое оружие. Найдите и уничтожьте грузовик противника с хим.оружием!</Russian>
 <Chinesesimp>敌人在营地里生产化学武器。找到装有化学武器的卡车并摧毁掉！</Chinesesimp>
@@ -5562,7 +5562,7 @@
 <Spanish>El enemigo está produciendo rodamientos de bolas en una fábrica. Destruye los tanques de combustible para detener la producción.</Spanish>
 <Portuguese>O inimigo está produzindo rolamentos de esferas em uma fábrica. Destruir os tanques de combustível para parar a produção.</Portuguese>
 <Korean>적군이 공장에서 볼 베어링을 생산중입니다. 연료탱크를 파괴하여 생산을 중단 시키십시오.</Korean>
-<Japanese>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</Japanese>
+<Japanese>敵が工場でボールベアリングを生産している。 燃料タンクを破壊し、生産を止めろ。</Japanese>
 <Original>The enemy is producing ball bearings in a factory. Destroy the fuel tanks to stop the production.</Original>
 <Russian>Противник хранит запасы нефти для производства топлива для танков. Приказ штаба -уничтожить хранилище!</Russian>
 <Chinesesimp>敌人有一个轴承工厂。摧毁油料罐,停止他们的生产！</Chinesesimp>
@@ -5610,7 +5610,7 @@
 <Spanish>El enemigo está probando un nuevo prototipo de helicóptero. Destrúyelo antes de que las tropas enemigas lo usen.</Spanish>
 <Portuguese>O inimigo está testando um novo protótipo de helicóptero. Destrua-o antes que as tropas inimigas o usem..</Portuguese>
 <Korean>적군이 새로운 타입의 헬기 시제품을 테스트중입니다. 적 병력이 그것을 사용하지 전에 파괴하십시오.</Korean>
-<Japanese>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Japanese>
+<Japanese>敵は新型ヘリコプターの原型機を試験している。 敵部隊が使用する前に破壊せよ。</Japanese>
 <Original>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Original>
 <Russian>Противник тестирует прототип самолета. Уничтожьте его до испытаний!</Russian>
 <Chinesesimp>敌人有新型直升机在进行测试。在敌军使用之前摧毁它。</Chinesesimp>
@@ -5646,7 +5646,7 @@
 <Spanish> (Médico)</Spanish>
 <Portuguese>(Medic)</Portuguese>
 <Korean> (의무병)</Korean>
-<Japanese> (メディック)</Japanese>
+<Japanese> (衛生兵)</Japanese>
 <Original> (Medic)</Original>
 <Russian> (Медик)</Russian>
 <Chinesesimp> (医疗)</Chinesesimp>
@@ -5814,7 +5814,7 @@
 <Spanish>No hay Misiones Adicionales disponibles en el Objetivo Principal.</Spanish>
 <Portuguese>Nenhuma Missão de Objetivo Principal Secundária disponível</Portuguese>
 <Korean>주목표에 지정된 보조과제가 없습니다.</Korean>
-<Japanese>メインターゲットの第二目標はありません</Japanese>
+<Japanese>主目標の副任務はありません</Japanese>
 <Original>No Secondary Main Target Mission available</Original>
 <Russian>В городе нет второстепенных задач!</Russian>
 <Chinesesimp>没有次要目标</Chinesesimp>
@@ -5969,7 +5969,7 @@
 <Spanish>Resucitar</Spanish>
 <Portuguese>CPR</Portuguese>
 <Korean>인공호흡</Korean>
-<Japanese>CPR</Japanese>
+<Japanese>心肺蘇生</Japanese>
 <Original>CPR</Original>
 <Russian>Сердечно-лёгочная реанимация</Russian>
 <Chinesesimp>心肺复苏</Chinesesimp>
@@ -6041,7 +6041,7 @@
 <Spanish>Suministros Aéreos</Spanish>
 <Portuguese>Airdrop Aircraft</Portuguese>
 <Korean>공수지원 항공기</Korean>
-<Japanese>Air Drop Aircraft</Japanese>
+<Japanese>空中投下用輸送機</Japanese>
 <Original>Air Drop Aircraft</Original>
 <Russian>Самолет поддержки с воздуха</Russian>
 <Chinesesimp>空投专用机</Chinesesimp>
@@ -6149,7 +6149,7 @@
 <Spanish>Your team destroyed the truck prototype.</Spanish>
 <Portuguese>Your team destroyed the truck prototype.</Portuguese>
 <Korean>아군이 시제품 트럭을 파괴하였습니다.</Korean>
-<Japanese>Your team destroyed the truck prototype.</Japanese>
+<Japanese>あなたのチームがプロトタイプのトラックを破壊しました。</Japanese>
 <Original>Your team destroyed the truck prototype.</Original>
 <Russian>Ваша команда уничтожила целевой транспорт.</Russian>
 <Chinesesimp>你的小队摧毁了APC。</Chinesesimp>
@@ -6233,7 +6233,7 @@
 <Spanish>Objetivo adicional de la misión principal, no resuelto...</Spanish>
 <Portuguese>Missão-alvo secundária não resolvida ...</Portuguese>
 <Korean>보조과제 실패</Korean>
-<Japanese>メインターゲットの第二目標の達成に失敗...</Japanese>
+<Japanese>主目標の副任務の達成に失敗...</Japanese>
 <Original>Secondary main target mission not solved...</Original>
 <Russian>Второстепенная задача не выполнена...</Russian>
 <Chinesesimp>次要目标没有解决掉...</Chinesesimp>
@@ -6245,7 +6245,7 @@
 <Spanish>El otro equipo resolvió el objetivo de la misión principal</Spanish>
 <Portuguese>A outra equipe resolveu a principal missão-alvo</Portuguese>
 <Korean>상대측이 주목표를 완수하였습니다.</Korean>
-<Japanese>他のチームがメインターゲットを攻略</Japanese>
+<Japanese>他のチームが主目標を攻略</Japanese>
 <Original>The other team solved the main target mission</Original>
 <Russian>Другая команда выполнила главную цель задания</Russian>
 <Chinesesimp>另一个小队解决了主要目标</Chinesesimp>
@@ -6257,7 +6257,7 @@
 <Spanish>Aeronave desconocida</Spanish>
 <Portuguese>Contato de ar desconhecido</Portuguese>
 <Korean>미확인 물체</Korean>
-<Japanese>Unknown air contact</Japanese>
+<Japanese>所属不明機</Japanese>
 <Original>Unknown air contact</Original>
 <Russian>Неопознанный авиа контакт</Russian>
 <Chinesesimp>未知空中遭遇</Chinesesimp>
@@ -6269,7 +6269,7 @@
 <Spanish>Patrulla enemiga</Spanish>
 <Portuguese>Patrulha inimiga</Portuguese>
 <Korean>적 정찰조</Korean>
-<Japanese>Enemy patrol</Japanese>
+<Japanese>敵パトロール</Japanese>
 <Original>Enemy patrol</Original>
 <Russian>Вражеский патруль</Russian>
 <Chinesesimp>敌人巡逻队</Chinesesimp>
@@ -6281,7 +6281,7 @@
 <Spanish>Objetivos Principales</Spanish>
 <Portuguese>Principais objectivos</Portuguese>
 <Korean>메인미션 수</Korean>
-<Japanese>メインターゲット</Japanese>
+<Japanese>主目標</Japanese>
 <Original>Main Targets</Original>
 <Russian>Основные Задания:</Russian>
 <Chinesesimp>主要目标</Chinesesimp>
@@ -6329,7 +6329,7 @@
 <Spanish>No</Spanish>
 <Portuguese>Não</Portuguese>
 <Korean>아니요</Korean>
-<Japanese>No</Japanese>
+<Japanese>いいえ</Japanese>
 <Original>No</Original>
 <Russian>Нет</Russian>
 <Chinesesimp>否</Chinesesimp>
@@ -6341,7 +6341,7 @@
 <Spanish>Aleatorio</Spanish>
 <Portuguese>Random</Portuguese>
 <Korean>Random</Korean>
-<Japanese>Random</Japanese>
+<Japanese>ランダム</Japanese>
 <Original>Random</Original>
 <Russian>Рандомно</Russian>
 <Chinesesimp>随机</Chinesesimp>
@@ -6353,7 +6353,7 @@
 <Spanish>Sólo los médicos pueden revivir:</Spanish>
 <Portuguese>Somente os médicos podem reviver:</Portuguese>
 <Korean>의무병만 소생가능여부</Korean>
-<Japanese>メディックだけが蘇生できる:</Japanese>
+<Japanese>衛生兵のみ蘇生可能:</Japanese>
 <Original>Only medics can revive:</Original>
 <Russian>Только медики могут спасать (ревайв):</Russian>
 <Chinesesimp>只有医护人员才能进行复活：</Chinesesimp>
@@ -6605,7 +6605,7 @@
 <Spanish>Eventos aleatorios en el objetivo principal:</Spanish>
 <Portuguese>Random events at main target:</Portuguese>
 <Korean>메인미션 무작위 이벤트:</Korean>
-<Japanese>Random events at main target:</Japanese>
+<Japanese>主目標のランダムイベント:</Japanese>
 <Original>Random events at main target:</Original>
 <Russian>С случайными событиями на главной цели:</Russian>
 <Chinesesimp>主要目标随机事件：</Chinesesimp>
@@ -6629,7 +6629,7 @@
 <Spanish>Sólo Objetivos Principales</Spanish>
 <Portuguese>Principais Alvos Apenas</Portuguese>
 <Korean>메인미션만</Korean>
-<Japanese>メインターゲットのみ</Japanese>
+<Japanese>主目標のみ</Japanese>
 <Original>Main Targets Only</Original>
 <Russian>Только Основные задания:</Russian>
 <Chinesesimp>只有主线任务</Chinesesimp>
@@ -6653,7 +6653,7 @@
 <Spanish>Teleportar o renacer en MHQ:</Spanish>
 <Portuguese>Somente missões laterais</Portuguese>
 <Korean>MHQ에서 텔레포트 혹은 재투입 가능여부:</Korean>
-<Japanese>MHQでのテレポートまたは復活:</Japanese>
+<Japanese>移動指揮所でのテレポートまたは復活:</Japanese>
 <Original>Teleport or spawn at MHQ:</Original>
 <Russian>Телепорт или возраждение на КШМ:</Russian>
 <Chinesesimp>在基地车（MHQ）传送或重生：</Chinesesimp>
@@ -6665,7 +6665,7 @@
 <Spanish>Desactivar MHQ si tiene menos de x metros de la MP:</Spanish>
 <Portuguese>Desativar MHQ se menos de x m longe de MT:</Portuguese>
 <Korean>MHQ가 메인미션에서 x m 만큼 멀어질시 자동 해체:</Korean>
-<Japanese>MTからx m以内の距離のMHQを無効にする：</Japanese>
+<Japanese>MTからx m以内の距離の移動指揮所の無効化：</Japanese>
 <Original>Disable MHQ if less than x m away from MT:</Original>
 <Russian>Обездвижить КШМ если до главной цели ....метров:</Russian>
 <Chinesesimp>距离主线目标如果小于 X 米 基地车（MHQ）禁止移动：</Chinesesimp>
@@ -6677,7 +6677,7 @@
 <Spanish>Teleportar a MHQ cuando el enemigo esta cerca:</Spanish>
 <Portuguese>Não MHQ tele quando inimigo próximo:</Portuguese>
 <Korean>MHQ 주변에 적이 있을시 텔레포트 가능여부:</Korean>
-<Japanese>MHQ周辺x m以内に敵がいる時にテレポートが可能かどうか：</Japanese>
+<Japanese>移動指揮所周辺x m以内に敵がいる時にテレポートが可能か：</Japanese>
 <Original>No MHQ tele when enemy near:</Original>
 <Russian>Отключить телепорт если враг ближе чем ...м:</Russian>
 <Chinesesimp>基地车（MHQ）附近范围内有敌人时不能使用基地车（MHQ）传送：</Chinesesimp>
@@ -6701,7 +6701,7 @@
 <Spanish>MHQ Camuflaje habilitado:</Spanish>
 <Portuguese>MHQ Camo ativado:</Portuguese>
 <Korean>HMQ 전개시 위장막 사용여부:</Korean>
-<Japanese>MHQ展開時の偽装ネット:</Japanese>
+<Japanese>移動指揮所展開時の偽装ネット:</Japanese>
 <Original>MHQ Camo enabled:</Original>
 <Russian>Масксетка на КШМ включена:</Russian>
 <Chinesesimp>基地车（MHQ）使用伪装网：</Chinesesimp>
@@ -7133,7 +7133,7 @@
 <Spanish>Armadura en Misión Principal:</Spanish>
 <Portuguese>Armadura nos principais alvos:</Portuguese>
 <Korean>메인미션에 기갑장비 출연여부</Korean>
-<Japanese>メインターゲットの装甲車両:</Japanese>
+<Japanese>主目標の装甲車両:</Japanese>
 <Original>Armor at main targets:</Original>
 <Russian>Бронетехника в городах:</Russian>
 <Chinesesimp>主线任务的装甲车辆：</Chinesesimp>
@@ -7326,7 +7326,7 @@
 <Spanish>Habilitar la simulación para campamentos enemigos:</Spanish>
 <Portuguese>Enable simulation for enemy camps:</Portuguese>
 <Korean>적 초소 시뮬레이션 활성화:</Korean>
-<Japanese>Enable simulation for enemy camps:</Japanese>
+<Japanese>敵キャンプのシミュレーション:</Japanese>
 <Original>Enable simulation for enemy camps:</Original>
 <Russian>Включить симуляцию для вражеских лагерей:</Russian>
 <Chinesesimp>敌方阵营启用模拟：</Chinesesimp>
@@ -7362,7 +7362,7 @@
 <Spanish>Force no HUD</Spanish>
 <Portuguese>Force no HUD</Portuguese>
 <Korean>Force no HUD</Korean>
-<Japanese>Force no HUD</Japanese>
+<Japanese>HUD禁止</Japanese>
 <Original>Force no HUD</Original>
 <Russian>Принудительно без HUD</Russian>
 <Chinesesimp>强制无 HUD</Chinesesimp>
@@ -7434,7 +7434,7 @@
 <Spanish>Ingeniero plena reparación (ver. antigua):</Spanish>
 <Portuguese>Reparo completo do engenheiro (versões antigas):</Portuguese>
 <Korean>엔지니어 완전수리 (구 버전):</Korean>
-<Japanese>エンジニアが完全な修理をできる(旧バージョン):</Japanese>
+<Japanese>工兵による完全修理(旧バージョン):</Japanese>
 <Original>Engineer full repair (old versions):</Original>
 <Russian>Инженеры полностью чинят технику:</Russian>
 <Chinesesimp>工程师完全修复(旧版本)：</Chinesesimp>
@@ -7446,7 +7446,7 @@
 <Spanish>Puntos TK Negativos:</Spanish>
 <Portuguese>Negative TK points:</Portuguese>
 <Korean>팀킬패널티 포인트:</Korean>
-<Japanese>チームキルのマイナスポイント:</Japanese>
+<Japanese>チームキルの減点量:</Japanese>
 <Original>Negative TK points:</Original>
 <Russian>Отрицательные очки за тимкилл:</Russian>
 <Chinesesimp>攻击队友减分：</Chinesesimp>
@@ -7458,7 +7458,7 @@
 <Spanish>Armas estáticas en camión de reparaciones:</Spanish>
 <Portuguese>Engineer truck cargo capacity</Portuguese>
 <Korean>엔지니어 트럭 수용량:</Korean>
-<Japanese>エンジニアトラックの積載量:</Japanese>
+<Japanese>工兵トラックの積載量:</Japanese>
 <Original>Engineer truck cargo capacity:</Original>
 <Russian>Вместимость инженерного транспорта:</Russian>
 <Chinesesimp>工程卡车的载货量：</Chinesesimp>
@@ -7602,7 +7602,7 @@
 <Spanish>La Torre de la MP cae sólo con Cargas Concentradas:</Spanish>
 <Portuguese>MT Torre Satchels só:</Portuguese>
 <Korean>메인미션 통신탑 폭발물로만 파괴여부:</Korean>
-<Japanese>MTラジオタワーは爆薬でのみ破壊できる:</Japanese>
+<Japanese>主目標の電波塔は爆薬でのみ破壊できる:</Japanese>
 <Original>MT Tower Satchels only:</Original>
 <Russian>Радиовышка взрывается только взрывчаткой:</Russian>
 <Chinesesimp>主线任务无线电塔仅用炸药摧毁：</Chinesesimp>
@@ -8166,7 +8166,7 @@
 <Spanish>Misión Principal:</Spanish>
 <Portuguese>Objetivo principal:</Portuguese>
 <Korean>메인미션: </Korean>
-<Japanese>メインターゲット:</Japanese>
+<Japanese>主目標:</Japanese>
 <Original>Main Target:</Original>
 <Russian>Главное Задание:</Russian>
 <Chinesesimp>主要目标：</Chinesesimp>
@@ -8178,7 +8178,7 @@
 <Spanish>Objet. Adicional Misión Principal:</Spanish>
 <Portuguese>Missão de Objetivo Principal secundária:</Portuguese>
 <Korean>메인미션 보조과제: </Korean>
-<Japanese>メインターゲット第二目標:</Japanese>
+<Japanese>主目標副任務:</Japanese>
 <Original>Secondary Main Target Mission:</Original>
 <Russian>Второстепенная задача в городе:</Russian>
 <Chinesesimp>次要目标：</Chinesesimp>
@@ -8226,7 +8226,7 @@
 <Spanish>Pulse en 'Misión Secundaria:' o 'Misión Principal:' para mostrar en mapa</Spanish>
 <Portuguese>Clique em cima ide Missão:' ou soyain Objetivos:' caption para mostrá-lo em cima o mapa</Portuguese>
 <Korean>'메인미션' 혹은 '보조미션'을 누르면 해당지역으로 지도가 이동합니다.</Korean>
-<Japanese>「メインターゲット」もしくは「サイドミッション」をクリックすると、該当地域に地図が移動します。...</Japanese>
+<Japanese>「主目標」もしくは「サイドミッション」をクリックすると、該当地域に地図が移動します。...</Japanese>
 <Original>Click on 'Side Mission:' or 'Main Targets:' caption to show it on the map</Original>
 <Russian>Кликните 'Доп.задание' или 'Главное задание' для определения местоположения</Russian>
 <Chinesesimp>点击 ‘支线任务：’ 或 ‘主目标：’ 的文字将在地图上显示出来</Chinesesimp>
@@ -8334,7 +8334,7 @@
 <Spanish>MHQ MENU VEHICULO</Spanish>
 <Portuguese>MHQ CARTA VEHICULO</Portuguese>
 <Korean>장비 상태창</Korean>
-<Japanese>車両ダイアログ</Japanese>
+<Japanese>移動指揮所ダイアログ</Japanese>
 <Original>VEHICLE DIALOG</Original>
 <Russian>МЕНЮ ТРАНСПОРТА</Russian>
 <Chinesesimp>载具对话框</Chinesesimp>
@@ -8406,7 +8406,7 @@
 <Spanish>UAV</Spanish>
 <Portuguese>UAV</Portuguese>
 <Korean>무인기</Korean>
-<Japanese>UAV</Japanese>
+<Japanese>無人機</Japanese>
 <Original>UAV</Original>
 <Russian>ПБЛА</Russian>
 <Chinesesimp>无人机</Chinesesimp>
@@ -8418,7 +8418,7 @@
 <Spanish>Desplegar MHQ</Spanish>
 <Portuguese>Despliega MHQ</Portuguese>
 <Korean>MHQ 전개하기(Deploy)</Korean>
-<Japanese>MHQを展開</Japanese>
+<Japanese>移動指揮所を展開</Japanese>
 <Original>Deploy MHQ</Original>
 <Russian>Развернуть КШМ</Russian>
 <Chinesesimp>展开基地车（MHQ）</Chinesesimp>
@@ -8466,7 +8466,7 @@
 <Spanish>Select Respawn/Show Map</Spanish>
 <Portuguese>Select Respawn/Show Map</Portuguese>
 <Korean>재투입/맵 보기 선택</Korean>
-<Japanese>Select Respawn/Show Map</Japanese>
+<Japanese>リスポン地点の選択/マップの表示</Japanese>
 <Original>Select Respawn/Show Map</Original>
 <Russian>Выберите Респаун/Показать карту:</Russian>
 <Chinesesimp>选择重生/显示地图</Chinesesimp>
@@ -8694,7 +8694,7 @@
 <Spanish>%1 observadores de artillería vistos en el objetivo principal. Tenga cuidado...</Spanish>
 <Portuguese>%1 observadores de artilharia spotted em objetivo principal. Ser careful...</Portuguese>
 <Korean>작전지역내에 %1명의 포병 감적수가 확인되었습니다.</Korean>
-<Japanese>メインターゲットで%1人の砲兵観測手を目撃。注意せよ...</Japanese>
+<Japanese>主目標で%1人の砲兵観測手を目撃。注意せよ...</Japanese>
 <Original>%1 artillery observers spotted at main target. Be careful...</Original>
 <Russian>В городе есть %1 артнаводчика. Будьте осторожны...</Russian>
 <Chinesesimp>%1 个炮兵观察手在主目标被发现了，小心...</Chinesesimp>
@@ -8706,7 +8706,7 @@
 <Spanish>Objetivo Adicional de la Misión Principal: %1</Spanish>
 <Portuguese>Missão de Objetivo Principal secundária: %1</Portuguese>
 <Korean>메인미션 보조과제는: %1</Korean>
-<Japanese>メインターゲット第二目標: %1</Japanese>
+<Japanese>主目標の副任務: %1</Japanese>
 <Original>Secondary Main Target Mission: %1</Original>
 <Russian>Второстепенная задача: %1</Russian>
 <Chinesesimp>次要任务： %1</Chinesesimp>
@@ -8718,7 +8718,7 @@
 <Spanish>Observadores de artillería en la misión principal</Spanish>
 <Portuguese>Todos observadores de artilharia do inimigo abaixo em objetivo principal atual</Portuguese>
 <Korean>현 지역내 모든 포병 감적수들이 무력화 되었습니다.</Korean>
-<Japanese>メインターゲットの砲兵観測手は全て無力化された</Japanese>
+<Japanese>主目標の砲兵観測手は全て無力化された</Japanese>
 <Original>All enemy artillery observers down at current main target</Original>
 <Russian>Все артнаводчики уничтожены в городе</Russian>
 <Chinesesimp>当前主目标的炮兵观察手全部阵亡</Chinesesimp>
@@ -8730,7 +8730,7 @@
 <Spanish>Torre de radio colocada en el objetivo principal. Destrúyala para que el enemigo no pueda pedir refuerzos.</Spanish>
 <Portuguese>Torre radiofónica spotted em objetivo principal. Destrói-o de maneira que o inimigo não pode chamar em airborne reforços.</Portuguese>
 <Korean>작전지역내에 통신탑이 발견되었습니다. 파괴하여 추가적인 증원요청을 막으십시오</Korean>
-<Japanese>メインターゲットにラジオタワーを発見。これを破壊し、敵の援軍要請を妨害しろ。</Japanese>
+<Japanese>主目標に電波塔を発見。これを破壊し、敵の援軍要請を妨害しろ。</Japanese>
 <Original>Radio tower spotted at main target. Destroy it so that the enemy can not call in airborne reinforcements.</Original>
 <Russian>Обнаружена радиовышка в городе. Уничтожьте ее и противник не сможет вызывать подкрепления!</Russian>
 <Chinesesimp>主目标发现通讯塔。摧毁后敌人将无法呼叫支援。</Chinesesimp>
@@ -8742,7 +8742,7 @@
 <Spanish>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Spanish>
 <Portuguese>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Portuguese>
 <Korean>작전지역내 통신탑이 파괴되었습니다. 지금부터 공수부대 증원이 없을것입니다.</Korean>
-<Japanese>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Japanese>
+<Japanese>主目標の電波塔が破壊された。敵は空挺部隊の増援を送り込めなくなった。</Japanese>
 <Original>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Original>
 <Russian>Радиовышка уничтожена. Теперь противник не может вызывать подкрепления и десант!</Russian>
 <Chinesesimp>主目标通讯塔被摧毁，敌人无法在呼叫支援了。</Chinesesimp>
@@ -8753,7 +8753,7 @@
 <Spanish>%1 campamentos enemigos avistadas en el objetivo principal... Captúrelos todos.</Spanish>
 <Portuguese>%1 acampamentos de inimigo sighted em objetivo principal... Captura-lhes tudo!!!</Portuguese>
 <Korean>작전지역내 %1개의 초소가 발견되었습니다. 모두 점령하십시오</Korean>
-<Japanese>メインターゲットに%1か所のキャンプを発見...すべて占領しろ!!!</Japanese>
+<Japanese>主目標に%1か所のキャンプを発見...すべて占領しろ!!!</Japanese>
 <Original>%1 enemy camps sighted at main target... capture them all!!!</Original>
 <Russian>Обнаружено %1 блок-поста противника... захватите их все!!!</Russian>
 <Chinesesimp>在主目标区域发现了 %1 个敌军营地，把他们全部占领！！！</Chinesesimp>
@@ -8765,7 +8765,7 @@
 <Spanish>El enemigo tiene puntos de referencia de su equipo en la misión principal... Ellos pedirán refuerzos.</Spanish>
 <Portuguese>O inimigo tem spotted você em objetivo principal... Eles agora chamada em reforços!!!</Portuguese>
 <Korean>적이 당신의 위치를 파악했습니다. 곧 적 증원이 급파됩니다!</Korean>
-<Japanese>メインターゲットで敵に発見された...敵が増援を要請!!!</Japanese>
+<Japanese>主目標の敵に発見された...敵が増援を要請している!!!</Japanese>
 <Original>The enemy has spotted you at main target... They will now call in reinforcements!!!</Original>
 <Russian>Противник обнаружил Вас и вызвал подкрепление!!!</Russian>
 <Chinesesimp>敌人在主目标发现了你，他们现在就会呼叫支援！！！</Chinesesimp>
@@ -8777,7 +8777,7 @@
 <Spanish>El enemigo tiene puntos de referencia de su equipo en la misión principal... ¡Ellos pedirán refuerzos!</Spanish>
 <Portuguese>O inimigo tem spotted um das equipes em objetivo principal... Eles agora chamada em reforços!!!</Portuguese>
 <Korean>적이 아군의 위치를 파악했습니다. 곧 적이 증원을 요청합니다.</Korean>
-<Japanese>メインターゲットで味方チームが敵に発見された...敵が増援を要請!!!</Japanese>
+<Japanese>主目標で味方チームが敵に発見された...敵が増援を要請した!!!</Japanese>
 <Original>The enemy has spotted one of the teams at main target... They will now call in reinforcements!!!</Original>
 <Russian>Противник обнаружил одну из сторон атаки и вызвал подкрепление!!!</Russian>
 <Chinesesimp>敌军在主目标发现了友军小队...他们将呼叫支援！！！</Chinesesimp>
@@ -8813,7 +8813,7 @@
 <Spanish>¡¡¡ %1 está disponible de nuevo !!! Don't forget to deploy the MHQ!!!!!</Spanish>
 <Portuguese>%1 é disponível outra vez !!! Não esquece para despregar o MHQ!!!!!</Portuguese>
 <Korean>%1이(가) 다시 이용가능합니다. 지휘차량을 전개하는것을 잊지마십시오!</Korean>
-<Japanese>%1空輸終了。MHQの展開を忘れないように!!!</Japanese>
+<Japanese>%1空輸終了。移動指揮所の展開を忘れないように!!!</Japanese>
 <Original>%1 is available again !!! Don't forget to deploy the MHQ!!!!!</Original>
 <Russian>%1 снова доступна !!! Не забудьте развернуть КШМ!!!</Russian>
 <Chinesesimp>%1 又有效了。别忘记展开基地车（MHQ）！！！！！！</Chinesesimp>
@@ -8873,7 +8873,7 @@
 <Spanish>El equipo %1 a resuelto el objetivo de la misión principal y obtiene %2 puntos.</Spanish>
 <Portuguese>O %1 equipe solucionou a missão de objetivo principal e consegue %2 pontos.</Portuguese>
 <Korean>%1 팀이 메인미션을 완수하였기에 %2 포인트를 얻었습니다.</Korean>
-<Japanese>%1チームはメインターゲットを攻略。%2ポイントを獲得</Japanese>
+<Japanese>%1チームは主目標を攻略。%2ポイントを獲得</Japanese>
 <Original>The %1 team solved the main target mission and gets %2 points.</Original>
 <Russian>Команда %1 захватила город и получает % очков.</Russian>
 <Chinesesimp>%1 小队解决了主目标任务得到了 %2 点数。</Chinesesimp>
@@ -8885,7 +8885,7 @@
 <Spanish>El equipo %1 a destruído la Torre de Radio de la misión principal y obtiene %2 puntos.</Spanish>
 <Portuguese>O %1 equipe destruiu o objetivo principal torre radiofónica e consegue %2 pontos.</Portuguese>
 <Korean>%1팀이 메인미션의 통신탑을 파괴하였기에 %2을 얻었습니다.</Korean>
-<Japanese>%1チームはメインターゲットのラジオタワーを破壊。%2ポイントを獲得</Japanese>
+<Japanese>%1チームは主目標の電波塔を破壊。%2ポイントを獲得</Japanese>
 <Original>The %1 team destroyed the main target radio tower and gets %2 points.</Original>
 <Russian>Команда %1 уничтожила антенну в городе и получает % очков.</Russian>
 <Chinesesimp>%1 小队解决了主目标的通讯塔得到了 %2 点数。</Chinesesimp>
@@ -8897,7 +8897,7 @@
 <Spanish>Diversas tropas enemigas aerotransportadas se dirigen hacia el objetivo principal, prepárese...</Spanish>
 <Portuguese>Vários airborne tropas de inimigo estão dirigindo ao objetivo principal, ser preparado...</Portuguese>
 <Korean>적의 공수부대가 작전지역으로 오고있다합니다. 교전을 준비하십시오.</Korean>
-<Japanese>敵の空挺部隊がメインターゲットに向かっている。交戦に備えよ...</Japanese>
+<Japanese>敵の空挺部隊が主目標に向かっている。交戦に備えよ...</Japanese>
 <Original>Various airborne enemy troops are heading to the main target, be prepared...</Original>
 <Russian>Десант проитивника высаживается в районе главной цели, внимание...</Russian>
 <Chinesesimp>大量敌军伞兵在向主目标进发，请做好交战准备...</Chinesesimp>
@@ -8909,7 +8909,7 @@
 <Spanish>Enemigos en camino hacia el objetivo principal, atención...</Spanish>
 <Portuguese>Lutadores de inimigo são no caminho ao objetivo principal, atenção...</Portuguese>
 <Korean>적의 전투기가 작전지역으로 오고있습니다. 주의하십시오.</Korean>
-<Japanese>敵航空機がメインターゲットに向かっている。注意しろ...</Japanese>
+<Japanese>敵航空機が主目標に向かっている。注意しろ...</Japanese>
 <Original>Enemy fighters are on the way to the main target, attention...</Original>
 <Russian>Подразделения противника направляются в сторону главной цели, внимание...</Russian>
 <Chinesesimp>敌军战机靠近，注意...</Chinesesimp>
@@ -8921,7 +8921,7 @@
 <Spanish>Helicóptero en camino para atacar el objetivo principal, atención...</Spanish>
 <Portuguese>Ataque de inimigo choppers é no caminho ao objetivo principal, atenção...</Portuguese>
 <Korean>_적의 공격헬기가 작전지역으로 오고있습니다. 주의하십시오.</Korean>
-<Japanese>敵攻撃ヘリコプターがメインターゲットに向かっている。注意しろ...</Japanese>
+<Japanese>敵攻撃ヘリコプターが主目標に向かっている。注意しろ...</Japanese>
 <Original>Enemy attack choppers are on the way to the main target, attention...</Original>
 <Russian>Боевой вертолет противника направляется в сторону главной цели, внимание...</Russian>
 <Chinesesimp>敌军攻击直升机靠近主目标，注意...</Chinesesimp>
@@ -8933,7 +8933,7 @@
 <Spanish>Helicóptero de transporte en camino hacia el objetivo principal, atención...</Spanish>
 <Portuguese>Suporte de inimigo ligeiro choppers é no caminho ao objetivo principal, atenção...</Portuguese>
 <Korean>적의 지원헬기가 작전지역으로 오고있습니다. 주의하십시오.</Korean>
-<Japanese>敵軽ヘリコプターがメインターゲットに向かっている。注意しろ...</Japanese>
+<Japanese>敵軽ヘリコプターが主目標に向かっている。注意しろ...</Japanese>
 <Original>Light enemy support choppers are on the way to the main target, attention...</Original>
 <Russian>Вертолет поддержки противника направляется в сторону главной цели, внимание...</Russian>
 <Chinesesimp>轻型支援直升机在靠近主目标，注意...</Chinesesimp>
@@ -9233,7 +9233,7 @@
 <Spanish>Finalmente hemos encontrado la base de artillería enemiga. Destruya todas las piezas de artillería, para que los observadores no puedan pedir más ataques de artillería, contra los objetivos principales.</Spanish>
 <Portuguese>Finalmente temos encontrado a base de artilharia do inimigo. Se pode destruir todas pistolas de artilharia os observadores de artilharia em objetivos principais têm nada para chamar em greves de artilharia anymore.</Portuguese>
 <Korean>마침내 우리는 적군 포병대 기지를 찾아냈습니다. 만약 포병장비들을 모두 파괴 할 수있다면 감적수를 통한 메인미션지로 효력사 지원을 차단 할 것입니다.</Korean>
-<Japanese>ついに、敵の砲兵基地を発見した。 すべての長距離砲を破壊することができれば、メインターゲットの砲兵観測手はもう砲撃を呼べなくなるだろう。。</Japanese>
+<Japanese>ついに、敵の砲兵基地を発見した。 すべての長距離砲を破壊することができれば、主目標の砲兵観測手はもう砲撃を呼べなくなるだろう。。</Japanese>
 <Original>Finally we've found the enemy artillery base. If you can destroy all artillery guns the artillery observers at main targets have nothing to call in artillery strikes anymore.</Original>
 <Russian>Так же мы обнаружили арт.дивизион противника.Если вы уничтожите все орудия и артнаводчиков, то противник не сможет больше вызывать арт.удар.</Russian>
 <Chinesesimp>我们终于找到了敌人炮兵阵地。如果你可以摧毁主要目标敌人所有的火炮，他们将无法呼叫炮火打击。</Chinesesimp>
@@ -9245,7 +9245,7 @@
 <Spanish>No se encontró el MHQ o está destruido</Spanish>
 <Portuguese>Nenhum MHQ encontrado ou destruiu</Portuguese>
 <Korean>MHQ가 파괴되었거나 없습니다.</Korean>
-<Japanese>MHQが見つからないか破壊されています。</Japanese>
+<Japanese>移動指揮所が見つからないか破壊されています。</Japanese>
 <Original>No MHQ found or destroyed</Original>
 <Russian>КШМ не найдена или уничтожена</Russian>
 <Chinesesimp>没有发现基地车（MHQ）或已被摧毁</Chinesesimp>
@@ -9665,7 +9665,7 @@
 <Spanish>Good job. You got the APC.</Spanish>
 <Portuguese>Good job. You got the APC.</Portuguese>
 <Korean>훌륭합니다. APC를 획득하였습니다.</Korean>
-<Japanese>Good job. You got the APC.</Japanese>
+<Japanese>よくやった。装甲車を入手した。</Japanese>
 <Original>Good job. You got the APC.</Original>
 <Russian>Отличная работа! БТР уничтожен.</Russian>
 <Chinesesimp>漂亮！你得到了APC。</Chinesesimp>
@@ -9701,7 +9701,7 @@
 <Spanish>Abandonado %1</Spanish>
 <Portuguese>Abandonado %1</Portuguese>
 <Korean>버려진 %1</Korean>
-<Japanese>Abandoned %1</Japanese>
+<Japanese>放棄された %1</Japanese>
 <Original>Abandoned %1</Original>
 <Russian>%1 оставлена</Russian>
 <Chinesesimp>被抛弃的 %1</Chinesesimp>
@@ -9809,7 +9809,7 @@
 <Spanish>---------------------------- Civilians -------------------------------</Spanish>
 <Portuguese>---------------------------- Civilians -------------------------------</Portuguese>
 <Korean>---------------------- Civilians ----------------------</Korean>
-<Japanese>-------------------------- Civilians -----------------------------</Japanese>
+<Japanese>-------------------------- 民間人 -----------------------------</Japanese>
 <Original>---------------------------- Civilians -------------------------------</Original>
 <Russian>--------------------------- Civilians --------------------------</Russian>
 <Chinesesimp>---------------------------- 平民 -------------------------------</Chinesesimp>
@@ -9821,7 +9821,7 @@
 <Spanish>---------------------------- Enemy AI -------------------------------</Spanish>
 <Portuguese>---------------------------- Enemy AI -------------------------------</Portuguese>
 <Korean>---------------------- Enemy AI ----------------------</Korean>
-<Japanese>-------------------------- Enemy AI -----------------------------</Japanese>
+<Japanese>-------------------------- 敵AI -----------------------------</Japanese>
 <Original>---------------------------- Enemy AI -------------------------------</Original>
 <Russian>--------------------------- Enemy AI --------------------------</Russian>
 <Chinesesimp>---------------------------- 敌方 AI -------------------------------</Chinesesimp>
@@ -9833,7 +9833,7 @@
 <Spanish>---------------------------- Main Target Objectives -------------------------------</Spanish>
 <Portuguese>---------------------------- Main Target Objectives -------------------------------</Portuguese>
 <Korean>---------------------- Main Target Objectives ----------------------</Korean>
-<Japanese>-------------------------- Main Target Objectives -----------------------------</Japanese>
+<Japanese>-------------------------- 主目標の任務 -----------------------------</Japanese>
 <Original>---------------------------- Main Target Objectives -------------------------------</Original>
 <Russian>--------------------------- Main Target Objectives --------------------------</Russian>
 <Chinesesimp>---------------------------- 主要目标 -------------------------------</Chinesesimp>
@@ -9845,7 +9845,7 @@
 <Spanish>---------------------------- Environment -------------------------------</Spanish>
 <Portuguese>---------------------------- Environment -------------------------------</Portuguese>
 <Korean>---------------------- Environment ----------------------</Korean>
-<Japanese>-------------------------- Environment -----------------------------</Japanese>
+<Japanese>-------------------------- 環境 -----------------------------</Japanese>
 <Original>---------------------------- Environment -------------------------------</Original>
 <Russian>--------------------------- Environment --------------------------</Russian>
 <Chinesesimp>---------------------------- 环境 -------------------------------</Chinesesimp>
@@ -9869,7 +9869,7 @@
 <Spanish>------------------------------ MHQ --------------------------------</Spanish>
 <Portuguese>------------------------------ MHQ --------------------------------</Portuguese>
 <Korean>----------------------지휘차량(MHQ)----------------------</Korean>
-<Japanese>------------------------------ MHQ --------------------------------</Japanese>
+<Japanese>------------------------------ 移動指揮所 --------------------------------</Japanese>
 <Original>------------------------------ MHQ --------------------------------</Original>
 <Russian>--------------------------- *КШМ* --------------------------</Russian>
 <Chinesesimp>------------------------------ 基地车（MHQ） --------------------------------</Chinesesimp>
@@ -9881,7 +9881,7 @@
 <Spanish>------------------------- Objetivos Principales ----------------------------</Spanish>
 <Portuguese>------------------------- Objetivos principais ----------------------------</Portuguese>
 <Korean>----------------------주요 목표(Main Targets)----------------------</Korean>
-<Japanese>------------------------- メインターゲット ----------------------------</Japanese>
+<Japanese>------------------------- 主目標 ----------------------------</Japanese>
 <Original>------------------------- Main Targets ----------------------------</Original>
 <Russian>--------------------------- *ГЛАВНОЕ ЗАДАНИЕ* --------------------------</Russian>
 <Chinesesimp>------------------------- 主要目标 ----------------------------</Chinesesimp>
@@ -9905,7 +9905,7 @@
 <Spanish>----------------------------- SALTO EN PARACAIDAS --------------------------------</Spanish>
 <Portuguese>----------------------------- SALTO EM PARACAIDAS --------------------------------</Portuguese>
 <Korean>----------------------공수낙하(HALO)----------------------</Korean>
-<Japanese>----------------------------- HALO --------------------------------</Japanese>
+<Japanese>----------------------------- 高高度空挺降下 --------------------------------</Japanese>
 <Original>----------------------------- HALO --------------------------------</Original>
 <Russian>--------------------------- *ДЕСАНТИРОВАНИЕ* --------------------------</Russian>
 <Chinesesimp>----------------------------- 跳伞 --------------------------------</Chinesesimp>
@@ -9917,7 +9917,7 @@
 <Spanish>------------------------ Vehículos Cerrados --------------------------</Spanish>
 <Portuguese>------------------------ Veículos Fechados --------------------------</Portuguese>
 <Korean>----------------------차량잠금(Locked Vehicle)----------------------</Korean>
-<Japanese>------------------------ Locked Vehicles --------------------------</Japanese>
+<Japanese>------------------------ 車両の鍵 --------------------------</Japanese>
 <Original>------------------------ Locked Vehicles --------------------------</Original>
 <Russian>--------------------------- *БЛОКИРОВКА ТЕХНИКИ ИИ* --------------------------</Russian>
 <Chinesesimp>------------------------ 锁定载具 --------------------------</Chinesesimp>
@@ -9941,7 +9941,7 @@
 <Spanish>------------------------ Manejar Chatarra ---------------------------</Spanish>
 <Portuguese>------------------------ Chatarra  Manejando ---------------------------</Portuguese>
 <Korean>----------------------잔해물처리(Wreck Handling)----------------------</Korean>
-<Japanese>---------------------- Wreck(残骸) Handling -------------------------</Japanese>
+<Japanese>---------------------- 残骸の扱い -------------------------</Japanese>
 <Original>------------------------ Wreck Handling ---------------------------</Original>
 <Russian>--------------------------- *НАСТРОЙКИ РЕМОНТА ПРИЗОВОЙ ТЕХНИКИ* --------------------------</Russian>
 <Chinesesimp>------------------------ 残骸处理 ---------------------------</Chinesesimp>
@@ -9965,7 +9965,7 @@
 <Spanish>Desactivar balanceo:</Spanish>
 <Portuguese>Inutiliza balança:</Portuguese>
 <Korean>흔들림 비활성화:</Korean>
-<Japanese>Disable sway:</Japanese>
+<Japanese>手ブレの無効化:</Japanese>
 <Original>Disable sway:</Original>
 <Russian>Отключить тряску прицела:</Russian>
 <Chinesesimp>消除摆动：</Chinesesimp>
@@ -9989,7 +9989,7 @@
 <Spanish>Misión Secundaria Vehículo</Spanish>
 <Portuguese>Sidemission Veículo</Portuguese>
 <Korean>보조미션 차량</Korean>
-<Japanese>Sidemission Vehicle</Japanese>
+<Japanese>サイドミッションの車両</Japanese>
 <Original>Sidemission Vehicle</Original>
 <Russian>Транспорт доп.задания.</Russian>
 <Chinesesimp>支线任务的载具</Chinesesimp>
@@ -10133,7 +10133,7 @@
 <Spanish>Bandera de base</Spanish>
 <Portuguese>Bandeira de base</Portuguese>
 <Korean>기지 깃발</Korean>
-<Japanese>Base Flag</Japanese>
+<Japanese>基地の旗</Japanese>
 <Original>Base Flag</Original>
 <Russian>Меню базы</Russian>
 <Chinesesimp>基地传送点</Chinesesimp>
@@ -10385,7 +10385,7 @@
 <Spanish>Llamar a CAS</Spanish>
 <Portuguese>Call CAS</Portuguese>
 <Korean>CAS 요청</Korean>
-<Japanese>Call CAS</Japanese>
+<Japanese>航空支援要請</Japanese>
 <Original>Call CAS</Original>
 <Russian>Вызвать CAS</Russian>
 <Chinesesimp>在激光指示点呼叫空中支援</Chinesesimp>
@@ -10397,7 +10397,7 @@
 <Spanish>CAS ACTUALMENTE en Objetivo ...</Spanish>
 <Portuguese>CAS Atualmente não disponível...</Portuguese>
 <Korean>현재 CAS를 이용할 수 없습니다...</Korean>
-<Japanese>CASは現在利用できません...</Japanese>
+<Japanese>航空支援は現在利用できません...</Japanese>
 <Original>CAS currently not available...</Original>
 <Russian>Авиация пока не готова к АвиаУдару...</Russian>
 <Chinesesimp>现在没有空中支援了...</Chinesesimp>
@@ -10409,7 +10409,7 @@
 <Spanish>Usted no tiene suficientes puntos para solicitar CAS. Es necesario %2 puntos por dinero en efectivo, su puntuación actual es 1%</Spanish>
 <Portuguese>Não tem bastantees pontos para pedir CAS. Precisa %2 pontos a favor CAS, vossa pontuação atual é %1</Portuguese>
 <Korean>CAS를 요청하기에 포인트가 부족합니다. CAS를 요청하기 위해서는 %2 포인트가 필요하며, 현재 %1 포인트 만큼 갖고있습니다.</Korean>
-<Japanese>CASをリクエストするのに十分なポイントがありません。 CASの %2 ポイントが必要です。現在のスコアは %1 です</Japanese>
+<Japanese>航空支援をリクエストするのに十分なポイントがありません。 %2 ポイントが必要です。現在のスコアは %1 です</Japanese>
 <Original>You don't have enough points to request CAS. You need %2 points for CAS, your current score is %1</Original>
 <Russian>У Вас нет достаточно очков для вызова АвиаУдара. Вам нужно %2, а у Вас %1.</Russian>
 <Chinesesimp>你没有足够的点数使用空中支援。你需要 %2 点数来使用空中支援，你现在的点数是 %1 。</Chinesesimp>
@@ -10421,7 +10421,7 @@
 <Spanish>CAS en el camino ... ESTA en unos segundos ...</Spanish>
 <Portuguese>CAS No caminho... ETA em uns quantos segundos...</Portuguese>
 <Korean>CAS가 출격하였습니다. ETA 몇 초 전...</Korean>
-<Japanese>CASが向かっている... もうすぐ到着...</Japanese>
+<Japanese>まもなく攻撃機が到着する。</Japanese>
 <Original>CAS on the way... ETA in a few seconds...</Original>
 <Russian>Скоро АвиаУдар. ПВП несколько секунд...</Russian>
 <Chinesesimp>空中支援正在路上...预计即将到达...</Chinesesimp>
@@ -10433,7 +10433,7 @@
 <Spanish>CAS disponible de nuevo ...</Spanish>
 <Portuguese>CAS Disponível outra vez...</Portuguese>
 <Korean>CAS 출격 대기중...</Korean>
-<Japanese>CAS 利用可能...</Japanese>
+<Japanese>航空支援要請が利用可能となった。</Japanese>
 <Original>CAS available again...</Original>
 <Russian>АвиаУдар снова доступен...</Russian>
 <Chinesesimp>空中支援可用...</Chinesesimp>
@@ -10456,7 +10456,7 @@
 <English>Wreck Repair Point, Time to repair: %1 seconds</English>
 <Spanish>Punto de reparación del naufragio, Tiempo de reparación: %1 segundos</Spanish>
 <Korean>잔해 수리 지점, 수리까지 남은 시간: %1 초</Korean>
-<Japanese>修復ポイント、修復時間： %1 秒</Japanese>
+<Japanese>残骸修理工場、修復時間： %1 秒</Japanese>
 <Original>Wreck Repair Point, Time to repair: %1 seconds</Original>
 <Russian>Место Ремонта ВРЕКов, Время ремонта: %1 секунд</Russian>
 <Chinesesimp>残骸修理点，剩余修理时间: %1 秒</Chinesesimp>
@@ -10686,7 +10686,7 @@
 <Spanish>Ningún vehículo principal de bonificación</Spanish>
 <Portuguese>Nenhum veículo principal de bonificación</Portuguese>
 <Korean>메인미션 보상장비는 없습니다</Korean>
-<Japanese>メインターゲットのボーナス車両無し</Japanese>
+<Japanese>主目標のボーナス車両無し</Japanese>
 <Original>No main target bonus vehicles</Original>
 <Russian>Нет призовой техники для главных заданий</Russian>
 <Chinesesimp>没有主线任务奖励载具</Chinesesimp>
@@ -10722,7 +10722,7 @@
 <Spanish>Reaparecen principales enemigos AI grupos como refuerzos:</Spanish>
 <Portuguese>Reaparecem principais inimigos AI grupos como reforços:</Portuguese>
 <Korean>메인미션 적군 AI부대 증원 리스폰:</Korean>
-<Japanese>AIグループを援軍としてメインターゲットにリスポーンさせる:</Japanese>
+<Japanese>主目標に援軍としてAIグループをリスポーンさせる:</Japanese>
 <Original>Respawn main target enemy AI groups as reinforcements:</Original>
 <Russian>Возрождение ИИ групп на главном задании как подкрепления:</Russian>
 <Chinesesimp>重新生成主要目标敌方 AI 单位作为增援部队：</Chinesesimp>
@@ -10734,7 +10734,7 @@
 <Spanish>Cadáveres persistentes</Spanish>
 <Portuguese>Persistent AI corpses</Portuguese>
 <Korean>AI 시체들 유지</Korean>
-<Japanese>Persistent AI corpses</Japanese>
+<Japanese>AIの死体を残す</Japanese>
 <Original>Persistent AI corpses</Original>
 <Russian>Не удалять трупы AI до выполнения основной задачи</Russian>
 <Chinesesimp>永久显示 AI 尸体</Chinesesimp>
@@ -10746,7 +10746,7 @@
 <Spanish>Adjuntar Chatarra</Spanish>
 <Portuguese>Anexar naufrágio</Portuguese>
 <Korean>잔해 접근</Korean>
-<Japanese>残骸を連結</Japanese>
+<Japanese>残骸の連結</Japanese>
 <Original>Attach wreck</Original>
 <Russian>Прицепить ВРЕК</Russian>
 <Chinesesimp>固定残骸</Chinesesimp>
@@ -10770,7 +10770,7 @@
 <Spanish>Este es un vehículo de transporte de naufragio. Usted puede conectar los naufragios (marcado en el mapa) a él y traerlos de vuelta a la base para el punto de reparación de naufragio!</Spanish>
 <Portuguese>Este é um veículo de transporte de naufrágio. Você pode anexar naufrágios (marcado no mapa) para ele e trazê-los de volta para a base para o ponto de reparação naufrágio!</Portuguese>
 <Korean>이것은 잔해운반 장비입니다.(맵에 표시된) 잔해를 부착하여 운반 할 수 있으며 그것을 기지의 잔해 수리지점으로 가져 가십시오!</Korean>
-<Japanese>これは残骸回収車両です。残骸を連結し基地の修復ポイント(wreck repair point)へと運ぶことができます!</Japanese>
+<Japanese>これは残骸回収車両です。残骸を連結し基地の残骸修理工場へと運ぶことができます!</Japanese>
 <Original>This is a wreck transport vehicle. You can attach wrecks (marked on map) to it and bring them back to the base to the wreck repair point!</Original>
 <Russian>Это транспорт для перевозки обломков приз. техники (ВРЕКов). Найдите WRECK на карте и вы можете его привезти на базу и отремонтировать</Russian>
 <Chinesesimp>这是一辆残骸运输载具。你可以固定残骸（标记在地图上）并把它们带回到残骸维修点！</Chinesesimp>
@@ -10782,7 +10782,7 @@
 <Spanish>Administrador espectador</Spanish>
 <Portuguese>Administrador espectador</Portuguese>
 <Korean>다른 플레이어들 관찰</Korean>
-<Japanese>Spectate other players</Japanese>
+<Japanese>他のプレイヤーの観戦</Japanese>
 <Original>Spectate other players</Original>
 <Russian>Смотреть за другими игроками</Russian>
 <Chinesesimp>观看其他玩家</Chinesesimp>
@@ -10794,7 +10794,7 @@
 <Spanish>GUARDE DIÁLOGO BASE DE DATOS</Spanish>
 <Portuguese>BASE DE DADOS SALVAR O DIÁLOGO</Portuguese>
 <Korean>데이터베이스 저장 다이얼로그</Korean>
-<Japanese>DATABASE SAVE DIALOG</Japanese>
+<Japanese>データベースへの保存ダイアログ</Japanese>
 <Original>DATABASE SAVE DIALOG</Original>
 <Russian>МЕНЮ СОХРАНЕНИЯ БД</Russian>
 <Chinesesimp>数据库保存对话框</Chinesesimp>
@@ -10806,7 +10806,7 @@
 <Spanish>Introduzca el nombre guardado (sólo caracteres y números):</Spanish>
 <Portuguese>Digite o nome de gravação (apenas caracteres e números):</Portuguese>
 <Korean>이름 저장 입력 (오직 문자와 숫자):</Korean>
-<Japanese>Enter save name (only chars and numbers):</Japanese>
+<Japanese>保存名称を入力してください。(数字と文字のみ):</Japanese>
 <Original>Enter save name (only chars and numbers):</Original>
 <Russian>Введите имя:</Russian>
 <Chinesesimp>输入保存名称（只有字符和数字）：</Chinesesimp>
@@ -10818,7 +10818,7 @@
 <Spanish>Guardar en base de datos</Spanish>
 <Portuguese>Salvar em DataBase</Portuguese>
 <Korean>데이터베이스에 저장</Korean>
-<Japanese>Save to DataBase</Japanese>
+<Japanese>データベースに保存</Japanese>
 <Original>Save to DataBase</Original>
 <Russian>Сохранить в БД</Russian>
 <Chinesesimp>保存到数据库</Chinesesimp>
@@ -10830,7 +10830,7 @@
 <Spanish>Progreso de la misión guardado (%1)</Spanish>
 <Portuguese>O progresso da missão foi salvo (%1)</Portuguese>
 <Korean>미션진행도 저장 (%1)</Korean>
-<Japanese>Mission progress saved (%1)</Japanese>
+<Japanese>ミッションの進行状況を保存 (%1)</Japanese>
 <Original>Mission progress saved (%1)</Original>
 <Russian>Сохранение прогресса миссии (%1)</Russian>
 <Chinesesimp>任务进度保存 (%1)</Chinesesimp>
@@ -10842,7 +10842,7 @@
 <Spanish>Cargar archivo de almacenamiento de base de datos</Spanish>
 <Portuguese>Carregar arquivo de salvamento de banco de dados</Portuguese>
 <Korean>데이터베이스에서 세이브파일 불러오기</Korean>
-<Japanese>Load database savefile</Japanese>
+<Japanese>セーブデータの読み込み</Japanese>
 <Original>Load database savefile</Original>
 <Russian>Загрузить сохраненный файл БД</Russian>
 <Chinesesimp>加载数据库保存文件</Chinesesimp>
@@ -10854,7 +10854,7 @@
 <Spanish>Haga clic en un nombre de juego guardado para cargar %1%2</Spanish>
 <Portuguese>Clique em um nome para guardar o jogo abaixo para carregá-lo %1%2</Portuguese>
 <Korean>아래에 저장된 게임 이름을 클릭하여 불어오십시오%1%2</Korean>
-<Japanese>Click on a save game name below to load it%1%2</Japanese>
+<Japanese>読み込みたい保存データの名称をクリックしてください %1%2</Japanese>
 <Original>Click on a save game name below to load it%1%2</Original>
 <Russian>Нажмите на название игры для сохранения %1%2</Russian>
 <Chinesesimp>点击下面的保存游戏名称加载 %1%2</Chinesesimp>
@@ -10866,7 +10866,7 @@
 <Spanish>No se pudo cargar el progreso de la base de datos guardada %1</Spanish>
 <Portuguese>Não foi possível carregar o progresso do banco de dados salvo %1</Portuguese>
 <Korean>DB저장 파일 %1 불러올수 없습니다</Korean>
-<Japanese>Could not load saved DB progress %1</Japanese>
+<Japanese>データを読み込めませんでした %1</Japanese>
 <Original>Could not load saved DB progress %1</Original>
 <Russian>Мы не можем загрузить сохраненный в БД прогресс %1</Russian>
 <Chinesesimp>无法加载保存的数据库进度 %1</Chinesesimp>
@@ -10878,7 +10878,7 @@
 <Spanish>DB guardó el progreso %1 se cargó correctamente</Spanish>
 <Portuguese>DB salvo progresso %1 carregado com êxito</Portuguese>
 <Korean>DB 저장파일 %1 불어오기 성공</Korean>
-<Japanese>DB saved progress %1 successfully loaded</Japanese>
+<Japanese>保存されたデータ %1 が読み込まれました</Japanese>
 <Original>DB saved progress %1 successfully loaded</Original>
 <Russian>Сохраненный прогресс в БД %1 успешно загружен</Russian>
 <Chinesesimp>数据库保存进度 %1 成功加载</Chinesesimp>
@@ -10890,7 +10890,7 @@
 <Spanish>Guardar en DB</Spanish>
 <Portuguese>Salvar em DB</Portuguese>
 <Korean>DB 저장</Korean>
-<Japanese>Save to DB</Japanese>
+<Japanese>データベースに保存</Japanese>
 <Original>Save to DB</Original>
 <Russian>Сохранить в БД</Russian>
 <Chinesesimp>保存到数据库</Chinesesimp>
@@ -10902,7 +10902,7 @@
 <Spanish>Misión final</Spanish>
 <Portuguese>Missão final</Portuguese>
 <Korean>보조미션 종료</Korean>
-<Japanese>End sidemission</Japanese>
+<Japanese>サイドミッションを終了</Japanese>
 <Original>End sidemission</Original>
 <Russian>Конец доп.задания</Russian>
 <Chinesesimp>结束支线任务</Chinesesimp>
@@ -10914,7 +10914,7 @@
 <Spanish>DIÁLOGO DE LOS JUGADORES TOP DE LA BASE DE DATOS</Spanish>
 <Portuguese>DIÁLOGO DOS JOGADORES TOP DA BASE DE DADOS</Portuguese>
 <Korean>데이터베이스 최상위 플레이어 다이얼로그</Korean>
-<Japanese>DATABASE TOP PLAYERS DIALOG</Japanese>
+<Japanese>データベースの上位プレイヤーダイアログ</Japanese>
 <Original>DATABASE TOP PLAYERS DIALOG</Original>
 <Russian>Меню бызы данных</Russian>
 <Chinesesimp>数据库排名前十名对话框</Chinesesimp>
@@ -10926,7 +10926,7 @@
 <Spanish>Mejores jugadores de DB</Spanish>
 <Portuguese>Principais jogadores DB</Portuguese>
 <Korean>데이터베이스 최상위 플레이어들</Korean>
-<Japanese>DB Top Players</Japanese>
+<Japanese>トッププレイヤー</Japanese>
 <Original>DB Top Players</Original>
 <Russian>ДБ Топ Игроков</Russian>
 <Chinesesimp>数据库前十名</Chinesesimp>
@@ -10938,7 +10938,7 @@
 <Spanish>La IA puede conducir un vehículo sin un jugador adentro:</Spanish>
 <Portuguese>AI pode dirigir veículo sem um jogador dentro:</Portuguese>
 <Korean>AI 플레이어가 미 탑승 시 운전 운전가능 여부:</Korean>
-<Japanese>AI can drive vehicle without a player inside:</Japanese>
+<Japanese>AIによる、プレイヤーのいない車両の運転許可:</Japanese>
 <Original>AI can drive vehicle without a player inside:</Original>
 <Russian>ИИ может управлять техникой без игрока внутри:</Russian>
 <Chinesesimp>AI 可以在没有玩家的情况下驾驶载具：</Chinesesimp>
@@ -10950,7 +10950,7 @@
 <Spanish>Con grupos dinámicos BIS (gestión de escuadrón):</Spanish>
 <Portuguese>Com Grupos Dinâmicos BIS (Squad Mgmt):</Portuguese>
 <Korean>BIS 다이나믹 그룹 기능여부(그룹기능):</Korean>
-<Japanese>With BIS Dynamic Groups (Squad Mgmt):</Japanese>
+<Japanese>BISのダイナミックグループを使用する (チーム管理):</Japanese>
 <Original>With BIS Dynamic Groups (Squad Mgmt):</Original>
 <Russian>Включить BIS-меню групп:</Russian>
 <Chinesesimp>使用 BIS 动态组（小队管理）：</Chinesesimp>
@@ -10962,7 +10962,7 @@
 <Spanish>Aeródromo</Spanish>
 <Portuguese>Aeródromo</Portuguese>
 <Korean>공항</Korean>
-<Japanese>Airfield</Japanese>
+<Japanese>航空基地</Japanese>
 <Original>Airfield</Original>
 <Russian>Аэродром</Russian>
 <Chinesesimp>机场</Chinesesimp>
@@ -10974,7 +10974,7 @@
 <Spanish>Punto de servicio</Spanish>
 <Portuguese>Ponto de serviço</Portuguese>
 <Korean>정비지점</Korean>
-<Japanese>Service Point</Japanese>
+<Japanese>整備工場</Japanese>
 <Original>Service Point</Original>
 <Russian>Место ремонта</Russian>
 <Chinesesimp>服务点</Chinesesimp>
@@ -10986,7 +10986,7 @@
 <Spanish>Farp</Spanish>
 <Portuguese>Farp</Portuguese>
 <Korean>재보급소(Farp)</Korean>
-<Japanese>Farp</Japanese>
+<Japanese>前線補給所</Japanese>
 <Original>Farp</Original>
 <Russian>Аванпост</Russian>
 <Chinesesimp>前沿补给点</Chinesesimp>
@@ -10998,7 +10998,7 @@
 <Spanish>El enemigo tiene un pequeño puesto avanzado. Arresta al oficial allí y tráelo de vuelta a tu base para obtener información vital</Spanish>
 <Portuguese>O inimigo tem um pequeno posto avançado. Prenda o oficial lá e traga-o de volta à sua base para obter algumas informações vitais.</Portuguese>
 <Korean>적군의 작은 전초기지가 있습니다. 그곳의 지휘관을 체포하여 기지로 데려온다면 우리는 적의 중추적인 정보를 획득 할 수 있습니다</Korean>
-<Japanese>The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations</Japanese>
+<Japanese>敵の小さな前線基地がある。そこにいる将官を捕らえて基地に連れ帰り、重要情報を聞き出せ。</Japanese>
 <Original>The enemy has a small outpost. Arrest the officer there and bring him back to your base to get some vital informations</Original>
 <Russian>Обнаружен блок-пост противника. Арестуйте офицера и доставьте его на базу для допроса!</Russian>
 <Chinesesimp>敌人有一个小前哨。 逮捕那里的军官，把他带回你的基地，以获得一些重要的信息</Chinesesimp>
@@ -11106,7 +11106,7 @@
 <Spanish>Defusing device...</Spanish>
 <Portuguese>Defusing device...</Portuguese>
 <Korean>Defusing device...</Korean>
-<Japanese>Defusing device...</Japanese>
+<Japanese>デバイスを解除中...</Japanese>
 <Original>Defusing device...</Original>
 <Russian>Defusing device...</Russian>
 <Chinesesimp>拆解装置...</Chinesesimp>
@@ -11238,7 +11238,7 @@
 <Spanish>Crear ATV</Spanish>
 <Portuguese>Criar ATV</Portuguese>
 <Korean>ATV 생성</Korean>
-<Japanese>Create ATV</Japanese>
+<Japanese>ATVを作る</Japanese>
 <Original>Create ATV</Original>
 <Russian>Квадроцикл</Russian>
 <Chinesesimp>创建四轮摩托车</Chinesesimp>
@@ -11322,7 +11322,7 @@
 <Spanish>¡Tienes que esperar %1 segundos para crear un nuevo vehículo en un MHQ!</Spanish>
 <Portuguese>Você tem que esperar %1 segundos para criar um novo veículo em um MHQ!</Portuguese>
 <Korean>새로운 MHQ 생성에 %1 초가 소요되니 기다려주십시오!</Korean>
-<Japanese>You have to wait %1 seconds to create a new vehicle at a MHQ!</Japanese>
+<Japanese>移動指揮所で新たな車両を作れるようになるまで、%1秒待つ必要があります!</Japanese>
 <Original>You have to wait %1 seconds to create a new vehicle at a MHQ!</Original>
 <Russian>Нужно подождать %1 секунд прежде чем доставать транспорт из КШМ!</Russian>
 <Chinesesimp>你必须等待 %1 秒才能在 基地车（MHQ）上创建新载具！</Chinesesimp>
@@ -11334,7 +11334,7 @@
 <Spanish>Segundos hasta que un jugador puede crear un nuevo vec en MHQ:</Spanish>
 <Portuguese>Segundos até que um jogador possa criar um novo vec no MHQ:</Portuguese>
 <Korean>플레이어가 새로운 MHQ 생성 할 수 있는 소요시간:</Korean>
-<Japanese>Seconds till a player can create a new vec at MHQ:</Japanese>
+<Japanese>移動指揮所で新規車両が展開可能となるまでの待ち時間:</Japanese>
 <Original>Seconds till a player can create a new vec at MHQ:</Original>
 <Russian>Секунд до возможности получить снова технику из КШМ:</Russian>
 <Chinesesimp>玩家可以在 基地车（MHQ） 创建一个新的 VEC 所需要的秒数：</Chinesesimp>
@@ -11358,7 +11358,7 @@
 <Spanish>Reaparecer</Spanish>
 <Portuguese>Retornar</Portuguese>
 <Korean>리스폰</Korean>
-<Japanese>Respawn</Japanese>
+<Japanese>リスポン</Japanese>
 <Original>Respawn</Original>
 <Russian>Респаун</Russian>
 <Chinesesimp>重生</Chinesesimp>
@@ -11370,7 +11370,7 @@
 <Spanish>%1 intenta revivirte...</Spanish>
 <Portuguese>%1 tenta reanimá-lo...</Portuguese>
 <Korean>%1 이(가) 리바이브 중...</Korean>
-<Japanese>%1 tries to revive you...</Japanese>
+<Japanese>あなたを%1が蘇生中...</Japanese>
 <Original>%1 tries to revive you...</Original>
 <Russian>%1 пробует Вас спасти...</Russian>
 <Chinesesimp>%1 试图让你恢复活力...</Chinesesimp>
@@ -11394,7 +11394,7 @@
 <Spanish>Usa solo armas mod en el Arsenal Virtual:</Spanish>
 <Portuguese>Utilize apenas as armas mod no Arsenal Virtual:</Portuguese>
 <Korean>버츄얼 아스널에서만 무기 모드 사용:</Korean>
-<Japanese>Use only mod weapons in Virtual Arsenal:</Japanese>
+<Japanese>Virtual ArsenalでModの装備のみを許可:</Japanese>
 <Original>Use only mod weapons in Virtual Arsenal:</Original>
 <Russian>Использовать только моды в виртуальном арсенале:</Russian>
 <Chinesesimp>在虚拟武器库中仅使用 MOD 武器：</Chinesesimp>
@@ -11406,7 +11406,7 @@
 <Spanish>Los vehículos enemigos  pueden ser transportados por aire:</Spanish>
 <Portuguese>Os veículos inimigos da IA podem ser levantados por ar:</Portuguese>
 <Korean>적군 AI 차량 리프트 가능:</Korean>
-<Japanese>Enemy AI vehicles can be air lifted:</Japanese>
+<Japanese>敵AIの車両を空輸可能か:</Japanese>
 <Original>Enemy AI vehicles can be air lifted:</Original>
 <Russian>Транспорт противника (ИИ) может быть подцеплен:</Russian>
 <Chinesesimp>敌方 AI 载具可以空运：</Chinesesimp>
@@ -11418,7 +11418,7 @@
 <Spanish>Paquetes de bolsas de mortero en Virtual Arsenal:</Spanish>
 <Portuguese>Saco de argamassa no Arsenal Virtual:</Portuguese>
 <Korean>버츄얼 아스널에 박격포 가방 추가:</Korean>
-<Japanese>Mortar bag packs in Virtual Arsenal:</Japanese>
+<Japanese>Virtual Arsenalで迫撃砲バックパックを許可:</Japanese>
 <Original>Mortar bag packs in Virtual Arsenal:</Original>
 <Russian>Минометный рюкзак в виртуальном арсенале:</Russian>
 <Chinesesimp>虚拟武器库中的迫击炮背包：</Chinesesimp>
@@ -11430,7 +11430,7 @@
 <Spanish>Agregar menú de acción "Vehículo engendrado" a las FARP:</Spanish>
 <Portuguese>Adicione o menu de ação "Veículo de Purgar" às FARPs:</Portuguese>
 <Korean>FARP(재보급소)에 "차량 생성" 액션메뉴 추가:</Korean>
-<Japanese>Add action menu "Spawn vehicle" to FARPs:</Japanese>
+<Japanese>前線補給所に車両作成メニューを付与:</Japanese>
 <Original>Add action menu "Spawn vehicle" to FARPs:</Original>
 <Russian>Добавить меню "сделать транспорт" на Аванпосте:</Russian>
 <Chinesesimp>在 FARP（前哨补给站）中添加“生成載具”操作菜单：</Chinesesimp>
@@ -11442,7 +11442,7 @@
 <Spanish>%1, uid %2, está disparando a un vehículo MHQ!!!!</Spanish>
 <Portuguese>%1, uid %2, está atirando em um veículo MHQ!!!!</Portuguese>
 <Korean>%1, uid %2, 유저가 MHQ(지휘차량)에 발포 중입니다!!!!</Korean>
-<Japanese>%1, uid %2, is shooting at a MHQ vehicle!!!!</Japanese>
+<Japanese>%1, uid %2, が移動指揮所を壊そうとしています!!!!</Japanese>
 <Original>%1, uid %2, is shooting at a MHQ vehicle!!!!</Original>
 <Russian>%1, uid %2, стреляет по своему КШМ!!!!</Russian>
 <Chinesesimp>%1，UID %2，正在射击 基地车（MHQ） 车辆！</Chinesesimp>
@@ -11454,7 +11454,7 @@
 <Spanish>%1 está disparando a un vehículo MHQ!!!!</Spanish>
 <Portuguese>%1 está atirando em um veículo MHQ!!!!</Portuguese>
 <Korean>%1 유저가 MHQ(지휘차량)에 발포 중입니다!!!!</Korean>
-<Japanese>%1 is shooting at a MHQ vehicle!!!!</Japanese>
+<Japanese>%1 が移動指揮所を壊そうとしています!!!!</Japanese>
 <Original>%1 is shooting at a MHQ vehicle!!!!</Original>
 <Russian>%1 стреляет по своему КШМ!!!!</Russian>
 <Chinesesimp>%1 正在射击 基地车（MHQ） 车辆！</Chinesesimp>
@@ -11466,7 +11466,7 @@
 <Spanish>Atención, el enemigo lanza un ataque de saboteador en la base....</Spanish>
 <Portuguese>Atenção, o inimigo lança um ataque sabotador na base..</Portuguese>
 <Korean>주의, 적 특수부대가 아군 기지에 사포타주를 실시합니다...</Korean>
-<Japanese>Attention, the enemy launched a saboteur attack on the base...</Japanese>
+<Japanese>注意！ 敵が基地に工作員を送り込んでいる。</Japanese>
 <Original>Attention, the enemy launched a saboteur attack on the base...</Original>
 <Russian>Внимание, противник решил напасть на нашу базу...</Russian>
 <Chinesesimp>注意，敌人在基地发动破坏攻击...</Chinesesimp>
@@ -11490,7 +11490,7 @@
 <Spanish>Con sabotaje en labase:</Spanish>
 <Portuguese>Com sabotagem de base:</Portuguese>
 <Korean>베이스 사보타주:</Korean>
-<Japanese>With base sabotage:</Japanese>
+<Japanese>自軍基地の破壊:</Japanese>
 <Original>With base sabotage:</Original>
 <Russian>ИИ атакует бызы сторон игроков:</Russian>
 <Chinesesimp>基地破坏：</Chinesesimp>
@@ -11502,7 +11502,7 @@
 <Spanish>Enviando datos ... Por favor espere!</Spanish>
 <Portuguese>Sending data... Please wait!</Portuguese>
 <Korean>데이터 전송중... 기다려 주세요!</Korean>
-<Japanese>Sending data... Please wait!</Japanese>
+<Japanese>情報送信中... 待機してください。</Japanese>
 <Original>Sending data... Please wait!</Original>
 <Russian>Пересылаем данные...Ждите!</Russian>
 <Chinesesimp>正在发送数据......请稍候！</Chinesesimp>
@@ -11514,7 +11514,7 @@
 <Spanish>Enviar datos</Spanish>
 <Portuguese>Send data</Portuguese>
 <Korean>데이터 전송하기</Korean>
-<Japanese>Send data</Japanese>
+<Japanese>情報送信</Japanese>
 <Original>Send data</Original>
 <Russian>Отправка данных</Russian>
 <Chinesesimp>发送数据</Chinesesimp>
@@ -11526,7 +11526,7 @@
 <Spanish>El terminal de datos se destruyó antes de que se cargaran los datos.</Spanish>
 <Portuguese>O terminal de dados foi destruído antes de os dados serem carregados</Portuguese>
 <Korean>데이터를 업로드하기 전에 데이터 터미널이 파괴되었습니다</Korean>
-<Japanese>The data terminal was destroyed before the data was uploaded</Japanese>
+<Japanese>情報を送信する前に端末が破壊された。</Japanese>
 <Original>The data terminal was destroyed before the data was uploaded</Original>
 <Russian>Терминал был уничтожен до того, как разведданные успели выгрузить</Russian>
 <Chinesesimp>数据终端在数据上传之前被销毁了！</Chinesesimp>
@@ -11538,7 +11538,7 @@
 <Spanish>Conocemos la ubicación de una terminal de datos enemiga con datos importantes. Llegue allí y suba los datos a uno de nuestros servidores.!</Spanish>
 <Portuguese>Nós sabemos a localização de um terminal de dados inimigo com dados importantes. Chegue lá e faça o upload dos dados para um de nossos servidores!</Portuguese>
 <Korean>우리는 중요한 데이터를 포함하고 있는 적군의 데이터 터미널의 위치를 알고 있습니다. 데이터 터미널을 획득하고 우리의 서버들중 하나에 데이터를 업로드 하세요!</Korean>
-<Japanese>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Japanese>
+<Japanese>重要情報の入った情報端末の場所が分かった。 端末を捜索し、我々のサーバーに情報を送信せよ！</Japanese>
 <Original>We know the location of an enemy data terminal with important data. Get there and upload the data to one of our servers!</Original>
 <Russian>Мы обнаружили терминал противника с важными данными. Выдвигайтесь и скачайте все данные для нас!</Russian>
 <Chinesesimp>我们知道具有重要数据的敌方数据终端的位置。到那里并将数据上传到我们的服务器之一！</Chinesesimp>
@@ -11550,7 +11550,7 @@
 <Spanish>¡Fantástico! Has subido los datos!</Spanish>
 <Portuguese>Fantástico! Você já fez o upload dos dados!</Portuguese>
 <Korean>환상적입니다! 데이터를 업로드 하셨습니다!</Korean>
-<Japanese>Fantastic! You have uploaded the data!</Japanese>
+<Japanese>素晴らしい! あなたはデータ送信を完了した!</Japanese>
 <Original>Fantastic! You have uploaded the data!</Original>
 <Russian>Отлично! Вы скачали разведданные!</Russian>
 <Chinesesimp>太棒了！您已上传数据！</Chinesesimp>
@@ -11562,7 +11562,7 @@
 <Spanish>Datos cargados!</Spanish>
 <Portuguese>DDados carregados!</Portuguese>
 <Korean>데이터 업로드됨!</Korean>
-<Japanese>Data uploaded!</Japanese>
+<Japanese>データ送信完了!</Japanese>
 <Original>Data uploaded!</Original>
 <Russian>Данные скачены!</Russian>
 <Chinesesimp>数据已上传！</Chinesesimp>
@@ -11682,7 +11682,7 @@
 <Spanish>Cancelar artillería</Spanish>
 <Portuguese>Cancelar Artilharia</Portuguese>
 <Korean>포격취소</Korean>
-<Japanese>Cancel Artillery</Japanese>
+<Japanese>砲撃中止</Japanese>
 <Original>Cancel Artillery</Original>
 <Russian>Отменить АртУдар.</Russian>
 <Chinesesimp>取消炮击</Chinesesimp>
@@ -11694,7 +11694,7 @@
 <Spanish>Artillería cancelada</Spanish>
 <Portuguese>Artilharia cancelada</Portuguese>
 <Korean>포격이 취소되었습니다</Korean>
-<Japanese>Artillery canceled</Japanese>
+<Japanese>砲撃は中止された</Japanese>
 <Original>Artillery canceled</Original>
 <Russian>АртУдар отменен.</Russian>
 <Chinesesimp>炮击取消了</Chinesesimp>
@@ -11706,7 +11706,7 @@
 <Spanish>Uno de los objetivos principales: cuarteles destruidos. %1 menos ...</Spanish>
 <Portuguese>Um dos principais alvos do quartel de infantaria do inimigo. %1 esquerda...</Portuguese>
 <Korean>적군 보병 병영이 파괴되었습니다. %1 남았습니다...</Korean>
-<Japanese>One main target enemy inf barrack down. %1 left...</Japanese>
+<Japanese>主目標の敵の兵舎を1つ破壊した。残り %1 軒</Japanese>
 <Original>One main target enemy inf barrack down. %1 left...</Original>
 <Russian>Одна из основных целей -Казарма уничтожена. %1 минус...</Russian>
 <Chinesesimp>一个主要目标敌人营房被摧毁。%1 离开...</Chinesesimp>
@@ -11742,7 +11742,7 @@
 <Spanish>Aplicar</Spanish>
 <Portuguese>Aplique</Portuguese>
 <Korean>적용</Korean>
-<Japanese>Apply</Japanese>
+<Japanese>適用</Japanese>
 <Original>Apply</Original>
 <Russian>Принять</Russian>
 <Chinesesimp>应用</Chinesesimp>
@@ -11754,7 +11754,7 @@
 <Spanish>Espejo</Spanish>
 <Portuguese>Espelho</Portuguese>
 <Korean>대칭</Korean>
-<Japanese>Mirror</Japanese>
+<Japanese>左右対称</Japanese>
 <Original>Mirror</Original>
 <Russian>Зеркало</Russian>
 <Chinesesimp>镜子</Chinesesimp>
@@ -11766,7 +11766,7 @@
 <Spanish>Seleccionar preestablecido</Spanish>
 <Portuguese>Selecione Predefinição</Portuguese>
 <Korean>프리셋 선택</Korean>
-<Japanese>Select Preset</Japanese>
+<Japanese>プリセット選択</Japanese>
 <Original>Select Preset</Original>
 <Russian>Выбрать пресет</Russian>
 <Chinesesimp>选择预设</Chinesesimp>
@@ -11802,7 +11802,7 @@
 <Spanish>Baja por la cuerda</Spanish>
 <Portuguese>Desça a corda</Portuguese>
 <Korean>레펠하기</Korean>
-<Japanese>Rappel Self</Japanese>
+<Japanese>ラペリング降下する</Japanese>
 <Original>Rappel Self</Original>
 <Russian>Спуститься по тросу</Russian>
 <Chinesesimp>索降</Chinesesimp>
@@ -11814,7 +11814,7 @@
 <Spanish>Bajar a las unidas AI por la cuerda</Spanish>
 <Portuguese>Baixando as juntas AI pela corda</Portuguese>
 <Korean>AI 유닛 레펠</Korean>
-<Japanese>Rappel AI Units</Japanese>
+<Japanese>AIをラペリング降下させる</Japanese>
 <Original>Rappel AI Units</Original>
 <Russian>Спустить ИИ по тросам</Russian>
 <Chinesesimp>AI 单位索降</Chinesesimp>
@@ -11826,7 +11826,7 @@
 <Spanish>Desengancha las cuerdas</Spanish>
 <Portuguese>Desacoplar as cordas</Portuguese>
 <Korean>레펠장비 분리</Korean>
-<Japanese>Detach Rappel Device</Japanese>
+<Japanese>ラペリング装置を取り外す</Japanese>
 <Original>Detach Rappel Device</Original>
 <Russian>Отцепить тросы</Russian>
 <Chinesesimp>拆下绳索装置</Chinesesimp>
@@ -11838,7 +11838,7 @@
 <Spanish>Reglas del servidor</Spanish>
 <Portuguese>Regras do Servidor</Portuguese>
 <Korean>서버 규칙</Korean>
-<Japanese>Server Rules</Japanese>
+<Japanese>ルール</Japanese>
 <Original>Server Rules</Original>
 <Russian>Правила Сервера</Russian>
 <Chinesesimp>服务器规则</Chinesesimp>
@@ -11850,7 +11850,7 @@
 <Spanish>Posición de salto demasiado cerca del objetivo principal!!!</Spanish>
 <Portuguese>Posição de salto muito perto do alvo principal!!!</Portuguese>
 <Korean>공수강하 위치가 메인 미션지와 너무 가깝습니다!!!</Korean>
-<Japanese>Jump position too close to main target!!!</Japanese>
+<Japanese>ジャンプ位置が主目標に近すぎます!!!</Japanese>
 <Original>Jump position too close to main target!!!</Original>
 <Russian>Точка десантирования близко к городу основного задания!!!</Russian>
 <Chinesesimp>跳跃位置太靠近主要目标！</Chinesesimp>
@@ -11862,7 +11862,7 @@
 <Spanish>Tapones de Oídos Activado</Spanish>
 <Portuguese>Tampões auriculares ativados</Portuguese>
 <Korean>이어플러그 적용</Korean>
-<Japanese>Earplugs in</Japanese>
+<Japanese>耳栓を使う</Japanese>
 <Original>Earplugs in</Original>
 <Russian>Беруши ВКЛ</Russian>
 <Chinesesimp>戴上耳塞</Chinesesimp>
@@ -11874,7 +11874,7 @@
 <Spanish>Tapones de Oídos Desactivado</Spanish>
 <Portuguese>Tampões de Ouvido Desligados</Portuguese>
 <Korean>이어플러그 해제</Korean>
-<Japanese>Earplugs out</Japanese>
+<Japanese>耳栓を外す</Japanese>
 <Original>Earplugs out</Original>
 <Russian>Беруши ВЫКЛ</Russian>
 <Chinesesimp>取下耳塞</Chinesesimp>
@@ -11886,7 +11886,7 @@
 <Spanish>El jugador %1 intentó cambiar de lado. El tiempo de espera para el cambio de bando es de 30 minutos después de dejar el servidor. Le quedan %2 minutos...</Spanish>
 <Portuguese>Jogador %1 tentou trocar de lado. O tempo de espera para trocar de lado é de 30 minutos após a saída do servidor. Ele tem %2 minutos restantes.</Portuguese>
 <Korean>플레이어 %1 이(가)진영 변경을 하려고 노력중입니다. 진영 변경 대기시간은 서버를 떠난 후 30 분입니다. %2 분 남았습니다...</Korean>
-<Japanese>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Japanese>
+<Japanese>%1 が陣営を変更しようとしました。 サーバーを出てから30分間は陣営変更禁止です。 彼は%2分後から変更可能となります。</Japanese>
 <Original>Player %1 tried to switch sides. Wait time for side switch is 30 minutes after leaving the server. He has %2 minutes left...</Original>
 <Russian>Игрок %1 пытается поменять сторону. Это возможно только через 30 минут после выхода с сервера. У него осталось %2 минут...</Russian>
 <Chinesesimp>玩家 %1 试图改变阵营。等待切换。他还要等待 %2 秒...</Chinesesimp>
@@ -11922,7 +11922,7 @@
 <Spanish>Su puntuación actual:</Spanish>
 <Portuguese>Sua pontuação atual:</Portuguese>
 <Korean>귀관의 현재 스코어:</Korean>
-<Japanese>Your current score:</Japanese>
+<Japanese>現在のスコア:</Japanese>
 <Original>Your current score:</Original>
 <Russian>Сейчас у вас очков:</Russian>
 <Chinesesimp>你目前的分数：</Chinesesimp>
@@ -11934,7 +11934,7 @@
 <Spanish>Tu nueva puntuación:</Spanish>
 <Portuguese>Sua nova pontuação:</Portuguese>
 <Korean>귀관의 새로운 스코어:</Korean>
-<Japanese>Your new score:</Japanese>
+<Japanese>新しいスコア:</Japanese>
 <Original>Your new score:</Original>
 <Russian>Останется у вас:</Russian>
 <Chinesesimp>你的新分数：</Chinesesimp>
@@ -11970,7 +11970,7 @@
 <Spanish>Confirmar</Spanish>
 <Portuguese>Confirme</Portuguese>
 <Korean>확인</Korean>
-<Japanese>Confirm</Japanese>
+<Japanese>決定</Japanese>
 <Original>Confirm</Original>
 <Russian>Подтверждение</Russian>
 <Chinesesimp>确认</Chinesesimp>
@@ -11994,7 +11994,7 @@
 <Spanish>La puntuación de la transferencia</Spanish>
 <Portuguese>Nota de transferência</Portuguese>
 <Korean>스코어 전송</Korean>
-<Japanese>Transfer score</Japanese>
+<Japanese>スコアの移譲</Japanese>
 <Original>Transfer score</Original>
 <Russian>Переведено очков</Russian>
 <Chinesesimp>转移分数</Chinesesimp>
@@ -12684,7 +12684,7 @@
 <Spanish>Sin vehículos de bonificación de emisiones laterales:</Spanish>
 <Portuguese>Sem veículos com bônus de emissão lateral:</Portuguese>
 <Korean>보조미션 보너스 장비 없음:</Korean>
-<Japanese>Without sidemission bonus vehicles:</Japanese>
+<Japanese>サイドミッションの報酬車両・航空機なし:</Japanese>
 <Original>Without sidemission bonus vehicles:</Original>
 <Russian>Без призовой техники с Доп.заданий:</Russian>
 <Chinesesimp>没有支线任务载具奖励：</Chinesesimp>
@@ -12717,7 +12717,7 @@
 <Spanish>Tiempo restante de selección del objetivo principal</Spanish>
 <Portuguese>Tempo restante de seleção do alvo principal</Portuguese>
 <Korean>메인미션 선택 할 수 있는 시간</Korean>
-<Japanese>Main target selection time left</Japanese>
+<Japanese>次目標選択の残り時間</Japanese>
 <Original>Main target selection time left</Original>
 <Russian>Оставшееся время выбора главного задания</Russian>
 <Chinesesimp>主要目标剩余选择时间</Chinesesimp>
@@ -12728,7 +12728,7 @@
 <Spanish>¡Abre el mapa! Ahora tienes 30 segundos para seleccionar el siguiente objetivo principal haciendo clic en uno de los nuevos objetivos amarillos disponibles\n\nA ¡Un objetivo seleccionado se volverá azul!</Spanish>
 <Portuguese>Abra o mapa! Agora você tem 30 segundos para selecionar o próximo alvo principal, clicando em um dos novos alvos amarelos disponíveis\n\nA Um alvo selecionado ficará azul!</Portuguese>
 <Korean>맵을 여세요! 귀관은 지금부터 30초 안에 유효한 노란색의 미션지 중 하나를 클릭하여 다음 메인 미션지를 선택 할 수 있습니다\n\n 목표 선택 시 블루로 변경됩니다!</Korean>
-<Japanese>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Japanese>
+<Japanese>マップを開いて次の目標を選択してください。\n\n黄色の目標が選択可能です。選択された目標は青色になります。</Japanese>
 <Original>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Original>
 <Russian>Откройте карту! Теперь у вас есть 30 секунд, чтобы выбрать следующую основную цель, нажав одну из доступных новых желтых целей \n\nВыбранная цель станет синей!</Russian>
 <Chinesesimp>打开地图！ 你现在有30秒的时间通过单击可用的新黄色目标之一来选择下一个主目标\n\n所选目标将变为蓝色！</Chinesesimp>
@@ -12739,7 +12739,7 @@
 <Spanish>¡La selección del nuevo objetivo ha terminado!</Spanish>
 <Portuguese>Acabou a seleção de novos alvos!</Portuguese>
 <Korean>새로운 미션 선택이 끝났습니다!</Korean>
-<Japanese>New target selection is over!</Japanese>
+<Japanese>目標選択終了！</Japanese>
 <Original>New target selection is over!</Original>
 <Russian>Выбор новой цели окончен!</Russian>
 <Chinesesimp>新的目标选择已经结束！</Chinesesimp>
@@ -12750,7 +12750,7 @@
 <Spanish>¡Los jugadores han seleccionado a %1 como nuevo objetivo principal!</Spanish>
 <Portuguese>Jogadores selecionaram %1 como novo alvo principal!</Portuguese>
 <Korean>플레이어들이 %1 을(를) 새로운 메인 미션지로 선택 하였습니다!</Korean>
-<Japanese>Players have selected %1 as new main target!</Japanese>
+<Japanese>%1 が主目標に選択されました！</Japanese>
 <Original>Players have selected %1 as new main target!</Original>
 <Russian>Игроки выбрали %1 в качестве новой главной цели!</Russian>
 <Chinesesimp>玩家已选择 %1 作为新的主要目标！</Chinesesimp>
@@ -12761,7 +12761,7 @@
 <Spanish>¡Ningún nuevo objetivo tuvo suficientes votos o ninguno fue votado! El Sistema Elegio uno al azar...</Spanish>
 <Portuguese>Nenhum alvo novo teve votos suficientes ou nenhum foi votado! Escolhendo um aleatório...</Portuguese>
 <Korean>새로운 미션지에 대한 투표가 충분하지 않았거나 투표가 없었습니다! 랜덤으로 하나를 선택합니다...</Korean>
-<Japanese>No new target had enough votes or none was voted for! Choosing random one...</Japanese>
+<Japanese>投票数不十分に付き、ランダムな目標を選択します...</Japanese>
 <Original>No new target had enough votes or none was voted for! Choosing random one...</Original>
 <Russian>Ни у одной нового задания не было достаточно голосов, или за него не проголосовали! Выбор будет случайным ...</Russian>
 <Chinesesimp>新目标没有足够的选票或没有投票！ 选择一个随机...</Chinesesimp>
@@ -12772,7 +12772,7 @@
 <Spanish>Cuartel a la izquierda:</Spanish>
 <Portuguese>Quartel da esquerda:</Portuguese>
 <Korean>병영 두기:</Korean>
-<Japanese>Barracks left:</Japanese>
+<Japanese>残りの兵舎数:</Japanese>
 <Original>Barracks left:</Original>
 <Russian>Осталось казарм:</Russian>
 <Chinesesimp>离开营房：</Chinesesimp>
@@ -12783,7 +12783,7 @@
 <Spanish>Con el campo minado en los objetivos principales:</Spanish>
 <Portuguese>Com campo minado nos principais alvos:</Portuguese>
 <Korean>메인 미션지내 지뢰:</Korean>
-<Japanese>With minefield at main targets:</Japanese>
+<Japanese>主目標付近の地雷原:</Japanese>
 <Original>With minefield at main targets:</Original>
 <Russian>WiС минным полем в главных целях:</Russian>
 <Chinesesimp>主线任务生成雷区：</Chinesesimp>
@@ -12794,7 +12794,7 @@
 <Spanish>Con el ícono de dibujo 3D sobre reparación de restos/punto de munición:</Spanish>
 <Portuguese>Com ícone de desenho 3D acima do ponto de naufrágio/ammo:</Portuguese>
 <Korean>잔해 수리/탄약상자 적재소 위에 3D 그림 아이콘:</Korean>
-<Japanese>With 3D draw icon above wreck repair/ammo point:</Japanese>
+<Japanese>残骸修理工場及び弾薬集積所の3Dアイコン:</Japanese>
 <Original>With 3D draw icon above wreck repair/ammo point:</Original>
 <Russian>С иконкой 3D Draw над точкой ремонта/загрузки боеприпасов:</Russian>
 <Chinesesimp>使用残骸维修/弹药补给上方的3D绘制图标：</Chinesesimp>
@@ -12805,7 +12805,7 @@
 <Spanish>¡¡¡Atención!!! ¡Has recogido el casco NVG! Quitándolo ahora, elija otro casco!</Spanish>
 <Portuguese>Atenção!!! Você pegou o headgear NVG! Removendo-o agora, por favor escolha outro headgear!</Portuguese>
 <Korean>주의!!! 귀관은 NVG(야투경) 헤드기어를 들었습니다! 지금 제거하십시오, 다른 헤드기어를 선택하여 주시길 바랍니다!</Korean>
-<Japanese>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Japanese>
+<Japanese>注意!!! 暗視装置のついたヘルメットは使用禁止です。 別のヘルメットを選択してください!!!</Japanese>
 <Original>Attention!!! You have picked up NVG headgear! Removing it now, please choose another headgear!</Original>
 <Russian>Внимание!!! Вы взяли шлем с ПНВ! Шлем удален, выберите другой головной убор!</Russian>
 <Chinesesimp>注意！！！ 你已经戴了夜视仪！现在删除它，请选择另一个头戴装备！</Chinesesimp>
@@ -12816,7 +12816,7 @@
 <Spanish>¡¡Atención!! ¡Has recogido el casco de TI! ¡Quitándoselo ahora, por favor elija otro casco!</Spanish>
 <Portuguese>Atenção!!! Você pegou o headgear da TI! Removendo-o agora, por favor escolha outro headgear!</Portuguese>
 <Korean>주의!!! 귀관은 TI(열화상) 헤드기어를 들었습니다! 지금 제거하십시오, 다른 헤드기어를 선택하여 주시길 바랍니다!</Korean>
-<Japanese>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Japanese>
+<Japanese>注意!!! 熱線画像装置のついたヘルメットは使用禁止です。 別のヘルメットを選択してください!!!</Japanese>
 <Original>Attention!!! You have picked up TI headgear! Removing it now, please choose another headgear!</Original>
 <Russian>Внимание!!! Вы взяли шлем с тепловизором! Шлем удален, выберите другой головной убор!</Russian>
 <Chinesesimp>注意！！！ 你已经戴了热成像仪！现在删除它，请选择另一个头戴装备！</Chinesesimp>
@@ -12827,7 +12827,7 @@
 <Spanish>Cambio de distancia de vista automática en el objetivo principal:</Spanish>
 <Portuguese>Mudança de visualização automática no alvo principal:</Portuguese>
 <Korean>메인미션중 시야거리 자동변경:</Korean>
-<Japanese>Auto viewdistance change at main target:</Japanese>
+<Japanese>主目標付近での視程の自動調整:</Japanese>
 <Original>Auto viewdistance change at main target:</Original>
 <Russian>Автоматическое изменение видимости на основной задаче:</Russian>
 <Chinesesimp>主目标上的自动视距变化：</Chinesesimp>
@@ -12838,7 +12838,7 @@
 <Spanish>Cambio de distancia de vista automática en objetivos principales habilitados!</Spanish>
 <Portuguese>Auto Viewdistance change at main targets enabled!</Portuguese>
 <Korean>메인미션중 시야거리 자동변경 기능이 활성화 되었습니다!</Korean>
-<Japanese>Auto Viewdistance change at main targets enabled!</Japanese>
+<Japanese>主目標付近での視程自動調整が有効化された。</Japanese>
 <Original>Auto Viewdistance change at main targets enabled!</Original>
 <Russian>Автоматическое изменение видимости на основных задачах включено!</Russian>
 <Chinesesimp>启用主目标时的自动视图距离更改！</Chinesesimp>
@@ -12849,7 +12849,7 @@
 <Spanish>Cambio de distancia de vista automática en objetivos principales deshabilitado!</Spanish>
 <Portuguese>Mudança automática de distância em alvos principais desativados!</Portuguese>
 <Korean>메인미션중 시야거리 자동변경 기능이 비활성화 되었습니다!</Korean>
-<Japanese>Auto Viewdistance change at main targets disabled!</Japanese>
+<Japanese>主目標付近での視程自動調整は無効化された。</Japanese>
 <Original>Auto Viewdistance change at main targets disabled!</Original>
 <Russian>Автоматическое изменение видимости на основных задачах отключено!</Russian>
 <Chinesesimp>禁用主要目标的自动视图距离更改！</Chinesesimp>
@@ -12871,7 +12871,7 @@
 <Spanish>No olvides desplegar el MHQ</Spanish>
 <Portuguese>Não se esqueça de implantar o MHQ</Portuguese>
 <Korean>MHQ(지휘차량)을 전개(deploy) 하는것을 잊지 마십시오</Korean>
-<Japanese>Don't forget to deploy the MHQ</Japanese>
+<Japanese>忘れずに移動指揮所を展開してください。</Japanese>
 <Original>Don't forget to deploy the MHQ</Original>
 <Russian>Не забудьте развернуть КШМ</Russian>
 <Chinesesimp>不要忘记部署基地车（MHQ）</Chinesesimp>
@@ -12984,7 +12984,7 @@
 <Spanish>Retire la munición del racimo de la carga del pilón</Spanish>
 <Portuguese>Remover munição de cluster da carga do pilão</Portuguese>
 <Korean>항공무장 로드아웃에서 클러스터탄 제거</Korean>
-<Japanese>Remove cluster ammo from pylon loadout</Japanese>
+<Japanese>クラスター弾薬の使用禁止</Japanese>
 <Original>Remove cluster ammo from pylon loadout</Original>
 <Russian>Снять кассетные боеприпасы с пилона</Russian>
 <Chinesesimp>从挂架装载中删除集束炸弹</Chinesesimp>
@@ -13019,7 +13019,7 @@
 <Spanish>Jugadores</Spanish>
 <Portuguese>Jogadores</Portuguese>
 <Korean>플레이어</Korean>
-<Japanese>Players</Japanese>
+<Japanese>プレイヤー</Japanese>
 <Original>Players</Original>
 <Russian>Игроки</Russian>
 <Chinesesimp>玩家</Chinesesimp>
@@ -13043,7 +13043,7 @@
 <Spanish>Campamentos</Spanish>
 <Portuguese>Acampamentos</Portuguese>
 <Korean>초소</Korean>
-<Japanese>Camps</Japanese>
+<Japanese>陣地</Japanese>
 <Original>Camps</Original>
 <Russian>Бункеры</Russian>
 <Chinesesimp>营地</Chinesesimp>
@@ -13055,7 +13055,7 @@
 <Spanish>Cuarteles</Spanish>
 <Portuguese>Quartel</Portuguese>
 <Korean>병영</Korean>
-<Japanese>Barracks</Japanese>
+<Japanese>兵舎</Japanese>
 <Original>Barracks</Original>
 <Russian>Казармы</Russian>
 <Chinesesimp>军营</Chinesesimp>
@@ -13187,7 +13187,7 @@
 <Spanish>Estás en la cárcel porque %1 Asesinaste a los aliados), tiempo en la cárcel %2 segundos!!!!</Spanish>
 <Portuguese>Você está na cadeia por causa de %1 teamkill(s), tempo de cadeia %2 segundos!!!!</Portuguese>
 <Korean>귀관은 %1 팀킬 수로 인해 교도소에 수감되었습니다, 수감시간은 %2 초 입니다!!!!</Korean>
-<Japanese>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Japanese>
+<Japanese>あなたは %1 人の味方を殺し、%2秒間牢屋送りとなった。</Japanese>
 <Original>You are in jail because of %1 teamkill(s), jail time %2 seconds!!!!</Original>
 <Russian>Вы наказаны за teamkill(s) %1 , время наказания %2 секунд!!!!</Russian>
 <Chinesesimp>你因杀死 %1 个队友而入狱，入狱时间 %2 秒！！！</Chinesesimp>
@@ -13199,7 +13199,7 @@
 <Spanish>Descanse en la cárcel:</Spanish>
 <Portuguese>Tempo de descanso na cadeia:</Portuguese>
 <Korean>수감시간 초기화:</Korean>
-<Japanese>Rest jail time:</Japanese>
+<Japanese>残刑期:</Japanese>
 <Original>Rest jail time:</Original>
 <Russian>Время наказания:</Russian>
 <Chinesesimp>监禁时间：</Chinesesimp>
@@ -13211,7 +13211,7 @@
 <Spanish>%1 segundos</Spanish>
 <Portuguese>%1 segundos</Portuguese>
 <Korean>%1 초</Korean>
-<Japanese>%1 seconds</Japanese>
+<Japanese>%1 秒</Japanese>
 <Original>%1 seconds</Original>
 <Russian>%1 секунд</Russian>
 <Chinesesimp>%1 秒</Chinesesimp>
@@ -13223,7 +13223,7 @@
 <Spanish>Eres libre de nuevo! ¡COMPORTATE ADECUADAMENTE!</Spanish>
 <Portuguese>Você está livre novamente! Comporte-se corretamente!</Portuguese>
 <Korean>석방되었습니다! 올바른 행동을 하세요!</Korean>
-<Japanese>You are free again! Behave properly!</Japanese>
+<Japanese>あなたは釈放された。 今後は気をつけるように!</Japanese>
 <Original>You are free again! Behave properly!</Original>
 <Russian>Вы отбыли наказание! Ведите себя подобающе!</Russian>
 <Chinesesimp>你又自由了！表现正常！</Chinesesimp>
@@ -13271,7 +13271,7 @@
 <Spanish>Aprovechar la condición para el objetivo principal:</Spanish>
 <Portuguese>Condição de apreensão para o alvo principal:</Portuguese>
 <Korean>메인미션 점령조건:</Korean>
-<Japanese>Seize condition for main target:</Japanese>
+<Japanese>主目標の達成条件:</Japanese>
 <Original>Seize condition for main target:</Original>
 <Russian>Выполнить условие для главной цели:</Russian>
 <Chinesesimp>完成主线任务条件：</Chinesesimp>
@@ -13283,7 +13283,7 @@
 <Spanish>Todos los campamentos capturados y la torre de radio destruida</Spanish>
 <Portuguese>Todos os campos capturados e torres de rádio destruídas</Portuguese>
 <Korean>모든초소 점령 및 통신탑 타워 파괴</Korean>
-<Japanese>All camps captured and radio tower destroyed</Japanese>
+<Japanese>全ての陣地が占領され、電波塔が破壊された</Japanese>
 <Original>All camps captured and radio tower destroyed</Original>
 <Russian>Захватить все бункеры и уничтожить радиовышку</Russian>
 <Chinesesimp>占领所有营地并摧毁无线电塔</Chinesesimp>
@@ -13319,7 +13319,7 @@
 <Spanish>Explosivo eliminado. Estás en el aire o demasiado cerca de un MHQ (menos de 9 m) o demasiado cerca de una caja de munición caída</Spanish>
 <Portuguese>Explosivo removido. Você está no ar ou muito perto de um MHQ (menos de 9m) ou muito perto de uma caixa de amoboas gotejadas.</Portuguese>
 <Korean>폭발물이 제거되었습니다. 귀관은 공중에 있거나 MHQ에 근접해 있습니다 (9m 이내) 또는 아머박스가 있는곳에서 너무 가깝습니다.</Korean>
-<Japanese>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</Japanese>
+<Japanese>爆発物を撤去しました。貴方が空中にいるか、移動指揮所若しくは弾薬箱に近すぎます。</Japanese>
 <Original>Explosive removed. You are either in the air or too close to a MHQ (less than 9m) or too close to a dropped ammobox</Original>
 <Russian>Взрывчатка удалена. Вы находитесь либо воздухе или слишком близко к MHQ (меньше, чем 9м) или слишком близко к ящику с боеприпасами</Russian>
 <Chinesesimp>爆炸物已移除。你要么处于空中，要么离基地车（MHQ）（小于9米）太近，或者离放置的弹药箱太近</Chinesesimp>
@@ -13342,7 +13342,7 @@
 <Spanish>Ajuste la habilidad del inteligencia artificial si el servidor cuadros por segundo es bajo</Spanish>
 <Portuguese>Adjust AI subskill if server FPS is low</Portuguese>
 <Korean>서버 FPS가 낮은 경우 AI 하위스킬 조정</Korean>
-<Japanese>Adjust AI subskill if server FPS is low</Japanese>
+<Japanese>低FPS時のAIスキルの調整</Japanese>
 <Original>Adjust AI subskill if server FPS is low</Original>
 <Russian>Отрегулировать навыки AI, если FPS сервера низкий</Russian>
 <Chinesesimp>如果服务器 FPS 较低，则调整 AI 子技能</Chinesesimp>
@@ -13365,7 +13365,7 @@
 <Spanish>Random side missions:</Spanish>
 <Portuguese>Random side missions:</Portuguese>
 <Korean>무작위 보조과제:</Korean>
-<Japanese>Random side missions:</Japanese>
+<Japanese>ランダムサイドミッション:</Japanese>
 <Original>Random side missions:</Original>
 <Russian>Случайные сайд-миссии:</Russian>
 <Chinesesimp>随机支线任务：</Chinesesimp>
@@ -13400,7 +13400,7 @@
 <Spanish>Earplugs A3 User Action Key:</Spanish>
 <Portuguese>Earplugs A3 User Action Key:</Portuguese>
 <Korean>이어플러그 A3 사용자 활성화 키:</Korean>
-<Japanese>Earplugs A3 User Action Key:</Japanese>
+<Japanese>耳栓の A3 ユーザーアクションキー:</Japanese>
 <Original>Earplugs A3 User Action Key:</Original>
 <Russian>Беруши A3 User Action Key:</Russian>
 <Chinesesimp>耳塞A3用户操作按键：</Chinesesimp>
@@ -13412,7 +13412,7 @@
 <Spanish>3D Marker A3 User Action Key:</Spanish>
 <Portuguese>3D Marker A3 User Action Key:</Portuguese>
 <Korean>3D 마커 A3 사용자 활성화 키:</Korean>
-<Japanese>3D Marker A3 User Action Key:</Japanese>
+<Japanese>3Dマーカーの A3 ユーザーアクションキー:</Japanese>
 <Original>3D Marker A3 User Action Key:</Original>
 <Russian>3D-Маркер A3 User Action Key:</Russian>
 <Chinesesimp>3D标记A3用户操作按键：</Chinesesimp>
@@ -13424,7 +13424,7 @@
 <Spanish>Nightvision mode is disabled by the server administrator!</Spanish>
 <Portuguese>Nightvision mode is disabled by the server administrator!</Portuguese>
 <Korean>서버 관리자가 야간투시경을 비활성화 시켰습니다!</Korean>
-<Japanese>Nightvision mode is disabled by the server administrator!</Japanese>
+<Japanese>暗視装置モードはサーバー規則で無効化されています。</Japanese>
 <Original>Nightvision mode is disabled by the server administrator!</Original>
 <Russian>Режим ночного видения отключен администратором сервера!</Russian>
 <Chinesesimp>服务器管理员禁用了夜视仪模式！</Chinesesimp>
@@ -13436,7 +13436,7 @@
 <Spanish>Thermal vision mode is disabled by the server administrator!</Spanish>
 <Portuguese>Thermal vision mode is disabled by the server administrator!</Portuguese>
 <Korean>서버 관리자가 열화상을 비활성화 시켰습니다!</Korean>
-<Japanese>Thermal vision mode is disabled by the server administrator!</Japanese>
+<Japanese>熱線画像モードはサーバー規則で無効化されています。</Japanese>
 <Original>Thermal vision mode is disabled by the server administrator!</Original>
 <Russian>Режим тепловизора отключен администратором сервера!</Russian>
 <Chinesesimp>服务器管理员禁用了热成像模式！</Chinesesimp>
@@ -13460,7 +13460,7 @@
 <Spanish>Turn off markers at AO for tower and camps:</Spanish>
 <Portuguese>Turn off markers at AO for tower and camps:</Portuguese>
 <Korean>점령지 내 초소 및 통신탑 표시 비활성화:</Korean>
-<Japanese>Turn off markers at AO for tower and camps:</Japanese>
+<Japanese>電波塔と陣地のマーカーを消す:</Japanese>
 <Original>Turn off markers at AO for tower and camps:</Original>
 <Russian>Выключить маркеры для радиовышки и бункеров:</Russian>
 <Chinesesimp>在 AO（占领区域） 处关闭塔楼和营地的标记：</Chinesesimp>
@@ -13495,7 +13495,7 @@
 <Spanish>TI Mode:</Spanish>
 <Portuguese>TI Mode:</Portuguese>
 <Korean>TI 모드:</Korean>
-<Japanese>TI Mode:</Japanese>
+<Japanese>熱線画像(TI)モード:</Japanese>
 <Original>TI Mode:</Original>
 <Russian>TI режим:</Russian>
 <Chinesesimp>TI（热成像） 模式：</Chinesesimp>
@@ -13519,7 +13519,7 @@
 <Spanish>Mapa completo</Spanish>
 <Portuguese>Entire map</Portuguese>
 <Korean>모든맵상 도시</Korean>
-<Japanese>Entire map</Japanese>
+<Japanese>マップ全域</Japanese>
 <Original>Entire map</Original>
 <Russian>Вся карта</Russian>
 <Chinesesimp>整个地图</Chinesesimp>
@@ -13675,7 +13675,7 @@
 <Spanish>crash site</Spanish>
 <Portuguese>crash site</Portuguese>
 <Korean>추락 지점</Korean>
-<Japanese>crash site</Japanese>
+<Japanese>墜落地点</Japanese>
 <Original>crash site</Original>
 <Russian>место аварии</Russian>
 <Chinesesimp>坠机现场</Chinesesimp>
@@ -13687,7 +13687,7 @@
 <Spanish>prisioneros</Spanish>
 <Portuguese>prisoners</Portuguese>
 <Korean>포로들</Korean>
-<Japanese>prisoners</Japanese>
+<Japanese>捕虜</Japanese>
 <Original>prisoners</Original>
 <Russian>заключенных</Russian>
 <Chinesesimp>囚犯</Chinesesimp>
@@ -13699,7 +13699,7 @@
 <Spanish>defend</Spanish>
 <Portuguese>defend</Portuguese>
 <Korean>defend</Korean>
-<Japanese>defend</Japanese>
+<Japanese>防衛</Japanese>
 <Original>defened</Original>
 <Russian>defend</Russian>
 <Chinesesimp>防御</Chinesesimp>
@@ -13711,7 +13711,7 @@
 <Spanish>defuse</Spanish>
 <Portuguese>defuse</Portuguese>
 <Korean>defuse</Korean>
-<Japanese>defuse</Japanese>
+<Japanese>解除</Japanese>
 <Original>defuse</Original>
 <Russian>defuse</Russian>
 <Chinesesimp>拆除</Chinesesimp>
@@ -13723,7 +13723,7 @@
 <Spanish>kill triggerman</Spanish>
 <Portuguese>kill triggerman</Portuguese>
 <Korean>kill triggerman</Korean>
-<Japanese>kill triggerman</Japanese>
+<Japanese>起爆装置所持者の射殺</Japanese>
 <Original>kill triggerman</Original>
 <Russian>kill triggerman</Russian>
 <Chinesesimp>杀死爆破手</Chinesesimp>
@@ -13747,7 +13747,7 @@
 <Spanish>Warning: enemy explosive device may be present.</Spanish>
 <Portuguese>Warning: enemy explosive device may be present.</Portuguese>
 <Korean>Warning: enemy explosive device may be present.</Korean>
-<Japanese>Warning: enemy explosive device may be present.</Japanese>
+<Japanese>警告: 敵の爆発物が存在する可能性あり。</Japanese>
 <Original>Warning: enemy explosive device may be present.</Original>
 <Russian>Внимание: возможно наличие вражеского взрывного устройства.</Russian>
 <Chinesesimp>警告：可能存在敌方爆炸装置。</Chinesesimp>
@@ -13759,7 +13759,7 @@
 <Spanish>The enemy detonated a device. Failure.</Spanish>
 <Portuguese>The enemy detonated a device. Failure.</Portuguese>
 <Korean>The enemy detonated a device. Failure.</Korean>
-<Japanese>The enemy detonated a device. Failure.</Japanese>
+<Japanese>敵が爆発物を起爆した。 失敗だ！</Japanese>
 <Original>The enemy detonated a device. Failure.</Original>
 <Russian>Противник привел в действие взрывное устройство. Задача не выполнена.</Russian>
 <Chinesesimp>敌人引爆了一个装置。失败！</Chinesesimp>
@@ -13771,7 +13771,7 @@
 <Spanish>Enemy explosive device disabled.</Spanish>
 <Portuguese>Enemy explosive device disabled.</Portuguese>
 <Korean>Enemy explosive device disabled.</Korean>
-<Japanese>Enemy explosive device disabled.</Japanese>
+<Japanese>敵の爆発物は解除された。</Japanese>
 <Original>Enemy explosive device disabled.</Original>
 <Russian>Взрывное устройство противника диактивированно.</Russian>
 <Chinesesimp>敌人的爆炸装置已禁用。</Chinesesimp>
@@ -13783,7 +13783,7 @@
 <Spanish>Push Boat</Spanish>
 <Portuguese>Push Boat</Portuguese>
 <Korean>보트 밀기</Korean>
-<Japanese>Push Boat</Japanese>
+<Japanese>船を押す</Japanese>
 <Original>Push Boat</Original>
 <Russian>Толкнуть лодку</Russian>
 <Chinesesimp>推船</Chinesesimp>
@@ -13795,7 +13795,7 @@
 <Spanish>Low Gear On</Spanish>
 <Portuguese>Low Gear On</Portuguese>
 <Korean>적은 장비 켜기</Korean>
-<Japanese>Low Gear On</Japanese>
+<Japanese>登坂モードを使用</Japanese>
 <Original>Low Gear On</Original>
 <Russian>Пониженная передача (ВКЛ)</Russian>
 <Chinesesimp>低档开启</Chinesesimp>
@@ -13807,7 +13807,7 @@
 <Spanish>Low Gear Off</Spanish>
 <Portuguese>Low Gear Off</Portuguese>
 <Korean>적은 장비 끄기</Korean>
-<Japanese>Low Gear Off</Japanese>
+<Japanese>登坂モードを解除</Japanese>
 <Original>Low Gear Off</Original>
 <Russian>Пониженная передача (ВЫКЛ)</Russian>
 <Chinesesimp>低档关闭</Chinesesimp>
@@ -13855,7 +13855,7 @@
 <Spanish>You can not respawn anymore!!!</Spanish>
 <Portuguese>You can not respawn anymore!!!</Portuguese>
 <Korean>You can not respawn anymore!!!</Korean>
-<Japanese>You can not respawn anymore!!!</Japanese>
+<Japanese>これ以上リスポンできません!!!</Japanese>
 <Original>You can not respawn anymore!!!</Original>
 <Russian>Вы больше не можете возродиться!!!</Russian>
 <Chinesesimp>你不能重生了！！！</Chinesesimp>
@@ -13867,7 +13867,7 @@
 <Spanish>No more lives left!!!</Spanish>
 <Portuguese>No more lives left!!!</Portuguese>
 <Korean>No more lives left!!!</Korean>
-<Japanese>No more lives left!!!</Japanese>
+<Japanese>リスポン回数が残っていません!!!</Japanese>
 <Original>No more lives left!!!</Original>
 <Russian>Больше не осталось жизней!!!</Russian>
 <Chinesesimp>没有更多的生命了！！！</Chinesesimp>
@@ -13879,7 +13879,7 @@
 <Spanish>Presione X para salir!!!</Spanish>
 <Portuguese>Press X to exit!!!</Portuguese>
 <Korean>Press X to exit!!!</Korean>
-<Japanese>Press X to exit!!!</Japanese>
+<Japanese>Xを押すと終了</Japanese>
 <Original>Press X to exit!!!</Original>
 <Russian>Нажмите X, чтобы выйти!!!</Russian>
 <Chinesesimp>按 X 退出！！！</Chinesesimp>
@@ -13926,7 +13926,7 @@
 <Spanish>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
 <Portuguese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
 <Korean>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
-<Japanese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Japanese>
+<Japanese>あなたは10回以上脱獄しようとしました。 本セッションへの接続が禁止されました!!!!</Japanese>
 <Original>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Original>
 <Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
 <Chinesesimp>你已经尝试10多次越狱。你被禁止参加跑步训练！！！！</Chinesesimp>
@@ -13938,7 +13938,7 @@
 <Spanish>Deploy with camo net</Spanish>
 <Portuguese>Deploy with camo net</Portuguese>
 <Korean>Deploy with camo net</Korean>
-<Japanese>Deploy with camo net</Japanese>
+<Japanese>偽装ネットも展開</Japanese>
 <Original>Deploy with camo net</Original>
 <Russian>Развернуть с камуфляжной сетью</Russian>
 <Chinesesimp>用迷彩网部署s</Chinesesimp>
@@ -13950,7 +13950,7 @@
 <Spanish>Distance traveled, in meters:</Spanish>
 <Portuguese>Distance traveled, in meters:</Portuguese>
 <Korean>Distance traveled, in meters:</Korean>
-<Japanese>Distance traveled, in meters:</Japanese>
+<Japanese>移動距離 (m):</Japanese>
 <Original>Distance traveled, in meters:</Original>
 <Russian>Пройденное расстояние, в метрах:</Russian>
 <Chinesesimp>行驶距离，以米为单位：</Chinesesimp>
@@ -13962,7 +13962,7 @@
 <Spanish>By foot:</Spanish>
 <Portuguese>By foot:</Portuguese>
 <Korean>By foot:</Korean>
-<Japanese>By foot:</Japanese>
+<Japanese>歩き:</Japanese>
 <Original>By foot:</Original>
 <Russian>Пешком:</Russian>
 <Chinesesimp>步行：</Chinesesimp>
@@ -13974,7 +13974,7 @@
 <Spanish>Landvehicle:</Spanish>
 <Portuguese>Landvehicle:</Portuguese>
 <Korean>Landvehicle:</Korean>
-<Japanese>Landvehicle:</Japanese>
+<Japanese>車両:</Japanese>
 <Original>Landvehicle:</Original>
 <Russian>Наземный транспорт:</Russian>
 <Chinesesimp>陆地载具：</Chinesesimp>
@@ -13986,7 +13986,7 @@
 <Spanish>Air:</Spanish>
 <Portuguese>Air:</Portuguese>
 <Korean>Air:</Korean>
-<Japanese>Air:</Japanese>
+<Japanese>航空機:</Japanese>
 <Original>Air:</Original>
 <Russian>Авиация:</Russian>
 <Chinesesimp>航空载具：</Chinesesimp>
@@ -13998,7 +13998,7 @@
 <Spanish>Ship/Boat:</Spanish>
 <Portuguese>Ship/Boat:</Portuguese>
 <Korean>Ship/Boat:</Korean>
-<Japanese>Ship/Boat:</Japanese>
+<Japanese>艦船:</Japanese>
 <Original>Ship/Boat:</Original>
 <Russian>Катера/Лодки:</Russian>
 <Chinesesimp>航海载具：</Chinesesimp>
@@ -14083,7 +14083,7 @@
 <Spanish>You are not allowed to fly this chopper!!!</Spanish>
 <Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
 <Korean>You are not allowed to fly this chopper!!!</Korean>
-<Japanese>You are not allowed to fly this chopper!!!</Japanese>
+<Japanese>あなたはこのヘリコプターの操縦資格がありません!!!</Japanese>
 <Original>You are not allowed to fly this chopper!!!</Original>
 <Russian>Вам не разрешено управлять этим вертолетом !!!</Russian>
 <Chinesesimp>你不被允许驾驶这架直升机！！！</Chinesesimp>
@@ -14095,7 +14095,7 @@
 <Spanish>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Spanish>
 <Portuguese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Portuguese>
 <Korean>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Korean>
-<Japanese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Japanese>
+<Japanese>前線補給所を含む全整備拠点の無効化 (修理、燃料及び弾薬の補給の禁止)</Japanese>
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
 <Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
 <Chinesesimp>禁用所有服务点，包括 FARP 前沿补给点（不加油、不维修、不重新武装）</Chinesesimp>
@@ -14107,7 +14107,7 @@
 <Spanish>Player can spectate other players at base flag</Spanish>
 <Portuguese>Player can spectate other players at base flag</Portuguese>
 <Korean>Player can spectate other players at base flag</Korean>
-<Japanese>Player can spectate other players at base flag</Japanese>
+<Japanese>基地の旗における他のプレイヤーの観戦</Japanese>
 <Original>Player can spectate other players at base flag</Original>
 <Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
 <Chinesesimp>玩家可以在基地标志处观看其他玩家</Chinesesimp>
@@ -14119,7 +14119,7 @@
 <Spanish>Flying choppers and planes only allowed when a player has a score higher than:</Spanish>
 <Portuguese>Flying choppers and planes only allowed when a player has a score higher than:</Portuguese>
 <Korean>Flying choppers and planes only allowed when a player has a score higher than:</Korean>
-<Japanese>Flying choppers and planes only allowed when a player has a score higher than:</Japanese>
+<Japanese>航空機の操縦に必要なスコア:</Japanese>
 <Original>Flying choppers and planes only allowed when a player has a score higher than:</Original>
 <Russian>Вертолеты и самолеты разрешены только в том случае, если игрок набрал больше, чем: </Russian>
 <Chinesesimp>要想被允许驾驶直升机和飞机，玩家的得分必须高于以下值：</Chinesesimp>
@@ -14131,7 +14131,7 @@
 <Spanish>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Spanish>
 <Portuguese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Portuguese>
 <Korean>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Korean>
-<Japanese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Japanese>
+<Japanese>あなたは操縦許可が出ていません。 必要なスコアは%2で、現在%3ポイントです。\n\n %1の銃手となることはできます。</Japanese>
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Original>
 <Russian>Вы еще не обладаете квалификацией, чтобы летать, заходить в качестве наводчика или командовать  %1.\n\nВам необходимо иметь %2 очков, ваш текущий счет %3.</Russian>
 <Chinesesimp>您尚未具备飞行资格，作为炮手进入或指挥 %1 。\n\n您需要总分 %2 ，您的当前分数是 %3。</Chinesesimp>
@@ -14143,7 +14143,7 @@
 <Spanish>Disable Thermal Imaging (TI) for inf weapons/optics:</Spanish>
 <Portuguese>Disable Thermal Imaging (TI) for inf weapons/optics:</Portuguese>
 <Korean>Disable Thermal Imaging (TI) for inf weapons/optics:</Korean>
-<Japanese>Disable Thermal Imaging (TI) for inf weapons/optics:</Japanese>
+<Japanese>歩兵の火器及び照準器における熱線画像(TI)の無効化:</Japanese>
 <Original>Disable Thermal Imaging (TI) for inf weapons/optics:</Original>
 <Russian>Отключить тепловизор (TI) для стрелкового вооружения (оптики): </Russian>
 <Chinesesimp>禁用武器装备/光学装备的热成像功能(TI)：</Chinesesimp>
@@ -14167,7 +14167,7 @@
 <Spanish>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Spanish>
 <Portuguese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Portuguese>
 <Korean>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Korean>
-<Japanese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Japanese>
+<Japanese>(降車した者も含め)撃破された車両の乗員を殺す:</Japanese>
 <Original>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Original>
 <Russian>Убить весь экипаж в технике (и снаружи), если техника будет уничтожена:</Russian>
 <Chinesesimp>地面载具击毁时杀死所有载具乘员（甚至在外面）：</Chinesesimp>
@@ -14179,7 +14179,7 @@
 <Spanish>Player can forgive teamkill (mission revive has to be enabled and spectating):</Spanish>
 <Portuguese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Portuguese>
 <Korean>Player can forgive teamkill (mission revive has to be enabled and spectating):</Korean>
-<Japanese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Japanese>
+<Japanese>プレーヤーが同士討ちを許す権限 (蘇生と観戦が有効化されている必要があります):</Japanese>
 <Original>Player can forgive teamkill (mission revive has to be enabled and spectating):</Original>
 <Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
 <Chinesesimp>玩家可以原谅队友的TK（必须启用任务复活并观看）：</Chinesesimp>
@@ -14190,7 +14190,7 @@
 <Spanish>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Spanish>
 <Portuguese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Portuguese>
 <Korean>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Korean>
-<Japanese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Japanese>
+<Japanese>あなたは %1 から同士討ちを受けました。 許しますか? F9 で Yes / F11 で No</Japanese>
 <Original>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Original>
 <Russian>Вы были убиты игроком вашей команды %1, простить игрока? F9 Да / F11 Нет</Russian>
 <Chinesesimp>您被 %1 杀死了，是否原谅该玩家的TK行为？ F9（YES）、F11（NO）</Chinesesimp>
@@ -14258,7 +14258,7 @@
 <Spanish>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Spanish>
 <Portuguese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Portuguese>
 <Korean>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Korean>
-<Japanese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Japanese>
+<Japanese>%1 は基地の車両を破壊した罪でロビーにキックされました。; UID: %2</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе ; UID: %2</Russian>
 <Chinesesimp>%1 由于击毁了基地的车辆， 被踢到了游戏大厅； UID： %2</Chinesesimp>
@@ -14270,7 +14270,7 @@
 <Spanish>%1 was kicked to lobby because of destryoing vehicles at base</Spanish>
 <Portuguese>%1 was kicked to lobby because of destryoing vehicles at base</Portuguese>
 <Korean>%1 was kicked to lobby because of destryoing vehicles at base</Korean>
-<Japanese>%1 was kicked to lobby because of destryoing vehicles at base</Japanese>
+<Japanese>%1 は基地の車両を破壊した罪でロビーにキックされました。</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе</Russian>
 <Chinesesimp>%1 由于击毁了基地的车辆， 被踢到了游戏大厅</Chinesesimp>
@@ -14282,7 +14282,7 @@
 <Spanish>With AI air taxi (coop version only):</Spanish>
 <Portuguese>With AI air taxi (coop version only):</Portuguese>
 <Korean>With AI air taxi (coop version only):</Korean>
-<Japanese>With AI air taxi (coop version only):</Japanese>
+<Japanese>AIによるプレイヤーの空輸 (coopバージョンのみ):</Japanese>
 <Original>With AI air taxi (coop version only):</Original>
 <Russian>С воздушным такси AI (только для кооперативной версии) :</Russian>
 <Chinesesimp>使用 AI 空中出租车（仅限 COOP 版）：</Chinesesimp>
@@ -14293,7 +14293,7 @@
 <Spanish>With air drop:</Spanish>
 <Portuguese>With air drop:</Portuguese>
 <Korean>With air drop:</Korean>
-<Japanese>With air drop:</Japanese>
+<Japanese>空中投下あり:</Japanese>
 <Original>With air drop:</Original>
 <Russian>С авиасбросом:</Russian>
 <Chinesesimp>启用空投：</Chinesesimp>
@@ -14341,7 +14341,7 @@
 <Spanish>Disable player artillery</Spanish>
 <Portuguese>Disable player artillery</Portuguese>
 <Korean>Disable player artillery</Korean>
-<Japanese>Disable player artillery</Japanese>
+<Japanese>プレイヤーの間接砲撃を無効化</Japanese>
 <Original>Disable player artillery</Original>
 <Russian>Отключить артиллерию для игрока</Russian>
 <Chinesesimp>禁用玩家火炮</Chinesesimp>
@@ -14353,7 +14353,7 @@
 <Spanish>Disable player CAS</Spanish>
 <Portuguese>Disable player CAS</Portuguese>
 <Korean>Disable player CAS</Korean>
-<Japanese>Disable player CAS</Japanese>
+<Japanese>プレイヤーの対地攻撃を無効化</Japanese>
 <Original>Disable player CAS</Original>
 <Russian>Отключить CAS для игрока</Russian>
 <Chinesesimp>禁用玩家 CAS（近距离空中支援）</Chinesesimp>
