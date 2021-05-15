@@ -368,7 +368,7 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30,37};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30",37};
 #endif
-		default = -1;
+		default = 9998;
 	};
 
 	class d_TimeOfDay {
