@@ -433,6 +433,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
+	class d_with_suppress {
+		title = "$STR_DOM_MISSIONSTRING_2042";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
 	class d_with_targetselect_count {
 		title = "$STR_DOM_MISSIONSTRING_1953A";
 		values[] = {0,4,8,12,9999};
@@ -523,7 +530,14 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
+
+	class d_ao_radius_override {
+		title = "$STR_DOM_MISSIONSTRING_MT_RADIUS";
+		values[] = {0,350,450,550,650,750,850,1000};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_11","350","450","550","650","750","850","1000"};
+	};
+
 	class d_params_dl_8_env {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
 		values[] = {-66};
@@ -628,13 +642,6 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1457";
 		values[] = {0,1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-	
-	class d_with_suppress {
-		title = "$STR_DOM_MISSIONSTRING_2042";
-		values[] = {0,1};
-		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -2115,7 +2122,7 @@ class CfgIdentities {
 #endif
 #ifdef __VNCLN__
 	class VNDHQ_OP1: DHQ_BF1 {
-		name = "Van Tý Duong";
+		name = "Van Tï¿½ Duong";
 		speaker = "male03chi";
 	};
 	class VNDHQ_OP2: DHQ_BF1 {

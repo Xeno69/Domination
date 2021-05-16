@@ -38,7 +38,11 @@ d_cur_tgt_pos = _d_t_n_c_t_i # 0;
 publicVariable "d_cur_tgt_pos";
 d_cur_tgt_name = _d_t_n_c_t_i # 1;
 publicVariable "d_cur_tgt_name";
-d_cur_target_radius = _d_t_n_c_t_i # 2;
+if (d_ao_radius_override > 0) then {
+	d_cur_target_radius = d_ao_radius_override;
+} else {
+	d_cur_target_radius = _d_t_n_c_t_i # 2;
+};
 publicVariable "d_cur_target_radius";
 d_mttarget_radius_patrol = d_cur_target_radius + 200 + random 200;
 publicVariable "d_mttarget_radius_patrol";
