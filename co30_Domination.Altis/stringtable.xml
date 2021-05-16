@@ -14162,6 +14162,18 @@
 <Chinese>Big main target fires:</Chinese>
 <French>Big main target fires:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_MT_RADIUS">
+<English>Target radius:</English>
+<Spanish>Target radius:</Spanish>
+<Portuguese>Target radius:</Portuguese>
+<Korean>Target radius:</Korean>
+<Japanese>Target radius:</Japanese>
+<Original>Target radius:</Original>
+<Russian>Target radius:</Russian>
+<Chinesesimp>Target radius：</Chinesesimp>
+<Chinese>Target radius:</Chinese>
+<French>Target radius:</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2062">
 <English>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</English>
 <Spanish>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Spanish>
