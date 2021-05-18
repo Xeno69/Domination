@@ -2738,7 +2738,9 @@ if (hasInterface) then {
 	(d_remove_from_arsenal # 0) pushBack "gm_gvm95_blk";
 #endif
 #ifdef __VN__
-	(d_remove_from_arsenal # 5) append [{"_static_" in _this}, "vn_c_pack_01", "vn_c_pack_02"];
+	if (d_no_mortar_ar == 1) then {
+		(d_remove_from_arsenal # 5) append [{"_static_" in _this}, "vn_c_pack_01", "vn_c_pack_02"];
+	};
 #endif
 
 	// add here the class names of the weapons which you want to add to Virtual Arsenal

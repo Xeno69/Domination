@@ -2,6 +2,11 @@ Changelogs
 
 Old...
 
+4.52
+
+- Fixed: Removed sqfc files (compiled sqf), seems they don't work fully with 2.04; broke 4.51 completely
+- Updated: Japanese translation, by Schalldampfer
+
 4.51
 
 - Fixed: Players could end up at the roof of the hangar in the SOG version when spawning at base... NOW REALLY FIXED!!!1!11!!!

@@ -7,7 +7,8 @@ d_sm_cargo = switch (d_enemy_side_short) do {
 	case "G": {"I_Truck_02_box_F"};
 };
 //d_sm_hangar = "Land_TentHangar_V1_F"; // Land_TentHangar_V1_F creates 3 objects and adding a killed eh makes it useless as the correct object might never get destroyed
-d_sm_hangar = "Land_vn_usaf_hangar_01";
+//d_sm_hangar = "Land_vn_usaf_hangar_01"; // doesn't work, yet another SOG object which can't be destroyed
+d_sm_hangar = "Land_Hangar_F";
 d_sm_tent = "Land_TentA_F";
 
 d_sm_land_tankbig = "Land_vn_dp_bigtank_f";

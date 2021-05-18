@@ -1,4 +1,4 @@
-4.52
+4.54
 
-- Fixed: Removed sqfc files (compiled sqf), seems they don't work fully with 2.04; broke 4.51 completely
-- Updated: Japanese translation, by Schalldampfer
+- Fixed: Hangar side mission in the SOG version; yet another SOG object which can't be destroyed by a satchel
+- Fixed: If d_no_mortar_ar is set to 0 mortar bagpacks are added again in the SOG version
