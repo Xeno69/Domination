@@ -20,7 +20,7 @@ USE `domination`;
 CREATE TABLE IF NOT EXISTS `dom_params2` (
   `params_title` varchar(80) COLLATE utf8mb4_bin NOT NULL,
   `param_name` varchar(80) COLLATE utf8mb4_bin NOT NULL,
-  `param_value` smallint(6) NOT NULL
+  `param_value` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 -- Exportiere Struktur von Tabelle domination.dom_settings

@@ -28,16 +28,16 @@ private _typepos = 0;
 private _mrsv = objNull;
 
 if (d_beam_target == "D_BASE_D") then {
-#ifndef __TT__
-	_global_pos = markerPos "base_spawn_1";
-#else
-	_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
-#endif
-#ifndef __CARRIER__
-	_global_pos set [2, 0];
-#else
-	_global_pos set [2, (getPosASL d_FLAG_BASE) # 2];
-#endif
+	if (!d_tt_ver) then {
+		_global_pos = markerPos "base_spawn_1";
+	} else {
+		_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+	};
+	if (!d_carrier) then {
+		_global_pos set [2, 0];
+	} else {
+		_global_pos set [2, (getPosASL d_FLAG_BASE) # 2];
+	};
 	d_player_in_base = true;
 } else {
 	if (d_beam_target == "D_SQL_D") then {
@@ -54,11 +54,11 @@ if (d_beam_target == "D_BASE_D") then {
 		if (d_with_ranked || {d_database_found}) then {
 			[_lead, 12] remoteExecCall ["d_fnc_addscore", 2];
 		};
-#ifndef __TT__
-		d_player_in_base = player inArea d_base_array;
-#else
-		d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
-#endif
+		if (!d_tt_ver) then {
+			d_player_in_base = player inArea d_base_array;
+		} else {
+			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
+		};
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		__TRACE_1("","_uidx")
@@ -112,13 +112,13 @@ if (_typepos == 1) then {
 		player setDir _global_dir;
 		if (!surfaceIsWater _global_pos) then {
 			player setVehiclePosition [_global_pos, [], 0, "NONE"]; // CAN_COLLIDE ?
-#ifdef __VN__
-			if (markerPos "base_spawn_1" distance2D [15712, 7157.78, 0] < 10) then {
-				private _pasl = getPosASL player;
-				_pasl set [2, 14.981];
-				player setPosASL _pasl;
+			if (d_vn) then {
+				if (markerPos "base_spawn_1" distance2D [15712, 7157.78, 0] < 10) then {
+					private _pasl = getPosASL player;
+					_pasl set [2, 14.981];
+					player setPosASL _pasl;
+				};
 			};
-#endif
 		} else {
 			player setPosASL _global_pos;
 		};
