@@ -12105,7 +12105,7 @@
 <Japanese>%1 only survived for %2 seconds.  Mission failed.</Japanese>
 <Original>%1 only survived for %2 seconds.  Mission failed.</Original>
 <Russian>%1 выжил %2 секунд.  Миссия провалена.</Russian>
-<Chinesesimp>%1 存活了 %2 秒。任务失败。</Chinesesimp>
+<Chinesesimp>%1 仅存活了 %2 秒。任务失败。</Chinesesimp>
 <Chinese>%1 only survived for %2 seconds.  Mission failed.</Chinese>
 <French>%1 only survived for %2 seconds.  Mission failed.</French>
 </Key>
@@ -14170,7 +14170,7 @@
 <Japanese>Target radius:</Japanese>
 <Original>Target radius:</Original>
 <Russian>Target radius:</Russian>
-<Chinesesimp>Target radius：</Chinesesimp>
+<Chinesesimp>目标半径：</Chinesesimp>
 <Chinese>Target radius:</Chinese>
 <French>Target radius:</French>
 </Key>
