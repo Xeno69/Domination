@@ -369,7 +369,7 @@ _type_list_patrol = nil;
 
 sleep 1.124;
 
-if (d_no_more_observers < 2) then {
+if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 	d_nr_observers = floor random 4;
 	if (d_nr_observers < 2) then {d_nr_observers = 2};
 	d_obs_array = [];

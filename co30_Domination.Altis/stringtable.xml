@@ -14372,6 +14372,18 @@
 <Chinese>Disable player CAS</Chinese>
 <French>Disable player CAS</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2079">
+<English>Enemy AI observers for artillery and CAS at AO</English>
+<Spanish>Enemy AI observers for artillery and CAS at AO</Spanish>
+<Portuguese>Enemy AI observers for artillery and CAS at AO</Portuguese>
+<Korean>Enemy AI observers for artillery and CAS at AO</Korean>
+<Japanese>Enemy AI observers for artillery and CAS at AO</Japanese>
+<Original>Enemy AI observers for artillery and CAS at AO</Original>
+<Russian>Enemy AI observers for artillery and CAS at AO</Russian>
+<Chinesesimp>Enemy AI observers for artillery and CAS at AO</Chinesesimp>
+<Chinese>Enemy AI observers for artillery and CAS at AO</Chinese>
+<French>Enemy AI observers for artillery and CAS at AO</French>
+</Key>
 </Container>
 </Package>
 </Project>

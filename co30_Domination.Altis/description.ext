@@ -510,6 +510,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_allow_observers {
+		title = "$STR_DOM_MISSIONSTRING_2079";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_ai_persistent_corpses {
 		title = "$STR_DOM_MISSIONSTRING_1741_CORPSES";
 		values[] = {0,1};
