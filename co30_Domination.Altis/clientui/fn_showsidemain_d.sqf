@@ -33,7 +33,9 @@ if !(_markername in _dsmd) then {
 	player setVariable ["d_sidemain_m_do", _dsmd];
 	_markername spawn {
 		scriptName "spawn_d_fnc_showsidemain_d_marker";
-		private _m = _this; private _a = 1; private _aas = -0.06;
+		private _m = _this;
+		private _a = 1;
+		private _aas = -0.06;
 		while {d_showstatus_dialog_open && {d_player_canu}} do {
 			_m setMarkerAlphaLocal _a;
 			_a = _a + _aas;
@@ -46,11 +48,11 @@ if !(_markername in _dsmd) then {
 	};
 };
 
-#ifndef __TT__
-private _start_pos = getPosAsl d_FLAG_BASE;
-#else
-private _start_pos = [getPosAsl d_EFLAG_BASE, getPosAsl d_WFLAG_BASE] select (d_player_side == blufor);
-#endif
+private _start_pos = if (!d_tt_ver) then {
+	getPosAsl d_FLAG_BASE
+} else {
+	[getPosAsl d_EFLAG_BASE, getPosAsl d_WFLAG_BASE] select (d_player_side == blufor)
+};
 _ctrlmap ctrlMapAnimAdd [0.0, 1.00, _start_pos];
 _ctrlmap ctrlMapAnimAdd [1.2, 1.00, _end_pos];
 _ctrlmap ctrlMapAnimAdd [0.5, 0.30, _end_pos];

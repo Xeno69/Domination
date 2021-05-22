@@ -14,11 +14,7 @@ lbClear _ctrl;
 {
 	private _index = _ctrl lbAdd (name _x);
 	_ctrl lbSetData [_index, netId _x];
-#ifndef __DEBUG__
 } forEach (d_allplayers - [player]);
-#else
-} forEach d_allplayers;
-#endif
 
 _ctrl lbSetCurSel 0;
 

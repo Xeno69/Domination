@@ -15,14 +15,14 @@ d_arti_did_fire = nil;
 	__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
 
 	if (!isMultiplayer || {_netid_ar != ""}) then {
-#ifdef __TT__
-		private _obj = objectFromNetId _netid_ar;
-		if (side (group _obj) == d_player_side) then {
-#endif
-		d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
-#ifdef __TT__
+		if (!d_tt_ver) then {
+			d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
+		} else {
+			private _obj = objectFromNetId _netid_ar;
+			if (side (group _obj) == d_player_side) then {
+				d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
+			};
 		};
-#endif
 	};
 } forEach (allMapMarkers select {_x select [0, 9] == "d_arttmx|"});
 
