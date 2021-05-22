@@ -41,9 +41,7 @@ class CfgWorlds {
 	};
 };
 
-#ifdef __DEBUG__
-enableDebugConsole = 2;
-#endif
+enableDebugConsole = 1;
 
 class Header {
 #ifndef __TT__
