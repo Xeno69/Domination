@@ -159,12 +159,9 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_poss set [2, 0];
 	_vec = createVehicle [d_barracks_building, _poss, [], 0, "NONE"];
 	_vec setDir (_vec getDir _trg_center);
-	//_vec setPos _poss;
 	if (([getPos _vec, 20] call d_fnc_getslope) > 0.4) then {
 		_vec setVectorUp (surfaceNormal (getPos _vec));
-	};/* else {
-		_vec setVectorUp [0,0,1];
-	};*/
+	};
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
@@ -179,9 +176,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 
 	_allbars pushBack _vec;
 	
-#ifndef __VN__
 	d_delvecsmt append ([getPos _vec, getDir _vec, _barcompo] call d_fnc_objectsMapper);
-#endif
 
 	sleep 0.1;
 };

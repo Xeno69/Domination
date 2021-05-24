@@ -13,7 +13,7 @@ if (!_mt_done) then {
 #endif
 };
 (_this # 0) spawn {
-	scriptName "spawn checkmtrespawntarget2";
+	scriptName "spawn mtrestkilled1";
 	sleep (60 + random 60);
 	_this setDamage 0;
 	deleteVehicle _this;
