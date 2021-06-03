@@ -17,6 +17,10 @@ if (!isNil "d_f_check_trigger") then {
 
 if (!isNil "d_handleobservers_handle" && {!isNull d_handleobservers_handle}) then {terminate d_handleobservers_handle};
 
+if (d_bar_mhq_destroy == 0) then {
+	d_mt_barmhq_ar = [];
+	publicVariable "d_mt_barmhq_ar";
+};
 {
 	_x setVariable ["d_mt_done", true];
 } forEach (d_mt_barracks_obj_ar select {alive _x});

@@ -97,6 +97,9 @@ d_groups_respawn_time_add = 0;
 d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
+if (d_bar_mhq_destroy == 0) then {
+	d_mt_barmhq_ar = [];
+};
 
 d_priority_target = nil;
 
@@ -114,29 +117,31 @@ private _allbars = [];
 private _doexit = false;
 d_bara_trig_ar = [];
 
-#ifndef __VN__
-private _barcompo = [
-	["Land_PillboxWall_01_6m_round_F",[-6.79297,-3.49902,0],270,1,0,[],"","",true,false],
-	["Land_ConcreteWall_01_l_8m_F",[0.47168,7.73242,0.0022049],0,1,0,[],"","",true,false],
-	["Land_PillboxWall_01_6m_round_F",[-6.33789,5.1084,0],280,1,0,[],"","",true,false],
-	["Land_PillboxWall_01_6m_round_F",[7.88184,-3.47754,0.00019455],89.5086,1,0,[],"","",true,false],
-	["Land_PillboxWall_01_6m_round_F",[-2.95898,-8.21387,0],180.111,1,0,[],"","",true,false],
-	["Land_PillboxWall_01_6m_round_F",[7.46289,5.07715,0],80,1,0,[],"","",true,false],
-	["Land_PillboxWall_01_6m_round_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
-];
-#else
-private _barcompo = [
-	//["Land_vn_o_shelter_05",[0.397461,-0.0214844,0],0,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[-1.7793,-5.23535,0],0,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[-1.55469,5.90283,0],182,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[2.99609,-5.14209,0],359,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[-5.91113,-2.00537,0],91.0001,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[-5.9082,2.7207,0],91.0001,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[3.40723,5.72363,0],182,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[7.32715,-2.19434,0],270,1,0,[],"","",true,false],
-	["Land_vn_fence_bamboo_02",[7.26758,2.78857,0],270,1,0,[],"","",true,false]
-];
-#endif
+private _barcompo = if (!d_vn) then {
+	[
+		["Land_PillboxWall_01_6m_round_F",[-6.79297,-3.49902,0],270,1,0,[],"","",true,false],
+		["Land_ConcreteWall_01_l_8m_F",[0.47168,7.73242,0.0022049],0,1,0,[],"","",true,false],
+		["Land_PillboxWall_01_6m_round_F",[-6.33789,5.1084,0],280,1,0,[],"","",true,false],
+		["Land_PillboxWall_01_6m_round_F",[7.88184,-3.47754,0.00019455],89.5086,1,0,[],"","",true,false],
+		["Land_PillboxWall_01_6m_round_F",[-2.95898,-8.21387,0],180.111,1,0,[],"","",true,false],
+		["Land_PillboxWall_01_6m_round_F",[7.46289,5.07715,0],80,1,0,[],"","",true,false],
+		["Land_PillboxWall_01_6m_round_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
+	]
+} else {
+	[
+		//["Land_vn_o_shelter_05",[0.397461,-0.0214844,0],0,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[-1.7793,-5.23535,0],0,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[-1.55469,5.90283,0],182,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[2.99609,-5.14209,0],359,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[-5.91113,-2.00537,0],91.0001,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[-5.9082,2.7207,0],91.0001,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[3.40723,5.72363,0],182,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[7.32715,-2.19434,0],270,1,0,[],"","",true,false],
+		["Land_vn_fence_bamboo_02",[7.26758,2.78857,0],270,1,0,[],"","",true,false]
+	];
+};
+
+private _barcountxx = -1;
 
 for "_i" from 1 to d_num_barracks_objs do {
 	private _idx = floor random (count _parray);
@@ -166,14 +171,26 @@ for "_i" from 1 to d_num_barracks_objs do {
 	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
 	d_bara_trig_ar pushBack _trig;
-	[_vec, 0] call d_fnc_checkmtrespawntarget;
+	if (d_bar_mhq_destroy == 1) then {
+		[_vec, 0] call d_fnc_checkmtrespawntarget;
+	} else {
+		_vec allowDamage false;
+		_vec addEventHandler ["handleDamage", {0}];
+		_vec setVariable ["d_timetotake", 60, true];
+		_vec setVariable ["d_taketime", 0, true];
+		_trig = [_vec, [10, 10, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", format ["d_bartrig_%1 = [thisTrigger, 0] spawn d_fnc_barmhqtrig", _i], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _i]]] call d_fnc_createtriggerlocal;
+		_trig setVariable ["d_vec", _vec];
+		_vec setVariable ["d_isbarormhq", 0, true]; // 0 = barracks, 1 = MHQ...
+		d_bara_trig_ar pushBack _trig;
+		d_mt_barmhq_ar pushBack _vec;
+		_barcountxx = _i;
+	};
 	d_mt_barracks_obj_ar pushBack _vec;
 	_vec setVariable ["d_nextspawn", -1];
 	sleep 0.1;
 	__TRACE_1("1111","_vec")
 
 	_parray deleteAt _idx;
-
 	_allbars pushBack _vec;
 	
 	d_delvecsmt append ([getPos _vec, getDir _vec, _barcompo] call d_fnc_objectsMapper);
@@ -216,9 +233,28 @@ if (([getPos _vec, sizeOf d_vehicle_building] call d_fnc_getslope) > 0.4) then {
 	_vec setVectorUp [0,0,1];
 };*/
 _vec setVariable ["d_v_pos", getPos _vec];
-[_vec, 1] call d_fnc_checkmtrespawntarget;
+if (d_bar_mhq_destroy == 1) then {
+	[_vec, 1] call d_fnc_checkmtrespawntarget;
+} else {
+	_barcountxx = _barcountxx + 1;
+	_vec allowDamage false;
+	_vec addEventHandler ["handleDamage", {0}];
+	_vec setVariable ["d_timetotake", 80, true];
+	_vec setVariable ["d_taketime", 0, true];
+	_trig = [_vec, [10, 10, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", format ["d_bartrig_%1 = [thisTrigger, 1] spawn d_fnc_barmhqtrig", _barcountxx], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _barcountxx]]] call d_fnc_createtriggerlocal;
+	_trig setVariable ["d_vec", _vec];
+	_vec setVariable ["d_isbarormhq", 1, true]; // 0 = barracks, 1 = MHQ...
+	d_bara_trig_ar pushBack _trig;
+	d_mt_barmhq_ar pushBack _vec;
+};
 d_mt_mobile_hq_down = false;
 d_mt_mobile_hq_obj = _vec;
+
+if (d_bar_mhq_destroy == 0) then {
+	publicVariable "d_mt_barmhq_ar";
+	remoteExec ["d_fnc_makebarmhqwait", [0, -2] select isDedicated];
+};
+
 #ifndef __VN__
 private _unitstog = [
 	getPos _vec,

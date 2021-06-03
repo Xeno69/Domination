@@ -65,7 +65,6 @@ if (!_mt_done) then {
 	};
 };
 
-//if (!d_vn && {(typeOf _obj) == d_barracks_building}) then {
 if (typeOf _obj == d_barracks_building) then {
 	_obj spawn {
 		scriptName "spawn checkmtrestkilled0 1";
@@ -82,11 +81,3 @@ if (typeOf _obj == d_barracks_building) then {
 		deleteVehicle _obj;
 	};
 };
-/* else {
-	_obj spawn {
-		scriptName "spawn checkmtrestkilled0 2";
-		sleep (10 + random 10);
-		_this setDamage 0;
-		deleteVehicle _this;
-	};
-};*/

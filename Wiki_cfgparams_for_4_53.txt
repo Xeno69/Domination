@@ -60,6 +60,9 @@
 >   - Low number of AI units and radio tower destroyed (2)<br/>
 #### **d_mt_respawngroups / Respawn main target enemy AI groups as reinforcements:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+#### **d_bar_mhq_destroy / AO enemy barracks and vehicle MHQ has to be destroyed by explosives**
+> Default: 1 (Yes, enabled; 1 or No to disable it)<br/>
+> If set to no or 0 then you have to take barracks and vehicle MHQ like camps
 #### **d_allow_observers / Enemy AI observers for artillery and CAS at AO**
 > Default: 1 (Yes, enabled; 0 or No to disable it)<br/>
 #### **d_ai_persistent_corpses / Persistent AI corpses**

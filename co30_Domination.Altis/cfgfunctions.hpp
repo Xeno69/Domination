@@ -208,6 +208,7 @@ class cfgFunctions {
 			addc(aophfytk);
 			addc(setmatxtloc);
 			addc(build_ranked_gear);
+			addc(makebarmhqwait);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -276,6 +277,7 @@ class cfgFunctions {
 			addc(optioncontrol);
 			addc(forgive_keh);
 			addc(forgive_timehandler);
+			addc(barmhqcounter);
 		};
 		class Dom_Common {
 			file = "common";
@@ -640,6 +642,8 @@ class cfgFunctions {
 			addc(garrisonUnits);
 			addc(deleteempty);
 			addc(utowerkilled);
+			addc(barmhqtrig);
+			addc(bartrigover);
 		};
 		class Dom_PrePostInit {
 			file = "init";
