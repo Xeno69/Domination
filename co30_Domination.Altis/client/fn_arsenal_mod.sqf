@@ -5,11 +5,11 @@
 private _mods = _this apply {toLowerANSI _x};
 __TRACE_1("","_mods")
 
-#ifndef __VN__
-private _items_no = ["ItemMap", "ItemRadio", "ToolKit", "MineDetector"];
-#else
-private _items_no = ["MineDetector"];
-#endif
+private _items_no = if (!d_vn) then {
+	["ItemMap", "ItemRadio", "ToolKit", "MineDetector"]
+} else {
+	["MineDetector"]
+};
 
 if (!d_gmcwg && {!d_vn}) then {
 	_items_no append ["FirstAidKit", "Medikit", "ItemCompass", "ItemWatch"];

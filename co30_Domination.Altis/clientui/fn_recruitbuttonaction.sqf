@@ -148,9 +148,7 @@ if (!d_with_ranked) then {
 	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "true", 3];
 };
 
-#ifndef __TT__
 [_unit] remoteExecCall ["d_fnc_addceo", 2];
-#endif
 addToRemainsCollector [_unit];
 
 _unit addEventhandler ["getInMan", {call d_fnc_getinmanai}];

@@ -10,17 +10,15 @@ if (!d_player_canu || {isNull objectParent player && {(getPos player) # 2 > 10}}
 
 disableSerialization;
 
-#ifndef __TT__
-if !(d_ari_available) exitWith {
+
+if (!d_tt_ver && {!d_ari_available}) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_145");
 	d_commandingMenuIniting = false;
 };
-#else
-if (d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}) exitWith {
+if (d_tt_ver && {d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}}) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_145");
 	d_commandingMenuIniting = false;
 };
-#endif
 
 if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 2)}) exitWith {
 	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_147", score player, d_ranked_a # 2];

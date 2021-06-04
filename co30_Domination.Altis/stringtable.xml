@@ -14384,6 +14384,54 @@
 <Chinese>Enemy AI observers for artillery and CAS at AO</Chinese>
 <French>Enemy AI observers for artillery and CAS at AO</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2080">
+<English>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</English>
+<Spanish>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Spanish>
+<Portuguese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Portuguese>
+<Korean>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Korean>
+<Japanese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Japanese>
+<Original>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Original>
+<Russian>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Russian>
+<Chinesesimp>AO（占领区域）敌军营房和车辆 MHQ（基地）必须用炸药摧毁</Chinesesimp>
+<Chinese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Chinese>
+<French>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2081">
+<English>Taking barracks...</English>
+<Spanish>Taking barracks...</Spanish>
+<Portuguese>Taking barracks...</Portuguese>
+<Korean>Taking barracks...</Korean>
+<Japanese>Taking barracks...</Japanese>
+<Original>Taking barracks...</Original>
+<Russian>Taking barracks...</Russian>
+<Chinesesimp>Taking barracks...</Chinesesimp>
+<Chinese>占领敌军营地...</Chinese>
+<French>Taking barracks...</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2082">
+<English>Taking vehicle MHQ...</English>
+<Spanish>Taking vehicle MHQ...</Spanish>
+<Portuguese>Taking vehicle MHQ...</Portuguese>
+<Korean>Taking vehicle MHQ...</Korean>
+<Japanese>Taking vehicle MHQ...</Japanese>
+<Original>Taking vehicle MHQ...</Original>
+<Russian>Taking vehicle MHQ...</Russian>
+<Chinesesimp>获取 MHQ（基地）载具...</Chinesesimp>
+<Chinese>Taking vehicle MHQ...</Chinese>
+<French>Taking vehicle MHQ...</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2083">
+<English>Taking object...</English>
+<Spanish>Taking object...</Spanish>
+<Portuguese>Taking object...</Portuguese>
+<Korean>Taking object...</Korean>
+<Japanese>Taking object...</Japanese>
+<Original>Taking object...</Original>
+<Russian>Taking object...</Russian>
+<Chinesesimp>正在获取对象...</Chinesesimp>
+<Chinese>Taking object...</Chinese>
+<French>Taking object...</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -87,34 +87,34 @@ private _cur_tgt_name = if (d_current_target_index != -1) then {
 
 if (isNil "_cur_tgt_name") then {_cur_tgt_name = ""};
 
-#ifdef __TT__
-__ctrl(11011);
-d_points_array params ["_points_blufor", "_points_opfor", "_kill_points_blufor", "_kill_points_opfor"];
-private _color = if (_points_blufor > _points_opfor) then {
-	[0,0.6,1,1]
-} else {
-	if (_points_opfor > _points_blufor) then {
-		[1,0.39,0.28,1]
+if (d_tt_ver) then {
+	__ctrl(11011);
+	d_points_array params ["_points_blufor", "_points_opfor", "_kill_points_blufor", "_kill_points_opfor"];
+	private _color = if (_points_blufor > _points_opfor) then {
+		[0,0.6,1,1]
 	} else {
-		[0,1,0,1]
+		if (_points_opfor > _points_blufor) then {
+			[1,0.39,0.28,1]
+		} else {
+			[0,1,0,1]
+		};
 	};
-};
-_ctrl ctrlSetTextColor _color;
-_ctrl ctrlSetText format ["%1: %2", _points_blufor, _points_opfor];
+	_ctrl ctrlSetTextColor _color;
+	_ctrl ctrlSetText format ["%1: %2", _points_blufor, _points_opfor];
 
-__ctrl(11012);
-_color = if (_kill_points_blufor > _kill_points_opfor) then {
-	[0,0.6,1,1]
-} else {
-	if (_kill_points_opfor > _kill_points_blufor) then {
-		[1,0.39,0.28,1]
+	__ctrl(11012);
+	_color = if (_kill_points_blufor > _kill_points_opfor) then {
+		[0,0.6,1,1]
 	} else {
-		[0,1,0,1]
+		if (_kill_points_opfor > _kill_points_blufor) then {
+			[1,0.39,0.28,1]
+		} else {
+			[0,1,0,1]
+		};
 	};
+	_ctrl ctrlSetTextColor _color;
+	_ctrl ctrlSetText format ["%1 : %2", _kill_points_blufor, _kill_points_opfor];
 };
-_ctrl ctrlSetTextColor _color;
-_ctrl ctrlSetText format ["%1 : %2", _kill_points_blufor, _kill_points_opfor];
-#endif
 
 private _s = call {
 	if (d_all_sm_res) exitWith {localize "STR_DOM_MISSIONSTRING_522"};
@@ -136,30 +136,30 @@ if (d_WithRevive == 1) then {
 	__ctrl2(30001) ctrlSetText _xltxt;
 };
 
-#ifndef __TT__
-private _intels = "";
-{
-	if (_x == 1) then {
-		_tmp = switch (_forEachIndex) do {
-			case 0: {localize "STR_DOM_MISSIONSTRING_542"};
-			case 1: {localize "STR_DOM_MISSIONSTRING_543"};
-			case 2: {localize "STR_DOM_MISSIONSTRING_544"};
-			case 3: {localize "STR_DOM_MISSIONSTRING_545"};
-			case 4: {localize "STR_DOM_MISSIONSTRING_546"};
-			case 5: {localize "STR_DOM_MISSIONSTRING_547"};
-			case 6: {localize "STR_DOM_MISSIONSTRING_541"};
+if (!d_tt_ver) then {
+	private _intels = "";
+	{
+		if (_x == 1) then {
+			_tmp = switch (_forEachIndex) do {
+				case 0: {localize "STR_DOM_MISSIONSTRING_542"};
+				case 1: {localize "STR_DOM_MISSIONSTRING_543"};
+				case 2: {localize "STR_DOM_MISSIONSTRING_544"};
+				case 3: {localize "STR_DOM_MISSIONSTRING_545"};
+				case 4: {localize "STR_DOM_MISSIONSTRING_546"};
+				case 5: {localize "STR_DOM_MISSIONSTRING_547"};
+				case 6: {localize "STR_DOM_MISSIONSTRING_541"};
+			};
+			_intels = _intels + _tmp + "\n";
 		};
-		_intels = _intels + _tmp + "\n";
+	} forEach d_searchintel;
+	if (_intels == "") then {
+		_intels = localize "STR_DOM_MISSIONSTRING_548";
 	};
-} forEach d_searchintel;
-if (_intels == "") then {
-	_intels = localize "STR_DOM_MISSIONSTRING_548";
+	__ctrl2(11018) ctrlSetText _intels;
+} else {
+	__ctrl2(11019) ctrlShow false;
+	__ctrl2(11018) ctrlShow false;
 };
-__ctrl2(11018) ctrlSetText _intels;
-#else
-__ctrl2(11019) ctrlShow false;
-__ctrl2(11018) ctrlShow false;
-#endif
 
 __ctrl2(11003) ctrlSetText _cur_tgt_name;
 
@@ -169,20 +169,20 @@ __ctrl2(11233) ctrlSetText str(score player);
 
 private "_ctrl";
 __ctrl(11278);
-#ifndef __TT__
-_ctrl ctrlSetText format ["%1/%2", d_campscaptured, d_numcamps];
-#else
-if (d_player_side == blufor) then {
-	_ctrl ctrlSetText format ["%1/%2", d_campscaptured_w, d_numcamps];
+if (!d_tt_ver) then {
+	_ctrl ctrlSetText format ["%1/%2", d_campscaptured, d_numcamps];
 } else {
-	_ctrl ctrlSetText format ["%1/%2", d_campscaptured_e, d_numcamps];
+	if (d_player_side == blufor) then {
+		_ctrl ctrlSetText format ["%1/%2", d_campscaptured_w, d_numcamps];
+	} else {
+		_ctrl ctrlSetText format ["%1/%2", d_campscaptured_e, d_numcamps];
+	};
 };
-#endif
 
-#ifdef __TT__
-__ctrl(11279);
-_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
-#endif
+if (d_tt_ver) then {
+	__ctrl(11279);
+	_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
+};
 
 __ctrl(11009);
 _ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_552");
@@ -197,18 +197,18 @@ if (d_current_target_index != -1) then {
 			format [localize "STR_DOM_MISSIONSTRING_556", _cur_tgt_name]
 		};
 		case 3: {
-#ifndef __TT__
-			format [localize "STR_DOM_MISSIONSTRING_557", _cur_tgt_name]
-#else
-			format [localize "STR_DOM_MISSIONSTRING_558", _cur_tgt_name]
-#endif
+			if (!d_tt_ver) then {
+				format [localize "STR_DOM_MISSIONSTRING_557", _cur_tgt_name]
+			} else {
+				format [localize "STR_DOM_MISSIONSTRING_558", _cur_tgt_name]
+			};
 		};
 		case 4: {
-#ifndef __TT__
-			format [localize "STR_DOM_MISSIONSTRING_559", _cur_tgt_name]
-#else
-			format [localize "STR_DOM_MISSIONSTRING_560", _cur_tgt_name]
-#endif
+			if (!d_tt_ver) then {
+				format [localize "STR_DOM_MISSIONSTRING_559", _cur_tgt_name]
+			} else {
+				format [localize "STR_DOM_MISSIONSTRING_560", _cur_tgt_name]
+			};
 		};
 		case 5: {
 			format [localize "STR_DOM_MISSIONSTRING_561", _cur_tgt_name]
@@ -235,7 +235,7 @@ if (d_current_target_index != -1) then {
 	_s = format ["*** %1", _s];
 };
 
-_s2 = "";
+private _s2 = "";
 {
 	_s2 = composeText [_s2, (format ["!!! %1", _x]), '\n'];
 } forEach d_mt_event_messages_array;
@@ -299,17 +299,17 @@ __ctrl2(2005) ctrlSetText str(d_points_needed # 4);
 __ctrl2(2006) ctrlSetText str(d_points_needed # 5);
 __ctrl2(2007) ctrlSetText str(d_points_needed # 6);
 
-#ifndef __TT__
-__ctrl2(1610) cbSetChecked d_maintarget_auto_vd;
-__ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
-	d_maintarget_auto_vd = !d_maintarget_auto_vd;
-	if (d_maintarget_auto_vd) then {
-		systemChat (localize "STR_DOM_MISSIONSTRING_1965");
-	} else {
-		systemChat (localize "STR_DOM_MISSIONSTRING_1966");
-	};
-}];
-#endif
+if (!d_tt_ver) then {
+	__ctrl2(1610) cbSetChecked d_maintarget_auto_vd;
+	__ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
+		d_maintarget_auto_vd = !d_maintarget_auto_vd;
+		if (d_maintarget_auto_vd) then {
+			systemChat (localize "STR_DOM_MISSIONSTRING_1965");
+		} else {
+			systemChat (localize "STR_DOM_MISSIONSTRING_1966");
+		};
+	}];
+};
 
 /*__ctrl2(1612) cbSetChecked d_player_radioprotocol;
 __ctrl2(1612) ctrlAddEventHandler ["CheckedChanged", {

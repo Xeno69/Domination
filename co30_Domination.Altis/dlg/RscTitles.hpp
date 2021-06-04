@@ -784,3 +784,38 @@ class d_rscmtexts {
 		};
 	};
 };
+
+class d_RscBarMHQTake {
+	idd = -1;
+	movingEnable = 0;
+	duration = 1e+011;
+	fadeout = 1;
+	name = "d_RscBarMHQTake";
+	sizeEx = 256;
+	onLoad = "uiNamespace setVariable ['d_RscBarMHQTake', _this select 0]";
+	onUnLoad = "uiNamespace setVariable ['d_RscBarMHQTake', nil]";
+	class controls {
+		class LCText: RscText {
+			idc = 3900;
+			style = ST_CENTER;
+			text = "";
+			x = SafeZoneX + (SafeZoneW / 2) - 0.15;
+			y = SafeZoneY + 0.3;
+			font = DEFAULTFONT;
+			w = 0.3;
+			h = 0.1;
+			sizeEx = 0.038;
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+			shadow = 1;
+		};
+		class Pic: D_RscPicture {
+			idc = 50;
+			x = SafeZoneX + (SafeZoneW / 2 ) - 0.055;
+			y = SafeZoneY + 0.4; w = 0.11; h = 0.11;
+			text = "\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_0_ca.paa";
+			sizeEx = 256;
+			colorText[] = {1, 1, 1, 0.8};
+		};
+	};
+};

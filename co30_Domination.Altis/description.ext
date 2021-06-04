@@ -41,9 +41,7 @@ class CfgWorlds {
 	};
 };
 
-#ifdef __DEBUG__
-enableDebugConsole = 2;
-#endif
+enableDebugConsole = 1;
 
 class Header {
 #ifndef __TT__
@@ -261,6 +259,7 @@ class CfgRemoteExec {
 		class d_fnc_exectkpd {allowedTargets = 2;};
 		class xr_fnc_setmatxtloc {allowedTargets = 1;};
 		class d_fnc_setmatxtloc {allowedTargets = 1;};
+		class d_fnc_makebarmhqwait {allowedTargets = 1;};
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
@@ -508,6 +507,13 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_bar_mhq_destroy {
+		title = "$STR_DOM_MISSIONSTRING_2080";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_allow_observers {
