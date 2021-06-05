@@ -1,5 +1,6 @@
 // by psycho
 #include "..\x_setup.sqf"
+
 params ["_healer"];
 
 if (!local _healer || {_healer distance2D d_FLAG_BASE < 30}) exitWith {};
@@ -7,15 +8,17 @@ if (!local _healer || {_healer distance2D d_FLAG_BASE < 30}) exitWith {};
 private _objs = [];
 
 if (_healer getUnitTrait "medic") then {
-	private _defi_pos = _healer modelToWorld [-0.5, 0.2, 0];
-	private _defi = createSimpleObject ["Land_Defibrillator_F", _defi_pos];
-	_defi setDir (getDir _healer - 180);
-	private _position = getPosWorld _defi;
-	//_position = _position vectorAdd [0, 0, 0.01];
-	//_defi setPosWorld _position;
-	_defi setPosATL [_position # 0, _position # 1, 0.01];
-	_defi setVectorUp (surfaceNormal _position);
-	_objs pushBack _defi;
+	if (!d_vn && {!d_ifa3lite && {!d_gmcwg && {!d_csla}}}) then {
+		private _defi_pos = _healer modelToWorld [-0.5, 0.2, 0];
+		private _defi = createSimpleObject ["Land_Defibrillator_F", _defi_pos];
+		_defi setDir (getDir _healer - 180);
+		private _position = getPosWorld _defi;
+		//_position = _position vectorAdd [0, 0, 0.01];
+		//_defi setPosWorld _position;
+		_defi setPosATL [_position # 0, _position # 1, 0.01];
+		_defi setVectorUp (surfaceNormal _position);
+		_objs pushBack _defi;
+	};
 	
 	if (random 2 >= 1) then {
 		private _bb_pos = _healer modelToWorld [0.4,(0.2 - (random 0.5)),0];
