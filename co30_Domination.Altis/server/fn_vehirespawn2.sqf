@@ -49,7 +49,7 @@ while {true} do {
 		private _attribs = _vec getvariable "GM_VEHICLE_ATTRIBUTES";
 #endif
 		if (unitIsUAV _vec) then {
-			{_vec deleteVehicleCrew _x} forEach (crew _vec);
+			deleteVehicleCrew _vec;
 		};
 		deleteVehicle _vec;
 		sleep 0.5;

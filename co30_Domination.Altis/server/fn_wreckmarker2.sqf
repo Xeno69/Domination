@@ -41,7 +41,7 @@ while {!isNull _vec && {_vec distance _sav_pos < 30 && {time < _timedel}}} do {s
 deleteMarker _mname;
 if (time > _timedel && {_vec distance _sav_pos < 50}) then {
 	if (unitIsUAV _vec) then {
-		{_vec deleteVehicleCrew _x} forEach (crew _vec);
+		deleteVehicleCrew _vec;
 	};
 	deleteVehicle _vec;
 } else {
