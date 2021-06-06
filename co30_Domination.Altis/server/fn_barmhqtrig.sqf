@@ -35,10 +35,6 @@ while {true} do {
 				if (!_mt_done) then {
 					d_num_barracks_objs = d_num_barracks_objs - 1;
 					d_groups_respawn_time_add = d_groups_respawn_time_add + 30 + (random 10);
-					private _numob = {alive _x} count d_mt_barracks_obj_ar;
-					if (_numob != d_num_barracks_objs) then {
-						d_num_barracks_objs = _numob;
-					};
 					publicVariable "d_num_barracks_objs";
 					__TRACE_1("","d_num_barracks_objs")
 				};
@@ -99,11 +95,6 @@ while {true} do {
 					[60] call d_fnc_DoKBMsg;
 #endif
 				};
-				_vec spawn {
-					scriptName "spawn barmhqtrig 2";
-					sleep 20;
-					deleteVehicle _this;
-				};
 				if (!_mt_done) then {
 					{
 						if (_x call d_fnc_isplayer) then {
@@ -111,6 +102,12 @@ while {true} do {
 						};
 					} forEach list _trig;
 				};
+				_vec spawn {
+					scriptName "spawn barmhqtrig 2";
+					sleep 20;
+					deleteVehicle _this;
+				};
+				deleteVehicle _trig;
 			};
 		};
 	};

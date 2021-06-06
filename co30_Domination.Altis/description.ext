@@ -513,7 +513,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_2080";
 		values[] = {0,1};
 #ifndef __VN__
-		default = 1;
+		default = 0;
 #else
 		default = 0;
 #endif

@@ -12900,23 +12900,23 @@
 <French>points pour réanimer un autre joueur</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1971">
-<English>points for destroying an enemy barracks building</English>
+<English>points for destroying/taking an enemy barracks building</English>
 <Spanish>Puntos por destruir un cuartel enemigo</Spanish>
 <Portuguese>pontos para a destruição de um quartel inimigo</Portuguese>
 <Korean>적 병영 건물 파괴에 대한 포인트</Korean>
-<Japanese>points for destroying an enemy barracks building</Japanese>
-<Original>points for destroying an enemy barracks building</Original>
+<Japanese>points for destroying/taking an enemy barracks building</Japanese>
+<Original>points for destroying/taking an enemy barracks building</Original>
 <Russian>очков за уничтожение казармы противника</Russian>
 <Chinesesimp>摧毁敌军营房建筑的积分</Chinesesimp>
 <French>points pour détruire un bâtiment de caserne ennemi</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1972">
-<English>points for destroying the enemy mobile HQ</English>
+<English>points for destroying/taking the enemy mobile HQ</English>
 <Spanish>Puntos por destruir el cuartel general móvil del enemigo</Spanish>
 <Portuguese>pontos para destruir o QG móvel inimigo</Portuguese>
 <Korean>적 이동 지휘소(HQ) 파괴에 대한 포인트</Korean>
-<Japanese>points for destroying the enemy mobile HQ</Japanese>
-<Original>points for destroying the enemy mobile HQ</Original>
+<Japanese>points for destroying/taking the enemy mobile HQ</Japanese>
+<Original>points for destroying/taking the enemy mobile HQ</Original>
 <Russian>очков за уничтожение мобильного штаба противника</Russian>
 <Chinesesimp>摧毁敌军移动指挥部的积分</Chinesesimp>
 <French>points pour détruire le QG mobile ennemi</French>

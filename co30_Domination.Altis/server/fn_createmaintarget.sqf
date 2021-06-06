@@ -176,7 +176,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 	} else {
 		_vec allowDamage false;
 		_vec addEventHandler ["handleDamage", {0}];
-		_vec setVariable ["d_timetotake", 60, true];
+		_vec setVariable ["d_timetotake", 30, true];
 		_vec setVariable ["d_taketime", 0, true];
 		_trig = [_vec, [10, 10, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", format ["d_bartrig_%1 = [thisTrigger, 0] spawn d_fnc_barmhqtrig", _i], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _i]]] call d_fnc_createtriggerlocal;
 		_trig setVariable ["d_vec", _vec];
@@ -239,9 +239,9 @@ if (d_bar_mhq_destroy == 1) then {
 	_barcountxx = _barcountxx + 1;
 	_vec allowDamage false;
 	_vec addEventHandler ["handleDamage", {0}];
-	_vec setVariable ["d_timetotake", 80, true];
+	_vec setVariable ["d_timetotake", 40, true];
 	_vec setVariable ["d_taketime", 0, true];
-	_trig = [_vec, [10, 10, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", format ["d_bartrig_%1 = [thisTrigger, 1] spawn d_fnc_barmhqtrig", _barcountxx], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _barcountxx]]] call d_fnc_createtriggerlocal;
+	_trig = [_vec, [13, 13, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", format ["d_bartrig_%1 = [thisTrigger, 1] spawn d_fnc_barmhqtrig", _barcountxx], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _barcountxx]]] call d_fnc_createtriggerlocal;
 	_trig setVariable ["d_vec", _vec];
 	_vec setVariable ["d_isbarormhq", 1, true]; // 0 = barracks, 1 = MHQ...
 	d_bara_trig_ar pushBack _trig;

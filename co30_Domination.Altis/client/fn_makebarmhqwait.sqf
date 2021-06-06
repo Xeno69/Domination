@@ -19,7 +19,8 @@ d_client_barmhqtrigs = [];
 __TRACE("d_mt_barmhq_ar not equal []")
 
 {
-	private _trig = [_x, [10, 10, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["vehicle player in thislist", format ["d_barmhqctrigbool_%1 = true; 0 = [thisTrigger, %1] spawn d_fnc_barmhqcounter", _forEachIndex], format ["d_barmhqctrigbool_%1 = false", _forEachIndex]]] call d_fnc_createtriggerlocal;
+	private _size = [10, 13] select (_x getVariable ["d_isbarormhq", 0] == 1);
+	private _trig = [_x, [_size, _size, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["vehicle player in thislist", format ["d_barmhqctrigbool_%1 = true; 0 = [thisTrigger, %1] spawn d_fnc_barmhqcounter", _forEachIndex], format ["d_barmhqctrigbool_%1 = false", _forEachIndex]]] call d_fnc_createtriggerlocal;
 	_trig setVariable ["d_vec", _x];
 	d_client_barmhqtrigs pushBack _trig;
 } forEach d_mt_barmhq_ar;
