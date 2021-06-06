@@ -2,5 +2,6 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-deleteVehicleCrew _this;
+// A3_206 deleteVehicleCrew _this;
+{_this deleteVehicleCrew _x} forEach (crew _this);
 deleteVehicle _this;

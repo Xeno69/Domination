@@ -72,7 +72,7 @@ link35[] = {29,30};
 link36[] = {30,31};
 link37[] = {31,18};
 globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2191.562012,717.986206,757,1254,1};
-window[] = {2,-1,-1,-1,-1,1056,338,1298,338,3,775};
+window[] = {2,-1,-1,-1,-1,848,130,1090,130,3,775};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -410,7 +410,8 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"deleteMarker _mname;" \n
                          "if (time >= _timedelete && {_vec distance _sav_pos < 50}) then {" \n
                          "	if (unitIsUAV _vec) then {" \n
-                         "		deleteVehicleCrew _vec;" \n
+                         "		// A3_206 deleteVehicleCrew _vec;" \n
+                         "		{_vec deleteVehicleCrew _x} forEach (crew _vec);" \n
                          "	};" \n
                          "	deleteVehicle _vec;" \n
                          "} else {" \n

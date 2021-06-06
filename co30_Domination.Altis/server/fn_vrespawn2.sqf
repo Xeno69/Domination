@@ -61,7 +61,8 @@ while {true} do {
 #endif
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
-				deleteVehicleCrew _vec;
+				// A3_206 deleteVehicleCrew _vec;
+				{_vec deleteVehicleCrew _x} forEach (crew _vec);
 			};
 			deleteVehicle _vec;
 			sleep 0.5;

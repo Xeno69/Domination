@@ -210,7 +210,8 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 			if (_curvec distance2D _old_pos < 30 && {_xcounter > 100}) exitWith {
 				{
 					private _v = _x;
-					deleteVehicleCrew _v;
+					// A3_206 deleteVehicleCrew _v;
+					{_v deleteVehicleCrew _x} forEach (crew _v);
 					_v setDamage 1;
 				} forEach _vehicles;
 				_xcounter = 0;

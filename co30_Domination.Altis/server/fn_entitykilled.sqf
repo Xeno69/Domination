@@ -98,7 +98,8 @@ if (_ar # 6 == 1) then {
 };
 
 if (_ar # 7 == 1) then {
-	deleteVehicleCrew _obj;
+	// A3_206 deleteVehicleCrew _obj;
+	{_obj deleteVehicleCrew _x} forEach (crew _obj);
 };
 
 if (_ar # 8 == 1) then {

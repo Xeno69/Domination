@@ -39,8 +39,8 @@ link16[] = {14,15};
 link17[] = {15,6};
 link18[] = {16,17};
 link19[] = {17,13};
-globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-455.676758,559.340210,904.643738,-90.048965,1025,1254,1};
-window[] = {2,-1,-1,-1,-1,1186,182,2329,182,3,1043};
+globals[] = {0.000000,0,0,0,0,640,480,1,22,6316128,1,-455.676758,559.340210,904.643738,-90.048965,848,832,1};
+window[] = {0,-1,-1,-1,-1,1128,632,2779,124,1,866};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -206,7 +206,8 @@ class FSM
                          "private _sidevar = _wreck getVariable ""D_VEC_SIDE"";" \n
                          "private _maxrep = _wreck getVariable ""d_WreckMaxRepair"";" \n
                          "if (unitIsUAV _wreck) then {" \n
-                         "	deleteVehicleCrew _wreck;" \n
+                         "	{_wreck deleteVehicleCrew _x} forEach (crew _wreck);" \n
+                         "	// A3_206 deleteVehicleCrew _wreck;" \n
                          "};" \n
                          "private _skinpoly = [_wreck] call d_fnc_getskinpoly;" \n
                          "private _wpilot = _wreck getVariable ""d_lift_pilot"";" \n
