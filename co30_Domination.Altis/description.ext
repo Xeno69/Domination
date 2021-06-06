@@ -512,7 +512,11 @@ class Params {
 	class d_bar_mhq_destroy {
 		title = "$STR_DOM_MISSIONSTRING_2080";
 		values[] = {0,1};
+#ifndef __VN__
 		default = 1;
+#else
+		default = 0;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
