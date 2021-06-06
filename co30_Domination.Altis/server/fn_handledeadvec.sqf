@@ -2,6 +2,8 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
+__TRACE_1("","_this")
+
 params ["_v"];
 // A3_206 deleteVehicleCrew _v;
 {_v deleteVehicleCrew _x} forEach (crew _v);

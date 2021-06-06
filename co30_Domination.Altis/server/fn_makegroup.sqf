@@ -69,7 +69,7 @@ if (_add_to_ar_type > 0) then {
 					[_x, 3] call d_fnc_setekmode;
 					_x setVariable ["d_respawninfo", [_grptype, [], _target_pos, _numvecs, "patrol2", _side, 0, _vec_dir, _add_to_ar_type, _center_rad, false, d_enemyai_respawn_pos]];
 					_x setVariable ["d_thevecs", _vecs];
-					if (d_with_ace) then {
+					if (d_with_ace && {_x isKindOf "Tank" || {_x isKindOf "Wheeled_APC_F"}}) then {
 						_x spawn d_fnc_wa_ace_vec;
 					};
 				} forEach _vecs;
