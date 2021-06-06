@@ -2,6 +2,7 @@
 
 - Added: Param d_allow_observers (default 1, yes) "Enemy AI observers for artillery and CAS at AO", 0 or no = no observers at main targets/AO
 - Added: Param d_bar_mhq_destroy (default 1, yes) "AO enemy barracks and vehicle MHQ has to be destroyed by explosives"; if set to no or 0 then you have to take those like camps (0 is default in the VN versions)
+- Changed: Increased time for enemy AI forward obsers at main targets to call in arty strikes (depends on players numbers)
 - Fixed: Hangar side mission in the SOG version; yet another SOG object which can't be destroyed by a satchel
 - Fixed: If d_no_mortar_ar is set to 0 mortar bagpacks are added again in the SOG version
 - Fixed: Too many enemy AI vehicles spawned at main targets when ACE is used
