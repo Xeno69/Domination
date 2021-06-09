@@ -9860,7 +9860,7 @@
 <Japanese>------------------------------- AI --------------------------------</Japanese>
 <Original>------------------------------- AI --------------------------------</Original>
 <Russian>--------------------------- *ИИ* --------------------------</Russian>
-<Chinesesimp>------------------------------- AI --------------------------------</Chinesesimp>
+<Chinesesimp>------------------------------- 雇佣兵（AI） --------------------------------</Chinesesimp>
 <Chinese>------------------------------- AI --------------------------------</Chinese>
 <French>------------------------------- IA --------------------------------</French>
 </Key>
@@ -14404,8 +14404,8 @@
 <Japanese>Taking barracks...</Japanese>
 <Original>Taking barracks...</Original>
 <Russian>Захват казарм...</Russian>
-<Chinesesimp>Taking barracks...</Chinesesimp>
-<Chinese>占领敌军营地...</Chinese>
+<Chinesesimp>占领敌军营地...</Chinesesimp>
+<Chinese>佔領敵軍營地...</Chinese>
 <French>Taking barracks...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2082">
