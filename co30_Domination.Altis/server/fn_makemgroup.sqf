@@ -55,6 +55,7 @@ private _nightorfog = call d_fnc_nightfograin;
 
 {
 	private _one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
+	// TODO - prevent poison animation sometimes occurs "acinpknlmstpsraswrfldnon" see https://feedback.bistudio.com/T156969
 	_one_unit allowDamage false;
 	_one_unit setDamage 0;
 	//if (d_with_dynsim == 1) then {
@@ -116,15 +117,12 @@ if !(_sideToEngage isEqualType []) then {
 
 if (!(sideUnknown in _sideToEngage) && {d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}}) then {
 	//advanced awareness
-	if ("sniper" in (toLowerANSI (groupId _grp))) then {
-		{
-			[_x, _sideToEngage, 1400, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
-		} forEach units _grp;
-	} else {
-		{
-			[_x, _sideToEngage, d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
-		} forEach units _grp;
-	}
+	private _rad = d_ai_awareness_rad;
+	if ("sniper" in (toLowerANSI (groupId _grp))) then { _rad = 1400; }; // if sniper group then set awareness radius to 1400m
+	{
+		[_x, _sideToEngage, _rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+	} forEach units _grp;
+	
 };
 #ifndef __TT__
 _ret call d_fnc_addceo;
