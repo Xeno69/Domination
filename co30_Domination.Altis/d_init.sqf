@@ -726,6 +726,9 @@ if (hasInterface) then {
 			if (d_vn) exitWith {
 				call compileScript ["i_weapons_vn.sqf", false];
 			};
+			if (d_csla) exitWith {
+				call compileScript ["i_weapons_csla.sqf", false];
+			};
 			call compileScript ["i_weapons_default.sqf", false];
 		};
 	};

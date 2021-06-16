@@ -236,6 +236,10 @@ if (d_with_ranked) then {
 					_weapp = "gm_mpiak74n_brn";
 					_magp = "gm_30rnd_545x39mm_b_7n6_ak74_prp";
 				};
+				if (d_csla) exitWith {
+					_weapp = "CSLA_Sa58P";
+					_magp = "CSLA_Sa58_30rnd_7_62vz43";
+				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
@@ -460,7 +464,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log "Internal D Version: 4.53";
+diag_log "Internal D Version: 4.54";
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -792,6 +796,8 @@ if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!d_vn && {!(player call d_
 			case independent: {"NVGoggles_INDEP"};
 			default {"NVGoggles"};
 		});
+	} else {
+		player linkItem "CSLA_nokto";
 	};
 };
 private _bino = binocular player;
@@ -809,6 +815,11 @@ call {
 	if (d_vn) exitWith {
 		if (_bino == "") then {
 			player addWeapon "vn_mk21_binocs";
+		};
+	};
+	if (d_csla) exitWith {
+		if (_bino == "") then {
+			player addWeapon "CSLA_bino";
 		};
 	};
 	if ((d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) || {d_string_player in d_can_call_cas}) then {
@@ -1001,6 +1012,9 @@ if (d_arsenal_mod == 0) then {
 	};
 	if (d_vn) then {
 		d_arsenal_mod_prestrings append ["weapons_f_vietnam_c", "characters_f_vietnam_c"];
+	};
+	if (d_csla) then {
+		d_arsenal_mod_prestrings append ["CSLA_", "US85_"];
 	};
 	if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 		d_arsenal_mod_prestrings pushBackUnique "ace_";

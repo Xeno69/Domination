@@ -1,4 +1,6 @@
 4.54
 
+- Added: CSLA Gabreta OPFOR version
+- Fixed: Mini tripod weapons where spawned inside bunkers when using a CUP version
 - Updated: Russian translation by Babayka
 - Udpated: Simplified Chinese translation by SanJinSix

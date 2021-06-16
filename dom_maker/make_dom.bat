@@ -4,8 +4,8 @@ rem just copy MakePBO.exe and DePbo.dll in the dom_maker folder
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_53
-set D_BNVER=4.53
+set D_VER=4_54
+set D_BNVER=4.54
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
@@ -688,33 +688,33 @@ rmdir /S /Q %WORK_DIR%
 
 
 rem Opfor CSLA
-rem set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_opfor.stozec
-rem set MISSION_SQM=..\mission_sqm\mission_opfor_csla_bin.sqm
-rem set X_SETUP=..\mission_sqm\x_setup_opfor_csla.sqf
-rem md %WORK_DIR%
-rem xcopy %MASTER%\*.* %WORK_DIR% /E /Y
-rem echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
-rem echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
-rem cd %WORK_DIR%
-rem del i_weapons_rhs.sqf
-rem del i_weapons_CUP.sqf
-rem del i_weapons_IFA3.sqf
-rem del i_weapons_UNSUNG.sqf
-rem del i_weapons_gmcwg.sqf
-rem del i_weapons_default.sqf
-rem del i_weapons_vn.sqf
-rem cd missions
-rem rmdir /S /Q m
-rem rmdir /S /Q moa
-rem rmdir /S /Q msara
-rem rmdir /S /Q ma3t
-rem rmdir /S /Q ma3s
-rem rmdir /S /Q ma3a
-rem rmdir /S /Q ma3m
-rem rmdir /S /Q mifa3
-rem cd CUR_DIR
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_opfor.stozec
+set MISSION_SQM=..\mission_sqm\mission_opfor_csla_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_opfor_csla.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+cd %WORK_DIR%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_default.sqf
+del i_weapons_vn.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3a
+rmdir /S /Q ma3m
+rmdir /S /Q mifa3
+cd CUR_DIR
 rem ArmaScriptCompiler.exe
-rem rmdir /S /Q %WORK_DIR%
+rmdir /S /Q %WORK_DIR%
 
 
 rem TT Altis

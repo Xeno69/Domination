@@ -202,7 +202,7 @@ d_e_marker_color_alpha = 0.8;
 #include "sm_bonus_vec_ar_uns.sqf"
 #endif
 #ifdef __CSLA__
-//#include "sm_bonus_vec_ar_csla.sqf"
+#include "sm_bonus_vec_ar_csla.sqf"
 #endif
 #ifdef __VN__
 #include "sm_bonus_vec_ar_vn.sqf"
@@ -254,7 +254,7 @@ d_e_marker_color_alpha = 0.8;
 #include "mt_bonus_vec_ar_uns.sqf"
 #endif
 #ifdef __CSLA__
-//#include "mt_bonus_vec_ar_csla.sqf"
+#include "mt_bonus_vec_ar_csla.sqf"
 #endif
 #ifdef __VN__
 #include "mt_bonus_vec_ar_vn.sqf"
@@ -306,6 +306,9 @@ d_x_drop_array =
 		if (d_ifa3lite) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
 		};
+		if (d_csla) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "CSLA_AZU_para"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		}; 
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 	};
 #endif
@@ -861,6 +864,11 @@ if (!d_gmcwgwinter) then {
 				#include "d_allmen_O_RHS.sqf"
 			];
 		};
+		if (d_csla) exitWith {
+			d_allmen_W = [
+				#include "d_allmen_B_CSLA.sqf"
+			];
+		}; 
 		d_allmen_W = [
 			#include "d_allmen_B_default.sqf"
 		];
@@ -985,6 +993,9 @@ if (!d_gmcwgwinter) then {
 		if (d_ifa3lite) exitWith {
 			[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
 		};
+		if (d_csla) exitWith {
+			[["West","US85","US85_SpecForUnits","US85_sfSqd"] call d_fnc_GetConfigGroup]
+		}; 
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup,["West","BLU_F","Infantry","BUS_ReconSquad"] call d_fnc_GetConfigGroup]
 	};
 
@@ -1067,6 +1078,11 @@ if (!d_gmcwgwinter) then {
 		["Indep","VN_ARVN","vn_i_group_men_sf","vn_i_group_men_sf_03"] call d_fnc_GetConfigGroup
 	];
 #endif
+#ifdef __CSLA__
+	d_sabotage_W = [["West","US85","US85_SpecForUnits","US85_sfSqd"] call d_fnc_GetConfigGroup];
+	
+	d_sniper_W = [["US85_sfM21G", "US85_sfSptG"]];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
@@ -1138,6 +1154,11 @@ if (!d_gmcwgwinter) then {
 		#include "d_veh_a_O_RHS.sqf"
 	];
 #endif
+#ifdef __CSLA__
+	d_veh_a_W = [
+		#include "d_veh_a_B_CSLA.sqf"
+	];
+#endif
 
 	d_veh_a_G = [
 		#include "d_veh_a_G_default.sqf"
@@ -1187,6 +1208,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __VN__
 	d_arti_observer_E = [["vn_o_men_nva_01","vn_o_men_nva_65_01"]];
+#endif
+#ifdef __CSLA__
+	d_arti_observer_W = [["US85_mcRTO"]];
 #endif
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
@@ -1248,6 +1272,9 @@ if (!d_gmcwgwinter) then {
 			if (d_rhs) exitWith {
 				"RHS_Mi8mt_Cargo_vv"
 			};
+			if (d_csla) exitWith {
+				"CSLA_Mi17"
+			}; 
 			if (d_gmcwg) exitWith {
 				""
 			};
@@ -1298,7 +1325,9 @@ if (!d_gmcwgwinter) then {
 			if (d_rhs) exitWith {
 				"RHS_Su25SM_vvsc"
 			};
-
+			if (d_csla) exitWith {
+				""
+			}; 
 			"O_Plane_CAS_02_F"
 		};
 #endif
@@ -1349,6 +1378,9 @@ if (!d_gmcwgwinter) then {
 			};
 			if (d_cup) exitWith {
 				"CUP_B_A10_CAS_USA"
+			};
+			if (d_csla) exitWith {
+				""
 			};
 			if (d_rhs) exitWith {
 				"RHS_A10"
@@ -1491,6 +1523,9 @@ if (!d_gmcwgwinter) then {
 		if (d_vn) exitWith {
 			d_civilians_t = ["vn_c_men_01","vn_c_men_02","vn_c_men_03","vn_c_men_04","vn_c_men_05","vn_c_men_06","vn_c_men_07","vn_c_men_08","vn_c_men_09","vn_c_men_10","vn_c_men_11","vn_c_men_12","vn_c_men_13","vn_c_men_14","vn_c_men_22","vn_c_men_23","vn_c_men_24","vn_c_men_25","vn_c_men_26","vn_c_men_27","vn_c_men_28","vn_c_men_29","vn_c_men_30","vn_c_men_31","vn_c_men_32"];
 		};
+		if (d_csla) exitWith {
+			d_civilians_t = ["CSLA_CIV_Citizen","CSLA_CIV_Citizen_V2","CSLA_CIV_Citizen_V3","CSLA_CIV_Citizen_V4","CSLA_CIV_Doctor","CSLA_CIV_Foreman","CSLA_CIV_Foreman_V2","CSLA_CIV_Woodlander","CSLA_CIV_Woodlander_V2","CSLA_CIV_Woodlander_V3","CSLA_CIV_Woodlander_V4","CSLA_CIV_Functionary","CSLA_CIV_Functionary_V2","CSLA_CIV_Villager","CSLA_CIV_Villager_V2","CSLA_CIV_Villager_V3","CSLA_CIV_Villager_V4","CSLA_CIV_Worker","CSLA_CIV_Worker_V2","CSLA_CIV_Worker_V3","CSLA_CIV_Worker_V4"];
+		};
 		d_civilians_t = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F"];
 	};
 
@@ -1531,6 +1566,9 @@ if (!d_gmcwgwinter) then {
 		};
 		if (d_rhs) exitWith	{
 			"rhs_zsu234_aa"
+		};
+		if (d_csla) exitWith	{
+			"CSLA_PLdvK59V3S"
 		};
 		if (d_ifa3lite) exitWith {
 			"LIB_61k"
@@ -1579,6 +1617,9 @@ if (!d_gmcwgwinter) then {
 		if (d_rhs) exitWith {
 			"rhs_t90_tv"
 		};
+		if (d_csla) exitWith	{
+			"CSLA_T72M1"
+		};
 		if (d_ifa3lite) exitWith {
 			"LIB_T34_85"
 		};
@@ -1625,6 +1666,9 @@ if (!d_gmcwgwinter) then {
 		};
 		if (d_rhs) exitWith	{
 			"rhs_bmp2d_tv"
+		};
+		if (d_csla) exitWith	{
+			"CSLA_BVP1"
 		};
 		if (d_ifa3lite) exitWith {
 			"LIB_SOV_M3_Halftrack"
@@ -1681,7 +1725,7 @@ if (!d_gmcwgwinter) then {
 #include "d_sm_classes_vn.sqf"
 #endif
 #ifdef __CSLA__
-//#include "d_sm_classes_csla.sqf"
+#include "d_sm_classes_csla.sqf"
 #endif
 
 	d_intel_unit = objNull;
@@ -1857,6 +1901,9 @@ if (!d_gmcwgwinter) then {
 				if (d_rhs) exitWith {
 					["RHS_AH64D","RHS_AH64DGrey","RHS_AH64D_wd","RHS_AH1Z","RHS_AH1Z_wd"]
 				};
+				if (d_csla) exitWith {
+					["US85_MH60FFAR"]
+				}; 
 				["B_Heli_Attack_01_F"]
 			};
 		};
@@ -2027,6 +2074,13 @@ if (!d_gmcwgwinter) then {
 		};
 	};
 #endif
+#ifdef __CSLA__
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "W") exitWith {
+			["US85_UH60"]
+		};
+	};
+#endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
 	d_light_attack_chopper = call {
@@ -2064,6 +2118,9 @@ if (!d_gmcwgwinter) then {
 				if (d_ifa3lite) exitWith {
 					["LIB_Ju87_Italy2"]
 				};
+				if (d_csla) exitWith {
+					["US85_UH60M240"]
+				}; 
 				if (d_gmcwg) exitWith {
 					[]
 				};
@@ -2495,6 +2552,9 @@ if (hasInterface) then {
 		if (d_ifa3lite) exitWith {
 			["LIB_Willys_MB", "LIB_US_Willys_MB"]
 		};
+		if (d_csla) exitWith {
+			["CSLA_AZU", "CSLA_JARA250"]
+		};
 		["O_Quadbike_01_F", "O_LSV_02_unarmed_F"]
 	};
 #endif
@@ -2542,6 +2602,9 @@ if (hasInterface) then {
 	call {
 		if (d_ifa3lite) exitWith {
 			["LIB_US6_Tent"]
+		};
+		if (d_csla) exitWith {
+			["CSLA_DTP90", "CSLA_Mi17mg", "CSLA_Mi17"]
 		};
 		["O_MRAP_02_F", "O_Heli_Light_02_unarmed_F", "B_APC_Tracked_01_CRV_F", "rhsgref_BRDM2UM_vdv", "RHS_Mi8AMT_vvs"]
 	};

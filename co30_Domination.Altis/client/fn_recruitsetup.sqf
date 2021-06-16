@@ -128,6 +128,13 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {[]};
 	};
 #endif
+#ifdef __CSLA__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {[]};
+		case opfor: {["CSLA_mrRPG75", "CSLA_mrVG70", "CSLA_mrRPG7", "CSLA_mr9P135M", "CSLA_mrMedi", "CSLA_mrUK59", "CSLA_mrOP63", "CSLA_engSapper"]};
+		case independent: {[]};
+	};
+#endif
 };
 
 player setVariable ["d_recdbusy", false];

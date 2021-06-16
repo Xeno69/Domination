@@ -401,6 +401,9 @@ if (hasInterface) then {
 				if (d_rhs) exitWith {
 					["RHS_Mi8mt_Cargo_vv"]
 				};
+				if (d_csla) exitWith {
+					["CSLA_Mi17"]
+				};
 				["O_T_VTOL_02_infantry_dynamicLoadout_F"]
 			};
 #endif
