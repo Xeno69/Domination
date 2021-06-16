@@ -1,6 +1,7 @@
 4.54
 
 - Added: CSLA Gabreta OPFOR version
+- Added: Parameters for number of patrol and guard/camps spawned, d_priority_target implemented for most infantry, by longtimegamer
 - Fixed: Mini tripod weapons where spawned inside bunkers when using a CUP version
 - Updated: Russian translation by Babayka
 - Udpated: Simplified Chinese translation by SanJinSix
