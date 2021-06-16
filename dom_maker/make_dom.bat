@@ -701,7 +701,7 @@ del i_weapons_default.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
 del i_weapons_gmcwg.sqf
-del i_weapons_csla.sqf
+del i_weapons_UNSUNG.sqf
 del i_weapons_vn.sqf
 cd missions
 rmdir /S /Q m
