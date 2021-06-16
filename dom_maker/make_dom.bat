@@ -688,7 +688,7 @@ rmdir /S /Q %WORK_DIR%
 
 
 rem Opfor CSLA
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_opfor.stozec
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_opfor_csla.stozec
 set MISSION_SQM=..\mission_sqm\mission_opfor_csla_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_opfor_csla.sqf
 md %WORK_DIR%
@@ -697,11 +697,11 @@ echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
 echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
 cd %WORK_DIR%
 del i_weapons_rhs.sqf
+del i_weapons_default.sqf
 del i_weapons_CUP.sqf
 del i_weapons_IFA3.sqf
-del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
-del i_weapons_default.sqf
+del i_weapons_csla.sqf
 del i_weapons_vn.sqf
 cd missions
 rmdir /S /Q m
@@ -714,7 +714,12 @@ rmdir /S /Q ma3m
 rmdir /S /Q mifa3
 cd CUR_DIR
 rem ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+makePbo -AJNP %NEW_VER%
+rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
+
 
 
 rem TT Altis
