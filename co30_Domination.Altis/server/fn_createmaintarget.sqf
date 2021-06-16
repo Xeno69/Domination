@@ -9,12 +9,16 @@ private _selectit = {
 private _selectitmen = {
 	private _a_vng2 = (_this # 0) select (_this # 1);
 	if (_a_vng2 # 0 > 0) then {
-		private _num_ret = floor (random ((_a_vng2 # 0) + 1));
-		if (_num_ret < _a_vng2 # 1) then {
-			_a_vng2 # 1
+		if (d_always_max_groups == 1) then { 
+			(_a_vng2 # 0)
 		} else {
-			_num_ret
-		}
+			private _num_ret = floor (random ((_a_vng2 # 0) + 1));
+			if (_num_ret < _a_vng2 # 1) then {
+				_a_vng2 # 1
+			} else {
+				_num_ret
+			}
+		};
 	} else {0}
 };
 
@@ -32,23 +36,26 @@ private _selectitvec = {
 	};
 };
 
-private _type_list_guard = [
-	["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
-	["specops", 0, [d_footunits_guard, 1] call _selectitmen],
-	["tank", [d_vec_numbers_guard, 0] call _selectit, [d_vec_numbers_guard,0] call _selectitvec],
-	["tracked_apc", [d_vec_numbers_guard, 1] call _selectit, [d_vec_numbers_guard,1] call _selectitvec],
-	["wheeled_apc", [d_vec_numbers_guard, 2] call _selectit, [d_vec_numbers_guard,2] call _selectitvec],
-	["jeep_mg", [d_vec_numbers_guard, 3] call _selectit, [d_vec_numbers_guard,3] call _selectitvec],
-	["jeep_gl", [d_vec_numbers_guard, 4] call _selectit, [d_vec_numbers_guard,4] call _selectitvec]
-];
-
-private _type_list_guard_static = [
-	["allmen", 0, [d_footunits_guard_static, 0] call _selectitmen],
-	["specops",0, [d_footunits_guard_static, 1] call _selectitmen],
-	["tank", [d_vec_numbers_guard_static, 0] call _selectit, [d_vec_numbers_guard_static,0] call _selectitvec],
-	["tracked_apc", [d_vec_numbers_guard_static, 1] call _selectit, [d_vec_numbers_guard_static,1] call _selectitvec],
-	["aa", [d_vec_numbers_guard_static, 2] call _selectit, [d_vec_numbers_guard_static,2] call _selectitvec]
-];
+private _type_list_guard = [];
+private _type_list_guard_static = [];
+if (d_camp_enable_guard == 1) then {
+	_type_list_guard = [
+		["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
+		["specops", 0, [d_footunits_guard, 1] call _selectitmen],
+		["tank", [d_vec_numbers_guard, 0] call _selectit, [d_vec_numbers_guard,0] call _selectitvec],
+		["tracked_apc", [d_vec_numbers_guard, 1] call _selectit, [d_vec_numbers_guard,1] call _selectitvec],
+		["wheeled_apc", [d_vec_numbers_guard, 2] call _selectit, [d_vec_numbers_guard,2] call _selectitvec],
+		["jeep_mg", [d_vec_numbers_guard, 3] call _selectit, [d_vec_numbers_guard,3] call _selectitvec],
+		["jeep_gl", [d_vec_numbers_guard, 4] call _selectit, [d_vec_numbers_guard,4] call _selectitvec]
+	];
+	_type_list_guard_static = [
+		["allmen", 0, [d_footunits_guard_static, 0] call _selectitmen],
+		["specops",0, [d_footunits_guard_static, 1] call _selectitmen],
+		["tank", [d_vec_numbers_guard_static, 0] call _selectit, [d_vec_numbers_guard_static,0] call _selectitvec],
+		["tracked_apc", [d_vec_numbers_guard_static, 1] call _selectit, [d_vec_numbers_guard_static,1] call _selectitvec],
+		["aa", [d_vec_numbers_guard_static, 2] call _selectit, [d_vec_numbers_guard_static,2] call _selectitvec]
+	];
+};
 
 private _type_list_patrol = [
 	["allmen", 0, [d_footunits_patrol, 0] call _selectitmen],
@@ -99,6 +106,7 @@ __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 
 d_priority_target = nil;
+publicVariable "d_priority_target";
 
 private _parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {
@@ -236,7 +244,7 @@ sleep 0.1;
 
 #ifndef __TT__
 if (d_enable_civs == 1) then {
-	[_trg_center, 300] spawn d_fnc_civilianmodule;
+	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
 };
 #endif
 
@@ -265,8 +273,9 @@ private _fnc_dospawnr = {
 };
 
 private _comppost = [];
+// create guard groups (and a camp if allmen/specops)
 {
-	if ((_x # 0) call _fnc_dospawnr) then {
+	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
@@ -301,8 +310,9 @@ private _comppost = [];
 
 sleep 0.233;
 
+// create guard_static groups (and a camp if allmen/specops)
 {
-	if ((_x # 0) call _fnc_dospawnr) then {
+	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
@@ -335,6 +345,7 @@ sleep 0.233;
 	};
 } forEach (_type_list_guard_static select {_x # 2 > 0});
 
+// create guard_static2 groups (static GL and/or MG)
 {
 	for "_xxx" from 1 to (_x # 2) do {
 		private _wp_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
@@ -344,11 +355,16 @@ sleep 0.233;
 	};
 } forEach (_type_list_guard_static2 select {_x # 2 > 0});
 
+// create patrol groups
 {
 	__TRACE_1("patrol","_x")
-	if ((_x # 0) call _fnc_dospawnr) then {
+	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1 || d_grp_cnt_footpatrol > 0) then {
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
-		for "_xxx" from 1 to (_x # 2) do {
+		private _group_count = (_x # 2);
+		if (d_grp_cnt_footpatrol > 0 && (_x # 0 == "allmen" || {_x # 0 == "specops"})) then {
+			_group_count = d_grp_cnt_footpatrol;
+		};
+		for "_xxx" from 1 to _group_count do {
 			private _wp_ran = (count _curar) call d_fnc_RandomFloor;
 			[_x # 0, [_curar # _wp_ran], _trg_center, _x # 1, ["patrol", "patrol2mt"] select (_x # 0 == "allmen" || {_x # 0 == "specops"}), d_enemy_side_short, 0, -1.111, 1, [_trg_center, _patrol_radius]] call d_fnc_makegroup;
 			_curar deleteAt _wp_ran;

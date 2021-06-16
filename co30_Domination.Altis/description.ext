@@ -1081,9 +1081,9 @@ class Params {
 
 	class d_civ_groupcount {
 		title = "$STR_DOM_MISSIONSTRING_1920";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,25,50,75,100,150,200,250,300};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,75,100,150,200,250,300};
 		default = 10;
-		texts[] = {"0","1","2","3","4","5","6","7","8","9","10","25","50","75","100","150","200","250","300"};
+		texts[] = {"0","1","2","3","4","5","6","7","8","9","10","15","20","25","30","35","40","45","50","75","100","150","200","250","300"};
 	};
 
 	class d_civ_pnts {
@@ -1186,9 +1186,9 @@ class Params {
 
 	class d_occ_rad {
 		title = "$STR_DOM_MISSIONSTRING_1902";
-		values[] = {125, 250, 350, 450, 550, 750, 1000};
+		values[] = {125, 250, 350, 450, 550, 650, 750, 1000};
 		default = 250;
-		texts[] = {"125m", "250m", "350m", "450m", "550m", "750m", "1000m"};
+		texts[] = {"125m", "250m", "350m", "450m", "550m", "650m", "750m", "1000m"};
 	};
 	
 	class d_ovrw_cnt {
@@ -1200,9 +1200,9 @@ class Params {
 	
 	class d_ovrw_rad {
 		title = "$STR_DOM_MISSIONSTRING_1902";
-		values[] = {125, 250, 350, 450, 550, 750, 1000};
+		values[] = {125, 250, 350, 450, 550, 650, 750, 1000};
 		default = 250;
-		texts[] = {"125m", "250m", "350m", "450m", "550m", "750m", "1000m"};
+		texts[] = {"125m", "250m", "350m", "450m", "550m", "650m", "750m", "1000m"};
 	};
 
 	class d_amb_cnt {
@@ -1214,9 +1214,9 @@ class Params {
 
 	class d_amb_rad {
 		title = "$STR_DOM_MISSIONSTRING_1902";
-		values[] = {125, 250, 350, 425, 500};
+		values[] = {75, 125, 250, 300, 350, 450, 550, 650, 750, 1000};
 		default = 250;
-		texts[] = {"125m", "250m", "350m", "425m", "500m"};
+		texts[] = {"75m", "125m", "250m", "300m", "350m", "450m", "550m", "650m", "750m", "1000m"};
 	};
 
 	class d_snp_cnt {
@@ -1231,6 +1231,27 @@ class Params {
 		values[] = {250, 425, 650, 900};
 		default = 425;
 		texts[] = {"250m", "425m", "650m", "900m"};
+	};
+	
+	class d_grp_cnt_footpatrol {
+		title = "$STR_DOM_MISSIONSTRING_1900PATROL";
+		values[] = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+		default = -1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
+	};
+	
+	class d_always_max_groups {
+		title = "$STR_DOM_MISSIONSTRING_1900MAXGROUPS";
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_grp_size_override {
+		title = "$STR_DOM_MISSIONSTRING_1900GROUPSIZE";
+		values[] = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+		default = -1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
 	};
 	
 	class d_params_dl_8_obj {
@@ -1263,6 +1284,13 @@ class Params {
 	
 	class d_camp_static_weapons {
 		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_camp_enable_guard {
+		title = "$STR_DOM_MISSIONSTRING_ENABLE_GUARD";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
