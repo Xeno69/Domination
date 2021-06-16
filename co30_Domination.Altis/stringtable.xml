@@ -171,12 +171,12 @@
 <French> Bienvenue à...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_24">
-<English>You have to free the island from all enemy forces.</English>
+<English>Free the island from all enemy forces.</English>
 <Spanish>Tiene que liberar la isla de todas las fuerzas enemigas.</Spanish>
 <Portuguese>Tem que libertar a ilha de todas as forças inimigas.</Portuguese>
 <Korean>귀관은 적군의 손아귀에서 부터 이 섬을 해방시켜야합니다.</Korean>
 <Japanese>すべての敵軍から島を解放しなければなりません。</Japanese>
-<Original>You have to free the island from all enemy forces.</Original>
+<Original>Free the island from all enemy forces.</Original>
 <Russian>Вам необходимо освободить территорию острова от врагов.</Russian>
 <Chinesesimp>你需要从敌人手里解放这个岛屿。</Chinesesimp>
 <Chinese>你需要從敵人手裡解放這座島</Chinese>
@@ -2975,6 +2975,18 @@
 <Chinesesimp>从不</Chinesesimp>
 <Chinese>從不</Chinese>
 <French>Jamais</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_418DEFAULT">
+<English>Default</English>
+<Spanish>Default</Spanish>
+<Portuguese>Default</Portuguese>
+<Korean>Default</Korean>
+<Japanese>Default</Japanese>
+<Original>Default</Original>
+<Russian>Default</Russian>
+<Chinesesimp>Default</Chinesesimp>
+<Chinese>Default</Chinese>
+<French>Default</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418B">
 <English>Always</English>
@@ -12341,6 +12353,39 @@
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 狙击手模式</Chinesesimp>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900PATROL">
+<English>Enemy infantry - patrol infantry group count</English>
+<Spanish>Enemy infantry - patrol infantry group count</Spanish>
+<Portuguese>Enemy infantry - patrol infantry group count</Portuguese>
+<Korean>Enemy infantry - patrol infantry group count</Korean>
+<Japanese>Enemy infantry - patrol infantry group count</Japanese>
+<Original>Enemy infantry - patrol infantry group count</Original>
+<Russian>Enemy infantry - patrol infantry group count</Russian>
+<Chinesesimp>Enemy infantry - patrol infantry group count</Chinesesimp>
+<French>Enemy infantry - patrol infantry group count</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900MAXGROUPS">
+<English>Enemy infantry - always choose maximum number of groups</English>
+<Spanish>Enemy infantry - always choose maximum number of groups</Spanish>
+<Portuguese>Enemy infantry - always choose maximum number of groups</Portuguese>
+<Korean>Enemy infantry - always choose maximum number of groups</Korean>
+<Japanese>Enemy infantry - always choose maximum number of groups</Japanese>
+<Original>Enemy infantry - always choose maximum number of groups</Original>
+<Russian>Enemy infantry - always choose maximum number of groups</Russian>
+<Chinesesimp>Enemy infantry - always choose maximum number of groups</Chinesesimp>
+<French>Enemy infantry - always choose maximum number of groups</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1900GROUPSIZE">
+<English>Enemy infantry - group size</English>
+<Spanish>Enemy infantry - group size</Spanish>
+<Portuguese>Enemy infantry - group size</Portuguese>
+<Korean>Enemy infantry - group size</Korean>
+<Japanese>Enemy infantry - group size</Japanese>
+<Original>Enemy infantry - group size</Original>
+<Russian>Enemy infantry - group size</Russian>
+<Chinesesimp>Enemy infantry - group size</Chinesesimp>
+<French>Enemy infantry - group size</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
 <English>AI Advanced - enhanced awareness (sniper units)</English>
 <Spanish>AI Avanzado - mayor conciencia (unidades de francotiradores)</Spanish>
@@ -14030,6 +14075,18 @@
 <Chinesesimp>用静态武器防御：</Chinesesimp>
 <Chinese>Defend with static weapons</Chinese>
 <French>Defend with static weapons</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENABLE_GUARD">
+<English>Enable guards and camps</English>
+<Spanish>Enable guards and camps</Spanish>
+<Portuguese>Enable guards and camps</Portuguese>
+<Korean>Enable guards and camps</Korean>
+<Japanese>Enable guards and camps</Japanese>
+<Original>Enable guards and camps</Original>
+<Russian>Enable guards and camps</Russian>
+<Chinesesimp>Enable guards and camps</Chinesesimp>
+<Chinese>Enable guards and camps</Chinese>
+<French>Enable guards and camps</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2051">
 <English>Disable ACE medical revive (if ACE is used) and use mission revive</English>

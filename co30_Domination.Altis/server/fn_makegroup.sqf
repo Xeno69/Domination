@@ -52,9 +52,9 @@ if (_numvecs > 0) then {
 } else {
 	__TRACE("from makegroup")
 #ifndef __TT__
-	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true, -1, d_side_player] call d_fnc_makemgroup;
+	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true, [-1, d_grp_size_override] select (d_grp_size_override > 0), d_side_player] call d_fnc_makemgroup;
 #else
-	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true ,-1, [blufor, opfor]] call d_fnc_makemgroup;
+	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true ,[-1, d_grp_size_override] select (d_grp_size_override > 0), [blufor, opfor]] call d_fnc_makemgroup;
 #endif
 	__TRACE_1("","_uinf")
 };

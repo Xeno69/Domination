@@ -74,7 +74,7 @@ if (isNil "d_priority_target") then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 	// reset 
 	d_priority_target = nil;
 	publicVariable "d_priority_target";
