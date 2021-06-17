@@ -2984,7 +2984,7 @@
 <Japanese>Default</Japanese>
 <Original>Default</Original>
 <Russian>Default</Russian>
-<Chinesesimp>Default</Chinesesimp>
+<Chinesesimp>默认</Chinesesimp>
 <Chinese>Default</Chinese>
 <French>Default</French>
 </Key>
@@ -12361,7 +12361,7 @@
 <Japanese>Enemy infantry - patrol infantry group count</Japanese>
 <Original>Enemy infantry - patrol infantry group count</Original>
 <Russian>Пехота противника - количество патрульных пехотных групп</Russian>
-<Chinesesimp>Enemy infantry - patrol infantry group count</Chinesesimp>
+<Chinesesimp>敌方步兵 - 步兵巡逻队数量</Chinesesimp>
 <French>Enemy infantry - patrol infantry group count</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900MAXGROUPS">
@@ -12372,7 +12372,7 @@
 <Japanese>Enemy infantry - always choose maximum number of groups</Japanese>
 <Original>Enemy infantry - always choose maximum number of groups</Original>
 <Russian>Вражеская пехота - всегда выбирать максимальное количество групп</Russian>
-<Chinesesimp>Enemy infantry - always choose maximum number of groups</Chinesesimp>
+<Chinesesimp>敌军步兵 - 始终选择最大组数</Chinesesimp>
 <French>Enemy infantry - always choose maximum number of groups</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900GROUPSIZE">
@@ -12383,7 +12383,7 @@
 <Japanese>Enemy infantry - group size</Japanese>
 <Original>Enemy infantry - group size</Original>
 <Russian>Пехота противника - размер группы</Russian>
-<Chinesesimp>Enemy infantry - group size</Chinesesimp>
+<Chinesesimp>敌军步兵 - 小队规模</Chinesesimp>
 <French>Enemy infantry - group size</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
@@ -14084,7 +14084,7 @@
 <Japanese>Enable guards and camps</Japanese>
 <Original>Enable guards and camps</Original>
 <Russian>Включить охрану и лагеря</Russian>
-<Chinesesimp>Enable guards and camps</Chinesesimp>
+<Chinesesimp>启用守卫和营地</Chinesesimp>
 <Chinese>Enable guards and camps</Chinese>
 <French>Enable guards and camps</French>
 </Key>
