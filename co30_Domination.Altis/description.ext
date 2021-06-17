@@ -1276,20 +1276,10 @@ class Params {
 	class d_camp_static_weapons {
 		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
 		values[] = {0,1};
-<<<<<<< HEAD
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
-	class d_camp_enable_guard {
-		title = "$STR_DOM_MISSIONSTRING_ENABLE_GUARD";
-		values[] = {0,1};
-=======
->>>>>>> parent of 24e221c3 (added: parameters for number of patrol and guard/camps spawned, d_priority_target implemented for most infantry)
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-
 	class d_params_dl_10 {
 		title = "$STR_DOM_MISSIONSTRING_1576";
 		values[] = {-66};
