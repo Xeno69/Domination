@@ -177,7 +177,7 @@
 <Korean>귀관은 적군의 손아귀에서 부터 이 섬을 해방시켜야합니다.</Korean>
 <Japanese>すべての敵軍から島を解放しなければなりません。</Japanese>
 <Original>Free the island from all enemy forces.</Original>
-<Russian>Вам необходимо освободить территорию острова от врагов.</Russian>
+<Russian>Освободите остров от всех вражеских сил.</Russian>
 <Chinesesimp>你需要从敌人手里解放这个岛屿。</Chinesesimp>
 <Chinese>你需要從敵人手裡解放這座島</Chinese>
 <French>Vous devez libérer l'île de toutes les forces ennemies.</French>
@@ -3223,7 +3223,7 @@
 <Korean>%1 이(가) %2를 사살했습니다. %3 팀이 %4 포인트를 얻습니다.</Korean>
 <Japanese>%1 は %2 に殺されました。 %3 チームに %4 ポイント。</Japanese>
 <Original>%1 has killed %2. The %3 team gets %4 point.</Original>
-<Russian>%1 был убит игроком %2. Команда %3 получает %4 очков.</Russian>
+<Russian>%2 был убит игроком %1. Команда %3 получает %4 очков.</Russian>
 <Chinesesimp>%1 杀死了 %2。 %3 小队得到了 %4 点数。</Chinesesimp>
 <Chinese>%1 殺死了 %2. %3 小隊得到了 %4 點數‧</Chinese>
 <French>%1 a tué %2. L'équipe %3 obtient %4 points.</French>
@@ -5624,7 +5624,7 @@
 <Korean>적군이 새로운 타입의 헬기 시제품을 테스트중입니다. 적 병력이 그것을 사용하지 전에 파괴하십시오.</Korean>
 <Japanese>敵は新型ヘリコプターの原型機を試験している。 敵部隊が使用する前に破壊せよ。</Japanese>
 <Original>The enemy is testing a new helicopter prototype. Destroy it before enemy troops use it.</Original>
-<Russian>Противник тестирует прототип самолета. Уничтожьте его до испытаний!</Russian>
+<Russian>Противник испытывает новый прототип вертолета. Уничтожьте его прежде, чем враг воспользуются им.</Russian>
 <Chinesesimp>敌人有新型直升机在进行测试。在敌军使用之前摧毁它。</Chinesesimp>
 <Chinese>敵人有新型直升機在進行測試。在敵軍使用之前摧毀它。</Chinese>
 <French>L'ennemi teste un nouveau prototype d'hélicoptère. Détruisez-le avant que les troupes ennemies l'utilisent.</French>
@@ -12360,7 +12360,7 @@
 <Korean>Enemy infantry - patrol infantry group count</Korean>
 <Japanese>Enemy infantry - patrol infantry group count</Japanese>
 <Original>Enemy infantry - patrol infantry group count</Original>
-<Russian>Enemy infantry - patrol infantry group count</Russian>
+<Russian>Пехота противника - количество патрульных пехотных групп</Russian>
 <Chinesesimp>敌方步兵 - 步兵巡逻队数量</Chinesesimp>
 <French>Enemy infantry - patrol infantry group count</French>
 </Key>
@@ -12371,7 +12371,7 @@
 <Korean>Enemy infantry - always choose maximum number of groups</Korean>
 <Japanese>Enemy infantry - always choose maximum number of groups</Japanese>
 <Original>Enemy infantry - always choose maximum number of groups</Original>
-<Russian>Enemy infantry - always choose maximum number of groups</Russian>
+<Russian>Вражеская пехота - всегда выбирать максимальное количество групп</Russian>
 <Chinesesimp>敌军步兵 - 始终选择最大组数</Chinesesimp>
 <French>Enemy infantry - always choose maximum number of groups</French>
 </Key>
@@ -12382,7 +12382,7 @@
 <Korean>Enemy infantry - group size</Korean>
 <Japanese>Enemy infantry - group size</Japanese>
 <Original>Enemy infantry - group size</Original>
-<Russian>Enemy infantry - group size</Russian>
+<Russian>Пехота противника - размер группы</Russian>
 <Chinesesimp>敌军步兵 - 小队规模</Chinesesimp>
 <French>Enemy infantry - group size</French>
 </Key>
@@ -14083,7 +14083,7 @@
 <Korean>Enable guards and camps</Korean>
 <Japanese>Enable guards and camps</Japanese>
 <Original>Enable guards and camps</Original>
-<Russian>Enable guards and camps</Russian>
+<Russian>Включить охрану и лагеря</Russian>
 <Chinesesimp>启用守卫和营地</Chinesesimp>
 <Chinese>Enable guards and camps</Chinese>
 <French>Enable guards and camps</French>
