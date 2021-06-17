@@ -1,3 +1,4 @@
 4.55
 
 - Updated: Russian translation by Babayka
+- Udpated: Simplified Chinese translation by SanJinSix
