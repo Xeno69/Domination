@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project name="Domination">
 <Package name="Domination">
 <Container name="Mission">
@@ -28883,4 +28882,3 @@
 </Container>
 </Package>
 </Project>
->>>>>>> parent of 24e221c3 (added: parameters for number of patrol and guard/camps spawned, d_priority_target implemented for most infantry)
