@@ -1,4 +1,5 @@
 4.55
 
+- Fixed: Reverted some last minute changes which caused script errors
 - Updated: Russian translation by Babayka
 - Udpated: Simplified Chinese translation by SanJinSix
