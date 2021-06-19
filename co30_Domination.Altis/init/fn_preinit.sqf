@@ -924,6 +924,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __VN__
 #include "d_allmen_G_vn.sqf"
 #endif
+#ifdef __CSLA__
+#include "d_allmen_G_default.sqf"
+#endif
 	];
 
 	d_specops_E = [
