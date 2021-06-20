@@ -1,5 +1,3 @@
-4.55
+4.56
 
-- Fixed: Reverted some last minute changes which caused script errors
-- Updated: Russian translation by Babayka
-- Udpated: Simplified Chinese translation by SanJinSix
+- Fixed: If d_with_ranked was set to 2 (Ranked mode on but weapons not ranked) d_remove_from_arsenal was not processed
