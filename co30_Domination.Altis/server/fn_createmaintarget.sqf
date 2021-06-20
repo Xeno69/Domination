@@ -108,8 +108,8 @@ if (d_bar_mhq_destroy == 0) then {
 	d_mt_barmhq_ar = [];
 };
 
-d_priority_target = nil;
-publicVariable "d_priority_target";
+d_priority_targets = [];
+publicVariable "d_priority_targets";
 
 private _parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {
@@ -395,6 +395,7 @@ sleep 0.233;
 {
 	__TRACE_1("patrol","_x")
 	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1 || d_grp_cnt_footpatrol > 0) then {
+		if (d_grp_cnt_footpatrol == 0) exitWith {};
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		private _group_count = (_x # 2);
 		if (d_grp_cnt_footpatrol > 0 && (_x # 0 == "allmen" || {_x # 0 == "specops"})) then {

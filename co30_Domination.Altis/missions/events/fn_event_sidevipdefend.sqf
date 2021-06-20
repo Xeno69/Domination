@@ -104,8 +104,8 @@ _event_target_name = name _pilot1;
 
 _pilot1 addEventHandler ["Killed", {
 	// reset
-	d_priority_target = nil;
-	publicVariable "d_priority_target";
+	d_priority_targets deleteAt 0;
+	publicVariable "d_priority_targets";
 }];
 
 diag_log [format["vipdefend begins start time: %1 _event_target_name: %2", _event_start_time, _event_target_name]];
@@ -118,28 +118,29 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-// actually don't immediately target the pilot, allow the players 60 seconds to set up a defense
-sleep 60;
+// actually don't immediately target the pilot, allow the players 30 seconds to set up a defense
+sleep 30;
 
 // now the attack begins
-d_priority_target = _pilot1;
-publicVariable "d_priority_target";
+d_priority_targets pushBack _pilot1;
+publicVariable "d_priority_targets";
 
 // waitUntil either killed EH or _event_survive_time duration
-waitUntil {sleep 3;isNil "d_priority_target" || {(time - _event_start_time) > _event_survive_time}};
+waitUntil {sleep 3;d_priority_targets isEqualTo [] || {(time - _event_start_time) > _event_survive_time}};
 
 diag_log ["markedfordeath ended"];
 
 sleep 5;
 
-if (isNil "d_priority_target") then {
+if (d_priority_targets isEqualTo []) then {
 	diag_log ["markedfordeath failure"];
+	private _fail_survive_time = time - _event_start_time;
 	d_kb_logic1 kbTell [
     	d_kb_logic2,
     	d_kb_topic_side,
     	"PlayerMarkedForDeathFail",
     	["1", "", _event_target_name, []],
-    	["2", "", str (time - _event_start_time), []],
+    	["2", "", str _fail_survive_time, []],
     	d_kbtel_chan
     ];
 } else {
@@ -157,8 +158,8 @@ if (isNil "d_priority_target") then {
 		_x addScore _event_succeed_points;
 	} forEach d_allplayers;
 	// reset 
-	d_priority_target = nil;
-	publicVariable "d_priority_target";
+	d_priority_targets deleteAt 0;
+	publicVariable "d_priority_targets";
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

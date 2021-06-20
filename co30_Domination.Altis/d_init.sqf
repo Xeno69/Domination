@@ -357,6 +357,9 @@ if (isNil "d_winterw") then {
 if (isNil "d_mt_event_messages_array") then {
 	d_mt_event_messages_array = [];
 };
+if (isNil "d_priority_targets") then {
+	d_priority_targets = [];
+};
 
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};

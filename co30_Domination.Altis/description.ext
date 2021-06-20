@@ -1247,9 +1247,9 @@ class Params {
 	
 	class d_grp_cnt_footpatrol {
 		title = "$STR_DOM_MISSIONSTRING_1900PATROL";
-		values[] = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
+		values[] = {-1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15};
 		default = -1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"};
 	};
 	
 	class d_always_max_groups {
@@ -1264,6 +1264,20 @@ class Params {
 		values[] = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
 		default = -1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+	};
+	
+	class d_camp_static_weapons {
+		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_camp_enable_guard {
+		title = "$STR_DOM_MISSIONSTRING_ENABLE_GUARD";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_params_dl_8_obj {
@@ -1291,20 +1305,6 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1931";
 		values[] = {0,1};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-	
-	class d_camp_static_weapons {
-		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-	
-	class d_camp_enable_guard {
-		title = "$STR_DOM_MISSIONSTRING_ENABLE_GUARD";
-		values[] = {0,1};
-		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
