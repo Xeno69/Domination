@@ -1035,7 +1035,7 @@ if (d_arsenal_mod == 0) then {
 
 for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 	private _proceed = true;
-	if (d_with_ranked && {d_no_ranked_weapons && {!(_i in [5, 22, 23, 26])}}) then {
+	if (d_with_ranked && {!d_no_ranked_weapons && {!(_i in [5, 22, 23, 26])}}) then {
 		_proceed = false;
 	};
 	if (_proceed && {(d_remove_from_arsenal # _i) isNotEqualTo [] && {(bis_fnc_arsenal_data # _i) isNotEqualTo []}}) then {
