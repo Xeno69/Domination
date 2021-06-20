@@ -348,6 +348,7 @@ class cfgFunctions {
 			addc(swm);
 			addc(markername);
 			addc(tanoafix);
+			addc(getbldgswithpositions);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
