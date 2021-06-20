@@ -331,6 +331,7 @@ d_illum_tower = "Land_TTowerBig_2_F";
 #else
 d_illum_tower = "Land_vn_ttowerbig_2_f";
 #endif
+
 d_cargotower =
 #ifdef __ALTIS__
 	"Land_Cargo_Tower_V3_F";
@@ -848,6 +849,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __UNSUNG__
 #include "d_allmen_O_uns.sqf"
 #endif
+#ifdef __CSLA__
+#include "d_allmen_O_default.sqf"
+#endif
 	];
 	
 	call {
@@ -978,6 +982,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __VN__
 #include "d_specops_O_vn.sqf"
+#endif
+#ifdef __CSLA__
+#include "d_specops_O_default.sqf"
 #endif
 	];
 
@@ -1132,6 +1139,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __VN__
 #include "d_veh_a_O_vn.sqf"
+#endif
+#ifdef __CSLA__
+#include "d_veh_a_O_default.sqf"
 #endif
 	];
 
