@@ -60,8 +60,8 @@ while {true} do {
 		if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSide && {_x distance2D _unit < _detectionRadius}}}}}) then {
 			if (!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}) then {
 				_unit reveal [_x, 4];
+				_Dtargets pushBack [_x distance2D _unit, _x];
 			};
-			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
 	} forEach (_unit nearEntities _awarenessRadius);
 	__TRACE_1("","_Dtargets")
