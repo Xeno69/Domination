@@ -910,6 +910,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __IFA3LITE__
 #include "d_allmen_G_default.sqf"
 #endif
+#ifdef __TTALTIS__
+#include "d_allmen_G_default.sqf"
+#endif
 #ifdef __TTTANOA__
 #include "d_allmen_G_default.sqf"
 #endif
