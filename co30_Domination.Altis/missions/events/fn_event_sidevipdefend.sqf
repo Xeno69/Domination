@@ -128,12 +128,12 @@ publicVariable "d_priority_targets";
 // waitUntil either killed EH or _event_survive_time duration
 waitUntil {sleep 3;d_priority_targets isEqualTo [] || {(time - _event_start_time) > _event_survive_time}};
 
-diag_log ["markedfordeath ended"];
+diag_log ["vipdefend ended"];
 
 sleep 5;
 
 if (d_priority_targets isEqualTo []) then {
-	diag_log ["markedfordeath failure"];
+	diag_log ["vipdefend failure"];
 	private _fail_survive_time = time - _event_start_time;
 	d_kb_logic1 kbTell [
     	d_kb_logic2,
@@ -144,7 +144,7 @@ if (d_priority_targets isEqualTo []) then {
     	d_kbtel_chan
     ];
 } else {
-	diag_log ["markedfordeath success"];
+	diag_log ["vipdefend success"];
 	d_kb_logic1 kbTell [
 		d_kb_logic2,
 		d_kb_topic_side,
