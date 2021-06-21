@@ -128,6 +128,27 @@ _Zen_ArrayShuffle = {
 	};
 };
 
+_spawn_script_enable_movement = {
+	params ["_uuidx"];
+	_uuidx spawn {
+		scriptName "allow movement if d_priority_targets isNotEqualTo []";
+		while { true } do {
+			sleep 10 + random 5;
+			if (d_priority_targets isNotEqualTo []) then {
+				private _ptarget = d_priority_targets # 0;
+				_this forceSpeed -1;
+				_this doMove getPosATL _ptarget;
+				sleep 3;
+				// shoot at the priority target if visible to the unit
+				if ([_this, _ptarget] call d_fnc_isvisible) then {
+					_this doTarget _ptarget;
+					_this doSuppressiveFire _ptarget;
+				};
+			};
+		};
+	};
+};
+
 _buildingsArrayFiltered = [_center, _buildingRadius, d_side_enemy] call d_fnc_getbuildings;
 
 _buildingPosArray = [];
@@ -228,10 +249,12 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 	
 									//occupy mode - no special behavior
 									if (_unitMovementMode == 0) then {
-										//do nothing
+										//do nothing, unit is free to move
+										//enable priority movement
+										[_uuidx] call _spawn_script_enable_movement;
 									};
 	
-									//ambush mode - static until firedNear within 69m restores unit ability to move and fire or if d_priority_target is not nil
+									//ambush mode - static until firedNear within 69m restores unit ability to move and fire or if d_priority_targets is not empty
 									if (_unitMovementMode == 1) then {
 	
 										if !(_doMove) then {
@@ -254,16 +277,8 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 												};
 											}]];
 										};
-										_uuidx spawn {
-											scriptName "allow movement if d_priority_target is set";
-											while { true } do {
-												sleep 10 + random 5;
-												if (!isNil "d_priority_target") then {
-													_this forceSpeed -1;
-													_this doMove getPosATL (d_priority_target);
-												};
-											};
-										};
+										//enable priority movement
+										[_uuidx] call _spawn_script_enable_movement;
 									};
 	
 									//sniper mode - static forever
@@ -312,6 +327,9 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 											_uuidx disableAI "TARGET";
 											_uuidx forceSpeed 0;
 										};
+										
+										//enable priority movement
+										[_uuidx] call _spawn_script_enable_movement;
 										
 										if (isNil {_uuidx getVariable "d_zen_fneh2"}) then {
 											_uuidx setVariable ["d_zen_fneh2", _uuidx addEventHandler ["FiredNear", {

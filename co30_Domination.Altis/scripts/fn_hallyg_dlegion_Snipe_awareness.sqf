@@ -60,8 +60,8 @@ while {true} do {
 		if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSide && {_x distance2D _unit < _detectionRadius}}}}}) then {
 			if (!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}) then {
 				_unit reveal [_x, 4];
+				_Dtargets pushBack [_x distance2D _unit, _x];
 			};
-			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
 	} forEach (_unit nearEntities _awarenessRadius);
 	__TRACE_1("","_Dtargets")
@@ -72,9 +72,12 @@ while {true} do {
 	if (_Dtargets isNotEqualTo []) then {
 		_Dtargets sort true;
 		_playersSortedByDistance = _Dtargets apply {_x # 1};
-		if (!isNil "d_priority_target") then {
+		if (d_priority_targets isNotEqualTo []) then {
 			// if priority target exists then it should be first in the targets array
-			_targets = [d_priority_target] + _playersSortedByDistance;
+			reverse _playersSortedByDistance;
+			_playersSortedByDistance pushBack d_priority_targets # 0;
+			reverse _playersSortedByDistance;
+			_targets = _playersSortedByDistance;
 		} else {
 			_targets = _playersSortedByDistance;
 		};
@@ -84,7 +87,6 @@ while {true} do {
 				__TRACE("Aggressive Shoot")
 				{
 					if (!alive _unit) exitWith {};
-					//if (([_unit, _x] call d_fnc_isvisible) || {[_unit, _x, 360] call _isLOS}) then {
 					if ([_unit, _x] call d_fnc_isvisible) then {
 						//to check if unit actually fired
 						_ammoCount = _unit ammo primaryWeapon _unit;
@@ -92,7 +94,7 @@ while {true} do {
 						// execute aggressive shooting
 						_unit doTarget _x;
 						_unit doSuppressiveFire _x;
-						sleep 15;
+						sleep 3;
 						if (!alive _unit) exitWith {};
 						if (_ammoCount > _unit ammo primaryWeapon _unit || {_magazineCount > count magazinesAmmo _unit}) then {
 							//yes the unit actually fired
@@ -111,7 +113,7 @@ while {true} do {
 			_target_move_dest = _targets # 0;
 			__TRACE_1("","_target_move_dest")
 			// if a priority target is defined or a target is within pursue radius then doMove
-			if (!isNil "d_priority_target" || {_pursueRadius > 0 && {_target_move_dest distance2D _unit < _pursueRadius}}) then {
+			if (d_priority_targets isNotEqualTo [] || {_pursueRadius > 0 && {_target_move_dest distance2D _unit < _pursueRadius}}) then {
 				__TRACE("pursue radius")
 				//unit is eligible for a move order
 				if ((time - _lastMoveOrder) > _moveOrderInterval) then {
