@@ -534,7 +534,7 @@ if (d_occ_bldgs == 1) then {
 			_occ_spawn_factor = 0.06;  // adaptive (high)
 		};
 		if (d_occ_cnt == -3) then {
-			_occ_spawn_factor = 0.09;  // adaptive (very high)
+			_occ_spawn_factor = 0.12;  // adaptive (very high)
 		};
 		private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
 		_occ_cnt = floor (_bldg_count * _occ_spawn_factor);
@@ -567,7 +567,7 @@ if (d_occ_bldgs == 1) then {
 			_ovrw_spawn_factor = 0.06;  // adaptive (high)
 		};
 		if (d_ovrw_cnt == -3) then {
-			_ovrw_spawn_factor = 0.09;  // adaptive (very high)
+			_ovrw_spawn_factor = 0.14;  // adaptive (very high)
 		};
 		private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
 		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor);
@@ -597,10 +597,10 @@ if (d_occ_bldgs == 1) then {
 		//calculate number of ambush groups by counting the number of building in the maintarget area * spawn factor
 		private _amb_spawn_factor = 0.02; // adaptive (normal)
 		if (d_amb_cnt == -2) then {
-			_amb_spawn_factor = 0.04;  // adaptive (high)
+			_amb_spawn_factor = 0.05;  // adaptive (high)
 		};
 		if (d_amb_cnt == -3) then {
-			_amb_spawn_factor = 0.09;  // adaptive (very high)
+			_amb_spawn_factor = 0.12;  // adaptive (very high)
 		};
 		private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
 		_amb_cnt = floor (_bldg_count * _amb_spawn_factor);
@@ -625,21 +625,21 @@ if (d_occ_bldgs == 1) then {
 
 	//create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	private _snp_cnt = 0;
-    	if (d_snp_cnt == -1 || d_snp_cnt == -2 || d_snp_cnt == -3) then {
-    		//adaptive group count
-    		//calculate number of sniper groups by counting the number of building in the maintarget area * spawn factor
-    		private _snp_spawn_factor = 0.01; // adaptive (normal)
-    		if (d_snp_cnt == -2) then {
-    			_snp_spawn_factor = 0.02;  // adaptive (high)
-    		};
-    		if (d_snp_cnt == -3) then {
-				_snp_spawn_factor = 0.04;  // adaptive (very high)
-			};
-    		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
-    		_snp_cnt = floor (_bldg_count * _snp_spawn_factor);
-    	} else {
-    		_snp_cnt = d_snp_cnt;
-    	};
+	if (d_snp_cnt == -1 || d_snp_cnt == -2 || d_snp_cnt == -3) then {
+		//adaptive group count
+		//calculate number of sniper groups by counting the number of building in the maintarget area * spawn factor
+		private _snp_spawn_factor = 0.02; // adaptive (normal)
+		if (d_snp_cnt == -2) then {
+			_snp_spawn_factor = 0.05;  // adaptive (high)
+		};
+		if (d_snp_cnt == -3) then {
+			_snp_spawn_factor = 0.12;  // adaptive (very high)
+		};
+		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
+		_snp_cnt = floor (_bldg_count * _snp_spawn_factor);
+	} else {
+		_snp_cnt = d_snp_cnt;
+	};
 	if (_snp_cnt > 0) then {
 		//START create garrisoned groups of snipers
 		//prepare to create garrisoned groups of snipers - find and sort buildings
@@ -684,10 +684,10 @@ if (d_occ_bldgs == 1) then {
 		
 		private _buildingsArray = [];
 	
-		if (d_snp_cnt >= count _buildingsArraySorted) then {
+		if (_snp_cnt >= count _buildingsArraySorted) then {
 			_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted];
 		} else {
-			_buildingsArray = _buildingsArraySorted select [0, d_snp_cnt];
+			_buildingsArray = _buildingsArraySorted select [0, _snp_cnt];
 		};
 	
 		__TRACE_1("","_buildingsArray")

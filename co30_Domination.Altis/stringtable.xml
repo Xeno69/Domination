@@ -7670,16 +7670,16 @@
 <French>Unité</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1223">
-<English>Score:</English>
-<Spanish>Puntos:</Spanish>
+<English>Score</English>
+<Spanish>Puntos</Spanish>
 <Portuguese>Pontuação</Portuguese>
-<Korean>점수:</Korean>
-<Japanese>スコア:</Japanese>
-<Original>Score:</Original>
-<Russian>Очки:</Russian>
-<Chinesesimp>分数：</Chinesesimp>
-<Chinese>分數:</Chinese>
-<French>Score:</French>
+<Korean>점수</Korean>
+<Japanese>スコア</Japanese>
+<Original>Score</Original>
+<Russian>Очки</Russian>
+<Chinesesimp>分数</Chinesesimp>
+<Chinese>分數</Chinese>
+<French>Score</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1224">
 <English>Reset TKs</English>
