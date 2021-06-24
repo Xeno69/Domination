@@ -43,8 +43,6 @@ if (d_mt_respawngroups == 0) then { \
 
 #define __vkilled(ktype) _vec addEventHandler [#killed, {_this pushBack #ktype; call d_fnc_MTSMTargetKilled}];
 
-#define __rembuilding _vec spawn {sleep 30; _this setDamage 0; deleteVehicle _this};
-
 if !(isServer) exitWith {};
 
 sleep 1.120;
@@ -149,7 +147,6 @@ switch (_sec_kind) do {
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
-		__rembuilding
 		sleep 1.0112;
 		__specops;
 	};
@@ -223,7 +220,6 @@ switch (_sec_kind) do {
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
-		__rembuilding
 		sleep 1.0112;
 		__specops;
 	};
@@ -247,7 +243,6 @@ switch (_sec_kind) do {
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
-		__rembuilding
 		sleep 1.0112;
 		__specops;
 	};
@@ -273,7 +268,6 @@ switch (_sec_kind) do {
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
-		__rembuilding
 		sleep 1.0112;
 		__specops;
 	};
@@ -293,7 +287,6 @@ switch (_sec_kind) do {
 		if (d_with_dynsim == 0) then {
 			[_vec, 5] spawn d_fnc_enabledynsim;
 		};
-		__rembuilding
 		sleep 1.0112;
 		__specops;
 	};
