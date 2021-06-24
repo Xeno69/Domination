@@ -2,3 +2,6 @@
 
 - Fixed: If d_with_ranked was set to 2 (Ranked mode on but weapons not ranked) d_remove_from_arsenal was not processed
 - Fixed: Main target mission buildings got destroyed 30 seconds after creation, fixes #297
+- Fixed: Snipers were not being created with new dynamic parameter
+- Fixed: HUD with duplicated character "Score::"
+- Tweaked: Spawn factor variables
