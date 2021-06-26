@@ -66,6 +66,7 @@ class cfgFunctions {
 			addc(calldrop);
 			addc(sethud);
 			addc(vecdialog);
+			addc(showdynamicgroupsdialog);
 			addc(heli_action);
 			addc(heli_release);
 			addc(bike);
