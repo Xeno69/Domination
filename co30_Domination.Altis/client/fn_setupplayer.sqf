@@ -631,6 +631,13 @@ if (d_playerspectateatbase == 0) then {
 };
 #endif
 
+if (d_with_bis_dynamicgroups == 0) then {
+	d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_552"], {call d_fnc_showdynamicgroupsdialog}, _d_vec, -1, false, true, "", "true", 7];
+};
+
+d_FLAG_BASE addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_304"], {0 call d_fnc_DomCommandingMenuExec}, _d_vec, -1, false, true, "", "true", 7];
+
+
 if (d_ParaAtBase == 1) then {
 	"d_Teleporter" setMarkerTextLocal (localize "STR_DOM_MISSIONSTRING_534");
 #ifdef __TT__
