@@ -22,7 +22,6 @@ __TRACE_1("","_data")
 
 #define __COLRED [1,0,0,0.7]
 private _mravailable = false;
-private _is_eligible_to_respawn = false;
 private _respawn_target = nil;
 private _not_avail_array = [];
 private _disp = [uiNamespace getVariable "XR_SpectDlg", uiNamespace getVariable "d_TeleportDialog"] select (_wone == 0);
@@ -64,19 +63,17 @@ if (_uidx == -1) then {
 				if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
 					// the squad leader is eligible as a spawn target
 					_respawn_target = leader (group player);
-					_is_eligible_to_respawn = true;
 				};
-				if (!_is_eligible_to_respawn && d_respawnatsql == 2) then {
+				if (isNil "_respawn_target" && d_respawnatsql == 2) then {
 					// d_respawnatsql == 2 allows respawn on squadmates
 					// are any squadmates alive and eligible as a spawn target?
 					{
 						if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
-							_is_eligible_to_respawn = true;
 							_respawn_target = _x;
 						};
 					} forEach (units group player);
 				};
-				private _lbcolor = if (_is_eligible_to_respawn) then {
+				private _lbcolor = if (!isNil "_respawn_target") then {
 					[1,1,1,1.0]
 				} else {
 					_not_avail_array pushBack "D_SQL_D";
@@ -130,11 +127,10 @@ if (_wone == 1 && {!xr_respawn_available}) then {
 };
 
 __TRACE_3("","_data","_mravailable","_uidx")
-__TRACE_1("","_is_eligible_to_respawn")
 __TRACE_1("","xr_respawn_available")
 __TRACE_1("","_not_avail_array")
 
-if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {_is_eligible_to_respawn || {_uidx != -1}}}}) then {
+if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_target" || {_uidx != -1}}}}) then {
 	d_beam_target = _data;
 	private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
 		format [localize "STR_DOM_MISSIONSTRING_607", _ctrl lbText _sel]

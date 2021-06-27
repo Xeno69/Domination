@@ -21,7 +21,6 @@ private _listctrl = __CTRL(1500);
 #define __COLRED [1,0,0,0.7]
 
 private _respawn_target = nil;
-private _is_eligible_to_respawn = false;
 for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 	private _lbdata = _listctrl lbData _i;
 	__TRACE_1("","_lbdata")
@@ -72,26 +71,24 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 						if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
 							// the squad leader is eligible as a spawn target
 							_respawn_target = leader (group player);
-							_is_eligible_to_respawn = true;
 						};
-						if (!_is_eligible_to_respawn && d_respawnatsql == 2) then {
+						if (isNil "_respawn_target" && d_respawnatsql == 2) then {
 							// d_respawnatsql == 2 allows respawn on squadmates
 							// are any squadmates alive and eligible as a spawn target?
 							{
 								if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
-									_is_eligible_to_respawn = true;
 									_respawn_target = _x;
 								};
 							} forEach (units group player);
 						};
-						private _lbcolor = if (_is_eligible_to_respawn) then {
+						private _lbcolor = if (!isNil "_respawn_target") then {
 							[1,1,1,1.0]
 						} else {
 							__COLRED
 						};
 						_listctrl lbSetColor [_i, _lbcolor];
 						if (lbCurSel _listctrl == _i) then {
-							if (_is_eligible_to_respawn) then {
+							if (!isNil "_respawn_target") then {
 								private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
 								format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
 								} else {

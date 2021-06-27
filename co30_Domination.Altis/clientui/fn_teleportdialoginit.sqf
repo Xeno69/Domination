@@ -162,7 +162,6 @@ if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {cou
 };
 
 private _respawn_target = nil;
-private _is_eligible_to_respawn = false;
 if (_show_respawnatsql) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1705a");
 	_listctrl lbSetData [_cidx, "D_SQL_D"];
@@ -170,19 +169,17 @@ if (_show_respawnatsql) then {
 	if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
 		// the squad leader is eligible as a spawn target
 		_respawn_target = leader (group player);
-		_is_eligible_to_respawn = true;
 	};
-	if (!_is_eligible_to_respawn && d_respawnatsql == 2) then {
+	if (isNil "_respawn_target" && d_respawnatsql == 2) then {
 		// d_respawnatsql == 2 allows respawn on squadmates
 		// are any squadmates alive and eligible as a spawn target?
 		{
 			if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
-				_is_eligible_to_respawn = true;
 				_respawn_target = _x;
 			};
 		} forEach (units group player);
 	};
-	private _lbcolor = if (_is_eligible_to_respawn) then {
+	private _lbcolor = if (!isNil "_respawn_target") then {
 		[1,1,1,1.0]
 	} else {
 		_logtxt = localize "STR_DOM_MISSIONSTRING_1706";

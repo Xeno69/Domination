@@ -453,6 +453,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1053","$STR_DOM_MISSIONSTRING_1054","$STR_DOM_MISSIONSTRING_1055"};
 	};
 	
+	class d_respawnatsql {
+		title = "$STR_DOM_MISSIONSTRING_1705";
+		values[] = {0,2,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1705a","$STR_DOM_MISSIONSTRING_SQUAD","$STR_DOM_MISSIONSTRING_405"};
+	};
+	
 	class d_retakefarps {
 		title = "$STR_DOM_MISSIONSTRING_2036";
 		values[] = {0,1};
@@ -1348,13 +1355,6 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_respawnatsql {
-		title = "$STR_DOM_MISSIONSTRING_1705";
-		values[] = {0,1,2};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1705a","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_SQUAD"};
 	};
 
 	class d_params_dl_11 {

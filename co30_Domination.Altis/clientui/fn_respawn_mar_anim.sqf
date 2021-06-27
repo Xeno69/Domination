@@ -31,7 +31,6 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 		_old_respmar setMarkerDirLocal _cur_ang;
 	};
 	if (_has_sql == 1) then {
-		//private _lpos = nil;
 		private _lpos = visiblePositionASL (leader (group player)); // assume squad leader
 		if (!([leader (group player)] call d_fnc_iseligibletospawnnewunit)) then {
 			{
