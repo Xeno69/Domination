@@ -10344,6 +10344,18 @@
 <Chinese>小隊長</Chinese>
 <French>Chef d'Équipe</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_SQUAD">
+<English>Squad</English>
+<Spanish>Escuadrón</Spanish>
+<Portuguese>Equipe</Portuguese>
+<Korean>Squad</Korean>
+<Japanese>Squad</Japanese>
+<Original>Squad</Original>
+<Russian>Squad</Russian>
+<Chinesesimp>Squad</Chinesesimp>
+<Chinese>Squad</Chinese>
+<French>Équipe</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1706">
 <English>Respawn at Leader not available</English>
 <Spanish>Reaparecer en el líder no disponible</Spanish>

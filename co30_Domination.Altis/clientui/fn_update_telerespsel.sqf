@@ -22,7 +22,8 @@ __TRACE_1("","_data")
 
 #define __COLRED [1,0,0,0.7]
 private _mravailable = false;
-private _leadavailable = false;
+private _is_eligible_to_respawn = false;
+private _respawn_target = nil;
 private _not_avail_array = [];
 private _disp = [uiNamespace getVariable "XR_SpectDlg", uiNamespace getVariable "d_TeleportDialog"] select (_wone == 0);
 
@@ -57,13 +58,25 @@ if (_uidx == -1) then {
 			};
 		};
 	} else {
-		if (d_respawnatsql == 0 && {_data == "D_SQL_D"}) then {
-			if !(player getVariable ["xr_isleader", false]) then {
-				private _leader = leader (group player);
-				private _emptycargo = [0, (vehicle _leader) emptyPositions "cargo"] select (!isNull objectParent _leader);
-				private _lbcolor = if (alive _leader && {!(_leader getVariable ["xr_pluncon", false])} && {!(_leader getVariable ["ace_isunconscious", false])} && {_emptycargo > 0 || {(getPos _leader) # 2 < 10}} && {!(_leader call d_fnc_isswimming)} && {!underwater _leader}) then {
-				//private _lbcolor = if (alive _leader && {!(_leader getVariable ["xr_pluncon", false]) && {isNull objectParent _leader && {(getPos _leader) # 2 < 10 && {!underwater _leader}}}}) then {
-					_leadavailable = true;
+		if (d_respawnatsql in [0,2] && {_data == "D_SQL_D"}) then {
+			// d_respawnatsql == 2 always show button, otherwise only show if isleader == false (a squadmate)
+			if (d_respawnatsql == 2 || !(player getVariable ["xr_isleader", false])) then {
+				if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
+					// the squad leader is eligible as a spawn target
+					_respawn_target = leader (group player);
+					_is_eligible_to_respawn = true;
+				};
+				if (!_is_eligible_to_respawn && d_respawnatsql == 2) then {
+					// d_respawnatsql == 2 allows respawn on squadmates
+					// are any squadmates alive and eligible as a spawn target?
+					{
+						if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+							_is_eligible_to_respawn = true;
+							_respawn_target = _x;
+						};
+					} forEach (units group player);
+				};
+				private _lbcolor = if (_is_eligible_to_respawn) then {
 					[1,1,1,1.0]
 				} else {
 					_not_avail_array pushBack "D_SQL_D";
@@ -91,7 +104,11 @@ private _end_pos = if (_uidx == -1) then {
 			getPosATL d_FLAG_BASE;
 		};
 		if (_data == "D_SQL_D") exitWith {
-			visiblePosition (leader (group player));
+			if (!isNil "_respawn_target") then {
+				visiblePosition _respawn_target;
+			} else {
+				getPosATL d_FLAG_BASE;
+			};
 		};
 		private _rppp = visiblePosition (missionNamespace getVariable _data);
 		if (_mravailable && {!((missionNamespace getVariable _data) isKindOf "Ship")}) then {
@@ -113,11 +130,11 @@ if (_wone == 1 && {!xr_respawn_available}) then {
 };
 
 __TRACE_3("","_data","_mravailable","_uidx")
-__TRACE_1("","_leadavailable")
+__TRACE_1("","_is_eligible_to_respawn")
 __TRACE_1("","xr_respawn_available")
 __TRACE_1("","_not_avail_array")
 
-if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {_leadavailable || {_uidx != -1}}}}) then {
+if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {_is_eligible_to_respawn || {_uidx != -1}}}}) then {
 	d_beam_target = _data;
 	private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
 		format [localize "STR_DOM_MISSIONSTRING_607", _ctrl lbText _sel]

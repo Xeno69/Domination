@@ -1352,9 +1352,9 @@ class Params {
 
 	class d_respawnatsql {
 		title = "$STR_DOM_MISSIONSTRING_1705";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1705a","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_SQUAD"};
 	};
 
 	class d_params_dl_11 {

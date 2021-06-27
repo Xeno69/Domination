@@ -67,6 +67,7 @@ class cfgFunctions {
 			addc(sethud);
 			addc(vecdialog);
 			addc(showdynamicgroupsdialog);
+			addc(iseligibletospawnnewunit);
 			addc(heli_action);
 			addc(heli_release);
 			addc(bike);
