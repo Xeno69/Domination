@@ -2,6 +2,7 @@
 
 - Added: d_sm_vec_weighting to dom_settings table (one can set the weight for selectRandomWeight function for planes, helicopters, tanks and other vehicles in there)
 - Changed: Side mission bonus vehicles are no longer selected consecutively
+- Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
 - Fixed: If d_with_ranked was set to 2 (Ranked mode on but weapons not ranked) d_remove_from_arsenal was not processed
 - Fixed: Main target mission buildings got destroyed 30 seconds after creation, fixes #297
 - Fixed: Snipers were not being created with new dynamic parameter
