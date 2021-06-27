@@ -68,6 +68,7 @@ private _applyfnc = {
 
 #ifndef __TT__
 d_sm_bonus_vehicle_array = flatten (d_sm_bonus_vehicle_array apply {_x call _applyfnc});
+d_sm_bonus_vehicle_array_cur =+ d_sm_bonus_vehicle_array;
 
 private _bpos =+ d_base_array # 0;
 _bpos set [2, 1.9];
@@ -76,6 +77,8 @@ _bpos set [2, 1.9];
 __TRACE_1("","d_sm_bonus_vehicle_array")
 d_sm_bonus_vehicle_array set [0, flatten ((d_sm_bonus_vehicle_array # 0) apply {_x call _applyfnc})];
 d_sm_bonus_vehicle_array set [1, flatten ((d_sm_bonus_vehicle_array # 1) apply {_x call _applyfnc})];
+d_sm_bonus_vehicle_array_o =+ d_sm_bonus_vehicle_array # 1;
+d_sm_bonus_vehicle_array_b =+ d_sm_bonus_vehicle_array # 0;
 #endif
 
 if (d_MissionType == 2) then {

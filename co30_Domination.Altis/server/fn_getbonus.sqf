@@ -47,7 +47,15 @@ switch (d_sm_winner) do {
 #ifndef __TT__
 private _vec_type = "";
 if (d_current_sm_bonus_vec == "") then {
-	_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array;
+	_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_cur;
+	private _idxx = d_sm_bonus_vehicle_array_cur findIf {_x == _vec_type};
+	if (_idxx != -1) then {
+		d_sm_bonus_vehicle_array_cur deleteAt (_idxx + 1);
+		d_sm_bonus_vehicle_array_cur deleteAt _idxx;
+		if (count d_sm_bonus_vehicle_array_cur <= 0) then {
+			d_sm_bonus_vehicle_array_cur =+ d_sm_bonus_vehicle_array;
+		};
+	};
 } else {
 	_vec_type = d_current_sm_bonus_vec;
 	d_current_sm_bonus_vec = "";
@@ -67,7 +75,15 @@ private ["_d_bonus_create_pos", "_vec_type", "_d_bonus_air_positions", "_d_bonus
 switch (d_sm_winner) do {
 	case 1: {
 		if (d_current_sm_bonus_vec # 1 == "") then {
-			_vec_type = selectRandomWeighted (d_sm_bonus_vehicle_array # 1);
+			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_o;
+			private _idxx = d_sm_bonus_vehicle_array_o findIf {_x == _vec_type};
+			if (_idxx != -1) then {
+				d_sm_bonus_vehicle_array_o deleteAt (_idxx + 1);
+				d_sm_bonus_vehicle_array_o deleteAt _idxx;
+				if (count d_sm_bonus_vehicle_array_o <= 0) then {
+					d_sm_bonus_vehicle_array_o =+ d_sm_bonus_vehicle_array # 1;
+				};
+			};
 		} else {
 			_vec_type = d_current_sm_bonus_vec # 1;
 		};
@@ -79,7 +95,15 @@ switch (d_sm_winner) do {
 	};
 	case 2: {
 		if (d_current_sm_bonus_vec # 0 == "") then {
-			_vec_type = selectRandomWeighted (d_sm_bonus_vehicle_array # 0);
+			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_b;
+			private _idxx = d_sm_bonus_vehicle_array_b findIf {_x == _vec_type};
+			if (_idxx != -1) then {
+				d_sm_bonus_vehicle_array_b deleteAt (_idxx + 1);
+				d_sm_bonus_vehicle_array_b deleteAt _idxx;
+				if (count d_sm_bonus_vehicle_array_b <= 0) then {
+					d_sm_bonus_vehicle_array_b =+ d_sm_bonus_vehicle_array # 0;
+				};
+			};
 		} else {
 			_vec_type = d_current_sm_bonus_vec # 0;
 		};
@@ -91,7 +115,15 @@ switch (d_sm_winner) do {
 	};
 	case 123: {
 		if (d_current_sm_bonus_vec # 1 == "") then {
-			_vec_type = selectRandomWeighted (d_sm_bonus_vehicle_array # 1);
+			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_o;
+			private _idxx = d_sm_bonus_vehicle_array_o findIf {_x == _vec_type};
+			if (_idxx != -1) then {
+				d_sm_bonus_vehicle_array_o deleteAt (_idxx + 1);
+				d_sm_bonus_vehicle_array_o deleteAt _idxx;
+				if (count d_sm_bonus_vehicle_array_o <= 0) then {
+					d_sm_bonus_vehicle_array_o =+ d_sm_bonus_vehicle_array # 1;
+				};
+			};
 		} else {
 			_vec_type = d_current_sm_bonus_vec # 1;
 		};
@@ -102,7 +134,15 @@ switch (d_sm_winner) do {
 		_d_bap_counter = d_bap_counter_e;
 		
 		if (d_current_sm_bonus_vec # 0 == "") then {
-			_vec_type2 = selectRandomWeighted (d_sm_bonus_vehicle_array # 0);
+			_vec_type2 = selectRandomWeighted d_sm_bonus_vehicle_array_b;
+			private _idxx = d_sm_bonus_vehicle_array_b findIf {_x == _vec_type2};
+			if (_idxx != -1) then {
+				d_sm_bonus_vehicle_array_b deleteAt (_idxx + 1);
+				d_sm_bonus_vehicle_array_b deleteAt _idxx;
+				if (count d_sm_bonus_vehicle_array_b <= 0) then {
+					d_sm_bonus_vehicle_array_b =+ d_sm_bonus_vehicle_array # 0;
+				};
+			};
 		} else {
 			_vec_type2 = d_current_sm_bonus_vec # 0;
 		};
