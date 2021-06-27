@@ -87,7 +87,7 @@ while {true} do {
 				__TRACE("Aggressive Shoot")
 				{
 					if (!alive _unit) exitWith {};
-					if ([_unit, _x] call d_fnc_isvisible) then {
+					if (!(_x getVariable ["xr_pluncon", false]) && {[_unit, _x] call d_fnc_isvisible}) then {
 						//to check if unit actually fired
 						_ammoCount = _unit ammo primaryWeapon _unit;
 						_magazineCount = count magazinesAmmo _unit; 
