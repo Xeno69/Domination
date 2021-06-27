@@ -9,7 +9,7 @@ if (alive _u) exitWith {
 	if (isNil "_n") then {
 		_n = name _u;
 		if (d_no_ai && {_u getUnitTrait "Medic"}) then {
-			_n = _n + d_phud_loc884;
+			_n = _n + " " + d_phud_loc884;
 		};
 		_u setVariable ["d_phname", _n];
 		_u setVariable ["d_phname_d", format ["%1 %2", _n, d_phud_loc493]];

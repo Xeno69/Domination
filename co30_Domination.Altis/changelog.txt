@@ -6,4 +6,5 @@
 - Fixed: Main target mission buildings got destroyed 30 seconds after creation, fixes #297
 - Fixed: Snipers were not being created with new dynamic parameter
 - Fixed: HUD with duplicated character "Score::"
+- Fixed: Vehicle markers are not shown when player AI is alone in vehicles
 - Tweaked: Spawn factor variables

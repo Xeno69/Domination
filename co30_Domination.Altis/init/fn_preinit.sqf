@@ -2762,6 +2762,8 @@ if (hasInterface) then {
 
 	d_player_jescape = 0;
 	d_player_canu = true;
+	
+	d_current_ai_units = [];
 
 	d_phud_loc883 = localize "STR_DOM_MISSIONSTRING_883";
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";

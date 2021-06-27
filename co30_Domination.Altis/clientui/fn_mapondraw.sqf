@@ -16,26 +16,15 @@ private _mapmid = _map ctrlMapScreenToWorld [0.5, 0.5];
 private _fnc_gmi = d_fnc_getmapicon;
 
 if (d_show_player_marker isNotEqualTo 0) then {
-	private _drawn_v = [];
-	private ["_v", "_inv", "_dodraw", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
-	[d_with_ai, d_fnc_isplayer, d_show_player_marker, d_fnc_gethpname, d_mark_loc280] params ["_w_ai", "_fnc_ispl", "_s_pl_ma", "_fnc_ghpn", "_d_mark_loc280"];
+	private ["_v", "_inv", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
+	[d_show_player_marker, d_fnc_gethpname, d_mark_loc280, d_fnc_gethpnameai] params ["_s_pl_ma", "_fnc_ghpn", "_d_mark_loc280", "_fnc_ghpnai"];
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
 			_inv = !isNull objectParent _x;
 			__TRACE_2("","_v","_inv")
 
-			_dodraw = [true, _x isEqualTo (crew _v # 0)] select _inv;
-			if (_w_ai && {_inv && {!_dodraw && {!(_v getVariable ["d_v_drawn", false]) && {!((crew _v # 0) call _fnc_ispl)}}}}) then {
-				_v setVariable ["d_v_drawn", true];
-				_drawn_v pushBack _v;
-				_dodraw = true;
-			};
-
-			__TRACE_1("","_drawn_v")
-			__TRACE_1("","_dodraw")
-
-			if (_dodraw) then {
+			if ([true, _x isEqualTo (crew _v # 0)] select _inv) then {
 				_text = if (_type isNotEqualTo 1) then {
 					if (!_inv) then {
 						_vc = _x getVariable ["d_ut_c", 47];
@@ -43,7 +32,11 @@ if (d_show_player_marker isNotEqualTo 0) then {
 							_x setVariable ["d_ut_c", 0];
 							call {
 								if (_s_pl_ma isEqualTo 1) exitWith {
-									_res = [_x] call _fnc_ghpn;
+									_res = if (isPlayer _x) then {
+										[_x] call _fnc_ghpn
+									} else {
+										[_x] call _fnc_ghpnai
+									};
 								};
 								if (_s_pl_ma isEqualTo 2) exitWith {
 									_res = "";
@@ -123,49 +116,7 @@ if (d_show_player_marker isNotEqualTo 0) then {
 				};
 			};
 		};
-	} forEach d_allplayermapd;
-
-	if (_w_ai) then {
-		_drawn_v apply {_x setVariable ["d_v_drawn", nil]};
-		
-		private ["_isc", "_text"];
-		{
-			if (_x distance2D _mapmid < _drawdist) then {
-				_isc = [_x, _x] call _fnc_gmi;
-				
-				_text = if (_type isNotEqualTo 1) then {
-					call {
-						if (_s_pl_ma isEqualTo 1) exitWith {
-							_ut = str _x; _ut select [count _ut - 1]
-						};
-						if (_s_pl_ma isEqualTo 2) exitWith {
-							""
-						};
-						if (_s_pl_ma isEqualTo 3) exitWith {
-							format [_d_mark_loc280, 9 - round(9 * damage _x)]
-						};
-						""
-					};
-				} else {
-					""
-				};
-
-				_map drawIcon [
-					_isc # 0,
-					_isc # 2,
-					visiblePositionASL _x,
-					_isc # 1,
-					_isc # 1,
-					getDirVisual _x,
-					_text,
-					1,
-					0.05,
-					"puristaMedium", // ROBOTO?
-					"right"
-				];
-			};
-		} forEach ((units (group player)) select {alive _x && {isNull (objectParent _x) && {!(_x call _fnc_ispl)}}});
-	};
+	} forEach (d_allplayermapd + (d_current_ai_units select {alive _x}));
 };
 
 __TRACE_1("","d_marker_vecs")
