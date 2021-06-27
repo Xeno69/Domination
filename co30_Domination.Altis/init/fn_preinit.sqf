@@ -659,7 +659,7 @@ if (isServer) then {
 							missionNamespace setVariable [_x # 0, _x # 1, true];
 						};
 					};
-					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs", "d_noambient_bf_sounds", "d_time_until_next_sidemission"]) exitWith {
+					if (_tla in ["d_use_sql_settings", "d_db_auto_save", "d_cas_available_time", "d_ai_groups_respawn_time", "d_addscore_a", "d_number_attack_planes", "d_number_attack_choppers", "d_number_light_attack_choppers", "d_number_attack_uavs", "d_noambient_bf_sounds", "d_time_until_next_sidemission", "d_sm_vec_weighting"]) exitWith {
 						missionNamespace setVariable [_x # 0, _x # 1];
 					};
 					if (_tla in ["d_set_pl_score_db", "d_ranked_a", "d_points_needed", "d_points_needed_db", "d_launcher_cooldown"]) exitWith {
@@ -1527,6 +1527,14 @@ if (!d_gmcwgwinter) then {
 			[30,500], // if player number <= 30, it'll take 500 seconds until the next sidemission
 			[500,600] // if player number > 30, it'll take 600 seconds until the next sidemission
 		];
+	};
+	
+	if (isNil "d_sm_vec_weighting") then {
+		// sidemissoin vehicles get randomly selected by "weight"
+		// means, planes have a weight of 0.1, helicopters 0.2, tanks 0.7 and all other vehicles 1.3
+		// the higher the weight the higher the chance to get such a vehicle
+		// indices: plane, helicopter, tank, other vehicles
+		d_sm_vec_weighting = [0.1,0.2,0.7,1.3];
 	};
 
 	call {

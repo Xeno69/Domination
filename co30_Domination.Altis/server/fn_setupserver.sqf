@@ -52,18 +52,18 @@ private _applyfnc = {
 	__TRACE_1("","_this")
 	if (_this isKindOf "Plane") exitWith {
 		__TRACE("Plane")
-		[_this, 0.1]
+		[_this, d_sm_vec_weighting # 0]
 	};
 	if (_this isKindOf "Helicopter") exitWith {
 		__TRACE("Helicopter")
-		[_this, 0.2]
+		[_this, d_sm_vec_weighting # 1]
 	};
 	if (_this isKindOf "Tank") exitWith {
 		__TRACE("Tank")
-		[_this, 0.7]
+		[_this, d_sm_vec_weighting # 2]
 	};
 	__TRACE("Another")
-	[_this, 1.3]
+	[_this, d_sm_vec_weighting # 3]
 };
 
 #ifndef __TT__

@@ -53,7 +53,8 @@ INSERT IGNORE INTO `dom_settings` (`name`, `value`) VALUES
 	('d_noambient_bf_sounds', 'false'),
 	('d_time_until_next_sidemission', '[[10,300],[20,400],[30,500],[500,600]]'),
 	('d_airai_respawntime', '120'),
-	('d_uids_def_choppers', '[]');
+	('d_uids_def_choppers', '[]'),
+	('d_sm_vec_weighting', '[0.1,0.2,0.7,1.3]');
 /*!40000 ALTER TABLE `dom_settings` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle domination.missionsave
