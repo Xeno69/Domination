@@ -155,13 +155,31 @@ private _logtxt = "";
 private _has_sql = 0;
 d_resp_lead_idx = -1;
 
-if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}) then {
+private _show_respawnatsql = false;
+if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}) then {
+	// d_respawnatsql == 2 always show respawn button, determine color later
+	_show_respawnatsql = true;
+};
+
+private _respawn_target = nil;
+if (_show_respawnatsql) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1705a");
 	_listctrl lbSetData [_cidx, "D_SQL_D"];
 	_has_sql = 1;
-	private _leader = leader (group player);
-	private _emptycargo = [0, (vehicle _leader) emptyPositions "cargo"] select (!isNull objectParent _leader);
-	private _lbcolor = if (alive _leader && {!(_leader getVariable ["xr_pluncon", false])} && {!(_leader getVariable ["ace_isunconscious", false])} && {_emptycargo > 0 || {(getPos _leader) # 2 < 10}} && {!(_leader call d_fnc_isswimming)} && {!underwater _leader}) then {
+	if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
+		// the squad leader is eligible as a spawn target
+		_respawn_target = leader (group player);
+	};
+	if (isNil "_respawn_target" && d_respawnatsql == 2) then {
+		// d_respawnatsql == 2 allows respawn on squadmates
+		// are any squadmates alive and eligible as a spawn target?
+		{
+			if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+				_respawn_target = _x;
+			};
+		} forEach (units group player);
+	};
+	private _lbcolor = if (!isNil "_respawn_target") then {
 		[1,1,1,1.0]
 	} else {
 		_logtxt = localize "STR_DOM_MISSIONSTRING_1706";
@@ -179,9 +197,9 @@ if (d_respawnatsql == 0 && {!(player getVariable ["xr_isleader", false]) && {cou
 		};
 		__CTRL(100110) ctrlSetText _text;
 	};
-	["D_SQL_D", visiblePositionASL _leader, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
+	["D_SQL_D", visiblePositionASL _respawn_target, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_SQL_D";
-	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _leader);
+	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _respawn_target);
 	d_respawn_ismhq pushBack false;
 };
 

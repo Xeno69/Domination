@@ -10,6 +10,7 @@ if (d_beam_target == "") exitWith {
 };
 
 private _respawn_pos = [0, 0, 0];
+private _respawn_target = nil;
 __TRACE("black out")
 "xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_917", "BLACK OUT", 0.2];
 
@@ -29,11 +30,24 @@ if (d_beam_target == "D_BASE_D") then {
 	d_player_in_base = true;
 } else {
 	if (d_beam_target == "D_SQL_D") then {
-		private _lead = leader (group player);
-		_respawn_pos = [(vehicle _lead) modelToWorldVisual [0, -8, 0], getPosASL _lead] select (isNull objectParent _lead);
-		_respawn_pos set [2, _lead distance (getPos _lead)];
+		if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
+			_respawn_target = leader (group player);
+		} else {
+			// are any squadmates alive and eligible as a spawn target?
+			{
+				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+					_respawn_target = _x;
+				};
+			} forEach (units group player);
+		};
+		
+		// failed to find a respawn target
+		if (isNil "_respawn_target") exitWith {};
+		
+		_respawn_pos = [(vehicle _respawn_target) modelToWorldVisual [0, -8, 0], getPosASL _respawn_target] select (isNull objectParent _respawn_target);
+		_respawn_pos set [2, _respawn_target distance (getPos _respawn_target)];
 		if (d_with_ranked || {d_database_found}) then {
-			[_lead, 12] remoteExecCall ["d_fnc_addscore", 2];
+			[_respawn_target, 12] remoteExecCall ["d_fnc_addscore", 2];
 		};
 		if (!d_tt_ver) then {
 			d_player_in_base = player inArea d_base_array;
@@ -109,8 +123,7 @@ if (!isNull _mhqobj) then {
 	if (d_beam_target != "D_SQL_D")	then {
 		call d_fnc_retrieve_layoutgear;
 	} else {
-		private _leader = leader (group player);
-		private _emptycargo = [0, (vehicle _leader) emptyPositions "cargo"] select (!isNull objectParent _leader);
+		private _emptycargo = [0, (vehicle _respawn_target) emptyPositions "cargo"] select (!isNull objectParent _respawn_target);
 		if (_emptycargo > 0) then {
 			_domovevec = true;
 		};
@@ -136,7 +149,7 @@ if (!isNull _mhqobj) then {
 		};
 		player allowDamage true;
 	} else {
-		player moveInCargo (vehicle leader (group player));
+		player moveInCargo (vehicle _respawn_target);
 	};
 };
 

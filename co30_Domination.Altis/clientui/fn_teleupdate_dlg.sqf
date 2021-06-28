@@ -20,6 +20,7 @@ private _listctrl = __CTRL(1500);
 
 #define __COLRED [1,0,0,0.7]
 
+private _respawn_target = nil;
 for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 	private _lbdata = _listctrl lbData _i;
 	__TRACE_1("","_lbdata")
@@ -64,31 +65,43 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 					};
 				};
 			} else {
-				if (d_respawnatsql == 0 && {_lbdata == "D_SQL_D" && {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}}) then {
-					private _leader = leader (group player);
-					private _leadavail = false;
-					private _emptycargo = [0, (vehicle _leader) emptyPositions "cargo"] select (!isNull objectParent _leader);
-					private _lbcolor = if (xr_respawn_available && {alive _leader} && {!(_leader getVariable ["xr_pluncon", false])} && {!(_leader getVariable ["ace_isunconscious", false])} && {_emptycargo > 0 || {(getPos _leader) # 2 < 10}} && {!(_leader call d_fnc_isswimming)} && {!underwater _leader}) then {
-						_leadavail = true;
-						[1,1,1,1.0]
-					} else {
-						__COLRED
-					};
-					_listctrl lbSetColor [_i, _lbcolor];
-					if (lbCurSel _listctrl == _i) then {
-						if (_leadavail) then {
-							private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
-							format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
-							} else {
-								format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1705a"]
-							};
-							__CTRL(100102) ctrlEnable true;
-							__TRACE_1("SQL enable true","_lbdata")
-							__CTRL(100110) ctrlSetText _text;
+				if (d_respawnatsql in [0,2] && _lbdata == "D_SQL_D") then {
+					// d_respawnatsql == 2 always show button, otherwise only show if isleader == false (a squadmate)
+					if (d_respawnatsql == 2 || !(player getVariable ["xr_isleader", false])) then {
+						if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
+							// the squad leader is eligible as a spawn target
+							_respawn_target = leader (group player);
+						};
+						if (isNil "_respawn_target" && d_respawnatsql == 2) then {
+							// d_respawnatsql == 2 allows respawn on squadmates
+							// are any squadmates alive and eligible as a spawn target?
+							{
+								if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+									_respawn_target = _x;
+								};
+							} forEach (units group player);
+						};
+						private _lbcolor = if (!isNil "_respawn_target") then {
+							[1,1,1,1.0]
 						} else {
-							__CTRL(100102) ctrlEnable false;
-							__TRACE_1("SQL enable false","_lbdata")
-							__CTRL(100110) ctrlSetText "";
+							__COLRED
+						};
+						_listctrl lbSetColor [_i, _lbcolor];
+						if (lbCurSel _listctrl == _i) then {
+							if (!isNil "_respawn_target") then {
+								private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
+								format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
+								} else {
+									format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1705a"]
+								};
+								__CTRL(100102) ctrlEnable true;
+								__TRACE_1("SQL enable true","_lbdata")
+								__CTRL(100110) ctrlSetText _text;
+							} else {
+								__CTRL(100102) ctrlEnable false;
+								__TRACE_1("SQL enable false","_lbdata")
+								__CTRL(100110) ctrlSetText "";
+							};
 						};
 					};
 				};

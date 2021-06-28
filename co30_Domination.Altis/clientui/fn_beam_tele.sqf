@@ -26,6 +26,7 @@ private _global_pos = [];
 private _global_dir = 180;
 private _typepos = 0;
 private _mrsv = objNull;
+private _respawn_target = nil;
 
 if (d_beam_target == "D_BASE_D") then {
 	if (!d_tt_ver) then {
@@ -41,18 +42,28 @@ if (d_beam_target == "D_BASE_D") then {
 	d_player_in_base = true;
 } else {
 	if (d_beam_target == "D_SQL_D") then {
-		private _lead = leader (group player);
-		private _emptycargo = [0, (vehicle _lead) emptyPositions "cargo"] select (!isNull objectParent _lead);
+		if (leader (group player) call d_fnc_iseligibletospawnnewunit) then {
+			_respawn_target = leader (group player);
+		} else {
+			// are any squadmates alive and eligible as a spawn target?
+			{
+				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+					_respawn_target = _x;
+				};
+			} forEach (units group player);
+		};
+		
+		private _emptycargo = [0, (vehicle _respawn_target) emptyPositions "cargo"] select (!isNull objectParent _respawn_target);
 		if (_emptycargo == 0) then {
-			_global_pos = [(vehicle _lead) modelToWorldVisual [0, -8, 0], getPosASLVisual _lead] select (isNull objectParent _lead);
-			_global_pos set [2, _lead distance (getPos _lead)];
-			_global_dir = getDirVisual _lead;
+			_global_pos = [(vehicle _respawn_target) modelToWorldVisual [0, -8, 0], getPosASLVisual _respawn_target] select (isNull objectParent _respawn_target);
+			_global_pos set [2, _respawn_target distance (getPos _respawn_target)];
+			_global_dir = getDirVisual _respawn_target;
 			_typepos = 1;
 		} else {
 			_typepos = 2;
 		};
 		if (d_with_ranked || {d_database_found}) then {
-			[_lead, 12] remoteExecCall ["d_fnc_addscore", 2];
+			[_respawn_target, 12] remoteExecCall ["d_fnc_addscore", 2];
 		};
 		if (!d_tt_ver) then {
 			d_player_in_base = player inArea d_base_array;
@@ -124,7 +135,7 @@ if (_typepos == 1) then {
 		};
 	} else {
 		if (_typepos == 2) then {
-			player moveInCargo (vehicle leader (group player));
+			player moveInCargo (vehicle _respawn_target);
 		} else {
 			if (_typepos == 3) then {
 				player moveInCargo _mrsv;
