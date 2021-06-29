@@ -9,6 +9,14 @@ This award winning game mission stands as one of the oldest missions of the Arma
 
 [Domination on Github](https://github.com/Xeno69/Domination)
 
+# Running the mission
+
+[Administrator Guide](https://github.com/Xeno69/Domination/wiki/Administrator-Guide)
+
+# Playing the mission
+
+[Player Guide](https://github.com/Xeno69/Domination/wiki/Player-Guide)
+
 # Running the mission locally
 
 To run the Domination mission locally:

@@ -978,6 +978,13 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_WithVoicesDisabled {
+		title = "$STR_DOM_MISSIONSTRING_SUPPRESS_VOICES";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_with_3Dicon {
 		title = "$STR_DOM_MISSIONSTRING_1961";
