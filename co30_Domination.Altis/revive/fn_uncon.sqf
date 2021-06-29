@@ -11,9 +11,7 @@ if (d_earplugs_fitted) then {
 } else {
 	1 fadeSound 1;
 };
-{
-	player remoteExecCall ["xr_fnc_addActions", _x];
-} forEach d_own_sides_o;
+player remoteExecCall ["xr_fnc_addActions", d_own_sides_o];
 if (!captive player) then {
 	player setCaptive true;
 };
@@ -90,9 +88,7 @@ __TRACE("starting main uncon loop")
 			scriptname "spawn 1uncon";
 			if (!xr_u_remactions) then {
 				__TRACE("xr_u_remactions")
-				{
-					player remoteExecCall ["xr_fnc_removeActions", _x];
-				} forEach d_own_sides_o;
+				player remoteExecCall ["xr_fnc_removeActions", d_own_sides_o];
 			};
 			if (xr_with_marker) then {
 				__TRACE("del marker")
@@ -147,9 +143,7 @@ __TRACE("starting main uncon loop")
 			};
 			d_uncon_finally_over = true;
 		};
-		{
-			player remoteExecCall ["xr_fnc_announcenearrem", _x];
-		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}});
+		player remoteExecCall ["xr_fnc_announcenearrem", d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}}];
 		__TRACE("uncon ended, one frame removed")
 	};
 }, 0.02] call d_fnc_eachframeadd;

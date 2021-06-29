@@ -47,9 +47,7 @@ if (_tt <= 0) exitWith {
 	if (xr_with_marker) then {
 		xr_strpldead remoteExecCall ["deleteMarker", 2];
 	};
-	{
-		player remoteExecCall ["xr_fnc_removeActions", _x];
-	} forEach d_own_sides_o;
+	player remoteExecCall ["xr_fnc_removeActions", d_own_sides_o];
 	xr_u_remactions = true;
 	__TRACE("_tt <= 0, black out")
 	"xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_932", "BLACK OUT", 1];
