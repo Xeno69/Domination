@@ -2911,7 +2911,7 @@ if (hasInterface) then {
 
 if (d_WithVoicesDisabled == 1) then {
 	_vn_AI_Group = createGroup sideLogic;
-    _vn_AI_Module = _vn_AI_Group createUnit ["vn_module_situationalawarenessmodule_disable", [0, 0, 0], [], 0, "NONE"];
+	_vn_AI_Module = _vn_AI_Group createUnit ["vn_module_situationalawarenessmodule_disable", [0, 0, 0], [], 0, "NONE"];
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom fn_preinit.sqf processed"];
