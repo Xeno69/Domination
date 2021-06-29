@@ -14534,6 +14534,18 @@
 <Chinese>Taking object...</Chinese>
 <French>Taking object...</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_SUPPRESS_VOICES">
+<English>Disable voices:</English>
+<Spanish>Disable voices:</Spanish>
+<Portuguese>Disable voices:</Portuguese>
+<Korean>Disable voices:</Korean>
+<Japanese>Disable voices:</Japanese>
+<Original>Disable voices:</Original>
+<Russian>Disable voices:</Russian>
+<Chinesesimp>Disable voices:</Chinesesimp>
+<Chinese>Disable voices:</Chinese>
+<French>Disable voices:</French>
+</Key>
 </Container>
 </Package>
 </Project>
