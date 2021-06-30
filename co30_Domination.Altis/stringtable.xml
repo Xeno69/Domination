@@ -14546,6 +14546,28 @@
 <Chinese>Disable voices:</Chinese>
 <French>Disable voices:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2084">
+<English>Save mission progress to profileNamespace if no database is available</English>
+<Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
+<Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
+<Korean>Save mission progress to profileNamespace if no database is available</Korean>
+<Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
+<Original>Save mission progress to profileNamespace if no database is available</Original>
+<Russian>Save mission progress to profileNamespace if no database is available</Russian>
+<Chinesesimp>Save mission progress to profileNamespace if no database is available</Chinesesimp>
+<French>Save mission progress to profileNamespace if no database is available</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2085">
+<English>Saved profileNamespace mission progress auto load</English>
+<Spanish>Saved profileNamespace mission progress auto load</Spanish>
+<Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
+<Korean>Saved profileNamespace mission progress auto load</Korean>
+<Japanese>Saved profileNamespace mission progress auto load</Japanese>
+<Original>Saved profileNamespace mission progress auto load</Original>
+<Russian>Saved profileNamespace mission progress auto load</Russian>
+<Chinesesimp>Saved profileNamespace mission progress auto load</Chinesesimp>
+<French>Saved profileNamespace mission progress auto load</French>
+</Key>
 </Container>
 </Package>
 </Project>

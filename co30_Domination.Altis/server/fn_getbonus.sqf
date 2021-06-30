@@ -165,9 +165,7 @@ private _dir = 0;
 #ifndef __TT__
 private _vec = createVehicle [_vec_type, d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
 _vec allowDamage false;
-if (d_database_found) then {
-	d_bonus_vecs_db pushBack _vec;
-};
+d_bonus_vecs_db pushBack _vec;
 if (unitIsUAV _vec) then {
 	private _uavgrp = createVehicleCrew _vec;
 	_vec allowCrewInImmobile true;
@@ -253,15 +251,11 @@ private _dir2 = 0;
 
 private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
 _vec allowDamage false;
-if (d_database_found) then {
-	d_bonus_vecs_db_e pushBack _vec;
-};
+d_bonus_vecs_db_e pushBack _vec;
 if (d_sm_winner == 123) then {
 	_vec2 = createVehicle [_vec_type2, _d_bonus_create_pos2, [], 0, "CAN_COLLIDE"];
 	_vec2 allowDamage false;
-	if (d_database_found) then {
-		d_bonus_vecs_db_w pushBack _vec2;
-	};
+	d_bonus_vecs_db_w pushBack _vec2;
 	_vec2 setVariable ["d_isspecialvec", true, true];
 };
 _vec setVariable ["d_isspecialvec", true, true];

@@ -963,7 +963,9 @@ player setVariable ["xr_isleader", false];
 	private _islead = leader (group player) == player;
 	player setVariable ["xr_isleader", _islead];
 	if (_islead) then {
-		[_x, false] remoteExecCall ["d_fnc_setleader", (units (group player)) - [player]];
+		{
+			[_x, false] remoteExecCall ["d_fnc_setleader", _x];
+		} forEach ((units (group player)) - [player]);
 	};
 };
 

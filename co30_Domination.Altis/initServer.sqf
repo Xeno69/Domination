@@ -7,16 +7,23 @@ if (d_with_bis_dynamicgroups == 0) then {
 	["Initialize", [true]] call d_fnc_dynamicGroups;
 };
 
+d_db_savegames = [];
+if (!d_tt_ver) then {
+	d_bonus_vecs_db = [];
+} else {
+	d_bonus_vecs_db_w = [];
+	d_bonus_vecs_db_e = [];
+};
+
+// Set to true to enable autosave to sql database each time a main target gets cleared (auto save entry in DB will get deleted after last main target)
+// Does load the autosave automatically if worldname and briefingName match to those saved at mission start
+if (isNil "d_db_auto_save") then {
+	d_db_auto_save = false;
+};
+
 if (d_database_found) then {
-	// Set to true to enable autosave to sql database each time a main target gets cleared (auto save entry in DB will get deleted after last main target)
-	// Does load the autosave automatically if worldname and briefingName match to those saved at mission start
-	if (isNil "d_db_auto_save") then {
-		d_db_auto_save = false;
-	};
-	
 	diag_log ["DOM initServer.sqf: Reading DB data! World name:", worldname];
 	if (!d_tt_ver) then {
-		d_bonus_vecs_db = [];
 		__TRACE_1("","worldname")
 		private _dbresult = [];
 		call {
@@ -35,7 +42,6 @@ if (d_database_found) then {
 		__TRACE_1("missionsGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
 			diag_log "DOM mission save games:";
-			d_db_savegames = [];
 			{
 				d_db_savegames pushBack (_x # 0);
 				diag_log ["DOM one save:", _x # 0];
@@ -44,8 +50,6 @@ if (d_database_found) then {
 			__TRACE_1("","d_db_savegames")
 		};
 	} else {
-		d_bonus_vecs_db_w = [];
-		d_bonus_vecs_db_e = [];
 		private _dbresult = [];
 		call {
 			if (d_db_type == 0) exitWith {
@@ -63,7 +67,6 @@ if (d_database_found) then {
 		__TRACE_1("missionsttGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
 			diag_log "DOM mission save games:";
-			d_db_savegames = [];
 			{
 				d_db_savegames pushBack (_x # 0);
 				diag_log ["DOM one save:", _x # 0];
@@ -112,7 +115,40 @@ if (d_database_found) then {
 		diag_log "DOM initServer.sqf: Trying to read db autosave";
 		["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
 	};
+} else {
+	if (d_pnspace_msave == 1) then {
+		if (!d_tt_ver) then {
+			private _pn_missionsave = profileNamespace getVariable "dom_missionsave";
+			if (!isNil "_pn_missionsave") then {
+				private _wn = tolower worldname;
+				{
+					if (_x # 11 == _wn) then {
+						d_db_savegames pushBack _x;
+					};
+				} forEach _pn_missionsave;
+			};
+		} else {
+			private _pn_missionsave = profileNamespace getVariable "dom_missionsavett";
+			if (!isNil "_pn_missionsave") then {
+				private _wn = tolower worldname;
+				{
+					if (_x # 12 == _wn) then {
+						d_db_savegames pushBack _x;
+					};
+				} forEach _pn_missionsave;
+			};
+		};
+		publicVariable "d_db_savegames";
+		__TRACE_1("-1","d_db_savegames")
+		
+		if (d_pnspace_msave_auto == 1) then {
+			diag_log "DOM initServer.sqf: Trying to read db autosave";
+			["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+		};
+	};
 };
+
+publicVariable "d_db_savegames";
 
 #ifndef __VN__
 if (isDedicated) then {

@@ -21,9 +21,7 @@ if (_vectypetouse == "") then {
 	_vectypetouse = selectRandom d_mt_bonus_vehicle_array;
 };
 private _vec = createVehicle [_vectypetouse, d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
-if (d_database_found) then {
-	d_bonus_vecs_db pushBack _vec;
-};
+d_bonus_vecs_db pushBack _vec;
 if (unitIsUAV _vec) then {
 	private _uavgrp = createVehicleCrew _vec;
 	_vec allowCrewInImmobile true;
@@ -89,9 +87,7 @@ private ["_d_bonus_air_positions", "_d_bonus_air_positions2", "_d_bvp_counter", 
 if (d_mt_winner == 1) then {
 	_vectypetouse_w = _vectypetouse_w_temp;
 	_vec = createVehicle [_vectypetouse_w, d_bonus_create_pos_w, [], 0, "CAN_COLLIDE"];
-	if (d_database_found) then {
-		d_bonus_vecs_db_w pushBack _vec;
-	};
+	d_bonus_vecs_db_w pushBack _vec;
 	_vec setVariable ["D_VEC_SIDE", 2];
 	_vec setVariable ["d_isspecialvec", true, true];
 	_d_bonus_air_positions = d_bonus_air_positions_w;
@@ -102,9 +98,7 @@ if (d_mt_winner == 1) then {
 	if (d_mt_winner == 2) then {
 		_vectypetouse_e = _vectypetouse_e_temp;
 		_vec = createVehicle [_vectypetouse_e, d_bonus_create_pos_e, [], 0, "CAN_COLLIDE"];
-		if (d_database_found) then {
-			d_bonus_vecs_db_e pushBack _vec;
-		};
+		d_bonus_vecs_db_e pushBack _vec;
 		_vec setVariable ["D_VEC_SIDE", 1];
 		_vec setVariable ["d_isspecialvec", true, true];
 		_d_bonus_air_positions = d_bonus_air_positions_e;
@@ -115,13 +109,9 @@ if (d_mt_winner == 1) then {
 		_vectypetouse_w = _vectypetouse_w_temp;
 		_vectypetouse_e = _vectypetouse_e_temp;
 		_vec = createVehicle [_vectypetouse_w, d_bonus_create_pos_w, [], 0, "CAN_COLLIDE"];
-		if (d_database_found) then {
-			d_bonus_vecs_db_w pushBack _vec;
-		};
+		d_bonus_vecs_db_w pushBack _vec;
 		_vec2 = createVehicle [_vectypetouse_e, d_bonus_create_pos_e, [], 0, "CAN_COLLIDE"];
-		if (d_database_found) then {
-			d_bonus_vecs_db_e pushBack _vec;
-		};
+		d_bonus_vecs_db_e pushBack _vec;
 		_vec setVariable ["D_VEC_SIDE", 2];
 		_vec2 setVariable ["D_VEC_SIDE", 1];
 		_vec setVariable ["d_isspecialvec", true, true];
