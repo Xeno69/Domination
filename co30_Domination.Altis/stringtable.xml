@@ -12398,39 +12398,6 @@
 <Chinesesimp>敌军步兵 - 小队规模</Chinesesimp>
 <French>Enemy infantry - group size</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1900PATROL">
-<English>Enemy infantry - patrol infantry group count</English>
-<Spanish>Enemy infantry - patrol infantry group count</Spanish>
-<Portuguese>Enemy infantry - patrol infantry group count</Portuguese>
-<Korean>Enemy infantry - patrol infantry group count</Korean>
-<Japanese>Enemy infantry - patrol infantry group count</Japanese>
-<Original>Enemy infantry - patrol infantry group count</Original>
-<Russian>Enemy infantry - patrol infantry group count</Russian>
-<Chinesesimp>Enemy infantry - patrol infantry group count</Chinesesimp>
-<French>Enemy infantry - patrol infantry group count</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1900MAXGROUPS">
-<English>Enemy infantry - always choose maximum number of groups</English>
-<Spanish>Enemy infantry - always choose maximum number of groups</Spanish>
-<Portuguese>Enemy infantry - always choose maximum number of groups</Portuguese>
-<Korean>Enemy infantry - always choose maximum number of groups</Korean>
-<Japanese>Enemy infantry - always choose maximum number of groups</Japanese>
-<Original>Enemy infantry - always choose maximum number of groups</Original>
-<Russian>Enemy infantry - always choose maximum number of groups</Russian>
-<Chinesesimp>Enemy infantry - always choose maximum number of groups</Chinesesimp>
-<French>Enemy infantry - always choose maximum number of groups</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1900GROUPSIZE">
-<English>Enemy infantry - group size</English>
-<Spanish>Enemy infantry - group size</Spanish>
-<Portuguese>Enemy infantry - group size</Portuguese>
-<Korean>Enemy infantry - group size</Korean>
-<Japanese>Enemy infantry - group size</Japanese>
-<Original>Enemy infantry - group size</Original>
-<Russian>Enemy infantry - group size</Russian>
-<Chinesesimp>Enemy infantry - group size</Chinesesimp>
-<French>Enemy infantry - group size</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
 <English>AI Advanced - enhanced awareness (sniper units)</English>
 <Spanish>AI Avanzado - mayor conciencia (unidades de francotiradores)</Spanish>
@@ -14533,6 +14500,40 @@
 <Chinesesimp>正在获取对象...</Chinesesimp>
 <Chinese>Taking object...</Chinese>
 <French>Taking object...</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_SUPPRESS_VOICES">
+<English>Disable voices:</English>
+<Spanish>Disable voices:</Spanish>
+<Portuguese>Disable voices:</Portuguese>
+<Korean>Disable voices:</Korean>
+<Japanese>Disable voices:</Japanese>
+<Original>Disable voices:</Original>
+<Russian>Disable voices:</Russian>
+<Chinesesimp>Disable voices:</Chinesesimp>
+<Chinese>Disable voices:</Chinese>
+<French>Disable voices:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2084">
+<English>Save mission progress to profileNamespace if no database is available</English>
+<Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
+<Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
+<Korean>Save mission progress to profileNamespace if no database is available</Korean>
+<Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
+<Original>Save mission progress to profileNamespace if no database is available</Original>
+<Russian>Save mission progress to profileNamespace if no database is available</Russian>
+<Chinesesimp>Save mission progress to profileNamespace if no database is available</Chinesesimp>
+<French>Save mission progress to profileNamespace if no database is available</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2085">
+<English>Saved profileNamespace mission progress auto load</English>
+<Spanish>Saved profileNamespace mission progress auto load</Spanish>
+<Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
+<Korean>Saved profileNamespace mission progress auto load</Korean>
+<Japanese>Saved profileNamespace mission progress auto load</Japanese>
+<Original>Saved profileNamespace mission progress auto load</Original>
+<Russian>Saved profileNamespace mission progress auto load</Russian>
+<Chinesesimp>Saved profileNamespace mission progress auto load</Chinesesimp>
+<French>Saved profileNamespace mission progress auto load</French>
 </Key>
 </Container>
 </Package>

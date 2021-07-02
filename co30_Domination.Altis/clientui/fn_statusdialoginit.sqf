@@ -13,7 +13,9 @@ if (!d_pisadminp) then {
 	};
 } else {
 	if (!d_database_found) then {
-		__ctrl2(123124) ctrlShow false;
+		if (d_pnspace_msave == 0) then {
+			__ctrl2(123124) ctrlShow false;
+		};
 		__ctrl2(123125) ctrlShow false;
 	};
 };

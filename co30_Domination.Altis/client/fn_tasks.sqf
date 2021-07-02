@@ -67,7 +67,7 @@ NoDerivatives - If you remix, transform, or build upon the material, you may not
 No additional restrictions - You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 "]];
 
-if (d_database_found && {getClientStateNumber < 10}) then {
+if ((d_database_found || {d_pnspace_msave == 1}) && {getClientStateNumber < 10}) then {
 	if (!isNil "d_db_savegames" && {serverCommandAvailable "#shutdown" || {isServer}}) then {
 		player createDiarySubject ["dDBLoad", localize "STR_DOM_MISSIONSTRING_1750"];
 		private _helperar = [];

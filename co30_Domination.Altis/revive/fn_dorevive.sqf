@@ -32,9 +32,7 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 		};
 		(player getVariable "xr_cursorTarget") setVariable ["xr_pluncon", false, true];
 		if (xr_revivemsg) then {
-			{
-				[xr_name_player, name (player getVariable "xr_cursorTarget"), player] remoteExecCall ["xr_fnc_rmsg", _x];
-			} forEach d_own_sides_o;
+			[xr_name_player, name (player getVariable "xr_cursorTarget"), player] remoteExecCall ["xr_fnc_rmsg", d_own_sides_o];
 			systemChat format [localize "STR_DOM_MISSIONSTRING_914a", name (player getVariable "xr_cursorTarget")];
 		};
 		if (d_database_found) then {
