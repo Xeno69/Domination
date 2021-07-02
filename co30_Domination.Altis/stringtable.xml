@@ -14509,7 +14509,7 @@
 <Japanese>Disable voices:</Japanese>
 <Original>Disable voices:</Original>
 <Russian>Disable voices:</Russian>
-<Chinesesimp>Disable voices:</Chinesesimp>
+<Chinesesimp>禁用语音：</Chinesesimp>
 <Chinese>Disable voices:</Chinese>
 <French>Disable voices:</French>
 </Key>
@@ -14521,7 +14521,7 @@
 <Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
 <Original>Save mission progress to profileNamespace if no database is available</Original>
 <Russian>Save mission progress to profileNamespace if no database is available</Russian>
-<Chinesesimp>Save mission progress to profileNamespace if no database is available</Chinesesimp>
+<Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
 <French>Save mission progress to profileNamespace if no database is available</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2085">
@@ -14532,7 +14532,7 @@
 <Japanese>Saved profileNamespace mission progress auto load</Japanese>
 <Original>Saved profileNamespace mission progress auto load</Original>
 <Russian>Saved profileNamespace mission progress auto load</Russian>
-<Chinesesimp>Saved profileNamespace mission progress auto load</Chinesesimp>
+<Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
 <French>Saved profileNamespace mission progress auto load</French>
 </Key>
 </Container>
