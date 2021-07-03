@@ -647,6 +647,7 @@ class cfgFunctions {
 			addc(utowerkilled);
 			addc(barmhqtrig);
 			addc(bartrigover);
+			addc(slopilot);
 		};
 		class Dom_PrePostInit {
 			file = "init";

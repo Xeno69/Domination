@@ -97,7 +97,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					};
 					_vec setVariable ["d_attachedto_v", _transobj, true];
 					if (d_with_ranked || {d_database_found}) then {
-						_transobj setVariable ["d_lift_pilot", player, true];
+						[_transobj, player] remoteExecCall ["d_fnc_slopilot", 2];
 					};
 
 					while {alive _vec && {player in _vec && {!isNull _transobj && {alive player && {!isNull attachedTo _transobj && {!(_vec getVariable ["d_vec_released", false])}}}}}} do {

@@ -97,7 +97,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 						0.0001
 					};
 					if (d_with_ranked || {d_database_found}) then {
-						_liftobj setVariable ["d_lift_pilot", player, true];
+						[_liftobj, player] remoteExecCall ["d_fnc_slopilot", 2];
 					};
 
 					while {alive _chopper && {player in _chopper && {!isNull _liftobj && {alive player && {!isNull attachedTo _liftobj && {!(_chopper getVariable ["d_vec_released", false])}}}}}} do {
