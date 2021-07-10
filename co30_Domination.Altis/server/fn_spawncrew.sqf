@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 params ["_vec", "_grp", ["_nocargo", false]];

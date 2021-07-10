@@ -1,18 +1,16 @@
 // by Xeno
 //#define __DEBUG__
 #include "..\x_setup.sqf"
-// A3_206 deleteVehicleCrew _chopper; \
 #define __announce \
 d_para_available = true; publicVariable "d_para_available"; \
 remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated]; \
-{_chopper deleteVehicleCrew _x} forEach _crew; \
+deleteVehicleCrew _chopper; \
 deleteVehicle _chopper; \
 {deleteVehicle _x} forEach (_crew select {!isNull _x}); \
 deleteMarker #d_drop_marker
 
-// A3_206 deleteVehicle _chopper; \
 #define __del \
-{_chopper deleteVehicleCrew _x} forEach _crew; \
+deleteVehicle _chopper; \
 {deleteVehicle _x} forEach (_crew select {!isNull _x}); \
 deleteMarker #d_drop_marker
 

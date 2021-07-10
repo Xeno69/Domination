@@ -1,9 +1,8 @@
 // by Xeno
 //#define __DEBUG__
 #include "..\x_setup.sqf"
-// A3_206 deleteVehicleCrew _vec; \
 #define __del \
-{_vec deleteVehicleCrew _x} forEach _crew; \
+deleteVehicleCrew _vec; \
 deleteVehicle _vec; \
 {deleteVehicle _x} forEach (_crew select {!isNull _x});
 

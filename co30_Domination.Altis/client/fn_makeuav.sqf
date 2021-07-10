@@ -65,8 +65,7 @@ _uav spawn {
 		(findDisplay 160) closeDisplay 1;
 	};
 
-	// A3_206 deleteVehicleCrew _uav;
-	{_uav deleteVehicleCrew _x} forEach _crew;
+	deleteVehicleCrew _uav;
 	deleteVehicle _uav;
 	
 	if (d_player_canu && {player getVariable ["d_has_gps", false]}) then {

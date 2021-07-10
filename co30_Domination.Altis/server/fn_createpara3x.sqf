@@ -16,8 +16,7 @@ private _delveccrew = {
 	__TRACE("_delveccrew running")
 	sleep _time;
 	__TRACE("_delveccrew deleting")
-	// A3_206 deleteVehicleCrew _vec;
-	{_vec deleteVehicleCrew _x} forEach (_crew_vec select {!isNull _x});
+	deleteVehicleCrew _vec;
 	if (!isNull _vec) then {_vec setDamage 1};
 	{_x setDamage 1; deleteVehicle _x} forEach (_crew_vec select {!isNull _x});
 };
@@ -422,8 +421,7 @@ while {_icounter < _number_vehicles} do {
 	if (d_mt_radio_down) exitWith {
 		_stop_it = true;
 		__TRACE("Main deleting")
-		// A3_206 deleteVehicleCrew _vec;
-		{_vec deleteVehicleCrew _x} forEach (crew _vec);
+		deleteVehicleCrew _vec;
 		deleteVehicle _vec;
 	};
 	__TRACE("before _make_jump")
@@ -445,9 +443,7 @@ __TRACE_1("","_stop_it")
 
 if (_stop_it) exitWith {
 	{
-		// A3_206 deleteVehicleCrew _x;
-		private _v = _x;
-		{_v deleteVehicleCrew _x} forEach (crew _v);
+		deleteVehicleCrew _x;
 	} forEach (_vecs_ar select {!isNull _x});
 	{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
 	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
@@ -477,9 +473,7 @@ if (!d_mt_radio_down) then {
 	params ["_vecs_ar", "_crews_ar"];
 	sleep 120;
 	{
-		// A3_206 deleteVehicleCrew _x;
-		private _v = _x;
-		{_v deleteVehicleCrew _x} forEach (crew _v);
+		deleteVehicleCrew _x;
 	} forEach (_vecs_ar select {!isNull _x});
 	{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
 	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});

@@ -50,9 +50,7 @@ if (_val isNotEqualTo []) then {
 	__TRACE_1("2","_val")
 	{
 		if (unitIsUAV _x) then {
-			// A3_206 deleteVehicleCrew _x;
-			private _v = _x;
-			{_v deleteVehicleCrew _x} forEach (crew _v);
+			deleteVehicleCrew _x;
 		};
 		deleteVehicle _x;
 	} forEach (_val select {!isNull _x});

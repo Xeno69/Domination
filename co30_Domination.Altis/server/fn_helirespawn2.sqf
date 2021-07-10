@@ -77,8 +77,7 @@ while {true} do {
 #endif
 			sleep 0.1;
 			if (unitIsUAV _vec) then {
-				// A3_206 deleteVehicleCrew _vec;
-				{_vec deleteVehicleCrew _x} forEach (crew _vec);
+				deleteVehicleCrew _vec;
 			};
 			deleteVehicle _vec;
 			if (!_ifdamage) then {_vec_a set [3,-1]};
