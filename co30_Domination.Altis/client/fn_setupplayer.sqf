@@ -87,18 +87,14 @@ d_can_call_drop_ar = [];
 d_arsenal_opened = false;
 
 player disableConversation true;
-if (!d_with_ai) then {
-	enableSentences false;
-};
+enableSentences false;
 
 if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 	[] spawn d_fnc_showhud;
 };
 
-player disableConversation true;
-if (speaker player != "NoVoice") then {
-	[player, "NoVoice"] remoteExecCall ["setSpeaker"];
-};
+[player, "NoVoice"] remoteExecCall ["setSpeaker"];
+
 {_x disableAI "RADIOPROTOCOL"; _x setSpeaker "NoVoice"} forEach (allPlayers - [player]);
 
 //if (d_player_radioprotocol) then {

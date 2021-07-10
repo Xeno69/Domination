@@ -285,7 +285,7 @@ class CfgRemoteExec {
 		class setMass {};
 		class deleteMarker {allowedTargets = 2;};
 		class deleteGroup {};
-		class setSpeaker {allowedTargets = 1;};
+		class setSpeaker {};
 		class setFeatureType {jip = 1;};
 		class deleteMarkerLocal {allowedTargets = 1;};
 #ifdef __TT__

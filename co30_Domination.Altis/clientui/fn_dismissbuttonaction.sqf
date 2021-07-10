@@ -38,9 +38,13 @@ if (!ctrlShown _ctrl) then {
 	_ctrl ctrlShow true;
 };
 
+if (d_current_ai_num < 0) then {d_current_ai_num = 0};
+
 if (d_current_ai_num == 0) then {
 	(_dispx displayCtrl 1011) ctrlShow false;
 	(_dispx displayCtrl 1012) ctrlShow false;
+	enableSentences false;
+	d_hasrecruited = nil;
 };
 
 (_dispx displayCtrl 1030) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_693", d_current_ai_num, [round linearConversion [0, 20, 21 - count d_allplayers, 0, d_max_ai, true], d_max_ai] select !d_ai_dyn_recruit];

@@ -159,4 +159,7 @@ if (d_ai_silent == 1) then {
 	_unit disableAI "RADIOPROTOCOL";
 };
 
+enableSentences true;
+d_hasrecruited = true;
+
 player setVariable ["d_recdbusy", false];
