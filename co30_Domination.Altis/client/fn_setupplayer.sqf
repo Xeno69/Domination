@@ -97,6 +97,8 @@ if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
 
 {_x disableAI "RADIOPROTOCOL"; _x setSpeaker "NoVoice"} forEach (allPlayers - [player]);
 
+play disableAI "CHECKVISIBLE"; 
+
 //if (d_player_radioprotocol) then {
 //	player disableAI "RADIOPROTOCOL";
 //};
@@ -460,7 +462,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log "Internal D Version: 4.55";
+diag_log "Internal D Version: 4.56";
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
