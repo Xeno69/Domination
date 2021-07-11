@@ -12,4 +12,5 @@
 - Fixed: HUD with duplicated character "Score::"
 - Fixed: Vehicle markers are not shown when player AI is alone in vehicles
 - Fixed: When AI aggressive shoot (d_ai_aggressiveshoot) was activated AI was shooting at unconscious players
+- Optimized: Do not spawn commander in AI vehicles
 - Tweaked: Spawn factor variables
