@@ -566,12 +566,6 @@ if (isServer) then {
 
 #ifdef __TT__
 	d_public_points = true;
-#endif
-
-	call d_fnc_setupserver;
-	if (d_MissionType != 2) then {0 spawn d_fnc_createnexttarget};
-
-#ifdef __TT__
 	d_points_blufor = 0;
 	d_points_opfor = 0;
 	d_kill_points_blufor = 0;
@@ -579,6 +573,9 @@ if (isServer) then {
 	d_points_array = [0,0,0,0];
 	publicVariable "d_points_array";
 #endif
+
+	call d_fnc_setupserver;
+	if (d_MissionType != 2) then {0 spawn d_fnc_createnexttarget};
 
 	addMissionEventHandler ["PlayerDisconnected", {call d_fnc_playerdisconnected}];
 

@@ -648,6 +648,7 @@ class cfgFunctions {
 			addc(barmhqtrig);
 			addc(bartrigover);
 			addc(slopilot);
+			addc(sendttpoints);
 		};
 		class Dom_PrePostInit {
 			file = "init";

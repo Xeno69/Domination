@@ -48,7 +48,7 @@ switch (d_sm_winner) do {
 private _vec_type = "";
 if (d_current_sm_bonus_vec == "") then {
 	_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_cur;
-	private _idxx = d_sm_bonus_vehicle_array_cur findIf {_x == _vec_type};
+	private _idxx = d_sm_bonus_vehicle_array_cur find _vec_type;
 	if (_idxx != -1) then {
 		d_sm_bonus_vehicle_array_cur deleteAt (_idxx + 1);
 		d_sm_bonus_vehicle_array_cur deleteAt _idxx;
@@ -76,7 +76,7 @@ switch (d_sm_winner) do {
 	case 1: {
 		if (d_current_sm_bonus_vec # 1 == "") then {
 			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_o;
-			private _idxx = d_sm_bonus_vehicle_array_o findIf {_x == _vec_type};
+			private _idxx = d_sm_bonus_vehicle_array_o find _vec_type;
 			if (_idxx != -1) then {
 				d_sm_bonus_vehicle_array_o deleteAt (_idxx + 1);
 				d_sm_bonus_vehicle_array_o deleteAt _idxx;
@@ -96,7 +96,7 @@ switch (d_sm_winner) do {
 	case 2: {
 		if (d_current_sm_bonus_vec # 0 == "") then {
 			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_b;
-			private _idxx = d_sm_bonus_vehicle_array_b findIf {_x == _vec_type};
+			private _idxx = d_sm_bonus_vehicle_array_b find _vec_type;
 			if (_idxx != -1) then {
 				d_sm_bonus_vehicle_array_b deleteAt (_idxx + 1);
 				d_sm_bonus_vehicle_array_b deleteAt _idxx;
@@ -116,7 +116,7 @@ switch (d_sm_winner) do {
 	case 123: {
 		if (d_current_sm_bonus_vec # 1 == "") then {
 			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_o;
-			private _idxx = d_sm_bonus_vehicle_array_o findIf {_x == _vec_type};
+			private _idxx = d_sm_bonus_vehicle_array_o find _vec_type;
 			if (_idxx != -1) then {
 				d_sm_bonus_vehicle_array_o deleteAt (_idxx + 1);
 				d_sm_bonus_vehicle_array_o deleteAt _idxx;
@@ -135,7 +135,7 @@ switch (d_sm_winner) do {
 		
 		if (d_current_sm_bonus_vec # 0 == "") then {
 			_vec_type2 = selectRandomWeighted d_sm_bonus_vehicle_array_b;
-			private _idxx = d_sm_bonus_vehicle_array_b findIf {_x == _vec_type2};
+			private _idxx = d_sm_bonus_vehicle_array_b find _vec_type2;
 			if (_idxx != -1) then {
 				d_sm_bonus_vehicle_array_b deleteAt (_idxx + 1);
 				d_sm_bonus_vehicle_array_b deleteAt _idxx;

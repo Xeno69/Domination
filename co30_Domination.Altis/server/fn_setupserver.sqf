@@ -45,7 +45,7 @@ if (d_MissionType in [0,2]) then {
 };
 
 #ifdef __TT__
-execfsm "fsms\fn_TTPoints.fsm";
+0 spawn d_fnc_sendttpoints;
 #endif
 
 private _applyfnc = {

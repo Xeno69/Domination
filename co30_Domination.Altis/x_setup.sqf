@@ -5,7 +5,6 @@
 #define __OWN_SIDE_BLUFOR__
 //#define __OWN_SIDE_OPFOR__
 //#define __OWN_SIDE_INDEPENDENT__
-//#define __TT__
 
 // uncomment to see where all AI units spawn, what kind of group it is, their current waypoint line to waypoint and the number of units alive
 // ONLY FOR DEBUGGING !!!!
@@ -30,7 +29,7 @@
 
 //#define __RHS__
 
-// #define __GMCWG__
+//#define __GMCWG__
 
 //#define __SMDEBUG__
 

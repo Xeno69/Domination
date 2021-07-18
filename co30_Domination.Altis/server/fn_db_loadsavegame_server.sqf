@@ -90,6 +90,7 @@ if (!d_tt_ver) then {
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 18;
+					_tmpar deleteAt 12;
 					_tmpar deleteAt 0;
 					_dbresult = [_tmpar];
 				};
@@ -99,6 +100,7 @@ if (!d_tt_ver) then {
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 19;
+					_tmpar deleteAt 12;
 					_tmpar deleteAt 0;
 					_dbresult = [_tmpar];
 				};
