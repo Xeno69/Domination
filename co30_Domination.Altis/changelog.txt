@@ -7,12 +7,13 @@
 - Changed: Side mission bonus vehicles are no longer selected consecutively
 - Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
 - Fixed: If d_with_ranked was set to 2 (Ranked mode on but weapons not ranked) d_remove_from_arsenal was not processed
-- Fixed: Main target mission buildings got destroyed 30 seconds after creation, fixes #297
+- Fixed: Main target mission buildings got destroyed 30 seconds after creation
 - Fixed: Snipers were not being created with new dynamic parameter
 - Fixed: HUD with duplicated character "Score::"
 - Fixed: Vehicle markers are not shown when player AI is alone in vehicles
 - Fixed: When AI aggressive shoot (d_ai_aggressiveshoot) was activated AI was shooting at unconscious players
 - Fixed: No sidemission bonus vehicles were awarded in the TT version
 - Fixed: TT points were broadcasted before the variables were created on the server
+- Fixed: JIP was disabled for remoteExecCall functions which make use for JIP
 - Optimized: Do not spawn commander in AI vehicles
 - Tweaked: Spawn factor variables
