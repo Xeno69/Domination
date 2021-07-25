@@ -1092,6 +1092,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
+	class d_artycheckfriendlies {
+		title = "$STR_DOM_MISSIONSTRING_2086";
+		values[] = {0,1};
+		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_disable_player_cas {
 		title = "$STR_DOM_MISSIONSTRING_2078";
 		values[] = {0,1};

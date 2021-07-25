@@ -21,19 +21,22 @@ private _curmar_pos = markerPos (_arele # 0);
 __TRACE_2("","_arele","_curmar_pos")
 
 private _no = [];
-private _ammoconf = configFile>>"CfgAmmo">>getText(configFile>>"CfgMagazines">>(_arele # 2)>>"ammo");
 
-if (getText(_ammoconf>>"effectFlare") != "CounterMeasureFlare" && {getText(_ammoconf>>"submunitionAmmo") != "SmokeShellArty"}) then {
-	private _man_types = [];
-	{
-		_man_types pushBack (switch (_x) do {
-			case "WEST": {"SoldierWB"};
-			case "EAST": {"SoldierEB"};
-			case "GUER": {"SoldierGB"};
-			default {"SoldierWB"};
-		});
-	} forEach d_own_sides;
-	_no = _curmar_pos nearEntities [_man_types, 20];
+if (d_artycheckfriendlies == 1) then {
+	private _ammoconf = configFile>>"CfgAmmo">>getText(configFile>>"CfgMagazines">>(_arele # 2)>>"ammo");
+
+	if (getText(_ammoconf>>"effectFlare") != "CounterMeasureFlare" && {getText(_ammoconf>>"submunitionAmmo") != "SmokeShellArty"}) then {
+		private _man_types = [];
+		{
+			_man_types pushBack (switch (_x) do {
+				case "WEST": {"SoldierWB"};
+				case "EAST": {"SoldierEB"};
+				case "GUER": {"SoldierGB"};
+				default {"SoldierWB"};
+			});
+		} forEach d_own_sides;
+		_no = _curmar_pos nearEntities [_man_types, 20];
+	};
 };
 
 if (_no isNotEqualTo []) exitWith {

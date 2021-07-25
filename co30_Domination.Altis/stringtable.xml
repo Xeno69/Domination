@@ -14535,6 +14535,18 @@
 <Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
 <French>Saved profileNamespace mission progress auto load</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2086">
+<English>Check for friendly units near artillery targets when firing artillery</English>
+<Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
+<Portuguese>Check for friendly units near artillery targets when firing artillery</Portuguese>
+<Korean>Check for friendly units near artillery targets when firing artillery</Korean>
+<Japanese>Check for friendly units near artillery targets when firing artillery</Japanese>
+<Original>Check for friendly units near artillery targets when firing artillery</Original>
+<Russian>Check for friendly units near artillery targets when firing artillery</Russian>
+<Chinesesimp>Check for friendly units near artillery targets when firing artillery</Chinesesimp>
+<Chinese>Check for friendly units near artillery targets when firing artillery</Chinese>
+<French>Check for friendly units near artillery targets when firing artillery</French>
+</Key>
 </Container>
 </Package>
 </Project>
