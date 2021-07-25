@@ -211,6 +211,7 @@ class cfgFunctions {
 			addc(setmatxtloc);
 			addc(build_ranked_gear);
 			addc(makebarmhqwait);
+			addc(zeusmarkerworkaround);
 		};
 		class Dom_UI {
 			file = "clientui";

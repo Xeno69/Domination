@@ -1216,6 +1216,8 @@ if (d_dis_servicep == 1) then {
 
 __TRACE_1("","d_isvdreduced")
 
+0 spawn d_fnc_zeusmarkerworkaround;
+
 0 spawn d_fnc_gimmick;
 
 if (isMultiplayer) then {
