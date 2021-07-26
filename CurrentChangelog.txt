@@ -16,5 +16,6 @@
 - Fixed: No sidemission bonus vehicles were awarded in the TT version
 - Fixed: TT points were broadcasted before the variables were created on the server
 - Fixed: JIP was disabled for remoteExecCall functions which make use for JIP
+- Fixed: In the SOG PF version capturing of barracks and vehicle MHQ continued even if nearby players were dead (d_bar_mhq_destroy = 0)
 - Optimized: Do not spawn commander in AI vehicles
 - Tweaked: Spawn factor variables

@@ -4,12 +4,10 @@
 
 __TRACE("Eachframerun")
 
-private _ef_st = d_ef_hash;
-__TRACE_1("","_ef_st")
 {
-	if (diag_frameno >= (_y # 2)) then {
-		call (_y # 0);
-		_y set [2, diag_frameno + (_y # 1)];
-		__TRACE_1("2","_y")
+	if (diag_frameno >= (_x # 2)) then {
+		call (_x # 0);
+		_x set [2, diag_frameno + (_x # 1)];
+		__TRACE_1("2","_x")
 	};
-} forEach _ef_st;
+} forEach (values d_ef_hash);
