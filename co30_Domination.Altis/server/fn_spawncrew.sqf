@@ -34,7 +34,7 @@ if (count _crew > 0) then {
 	};
 
 	private _addus = [];
-	if (!_nocargo && {(call d_fnc_PlayersNumber) < 20}) then {
+	if (!_nocargo && {(call d_fnc_PlayersNumber) < 18}) then {
 		private _ran =
 #ifdef __IFA3LITE__
 			random 100 > 80;
@@ -45,7 +45,7 @@ if (count _crew > 0) then {
 			private _counter = _vec emptyPositions "cargo";
 			__TRACE_2("","typeOf _vec","_counter")
 			if (_counter > 0) then {
-				_counter = (ceil (random _counter)) min 6;
+				_counter = (ceil (random _counter)) min 4;
 				if (_counter > 0) then {
 					private _munits = ["allmen", side _grp] call d_fnc_getunitlistm;
 					__TRACE_1("","_munits")
