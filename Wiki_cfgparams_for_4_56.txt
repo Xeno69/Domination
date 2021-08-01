@@ -147,6 +147,8 @@
 >   - Enabled (0)<br/>
 >   - Disabled (1)<br/>
 >   - Enabled but block recruited AI from entering static weapons (2)<br/>
+>   - Enabled, but with dynamic AI recritment. Means, 1 player = d_max_ai recruitable, more players less AI recruitable, over 20 players, no AI recruitment possible (3)<br/>
+>   - Enabled (4), same as 3 but block recruited AI from entering static weapons<br/>
 #### **d_with_ai_features / With AI features but no AI recruit:**
 > Default: 1 (No, disabled; 0 or Yes to enable<br/>
 > Same as d_with_ai above, just no AI recruitment<br/>
@@ -166,7 +168,6 @@
 #### **d_EnableSimulationCamps / Enable simulation for enemy camps:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled the simulation for object compositions at main targets is enabled (means they can be destroyed)<br/>
-> If disabled players can not turn off grass (change terraingrid)<br/>
 #### **d_WithRevive / With revive:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 > If disabled no revive is available, players can then only spawn at one of the available spawn points when they die<br/>
@@ -375,7 +376,7 @@
 > Default: 2000 (meter)<br/>
 > Available options (in meter): 500, 700, 888, 1000, 2000 and 5000<br/>
 #### **d_LockArmored / Lock armored enemy armored vecs:**
-> Default: 1 (No, disabled; 1 or Yes to enable<br/>
+> Default: 1 (No, disabled; 0 or Yes to enable<br/>
 #### **d_LockCars / Lock armored enemy cars:**
 > Default: 1 (No, disabled; 1 or Yes to enable<br/>
 #### **d_LockAir / Lock armored enemy air vecs:**
