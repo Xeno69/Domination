@@ -7,6 +7,7 @@
 - Added: New parameter d_artycheckfriendlies (Check for friendly units near artillery targets when firing artillery), default Yes (1)
 - Changed: Side mission bonus vehicles are no longer selected consecutively
 - Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
+- Changed: You have to take barracks and vehicle MHQs in the Unsung version instead of destroying them 
 - Fixed: If d_with_ranked was set to 2 (Ranked mode on but weapons not ranked) d_remove_from_arsenal was not processed
 - Fixed: Main target mission buildings got destroyed 30 seconds after creation
 - Fixed: Snipers were not being created with new dynamic parameter

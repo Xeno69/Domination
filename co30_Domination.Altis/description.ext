@@ -520,9 +520,46 @@ class Params {
 	class d_bar_mhq_destroy {
 		title = "$STR_DOM_MISSIONSTRING_2080";
 		values[] = {0,1};
-#ifndef __VN__
+#ifdef __CUP_CHERNARUS__
 		default = 1;
-#else
+#endif
+#ifdef __TANOA__
+		default = 1;
+#endif
+#ifdef __ALTIS__
+		default = 1;
+#endif
+#ifdef __CUP_SARA__
+		default = 1;
+#endif
+#ifdef __CUP_TAKISTAN__
+		default = 1;
+#endif
+#ifdef __IFA3LITE__
+		default = 1;
+#endif
+#ifdef __TT__
+		default = 1;
+#endif
+#ifdef __STRATIS__
+		default = 1;
+#endif
+#ifdef __MALDEN__
+		default = 1;
+#endif
+#ifdef __GMCWG__
+		default = 1;
+#endif
+#ifdef __LIVONIA__
+		default = 1;
+#endif
+#ifdef __UNSUNG__
+		default = 0;
+#endif
+#ifdef __GABRETA__
+		default = 1;
+#endif
+#ifdef __VNCLN__
 		default = 0;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
