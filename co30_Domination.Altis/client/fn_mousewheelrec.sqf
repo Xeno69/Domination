@@ -12,12 +12,16 @@ private _ct = if (isNull objectParent player) then {
 	vehicle player
 };
 
+__TRACE_2("","_ct","_pin_v")
+
 if (!alive _ct) exitWith {false};
 
 if (!_pin_v && {_ct distance2D player > 20 || {!(_ct isKindOf "Car") && {!(_ct isKindOf "Tank") && {!(_ct isKindOf "Air")}} || {_ct isKindOf "ParachuteBase" || {unitIsUAV _ct || {(crew _ct) findIf {alive _x} == -1}}}}}) exitWith {false};
 if ((crew _ct) findIf {alive _x && {d_player_side getFriend side (group _x) >= 0.6}} == -1) exitWith {false};
 
 private _fc = fullCrew _ct;
+
+__TRACE_1("","_fc")
 
 if (_fc isEqualTo []) exitWith {false};
 
@@ -50,13 +54,19 @@ if (_s_ai isNotEqualTo []) then {
 	_s_p pushBack "</t>";
 };
 
+__TRACE_1("","_s_p")
+__TRACE_1("","_s_ai")
+
 private _t = format ["<t color='#FFFFFF' size='0.8'><t align='right'>%1 %2:<br/>%3%4", localize "STR_DOM_MISSIONSTRING_538", [_ct] call d_fnc_GetDisplayName, _s_p joinString "", _s_ai joinString ""];
+__TRACE_1("","_t")
 disableSerialization;
 private _disp = uiNamespace getVariable "d_rscCrewText";
-if (isNull _disp) then {
+if (isNil "_disp" || {isNull _disp}) then {
+	__TRACE("disp is null")
 	"d_rscCrewText" cutRsc ["d_rscCrewText", "PLAIN"];
 	_disp = uiNamespace getVariable "d_rscCrewText";
 };
+__TRACE_1("","_disp")
 private _ctrl = _disp displayCtrl 9999;
 _ctrl ctrlSetStructuredText parseText _t;
 _ctrl ctrlCommit 0;
