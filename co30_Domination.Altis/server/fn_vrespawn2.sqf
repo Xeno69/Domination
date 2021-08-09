@@ -63,6 +63,7 @@ while {true} do {
 			if (unitIsUAV _vec) then {
 				deleteVehicleCrew _vec;
 			};
+			_vec remoteExecCall ["d_fnc_rem_uav", [0, -2] select isDedicated];
 			deleteVehicle _vec;
 			sleep 0.5;
 			_vec = createVehicle [_vec_a # 4, _vec_a # 2, [], 0, "NONE"];
