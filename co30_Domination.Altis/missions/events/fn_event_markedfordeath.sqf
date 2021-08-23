@@ -33,7 +33,7 @@ _event_target_name = name _event_target;
 
 _event_target addEventHandler ["Killed", {
 	// reset
-	d_priority_targets deleteAt 0;
+	d_priority_targets = [];
 	publicVariable "d_priority_targets";
 	(_this # 0) removeEventHandler ["Killed", _thisEventhandler];
 }];
@@ -55,12 +55,13 @@ diag_log ["markedfordeath ended"];
 
 if (d_priority_targets isEqualTo []) then {
 	diag_log ["markedfordeath failure"];
+	private _fail_survive_time = time - _event_start_time;
 	d_kb_logic1 kbTell [
     	d_kb_logic2,
     	d_kb_topic_side,
     	"PlayerMarkedForDeathFail",
     	["1", "", _event_target_name, []],
-    	["2", "", str (time - _event_start_time), []],
+    	["2", "", str _fail_survive_time, []],
     	d_kbtel_chan
     ];
 } else {
