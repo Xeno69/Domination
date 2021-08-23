@@ -5,6 +5,7 @@
 - Added: New parameter d_pnspace_msave (default 1, enabled), "Save mission progress to profileNamespace if no database is available"
 - Added: New parameter d_pnspace_msave_auto (default 1, enabled), "Saved profileNamespace mission progress auto load"
 - Added: New parameter d_artycheckfriendlies (Check for friendly units near artillery targets when firing artillery), default Yes (1)
+- Added: Server admin can set a default value for client side checkbox "automatically reduce view distance at maintarget" still false for TT and true otherwise, by longtimegamer
 - Changed: Side mission bonus vehicles are no longer selected consecutively
 - Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
 - Changed: You have to take barracks and vehicle MHQs in the Unsung version instead of destroying them 
