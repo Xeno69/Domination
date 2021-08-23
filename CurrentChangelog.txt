@@ -20,5 +20,6 @@
 - Fixed: In the SOG PF version capturing of barracks and vehicle MHQ continued even if nearby players were dead (d_bar_mhq_destroy = 0)
 - Fixed: Moving mousewheel when looking at a friendly vehicle or when a player was inside a vehicle didn't show the crew anymore
 - Fixed: It could happen that already respawned vehicles were still drawn on the map
+- Fixed: Marked for death never failed when target was killed, vip defend map icon in wrong place, by longtimegamer
 - Optimized: Do not spawn commander in AI vehicles
 - Tweaked: Spawn factor variables
