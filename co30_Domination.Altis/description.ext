@@ -796,6 +796,17 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 	
+	class d_AutoViewdistanceChangeDefault {
+		title = "$STR_DOM_MISSIONSTRING_1964";
+		values[] = {0,1};
+#ifdef __TT__
+		default = 0;
+#else
+		default = 1;
+#endif
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_playerspectateatbase {
 		title = "$STR_DOM_MISSIONSTRING_2057";
 		values[] = {0,1};

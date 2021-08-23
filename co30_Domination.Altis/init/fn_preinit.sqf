@@ -2752,12 +2752,12 @@ if (hasInterface) then {
 	d_add_resp_points_pos = [];
 
 	d_earplugs_fitted = false;
-#ifndef __TT__
-	d_maintarget_auto_vd = true;
-#else
-	d_maintarget_auto_vd = false;
-#endif
 
+	if (d_AutoViewdistanceChangeDefault == 1) then {
+		d_maintarget_auto_vd = true;
+	} else {
+		d_maintarget_auto_vd = false;
+	};
 	d_deploy_mhq_camo = true;
 
 	d_player_jescape = 0;
