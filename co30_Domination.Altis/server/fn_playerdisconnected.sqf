@@ -9,6 +9,8 @@ __TRACE_1("","_this")
 private _gui = getUserInfo (_this # 5);
 __TRACE_1("","_gui")
 
+diag_log ["DOM playerdisconnected: getUserInfo", _gui];
+
 if (_gui # 7) exitWith {
 	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
 	0 spawn {
