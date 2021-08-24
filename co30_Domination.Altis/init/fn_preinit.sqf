@@ -577,7 +577,6 @@ if (isServer) then {
 
 	d_hc_array = [];
 	d_hc_counter = 0;
-	d_virtual_spectators = [];
 	d_retaken_farpspos = [];
 
 	d_with_ace = isClass (configFile>>"CfgPatches">>"ace_main");

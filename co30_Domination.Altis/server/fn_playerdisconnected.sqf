@@ -4,10 +4,6 @@
 
 diag_log ["DOM playerdisconnected: _this", _this];
 
-if (isDedicated) exitWith {};
-
-params ["", "_uid", "_name"];
-
 __TRACE_1("","_this")
 
 private _gui = getUserInfo (_this # 5);
@@ -28,23 +24,28 @@ if (_gui # 7) exitWith {
 	};
 };
 
+params ["", "_uid", "_name"];
+
 if (_uid isEqualTo "") exitWith {
 	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
 };
-
-if (_uid in d_virtual_spectators) exitWith {
-	diag_log ["DOM playerdisconnected, removing virtual spectator, _this:", _this];
-	d_virtual_spectators = d_virtual_spectators - [_uid];
-};
-
-if (!d_database_found) exitWith {};
 
 private _unit = _gui # 10;
 
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")
 
-if (isNil "_unit" || {!isNil {_unit getVariable "d_no_side_change"}}) exitWith {
+if (isNil "_unit" || {isNull _unit}) exitWith {};
+
+if (local _unit && {isDedicated}) exitWith {};
+
+if (_unit isKindOf "VirtualSpectator_F") exitWith {
+	diag_log ["DOM playerdisconnected, virtual spectator, _this:", _this];
+};
+
+if (!d_database_found) exitWith {};
+
+if (!isNil {_unit getVariable "d_no_side_change"}) exitWith {
 	__TRACE_2("No database update","_unit","_name")
 	diag_log ["DOM playerdisconnected: No database update, _this:", _this];
 };
