@@ -6,21 +6,28 @@ diag_log ["DOM playerdisconnected: _this", _this];
 
 params ["", "_uid", "_name"];
 
+diag_log ["getUserInfo", getUserInfo (_this # 5)];
+
 __TRACE_1("","_this")
 
-if (_name == "__SERVER__") exitWith {
+if (isServer) then {
 	diag_log ["DOM playerdisconnected, Server disconnect: _this", _this];
-	if (d_database_found && {d_db_auto_save}) then {
+	if ((d_database_found && {d_db_auto_save}) || {d_pnspace_msave == 1 && {d_pnspace_msave_auto == 1}}) then {
 		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 		diag_log ["DOM playerdisconnected, mission progress auto save"];
 	};
 };
 
+if (isDedicated) exitWith {};
+
 if (_uid isEqualTo "") exitWith {
 	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
 };
 
-if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}) exitWith {
+private _gui = getUserInfo (_this # 5);
+__TRACE_1("","_gui")
+
+if ((_gui # 7) && {!isDedicated}) exitWith {
 	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
 	0 spawn {
 		scriptname "spawn pldisconnected";
@@ -42,9 +49,8 @@ if (_uid in d_virtual_spectators) exitWith {
 
 if (!d_database_found) exitWith {};
 
-private _unit = _uid call d_fnc_getunitbyuid;
+private _unit = _gui # 10;
 
-__TRACE_1("","allPlayers")
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")
 

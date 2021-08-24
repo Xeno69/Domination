@@ -339,7 +339,6 @@ class cfgFunctions {
 			addc(isbldghostile);
 			addc(getbuildings);
 			addc(getcoveredpositions);
-			addc(getunitbyuid);
 			addc(setleader);
 			addc(sd180);
 			addc(setvel0);

@@ -20,8 +20,6 @@ if (isMultiplayer && {hasInterface}) then {
 enableSaving [false,false];
 enableTeamSwitch false;
 
-isNil {call compileScript ["d_init.sqf", false]};
-
 #ifdef __IFA3LITE__
 if (isServer) then {
 	diag_log ["DOM init.sqf, setting date back to 1944..."];

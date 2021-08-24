@@ -23,5 +23,7 @@
 - Fixed: Moving mousewheel when looking at a friendly vehicle or when a player was inside a vehicle didn't show the crew anymore
 - Fixed: It could happen that already respawned vehicles were still drawn on the map
 - Fixed: Marked for death never failed when target was killed, vip defend map icon in wrong place, by longtimegamer
+- Fixed: Mission progress was not saved on a non dedicated server
 - Optimized: Do not spawn commander in AI vehicles
+- Optimized: Make use of new 2.06 scripting commands where possible
 - Tweaked: Spawn factor variables
