@@ -33,6 +33,7 @@ private _buildingsArrayFiltered = [];
 {
 	private _keep = true;
 	call {
+		if (_x isKindOf "Cargo_base_F") exitWith {_keep = false};
 		// check if bldg has any positions available for units
 		if ((_x buildingPos -1) isEqualTo []) exitWith {_keep = false};
 		// (optional) check if bldg has hostile units present
