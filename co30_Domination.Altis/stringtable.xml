@@ -14547,6 +14547,42 @@
 <Chinese>Check for friendly units near artillery targets when firing artillery</Chinese>
 <French>Check for friendly units near artillery targets when firing artillery</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2087">
+<English>You received %1 score points from the admin!</English>
+<Spanish>You received %1 score points from the admin!</Spanish>
+<Portuguese>You received %1 score points from the admin!</Portuguese>
+<Korean>You received %1 score points from the admin!</Korean>
+<Japanese>You received %1 score points from the admin!</Japanese>
+<Original>You received %1 score points from the admin!</Original>
+<Russian>You received %1 score points from the admin!</Russian>
+<Chinesesimp>You received %1 score points from the admin!</Chinesesimp>
+<Chinese>You received %1 score points from the admin!</Chinese>
+<French>You received %1 score points from the admin!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2088">
+<English>You have added %1 points to the total score of %2</English>
+<Spanish>You have added %1 points to the total score of %2</Spanish>
+<Portuguese>You have added %1 points to the total score of %2</Portuguese>
+<Korean>You have added %1 points to the total score of %2</Korean>
+<Japanese>You have added %1 points to the total score of %2</Japanese>
+<Original>You have added %1 points to the total score of %2</Original>
+<Russian>You have added %1 points to the total score of %2</Russian>
+<Chinesesimp>You have added %1 points to the total score of %2</Chinesesimp>
+<Chinese>You have added %1 points to the total score of %2</Chinese>
+<French>You have added %1 points to the total score of %2</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2089">
+<English>Add Score</English>
+<Spanish>Add Score</Spanish>
+<Portuguese>Add Score</Portuguese>
+<Korean>Add Score</Korean>
+<Japanese>Add Score</Japanese>
+<Original>Add Score</Original>
+<Russian>Add Score</Russian>
+<Chinesesimp>Add Score</Chinesesimp>
+<Chinese>Add Score</Chinese>
+<French>Add Score</French>
+</Key>
 </Container>
 </Package>
 </Project>

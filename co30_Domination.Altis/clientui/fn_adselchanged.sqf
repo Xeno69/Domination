@@ -20,6 +20,7 @@ _control ctrlEnable false;
 private _unit = missionNamespace getVariable (_control lbData _selIdx);
 d_a_d_cur_uid = getPlayerUID _unit;
 d_a_d_cur_unit_name = name _unit;
+d_a_d_netid = netId _unit;
 __TRACE_1("adselchanged","_unit")
 d_u_r_inf = nil;
 d_a_d_cur_name = _control lbText _selIdx;

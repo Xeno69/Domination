@@ -161,3 +161,8 @@ if (_num == 23) exitWith {
 if (_num == 24) exitWith {
 	hint "All rappel anchors in use. Please try again.";
 };
+
+if (_num == 25) exitWith {
+	[format [localize "STR_DOM_MISSIONSTRING_2087", _param1], "GLOBAL"] call d_fnc_HintChatMsg;
+};
+

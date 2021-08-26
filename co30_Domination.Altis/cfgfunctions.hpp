@@ -281,6 +281,7 @@ class cfgFunctions {
 			addc(forgive_keh);
 			addc(forgive_timehandler);
 			addc(barmhqcounter);
+			addc(adasposchanged);
 		};
 		class Dom_Common {
 			file = "common";
@@ -649,6 +650,7 @@ class cfgFunctions {
 			addc(bartrigover);
 			addc(slopilot);
 			addc(sendttpoints);
+			addc(addplscore);
 		};
 		class Dom_PrePostInit {
 			file = "init";

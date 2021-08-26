@@ -14,3 +14,11 @@ lbClear _ctrl;
 
 _ctrl lbSetCurSel 0;
 ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);
+
+if (!d_database_found) then {
+	((uiNamespace getVariable "d_AdminDialog") displayCtrl 1014) ctrlShow false;
+	((uiNamespace getVariable "d_AdminDialog") displayCtrl 1015) ctrlShow false;
+	((uiNamespace getVariable "d_AdminDialog") displayCtrl 1016) ctrlShow false;
+} else {
+	d_a_d_selscore = 100;
+};

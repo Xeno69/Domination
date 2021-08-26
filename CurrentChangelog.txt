@@ -7,6 +7,7 @@
 - Added: New parameter d_artycheckfriendlies (Check for friendly units near artillery targets when firing artillery), default Yes (1)
 - Added: Server admin can set a default value for client side checkbox "automatically reduce view distance at maintarget" still false for TT and true otherwise, by longtimegamer
 - Added: AI awareness and aggressive fire is only activated when d_mt_spotted is true, by longtimegamer
+- Added: If a database is available a logged in admin can add up to 10000 score points to another player
 - Changed: Side mission bonus vehicles are no longer selected consecutively
 - Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
 - Changed: You have to take barracks and vehicle MHQs in the Unsung version instead of destroying them 
