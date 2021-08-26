@@ -14,6 +14,15 @@ deleteVehicle d_current_trigger;
 if (!isNil "d_f_check_trigger") then {
 	deleteVehicle d_f_check_trigger;
 };
+#ifndef __TT__
+if (!isNil "d_current_trigger_helper") then {
+	deleteVehicle d_current_trigger_helper;
+};
+if (!isNil "d_camps_workaround_handle") then {
+	terminate d_camps_workaround_handle;
+	d_camps_workaround_handle = nil;
+};
+#endif
 
 if (!isNil "d_handleobservers_handle" && {!isNull d_handleobservers_handle}) then {terminate d_handleobservers_handle};
 

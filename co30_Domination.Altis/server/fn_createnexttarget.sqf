@@ -94,6 +94,12 @@ _tsar = ["d_mt_radio_down && {d_lastchanceover && {d_mt_barracks_down && {d_camp
 #endif
 
 __TRACE_1("","_tsar")
+#ifndef __TT__
+if (d_ao_check_for_ai < 2) then {
+	private _helpertrigt = ["d_mt_radio_down && {d_mt_barracks_down && {'Car' countType thislist <= d_car_count_for_target_clear && {'Tank' countType thislist <= d_tank_count_for_target_clear && {'Man' countType thislist <= d_man_count_for_target_clear}}}}", "d_camps_workaround_handle = 0 spawn d_fnc_camps_workaround", ""];
+	d_current_trigger_helper = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", false], _helpertrigt] call d_fnc_createtriggerlocal;
+};
+#endif
 d_current_trigger = [d_cur_tgt_pos, [d_cur_target_radius  + 50, d_cur_target_radius + 50, 0, false], [d_enemy_side, "PRESENT", false], _tsar] call d_fnc_createtriggerlocal;
 __TRACE_1("","d_current_trigger")
 #ifdef __TT__
