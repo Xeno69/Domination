@@ -5,7 +5,7 @@
 deleteVehicle d_current_trigger_helper;
 d_current_trigger_helper = nil;
 
-private _endtime = time + 360;
+private _endtime = time + 480;
 
 __TRACE_1("","_endtime")
 
