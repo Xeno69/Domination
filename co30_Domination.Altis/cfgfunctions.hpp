@@ -651,6 +651,7 @@ class cfgFunctions {
 			addc(slopilot);
 			addc(sendttpoints);
 			addc(addplscore);
+			addc(camps_workaround);
 		};
 		class Dom_PrePostInit {
 			file = "init";

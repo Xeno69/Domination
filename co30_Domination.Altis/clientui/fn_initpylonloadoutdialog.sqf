@@ -126,7 +126,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 	};
 	_pylon_owners pushBack _turret;
 
-	private _idx = _ctrl lbAdd ("<" + (localize "STR_empty") + ">");
+	private _idx = _ctrl lbAdd (["<", localize "STR_empty", ">"] joinString "");
 	_ctrl lbSetData [_idx, ""];
 	private _selidx = 0;
 	__TRACE_1("","_vec getCompatiblePylonMagazines (configName _pylon)")

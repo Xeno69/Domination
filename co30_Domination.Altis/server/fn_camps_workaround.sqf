@@ -7,11 +7,15 @@ d_current_trigger_helper = nil;
 
 private _endtime = time + 360;
 
+__TRACE_1("","_endtime")
+
 while {true} do {
-	if (_time > _endtime) exitWith {};
+	if (time > _endtime) exitWith {};
+	__TRACE("running")
 	sleep 1;
 };
 
-if (_time > _endtime) then {
+if (time > _endtime) then {
+	__TRACE("time > endtime")
 	d_campscaptured = d_sum_camps;
 };

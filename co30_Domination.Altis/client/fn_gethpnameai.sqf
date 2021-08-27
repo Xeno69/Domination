@@ -12,7 +12,7 @@ if (alive _u) then {
 	if (isNil "_n") then {
 		_n = "(AI) " + name _u;
 		if (_u getUnitTrait "Medic") then {
-			_n = _n + " " + d_phud_loc884;
+			_n = [_n, " ", d_phud_loc884] joinString "";
 		};
 		_u setVariable ["d_phname", _n];
 	};
