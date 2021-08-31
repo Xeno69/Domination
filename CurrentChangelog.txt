@@ -9,9 +9,11 @@
 - Added: AI awareness and aggressive fire is only activated when d_mt_spotted is true, by longtimegamer
 - Added: If a database is available a logged in admin can add up to 10000 score points to another player
 - Added: Workaround for camps stall when AI is stuck inside a nearby rock for example (all barracks must be destroyed and just a few enemy units left, after that a 6 minute timer starts)
+- Added: Bridge layer BrPz1 in the Global Mobilization versions
 - Changed: Side mission bonus vehicles are no longer selected consecutively
 - Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
 - Changed: You have to take barracks and vehicle MHQs in the Unsung version instead of destroying them 
+- Changed: Replaced vanilla artillery with new Global Mobilization M109 in the Weferlingen versions
 - Fixed: If d_with_ranked was set to 2 (Ranked mode on but weapons not ranked) d_remove_from_arsenal was not processed
 - Fixed: Main target mission buildings got destroyed 30 seconds after creation
 - Fixed: Snipers were not being created with new dynamic parameter
