@@ -2952,6 +2952,18 @@
 <Chinese>Very High</Chinese>
 <French>Very High</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_400_EXTREME">
+<English>Extreme</English>
+<Spanish>Extreme</Spanish>
+<Portuguese>Extreme</Portuguese>
+<Korean>Extreme</Korean>
+<Japanese>Extreme</Japanese>
+<Original>Extreme</Original>
+<Russian>Extreme</Russian>
+<Chinesesimp>Extreme</Chinesesimp>
+<Chinese>Extreme</Chinese>
+<French>Extreme</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
 <English>None</English>
 <Spanish>Nada</Spanish>
