@@ -19,6 +19,7 @@ private _townNearbyName = "";
 private _townNearbyPos = [];
 private _minimumDistanceFromMaintarget = 500;
 private _maximumDistanceFromMaintarget = 800;
+private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
 
@@ -112,6 +113,9 @@ sleep 3.14;
 
 sleep 2.333;
 
+_marker = ["d_mt_event_marker_guerrillainfantry", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_GUERRILLAS", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+
 while {sleep 1; !d_mt_done} do {
 	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
 	
@@ -124,6 +128,7 @@ d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescrip
 publicVariable "d_mt_event_messages_array";
 
 deleteVehicle _trigger;
+deleteMarker _marker;
 
 if (d_ai_persistent_corpses == 0) then {
 	waitUntil {sleep 10; d_mt_done};

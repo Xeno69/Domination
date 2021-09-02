@@ -3024,6 +3024,18 @@
 <Chinese>Always, multiple events</Chinese>
 <French>Always, multiple events</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_GUERRILLAS">
+<English>guerrillas</English>
+<Spanish>guerrillas</Spanish>
+<Portuguese>guerrillas</Portuguese>
+<Korean>guerrillas</Korean>
+<Japanese>guerrillas</Japanese>
+<Original>guerrillas</Original>
+<Russian>guerrillas</Russian>
+<Chinesesimp>guerrillas</Chinesesimp>
+<Chinese>guerrillas</Chinese>
+<French>guerrillas</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
 <English>Always, multiple events with guerrillas</English>
 <Spanish>Siempre, múltiples eventos con guerrillas</Spanish>
