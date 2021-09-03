@@ -30,6 +30,7 @@ while {d_nr_observers > 0} do {
 								if (floor random 3 == 0) then {
 #endif
 									[getPosWorld _enemy, 1] remoteExecCall ["d_fnc_doarti", [0, -2] select isDedicated];
+									[62] call d_fnc_DoKBMsg;
 								};
 							};
 						} else {

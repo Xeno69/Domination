@@ -2952,6 +2952,18 @@
 <Chinese>Very High</Chinese>
 <French>Very High</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_400_EXTREME">
+<English>Extreme</English>
+<Spanish>Extreme</Spanish>
+<Portuguese>Extreme</Portuguese>
+<Korean>Extreme</Korean>
+<Japanese>Extreme</Japanese>
+<Original>Extreme</Original>
+<Russian>Extreme</Russian>
+<Chinesesimp>Extreme</Chinesesimp>
+<Chinese>Extreme</Chinese>
+<French>Extreme</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
 <English>None</English>
 <Spanish>Nada</Spanish>
@@ -3011,6 +3023,18 @@
 <Chinesesimp>总是，多个事件</Chinesesimp>
 <Chinese>Always, multiple events</Chinese>
 <French>Always, multiple events</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_GUERRILLAS">
+<English>guerrillas</English>
+<Spanish>guerrillas</Spanish>
+<Portuguese>guerrillas</Portuguese>
+<Korean>guerrillas</Korean>
+<Japanese>guerrillas</Japanese>
+<Original>guerrillas</Original>
+<Russian>guerrillas</Russian>
+<Chinesesimp>guerrillas</Chinesesimp>
+<Chinese>guerrillas</Chinese>
+<French>guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
 <English>Always, multiple events with guerrillas</English>
