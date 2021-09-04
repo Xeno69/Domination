@@ -2081,7 +2081,7 @@
 <English>Welcome to Domination!</English>
 <Spanish>Bienvenido a Domination</Spanish>
 <Portuguese>Bem-vindo a Dominación!</Portuguese>
-<Korean>BWB 도미네이션에 오신 걸 환영합니다!</Korean>
+<Korean>BWB 도미네이션에 오신 걸 환영합니다.</Korean>
 <Japanese>Dominationへようこそ!</Japanese>
 <Original>Welcome to Domination!</Original>
 <Russian>Добро пожаловать в Доминацию!</Russian>
@@ -2992,7 +2992,7 @@
 <English>Default</English>
 <Spanish>Default</Spanish>
 <Portuguese>Default</Portuguese>
-<Korean>기본설정</Korean>
+<Korean>Default</Korean>
 <Japanese>Default</Japanese>
 <Original>Default</Original>
 <Russian>Default</Russian>
@@ -3040,7 +3040,7 @@
 <English>Always, multiple events with guerrillas</English>
 <Spanish>Siempre, múltiples eventos con guerrillas</Spanish>
 <Portuguese>Always, multiple events with guerrillas</Portuguese>
-<Korean>항상, 다중 게릴라 이벤트</Korean>
+<Korean>항상, 다중 이벤트 with guerrillas</Korean>
 <Japanese>常時, 複数のイベント(ゲリラあり)</Japanese>
 <Original>Always, multiple events with guerrillas</Original>
 <Russian>Всегда, несколько событий with guerrillas</Russian>
@@ -3052,7 +3052,7 @@
 <English>All</English>
 <Spanish>All</Spanish>
 <Portuguese>All</Portuguese>
-<Korean>전부</Korean>
+<Korean>All</Korean>
 <Japanese>全て</Japanese>
 <Original>All</Original>
 <Russian>All</Russian>
@@ -7397,7 +7397,7 @@
 <English>Force no HUD</English>
 <Spanish>Force no HUD</Spanish>
 <Portuguese>Force no HUD</Portuguese>
-<Korean>HUD끄기</Korean>
+<Korean>Force no HUD</Korean>
 <Japanese>HUD禁止</Japanese>
 <Original>Force no HUD</Original>
 <Russian>Принудительно без HUD</Russian>
@@ -10372,7 +10372,7 @@
 <English>Squad</English>
 <Spanish>Escuadrón</Spanish>
 <Portuguese>Equipe</Portuguese>
-<Korean>분대</Korean>
+<Korean>Squad</Korean>
 <Japanese>Squad</Japanese>
 <Original>Squad</Original>
 <Russian>Squad</Russian>
@@ -11129,7 +11129,7 @@
 <English>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</English>
 <Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Spanish>
 <Portuguese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Portuguese>
-<Korean>포로가된 아군이 폭발조끼를 입고 있습니다. 표시된 위치로 이동하고 폭발격발기를 가진자를 제거 하십시오! 시간은 %1초 남았다.</Korean>
+<Korean>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Korean>
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
@@ -11141,7 +11141,7 @@
 <English>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</English>
 <Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Spanish>
 <Portuguese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Portuguese>
-<Korean>포로가된 아군 파일럿이 폭탄조끼를 입고 있습니다. 표시된 위치로 이동하고 우리의 파일럿을 구출 하십시오! 시간은 %1 초 남았다.</Korean>
+<Korean>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Korean>
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
@@ -11153,7 +11153,7 @@
 <English>Defusing device...</English>
 <Spanish>Defusing device...</Spanish>
 <Portuguese>Defusing device...</Portuguese>
-<Korean>신관 제거중...</Korean>
+<Korean>Defusing device...</Korean>
 <Japanese>デバイスを解除中...</Japanese>
 <Original>Defusing device...</Original>
 <Russian>Defusing device...</Russian>
@@ -12137,7 +12137,7 @@
 <English>%1 has been marked for death.  Keep %1 alive for %2 seconds.</English>
 <Spanish>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Spanish>
 <Portuguese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Portuguese>
-<Korean>%1 이(가) 사망자로 표시되었습니다. %1 이(가) %2초 동안 생존 할 것입니다.</Korean>
+<Korean>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Korean>
 <Japanese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Japanese>
 <Original>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Original>
 <Russian>%1 был отмечен, как убитый.  Возможно %1 останется живым еще %2 секунд.</Russian>
@@ -12149,7 +12149,7 @@
 <English>%1 only survived for %2 seconds.  Mission failed.</English>
 <Spanish>%1 only survived for %2 seconds.  Mission failed.</Spanish>
 <Portuguese>%1 only survived for %2 seconds.  Mission failed.</Portuguese>
-<Korean>%1 이(가) %2초 동안만 생존 했습니다. 미션 실패.</Korean>
+<Korean>%1 only survived for %2 seconds but.  Mission failed.</Korean>
 <Japanese>%1 only survived for %2 seconds.  Mission failed.</Japanese>
 <Original>%1 only survived for %2 seconds.  Mission failed.</Original>
 <Russian>%1 выжил %2 секунд.  Миссия провалена.</Russian>
@@ -12161,7 +12161,7 @@
 <English>Success.  %1 survived for %2 seconds. + %3</English>
 <Spanish>Success.  %1 survived for %2 seconds. + %3</Spanish>
 <Portuguese>Success.  %1 survived for %2 seconds. + %3</Portuguese>
-<Korean>성공.  %1 이(가) %2초 동안 생존했습니다. + %3</Korean>
+<Korean>Success.  %1 survived for %2 seconds. + %3</Korean>
 <Japanese>Success.  %1 survived for %2 seconds. + %3</Japanese>
 <Original>Success.  %1 survived for %2 seconds. + %3</Original>
 <Russian>Выполнено.  %1 выжил %2 секунд. + %3</Russian>
@@ -12173,7 +12173,7 @@
 <English>Success.  + %1</English>
 <Spanish>Success.  + %1</Spanish>
 <Portuguese>Success.  + %1</Portuguese>
-<Korean>성공.  + %1</Korean>
+<Korean>Success.  + %1</Korean>
 <Japanese>Success.  + %1</Japanese>
 <Original>Success.  + %1</Original>
 <Russian>Выполнено.  + %1</Russian>
@@ -12185,7 +12185,7 @@
 <English>Move quickly! Only %1 seconds.</English>
 <Spanish>Move quickly! Only %1 seconds.</Spanish>
 <Portuguese>Move quickly! Only %1 seconds.</Portuguese>
-<Korean>서두르세요! 겨우 %1 초 남았다.</Korean>
+<Korean>Move quickly! Only %1 seconds.</Korean>
 <Japanese>Move quickly! Only %1 seconds.</Japanese>
 <Original>Move quickly! Only %1 seconds.</Original>
 <Russian>Move quickly! Only %1 seconds.</Russian>
@@ -12197,7 +12197,7 @@
 <English>Civilian vehicles - enabled</English>
 <Spanish>Vehículos civiles - habilitados</Spanish>
 <Portuguese>Veículos civis - habilitados</Portuguese>
-<Korean>시민차량 - 가능</Korean>
+<Korean>시민 활성화 Civilian vehicles - enabled</Korean>
 <Japanese>Civilian vehicles - enabled</Japanese>
 <Original>Civilian vehicles - enabled</Original>
 <Russian>Включить гражданских Civilian vehicles - enabled</Russian>
@@ -12209,7 +12209,7 @@
 <English>Civilian vehicles - spawn radius</English>
 <Spanish>Vehículos civiles - radio de desove</Spanish>
 <Portuguese>Veículos civis - raio de desova</Portuguese>
-<Korean>시민차량 - 생성 반경</Korean>
+<Korean>시민 활성화 Civilian vehicles - spawn radius</Korean>
 <Japanese>Civilian vehicles - spawn radius</Japanese>
 <Original>Civilian vehicles - spawn radius</Original>
 <Russian>Включить гражданских Civilian vehicles - spawn radius</Russian>
@@ -12221,7 +12221,7 @@
 <English>Civilian vehicles - lock vehicles</English>
 <Spanish>Vehículos civiles - vehículos de bloqueo</Spanish>
 <Portuguese>Veículos civis - veículos cadeados</Portuguese>
-<Korean>시민차량 - 차량잠금</Korean>
+<Korean>시민 활성화 Civilian vehicles - lock vehicles</Korean>
 <Japanese>Civilian vehicles - lock vehicles</Japanese>
 <Original>Civilian vehicles - lock vehicles</Original>
 <Russian>Включить гражданских Civilian vehicles - lock vehicles</Russian>
@@ -12233,7 +12233,7 @@
 <English>Civilians - enable civilians</English>
 <Spanish>Habilitar civiles</Spanish>
 <Portuguese>Capacitar os civis</Portuguese>
-<Korean>시민 - 시민 활성화</Korean>
+<Korean>Civilians - 시민 활성화</Korean>
 <Japanese>Civilians - enable civilians</Japanese>
 <Original>Civilians - enable civilians</Original>
 <Russian>Civilians - Включить гражданских</Russian>
@@ -12245,7 +12245,7 @@
 <English>Civilians - civilian unit count per group</English>
 <Spanish>Recuento de unidades civiles por grupo</Spanish>
 <Portuguese>Contagem de unidades civis por grupo</Portuguese>
-<Korean>시민 - 그룹당 시민 수</Korean>
+<Korean>Civilians - 그룹당 시민 수</Korean>
 <Japanese>Civilians - civilian unit count per group</Japanese>
 <Original>Civilians - civilian unit count per group</Original>
 <Russian>Civilians - Количество гражданских групп</Russian>
@@ -12269,7 +12269,7 @@
 <English>Always announce enemy artillery / CAS</English>
 <Spanish>Anunciar siempre la artillería enemiga / ataque aéreo</Spanish>
 <Portuguese>Always announce enemy artillery / CAS</Portuguese>
-<Korean>적의 포격/근접항공지원을 항상 경고</Korean>
+<Korean>Always announce enemy artillery / CAS</Korean>
 <Japanese>Always announce enemy artillery / CAS</Japanese>
 <Original>Always announce enemy artillery / CAS</Original>
 <Russian>Всегда предупреждать об арт.обстрелах / CAS</Russian>
@@ -12393,7 +12393,7 @@
 <English>Enemy infantry - patrol infantry group count</English>
 <Spanish>Enemy infantry - patrol infantry group count</Spanish>
 <Portuguese>Enemy infantry - patrol infantry group count</Portuguese>
-<Korean>적군 수비병 - 적 순찰병 그룹 수</Korean>
+<Korean>Enemy infantry - patrol infantry group count</Korean>
 <Japanese>Enemy infantry - patrol infantry group count</Japanese>
 <Original>Enemy infantry - patrol infantry group count</Original>
 <Russian>Пехота противника - количество патрульных пехотных групп</Russian>
@@ -12404,7 +12404,7 @@
 <English>Enemy infantry - always choose maximum number of groups</English>
 <Spanish>Enemy infantry - always choose maximum number of groups</Spanish>
 <Portuguese>Enemy infantry - always choose maximum number of groups</Portuguese>
-<Korean>적군 수비병 - 항상 최대 그룹 수 선택</Korean>
+<Korean>Enemy infantry - always choose maximum number of groups</Korean>
 <Japanese>Enemy infantry - always choose maximum number of groups</Japanese>
 <Original>Enemy infantry - always choose maximum number of groups</Original>
 <Russian>Вражеская пехота - всегда выбирать максимальное количество групп</Russian>
@@ -12415,7 +12415,7 @@
 <English>Enemy infantry - group size</English>
 <Spanish>Enemy infantry - group size</Spanish>
 <Portuguese>Enemy infantry - group size</Portuguese>
-<Korean>적군 수비병 - 그룹 크기</Korean>
+<Korean>Enemy infantry - group size</Korean>
 <Japanese>Enemy infantry - group size</Japanese>
 <Original>Enemy infantry - group size</Original>
 <Russian>Пехота противника - размер группы</Russian>
@@ -13779,7 +13779,7 @@
 <English>defend</English>
 <Spanish>defend</Spanish>
 <Portuguese>defend</Portuguese>
-<Korean>방어</Korean>
+<Korean>defend</Korean>
 <Japanese>防衛</Japanese>
 <Original>defened</Original>
 <Russian>defend</Russian>
@@ -13791,7 +13791,7 @@
 <English>defuse</English>
 <Spanish>defuse</Spanish>
 <Portuguese>defuse</Portuguese>
-<Korean>신관제거</Korean>
+<Korean>defuse</Korean>
 <Japanese>解除</Japanese>
 <Original>defuse</Original>
 <Russian>defuse</Russian>
@@ -13803,7 +13803,7 @@
 <English>kill triggerman</English>
 <Spanish>kill triggerman</Spanish>
 <Portuguese>kill triggerman</Portuguese>
-<Korean>폭발물 격발자 사살</Korean>
+<Korean>kill triggerman</Korean>
 <Japanese>起爆装置所持者の射殺</Japanese>
 <Original>kill triggerman</Original>
 <Russian>kill triggerman</Russian>
@@ -13815,7 +13815,7 @@
 <English>prisoners + explosives</English>
 <Spanish>prisoners + explosives</Spanish>
 <Portuguese>prisoners + explosives</Portuguese>
-<Korean>포로들 + 폭탄</Korean>
+<Korean>포로들 + explosives</Korean>
 <Japanese>prisoners + explosives</Japanese>
 <Original>prisoners + explosives</Original>
 <Russian>заключенные + взрывчатка</Russian>
@@ -13827,7 +13827,7 @@
 <English>Warning: enemy explosive device may be present.</English>
 <Spanish>Warning: enemy explosive device may be present.</Spanish>
 <Portuguese>Warning: enemy explosive device may be present.</Portuguese>
-<Korean>경고: 현재 적군의 폭발물이 있을 수 있다.</Korean>
+<Korean>Warning: enemy explosive device may be present.</Korean>
 <Japanese>警告: 敵の爆発物が存在する可能性あり。</Japanese>
 <Original>Warning: enemy explosive device may be present.</Original>
 <Russian>Внимание: возможно наличие вражеского взрывного устройства.</Russian>
@@ -13839,7 +13839,7 @@
 <English>The enemy detonated a device. Failure.</English>
 <Spanish>The enemy detonated a device. Failure.</Spanish>
 <Portuguese>The enemy detonated a device. Failure.</Portuguese>
-<Korean>적군이 폭발물을 격발하였습니다. 실패.</Korean>
+<Korean>The enemy detonated a device. Failure.</Korean>
 <Japanese>敵が爆発物を起爆した。 失敗だ！</Japanese>
 <Original>The enemy detonated a device. Failure.</Original>
 <Russian>Противник привел в действие взрывное устройство. Задача не выполнена.</Russian>
@@ -13851,7 +13851,7 @@
 <English>Enemy explosive device disabled.</English>
 <Spanish>Enemy explosive device disabled.</Spanish>
 <Portuguese>Enemy explosive device disabled.</Portuguese>
-<Korean>적군 폭발물을 제거 하였습니다.</Korean>
+<Korean>Enemy explosive device disabled.</Korean>
 <Japanese>敵の爆発物は解除された。</Japanese>
 <Original>Enemy explosive device disabled.</Original>
 <Russian>Взрывное устройство противника диактивированно.</Russian>
@@ -13923,7 +13923,7 @@
 <English>Yes, but AI may not enter static weapons</English>
 <Spanish>Yes, but AI may not enter static weapons</Spanish>
 <Portuguese>Yes, but AI may not enter static weapons</Portuguese>
-<Korean>가능, 하지만 AI들은 고정식 무기에 들어가지 못한다.</Korean>
+<Korean>Yes, but AI may not enter static weapons</Korean>
 <Japanese>Yes, but AI may not enter static weapons</Japanese>
 <Original>Yes, but AI may not enter static weapons</Original>
 <Russian>Да, но AI не могут использовать статическое оружие</Russian>
@@ -13935,7 +13935,7 @@
 <English>You can not respawn anymore!!!</English>
 <Spanish>You can not respawn anymore!!!</Spanish>
 <Portuguese>You can not respawn anymore!!!</Portuguese>
-<Korean>귀관은 더이상 리스폰 하지 못합니다!!!</Korean>
+<Korean>You can not respawn anymore!!!</Korean>
 <Japanese>これ以上リスポンできません!!!</Japanese>
 <Original>You can not respawn anymore!!!</Original>
 <Russian>Вы больше не можете возродиться!!!</Russian>
@@ -13947,7 +13947,7 @@
 <English>No more lives left!!!</English>
 <Spanish>No more lives left!!!</Spanish>
 <Portuguese>No more lives left!!!</Portuguese>
-<Korean>리스폰 가능 숫자가 더이상 남지 않았습니다!!!</Korean>
+<Korean>No more lives left!!!</Korean>
 <Japanese>リスポン回数が残っていません!!!</Japanese>
 <Original>No more lives left!!!</Original>
 <Russian>Больше не осталось жизней!!!</Russian>
@@ -13959,7 +13959,7 @@
 <English>Press X to exit!!!</English>
 <Spanish>Presione X para salir!!!</Spanish>
 <Portuguese>Press X to exit!!!</Portuguese>
-<Korean>X키를 눌려 조의를 표하며 나가십시오!!!</Korean>
+<Korean>Press X to exit!!!</Korean>
 <Japanese>Xを押すと終了</Japanese>
 <Original>Press X to exit!!!</Original>
 <Russian>Нажмите X, чтобы выйти!!!</Russian>
@@ -13971,7 +13971,7 @@
 <English>Bots are silent</English>
 <Spanish>Inteligencia artificial está en silencio</Spanish>
 <Portuguese>Bots are silent</Portuguese>
-<Korean>봇들이 침묵합니다</Korean>
+<Korean>Bots are silent</Korean>
 <Japanese>Bots are silent</Japanese>
 <Original>Bots are silent</Original>
 <Russian>Боты не разговаривают</Russian>
@@ -13983,7 +13983,7 @@
 <English>Load domination.cfg (requires -filePatching on server)</English>
 <Spanish>Load domination.cfg (requires -filePatching on server)</Spanish>
 <Portuguese>Load domination.cfg (requires -filePatching on server)</Portuguese>
-<Korean>domination.cfg 파일로드 (서버파일 패치가 요구됨)</Korean>
+<Korean>Load domination.cfg (requires -filePatching on server)</Korean>
 <Japanese>Load domination.cfg (requires -filePatching on server)</Japanese>
 <Original>Load domination.cfg (requires -filePatching on server)</Original>
 <Russian>Загрузить domination.cfg (требуется -filePatching на сервере)</Russian>
@@ -13995,7 +13995,7 @@
 <English>Player can be suppressed</English>
 <Spanish>Player can be suppressed</Spanish>
 <Portuguese>Player can be suppressed</Portuguese>
-<Korean>플레이어를 제압 할 수 있다.</Korean>
+<Korean>Player can be suppressed</Korean>
 <Japanese>Player can be suppressed</Japanese>
 <Original>Player can be suppressed</Original>
 <Russian>Подавление огнем</Russian>
@@ -14006,7 +14006,7 @@
 <English>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</English>
 <Spanish>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
 <Portuguese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
-<Korean>귀관은 10번 이상 탈옥을 시도 하였습니다 귀관은 이 세션이 진행되는동안 추방(Ban)이 될것입니다!!!!</Korean>
+<Korean>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
 <Japanese>あなたは10回以上脱獄しようとしました。 本セッションへの接続が禁止されました!!!!</Japanese>
 <Original>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Original>
 <Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
@@ -14018,7 +14018,7 @@
 <English>Deploy with camo net</English>
 <Spanish>Deploy with camo net</Spanish>
 <Portuguese>Deploy with camo net</Portuguese>
-<Korean>위장막 전개</Korean>
+<Korean>Deploy with camo net</Korean>
 <Japanese>偽装ネットも展開</Japanese>
 <Original>Deploy with camo net</Original>
 <Russian>Развернуть с камуфляжной сетью</Russian>
@@ -14030,7 +14030,7 @@
 <English>Distance traveled, in meters:</English>
 <Spanish>Distance traveled, in meters:</Spanish>
 <Portuguese>Distance traveled, in meters:</Portuguese>
-<Korean>이동거리,미터 단위(m):</Korean>
+<Korean>Distance traveled, in meters:</Korean>
 <Japanese>移動距離 (m):</Japanese>
 <Original>Distance traveled, in meters:</Original>
 <Russian>Пройденное расстояние, в метрах:</Russian>
@@ -14042,7 +14042,7 @@
 <English>By foot:</English>
 <Spanish>By foot:</Spanish>
 <Portuguese>By foot:</Portuguese>
-<Korean>걸어서:</Korean>
+<Korean>By foot:</Korean>
 <Japanese>歩き:</Japanese>
 <Original>By foot:</Original>
 <Russian>Пешком:</Russian>
@@ -14054,7 +14054,7 @@
 <English>Landvehicle:</English>
 <Spanish>Landvehicle:</Spanish>
 <Portuguese>Landvehicle:</Portuguese>
-<Korean>지상차량:</Korean>
+<Korean>Landvehicle:</Korean>
 <Japanese>車両:</Japanese>
 <Original>Landvehicle:</Original>
 <Russian>Наземный транспорт:</Russian>
@@ -14066,7 +14066,7 @@
 <English>Air:</English>
 <Spanish>Air:</Spanish>
 <Portuguese>Air:</Portuguese>
-<Korean>항공:</Korean>
+<Korean>Air:</Korean>
 <Japanese>航空機:</Japanese>
 <Original>Air:</Original>
 <Russian>Авиация:</Russian>
@@ -14078,7 +14078,7 @@
 <English>Ship/Boat:</English>
 <Spanish>Ship/Boat:</Spanish>
 <Portuguese>Ship/Boat:</Portuguese>
-<Korean>배/보트:</Korean>
+<Korean>Ship/Boat:</Korean>
 <Japanese>艦船:</Japanese>
 <Original>Ship/Boat:</Original>
 <Russian>Катера/Лодки:</Russian>
@@ -14091,7 +14091,6 @@
 <German>Illuminate main target:</German>
 <Italian>Illuminate main target:</Italian>
 <Spanish>Iluminación de Misión Principal:</Spanish>
-<Korean>메인 목표물 공개:</Korean>
 <Czech>Illuminate main target:</Czech>
 <Russian>Illuminate main target:</Russian>
 <Polish>Illuminate main target:</Polish>
@@ -14105,7 +14104,7 @@
 <English>Defend with static weapons</English>
 <Spanish>Defend with static weapons</Spanish>
 <Portuguese>Defend with static weapons</Portuguese>
-<Korean>고정식 무기로 방어</Korean>
+<Korean>Defend with static weapons</Korean>
 <Japanese>Defend with static weapons</Japanese>
 <Original>Defend with static weapons</Original>
 <Russian>Оборонять статическим вооружением</Russian>
@@ -14117,7 +14116,7 @@
 <English>Enable guards and camps</English>
 <Spanish>Enable guards and camps</Spanish>
 <Portuguese>Enable guards and camps</Portuguese>
-<Korean>수비군 및 초소 활성화</Korean>
+<Korean>Enable guards and camps</Korean>
 <Japanese>Enable guards and camps</Japanese>
 <Original>Enable guards and camps</Original>
 <Russian>Включить охрану и лагеря</Russian>
@@ -14129,7 +14128,7 @@
 <English>Disable ACE medical revive (if ACE is used) and use mission revive</English>
 <Spanish>Disable ACE medical revive (if ACE is used) and use mission revive</Spanish>
 <Portuguese>Disable ACE medical revive (if ACE is used) and use mission revive</Portuguese>
-<Korean>ACE 메딕 시스템 비활성화 (ACE 사용시)후 미션 소생시스템 사용</Korean>
+<Korean>Disable ACE medical revive (if ACE is used) and use mission revive</Korean>
 <Japanese>Disable ACE medical revive (if ACE is used) and use mission revive</Japanese>
 <Original>Disable ACE medical revive (if ACE is used) and use mission revive</Original>
 <Russian>Отключите ревайв ACE (если используется ACE) и используйте ревайв миссии</Russian>
@@ -14140,7 +14139,7 @@
 <English>Disable RADIOPROTOCOL for the player unit:</English>
 <Spanish>Disable RADIOPROTOCOL for the player unit:</Spanish>
 <Portuguese>Disable RADIOPROTOCOL for the player unit:</Portuguese>
-<Korean>플레이어 유닛을 이용한 무선중개 비활성화:</Korean>
+<Korean>Disable RADIOPROTOCOL for the player unit:</Korean>
 <Japanese>Disable RADIOPROTOCOL for the player unit:</Japanese>
 <Original>Disable RADIOPROTOCOL for the player unit:</Original>
 <Russian>Отключение РАДИОПРОТОКОЛА для слота игрок:</Russian>
@@ -14152,7 +14151,7 @@
 <English>RADIOPROTOCOL for the player enabled!</English>
 <Spanish>RADIOPROTOCOL for the player enabled!</Spanish>
 <Portuguese>RADIOPROTOCOL for the player enabled!</Portuguese>
-<Korean>플래이어를 통한 무선중개 기능이 활성화 되었습니다!</Korean>
+<Korean>RADIOPROTOCOL for the player enabled!</Korean>
 <Japanese>RADIOPROTOCOL for the player enabled!</Japanese>
 <Original>RADIOPROTOCOL for the player enabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока включен!</Russian>
@@ -14164,7 +14163,7 @@
 <English>RADIOPROTOCOL for the player disabled!</English>
 <Spanish>RADIOPROTOCOL for the player disabled!</Spanish>
 <Portuguese>RADIOPROTOCOL for the player disabled!</Portuguese>
-<Korean>플래이어를 통한 무선중개 기능이 비활성화 되었습니다!Korean>
+<Korean>RADIOPROTOCOL for the player disabled!</Korean>
 <Japanese>RADIOPROTOCOL for the player disabled!</Japanese>
 <Original>RADIOPROTOCOL for the player disabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока отключен!</Russian>
@@ -14176,7 +14175,7 @@
 <English>You are not allowed to fly this chopper!!!</English>
 <Spanish>You are not allowed to fly this chopper!!!</Spanish>
 <Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
-<Korean>귀관은 이 헬리콥터 장비 사용이 허락 되지 않는다!!!</Korean>
+<Korean>You are not allowed to fly this chopper!!!</Korean>
 <Japanese>あなたはこのヘリコプターの操縦資格がありません!!!</Japanese>
 <Original>You are not allowed to fly this chopper!!!</Original>
 <Russian>Вам не разрешено управлять этим вертолетом !!!</Russian>
@@ -14188,7 +14187,7 @@
 <English>Disable all service points, including FARPs (no refuel, no repair, no rearm)</English>
 <Spanish>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Spanish>
 <Portuguese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Portuguese>
-<Korean>모든 정비서비스 포인트 비활성화, 재보급소 포함 (연료보급불가, 수리불가, 재무장 불가)</Korean>
+<Korean>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Korean>
 <Japanese>前線補給所を含む全整備拠点の無効化 (修理、燃料及び弾薬の補給の禁止)</Japanese>
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
 <Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
@@ -14200,7 +14199,7 @@
 <English>Player can spectate other players at base flag</English>
 <Spanish>Player can spectate other players at base flag</Spanish>
 <Portuguese>Player can spectate other players at base flag</Portuguese>
-<Korean>플레이어가 베이스 깃발을 사용하여 다른 플레이어 관찰 가능</Korean>
+<Korean>Player can spectate other players at base flag</Korean>
 <Japanese>基地の旗における他のプレイヤーの観戦</Japanese>
 <Original>Player can spectate other players at base flag</Original>
 <Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
@@ -14212,7 +14211,7 @@
 <English>Flying choppers and planes only allowed when a player has a score higher than:</English>
 <Spanish>Flying choppers and planes only allowed when a player has a score higher than:</Spanish>
 <Portuguese>Flying choppers and planes only allowed when a player has a score higher than:</Portuguese>
-<Korean>플레이어 스코어가 이 점수 이상인 경우 항공장비 비행 가능:</Korean>
+<Korean>Flying choppers and planes only allowed when a player has a score higher than:</Korean>
 <Japanese>航空機の操縦に必要なスコア:</Japanese>
 <Original>Flying choppers and planes only allowed when a player has a score higher than:</Original>
 <Russian>Вертолеты и самолеты разрешены только в том случае, если игрок набрал больше, чем: </Russian>
@@ -14224,7 +14223,7 @@
 <English>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</English>
 <Spanish>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Spanish>
 <Portuguese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Portuguese>
-<Korean>아직 비행 할 자격이 되지 않습니다, 사수석 또는 지휘관석으로 들어 가십시오 %1.\n\n 귀관 전체 점수 %2 가 필요하다, 현재점수 %3.</Korean>
+<Korean>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Korean>
 <Japanese>あなたは操縦許可が出ていません。 必要なスコアは%2で、現在%3ポイントです。\n\n %1の銃手となることはできます。</Japanese>
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Original>
 <Russian>Вы еще не обладаете квалификацией, чтобы летать, заходить в качестве наводчика или командовать  %1.\n\nВам необходимо иметь %2 очков, ваш текущий счет %3.</Russian>
@@ -14236,7 +14235,7 @@
 <English>Disable Thermal Imaging (TI) for inf weapons/optics:</English>
 <Spanish>Disable Thermal Imaging (TI) for inf weapons/optics:</Spanish>
 <Portuguese>Disable Thermal Imaging (TI) for inf weapons/optics:</Portuguese>
-<Korean>보병무기 / 고정무기 열화상 (TI) 비활성화:</Korean>
+<Korean>Disable Thermal Imaging (TI) for inf weapons/optics:</Korean>
 <Japanese>歩兵の火器及び照準器における熱線画像(TI)の無効化:</Japanese>
 <Original>Disable Thermal Imaging (TI) for inf weapons/optics:</Original>
 <Russian>Отключить тепловизор (TI) для стрелкового вооружения (оптики): </Russian>
@@ -14248,7 +14247,7 @@
 <English>Big main target fires:</English>
 <Spanish>Big main target fires:</Spanish>
 <Portuguese>Big main target fires:</Portuguese>
-<Korean>메인미션 넓은 발포:</Korean>
+<Korean>Big main target fires:</Korean>
 <Japanese>Big main target fires:</Japanese>
 <Original>Big main target fires:</Original>
 <Russian>Большие костры на основном задании:</Russian>
@@ -14260,7 +14259,7 @@
 <English>Target radius:</English>
 <Spanish>Target radius:</Spanish>
 <Portuguese>Target radius:</Portuguese>
-<Korean>타켓 반경:</Korean>
+<Korean>Target radius:</Korean>
 <Japanese>Target radius:</Japanese>
 <Original>Target radius:</Original>
 <Russian>Target radius:</Russian>
@@ -14272,7 +14271,7 @@
 <English>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</English>
 <Spanish>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Spanish>
 <Portuguese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Portuguese>
-<Korean>차량이 파괴 되었을때 모든 승무원을 사살 하십시오(외부포함):</Korean>
+<Korean>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Korean>
 <Japanese>(降車した者も含め)撃破された車両の乗員を殺す:</Japanese>
 <Original>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Original>
 <Russian>Убить весь экипаж в технике (и снаружи), если техника будет уничтожена:</Russian>
@@ -14284,7 +14283,7 @@
 <English>Player can forgive teamkill (mission revive has to be enabled and spectating):</English>
 <Spanish>Player can forgive teamkill (mission revive has to be enabled and spectating):</Spanish>
 <Portuguese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Portuguese>
-<Korean>플레이어가 팀킬을 용서 할 수 있습니다(미션소생 기능 및 관전기능을 활성화 해야됨):</Korean>
+<Korean>Player can forgive teamkill (mission revive has to be enabled and spectating):</Korean>
 <Japanese>プレーヤーが同士討ちを許す権限 (蘇生と観戦が有効化されている必要があります):</Japanese>
 <Original>Player can forgive teamkill (mission revive has to be enabled and spectating):</Original>
 <Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
@@ -14295,7 +14294,7 @@
 <English>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</English>
 <Spanish>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Spanish>
 <Portuguese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Portuguese>
-<Korean>귀관은 %1에의해 팀킬 되었습니다, 플레이어를 용서 하시겠습니까? 그렇습니다 F9  / 아닙니다 F11 </Korean>
+<Korean>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Korean>
 <Japanese>あなたは %1 から同士討ちを受けました。 許しますか? F9 で Yes / F11 で No</Japanese>
 <Original>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Original>
 <Russian>Вы были убиты игроком вашей команды %1, простить игрока? F9 Да / F11 Нет</Russian>
@@ -14306,7 +14305,7 @@
 <English>You have forgiven %1</English>
 <Spanish>You have forgiven %1</Spanish>
 <Portuguese>You have forgiven %1</Portuguese>
-<Korean>귀관은 %1 을(를) 용서 하였습니다</Korean>
+<Korean>You have forgiven %1</Korean>
 <Japanese>You have forgiven %1</Japanese>
 <Original>You have forgiven %1</Original>
 <Russian>Вы прощены %1</Russian>
@@ -14317,7 +14316,7 @@
 <English>Time to forgive: %1 seconds</English>
 <Spanish>Time to forgive: %1 seconds</Spanish>
 <Portuguese>Time to forgive: %1 seconds</Portuguese>
-<Korean>용서까지 남은 시간: %1 초</Korean>
+<Korean>Time to forgive: %1 seconds</Korean>
 <Japanese>Time to forgive: %1 seconds</Japanese>
 <Original>Time to forgive: %1 seconds</Original>
 <Russian>Время для прощения: %1 секунд</Russian>
@@ -14328,7 +14327,7 @@
 <English>%1 has forgiven teamkilling! Don't do it again!</English>
 <Spanish>%1 has forgiven teamkilling! Don't do it again!</Spanish>
 <Portuguese>Sim</Portuguese>
-<Korean>%1 이(가) 팀킬을 용서 받았습니다! 다시 하지 마십시오!</Korean>
+<Korean>%1 has forgiven teamkilling! Don't do it again!</Korean>
 <Japanese>%1 has forgiven teamkilling! Don't do it again!</Japanese>
 <Original>%1 has forgiven teamkilling! Don't do it again!</Original>
 <Russian>%1 простил за тимкилл игрока! Не делай этого снова!</Russian>
@@ -14339,7 +14338,7 @@
 <English>Dynamic AI recruitment (more players, less AI recruitable):</English>
 <Spanish>Dynamic AI recruitment (more players, less AI recruitable):</Spanish>
 <Portuguese>Dynamic AI recruitment (more players, less AI recruitable):</Portuguese>
-<Korean>다이나믹 AI 모병 (플레이어가 많은 경우, AI 모집이 감소됨):</Korean>
+<Korean>Dynamic AI recruitment (more players, less AI recruitable):</Korean>
 <Japanese>Dynamic AI recruitment (more players, less AI recruitable):</Japanese>
 <Original>Dynamic AI recruitment (more players, less AI recruitable):</Original>
 <Russian>Динамический набор AI (больше игроков, меньше AI):</Russian>
@@ -14351,7 +14350,7 @@
 <English>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</English>
 <Spanish>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Spanish>
 <Portuguese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Portuguese>
-<Korean>다이나믹 AI 모병 (플레이어가 많은 경우, AI 모집이 감소됨), 하지만 AI 고정식 무기에 들어가지 못함:</Korean>
+<Korean>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Korean>
 <Japanese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Japanese>
 <Original>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Original>
 <Russian>Динамический набор AI (больше игроков, меньше AI), но AI не может использовать статическое оружие :</Russian>
@@ -14363,7 +14362,7 @@
 <English>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</English>
 <Spanish>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Spanish>
 <Portuguese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Portuguese>
-<Korean>%1 이(가) 기지에서 장비 파괴로 인해 로비로 강퇴 되었습니다 UID: %2</Korean>
+<Korean>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Korean>
 <Japanese>%1 は基地の車両を破壊した罪でロビーにキックされました。; UID: %2</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе ; UID: %2</Russian>
@@ -14375,7 +14374,7 @@
 <English>%1 was kicked to lobby because of destryoing vehicles at base</English>
 <Spanish>%1 was kicked to lobby because of destryoing vehicles at base</Spanish>
 <Portuguese>%1 was kicked to lobby because of destryoing vehicles at base</Portuguese>
-<Korean>%1 기지에서 장비 파괴로 인해 로비로 강퇴 되었습니다</Korean>
+<Korean>%1 was kicked to lobby because of destryoing vehicles at base</Korean>
 <Japanese>%1 は基地の車両を破壊した罪でロビーにキックされました。</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе</Russian>
@@ -14387,7 +14386,7 @@
 <English>With AI air taxi (coop version only):</English>
 <Spanish>With AI air taxi (coop version only):</Spanish>
 <Portuguese>With AI air taxi (coop version only):</Portuguese>
-<Korean>AI 에어택시 (협동 버전만 가능):</Korean>
+<Korean>With AI air taxi (coop version only):</Korean>
 <Japanese>AIによるプレイヤーの空輸 (coopバージョンのみ):</Japanese>
 <Original>With AI air taxi (coop version only):</Original>
 <Russian>С воздушным такси AI (только для кооперативной версии) :</Russian>
@@ -14398,7 +14397,7 @@
 <English>With air drop:</English>
 <Spanish>With air drop:</Spanish>
 <Portuguese>With air drop:</Portuguese>
-<Korean>공수지원:</Korean>
+<Korean>With air drop:</Korean>
 <Japanese>空中投下あり:</Japanese>
 <Original>With air drop:</Original>
 <Russian>С авиасбросом:</Russian>
@@ -14410,7 +14409,7 @@
 <English>Block but not for missile launchers</English>
 <Spanish>Block but not for missile launchers</Spanish>
 <Portuguese>Block but not for missile launchers</Portuguese>
-<Korean>차단 하지만 미사일 런처는 허용됨</Korean>
+<Korean>Block but not for missile launchers</Korean>
 <Japanese>Block but not for missile launchers</Japanese>
 <Original>Block but not for missile launchers</Original>
 <Russian>Блокировать, но не для ракетных установок</Russian>
@@ -14422,7 +14421,7 @@
 <English>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</English>
 <Spanish>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Spanish>
 <Portuguese>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Portuguese>
-<Korean>적군이 이동형 미사일 발사체를 사용하여 전술탄도유도탄을 발사 할려고 합니다!! 그곳으로 이동하여 파괴 하십시오!!!!</Korean>
+<Korean>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Korean>
 <Japanese>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Japanese>
 <Original>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Original>
 <Russian>Противник вот-вот запустит тактическую баллистическую ракету с мобильной стартовой площадки !! Доберитесь и УНИЧТОЖИТЕ её !!!!</Russian>
@@ -14434,7 +14433,7 @@
 <English>Good work! The launch is stopped.</English>
 <Spanish>Good work! The launch is stopped.</Spanish>
 <Portuguese>Good work! The launch is stopped.</Portuguese>
-<Korean>잘 하셨습니다! 발사가 중지 되었습니다.</Korean>
+<Korean>Good work! The launch is stopped.</Korean>
 <Japanese>Good work! The launch is stopped.</Japanese>
 <Original>Good work! The launch is stopped.</Original>
 <Russian>орошая работа! Запуск остановлен.</Russian>
@@ -14446,7 +14445,7 @@
 <English>Disable player artillery</English>
 <Spanish>Disable player artillery</Spanish>
 <Portuguese>Disable player artillery</Portuguese>
-<Korean>플레이어 아틸러리 비활성화</Korean>
+<Korean>Disable player artillery</Korean>
 <Japanese>プレイヤーの間接砲撃を無効化</Japanese>
 <Original>Disable player artillery</Original>
 <Russian>Отключить артиллерию для игрока</Russian>
@@ -14458,7 +14457,7 @@
 <English>Disable player CAS</English>
 <Spanish>Disable player CAS</Spanish>
 <Portuguese>Disable player CAS</Portuguese>
-<Korean>플레이어 근접항공지원 비활성화</Korean>
+<Korean>Disable player CAS</Korean>
 <Japanese>プレイヤーの対地攻撃を無効化</Japanese>
 <Original>Disable player CAS</Original>
 <Russian>Отключить CAS для игрока</Russian>
@@ -14470,7 +14469,7 @@
 <English>Enemy AI observers for artillery and CAS at AO</English>
 <Spanish>Enemy AI observers for artillery and CAS at AO</Spanish>
 <Portuguese>Enemy AI observers for artillery and CAS at AO</Portuguese>
-<Korean>적 AI 관측수가 효력사 및 근접 항공지원 </Korean>
+<Korean>Enemy AI observers for artillery and CAS at AO</Korean>
 <Japanese>Enemy AI observers for artillery and CAS at AO</Japanese>
 <Original>Enemy AI observers for artillery and CAS at AO</Original>
 <Russian>Вражеские наводчики AI для артиллерии и CAS в AO</Russian>
@@ -14482,7 +14481,7 @@
 <English>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</English>
 <Spanish>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Spanish>
 <Portuguese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Portuguese>
-<Korean>AO 적군 병영 및 이동식 지휘소(MHQ)는 폭발물로 파괴가능</Korean>
+<Korean>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Korean>
 <Japanese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Japanese>
 <Original>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Original>
 <Russian>АО вражеские казармы и MHQ должны уничтожаться взрывчаткой</Russian>
@@ -14494,7 +14493,7 @@
 <English>Taking barracks...</English>
 <Spanish>Taking barracks...</Spanish>
 <Portuguese>Taking barracks...</Portuguese>
-<Korean>병영 점령중...</Korean>
+<Korean>Taking barracks...</Korean>
 <Japanese>Taking barracks...</Japanese>
 <Original>Taking barracks...</Original>
 <Russian>Захват казарм...</Russian>
@@ -14506,7 +14505,7 @@
 <English>Taking vehicle MHQ...</English>
 <Spanish>Taking vehicle MHQ...</Spanish>
 <Portuguese>Taking vehicle MHQ...</Portuguese>
-<Korean>이동식 지휘소(MHQ) 점령중...</Korean>
+<Korean>Taking vehicle MHQ...</Korean>
 <Japanese>Taking vehicle MHQ...</Japanese>
 <Original>Taking vehicle MHQ...</Original>
 <Russian>Захват MHQ...</Russian>
@@ -14518,7 +14517,7 @@
 <English>Taking object...</English>
 <Spanish>Taking object...</Spanish>
 <Portuguese>Taking object...</Portuguese>
-<Korean>목표물 점령중...</Korean>
+<Korean>Taking object...</Korean>
 <Japanese>Taking object...</Japanese>
 <Original>Taking object...</Original>
 <Russian>Захват объекта...</Russian>
@@ -14530,7 +14529,7 @@
 <English>Disable voices:</English>
 <Spanish>Disable voices:</Spanish>
 <Portuguese>Disable voices:</Portuguese>
-<Korean>음성 비활성화:</Korean>
+<Korean>Disable voices:</Korean>
 <Japanese>Disable voices:</Japanese>
 <Original>Disable voices:</Original>
 <Russian>Disable voices:</Russian>
@@ -14542,7 +14541,7 @@
 <English>Save mission progress to profileNamespace if no database is available</English>
 <Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
 <Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
-<Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
+<Korean>Save mission progress to profileNamespace if no database is available</Korean>
 <Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
 <Original>Save mission progress to profileNamespace if no database is available</Original>
 <Russian>Save mission progress to profileNamespace if no database is available</Russian>
@@ -14553,7 +14552,7 @@
 <English>Saved profileNamespace mission progress auto load</English>
 <Spanish>Saved profileNamespace mission progress auto load</Spanish>
 <Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
-<Korean>profileNamespace에 미션 진행 상황 저장 및 자동 불러오기</Korean>
+<Korean>Saved profileNamespace mission progress auto load</Korean>
 <Japanese>Saved profileNamespace mission progress auto load</Japanese>
 <Original>Saved profileNamespace mission progress auto load</Original>
 <Russian>Saved profileNamespace mission progress auto load</Russian>
@@ -14564,7 +14563,7 @@
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
 <Portuguese>Check for friendly units near artillery targets when firing artillery</Portuguese>
-<Korean>효력사 전 목표물 근처에 아군이 있는지 확인</Korean>
+<Korean>Check for friendly units near artillery targets when firing artillery</Korean>
 <Japanese>Check for friendly units near artillery targets when firing artillery</Japanese>
 <Original>Check for friendly units near artillery targets when firing artillery</Original>
 <Russian>Check for friendly units near artillery targets when firing artillery</Russian>
@@ -14576,7 +14575,7 @@
 <English>You received %1 score points from the admin!</English>
 <Spanish>You received %1 score points from the admin!</Spanish>
 <Portuguese>You received %1 score points from the admin!</Portuguese>
-<Korean>귀관은 어드민에게 %1 스코어 점수를 받았습니다!</Korean>
+<Korean>You received %1 score points from the admin!</Korean>
 <Japanese>You received %1 score points from the admin!</Japanese>
 <Original>You received %1 score points from the admin!</Original>
 <Russian>You received %1 score points from the admin!</Russian>
@@ -14588,7 +14587,7 @@
 <English>You have added %1 points to the total score of %2</English>
 <Spanish>You have added %1 points to the total score of %2</Spanish>
 <Portuguese>You have added %1 points to the total score of %2</Portuguese>
-<Korean>귀관에게 %1 점수가 추가 되었습니다. 전체 점수는 %2 입니다</Korean>
+<Korean>You have added %1 points to the total score of %2</Korean>
 <Japanese>You have added %1 points to the total score of %2</Japanese>
 <Original>You have added %1 points to the total score of %2</Original>
 <Russian>You have added %1 points to the total score of %2</Russian>
@@ -14600,7 +14599,7 @@
 <English>Add Score</English>
 <Spanish>Add Score</Spanish>
 <Portuguese>Add Score</Portuguese>
-<Korean>스코어 주기</Korean>
+<Korean>Add Score</Korean>
 <Japanese>Add Score</Japanese>
 <Original>Add Score</Original>
 <Russian>Add Score</Russian>

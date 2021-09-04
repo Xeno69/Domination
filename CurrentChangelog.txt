@@ -31,3 +31,4 @@
 - Optimized: Do not spawn commander in AI vehicles
 - Optimized: Make use of new 2.06 scripting commands where possible
 - Tweaked: Spawn factor variables
+- Updated: Korean translation by kkim
