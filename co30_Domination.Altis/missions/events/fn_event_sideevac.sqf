@@ -19,7 +19,6 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _event_succeed_points = 5;
 
-//position the event site near target center at max distance 125m and min 15m
 //position the event site at max distance 65% of target radius and min 25% of target radius
 private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_center, (d_cur_target_radius * 0.25)]]] call BIS_fnc_randomPos;
 private _x_mt_event_ar = [];
