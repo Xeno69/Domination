@@ -48,6 +48,10 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
+private _event_description = format [localize "STR_DOM_MISSIONSTRING_MARKEDFORDEATH", _event_target_name, _event_survive_time];
+d_mt_event_messages_array pushBack _event_description;
+publicVariable "d_mt_event_messages_array";
+
 // waitUntil either killed EH or _event_survive_time duration
 waitUntil {sleep 3;d_priority_targets isEqualTo []  || {(time - _event_start_time) > _event_survive_time}};
 
@@ -84,4 +88,5 @@ if (d_priority_targets isEqualTo []) then {
 };
 
 // cleanup
-// nothing?
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _event_description);
+publicVariable "d_mt_event_messages_array";
