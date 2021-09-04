@@ -24,6 +24,9 @@ private _checkvdpos = {
 };
 
 while {true} do {
+	if (isNil "d_maintarget_auto_vd") then {
+		d_maintarget_auto_vd = true; // d_maintarget_auto_vd suddenly was nil in MP testing and I have no idea why, so small workaround to avoid script errors
+	};
 	if (d_maintarget_auto_vd) then {
 		if (!d_isvdreduced && {isNull (findDisplay 312) && {viewDistance > 600 && {isNull objectParent player && {call _checkvdpos}}}}) then {
 			setViewDistance 600;

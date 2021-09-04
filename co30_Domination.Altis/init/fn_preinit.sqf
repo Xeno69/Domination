@@ -2752,11 +2752,8 @@ if (hasInterface) then {
 
 	d_earplugs_fitted = false;
 
-	if (d_AutoViewdistanceChangeDefault == 1) then {
-		d_maintarget_auto_vd = true;
-	} else {
-		d_maintarget_auto_vd = false;
-	};
+	d_maintarget_auto_vd = d_AutoViewdistanceChangeDefault == 1;
+	
 	d_deploy_mhq_camo = true;
 
 	d_player_jescape = 0;
