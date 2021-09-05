@@ -16,7 +16,7 @@ params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
-private _trigger = [_target_center, [120,120,0,false,10], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start_time', time];",""]] call d_fnc_CreateTriggerLocal;
+private _trigger = [_target_center, [(d_cur_target_radius * 0.50),(d_cur_target_radius * 0.50),0,false,10], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start_time', time];",""]] call d_fnc_CreateTriggerLocal;
 
 private _event_start_time = nil;
 private _event_target = nil;
@@ -47,6 +47,10 @@ d_kb_logic1 kbTell [
 	["2", "", str _event_survive_time, []],
 	d_kbtel_chan
 ];
+
+private _event_description = format [localize "STR_DOM_MISSIONSTRING_MARKEDFORDEATH", _event_target_name, _event_survive_time];
+d_mt_event_messages_array pushBack _event_description;
+publicVariable "d_mt_event_messages_array";
 
 // waitUntil either killed EH or _event_survive_time duration
 waitUntil {sleep 3;d_priority_targets isEqualTo []  || {(time - _event_start_time) > _event_survive_time}};
@@ -84,4 +88,5 @@ if (d_priority_targets isEqualTo []) then {
 };
 
 // cleanup
-// nothing?
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _event_description);
+publicVariable "d_mt_event_messages_array";
