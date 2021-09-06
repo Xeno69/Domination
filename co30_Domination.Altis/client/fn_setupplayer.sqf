@@ -1070,9 +1070,9 @@ for "_i" from 0 to (count d_remove_from_arsenal - 1) do {
 			if (_codes isNotEqualTo []) then {
 				private _curnum = _forEachIndex;
 				private _curele = toLowerANSI _x;
-				__TRACE_1("","_codes")
 				{
 					if (_curele call _x) then {
+						__TRACE_1("removed","_curele")
 						_badar set [_curnum, -1];
 						_changed = true;
 					};
