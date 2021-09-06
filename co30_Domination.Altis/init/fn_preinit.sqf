@@ -2258,7 +2258,7 @@ if (!d_gmcwgwinter) then {
 		"Land_BagBunker_Small_F";
 #endif
 #ifdef __GMCWG__
-		"Land_BagBunker_01_small_green_F";
+		"";
 #endif
 #ifdef __UNSUNG__
 		"Land_BagBunker_01_small_green_F";
