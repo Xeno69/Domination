@@ -32,11 +32,12 @@ class CfgWorlds {
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization and S.O.G. Prairie Fire",
+			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization, S.O.G. Prairie Fire and CSLA",
 			"There is also a PvPvE Domination TT (Two Teams) version available",
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
-			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database"
+			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database",
+			"If you have problems with a server ask on the server discord or forums, the Domination discord server is only for the mission!"
 		};
 	};
 };
