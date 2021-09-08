@@ -167,7 +167,7 @@ private _placeCivilianCluster = {
 		// oops, we randomly chose a vehicle or infantry HQ, do not place the civilian cluster just skip
 	};
 	_posArray = _bldg buildingPos -1;
-	_posArrayCovered = [_posArray] call d_fnc_getcoveredpositions; 
+	_posArrayCovered = [_posArray] call d_fnc_getcoveredpositions;
 	for "_i" from 0 to _unitCount do {
 		if (_posArrayCovered isEqualTo []) exitWith {};
 		_randomPos = selectRandom _posArrayCovered;
@@ -180,13 +180,21 @@ private _placeCivilianCluster = {
 				_civAgent setUnitPos "MIDDLE";
 			};
 		};
-		_civAgent setVariable ["civ_hide", _civAgent addEventHandler ["FiredNear", {
-			params ["_unit"];
-			if (((animationState _unit) find "sit") > 0) then {
-				_unit call BIS_fnc_ambientAnim__terminate;
+		_civAgent addEventHandler ["FiredNear", {
+			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+			if (_distance < 30) then {
+				if (((animationState _unit) find "sit") > 0) then {
+					_unit call BIS_fnc_ambientAnim__terminate;
+				};
+				if (_distance < 7) then {
+					_unit setUnitPos "DOWN";
+				} else {
+					_unit setUnitPos "MIDDLE";
+				};
+				_unit setVariable ["civ_last_firednear", time];
 			};
-			_unit setUnitPos "DOWN";
-		}]];
+		}];
+		[_civAgent] spawn d_fnc_afterfirednear; 
 		d_cur_tgt_civ_units pushBack _civAgent;
 		if (d_ai_persistent_corpses == 0) then {
 			// civ corpses are removed when civ module is deleted

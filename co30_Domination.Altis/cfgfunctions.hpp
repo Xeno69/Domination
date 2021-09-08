@@ -363,6 +363,7 @@ class cfgFunctions {
 			addc(weather_winter);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
+			addc(afterfirednear);
 			addc(hallyg_dlegion_Snipe_awareness);
 			addc(ambientradiochatter);
 			addc(place);
