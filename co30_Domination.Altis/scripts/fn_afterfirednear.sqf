@@ -7,13 +7,6 @@ params ["_unit"];
 
 while {alive _unit} do {
 	private _fired_last = (agent teamMember _unit) getVariable ["civ_last_firednear", 0];
-	diag_log ["zooooooooooooooo"];
-	if (_fired_last > 0) then {
-		diag_log [_fired_last];
-	};
-	diag_log [unitPos _unit];
-	//diag_log [time];
-	
 	private _threatened = false;
 	{
 		if !(weaponLowered _x) exitWith {
