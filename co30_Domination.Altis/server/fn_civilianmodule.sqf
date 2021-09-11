@@ -191,7 +191,7 @@ private _placeCivilianCluster = {
 				} else {
 					_unit setUnitPos "MIDDLE";
 				};
-				_unit setVariable ["civ_last_firednear", time];
+				_unit setVariable ["civ_last_firednear_or_threatened", time];
 			};
 		}];
 		[_civAgent] spawn d_fnc_afterfirednear; 
@@ -219,9 +219,36 @@ __TRACE_1("","d_current_target_index")
 __TRACE_1("","_target_name")
 __TRACE_1("","_marker_name")
 
+private _civ_grp_count = d_civ_groupcount;
+private _civ_spawn_factor = 0; // determines number of static civs in houses
+private _civ_unitcount = 10; // determines number of walking civs, module minimum is 10
+if (d_civ_groupcount < 0) then {
+	if (d_civ_groupcount == -1) then {
+		_civ_spawn_factor = 0.20;  // adaptive (low)
+	};
+	if (d_civ_groupcount == -2) then {
+		_civ_spawn_factor = 0.35;  // adaptive (normal)
+		_civ_unitcount = 15;
+	};
+	if (d_civ_groupcount == -3) then {
+		_civ_spawn_factor = 0.55;  // adaptive (high)
+		_civ_unitcount = 20;
+	};
+	if (d_civ_groupcount == -4) then {
+		_civ_spawn_factor = 0.75;  // adaptive (very high)
+		_civ_unitcount = 25;
+	};
+	if (d_civ_groupcount == -5) then {
+		_civ_spawn_factor = 1.00;  // adaptive (extreme)
+		_civ_unitcount = 35;
+	};
+	private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
+	_civ_grp_count = floor (_bldg_count * _civ_spawn_factor);
+};
+
 // create civilians with createAgent (not the civilian module)
 // these civilians do not run around, they stand/sit/kneel and when firedNear is triggered they lay down
-for "_i" from 0 to d_civ_groupcount do {
+for "_i" from 0 to _civ_grp_count do {
 #ifdef __DEBUG__
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
@@ -268,7 +295,7 @@ d_cur_tgt_civ_modules_presence pushBack _m;
 _m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray
 _m setVariable ["#useagents", true];
 _m setVariable ["#usepanicmode", false];
-_m setVariable ["#unitcount", 10]; // not too many walking/running civs please (set to the module minimum 10)
+_m setVariable ["#unitcount", _civ_unitcount];
 _m setVariable ["#onCreated", {
 	d_cur_tgt_civ_units pushBack _this;
 	if (d_ai_persistent_corpses == 0) then {
@@ -278,6 +305,18 @@ _m setVariable ["#onCreated", {
 	_this addEventHandler ["Killed", {
 		call d_fnc_civmodulekilleh;
 	}];
+	_this setVariable ["civ_is_walking", true];
+	_this addEventHandler ["FiredNear", {
+		params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+		if (_distance < 35) then {
+			_unit setVariable ["civ_last_firednear_or_threatened", time];
+			_unit forceSpeed 0;
+			if (_distance < 15) then {
+				_unit setUnitPos "DOWN";
+			};
+		};
+	}];
+	[_this] spawn d_fnc_afterfirednear;
 	[_this, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _this];
 	_this setUnitLoadout selectRandom d_civArray;
 }];
