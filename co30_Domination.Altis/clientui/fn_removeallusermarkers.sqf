@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if (isMultiplayer && {!d_pisadminp}) exitWith {};
 

@@ -1,24 +1,22 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_cparams", "_wone"];
 _cparams params ["_ctrl", "_sel"];
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 if (_sel == -1) exitWith {};
 
 disableSerialization;
-
-#define __CTRL(A) (_disp displayCtrl A)
 
 if (_sel == d_tele_prev_sel) exitWith {};
 d_tele_prev_sel = _sel;
 
 private _data = _ctrl lbData _sel;
 
-__TRACE_1("","_data")
+//__TRACE_1("","_data")
 
 #define __COLRED [1,0,0,0.7]
 private _mravailable = false;
@@ -28,14 +26,14 @@ private _disp = [uiNamespace getVariable "XR_SpectDlg", uiNamespace getVariable 
 
 private _uidx = d_add_resp_points_uni find _data;
 
-__TRACE_1("","_uidx")
+//__TRACE_1("","_uidx")
 
 if (_uidx == -1) then {
 	if (_data != "D_BASE_D" && {_data != "D_SQL_D"}) then {
-		private _logtxt = ctrlText __CTRL(11002);
+		private _logtxt = ctrlText (_disp displayCtrl 11002);
 
 		private _mrs = missionNamespace getVariable [_data, objNull];
-		__TRACE_1("","_mrs")
+		//__TRACE_1("","_mrs")
 		if (!isNull _mrs) then {
 			private _curaridx = _not_avail_array pushBack _data;
 			private _lbcolor = call {
@@ -53,7 +51,7 @@ if (_uidx == -1) then {
 			_ctrl lbSetColor [_sel, _lbcolor];
 
 			if (_logtxt != "" && {!d_lb_tele_first}) then {
-				__CTRL(11002) ctrlSetText _logtxt;
+				(_disp displayCtrl 11002) ctrlSetText _logtxt;
 			};
 		};
 	} else {
@@ -77,7 +75,7 @@ if (_uidx == -1) then {
 					[1,1,1,1.0]
 				} else {
 					_not_avail_array pushBack "D_SQL_D";
-					__CTRL(11002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1706");
+					(_disp displayCtrl 11002) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1706");
 					__COLRED
 				};
 				_ctrl lbSetColor [_sel, _lbcolor];
@@ -88,9 +86,9 @@ if (_uidx == -1) then {
 
 d_lb_tele_first = false;
 
-__TRACE_1("","d_additional_respawn_points")
+//__TRACE_1("","d_additional_respawn_points")
 
-__TRACE_1("","_uidx")
+//__TRACE_1("","_uidx")
 
 d_cur_map_endpos = nil;
 d_alt_map_pos = nil;
@@ -117,7 +115,7 @@ private _end_pos = if (_uidx == -1) then {
 	(d_additional_respawn_points # _uidx) # 1;
 };
 
-__TRACE_1("","_end_pos")
+//__TRACE_1("","_end_pos")
 
 d_respawn_mar_str = _data;
 
@@ -126,9 +124,9 @@ if (_wone == 1 && {!xr_respawn_available}) then {
 	_data = "";
 };
 
-__TRACE_3("","_data","_mravailable","_uidx")
-__TRACE_1("","xr_respawn_available")
-__TRACE_1("","_not_avail_array")
+//__TRACE_3("","_data","_mravailable","_uidx")
+//__TRACE_1("","xr_respawn_available")
+//__TRACE_1("","_not_avail_array")
 
 if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_target" || {_uidx != -1}}}}) then {
 	d_beam_target = _data;
@@ -137,30 +135,30 @@ if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_ta
 	} else {
 		format [localize "STR_DOM_MISSIONSTRING_605", _ctrl lbText _sel]
 	};
-	__CTRL(100110) ctrlSetText _text;
-	__CTRL(100102) ctrlEnable true;
-	__TRACE("enable true")
+	(_disp displayCtrl 100110) ctrlSetText _text;
+	(_disp displayCtrl 100102) ctrlEnable true;
+	//__TRACE("enable true")
 } else {
-	__TRACE_1("","d_beam_target")
-	__TRACE_1("","d_last_beam_target")
-	__CTRL(100110) ctrlSetText "";
-	__CTRL(100102) ctrlEnable false;
-	__TRACE("enable false 2")
+	//__TRACE_1("","d_beam_target")
+	//__TRACE_1("","d_last_beam_target")
+	(_disp displayCtrl 100110) ctrlSetText "";
+	(_disp displayCtrl 100102) ctrlEnable false;
+	//__TRACE("enable false 2")
 	if (d_beam_target == "D_BASE_D" || {_uidx != -1}) exitWith {};
 	if !(d_beam_target in _not_avail_array) exitWith {};
 	d_beam_target = "";
 };
 
-if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes && {ctrlEnabled __CTRL(100102)}}) then {
-	__CTRL(100102) ctrlEnable false;
-	__CTRL(123321) ctrlEnable false;
-	__CTRL(1500) ctrlEnable false;
+if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes && {ctrlEnabled (_disp displayCtrl 100102)}}) then {
+	(_disp displayCtrl 100102) ctrlEnable false;
+	(_disp displayCtrl 123321) ctrlEnable false;
+	(_disp displayCtrl 1500) ctrlEnable false;
 };
-if (!xr_respawn_available && {ctrlEnabled __CTRL(100102)}) then {
-	__CTRL(100102) ctrlEnable false;
+if (!xr_respawn_available && {ctrlEnabled (_disp displayCtrl 100102)}) then {
+	(_disp displayCtrl 100102) ctrlEnable false;
 };
 
-__TRACE_1("","d_beam_target")
+//__TRACE_1("","d_beam_target")
 
 private _ctrlmap = _disp displayCtrl 900;
 ctrlMapAnimClear _ctrlmap;
@@ -179,13 +177,13 @@ if (!isNil "d_cur_map_endpos") then {
 	"d_exactpos_radius_mar" setMarkerAlphaLocal 1;
 	"d_exactpos_sel_mar" setMarkerPosLocal _end_pos;
 	"d_exactpos_sel_mar" setMarkerAlphaLocal 1;
-	__CTRL(11003) ctrlShow true;
-	__CTRL(11004) ctrlShow true;
+	(_disp displayCtrl 11003) ctrlShow true;
+	(_disp displayCtrl 11004) ctrlShow true;
 } else {
 	"d_exactpos_radius_mar" setMarkerPosLocal [0, 0, 0];
 	"d_exactpos_radius_mar" setMarkerAlphaLocal 0;
 	"d_exactpos_sel_mar" setMarkerPosLocal [0, 0, 0];
 	"d_exactpos_sel_mar" setMarkerAlphaLocal 0;
-	__CTRL(11003) ctrlShow false;
-	__CTRL(11004) ctrlShow false;
+	(_disp displayCtrl 11003) ctrlShow false;
+	(_disp displayCtrl 11004) ctrlShow false;
 };

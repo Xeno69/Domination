@@ -1,8 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
-
-#define __control(numcontrol) (_display displayCtrl numcontrol)
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
@@ -11,29 +9,29 @@ private _vec = d_pylon_vec;
 private _display = uiNamespace getVariable "D_PylonLoadoutDialog";
 
 private _cfg = (configOf _vec)>>"Components">>"TransportPylonsComponent";
-__TRACE_1("","_cfg")
+//__TRACE_1("","_cfg")
 
-__control(1000) ctrlSetText getText(_cfg>>"UIPicture");
-__control(1003) ctrlSetText getText((configOf _vec)>>"Displayname");
+(_display displayCtrl 1000) ctrlSetText getText(_cfg>>"UIPicture");
+(_display displayCtrl 1003) ctrlSetText getText((configOf _vec)>>"Displayname");
 
 private _pylons = _cfg>>"pylons";
-__TRACE_1("","_pylons")
+//__TRACE_1("","_pylons")
 
 private _pylonmags = getPylonMagazines _vec;
 _vec setVariable ["d_startpylongmags", _pylonmags];
 
-__TRACE_1("","_pylonmags")
+//__TRACE_1("","_pylonmags")
 
 d_pylondialog_ctrls = [];
 d_pylon_mirrormode = false;
 private _pylon_owners = _vec getVariable ["d_pylon_owners", []];
-__TRACE_1("","_pylon_owners")
+//__TRACE_1("","_pylon_owners")
 private _pyl_owns_empty = _pylon_owners isEqualTo [];
 
 private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toLowerANSI _x};
-__TRACE_1("","_excludemags")
+//__TRACE_1("","_excludemags")
 
-__TRACE_1("","count _pylons")
+//__TRACE_1("","count _pylons")
 
 for "_i" from 0 to (count _pylons - 1) do {
 	private _pylon = _pylons select _i;
@@ -55,10 +53,10 @@ for "_i" from 0 to (count _pylons - 1) do {
 	};
 	private _pos = getArray(_pylon>>"UIposition");
 	{
-		__TRACE_1("","_x")
+		//__TRACE_1("","_x")
 		if (_x isEqualType "") then {
 			private _arspl = _x splitString "+";
-			__TRACE_1("+","_arspl")
+			//__TRACE_1("+","_arspl")
 			private _numte = 0;
 			if (count _arspl > 1) then {
 				{
@@ -66,12 +64,12 @@ for "_i" from 0 to (count _pylons - 1) do {
 				} forEach _arspl;
 			} else {
 				_arspl = _x splitString "-";
-				__TRACE_1("-","_arspl")
+				//__TRACE_1("-","_arspl")
 				{
 					_numte = _numte + parseNumber _x;
 				} forEach _arspl;
 			};
-			__TRACE_1("","_numte")
+			//__TRACE_1("","_numte")
 			_pos set [_forEachIndex, _numte];
 		};
 	} forEach _pos;
@@ -80,11 +78,11 @@ for "_i" from 0 to (count _pylons - 1) do {
 	_pos set [0, (_pos # 0) + 0.062];
 	_pos set [1, (_pos # 1) + 0.18];
 	_ctrl ctrlSetPosition _pos;
-	__TRACE_1("","_pos")
+	//__TRACE_1("","_pos")
 	_ctrl ctrlCommit 0;
 
 	private _turret = getArray(_pylon>>"turret");
-	__TRACE_1("","_turret")
+	//__TRACE_1("","_turret")
 	if (_turret isNotEqualTo []) then {
 		private _ctrl2 = _display ctrlCreate ["RscActivePictureKeepAspect", 8000 + _i];
 		//private _ctrl2 = _display ctrlCreate ["RscButton", 8000 + _i];
@@ -129,24 +127,24 @@ for "_i" from 0 to (count _pylons - 1) do {
 	private _idx = _ctrl lbAdd (["<", localize "STR_empty", ">"] joinString "");
 	_ctrl lbSetData [_idx, ""];
 	private _selidx = 0;
-	__TRACE_1("","_vec getCompatiblePylonMagazines (configName _pylon)")
+	//__TRACE_1("","_vec getCompatiblePylonMagazines (configName _pylon)")
 	{
-		__TRACE_1("33","_x")
-		__TRACE_1("","toLowerANSI _x in _excludemags")
-		__TRACE_1("","toLowerANSI _x")
+		//__TRACE_1("33","_x")
+		//__TRACE_1("","toLowerANSI _x in _excludemags")
+		//__TRACE_1("","toLowerANSI _x")
 		if !(toLowerANSI _x in _excludemags) then {
 			private _doadd = call {
 				private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
-				__TRACE_1("","_sub")
+				//__TRACE_1("","_sub")
 				if (_sub isNotEqualTo []) exitWith {false};
 				if (toLowerANSI getText (configfile >> "CfgMagazines" >> _x >> "pylonWeapon") in ["fir_rkt_launcher", "fir_apkws_launcher"]) exitWith {false};
 				true
 			};
 			if (_doadd) then {
-				__TRACE_1("adding","_x")
+				//__TRACE_1("adding","_x")
 				_idx = _ctrl lbAdd getText(configFile>>"CfgMagazines">>_x>>"displayname");
 				_ctrl lbSetData [_idx, _x];
-				__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
+				//__TRACE_3("","count _pylonmags","_i","_pylonmags select _i")
 				if (_pylonmags select _i == _x) then {
 					_selidx = _i;
 				};
@@ -158,7 +156,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 	};
 };
 
-__TRACE_1("","_pylon_owners")
+//__TRACE_1("","_pylon_owners")
 _vec setVariable ["d_pylon_owners", _pylon_owners, true];
 
 private _presets = _cfg>>"Presets";
@@ -167,7 +165,7 @@ private _idx = _ctrl lbAdd "Custom";
 
 for "_i" from 0 to (count _presets - 1) do {
 	private _preset = _presets select _i;
-	__TRACE_1("","_preset")
+	//__TRACE_1("","_preset")
 	private _idx = _ctrl lbAdd getText(_preset>>"displayName");
 	_ctrl lbSetData [_idx, configName _preset];
 };

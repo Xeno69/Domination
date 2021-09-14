@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if !(["IsInitialized"] call BIS_fnc_EGSpectator) then {
 	xr_phd_invulnerable = true;

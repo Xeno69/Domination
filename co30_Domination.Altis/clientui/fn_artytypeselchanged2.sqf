@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 params ["_selection"];
@@ -16,8 +16,8 @@ d_ao_arty_vecs params ["_warty"];
 
 private _inrange = _wpos inRangeOfArtillery [[_warty], _mag];
 
-__TRACE_3("","_mag","_wpos","_warty")
-__TRACE_1("","_inrange")
+//__TRACE_3("","_mag","_wpos","_warty")
+//__TRACE_1("","_inrange")
 
 private _ctrl = (uiNamespace getVariable "d_MarkArtilleryDialog") displayCtrl 900;
 _ctrl ctrlSetText format [localize "STR_DOM_MISSIONSTRING_1458", round ([0, _warty getArtilleryETA [_wpos, _mag]] select _inrange)];

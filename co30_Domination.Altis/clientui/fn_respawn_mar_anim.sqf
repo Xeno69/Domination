@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 private _old_respmar = "";
 private _cur_ang = 0;
@@ -9,7 +9,7 @@ private _has_sql = _this;
 
 while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["xr_lives", 0] > -1}) || {xr_max_lives == -1}}} do {
 	if (d_respawn_mar_str != _old_respmar) then {
-		__TRACE_2("","d_respawn_mar_str","_old_respmar")
+		//__TRACE_2("","d_respawn_mar_str","_old_respmar")
 		_cur_ang = 0;
 		if (_old_respmar != "") then {
 			_old_respmar setMarkerDirLocal 0;
@@ -69,4 +69,4 @@ d_respawn_mar_str = nil;
 deleteMarkerLocal "d_exactpos_radius_mar";
 deleteMarkerLocal "d_exactpos_sel_mar";
 
-__TRACE("Off")
+//__TRACE("Off")

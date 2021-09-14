@@ -1,12 +1,12 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 d_arsenal_opened = false;
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
-__TRACE_1("","d_arsenal_opened")
+//__TRACE_1("","d_arsenal_opened")
 
 call d_fnc_pcheck;
 

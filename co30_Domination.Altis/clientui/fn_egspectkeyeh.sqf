@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 #include "..\defineDIKCodes.inc"
 
 if (_this # 1 == DIK_X) then {

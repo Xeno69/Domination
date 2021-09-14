@@ -1,9 +1,9 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_v", "_u", ["_m", false]];
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 private _rr = _v getVariable "d_v_not_m";
 if (!isNil "_rr") exitWith {
@@ -15,7 +15,7 @@ if (isNil "_i") then {
 	_i = getText ((configOf _v)>>"icon");
 	_v setVariable ["d_icon_type", _i];
 };
-__TRACE_1("","_i")
+//__TRACE_1("","_i")
 private _s = _v getVariable "d_icon_size";
 if (isNil "_s") then {
 	_s = call {
@@ -29,7 +29,7 @@ if (isNil "_s") then {
 	};
 	_v setVariable ["d_icon_size", _s];
 };
-__TRACE_1("","_i")
+//__TRACE_1("","_i")
 
 if (!_m) exitWith {
 	private _c = call {

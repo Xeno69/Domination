@@ -1,12 +1,12 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 d_arsenal_opened = true;
 
-__TRACE_1("","d_arsenal_opened")
+//__TRACE_1("","d_arsenal_opened")
 
 disableSerialization;
 if (sunOrMoon < 0.9) then {

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
@@ -8,7 +8,7 @@ disableSerialization;
 
 private _ctrl = (uiNamespace getVariable "D_DBTop10Dialog") displayCtrl 100;
 
-__TRACE_1("","_colwidth")
+//__TRACE_1("","_colwidth")
 
 private _start = 0.001;
 
@@ -27,7 +27,7 @@ _ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 
 _ctrl lnbAddRow [""];
 {
-	__TRACE_1("","_x")
+	//__TRACE_1("","_x")
 	_rowidx = _ctrl lnbAddRow (_x apply {if (_x isEqualType "") then {_x} else {str _x}});
 	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];

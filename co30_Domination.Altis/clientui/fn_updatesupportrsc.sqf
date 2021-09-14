@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if (!hasInterface || {isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}}) exitWith {};
 
@@ -17,16 +17,22 @@ if (isNil "_disp" || {isNull _disp}) then {
 
 private _ctrl = _disp displayCtrl 50;
 if (d_player_can_call_arti > 0) then {
-#ifndef __TT__
-	if (d_ari_available) then {
-#else
-	if (d_player_side == blufor && {d_ari_available_w} || {d_player_side == opfor && {d_ari_available_e}}) then {
-#endif
-		_ctrl ctrlShow true;
-		_ctrl ctrlsettextcolor __availcol;
+	if (!d_tt_ver) then {
+		if (d_ari_available) then {
+			_ctrl ctrlShow true;
+			_ctrl ctrlsettextcolor __availcol;
+		} else {
+			_ctrl ctrlShow false;
+			//_ctrl ctrlsettextcolor __notavailcol;
+		};
 	} else {
-		_ctrl ctrlShow false;
-		//_ctrl ctrlsettextcolor __notavailcol;
+		if (d_player_side == blufor && {d_ari_available_w} || {d_player_side == opfor && {d_ari_available_e}}) then {
+			_ctrl ctrlShow true;
+			_ctrl ctrlsettextcolor __availcol;
+		} else {
+			_ctrl ctrlShow false;
+			//_ctrl ctrlsettextcolor __notavailcol;
+		};
 	};
 } else {
 	_ctrl ctrlShow false;
@@ -47,16 +53,22 @@ if (d_player_can_call_drop > 0) then {
 
 _ctrl = _disp displayCtrl 52;
 if (d_player_can_call_cas > 0) then {
-#ifndef __TT__
-	if (d_cas_available) then {
-#else
-	if (d_player_side == blufor && {d_cas_available_w} || {d_player_side == opfor && {d_cas_available_e}}) then {
-#endif
-		_ctrl ctrlShow true;
-		_ctrl ctrlsettextcolor __availcol;
+	if (!d_tt_ver) then {
+		if (d_cas_available) then {
+			_ctrl ctrlShow true;
+			_ctrl ctrlsettextcolor __availcol;
+		} else {
+			_ctrl ctrlShow false;
+			//_ctrl ctrlsettextcolor __notavailcol;
+		};
 	} else {
-		_ctrl ctrlShow false;
-		//_ctrl ctrlsettextcolor __notavailcol;
+		if (d_player_side == blufor && {d_cas_available_w} || {d_player_side == opfor && {d_cas_available_e}}) then {
+			_ctrl ctrlShow true;
+			_ctrl ctrlsettextcolor __availcol;
+		} else {
+			_ctrl ctrlShow false;
+			//_ctrl ctrlsettextcolor __notavailcol;
+		};
 	};
 } else {
 	_ctrl ctrlShow false;

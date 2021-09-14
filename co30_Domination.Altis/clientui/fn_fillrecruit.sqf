@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 private _dspx = uiNamespace getVariable "d_AIRecruitDialog";
@@ -10,9 +10,9 @@ lbClear _ctrl;
 private ["_ipic", "_pic", "_idx"];
 {
 	_ipic = getText (configFile>>"cfgVehicles">>_x>>"icon");
-	__TRACE_2("","_x","_ipic")
+	//__TRACE_2("","_x","_ipic")
 	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
-	__TRACE_1("","_pic")
+	//__TRACE_1("","_pic")
 	_idx = _ctrl lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
@@ -33,9 +33,9 @@ private ["_tt", "_pic", "_idx"];
 {
 	_tt = typeOf _x;
 	_ipic = getText (configFile>>"cfgVehicles">>_tt>>"icon");
-	__TRACE_2("","_tt","_ipic")
+	//__TRACE_2("","_tt","_ipic")
 	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
-	__TRACE_1("","_pic")
+	//__TRACE_1("","_pic")
 	_idx = _ctrl lbAdd ([_tt, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
 	_ctrl lbSetColor [_idx, [1, 1, 0, 0.8]];
