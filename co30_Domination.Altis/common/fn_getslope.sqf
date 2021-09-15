@@ -1,5 +1,5 @@
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // from warfare
 // Returns an average slope value of terrain within passed radius.
@@ -16,5 +16,5 @@ _slope = _slope + abs(((ATLToASL [(_pos # 0) + _dist, _pos # 1, 0]) # 2) - _heig
 _slope = _slope + abs(((ATLToASL [_pos # 0, (_pos # 1) - _dist, 0]) # 2) - _height);
 _slope = _slope + abs(((ATLToASL [_pos # 0, (_pos # 1) + _dist, 0]) # 2) - _height);
 _slope = _slope / 8;
-__TRACE_1("","_slope")
+//__TRACE_1("","_slope")
 _slope

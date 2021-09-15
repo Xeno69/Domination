@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get a random point inside a square
 // parameters:
@@ -8,7 +8,7 @@
 // example: _random_point  = [position trigger2, 200, 300, 30] call d_fnc_GetRanPointSquare;
 params ["_pos", "_a", "_b", "_angle"];
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 if (_pos isEqualTo []) exitWith {
 	diag_log ["getranpointsquare, pos is an empty array", _this];
@@ -36,5 +36,5 @@ for "_co" from 0 to 150 do {
 	};
 };
 if (_ret_val isEqualTo []) then {_ret_val = _pos};
-__TRACE_1("","_ret_val")
+//__TRACE_1("","_ret_val")
 _ret_val

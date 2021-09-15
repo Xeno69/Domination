@@ -1,5 +1,5 @@
 // by Xeno
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_vec", "_killer", "_insti"];
 

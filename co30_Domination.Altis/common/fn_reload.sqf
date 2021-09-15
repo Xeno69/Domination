@@ -1,13 +1,13 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 #define __NOALIEX if (!alive _object) exitWith {};
 #define __NOALIEX2 if (!alive _object) exitWith {[]};
 
 params ["_object"];
 
-__TRACE_1("","_object")
+//__TRACE_1("","_object")
 if (_object isEqualType []) then {
 	_obb = objNull;
 	_object findIf {
@@ -24,28 +24,32 @@ if (isNull _object || {_object isKindOf "ParachuteBase"}) exitWith {};
 
 private _isUav = unitIsUAV _object;
 
-#ifdef __TT__
-private _uavside = [opfor, blufor] select (_object distance2D d_chopper_trigger < 200);
-#endif
+private _uavside = call {
+	if (d_tt_ver) exitWith {
+		[opfor, blufor] select (_object distance2D d_chopper_trigger < 1000)
+	};
+	sideUnknown
+};
 
-#ifndef __RHS__
-private _waitsecs = 60;
-#else
-private _waitsecs = 120;
-#endif
+private _waitsecs = call {
+	if (d_rhs) exitWith {
+		120
+	};
+	60
+};
 private _lrl = _object getVariable ["d_last_reload", -1];
 if (_lrl != -1 && {(time - _lrl) < _waitsecs}) exitWith {
 	if (hasInterface) then {
 		if (!_isUav) then {
 			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
 		} else {
-#ifdef __TT__
-			if (d_player_side == _uavside) then {
-#endif
-			systemChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
-#ifdef __TT__
+			private _dochat = true;
+			if (d_tt_ver && {d_player_side != _uavside}) then {
+				_dochat = false;
 			};
-#endif
+			if (_dochat) then {
+				systemChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
+			};
 		};
 	};
 };
@@ -64,31 +68,31 @@ if (hasInterface) then {
 	if (!_isUav) then {
 		_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_701", _type_name];
 	} else {
-#ifdef __TT__
-		if (d_player_side == _uavside) then {
-#endif
-		systemChat format [localize "STR_DOM_MISSIONSTRING_701", _type_name];
-#ifdef __TT__
+		private _dochat = true;
+		if (d_tt_ver && {d_player_side != _uavside}) then {
+			_dochat = false;
 		};
-#endif
+		if (_dochat) then {
+			systemChat format [localize "STR_DOM_MISSIONSTRING_701", _type_name];
+		};
 	};
 };
 
-#ifdef __DEBUG__
-_magazinesxx = _object magazinesTurret [0];
-__TRACE_1("","_magazinesxx")
-#endif
+//#ifdef __DEBUG__
+//_magazinesxx = _object magazinesTurret [0];
+//__TRACE_1("","_magazinesxx")
+//#endif
 
 private _magsallturrets = magazinesAllTurrets _object;
-__TRACE_1("","_magsallturrets")
+//__TRACE_1("","_magsallturrets")
 
 //private _removedX = [];
 {
 	private _path = _x # 1;
-	__TRACE_1("","_path")
+	//__TRACE_1("","_path")
 	if (_object turretLocal _path) then {
 		_x params ["_mag"];
-		__TRACE_1("","_mag")
+		//__TRACE_1("","_mag")
 		//if !(_mag in _removedX) then {
 			//_object removeMagazinesTurret [_mag, _path];
 			//_removedX pushBack _mag;
@@ -192,16 +196,16 @@ if (_cfgturrets isNotEqualTo []) then {
 __NOALIEX
 
 private _magazines = getArray(_cfgv>>"magazines");
-__TRACE_1("","_magazines")
+//__TRACE_1("","_magazines")
 
 if (_magazines isNotEqualTo []) then {
 	_removed = [];
 	{
 		_object removeMagazines _x;
 		_removed pushBack _x;
-		__TRACE_1("remMag","_x")
+		//__TRACE_1("remMag","_x")
 	} forEach (_magazines select {!(_x in _removed)});
-	__TRACE_1("","_removed")
+	//__TRACE_1("","_removed")
 	{
 		if (hasInterface && {!_isUav}) then {
 			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_702", _x];
@@ -213,7 +217,7 @@ if (_magazines isNotEqualTo []) then {
 		sleep d_reload_time_factor;
 		__NOALIEX
 		_object addMagazine _x;
-		__TRACE_1("addMag","_x")
+		//__TRACE_1("addMag","_x")
 	} forEach _magazines;
 };
 _object setVehicleAmmo 1;
@@ -247,13 +251,13 @@ if (hasInterface) then {
 	if (!_isUav) then {
 		_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_706", _type_name];
 	} else {
-#ifdef __TT__
-		if (d_player_side == _uavside) then {
-#endif
-		systemChat format [localize "STR_DOM_MISSIONSTRING_706", _type_name];
-#ifdef __TT__
+		private _dochat = true;
+		if (d_tt_ver && {d_player_side != _uavside}) then {
+			_dochat = false;
 		};
-#endif
+		if (_dochat) then {
+			systemChat format [localize "STR_DOM_MISSIONSTRING_706", _type_name];
+		};
 	};
 };
 

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 private _ip = _this getVariable "d_isp";
 if (isNil "_ip") then {

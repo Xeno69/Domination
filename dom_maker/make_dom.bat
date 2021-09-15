@@ -46,7 +46,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%

@@ -1,6 +1,6 @@
 //by sarogahtyp edited by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_unit", "_target"];
 private _targetEye = eyepos _target;

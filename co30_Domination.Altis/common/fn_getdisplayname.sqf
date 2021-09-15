@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get displayname of an object
 // parameters: type of object (string), what "CfgVehicles", "CfgWeapons", "CfgMagazines"

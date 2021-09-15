@@ -1,6 +1,6 @@
 //by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get array of positions, return only positions that are covered (inside the building with walls on all sides)
 // _posArray - array of positions

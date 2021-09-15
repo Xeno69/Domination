@@ -1,6 +1,7 @@
 {
   "inputDirs": [
-	"E:/DomSQFC/clientui/"
+	"E:/DomSQFC/clientui/",
+	"E:/DomSQFC/common/"
   ],
   "includePaths": [
     "E:/"

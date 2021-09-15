@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get an array of random points inside a circle for bigger objects
 // parameters:
@@ -23,16 +23,16 @@ while {count _ret_val < 60} do {
 		if (_blacklist) then {
 			_blackl pushBack [_npos, _mindist, _mindist, 0, false];
 		};
-#ifdef __DEBUG__
-		if (isNil "d_mmmcoui") then {
-			d_mmmcoui = 0;
-		};
-		d_mmmcoui = d_mmmcoui + 1;
-		[format ["d_grpcba_%1", d_mmmcoui], _npos, "ICON", "ColorBlack", [0.5, 0.5], str (d_mmmcoui), 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
-#endif
+//#ifdef __DEBUG__
+//		if (isNil "d_mmmcoui") then {
+//			d_mmmcoui = 0;
+//		};
+//		d_mmmcoui = d_mmmcoui + 1;
+//		[format ["d_grpcba_%1", d_mmmcoui], _npos, "ICON", "ColorBlack", [0.5, 0.5], str (d_mmmcoui), 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+//#endif
 	};
 	if (time > _timeend) exitWith {};
 };
-__TRACE_1("","_blackl")
-__TRACE_2("","count _ret_val","_ret_val")
+//__TRACE_1("","_blackl")
+//__TRACE_2("","count _ret_val","_ret_val")
 _ret_val

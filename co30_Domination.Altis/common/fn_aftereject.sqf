@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
-params ["_vec"];
+//params ["_vec"];
 
 if (!isNil {_vec getVariable "d_eject_check"}) exitWith {};
 

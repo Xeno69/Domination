@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 params ["_name"];
 
@@ -28,7 +28,7 @@ if (_name in (keys d_ef_n_hash)) exitWith {
 private "_todel";
 {
 	private _trig = _y;
-	__TRACE_2("","_x","_trig")
+	//__TRACE_2("","_x","_trig")
 	private _hm = _trig getVariable "d_trig_hm";
 	_hm deleteAt _name;
 	if (count _hm == 0) then {

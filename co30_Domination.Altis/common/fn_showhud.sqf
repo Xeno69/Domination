@@ -1,6 +1,6 @@
 // by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 //hud: Boolean - show scripted HUD (same as normal showHUD true/false)
 //info: Boolean - show vehicle + soldier info (hides weapon info from the HUD as well)

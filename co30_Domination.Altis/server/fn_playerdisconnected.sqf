@@ -6,6 +6,12 @@ diag_log ["DOM playerdisconnected: _this", _this];
 
 __TRACE_1("","_this")
 
+params ["", "_uid", "_name"];
+
+if (_uid isEqualTo "") exitWith {
+	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
+};
+
 private _gui = getUserInfo (_this # 5);
 __TRACE_1("","_gui")
 
@@ -26,16 +32,14 @@ if (_gui # 7) exitWith {
 	};
 };
 
-params ["", "_uid", "_name"];
-
-if (_uid isEqualTo "") exitWith {
-	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
-};
-
 private _unit = _gui # 10;
 
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")
+
+if (!isNil "_unit" && {isNull _unit}) then {
+	_unit = _uid call d_fnc_getunitbyuid;
+};
 
 if (isNil "_unit" || {isNull _unit}) exitWith {};
 

@@ -352,6 +352,7 @@ class cfgFunctions {
 			addc(markername);
 			addc(tanoafix);
 			addc(getbldgswithpositions);
+			addc(getunitbyuid);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

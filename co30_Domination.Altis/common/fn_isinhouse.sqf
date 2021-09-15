@@ -1,6 +1,6 @@
 //by Killzone Kid and modified by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // check if a position is inside a house (tests if intersections isKindOf "House" in several different directions)
 

@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 private _pos = _this;
 if (_pos isEqualTo []) exitWith {
@@ -22,5 +22,5 @@ if (_pos # 1 < 0) then {
 		_pos set [1, d_island_y_max - 400];
 	};
 };
-__TRACE_1("","_pos")
+//__TRACE_1("","_pos")
 _pos
