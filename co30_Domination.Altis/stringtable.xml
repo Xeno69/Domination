@@ -2959,7 +2959,7 @@
 <Korean>Extreme</Korean>
 <Japanese>Extreme</Japanese>
 <Original>Extreme</Original>
-<Russian>Extreme</Russian>
+<Russian>Экстремальный</Russian>
 <Chinesesimp>Extreme</Chinesesimp>
 <Chinese>Extreme</Chinese>
 <French>Extreme</French>
@@ -2995,7 +2995,7 @@
 <Korean>기본설정</Korean>
 <Japanese>Default</Japanese>
 <Original>Default</Original>
-<Russian>Default</Russian>
+<Russian>По умолчанию</Russian>
 <Chinesesimp>默认</Chinesesimp>
 <Chinese>Default</Chinese>
 <French>Default</French>
@@ -3031,7 +3031,7 @@
 <Korean>guerrillas</Korean>
 <Japanese>guerrillas</Japanese>
 <Original>guerrillas</Original>
-<Russian>guerrillas</Russian>
+<Russian>партизаны</Russian>
 <Chinesesimp>guerrillas</Chinesesimp>
 <Chinese>guerrillas</Chinese>
 <French>guerrillas</French>
@@ -10375,7 +10375,7 @@
 <Korean>분대</Korean>
 <Japanese>Squad</Japanese>
 <Original>Squad</Original>
-<Russian>Squad</Russian>
+<Russian>Отряд</Russian>
 <Chinesesimp>小队</Chinesesimp>
 <Chinese>Squad</Chinese>
 <French>Équipe</French>
@@ -14164,7 +14164,7 @@
 <English>RADIOPROTOCOL for the player disabled!</English>
 <Spanish>RADIOPROTOCOL for the player disabled!</Spanish>
 <Portuguese>RADIOPROTOCOL for the player disabled!</Portuguese>
-<Korean>플래이어를 통한 무선중개 기능이 비활성화 되었습니다!<Korean>
+<Korean>플래이어를 통한 무선중개 기능이 비활성화 되었습니다!</Korean>
 <Japanese>RADIOPROTOCOL for the player disabled!</Japanese>
 <Original>RADIOPROTOCOL for the player disabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока отключен!</Russian>
@@ -14533,7 +14533,7 @@
 <Korean>음성 비활성화:</Korean>
 <Japanese>Disable voices:</Japanese>
 <Original>Disable voices:</Original>
-<Russian>Disable voices:</Russian>
+<Russian>Отключить разговоры:</Russian>
 <Chinesesimp>禁用语音：</Chinesesimp>
 <Chinese>Disable voices:</Chinese>
 <French>Disable voices:</French>
@@ -14545,7 +14545,7 @@
 <Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
 <Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
 <Original>Save mission progress to profileNamespace if no database is available</Original>
-<Russian>Save mission progress to profileNamespace if no database is available</Russian>
+<Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
 <Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
 <French>Save mission progress to profileNamespace if no database is available</French>
 </Key>
@@ -14567,7 +14567,7 @@
 <Korean>효력사 전 목표물 근처에 아군이 있는지 확인</Korean>
 <Japanese>Check for friendly units near artillery targets when firing artillery</Japanese>
 <Original>Check for friendly units near artillery targets when firing artillery</Original>
-<Russian>Check for friendly units near artillery targets when firing artillery</Russian>
+<Russian>При стрельбе из артиллерии проверяйте наличие дружественных сил рядом с артиллерийскими целями.</Russian>
 <Chinesesimp>Check for friendly units near artillery targets when firing artillery</Chinesesimp>
 <Chinese>Check for friendly units near artillery targets when firing artillery</Chinese>
 <French>Check for friendly units near artillery targets when firing artillery</French>
@@ -14579,7 +14579,7 @@
 <Korean>귀관은 어드민에게 %1 스코어 점수를 받았습니다!</Korean>
 <Japanese>You received %1 score points from the admin!</Japanese>
 <Original>You received %1 score points from the admin!</Original>
-<Russian>You received %1 score points from the admin!</Russian>
+<Russian>Вы получили %1 очков от администратора!</Russian>
 <Chinesesimp>You received %1 score points from the admin!</Chinesesimp>
 <Chinese>You received %1 score points from the admin!</Chinese>
 <French>You received %1 score points from the admin!</French>
@@ -14591,7 +14591,7 @@
 <Korean>귀관에게 %1 점수가 추가 되었습니다. 전체 점수는 %2 입니다</Korean>
 <Japanese>You have added %1 points to the total score of %2</Japanese>
 <Original>You have added %1 points to the total score of %2</Original>
-<Russian>You have added %1 points to the total score of %2</Russian>
+<Russian>Вы добавили %1 к общему счету %2</Russian>
 <Chinesesimp>You have added %1 points to the total score of %2</Chinesesimp>
 <Chinese>You have added %1 points to the total score of %2</Chinese>
 <French>You have added %1 points to the total score of %2</French>
@@ -14603,7 +14603,7 @@
 <Korean>스코어 주기</Korean>
 <Japanese>Add Score</Japanese>
 <Original>Add Score</Original>
-<Russian>Add Score</Russian>
+<Russian>Добавить очки</Russian>
 <Chinesesimp>Add Score</Chinesesimp>
 <Chinese>Add Score</Chinese>
 <French>Add Score</French>

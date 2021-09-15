@@ -34,3 +34,4 @@ ATTENTION: Globhal Mobilization Weferlingen misson.sqm files have changed!!!
 - Optimized: Make use of new 2.06 scripting commands where possible
 - Tweaked: Spawn factor variables
 - Updated: Korean translation by kkim
+- Updated: Russian translation by Babayka
