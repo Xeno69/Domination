@@ -10,6 +10,7 @@ set D_BNVER=4.56
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
+set D_DO_ASC=1
 
 set CUR_DIR=%cd%
 set WORK_DIR=E:\DomSQFC
@@ -46,7 +47,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-ArmaScriptCompiler.exe
+if defined D_DO_ASC ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -82,7 +83,7 @@ rmdir /S /Q ma3a
 rmdir /S /Q ma3m
 rmdir /S /Q mifa3
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -115,7 +116,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -148,7 +149,7 @@ rmdir /S /Q ma3t
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -181,7 +182,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -214,7 +215,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -247,7 +248,7 @@ rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3a
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -280,7 +281,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -313,7 +314,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -346,7 +347,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -379,7 +380,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -412,7 +413,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -445,7 +446,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -478,7 +479,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -511,7 +512,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -545,7 +546,7 @@ rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 rmdir /S /Q ma3s
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -579,7 +580,7 @@ rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 rmdir /S /Q ma3s
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -613,7 +614,7 @@ rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 rmdir /S /Q ma3s
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -646,7 +647,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q ma3a
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -680,7 +681,7 @@ rmdir /S /Q ma3a
 rmdir /S /Q ma3m
 rmdir /S /Q mifa3
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -714,7 +715,7 @@ rmdir /S /Q ma3a
 rmdir /S /Q ma3m
 rmdir /S /Q mifa3
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -748,7 +749,7 @@ rmdir /S /Q ma3s
 rmdir /S /Q mifa3
 rmdir /S /Q ma3m
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
@@ -781,7 +782,7 @@ rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3a
 cd CUR_DIR
-rem ArmaScriptCompiler.exe
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
 md %NEW_VER%
 xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
 makePbo -AJNP %NEW_VER%
