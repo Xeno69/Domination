@@ -36,3 +36,4 @@ ATTENTION2: The scripts in two folders of the Altis Blufor version are compiled 
 - Tweaked: Spawn factor variables
 - Updated: Korean translation by kkim
 - Updated: Russian translation by Babayka
+- Updated: Simplified Chinese translation by SanJinSix
