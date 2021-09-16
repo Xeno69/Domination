@@ -2948,7 +2948,7 @@
 <Japanese>最高</Japanese>
 <Original>Very High</Original>
 <Russian>Очень высокий</Russian>
-<Chinesesimp>极高</Chinesesimp>
+<Chinesesimp>非常高</Chinesesimp>
 <Chinese>Very High</Chinese>
 <French>Very High</French>
 </Key>
@@ -2960,7 +2960,7 @@
 <Japanese>Extreme</Japanese>
 <Original>Extreme</Original>
 <Russian>Экстремальный</Russian>
-<Chinesesimp>Extreme</Chinesesimp>
+<Chinesesimp>极高</Chinesesimp>
 <Chinese>Extreme</Chinese>
 <French>Extreme</French>
 </Key>
@@ -3032,7 +3032,7 @@
 <Japanese>guerrillas</Japanese>
 <Original>guerrillas</Original>
 <Russian>партизаны</Russian>
-<Chinesesimp>guerrillas</Chinesesimp>
+<Chinesesimp>游击队</Chinesesimp>
 <Chinese>guerrillas</Chinese>
 <French>guerrillas</French>
 </Key>
@@ -14568,7 +14568,7 @@
 <Japanese>Check for friendly units near artillery targets when firing artillery</Japanese>
 <Original>Check for friendly units near artillery targets when firing artillery</Original>
 <Russian>При стрельбе из артиллерии проверяйте наличие дружественных сил рядом с артиллерийскими целями.</Russian>
-<Chinesesimp>Check for friendly units near artillery targets when firing artillery</Chinesesimp>
+<Chinesesimp>火炮发射攻击时，检查火炮攻击目标附近是否有友军。</Chinesesimp>
 <Chinese>Check for friendly units near artillery targets when firing artillery</Chinese>
 <French>Check for friendly units near artillery targets when firing artillery</French>
 </Key>
@@ -14580,7 +14580,7 @@
 <Japanese>You received %1 score points from the admin!</Japanese>
 <Original>You received %1 score points from the admin!</Original>
 <Russian>Вы получили %1 очков от администратора!</Russian>
-<Chinesesimp>You received %1 score points from the admin!</Chinesesimp>
+<Chinesesimp>您从管理员那里获得了 %1 分！</Chinesesimp>
 <Chinese>You received %1 score points from the admin!</Chinese>
 <French>You received %1 score points from the admin!</French>
 </Key>
@@ -14592,7 +14592,7 @@
 <Japanese>You have added %1 points to the total score of %2</Japanese>
 <Original>You have added %1 points to the total score of %2</Original>
 <Russian>Вы добавили %1 к общему счету %2</Russian>
-<Chinesesimp>You have added %1 points to the total score of %2</Chinesesimp>
+<Chinesesimp>您已为 %2 的总分增加了 %1 分</Chinesesimp>
 <Chinese>You have added %1 points to the total score of %2</Chinese>
 <French>You have added %1 points to the total score of %2</French>
 </Key>
@@ -14604,7 +14604,7 @@
 <Japanese>Add Score</Japanese>
 <Original>Add Score</Original>
 <Russian>Добавить очки</Russian>
-<Chinesesimp>Add Score</Chinesesimp>
+<Chinesesimp>添加分数</Chinesesimp>
 <Chinese>Add Score</Chinese>
 <French>Add Score</French>
 </Key>
