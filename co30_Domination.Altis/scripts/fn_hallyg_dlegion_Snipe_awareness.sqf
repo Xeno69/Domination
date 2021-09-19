@@ -146,7 +146,7 @@ while {true} do {
 						//hack above doesn't work, just scatter them in nearby buildings
 						[
 							getPosATL _unit,											// Params: 1. Array, the building(s) nearest this position is used
-							units (group _unit),									//         2. Array of objects, the units that will garrison the building(s)
+							units _unit,									//         2. Array of objects, the units that will garrison the building(s)
 							-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
 							false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 							true,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
@@ -161,7 +161,7 @@ while {true} do {
 							//group will occupy a house at unit's original position
 							[
 								_startingPosition,											// Params: 1. Array, the building(s) nearest this position is used
-								units (group _unit),									//         2. Array of objects, the units that will garrison the building(s)
+								units _unit,									//         2. Array of objects, the units that will garrison the building(s)
 								-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
 								false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 								false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)

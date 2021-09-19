@@ -37,7 +37,7 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 					_lpos = visiblePositionASL _x;
 				};
-			} forEach (units group player);
+			} forEach (units player);
 		};
 		"D_SQL_D" setMarkerPosLocal _lpos;
 		if (!isNil "d_respawn_posis" && !isNil "d_resp_lead_idx") then {

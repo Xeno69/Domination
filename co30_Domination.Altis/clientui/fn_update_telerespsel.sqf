@@ -69,7 +69,7 @@ if (_uidx == -1) then {
 						if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 							_respawn_target = _x;
 						};
-					} forEach (units group player);
+					} forEach (units player);
 				};
 				private _lbcolor = if (!isNil "_respawn_target") then {
 					[1,1,1,1.0]

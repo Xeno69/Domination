@@ -38,7 +38,7 @@ if (d_beam_target == "D_BASE_D") then {
 				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 					_respawn_target = _x;
 				};
-			} forEach (units group player);
+			} forEach (units player);
 		};
 		
 		// failed to find a respawn target

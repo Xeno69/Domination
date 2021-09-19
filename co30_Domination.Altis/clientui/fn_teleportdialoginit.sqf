@@ -154,7 +154,7 @@ private _has_sql = 0;
 d_resp_lead_idx = -1;
 
 private _show_respawnatsql = false;
-if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}) then {
+if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {count units player > 1 && {player != leader (group player)}}}) then {
 	// d_respawnatsql == 2 always show respawn button, determine color later
 	_show_respawnatsql = true;
 };
@@ -175,7 +175,7 @@ if (_show_respawnatsql) then {
 			if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 				_respawn_target = _x;
 			};
-		} forEach (units group player);
+		} forEach (units player);
 	};
 	private _lbcolor = if (!isNil "_respawn_target") then {
 		[1,1,1,1.0]

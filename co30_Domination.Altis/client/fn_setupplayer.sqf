@@ -479,8 +479,7 @@ if (!d_no_ai) then {
 			call d_fnc_recruitsetup;
 		};
 
-		private _grpp = group player;
-		private _leader = leader _grpp;
+		private _leader = leader (group player);
 		if (!(_leader call d_fnc_isplayer) || {player == _leader}) then {
 			{
 				if (isNull objectParent _x) then {
@@ -488,7 +487,7 @@ if (!d_no_ai) then {
 				} else {
 					(vehicle _x) deleteVehicleCrew _x;
 				};
-			} forEach ((units _grpp) select {!(_x call d_fnc_isplayer)});
+			} forEach ((units player) select {!(_x call d_fnc_isplayer)});
 		};
 	};
 
@@ -963,7 +962,7 @@ player setVariable ["xr_isleader", false];
 	if (_islead) then {
 		{
 			[_x, false] remoteExecCall ["d_fnc_setleader", _x];
-		} forEach ((units (group player)) - [player]);
+		} forEach ((units player) - [player]);
 	};
 };
 

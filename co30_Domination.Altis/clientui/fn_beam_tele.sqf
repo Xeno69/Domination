@@ -49,7 +49,7 @@ if (d_beam_target == "D_BASE_D") then {
 				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 					_respawn_target = _x;
 				};
-			} forEach (units group player);
+			} forEach (units player);
 		};
 		
 		private _emptycargo = [0, (vehicle _respawn_target) emptyPositions "cargo"] select (!isNull objectParent _respawn_target);
