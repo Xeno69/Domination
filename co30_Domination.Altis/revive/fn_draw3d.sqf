@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (alive player && {xr_uncon_units isNotEqualTo []}) then {
 	private _cam2world = positionCameraToWorld [0,0,0];

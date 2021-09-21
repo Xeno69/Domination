@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (isNil "xr_with_marker") then {
 	xr_with_marker = true;

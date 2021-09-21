@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 private _dragee = player getVariable "xr_cursorTarget";
 

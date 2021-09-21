@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 #define __d_textsize_dr3d  0.03333
 
@@ -27,11 +27,11 @@ private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_
 				_rsize = 0.4;
 				if (_distu <= 200) then {
 					_tex = [_x] call _fnc_ghpn;
-					__TRACE_1("1","_tex")
+					//__TRACE_1("1","_tex")
 					if (isNil "_tex") then {_tex = name _x};
-					__TRACE_1("2","_tex")
+					//__TRACE_1("2","_tex")
 					_hh = _x call _fnc_grp;
-					__TRACE_1("","_hh")
+					//__TRACE_1("","_hh")
 					_rtex = _hh # 0;
 					_rsize = _hh # 1;
 				} else {

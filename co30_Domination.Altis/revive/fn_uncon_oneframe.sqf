@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 #define __spectdlg1005 ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1005)
 #define __spectdlg1006 ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1006)
@@ -43,19 +43,19 @@ if (xr_u_respawn != -1 && {!xr_respawn_available && {time >= xr_u_respawn}}) the
 	xr_respawn_available = true;
 };
 if (_tt <= 0) exitWith {
-	__TRACE("_tt < =0, exit")
+	//__TRACE("_tt < =0, exit")
 	if (xr_with_marker) then {
 		xr_strpldead remoteExecCall ["deleteMarker", 2];
 	};
 	player remoteExecCall ["xr_fnc_removeActions", d_own_sides_o];
 	xr_u_remactions = true;
-	__TRACE("_tt <= 0, black out")
+	//__TRACE("_tt <= 0, black out")
 	"xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_932", "BLACK OUT", 1];
 	0 spawn {
 		scriptName "spawn xr uncon oneframe";
 		sleep 1;
 		closeDialog 0;
-		__TRACE("_tt stopspect = true")
+		//__TRACE("_tt stopspect = true")
 		xr_stopspect = true;
 		sleep 1.3;
 		//player setPos (markerPos "base_spawn_1");
@@ -69,7 +69,7 @@ if (_tt <= 0) exitWith {
 			player setVariable ["d_move_stop", nil];
 		};
 		sleep 1.3;
-		__TRACE("time over black in")
+		//__TRACE("time over black in")
 		"xr_revtxt" cutText ["","BLACK IN", 2];
 		xr_pl_has_pos_changed = false;
 		player setVariable ["xr_pluncon", false, true];
@@ -91,7 +91,7 @@ if (xr_with_marker) then {
 	// adjust marker if uncon player gets moved. Can happen when he gets dragged/carried or when a apc hits him (flying miles away)
 	private _newplposm = getPosWorld player;
 	if (_newplposm distance2D xr_u_plposm > 5) then {
-		__TRACE_2("","xr_u_plposm","_newplposm")
+		//__TRACE_2("","xr_u_plposm","_newplposm")
 		xr_u_plposm = _newplposm;
 		xr_strpldead setMarkerPos _newplposm;
 	};

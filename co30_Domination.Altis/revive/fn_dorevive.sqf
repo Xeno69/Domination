@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};
 
-__TRACE("start")
+//__TRACE("start")
 if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 	if (xr_pl_can_revive) then {
 		if (xr_help_bonus > 0) then {
@@ -20,7 +20,7 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 				};
 				if (xr_max_lives > -1) then {
 					private _lives = (player getVariable "xr_lives") + xr_help_bonus;
-					__TRACE_1("","_lives")
+					//__TRACE_1("","_lives")
 					player setVariable ["xr_lives", _lives, true];
 					[getPlayerUID player, _lives] remoteExecCall ["d_fnc_ChangeRLifes", 2];
 				};
@@ -43,4 +43,4 @@ if (alive player && {alive (player getVariable "xr_cursorTarget")}) then {
 	};
 	[player] call d_fnc_medicequip;
 };
-__TRACE("end")
+//__TRACE("end")

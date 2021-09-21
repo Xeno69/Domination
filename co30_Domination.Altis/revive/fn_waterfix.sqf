@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};
 
-__TRACE("black out")
+//__TRACE("black out")
 "xr_revtxt_wf" cutText [localize "STR_DOM_MISSIONSTRING_920", "PLAIN"];
 #define __radius 20
 private _endpos = getPosWorld player;

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 #define __dspctrl(ctrlid) ((uiNamespace getVariable "xr_SpectDlg") displayCtrl ctrlid)
 #define __spectdlg1006e ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1006)
@@ -53,7 +53,7 @@ if (xr_MouseButtons # 0) then {
 
 private _helperls = [];
 if (time > xr_spect_timer) then {
-	__TRACE_1("","xr_spect_timer")
+	//__TRACE_1("","xr_spect_timer")
 	if (!xr_pl_no_lifes) then {
 		if (xr_x_withresp) then {
 			private _pic = player getVariable "d_p_icon";
@@ -117,7 +117,7 @@ if (time > xr_spect_timer) then {
 };
 
 if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
-	__TRACE_1("","xr_x_updatelb")
+	//__TRACE_1("","xr_x_updatelb")
 	xr_x_updatelb = false;
 	private _lbctr = (uiNamespace getVariable "xr_SpectDlg") displayCtrl 1000;
 	lbClear _lbctr;
@@ -129,7 +129,7 @@ if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
 		_lbctr lbSetPicture [_idx, _x # 3];
 		_lbctr lbSetColor [_idx, _x # 4];
 	} forEach _helperls;
-	__TRACE_1("","_helperls")
+	//__TRACE_1("","_helperls")
 	private _setidx = -1;
 	if (_helperls isNotEqualTo []) then {
 		lbSortByValue _lbctr;
@@ -141,7 +141,7 @@ if (xr_x_updatelb && {!isNil {uiNamespace getVariable "xr_SpectDlg"}}) then {
 			};
 		};
 	};
-	__TRACE_1("","_setidx")
+	//__TRACE_1("","_setidx")
 	if (_setidx != -1) then {_lbctr lbSetCurSel _setidx};
 };
 _helperls = nil;
@@ -159,9 +159,9 @@ if (!isNull xr_cur_world_obj && {xr_MouseButtons # 0 && {xr_cur_world_obj != xr_
 // user pressed ESC
 private _spectdisp = uiNamespace getVariable "xr_SpectDlg";
 if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_stopspect && {player getVariable "xr_pluncon"}}) then {
-	__TRACE("ctrl not shown anymore, black out")
+	//__TRACE("ctrl not shown anymore, black out")
 	"xr_revtxt" cutText ["","BLACK OUT", 1];
-	__TRACE("creating new dialog")
+	//__TRACE("creating new dialog")
 	createDialog "xr_SpectDlg";
 	private _disp = uiNamespace getVariable "xr_SpectDlg";
 	__dspctrl(1000) ctrlShow false;
@@ -207,7 +207,7 @@ if ((isNil "_spectdisp" || {!ctrlShown (_spectdisp displayCtrl 1002)}) && {!xr_s
 		__dspctrl(1010) ctrlSetText (name _visobj);
 	};
 	xr_spect_timer = -1;
-	__TRACE("ctrl not shown anymore, black in")
+	//__TRACE("ctrl not shown anymore, black in")
 	"xr_revtxt" cutText ["","BLACK IN", 1];
 };
 if (isNull xr_spectcamtarget) then { // player disconnect !?!

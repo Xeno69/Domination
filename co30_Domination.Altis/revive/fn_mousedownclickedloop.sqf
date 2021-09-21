@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};
 
-__TRACE("on")
+//__TRACE("on")
 xr_mousecheckon = true;
 while {xr_MouseButtons # 1 || {xr_MouseButtons # 0 || {!isNil "xr_mouse_end"}}} do {
 	if (!(xr_MouseButtons # 0) && {xr_MouseButtons # 1}) then {
@@ -45,4 +45,4 @@ while {xr_MouseButtons # 1 || {xr_MouseButtons # 0 || {!isNil "xr_mouse_end"}}} 
 };
 xr_mousecheckon = false;
 xr_mouse_end = nil;
-__TRACE("off")
+//__TRACE("off")
