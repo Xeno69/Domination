@@ -1,7 +1,7 @@
 4.56
 
 ATTENTION: Globhal Mobilization Weferlingen misson.sqm files have changed!!!
-ATTENTION2: The scripts in two folders of the Altis Blufor version are compiled with the ArmaScriptCompiler (sqfc files). Please report problems asap (though it should work fine)
+ATTENTION2: The scripts in the clientui, common, cba and revive folders are compiled with the ArmaScriptCompiler (sqfc files). Please report problems asap (though it should work fine and I'll convert all folders to make them work with ASC)
 
 - Added: d_sm_vec_weighting to dom_settings table (one can set the weight for selectRandomWeight function for planes, helicopters, tanks and other vehicles in there)
 - Added: Parameter d_WithVoicesDisabled (default 0) to disable voices, currently only works for VN map using their module, by longtimegamer
