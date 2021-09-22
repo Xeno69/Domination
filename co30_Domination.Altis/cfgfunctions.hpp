@@ -654,6 +654,7 @@ class cfgFunctions {
 			addc(sendttpoints);
 			addc(addplscore);
 			addc(camps_workaround);
+			addc(ambientanimals);
 		};
 		class Dom_PrePostInit {
 			file = "init";

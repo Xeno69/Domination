@@ -768,7 +768,6 @@ if (isServer) then {
 				0 setFog [0, 0, 0];
 			};
 		};
-		forceWeatherChange;
 		if (d_WithWinterWeather == 0) then {
 			d_winterw = [0, [2, 1] select (rain <= 0.3)] select (overcast > 0.5);
 			publicVariable "d_winterw";
@@ -785,6 +784,7 @@ if (isServer) then {
 			};
 		};
 	};
+	forceWeatherChange;
 
 	if (d_timemultiplier > 1) then {
 		setTimeMultiplier d_timemultiplier;

@@ -13,6 +13,9 @@ ATTENTION2: The scripts in two folders of the Altis Blufor version are compiled 
 - Added: If a database is available a logged in admin can add up to 10000 score points to another player
 - Added: Workaround for camps stall when AI is stuck inside a nearby rock for example (all barracks must be destroyed and just a few enemy units left, after that a 6 minute timer starts)
 - Added: Bridge layer BrPz1 in the Global Mobilization versions
+- Added: Stream friendly player names, ides player names when stream friendly UI is enabled, by longtimegamer
+- Added: Adaptive settings for number of civilians, lay down behavior timer, walking civs can now be threatened and will sometimes low crawl or middle walk, by longtimegamer
+- Added: Ambientanimals for main targets (currently only available on Altis), by Lelik
 - Changed: Side mission bonus vehicles are no longer selected consecutively
 - Changed: Recruit terminal in Altis Blufor version moved closer to spawn point
 - Changed: You have to take barracks and vehicle MHQs in the Unsung version instead of destroying them 

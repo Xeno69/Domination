@@ -326,6 +326,9 @@ sleep 0.1;
 if (d_IllumMainTarget == 0) then {
 	[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
 };
+if (worldname == "Altis") then {
+	[_trg_center, _mtradius] spawn d_fnc_ambientanimals;
+};
 
 sleep 5.213;
 d_main_target_ready = true;

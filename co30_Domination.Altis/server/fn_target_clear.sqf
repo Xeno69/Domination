@@ -180,6 +180,16 @@ private _del_camps_stuff = [];
 		_del_camps_stuff pushBack _flag;
 	};
 } forEach d_currentcamps;
+
+sleep 0.1;
+
+if (!isNil "d_cur_tgt_animals_units") then {
+	{
+		deleteVehicle _x;
+	} forEach d_cur_tgt_animals_units;
+	d_cur_tgt_animals_units = [];
+};
+
 sleep 0.1;
 d_currentcamps = [];
 publicVariable "d_currentcamps";
