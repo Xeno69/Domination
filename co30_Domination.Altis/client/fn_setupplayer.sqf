@@ -665,12 +665,14 @@ if (d_ParaAtBase == 1) then {
 		d_showPlayerNameRSC_shown = false;
 		d_pnhuddo2_frskip = 0;
 
-		if (d_show_pname_hud) then {
-			d_pl_name_huddo_ar = [];
-			["dom_fillname_huddo", {call d_fnc_fillname_huddo}] call d_fnc_eachframeadd;
-			d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
-		} else {
-			["dom_player_hud2", {call d_fnc_player_name_huddo2}] call d_fnc_eachframeadd;
+		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
+			if (d_show_pname_hud) then {
+				d_pl_name_huddo_ar = [];
+				["dom_fillname_huddo", {call d_fnc_fillname_huddo}] call d_fnc_eachframeadd;
+				d_phudraw3d = addMissionEventHandler ["Draw3D", {call d_fnc_player_name_huddo}];
+			} else {
+				["dom_player_hud2", {call d_fnc_player_name_huddo2}] call d_fnc_eachframeadd;
+			};
 		};
 	};
 //};
