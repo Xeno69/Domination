@@ -5,11 +5,10 @@ if !(isServer) exitWith {};
 
 params ["_poss", ["_createarmor", false], ["_createinf", false]];
 
-
-_createarmor = false;_createinf = false;
+__TRACE_1("","_this")
 
 if (_createarmor) then {
-sleep 2.22;
+	sleep 2.22;
 	__TRACE("Creating armor")
 	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _poss, 1, 400, true] spawn d_fnc_CreateArmor;
 	sleep 1;
