@@ -1,7 +1,7 @@
 4.56
 
 ATTENTION: Globhal Mobilization Weferlingen misson.sqm files have changed!!!
-ATTENTION2: The scripts in the clientui, common, cba and revive folders are compiled with the ArmaScriptCompiler (sqfc files). Please report problems asap (though it should work fine and I'll convert all folders to make them work with ASC)
+ATTENTION2: Scripts in virtually all folders are compiled with the ArmaScriptCompiler (sqfc files). Please report problems asap (though it should work fine)
 
 - Added: d_sm_vec_weighting to dom_settings table (one can set the weight for selectRandomWeight function for planes, helicopters, tanks and other vehicles in there)
 - Added: Parameter d_WithVoicesDisabled (default 0) to disable voices, currently only works for VN map using their module, by longtimegamer
@@ -34,6 +34,7 @@ ATTENTION2: The scripts in the clientui, common, cba and revive folders are comp
 - Fixed: It could happen that already respawned vehicles were still drawn on the map
 - Fixed: Marked for death never failed when target was killed, vip defend map icon in wrong place, by longtimegamer
 - Fixed: Some cargo containers have building positions but can't be opened resulting in AI stuck inside (occupy buildings)
+- Fixed: RHS stun grenades are no longer causing a shooting at player message
 - Optimized: Do not spawn commander in AI vehicles
 - Optimized: Make use of new 2.06 scripting commands where possible
 - Tweaked: Spawn factor variables

@@ -1,9 +1,14 @@
 {
   "inputDirs": [
-	"E:/DomSQFC/clientui/",
-	"E:/DomSQFC/common/",
+	"E:/DomSQFC/ar/",
 	"E:/DomSQFC/cba/",
-	"E:/DomSQFC/revive/"
+	"E:/DomSQFC/client/",
+	"E:/DomSQFC/clientui/",
+	"E:/DomSQFC/missions/",
+	"E:/DomSQFC/common/",
+	"E:/DomSQFC/revive/",
+	"E:/DomSQFC/scripts/",
+	"E:/DomSQFC/server/"
   ],
   "includePaths": [
     "E:/"
