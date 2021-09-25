@@ -35,6 +35,7 @@ ATTENTION2: Scripts in virtually all folders are compiled with the ArmaScriptCom
 - Fixed: Marked for death never failed when target was killed, vip defend map icon in wrong place, by longtimegamer
 - Fixed: Some cargo containers have building positions but can't be opened resulting in AI stuck inside (occupy buildings)
 - Fixed: RHS stun grenades are no longer causing a shooting at player message
+- Fixed: findSafePos should find positions on roads, trails and tracks again
 - Optimized: Do not spawn commander in AI vehicles
 - Optimized: Make use of new 2.06 scripting commands where possible
 - Tweaked: Spawn factor variables

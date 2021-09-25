@@ -114,7 +114,7 @@ publicVariable "d_priority_targets";
 private _parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {
 	diag_log "DOM Createmaintarget: Couldn't find enough positions with minimum distance 11m from next object, trying again without check!";
-	_parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+	_parray = [_trg_center, _radius + 150, 6, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 };
 
 __TRACE_1("","_parray")
