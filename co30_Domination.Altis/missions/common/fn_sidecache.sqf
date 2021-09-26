@@ -54,6 +54,32 @@ while {!_created} do {
 #endif
 				clearWeaponCargoGlobal _cache;
 				_cache setVariable ["d_nocheck", true, true];
+				private _unitstog = [
+					[[[_pos, 30]],[]] call BIS_fnc_randomPos,
+					selectRandom [3, 4, 5],			//unit count
+					-1,		//fillRadius
+					false,		//fillRoof
+					false,		//fillEvenly
+					false,		//fillTopDown
+					false,		//disableTeleport
+					0		//unitMovementMode
+				] call d_fnc_garrisonUnits;
+				d_x_sm_rem_ar append _unitstog;
+				sleep 1;
+				for "_ii" from 0 to 1 do {
+					_unitstog = [
+						[[[_pos, 30]],[]] call BIS_fnc_randomPos,
+						selectRandom [2, 3, 4],			//unit count
+						50,		//fillRadius
+						false,		//fillRoof
+						false,		//fillEvenly
+						false,		//fillTopDown
+						false,		//disableTeleport
+						0		//unitMovementMode
+					] call d_fnc_garrisonUnits;
+					d_x_sm_rem_ar append _unitstog;
+					sleep 1;
+				};
 			};
 		};
 	} else {
