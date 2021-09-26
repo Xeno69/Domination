@@ -37,6 +37,7 @@ ATTENTION2: Scripts in virtually all folders are compiled with the ArmaScriptCom
 - Fixed: RHS stun grenades are no longer causing a shooting at player message
 - Fixed: findSafePos should find positions on roads, trails and tracks again
 - Fixed: Enemy was completely missing in cache side missions
+- Fixed: Do not automatically reduce viewdistance at main targets when fage UAV is on
 - Optimized: Do not spawn commander in AI vehicles
 - Optimized: Make use of new 2.06 scripting commands where possible
 - Tweaked: Spawn factor variables
