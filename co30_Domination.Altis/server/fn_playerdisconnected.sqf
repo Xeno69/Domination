@@ -60,6 +60,9 @@ private _pa = d_player_hash getOrDefault [_uid, []];
 if (_pa isEqualTo []) exitWith {
 	diag_log ["DOM playerdisconnected uid not found in player hash, _this:", _this];
 };
+
+diag_log ["DOM playerdisconnected _unit:", _unit];
+
 private _ps = if (!isNull _unit) then {getPlayerScores _unit} else {_pa # 12};
 private _scpl = if (!isNull _unit) then {score _unit} else {-1};
 __TRACE_1("","_scpl")
