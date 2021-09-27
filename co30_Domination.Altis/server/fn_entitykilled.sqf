@@ -135,7 +135,7 @@ if (_ar # 17 == 1) then {
 	_obj setFuel 0.05;
 };
 
-if (_ar # 20 == 1) then {
+if (_ar # 19 == 1) then {
 	d_priority_targets = [];
 	publicVariable "d_priority_targets";
 };
