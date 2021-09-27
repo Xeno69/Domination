@@ -31,13 +31,7 @@ publicVariable "d_priority_targets";
 _event_target = d_priority_targets # 0;
 _event_target_name = name _event_target;
 
-_event_target addMPEventHandler ["MPKilled", {
-	if (isServer) then {
-		// reset
-		d_priority_targets = [];
-		publicVariable "d_priority_targets";
-	};
-}];
+[_event_target, 20] call d_fnc_setekmode;
 
 diag_log [format["markedfordeath begins start time: %1 _event_target_name: %2", _event_start_time, _event_target_name]];
 d_kb_logic1 kbTell [

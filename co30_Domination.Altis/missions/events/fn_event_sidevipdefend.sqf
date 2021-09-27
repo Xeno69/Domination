@@ -102,13 +102,7 @@ _pilot1 setUnconscious true;
 
 _event_target_name = name _pilot1;
 
-_pilot1 addMPEventHandler ["MPKilled", {
-	if (isServer) then {
-		// reset
-		d_priority_targets = [];
-		publicVariable "d_priority_targets";
-	};
-}];
+[_pilot1, 20] call d_fnc_setekmode;
 
 diag_log [format["vipdefend begins start time: %1 _event_target_name: %2", _event_start_time, _event_target_name]];
 d_kb_logic1 kbTell [
