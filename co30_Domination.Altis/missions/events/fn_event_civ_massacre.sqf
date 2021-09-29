@@ -39,6 +39,9 @@ d_kb_logic1 kbTell [
 d_civ_massacre = true;
 publicVariable "d_civ_massacre";
 
+private _event_description = format [localize "STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE", _civ_count_endangered];
+d_mt_event_messages_array pushBack _event_description;
+publicVariable "d_mt_event_messages_array";
 
 waitUntil {sleep 5; d_mt_done};
 
@@ -63,3 +66,5 @@ d_kb_logic1 kbTell [
 deleteVehicle _trigger;
 d_civ_massacre = false;
 publicVariable "d_civ_massacre";
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _event_description);
+publicVariable "d_mt_event_messages_array";
