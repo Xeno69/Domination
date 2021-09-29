@@ -470,10 +470,6 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 if (d_enable_civ_vehs > 0) then {
 	_roadList = _trg_center nearroads d_enable_civ_vehs_rad;
 	
-	if (isNil "d_cur_tgt_civ_vehicles") then {
-		d_cur_tgt_civ_vehicles = [];
-	};
-	
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
@@ -783,6 +779,9 @@ if (d_with_MainTargetEvents != 0) then {
 			};
 			case "KILL_TRIGGERMAN": {
 				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
+			};
+			case "CIV_MASSACRE": {
+				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
 			};
 		};
 	};
