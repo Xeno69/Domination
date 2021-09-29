@@ -67,6 +67,15 @@ while {true} do {
 		} forEach (_unit nearEntities _awarenessRadius);
 		__TRACE_1("","_Dtargets")
 		
+		if (d_civ_massacre) then {
+			// these enemies are attacking civs, add nearby civs to _Dtargets array
+			{
+				if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
+					_Dtargets pushBack [_x distance2D _unit, _x];
+				};
+			} forEach (nearestObjects [_unit, ["Man"], 50]);
+		};
+		
 		private _fired = false;
 		private _targets = [];
 		
@@ -92,6 +101,10 @@ while {true} do {
 							//to check if unit actually fired
 							_ammoCount = _unit ammo primaryWeapon _unit;
 							_magazineCount = count magazinesAmmo _unit; 
+							if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
+								// targeting a civ, make the civ a renegade so enemy will engage
+								_x addRating -10000;
+							};
 							// execute aggressive shooting
 							_unit doTarget _x;
 							_unit doSuppressiveFire _x;

@@ -490,6 +490,21 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class MTEventCivMassacre {
+		text = "$STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventCivMassacreEnded {
+		text = "$STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE_END";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
 };
 class Arguments{};
 class Special{};
