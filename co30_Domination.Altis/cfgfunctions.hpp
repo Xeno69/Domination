@@ -421,6 +421,7 @@ class cfgFunctions {
 			addc(smcough);
 			addc(remactionssm);
 			addc(smsvpos);
+			addc(clear_smtrees);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
