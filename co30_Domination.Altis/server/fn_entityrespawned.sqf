@@ -11,7 +11,7 @@ if (d_MissionType != 2) then {
 };
 
 #ifndef __TT__
-_pl call d_fnc_addceo;
+[_pl] call d_fnc_addceo;
 #endif
 
 true
