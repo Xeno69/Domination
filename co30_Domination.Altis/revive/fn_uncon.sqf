@@ -143,7 +143,10 @@ d_uncon_finally_over = false;
 			};
 			d_uncon_finally_over = true;
 		};
-		player remoteExecCall ["xr_fnc_announcenearrem", d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}}];
+		private _d_a_p = d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}};
+		if (_d_a_p isNotEqualTo []) then {
+			player remoteExecCall ["xr_fnc_announcenearrem", _d_a_p];
+		};
 		//__TRACE("uncon ended, one frame removed")
 	};
 }, 0.02] call d_fnc_eachframeadd;
