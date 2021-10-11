@@ -183,7 +183,7 @@ if (!_success) then {
 	deleteVehicle _pilot1;
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 };
 
 deleteVehicle _trigger;

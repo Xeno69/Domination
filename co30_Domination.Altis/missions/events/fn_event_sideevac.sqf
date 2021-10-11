@@ -202,7 +202,7 @@ if (_is_dead_all) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 };
 
 sleep 5.432;

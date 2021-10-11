@@ -175,7 +175,7 @@ if (_all_dead) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
