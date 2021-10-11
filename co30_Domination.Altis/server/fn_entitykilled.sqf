@@ -29,6 +29,7 @@ if (_ar # 18 == 1) exitWith {
 	if (_ar # 19 == 1) then {
 		d_priority_targets = [];
 		publicVariable "d_priority_targets";
+		[_obj, 19, 0] call d_fnc_setekmode;
 	};
 	true
 };

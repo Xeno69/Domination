@@ -18,18 +18,15 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _trigger = [_target_center, [(d_cur_target_radius * 0.50),(d_cur_target_radius * 0.50),0,false,10], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start_time', time];",""]] call d_fnc_CreateTriggerLocal;
 
-private _event_start_time = nil;
-private _event_target = nil;
-private _event_target_name = nil;
 private _event_survive_time = 180; // in seconds
 private _event_succeed_points = 5;
 
-waitUntil {sleep 5;!isNil {_trigger getVariable "d_event_start_time"}};
-_event_start_time = _trigger getVariable "d_event_start_time";
+waitUntil {sleep 5; !isNil {_trigger getVariable "d_event_start_time"}};
+private _event_start_time = _trigger getVariable "d_event_start_time";
 d_priority_targets pushBack ([allPlayers - (entities "HeadlessClient_F"), _target_center] call BIS_fnc_nearestPosition);
 publicVariable "d_priority_targets";
-_event_target = d_priority_targets # 0;
-_event_target_name = name _event_target;
+private _event_target = d_priority_targets # 0;
+private _event_target_name = name _event_target;
 
 [_event_target, 19] call d_fnc_setekmode;
 
@@ -48,7 +45,11 @@ d_mt_event_messages_array pushBack _event_description;
 publicVariable "d_mt_event_messages_array";
 
 // waitUntil either killed EH or _event_survive_time duration
-waitUntil {sleep 3;d_priority_targets isEqualTo []  || {(time - _event_start_time) > _event_survive_time}};
+waitUntil {sleep 3; d_priority_targets isEqualTo [] || {(time - _event_start_time) > _event_survive_time}};
+
+if (!isNull _event_target) then {
+	[_event_target, 19, 0] call d_fnc_setekmode;
+};
 
 diag_log ["markedfordeath ended"];
 
@@ -61,7 +62,7 @@ if (d_priority_targets isEqualTo []) then {
     	"PlayerMarkedForDeathFail",
     	["1", "", _event_target_name, []],
     	["2", "", str _fail_survive_time, []],
-    	d_kbtel_chan
+		d_kbtel_chan
     ];
 } else {
 	diag_log ["markedfordeath success"];
