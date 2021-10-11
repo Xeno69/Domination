@@ -26,6 +26,10 @@ __TRACE_2("","_obj","_ar")
 #ifndef __TT__
 if (_ar # 18 == 1) exitWith {
 	call d_fnc_plcheckkill;
+	if (_ar # 19 == 1) then {
+		d_priority_targets = [];
+		publicVariable "d_priority_targets";
+	};
 	true
 };
 #else

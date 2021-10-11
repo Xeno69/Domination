@@ -26,7 +26,7 @@ private _event_succeed_points = 5;
 
 waitUntil {sleep 5;!isNil {_trigger getVariable "d_event_start_time"}};
 _event_start_time = _trigger getVariable "d_event_start_time";
-d_priority_targets pushBack ([allPlayers, _target_center] call BIS_fnc_nearestPosition);
+d_priority_targets pushBack ([allPlayers - (entities "HeadlessClient_F"), _target_center] call BIS_fnc_nearestPosition);
 publicVariable "d_priority_targets";
 _event_target = d_priority_targets # 0;
 _event_target_name = name _event_target;

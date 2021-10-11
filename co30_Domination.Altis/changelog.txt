@@ -2,3 +2,4 @@
 
 - Fixed: Player 3D markers were not available after respawn in Zeus
 - Fixed: Wrong variable name in fn_sidearty.sqf
+- Fixed: Main target event "marked for death" didn't work correctly
