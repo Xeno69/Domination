@@ -54,7 +54,7 @@ d_civArray = [
 		"CUP_C_C_Worker_03",
 		"CUP_C_C_Worker_04",
 		"CUP_C_C_Profiteer_01",
-		"CUP_U_C_Profiteer_01",
+		"CUP_C_C_Profiteer_01",
 		"CUP_C_C_Profiteer_02",
 		"CUP_C_C_Profiteer_03",
 		"CUP_C_C_Profiteer_04",
