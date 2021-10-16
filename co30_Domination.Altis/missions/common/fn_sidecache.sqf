@@ -43,10 +43,11 @@ while {!_created} do {
 			_pos set [2, (_pos # 2) + 0.3];
 			__TRACE_1("","_pos")
 			_cache = createVehicle [selectRandom d_sm_cache, _pos, [], 0, "NONE"];
-			_cache setPos _pos;
-			_cache setDir ceil random 360;
-			__TRACE_1("","_cache")
 			if (!isNull _cache) then {
+				_cache setPos _pos;
+				_cache setDir ceil random 360;
+				__TRACE_1("","_cache")
+			
 				_cache call d_fnc_addKilledEHSM;
 				_created = true;
 #ifdef __DEBUG__

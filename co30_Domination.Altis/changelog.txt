@@ -4,3 +4,4 @@
 - Fixed: Wrong variable name in fn_sidearty.sqf
 - Fixed: Main target event "marked for death" didn't work correctly
 - Fixed: CUP civilian profiteer classname in civilianmodule
+- Fixed: Garrison units script errors
