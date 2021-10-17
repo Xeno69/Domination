@@ -1,7 +1,9 @@
 4.57
 
+- Changed: Larger search radius (75m) for AI when civilian massacre is triggered, by longtimegamer
 - Fixed: Player 3D markers were not available after respawn in Zeus
 - Fixed: Wrong variable name in fn_sidearty.sqf
 - Fixed: Main target event "marked for death" didn't work correctly
 - Fixed: CUP civilian profiteer classname in civilianmodule
 - Fixed: Garrison units script errors
+- Fixed: auto viewdistance server-side override was not working, by longtimegamer
