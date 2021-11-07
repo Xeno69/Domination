@@ -89,7 +89,7 @@ d_arsenal_opened = false;
 player disableConversation true;
 enableSentences false;
 
-if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
+if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 	[] spawn d_fnc_showhud;
 };
 

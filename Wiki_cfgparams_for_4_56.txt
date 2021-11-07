@@ -138,6 +138,9 @@
 #### **d_ViewdistanceChange / Viewdistance changable:**
 > Default: 0 (Yes, enabled; 1 or No for no vd change)<br/>
 > If disabled players can not change their client viewdistance<br/>
+#### **d_AutoViewdistanceChangeDefault / Initial client setting to automatically change viewdistance near targets:**
+> Default: 1 (Yes, enabled; 0 or No for no automatic vd change)<br/>
+> If disabled client will default to not automatically change viewdistance but may still be enabled by the player<br/>
 #### **d_playerspectateatbase / Player can spectate other players at base flag:**
 > Default: 0 (Yes, enabled; 1 or No too disable)<br/>
 #### **d_with_ai / With AI recruitment:**
@@ -207,7 +210,7 @@
 >   - Marker only (2)<br/>
 >   - Health (3)<br/>
 #### **d_force_isstreamfriendlyui / Force no HUD**
-> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+> Default: 0 (No, disabled; 1 or Yes to enable it)<br/> 
 #### **d_WithAmbientRadio / With ambient radio:**
 > Default: 1 (Yes, enabled; 0 or No to disable<br/>
 #### **d_with_3Dicon / With 3D draw icon above wreck repair/ammo point:**

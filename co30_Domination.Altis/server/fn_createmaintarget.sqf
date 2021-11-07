@@ -828,3 +828,19 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 };
 #endif
+
+#ifdef __VN__
+// on SOG maps AI navigation is broken by dykes around the rice paddies, fix from johnnyboy
+// https://forums.bohemia.net/forums/topic/234952-enable-prairie-fire-dlc-ai-to-navigate-rice-paddies/
+{ 
+_mapDyke = _x; 
+_dyke = createSimpleObject ["vn\env_assets_f_vietnam\dykes\vn_dyke_10.p3d", [0,0,0]];  
+_dir = getDir _mapDyke; 
+_pos = getpos _mapDyke; 
+hideObjectGlobal _mapDyke; 
+_dyke setDir _dir; 
+_dyke setpos [_pos#0,_pos#1,.3]; 
+} foreach ([nearestTerrainObjects [_trg_center, [], 1000],  
+  {(getModelInfo _x # 1) find "vn_dyke"> 0 }  
+  ] call BIS_fnc_conditionalSelect);
+#endif
