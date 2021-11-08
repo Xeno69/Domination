@@ -104,6 +104,7 @@ while {true} do {
 							if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
 								// targeting a civ, make the civ a renegade so enemy will engage
 								_x addRating -10000;
+								_x forceSpeed -1; // allow the targeted civilian to move, why not
 							};
 							// execute aggressive shooting
 							_unit doTarget _x;
