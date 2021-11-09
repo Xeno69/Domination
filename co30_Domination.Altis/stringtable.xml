@@ -7200,6 +7200,18 @@
 <Chinese>無限</Chinese>
 <French>Infini</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FAST_INTRO">
+<English>Force fast intro:</English>
+<Spanish>Force fast intro:</Spanish>
+<Portuguese>Force fast intro:</Portuguese>
+<Korean>Force fast intro:</Korean>
+<Japanese>Force fast intro:</Japanese>
+<Original>Force fast intro:</Original>
+<Russian>Force fast intro:</Russian>
+<Chinesesimp>Force fast intro:</Chinesesimp>
+<Chinese>Force fast intro:</Chinese>
+<French>Force fast intro:</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1159">
 <English>Show player names:</English>
 <Spanish>Mostrar nombre de jugadores:</Spanish>
