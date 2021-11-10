@@ -1222,7 +1222,7 @@ __TRACE_1("","d_isvdreduced")
 0 spawn d_fnc_gimmick;
 
 if (isMultiplayer) then {
-	if (!d_ifa3lite && {!d_vn}) then {
+	if (d_force_fast_intro == 1 || {!d_ifa3lite && {!d_vn}}) then {
 		0 spawn d_fnc_intro2;
 	} else {
 		0 spawn d_fnc_intro;

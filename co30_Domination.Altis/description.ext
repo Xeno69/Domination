@@ -1001,6 +1001,13 @@ class Params {
 		default = -66;
 		texts[] = {""};
 	};
+	
+	class d_force_fast_intro {
+		title = "$STR_DOM_MISSIONSTRING_FAST_INTRO";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_show_playernames {
 		title = "$STR_DOM_MISSIONSTRING_1159";
