@@ -116,6 +116,10 @@ sleep 2.333;
 _marker = ["d_mt_event_marker_guerrillainfantry", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_GUERRILLAS", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
 [_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
+if (!isNil "d_event_trigger_tanks_guerr") then {
+	d_event_trigger_tanks_guerr setVariable ["d_event_start", true, true];
+};
+
 while {sleep 1; !d_mt_done} do {
 	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
 	
