@@ -138,7 +138,7 @@
 #### **d_ViewdistanceChange / Viewdistance changable:**
 > Default: 0 (Yes, enabled; 1 or No for no vd change)<br/>
 > If disabled players can not change their client viewdistance<br/>
-#### **d_AutoViewdistanceChangeDefault / Initial client setting to automatically change viewdistance near targets:**
+#### **d_AutoViewdistanceChangeDefault / Initial client setting to automatically change view distance near targets:**
 > Default: 1 (Yes, enabled; 0 or No for no automatic vd change)<br/>
 > If disabled client will default to not automatically change viewdistance but may still be enabled by the player<br/>
 #### **d_playerspectateatbase / Player can spectate other players at base flag:**
