@@ -35,7 +35,7 @@ while {true} do {
 			if (d_ws) exitWith {
 				_obj attachTo [_x, [0.5, 0, 1.2 + _z]];
 			};
-			_obj attachTo [_x, [0, 0, 0.83 + _z]];
+			_obj attachTo [_x, [0, 0, 0.7 + _z]];
 		};
 		_obj setObjectScale 0.1;
 		_cnamesew = _cnamesew - [_curname];
