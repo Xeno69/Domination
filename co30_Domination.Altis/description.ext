@@ -32,7 +32,7 @@ class CfgWorlds {
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization, S.O.G. Prairie Fire and CSLA",
+			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization, S.O.G. Prairie Fire, CSLA and Western Sahara",
 			"There is also a PvPvE Domination TT (Two Teams) version available",
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
@@ -42,7 +42,7 @@ class CfgWorlds {
 	};
 };
 
-enableDebugConsole = 1;
+//enableDebugConsole = 1;
 
 class Header {
 #ifndef __TT__
@@ -86,6 +86,9 @@ class Header {
 #endif
 #ifdef __VNCLN__
 	maxPlayers = 46;
+#endif
+#ifdef __WS__
+	maxPlayers = 21;
 #endif
 };
 
@@ -370,6 +373,10 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30,37};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30",37};
 #endif
+#ifdef __WS__
+		values[] = {9998,9999,2,4,6,8,10,12,14};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14"};
+#endif
 		default = 9998;
 	};
 
@@ -417,6 +424,9 @@ class Params {
 #endif
 #ifdef __VNCLN__
 		default = 7;
+#endif
+#ifdef __WS__
+		default = 5;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
@@ -565,6 +575,9 @@ class Params {
 #ifdef __VNCLN__
 		default = 0;
 #endif
+#ifdef __WS__
+		default = 1;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
@@ -699,6 +712,9 @@ class Params {
 #endif
 #ifdef __VNCLN__
 		default = 1;
+#endif
+#ifdef __WS__
+		default = 0;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
@@ -2260,6 +2276,16 @@ class CfgIdentities {
 	class VNDHQ_OP2: DHQ_BF1 {
 		name = "Min Duong";
 		speaker = "male02chi";
+	};
+#endif
+#ifdef __WS__
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
 	};
 #endif
 };

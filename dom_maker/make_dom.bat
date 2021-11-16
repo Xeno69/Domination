@@ -10,8 +10,8 @@ set D_BNVER=4.57
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
-set D_DO_ASC=1
-set D_DO_ASC_ALL=1
+rem set D_DO_ASC=1
+rem set D_DO_ASC_ALL=1
 
 set CUR_DIR=%cd%
 set WORK_DIR=E:\DomSQFC
@@ -57,6 +57,39 @@ rmdir /S /Q %WORK_DIR%
 
 rem goto cleanup
 rem exit
+
+rem Blufor Western Sahara
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_ws.lxWestSahara
+set MISSION_SQM=..\mission_sqm\mission_blufor_lxWestSahara_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_lxWestSahara.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+cd %WORK_DIR%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rmdir /S /Q ma3a
+cd CUR_DIR
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+makePbo -AJNP %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
 
 rem Blufor SOG Prairie
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_vn.cam_lao_nam

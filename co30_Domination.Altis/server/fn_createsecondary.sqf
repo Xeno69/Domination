@@ -10,12 +10,7 @@ params ["_wp_array", "_mtradius", "_trg_center"];
 
 sleep 1.120;
 
-private _mtmhandle = _this spawn d_fnc_getmtmission;
-
-while {true} do {
-	sleep 0.321;
-	if (scriptDone _mtmhandle) exitWith {};
-};
+_this call d_fnc_getmtmission;
 
 sleep 1.0123;
 

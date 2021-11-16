@@ -35,12 +35,7 @@ while {d_player_in_vec} do {
 		__TRACE_2("","_vec","_chopttype")
 		if (!_msgshown && {_chopttype > -1}) then {
 			_msgshown = true;
-			private _chop_welcome_scr = [_chopttype, _vec] spawn d_fnc_chopper_welcome2;
-			sleep 0.321;
-			while {true} do {
-				sleep 0.3;
-				if (scriptDone _chop_welcome_scr) exitWith {};
-			};
+			[_chopttype, _vec] call d_fnc_chopper_welcome2;
 		};
 		if (_chopttype in [0,1]) then {
 			private _search_height = 0;

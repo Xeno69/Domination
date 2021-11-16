@@ -57,8 +57,7 @@ _this spawn {
 				params ["_d_pos0"];
 				if (surfaceIsWater (getPosWorld player)) then {
 					//__TRACE("watferfix check start")
-					private _shandle = 0 spawn xr_fnc_waterfix;
-					waitUntil {scriptDone _shandle};
+					call xr_fnc_waterfix;
 					//__TRACE("watferfix done")
 					//__TRACE("playActionNow Die again because of waterfix")
 					player playActionNow "Die";

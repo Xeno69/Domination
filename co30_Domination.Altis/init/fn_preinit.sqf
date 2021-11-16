@@ -89,6 +89,12 @@ d_vn = true;
 d_vn = false;
 #endif
 
+#ifdef __WS__
+d_ws = true;
+#else
+d_ws = false;
+#endif
+
 d_HeliHEmpty = "Land_HelipadEmpty_F";
 
 // BLUFOR, OPFOR or INDEPENDENT for own side, setup in x_setup.sqf
@@ -207,6 +213,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __VN__
 #include "sm_bonus_vec_ar_vn.sqf"
 #endif
+#ifdef __WS__
+#include "sm_bonus_vec_ar_ws.sqf"
+#endif
 
 #ifdef __ALTIS__
 #include "mt_bonus_vec_ar_altis.sqf"
@@ -258,6 +267,9 @@ d_e_marker_color_alpha = 0.8;
 #endif
 #ifdef __VN__
 #include "mt_bonus_vec_ar_vn.sqf"
+#endif
+#ifdef __WS__
+#include "mt_bonus_vec_ar_ws.sqf"
 #endif
 
 #ifndef __TT__
@@ -375,6 +387,9 @@ d_cargotower =
 #ifdef __VN__
 	"";
 #endif
+#ifdef __WS__
+	"Land_Cargo_Tower_V3_F";
+#endif
 
 d_wcamp =
 #ifdef __ALTIS__
@@ -418,6 +433,9 @@ d_wcamp =
 #endif
 #ifdef __VN__
 	"Land_vn_strazni_vez";
+#endif
+#ifdef __WS__
+	"Land_Cargo_Patrol_V1_F";
 #endif
 
 #ifndef __VN__
@@ -851,6 +869,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 #include "d_allmen_O_default.sqf"
 #endif
+#ifdef __WS__
+#include "d_allmen_O_ws.sqf"
+#endif
 	];
 	
 	call {
@@ -933,6 +954,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 #include "d_allmen_G_default.sqf"
 #endif
+#ifdef __WS__
+#include "d_allmen_G_default.sqf"
+#endif
 	];
 
 	d_specops_E = [
@@ -988,6 +1012,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 #include "d_specops_O_default.sqf"
 #endif
+#ifdef __WS__
+	["O_SFIA_Soldier_TL_lxWS","O_SFIA_exp_lxWS","O_SFIA_exp_lxWS","O_SFIA_medic_lxWS","O_SFIA_Soldier_GL_lxWS","O_SFIA_soldier_at_lxWS"]
+#endif
 	];
 
 #ifdef __GMCWG__
@@ -1011,14 +1038,18 @@ if (!d_gmcwgwinter) then {
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup,["West","BLU_F","Infantry","BUS_ReconSquad"] call d_fnc_GetConfigGroup]
 	};
 
-	if (d_tanoa || {d_livonia}) then {
-		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup,["O_T_ghillie_tna_F","O_T_ghillie_tna_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"]];
-		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup,["B_T_ghillie_tna_F","B_T_ghillie_tna_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"]];
-		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+	if (!d_ws) then {
+		if (d_tanoa || {d_livonia}) then {
+			d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup,["O_T_ghillie_tna_F","O_T_ghillie_tna_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"]];
+			d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup,["B_T_ghillie_tna_F","B_T_ghillie_tna_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"]];
+			d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+		} else {
+			d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup,["O_ghillie_ard_F","O_ghillie_ard_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"],["O_ghillie_sard_F","O_ghillie_sard_F"]];
+			d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup,["B_ghillie_ard_F","B_ghillie_ard_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"],["B_ghillie_sard_F","B_ghillie_sard_F"]];
+			d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+		};
 	} else {
-		d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup,["O_ghillie_ard_F","O_ghillie_ard_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"],["O_ghillie_sard_F","O_ghillie_sard_F"]];
-		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup,["B_ghillie_ard_F","B_ghillie_ard_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"],["B_ghillie_sard_F","B_ghillie_sard_F"]];
-		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+		d_sniper_E = [["O_SFIA_sharpshooter_lxWS","O_SFIA_sharpshooter_lxWS"]];
 	};
 
 #ifdef __RHS__
@@ -1095,6 +1126,9 @@ if (!d_gmcwgwinter) then {
 	
 	d_sniper_W = [["US85_sfM21G", "US85_sfSptG"]];
 #endif
+#ifdef __WS__
+d_sabotage_E = [["O_SFIA_exp_lxWS"]];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
@@ -1144,6 +1178,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __CSLA__
 #include "d_veh_a_O_default.sqf"
+#endif
+#ifdef __WS__
+#include "d_veh_a_O_ws.sqf"
 #endif
 	];
 
@@ -1227,6 +1264,10 @@ if (!d_gmcwgwinter) then {
 #ifdef __CSLA__
 	d_arti_observer_W = [["US85_mcRTO"]];
 #endif
+#ifdef __WS__
+	d_arti_observer_E = [["O_Tura_watcher_lxWS"]];
+#endif
+
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
 	if (isNil "d_number_attack_planes") then {
@@ -1275,6 +1316,9 @@ if (!d_gmcwgwinter) then {
 			};
 			if (d_ifa3lite) exitWith {
 				""
+			};
+			if (d_ws) exitWith {
+				"B_D_Heli_Transport_01_lxWS"
 			};
 			"B_Heli_Transport_01_camo_F"
 		};
@@ -1328,6 +1372,9 @@ if (!d_gmcwgwinter) then {
 			};
 			if (d_vn) exitWith {
 				"vn_b_air_f4c_ucas"
+			};
+			if (d_ws) exitWith {
+				"B_D_Plane_CAS_01_dynamicLoadout_lxWS"
 			};
 			"B_Plane_CAS_01_F"
 		};
@@ -1428,6 +1475,9 @@ if (!d_gmcwgwinter) then {
 				if (d_vn) exitWith {
 					"vn_o_boat_03_02"
 				};
+				if (d_ws) exitWith {
+					"vn_o_boat_03_02"
+				};
 				"O_Boat_Armed_01_hmg_F"
 			};
 		};
@@ -1503,6 +1553,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __MALDEN__
 #include "d_compositions_default.sqf"
 #endif
+#ifdef __WS__
+#include "d_compositions_default.sqf"
+#endif
 
 	// max men for main target clear
 	d_man_count_for_target_clear = 6;
@@ -1549,6 +1602,9 @@ if (!d_gmcwgwinter) then {
 		if (d_csla) exitWith {
 			d_civilians_t = ["CSLA_CIV_Citizen","CSLA_CIV_Citizen_V2","CSLA_CIV_Citizen_V3","CSLA_CIV_Citizen_V4","CSLA_CIV_Doctor","CSLA_CIV_Foreman","CSLA_CIV_Foreman_V2","CSLA_CIV_Woodlander","CSLA_CIV_Woodlander_V2","CSLA_CIV_Woodlander_V3","CSLA_CIV_Woodlander_V4","CSLA_CIV_Functionary","CSLA_CIV_Functionary_V2","CSLA_CIV_Villager","CSLA_CIV_Villager_V2","CSLA_CIV_Villager_V3","CSLA_CIV_Villager_V4","CSLA_CIV_Worker","CSLA_CIV_Worker_V2","CSLA_CIV_Worker_V3","CSLA_CIV_Worker_V4"];
 		};
+		if (d_ws) exitWith {
+			d_civilians_t = ["C_Djella_01_lxWS","C_Djella_02_lxWS","C_Djella_03_lxWS","C_Djella_04_lxWS","C_Djella_05_lxWS","C_Tak_02_A_lxWS","C_Tak_02_B_lxWS","C_Tak_02_C_lxWS","C_Tak_03_A_lxWS","C_Tak_03_B_lxWS","C_Tak_03_C_lxWS","C_man_shorts_1_F_afro","C_Tak_01_A_lxWS","C_Tak_01_B_lxWS","C_Tak_01_C_lxWS"];
+		};
 		d_civilians_t = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F"];
 	};
 
@@ -1578,6 +1634,9 @@ if (!d_gmcwgwinter) then {
 		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_APC_Tracked_01_AA_F"
+		};
+		if (d_ws) exitWith {
+			"B_D_APC_Tracked_01_aa_lxWS"
 		};
 		"B_APC_Tracked_01_AA_F";
 	};
@@ -1629,6 +1688,9 @@ if (!d_gmcwgwinter) then {
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_MBT_01_cannon_F"
 		};
+		if (d_ws) exitWith {
+			"B_D_MBT_01_cannon_lxWS"
+		};
 		"B_MBT_01_cannon_F";
 	};
 #endif
@@ -1678,6 +1740,9 @@ if (!d_gmcwgwinter) then {
 		};
 		if (d_tanoa || {d_livonia}) exitWith {
 			"B_T_APC_Wheeled_01_cannon_F"
+		};
+		if (d_vn) exitWith {
+			"B_D_APC_Tracked_01_rcws_lxWS"
 		};
 		"B_APC_Wheeled_01_cannon_F";
 	};
@@ -1749,6 +1814,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __CSLA__
 #include "d_sm_classes_csla.sqf"
+#endif
+#ifdef __WS__
+#include "d_sm_classes_ws.sqf"
 #endif
 
 	d_intel_unit = objNull;
@@ -1852,6 +1920,9 @@ if (!d_gmcwgwinter) then {
 				if (d_ifa3lite) exitWith {
 					[]
 				};
+				if (d_ws) exitWith {
+					[]
+				};
 				["O_UAV_02_F","O_UAV_02_CAS_F","O_T_UAV_04_CAS_F"]
 			};
 		};
@@ -1912,6 +1983,9 @@ if (!d_gmcwgwinter) then {
 				};
 				if (d_vn) exitWith {
 					["vn_o_air_mi2_04_06","vn_o_air_mi2_04_02"]
+				};
+				if (d_ws) exitWith {
+					["O_SFIA_Heli_Attack_02_dynamicLoadout_lxWS"]
 				};
 				["O_Heli_Attack_02_F"]
 			};
@@ -2104,6 +2178,18 @@ if (!d_gmcwgwinter) then {
 		};
 	};
 #endif
+#ifdef __WS__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_Heli_Light_02_unarmed_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
+	};
+#endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
 	d_light_attack_chopper = call {
@@ -2125,6 +2211,9 @@ if (!d_gmcwgwinter) then {
 					["vn_o_air_mi2_03_05"]
 				};
 				if (d_ifa3lite) exitWith {
+					[]
+				};
+				if (d_ws) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
@@ -2174,11 +2263,15 @@ if (!d_gmcwgwinter) then {
 	// Needs a building which can be entered by AI (as they will respawn inside)
 	// can only be destroyed by satchel charges!!!
 	// no marker gets created!
-#ifndef __VN__
-	d_barracks_building = "Land_BagBunker_01_large_green_F";
-#else
-	d_barracks_building = "Land_vn_o_shelter_05";
-#endif
+d_barracks_building = call {
+	if (d_vn) exitWith {
+		"Land_vn_o_shelter_05"
+	};
+	if (d_ws) exitWith {
+		"Land_BagBunker_Large_F"
+	};
+	"Land_BagBunker_01_large_green_F"
+};
 
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
@@ -2225,6 +2318,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __VN__
 		"Land_vn_wf_vehicle_service_point_east";
 #endif
+#ifdef __WS__
+		"Land_Cargo_HQ_V3_F";
+#endif
 
 	d_b_small_static_high =
 #ifdef __ALTIS__
@@ -2268,6 +2364,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __VN__
 		"";
+#endif
+#ifdef __WS__
+		"Land_BagBunker_Small_F";
 #endif
 
 	if (isNil "d_ai_groups_respawn_time") then {
@@ -2411,6 +2510,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __VN__
 		_civVehiclesWeightedRuralVn;
 #endif
+#ifdef __WS__
+		_civVehiclesWeightedCityWealthLow;
+#endif
 
 	//civilian faces
 	private _africanFaces = [
@@ -2528,6 +2630,9 @@ if (!d_gmcwgwinter) then {
 #ifdef __VN__
 		_mixedFaces;
 #endif
+#ifdef __WS__
+		_persianFaces;
+#endif
 };
 
 if (hasInterface) then {
@@ -2560,6 +2665,9 @@ if (hasInterface) then {
 		};
 		if (d_vn) exitWith {
 			["vn_b_wheeled_m151_01"]
+		};
+		if (d_ws) exitWith {
+			["B_D_Quadbike_01_lxWS"]
 		};
 		["B_Quadbike_01_F", "B_LSV_01_unarmed_F"]
 	};
@@ -2619,7 +2727,7 @@ if (hasInterface) then {
 	d_check_ammo_load_vecs =
 #ifdef __OWN_SIDE_BLUFOR__
 	["B_Heli_Light_01_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F","CUP_B_M1133_MEV_Woodland","CUP_B_LAV25_HQ_USMC","CUP_B_M1133_MEV_Desert","CUP_B_UH1Y_UNA_USMC","I_Heli_light_03_unarmed_F","RHS_MELB_MH6M","rhsusf_M1232_usarmy_wd","gm_ge_army_m113a1g_command","gm_ge_army_fuchsa0_command","CUP_B_UH1D_GER_KSK","I_E_Heli_light_03_unarmed_F",
-	"uns_M113_transport","uns_UH1H_m60","gm_ge_army_bo105m_vbh", "vn_b_wheeled_m54_03", "vn_b_air_uh1d_02_05"];
+	"uns_M113_transport","uns_UH1H_m60","gm_ge_army_bo105m_vbh", "vn_b_wheeled_m54_03", "vn_b_air_uh1d_02_05", "B_D_APC_Tracked_01_CRV_lxWS","B_D_APC_Wheeled_01_command_lxWS"];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {

@@ -59,8 +59,8 @@ link28[] = {22,12};
 link29[] = {23,24};
 link30[] = {24,25};
 link31[] = {25,11};
-globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-564.864563,546.686829,749.062866,-358.875763,923,1254,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,941};
+globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-564.864563,546.686829,749.062866,-358.875763,923,1236,1};
+window[] = {2,-1,-1,-1,-1,978,260,1220,260,3,941};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -305,7 +305,7 @@ class FSM
                          "" \n
                          "	_lightp remoteExecCall [""d_fnc_flare40"", [0, -2] select isDedicated];" \n
                          "" \n
-                         "	_timenow = time + (10 + random 5);" \n
+                         "	_timenow = time + (20 + random 5);" \n
                          "} else {" \n
                          "	_spawnpos set [2, 220];" \n
                          "	_flare = createVehicle [""vn_flare_plane_med_w_ammo"", _spawnpos, [], 0, ""NONE""];" \n
