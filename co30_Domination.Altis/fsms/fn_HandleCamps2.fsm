@@ -192,7 +192,7 @@ class FSM
                          "		_curcaptime = 0;" \n
                          "		_wf setVariable [""D_CURCAPTURER"", d_own_side];" \n
                          "	};" \n
-                         "	_curcaptime = _curcaptime + 10;" \n
+                         "	_curcaptime = _curcaptime + (6 max _friendly);" \n
                          "	_wf setVariable [""D_CURCAPTIME"", _curcaptime, true];" \n
                          "} else {" \n
                          "	if (_curside == d_own_side && {_enemy > 0 && {_friendly == 0}}) then {" \n
