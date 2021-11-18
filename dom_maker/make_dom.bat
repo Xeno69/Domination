@@ -59,9 +59,9 @@ rem goto cleanup
 rem exit
 
 rem Blufor Western Sahara
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_ws.lxWestSahara
-set MISSION_SQM=..\mission_sqm\mission_blufor_lxWestSahara_bin.sqm
-set X_SETUP=..\mission_sqm\x_setup_blufor_lxWestSahara.sqf
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_ws.sefrouramal
+set MISSION_SQM=..\mission_sqm\mission_blufor_sefrouramal_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_sefrouramal.sqf
 md %WORK_DIR%
 xcopy %MASTER%\*.* %WORK_DIR% /E /Y
 echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y

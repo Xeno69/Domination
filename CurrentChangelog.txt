@@ -1,6 +1,6 @@
 4.57
 
-ADDED: co21 Western Sahara Blufor version
+ADDED: co21 Western Sahara Blufor version on Sefrou Ramal
 
 - Added: Server parameter to use faster intro sequence, by longtimegamer
 - Changed: Larger search radius (75m) for AI when civilian massacre is triggered, by longtimegamer
