@@ -143,7 +143,8 @@ if !(_sname in d_db_savegames) then {
 				private _comna = tolower (worldName + _sname);
 				private _idx = _pn_missionsave findIf {(_x # 12) == _comna};
 				if (_idx != -1) then {
-					_pn_missionsave set [_idx, [d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, d_retaken_farpspos, _mvr2_ar, tolower (worldName + _sname)]];
+					_pn_missionsave set [_idx, [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos, _mvr2_ar]];
+					                           
 				};
 				profileNamespace setVariable ["dom_missionsave", _pn_missionsave];
 			} else {
@@ -151,7 +152,7 @@ if !(_sname in d_db_savegames) then {
 				private _comna = tolower (worldName + _sname);
 				private _idx = _pn_missionsave findIf {(_x # 18) == _comna};
 				if (_idx != -1) then {
-					_pn_missionsave set [_idx, [d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname)]];
+					_pn_missionsave set [_idx, [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)]];
 				};
 				profileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
 			};
