@@ -6,7 +6,7 @@ private _wchange = 1800 + random 600;
 
 while {true} do {
 	sleep _wchange;
-	private _overCast = random 1;
+	private _overCast = [random 1, random 0.49] select d_ws;
 
 	_wchange = 1800 + random 600;
 	_wchange setOvercast _overCast;
