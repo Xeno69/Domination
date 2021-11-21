@@ -769,7 +769,10 @@ if (isServer) then {
 	calculatePlayerVisibilityByFriendly false;
 
 	if (d_weather == 0) then {
-		0 setOvercast (random 1);
+		0 setOvercast ([random 1, random 0.49] select d_ws);
+		if (d_ws) then {
+			d_enable_fog = 1;
+		};
 		if (d_enable_fog == 0) then {
 			private _fog = if (random 100 > 90) then {
 				[random 0.1, 0.1, 20 + (random 40)]
