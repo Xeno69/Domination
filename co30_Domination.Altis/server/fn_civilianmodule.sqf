@@ -152,6 +152,24 @@ d_civArray = [
 		"vn_c_men_32"
 	];
 #endif
+#ifdef __WS__
+	d_civArray = [
+		"C_Djella_01_lxWS",
+		"C_Djella_02_lxWS",
+		"C_Djella_03_lxWS",
+		"C_Djella_04_lxWS",
+		"C_Djella_05_lxWS",
+		"C_Tak_01_A_lxWS",
+		"C_Tak_01_B_lxWS",
+		"C_Tak_01_C_lxWS",
+		"C_Tak_02_A_lxWS",
+		"C_Tak_02_B_lxWS",
+		"C_Tak_02_C_lxWS",
+		"C_Tak_03_A_lxWS",
+		"C_Tak_03_B_lxWS",
+		"C_Tak_03_C_lxWS"
+	];
+#endif
 
 private _buildings = [_trg_center, _radius] call d_fnc_getbuildings;
 
