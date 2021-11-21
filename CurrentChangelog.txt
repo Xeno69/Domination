@@ -1,4 +1,6 @@
 4.58
 
+- Added: Faster camp capture (non-TT), by longtimegamer
+- Added: WSahara civilian unit types, by longtimegamer
 - Changed: No rain and fog in the Western Sahara version
 - Fixed: Updates to profileNamespace mission progress save were missing a variable resulting in an error when starting the mission again
