@@ -38,7 +38,17 @@ private _selectitvec = {
 
 private _type_list_guard = [];
 private _type_list_guard_static = [];
+private _camp_enable_guard_current = 0;
+if (d_camp_enable_guard == -1) then {
+	//random chance
+	_camp_enable_guard_current = selectRandom [0,1];
+};
 if (d_camp_enable_guard == 1) then {
+	//always enabled 
+	_camp_enable_guard_current = 1;
+};
+
+if (_camp_enable_guard_current == 1) then {
 	_type_list_guard = [
 		["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
 		["specops", 0, [d_footunits_guard, 1] call _selectitmen],
@@ -80,7 +90,15 @@ if (count _d_veh_li > 12) then {
 __TRACE_1("","_type_list_patrol")
 
 private _type_list_guard_static2 = [];
+private _camp_static_weapons_current = 0;
+if (d_camp_static_weapons == -1) then {
+	_camp_static_weapons_current = selectRandom [0,1];
+};
 if (d_camp_static_weapons == 1) then {
+	//always enabled
+	_camp_static_weapons_current = 1;
+};
+if (_camp_static_weapons_current == 1) then {
 	_type_list_guard_static2 = [
     	["stat_mg", 1, ceil (random 4)],
     	["stat_gl", 1, ceil (random 3)]
