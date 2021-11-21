@@ -92,6 +92,7 @@ __TRACE_1("","_type_list_patrol")
 private _type_list_guard_static2 = [];
 private _camp_static_weapons_current = 0;
 if (d_camp_static_weapons == -1) then {
+	//random chance
 	_camp_static_weapons_current = selectRandom [0,1];
 };
 if (d_camp_static_weapons == 1) then {
