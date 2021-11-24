@@ -1382,16 +1382,16 @@ class Params {
 	
 	class d_camp_static_weapons {
 		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
-		values[] = {0,1};
+		values[] = {0,1,-1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 	
 	class d_camp_enable_guard {
 		title = "$STR_DOM_MISSIONSTRING_ENABLE_GUARD";
-		values[] = {0,1};
+		values[] = {0,1,-1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 	
 	class d_params_dl_8_obj {
