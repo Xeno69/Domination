@@ -935,6 +935,7 @@
 <Original>You must have at least %1 points to create a %2</Original>
 <Russian>У вас должно быть как минимум %1 очков, чтобы создать %2</Russian>
 <Chinesesimp>您必须至少拥有 %1 分才能创建 %2 </Chinesesimp>
+<Chinese>您必須至少擁有 %1 分才能創建 %2</Chinese>
 <French>Vous devez avoir au moins %1 points pour créer un %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_156">
@@ -2086,6 +2087,7 @@
 <Original>Welcome to Domination!</Original>
 <Russian>Добро пожаловать в Доминацию!</Russian>
 <Chinesesimp>欢迎来到 Domination！</Chinesesimp>
+<Chinese>歡迎來到 Domination！</Chinese>
 <French>Bienvenue sur Domination</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_266">
@@ -2097,7 +2099,7 @@
 <Original>Have a nice time!</Original>
 <Russian>Хорошей игры!</Russian>
 <Chinesesimp>祝你玩得愉快！</Chinesesimp>
-<Chinese>Have a nice time!</Chinese>
+<Chinese>祝你玩得愉快！</Chinese>
 <French>Passez un bon moment!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_267">
@@ -2841,7 +2843,7 @@
 <Original>On</Original>
 <Russian>Включено</Russian>
 <Chinesesimp>打开</Chinesesimp>
-<Chinese>On</Chinese>
+<Chinese>打開</Chinese>
 <French>On</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_363a">
@@ -2901,7 +2903,7 @@
 <Original>Very Low</Original>
 <Russian>Очень низкий</Russian>
 <Chinesesimp>极低</Chinesesimp>
-<Chinese>Very Low</Chinese>
+<Chinese>極低</Chinese>
 <French>Very Low</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_399">
@@ -2949,7 +2951,7 @@
 <Original>Very High</Original>
 <Russian>Очень высокий</Russian>
 <Chinesesimp>非常高</Chinesesimp>
-<Chinese>Very High</Chinese>
+<Chinese>非常高</Chinese>
 <French>Very High</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_400_EXTREME">
@@ -2961,7 +2963,7 @@
 <Original>Extreme</Original>
 <Russian>Экстремальный</Russian>
 <Chinesesimp>极高</Chinesesimp>
-<Chinese>Extreme</Chinese>
+<Chinese>極高</Chinese>
 <French>Extreme</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
@@ -2997,7 +2999,7 @@
 <Original>Default</Original>
 <Russian>По умолчанию</Russian>
 <Chinesesimp>默认</Chinesesimp>
-<Chinese>Default</Chinese>
+<Chinese>默認</Chinese>
 <French>Default</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418B">
@@ -3009,7 +3011,7 @@
 <Original>Always</Original>
 <Russian>Всегда</Russian>
 <Chinesesimp>总是</Chinesesimp>
-<Chinese>Always</Chinese>
+<Chinese>總是</Chinese>
 <French>Always</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C">
@@ -3021,7 +3023,7 @@
 <Original>Always, multiple events</Original>
 <Russian>Всегда, несколько событий</Russian>
 <Chinesesimp>总是，多个事件</Chinesesimp>
-<Chinese>Always, multiple events</Chinese>
+<Chinese>總是，多個事件</Chinese>
 <French>Always, multiple events</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_GUERRILLAS">
@@ -3033,7 +3035,7 @@
 <Original>guerrillas</Original>
 <Russian>партизаны</Russian>
 <Chinesesimp>游击队</Chinesesimp>
-<Chinese>guerrillas</Chinese>
+<Chinese>游擊隊</Chinese>
 <French>guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
@@ -3045,7 +3047,7 @@
 <Original>Always, multiple events with guerrillas</Original>
 <Russian>Всегда, несколько событий with guerrillas</Russian>
 <Chinesesimp>总是，游击队的多个事件</Chinesesimp>
-<Chinese>Always, multiple events with guerrillas</Chinese>
+<Chinese>總是，游擊隊的多個事件</Chinese>
 <French>Always, multiple events with guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ALL">
@@ -3057,7 +3059,7 @@
 <Original>All</Original>
 <Russian>All</Russian>
 <Chinesesimp>全部</Chinesesimp>
-<Chinese>All</Chinese>
+<Chinese>全部</Chinese>
 <French>All</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
@@ -3189,7 +3191,7 @@
 <Original>%1 was put into jail because of team killing, number team kills: %2</Original>
 <Russian>%1 был наказан за teamkill, кол-во teamkills: %2</Russian>
 <Chinesesimp>%1 由于杀死队友而入狱，杀死队友数：%2</Chinesesimp>
-<Chinese>%1 was put into jail because of team killing, number team kills: %2</Chinese>
+<Chinese>%1 由於殺死隊友而入獄，殺死隊友數：%2</Chinese>
 <French>%1 was put into jail because of team killing, number team kills: %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_508">
@@ -4917,7 +4919,7 @@
 <Original>None of the soldiers made it back to base...</Original>
 <Russian>Никто из солдат не вернулся на базу...</Russian>
 <Chinesesimp>没有一个士兵回到基地...</Chinesesimp>
-<Chinese>None of the soldiers made it back to base...</Chinese>
+<Chinese>沒有一個士兵回到基地...</Chinese>
 <French>None of the soldiers made it back to base...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_720">
@@ -4965,7 +4967,7 @@
 <Original>%1 was killed! The enemy will pay for this...</Original>
 <Russian>%1 был убит! За это враг заплатит...</Russian>
 <Chinesesimp>%1 被杀死！敌人将为此付出代价...</Chinesesimp>
-<Chinese>%1 was killed! The enemy will pay for this...</Chinese>
+<Chinese>%1 被殺死！敵人將為此付出代價...</Chinese>
 <French>%1 was killed! The enemy will pay for this...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_723">
@@ -5470,7 +5472,7 @@
 <Original>Good job. %1 is back at base. + %2</Original>
 <Russian>Отличная работа! %1 спасен и доставлен на базу! + %2</Russian>
 <Chinesesimp>干得漂亮！ %1 返回基地。 + %2</Chinesesimp>
-<Chinese>Good job. %1 is back at base. + %2</Chinese>
+<Chinese>幹得漂亮！ %1 返回基地。 + %2</Chinese>
 <French>Good job. %1 is back at base. + %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_814">
@@ -5986,6 +5988,7 @@
 <Original>Yes</Original>
 <Russian>Да</Russian>
 <Chinesesimp>是</Chinesesimp>
+<Chinese>是</Chinese>
 <French>Oui</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_923">
@@ -6381,7 +6384,7 @@
 <Original>Random</Original>
 <Russian>Рандомно</Russian>
 <Chinesesimp>随机</Chinesesimp>
-<Chinese>Random</Chinese>
+<Chinese>隨機</Chinese>
 <French>Random</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1008">
@@ -6645,7 +6648,7 @@
 <Original>Random events at main target:</Original>
 <Russian>С случайными событиями на главной цели:</Russian>
 <Chinesesimp>主要目标随机事件：</Chinesesimp>
-<Chinese>Random events at main target:</Chinese>
+<Chinese>主要目標隨機事件：</Chinese>
 <French>Random events at main target:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1053">
@@ -7378,7 +7381,7 @@
 <Original>Enable simulation for enemy camps:</Original>
 <Russian>Включить симуляцию для вражеских лагерей:</Russian>
 <Chinesesimp>敌方阵营启用模拟：</Chinesesimp>
-<Chinese>Enable simulation for enemy camps:</Chinese>
+<Chinese>敵方陣營啟用模擬：</Chinese>
 <French>Enable simulation for enemy camps:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1176">
@@ -7414,7 +7417,7 @@
 <Original>Force no HUD</Original>
 <Russian>Принудительно без HUD</Russian>
 <Chinesesimp>强制无 HUD</Chinesesimp>
-<Chinese>Force no HUD</Chinese>
+<Chinese>強制無 HUD</Chinese>
 <French>Force no HUD</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1178">
@@ -8518,7 +8521,7 @@
 <Original>Select Respawn/Show Map</Original>
 <Russian>Выберите Респаун/Показать карту:</Russian>
 <Chinesesimp>选择重生/显示地图</Chinesesimp>
-<Chinese>Select Respawn/Show Map</Chinese>
+<Chinese>選擇重生/顯示地圖</Chinese>
 <French>Select Respawn/Show Map</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1333a">
@@ -8794,6 +8797,7 @@
 <Original>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Original>
 <Russian>Радиовышка уничтожена. Теперь противник не может вызывать подкрепления и десант!</Russian>
 <Chinesesimp>主目标通讯塔被摧毁，敌人无法在呼叫支援了。</Chinesesimp>
+<Chinese>主目標通訊塔被摧毀，敵人無法在呼叫支援了。</Chinese>
 <French>Tour radio cible principale détruite. Désormais, l'ennemi ne pourra pas faire appel à d'autres renforts aéroportés.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1365">
@@ -9849,7 +9853,7 @@
 <Original>---------------------------- Client -------------------------------</Original>
 <Russian>--------------------------- *КЛИЕНТ* --------------------------</Russian>
 <Chinesesimp>---------------------------- 客户端 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Client -------------------------------</Chinese>
+<Chinese>---------------------------- 客戶端 -------------------------------</Chinese>
 <French>---------------------------- Client -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_CIV">
@@ -9861,7 +9865,7 @@
 <Original>---------------------------- Civilians -------------------------------</Original>
 <Russian>--------------------------- Civilians --------------------------</Russian>
 <Chinesesimp>---------------------------- 平民 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Civilians -------------------------------</Chinese>
+<Chinese>---------------------------- 平民 -------------------------------</Chinese>
 <French>---------------------------- Civilians -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_ENEMY_AI">
@@ -9873,7 +9877,7 @@
 <Original>---------------------------- Enemy AI -------------------------------</Original>
 <Russian>--------------------------- Enemy AI --------------------------</Russian>
 <Chinesesimp>---------------------------- 敌方 AI -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Enemy AI -------------------------------</Chinese>
+<Chinese>---------------------------- 敵方 AI -------------------------------</Chinese>
 <French>---------------------------- Enemy AI -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_OBJ">
@@ -9885,7 +9889,7 @@
 <Original>---------------------------- Main Target Objectives -------------------------------</Original>
 <Russian>--------------------------- Main Target Objectives --------------------------</Russian>
 <Chinesesimp>---------------------------- 主要目标 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Main Target Objectives -------------------------------</Chinese>
+<Chinese>---------------------------- 主要目標 -------------------------------</Chinese>
 <French>---------------------------- Main Target Objectives -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_ENV">
@@ -9897,7 +9901,7 @@
 <Original>---------------------------- Environment -------------------------------</Original>
 <Russian>--------------------------- Environment --------------------------</Russian>
 <Chinesesimp>---------------------------- 环境 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Environment -------------------------------</Chinese>
+<Chinese>---------------------------- 環境 -------------------------------</Chinese>
 <French>---------------------------- Environment -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1575">
