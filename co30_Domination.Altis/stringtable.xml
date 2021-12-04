@@ -9913,7 +9913,7 @@
 <Original>------------------------------- AI --------------------------------</Original>
 <Russian>--------------------------- *ИИ* --------------------------</Russian>
 <Chinesesimp>------------------------------- 雇佣兵（AI） --------------------------------</Chinesesimp>
-<Chinese>------------------------------- AI --------------------------------</Chinese>
+<Chinese>------------------------------- 僱傭兵（AI） --------------------------------</Chinese>
 <French>------------------------------- IA --------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1576">
@@ -10009,7 +10009,7 @@
 <Original>------------------------ Advanced ---------------------------</Original>
 <Russian>--------------------------- Advanced --------------------------</Russian>
 <Chinesesimp>------------------------ 高级 ---------------------------</Chinesesimp>
-<Chinese>------------------------ Advanced ---------------------------</Chinese>
+<Chinese>------------------------ 高級 ---------------------------</Chinese>
 <French>------------------------ Advanced ---------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1583">
@@ -10189,7 +10189,7 @@
 <Original>Base Flag</Original>
 <Russian>Меню базы</Russian>
 <Chinesesimp>基地传送点</Chinesesimp>
-<Chinese>Base Flag</Chinese>
+<Chinese>基地傳送點</Chinese>
 <French>Drapeau Base</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1645">
@@ -10393,7 +10393,7 @@
 <Original>Squad</Original>
 <Russian>Отряд</Russian>
 <Chinesesimp>小队</Chinesesimp>
-<Chinese>Squad</Chinese>
+<Chinese>小隊</Chinese>
 <French>Équipe</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1706">
@@ -10802,7 +10802,7 @@
 <Original>Persistent AI corpses</Original>
 <Russian>Не удалять трупы AI до выполнения основной задачи</Russian>
 <Chinesesimp>永久显示 AI 尸体</Chinesesimp>
-<Chinese>Persistent AI corpses</Chinese>
+<Chinese>永久顯示 AI 屍體</Chinese>
 <French>Persistent AI corpses</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1742">
@@ -11054,7 +11054,7 @@
 <Original>Farp</Original>
 <Russian>Аванпост</Russian>
 <Chinesesimp>前沿补给点</Chinesesimp>
-<Chinese>Farp</Chinese>
+<Chinese>前沿補給點</Chinese>
 <French>Farp</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1800">
@@ -11137,8 +11137,8 @@
 <Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
 <Original>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Original>
 <Russian>Один из наших пилотов был захвачен в плен. Верните пилота живым на свою базу! Быстро устраните охранников. Если они окажутся ранеными, то они казнят заключенного!</Russian>
-<Chinesesimp>我们的一名飞行员被抓获。让飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决囚犯！</Chinesesimp>
-<Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
+<Chinesesimp>我们的一名飞行员被俘虏。营救飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决俘虏！</Chinesesimp>
+<Chinese>我們的一名飛行員被俘虜。營救飛行員重返你的基地！迅速殺死守衛。如果他們受傷，他們將處決俘虜！</Chinese>
 <French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_TRIGGERMAN">
@@ -11149,8 +11149,8 @@
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
-<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
-<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinese>
+<Chinesesimp>一名友军战俘身穿爆炸背心。前往标记位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
+<Chinese>一名友軍戰俘身穿爆炸背心。前往標記位置找到並幹掉爆破手！你有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE">
@@ -11161,8 +11161,8 @@
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
-<Chinesesimp>一个友善的战俘穿着爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
-<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinese>
+<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
+<Chinese>一名友軍戰俘身穿爆炸背心。移動到標記的位置並營救我們的飛行員！您有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW">
@@ -11174,7 +11174,7 @@
 <Original>Defusing device...</Original>
 <Russian>Defusing device...</Russian>
 <Chinesesimp>拆解装置...</Chinesesimp>
-<Chinese>Defusing device...</Chinese>
+<Chinese>拆解裝置...</Chinese>
 <French>Defusing device...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
@@ -11785,8 +11785,8 @@
 <Japanese>points for bringing a wreck to the wreck repair point!</Japanese>
 <Original>points for bringing a wreck to the wreck repair point!</Original>
 <Russian>Вы получаете %1 очков за доставку врэка (уничтож. приз. техники) на точку ремонта!</Russian>
-<Chinesesimp>给沉船修理点带来沉船的要点！</Chinesesimp>
-<Chinese>points for bringing a wreck to the wreck repair point!</Chinese>
+<Chinesesimp>将残骸（损毁奖励载具）运送到残骸维修点的得分奖励！</Chinesesimp>
+<Chinese>將殘骸（損毀獎勵載具）運送到殘骸維修點獲的得分獎勵！</Chinese>
 <French>points for bringing a wreck to the wreck repair point!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1857">
@@ -11822,7 +11822,7 @@
 <Original>Mirror</Original>
 <Russian>Зеркало</Russian>
 <Chinesesimp>镜子</Chinesesimp>
-<Chinese>Mirror</Chinese>
+<Chinese>鏡子</Chinese>
 <French>Miroir</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1860">
@@ -11834,7 +11834,7 @@
 <Original>Select Preset</Original>
 <Russian>Выбрать пресет</Russian>
 <Chinesesimp>选择预设</Chinesesimp>
-<Chinese>Select Preset</Chinese>
+<Chinese>選擇預設</Chinese>
 <French>Sélection Préréglage</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1861">
@@ -11846,7 +11846,7 @@
 <Original>New pylon loadout applied!</Original>
 <Russian>БК на пилоны загружено!</Russian>
 <Chinesesimp>应用了新的挂架装载！</Chinesesimp>
-<Chinese>New pylon loadout applied!</Chinese>
+<Chinese>應用了新的掛架裝載！</Chinese>
 <French>Nouveau chargement support armement appliqué!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1862">
@@ -11858,7 +11858,7 @@
 <Original>Change Pylon Loadout</Original>
 <Russian>Изменить загрузку пилонов.</Russian>
 <Chinesesimp>改变挂架装载</Chinesesimp>
-<Chinese>Change Pylon Loadout</Chinese>
+<Chinese>改變掛架裝載</Chinese>
 <French>Modifier la charge du support armement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1863">
@@ -11870,7 +11870,7 @@
 <Original>Rappel Self</Original>
 <Russian>Спуститься по тросу</Russian>
 <Chinesesimp>索降</Chinesesimp>
-<Chinese>Rappel Self</Chinese>
+<Chinese>索降</Chinese>
 <French>Descente Rapide</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1864">
@@ -11882,7 +11882,7 @@
 <Original>Rappel AI Units</Original>
 <Russian>Спустить ИИ по тросам</Russian>
 <Chinesesimp>AI 单位索降</Chinesesimp>
-<Chinese>Rappel AI Units</Chinese>
+<Chinese>AI 單位索降</Chinese>
 <French>IA Descente Rapide</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1865">
@@ -11893,8 +11893,8 @@
 <Japanese>ラペリング装置を取り外す</Japanese>
 <Original>Detach Rappel Device</Original>
 <Russian>Отцепить тросы</Russian>
-<Chinesesimp>拆下绳索装置</Chinesesimp>
-<Chinese>Detach Rappel Device</Chinese>
+<Chinesesimp>拆下索降装置</Chinesesimp>
+<Chinese>拆下索降裝置</Chinese>
 <French>Détacher le Dispositif de Rappel</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1866">
@@ -12158,7 +12158,7 @@
 <Original>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Original>
 <Russian>%1 был отмечен, как убитый.  Возможно %1 останется живым еще %2 секунд.</Russian>
 <Chinesesimp>%1 已被标记为死亡。保持 %1 存活 %2 秒。</Chinesesimp>
-<Chinese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Chinese>
+<Chinese>%1 已被標記為死亡。保持 %1 存活 %2 秒。</Chinese>
 <French>%1 has been marked for death.  Keep %1 alive for %2 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL">
@@ -12170,7 +12170,7 @@
 <Original>%1 only survived for %2 seconds.  Mission failed.</Original>
 <Russian>%1 выжил %2 секунд.  Миссия провалена.</Russian>
 <Chinesesimp>%1 仅存活了 %2 秒。任务失败。</Chinesesimp>
-<Chinese>%1 only survived for %2 seconds.  Mission failed.</Chinese>
+<Chinese>%1 僅存活了 %2 秒。任務失敗。</Chinese>
 <French>%1 only survived for %2 seconds.  Mission failed.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED">
@@ -12182,7 +12182,7 @@
 <Original>Success.  %1 survived for %2 seconds. + %3</Original>
 <Russian>Выполнено.  %1 выжил %2 секунд. + %3</Russian>
 <Chinesesimp>成功。 %1 存活了 %2 秒。 + %3</Chinesesimp>
-<Chinese>Success.  %1 survived for %2 seconds. + %3</Chinese>
+<Chinese>成功。 %1 存活了 %2 秒。 + %3</Chinese>
 <French>Success.  %1 survived for %2 seconds. + %3</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTSUCCEED">
@@ -12194,7 +12194,7 @@
 <Original>Success.  + %1</Original>
 <Russian>Выполнено.  + %1</Russian>
 <Chinesesimp>成功。  + %1</Chinesesimp>
-<Chinese>Success.  + %1</Chinese>
+<Chinese>成功。  + %1</Chinese>
 <French>Success.  + %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTWARNINGTIME">
