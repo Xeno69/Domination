@@ -27,19 +27,8 @@ d_x_mt_event_types = [
 	"MARKED_FOR_DEATH",
 	"RESCUE_DEFEND",
 	"RESCUE_DEFUSE",
-	"KILL_TRIGGERMAN",
-	"CIV_MASSACRE" //requires awareness/aggressiveshoot
+	"KILL_TRIGGERMAN"
 ];
-
-if (d_ai_awareness_rad < 0 && {d_ai_aggressiveshoot == 0}) then {
-	// server is not configured to use awareness/aggressiveshoot script, remove events that won't work 
-	d_x_mt_event_types deleteAt (_tmpMtEvents find "CIV_MASSACRE");
-};
-
-if (d_enable_civs == 0) then {
-	// server is not configured to use civilians, remove events that won't work 
-	d_x_mt_event_types deleteAt (_tmpMtEvents find "CIV_MASSACRE");
-};
 
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];

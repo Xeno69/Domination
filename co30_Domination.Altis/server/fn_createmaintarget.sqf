@@ -813,9 +813,6 @@ if (d_with_MainTargetEvents != 0) then {
 			case "KILL_TRIGGERMAN": {
 				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
 			};
-			case "CIV_MASSACRE": {
-				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
-			};
 		};
 	};
 	
@@ -839,7 +836,6 @@ if (d_with_MainTargetEvents != 0) then {
             	// some events are only eligible if d_with_MainTargetEvents == -3 or -4
             	// remove ineligible events from the temp array
             	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
-            	_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_MASSACRE");
 			};
 			private _num_events_for = 2; // default three events for iterator starting at zero
 			if (d_with_MainTargetEvents == -4) then {
@@ -858,6 +854,14 @@ if (d_with_MainTargetEvents != 0) then {
 		} else {
 			// create one event
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
+		};
+		if (d_ai_awareness_rad < 0 && {d_enable_civs == 0 && {d_ai_aggressiveshoot == 0}}) then {
+			// awareness, civs, agressiveshoot are enabled
+			// very small chance of a civilian massacre
+			if (3 > random 100) then {
+				// bad luck for the civilians
+				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
+			};
 		};
 	};
 };
