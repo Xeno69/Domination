@@ -2,6 +2,7 @@
 
 - Added: Faster camp capture (non-TT), by longtimegamer
 - Added: WSahara civilian unit types, by longtimegamer
+- Added: Autorevive, if no players nearby in a radius 215 m, by alexvladn
 - Changed: No rain and fog in the Western Sahara version
 - Fixed: Updates to profileNamespace mission progress save were missing a variable resulting in an error when starting the mission again
 - Fixed: Civ massacre event is very rare and with smaller trigger area, by longtimegamer
