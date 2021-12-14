@@ -935,6 +935,7 @@
 <Original>You must have at least %1 points to create a %2</Original>
 <Russian>У вас должно быть как минимум %1 очков, чтобы создать %2</Russian>
 <Chinesesimp>您必须至少拥有 %1 分才能创建 %2 </Chinesesimp>
+<Chinese>您必須至少擁有 %1 分才能創建 %2</Chinese>
 <French>Vous devez avoir au moins %1 points pour créer un %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_156">
@@ -2086,6 +2087,7 @@
 <Original>Welcome to Domination!</Original>
 <Russian>Добро пожаловать в Доминацию!</Russian>
 <Chinesesimp>欢迎来到 Domination！</Chinesesimp>
+<Chinese>歡迎來到 Domination！</Chinese>
 <French>Bienvenue sur Domination</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_266">
@@ -2097,7 +2099,7 @@
 <Original>Have a nice time!</Original>
 <Russian>Хорошей игры!</Russian>
 <Chinesesimp>祝你玩得愉快！</Chinesesimp>
-<Chinese>Have a nice time!</Chinese>
+<Chinese>祝你玩得愉快！</Chinese>
 <French>Passez un bon moment!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_267">
@@ -2841,7 +2843,7 @@
 <Original>On</Original>
 <Russian>Включено</Russian>
 <Chinesesimp>打开</Chinesesimp>
-<Chinese>On</Chinese>
+<Chinese>打開</Chinese>
 <French>On</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_363a">
@@ -2901,7 +2903,7 @@
 <Original>Very Low</Original>
 <Russian>Очень низкий</Russian>
 <Chinesesimp>极低</Chinesesimp>
-<Chinese>Very Low</Chinese>
+<Chinese>極低</Chinese>
 <French>Very Low</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_399">
@@ -2949,7 +2951,7 @@
 <Original>Very High</Original>
 <Russian>Очень высокий</Russian>
 <Chinesesimp>非常高</Chinesesimp>
-<Chinese>Very High</Chinese>
+<Chinese>非常高</Chinese>
 <French>Very High</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_400_EXTREME">
@@ -2961,7 +2963,7 @@
 <Original>Extreme</Original>
 <Russian>Экстремальный</Russian>
 <Chinesesimp>极高</Chinesesimp>
-<Chinese>Extreme</Chinese>
+<Chinese>極高</Chinese>
 <French>Extreme</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
@@ -2997,7 +2999,7 @@
 <Original>Default</Original>
 <Russian>По умолчанию</Russian>
 <Chinesesimp>默认</Chinesesimp>
-<Chinese>Default</Chinese>
+<Chinese>默認</Chinese>
 <French>Default</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418B">
@@ -3009,7 +3011,7 @@
 <Original>Always</Original>
 <Russian>Всегда</Russian>
 <Chinesesimp>总是</Chinesesimp>
-<Chinese>Always</Chinese>
+<Chinese>總是</Chinese>
 <French>Always</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C">
@@ -3021,7 +3023,7 @@
 <Original>Always, multiple events</Original>
 <Russian>Всегда, несколько событий</Russian>
 <Chinesesimp>总是，多个事件</Chinesesimp>
-<Chinese>Always, multiple events</Chinese>
+<Chinese>總是，多個事件</Chinese>
 <French>Always, multiple events</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_GUERRILLAS">
@@ -3033,7 +3035,7 @@
 <Original>guerrillas</Original>
 <Russian>партизаны</Russian>
 <Chinesesimp>游击队</Chinesesimp>
-<Chinese>guerrillas</Chinese>
+<Chinese>游擊隊</Chinese>
 <French>guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
@@ -3045,7 +3047,7 @@
 <Original>Always, multiple events with guerrillas</Original>
 <Russian>Всегда, несколько событий with guerrillas</Russian>
 <Chinesesimp>总是，游击队的多个事件</Chinesesimp>
-<Chinese>Always, multiple events with guerrillas</Chinese>
+<Chinese>總是，游擊隊的多個事件</Chinese>
 <French>Always, multiple events with guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ALL">
@@ -3057,7 +3059,7 @@
 <Original>All</Original>
 <Russian>All</Russian>
 <Chinesesimp>全部</Chinesesimp>
-<Chinese>All</Chinese>
+<Chinese>全部</Chinese>
 <French>All</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
@@ -3189,7 +3191,7 @@
 <Original>%1 was put into jail because of team killing, number team kills: %2</Original>
 <Russian>%1 был наказан за teamkill, кол-во teamkills: %2</Russian>
 <Chinesesimp>%1 由于杀死队友而入狱，杀死队友数：%2</Chinesesimp>
-<Chinese>%1 was put into jail because of team killing, number team kills: %2</Chinese>
+<Chinese>%1 由於殺死隊友而入獄，殺死隊友數：%2</Chinese>
 <French>%1 was put into jail because of team killing, number team kills: %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_508">
@@ -4917,7 +4919,7 @@
 <Original>None of the soldiers made it back to base...</Original>
 <Russian>Никто из солдат не вернулся на базу...</Russian>
 <Chinesesimp>没有一个士兵回到基地...</Chinesesimp>
-<Chinese>None of the soldiers made it back to base...</Chinese>
+<Chinese>沒有一個士兵回到基地...</Chinese>
 <French>None of the soldiers made it back to base...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_720">
@@ -4965,7 +4967,7 @@
 <Original>%1 was killed! The enemy will pay for this...</Original>
 <Russian>%1 был убит! За это враг заплатит...</Russian>
 <Chinesesimp>%1 被杀死！敌人将为此付出代价...</Chinesesimp>
-<Chinese>%1 was killed! The enemy will pay for this...</Chinese>
+<Chinese>%1 被殺死！敵人將為此付出代價...</Chinese>
 <French>%1 was killed! The enemy will pay for this...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_723">
@@ -5470,7 +5472,7 @@
 <Original>Good job. %1 is back at base. + %2</Original>
 <Russian>Отличная работа! %1 спасен и доставлен на базу! + %2</Russian>
 <Chinesesimp>干得漂亮！ %1 返回基地。 + %2</Chinesesimp>
-<Chinese>Good job. %1 is back at base. + %2</Chinese>
+<Chinese>幹得漂亮！ %1 返回基地。 + %2</Chinese>
 <French>Good job. %1 is back at base. + %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_814">
@@ -5986,6 +5988,7 @@
 <Original>Yes</Original>
 <Russian>Да</Russian>
 <Chinesesimp>是</Chinesesimp>
+<Chinese>是</Chinese>
 <French>Oui</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_923">
@@ -6381,7 +6384,7 @@
 <Original>Random</Original>
 <Russian>Рандомно</Russian>
 <Chinesesimp>随机</Chinesesimp>
-<Chinese>Random</Chinese>
+<Chinese>隨機</Chinese>
 <French>Random</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1008">
@@ -6645,7 +6648,7 @@
 <Original>Random events at main target:</Original>
 <Russian>С случайными событиями на главной цели:</Russian>
 <Chinesesimp>主要目标随机事件：</Chinesesimp>
-<Chinese>Random events at main target:</Chinese>
+<Chinese>主要目標隨機事件：</Chinese>
 <French>Random events at main target:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1053">
@@ -7378,7 +7381,7 @@
 <Original>Enable simulation for enemy camps:</Original>
 <Russian>Включить симуляцию для вражеских лагерей:</Russian>
 <Chinesesimp>敌方阵营启用模拟：</Chinesesimp>
-<Chinese>Enable simulation for enemy camps:</Chinese>
+<Chinese>敵方陣營啟用模擬：</Chinese>
 <French>Enable simulation for enemy camps:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1176">
@@ -7414,7 +7417,7 @@
 <Original>Force no HUD</Original>
 <Russian>Принудительно без HUD</Russian>
 <Chinesesimp>强制无 HUD</Chinesesimp>
-<Chinese>Force no HUD</Chinese>
+<Chinese>強制無 HUD</Chinese>
 <French>Force no HUD</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1178">
@@ -8518,7 +8521,7 @@
 <Original>Select Respawn/Show Map</Original>
 <Russian>Выберите Респаун/Показать карту:</Russian>
 <Chinesesimp>选择重生/显示地图</Chinesesimp>
-<Chinese>Select Respawn/Show Map</Chinese>
+<Chinese>選擇重生/顯示地圖</Chinese>
 <French>Select Respawn/Show Map</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1333a">
@@ -8794,6 +8797,7 @@
 <Original>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Original>
 <Russian>Радиовышка уничтожена. Теперь противник не может вызывать подкрепления и десант!</Russian>
 <Chinesesimp>主目标通讯塔被摧毁，敌人无法在呼叫支援了。</Chinesesimp>
+<Chinese>主目標通訊塔被摧毀，敵人無法在呼叫支援了。</Chinese>
 <French>Tour radio cible principale détruite. Désormais, l'ennemi ne pourra pas faire appel à d'autres renforts aéroportés.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1365">
@@ -9849,7 +9853,7 @@
 <Original>---------------------------- Client -------------------------------</Original>
 <Russian>--------------------------- *КЛИЕНТ* --------------------------</Russian>
 <Chinesesimp>---------------------------- 客户端 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Client -------------------------------</Chinese>
+<Chinese>---------------------------- 客戶端 -------------------------------</Chinese>
 <French>---------------------------- Client -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_CIV">
@@ -9861,7 +9865,7 @@
 <Original>---------------------------- Civilians -------------------------------</Original>
 <Russian>--------------------------- Civilians --------------------------</Russian>
 <Chinesesimp>---------------------------- 平民 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Civilians -------------------------------</Chinese>
+<Chinese>---------------------------- 平民 -------------------------------</Chinese>
 <French>---------------------------- Civilians -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_ENEMY_AI">
@@ -9873,7 +9877,7 @@
 <Original>---------------------------- Enemy AI -------------------------------</Original>
 <Russian>--------------------------- Enemy AI --------------------------</Russian>
 <Chinesesimp>---------------------------- 敌方 AI -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Enemy AI -------------------------------</Chinese>
+<Chinese>---------------------------- 敵方 AI -------------------------------</Chinese>
 <French>---------------------------- Enemy AI -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_OBJ">
@@ -9885,7 +9889,7 @@
 <Original>---------------------------- Main Target Objectives -------------------------------</Original>
 <Russian>--------------------------- Main Target Objectives --------------------------</Russian>
 <Chinesesimp>---------------------------- 主要目标 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Main Target Objectives -------------------------------</Chinese>
+<Chinese>---------------------------- 主要目標 -------------------------------</Chinese>
 <French>---------------------------- Main Target Objectives -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_ENV">
@@ -9897,7 +9901,7 @@
 <Original>---------------------------- Environment -------------------------------</Original>
 <Russian>--------------------------- Environment --------------------------</Russian>
 <Chinesesimp>---------------------------- 环境 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Environment -------------------------------</Chinese>
+<Chinese>---------------------------- 環境 -------------------------------</Chinese>
 <French>---------------------------- Environment -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1575">
@@ -9909,7 +9913,7 @@
 <Original>------------------------------- AI --------------------------------</Original>
 <Russian>--------------------------- *ИИ* --------------------------</Russian>
 <Chinesesimp>------------------------------- 雇佣兵（AI） --------------------------------</Chinesesimp>
-<Chinese>------------------------------- AI --------------------------------</Chinese>
+<Chinese>------------------------------- 僱傭兵（AI） --------------------------------</Chinese>
 <French>------------------------------- IA --------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1576">
@@ -10005,7 +10009,7 @@
 <Original>------------------------ Advanced ---------------------------</Original>
 <Russian>--------------------------- Advanced --------------------------</Russian>
 <Chinesesimp>------------------------ 高级 ---------------------------</Chinesesimp>
-<Chinese>------------------------ Advanced ---------------------------</Chinese>
+<Chinese>------------------------ 高級 ---------------------------</Chinese>
 <French>------------------------ Advanced ---------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1583">
@@ -10185,7 +10189,7 @@
 <Original>Base Flag</Original>
 <Russian>Меню базы</Russian>
 <Chinesesimp>基地传送点</Chinesesimp>
-<Chinese>Base Flag</Chinese>
+<Chinese>基地傳送點</Chinese>
 <French>Drapeau Base</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1645">
@@ -10389,7 +10393,7 @@
 <Original>Squad</Original>
 <Russian>Отряд</Russian>
 <Chinesesimp>小队</Chinesesimp>
-<Chinese>Squad</Chinese>
+<Chinese>小隊</Chinese>
 <French>Équipe</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1706">
@@ -10798,7 +10802,7 @@
 <Original>Persistent AI corpses</Original>
 <Russian>Не удалять трупы AI до выполнения основной задачи</Russian>
 <Chinesesimp>永久显示 AI 尸体</Chinesesimp>
-<Chinese>Persistent AI corpses</Chinese>
+<Chinese>永久顯示 AI 屍體</Chinese>
 <French>Persistent AI corpses</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1742">
@@ -11050,7 +11054,7 @@
 <Original>Farp</Original>
 <Russian>Аванпост</Russian>
 <Chinesesimp>前沿补给点</Chinesesimp>
-<Chinese>Farp</Chinese>
+<Chinese>前沿補給點</Chinese>
 <French>Farp</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1800">
@@ -11133,8 +11137,8 @@
 <Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
 <Original>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Original>
 <Russian>Один из наших пилотов был захвачен в плен. Верните пилота живым на свою базу! Быстро устраните охранников. Если они окажутся ранеными, то они казнят заключенного!</Russian>
-<Chinesesimp>我们的一名飞行员被抓获。让飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决囚犯！</Chinesesimp>
-<Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
+<Chinesesimp>我们的一名飞行员被俘虏。营救飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决俘虏！</Chinesesimp>
+<Chinese>我們的一名飛行員被俘虜。營救飛行員重返你的基地！迅速殺死守衛。如果他們受傷，他們將處決俘虜！</Chinese>
 <French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_TRIGGERMAN">
@@ -11145,8 +11149,8 @@
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
-<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
-<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinese>
+<Chinesesimp>一名友军战俘身穿爆炸背心。前往标记位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
+<Chinese>一名友軍戰俘身穿爆炸背心。前往標記位置找到並幹掉爆破手！你有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE">
@@ -11157,8 +11161,8 @@
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
-<Chinesesimp>一个友善的战俘穿着爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
-<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinese>
+<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
+<Chinese>一名友軍戰俘身穿爆炸背心。移動到標記的位置並營救我們的飛行員！您有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW">
@@ -11170,7 +11174,7 @@
 <Original>Defusing device...</Original>
 <Russian>Defusing device...</Russian>
 <Chinesesimp>拆解装置...</Chinesesimp>
-<Chinese>Defusing device...</Chinese>
+<Chinese>拆解裝置...</Chinese>
 <French>Defusing device...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
@@ -11373,8 +11377,8 @@
 <Japanese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Japanese>
 <Original>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Original>
 <Russian>В городе обнаружено большое скопление пехоты и техники противника. Уничтожьте их и прибывающие подкрепления!</Russian>
-<Chinesesimp>情报获取各种敌人营房和主要目标的敌军指挥总部（HQ）。找到并摧毁它们以切断敌人的 INF 和装甲增援！</Chinesesimp>
-<Chinese>情報獲取各種敵人營房和主要目標的敵軍指揮總部。找到並摧毀它們以切斷敵人的inf和裝甲增援！</Chinese>
+<Chinesesimp>情报获取各种敌人营房和主要目标的敌军指挥总部（HQ）。找到并摧毁它们以切断敌人的步兵和装甲增援！</Chinesesimp>
+<Chinese>情報獲取各種敵人營房和主要目標的敵軍指揮總部。找到並摧毀它們以切斷敵人的步兵和裝甲增援！</Chinese>
 <French>Les renseignements connaîssent diverses casernes ennemies et un QG de forces mobiles sur l'objectif principal. Trouvez-les et détruisez-les pour couper les renforts d'infanterie et les renforts blindés ennemis!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1823">
@@ -11397,7 +11401,7 @@
 <Japanese>移動指揮所で新規車両が展開可能となるまでの待ち時間:</Japanese>
 <Original>Seconds till a player can create a new vec at MHQ:</Original>
 <Russian>Секунд до возможности получить снова технику из КШМ:</Russian>
-<Chinesesimp>玩家可以在 基地车（MHQ） 创建一个新的 VEC 所需要的秒数：</Chinesesimp>
+<Chinesesimp>玩家可以在 基地车（MHQ） 创建一个新的车辆工程中心（VEC）所需要的秒数：</Chinesesimp>
 <Chinese>玩家可以在MHQ創建一個新的vec所需要的秒數：</Chinese>
 <French>Secondes jusqu'à ce qu'un joueur puisse créer un nouveau véhicule au MHQ:</French>
 </Key>
@@ -11781,8 +11785,8 @@
 <Japanese>points for bringing a wreck to the wreck repair point!</Japanese>
 <Original>points for bringing a wreck to the wreck repair point!</Original>
 <Russian>Вы получаете %1 очков за доставку врэка (уничтож. приз. техники) на точку ремонта!</Russian>
-<Chinesesimp>给沉船修理点带来沉船的要点！</Chinesesimp>
-<Chinese>points for bringing a wreck to the wreck repair point!</Chinese>
+<Chinesesimp>将残骸（损毁奖励载具）运送到残骸维修点的得分奖励！</Chinesesimp>
+<Chinese>將殘骸（損毀獎勵載具）運送到殘骸維修點獲的得分獎勵！</Chinese>
 <French>points for bringing a wreck to the wreck repair point!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1857">
@@ -11818,7 +11822,7 @@
 <Original>Mirror</Original>
 <Russian>Зеркало</Russian>
 <Chinesesimp>镜子</Chinesesimp>
-<Chinese>Mirror</Chinese>
+<Chinese>鏡子</Chinese>
 <French>Miroir</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1860">
@@ -11830,7 +11834,7 @@
 <Original>Select Preset</Original>
 <Russian>Выбрать пресет</Russian>
 <Chinesesimp>选择预设</Chinesesimp>
-<Chinese>Select Preset</Chinese>
+<Chinese>選擇預設</Chinese>
 <French>Sélection Préréglage</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1861">
@@ -11842,7 +11846,7 @@
 <Original>New pylon loadout applied!</Original>
 <Russian>БК на пилоны загружено!</Russian>
 <Chinesesimp>应用了新的挂架装载！</Chinesesimp>
-<Chinese>New pylon loadout applied!</Chinese>
+<Chinese>應用了新的掛架裝載！</Chinese>
 <French>Nouveau chargement support armement appliqué!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1862">
@@ -11854,7 +11858,7 @@
 <Original>Change Pylon Loadout</Original>
 <Russian>Изменить загрузку пилонов.</Russian>
 <Chinesesimp>改变挂架装载</Chinesesimp>
-<Chinese>Change Pylon Loadout</Chinese>
+<Chinese>改變掛架裝載</Chinese>
 <French>Modifier la charge du support armement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1863">
@@ -11866,7 +11870,7 @@
 <Original>Rappel Self</Original>
 <Russian>Спуститься по тросу</Russian>
 <Chinesesimp>索降</Chinesesimp>
-<Chinese>Rappel Self</Chinese>
+<Chinese>索降</Chinese>
 <French>Descente Rapide</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1864">
@@ -11878,7 +11882,7 @@
 <Original>Rappel AI Units</Original>
 <Russian>Спустить ИИ по тросам</Russian>
 <Chinesesimp>AI 单位索降</Chinesesimp>
-<Chinese>Rappel AI Units</Chinese>
+<Chinese>AI 單位索降</Chinese>
 <French>IA Descente Rapide</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1865">
@@ -11889,8 +11893,8 @@
 <Japanese>ラペリング装置を取り外す</Japanese>
 <Original>Detach Rappel Device</Original>
 <Russian>Отцепить тросы</Russian>
-<Chinesesimp>拆下绳索装置</Chinesesimp>
-<Chinese>Detach Rappel Device</Chinese>
+<Chinesesimp>拆下索降装置</Chinesesimp>
+<Chinese>拆下索降裝置</Chinese>
 <French>Détacher le Dispositif de Rappel</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1866">
@@ -12154,7 +12158,7 @@
 <Original>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Original>
 <Russian>%1 был отмечен, как убитый.  Возможно %1 останется живым еще %2 секунд.</Russian>
 <Chinesesimp>%1 已被标记为死亡。保持 %1 存活 %2 秒。</Chinesesimp>
-<Chinese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Chinese>
+<Chinese>%1 已被標記為死亡。保持 %1 存活 %2 秒。</Chinese>
 <French>%1 has been marked for death.  Keep %1 alive for %2 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL">
@@ -12166,7 +12170,7 @@
 <Original>%1 only survived for %2 seconds.  Mission failed.</Original>
 <Russian>%1 выжил %2 секунд.  Миссия провалена.</Russian>
 <Chinesesimp>%1 仅存活了 %2 秒。任务失败。</Chinesesimp>
-<Chinese>%1 only survived for %2 seconds.  Mission failed.</Chinese>
+<Chinese>%1 僅存活了 %2 秒。任務失敗。</Chinese>
 <French>%1 only survived for %2 seconds.  Mission failed.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED">
@@ -12178,7 +12182,7 @@
 <Original>Success.  %1 survived for %2 seconds. + %3</Original>
 <Russian>Выполнено.  %1 выжил %2 секунд. + %3</Russian>
 <Chinesesimp>成功。 %1 存活了 %2 秒。 + %3</Chinesesimp>
-<Chinese>Success.  %1 survived for %2 seconds. + %3</Chinese>
+<Chinese>成功。 %1 存活了 %2 秒。 + %3</Chinese>
 <French>Success.  %1 survived for %2 seconds. + %3</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTSUCCEED">
@@ -12190,7 +12194,7 @@
 <Original>Success.  + %1</Original>
 <Russian>Выполнено.  + %1</Russian>
 <Chinesesimp>成功。  + %1</Chinesesimp>
-<Chinese>Success.  + %1</Chinese>
+<Chinese>成功。  + %1</Chinese>
 <French>Success.  + %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTWARNINGTIME">
@@ -12202,7 +12206,7 @@
 <Original>Move quickly! Only %1 seconds.</Original>
 <Russian>Move quickly! Only %1 seconds.</Russian>
 <Chinesesimp>动作快点！仅剩 %1 秒。</Chinesesimp>
-<Chinese>Move quickly! Only %1 seconds.</Chinese>
+<Chinese>動作快點！僅剩 %1 秒。</Chinese>
 <French>Move quickly! Only %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE">
@@ -12214,7 +12218,7 @@
 <Original>The enemy is killing civilians. %1 people are in danger!</Original>
 <Russian>The enemy is killing civilians. %1 people are in danger!</Russian>
 <Chinesesimp>敌人正在杀害平民。 %1 人有危险！</Chinesesimp>
-<Chinese>The enemy is killing civilians. %1 people are in danger!</Chinese>
+<Chinese>敵人正在殺害平民。 %1 人有危險！</Chinese>
 <French>The enemy is killing civilians. %1 people are in danger!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE_END">
@@ -12226,7 +12230,7 @@
 <Original>%1 out of %2 civilians survived the massacre.</Original>
 <Russian>%1 out of %2 civilians survived the massacre.</Russian>
 <Chinesesimp>%2 名平民中有 %1 名在大屠杀中幸存下来。</Chinesesimp>
-<Chinese>%1 out of %2 civilians survived the massacre.</Chinese>
+<Chinese>%2 名平民中有 %1 名在大屠殺中倖存下來</Chinese>
 <French>%1 out of %2 civilians survived the massacre.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEH">
@@ -12298,7 +12302,7 @@
 <Original>Disable enemy air</Original>
 <Russian>Отключить авиацию противника</Russian>
 <Chinesesimp>禁止敌方空中载具</Chinesesimp>
-<Chinese>Disable enemy air</Chinese>
+<Chinese>禁止敵方空中載具</Chinese>
 <French>Désactiver l'aérien ennemi</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS">
@@ -12310,7 +12314,7 @@
 <Original>Always announce enemy artillery / CAS</Original>
 <Russian>Всегда предупреждать об арт.обстрелах / CAS</Russian>
 <Chinesesimp>始终预警敌方炮火 / CAS（空袭）</Chinesesimp>
-<Chinese>Always announce enemy artillery / CAS</Chinese>
+<Chinese>始終預警敵方炮火 CAS（空襲）</Chinese>
 <French>Always announce enemy artillery / CAS</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
@@ -12346,6 +12350,7 @@
 <Original>AI Advanced - enhanced awareness (common units)</Original>
 <Russian>AI Advanced - повышенная осведомленность (common units)</Russian>
 <Chinesesimp>高级 AI - 增强意识（普通单位）</Chinesesimp>
+<Chinese>高級 AI - 增強意識（普通單位）</Chinese>
 <French>AI Advanced - enhanced awareness (common units)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
@@ -12357,6 +12362,7 @@
 <Original>AI Advanced - enemy active pursuit radius</Original>
 <Russian>AI Advanced - радиус активного преследования противника</Russian>
 <Chinesesimp>高级AI - 敌人主动追踪半径</Chinesesimp>
+<Chinese>高級AI - 敵人主動追踪半徑</Chinese>
 <French>AI Advanced - enemy active pursuit radius</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT">
@@ -12368,6 +12374,7 @@
 <Original>AI Advanced - enemy shoots aggressively at players</Original>
 <Russian>AI Advanced - враг агрессивно стреляет в игроков</Russian>
 <Chinesesimp>高级AI - 敌人向玩家猛烈射击</Chinesesimp>
+<Chinese>高級AI - 敵人向玩家猛烈射擊</Chinese>
 <French>AI Advanced - enemy shoots aggressively at players</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
@@ -12379,6 +12386,7 @@
 <Original>AI Advanced - enemy granted frequent ammo refills</Original>
 <Russian>AI Advanced - врагу часто выдают патроны</Russian>
 <Chinesesimp>高级AI - 给予敌人频繁的弹药补充</Chinesesimp>
+<Chinese>高級AI - 給予敵人頻繁的彈藥補充</Chinese>
 <French>AI Advanced - enemy granted frequent ammo refills</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
@@ -12390,6 +12398,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - occupy mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим оккупации</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 占领模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 佔領模式</Chinese>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode occupé</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AA">
@@ -12401,6 +12410,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
 <Russian>Количество гарнизонных пехотных групп - режим наблюдения</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 封锁模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 封鎖模式</Chinese>
 <French>Enemy infantry - nombres des groupes d'infanterie en garnison - mode surveillance</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
@@ -12412,6 +12422,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - ambush mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим засады</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 埋伏模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 埋伏模式</Chinese>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
@@ -12423,6 +12434,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - sniper mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим снайпера</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 狙击手模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 狙擊手模式</Chinese>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PATROL">
@@ -12434,6 +12446,7 @@
 <Original>Enemy infantry - patrol infantry group count</Original>
 <Russian>Пехота противника - количество патрульных пехотных групп</Russian>
 <Chinesesimp>敌方步兵 - 步兵巡逻队数量</Chinesesimp>
+<Chinese>敵軍步兵 - 步兵巡邏隊數量</Chinese>
 <French>Enemy infantry - patrol infantry group count</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900MAXGROUPS">
@@ -12445,6 +12458,7 @@
 <Original>Enemy infantry - always choose maximum number of groups</Original>
 <Russian>Вражеская пехота - всегда выбирать максимальное количество групп</Russian>
 <Chinesesimp>敌军步兵 - 始终选择最大组数</Chinesesimp>
+<Chinese>敵軍步兵 - 始終選擇最大組數</Chinese>
 <French>Enemy infantry - always choose maximum number of groups</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900GROUPSIZE">
@@ -12456,6 +12470,7 @@
 <Original>Enemy infantry - group size</Original>
 <Russian>Пехота противника - размер группы</Russian>
 <Chinesesimp>敌军步兵 - 小队规模</Chinesesimp>
+<Chinese>敵軍步兵 - 小隊規模</Chinese>
 <French>Enemy infantry - group size</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
@@ -12467,6 +12482,7 @@
 <Original>AI Advanced - enhanced awareness (sniper units)</Original>
 <Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
 <Chinesesimp>高级 AI - 增强意识（狙击部队）</Chinesesimp>
+<Chinese>高級 AI - 增強意識（狙擊部隊）</Chinese>
 <French>Mode sniper d'infanterie en garnison - conscience avancée</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
@@ -12478,6 +12494,7 @@
 <Original>AI Advanced - general skill</Original>
 <Russian>Снайперский режим пехоты - общий навык</Russian>
 <Chinesesimp>高级AI - 一般技能</Chinesesimp>
+<Chinese>高級AI - 一般技能</Chinese>
 <French>Mode sniper d'infanterie en garnison - compétence générale</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900F">
@@ -12489,6 +12506,7 @@
 <Original>AI Advanced - aimingAccuracy skill</Original>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
 <Chinesesimp>高级AI - 瞄准技能</Chinesesimp>
+<Chinese>高級AI - 瞄準技能</Chinese>
 <French>Mode sniper d'infanterie en garnison - visant la compétence trembler</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1902">
@@ -12500,6 +12518,7 @@
 <Original>Enemy infantry - deployment radius</Original>
 <Russian>Enemy infantry - Радиус развертывания</Russian>
 <Chinesesimp>敌军步兵 - 部署半径</Chinesesimp>
+<Chinese>敵軍步兵 - 部署半徑</Chinese>
 <French>Enemy infantry - rayon de déploiement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
@@ -12511,7 +12530,7 @@
 <Original>Civilians - civilian group count per target</Original>
 <Russian>Civilians - Количество групп гражданских на город</Russian>
 <Chinesesimp>平民 - 每个目标的平民群体数量</Chinesesimp>
-<Chinese>Civilians - civilian group count per target</Chinese>
+<Chinese>平民 - 每個目標的平民群體數量</Chinese>
 <French>Civilians - nombre de groupes civils par cible</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1930">
@@ -12547,6 +12566,7 @@
 <Original>Enemy placement target fill radius - occupy infantry</Original>
 <Russian>Радиус размещения противника на главной цели - пехота</Russian>
 <Chinesesimp>敌人放置目标的填充半径 - 卫戍步兵</Chinesesimp>
+<Chinese>敵人放置目標的填充半徑 - 衛戍步兵</Chinese>
 <French>Rayon de remplissage de la cible de placement ennemi - occupez l'infanterie</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901B">
@@ -12558,6 +12578,7 @@
 <Original>Enemy placement target fill radius - ambush infantry</Original>
 <Russian>Радиус размещения противника на главной цели - пехота режим засады</Russian>
 <Chinesesimp>敌人放置目标的填充半径 - 埋伏步兵</Chinesesimp>
+<Chinese>敵人放置目標的填充半徑 - 埋伏步兵</Chinese>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901C">
@@ -12569,6 +12590,7 @@
 <Original>Enemy placement target fill radius - sniper infantry</Original>
 <Russian>Радиус размещения противника на главной цели - снайперские группы</Russian>
 <Chinesesimp>敌人放置目标的填充半径 - 狙击步兵</Chinesesimp>
+<Chinese>敵人放置目標的填充半徑 - 狙擊步兵</Chinese>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie de tireurs d'élite</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
@@ -12652,7 +12674,7 @@
 <Original>Pylon loadout enabled:</Original>
 <Russian>Включить смену пилонов:</Russian>
 <Chinesesimp>启用载具挂架装载：</Chinesesimp>
-<Chinese>Pylon loadout enabled:</Chinese>
+<Chinese>啟用載具掛架裝載：</Chinese>
 <French>Chargement du support armement activé:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1939">
@@ -12664,7 +12686,7 @@
 <Original>Repacking magazines</Original>
 <Russian>Перепаковываем магазины</Russian>
 <Chinesesimp>装填弹匣</Chinesesimp>
-<Chinese>Repacking magazines</Chinese>
+<Chinese>裝填彈匣</Chinese>
 <French>Reconditionnement des chargeurs</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1940">
@@ -12676,7 +12698,7 @@
 <Original>Repack Magazines</Original>
 <Russian>Перепаковка магазинов</Russian>
 <Chinesesimp>重装弹匣</Chinesesimp>
-<Chinese>Repack Magazines</Chinese>
+<Chinese>重裝彈匣</Chinese>
 <French>Recharger les chargeurs</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1941">
@@ -12688,7 +12710,7 @@
 <Original>Starting to repack magazines...</Original>
 <Russian>Начинаем перепаковку...</Russian>
 <Chinesesimp>开始装填弹匣...</Chinesesimp>
-<Chinese>Starting to repack magazines...</Chinese>
+<Chinese>開始裝填彈匣...</Chinese>
 <French>Commencer à recharger les chargeurs...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1942">
@@ -12700,7 +12722,7 @@
 <Original>Magazines repacked...</Original>
 <Russian>Магазины перепакованы...</Russian>
 <Chinesesimp>弹匣被装填...</Chinesesimp>
-<Chinese>Magazines repacked...</Chinese>
+<Chinese>彈匣被裝填...</Chinese>
 <French>Chargeurs rechargés</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1943">
@@ -12711,8 +12733,8 @@
 <Japanese>Lock Backpack</Japanese>
 <Original>Lock Backpack</Original>
 <Russian>Закрыть рюкзак</Russian>
-<Chinesesimp>锁住背包</Chinesesimp>
-<Chinese>Lock Backpack</Chinese>
+<Chinesesimp>背包上锁</Chinesesimp>
+<Chinese>背包上鎖</Chinese>
 <French>Fermer le Sac à Dos</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1944">
@@ -12723,8 +12745,8 @@
 <Japanese>Unlock Backpack</Japanese>
 <Original>Unlock Backpack</Original>
 <Russian>Открыть рюкзак</Russian>
-<Chinesesimp>解锁背包</Chinesesimp>
-<Chinese>Unlock Backpack</Chinese>
+<Chinesesimp>背包解锁</Chinesesimp>
+<Chinese>背包解鎖</Chinese>
 <French>Sac à Dos Ouvert</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1945">
@@ -12736,7 +12758,7 @@
 <Original>Backpack locked</Original>
 <Russian>Рюкзак закрыт</Russian>
 <Chinesesimp>背包锁定</Chinesesimp>
-<Chinese>Backpack locked</Chinese>
+<Chinese>背包鎖定</Chinese>
 <French>Le Sac à Dos est Fermé</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1946">
@@ -12772,6 +12794,7 @@
 <Original>With ambient radio:</Original>
 <Russian>Радиопереговоры-фон:</Russian>
 <Chinesesimp>带环境无线电：</Chinesesimp>
+<Chinese>帶環境無線電：</Chinese>
 <French>Avec la radio ambiante:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1949">
@@ -12783,6 +12806,7 @@
 <Original>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Original>
 <Russian>Информация показывает на наличие казарм пехоты на главной цели. Уничтожьте их, чтобы остановить подкрепления!</Russian>
 <Chinesesimp>情报获取主要目标的各种敌军兵营。找到并摧毁它们以切断敌人的步兵增援部队！</Chinesesimp>
+<Chinese>情報獲取主要目標的各種敵軍兵營。找到並摧毀它們以切斷敵人的步兵增援部隊！</Chinese>
 <French>Les renseignements connaîssent diverses casernes ennemies sur l'objectif principal. Trouvez-les et détruisez-les pour couper les renforts ennemis!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1950">
@@ -12794,6 +12818,7 @@
 <Original>The %1 team destroyed a main target barrack and gets %2 points.</Original>
 <Russian>Команда %1 уничтожила казарму противника в городе и получает %2 очков.</Russian>
 <Chinesesimp>%1 团队摧毁了一个主要目标兵营并获得 %2 点分数。</Chinesesimp>
+<Chinese>%1 團隊摧毀了一個主要目標兵營並獲得 %2 點分數。</Chinese>
 <French>L'équipe %1 a détruit une caserne cible principale et obtient %2 points.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1951">
@@ -12805,6 +12830,7 @@
 <Original>Without sidemission bonus vehicles:</Original>
 <Russian>Без призовой техники с Доп.заданий:</Russian>
 <Chinesesimp>没有支线任务载具奖励：</Chinesesimp>
+<Chinese>沒有支線任務載具獎勵：</Chinese>
 <French>Sans véhicules bonus pour les missions secondaires:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
@@ -12816,6 +12842,7 @@
 <Original>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Original>
 <Russian>Внимание! Вас засекли авианаводчики противника. Готовьте к атаке с воздуха!!!</Russian>
 <Chinesesimp>注意。你被敌人的空军前进控制员发现了，空袭即将到来！！！</Chinesesimp>
+<Chinese>注意。你被敵人的空軍前進控制員發現了，空襲即將到來！！！</Chinese>
 <French>Attention. Vous avez été repéré par les FAC ennemis. Frappe aérienne entrante!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1953A">
@@ -12827,6 +12854,7 @@
 <Original>Players can select from available targets:</Original>
 <Russian>Игроки могут выбрать доступные цели основных заданий:</Russian>
 <Chinesesimp>玩家可以从可用目标中进行选择：</Chinesesimp>
+<Chinese>玩家可以從可用目標中進行選擇：</Chinese>
 <French>Les joueurs peuvent choisir parmi (x) cibles disponibles:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
@@ -12838,6 +12866,7 @@
 <Original>Main target selection time left</Original>
 <Russian>Оставшееся время выбора главного задания</Russian>
 <Chinesesimp>主要目标剩余选择时间</Chinesesimp>
+<Chinese>主要目標剩餘選擇時間</Chinese>
 <French>Temps de sélection de l'objectif principal restant</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1955">
@@ -12849,6 +12878,7 @@
 <Original>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Original>
 <Russian>Откройте карту! Теперь у вас есть 30 секунд, чтобы выбрать следующую основную цель, нажав одну из доступных новых желтых целей \n\nВыбранная цель станет синей!</Russian>
 <Chinesesimp>打开地图！ 你现在有30秒的时间通过单击可用的新黄色目标之一来选择下一个主目标\n\n所选目标将变为蓝色！</Chinesesimp>
+<Chinese>打開地圖！你現在有30秒的時間通過單擊可用的新黃色目標之一來選擇下一個主目標\n\n所選目標將變為藍色！</Chinese>
 <French>Ouvrez la carte! Vous avez maintenant 30 secondes pour sélectionner la prochaine cible principale en cliquant sur l'une des nouvelles cibles jaunes disponibles\n\nLa cible sélectionnée deviendra bleue!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1956">
@@ -13463,6 +13493,7 @@
 <Original>Adjust AI subskill if server FPS is low</Original>
 <Russian>Отрегулировать навыки AI, если FPS сервера низкий</Russian>
 <Chinesesimp>如果服务器 FPS 较低，则调整 AI 子技能</Chinesesimp>
+<Chinese>如果服務器 FPS 較低，則調整 AI 子技能</Chinese>
 <French>Adjust AI subskill if server FPS is low</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2008">
@@ -13724,7 +13755,7 @@
 <Original>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
 <Russian>Внимание: Партизанские отряды движутся в город из %1. Партизаны дружат с Blufor и враждебны к Opfor.</Russian>
 <Chinesesimp>注意：游击队已从 %1 迁入该城市。游击队对蓝方友好，对红方敌对。</Chinesesimp>
-<Chinese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
+<Chinese>注意：游擊隊已從 %1 遷入該城市。游擊隊對藍方友好，對紅方敵對。</Chinese>
 <French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT">
@@ -13736,7 +13767,7 @@
 <Original>Attention: Our lucky pet rabbit is lost.  Find %1!</Original>
 <Russian>Внимание: Наш счастливый кролик пропал. Найти %1!</Russian>
 <Chinesesimp>注意：我们的幸运宠物兔子迷路了。 查找 %1 ！</Chinesesimp>
-<Chinese>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinese>
+<Chinese>注意：我們的幸運寵物兔子迷路了。查找 %1</Chinese>
 <French>Attention: Our lucky pet rabbit is lost.  Find %1!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
@@ -13796,7 +13827,7 @@
 <Original>crash site</Original>
 <Russian>место аварии</Russian>
 <Chinesesimp>坠机现场</Chinesesimp>
-<Chinese>crash site</Chinese>
+<Chinese>墜機現場</Chinese>
 <French>crash site</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERS">
@@ -13808,7 +13839,7 @@
 <Original>prisoners</Original>
 <Russian>заключенных</Russian>
 <Chinesesimp>囚犯</Chinesesimp>
-<Chinese>prisoners</Chinese>
+<Chinese>囚犯</Chinese>
 <French>prisoners</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_DEFEND">
@@ -13820,7 +13851,7 @@
 <Original>defened</Original>
 <Russian>defend</Russian>
 <Chinesesimp>防御</Chinesesimp>
-<Chinese>defend</Chinese>
+<Chinese>防禦</Chinese>
 <French>defend</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE">
@@ -13832,7 +13863,7 @@
 <Original>defuse</Original>
 <Russian>defuse</Russian>
 <Chinesesimp>拆除</Chinesesimp>
-<Chinese>defuse</Chinese>
+<Chinese>拆除</Chinese>
 <French>defuse</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_TRIGGERMAN">
@@ -13844,7 +13875,7 @@
 <Original>kill triggerman</Original>
 <Russian>kill triggerman</Russian>
 <Chinesesimp>杀死爆破手</Chinesesimp>
-<Chinese>kill triggerman</Chinese>
+<Chinese>殺死爆破手</Chinese>
 <French>kill triggerman</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES">
@@ -13856,7 +13887,7 @@
 <Original>prisoners + explosives</Original>
 <Russian>заключенные + взрывчатка</Russian>
 <Chinesesimp>囚犯 + 爆炸物</Chinesesimp>
-<Chinese>prisoners + explosives</Chinese>
+<Chinese>囚犯 + 爆炸物</Chinese>
 <French>prisoners + explosives</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_PRESENT">
@@ -13868,7 +13899,7 @@
 <Original>Warning: enemy explosive device may be present.</Original>
 <Russian>Внимание: возможно наличие вражеского взрывного устройства.</Russian>
 <Chinesesimp>警告：可能存在敌方爆炸装置。</Chinesesimp>
-<Chinese>Warning: enemy explosive device may be present.</Chinese>
+<Chinese>警告：可能存在敵方爆炸裝置。</Chinese>
 <French>Warning: enemy explosive device may be present.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_FAIL">
@@ -13880,7 +13911,7 @@
 <Original>The enemy detonated a device. Failure.</Original>
 <Russian>Противник привел в действие взрывное устройство. Задача не выполнена.</Russian>
 <Chinesesimp>敌人引爆了一个装置。失败！</Chinesesimp>
-<Chinese>The enemy detonated a device. Failure.</Chinese>
+<Chinese>敵人引爆了一個裝置。失敗！</Chinese>
 <French>The enemy detonated a device. Failure.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS">
@@ -13891,8 +13922,8 @@
 <Japanese>敵の爆発物は解除された。</Japanese>
 <Original>Enemy explosive device disabled.</Original>
 <Russian>Взрывное устройство противника диактивированно.</Russian>
-<Chinesesimp>敌人的爆炸装置已禁用。</Chinesesimp>
-<Chinese>Enemy explosive device disabled.</Chinese>
+<Chinesesimp>敌人的爆炸装置已拆除。</Chinesesimp>
+<Chinese>敵人的爆炸裝置已拆除。</Chinese>
 <French>Enemy explosive device disabled.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2033">
@@ -14012,7 +14043,7 @@
 <Original>Bots are silent</Original>
 <Russian>Боты не разговаривают</Russian>
 <Chinesesimp>机器人是沉默的</Chinesesimp>
-<Chinese>Bots are silent</Chinese>
+<Chinese>機器人是沉默的</Chinese>
 <French>Bots are silent</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE">
@@ -14024,7 +14055,7 @@
 <Original>Load domination.cfg (requires -filePatching on server)</Original>
 <Russian>Загрузить domination.cfg (требуется -filePatching на сервере)</Russian>
 <Chinesesimp>加载 domination.cfg（在服务器上需要 -filePatching）</Chinesesimp>
-<Chinese>Load domination.cfg (requires -filePatching on server)</Chinese>
+<Chinese>加載 domination.cfg（在服務器上需要 -filePatching）</Chinese>
 <French>Load domination.cfg (requires -filePatching on server)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2042">
@@ -14134,7 +14165,7 @@
 <French>Illuminate main target:</French>
 <Hungarian>Illuminate main target:</Hungarian>
 <Chinesesimp>照亮主要目标：</Chinesesimp>
-<Chinese>Illuminate main target:</Chinese>
+<Chinese>照亮主要目標：</Chinese>
 <Portuguese>Illuminate main target:</Portuguese>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_STATICWEAPONS">
@@ -14145,8 +14176,8 @@
 <Japanese>Defend with static weapons</Japanese>
 <Original>Defend with static weapons</Original>
 <Russian>Оборонять статическим вооружением</Russian>
-<Chinesesimp>用静态武器防御：</Chinesesimp>
-<Chinese>Defend with static weapons</Chinese>
+<Chinesesimp>使用静态武器进行防御</Chinesesimp>
+<Chinese>使用靜態武器進行防禦</Chinese>
 <French>Defend with static weapons</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLE_GUARD">
@@ -14158,7 +14189,7 @@
 <Original>Enable guards and camps</Original>
 <Russian>Включить охрану и лагеря</Russian>
 <Chinesesimp>启用守卫和营地</Chinesesimp>
-<Chinese>Enable guards and camps</Chinese>
+<Chinese>啟用守衛和營地</Chinese>
 <French>Enable guards and camps</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2051">
@@ -14170,6 +14201,7 @@
 <Original>Disable ACE medical revive (if ACE is used) and use mission revive</Original>
 <Russian>Отключите ревайв ACE (если используется ACE) и используйте ревайв миссии</Russian>
 <Chinesesimp>禁用ACE医疗复活（如果使用ACE）并使用任务复活</Chinesesimp>
+<Chinese>禁用ACE醫療復活（如果使用ACE）並使用任務復活</Chinese>
 <French>Disable ACE medical revive (if ACE is used) and use mission revive</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2052">
@@ -14301,7 +14333,7 @@
 <Original>Target radius:</Original>
 <Russian>Target radius:</Russian>
 <Chinesesimp>目标半径：</Chinesesimp>
-<Chinese>Target radius:</Chinese>
+<Chinese>目標半徑：</Chinese>
 <French>Target radius:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2062">
@@ -14571,7 +14603,7 @@
 <Original>Disable voices:</Original>
 <Russian>Отключить разговоры:</Russian>
 <Chinesesimp>禁用语音：</Chinesesimp>
-<Chinese>Disable voices:</Chinese>
+<Chinese>禁用語音：</Chinese>
 <French>Disable voices:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2084">
