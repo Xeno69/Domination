@@ -367,6 +367,10 @@ if (isNil "d_cur_tgt_civ_vehicles") then {
 	d_cur_tgt_civ_vehicles = [];
 };
 
+if (isNil "d_mt_tower") then {
+	d_mt_tower_pos = [];
+};
+
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
 };
