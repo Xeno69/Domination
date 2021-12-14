@@ -16,20 +16,19 @@ if (_tt != xr_u_ott) then {
 	__spectdlg1005 ctrlSetText str _tt;
 	xr_u_ott = _tt;
 };
-if (xr_near_player_dist_respawn && {!xr_respawn_available && {xr_u_dcounter > 10 && {time > xr_u_xxstarttime}}}) then {
+if (xr_u_dcounter > 10 && {time > xr_u_xxstarttime}) then {
 	private _nearunit = objNull;
 	d_allplayers findIf {
-		_ret = _x != player && {!(_x getVariable ["xr_pluncon", false])};
+		_ret = _x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 215}};
 		if (_ret) then {
 			_nearunit = _x;
 		};
 		_ret
 	};
 	if (isNull _nearunit) then {
-		xr_respawn_available = true;
-		__spectdlg1006 ctrlSetText (localize "STR_DOM_MISSIONSTRING_922");
-		__spectdlg1006 ctrlSetTextColor [1,1,0,1];
-		__spectdlg1006 ctrlCommit 0;
+		if (player getVariable "xr_pluncon" && {!(player getVariable ["xr_dragged", false])}) then {
+		    player setVariable ["xr_pluncon", false, true];
+		};
 	};
 	xr_u_dcounter = 0;
 } else {
