@@ -813,6 +813,12 @@ if (d_with_MainTargetEvents != 0) then {
 			case "KILL_TRIGGERMAN": {
 				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
 			};
+			case "CIV_RESISTANCE_INDEPENDENT": {
+				[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+			};
+			case "CIV_RESISTANCE_JOINPLAYER": {
+				[_radius, _trg_center, true] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+			};
 		};
 	};
 	

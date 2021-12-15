@@ -505,6 +505,13 @@ class Sentences {
 			class 2 {type = "simple";};
 		};
 	};
+	class MTEventCivResistance {
+		text = "$STR_DOM_MISSIONSTRING_CIV_RESISTANCE";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
 };
 class Arguments{};
 class Special{};
