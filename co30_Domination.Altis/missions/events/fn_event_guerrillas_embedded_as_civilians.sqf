@@ -97,65 +97,6 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 	};
 } forEach _guerrillaForce;
 
-
-
-/*
-{
-	diag_log ["foooooooooooooooooooooooooo 0"];
-	if (_buildings isEqualTo []) exitWith {};
-	_bldg = selectRandom _buildings;
-	_buildings deleteAt (_buildings find _bldg);
-	_posArray = _bldg buildingPos -1;
-	private _unitCount = 3;
-	if !(_posArray isEqualTo []) then {
-		if (count _posArray < _unitCount) then {
-			_unitCount = count (_posArray);
-		};
-		for "_i" from 1 to _unitCount do {
-			_randomPos = selectRandom _posArray;
-			_posArray deleteAt (_posArray find _randomPos);
-			private _civGuerrilla = _x createUnit [selectRandom d_civArray, _randomPos, [], 1.5, "NONE"];
-			[_civGuerrilla, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civGuerrilla];
-			_civGuerrilla setSkill _guerrillaBaseSkill;
-			private _rnd_loadout = selectRandom [0, 1, 2];
-			switch (_rnd_loadout) do {
-				case 0: {
-					_civGuerrilla addMagazines ["6Rnd_45ACP_Cylinder", 7];
-					_civGuerrilla addWeapon "hgun_Pistol_heavy_01_F";
-				};
-				case 1: {
-					_civGuerrilla addMagazines ["6Rnd_45ACP_Cylinder", 7];
-					_civGuerrilla addWeapon "hgun_Pistol_heavy_02_F";
-				};
-				case 2: {
-					_civGuerrilla addMagazines ["9Rnd_45ACP_Mag", 7];
-					_civGuerrilla addWeapon "hgun_ACPC2_F";
-				};
-			};
-			_civGuerrilla setCaptive true;
-			_civGuerrilla setUnitCombatMode "BLUE";
-			_civGuerrilla forceSpeed 0;
-			_civGuerrilla addEventHandler ["FiredNear", {
-				params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-				if (_distance < 30 && {captive _unit && {_firer call d_fnc_isplayer}}) then {
-					// a player shooting near this unit has inspired him to fight!
-					diag_log ["foooooooooooooooooooooooooo fightttttttttttttttttttttttttttttt"];
-					_unit setCaptive false;
-					_unit setUnitCombatMode "RED";
-					_unit forceSpeed -1;
-					//if (count units group _firer < 10) then {
-					//	[_unit] join (group _firer);
-					//};
-				};
-			}];
-		};
-	};
-} forEach _newgroups;
-*/
-
-
-
-
 while {sleep 5; !d_mt_done} do {
 	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
 	if (!_foundAlive) exitWith {};
