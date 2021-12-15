@@ -7,7 +7,8 @@
 if (true) exitWith {};
 #endif
 
-// Some civilians become guerrillas after event is triggered
+// units in plain clothes will fight if the player fires within 30m
+// units may fight as an independent or join the player's group depending on the call parameters
 
 if !(isServer) exitWith {};
 
@@ -112,5 +113,3 @@ while {sleep 5; !d_mt_done} do {
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
-
-//deleteVehicle _trigger;
