@@ -86,10 +86,8 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 					_x setCaptive false;
 					_x forceSpeed -1;
 					group _x setCombatMode "RED";
-					if (_x getVariable "_join_player") then {
-						if (count units group _firer < 10) then {
-							[_x] join (group _firer);
-						};
+					if (_x getVariable "_join_player" && {(count units group _firer < 10)}) then {
+						[_x] join (group _firer);
 					};
 				} forEach units group _unit;
 			};
