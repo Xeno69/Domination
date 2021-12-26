@@ -15,7 +15,7 @@ if !(isServer) exitWith {};
 params [
 	["_target_radius", ""],
 	["_target_center", ""],
-	["_join_player", [false]]
+	["_join_player", false]
 ];
 
 private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbuildings;
@@ -33,6 +33,7 @@ private _guerrilla_uniforms = ["U_IG_Guerilla1_1",
  "U_IG_Guerilla2_3"];
 
 private _newgroups = [];
+private _newunits = [];
 private _guerrillaBaseSkill = 0.5;
 _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 
@@ -79,18 +80,19 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 		// guerrillas are triggered by the friendly side fighting nearby
 		_x addEventHandler ["FiredNear", {
 			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-			if (_distance < 30 && {captive _unit && {_firer call d_fnc_isplayer}}) then {
-				// a player shooting near this unit has inspired him to fight!
-				_unit setCaptive false;
-				group _unit setCombatMode "RED";
-				_unit forceSpeed -1;
-				if (_unit getVariable "_join_player") then {
-					if (count units group _firer < 10) then {
-						[_unit] join (group _firer);
+			if (captive _unit && {_firer call d_fnc_isplayer}) then {
+				// a player shooting near this unit has inspired his entire group to fight!
+				{
+					_x setCaptive false;
+					_x forceSpeed -1;
+					group _x setCombatMode "RED";
+					if (_x getVariable "_join_player" && {(count units group _firer < 10)}) then {
+						[_x] join (group _firer);
 					};
-				};
+				} forEach units group _unit;
 			};
 		}];
+		_newunits pushBack _x;
 	} forEach _units;
 	_newgroups pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
@@ -99,17 +101,18 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 } forEach _guerrillaForce;
 
 while {sleep 5; !d_mt_done} do {
-	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
+	private _foundAlive = _newunits findIf {alive _x} > -1;
 	if (!_foundAlive) exitWith {};
 	sleep 30;
 	// occasionally replenish guerrilla ammo
 	{
-		private _grp = _x;
-		{
-			_x setVehicleAmmo 1;
-		} forEach units _grp;	
-	} forEach _newgroups;
+		_x setVehicleAmmo 1;
+	} forEach _newunits;
 };
 
+//cleanup
+{
+	deleteVehicle _x;
+} forEach _newunits;
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
