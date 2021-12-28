@@ -5,11 +5,6 @@
 params ["_v", "_u", ["_m", false]];
 //__TRACE_1("","_this")
 
-private _rr = _v getVariable "d_v_not_m";
-if (!isNil "_rr") exitWith {
-	_rr
-};
-
 private _i = _v getVariable (["d_ma_type", "d_icon_type"] select (!_m));
 if (isNil "_i") then {
 	_i = getText ((configOf _v)>>"icon");
@@ -44,10 +39,6 @@ if (!_m) exitWith {
 		};
 		[0, 0.5, 0, 0.9]
 	};
-	private _r = [_i, _s, _c];
-	_v setVariable ["d_v_not_m", _r];
-	_r
+	[_i, _s, _c]
 };
-private _r = [_i, _s, _v getVariable "d_ma_color"];
-_v setVariable ["d_v_not_m", _r];
-_r
+[_i, _s, _v getVariable "d_ma_color"]

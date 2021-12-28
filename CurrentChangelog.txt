@@ -8,4 +8,5 @@
 - Fixed: Updates to profileNamespace mission progress save were missing a variable resulting in an error when starting the mission again
 - Fixed: Civ massacre event is very rare and with smaller trigger area, by longtimegamer
 - Fixed: Remove civilians near maintarget objectives so they are not killed by explosives, by longtimegamer
+- Fixed: Reoptimize vehicle map marker drawing
 - Updated: Simplified Chinese translation by SanJinSix
