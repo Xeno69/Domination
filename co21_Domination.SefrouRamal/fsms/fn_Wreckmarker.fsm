@@ -1,0 +1,497 @@
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Wreckmarker">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,158.255112,934.853210,248.255127,984.853210,0.000000,"Start"};
+item1[] = {"End",1,250,428.558014,576.677551,518.557983,626.677551,0.000000,"End"};
+item2[] = {"_",8,218,139.797913,1029.952148,269.889313,1083.882690,0.000000,""};
+item3[] = {"Loop_speed",2,250,159.843521,1125.476440,249.843567,1175.476440,0.000000,"Loop speed"};
+item4[] = {"Speed_to_high",4,218,37.465263,1097.500488,127.465248,1147.500488,1.000000,"Speed to high"};
+item5[] = {"Sleep",2,250,-77.166924,1147.081543,12.833115,1197.081543,0.000000,"Sleep"};
+item6[] = {"Delay_2",4,218,39.962639,1206.039429,129.962708,1256.039429,0.000000,"Delay 2"};
+item7[] = {"Speed_ok",8,218,160.236603,1230.408569,250.236603,1280.408569,0.000000,"Speed ok"};
+item8[] = {"Saftey_Speed_Che",2,250,144.514526,1320.024414,266.744812,1374.741089,0.000000,"Saftey Speed Check"};
+item9[] = {"Speed_to_high",4,218,28.564133,1282.291504,118.564133,1332.291504,1.000000,"Speed to high"};
+item10[] = {"Sleep_1",2,250,-75.594696,1324.741089,14.405330,1374.741089,0.000000,"Sleep"};
+item11[] = {"Delay_1",4,218,32.045158,1383.616333,122.045067,1433.616333,0.000000,"Delay 1"};
+item12[] = {"Speed_ok",8,218,161.095062,1428.074341,251.095062,1478.074341,0.000000,"Speed ok"};
+item13[] = {"Create_Marker",2,250,161.283707,1516.597412,251.283722,1566.597412,0.000000,"Create Marker"};
+item14[] = {"Wait_for_Pickup",4,218,24.718124,1640.850464,114.718170,1690.850464,1.000000,"Wait for Pickup"};
+item15[] = {"Sleep_2",2,250,-100.447342,1698.115723,-10.447346,1748.115723,0.000000,"Sleep"};
+item16[] = {"Delay_3",4,218,27.990425,1751.290649,117.990463,1801.290649,0.000000,"Delay 3"};
+item17[] = {"Pickup",8,218,162.855377,1609.740479,252.855377,1659.740479,0.000000,"Pickup"};
+item18[] = {"Pickup_loop",2,250,161.427368,1704.059082,251.427307,1754.059082,0.000000,"Pickup loop"};
+item19[] = {"Picked_up",8,218,122.274384,1799.229248,212.274384,1849.229248,0.000000,"Picked up"};
+item20[] = {"Main_End",1,4346,164.197678,1909.016235,254.197678,1959.016235,0.000000,"Main End"};
+item21[] = {"isNull__vec",4,218,430.420685,924.520386,520.420654,974.520386,20.000000,"isNull _vec"};
+item22[] = {"timecheck_for_de",4,218,247.171082,1799.056274,337.171082,1849.056274,2.000000,"timecheck" \n "for delete"};
+item23[] = {"_",2,250,429.571808,790.827515,519.571777,840.827515,0.000000,""};
+item24[] = {"_",8,218,429.571808,681.826965,519.571777,731.826965,0.000000,""};
+item25[] = {"No_more_repairs",4,218,451.768219,1129.074097,541.768921,1179.074097,200.000000,"No more repairs" \n ""};
+item26[] = {"End_1",1,250,453.155701,1247.736938,543.155762,1297.736938,0.000000,"End"};
+item27[] = {"Pos_Check",4,218,285.936707,1233.340454,375.936676,1283.340454,2.000000,"Pos Check"};
+item28[] = {"Pos_Check",4,218,306.917725,1407.677002,396.917725,1457.677002,2.000000,"Pos Check"};
+item29[] = {"_",4,218,309.365906,1625.778809,399.365906,1675.778809,4.000000,""};
+item30[] = {"__1",2,250,418.701904,1695.090088,508.701904,1745.090088,0.000000,""};
+item31[] = {"_",8,218,313.270721,1751.710449,403.270721,1801.710449,0.000000,""};
+link0[] = {0,2};
+link1[] = {2,3};
+link2[] = {3,4};
+link3[] = {3,7};
+link4[] = {3,25};
+link5[] = {3,27};
+link6[] = {4,5};
+link7[] = {5,6};
+link8[] = {6,3};
+link9[] = {7,8};
+link10[] = {8,9};
+link11[] = {8,12};
+link12[] = {8,28};
+link13[] = {9,10};
+link14[] = {10,11};
+link15[] = {11,8};
+link16[] = {12,13};
+link17[] = {13,17};
+link18[] = {14,15};
+link19[] = {15,16};
+link20[] = {16,18};
+link21[] = {17,18};
+link22[] = {18,14};
+link23[] = {18,19};
+link24[] = {18,21};
+link25[] = {18,22};
+link26[] = {18,29};
+link27[] = {19,20};
+link28[] = {21,23};
+link29[] = {22,20};
+link30[] = {23,24};
+link31[] = {24,1};
+link32[] = {25,26};
+link33[] = {27,8};
+link34[] = {28,13};
+link35[] = {29,30};
+link36[] = {30,31};
+link37[] = {31,18};
+globals[] = {0.000000,0,0,0,0,640,480,1,46,6316128,1,-217.805984,671.744995,2191.562012,717.986206,757,1254,1};
+window[] = {2,-1,-1,-1,-1,926,208,1168,208,3,775};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Wreckmarker";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _vec = _this;" \n
+                         "private _thedesmarker = """";" \n
+                         "" \n
+                         "if (unitIsUAV _vec) then {" \n
+                         "	{_vec deleteVehicleCrew _x} forEach (crew _vec);" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 2;
+                                        priority = 0.000000;
+                                        to="Loop_speed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 1;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loop_speed">*/
+                class Loop_speed
+                {
+                        name = "Loop_speed";
+                        itemno = 3;
+                        init = /*%FSM<STATEINIT""">*/"_desmarker = _vec getVariable ""d_deserted_marker"";" \n
+                         "if (!isNil ""_desmarker"") then {" \n
+                         "	 _vec setVariable [""d_deserted_marker"", """", true];" \n
+                         "	_thedesmarker = """";" \n
+                         "	deleteMarker _desmarker;" \n
+                         "};	" \n
+                         "" \n
+                         "_vec setVariable [""d_WreckMaxRepair"", (_vec getVariable ""d_WreckMaxRepair"") - 1, true];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "No_more_repairs">*/
+                                class No_more_repairs
+                                {
+                                        itemno = 25;
+                                        priority = 200.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_vec getVariable ""d_WreckMaxRepair"") <= 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Pos_Check">*/
+                                class Pos_Check
+                                {
+                                        itemno = 27;
+                                        priority = 2.000000;
+                                        to="Saftey_Speed_Che";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(getPosATL _vec) select 2 < -20"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Speed_to_high">*/
+                                class Speed_to_high
+                                {
+                                        itemno = 4;
+                                        priority = 1.000000;
+                                        to="Sleep";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(speed _vec) > 4"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Speed_ok">*/
+                                class Speed_ok
+                                {
+                                        itemno = 7;
+                                        priority = 0.000000;
+                                        to="Saftey_Speed_Che";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Sleep">*/
+                class Sleep
+                {
+                        name = "Sleep";
+                        itemno = 5;
+                        init = /*%FSM<STATEINIT""">*/"private _timenow = time + (1.5 +  random 2.2);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_2">*/
+                                class Delay_2
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="Loop_speed";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Saftey_Speed_Che">*/
+                class Saftey_Speed_Che
+                {
+                        name = "Saftey_Speed_Che";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"if ((vectorUp _vec) select 2 < 0) then {_vec setVectorUp [0,0,1]};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pos_Check">*/
+                                class Pos_Check
+                                {
+                                        itemno = 28;
+                                        priority = 2.000000;
+                                        to="Create_Marker";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(getPosATL _vec) select 2 < -10"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Speed_to_high">*/
+                                class Speed_to_high
+                                {
+                                        itemno = 9;
+                                        priority = 1.000000;
+                                        to="Sleep_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(speed _vec) > 4"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Speed_ok">*/
+                                class Speed_ok
+                                {
+                                        itemno = 12;
+                                        priority = 0.000000;
+                                        to="Create_Marker";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Sleep_1">*/
+                class Sleep_1
+                {
+                        name = "Sleep_1";
+                        itemno = 10;
+                        init = /*%FSM<STATEINIT""">*/"private _timenow = time + (0.532 +  random 1.1);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_1">*/
+                                class Delay_1
+                                {
+                                        itemno = 11;
+                                        priority = 0.000000;
+                                        to="Saftey_Speed_Che";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Create_Marker">*/
+                class Create_Marker
+                {
+                        name = "Create_Marker";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/"private _mname = format [""d%1_%2"", _vec call d_fnc_markername, time];" \n
+                         "private _sav_pos = getPosWorld _vec;" \n
+                         "_sav_pos set [2, 0];" \n
+                         "_vec setPos _sav_pos;" \n
+                         "_vec setVelocity [0,0,0];" \n
+                         "[_mname, _vec,""ICON"",""ColorBlue"",[1,1],format [localize ""STR_DOM_MISSIONSTRING_517"", [_vec] call d_fnc_GetDisplayName],0,""mil_triangle""] call d_fnc_CreateMarkerGlobal;" \n
+                         "if (d_tt_ver) then {" \n
+                         "	_mname remoteExecCall [""deleteMarkerLocal"", [blufor, opfor] select (_vec getVariable ""D_VEC_SIDE"" == 2)];" \n
+                         "	[_mname, ""STR_DOM_MISSIONSTRING_517"", [_vec] call d_fnc_GetDisplayName] remoteExecCall [""d_fnc_setmatxtloc"", [blufor, opfor] select (_vec getVariable ""D_VEC_SIDE"" == 1)];" \n
+                         "} else {" \n
+                         "	[_mname, ""STR_DOM_MISSIONSTRING_517"", [_vec] call d_fnc_GetDisplayName] remoteExecCall [""d_fnc_setmatxtloc"", [0, -2] select isDedicated];" \n
+                         "};" \n
+                         "private _timedelete = [time + (1e+011), time + d_WreckDeleteTime] select (d_WreckDeleteTime != 1010101);" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Pickup">*/
+                                class Pickup
+                                {
+                                        itemno = 17;
+                                        priority = 0.000000;
+                                        to="Pickup_loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Sleep_2">*/
+                class Sleep_2
+                {
+                        name = "Sleep_2";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"private _timenow = time + (3.321 +  random 2.2);" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_3">*/
+                                class Delay_3
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="Pickup_loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Pickup_loop">*/
+                class Pickup_loop
+                {
+                        name = "Pickup_loop";
+                        itemno = 18;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "isNull__vec">*/
+                                class isNull__vec
+                                {
+                                        itemno = 21;
+                                        priority = 20.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isNull _vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 29;
+                                        priority = 4.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNull _vec && {(getPosATL _vec) select 2 < -10}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "timecheck_for_de">*/
+                                class timecheck_for_de
+                                {
+                                        itemno = 22;
+                                        priority = 2.000000;
+                                        to="Main_End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time >= _timedelete"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Wait_for_Pickup">*/
+                                class Wait_for_Pickup
+                                {
+                                        itemno = 14;
+                                        priority = 1.000000;
+                                        to="Sleep_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isNull _vec && {_vec distance _sav_pos < 30}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Picked_up">*/
+                                class Picked_up
+                                {
+                                        itemno = 19;
+                                        priority = 0.000000;
+                                        to="Main_End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Main_End">*/
+                class Main_End
+                {
+                        name = "Main_End";
+                        itemno = 20;
+                        init = /*%FSM<STATEINIT""">*/"deleteMarker _mname;" \n
+                         "if (time >= _timedelete && {_vec distance _sav_pos < 50}) then {" \n
+                         "	if (unitIsUAV _vec) then {" \n
+                         "		deleteVehicleCrew _vec;" \n
+                         "	};" \n
+                         "	deleteVehicle _vec;" \n
+                         "} else {" \n
+                         "	_vec spawn d_fnc_wreckmarker2;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"deleteMarker _mname;" \n
+                         "" \n
+                         "if (_thedesmarker != """") then {" \n
+                         "	deleteMarker _thedesmarker;" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_1">*/
+                class End_1
+                {
+                        name = "End_1";
+                        itemno = 26;
+                        init = /*%FSM<STATEINIT""">*/"addToRemainsCollector [_vec];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/"_vec setPos _sav_pos;" \n
+                         "_vec setVelocity [0,0,0];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 31;
+                                        priority = 0.000000;
+                                        to="Pickup_loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+                "Main_End",
+                "End_1",
+        };
+};
+/*%FSM</COMPILE>*/

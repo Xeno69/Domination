@@ -1,0 +1,592 @@
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, AmmoLoad">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
+item1[] = {"_",8,218,-25.000000,-100.000000,75.000000,-50.000000,0.000000,""};
+item2[] = {"Loop",2,4346,-25.000000,-25.000000,75.000000,25.000000,0.000000,"Loop"};
+item3[] = {"count__nobjs___",4,218,-150.000000,-100.000000,-50.000000,-50.000000,1.000000,"count _nobjs == 0"};
+item4[] = {"Sleep",2,250,-275.000000,-25.000000,-175.000000,25.000000,0.000000,"Sleep"};
+item5[] = {"Delay",4,218,-150.000000,50.000000,-50.000000,100.000000,0.000000,"Delay"};
+item6[] = {"_",8,218,-25.000000,50.000000,75.000000,100.000000,0.000000,""};
+item7[] = {"_",2,250,-25.000000,125.000000,75.000000,175.000000,0.000000,""};
+item8[] = {"__isNull__vec__",4,218,-25.000000,200.000000,75.000000,250.000000,1.000000,"!isNull _vec && alive _vec"};
+item9[] = {"__1",2,250,-25.000000,275.000000,75.000000,325.000000,0.000000,""};
+item10[] = {"local__driver__vec",4,218,-25.000000,350.000000,75.000000,400.000000,1.000000,"local (driver _vec) || player == driver _vec"};
+item11[] = {"__2",2,250,-25.000000,425.000000,75.000000,475.000000,0.000000,""};
+item12[] = {"_vec_____old_vec",4,218,-25.000000,500.000000,75.000000,550.000000,1.000000,"_vec != _old_vec"};
+item13[] = {"__3",2,250,-25.000000,575.000000,75.000000,625.000000,0.000000,""};
+item14[] = {"_thebox",4,218,-150.000000,575.000000,-50.000000,625.000000,1.000000,"_thebox"};
+item15[] = {"__4",2,250,-275.000000,575.000000,-175.000000,625.000000,0.000000,""};
+item16[] = {"_",8,218,-25.000000,650.000000,75.000000,700.000000,0.000000,""};
+item17[] = {"__5",2,250,-25.000000,725.000000,75.000000,775.000000,0.000000,""};
+item18[] = {"ammo_boxes____d",4,218,-150.000000,725.000000,-50.000000,775.000000,1.000000,"ammo_boxes >= d_MaxNumAmmoboxes"};
+item19[] = {"__6",2,250,-425.000000,725.000000,-325.000000,775.000000,0.000000,""};
+item20[] = {"_",8,218,-25.000000,800.000000,75.000000,850.000000,0.000000,""};
+item21[] = {"__7",2,250,-25.000000,875.000000,75.000000,925.000000,0.000000,""};
+item22[] = {"Delay",4,218,150.000000,875.000000,250.000000,925.000000,0.000000,"Delay"};
+item23[] = {"__8",2,250,150.000000,725.000000,250.000000,775.000000,0.000000,""};
+item24[] = {"_",8,218,150.000000,-25.000000,250.000000,25.000000,0.000000,""};
+item25[] = {"",7,210,-104.000000,446.000000,-96.000000,454.000000,0.000000,""};
+item26[] = {"",7,210,-104.000000,296.000000,-96.000000,304.000000,0.000000,""};
+item27[] = {"__d_player_in_ve",4,218,275.000000,-150.000000,375.000000,-100.000000,50.000000,"!d_player_in_vec"};
+item28[] = {"End",1,250,400.000000,-150.000000,500.000000,-100.000000,0.000000,"End"};
+item29[] = {"__d_player_in_ve",4,218,-475.000000,325.000000,-375.000000,375.000000,50.000000,"!d_player_in_vec"};
+item30[] = {"End_1",1,250,-600.000000,325.000000,-500.000000,375.000000,0.000000,"End"};
+item31[] = {"__d_player_in_ve",4,218,-50.000000,950.000000,50.000000,1000.000000,50.000000,"!d_player_in_vec"};
+item32[] = {"End_2",1,250,-50.000000,1025.000000,50.000000,1075.000000,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,6};
+link4[] = {2,27};
+link5[] = {3,4};
+link6[] = {4,5};
+link7[] = {4,29};
+link8[] = {5,2};
+link9[] = {6,7};
+link10[] = {7,5};
+link11[] = {7,8};
+link12[] = {7,29};
+link13[] = {8,9};
+link14[] = {9,10};
+link15[] = {9,26};
+link16[] = {9,29};
+link17[] = {10,11};
+link18[] = {11,12};
+link19[] = {11,25};
+link20[] = {11,29};
+link21[] = {12,13};
+link22[] = {13,14};
+link23[] = {13,16};
+link24[] = {14,15};
+link25[] = {15,5};
+link26[] = {15,29};
+link27[] = {16,17};
+link28[] = {17,18};
+link29[] = {17,20};
+link30[] = {18,19};
+link31[] = {19,5};
+link32[] = {19,29};
+link33[] = {20,21};
+link34[] = {21,22};
+link35[] = {21,31};
+link36[] = {22,23};
+link37[] = {23,24};
+link38[] = {24,2};
+link39[] = {25,26};
+link40[] = {26,5};
+link41[] = {27,28};
+link42[] = {29,30};
+link43[] = {31,32};
+globals[] = {0.000000,0,0,0,0,640,480,1,42,6316128,1,-733.938110,843.550476,1170.269043,-600.698486,1117,1254,1};
+window[] = {2,-1,-1,-1,-1,1056,338,1399,338,3,1135};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "AmmoLoad";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"params [""_ammoload""];" \n
+                         "private _old_vec = objNull;" \n
+                         "private _vec = objNull;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loop">*/
+                class Loop
+                {
+                        name = "Loop";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"private _nobjs = _ammoload nearEntities [d_check_ammo_load_vecs, 9];" \n
+                         "if (_nobjs isEqualTo []) then { " \n
+                         "	_nobjs = (_ammoload nearEntities [[""Air"", ""Car"", ""Motorcycle"", ""Tank""], 9]) select {!isNil {_vec getVariable ""d_canloadbox""}};" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 27;
+                                        priority = 50.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "count__nobjs___">*/
+                                class count__nobjs___
+                                {
+                                        itemno = 3;
+                                        priority = 1.000000;
+                                        to="Sleep";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_nobjs isEqualTo []"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 6;
+                                        priority = 0.000000;
+                                        to="_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Sleep">*/
+                class Sleep
+                {
+                        name = "Sleep";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_vec = objNull;" \n
+                         "_old_vec = objNull;" \n
+                         "private _timenow = time + 1.023;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 29;
+                                        priority = 50.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "_">*/
+                class _
+                {
+                        name = "_";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"_vec = _nobjs select 0;" \n
+                         "private _timenow = time + 1.023;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 29;
+                                        priority = 50.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "__isNull__vec__">*/
+                                class __isNull__vec__
+                                {
+                                        itemno = 8;
+                                        priority = 1.000000;
+                                        to="__1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"alive _vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__1">*/
+                class __1
+                {
+                        name = "__1";
+                        itemno = 9;
+                        init = /*%FSM<STATEINIT""">*/"private _timenow = time + 1.023;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 29;
+                                        priority = 50.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "local__driver__vec">*/
+                                class local__driver__vec
+                                {
+                                        itemno = 10;
+                                        priority = 1.000000;
+                                        to="__2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"player == currentPilot _vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__2">*/
+                class __2
+                {
+                        name = "__2";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/"_thebox = _vec getVariable [""d_ammobox"", false];" \n
+                         "private _timenow = time + 1.023;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 29;
+                                        priority = 50.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_vec_____old_vec">*/
+                                class _vec_____old_vec
+                                {
+                                        itemno = 12;
+                                        priority = 1.000000;
+                                        to="__3";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_vec != _old_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__3">*/
+                class __3
+                {
+                        name = "__3";
+                        itemno = 13;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_thebox">*/
+                                class _thebox
+                                {
+                                        itemno = 14;
+                                        priority = 1.000000;
+                                        to="__4";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_thebox"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 16;
+                                        priority = 0.000000;
+                                        to="__5";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__4">*/
+                class __4
+                {
+                        name = "__4";
+                        itemno = 15;
+                        init = /*%FSM<STATEINIT""">*/"_vec remoteExecCall [""d_fnc_setbcnil"", [0, -2] select isDedicated];" \n
+                         "" \n
+                         "_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_269"");" \n
+                         "_old_vec = _vec;" \n
+                         "private _timenow = time + 1.023;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 29;
+                                        priority = 50.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__5">*/
+                class __5
+                {
+                        name = "__5";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "ammo_boxes____d">*/
+                                class ammo_boxes____d
+                                {
+                                        itemno = 18;
+                                        priority = 1.000000;
+                                        to="__6";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_num_ammo_boxes >= d_MaxNumAmmoboxes"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="__7";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__6">*/
+                class __6
+                {
+                        name = "__6";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"_vec vehicleChat format [localize ""STR_DOM_MISSIONSTRING_1411"", d_MaxNumAmmoboxes];" \n
+                         "_old_vec = _vec;" \n
+                         "private _timenow = time + 1.023;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 29;
+                                        priority = 50.000000;
+                                        to="End_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__7">*/
+                class __7
+                {
+                        name = "__7";
+                        itemno = 21;
+                        init = /*%FSM<STATEINIT""">*/"_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1412"");" \n
+                         "private _oposvec = getPosWorld _vec;" \n
+                         "private _timenow = time + 5;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "__d_player_in_ve">*/
+                                class __d_player_in_ve
+                                {
+                                        itemno = 31;
+                                        priority = 50.000000;
+                                        to="End_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_player_in_vec"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 22;
+                                        priority = 0.000000;
+                                        to="__8";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "__8">*/
+                class __8
+                {
+                        name = "__8";
+                        itemno = 23;
+                        init = /*%FSM<STATEINIT""">*/"_pvec2 = getPosATLVisual _vec;" \n
+                         "if (_oposvec distance2D _pvec2 < 6) then {" \n
+                         "	_vec setVariable [""d_ammobox"", true, true];" \n
+                         "	_vec setVariable [""d_abox_perc"", 100, true];" \n
+                         "	_old_vec = _vec;" \n
+                         "	_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1413"");" \n
+                         "	d_num_ammo_boxes = d_num_ammo_boxes + 1; publicVariable ""d_num_ammo_boxes"";" \n
+                         "	_vec setVariable [""d_boxcargo"", nil, true];" \n
+                         "} else {" \n
+                         "	_vec vehicleChat (localize ""STR_DOM_MISSIONSTRING_1414"");" \n
+                         "};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 24;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 28;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_1">*/
+                class End_1
+                {
+                        name = "End_1";
+                        itemno = 30;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End_2">*/
+                class End_2
+                {
+                        name = "End_2";
+                        itemno = 32;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+                "End_1",
+                "End_2",
+        };
+};
+/*%FSM</COMPILE>*/

@@ -1,0 +1,12 @@
+["rhsusf_m1a2sep2wd_usarmy","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskid_usarmy","rhsusf_m1a2sep1tuskiid_usarmy","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiwd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy","rhsusf_m1a1fep_d","rhsusf_m1a1fep_wd","rhsusf_m1a1fep_od","rhsusf_m1a1hc_wd"],
+["RHS_M2A2","RHS_M2A2_BUSKI","RHS_M2A32","RHS_M2A3_BUSKI","RHS_M2A3_BUSKIII","RHS_M2A2_wd","RHS_M2A2_BUSKI_WD","RHS_M2A3_wd","RHS_M2A3_BUSKI_wd","RHS_M2A3_BUSKIII_wd","rhsusf_m113d_usarmy","rhsusf_m113d_usarmy_M240","rhsusf_m113d_usarmy_MK19","rhsusf_m113_usarmy","rhsusf_m113_usarmy_M2_90","rhsusf_m113_usarmy_M240","rhsusf_m113_usarmy_MK19","rhsusf_m113_usarmy_MK19_90"],
+["rhsusf_M1117_D","rhsusf_M1117_O","rhsusf_M1117_W"],
+["RHS_M6","RHS_M6_wd"],
+["rhsusf_M1220_M153_M2_usarmy_d","rhsusf_M1220_M2_usarmy_d","rhsusf_M1220_MK19_usarmy_d","rhsusf_M1230_M2_usarmy_d","rhsusf_M1230_MK19_usarmy_d","rhsusf_M1232_M2_usarmy_d","rhsusf_M1232_MK19_usarmy_d","rhsusf_M1237_M2_usarmy_d","rhsusf_M1237_MK19_usarmy_d","rhsusf_M1220_M153_M2_usarmy_wd","rhsusf_M1220_M2_usarmy_wd","rhsusf_M1220_MK19_usarmy_wd","rhsusf_M1230_M2_usarmy_wd","rhsusf_M1230_MK19_usarmy_wd","rhsusf_M1232_M2_usarmy_wd","rhsusf_M1232_MK19_usarmy_wd","rhsusf_M1237_M2_usarmy_wd","rhsusf_M1237_MK19_usarmy_wd","rhsusf_rg33_m2_usmc_d","rhsusf_rg33_m2_usmc_wd"],
+["rhsusf_m1025_d_m2","rhsusf_m1025_d_Mk19","rhsusf_m1025_w_m2","rhsusf_m1025_w_mk19","rhsusf_m1025_d_s_m2","rhsusf_m1025_d_s_Mk19","rhsusf_m1025_w_s_m2","rhsusf_m1025_w_s_Mk19"],
+["RHS_MK19_TriPod_D","RHS_MK19_TriPod_USMC_D"],
+["RHS_Stinger_AA_pod_D","RHS_M2StaticMG_D","RHS_M2StaticMG_MiniTripod_D","RHS_TOW_TriPod_D","RHS_M2StaticMG_USMC_D"],
+["RHS_M252_D","RHS_M119_D","RHS_M252_USMC_WD"],
+["rhsusf_M978A4_BKIT_usarmy_d","rhsusf_M978A4_BKIT_usarmy_wd"],
+["rhsusf_M977A4_REPAIR_usarmy_d","rhsusf_M977A4_REPAIR_usarmy_wd"],
+["rhsusf_M977A4_AMMO_usarmy_d","rhsusf_M977A4_AMMO_usarmy_wd"]

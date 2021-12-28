@@ -1,0 +1,512 @@
+#include "..\x_setup.sqf"
+
+class Sentences {
+	class Attack {
+		text = "$STR_DOM_MISSIONSTRING_1339";
+		speech[] = {"XMIT","GenCmdSeize1"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class Captured {
+		text = "$STR_DOM_MISSIONSTRING_1340";
+		speech[] = {"XMIT","GenComplete3"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class Captured2 {
+		text = "$STR_DOM_MISSIONSTRING_1341";
+		speech[] = {"XMIT","GenComplete3"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class NewMission {
+		text = "$STR_DOM_MISSIONSTRING_1344";
+		speech[] = {"XMIT","Attack"};
+		class Arguments {};
+	};
+	class MissionAccomplished {
+		text = "$STR_DOM_MISSIONSTRING_1345";
+		speech[] = {"XMIT","GenComplete3"};
+		class Arguments {};
+	};
+	class MissionFailure {
+		text = "$STR_DOM_MISSIONSTRING_725";
+		speech[] = {"XMIT","GenLost1"};
+		class Arguments {};
+	};
+	class ArtilleryAvailable {
+		text = "$STR_DOM_MISSIONSTRING_1347";
+		speech[] = {"XMIT","%1","SupportAddedDuringMission"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class ArtilleryUnAvailable {
+		text = "$STR_DOM_MISSIONSTRING_1348";
+		speech[] = {"XMIT","%1","UnitDestroyedHQArty"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class ArtilleryRequest {
+        text = "$STR_DOM_MISSIONSTRING_1404";
+		speech[] = {"XMIT","SupportRequestRGArty"};
+        class Arguments {
+            class 1 {type = "simple";};
+            class 2 {type = "simple";};
+            class 3 {type = "simple";};
+        };
+    };
+	class ArtilleryRoger {
+		text = "$STR_DOM_MISSIONSTRING_1350";
+		speech[] = {"XMIT","RequestAcknowledgedSGArty"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class ArtilleryOTW {
+		text = "$STR_DOM_MISSIONSTRING_1351";
+		speech[] = {"XMIT","RoundsComplete"};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class ArtillerySplash {
+		text = "$STR_DOM_MISSIONSTRING_1354";
+		speech[] = {"XMIT","RequestAccomplishedSGArty"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class ArtilleryReload {
+		text = "$STR_DOM_MISSIONSTRING_1357";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class ArtilleryComplete {
+		text = "$STR_DOM_MISSIONSTRING_1358";
+		speech[] = {"XMIT","ArtySGSupportRoundsComplete"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class ArtilleryExecute {
+		text = "$STR_DOM_MISSIONSTRING_1359";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+			class 3 {type = "simple";};
+		};
+	};
+	class ArtilleryCanceled {
+		text = "$STR_DOM_MISSIONSTRING_1854";
+		speech[] = {};
+		class Arguments {};
+	};
+	class TellNrObservers {
+		text = "$STR_DOM_MISSIONSTRING_1360";
+		speech[] = {"XMIT","Danger","veh_Static_mortar_p"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class DangerMortarsNoText {
+		text = "";
+		speech[] = {"XMIT","Danger","veh_Static_mortar_p"};
+		class Arguments {};
+	};
+	class DangerAirstrikeNoText {
+		text = "";
+		speech[] = {"XMIT","Danger","veh_air_s"};
+		class Arguments {};
+	};	
+	class TellSecondaryMTM {
+		text = "$STR_DOM_MISSIONSTRING_1361";
+		speech[] = {"XMIT","GenCmdTargetFind2"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class AllObserversDown {
+		text = "$STR_DOM_MISSIONSTRING_1362";
+		speech[] = {"XMIT","TargetIsNeutralized"};
+		class Arguments {};
+	};
+	class MTRadioTower {
+		text = "$STR_DOM_MISSIONSTRING_1363";
+		speech[] = {"XMIT","GenCmdTargetNeutralize2"};
+		class Arguments {};
+	};
+	class MTRadioTowerDown {
+		text = "$STR_DOM_MISSIONSTRING_1364";
+		speech[] = {"XMIT","TargetIsDown"};
+		class Arguments {};
+	};
+	class MTHQaBarracksBuilding {
+		text = "$STR_DOM_MISSIONSTRING_1822";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTHQaBarracksBuildingTT {
+		//text = "$STR_DOM_MISSIONSTRING_1949";
+		text = "$STR_DOM_MISSIONSTRING_1822";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTBarracksDown {
+		text = "$STR_DOM_MISSIONSTRING_1820";
+		speech[] = {};
+		class Arguments {};
+	};
+	class OneMTBarrackDown {
+		text = "$STR_DOM_MISSIONSTRING_1855";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTVecBuildingDown {
+		text = "$STR_DOM_MISSIONSTRING_1821";
+		speech[] = {};
+		class Arguments {};
+	};
+	class CampAnnounce {
+		text = "$STR_DOM_MISSIONSTRING_1365";
+		speech[] = {"XMIT","GenCmdTargetProtect2"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTSightedByEnemy {
+#ifndef __TT__
+		text = "$STR_DOM_MISSIONSTRING_1366";
+#else
+		text = "$STR_DOM_MISSIONSTRING_1367";
+#endif
+		speech[] = {"XMIT","GenIncoming3"};
+		class Arguments {};
+	};
+	class AllSMissionsResolved {
+		text = "$STR_DOM_MISSIONSTRING_1368";
+		speech[] = {"XMIT","GenComplete1"};
+		class Arguments {};
+	};
+	class Dmr_in_air {
+		text = "$STR_DOM_MISSIONSTRING_1372";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class Dmr_available {
+		text = "$STR_DOM_MISSIONSTRING_1373";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class CapCampByBlufor {
+		text = "$STR_DOM_MISSIONSTRING_1378";
+		speech[] = {};
+		class Arguments {};
+	};
+	class CapCampByOpfor {
+		text = "$STR_DOM_MISSIONSTRING_1407";
+		speech[] = {};
+		class Arguments {};
+	};
+	class CapCampByGuer {
+		text = "$STR_DOM_MISSIONSTRING_1380";
+		speech[] = {};
+		class Arguments {};
+	};
+	class CASOnTheWay {
+		text = "$STR_DOM_MISSIONSTRING_1714";
+		speech[] = {"XMIT","RequestAcknowledgedSGCASBombing"};
+		class Arguments {};
+	};
+	class CASUnavailable {
+		text = "$STR_DOM_MISSIONSTRING_1712";
+		speech[] = {"XMIT","UnitDestroyedHQCASBombing"};
+		class Arguments {};
+	};
+	class CASAvailable {
+		text = "$STR_DOM_MISSIONSTRING_1715";
+		speech[] = {"XMIT","SupportAddedDuringMission"};
+		class Arguments {};
+	};
+	class NewJumpFlag {
+		text = "$STR_DOM_MISSIONSTRING_1381";
+		speech[] = {"XMIT","GenBaseUnlockRespawn3"};
+		class Arguments {};
+	};
+	class NewJumpVehFlag {
+		text = "$STR_DOM_MISSIONSTRING_1383";
+		speech[] = {"XMIT","GenBaseUnlockRespawn3"};
+		class Arguments {};
+	};
+#ifdef __TT__
+	class MTSMAnnounce {
+		text = "$STR_DOM_MISSIONSTRING_1384";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTRadioAnnounce {
+		text = "$STR_DOM_MISSIONSTRING_1385";
+		speech[] = {};
+		class Arguments {};
+	}
+	class TTBArracksAnnounce {
+		text = "$STR_DOM_MISSIONSTRING_1950";
+		speech[] = {};
+		class Arguments {};
+	};;
+#else
+	class TellAirDropAttack {
+		text = "$STR_DOM_MISSIONSTRING_1389";
+		speech[] = {"XMIT","Danger","veh_air_parachute_p"};
+		class Arguments {};
+	};
+	class TellInfiltrateAttack {
+		text = "$STR_DOM_MISSIONSTRING_1835";
+		speech[] = {"XMIT","GenCmdTargetProtect1"};
+		class Arguments {};
+	};
+	class TellAirSUAttack {
+		text = "$STR_DOM_MISSIONSTRING_1390";
+		speech[] = {"XMIT","Danger","veh_air_s"};
+		class Arguments {};
+	};
+	class TellAirAttackChopperAttack {
+		text = "$STR_DOM_MISSIONSTRING_1391";
+		speech[] = {"XMIT","Danger","veh_air_gunship_s"};
+		class Arguments {};
+	};
+	class TellAirLightAttackChopperAttack {
+		text = "$STR_DOM_MISSIONSTRING_1392";
+		speech[] = {"XMIT","Danger","veh_air_helicopter_s"};
+		class Arguments {};
+	};
+	class TimeLimitSM {
+		text = "$STR_DOM_MISSIONSTRING_1399";
+		speech[] = {"XMIT","GenTime1"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class TimeLimitSMTwoM {
+		text = "$STR_DOM_MISSIONSTRING_1400";
+		speech[] = {"XMIT","GenTime3"};
+		class Arguments {};
+	};
+#endif
+	class Dummy {
+		text = "%1";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class RebuildWreck {
+		text = "$STR_DOM_MISSIONSTRING_1401";
+		speech[] = {"XMIT","GenReinforcementsRejected2"};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+			class 3 {type = "simple";};
+		};
+	};
+	class WreckRepaired {
+		text = "$STR_DOM_MISSIONSTRING_1402";
+		speech[] = {"XMIT","GenBaseUnlockVehicle1"};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class BaseUnderAtack {
+		text = "$STR_DOM_MISSIONSTRING_1403";
+		speech[] = {"XMIT","Danger"};
+		class Arguments {};
+	};
+	class MHQDestroyed {
+		text = "$STR_DOM_MISSIONSTRING_1740";
+		speech[] = {"XMIT","GenCmdRTB2"};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class PenaltyKilledCivilian {
+		text = "$STR_DOM_MISSIONSTRING_1889";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class MTEventSideEvac {
+		text = "$STR_DOM_MISSIONSTRING_1803_NO_TIMER";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSideEvacFail {
+		text = "$STR_DOM_MISSIONSTRING_722";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSideEvacSucceed {
+		text = "$STR_DOM_MISSIONSTRING_812";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSidePrisoners {
+		text = "$STR_DOM_MISSIONSTRING_1805_MILITARY";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSidePrisonersDefuseNow {
+		text = "$STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSidePrisonersTriggerman {
+		text = "$STR_DOM_MISSIONSTRING_1805_TRIGGERMAN";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventSidePrisonersDefuse {
+		text = "$STR_DOM_MISSIONSTRING_1805_DEFUSE";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventSidePrisonersFail {
+		text = "$STR_DOM_MISSIONSTRING_722";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSidePrisonersSucceed {
+		text = "$STR_DOM_MISSIONSTRING_789";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventSideGuerrTanks {
+		text = "$STR_DOM_MISSIONSTRING_2028";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventSideGuerrInfantry {
+		text = "$STR_DOM_MISSIONSTRING_2028_INFANTRY";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventSideRabbitRescue {
+		text = "$STR_DOM_MISSIONSTRING_2028_RABBIT";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventSideRescueGenericNameSucceed {
+		text = "$STR_DOM_MISSIONSTRING_812_GENERIC_NAME";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class MTEventSideRescueGenericNameFail {
+		text = "$STR_DOM_MISSIONSTRING_722_GENERIC_NAME";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventDetonatePresent {
+		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_PRESENT";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventDetonateFail {
+		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_FAIL";
+		speech[] = {};
+		class Arguments {};
+	};
+	class MTEventDetonateSuccess {
+		text = "$STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS";
+		speech[] = {};
+		class Arguments {};
+	};
+	class PlayerMarkedForDeath {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class PlayerMarkedForDeathFail {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class PlayerMarkedForDeathSucceed {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+			class 3 {type = "simple";};
+		};
+	};
+	class EventSucceed {
+		text = "$STR_DOM_MISSIONSTRING_EVENTSUCCEED";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class EventWarningTime {
+		text = "$STR_DOM_MISSIONSTRING_EVENTWARNINGTIME";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventCivMassacre {
+		text = "$STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
+	class MTEventCivMassacreEnded {
+		text = "$STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE_END";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+};
+class Arguments{};
+class Special{};
+startWithVocal[] = {hour};
+startWithConsonant[] = {europe, university};

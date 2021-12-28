@@ -1,0 +1,405 @@
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Illum">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-34.158474,-186.437271,55.841530,-136.437271,0.000000,"Start"};
+item1[] = {"Allways",8,218,-34.573978,-117.925652,55.426022,-67.925652,0.000000,"Allways"};
+item2[] = {"Init",3,250,-34.630585,-38.744061,55.369415,11.255939,0.000000,"Init"};
+item3[] = {"Not_Server",4,218,87.111374,-190.605545,177.111374,-140.605545,1.000000,"Not Server"};
+item4[] = {"End",1,250,206.943481,-187.912689,296.943512,-137.912704,0.000000,"End"};
+item5[] = {"_",8,218,-13.197514,38.960457,35.736420,63.378326,0.000000,""};
+item6[] = {"Spotted",2,250,-34.403751,101.564217,55.596287,151.564240,0.000000,"Spotted"};
+item7[] = {"Not_spotted",4,218,-165.343933,52.419609,-75.343903,102.419594,1.000000,"Not spotted"};
+item8[] = {"Delay",2,250,-283.991028,108.969597,-193.991028,158.969635,0.000000,"Delay"};
+item9[] = {"Delay_7",4,218,-162.139252,164.846344,-72.139259,214.846344,0.000000,"Delay 7"};
+item10[] = {"_",8,218,-2.587532,218.030258,24.803558,237.735626,0.000000,""};
+item11[] = {"loop",2,250,-33.891983,296.459717,56.108093,346.459717,0.000000,"loop"};
+item12[] = {"illum_over",4,218,116.916092,296.827545,206.916168,346.827545,3.000000,"illum over"};
+item13[] = {"No_players",4,218,-284.283234,202.971008,-194.283264,252.971008,2.000000,"No players"};
+item14[] = {"Delay_1",2,250,-406.135010,243.363831,-316.134979,293.363831,0.000000,"Delay"};
+item15[] = {"Delay_2",4,218,-280.917175,299.913818,-190.917175,349.913818,0.000000,"Delay 2"};
+item16[] = {"",7,210,-82.451607,724.141479,-74.451614,732.141479,0.000000,""};
+item17[] = {"Create_Flare",2,4346,-121.982933,492.951965,-31.982948,542.952026,0.000000,"Create Flare"};
+item18[] = {"Delay_25plus",4,218,-29.416046,606.052002,60.583977,656.052002,0.000000,"Delay 25plus"};
+item19[] = {"Delete_flare",2,250,52.716091,491.605591,142.716125,541.605591,0.000000,"Delete flare"};
+item20[] = {"_",8,218,45.529533,419.083710,74.940269,437.442657,0.000000,""};
+item21[] = {"correct_daytime",4,218,-77.949585,403.595367,12.050400,453.595367,1.000000,"correct daytime"};
+item22[] = {"",7,210,160.240311,723.531677,168.240311,731.531677,0.000000,""};
+item23[] = {"Time_not_correct",8,218,-268.879913,361.335602,-178.879913,411.335602,0.000000,"Time not" \n "correct"};
+item24[] = {"Delay_2",2,250,-314.048462,472.815521,-224.048447,522.815552,0.000000,"Delay"};
+item25[] = {"Delay",4,218,-183.347870,429.568970,-93.347870,479.568970,0.000000,"Delay"};
+link0[] = {0,1};
+link1[] = {0,3};
+link2[] = {1,2};
+link3[] = {2,5};
+link4[] = {3,4};
+link5[] = {5,6};
+link6[] = {6,7};
+link7[] = {6,10};
+link8[] = {6,12};
+link9[] = {7,8};
+link10[] = {8,9};
+link11[] = {9,6};
+link12[] = {10,11};
+link13[] = {11,12};
+link14[] = {11,13};
+link15[] = {11,21};
+link16[] = {11,23};
+link17[] = {12,4};
+link18[] = {13,14};
+link19[] = {14,15};
+link20[] = {15,11};
+link21[] = {16,22};
+link22[] = {17,16};
+link23[] = {17,18};
+link24[] = {18,19};
+link25[] = {19,20};
+link26[] = {20,11};
+link27[] = {21,17};
+link28[] = {22,12};
+link29[] = {23,24};
+link30[] = {24,25};
+link31[] = {25,11};
+globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-564.864563,546.686829,749.062866,-358.875763,923,1236,1};
+window[] = {2,-1,-1,-1,-1,978,260,1220,260,3,941};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Illum";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _flare = objNull;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Not_Server">*/
+                                class Not_Server
+                                {
+                                        itemno = 3;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!isServer"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Allways">*/
+                                class Allways
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Init";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Init">*/
+                class Init
+                {
+                        name = "Init";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"private [""_timenow"",""_rantime"" ];" \n
+                         "params [""_trg_center"", ""_radius""];" \n
+                         "_trg_center params [""_center_x"", ""_center_y""];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Spotted";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"if (!isNull _flare) then {deleteVehicle _flare};"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Spotted">*/
+                class Spotted
+                {
+                        name = "Spotted";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "illum_over">*/
+                                class illum_over
+                                {
+                                        itemno = 12;
+                                        priority = 3.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_mt_done"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Not_spotted">*/
+                                class Not_spotted
+                                {
+                                        itemno = 7;
+                                        priority = 1.000000;
+                                        to="Delay";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!d_mt_spotted"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 10;
+                                        priority = 0.000000;
+                                        to="loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay">*/
+                class Delay
+                {
+                        name = "Delay";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = time + 7.75;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_7">*/
+                                class Delay_7
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Spotted";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "loop">*/
+                class loop
+                {
+                        name = "loop";
+                        itemno = 11;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "illum_over">*/
+                                class illum_over
+                                {
+                                        itemno = 12;
+                                        priority = 3.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_mt_done"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "No_players">*/
+                                class No_players
+                                {
+                                        itemno = 13;
+                                        priority = 2.000000;
+                                        to="Delay_1";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"isMultiplayer && {(call d_fnc_PlayersNumber) == 0}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "correct_daytime">*/
+                                class correct_daytime
+                                {
+                                        itemno = 21;
+                                        priority = 1.000000;
+                                        to="Create_Flare";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"sunOrMoon < 1"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Time_not_correct">*/
+                                class Time_not_correct
+                                {
+                                        itemno = 23;
+                                        priority = 0.000000;
+                                        to="Delay_2";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay_1">*/
+                class Delay_1
+                {
+                        name = "Delay_1";
+                        itemno = 14;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = time + (1.012 + random 1);"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay_2">*/
+                                class Delay_2
+                                {
+                                        itemno = 15;
+                                        priority = 0.000000;
+                                        to="loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Create_Flare">*/
+                class Create_Flare
+                {
+                        name = "Create_Flare";
+                        itemno = 17;
+                        init = /*%FSM<STATEINIT""">*/"private _spawnpos = _trg_center getPos [random _radius, random 360];" \n
+                         "private _height = 250 + ((random 20) * selectRandom [1, -1]);" \n
+                         "_spawnpos set [2, _height];" \n
+                         "" \n
+                         "private ""_lightp"";" \n
+                         "" \n
+                         "if (!d_vn) then {" \n
+                         "	_flare = createVehicle [""F_40mm_White"", _spawnpos, [], 0, ""NONE""];" \n
+                         "" \n
+                         "	_lightp = ""#lightpoint"" createVehicle (getPosASL _flare);" \n
+                         "	_lightp attachTo [_flare, [0, 0, 0]];" \n
+                         "" \n
+                         "	_lightp remoteExecCall [""d_fnc_flare40"", [0, -2] select isDedicated];" \n
+                         "" \n
+                         "	_timenow = time + (20 + random 5);" \n
+                         "} else {" \n
+                         "	_spawnpos set [2, 220];" \n
+                         "	_flare = createVehicle [""vn_flare_plane_med_w_ammo"", _spawnpos, [], 0, ""NONE""];" \n
+                         "" \n
+                         "	_timenow = time + (15 + random 5);" \n
+                         "};" \n
+                         "" \n
+                         "_flare setVelocity [0, 0, -0.1];" \n
+                         "" \n
+                         "" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "illum_over">*/
+                                class illum_over
+                                {
+                                        itemno = 12;
+                                        priority = 3.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_mt_done"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay_25plus">*/
+                                class Delay_25plus
+                                {
+                                        itemno = 18;
+                                        priority = 0.000000;
+                                        to="Delete_flare";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow || {d_mt_done}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delete_flare">*/
+                class Delete_flare
+                {
+                        name = "Delete_flare";
+                        itemno = 19;
+                        init = /*%FSM<STATEINIT""">*/"if (!d_vn) then {" \n
+                         "	deleteVehicle _lightp;" \n
+                         "};" \n
+                         "deleteVehicle _flare;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "_">*/
+                                class _
+                                {
+                                        itemno = 20;
+                                        priority = 0.000000;
+                                        to="loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Delay_2">*/
+                class Delay_2
+                {
+                        name = "Delay_2";
+                        itemno = 24;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = time + 5 + random 2;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 25;
+                                        priority = 0.000000;
+                                        to="loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow || {d_mt_done}"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

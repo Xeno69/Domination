@@ -1,0 +1,12 @@
+["gm_gc_army_t55a_win","gm_gc_army_t55_win","gm_gc_army_t55ak_win","gm_gc_army_t55am2_win","gm_gc_army_t55am2b_win"],
+["gm_gc_army_bmp1sp2_win","gm_gc_army_pt76b"],
+["gm_gc_army_btr60pa_win","gm_gc_army_btr60pb_win","gm_gc_army_btr60pu12_win"],
+["gm_gc_army_zsu234v1_win"],
+["gm_gc_army_uaz469_dshkm_win","gm_gc_army_uaz469_spg9_win"],
+["gm_gc_army_brdm2_win","gm_gc_army_brdm2um_win"],
+["gm_gc_army_dshkm_aatripod","gm_gc_army_spg9_tripod"],
+["gm_gc_army_fagot_launcher_tripod"],
+["gm_gc_army_fagot_launcher_tripod"],
+["gm_gc_army_ural375d_refuel_win"],
+["gm_gc_army_ural4320_repair_win"],
+["gm_gc_army_ural4320_reammo_win"]

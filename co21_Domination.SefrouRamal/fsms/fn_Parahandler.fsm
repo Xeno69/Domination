@@ -1,0 +1,217 @@
+/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, Parahandler">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"START",0,250,-37.857143,-61.607155,52.142860,-11.607155,0.000000,"START"};
+item1[] = {"Delay",4,218,-36.964283,74.107124,53.035717,124.107117,0.000000,"Delay"};
+item2[] = {"Loop",2,250,-36.071426,172.321426,53.928589,222.321426,0.000000,"Loop"};
+item3[] = {"not_mt_radio_dow",8,218,-34.119724,274.501984,55.880276,324.501984,0.000000,"not mt radio down"};
+item4[] = {"React",2,250,-34.210274,385.233307,55.789742,435.233307,0.000000,"React"};
+item5[] = {"mt_radio_down",4,218,-199.131012,172.617310,-109.131012,222.617310,2.000000,"mt radio down"};
+item6[] = {"End",1,250,-347.900665,172.019287,-257.900635,222.019272,0.000000,"End"};
+item7[] = {"New_Paras",4,218,-34.277866,489.662659,55.722134,539.662659,1.000000,"New Paras"};
+item8[] = {"Create",2,4346,-35.618126,610.286682,54.381882,660.286682,0.000000,"Create"};
+item9[] = {"Delay_10",4,218,157.016251,380.108887,247.016327,430.108826,0.000000,"Delay 10"};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {2,5};
+link4[] = {3,4};
+link5[] = {4,5};
+link6[] = {4,7};
+link7[] = {4,9};
+link8[] = {5,6};
+link9[] = {7,8};
+link10[] = {8,5};
+link11[] = {8,9};
+link12[] = {9,2};
+globals[] = {0.000000,0,0,0,0,640,480,1,14,6316128,1,-381.684723,436.820801,849.434143,-67.650528,822,894,1};
+window[] = {2,-1,-1,-1,-1,952,234,1194,234,3,840};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "Parahandler";
+        class States
+        {
+                /*%FSM<STATE "START">*/
+                class START
+                {
+                        name = "START";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"private _timenow = time + 33;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Delay">*/
+                                class Delay
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Loop">*/
+                class Loop
+                {
+                        name = "Loop";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mt_radio_down">*/
+                                class mt_radio_down
+                                {
+                                        itemno = 5;
+                                        priority = 2.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_mt_radio_down"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "not_mt_radio_dow">*/
+                                class not_mt_radio_dow
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="React";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "React">*/
+                class React
+                {
+                        name = "React";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_timenow = time + 10;" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mt_radio_down">*/
+                                class mt_radio_down
+                                {
+                                        itemno = 5;
+                                        priority = 2.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_mt_radio_down"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "New_Paras">*/
+                                class New_Paras
+                                {
+                                        itemno = 7;
+                                        priority = 1.000000;
+                                        to="Create";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_create_new_paras"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay_10">*/
+                                class Delay_10
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 6;
+                        init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Create">*/
+                class Create
+                {
+                        name = "Create";
+                        itemno = 8;
+                        init = /*%FSM<STATEINIT""">*/"private _start_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "private _end_pos = [0,0,0];" \n
+                         "if (!d_tt_ver) then {" \n
+                         "	while {_start_pos distance2D D_FLAG_BASE < 1000} do {" \n
+                         "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "	};" \n
+                         "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "	while {_end_pos distance2D D_FLAG_BASE < 1000} do {" \n
+                         "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "	};" \n
+                         "} else {" \n
+                         "	while {_start_pos distance2D D_WFLAG_BASE < 1000 && {_start_pos distance2D D_EFLAG_BASE < 1000}} do {" \n
+                         "		_start_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "	};" \n
+                         "	_end_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "	while {_end_pos distance2D D_WFLAG_BASE < 1000 && {_end_pos distance2D D_EFLAG_BASE < 1000}} do {" \n
+                         "		_end_pos = call d_fnc_GetRanPointOuterAir;" \n
+                         "	};" \n
+                         "};" \n
+                         "private _num_p = call d_fnc_PlayersNumber;" \n
+                         "private _vecs = [(ceil (_num_p * 0.1)) min 3, 1] select (_num_p == 0);" \n
+                         "d_create_new_paras = false;" \n
+                         "" \n
+                         "private _attack_pos = [d_cur_tgt_pos, 200] call d_fnc_GetRanPointCircleOld;" \n
+                         "private _flytopos = _start_pos getPos [(_start_pos distance2D _attack_pos) + 1500, _start_pos getDir _attack_pos];" \n
+                         "[_start_pos, _attack_pos, _flytopos, _end_pos, _vecs] spawn d_fnc_createpara3x;" \n
+                         "_timenow = time + 10;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "mt_radio_down">*/
+                                class mt_radio_down
+                                {
+                                        itemno = 5;
+                                        priority = 2.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"d_mt_radio_down"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Delay_10">*/
+                                class Delay_10
+                                {
+                                        itemno = 9;
+                                        priority = 0.000000;
+                                        to="Loop";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _timenow"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="START";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/
