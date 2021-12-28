@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (!hasInterface || {player == _this}) exitWith {};
 
@@ -23,11 +23,11 @@ if (_unit getVariable ["xr_ReviveAction", -9999] == -9999) then {
 		/* 13 remove on completion */		false,
 		/* 14 show unconscious */			false
 	] call bis_fnc_holdActionAdd;
-	__TRACE_1("id1","_id")
+	//__TRACE_1("id1","_id")
 	_unit setVariable ["xr_ReviveAction", _id];
 	
 	_id = _unit addAction [format ["<t color='#FF0000'>%2 %1</t>", name _unit, localize "STR_DOM_MISSIONSTRING_1704"], {player setVariable ["xr_cursorTarget", _this # 0]; 0 spawn xr_fnc_drag}, [], -2, false, false, "", "_target getVariable 'xr_pluncon' && {!(_this getVariable 'xr_pisinaction') && {!(_target getVariable ['xr_dragged', false])}}", 3];
-	__TRACE_1("id2","_id")
+	//__TRACE_1("id2","_id")
 	_unit setVariable ["xr_DragAction", _id];
 };
 

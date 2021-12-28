@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 #define __spectdlg1005 ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1005)
 #define __spectdlg1006 ((uiNamespace getVariable "xr_SpectDlg") displayCtrl 1006)
@@ -16,20 +16,19 @@ if (_tt != xr_u_ott) then {
 	__spectdlg1005 ctrlSetText str _tt;
 	xr_u_ott = _tt;
 };
-if (xr_near_player_dist_respawn && {!xr_respawn_available && {xr_u_dcounter > 10 && {time > xr_u_xxstarttime}}}) then {
+if (xr_u_dcounter > 10 && {time > xr_u_xxstarttime}) then {
 	private _nearunit = objNull;
 	d_allplayers findIf {
-		_ret = _x != player && {!(_x getVariable ["xr_pluncon", false])};
+		_ret = _x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 215}};
 		if (_ret) then {
 			_nearunit = _x;
 		};
 		_ret
 	};
 	if (isNull _nearunit) then {
-		xr_respawn_available = true;
-		__spectdlg1006 ctrlSetText (localize "STR_DOM_MISSIONSTRING_922");
-		__spectdlg1006 ctrlSetTextColor [1,1,0,1];
-		__spectdlg1006 ctrlCommit 0;
+		if (player getVariable "xr_pluncon" && {!(player getVariable ["xr_dragged", false])}) then {
+		    player setVariable ["xr_pluncon", false, true];
+		};
 	};
 	xr_u_dcounter = 0;
 } else {
@@ -43,19 +42,19 @@ if (xr_u_respawn != -1 && {!xr_respawn_available && {time >= xr_u_respawn}}) the
 	xr_respawn_available = true;
 };
 if (_tt <= 0) exitWith {
-	__TRACE("_tt < =0, exit")
+	//__TRACE("_tt < =0, exit")
 	if (xr_with_marker) then {
 		xr_strpldead remoteExecCall ["deleteMarker", 2];
 	};
 	player remoteExecCall ["xr_fnc_removeActions", d_own_sides_o];
 	xr_u_remactions = true;
-	__TRACE("_tt <= 0, black out")
+	//__TRACE("_tt <= 0, black out")
 	"xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_932", "BLACK OUT", 1];
 	0 spawn {
 		scriptName "spawn xr uncon oneframe";
 		sleep 1;
 		closeDialog 0;
-		__TRACE("_tt stopspect = true")
+		//__TRACE("_tt stopspect = true")
 		xr_stopspect = true;
 		sleep 1.3;
 		//player setPos (markerPos "base_spawn_1");
@@ -69,7 +68,7 @@ if (_tt <= 0) exitWith {
 			player setVariable ["d_move_stop", nil];
 		};
 		sleep 1.3;
-		__TRACE("time over black in")
+		//__TRACE("time over black in")
 		"xr_revtxt" cutText ["","BLACK IN", 2];
 		xr_pl_has_pos_changed = false;
 		player setVariable ["xr_pluncon", false, true];
@@ -91,7 +90,7 @@ if (xr_with_marker) then {
 	// adjust marker if uncon player gets moved. Can happen when he gets dragged/carried or when a apc hits him (flying miles away)
 	private _newplposm = getPosWorld player;
 	if (_newplposm distance2D xr_u_plposm > 5) then {
-		__TRACE_2("","xr_u_plposm","_newplposm")
+		//__TRACE_2("","xr_u_plposm","_newplposm")
 		xr_u_plposm = _newplposm;
 		xr_strpldead setMarkerPos _newplposm;
 	};

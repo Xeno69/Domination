@@ -935,6 +935,7 @@
 <Original>You must have at least %1 points to create a %2</Original>
 <Russian>У вас должно быть как минимум %1 очков, чтобы создать %2</Russian>
 <Chinesesimp>您必须至少拥有 %1 分才能创建 %2 </Chinesesimp>
+<Chinese>您必須至少擁有 %1 分才能創建 %2</Chinese>
 <French>Vous devez avoir au moins %1 points pour créer un %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_156">
@@ -2081,11 +2082,12 @@
 <English>Welcome to Domination!</English>
 <Spanish>Bienvenido a Domination</Spanish>
 <Portuguese>Bem-vindo a Dominación!</Portuguese>
-<Korean>BWB 도미네이션에 오신 걸 환영합니다.</Korean>
+<Korean>BWB 도미네이션에 오신 걸 환영합니다!</Korean>
 <Japanese>Dominationへようこそ!</Japanese>
 <Original>Welcome to Domination!</Original>
 <Russian>Добро пожаловать в Доминацию!</Russian>
 <Chinesesimp>欢迎来到 Domination！</Chinesesimp>
+<Chinese>歡迎來到 Domination！</Chinese>
 <French>Bienvenue sur Domination</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_266">
@@ -2097,7 +2099,7 @@
 <Original>Have a nice time!</Original>
 <Russian>Хорошей игры!</Russian>
 <Chinesesimp>祝你玩得愉快！</Chinesesimp>
-<Chinese>Have a nice time!</Chinese>
+<Chinese>祝你玩得愉快！</Chinese>
 <French>Passez un bon moment!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_267">
@@ -2841,7 +2843,7 @@
 <Original>On</Original>
 <Russian>Включено</Russian>
 <Chinesesimp>打开</Chinesesimp>
-<Chinese>On</Chinese>
+<Chinese>打開</Chinese>
 <French>On</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_363a">
@@ -2901,7 +2903,7 @@
 <Original>Very Low</Original>
 <Russian>Очень низкий</Russian>
 <Chinesesimp>极低</Chinesesimp>
-<Chinese>Very Low</Chinese>
+<Chinese>極低</Chinese>
 <French>Very Low</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_399">
@@ -2948,9 +2950,21 @@
 <Japanese>最高</Japanese>
 <Original>Very High</Original>
 <Russian>Очень высокий</Russian>
-<Chinesesimp>极高</Chinesesimp>
-<Chinese>Very High</Chinese>
+<Chinesesimp>非常高</Chinesesimp>
+<Chinese>非常高</Chinese>
 <French>Very High</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_400_EXTREME">
+<English>Extreme</English>
+<Spanish>Extreme</Spanish>
+<Portuguese>Extreme</Portuguese>
+<Korean>최고로 높음</Korean>
+<Japanese>Extreme</Japanese>
+<Original>Extreme</Original>
+<Russian>Экстремальный</Russian>
+<Chinesesimp>极高</Chinesesimp>
+<Chinese>極高</Chinese>
+<French>Extreme</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
 <English>None</English>
@@ -2980,12 +2994,12 @@
 <English>Default</English>
 <Spanish>Default</Spanish>
 <Portuguese>Default</Portuguese>
-<Korean>Default</Korean>
+<Korean>기본설정</Korean>
 <Japanese>Default</Japanese>
 <Original>Default</Original>
-<Russian>Default</Russian>
+<Russian>По умолчанию</Russian>
 <Chinesesimp>默认</Chinesesimp>
-<Chinese>Default</Chinese>
+<Chinese>默認</Chinese>
 <French>Default</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418B">
@@ -2997,7 +3011,7 @@
 <Original>Always</Original>
 <Russian>Всегда</Russian>
 <Chinesesimp>总是</Chinesesimp>
-<Chinese>Always</Chinese>
+<Chinese>總是</Chinese>
 <French>Always</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C">
@@ -3009,31 +3023,43 @@
 <Original>Always, multiple events</Original>
 <Russian>Всегда, несколько событий</Russian>
 <Chinesesimp>总是，多个事件</Chinesesimp>
-<Chinese>Always, multiple events</Chinese>
+<Chinese>總是，多個事件</Chinese>
 <French>Always, multiple events</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_GUERRILLAS">
+<English>guerrillas</English>
+<Spanish>guerrillas</Spanish>
+<Portuguese>guerrillas</Portuguese>
+<Korean>게릴라병</Korean>
+<Japanese>guerrillas</Japanese>
+<Original>guerrillas</Original>
+<Russian>партизаны</Russian>
+<Chinesesimp>游击队</Chinesesimp>
+<Chinese>游擊隊</Chinese>
+<French>guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
 <English>Always, multiple events with guerrillas</English>
 <Spanish>Siempre, múltiples eventos con guerrillas</Spanish>
 <Portuguese>Always, multiple events with guerrillas</Portuguese>
-<Korean>항상, 다중 이벤트 with guerrillas</Korean>
+<Korean>항상, 다중 게릴라 이벤트</Korean>
 <Japanese>常時, 複数のイベント(ゲリラあり)</Japanese>
 <Original>Always, multiple events with guerrillas</Original>
 <Russian>Всегда, несколько событий with guerrillas</Russian>
 <Chinesesimp>总是，游击队的多个事件</Chinesesimp>
-<Chinese>Always, multiple events with guerrillas</Chinese>
+<Chinese>總是，游擊隊的多個事件</Chinese>
 <French>Always, multiple events with guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ALL">
 <English>All</English>
 <Spanish>All</Spanish>
 <Portuguese>All</Portuguese>
-<Korean>All</Korean>
+<Korean>전부</Korean>
 <Japanese>全て</Japanese>
 <Original>All</Original>
 <Russian>All</Russian>
 <Chinesesimp>全部</Chinesesimp>
-<Chinese>All</Chinese>
+<Chinese>全部</Chinese>
 <French>All</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_493">
@@ -3165,7 +3191,7 @@
 <Original>%1 was put into jail because of team killing, number team kills: %2</Original>
 <Russian>%1 был наказан за teamkill, кол-во teamkills: %2</Russian>
 <Chinesesimp>%1 由于杀死队友而入狱，杀死队友数：%2</Chinesesimp>
-<Chinese>%1 was put into jail because of team killing, number team kills: %2</Chinese>
+<Chinese>%1 由於殺死隊友而入獄，殺死隊友數：%2</Chinese>
 <French>%1 was put into jail because of team killing, number team kills: %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_508">
@@ -4893,7 +4919,7 @@
 <Original>None of the soldiers made it back to base...</Original>
 <Russian>Никто из солдат не вернулся на базу...</Russian>
 <Chinesesimp>没有一个士兵回到基地...</Chinesesimp>
-<Chinese>None of the soldiers made it back to base...</Chinese>
+<Chinese>沒有一個士兵回到基地...</Chinese>
 <French>None of the soldiers made it back to base...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_720">
@@ -4941,7 +4967,7 @@
 <Original>%1 was killed! The enemy will pay for this...</Original>
 <Russian>%1 был убит! За это враг заплатит...</Russian>
 <Chinesesimp>%1 被杀死！敌人将为此付出代价...</Chinesesimp>
-<Chinese>%1 was killed! The enemy will pay for this...</Chinese>
+<Chinese>%1 被殺死！敵人將為此付出代價...</Chinese>
 <French>%1 was killed! The enemy will pay for this...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_723">
@@ -5446,7 +5472,7 @@
 <Original>Good job. %1 is back at base. + %2</Original>
 <Russian>Отличная работа! %1 спасен и доставлен на базу! + %2</Russian>
 <Chinesesimp>干得漂亮！ %1 返回基地。 + %2</Chinesesimp>
-<Chinese>Good job. %1 is back at base. + %2</Chinese>
+<Chinese>幹得漂亮！ %1 返回基地。 + %2</Chinese>
 <French>Good job. %1 is back at base. + %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_814">
@@ -5962,6 +5988,7 @@
 <Original>Yes</Original>
 <Russian>Да</Russian>
 <Chinesesimp>是</Chinesesimp>
+<Chinese>是</Chinese>
 <French>Oui</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_923">
@@ -6352,12 +6379,12 @@
 <English>Random</English>
 <Spanish>Aleatorio</Spanish>
 <Portuguese>Random</Portuguese>
-<Korean>Random</Korean>
+<Korean>무작위</Korean>
 <Japanese>ランダム</Japanese>
 <Original>Random</Original>
 <Russian>Рандомно</Russian>
 <Chinesesimp>随机</Chinesesimp>
-<Chinese>Random</Chinese>
+<Chinese>隨機</Chinese>
 <French>Random</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1008">
@@ -6621,7 +6648,7 @@
 <Original>Random events at main target:</Original>
 <Russian>С случайными событиями на главной цели:</Russian>
 <Chinesesimp>主要目标随机事件：</Chinesesimp>
-<Chinese>Random events at main target:</Chinese>
+<Chinese>主要目標隨機事件：</Chinese>
 <French>Random events at main target:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1053">
@@ -7176,6 +7203,18 @@
 <Chinese>無限</Chinese>
 <French>Infini</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FAST_INTRO">
+<English>Force fast intro:</English>
+<Spanish>Force fast intro:</Spanish>
+<Portuguese>Force fast intro:</Portuguese>
+<Korean>Force fast intro:</Korean>
+<Japanese>Force fast intro:</Japanese>
+<Original>Force fast intro:</Original>
+<Russian>Force fast intro:</Russian>
+<Chinesesimp>强制快速介绍：</Chinesesimp>
+<Chinese>Force fast intro:</Chinese>
+<French>Force fast intro:</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1159">
 <English>Show player names:</English>
 <Spanish>Mostrar nombre de jugadores:</Spanish>
@@ -7342,7 +7381,7 @@
 <Original>Enable simulation for enemy camps:</Original>
 <Russian>Включить симуляцию для вражеских лагерей:</Russian>
 <Chinesesimp>敌方阵营启用模拟：</Chinesesimp>
-<Chinese>Enable simulation for enemy camps:</Chinese>
+<Chinese>敵方陣營啟用模擬：</Chinese>
 <French>Enable simulation for enemy camps:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1176">
@@ -7373,12 +7412,12 @@
 <English>Force no HUD</English>
 <Spanish>Force no HUD</Spanish>
 <Portuguese>Force no HUD</Portuguese>
-<Korean>Force no HUD</Korean>
+<Korean>HUD끄기</Korean>
 <Japanese>HUD禁止</Japanese>
 <Original>Force no HUD</Original>
 <Russian>Принудительно без HUD</Russian>
 <Chinesesimp>强制无 HUD</Chinesesimp>
-<Chinese>Force no HUD</Chinese>
+<Chinese>強制無 HUD</Chinese>
 <French>Force no HUD</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1178">
@@ -8482,7 +8521,7 @@
 <Original>Select Respawn/Show Map</Original>
 <Russian>Выберите Респаун/Показать карту:</Russian>
 <Chinesesimp>选择重生/显示地图</Chinesesimp>
-<Chinese>Select Respawn/Show Map</Chinese>
+<Chinese>選擇重生/顯示地圖</Chinese>
 <French>Select Respawn/Show Map</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1333a">
@@ -8758,6 +8797,7 @@
 <Original>Main target radio tower down. Now the enemy will not be able to call in further airborne inf reinforcements.</Original>
 <Russian>Радиовышка уничтожена. Теперь противник не может вызывать подкрепления и десант!</Russian>
 <Chinesesimp>主目标通讯塔被摧毁，敌人无法在呼叫支援了。</Chinesesimp>
+<Chinese>主目標通訊塔被摧毀，敵人無法在呼叫支援了。</Chinese>
 <French>Tour radio cible principale détruite. Désormais, l'ennemi ne pourra pas faire appel à d'autres renforts aéroportés.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1365">
@@ -9813,7 +9853,7 @@
 <Original>---------------------------- Client -------------------------------</Original>
 <Russian>--------------------------- *КЛИЕНТ* --------------------------</Russian>
 <Chinesesimp>---------------------------- 客户端 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Client -------------------------------</Chinese>
+<Chinese>---------------------------- 客戶端 -------------------------------</Chinese>
 <French>---------------------------- Client -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_CIV">
@@ -9825,7 +9865,7 @@
 <Original>---------------------------- Civilians -------------------------------</Original>
 <Russian>--------------------------- Civilians --------------------------</Russian>
 <Chinesesimp>---------------------------- 平民 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Civilians -------------------------------</Chinese>
+<Chinese>---------------------------- 平民 -------------------------------</Chinese>
 <French>---------------------------- Civilians -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_ENEMY_AI">
@@ -9837,7 +9877,7 @@
 <Original>---------------------------- Enemy AI -------------------------------</Original>
 <Russian>--------------------------- Enemy AI --------------------------</Russian>
 <Chinesesimp>---------------------------- 敌方 AI -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Enemy AI -------------------------------</Chinese>
+<Chinese>---------------------------- 敵方 AI -------------------------------</Chinese>
 <French>---------------------------- Enemy AI -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_OBJ">
@@ -9849,7 +9889,7 @@
 <Original>---------------------------- Main Target Objectives -------------------------------</Original>
 <Russian>--------------------------- Main Target Objectives --------------------------</Russian>
 <Chinesesimp>---------------------------- 主要目标 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Main Target Objectives -------------------------------</Chinese>
+<Chinese>---------------------------- 主要目標 -------------------------------</Chinese>
 <French>---------------------------- Main Target Objectives -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_ENV">
@@ -9861,7 +9901,7 @@
 <Original>---------------------------- Environment -------------------------------</Original>
 <Russian>--------------------------- Environment --------------------------</Russian>
 <Chinesesimp>---------------------------- 环境 -------------------------------</Chinesesimp>
-<Chinese>---------------------------- Environment -------------------------------</Chinese>
+<Chinese>---------------------------- 環境 -------------------------------</Chinese>
 <French>---------------------------- Environment -------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1575">
@@ -9873,7 +9913,7 @@
 <Original>------------------------------- AI --------------------------------</Original>
 <Russian>--------------------------- *ИИ* --------------------------</Russian>
 <Chinesesimp>------------------------------- 雇佣兵（AI） --------------------------------</Chinesesimp>
-<Chinese>------------------------------- AI --------------------------------</Chinese>
+<Chinese>------------------------------- 僱傭兵（AI） --------------------------------</Chinese>
 <French>------------------------------- IA --------------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1576">
@@ -9969,7 +10009,7 @@
 <Original>------------------------ Advanced ---------------------------</Original>
 <Russian>--------------------------- Advanced --------------------------</Russian>
 <Chinesesimp>------------------------ 高级 ---------------------------</Chinesesimp>
-<Chinese>------------------------ Advanced ---------------------------</Chinese>
+<Chinese>------------------------ 高級 ---------------------------</Chinese>
 <French>------------------------ Advanced ---------------------------</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1583">
@@ -10149,7 +10189,7 @@
 <Original>Base Flag</Original>
 <Russian>Меню базы</Russian>
 <Chinesesimp>基地传送点</Chinesesimp>
-<Chinese>Base Flag</Chinese>
+<Chinese>基地傳送點</Chinese>
 <French>Drapeau Base</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1645">
@@ -10348,12 +10388,12 @@
 <English>Squad</English>
 <Spanish>Escuadrón</Spanish>
 <Portuguese>Equipe</Portuguese>
-<Korean>Squad</Korean>
+<Korean>분대</Korean>
 <Japanese>Squad</Japanese>
 <Original>Squad</Original>
-<Russian>Squad</Russian>
+<Russian>Отряд</Russian>
 <Chinesesimp>小队</Chinesesimp>
-<Chinese>Squad</Chinese>
+<Chinese>小隊</Chinese>
 <French>Équipe</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1706">
@@ -10762,7 +10802,7 @@
 <Original>Persistent AI corpses</Original>
 <Russian>Не удалять трупы AI до выполнения основной задачи</Russian>
 <Chinesesimp>永久显示 AI 尸体</Chinesesimp>
-<Chinese>Persistent AI corpses</Chinese>
+<Chinese>永久顯示 AI 屍體</Chinese>
 <French>Persistent AI corpses</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1742">
@@ -11014,7 +11054,7 @@
 <Original>Farp</Original>
 <Russian>Аванпост</Russian>
 <Chinesesimp>前沿补给点</Chinesesimp>
-<Chinese>Farp</Chinese>
+<Chinese>前沿補給點</Chinese>
 <French>Farp</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1800">
@@ -11097,44 +11137,44 @@
 <Japanese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Japanese>
 <Original>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Original>
 <Russian>Один из наших пилотов был захвачен в плен. Верните пилота живым на свою базу! Быстро устраните охранников. Если они окажутся ранеными, то они казнят заключенного!</Russian>
-<Chinesesimp>我们的一名飞行员被抓获。让飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决囚犯！</Chinesesimp>
-<Chinese>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</Chinese>
+<Chinesesimp>我们的一名飞行员被俘虏。营救飞行员重返你的基地！迅速杀死守卫。如果他们受伤，他们将处决俘虏！</Chinesesimp>
+<Chinese>我們的一名飛行員被俘虜。營救飛行員重返你的基地！迅速殺死守衛。如果他們受傷，他們將處決俘虜！</Chinese>
 <French>One of our pilots has been captured. Bring the pilot back alive to your base! Kill the guards quickly. If they are injured they will execute the prisoner!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_TRIGGERMAN">
 <English>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</English>
 <Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Spanish>
 <Portuguese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Portuguese>
-<Korean>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Korean>
+<Korean>포로가된 아군이 폭발조끼를 입고 있습니다. 표시된 위치로 이동하고 폭발격발기를 가진자를 제거 하십시오! 시간은 %1초 남았다.</Korean>
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Russian>
-<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
-<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</Chinese>
+<Chinesesimp>一名友军战俘身穿爆炸背心。前往标记位置找到并干掉爆破手！你有 %1 秒。</Chinesesimp>
+<Chinese>一名友軍戰俘身穿爆炸背心。前往標記位置找到並幹掉爆破手！你有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and kill the trigger man! You have %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE">
 <English>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</English>
 <Spanish>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Spanish>
 <Portuguese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Portuguese>
-<Korean>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Korean>
+<Korean>포로가된 아군 파일럿이 폭탄조끼를 입고 있습니다. 표시된 위치로 이동하고 우리의 파일럿을 구출 하십시오! 시간은 %1 초 남았다.</Korean>
 <Japanese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Japanese>
 <Original>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Original>
 <Russian>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Russian>
-<Chinesesimp>一个友善的战俘穿着爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
-<Chinese>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</Chinese>
+<Chinesesimp>一名友军战俘身穿爆炸背心。移动到标记的位置并营救我们的飞行员！您有 %1 秒。</Chinesesimp>
+<Chinese>一名友軍戰俘身穿爆炸背心。移動到標記的位置並營救我們的飛行員！您有 %1 秒。</Chinese>
 <French>A friendly POW is wearing an explosive vest. Move to the marked position and save our pilot! You have %1 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1805_DEFUSE_NOW">
 <English>Defusing device...</English>
 <Spanish>Defusing device...</Spanish>
 <Portuguese>Defusing device...</Portuguese>
-<Korean>Defusing device...</Korean>
+<Korean>신관 제거중...</Korean>
 <Japanese>デバイスを解除中...</Japanese>
 <Original>Defusing device...</Original>
 <Russian>Defusing device...</Russian>
 <Chinesesimp>拆解装置...</Chinesesimp>
-<Chinese>Defusing device...</Chinese>
+<Chinese>拆解裝置...</Chinese>
 <French>Defusing device...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1806">
@@ -11177,7 +11217,7 @@
 <English>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
 <Spanish>Las fuerzas enemigas están preparando un helicóptero prototipo mejorado. Esta es una buena oportunidad para robar y llevarlo a tu base, antes de que las tropas enemigas lo usen</Spanish>
 <Portuguese>As forças inimigas estão preparando um protótipo aprimorado de helicóptero. Esta é uma boa chance de roubar e trazê-lo para sua base, antes que as tropas inimigas o usem.</Portuguese>
-<Korean>적군이 시제품 헬기를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 탱크를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
+<Korean>적군이 시제품 헬기를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 헬기를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
 <Japanese>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
 <Original>Enemy forces are preparing an enhanced prototype chopper. This is a good chance to steal and bring it to your base, before enemy troops use it</Original>
 <Russian>Противник готовится испытать прототип вертолета. Ваша задача захватить его и доставить на базу!</Russian>
@@ -11297,7 +11337,7 @@
 <English>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</English>
 <Spanish>Las fuerzas enemigas están preparando un prototipo de APC mejorado. Esta es una buena oportunidad para robar y llevarlo a tu base, antes de que las tropas enemigas lo usen</Spanish>
 <Portuguese>As forças inimigas estão preparando um protótipo aprimorado do APC. Esta é uma boa chance de roubar e trazê-lo para sua base, antes que as tropas inimigas o usem.</Portuguese>
-<Korean>적군이 향상된 성능의 시제품 APC를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 탱크를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
+<Korean>적군이 향상된 성능의 시제품 APC를 준비중입니다. 이것은 적군이 사용하기 전에 시제품 APC를 훔쳐 기지로 가져오기 좋은 기회입니다</Korean>
 <Japanese>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Japanese>
 <Original>Enemy forces are preparing an enhanced prototype APC. This is a good chance to steal and bring it to your base, before enemy troops use it</Original>
 <Russian>Противник собирается испытать прототип нового БТР. Это хорошая возможность для его уничтожения!</Russian>
@@ -11337,8 +11377,8 @@
 <Japanese>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Japanese>
 <Original>Intel knows about various enemy barracks and a mobile forces HQ at the main target. Find and destroy them to cut off enemy inf and armor reinforcements!</Original>
 <Russian>В городе обнаружено большое скопление пехоты и техники противника. Уничтожьте их и прибывающие подкрепления!</Russian>
-<Chinesesimp>情报获取各种敌人营房和主要目标的敌军指挥总部（HQ）。找到并摧毁它们以切断敌人的 INF 和装甲增援！</Chinesesimp>
-<Chinese>情報獲取各種敵人營房和主要目標的敵軍指揮總部。找到並摧毀它們以切斷敵人的inf和裝甲增援！</Chinese>
+<Chinesesimp>情报获取各种敌人营房和主要目标的敌军指挥总部（HQ）。找到并摧毁它们以切断敌人的步兵和装甲增援！</Chinesesimp>
+<Chinese>情報獲取各種敵人營房和主要目標的敵軍指揮總部。找到並摧毀它們以切斷敵人的步兵和裝甲增援！</Chinese>
 <French>Les renseignements connaîssent diverses casernes ennemies et un QG de forces mobiles sur l'objectif principal. Trouvez-les et détruisez-les pour couper les renforts d'infanterie et les renforts blindés ennemis!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1823">
@@ -11361,7 +11401,7 @@
 <Japanese>移動指揮所で新規車両が展開可能となるまでの待ち時間:</Japanese>
 <Original>Seconds till a player can create a new vec at MHQ:</Original>
 <Russian>Секунд до возможности получить снова технику из КШМ:</Russian>
-<Chinesesimp>玩家可以在 基地车（MHQ） 创建一个新的 VEC 所需要的秒数：</Chinesesimp>
+<Chinesesimp>玩家可以在 基地车（MHQ） 创建一个新的车辆工程中心（VEC）所需要的秒数：</Chinesesimp>
 <Chinese>玩家可以在MHQ創建一個新的vec所需要的秒數：</Chinese>
 <French>Secondes jusqu'à ce qu'un joueur puisse créer un nouveau véhicule au MHQ:</French>
 </Key>
@@ -11745,8 +11785,8 @@
 <Japanese>points for bringing a wreck to the wreck repair point!</Japanese>
 <Original>points for bringing a wreck to the wreck repair point!</Original>
 <Russian>Вы получаете %1 очков за доставку врэка (уничтож. приз. техники) на точку ремонта!</Russian>
-<Chinesesimp>给沉船修理点带来沉船的要点！</Chinesesimp>
-<Chinese>points for bringing a wreck to the wreck repair point!</Chinese>
+<Chinesesimp>将残骸（损毁奖励载具）运送到残骸维修点的得分奖励！</Chinesesimp>
+<Chinese>將殘骸（損毀獎勵載具）運送到殘骸維修點獲的得分獎勵！</Chinese>
 <French>points for bringing a wreck to the wreck repair point!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1857">
@@ -11782,7 +11822,7 @@
 <Original>Mirror</Original>
 <Russian>Зеркало</Russian>
 <Chinesesimp>镜子</Chinesesimp>
-<Chinese>Mirror</Chinese>
+<Chinese>鏡子</Chinese>
 <French>Miroir</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1860">
@@ -11794,7 +11834,7 @@
 <Original>Select Preset</Original>
 <Russian>Выбрать пресет</Russian>
 <Chinesesimp>选择预设</Chinesesimp>
-<Chinese>Select Preset</Chinese>
+<Chinese>選擇預設</Chinese>
 <French>Sélection Préréglage</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1861">
@@ -11806,7 +11846,7 @@
 <Original>New pylon loadout applied!</Original>
 <Russian>БК на пилоны загружено!</Russian>
 <Chinesesimp>应用了新的挂架装载！</Chinesesimp>
-<Chinese>New pylon loadout applied!</Chinese>
+<Chinese>應用了新的掛架裝載！</Chinese>
 <French>Nouveau chargement support armement appliqué!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1862">
@@ -11818,7 +11858,7 @@
 <Original>Change Pylon Loadout</Original>
 <Russian>Изменить загрузку пилонов.</Russian>
 <Chinesesimp>改变挂架装载</Chinesesimp>
-<Chinese>Change Pylon Loadout</Chinese>
+<Chinese>改變掛架裝載</Chinese>
 <French>Modifier la charge du support armement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1863">
@@ -11830,7 +11870,7 @@
 <Original>Rappel Self</Original>
 <Russian>Спуститься по тросу</Russian>
 <Chinesesimp>索降</Chinesesimp>
-<Chinese>Rappel Self</Chinese>
+<Chinese>索降</Chinese>
 <French>Descente Rapide</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1864">
@@ -11842,7 +11882,7 @@
 <Original>Rappel AI Units</Original>
 <Russian>Спустить ИИ по тросам</Russian>
 <Chinesesimp>AI 单位索降</Chinesesimp>
-<Chinese>Rappel AI Units</Chinese>
+<Chinese>AI 單位索降</Chinese>
 <French>IA Descente Rapide</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1865">
@@ -11853,8 +11893,8 @@
 <Japanese>ラペリング装置を取り外す</Japanese>
 <Original>Detach Rappel Device</Original>
 <Russian>Отцепить тросы</Russian>
-<Chinesesimp>拆下绳索装置</Chinesesimp>
-<Chinese>Detach Rappel Device</Chinese>
+<Chinesesimp>拆下索降装置</Chinesesimp>
+<Chinese>拆下索降裝置</Chinese>
 <French>Détacher le Dispositif de Rappel</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1866">
@@ -12113,67 +12153,91 @@
 <English>%1 has been marked for death.  Keep %1 alive for %2 seconds.</English>
 <Spanish>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Spanish>
 <Portuguese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Portuguese>
-<Korean>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Korean>
+<Korean>%1 이(가) 사망자로 표시되었습니다. %1 이(가) %2초 동안 생존 할 것입니다.</Korean>
 <Japanese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Japanese>
 <Original>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Original>
 <Russian>%1 был отмечен, как убитый.  Возможно %1 останется живым еще %2 секунд.</Russian>
 <Chinesesimp>%1 已被标记为死亡。保持 %1 存活 %2 秒。</Chinesesimp>
-<Chinese>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Chinese>
+<Chinese>%1 已被標記為死亡。保持 %1 存活 %2 秒。</Chinese>
 <French>%1 has been marked for death.  Keep %1 alive for %2 seconds.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL">
 <English>%1 only survived for %2 seconds.  Mission failed.</English>
 <Spanish>%1 only survived for %2 seconds.  Mission failed.</Spanish>
 <Portuguese>%1 only survived for %2 seconds.  Mission failed.</Portuguese>
-<Korean>%1 only survived for %2 seconds but.  Mission failed.</Korean>
+<Korean>%1 이(가) %2초 동안만 생존 했습니다. 미션 실패.</Korean>
 <Japanese>%1 only survived for %2 seconds.  Mission failed.</Japanese>
 <Original>%1 only survived for %2 seconds.  Mission failed.</Original>
 <Russian>%1 выжил %2 секунд.  Миссия провалена.</Russian>
 <Chinesesimp>%1 仅存活了 %2 秒。任务失败。</Chinesesimp>
-<Chinese>%1 only survived for %2 seconds.  Mission failed.</Chinese>
+<Chinese>%1 僅存活了 %2 秒。任務失敗。</Chinese>
 <French>%1 only survived for %2 seconds.  Mission failed.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED">
 <English>Success.  %1 survived for %2 seconds. + %3</English>
 <Spanish>Success.  %1 survived for %2 seconds. + %3</Spanish>
 <Portuguese>Success.  %1 survived for %2 seconds. + %3</Portuguese>
-<Korean>Success.  %1 survived for %2 seconds. + %3</Korean>
+<Korean>성공.  %1 이(가) %2초 동안 생존했습니다. + %3</Korean>
 <Japanese>Success.  %1 survived for %2 seconds. + %3</Japanese>
 <Original>Success.  %1 survived for %2 seconds. + %3</Original>
 <Russian>Выполнено.  %1 выжил %2 секунд. + %3</Russian>
 <Chinesesimp>成功。 %1 存活了 %2 秒。 + %3</Chinesesimp>
-<Chinese>Success.  %1 survived for %2 seconds. + %3</Chinese>
+<Chinese>成功。 %1 存活了 %2 秒。 + %3</Chinese>
 <French>Success.  %1 survived for %2 seconds. + %3</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTSUCCEED">
 <English>Success.  + %1</English>
 <Spanish>Success.  + %1</Spanish>
 <Portuguese>Success.  + %1</Portuguese>
-<Korean>Success.  + %1</Korean>
+<Korean>성공.  + %1</Korean>
 <Japanese>Success.  + %1</Japanese>
 <Original>Success.  + %1</Original>
 <Russian>Выполнено.  + %1</Russian>
 <Chinesesimp>成功。  + %1</Chinesesimp>
-<Chinese>Success.  + %1</Chinese>
+<Chinese>成功。  + %1</Chinese>
 <French>Success.  + %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTWARNINGTIME">
 <English>Move quickly! Only %1 seconds.</English>
 <Spanish>Move quickly! Only %1 seconds.</Spanish>
 <Portuguese>Move quickly! Only %1 seconds.</Portuguese>
-<Korean>Move quickly! Only %1 seconds.</Korean>
+<Korean>서두르세요! 겨우 %1 초 남았다.</Korean>
 <Japanese>Move quickly! Only %1 seconds.</Japanese>
 <Original>Move quickly! Only %1 seconds.</Original>
 <Russian>Move quickly! Only %1 seconds.</Russian>
 <Chinesesimp>动作快点！仅剩 %1 秒。</Chinesesimp>
-<Chinese>Move quickly! Only %1 seconds.</Chinese>
+<Chinese>動作快點！僅剩 %1 秒。</Chinese>
 <French>Move quickly! Only %1 seconds.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE">
+<English>The enemy is killing civilians. %1 people are in danger!</English>
+<Spanish>The enemy is killing civilians. %1 people are in danger!</Spanish>
+<Portuguese>The enemy is killing civilians. %1 people are in danger!</Portuguese>
+<Korean>적군이 민간인을 사살하고 있습니다. %1 사람이 위험에 처해있습니다!</Korean>
+<Japanese>The enemy is killing civilians. %1 people are in danger!</Japanese>
+<Original>The enemy is killing civilians. %1 people are in danger!</Original>
+<Russian>The enemy is killing civilians. %1 people are in danger!</Russian>
+<Chinesesimp>敌人正在杀害平民。 %1 人有危险！</Chinesesimp>
+<Chinese>敵人正在殺害平民。 %1 人有危險！</Chinese>
+<French>The enemy is killing civilians. %1 people are in danger!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EVENTCIVMASSACRE_END">
+<English>%1 out of %2 civilians survived the massacre.</English>
+<Spanish>%1 out of %2 civilians survived the massacre.</Spanish>
+<Portuguese>%1 out of %2 civilians survived the massacre.</Portuguese>
+<Korean>%1 들 중 %2 시민만 학살에서 생존하였습니다.</Korean>
+<Japanese>%1 out of %2 civilians survived the massacre.</Japanese>
+<Original>%1 out of %2 civilians survived the massacre.</Original>
+<Russian>%1 out of %2 civilians survived the massacre.</Russian>
+<Chinesesimp>%2 名平民中有 %1 名在大屠杀中幸存下来。</Chinesesimp>
+<Chinese>%2 名平民中有 %1 名在大屠殺中倖存下來</Chinese>
+<French>%1 out of %2 civilians survived the massacre.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEH">
 <English>Civilian vehicles - enabled</English>
 <Spanish>Vehículos civiles - habilitados</Spanish>
 <Portuguese>Veículos civis - habilitados</Portuguese>
-<Korean>시민 활성화 Civilian vehicles - enabled</Korean>
+<Korean>시민차량 - 가능</Korean>
 <Japanese>Civilian vehicles - enabled</Japanese>
 <Original>Civilian vehicles - enabled</Original>
 <Russian>Включить гражданских Civilian vehicles - enabled</Russian>
@@ -12185,7 +12249,7 @@
 <English>Civilian vehicles - spawn radius</English>
 <Spanish>Vehículos civiles - radio de desove</Spanish>
 <Portuguese>Veículos civis - raio de desova</Portuguese>
-<Korean>시민 활성화 Civilian vehicles - spawn radius</Korean>
+<Korean>시민차량 - 생성 반경</Korean>
 <Japanese>Civilian vehicles - spawn radius</Japanese>
 <Original>Civilian vehicles - spawn radius</Original>
 <Russian>Включить гражданских Civilian vehicles - spawn radius</Russian>
@@ -12197,7 +12261,7 @@
 <English>Civilian vehicles - lock vehicles</English>
 <Spanish>Vehículos civiles - vehículos de bloqueo</Spanish>
 <Portuguese>Veículos civis - veículos cadeados</Portuguese>
-<Korean>시민 활성화 Civilian vehicles - lock vehicles</Korean>
+<Korean>시민차량 - 차량잠금</Korean>
 <Japanese>Civilian vehicles - lock vehicles</Japanese>
 <Original>Civilian vehicles - lock vehicles</Original>
 <Russian>Включить гражданских Civilian vehicles - lock vehicles</Russian>
@@ -12209,7 +12273,7 @@
 <English>Civilians - enable civilians</English>
 <Spanish>Habilitar civiles</Spanish>
 <Portuguese>Capacitar os civis</Portuguese>
-<Korean>Civilians - 시민 활성화</Korean>
+<Korean>시민 - 시민 활성화</Korean>
 <Japanese>Civilians - enable civilians</Japanese>
 <Original>Civilians - enable civilians</Original>
 <Russian>Civilians - Включить гражданских</Russian>
@@ -12221,7 +12285,7 @@
 <English>Civilians - civilian unit count per group</English>
 <Spanish>Recuento de unidades civiles por grupo</Spanish>
 <Portuguese>Contagem de unidades civis por grupo</Portuguese>
-<Korean>Civilians - 그룹당 시민 수</Korean>
+<Korean>시민 - 그룹당 시민 수</Korean>
 <Japanese>Civilians - civilian unit count per group</Japanese>
 <Original>Civilians - civilian unit count per group</Original>
 <Russian>Civilians - Количество гражданских групп</Russian>
@@ -12238,19 +12302,19 @@
 <Original>Disable enemy air</Original>
 <Russian>Отключить авиацию противника</Russian>
 <Chinesesimp>禁止敌方空中载具</Chinesesimp>
-<Chinese>Disable enemy air</Chinese>
+<Chinese>禁止敵方空中載具</Chinese>
 <French>Désactiver l'aérien ennemi</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS">
 <English>Always announce enemy artillery / CAS</English>
 <Spanish>Anunciar siempre la artillería enemiga / ataque aéreo</Spanish>
 <Portuguese>Always announce enemy artillery / CAS</Portuguese>
-<Korean>Always announce enemy artillery / CAS</Korean>
+<Korean>적의 포격/근접항공지원을 항상 경고</Korean>
 <Japanese>Always announce enemy artillery / CAS</Japanese>
 <Original>Always announce enemy artillery / CAS</Original>
 <Russian>Всегда предупреждать об арт.обстрелах / CAS</Russian>
 <Chinesesimp>始终预警敌方炮火 / CAS（空袭）</Chinesesimp>
-<Chinese>Always announce enemy artillery / CAS</Chinese>
+<Chinese>始終預警敵方炮火 CAS（空襲）</Chinese>
 <French>Always announce enemy artillery / CAS</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1896">
@@ -12286,6 +12350,7 @@
 <Original>AI Advanced - enhanced awareness (common units)</Original>
 <Russian>AI Advanced - повышенная осведомленность (common units)</Russian>
 <Chinesesimp>高级 AI - 增强意识（普通单位）</Chinesesimp>
+<Chinese>高級 AI - 增強意識（普通單位）</Chinese>
 <French>AI Advanced - enhanced awareness (common units)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PURSUE">
@@ -12297,6 +12362,7 @@
 <Original>AI Advanced - enemy active pursuit radius</Original>
 <Russian>AI Advanced - радиус активного преследования противника</Russian>
 <Chinesesimp>高级AI - 敌人主动追踪半径</Chinesesimp>
+<Chinese>高級AI - 敵人主動追踪半徑</Chinese>
 <French>AI Advanced - enemy active pursuit radius</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT">
@@ -12308,6 +12374,7 @@
 <Original>AI Advanced - enemy shoots aggressively at players</Original>
 <Russian>AI Advanced - враг агрессивно стреляет в игроков</Russian>
 <Chinesesimp>高级AI - 敌人向玩家猛烈射击</Chinesesimp>
+<Chinese>高級AI - 敵人向玩家猛烈射擊</Chinese>
 <French>AI Advanced - enemy shoots aggressively at players</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
@@ -12319,6 +12386,7 @@
 <Original>AI Advanced - enemy granted frequent ammo refills</Original>
 <Russian>AI Advanced - врагу часто выдают патроны</Russian>
 <Chinesesimp>高级AI - 给予敌人频繁的弹药补充</Chinesesimp>
+<Chinese>高級AI - 給予敵人頻繁的彈藥補充</Chinese>
 <French>AI Advanced - enemy granted frequent ammo refills</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900A">
@@ -12330,6 +12398,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - occupy mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим оккупации</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 占领模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 佔領模式</Chinese>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode occupé</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900AA">
@@ -12341,6 +12410,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - overwatch mode</Original>
 <Russian>Количество гарнизонных пехотных групп - режим наблюдения</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 封锁模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 封鎖模式</Chinese>
 <French>Enemy infantry - nombres des groupes d'infanterie en garnison - mode surveillance</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900B">
@@ -12352,6 +12422,7 @@
 <Original>Enemy infantry - garrisoned infantry group count - ambush mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим засады</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 埋伏模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 埋伏模式</Chinese>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900C">
@@ -12363,39 +12434,43 @@
 <Original>Enemy infantry - garrisoned infantry group count - sniper mode</Original>
 <Russian>Enemy infantry - Количество пехотных групп - режим снайпера</Russian>
 <Chinesesimp>敌军步兵 - 防守步兵小队数 - 狙击手模式</Chinesesimp>
+<Chinese>敵軍步兵 - 防守步兵小隊數 - 狙擊手模式</Chinese>
 <French>Enemy infantry - nombre de groupes d'infanterie en garnison - mode sniper</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900PATROL">
 <English>Enemy infantry - patrol infantry group count</English>
 <Spanish>Enemy infantry - patrol infantry group count</Spanish>
 <Portuguese>Enemy infantry - patrol infantry group count</Portuguese>
-<Korean>Enemy infantry - patrol infantry group count</Korean>
+<Korean>적군 수비병 - 적 순찰병 그룹 수</Korean>
 <Japanese>Enemy infantry - patrol infantry group count</Japanese>
 <Original>Enemy infantry - patrol infantry group count</Original>
 <Russian>Пехота противника - количество патрульных пехотных групп</Russian>
 <Chinesesimp>敌方步兵 - 步兵巡逻队数量</Chinesesimp>
+<Chinese>敵軍步兵 - 步兵巡邏隊數量</Chinese>
 <French>Enemy infantry - patrol infantry group count</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900MAXGROUPS">
 <English>Enemy infantry - always choose maximum number of groups</English>
 <Spanish>Enemy infantry - always choose maximum number of groups</Spanish>
 <Portuguese>Enemy infantry - always choose maximum number of groups</Portuguese>
-<Korean>Enemy infantry - always choose maximum number of groups</Korean>
+<Korean>적군 수비병 - 항상 최대 그룹 수 선택</Korean>
 <Japanese>Enemy infantry - always choose maximum number of groups</Japanese>
 <Original>Enemy infantry - always choose maximum number of groups</Original>
 <Russian>Вражеская пехота - всегда выбирать максимальное количество групп</Russian>
 <Chinesesimp>敌军步兵 - 始终选择最大组数</Chinesesimp>
+<Chinese>敵軍步兵 - 始終選擇最大組數</Chinese>
 <French>Enemy infantry - always choose maximum number of groups</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900GROUPSIZE">
 <English>Enemy infantry - group size</English>
 <Spanish>Enemy infantry - group size</Spanish>
 <Portuguese>Enemy infantry - group size</Portuguese>
-<Korean>Enemy infantry - group size</Korean>
+<Korean>적군 수비병 - 그룹 크기</Korean>
 <Japanese>Enemy infantry - group size</Japanese>
 <Original>Enemy infantry - group size</Original>
 <Russian>Пехота противника - размер группы</Russian>
 <Chinesesimp>敌军步兵 - 小队规模</Chinesesimp>
+<Chinese>敵軍步兵 - 小隊規模</Chinese>
 <French>Enemy infantry - group size</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900D">
@@ -12407,6 +12482,7 @@
 <Original>AI Advanced - enhanced awareness (sniper units)</Original>
 <Russian>Снайперский режим пехоты - продвинутая осведомленность</Russian>
 <Chinesesimp>高级 AI - 增强意识（狙击部队）</Chinesesimp>
+<Chinese>高級 AI - 增強意識（狙擊部隊）</Chinese>
 <French>Mode sniper d'infanterie en garnison - conscience avancée</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900E">
@@ -12418,6 +12494,7 @@
 <Original>AI Advanced - general skill</Original>
 <Russian>Снайперский режим пехоты - общий навык</Russian>
 <Chinesesimp>高级AI - 一般技能</Chinesesimp>
+<Chinese>高級AI - 一般技能</Chinese>
 <French>Mode sniper d'infanterie en garnison - compétence générale</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900F">
@@ -12429,6 +12506,7 @@
 <Original>AI Advanced - aimingAccuracy skill</Original>
 <Russian>Снайперский режим пехоты - навык прицеливания</Russian>
 <Chinesesimp>高级AI - 瞄准技能</Chinesesimp>
+<Chinese>高級AI - 瞄準技能</Chinese>
 <French>Mode sniper d'infanterie en garnison - visant la compétence trembler</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1902">
@@ -12440,6 +12518,7 @@
 <Original>Enemy infantry - deployment radius</Original>
 <Russian>Enemy infantry - Радиус развертывания</Russian>
 <Chinesesimp>敌军步兵 - 部署半径</Chinesesimp>
+<Chinese>敵軍步兵 - 部署半徑</Chinese>
 <French>Enemy infantry - rayon de déploiement</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1920">
@@ -12451,7 +12530,7 @@
 <Original>Civilians - civilian group count per target</Original>
 <Russian>Civilians - Количество групп гражданских на город</Russian>
 <Chinesesimp>平民 - 每个目标的平民群体数量</Chinesesimp>
-<Chinese>Civilians - civilian group count per target</Chinese>
+<Chinese>平民 - 每個目標的平民群體數量</Chinese>
 <French>Civilians - nombre de groupes civils par cible</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1930">
@@ -12487,6 +12566,7 @@
 <Original>Enemy placement target fill radius - occupy infantry</Original>
 <Russian>Радиус размещения противника на главной цели - пехота</Russian>
 <Chinesesimp>敌人放置目标的填充半径 - 卫戍步兵</Chinesesimp>
+<Chinese>敵人放置目標的填充半徑 - 衛戍步兵</Chinese>
 <French>Rayon de remplissage de la cible de placement ennemi - occupez l'infanterie</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901B">
@@ -12498,6 +12578,7 @@
 <Original>Enemy placement target fill radius - ambush infantry</Original>
 <Russian>Радиус размещения противника на главной цели - пехота режим засады</Russian>
 <Chinesesimp>敌人放置目标的填充半径 - 埋伏步兵</Chinesesimp>
+<Chinese>敵人放置目標的填充半徑 - 埋伏步兵</Chinese>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie embuscade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1901C">
@@ -12509,6 +12590,7 @@
 <Original>Enemy placement target fill radius - sniper infantry</Original>
 <Russian>Радиус размещения противника на главной цели - снайперские группы</Russian>
 <Chinesesimp>敌人放置目标的填充半径 - 狙击步兵</Chinesesimp>
+<Chinese>敵人放置目標的填充半徑 - 狙擊步兵</Chinese>
 <French>Rayon de remplissage de la cible de placement ennemi - infanterie de tireurs d'élite</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1932">
@@ -12592,7 +12674,7 @@
 <Original>Pylon loadout enabled:</Original>
 <Russian>Включить смену пилонов:</Russian>
 <Chinesesimp>启用载具挂架装载：</Chinesesimp>
-<Chinese>Pylon loadout enabled:</Chinese>
+<Chinese>啟用載具掛架裝載：</Chinese>
 <French>Chargement du support armement activé:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1939">
@@ -12604,7 +12686,7 @@
 <Original>Repacking magazines</Original>
 <Russian>Перепаковываем магазины</Russian>
 <Chinesesimp>装填弹匣</Chinesesimp>
-<Chinese>Repacking magazines</Chinese>
+<Chinese>裝填彈匣</Chinese>
 <French>Reconditionnement des chargeurs</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1940">
@@ -12616,7 +12698,7 @@
 <Original>Repack Magazines</Original>
 <Russian>Перепаковка магазинов</Russian>
 <Chinesesimp>重装弹匣</Chinesesimp>
-<Chinese>Repack Magazines</Chinese>
+<Chinese>重裝彈匣</Chinese>
 <French>Recharger les chargeurs</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1941">
@@ -12628,7 +12710,7 @@
 <Original>Starting to repack magazines...</Original>
 <Russian>Начинаем перепаковку...</Russian>
 <Chinesesimp>开始装填弹匣...</Chinesesimp>
-<Chinese>Starting to repack magazines...</Chinese>
+<Chinese>開始裝填彈匣...</Chinese>
 <French>Commencer à recharger les chargeurs...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1942">
@@ -12640,7 +12722,7 @@
 <Original>Magazines repacked...</Original>
 <Russian>Магазины перепакованы...</Russian>
 <Chinesesimp>弹匣被装填...</Chinesesimp>
-<Chinese>Magazines repacked...</Chinese>
+<Chinese>彈匣被裝填...</Chinese>
 <French>Chargeurs rechargés</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1943">
@@ -12651,8 +12733,8 @@
 <Japanese>Lock Backpack</Japanese>
 <Original>Lock Backpack</Original>
 <Russian>Закрыть рюкзак</Russian>
-<Chinesesimp>锁住背包</Chinesesimp>
-<Chinese>Lock Backpack</Chinese>
+<Chinesesimp>背包上锁</Chinesesimp>
+<Chinese>背包上鎖</Chinese>
 <French>Fermer le Sac à Dos</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1944">
@@ -12663,8 +12745,8 @@
 <Japanese>Unlock Backpack</Japanese>
 <Original>Unlock Backpack</Original>
 <Russian>Открыть рюкзак</Russian>
-<Chinesesimp>解锁背包</Chinesesimp>
-<Chinese>Unlock Backpack</Chinese>
+<Chinesesimp>背包解锁</Chinesesimp>
+<Chinese>背包解鎖</Chinese>
 <French>Sac à Dos Ouvert</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1945">
@@ -12676,7 +12758,7 @@
 <Original>Backpack locked</Original>
 <Russian>Рюкзак закрыт</Russian>
 <Chinesesimp>背包锁定</Chinesesimp>
-<Chinese>Backpack locked</Chinese>
+<Chinese>背包鎖定</Chinese>
 <French>Le Sac à Dos est Fermé</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1946">
@@ -12712,6 +12794,7 @@
 <Original>With ambient radio:</Original>
 <Russian>Радиопереговоры-фон:</Russian>
 <Chinesesimp>带环境无线电：</Chinesesimp>
+<Chinese>帶環境無線電：</Chinese>
 <French>Avec la radio ambiante:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1949">
@@ -12723,6 +12806,7 @@
 <Original>Intel knows about various enemy barracks at the main target. Find and destroy them to cut off enemy inf reinforcements!</Original>
 <Russian>Информация показывает на наличие казарм пехоты на главной цели. Уничтожьте их, чтобы остановить подкрепления!</Russian>
 <Chinesesimp>情报获取主要目标的各种敌军兵营。找到并摧毁它们以切断敌人的步兵增援部队！</Chinesesimp>
+<Chinese>情報獲取主要目標的各種敵軍兵營。找到並摧毀它們以切斷敵人的步兵增援部隊！</Chinese>
 <French>Les renseignements connaîssent diverses casernes ennemies sur l'objectif principal. Trouvez-les et détruisez-les pour couper les renforts ennemis!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1950">
@@ -12734,6 +12818,7 @@
 <Original>The %1 team destroyed a main target barrack and gets %2 points.</Original>
 <Russian>Команда %1 уничтожила казарму противника в городе и получает %2 очков.</Russian>
 <Chinesesimp>%1 团队摧毁了一个主要目标兵营并获得 %2 点分数。</Chinesesimp>
+<Chinese>%1 團隊摧毀了一個主要目標兵營並獲得 %2 點分數。</Chinese>
 <French>L'équipe %1 a détruit une caserne cible principale et obtient %2 points.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1951">
@@ -12745,6 +12830,7 @@
 <Original>Without sidemission bonus vehicles:</Original>
 <Russian>Без призовой техники с Доп.заданий:</Russian>
 <Chinesesimp>没有支线任务载具奖励：</Chinesesimp>
+<Chinese>沒有支線任務載具獎勵：</Chinese>
 <French>Sans véhicules bonus pour les missions secondaires:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1952">
@@ -12756,6 +12842,7 @@
 <Original>Attention. You were spotted by enemy FACs. Incoming air strike!!!</Original>
 <Russian>Внимание! Вас засекли авианаводчики противника. Готовьте к атаке с воздуха!!!</Russian>
 <Chinesesimp>注意。你被敌人的空军前进控制员发现了，空袭即将到来！！！</Chinesesimp>
+<Chinese>注意。你被敵人的空軍前進控制員發現了，空襲即將到來！！！</Chinese>
 <French>Attention. Vous avez été repéré par les FAC ennemis. Frappe aérienne entrante!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1953A">
@@ -12767,6 +12854,7 @@
 <Original>Players can select from available targets:</Original>
 <Russian>Игроки могут выбрать доступные цели основных заданий:</Russian>
 <Chinesesimp>玩家可以从可用目标中进行选择：</Chinesesimp>
+<Chinese>玩家可以從可用目標中進行選擇：</Chinese>
 <French>Les joueurs peuvent choisir parmi (x) cibles disponibles:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1954">
@@ -12778,6 +12866,7 @@
 <Original>Main target selection time left</Original>
 <Russian>Оставшееся время выбора главного задания</Russian>
 <Chinesesimp>主要目标剩余选择时间</Chinesesimp>
+<Chinese>主要目標剩餘選擇時間</Chinese>
 <French>Temps de sélection de l'objectif principal restant</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1955">
@@ -12789,6 +12878,7 @@
 <Original>Open the map! You now have 30 seconds to select the next main target by clicking on one of the available new yellow targets\n\nA selected target will turn blue!</Original>
 <Russian>Откройте карту! Теперь у вас есть 30 секунд, чтобы выбрать следующую основную цель, нажав одну из доступных новых желтых целей \n\nВыбранная цель станет синей!</Russian>
 <Chinesesimp>打开地图！ 你现在有30秒的时间通过单击可用的新黄色目标之一来选择下一个主目标\n\n所选目标将变为蓝色！</Chinesesimp>
+<Chinese>打開地圖！你現在有30秒的時間通過單擊可用的新黃色目標之一來選擇下一個主目標\n\n所選目標將變為藍色！</Chinese>
 <French>Ouvrez la carte! Vous avez maintenant 30 secondes pour sélectionner la prochaine cible principale en cliquant sur l'une des nouvelles cibles jaunes disponibles\n\nLa cible sélectionnée deviendra bleue!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1956">
@@ -13403,6 +13493,7 @@
 <Original>Adjust AI subskill if server FPS is low</Original>
 <Russian>Отрегулировать навыки AI, если FPS сервера низкий</Russian>
 <Chinesesimp>如果服务器 FPS 较低，则调整 AI 子技能</Chinesesimp>
+<Chinese>如果服務器 FPS 較低，則調整 AI 子技能</Chinese>
 <French>Adjust AI subskill if server FPS is low</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2008">
@@ -13664,8 +13755,20 @@
 <Original>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Original>
 <Russian>Внимание: Партизанские отряды движутся в город из %1. Партизаны дружат с Blufor и враждебны к Opfor.</Russian>
 <Chinesesimp>注意：游击队已从 %1 迁入该城市。游击队对蓝方友好，对红方敌对。</Chinesesimp>
-<Chinese>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</Chinese>
+<Chinese>注意：游擊隊已從 %1 遷入該城市。游擊隊對藍方友好，對紅方敵對。</Chinese>
 <French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_RESISTANCE">
+<English>Attention: some of the civilians are armed and ready to fight!</English>
+<Spanish>Attention: some of the civilians are armed and ready to fight!</Spanish>
+<Portuguese>Attention: some of the civilians are armed and ready to fight!</Portuguese>
+<Korean>Attention: some of the civilians are armed and ready to fight!</Korean>
+<Japanese>Attention: some of the civilians are armed and ready to fight!</Japanese>
+<Original>Attention: some of the civilians are armed and ready to fight!</Original>
+<Russian>Attention: some of the civilians are armed and ready to fight!</Russian>
+<Chinesesimp>Attention: some of the civilians are armed and ready to fight!</Chinesesimp>
+<Chinese>Attention: some of the civilians are armed and ready to fight!</Chinese>
+<French>Attention: some of the civilians are armed and ready to fight!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT">
 <English>Attention: Our lucky pet rabbit is lost.  Find %1!</English>
@@ -13676,7 +13779,7 @@
 <Original>Attention: Our lucky pet rabbit is lost.  Find %1!</Original>
 <Russian>Внимание: Наш счастливый кролик пропал. Найти %1!</Russian>
 <Chinesesimp>注意：我们的幸运宠物兔子迷路了。 查找 %1 ！</Chinesesimp>
-<Chinese>Attention: Our lucky pet rabbit is lost.  Find %1!</Chinese>
+<Chinese>注意：我們的幸運寵物兔子迷路了。查找 %1</Chinese>
 <French>Attention: Our lucky pet rabbit is lost.  Find %1!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
@@ -13736,7 +13839,7 @@
 <Original>crash site</Original>
 <Russian>место аварии</Russian>
 <Chinesesimp>坠机现场</Chinesesimp>
-<Chinese>crash site</Chinese>
+<Chinese>墜機現場</Chinese>
 <French>crash site</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERS">
@@ -13748,91 +13851,91 @@
 <Original>prisoners</Original>
 <Russian>заключенных</Russian>
 <Chinesesimp>囚犯</Chinesesimp>
-<Chinese>prisoners</Chinese>
+<Chinese>囚犯</Chinese>
 <French>prisoners</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_DEFEND">
 <English>defend</English>
 <Spanish>defend</Spanish>
 <Portuguese>defend</Portuguese>
-<Korean>defend</Korean>
+<Korean>방어</Korean>
 <Japanese>防衛</Japanese>
 <Original>defened</Original>
 <Russian>defend</Russian>
 <Chinesesimp>防御</Chinesesimp>
-<Chinese>defend</Chinese>
+<Chinese>防禦</Chinese>
 <French>defend</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_DEFUSE">
 <English>defuse</English>
 <Spanish>defuse</Spanish>
 <Portuguese>defuse</Portuguese>
-<Korean>defuse</Korean>
+<Korean>신관제거</Korean>
 <Japanese>解除</Japanese>
 <Original>defuse</Original>
 <Russian>defuse</Russian>
 <Chinesesimp>拆除</Chinesesimp>
-<Chinese>defuse</Chinese>
+<Chinese>拆除</Chinese>
 <French>defuse</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES_TRIGGERMAN">
 <English>kill triggerman</English>
 <Spanish>kill triggerman</Spanish>
 <Portuguese>kill triggerman</Portuguese>
-<Korean>kill triggerman</Korean>
+<Korean>폭발물 격발자 사살</Korean>
 <Japanese>起爆装置所持者の射殺</Japanese>
 <Original>kill triggerman</Original>
 <Russian>kill triggerman</Russian>
 <Chinesesimp>杀死爆破手</Chinesesimp>
-<Chinese>kill triggerman</Chinese>
+<Chinese>殺死爆破手</Chinese>
 <French>kill triggerman</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES">
 <English>prisoners + explosives</English>
 <Spanish>prisoners + explosives</Spanish>
 <Portuguese>prisoners + explosives</Portuguese>
-<Korean>포로들 + explosives</Korean>
+<Korean>포로들 + 폭탄</Korean>
 <Japanese>prisoners + explosives</Japanese>
 <Original>prisoners + explosives</Original>
 <Russian>заключенные + взрывчатка</Russian>
 <Chinesesimp>囚犯 + 爆炸物</Chinesesimp>
-<Chinese>prisoners + explosives</Chinese>
+<Chinese>囚犯 + 爆炸物</Chinese>
 <French>prisoners + explosives</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_PRESENT">
 <English>Warning: enemy explosive device may be present.</English>
 <Spanish>Warning: enemy explosive device may be present.</Spanish>
 <Portuguese>Warning: enemy explosive device may be present.</Portuguese>
-<Korean>Warning: enemy explosive device may be present.</Korean>
+<Korean>경고: 현재 적군의 폭발물이 있을 수 있다.</Korean>
 <Japanese>警告: 敵の爆発物が存在する可能性あり。</Japanese>
 <Original>Warning: enemy explosive device may be present.</Original>
 <Russian>Внимание: возможно наличие вражеского взрывного устройства.</Russian>
 <Chinesesimp>警告：可能存在敌方爆炸装置。</Chinesesimp>
-<Chinese>Warning: enemy explosive device may be present.</Chinese>
+<Chinese>警告：可能存在敵方爆炸裝置。</Chinese>
 <French>Warning: enemy explosive device may be present.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_FAIL">
 <English>The enemy detonated a device. Failure.</English>
 <Spanish>The enemy detonated a device. Failure.</Spanish>
 <Portuguese>The enemy detonated a device. Failure.</Portuguese>
-<Korean>The enemy detonated a device. Failure.</Korean>
+<Korean>적군이 폭발물을 격발하였습니다. 실패.</Korean>
 <Japanese>敵が爆発物を起爆した。 失敗だ！</Japanese>
 <Original>The enemy detonated a device. Failure.</Original>
 <Russian>Противник привел в действие взрывное устройство. Задача не выполнена.</Russian>
 <Chinesesimp>敌人引爆了一个装置。失败！</Chinesesimp>
-<Chinese>The enemy detonated a device. Failure.</Chinese>
+<Chinese>敵人引爆了一個裝置。失敗！</Chinese>
 <French>The enemy detonated a device. Failure.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS">
 <English>Enemy explosive device disabled.</English>
 <Spanish>Enemy explosive device disabled.</Spanish>
 <Portuguese>Enemy explosive device disabled.</Portuguese>
-<Korean>Enemy explosive device disabled.</Korean>
+<Korean>적군 폭발물을 제거 하였습니다.</Korean>
 <Japanese>敵の爆発物は解除された。</Japanese>
 <Original>Enemy explosive device disabled.</Original>
 <Russian>Взрывное устройство противника диактивированно.</Russian>
-<Chinesesimp>敌人的爆炸装置已禁用。</Chinesesimp>
-<Chinese>Enemy explosive device disabled.</Chinese>
+<Chinesesimp>敌人的爆炸装置已拆除。</Chinesesimp>
+<Chinese>敵人的爆炸裝置已拆除。</Chinese>
 <French>Enemy explosive device disabled.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2033">
@@ -13851,7 +13954,7 @@
 <English>Low Gear On</English>
 <Spanish>Low Gear On</Spanish>
 <Portuguese>Low Gear On</Portuguese>
-<Korean>적은 장비 켜기</Korean>
+<Korean>저단기어 켜기</Korean>
 <Japanese>登坂モードを使用</Japanese>
 <Original>Low Gear On</Original>
 <Russian>Пониженная передача (ВКЛ)</Russian>
@@ -13863,7 +13966,7 @@
 <English>Low Gear Off</English>
 <Spanish>Low Gear Off</Spanish>
 <Portuguese>Low Gear Off</Portuguese>
-<Korean>적은 장비 끄기</Korean>
+<Korean>저단기어 끄기</Korean>
 <Japanese>登坂モードを解除</Japanese>
 <Original>Low Gear Off</Original>
 <Russian>Пониженная передача (ВЫКЛ)</Russian>
@@ -13899,7 +14002,7 @@
 <English>Yes, but AI may not enter static weapons</English>
 <Spanish>Yes, but AI may not enter static weapons</Spanish>
 <Portuguese>Yes, but AI may not enter static weapons</Portuguese>
-<Korean>Yes, but AI may not enter static weapons</Korean>
+<Korean>가능, 하지만 AI들은 고정식 무기에 들어가지 못한다.</Korean>
 <Japanese>Yes, but AI may not enter static weapons</Japanese>
 <Original>Yes, but AI may not enter static weapons</Original>
 <Russian>Да, но AI не могут использовать статическое оружие</Russian>
@@ -13911,7 +14014,7 @@
 <English>You can not respawn anymore!!!</English>
 <Spanish>You can not respawn anymore!!!</Spanish>
 <Portuguese>You can not respawn anymore!!!</Portuguese>
-<Korean>You can not respawn anymore!!!</Korean>
+<Korean>귀관은 더이상 리스폰 하지 못합니다!!!</Korean>
 <Japanese>これ以上リスポンできません!!!</Japanese>
 <Original>You can not respawn anymore!!!</Original>
 <Russian>Вы больше не можете возродиться!!!</Russian>
@@ -13923,7 +14026,7 @@
 <English>No more lives left!!!</English>
 <Spanish>No more lives left!!!</Spanish>
 <Portuguese>No more lives left!!!</Portuguese>
-<Korean>No more lives left!!!</Korean>
+<Korean>리스폰 가능 숫자가 더이상 남지 않았습니다!!!</Korean>
 <Japanese>リスポン回数が残っていません!!!</Japanese>
 <Original>No more lives left!!!</Original>
 <Russian>Больше не осталось жизней!!!</Russian>
@@ -13935,7 +14038,7 @@
 <English>Press X to exit!!!</English>
 <Spanish>Presione X para salir!!!</Spanish>
 <Portuguese>Press X to exit!!!</Portuguese>
-<Korean>Press X to exit!!!</Korean>
+<Korean>X키를 눌려 조의를 표하며 나가십시오!!!</Korean>
 <Japanese>Xを押すと終了</Japanese>
 <Original>Press X to exit!!!</Original>
 <Russian>Нажмите X, чтобы выйти!!!</Russian>
@@ -13947,31 +14050,31 @@
 <English>Bots are silent</English>
 <Spanish>Inteligencia artificial está en silencio</Spanish>
 <Portuguese>Bots are silent</Portuguese>
-<Korean>Bots are silent</Korean>
+<Korean>봇들이 침묵합니다</Korean>
 <Japanese>Bots are silent</Japanese>
 <Original>Bots are silent</Original>
 <Russian>Боты не разговаривают</Russian>
 <Chinesesimp>机器人是沉默的</Chinesesimp>
-<Chinese>Bots are silent</Chinese>
+<Chinese>機器人是沉默的</Chinese>
 <French>Bots are silent</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_LOAD_OVERRIDES_FILE">
 <English>Load domination.cfg (requires -filePatching on server)</English>
 <Spanish>Load domination.cfg (requires -filePatching on server)</Spanish>
 <Portuguese>Load domination.cfg (requires -filePatching on server)</Portuguese>
-<Korean>Load domination.cfg (requires -filePatching on server)</Korean>
+<Korean>domination.cfg 파일로드 (서버파일 패치가 요구됨)</Korean>
 <Japanese>Load domination.cfg (requires -filePatching on server)</Japanese>
 <Original>Load domination.cfg (requires -filePatching on server)</Original>
 <Russian>Загрузить domination.cfg (требуется -filePatching на сервере)</Russian>
 <Chinesesimp>加载 domination.cfg（在服务器上需要 -filePatching）</Chinesesimp>
-<Chinese>Load domination.cfg (requires -filePatching on server)</Chinese>
+<Chinese>加載 domination.cfg（在服務器上需要 -filePatching）</Chinese>
 <French>Load domination.cfg (requires -filePatching on server)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2042">
 <English>Player can be suppressed</English>
 <Spanish>Player can be suppressed</Spanish>
 <Portuguese>Player can be suppressed</Portuguese>
-<Korean>Player can be suppressed</Korean>
+<Korean>플레이어를 제압 할 수 있다.</Korean>
 <Japanese>Player can be suppressed</Japanese>
 <Original>Player can be suppressed</Original>
 <Russian>Подавление огнем</Russian>
@@ -13982,7 +14085,7 @@
 <English>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</English>
 <Spanish>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Spanish>
 <Portuguese>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Portuguese>
-<Korean>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Korean>
+<Korean>귀관은 10번 이상 탈옥을 시도 하였습니다 귀관은 이 세션이 진행되는동안 추방(Ban)이 될것입니다!!!!</Korean>
 <Japanese>あなたは10回以上脱獄しようとしました。 本セッションへの接続が禁止されました!!!!</Japanese>
 <Original>You tried to escape the jail more than 10 times. You are banned for the running session!!!!</Original>
 <Russian>Вы пытались сбежать из тюрьмы более 10 раз. Вас забанили на текущую сессию !!!!</Russian>
@@ -13994,7 +14097,7 @@
 <English>Deploy with camo net</English>
 <Spanish>Deploy with camo net</Spanish>
 <Portuguese>Deploy with camo net</Portuguese>
-<Korean>Deploy with camo net</Korean>
+<Korean>위장막 전개</Korean>
 <Japanese>偽装ネットも展開</Japanese>
 <Original>Deploy with camo net</Original>
 <Russian>Развернуть с камуфляжной сетью</Russian>
@@ -14006,7 +14109,7 @@
 <English>Distance traveled, in meters:</English>
 <Spanish>Distance traveled, in meters:</Spanish>
 <Portuguese>Distance traveled, in meters:</Portuguese>
-<Korean>Distance traveled, in meters:</Korean>
+<Korean>이동거리,미터 단위(m):</Korean>
 <Japanese>移動距離 (m):</Japanese>
 <Original>Distance traveled, in meters:</Original>
 <Russian>Пройденное расстояние, в метрах:</Russian>
@@ -14018,7 +14121,7 @@
 <English>By foot:</English>
 <Spanish>By foot:</Spanish>
 <Portuguese>By foot:</Portuguese>
-<Korean>By foot:</Korean>
+<Korean>걸어서:</Korean>
 <Japanese>歩き:</Japanese>
 <Original>By foot:</Original>
 <Russian>Пешком:</Russian>
@@ -14030,7 +14133,7 @@
 <English>Landvehicle:</English>
 <Spanish>Landvehicle:</Spanish>
 <Portuguese>Landvehicle:</Portuguese>
-<Korean>Landvehicle:</Korean>
+<Korean>지상차량:</Korean>
 <Japanese>車両:</Japanese>
 <Original>Landvehicle:</Original>
 <Russian>Наземный транспорт:</Russian>
@@ -14042,7 +14145,7 @@
 <English>Air:</English>
 <Spanish>Air:</Spanish>
 <Portuguese>Air:</Portuguese>
-<Korean>Air:</Korean>
+<Korean>항공:</Korean>
 <Japanese>航空機:</Japanese>
 <Original>Air:</Original>
 <Russian>Авиация:</Russian>
@@ -14054,7 +14157,7 @@
 <English>Ship/Boat:</English>
 <Spanish>Ship/Boat:</Spanish>
 <Portuguese>Ship/Boat:</Portuguese>
-<Korean>Ship/Boat:</Korean>
+<Korean>배/보트:</Korean>
 <Japanese>艦船:</Japanese>
 <Original>Ship/Boat:</Original>
 <Russian>Катера/Лодки:</Russian>
@@ -14067,55 +14170,57 @@
 <German>Illuminate main target:</German>
 <Italian>Illuminate main target:</Italian>
 <Spanish>Iluminación de Misión Principal:</Spanish>
+<Korean>메인 목표물 공개:</Korean>
 <Czech>Illuminate main target:</Czech>
 <Russian>Illuminate main target:</Russian>
 <Polish>Illuminate main target:</Polish>
 <French>Illuminate main target:</French>
 <Hungarian>Illuminate main target:</Hungarian>
 <Chinesesimp>照亮主要目标：</Chinesesimp>
-<Chinese>Illuminate main target:</Chinese>
+<Chinese>照亮主要目標：</Chinese>
 <Portuguese>Illuminate main target:</Portuguese>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_STATICWEAPONS">
 <English>Defend with static weapons</English>
 <Spanish>Defend with static weapons</Spanish>
 <Portuguese>Defend with static weapons</Portuguese>
-<Korean>Defend with static weapons</Korean>
+<Korean>고정식 무기로 방어</Korean>
 <Japanese>Defend with static weapons</Japanese>
 <Original>Defend with static weapons</Original>
 <Russian>Оборонять статическим вооружением</Russian>
-<Chinesesimp>用静态武器防御：</Chinesesimp>
-<Chinese>Defend with static weapons</Chinese>
+<Chinesesimp>使用静态武器进行防御</Chinesesimp>
+<Chinese>使用靜態武器進行防禦</Chinese>
 <French>Defend with static weapons</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLE_GUARD">
 <English>Enable guards and camps</English>
 <Spanish>Enable guards and camps</Spanish>
 <Portuguese>Enable guards and camps</Portuguese>
-<Korean>Enable guards and camps</Korean>
+<Korean>수비군 및 초소 활성화</Korean>
 <Japanese>Enable guards and camps</Japanese>
 <Original>Enable guards and camps</Original>
 <Russian>Включить охрану и лагеря</Russian>
 <Chinesesimp>启用守卫和营地</Chinesesimp>
-<Chinese>Enable guards and camps</Chinese>
+<Chinese>啟用守衛和營地</Chinese>
 <French>Enable guards and camps</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2051">
 <English>Disable ACE medical revive (if ACE is used) and use mission revive</English>
 <Spanish>Disable ACE medical revive (if ACE is used) and use mission revive</Spanish>
 <Portuguese>Disable ACE medical revive (if ACE is used) and use mission revive</Portuguese>
-<Korean>Disable ACE medical revive (if ACE is used) and use mission revive</Korean>
+<Korean>ACE 메딕 시스템 비활성화 (ACE 사용시)후 미션 소생시스템 사용</Korean>
 <Japanese>Disable ACE medical revive (if ACE is used) and use mission revive</Japanese>
 <Original>Disable ACE medical revive (if ACE is used) and use mission revive</Original>
 <Russian>Отключите ревайв ACE (если используется ACE) и используйте ревайв миссии</Russian>
 <Chinesesimp>禁用ACE医疗复活（如果使用ACE）并使用任务复活</Chinesesimp>
+<Chinese>禁用ACE醫療復活（如果使用ACE）並使用任務復活</Chinese>
 <French>Disable ACE medical revive (if ACE is used) and use mission revive</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2052">
 <English>Disable RADIOPROTOCOL for the player unit:</English>
 <Spanish>Disable RADIOPROTOCOL for the player unit:</Spanish>
 <Portuguese>Disable RADIOPROTOCOL for the player unit:</Portuguese>
-<Korean>Disable RADIOPROTOCOL for the player unit:</Korean>
+<Korean>플레이어 유닛을 이용한 무선중개 비활성화:</Korean>
 <Japanese>Disable RADIOPROTOCOL for the player unit:</Japanese>
 <Original>Disable RADIOPROTOCOL for the player unit:</Original>
 <Russian>Отключение РАДИОПРОТОКОЛА для слота игрок:</Russian>
@@ -14127,7 +14232,7 @@
 <English>RADIOPROTOCOL for the player enabled!</English>
 <Spanish>RADIOPROTOCOL for the player enabled!</Spanish>
 <Portuguese>RADIOPROTOCOL for the player enabled!</Portuguese>
-<Korean>RADIOPROTOCOL for the player enabled!</Korean>
+<Korean>플래이어를 통한 무선중개 기능이 활성화 되었습니다!</Korean>
 <Japanese>RADIOPROTOCOL for the player enabled!</Japanese>
 <Original>RADIOPROTOCOL for the player enabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока включен!</Russian>
@@ -14139,7 +14244,7 @@
 <English>RADIOPROTOCOL for the player disabled!</English>
 <Spanish>RADIOPROTOCOL for the player disabled!</Spanish>
 <Portuguese>RADIOPROTOCOL for the player disabled!</Portuguese>
-<Korean>RADIOPROTOCOL for the player disabled!</Korean>
+<Korean>플래이어를 통한 무선중개 기능이 비활성화 되었습니다!</Korean>
 <Japanese>RADIOPROTOCOL for the player disabled!</Japanese>
 <Original>RADIOPROTOCOL for the player disabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока отключен!</Russian>
@@ -14151,7 +14256,7 @@
 <English>You are not allowed to fly this chopper!!!</English>
 <Spanish>You are not allowed to fly this chopper!!!</Spanish>
 <Portuguese>You are not allowed to fly this chopper!!!</Portuguese>
-<Korean>You are not allowed to fly this chopper!!!</Korean>
+<Korean>귀관은 이 헬리콥터 장비 사용이 허락 되지 않는다!!!</Korean>
 <Japanese>あなたはこのヘリコプターの操縦資格がありません!!!</Japanese>
 <Original>You are not allowed to fly this chopper!!!</Original>
 <Russian>Вам не разрешено управлять этим вертолетом !!!</Russian>
@@ -14163,7 +14268,7 @@
 <English>Disable all service points, including FARPs (no refuel, no repair, no rearm)</English>
 <Spanish>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Spanish>
 <Portuguese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Portuguese>
-<Korean>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Korean>
+<Korean>모든 정비서비스 포인트 비활성화, 재보급소 포함 (연료보급불가, 수리불가, 재무장 불가)</Korean>
 <Japanese>前線補給所を含む全整備拠点の無効化 (修理、燃料及び弾薬の補給の禁止)</Japanese>
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
 <Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
@@ -14175,7 +14280,7 @@
 <English>Player can spectate other players at base flag</English>
 <Spanish>Player can spectate other players at base flag</Spanish>
 <Portuguese>Player can spectate other players at base flag</Portuguese>
-<Korean>Player can spectate other players at base flag</Korean>
+<Korean>플레이어가 베이스 깃발을 사용하여 다른 플레이어 관찰 가능</Korean>
 <Japanese>基地の旗における他のプレイヤーの観戦</Japanese>
 <Original>Player can spectate other players at base flag</Original>
 <Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
@@ -14187,7 +14292,7 @@
 <English>Flying choppers and planes only allowed when a player has a score higher than:</English>
 <Spanish>Flying choppers and planes only allowed when a player has a score higher than:</Spanish>
 <Portuguese>Flying choppers and planes only allowed when a player has a score higher than:</Portuguese>
-<Korean>Flying choppers and planes only allowed when a player has a score higher than:</Korean>
+<Korean>플레이어 스코어가 이 점수 이상인 경우 항공장비 비행 가능:</Korean>
 <Japanese>航空機の操縦に必要なスコア:</Japanese>
 <Original>Flying choppers and planes only allowed when a player has a score higher than:</Original>
 <Russian>Вертолеты и самолеты разрешены только в том случае, если игрок набрал больше, чем: </Russian>
@@ -14199,7 +14304,7 @@
 <English>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</English>
 <Spanish>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Spanish>
 <Portuguese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Portuguese>
-<Korean>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Korean>
+<Korean>아직 비행 할 자격이 되지 않습니다, 사수석 또는 지휘관석으로 들어 가십시오 %1.\n\n 귀관 전체 점수 %2 가 필요하다, 현재점수 %3.</Korean>
 <Japanese>あなたは操縦許可が出ていません。 必要なスコアは%2で、現在%3ポイントです。\n\n %1の銃手となることはできます。</Japanese>
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Original>
 <Russian>Вы еще не обладаете квалификацией, чтобы летать, заходить в качестве наводчика или командовать  %1.\n\nВам необходимо иметь %2 очков, ваш текущий счет %3.</Russian>
@@ -14211,7 +14316,7 @@
 <English>Disable Thermal Imaging (TI) for inf weapons/optics:</English>
 <Spanish>Disable Thermal Imaging (TI) for inf weapons/optics:</Spanish>
 <Portuguese>Disable Thermal Imaging (TI) for inf weapons/optics:</Portuguese>
-<Korean>Disable Thermal Imaging (TI) for inf weapons/optics:</Korean>
+<Korean>보병무기 / 고정무기 열화상 (TI) 비활성화:</Korean>
 <Japanese>歩兵の火器及び照準器における熱線画像(TI)の無効化:</Japanese>
 <Original>Disable Thermal Imaging (TI) for inf weapons/optics:</Original>
 <Russian>Отключить тепловизор (TI) для стрелкового вооружения (оптики): </Russian>
@@ -14223,7 +14328,7 @@
 <English>Big main target fires:</English>
 <Spanish>Big main target fires:</Spanish>
 <Portuguese>Big main target fires:</Portuguese>
-<Korean>Big main target fires:</Korean>
+<Korean>메인미션 넓은 발포:</Korean>
 <Japanese>Big main target fires:</Japanese>
 <Original>Big main target fires:</Original>
 <Russian>Большие костры на основном задании:</Russian>
@@ -14235,19 +14340,19 @@
 <English>Target radius:</English>
 <Spanish>Target radius:</Spanish>
 <Portuguese>Target radius:</Portuguese>
-<Korean>Target radius:</Korean>
+<Korean>타켓 반경:</Korean>
 <Japanese>Target radius:</Japanese>
 <Original>Target radius:</Original>
 <Russian>Target radius:</Russian>
 <Chinesesimp>目标半径：</Chinesesimp>
-<Chinese>Target radius:</Chinese>
+<Chinese>目標半徑：</Chinese>
 <French>Target radius:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2062">
 <English>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</English>
 <Spanish>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Spanish>
 <Portuguese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Portuguese>
-<Korean>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Korean>
+<Korean>차량이 파괴 되었을때 모든 승무원을 사살 하십시오(외부포함):</Korean>
 <Japanese>(降車した者も含め)撃破された車両の乗員を殺す:</Japanese>
 <Original>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Original>
 <Russian>Убить весь экипаж в технике (и снаружи), если техника будет уничтожена:</Russian>
@@ -14259,7 +14364,7 @@
 <English>Player can forgive teamkill (mission revive has to be enabled and spectating):</English>
 <Spanish>Player can forgive teamkill (mission revive has to be enabled and spectating):</Spanish>
 <Portuguese>Player can forgive teamkill (mission revive has to be enabled and spectating):</Portuguese>
-<Korean>Player can forgive teamkill (mission revive has to be enabled and spectating):</Korean>
+<Korean>플레이어가 팀킬을 용서 할 수 있습니다(미션소생 기능 및 관전기능을 활성화 해야됨):</Korean>
 <Japanese>プレーヤーが同士討ちを許す権限 (蘇生と観戦が有効化されている必要があります):</Japanese>
 <Original>Player can forgive teamkill (mission revive has to be enabled and spectating):</Original>
 <Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
@@ -14270,7 +14375,7 @@
 <English>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</English>
 <Spanish>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Spanish>
 <Portuguese>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Portuguese>
-<Korean>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Korean>
+<Korean>귀관은 %1에의해 팀킬 되었습니다, 플레이어를 용서 하시겠습니까? 그렇습니다 F9  / 아닙니다 F11 </Korean>
 <Japanese>あなたは %1 から同士討ちを受けました。 許しますか? F9 で Yes / F11 で No</Japanese>
 <Original>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Original>
 <Russian>Вы были убиты игроком вашей команды %1, простить игрока? F9 Да / F11 Нет</Russian>
@@ -14281,7 +14386,7 @@
 <English>You have forgiven %1</English>
 <Spanish>You have forgiven %1</Spanish>
 <Portuguese>You have forgiven %1</Portuguese>
-<Korean>You have forgiven %1</Korean>
+<Korean>귀관은 %1 을(를) 용서 하였습니다</Korean>
 <Japanese>You have forgiven %1</Japanese>
 <Original>You have forgiven %1</Original>
 <Russian>Вы прощены %1</Russian>
@@ -14292,7 +14397,7 @@
 <English>Time to forgive: %1 seconds</English>
 <Spanish>Time to forgive: %1 seconds</Spanish>
 <Portuguese>Time to forgive: %1 seconds</Portuguese>
-<Korean>Time to forgive: %1 seconds</Korean>
+<Korean>용서까지 남은 시간: %1 초</Korean>
 <Japanese>Time to forgive: %1 seconds</Japanese>
 <Original>Time to forgive: %1 seconds</Original>
 <Russian>Время для прощения: %1 секунд</Russian>
@@ -14303,7 +14408,7 @@
 <English>%1 has forgiven teamkilling! Don't do it again!</English>
 <Spanish>%1 has forgiven teamkilling! Don't do it again!</Spanish>
 <Portuguese>Sim</Portuguese>
-<Korean>%1 has forgiven teamkilling! Don't do it again!</Korean>
+<Korean>%1 이(가) 팀킬을 용서 받았습니다! 다시 하지 마십시오!</Korean>
 <Japanese>%1 has forgiven teamkilling! Don't do it again!</Japanese>
 <Original>%1 has forgiven teamkilling! Don't do it again!</Original>
 <Russian>%1 простил за тимкилл игрока! Не делай этого снова!</Russian>
@@ -14314,7 +14419,7 @@
 <English>Dynamic AI recruitment (more players, less AI recruitable):</English>
 <Spanish>Dynamic AI recruitment (more players, less AI recruitable):</Spanish>
 <Portuguese>Dynamic AI recruitment (more players, less AI recruitable):</Portuguese>
-<Korean>Dynamic AI recruitment (more players, less AI recruitable):</Korean>
+<Korean>다이나믹 AI 모병 (플레이어가 많은 경우, AI 모집이 감소됨):</Korean>
 <Japanese>Dynamic AI recruitment (more players, less AI recruitable):</Japanese>
 <Original>Dynamic AI recruitment (more players, less AI recruitable):</Original>
 <Russian>Динамический набор AI (больше игроков, меньше AI):</Russian>
@@ -14326,7 +14431,7 @@
 <English>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</English>
 <Spanish>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Spanish>
 <Portuguese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Portuguese>
-<Korean>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Korean>
+<Korean>다이나믹 AI 모병 (플레이어가 많은 경우, AI 모집이 감소됨), 하지만 AI 고정식 무기에 들어가지 못함:</Korean>
 <Japanese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Japanese>
 <Original>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Original>
 <Russian>Динамический набор AI (больше игроков, меньше AI), но AI не может использовать статическое оружие :</Russian>
@@ -14338,7 +14443,7 @@
 <English>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</English>
 <Spanish>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Spanish>
 <Portuguese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Portuguese>
-<Korean>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Korean>
+<Korean>%1 이(가) 기지에서 장비 파괴로 인해 로비로 강퇴 되었습니다 UID: %2</Korean>
 <Japanese>%1 は基地の車両を破壊した罪でロビーにキックされました。; UID: %2</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе ; UID: %2</Russian>
@@ -14350,7 +14455,7 @@
 <English>%1 was kicked to lobby because of destryoing vehicles at base</English>
 <Spanish>%1 was kicked to lobby because of destryoing vehicles at base</Spanish>
 <Portuguese>%1 was kicked to lobby because of destryoing vehicles at base</Portuguese>
-<Korean>%1 was kicked to lobby because of destryoing vehicles at base</Korean>
+<Korean>%1 기지에서 장비 파괴로 인해 로비로 강퇴 되었습니다</Korean>
 <Japanese>%1 は基地の車両を破壊した罪でロビーにキックされました。</Japanese>
 <Original>%1 was kicked to lobby because of destryoing vehicles at base</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе</Russian>
@@ -14362,7 +14467,7 @@
 <English>With AI air taxi (coop version only):</English>
 <Spanish>With AI air taxi (coop version only):</Spanish>
 <Portuguese>With AI air taxi (coop version only):</Portuguese>
-<Korean>With AI air taxi (coop version only):</Korean>
+<Korean>AI 에어택시 (협동 버전만 가능):</Korean>
 <Japanese>AIによるプレイヤーの空輸 (coopバージョンのみ):</Japanese>
 <Original>With AI air taxi (coop version only):</Original>
 <Russian>С воздушным такси AI (только для кооперативной версии) :</Russian>
@@ -14373,7 +14478,7 @@
 <English>With air drop:</English>
 <Spanish>With air drop:</Spanish>
 <Portuguese>With air drop:</Portuguese>
-<Korean>With air drop:</Korean>
+<Korean>공수지원:</Korean>
 <Japanese>空中投下あり:</Japanese>
 <Original>With air drop:</Original>
 <Russian>С авиасбросом:</Russian>
@@ -14385,7 +14490,7 @@
 <English>Block but not for missile launchers</English>
 <Spanish>Block but not for missile launchers</Spanish>
 <Portuguese>Block but not for missile launchers</Portuguese>
-<Korean>Block but not for missile launchers</Korean>
+<Korean>차단 하지만 미사일 런처는 허용됨</Korean>
 <Japanese>Block but not for missile launchers</Japanese>
 <Original>Block but not for missile launchers</Original>
 <Russian>Блокировать, но не для ракетных установок</Russian>
@@ -14397,7 +14502,7 @@
 <English>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</English>
 <Spanish>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Spanish>
 <Portuguese>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Portuguese>
-<Korean>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Korean>
+<Korean>적군이 이동형 미사일 발사체를 사용하여 전술탄도유도탄을 발사 할려고 합니다!! 그곳으로 이동하여 파괴 하십시오!!!!</Korean>
 <Japanese>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Japanese>
 <Original>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Original>
 <Russian>Противник вот-вот запустит тактическую баллистическую ракету с мобильной стартовой площадки !! Доберитесь и УНИЧТОЖИТЕ её !!!!</Russian>
@@ -14409,7 +14514,7 @@
 <English>Good work! The launch is stopped.</English>
 <Spanish>Good work! The launch is stopped.</Spanish>
 <Portuguese>Good work! The launch is stopped.</Portuguese>
-<Korean>Good work! The launch is stopped.</Korean>
+<Korean>잘 하셨습니다! 발사가 중지 되었습니다.</Korean>
 <Japanese>Good work! The launch is stopped.</Japanese>
 <Original>Good work! The launch is stopped.</Original>
 <Russian>орошая работа! Запуск остановлен.</Russian>
@@ -14421,7 +14526,7 @@
 <English>Disable player artillery</English>
 <Spanish>Disable player artillery</Spanish>
 <Portuguese>Disable player artillery</Portuguese>
-<Korean>Disable player artillery</Korean>
+<Korean>플레이어 아틸러리 비활성화</Korean>
 <Japanese>プレイヤーの間接砲撃を無効化</Japanese>
 <Original>Disable player artillery</Original>
 <Russian>Отключить артиллерию для игрока</Russian>
@@ -14433,7 +14538,7 @@
 <English>Disable player CAS</English>
 <Spanish>Disable player CAS</Spanish>
 <Portuguese>Disable player CAS</Portuguese>
-<Korean>Disable player CAS</Korean>
+<Korean>플레이어 근접항공지원 비활성화</Korean>
 <Japanese>プレイヤーの対地攻撃を無効化</Japanese>
 <Original>Disable player CAS</Original>
 <Russian>Отключить CAS для игрока</Russian>
@@ -14445,7 +14550,7 @@
 <English>Enemy AI observers for artillery and CAS at AO</English>
 <Spanish>Enemy AI observers for artillery and CAS at AO</Spanish>
 <Portuguese>Enemy AI observers for artillery and CAS at AO</Portuguese>
-<Korean>Enemy AI observers for artillery and CAS at AO</Korean>
+<Korean>적 AI 관측수가 효력사 및 근접 항공지원 </Korean>
 <Japanese>Enemy AI observers for artillery and CAS at AO</Japanese>
 <Original>Enemy AI observers for artillery and CAS at AO</Original>
 <Russian>Вражеские наводчики AI для артиллерии и CAS в AO</Russian>
@@ -14457,7 +14562,7 @@
 <English>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</English>
 <Spanish>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Spanish>
 <Portuguese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Portuguese>
-<Korean>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Korean>
+<Korean>AO 적군 병영 및 이동식 지휘소(MHQ)는 폭발물로 파괴가능</Korean>
 <Japanese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Japanese>
 <Original>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Original>
 <Russian>АО вражеские казармы и MHQ должны уничтожаться взрывчаткой</Russian>
@@ -14469,7 +14574,7 @@
 <English>Taking barracks...</English>
 <Spanish>Taking barracks...</Spanish>
 <Portuguese>Taking barracks...</Portuguese>
-<Korean>Taking barracks...</Korean>
+<Korean>병영 점령중...</Korean>
 <Japanese>Taking barracks...</Japanese>
 <Original>Taking barracks...</Original>
 <Russian>Захват казарм...</Russian>
@@ -14481,7 +14586,7 @@
 <English>Taking vehicle MHQ...</English>
 <Spanish>Taking vehicle MHQ...</Spanish>
 <Portuguese>Taking vehicle MHQ...</Portuguese>
-<Korean>Taking vehicle MHQ...</Korean>
+<Korean>이동식 지휘소(MHQ) 점령중...</Korean>
 <Japanese>Taking vehicle MHQ...</Japanese>
 <Original>Taking vehicle MHQ...</Original>
 <Russian>Захват MHQ...</Russian>
@@ -14493,7 +14598,7 @@
 <English>Taking object...</English>
 <Spanish>Taking object...</Spanish>
 <Portuguese>Taking object...</Portuguese>
-<Korean>Taking object...</Korean>
+<Korean>목표물 점령중...</Korean>
 <Japanese>Taking object...</Japanese>
 <Original>Taking object...</Original>
 <Russian>Захват объекта...</Russian>
@@ -14505,22 +14610,22 @@
 <English>Disable voices:</English>
 <Spanish>Disable voices:</Spanish>
 <Portuguese>Disable voices:</Portuguese>
-<Korean>Disable voices:</Korean>
+<Korean>음성 비활성화:</Korean>
 <Japanese>Disable voices:</Japanese>
 <Original>Disable voices:</Original>
-<Russian>Disable voices:</Russian>
+<Russian>Отключить разговоры:</Russian>
 <Chinesesimp>禁用语音：</Chinesesimp>
-<Chinese>Disable voices:</Chinese>
+<Chinese>禁用語音：</Chinese>
 <French>Disable voices:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2084">
 <English>Save mission progress to profileNamespace if no database is available</English>
 <Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
 <Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
-<Korean>Save mission progress to profileNamespace if no database is available</Korean>
+<Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
 <Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
 <Original>Save mission progress to profileNamespace if no database is available</Original>
-<Russian>Save mission progress to profileNamespace if no database is available</Russian>
+<Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
 <Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
 <French>Save mission progress to profileNamespace if no database is available</French>
 </Key>
@@ -14528,7 +14633,7 @@
 <English>Saved profileNamespace mission progress auto load</English>
 <Spanish>Saved profileNamespace mission progress auto load</Spanish>
 <Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
-<Korean>Saved profileNamespace mission progress auto load</Korean>
+<Korean>profileNamespace에 미션 진행 상황 저장 및 자동 불러오기</Korean>
 <Japanese>Saved profileNamespace mission progress auto load</Japanese>
 <Original>Saved profileNamespace mission progress auto load</Original>
 <Russian>Saved profileNamespace mission progress auto load</Russian>
@@ -14539,13 +14644,49 @@
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
 <Portuguese>Check for friendly units near artillery targets when firing artillery</Portuguese>
-<Korean>Check for friendly units near artillery targets when firing artillery</Korean>
+<Korean>효력사 전 목표물 근처에 아군이 있는지 확인</Korean>
 <Japanese>Check for friendly units near artillery targets when firing artillery</Japanese>
 <Original>Check for friendly units near artillery targets when firing artillery</Original>
-<Russian>Check for friendly units near artillery targets when firing artillery</Russian>
-<Chinesesimp>Check for friendly units near artillery targets when firing artillery</Chinesesimp>
+<Russian>При стрельбе из артиллерии проверяйте наличие дружественных сил рядом с артиллерийскими целями.</Russian>
+<Chinesesimp>火炮发射攻击时，检查火炮攻击目标附近是否有友军。</Chinesesimp>
 <Chinese>Check for friendly units near artillery targets when firing artillery</Chinese>
 <French>Check for friendly units near artillery targets when firing artillery</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2087">
+<English>You received %1 score points from the admin!</English>
+<Spanish>You received %1 score points from the admin!</Spanish>
+<Portuguese>You received %1 score points from the admin!</Portuguese>
+<Korean>귀관은 어드민에게 %1 스코어 점수를 받았습니다!</Korean>
+<Japanese>You received %1 score points from the admin!</Japanese>
+<Original>You received %1 score points from the admin!</Original>
+<Russian>Вы получили %1 очков от администратора!</Russian>
+<Chinesesimp>您从管理员那里获得了 %1 分！</Chinesesimp>
+<Chinese>You received %1 score points from the admin!</Chinese>
+<French>You received %1 score points from the admin!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2088">
+<English>You have added %1 points to the total score of %2</English>
+<Spanish>You have added %1 points to the total score of %2</Spanish>
+<Portuguese>You have added %1 points to the total score of %2</Portuguese>
+<Korean>귀관에게 %1 점수가 추가 되었습니다. 전체 점수는 %2 입니다</Korean>
+<Japanese>You have added %1 points to the total score of %2</Japanese>
+<Original>You have added %1 points to the total score of %2</Original>
+<Russian>Вы добавили %1 к общему счету %2</Russian>
+<Chinesesimp>您已为 %2 的总分增加了 %1 分</Chinesesimp>
+<Chinese>You have added %1 points to the total score of %2</Chinese>
+<French>You have added %1 points to the total score of %2</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2089">
+<English>Add Score</English>
+<Spanish>Add Score</Spanish>
+<Portuguese>Add Score</Portuguese>
+<Korean>스코어 주기</Korean>
+<Japanese>Add Score</Japanese>
+<Original>Add Score</Original>
+<Russian>Добавить очки</Russian>
+<Chinesesimp>添加分数</Chinesesimp>
+<Chinese>Add Score</Chinese>
+<French>Add Score</French>
 </Key>
 </Container>
 </Package>

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 params ["_pos", "_sl", "_unit"];
 private _rad = 0; private _found = false;

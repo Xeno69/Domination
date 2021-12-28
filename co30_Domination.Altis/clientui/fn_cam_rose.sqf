@@ -1,5 +1,5 @@
 // by Xeno
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 "d_cam_rose" cutRsc ["d_cam_rose", "PLAIN"];
 

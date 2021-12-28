@@ -1,6 +1,6 @@
 // by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get all buildings with positions (for unit garrison later)
 // parameters: _pos

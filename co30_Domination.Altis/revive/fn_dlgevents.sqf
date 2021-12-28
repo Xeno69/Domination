@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (_this # 0 == "MouseButtonDown") exitWith {
 	xr_MouseButtons set [(_this # 1) # 1, true];

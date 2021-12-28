@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_vec"];
 
-__TRACE_1("","_vec")
+//__TRACE_1("","_vec")
 
 if (isNull _vec) exitWith {false};
 

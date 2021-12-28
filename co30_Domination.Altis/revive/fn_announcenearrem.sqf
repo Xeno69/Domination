@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 private _idx = xr_announce_unit_ar find _this;
 

@@ -12,27 +12,27 @@ private _all_weapons_items_blufor = [
 		"RIFLES",
 		// private rifles
 		[
-			"vn_m45", "vn_m45_camo", "vn_m45_fold", "vn_m16", "vn_m16_camo", "vn_m3a1", "vn_m60", "vn_mc10"
+			"vn_m45", "vn_m45_camo", "vn_m45_fold", "vn_m16", "vn_m16_camo", "vn_m3a1", "vn_m60", "vn_mc10", "vn_type56", "vn_rpd", "vn_rpd_shorty_01", "vn_rpd_shorty"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"vn_izh54", "vn_m2carbine", "vn_m1carbine", "vn_m60_shorty", "vn_m60_shorty_camo", "vn_m79", "vn_sten"
+			"vn_izh54", "vn_m2carbine", "vn_m1carbine", "vn_m60_shorty", "vn_m60_shorty_camo", "vn_m79", "vn_sten", "vn_dp28", "vn_k50m", "vn_m1891", "vn_pps43"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"vn_izh54_shorty", "vn_m1carbine_gl", "vn_m16_xm148", "vn_m2carbine_gl", "vn_m63a", "vn_xm177_short"
+			"vn_izh54_shorty", "vn_m1carbine_gl", "vn_m16_xm148", "vn_m2carbine_gl", "vn_m63a", "vn_xm177_short", "vn_sks", "vn_m1897"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			"vn_m14", "vn_m14_camo", "vn_xm177", "vn_xm177_camo", "vn_xm177_fg", "vn_xm177_stock", "vn_xm177_stock_camo"
+			"vn_m14", "vn_m14_camo", "vn_xm177", "vn_xm177_camo", "vn_xm177_fg", "vn_xm177_stock", "vn_xm177_stock_camo", "vn_sks_gl", "vn_mat49"
 		],
 		// captain rifles (gets added...)
 		[
-			"vn_m40a1", "vn_m40a1_camo", "vn_xm177_xm148", "vn_xm177_xm148_camo"
+			"vn_m40a1", "vn_m40a1_camo", "vn_xm177_xm148", "vn_xm177_xm148_camo", "vn_m9130"
 		],
 		// major rifles (gets...)
 		[
-			"vn_m4956", "vn_m4956_gl"
+			"vn_m4956", "vn_m4956_gl", "vn_pk"
 		],
 		// colonel rifles (...)
 		[

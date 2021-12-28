@@ -27,9 +27,9 @@ if (_unitMovementMode == 2) then {
 };
 
 #ifndef __TT__
-private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup;
+private _units_to_garrison = [_centerPos, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup;
 #else
-private _units_to_garrison = [_trg_center, _unitlist, _newgroup, false, true, -1, [blufor, opfor]] call d_fnc_makemgroup;
+private _units_to_garrison = [_centerPos, _unitlist, _newgroup, false, true, -1, [blufor, opfor]] call d_fnc_makemgroup;
 #endif	
 if (_unitMovementMode == 2) then {
 	{
@@ -75,7 +75,7 @@ if (d_mt_respawngroups == 0) then {
 	{
 		[_x, 3] call d_fnc_setekmode;
 	} forEach _units_to_garrison;
-	_newgroup setVariable ["d_respawninfo", ["specops", [], _trg_center, 0, "patrol2", d_side_enemy, 0, 0, 1, [_trg_center, _radius], false, []]];
+	_newgroup setVariable ["d_respawninfo", ["specops", [], _centerPos, 0, "patrol2", d_side_enemy, 0, 0, 1, [_centerPos, _radius], false, []]];
 };*/
 _newgroup call d_fnc_addgrp2hc;
 __TRACE_1("","_newgroup")

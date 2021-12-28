@@ -1,82 +1,80 @@
 // by Xeno
-#include "..\x_setup.sqf"
-#define __ctrl(vctrl) _ctrl = _disp displayCtrl vctrl
-#define __ctrl2(ectrl) (_disp displayCtrl ectrl)
+//#include "..\x_setup.sqf"
 
 params ["_disp"];
 
 if (!d_pisadminp) then {
-	__ctrl2(123123) ctrlShow false;
-	__ctrl2(123124) ctrlShow false;
+	(_disp displayCtrl 123123) ctrlShow false;
+	(_disp displayCtrl 123124) ctrlShow false;
 	if (!d_database_found) then {
-		__ctrl2(123125) ctrlShow false;
+		(_disp displayCtrl 123125) ctrlShow false;
 	};
 } else {
 	if (!d_database_found) then {
 		if (d_pnspace_msave == 0) then {
-			__ctrl2(123124) ctrlShow false;
+			(_disp displayCtrl 123124) ctrlShow false;
 		};
-		__ctrl2(123125) ctrlShow false;
+		(_disp displayCtrl 123125) ctrlShow false;
 	};
 };
 
 if (d_with_bis_dynamicgroups == 1) then {
-	__ctrl2(11009) ctrlShow false;
+	(_disp displayCtrl 11009) ctrlShow false;
 };
 
 if (d_MissionType == 1) then {
 	//sidemissions are off
-	__ctrl2(123126) ctrlShow false;
-	__ctrl2(11002) ctrlShow false;
+	(_disp displayCtrl 123126) ctrlShow false;
+	(_disp displayCtrl 11002) ctrlShow false;
 };
 
 if (d_MissionType == 2) then {
 	//maintargets are off
-	__ctrl2(11090) ctrlShow false;
-	__ctrl2(11007) ctrlShow false;
+	(_disp displayCtrl 11090) ctrlShow false;
+	(_disp displayCtrl 11007) ctrlShow false;
 };
 
 if (!d_with_ranked && {!d_database_found}) then {
 	//ranked is off
-	__ctrl2(12009) ctrlShow false;
-	__ctrl2(12010) ctrlShow false;
-	__ctrl2(11014) ctrlShow false;
-	__ctrl2(3403) ctrlShow false;
-	__ctrl2(3404) ctrlShow false;
-	__ctrl2(3405) ctrlShow false;
-	__ctrl2(3406) ctrlShow false;
-	__ctrl2(2001) ctrlShow false;
-	__ctrl2(3407) ctrlShow false;
-	__ctrl2(3408) ctrlShow false;
-	__ctrl2(2002) ctrlShow false;
-	__ctrl2(3409) ctrlShow false;
-	__ctrl2(3410) ctrlShow false;
-	__ctrl2(2003) ctrlShow false;
-	__ctrl2(3411) ctrlShow false;
-	__ctrl2(3412) ctrlShow false;
-	__ctrl2(2004) ctrlShow false;
-	__ctrl2(3413) ctrlShow false;
-	__ctrl2(3414) ctrlShow false;
-	__ctrl2(2005) ctrlShow false;
-	__ctrl2(3415) ctrlShow false;
-	__ctrl2(3416) ctrlShow false;
-	__ctrl2(2006) ctrlShow false;
-	__ctrl2(3417) ctrlShow false;
-	__ctrl2(3418) ctrlShow false;
-	__ctrl2(2007) ctrlShow false;
+	(_disp displayCtrl 12009) ctrlShow false;
+	(_disp displayCtrl 12010) ctrlShow false;
+	(_disp displayCtrl 11014) ctrlShow false;
+	(_disp displayCtrl 3403) ctrlShow false;
+	(_disp displayCtrl 3404) ctrlShow false;
+	(_disp displayCtrl 3405) ctrlShow false;
+	(_disp displayCtrl 3406) ctrlShow false;
+	(_disp displayCtrl 2001) ctrlShow false;
+	(_disp displayCtrl 3407) ctrlShow false;
+	(_disp displayCtrl 3408) ctrlShow false;
+	(_disp displayCtrl 2002) ctrlShow false;
+	(_disp displayCtrl 3409) ctrlShow false;
+	(_disp displayCtrl 3410) ctrlShow false;
+	(_disp displayCtrl 2003) ctrlShow false;
+	(_disp displayCtrl 3411) ctrlShow false;
+	(_disp displayCtrl 3412) ctrlShow false;
+	(_disp displayCtrl 2004) ctrlShow false;
+	(_disp displayCtrl 3413) ctrlShow false;
+	(_disp displayCtrl 3414) ctrlShow false;
+	(_disp displayCtrl 2005) ctrlShow false;
+	(_disp displayCtrl 3415) ctrlShow false;
+	(_disp displayCtrl 3416) ctrlShow false;
+	(_disp displayCtrl 2006) ctrlShow false;
+	(_disp displayCtrl 3417) ctrlShow false;
+	(_disp displayCtrl 3418) ctrlShow false;
+	(_disp displayCtrl 2007) ctrlShow false;
 };
 
 if (!d_database_found) then {
 	for "_i" from 6000 to 6008 do {
-	__ctrl2(_i) ctrlShow false;
+	(_disp displayCtrl _i) ctrlShow false;
 	};
 } else {
 	private _p_distar = player getVariable "d_p_distar";
 	if (isNil "_p_distar") exitWith {};
-	__ctrl2(6002) ctrlSetText str(round (_p_distar # 0));
-	__ctrl2(6004) ctrlSetText str(round (_p_distar # 1));
-	__ctrl2(6006) ctrlSetText str(round (_p_distar # 2));
-	__ctrl2(6008) ctrlSetText str(round (_p_distar # 3));
+	(_disp displayCtrl 6002) ctrlSetText str(round (_p_distar # 0));
+	(_disp displayCtrl 6004) ctrlSetText str(round (_p_distar # 1));
+	(_disp displayCtrl 6006) ctrlSetText str(round (_p_distar # 2));
+	(_disp displayCtrl 6008) ctrlSetText str(round (_p_distar # 3));
 };
 
 private _tgt_ar = [];
@@ -90,7 +88,7 @@ private _cur_tgt_name = if (d_current_target_index != -1) then {
 if (isNil "_cur_tgt_name") then {_cur_tgt_name = ""};
 
 if (d_tt_ver) then {
-	__ctrl(11011);
+	_ctrl = _disp displayCtrl 11011;
 	d_points_array params ["_points_blufor", "_points_opfor", "_kill_points_blufor", "_kill_points_opfor"];
 	private _color = if (_points_blufor > _points_opfor) then {
 		[0,0.6,1,1]
@@ -104,7 +102,7 @@ if (d_tt_ver) then {
 	_ctrl ctrlSetTextColor _color;
 	_ctrl ctrlSetText format ["%1: %2", _points_blufor, _points_opfor];
 
-	__ctrl(11012);
+	_ctrl = _disp displayCtrl 11012;
 	_color = if (_kill_points_blufor > _kill_points_opfor) then {
 		[0,0.6,1,1]
 	} else {
@@ -124,18 +122,18 @@ private _s = call {
 	format ["%1     #%2", d_cur_sm_txt, d_cur_sm_idx]
 };
 
-__ctrl2(11002) ctrlSetText _s;
+(_disp displayCtrl 11002) ctrlSetText _s;
 
 if (d_WithRevive == 1) then {
-	__ctrl2(30000) ctrlShow false;
-	__ctrl2(30001) ctrlShow false;
+	(_disp displayCtrl 30000) ctrlShow false;
+	(_disp displayCtrl 30001) ctrlShow false;
 } else {
 	private _xltxt = if (xr_max_lives == -1) then {
 		localize "STR_DOM_MISSIONSTRING_1010"
 	} else {
 		str (player getVariable "xr_lives")
 	};
-	__ctrl2(30001) ctrlSetText _xltxt;
+	(_disp displayCtrl 30001) ctrlSetText _xltxt;
 };
 
 if (!d_tt_ver) then {
@@ -157,20 +155,20 @@ if (!d_tt_ver) then {
 	if (_intels == "") then {
 		_intels = localize "STR_DOM_MISSIONSTRING_548";
 	};
-	__ctrl2(11018) ctrlSetText _intels;
+	(_disp displayCtrl 11018) ctrlSetText _intels;
 } else {
-	__ctrl2(11019) ctrlShow false;
-	__ctrl2(11018) ctrlShow false;
+	(_disp displayCtrl 11019) ctrlShow false;
+	(_disp displayCtrl 11018) ctrlShow false;
 };
 
-__ctrl2(11003) ctrlSetText _cur_tgt_name;
+(_disp displayCtrl 11003) ctrlSetText _cur_tgt_name;
 
-__ctrl2(11006) ctrlSetText format ["%1/%2", count d_resolved_targets + 1, d_MainTargets];
+(_disp displayCtrl 11006) ctrlSetText format ["%1/%2", count d_resolved_targets + 1, d_MainTargets];
 
-__ctrl2(11233) ctrlSetText str(score player);
+(_disp displayCtrl 11233) ctrlSetText str(score player);
 
 private "_ctrl";
-__ctrl(11278);
+_ctrl = _disp displayCtrl 11278;
 if (!d_tt_ver) then {
 	_ctrl ctrlSetText format ["%1/%2", d_campscaptured, d_numcamps];
 } else {
@@ -182,11 +180,11 @@ if (!d_tt_ver) then {
 };
 
 if (d_tt_ver) then {
-	__ctrl(11279);
+	_ctrl = _disp displayCtrl 11279;
 	_ctrl ctrlSetText format ["%1/%2", d_num_barracks_objs, d_num_barracks_tt];
 };
 
-__ctrl(11009);
+_ctrl = _disp displayCtrl 11009;
 _ctrl ctrlSetText (localize "STR_DOM_MISSIONSTRING_552");
 
 _s = "";
@@ -246,30 +244,30 @@ _s_all = composeText [_s, _s2];
 
 _s_all = str _s_all;
 
-__ctrl2(11007) ctrlSetText _s_all;
+(_disp displayCtrl 11007) ctrlSetText _s_all;
 
-__ctrl2(12010) ctrlSetText ((player call d_fnc_GetRankPic) # 0);
-__ctrl2(11014) ctrlSetText (player call d_fnc_GetRankString);
+(_disp displayCtrl 12010) ctrlSetText ((player call d_fnc_GetRankPic) # 0);
+(_disp displayCtrl 11014) ctrlSetText (player call d_fnc_GetRankString);
 
-__ctrl2(12016) ctrlSetText serverName;
+(_disp displayCtrl 12016) ctrlSetText serverName;
 
 
 if (d_disable_viewdistance) then {
-	__ctrl2(1000) ctrlEnable false;
-	__ctrl2(1999) ctrlSetText (localize "STR_DOM_MISSIONSTRING_357");
-	__ctrl2(1997) ctrlSetText "";
+	(_disp displayCtrl 1000) ctrlEnable false;
+	(_disp displayCtrl 1999) ctrlSetText (localize "STR_DOM_MISSIONSTRING_357");
+	(_disp displayCtrl 1997) ctrlSetText "";
 } else {
-	__ctrl2(1000) sliderSetRange [200, d_MaxViewDistance];
+	(_disp displayCtrl 1000) sliderSetRange [200, d_MaxViewDistance];
 	if (!d_isvdreduced) then {
-		__ctrl2(1000) sliderSetPosition viewDistance;
-		__ctrl2(1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round viewDistance];
+		(_disp displayCtrl 1000) sliderSetPosition viewDistance;
+		(_disp displayCtrl 1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round viewDistance];
 	} else {
-		__ctrl2(1000) sliderSetPosition d_curviewdistance;
-		__ctrl2(1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round d_curviewdistance];
+		(_disp displayCtrl 1000) sliderSetPosition d_curviewdistance;
+		(_disp displayCtrl 1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round d_curviewdistance];
 	};
 };
 
-private _ctrl = __ctrl2(1001);
+private _ctrl = _disp displayCtrl 1001;
 
 private _glindex = -1;
 {
@@ -280,30 +278,30 @@ private _glindex = -1;
 _ctrl lbSetCurSel _glindex;
 if (d_Terraindetail == 1) then {
 	_ctrl ctrlEnable false;
-	__ctrl2(1998) ctrlSetText (localize "STR_DOM_MISSIONSTRING_362");
-	__ctrl2(1996) ctrlSetText "";
+	(_disp displayCtrl 1998) ctrlSetText (localize "STR_DOM_MISSIONSTRING_362");
+	(_disp displayCtrl 1996) ctrlSetText "";
 };
 
-_ctrl = __ctrl2(1002);
+_ctrl = _disp displayCtrl 1002;
 {_ctrl lbAdd _x} forEach [localize "STR_DOM_MISSIONSTRING_363", localize "STR_DOM_MISSIONSTRING_364", localize "STR_DOM_MISSIONSTRING_365", localize "STR_DOM_MISSIONSTRING_367"];
 _ctrl lbSetCurSel d_show_player_marker;
 
 d_pnsel_first = true;
-_ctrl = __ctrl2(1602);
+_ctrl = _disp displayCtrl 1602;
 {_ctrl lbAdd _x} forEach [localize "STR_DOM_MISSIONSTRING_363a", localize "STR_DOM_MISSIONSTRING_364", localize "STR_DOM_MISSIONSTRING_367"];
 _ctrl lbSetCurSel d_show_player_namesx;
 
-__ctrl2(2001) ctrlSetText str(d_points_needed # 0);
-__ctrl2(2002) ctrlSetText str(d_points_needed # 1);
-__ctrl2(2003) ctrlSetText str(d_points_needed # 2);
-__ctrl2(2004) ctrlSetText str(d_points_needed # 3);
-__ctrl2(2005) ctrlSetText str(d_points_needed # 4);
-__ctrl2(2006) ctrlSetText str(d_points_needed # 5);
-__ctrl2(2007) ctrlSetText str(d_points_needed # 6);
+(_disp displayCtrl 2001) ctrlSetText str(d_points_needed # 0);
+(_disp displayCtrl 2002) ctrlSetText str(d_points_needed # 1);
+(_disp displayCtrl 2003) ctrlSetText str(d_points_needed # 2);
+(_disp displayCtrl 2004) ctrlSetText str(d_points_needed # 3);
+(_disp displayCtrl 2005) ctrlSetText str(d_points_needed # 4);
+(_disp displayCtrl 2006) ctrlSetText str(d_points_needed # 5);
+(_disp displayCtrl 2007) ctrlSetText str(d_points_needed # 6);
 
 if (!d_tt_ver) then {
-	__ctrl2(1610) cbSetChecked d_maintarget_auto_vd;
-	__ctrl2(1610) ctrlAddEventHandler ["CheckedChanged", {
+	(_disp displayCtrl 1610) cbSetChecked d_maintarget_auto_vd;
+	(_disp displayCtrl 1610) ctrlAddEventHandler ["CheckedChanged", {
 		d_maintarget_auto_vd = !d_maintarget_auto_vd;
 		if (d_maintarget_auto_vd) then {
 			systemChat (localize "STR_DOM_MISSIONSTRING_1965");
@@ -313,8 +311,8 @@ if (!d_tt_ver) then {
 	}];
 };
 
-/*__ctrl2(1612) cbSetChecked d_player_radioprotocol;
-__ctrl2(1612) ctrlAddEventHandler ["CheckedChanged", {
+/*(_disp displayCtrl 1612) cbSetChecked d_player_radioprotocol;
+(_disp displayCtrl 1612) ctrlAddEventHandler ["CheckedChanged", {
 	d_player_radioprotocol = !d_player_radioprotocol;
 	if (d_player_radioprotocol) then {
 		systemChat (localize "STR_DOM_MISSIONSTRING_2054");
@@ -333,8 +331,8 @@ for "_i" from 1 to 20 do {
 	if (_usera isNotEqualTo []) then {
 		_endstr = _endstr + " " + (_usera joinString ",");
 	};
-	__ctrl2(3302) lbAdd _endstr;
-	__ctrl2(3402) lbAdd _endstr;
+	(_disp displayCtrl 3302) lbAdd _endstr;
+	(_disp displayCtrl 3402) lbAdd _endstr;
 };
-__ctrl2(3302) lbSetCurSel d_earplugs_userakey;
-__ctrl2(3402) lbSetCurSel d_3dmarker_userakey;
+(_disp displayCtrl 3302) lbSetCurSel d_earplugs_userakey;
+(_disp displayCtrl 3402) lbSetCurSel d_3dmarker_userakey;

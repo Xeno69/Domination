@@ -1,11 +1,11 @@
 {
   "inputDirs": [
-    "E:/DomSQFC/ar/",
-	"E:/DomSQFC/bikb/",
+	"E:/DomSQFC/ar/",
+	"E:/DomSQFC/cba/",
 	"E:/DomSQFC/client/",
 	"E:/DomSQFC/clientui/",
-	"E:/DomSQFC/common/",
 	"E:/DomSQFC/missions/",
+	"E:/DomSQFC/common/",
 	"E:/DomSQFC/revive/",
 	"E:/DomSQFC/scripts/",
 	"E:/DomSQFC/server/"

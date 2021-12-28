@@ -3,7 +3,7 @@
 
 if (!hasInterface) exitWith {};
 
-if (units (group player) findIf {alive _x} > -1) then {
+if (units player findIf {alive _x} > -1) then {
 	if (isNil "_this" || {_this isEqualTo []}) then {
 		sleep 1;
 		private _posasl_p = getPosASL player;

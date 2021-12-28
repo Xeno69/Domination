@@ -281,6 +281,7 @@ class cfgFunctions {
 			addc(forgive_keh);
 			addc(forgive_timehandler);
 			addc(barmhqcounter);
+			addc(adasposchanged);
 		};
 		class Dom_Common {
 			file = "common";
@@ -339,7 +340,6 @@ class cfgFunctions {
 			addc(isbldghostile);
 			addc(getbuildings);
 			addc(getcoveredpositions);
-			addc(getunitbyuid);
 			addc(setleader);
 			addc(sd180);
 			addc(setvel0);
@@ -352,6 +352,7 @@ class cfgFunctions {
 			addc(markername);
 			addc(tanoafix);
 			addc(getbldgswithpositions);
+			addc(getunitbyuid);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
@@ -363,6 +364,7 @@ class cfgFunctions {
 			addc(weather_winter);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
+			addc(afterfirednear);
 			addc(hallyg_dlegion_Snipe_awareness);
 			addc(ambientradiochatter);
 			addc(place);
@@ -419,6 +421,7 @@ class cfgFunctions {
 			addc(smcough);
 			addc(remactionssm);
 			addc(smsvpos);
+			addc(clear_smtrees);
 		};
 		class Dom_SMMissions_Common {
 			file = "missions\common";
@@ -456,6 +459,8 @@ class cfgFunctions {
 			addc(event_sidevipdefend);
 			addc(event_sideprisonerdefuse);
 			addc(event_sidekilltriggerman);
+			addc(event_civ_massacre);
+			addc(event_guerrillas_embedded_as_civilians);
 		};
 		class Dom_Server {
 			file = "server";
@@ -650,6 +655,9 @@ class cfgFunctions {
 			addc(bartrigover);
 			addc(slopilot);
 			addc(sendttpoints);
+			addc(addplscore);
+			addc(camps_workaround);
+			addc(ambientanimals);
 		};
 		class Dom_PrePostInit {
 			file = "init";

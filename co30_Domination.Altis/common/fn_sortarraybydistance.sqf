@@ -1,6 +1,6 @@
 //by Jezuro edited by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // how about using the sort command?
 

@@ -103,6 +103,32 @@ class D_AdminDialog {
 			action = "d_a_d_cur_uid remoteExecCall ['d_fnc_AdminDelTKs', 2];((uiNamespace getVariable 'D_AdminDialog') displayCtrl 1006) ctrlSetText '0';((uiNamespace getVariable 'D_AdminDialog') displayCtrl 1007) ctrlEnable false";
 			x = 0.4; y = 0.38; w = 0.2;
 		};
+		class AddScoreButton: ResetTKsButton {
+			idc = 1014;
+			text = "$STR_DOM_MISSIONSTRING_2089"; 
+			action = "if (d_a_d_cur_name != d_name_pl) then {[d_a_d_netid, d_a_d_selscore] remoteExecCall ['d_fnc_addplscore', 2]; systemChat format [localize 'STR_DOM_MISSIONSTRING_2088', d_a_d_selscore, d_a_d_cur_unit_name]}";
+			x = 0.08;
+		};
+		class AddScoreSlider: RscXSliderH {
+			idc = 1015;
+			x = 0.08;
+			y = 0.46;
+			w = 0.3;
+			h = 0.04;
+			sliderRange[] = {100, 10000};
+			sliderPosition = 1000;
+			onSliderPosChanged = "_this call d_fnc_adasposchanged";
+		};
+		class AddScoreText: RscText {
+			idc = 1016;
+			x = 0.08;
+			y = 0.424;
+			w = 0.3;
+			h = 0.03;
+			style = ST_CENTER;
+			sizeEx = 0.032;
+			text = "1000";
+		};
 		class KickButton: ResetTKsButton {
 			idc = 1008;
 			text = "$STR_DOM_MISSIONSTRING_1225"; 

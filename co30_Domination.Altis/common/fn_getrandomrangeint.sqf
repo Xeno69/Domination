@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // gets a random integer number in a specific range
 // parameters: integer from, integer to (second number must be greater than first)

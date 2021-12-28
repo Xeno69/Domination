@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 if (!alive player || {player getVariable "xr_pluncon"}) exitWith {
 	hintSilent "";
@@ -25,7 +25,7 @@ private _where = call {
 	localize "STR_DOM_MISSIONSTRING_1723";
 };
 
-__TRACE_1("","_reldir")
+//__TRACE_1("","_reldir")
 
 xr_announce_ar pushBack [time + 15, format [localize "STR_DOM_MISSIONSTRING_1719", name _this, _where]];
 xr_announce_unit_ar pushBack _this;

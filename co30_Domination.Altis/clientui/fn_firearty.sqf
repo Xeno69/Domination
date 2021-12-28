@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if (!d_tt_ver) then {
 	if !(d_ari_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_149")};
@@ -18,7 +18,7 @@ if (_idx == -1) exitWith {};
 
 private _arele = d_cur_art_marker_ar select (_lbctrl lbValue _idx);
 private _curmar_pos = markerPos (_arele # 0);
-__TRACE_2("","_arele","_curmar_pos")
+//__TRACE_2("","_arele","_curmar_pos")
 
 private _no = [];
 
@@ -57,6 +57,6 @@ if (!d_tt_ver) then {
 	};
 	player kbTell [_logic, _topicside, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], "SIDE"];
 };
-__TRACE_1("","_arele")
+//__TRACE_1("","_arele")
 [_arele # 2, _arele # 3, netId player, _arele # 0] remoteExec ["d_fnc_arifire", 2];
 d_arti_did_fire = true;

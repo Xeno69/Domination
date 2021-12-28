@@ -1,21 +1,19 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
 private _disp = uiNamespace getVariable "d_TransferScoreDialog";
 
-#define CTRL(A) (_disp displayCtrl A)
-
-private _idx = lbCurSel CTRL(1001);
+private _idx = lbCurSel (_disp displayCtrl 1001);
 
 if (_idx == -1) exitWith {
 	closeDialog 0;
 };
 
-private _playern = CTRL(1001) lbText _idx;
-private _netid = CTRL(1001) lbData _idx;
+private _playern = (_disp displayCtrl 1001) lbText _idx;
+private _netid = (_disp displayCtrl 1001) lbData _idx;
 
 closeDialog 0;
 

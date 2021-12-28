@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
@@ -11,8 +11,8 @@ d_arti_did_fire = nil;
 
 {
 	(_x splitString "|") params ["", "_netid_ar", "_type_ar", "_rounds_ar"];
-	__TRACE_1("","_x")
-	__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
+	//__TRACE_1("","_x")
+	//__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
 
 	if (!isMultiplayer || {_netid_ar != ""}) then {
 		if (!d_tt_ver) then {
@@ -26,7 +26,7 @@ d_arti_did_fire = nil;
 	};
 } forEach (allMapMarkers select {_x select [0, 9] == "d_arttmx|"});
 
-__TRACE_1("","d_cur_art_marker_ar")
+//__TRACE_1("","d_cur_art_marker_ar")
 
 d_cur_artm_map_startpos = getPosWorld player;
 

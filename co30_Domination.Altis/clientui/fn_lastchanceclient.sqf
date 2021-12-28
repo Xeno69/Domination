@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 private _disp = uiNamespace getVariable "d_RscLastChance";
 if (isNil "_disp" || {isNull _disp}) then {

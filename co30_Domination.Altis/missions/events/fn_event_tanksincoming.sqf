@@ -86,6 +86,12 @@ private _x_mt_event_ar = [];
 
 private _trigger = [_target_center, [475,475,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
+if (isNil "d_event_trigger_tanks_guerr") then {
+	// special trigger stored for later, guerrilla infantry event may also trigger this event
+	d_event_trigger_tanks_guerr = _trigger;
+	publicVariable "d_event_trigger_tanks_guerr";
+};
+
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028", _townNearbyName];
@@ -161,5 +167,7 @@ if (d_ai_persistent_corpses == 0) then {
 };
 
 //cleanup
+d_event_trigger_tanks_guerr = nil;
+publicVariable "d_event_trigger_tanks_guerr";
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
 deleteVehicle _trigger;

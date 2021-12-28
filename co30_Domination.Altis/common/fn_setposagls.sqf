@@ -1,6 +1,6 @@
 // by KK
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_obj", "_pos"];
 private _offset = _pos # 2;

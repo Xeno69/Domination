@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 private _idx = lbCurSel ((uiNamespace getVariable "d_UnloadDialog") displayCtrl 101115);

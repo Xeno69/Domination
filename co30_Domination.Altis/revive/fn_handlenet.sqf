@@ -1,11 +1,11 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 call {
 	if (_this # 1 == 100) exitWith {
-		__TRACE("Die case 100")
+		//__TRACE("Die case 100")
 		if (local (_this # 0)) then {
 			//(_this # 0) playActionNow "Die";
 			(_this # 0) switchAction "Die";
@@ -17,7 +17,7 @@ call {
 		_u switchMove "AmovPpneMstpSnonWnonDnon_healed";
 		_u playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
 		if (local _u) then {
-			__TRACE("Die case 101")
+			//__TRACE("Die case 101")
 			//_u playActionNow "Die";
 			_u switchAction "Die";
 			//_u switchMove "AinjPpneMstpSnonWrflDnon";

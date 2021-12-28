@@ -118,7 +118,15 @@ for "_i" from 1 to MAX_TRIES do {
 		if (_this isFlatEmpty [-1, -1, _maxGradient, _gradientRadius, _waterMode, _shoreMode] isEqualTo []) exitWith {};
 		
 		// away from other objects
-		if (_checkProximity && {nearestTerrainObjects [_this, [], _objectProximity, false, true] isNotEqualTo []}) exitWith {};	
+		private _dexit = false;
+		if (_checkProximity) then {
+			if (_checkroad) then {
+				_dexit = nearestTerrainObjects [_this, [], _objectProximity, false, true] isNotEqualTo [];
+			} else {
+				_dexit = nearestTerrainObjects [_this, ["TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "HIDE", "BUSSTOP", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "ROCK", "ROCKS", "POWER LINES", "RAILWAY", "POWERSOLAR", "POWERWAVE", "POWERWIND", "SHIPWRECK"], _objectProximity, false, true] isNotEqualTo [];
+			};
+		};
+		if (_dexit) exitWith {};
 		
 		// not inside something
 		if (lineIntersectsSurfaces [AGLtoASL _this, AGLtoASL _this vectorAdd [0, 0, 50], objNull, objNull, false, 1, "GEOM", "NONE"] isNotEqualTo []) exitWith {};

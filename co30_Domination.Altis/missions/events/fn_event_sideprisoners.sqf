@@ -14,9 +14,9 @@ if (!isServer) exitWith {};
 params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
-
-//position the event site near target center at max distance 125m and min 15m 
-private _poss = [[[_target_center, 125]],[[_target_center, 15]]] call BIS_fnc_randomPos;
+ 
+//position the event site at max distance 50% of target radius and min 5% of target radius
+private _poss = [[[_target_center, (d_cur_target_radius * 0.50)]],[[_target_center, (d_cur_target_radius * 0.05)]]] call BIS_fnc_randomPos;
 private _x_mt_event_ar = [];
 
 private _trigger = [_poss, [160,160,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
@@ -165,7 +165,7 @@ if (_all_dead) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

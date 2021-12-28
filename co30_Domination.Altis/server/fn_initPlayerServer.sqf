@@ -23,13 +23,9 @@ if (_pl isKindOf "HeadlessClient_F") exitWith {
 	};
 };
 
-private _uid = getPlayerUID _pl;
+if (_pl isKindOf "VirtualSpectator_F") exitWith {};
 
-if (_pl isKindOf "VirtualSpectator_F") exitWith {
-	if (d_database_found) then {
-		d_virtual_spectators pushBack _uid;
-	};
-};
+private _uid = getPlayerUID _pl;
 
 if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 	diag_log "Domination ATTENTION!!!!!! A player connected as null object or with an empty UID";

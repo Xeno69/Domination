@@ -1,63 +1,61 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
-#define __CTRL(A) (_display displayCtrl A)
-
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 params ["_display", "_dtype"];
 
 if (_dtype == 0) then {
 	if (d_tele_dialog > 0) then {
-		__CTRL(100111) ctrlSetText (localize "STR_DOM_MISSIONSTRING_586");
-		__CTRL(100102) ctrlSetText (localize "STR_DOM_MISSIONSTRING_533");
+		(_display displayCtrl 100111) ctrlSetText (localize "STR_DOM_MISSIONSTRING_586");
+		(_display displayCtrl 100102) ctrlSetText (localize "STR_DOM_MISSIONSTRING_533");
 	} else {
-		__CTRL(100111) ctrlSetText (localize "STR_DOM_MISSIONSTRING_299");
-		__CTRL(100102) ctrlSetText (localize "STR_DOM_MISSIONSTRING_298");
+		(_display displayCtrl 100111) ctrlSetText (localize "STR_DOM_MISSIONSTRING_299");
+		(_display displayCtrl 100102) ctrlSetText (localize "STR_DOM_MISSIONSTRING_298");
 	};
 } else {
 	if (!xr_respawn_available) then {
-		__CTRL(100102) ctrlEnable false;
-		__TRACE("enable false")
+		(_display displayCtrl 100102) ctrlEnable false;
+		//__TRACE("enable false")
 	};
 	if (!xr_spectating) then {
-		__CTRL(1212) ctrlEnable false;
-		__CTRL(1212) ctrlShow false;
-		__CTRL(1003) ctrlEnable false;
-		__CTRL(1003) ctrlShow false;
-		__CTRL(1000) ctrlEnable false;
-		__CTRL(1000) ctrlShow false;
-		__CTRL(3000) ctrlShow false;
+		(_display displayCtrl 1212) ctrlEnable false;
+		(_display displayCtrl 1212) ctrlShow false;
+		(_display displayCtrl 1003) ctrlEnable false;
+		(_display displayCtrl 1003) ctrlShow false;
+		(_display displayCtrl 1000) ctrlEnable false;
+		(_display displayCtrl 1000) ctrlShow false;
+		(_display displayCtrl 3000) ctrlShow false;
 	} else {
-		__CTRL(3000) ctrlShow false;
-		__CTRL(1000) ctrlShow false;
+		(_display displayCtrl 3000) ctrlShow false;
+		(_display displayCtrl 1000) ctrlShow false;
 	};
-	__TRACE_1("","d_tk_forgive")
+	//__TRACE_1("","d_tk_forgive")
 	if (d_tk_forgive == 1 || {d_no_teamkill == 0}) then {
-		__CTRL(123456) ctrlShow false;
-		__CTRL(123457) ctrlShow false;
+		(_display displayCtrl 123456) ctrlShow false;
+		(_display displayCtrl 123457) ctrlShow false;
 	} else {
 		if (d_no_teamkill == 1 && {d_tk_forgive == 0}) then {
-			__CTRL(123456) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_2064", name d_forgive];
+			(_display displayCtrl 123456) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_2064", name d_forgive];
 			d_forgive_keyeh = _display displayAddEventHandler ["KeyDown", {call d_fnc_forgive_keh}];
-			__TRACE_1("","d_forgive_keyeh")
+			//__TRACE_1("","d_forgive_keyeh")
 			_display spawn d_fnc_forgive_timehandler;
 		};
 	};
 };
 
-__CTRL(11003) ctrlShow false;
-__CTRL(11004) ctrlShow false;
+(_display displayCtrl 11003) ctrlShow false;
+(_display displayCtrl 11004) ctrlShow false;
 
 private _addbase = true;
 if (d_WithTeleToBase == 1 && {d_tele_dialog > 0 && {_dtype == 0}}) then {
 	_addbase = false;
 };
 
-private _listctrl = __CTRL(1500);
+private _listctrl = _display displayCtrl 1500;
 lbClear _listctrl;
 
 private _cidx = -1;
@@ -70,7 +68,7 @@ d_respawn_posis = [];
 d_respawn_ismhq = [];
 
 if (_addbase) then {
-	__TRACE_1("","_addbase")
+	//__TRACE_1("","_addbase")
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1251");
 	_listctrl lbSetData [_cidx, "D_BASE_D"];
 	_selidx = _cidx;
@@ -80,7 +78,7 @@ if (_addbase) then {
 	} else {
 		format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1251"]
 	};
-	__CTRL(100110) ctrlSetText _text;
+	(_display displayCtrl 100110) ctrlSetText _text;
 	["D_BASE_D", getPosASL d_FLAG_BASE, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_BASE_D";
 	d_respawn_mar_str = "D_BASE_D";
@@ -90,14 +88,14 @@ if (_addbase) then {
 	d_respawn_mar_str = "";
 };
 
-__TRACE_1("","d_mob_respawns")
+//__TRACE_1("","d_mob_respawns")
 
 #define __COLRED [1,0,0,0.7]
 private _logtxt = "";
 
 {
 	private _mrs = missionNamespace getVariable [_x # 0, objNull];
-	__TRACE_2("","_mrs","_x")
+	//__TRACE_2("","_mrs","_x")
 	if (!isNull _mrs) then {
 		private _lbcolor = call {
 			if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592", _x # 1, _logtxt]; __COLRED};
@@ -121,7 +119,7 @@ private _logtxt = "";
 			} else {
 				format [localize "STR_DOM_MISSIONSTRING_605", _x # 2]
 			};
-			__CTRL(100110) ctrlSetText _text;
+			(_display displayCtrl 100110) ctrlSetText _text;
 		};
 		[_x # 0, visiblePositionASL _mrs, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 		d_respawn_anim_markers pushBack (_x # 0);
@@ -131,7 +129,7 @@ private _logtxt = "";
 } forEach d_mob_respawns;
 
 {
-	__TRACE_1("","_x")
+	//__TRACE_1("","_x")
 	_cidx = _listctrl lbAdd (_x # 2);
 	_listctrl lbSetData [_cidx, _x # 0];
 	_listctrl lbSetColor [_cidx, [1,1,1,1]];
@@ -144,7 +142,7 @@ private _logtxt = "";
 		} else {
 			format [localize "STR_DOM_MISSIONSTRING_605", _x # 2]
 		};
-		__CTRL(100110) ctrlSetText _text;
+		(_display displayCtrl 100110) ctrlSetText _text;
 	};
 	[_x # 0, _x # 1, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack (_x # 0);
@@ -156,7 +154,7 @@ private _has_sql = 0;
 d_resp_lead_idx = -1;
 
 private _show_respawnatsql = false;
-if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {count units (group player) > 1 && {player != leader (group player)}}}) then {
+if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false]) && {count units player > 1 && {player != leader (group player)}}}) then {
 	// d_respawnatsql == 2 always show respawn button, determine color later
 	_show_respawnatsql = true;
 };
@@ -177,7 +175,7 @@ if (_show_respawnatsql) then {
 			if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 				_respawn_target = _x;
 			};
-		} forEach (units group player);
+		} forEach (units player);
 	};
 	private _lbcolor = if (!isNil "_respawn_target") then {
 		[1,1,1,1.0]
@@ -195,7 +193,7 @@ if (_show_respawnatsql) then {
 		} else {
 			format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1705a"]
 		};
-		__CTRL(100110) ctrlSetText _text;
+		(_display displayCtrl 100110) ctrlSetText _text;
 	};
 	["D_SQL_D", visiblePositionASL _respawn_target, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
 	d_respawn_anim_markers pushBack "D_SQL_D";
@@ -203,25 +201,25 @@ if (_show_respawnatsql) then {
 	d_respawn_ismhq pushBack false;
 };
 
-__TRACE_1("","d_respawn_posis")
-__TRACE_1("","d_respawn_posis")
+//__TRACE_1("","d_respawn_posis")
+//__TRACE_1("","d_respawn_posis")
 
-__TRACE_1("","_logtxt")
+//__TRACE_1("","_logtxt")
 
 if (_logtxt != "") then {
-	__CTRL(11002) ctrlSetText _logtxt;
+	(_display displayCtrl 11002) ctrlSetText _logtxt;
 };
 
 private _can_add_mapclick = true;
 
 if (!isNil "xr_pl_no_lifes" && {xr_pl_no_lifes}) then {
-	__CTRL(100102) ctrlEnable false;
-	__CTRL(123321) ctrlEnable false;
-	__CTRL(1500) ctrlEnable false;
+	(_display displayCtrl 100102) ctrlEnable false;
+	(_display displayCtrl 123321) ctrlEnable false;
+	(_display displayCtrl 1500) ctrlEnable false;
 	_can_add_mapclick = false;
 };
 if (!xr_respawn_available) then {
-	__CTRL(100102) ctrlEnable false;
+	(_display displayCtrl 100102) ctrlEnable false;
 };
 
 if (_can_add_mapclick) then {

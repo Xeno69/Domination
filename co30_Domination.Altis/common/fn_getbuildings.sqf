@@ -1,6 +1,6 @@
 //by Longtime
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get array of buildings, return only buildings with defined positions inside
 // _center - position
@@ -14,7 +14,7 @@ private _buildingsArray = [];
 
 if (_buildingRadius isEqualType objNull) then {
 	_buildingsArray = [_buildingRadius];
-	__TRACE_1("","_buildingsArray")
+	//__TRACE_1("","_buildingsArray")
 } else {
 	if (_buildingRadius < 0) then {
 		_buildingsArray = [nearestBuilding _center];
@@ -33,6 +33,7 @@ private _buildingsArrayFiltered = [];
 {
 	private _keep = true;
 	call {
+		if (_x isKindOf "Cargo_base_F") exitWith {_keep = false};
 		// check if bldg has any positions available for units
 		if ((_x buildingPos -1) isEqualTo []) exitWith {_keep = false};
 		// (optional) check if bldg has hostile units present

@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 params ["_trig", "_num"];
 
@@ -22,7 +22,7 @@ private _txt = call {
 
 private _varname = format ["d_barmhqctrigbool_%1", _num];
 
-__TRACE_2("","_vec","_varname")
+//__TRACE_2("","_vec","_varname")
 
 private _do_del = false;
 
@@ -39,7 +39,7 @@ while {true} do {
 	private _ttk = _vec getVariable "d_timetotake";
 	private _taket = _vec getVariable "d_taketime";
 	private _lin = round (linearConversion [0, _ttk, _taket, 0, 24, true]);
-	__TRACE_3("","_ttk","_taket","_lin")
+	//__TRACE_3("","_ttk","_taket","_lin")
 	(_disp displayCtrl 50) ctrlSetText format ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\progress\progress_%1_ca.paa", _lin];
 	
 	if (_taket >= _ttk) exitWith {

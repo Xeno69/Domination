@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 private _disp = uiNamespace getVariable "D_DBSaveDialog";
 

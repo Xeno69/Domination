@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if (player getVariable "d_recdbusy") exitWith {};
 
@@ -15,7 +15,7 @@ private _has_ai = false;
 	} else {
 		(vehicle _x) deleteVehicleCrew _x;
 	};
-} forEach ((units group player) select {!(_x call d_fnc_isplayer)});
+} forEach ((units player) select {!(_x call d_fnc_isplayer)});
 if (_has_ai) then {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_216")};
 private _dispx = uiNamespace getVariable "d_AIRecruitDialog";
 (_dispx displayCtrl 1011) ctrlShow false;

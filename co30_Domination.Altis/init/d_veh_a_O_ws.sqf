@@ -1,0 +1,12 @@
+["O_SFIA_MBT_02_cannon_lxWS"],
+["O_SFIA_APC_Tracked_02_cannon_lxWS"],
+["O_APC_Wheeled_02_rcws_v2_F"],
+["O_SFIA_APC_Tracked_02_AA_lxWS","O_SFIA_Truck_02_aa_lxWS"],
+["O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_armed_lxWS"],
+["O_Tura_Offroad_armor_AT_lxWS","O_SFIA_Offroad_AT_lxWS"],
+["O_SFIA_HMG_02_high_lxWS","O_SFIA_HMG_02_lxWS","O_Tura_HMG_02_high_lxWS","O_Tura_HMG_02_lxWS"],
+["O_SFIA_ZU23_lxWS"],
+["O_SFIA_Mortar_lxWS","O_Tura_Mortar_lxWS"],
+["O_SFIA_Truck_02_fuel_lxWS"],
+["O_SFIA_Truck_02_box_lxWS"],
+["O_SFIA_Truck_02_Ammo_lxWS"]

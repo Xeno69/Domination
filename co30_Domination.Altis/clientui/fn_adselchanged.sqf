@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-#define __CTRL2(A) ((uiNamespace getVariable "d_AdminDialog") displayCtrl A)
+//#define __CTRL2(A) ((uiNamespace getVariable "d_AdminDialog") displayCtrl A)
 
 disableSerialization;
 
@@ -20,10 +20,11 @@ _control ctrlEnable false;
 private _unit = missionNamespace getVariable (_control lbData _selIdx);
 d_a_d_cur_uid = getPlayerUID _unit;
 d_a_d_cur_unit_name = name _unit;
-__TRACE_1("adselchanged","_unit")
+d_a_d_netid = netId _unit;
+//__TRACE_1("adselchanged","_unit")
 d_u_r_inf = nil;
 d_a_d_cur_name = _control lbText _selIdx;
-private _ctrlinfo = __CTRL2(1002);
+private _ctrlinfo = ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1002);
 _ctrlinfo ctrlSetText format [localize "STR_DOM_MISSIONSTRING_689", d_a_d_cur_name];
 d_a_d_cur_uid remoteExecCall ["d_fnc_GetAdminArray", 2];
 
@@ -32,7 +33,7 @@ d_a_d_cur_uid remoteExecCall ["d_fnc_GetAdminArray", 2];
 private _posunit = visiblePositionASL _unit;
 "d_admin_marker" setMarkerPosLocal _posunit;
 
-private _ctrl = __CTRL2(11010);
+private _ctrl = ((uiNamespace getVariable "d_AdminDialog") displayCtrl 11010);
 _ctrl ctrlmapanimadd [0.0, 1.00, getPosWorld (vehicle player)];
 _ctrl ctrlmapanimadd [1.2, 1.00, _posunit];
 _ctrl ctrlmapanimadd [0.5, 0.30, _posunit];
@@ -49,13 +50,13 @@ if (!isNil "d_u_r_inf" && {d_u_r_inf isEqualTo []}) exitWith {_ctrlinfo ctrlSetT
 
 _ctrlinfo ctrlSetText format [localize "STR_DOM_MISSIONSTRING_691", d_a_d_cur_name];
 
-__CTRL2(1003) ctrlSetText d_a_d_cur_name;
-__CTRL2(1004) ctrlSetText d_a_d_cur_uid;
-__CTRL2(1005) ctrlSetText str _unit;
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1003) ctrlSetText d_a_d_cur_name;
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1004) ctrlSetText d_a_d_cur_uid;
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1005) ctrlSetText str _unit;
 
 private _sel = 7;
-__CTRL2(1006) ctrlSetText str(d_u_r_inf # _sel);
-__CTRL2(1009) ctrlSetText str(score _unit);
-__CTRL2(1007) ctrlEnable ((d_u_r_inf # _sel) >= 1);
-__CTRL2(1008) ctrlEnable (d_a_d_cur_name != d_name_pl);
-__CTRL2(1010) ctrlEnable (d_a_d_cur_name != d_name_pl);
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1006) ctrlSetText str(d_u_r_inf # _sel);
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1009) ctrlSetText str(score _unit);
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1007) ctrlEnable ((d_u_r_inf # _sel) >= 1);
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1008) ctrlEnable (d_a_d_cur_name != d_name_pl);
+((uiNamespace getVariable "d_AdminDialog") displayCtrl 1010) ctrlEnable (d_a_d_cur_name != d_name_pl);

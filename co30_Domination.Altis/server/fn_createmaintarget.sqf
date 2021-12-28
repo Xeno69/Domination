@@ -38,7 +38,17 @@ private _selectitvec = {
 
 private _type_list_guard = [];
 private _type_list_guard_static = [];
+private _camp_enable_guard_current = 0;
+if (d_camp_enable_guard == -1) then {
+	//random chance
+	_camp_enable_guard_current = selectRandom [0,1];
+};
 if (d_camp_enable_guard == 1) then {
+	//always enabled 
+	_camp_enable_guard_current = 1;
+};
+
+if (_camp_enable_guard_current == 1) then {
 	_type_list_guard = [
 		["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
 		["specops", 0, [d_footunits_guard, 1] call _selectitmen],
@@ -80,7 +90,16 @@ if (count _d_veh_li > 12) then {
 __TRACE_1("","_type_list_patrol")
 
 private _type_list_guard_static2 = [];
+private _camp_static_weapons_current = 0;
+if (d_camp_static_weapons == -1) then {
+	//random chance
+	_camp_static_weapons_current = selectRandom [0,1];
+};
 if (d_camp_static_weapons == 1) then {
+	//always enabled
+	_camp_static_weapons_current = 1;
+};
+if (_camp_static_weapons_current == 1) then {
 	_type_list_guard_static2 = [
     	["stat_mg", 1, ceil (random 4)],
     	["stat_gl", 1, ceil (random 3)]
@@ -114,7 +133,7 @@ publicVariable "d_priority_targets";
 private _parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {
 	diag_log "DOM Createmaintarget: Couldn't find enough positions with minimum distance 11m from next object, trying again without check!";
-	_parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+	_parray = [_trg_center, _radius + 150, 6, 0.7, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 };
 
 __TRACE_1("","_parray")
@@ -125,7 +144,31 @@ private _allbars = [];
 private _doexit = false;
 d_bara_trig_ar = [];
 
-private _barcompo = if (!d_vn) then {
+private _barcompo = call {
+	if (d_vn) exitWith {
+		[
+			//["Land_vn_o_shelter_05",[0.397461,-0.0214844,0],0,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-1.7793,-5.23535,0],0,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-1.55469,5.90283,0],182,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[2.99609,-5.14209,0],359,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-5.91113,-2.00537,0],91.0001,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[-5.9082,2.7207,0],91.0001,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[3.40723,5.72363,0],182,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[7.32715,-2.19434,0],270,1,0,[],"","",true,false],
+			["Land_vn_fence_bamboo_02",[7.26758,2.78857,0],270,1,0,[],"","",true,false]
+		]
+	};
+	if (d_ws) exitWith {
+		[
+			["Land_Wall_IndCnc_4_F",[-6.79297,-3.49902,0],270,1,0,[],"","",true,false],
+			["Land_ConcreteWall_01_l_8m_F",[0.47168,7.73242,0.0022049],0,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[-6.33789,5.1084,0],280,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[7.88184,-3.47754,0.00019455],89.5086,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[-2.95898,-8.21387,0],180.111,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[7.46289,5.07715,0],80,1,0,[],"","",true,false],
+			["Land_Wall_IndCnc_4_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
+		]
+	};
 	[
 		["Land_PillboxWall_01_6m_round_F",[-6.79297,-3.49902,0],270,1,0,[],"","",true,false],
 		["Land_ConcreteWall_01_l_8m_F",[0.47168,7.73242,0.0022049],0,1,0,[],"","",true,false],
@@ -135,19 +178,9 @@ private _barcompo = if (!d_vn) then {
 		["Land_PillboxWall_01_6m_round_F",[7.46289,5.07715,0],80,1,0,[],"","",true,false],
 		["Land_PillboxWall_01_6m_round_F",[4.27734,-8.12598,0],180.111,1,0,[],"","",true,false]
 	]
-} else {
-	[
-		//["Land_vn_o_shelter_05",[0.397461,-0.0214844,0],0,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[-1.7793,-5.23535,0],0,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[-1.55469,5.90283,0],182,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[2.99609,-5.14209,0],359,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[-5.91113,-2.00537,0],91.0001,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[-5.9082,2.7207,0],91.0001,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[3.40723,5.72363,0],182,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[7.32715,-2.19434,0],270,1,0,[],"","",true,false],
-		["Land_vn_fence_bamboo_02",[7.26758,2.78857,0],270,1,0,[],"","",true,false]
-	];
 };
+
+
 
 private _barcountxx = -1;
 
@@ -470,10 +503,6 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 if (d_enable_civ_vehs > 0) then {
 	_roadList = _trg_center nearroads d_enable_civ_vehs_rad;
 	
-	if (isNil "d_cur_tgt_civ_vehicles") then {
-		d_cur_tgt_civ_vehicles = [];
-	};
-	
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
@@ -526,15 +555,24 @@ if (d_enable_civ_vehs > 0) then {
 if (d_occ_bldgs == 1) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
 	private _occ_cnt = 0;
-	if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3) then {
+	if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3 || d_occ_cnt == -4 || d_occ_cnt == -5) then {
 		//adaptive group count
 		//calculate number of occupy groups by counting the number of building in the maintarget area * spawn factor
-		private _occ_spawn_factor = 0.04; // adaptive (normal)
+		private _occ_spawn_factor = 0;
+		if (d_occ_cnt == -1) then {
+			_occ_spawn_factor = 0.03;  // adaptive (low)
+		};
 		if (d_occ_cnt == -2) then {
-			_occ_spawn_factor = 0.06;  // adaptive (high)
+			_occ_spawn_factor = 0.06;  // adaptive (normal)
 		};
 		if (d_occ_cnt == -3) then {
-			_occ_spawn_factor = 0.12;  // adaptive (very high)
+			_occ_spawn_factor = 0.12;  // adaptive (high)
+		};
+		if (d_occ_cnt == -4) then {
+			_occ_spawn_factor = 0.20;  // adaptive (very high)
+		};
+		if (d_occ_cnt == -5) then {
+			_occ_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
 		_occ_cnt = floor (_bldg_count * _occ_spawn_factor);
@@ -559,15 +597,24 @@ if (d_occ_bldgs == 1) then {
 	
 	//create garrisoned "overwatch" groups of AI (movement disabled)
 	private _ovrw_cnt = 0;
-	if (d_ovrw_cnt == -1 || d_ovrw_cnt == -2 || d_ovrw_cnt == -3) then {
+	if (d_ovrw_cnt == -1 || d_ovrw_cnt == -2 || d_ovrw_cnt == -3 || d_ovrw_cnt == -4 || d_ovrw_cnt == -5) then {
 		//adaptive group count
 		//calculate number of overwatch groups by counting the number of building in the maintarget area * spawn factor
-		private _ovrw_spawn_factor = 0.04; // adaptive (normal)
+		private _ovrw_spawn_factor = 0;
+		if (d_ovrw_cnt == -1) then {
+			_ovrw_spawn_factor = 0.03;  // adaptive (low)
+		};
 		if (d_ovrw_cnt == -2) then {
-			_ovrw_spawn_factor = 0.06;  // adaptive (high)
+			_ovrw_spawn_factor = 0.06;  // adaptive (normal)
 		};
 		if (d_ovrw_cnt == -3) then {
-			_ovrw_spawn_factor = 0.14;  // adaptive (very high)
+			_ovrw_spawn_factor = 0.12;  // adaptive (high)
+		};
+		if (d_ovrw_cnt == -4) then {
+			_ovrw_spawn_factor = 0.20;  // adaptive (very high)
+		};
+		if (d_ovrw_cnt == -5) then {
+			_ovrw_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
 		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor);
@@ -592,15 +639,24 @@ if (d_occ_bldgs == 1) then {
 
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
 	private _amb_cnt = 0;
-	if (d_amb_cnt == -1 || d_amb_cnt == -2 || d_amb_cnt == -3) then {
+	if (d_amb_cnt == -1 || d_amb_cnt == -2 || d_amb_cnt == -3 || d_amb_cnt == -4 || d_amb_cnt == -5) then {
 		//adaptive group count
 		//calculate number of ambush groups by counting the number of building in the maintarget area * spawn factor
-		private _amb_spawn_factor = 0.02; // adaptive (normal)
+		private _amb_spawn_factor = 0;
+		if (d_amb_cnt == -1) then {
+			_amb_spawn_factor = 0.03;  // adaptive (low)
+		};
 		if (d_amb_cnt == -2) then {
-			_amb_spawn_factor = 0.05;  // adaptive (high)
+			_amb_spawn_factor = 0.06;  // adaptive (normal)
 		};
 		if (d_amb_cnt == -3) then {
-			_amb_spawn_factor = 0.12;  // adaptive (very high)
+			_amb_spawn_factor = 0.12;  // adaptive (high)
+		};
+		if (d_amb_cnt == -4) then {
+			_amb_spawn_factor = 0.20;  // adaptive (very high)
+		};
+		if (d_amb_cnt == -5) then {
+			_amb_spawn_factor = 0.85;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
 		_amb_cnt = floor (_bldg_count * _amb_spawn_factor);
@@ -625,15 +681,24 @@ if (d_occ_bldgs == 1) then {
 
 	//create garrisoned "sniper" groups of AI (static, never leave spawn position)
 	private _snp_cnt = 0;
-	if (d_snp_cnt == -1 || d_snp_cnt == -2 || d_snp_cnt == -3) then {
+	if (d_snp_cnt == -1 || d_snp_cnt == -2 || d_snp_cnt == -3 || d_snp_cnt == -4 || d_snp_cnt == -5) then {
 		//adaptive group count
 		//calculate number of sniper groups by counting the number of building in the maintarget area * spawn factor
-		private _snp_spawn_factor = 0.02; // adaptive (normal)
+		private _snp_spawn_factor = 0;
+		if (d_snp_cnt == -1) then {
+			_snp_spawn_factor = 0.02;  // adaptive (low)
+		};
 		if (d_snp_cnt == -2) then {
-			_snp_spawn_factor = 0.05;  // adaptive (high)
+			_snp_spawn_factor = 0.05;  // adaptive (normal)
 		};
 		if (d_snp_cnt == -3) then {
-			_snp_spawn_factor = 0.12;  // adaptive (very high)
+			_snp_spawn_factor = 0.10;  // adaptive (high)
+		};
+		if (d_snp_cnt == -4) then {
+			_snp_spawn_factor = 0.20;  // adaptive (very high)
+		};
+		if (d_snp_cnt == -5) then {
+			_snp_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
 		_snp_cnt = floor (_bldg_count * _snp_spawn_factor);
@@ -748,6 +813,12 @@ if (d_with_MainTargetEvents != 0) then {
 			case "KILL_TRIGGERMAN": {
 				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
 			};
+			case "CIV_RESISTANCE_INDEPENDENT": {
+				[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+			};
+			case "CIV_RESISTANCE_JOINPLAYER": {
+				[_radius, _trg_center, true] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+			};
 		};
 	};
 	
@@ -768,8 +839,8 @@ if (d_with_MainTargetEvents != 0) then {
 			// create multiple simultaneous events		
 			private _tmpMtEvents = + d_x_mt_event_types;
 			if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
-            	// guerrilla events are only eligible if d_with_MainTargetEvents == -3 or -4
-            	// remove guerrilla events from the temp array, do not select it here
+            	// some events are only eligible if d_with_MainTargetEvents == -3 or -4
+            	// remove ineligible events from the temp array
             	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
 			};
 			private _num_events_for = 2; // default three events for iterator starting at zero
@@ -790,6 +861,28 @@ if (d_with_MainTargetEvents != 0) then {
 			// create one event
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
+		if (d_ai_awareness_rad < 0 && {d_enable_civs == 0 && {d_ai_aggressiveshoot == 0}}) then {
+			// awareness, civs, agressiveshoot are enabled
+			// very small chance of a civilian massacre
+			if (3 > random 100) then {
+				// bad luck for the civilians
+				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
+			};
+		};
 	};
 };
+#endif
+
+#ifdef __VN__
+// on SOG maps AI navigation is broken by dykes around the rice paddies, fix from johnnyboy
+// https://forums.bohemia.net/forums/topic/234952-enable-prairie-fire-dlc-ai-to-navigate-rice-paddies/
+{ 
+	_mapDyke = _x; 
+	_dyke = createSimpleObject ["vn\env_assets_f_vietnam\dykes\vn_dyke_10.p3d", [0,0,0]];
+	_dir = getDir _mapDyke;
+	_pos = getpos _mapDyke;
+	hideObjectGlobal _mapDyke;
+	_dyke setDir _dir; 
+	_dyke setpos [_pos#0,_pos#1,.3];
+} foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif

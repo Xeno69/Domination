@@ -1,5 +1,5 @@
 // by Xeno
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if (d_enemy_side_short == "E") exitWith {
 	d_flag_str_opfor

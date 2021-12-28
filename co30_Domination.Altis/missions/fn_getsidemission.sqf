@@ -46,3 +46,5 @@ sleep 7.012;
 if (random 100 > 50 && {!(toLowerANSI d_x_sm_type in ["convoy", "deliver", "prisoners", "evac", "specops"])}) then {
 	d_sm_check_trigger = [d_x_sm_pos # 0, [30, 30, 0, false], ["ANYPLAYER", "PRESENT", false], ["this", "0 spawn d_fnc_smsurprise; deleteVehicle d_sm_check_trigger", ""]] call d_fnc_createtriggerlocal;
 };
+
+d_sm_check_trigger22 = [d_x_sm_pos # 0, [50, 50, 0, false], ["ANYPLAYER", "PRESENT", true], ["this", "0 spawn d_clear_smtrees", ""]] call d_fnc_createtriggerlocal;

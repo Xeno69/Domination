@@ -14,6 +14,15 @@ deleteVehicle d_current_trigger;
 if (!isNil "d_f_check_trigger") then {
 	deleteVehicle d_f_check_trigger;
 };
+#ifndef __TT__
+if (!isNil "d_current_trigger_helper") then {
+	deleteVehicle d_current_trigger_helper;
+};
+if (!isNil "d_camps_workaround_handle") then {
+	terminate d_camps_workaround_handle;
+	d_camps_workaround_handle = nil;
+};
+#endif
 
 if (!isNil "d_handleobservers_handle" && {!isNull d_handleobservers_handle}) then {terminate d_handleobservers_handle};
 
@@ -171,6 +180,16 @@ private _del_camps_stuff = [];
 		_del_camps_stuff pushBack _flag;
 	};
 } forEach d_currentcamps;
+
+sleep 0.1;
+
+if (!isNil "d_cur_tgt_animals_units") then {
+	{
+		deleteVehicle _x;
+	} forEach d_cur_tgt_animals_units;
+	d_cur_tgt_animals_units = [];
+};
+
 sleep 0.1;
 d_currentcamps = [];
 publicVariable "d_currentcamps";

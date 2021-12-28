@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 if (player getVariable "d_recdbusy") exitWith {};
 
@@ -21,7 +21,7 @@ if (player != leader (group player)) exitWith {
 };
 
 d_current_ai_num = d_current_ai_num + 1;
-__TRACE_1("","d_current_ai_num")
+//__TRACE_1("","d_current_ai_num")
 
 private _exitj = false;
 if (d_with_ranked) then {
@@ -126,13 +126,13 @@ if (!ctrlShown _ctrl) then {
 
 private _control = _dispx displayCtrl 1001;
 private _ipic = getText (configFile>>"cfgVehicles">>_torecruit>>"icon");
-__TRACE_2("","_torecruit","_ipic")
+//__TRACE_2("","_torecruit","_ipic")
 private _pic = if (_ipic == "") then {
 	"#(argb,8,8,3)color(1,1,1,0)"
 } else {
 	getText(configFile>>"CfgVehicleIcons">>_ipic)
 };
-__TRACE_1("","_pic")
+//__TRACE_1("","_pic")
 private _index = _control lbAdd ([_torecruit, "CfgVehicles"] call d_fnc_GetDisplayName);
 _control lbSetPicture [_index, _pic];
 _control lbSetColor [_index, [1, 1, 0, 0.8]];

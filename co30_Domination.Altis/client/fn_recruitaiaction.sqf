@@ -10,9 +10,7 @@ if (_this # 1 != player) exitWith {
 
 __TRACE_1("","_this")
 
-private _grpplayer = group player;
-
-if (player != leader _grpplayer) exitWith {
+if (player != leader (group player)) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_311");
 };
 
@@ -20,6 +18,6 @@ if (player distance2D (_this # 0) > 50) exitWith {
 	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_312");
 };
 
-d_current_ai_num = {alive _x && {!(_x call d_fnc_isplayer)}} count (units _grpplayer);
+d_current_ai_num = {alive _x && {!(_x call d_fnc_isplayer)}} count (units player);
 
 createDialog "d_AIRecruitDialog";

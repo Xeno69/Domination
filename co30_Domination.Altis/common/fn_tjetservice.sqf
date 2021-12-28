@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params ["_list", "_trig"];
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 if ("Plane" countType _list == 0) exitWith {false};
 

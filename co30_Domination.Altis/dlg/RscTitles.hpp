@@ -711,7 +711,7 @@ class d_infobar {
 	class controls {
 		class statusBarText {
 			idc = 1102;
-			x = safezoneX + safezoneW - 1.80;
+			x = safezoneX + (safezoneW / 2) - (1.25 / 2);
 			y = safezoneY + safezoneH - 0.04;
 			w = 1.25;
 			h = 0.04;
@@ -723,7 +723,7 @@ class d_infobar {
 			style = 0;
 			text="";
 			class Attributes {
-				align="right";
+				align="center";
 				color = "#B0F0FFFF";
 			};
 		};

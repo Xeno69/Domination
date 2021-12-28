@@ -1,8 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 // create a global marker, returns created marker
 // parameters: marker name, marker pos/object), marker shape, marker color, marker size;(optional) marker text, marker dir, marker type, marker brush

@@ -19,9 +19,9 @@ if (!isServer) exitWith {};
 params ["_target_radius", "_target_center"];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
-
-//position the event site near target center at max distance 125m and min 50m 
-private _poss = [[[_target_center, 125]],[[_target_center, 50]]] call BIS_fnc_randomPos;
+ 
+//position the event site at max distance 85% of target radius and min 40% of target radius
+private _poss = [[[_target_center, (d_cur_target_radius * 0.85)]],[[_target_center, (d_cur_target_radius * 0.40)]]] call BIS_fnc_randomPos;
 private _trigger = [_poss, [65,65,0,false,10], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start_time', time];",""]] call d_fnc_CreateTriggerLocal;
 
 private _event_start_time = nil;
@@ -79,7 +79,7 @@ private _marker = nil;
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
-		_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+		[getPos _x, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
 	};
 
 } forEach _buildings_array_sorted_by_distance;
@@ -89,7 +89,7 @@ d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
 if (!isNil "_bldg") then {
-	_marker = ["d_mt_event_marker_sidevipdefend", getPos _bldg, "ICON","ColorBlack", [1, 1], _eventDescription, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+	_marker = ["d_mt_event_marker_sidevipdefend", getPos _pilot1, "ICON","ColorBlack", [1, 1], _eventDescription, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
     [_marker, "STR_DOM_MISSIONSTRING_DEFEND"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
 
@@ -102,11 +102,7 @@ _pilot1 setUnconscious true;
 
 _event_target_name = name _pilot1;
 
-_pilot1 addEventHandler ["Killed", {
-	// reset
-	d_priority_targets deleteAt 0;
-	publicVariable "d_priority_targets";
-}];
+[_pilot1, 19] call d_fnc_setekmode;
 
 diag_log [format["vipdefend begins start time: %1 _event_target_name: %2", _event_start_time, _event_target_name]];
 d_kb_logic1 kbTell [
@@ -156,7 +152,7 @@ if (d_priority_targets isEqualTo []) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 	// reset 
 	d_priority_targets deleteAt 0;
 	publicVariable "d_priority_targets";

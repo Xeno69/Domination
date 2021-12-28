@@ -19,8 +19,8 @@ params ["_target_radius", "_target_center"];
 
 //private _mt_event_key = format ["d_X_MTEVENT_PRISONERDEFUSE_%1", d_cur_tgt_name];
 
-//position the event site near target center at max distance 150m and min 35m, find a building position later
-private _poss = [[[_target_center, 150]],[[_target_center, 35]]] call BIS_fnc_randomPos;
+//position the event site at max distance 65% of target radius and min 25% of target radius
+private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_center, (d_cur_target_radius * 0.25)]]] call BIS_fnc_randomPos;
 private _x_mt_event_ar = [];
 
 //find a suitable building
@@ -175,7 +175,7 @@ if (_all_dead) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach d_allplayers;
+	} forEach (allPlayers - entities "HeadlessClient_F");
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

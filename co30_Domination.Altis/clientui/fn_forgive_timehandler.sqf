@@ -1,14 +1,14 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 disableSerialization;
 
-__TRACE_1("","_this")
+//__TRACE_1("","_this")
 
 params ["_disp"];
 private _endtime = time + 30;
-__TRACE_1("","_endtime")
+//__TRACE_1("","_endtime")
 private _doexectk = false;
 while {_endtime > time} do {
 	if (isNull _disp) exitWith {
@@ -18,7 +18,7 @@ while {_endtime > time} do {
 	(_disp displayCtrl 123457) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_2066", round (_endtime - time) max 0];
 	uiSleep 1;
 };
-__TRACE_1("","_doexectk")
+//__TRACE_1("","_doexectk")
 if (!isNil "d_forgive" && {_doexectk}) then {
 	[d_forgive, player] remoteExecCall ["d_fnc_exectkpd", 2];
 };

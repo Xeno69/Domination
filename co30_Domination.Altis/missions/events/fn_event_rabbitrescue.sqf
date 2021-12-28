@@ -78,7 +78,7 @@ while {!d_mt_done && {!_is_dead && {!_is_rescued}}} do {
 	sleep 5.621;
 };
 
-if (_is_rescued || !_is_dead) then {
+if (_is_rescued || {!_is_dead}) then {
 	if (_is_rescued) then {
 		d_kb_logic1 kbTell [
 			d_kb_logic2,
@@ -90,7 +90,7 @@ if (_is_rescued || !_is_dead) then {
 		];
 		{
 			_x addScore _event_succeed_points;
-		} forEach d_allplayers;
+		} forEach (allPlayers - entities "HeadlessClient_F");
 	};
 } else {
 	d_kb_logic1 kbTell [

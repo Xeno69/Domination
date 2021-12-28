@@ -23,12 +23,15 @@ d_x_mt_event_types = [
 	"POW_RESCUE",
 	//"GUERRILLA_TANKS", //not in the random events list, guerrilla tanks event depends on presence of guerrilla infantry
 	"GUERRILLA_INFANTRY",
-	"RABBIT_RESCUE",
+	//"RABBIT_RESCUE", // removed for now
 	"MARKED_FOR_DEATH",
 	"RESCUE_DEFEND",
 	"RESCUE_DEFUSE",
-	"KILL_TRIGGERMAN"
+	"KILL_TRIGGERMAN",
+	"CIV_RESISTANCE_INDEPENDENT",
+	"CIV_RESISTANCE_JOINPLAYER"
 ];
+
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];
 
@@ -41,27 +44,47 @@ if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 	0 spawn {
 		scriptName "spawn_init_airai";
 		__TRACE("spawn_init_airai start")
+#ifndef __DEBUG__
 		sleep 30;
+#else
+		sleep 2;
+#endif
 		__TRACE("spawn_init_airai 30 secs over")
 		private _first = false;
 		if (d_number_light_attack_choppers > 0 && {d_light_attack_chopper isNotEqualTo []}) then {
+#ifndef __DEBUG__
 			sleep 900;
+#else
+			sleep 5;
+#endif
 			_first = true;
 			__TRACE("spawn_init_airai 30 exec LAC")
 			["LAC"] spawn d_fnc_airai; // LAC = Ligh Attack Chopper
 		};
 		if (d_number_attack_choppers > 0 && {d_airai_attack_chopper isNotEqualTo []}) then {
+#ifndef __DEBUG__
 			sleep ([900, 120 + random 120] select _first);
+#else
+			sleep 5;
+#endif
 			_first = true;
 			["HAC"] spawn d_fnc_airai; // HAC = Heavy Attack Chopper
 		};
 		if (d_number_attack_planes > 0 && {d_airai_attack_plane isNotEqualTo []}) then {
+#ifndef __DEBUG__
 			sleep ([900, 120 + random 120] select _first);
+#else
+			sleep 5;
+#endif
 			_first = true;
 			["AP"] spawn d_fnc_airai; // AP = Attack Plane
 		};
 		if (d_number_attack_uavs > 0 && {d_airai_attack_uav isNotEqualTo []}) then {
+#ifndef __DEBUG__
 			sleep ([900, 120 + random 120] select _first);
+#else
+			sleep 5;
+#endif
 			["UAV"] spawn d_fnc_airai; // UAV = Attack UAV
 		};		
 	};

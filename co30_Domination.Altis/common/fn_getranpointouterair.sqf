@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get a random point at the borders of the current island for spawning air vehicles (no slope check, no is water check, etc)
 private _width = (2 * (d_island_center # 0)) - 500;

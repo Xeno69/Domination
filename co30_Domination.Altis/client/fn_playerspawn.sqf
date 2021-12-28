@@ -185,7 +185,7 @@ if (_rtype == 0) then { // player died
 	[player , "NoVoice"] remoteExecCall ["setSpeaker"];
 
 	showChat true;
-	if (isStreamFriendlyUIEnabled || {d_force_isstreamfriendlyui == 1}) then {
+	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 		[] spawn d_fnc_showhud;
 	};
 };

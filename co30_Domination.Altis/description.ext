@@ -32,16 +32,17 @@ class CfgWorlds {
 		pictureMap = "pics\dompmap_ca.paa";
 		pictureShot = "pics\domls.paa";
 		loadingTexts[] = {
-			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization and S.O.G. Prairie Fire",
+			"Domination is available for many mods and islands including CUP, RHS, IFA3, Unsung and CDLC like Global Mobilization, S.O.G. Prairie Fire, CSLA and Western Sahara",
 			"There is also a PvPvE Domination TT (Two Teams) version available",
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
-			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database"
+			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database",
+			"If you have problems with a server ask on the server discord or forums, the Domination discord server is only for the mission!"
 		};
 	};
 };
 
-enableDebugConsole = 1;
+//enableDebugConsole = 1;
 
 class Header {
 #ifndef __TT__
@@ -85,6 +86,9 @@ class Header {
 #endif
 #ifdef __VNCLN__
 	maxPlayers = 46;
+#endif
+#ifdef __WS__
+	maxPlayers = 21;
 #endif
 };
 
@@ -261,6 +265,7 @@ class CfgRemoteExec {
 		class d_fnc_setmatxtloc {allowedTargets = 1;};
 		class d_fnc_makebarmhqwait {allowedTargets = 1;};
 		class d_fnc_slopilot {allowedTargets = 2;};
+		class d_fnc_addplscore {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
@@ -368,6 +373,10 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30,37};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30",37};
 #endif
+#ifdef __WS__
+		values[] = {9998,9999,2,4,6,8,10,12,14};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14"};
+#endif
 		default = 9998;
 	};
 
@@ -415,6 +424,9 @@ class Params {
 #endif
 #ifdef __VNCLN__
 		default = 7;
+#endif
+#ifdef __WS__
+		default = 5;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
@@ -472,6 +484,7 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_1052_EVENTS";
 		values[] = {0,1,2,-1,-2,-3,-4};
 		default = 0;
+		// never, low, medium, always, always multiple events, always multiple events with guerrillas, all
 		texts[] = {"$STR_DOM_MISSIONSTRING_418","$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_399B","$STR_DOM_MISSIONSTRING_418B","$STR_DOM_MISSIONSTRING_418C","$STR_DOM_MISSIONSTRING_418C_GUERR","$STR_DOM_MISSIONSTRING_ALL"};
 	};
 	
@@ -562,6 +575,9 @@ class Params {
 #ifdef __VNCLN__
 		default = 0;
 #endif
+#ifdef __WS__
+		default = 1;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
@@ -631,7 +647,11 @@ class Params {
 	class d_enable_fog {
 		title = "$STR_DOM_MISSIONSTRING_1164a";
 		values[] = {0,1};
+#ifndef __WS__
 		default = 0;
+#else
+		default = 1;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
@@ -696,6 +716,9 @@ class Params {
 #endif
 #ifdef __VNCLN__
 		default = 1;
+#endif
+#ifdef __WS__
+		default = 0;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
@@ -831,6 +854,17 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_AutoViewdistanceChangeDefault {
+		title = "$STR_DOM_MISSIONSTRING_1964";
+		values[] = {0,1};
+#ifdef __TT__
+		default = 0;
+#else
+		default = 1;
+#endif
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
 	class d_playerspectateatbase {
@@ -987,6 +1021,13 @@ class Params {
 		values[] = {-66};
 		default = -66;
 		texts[] = {""};
+	};
+	
+	class d_force_fast_intro {
+		title = "$STR_DOM_MISSIONSTRING_FAST_INTRO";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_show_playernames {
@@ -1166,9 +1207,9 @@ class Params {
 
 	class d_civ_groupcount {
 		title = "$STR_DOM_MISSIONSTRING_1920";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,75,100,150,200,250,300};
+		values[] = {-1, -2, -3, -4, -5,0,1,2,3,4,5,6,7,8,9,10,15,20,25,30,35,40,45,50,75,100,150,200,250,300};
 		default = 10;
-		texts[] = {"0","1","2","3","4","5","6","7","8","9","10","15","20","25","30","35","40","45","50","75","100","150","200","250","300"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_399", "$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "$STR_DOM_MISSIONSTRING_400_EXTREME","0","1","2","3","4","5","6","7","8","9","10","15","20","25","30","35","40","45","50","75","100","150","200","250","300"};
 	};
 
 	class d_civ_pnts {
@@ -1264,9 +1305,9 @@ class Params {
     	
 	class d_occ_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900A";
-		values[] = {-1, -2, -3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50};
+		values[] = {-1, -2, -3, -4, -5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50};
 		default = 4;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "30", "35", "40", "45", "50"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_399", "$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "$STR_DOM_MISSIONSTRING_400_EXTREME", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "30", "35", "40", "45", "50"};
 	};
 
 	class d_occ_rad {
@@ -1278,9 +1319,9 @@ class Params {
 	
 	class d_ovrw_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900AA";
-		values[] = {-1, -2, -3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50};
+		values[] = {-1, -2, -3, -4, -5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50};
 		default = 2;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "30", "35", "40", "45", "50"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_399", "$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "$STR_DOM_MISSIONSTRING_400_EXTREME", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "30", "35", "40", "45", "50"};
 	};
 	
 	class d_ovrw_rad {
@@ -1292,9 +1333,9 @@ class Params {
 
 	class d_amb_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900B";
-		values[] = {-1, -2, -3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50};
+		values[] = {-1, -2, -3, -4, -5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 30, 35, 40, 45, 50};
 		default = 2;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "30", "35", "40", "45", "50"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_399", "$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "$STR_DOM_MISSIONSTRING_400_EXTREME", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "30", "35", "40", "45", "50"};
 	};
 
 	class d_amb_rad {
@@ -1306,9 +1347,9 @@ class Params {
 
 	class d_snp_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1900C";
-		values[] = {-1, -2, -3, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45, 50};
+		values[] = {-1, -2, -3, -4, -5, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30, 45, 50};
 		default = 2;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "50"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_399", "$STR_DOM_MISSIONSTRING_11", "$STR_DOM_MISSIONSTRING_400", "$STR_DOM_MISSIONSTRING_400_VERYHIGH", "$STR_DOM_MISSIONSTRING_400_EXTREME", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "15", "20", "25", "30", "45", "50"};
 	};
 
 	class d_snp_rad {
@@ -1341,16 +1382,16 @@ class Params {
 	
 	class d_camp_static_weapons {
 		title = "$STR_DOM_MISSIONSTRING_STATICWEAPONS";
-		values[] = {0,1};
+		values[] = {0,1,-1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 	
 	class d_camp_enable_guard {
 		title = "$STR_DOM_MISSIONSTRING_ENABLE_GUARD";
-		values[] = {0,1};
+		values[] = {0,1,-1};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 	
 	class d_params_dl_8_obj {
@@ -2239,6 +2280,16 @@ class CfgIdentities {
 	class VNDHQ_OP2: DHQ_BF1 {
 		name = "Min Duong";
 		speaker = "male02chi";
+	};
+#endif
+#ifdef __WS__
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
 	};
 #endif
 };

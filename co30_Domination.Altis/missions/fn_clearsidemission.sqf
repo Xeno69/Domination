@@ -7,6 +7,11 @@ if (!isNil "d_sm_check_trigger") then {
 	d_sm_check_trigger = nil;
 };
 
+if (!isNil "d_sm_check_trigger22") then {
+	deleteVehicle d_sm_check_trigger22;
+	d_sm_check_trigger22 = nil;
+};
+
 #ifndef __SMDEBUG__
 private _waittime = 200 + random 10;
 if (d_MissionType != 2) then {

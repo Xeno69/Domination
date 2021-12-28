@@ -1,13 +1,13 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
-__TRACE("Start")
+//__TRACE("Start")
 
 if (xr_max_lives != -1 && {player getVariable "xr_lives" == -1}) exitWith {
 	player removeAllEventHandlers "respawn";
 	deleteVehicle (_this # 1);
-	__TRACE("Exiting because xr_lives = -1")
+	//__TRACE("Exiting because xr_lives = -1")
 };
 
 if (!isNil "d_goto_jail") exitWith {};
@@ -20,7 +20,7 @@ enableRadio false;
 player setVehiclePosition [markerPos "xr_resp_marker", [], 0, "NONE"]; // CAN_COLLIDE ?
 player setCaptive true;
 if (player getVariable "xr_isdead") exitWith {};
-__TRACE("playActionNow Die/setuncon")
+//__TRACE("playActionNow Die/setuncon")
 player switchAction "Die";
 //player switchMove "AinjPpneMstpSnonWrflDnon";
 //[player, 100] remoteExecCall ["xr_fnc_handlenet"];
@@ -30,18 +30,18 @@ _this spawn {
 	scriptName "xr respawn eh spawn";
 	sleep 1.6;
 	private _old = _this # 1;
-	__TRACE_1("","_old")
+	//__TRACE_1("","_old")
 	private _norm_resp = false;
 	if (xr_death_pos isEqualTo []) then {
 		_norm_resp = true;
 		_old call xr_fnc_CheckRespawn;
 	};
 	deleteVehicle _old;
-	__TRACE_1("","_norm_resp")
+	//__TRACE_1("","_norm_resp")
 	private _d_pos = xr_death_pos;
-	__TRACE_1("","_d_pos")
+	//__TRACE_1("","_d_pos")
 	if (_d_pos isNotEqualTo []) then {
-		__TRACE("pos to old pos and dir")
+		//__TRACE("pos to old pos and dir")
 		player setDir (_d_pos # 1);
 		player setPos (_d_pos # 0);
 		[player] spawn xr_fnc_bloodpool;
@@ -51,25 +51,24 @@ _this spawn {
 				[player, getPosWorld player, xr_strpldead] remoteExecCall ["xr_fnc_addmarker", 2];
 			};
 		} else {
-			__TRACE("spawning go uncon")
+			//__TRACE("spawning go uncon")
 			[_d_pos # 0] spawn {
 				scriptName "xr respawn eh spawn2";
 				params ["_d_pos0"];
 				if (surfaceIsWater (getPosWorld player)) then {
-					__TRACE("watferfix check start")
-					private _shandle = 0 spawn xr_fnc_waterfix;
-					waitUntil {scriptDone _shandle};
-					__TRACE("watferfix done")
-					__TRACE("playActionNow Die again because of waterfix")
+					//__TRACE("watferfix check start")
+					call xr_fnc_waterfix;
+					//__TRACE("watferfix done")
+					//__TRACE("playActionNow Die again because of waterfix")
 					player playActionNow "Die";
 				};
 				waitUntil {speed player < 0.5};
 				if (_d_pos0 # 2 < 1) then {
 					private _pos = getPosATL player;
 					private _slope = [_pos, 1] call d_fnc_GetSlope;
-					__TRACE_2("","_pos","_slope")
+					//__TRACE_2("","_pos","_slope")
 					if (_slope >= 0.78) then {
-						__TRACE("in slope, new position")
+						//__TRACE("in slope, new position")
 						[_pos, _slope, player] call xr_fnc_DoSlope;
 					};
 				};
@@ -108,4 +107,4 @@ player removeEventHandler ["handleDamage", _tmpeh];
 
 showChat true;
 
-__TRACE("End")
+//__TRACE("End")

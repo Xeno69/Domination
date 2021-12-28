@@ -4,23 +4,20 @@
 
 diag_log ["DOM playerdisconnected: _this", _this];
 
-params ["", "_uid", "_name"];
-
 __TRACE_1("","_this")
 
-if (_name == "__SERVER__") exitWith {
-	diag_log ["DOM playerdisconnected, Server disconnect: _this", _this];
-	if (d_database_found && {d_db_auto_save}) then {
-		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
-		diag_log ["DOM playerdisconnected, mission progress auto save"];
-	};
-};
+params ["", "_uid", "_name"];
 
 if (_uid isEqualTo "") exitWith {
 	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
 };
 
-if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}) exitWith {
+private _gui = getUserInfo (_this # 5);
+__TRACE_1("","_gui")
+
+diag_log ["DOM playerdisconnected: getUserInfo", _gui];
+
+if (_gui # 7) exitWith {
 	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
 	0 spawn {
 		scriptname "spawn pldisconnected";
@@ -35,20 +32,26 @@ if (_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclie
 	};
 };
 
-if (_uid in d_virtual_spectators) exitWith {
-	diag_log ["DOM playerdisconnected, removing virtual spectator, _this:", _this];
-	d_virtual_spectators = d_virtual_spectators - [_uid];
+private _unit = _gui # 10;
+
+__TRACE_2("","_uid","_name")
+__TRACE_1("1","_unit")
+
+if (!isNil "_unit" && {isNull _unit}) then {
+	_unit = _uid call d_fnc_getunitbyuid;
+};
+
+if (isNil "_unit" || {isNull _unit}) exitWith {};
+
+if (local _unit && {isDedicated}) exitWith {};
+
+if (_unit isKindOf "VirtualSpectator_F") exitWith {
+	diag_log ["DOM playerdisconnected, virtual spectator, _this:", _this];
 };
 
 if (!d_database_found) exitWith {};
 
-private _unit = _uid call d_fnc_getunitbyuid;
-
-__TRACE_1("","allPlayers")
-__TRACE_2("","_uid","_name")
-__TRACE_1("1","_unit")
-
-if (isNil "_unit" || {!isNil {_unit getVariable "d_no_side_change"}}) exitWith {
+if (!isNil {_unit getVariable "d_no_side_change"}) exitWith {
 	__TRACE_2("No database update","_unit","_name")
 	diag_log ["DOM playerdisconnected: No database update, _this:", _this];
 };
@@ -57,6 +60,9 @@ private _pa = d_player_hash getOrDefault [_uid, []];
 if (_pa isEqualTo []) exitWith {
 	diag_log ["DOM playerdisconnected uid not found in player hash, _this:", _this];
 };
+
+diag_log ["DOM playerdisconnected _unit:", _unit];
+
 private _ps = if (!isNull _unit) then {getPlayerScores _unit} else {_pa # 12};
 private _scpl = if (!isNull _unit) then {score _unit} else {-1};
 __TRACE_1("","_scpl")

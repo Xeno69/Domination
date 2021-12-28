@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 while {true} do {
 	waitUntil {uiSleep 0.2; !isNull findDisplay 4};

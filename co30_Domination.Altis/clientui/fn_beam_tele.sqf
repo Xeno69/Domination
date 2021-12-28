@@ -1,7 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
-#define __CTRL2(A) (_display displayCtrl A)
+//#include "..\x_setup.sqf"
 
 if (d_beam_target == "" || {d_x_loop_end}) exitWith {};
 
@@ -12,14 +11,14 @@ if (!isNull objectParent player) then {unassignVehicle player};
 params ["_wone"];
 
 disableSerialization;
-private _display = [uiNamespace getVariable "xr_SpectDlg", uiNamespace getVariable "d_TeleportDialog"] select (_wone == 0);
+private _disp = [uiNamespace getVariable "xr_SpectDlg", uiNamespace getVariable "d_TeleportDialog"] select (_wone == 0);
 if (_wone == 0) then {
-	__CTRL2(100102) ctrlEnable false;
-	__CTRL2(100107) ctrlEnable false;
-	__CTRL2(100108) ctrlEnable false;
-	__CTRL2(100109) ctrlEnable false;
+	(_disp displayCtrl 100102) ctrlEnable false;
+	(_disp displayCtrl 100107) ctrlEnable false;
+	(_disp displayCtrl 100108) ctrlEnable false;
+	(_disp displayCtrl 100109) ctrlEnable false;
 } else {
-	__CTRL2(3000) ctrlShow false;
+	(_disp displayCtrl 3000) ctrlShow false;
 };
 
 private _global_pos = [];
@@ -50,7 +49,7 @@ if (d_beam_target == "D_BASE_D") then {
 				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 					_respawn_target = _x;
 				};
-			} forEach (units group player);
+			} forEach (units player);
 		};
 		
 		private _emptycargo = [0, (vehicle _respawn_target) emptyPositions "cargo"] select (!isNull objectParent _respawn_target);
@@ -72,13 +71,13 @@ if (d_beam_target == "D_BASE_D") then {
 		};
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
-		__TRACE_1("","_uidx")
+		//__TRACE_1("","_uidx")
 		if (_uidx != -1) then {
 			_global_pos = (d_additional_respawn_points # _uidx) # 1;
 			if (surfaceIsWater _global_pos) then {
 				_global_pos set [2, ((d_additional_respawn_points # _uidx) # 5) # 2];
 			};
-			__TRACE_1("","_global_pos")
+			//__TRACE_1("","_global_pos")
 			_global_dir = 0;
 			d_player_in_base = false;
 		} else {
@@ -86,16 +85,16 @@ if (d_beam_target == "D_BASE_D") then {
 			if !(_mrs isKindOf "Ship") then {
 				if (isNil "d_alt_map_pos") then {
 					_global_pos = _mrs call d_fnc_posbehindvec;
-					__TRACE_1("1","_global_pos")
+					//__TRACE_1("1","_global_pos")
 					(boundingBoxReal _mrs) params ["_p1", "_p2"];
 					private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-					__TRACE_1("","_maxHeight")
+					//__TRACE_1("","_maxHeight")
 					_global_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
 				} else {
 					_global_pos = d_alt_map_pos;
 					_global_pos set [2, 0];
 				};
-				__TRACE_1("2","_global_pos")
+				//__TRACE_1("2","_global_pos")
 				_global_dir = getDirVisual _mrs;
 				_typepos = 1;
 			} else {

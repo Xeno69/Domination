@@ -1,15 +1,11 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 params [["_sector", 0]]; // 0 = west/east sector, 1 = north/south sector, 2 = 4 sectors, sw-ns-ne-se
 
 private _alltargetsar =+ d_target_names;
-#ifndef __TT__
-private _firstpoint = getPosASL d_FLAG_BASE;
-#else
-private _firstpoint = d_island_center;
-#endif
+private _firstpoint = [getPosASL d_FLAG_BASE, d_island_center] select d_tt_ver;
 
 private _route_ar = [];
 
@@ -66,9 +62,9 @@ while {true} do {
 			};
 		} forEach _cur_ar;
 
-#ifdef __DEBUG__
-		[_firstpoint, _cur_ar # _curclosest # 0, format ["d_dtarline_%1", _cur_ar # _curclosest # 3], 20] call d_fnc_linemaker2;
-#endif
+//#ifdef __DEBUG__
+//		[_firstpoint, _cur_ar # _curclosest # 0, format ["d_dtarline_%1", _cur_ar # _curclosest # 3], 20] call d_fnc_linemaker2;
+//#endif
 		
 		_route_ar pushBack (_cur_ar # _curclosest # 3);
 		_firstpoint = _cur_ar # _curclosest # 0;

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_setup.sqf"
+//#include "..\x_setup.sqf"
 
 // get a random point inside a circle for bigger objects
 // parameters:
@@ -16,5 +16,5 @@ if (_center isEqualTo []) exitWith {
 
 private _ret_val = [_center, -1, _radius, _mindist, _water, _maxgradient, [0, 1] select _waterin25, [], [], _checkroad] call d_fnc_findSafePos;
 if (_ret_val isEqualTo []) then {_ret_val = _center};
-__TRACE_1("","_ret_val")
+//__TRACE_1("","_ret_val")
 _ret_val

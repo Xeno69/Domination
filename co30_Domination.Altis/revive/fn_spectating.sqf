@@ -1,10 +1,10 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};
 
-__TRACE("start")
+//__TRACE("start")
 xr_MouseScroll = 0;
 xr_MouseButtons = [false,false];
 xr_mouseDeltaPos = [0,0];
@@ -25,20 +25,20 @@ if (!isNil "xr_stopspect" && {!xr_stopspect}) then  {
 xr_stopspect = false;
 enableRadio false;
 params ["_withresp"];
-__TRACE_1("","_withresp")
+//__TRACE_1("","_withresp")
 if (_withresp) then {
-	__TRACE("_withresp, cutText")
+	//__TRACE("_withresp, cutText")
 	"xr_revtxt2" cutText [localize "STR_DOM_MISSIONSTRING_921","PLAIN", 0];
 	sleep 3;
 };
-__TRACE("black in 3")
+//__TRACE("black in 3")
 "xr_revtxt" cutText ["","BLACK IN", 3];
 if (xr_max_lives == -1) then {
 	xr_pl_no_lifes = false;
 } else {
 	xr_pl_no_lifes = player getVariable "xr_lives" == -1;
 };
-__TRACE_1("","xr_pl_no_lifes")
+//__TRACE_1("","xr_pl_no_lifes")
 xr_camnvgon = false;
 d_x_loop_end = false;
 xr_cur_world_pos = [0,0,0];
@@ -110,30 +110,30 @@ if (!xr_pl_no_lifes) then {
 	} forEach (d_allplayers select {_x != player});
 };
 
-__TRACE_1("","_helperls")
+//__TRACE_1("","_helperls")
 
 private _lbctr = (uiNamespace getVariable "xr_SpectDlg") displayCtrl 1000;
 lbClear _lbctr;
 private ["_idx"];
 {
-	__TRACE_1("","_x")
+	//__TRACE_1("","_x")
 	_idx = _lbctr lbAdd (_x # 1);
-	__TRACE_1("","_idx")
+	//__TRACE_1("","_idx")
 	_lbctr lbSetData [_idx, _x # 2];
 	_lbctr lbSetValue [_idx, _x # 0];
 	_lbctr lbSetPicture [_idx, _x # 3];
 	_lbctr lbSetColor [_idx, _x # 4];
 } forEach _helperls;
 if (_helperls isNotEqualTo []) then {
-	__TRACE("LB Sort By Value")
+	//__TRACE("LB Sort By Value")
 	lbSortByValue _lbctr;
 	_lbctr lbSetCurSel 0;
 };
 
 _aaa = lbSize _lbctr;
-__TRACE_1("","_aaa")
+//__TRACE_1("","_aaa")
 
-__TRACE_1("","xr_pl_no_lifes")
+//__TRACE_1("","xr_pl_no_lifes")
 showCinemaBorder false;
 if (!xr_pl_no_lifes) then {
 	private _nposvis = ASLToATL (visiblePositionASL (vehicle player));
@@ -180,7 +180,7 @@ xr_x_updatelb = false;
 xr_spect_timer = time + 10;
 xr_x_withresp = _withresp;
 xr_x_loc_922 = localize "STR_DOM_MISSIONSTRING_922";
-__TRACE("main one frame loop starts")
+//__TRACE("main one frame loop starts")
 ["dom_xr_spect_of", {
 	if (!xr_stopspect) then {
 		call xr_fnc_spect_oneframe;
@@ -199,6 +199,6 @@ __TRACE("main one frame loop starts")
 		xr_hhx = nil;
 		xr_cur_world_pos = nil;
 		xr_cur_world_obj = nil;
-		__TRACE("spectating ended, one frame removed")
+		//__TRACE("spectating ended, one frame removed")
 	};
 }, 0.01] call d_fnc_eachframeadd;

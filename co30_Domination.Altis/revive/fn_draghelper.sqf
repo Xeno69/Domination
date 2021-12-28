@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-#include "..\x_macros.sqf"
+//#include "..\x_macros.sqf"
 
 if (!hasInterface) exitWith {};
 
@@ -17,4 +17,4 @@ while {player getVariable ["xr_dragged", false]} do {
 	sleep 0.5;
 };
 
-__TRACE("stopped")
+//__TRACE("stopped")

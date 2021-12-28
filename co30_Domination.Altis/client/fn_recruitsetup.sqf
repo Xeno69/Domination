@@ -135,6 +135,14 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {[]};
 	};
 #endif
+#ifdef __WS__
+	private _pchar = switch (d_player_side) do {
+		case blufor: {"B_D"};
+		case opfor: {"O"};
+		case independent: {"I"};
+	};
+	d_UnitsToRecruit = ["_Soldier_lxWS", "_soldier_AR_lxWS", "_soldier_exp_lxWS", "_Soldier_GL_lxWS", "_soldier_M_lxWS", "_medic_lxWS", "_soldier_repair_lxWS", "_soldier_LAT_lxWS"] apply {_pchar + _x};
+#endif
 };
 
 player setVariable ["d_recdbusy", false];

@@ -28,11 +28,15 @@ while {true} do {
 		private _obj = createSimpleObject [_curname, [0,0,0], true];
 		(0 boundingBoxReal _obj) params ["_p1", "_p2"];
 		private _z = (abs ((_p2 # 2) - (_p1 # 2)) / 2) * 0.1;
-#ifndef __VN__
-		_obj attachTo [_x, [0.5, 0, 0.62 + _z]];
-#else
-		_obj attachTo [_x, [0, 0, 0.83 + _z]];
-#endif
+		call {
+			if (d_vn) exitWith {
+				_obj attachTo [_x, [0.5, 0, 0.83 + _z]];
+			};
+			if (d_ws) exitWith {
+				_obj attachTo [_x, [0.5, 0, 1.2 + _z]];
+			};
+			_obj attachTo [_x, [0, 0, 0.7 + _z]];
+		};
 		_obj setObjectScale 0.1;
 		_cnamesew = _cnamesew - [_curname];
 		_objsar pushBack _obj;

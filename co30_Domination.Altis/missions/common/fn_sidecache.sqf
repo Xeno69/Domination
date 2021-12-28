@@ -5,11 +5,10 @@ if !(isServer) exitWith {};
 
 params ["_poss", ["_createarmor", false], ["_createinf", false]];
 
-
-_createarmor = false;_createinf = false;
+__TRACE_1("","_this")
 
 if (_createarmor) then {
-sleep 2.22;
+	sleep 2.22;
 	__TRACE("Creating armor")
 	[selectRandom ["aa", "tank", "tracked_apc"], 1, selectRandom ["tracked_apc", "wheeled_apc"], 2, selectRandom ["jeep_mg", "jeep_gl"], 2, _poss, 1, 400, true] spawn d_fnc_CreateArmor;
 	sleep 1;
@@ -44,10 +43,11 @@ while {!_created} do {
 			_pos set [2, (_pos # 2) + 0.3];
 			__TRACE_1("","_pos")
 			_cache = createVehicle [selectRandom d_sm_cache, _pos, [], 0, "NONE"];
-			_cache setPos _pos;
-			_cache setDir ceil random 360;
-			__TRACE_1("","_cache")
 			if (!isNull _cache) then {
+				_cache setPos _pos;
+				_cache setDir ceil random 360;
+				__TRACE_1("","_cache")
+			
 				_cache call d_fnc_addKilledEHSM;
 				_created = true;
 #ifdef __DEBUG__
@@ -55,6 +55,32 @@ while {!_created} do {
 #endif
 				clearWeaponCargoGlobal _cache;
 				_cache setVariable ["d_nocheck", true, true];
+				private _unitstog = [
+					[[[_pos, 30]],[]] call BIS_fnc_randomPos,
+					selectRandom [3, 4, 5],			//unit count
+					-1,		//fillRadius
+					false,		//fillRoof
+					false,		//fillEvenly
+					false,		//fillTopDown
+					false,		//disableTeleport
+					0		//unitMovementMode
+				] call d_fnc_garrisonUnits;
+				d_x_sm_rem_ar append _unitstog;
+				sleep 1;
+				for "_ii" from 0 to 1 do {
+					_unitstog = [
+						[[[_pos, 30]],[]] call BIS_fnc_randomPos,
+						selectRandom [2, 3, 4],			//unit count
+						50,		//fillRadius
+						false,		//fillRoof
+						false,		//fillEvenly
+						false,		//fillTopDown
+						false,		//disableTeleport
+						0		//unitMovementMode
+					] call d_fnc_garrisonUnits;
+					d_x_sm_rem_ar append _unitstog;
+					sleep 1;
+				};
 			};
 		};
 	} else {
