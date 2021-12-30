@@ -12890,6 +12890,7 @@
 <Original>New target selection is over!</Original>
 <Russian>Выбор новой цели окончен!</Russian>
 <Chinesesimp>新的目标选择已经结束！</Chinesesimp>
+<Chinese>新的目標選擇已經結束！</Chinese>
 <French>La nouvelle sélection de cibles est terminée!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1957">
@@ -12901,6 +12902,7 @@
 <Original>Players have selected %1 as new main target!</Original>
 <Russian>Игроки выбрали %1 в качестве новой главной цели!</Russian>
 <Chinesesimp>玩家已选择 %1 作为新的主要目标！</Chinesesimp>
+<Chinese>玩家已選擇 %1 作為新的主要目標！</Chinese>
 <French>Les joueurs ont sélectionné %1 comme nouvelle cible principale!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1958">
@@ -12912,6 +12914,7 @@
 <Original>No new target had enough votes or none was voted for! Choosing random one...</Original>
 <Russian>Ни у одной нового задания не было достаточно голосов, или за него не проголосовали! Выбор будет случайным ...</Russian>
 <Chinesesimp>新目标没有足够的选票或没有投票！ 选择一个随机...</Chinesesimp>
+<Chinese>新目標沒有足夠的選票或沒有投票！選擇一個隨機...</Chinese>
 <French>Aucun nouvel objectif n'a eu assez de votes ou aucun n'a été voté! Choix au hasard...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1959">
@@ -12923,6 +12926,7 @@
 <Original>Barracks left:</Original>
 <Russian>Осталось казарм:</Russian>
 <Chinesesimp>离开营房：</Chinesesimp>
+<Chinese>離開營房：</Chinese>
 <French>Caserne restante:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1960">
@@ -13158,7 +13162,7 @@
 <Original>points for healing another unit!</Original>
 <Russian>очков за исцеление другого игрока!</Russian>
 <Chinesesimp>点数治愈另一个单位！</Chinesesimp>
-<Chinese>points for healing another unit!</Chinese>
+<Chinese>點數治愈另一個單位！</Chinese>
 <French>points pour soigner une autre unité!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1981">
@@ -13170,7 +13174,7 @@
 <Original>Players</Original>
 <Russian>Игроки</Russian>
 <Chinesesimp>玩家</Chinesesimp>
-<Chinese>Players</Chinese>
+<Chinese>玩家</Chinese>
 <French>Joueurs</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1982">
@@ -13182,7 +13186,7 @@
 <Original>Rank</Original>
 <Russian>Ранг</Russian>
 <Chinesesimp>等级</Chinesesimp>
-<Chinese>Rank</Chinese>
+<Chinese>等級</Chinese>
 <French>Grade</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1983">
@@ -13193,8 +13197,8 @@
 <Japanese>陣地</Japanese>
 <Original>Camps</Original>
 <Russian>Бункеры</Russian>
-<Chinesesimp>营地</Chinesesimp>
-<Chinese>Camps</Chinese>
+<Chinesesimp>阵地</Chinesesimp>
+<Chinese>陣地</Chinese>
 <French>Camps</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1984">
@@ -13206,7 +13210,7 @@
 <Original>Barracks</Original>
 <Russian>Казармы</Russian>
 <Chinesesimp>军营</Chinesesimp>
-<Chinese>Barracks</Chinese>
+<Chinese>軍營</Chinese>
 <French>Casernes</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1985">
@@ -13218,7 +13222,7 @@
 <Original>Points</Original>
 <Russian>Очки</Russian>
 <Chinesesimp>点数</Chinesesimp>
-<Chinese>Points</Chinese>
+<Chinese>點數</Chinese>
 <French>Points</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1986">
@@ -13230,7 +13234,7 @@
 <Original>Launcher Cooldown Time in seconds:</Original>
 <Russian>Время восстановления пусковой установки в секундах:</Russian>
 <Chinesesimp>启动冷却时间（以秒为单位）：</Chinesesimp>
-<Chinese>Launcher Cooldown Time in seconds：</Chinese>
+<Chinese>啟動冷卻時間（以秒為組織）：</Chinese>
 <French>Temps de recharge du lanceur en secondes:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1987">
@@ -13242,7 +13246,7 @@
 <Original>points for usage of your mash for healing!</Original>
 <Russian>Очки за использование палатки для лечения!</Russian>
 <Chinesesimp>使用医疗帐篷进行治疗的积分！</Chinesesimp>
-<Chinese>points for usage of your mash for healing!</Chinese>
+<Chinese>使用醫療帳篷進行治療的積分！</Chinese>
 <French>points pour l'utilisation de tentes Medic pour la guérison!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1988">
@@ -13254,7 +13258,7 @@
 <Original>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</Original>
 <Russian>Вы можете телепортироваться от флага на другие позиции, не нужно тратить вертолеты...</Russian>
 <Chinesesimp>你可以从基地旗帜传送到其他位置，而无需浪费 车辆/直升机...</Chinesesimp>
-<Chinese>You can teleport from the base flag to other positions, no need to waste vehicles/choppers...</Chinese>
+<Chinese>你可以從基地旗幟傳送到其他位置，而無需浪費車輛/直升機...</Chinese>
 <French>Vous pouvez vous téléporter du drapeau de la base vers d'autres positions, pas besoin de gaspiller des hélicoptères...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1989">
@@ -13266,7 +13270,7 @@
 <Original>points for another player spawning at you!</Original>
 <Russian>очки за другого игрока, появляющегося на вас!</Russian>
 <Chinesesimp>为另一个玩家生成的点数！</Chinesesimp>
-<Chinese>points for another player spawning at you!</Chinese>
+<Chinese>為另一個玩家生成的點數！</Chinese>
 <French>points pour un autre joueur qui vous fraie un chemin !</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1990">
@@ -13527,8 +13531,8 @@
 <Japanese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Japanese>
 <Original>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Original>
 <Russian>Атака противника вызвала утечку токсичного газа. Доберитесь до места и немедленно устраните утечку! Внимание, враг все еще находится в этом районе! Не забудьте респиратор!</Russian>
-<Chinesesimp>敌人的攻击已造成有毒气体泄漏。 到达那里并立即密封泄漏！ 注意，敌人仍在该地区！ 不要忘记戴口罩！</Chinesesimp>
-<Chinese>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</Chinese>
+<Chinesesimp>敌人的攻击已造成有毒气体泄漏。 到达那里并立即密封泄漏！ 注意，敌人仍在该地区！ 不要忘记佩戴防毒面具！</Chinesesimp>
+<Chinese>敵人的攻擊已造成有毒氣體洩漏。 到達那裡並立即密封洩漏！ 注意，敵人仍在該地區！ 不要忘記佩戴防毒面具！</Chinese>
 <French>An enemy attack has caused a toxic gas leak. Get there and seal the leak immediately! Attention, the enemy is still in the area! Don't forget a respirator!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2011">
@@ -13540,7 +13544,7 @@
 <Original>You have sealed the leak!</Original>
 <Russian>Вы устранили утечку!</Russian>
 <Chinesesimp>你已经密封泄漏！</Chinesesimp>
-<Chinese>You have sealed the leak!</Chinese>
+<Chinese>你已經密封洩漏！</Chinese>
 <French>You have sealed the leak!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2012">
@@ -13552,7 +13556,7 @@
 <Original>Earplugs A3 User Action Key:</Original>
 <Russian>Беруши A3 User Action Key:</Russian>
 <Chinesesimp>耳塞A3用户操作按键：</Chinesesimp>
-<Chinese>Earplugs A3 User Action Key:</Chinese>
+<Chinese>耳塞A3用戶操作按鍵：</Chinese>
 <French>Earplugs A3 User Action Key:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2013">
@@ -13564,7 +13568,7 @@
 <Original>3D Marker A3 User Action Key:</Original>
 <Russian>3D-Маркер A3 User Action Key:</Russian>
 <Chinesesimp>3D标记A3用户操作按键：</Chinesesimp>
-<Chinese>3D Marker A3 User Action Key:</Chinese>
+<Chinese>3D標記A3用戶操作按鍵：</Chinese>
 <French>3D Marker A3 User Action Key:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2014">
@@ -13576,7 +13580,7 @@
 <Original>Nightvision mode is disabled by the server administrator!</Original>
 <Russian>Режим ночного видения отключен администратором сервера!</Russian>
 <Chinesesimp>服务器管理员禁用了夜视仪模式！</Chinesesimp>
-<Chinese>Nightvision mode is disabled by the server administrator!‧</Chinese>
+<Chinese>服務器管理員禁用了夜視儀模式！</Chinese>
 <French>Nightvision mode is disabled by the server administrator!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2015">
@@ -13588,7 +13592,7 @@
 <Original>Thermal vision mode is disabled by the server administrator!</Original>
 <Russian>Режим тепловизора отключен администратором сервера!</Russian>
 <Chinesesimp>服务器管理员禁用了热成像模式！</Chinesesimp>
-<Chinese>Thermal vision mode is disabled by the server administrator!‧</Chinese>
+<Chinese>服務器管理員禁用了熱成像模式！‧</Chinese>
 <French>Thermal vision mode is disabled by the server administrator!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2016">
@@ -13600,7 +13604,7 @@
 <Original>Allow transfer of points to other players in ranked mode:</Original>
 <Russian>Разрешить передачу очков другим игрокам в ранговом режиме:</Russian>
 <Chinesesimp>允许在等级模式下将积分转移给其他玩家：</Chinesesimp>
-<Chinese>Allow transfer of points to other players in ranked mode:</Chinese>
+<Chinese>允許在等級模式下將積分轉移給其他玩家：</Chinese>
 <French>Allow transfer of points to other players in ranked mode:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2017">
@@ -13612,6 +13616,7 @@
 <Original>Turn off markers at AO for tower and camps:</Original>
 <Russian>Выключить маркеры для радиовышки и бункеров:</Russian>
 <Chinesesimp>在 AO（占领区域） 处关闭塔楼和营地的标记：</Chinesesimp>
+<Chinese>在AO（佔領區域）處關閉塔樓和營地的標記：</Chinese>
 <French>Turn off markers at AO for tower and camps:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2018">
@@ -13623,7 +13628,7 @@
 <Original>Ranked mode on but weapons not ranked</Original>
 <Russian>Ранговый режим включен, но оружие не ранжировано</Russian>
 <Chinesesimp>已启用排名模式，但武器未排名</Chinesesimp>
-<Chinese>Ranked mode on but weapons not ranked‧</Chinese>
+<Chinese>已啟用排名模式，但武器未排名‧</Chinese>
 <French>Ranked mode on but weapons not ranked</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2019">
@@ -13635,7 +13640,7 @@
 <Original>Last chance to retake a camp...</Original>
 <Russian>Последний шанс вернуть город...</Russian>
 <Chinesesimp>最后一次重新扎营的机会...</Chinesesimp>
-<Chinese>Last chance to retake a camp...</Chinese>
+<Chinese>最後一次重新紮營的機會...</Chinese>
 <French>Last chance to retake a camp...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2020">
@@ -13766,8 +13771,8 @@
 <Japanese>Attention: some of the civilians are armed and ready to fight!</Japanese>
 <Original>Attention: some of the civilians are armed and ready to fight!</Original>
 <Russian>Attention: some of the civilians are armed and ready to fight!</Russian>
-<Chinesesimp>Attention: some of the civilians are armed and ready to fight!</Chinesesimp>
-<Chinese>Attention: some of the civilians are armed and ready to fight!</Chinese>
+<Chinesesimp>注意：一些平民已经武装起来，准备战斗！</Chinesesimp>
+<Chinese>注意：一些平民已經武裝起來，準備戰鬥！</Chinese>
 <French>Attention: some of the civilians are armed and ready to fight!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT">
@@ -13791,7 +13796,7 @@
 <Original>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Original>
 <Russian>Вы имеете шанс вернуть один из наших Farp, захваченных противником некоторое время назад. Вернитесь назад</Russian>
 <Chinesesimp>我们有机会夺回敌人前一阵子占领我们的油料与弹药补给点。抢占回来！</Chinesesimp>
-<Chinese>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Chinese>
+<Chinese>我們有機會奪回敵人前一陣子佔領我們的油料與彈藥補給點。搶占回來！</Chinese>
 <French>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2030">
@@ -14224,8 +14229,8 @@
 <Japanese>Disable RADIOPROTOCOL for the player unit:</Japanese>
 <Original>Disable RADIOPROTOCOL for the player unit:</Original>
 <Russian>Отключение РАДИОПРОТОКОЛА для слота игрок:</Russian>
-<Chinesesimp>玩家禁止使用 RADIOPROTOCOL ：</Chinesesimp>
-<Chinese>Disable RADIOPROTOCOL for the player unit:</Chinese>
+<Chinesesimp>玩家禁止使用 RADIOPROTOCOL（无线电协议） ：</Chinesesimp>
+<Chinese>玩家禁止使用 RADIOPROTOCOL（無線電協議）：</Chinese>
 <French>Disable RADIOPROTOCOL for the player unit:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2053">
@@ -14236,8 +14241,8 @@
 <Japanese>RADIOPROTOCOL for the player enabled!</Japanese>
 <Original>RADIOPROTOCOL for the player enabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока включен!</Russian>
-<Chinesesimp>玩家授权使用 RADIOPROTOCOL ！</Chinesesimp>
-<Chinese>RADIOPROTOCOL for the player enabled!</Chinese>
+<Chinesesimp>玩家授权使用 RADIOPROTOCOL（无线电协议） ！</Chinesesimp>
+<Chinese>玩家授權使用 RADIOPROTOCOL（無線電協議）！</Chinese>
 <French>RADIOPROTOCOL for the player enabled!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2054">
@@ -14248,8 +14253,8 @@
 <Japanese>RADIOPROTOCOL for the player disabled!</Japanese>
 <Original>RADIOPROTOCOL for the player disabled!</Original>
 <Russian>РАДИОПРОТОКОЛ для игрока отключен!</Russian>
-<Chinesesimp>玩家禁止使用 RADIOPROTOCOL ！</Chinesesimp>
-<Chinese>RADIOPROTOCOL for the player disabled!</Chinese>
+<Chinesesimp>玩家禁止使用 RADIOPROTOCOL（无线电协议）！</Chinesesimp>
+<Chinese>玩家禁止使用 RADIOPROTOCOL（無線電協議）</Chinese>
 <French>RADIOPROTOCOL for the player disabled!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2055">
@@ -14261,7 +14266,7 @@
 <Original>You are not allowed to fly this chopper!!!</Original>
 <Russian>Вам не разрешено управлять этим вертолетом !!!</Russian>
 <Chinesesimp>你不被允许驾驶这架直升机！！！</Chinesesimp>
-<Chinese>You are not allowed to fly this chopper!!!</Chinese>
+<Chinese>你不被允許駕駛這架直升機！ ！ ！</Chinese>
 <French>You are not allowed to fly this chopper!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2056">
@@ -14273,7 +14278,7 @@
 <Original>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Original>
 <Russian>Отключить все точки обслуживания, включая FARP (без дозаправки, без ремонта, без перевооружения)</Russian>
 <Chinesesimp>禁用所有服务点，包括 FARP 前沿补给点（不加油、不维修、不重新武装）</Chinesesimp>
-<Chinese>Disable all service points, including FARPs (no refuel, no repair, no rearm)</Chinese>
+<Chinese>禁用所有服務點，包括 FARP 前沿補給點（不加油、不維修、不重新武裝）</Chinese>
 <French>Disable all service points, including FARPs (no refuel, no repair, no rearm)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2057">
@@ -14285,7 +14290,7 @@
 <Original>Player can spectate other players at base flag</Original>
 <Russian>Игрок может наблюдать за другими игроками у базового флага</Russian>
 <Chinesesimp>玩家可以在基地标志处观看其他玩家</Chinesesimp>
-<Chinese>Player can spectate other players at base flag</Chinese>
+<Chinese>玩家可以在基地標誌處觀看其他玩家</Chinese>
 <French>Player can spectate other players at base flag</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2058">
@@ -14297,7 +14302,7 @@
 <Original>Flying choppers and planes only allowed when a player has a score higher than:</Original>
 <Russian>Вертолеты и самолеты разрешены только в том случае, если игрок набрал больше, чем: </Russian>
 <Chinesesimp>要想被允许驾驶直升机和飞机，玩家的得分必须高于以下值：</Chinesesimp>
-<Chinese>Flying choppers and planes only allowed when a player has a score higher than:</Chinese>
+<Chinese>要想被允許駕駛直升機和飛機，玩家的得分必須高於以下值：</Chinese>
 <French>Flying choppers and planes only allowed when a player has a score higher than:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2059">
@@ -14309,7 +14314,7 @@
 <Original>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Original>
 <Russian>Вы еще не обладаете квалификацией, чтобы летать, заходить в качестве наводчика или командовать  %1.\n\nВам необходимо иметь %2 очков, ваш текущий счет %3.</Russian>
 <Chinesesimp>您尚未具备飞行资格，作为炮手进入或指挥 %1 。\n\n您需要总分 %2 ，您的当前分数是 %3。</Chinesesimp>
-<Chinese>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</Chinese>
+<Chinese>您尚未具備飛行資格，作為砲手進入或指揮 %1 。 \n\n您需要總分 %2 ，您的當前分數是 %3。</Chinese>
 <French>You are not yet qualified to fly, get in as gunner or command a %1.\n\nYou need a total score of %2, your current score is %3.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2060">
@@ -14321,7 +14326,7 @@
 <Original>Disable Thermal Imaging (TI) for inf weapons/optics:</Original>
 <Russian>Отключить тепловизор (TI) для стрелкового вооружения (оптики): </Russian>
 <Chinesesimp>禁用武器装备/光学装备的热成像功能(TI)：</Chinesesimp>
-<Chinese>Disable Thermal Imaging (TI) for inf weapons/optics:</Chinese>
+<Chinese>禁用武器裝備光學裝備的熱成像功能(TI)：</Chinese>
 <French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2061">
@@ -14333,7 +14338,7 @@
 <Original>Big main target fires:</Original>
 <Russian>Большие костры на основном задании:</Russian>
 <Chinesesimp>主要任务篝火：</Chinesesimp>
-<Chinese>Big main target fires:</Chinese>
+<Chinese>主要任務篝火：</Chinese>
 <French>Big main target fires:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_MT_RADIUS">
@@ -14357,7 +14362,7 @@
 <Original>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Original>
 <Russian>Убить весь экипаж в технике (и снаружи), если техника будет уничтожена:</Russian>
 <Chinesesimp>地面载具击毁时杀死所有载具乘员（甚至在外面）：</Chinesesimp>
-<Chinese>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</Chinese>
+<Chinese>地面載具擊毀時殺死所有載具乘員（甚至在外面）：</Chinese>
 <French>Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2063">
@@ -14369,6 +14374,7 @@
 <Original>Player can forgive teamkill (mission revive has to be enabled and spectating):</Original>
 <Russian>Игрок может простить тимкилл (ревайв миссии тоже должен быть включен вместе с наблюдением):</Russian>
 <Chinesesimp>玩家可以原谅队友的TK（必须启用任务复活并观看）：</Chinesesimp>
+<Chinese>玩家可以原諒隊友的TK（必須啟用任務復活並觀看）：</Chinese>
 <French>Player can forgive teamkill (mission revive has to be enabled and spectating):</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2064">
@@ -14380,6 +14386,7 @@
 <Original>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</Original>
 <Russian>Вы были убиты игроком вашей команды %1, простить игрока? F9 Да / F11 Нет</Russian>
 <Chinesesimp>您被 %1 杀死了，是否原谅该玩家的TK行为？ F9（YES）、F11（NO）</Chinesesimp>
+<Chinese>您被 %1 殺死了，是否原諒該玩家的TK行為？ F9（YES）、F11（NO）</Chinese>
 <French>You were teamkilled by %1, forgive player? F9 for Yes / F11 for No</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2065">
@@ -14391,6 +14398,7 @@
 <Original>You have forgiven %1</Original>
 <Russian>Вы прощены %1</Russian>
 <Chinesesimp>您已原谅 %1 的TK行为</Chinesesimp>
+<Chinese>您已原諒 %1 的TK行為</Chinese>
 <French>You have forgiven %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2066">
@@ -14402,6 +14410,7 @@
 <Original>Time to forgive: %1 seconds</Original>
 <Russian>Время для прощения: %1 секунд</Russian>
 <Chinesesimp>原谅的时间： %1 秒</Chinesesimp>
+<Chinese>原諒的時間： %1 秒</Chinese>
 <French>Time to forgive: %1 seconds</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2067">
@@ -14413,6 +14422,7 @@
 <Original>%1 has forgiven teamkilling! Don't do it again!</Original>
 <Russian>%1 простил за тимкилл игрока! Не делай этого снова!</Russian>
 <Chinesesimp>%1 原谅了他的TK行为! 注意禁止再次TK行为！</Chinesesimp>
+<Chinese>%1 原諒了他的TK行為! 注意禁止再次TK行為！</Chinese>
 <French>%1 has forgiven teamkilling! Don't do it again!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2068">
@@ -14424,7 +14434,7 @@
 <Original>Dynamic AI recruitment (more players, less AI recruitable):</Original>
 <Russian>Динамический набор AI (больше игроков, меньше AI):</Russian>
 <Chinesesimp>动态 AI 招募（随着玩家的增加，而减少可招募 AI 数）：</Chinesesimp>
-<Chinese>Dynamic AI recruitment (more players, less AI recruitable):</Chinese>
+<Chinese>動態 AI 招募（隨著玩家的增加，而減少可招募 AI 數）：</Chinese>
 <French>Dynamic AI recruitment (more players, less AI recruitable):</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2069">
@@ -14436,7 +14446,7 @@
 <Original>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Original>
 <Russian>Динамический набор AI (больше игроков, меньше AI), но AI не может использовать статическое оружие :</Russian>
 <Chinesesimp>动态 AI 招募（随着玩家的增加，而减少可招募 AI 数），但是AI不能使用静态武器：</Chinesesimp>
-<Chinese>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</Chinese>
+<Chinese>動態 AI 招募（隨著玩家的增加，而減少可招募 AI 數），但是AI不能使用靜態武器：</Chinese>
 <French>Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2070">
@@ -14448,7 +14458,7 @@
 <Original>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе ; UID: %2</Russian>
 <Chinesesimp>%1 由于击毁了基地的车辆， 被踢到了游戏大厅； UID： %2</Chinesesimp>
-<Chinese>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</Chinese>
+<Chinese>%1 由於擊毀了基地的車輛， 被踢到了遊戲大廳； UID： %2</Chinese>
 <French>%1 was kicked to lobby because of destryoing vehicles at base; UID: %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2071">
@@ -14460,7 +14470,7 @@
 <Original>%1 was kicked to lobby because of destryoing vehicles at base</Original>
 <Russian>%1 был выгнан в лобби из-за уничтожения техники на базе</Russian>
 <Chinesesimp>%1 由于击毁了基地的车辆， 被踢到了游戏大厅</Chinesesimp>
-<Chinese>%1 was kicked to lobby because of destryoing vehicles at base</Chinese>
+<Chinese>%1 由於擊毀了基地的車輛， 被踢到了遊戲大廳</Chinese>
 <French>%1 was kicked to lobby because of destryoing vehicles at base</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2072">
@@ -14472,6 +14482,7 @@
 <Original>With AI air taxi (coop version only):</Original>
 <Russian>С воздушным такси AI (только для кооперативной версии) :</Russian>
 <Chinesesimp>使用 AI 空中出租车（仅限 COOP 版）：</Chinesesimp>
+<Chinese>使用 AI 空中出租車（僅限 COOP 版）：</Chinese>
 <French>With AI air taxi (coop version only):</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2073">
@@ -14483,7 +14494,7 @@
 <Original>With air drop:</Original>
 <Russian>С авиасбросом:</Russian>
 <Chinesesimp>启用空投：</Chinesesimp>
-<Chinese>With air drop:</Chinese>
+<Chinese>啟用空投：</Chinese>
 <French>With air drop:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2074">
@@ -14495,7 +14506,7 @@
 <Original>Block but not for missile launchers</Original>
 <Russian>Блокировать, но не для ракетных установок</Russian>
 <Chinesesimp>禁用但不适用于导弹发射器</Chinesesimp>
-<Chinese>Block but not for missile launchers</Chinese>
+<Chinese>禁用但不適用於導彈發射器</Chinese>
 <French>Block but not for missile launchers</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2075">
@@ -14507,7 +14518,7 @@
 <Original>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Original>
 <Russian>Противник вот-вот запустит тактическую баллистическую ракету с мобильной стартовой площадки !! Доберитесь и УНИЧТОЖИТЕ её !!!!</Russian>
 <Chinesesimp>敌人将从移动发射台发射战术弹道导弹！找到它并摧毁它！！！！</Chinesesimp>
-<Chinese>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</Chinese>
+<Chinese>敵人將從移動發射台發射戰術彈道導彈！找到它並摧毀它！ ！ ！ ！</Chinese>
 <French>The enemy is about too launch a tactical ballistic missile from a mobile launch vehicle!! Get there and DESTROY it!!!!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2076">
@@ -14519,7 +14530,7 @@
 <Original>Good work! The launch is stopped.</Original>
 <Russian>орошая работа! Запуск остановлен.</Russian>
 <Chinesesimp>做得好！启动停止。</Chinesesimp>
-<Chinese>Good work! The launch is stopped.</Chinese>
+<Chinese>做得好！啟動停止。</Chinese>
 <French>Good work! The launch is stopped.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2077">
@@ -14531,7 +14542,7 @@
 <Original>Disable player artillery</Original>
 <Russian>Отключить артиллерию для игрока</Russian>
 <Chinesesimp>禁用玩家火炮</Chinesesimp>
-<Chinese>Disable player artillery</Chinese>
+<Chinese>禁用玩家火砲</Chinese>
 <French>Disable player artillery</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2078">
@@ -14543,7 +14554,7 @@
 <Original>Disable player CAS</Original>
 <Russian>Отключить CAS для игрока</Russian>
 <Chinesesimp>禁用玩家 CAS（近距离空中支援）</Chinesesimp>
-<Chinese>Disable player CAS</Chinese>
+<Chinese>禁用玩家 CAS（近距離空中支援）</Chinese>
 <French>Disable player CAS</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2079">
@@ -14555,7 +14566,7 @@
 <Original>Enemy AI observers for artillery and CAS at AO</Original>
 <Russian>Вражеские наводчики AI для артиллерии и CAS в AO</Russian>
 <Chinesesimp>敌军 AI 炮兵侦查员 与 CAS（近距离空中支援） 在 AO（占领区域）</Chinesesimp>
-<Chinese>Enemy AI observers for artillery and CAS at AO</Chinese>
+<Chinese>敵軍 AI 砲兵偵查員 與 CAS（近距離空中支援） 在 AO（佔領區域）</Chinese>
 <French>Enemy AI observers for artillery and CAS at AO</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2080">
@@ -14567,7 +14578,7 @@
 <Original>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Original>
 <Russian>АО вражеские казармы и MHQ должны уничтожаться взрывчаткой</Russian>
 <Chinesesimp>AO（占领区域）敌军营房和车辆 MHQ（基地）必须用炸药摧毁</Chinesesimp>
-<Chinese>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</Chinese>
+<Chinese>AO（佔領區域）敵軍營房和車輛 MHQ（基地）必須用炸藥摧毀</Chinese>
 <French>AO enemy barracks and vehicle MHQ has to be destroyed by explosives</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2081">
@@ -14591,7 +14602,7 @@
 <Original>Taking vehicle MHQ...</Original>
 <Russian>Захват MHQ...</Russian>
 <Chinesesimp>获取 MHQ（基地）载具...</Chinesesimp>
-<Chinese>Taking vehicle MHQ...</Chinese>
+<Chinese>獲取 MHQ（基地）載具...</Chinese>
 <French>Taking vehicle MHQ...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2083">
@@ -14603,7 +14614,7 @@
 <Original>Taking object...</Original>
 <Russian>Захват объекта...</Russian>
 <Chinesesimp>正在获取对象...</Chinesesimp>
-<Chinese>Taking object...</Chinese>
+<Chinese>正在獲取對象...</Chinese>
 <French>Taking object...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_SUPPRESS_VOICES">
@@ -14627,6 +14638,7 @@
 <Original>Save mission progress to profileNamespace if no database is available</Original>
 <Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
 <Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
+<Chinese>如果沒有可用的數據庫，則將任務進度保存到 profileNamespace </Chinese>
 <French>Save mission progress to profileNamespace if no database is available</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2085">
@@ -14638,6 +14650,7 @@
 <Original>Saved profileNamespace mission progress auto load</Original>
 <Russian>Saved profileNamespace mission progress auto load</Russian>
 <Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
+<Chinese>保存的 profileNamespace 任務進度自動加載</Chinese>
 <French>Saved profileNamespace mission progress auto load</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
@@ -14649,7 +14662,7 @@
 <Original>Check for friendly units near artillery targets when firing artillery</Original>
 <Russian>При стрельбе из артиллерии проверяйте наличие дружественных сил рядом с артиллерийскими целями.</Russian>
 <Chinesesimp>火炮发射攻击时，检查火炮攻击目标附近是否有友军。</Chinesesimp>
-<Chinese>Check for friendly units near artillery targets when firing artillery</Chinese>
+<Chinese>火砲發射攻擊時，檢查火砲攻擊目標附近是否有友軍。</Chinese>
 <French>Check for friendly units near artillery targets when firing artillery</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2087">
@@ -14661,7 +14674,7 @@
 <Original>You received %1 score points from the admin!</Original>
 <Russian>Вы получили %1 очков от администратора!</Russian>
 <Chinesesimp>您从管理员那里获得了 %1 分！</Chinesesimp>
-<Chinese>You received %1 score points from the admin!</Chinese>
+<Chinese>您從管理員那裡獲得了 %1 分！</Chinese>
 <French>You received %1 score points from the admin!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2088">
@@ -14673,7 +14686,7 @@
 <Original>You have added %1 points to the total score of %2</Original>
 <Russian>Вы добавили %1 к общему счету %2</Russian>
 <Chinesesimp>您已为 %2 的总分增加了 %1 分</Chinesesimp>
-<Chinese>You have added %1 points to the total score of %2</Chinese>
+<Chinese>您已為 %2 的總分增加了 %1 分</Chinese>
 <French>You have added %1 points to the total score of %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2089">
@@ -14685,7 +14698,7 @@
 <Original>Add Score</Original>
 <Russian>Добавить очки</Russian>
 <Chinesesimp>添加分数</Chinesesimp>
-<Chinese>Add Score</Chinese>
+<Chinese>添加分數</Chinese>
 <French>Add Score</French>
 </Key>
 </Container>
