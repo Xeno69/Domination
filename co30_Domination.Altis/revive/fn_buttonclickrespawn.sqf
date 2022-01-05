@@ -69,6 +69,7 @@ if (d_beam_target == "D_BASE_D") then {
 				(boundingBoxReal _mrs) params ["_p1", "_p2"];
 				private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
 				_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+				_respawn_pos set [1, (_respawn_pos # 1) - 1]; // 1m behind
 			} else {
 				_respawn_pos = d_alt_map_pos;
 				_respawn_pos set [2, 0];
