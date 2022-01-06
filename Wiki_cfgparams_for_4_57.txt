@@ -256,7 +256,7 @@
 > Available options: 10, 15, 20, 25 and 30<br/>
 #### **d_civ_groupcount / Civilian group count per target**
 > Default: 2<br/>
-> Available options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
+> Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
 #### **d_civ_pnts / Subtract score when a player kills a civilian:**
 > Default: 3<br/>
 > Available options: 0, 1, 2, 3, 4, 5, 10, 25, 50, 75 and 100<br/>
@@ -288,25 +288,25 @@
 > Default: 0 (No, disabled; 1 or Yes to enable it)<br/>
 #### **d_occ_cnt / Garrisoned infantry group count - occupy mode**
 > Default: 4<br/>
-> Available options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25 and 30<br/>
+> Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25 and 30<br/>
 #### **d_occ_rad / Occupy deployment radius**
 > Default: 250 (meter)<br/>
 > Available options (in meter): 125, 250 and 350<br/>
 #### **d_ovrw_cnt / Garrisoned infantry group count - overwatch mode**
 > Default: 2<br/>
-> Available options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25 and 30<br/>
+> Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25 and 30<br/>
 #### **d_ovrw_rad / Overwatch deployment radius**
 > Default: 250 (meter)<br/>
 > Available options (in meter): 125, 250 and 350<br/>
 #### **d_amb_cnt / Garrisoned infantry group count - ambush mode**
 > Default: 2<br/>
-> Available options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25 and 30<br/>
+> Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25 and 30<br/>
 #### **d_amb_rad / Ambush deployment radius**
 > Default: 250 (meter)<br/>
 > Available options (in meter): 125, 250 and 350<br/>
 #### **d_snp_cnt / Garrisoned infantry group count - sniper mode**
 > Default: 2<br/>
-> Available options: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30 and 45<br/>
+> Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 20, 25, 30 and 45<br/>
 #### **d_snp_rad / Sniper deployment radius**
 > Default: 425 (meter)<br/>
 > Available options (in meter): 250, 425, 650 and 900<br/>
