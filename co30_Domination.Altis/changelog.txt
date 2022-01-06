@@ -1,2 +1,4 @@
 4.59
 
+- Changed: Respawn teammates 1m behind squad leader position to avoid friendly fire, by longtimegamer
+- Updated: Chinese translation by XenLau
