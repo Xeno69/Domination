@@ -690,7 +690,7 @@ rmdir /S /Q %WORK_DIR%
 
 
 rem Blufor Unsung
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_usnung.song_bin_tanh
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_unsung.song_bin_tanh
 set MISSION_SQM=..\mission_sqm\mission_blufor_unsung_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_unsung.sqf
 md %WORK_DIR%
