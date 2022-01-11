@@ -1,4 +1,5 @@
 4.59
 
-- Changed: Respawn teammates 1m behind squad leader position to avoid friendly fire, by longtimegamer
+- Added: Param "With auto revive if no player is nearby (less than 215m):" (description.ext d_with_autorevive, default 1, No, disabled)
+- Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Updated: Chinese translation by XenLau

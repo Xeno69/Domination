@@ -14721,6 +14721,18 @@
 <Chinese>添加分數</Chinese>
 <French>Add Score</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2090">
+<English>With auto revive if no player is nearby (less than 215m):</English>
+<Spanish>With auto revive if no player is nearby (less than 215m):</Spanish>
+<Portuguese>With auto revive if no player is nearby (less than 215m):</Portuguese>
+<Korean>With auto revive if no player is nearby (less than 215m):</Korean>
+<Japanese>With auto revive if no player is nearby (less than 215m):</Japanese>
+<Original>With auto revive if no player is nearby (less than 215m):</Original>
+<Russian>With auto revive if no player is nearby (less than 215m):</Russian>
+<Chinesesimp>With auto revive if no player is nearby (less than 215m):</Chinesesimp>
+<Chinese>With auto revive if no player is nearby (less than 215m):</Chinese>
+<French>With auto revive if no player is nearby (less than 215m):</French>
+</Key>
 </Container>
 </Package>
 </Project>
