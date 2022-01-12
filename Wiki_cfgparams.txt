@@ -28,7 +28,7 @@
 >   - Main Targets Only (1), only main targets will spawn<br/>
 >   - Side Missions Only (2), only side missions will show up<br/>
 #### **d_respawnatsql / Respawn at Squad Leader:**
-> Default: 0 (Yes, enabled; 1 or No to disable<br/>
+> Default: 0 (Squad Leader, enabled); 2 (Squad, enabled); 1 (None to disable); <br/>
 #### **d_retakefarps / Retake Farps**
 > Default: 0 (Yes), 1 (No) to turn it off<br/>
 > If disabled (1, No) then all Farps are available at mission start<br/>
