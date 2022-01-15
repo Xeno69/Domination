@@ -5,8 +5,8 @@ rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at ht
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_58
-set D_BNVER=4.58
+set D_VER=4_59
+set D_BNVER=4.59
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
@@ -690,7 +690,7 @@ rmdir /S /Q %WORK_DIR%
 
 
 rem Blufor Unsung
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_usnung.song_bin_tanh
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_unsung.song_bin_tanh
 set MISSION_SQM=..\mission_sqm\mission_blufor_unsung_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_unsung.sqf
 md %WORK_DIR%

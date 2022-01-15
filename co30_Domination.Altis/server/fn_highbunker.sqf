@@ -5,8 +5,14 @@
 private _newv = [];
 
 private _check_fnc = {
-	if (_this isKindOf "HMG_01_high_base_F" || {_this isKindOf "GMG_01_high_base_F" || {_this isKindOf "HMG_02_high_base_F" || {getText((configOf _this) >> "Turrets" >> "MainTurret" >> "gunnerAction") find "low" == -1}}}) exitWith {
+	if (_this isKindOf "HMG_01_high_base_F" || {_this isKindOf "GMG_01_high_base_F" || {_this isKindOf "HMG_02_high_base_F"}}) exitWith {
 		false
+	};
+	if (getText((configOf _this) >> "Turrets" >> "MainTurret" >> "gunnerAction") find "low" != -1) exitWith {
+		true
+	};
+	if (d_ws && {_this isKindOf "zu23_base_lxWS"}) exitWith {
+		true
 	};
 	if (d_cup && {_this isKindOf "CUP_SPG9_base" || {_this isKindOf "CUP_Metis_Base" || {_this isKindOf "CUP_AGS_base" || {_this isKindOf "CUP_DSHKM_MiniTripod_base" || {_this isKindOf "CUP_KORD_MiniTripod_Base" || {_this isKindOf "CUP_Igla_AA_pod_Base"}}}}}}) exitWith {
 		true

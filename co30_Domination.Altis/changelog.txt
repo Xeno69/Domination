@@ -1,11 +1,5 @@
-4.58
+4.59
 
-- Added: Faster camp capture (non-TT), by longtimegamer
-- Added: WSahara civilian unit types, by longtimegamer
-- Added: Autorevive, if no players nearby in a radius 215 m, by alexvladn
-- Added: New maintarget event, units dressed in plain clothes can be triggered to fight as guerrillas or join the player group, by longtimegamer
-- Changed: No rain and fog in the Western Sahara version
-- Fixed: Updates to profileNamespace mission progress save were missing a variable resulting in an error when starting the mission again
-- Fixed: Civ massacre event is very rare and with smaller trigger area, by longtimegamer
-- Fixed: Remove civilians near maintarget objectives so they are not killed by explosives, by longtimegamer
-- Updated: Simplified Chinese translation by SanJinSix
+- Added: Param "With auto revive if no player is nearby (less than 215m):" (description.ext d_with_autorevive, default 1, No, disabled)
+- Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
+- Updated: Chinese translation by XenLau
