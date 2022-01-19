@@ -197,9 +197,7 @@ private _placeCivilianCluster = {
 		_unit_count = count _posArray - 1;
 	};
 	for "_i" from 0 to _unit_count do {
-		if (_posArray isEqualTo []) exitWith {
-			diag_log ["foooooooooo no covered positions, exitWith!"];
-		};
+		if (_posArray isEqualTo []) exitWith {};
 		diag_log [_i];
 		_randomPos = selectRandom _posArray;
 		_posArray deleteAt (_posArray find _randomPos);
@@ -287,7 +285,7 @@ for "_i" from 0 to _civ_grp_count do {
 
 	__TRACE("Placing a civilian cluster...")
 	[_grp] call _placeCivilianCluster;
-	diag_log [format ["fooooooooo _total_civs_count_created: %1", _total_civs_count_created]];
+	diag_log [format ["_total_civs_count_created: %1", _total_civs_count_created]];
 };
 
 diag_log [format ["total static civs created: %1", _total_civs_count_created]];
