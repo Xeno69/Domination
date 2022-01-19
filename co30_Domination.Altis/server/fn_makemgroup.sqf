@@ -8,7 +8,7 @@ params [
 	["_grp", ""],
 	["_mchelper", true],					// man create helper function for positioning
 	["_doreduce", false],					// allows the caller to disable d_smallgrps
-	["_unitsPerGroup", -1],					// allows the caller to specify max unit count
+	["_unitsPerGroupMax", -1],					// allows the caller to specify max unit count
 	["_sideToEngage", [sideUnknown]]		// only used when AI awareness parameters are enabled
 ];
 
@@ -27,8 +27,8 @@ __TRACE_2("","_mchelper","_doreduce")
 
 private _ret = [];
 
-if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroup > 0}) then {
-	_unitliste = [_unitliste, _unitsPerGroup] call d_fnc_ulreduce;
+if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroupMax > 0}) then {
+	_unitliste = [_unitliste, _unitsPerGroupMax] call d_fnc_ulreduce;
 };
 
 _ret resize (count _unitliste);

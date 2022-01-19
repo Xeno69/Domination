@@ -2,7 +2,17 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-params ["_centerPos", "_numUnits", "_fillRadius", "_fillRoof", "_fillEvenly", "_fillTopDown", "_disableTeleport", "_unitMovementMode"];
+params ["_centerPos",
+	"_maxNumUnits",			// limits but does not increase the size of the team, -1 for no max
+	"_fillRadius",
+	"_fillRoof",
+	"_fillEvenly",
+	"_fillTopDown",
+	"_disableTeleport",
+	"_unitMovementMode"		// passed to zen_occupyhouse and also used in this script to determine which units to create
+							// 0 - "allmen" units with regular movement
+							// 1 - "sniper" units and cannot move
+];
 
 __TRACE("from createmaintarget garrison function")
 
@@ -12,8 +22,8 @@ private _unitlist = [["allmen", "sniper"] select (_unitMovementMode == 2), d_ene
 
 __TRACE_1("","_unitlist")
 
-if (count _unitlist > _numUnits) then {
-	while {count _unitlist > _numUnits} do {
+if (_maxNumUnits > 0 && {count _unitlist > _maxNumUnits}) then {
+	while {count _unitlist > _maxNumUnits} do {
 		_unitlist deleteAt (ceil (random (count _unitlist - 1)));
 	};
 };
@@ -66,6 +76,7 @@ _unitsNotGarrisoned = [
 sleep 0.01;
 __TRACE_1("","_unitsNotGarrisoned")
 _units_to_garrison = _units_to_garrison - _unitsNotGarrisoned;
+diag_log [format ["units not garrisoned and will be deleted: %1", _unitsNotGarrisoned joinString "/"]];
 {deleteVehicle _x} forEach _unitsNotGarrisoned;
 if (_units_to_garrison isEqualTo []) exitWith {
 	deleteGroup _newgroup;

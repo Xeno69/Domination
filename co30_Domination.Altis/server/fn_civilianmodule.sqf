@@ -171,26 +171,38 @@ d_civArray = [
 	];
 #endif
 
-private _buildings = [_trg_center, _radius] call d_fnc_getbuildings;
+private _civ_units_count_max = 100;
+
+private _buildings_unfiltered = [_trg_center, _radius] call d_fnc_getbldgswithpositions;
+
+private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_civ_blacklist) };
+
+diag_log [format ["total possible buildings to spawn civs: %1", count (_buildings)]];
+
+private _total_civs_count_created = 0;
 
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
-	if (count _buildings < 1) exitWith {};
-	_civPos = _this # 0;
-	_grp = _this # 1;
-	_unitCount = _this # 2;
+	if (count _buildings < 1 || {_total_civs_count_created > _civ_units_count_max}) exitWith {};
+	_grp = _this # 0;
 	_bldg = selectRandom _buildings;
 	_buildings deleteAt (_buildings find _bldg);
 	if (typeOf _bldg == d_barracks_building || {typeOf _bldg == d_vehicle_building}) exitWith {
 		// oops, we randomly chose a vehicle or infantry HQ, do not place the civilian cluster just skip
 	};
 	_posArray = _bldg buildingPos -1;
-	_posArrayCovered = [_posArray] call d_fnc_getcoveredpositions;
-	for "_i" from 0 to _unitCount do {
-		if (_posArrayCovered isEqualTo []) exitWith {};
-		_randomPos = selectRandom _posArrayCovered;
-		_posArrayCovered deleteAt (_posArrayCovered find _randomPos);
-		_civAgent = createAgent [selectRandom d_civArray, _randomPos, [], 1.5, "NONE"];
+	_unit_count = 2 max floor(random (count _posArray));
+	if (count _posArray > 5 && {1 > random 13}) then {
+		// small chance for larger buildings (more than 5 positions) to have many civs
+		_unit_count = count _posArray - 1;
+	};
+	for "_i" from 0 to _unit_count do {
+		if (_posArray isEqualTo []) exitWith {};
+		diag_log [_i];
+		_randomPos = selectRandom _posArray;
+		_posArray deleteAt (_posArray find _randomPos);
+		_civAgent = createAgent [selectRandom d_civArray, _randomPos, [], 0, "NONE"];
+		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {
 				[_civAgent, "SIT_LOW"] call BIS_fnc_ambientAnim;
@@ -204,7 +216,7 @@ private _placeCivilianCluster = {
 				if (((animationState _unit) find "sit") > 0) then {
 					_unit call BIS_fnc_ambientAnim__terminate;
 				};
-				if (_distance < 7) then {
+				if (_distance < 10) then {
 					_unit setUnitPos "DOWN";
 				} else {
 					_unit setUnitPos "MIDDLE";
@@ -239,29 +251,27 @@ __TRACE_1("","_marker_name")
 
 private _civ_grp_count = d_civ_groupcount;
 private _civ_spawn_factor = 0; // determines number of static civs in houses
-private _civ_unitcount = 10; // determines number of walking civs, module minimum is 10
 if (d_civ_groupcount < 0) then {
 	if (d_civ_groupcount == -1) then {
-		_civ_spawn_factor = 0.20;  // adaptive (low)
+		_civ_spawn_factor = 0.15;  // adaptive (low)
 	};
 	if (d_civ_groupcount == -2) then {
-		_civ_spawn_factor = 0.35;  // adaptive (normal)
-		_civ_unitcount = 15;
+		_civ_spawn_factor = 0.25;  // adaptive (normal)
 	};
 	if (d_civ_groupcount == -3) then {
-		_civ_spawn_factor = 0.55;  // adaptive (high)
-		_civ_unitcount = 20;
+		_civ_spawn_factor = 0.40;  // adaptive (high)
 	};
 	if (d_civ_groupcount == -4) then {
-		_civ_spawn_factor = 0.75;  // adaptive (very high)
-		_civ_unitcount = 25;
+		_civ_spawn_factor = 0.65;  // adaptive (very high)
 	};
 	if (d_civ_groupcount == -5) then {
-		_civ_spawn_factor = 1.00;  // adaptive (extreme)
-		_civ_unitcount = 35;
+		_civ_spawn_factor = 0.90;  // adaptive (extreme)
 	};
-	private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
-	_civ_grp_count = floor (_bldg_count * _civ_spawn_factor);
+	private _bldg_count = count ([_trg_center, _radius] call d_fnc_getbldgswithpositions);
+	private _civ_grp_count_max = floor(_civ_spawn_factor * 100); // sanity check, avoid spawning too many civ groups
+	private _civ_units_count_max = floor(_civ_grp_count_max * 3.5); // sanity check, avoid spawning too many civ units 
+	_civ_grp_count = floor (_bldg_count * _civ_spawn_factor) min _civ_grp_count_max;
+	diag_log [format ["civilian bldg_count: %1, civ_grp_count: %2", _bldg_count, _civ_grp_count]];
 };
 
 // create civilians with createAgent (not the civilian module)
@@ -274,8 +284,10 @@ for "_i" from 0 to _civ_grp_count do {
 	_grp = createGroup [civilian, true];
 
 	__TRACE("Placing a civilian cluster...")
-	[_randomPos, _grp, d_civ_unitcount] call _placeCivilianCluster;
+	[_grp] call _placeCivilianCluster;
 };
+
+diag_log [format ["total static civs created: %1", _total_civs_count_created]];
 
 // create civilian module and use the module to spawn moving civilians (walking/running)
 // only create one module and a few civilians, too many moving civilians are distracting
@@ -313,7 +325,7 @@ d_cur_tgt_civ_modules_presence pushBack _m;
 _m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray
 _m setVariable ["#useagents", true];
 _m setVariable ["#usepanicmode", false];
-_m setVariable ["#unitcount", _civ_unitcount];
+_m setVariable ["#unitcount", d_civ_unitcount];
 _m setVariable ["#onCreated", {
 	d_cur_tgt_civ_units pushBack _this;
 	if (d_ai_persistent_corpses == 0) then {

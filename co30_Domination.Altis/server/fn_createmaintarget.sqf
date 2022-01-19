@@ -506,15 +506,17 @@ if (d_enable_civ_vehs > 0) then {
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
-		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 40}}}) then {
-			//only has 2 connections, children also only have 2 connections, is within 40m of a building
+		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 20}}}) then {
+			//only has 2 connections, children also only have 2 connections, is within 20m of a building
 			_roadList=_roadList - [_x];	
 		};
 	} foreach _roadList;
 
 	_roadList=_roadList call BIS_fnc_arrayShuffle;
 	
-	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100);
+	private _max_car_count = floor(d_enable_civ_vehs * 2.25); // sanity check, avoid spawning too many cars
+	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100) min _max_car_count;
+	diag_log [format ["creating %1 cars (calculated allowable is %2)"], _carSpawns, _max_car_count];
 	
 	for "_i" from 1 to _carSpawns do {
 		_currentRoad = _roadList # _i;
@@ -575,15 +577,19 @@ if (d_occ_bldgs == 1) then {
 			_occ_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
-		_occ_cnt = floor (_bldg_count * _occ_spawn_factor);
+		private _occ_cnt_max = floor(_occ_spawn_factor * 100);
+		_occ_cnt = floor (_bldg_count * _occ_spawn_factor) min _occ_cnt_max;
+		diag_log [format ["_occ_cnt adaptive value: %1", _occ_cnt]];
 	} else {
 		_occ_cnt = d_occ_cnt;
 	};
+	
+	diag_log [format ["creating occupy groups _occ_cnt: %1", _occ_cnt]];
 	if (_occ_cnt > 0) then {
 		for "_xx" from 0 to (_occ_cnt - 1) do {
 			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [2, 3, 4],			//unit count
+				-1,
 				d_occ_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -617,15 +623,18 @@ if (d_occ_bldgs == 1) then {
 			_ovrw_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
-		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor);
+		private _ovrw_cnt_max = floor(_ovrw_spawn_factor * 100);
+		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor) min _ovrw_cnt_max;
+		diag_log [format ["_ovrw_cnt adaptive value: %1", _ovrw_cnt]];
 	} else {
 		_ovrw_cnt = d_ovrw_cnt;
 	};
+	diag_log [format ["creating overwatch groups _ovrw_cnt: %1", _ovrw_cnt]];
 	if (_ovrw_cnt > 0) then {
 		for "_xx" from 0 to (_ovrw_cnt - 1) do {
 			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [2, 3, 4],			//unit count
+				-1,
 				d_ovrw_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -659,15 +668,18 @@ if (d_occ_bldgs == 1) then {
 			_amb_spawn_factor = 0.85;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
-		_amb_cnt = floor (_bldg_count * _amb_spawn_factor);
+		private _amb_cnt_max = floor(_amb_spawn_factor * 100);
+		_amb_cnt = floor (_bldg_count * _amb_spawn_factor) min _amb_cnt_max;
+		diag_log [format ["_amb_cnt adaptive value: %1", _amb_cnt]];
 	} else {
 		_amb_cnt = d_amb_cnt;
 	};
+	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
 	if (_amb_cnt > 0) then {
 		for "_xx" from 0 to (_amb_cnt - 1) do {
 			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [3, 4],		//unit count
+				-1,
 				d_amb_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -701,10 +713,13 @@ if (d_occ_bldgs == 1) then {
 			_snp_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
-		_snp_cnt = floor (_bldg_count * _snp_spawn_factor);
+		private _snp_cnt_max = floor(_snp_spawn_factor * 100);
+		_snp_cnt = floor (_bldg_count * _snp_spawn_factor) min _snp_cnt_max;
+		diag_log [format ["_snp_cnt adaptive value: %1", _snp_cnt]];
 	} else {
 		_snp_cnt = d_snp_cnt;
 	};
+	diag_log [format ["creating sniper groups _snp_cnt: %1", _snp_cnt]];
 	if (_snp_cnt > 0) then {
 		//START create garrisoned groups of snipers
 		//prepare to create garrisoned groups of snipers - find and sort buildings

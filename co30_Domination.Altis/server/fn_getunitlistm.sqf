@@ -18,7 +18,7 @@ if (!d_with_ace) then {
 		_ret resize (selectRandom [6, 7]);
 	};
 } else {
-	if (count _ret > 5) then {
+	if (d_grp_size_override != 1 && {count _ret > 5}) then {
 		_ret resize (selectRandom [4, 5, 6]);
 	};
 };
