@@ -278,7 +278,7 @@
 > Default: 0 (No, disabled; 1 or Yes to enable civilians)<br/>
 #### **d_civ_unitcount / Civilian unit count (walking)**
 > Default: 10<br/>
-> Available options: 10, 15, 20, 25 and 30<br/>
+> Available options: 10, 15, 20, 25, 30, 40, 50, 75 and 100<br/>
 #### **d_civ_groupcount / Civilian group count per target**
 > Default: 2<br/>
 > Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
