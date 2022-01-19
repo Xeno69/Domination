@@ -285,7 +285,6 @@ for "_i" from 0 to _civ_grp_count do {
 
 	__TRACE("Placing a civilian cluster...")
 	[_grp] call _placeCivilianCluster;
-	diag_log [format ["_total_civs_count_created: %1", _total_civs_count_created]];
 };
 
 diag_log [format ["total static civs created: %1", _total_civs_count_created]];
