@@ -24,18 +24,17 @@ while {alive _unit} do {
 			_last_threatened_ts = time;
 			_unit setVariable ["civ_last_firednear_or_threatened", _last_threatened_ts];
 		};
-	} forEach (allPlayers select { _x distance2D _unit < 4 });
+	} forEach (allPlayers select { _x distance2D _unit < 6 });
 	private _elapsed_time_since_threatened = (time - _last_threatened_ts);
 	if (_elapsed_time_since_threatened > 10 && {_civ_is_walking}) then {
 		_unit forceSpeed -1;
 	};
 	if (_elapsed_time_since_threatened > 30 && {_elapsed_time_since_threatened <= 45}) then {
-		sleep random 3;
 		_unit setUnitPos "MIDDLE";
 	};
 	if (_elapsed_time_since_threatened > 45) then {
 		_unit setBehaviour "SAFE";
 		_unit setUnitPos "AUTO";
 	};
-	sleep 3;
+	sleep (1 max random 3);
 };

@@ -1207,9 +1207,9 @@ class Params {
 
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
-		values[] = {10,15,20,25,30};
+		values[] = {10,15,20,25,30,40,50,75,100};
 		default = 10;
-		texts[] = {"10","15","20","25","30"};
+		texts[] = {"10","15","20","25","30","40","50","75","100"};
 	};
 
 	class d_civ_groupcount {
@@ -1382,9 +1382,9 @@ class Params {
 	
 	class d_grp_size_override {
 		title = "$STR_DOM_MISSIONSTRING_1900GROUPSIZE";
-		values[] = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		default = -1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "$STR_DOM_MISSIONSTRING_400"};
 	};
 	
 	class d_camp_static_weapons {

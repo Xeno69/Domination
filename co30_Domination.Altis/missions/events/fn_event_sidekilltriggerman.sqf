@@ -22,7 +22,7 @@ private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_cent
 private _x_mt_event_ar = [];
 
 //find a suitable building
-_buildings_array_sorted_by_distance = [[_poss, 200, nil, 1] call d_fnc_getbuildings, _poss] call d_fnc_sortarraybydistance;
+_buildings_array_sorted_by_distance = [[_poss, 200] call d_fnc_getbldgswithpositions, _poss] call d_fnc_sortarraybydistance;
 private _unitsNotGarrisoned = [];
 private _bldg = nil;
 private _marker = nil;

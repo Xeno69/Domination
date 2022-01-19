@@ -18,7 +18,7 @@ params [
 	["_join_player", false]
 ];
 
-private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbuildings;
+private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbldgswithpositions;
 if (count _buildings < 1) exitWith {};
 
 private _eventDescription = localize "STR_DOM_MISSIONSTRING_CIV_RESISTANCE";

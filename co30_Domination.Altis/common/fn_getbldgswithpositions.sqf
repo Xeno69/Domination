@@ -7,6 +7,10 @@
 // parameters: radius
 params ["_pos", "_radius"];
 
+if (_radius isEqualType objNull) then {
+	_radius = -1;
+};
+
 private _buildingsArrayRaw = nearestObjects [_pos, ["Building", "House"], _radius, true];
 	
 if (_buildingsArrayRaw isEqualTo []) exitWith {

@@ -149,7 +149,7 @@ _spawn_script_enable_movement = {
 	};
 };
 
-_buildingsArrayFiltered = [_center, _buildingRadius, d_side_enemy] call d_fnc_getbuildings;
+_buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
 
 _buildingPosArray = [];
 0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;

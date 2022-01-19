@@ -12282,16 +12282,16 @@
 <French>Civilians - Activer les civils</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
-<English>Civilians - civilian unit count per group</English>
-<Spanish>Recuento de unidades civiles por grupo</Spanish>
-<Portuguese>Contagem de unidades civis por grupo</Portuguese>
-<Korean>시민 - 그룹당 시민 수</Korean>
-<Japanese>Civilians - civilian unit count per group</Japanese>
-<Original>Civilians - civilian unit count per group</Original>
-<Russian>Civilians - Количество гражданских групп</Russian>
-<Chinesesimp>平民 - 每组平民单位数</Chinesesimp>
-<Chinese>Civilians - 每組平民單位數</Chinese>
-<French>Civilians - nombre d'unités civiles par groupe</French>
+<English>Civilians - civilian unit count (walking)</English>
+<Spanish>Recuento de unidades civiles (para caminar)</Spanish>
+<Portuguese>Contagem de unidades civis (walking)</Portuguese>
+<Korean>시민 - 그룹당 시민 수 (walking)</Korean>
+<Japanese>Civilians - civilian unit count (walking)</Japanese>
+<Original>Civilians - civilian unit count (walking)</Original>
+<Russian>Civilians - Количество гражданских (walking)</Russian>
+<Chinesesimp>平民 - 每组平民单位数 (walking)</Chinesesimp>
+<Chinese>Civilians - 每組平民單位數 (walking)</Chinese>
+<French>Civilians - nombre d'unités civiles (walking)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
 <English>Disable enemy air</English>

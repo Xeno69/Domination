@@ -371,6 +371,10 @@ if (isNil "d_mt_tower") then {
 	d_mt_tower_pos = [];
 };
 
+if (isNil "d_object_spawn_civ_blacklist") then {
+	d_object_spawn_civ_blacklist = ["vn_dyke.p3d", "vn_dyke_10.p3d"];
+};
+
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
 };
