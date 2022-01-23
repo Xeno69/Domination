@@ -31,24 +31,18 @@ private _uavside = call {
 	sideUnknown
 };
 
-private _waitsecs = call {
-	if (d_rhs) exitWith {
-		120
-	};
-	60
-};
 private _lrl = _object getVariable ["d_last_reload", -1];
-if (_lrl != -1 && {(time - _lrl) < _waitsecs}) exitWith {
+if (_lrl != -1 && {(time - _lrl) < 120}) exitWith {
 	if (hasInterface) then {
 		if (!_isUav) then {
-			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
+			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_699", round (120 - (time - _lrl))];
 		} else {
 			private _dochat = true;
 			if (d_tt_ver && {d_player_side != _uavside}) then {
 				_dochat = false;
 			};
 			if (_dochat) then {
-				systemChat format [localize "STR_DOM_MISSIONSTRING_699", round (_waitsecs - (time - _lrl))];
+				systemChat format [localize "STR_DOM_MISSIONSTRING_699", round (120 - (time - _lrl))];
 			};
 		};
 	};
