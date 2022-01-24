@@ -31,6 +31,7 @@ d_x_mt_event_types = [
 	"CIV_RESISTANCE_INDEPENDENT",
 	"CIV_RESISTANCE_JOINPLAYER"
 ];
+if (d_WithLessArmor == 2 && {"GUERRILLA_TANKS" in d_x_mt_event_types}) then {d_x_mt_event_types = d_x_mt_event_types - ["GUERRILLA_TANKS"]};
 
 d_x_mt_event_ar = [];
 d_x_mt_event_pos = [];
