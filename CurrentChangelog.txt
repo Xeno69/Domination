@@ -1,5 +1,6 @@
 4.59
 
 - Added: Param "With auto revive if no player is nearby (less than 215m):" (description.ext d_with_autorevive, default 1, No, disabled)
+- Added: Headshot indicator and param to enable/disable it (d_show_headshots, default 0, disabled)
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Updated: Chinese translation by XenLau
