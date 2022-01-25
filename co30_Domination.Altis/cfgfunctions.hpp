@@ -212,6 +212,7 @@ class cfgFunctions {
 			addc(build_ranked_gear);
 			addc(makebarmhqwait);
 			addc(zeusmarkerworkaround);
+			addc(headshot_notify);
 		};
 		class Dom_UI {
 			file = "clientui";

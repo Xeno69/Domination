@@ -14733,6 +14733,54 @@
 <Chinese>With auto revive if no player is nearby (less than 215m):</Chinese>
 <French>With auto revive if no player is nearby (less than 215m):</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_SHOW_HEADSHOTS">
+<English>Show headshots</English>
+<Spanish>Show headshots</Spanish>
+<Portuguese>Show headshots</Portuguese>
+<Korean>Show headshots</Korean>
+<Japanese>Show headshots</Japanese>
+<Original>Show headshots</Original>
+<Russian>Show headshots</Russian>
+<Chinesesimp>Show headshots</Chinesesimp>
+<Chinese>Show headshots</Chinese>
+<French>Show headshots</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_ONLY">
+<English>Client only</English>
+<Spanish>Client only</Spanish>
+<Portuguese>Client only</Portuguese>
+<Korean>Client only</Korean>
+<Japanese>Client only</Japanese>
+<Original>Client only</Original>
+<Russian>Client only</Russian>
+<Chinesesimp>Client only</Chinesesimp>
+<Chinese>Client only</Chinese>
+<French>Client only</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_ALL">
+<English>Client and all players</English>
+<Spanish>Client and all players</Spanish>
+<Portuguese>Client and all players</Portuguese>
+<Korean>Client and all players</Korean>
+<Japanese>Client and all players</Japanese>
+<Original>Client and all players</Original>
+<Russian>Client and all players</Russian>
+<Chinesesimp>Client and all players</Chinesesimp>
+<Chinese>Client and all players</Chinese>
+<French>Client and all players</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEADSHOT">
+<English>Headshot by %1 %2 m</English>
+<Spanish>Headshot by %1 %2 m</Spanish>
+<Portuguese>Headshot by %1 %2 m</Portuguese>
+<Korean>Headshot by %1 %2 m</Korean>
+<Japanese>Headshot by %1 %2 m</Japanese>
+<Original>Headshot by %1 %2 m</Original>
+<Russian>Headshot by %1 %2 m</Russian>
+<Chinesesimp>Headshot by %1 %2 m</Chinesesimp>
+<Chinese>Headshot by %1 %2 m</Chinese>
+<French>Headshot by %1 %2 m</French>
+</Key>
 </Container>
 </Package>
 </Project>

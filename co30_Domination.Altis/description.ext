@@ -1191,6 +1191,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
+	class d_show_headshots {
+		title = "$STR_DOM_MISSIONSTRING_SHOW_HEADSHOTS";
+		values[] = {0,2};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_CLIENT_ALL"};
+	};
+	
 	class d_params_dl_8_civ {
 		title = "$STR_DOM_MISSIONSTRING_1574_CIV";
 		values[] = {-66};
