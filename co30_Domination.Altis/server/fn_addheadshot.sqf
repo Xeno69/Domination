@@ -22,7 +22,7 @@ if (d_show_headshots == 2) then {
 		d_kb_topic_side,
 		"MTHeadshot",
 		["1", "", name _pl, []],
-		["2", "", str _distance_fired, []],
+		["2", "", str(floor _distance_fired), []],
 		d_kbtel_chan
 	];
 };
