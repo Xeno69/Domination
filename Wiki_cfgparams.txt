@@ -274,6 +274,8 @@
 > Default: 1 (Yes, check for friendly units; 0 or No to disable it)<br/>
 #### **d_disable_player_cas / Disable player CAS**
 > Default: 0 (No, player cas enabled; 1 or Yes to disable it)<br/>
+#### **d_show_headshots / Show headshots**
+> Default: 0 (No; 1 client only; 2 client and side chat)<br/>
 #### **d_enable_civs / Enable civilians**
 > Default: 0 (No, disabled; 1 or Yes to enable civilians)<br/>
 #### **d_civ_unitcount / Civilian unit count (walking)**
