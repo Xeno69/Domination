@@ -311,12 +311,6 @@ d_delinfsm append _unitstog;
 #endif
 sleep 0.1;
 
-#ifndef __TT__
-if (d_enable_civs == 1) then {
-	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
-};
-#endif
-
 #ifdef __DEBUG__
 {
 	[str _x, getPos _x, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
@@ -795,6 +789,14 @@ if (d_occ_bldgs == 1) then {
 //garrison end
 
 [_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
+
+#ifndef __TT__
+if (d_enable_civs == 1) then {
+	// create civilian agents and spawn civilian modules
+	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
+};
+#endif
+
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
