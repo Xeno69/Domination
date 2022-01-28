@@ -103,7 +103,6 @@ if (!alive _player) exitWith {
 
 private _toldp = false;
 private _endtime = time + (((_vecdist / 1000) * 60) + 120);
-private _checkdist = if !(_vec isKindOf "VTOL_Base_F") then {1000} else {1500};
 __TRACE_2("","time","_endtime")
 private _doend = false;
 while {alive _unit && {alive _vec && {canMove _vec}}} do {
@@ -114,7 +113,7 @@ while {alive _unit && {alive _vec && {canMove _vec}}} do {
 		_doend = true;
 		__TRACE("End 1")
 	};
-	if (!_toldp && {_vec distance2D _helperh < _checkdist && {alive _player}}) then {
+	if (!_toldp && {_vec distance2D _helperh < 1000 && {alive _player}}) then {
 		6 remoteExecCall ["d_fnc_ataxiNet", _player];
 	        private _signal = if (sunOrMoon != 1) then {"NVG_TargetC"} else {"SmokeShellGreen"};
 		private _smoke = _signal createVehicle _nendpos;
@@ -125,7 +124,7 @@ while {alive _unit && {alive _vec && {canMove _vec}}} do {
 		_vec land "LAND";
 		__TRACE("End 2")
 	};
-	sleep 1.012;
+	sleep 2.012;
 };
 
 if (!alive _unit || {!alive _vec || {!canMove _vec || {_doend}}}) exitWith {

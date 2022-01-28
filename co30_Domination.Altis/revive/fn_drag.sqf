@@ -22,8 +22,6 @@ private _name_dragee = [_dragee] call d_fnc_gethpname;
 if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = name _dragee};
 
 xr_drag_keys_ar = [DIK_C] + (actionKeys "NetworkStats") + (actionKeys "Crouch") + (actionKeys "Stand");
-// for A3 2.08
-//xr_drag_keys_ar = [DIK_C] + (actionKeys ["NetworkStats", "Crouch", "Stand"]);
 xr_drag_keyDownEHId = (findDisplay 46) displayAddEventHandler ["KeyDown", {call xr_fnc_dragkeydown}];
 _dragee setVariable ["xr_dragged", true, true];
 player remoteExec ["xr_fnc_draghelper", _dragee];

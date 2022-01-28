@@ -52,7 +52,7 @@ private _make_jump = {
 	_driver_vec setSkill 1;
 
 	sleep 0.1;
-	private _landheli = (call d_fnc_PlayersNumber) < 20 && {random 100 > 49};
+	private _landheli = random 100 > 49;
 	
 	__TRACE_1("","_landheli")
 
