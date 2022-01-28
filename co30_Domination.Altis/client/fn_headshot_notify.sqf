@@ -6,4 +6,4 @@
 
 params ["_distance_fired"];
 private _t = format [localize "STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT", floor _distance_fired];
-"d_headshot_txt" cutText [format ["<t color='#ff0000' size='1'>%1</t>", _t], "PLAIN DOWN", 0.2, true, true];
+"d_headshot_txt" cutText [format ["<t color='#ff0000' size='2'>%1</t>", _t], "PLAIN DOWN", 0.3, true, true];
