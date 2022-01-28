@@ -14793,6 +14793,18 @@
 <Chinese>Headshot by %1 %2 m</Chinese>
 <French>Headshot by %1 %2 m</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT">
+<English>(+) %1 m</English>
+<Spanish>(+) %1 m</Spanish>
+<Portuguese>(+) %1 m</Portuguese>
+<Korean>(+) %1 m</Korean>
+<Japanese>(+) %1 m</Japanese>
+<Original>(+) %1 m</Original>
+<Russian>(+) %1 m</Russian>
+<Chinesesimp>(+) %1 m</Chinesesimp>
+<Chinese>(+) %1 m</Chinese>
+<French>(+) %1 m</French>
+</Key>
 </Container>
 </Package>
 </Project>

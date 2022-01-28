@@ -13,7 +13,7 @@ if (d_database_found) then {
 };
 
 if (d_show_headshots > 0) then {
-	//[_distance_fired] remoteExecCall ["d_fnc_headshot_notify", owner _pl]; // todo - show icon and distance client side and quickly fade
+	[_distance_fired] remoteExecCall ["d_fnc_headshot_notify", owner _pl];
 };
 
 if (d_show_headshots == 2) then {
