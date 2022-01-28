@@ -14757,6 +14757,18 @@
 <Chinese>Client only</Chinese>
 <French>Client only</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_GROUP">
+<English>Client and group</English>
+<Spanish>Client and group</Spanish>
+<Portuguese>Client and group</Portuguese>
+<Korean>Client and group</Korean>
+<Japanese>Client and group</Japanese>
+<Original>Client and group</Original>
+<Russian>Client and group</Russian>
+<Chinesesimp>Client and group</Chinesesimp>
+<Chinese>Client and group</Chinese>
+<French>Client and group</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_CLIENT_ALL">
 <English>Client and all players</English>
 <Spanish>Client and all players</Spanish>
