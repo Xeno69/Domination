@@ -171,7 +171,7 @@ d_civArray = [
 	];
 #endif
 
-private _civ_units_count_max = 100;
+private _civ_units_count_max = 100; // default (recalculated if adaptive settings are selected)
 
 private _buildings_unfiltered = [_trg_center, _radius] call d_fnc_getbldgswithpositions;
 
@@ -183,22 +183,34 @@ private _total_civs_count_created = 0;
 
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
-	if (count _buildings < 1 || {_total_civs_count_created > _civ_units_count_max}) exitWith {};
+	if (count _buildings < 1) exitWith {
+		diag_log ["unable to place civilian cluster, no buildings in array"];
+	};
+	if (_total_civs_count_created > _civ_units_count_max) exitWith {
+		diag_log [format ["unable to place civilian cluster, %1 civs created and the max is %2", _total_civs_count_created, _civ_units_count_max]];
+	};
 	_grp = _this # 0;
 	_bldg = selectRandom _buildings;
 	_buildings deleteAt (_buildings find _bldg);
-	if (typeOf _bldg == d_barracks_building || {typeOf _bldg == d_vehicle_building}) exitWith {
-		// oops, we randomly chose a vehicle or infantry HQ, do not place the civilian cluster just skip
+	// check if selected building is a mission objective
+	if ([_bldg] call d_fnc_ismissionobjective) exitWith {
+		diag_log ["unable to place civilian cluster, randomly chose a building that is a mission objective"];
 	};
+	// do not create the civ cluster if any buildings within a 33m radius are also mission objectives
+	{
+		if ([_x] call d_fnc_ismissionobjective) exitWith {
+			diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
+		};
+	} forEach ([_bldg, 33] call d_fnc_getbldgswithpositions);
 	_posArray = _bldg buildingPos -1;
 	_unit_count = 2 max floor(random (count _posArray));
 	if (count _posArray > 5 && {1 > random 13}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
+		diag_log ["randomly chose to spawn a large civilian group"];
 		_unit_count = count _posArray - 1;
 	};
 	for "_i" from 0 to _unit_count do {
 		if (_posArray isEqualTo []) exitWith {};
-		diag_log [_i];
 		_randomPos = selectRandom _posArray;
 		_posArray deleteAt (_posArray find _randomPos);
 		_civAgent = createAgent [selectRandom d_civArray, _randomPos, [], 0, "NONE"];

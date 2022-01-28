@@ -354,6 +354,7 @@ class cfgFunctions {
 			addc(tanoafix);
 			addc(getbldgswithpositions);
 			addc(getunitbyuid);
+			addc(ismissionobjective);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
