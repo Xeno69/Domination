@@ -12,11 +12,22 @@ if (d_database_found) then {
 	};
 };
 
-if (d_show_headshots in [1,2]) then {
-	//remoteExecCall ["d_fnc_headshot_notify", owner _pl]; // todo - show icon and distance client side and quickly fade
+if (d_show_headshots > 0) then {
+	[_distance_fired] remoteExecCall ["d_fnc_headshot_notify", owner _pl];
 };
 
 if (d_show_headshots == 2) then {
+	d_kb_logic1 kbTell [
+		d_kb_logic2,
+		d_kb_topic_side,
+		"MTHeadshot",
+		["1", "", name _pl, []],
+		["2", "", str(floor _distance_fired), []],
+		"GROUP"
+	];
+};
+
+if (d_show_headshots == 3) then {
 	d_kb_logic1 kbTell [
 		d_kb_logic2,
 		d_kb_topic_side,

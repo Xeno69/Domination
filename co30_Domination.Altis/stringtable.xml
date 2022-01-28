@@ -14757,17 +14757,29 @@
 <Chinese>Client only</Chinese>
 <French>Client only</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_GROUP">
+<English>Client and group</English>
+<Spanish>Client and group</Spanish>
+<Portuguese>Client and group</Portuguese>
+<Korean>Client and group</Korean>
+<Japanese>Client and group</Japanese>
+<Original>Client and group</Original>
+<Russian>Client and group</Russian>
+<Chinesesimp>Client and group</Chinesesimp>
+<Chinese>Client and group</Chinese>
+<French>Client and group</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_CLIENT_ALL">
-<English>Client and all players</English>
-<Spanish>Client and all players</Spanish>
-<Portuguese>Client and all players</Portuguese>
-<Korean>Client and all players</Korean>
-<Japanese>Client and all players</Japanese>
-<Original>Client and all players</Original>
-<Russian>Client and all players</Russian>
-<Chinesesimp>Client and all players</Chinesesimp>
-<Chinese>Client and all players</Chinese>
-<French>Client and all players</French>
+<English>Client and allies</English>
+<Spanish>Client and allies</Spanish>
+<Portuguese>Client and allies</Portuguese>
+<Korean>Client and allies</Korean>
+<Japanese>Client and allies</Japanese>
+<Original>Client and allies</Original>
+<Russian>Client and allies</Russian>
+<Chinesesimp>Client and allies</Chinesesimp>
+<Chinese>Client and allies</Chinese>
+<French>Client and allies</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_HEADSHOT">
 <English>Headshot by %1 %2 m</English>
@@ -14780,6 +14792,18 @@
 <Chinesesimp>Headshot by %1 %2 m</Chinesesimp>
 <Chinese>Headshot by %1 %2 m</Chinese>
 <French>Headshot by %1 %2 m</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT">
+<English>(+) %1 m</English>
+<Spanish>(+) %1 m</Spanish>
+<Portuguese>(+) %1 m</Portuguese>
+<Korean>(+) %1 m</Korean>
+<Japanese>(+) %1 m</Japanese>
+<Original>(+) %1 m</Original>
+<Russian>(+) %1 m</Russian>
+<Chinesesimp>(+) %1 m</Chinesesimp>
+<Chinese>(+) %1 m</Chinese>
+<French>(+) %1 m</French>
 </Key>
 </Container>
 </Package>
