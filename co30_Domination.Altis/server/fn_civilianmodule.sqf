@@ -47,8 +47,9 @@ private _placeCivilianCluster = {
 	_grp = _this # 0;
 	_bldg = selectRandom _buildings;
 	_buildings deleteAt (_buildings find _bldg);
-	if (typeOf _bldg == d_barracks_building || {typeOf _bldg == d_vehicle_building}) exitWith {
-		// oops, we randomly chose a vehicle or infantry HQ, do not place the civilian cluster just skip
+	// check if selected building is a mission objective
+	if ([_bldg] call d_fnc_ismissionobjective) exitWith {
+		diag_log ["unable to place civilian cluster, randomly chose a building that is a mission objective"];
 	};
 	// do not create the civ cluster if any buildings within a 75m radius are also mission objectives
 	private _mustExit = false;
@@ -64,11 +65,11 @@ private _placeCivilianCluster = {
 	_unit_count = 2 max floor(random (count _posArray));
 	if (count _posArray > 5 && {1 > random 13}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
+		diag_log ["randomly chose to spawn a large civilian group"];
 		_unit_count = count _posArray - 1;
 	};
 	for "_i" from 0 to _unit_count do {
 		if (_posArray isEqualTo []) exitWith {};
-		diag_log [_i];
 		_randomPos = selectRandom _posArray;
 		_posArray deleteAt (_posArray find _randomPos);
 		_civAgent = createAgent [selectRandomWeighted d_civArray, _randomPos, [], 0, "NONE"];
