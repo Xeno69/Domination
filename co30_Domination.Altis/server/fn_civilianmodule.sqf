@@ -25,152 +25,6 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 	d_cur_tgt_civ_modules_presence = [];
 };
 
-d_civArray = [
-	"C_man_1",
-	"C_man_polo_1_F",
-	"C_man_polo_2_F",
-	"C_man_polo_3_F",
-	"C_man_polo_4_F",
-	"C_man_polo_5_F",
-	"C_man_polo_6_F",
-	"C_man_p_fugitive_F",
-	"C_Man_casual_1_F",
-	"C_Man_casual_2_F",
-	"C_Man_casual_3_F",
-	"C_Man_casual_4_F",
-	"C_Man_casual_5_F",
-	"C_Man_casual_6_F",
-	"C_Story_Mechanic_01_F"
-];
-
-#ifdef __CUP_CHERNARUS__
-	d_civArray = [
-		"CUP_C_C_Citizen_01",
-		"CUP_C_C_Citizen_02",
-		"CUP_C_C_Citizen_03",
-		"CUP_C_C_Citizen_04",
-		"CUP_C_C_Worker_01",
-		"CUP_C_C_Worker_02",
-		"CUP_C_C_Worker_03",
-		"CUP_C_C_Worker_04",
-		"CUP_C_C_Profiteer_01",
-		"CUP_C_C_Profiteer_01",
-		"CUP_C_C_Profiteer_02",
-		"CUP_C_C_Profiteer_03",
-		"CUP_C_C_Profiteer_04",
-		"CUP_C_C_Woodlander_01",
-		"CUP_C_C_Woodlander_02",
-		"CUP_C_C_Woodlander_03",
-		"CUP_C_C_Woodlander_04",
-		"CUP_C_C_Villager_01",
-		"CUP_C_C_Villager_02",
-		"CUP_C_C_Villager_03",	
-		"CUP_C_C_Villager_04",
-		"CUP_C_C_Priest_01"
-	];
-#endif
-#ifdef __CUP_TAKISTAN__
-	d_civArray = [
-		"CUP_C_TK_Man_05_Waist",
-		"CUP_C_TK_Man_06_Waist",
-		"CUP_C_TK_Man_01_Coat",
-		"CUP_C_TK_Man_08_Waist",
-		"CUP_C_TK_Man_03_Coat",
-		"CUP_C_TK_Man_01_Jack",
-		"CUP_C_TK_Man_06_Jack",
-		"CUP_C_TK_Man_03_Jack",
-		"CUP_C_TK_Man_03_Jack"
-	];
-#endif
-#ifdef __CUP_ZARGABAD__
-	d_civArray = [
-		"CUP_C_TK_Man_05_Waist",
-		"CUP_C_TK_Man_06_Waist",
-		"CUP_C_TK_Man_01_Coat",
-		"CUP_C_TK_Man_08_Waist",
-		"CUP_C_TK_Man_03_Coat",
-		"CUP_C_TK_Man_01_Jack",
-		"CUP_C_TK_Man_06_Jack",
-		"CUP_C_TK_Man_03_Jack",
-		"CUP_C_TK_Man_03_Jack"
-	];
-#endif
-#ifdef __TANOA__
-	d_civArray = [
-		"C_Man_casual_1_F_tanoan",
-		"C_Man_casual_2_F_tanoan",
-		"C_Man_casual_3_F_tanoan",
-		"C_Man_casual_4_F_tanoan",
-		"C_Man_casual_5_F_tanoan",
-		"C_Man_casual_6_F_tanoan"
-	];
-#endif
-#ifdef __LIVONIA__
-	d_civArray = [
-		"C_Man_1_enoch_F",
-		"C_Man_2_enoch_F",
-		"C_Man_3_enoch_F",
-		"C_Man_4_enoch_F",
-		"C_Man_5_enoch_F",
-		"C_Man_6_enoch_F",
-		"C_Farmer_01_enoch_F"
-	];
-#endif
-#ifdef __VN__
-	d_civArray = [
-		"vn_c_men_01",
-		"vn_c_men_02",
-		"vn_c_men_03",
-		"vn_c_men_04",
-		"vn_c_men_05",
-		"vn_c_men_06",
-		"vn_c_men_07",
-		"vn_c_men_08",
-		"vn_c_men_09",
-		"vn_c_men_10",
-		"vn_c_men_11",
-		"vn_c_men_12",
-		"vn_c_men_13",
-		"vn_c_men_14",
-		"vn_c_men_15",
-		"vn_c_men_16",
-		"vn_c_men_17",
-		"vn_c_men_18",
-		"vn_c_men_19",
-		"vn_c_men_20",
-		"vn_c_men_21",
-		"vn_c_men_22",
-		"vn_c_men_23",
-		"vn_c_men_24",
-		"vn_c_men_25",
-		"vn_c_men_26",
-		"vn_c_men_27",
-		"vn_c_men_28",
-		"vn_c_men_29",
-		"vn_c_men_30",
-		"vn_c_men_31",
-		"vn_c_men_32"
-	];
-#endif
-#ifdef __WS__
-	d_civArray = [
-		"C_Djella_01_lxWS",
-		"C_Djella_02_lxWS",
-		"C_Djella_03_lxWS",
-		"C_Djella_04_lxWS",
-		"C_Djella_05_lxWS",
-		"C_Tak_01_A_lxWS",
-		"C_Tak_01_B_lxWS",
-		"C_Tak_01_C_lxWS",
-		"C_Tak_02_A_lxWS",
-		"C_Tak_02_B_lxWS",
-		"C_Tak_02_C_lxWS",
-		"C_Tak_03_A_lxWS",
-		"C_Tak_03_B_lxWS",
-		"C_Tak_03_C_lxWS"
-	];
-#endif
-
 private _civ_units_count_max = 100; // default (recalculated if adaptive settings are selected)
 
 private _buildings_unfiltered = [_trg_center, _radius] call d_fnc_getbldgswithpositions;
@@ -183,6 +37,7 @@ private _total_civs_count_created = 0;
 
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
+	diag_log ["attempting to place a civilian cluster..."];
 	if (count _buildings < 1) exitWith {
 		diag_log ["unable to place civilian cluster, no buildings in array"];
 	};
@@ -196,12 +51,16 @@ private _placeCivilianCluster = {
 	if ([_bldg] call d_fnc_ismissionobjective) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is a mission objective"];
 	};
-	// do not create the civ cluster if any buildings within a 33m radius are also mission objectives
+	// do not create the civ cluster if any buildings within a 75m radius are also mission objectives
+	private _mustExit = false;
 	{
 		if ([_x] call d_fnc_ismissionobjective) exitWith {
-			diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
+			_mustExit = true;
 		};
-	} forEach ([_bldg, 33] call d_fnc_getbldgswithpositions);
+	} forEach ([_bldg, 975] call d_fnc_getbldgswithpositions);
+	if (_mustExit == true) exitWith {
+		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
+	};
 	_posArray = _bldg buildingPos -1;
 	_unit_count = 2 max floor(random (count _posArray));
 	if (count _posArray > 5 && {1 > random 13}) then {
@@ -213,7 +72,7 @@ private _placeCivilianCluster = {
 		if (_posArray isEqualTo []) exitWith {};
 		_randomPos = selectRandom _posArray;
 		_posArray deleteAt (_posArray find _randomPos);
-		_civAgent = createAgent [selectRandom d_civArray, _randomPos, [], 0, "NONE"];
+		_civAgent = createAgent [selectRandomWeighted d_civArray, _randomPos, [], 0, "NONE"];
 		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {
@@ -247,6 +106,7 @@ private _placeCivilianCluster = {
 		}];
 		[_civAgent, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civAgent];
 	};
+	diag_log ["civilian cluster successfully created"];
 };
 
 #ifdef __DEBUG__
@@ -360,5 +220,5 @@ _m setVariable ["#onCreated", {
 	}];
 	[_this] spawn d_fnc_afterfirednear;
 	[_this, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _this];
-	_this setUnitLoadout selectRandom d_civArray;
+	_this setUnitLoadout selectRandomWeighted d_civArray;
 }];
