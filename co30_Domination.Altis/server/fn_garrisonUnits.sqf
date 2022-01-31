@@ -76,7 +76,9 @@ _unitsNotGarrisoned = [
 sleep 0.01;
 __TRACE_1("","_unitsNotGarrisoned")
 _units_to_garrison = _units_to_garrison - _unitsNotGarrisoned;
-diag_log [format ["units not garrisoned and will be deleted: %1", _unitsNotGarrisoned joinString "/"]];
+if !(_unitsNotGarrisoned isEqualTo []) then {
+	diag_log [format ["units not garrisoned and will be deleted: %1", _unitsNotGarrisoned joinString "/"]];
+};
 {deleteVehicle _x} forEach _unitsNotGarrisoned;
 if (_units_to_garrison isEqualTo []) exitWith {
 	deleteGroup _newgroup;

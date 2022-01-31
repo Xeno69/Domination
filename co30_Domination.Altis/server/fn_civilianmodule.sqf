@@ -57,7 +57,7 @@ private _placeCivilianCluster = {
 		if ([_x] call d_fnc_ismissionobjective) exitWith {
 			_mustExit = true;
 		};
-	} forEach ([_bldg, 975] call d_fnc_getbldgswithpositions);
+	} forEach ([_bldg, 75] call d_fnc_getbldgswithpositions);
 	if (_mustExit == true) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
