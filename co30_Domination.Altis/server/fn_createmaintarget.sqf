@@ -510,7 +510,7 @@ if (d_enable_civ_vehs > 0) then {
 	
 	private _max_car_count = floor(d_enable_civ_vehs * 2.25); // sanity check, avoid spawning too many cars
 	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100) min _max_car_count;
-	diag_log [format ["creating %1 cars (calculated allowable is %2)"], _carSpawns, _max_car_count];
+	diag_log [format ["creating %1 cars (calculated allowable is %2)", _carSpawns, _max_car_count]];
 	
 	for "_i" from 1 to _carSpawns do {
 		_currentRoad = _roadList # _i;
