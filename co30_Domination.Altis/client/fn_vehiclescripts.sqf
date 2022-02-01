@@ -141,7 +141,7 @@ if (_vec isKindOf "Air") then {
 				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_2091",
 				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
 				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
-				/* 4 condition to show */			"alive _target && {alive _this && {!canMove _target || {damage _target >0.6}}}",
+				/* 4 condition to show */			"alive _target && {alive _this && {!canMove _target || {damage _target >0.6}}}", // TODO -> Check hitparts getHitPointDamage
 				/* 5 condition for action */		"true",
 				/* 6 code executed on start */		{},
 				/* 7 code executed per tick */		{},
