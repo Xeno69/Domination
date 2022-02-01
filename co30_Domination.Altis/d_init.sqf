@@ -330,6 +330,9 @@ if (isNil "d_cur_target_radius") then {
 if (isNil "d_mttarget_radius_patrol") then {
 	d_mttarget_radius_patrol = -1;
 };
+if (isNil "d_cur_tgt_building_positions_occupied") then {
+	d_cur_tgt_building_positions_occupied = [];
+};
 #ifndef __TT__
 if (isNil "d_heli_taxi_available") then {
 	d_heli_taxi_available = true;
@@ -372,7 +375,22 @@ if (isNil "d_mt_tower") then {
 };
 
 if (isNil "d_object_spawn_civ_blacklist") then {
-	d_object_spawn_civ_blacklist = ["vn_dyke.p3d", "vn_dyke_10.p3d"];
+	d_object_spawn_civ_blacklist = [
+		"vn_dyke.p3d",
+		"vn_dyke_10.p3d",
+		"u_addon_01_v1_f.p3d",
+		"u_addon_02_v1_f.p3d",
+		"u_addon_03_v1_f.p3d",
+		"i_addon_02_v1_f.p3d",
+		"i_addon_03_v1_f.p3d",
+		"i_addon_03mid_v1_f.p3d",
+		"i_addon_04_v1_f.p3d",
+		"stone_shed_v1_ruins_f.p3d",
+		"unfinished_building_01_f.p3d",
+		"i_garage_v1_f.p3d",
+		"i_garage_v2_f.p3d",
+		"cargo_house_slum_f.p3d"
+	];
 };
 
 if (hasInterface) then {

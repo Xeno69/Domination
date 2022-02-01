@@ -268,6 +268,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 												params ["_unit", "_firer"];
 												scriptName "spawn_zoh_firednear1ambush";
 												
+												// enable movement if firedNear by enemy
 												if (d_side_enemy getFriend side (group _firer) < 0.6 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}) then {
 													_unit enableAI "TARGET";
 													_unit enableAI "AUTOTARGET";
@@ -275,6 +276,21 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 													_unit forceSpeed -1;
 													_unit removeEventHandler ["FiredNear", _thisEventHandler];
 												};
+												
+												// enable movement if hit
+												if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
+													_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
+													__TRACE_1("hit 1","_this")
+														params ["_unit", "_source", "_damage", "_instigator"];
+														scriptName "spawn_zoh_hiteh";
+														_unit enableAI "TARGET";
+														_unit enableAI "AUTOTARGET";
+														_unit enableAI "MOVE";
+														_unit forceSpeed -1;
+														_unit removeEventHandler ["Hit", _thisEventHandler];
+													}]];
+												};
+												
 											}]];
 										};
 										//enable priority movement
@@ -344,6 +360,20 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 													_unit forceSpeed -1;
 													_unit removeEventHandler ["FiredNear", _thisEventHandler];
 												};
+											}]];
+										};
+										
+										// enable movement if hit
+										if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
+											_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
+											__TRACE_1("hit 1","_this")
+												params ["_unit", "_source", "_damage", "_instigator"];
+												scriptName "spawn_zoh_hiteh";
+												_unit enableAI "TARGET";
+												_unit enableAI "AUTOTARGET";
+												_unit enableAI "MOVE";
+												_unit forceSpeed -1;
+												_unit removeEventHandler ["Hit", _thisEventHandler];
 											}]];
 										};
 									};

@@ -243,6 +243,9 @@ if (d_enable_civs == 1) then {
 };
 #endif
 
+d_cur_tgt_building_positions_occupied = [];
+publicVariable "d_cur_tgt_building_positions_occupied";
+
 sleep 0.245;
 
 {deleteVehicle _x} forEach d_mt_fires;
