@@ -135,6 +135,27 @@ if (_vec isKindOf "Air") then {
 				/* 14 show unconscious */			false
 			] call bis_fnc_holdActionAdd
 		];
+		
+		_vec setVariable ["d_vec_para_action_move", [
+				/* 0 object */						_vec,
+				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_2091",
+				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_takeOff2_ca.paa",
+				/* 4 condition to show */			"alive _target && {alive _this && {!canMove _target || {damage _target >0.6}}}",
+				/* 5 condition for action */		"true",
+				/* 6 code executed on start */		{},
+				/* 7 code executed per tick */		{},
+				/* 8 code executed on completion */	{
+					_target call d_fnc_pjump2;
+				},
+				/* 9 code executed on interruption */	{},
+				/* 10 arguments */					[],
+				/* 11 action duration */			1,
+				/* 12 priority */					10,
+				/* 13 remove on completion */		false,
+				/* 14 show unconscious */			false
+			] call bis_fnc_holdActionAdd
+		];
 	};
 } else {
 	if ((_vec isKindOf "LandVehicle" && {!(_vec isKindOf "StaticWeapon")}) || {_vec isKindOf "StaticWeapon" && {!(_vec isKindOf "StaticATWeapon")}}) then {

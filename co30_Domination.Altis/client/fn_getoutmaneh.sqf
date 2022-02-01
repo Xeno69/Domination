@@ -34,6 +34,11 @@ if (alive (_this # 2)) then {
 			[(_this # 2), _aidx] call bis_fnc_holdActionRemove;
 			(_this # 2) setVariable ["d_rappel_detach_action", nil];
 		};
+		_aidx = (_this # 2) getVariable "d_vec_para_action_move";
+		if (!isNil "_aidx") then {
+			[(_this # 2), _aidx] call bis_fnc_holdActionRemove;
+			(_this # 2) setVariable ["d_vec_para_action_move", nil];
+		};
 	};
 };
 

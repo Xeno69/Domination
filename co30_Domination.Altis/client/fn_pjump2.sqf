@@ -2,17 +2,11 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-params ["_startLocation"];
+params ["_vec"];
 
-if (d_HALOWaitTime > 0) then {d_next_jump_time = time + d_HALOWaitTime};
+player action ["getOut", _vec];
 
-titleText ["", "Plain"];
-
-player setPos _startLocation;
-
-sleep 3;
-
-if (d_with_ai && {d_player_canu}) then {[getPosATL player, velocity player, getDirVisual player] spawn d_fnc_moveai};
+//if (d_with_ai && {d_player_canu}) then {[getPosATL player, velocity player, getDirVisual player] spawn d_fnc_moveai};
 
 d_jump_action_id = player addAction [localize "str_a3_rscgrouprootmenu_items_openparachute0", {
 	private _chuten = call {

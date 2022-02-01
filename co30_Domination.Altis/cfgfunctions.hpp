@@ -89,6 +89,7 @@ class cfgFunctions {
 			addc(unload_static);
 			addc(paraj);
 			addc(pjump);
+			addc(pjump2);
 			addc(getoutehpoints);
 			addc(satellitedo);
 			addc(unflipVehicle);

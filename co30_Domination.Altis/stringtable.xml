@@ -14805,6 +14805,18 @@
 <Chinese>(+) %1 m</Chinese>
 <French>(+) %1 m</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2091">
+<English>Emergency exit!</English>
+<Spanish>Emergency exit!</Spanish>
+<Portuguese>Emergency exit!</Portuguese>
+<Korean>Emergency exit!</Korean>
+<Japanese>Emergency exit!</Japanese>
+<Original>Emergency exit!</Original>
+<Russian>Emergency exit!</Russian>
+<Chinesesimp>Emergency exit!</Chinesesimp>
+<Chinese>Emergency exit!</Chinese>
+<French>Emergency exit!</French>
+</Key>
 </Container>
 </Package>
 </Project>
