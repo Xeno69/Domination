@@ -4,6 +4,7 @@
 - Added: Headshot indicator and param to enable/disable it (d_show_headshots, default 0, disabled)
 - Added: More civilian unit types, by longtimegamer
 - Added: Emergency exit action menu entry for air vehicles in non ACE versions. Pops up if the air vehicle you are in can't move anymore or has damage
+- Added: New param d_targetselect_time (Target selection time in server lobby, default 30 seconds) where you can set the target selection time
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
 - Updated: Chinese translation by XenLau

@@ -14817,6 +14817,18 @@
 <Chinese>Emergency exit!</Chinese>
 <French>Emergency exit!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2092">
+<English>Target selection time:</English>
+<Spanish>Target selection time:</Spanish>
+<Portuguese>Target selection time:</Portuguese>
+<Korean>Target selection time:</Korean>
+<Japanese>Target selection time:</Japanese>
+<Original>Target selection time:</Original>
+<Russian>Target selection time:</Russian>
+<Chinesesimp>Target selection time:</Chinesesimp>
+<Chinese>Target selection time:</Chinese>
+<French>Target selection time:</French>
+</Key>
 </Container>
 </Package>
 </Project>

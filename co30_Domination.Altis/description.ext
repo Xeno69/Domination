@@ -458,6 +458,13 @@ class Params {
 		default = 4;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363", "4","8","12","$STR_DOM_MISSIONSTRING_2022"};
 	};
+	
+	class d_targetselect_time {
+		title = "$STR_DOM_MISSIONSTRING_2092";
+		values[] = {30,45,60,120,240,300};
+		default = 30;
+		texts[] = {"30","45","60","120","240",300};
+	};
 
 	class d_MissionType {
 		title = "$STR_DOM_MISSIONSTRING_1052";
