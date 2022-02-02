@@ -8,4 +8,5 @@
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
 - Fixed: bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
+- Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
 - Updated: Chinese translation by XenLau
