@@ -61,7 +61,7 @@ private _placeCivilianCluster = {
 	if (_mustExit == true) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
-	_posArray = _bldg buildingPos -1;
+	_posArray = (_bldg buildingPos -1) - d_cur_tgt_building_positions_occupied; // remove positions already used
 	_unit_count = 2 max floor(random (count _posArray));
 	if (count _posArray > 5 && {1 > random 13}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
@@ -71,8 +71,10 @@ private _placeCivilianCluster = {
 	for "_i" from 0 to _unit_count do {
 		if (_posArray isEqualTo []) exitWith {};
 		_randomPos = selectRandom _posArray;
+		d_cur_tgt_building_positions_occupied pushBack _posArray;
 		_posArray deleteAt (_posArray find _randomPos);
-		_civAgent = createAgent [selectRandomWeighted d_civArray, _randomPos, [], 0, "NONE"];
+		_randomPosTerrain = [_randomPos # 0, _randomPos # 1, (_randomPos # 2) + (getTerrainHeightASL _randomPos)];
+		_civAgent = createAgent [selectRandomWeighted d_civArray, _randomPosTerrain, [], 0, "NONE"];
 		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {

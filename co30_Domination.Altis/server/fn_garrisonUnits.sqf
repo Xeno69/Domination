@@ -71,7 +71,7 @@ _unitsNotGarrisoned = [
 	_fillTopDown,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 	_disableTeleport,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 	_unitMovementMode,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
-	true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
+	false //true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
 ] call d_fnc_Zen_OccupyHouse;
 sleep 0.01;
 __TRACE_1("","_unitsNotGarrisoned")
