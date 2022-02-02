@@ -21,6 +21,10 @@
 #### **d_with_targetselect_count / Players can select from available targets:**
 > Default: 4<br/>
 > Number of main targets players can select next target, Entire map/9999 for all targets, Off/0 to turn off targetselect<br/>
+#### **d_targetselect_time / Target selection time:**
+> Default: 30<br/>
+> Let's you select the time players have for target selection<br/>
+> Available options: 30, 45, 60, 120, 240, 300<br/>
 #### **d_MissionType / Mission Type:**
 > Default: 0<br/>
 > Available options:<br/>
