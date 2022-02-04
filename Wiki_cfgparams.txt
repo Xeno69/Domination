@@ -199,7 +199,7 @@
 #### **d_only_medics_canrevive / Only medics can revive:**
 > Default: 1 (disabled)<br/>
 #### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
-> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+> Default: 1 (Yes, enabled; 0 or No to disable it)<br/>
 > If disabled the mission uses it's own revive instead of the ACE one<br/>
 #### **xr_max_lives / Max lives (revive):**
 > Default: 30<br/>
