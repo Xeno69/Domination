@@ -264,6 +264,7 @@ if (d_with_ranked || {d_database_found}) then {
 		player addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 	} else {
 		["ace_treatmentSucceded", {call d_fnc_handleheal}] call CBA_fnc_addEventHandler;
+		["ace_unconscious", {call d_fnc_handleunconscious}] call CBA_fnc_addEventHandler;
 	};
 
 	inGameUISetEventHandler ["Action", "_this call d_fnc_healatmash; false"];
