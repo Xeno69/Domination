@@ -5,12 +5,12 @@ class D_AirTaxiDialog {
 	onUnLoad = "uiNamespace setVariable ['D_AirTaxiDialog', nil];d_airdtaxi_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_535)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_535);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class CallCasButton: RscButton {
 			idc = 11004;
 			style = 0;

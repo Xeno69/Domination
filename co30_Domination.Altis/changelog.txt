@@ -10,4 +10,6 @@
 - Fixed: bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
 - Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
 - Fixed: Some scores weren't added to player scores (like scores for destroying barracks, etc)
+- Fixed: make_dom.bat didn't delete some files
+- Fixed: make_dom.bat now needs the newest makePBO version
 - Updated: Chinese translation by XenLau

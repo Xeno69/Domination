@@ -5,12 +5,12 @@ class D_VecDialog {
 	onUnLoad = "uiNamespace setVariable ['D_VecDialog', nil];d_vec_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1322)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1322);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class VecPicture: D_RscPicture {
 			idc = 44444;
 			x=0.36; y=0.11; w=0.15; h=0.1;

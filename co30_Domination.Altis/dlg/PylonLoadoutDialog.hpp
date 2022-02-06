@@ -5,9 +5,9 @@ class D_PylonLoadoutDialog {
 	onUnLoad = "uiNamespace setVariable ['D_PylonLoadoutDialog', nil]; d_pylondialog_ctrls = nil;d_pylonloadout_dialog_open = false; if (unitIsUAV d_pylon_vec) then {d_pylon_vec setVariable ['d_pylon_blocked', nil, true]}";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1857)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1857);
 		class AircraftPicture: D_RscPicture {
 			idc = 1000;
 			x = 0.15;
@@ -20,7 +20,7 @@ class D_PylonLoadoutDialog {
 		};
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class PresetCaption: RscText {
 			x = 0.05; y = 0.035;
 			w = 0.2; h = 0.1;

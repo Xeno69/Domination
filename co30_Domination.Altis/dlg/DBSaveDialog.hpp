@@ -5,12 +5,12 @@ class D_DBSaveDialog {
 	onUnLoad = "uiNamespace setVariable ['D_DBSaveDialog', nil];d_dbsave_dialog_open = false; d_dbsave_dialog_open = nil";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1746)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1746);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class SaveNameCaption: RscText {
 			x = 0.08; y = 0.08;
 			w = 0.7; h = 0.1;

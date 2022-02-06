@@ -5,9 +5,9 @@ class D_StatusDialog {
 	onUnLoad = "uiNamespace setVariable ['D_StatusDialog', nil];d_showstatus_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BGN($STR_DOM_MISSIONSTRING_1318)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BGN($STR_DOM_MISSIONSTRING_1318);
 	};
 	class controls {
 		class TeamStatusButton: RscButton {
@@ -39,7 +39,7 @@ class D_StatusDialog {
 			action = "closeDialog 0;createDialog 'D_DBTop10Dialog'";
 			y = "0.745 * safezoneH + safezoneY";
 		};
-		__CANCELCLOSEB3(-1)
+		__CANCELCLOSEB3(-1);
 		// top left title
 		class ShowSideButton: RscLinkButtonBase {
 			idc = 123126;
