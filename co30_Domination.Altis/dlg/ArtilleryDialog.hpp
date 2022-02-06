@@ -5,9 +5,9 @@ class D_ArtilleryDialog2 {
 	onUnLoad = "uiNamespace setVariable ['D_ArtilleryDialog2', nil];d_arti_dialog_open = false;d_cur_art_marker_ar = nil";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1242)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1242);
 	};
 	class controls {
 		class Targets: RscListBox {
@@ -73,6 +73,6 @@ class D_ArtilleryDialog2 {
 			x = 0.73;
 			text = "";
 		};
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 	};
 };

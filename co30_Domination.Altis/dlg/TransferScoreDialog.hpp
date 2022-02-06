@@ -5,12 +5,12 @@ class d_TransferScoreDialog {
 	onUnLoad = "uiNamespace setVariable ['d_TransferScoreDialog', nil];d_transferscore_dialog_open = false;";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1872)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1872);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class SelectPlayerComboCaption: RscText {
 			x = 0.08; y = 0.08;
 			w = 0.2; h = 0.1;

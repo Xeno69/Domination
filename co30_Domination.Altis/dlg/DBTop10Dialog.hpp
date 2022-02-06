@@ -5,10 +5,10 @@ class D_DBTop10Dialog {
 	onUnLoad = "uiNamespace setVariable ['D_DBTop10Dialog', nil];d_dbtop10_dialog_open = false; d_dbtop10_dialog_open = nil";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		__DDIALOG_BG2($STR_DOM_MISSIONSTRING_1756)
+		__DDIALOG_BG2($STR_DOM_MISSIONSTRING_1756);
 	};
 	class controls {
-		__CANCELCLOSEB2(-1)
+		__CANCELCLOSEB2(-1);
 		
 		class Top10LNListbox: RscListNBox {
 			idc = 100;

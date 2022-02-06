@@ -5,9 +5,9 @@ class D_UnloadDialog {
 	onUnLoad="uiNamespace setVariable ['D_UnloadDialog', nil];d_unload_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1319)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1319);
 	};
 	class controls {
 		class SelectButton: RscButton {
@@ -19,7 +19,7 @@ class D_UnloadDialog {
 			y = 0.80;
 			w = 0.3;
 		};
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class Unloadlistbox: RscListBox {
 			idc = 101115;
 			x = 0.3;
