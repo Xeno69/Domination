@@ -375,7 +375,7 @@ sleep 0.233;
 
 // create guard_static groups (and a camp if allmen/specops)
 {
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
+	if (d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}) then {
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
@@ -421,7 +421,7 @@ sleep 0.233;
 // create patrol groups
 {
 	__TRACE_1("patrol","_x")
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1 || d_grp_cnt_footpatrol > 0) then {
+	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
 		if (d_grp_cnt_footpatrol == 0) exitWith {};
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		private _group_count = (_x # 2);

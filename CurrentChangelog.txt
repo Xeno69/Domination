@@ -5,6 +5,8 @@
 - Added: More civilian unit types, by longtimegamer
 - Added: Emergency exit action menu entry for air vehicles in non ACE versions. Pops up if the air vehicle you are in can't move anymore or has damage
 - Added: New param d_targetselect_time (Target selection time in server lobby, default 30 seconds) where you can set the target selection time
+- Added: Points for reviving players when using ACE medical system, by Wazzledi
+- Added: ACE splints/earplugs to arsenal, by Wazzledi
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
 - Fixed: bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
