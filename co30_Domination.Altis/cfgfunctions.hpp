@@ -28,6 +28,7 @@ class cfgFunctions {
 			addc(hintchatmsg);
 			addc(getranjumppoint);
 			addc(handleheal);
+			addc(handleunconscious);
 			addc(save_respawngear);
 			addc(retrieve_respawngear);
 			addc(retrieve_layoutgear);
