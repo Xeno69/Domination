@@ -14,4 +14,5 @@
 - Fixed: Some scores weren't added to player scores (like scores for destroying barracks, etc)
 - Fixed: make_dom.bat didn't delete some files
 - Fixed: make_dom.bat now needs the newest makePBO version
+- Improved: Using new A3 2.08 pose command where possible
 - Updated: Chinese translation by XenLau
