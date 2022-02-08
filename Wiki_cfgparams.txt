@@ -355,8 +355,8 @@
 > Default: 1 (No, disabled)<br/>
 > Available options: 1 (Yes, enable) and -1 (Random)<br/>
 #### **d_max_bar_cnt / Maximum number of enemy infantry barracks**
-> Default: 5<br/>
-> Available options: 1, 2, 3, 4, 5, 6 and 7<br/>
+> Default: 7<br/>
+> Available options: 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
 #### **d_max_camp_cnt / Maximum number of enemy camps to capture**
 > Default: -1<br/>
 > Available options: -1 (3-5), 1, 2, 3, 4 and 5<br/>
