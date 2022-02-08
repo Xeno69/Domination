@@ -40,16 +40,17 @@ if (!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}) then {
 		};
 	};
 	
+	//If healed is unconscious and healer is not unconscious add healer to player list that helped stabilizing unconscious player -> Getting points in fn_handleunconscious.sqf
 	if(alive _healed && {alive _healer && {_healed != _healer && {_healed getVariable ["ace_isunconscious", false] && {!(_healer getVariable ["ace_isunconscious", false])}}}}) then {
 				
 		if(_medicItem != "CheckBloodPressure" && {_medicItem != "CheckPulse"}) then{
 			
-			reviveHelpers = _healed getVariable ["reviveHelpers", []];
+			reviveHelpers = _healed getVariable ["d_reviveHelpers", []];
 			if ( reviveHelpers findIf { _x == _healer } == -1 ) then {
 				reviveHelpers pushBack _healer;
 			};
 			
-			_healed setVariable ["reviveHelpers", reviveHelpers, true];
+			_healed setVariable ["d_reviveHelpers", reviveHelpers, true];
 		};
 	};
 	false
