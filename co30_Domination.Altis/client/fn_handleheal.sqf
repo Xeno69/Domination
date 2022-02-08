@@ -41,16 +41,13 @@ if (!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}) then {
 	};
 	
 	if(alive _healed && {alive _healer && {_healed != _healer && {_healed getVariable ["ace_isunconscious", false] && {!(_healer getVariable ["ace_isunconscious", false])}}}}) then {
-		__TRACE_1("HEALED IS UNCONSCIOUS", "_healed");
 				
 		if(_medicItem != "CheckBloodPressure" && {_medicItem != "CheckPulse"}) then{
 			
 			reviveHelpers = _healed getVariable ["reviveHelpers", []];
-			__TRACE_1("REVIVE HELPERS BEFORE ADD", "reviveHelpers");
 			if ( reviveHelpers findIf { _x == _healer } == -1 ) then {
 				reviveHelpers pushBack _healer;
 			};
-			__TRACE_1("REVIVE HELPERS: ", "reviveHelpers");
 			
 			_healed setVariable ["reviveHelpers", reviveHelpers, true];
 		};
