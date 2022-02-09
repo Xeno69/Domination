@@ -288,7 +288,7 @@ if (canMove _plane) then {
 	scriptName "spawn_cas_available";
 	params ["_side", "_logic1", "_logic", "_topicside", "_channel"];
 	if (d_arty_unlimited == 1) then {
-		sleep 90;
+		sleep 10;
 	} else {
 		sleep d_cas_available_time;
 	};
