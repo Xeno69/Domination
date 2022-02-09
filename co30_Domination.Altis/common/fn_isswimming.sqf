@@ -2,4 +2,6 @@
 //#define __DEBUG__
 //#include "..\x_setup.sqf"
 
-pose _this in ["SurfaceSwimming", "Swimming", "BottomSwimming"]
+animationState _this select [1, 3] in ["bdv","bsw","dve","sdv","ssw","swm"]
+// bring back for 2.08
+//pose _this in ["SurfaceSwimming", "Swimming", "BottomSwimming"]
