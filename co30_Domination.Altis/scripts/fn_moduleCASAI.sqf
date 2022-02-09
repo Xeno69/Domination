@@ -82,8 +82,8 @@ private _pos = +_posATL;
 _pos set [2, (_pos # 2) + getTerrainheightasl _pos];
 private _dir = _callerpos getDir _logico;
 
-private _dis = 3000;
-private _alt = 1000;
+private _dis = 2500;
+private _alt = 1300;
 private _pitch = atan (_alt / _dis);
 private _speed = 400 / 3.6;
 private _duration = ([0,0] distance [_dis, _alt]) / _speed;
@@ -165,7 +165,7 @@ waitUntil {
 	_plane setVelocity velocity _plane;
 
 	//--- Fire!
-	if (_fireNull && {(getPosAsl _plane) distance _pos < 1000}) then {
+	if (_fireNull && {(getPosAsl _plane) distance _pos < 1300}) then {
 		_fireNull = false;
 		terminate _fire;
 		_fire = [_plane,_weapons] spawn {
