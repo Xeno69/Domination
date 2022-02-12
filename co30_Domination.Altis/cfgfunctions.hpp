@@ -215,6 +215,7 @@ class cfgFunctions {
 			addc(makebarmhqwait);
 			addc(zeusmarkerworkaround);
 			addc(headshot_notify);
+			addc(air_v_ee_eh);
 		};
 		class Dom_UI {
 			file = "clientui";
