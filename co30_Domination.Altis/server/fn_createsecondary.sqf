@@ -18,12 +18,13 @@ private _mindists = 5;
 private _mslope = 0.3;
 
 private _dobigtower = call {
-	if (d_cargotower isEqualTo "") exitWith {
+	if (d_cargotower isEqualTo "" || {d_cup || {d_ifa3lite || {d_gmcwg || {d_unsung || {d_csla || {d_vn}}}}}}) exitWith {
+		_dobigtower = false;
 		false;
 	};
 	_mindists = 24;
 	_mslope = 0.1;
-	true
+	true;
 };
 
 private _get_possfortower = {
