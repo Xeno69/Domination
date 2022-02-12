@@ -57,7 +57,7 @@ if (_vec isKindOf "Air") then {
 		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_ropekeyb}];
 	};
 	if (!d_with_ace) then {
-		if (_this # 1 == "driver") then {
+		if (_this # 1 != "driver") then {
 			_vec setVariable ["d_rappel_self_action", [
 					/* 0 object */						_vec,
 					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
