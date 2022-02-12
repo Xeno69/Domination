@@ -57,28 +57,26 @@ if (_vec isKindOf "Air") then {
 		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_ropekeyb}];
 	};
 	if (!d_with_ace) then {
-		if (_this # 1 != "driver") then {
-			_vec setVariable ["d_rappel_self_action", [
-					/* 0 object */						_vec,
-					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
-					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-					/* 4 condition to show */			"[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check",
-					/* 5 condition for action */		"true",
-					/* 6 code executed on start */		{},
-					/* 7 code executed per tick */		{},
-					/* 8 code executed on completion */	{
-						[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
-					},
-					/* 9 code executed on interruption */	{},
-					/* 10 arguments */					[],
-					/* 11 action duration */			1,
-					/* 12 priority */					-1,
-					/* 13 remove on completion */		false,
-					/* 14 show unconscious */			false
-				] call bis_fnc_holdActionAdd
-			];
-		};
+		_vec setVariable ["d_rappel_self_action", [
+				/* 0 object */						_vec,
+				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
+				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+				/* 4 condition to show */			"[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check",
+				/* 5 condition for action */		"player isNotEqualTo (currentPilot _target) && {speed _target < 50}",
+				/* 6 code executed on start */		{},
+				/* 7 code executed per tick */		{},
+				/* 8 code executed on completion */	{
+					[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
+				},
+				/* 9 code executed on interruption */	{},
+				/* 10 arguments */					[],
+				/* 11 action duration */			1,
+				/* 12 priority */					-1,
+				/* 13 remove on completion */		false,
+				/* 14 show unconscious */			false
+			] call bis_fnc_holdActionAdd
+		];
 
 		if (d_with_ai) then {
 			d_ai_rappeling = false;
@@ -88,7 +86,7 @@ if (_vec isKindOf "Air") then {
 					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 					/* 4 condition to show */			"!d_ai_rappeling && {[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check}",
-					/* 5 condition for action */		"true",
+					/* 5 condition for action */		"speed _target < 50",
 					/* 6 code executed on start */		{},
 					/* 7 code executed per tick */		{},
 					/* 8 code executed on completion */	{
@@ -150,7 +148,7 @@ if (_vec isKindOf "Air") then {
 				},
 				/* 9 code executed on interruption */	{},
 				/* 10 arguments */					[],
-				/* 11 action duration */			1,
+				/* 11 action duration */			0.4,
 				/* 12 priority */					10,
 				/* 13 remove on completion */		false,
 				/* 14 show unconscious */			false
