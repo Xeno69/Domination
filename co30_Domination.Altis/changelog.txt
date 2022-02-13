@@ -16,5 +16,7 @@
 - Fixed: make_dom.bat now needs the newest makePBO version
 - Fixed: Very short CAS delay if artillery cooldown is unlimited, by longtimegamer
 - Fixed: Airstrike with steeper angle of attack and high altitude, by longtimegamer
+- Fixed: Rappeling for players was disabled
 - Improved: Using new A3 2.08 pose command where possible
 - Updated: Chinese translation by XenLau
+- And as always many not mentioned optimizations

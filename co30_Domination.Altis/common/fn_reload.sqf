@@ -257,6 +257,10 @@ if (hasInterface) then {
 
 reload _object;
 
+if (hasInterface && {player in _object && {!isNil "d_air_v_dam"}}) then {
+	d_air_v_dam = 0;
+};
+
 if (getNumber(_cfgv>>"transportRepair") > 0) then {
 	_object setRepairCargo 1;
 };

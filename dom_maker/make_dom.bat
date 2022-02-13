@@ -10,8 +10,8 @@ set D_BNVER=4.59
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
-rem set D_DO_ASC=1
-rem set D_DO_ASC_ALL=1
+set D_DO_ASC=1
+set D_DO_ASC_ALL=1
 
 set WORK_DIR=E:\DomSQFC
 
