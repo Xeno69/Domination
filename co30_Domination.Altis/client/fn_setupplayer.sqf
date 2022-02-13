@@ -1222,7 +1222,7 @@ d_isvdreduced = false;
 0 spawn d_fnc_camouflage;
 
 if (d_dis_servicep == 1) then {
-	call d_fnc_initservicepoints;
+	0 spawn d_fnc_initservicepoints;
 };
 
 __TRACE_1("","d_isvdreduced")
