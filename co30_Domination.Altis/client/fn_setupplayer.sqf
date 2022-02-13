@@ -607,6 +607,15 @@ if (d_dis_servicep == 1) then {
 "d_enemy_base" setMarkerDirLocal (d_base_array # 3);
 [d_base_array # 0, [d_base_array # 1, d_base_array # 2, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "[0] call d_fnc_BaseEnemies;'d_enemy_base' setMarkerSizeLocal [d_base_array select 1,d_base_array select 2];d_there_are_enemies_atbase = true", "[1] call d_fnc_BaseEnemies;'d_enemy_base' setMarkerSizeLocal [0,0];d_there_are_enemies_atbase = false"]] call d_fnc_createtriggerlocal;
 [d_base_array # 0, [(d_base_array # 1) + 300, (d_base_array # 2) + 300, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "if (!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false])}) then {hint (localize 'STR_DOM_MISSIONSTRING_1409')};d_enemies_near_base = true", "d_enemies_near_base = false"]] call d_fnc_createtriggerlocal;
+
+
+[d_base_array # 0, [d_base_array # 1, d_base_array # 2, d_base_array # 3, true], ["ANYPLAYER", "PRESENT", true], ["(vehicle player) in thislist", "d_player_in_base = true", "d_player_in_base = false"]] call d_fnc_createtriggerlocal;
+#else
+if (d_player_side ==  blufor) then {
+	[d_base_array # 0 # 0, [d_base_array # 0 # 1, d_base_array # 0 # 2, d_base_array # 0 # 3, true], ["ANYPLAYER", "PRESENT", true], ["(vehicle player) in thislist", "d_player_in_base = true", "d_player_in_base = false"]] call d_fnc_createtriggerlocal;
+} else {
+	[d_base_array # 1 # 0, [d_base_array # 1 # 1, d_base_array # 1 # 2, d_base_array # 1 # 3, true], ["ANYPLAYER", "PRESENT", true], ["(vehicle player) in thislist", "d_player_in_base = true", "d_player_in_base = false"]] call d_fnc_createtriggerlocal;
+};
 #endif
 
 if (player getUnitTrait "Medic") then {
