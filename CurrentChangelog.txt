@@ -19,3 +19,4 @@
 - Fixed: Rappeling for players was disabled
 - Improved: Using new A3 2.08 pose command where possible
 - Updated: Chinese translation by XenLau
+- And as always many not mentioned optimizations
