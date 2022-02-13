@@ -363,6 +363,7 @@ class cfgFunctions {
 			file = "scripts";
 			addc(establishingShot);
 			addc(moduleCAS);
+			addc(moduleCAS_eachframe);
 			addc(moduleCASAI);
 			addc(mando_chute);
 			addc(sandstorm);

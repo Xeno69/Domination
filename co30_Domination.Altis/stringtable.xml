@@ -12114,12 +12114,12 @@
 <French>Appel Taxi Aérien</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1885">
-<English>Disable artillery cooldown</English>
+<English>Disable artillery cooldown and CAS</English>
 <Spanish>Desactivar el enfriamiento de la artillería</Spanish>
 <Portuguese>Desactivar o arrefecimento da artilharia</Portuguese>
 <Korean>포병장비 냉각시간 비활성화</Korean>
-<Japanese>Disable artillery cooldown</Japanese>
-<Original>Disable artillery cooldown</Original>
+<Japanese>Disable artillery cooldown and CAS</Japanese>
+<Original>Disable artillery cooldown and CAS</Original>
 <Russian>Отключить перезарядку артиллерии</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 <Chinese>禁用火砲冷卻</Chinese>
