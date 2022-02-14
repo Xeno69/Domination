@@ -323,7 +323,7 @@ sleep 0.1;
 if (d_IllumMainTarget == 0) then {
 	[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
 };
-if (worldname == "Altis") then {
+if (worldname == "Altis" && {diag_fps > 30}) then {
 	[_trg_center, _mtradius] spawn d_fnc_ambientanimals;
 };
 
