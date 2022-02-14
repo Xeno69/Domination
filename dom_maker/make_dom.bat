@@ -777,7 +777,6 @@ rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
 
-
 rem TT Altis
 set NEW_VER=tvt%D_NUM_PLAYERS_TT%_domination_%D_VER%_tt.altis
 set MISSION_SQM=..\mission_sqm\mission_tt_altis_bin.sqm
