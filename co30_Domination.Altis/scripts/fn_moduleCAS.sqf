@@ -295,8 +295,8 @@ if (canMove _plane) then {
 		sleep d_cas_available_time;
 	};
 
-d_cas_metadata = [];
-publicVariable "d_cas_metadata";
+	d_cas_metadata = [];
+	publicVariable "d_cas_metadata";
 
 #ifndef __TT__
 	d_cas_available = true; publicVariable "d_cas_available";
