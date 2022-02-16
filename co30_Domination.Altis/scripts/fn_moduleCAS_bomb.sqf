@@ -88,7 +88,7 @@ private _altitude = nil;
 if (_wtype == 0) then {
 	_altitude = 500;
 	_bomb = "Bomb_04_F";
-	sleep 1;
+	sleep (5 max random 20);
 };
 if (_wtype == 1) then {
 	_bomb = "M_Scalpel_AT"; // todo
