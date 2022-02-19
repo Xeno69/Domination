@@ -94,7 +94,7 @@ if (_wtype == 1) then {
 	_bomb = "M_Scalpel_AT"; // todo
 	_altitude = 500;
 };
-[_target, _start_pos, _bomb, _altitude] call d_fnc_moduleCAS_guidedmissile;
+[_target, _start_pos, _bomb, _altitude, _callero] call d_fnc_moduleCAS_guidedmissile;
 
 [_side, _logic1, _logic, _topicside, _channel] spawn {
 	scriptName "spawn_cas_available";

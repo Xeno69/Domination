@@ -14,6 +14,7 @@ _target = _this select 0;
 _startPos = _this select 1;
 _missileType = _this select 2;
 _missileHeight = _this select 3;
+_instigator = _this select 4;
 
 //defining parameters
 //the faster the target, the more checks it will need 100 is good for fast moving targets such as aircrafts
@@ -31,6 +32,7 @@ _pos = [_startPos select 0, _startPos select 1, _missileHeight];
 
 //creating missile
 _missile = _missileType createVehicle _pos;
+_missile setShotParents [_instigator, _instigator];
 
 // todo - orient the missile to point toward the target?
 
