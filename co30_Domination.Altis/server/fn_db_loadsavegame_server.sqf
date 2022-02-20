@@ -208,6 +208,8 @@ d_bonus_vecs_db = _ar # 9;
 		if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 		_vec setVariable ["d_liftit", true, true];
 	};
+	
+	__TRACE_1("","_endpos")
 
 	if (!_isar) then {
 		_vec setDir _dir;

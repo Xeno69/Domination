@@ -113,7 +113,15 @@ if (d_database_found) then {
 	
 	if (d_db_auto_save) then {
 		diag_log "DOM initServer.sqf: Trying to read db autosave";
-		["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+		if (!isNil "d_target_names") then {
+			["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+		} else {
+			0 spawn {
+				scriptName "spawn_initserver2";
+				waitUntil {!isNil "d_target_names"};
+				["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+			};
+		};
 	};
 } else {
 	if (d_pnspace_msave == 1) then {
@@ -143,7 +151,15 @@ if (d_database_found) then {
 		
 		if (d_pnspace_msave_auto == 1) then {
 			diag_log "DOM initServer.sqf: Trying to read db autosave";
-			["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+			if (!isNil "d_target_names") then {
+				["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+			} else {
+				0 spawn {
+					scriptName "spawn_initserver3";
+					waitUntil {!isNil "d_target_names"};
+					["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
+				};
+			};
 		};
 	};
 };

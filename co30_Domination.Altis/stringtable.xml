@@ -2750,29 +2750,41 @@
 <Chinese>你找不到任何有價值的文件‧</Chinese>
 <French>Vous n'avez trouvé aucun document de valeur</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_357">
-<English>Viewdistance</English>
-<Spanish>Vista Distancia</Spanish>
-<Portuguese>Vista Distancia</Portuguese>
-<Korean>가시거리</Korean>
-<Japanese>可視距離</Japanese>
-<Original>Viewdistance</Original>
-<Russian>Прорисовка</Russian>
-<Chinesesimp>视野距离</Chinesesimp>
-<Chinese>視野距離</Chinese>
-<French>Vue Distance</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_358">
-<English>Viewdistance: %1</English>
-<Spanish>Vista Distancia: %1</Spanish>
-<Portuguese>Vista Distancia: %1</Portuguese>
-<Korean>현재 가시거리: %1</Korean>
-<Japanese>可視距離: %1</Japanese>
-<Original>Viewdistance: %1</Original>
-<Russian>Дальность прорисовки: %1</Russian>
-<Chinesesimp>视野距离: %1</Chinesesimp>
-<Chinese>視野距離: %1</Chinese>
-<French>Vue Distance: %1</French>
+<English>Inf Viewdistance: %1</English>
+<Spanish>Inf Viewdistance: %1</Spanish>
+<Portuguese>Inf Viewdistance: %1</Portuguese>
+<Korean>Inf Viewdistance: %1</Korean>
+<Japanese>Inf Viewdistance: %1</Japanese>
+<Original>Inf Viewdistance: %1</Original>
+<Russian>Inf Viewdistance: %1</Russian>
+<Chinesesimp>Inf Viewdistance: %1</Chinesesimp>
+<Chinese>Inf Viewdistance: %1</Chinese>
+<French>Inf Viewdistance: %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_358V">
+<English>Vehicle Viewdistance: %1</English>
+<Spanish>Vehicle Viewdistance: %1</Spanish>
+<Portuguese>Vehicle Viewdistance: %1</Portuguese>
+<Korean>Vehicle Viewdistance: %1</Korean>
+<Japanese>Vehicle Viewdistance: %1</Japanese>
+<Original>Vehicle Viewdistance: %1</Original>
+<Russian>Vehicle Viewdistance: %1</Russian>
+<Chinesesimp>Vehicle Viewdistance: %1</Chinesesimp>
+<Chinese>Vehicle Viewdistance: %1</Chinese>
+<French>Vehicle Viewdistance: %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_358A">
+<English>Air Viewdistance: %1</English>
+<Spanish>Air Viewdistance: %1</Spanish>
+<Portuguese>Air Viewdistance: %1</Portuguese>
+<Korean>Air Viewdistance: %1</Korean>
+<Japanese>Air Viewdistance: %1</Japanese>
+<Original>Air Viewdistance: %1</Original>
+<Russian>Air Viewdistance: %1</Russian>
+<Chinesesimp>Air Viewdistance: %1</Chinesesimp>
+<Chinese>Air Viewdistance: %1</Chinese>
+<French>Air Viewdistance: %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_359">
 <English>No Grass</English>
@@ -8091,18 +8103,6 @@
 <Chinesesimp>占领阵地</Chinesesimp>
 <Chinese>佔領陣地</Chinese>
 <French>Capture de Camp</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_1285">
-<English>Viewdistance:</English>
-<Spanish>Vista Distancia:</Spanish>
-<Portuguese>Viewdistance:</Portuguese>
-<Korean>가시거리</Korean>
-<Japanese>可視距離:</Japanese>
-<Original>Viewdistance:</Original>
-<Russian>Дальность обзора</Russian>
-<Chinesesimp>视野距离：</Chinesesimp>
-<Chinese>視野距離:</Chinese>
-<French> Distance Visuelle</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1287">
 <English>Select Grass Layer</English>

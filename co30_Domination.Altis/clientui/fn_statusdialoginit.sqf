@@ -254,8 +254,11 @@ _s_all = str _s_all;
 
 if (d_disable_viewdistance) then {
 	(_disp displayCtrl 1000) ctrlEnable false;
-	(_disp displayCtrl 1999) ctrlSetText (localize "STR_DOM_MISSIONSTRING_357");
-	(_disp displayCtrl 1997) ctrlSetText "";
+	(_disp displayCtrl 1999) ctrlSetText [localize "STR_DOM_MISSIONSTRING_358", round viewDistance];
+	(_disp displayCtrl 3500) ctrlEnable false;
+	(_disp displayCtrl 3333) ctrlSetText [localize "STR_DOM_MISSIONSTRING_358V", round viewDistance];
+	(_disp displayCtrl 3501) ctrlEnable false;
+	(_disp displayCtrl 1999) ctrlSetText [localize "STR_DOM_MISSIONSTRING_358A", round viewDistance];
 } else {
 	(_disp displayCtrl 1000) sliderSetRange [200, d_MaxViewDistance];
 	if (!d_isvdreduced) then {
@@ -265,6 +268,12 @@ if (d_disable_viewdistance) then {
 		(_disp displayCtrl 1000) sliderSetPosition d_curviewdistance;
 		(_disp displayCtrl 1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round d_curviewdistance];
 	};
+	(_disp displayCtrl 3500) sliderSetRange [200, d_MaxViewDistance];
+	(_disp displayCtrl 3500) sliderSetPosition d_ViewDistanceVec;
+	(_disp displayCtrl 3333) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358V", round d_ViewDistanceVec];
+	(_disp displayCtrl 3501) sliderSetRange [200, d_MaxViewDistance];
+	(_disp displayCtrl 3501) sliderSetPosition d_ViewDistanceAir;
+	(_disp displayCtrl 3334) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358A", round d_ViewDistanceAir];
 };
 
 private _ctrl = _disp displayCtrl 1001;

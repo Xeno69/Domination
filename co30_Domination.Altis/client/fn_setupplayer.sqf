@@ -252,9 +252,9 @@ if (d_with_ranked) then {
 	};
 	
 	player addEventhandler ["Put", {call d_fnc_store_rwitems}];
-
-	player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedman}];
 };
+
+player addEventhandler ["SeatSwitchedMan", {call d_fnc_seatswitchedman}];
 
 call d_fnc_store_rwitems;
 

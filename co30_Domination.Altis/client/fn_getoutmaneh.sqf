@@ -70,3 +70,6 @@ if (!isTouchingGround (vehicle player)) then {
 		d_player_in_base = true;
 	};
 };
+
+setViewDistance d_curviewdistance;
+setObjectViewDistance d_curobjectdistance + 100;

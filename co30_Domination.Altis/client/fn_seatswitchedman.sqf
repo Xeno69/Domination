@@ -8,7 +8,36 @@ params ["_switcher", "_unit2", "_vec"];
 
 __TRACE_1("","assignedVehicleRole player");
 
-if ((assignedVehicleRole player) # 0 == "Cargo" || {!isNil {_vec getVariable "d_vec_type"}}) exitWith {
+if ((assignedVehicleRole player) isNotEqualTo []) then {
+	if ((assignedVehicleRole player) # 0 != "cargo") then {
+		if (d_isvdreduced) then {
+			d_isvdreduced = false;
+		};
+		private _vp = _this # 2;
+		if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle"}}) then {
+			if (d_ViewDistanceVec != viewDistance) then {
+				setViewDistance d_ViewDistanceVec;
+				setObjectViewDistance d_ViewDistanceVec + 100;
+			};
+		} else {
+			if (_vp isKindOf "Helicopter" || {_vp isKindOf "Plane"}) then {
+				if (d_ViewDistanceAir != viewDistance) then {
+					setViewDistance d_ViewDistanceAir;
+					setObjectViewDistance d_ViewDistanceAir + 100;
+				};
+			};
+		};
+	} else {
+		if (d_curviewdistance != viewDistance) then {
+			setViewDistance d_curviewdistance;
+			setObjectViewDistance d_curobjectdistance + 100;
+		};
+	};
+};
+
+if (!d_with_ranked) exitWith {};
+
+if (((assignedVehicleRole player) isNotEqualTo [] && {(assignedVehicleRole player) # 0 == "Cargo"}) || {!isNil {_vec getVariable "d_vec_type"}}) exitWith {
 	d_vec_role_pl = assignedVehicleRole player;
 };
 

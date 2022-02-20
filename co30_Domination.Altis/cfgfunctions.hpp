@@ -286,6 +286,8 @@ class cfgFunctions {
 			addc(forgive_timehandler);
 			addc(barmhqcounter);
 			addc(adasposchanged);
+			addc(vdairsliderchanged);
+			addc(vdvecsliderchanged);
 		};
 		class Dom_Common {
 			file = "common";
