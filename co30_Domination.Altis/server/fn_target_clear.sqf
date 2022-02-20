@@ -62,6 +62,7 @@ removeMissionEventHandler ["MarkerCreated", d_meh_markercreated];
 private _delete_marker_meh =+ d_delete_marker_meh;
 d_delete_marker_meh = [];
 _delete_marker_meh spawn {
+	scriptName "spawn_target_clear_delmarker";
 	{
 		deleteMarker _x;
 		sleep 0.1;
