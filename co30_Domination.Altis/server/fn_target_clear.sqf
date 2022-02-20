@@ -56,7 +56,18 @@ if (!isNil "d_parahhandle" && {!isNull d_parahhandle}) then {
 	terminate d_parahhandle;
 };
 
-[d_old_target_pos, d_mttarget_radius_patrol] spawn d_fnc_umadel;
+//[d_old_target_pos, d_mttarget_radius_patrol] spawn d_fnc_umadel;
+removeMissionEventHandler ["MarkerCreated", d_meh_markercreated];
+
+private _delete_marker_meh =+ d_delete_marker_meh;
+d_delete_marker_meh = [];
+_delete_marker_meh spawn {
+	{
+		deleteMarker _x;
+		sleep 0.1;
+	} forEach _this;
+};
+
 
 #ifndef __TT__
 d_resolved_targets pushBack d_current_target_index;

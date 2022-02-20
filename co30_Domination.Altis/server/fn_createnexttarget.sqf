@@ -49,6 +49,18 @@ publicVariable "d_mttarget_radius_patrol";
 
 sleep 1.0123;
 
+if (isNil "d_delete_marker_meh") then {
+	d_delete_marker_meh = [];
+};
+
+d_meh_markercreated = addMissionEventHandler ["MarkerCreated", {
+	if (!isNull (_this # 2)) then {
+		if ((markerPos (_this # 0)) distance2D d_cur_tgt_pos < (d_mttarget_radius_patrol + 300)) then {
+			d_delete_marker_meh pushBack (_this # 0);
+		};
+	};
+}];
+
 d_update_target = false;
 d_main_target_ready = false;
 d_side_main_done = false;
