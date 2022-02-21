@@ -794,9 +794,10 @@ if (d_occ_bldgs == 1) then {
 if (d_enable_civs == 1) then {
 	// create civilian agents and spawn civilian modules
 	[_trg_center, d_cur_target_radius] call d_fnc_civilianmodule;
+	
+	// loop to control civilian behaviors
+	d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
 };
-// loop to control civilian behaviors
-d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
 #endif
 
 
