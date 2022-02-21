@@ -338,7 +338,7 @@ if (d_VD_Combi_use_InfVD) then {
 		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) ctrlEnable false;
 		if (!isNull objectParent player) then {
 			private _vp = vehicle player;
-			if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Helicopter" || {_vp isKindOf "Plane"}}}}) then {
+			if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Ship" || {_vp isKindOf "Helicopter" || {_vp isKindOf "Plane"}}}}}) then {
 				if (d_isvdreduced) then {
 					d_isvdreduced = false;
 				};

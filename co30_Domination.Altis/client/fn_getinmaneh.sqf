@@ -11,7 +11,7 @@ if (d_player_canu) then {
 			d_isvdreduced = false;
 		};
 		private _vp = _this # 2;
-		if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle"}}) then {
+		if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Ship"}}}) then {
 			if (d_ViewDistanceVec != viewDistance) then {
 				setViewDistance d_ViewDistanceVec;
 				setObjectViewDistance d_ViewDistanceVec + 100;

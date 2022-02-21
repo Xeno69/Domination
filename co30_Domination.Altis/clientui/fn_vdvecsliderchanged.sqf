@@ -10,7 +10,7 @@ private _newvd = round (_this # 1);
 
 if (!isNull objectParent player) then {
 	private _vp = vehicle player;
-	if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle"}}) then {
+	if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Ship"}}}) then {
 		if (d_isvdreduced) then {
 			d_isvdreduced = false;
 		};
