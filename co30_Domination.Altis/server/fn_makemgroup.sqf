@@ -120,7 +120,8 @@ if (!(sideUnknown in _sideToEngage) && {d_ai_awareness_rad > 0 || {d_snp_aware >
 	private _rad = d_ai_awareness_rad;
 	if ("sniper" in (toLowerANSI (groupId _grp))) then { _rad = 1400; }; // if sniper group then set awareness radius to 1400m
 	{
-		[_x, _sideToEngage, _rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+		// [_x, _sideToEngage, _rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness; // deprecated
+		d_cur_tgt_enemy_units pushBack _x;
 	} forEach units _grp;
 	
 };

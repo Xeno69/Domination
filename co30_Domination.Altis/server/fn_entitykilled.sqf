@@ -144,6 +144,10 @@ if (_ar # 19 == 1) then {
 	[_obj, 19, 0] call d_fnc_setekmode;
 };
 
+if (_obj in d_cur_tgt_enemy_units) then {
+	d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _obj);
+};
+
 _obj setVariable ["d_hkx", nil];
 
 true

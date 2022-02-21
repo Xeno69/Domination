@@ -369,6 +369,9 @@ if (isNil "d_civ_massacre") then {
 if (isNil "d_cur_tgt_civ_vehicles") then {
 	d_cur_tgt_civ_vehicles = [];
 };
+if (isNil "d_cur_tgt_enemy_units") then {
+	d_cur_tgt_enemy_units = [];
+};
 
 if (isNil "d_mt_tower") then {
 	d_mt_tower_pos = [];
