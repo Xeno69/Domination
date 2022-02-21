@@ -368,6 +368,7 @@ class cfgFunctions {
 			addc(moduleCAS);
 			addc(moduleCAS_bomb);
 			addc(moduleCAS_eachframe);
+			addc(moduleCAS_eachframeAI);
 			addc(moduleCASAI);
 			addc(moduleCAS_guidedmissile);
 			addc(mando_chute);
