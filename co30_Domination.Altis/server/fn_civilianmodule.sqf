@@ -97,7 +97,6 @@ private _placeCivilianCluster = {
 				_unit setVariable ["civ_last_firednear_or_threatened", time];
 			};
 		}];
-		[_civAgent] spawn d_fnc_afterfirednear; 
 		d_cur_tgt_civ_units pushBack _civAgent;
 		if (d_ai_persistent_corpses == 0) then {
 			// civ corpses are removed when civ module is deleted
@@ -220,7 +219,6 @@ _m setVariable ["#onCreated", {
 			};
 		};
 	}];
-	[_this] spawn d_fnc_afterfirednear;
 	[_this, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _this];
 	_this setUnitLoadout selectRandomWeighted d_civArray;
 }];

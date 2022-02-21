@@ -793,7 +793,10 @@ if (d_occ_bldgs == 1) then {
 #ifndef __TT__
 if (d_enable_civs == 1) then {
 	// create civilian agents and spawn civilian modules
-	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
+	[_trg_center, d_cur_target_radius] call d_fnc_civilianmodule;
+	
+	// loop to control civilian behaviors
+	d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
 };
 #endif
 
@@ -888,6 +891,9 @@ if (d_with_MainTargetEvents != 0) then {
 		};
 	};
 };
+
+d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
+
 #endif
 
 #ifdef __VN__

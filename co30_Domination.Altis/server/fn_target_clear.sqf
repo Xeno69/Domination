@@ -274,6 +274,14 @@ d_house_objects = [];
 
 [_delpos, d_old_radius, _del_camps_stuff, _mtmissionobjs, _delvecsmt, _house_objects] spawn d_fnc_deleteempty;
 
+if !(isNil "d_cur_tgt_awareness_script_handle" && {!scriptDone d_cur_tgt_awareness_script_handle}) then {
+	terminate d_cur_tgt_awareness_script_handle;
+};
+
+if !(isNil "d_cur_tgt_afterfirednear_script_handle" && {!scriptDone d_cur_tgt_afterfirednear_script_handle}) then {
+	terminate d_cur_tgt_afterfirednear_script_handle;
+};
+
 sleep 0.1;
 
 __TRACE_1("","d_maintargets_list")

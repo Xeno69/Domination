@@ -376,8 +376,10 @@ class cfgFunctions {
 			addc(weather_winter);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
-			addc(afterfirednear);
-			addc(hallyg_dlegion_Snipe_awareness);
+			addc(hallyg_dlegion_Snipe_awareness_global);
+			addc(hallyg_dlegion_Snipe_awareness_loop);
+			addc(afterfirednear_civ_global);
+			addc(afterfirednear_civ_loop);
 			addc(ambientradiochatter);
 			addc(place);
 			addc(adjustEntity);
