@@ -31,7 +31,7 @@ if (isNil "_startingPosition") then {
 	_unit setVariable ["startingPosition", _startingPosition];
 };
 
-private _lastFired = _unit getVariable "startingPosition";
+private _lastFired = _unit getVariable "lastFired";
 if (isNil "_lastFired") then {
 	_lastFired = 0;
 };
