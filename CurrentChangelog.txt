@@ -7,8 +7,10 @@
 - Added: New param d_targetselect_time (Target selection time in server lobby, default 30 seconds) where you can set the target selection time
 - Added: Points for reviving players when using ACE medical system, by Wazzledi
 - Added: ACE splints/earplugs to arsenal, by Wazzledi
+- Added: New guided CAS ordnance: 500 lb bomb, by longtimegamer
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Changed: You can now set viewdistances individually for inf, vehicles and air in the Dashboard/Statusdialog (max value maxviewdistance)
+- Changed: CAS now uses eachFrame handling, by longtimegamer
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
 - Fixed: bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
 - Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
