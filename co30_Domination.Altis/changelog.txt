@@ -12,7 +12,7 @@
 - Changed: You can now set viewdistances individually for inf, vehicles and air in the Dashboard/Statusdialog (max value maxviewdistance)
 - Changed: CAS now uses eachFrame handling, by longtimegamer
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
-- Fixed: bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
+- Fixed: Bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
 - Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
 - Fixed: Some scores weren't added to player scores (like scores for destroying barracks, etc)
 - Fixed: make_dom.bat didn't delete some files
@@ -20,6 +20,7 @@
 - Fixed: Very short CAS delay if artillery cooldown is unlimited, by longtimegamer
 - Fixed: Airstrike with steeper angle of attack and high altitude, by longtimegamer
 - Fixed: Rappeling for players was disabled
+- Fixed: Only spawn enemy AI awareness when features are used, incorrect logic in massacre event expression, by longtimegamer
 - Improved: Using new A3 2.08 pose command where possible
 - Updated: Chinese translation by XenLau
 - And as always many not mentioned optimizations
