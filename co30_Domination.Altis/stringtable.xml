@@ -10456,6 +10456,18 @@
 <Chinese>在激光指示點呼叫空中支援</Chinese>
 <French>Demande CAS</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS">
+<English>Call CAS Bomb</English>
+<Spanish>Call CAS Bomb</Spanish>
+<Portuguese>Call CAS Bomb</Portuguese>
+<Korean>Call CAS Bomb</Korean>
+<Japanese>Call CAS Bomb</Japanese>
+<Original>Call CAS Bomb</Original>
+<Russian>Call CAS Bomb</Russian>
+<Chinesesimp>Call CAS Bomb</Chinesesimp>
+<Chinese>Call CAS Bomb</Chinese>
+<French>Call CAS Bomb</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1712">
 <English>CAS currently not available...</English>
 <Spanish>CAS ACTUALMENTE en Objetivo ...</Spanish>
@@ -12114,12 +12126,12 @@
 <French>Appel Taxi Aérien</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1885">
-<English>Disable artillery cooldown and CAS</English>
+<English>Disable artillery and CAS cooldown</English>
 <Spanish>Desactivar el enfriamiento de la artillería</Spanish>
 <Portuguese>Desactivar o arrefecimento da artilharia</Portuguese>
 <Korean>포병장비 냉각시간 비활성화</Korean>
-<Japanese>Disable artillery cooldown and CAS</Japanese>
-<Original>Disable artillery cooldown and CAS</Original>
+<Japanese>Disable artillery and CAS cooldown</Japanese>
+<Original>Disable artillery and CAS cooldown</Original>
 <Russian>Отключить перезарядку артиллерии</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 <Chinese>禁用火砲冷卻</Chinese>

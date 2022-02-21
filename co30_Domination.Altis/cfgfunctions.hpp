@@ -101,6 +101,7 @@ class cfgFunctions {
 			addc(healatmash);
 			addc(mark_artillery);
 			addc(call_cas);
+			addc(call_cas_bomb);
 			addc(dosshowhuddo2spawn);
 			addc(player_name_huddo2);
 			addc(player_name_huddo);
@@ -365,8 +366,10 @@ class cfgFunctions {
 			file = "scripts";
 			addc(establishingShot);
 			addc(moduleCAS);
+			addc(moduleCAS_bomb);
 			addc(moduleCAS_eachframe);
 			addc(moduleCASAI);
+			addc(moduleCAS_guidedmissile);
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);
