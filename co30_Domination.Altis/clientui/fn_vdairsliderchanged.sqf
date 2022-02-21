@@ -1,6 +1,8 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
+
+__TRACE_1("","_this")
 
 disableSerialization;
 private _newvd = round (_this # 1);

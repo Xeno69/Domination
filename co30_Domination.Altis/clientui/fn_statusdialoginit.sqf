@@ -320,19 +320,38 @@ if (!d_tt_ver) then {
 	}];
 };
 
-/*(_disp displayCtrl 1612) cbSetChecked d_player_radioprotocol;
-(_disp displayCtrl 1612) ctrlAddEventHandler ["CheckedChanged", {
-	d_player_radioprotocol = !d_player_radioprotocol;
-	if (d_player_radioprotocol) then {
-		systemChat (localize "STR_DOM_MISSIONSTRING_2054");
-		player disableAI "RADIOPROTOCOL";
+(_disp displayCtrl 1613) cbSetChecked d_VD_Combi_use_InfVD;
+if (d_VD_Combi_use_InfVD) then {
+	(_disp displayCtrl 3500) ctrlEnable false;
+	(_disp displayCtrl 3501) ctrlEnable false;
+};
+(_disp displayCtrl 1613) ctrlAddEventHandler ["CheckedChanged", {
+	d_VD_Combi_use_InfVD = (_this # 1) == 1;
+	if (d_VD_Combi_use_InfVD) then {
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3500) sliderSetPosition d_curviewdistance;
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) sliderSetPosition d_curviewdistance;
+		d_ViewDistanceAir = d_curviewdistance;
+		d_ViewDistanceVec = d_curviewdistance;
+		profileNamespace setVariable ["dom_viewdistanceair", d_ViewDistanceAir];
+		profileNamespace setVariable ["dom_viewdistancevec", d_ViewDistanceVec];
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3500) ctrlEnable false;
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) ctrlEnable false;
+		if (!isNull objectParent player) then {
+			private _vp = vehicle player;
+			if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Helicopter" || {_vp isKindOf "Plane"}}}}) then {
+				if (d_isvdreduced) then {
+					d_isvdreduced = false;
+				};
+				setViewDistance d_curviewdistance;
+				setObjectViewDistance d_curviewdistance + 100;
+			};
+		};
 	} else {
-		systemChat (localize "STR_DOM_MISSIONSTRING_2053");
-		player enableAI "RADIOPROTOCOL";
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3500) ctrlEnable true;
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) ctrlEnable true;
 	};
-	profileNamespace setVariable ["dom_player_radioprotocol", d_player_radioprotocol];
-}];
-*/
+	profileNamespace setVariable ["dom_vd_combi_use_infvd", d_VD_Combi_use_InfVD];
+}];	
 
 for "_i" from 1 to 20 do {
 	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";
