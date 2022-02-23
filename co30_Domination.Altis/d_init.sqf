@@ -37,6 +37,8 @@ if (hasInterface) then {
 	
 	d_VD_Combi_use_InfVD = profileNamespace getVariable ["dom_vd_combi_use_infvd", false];
 	
+	d_maintarget_auto_vd = profileNamespace getVariable ["dom_maintarget_auto_vd", true];
+	
 	d_earplugs_userakey = profileNamespace getVariable ["dom_earplugs_userakey", 0];
 	d_3dmarker_userakey = profileNamespace getVariable ["dom_3dmarker_userakey", 0];
 	if (d_earplugs_userakey < 0 || {d_earplugs_userakey > 19}) then {d_earplugs_userakey = 0};

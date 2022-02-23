@@ -309,15 +309,21 @@ _ctrl lbSetCurSel d_show_player_namesx;
 (_disp displayCtrl 2007) ctrlSetText str(d_points_needed # 6);
 
 if (!d_tt_ver) then {
-	(_disp displayCtrl 1610) cbSetChecked d_maintarget_auto_vd;
-	(_disp displayCtrl 1610) ctrlAddEventHandler ["CheckedChanged", {
-		d_maintarget_auto_vd = !d_maintarget_auto_vd;
-		if (d_maintarget_auto_vd) then {
-			systemChat (localize "STR_DOM_MISSIONSTRING_1965");
-		} else {
-			systemChat (localize "STR_DOM_MISSIONSTRING_1966");
-		};
-	}];
+	if (d_AutoViewdistanceChangeDefault == 1) then {
+		(_disp displayCtrl 1610) cbSetChecked d_maintarget_auto_vd;
+		(_disp displayCtrl 1610) ctrlAddEventHandler ["CheckedChanged", {
+			d_maintarget_auto_vd = !d_maintarget_auto_vd;
+			if (d_maintarget_auto_vd) then {
+				systemChat (localize "STR_DOM_MISSIONSTRING_1965");
+			} else {
+				systemChat (localize "STR_DOM_MISSIONSTRING_1966");
+			};
+			profileNamespace setVariable ["dom_maintarget_auto_vd", d_maintarget_auto_vd];
+		}];
+	} else {
+		(_disp displayCtrl 1609) ctrlShow false;
+		(_disp displayCtrl 1610) ctrlShow false;
+	};
 };
 
 (_disp displayCtrl 1613) cbSetChecked d_VD_Combi_use_InfVD;

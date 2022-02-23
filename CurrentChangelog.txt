@@ -8,6 +8,7 @@
 - Added: Points for reviving players when using ACE medical system, by Wazzledi
 - Added: ACE splints/earplugs to arsenal, by Wazzledi
 - Added: New guided CAS ordnance: 500 lb bomb, by longtimegamer
+- Added: State of "Auto viewdistances change at main target" checkbox gets now saved to profileNamespace
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Changed: You can now set viewdistances individually for inf, vehicles and air in the Dashboard/Statusdialog (max value maxviewdistance)
 - Changed: CAS now uses eachFrame handling, by longtimegamer
