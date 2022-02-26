@@ -9,7 +9,7 @@ params ["_obj"];
 if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
 	private _insti = _this # 2;
 	if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
-		[_insti, (_insti distance2D _obj)] spawn d_fnc_addheadshot;
+		[_insti, _insti distance2D _obj] spawn d_fnc_addheadshot;
 	};
 };
 
