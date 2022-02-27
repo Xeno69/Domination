@@ -102,6 +102,7 @@ class cfgFunctions {
 			addc(mark_artillery);
 			addc(call_cas);
 			addc(call_cas_bomb);
+			addc(call_cas_bomb_napalm);
 			addc(dosshowhuddo2spawn);
 			addc(player_name_huddo2);
 			addc(player_name_huddo);

@@ -84,22 +84,31 @@ if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 };
 
 private _bomb = nil;
-private _altitude = nil;
+private _altitude = 500;
 if (_wtype == 0) then {
-	_altitude = 500;
 	_bomb = "Bomb_04_F";
 	sleep (5 max random 20);
 };
 if (_wtype == 1) then {
 	_bomb = "M_Scalpel_AT"; // todo
-	_altitude = 500;
+	sleep (5 max random 10);
 };
 
 #ifdef __VN__
-// set bomb type for SOG
-// _bomb = "vn_bomb_500_blu1b_fb_ammo";
-//_bomb = "vn_bomb_15000_blu82_dc_ammo";
-_bomb = "vn_bomb_500_mk82_he_ammo";
+// default bomb type for SOG
+if (_wtype == 0) then {
+	_bomb = "vn_bomb_500_mk82_he_ammo";
+	sleep (5 max random 20);
+};
+if (_wtype == 2) then {
+	// napalm
+	_bomb = "vn_bomb_500_blu1b_fb_ammo";
+	sleep (5 max random 30);
+};
+if (_wtype == 3) then { 
+	_bomb = "vn_bomb_15000_blu82_dc_ammo"; // todo
+	sleep (5 max random 20);
+};
 #endif
 
 [_target, _start_pos, _bomb, _altitude, _callero] call d_fnc_moduleCAS_guidedmissile;
