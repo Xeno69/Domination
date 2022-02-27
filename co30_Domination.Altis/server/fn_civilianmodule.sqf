@@ -103,7 +103,18 @@ private _placeCivilianCluster = {
 			removeFromRemainsCollector [_this];
 		};
 		_civAgent addEventHandler ["Killed", {
-			call d_fnc_civmodulekilleh;
+			private _check_punish = true;
+			{
+				if ([_x] call d_fnc_ismissionobjective) exitWith {
+					// problem: civilians walk near mission objectives and cannot easily be moved
+					// workaround: no penalty if civilian is killed within 100m of a mission objective (collateral damage / acceptable loss)
+					_check_punish = false;
+					diag_log [format ["civ killed but do not punish getPos %1", getPos (_this # 0)]];
+				};
+			} forEach ([getPos (_this # 0), 100] call d_fnc_getbldgswithpositions);
+			if (_check_punish) then {
+				call d_fnc_civmodulekilleh;
+			};
 		}];
 		[_civAgent, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civAgent];
 	};
