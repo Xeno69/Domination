@@ -94,6 +94,14 @@ if (_wtype == 1) then {
 	_bomb = "M_Scalpel_AT"; // todo
 	_altitude = 500;
 };
+
+#ifdef __VN__
+// set bomb type for SOG
+// _bomb = "vn_bomb_500_blu1b_fb_ammo";
+//_bomb = "vn_bomb_15000_blu82_dc_ammo";
+_bomb = "vn_bomb_500_mk82_he_ammo";
+#endif
+
 [_target, _start_pos, _bomb, _altitude, _callero] call d_fnc_moduleCAS_guidedmissile;
 
 [_side, _logic1, _logic, _topicside, _channel] spawn {
