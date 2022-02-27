@@ -24,7 +24,7 @@ _missileSpeed = 6174;
 _pos = [0,0,0];
 
 //if no target is found -> exit
-if (isNull _target) exitWith {hintSilent "No Target Found!"};
+if (_target isEqualTo []) exitWith {hintSilent "No Target Found!"};
 
 
 //create missile and setting pos
@@ -40,17 +40,29 @@ _missile setShotParents [_instigator, _instigator];
 while {alive _missile && {_missile distance2D _target > 1}} do {
 	//if (_missile distance _target > (_missileSpeed / 10)) then {
 	if (_missile distance _target > 5) then {
-		_dirHor = [_missile, _target] call BIS_fnc_DirTo;
+		private _dirHor = [_missile, _target] call BIS_fnc_DirTo;
 		_missile setDir _dirHor;
-		
-		_dirVer = asin ((((getPosASL _missile) select 2) - ((getPosASL _target) select 2)) / (_target distance _missile));
+		private _dirVer = nil;
+		if (_target isEqualType []) then {
+			_dirVer = asin ((((getPosASL _missile) select 2) - (_target select 2)) / (_target distance _missile));
+		} else {
+			_dirVer = asin ((((getPosASL _missile) select 2) - ((getPosASL _target) select 2)) / (_target distance _missile));
+		};
 		_dirVer = (_dirVer * -1);
 		[_missile, _dirVer, 0] call BIS_fnc_setPitchBank;
-		
 		_flyingTime = (_target distance _missile) / _missileSpeed;
-		_velocityX = (((getPosASL _target) select 0) - ((getPosASL _missile) select 0)) / _flyingTime;
-		_velocityY = (((getPosASL _target) select 1) - ((getPosASL _missile) select 1)) / _flyingTime;
-		_velocityZ = (((getPosASL _target) select 2) - ((getPosASL _missile) select 2)) / _flyingTime;
+		private _velocityX = nil;
+		private _velocityY = nil;
+		private _velocityZ = nil;
+		if (_target isEqualType []) then {
+			_velocityX = ((_target select 0) - ((getPosASL _missile) select 0)) / _flyingTime;
+			_velocityY = ((_target select 1) - ((getPosASL _missile) select 1)) / _flyingTime;
+			_velocityZ = ((_target select 2) - ((getPosASL _missile) select 2)) / _flyingTime;
+		} else {
+			_velocityX = (((getPosASL _target) select 0) - ((getPosASL _missile) select 0)) / _flyingTime;
+			_velocityY = (((getPosASL _target) select 1) - ((getPosASL _missile) select 1)) / _flyingTime;
+			_velocityZ = (((getPosASL _target) select 2) - ((getPosASL _missile) select 2)) / _flyingTime;
+		};
 		_missile setVelocity [_velocityX, _velocityY, _velocityZ];
 		
 		
