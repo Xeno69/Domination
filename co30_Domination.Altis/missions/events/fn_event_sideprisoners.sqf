@@ -32,7 +32,7 @@ d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventDetonatePresent",d_kbtel
 
 private _prisonerGroup = [d_own_side] call d_fnc_creategroup;
 
-private _distance_to_rescue = 1.5; //in meters
+private _distance_to_rescue = 3.5; //in meters
 private _event_succeed_points = 10;
 private _allActors = [];
 
