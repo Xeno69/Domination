@@ -14853,6 +14853,18 @@
 <Chinese>Target selection time:</Chinese>
 <French>Target selection time:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES">
+<English>Enemy mercenaries (2035 only)</English>
+<Spanish>Enemy mercenaries (2035 only)</Spanish>
+<Portuguese>Enemy mercenaries (2035 only)</Portuguese>
+<Korean>Enemy mercenaries (2035 only)</Korean>
+<Japanese>Enemy mercenaries (2035 only)</Japanese>
+<Original>Enemy mercenaries (2035 only)</Original>
+<Russian>Enemy mercenaries (2035 only)</Russian>
+<Chinesesimp>Enemy mercenaries (2035 only)</Chinesesimp>
+<Chinese>Enemy mercenaries (2035 only)</Chinese>
+<French>Enemy mercenaries (2035 only)</French>
+</Key>
 </Container>
 </Package>
 </Project>
