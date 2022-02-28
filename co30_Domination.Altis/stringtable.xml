@@ -10457,16 +10457,28 @@
 <French>Demande CAS</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS">
-<English>Call CAS Bomb</English>
-<Spanish>Call CAS Bomb</Spanish>
-<Portuguese>Call CAS Bomb</Portuguese>
-<Korean>Call CAS Bomb</Korean>
-<Japanese>Call CAS Bomb</Japanese>
-<Original>Call CAS Bomb</Original>
-<Russian>Call CAS Bomb</Russian>
-<Chinesesimp>Call CAS Bomb</Chinesesimp>
-<Chinese>Call CAS Bomb</Chinese>
-<French>Call CAS Bomb</French>
+<English>Call CAS Bomb HE</English>
+<Spanish>Call CAS Bomb HE</Spanish>
+<Portuguese>Call CAS Bomb HE</Portuguese>
+<Korean>Call CAS Bomb HE</Korean>
+<Japanese>Call CAS Bomb HE</Japanese>
+<Original>Call CAS Bomb HE</Original>
+<Russian>Call CAS Bomb HE</Russian>
+<Chinesesimp>Call CAS Bomb HE</Chinesesimp>
+<Chinese>Call CAS Bomb HE</Chinese>
+<French>Call CAS Bomb HE</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM">
+<English>Call CAS Bomb Napalm</English>
+<Spanish>Call CAS Bomb Napalm</Spanish>
+<Portuguese>Call CAS Bomb Napalm</Portuguese>
+<Korean>Call CAS Bomb Napalm</Korean>
+<Japanese>Call CAS Bomb Napalm</Japanese>
+<Original>Call CAS Bomb Napalm</Original>
+<Russian>Call CAS Bomb Napalm</Russian>
+<Chinesesimp>Call CAS Bomb Napalm</Chinesesimp>
+<Chinese>Call CAS Bomb Napalm</Chinese>
+<French>Call CAS Bomb Napalm</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1712">
 <English>CAS currently not available...</English>
