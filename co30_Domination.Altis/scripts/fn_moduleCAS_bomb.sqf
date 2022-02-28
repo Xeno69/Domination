@@ -87,27 +87,27 @@ private _bomb = nil;
 private _altitude = 500;
 if (_wtype == 0) then {
 	_bomb = "Bomb_04_F";
-	sleep (5 max random 20);
+	sleep (2 max random 5);
 };
 if (_wtype == 1) then {
 	_bomb = "M_Scalpel_AT"; // todo
-	sleep (5 max random 10);
+	sleep 1;
 };
 
 #ifdef __VN__
 // default bomb type for SOG
 if (_wtype == 0) then {
 	_bomb = "vn_bomb_500_mk82_he_ammo";
-	sleep (5 max random 20);
+	sleep (2 max random 5);
 };
 if (_wtype == 2) then {
 	// napalm
 	_bomb = "vn_bomb_500_blu1b_fb_ammo";
-	sleep (5 max random 30);
+	sleep (2 max random 5);
 };
 if (_wtype == 3) then { 
 	_bomb = "vn_bomb_15000_blu82_dc_ammo"; // todo
-	sleep (5 max random 20);
+	sleep (2 max random 5);
 };
 #endif
 
