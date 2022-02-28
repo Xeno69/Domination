@@ -9,9 +9,12 @@
 - Added: ACE splints/earplugs to arsenal, by Wazzledi
 - Added: New guided CAS ordnance: 500 lb bomb, by longtimegamer
 - Added: State of "Auto viewdistances change at main target" checkbox gets now saved to profileNamespace
+- Added: Player will see option in binoculars to drop 500 lb napalm bomb on SOG map, by longtimegamer
+- Added: New parameter to fight enemy mercenaries (units wear no body armor, currently only available for 2035 maps, d_enemy_mercenaries in description.ext), by longtimegamer
 - Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
 - Changed: You can now set viewdistances individually for inf, vehicles and air in the Dashboard/Statusdialog (max value maxviewdistance)
 - Changed: CAS now uses eachFrame handling, by longtimegamer
+- Changed: No penalty for civilians killed by players within 100m of objectives (sometimes civilians will not move so consider them collateral damage / acceptable losses), by longtimegamer
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
 - Fixed: Bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
 - Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
