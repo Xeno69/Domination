@@ -18,23 +18,21 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_1713", score player, d_ranked_a # 22];
 };
 
-private _target = nil;
-private _islaserd = false;
-private _lt = laserTarget player;
+private "_target";
+private _do_exit = false;
+
 if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
-
-	__TRACE_1("","_lt")
-
-	if (isNil "_lt" || {isNull _lt}) then {
-		_target = getPos _lt;
-	} else {
-		_target = _lt;
-		_islaserd = true;
+	_target = laserTarget player;
+	__TRACE_1("","_target")
+	if (isNil "_target" || {isNull _target}) exitWith {
+		// laser target not valid
+		_do_exit = true;
 	};
-
+	_target = getPos _target;
 } else {
 	_target = screenToWorld [0.5, 0.5];
 };
+if (_do_exit) exitWith {};
 __TRACE_1("","_target")
 
 #ifdef __DEBUG__

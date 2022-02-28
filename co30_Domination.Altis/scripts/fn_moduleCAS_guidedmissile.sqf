@@ -10,50 +10,49 @@ nul=[laserTarget player, getPos startLocation, "M_Scalpel_AT", 500] execVM "guid
 */
 
 //initializing parameters
-_target = _this select 0;
-_startPos = _this select 1;
-_missileType = _this select 2;
-_missileHeight = _this select 3;
-_instigator = _this select 4;
+params ["_target", "_startPos", "_missileType", "_missileHeight", "_instigator"];
+__TRACE_1("","_this")
 
 //defining parameters
 //the faster the target, the more checks it will need 100 is good for fast moving targets such as aircrafts
-_perSecondsChecks = 100;
+private _perSecondsChecks = 100;
 //actual speed of a AIM-54 Phoenix AA missile
-_missileSpeed = 6174;
-_pos = [0,0,0];
+private _missileSpeed = 6174;
 
 //if no target is found -> exit
 if (_target isEqualTo []) exitWith {hintSilent "No Target Found!"};
 
-
 //create missile and setting pos
-_pos = [_startPos select 0, _startPos select 1, _missileHeight];
+_startPos set [2, _missileHeight];
 
 //creating missile
-_missile = _missileType createVehicle _pos;
+private _missile = _missileType createVehicle _startPos;
 _missile setShotParents [_instigator, _instigator];
+__TRACE_3("","_missile","getPos _missile","_missile distance _target")
 
 // todo - orient the missile to point toward the target?
 
 //ajusting missile pos while flying
 while {alive _missile && {_missile distance2D _target > 1}} do {
+	//__TRACE_2("flying","_missile","_missile distance2D _target")
 	//if (_missile distance _target > (_missileSpeed / 10)) then {
 	if (_missile distance _target > 5) then {
-		private _dirHor = [_missile, _target] call BIS_fnc_DirTo;
-		_missile setDir _dirHor;
-		private _dirVer = nil;
-		if (_target isEqualType []) then {
-			_dirVer = asin ((((getPosASL _missile) select 2) - (_target select 2)) / (_target distance _missile));
+		_missile setDir (_missile getDir _target);
+		private _dirVer = if (_target isEqualType []) then {
+			asin ((((getPos _missile) # 2) - (_target # 2)) / (_target distance _missile));
 		} else {
-			_dirVer = asin ((((getPosASL _missile) select 2) - ((getPosASL _target) select 2)) / (_target distance _missile));
+			asin ((((getPos _missile) # 2) - ((getPosASL _target) # 2)) / (_target distance _missile));
 		};
-		_dirVer = (_dirVer * -1);
-		[_missile, _dirVer, 0] call BIS_fnc_setPitchBank;
+		__TRACE_1("","_dirVer")
+		if (_dirVer isEqualType 0) then {// asin can return something like -1.#IND if the value isn't correct (asin 2 for example)
+			_dirVer = _dirVer * -1;
+			__TRACE_2("","_missile","_dirVer")
+			[_missile, _dirVer, 0] call BIS_fnc_setPitchBank;
+		};
 		_flyingTime = (_target distance _missile) / _missileSpeed;
-		private _velocityX = nil;
-		private _velocityY = nil;
-		private _velocityZ = nil;
+		private "_velocityX";
+		private "_velocityY";
+		private "_velocityZ";
 		if (_target isEqualType []) then {
 			_velocityX = ((_target select 0) - ((getPosASL _missile) select 0)) / _flyingTime;
 			_velocityY = ((_target select 1) - ((getPosASL _missile) select 1)) / _flyingTime;
@@ -65,8 +64,10 @@ while {alive _missile && {_missile distance2D _target > 1}} do {
 		};
 		_missile setVelocity [_velocityX, _velocityY, _velocityZ];
 		
-		
 		sleep (1/ _perSecondsChecks);
 	};
 };
-_missile setDamage 1;
+__TRACE_1("","alive _missile")
+if (!alive _missile) then {
+	_missile setDamage 1;
+};

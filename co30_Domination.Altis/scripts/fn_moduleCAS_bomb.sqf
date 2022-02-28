@@ -5,7 +5,7 @@ params ["_target", "_caller", "_wtype"];
 
 __TRACE_1("","_this")
 
-private _callero = objectFromNetId _caller;
+private _callero = [player, objectFromNetId _caller] select isMultiplayer;
 private _side = side (group _callero);
 
 #ifndef __TT__
@@ -74,16 +74,10 @@ _logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
 sleep 1;
 _logic1 kbTell [_logic, _topicside, "CASUnavailable", _channel];
 
-
-private _lpos = nil;
 private _start_pos = getPos _callero;
-if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
-	_lpos = getPosASL _target;
-} else {
-	_lpos = _target;
-};
+__TRACE_1("","_start_pos")
 
-private _bomb = nil;
+private "_bomb";
 private _altitude = 500;
 if (_wtype == 0) then {
 	_bomb = "Bomb_04_F";
