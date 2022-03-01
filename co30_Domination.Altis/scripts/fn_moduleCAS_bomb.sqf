@@ -190,7 +190,7 @@ waitUntil {
 	};
 
 	//--- Fire!
-	if (_fireNull && {(getPosAsl _plane) distance _pos < 500}) then {
+	if (_fireNull && {(getPosAsl _plane) distance _pos < 400}) then {
 		_fireNull = false;
 		terminate _fire;
 		private _start_pos = (getPos _plane) vectorAdd [0, 0, -2];
