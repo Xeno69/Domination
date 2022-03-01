@@ -135,7 +135,7 @@ private _time = time;
 private _offset = [0, 20] select (_weaponTypes findIf {_x == "missilelauncher"} > -1);
 
 d_cas_metadata_enemy = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
-publicVariable "d_cas_metadata_enemy";
+//publicVariable "d_cas_metadata_enemy";
 
 // use eachframe for a smooth approach
 ["dom_cas_setvelocitytransform_enemy", {call d_fnc_moduleCAS_eachframeAI}] call d_fnc_eachframeadd;
@@ -221,6 +221,6 @@ if (canMove _plane) then {
 };
 
 d_cas_metadata_enemy = [];
-publicVariable "d_cas_metadata_enemy";
+//publicVariable "d_cas_metadata_enemy";
 
 __TRACE("Done")
