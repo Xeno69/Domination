@@ -294,6 +294,8 @@ class CfgRemoteExec {
 		class setSpeaker {};
 		class setFeatureType {jip = 1;};
 		class deleteMarkerLocal {allowedTargets = 1;};
+		class enableDynamicSimulation {allowedTargets = 2;};
+		class triggerDynamicSimulation {allowedTargets = 2;};
 #ifdef __TT__
 		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
