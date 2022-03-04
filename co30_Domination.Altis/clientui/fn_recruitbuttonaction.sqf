@@ -102,6 +102,10 @@ if (d_WithRevive == 0 && {_unit getUnitTrait "Medic"}) then {
 
 d_current_ai_units pushBack _unit;
 
+if ((binocular _unit) isNotEqualTo "") then {
+	_unit removeWeapon (binocular _unit);
+};
+
 _unit call d_fnc_removenvgoggles_fak;
 
 [_unit, false] remoteExecCall ["enableDynamicSimulation", 2];

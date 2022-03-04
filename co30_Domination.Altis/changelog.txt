@@ -16,6 +16,7 @@
 - Changed: CAS now uses eachFrame handling, by longtimegamer
 - Changed: No penalty for civilians killed by players within 100m of objectives (sometimes civilians will not move so consider them collateral damage / acceptable losses), by longtimegamer
 - Changed: Dynamic simulation triggering of recruited AI in with AI version moved from client to server
+- Changed: Remove binoculars from recruited AI in the AI version to prevent them running around with binos constantly
 - Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
 - Fixed: Bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
 - Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
