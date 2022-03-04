@@ -3,8 +3,12 @@
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom init.sqf"];
 
-if (productVersion # 2 < 208) exitWith {
-	diag_log [diag_frameno, diag_ticktime, time, "You need at least A3 patch 2.08 to run the mission!!!!"];
+// bring back before 2.08
+//if (productVersion # 2 < 208) exitWith {
+if (productVersion # 2 < 206) exitWith {
+	// bring back before 2.08
+	//diag_log [diag_frameno, diag_ticktime, time, "You need at least A3 patch 2.08 to run the mission!!!!"];
+	diag_log [diag_frameno, diag_ticktime, time, "You need at least A3 patch 2.06 to run the mission!!!!"];
 	endMission "LOSER";
 	forceEnd;
 };
