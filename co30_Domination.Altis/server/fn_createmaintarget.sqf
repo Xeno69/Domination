@@ -36,6 +36,31 @@ private _selectitvec = {
 	};
 };
 
+// if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
+private _merc_array = [
+	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
+	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
+];
+
+#ifdef __ALTIS__
+if (d_enemy_mercenaries == 1) then {
+	d_allmen_E =+ _merc_array;
+	d_specops_E =+ _merc_array;
+	publicVariable "d_allmen_E";
+	publicVariable "d_specops_E";
+	diag_log ["mercenaries configured - Altis"];
+};
+#endif
+#ifdef __MALDEN__
+if (d_enemy_mercenaries == 1) then {
+	d_allmen_E =+ _merc_array;
+	d_specops_E =+ _merc_array;
+	publicVariable "d_allmen_E";
+	publicVariable "d_specops_E";
+	diag_log ["mercenaries configured - Malden"];
+};
+#endif
+
 private _type_list_guard = [];
 private _type_list_guard_static = [];
 private _camp_enable_guard_current = 0;
@@ -375,7 +400,7 @@ sleep 0.233;
 
 // create guard_static groups (and a camp if allmen/specops)
 {
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
+	if (d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}) then {
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
@@ -421,7 +446,7 @@ sleep 0.233;
 // create patrol groups
 {
 	__TRACE_1("patrol","_x")
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1 || d_grp_cnt_footpatrol > 0) then {
+	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
 		if (d_grp_cnt_footpatrol == 0) exitWith {};
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		private _group_count = (_x # 2);
@@ -793,7 +818,10 @@ if (d_occ_bldgs == 1) then {
 #ifndef __TT__
 if (d_enable_civs == 1) then {
 	// create civilian agents and spawn civilian modules
-	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
+	[_trg_center, d_cur_target_radius] call d_fnc_civilianmodule;
+	
+	// loop to control civilian behaviors
+	d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
 };
 #endif
 
@@ -878,15 +906,20 @@ if (d_with_MainTargetEvents != 0) then {
 			// create one event
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
-		if (d_ai_awareness_rad < 0 && {d_enable_civs == 0 && {d_ai_aggressiveshoot == 0}}) then {
+		if (d_ai_awareness_rad > 0 && {d_enable_civs == 1 && {d_ai_aggressiveshoot == 1}}) then {
 			// awareness, civs, agressiveshoot are enabled
 			// very small chance of a civilian massacre
-			if (3 > random 100) then {
+			if (2 > random 100) then {
 				// bad luck for the civilians
 				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
 			};
 		};
 	};
+};
+
+if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot == 1 || {d_ai_quickammo == 1}}}}) then {
+	// at least one awareness setting is enabled, run the awareness loop
+	d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
 };
 #endif
 

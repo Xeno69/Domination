@@ -346,7 +346,7 @@ class D_StatusDialog {
 			colorBackground[] = {1, 1, 1, 0};
 			colorText[] = {1, 1, 1, 1};
 			shadow = 0;
-			text = "$STR_DOM_MISSIONSTRING_1285";
+			text = "$STR_DOM_MISSIONSTRING_358";
 		};
 		class VD_Slider: RscXSliderH {
 			idc = 1000;
@@ -356,15 +356,62 @@ class D_StatusDialog {
 			h = "0.02 * safezoneH";
 			onSliderPosChanged = "_this call d_fnc_vdsliderchanged";
 		};
+		
+		class ViewDistanceVecCaption: ViewDistanceCaption {
+			idc = 3333;
+			y = "0.15 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_358V";
+		};
+		class VDVec_Slider: VD_Slider {
+			idc = 3500;
+			y = "0.18 * safezoneH + safezoneY";
+			onSliderPosChanged = "_this call d_fnc_vdvecsliderchanged";
+		};
+		class ViewDistanceAirCaption: ViewDistanceCaption {
+			idc = 3334;
+			y = "0.20 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_358A";
+		};
+		class VDAir_Slider: VD_Slider {
+			idc = 3501;
+			y = "0.23 * safezoneH + safezoneY";
+			onSliderPosChanged = "_this call d_fnc_vdairsliderchanged";
+		};
+		class VDCombiCaption: ViewDistanceCaption {
+			idc = 1612;
+			y = "0.254 * safezoneH + safezoneY";
+			text = "Use only Inf VD slider to set all VD settings:";
+		};
+		class VDCombiCheckBox: RscCheckBox {
+			idc = 1613;
+			x = "0.48 * safezoneW + safezoneX";
+			y = "0.258 * safezoneH + safezoneY";
+			w = "0.02 * safezoneW";
+			h = "0.025 * safezoneH";
+		};
+#ifndef __TT__
+		class AutoVDCaption: ViewDistanceCaption {
+			idc = 1609;
+			y = "0.285 * safezoneH + safezoneY";
+			text = "$STR_DOM_MISSIONSTRING_1964";
+		};
+		class AutoVDCheckBox: RscCheckBox {
+			idc = 1610;
+			x = "0.48 * safezoneW + safezoneX";
+			y = "0.289 * safezoneH + safezoneY";
+			w = "0.02 * safezoneW";
+			h = "0.025 * safezoneH";
+		};
+#endif
 		class GraslayerCaption: ViewDistanceCaption {
 			idc = 1998;
-			y = "0.18 * safezoneH + safezoneY";
+			y = "0.31 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1287";
 		};
 		class GraslayerCombo: RscUIComboBox {
 			idc = 1001;
 			x = "0.35 * safezoneW + safezoneX";
-			y = "0.21 * safezoneH + safezoneY";
+			y = "0.34 * safezoneH + safezoneY";
 			w = "0.2 * safezoneW";
 			h = "0.02 * safezoneH";
 			sizeEx = 0.028;
@@ -372,58 +419,32 @@ class D_StatusDialog {
 		};
 		class PlayermarkerCaption: ViewDistanceCaption {
 			idc = 1501;
-			y = "0.26 * safezoneH + safezoneY";
+			y = "0.37 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1289";
 		};
 		class PlayermarkerCombo: GraslayerCombo {
 			idc = 1002;
-			y = "0.29 * safezoneH + safezoneY";
+			y = "0.40 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this] call d_fnc_pmselchanged"; 
 		};
 		class PlayernamesCaption: ViewDistanceCaption {
 			idc = 1601;
-			y = "0.34 * safezoneH + safezoneY";
+			y = "0.43 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_1291";
 		};
 		class PlayernamesCombo: PlayermarkerCombo {
 			idc = 1602;
-			y = "0.37 * safezoneH + safezoneY";
+			y = "0.46 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this] call d_fnc_pnselchanged"; 
 		};
-#ifndef __TT__
-		class AutoVDCaption: ViewDistanceCaption {
-			idc = 1609;
-			y = "0.40 * safezoneH + safezoneY";
-			text = "$STR_DOM_MISSIONSTRING_1964";
-		};
-		class AutoVDCheckBox: RscCheckBox {
-			idc = 1610;
-			x = "0.48 * safezoneW + safezoneX";
-			y = "0.404 * safezoneH + safezoneY";
-			w = "0.02 * safezoneW";
-			h = "0.025 * safezoneH";
-		};
-#endif
-		/*class RadioProtocolCaption: ViewDistanceCaption {
-			idc = 1611;
-			y = "0.43 * safezoneH + safezoneY";
-			text = "$STR_DOM_MISSIONSTRING_2052";
-		};
-		class RadioProtocolCheckBox: RscCheckBox {
-			idc = 1612;
-			x = "0.48 * safezoneW + safezoneX";
-			y = "0.434 * safezoneH + safezoneY";
-			w = "0.02 * safezoneW";
-			h = "0.025 * safezoneH";
-		};*/
 		class EarplugsUserCaption: ViewDistanceCaption {
 			idc = 3301;
-			y = "0.47 * safezoneH + safezoneY";
+			y = "0.49 * safezoneH + safezoneY";
 			text = "$STR_DOM_MISSIONSTRING_2012";
 		};
 		class EarplugsUserCombo: PlayermarkerCombo {
 			idc = 3302;
-			y = "0.5 * safezoneH + safezoneY";
+			y = "0.52 * safezoneH + safezoneY";
 			onLBSelChanged = "[_this, 0] call d_fnc_userkeyselchanged"; 
 		};
 		class ThreeDMarkerUserCaption: ViewDistanceCaption {

@@ -55,7 +55,6 @@ makePbo -A -B -P -X %NEW_VER% %NEW_VER%
 rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
-goto cleanup
 
 
 rem Blufor Western Sahara
@@ -776,7 +775,6 @@ cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
 rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
-
 
 
 rem TT Altis

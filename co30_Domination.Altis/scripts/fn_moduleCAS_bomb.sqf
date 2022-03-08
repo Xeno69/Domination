@@ -1,11 +1,11 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-params ["_lpos", "_caller", "_wtype"];
+params ["_target", "_caller", "_wtype"];
 
 __TRACE_1("","_this")
 
-private _callero = objectFromNetId _caller;
+private _callero = [player, objectFromNetId _caller] select isMultiplayer;
 private _side = side (group _callero);
 
 #ifndef __TT__
@@ -55,73 +55,6 @@ if !(isclass _planeCfg) exitwith {
 	false
 };
 
-#ifndef __IFA3LITE__
-//--- Detect gun
-private _weaponTypes = call {
-	if (_wtype == 0) exitWith {["machinegun"]};
-	if (_wtype == 1) exitWith {["rocketlauncher"]};
-	if (_wtype == 2) exitWith {["machinegun", "rocketlauncher"]};
-	[]
-};
-#else
-private _weaponTypes = call {
-	if (_wtype == 0) exitWith {["machinegun"]};
-	if (_wtype == 1) exitWith {["vehicleweapon"]};
-	if (_wtype == 2) exitWith {["vehicleweapon"]};
-	[]
-};
-#endif
-
-__TRACE_1("","_weaponTypes")
-
-private _pylweaps = [];
-private _cfg = _planeCfg>>"Components">>"TransportPylonsComponent">>"pylons";
-if (isClass _cfg) then {
-	for "_i" from 0 to (count _cfg - 1) do {
-		private _curpylon = _cfg select _i;
-		private _tweap = getText (configFile>>"CfgMagazines">>getText (_curpylon>>"attachment")>>"pylonWeapon");
-		__TRACE_1("","_tweap")
-		if (_tweap != "") then {
-			_pylweaps pushBackUnique _tweap;
-		};
-	};
-};
-
-private _weapons = [];
-{
-	__TRACE_2("","_x","_x call bis_fnc_itemType")
-	if (toLowerANSI ((_x call bis_fnc_itemType) # 1) in _weaponTypes) then {
-		private _modes = getArray (configFile>>"cfgweapons">>_x>>"modes");
-		__TRACE_1("","_modes")
-		if (_modes isNotEqualTo []) then {
-			_modes params ["_mode"];
-			if (_mode == "this") then {_mode = _x;};
-			_weapons pushBack [_x, _mode];
-		};
-	};
-} forEach (getArray (_planeCfg >> "weapons") + _pylweaps);
-#ifdef __DEBUG__
-_mmm = getArray (_planeCfg >> "weapons");
-__TRACE_1("","_mmm")
-#endif
-__TRACE_1("","_weapons")
-
-if (_weapons isEqualTo []) exitwith {
-#ifndef __TT__
-	d_cas_available = true;
-	publicVariable "d_cas_available";
-#else
-	if (_side == opfor) then {
-		d_cas_available_e = true;
-		publicVariable "d_cas_available_e";
-	} else {
-		d_cas_available_w = true;
-		publicVariable "d_cas_available_w";
-	};
-#endif
-	false
-};
-
 remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
 
 #ifdef __TT__
@@ -141,10 +74,38 @@ _logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
 sleep 1;
 _logic1 kbTell [_logic, _topicside, "CASUnavailable", _channel];
 
+private "_bomb";
+private _altitude = 500;
+if (_wtype == 0) then {
+	_bomb = "Bomb_04_F";
+	sleep (2 max random 5);
+};
+if (_wtype == 1) then {
+	_bomb = "M_Scalpel_AT"; // todo
+	sleep 1;
+};
+
+#ifdef __VN__
+// default bomb type for SOG
+if (_wtype == 0) then {
+	_bomb = "vn_bomb_500_mk82_he_ammo";
+	sleep (2 max random 5);
+};
+if (_wtype == 2) then {
+	// napalm
+	_bomb = "vn_bomb_500_blu1b_fb_ammo";
+	sleep (2 max random 5);
+};
+if (_wtype == 3) then { 
+	_bomb = "vn_bomb_15000_blu82_dc_ammo"; // todo
+	sleep (2 max random 5);
+};
+#endif
+
 private _callerpos = getPos _callero;
 
 private _logico = d_HeliHEmpty createVehicle [10,10,10];
-_logico setPos _lpos;
+_logico setPos _target;
 __TRACE_1("","_logico")
 
 private _posATL = getPosAtl _logico;
@@ -180,7 +141,7 @@ _plane setVectordir _vectorDir;
 private _vectorUp = vectorUp _plane;
 
 //--- Remove all other weapons
-private _wpcmls = _weaponTypes + ["countermeasureslauncher"];
+private _wpcmls = ["countermeasureslauncher"];
 private _currentWeapons = weapons _plane;
 {
 	if !(toLowerANSI ((_x call bis_fnc_itemType) # 1) in _wpcmls) then {
@@ -188,19 +149,16 @@ private _currentWeapons = weapons _plane;
 	};
 } forEach _currentWeapons;
 
-_plane setVariable ["d_who_fired", _caller];
-_plane addEventhandler ["fired", {call d_fnc_casfired}];
-
 //--- Approach
 private _fire = [] spawn {
 	scriptName "spawn_modulcas";
 	waitUntil {false}
 };
 private _fireNull = true;
-private _time = time;
-private _offset = [0, 20] select (_weaponTypes findIf {_x == "missilelauncher"} > -1);
+private _atime = time;
+private _offset = 0;
 
-d_cas_metadata = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
+d_cas_metadata = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _atime, _duration];
 //publicVariable "d_cas_metadata";
 
 // use eachframe for a smooth approach
@@ -227,30 +185,27 @@ waitUntil {
 		_plane move ([_pos,_dis, _dir] call bis_fnc_relpos);
 		
 		// update global variable
-		d_cas_metadata = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
+		d_cas_metadata = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _atime, _duration];
 
 	};
 
 	//--- Fire!
-	if (_fireNull && {(getPosAsl _plane) distance _pos < 1200}) then {
+	if (_fireNull && {(getPosAsl _plane) distance _pos < 400}) then {
 		_fireNull = false;
 		terminate _fire;
-		_fire = [_plane,_weapons] spawn {
+		private _start_pos = (getPos _plane) vectorAdd [0, 0, -2];
+		__TRACE_2("","_start_pos","getPos _plane")
+		[_target, _start_pos, _bomb, _altitude, _callero] spawn d_fnc_moduleCAS_guidedmissile;
+		_fire = [_plane] spawn {
 			scriptName "spawn_modulcas2";
-			params ["_plane", "_weapons"];
-			private _planeDriver = driver _plane;
-			private _duration = 3;
-			private _time = time + _duration;
+			params ["_plane"];
+			private _atime = time + 0.5;
 			waitUntil {
-				{
-					//_plane selectweapon (_x # 0);
-					_planeDriver forceWeaponfire _x;
-				} forEach _weapons;
-				_plane setVariable ["fireProgress", (1 - ((_time - time) / _duration)) max 0 min 1];
-				sleep 0.1;
-				(time > _time || {isNull _plane || {!canMove _plane}})
+				_plane setVariable ["fireProgress", 1];
+				sleep 0.01;
+				(time > _atime || {isNull _plane || {!canMove _plane}})
 			};
-			sleep 1;
+			sleep 0.5;
 			["dom_cas_setvelocitytransform"] call d_fnc_eachframeremove;
 		};
 	};

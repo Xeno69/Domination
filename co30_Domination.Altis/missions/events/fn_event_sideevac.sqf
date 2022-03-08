@@ -66,7 +66,7 @@ _pilot1 addEventHandler ["Killed", {
 	_this spawn {
 		scriptName "special cleanup rules for rescue pilots";
 		private _t = time;
-		waitUntil { time > (_t + 1200) };
+		waitUntil { sleep 1; time > (_t + 1200) };
 		addToRemainsCollector [_this];
 	};
 }];
@@ -88,7 +88,7 @@ _pilot2 addEventHandler ["Killed", {
 	_this spawn {
 		scriptName "special cleanup rules for rescue pilots";
 		private _t = time;
-		waitUntil { time > (_t + 1200) };
+		waitUntil { sleep 1; time > (_t + 1200) };
 		addToRemainsCollector [_this];
 	}; 
 }];

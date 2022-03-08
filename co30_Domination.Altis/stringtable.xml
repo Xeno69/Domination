@@ -2750,29 +2750,41 @@
 <Chinese>你找不到任何有價值的文件‧</Chinese>
 <French>Vous n'avez trouvé aucun document de valeur</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_357">
-<English>Viewdistance</English>
-<Spanish>Vista Distancia</Spanish>
-<Portuguese>Vista Distancia</Portuguese>
-<Korean>가시거리</Korean>
-<Japanese>可視距離</Japanese>
-<Original>Viewdistance</Original>
-<Russian>Прорисовка</Russian>
-<Chinesesimp>视野距离</Chinesesimp>
-<Chinese>視野距離</Chinese>
-<French>Vue Distance</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_358">
-<English>Viewdistance: %1</English>
-<Spanish>Vista Distancia: %1</Spanish>
-<Portuguese>Vista Distancia: %1</Portuguese>
-<Korean>현재 가시거리: %1</Korean>
-<Japanese>可視距離: %1</Japanese>
-<Original>Viewdistance: %1</Original>
-<Russian>Дальность прорисовки: %1</Russian>
-<Chinesesimp>视野距离: %1</Chinesesimp>
-<Chinese>視野距離: %1</Chinese>
-<French>Vue Distance: %1</French>
+<English>Inf Viewdistance: %1</English>
+<Spanish>Inf Viewdistance: %1</Spanish>
+<Portuguese>Inf Viewdistance: %1</Portuguese>
+<Korean>Inf Viewdistance: %1</Korean>
+<Japanese>Inf Viewdistance: %1</Japanese>
+<Original>Inf Viewdistance: %1</Original>
+<Russian>Inf Viewdistance: %1</Russian>
+<Chinesesimp>Inf Viewdistance: %1</Chinesesimp>
+<Chinese>Inf Viewdistance: %1</Chinese>
+<French>Inf Viewdistance: %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_358V">
+<English>Vehicle Viewdistance: %1</English>
+<Spanish>Vehicle Viewdistance: %1</Spanish>
+<Portuguese>Vehicle Viewdistance: %1</Portuguese>
+<Korean>Vehicle Viewdistance: %1</Korean>
+<Japanese>Vehicle Viewdistance: %1</Japanese>
+<Original>Vehicle Viewdistance: %1</Original>
+<Russian>Vehicle Viewdistance: %1</Russian>
+<Chinesesimp>Vehicle Viewdistance: %1</Chinesesimp>
+<Chinese>Vehicle Viewdistance: %1</Chinese>
+<French>Vehicle Viewdistance: %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_358A">
+<English>Air Viewdistance: %1</English>
+<Spanish>Air Viewdistance: %1</Spanish>
+<Portuguese>Air Viewdistance: %1</Portuguese>
+<Korean>Air Viewdistance: %1</Korean>
+<Japanese>Air Viewdistance: %1</Japanese>
+<Original>Air Viewdistance: %1</Original>
+<Russian>Air Viewdistance: %1</Russian>
+<Chinesesimp>Air Viewdistance: %1</Chinesesimp>
+<Chinese>Air Viewdistance: %1</Chinese>
+<French>Air Viewdistance: %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_359">
 <English>No Grass</English>
@@ -8092,18 +8104,6 @@
 <Chinese>佔領陣地</Chinese>
 <French>Capture de Camp</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1285">
-<English>Viewdistance:</English>
-<Spanish>Vista Distancia:</Spanish>
-<Portuguese>Viewdistance:</Portuguese>
-<Korean>가시거리</Korean>
-<Japanese>可視距離:</Japanese>
-<Original>Viewdistance:</Original>
-<Russian>Дальность обзора</Russian>
-<Chinesesimp>视野距离：</Chinesesimp>
-<Chinese>視野距離:</Chinese>
-<French> Distance Visuelle</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1287">
 <English>Select Grass Layer</English>
 <Spanish>Selec. Capa de Hierba</Spanish>
@@ -10456,6 +10456,30 @@
 <Chinese>在激光指示點呼叫空中支援</Chinese>
 <French>Demande CAS</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS">
+<English>Call CAS Bomb HE</English>
+<Spanish>Call CAS Bomb HE</Spanish>
+<Portuguese>Call CAS Bomb HE</Portuguese>
+<Korean>Call CAS Bomb HE</Korean>
+<Japanese>Call CAS Bomb HE</Japanese>
+<Original>Call CAS Bomb HE</Original>
+<Russian>Call CAS Bomb HE</Russian>
+<Chinesesimp>Call CAS Bomb HE</Chinesesimp>
+<Chinese>Call CAS Bomb HE</Chinese>
+<French>Call CAS Bomb HE</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM">
+<English>Call CAS Bomb Napalm</English>
+<Spanish>Call CAS Bomb Napalm</Spanish>
+<Portuguese>Call CAS Bomb Napalm</Portuguese>
+<Korean>Call CAS Bomb Napalm</Korean>
+<Japanese>Call CAS Bomb Napalm</Japanese>
+<Original>Call CAS Bomb Napalm</Original>
+<Russian>Call CAS Bomb Napalm</Russian>
+<Chinesesimp>Call CAS Bomb Napalm</Chinesesimp>
+<Chinese>Call CAS Bomb Napalm</Chinese>
+<French>Call CAS Bomb Napalm</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1712">
 <English>CAS currently not available...</English>
 <Spanish>CAS ACTUALMENTE en Objetivo ...</Spanish>
@@ -12114,12 +12138,12 @@
 <French>Appel Taxi Aérien</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1885">
-<English>Disable artillery cooldown</English>
+<English>Disable artillery and CAS cooldown</English>
 <Spanish>Desactivar el enfriamiento de la artillería</Spanish>
 <Portuguese>Desactivar o arrefecimento da artilharia</Portuguese>
 <Korean>포병장비 냉각시간 비활성화</Korean>
-<Japanese>Disable artillery cooldown</Japanese>
-<Original>Disable artillery cooldown</Original>
+<Japanese>Disable artillery and CAS cooldown</Japanese>
+<Original>Disable artillery and CAS cooldown</Original>
 <Russian>Отключить перезарядку артиллерии</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 <Chinese>禁用火砲冷卻</Chinese>
@@ -14828,6 +14852,18 @@
 <Chinesesimp>Target selection time:</Chinesesimp>
 <Chinese>Target selection time:</Chinese>
 <French>Target selection time:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES">
+<English>Enemy mercenaries (2035 only)</English>
+<Spanish>Enemy mercenaries (2035 only)</Spanish>
+<Portuguese>Enemy mercenaries (2035 only)</Portuguese>
+<Korean>Enemy mercenaries (2035 only)</Korean>
+<Japanese>Enemy mercenaries (2035 only)</Japanese>
+<Original>Enemy mercenaries (2035 only)</Original>
+<Russian>Enemy mercenaries (2035 only)</Russian>
+<Chinesesimp>Enemy mercenaries (2035 only)</Chinesesimp>
+<Chinese>Enemy mercenaries (2035 only)</Chinese>
+<French>Enemy mercenaries (2035 only)</French>
 </Key>
 </Container>
 </Package>

@@ -37,7 +37,7 @@ class CfgWorlds {
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
 			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database",
-			"If you have problems with a server ask on the server discord or forums, the Domination discord server is only for the mission!"
+			"If you have problems with a server ask on the server discord or forums. The Domination discord server is only for the mission!"
 		};
 	};
 };
@@ -203,6 +203,7 @@ class CfgRemoteExec {
 		class d_fnc_dynamicGroups {};
 		class d_fnc_addppoints {allowedTargets = 2;};
 		class d_fnc_moduleCAS {allowedTargets = 2;};
+		class d_fnc_moduleCAS_bomb {allowedTargets = 2;};
 		class d_fnc_storeploadout {allowedTargets = 2;};
 		class d_fnc_player_stuff {allowedTargets = 1;};
 		class d_fnc_addceo {allowedTargets = 2;};
@@ -293,6 +294,8 @@ class CfgRemoteExec {
 		class setSpeaker {};
 		class setFeatureType {jip = 1;};
 		class deleteMarkerLocal {allowedTargets = 1;};
+		class enableDynamicSimulation {allowedTargets = 2;};
+		class triggerDynamicSimulation {allowedTargets = 2;};
 #ifdef __TT__
 		class setMarkerPosLocal {allowedTargets = 1;};
 #endif
@@ -1578,6 +1581,13 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_enemy_mercenaries {
+		title = "$STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES";
+		values[] = {0,1};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		default = 0;
 	};
 
 	class d_params_dl_13 {

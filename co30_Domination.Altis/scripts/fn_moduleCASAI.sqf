@@ -82,8 +82,8 @@ private _pos = +_posATL;
 _pos set [2, (_pos # 2) + getTerrainheightasl _pos];
 private _dir = _callerpos getDir _logico;
 
-private _dis = 3000;
-private _alt = 1000;
+private _dis = 2500;
+private _alt = 1300;
 private _pitch = atan (_alt / _dis);
 private _speed = 400 / 3.6;
 private _duration = ([0,0] distance [_dis, _alt]) / _speed;
@@ -133,6 +133,13 @@ if (alive _enemy && {alive _callero && {_callero knowsAbout _enemy >= 1.5 && {_e
 private _fireNull = true;
 private _time = time;
 private _offset = [0, 20] select (_weaponTypes findIf {_x == "missilelauncher"} > -1);
+
+d_cas_metadata_enemy = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
+//publicVariable "d_cas_metadata_enemy";
+
+// use eachframe for a smooth approach
+["dom_cas_setvelocitytransform_enemy", {call d_fnc_moduleCAS_eachframeAI}] call d_fnc_eachframeadd;
+
 waitUntil {
 	private _fireProgress = _plane getVariable ["fireProgress", 0];
 
@@ -152,20 +159,14 @@ waitUntil {
 		_vectorUp = vectorUp _plane;
 
 		_plane move ([_pos,_dis, _dir] call bis_fnc_relpos);
+		
+		// update global variable
+		d_cas_metadata_enemy = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
+
 	};
 
-	//--- Set the plane approach vector
-	_plane setVelocityTransformation [
-		_planePos, [_pos # 0, _pos # 1, (_pos # 2) + _offset + _fireProgress * 12],
-		_velocity, _velocity,
-		_vectorDir, _vectorDir,
-		_vectorUp, _vectorUp,
-		(time - _time) / _duration
-	];
-	_plane setVelocity velocity _plane;
-
 	//--- Fire!
-	if (_fireNull && {(getPosAsl _plane) distance _pos < 1000}) then {
+	if (_fireNull && {(getPosAsl _plane) distance _pos < 1300}) then {
 		_fireNull = false;
 		terminate _fire;
 		_fire = [_plane,_weapons] spawn {
@@ -184,6 +185,7 @@ waitUntil {
 				(time > _time || {isNull _plane || {!canMove _plane}})
 			};
 			sleep 1;
+			["dom_cas_setvelocitytransform_enemy"] call d_fnc_eachframeremove;
 		};
 	};
 
@@ -191,7 +193,7 @@ waitUntil {
 	(scriptDone _fire || {isNull _logico || {isNull _plane || {!canMove _plane}}})
 };
 _plane setVelocity velocity _plane;
-_plane flyinHeight _alt;
+_plane flyinHeight _alt * 2;
 if (!scriptDone _fire) then {
 	terminate _fire;
 };
@@ -217,5 +219,8 @@ if (canMove _plane) then {
 		deleteGroup _group;
 	};
 };
+
+d_cas_metadata_enemy = [];
+//publicVariable "d_cas_metadata_enemy";
 
 __TRACE("Done")

@@ -157,7 +157,7 @@ if (d_database_found) then {
 		titleText ["", "BLACK IN"];
 	};
 
-	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
+	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank", "Ship"], 30]) + (player nearSupplies 30));
 
 	if (d_with_ai && {d_player_canu && {_typepos != 2}}) then {[] spawn d_fnc_moveai};
 };

@@ -3044,8 +3044,6 @@ if (hasInterface) then {
 	d_add_resp_points_pos = [];
 
 	d_earplugs_fitted = false;
-
-	d_maintarget_auto_vd = d_AutoViewdistanceChangeDefault == 1;
 	
 	d_deploy_mhq_camo = true;
 

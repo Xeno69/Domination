@@ -55,7 +55,7 @@ private _trigger = [getPos _bldg, [75,75,0,false,30], [d_own_side,"PRESENT",true
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 // event begins
-private _distance_to_rescue = 1.5; // meters
+private _distance_to_rescue = 3.5; // meters
 private _defuse_time_limit = 150; // seconds
 private _event_succeed_points = 10;
 

@@ -39,6 +39,11 @@ if (alive (_this # 2)) then {
 			[(_this # 2), _aidx] call bis_fnc_holdActionRemove;
 			(_this # 2) setVariable ["d_vec_para_action_move", nil];
 		};
+		_aidx = (_this # 2) getVariable "d_vec_hd_eh_idx";
+		if (!isNil "_aidx") then {
+			(_this # 2) removeEventHandler ["handleDamage", _aidx];
+			(_this # 2) setVariable ["d_vec_hd_eh_idx", nil];
+		};
 	};
 };
 
@@ -65,3 +70,6 @@ if (!isTouchingGround (vehicle player)) then {
 		d_player_in_base = true;
 	};
 };
+
+setViewDistance d_curviewdistance;
+setObjectViewDistance d_curobjectdistance + 100;

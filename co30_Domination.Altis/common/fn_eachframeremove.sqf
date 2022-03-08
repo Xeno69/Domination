@@ -6,22 +6,26 @@
 
 params ["_name"];
 
-if (_name in (keys d_ef_hash)) exitWith {
-	d_ef_hash deleteAt _name;
-
-	if ((count d_ef_hash) isEqualTo 0) then {
-		removeMissionEventHandler ["EachFrame", d_ef_running];
-		d_ef_running = nil;
-		d_ef_hash = nil;
+if !(isNil "d_ef_hash") then {
+	if (_name in (keys d_ef_hash)) exitWith {
+		d_ef_hash deleteAt _name;
+	
+		if ((count d_ef_hash) isEqualTo 0) then {
+			removeMissionEventHandler ["EachFrame", d_ef_running];
+			d_ef_running = nil;
+			d_ef_hash = nil;
+		};
 	};
 };
 
-if (_name in (keys d_ef_n_hash)) exitWith {
-	removeMissionEventHandler ["EachFrame", d_ef_n_hash get _name];
-	d_ef_n_hash deleteAt _name;
-	
-	if ((count d_ef_n_hash) isEqualTo 0) then {
-		d_ef_n_hash = nil;
+if !(isNil "d_ef_n_hash") then {
+	if (_name in (keys d_ef_n_hash)) exitWith {
+		removeMissionEventHandler ["EachFrame", d_ef_n_hash get _name];
+		d_ef_n_hash deleteAt _name;
+		
+		if ((count d_ef_n_hash) isEqualTo 0) then {
+			d_ef_n_hash = nil;
+		};
 	};
 };
 

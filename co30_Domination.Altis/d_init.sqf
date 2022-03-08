@@ -32,6 +32,13 @@ if (hasInterface) then {
 	d_curviewdistance = _vd;
 	d_curobjectdistance = _vd + 100;
 	
+	d_ViewDistanceVec = profileNamespace getVariable ["dom_viewdistancevec", d_curviewdistance];
+	d_ViewDistanceAir = profileNamespace getVariable ["dom_viewdistanceair", d_curviewdistance];
+	
+	d_VD_Combi_use_InfVD = profileNamespace getVariable ["dom_vd_combi_use_infvd", false];
+	
+	d_maintarget_auto_vd = profileNamespace getVariable ["dom_maintarget_auto_vd", true];
+	
 	d_earplugs_userakey = profileNamespace getVariable ["dom_earplugs_userakey", 0];
 	d_3dmarker_userakey = profileNamespace getVariable ["dom_3dmarker_userakey", 0];
 	if (d_earplugs_userakey < 0 || {d_earplugs_userakey > 19}) then {d_earplugs_userakey = 0};
@@ -368,6 +375,9 @@ if (isNil "d_civ_massacre") then {
 };
 if (isNil "d_cur_tgt_civ_vehicles") then {
 	d_cur_tgt_civ_vehicles = [];
+};
+if (isNil "d_cur_tgt_enemy_units") then {
+	d_cur_tgt_enemy_units = [];
 };
 
 if (isNil "d_mt_tower") then {

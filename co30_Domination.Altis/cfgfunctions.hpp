@@ -101,6 +101,8 @@ class cfgFunctions {
 			addc(healatmash);
 			addc(mark_artillery);
 			addc(call_cas);
+			addc(call_cas_bomb);
+			addc(call_cas_bomb_napalm);
 			addc(dosshowhuddo2spawn);
 			addc(player_name_huddo2);
 			addc(player_name_huddo);
@@ -215,6 +217,7 @@ class cfgFunctions {
 			addc(makebarmhqwait);
 			addc(zeusmarkerworkaround);
 			addc(headshot_notify);
+			addc(air_v_ee_eh);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -285,6 +288,8 @@ class cfgFunctions {
 			addc(forgive_timehandler);
 			addc(barmhqcounter);
 			addc(adasposchanged);
+			addc(vdairsliderchanged);
+			addc(vdvecsliderchanged);
 		};
 		class Dom_Common {
 			file = "common";
@@ -362,14 +367,20 @@ class cfgFunctions {
 			file = "scripts";
 			addc(establishingShot);
 			addc(moduleCAS);
+			addc(moduleCAS_bomb);
+			addc(moduleCAS_eachframe);
+			addc(moduleCAS_eachframeAI);
 			addc(moduleCASAI);
+			addc(moduleCAS_guidedmissile);
 			addc(mando_chute);
 			addc(sandstorm);
 			addc(weather_winter);
 			addc(Zen_OccupyHouse);
 			addc(Zen_JBOY_UpDown);
-			addc(afterfirednear);
-			addc(hallyg_dlegion_Snipe_awareness);
+			addc(hallyg_dlegion_Snipe_awareness_global);
+			addc(hallyg_dlegion_Snipe_awareness_loop);
+			addc(afterfirednear_civ_global);
+			addc(afterfirednear_civ_loop);
 			addc(ambientradiochatter);
 			addc(place);
 			addc(adjustEntity);
