@@ -1,31 +1,3 @@
-4.59
+4.60
 
-- Added: Param "With auto revive if no player is nearby (less than 215m):" (description.ext d_with_autorevive, default 1, No, disabled)
-- Added: Headshot indicator and param to enable/disable it (d_show_headshots, default 0, disabled)
-- Added: More civilian unit types, by longtimegamer
-- Added: Emergency exit action menu entry for air vehicles in non ACE versions. Pops up if the air vehicle you are in can't move anymore or has damage
-- Added: New param d_targetselect_time (Target selection time in server lobby, default 30 seconds) where you can set the target selection time
-- Added: Points for reviving players when using ACE medical system, by Wazzledi
-- Added: ACE splints/earplugs to arsenal, by Wazzledi
-- Added: New guided CAS ordnance: 500 lb bomb, by longtimegamer
-- Added: State of "Auto viewdistances change at main target" checkbox gets now saved to profileNamespace
-- Added: Player will see option in binoculars to drop 500 lb napalm bomb on SOG map, by longtimegamer
-- Added: New parameter to fight enemy mercenaries (units wear no body armor, currently only available for 2035 maps, d_enemy_mercenaries in description.ext), by longtimegamer
-- Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
-- Changed: You can now set viewdistances individually for inf, vehicles and air in the Dashboard/Statusdialog (max value maxviewdistance)
-- Changed: CAS now uses eachFrame handling, by longtimegamer
-- Changed: No penalty for civilians killed by players within 100m of objectives (sometimes civilians will not move so consider them collateral damage / acceptable losses), by longtimegamer
-- Changed: Dynamic simulation triggering of recruited AI in with AI version moved from client to server
-- Changed: Remove binoculars from recruited AI in the AI version to prevent them running around with binos constantly
-- Fixed: Some armor being spawned when d_WithLessArmor set to none, by longtimegamer
-- Fixed: Bayo attachment in weapon class names was missing for correcting weapon names (SOG/UNSUNG)
-- Fixed: Ambush and overwatch units are now allowed to move once injured, by longtimegamer
-- Fixed: Some scores weren't added to player scores (like scores for destroying barracks, etc)
-- Fixed: make_dom.bat didn't delete some files
-- Fixed: make_dom.bat now needs the newest makePBO version
-- Fixed: Very short CAS delay if artillery cooldown is unlimited, by longtimegamer
-- Fixed: Airstrike with steeper angle of attack and high altitude, by longtimegamer
-- Fixed: Rappeling for players was disabled
-- Fixed: Only spawn enemy AI awareness when features are used, incorrect logic in massacre event expression, by longtimegamer
-- Updated: Chinese translation by XenLau
-- And as always many not mentioned optimizations
+- Fixed: ACE medic/engineer trait not set, by Wazzledi
