@@ -514,6 +514,18 @@ if (!d_no_ai) then {
 		d_player_can_call_cas = 1;
 	};
 };
+
+//Set ace medic and engineer traits
+if(d_with_ace) then	{
+	if(player getUnitTrait "Medic") then {
+		player setVariable ["ace_medical_medicClass", 1, true];
+	};
+	
+	if(player getUnitTrait "Engineer") then {
+		player setVariable ["ace_isEngineer", 1, true];
+	};
+};
+
 player setUnitTrait ["explosiveSpecialist", true];
 player setUnitTrait ["UAVHacker", true];
 
