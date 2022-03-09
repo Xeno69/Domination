@@ -1,3 +1,4 @@
 4.60
 
 - Fixed: ACE medic/engineer trait not set, by Wazzledi
+- Fixed: If a side mission created by marker(s) doesn't exist take the next one instead of throwing an error
