@@ -1276,6 +1276,14 @@ if (isMultiplayer) then {
 
 0 spawn d_fnc_optioncontrol;
 
+if (d_database_found) then {
+	0 spawn {
+		scriptName "spawn_setupplayer_sendtopplayers";
+		sleep (1 + random 15);
+		player remoteExec ["d_fnc_sendtopplayers", 2];
+	};
+};
+
 if (isMultiplayer) then {
 	0 spawn {
 		scriptName "spawn_setupplayer8";

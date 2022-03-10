@@ -3056,6 +3056,8 @@ if (hasInterface) then {
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
 	d_yt_loc2037 = localize "STR_DOM_MISSIONSTRING_2037";
+	
+	d_top10_db_players_client = [];
 
 	d_mt_marker_triggers = [];
 

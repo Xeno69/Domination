@@ -69,7 +69,9 @@ while {true} do {
 					{
 						_x set [1, (_x # 1) call d_fnc_convtime];
 					} forEach (_dbresult # 1);
-					missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
+					d_top10_db_players_serv = _dbresult # 1;
+					objNull spawn d_fnc_sendtopplayers;
+					//missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
 				};
 			};
 		};

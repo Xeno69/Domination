@@ -218,6 +218,7 @@ class cfgFunctions {
 			addc(zeusmarkerworkaround);
 			addc(headshot_notify);
 			addc(air_v_ee_eh);
+			addc(receivetop);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -673,6 +674,7 @@ class cfgFunctions {
 			addc(addplscore);
 			addc(camps_workaround);
 			addc(ambientanimals);
+			addc(sendtopplayers);
 		};
 		class Dom_PrePostInit {
 			file = "init";
