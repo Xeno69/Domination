@@ -2,4 +2,4 @@
 
 - Fixed: ACE medic/engineer trait not set, by Wazzledi
 - Fixed: If a side mission created by marker(s) doesn't exist take the next one instead of throwing an error
-- Optimized: DB top players are no longer a huge public variable
+- Optimized: DB top players are no longer a huge public variable (please note that the domination.sqf file in the @InterceptDB folder has changed)
