@@ -71,12 +71,12 @@ while {true} do {
 					} forEach (_dbresult # 1);
 					d_top10_db_players_serv = _dbresult # 1;
 					objNull spawn d_fnc_sendtopplayers;
-					//missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
 				};
 			};
 		};
 		if (d_db_type == 1) exitWith {
 			call d_fnc_gettoppplayers;
+			objNull spawn d_fnc_sendtopplayers;
 		};
 	};
 };
