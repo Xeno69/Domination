@@ -29,7 +29,7 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 			if (_lbdata != "D_SQL_D") then {
 				private _mravailable = false;
 				private _mrs = missionNamespace getVariable [_lbdata, objNull];
-				if (!isNull _mrs) then {
+				if (alive _mrs) then {
 					private _lbcolor = call {
 						if (!xr_respawn_available) exitWith {__COLRED};
 						if (_mrs getVariable ["d_in_air", false]) exitWith {__COLRED};

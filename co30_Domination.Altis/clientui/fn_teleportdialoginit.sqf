@@ -96,7 +96,7 @@ private _logtxt = "";
 {
 	private _mrs = missionNamespace getVariable [_x # 0, objNull];
 	//__TRACE_2("","_mrs","_x")
-	if (!isNull _mrs) then {
+	if (alive _mrs) then {
 		private _lbcolor = call {
 			if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592", _x # 1, _logtxt]; __COLRED};
 			if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _x # 1] + _logtxt + "\n"; __COLRED};
@@ -168,7 +168,7 @@ if (_show_respawnatsql) then {
 		// the squad leader is eligible as a spawn target
 		_respawn_target = leader (group player);
 	};
-	if (isNil "_respawn_target" && d_respawnatsql == 2) then {
+	if (isNil "_respawn_target" && {d_respawnatsql == 2}) then {
 		// d_respawnatsql == 2 allows respawn on squadmates
 		// are any squadmates alive and eligible as a spawn target?
 		{
