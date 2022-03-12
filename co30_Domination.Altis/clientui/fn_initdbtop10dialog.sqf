@@ -26,12 +26,16 @@ _ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 _ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 
 _ctrl lnbAddRow [""];
-{
-	//__TRACE_1("","_x")
-	_rowidx = _ctrl lnbAddRow (_x apply {if (_x isEqualType "") then {_x} else {str _x}});
-	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
-	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
-} forEach d_top10_db_players;
+if (!isNil "d_top10_db_players") then {
+	{
+		//__TRACE_1("","_x")
+		_rowidx = _ctrl lnbAddRow (_x apply {if (_x isEqualType "") then {_x} else {str _x}});
+		_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
+		_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
+	} forEach d_top10_db_players;
+} else {
+	_rowidx = _ctrl lnbAddRow [localize "STR_DOM_MISSIONSTRING_2093"];
+};
 
 _ctrl lnbAddRow [""];
 

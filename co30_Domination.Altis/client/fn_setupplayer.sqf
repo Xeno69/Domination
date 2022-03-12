@@ -463,7 +463,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	}, 5.12] call d_fnc_eachframeadd;
 };
 
-diag_log "Internal D Version: 4.59";
+diag_log "Internal D Version: 4.60";
 
 if (!d_no_ai) then {
 	if (d_with_ai) then {
@@ -1275,6 +1275,14 @@ if (isMultiplayer) then {
 };
 
 0 spawn d_fnc_optioncontrol;
+
+if (d_database_found) then {
+	0 spawn {
+		scriptName "spawn_setupplayer_sendtopplayers";
+		sleep (1 + random 15);
+		player remoteExec ["d_fnc_sendtopplayers", 2];
+	};
+};
 
 if (isMultiplayer) then {
 	0 spawn {

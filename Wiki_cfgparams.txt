@@ -164,7 +164,7 @@
 > Default: 0 (Yes, enabled; 1 or No too disable)<br/>
 #### **d_with_ai / With AI recruitment:**
 > Default: 1<br/>
-> When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics.</br>
+> When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics. And, of course, players can recruit AI!</br>
 > Available options:<br/>
 >   - Enabled (0)<br/>
 >   - Disabled (1)<br/>
