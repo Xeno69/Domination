@@ -28,7 +28,6 @@ if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 		// laser target not valid
 		_do_exit = true;
 	};
-	_target = getPos _target;
 } else {
 	_target = screenToWorld [0.5, 0.5];
 };

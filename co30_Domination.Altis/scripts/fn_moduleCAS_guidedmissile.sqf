@@ -39,9 +39,9 @@ while {alive _missile && {_missile distance2D _target > 1}} do {
 	if (_missile distance _target > 5) then {
 		_missile setDir (_missile getDir _target);
 		private _dirVer = if (_target isEqualType []) then {
-			asin ((((getPos _missile) # 2) - (_target # 2)) / (_target distance _missile));
+			asin ((((getPosASL _missile) # 2) - (_target # 2)) / (_target distance _missile));
 		} else {
-			asin ((((getPos _missile) # 2) - ((getPosASL _target) # 2)) / (_target distance _missile));
+			asin ((((getPosASL _missile) # 2) - ((getPosASL _target) # 2)) / (_target distance _missile));
 		};
 		__TRACE_1("","_dirVer")
 		if (_dirVer isEqualType 0) then {// asin can return something like -1.#IND if the value isn't correct (asin 2 for example)
