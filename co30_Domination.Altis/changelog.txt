@@ -1,5 +1,6 @@
 4.60
 
+- Added: More CUP weapons to ranked mode, by Wazzledi
 - Changed: If unlimited artillery is enabled then CAS bombs are dropped very quickly and without spawning a plane, by longtimegamer
 - Fixed: ACE medic/engineer trait not set, by Wazzledi
 - Fixed: If a side mission created by marker(s) doesn't exist take the next one instead of throwing an error
