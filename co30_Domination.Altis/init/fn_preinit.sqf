@@ -3046,6 +3046,8 @@ if (hasInterface) then {
 	d_earplugs_fitted = false;
 	
 	d_deploy_mhq_camo = true;
+	
+	d_near_player_flag = objNull;
 
 	d_player_jescape = 0;
 	d_player_canu = true;
