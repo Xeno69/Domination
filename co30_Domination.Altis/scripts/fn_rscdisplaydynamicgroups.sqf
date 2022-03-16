@@ -368,7 +368,7 @@ switch _mode do {
 			_listbox tvSetData [[_parent], _groupName];
 			_listbox tvSort [[_parent], true];
 			_listbox tvSetPicture [[_parent], _texture];
-			if (_locked) then { _listbox tvSetPictureColor [[_parent], COLOR_LOCKED]; } else { _listbox tvSetPictureColor [[_parent], [1,1,1,1]]; };
+			if (_locked) then { _listbox tvSetPictureColor [[_parent], [0.5, 0.5, 0.5, 1.0]]; } else { _listbox tvSetPictureColor [[_parent], [1,1,1,1]]; };
 			_listbox tvSetPictureColorSelected [[_parent], [1,1,1,1]];
 			_listbox tvSetPictureColorDisabled [[_parent], [1,1,1,1]];
 			if (_x in (uiNamespace getVariable ["BIS_dynamicGroups_collapsedGroups", []])) then { _listbox tvCollapse [_parent]; } else { _listbox tvExpand [_parent]; };
