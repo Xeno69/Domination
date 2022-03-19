@@ -650,6 +650,11 @@ if (hasInterface) then {
 		[format ["d_Ammobox_Reload%1", _forEachIndex],_x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
+	
+	if (d_without_sm_bonus == 0) then {
+		deleteMarkerLocal "bonus_air";
+		deleteMarkerLocal "bonus_vehicles";
+	};
 #else
 	if (!isNil "d_wreck_rep") then {
 		["d_wreck_service", d_wreck_rep,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
