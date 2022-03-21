@@ -40,21 +40,23 @@ d_current_mission_counter = d_current_mission_counter + 1;
 __TRACE_1("","_cur_sm_idx")
 
 private _do_exit = false;
+while {!(_cur_sm_idx in (keys d_sm_hash))} do {
+	_cur_sm_idx = d_side_missions_random # d_current_mission_counter;
+	d_current_mission_counter = d_current_mission_counter + 1;
+	if (d_current_mission_counter >= d_number_side_missions) exitWith {
+		call _endsmfnc;
+		_do_exit = true;
+	};
+};
+if (_do_exit) exitWith {};
+
+
 if (_cur_sm_idx < 50000) then {
 	execVM format ["missions\%3\%2%1.sqf", _cur_sm_idx, d_sm_fname, d_sm_folder];
 } else {
-	while {!(_cur_sm_idx in (keys d_sm_hash))} do {
-		_cur_sm_idx = d_side_missions_random # d_current_mission_counter;
-		d_current_mission_counter = d_current_mission_counter + 1;
-		if (d_current_mission_counter >= d_number_side_missions) exitWith {
-			call _endsmfnc;
-			_do_exit = true;
-		};
-	};
-	if (_do_exit) exitWith {};
 	[_cur_sm_idx] call d_fnc_getbymarkersm;
 };
-if (_do_exit) exitWith {};
+
 sleep 7.012;
 [_cur_sm_idx] call d_fnc_s_sm_up;
 
