@@ -14373,18 +14373,6 @@
 <Chinese>禁用武器裝備光學裝備的熱成像功能(TI)：</Chinese>
 <French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_2061">
-<English>Big main target fires:</English>
-<Spanish>Big main target fires:</Spanish>
-<Portuguese>Big main target fires:</Portuguese>
-<Korean>메인미션 넓은 발포:</Korean>
-<Japanese>Big main target fires:</Japanese>
-<Original>Big main target fires:</Original>
-<Russian>Большие костры на основном задании:</Russian>
-<Chinesesimp>主要任务篝火：</Chinesesimp>
-<Chinese>主要任務篝火：</Chinese>
-<French>Big main target fires:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_MT_RADIUS">
 <English>Target radius:</English>
 <Spanish>Target radius:</Spanish>

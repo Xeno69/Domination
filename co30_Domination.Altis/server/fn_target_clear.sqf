@@ -260,10 +260,6 @@ publicVariable "d_cur_tgt_building_positions_occupied";
 
 sleep 0.245;
 
-{deleteVehicle _x} forEach d_mt_fires;
-d_mt_fires = [];
-sleep 0.1;
-
 private _mtmissionobjs =+ d_mtmissionobjs;
 d_mtmissionobjs = [];
 private _delvecsmt =+ d_delvecsmt;

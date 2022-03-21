@@ -613,13 +613,6 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
-	class d_ao_bfires {
-		title = "$STR_DOM_MISSIONSTRING_2061";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
 
 	class d_ao_radius_override {
 		title = "$STR_DOM_MISSIONSTRING_MT_RADIUS";

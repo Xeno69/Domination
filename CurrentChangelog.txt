@@ -9,3 +9,4 @@
 - Fixed: Non existing define COLOR_LOCKED caused a script error in dynamic groups script
 - Fixed: Delete bonus air and normal vehicle marker when d_without_sm_bonus = 0 or "Without sidemission bonus vehicles:" is set to true
 - Optimized: DB top players are no longer a huge public variable (please note that the domination.sqf file in the @InterceptDB folder has changed)
+- Removed: Big AO fires (d_ao_bfires in description.ext). They damaged camps
