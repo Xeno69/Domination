@@ -93,7 +93,7 @@ if (!d_tt_ver) then {
 		drawLaser [
 			getPosASL d_near_player_flag vectorAdd [0, 0, 10],
 			[0, 0, 1],
-			[255, 255, 0],
+			[1.5, 1.5, 0],
 			[],
 			10,
 			10,
