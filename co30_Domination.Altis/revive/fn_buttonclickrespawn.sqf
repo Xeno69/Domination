@@ -64,17 +64,31 @@ if (d_beam_target == "D_BASE_D") then {
 			d_player_in_base = false;
 		} else {
 			private _mrs = missionNamespace getVariable [d_beam_target, objNull];
-			if (isNil "d_alt_map_pos") then {
-				_respawn_pos = _mrs call d_fnc_posbehindvec;
-				(boundingBoxReal _mrs) params ["_p1", "_p2"];
-				private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-				_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
-				_respawn_pos set [1, (_respawn_pos # 1) - 1]; // 1m behind
+			if (alive _mrs) then {
+				if (isNil "d_alt_map_pos") then {
+					_respawn_pos = _mrs call d_fnc_posbehindvec;
+					(boundingBoxReal _mrs) params ["_p1", "_p2"];
+					private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+					_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+					_respawn_pos set [1, (_respawn_pos # 1) - 1]; // 1m behind
+				} else {
+					_respawn_pos = d_alt_map_pos;
+					_respawn_pos set [2, 0];
+				};
+				d_player_in_base = false;
 			} else {
-				_respawn_pos = d_alt_map_pos;
-				_respawn_pos set [2, 0];
+				if (!d_tt_ver) then {
+					_respawn_pos = markerPos "base_spawn_1";
+				} else {
+					_respawn_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+				};
+				if (!d_carrier) then {
+					_respawn_pos set [2, 0];
+				} else {
+					_respawn_pos set [2, (getPosASL D_FLAG_BASE) # 2];
+				};
+				d_player_in_base = true;
 			};
-			d_player_in_base = false;
 		};
 	};
 };

@@ -96,7 +96,7 @@ private _logtxt = "";
 {
 	private _mrs = missionNamespace getVariable [_x # 0, objNull];
 	//__TRACE_2("","_mrs","_x")
-	if (alive _mrs) then {
+	if (!isNull _mrs) then {
 		private _lbcolor = call {
 			if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592", _x # 1, _logtxt]; __COLRED};
 			if (speed _mrs > 4) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_593", _x # 1] + _logtxt + "\n"; __COLRED};
@@ -178,13 +178,13 @@ if (_show_respawnatsql) then {
 		} forEach (units player);
 	};
 	private _lbcolor = if (!isNil "_respawn_target") then {
-		[1,1,1,1.0]
+		[1,1,1,1]
 	} else {
 		_logtxt = localize "STR_DOM_MISSIONSTRING_1706";
 		__COLRED
 	};
 	_listctrl lbSetColor [_cidx, _lbcolor];
-	if (d_last_beam_target == "D_SQL_D" && {_lbcolor isEqualTo [1,1,1,1.0]}) then {
+	if (d_last_beam_target == "D_SQL_D" && {_lbcolor isEqualTo [1,1,1,1]}) then {
 		_selidx = _cidx;
 		d_respawn_mar_str = "D_SQL_D";
 		d_beam_target = "D_SQL_D";

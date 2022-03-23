@@ -34,7 +34,7 @@ if (_uidx == -1) then {
 
 		private _mrs = missionNamespace getVariable [_data, objNull];
 		//__TRACE_1("","_mrs")
-		if (alive _mrs) then {
+		if (!isNull _mrs) then {
 			private _curaridx = _not_avail_array pushBack _data;
 			private _lbcolor = call {
 				if (_mrs getVariable ["d_in_air", false]) exitWith {_logtxt = format [localize "STR_DOM_MISSIONSTRING_592",  _ctrl lbText _sel, _logtxt]; __COLRED};

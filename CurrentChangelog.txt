@@ -1,12 +1,3 @@
-4.60
+4.61
 
-- Added: More CUP weapons to ranked mode, by Wazzledi
-- Changed: If unlimited artillery is enabled then CAS bombs are dropped very quickly and without spawning a plane, by longtimegamer
-- Fixed: ACE medic/engineer trait not set, by Wazzledi
-- Fixed: If a side mission created by marker(s) doesn't exist take the next one instead of throwing an error
-- Fixed: Don't select non alive mobile respawn vehicles for respawn
-- Fixed: Bomb correctly guided to terrain with laser or binoculars, by longtimegamer
-- Fixed: Non existing define COLOR_LOCKED caused a script error in dynamic groups script
-- Fixed: Delete bonus air and normal vehicle marker when d_without_sm_bonus = 0 or "Without sidemission bonus vehicles:" is set to true
-- Optimized: DB top players are no longer a huge public variable (please note that the domination.sqf file in the @InterceptDB folder has changed)
-- Removed: Big AO fires (d_ao_bfires in description.ext). They damaged camps
+- Fixed: Respawn at base when MHQ gets destroyed while trying to spawn there
