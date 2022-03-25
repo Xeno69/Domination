@@ -1,3 +1,4 @@
 4.61
 
 - Fixed: Respawn at base when MHQ gets destroyed while trying to spawn there
+- Fixed: MHQ menu, dashboard and group management actions were still visible and usable when a MHQ was destroyed
