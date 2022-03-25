@@ -11,6 +11,8 @@ if !(_shooter call d_fnc_isplayer) exitWith {};
 
 params ["_vec"];
 
+if (!alive _vec) exitWith {};
+
 __TRACE_1("","_vec")
 
 #ifdef __TT__
