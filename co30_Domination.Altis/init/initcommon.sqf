@@ -124,7 +124,7 @@ if (isServer) then {
 			[3,2,1,0], // 9 - points for repairing/refueling a vehicle
 			5, // 10 - points for healing another unit
 			3, // 11 - points for another player healing at a player mash
-			1, // 12 - points for another player spawning at squad leader
+			5, // 12 - points for another player spawning at squad leader
 			1, // 13 - points for transporting another player in a vehicle
 			20 // 14 - points for bringing a wreck to the wreck repair point
 		];

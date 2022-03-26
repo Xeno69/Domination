@@ -652,8 +652,9 @@ if (hasInterface) then {
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 	
 	if (d_without_sm_bonus == 0) then {
-		deleteMarkerLocal "bonus_air";
-		deleteMarkerLocal "bonus_vehicles";
+		{
+			deleteMarkerLocal _x;
+		} forEach (allMapMarkers select {_x find "bonus_" != -1});
 	};
 #else
 	if (!isNil "d_wreck_rep") then {
