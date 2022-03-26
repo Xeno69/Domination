@@ -2,6 +2,12 @@ Changelogs
 
 Old...
 
+4.61
+
+- Fixed: Respawn at base when MHQ gets destroyed while trying to spawn there
+- Fixed: MHQ menu, dashboard and group management actions were still visible and usable when a MHQ was destroyed
+- Fixed: Don't show the "player is shooting at a MHQ vehicle" when the MHQ is destroyed
+
 4.60
 
 - Added: More CUP weapons to ranked mode, by Wazzledi
