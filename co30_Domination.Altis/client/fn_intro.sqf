@@ -78,7 +78,7 @@ private _str = "Two Teams";
 private _sarray = [];
 private _start_pos = 8;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 _start_pos = 3;
 #endif
 #ifdef __RHS__
@@ -163,7 +163,7 @@ showChat true;
 	0 fadeMusic 1;
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 

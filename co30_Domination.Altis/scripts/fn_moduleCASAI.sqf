@@ -16,7 +16,7 @@ if !(isclass _planeCfg) exitwith {
 
 __TRACE_1("","_planeCfg")
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 //--- Detect gun
 private _weaponTypes = call {
 	if (_wtype == 0) exitWith {["machinegun"]};

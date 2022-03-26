@@ -217,7 +217,7 @@ d_p_vecs = [
 	["D_TR8",301,"d_truck8","n_service","ColorGreen","E2",""],["D_TR9",400,"d_truck9","n_support","ColorGreen","T2",""],
 	["D_TR10",401,"d_truck10","n_support","ColorGreen","T1",""]
 ];
-if (d_ifa3lite) then {
+if (d_ifa3) then {
 	d_p_vecs pushBack ["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""];
 };
 if (d_gmcwg) then {

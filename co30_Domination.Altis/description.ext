@@ -63,7 +63,7 @@ class Header {
 #ifdef __CUP_SARA__
 	maxPlayers = 41;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	maxPlayers = 41;
 #endif
 #ifdef __TANOA__
@@ -346,7 +346,7 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
@@ -403,7 +403,7 @@ class Params {
 #ifdef __CUP_TAKISTAN__
 		default = 7;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		default = 5;
 #endif
 #ifdef __TT__
@@ -560,7 +560,7 @@ class Params {
 #ifdef __CUP_TAKISTAN__
 		default = 1;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		default = 1;
 #endif
 #ifdef __TT__
@@ -695,7 +695,7 @@ class Params {
 #ifdef __CUP_SARA__
 		default = 0;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		default = 1;
 #endif
 #ifdef __TTALTIS__
@@ -2137,7 +2137,7 @@ class CfgDebriefing {
 };
 
 class CfgIdentities {
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 	class DHQ_BF1 {
 		name = "Winters, HQ";
 		face = "whiteHead_04";
@@ -2221,7 +2221,7 @@ class CfgIdentities {
 		speaker = "Male02RU";
 	};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	class DHQ_BF1 {
 		name = "Meier, HQ";
 		face = "whiteHead_04";

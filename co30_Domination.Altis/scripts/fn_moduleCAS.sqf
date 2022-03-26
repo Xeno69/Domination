@@ -55,7 +55,7 @@ if !(isclass _planeCfg) exitwith {
 	false
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 //--- Detect gun
 private _weaponTypes = call {
 	if (_wtype == 0) exitWith {["machinegun"]};

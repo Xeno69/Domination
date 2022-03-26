@@ -96,7 +96,7 @@ call d_fnc_maketarget_names;
 
 d_service_buildings = [[], [], []];
 #ifndef __TT__
-if (!d_ifa3lite && {d_dis_servicep == 1}) then {
+if (!d_ifa3 && {d_dis_servicep == 1}) then {
 	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
@@ -109,7 +109,7 @@ if (!d_ifa3lite && {d_dis_servicep == 1}) then {
 };
 d_FLAG_BASE allowDamage false;
 if (isServer) then {
-	if (!d_ifa3lite) then {
+	if (!d_ifa3) then {
 		deleteMarker "d_base_jet_sb";
 		deleteMarker "d_base_chopper_sb";
 	};
@@ -636,7 +636,7 @@ if (hasInterface) then {
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
-		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
 			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (!isNil "d_vecre_trigger") then {
@@ -664,7 +664,7 @@ if (hasInterface) then {
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
-		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
 			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (!isNil "d_vecre_trigger") then {
@@ -762,7 +762,7 @@ if (hasInterface) then {
 			if (d_cup) exitWith {
 				call compileScript ["i_weapons_CUP.sqf", false];
 			};
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				call compileScript ["i_weapons_IFA3.sqf", false];
 			};
 			if (d_gmcwg) exitWith {

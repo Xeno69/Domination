@@ -158,7 +158,7 @@ if (d_weather == 0) then {
 #ifdef __CUP_CHERNARUS__
 		d_withsandstorm = 1;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		d_withsandstorm = 1;
 #endif
 #ifdef __GMCWG__
@@ -198,7 +198,7 @@ if (d_with_ranked) then {
 					_weapp = "CUP_arifle_M16A2";
 					_magp = "CUP_30Rnd_556x45_Stanag";
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					_weapp = "LIB_K98";
 					_magp = "LIB_5Rnd_792x57";
 				};
@@ -226,7 +226,7 @@ if (d_with_ranked) then {
 					_weapp = "CUP_arifle_AK74";
 					_magp = "CUP_30Rnd_545x39_AK_M";
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					_weapp = "LIB_M1903A3_Springfield";
 					_magp = "LIB_5Rnd_762x63";
 				};
@@ -395,7 +395,7 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 		if (!isNil "d_jet_trigger") then {
 			[d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
 		};
-		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
 			[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 		};
 	};
@@ -554,7 +554,7 @@ call {
 };
 
 _respawn_marker setMarkerPosLocal markerPos _base_spawn_m;
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 "respawn_guerrila" setMarkerPosLocal markerPos _base_spawn_m;
 #endif
 
@@ -816,7 +816,7 @@ if (d_player_side == opfor && {markerPos "d_runwaymarker_o" isNotEqualTo [0,0,0]
 #endif
 
 player call d_fnc_removenvgoggles_fak;
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!d_vn && {!(player call d_fnc_hasnvgoggles)}}}}) then {
 	if (!d_csla) then {
 		player linkItem (switch (d_player_side) do {
@@ -903,7 +903,7 @@ private _fnc_artvec = {
 
 if (d_disable_player_arty == 0) then {
 	if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
 		} else {
 			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
@@ -914,7 +914,7 @@ if (d_disable_player_arty == 0) then {
 if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
-		if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 			player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 		} else {
@@ -1030,7 +1030,7 @@ if (d_arsenal_mod_remove_strings isNotEqualTo []) then {
 };
 
 if (d_arsenal_mod == 0) then {
-	if (d_ifa3lite) then {
+	if (d_ifa3) then {
 		d_arsenal_mod_prestrings pushBackUnique "WW2_";
 	};
 	if (d_cup) then {
@@ -1179,7 +1179,7 @@ if (!d_with_ace && {d_with_suppress == 0}) then {
 	player setVariable ["d_psuppressed", player addEventHandler ["Suppressed", {call d_fnc_suppressed}]];
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 0 spawn d_fnc_uav_check;
 #endif
 
@@ -1251,7 +1251,7 @@ __TRACE_1("","d_isvdreduced")
 0 spawn d_fnc_gimmick;
 
 if (isMultiplayer) then {
-	if (d_force_fast_intro == 1 || {!d_ifa3lite && {!d_vn}}) then {
+	if (d_force_fast_intro == 1 || {!d_ifa3 && {!d_vn}}) then {
 		0 spawn d_fnc_intro2;
 	} else {
 		0 spawn d_fnc_intro;

@@ -49,7 +49,7 @@ _txt = _txt + "Two Teams";
 if (d_with_ranked) then {_txt = _txt + " RANKED"};
 if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 
@@ -91,7 +91,7 @@ enableSaving [false, false];
 enableRadio true;
 showChat true;
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 

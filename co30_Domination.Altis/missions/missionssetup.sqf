@@ -95,7 +95,7 @@ d_sm_array =
 		//170,171 //rescue in sea
 ];
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 d_sm_array =
 	[0,1,3,4,6,8,9,12,14,19,20,23,29,31,32,36,40,42,44];
 #endif
@@ -198,7 +198,7 @@ if (isServer) then {
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
 		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
 		case "W": {["LIB_SdKfz251","LIB_SdKfz_7_AA", "LIB_SdKfz251", "LIB_opelblitz_parm", "LIB_opelblitz_fuel", "LIB_opelblitz_ammo", "LIB_SdKfz251_FFV"]};
@@ -280,7 +280,7 @@ d_sm_folder = "ma3m";
 #ifdef __TTMALDEN__
 d_sm_folder = "ma3m";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 d_sm_folder = "mifa3";
 #endif
 

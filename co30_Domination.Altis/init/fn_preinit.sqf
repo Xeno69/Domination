@@ -27,11 +27,11 @@ d_livonia = true;
 d_tanoa = true;
 #endif
 
-#ifndef __IFA3LITE__
-d_ifa3lite = false;
+#ifndef __IFA3__
+d_ifa3 = false;
 d_kbtel_chan = "SIDE";
 #else
-d_ifa3lite = true;
+d_ifa3 = true;
 d_kbtel_chan = "GLOBAL";
 #endif
 
@@ -112,8 +112,8 @@ d_e_marker_color = "ColorOPFOR";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 d_own_side = "EAST";
-d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3lite);
-d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3lite);
+d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3);
+d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3);
 d_enemy_side = "WEST";
 d_enemy_side_short = "W";
 d_side_enemy = blufor;
@@ -144,8 +144,8 @@ d_version_string = "Two Teams";
 d_e_marker_color = "ColorYellow";
 #endif
 
-#ifdef __IFA3LITE__
-d_version_string = "IFA3Lite";
+#ifdef __IFA3__
+d_version_string = "IFA3";
 #endif
 
 #ifdef __CARRIER__
@@ -156,7 +156,7 @@ d_version_string = "Carrier";
 d_version_string = ["RHS Opfor", "RHS Blufor"] select d_rhs_blufor;
 #endif
 
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 d_e_marker_color_alpha = 1.3;
 #else
 d_e_marker_color_alpha = 0.8;
@@ -174,7 +174,7 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __CUP_SARA__
 #include "sm_bonus_vec_ar_cup.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "sm_bonus_vec_ar_ifa3.sqf"
 #endif
 #ifdef __GMCWG__
@@ -235,7 +235,7 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __CUP_SARA__
 #include "mt_bonus_vec_ar_cup.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "mt_bonus_vec_ar_ifa3.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -315,7 +315,7 @@ d_x_drop_array =
 		if (d_rhs) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhs_tigr_m_3camo_vdv"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
 		};
 		if (d_csla) exitWith {
@@ -357,7 +357,7 @@ d_cargotower =
 #ifdef __CUP_SARA__
 	"Land_Cargo_Tower_V1_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	"";
 #endif
 #ifdef __TANOA__
@@ -404,7 +404,7 @@ d_wcamp =
 #ifdef __CUP_SARA__
 	"Land_Cargo_Patrol_V1_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	"Land_Misc_deerstand";
 #endif
 #ifdef __TANOA__
@@ -842,7 +842,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_SARA__
 #include "d_allmen_O_CUP_SLA.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_allmen_O_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -878,7 +878,7 @@ if (!d_gmcwgwinter) then {
 	];
 	
 	call {
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			d_allmen_W = [
 				#include "d_allmen_B_ifa3.sqf"
 			];
@@ -901,7 +901,7 @@ if (!d_gmcwgwinter) then {
 		];
 	};
 
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	{
 		if (count _x > 6) then {
 			private _ran = floor random 7;
@@ -930,7 +930,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_SARA__
 #include "d_allmen_G_default.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_allmen_G_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -985,7 +985,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_SARA__
 #include "d_specops_O_CUP_SLA.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_specops_O_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -1032,7 +1032,7 @@ if (!d_gmcwgwinter) then {
 		if (d_rhs) exitWith {
 			[["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup]
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
 		};
 		if (d_csla) exitWith {
@@ -1100,7 +1100,7 @@ if (!d_gmcwgwinter) then {
 	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_RACS","Infantry","CUP_I_RACS_SniperTeam"] call d_fnc_GetConfigGroup];
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_sniper_E = [["East","LIB_RKKA","Infantry","LIB_SOV_sniper_team"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","LIB_WEHRMACHT","Infantry","LIB_GER_sniper_team"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","LIB_US_ARMY","Infantry","LIB_US_Sniper_Team"] call d_fnc_GetConfigGroup];
@@ -1152,7 +1152,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 #include "d_veh_a_O_CUP_SARA.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_veh_a_O_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -1195,7 +1195,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 	};
 #endif
 	d_veh_a_W = [
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 		#include "d_veh_a_B_default.sqf"
 #else
 		#include "d_veh_a_B_ifa3.sqf"
@@ -1237,7 +1237,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 	d_arti_observer_E = [["CUP_O_sla_Officer"]];
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
 #ifdef __TANOA__
@@ -1249,7 +1249,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __MALDEN__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 	d_arti_observer_W = [["B_recon_JTAC_F"]];
 #else
 	d_arti_observer_W = [["LIB_GER_ober_lieutenant"]];
@@ -1317,7 +1317,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_vn) exitWith {
 				"vn_b_air_ch34_01_01"
 			};
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				""
 			};
 			if (d_ws) exitWith {
@@ -1328,7 +1328,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_Pe2"
 			};
 			if (d_rhs) exitWith {
@@ -1384,7 +1384,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_P47"
 			};
 			if (d_rhs) exitWith {
@@ -1415,7 +1415,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_P47"
 			};
 			if (d_cup) exitWith {
@@ -1438,7 +1438,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_Ju87"
 			};
 			if (d_cup) exitWith {
@@ -1472,7 +1472,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_unsung) exitWith {
 					"UNS_ASSAULT_BOAT_VC"
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					""
 				};
 				if (d_vn) exitWith {
@@ -1489,7 +1489,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					"CUP_B_RHIB_USMC"
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					""
 				};
 				if (d_rhs) exitWith {
@@ -1509,7 +1509,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					"CUP_I_RHIB_RACS"
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					""
 				};
 				if (d_rhs) exitWith {
@@ -1538,7 +1538,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 //#ifdef __GMCWG__
 // no compositions
 //#endif
-//#ifdef __IFA3LITE__
+//#ifdef __IFA3__
 // no compositions
 //#endif
 //#ifdef __CSLA__
@@ -1655,7 +1655,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_csla) exitWith	{
 			"CSLA_PLdvK59V3S"
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			"LIB_61k"
 		};
 		"O_APC_Tracked_02_AA_F"
@@ -1708,7 +1708,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_csla) exitWith	{
 			"CSLA_T72M1"
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			"LIB_T34_85"
 		};
 		"O_MBT_02_cannon_F"
@@ -1761,7 +1761,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_csla) exitWith	{
 			"CSLA_BVP1"
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			"LIB_SOV_M3_Halftrack"
 		};
 		"O_APC_Tracked_02_cannon_F"
@@ -1791,7 +1791,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 #include "d_sm_classes_CUP.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_sm_classes_ifa3.sqf"
 #endif
 #ifdef __TANOA__
@@ -1886,7 +1886,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		};
 		if (d_enemy_side_short == "W") exitWith {
 			call {
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					["LIB_FW190F8", "LIB_FW190F8_4", "LIB_FW190F8_2", "LIB_FW190F8_5", "LIB_FW190F8_3"]
 				};
 				if (d_rhs) exitWith {
@@ -1920,7 +1920,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_vn) exitWith {
 					[]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_ws) exitWith {
@@ -1934,7 +1934,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					["CUP_B_USMC_DYN_MQ9"]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
@@ -1954,7 +1954,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					[]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
@@ -1995,7 +1995,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		};
 		if (d_enemy_side_short == "W") exitWith {
 			call {
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					["LIB_Ju87_Italy2", "LIB_Ju87_Italy", "LIB_Ju87"]
 				};
 				if (d_rhs) exitWith {
@@ -2082,7 +2082,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		["I_Heli_Transport_02_F"]
 	};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = call {
 		if (d_enemy_side_short == "E") exitWith {
@@ -2213,7 +2213,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_vn) exitWith {
 					["vn_o_air_mi2_03_05"]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_ws) exitWith {
@@ -2230,7 +2230,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					[]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					["LIB_Ju87_Italy2"]
 				};
 				if (d_csla) exitWith {
@@ -2249,7 +2249,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_cup) exitWith {
 				[]
 			};
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				[]
 			};
 			if (d_rhs) exitWith {
@@ -2291,7 +2291,7 @@ d_barracks_building = call {
 #ifdef __CUP_SARA__
 		"Land_Cargo_HQ_V1_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		"CDF_WarfareBHeavyFactory";
 #endif
 #ifdef __TANOA__
@@ -2338,7 +2338,7 @@ d_barracks_building = call {
 #ifdef __CUP_SARA__
 		"Land_BagBunker_01_small_green_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		"";
 #endif
 #ifdef __TANOA__
@@ -2763,7 +2763,7 @@ d_barracks_building = call {
 	d_civ_faces = _mixedFaces;
 	d_civArray = _cupCivsTakistan;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
 	d_civ_faces = _mixedFaces;
 	d_civArray = _commonCivs;
@@ -2865,7 +2865,7 @@ if (hasInterface) then {
 		if (d_rhs) exitWith {
 			["rhs_tigr_3camo_msv", "RHS_UAZ_MSV_01"]
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			["LIB_Willys_MB", "LIB_US_Willys_MB"]
 		};
 		if (d_csla) exitWith {
@@ -2916,7 +2916,7 @@ if (hasInterface) then {
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			["LIB_US6_Tent"]
 		};
 		if (d_csla) exitWith {

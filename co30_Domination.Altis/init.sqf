@@ -20,7 +20,7 @@ if (isMultiplayer && {hasInterface}) then {
 enableSaving [false,false];
 enableTeamSwitch false;
 
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 if (isServer) then {
 	diag_log ["DOM init.sqf, setting date back to 1944..."];
 	private _date = date;

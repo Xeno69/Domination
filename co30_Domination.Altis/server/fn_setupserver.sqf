@@ -157,7 +157,7 @@ if (d_with_ranked) then {
 	};
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 0 spawn d_fnc_scheck_uav;
 #endif
 
