@@ -2,6 +2,10 @@ Changelogs
 
 Old...
 
+4.62
+
+- Fixed: Side missions were broken
+
 4.61
 
 - Fixed: Respawn at base when MHQ gets destroyed while trying to spawn there

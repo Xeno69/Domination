@@ -158,6 +158,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 			_wf allowDamage false;
 			_wf setDir (_wf getDir _trg_center);
 			_wf addEventHandler ["HandleDamage", {0}];
+			_wf addEventHandler ["killed", {(_this #0) setDamage 0}];
 			if (d_with_dynsim == 0) then {
 				[_wf, 5] spawn d_fnc_enabledynsim;
 			};
