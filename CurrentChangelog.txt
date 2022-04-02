@@ -2,3 +2,4 @@
 
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
+- Fixed: Base wasn't mentioned in Auto change viewdistance string in the Status Dialog/Dashboard

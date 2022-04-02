@@ -13002,16 +13002,16 @@
 <French>Attention!!! Vous avez ramassé un équipement THERMIQUE! Enlevez-le maintenant, veuillez choisir un autre équipement!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1964">
-<English>Auto viewdistance change at main target:</English>
-<Spanish>Cambio de distancia de vista automática en el objetivo principal:</Spanish>
-<Portuguese>Mudança de visualização automática no alvo principal:</Portuguese>
-<Korean>메인미션중 시야거리 자동변경:</Korean>
-<Japanese>主目標付近での視程の自動調整:</Japanese>
-<Original>Auto viewdistance change at main target:</Original>
-<Russian>Автоматическое изменение видимости на основной задаче:</Russian>
-<Chinesesimp>主目标上的视距自动调整：</Chinesesimp>
-<Chinese>主目標上的視距自動調整：</Chinese>
-<French>Changement automatique de la distance visuelle sur l'objectif principal:</French>
+<English>Auto viewdistance change at main target and base:</English>
+<Spanish>Auto viewdistance change at main target and base:</Spanish>
+<Portuguese>Auto viewdistance change at main target and base:</Portuguese>
+<Korean>Auto viewdistance change at main target and base:</Korean>
+<Japanese>Auto viewdistance change at main target and base:</Japanese>
+<Original>Auto viewdistance change at main target and base:</Original>
+<Russian>Auto viewdistance change at main target and base:</Russian>
+<Chinesesimp>Auto viewdistance change at main target and base:</Chinesesimp>
+<Chinese>Auto viewdistance change at main target and base:</Chinese>
+<French>Auto viewdistance change at main target and base:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1965">
 <English>Auto Viewdistance change at main targets enabled!</English>
