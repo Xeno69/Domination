@@ -55,7 +55,7 @@ if (surfaceIsWater _startpos) then {
 private _startdir = getDir _vec;
 private _type = typeOf _vec;
 
-_vec setVariable ["d_vec_islocked", (_vec call d_fnc_isVecLocked)];
+_vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 
 private _nopylon = _vec getVariable "d_disable_pylonloadout";
 
@@ -160,7 +160,7 @@ while {true} do {
 	__TRACE_3("","_vec","alive _vec","_empty")
 	__TRACE_2("","_vec","_disabled")
 	if (!alive _vec || {_empty && {_disabled}}) then {
-		private _isitlocked = _vec getVariable "d_vec_islocked";
+		private _isitlocked = _vec getVariable ["d_vec_islocked", false];
 		private _fuelleft = _vec getVariable ["d_fuel", 1];
 		private _skinpoly = [_vec] call d_fnc_getskinpoly;
 		private _canloadbox = _vec getVariable ["d_canloadbox", false];
