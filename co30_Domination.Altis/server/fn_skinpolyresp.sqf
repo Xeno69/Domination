@@ -22,7 +22,9 @@ if (_vec isKindOf "air") then {
 	{
 		_vec removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon")
 	} forEach getPylonMagazines _vec;
-	if (count _airar < 2) exitWith {};
+	
+	if (!(_airar isEqualType []) || {count _airar < 2}) exitWith {};
+	
 	private _pylonPaths = _airar # 1;
 	{
 		_vec setPylonLoadOut [_forEachIndex + 1, _x, true, _pylonPaths select _forEachIndex]
