@@ -3,3 +3,4 @@
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
 - Fixed: Base wasn't mentioned in Auto change viewdistance string in the Status Dialog/Dashboard
+- Fixed: Don't throw an error messages when Domination.sqf for InterceptDB is found but InterceptDB is not loaded

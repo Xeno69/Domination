@@ -603,9 +603,23 @@ if (isServer) then {
 	d_database_found = false;
 	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
 
-	if (isMultiplayer && {isFilePatchingEnabled && {fileExists "@InterceptDB\domination.sqf"}}) then {
-		diag_log "DOM InterceptDB domination.sqf file found!";
-		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
+	if (isMultiplayer) then {
+		if (isClass (configFile >> "Intercept" >> "Dedmen" >> "intercept_database")) then {
+			diag_log "DOM InterceptDB class found!";
+			 if (isFilePatchingEnabled) then {
+				diag_log "DOM FilePatching needed for InterceptDB IS enabled!";
+				if (fileExists "@InterceptDB\domination.sqf") then {
+					diag_log "DOM InterceptDB domination.sqf file found!";
+					call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
+				} else {
+					diag_log "DOM InterceptDB domination.sqf file NOT found! Needs to be in the IntercepDB addon folder!";
+				};
+			}else {
+				diag_log "DOM FilePatching needed for InterceptDB not enabled!";
+			};
+		} else {
+			diag_log "DOM InterceptDB class not found!";
+		};
 	};
 	if (isNil "d_interceptdb") then {
 		diag_log "DOM InterceptDB d_interceptdb is nil";
