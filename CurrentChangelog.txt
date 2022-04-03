@@ -6,3 +6,4 @@
 - Fixed: Don't throw an error messages when Domination.sqf for InterceptDB is found but InterceptDB is not loaded
 - Fixed: Vehicle respawn script could break if vehcile locked status wasn't correct
 - Fixed: Script error when accessing a non existing pylon array in fn_skinpolyresp.sqf
+- Fixed: If no squad leader was available for respawn/spawn the the marker was still drawn resulting in an error message

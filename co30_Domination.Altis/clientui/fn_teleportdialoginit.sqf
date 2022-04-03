@@ -163,19 +163,23 @@ private _respawn_target = nil;
 if (_show_respawnatsql) then {
 	_cidx = _listctrl lbAdd (localize "STR_DOM_MISSIONSTRING_1705a");
 	_listctrl lbSetData [_cidx, "D_SQL_D"];
-	_has_sql = 1;
 	if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
 		// the squad leader is eligible as a spawn target
 		_respawn_target = leader (group player);
+		_has_sql = 1;
 	};
 	if (isNil "_respawn_target" && {d_respawnatsql == 2}) then {
 		// d_respawnatsql == 2 allows respawn on squadmates
 		// are any squadmates alive and eligible as a spawn target?
-		{
-			if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+		(units player) findIf {
+			if (_x != player && {[_x] call d_fnc_iseligibletospawnnewunit}) then {
 				_respawn_target = _x;
+				_has_sql = 1;
+				true
+			} else {
+				false
 			};
-		} forEach (units player);
+		};
 	};
 	private _lbcolor = if (!isNil "_respawn_target") then {
 		[1,1,1,1]
@@ -195,10 +199,15 @@ if (_show_respawnatsql) then {
 		};
 		(_display displayCtrl 100110) ctrlSetText _text;
 	};
-	["D_SQL_D", visiblePositionASL _respawn_target, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
-	d_respawn_anim_markers pushBack "D_SQL_D";
-	d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _respawn_target);
-	d_respawn_ismhq pushBack false;
+	if (isNil "_respawn_target") then {
+		_respawn_target = getPosASL d_FLAG_BASE;
+	};
+	if (_has_sql == 1) then {
+		["D_SQL_D", visiblePositionASL _respawn_target, "ICON", "ColorWhite", [1.5,1.5], "", 0, "selector_selectedMission"] call d_fnc_CreateMarkerLocal;
+		d_respawn_anim_markers pushBack "D_SQL_D";
+		d_resp_lead_idx = d_respawn_posis pushBack (visiblePositionASL _respawn_target);
+		d_respawn_ismhq pushBack false;
+	};
 };
 
 //__TRACE_1("","d_respawn_posis")
