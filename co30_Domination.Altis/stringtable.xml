@@ -2757,7 +2757,7 @@
 <Korean>Inf Viewdistance: %1</Korean>
 <Japanese>Inf Viewdistance: %1</Japanese>
 <Original>Inf Viewdistance: %1</Original>
-<Russian>Inf Viewdistance: %1</Russian>
+<Russian>Дальность обзора: %1</Russian>
 <Chinesesimp>Inf Viewdistance: %1</Chinesesimp>
 <Chinese>Inf Viewdistance: %1</Chinese>
 <French>Inf Viewdistance: %1</French>
@@ -2769,7 +2769,7 @@
 <Korean>Vehicle Viewdistance: %1</Korean>
 <Japanese>Vehicle Viewdistance: %1</Japanese>
 <Original>Vehicle Viewdistance: %1</Original>
-<Russian>Vehicle Viewdistance: %1</Russian>
+<Russian>Дальность обзора (в технике): %1</Russian>
 <Chinesesimp>Vehicle Viewdistance: %1</Chinesesimp>
 <Chinese>Vehicle Viewdistance: %1</Chinese>
 <French>Vehicle Viewdistance: %1</French>
@@ -2781,7 +2781,7 @@
 <Korean>Air Viewdistance: %1</Korean>
 <Japanese>Air Viewdistance: %1</Japanese>
 <Original>Air Viewdistance: %1</Original>
-<Russian>Air Viewdistance: %1</Russian>
+<Russian>Дальность обзора (в воздухе): %1</Russian>
 <Chinesesimp>Air Viewdistance: %1</Chinesesimp>
 <Chinese>Air Viewdistance: %1</Chinese>
 <French>Air Viewdistance: %1</French>
@@ -7222,7 +7222,7 @@
 <Korean>Force fast intro:</Korean>
 <Japanese>Force fast intro:</Japanese>
 <Original>Force fast intro:</Original>
-<Russian>Force fast intro:</Russian>
+<Russian>Быстрое вступление (intro) :</Russian>
 <Chinesesimp>强制快速介绍：</Chinesesimp>
 <Chinese>Force fast intro:</Chinese>
 <French>Force fast intro:</French>
@@ -10463,7 +10463,7 @@
 <Korean>Call CAS Bomb HE</Korean>
 <Japanese>Call CAS Bomb HE</Japanese>
 <Original>Call CAS Bomb HE</Original>
-<Russian>Call CAS Bomb HE</Russian>
+<Russian>Вызвать CAS Bomb HE</Russian>
 <Chinesesimp>Call CAS Bomb HE</Chinesesimp>
 <Chinese>Call CAS Bomb HE</Chinese>
 <French>Call CAS Bomb HE</French>
@@ -10475,7 +10475,7 @@
 <Korean>Call CAS Bomb Napalm</Korean>
 <Japanese>Call CAS Bomb Napalm</Japanese>
 <Original>Call CAS Bomb Napalm</Original>
-<Russian>Call CAS Bomb Napalm</Russian>
+<Russian>Вызвать CAS Bomb Napalm</Russian>
 <Chinesesimp>Call CAS Bomb Napalm</Chinesesimp>
 <Chinese>Call CAS Bomb Napalm</Chinese>
 <French>Call CAS Bomb Napalm</French>
@@ -12144,7 +12144,7 @@
 <Korean>포병장비 냉각시간 비활성화</Korean>
 <Japanese>Disable artillery and CAS cooldown</Japanese>
 <Original>Disable artillery and CAS cooldown</Original>
-<Russian>Отключить перезарядку артиллерии</Russian>
+<Russian>Отключить перезарядку артиллерии и CAS</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 <Chinese>禁用火砲冷卻</Chinese>
 <French>Désactiver le temps de recharge de l'artillerie</French>
@@ -12240,7 +12240,7 @@
 <Korean>적군이 민간인을 사살하고 있습니다. %1 사람이 위험에 처해있습니다!</Korean>
 <Japanese>The enemy is killing civilians. %1 people are in danger!</Japanese>
 <Original>The enemy is killing civilians. %1 people are in danger!</Original>
-<Russian>The enemy is killing civilians. %1 people are in danger!</Russian>
+<Russian>Враг убивает мирных жителей. %1 люди в опасности!</Russian>
 <Chinesesimp>敌人正在杀害平民。 %1 人有危险！</Chinesesimp>
 <Chinese>敵人正在殺害平民。 %1 人有危險！</Chinese>
 <French>The enemy is killing civilians. %1 people are in danger!</French>
@@ -12252,7 +12252,7 @@
 <Korean>%1 들 중 %2 시민만 학살에서 생존하였습니다.</Korean>
 <Japanese>%1 out of %2 civilians survived the massacre.</Japanese>
 <Original>%1 out of %2 civilians survived the massacre.</Original>
-<Russian>%1 out of %2 civilians survived the massacre.</Russian>
+<Russian>%1 из %2 мирных жителей пережили резню.</Russian>
 <Chinesesimp>%2 名平民中有 %1 名在大屠杀中幸存下来。</Chinesesimp>
 <Chinese>%2 名平民中有 %1 名在大屠殺中倖存下來</Chinese>
 <French>%1 out of %2 civilians survived the massacre.</French>
@@ -13008,7 +13008,7 @@
 <Korean>Auto viewdistance change at main target and base:</Korean>
 <Japanese>Auto viewdistance change at main target and base:</Japanese>
 <Original>Auto viewdistance change at main target and base:</Original>
-<Russian>Auto viewdistance change at main target and base:</Russian>
+<Russian>Автоматическое изменение дальности обзора на основной задаче и базе:</Russian>
 <Chinesesimp>Auto viewdistance change at main target and base:</Chinesesimp>
 <Chinese>Auto viewdistance change at main target and base:</Chinese>
 <French>Auto viewdistance change at main target and base:</French>
@@ -13813,7 +13813,7 @@
 <Korean>Attention: some of the civilians are armed and ready to fight!</Korean>
 <Japanese>Attention: some of the civilians are armed and ready to fight!</Japanese>
 <Original>Attention: some of the civilians are armed and ready to fight!</Original>
-<Russian>Attention: some of the civilians are armed and ready to fight!</Russian>
+<Russian>Внимание: некоторые из мирных жителей вооружены и готовы к бою!</Russian>
 <Chinesesimp>注意：一些平民已经武装起来，准备战斗！</Chinesesimp>
 <Chinese>注意：一些平民已經武裝起來，準備戰鬥！</Chinese>
 <French>Attention: some of the civilians are armed and ready to fight!</French>
@@ -14662,28 +14662,28 @@
 <French>Disable voices:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2084">
-<English>Save mission progress to profileNamespace if no database is available</English>
-<Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
-<Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
-<Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
-<Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
-<Original>Save mission progress to profileNamespace if no database is available</Original>
-<Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
-<Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
-<Chinese>如果沒有可用的數據庫，則將任務進度保存到 profileNamespace </Chinese>
-<French>Save mission progress to profileNamespace if no database is available</French>
+<English>Save mission and player progress to missionProfileNamespace if no SQL database is available</English>
+<Spanish>Save mission and player progress to missionProfileNamespace if no SQL database is available</Spanish>
+<Portuguese>Save mission and player progress to missionProfileNamespace if SQL no database is available</Portuguese>
+<Korean>Save mission and player progress to missionProfileNamespace if no SQL database is available</Korean>
+<Japanese>Save mission and player progress to missionProfileNamespace if no SQL database is available</Japanese>
+<Original>Save mission and player progress to missionProfileNamespace if no SQL database is available</Original>
+<Russian>Save mission and player progress to missionProfileNamespace if no SQL database is available</Russian>
+<Chinesesimp>Save mission and player progress to missionProfileNamespace if no SQL database is available</Chinesesimp>
+<Chinese>Save mission and player progress to missionProfileNamespace if no SQL database is available</Chinese>
+<French>Save mission and player progress to missionProfileNamespace if no SQL database is available</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2085">
-<English>Saved profileNamespace mission progress auto load</English>
-<Spanish>Saved profileNamespace mission progress auto load</Spanish>
-<Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
-<Korean>profileNamespace에 미션 진행 상황 저장 및 자동 불러오기</Korean>
-<Japanese>Saved profileNamespace mission progress auto load</Japanese>
-<Original>Saved profileNamespace mission progress auto load</Original>
-<Russian>Saved profileNamespace mission progress auto load</Russian>
-<Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
-<Chinese>保存的 profileNamespace 任務進度自動加載</Chinese>
-<French>Saved profileNamespace mission progress auto load</French>
+<English>Saved missionProfileNamespace mission progress auto load</English>
+<Spanish>Saved missionProfileNamespace mission progress auto load</Spanish>
+<Portuguese>Saved missionProfileNamespace mission progress auto load</Portuguese>
+<Korean>missionProfileNamespace 미션 진행 상황 저장 및 자동 불러오기</Korean>
+<Japanese>Saved missionProfileNamespace mission progress auto load</Japanese>
+<Original>Saved missionProfileNamespace mission progress auto load</Original>
+<Russian>Автозагрузка прогресса миссии сохраненного missionProfileNamespace </Russian>
+<Chinesesimp>保存的 missionProfileNamespace 任务进度自动加载</Chinesesimp>
+<Chinese>保存的 missionProfileNamespace 任務進度自動加載</Chinese>
+<French>Saved missionProfileNamespace mission progress auto load</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
@@ -14740,7 +14740,7 @@
 <Korean>With auto revive if no player is nearby (less than 215m):</Korean>
 <Japanese>With auto revive if no player is nearby (less than 215m):</Japanese>
 <Original>With auto revive if no player is nearby (less than 215m):</Original>
-<Russian>With auto revive if no player is nearby (less than 215m):</Russian>
+<Russian>С автоматическим возрождением, если поблизости нет игроков (менее 215 м)</Russian>
 <Chinesesimp>With auto revive if no player is nearby (less than 215m):</Chinesesimp>
 <Chinese>With auto revive if no player is nearby (less than 215m):</Chinese>
 <French>With auto revive if no player is nearby (less than 215m):</French>
@@ -14752,7 +14752,7 @@
 <Korean>Show headshots</Korean>
 <Japanese>Show headshots</Japanese>
 <Original>Show headshots</Original>
-<Russian>Show headshots</Russian>
+<Russian>Показать попадания в голову</Russian>
 <Chinesesimp>Show headshots</Chinesesimp>
 <Chinese>Show headshots</Chinese>
 <French>Show headshots</French>
@@ -14764,7 +14764,7 @@
 <Korean>Client only</Korean>
 <Japanese>Client only</Japanese>
 <Original>Client only</Original>
-<Russian>Client only</Russian>
+<Russian>Только клиент</Russian>
 <Chinesesimp>Client only</Chinesesimp>
 <Chinese>Client only</Chinese>
 <French>Client only</French>
@@ -14788,7 +14788,7 @@
 <Korean>Client and allies</Korean>
 <Japanese>Client and allies</Japanese>
 <Original>Client and allies</Original>
-<Russian>Client and allies</Russian>
+<Russian>Клиент и группа</Russian>
 <Chinesesimp>Client and allies</Chinesesimp>
 <Chinese>Client and allies</Chinese>
 <French>Client and allies</French>
@@ -14800,7 +14800,7 @@
 <Korean>Headshot by %1 %2 m</Korean>
 <Japanese>Headshot by %1 %2 m</Japanese>
 <Original>Headshot by %1 %2 m</Original>
-<Russian>Headshot by %1 %2 m</Russian>
+<Russian>Попадание в голову %1 %2 m</Russian>
 <Chinesesimp>Headshot by %1 %2 m</Chinesesimp>
 <Chinese>Headshot by %1 %2 m</Chinese>
 <French>Headshot by %1 %2 m</French>
@@ -14824,7 +14824,7 @@
 <Korean>Emergency exit!</Korean>
 <Japanese>Emergency exit!</Japanese>
 <Original>Emergency exit!</Original>
-<Russian>Emergency exit!</Russian>
+<Russian>Аварийный выход!</Russian>
 <Chinesesimp>Emergency exit!</Chinesesimp>
 <Chinese>Emergency exit!</Chinese>
 <French>Emergency exit!</French>
@@ -14836,7 +14836,7 @@
 <Korean>Target selection time:</Korean>
 <Japanese>Target selection time:</Japanese>
 <Original>Target selection time:</Original>
-<Russian>Target selection time:</Russian>
+<Russian>Время выбора цели:</Russian>
 <Chinesesimp>Target selection time:</Chinesesimp>
 <Chinese>Target selection time:</Chinese>
 <French>Target selection time:</French>
@@ -14848,7 +14848,7 @@
 <Korean>Enemy mercenaries (2035 only)</Korean>
 <Japanese>Enemy mercenaries (2035 only)</Japanese>
 <Original>Enemy mercenaries (2035 only)</Original>
-<Russian>Enemy mercenaries (2035 only)</Russian>
+<Russian>Вражеские наемники (только 2035г.)</Russian>
 <Chinesesimp>Enemy mercenaries (2035 only)</Chinesesimp>
 <Chinese>Enemy mercenaries (2035 only)</Chinese>
 <French>Enemy mercenaries (2035 only)</French>
@@ -14860,7 +14860,7 @@
 <Korean>No Data Available Yet</Korean>
 <Japanese>No Data Available Yet</Japanese>
 <Original>No Data Available Yet</Original>
-<Russian>No Data Available Yet</Russian>
+<Russian>Данных пока нет</Russian>
 <Chinesesimp>No Data Available Yet</Chinesesimp>
 <Chinese>No Data Available Yet</Chinese>
 <French>No Data Available Yet</French>
