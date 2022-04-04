@@ -29,7 +29,7 @@ d_sniper = switch (d_enemy_side_short) do {
 };
 d_sm_arty = switch (d_enemy_side_short) do {
 	case "E": {"O_MBT_02_arty_F"};
-	case "W": {"B_MBT_01_arty_F"};
+	case "W": {"LIB_Nebelwerfer41"};
 	case "G": {"B_MBT_01_arty_F"}; // no independent arty in Alpha 3
 };
 d_sm_plane = switch (d_enemy_side_short) do {
