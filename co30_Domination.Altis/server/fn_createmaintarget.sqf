@@ -36,6 +36,31 @@ private _selectitvec = {
 	};
 };
 
+// if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
+private _merc_array = [
+	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
+	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
+];
+
+#ifdef __ALTIS__
+if (d_enemy_mercenaries == 1) then {
+	d_allmen_E =+ _merc_array;
+	d_specops_E =+ _merc_array;
+	publicVariable "d_allmen_E";
+	publicVariable "d_specops_E";
+	diag_log ["mercenaries configured - Altis"];
+};
+#endif
+#ifdef __MALDEN__
+if (d_enemy_mercenaries == 1) then {
+	d_allmen_E =+ _merc_array;
+	d_specops_E =+ _merc_array;
+	publicVariable "d_allmen_E";
+	publicVariable "d_specops_E";
+	diag_log ["mercenaries configured - Malden"];
+};
+#endif
+
 private _type_list_guard = [];
 private _type_list_guard_static = [];
 private _camp_enable_guard_current = 0;
@@ -311,12 +336,6 @@ d_delinfsm append _unitstog;
 #endif
 sleep 0.1;
 
-#ifndef __TT__
-if (d_enable_civs == 1) then {
-	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
-};
-#endif
-
 #ifdef __DEBUG__
 {
 	[str _x, getPos _x, "ICON", "ColorBlack", [0.5, 0.5], "Barracks", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
@@ -381,7 +400,7 @@ sleep 0.233;
 
 // create guard_static groups (and a camp if allmen/specops)
 {
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
+	if (d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}) then {
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
@@ -427,7 +446,7 @@ sleep 0.233;
 // create patrol groups
 {
 	__TRACE_1("patrol","_x")
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1 || d_grp_cnt_footpatrol > 0) then {
+	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
 		if (d_grp_cnt_footpatrol == 0) exitWith {};
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		private _group_count = (_x # 2);
@@ -506,15 +525,17 @@ if (d_enable_civ_vehs > 0) then {
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
-		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 40}}}) then {
-			//only has 2 connections, children also only have 2 connections, is within 40m of a building
+		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 20}}}) then {
+			//only has 2 connections, children also only have 2 connections, is within 20m of a building
 			_roadList=_roadList - [_x];	
 		};
 	} foreach _roadList;
 
 	_roadList=_roadList call BIS_fnc_arrayShuffle;
 	
-	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100);
+	private _max_car_count = floor(d_enable_civ_vehs * 2.25); // sanity check, avoid spawning too many cars
+	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100) min _max_car_count;
+	diag_log [format ["creating %1 cars (calculated allowable is %2)", _carSpawns, _max_car_count]];
 	
 	for "_i" from 1 to _carSpawns do {
 		_currentRoad = _roadList # _i;
@@ -575,15 +596,19 @@ if (d_occ_bldgs == 1) then {
 			_occ_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
-		_occ_cnt = floor (_bldg_count * _occ_spawn_factor);
+		private _occ_cnt_max = floor(_occ_spawn_factor * 100);
+		_occ_cnt = floor (_bldg_count * _occ_spawn_factor) min _occ_cnt_max;
+		diag_log [format ["_occ_cnt adaptive value: %1", _occ_cnt]];
 	} else {
 		_occ_cnt = d_occ_cnt;
 	};
+	
+	diag_log [format ["creating occupy groups _occ_cnt: %1", _occ_cnt]];
 	if (_occ_cnt > 0) then {
 		for "_xx" from 0 to (_occ_cnt - 1) do {
 			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [2, 3, 4],			//unit count
+				-1,
 				d_occ_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -617,15 +642,18 @@ if (d_occ_bldgs == 1) then {
 			_ovrw_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
-		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor);
+		private _ovrw_cnt_max = floor(_ovrw_spawn_factor * 100);
+		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor) min _ovrw_cnt_max;
+		diag_log [format ["_ovrw_cnt adaptive value: %1", _ovrw_cnt]];
 	} else {
 		_ovrw_cnt = d_ovrw_cnt;
 	};
+	diag_log [format ["creating overwatch groups _ovrw_cnt: %1", _ovrw_cnt]];
 	if (_ovrw_cnt > 0) then {
 		for "_xx" from 0 to (_ovrw_cnt - 1) do {
 			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [2, 3, 4],			//unit count
+				-1,
 				d_ovrw_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -659,15 +687,18 @@ if (d_occ_bldgs == 1) then {
 			_amb_spawn_factor = 0.85;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
-		_amb_cnt = floor (_bldg_count * _amb_spawn_factor);
+		private _amb_cnt_max = floor(_amb_spawn_factor * 100);
+		_amb_cnt = floor (_bldg_count * _amb_spawn_factor) min _amb_cnt_max;
+		diag_log [format ["_amb_cnt adaptive value: %1", _amb_cnt]];
 	} else {
 		_amb_cnt = d_amb_cnt;
 	};
+	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
 	if (_amb_cnt > 0) then {
 		for "_xx" from 0 to (_amb_cnt - 1) do {
 			private _unitstog = [
 				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [3, 4],		//unit count
+				-1,
 				d_amb_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
@@ -701,10 +732,13 @@ if (d_occ_bldgs == 1) then {
 			_snp_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
-		_snp_cnt = floor (_bldg_count * _snp_spawn_factor);
+		private _snp_cnt_max = floor(_snp_spawn_factor * 100);
+		_snp_cnt = floor (_bldg_count * _snp_spawn_factor) min _snp_cnt_max;
+		diag_log [format ["_snp_cnt adaptive value: %1", _snp_cnt]];
 	} else {
 		_snp_cnt = d_snp_cnt;
 	};
+	diag_log [format ["creating sniper groups _snp_cnt: %1", _snp_cnt]];
 	if (_snp_cnt > 0) then {
 		//START create garrisoned groups of snipers
 		//prepare to create garrisoned groups of snipers - find and sort buildings
@@ -780,6 +814,17 @@ if (d_occ_bldgs == 1) then {
 //garrison end
 
 [_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
+
+#ifndef __TT__
+if (d_enable_civs == 1) then {
+	// create civilian agents and spawn civilian modules
+	[_trg_center, d_cur_target_radius] call d_fnc_civilianmodule;
+	
+	// loop to control civilian behaviors
+	d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
+};
+#endif
+
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
@@ -861,15 +906,20 @@ if (d_with_MainTargetEvents != 0) then {
 			// create one event
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
-		if (d_ai_awareness_rad < 0 && {d_enable_civs == 0 && {d_ai_aggressiveshoot == 0}}) then {
+		if (d_ai_awareness_rad > 0 && {d_enable_civs == 1 && {d_ai_aggressiveshoot == 1}}) then {
 			// awareness, civs, agressiveshoot are enabled
 			// very small chance of a civilian massacre
-			if (3 > random 100) then {
+			if (2 > random 100) then {
 				// bad luck for the civilians
 				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
 			};
 		};
 	};
+};
+
+if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot == 1 || {d_ai_quickammo == 1}}}}) then {
+	// at least one awareness setting is enabled, run the awareness loop
+	d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
 };
 #endif
 

@@ -16,7 +16,7 @@ params ["_target_radius", "_target_center"];
 private ["_eventArmorHeavy", "_eventArmorMedium", "_eventArmorLight"];
 //armor types
 call {
-	if (d_ifa3lite) exitWith {
+	if (d_ifa3) exitWith {
 		_eventArmorHeavy = "LIB_PzKpfwIV_H";
 		_eventArmorMedium = "LIB_StuG_III_G";
 		_eventArmorLight = "LIB_SdKfz251";

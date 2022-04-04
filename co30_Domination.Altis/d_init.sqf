@@ -32,6 +32,13 @@ if (hasInterface) then {
 	d_curviewdistance = _vd;
 	d_curobjectdistance = _vd + 100;
 	
+	d_ViewDistanceVec = profileNamespace getVariable ["dom_viewdistancevec", d_curviewdistance];
+	d_ViewDistanceAir = profileNamespace getVariable ["dom_viewdistanceair", d_curviewdistance];
+	
+	d_VD_Combi_use_InfVD = profileNamespace getVariable ["dom_vd_combi_use_infvd", false];
+	
+	d_maintarget_auto_vd = profileNamespace getVariable ["dom_maintarget_auto_vd", true];
+	
 	d_earplugs_userakey = profileNamespace getVariable ["dom_earplugs_userakey", 0];
 	d_3dmarker_userakey = profileNamespace getVariable ["dom_3dmarker_userakey", 0];
 	if (d_earplugs_userakey < 0 || {d_earplugs_userakey > 19}) then {d_earplugs_userakey = 0};
@@ -89,7 +96,7 @@ call d_fnc_maketarget_names;
 
 d_service_buildings = [[], [], []];
 #ifndef __TT__
-if (!d_ifa3lite && {d_dis_servicep == 1}) then {
+if (!d_ifa3 && {d_dis_servicep == 1}) then {
 	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
@@ -102,7 +109,7 @@ if (!d_ifa3lite && {d_dis_servicep == 1}) then {
 };
 d_FLAG_BASE allowDamage false;
 if (isServer) then {
-	if (!d_ifa3lite) then {
+	if (!d_ifa3) then {
 		deleteMarker "d_base_jet_sb";
 		deleteMarker "d_base_chopper_sb";
 	};
@@ -330,6 +337,9 @@ if (isNil "d_cur_target_radius") then {
 if (isNil "d_mttarget_radius_patrol") then {
 	d_mttarget_radius_patrol = -1;
 };
+if (isNil "d_cur_tgt_building_positions_occupied") then {
+	d_cur_tgt_building_positions_occupied = [];
+};
 #ifndef __TT__
 if (isNil "d_heli_taxi_available") then {
 	d_heli_taxi_available = true;
@@ -366,9 +376,31 @@ if (isNil "d_civ_massacre") then {
 if (isNil "d_cur_tgt_civ_vehicles") then {
 	d_cur_tgt_civ_vehicles = [];
 };
+if (isNil "d_cur_tgt_enemy_units") then {
+	d_cur_tgt_enemy_units = [];
+};
 
 if (isNil "d_mt_tower") then {
 	d_mt_tower_pos = [];
+};
+
+if (isNil "d_object_spawn_civ_blacklist") then {
+	d_object_spawn_civ_blacklist = [
+		"vn_dyke.p3d",
+		"vn_dyke_10.p3d",
+		"u_addon_01_v1_f.p3d",
+		"u_addon_02_v1_f.p3d",
+		"u_addon_03_v1_f.p3d",
+		"i_addon_02_v1_f.p3d",
+		"i_addon_03_v1_f.p3d",
+		"i_addon_03mid_v1_f.p3d",
+		"i_addon_04_v1_f.p3d",
+		"stone_shed_v1_ruins_f.p3d",
+		"unfinished_building_01_f.p3d",
+		"i_garage_v1_f.p3d",
+		"i_garage_v2_f.p3d",
+		"cargo_house_slum_f.p3d"
+	];
 };
 
 if (hasInterface) then {
@@ -604,7 +636,7 @@ if (hasInterface) then {
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
-		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
 			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (!isNil "d_vecre_trigger") then {
@@ -618,6 +650,12 @@ if (hasInterface) then {
 		[format ["d_Ammobox_Reload%1", _forEachIndex],_x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 10] == "D_AMMOLOAD"});
 	["d_teleporter", d_FLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
+	
+	if (d_without_sm_bonus == 0) then {
+		{
+			deleteMarkerLocal _x;
+		} forEach (allMapMarkers select {_x find "bonus_" != -1});
+	};
 #else
 	if (!isNil "d_wreck_rep") then {
 		["d_wreck_service", d_wreck_rep,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
@@ -626,7 +664,7 @@ if (hasInterface) then {
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
-		if (!d_ifa3lite && {!isNil "d_chopper_trigger"}) then {
+		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
 			["d_chopper_service", d_chopper_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_3",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
 		if (!isNil "d_vecre_trigger") then {
@@ -724,7 +762,7 @@ if (hasInterface) then {
 			if (d_cup) exitWith {
 				call compileScript ["i_weapons_CUP.sqf", false];
 			};
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				call compileScript ["i_weapons_IFA3.sqf", false];
 			};
 			if (d_gmcwg) exitWith {

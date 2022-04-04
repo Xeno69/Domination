@@ -5,12 +5,12 @@ class D_AirDropDialog {
 	onUnLoad = "uiNamespace setVariable ['D_AirDropDialog', nil];d_airdrop_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1228)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1228);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class Drop3: RscButton {
 			idc = 11004;
 			style = 0;

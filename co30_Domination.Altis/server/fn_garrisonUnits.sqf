@@ -2,7 +2,17 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-params ["_centerPos", "_numUnits", "_fillRadius", "_fillRoof", "_fillEvenly", "_fillTopDown", "_disableTeleport", "_unitMovementMode"];
+params ["_centerPos",
+	"_maxNumUnits",			// limits but does not increase the size of the team, -1 for no max
+	"_fillRadius",
+	"_fillRoof",
+	"_fillEvenly",
+	"_fillTopDown",
+	"_disableTeleport",
+	"_unitMovementMode"		// passed to zen_occupyhouse and also used in this script to determine which units to create
+							// 0 - "allmen" units with regular movement
+							// 1 - "sniper" units and cannot move
+];
 
 __TRACE("from createmaintarget garrison function")
 
@@ -12,8 +22,8 @@ private _unitlist = [["allmen", "sniper"] select (_unitMovementMode == 2), d_ene
 
 __TRACE_1("","_unitlist")
 
-if (count _unitlist > _numUnits) then {
-	while {count _unitlist > _numUnits} do {
+if (_maxNumUnits > 0 && {count _unitlist > _maxNumUnits}) then {
+	while {count _unitlist > _maxNumUnits} do {
 		_unitlist deleteAt (ceil (random (count _unitlist - 1)));
 	};
 };
@@ -61,11 +71,14 @@ _unitsNotGarrisoned = [
 	_fillTopDown,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
 	_disableTeleport,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
 	_unitMovementMode,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
-	true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
+	false //true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
 ] call d_fnc_Zen_OccupyHouse;
 sleep 0.01;
 __TRACE_1("","_unitsNotGarrisoned")
 _units_to_garrison = _units_to_garrison - _unitsNotGarrisoned;
+if !(_unitsNotGarrisoned isEqualTo []) then {
+	diag_log [format ["units not garrisoned and will be deleted: %1", _unitsNotGarrisoned joinString "/"]];
+};
 {deleteVehicle _x} forEach _unitsNotGarrisoned;
 if (_units_to_garrison isEqualTo []) exitWith {
 	deleteGroup _newgroup;

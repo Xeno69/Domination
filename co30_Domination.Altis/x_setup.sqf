@@ -20,7 +20,7 @@
 
 //#define __CUP__
 
-//#define __IFA3LITE__
+//#define __IFA3__
 
 //#define __TT__
 //#define __TTALTIS__

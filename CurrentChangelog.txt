@@ -1,5 +1,10 @@
-4.59
+4.63
 
-- Added: Param "With auto revive if no player is nearby (less than 215m):" (description.ext d_with_autorevive, default 1, No, disabled)
-- Changed: Respawn teammates 1 m behind squad leader position to avoid friendly fire, by longtimegamer
-- Updated: Chinese translation by XenLau
+- Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
+- Fixed: Some targets in the Western Sahara version were still using Malden names
+- Fixed: Base wasn't mentioned in Auto change viewdistance string in the Status Dialog/Dashboard
+- Fixed: Don't throw an error messages when Domination.sqf for InterceptDB is found but InterceptDB is not loaded
+- Fixed: Vehicle respawn script could break if vehcile locked status wasn't correct
+- Fixed: Script error when accessing a non existing pylon array in fn_skinpolyresp.sqf
+- Fixed: If no squad leader was available for respawn/spawn the the marker was still drawn resulting in an error message
+- Updated: IFA3 AIO version

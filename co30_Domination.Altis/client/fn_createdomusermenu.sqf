@@ -38,7 +38,7 @@ if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!_is_para}}) then 
 
 d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (!d_tt_ver) then {
 	__TRACE_1("","d_taxi_aircrafts")
 	//diag_log ["DOM trying to create air taxi menu entry, _is_para", _is_para, "d_taxi_aircrafts:", d_taxi_aircrafts, "d_heli_taxi_available:", d_heli_taxi_available];

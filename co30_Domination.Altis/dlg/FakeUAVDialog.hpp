@@ -5,12 +5,12 @@ class D_FakeUAVDialog {
 	onUnLoad = "uiNamespace setVariable ['D_FakeUAVDialog', nil]";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1513)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1513);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class FakeMapText : RscText {
 			x = 0.02; y = 0.02;
 			w = 0.5; h = 0.1;

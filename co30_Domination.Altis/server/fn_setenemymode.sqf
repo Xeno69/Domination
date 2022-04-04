@@ -185,7 +185,7 @@ switch (_enemyMode) do {
 			[[0,0], 1], // wheeled apc
 			[[2,1], 1], // jeep with mg
 			[[2,1], 1], // jeep with gl
-			[[1,0], 1] // aa
+			[[0,0], 1] // aa
 		];
 	};
 };

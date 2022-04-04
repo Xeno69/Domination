@@ -8,7 +8,7 @@ private _startpos = getPosATL _vec;
 private _startdir = getDir _vec;
 private _type = typeOf _vec;
 
-_vec setVariable ["d_vec_islocked", (_vec call d_fnc_isVecLocked)];
+_vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 
 [_vec, 9] call d_fnc_setekmode;
 
@@ -42,7 +42,7 @@ while {true} do {
 	sleep (_delay + random 5);
 
 	if ((crew _vec) findIf {alive _x} == -1 && {damage _vec > 0.9 || {!alive _vec}}) then {
-		private _isitlocked = _vec getVariable "d_vec_islocked";
+		private _isitlocked = _vec getVariable ["d_vec_islocked", false];
 		private _fuelleft = _vec getVariable ["d_fuel", 1];
 		private _skinpoly = [_vec] call d_fnc_getskinpoly;
 #ifdef __GMCWG__

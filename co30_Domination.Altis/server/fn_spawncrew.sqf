@@ -36,7 +36,7 @@ if (count _crew > 0) then {
 	private _addus = [];
 	if (!_nocargo && {(call d_fnc_PlayersNumber) < 18}) then {
 		private _ran =
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 			random 100 > 80;
 #else
 			random 100 > 59;

@@ -22,7 +22,7 @@ private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_cent
 private _x_mt_event_ar = [];
 
 //find a suitable building
-_buildings_array_sorted_by_distance = [[_poss, 200, nil, 1] call d_fnc_getbuildings, _poss] call d_fnc_sortarraybydistance;
+_buildings_array_sorted_by_distance = [[_poss, 200] call d_fnc_getbldgswithpositions, _poss] call d_fnc_sortarraybydistance;
 private _unitsNotGarrisoned = [];
 private _bldg = nil;
 private _marker = nil;
@@ -53,7 +53,7 @@ private _trigger = [getPos _bldg, [125,125,0,false,30], [d_own_side,"PRESENT",tr
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
 // event begins
-private _distance_to_rescue = 1.5; // meters
+private _distance_to_rescue = 3.5; // meters
 private _defuse_time_limit = 120; // seconds
 private _event_succeed_points = 5;
 

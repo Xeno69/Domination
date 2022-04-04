@@ -49,7 +49,7 @@ _txt = _txt + "Two Teams";
 if (d_with_ranked) then {_txt = _txt + " RANKED"};
 if (d_WithRevive == 0) then {_txt = _txt + " REVIVE"};
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 
@@ -72,7 +72,7 @@ sleep 1;
 sleep 2;
 "d_rscmtexts" cutRsc ["d_rscmtexts", "PLAIN"];
 
-0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.59  </t>"], [safeZoneX + 0.1, safeZoneY + safeZoneH - 0.2, 0.9, 0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
+0 = [parseText format [ "<br/><t font='PuristaMedium' align='left' size='2.3'> Welcome to Domination! 4</t><br/>  <t align='left' size='1'>  Version 4.62  </t>"], [safeZoneX + 0.1, safeZoneY + safeZoneH - 0.2, 0.9, 0.3], nil, 5, 1, 0]  spawn BIS_fnc_textTiles;
 
 waitUntil {scriptDone _bfehandle};
 enableSaving [false, false];
@@ -91,7 +91,7 @@ enableSaving [false, false];
 enableRadio true;
 showChat true;
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
 #endif
 

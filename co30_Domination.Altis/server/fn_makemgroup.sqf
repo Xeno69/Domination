@@ -8,7 +8,7 @@ params [
 	["_grp", ""],
 	["_mchelper", true],					// man create helper function for positioning
 	["_doreduce", false],					// allows the caller to disable d_smallgrps
-	["_unitsPerGroup", -1],					// allows the caller to specify max unit count
+	["_unitsPerGroupMax", -1],					// allows the caller to specify max unit count
 	["_sideToEngage", [sideUnknown]]		// only used when AI awareness parameters are enabled
 ];
 
@@ -27,8 +27,8 @@ __TRACE_2("","_mchelper","_doreduce")
 
 private _ret = [];
 
-if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroup > 0}) then {
-	_unitliste = [_unitliste, _unitsPerGroup] call d_fnc_ulreduce;
+if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroupMax > 0}) then {
+	_unitliste = [_unitliste, _unitsPerGroupMax] call d_fnc_ulreduce;
 };
 
 _ret resize (count _unitliste);
@@ -120,7 +120,7 @@ if (!(sideUnknown in _sideToEngage) && {d_ai_awareness_rad > 0 || {d_snp_aware >
 	private _rad = d_ai_awareness_rad;
 	if ("sniper" in (toLowerANSI (groupId _grp))) then { _rad = 1400; }; // if sniper group then set awareness radius to 1400m
 	{
-		[_x, _sideToEngage, _rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
+		d_cur_tgt_enemy_units pushBack _x;
 	} forEach units _grp;
 	
 };

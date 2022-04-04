@@ -9,7 +9,7 @@ if (!isServer || {d_all_sm_res}) exitWith{};
 } forEach d_house_objects2;
 d_house_objects2 = [];
 
-if (d_current_mission_counter >= d_number_side_missions) exitWith {
+private _endsmfnc = {
 	d_all_sm_res = true; publicVariable "d_all_sm_res";
 #ifndef __TT__
 	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, "AllSMissionsResolved", d_kbtel_chan];
@@ -19,6 +19,10 @@ if (d_current_mission_counter >= d_number_side_missions) exitWith {
 #endif
 	deleteVehicle d_sm_triggervb;
 	d_sm_triggervb = nil;
+};
+
+if (d_current_mission_counter >= d_number_side_missions) exitWith {
+	call _endsmfnc;
 };
 
 #ifndef __SMDEBUG__
@@ -40,6 +44,7 @@ if (_cur_sm_idx < 50000) then {
 } else {
 	[_cur_sm_idx] call d_fnc_getbymarkersm;
 };
+
 sleep 7.012;
 [_cur_sm_idx] call d_fnc_s_sm_up;
 

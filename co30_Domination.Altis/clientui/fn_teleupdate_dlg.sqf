@@ -40,7 +40,7 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 						if (_mrs getVariable ["d_enemy_near", false]) exitWith {__COLRED};
 						if (_mrs isKindOf "Ship" && {_mrs emptyPositions "cargo" == 0}) exitWith {__COLRED};
 						_mravailable = true;
-						[1,1,1,1.0];
+						[1,1,1,1];
 					};
 					_listctrl lbSetColor [_i, _lbcolor];
 				};
@@ -63,24 +63,27 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 					};
 				};
 			} else {
-				if (d_respawnatsql in [0,2] && _lbdata == "D_SQL_D") then {
+				if (d_respawnatsql in [0, 2] && {_lbdata == "D_SQL_D"}) then {
 					// d_respawnatsql == 2 always show button, otherwise only show if isleader == false (a squadmate)
-					if (d_respawnatsql == 2 || !(player getVariable ["xr_isleader", false])) then {
-						if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
+					if (d_respawnatsql == 2 || {!(player getVariable ["xr_isleader", false])}) then {
+						if (leader (group player) != player && {[leader (group player)] call d_fnc_iseligibletospawnnewunit}) then {
 							// the squad leader is eligible as a spawn target
 							_respawn_target = leader (group player);
 						};
-						if (isNil "_respawn_target" && d_respawnatsql == 2) then {
+						if (isNil "_respawn_target" && {d_respawnatsql == 2}) then {
 							// d_respawnatsql == 2 allows respawn on squadmates
 							// are any squadmates alive and eligible as a spawn target?
-							{
-								if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+							(units player) findIf {
+								if (_x != player && {[_x] call d_fnc_iseligibletospawnnewunit}) then {
 									_respawn_target = _x;
+									true
+								} else {
+									false
 								};
-							} forEach (units player);
+							};
 						};
 						private _lbcolor = if (!isNil "_respawn_target") then {
-							[1,1,1,1.0]
+							[1,1,1,1]
 						} else {
 							__COLRED
 						};
@@ -88,7 +91,7 @@ for "_i" from 0 to ((lbSize _listctrl) - 1) do {
 						if (lbCurSel _listctrl == _i) then {
 							if (!isNil "_respawn_target") then {
 								private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
-								format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
+									format [localize "STR_DOM_MISSIONSTRING_607", localize "STR_DOM_MISSIONSTRING_1705a"]
 								} else {
 									format [localize "STR_DOM_MISSIONSTRING_605", localize "STR_DOM_MISSIONSTRING_1705a"]
 								};

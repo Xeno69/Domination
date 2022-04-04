@@ -157,7 +157,7 @@ independent setFriend [opfor, 0];
 #endif
 
 #ifdef __OWN_SIDE_OPFOR__
-if (!d_ifa3lite) then {
+if (!d_ifa3) then {
 	blufor setFriend [opfor, 0];
 	opfor setFriend [blufor, 0];
 	blufor setFriend [independent, 0];

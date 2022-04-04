@@ -64,17 +64,31 @@ if (d_beam_target == "D_BASE_D") then {
 			d_player_in_base = false;
 		} else {
 			private _mrs = missionNamespace getVariable [d_beam_target, objNull];
-			if (isNil "d_alt_map_pos") then {
-				_respawn_pos = _mrs call d_fnc_posbehindvec;
-				(boundingBoxReal _mrs) params ["_p1", "_p2"];
-				private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
-				_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
-				_respawn_pos set [1, (_respawn_pos # 1) - 1]; // 1m behind
+			if (alive _mrs) then {
+				if (isNil "d_alt_map_pos") then {
+					_respawn_pos = _mrs call d_fnc_posbehindvec;
+					(boundingBoxReal _mrs) params ["_p1", "_p2"];
+					private _maxHeight = abs ((_p2 # 2) - (_p1 # 2)) / 2;
+					_respawn_pos set [2, (_mrs distance (getPos _mrs)) - _maxHeight];
+					_respawn_pos set [1, (_respawn_pos # 1) - 1]; // 1m behind
+				} else {
+					_respawn_pos = d_alt_map_pos;
+					_respawn_pos set [2, 0];
+				};
+				d_player_in_base = false;
 			} else {
-				_respawn_pos = d_alt_map_pos;
-				_respawn_pos set [2, 0];
+				if (!d_tt_ver) then {
+					_respawn_pos = markerPos "base_spawn_1";
+				} else {
+					_respawn_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+				};
+				if (!d_carrier) then {
+					_respawn_pos set [2, 0];
+				} else {
+					_respawn_pos set [2, (getPosASL D_FLAG_BASE) # 2];
+				};
+				d_player_in_base = true;
 			};
-			d_player_in_base = false;
 		};
 	};
 };
@@ -115,7 +129,7 @@ if (!isNull _mhqobj) then {
 	} else {
 		player moveInCargo _mhqobj;
 	};
-	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank"], 30]) + (player nearSupplies 30));
+	{player reveal _x} forEach ((player nearEntities [["Man", "Air", "Car", "Motorcycle", "Tank", "Ship"], 30]) + (player nearSupplies 30));
 	if ((player nearEntities  ["ReammoBox_F", 30]) isNotEqualTo []) then {
 		call d_fnc_retrieve_layoutgear;
 	};
@@ -179,7 +193,7 @@ if (d_database_found) then {
 
 0 spawn {
 	scriptName "spawn_buttonclickrespawn2";
-	if (!d_ifa3lite && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
+	if (!d_ifa3 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}) then {
 		player action ["NVGoggles", player];
 	};
 };

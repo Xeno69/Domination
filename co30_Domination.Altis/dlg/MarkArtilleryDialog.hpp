@@ -5,9 +5,9 @@ class D_MarkArtilleryDialog {
 	onUnLoad = "uiNamespace setVariable ['D_MarkArtilleryDialog', nil];d_markarti_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1524)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1524);
 	};
 	class controls {
 		class SalvosText: RscText {
@@ -58,6 +58,6 @@ class D_MarkArtilleryDialog {
 			w = 0.62; h = 0.85;
 			showCountourInterval = false;
 		};
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 	};
 };

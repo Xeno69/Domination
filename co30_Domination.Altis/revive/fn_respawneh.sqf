@@ -44,6 +44,7 @@ _this spawn {
 		//__TRACE("pos to old pos and dir")
 		player setDir (_d_pos # 1);
 		player setPos (_d_pos # 0);
+		player setVelocity [0, 0, 0];
 		[player] spawn xr_fnc_bloodpool;
 		if (!_norm_resp) then {
 			0 spawn xr_fnc_uncon;

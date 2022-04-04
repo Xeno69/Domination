@@ -69,7 +69,7 @@ if (d_with_dynsim == 0) then {
 sleep 2.333;
 
 //find a suitable building and occupy
-_buildings_array_sorted_by_distance = [[_poss, 200, nil, (count _allActors)] call d_fnc_getbuildings, _poss] call d_fnc_sortarraybydistance;
+_buildings_array_sorted_by_distance = [[_poss, 200] call d_fnc_getbldgswithpositions, _poss] call d_fnc_sortarraybydistance;
 private _unitsNotGarrisoned = [];
 private _bldg = nil;
 private _marker = nil;

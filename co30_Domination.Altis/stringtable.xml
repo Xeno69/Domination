@@ -507,16 +507,16 @@
 <French>Ouvrez la page des paramètres dans l'acceuil du serveur pour voir une liste des fonctionnalités disponibles que vous pouvez modifier dans le jeu avant le début de la mission (un administrateur doit le faire).</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_58">
-<English>Mission ® 2007 - 2021 by Xeno</English>
-<Spanish>Misión ® 2007 - 2021 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
-<Portuguese>Mission ® 2007 - 2021 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
-<Korean>Missons ® 2007 - 2021 by Xeno</Korean>
-<Japanese>Mission ® 2007 - 2021 by Xeno</Japanese>
-<Original>Mission ® 2007 - 2021 by Xeno</Original>
-<Russian>Миссиия ® 2007 - 2021 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
-<Chinesesimp>任务 ® 2007 - 2021 Xeno制作 CHL、SanJin汉化</Chinesesimp>
-<Chinese>任務 ® 2007 - 2021 Xeno製作 leo小新漢化</Chinese>
-<French>Mission ® 2007 - 2021 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
+<English>Mission ® 2007 - 2022 by Xeno</English>
+<Spanish>Misión ® 2007 - 2022 por Xeno, traducida al español por Brigada_Spanish y Linux-Mch</Spanish>
+<Portuguese>Mission ® 2007 - 2022 by Xeno, traduzida ao portugues por Linux-mch</Portuguese>
+<Korean>Missons ® 2007 - 2022 by Xeno</Korean>
+<Japanese>Mission ® 2007 - 2022 by Xeno</Japanese>
+<Original>Mission ® 2007 - 2022 by Xeno</Original>
+<Russian>Миссиия ® 2007 - 2022 от Xeno, официальный перевод [ATP]TopDen [АРМАТОП].</Russian>
+<Chinesesimp>任务 ® 2007 - 2022 Xeno制作 CHL、SanJin汉化</Chinesesimp>
+<Chinese>任務 ® 2007 - 2022 Xeno製作 leo小新漢化</Chinese>
+<French>Mission ® 2007 - 2022 par Xeno, traduit en Français par Poseurfou (-MJ-)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_61">
 <English>Have a lot of fun!</English>
@@ -2750,29 +2750,41 @@
 <Chinese>你找不到任何有價值的文件‧</Chinese>
 <French>Vous n'avez trouvé aucun document de valeur</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_357">
-<English>Viewdistance</English>
-<Spanish>Vista Distancia</Spanish>
-<Portuguese>Vista Distancia</Portuguese>
-<Korean>가시거리</Korean>
-<Japanese>可視距離</Japanese>
-<Original>Viewdistance</Original>
-<Russian>Прорисовка</Russian>
-<Chinesesimp>视野距离</Chinesesimp>
-<Chinese>視野距離</Chinese>
-<French>Vue Distance</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_358">
-<English>Viewdistance: %1</English>
-<Spanish>Vista Distancia: %1</Spanish>
-<Portuguese>Vista Distancia: %1</Portuguese>
-<Korean>현재 가시거리: %1</Korean>
-<Japanese>可視距離: %1</Japanese>
-<Original>Viewdistance: %1</Original>
-<Russian>Дальность прорисовки: %1</Russian>
-<Chinesesimp>视野距离: %1</Chinesesimp>
-<Chinese>視野距離: %1</Chinese>
-<French>Vue Distance: %1</French>
+<English>Inf Viewdistance: %1</English>
+<Spanish>Inf Viewdistance: %1</Spanish>
+<Portuguese>Inf Viewdistance: %1</Portuguese>
+<Korean>Inf Viewdistance: %1</Korean>
+<Japanese>Inf Viewdistance: %1</Japanese>
+<Original>Inf Viewdistance: %1</Original>
+<Russian>Inf Viewdistance: %1</Russian>
+<Chinesesimp>Inf Viewdistance: %1</Chinesesimp>
+<Chinese>Inf Viewdistance: %1</Chinese>
+<French>Inf Viewdistance: %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_358V">
+<English>Vehicle Viewdistance: %1</English>
+<Spanish>Vehicle Viewdistance: %1</Spanish>
+<Portuguese>Vehicle Viewdistance: %1</Portuguese>
+<Korean>Vehicle Viewdistance: %1</Korean>
+<Japanese>Vehicle Viewdistance: %1</Japanese>
+<Original>Vehicle Viewdistance: %1</Original>
+<Russian>Vehicle Viewdistance: %1</Russian>
+<Chinesesimp>Vehicle Viewdistance: %1</Chinesesimp>
+<Chinese>Vehicle Viewdistance: %1</Chinese>
+<French>Vehicle Viewdistance: %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_358A">
+<English>Air Viewdistance: %1</English>
+<Spanish>Air Viewdistance: %1</Spanish>
+<Portuguese>Air Viewdistance: %1</Portuguese>
+<Korean>Air Viewdistance: %1</Korean>
+<Japanese>Air Viewdistance: %1</Japanese>
+<Original>Air Viewdistance: %1</Original>
+<Russian>Air Viewdistance: %1</Russian>
+<Chinesesimp>Air Viewdistance: %1</Chinesesimp>
+<Chinese>Air Viewdistance: %1</Chinese>
+<French>Air Viewdistance: %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_359">
 <English>No Grass</English>
@@ -8092,18 +8104,6 @@
 <Chinese>佔領陣地</Chinese>
 <French>Capture de Camp</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_1285">
-<English>Viewdistance:</English>
-<Spanish>Vista Distancia:</Spanish>
-<Portuguese>Viewdistance:</Portuguese>
-<Korean>가시거리</Korean>
-<Japanese>可視距離:</Japanese>
-<Original>Viewdistance:</Original>
-<Russian>Дальность обзора</Russian>
-<Chinesesimp>视野距离：</Chinesesimp>
-<Chinese>視野距離:</Chinese>
-<French> Distance Visuelle</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1287">
 <English>Select Grass Layer</English>
 <Spanish>Selec. Capa de Hierba</Spanish>
@@ -10456,6 +10456,30 @@
 <Chinese>在激光指示點呼叫空中支援</Chinese>
 <French>Demande CAS</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS">
+<English>Call CAS Bomb HE</English>
+<Spanish>Call CAS Bomb HE</Spanish>
+<Portuguese>Call CAS Bomb HE</Portuguese>
+<Korean>Call CAS Bomb HE</Korean>
+<Japanese>Call CAS Bomb HE</Japanese>
+<Original>Call CAS Bomb HE</Original>
+<Russian>Call CAS Bomb HE</Russian>
+<Chinesesimp>Call CAS Bomb HE</Chinesesimp>
+<Chinese>Call CAS Bomb HE</Chinese>
+<French>Call CAS Bomb HE</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM">
+<English>Call CAS Bomb Napalm</English>
+<Spanish>Call CAS Bomb Napalm</Spanish>
+<Portuguese>Call CAS Bomb Napalm</Portuguese>
+<Korean>Call CAS Bomb Napalm</Korean>
+<Japanese>Call CAS Bomb Napalm</Japanese>
+<Original>Call CAS Bomb Napalm</Original>
+<Russian>Call CAS Bomb Napalm</Russian>
+<Chinesesimp>Call CAS Bomb Napalm</Chinesesimp>
+<Chinese>Call CAS Bomb Napalm</Chinese>
+<French>Call CAS Bomb Napalm</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1712">
 <English>CAS currently not available...</English>
 <Spanish>CAS ACTUALMENTE en Objetivo ...</Spanish>
@@ -12114,12 +12138,12 @@
 <French>Appel Taxi Aérien</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1885">
-<English>Disable artillery cooldown</English>
+<English>Disable artillery and CAS cooldown</English>
 <Spanish>Desactivar el enfriamiento de la artillería</Spanish>
 <Portuguese>Desactivar o arrefecimento da artilharia</Portuguese>
 <Korean>포병장비 냉각시간 비활성화</Korean>
-<Japanese>Disable artillery cooldown</Japanese>
-<Original>Disable artillery cooldown</Original>
+<Japanese>Disable artillery and CAS cooldown</Japanese>
+<Original>Disable artillery and CAS cooldown</Original>
 <Russian>Отключить перезарядку артиллерии</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 <Chinese>禁用火砲冷卻</Chinese>
@@ -12282,16 +12306,16 @@
 <French>Civilians - Activer les civils</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
-<English>Civilians - civilian unit count per group</English>
-<Spanish>Recuento de unidades civiles por grupo</Spanish>
-<Portuguese>Contagem de unidades civis por grupo</Portuguese>
-<Korean>시민 - 그룹당 시민 수</Korean>
-<Japanese>Civilians - civilian unit count per group</Japanese>
-<Original>Civilians - civilian unit count per group</Original>
-<Russian>Civilians - Количество гражданских групп</Russian>
-<Chinesesimp>平民 - 每组平民单位数</Chinesesimp>
-<Chinese>Civilians - 每組平民單位數</Chinese>
-<French>Civilians - nombre d'unités civiles par groupe</French>
+<English>Civilians - civilian unit count (walking)</English>
+<Spanish>Recuento de unidades civiles (para caminar)</Spanish>
+<Portuguese>Contagem de unidades civis (walking)</Portuguese>
+<Korean>시민 - 그룹당 시민 수 (walking)</Korean>
+<Japanese>Civilians - civilian unit count (walking)</Japanese>
+<Original>Civilians - civilian unit count (walking)</Original>
+<Russian>Civilians - Количество гражданских (walking)</Russian>
+<Chinesesimp>平民 - 每组平民单位数 (walking)</Chinesesimp>
+<Chinese>Civilians - 每組平民單位數 (walking)</Chinese>
+<French>Civilians - nombre d'unités civiles (walking)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1894">
 <English>Disable enemy air</English>
@@ -12978,16 +13002,16 @@
 <French>Attention!!! Vous avez ramassé un équipement THERMIQUE! Enlevez-le maintenant, veuillez choisir un autre équipement!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1964">
-<English>Auto viewdistance change at main target:</English>
-<Spanish>Cambio de distancia de vista automática en el objetivo principal:</Spanish>
-<Portuguese>Mudança de visualização automática no alvo principal:</Portuguese>
-<Korean>메인미션중 시야거리 자동변경:</Korean>
-<Japanese>主目標付近での視程の自動調整:</Japanese>
-<Original>Auto viewdistance change at main target:</Original>
-<Russian>Автоматическое изменение видимости на основной задаче:</Russian>
-<Chinesesimp>主目标上的视距自动调整：</Chinesesimp>
-<Chinese>主目標上的視距自動調整：</Chinese>
-<French>Changement automatique de la distance visuelle sur l'objectif principal:</French>
+<English>Auto viewdistance change at main target and base:</English>
+<Spanish>Auto viewdistance change at main target and base:</Spanish>
+<Portuguese>Auto viewdistance change at main target and base:</Portuguese>
+<Korean>Auto viewdistance change at main target and base:</Korean>
+<Japanese>Auto viewdistance change at main target and base:</Japanese>
+<Original>Auto viewdistance change at main target and base:</Original>
+<Russian>Auto viewdistance change at main target and base:</Russian>
+<Chinesesimp>Auto viewdistance change at main target and base:</Chinesesimp>
+<Chinese>Auto viewdistance change at main target and base:</Chinese>
+<French>Auto viewdistance change at main target and base:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1965">
 <English>Auto Viewdistance change at main targets enabled!</English>
@@ -14349,18 +14373,6 @@
 <Chinese>禁用武器裝備光學裝備的熱成像功能(TI)：</Chinese>
 <French>Disable Thermal Imaging (TI) for inf weapons/optics:</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_2061">
-<English>Big main target fires:</English>
-<Spanish>Big main target fires:</Spanish>
-<Portuguese>Big main target fires:</Portuguese>
-<Korean>메인미션 넓은 발포:</Korean>
-<Japanese>Big main target fires:</Japanese>
-<Original>Big main target fires:</Original>
-<Russian>Большие костры на основном задании:</Russian>
-<Chinesesimp>主要任务篝火：</Chinesesimp>
-<Chinese>主要任務篝火：</Chinese>
-<French>Big main target fires:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_MT_RADIUS">
 <English>Target radius:</English>
 <Spanish>Target radius:</Spanish>
@@ -14732,6 +14744,126 @@
 <Chinesesimp>With auto revive if no player is nearby (less than 215m):</Chinesesimp>
 <Chinese>With auto revive if no player is nearby (less than 215m):</Chinese>
 <French>With auto revive if no player is nearby (less than 215m):</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_SHOW_HEADSHOTS">
+<English>Show headshots</English>
+<Spanish>Show headshots</Spanish>
+<Portuguese>Show headshots</Portuguese>
+<Korean>Show headshots</Korean>
+<Japanese>Show headshots</Japanese>
+<Original>Show headshots</Original>
+<Russian>Show headshots</Russian>
+<Chinesesimp>Show headshots</Chinesesimp>
+<Chinese>Show headshots</Chinese>
+<French>Show headshots</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_ONLY">
+<English>Client only</English>
+<Spanish>Client only</Spanish>
+<Portuguese>Client only</Portuguese>
+<Korean>Client only</Korean>
+<Japanese>Client only</Japanese>
+<Original>Client only</Original>
+<Russian>Client only</Russian>
+<Chinesesimp>Client only</Chinesesimp>
+<Chinese>Client only</Chinese>
+<French>Client only</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_GROUP">
+<English>Client and group</English>
+<Spanish>Client and group</Spanish>
+<Portuguese>Client and group</Portuguese>
+<Korean>Client and group</Korean>
+<Japanese>Client and group</Japanese>
+<Original>Client and group</Original>
+<Russian>Client and group</Russian>
+<Chinesesimp>Client and group</Chinesesimp>
+<Chinese>Client and group</Chinese>
+<French>Client and group</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CLIENT_ALL">
+<English>Client and allies</English>
+<Spanish>Client and allies</Spanish>
+<Portuguese>Client and allies</Portuguese>
+<Korean>Client and allies</Korean>
+<Japanese>Client and allies</Japanese>
+<Original>Client and allies</Original>
+<Russian>Client and allies</Russian>
+<Chinesesimp>Client and allies</Chinesesimp>
+<Chinese>Client and allies</Chinese>
+<French>Client and allies</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEADSHOT">
+<English>Headshot by %1 %2 m</English>
+<Spanish>Headshot by %1 %2 m</Spanish>
+<Portuguese>Headshot by %1 %2 m</Portuguese>
+<Korean>Headshot by %1 %2 m</Korean>
+<Japanese>Headshot by %1 %2 m</Japanese>
+<Original>Headshot by %1 %2 m</Original>
+<Russian>Headshot by %1 %2 m</Russian>
+<Chinesesimp>Headshot by %1 %2 m</Chinesesimp>
+<Chinese>Headshot by %1 %2 m</Chinese>
+<French>Headshot by %1 %2 m</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT">
+<English>(+) %1 m</English>
+<Spanish>(+) %1 m</Spanish>
+<Portuguese>(+) %1 m</Portuguese>
+<Korean>(+) %1 m</Korean>
+<Japanese>(+) %1 m</Japanese>
+<Original>(+) %1 m</Original>
+<Russian>(+) %1 m</Russian>
+<Chinesesimp>(+) %1 m</Chinesesimp>
+<Chinese>(+) %1 m</Chinese>
+<French>(+) %1 m</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2091">
+<English>Emergency exit!</English>
+<Spanish>Emergency exit!</Spanish>
+<Portuguese>Emergency exit!</Portuguese>
+<Korean>Emergency exit!</Korean>
+<Japanese>Emergency exit!</Japanese>
+<Original>Emergency exit!</Original>
+<Russian>Emergency exit!</Russian>
+<Chinesesimp>Emergency exit!</Chinesesimp>
+<Chinese>Emergency exit!</Chinese>
+<French>Emergency exit!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2092">
+<English>Target selection time:</English>
+<Spanish>Target selection time:</Spanish>
+<Portuguese>Target selection time:</Portuguese>
+<Korean>Target selection time:</Korean>
+<Japanese>Target selection time:</Japanese>
+<Original>Target selection time:</Original>
+<Russian>Target selection time:</Russian>
+<Chinesesimp>Target selection time:</Chinesesimp>
+<Chinese>Target selection time:</Chinese>
+<French>Target selection time:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES">
+<English>Enemy mercenaries (2035 only)</English>
+<Spanish>Enemy mercenaries (2035 only)</Spanish>
+<Portuguese>Enemy mercenaries (2035 only)</Portuguese>
+<Korean>Enemy mercenaries (2035 only)</Korean>
+<Japanese>Enemy mercenaries (2035 only)</Japanese>
+<Original>Enemy mercenaries (2035 only)</Original>
+<Russian>Enemy mercenaries (2035 only)</Russian>
+<Chinesesimp>Enemy mercenaries (2035 only)</Chinesesimp>
+<Chinese>Enemy mercenaries (2035 only)</Chinese>
+<French>Enemy mercenaries (2035 only)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2093">
+<English>No Data Available Yet</English>
+<Spanish>No Data Available Yet</Spanish>
+<Portuguese>No Data Available Yet</Portuguese>
+<Korean>No Data Available Yet</Korean>
+<Japanese>No Data Available Yet</Japanese>
+<Original>No Data Available Yet</Original>
+<Russian>No Data Available Yet</Russian>
+<Chinesesimp>No Data Available Yet</Chinesesimp>
+<Chinese>No Data Available Yet</Chinese>
+<French>No Data Available Yet</French>
 </Key>
 </Container>
 </Package>

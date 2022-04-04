@@ -55,7 +55,7 @@ if !(isclass _planeCfg) exitwith {
 	false
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 //--- Detect gun
 private _weaponTypes = call {
 	if (_wtype == 0) exitWith {["machinegun"]};
@@ -152,8 +152,8 @@ private _pos = +_posATL;
 _pos set [2, (_pos # 2) + getTerrainheightasl _pos];
 private _dir = _callerpos getDir _logico;
 
-private _dis = 3000;
-private _alt = 1000;
+private _dis = 2500;
+private _alt = 1200;
 private _pitch = atan (_alt / _dis);
 private _speed = 400 / 3.6;
 private _duration = ([0,0] distance [_dis, _alt]) / _speed;
@@ -199,6 +199,13 @@ private _fire = [] spawn {
 private _fireNull = true;
 private _time = time;
 private _offset = [0, 20] select (_weaponTypes findIf {_x == "missilelauncher"} > -1);
+
+d_cas_metadata = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
+//publicVariable "d_cas_metadata";
+
+// use eachframe for a smooth approach
+["dom_cas_setvelocitytransform", {call d_fnc_moduleCAS_eachframe}] call d_fnc_eachframeadd;
+
 waitUntil {
 	private _fireProgress = _plane getVariable ["fireProgress", 0];
 
@@ -218,20 +225,14 @@ waitUntil {
 		_vectorUp = vectorUp _plane;
 
 		_plane move ([_pos,_dis, _dir] call bis_fnc_relpos);
+		
+		// update global variable
+		d_cas_metadata = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir, _vectorUp, _time, _duration];
+
 	};
 
-	//--- Set the plane approach vector
-	_plane setVelocityTransformation [
-		_planePos, [_pos # 0, _pos # 1, (_pos # 2) + _offset + _fireProgress * 12],
-		_velocity, _velocity,
-		_vectorDir, _vectorDir,
-		_vectorUp, _vectorUp,
-		(time - _time) / _duration
-	];
-	_plane setVelocity velocity _plane;
-
 	//--- Fire!
-	if (_fireNull && {(getPosAsl _plane) distance _pos < 1000}) then {
+	if (_fireNull && {(getPosAsl _plane) distance _pos < 1200}) then {
 		_fireNull = false;
 		terminate _fire;
 		_fire = [_plane,_weapons] spawn {
@@ -250,6 +251,7 @@ waitUntil {
 				(time > _time || {isNull _plane || {!canMove _plane}})
 			};
 			sleep 1;
+			["dom_cas_setvelocitytransform"] call d_fnc_eachframeremove;
 		};
 	};
 
@@ -257,7 +259,7 @@ waitUntil {
 	(scriptDone _fire || {isNull _logico || {isNull _plane || {!canMove _plane}}})
 };
 _plane setVelocity velocity _plane;
-_plane flyinHeight _alt;
+_plane flyinHeight _alt * 2;
 if (!scriptDone _fire) then {
 	terminate _fire;
 };
@@ -288,11 +290,14 @@ if (canMove _plane) then {
 	scriptName "spawn_cas_available";
 	params ["_side", "_logic1", "_logic", "_topicside", "_channel"];
 	if (d_arty_unlimited == 1) then {
-		sleep 90;
+		sleep 3;
 	} else {
 		sleep d_cas_available_time;
 	};
-	
+
+	d_cas_metadata = [];
+	//publicVariable "d_cas_metadata";
+
 #ifndef __TT__
 	d_cas_available = true; publicVariable "d_cas_available";
 #else

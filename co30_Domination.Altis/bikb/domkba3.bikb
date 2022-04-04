@@ -262,12 +262,12 @@ class Sentences {
 		text = "$STR_DOM_MISSIONSTRING_1385";
 		speech[] = {};
 		class Arguments {};
-	}
+	};
 	class TTBArracksAnnounce {
 		text = "$STR_DOM_MISSIONSTRING_1950";
 		speech[] = {};
 		class Arguments {};
-	};;
+	};
 #else
 	class TellAirDropAttack {
 		text = "$STR_DOM_MISSIONSTRING_1389";
@@ -510,6 +510,14 @@ class Sentences {
 		speech[] = {};
 		class Arguments {
 			class 1 {type = "simple";};
+		};
+	};
+	class MTHeadshot {
+		text = "$STR_DOM_MISSIONSTRING_HEADSHOT";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
 		};
 	};
 };

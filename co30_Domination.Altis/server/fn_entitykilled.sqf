@@ -6,12 +6,10 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
-if (d_database_found) then {
-	if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
-		private _insti = _this # 2;
-		if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
-			_insti spawn d_fnc_addheadshot;
-		};
+if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
+	private _insti = _this # 2;
+	if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
+		[_insti, _insti distance2D _obj] spawn d_fnc_addheadshot;
 	};
 };
 
@@ -144,6 +142,10 @@ if (_ar # 19 == 1) then {
 	d_priority_targets = [];
 	publicVariable "d_priority_targets";
 	[_obj, 19, 0] call d_fnc_setekmode;
+};
+
+if (_obj in d_cur_tgt_enemy_units) then {
+	d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _obj);
 };
 
 _obj setVariable ["d_hkx", nil];

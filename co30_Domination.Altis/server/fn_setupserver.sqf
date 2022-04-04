@@ -97,7 +97,7 @@ if (d_MissionType == 2) then {
 
 0 spawn d_fnc_cleanerfnc;
 
-diag_log "Internal D Version: 4.59";
+diag_log "Internal D Version: 4.62";
 
 private _av_check_fnc = {
 	_this addEventHandler ["handleDamage", {call d_fnc_pshootatarti;0}];
@@ -157,7 +157,7 @@ if (d_with_ranked) then {
 	};
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 0 spawn d_fnc_scheck_uav;
 #endif
 
