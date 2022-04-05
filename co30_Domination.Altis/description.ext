@@ -125,6 +125,8 @@ wreckRemovalMaxTime = 360;
 
 vn_arsenalShowMelee = 1;
 
+missionGroup = "DominationMissionGroup";
+
 class CfgRemoteExec {
 	// List of script functions allowed to be sent from client via remoteExec
 	class Functions {
@@ -277,6 +279,11 @@ class CfgRemoteExec {
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
 		class d_fnc_asfnc {allowedTargets = 2;};
 #endif
+#ifdef __VN__
+		class vn_fnc_music_play {};
+		class vn_fnc_music_stop {};
+		class vn_fnc_switchableTurrets_lock {allowedTargets = 2;};
+#endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
 	class Commands {
@@ -300,6 +307,12 @@ class CfgRemoteExec {
 		class triggerDynamicSimulation {allowedTargets = 2;};
 #ifdef __TT__
 		class setMarkerPosLocal {allowedTargets = 1;};
+#endif
+#ifdef __VN__
+		class setShotParents {allowedTargets = 2;};
+		class unassignVehicle {};
+		class moveInCargo {};
+		class lockTurret {};
 #endif
 	};
 };
