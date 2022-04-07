@@ -34,9 +34,9 @@ if (!d_tt_ver) then {
 				_dbresult = ["missionGet2", [toLower (worldName + _sname + briefingname)]] call d_fnc_queryconfig;
 			};
 		};
-		if (d_db_type == -1) exitWith {
+		if (d_db_type == 2) exitWith {
 			_dbresult = [];
-			private _pn_missionsave = profileNamespace getVariable ["dom_missionsave", []];
+			private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsave", []];
 			if (_pn_missionsave isEqualTo []) exitWith {};
 			if (_sender != objNull) then {
 				private _comna = tolower (worldName + _sname);
@@ -80,9 +80,9 @@ if (!d_tt_ver) then {
 				_dbresult = ["missionttGet2", [toLower (worldName + _sname + briefingname)]] call d_fnc_queryconfig;
 			};
 		};
-		if (d_db_type == -1) exitWith {
+		if (d_db_type == 2) exitWith {
 			_dbresult = [];
-			private _pn_missionsave = profileNamespace getVariable ["dom_missionsavett", []];
+			private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsavett", []];
 			if (_pn_missionsave isEqualTo []) exitWith {};
 			if (_sender != objNull) then {
 				private _comna = tolower (worldName + _sname);

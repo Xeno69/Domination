@@ -1158,7 +1158,7 @@
 <English>Turn On Hud</English>
 <Spanish>Activar Hud</Spanish>
 <Portuguese>Volta Em Hud</Portuguese>
-<Korean>HUD ON</Korean>
+<Korean>HUD 켜기</Korean>
 <Japanese>HUDオン</Japanese>
 <Original>Turn On Hud</Original>
 <Russian>Включить HUD</Russian>
@@ -2754,7 +2754,7 @@
 <English>Inf Viewdistance: %1</English>
 <Spanish>Inf Viewdistance: %1</Spanish>
 <Portuguese>Inf Viewdistance: %1</Portuguese>
-<Korean>Inf Viewdistance: %1</Korean>
+<Korean>보병 가시거리: %1</Korean>
 <Japanese>Inf Viewdistance: %1</Japanese>
 <Original>Inf Viewdistance: %1</Original>
 <Russian>Дальность обзора: %1</Russian>
@@ -2766,7 +2766,7 @@
 <English>Vehicle Viewdistance: %1</English>
 <Spanish>Vehicle Viewdistance: %1</Spanish>
 <Portuguese>Vehicle Viewdistance: %1</Portuguese>
-<Korean>Vehicle Viewdistance: %1</Korean>
+<Korean>차량 가시거리: %1</Korean>
 <Japanese>Vehicle Viewdistance: %1</Japanese>
 <Original>Vehicle Viewdistance: %1</Original>
 <Russian>Дальность обзора (в технике): %1</Russian>
@@ -2778,7 +2778,7 @@
 <English>Air Viewdistance: %1</English>
 <Spanish>Air Viewdistance: %1</Spanish>
 <Portuguese>Air Viewdistance: %1</Portuguese>
-<Korean>Air Viewdistance: %1</Korean>
+<Korean>공중 가시거리: %1</Korean>
 <Japanese>Air Viewdistance: %1</Japanese>
 <Original>Air Viewdistance: %1</Original>
 <Russian>Дальность обзора (в воздухе): %1</Russian>
@@ -7219,7 +7219,7 @@
 <English>Force fast intro:</English>
 <Spanish>Force fast intro:</Spanish>
 <Portuguese>Force fast intro:</Portuguese>
-<Korean>Force fast intro:</Korean>
+<Korean>빠른 인트로 강제 전환:</Korean>
 <Japanese>Force fast intro:</Japanese>
 <Original>Force fast intro:</Original>
 <Russian>Быстрое вступление (intro) :</Russian>
@@ -10460,7 +10460,7 @@
 <English>Call CAS Bomb HE</English>
 <Spanish>Call CAS Bomb HE</Spanish>
 <Portuguese>Call CAS Bomb HE</Portuguese>
-<Korean>Call CAS Bomb HE</Korean>
+<Korean>고폭탄 CAS 요청</Korean>
 <Japanese>Call CAS Bomb HE</Japanese>
 <Original>Call CAS Bomb HE</Original>
 <Russian>Вызвать CAS Bomb HE</Russian>
@@ -10472,7 +10472,7 @@
 <English>Call CAS Bomb Napalm</English>
 <Spanish>Call CAS Bomb Napalm</Spanish>
 <Portuguese>Call CAS Bomb Napalm</Portuguese>
-<Korean>Call CAS Bomb Napalm</Korean>
+<Korean>네이팜탄 CAS 요청 </Korean>
 <Japanese>Call CAS Bomb Napalm</Japanese>
 <Original>Call CAS Bomb Napalm</Original>
 <Russian>Вызвать CAS Bomb Napalm</Russian>
@@ -11409,7 +11409,7 @@
 <English>You have to wait %1 seconds to create a new vehicle at a MHQ!</English>
 <Spanish>¡Tienes que esperar %1 segundos para crear un nuevo vehículo en un MHQ!</Spanish>
 <Portuguese>Você tem que esperar %1 segundos para criar um novo veículo em um MHQ!</Portuguese>
-<Korean>새로운 MHQ 생성에 %1 초가 소요되니 기다려주십시오!</Korean>
+<Korean>MHQ에서 새로운 차량 생성에 %1 초가 소요되니 기다려주십시오!</Korean>
 <Japanese>移動指揮所で新たな車両を作れるようになるまで、%1秒待つ必要があります!</Japanese>
 <Original>You have to wait %1 seconds to create a new vehicle at a MHQ!</Original>
 <Russian>Нужно подождать %1 секунд прежде чем доставать транспорт из КШМ!</Russian>
@@ -11421,7 +11421,7 @@
 <English>Seconds till a player can create a new vec at MHQ:</English>
 <Spanish>Segundos hasta que un jugador puede crear un nuevo vec en MHQ:</Spanish>
 <Portuguese>Segundos até que um jogador possa criar um novo vec no MHQ:</Portuguese>
-<Korean>플레이어가 새로운 MHQ 생성 할 수 있는 소요시간:</Korean>
+<Korean>플레이어가 MHQ에서 새로운 차량을 생성 할 수 있는 소요시간:</Korean>
 <Japanese>移動指揮所で新規車両が展開可能となるまでの待ち時間:</Japanese>
 <Original>Seconds till a player can create a new vec at MHQ:</Original>
 <Russian>Секунд до возможности получить снова технику из КШМ:</Russian>
@@ -13270,7 +13270,7 @@
 <English>Launcher Cooldown Time in seconds:</English>
 <Spanish>Tiempo de recuperación del iniciador en segundos:</Spanish>
 <Portuguese>Tempo de Resfriamento do Lançador em segundos:</Portuguese>
-<Korean>아군 치료에 대한 포인트!</Korean>
+<Korean>런처 재사용 대기시간:</Korean>
 <Japanese>Launcher Cooldown Time in seconds:</Japanese>
 <Original>Launcher Cooldown Time in seconds:</Original>
 <Russian>Время восстановления пусковой установки в секундах:</Russian>
@@ -13810,7 +13810,7 @@
 <English>Attention: some of the civilians are armed and ready to fight!</English>
 <Spanish>Attention: some of the civilians are armed and ready to fight!</Spanish>
 <Portuguese>Attention: some of the civilians are armed and ready to fight!</Portuguese>
-<Korean>Attention: some of the civilians are armed and ready to fight!</Korean>
+<Korean>주의: 일부 민간인들이 무장을 하였고 싸울 준비가 되었습니다!</Korean>
 <Japanese>Attention: some of the civilians are armed and ready to fight!</Japanese>
 <Original>Attention: some of the civilians are armed and ready to fight!</Original>
 <Russian>Внимание: некоторые из мирных жителей вооружены и готовы к бою!</Russian>
@@ -14661,30 +14661,6 @@
 <Chinese>禁用語音：</Chinese>
 <French>Disable voices:</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_2084">
-<English>Save mission and player progress to missionProfileNamespace if no SQL database is available</English>
-<Spanish>Save mission and player progress to missionProfileNamespace if no SQL database is available</Spanish>
-<Portuguese>Save mission and player progress to missionProfileNamespace if SQL no database is available</Portuguese>
-<Korean>Save mission and player progress to missionProfileNamespace if no SQL database is available</Korean>
-<Japanese>Save mission and player progress to missionProfileNamespace if no SQL database is available</Japanese>
-<Original>Save mission and player progress to missionProfileNamespace if no SQL database is available</Original>
-<Russian>Save mission and player progress to missionProfileNamespace if no SQL database is available</Russian>
-<Chinesesimp>Save mission and player progress to missionProfileNamespace if no SQL database is available</Chinesesimp>
-<Chinese>Save mission and player progress to missionProfileNamespace if no SQL database is available</Chinese>
-<French>Save mission and player progress to missionProfileNamespace if no SQL database is available</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_2085">
-<English>Saved missionProfileNamespace mission progress auto load</English>
-<Spanish>Saved missionProfileNamespace mission progress auto load</Spanish>
-<Portuguese>Saved missionProfileNamespace mission progress auto load</Portuguese>
-<Korean>missionProfileNamespace 미션 진행 상황 저장 및 자동 불러오기</Korean>
-<Japanese>Saved missionProfileNamespace mission progress auto load</Japanese>
-<Original>Saved missionProfileNamespace mission progress auto load</Original>
-<Russian>Автозагрузка прогресса миссии сохраненного missionProfileNamespace </Russian>
-<Chinesesimp>保存的 missionProfileNamespace 任务进度自动加载</Chinesesimp>
-<Chinese>保存的 missionProfileNamespace 任務進度自動加載</Chinese>
-<French>Saved missionProfileNamespace mission progress auto load</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
@@ -14737,7 +14713,7 @@
 <English>With auto revive if no player is nearby (less than 215m):</English>
 <Spanish>With auto revive if no player is nearby (less than 215m):</Spanish>
 <Portuguese>With auto revive if no player is nearby (less than 215m):</Portuguese>
-<Korean>With auto revive if no player is nearby (less than 215m):</Korean>
+<Korean>근처에 플레이어가 없는경우 자동소생 (215m이내):</Korean>
 <Japanese>With auto revive if no player is nearby (less than 215m):</Japanese>
 <Original>With auto revive if no player is nearby (less than 215m):</Original>
 <Russian>С автоматическим возрождением, если поблизости нет игроков (менее 215 м)</Russian>
@@ -14749,7 +14725,7 @@
 <English>Show headshots</English>
 <Spanish>Show headshots</Spanish>
 <Portuguese>Show headshots</Portuguese>
-<Korean>Show headshots</Korean>
+<Korean>헤드샷 표시</Korean>
 <Japanese>Show headshots</Japanese>
 <Original>Show headshots</Original>
 <Russian>Показать попадания в голову</Russian>
@@ -14761,7 +14737,7 @@
 <English>Client only</English>
 <Spanish>Client only</Spanish>
 <Portuguese>Client only</Portuguese>
-<Korean>Client only</Korean>
+<Korean>클라이언트 만 </Korean>
 <Japanese>Client only</Japanese>
 <Original>Client only</Original>
 <Russian>Только клиент</Russian>
@@ -14773,7 +14749,7 @@
 <English>Client and group</English>
 <Spanish>Client and group</Spanish>
 <Portuguese>Client and group</Portuguese>
-<Korean>Client and group</Korean>
+<Korean>클라이언트 와 그룹만</Korean>
 <Japanese>Client and group</Japanese>
 <Original>Client and group</Original>
 <Russian>Client and group</Russian>
@@ -14785,7 +14761,7 @@
 <English>Client and allies</English>
 <Spanish>Client and allies</Spanish>
 <Portuguese>Client and allies</Portuguese>
-<Korean>Client and allies</Korean>
+<Korean>클라이언트 및 모두</Korean>
 <Japanese>Client and allies</Japanese>
 <Original>Client and allies</Original>
 <Russian>Клиент и группа</Russian>
@@ -14797,7 +14773,7 @@
 <English>Headshot by %1 %2 m</English>
 <Spanish>Headshot by %1 %2 m</Spanish>
 <Portuguese>Headshot by %1 %2 m</Portuguese>
-<Korean>Headshot by %1 %2 m</Korean>
+<Korean>%2 m 에서 %1 (이)가 헤드샷 </Korean>
 <Japanese>Headshot by %1 %2 m</Japanese>
 <Original>Headshot by %1 %2 m</Original>
 <Russian>Попадание в голову %1 %2 m</Russian>
@@ -14821,7 +14797,7 @@
 <English>Emergency exit!</English>
 <Spanish>Emergency exit!</Spanish>
 <Portuguese>Emergency exit!</Portuguese>
-<Korean>Emergency exit!</Korean>
+<Korean>비상 탈출!</Korean>
 <Japanese>Emergency exit!</Japanese>
 <Original>Emergency exit!</Original>
 <Russian>Аварийный выход!</Russian>
@@ -14833,7 +14809,7 @@
 <English>Target selection time:</English>
 <Spanish>Target selection time:</Spanish>
 <Portuguese>Target selection time:</Portuguese>
-<Korean>Target selection time:</Korean>
+<Korean>목표선택 시간:</Korean>
 <Japanese>Target selection time:</Japanese>
 <Original>Target selection time:</Original>
 <Russian>Время выбора цели:</Russian>
@@ -14845,7 +14821,7 @@
 <English>Enemy mercenaries (2035 only)</English>
 <Spanish>Enemy mercenaries (2035 only)</Spanish>
 <Portuguese>Enemy mercenaries (2035 only)</Portuguese>
-<Korean>Enemy mercenaries (2035 only)</Korean>
+<Korean>적군 용병 (2035 만)</Korean>
 <Japanese>Enemy mercenaries (2035 only)</Japanese>
 <Original>Enemy mercenaries (2035 only)</Original>
 <Russian>Вражеские наемники (только 2035г.)</Russian>
@@ -14857,13 +14833,37 @@
 <English>No Data Available Yet</English>
 <Spanish>No Data Available Yet</Spanish>
 <Portuguese>No Data Available Yet</Portuguese>
-<Korean>No Data Available Yet</Korean>
+<Korean>현재 사용가능한 데이터가 없습니다.</Korean>
 <Japanese>No Data Available Yet</Japanese>
 <Original>No Data Available Yet</Original>
 <Russian>Данных пока нет</Russian>
 <Chinesesimp>No Data Available Yet</Chinesesimp>
 <Chinese>No Data Available Yet</Chinese>
 <French>No Data Available Yet</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2094">
+<English>Save player and mission progress to missionProfileNamespace if no SQL database is available</English>
+<Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available</Spanish>
+<Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Portuguese>
+<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available</Korean>
+<Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Japanese>
+<Original>Save player and mission progress to missionProfileNamespace if no SQL database is available</Original>
+<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available</Russian>
+<Chinesesimp>Save player and mission progress to missionProfileNamespace if no SQL database is available</Chinesesimp>
+<Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Chinese>
+<French>Save player and mission progress to missionProfileNamespace if no SQL database is available</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2095">
+<English>Use only Inf VD slider to set all VD settings:</English>
+<Spanish>Use only Inf VD slider to set all VD settings:</Spanish>
+<Portuguese>Use only Inf VD slider to set all VD settings:</Portuguese>
+<Korean>Use only Inf VD slider to set all VD settings:</Korean>
+<Japanese>Use only Inf VD slider to set all VD settings:</Japanese>
+<Original>Use only Inf VD slider to set all VD settings:</Original>
+<Russian>Use only Inf VD slider to set all VD settings:</Russian>
+<Chinesesimp>Use only Inf VD slider to set all VD settings:</Chinesesimp>
+<Chinese>Use only Inf VD slider to set all VD settings:</Chinese>
+<French>Use only Inf VD slider to set all VD settings:</French>
 </Key>
 </Container>
 </Package>

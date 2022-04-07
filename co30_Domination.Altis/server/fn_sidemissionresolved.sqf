@@ -55,7 +55,7 @@ if (d_sm_winner > 0) then {
 		if !(isServer && {!isDedicated}) then {d_sm_winner = 0};
 	};
 };
-if ((d_database_found && {d_db_auto_save}) || {d_pnspace_msave == 1 && {d_pnspace_msave_auto == 1}}) then {
+if (d_database_found && {d_db_auto_save}) then {
 	if (!isNil "d_sm_bonus_wait") then {
 		0 spawn {
 			scriptName "spawn saveprogress2db sidemissionresolved";

@@ -601,7 +601,8 @@ if (isServer) then {
 	publicVariable "d_with_ace";
 	diag_log ["Dom d_with_ace:", d_with_ace];
 	d_database_found = false;
-	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
+	d_sql_database = false;
+	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB, 2 = missionProfileNamespace
 
 	if (isMultiplayer) then {
 		if (isClass (configFile >> "Intercept" >> "Dedmen" >> "intercept_database")) then {
@@ -629,6 +630,7 @@ if (isServer) then {
 		call d_fnc_createdbconn;
 		diag_log ["Dom Intercept DB created:", D_DB_CON];
 		d_database_found = true;
+		d_sql_database = true;
 		d_db_type = 1;
 	} else {
 		private _isextdb3loaded = false;
@@ -654,12 +656,13 @@ if (isServer) then {
 				uiNamespace setVariable ["d_database_init", true];
 			};
 			d_database_found = true;
+			d_sql_database = true;
 		};
 	};
-	publicVariable "d_database_found";
-	diag_log ["DOM d_database_found:", d_database_found, "d_db_type:", d_db_type];
+	
+	diag_log ["DOM d_sql_database:", d_sql_database];
 
-	if (d_database_found) then {
+	if (d_sql_database) then {
 		d_use_sql_settings = false;
 
 		private _dbresult = [];
@@ -775,7 +778,15 @@ if (isServer) then {
 			paramsArray = nil;
 		};
 	};
+	
 	call compileScript ["init\initcommon.sqf", false];
+	
+	if (!d_sql_database && {d_save_to_mpns == 1}) then {
+		d_database_found = true;
+		d_db_type = 2;
+	};
+	publicVariable "d_database_found";
+	diag_log ["DOM d_database_found:", d_database_found, "d_db_type:", d_db_type];
 
 	d_house_objects = [];
 	d_house_objects2 = [];

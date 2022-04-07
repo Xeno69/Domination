@@ -6,16 +6,13 @@ params ["_disp"];
 if (!d_pisadminp) then {
 	(_disp displayCtrl 123123) ctrlShow false;
 	(_disp displayCtrl 123124) ctrlShow false;
-	if (!d_database_found) then {
-		(_disp displayCtrl 123125) ctrlShow false;
-	};
 } else {
 	if (!d_database_found) then {
-		if (d_pnspace_msave == 0) then {
-			(_disp displayCtrl 123124) ctrlShow false;
-		};
-		(_disp displayCtrl 123125) ctrlShow false;
+		(_disp displayCtrl 123124) ctrlShow false;
 	};
+};
+if (!d_database_found) then {
+	(_disp displayCtrl 123125) ctrlShow false;
 };
 
 if (d_with_bis_dynamicgroups == 1) then {

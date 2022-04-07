@@ -122,6 +122,23 @@ call {
 		["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _tks, _distar, _headshots, _rounds, _uid]] call d_fnc_queryconfigasync;
 		__TRACE("interceptDB called")
 	};
+	if (d_db_type == 2) exitWith {
+		private _tmpar = missionProfileNamespace getVariable _uid;
+		if (!isNil "_tmpar") then {
+			_tmpar set [2, _infkills];
+			_tmpar set [3, _softveckills];
+			_tmpar set [4, _armorkills];
+			_tmpar set [5, _airkills];
+			_tmpar set [6, _deaths];
+			_tmpar set [7, _totalscore];
+			_tmpar set [1, _playtime];
+			_tmpar set [12, _tks];
+			_tmpar set [14, _distar];
+			_tmpar set [15, _headshots];
+			_tmpar set [16, _rounds];
+			missionProfileNamespace setVariable [_uid, _tmpar];
+		};
+	};
 };
 
 _pa set [14, 0];

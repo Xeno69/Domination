@@ -38,6 +38,23 @@ if (d_database_found) then {
 			if (d_db_type == 1) exitWith {
 				_dbresult = ["missionsGet", [tolower worldname]] call d_fnc_queryconfig;
 			};
+			if (d_db_type == 2) exitWith {
+				private _pn_missionsave = profileNamespace getVariable "dom_missionsave";
+				if (!isNil "_pn_missionsave") then {
+					missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
+					saveMissionProfileNamespace;
+					profileNamespace setVariable ["dom_missionsave", nil];
+				};
+				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
+				if (!isNil "_pn_missionsave")) then {
+					private _wn = tolower worldname;
+					{
+						if (_x # 11 == _wn) then {
+							_dbresult pushBack _x;
+						};
+					} forEach _pn_missionsave;
+				};
+			};
 		};
 		__TRACE_1("missionsGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
@@ -46,7 +63,6 @@ if (d_database_found) then {
 				d_db_savegames pushBack (_x # 0);
 				diag_log ["DOM one save:", _x # 0];
 			} forEach _dbresult;
-			publicVariable "d_db_savegames";
 			__TRACE_1("","d_db_savegames")
 		};
 	} else {
@@ -63,6 +79,23 @@ if (d_database_found) then {
 			if (d_db_type == 1) exitWith {
 				_dbresult = ["missionsttGet", [tolower worldname]] call d_fnc_queryconfig;
 			};
+			if (d_db_type == 2) exitWith {
+				private _pn_missionsave = profileNamespace getVariable "dom_missionsavett";
+				if (!isNil "_pn_missionsave") then {
+					missionProfileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
+					saveMissionProfileNamespace;
+					profileNamespace setVariable ["dom_missionsavett", nil];
+				};
+				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsavett";
+				if (!isNil "_pn_missionsave") then {
+					private _wn = tolower worldname;
+					{
+						if (_x # 12 == _wn) then {
+							_dbresult pushBack _x;
+						};
+					} forEach _pn_missionsave;
+				};
+			};
 		};
 		__TRACE_1("missionsttGet","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
@@ -71,7 +104,6 @@ if (d_database_found) then {
 				d_db_savegames pushBack (_x # 0);
 				diag_log ["DOM one save:", _x # 0];
 			} forEach _dbresult;
-			publicVariable "d_db_savegames";
 			__TRACE_1("","d_db_savegames")
 		};
 	};
@@ -100,6 +132,14 @@ if (d_database_found) then {
 			//_dbresult = ["getTop10Players"] call d_fnc_queryconfig;
 			0 spawn d_fnc_dbtoppasync;
 		};
+		if (d_db_type == 2) exitWith {
+			private _tmphash = missionProfileNamespace getVariable "d_uid_scores";
+			if (isNil "_tmphash") then {
+				_tmphash = createHashMap;
+				missionProfileNamespace setVariable ["d_uid_scores", _tmphash];
+				saveMissionProfileNamespace;
+			};
+		};
 	};
 
 	0 spawn d_fnc_getplayerscores;
@@ -120,45 +160,6 @@ if (d_database_found) then {
 				scriptName "spawn_initserver2";
 				waitUntil {!isNil "d_target_names"};
 				["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
-			};
-		};
-	};
-} else {
-	if (d_pnspace_msave == 1) then {
-		if (!d_tt_ver) then {
-			private _pn_missionsave = profileNamespace getVariable "dom_missionsave";
-			if (!isNil "_pn_missionsave") then {
-				private _wn = tolower worldname;
-				{
-					if (_x # 11 == _wn) then {
-						d_db_savegames pushBack _x;
-					};
-				} forEach _pn_missionsave;
-			};
-		} else {
-			private _pn_missionsave = profileNamespace getVariable "dom_missionsavett";
-			if (!isNil "_pn_missionsave") then {
-				private _wn = tolower worldname;
-				{
-					if (_x # 12 == _wn) then {
-						d_db_savegames pushBack _x;
-					};
-				} forEach _pn_missionsave;
-			};
-		};
-		publicVariable "d_db_savegames";
-		__TRACE_1("-1","d_db_savegames")
-		
-		if (d_pnspace_msave_auto == 1) then {
-			diag_log "DOM initServer.sqf: Trying to read db autosave";
-			if (!isNil "d_target_names") then {
-				["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
-			} else {
-				0 spawn {
-					scriptName "spawn_initserver3";
-					waitUntil {!isNil "d_target_names"};
-					["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;
-				};
 			};
 		};
 	};

@@ -282,7 +282,11 @@ class CfgRemoteExec {
 #ifdef __VN__
 		class vn_fnc_music_play {};
 		class vn_fnc_music_stop {};
+		class vn_fnc_drm_setup_client {};
+		class vn_fnc_drm_useractions {};
+		class vn_fnc_drm_usereventhandlers {};
 		class vn_fnc_switchableTurrets_lock {allowedTargets = 2;};
+		class vn_fnc_burnit_action {};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -313,6 +317,8 @@ class CfgRemoteExec {
 		class unassignVehicle {};
 		class moveInCargo {};
 		class lockTurret {};
+		class globalRadio {};
+		class setVehicleAmmo {};
 #endif
 	};
 };
@@ -634,20 +640,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","350","450","550","650","750","850","1000"};
 	};
 	
-	class d_pnspace_msave {
-		title = "$STR_DOM_MISSIONSTRING_2084";
+	class d_save_to_mpns {
+		title = "$STR_DOM_MISSIONSTRING_2094";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
-	class d_pnspace_msave_auto {
-		title = "$STR_DOM_MISSIONSTRING_2085";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-
 	class d_params_dl_8_env {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
 		values[] = {-66};
@@ -1435,7 +1434,7 @@ class Params {
 
 	class d_max_bar_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1899";
-		values[] = {1, 2, 3, 4, 5, 6, 7, 9, 9, 10};
+		values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 		default = 7;
 		texts[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 	};

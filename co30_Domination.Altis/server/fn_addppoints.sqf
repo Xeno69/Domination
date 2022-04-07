@@ -16,6 +16,13 @@ if (_kind in [1, 2, 3]) then {
 				if (d_db_type == 1) exitWith {
 					["radiotAdd", [getPlayerUID _pl]] call d_fnc_queryconfigasync;
 				};
+				if (d_db_type == 2) exitWith {
+					private _tmpar = missionProfileNamespace getVariable (getPlayerUID _pl);
+					if (!isNil "_tmpar") then {
+						_tmpar set [8, (_tmpar # 8) + 1];
+						missionProfileNamespace setVariable [getPlayerUID _pl, _tmpar];
+					};
+				};
 			};
 			[_pl, 3] call d_fnc_addScore;
 		};
@@ -31,6 +38,13 @@ if (_kind in [1, 2, 3]) then {
 						if (d_db_type == 1) exitWith {
 							["campAdd", [_uid]] call d_fnc_queryconfigasync;
 						};
+						if (d_db_type == 2) exitWith {
+							private _tmpar = missionProfileNamespace getVariable _uid;
+							if (!isNil "_tmpar") then {
+								_tmpar set [11, (_tmpar # 11) + 1];
+								missionProfileNamespace setVariable [_uid, _tmpar];
+							};
+						};
 					};
 					[_pl, 4] call d_fnc_addScore;
 					_obj setVariable [_uid, time];
@@ -44,6 +58,13 @@ if (_kind in [1, 2, 3]) then {
 				};
 				if (d_db_type == 1) exitWith {
 					["mtsmAdd", [getPlayerUID _pl]] call d_fnc_queryconfigasync;
+				};
+				if (d_db_type == 2) exitWith {
+					private _tmpar = missionProfileNamespace getVariable (getPlayerUID _pl);
+					if (!isNil "_tmpar") then {
+						_tmpar set [9, (_tmpar # 9) + 1];
+						missionProfileNamespace setVariable [(getPlayerUID _pl), _tmpar];
+					};
 				};
 			};
 			[_pl, 5] call d_fnc_addScore;

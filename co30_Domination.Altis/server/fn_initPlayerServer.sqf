@@ -102,6 +102,12 @@ if (d_database_found) then {
 		if (d_db_type == 1) exitWith {
 			_dbresult = ["playerGetTS", [_uid]] call d_fnc_queryconfig;
 		};
+		if (d_db_type == 2) exitWith {
+			private _tmpar = missionProfileNamespace getVariable [_uid, []];
+			if (_tmpar isNotEqualTo []) then {
+				_dbresult = [[_tmpar # 7, _tmpar # 2, _tmpar # 3, _tmpar # 4, _tmpar # 5, _tmpar # 6]];
+			};
+		};
 	};
 	diag_log ["Dom initplayerserver database playerGetTS result", _dbresult];
 
@@ -118,6 +124,11 @@ if (d_database_found) then {
 				["playerInsert", [_uid, _name]] call d_fnc_queryconfigasync;
 				diag_log ["Dom initplayerserver database InterceptDB player Insert", _name];
 			};
+			if (d_db_type == 2) exitWith {
+				missionProfileNamespace setVariable [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+				saveMissionProfileNamespace;
+				diag_log ["Dom initplayerserver database missionProfileNamespace player Insert", _name];
+			};
 		};
 	} else {
 		__TRACE("adding nums played for player in db");
@@ -129,6 +140,14 @@ if (d_database_found) then {
 			if (d_db_type == 1) exitWith {
 				["numplayedAdd", [_name, _uid]] call d_fnc_queryconfigasync;
 				diag_log ["Dom initplayerserver database InterceptDB updating numplayed", _name];
+			};
+			if (d_db_type == 2) exitWith {
+				private _tmpar = missionProfileNamespace getVariable _uid;
+				if (!isNil "_tmpar") then {
+					_tmpar set [10, (_tmpar # 10) + 1];
+					missionProfileNamespace setVariable [_uid, _tmpar];
+				};
+				diag_log ["Dom initplayerserver database missionProfileNamespace updating numplayed", _name];
 			};
 		};
 		__TRACE_1("","_f_c")
@@ -143,6 +162,7 @@ if (d_database_found) then {
 			d_player_hash set [_uid + "_scores", [(_dbresult # 0) # 1, (_dbresult # 0) # 2, (_dbresult # 0) # 3, (_dbresult # 0) # 4, (_dbresult # 0) # 5, (_dbresult # 0) # 0]];
 			[_pl, _dbresult # 0] spawn d_fnc_initdbplscores;
 		};
+
 		call {
 			if (d_db_type == 0) exitWith {
 				_dbresult = parseSimpleArray ("extdb3" callExtension format ["0:dom:playerGet:%1", _uid]);
@@ -154,6 +174,9 @@ if (d_database_found) then {
 			};
 			if (d_db_type == 1) exitWith {
 				_dbresult = ["playerGet", [_uid]] call d_fnc_queryconfig;
+			};
+			if (d_db_type == 2) exitWith {
+				_dbresult = [missionProfileNamespace getVariable _uid];
 			};
 		};
 		diag_log ["Dom initplayerserver database playerGet result", _dbresult];

@@ -380,7 +380,7 @@ class D_StatusDialog {
 		class VDCombiCaption: ViewDistanceCaption {
 			idc = 1612;
 			y = "0.254 * safezoneH + safezoneY";
-			text = "Use only Inf VD slider to set all VD settings:";
+			text = "$STR_DOM_MISSIONSTRING_2095";
 		};
 		class VDCombiCheckBox: RscCheckBox {
 			idc = 1613;
