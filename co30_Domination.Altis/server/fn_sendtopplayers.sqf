@@ -2,6 +2,8 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
+if (d_top10_db_players_serv isEqualTo []) exitWith {};
+
 params ["_receiver"];
 
 __TRACE_1("","_receiver")

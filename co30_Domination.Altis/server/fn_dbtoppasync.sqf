@@ -44,20 +44,22 @@ while {true} do {
 								["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _pa # 15, _pa # 16, _pa # 17, _uid]] call d_fnc_queryconfigasync;
 							};
 							if (d_db_type == 2) exitWith {
-								private _tmpar = missionProfileNamespace getVariable _uid;
-								if (!isNil "_tmpar") then {
-									_tmpar set [2, _infkills];
-									_tmpar set [3, _softveckills];
-									_tmpar set [4, _armorkills];
-									_tmpar set [5, _airkills];
-									_tmpar set [6, _deaths];
-									_tmpar set [7, _totalscore];
-									_tmpar set [1, _playtime];
-									_tmpar set [12, _pa # 14];
-									_tmpar set [14, _pa # 15];
-									_tmpar set [15, _pa # 16];
-									_tmpar set [16, _pa # 17];
-									missionProfileNamespace setVariable [_uid, _tmpar];
+								private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+								if (!isNil "_tmphash") then {
+									private _tmpar = _tmphash get _uid;
+									if (!isNil "_tmpar") then {
+										_tmpar set [2, _infkills];
+										_tmpar set [3, _softveckills];
+										_tmpar set [4, _armorkills];
+										_tmpar set [5, _airkills];
+										_tmpar set [6, _deaths];
+										_tmpar set [7, _totalscore];
+										_tmpar set [1, _playtime];
+										_tmpar set [12, _pa # 14];
+										_tmpar set [14, _pa # 15];
+										_tmpar set [15, _pa # 16];
+										_tmpar set [16, _pa # 17];
+									};
 								};
 							};
 						};
@@ -94,6 +96,21 @@ while {true} do {
 		if (d_db_type == 1) exitWith {
 			call d_fnc_gettoppplayers;
 			objNull spawn d_fnc_sendtopplayers;
+		};
+		if (d_db_type == 2) exitWith {
+			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+			if (count _tmphash > 0) then {
+				private _ar = [];
+				{
+					_ar pushBack [_y # 7, _x];
+				} forEach _tmphash;
+				_ar sort false;
+				private _num = [(count _ar) - 1, 24] select (count _ar > 25);
+				for "_i" from 0 to _num do {
+					d_top10_db_players_serv pushBack (_tmphash get ((_ar # i) # 1));
+				};
+				objNull spawn d_fnc_sendtopplayers;
+			};
 		};
 	};
 };

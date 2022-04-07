@@ -103,9 +103,12 @@ if (d_database_found) then {
 			_dbresult = ["playerGetTS", [_uid]] call d_fnc_queryconfig;
 		};
 		if (d_db_type == 2) exitWith {
-			private _tmpar = missionProfileNamespace getVariable [_uid, []];
-			if (_tmpar isNotEqualTo []) then {
-				_dbresult = [[_tmpar # 7, _tmpar # 2, _tmpar # 3, _tmpar # 4, _tmpar # 5, _tmpar # 6]];
+			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+			if (!isNil "_tmphash") then {
+				private _tmpar = _tmphash get _uid;
+				if (!isNil "_tmpar") then {
+					_dbresult = [[_tmpar # 7, _tmpar # 2, _tmpar # 3, _tmpar # 4, _tmpar # 5, _tmpar # 6]];
+				};
 			};
 		};
 	};
@@ -125,9 +128,12 @@ if (d_database_found) then {
 				diag_log ["Dom initplayerserver database InterceptDB player Insert", _name];
 			};
 			if (d_db_type == 2) exitWith {
-				missionProfileNamespace setVariable [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
-				saveMissionProfileNamespace;
-				diag_log ["Dom initplayerserver database missionProfileNamespace player Insert", _name];
+				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+				if (!isNil "_tmphash") then {
+					_tmphash set [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+					saveMissionProfileNamespace;
+					diag_log ["Dom initplayerserver database missionProfileNamespace player Insert", _name];
+				};
 			};
 		};
 	} else {
@@ -142,12 +148,14 @@ if (d_database_found) then {
 				diag_log ["Dom initplayerserver database InterceptDB updating numplayed", _name];
 			};
 			if (d_db_type == 2) exitWith {
-				private _tmpar = missionProfileNamespace getVariable _uid;
-				if (!isNil "_tmpar") then {
-					_tmpar set [10, (_tmpar # 10) + 1];
-					missionProfileNamespace setVariable [_uid, _tmpar];
+				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+				if (!isNil "_tmphash") then {
+					private _tmpar = _tmphash get _uid;
+					if (!isNil "_tmpar") then {
+						_tmpar set [10, (_tmpar # 10) + 1];
+					};
+					diag_log ["Dom initplayerserver database missionProfileNamespace updating numplayed", _name];
 				};
-				diag_log ["Dom initplayerserver database missionProfileNamespace updating numplayed", _name];
 			};
 		};
 		__TRACE_1("","_f_c")
@@ -176,7 +184,13 @@ if (d_database_found) then {
 				_dbresult = ["playerGet", [_uid]] call d_fnc_queryconfig;
 			};
 			if (d_db_type == 2) exitWith {
-				_dbresult = [missionProfileNamespace getVariable _uid];
+				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+				if (!isNil "_tmphash") then {
+					private _tmpar = _tmphash get _uid;
+					if (!isNil "_tmpar") then {
+						_dbresult = [_tmpar];
+					};
+				};
 			};
 		};
 		diag_log ["Dom initplayerserver database playerGet result", _dbresult];

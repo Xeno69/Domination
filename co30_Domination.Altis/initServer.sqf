@@ -133,12 +133,23 @@ if (d_database_found) then {
 			0 spawn d_fnc_dbtoppasync;
 		};
 		if (d_db_type == 2) exitWith {
-			private _tmphash = missionProfileNamespace getVariable "d_uid_scores";
+			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
 			if (isNil "_tmphash") then {
-				_tmphash = createHashMap;
-				missionProfileNamespace setVariable ["d_uid_scores", _tmphash];
+				missionProfileNamespace setVariable ["d_player_hashmap", createHashMap];
 				saveMissionProfileNamespace;
+				d_top10_db_players_serv = [];
+			} else {
+				private _ar = [];
+				{
+					_ar pushBack [_y # 7, _x];
+				} forEach _tmphash;
+				_ar sort false;
+				private _num = [(count _ar) - 1, 24] select (count _ar > 25);
+				for "_i" from 0 to _num do {
+					d_top10_db_players_serv pushBack (_tmphash get ((_ar # i) # 1));
+				};
 			};
+			0 spawn d_fnc_dbtoppasync;
 		};
 	};
 
