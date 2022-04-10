@@ -46,7 +46,7 @@ if (d_database_found) then {
 					profileNamespace setVariable ["dom_missionsave", nil];
 				};
 				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
-				if (!isNil "_pn_missionsave")) then {
+				if (!isNil "_pn_missionsave") then {
 					private _wn = tolower worldname;
 					{
 						if (_x # 11 == _wn) then {
@@ -145,8 +145,9 @@ if (d_database_found) then {
 				} forEach _tmphash;
 				_ar sort false;
 				private _num = [(count _ar) - 1, 24] select (count _ar > 25);
+				d_top10_db_players_serv = [];
 				for "_i" from 0 to _num do {
-					d_top10_db_players_serv pushBack (_tmphash get ((_ar # i) # 1));
+					d_top10_db_players_serv pushBack (_tmphash get ((_ar # _i) # 1));
 				};
 			};
 			0 spawn d_fnc_dbtoppasync;

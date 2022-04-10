@@ -130,6 +130,13 @@ if (isServer) then {
 		d_AI_HUT setDir (d_pos_ai_hut # 1);
 		if (!d_carrier) then {
 			d_AI_HUT setPos (d_pos_ai_hut # 0);
+			if (!d_vn) then {
+				private _spos = d_AI_HUT modelToWorld [0, -0.4, 0];
+				private _sign = createVehicle ["SignAd_Sponsor_F", _spos, [], 0, "NONE"];
+				_sign setDir ((getDir d_AI_HUT) - 180);
+				_sign setPos _spos;
+				_sign setObjectTextureGlobal [0, "pics\AI2.paa"];
+			};
 		} else {
 			d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];
 		};
