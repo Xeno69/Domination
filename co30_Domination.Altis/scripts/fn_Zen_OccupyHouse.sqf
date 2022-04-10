@@ -26,6 +26,7 @@
 //  (opt.) 9. _isRequireRoofOverhead Boolean, true to force position selection such that the unit has a roof overhead
 //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
 //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
+//  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -47,7 +48,8 @@ params [
 	["_unitMovementMode", 0, [0]],
 	["_isRequireRoofOverhead", false, [true]],
 	["_isAllowSpawnNearEnemy", false, [true]],
-	["_isDryRun", false, [true]]
+	["_isDryRun", false, [true]],
+	["_distanceFromBuildingCenter", -1, [0, objNull]]
 ];
 
 __TRACE_1("","_this")
@@ -60,7 +62,6 @@ private [
 	"_j",
 	"_building",
 	"_randomIndex",
-	"_housePos",
 	"_startAngle",
 	"_i",
 	"_checkPos",
@@ -187,15 +188,21 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 		__TRACE_1("","_posArray")
 		if (_unitIndex >= count _units) exitWith {};
 
-		_housePosArray = _posArray select 0;
+		private _housePosArray = _posArray select 0;
 		__TRACE_1("","_housePosArray")
 		_posArray deleteAt 0;
-		_housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
+		private _housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
+		private _theBuilding = ([_housePos, 20] call d_fnc_getbldgswithpositions) select 0;
 		
 		if (_isRequireRoofOverhead) then {
 			if (!((_housePos) call d_fnc_isinhouse)) exitWith {
 				// the position is not inside a house
 			};
+		};
+		
+		if (_distanceFromBuildingCenter > 0 && {(_housePos distance2D _theBuilding) > _distanceFromBuildingCenter}) exitWith {
+			// the position is too far from the center of the building
+			diag_log ["deleted a unit, too far from center"];
 		};
 
 		_startAngle = (round random 10) * (round random 36);
@@ -409,7 +416,18 @@ if (_unitIndex < count _units && {count _positionsUsed > 0}) then {
 	// some units were not moved, continue iterating where we stopped and place units with fuzzy locations near the positions already used
 	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
 		private _unit = _units select _k;
-		_unit setPosASL (selectRandom _positionsUsed) call d_fnc_getfuzzyposition;
+		private _targetPos = selectRandom _positionsUsed;
+		_unit setPosASL (_targetPos) call d_fnc_getfuzzyposition;
+		sleep 0.1;
+		if ((((getPosASL _unit) # 2) - (_targetPos # 2)) > 0.6) then {
+			// actual position z axis is more than 1m different than the target position so delete the unit to avoid weird stuff (unit sits on top of objects or on the roof) 
+			deleteVehicle _unit;
+			diag_log ["deleted a unit, placed too high"];
+		};
+		if (_unit distance2D [0,0,0] < 50) then {
+			deleteVehicle _unit;
+			diag_log ["deleted a unit, position is almost on 0,0,0 so must be misplaced"];
+		};
 	};
 };
 

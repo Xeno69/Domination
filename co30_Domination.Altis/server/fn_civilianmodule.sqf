@@ -125,7 +125,10 @@ private _placeCivilianCluster = {
     	false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
     	false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
     	0,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
-    	false //true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
+    	false, //true         //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
+    	true,                           //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
+    	false,                       //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
+    	4.5                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
     ] call d_fnc_Zen_OccupyHouse;	
 	
 	diag_log ["civilian cluster successfully created"];
