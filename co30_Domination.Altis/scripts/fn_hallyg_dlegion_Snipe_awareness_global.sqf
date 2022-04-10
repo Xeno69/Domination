@@ -207,7 +207,7 @@ if (_Dtargets isNotEqualTo []) then {
 				[
 					getPosATL _unit,											// Params: 1. Array, the building(s) nearest this position is used
 					units _unit,									//         2. Array of objects, the units that will garrison the building(s)
-					-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+					10,										//  (opt.) 3. Scalar, radius in which to fill building(s)
 					false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 					true,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 					true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
@@ -223,7 +223,7 @@ if (_Dtargets isNotEqualTo []) then {
 					[
 						_startingPosition,											// Params: 1. Array, the building(s) nearest this position is used
 						units _unit,									//         2. Array of objects, the units that will garrison the building(s)
-						-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+						10,										//  (opt.) 3. Scalar, radius in which to fill building(s)
 						false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 						false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 						true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)

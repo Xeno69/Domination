@@ -325,7 +325,7 @@ if (d_bar_mhq_destroy == 0) then {
 private _unitstog = [
 	getPos _vec,
 	3,		//unit count
-	_vec,		//fillRadius
+	10,		//fillRadius
 	true,	//fillRoof
 	false,	//fillEvenly
 	true,	//fillTopDown
@@ -659,7 +659,7 @@ if (d_occ_bldgs == 1) then {
 				false,		//fillEvenly
 				false,		//fillTopDown
 				false,		//disableTeleport
-				3		//unitMovementMode
+				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		};
@@ -696,15 +696,30 @@ if (d_occ_bldgs == 1) then {
 	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
 	if (_amb_cnt > 0) then {
 		for "_xx" from 0 to (_amb_cnt - 1) do {
+			private _pos = [[[_trg_center, 100]],[]] call BIS_fnc_randomPos;
+			// create an ambush group
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
+				_pos,
 				-1,
 				d_amb_rad,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
 				false,		//disableTeleport
-				1		//unitMovementMode
+				1		//unitMovementMode - ambush
+			] call d_fnc_garrisonUnits;
+			d_delinfsm append _unitstog;
+			
+			// create an overwatch group in same building or area (cover the ambush group)
+			private _unitstog = [
+				_pos,
+				-1,
+				d_amb_rad,		//fillRadius
+				false,		//fillRoof
+				false,		//fillEvenly
+				true,		//fillTopDown
+				false,		//disableTeleport
+				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		};
@@ -798,7 +813,7 @@ if (d_occ_bldgs == 1) then {
 			private _unitstog = [
 				getPos _x,
 				2,		//unit count
-				-1,		//fillRadius
+				5,		//fillRadius
 				true,	//fillRoof
 				false,	//fillEvenly
 				true,	//fillTopDown

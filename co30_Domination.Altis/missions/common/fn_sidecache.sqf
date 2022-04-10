@@ -58,7 +58,7 @@ while {!_created} do {
 				private _unitstog = [
 					[[[_pos, 30]],[]] call BIS_fnc_randomPos,
 					selectRandom [3, 4, 5],			//unit count
-					-1,		//fillRadius
+					10,		//fillRadius
 					false,		//fillRoof
 					false,		//fillEvenly
 					false,		//fillTopDown
