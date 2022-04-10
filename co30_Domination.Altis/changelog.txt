@@ -1,5 +1,8 @@
 4.63
 
+- Added: Support for missionProfileNamespace, player and mission progress is saved there if no database is available
+- Added: Occupy script uses fuzzy positions when build positions are full, by longtimegamer
+- Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
 - Fixed: Base wasn't mentioned in Auto change viewdistance string in the Status Dialog/Dashboard
@@ -8,5 +11,7 @@
 - Fixed: Script error when accessing a non existing pylon array in fn_skinpolyresp.sqf
 - Fixed: If no squad leader was available for respawn/spawn the the marker was still drawn resulting in an error message
 - Fixed: Added SOG Prarie Fire remoteExec functions to CfgRemoteExec in description.ext
+- Fixed: Snipers do not spawn on roof, by longtimegamer
+- Fixed: Occupy script places all units in a group and does not delete units, by longtimegamer
 - Updated: IFA3 AIO version
 - Updated translations
