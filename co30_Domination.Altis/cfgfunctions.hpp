@@ -346,6 +346,7 @@ class cfgFunctions {
 			addc(aftereject);
 			addc(hasrespirator);
 			addc(isinhouse);
+			addc(getfuzzyposition);
 			addc(isbldghostile);
 			addc(getbuildings);
 			addc(getcoveredpositions);

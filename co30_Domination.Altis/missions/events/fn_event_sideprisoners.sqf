@@ -91,11 +91,11 @@ private _marker = nil;
 
 {
 	//dry run to find a suitable building
-	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
+	_unitsNotGarrisoned = [getPos _x, _allActors, 10, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
-		_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+		_unitsNotGarrisoned = [getPos _x, _allActors, 10, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
 	};
 
 } forEach _buildings_array_sorted_by_distance;
