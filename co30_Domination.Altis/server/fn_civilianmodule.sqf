@@ -61,20 +61,16 @@ private _placeCivilianCluster = {
 	if (_mustExit == true) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
-	_posArray = (_bldg buildingPos -1) - d_cur_tgt_building_positions_occupied; // remove positions already used
-	_unit_count = 2 max floor(random (count _posArray));
-	if (count _posArray > 5 && {1 > random 13}) then {
+	_posArray = _bldg buildingPos -1;
+	_unit_count = 2 max floor(random 7);
+	if (count _posArray > 5 && {1 > random 9}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
 		diag_log ["randomly chose to spawn a large civilian group"];
-		_unit_count = count _posArray - 1;
+		_unit_count = 7 max floor(random 13);
 	};
+	private _units_civ_cluster = [];
 	for "_i" from 0 to _unit_count do {
-		if (_posArray isEqualTo []) exitWith {};
-		_randomPos = selectRandom _posArray;
-		d_cur_tgt_building_positions_occupied pushBack _posArray;
-		_posArray deleteAt (_posArray find _randomPos);
-		_randomPosTerrain = [_randomPos # 0, _randomPos # 1, (_randomPos # 2) + (getTerrainHeightASL _randomPos)];
-		_civAgent = createAgent [selectRandomWeighted d_civArray, _randomPosTerrain, [], 0, "NONE"];
+		_civAgent = createAgent [selectRandomWeighted d_civArray, [0,0,0], [], 0, "NONE"];
 		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {
@@ -117,7 +113,21 @@ private _placeCivilianCluster = {
 			};
 		}];
 		[_civAgent, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civAgent];
+		_units_civ_cluster pushBack _civAgent;
 	};
+	
+	[
+    	getPos _bldg,											// Params: 1. Array, the building(s) nearest this position is used
+    	_units_civ_cluster,									//         2. Array of objects, the units that will garrison the building(s)
+    	10,										//  (opt.) 3. Scalar, radius in which to fill building(s)
+    	false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+    	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+    	false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+    	false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+    	0,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+    	false //true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
+    ] call d_fnc_Zen_OccupyHouse;	
+	
 	diag_log ["civilian cluster successfully created"];
 };
 

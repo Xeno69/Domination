@@ -11,20 +11,21 @@
 // Units will only fill the building to as many positions as there are windows
 // Multiple buildings can be filled either evenly or to the limit of each sequentially
 // Usage : Call, execVM
-// Params: 1. Array, the building(s) nearest this position is used
-//         2. Array of objects, the units that will garrison the building(s)
-//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
-//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
-//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
-//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
-//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
-//  (opt.) 8. Scalar
-//                0 - unit is free to move immediately (default: 0)
-//                1 - unit is free to move after a firedNear event is triggered
-//                2 - unit is static, no movement allowed
-//  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
-//  (opt.) 10. Boolean, true to allow the selected position to be near an enemy (default: false)
-//  (opt.) 11. Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
+// Params: 1. _center Array, the building(s) nearest this position is used
+//         2. _units Array of objects, the units that will garrison the building(s)
+//  (opt.) 3. _buildingRadius (_fillRadius) Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+//  (opt.) 4. _putOnRoof (_fillRoof) Boolean, true to put units on the roof, false for only inside, (default: false)
+//  (opt.) 5. _fillEvenly Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+//  (opt.) 6. _sortHeight (_fillTopDown) Boolean, true to fill from the top of the building down, (default: false)
+//  (opt.) 7. _doMove (_disableTeleport) Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+//  (opt.) 8. _unitMovementMode Scalar
+//                0 - (occupy) unit is free to move immediately (default: 0)
+//                1 - (ambush) unit is free to move after a firedNear event is triggered  at 35m
+//                2 - (sniper) unit is static, no movement allowed
+//                3 - (overwatch) unit is static, free to move after firedNear event at very close range
+//  (opt.) 9. _isRequireRoofOverhead Boolean, true to force position selection such that the unit has a roof overhead
+//  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
+//  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -38,7 +39,7 @@
 params [
 	["_center", [0,0,0], [[]], 3],
 	["_units", [objNull], [[]]],
-	["_buildingRadius", -1, [0, objNull]],
+	["_buildingRadius", 5, [0, objNull]],
 	["_putOnRoof", false, [true]],
 	["_fillEvenly", false, [true]],
 	["_sortHeight", false, [true]],
@@ -55,11 +56,9 @@ private [
 	"_Zen_ExtendPosition",
 	"_buildingsArrayFiltered",
 	"_buildingPosArray",
-	"_posArray",
 	"_unitIndex",
 	"_j",
 	"_building",
-	"_posArray",
 	"_randomIndex",
 	"_housePos",
 	"_startAngle",
@@ -73,6 +72,8 @@ private [
 	"_Zen_InsertionSort",
 	"_Zen_ArrayShuffle"
 ];
+
+private _positionsUsed = [];
 
 if (_center isEqualTo [0,0,0]) exitWith {
 	player sideChat str "Zen_Occupy House Error : Invalid position given.";
@@ -154,10 +155,7 @@ _buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithposi
 _buildingPosArray = [];
 0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;
 {
-	_posArray = _x buildingPos -1;
-	if (_posArray isNotEqualTo []) then {
-		_buildingPosArray pushBack _posArray;
-	};
+	_buildingPosArray pushBack (_x buildingPos -1);
 } forEach _buildingsArrayFiltered;
 
 __TRACE_1("","_buildingPosArray")
@@ -176,8 +174,7 @@ _unitIndex = 0;
 for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}}, {I(_j)}] do {
 	scopeName "for";
 
-	_building = _buildingsArrayFiltered select (_j % (count _buildingsArrayFiltered));
-	_posArray = _buildingPosArray select (_j % (count _buildingPosArray));
+	private _posArray = _buildingPosArray select (_j % (count _buildingPosArray));
 	__TRACE_2("","_building","_posArray")
 
 	if (count _posArray == 0) then {
@@ -235,13 +232,28 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 
 							if (!_isRoof || {_edge}) then {
 								if (!_isDryRun) then {
+									
+									//
+									// this position passed all checks
+									//
+									
+									_positionsUsed pushBack _housePos;
+								
+									private _housePosFinal = _housePos;
+                                    									
+									if ((d_cur_tgt_building_positions_occupied find _housePos) == -1) then {
+										d_cur_tgt_building_positions_occupied pushBack _housePos;
+									} else {
+										_housePosFinal = [ _housePos ] call d_fnc_getfuzzyposition;
+									};
+									
 									private _uuidx = _units select _unitIndex;
-									_uuidx doWatch ([_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) - (getTerrainHeightASL _housePos)] call _Zen_ExtendPosition);
+									_uuidx doWatch ([_housePosFinal, CHECK_DISTANCE, 90 - _i, (_housePosFinal select 2) - (getTerrainHeightASL _housePosFinal)] call _Zen_ExtendPosition);
 								
 									if (_doMove) then {
-										_uuidx doMove ASLToATL ([_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT]);
+										_uuidx doMove ASLToATL ([_housePosFinal select 0, _housePosFinal select 1, (_housePosFinal select 2) - EYE_HEIGHT]);
 									} else {
-										_uuidx setPosASL [_housePos select 0, _housePos select 1, (_housePos select 2) - EYE_HEIGHT];
+										_uuidx setPosASL [_housePosFinal select 0, _housePosFinal select 1, (_housePosFinal select 2) - EYE_HEIGHT];
 										_uuidx setDir _i;
 	
 										doStop _uuidx;
@@ -254,7 +266,7 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 										[_uuidx] call _spawn_script_enable_movement;
 									};
 	
-									//ambush mode - static until firedNear within 69m restores unit ability to move and fire or if d_priority_targets is not empty
+									//ambush mode - static until firedNear within 35m restores unit ability to move and fire or if d_priority_targets is not empty
 									if (_unitMovementMode == 1) then {
 	
 										if !(_doMove) then {
@@ -265,11 +277,11 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 										if (isNil {_uuidx getVariable "zen_fn_idx1"}) then {
 											_uuidx setVariable ["zen_fn_idx1", _uuidx addEventHandler ["FiredNear", {
 												__TRACE_1("firednear -1","_this")
-												params ["_unit", "_firer"];
+												params ["_unit", "_firer", "_distance"];
 												scriptName "spawn_zoh_firednear1ambush";
 												
 												// enable movement if firedNear by enemy
-												if (d_side_enemy getFriend side (group _firer) < 0.6 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}) then {
+												if (d_side_enemy getFriend side (group _firer) < 0.6 && {_distance < 35 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}}) then {
 													_unit enableAI "TARGET";
 													_unit enableAI "AUTOTARGET";
 													_unit enableAI "MOVE";
@@ -384,14 +396,22 @@ for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}},
 								} else {
 									breakTo "while";
 								};
-							};
-						};
+							};//end if
+						};//end if
 					};//end if
 				};//end if
 			};//end if
 		};//end for
 	};//end while
 };//end for
+
+if (_unitIndex < count _units && {count _positionsUsed > 0}) then {
+	// some units were not moved, continue iterating where we stopped and place units with fuzzy locations near the positions already used
+	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
+		private _unit = _units select _k;
+		_unit setPosASL (selectRandom _positionsUsed) call d_fnc_getfuzzyposition;
+	};
+};
 
 if (_doMove) then {
 	[_units, _unitIndex, _unitMovementMode] spawn {

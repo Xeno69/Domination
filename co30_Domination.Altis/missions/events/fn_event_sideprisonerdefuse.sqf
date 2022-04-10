@@ -34,7 +34,7 @@ private _tempgroup = [d_own_side] call d_fnc_creategroup;
 private _tempunit = _tempgroup createUnit [d_sm_pilottype, [0,0,0], [], 0, "NONE"];
 
 {
-	_unitsNotGarrisoned = [getPos _x, [_tempunit], -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
+	_unitsNotGarrisoned = [getPos _x, [_tempunit], 10, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
@@ -107,7 +107,7 @@ if (d_with_dynsim == 0) then {
 
 sleep 2.333;
 
-_unitsNotGarrisoned = [getPos _bldg, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+_unitsNotGarrisoned = [getPos _bldg, _allActors, 10, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
 
 _pilot1 setUnitPos "MIDDLE";
 
