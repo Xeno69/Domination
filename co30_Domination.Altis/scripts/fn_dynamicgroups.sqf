@@ -437,7 +437,7 @@ switch (_mode) do {
 
 		if (!local _player) exitWith {};
 
-		if (!isNil { _player getVariable "BIS_dg_ini" }) exitWith {};
+		if (!isNil {_player getVariable "BIS_dg_ini"}) exitWith {};
 
 		// Flag as initialized
 		_player setVariable ["BIS_dg_ini", true, true];
@@ -480,7 +480,7 @@ switch (_mode) do {
 
 		if (!local _player) exitWith {};
 
-		if (isNil { _player getVariable "BIS_dg_ini" }) exitWith {};
+		if (isNil {_player getVariable "BIS_dg_ini"}) exitWith {};
 
 		// Remove key events for opening the Dynamic Groups interface and for invitation handling
 		["RemoveKeyEvents"] call d_fnc_dynamicgroups;
