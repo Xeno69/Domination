@@ -25,7 +25,7 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 	d_cur_tgt_civ_modules_presence = [];
 };
 
-private _civ_units_count_max = 100; // default (recalculated if adaptive settings are selected)
+private _civ_units_count_max = 500; // default (recalculated if adaptive settings are selected)
 
 private _buildings_unfiltered = [_trg_center, _radius] call d_fnc_getbldgswithpositions;
 
@@ -51,22 +51,22 @@ private _placeCivilianCluster = {
 	if ([_bldg] call d_fnc_ismissionobjective) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is a mission objective"];
 	};
-	// do not create the civ cluster if any buildings within a 75m radius are also mission objectives
+	// do not create the civ cluster if any buildings within a 85m radius are also mission objectives
 	private _mustExit = false;
 	{
 		if ([_x] call d_fnc_ismissionobjective) exitWith {
 			_mustExit = true;
 		};
-	} forEach ([_bldg, 75] call d_fnc_getbldgswithpositions);
+	} forEach ([_bldg, 85] call d_fnc_getbldgswithpositions);
 	if (_mustExit == true) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
 	_posArray = _bldg buildingPos -1;
-	_unit_count = 2 max floor(random 7);
-	if (count _posArray > 5 && {1 > random 9}) then {
+	_unit_count = 2 max floor(random 6);
+	if (count _posArray > 5 && {1 > random 10}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
 		diag_log ["randomly chose to spawn a large civilian group"];
-		_unit_count = 7 max floor(random 13);
+		_unit_count = 5 max floor(random 9);
 	};
 	private _units_civ_cluster = [];
 	for "_i" from 0 to _unit_count do {
@@ -126,9 +126,9 @@ private _placeCivilianCluster = {
     	false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
     	0,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
     	false, //true         //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
-    	true,                           //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
+    	false,                           //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
     	false,                       //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
-    	4.5                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
+    	3.6                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
     ] call d_fnc_Zen_OccupyHouse;	
 	
 	diag_log ["civilian cluster successfully created"];

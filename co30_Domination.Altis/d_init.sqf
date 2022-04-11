@@ -399,7 +399,8 @@ if (isNil "d_object_spawn_civ_blacklist") then {
 		"unfinished_building_01_f.p3d",
 		"i_garage_v1_f.p3d",
 		"i_garage_v2_f.p3d",
-		"cargo_house_slum_f.p3d"
+		"cargo_house_slum_f.p3d",
+		"i_addon_02_v1_f.p3d"
 	];
 };
 
