@@ -56,9 +56,6 @@ __TRACE_1("","_this")
 
 private [
 	"_Zen_ExtendPosition",
-	"_buildingsArrayFiltered",
-	"_buildingPosArray",
-	"_unitIndex",
 	"_j",
 	"_building",
 	"_randomIndex",
@@ -151,9 +148,15 @@ _spawn_script_enable_movement = {
 	};
 };
 
-_buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
+private _buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
 
-_buildingPosArray = [];
+if (count _buildingsArrayFiltered == 0) then {
+	diag_log [format ["error, no buildings were found within %1 meters of %2", _buildingRadius, _center]];
+} else {
+	diag_log [format ["occupyhouse found suitable building list: %1", _buildingsArrayFiltered]];
+};
+
+private _buildingPosArray = [];
 0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;
 {
 	_buildingPosArray pushBack (_x buildingPos -1);
@@ -171,262 +174,277 @@ if (_sortHeight) then {
 	} forEach _buildingPosArray;
 };
 
-_unitIndex = 0;
-for [{_j = 0}, {(_unitIndex < count _units) && {(count _buildingPosArray > 0)}}, {I(_j)}] do {
+private _unitIndex = 0;
+private _tmpPosArray = [];
+{
 	scopeName "for";
-
-	private _posArray = _buildingPosArray select (_j % (count _buildingPosArray));
+	diag_log [format ["placing _unitIndex: %1 out of %2 units", _unitIndex, count _units]];
+	private _posArray = _x;
 	__TRACE_2("","_building","_posArray")
 
 	if (count _posArray == 0) then {
-		_buildingsArrayFiltered deleteAt (_j % (count _buildingsArrayFiltered));
-		_buildingPosArray deleteAt (_j % (count _buildingPosArray));
+		// _posArray is empty, non-fatal but should never happen (causes the next 'while' loop to be skipped)
 	};
 
 	while {count _posArray > 0} do {
 		scopeName "while";
 		__TRACE_1("","_posArray")
-		if (_unitIndex >= count _units) exitWith {};
-
-		private _housePosArray = _posArray select 0;
-		__TRACE_1("","_housePosArray")
+		if (_unitIndex >= count _units) exitWith {
+			//diag_log ["all units have been placed! exiting while loop."];
+		};
+		private _skip_position = false;
+		private _housePosBeforeEyeHeight = _posArray select 0;
+		__TRACE_1("","_housePosBeforeEyeHeight")
 		_posArray deleteAt 0;
-		private _housePos = [_housePosArray select 0, _housePosArray select 1, (_housePosArray select 2) + (getTerrainHeightASL _housePosArray) + EYE_HEIGHT];
-		private _theBuilding = ([_housePos, 20] call d_fnc_getbldgswithpositions) select 0;
+		private _housePos = [_housePosBeforeEyeHeight select 0, _housePosBeforeEyeHeight select 1, (_housePosBeforeEyeHeight select 2) + (getTerrainHeightASL _housePosBeforeEyeHeight) + EYE_HEIGHT];
+		// must re-detect the building object
+		private _bldgs_list_redetected = [_housePos, 15] call d_fnc_getbldgswithpositions;
 		
-		if (_isRequireRoofOverhead) then {
-			if (!((_housePos) call d_fnc_isinhouse)) exitWith {
-				// the position is not inside a house
-			};
+		private _theBuilding = nil;
+		if (_bldgs_list_redetected isEqualTo []) then {
+			diag_log ["position skipped, unexpectedly could not get the building object"];
+			_skip_position = true;
+		} else {
+			diag_log [ format ["bldg redetect list: %1", _bldgs_list_redetected]];
+			_theBuilding = _bldgs_list_redetected select 0;
 		};
 		
-		if (_distanceFromBuildingCenter > 0 && {(_housePos distance2D _theBuilding) > _distanceFromBuildingCenter}) exitWith {
+		if (_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}) then {
+			// the position is not inside a house
+			diag_log ["position skipped, must be inside a house"];
+			_skip_position = true;
+		};
+		if (!isNil "_theBuilding") then {
+			//diag_log [format ["position checking... distance from center: %1 --- %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
+		};
+		if (!isNil "_theBuilding" && {_distanceFromBuildingCenter > 0 && {(_housePos distance2D _theBuilding) > _distanceFromBuildingCenter}}) then {
 			// the position is too far from the center of the building
-			diag_log ["deleted a unit, too far from center"];
+			diag_log [format ["position skipped, too far from center: %1 > %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
+			_skip_position = true;
 		};
 
-		_startAngle = (round random 10) * (round random 36);
-		for "_i" from _startAngle to (_startAngle + 350) step 10 do {
-			_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, _housePos select 2] call _Zen_ExtendPosition;
-
-			if !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull]) then {
-				if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
-					_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) + (CHECK_DISTANCE * tan FOV_ANGLE)] call _Zen_ExtendPosition;
+		if !(_skip_position) then {
+			_startAngle = (round random 10) * (round random 36);
+			for "_i" from _startAngle to (_startAngle + 350) step 10 do {
+				_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, _housePos select 2] call _Zen_ExtendPosition;
+	
+				if !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull]) then {
 					if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
-						_hitCount = 0;
-						for "_k" from 30 to 360 step 30 do {
-							_checkPos = [_housePos, 20, 90 - _k, _housePos select 2] call _Zen_ExtendPosition;
-							if (lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
-								I(_hitCount)
-							};
-
-							if (_hitCount >= ROOF_CHECK) exitWith {};
-						};
-
-						_isRoof = (_hitCount < ROOF_CHECK) && {!(lineIntersects [_housePos, [_housePos select 0, _housePos select 1, (_housePos select 2) + 25], objNull, objNull])};
-						if (!_isRoof || {_isRoof && {_putOnRoof}}) then {
-							if (_isRoof) then {
-								_edge = false;
-								for "_k" from 30 to 360 step 30 do {
-									_checkPos = [_housePos, ROOF_EDGE, 90 - _k, _housePos select 2] call _Zen_ExtendPosition;
-									_edge = !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) - EYE_HEIGHT - 1], objNull, objNull]);
-
-									if (_edge) exitWith {
-										_i = _k;
-									};
+						_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) + (CHECK_DISTANCE * tan FOV_ANGLE)] call _Zen_ExtendPosition;
+						if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
+							_hitCount = 0;
+							for "_k" from 30 to 360 step 30 do {
+								_checkPos = [_housePos, 20, 90 - _k, _housePos select 2] call _Zen_ExtendPosition;
+								if (lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
+									I(_hitCount)
+								};
+	
+								if (_hitCount >= ROOF_CHECK) exitWith {
+									diag_log [format ["stopped checking steps at: %1 _hitCount equal to ROOF_CHECK: %2", _k, ROOF_CHECK]];
 								};
 							};
-
-							if (!_isRoof || {_edge}) then {
-								if (!_isDryRun) then {
-									
-									//
-									// this position passed all checks
-									//
-									
-									_positionsUsed pushBack _housePos;
-								
-									private _housePosFinal = _housePos;
-                                    									
-									if ((d_cur_tgt_building_positions_occupied find _housePos) == -1) then {
-										d_cur_tgt_building_positions_occupied pushBack _housePos;
-									} else {
-										_housePosFinal = [ _housePos ] call d_fnc_getfuzzyposition;
-									};
-									
-									private _uuidx = _units select _unitIndex;
-									_uuidx doWatch ([_housePosFinal, CHECK_DISTANCE, 90 - _i, (_housePosFinal select 2) - (getTerrainHeightASL _housePosFinal)] call _Zen_ExtendPosition);
-								
-									if (_doMove) then {
-										_uuidx doMove ASLToATL ([_housePosFinal select 0, _housePosFinal select 1, (_housePosFinal select 2) - EYE_HEIGHT]);
-									} else {
-										_uuidx setPosASL [_housePosFinal select 0, _housePosFinal select 1, (_housePosFinal select 2) - EYE_HEIGHT];
-										_uuidx setDir _i;
 	
-										doStop _uuidx;
-									};
+							_isRoof = (_hitCount < ROOF_CHECK) && {!(lineIntersects [_housePos, [_housePos select 0, _housePos select 1, (_housePos select 2) + 25], objNull, objNull])};
+							if (!_isRoof || {_isRoof && {_putOnRoof}}) then {
+								if (_isRoof) then {
+									_edge = false;
+									for "_k" from 30 to 360 step 30 do {
+										_checkPos = [_housePos, ROOF_EDGE, 90 - _k, _housePos select 2] call _Zen_ExtendPosition;
+										_edge = !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) - EYE_HEIGHT - 1], objNull, objNull]);
 	
-									//occupy mode - no special behavior
-									if (_unitMovementMode == 0) then {
-										//do nothing, unit is free to move
-										//enable priority movement
-										[_uuidx] call _spawn_script_enable_movement;
-									};
-	
-									//ambush mode - static until firedNear within 35m restores unit ability to move and fire or if d_priority_targets is not empty
-									if (_unitMovementMode == 1) then {
-	
-										if !(_doMove) then {
-											_uuidx disableAI "TARGET";
-											_uuidx forceSpeed 0;
+										if (_edge) exitWith {
+											_i = _k;
 										};
-	
-										if (isNil {_uuidx getVariable "zen_fn_idx1"}) then {
-											_uuidx setVariable ["zen_fn_idx1", _uuidx addEventHandler ["FiredNear", {
-												__TRACE_1("firednear -1","_this")
-												params ["_unit", "_firer", "_distance"];
-												scriptName "spawn_zoh_firednear1ambush";
-												
-												// enable movement if firedNear by enemy
-												if (d_side_enemy getFriend side (group _firer) < 0.6 && {_distance < 35 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}}) then {
-													_unit enableAI "TARGET";
-													_unit enableAI "AUTOTARGET";
-													_unit enableAI "MOVE";
-													_unit forceSpeed -1;
-													_unit removeEventHandler ["FiredNear", _thisEventHandler];
-												};
-												
-												// enable movement if hit
-												if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
-													_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
-													__TRACE_1("hit 1","_this")
-														params ["_unit", "_source", "_damage", "_instigator"];
-														scriptName "spawn_zoh_hiteh";
-														_unit enableAI "TARGET";
-														_unit enableAI "AUTOTARGET";
-														_unit enableAI "MOVE";
-														_unit forceSpeed -1;
-														_unit removeEventHandler ["Hit", _thisEventHandler];
-													}]];
-												};
-												
-											}]];
-										};
-										//enable priority movement
-										[_uuidx] call _spawn_script_enable_movement;
 									};
+								};
 	
-									//sniper mode - static forever
-									if (_unitMovementMode == 2) then {
-										if (d_snp_aware == 1) then {
-											//highly aware snipers
-											//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
+								if (!_isRoof || {_edge}) then {
+									if (!_isDryRun) then {
+										
+										// success
+										diag_log [ format ["we found a good position and a good direction! _unitIndex: %1", _unitIndex]];
+										
+										_positionsUsed pushBack _housePos;
+									
+										private _housePosFinal = _housePos;
+																			
+										if ((d_cur_tgt_building_positions_occupied find _housePos) == -1) then {
+											d_cur_tgt_building_positions_occupied pushBack _housePos;
 										} else {
-											//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
-											if (_isRoof) then {
-												_uuidx setUnitPos "MIDDLE";
-												__TRACE_1("setupos MIDDLE","_uuidx")
-												if (isNil {_uuidx getVariable "d_zen_fneh"}) then {
-													__TRACE_1("add firednear 0","_uuidx")
-													_uuidx setVariable ["d_zen_fneh", _uuidx addEventHandler ["FiredNear", {
-														__TRACE_1("firednear 0","_this")
-														scriptName "spawn_zoh_firednear1";
-														[_this # 0, ["DOWN", "MIDDLE"], unitPos (_this # 0), 0] spawn d_fnc_Zen_JBOY_UpDown;
-														(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
-													}]];
-												};
-											} else {
-												_uuidx setUnitPos "UP";
-												__TRACE_1("setupos UP","_uuidx")
-												if (isNil {_uuidx getVariable "d_zen_fneh"}) then {
-													__TRACE_1("add firednear 0","_uuidx")
-													_uuidx setVariable ["d_zen_fneh", _uuidx addEventHandler ["FiredNear", {
-														__TRACE_1("firednear 1","_this")
-														scriptName "spawn_zoh_firednear2";
-														[_this # 0, ["UP", "MIDDLE"], unitPos (_this # 0), 1] spawn d_fnc_Zen_JBOY_UpDown;
-														(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
-													}]];
-												};
-											};
-	
+											_housePosFinal = [ _housePos ] call d_fnc_getfuzzyposition;
+										};
+										
+										private _uuidx = _units select _unitIndex;
+										_uuidx doWatch ([_housePosFinal, CHECK_DISTANCE, 90 - _i, (_housePosFinal select 2) - (getTerrainHeightASL _housePosFinal)] call _Zen_ExtendPosition);
+									
+										if (_doMove) then {
+											_uuidx doMove ASLToATL ([_housePosFinal select 0, _housePosFinal select 1, (_housePosFinal select 2) - EYE_HEIGHT]);
+										} else {
+											_uuidx setPosASL [_housePosFinal select 0, _housePosFinal select 1, (_housePosFinal select 2) - EYE_HEIGHT];
+											_uuidx setDir _i;
+		
+											doStop _uuidx;
+										};
+		
+										//occupy mode - no special behavior
+										if (_unitMovementMode == 0) then {
+											//do nothing, unit is free to move
+											//enable priority movement
+											[_uuidx] call _spawn_script_enable_movement;
+										};
+		
+										//ambush mode - static until firedNear within 35m restores unit ability to move and fire or if d_priority_targets is not empty
+										if (_unitMovementMode == 1) then {
+		
 											if !(_doMove) then {
 												_uuidx disableAI "TARGET";
 												_uuidx forceSpeed 0;
 											};
+		
+											if (isNil {_uuidx getVariable "zen_fn_idx1"}) then {
+												_uuidx setVariable ["zen_fn_idx1", _uuidx addEventHandler ["FiredNear", {
+													__TRACE_1("firednear -1","_this")
+													params ["_unit", "_firer", "_distance"];
+													scriptName "spawn_zoh_firednear1ambush";
+													
+													// enable movement if firedNear by enemy
+													if (d_side_enemy getFriend side (group _firer) < 0.6 && {_distance < 35 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}}) then {
+														_unit enableAI "TARGET";
+														_unit enableAI "AUTOTARGET";
+														_unit enableAI "MOVE";
+														_unit forceSpeed -1;
+														_unit removeEventHandler ["FiredNear", _thisEventHandler];
+													};
+													
+													// enable movement if hit
+													if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
+														_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
+														__TRACE_1("hit 1","_this")
+															params ["_unit", "_source", "_damage", "_instigator"];
+															scriptName "spawn_zoh_hiteh";
+															_unit enableAI "TARGET";
+															_unit enableAI "AUTOTARGET";
+															_unit enableAI "MOVE";
+															_unit forceSpeed -1;
+															_unit removeEventHandler ["Hit", _thisEventHandler];
+														}]];
+													};
+													
+												}]];
+											};
+											//enable priority movement
+											[_uuidx] call _spawn_script_enable_movement;
 										};
-									};
-									
-									//overwatch mode - static but without special sniper behaviors, movement is allowed after an enemy fires a weapon nearby
-									if (_unitMovementMode == 3) then {
-										if !(_doMove) then {
-											_uuidx disableAI "TARGET";
-											_uuidx forceSpeed 0;
+		
+										//sniper mode - static forever
+										if (_unitMovementMode == 2) then {
+											if (d_snp_aware == 1) then {
+												//highly aware snipers
+												//do nothing, advanced awareness is already loaded with d_fnc_hallyg_dlegion_Snipe_awareness
+											} else {
+												//common snipers with up/down script triggered by firedNear within 69m but no advanced awareness
+												if (_isRoof) then {
+													_uuidx setUnitPos "MIDDLE";
+													__TRACE_1("setupos MIDDLE","_uuidx")
+													if (isNil {_uuidx getVariable "d_zen_fneh"}) then {
+														__TRACE_1("add firednear 0","_uuidx")
+														_uuidx setVariable ["d_zen_fneh", _uuidx addEventHandler ["FiredNear", {
+															__TRACE_1("firednear 0","_this")
+															scriptName "spawn_zoh_firednear1";
+															[_this # 0, ["DOWN", "MIDDLE"], unitPos (_this # 0), 0] spawn d_fnc_Zen_JBOY_UpDown;
+															(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
+														}]];
+													};
+												} else {
+													_uuidx setUnitPos "UP";
+													__TRACE_1("setupos UP","_uuidx")
+													if (isNil {_uuidx getVariable "d_zen_fneh"}) then {
+														__TRACE_1("add firednear 0","_uuidx")
+														_uuidx setVariable ["d_zen_fneh", _uuidx addEventHandler ["FiredNear", {
+															__TRACE_1("firednear 1","_this")
+															scriptName "spawn_zoh_firednear2";
+															[_this # 0, ["UP", "MIDDLE"], unitPos (_this # 0), 1] spawn d_fnc_Zen_JBOY_UpDown;
+															(_this # 0) removeEventHandler ["FiredNear", _thisEventHandler];
+														}]];
+													};
+												};
+		
+												if !(_doMove) then {
+													_uuidx disableAI "TARGET";
+													_uuidx forceSpeed 0;
+												};
+											};
 										};
 										
-										//enable priority movement
-										[_uuidx] call _spawn_script_enable_movement;
-										
-										if (isNil {_uuidx getVariable "d_zen_fneh2"}) then {
-											_uuidx setVariable ["d_zen_fneh2", _uuidx addEventHandler ["FiredNear", {
-											__TRACE_1("firednear 2","_this")
-												params ["_unit", "_firer", "_distance"];
-												scriptName "spawn_zoh_firednear3overwatch";
-												// enable movement if _firer is an enemy and within 13m
-												if (d_side_enemy getFriend side (group _firer) < 0.6 && {_distance < 13 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}}) then {
+										//overwatch mode - static but without special sniper behaviors, movement is allowed after an enemy fires a weapon nearby
+										if (_unitMovementMode == 3) then {
+											if !(_doMove) then {
+												_uuidx disableAI "TARGET";
+												_uuidx forceSpeed 0;
+											};
+											
+											//enable priority movement
+											[_uuidx] call _spawn_script_enable_movement;
+											
+											if (isNil {_uuidx getVariable "d_zen_fneh2"}) then {
+												_uuidx setVariable ["d_zen_fneh2", _uuidx addEventHandler ["FiredNear", {
+												__TRACE_1("firednear 2","_this")
+													params ["_unit", "_firer", "_distance"];
+													scriptName "spawn_zoh_firednear3overwatch";
+													// enable movement if _firer is an enemy and within 13m
+													if (d_side_enemy getFriend side (group _firer) < 0.6 && {_distance < 13 && {(_this # 6) isKindOf ["BulletCore", configFile >> "CfgAmmo"]}}) then {
+														_unit enableAI "TARGET";
+														_unit enableAI "AUTOTARGET";
+														_unit enableAI "MOVE";
+														_unit forceSpeed -1;
+														_unit removeEventHandler ["FiredNear", _thisEventHandler];
+													};
+												}]];
+											};
+											
+											// enable movement if hit
+											if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
+												_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
+												__TRACE_1("hit 1","_this")
+													params ["_unit", "_source", "_damage", "_instigator"];
+													scriptName "spawn_zoh_hiteh";
 													_unit enableAI "TARGET";
 													_unit enableAI "AUTOTARGET";
 													_unit enableAI "MOVE";
 													_unit forceSpeed -1;
-													_unit removeEventHandler ["FiredNear", _thisEventHandler];
-												};
-											}]];
+													_unit removeEventHandler ["Hit", _thisEventHandler];
+												}]];
+											};
 										};
-										
-										// enable movement if hit
-										if (isNil {_uuidx getVariable "d_zen_hiteh"}) then {
-											_uuidx setVariable ["d_zen_hiteh", _uuidx addEventHandler ["Hit", {
-											__TRACE_1("hit 1","_this")
-												params ["_unit", "_source", "_damage", "_instigator"];
-												scriptName "spawn_zoh_hiteh";
-												_unit enableAI "TARGET";
-												_unit enableAI "AUTOTARGET";
-												_unit enableAI "MOVE";
-												_unit forceSpeed -1;
-												_unit removeEventHandler ["Hit", _thisEventHandler];
-											}]];
-										};
+									};//end if _isDryRun
+									I(_unitIndex)
+									if (_fillEvenly) then {
+										breakTo "for";
+									} else {
+										breakTo "while";
 									};
-								};//end if _isDryRun
-								I(_unitIndex)
-								if (_fillEvenly) then {
-									breakTo "for";
-								} else {
-									breakTo "while";
-								};
+								};//end if
 							};//end if
 						};//end if
 					};//end if
 				};//end if
-			};//end if
-		};//end for
+			};//end for
+		};//end if (_skip_position)
 	};//end while
-};//end for
+} forEach _buildingPosArray;
 
 if (_unitIndex < count _units && {count _positionsUsed > 0}) then {
 	// some units were not moved, continue iterating where we stopped and place units with fuzzy locations near the positions already used
 	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
 		private _unit = _units select _k;
 		private _targetPos = selectRandom _positionsUsed;
-		_unit setPosASL (_targetPos) call d_fnc_getfuzzyposition;
+		diag_log ["placing a unit in a non-standard position..."];
+		private _targetPosFuzzy = [_targetPos] call d_fnc_getfuzzyposition;
+		_unit setPosASL [_targetPosFuzzy # 0, _targetPosFuzzy # 1, (_targetPosFuzzy # 2) - EYE_HEIGHT];
 		sleep 0.1;
-		if ((((getPosASL _unit) # 2) - (_targetPos # 2)) > 0.6) then {
-			// actual position z axis is more than 1m different than the target position so delete the unit to avoid weird stuff (unit sits on top of objects or on the roof) 
-			deleteVehicle _unit;
-			diag_log ["deleted a unit, placed too high"];
-		};
 		if (_unit distance2D [0,0,0] < 50) then {
 			deleteVehicle _unit;
-			diag_log ["deleted a unit, position is almost on 0,0,0 so must be misplaced"];
+			diag_log ["error deleted a unit, position is almost on 0,0,0 so must be misplaced"];
 		};
 	};
 };

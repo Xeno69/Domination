@@ -7,5 +7,5 @@
 // todo - check for collision with units, determine if inside a building and move random position toward the bldg center
 
 params ["_pos"];
-private _fuzzy_pos = [((_pos # 0) + (random 2.5 min 1.75)), ((_pos # 1) + (random 2.5 min 1.75)), _pos # 2];
+private _fuzzy_pos = [((_pos # 0) + (random 1.25 max 0.5)), ((_pos # 1) + (random 1.25 max 0.5)), _pos # 2];
 _fuzzy_pos
