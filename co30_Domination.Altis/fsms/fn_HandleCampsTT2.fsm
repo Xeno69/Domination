@@ -1,7 +1,7 @@
-/*%FSM<COMPILE "G:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCampsTT2">*/
+/*%FSM<COMPILE "E:\Steam\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, HandleCampsTT2">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"Start",0,250,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
+item0[] = {"Start",0,4346,-25.000000,-175.000000,75.000000,-125.000000,0.000000,"Start"};
 item1[] = {"_",8,218,-25.000000,-100.000000,75.000000,-50.000000,0.000000,""};
 item2[] = {"Loop",2,250,-25.000000,-25.000000,75.000000,25.000000,0.000000,"Loop"};
 item3[] = {"target_clear",4,218,-175.000000,-25.000000,-75.000000,25.000000,10.000000,"target_clear"};
@@ -12,7 +12,7 @@ item7[] = {"Reset_cap_time",2,250,250.000000,75.000000,350.000000,125.000000,0.0
 item8[] = {"Delay",4,218,250.000000,-25.000000,350.000000,25.000000,0.000000,"Delay"};
 item9[] = {"Check",2,250,-25.000000,175.000000,75.000000,225.000000,0.000000,"Check"};
 item10[] = {"_curcaptime____",4,218,-25.000000,275.000000,75.000000,325.000000,1.000000,"_curcaptime >= _captime"};
-item11[] = {"Captured",2,4346,-25.000000,375.000000,75.000000,425.000000,0.000000,"Captured"};
+item11[] = {"Captured",2,250,-25.000000,375.000000,75.000000,425.000000,0.000000,"Captured"};
 item12[] = {"",7,210,408.500000,196.000000,416.500000,204.000000,0.000000,""};
 item13[] = {"",7,210,408.500000,-4.000000,416.500000,4.000000,0.000000,""};
 item14[] = {"",7,210,408.500000,396.000000,416.500000,404.000000,0.000000,""};
@@ -33,8 +33,8 @@ link13[] = {11,14};
 link14[] = {12,13};
 link15[] = {13,8};
 link16[] = {14,12};
-globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-367.563843,704.661621,873.183167,-366.072449,796,1254,1};
-window[] = {2,-1,-1,-1,-1,1056,338,1298,338,3,814};
+globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-367.563843,704.661621,873.183167,-366.072449,796,1236,1};
+window[] = {2,-1,-1,-1,-1,978,260,1220,260,3,814};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -70,8 +70,10 @@ class FSM
                 {
                         name = "Loop";
                         itemno = 2;
-                        init = /*%FSM<STATEINIT""">*/"private _units = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n
-                         "private _units2 = _wf nearEntities [[""CAManBase"", ""Tank"", ""Car""], 15]; // AI gets a little advantage" \n
+                        init = /*%FSM<STATEINIT""">*/"private _wpos = getPosASL _wf;" \n
+                         "_wpos set [2, 0];" \n
+                         "private _units = _wpos nearEntities [[""CAManBase"", ""Tank"", ""Car""], 12];" \n
+                         "private _units2 = _wpos nearEntities [[""CAManBase"", ""Tank"", ""Car""], 15]; // AI gets a little advantage" \n
                          "" \n
                          "private _bluforu = blufor countSide _units;" \n
                          "private _opforu = opfor countSide _units;" \n
