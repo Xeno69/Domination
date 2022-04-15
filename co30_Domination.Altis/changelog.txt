@@ -3,6 +3,7 @@
 - Added: Support for missionProfileNamespace, player and mission progress is saved there if no database is available
 - Added: Sign "AI Recruit" behind recruit desk if with AI is enabled
 - Added: Occupy script uses fuzzy positions when build positions are full, by longtimegamer
+- Added: Param d_no_ai_silencer ("Remove silencer from spawned enemy AI units:" in lobby, default No) which removes silencers from spawned enemy AI units
 - Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names

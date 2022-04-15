@@ -14865,6 +14865,18 @@
 <Chinese>Use only Inf VD slider to set all VD settings:</Chinese>
 <French>Use only Inf VD slider to set all VD settings:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2096">
+<English>Remove silencer from spawned enemy AI units:</English>
+<Spanish>Remove silencer from spawned enemy AI units:</Spanish>
+<Portuguese>Remove silencer from spawned enemy AI units:</Portuguese>
+<Korean>Remove silencer from spawned enemy AI units:</Korean>
+<Japanese>Remove silencer from spawned enemy AI units:</Japanese>
+<Original>Remove silencer from spawned enemy AI units:</Original>
+<Russian>Remove silencer from spawned enemy AI units:</Russian>
+<Chinesesimp>Remove silencer from spawned enemy AI units:</Chinesesimp>
+<Chinese>Remove silencer from spawned enemy AI units:</Chinese>
+<French>Remove silencer from spawned enemy AI units:</French>
+</Key>
 </Container>
 </Package>
 </Project>
