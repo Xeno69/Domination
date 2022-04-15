@@ -108,6 +108,8 @@
 #### **d_no_faks / Remove Fist Aid Kits:**
 > Default: 1 (No, disabled; 0 or Yes to remove FAKs)<br/>
 > Removes first aid kits, makes only sense when using it in combination with FAK revive<br/>
+#### **d_no_ai_silencer / >Remove silencer from spawned enemy AI units:**
+> Default: 0 (No, disabled; 1 or Yes to remove silencers from spawned AI units)<br/>
 #### **d_timemultiplier / Time Multiplier (1 real second = x ingame seconds):**
 > Default: 1 (disabled)<br/>
 > If a value bigger than 1 is used time will run faster<br/>

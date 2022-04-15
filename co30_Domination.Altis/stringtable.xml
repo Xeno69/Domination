@@ -1158,7 +1158,7 @@
 <English>Turn On Hud</English>
 <Spanish>Activar Hud</Spanish>
 <Portuguese>Volta Em Hud</Portuguese>
-<Korean>HUD ON</Korean>
+<Korean>HUD 켜기</Korean>
 <Japanese>HUDオン</Japanese>
 <Original>Turn On Hud</Original>
 <Russian>Включить HUD</Russian>
@@ -2754,10 +2754,10 @@
 <English>Inf Viewdistance: %1</English>
 <Spanish>Inf Viewdistance: %1</Spanish>
 <Portuguese>Inf Viewdistance: %1</Portuguese>
-<Korean>Inf Viewdistance: %1</Korean>
+<Korean>보병 가시거리: %1</Korean>
 <Japanese>Inf Viewdistance: %1</Japanese>
 <Original>Inf Viewdistance: %1</Original>
-<Russian>Inf Viewdistance: %1</Russian>
+<Russian>Дальность обзора: %1</Russian>
 <Chinesesimp>Inf Viewdistance: %1</Chinesesimp>
 <Chinese>Inf Viewdistance: %1</Chinese>
 <French>Inf Viewdistance: %1</French>
@@ -2766,10 +2766,10 @@
 <English>Vehicle Viewdistance: %1</English>
 <Spanish>Vehicle Viewdistance: %1</Spanish>
 <Portuguese>Vehicle Viewdistance: %1</Portuguese>
-<Korean>Vehicle Viewdistance: %1</Korean>
+<Korean>차량 가시거리: %1</Korean>
 <Japanese>Vehicle Viewdistance: %1</Japanese>
 <Original>Vehicle Viewdistance: %1</Original>
-<Russian>Vehicle Viewdistance: %1</Russian>
+<Russian>Дальность обзора (в технике): %1</Russian>
 <Chinesesimp>Vehicle Viewdistance: %1</Chinesesimp>
 <Chinese>Vehicle Viewdistance: %1</Chinese>
 <French>Vehicle Viewdistance: %1</French>
@@ -2778,10 +2778,10 @@
 <English>Air Viewdistance: %1</English>
 <Spanish>Air Viewdistance: %1</Spanish>
 <Portuguese>Air Viewdistance: %1</Portuguese>
-<Korean>Air Viewdistance: %1</Korean>
+<Korean>공중 가시거리: %1</Korean>
 <Japanese>Air Viewdistance: %1</Japanese>
 <Original>Air Viewdistance: %1</Original>
-<Russian>Air Viewdistance: %1</Russian>
+<Russian>Дальность обзора (в воздухе): %1</Russian>
 <Chinesesimp>Air Viewdistance: %1</Chinesesimp>
 <Chinese>Air Viewdistance: %1</Chinese>
 <French>Air Viewdistance: %1</French>
@@ -7219,10 +7219,10 @@
 <English>Force fast intro:</English>
 <Spanish>Force fast intro:</Spanish>
 <Portuguese>Force fast intro:</Portuguese>
-<Korean>Force fast intro:</Korean>
+<Korean>빠른 인트로 강제 전환:</Korean>
 <Japanese>Force fast intro:</Japanese>
 <Original>Force fast intro:</Original>
-<Russian>Force fast intro:</Russian>
+<Russian>Быстрое вступление (intro) :</Russian>
 <Chinesesimp>强制快速介绍：</Chinesesimp>
 <Chinese>Force fast intro:</Chinese>
 <French>Force fast intro:</French>
@@ -10460,10 +10460,10 @@
 <English>Call CAS Bomb HE</English>
 <Spanish>Call CAS Bomb HE</Spanish>
 <Portuguese>Call CAS Bomb HE</Portuguese>
-<Korean>Call CAS Bomb HE</Korean>
+<Korean>고폭탄 CAS 요청</Korean>
 <Japanese>Call CAS Bomb HE</Japanese>
 <Original>Call CAS Bomb HE</Original>
-<Russian>Call CAS Bomb HE</Russian>
+<Russian>Вызвать CAS Bomb HE</Russian>
 <Chinesesimp>Call CAS Bomb HE</Chinesesimp>
 <Chinese>Call CAS Bomb HE</Chinese>
 <French>Call CAS Bomb HE</French>
@@ -10472,10 +10472,10 @@
 <English>Call CAS Bomb Napalm</English>
 <Spanish>Call CAS Bomb Napalm</Spanish>
 <Portuguese>Call CAS Bomb Napalm</Portuguese>
-<Korean>Call CAS Bomb Napalm</Korean>
+<Korean>네이팜탄 CAS 요청 </Korean>
 <Japanese>Call CAS Bomb Napalm</Japanese>
 <Original>Call CAS Bomb Napalm</Original>
-<Russian>Call CAS Bomb Napalm</Russian>
+<Russian>Вызвать CAS Bomb Napalm</Russian>
 <Chinesesimp>Call CAS Bomb Napalm</Chinesesimp>
 <Chinese>Call CAS Bomb Napalm</Chinese>
 <French>Call CAS Bomb Napalm</French>
@@ -11409,7 +11409,7 @@
 <English>You have to wait %1 seconds to create a new vehicle at a MHQ!</English>
 <Spanish>¡Tienes que esperar %1 segundos para crear un nuevo vehículo en un MHQ!</Spanish>
 <Portuguese>Você tem que esperar %1 segundos para criar um novo veículo em um MHQ!</Portuguese>
-<Korean>새로운 MHQ 생성에 %1 초가 소요되니 기다려주십시오!</Korean>
+<Korean>MHQ에서 새로운 차량 생성에 %1 초가 소요되니 기다려주십시오!</Korean>
 <Japanese>移動指揮所で新たな車両を作れるようになるまで、%1秒待つ必要があります!</Japanese>
 <Original>You have to wait %1 seconds to create a new vehicle at a MHQ!</Original>
 <Russian>Нужно подождать %1 секунд прежде чем доставать транспорт из КШМ!</Russian>
@@ -11421,7 +11421,7 @@
 <English>Seconds till a player can create a new vec at MHQ:</English>
 <Spanish>Segundos hasta que un jugador puede crear un nuevo vec en MHQ:</Spanish>
 <Portuguese>Segundos até que um jogador possa criar um novo vec no MHQ:</Portuguese>
-<Korean>플레이어가 새로운 MHQ 생성 할 수 있는 소요시간:</Korean>
+<Korean>플레이어가 MHQ에서 새로운 차량을 생성 할 수 있는 소요시간:</Korean>
 <Japanese>移動指揮所で新規車両が展開可能となるまでの待ち時間:</Japanese>
 <Original>Seconds till a player can create a new vec at MHQ:</Original>
 <Russian>Секунд до возможности получить снова технику из КШМ:</Russian>
@@ -12144,7 +12144,7 @@
 <Korean>포병장비 냉각시간 비활성화</Korean>
 <Japanese>Disable artillery and CAS cooldown</Japanese>
 <Original>Disable artillery and CAS cooldown</Original>
-<Russian>Отключить перезарядку артиллерии</Russian>
+<Russian>Отключить перезарядку артиллерии и CAS</Russian>
 <Chinesesimp>禁用火炮冷却时间</Chinesesimp>
 <Chinese>禁用火砲冷卻</Chinese>
 <French>Désactiver le temps de recharge de l'artillerie</French>
@@ -12240,7 +12240,7 @@
 <Korean>적군이 민간인을 사살하고 있습니다. %1 사람이 위험에 처해있습니다!</Korean>
 <Japanese>The enemy is killing civilians. %1 people are in danger!</Japanese>
 <Original>The enemy is killing civilians. %1 people are in danger!</Original>
-<Russian>The enemy is killing civilians. %1 people are in danger!</Russian>
+<Russian>Враг убивает мирных жителей. %1 люди в опасности!</Russian>
 <Chinesesimp>敌人正在杀害平民。 %1 人有危险！</Chinesesimp>
 <Chinese>敵人正在殺害平民。 %1 人有危險！</Chinese>
 <French>The enemy is killing civilians. %1 people are in danger!</French>
@@ -12252,7 +12252,7 @@
 <Korean>%1 들 중 %2 시민만 학살에서 생존하였습니다.</Korean>
 <Japanese>%1 out of %2 civilians survived the massacre.</Japanese>
 <Original>%1 out of %2 civilians survived the massacre.</Original>
-<Russian>%1 out of %2 civilians survived the massacre.</Russian>
+<Russian>%1 из %2 мирных жителей пережили резню.</Russian>
 <Chinesesimp>%2 名平民中有 %1 名在大屠杀中幸存下来。</Chinesesimp>
 <Chinese>%2 名平民中有 %1 名在大屠殺中倖存下來</Chinese>
 <French>%1 out of %2 civilians survived the massacre.</French>
@@ -13008,7 +13008,7 @@
 <Korean>Auto viewdistance change at main target and base:</Korean>
 <Japanese>Auto viewdistance change at main target and base:</Japanese>
 <Original>Auto viewdistance change at main target and base:</Original>
-<Russian>Auto viewdistance change at main target and base:</Russian>
+<Russian>Автоматическое изменение дальности обзора на основной задаче и базе:</Russian>
 <Chinesesimp>Auto viewdistance change at main target and base:</Chinesesimp>
 <Chinese>Auto viewdistance change at main target and base:</Chinese>
 <French>Auto viewdistance change at main target and base:</French>
@@ -13270,7 +13270,7 @@
 <English>Launcher Cooldown Time in seconds:</English>
 <Spanish>Tiempo de recuperación del iniciador en segundos:</Spanish>
 <Portuguese>Tempo de Resfriamento do Lançador em segundos:</Portuguese>
-<Korean>아군 치료에 대한 포인트!</Korean>
+<Korean>런처 재사용 대기시간:</Korean>
 <Japanese>Launcher Cooldown Time in seconds:</Japanese>
 <Original>Launcher Cooldown Time in seconds:</Original>
 <Russian>Время восстановления пусковой установки в секундах:</Russian>
@@ -13810,10 +13810,10 @@
 <English>Attention: some of the civilians are armed and ready to fight!</English>
 <Spanish>Attention: some of the civilians are armed and ready to fight!</Spanish>
 <Portuguese>Attention: some of the civilians are armed and ready to fight!</Portuguese>
-<Korean>Attention: some of the civilians are armed and ready to fight!</Korean>
+<Korean>주의: 일부 민간인들이 무장을 하였고 싸울 준비가 되었습니다!</Korean>
 <Japanese>Attention: some of the civilians are armed and ready to fight!</Japanese>
 <Original>Attention: some of the civilians are armed and ready to fight!</Original>
-<Russian>Attention: some of the civilians are armed and ready to fight!</Russian>
+<Russian>Внимание: некоторые из мирных жителей вооружены и готовы к бою!</Russian>
 <Chinesesimp>注意：一些平民已经武装起来，准备战斗！</Chinesesimp>
 <Chinese>注意：一些平民已經武裝起來，準備戰鬥！</Chinese>
 <French>Attention: some of the civilians are armed and ready to fight!</French>
@@ -14661,30 +14661,6 @@
 <Chinese>禁用語音：</Chinese>
 <French>Disable voices:</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_2084">
-<English>Save mission progress to profileNamespace if no database is available</English>
-<Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
-<Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
-<Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
-<Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
-<Original>Save mission progress to profileNamespace if no database is available</Original>
-<Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
-<Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
-<Chinese>如果沒有可用的數據庫，則將任務進度保存到 profileNamespace </Chinese>
-<French>Save mission progress to profileNamespace if no database is available</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_2085">
-<English>Saved profileNamespace mission progress auto load</English>
-<Spanish>Saved profileNamespace mission progress auto load</Spanish>
-<Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
-<Korean>profileNamespace에 미션 진행 상황 저장 및 자동 불러오기</Korean>
-<Japanese>Saved profileNamespace mission progress auto load</Japanese>
-<Original>Saved profileNamespace mission progress auto load</Original>
-<Russian>Saved profileNamespace mission progress auto load</Russian>
-<Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
-<Chinese>保存的 profileNamespace 任務進度自動加載</Chinese>
-<French>Saved profileNamespace mission progress auto load</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
@@ -14737,10 +14713,10 @@
 <English>With auto revive if no player is nearby (less than 215m):</English>
 <Spanish>With auto revive if no player is nearby (less than 215m):</Spanish>
 <Portuguese>With auto revive if no player is nearby (less than 215m):</Portuguese>
-<Korean>With auto revive if no player is nearby (less than 215m):</Korean>
+<Korean>근처에 플레이어가 없는경우 자동소생 (215m이내):</Korean>
 <Japanese>With auto revive if no player is nearby (less than 215m):</Japanese>
 <Original>With auto revive if no player is nearby (less than 215m):</Original>
-<Russian>With auto revive if no player is nearby (less than 215m):</Russian>
+<Russian>С автоматическим возрождением, если поблизости нет игроков (менее 215 м)</Russian>
 <Chinesesimp>With auto revive if no player is nearby (less than 215m):</Chinesesimp>
 <Chinese>With auto revive if no player is nearby (less than 215m):</Chinese>
 <French>With auto revive if no player is nearby (less than 215m):</French>
@@ -14749,10 +14725,10 @@
 <English>Show headshots</English>
 <Spanish>Show headshots</Spanish>
 <Portuguese>Show headshots</Portuguese>
-<Korean>Show headshots</Korean>
+<Korean>헤드샷 표시</Korean>
 <Japanese>Show headshots</Japanese>
 <Original>Show headshots</Original>
-<Russian>Show headshots</Russian>
+<Russian>Показать попадания в голову</Russian>
 <Chinesesimp>Show headshots</Chinesesimp>
 <Chinese>Show headshots</Chinese>
 <French>Show headshots</French>
@@ -14761,10 +14737,10 @@
 <English>Client only</English>
 <Spanish>Client only</Spanish>
 <Portuguese>Client only</Portuguese>
-<Korean>Client only</Korean>
+<Korean>클라이언트 만 </Korean>
 <Japanese>Client only</Japanese>
 <Original>Client only</Original>
-<Russian>Client only</Russian>
+<Russian>Только клиент</Russian>
 <Chinesesimp>Client only</Chinesesimp>
 <Chinese>Client only</Chinese>
 <French>Client only</French>
@@ -14773,7 +14749,7 @@
 <English>Client and group</English>
 <Spanish>Client and group</Spanish>
 <Portuguese>Client and group</Portuguese>
-<Korean>Client and group</Korean>
+<Korean>클라이언트 와 그룹만</Korean>
 <Japanese>Client and group</Japanese>
 <Original>Client and group</Original>
 <Russian>Client and group</Russian>
@@ -14785,10 +14761,10 @@
 <English>Client and allies</English>
 <Spanish>Client and allies</Spanish>
 <Portuguese>Client and allies</Portuguese>
-<Korean>Client and allies</Korean>
+<Korean>클라이언트 및 모두</Korean>
 <Japanese>Client and allies</Japanese>
 <Original>Client and allies</Original>
-<Russian>Client and allies</Russian>
+<Russian>Клиент и группа</Russian>
 <Chinesesimp>Client and allies</Chinesesimp>
 <Chinese>Client and allies</Chinese>
 <French>Client and allies</French>
@@ -14797,10 +14773,10 @@
 <English>Headshot by %1 %2 m</English>
 <Spanish>Headshot by %1 %2 m</Spanish>
 <Portuguese>Headshot by %1 %2 m</Portuguese>
-<Korean>Headshot by %1 %2 m</Korean>
+<Korean>%2 m 에서 %1 (이)가 헤드샷 </Korean>
 <Japanese>Headshot by %1 %2 m</Japanese>
 <Original>Headshot by %1 %2 m</Original>
-<Russian>Headshot by %1 %2 m</Russian>
+<Russian>Попадание в голову %1 %2 m</Russian>
 <Chinesesimp>Headshot by %1 %2 m</Chinesesimp>
 <Chinese>Headshot by %1 %2 m</Chinese>
 <French>Headshot by %1 %2 m</French>
@@ -14821,10 +14797,10 @@
 <English>Emergency exit!</English>
 <Spanish>Emergency exit!</Spanish>
 <Portuguese>Emergency exit!</Portuguese>
-<Korean>Emergency exit!</Korean>
+<Korean>비상 탈출!</Korean>
 <Japanese>Emergency exit!</Japanese>
 <Original>Emergency exit!</Original>
-<Russian>Emergency exit!</Russian>
+<Russian>Аварийный выход!</Russian>
 <Chinesesimp>Emergency exit!</Chinesesimp>
 <Chinese>Emergency exit!</Chinese>
 <French>Emergency exit!</French>
@@ -14833,10 +14809,10 @@
 <English>Target selection time:</English>
 <Spanish>Target selection time:</Spanish>
 <Portuguese>Target selection time:</Portuguese>
-<Korean>Target selection time:</Korean>
+<Korean>목표선택 시간:</Korean>
 <Japanese>Target selection time:</Japanese>
 <Original>Target selection time:</Original>
-<Russian>Target selection time:</Russian>
+<Russian>Время выбора цели:</Russian>
 <Chinesesimp>Target selection time:</Chinesesimp>
 <Chinese>Target selection time:</Chinese>
 <French>Target selection time:</French>
@@ -14845,10 +14821,10 @@
 <English>Enemy mercenaries (2035 only)</English>
 <Spanish>Enemy mercenaries (2035 only)</Spanish>
 <Portuguese>Enemy mercenaries (2035 only)</Portuguese>
-<Korean>Enemy mercenaries (2035 only)</Korean>
+<Korean>적군 용병 (2035 만)</Korean>
 <Japanese>Enemy mercenaries (2035 only)</Japanese>
 <Original>Enemy mercenaries (2035 only)</Original>
-<Russian>Enemy mercenaries (2035 only)</Russian>
+<Russian>Вражеские наемники (только 2035г.)</Russian>
 <Chinesesimp>Enemy mercenaries (2035 only)</Chinesesimp>
 <Chinese>Enemy mercenaries (2035 only)</Chinese>
 <French>Enemy mercenaries (2035 only)</French>
@@ -14857,13 +14833,49 @@
 <English>No Data Available Yet</English>
 <Spanish>No Data Available Yet</Spanish>
 <Portuguese>No Data Available Yet</Portuguese>
-<Korean>No Data Available Yet</Korean>
+<Korean>현재 사용가능한 데이터가 없습니다.</Korean>
 <Japanese>No Data Available Yet</Japanese>
 <Original>No Data Available Yet</Original>
-<Russian>No Data Available Yet</Russian>
+<Russian>Данных пока нет</Russian>
 <Chinesesimp>No Data Available Yet</Chinesesimp>
 <Chinese>No Data Available Yet</Chinese>
 <French>No Data Available Yet</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2094">
+<English>Save player and mission progress to missionProfileNamespace if no SQL database is available</English>
+<Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available</Spanish>
+<Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Portuguese>
+<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available</Korean>
+<Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Japanese>
+<Original>Save player and mission progress to missionProfileNamespace if no SQL database is available</Original>
+<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available</Russian>
+<Chinesesimp>Save player and mission progress to missionProfileNamespace if no SQL database is available</Chinesesimp>
+<Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Chinese>
+<French>Save player and mission progress to missionProfileNamespace if no SQL database is available</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2095">
+<English>Use only Inf VD slider to set all VD settings:</English>
+<Spanish>Use only Inf VD slider to set all VD settings:</Spanish>
+<Portuguese>Use only Inf VD slider to set all VD settings:</Portuguese>
+<Korean>Use only Inf VD slider to set all VD settings:</Korean>
+<Japanese>Use only Inf VD slider to set all VD settings:</Japanese>
+<Original>Use only Inf VD slider to set all VD settings:</Original>
+<Russian>Use only Inf VD slider to set all VD settings:</Russian>
+<Chinesesimp>Use only Inf VD slider to set all VD settings:</Chinesesimp>
+<Chinese>Use only Inf VD slider to set all VD settings:</Chinese>
+<French>Use only Inf VD slider to set all VD settings:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2096">
+<English>Remove silencer from spawned enemy AI units:</English>
+<Spanish>Remove silencer from spawned enemy AI units:</Spanish>
+<Portuguese>Remove silencer from spawned enemy AI units:</Portuguese>
+<Korean>Remove silencer from spawned enemy AI units:</Korean>
+<Japanese>Remove silencer from spawned enemy AI units:</Japanese>
+<Original>Remove silencer from spawned enemy AI units:</Original>
+<Russian>Remove silencer from spawned enemy AI units:</Russian>
+<Chinesesimp>Remove silencer from spawned enemy AI units:</Chinesesimp>
+<Chinese>Remove silencer from spawned enemy AI units:</Chinese>
+<French>Remove silencer from spawned enemy AI units:</French>
 </Key>
 </Container>
 </Package>
