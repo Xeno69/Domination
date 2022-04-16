@@ -895,14 +895,16 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 	// choose event(s)
 	if (_doEvent) then {
-		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then {
+		if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
+			// some events are only eligible if d_with_MainTargetEvents == -3 or -4
+			// remove ineligible events from the temp array
+			_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
+			//_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT"); // todo - fix event
+			//_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_JOINPLAYER");  // todo - fix event
+		};
+		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then { // no case for -1 oops!
 			// create multiple simultaneous events		
 			private _tmpMtEvents = + d_x_mt_event_types;
-			if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
-            	// some events are only eligible if d_with_MainTargetEvents == -3 or -4
-            	// remove ineligible events from the temp array
-            	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
-			};
 			private _num_events_for = 2; // default three events for iterator starting at zero
 			if (d_with_MainTargetEvents == -4) then {
 				// "all" parameter selected so entire events array will be used
