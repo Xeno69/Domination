@@ -1238,6 +1238,16 @@ if (d_AutoViewdistanceChangeDefault == 1) then {
 	0 spawn d_fnc_vdhandler;
 };
 
+player setVariable ["d_cur_opm", getOpticsMode player];
+player setVariable ["d_opmc_eh_id", 0
+// TODO OpticsModeChanged seems to not work yet
+	/*player addEventHandler ["OpticsModeChanged", {
+		if (currentWeapon player == primaryWeapon player) then {
+			player setVariable ["d_cur_opm", _this # 3];
+		};
+	}];*/
+];
+
 0 spawn d_fnc_camouflage;
 
 if (d_dis_servicep == 1) then {
@@ -1305,3 +1315,4 @@ if (isMultiplayer) then {
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
+

@@ -55,6 +55,7 @@ if (_lo # 0 isNotEqualTo []) then {
 			call d_fnc_save_layoutgear;
 			call d_fnc_store_rwitems;
 			call d_fnc_storepitems;
+			player setVariable ["d_cur_opm", getOpticsMode player];
 		};
 	};
 };

@@ -94,6 +94,7 @@ if (_rtype == 0) then { // player died
 			call d_fnc_retrieve_layoutgear;
 		} else {
 			call d_fnc_retrieve_respawngear;
+			player setOpticsMode (player getVariable "d_cur_opm");
 		};
 	};
 	if (player getVariable ["d_has_gps", false]) then {
@@ -196,6 +197,10 @@ if (_rtype == 0) then { // player died
 		enableSentences false;
 	};
 	[player , "NoVoice"] remoteExecCall ["setSpeaker"];
+	
+	if (d_WithRevive == 1) then {
+		player setVariable ["d_cur_opm", getOpticsMode player];
+	};
 
 	showChat true;
 	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
