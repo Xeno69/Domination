@@ -895,6 +895,7 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 	// choose event(s)
 	if (_doEvent) then {
+		private _tmpMtEvents = + d_x_mt_event_types;
 		if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
 			// some events are only eligible if d_with_MainTargetEvents == -3 or -4
 			// remove ineligible events from the temp array
@@ -902,9 +903,8 @@ if (d_with_MainTargetEvents != 0) then {
 			//_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT"); // todo - fix event
 			//_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_JOINPLAYER");  // todo - fix event
 		};
-		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then { // no case for -1 oops!
-			// create multiple simultaneous events		
-			private _tmpMtEvents = + d_x_mt_event_types;
+		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then {
+			// create multiple simultaneous events
 			private _num_events_for = 2; // default three events for iterator starting at zero
 			if (d_with_MainTargetEvents == -4) then {
 				// "all" parameter selected so entire events array will be used
@@ -921,6 +921,7 @@ if (d_with_MainTargetEvents != 0) then {
 			};
 		} else {
 			// create one event
+			// case for d_with_MainTargetEvents == -1 (always) falls through to here
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
 		if (d_ai_awareness_rad > 0 && {d_enable_civs == 1 && {d_ai_aggressiveshoot == 1}}) then {
