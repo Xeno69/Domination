@@ -67,6 +67,9 @@ if (_rtype == 0) then { // player died
 			player setVariable ["d_psuppressed", nil];
 		};
 	};
+	if (d_WithRevive == 0) then {
+		player removeEventHandler ["OpticsModeChanged", player getVariable "d_opmc_eh_id"];
+	};
 } else { // _rtype = 1, player has respawned
 	d_commandingMenuIniting = false;
 	d_DomCommandingMenuBlocked = false;
@@ -95,6 +98,13 @@ if (_rtype == 0) then { // player died
 		} else {
 			call d_fnc_retrieve_respawngear;
 			player setOpticsMode (player getVariable "d_cur_opm");
+			player setVariable ["d_opmc_eh_id", 
+				player addEventHandler ["OpticsModeChanged", {
+					if (alive player && {currentWeapon player == primaryWeapon player}) then {
+						player setVariable ["d_cur_opm", _this # 3];
+					};
+				}]
+			];
 		};
 	};
 	if (player getVariable ["d_has_gps", false]) then {
@@ -198,10 +208,6 @@ if (_rtype == 0) then { // player died
 	};
 	[player , "NoVoice"] remoteExecCall ["setSpeaker"];
 	
-	if (d_WithRevive == 1) then {
-		player setVariable ["d_cur_opm", getOpticsMode player];
-	};
-
 	showChat true;
 	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 		[] spawn d_fnc_showhud;
