@@ -48,7 +48,7 @@ if (d_enemy_mercenaries == 1) then {
 	d_specops_E =+ _merc_array;
 	publicVariable "d_allmen_E";
 	publicVariable "d_specops_E";
-	diag_log ["mercenaries configured - Altis"];
+	diag_log ["Domination mercenaries configured - Altis"];
 };
 #endif
 #ifdef __MALDEN__

@@ -4,6 +4,7 @@
 - Added: Sign "AI Recruit" behind recruit desk if with AI is enabled
 - Added: Occupy script uses fuzzy positions when build positions are full, by longtimegamer
 - Added: Param d_no_ai_silencer ("Remove silencer from spawned enemy AI units:" in lobby, default No) which removes silencers from spawned enemy AI units
+- Added: OpticsMode for the primary weapon is now set to the previous optics mode when a player gets revived
 - Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
@@ -15,5 +16,7 @@
 - Fixed: Added SOG Prarie Fire remoteExec functions to CfgRemoteExec in description.ext
 - Fixed: Snipers do not spawn on roof, by longtimegamer
 - Fixed: Occupy script places all units in a group and does not delete units, by longtimegamer
+- Fixed: Do not spawn guerrilla events if d_with_MainTargetEvents == -1 "always"
+- Fixed: When a plane without VTOL was used for dropping para units over main targets it sometimes tried to land like a chopper or VTOL at the AO
 - Updated: IFA3 AIO version
 - Updated translations
