@@ -187,12 +187,15 @@ private _tmpPosArray = [];
 	};
 	
 	if (_unitIndex >= count _units) exitWith {
-		//diag_log ["all units have been placed! exiting while loop."];
+		//diag_log ["all units have been placed! exiting forEach loop."];
 	};
 
 	while {count _posArray > 0} do {
 		scopeName "while";
 		__TRACE_1("","_posArray")
+		if (_unitIndex >= count _units) exitWith {
+			//diag_log ["all units have been placed! exiting while loop."];
+		};
 		private _skip_position = false;
 		private _housePosBeforeEyeHeight = _posArray select 0;
 		__TRACE_1("","_housePosBeforeEyeHeight")
