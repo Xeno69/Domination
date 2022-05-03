@@ -99,6 +99,10 @@ while {true} do {
 				};
 				if (count _vec_a == 6) then {
 					_vec setVariable ["d_vec_is_mhq", [_vec_a # 5, _number_v]];
+					if (!d_with_ranked) then {
+						_vec setVariable ["d_ammobox", true, true];
+				 		_vec setVariable ["d_abox_perc", 100, true];
+					};
 				};
 				[_vec, 10] call d_fnc_setekmode;
 				_vec addEventHandler ["handleDamage", {call d_fnc_pshootatmhq}];
