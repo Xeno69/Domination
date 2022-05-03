@@ -174,11 +174,11 @@ if (_sortHeight) then {
 	} forEach _buildingPosArray;
 };
 
+diag_log [format ["placing %1 units", count _units]];
 private _unitIndex = 0;
 private _tmpPosArray = [];
 {
 	scopeName "for";
-	diag_log [format ["placing %1 units", count _units]];
 	private _posArray = _x;
 	__TRACE_2("","_building","_posArray")
 
