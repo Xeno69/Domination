@@ -27,7 +27,7 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 
 private _civ_units_count_max = 500; // default (recalculated if adaptive settings are selected)
 
-private _buildings_unfiltered = [_trg_center, _radius] call d_fnc_getbldgswithpositions;
+private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
 
 private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_civ_blacklist) };
 
@@ -164,7 +164,7 @@ if (d_civ_groupcount < 0) then {
 	if (d_civ_groupcount == -5) then {
 		_civ_spawn_factor = 0.90;  // adaptive (extreme)
 	};
-	private _bldg_count = count ([_trg_center, _radius] call d_fnc_getbldgswithpositions);
+	private _bldg_count = count ([_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings);
 	private _civ_grp_count_max = floor(_civ_spawn_factor * 100); // sanity check, avoid spawning too many civ groups
 	private _civ_units_count_max = floor(_civ_grp_count_max * 3.5); // sanity check, avoid spawning too many civ units 
 	_civ_grp_count = floor (_bldg_count * _civ_spawn_factor) min _civ_grp_count_max;
@@ -177,7 +177,6 @@ for "_i" from 0 to _civ_grp_count do {
 #ifdef __DEBUG__
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
-	_randomPos = [[[_trg_center, 200]],[]] call BIS_fnc_randomPos;
 	_grp = createGroup [civilian, true];
 
 	__TRACE("Placing a civilian cluster...")

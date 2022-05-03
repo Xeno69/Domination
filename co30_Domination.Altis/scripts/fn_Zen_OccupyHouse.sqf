@@ -174,16 +174,20 @@ if (_sortHeight) then {
 	} forEach _buildingPosArray;
 };
 
+diag_log [format ["placing %1 units", count _units]];
 private _unitIndex = 0;
 private _tmpPosArray = [];
 {
 	scopeName "for";
-	diag_log [format ["placing _unitIndex: %1 out of %2 units", _unitIndex, count _units]];
 	private _posArray = _x;
 	__TRACE_2("","_building","_posArray")
 
 	if (count _posArray == 0) then {
 		// _posArray is empty, non-fatal but should never happen (causes the next 'while' loop to be skipped)
+	};
+	
+	if (_unitIndex >= count _units) exitWith {
+		//diag_log ["all units have been placed! exiting forEach loop."];
 	};
 
 	while {count _posArray > 0} do {
@@ -205,7 +209,7 @@ private _tmpPosArray = [];
 			diag_log ["position skipped, unexpectedly could not get the building object"];
 			_skip_position = true;
 		} else {
-			diag_log [ format ["bldg redetect list: %1", _bldgs_list_redetected]];
+			//diag_log [ format ["bldg redetect list: %1", _bldgs_list_redetected]];
 			_theBuilding = _bldgs_list_redetected select 0;
 		};
 		
@@ -240,7 +244,7 @@ private _tmpPosArray = [];
 								};
 	
 								if (_hitCount >= ROOF_CHECK) exitWith {
-									diag_log [format ["stopped checking steps at: %1 _hitCount equal to ROOF_CHECK: %2", _k, ROOF_CHECK]];
+									//diag_log [format ["stopped checking steps at: %1 _hitCount equal to ROOF_CHECK: %2", _k, ROOF_CHECK]];
 								};
 							};
 	
