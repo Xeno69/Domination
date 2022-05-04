@@ -99,6 +99,7 @@ while {true} do {
 		};
 		if (d_db_type == 2) exitWith {
 			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+			__TRACE_1("","_tmphash")
 			if (count _tmphash > 0) then {
 				private _ar = [];
 				{
@@ -109,6 +110,7 @@ while {true} do {
 				for "_i" from 0 to _num do {
 					d_top10_db_players_serv pushBack (_tmphash get ((_ar # _i) # 1));
 				};
+				__TRACE_1("","d_top10_db_players_serv")
 				objNull spawn d_fnc_sendtopplayers;
 			};
 		};

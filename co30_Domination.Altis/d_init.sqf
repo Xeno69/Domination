@@ -619,6 +619,12 @@ if (isServer) then {
 
 	call d_fnc_setupserver;
 	if (d_MissionType != 2) then {0 spawn d_fnc_createnexttarget};
+	
+	if (d_database_found && {d_db_type == 2 && {isMultiplayer}}) then {
+		addMissionEventHandler ["MPEnded", {
+			saveMissionProfileNamespace;
+		}];
+	};
 
 	addMissionEventHandler ["PlayerDisconnected", {call d_fnc_playerdisconnected}];
 

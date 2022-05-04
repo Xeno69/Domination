@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #include "..\x_setup.sqf"
 
 params ["_sname", "_sender"];
@@ -40,21 +40,27 @@ if (!d_tt_ver) then {
 			if (_pn_missionsave isEqualTo []) exitWith {};
 			if (_sender != objNull) then {
 				private _comna = tolower (worldName + _sname);
+				__TRACE_1("","_comna")
 				private _idx = _pn_missionsave findIf {(_x # 12) == _comna};
+				__TRACE_1("","_idx")
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 12;
 					_tmpar deleteAt 0;
 					_dbresult = [_tmpar];
+					__TRACE_1("","_dbresult")
 				};
 			} else {
 				private _comna = toLower (worldName + _sname + briefingname);
+				__TRACE_1("2","_comna")
 				private _idx = _pn_missionsave findIf {(_x # 13) == _comna};
+				__TRACE_1("2","_idx")
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 13;
 					_tmpar deleteAt 0;
 					_dbresult = [_tmpar];
+					__TRACE_1("2","_dbresult")
 				};
 			};
 		};

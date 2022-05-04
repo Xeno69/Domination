@@ -105,9 +105,11 @@ if (d_database_found) then {
 		if (d_db_type == 2) exitWith {
 			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
 			if (!isNil "_tmphash") then {
+				__TRACE_1("","_tmphash")
 				private _tmpar = _tmphash get _uid;
 				if (!isNil "_tmpar") then {
 					_dbresult = [[_tmpar # 7, _tmpar # 2, _tmpar # 3, _tmpar # 4, _tmpar # 5, _tmpar # 6]];
+					__TRACE_1("11","_dbresult")
 				};
 			};
 		};
@@ -130,7 +132,8 @@ if (d_database_found) then {
 			if (d_db_type == 2) exitWith {
 				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
 				if (!isNil "_tmphash") then {
-					_tmphash set [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]];
+					_tmphash set [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [], 0, 0]];
+					__TRACE_1("player insert","_tmphash")
 					saveMissionProfileNamespace;
 					diag_log ["Dom initplayerserver database missionProfileNamespace player Insert", _name];
 				};
@@ -150,9 +153,11 @@ if (d_database_found) then {
 			if (d_db_type == 2) exitWith {
 				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
 				if (!isNil "_tmphash") then {
+					__TRACE_1("num played","_tmphash")
 					private _tmpar = _tmphash get _uid;
 					if (!isNil "_tmpar") then {
 						_tmpar set [10, (_tmpar # 10) + 1];
+						__TRACE_1("num played","_tmpar")
 					};
 					diag_log ["Dom initplayerserver database missionProfileNamespace updating numplayed", _name];
 				};
@@ -186,9 +191,12 @@ if (d_database_found) then {
 			if (d_db_type == 2) exitWith {
 				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
 				if (!isNil "_tmphash") then {
+					__TRACE_1("playerGet","_tmphash")
 					private _tmpar = _tmphash get _uid;
 					if (!isNil "_tmpar") then {
+						__TRACE_1("playerGet","_tmpar")
 						_dbresult = [_tmpar];
+						__TRACE_1("playerGet","_dbresult")
 					};
 				};
 			};
@@ -198,6 +206,7 @@ if (d_database_found) then {
 		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];
 			if (_pres isNotEqualTo []) then {
+				__TRACE_1("4xx4","_pres")
 				if (count _pres > 14) then {
 					_p set [15, _pres # 14];
 				};

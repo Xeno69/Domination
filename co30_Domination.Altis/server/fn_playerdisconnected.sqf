@@ -124,9 +124,11 @@ call {
 	};
 	if (d_db_type == 2) exitWith {
 		private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+		__TRACE_1("","_tmpar")
 		if (!isNil "_tmphash") then {
 			private _tmpar = _tmphash get _uid;
 			if (!isNil "_tmpar") then {
+				__TRACE_1("1","_tmpar")
 				_tmpar set [2, _infkills];
 				_tmpar set [3, _softveckills];
 				_tmpar set [4, _armorkills];
@@ -138,6 +140,7 @@ call {
 				_tmpar set [14, _distar];
 				_tmpar set [15, _headshots];
 				_tmpar set [16, _rounds];
+				__TRACE_1("2","_tmpar")
 			};
 		};
 	};

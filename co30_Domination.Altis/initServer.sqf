@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initServer.sqf"];
 if (d_with_bis_dynamicgroups == 0) then {
@@ -41,13 +41,16 @@ if (d_database_found) then {
 			if (d_db_type == 2) exitWith {
 				private _pn_missionsave = profileNamespace getVariable "dom_missionsave";
 				if (!isNil "_pn_missionsave") then {
+					__TRACE_1("old","_pn_missionsave")
 					missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
 					saveMissionProfileNamespace;
 					profileNamespace setVariable ["dom_missionsave", nil];
 				};
 				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
 				if (!isNil "_pn_missionsave") then {
+				__TRACE_1("new","_pn_missionsave")
 					private _wn = tolower worldname;
+					__TRACE_1("","_wn")
 					{
 						if (_x # 11 == _wn) then {
 							_dbresult pushBack _x;
@@ -135,6 +138,7 @@ if (d_database_found) then {
 		if (d_db_type == 2) exitWith {
 			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
 			if (isNil "_tmphash") then {
+				__TRACE("_tmphash is nil")
 				missionProfileNamespace setVariable ["d_player_hashmap", createHashMap];
 				saveMissionProfileNamespace;
 				d_top10_db_players_serv = [];
@@ -149,6 +153,7 @@ if (d_database_found) then {
 				for "_i" from 0 to _num do {
 					d_top10_db_players_serv pushBack (_tmphash get ((_ar # _i) # 1));
 				};
+				__TRACE_1("","d_top10_db_players_serv")
 			};
 			0 spawn d_fnc_dbtoppasync;
 		};
