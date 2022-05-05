@@ -136,6 +136,13 @@ if !(_veh isKindOf "Ship") then {
 	_grp setVariable ["d_gvecs", _gvecs];
 };
 
+if (isNil {_veh getVariable "d_cwcg_inited"}) then {
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _veh;
+	};
+	clearBackpackCargoGlobal _veh;
+};
+
 #ifndef __TT__
 [_veh] call d_fnc_addceo;
 #endif

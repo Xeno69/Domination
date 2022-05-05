@@ -41,9 +41,13 @@ d_helirespawn2_ar = [];
 				[_vec, 10] spawn d_fnc_enabledynsim;
 			};
 		};
-		if (d_with_ranked) then {
-			clearWeaponCargoGlobal _vec;
+		if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec;
+			};
+			clearBackpackCargoGlobal _vec;
 		};
+		
 		_vec setDamage 0;
 	};
 } forEach _this;

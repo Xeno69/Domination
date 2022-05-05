@@ -12,6 +12,12 @@ params ["_vec"];
 
 if (_vec isKindOf "ParachuteBase" || {unitIsUAV _vec}) exitWith {};
 
+if (d_with_ranked) then {
+	clearWeaponCargoGlobal _vec;
+};
+clearBackpackCargoGlobal _vec;
+_vec setVariable ["d_cwcg_inited", true];
+
 _vec spawn {
 	scriptName "spawn vecinit";
 	sleep 15;

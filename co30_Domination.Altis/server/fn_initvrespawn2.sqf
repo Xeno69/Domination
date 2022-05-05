@@ -70,9 +70,13 @@ d_vrespawn2_ar = [];
 				[_vec, 10] spawn d_fnc_enabledynsim;
 			};
 		};
-		if (d_with_ranked) then {
-			clearWeaponCargoGlobal _vec;
+		if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec;
+			};
+			clearBackpackCargoGlobal _vec;
 		};
+		
 		if (_vec isKindOf "Boat_F") then {
 			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 		};

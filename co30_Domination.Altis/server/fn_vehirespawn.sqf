@@ -83,8 +83,11 @@ if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "E
 	_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
 };
 
-if (d_with_ranked) then {
-	clearWeaponCargoGlobal _vec;
+if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
+	clearBackpackCargoGlobal _vec;
 };
 
 if (_vec isKindOf "Boat_F") then {
@@ -231,9 +234,11 @@ while {true} do {
 		if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 			_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
 		};
-		
-		if (d_with_ranked) then {
-			clearWeaponCargoGlobal _vec;
+		if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec;
+			};
+			clearBackpackCargoGlobal _vec;
 		};
 		_vec setDamage 0;
 	};

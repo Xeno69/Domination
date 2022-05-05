@@ -23,4 +23,10 @@ if (_b_mode != 1) then {
 	_ar pushBack _vec;
 	_unit setVariable ["d_all_p_vecs_s", _ar];
 };
+if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
+	clearBackpackCargoGlobal _vec;
+};
 addToRemainsCollector [_vec];

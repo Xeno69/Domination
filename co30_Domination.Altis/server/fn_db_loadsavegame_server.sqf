@@ -264,6 +264,13 @@ d_bonus_vecs_db = _ar # 9;
 		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
 	};
 	
+	if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
+		clearBackpackCargoGlobal _vec;
+	};
+	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
 } forEach d_bonus_vecs_db;
 
@@ -403,6 +410,13 @@ private _fnc_tt_bonusvec = {
 
 	if (_vec isKindOf "Air" && {getNumber((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
+	};
+	
+	if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
+		clearBackpackCargoGlobal _vec;
 	};
 	
 	_vec

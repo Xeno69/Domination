@@ -2354,10 +2354,10 @@ class Extended_Init_Eventhandlers {
 		d_car_init = "_this call d_fnc_vecinit";
 	};
 	class Tank {
-		d_car_init = "_this call d_fnc_vecinit";
+		d_tank_init = "_this call d_fnc_vecinit";
 	};
 	class Air {
-		d_car_init = "_this call d_fnc_vecinit";
+		d_air_init = "_this call d_fnc_vecinit";
 	};
 };
 
