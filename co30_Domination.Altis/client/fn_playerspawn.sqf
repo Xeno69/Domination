@@ -97,11 +97,15 @@ if (_rtype == 0) then { // player died
 			call d_fnc_retrieve_layoutgear;
 		} else {
 			call d_fnc_retrieve_respawngear;
-			player setOpticsMode (player getVariable "d_cur_opm");
+			{
+				if (_x != "") then {
+					player setOpticsMode [_forEachIndex + 1, _x];
+				};
+			} forEach (player getVariable "d_cur_opm");
 			player setVariable ["d_opmc_eh_id", 
 				player addEventHandler ["OpticsModeChanged", {
 					if (alive player && {currentWeapon player == primaryWeapon player}) then {
-						player setVariable ["d_cur_opm", _this # 3];
+						player setVariable ["d_cur_opm", [player getOpticsMode 1, player getOpticsMode 2, player getOpticsMode 3]];
 					};
 				}]
 			];

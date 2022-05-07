@@ -56,7 +56,7 @@ if (_lo # 0 isNotEqualTo []) then {
 			call d_fnc_store_rwitems;
 			call d_fnc_storepitems;
 			if (d_WithRevive == 0) then {
-				player setVariable ["d_cur_opm", getOpticsMode player];
+				player setVariable ["d_cur_opm", [player getOpticsMode 1, player getOpticsMode 2, player getOpticsMode 3]];
 			};
 		};
 	};
