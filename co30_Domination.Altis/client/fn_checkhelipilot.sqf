@@ -36,8 +36,9 @@ if (!_exit_it && {_listin # 1 == "driver" || {[_vec, player] call d_fnc_iscopilo
 		} else {
 			player setVariable ["d_hud_id", _vec addAction [format ["<t color='#7F7F7F'>%1</t>", localize "STR_DOM_MISSIONSTRING_177"], {call d_fnc_sethud}, 1, -1, false, true, "", "currentPilot _target == player"]];
 		};
-		
-		[_vec] spawn d_fnc_helilift;
+		if (!_exit_it) then {
+			[_vec] spawn d_fnc_helilift;
+		};
 	};
 };
 
