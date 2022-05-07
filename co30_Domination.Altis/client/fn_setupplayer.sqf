@@ -1238,7 +1238,7 @@ if (d_AutoViewdistanceChangeDefault == 1) then {
 	0 spawn d_fnc_vdhandler;
 };
 
-if (d_WithRevive == 1) then {
+if (d_WithRevive == 0) then {
 	player setVariable ["d_cur_opm", getOpticsMode player];
 	player setVariable ["d_opmc_eh_id", 
 		player addEventHandler ["OpticsModeChanged", {
