@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 if (!isNil "d_saveprogess2db_inprogress") exitWith {};

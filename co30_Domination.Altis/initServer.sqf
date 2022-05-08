@@ -1,5 +1,5 @@
 // by Xeno
-#define __DEBUG__
+//#define __DEBUG__
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initServer.sqf"];
 if (d_with_bis_dynamicgroups == 0) then {
@@ -168,7 +168,8 @@ if (d_database_found) then {
 		diag_log ["DOM initServer d_set_pl_score_db:", d_set_pl_score_db];
 	};
 	
-	if (d_db_auto_save) then {
+	__TRACE("initServer before loading db save games")
+	if (d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}) then {
 		diag_log "DOM initServer.sqf: Trying to read db autosave";
 		if (!isNil "d_target_names") then {
 			["d_dom_db_autosave", objNull] call d_fnc_db_loadsavegame_server;

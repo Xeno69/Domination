@@ -298,29 +298,31 @@ if (d_maintargets_list isNotEqualTo []) then {
 	d_kill_points_opfor = 0;
 	d_public_points = true;
 #endif
-	if (d_database_found && {d_db_auto_save}) then {
+	if (d_database_found && {d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}}) then {
 		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 	};
 	sleep 1;
 	0 spawn d_fnc_createnexttarget;
 } else {
 	if (d_tt_ver) then {
-		if (d_database_found && {d_db_auto_save}) then {
-			call {
-				if (d_db_type == 0) exitWith {
-					"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-				};
-				if (d_db_type == 1) exitWith {
-					["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
-				};
-				if (d_db_type == 2) exitWith {
-					private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsavett";
-					if (!isNil "_pn_missionsave") then {
-						private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
-						private _idx = _pn_missionsave findIf {(_x # 19) == _comna};
-						if (_idx != -1) then {
-							_pn_missionsave deleteAt _idx;
-							saveMissionProfileNamespace;
+		if (d_database_found) then {
+			if (d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}) then {
+				call {
+					if (d_db_type == 0) exitWith {
+						"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+					};
+					if (d_db_type == 1) exitWith {
+						["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+					};
+					if (d_db_type == 2) exitWith {
+						private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsavett";
+						if (!isNil "_pn_missionsave") then {
+							private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
+							private _idx = _pn_missionsave findIf {(_x # 19) == _comna};
+							if (_idx != -1) then {
+								_pn_missionsave deleteAt _idx;
+								saveMissionProfileNamespace;
+							};
 						};
 					};
 				};
@@ -329,22 +331,24 @@ if (d_maintargets_list isNotEqualTo []) then {
 		d_the_end = true; publicVariable "d_the_end";
 		0 spawn d_fnc_DomEnd;
 	} else {
-		if (d_database_found && {d_db_auto_save}) then {
-			call {
-				if (d_db_type == 0) exitWith {
-					"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-				};
-				if (d_db_type == 1) exitWith {
-					["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
-				};
-				if (d_db_type == 2) exitWith {
-					private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
-					if (!isNil "_pn_missionsave") then {
-						private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
-						private _idx = _pn_missionsave findIf {(_x # 13) == _comna};
-						if (_idx != -1) then {
-							_pn_missionsave deleteAt _idx;
-							saveMissionProfileNamespace;
+		if (d_database_found) then {
+			if (d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}) then {
+				call {
+					if (d_db_type == 0) exitWith {
+						"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+					};
+					if (d_db_type == 1) exitWith {
+						["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+					};
+					if (d_db_type == 2) exitWith {
+						private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
+						if (!isNil "_pn_missionsave") then {
+							private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
+							private _idx = _pn_missionsave findIf {(_x # 13) == _comna};
+							if (_idx != -1) then {
+								_pn_missionsave deleteAt _idx;
+								saveMissionProfileNamespace;
+							};
 						};
 					};
 				};

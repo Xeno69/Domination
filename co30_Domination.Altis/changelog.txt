@@ -1,6 +1,7 @@
 4.63
 
 - Added: Support for missionProfileNamespace, player and mission progress is saved there if no database is available
+- Added: New parameter d_save_to_mpns ("Save player and mission progress to missionProfileNamespace if no SQL database is available" in server lobby) where you can turn off saving and loading mission progress to missionProfileNamespace
 - Added: Sign "AI Recruit" behind recruit desk if with AI is enabled
 - Added: Occupy script uses fuzzy positions when build positions are full, by longtimegamer
 - Added: Param d_no_ai_silencer ("Remove silencer from spawned enemy AI units:" in lobby, default No) which removes silencers from spawned enemy AI units
