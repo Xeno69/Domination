@@ -35,10 +35,6 @@ diag_log [format ["total possible buildings to spawn civs: %1", count (_building
 
 private _total_civs_count_created = 0;
 
-#ifdef __GROUPDEBUG__
-private _debug_tmp_civ_cnt = 0;
-#endif
-
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
 	diag_log ["attempting to place a civilian cluster..."];
@@ -136,6 +132,7 @@ private _placeCivilianCluster = {
     ] call d_fnc_Zen_OccupyHouse;
 
 #ifdef __GROUPDEBUG__
+	private _debug_tmp_civ_cnt = 0;
 	{
 		private _civ_string_tmp = format ["civ%1", _debug_tmp_civ_cnt];
 		[_civ_string_tmp, position _x, "ICON", "ColorBlack", [0.5, 0.5], _civ_string_tmp, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
