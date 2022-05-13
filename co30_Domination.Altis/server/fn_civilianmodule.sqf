@@ -129,7 +129,16 @@ private _placeCivilianCluster = {
     	false,                           //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
     	false,                       //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
     	3.6                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
-    ] call d_fnc_Zen_OccupyHouse;	
+    ] call d_fnc_Zen_OccupyHouse;
+
+#ifdef __GROUPDEBUG__
+	private _debug_tmp_civ_cnt = 0;
+	{
+		private _civ_string_tmp = format ["civ%1", _debug_tmp_civ_cnt];
+		[_civ_string_tmp, position _x, "ICON", "ColorBlack", [0.5, 0.5], _civ_string_tmp, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+		_debug_tmp_civ_cnt = _debug_tmp_civ_cnt + 1;
+	} forEach _units_civ_cluster;
+#endif
 	
 	diag_log ["civilian cluster successfully created"];
 };
@@ -170,6 +179,7 @@ if (d_civ_groupcount < 0) then {
 	_civ_grp_count = floor (_bldg_count * _civ_spawn_factor) min _civ_grp_count_max;
 	diag_log [format ["civilian bldg_count: %1, civ_grp_count: %2", _bldg_count, _civ_grp_count]];
 };
+diag_log [format ["civilian civ_grp_count: %1", _civ_grp_count]];
 
 // create civilians with createAgent (not the civilian module)
 // these civilians do not run around, they stand/sit/kneel and when firedNear is triggered they lay down
