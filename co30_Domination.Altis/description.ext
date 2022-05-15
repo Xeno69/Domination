@@ -1212,9 +1212,9 @@ class Params {
 	
 	class d_arty_unlimited {
 		title = "$STR_DOM_MISSIONSTRING_1885";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT","$STR_DOM_MISSIONSTRING_1063","$STR_DOM_MISSIONSTRING_399"};
 	};
 	
 	class d_artycheckfriendlies {

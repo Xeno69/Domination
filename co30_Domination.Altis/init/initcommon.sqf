@@ -93,6 +93,10 @@ if (isNil "d_cas_available_time") then {
 	d_cas_available_time = 600; // time till CAS is available again!
 };
 
+if (isNil "d_cas_available_time_low") then {
+	d_cas_available_time_low = 100; // time CAS low cooldown setting
+};
+
 if (isServer) then {
 	skipTime d_TimeOfDay;
 
