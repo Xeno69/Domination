@@ -337,11 +337,17 @@ if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (mark
 #endif
 	scriptName "spawn_x_arifire_artiavailable";
 	params ["_ari_salvos", "_aristr"];
-    if (d_arty_unlimited == 1) then {
-        sleep (1);
-    } else {
-        sleep (300 + ((_ari_salvos - 1) * 200)) + (random 60) + (if (d_MissionType != 2) then {0} else {300});
-    };
+	switch (d_arty_unlimited) do {
+		case 1: {
+			sleep (3);
+		};
+		case 2: {
+			sleep (d_cas_available_time_low);
+		};
+		default {
+			sleep (300 + ((_ari_salvos - 1) * 200)) + (random 60) + (if (d_MissionType != 2) then {0} else {300});
+		};
+	};
 #ifndef __TT__
 	d_ari_available = true; publicVariable "d_ari_available";
 	private _channel = d_kbtel_chan;

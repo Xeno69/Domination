@@ -289,12 +289,18 @@ if (canMove _plane) then {
 [_side, _logic1, _logic, _topicside, _channel] spawn {
 	scriptName "spawn_cas_available";
 	params ["_side", "_logic1", "_logic", "_topicside", "_channel"];
-	if (d_arty_unlimited == 1) then {
-		sleep 3;
-	} else {
-		sleep d_cas_available_time;
-	};
-
+	switch (d_arty_unlimited) do {
+		case 1: {
+			sleep (3);
+		};
+		case 2: {
+			sleep (d_cas_available_time_low);
+		};
+		default {
+			sleep d_cas_available_time;
+		};
+	};	
+	
 	d_cas_metadata = [];
 	//publicVariable "d_cas_metadata";
 
