@@ -1076,6 +1076,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_show_headshots {
+		title = "$STR_DOM_MISSIONSTRING_SHOW_HEADSHOTS";
+		values[] = {0,1,3};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_CLIENT_ONLY","$STR_DOM_MISSIONSTRING_CLIENT_ALL"};
+	};
 
 	class d_params_dl_8 {
 		title = "$STR_DOM_MISSIONSTRING_1574";
@@ -1175,6 +1182,27 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","180","240","300"};
 	};
 	
+	class d_params_dl_8_cas_arty {
+		title = "$STR_DOM_MISSIONSTRING_1574_CAS_ARTY";
+		values[] = {-66};
+		default = -66;
+		texts[] = {""};
+	};
+	
+	class d_enable_extra_cas {
+		title = "$STR_DOM_MISSIONSTRING_EXTRA_CAS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_tell_arty_cas {
+		title = "$STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_disable_player_arty {
 		title = "$STR_DOM_MISSIONSTRING_2077";
 		values[] = {0,1};
@@ -1201,13 +1229,6 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-	};
-	
-	class d_show_headshots {
-		title = "$STR_DOM_MISSIONSTRING_SHOW_HEADSHOTS";
-		values[] = {0,1,3};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_CLIENT_ONLY","$STR_DOM_MISSIONSTRING_CLIENT_ALL"};
 	};
 	
 	class d_params_dl_8_civ {
@@ -1271,13 +1292,6 @@ class Params {
 		values[] = {-66};
 		default = -66;
 		texts[] = {""};
-	};
-	
-	class d_tell_arty_cas {
-		title = "$STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_disable_airai {

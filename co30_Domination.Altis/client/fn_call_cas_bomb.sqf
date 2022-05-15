@@ -20,6 +20,7 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 
 private "_target";
 private _do_exit = false;
+private _do_cleanup = false;
 
 if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 	_target = laserTarget player;
@@ -29,14 +30,17 @@ if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 		_do_exit = true;
 	};
 } else {
-	_target = screenToWorld [0.5, 0.5];
+	_target = d_HeliHEmpty createVehicle [screenToWorld [0.5, 0.5]]; // good but leaves markers around
+	_do_cleanup = true;
 };
-if (_do_exit) exitWith {};
+if (_do_exit) exitWith {
+	diag_log ["exiting, no valid CAS bomb target"];
+};
 __TRACE_1("","_target")
 
 #ifdef __DEBUG__
 _arrow = "Sign_Arrow_Large_F" createVehicle [10, 10, 10];
-_arrow setPos _target;
+_arrow setPos (getPosASL _target);
 #endif
 
 if (player distance2D _target < 30) exitWith {
@@ -44,3 +48,7 @@ if (player distance2D _target < 30) exitWith {
 };
 
 [_target, netId player, 0] remoteExec ["d_fnc_moduleCAS_bomb", 2];
+
+if (_do_cleanup) then {
+	deleteVehicle _target;
+};
