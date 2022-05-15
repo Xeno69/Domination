@@ -339,7 +339,7 @@ if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (mark
 	params ["_ari_salvos", "_aristr"];
 	switch (d_arty_unlimited) do {
 		case 1: {
-			sleep (1);
+			sleep (3);
 		};
 		case 2: {
 			sleep (d_cas_available_time_low);
