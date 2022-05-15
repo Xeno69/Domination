@@ -6580,12 +6580,12 @@
 <French>90 secs</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1023">
-<English>With AI recruitment:</English>
+<English>With AI features and recruitment:</English>
 <Spanish>Con reclutamiento de AI:</Spanish>
 <Portuguese>Com o recrutamento da AI:</Portuguese>
 <Korean>AI 모집</Korean>
 <Japanese>AI兵士募集:</Japanese>
-<Original>With AI recruitment:</Original>
+<Original>With AI features and recruitment:</Original>
 <Russian>С наёмом ИИ:</Russian>
 <Chinesesimp>AI士兵招募：</Chinesesimp>
 <Chinese>AI招募:</Chinese>
@@ -9856,6 +9856,18 @@
 <Chinese>---------------------------- 客戶端 -------------------------------</Chinese>
 <French>---------------------------- Client -------------------------------</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1574_CAS_ARTY">
+<English>---------------------------- CAS / Artillery -------------------------------</English>
+<Spanish>---------------------------- CAS / Artillery -------------------------------</Spanish>
+<Portuguese>---------------------------- CAS / Artillery -------------------------------</Portuguese>
+<Korean>---------------------- CAS / Artillery ----------------------</Korean>
+<Japanese>-------------------------- CAS / Artillery -----------------------------</Japanese>
+<Original>---------------------------- CAS / Artillery -------------------------------</Original>
+<Russian>--------------------------- CAS / Artillery --------------------------</Russian>
+<Chinesesimp>---------------------------- CAS / Artillery -------------------------------</Chinesesimp>
+<Chinese>---------------------------- CAS / Artillery -------------------------------</Chinese>
+<French>---------------------------- CAS / Artillery -------------------------------</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1574_CIV">
 <English>---------------------------- Civilians -------------------------------</English>
 <Spanish>---------------------------- Civilians -------------------------------</Spanish>
@@ -10457,16 +10469,16 @@
 <French>Demande CAS</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS">
-<English>Call CAS Bomb HE</English>
-<Spanish>Call CAS Bomb HE</Spanish>
-<Portuguese>Call CAS Bomb HE</Portuguese>
+<English>Call CAS Active Guided HE Bomb</English>
+<Spanish>Call CAS Active Guided HE Bomb</Spanish>
+<Portuguese>Call CAS Active Guided HE Bomb</Portuguese>
 <Korean>고폭탄 CAS 요청</Korean>
-<Japanese>Call CAS Bomb HE</Japanese>
-<Original>Call CAS Bomb HE</Original>
-<Russian>Вызвать CAS Bomb HE</Russian>
-<Chinesesimp>Call CAS Bomb HE</Chinesesimp>
-<Chinese>Call CAS Bomb HE</Chinese>
-<French>Call CAS Bomb HE</French>
+<Japanese>Call CAS Active Guided HE Bomb</Japanese>
+<Original>Call CAS Active Guided HE Bomb</Original>
+<Russian>Вызвать CAS Active Guided HE Bomb</Russian>
+<Chinesesimp>Call CAS Active Guided HE Bomb</Chinesesimp>
+<Chinese>Call CAS Active Guided HE Bomb</Chinese>
+<French>Call CAS Active Guided HE Bomb</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM">
 <English>Call CAS Bomb Napalm</English>
@@ -14588,6 +14600,18 @@
 <Chinesesimp>禁用玩家 CAS（近距离空中支援）</Chinesesimp>
 <Chinese>禁用玩家 CAS（近距離空中支援）</Chinese>
 <French>Disable player CAS</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_EXTRA_CAS">
+<English>Enable extra CAS ordnance</English>
+<Spanish>Enable extra CAS ordnance</Spanish>
+<Portuguese>Enable extra CAS ordnance</Portuguese>
+<Korean>Enable extra CAS ordnance</Korean>
+<Japanese>Enable extra CAS ordnance</Japanese>
+<Original>Enable extra CAS ordnance</Original>
+<Russian>Enable extra CAS ordnance</Russian>
+<Chinesesimp>Enable extra CAS ordnance</Chinesesimp>
+<Chinese>Enable extra CAS ordnance</Chinese>
+<French>Enable extra CAS ordnance</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2079">
 <English>Enemy AI observers for artillery and CAS at AO</English>
