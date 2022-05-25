@@ -1248,7 +1248,7 @@ if (d_AutoViewdistanceChangeDefault == 1) then {
 };
 
 if (d_WithRevive == 0) then {
-	player setVariable ["d_cur_opm", [getOpticsMode player 1, getOpticsMode player 2, getOpticsMode player 3]];
+	player setVariable ["d_cur_opm", [player getOpticsMode 1, player getOpticsMode 2, player getOpticsMode 3]];
 	player setVariable ["d_opmc_eh_id", 
 		player addEventHandler ["OpticsModeChanged", {
 			player setVariable ["d_cur_opm", [player getOpticsMode 1, player getOpticsMode 2, player getOpticsMode 3]];
