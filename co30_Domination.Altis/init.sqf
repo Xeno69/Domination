@@ -45,6 +45,6 @@ if (isServer) then {
 };
 #endif
 
-diag_log [diag_frameno, diag_ticktime, time, "Dom init.sqf processed"];
+// addMissionEventHandler ["EntityCreated", {diag_log _this}];
 
-addMissionEventHandler ["EntityCreated", {diag_log _this}];
+diag_log [diag_frameno, diag_ticktime, time, "Dom init.sqf processed"];
