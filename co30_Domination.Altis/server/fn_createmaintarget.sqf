@@ -607,7 +607,7 @@ if (d_occ_bldgs == 1) then {
 	if (_occ_cnt > 0) then {
 		for "_xx" from 0 to (_occ_cnt - 1) do {
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
+				[[[_trg_center, d_occ_rad]],[]] call BIS_fnc_randomPos,
 				-1,
 				d_occ_rad,		//fillRadius
 				false,		//fillRoof
@@ -652,7 +652,7 @@ if (d_occ_bldgs == 1) then {
 	if (_ovrw_cnt > 0) then {
 		for "_xx" from 0 to (_ovrw_cnt - 1) do {
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
+				[[[_trg_center, d_ovrw_rad]],[]] call BIS_fnc_randomPos,
 				-1,
 				d_ovrw_rad,		//fillRadius
 				false,		//fillRoof
@@ -696,7 +696,7 @@ if (d_occ_bldgs == 1) then {
 	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
 	if (_amb_cnt > 0) then {
 		for "_xx" from 0 to (_amb_cnt - 1) do {
-			private _pos = [[[_trg_center, 100]],[]] call BIS_fnc_randomPos;
+			private _pos = [[[_trg_center, d_amb_rad]],[]] call BIS_fnc_randomPos;
 			// create an ambush group
 			private _unitstog = [
 				_pos,
