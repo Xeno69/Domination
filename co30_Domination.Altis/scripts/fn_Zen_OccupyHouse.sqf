@@ -157,7 +157,7 @@ if (count _buildingsArrayFiltered == 0) then {
 };
 
 private _buildingPosArray = [];
-0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;
+
 {
 	_buildingPosArray pushBack (_x buildingPos -1);
 } forEach _buildingsArrayFiltered;
