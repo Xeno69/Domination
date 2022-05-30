@@ -782,7 +782,7 @@ if (d_occ_bldgs == 1) then {
 	
 				{
 					_currentElevation = (getTerrainHeightASL _x) + (_x # 2); //Z axis
-					if (_currentElevation > _topElevation && {(_x # 2) > 2}) then {_topElevation = _currentElevation};
+					if (_currentElevation > _topElevation && {(_x # 2) > 2}) then {_topElevation = _currentElevation}; // criteria: highest sea-level position AND position height is greater than 2m above terrain height
 				} forEach _posArray;
 	
 				_topElevation
