@@ -818,7 +818,8 @@ if (d_occ_bldgs == 1) then {
 				false,	//fillEvenly
 				true,	//fillTopDown
 				false,	//disableTeleport
-				2		//unitMovementMode
+				2,		//unitMovementMode
+				_x      //targetBuilding
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		} forEach _buildingsArray;
