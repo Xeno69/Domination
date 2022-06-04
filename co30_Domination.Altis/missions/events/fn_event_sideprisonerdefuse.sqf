@@ -50,7 +50,7 @@ if (isNil "_bldg") exitWith {
 };
 
 // only trigger the event when players are within 75x75 area of the captive pilot
-private _trigger = [getPos _bldg, [75,75,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
+private _trigger = [getPos _bldg, [75,75,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
