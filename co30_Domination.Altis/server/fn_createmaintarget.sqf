@@ -324,7 +324,7 @@ if (d_bar_mhq_destroy == 0) then {
 #ifndef __VN__
 private _unitstog = [
 	getPos _vec,
-	3,		//unit count
+	3,		//_maxNumUnits
 	10,		//fillRadius
 	true,	//fillRoof
 	false,	//fillEvenly
@@ -607,9 +607,9 @@ if (d_occ_bldgs == 1) then {
 	if (_occ_cnt > 0) then {
 		for "_xx" from 0 to (_occ_cnt - 1) do {
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				-1,
-				d_occ_rad,		//fillRadius
+				[[[_trg_center, d_occ_rad]],[]] call BIS_fnc_randomPos,
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -652,9 +652,9 @@ if (d_occ_bldgs == 1) then {
 	if (_ovrw_cnt > 0) then {
 		for "_xx" from 0 to (_ovrw_cnt - 1) do {
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				-1,
-				d_ovrw_rad,		//fillRadius
+				[[[_trg_center, d_ovrw_rad]],[]] call BIS_fnc_randomPos,
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -696,12 +696,12 @@ if (d_occ_bldgs == 1) then {
 	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
 	if (_amb_cnt > 0) then {
 		for "_xx" from 0 to (_amb_cnt - 1) do {
-			private _pos = [[[_trg_center, 100]],[]] call BIS_fnc_randomPos;
+			private _pos = [[[_trg_center, d_amb_rad]],[]] call BIS_fnc_randomPos;
 			// create an ambush group
 			private _unitstog = [
 				_pos,
-				-1,
-				d_amb_rad,		//fillRadius
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -713,8 +713,8 @@ if (d_occ_bldgs == 1) then {
 			// create an overwatch group in same building or area (cover the ambush group)
 			private _unitstog = [
 				_pos,
-				-1,
-				d_amb_rad,		//fillRadius
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				true,		//fillTopDown
@@ -781,8 +781,8 @@ if (d_occ_bldgs == 1) then {
 				_posArray = _bldg buildingPos -1;
 	
 				{
-					_currentElevation = _x # 2; //Z axis
-					if (_currentElevation > _topElevation) then {_topElevation = _currentElevation};
+					_currentElevation = (getTerrainHeightASL _x) + (_x # 2); //Z axis
+					if (_currentElevation > _topElevation && {(_x # 2) > 2}) then {_topElevation = _currentElevation}; // criteria: highest sea-level position AND position height is greater than 2m above terrain height
 				} forEach _posArray;
 	
 				_topElevation
@@ -812,13 +812,14 @@ if (d_occ_bldgs == 1) then {
 			__TRACE_2("","_x","count (_x buildingPos -1)")
 			private _unitstog = [
 				getPos _x,
-				2,		//unit count
+				2,		//_maxNumUnits
 				5,		//fillRadius
 				true,	//fillRoof
 				false,	//fillEvenly
 				true,	//fillTopDown
 				false,	//disableTeleport
-				2		//unitMovementMode
+				2,		//unitMovementMode
+				_x      //targetBuilding
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		} forEach _buildingsArray;

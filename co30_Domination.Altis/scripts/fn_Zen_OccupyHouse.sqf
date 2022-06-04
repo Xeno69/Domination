@@ -27,6 +27,7 @@
 //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
 //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
 //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
+//  (opt.) 13. _targetBuilding Object, target building may be passed
 // Return: Array of objects, the units that were not garrisoned
 
 #define I(X) X = X + 1;
@@ -49,7 +50,8 @@ params [
 	["_isRequireRoofOverhead", false, [true]],
 	["_isAllowSpawnNearEnemy", false, [true]],
 	["_isDryRun", false, [true]],
-	["_distanceFromBuildingCenter", -1, [0, objNull]]
+	["_distanceFromBuildingCenter", -1, [0, objNull]],
+	["_targetBuilding", objNull]
 ];
 
 __TRACE_1("","_this")
@@ -156,8 +158,14 @@ if (count _buildingsArrayFiltered == 0) then {
 	diag_log [format ["occupyhouse found suitable building list: %1", _buildingsArrayFiltered]];
 };
 
+// use targetBuilding if it was passed
+if !(isNull _targetBuilding) then {
+	//diag_log [format ["occupy script was passed a target building: %1", _targetBuilding]];
+	_buildingsArrayFiltered = [_targetBuilding];
+};
+
 private _buildingPosArray = [];
-0 = [_buildingsArrayFiltered] call _Zen_ArrayShuffle;
+
 {
 	_buildingPosArray pushBack (_x buildingPos -1);
 } forEach _buildingsArrayFiltered;
@@ -202,7 +210,14 @@ private _tmpPosArray = [];
 		_posArray deleteAt 0;
 		private _housePos = [_housePosBeforeEyeHeight select 0, _housePosBeforeEyeHeight select 1, (_housePosBeforeEyeHeight select 2) + (getTerrainHeightASL _housePosBeforeEyeHeight) + EYE_HEIGHT];
 		// must re-detect the building object
-		private _bldgs_list_redetected = [_housePos, 15] call d_fnc_getbldgswithpositions;
+		private _bldgs_list_redetected = [];
+		if !(isNull _targetBuilding) then {
+			// target building was provided, no need to redetect
+			_bldgs_list_redetected = [_targetBuilding];
+		} else {
+			// collect a list of buildings so we can attempt to redetect the target building
+			_bldgs_list_redetected = [_housePos, 15] call d_fnc_getbldgswithpositions;
+		};
 		
 		private _theBuilding = nil;
 		if (_bldgs_list_redetected isEqualTo []) then {
