@@ -6,7 +6,8 @@
 - Added: Occupy script uses fuzzy positions when build positions are full, by longtimegamer
 - Added: Param d_no_ai_silencer ("Remove silencer from spawned enemy AI units:" in lobby, default No) which removes silencers from spawned enemy AI units
 - Added: OpticsMode for the primary weapon is now set to the previous optics mode when a player gets revived
-- Added: New parameter to enable extra CAS ordnance (d_enable_extra_cas in description.ext, "Enable extra CAS ordnance" in lobby), by longtimegamer 
+- Added: New parameter to enable extra CAS ordnance (d_enable_extra_cas in description.ext, "Enable extra CAS ordnance" in lobby), by longtimegamer
+- Added: If a M113 Command is used as MHQ in the Global Mobilization version deploy the antenna too when the MHQ gets deployed
 - Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
