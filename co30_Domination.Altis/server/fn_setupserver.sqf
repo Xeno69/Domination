@@ -161,10 +161,12 @@ if (d_with_ranked) then {
 0 spawn d_fnc_scheck_uav;
 #endif
 
-0 spawn {
-	scriptname "spawn sendfpssetupserver";
-	sleep 10;
-	["dom_sendfps", {
-		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
-	}, 3] call d_fnc_eachframeadd;
+if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
+	0 spawn {
+		scriptname "spawn sendfpssetupserver";
+		sleep 10;
+		["dom_sendfps", {
+			diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+		}, 3] call d_fnc_eachframeadd;
+	};
 };
