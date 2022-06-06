@@ -23,7 +23,7 @@ private _event_succeed_points = 5;
 private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_center, (d_cur_target_radius * 0.25)]]] call BIS_fnc_randomPos;
 private _x_mt_event_ar = [];
 
-private _trigger = [_poss, [120,120,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
+private _trigger = [_poss, [120,120,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
