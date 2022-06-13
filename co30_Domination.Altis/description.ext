@@ -863,9 +863,9 @@ class Params {
 
 	class d_ViewdistanceChange {
 		title = "$STR_DOM_MISSIONSTRING_1041";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_VIEWDISTANCE_SERVER_INIT_CLIENT"};
 	};
 	
 	class d_AutoViewdistanceChangeDefault {
