@@ -6628,12 +6628,12 @@
 <French>Distance Vue Maximale:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1041">
-<English>Viewdistance changable:</English>
+<English>Viewdistance changeable:</English>
 <Spanish>Vista distancia variable:</Spanish>
 <Portuguese>Ver Distância variável:</Portuguese>
 <Korean>시가거리 변경 가능여부</Korean>
 <Japanese>視認距離変更可:</Japanese>
-<Original>Viewdistance changable:</Original>
+<Original>Viewdistance changeable:</Original>
 <Russian>Обзор можно изменить:</Russian>
 <Chinesesimp>调整视距：</Chinesesimp>
 <Chinese>改變視野距離:</Chinese>
@@ -14900,6 +14900,18 @@
 <Chinesesimp>Remove silencer from spawned enemy AI units:</Chinesesimp>
 <Chinese>Remove silencer from spawned enemy AI units:</Chinese>
 <French>Remove silencer from spawned enemy AI units:</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_VIEWDISTANCE_SERVER_INIT_CLIENT">
+<English>Yes (after server initializes client)</English>
+<Spanish>Yes (after server initializes client)</Spanish>
+<Portuguese>Yes (after server initializes client)</Portuguese>
+<Korean>Yes (after server initializes client)</Korean>
+<Japanese>Yes (after server initializes client)</Japanese>
+<Original>Yes (after server initializes client)</Original>
+<Russian>Yes (after server initializes client)</Russian>
+<Chinesesimp>Yes (after server initializes client)</Chinesesimp>
+<Chinese>Yes (after server initializes client)</Chinese>
+<French>Yes (after server initializes client)</French>
 </Key>
 </Container>
 </Package>

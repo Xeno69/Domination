@@ -25,6 +25,10 @@ if (hasInterface) then {
 	if (_vd > d_MaxViewDistance) then {
 		_vd = d_MaxViewDistance;
 	};
+	if (d_ViewdistanceChange == 2) then {
+		// special case, client may change later but initialize with d_InitialViewDistance
+		_vd = d_InitialViewDistance;
+	};
 	setViewDistance _vd;
 	diag_log ["DOM viewdistance at start:", _vd];
 	setObjectViewDistance (_vd + 100);
