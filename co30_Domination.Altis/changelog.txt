@@ -8,6 +8,8 @@
 - Added: OpticsMode for the primary weapon is now set to the previous optics mode when a player gets revived
 - Added: New parameter to enable extra CAS ordnance (d_enable_extra_cas in description.ext, "Enable extra CAS ordnance" in lobby), by longtimegamer
 - Added: If a M113 Command is used as MHQ in the Global Mobilization version deploy the antenna too when the MHQ gets deployed
+- Added: Mercenary settings available for all maps (2035 experimental), by longtimegamer
+- Added: New viewdistance option sets client to initial server value but player may change later (a server hint for player viewdistance), by longtimegamer
 - Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
@@ -24,6 +26,8 @@
 - Fixed: Do not spawn civilians near enemy units, by longtimegamer
 - Fixed: CAS fired eventhandler was called when arty fired
 - Fixed: Players get moved out of base artillery and AA vehicles if they somehow manage to get into them
+- Fixed: UAV triggers main target events, by longtimegamer
+- Fixed: Use building blacklist for enemy units as well as civilians, by longtimegamer
 - Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
 - Updated: IFA3 AIO version
 - Updated translations
