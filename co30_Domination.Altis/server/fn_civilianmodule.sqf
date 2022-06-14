@@ -29,7 +29,7 @@ private _civ_units_count_max = 500; // default (recalculated if adaptive setting
 
 private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
 
-private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_civ_blacklist) };
+private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist) };
 
 diag_log [format ["total possible buildings to spawn civs: %1", count (_buildings)]];
 
