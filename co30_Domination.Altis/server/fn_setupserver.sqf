@@ -116,8 +116,13 @@ private _av_check_fnc = {
 	} forEach (crew _this);
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
-	_this addEventhandler ["fired", {call d_fnc_casfired}];
 	_this addEventhandler ["fired", {call d_fnc_arifired}];
+	_this addEventhandler ["getIn", {
+		if (isPlayer (_this # 2)) then {
+			(_this # 2) action ["getOut", _this # 0];
+			diag_log format ["Attention!!!! %1 is trying to get into an artillery vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
+		};
+	}];
 	[_this, 2] spawn d_fnc_disglobalsim;
 };
 

@@ -22,6 +22,8 @@
 - Fixed: Do not spawn guerrilla events if d_with_MainTargetEvents == -1 "always"
 - Fixed: When a plane without VTOL was used for dropping para units over main targets it sometimes tried to land like a chopper or VTOL at the AO
 - Fixed: Do not spawn civilians near enemy units, by longtimegamer
+- Fixed: CAS fired eventhandler was called when arty fired
+- Fixed: Players get moved out of base artillery and AA vehicles if they somehow manage to get into them
 - Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
 - Updated: IFA3 AIO version
 - Updated translations
