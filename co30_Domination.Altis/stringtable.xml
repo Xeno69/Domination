@@ -14913,6 +14913,18 @@
 <Chinese>Yes (after server initializes client)</Chinese>
 <French>Yes (after server initializes client)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2097">
+<English>Use server system time as game time</English>
+<Spanish>Use server system time as game time</Spanish>
+<Portuguese>Use server system time as game time</Portuguese>
+<Korean>Use server system time as game time</Korean>
+<Japanese>Use server system time as game time</Japanese>
+<Original>Use server system time as game time</Original>
+<Russian>Use server system time as game time</Russian>
+<Chinesesimp>Use server system time as game time</Chinesesimp>
+<Chinese>Use server system time as game time</Chinese>
+<French>Use server system time as game time</French>
+</Key>
 </Container>
 </Package>
 </Project>

@@ -84,6 +84,9 @@
 > Target radius (normally 300m), available are (in meter) 350, 450, 550, 650, 750, 850 and 1000<br/>
 #### **d_save_to_mpns / Save player and mission progress to missionProfileNamespace if no SQL database is available**
 > Default: 1 (Yes, enabled; 0 or No to disable it)<br/>
+#### **d_use_systemtime / Use server system time as game time**
+> Default: 0 (No, disabled; 1 or Yes to enable it)<br/>
+> Uses server time as game start time<br/>
 #### **d_weather / Internal weather system:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_enable_fog / Enable fog (internal weather system):**

@@ -10,6 +10,7 @@
 - Added: If a M113 Command is used as MHQ in the Global Mobilization version deploy the antenna too when the MHQ gets deployed
 - Added: Mercenary settings available for all maps (2035 experimental), by longtimegamer
 - Added: New viewdistance option sets client to initial server value but player may change later (a server hint for player viewdistance), by longtimegamer
+- Added: New param d_use_systemtime ("Use server system time as game time" in lobby) to use server time as game start time, default disabled
 - Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
 - Fixed: Some targets in the Western Sahara version were still using Malden names
