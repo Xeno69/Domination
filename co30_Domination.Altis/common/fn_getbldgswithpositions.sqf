@@ -17,7 +17,9 @@ if (_buildingsArrayRaw isEqualTo []) exitWith {
 	[]
 };
 
-private _buildingsArrayUsable = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
+private _buildingsArrayUsableUnfiltered = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
+
+private _buildingsArrayUsable = _buildingsArrayUsableUnfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist) };
 
 if (_buildingsArrayUsable isEqualTo []) exitWith {
 	[]

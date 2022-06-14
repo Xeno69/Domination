@@ -25,6 +25,10 @@ if (hasInterface) then {
 	if (_vd > d_MaxViewDistance) then {
 		_vd = d_MaxViewDistance;
 	};
+	if (d_ViewdistanceChange == 2) then {
+		// special case, client may change later but initialize with d_InitialViewDistance
+		_vd = d_InitialViewDistance;
+	};
 	setViewDistance _vd;
 	diag_log ["DOM viewdistance at start:", _vd];
 	setObjectViewDistance (_vd + 100);
@@ -384,8 +388,8 @@ if (isNil "d_mt_tower") then {
 	d_mt_tower_pos = [];
 };
 
-if (isNil "d_object_spawn_civ_blacklist") then {
-	d_object_spawn_civ_blacklist = [
+if (isNil "d_object_spawn_blacklist") then {
+	d_object_spawn_blacklist = [
 		"vn_dyke.p3d",
 		"vn_dyke_10.p3d",
 		"u_addon_01_v1_f.p3d",
@@ -400,7 +404,9 @@ if (isNil "d_object_spawn_civ_blacklist") then {
 		"i_garage_v1_f.p3d",
 		"i_garage_v2_f.p3d",
 		"cargo_house_slum_f.p3d",
-		"i_addon_02_v1_f.p3d"
+		"i_addon_02_v1_f.p3d",
+		"cargo_hq_v1_f.p3d",
+		"metal_shed_f.p3d"
 	];
 };
 

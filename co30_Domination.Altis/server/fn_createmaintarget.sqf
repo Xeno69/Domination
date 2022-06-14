@@ -42,24 +42,13 @@ private _merc_array = [
 	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
 ];
 
-#ifdef __ALTIS__
 if (d_enemy_mercenaries == 1) then {
 	d_allmen_E =+ _merc_array;
 	d_specops_E =+ _merc_array;
 	publicVariable "d_allmen_E";
 	publicVariable "d_specops_E";
-	diag_log ["Domination mercenaries configured - Altis"];
+	diag_log ["mercenaries configured for this map"];
 };
-#endif
-#ifdef __MALDEN__
-if (d_enemy_mercenaries == 1) then {
-	d_allmen_E =+ _merc_array;
-	d_specops_E =+ _merc_array;
-	publicVariable "d_allmen_E";
-	publicVariable "d_specops_E";
-	diag_log ["mercenaries configured - Malden"];
-};
-#endif
 
 private _type_list_guard = [];
 private _type_list_guard_static = [];
