@@ -28,6 +28,7 @@
 - Fixed: Players get moved out of base artillery and AA vehicles if they somehow manage to get into them
 - Fixed: UAV triggers main target events, by longtimegamer
 - Fixed: Use building blacklist for enemy units as well as civilians, by longtimegamer
+- Fixed: Virtual Arsenal for recruited AI can only be used near the flag at base to avoid them beeing used as mobile arsenal point
 - Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
 - Updated: IFA3 AIO version
 - Updated translations

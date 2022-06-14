@@ -149,7 +149,7 @@ if (!d_with_ranked) then {
 	} else {
 		{[_this # 0, _this # 0, true] call ace_arsenal_fnc_openBox}
 	};
-	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "true", 3];
+	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "_target distance2D d_FLAG_BASE < 80", 3];
 };
 
 [_unit] remoteExecCall ["d_fnc_addceo", 2];
