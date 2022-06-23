@@ -30,6 +30,7 @@
 - Fixed: UAV triggers main target events, by longtimegamer
 - Fixed: Use building blacklist for enemy units as well as civilians, by longtimegamer
 - Fixed: Virtual Arsenal for recruited AI can only be used near the flag at base to avoid them beeing used as mobile arsenal point
+- Fixed: Calling CAS in the TT version did not work at all
 - Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
 - Updated: IFA3 AIO version
 - Updated translations

@@ -82,6 +82,7 @@ if (side (group player) == blufor) then {
 };
 d_side_player = d_player_side;
 d_can_call_drop_ar = [];
+d_can_call_cas = [d_string_player];
 #endif
 
 d_arsenal_opened = false;

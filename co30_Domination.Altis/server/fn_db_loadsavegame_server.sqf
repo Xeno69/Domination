@@ -92,7 +92,12 @@ if (!d_tt_ver) then {
 			if (_pn_missionsave isEqualTo []) exitWith {};
 			if (_sender != objNull) then {
 				private _comna = tolower (worldName + _sname);
-				private _idx = _pn_missionsave findIf {(_x # 18) == _comna};
+				__TRACE_1("","_comna")
+				private _idx = _pn_missionsave findIf {
+					__TRACE_1("","_x")
+					__TRACE_1("","count _x")
+					count _x > 18 && {(_x # 18) == _comna}
+				};
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 18;
@@ -102,7 +107,9 @@ if (!d_tt_ver) then {
 				};
 			} else {
 				private _comna = toLower (worldName + _sname + briefingname);
-				private _idx = _pn_missionsave findIf {(_x # 19) == _comna};
+				private _idx = _pn_missionsave findIf {
+					count _x > 19 && {(_x # 19) == _comna}
+				};
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 19;

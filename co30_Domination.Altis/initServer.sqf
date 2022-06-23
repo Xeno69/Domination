@@ -48,7 +48,7 @@ if (d_database_found) then {
 				};
 				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
 				if (!isNil "_pn_missionsave") then {
-				__TRACE_1("new","_pn_missionsave")
+					__TRACE_1("new","_pn_missionsave")
 					private _wn = tolower worldname;
 					__TRACE_1("","_wn")
 					{
@@ -85,15 +85,19 @@ if (d_database_found) then {
 			if (d_db_type == 2) exitWith {
 				private _pn_missionsave = profileNamespace getVariable "dom_missionsavett";
 				if (!isNil "_pn_missionsave") then {
+					__TRACE_1("old","_pn_missionsave")
 					missionProfileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
 					saveMissionProfileNamespace;
 					profileNamespace setVariable ["dom_missionsavett", nil];
 				};
 				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsavett";
 				if (!isNil "_pn_missionsave") then {
+					__TRACE_1("new","_pn_missionsave")
 					private _wn = tolower worldname;
+					__TRACE_1("","_wn")
 					{
-						if (_x # 12 == _wn) then {
+						__TRACE_1("","_x")
+						if ((_x # 12) isEqualType "" && {_x # 12 == _wn}) then {
 							_dbresult pushBack _x;
 						};
 					} forEach _pn_missionsave;
