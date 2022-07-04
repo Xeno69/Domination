@@ -49,7 +49,7 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 		_unitCount = count (_posArray);
 	};
 	private _spawn_pos = selectRandom _posArray;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, _unitCount, opfor] call d_fnc_makemgroup;
+	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, _unitCount, true] call d_fnc_makemgroup;
 	_newgroup setCombatMode "BLUE";
 	private _unitsNotGarrisoned = [_spawn_pos, _units, 10, false, false, true, false, 0, true, true] call d_fnc_Zen_OccupyHouse;
 	{		

@@ -12185,6 +12185,30 @@
 <Chinese>%1 殺死了一名平民！扣除 %2 分的罰款</Chinese>
 <French>%1 a tué un civil! Pénalité de %2 points déduite.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT">
+<English>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</English>
+<Spanish>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Spanish>
+<Portuguese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Portuguese>
+<Korean>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Korean>
+<Japanese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Japanese>
+<Original>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Original>
+<Russian>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Russian>
+<Chinesesimp>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Chinesesimp>
+<Chinese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Chinese>
+<French>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT_JOIN">
+<English>The VIP is following you.  Escort them to the center of town!</English>
+<Spanish>The VIP is following you.  Escort them to the center of town!</Spanish>
+<Portuguese>The VIP is following you.  Escort them to the center of town!</Portuguese>
+<Korean>The VIP is following you.  Escort them to the center of town!</Korean>
+<Japanese>The VIP is following you.  Escort them to the center of town!</Japanese>
+<Original>The VIP is following you.  Escort them to the center of town!</Original>
+<Russian>The VIP is following you.  Escort them to the center of town!</Russian>
+<Chinesesimp>The VIP is following you.  Escort them to the center of town!</Chinesesimp>
+<Chinese>The VIP is following you.  Escort them to the center of town!</Chinese>
+<French>The VIP is following you.  Escort them to the center of town!</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATH">
 <English>%1 has been marked for death.  Keep %1 alive for %2 seconds.</English>
 <Spanish>%1 has been marked for death.  Keep %1 alive for %2 seconds.</Spanish>
