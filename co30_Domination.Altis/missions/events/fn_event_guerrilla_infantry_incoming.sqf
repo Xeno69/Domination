@@ -83,7 +83,7 @@ private _guerrillaBaseSkill = 0.35;
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, opfor] call d_fnc_makemgroup;
+	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];

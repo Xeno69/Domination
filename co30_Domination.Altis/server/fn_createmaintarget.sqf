@@ -469,11 +469,7 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 		private _xpos = _wp_array_inf # _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
 		__TRACE("from createmaintarget 1")
-#ifndef __TT__
-		private _observer = ([_xpos, _unit_array, _agrp, true, false, -1, d_side_player] call d_fnc_makemgroup) # 0;
-#else
 		private _observer = ([_xpos, _unit_array, _agrp, true, false] call d_fnc_makemgroup) # 0;
-#endif
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;
 		_agrp setVariable ["d_PATR", true];
 		if (d_with_dynsim == 0) then {
@@ -868,6 +864,9 @@ if (d_with_MainTargetEvents != 0) then {
 			};
 			case "CIV_RESISTANCE_JOINPLAYER": {
 				[_radius, _trg_center, true] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+			};
+			case "MARKED_FOR_DEATH_VIP_ESCORT": {
+				[_radius, _trg_center, true] spawn d_fnc_event_sidevipescort;
 			};
 		};
 	};

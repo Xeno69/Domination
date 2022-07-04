@@ -7,22 +7,18 @@
 // this script needs to run fast so avoid sleep here
 
 // _unit - this unit
-// _targetSide - side the unit is engaging
+// _targetSideArray - array of sides the unit is engaging
 // _awarenessRadius - distance AI will be aware of players, radius in meters
 // _pursueRadius - distance AI will pursue a player, radius in meters
 // _isAggressiveShoot - boolean, true will order AI to frequently fire (doTarget and doSuppressiveFire) at player when line of sight is favorable
 // _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis (this is useful when doSuppressiveFire causes the unit to burn ammo rapidly)
-params ["_unit", "_targetSide", "_awarenessRadius", "_pursueRadius", "_isAggressiveShoot", "_isQuickAmmo"];
+params ["_unit", "_targetSideArray", "_awarenessRadius", "_pursueRadius", "_isAggressiveShoot", "_isQuickAmmo"];
 
 __TRACE_1("","_this")
 
 if (_awarenessRadius <= 0) exitWith {};
 
 if (!alive _unit) exitWith {};
-
-if (_targetSide isEqualType "") then {
-	_targetSide = [_targetSide];
-};
 
 _unit disableAI "TARGET";
 private _startingPosition = _unit getVariable "startingPosition";
@@ -66,6 +62,11 @@ private _moveOrderInterval = 30;
 private _ammoRefillInterval = 15;
 
 private _isSniper = "sniper" in (toLowerANSI (groupId (group _unit)));
+
+//still testing
+//if (_isSniper) then {
+//	_awarenessRadius = 1400;
+//};
 
 if (_unit getVariable ["ammoCount", 0] > _unit ammo primaryWeapon _unit || {_unit getVariable ["magazineCount", 0] > count magazinesAmmo _unit}) then {
 	//yes the unit actually fired
@@ -112,7 +113,7 @@ if (!_fired && {_isSniper && {time > _bodyPositionNext}}) then {
 private _Dtargets = [];
 
 {
-	if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSide && {_x distance2D _unit < _detectionRadius}}}}}) then {
+	if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSideArray && {_x distance2D _unit < _detectionRadius}}}}}) then {
 		if (!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}) then {
 			_unit reveal [_x, 4];
 			_Dtargets pushBack [_x distance2D _unit, _x];

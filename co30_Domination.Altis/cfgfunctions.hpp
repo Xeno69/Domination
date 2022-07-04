@@ -474,6 +474,7 @@ class cfgFunctions {
 			addc(event_rabbitrescue);
 			addc(event_markedfordeath);
 			addc(event_sidevipdefend);
+			addc(event_sidevipescort);
 			addc(event_sideprisonerdefuse);
 			addc(event_sidekilltriggerman);
 			addc(event_civ_massacre);
