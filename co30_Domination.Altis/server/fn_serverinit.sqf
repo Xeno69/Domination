@@ -27,9 +27,10 @@ d_x_mt_event_types = [
 	"MARKED_FOR_DEATH",
 	"RESCUE_DEFEND",
 	"RESCUE_DEFUSE",
-	//"CIV_RESISTANCE_INDEPENDENT", // todo - broken
-	//"CIV_RESISTANCE_JOINPLAYER" // todo - broken
-	"KILL_TRIGGERMAN"
+	"CIV_RESISTANCE_INDEPENDENT",
+	"CIV_RESISTANCE_JOINPLAYER",
+	"KILL_TRIGGERMAN",
+	"MARKED_FOR_DEATH_VIP_ESCORT"
 ];
 if (d_WithLessArmor == 2 && {"GUERRILLA_TANKS" in d_x_mt_event_types}) then {d_x_mt_event_types = d_x_mt_event_types - ["GUERRILLA_TANKS"]};
 

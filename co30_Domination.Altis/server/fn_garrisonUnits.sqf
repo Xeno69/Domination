@@ -36,12 +36,8 @@ if (_unitMovementMode == 2) then {
 	_newgroup setGroupId [_sniperGrpName];
 };
 
-#ifndef __TT__
-private _units_to_garrison = [_centerPos, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup;
-//private _units_to_garrison = ([_centerPos, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup) + ([_centerPos, _unitlist, _newgroup, false, true, -1, d_side_player] call d_fnc_makemgroup);
-#else
-private _units_to_garrison = [_centerPos, _unitlist, _newgroup, false, true, -1, [blufor, opfor]] call d_fnc_makemgroup;
-#endif
+private _units_to_garrison = [_centerPos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
+
 if (_unitMovementMode == 2) then {
 	{
 		_x disableAI "PATH";
