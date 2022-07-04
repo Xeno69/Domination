@@ -943,10 +943,3 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai
 	_dyke setpos [_pos#0,_pos#1,.3];
 } foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif
-
-
-
-
-//////////////////
-[_radius, _trg_center] spawn d_fnc_event_sidevipescort;
-[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
