@@ -16,7 +16,7 @@ if (!isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-private _wait_time = 30;
+private _wait_time = 90;
 private _joined = false;
 private _check_player_nearby = {
 	// check if player is close enough to "rescue" the pilot
