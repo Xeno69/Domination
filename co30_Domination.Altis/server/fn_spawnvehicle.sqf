@@ -79,9 +79,9 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	_veh = createVehicle [_typev1, _posv1, [], 0, "NONE"];
 	_veh call d_fnc_nodamoff;
 	if (d_del_crew_always == 1) then {
-		if (random 100 > 50) then {_veh allowCrewInImmobile true};
+		_veh allowCrewInImmobile [random 100 > 50, true];
 	} else {
-		_veh allowCrewInImmobile true;
+		_veh allowCrewInImmobile [false, true];
 	};
 	_veh setDir _azi;
 	_veh setVehiclePosition [_veh, [], 0, "NONE"];
