@@ -55,11 +55,11 @@ if (isNil "d_delete_marker_meh") then {
 
 d_meh_markercreated = addMissionEventHandler ["MarkerCreated", {
 	if (!isNull (_this # 2)) then {
-		if ((markerPos (_this # 0)) distance2D (_thisArgs # 0) < ((_thisArgs # 1) + 300)) then {
+		if (markerPos (_this # 0) distance2D (_thisArgs # 0) < _thisArgs # 1) then {
 			d_delete_marker_meh pushBack (_this # 0);
 		};
 	};
-}, [d_cur_tgt_pos, d_mttarget_radius_patrol]];
+}, [d_cur_tgt_pos, d_mttarget_radius_patrol + 300]];
 
 d_update_target = false;
 d_main_target_ready = false;
