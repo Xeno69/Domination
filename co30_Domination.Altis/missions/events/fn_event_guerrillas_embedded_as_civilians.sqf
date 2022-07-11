@@ -15,7 +15,7 @@ if !(isServer) exitWith {};
 params [
 	["_target_radius", ""],
 	["_target_center", ""],
-	["_join_player", false]
+	["_join_player", false] // deprecated
 ];
 
 private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbldgswithpositions;

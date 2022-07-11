@@ -869,9 +869,6 @@ if (d_with_MainTargetEvents != 0) then {
 			case "CIV_RESISTANCE_INDEPENDENT": {
 				[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
 			};
-			case "CIV_RESISTANCE_JOINPLAYER": {
-				[_radius, _trg_center, true] spawn d_fnc_event_guerrillas_embedded_as_civilians;
-			};
 			case "MARKED_FOR_DEATH_VIP_ESCORT": {
 				[_radius, _trg_center, true] spawn d_fnc_event_sidevipescort;
 			};
