@@ -187,11 +187,12 @@ if (_all_dead) then {
 	{
 		_x addScore _event_succeed_points;
 	} forEach (allPlayers - entities "HeadlessClient_F");
-	// reset 
-	d_priority_targets deleteAt 0;
-	publicVariable "d_priority_targets";
-	deleteVehicle _pilot1;
 };
+
+// reset 
+d_priority_targets deleteAt 0;
+publicVariable "d_priority_targets";
+deleteVehicle _pilot1;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
