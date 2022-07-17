@@ -34,7 +34,7 @@ d_sm_arty = switch (d_enemy_side_short) do {
 	case "G": {"B_MBT_01_arty_F"}; // no independent arty in Alpha 3
 };
 d_sm_plane = switch (d_enemy_side_short) do {
-	case "E": {"uns_Mig21_CAS"};
+	case "E": {"vn_o_air_mig19_cas"};
 	case "W": {"rhsusf_f22"};
 	case "G": {"I_Plane_Fighter_03_CAS_F"};
 };

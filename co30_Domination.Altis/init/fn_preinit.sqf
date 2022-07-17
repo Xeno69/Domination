@@ -1456,7 +1456,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				"RHS_Su25SM_vvsc"
 			};
 			if (d_vn) exitWith {
-				""
+				"vn_o_air_mig19_cas"
 			};
 			"O_Plane_CAS_02_F"
 		};

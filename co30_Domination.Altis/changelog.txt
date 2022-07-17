@@ -34,4 +34,5 @@
 - Fixed: Calling CAS in the TT version did not work at all
 - Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
 - Updated: IFA3 AIO version
+- Updated: S.O.G. version (update 1.2 vehicles added)
 - Updated translations
