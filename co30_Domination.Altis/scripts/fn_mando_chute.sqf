@@ -139,6 +139,7 @@ if (_is_ammo) then {
 		private _hhe = createVehicle [d_HeliHEmpty, _pos_man, [], 0, "CAN_COLLIDE"];
 		_pos_man setPos (getPosATL _hhe);
 		deleteVehicle _hhe;
+		_man engineOn false;
 	};
 };
 if (!isNull _man) then {
