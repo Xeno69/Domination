@@ -134,13 +134,11 @@ if (_is_ammo) then {
 #endif
 } else {
 	if (position _man # 2 <= -1) then {
-		private _pos_man = getPos _man;
+		private _pos_man = getPosATL _man;
 		_pos_man set [2, 0];
-		private _helper1 = d_HeliHEmpty createVehicle _pos_man;
-		_helper1 setPos _pos_man;
-		_man setPos _pos_man;
-		_man setVectorUp (vectorUp  _helper1);
-		deleteVehicle _helper1;
+		private _hhe = createVehicle [d_HeliHEmpty, _pos_man, [], 0, "CAN_COLLIDE"];
+		_pos_man setPos (getPosATL _hhe);
+		deleteVehicle _hhe;
 	};
 };
 if (!isNull _man) then {
