@@ -399,18 +399,16 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
 			[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 		};
-	};
-	private _allmhs = allMissionObjects "HeliH";
-	{
-		[_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
-	} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
-	if (d_carrier) then {
-		[d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0] call d_fnc_addto3drawar;
-	};
-	if (d_dis_servicep == 1) then {
+		private _allmhs = allMissionObjects "HeliH";
+		{
+			[_x, localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
+		} forEach (_allmhs select {(str _x) select [0, 11] == "d_wreck_rep"});
 		{
 			[_x, localize "STR_DOM_MISSIONSTRING_1761", 5, 1, 0] call d_fnc_addto3drawar;
 		} forEach (_allmhs select {(str _x) select [0, 20] == "d_serviceall_trigger"});
+	};
+	if (d_carrier) then {
+		[d_flag_airfield, localize "STR_DOM_MISSIONSTRING_1760", 5, 0, 0] call d_fnc_addto3drawar;
 	};
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
@@ -429,9 +427,9 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 		if (!isNil "d_chopper_trigger") then {
 			[[d_chopper_triggerR, d_chopper_trigger] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 		};
-	};
-	if (!isNil "d_wreck_rep") then {
-		[[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
+		if (!isNil "d_wreck_rep") then {
+			[[d_wreck_rep2, d_wreck_rep] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_0", 5, 1, 1] call d_fnc_addto3drawar;
+		};
 	};
 #endif
 	{

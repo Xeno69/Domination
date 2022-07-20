@@ -100,12 +100,14 @@ call d_fnc_maketarget_names;
 
 d_service_buildings = [[], [], []];
 #ifndef __TT__
-if (!d_ifa3 && {d_dis_servicep == 1}) then {
+if (d_dis_servicep == 1) then {
 	if (markerPos "d_base_jet_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [0, [markerPos "d_base_jet_sb", markerDir "d_base_jet_sb"]];
 	};
-	if (markerPos "d_base_chopper_sb" isNotEqualTo [0,0,0]) then {
-		d_service_buildings set [1, [markerPos "d_base_chopper_sb", markerDir "d_base_chopper_sb"]];
+	if (!d_ifa3) then {
+		if (markerPos "d_base_chopper_sb" isNotEqualTo [0,0,0]) then {
+			d_service_buildings set [1, [markerPos "d_base_chopper_sb", markerDir "d_base_chopper_sb"]];
+		};
 	};
 	if (markerPos "d_base_wreck_sb" isNotEqualTo [0,0,0]) then {
 		d_service_buildings set [2, [markerPos "d_base_wreck_sb", markerDir "d_base_wreck_sb"]];
@@ -113,10 +115,8 @@ if (!d_ifa3 && {d_dis_servicep == 1}) then {
 };
 d_FLAG_BASE allowDamage false;
 if (isServer) then {
-	if (!d_ifa3) then {
-		deleteMarker "d_base_jet_sb";
-		deleteMarker "d_base_chopper_sb";
-	};
+	deleteMarker "d_base_jet_sb";
+	deleteMarker "d_base_chopper_sb";
 	deleteMarker "d_base_wreck_sb";
 };
 
@@ -646,10 +646,10 @@ if (isServer) then {
 
 if (hasInterface) then {
 #ifndef __TT__
-	{
-		[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 11] == "d_wreck_rep"});
 	if (d_dis_servicep == 1) then {
+		{
+			[format ["d_wreck_service%1", _forEachIndex], _x,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 11] == "d_wreck_rep"});
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
@@ -674,10 +674,10 @@ if (hasInterface) then {
 		} forEach (allMapMarkers select {_x find "bonus_" != -1});
 	};
 #else
-	if (!isNil "d_wreck_rep") then {
-		["d_wreck_service", d_wreck_rep,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
 	if (d_dis_servicep == 1) then {
+		if (!isNil "d_wreck_rep") then {
+			["d_wreck_service", d_wreck_rep,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
 		if (!isNil "d_jet_trigger") then {
 			["d_aircraft_service", d_jet_trigger,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
@@ -691,10 +691,10 @@ if (hasInterface) then {
 	["d_Ammobox_Reload", d_AMMOLOAD,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_5",0,"hd_dot"] call d_fnc_CreateMarkerLocal;
 	["d_teleporter", d_WFLAG_BASE,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_6",0,"mil_flag"] call d_fnc_CreateMarkerLocal;
 
-	if (!isNil "d_wreck_rep2") then {
-		["d_wreck_serviceR", d_wreck_rep2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
-	};
 	if (d_dis_servicep == 1) then {
+		if (!isNil "d_wreck_rep2") then {
+			["d_wreck_serviceR", d_wreck_rep2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_0",0,"n_service"] call d_fnc_CreateMarkerLocal;
+		};
 		if (!isNil "d_jet_trigger2") then {
 			["d_aircraft_serviceR", d_jet_trigger2,"ICON","ColorYellow",[1,1],localize "STR_DOM_MISSIONSTRING_2",0,"n_service"] call d_fnc_CreateMarkerLocal;
 		};
