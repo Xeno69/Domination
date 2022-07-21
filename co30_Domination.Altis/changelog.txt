@@ -34,6 +34,7 @@
 - Fixed: Virtual Arsenal for recruited AI can only be used near the flag at base to avoid them beeing used as mobile arsenal point
 - Fixed: Calling CAS in the TT version did not work at all
 - Fixed: Air dropped vehicles should no longer land nose down (hopefully)
+- Fixed: Exploit where one could heal a friendly AI unit many times to increase score points
 - Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
 - Updated: IFA3 AIO version
 - Updated: S.O.G. version (update 1.2 vehicles added)
