@@ -14709,6 +14709,30 @@
 <Chinese>禁用語音：</Chinese>
 <French>Disable voices:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2084">
+<English>Save mission progress to profileNamespace if no database is available</English>
+<Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
+<Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
+<Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
+<Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
+<Original>Save mission progress to profileNamespace if no database is available</Original>
+<Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
+<Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
+<Chinese>如果沒有可用的數據庫，則將任務進度保存到 profileNamespace </Chinese>
+<French>Save mission progress to profileNamespace if no database is available</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2085">
+<English>Saved profileNamespace mission progress auto load</English>
+<Spanish>Saved profileNamespace mission progress auto load</Spanish>
+<Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
+<Korean>profileNamespace에 미션 진행 상황 저장 및 자동 불러오기</Korean>
+<Japanese>Saved profileNamespace mission progress auto load</Japanese>
+<Original>Saved profileNamespace mission progress auto load</Original>
+<Russian>Saved profileNamespace mission progress auto load</Russian>
+<Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
+<Chinese>保存的 profileNamespace 任務進度自動加載</Chinese>
+<French>Saved profileNamespace mission progress auto load</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
@@ -14877,6 +14901,18 @@
 <Chinese>Enemy mercenaries (2035 only)</Chinese>
 <French>Enemy mercenaries (2035 only)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENEMY_FACTIONS">
+<English>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</English>
+<Spanish>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Spanish>
+<Portuguese>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Portuguese>
+<Korean>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Korean>
+<Japanese>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Japanese>
+<Original>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Original>
+<Russian>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Russian>
+<Chinesesimp>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Chinesesimp>
+<Chinese>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</Chinese>
+<French>Enemy factions experimental (Community Factions Project, Asian Factions for CUP, 2035)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2093">
 <English>No Data Available Yet</English>
 <Spanish>No Data Available Yet</Spanish>
@@ -14948,6 +14984,66 @@
 <Chinesesimp>Use server system time as game time</Chinesesimp>
 <Chinese>Use server system time as game time</Chinese>
 <French>Use server system time as game time</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_TALIBAN">
+<English>Taliban (CFP)</English>
+<Spanish>Taliban (CFP)</Spanish>
+<Portuguese>Taliban (CFP)</Portuguese>
+<Korean>Taliban (CFP)</Korean>
+<Japanese>Taliban (CFP)</Japanese>
+<Original>Taliban (CFP)</Original>
+<Russian>Taliban (CFP)</Russian>
+<Chinesesimp>Taliban (CFP)</Chinesesimp>
+<Chinese>Taliban (CFP)</Chinese>
+<French>Taliban (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_ASIAN_INSURGENTS">
+<English>Asian Insurgents (AF CUP)</English>
+<Spanish>Asian Insurgents (AF CUP)</Spanish>
+<Portuguese>Asian Insurgents (AF CUP)</Portuguese>
+<Korean>Asian Insurgents (AF CUP)</Korean>
+<Japanese>Asian Insurgents (AF CUP)</Japanese>
+<Original>Asian Insurgents (AF CUP)</Original>
+<Russian>Asian Insurgents (AF CUP)</Russian>
+<Chinesesimp>Asian Insurgents (AF CUP)</Chinesesimp>
+<Chinese>Asian Insurgents (AF CUP)</Chinese>
+<French>Asian Insurgents (AF CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CENTRAL_AFRICAN_REBELS">
+<English>Central African Rebels (CFP)</English>
+<Spanish>Central African Rebels (CFP)</Spanish>
+<Portuguese>Central African Rebels (CFP)</Portuguese>
+<Korean>Central African Rebels (CFP)</Korean>
+<Japanese>Central African Rebels (CFP)</Japanese>
+<Original>Central African Rebels (CFP)</Original>
+<Russian>Central African Rebels (CFP)</Russian>
+<Chinesesimp>Central African Rebels (CFP)</Chinesesimp>
+<Chinese>Central African Rebels (CFP)</Chinese>
+<French>Central African Rebels (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_ISLAMIC_STATE">
+<English>Islamic State (CFP)</English>
+<Spanish>Islamic State (CFP)</Spanish>
+<Portuguese>Islamic State (CFP)</Portuguese>
+<Korean>Islamic State (CFP)</Korean>
+<Japanese>Islamic State (CFP)</Japanese>
+<Original>Islamic State (CFP)</Original>
+<Russian>Islamic State (CFP)</Russian>
+<Chinesesimp>Islamic State (CFP)</Chinesesimp>
+<Chinese>Islamic State (CFP)</Chinese>
+<French>Islamic State (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_SUDANESE_ARMED_FORCES">
+<English>Sudanese Armed Forces (CFP)</English>
+<Spanish>Sudanese Armed Forces (CFP)</Spanish>
+<Portuguese>Sudanese Armed Forces (CFP)</Portuguese>
+<Korean>Sudanese Armed Forces (CFP)</Korean>
+<Japanese>Sudanese Armed Forces (CFP)</Japanese>
+<Original>Sudanese Armed Forces (CFP)</Original>
+<Russian>Sudanese Armed Forces (CFP)</Russian>
+<Chinesesimp>Sudanese Armed Forces (CFP)</Chinesesimp>
+<Chinese>Sudanese Armed Forces (CFP)</Chinese>
+<French>Sudanese Armed Forces (CFP)</French>
 </Key>
 </Container>
 </Package>

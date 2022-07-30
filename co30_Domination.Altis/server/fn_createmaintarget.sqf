@@ -36,7 +36,8 @@ private _selectitvec = {
 	};
 };
 
-// if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
+// if selected use this array to override with mercenary units (nice weapons but no body armor)
+// requires 2035 DLC
 private _merc_array = [
 	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
 	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
@@ -48,6 +49,62 @@ if (d_enemy_mercenaries == 1) then {
 	publicVariable "d_allmen_E";
 	publicVariable "d_specops_E";
 	diag_log ["mercenaries configured for this map"];
+};
+
+private _faction_array = [];
+
+if (d_enemy_factions > 0) then {
+
+	// if selected use this array to override with factions units
+	// most faction choices require CUP or CFP (Community Factions Project) or Asian Factions for CUP, more may be added later
+	
+	// Taliban
+	if (d_enemy_factions == 1) then {
+		_faction_array = [
+			["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup
+		];
+	};
+	
+	// Asian Insurgents
+	if (d_enemy_factions == 2) then {
+		_faction_array = [
+			["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_a"] call d_fnc_GetConfigGroup,
+			["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_b"] call d_fnc_GetConfigGroup
+		];
+	};
+	
+	// Central African Rebels
+	if (d_enemy_factions == 3) then {
+		_faction_array = [
+			["East","CFP_O_SOREBEL","Infantry","cfp_o_sorebel_infantry_rebel_squad"] call d_fnc_GetConfigGroup,
+			["East","CFP_O_SOREBEL","Motorized","cfp_o_sorebel_motorized_technical"] call d_fnc_GetConfigGroup
+		];
+	};
+	
+	// Islamic State
+	if (d_enemy_factions == 4) then {
+		_faction_array = [
+			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_inf_squad"] call d_fnc_GetConfigGroup,
+			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_wpn_squad"] call d_fnc_GetConfigGroup,
+			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup
+		];
+	};
+	
+	// Sudanese Armed Forces
+	if (d_enemy_factions == 5) then {
+		_faction_array = [
+			["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_squad"] call d_fnc_GetConfigGroup,
+			["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_riot_squad"] call d_fnc_GetConfigGroup,
+			["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_specops_paratrooper_squad"] call d_fnc_GetConfigGroup
+		];
+	};
+	
+	d_allmen_E =+ _faction_array;
+	d_specops_E =+ _faction_array;
+	publicVariable "d_allmen_E";
+	publicVariable "d_specops_E";
+	diag_log [format["faction # %1 configured for this map", d_enemy_factions]];
+
 };
 
 private _type_list_guard = [];
