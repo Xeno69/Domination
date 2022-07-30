@@ -14709,30 +14709,6 @@
 <Chinese>禁用語音：</Chinese>
 <French>Disable voices:</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_2084">
-<English>Save mission progress to profileNamespace if no database is available</English>
-<Spanish>Save mission progress to profileNamespace if no database is available</Spanish>
-<Portuguese>Save mission progress to profileNamespace if no database is available</Portuguese>
-<Korean>사용가능한 데이터베이스가 없는 경우 profileNamespace 에 미션 진행 상황을 저장 할 수 있습니다</Korean>
-<Japanese>Save mission progress to profileNamespace if no database is available</Japanese>
-<Original>Save mission progress to profileNamespace if no database is available</Original>
-<Russian>Сохранить прогресс миссии в profileNamespace, если база данных недоступна</Russian>
-<Chinesesimp>如果没有可用的数据库，则将任务进度保存到 profileNamespace </Chinesesimp>
-<Chinese>如果沒有可用的數據庫，則將任務進度保存到 profileNamespace </Chinese>
-<French>Save mission progress to profileNamespace if no database is available</French>
-</Key>
-<Key ID="STR_DOM_MISSIONSTRING_2085">
-<English>Saved profileNamespace mission progress auto load</English>
-<Spanish>Saved profileNamespace mission progress auto load</Spanish>
-<Portuguese>Saved profileNamespace mission progress auto load</Portuguese>
-<Korean>profileNamespace에 미션 진행 상황 저장 및 자동 불러오기</Korean>
-<Japanese>Saved profileNamespace mission progress auto load</Japanese>
-<Original>Saved profileNamespace mission progress auto load</Original>
-<Russian>Saved profileNamespace mission progress auto load</Russian>
-<Chinesesimp>保存的 profileNamespace 任务进度自动加载</Chinesesimp>
-<Chinese>保存的 profileNamespace 任務進度自動加載</Chinese>
-<French>Saved profileNamespace mission progress auto load</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>
