@@ -51,58 +51,81 @@ if (d_enemy_mercenaries == 1) then {
 	diag_log ["mercenaries configured for this map"];
 };
 
-private _faction_array = [];
-
 if (d_enemy_factions > 0) then {
+
+	// default to current group values
+	private _faction_allmen_array =+ d_allmen_E;
+    private _faction_specops_array =+ d_specops_E;
+    private _faction_sniper_array =+ d_sniper_E;
 
 	// if selected use this array to override with factions units
 	// most faction choices require CUP or CFP (Community Factions Project) or Asian Factions for CUP, more may be added later
 	
 	// Taliban
 	if (d_enemy_factions == 1) then {
-		_faction_array = [
+		_faction_allmen_array = [
 			["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup
+		];
+		_faction_specops_array =+ _faction_allmen_array;
+		_faction_sniper_array = [
+			["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup		
 		];
 	};
 	
 	// Asian Insurgents
 	if (d_enemy_factions == 2) then {
-		_faction_array = [
+		_faction_allmen_array = [
 			["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_a"] call d_fnc_GetConfigGroup,
 			["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_b"] call d_fnc_GetConfigGroup
+		];
+		_faction_specops_array =+ _faction_allmen_array;
+		_faction_sniper_array = [
+			["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup
 		];
 	};
 	
 	// Central African Rebels
 	if (d_enemy_factions == 3) then {
-		_faction_array = [
+		_faction_allmen_array = [
 			["East","CFP_O_SOREBEL","Infantry","cfp_o_sorebel_infantry_rebel_squad"] call d_fnc_GetConfigGroup,
 			["East","CFP_O_SOREBEL","Motorized","cfp_o_sorebel_motorized_technical"] call d_fnc_GetConfigGroup
 		];
+		_faction_specops_array =+ _faction_allmen_array;
+		// no sniper class
 	};
 	
 	// Islamic State
 	if (d_enemy_factions == 4) then {
-		_faction_array = [
-			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_inf_squad"] call d_fnc_GetConfigGroup,
+		_faction_allmen_array = [
+			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_inf_squad"] call d_fnc_GetConfigGroup
+		];
+		_faction_specops_array = [
 			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_wpn_squad"] call d_fnc_GetConfigGroup,
 			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup
 		];
+		// no sniper class
 	};
 	
 	// Sudanese Armed Forces
 	if (d_enemy_factions == 5) then {
-		_faction_array = [
+		_faction_allmen_array = [
 			["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_squad"] call d_fnc_GetConfigGroup,
-			["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_riot_squad"] call d_fnc_GetConfigGroup,
+			["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_riot_squad"] call d_fnc_GetConfigGroup
+		];
+		_faction_specops_array = [
 			["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_specops_paratrooper_squad"] call d_fnc_GetConfigGroup
+		];
+		_faction_sniper_array = [
+			["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup
 		];
 	};
 	
-	d_allmen_E =+ _faction_array;
-	d_specops_E =+ _faction_array;
+	d_allmen_E =+ _faction_allmen_array;
+	d_specops_E =+ _faction_specops_array;
+	d_sniper_E =+ _faction_sniper_array;
 	publicVariable "d_allmen_E";
 	publicVariable "d_specops_E";
+	publicVariable "d_sniper_E";
 	diag_log [format["faction # %1 configured for this map", d_enemy_factions]];
 
 };
