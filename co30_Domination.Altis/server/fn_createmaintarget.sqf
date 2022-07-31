@@ -87,11 +87,14 @@ if (d_enemy_factions > 0) then {
 	// Central African Rebels
 	if (d_enemy_factions == 3) then {
 		_faction_allmen_array = [
-			["East","CFP_O_SOREBEL","Infantry","cfp_o_sorebel_infantry_rebel_squad"] call d_fnc_GetConfigGroup,
-			["East","CFP_O_SOREBEL","Motorized","cfp_o_sorebel_motorized_technical"] call d_fnc_GetConfigGroup
+			["East","CFP_O_CFRebels","Infantry","cfp_o_cfrebels_infantry_squad"] call d_fnc_GetConfigGroup
 		];
-		_faction_specops_array =+ _faction_allmen_array;
-		// no sniper class
+		_faction_specops_array = [
+			["East","CFP_O_CFRebels","SpecOps","cfp_o_cfrebels_specops_ex_military_fireteam"] call d_fnc_GetConfigGroup
+		];
+		_faction_sniper_array = [
+			["East","CFP_O_CFRebels","SpecOps","o_cfpocfrebels_specops_sniper_team"] call d_fnc_GetConfigGroup
+		];
 	};
 	
 	// Islamic State
