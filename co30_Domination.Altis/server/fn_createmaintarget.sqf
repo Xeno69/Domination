@@ -57,6 +57,7 @@ if (d_enemy_factions > 0) then {
 	private _faction_allmen_array =+ d_allmen_E;
     private _faction_specops_array =+ d_specops_E;
     private _faction_sniper_array =+ d_sniper_E;
+    private _faction_independent_array = [];
 
 	// if selected use this array to override with factions units
 	// most faction choices require CUP or CFP (Community Factions Project) or Asian Factions for CUP, more may be added later
@@ -70,6 +71,9 @@ if (d_enemy_factions > 0) then {
 		_faction_sniper_array = [
 			["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup		
 		];
+		_faction_independent_array = [
+			["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup
+		];
 	};
 	
 	// Asian Insurgents
@@ -81,6 +85,9 @@ if (d_enemy_factions > 0) then {
 		_faction_specops_array =+ _faction_allmen_array;
 		_faction_sniper_array = [
 			["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup
+		];
+		_faction_independent_array = [
+			["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup
 		];
 	};
 	
@@ -95,6 +102,9 @@ if (d_enemy_factions > 0) then {
 		_faction_sniper_array = [
 			["East","CFP_O_CFRebels","SpecOps","o_cfpocfrebels_specops_sniper_team"] call d_fnc_GetConfigGroup
 		];
+		_faction_independent_array = [
+			["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup
+		];
 	};
 	
 	// Islamic State
@@ -107,6 +117,9 @@ if (d_enemy_factions > 0) then {
 			["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup
 		];
 		// no sniper class
+		_faction_independent_array = [
+			["WEST","CFP_B_IQARMY","Infantry","cfp_b_grp_ia_inf_squad"] call d_fnc_GetConfigGroup
+		];
 	};
 	
 	// Sudanese Armed Forces
@@ -121,14 +134,19 @@ if (d_enemy_factions > 0) then {
 		_faction_sniper_array = [
 			["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup
 		];
+		_faction_independent_array = [
+			["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup
+		];
 	};
 	
 	d_allmen_E =+ _faction_allmen_array;
 	d_specops_E =+ _faction_specops_array;
 	d_sniper_E =+ _faction_sniper_array;
+	d_faction_independent_array =+ _faction_independent_array;
 	publicVariable "d_allmen_E";
 	publicVariable "d_specops_E";
 	publicVariable "d_sniper_E";
+	publicVariable "d_faction_independent_array";
 	diag_log [format["faction # %1 configured for this map", d_enemy_factions]];
 
 };

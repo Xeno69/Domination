@@ -43,6 +43,9 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 	_buildings deleteAt (_buildings find _bldg);
 	_posArray = _bldg buildingPos -1;
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
+	if !(d_faction_independent_array isEqualTo []) then {
+		_unitlist = selectRandom d_faction_independent_array;
+	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	private _unitCount = 4;
 	if (count _posArray < _unitCount) then {

@@ -73,15 +73,18 @@ private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
 // default guerrilla force
 private _guerrillaForce = ["allmen", "allmen"];
 if (_targetGroupCount > 10) then {
-	_guerrillaForce = ["allmen", "allmen", "specops"];
+	_guerrillaForce = ["allmen", "allmen", "allmen"];
 };
 if (_targetGroupCount > 20) then {
-	_guerrillaForce = ["allmen", "allmen", "allmen", "specops"];
+	_guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 };
 private _guerrillaBaseSkill = 0.35;
 
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
+	if !(d_faction_independent_array isEqualTo []) then {
+		_unitlist = selectRandom d_faction_independent_array;
+	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
