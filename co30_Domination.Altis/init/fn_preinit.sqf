@@ -2879,7 +2879,7 @@ if (hasInterface) then {
 		if (d_ws) exitWith {
 			["B_D_Quadbike_01_lxWS"]
 		};
-		["B_Quadbike_01_F", "B_LSV_01_unarmed_F"]
+		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F"]
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -2896,7 +2896,7 @@ if (hasInterface) then {
 		if (d_csla) exitWith {
 			["CSLA_AZU", "CSLA_JARA250"]
 		};
-		["O_Quadbike_01_F", "O_LSV_02_unarmed_F"]
+		["O_Quadbike_01_F", "O_LSV_02_unarmed_F", "O_UAV_01_F"]
 	};
 #endif
 #ifdef __TT__
