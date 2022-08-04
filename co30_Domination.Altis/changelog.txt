@@ -12,6 +12,7 @@
 - Added: New viewdistance option sets client to initial server value but player may change later (a server hint for player viewdistance), by longtimegamer
 - Added: New param d_use_systemtime ("Use server system time as game time" in lobby) to use server time as game start time, default disabled
 - Added: VIP escort event, by longtimegamer
+- Added: Players may create UAV at MHQ, by longtimegamer
 - Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
 - Changed: d_dis_servicep param ("Disable all service points") now disables all service points including wreck repair
 - Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
