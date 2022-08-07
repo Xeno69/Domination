@@ -3037,16 +3037,16 @@
 <French>guerrillas</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_418C_GUERR">
-<English>Always, multiple events with guerrillas</English>
-<Spanish>Siempre, múltiples eventos con guerrillas</Spanish>
-<Portuguese>Always, multiple events with guerrillas</Portuguese>
+<English>Always, multiple events with guerrillas and defense</English>
+<Spanish>Siempre, múltiples eventos con guerrillas y defensa</Spanish>
+<Portuguese>Always, multiple events with guerrillas and defense</Portuguese>
 <Korean>항상, 다중 게릴라 이벤트</Korean>
 <Japanese>常時, 複数のイベント(ゲリラあり)</Japanese>
-<Original>Always, multiple events with guerrillas</Original>
-<Russian>Всегда, несколько событий with guerrillas</Russian>
+<Original>Always, multiple events with guerrillas and defense</Original>
+<Russian>Всегда, несколько событий with guerrillas and defense</Russian>
 <Chinesesimp>总是，游击队的多个事件</Chinesesimp>
-<Chinese>Always, multiple events with guerrillas</Chinese>
-<French>Always, multiple events with guerrillas</French>
+<Chinese>Always, multiple events with guerrillas and defense</Chinese>
+<French>Always, multiple events with guerrillas and defense</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ALL">
 <English>All</English>
