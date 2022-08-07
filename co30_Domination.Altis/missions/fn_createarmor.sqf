@@ -60,16 +60,8 @@ for "_nr" from 0 to 2 do {
 				};
 				
 				// attempt to find a position on a road
-				private _roadList = _pos nearroads 50;
+				private _roadList = _pos nearroads 75;
                 if (_roadList isNotEqualTo []) then {	
-					{
-						_roadConnectedTo = roadsConnectedTo _x;
-						
-						if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2}}) then {
-							//only has 2 connections, children also only have 2 connections
-							_roadList=_roadList - [_x];	
-						};
-					} foreach _roadList;
 					_roadList=_roadList call BIS_fnc_arrayShuffle;
 					_pos = _roadList # 0;
 				};
