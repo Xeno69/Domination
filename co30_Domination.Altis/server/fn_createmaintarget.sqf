@@ -891,10 +891,12 @@ if (d_with_MainTargetEvents != 0) then {
 		private _tmpMtEvents = + d_x_mt_event_types;
 		if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
 			// some events are only eligible if d_with_MainTargetEvents == -3 or -4
-			// remove ineligible events from the temp array
+			// remove ineligible events from the temp array (remove guerrilla events and shock events)
 			_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
-			//_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT"); // todo - fix event
-			//_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_JOINPLAYER");  // todo - fix event
+			_tmpMtEvents deleteAt (_tmpMtEvents find "MARKED_FOR_DEATH");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "RESCUE_DEFEND");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "MARKED_FOR_DEATH_VIP_ESCORT");
 		};
 		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then {
 			// create multiple simultaneous events
