@@ -22,6 +22,12 @@ private _ismen = _grptype in ["allmen", "specops"];
 
 private _msize = 0;
 if (_numvecs > 0) then {
+	// attempt to find a position on a road
+	private _roadList = _pos nearroads 75;
+	if (_roadList isNotEqualTo []) then {
+		_roadList=_roadList call BIS_fnc_arrayShuffle;
+		_pos = getPos (_roadList # 0);
+	};
 	if (!_istatatic) then {
 		_grp setVariable ["d_is_v_gr", true];
 		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, false, false, true] call d_fnc_makevgroup;
