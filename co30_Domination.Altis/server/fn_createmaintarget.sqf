@@ -826,7 +826,7 @@ if (d_occ_bldgs == 1) then {
 #ifndef __TT__
 if (d_enable_civs == 1) then {
 	diag_log ["creating static and walking civilians with civilian module"];
-	[_trg_center, d_cur_target_radius] call d_fnc_civilianmodule;
+	[_trg_center, d_enable_civ_vehs_rad] call d_fnc_civilianmodule;
 	
 	// loop to control civilian behaviors
 	d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
