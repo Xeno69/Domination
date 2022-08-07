@@ -2843,6 +2843,46 @@ d_barracks_building = call {
 	d_civ_faces = _persianFaces;
 	d_civArray = (_civsWestSahara + _africanCivs);
 #endif
+
+	// support civ factions if enabled
+	if (d_enemy_factions > 0) then {
+
+		// Taliban
+		if (d_enemy_factions == 1) then {
+			d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+			d_civ_faces = (_greekFaces + _persianFaces);
+			d_civArray = _cupCivsTakistan;
+		};
+		
+		// Asian Insurgents
+		if (d_enemy_factions == 2) then {
+			// todo
+		};
+		
+		// Central African Rebels
+		if (d_enemy_factions == 3) then {
+			d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+			d_civ_faces = _africanFaces;
+			d_civArray = _africanCivs;
+		};
+		
+		// Islamic State
+		if (d_enemy_factions == 4) then {
+			d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+			d_civ_faces = (_greekFaces + _persianFaces);
+			d_civArray = _cupCivsTakistan;
+		};
+		
+		// Sudanese Armed Forces
+		if (d_enemy_factions == 5) then {
+			d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+			d_civ_faces = _africanFaces;
+			d_civArray = _africanCivs;
+		};
+		
+		diag_log [format["civilian faction # %1 configured for this map", d_enemy_factions]];
+
+	};
 };
 
 if (hasInterface) then {
