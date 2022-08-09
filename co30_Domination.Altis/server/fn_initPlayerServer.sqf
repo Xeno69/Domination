@@ -206,26 +206,27 @@ if (d_database_found) then {
 		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];
 			if (_pres isNotEqualTo []) then {
-				__TRACE_1("4xx4","_pres")
-				if (count _pres > 14) then {
-					_p set [15, _pres # 14];
+				private _arpr =+ _pres;
+				__TRACE_1("4xx4","_arpr")
+				if (count _arpr > 14) then {
+					_p set [15, _arpr # 14];
 				};
-				if (count _pres > 15) then {
-					_p set [16, _pres # 15];
+				if (count _arpr > 15) then {
+					_p set [16, _arpr # 15];
 				};
-				if (count _pres > 16) then {
-					_p set [17, _pres # 16];
+				if (count _arpr > 16) then {
+					_p set [17, _arpr # 16];
 				};
 				__TRACE_1("44","_p")
-				_pres set [1, (_pres # 1) call d_fnc_convtime];
-				__TRACE_1("44","_pres")
-				_pres deleteAt 14;
-				__TRACE_1("55","_pres")
+				_arpr set [1, (_arpr # 1) call d_fnc_convtime];
+				__TRACE_1("44","_arpr")
+				_arpr deleteAt 14;
+				__TRACE_1("55","_arpr")
 				if (isMultiplayer) then {
 					if (remoteExecutedOwner isEqualTo 0) exitWith {};
-					_pres remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
+					_arpr remoteExecCall ["d_fnc_setdbstart", remoteExecutedOwner];
 				} else {
-					_pres call d_fnc_setdbstart;
+					_arpr call d_fnc_setdbstart;
 				};
 			};
 		};

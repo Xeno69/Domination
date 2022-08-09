@@ -106,9 +106,11 @@ while {true} do {
 					_ar pushBack [_y # 7, _x];
 				} forEach _tmphash;
 				_ar sort false;
-				private _num = [(count _ar) - 1, 24] select (count _ar > 25);
+				private "_har";
 				for "_i" from 0 to _num do {
-					d_top10_db_players_serv pushBack (_tmphash get ((_ar # _i) # 1));
+					_har =+ _tmphash get ((_ar # _i) # 1);
+					_har set [1, (_har # 1) call d_fnc_convtime];
+					d_top10_db_players_serv pushBack _har;
 				};
 				__TRACE_1("","d_top10_db_players_serv")
 				objNull spawn d_fnc_sendtopplayers;
