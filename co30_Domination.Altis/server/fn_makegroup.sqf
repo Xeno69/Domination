@@ -22,6 +22,12 @@ private _ismen = _grptype in ["allmen", "specops"];
 
 private _msize = 0;
 if (_numvecs > 0) then {
+	// attempt to find a position on a road
+	private _roadList = _pos nearroads 75;
+	if (_roadList isNotEqualTo []) then {
+		_roadList=_roadList call BIS_fnc_arrayShuffle;
+		_pos = getPos (_roadList # 0);
+	};
 	if (!_istatatic) then {
 		_grp setVariable ["d_is_v_gr", true];
 		private _vecar = [_numvecs, _pos, [_grptype, _side] call d_fnc_getunitlistv, _grp, _vec_dir, false, false, true] call d_fnc_makevgroup;
@@ -51,11 +57,7 @@ if (_numvecs > 0) then {
 	_msize = 2;
 } else {
 	__TRACE("from makegroup")
-#ifndef __TT__
-	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true, [-1, d_grp_size_override] select (d_grp_size_override > 0), d_side_player] call d_fnc_makemgroup;
-#else
-	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true ,[-1, d_grp_size_override] select (d_grp_size_override > 0), [blufor, opfor]] call d_fnc_makemgroup;
-#endif
+	_uinf = [_pos, [_grptype, _side] call d_fnc_getunitlistm, _grp, _mchelper, true] call d_fnc_makemgroup;
 	__TRACE_1("","_uinf")
 };
 

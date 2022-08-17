@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-private _mhqmsg = _this getVariable "d_vec_is_mhq";
+private _mhqmsg = (_this # 0) getVariable "d_vec_is_mhq";
 
 if (!isNil "_mhqmsg") then {
 #ifndef __TT_

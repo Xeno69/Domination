@@ -69,17 +69,17 @@ if (d_with_dynsim == 0) then {
 sleep 2.333;
 
 //find a suitable building and occupy
-_buildings_array_sorted_by_distance = [[_poss, 200, nil, (count _allActors)] call d_fnc_getbuildings, _poss] call d_fnc_sortarraybydistance;
+_buildings_array_sorted_by_distance = [[_poss, 200] call d_fnc_getbldgswithpositions, _poss] call d_fnc_sortarraybydistance;
 private _unitsNotGarrisoned = [];
 private _bldg = nil;
 private _marker = nil;
 
 {
-	_unitsNotGarrisoned = [getPos _x, _allActors, -1, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
+	_unitsNotGarrisoned = [getPos _x, _allActors, 10, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
-		[getPos _x, _allActors, -1, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+		[getPos _x, _allActors, 10, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
 	};
 
 } forEach _buildings_array_sorted_by_distance;
@@ -156,6 +156,7 @@ if (d_priority_targets isEqualTo []) then {
 	// reset 
 	d_priority_targets deleteAt 0;
 	publicVariable "d_priority_targets";
+	deleteVehicle _pilot1;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

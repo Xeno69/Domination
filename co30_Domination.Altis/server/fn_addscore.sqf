@@ -4,8 +4,6 @@
 
 params ["_pl", "_reason", ["_extra", -1]];
 
-if (remoteExecutedOwner != owner _pl) exitWith {};
-
 // reason:
 // 1 - barracks building destroyed at main target
 // 2 - mobile HQ building destroyed at main target

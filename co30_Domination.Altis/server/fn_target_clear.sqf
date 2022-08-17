@@ -56,7 +56,19 @@ if (!isNil "d_parahhandle" && {!isNull d_parahhandle}) then {
 	terminate d_parahhandle;
 };
 
-[d_old_target_pos, d_mttarget_radius_patrol] spawn d_fnc_umadel;
+//[d_old_target_pos, d_mttarget_radius_patrol] spawn d_fnc_umadel;
+removeMissionEventHandler ["MarkerCreated", d_meh_markercreated];
+
+private _delete_marker_meh =+ d_delete_marker_meh;
+d_delete_marker_meh = [];
+_delete_marker_meh spawn {
+	scriptName "spawn_target_clear_delmarker";
+	{
+		deleteMarker _x;
+		sleep 0.1;
+	} forEach _this;
+};
+
 
 #ifndef __TT__
 d_resolved_targets pushBack d_current_target_index;
@@ -243,11 +255,10 @@ if (d_enable_civs == 1) then {
 };
 #endif
 
-sleep 0.245;
+d_cur_tgt_building_positions_occupied = [];
+publicVariable "d_cur_tgt_building_positions_occupied";
 
-{deleteVehicle _x} forEach d_mt_fires;
-d_mt_fires = [];
-sleep 0.1;
+sleep 0.245;
 
 private _mtmissionobjs =+ d_mtmissionobjs;
 d_mtmissionobjs = [];
@@ -258,6 +269,14 @@ private _house_objects =+ d_house_objects;
 d_house_objects = [];
 
 [_delpos, d_old_radius, _del_camps_stuff, _mtmissionobjs, _delvecsmt, _house_objects] spawn d_fnc_deleteempty;
+
+if (!isNil "d_cur_tgt_awareness_script_handle" && {!scriptDone d_cur_tgt_awareness_script_handle}) then {
+	terminate d_cur_tgt_awareness_script_handle;
+};
+
+if (!isNil "d_cur_tgt_afterfirednear_script_handle" && {!scriptDone d_cur_tgt_afterfirednear_script_handle}) then {
+	terminate d_cur_tgt_afterfirednear_script_handle;
+};
 
 sleep 0.1;
 
@@ -279,30 +298,32 @@ if (d_maintargets_list isNotEqualTo []) then {
 	d_kill_points_opfor = 0;
 	d_public_points = true;
 #endif
-	if ((d_database_found && {d_db_auto_save}) || {d_pnspace_msave == 1 && {d_pnspace_msave_auto == 1}}) then {
+	if (d_database_found && {d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}}) then {
 		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 	};
 	sleep 1;
 	0 spawn d_fnc_createnexttarget;
 } else {
 	if (d_tt_ver) then {
-		if (d_database_found && {d_db_auto_save}) then {
-			call {
-				if (d_db_type == 0) exitWith {
-					"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-				};
-				if (d_db_type == 1) exitWith {
-					["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
-				};
-			};
-		} else {
-			if (d_pnspace_msave == 1 && {d_pnspace_msave_auto == 1}) then {	
-				private _pn_missionsave = profileNamespace getVariable "dom_missionsavett";
-				if (!isNil "_pn_missionsave") then {
-					private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
-					private _idx = _pn_missionsave findIf {(_x # 19) == _comna};
-					if (_idx != -1) then {
-						_pn_missionsave deleteAt _idx;
+		if (d_database_found) then {
+			if (d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}) then {
+				call {
+					if (d_db_type == 0) exitWith {
+						"extdb3" callExtension format ["1:dom:missionsaveDelTT:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+					};
+					if (d_db_type == 1) exitWith {
+						["missionsaveDelTT", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+					};
+					if (d_db_type == 2) exitWith {
+						private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsavett";
+						if (!isNil "_pn_missionsave") then {
+							private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
+							private _idx = _pn_missionsave findIf {(_x # 19) == _comna};
+							if (_idx != -1) then {
+								_pn_missionsave deleteAt _idx;
+								saveMissionProfileNamespace;
+							};
+						};
 					};
 				};
 			};
@@ -310,23 +331,25 @@ if (d_maintargets_list isNotEqualTo []) then {
 		d_the_end = true; publicVariable "d_the_end";
 		0 spawn d_fnc_DomEnd;
 	} else {
-		if (d_database_found && {d_db_auto_save}) then {
-			call {
-				if (d_db_type == 0) exitWith {
-					"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
-				};
-				if (d_db_type == 1) exitWith {
-					["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
-				};
-			};
-		} else {
-			if (d_pnspace_msave == 1 && {d_pnspace_msave_auto == 1}) then {	
-				private _pn_missionsave = profileNamespace getVariable "dom_missionsave";
-				if (!isNil "_pn_missionsave") then {
-					private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
-					private _idx = _pn_missionsave findIf {(_x # 13) == _comna};
-					if (_idx != -1) then {
-						_pn_missionsave deleteAt _idx;
+		if (d_database_found) then {
+			if (d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}) then {
+				call {
+					if (d_db_type == 0) exitWith {
+						"extdb3" callExtension format ["1:dom:missionsaveDel:%1", tolower (worldName + "d_dom_db_autosave" + briefingname)];
+					};
+					if (d_db_type == 1) exitWith {
+						["missionsaveDel", [tolower (worldName + "d_dom_db_autosave" + briefingname)]] call d_fnc_queryconfigasync;
+					};
+					if (d_db_type == 2) exitWith {
+						private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
+						if (!isNil "_pn_missionsave") then {
+							private _comna = tolower (worldName + "d_dom_db_autosave" + briefingname);
+							private _idx = _pn_missionsave findIf {(_x # 13) == _comna};
+							if (_idx != -1) then {
+								_pn_missionsave deleteAt _idx;
+								saveMissionProfileNamespace;
+							};
+						};
 					};
 				};
 			};

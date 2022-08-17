@@ -35,8 +35,11 @@ if (!isServer) exitWith{};
 	if !(_vec isKindOf "Air") then {
 		_vec setVariable ["d_liftit", true, true];
 	};
-	if (d_with_ranked) then {
-		clearWeaponCargoGlobal _vec;
+	if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
+		clearBackpackCargoGlobal _vec;
 	};
 	
 	_vec spawn {

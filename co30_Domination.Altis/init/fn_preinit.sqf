@@ -27,11 +27,11 @@ d_livonia = true;
 d_tanoa = true;
 #endif
 
-#ifndef __IFA3LITE__
-d_ifa3lite = false;
+#ifndef __IFA3__
+d_ifa3 = false;
 d_kbtel_chan = "SIDE";
 #else
-d_ifa3lite = true;
+d_ifa3 = true;
 d_kbtel_chan = "GLOBAL";
 #endif
 
@@ -112,8 +112,8 @@ d_e_marker_color = "ColorOPFOR";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 d_own_side = "EAST";
-d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3lite);
-d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3lite);
+d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3);
+d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3);
 d_enemy_side = "WEST";
 d_enemy_side_short = "W";
 d_side_enemy = blufor;
@@ -144,8 +144,8 @@ d_version_string = "Two Teams";
 d_e_marker_color = "ColorYellow";
 #endif
 
-#ifdef __IFA3LITE__
-d_version_string = "IFA3Lite";
+#ifdef __IFA3__
+d_version_string = "IFA3";
 #endif
 
 #ifdef __CARRIER__
@@ -156,7 +156,7 @@ d_version_string = "Carrier";
 d_version_string = ["RHS Opfor", "RHS Blufor"] select d_rhs_blufor;
 #endif
 
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 d_e_marker_color_alpha = 1.3;
 #else
 d_e_marker_color_alpha = 0.8;
@@ -174,7 +174,7 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __CUP_SARA__
 #include "sm_bonus_vec_ar_cup.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "sm_bonus_vec_ar_ifa3.sqf"
 #endif
 #ifdef __GMCWG__
@@ -235,7 +235,7 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __CUP_SARA__
 #include "mt_bonus_vec_ar_cup.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "mt_bonus_vec_ar_ifa3.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -315,7 +315,7 @@ d_x_drop_array =
 		if (d_rhs) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "rhs_tigr_m_3camo_vdv"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "LIB_US_Willys_MB"], [localize "STR_DOM_MISSIONSTRING_20", "LIB_BasicWeaponsBox_SU"]]
 		};
 		if (d_csla) exitWith {
@@ -357,7 +357,7 @@ d_cargotower =
 #ifdef __CUP_SARA__
 	"Land_Cargo_Tower_V1_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	"";
 #endif
 #ifdef __TANOA__
@@ -404,7 +404,7 @@ d_wcamp =
 #ifdef __CUP_SARA__
 	"Land_Cargo_Patrol_V1_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	"Land_Misc_deerstand";
 #endif
 #ifdef __TANOA__
@@ -601,11 +601,26 @@ if (isServer) then {
 	publicVariable "d_with_ace";
 	diag_log ["Dom d_with_ace:", d_with_ace];
 	d_database_found = false;
-	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB
+	d_sql_database = false;
+	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB, 2 = missionProfileNamespace
 
-	if (isMultiplayer && {isFilePatchingEnabled && {fileExists "@InterceptDB\domination.sqf"}}) then {
-		diag_log "DOM InterceptDB domination.sqf file found!";
-		call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
+	if (isMultiplayer) then {
+		if (isClass (configFile >> "Intercept" >> "Dedmen" >> "intercept_database")) then {
+			diag_log "DOM InterceptDB class found!";
+			 if (isFilePatchingEnabled) then {
+				diag_log "DOM FilePatching needed for InterceptDB IS enabled!";
+				if (fileExists "@InterceptDB\domination.sqf") then {
+					diag_log "DOM InterceptDB domination.sqf file found!";
+					call compile preprocessFileLineNumbers "@InterceptDB\domination.sqf";
+				} else {
+					diag_log "DOM InterceptDB domination.sqf file NOT found! Needs to be in the IntercepDB addon folder!";
+				};
+			}else {
+				diag_log "DOM FilePatching needed for InterceptDB not enabled!";
+			};
+		} else {
+			diag_log "DOM InterceptDB class not found!";
+		};
 	};
 	if (isNil "d_interceptdb") then {
 		diag_log "DOM InterceptDB d_interceptdb is nil";
@@ -615,6 +630,7 @@ if (isServer) then {
 		call d_fnc_createdbconn;
 		diag_log ["Dom Intercept DB created:", D_DB_CON];
 		d_database_found = true;
+		d_sql_database = true;
 		d_db_type = 1;
 	} else {
 		private _isextdb3loaded = false;
@@ -640,12 +656,13 @@ if (isServer) then {
 				uiNamespace setVariable ["d_database_init", true];
 			};
 			d_database_found = true;
+			d_sql_database = true;
 		};
 	};
-	publicVariable "d_database_found";
-	diag_log ["DOM d_database_found:", d_database_found, "d_db_type:", d_db_type];
+	
+	diag_log ["DOM d_sql_database:", d_sql_database];
 
-	if (d_database_found) then {
+	if (d_sql_database) then {
 		d_use_sql_settings = false;
 
 		private _dbresult = [];
@@ -761,7 +778,15 @@ if (isServer) then {
 			paramsArray = nil;
 		};
 	};
+	
 	call compileScript ["init\initcommon.sqf", false];
+	
+	if (!d_sql_database && {d_save_to_mpns == 1}) then {
+		d_database_found = true;
+		d_db_type = 2;
+	};
+	publicVariable "d_database_found";
+	diag_log ["DOM d_database_found:", d_database_found, "d_db_type:", d_db_type];
 
 	d_house_objects = [];
 	d_house_objects2 = [];
@@ -842,7 +867,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_SARA__
 #include "d_allmen_O_CUP_SLA.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_allmen_O_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -878,7 +903,7 @@ if (!d_gmcwgwinter) then {
 	];
 	
 	call {
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			d_allmen_W = [
 				#include "d_allmen_B_ifa3.sqf"
 			];
@@ -901,7 +926,7 @@ if (!d_gmcwgwinter) then {
 		];
 	};
 
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	{
 		if (count _x > 6) then {
 			private _ran = floor random 7;
@@ -930,7 +955,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_SARA__
 #include "d_allmen_G_default.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_allmen_G_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -985,7 +1010,7 @@ if (!d_gmcwgwinter) then {
 #ifdef __CUP_SARA__
 #include "d_specops_O_CUP_SLA.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_specops_O_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -1032,7 +1057,7 @@ if (!d_gmcwgwinter) then {
 		if (d_rhs) exitWith {
 			[["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_squad"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup]
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			[["West","SG_STURM","Infantry","SG_GER_AT_squad"] call d_fnc_GetConfigGroup, ["West","SG_STURM","Infantry","SG_GER_infantry_squad"] call d_fnc_GetConfigGroup]
 		};
 		if (d_csla) exitWith {
@@ -1100,7 +1125,7 @@ if (!d_gmcwgwinter) then {
 	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","CUP_I_RACS","Infantry","CUP_I_RACS_SniperTeam"] call d_fnc_GetConfigGroup];
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_sniper_E = [["East","LIB_RKKA","Infantry","LIB_SOV_sniper_team"] call d_fnc_GetConfigGroup];
 	d_sniper_W = [["West","LIB_WEHRMACHT","Infantry","LIB_GER_sniper_team"] call d_fnc_GetConfigGroup];
 	d_sniper_I = [["Indep","LIB_US_ARMY","Infantry","LIB_US_Sniper_Team"] call d_fnc_GetConfigGroup];
@@ -1152,7 +1177,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 #include "d_veh_a_O_CUP_SARA.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_veh_a_O_default.sqf"
 #endif
 #ifdef __TTALTIS__
@@ -1195,7 +1220,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 	};
 #endif
 	d_veh_a_W = [
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 		#include "d_veh_a_B_default.sqf"
 #else
 		#include "d_veh_a_B_ifa3.sqf"
@@ -1237,7 +1262,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 	d_arti_observer_E = [["CUP_O_sla_Officer"]];
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
 #ifdef __TANOA__
@@ -1249,7 +1274,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __MALDEN__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
 #endif
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 	d_arti_observer_W = [["B_recon_JTAC_F"]];
 #else
 	d_arti_observer_W = [["LIB_GER_ober_lieutenant"]];
@@ -1317,7 +1342,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_vn) exitWith {
 				"vn_b_air_ch34_01_01"
 			};
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				""
 			};
 			if (d_ws) exitWith {
@@ -1328,7 +1353,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_Pe2"
 			};
 			if (d_rhs) exitWith {
@@ -1384,7 +1409,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_P47"
 			};
 			if (d_rhs) exitWith {
@@ -1415,7 +1440,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_P47"
 			};
 			if (d_cup) exitWith {
@@ -1431,14 +1456,14 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				"RHS_Su25SM_vvsc"
 			};
 			if (d_vn) exitWith {
-				""
+				"vn_o_air_mig19_cas"
 			};
 			"O_Plane_CAS_02_F"
 		};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 		call {
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				"LIB_Ju87"
 			};
 			if (d_cup) exitWith {
@@ -1472,7 +1497,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_unsung) exitWith {
 					"UNS_ASSAULT_BOAT_VC"
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					""
 				};
 				if (d_vn) exitWith {
@@ -1489,7 +1514,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					"CUP_B_RHIB_USMC"
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					""
 				};
 				if (d_rhs) exitWith {
@@ -1509,7 +1534,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					"CUP_I_RHIB_RACS"
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					""
 				};
 				if (d_rhs) exitWith {
@@ -1538,7 +1563,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 //#ifdef __GMCWG__
 // no compositions
 //#endif
-//#ifdef __IFA3LITE__
+//#ifdef __IFA3__
 // no compositions
 //#endif
 //#ifdef __CSLA__
@@ -1655,7 +1680,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_csla) exitWith	{
 			"CSLA_PLdvK59V3S"
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			"LIB_61k"
 		};
 		"O_APC_Tracked_02_AA_F"
@@ -1708,7 +1733,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_csla) exitWith	{
 			"CSLA_T72M1"
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			"LIB_T34_85"
 		};
 		"O_MBT_02_cannon_F"
@@ -1761,7 +1786,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_csla) exitWith	{
 			"CSLA_BVP1"
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			"LIB_SOV_M3_Halftrack"
 		};
 		"O_APC_Tracked_02_cannon_F"
@@ -1791,7 +1816,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 #include "d_sm_classes_CUP.sqf"
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 #include "d_sm_classes_ifa3.sqf"
 #endif
 #ifdef __TANOA__
@@ -1886,7 +1911,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		};
 		if (d_enemy_side_short == "W") exitWith {
 			call {
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					["LIB_FW190F8", "LIB_FW190F8_4", "LIB_FW190F8_2", "LIB_FW190F8_5", "LIB_FW190F8_3"]
 				};
 				if (d_rhs) exitWith {
@@ -1920,7 +1945,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_vn) exitWith {
 					[]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_ws) exitWith {
@@ -1934,7 +1959,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					["CUP_B_USMC_DYN_MQ9"]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
@@ -1954,7 +1979,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					[]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_rhs) exitWith {
@@ -1995,7 +2020,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		};
 		if (d_enemy_side_short == "W") exitWith {
 			call {
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					["LIB_Ju87_Italy2", "LIB_Ju87_Italy", "LIB_Ju87"]
 				};
 				if (d_rhs) exitWith {
@@ -2082,7 +2107,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		["I_Heli_Transport_02_F"]
 	};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = call {
 		if (d_enemy_side_short == "E") exitWith {
@@ -2213,7 +2238,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_vn) exitWith {
 					["vn_o_air_mi2_03_05"]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					[]
 				};
 				if (d_ws) exitWith {
@@ -2230,7 +2255,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_cup) exitWith {
 					[]
 				};
-				if (d_ifa3lite) exitWith {
+				if (d_ifa3) exitWith {
 					["LIB_Ju87_Italy2"]
 				};
 				if (d_csla) exitWith {
@@ -2249,7 +2274,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_cup) exitWith {
 				[]
 			};
-			if (d_ifa3lite) exitWith {
+			if (d_ifa3) exitWith {
 				[]
 			};
 			if (d_rhs) exitWith {
@@ -2291,7 +2316,7 @@ d_barracks_building = call {
 #ifdef __CUP_SARA__
 		"Land_Cargo_HQ_V1_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		"CDF_WarfareBHeavyFactory";
 #endif
 #ifdef __TANOA__
@@ -2338,7 +2363,7 @@ d_barracks_building = call {
 #ifdef __CUP_SARA__
 		"Land_BagBunker_01_small_green_F";
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		"";
 #endif
 #ifdef __TANOA__
@@ -2386,8 +2411,10 @@ d_barracks_building = call {
 
 	d_dbox_idx = 0;
 
-	//civ vehicle definitions for each environment
-	_civVehiclesWeightedCityWealthHigh = [
+	//
+	//civilian vehicles
+	//
+	private _civVehiclesWeightedCityWealthHigh = [
 		"C_Offroad_01_F", 0.15,
 		"C_Hatchback_01_F", 0.30,
 		"C_Truck_02_covered_F", 0.05,
@@ -2398,7 +2425,7 @@ d_barracks_building = call {
 		"C_SUV_01_F", 0.15
 	];
 
-	_civVehiclesWeightedCityWealthLow = [
+	private _civVehiclesWeightedCityWealthLow = [
 		"C_Offroad_01_F", 0.10,
 		"C_Hatchback_01_F", 0.10,
 		"C_Truck_02_covered_F", 0.03,
@@ -2411,7 +2438,7 @@ d_barracks_building = call {
 		"C_SUV_01_F", 0.16
 	];
 
-	_civVehiclesWeightedRural = [
+	private _civVehiclesWeightedRural = [
 		"C_Offroad_01_F", 0.30,
 		"C_Truck_02_covered_F", 0.10,
 		"C_Truck_02_transport_F", 0.10,
@@ -2421,7 +2448,7 @@ d_barracks_building = call {
 		"C_Tractor_01_F", 0.10
 	];
 
-	_civVehiclesWeightedRuralCup = [
+	private _civVehiclesWeightedRuralCup = [
 		"CUP_C_Golf4_random_Civ", 0.25,
 		"CUP_C_Datsun", 0.25,
 		"CUP_C_Octavia_CIV", 0.25,
@@ -2429,14 +2456,14 @@ d_barracks_building = call {
 		"C_Tractor_01_F", 0.05
 	];
 
-	_civVehiclesWeightedRuralCupRemote = [
+	private _civVehiclesWeightedRuralCupRemote = [
 		"CUP_C_Datsun", 0.35,
 		"CUP_C_Datsun_4seat", 0.35,
 		"CUP_C_V3S_Covered_TKC", 0.15,
 		"C_Tractor_01_F", 0.15
 	];
 
-	_civVehiclesWeightedRuralLivonia = [
+	private _civVehiclesWeightedRuralLivonia = [
 		"C_Offroad_01_F", 0.30,
 		"C_Truck_02_transport_F", 0.15,
 		"C_Offroad_02_unarmed_F", 0.30,
@@ -2444,21 +2471,21 @@ d_barracks_building = call {
 		"C_Tractor_01_F", 0.10
 	];
 
-	_civVehiclesWeightedRuralGmcwg = [
+	private _civVehiclesWeightedRuralGmcwg = [
 		"C_Truck_02_transport_F", 0.10,
 		"gm_gc_civ_p601", 0.40,
 		"gm_ge_civ_typ1200", 0.40,
 		"C_Tractor_01_F", 0.10
 	];
 
-	_civVehiclesWeightedRuraluns = [
+	private _civVehiclesWeightedRuraluns = [
 		"C_Truck_02_transport_F", 0.10,
 		"uns_willys_2", 0.40,
 		"uns_willys_2", 0.40,
 		"C_Tractor_01_F", 0.10
 	];
 	
-	_civVehiclesWeightedRuralVn = [
+	private _civVehiclesWeightedRuralVn = [
 		"C_Truck_02_covered_F", 0.15,
 		"C_Truck_02_transport_F", 0.15,
 		"C_Van_01_box_F", 0.15,
@@ -2466,58 +2493,12 @@ d_barracks_building = call {
 		"vn_c_wheeled_m151_01", 0.25,
 		"vn_c_wheeled_m151_02", 0.25
 	];
-
-	d_civ_vehicles_weighted =
-#ifdef __ALTIS__
-		_civVehiclesWeightedCityWealthHigh;
-#endif
-#ifdef __CUP_CHERNARUS__
-		_civVehiclesWeightedRural;
-#endif
-#ifdef __CUP_TAKISTAN__
-		_civVehiclesWeightedRuralCupRemote;
-#endif
-#ifdef __CUP_ZARGABAD__
-		_civVehiclesWeightedCityWealthLow;
-#endif
-#ifdef __CUP_SARA__
-		_civVehiclesWeightedCityWealthLow;
-#endif
-#ifdef __IFA3LITE__
-		_civVehiclesWeightedRural;
-#endif
-#ifdef __TANOA__
-		_civVehiclesWeightedCityWealthLow;
-#endif
-#ifdef __STRATIS__
-		_civVehiclesWeightedCityWealthHigh;
-#endif
-#ifdef __MALDEN__
-		_civVehiclesWeightedCityWealthLow;
-#endif
-#ifdef __LIVONIA__
-		_civVehiclesWeightedRuralLivonia;
-#endif
-#ifdef __TT__
-		_civVehiclesWeightedRural;
-#endif
-#ifdef __GMCWG__
-		_civVehiclesWeightedRuralGmcwg;
-#endif
-#ifdef __UNSUNG__
-		_civVehiclesWeightedRuraluns;
-#endif
-#ifdef __CSLA__
-		_civVehiclesWeightedRuralLivonia;
-#endif
-#ifdef __VN__
-		_civVehiclesWeightedRuralVn;
-#endif
-#ifdef __WS__
-		_civVehiclesWeightedCityWealthLow;
-#endif
-
-	//civilian faces
+	
+	d_civ_vehicles_weighted = [];
+	
+	//
+	// civilian faces
+	//
 	private _africanFaces = [
 		"AfricanHead_01",
 		"AfricanHead_02",
@@ -2581,60 +2562,286 @@ d_barracks_building = call {
 	];
 
 	private _mixedFaces = _greekFaces + _persianFaces + _whiteFaces;
+	
+	d_civ_faces = [];
 
 	//todo - do these work?
 	//WomanHead_A3
 	//MaskHead_A3
 	//BlackHead_A3
+	
+	//
+	// civilian unit types
+	//
+	d_civArray = [];
 
-	d_civ_faces =
+	private _commonCivs = [
+		"C_man_p_beggar_F", 1,
+		"C_Man_casual_1_F", 1,
+		"C_Man_casual_3_F", 1,
+		"C_Man_casual_4_v2_F", 1,
+		"C_Man_casual_5_v2_F", 1,
+		"C_Man_casual_6_v2_F", 1,
+		"C_Man_casual_7_F", 1,
+		"C_Man_casual_8_F", 1,
+		"C_Man_casual_9_F", 1,
+		"C_Man_p_fugitive_F", 1,
+		"C_Man_p_messenger_01_F", 1,
+		"C_Story_Mechanic_01_F", 0.5,
+		"C_Nikos_aged", 0.5,
+		//"C_Man_paramedic_01_F", 1,
+		"C_scientist_01_informal_F", 1,
+		"C_scientist_02_informal_F", 1,
+		// minorities
+		"C_man_p_beggar_F_afro", 1,
+		"C_Man_p_fugitive_F_afro", 1
+	];
+
+	private _africanCivs = [
+		"C_man_p_beggar_F_afro", 1,
+		"C_Man_casual_1_F_afro", 1,
+		//"C_Man_casual_2_F_afro", 1,
+		"C_Man_casual_3_F_afro", 1,
+		"C_Man_casual_4_v2_F_afro", 1,
+		"C_Man_casual_5_v2_F_afro", 1,
+		"C_Man_casual_6_v2_F_afro", 1,
+		"C_Man_casual_7_F_afro", 1,
+		"C_Man_casual_8_F_afro", 1,
+		"C_Man_casual_9_F_afro", 1,
+		"C_Man_p_fugitive_F_afro", 1,
+		// minorities
+		"C_Man_casual_3_F", 1,
+		"C_Man_casual_4_v2_F", 1,
+		"C_Man_casual_5_v2_F", 1,
+		"C_Man_p_fugitive_F", 1
+	];
+	
+	private _asianCivs = [
+		"C_man_p_beggar_F_asia", 1,
+		"C_Man_casual_1_F_afro", 1,
+		//"C_Man_casual_2_F_afro", 1,
+		"C_Man_casual_3_F_afro", 1,
+		"C_Man_casual_4_v2_F_afro", 1,
+		"C_Man_casual_5_v2_F_afro", 1,
+		"C_Man_casual_6_v2_F_afro", 1,
+		"C_Man_casual_7_F_afro", 1,
+		"C_Man_casual_8_F_afro", 1,
+		"C_Man_casual_9_F_afro", 1,
+		"C_Man_p_fugitive_F_afro", 1,
+		// minorities
+		"C_man_p_beggar_F_afro", 1,
+		"C_Man_p_fugitive_F_afro", 1,
+		"C_Man_casual_3_F", 1,
+		"C_Man_casual_4_v2_F", 1
+	];
+	
+	private _euroCivs = [
+		"C_Man_casual_1_F_euro", 1,
+		//"C_Man_casual_2_F_afro", 1,
+		"C_Man_casual_3_F_euro", 1,
+		"C_Man_casual_4_v2_F_euro", 1,
+		"C_Man_casual_5_v2_F_euro", 1,
+		"C_Man_casual_6_v2_F_euro", 1,
+		"C_Man_casual_7_F_euro", 1,
+		"C_Man_casual_8_F_euro", 1,
+		"C_Man_casual_9_F_euro", 1,
+		"C_Man_p_fugitive_F_euro", 1,
+		"C_scientist_01_informal_F", 1,
+		"C_scientist_02_informal_F", 1,
+		// minorities
+		"C_man_p_beggar_F_afro", 1,
+		"C_Man_p_fugitive_F_afro", 1,
+		"C_Man_casual_3_F", 1,
+		"C_Man_casual_4_v2_F", 1
+	];
+	
+	private _cupCivsChernarus = [
+		"CUP_C_C_Citizen_01", 1,
+		"CUP_C_C_Citizen_02", 1,
+		"CUP_C_C_Citizen_03", 1,
+		"CUP_C_C_Citizen_04", 1,
+		"CUP_C_C_Worker_01", 1,
+		"CUP_C_C_Worker_02", 1,
+		"CUP_C_C_Worker_03", 1,
+		"CUP_C_C_Worker_04", 1,
+		"CUP_C_C_Profiteer_01", 1,
+		"CUP_C_C_Profiteer_01", 1,
+		"CUP_C_C_Profiteer_02", 1,
+		"CUP_C_C_Profiteer_03", 1,
+		"CUP_C_C_Profiteer_04", 1,
+		"CUP_C_C_Woodlander_01", 1,
+		"CUP_C_C_Woodlander_02", 1,
+		"CUP_C_C_Woodlander_03", 1,
+		"CUP_C_C_Woodlander_04", 1,
+		"CUP_C_C_Villager_01", 1,
+		"CUP_C_C_Villager_02", 1,
+		"CUP_C_C_Villager_03", 1,
+		"CUP_C_C_Villager_04", 1,
+		"CUP_C_C_Priest_01", 1
+	];
+
+	private _cupCivsTakistan = [
+		"CUP_C_TK_Man_05_Waist", 1,
+		"CUP_C_TK_Man_06_Waist", 1,
+		"CUP_C_TK_Man_01_Coat", 1,
+		"CUP_C_TK_Man_08_Waist", 1,
+		"CUP_C_TK_Man_03_Coat", 1,
+		"CUP_C_TK_Man_01_Jack", 1,
+		"CUP_C_TK_Man_06_Jack", 1,
+		"CUP_C_TK_Man_03_Jack", 1,
+		"CUP_C_TK_Man_03_Jack", 1
+	];
+	
+	private _civsTanoa = [
+		"C_Man_casual_1_F_tanoan", 1,
+		"C_Man_casual_2_F_tanoan", 1,
+		"C_Man_casual_3_F_tanoan", 1,
+		"C_Man_casual_4_F_tanoan", 1,
+		"C_Man_casual_5_F_tanoan", 1,
+		"C_Man_casual_6_F_tanoan", 1
+	];
+
+	private _civsLivonia = [
+		"C_Man_1_enoch_F", 1,
+		"C_Man_2_enoch_F", 1,
+		"C_Man_3_enoch_F", 1,
+		"C_Man_4_enoch_F", 1,
+		"C_Man_5_enoch_F", 1,
+		"C_Man_6_enoch_F", 1,
+		"C_Farmer_01_enoch_F", 1
+	];
+	
+	private _civsVietnam = [
+		"vn_c_men_01", 1,
+		"vn_c_men_02", 1,
+		"vn_c_men_03", 1,
+		"vn_c_men_04", 1,
+		"vn_c_men_05", 1,
+		"vn_c_men_06", 1,
+		"vn_c_men_07", 1,
+		"vn_c_men_08", 1,
+		"vn_c_men_09", 1,
+		"vn_c_men_10", 1,
+		"vn_c_men_11", 1,
+		"vn_c_men_12", 1,
+		"vn_c_men_13", 1,
+		"vn_c_men_14", 1,
+		"vn_c_men_15", 1,
+		"vn_c_men_16", 1,
+		"vn_c_men_17", 1,
+		"vn_c_men_18", 1,
+		"vn_c_men_19", 1,
+		"vn_c_men_20", 1,
+		"vn_c_men_21", 1,
+		"vn_c_men_22", 1,
+		"vn_c_men_23", 1,
+		"vn_c_men_24", 1,
+		"vn_c_men_25", 1,
+		"vn_c_men_26", 1,
+		"vn_c_men_27", 1,
+		"vn_c_men_28", 1,
+		"vn_c_men_29", 1,
+		"vn_c_men_30", 1,
+		"vn_c_men_31", 1,
+		"vn_c_men_32", 1
+	];
+
+	private _civsWestSahara = [
+		"C_Djella_01_lxWS", 1,
+		"C_Djella_02_lxWS", 1,
+		"C_Djella_03_lxWS", 1,
+		"C_Djella_04_lxWS", 1,
+		"C_Djella_05_lxWS", 1,
+		"C_Tak_01_A_lxWS", 1,
+		"C_Tak_01_B_lxWS", 1,
+		"C_Tak_01_C_lxWS", 1,
+		"C_Tak_02_A_lxWS", 1,
+		"C_Tak_02_B_lxWS", 1,
+		"C_Tak_02_C_lxWS", 1,
+		"C_Tak_03_A_lxWS", 1,
+		"C_Tak_03_B_lxWS", 1,
+		"C_Tak_03_C_lxWS", 1
+	];	
+	
 #ifdef __ALTIS__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthHigh;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _euroCivs;
 #endif
 #ifdef __CUP_CHERNARUS__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _cupCivsChernarus;
 #endif
 #ifdef __CUP_TAKISTAN__
-		(_greekFaces + _persianFaces);
+	d_civ_vehicles_weighted = _civVehiclesWeightedRuralCupRemote;
+	d_civ_faces = (_greekFaces + _persianFaces);
+	d_civArray = _cupCivsTakistan;
 #endif
 #ifdef __CUP_ZARGABAD__
-		(_greekFaces + _persianFaces);
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_faces = (_greekFaces + _persianFaces);
+	d_civArray = _cupCivsTakistan;
 #endif
 #ifdef __CUP_SARA__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _cupCivsTakistan;
 #endif
-#ifdef __IFA3LITE__
-		_mixedFaces;
+#ifdef __IFA3__
+	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _commonCivs;
 #endif
 #ifdef __TANOA__
-		_asianFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_faces = _asianFaces;
+	d_civArray = _civsTanoa;
 #endif
 #ifdef __STRATIS__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthHigh;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _euroCivs;
 #endif
 #ifdef __MALDEN__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _euroCivs;
 #endif
 #ifdef __LIVONIA__
-		_whiteFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRuralLivonia;
+	d_civ_faces = _whiteFaces;
+	d_civArray = _civsLivonia;
 #endif
 #ifdef __TT__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _commonCivs;
 #endif
 #ifdef __GMCWG__
-		_whiteFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRuralGmcwg;
+	d_civ_faces = _whiteFaces;
+	d_civArray = _commonCivs;
 #endif
 #ifdef __UNSUNG__
-		_asianFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRuraluns;
+	d_civ_faces = _asianFaces;
+	d_civArray = _asianCivs;
 #endif
 #ifdef __CSLA__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRuralLivonia;
+	d_civ_faces = _mixedFaces;
+	d_civArray = _euroCivs;
 #endif
 #ifdef __VN__
-		_mixedFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedRuralVn;
+	d_civ_faces = _asianFaces;
+	d_civArray = _civsVietnam;
 #endif
 #ifdef __WS__
-		_persianFaces;
+	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_faces = _persianFaces;
+	d_civArray = (_civsWestSahara + _africanCivs);
 #endif
 };
 
@@ -2672,7 +2879,7 @@ if (hasInterface) then {
 		if (d_ws) exitWith {
 			["B_D_Quadbike_01_lxWS"]
 		};
-		["B_Quadbike_01_F", "B_LSV_01_unarmed_F"]
+		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F"]
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -2683,13 +2890,13 @@ if (hasInterface) then {
 		if (d_rhs) exitWith {
 			["rhs_tigr_3camo_msv", "RHS_UAZ_MSV_01"]
 		};
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			["LIB_Willys_MB", "LIB_US_Willys_MB"]
 		};
 		if (d_csla) exitWith {
 			["CSLA_AZU", "CSLA_JARA250"]
 		};
-		["O_Quadbike_01_F", "O_LSV_02_unarmed_F"]
+		["O_Quadbike_01_F", "O_LSV_02_unarmed_F", "O_UAV_01_F"]
 	};
 #endif
 #ifdef __TT__
@@ -2730,11 +2937,11 @@ if (hasInterface) then {
 	d_check_ammo_load_vecs =
 #ifdef __OWN_SIDE_BLUFOR__
 	["B_Heli_Light_01_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F","CUP_B_M1133_MEV_Woodland","CUP_B_LAV25_HQ_USMC","CUP_B_M1133_MEV_Desert","CUP_B_UH1Y_UNA_USMC","I_Heli_light_03_unarmed_F","RHS_MELB_MH6M","rhsusf_M1232_usarmy_wd","gm_ge_army_m113a1g_command","gm_ge_army_fuchsa0_command","CUP_B_UH1D_GER_KSK","I_E_Heli_light_03_unarmed_F",
-	"uns_M113_transport","uns_UH1H_m60","gm_ge_army_bo105m_vbh", "vn_b_wheeled_m54_03", "vn_b_air_uh1d_02_05", "B_D_APC_Tracked_01_CRV_lxWS","B_D_APC_Wheeled_01_command_lxWS"];
+	"uns_M113_transport","uns_UH1H_m60","gm_ge_army_bo105m_vbh", "vn_b_wheeled_m54_03", "vn_b_air_uh1d_02_05", "B_D_APC_Tracked_01_CRV_lxWS","B_D_APC_Wheeled_01_command_lxWS","gm_ge_army_m113a1g_command"];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {
-		if (d_ifa3lite) exitWith {
+		if (d_ifa3) exitWith {
 			["LIB_US6_Tent"]
 		};
 		if (d_csla) exitWith {
@@ -2862,10 +3069,10 @@ if (hasInterface) then {
 	d_add_resp_points_pos = [];
 
 	d_earplugs_fitted = false;
-
-	d_maintarget_auto_vd = d_AutoViewdistanceChangeDefault == 1;
 	
 	d_deploy_mhq_camo = true;
+	
+	d_near_player_flag = objNull;
 
 	d_player_jescape = 0;
 	d_player_canu = true;
@@ -2876,6 +3083,8 @@ if (hasInterface) then {
 	d_phud_loc884 = localize "STR_DOM_MISSIONSTRING_884";
 	d_phud_loc493 = localize "STR_DOM_MISSIONSTRING_493";
 	d_yt_loc2037 = localize "STR_DOM_MISSIONSTRING_2037";
+	
+	d_top10_db_players_client = [];
 
 	d_mt_marker_triggers = [];
 

@@ -21,6 +21,10 @@
 #### **d_with_targetselect_count / Players can select from available targets:**
 > Default: 4<br/>
 > Number of main targets players can select next target, Entire map/9999 for all targets, Off/0 to turn off targetselect<br/>
+#### **d_targetselect_time / Target selection time:**
+> Default: 30<br/>
+> Let's you select the time players have for target selection<br/>
+> Available options: 30, 45, 60, 120, 240, 300<br/>
 #### **d_MissionType / Mission Type:**
 > Default: 0<br/>
 > Available options:<br/>
@@ -28,7 +32,7 @@
 >   - Main Targets Only (1), only main targets will spawn<br/>
 >   - Side Missions Only (2), only side missions will show up<br/>
 #### **d_respawnatsql / Respawn at Squad Leader:**
-> Default: 0 (Yes, enabled; 1 or No to disable<br/>
+> Default: 0 (Squad Leader, enabled); 2 (Squad, enabled); 1 (None to disable); <br/>
 #### **d_retakefarps / Retake Farps**
 > Default: 0 (Yes), 1 (No) to turn it off<br/>
 > If disabled (1, No) then all Farps are available at mission start<br/>
@@ -78,10 +82,11 @@
 #### **d_ao_radius_override / Target radius:**
 > Default: 0 (Normal 300m)<br/>
 > Target radius (normally 300m), available are (in meter) 350, 450, 550, 650, 750, 850 and 1000<br/>
-#### **d_pnspace_msave / Save mission progress to profileNamespace if no database is available**
+#### **d_save_to_mpns / Save player and mission progress to missionProfileNamespace if no SQL database is available**
 > Default: 1 (Yes, enabled; 0 or No to disable it)<br/>
-#### **d_pnspace_msave_auto / Saved profileNamespace mission progress auto load**
-> Default: 1 (Yes, enabled; 0 or No to disable it)<br/>
+#### **d_use_systemtime / Use server system time as game time**
+> Default: 0 (No, disabled; 1 or Yes to enable it)<br/>
+> Uses server time as game start time<br/>
 #### **d_weather / Internal weather system:**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
 #### **d_enable_fog / Enable fog (internal weather system):**
@@ -104,6 +109,8 @@
 #### **d_no_faks / Remove Fist Aid Kits:**
 > Default: 1 (No, disabled; 0 or Yes to remove FAKs)<br/>
 > Removes first aid kits, makes only sense when using it in combination with FAK revive<br/>
+#### **d_no_ai_silencer / >Remove silencer from spawned enemy AI units:**
+> Default: 0 (No, disabled; 1 or Yes to remove silencers from spawned AI units)<br/>
 #### **d_timemultiplier / Time Multiplier (1 real second = x ingame seconds):**
 > Default: 1 (disabled)<br/>
 > If a value bigger than 1 is used time will run faster<br/>
@@ -138,7 +145,7 @@
 #### **d_va_percentage / Limit Virtual Arsenal ammo box access too 1000**
 > Default: 0 (Yes, enabled; 1 or No for no limit)<br/>
 > If enabled players can only access a dropped ammo box about 1000 times before it gets deleted<br/>
-#### **d_dis_servicep / Disable all service points, including FARPs (no refuel, no repair, no rearm)**
+#### **d_dis_servicep / Disable all service points, including FARPs (no refuel, no repair, no rearm, no wreck repair)**
 > Default: 1 (No; 0 or Yes to disable service points)<br/>
 #### **d_InitialViewDistance / Initial Viewdistance:**
 > Default: 1600 (meter)<br/>
@@ -160,7 +167,7 @@
 > Default: 0 (Yes, enabled; 1 or No too disable)<br/>
 #### **d_with_ai / With AI recruitment:**
 > Default: 1<br/>
-> When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics.</br>
+> When AI recruitment is enabled all players can mark artillery targets, call in artillery, call in a drop aircraft, call in CAS. They are also all engineers and medics. And, of course, players can recruit AI!</br>
 > Available options:<br/>
 >   - Enabled (0)<br/>
 >   - Disabled (1)<br/>
@@ -195,7 +202,7 @@
 #### **d_only_medics_canrevive / Only medics can revive:**
 > Default: 1 (disabled)<br/>
 #### **d_ACEMedicalR / Use ACE Medical Revive and not mission Revive (if ACE is available):**
-> Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+> Default: 1 (Yes, enabled; 0 or No to disable it)<br/>
 > If disabled the mission uses it's own revive instead of the ACE one<br/>
 #### **xr_max_lives / Max lives (revive):**
 > Default: 30<br/>
@@ -274,11 +281,13 @@
 > Default: 1 (Yes, check for friendly units; 0 or No to disable it)<br/>
 #### **d_disable_player_cas / Disable player CAS**
 > Default: 0 (No, player cas enabled; 1 or Yes to disable it)<br/>
+#### **d_show_headshots / Show headshots**
+> Default: 0 (No; 1 client only; 2 client and side chat)<br/>
 #### **d_enable_civs / Enable civilians**
 > Default: 0 (No, disabled; 1 or Yes to enable civilians)<br/>
-#### **d_civ_unitcount / Civilian unit count per group**
+#### **d_civ_unitcount / Civilian unit count (walking)**
 > Default: 10<br/>
-> Available options: 10, 15, 20, 25 and 30<br/>
+> Available options: 10, 15, 20, 25, 30, 40, 50, 75 and 100<br/>
 #### **d_civ_groupcount / Civilian group count per target**
 > Default: 2<br/>
 > Available options: -1 (low), -2 (normal), -3 (high), -4 (very high), -5 (extreme), 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
@@ -293,6 +302,8 @@
 > Available options (in meters): 150, 250, 350 and 450<br/>
 #### **d_enable_civ_vehs_locked / Civilian vehicles - lock vehicles**
 > Default: 1 (Yes, enabled; 0 or No to disable)<br/>
+#### **d_enable_extra_cas / Enable extra CAS ordnance**
+> Default: 0 (No, not enabled; 1 or Yes to enable it)<br/>
 #### **d_tell_arty_cas / Always announce enemy artillery / CAS**
 > Default: 0 (No, enabled; 1 or Yes to disable it)<br/>
 #### **d_disable_airai / Disable enemy air AI**
@@ -349,8 +360,8 @@
 > Default: 1 (No, disabled)<br/>
 > Available options: 1 (Yes, enable) and -1 (Random)<br/>
 #### **d_max_bar_cnt / Maximum number of enemy infantry barracks**
-> Default: 5<br/>
-> Available options: 1, 2, 3, 4, 5, 6 and 7<br/>
+> Default: 7<br/>
+> Available options: 1, 2, 3, 4, 5, 6, 7, 8, 9 and 10<br/>
 #### **d_max_camp_cnt / Maximum number of enemy camps to capture**
 > Default: -1<br/>
 > Available options: -1 (3-5), 1, 2, 3, 4 and 5<br/>

@@ -44,7 +44,7 @@ if (isServer) then {
 		d_hq_logic_opfor2 setVariable ["d_hq_logic_side", opfor];
 		d_hq_logic_opfor2 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 	};
-	if (d_own_side == "GUER" || {d_ifa3lite}) then {
+	if (d_own_side == "GUER" || {d_ifa3}) then {
 		private _grprn = [independent] call d_fnc_creategroup;
 		__TRACE_1("","_grprn")
 		d_hq_logic_guer1 = _grprn createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
@@ -169,7 +169,7 @@ if (d_tt_ver || {d_own_side == "WEST"}) then {
 	};
 };
 
-if (d_own_side == "GUER" || {d_ifa3lite}) then {
+if (d_own_side == "GUER" || {d_ifa3}) then {
 	if (!isServer && {isNil "d_hq_logic_guer2"}) then {
 		while {true} do {
 			sleep 0.1;

@@ -8,8 +8,8 @@ params [
 	["_grp", ""],
 	["_mchelper", true],					// man create helper function for positioning
 	["_doreduce", false],					// allows the caller to disable d_smallgrps
-	["_unitsPerGroup", -1],					// allows the caller to specify max unit count
-	["_sideToEngage", [sideUnknown]]		// only used when AI awareness parameters are enabled
+	["_unitsPerGroupMax", -1],					// allows the caller to specify max unit count
+	["_noAIAwareness", false]		// if true do not add this unit to the AI awareness loop (d_cur_tgt_enemy_units) (only used when AI awareness parameters are enabled)
 ];
 
 if (isNil "_unitliste") exitWith {
@@ -27,8 +27,8 @@ __TRACE_2("","_mchelper","_doreduce")
 
 private _ret = [];
 
-if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroup > 0}) then {
-	_unitliste = [_unitliste, _unitsPerGroup] call d_fnc_ulreduce;
+if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroupMax > 0}) then {
+	_unitliste = [_unitliste, _unitsPerGroupMax] call d_fnc_ulreduce;
 };
 
 _ret resize (count _unitliste);
@@ -60,8 +60,8 @@ private _nightorfog = call d_fnc_nightfograin;
 	_one_unit setDamage 0;
 	//if (d_with_dynsim == 1) then {
 	if (_mchelper) then {
-		_one_unit setVehiclePosition [getPos _one_unit, [], 0, "CAN_COLLIDE"];
-		//_one_unit spawn d_fnc_mchelper;
+		//_one_unit setVehiclePosition [getPosWorld _one_unit, [], 0, "CAN_COLLIDE"];
+		_one_unit spawn d_fnc_mchelper;
 	};
 	//};
 #ifdef __TT__
@@ -111,19 +111,12 @@ if (side _grp == d_side_enemy) then {
 #endif
 (leader _grp) setRank "SERGEANT";
 
-if !(_sideToEngage isEqualType []) then {
-	_sideToEngage = [_sideToEngage];
-};
+{
+	if !(_noAIAwareness) then {
+		d_cur_tgt_enemy_units pushBack _x;
+	};
+} forEach units _grp;
 
-if (!(sideUnknown in _sideToEngage) && {d_ai_awareness_rad > 0 || {d_snp_aware > 0 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0}}}}) then {
-	//advanced awareness
-	private _rad = d_ai_awareness_rad;
-	if ("sniper" in (toLowerANSI (groupId _grp))) then { _rad = 1400; }; // if sniper group then set awareness radius to 1400m
-	{
-		[_x, _sideToEngage, _rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] spawn d_fnc_hallyg_dlegion_Snipe_awareness;
-	} forEach units _grp;
-	
-};
 #ifndef __TT__
 _ret call d_fnc_addceo;
 #endif

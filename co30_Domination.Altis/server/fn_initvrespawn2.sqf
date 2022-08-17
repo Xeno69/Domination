@@ -19,6 +19,10 @@ d_vrespawn2_ar = [];
 		} else {
 			d_vrespawn2_ar pushBack [_vec, _number_v, _vposp, getDir _vec, typeOf _vec, _x # 2];
 			_vec setVariable ["d_vec_is_mhq", [_x # 2, _number_v]];
+			if (!d_with_ranked) then {
+				_vec setVariable ["d_ammobox", true, true];
+				_vec setVariable ["d_abox_perc", 100, true];
+			};
 		};
 		
 		_vec setVariable ["d_OUT_OF_SPACE", -1];
@@ -66,9 +70,13 @@ d_vrespawn2_ar = [];
 				[_vec, 10] spawn d_fnc_enabledynsim;
 			};
 		};
-		if (d_with_ranked) then {
-			clearWeaponCargoGlobal _vec;
+		if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+			if (d_with_ranked) then {
+				clearWeaponCargoGlobal _vec;
+			};
+			clearBackpackCargoGlobal _vec;
 		};
+		
 		if (_vec isKindOf "Boat_F") then {
 			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 		};

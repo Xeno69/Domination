@@ -36,6 +36,20 @@ private _selectitvec = {
 	};
 };
 
+// if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
+private _merc_array = [
+	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
+	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
+];
+
+if (d_enemy_mercenaries == 1) then {
+	d_allmen_E =+ _merc_array;
+	d_specops_E =+ _merc_array;
+	publicVariable "d_allmen_E";
+	publicVariable "d_specops_E";
+	diag_log ["mercenaries configured for this map"];
+};
+
 private _type_list_guard = [];
 private _type_list_guard_static = [];
 private _camp_enable_guard_current = 0;
@@ -209,7 +223,14 @@ for "_i" from 1 to d_num_barracks_objs do {
 		_vec setVectorUp (surfaceNormal (getPos _vec));
 	};
 	_vec setVariable ["d_v_pos", getPos _vec];
-	private _trig = [_vec, [50, 50, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
+	private _nump = count (allPlayers - entities "HeadlessClient_F");
+	private _dist_trig_p = call {
+		if (_nump < 25) exitWith {50};
+		if (_nump < 30) exitWith {45};
+		if (_nump < 35) exitWith {40};
+		35
+	};
+	private _trig = [_vec, [_dist_trig_p, _dist_trig_p, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];
 	d_bara_trig_ar pushBack _trig;
 	if (d_bar_mhq_destroy == 1) then {
@@ -299,8 +320,8 @@ if (d_bar_mhq_destroy == 0) then {
 #ifndef __VN__
 private _unitstog = [
 	getPos _vec,
-	3,		//unit count
-	_vec,		//fillRadius
+	3,		//_maxNumUnits
+	10,		//fillRadius
 	true,	//fillRoof
 	false,	//fillEvenly
 	true,	//fillTopDown
@@ -310,12 +331,6 @@ private _unitstog = [
 d_delinfsm append _unitstog;
 #endif
 sleep 0.1;
-
-#ifndef __TT__
-if (d_enable_civs == 1) then {
-	[_trg_center, d_cur_target_radius] spawn d_fnc_civilianmodule;
-};
-#endif
 
 #ifdef __DEBUG__
 {
@@ -381,7 +396,7 @@ sleep 0.233;
 
 // create guard_static groups (and a camp if allmen/specops)
 {
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1) then {
+	if (d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}) then {
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
@@ -427,7 +442,7 @@ sleep 0.233;
 // create patrol groups
 {
 	__TRACE_1("patrol","_x")
-	if ((_x # 0) call _fnc_dospawnr || d_always_max_groups == 1 || d_grp_cnt_footpatrol > 0) then {
+	if (d_grp_cnt_footpatrol > 0 || {d_always_max_groups == 1 || {(_x # 0) call _fnc_dospawnr}}) then {
 		if (d_grp_cnt_footpatrol == 0) exitWith {};
 		private _curar = [_wp_array_vecs, _wp_array_inf] select (_x # 1 == 0);
 		private _group_count = (_x # 2);
@@ -461,11 +476,7 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 		private _xpos = _wp_array_inf # _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
 		__TRACE("from createmaintarget 1")
-#ifndef __TT__
-		private _observer = ([_xpos, _unit_array, _agrp, true, false, -1, d_side_player] call d_fnc_makemgroup) # 0;
-#else
 		private _observer = ([_xpos, _unit_array, _agrp, true, false] call d_fnc_makemgroup) # 0;
-#endif
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;
 		_agrp setVariable ["d_PATR", true];
 		if (d_with_dynsim == 0) then {
@@ -506,15 +517,17 @@ if (d_enable_civ_vehs > 0) then {
 	{
 		_roadConnectedTo = roadsConnectedTo _x;
 		
-		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 40}}}) then {
-			//only has 2 connections, children also only have 2 connections, is within 40m of a building
+		if (count _roadConnectedTo > 2 || {count (roadsConnectedTo (_roadConnectedTo # 0)) > 2 || {count (roadsConnectedTo (_roadConnectedTo # 1)) > 2 || {((nearestBuilding _x) distance2D _x) > 20}}}) then {
+			//only has 2 connections, children also only have 2 connections, is within 20m of a building
 			_roadList=_roadList - [_x];	
 		};
 	} foreach _roadList;
 
 	_roadList=_roadList call BIS_fnc_arrayShuffle;
 	
-	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100);
+	private _max_car_count = floor(d_enable_civ_vehs * 2.25); // sanity check, avoid spawning too many cars
+	_carSpawns = round((count _roadList) * d_enable_civ_vehs / 100) min _max_car_count;
+	diag_log [format ["creating %1 cars (calculated allowable is %2)", _carSpawns, _max_car_count]];
 	
 	for "_i" from 1 to _carSpawns do {
 		_currentRoad = _roadList # _i;
@@ -575,16 +588,20 @@ if (d_occ_bldgs == 1) then {
 			_occ_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
-		_occ_cnt = floor (_bldg_count * _occ_spawn_factor);
+		private _occ_cnt_max = floor(_occ_spawn_factor * 100);
+		_occ_cnt = floor (_bldg_count * _occ_spawn_factor) min _occ_cnt_max;
+		diag_log [format ["_occ_cnt adaptive value: %1", _occ_cnt]];
 	} else {
 		_occ_cnt = d_occ_cnt;
 	};
+	
+	diag_log [format ["creating occupy groups _occ_cnt: %1", _occ_cnt]];
 	if (_occ_cnt > 0) then {
 		for "_xx" from 0 to (_occ_cnt - 1) do {
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [2, 3, 4],			//unit count
-				d_occ_rad,		//fillRadius
+				[[[_trg_center, d_occ_rad]],[]] call BIS_fnc_randomPos,
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -617,21 +634,24 @@ if (d_occ_bldgs == 1) then {
 			_ovrw_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
-		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor);
+		private _ovrw_cnt_max = floor(_ovrw_spawn_factor * 100);
+		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor) min _ovrw_cnt_max;
+		diag_log [format ["_ovrw_cnt adaptive value: %1", _ovrw_cnt]];
 	} else {
 		_ovrw_cnt = d_ovrw_cnt;
 	};
+	diag_log [format ["creating overwatch groups _ovrw_cnt: %1", _ovrw_cnt]];
 	if (_ovrw_cnt > 0) then {
 		for "_xx" from 0 to (_ovrw_cnt - 1) do {
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [2, 3, 4],			//unit count
-				d_ovrw_rad,		//fillRadius
+				[[[_trg_center, d_ovrw_rad]],[]] call BIS_fnc_randomPos,
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
 				false,		//disableTeleport
-				3		//unitMovementMode
+				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		};
@@ -659,21 +679,39 @@ if (d_occ_bldgs == 1) then {
 			_amb_spawn_factor = 0.85;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
-		_amb_cnt = floor (_bldg_count * _amb_spawn_factor);
+		private _amb_cnt_max = floor(_amb_spawn_factor * 100);
+		_amb_cnt = floor (_bldg_count * _amb_spawn_factor) min _amb_cnt_max;
+		diag_log [format ["_amb_cnt adaptive value: %1", _amb_cnt]];
 	} else {
 		_amb_cnt = d_amb_cnt;
 	};
+	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
 	if (_amb_cnt > 0) then {
 		for "_xx" from 0 to (_amb_cnt - 1) do {
+			private _pos = [[[_trg_center, d_amb_rad]],[]] call BIS_fnc_randomPos;
+			// create an ambush group
 			private _unitstog = [
-				[[[_trg_center, 100]],[]] call BIS_fnc_randomPos,
-				selectRandom [3, 4],		//unit count
-				d_amb_rad,		//fillRadius
+				_pos,
+				-1,     //_maxNumUnits
+				99,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
 				false,		//disableTeleport
-				1		//unitMovementMode
+				1		//unitMovementMode - ambush
+			] call d_fnc_garrisonUnits;
+			d_delinfsm append _unitstog;
+			
+			// create an overwatch group in same building or area (cover the ambush group)
+			private _unitstog = [
+				_pos,
+				-1,     //_maxNumUnits
+				99,		//fillRadius
+				false,		//fillRoof
+				false,		//fillEvenly
+				true,		//fillTopDown
+				false,		//disableTeleport
+				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		};
@@ -701,10 +739,13 @@ if (d_occ_bldgs == 1) then {
 			_snp_spawn_factor = 0.75;  // adaptive (extreme)
 		};
 		private _bldg_count = count ([_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions);
-		_snp_cnt = floor (_bldg_count * _snp_spawn_factor);
+		private _snp_cnt_max = floor(_snp_spawn_factor * 100);
+		_snp_cnt = floor (_bldg_count * _snp_spawn_factor) min _snp_cnt_max;
+		diag_log [format ["_snp_cnt adaptive value: %1", _snp_cnt]];
 	} else {
 		_snp_cnt = d_snp_cnt;
 	};
+	diag_log [format ["creating sniper groups _snp_cnt: %1", _snp_cnt]];
 	if (_snp_cnt > 0) then {
 		//START create garrisoned groups of snipers
 		//prepare to create garrisoned groups of snipers - find and sort buildings
@@ -732,8 +773,8 @@ if (d_occ_bldgs == 1) then {
 				_posArray = _bldg buildingPos -1;
 	
 				{
-					_currentElevation = _x # 2; //Z axis
-					if (_currentElevation > _topElevation) then {_topElevation = _currentElevation};
+					_currentElevation = (getTerrainHeightASL _x) + (_x # 2); //Z axis
+					if (_currentElevation > _topElevation && {(_x # 2) > 2}) then {_topElevation = _currentElevation}; // criteria: highest sea-level position AND position height is greater than 2m above terrain height
 				} forEach _posArray;
 	
 				_topElevation
@@ -763,13 +804,14 @@ if (d_occ_bldgs == 1) then {
 			__TRACE_2("","_x","count (_x buildingPos -1)")
 			private _unitstog = [
 				getPos _x,
-				2,		//unit count
-				-1,		//fillRadius
+				2,		//_maxNumUnits
+				5,		//fillRadius
 				true,	//fillRoof
 				false,	//fillEvenly
 				true,	//fillTopDown
 				false,	//disableTeleport
-				2		//unitMovementMode
+				2,		//unitMovementMode
+				_x      //targetBuilding
 			] call d_fnc_garrisonUnits;
 			d_delinfsm append _unitstog;
 		} forEach _buildingsArray;
@@ -780,6 +822,17 @@ if (d_occ_bldgs == 1) then {
 //garrison end
 
 [_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
+
+#ifndef __TT__
+if (d_enable_civs == 1) then {
+	diag_log ["creating static and walking civilians with civilian module"];
+	[_trg_center, d_enable_civ_vehs_rad] call d_fnc_civilianmodule;
+	
+	// loop to control civilian behaviors
+	d_cur_tgt_afterfirednear_script_handle = [] spawn d_fnc_afterfirednear_civ_loop;
+};
+#endif
+
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
@@ -816,8 +869,8 @@ if (d_with_MainTargetEvents != 0) then {
 			case "CIV_RESISTANCE_INDEPENDENT": {
 				[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
 			};
-			case "CIV_RESISTANCE_JOINPLAYER": {
-				[_radius, _trg_center, true] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+			case "MARKED_FOR_DEATH_VIP_ESCORT": {
+				[_radius, _trg_center, true] spawn d_fnc_event_sidevipescort;
 			};
 		};
 	};
@@ -835,14 +888,18 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 	// choose event(s)
 	if (_doEvent) then {
+		private _tmpMtEvents = + d_x_mt_event_types;
+		if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
+			// some events are only eligible if d_with_MainTargetEvents == -3 or -4
+			// remove ineligible events from the temp array (remove guerrilla events and shock events)
+			_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "MARKED_FOR_DEATH");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "RESCUE_DEFEND");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "CIV_RESISTANCE_INDEPENDENT");
+			_tmpMtEvents deleteAt (_tmpMtEvents find "MARKED_FOR_DEATH_VIP_ESCORT");
+		};
 		if (d_with_MainTargetEvents == -2 || {d_with_MainTargetEvents == -3 || {d_with_MainTargetEvents == -4}}) then {
-			// create multiple simultaneous events		
-			private _tmpMtEvents = + d_x_mt_event_types;
-			if (d_with_MainTargetEvents != -3 && {d_with_MainTargetEvents != -4}) then {
-            	// some events are only eligible if d_with_MainTargetEvents == -3 or -4
-            	// remove ineligible events from the temp array
-            	_tmpMtEvents deleteAt (_tmpMtEvents find "GUERRILLA_INFANTRY");
-			};
+			// create multiple simultaneous events
 			private _num_events_for = 2; // default three events for iterator starting at zero
 			if (d_with_MainTargetEvents == -4) then {
 				// "all" parameter selected so entire events array will be used
@@ -859,17 +916,23 @@ if (d_with_MainTargetEvents != 0) then {
 			};
 		} else {
 			// create one event
+			// case for d_with_MainTargetEvents == -1 (always) falls through to here
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
-		if (d_ai_awareness_rad < 0 && {d_enable_civs == 0 && {d_ai_aggressiveshoot == 0}}) then {
+		if (d_ai_awareness_rad > 0 && {d_enable_civs == 1 && {d_ai_aggressiveshoot == 1}}) then {
 			// awareness, civs, agressiveshoot are enabled
 			// very small chance of a civilian massacre
-			if (3 > random 100) then {
+			if (2 > random 100) then {
 				// bad luck for the civilians
 				[_radius, _trg_center] spawn d_fnc_event_civ_massacre;
 			};
 		};
 	};
+};
+
+if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot == 1 || {d_ai_quickammo == 1}}}}) then {
+	// at least one awareness setting is enabled, run the awareness loop
+	d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
 };
 #endif
 

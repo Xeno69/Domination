@@ -40,7 +40,7 @@ INSERT IGNORE INTO `dom_settings` (`name`, `value`) VALUES
 	('d_tt_points', '[30,7,15,5,10,5,10,4,2]'),
 	('d_cas_available_time', '600'),
 	('d_ranked_a', '[20,[3,2,1,0],10,3,10,10,20,3,["Corporal","Sergeant","Lieutenant","Lieutenant","Sergeant","Corporal"],30,400,10,200,20,10,5,20,4,1,20,20,10,20]'),
-	('d_addscore_a', '[5,5,5,5,5,30,10,10,[3,2,1,0],5,3,1,1,20]'),
+	('d_addscore_a', '[5,5,5,5,5,30,10,10,[3,2,1,0],5,3,5,1,20]'),
 	('d_points_needed', '[20,50,90,140,200,270,500]'),
 	('d_points_needed_db', '[500,2000,5000,9000,14000,20000,30000]'),
 	('d_ai_groups_respawn_time', '[250,150,320,170]'),

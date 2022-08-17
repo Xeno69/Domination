@@ -52,7 +52,7 @@ if (count d_mttargets_ar > 1) then {
 	
 	0 remoteExecCall ["d_fnc_clienttargetsel", [0, -2] select isDedicated];
 	
-	sleep 30;
+	sleep d_targetselect_time;
 	
 	1 remoteExecCall ["d_fnc_clienttargetsel", [0, -2] select isDedicated];
 	

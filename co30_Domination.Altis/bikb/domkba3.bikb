@@ -262,12 +262,12 @@ class Sentences {
 		text = "$STR_DOM_MISSIONSTRING_1385";
 		speech[] = {};
 		class Arguments {};
-	}
+	};
 	class TTBArracksAnnounce {
 		text = "$STR_DOM_MISSIONSTRING_1950";
 		speech[] = {};
 		class Arguments {};
-	};;
+	};
 #else
 	class TellAirDropAttack {
 		text = "$STR_DOM_MISSIONSTRING_1389";
@@ -476,6 +476,13 @@ class Sentences {
 			class 3 {type = "simple";};
 		};
 	};
+	class PlayerMarkedForDeathEscort {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
 	class EventSucceed {
 		text = "$STR_DOM_MISSIONSTRING_EVENTSUCCEED";
 		speech[] = {};
@@ -511,6 +518,19 @@ class Sentences {
 		class Arguments {
 			class 1 {type = "simple";};
 		};
+	};
+	class MTHeadshot {
+		text = "$STR_DOM_MISSIONSTRING_HEADSHOT";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+			class 2 {type = "simple";};
+		};
+	};
+	class MTEventVIPEscort {
+		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT_JOIN";
+		speech[] = {};
+		class Arguments {};
 	};
 };
 class Arguments{};

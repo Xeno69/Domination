@@ -37,7 +37,7 @@ class CfgWorlds {
 			"A donation is always welcome... :)",
 			"Did you know that the first Domination version came out 2007 for Arma 1?",
 			"You can configure Domination for your needs with more than 130 server params available in the lobby or via database",
-			"If you have problems with a server ask on the server discord or forums, the Domination discord server is only for the mission!"
+			"If you have problems with a server ask on the server discord or forums. The Domination discord server is only for the mission!"
 		};
 	};
 };
@@ -63,7 +63,7 @@ class Header {
 #ifdef __CUP_SARA__
 	maxPlayers = 41;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	maxPlayers = 41;
 #endif
 #ifdef __TANOA__
@@ -124,6 +124,8 @@ wreckRemovalMaxTime = 360;
 // minPlayerDistance = 30;
 
 vn_arsenalShowMelee = 1;
+
+missionGroup = "DominationMissionGroup";
 
 class CfgRemoteExec {
 	// List of script functions allowed to be sent from client via remoteExec
@@ -203,6 +205,7 @@ class CfgRemoteExec {
 		class d_fnc_dynamicGroups {};
 		class d_fnc_addppoints {allowedTargets = 2;};
 		class d_fnc_moduleCAS {allowedTargets = 2;};
+		class d_fnc_moduleCAS_bomb {allowedTargets = 2;};
 		class d_fnc_storeploadout {allowedTargets = 2;};
 		class d_fnc_player_stuff {allowedTargets = 1;};
 		class d_fnc_addceo {allowedTargets = 2;};
@@ -266,6 +269,8 @@ class CfgRemoteExec {
 		class d_fnc_makebarmhqwait {allowedTargets = 1;};
 		class d_fnc_slopilot {allowedTargets = 2;};
 		class d_fnc_addplscore {allowedTargets = 2;};
+		class d_fnc_receivetop {allowedTargets = 1;};
+		class d_fnc_sendtopplayers {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
@@ -273,6 +278,15 @@ class CfgRemoteExec {
 		class d_fnc_ttpvkill {allowedTargets = 2;};
 		class d_fnc_lastchanceclient {allowedTargets = 1;};
 		class d_fnc_asfnc {allowedTargets = 2;};
+#endif
+#ifdef __VN__
+		class vn_fnc_music_play {};
+		class vn_fnc_music_stop {};
+		class vn_fnc_drm_setup_client {};
+		class vn_fnc_drm_useractions {};
+		class vn_fnc_drm_usereventhandlers {};
+		class vn_fnc_switchableTurrets_lock {allowedTargets = 2;};
+		class vn_fnc_burnit_action {};
 #endif
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -293,8 +307,18 @@ class CfgRemoteExec {
 		class setSpeaker {};
 		class setFeatureType {jip = 1;};
 		class deleteMarkerLocal {allowedTargets = 1;};
+		class enableDynamicSimulation {allowedTargets = 2;};
+		class triggerDynamicSimulation {allowedTargets = 2;};
 #ifdef __TT__
 		class setMarkerPosLocal {allowedTargets = 1;};
+#endif
+#ifdef __VN__
+		class setShotParents {allowedTargets = 2;};
+		class unassignVehicle {};
+		class moveInCargo {};
+		class lockTurret {};
+		class globalRadio {};
+		class setVehicleAmmo {};
 #endif
 	};
 };
@@ -341,7 +365,7 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
@@ -398,7 +422,7 @@ class Params {
 #ifdef __CUP_TAKISTAN__
 		default = 7;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		default = 5;
 #endif
 #ifdef __TT__
@@ -457,6 +481,13 @@ class Params {
 		values[] = {0,4,8,12,9999};
 		default = 4;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363", "4","8","12","$STR_DOM_MISSIONSTRING_2022"};
+	};
+	
+	class d_targetselect_time {
+		title = "$STR_DOM_MISSIONSTRING_2092";
+		values[] = {30,45,60,120,240,300};
+		default = 30;
+		texts[] = {"30","45","60","120","240",300};
 	};
 
 	class d_MissionType {
@@ -548,7 +579,7 @@ class Params {
 #ifdef __CUP_TAKISTAN__
 		default = 1;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		default = 1;
 #endif
 #ifdef __TT__
@@ -601,13 +632,6 @@ class Params {
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
-	
-	class d_ao_bfires {
-		title = "$STR_DOM_MISSIONSTRING_2061";
-		values[] = {0,1};
-		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
 
 	class d_ao_radius_override {
 		title = "$STR_DOM_MISSIONSTRING_MT_RADIUS";
@@ -616,20 +640,20 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_11","350","450","550","650","750","850","1000"};
 	};
 	
-	class d_pnspace_msave {
-		title = "$STR_DOM_MISSIONSTRING_2084";
+	class d_save_to_mpns {
+		title = "$STR_DOM_MISSIONSTRING_2094";
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
-	class d_pnspace_msave_auto {
-		title = "$STR_DOM_MISSIONSTRING_2085";
+	class d_use_systemtime {
+		title = "$STR_DOM_MISSIONSTRING_2097";
 		values[] = {0,1};
-		default = 1;
+		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
-
+	
 	class d_params_dl_8_env {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
 		values[] = {-66};
@@ -690,7 +714,7 @@ class Params {
 #ifdef __CUP_SARA__
 		default = 0;
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 		default = 1;
 #endif
 #ifdef __TTALTIS__
@@ -742,6 +766,13 @@ class Params {
 		values[] = {0,1};
 		default = 1;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_no_ai_silencer {
+		title = "$STR_DOM_MISSIONSTRING_2096";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_timemultiplier {
@@ -851,9 +882,9 @@ class Params {
 
 	class d_ViewdistanceChange {
 		title = "$STR_DOM_MISSIONSTRING_1041";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_VIEWDISTANCE_SERVER_INIT_CLIENT"};
 	};
 	
 	class d_AutoViewdistanceChangeDefault {
@@ -1064,6 +1095,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
+	
+	class d_show_headshots {
+		title = "$STR_DOM_MISSIONSTRING_SHOW_HEADSHOTS";
+		values[] = {0,1,3};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_CLIENT_ONLY","$STR_DOM_MISSIONSTRING_CLIENT_ALL"};
+	};
 
 	class d_params_dl_8 {
 		title = "$STR_DOM_MISSIONSTRING_1574";
@@ -1163,6 +1201,27 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","60","120","180","240","300"};
 	};
 	
+	class d_params_dl_8_cas_arty {
+		title = "$STR_DOM_MISSIONSTRING_1574_CAS_ARTY";
+		values[] = {-66};
+		default = -66;
+		texts[] = {""};
+	};
+	
+	class d_enable_extra_cas {
+		title = "$STR_DOM_MISSIONSTRING_EXTRA_CAS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_tell_arty_cas {
+		title = "$STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_disable_player_arty {
 		title = "$STR_DOM_MISSIONSTRING_2077";
 		values[] = {0,1};
@@ -1172,9 +1231,9 @@ class Params {
 	
 	class d_arty_unlimited {
 		title = "$STR_DOM_MISSIONSTRING_1885";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT","$STR_DOM_MISSIONSTRING_1063","$STR_DOM_MISSIONSTRING_399"};
 	};
 	
 	class d_artycheckfriendlies {
@@ -1207,9 +1266,9 @@ class Params {
 
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
-		values[] = {10,15,20,25,30};
+		values[] = {10,15,20,25,30,40,50,75,100};
 		default = 10;
-		texts[] = {"10","15","20","25","30"};
+		texts[] = {"10","15","20","25","30","40","50","75","100"};
 	};
 
 	class d_civ_groupcount {
@@ -1252,13 +1311,6 @@ class Params {
 		values[] = {-66};
 		default = -66;
 		texts[] = {""};
-	};
-	
-	class d_tell_arty_cas {
-		title = "$STR_DOM_MISSIONSTRING_1894_TELL_ARTY_CAS";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_disable_airai {
@@ -1382,9 +1434,9 @@ class Params {
 	
 	class d_grp_size_override {
 		title = "$STR_DOM_MISSIONSTRING_1900GROUPSIZE";
-		values[] = {-1, 1, 2, 3, 4, 5, 6, 7, 8, 9};
-		default = -1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+		values[] = {0, 1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT", "$STR_DOM_MISSIONSTRING_400"};
 	};
 	
 	class d_camp_static_weapons {
@@ -1410,9 +1462,9 @@ class Params {
 
 	class d_max_bar_cnt {
 		title = "$STR_DOM_MISSIONSTRING_1899";
-		values[] = {1, 2, 3, 4, 5, 6, 7};
-		default = 5;
-		texts[] = {"1", "2", "3", "4", "5", "6", "7"};
+		values[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+		default = 7;
+		texts[] = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 	};
 
 	class d_max_camp_cnt {
@@ -1564,6 +1616,13 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_enemy_mercenaries {
+		title = "$STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES";
+		values[] = {0,1};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		default = 0;
 	};
 
 	class d_params_dl_13 {
@@ -2118,7 +2177,7 @@ class CfgDebriefing {
 };
 
 class CfgIdentities {
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 	class DHQ_BF1 {
 		name = "Winters, HQ";
 		face = "whiteHead_04";
@@ -2202,7 +2261,7 @@ class CfgIdentities {
 		speaker = "Male02RU";
 	};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	class DHQ_BF1 {
 		name = "Meier, HQ";
 		face = "whiteHead_04";
@@ -2316,10 +2375,10 @@ class Extended_Init_Eventhandlers {
 		d_car_init = "_this call d_fnc_vecinit";
 	};
 	class Tank {
-		d_car_init = "_this call d_fnc_vecinit";
+		d_tank_init = "_this call d_fnc_vecinit";
 	};
 	class Air {
-		d_car_init = "_this call d_fnc_vecinit";
+		d_air_init = "_this call d_fnc_vecinit";
 	};
 };
 

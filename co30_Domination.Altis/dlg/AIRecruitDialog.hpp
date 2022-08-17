@@ -5,12 +5,12 @@ class D_AIRecruitDialog {
 	onUnLoad = "uiNamespace setVariable ['D_AIRecruitDialog', nil];d_airecruit_dialog_open = false";
 	effectTilesAlpha = 0.15;
 	class controlsBackground {
-		COMMON_BACKGROUND_VIGNETTE
-		COMMON_BACKGROUND_TILES
-		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1235)
+		COMMON_BACKGROUND_VIGNETTE;
+		COMMON_BACKGROUND_TILES;
+		__DDIALOG_BG($STR_DOM_MISSIONSTRING_1235);
 	};
 	class controls {
-		__CANCELCLOSEB(-1)
+		__CANCELCLOSEB(-1);
 		class UnitsListBoxCaption: RscText {
 			x = 0.08; y = 0.11;
 			w = 0.2; h = 0.1;

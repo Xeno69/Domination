@@ -52,7 +52,7 @@ private _make_jump = {
 	_driver_vec setSkill 1;
 
 	sleep 0.1;
-	private _landheli = random 100 > 49;
+	private _landheli = !(_vec isKindOf "Plane") && {random 100 > 49 && {(call d_fnc_PlayersNumber) < 25}};
 	
 	__TRACE_1("","_landheli")
 
@@ -154,8 +154,8 @@ private _make_jump = {
 				__TRACE_1("","_paragrp")
 				private _real_units = ["allmen", d_enemy_side_short] call d_fnc_getunitlistm;
 				sleep 0.1;
-				if (count _real_units > 6) then {
-					_real_units resize 6;
+				if (count _real_units > 5) then {
+					_real_units resize 5;
 				};
 				if (d_smallgrps == 0) then {
 					_real_units = [_real_units, -1] call d_fnc_ulreduce;

@@ -34,27 +34,33 @@ if (!d_tt_ver) then {
 				_dbresult = ["missionGet2", [toLower (worldName + _sname + briefingname)]] call d_fnc_queryconfig;
 			};
 		};
-		if (d_db_type == -1) exitWith {
+		if (d_db_type == 2) exitWith {
 			_dbresult = [];
-			private _pn_missionsave = profileNamespace getVariable ["dom_missionsave", []];
+			private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsave", []];
 			if (_pn_missionsave isEqualTo []) exitWith {};
 			if (_sender != objNull) then {
 				private _comna = tolower (worldName + _sname);
+				__TRACE_1("","_comna")
 				private _idx = _pn_missionsave findIf {(_x # 12) == _comna};
+				__TRACE_1("","_idx")
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 12;
 					_tmpar deleteAt 0;
 					_dbresult = [_tmpar];
+					__TRACE_1("","_dbresult")
 				};
 			} else {
 				private _comna = toLower (worldName + _sname + briefingname);
+				__TRACE_1("2","_comna")
 				private _idx = _pn_missionsave findIf {(_x # 13) == _comna};
+				__TRACE_1("2","_idx")
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 13;
 					_tmpar deleteAt 0;
 					_dbresult = [_tmpar];
+					__TRACE_1("2","_dbresult")
 				};
 			};
 		};
@@ -80,13 +86,18 @@ if (!d_tt_ver) then {
 				_dbresult = ["missionttGet2", [toLower (worldName + _sname + briefingname)]] call d_fnc_queryconfig;
 			};
 		};
-		if (d_db_type == -1) exitWith {
+		if (d_db_type == 2) exitWith {
 			_dbresult = [];
-			private _pn_missionsave = profileNamespace getVariable ["dom_missionsavett", []];
+			private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsavett", []];
 			if (_pn_missionsave isEqualTo []) exitWith {};
 			if (_sender != objNull) then {
 				private _comna = tolower (worldName + _sname);
-				private _idx = _pn_missionsave findIf {(_x # 18) == _comna};
+				__TRACE_1("","_comna")
+				private _idx = _pn_missionsave findIf {
+					__TRACE_1("","_x")
+					__TRACE_1("","count _x")
+					count _x > 18 && {(_x # 18) == _comna}
+				};
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 18;
@@ -96,7 +107,9 @@ if (!d_tt_ver) then {
 				};
 			} else {
 				private _comna = toLower (worldName + _sname + briefingname);
-				private _idx = _pn_missionsave findIf {(_x # 19) == _comna};
+				private _idx = _pn_missionsave findIf {
+					count _x > 19 && {(_x # 19) == _comna}
+				};
 				if (_idx != -1) then {
 					private _tmpar =+ _pn_missionsave # _idx;
 					_tmpar deleteAt 19;
@@ -208,6 +221,8 @@ d_bonus_vecs_db = _ar # 9;
 		if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 		_vec setVariable ["d_liftit", true, true];
 	};
+	
+	__TRACE_1("","_endpos")
 
 	if (!_isar) then {
 		_vec setDir _dir;
@@ -254,6 +269,13 @@ d_bonus_vecs_db = _ar # 9;
 	
 	if (_vec isKindOf "Air" && {getNumber ((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
+	};
+	
+	if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
+		clearBackpackCargoGlobal _vec;
 	};
 	
 	d_bonus_vecs_db set [_forEachIndex, _vec];
@@ -395,6 +417,13 @@ private _fnc_tt_bonusvec = {
 
 	if (_vec isKindOf "Air" && {getNumber((configOf _vec) >> "EjectionSystem" >> "EjectionSeatEnabled") == 1}) then {
 		_vec addEventHandler ["getOut", {call d_fnc_aftereject}];
+	};
+	
+	if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec;
+		};
+		clearBackpackCargoGlobal _vec;
 	};
 	
 	_vec

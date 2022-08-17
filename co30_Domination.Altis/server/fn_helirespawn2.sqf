@@ -144,8 +144,11 @@ while {true} do {
 #endif
 			[_vec, 8] call d_fnc_setekmode;
 			_vec remoteExecCall ["d_fnc_initvec", [0, -2] select isDedicated];
-			if (d_with_ranked) then {
-				clearWeaponCargoGlobal _vec;
+			if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+				if (d_with_ranked) then {
+					clearWeaponCargoGlobal _vec;
+				};
+				clearBackpackCargoGlobal _vec;
 			};
 			if (isNil "_aslpos") then {
 				_vec allowDamage true;

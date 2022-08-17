@@ -118,7 +118,6 @@ class d_vec_hud {
 	duration = 1e+011;
 	name="d_vec_hud";
 	onLoad = "uiNamespace setVariable ['d_vec_hud', _this select 0]";
-	onUnLoad = "uiNamespace setVariable ['d_vec_hud', nil]";
 	class controls {
 		class vehicle_hud_name {
 			type = 0;
@@ -160,7 +159,6 @@ class d_score_hud {
 	duration = 1e+011;
 	name="d_score_hud";
 	onLoad="uiNamespace setVariable ['d_score_hud', _this select 0]";
-	onUnLoad="uiNamespace setVariable ['d_score_hud', nil]";
 	class controls {
 		class hud_type {
 			type = 0;
@@ -185,9 +183,7 @@ class d_chopper_hud {
 	fadeout = 1;
 	duration = 1e+011;
 	name="d_chopper_hud";
-	onLoad="uiNamespace setVariable ['d_chopper_hud', _this select 0]";
-	onUnLoad="uiNamespace setVariable ['d_chopper_hud', nil]";
-	
+	onLoad="uiNamespace setVariable ['d_chopper_hud', _this select 0]";	
 	class controls {
 		class Text: d_RscStructuredText {
 			idc = 9999;
@@ -219,7 +215,6 @@ class d_chopper_lift_hud {
 	duration = 1e+011;
 	name="d_chopper_lift_hud";
 	onLoad="uiNamespace setVariable ['d_chopper_lift_hud', _this select 0]";
-	onUnLoad="uiNamespace setVariable ['d_chopper_lift_hud', nil]";
 	class controls {
 		class hud_background {
 			idc = 64437;
@@ -305,7 +300,6 @@ class d_chopper_lift_hud2 {
 	duration = 1e+011;
 	name="d_chopper_lift_hud2";
 	onLoad="uiNamespace setVariable ['d_chopper_lift_hud2', _this select 0]";
-	onUnLoad="uiNamespace setVariable ['d_chopper_lift_hud2', nil]";
 	class controls {
 		class hud_type {
 			type = 0;
@@ -330,7 +324,6 @@ class d_ProgressBar {
 	duration = 1e+011;
 	name = "d_ProgressBar";
 	onLoad = "uiNamespace setVariable ['d_ProgressBar', _this select 0]; ((_this select 0) displayCtrl 3800) progressSetPosition 0";
-	onUnLoad = "uiNamespace setVariable ['d_ProgressBar', nil]";
 	controlsBackground[] = {};
 	class controls {
 		class ProgressBarBackground: RscText {
@@ -371,7 +364,6 @@ class d_ProgressBar2 {
 	duration = 180;
 	name = "d_ProgressBar2";
 	onLoad = "uiNamespace setVariable ['d_ProgressBar2', _this select 0]; ((_this select 0) displayCtrl 3800) progressSetPosition 0";
-	onUnLoad = "uiNamespace setVariable ['d_ProgressBar2', nil]";
 	controlsBackground[] = {};
 	class controls {
 		class ProgressBar: RscText {
@@ -403,7 +395,6 @@ class d_ProgressBar3 {
 	duration = 1e+011;
 	name = "d_ProgressBar3";
 	onLoad = "uiNamespace setVariable ['d_ProgressBar3', _this select 0];";
-	onUnLoad = "uiNamespace setVariable ['d_ProgressBar3', nil]";
 	controlsBackground[] = {};
 	class controls {
 		class ProgressBar: RscText {
@@ -437,7 +428,6 @@ class d_showPlayerNameRsc {
 	fadeout = 0.3;
 	name = "d_PlayerNameRSC";
 	onLoad ="uiNamespace setVariable ['d_showPlayerNameRsc', _this select 0]";
-	onUnload = "uiNamespace setVariable ['d_showPlayerNameRsc', nil]";
 	class controls {
 		class DisplayPlayerName: d_RscStructuredText {
 			idc = 1000;
@@ -469,7 +459,6 @@ class d_rscDynamicText {
 	fadeout = 0;
 	name = "d_rscDynamicText";
 	onload = "uinamespace setvariable ['d_rscDynamicText',_this select 0];";
-	onUnload = "uinamespace setvariable ['d_rscDynamicText',nil];";
 	class controls {
 		class Text: d_RscStructuredText {
 			idc = 9999;
@@ -502,7 +491,6 @@ class d_rscCrewText {
 	fadeout = 0;
 	name = "d_rscCrewText";
 	onload = "uinamespace setvariable ['d_rscCrewText',_this select 0]";
-	onUnload = "uinamespace setvariable ['d_rscCrewText',nil]";
 	class controls {
 		class Text: d_RscStructuredText {
 			idc = 9999;
@@ -536,7 +524,6 @@ class d_fpsresource {
 	fadeout = 0;
 	name="d_fpsresource";
 	onLoad = "uiNamespace setVariable ['d_fpsresource', _this select 0]";
-	onUnLoad = "uiNamespace setVariable ['d_fpsresource', nil]";
 	class controls {
 		class server_cap: RscText {
 			idc=-1;
@@ -581,7 +568,6 @@ class d_cam_rose {
 	duration = 1e+011;
 	name="d_cam_rose";
 	onLoad = "uiNamespace setVariable ['d_cam_rose', _this select 0]";
-	onUnLoad = "uiNamespace setVariable ['d_cam_rose', nil]";
 	class controls {
 		class CHAR_N {
 			type = 0;
@@ -626,7 +612,6 @@ class d_sat_timode {
 	fadeout = 0;
 	name="d_sat_timode";
 	onLoad = "uiNamespace setVariable ['d_sat_timode', _this select 0]";
-	onUnLoad = "uiNamespace setVariable ['d_sat_timode', nil]";
 	class controls {
 		class ti_caption: RscText {
 			idc=-1;
@@ -659,7 +644,6 @@ class d_RscSupportL {
 	name = "d_RscSupportL";
 	sizeEx = 256;
 	onLoad = "uiNamespace setVariable ['d_RscSupportL', _this select 0];call d_fnc_updatesupportrsc";
-	onUnLoad = "uiNamespace setVariable ['d_RscSupportL', nil]";
 	class controls {
 		class Arty: D_RscPicture {
 			idc = 50;
@@ -685,7 +669,6 @@ class d_RscPIP {
 	duration = 1e+011;
 	fadein = 0;
 	onLoad = "uinamespace setvariable ['d_RscPIP', _this select 0];";
-	onUnload = "uinamespace setvariable ['d_RscPIP', nil];";
 	class controlsBackground {
 		class PIP: D_RscPicture {
 			IDC = 2300;
@@ -700,7 +683,6 @@ class d_RscPIP {
 class d_infobar {
 	idd = -1;
 	onLoad = "uiNamespace setVariable ['d_infobar', _this select 0]";
-	onUnload = "uiNamespace setVariable ['d_infobar', nil]";
 	onDestroy = "uiNamespace setVariable ['d_infobar', nil]";
 	fadein = 0;
 	fadeout = 0;
@@ -738,7 +720,6 @@ class d_RscLastChance {
 	name = "d_RscLastChance";
 	sizeEx = 256;
 	onLoad = "uiNamespace setVariable ['d_RscLastChance', _this select 0]";
-	onUnLoad = "uiNamespace setVariable ['d_RscLastChance', nil]";
 	class controls {
 		class LCText: RscText {
 			idc = 3900;
@@ -793,7 +774,6 @@ class d_RscBarMHQTake {
 	name = "d_RscBarMHQTake";
 	sizeEx = 256;
 	onLoad = "uiNamespace setVariable ['d_RscBarMHQTake', _this select 0]";
-	onUnLoad = "uiNamespace setVariable ['d_RscBarMHQTake', nil]";
 	class controls {
 		class LCText: RscText {
 			idc = 3900;

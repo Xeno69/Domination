@@ -55,6 +55,9 @@ if (_lo # 0 isNotEqualTo []) then {
 			call d_fnc_save_layoutgear;
 			call d_fnc_store_rwitems;
 			call d_fnc_storepitems;
+			if (d_WithRevive == 0) then {
+				player setVariable ["d_cur_opm", [player getOpticsMode 1, player getOpticsMode 2, player getOpticsMode 3]];
+			};
 		};
 	};
 };
@@ -100,6 +103,7 @@ if (d_database_found) then {
 	} else {
 		_p_distar = _dar;
 	};
+	__TRACE_1("","_p_distar")
 	if (!isNil "d_p_rounds") then {
 		d_p_rounds = d_p_rounds + _this # 17;
 	} else {

@@ -73,7 +73,7 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {[]};
 	};
 #endif
-#ifdef __IFA3LITE__
+#ifdef __IFA3__
 	d_UnitsToRecruit = switch (d_player_side) do {
 		case blufor: {[]};
 		case opfor: {["LIB_SOV_rifleman", "LIB_SOV_sapper", "LIB_SOV_medic", "LIB_SOV_mgunner", "LIB_SOV_AT_soldier", "LIB_US_rifleman", "LIB_US_engineer", "LIB_US_medic", "LIB_US_mgunner", "LIB_US_AT_soldier"]};

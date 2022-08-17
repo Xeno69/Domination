@@ -20,3 +20,18 @@ if (d_no_faks == 0) then {
 		_this removeItems "vn_o_item_firstaidkit";
 	};
 };
+
+if (d_no_ai_silencer == 1) then {
+	private _items = primaryWeaponItems _this;
+	if ((_items # 0) isNotEqualTo "") then {
+		_this removePrimaryWeaponItem (_items  # 0);
+	};
+	_items = handgunItems _this;
+	if ((_items # 0) isNotEqualTo "") then {
+		_this removeHandgunItem (_items  # 0);
+	};
+	_items = secondaryWeaponItems _this;
+	if ((_items # 0) isNotEqualTo "") then {
+		_this removeSecondaryWeaponItem (_items  # 0);
+	};
+};

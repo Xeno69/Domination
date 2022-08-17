@@ -37,7 +37,7 @@ if (_townNearbyPos isEqualTo []) exitWith {
 
 private _x_mt_event_ar = [];
 
-private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
+private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
 
@@ -83,7 +83,7 @@ private _guerrillaBaseSkill = 0.35;
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, opfor] call d_fnc_makemgroup;
+	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];

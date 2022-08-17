@@ -33,11 +33,14 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 	if (_has_sql == 1) then {
 		private _lpos = visiblePositionASL (leader (group player)); // assume squad leader
 		if (!([leader (group player)] call d_fnc_iseligibletospawnnewunit)) then {
-			{
-				if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
+			(units player) findIf {
+				if (_x != player && {[_x] call d_fnc_iseligibletospawnnewunit}) then {
 					_lpos = visiblePositionASL _x;
+					true
+				} else {
+					false
 				};
-			} forEach (units player);
+			};
 		};
 		"D_SQL_D" setMarkerPosLocal _lpos;
 		if (!isNil "d_respawn_posis" && !isNil "d_resp_lead_idx") then {

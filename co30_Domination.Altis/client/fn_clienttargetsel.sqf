@@ -18,7 +18,7 @@ if (_type == 0) then {
 	_control ctrlSetPositionW 0.4;
 	_control ctrlCommit 0;
 	_control ctrlSetPositionW 0;
-	_control ctrlCommit 30;
+	_control ctrlCommit d_targetselect_time;
 	
 	d_clienttargetsel_scr = 0 spawn {
 		scriptName "spawn clienttargetsel";

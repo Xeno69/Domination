@@ -24,7 +24,7 @@ d_mtmissionobjs pushBack _utower;
 private _unitstog = [
 	getPos _utower,
 	3,		//unit count
-	_utower,		//fillRadius
+	5,		//fillRadius
 	true,	//fillRoof
 	true,	//fillEvenly
 	true,	//fillTopDown
@@ -36,7 +36,7 @@ d_delinfsm append _unitstog;
 _unitstog = [
 	getPos _utower,
 	5,		//unit count
-	_utower,		//fillRadius
+	5,		//fillRadius
 	false,	//fillRoof
 	false,	//fillEvenly
 	false,	//fillTopDown

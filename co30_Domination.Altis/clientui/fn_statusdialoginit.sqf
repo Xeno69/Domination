@@ -6,16 +6,13 @@ params ["_disp"];
 if (!d_pisadminp) then {
 	(_disp displayCtrl 123123) ctrlShow false;
 	(_disp displayCtrl 123124) ctrlShow false;
-	if (!d_database_found) then {
-		(_disp displayCtrl 123125) ctrlShow false;
-	};
 } else {
 	if (!d_database_found) then {
-		if (d_pnspace_msave == 0) then {
-			(_disp displayCtrl 123124) ctrlShow false;
-		};
-		(_disp displayCtrl 123125) ctrlShow false;
+		(_disp displayCtrl 123124) ctrlShow false;
 	};
+};
+if (!d_database_found) then {
+	(_disp displayCtrl 123125) ctrlShow false;
 };
 
 if (d_with_bis_dynamicgroups == 1) then {
@@ -254,8 +251,11 @@ _s_all = str _s_all;
 
 if (d_disable_viewdistance) then {
 	(_disp displayCtrl 1000) ctrlEnable false;
-	(_disp displayCtrl 1999) ctrlSetText (localize "STR_DOM_MISSIONSTRING_357");
-	(_disp displayCtrl 1997) ctrlSetText "";
+	(_disp displayCtrl 1999) ctrlSetText [localize "STR_DOM_MISSIONSTRING_358", round viewDistance];
+	(_disp displayCtrl 3500) ctrlEnable false;
+	(_disp displayCtrl 3333) ctrlSetText [localize "STR_DOM_MISSIONSTRING_358V", round viewDistance];
+	(_disp displayCtrl 3501) ctrlEnable false;
+	(_disp displayCtrl 1999) ctrlSetText [localize "STR_DOM_MISSIONSTRING_358A", round viewDistance];
 } else {
 	(_disp displayCtrl 1000) sliderSetRange [200, d_MaxViewDistance];
 	if (!d_isvdreduced) then {
@@ -265,6 +265,12 @@ if (d_disable_viewdistance) then {
 		(_disp displayCtrl 1000) sliderSetPosition d_curviewdistance;
 		(_disp displayCtrl 1999) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358", round d_curviewdistance];
 	};
+	(_disp displayCtrl 3500) sliderSetRange [200, d_MaxViewDistance];
+	(_disp displayCtrl 3500) sliderSetPosition d_ViewDistanceVec;
+	(_disp displayCtrl 3333) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358V", round d_ViewDistanceVec];
+	(_disp displayCtrl 3501) sliderSetRange [200, d_MaxViewDistance];
+	(_disp displayCtrl 3501) sliderSetPosition d_ViewDistanceAir;
+	(_disp displayCtrl 3334) ctrlSetText format [localize "STR_DOM_MISSIONSTRING_358A", round d_ViewDistanceAir];
 };
 
 private _ctrl = _disp displayCtrl 1001;
@@ -300,30 +306,55 @@ _ctrl lbSetCurSel d_show_player_namesx;
 (_disp displayCtrl 2007) ctrlSetText str(d_points_needed # 6);
 
 if (!d_tt_ver) then {
-	(_disp displayCtrl 1610) cbSetChecked d_maintarget_auto_vd;
-	(_disp displayCtrl 1610) ctrlAddEventHandler ["CheckedChanged", {
-		d_maintarget_auto_vd = !d_maintarget_auto_vd;
-		if (d_maintarget_auto_vd) then {
-			systemChat (localize "STR_DOM_MISSIONSTRING_1965");
-		} else {
-			systemChat (localize "STR_DOM_MISSIONSTRING_1966");
-		};
-	}];
+	if (d_AutoViewdistanceChangeDefault == 1) then {
+		(_disp displayCtrl 1610) cbSetChecked d_maintarget_auto_vd;
+		(_disp displayCtrl 1610) ctrlAddEventHandler ["CheckedChanged", {
+			d_maintarget_auto_vd = !d_maintarget_auto_vd;
+			if (d_maintarget_auto_vd) then {
+				systemChat (localize "STR_DOM_MISSIONSTRING_1965");
+			} else {
+				systemChat (localize "STR_DOM_MISSIONSTRING_1966");
+			};
+			profileNamespace setVariable ["dom_maintarget_auto_vd", d_maintarget_auto_vd];
+		}];
+	} else {
+		(_disp displayCtrl 1609) ctrlShow false;
+		(_disp displayCtrl 1610) ctrlShow false;
+	};
 };
 
-/*(_disp displayCtrl 1612) cbSetChecked d_player_radioprotocol;
-(_disp displayCtrl 1612) ctrlAddEventHandler ["CheckedChanged", {
-	d_player_radioprotocol = !d_player_radioprotocol;
-	if (d_player_radioprotocol) then {
-		systemChat (localize "STR_DOM_MISSIONSTRING_2054");
-		player disableAI "RADIOPROTOCOL";
+(_disp displayCtrl 1613) cbSetChecked d_VD_Combi_use_InfVD;
+if (d_VD_Combi_use_InfVD) then {
+	(_disp displayCtrl 3500) ctrlEnable false;
+	(_disp displayCtrl 3501) ctrlEnable false;
+};
+(_disp displayCtrl 1613) ctrlAddEventHandler ["CheckedChanged", {
+	d_VD_Combi_use_InfVD = (_this # 1) == 1;
+	if (d_VD_Combi_use_InfVD) then {
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3500) sliderSetPosition d_curviewdistance;
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) sliderSetPosition d_curviewdistance;
+		d_ViewDistanceAir = d_curviewdistance;
+		d_ViewDistanceVec = d_curviewdistance;
+		profileNamespace setVariable ["dom_viewdistanceair", d_ViewDistanceAir];
+		profileNamespace setVariable ["dom_viewdistancevec", d_ViewDistanceVec];
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3500) ctrlEnable false;
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) ctrlEnable false;
+		if (!isNull objectParent player) then {
+			private _vp = vehicle player;
+			if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Ship" || {_vp isKindOf "Helicopter" || {_vp isKindOf "Plane"}}}}}) then {
+				if (d_isvdreduced) then {
+					d_isvdreduced = false;
+				};
+				setViewDistance d_curviewdistance;
+				setObjectViewDistance d_curviewdistance + 100;
+			};
+		};
 	} else {
-		systemChat (localize "STR_DOM_MISSIONSTRING_2053");
-		player enableAI "RADIOPROTOCOL";
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3500) ctrlEnable true;
+		((uiNamespace getVariable "D_StatusDialog") displayCtrl 3501) ctrlEnable true;
 	};
-	profileNamespace setVariable ["dom_player_radioprotocol", d_player_radioprotocol];
-}];
-*/
+	profileNamespace setVariable ["dom_vd_combi_use_infvd", d_VD_Combi_use_InfVD];
+}];	
 
 for "_i" from 1 to 20 do {
 	private _usera = (str (actionKeysNamesArray format ["User%1", _i])) splitString "[,]";

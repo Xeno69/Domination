@@ -15,10 +15,10 @@ if !(isServer) exitWith {};
 params [
 	["_target_radius", ""],
 	["_target_center", ""],
-	["_join_player", false]
+	["_join_player", false] // deprecated
 ];
 
-private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbuildings;
+private _buildings = [_target_center, (_target_radius * 0.75)] call d_fnc_getbldgswithpositions;
 if (count _buildings < 1) exitWith {};
 
 private _eventDescription = localize "STR_DOM_MISSIONSTRING_CIV_RESISTANCE";
@@ -49,9 +49,9 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 		_unitCount = count (_posArray);
 	};
 	private _spawn_pos = selectRandom _posArray;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, _unitCount, opfor] call d_fnc_makemgroup;
+	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, _unitCount, true] call d_fnc_makemgroup;
 	_newgroup setCombatMode "BLUE";
-	private _unitsNotGarrisoned = [_spawn_pos, _units, -1, false, false, true, false, 0, true, true] call d_fnc_Zen_OccupyHouse;
+	private _unitsNotGarrisoned = [_spawn_pos, _units, 10, false, false, true, false, 0, true, true] call d_fnc_Zen_OccupyHouse;
 	{		
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];

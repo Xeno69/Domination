@@ -97,7 +97,7 @@ if (d_MissionType == 2) then {
 
 0 spawn d_fnc_cleanerfnc;
 
-diag_log "Internal D Version: 4.59";
+diag_log "Internal D Version: 4.63";
 
 private _av_check_fnc = {
 	_this addEventHandler ["handleDamage", {call d_fnc_pshootatarti;0}];
@@ -116,8 +116,13 @@ private _av_check_fnc = {
 	} forEach (crew _this);
 	
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
-	_this addEventhandler ["fired", {call d_fnc_casfired}];
 	_this addEventhandler ["fired", {call d_fnc_arifired}];
+	_this addEventhandler ["getIn", {
+		if (isPlayer (_this # 2)) then {
+			(_this # 2) action ["getOut", _this # 0];
+			diag_log format ["Attention!!!! %1 is trying to get into an artillery vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
+		};
+	}];
 	[_this, 2] spawn d_fnc_disglobalsim;
 };
 
@@ -157,14 +162,16 @@ if (d_with_ranked) then {
 	};
 };
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 0 spawn d_fnc_scheck_uav;
 #endif
 
-0 spawn {
-	scriptname "spawn sendfpssetupserver";
-	sleep 10;
-	["dom_sendfps", {
-		diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
-	}, 3] call d_fnc_eachframeadd;
+if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
+	0 spawn {
+		scriptname "spawn sendfpssetupserver";
+		sleep 10;
+		["dom_sendfps", {
+			diag_fps remoteExecCall ["d_fnc_dfps", [0, -2] select isDedicated];
+		}, 3] call d_fnc_eachframeadd;
+	};
 };

@@ -43,6 +43,25 @@ while {true} do {
 							if (d_db_type == 1) exitWith {
 								["updatePlayer", [_infkills, _softveckills, _armorkills, _airkills, _deaths, _totalscore, _playtime, _pa # 14, _pa # 15, _pa # 16, _pa # 17, _uid]] call d_fnc_queryconfigasync;
 							};
+							if (d_db_type == 2) exitWith {
+								private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+								if (!isNil "_tmphash") then {
+									private _tmpar = _tmphash get _uid;
+									if (!isNil "_tmpar") then {
+										_tmpar set [2, _infkills];
+										_tmpar set [3, _softveckills];
+										_tmpar set [4, _armorkills];
+										_tmpar set [5, _airkills];
+										_tmpar set [6, _deaths];
+										_tmpar set [7, _totalscore];
+										_tmpar set [1, _playtime];
+										_tmpar set [12, _pa # 14];
+										_tmpar set [14, _pa # 15];
+										_tmpar set [15, _pa # 16];
+										_tmpar set [16, _pa # 17];
+									};
+								};
+							};
 						};
 						_pa set [14, 0];
 
@@ -69,12 +88,33 @@ while {true} do {
 					{
 						_x set [1, (_x # 1) call d_fnc_convtime];
 					} forEach (_dbresult # 1);
-					missionNamespace setVariable ["d_top10_db_players", _dbresult # 1, true];
+					d_top10_db_players_serv = _dbresult # 1;
+					objNull spawn d_fnc_sendtopplayers;
 				};
 			};
 		};
 		if (d_db_type == 1) exitWith {
 			call d_fnc_gettoppplayers;
+			objNull spawn d_fnc_sendtopplayers;
+		};
+		if (d_db_type == 2) exitWith {
+			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+			__TRACE_1("","_tmphash")
+			if (count _tmphash > 0) then {
+				private _ar = [];
+				{
+					_ar pushBack [_y # 7, _x];
+				} forEach _tmphash;
+				_ar sort false;
+				private "_har";
+				for "_i" from 0 to _num do {
+					_har =+ _tmphash get ((_ar # _i) # 1);
+					_har set [1, (_har # 1) call d_fnc_convtime];
+					d_top10_db_players_serv pushBack _har;
+				};
+				__TRACE_1("","d_top10_db_players_serv")
+				objNull spawn d_fnc_sendtopplayers;
+			};
 		};
 	};
 };

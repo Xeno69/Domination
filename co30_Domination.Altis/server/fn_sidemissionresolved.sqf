@@ -55,20 +55,22 @@ if (d_sm_winner > 0) then {
 		if !(isServer && {!isDedicated}) then {d_sm_winner = 0};
 	};
 };
-if ((d_database_found && {d_db_auto_save}) || {d_pnspace_msave == 1 && {d_pnspace_msave_auto == 1}}) then {
-	if (!isNil "d_sm_bonus_wait") then {
-		0 spawn {
-			scriptName "spawn saveprogress2db sidemissionresolved";
-			while {true} do {
-				sleep 0.1;
-				if (isNil "d_sm_bonus_wait") exitWith {};
+if (d_database_found) then {
+	if (d_db_auto_save || {d_db_type == 2 && {d_save_to_mpns == 1}}) then {
+		if (!isNil "d_sm_bonus_wait") then {
+			0 spawn {
+				scriptName "spawn saveprogress2db sidemissionresolved";
+				while {true} do {
+					sleep 0.1;
+					if (isNil "d_sm_bonus_wait") exitWith {};
+				};
+				__TRACE("saving after wait")
+				["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 			};
-			__TRACE("saving after wait")
+		} else {
+			__TRACE("saving immediately")
 			["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 		};
-	} else {
-		__TRACE("saving immediately")
-		["d_dom_db_autosave", objNull] call d_fnc_saveprogress2db;
 	};
 };
 __TRACE("End fn_sidemissionresolved")

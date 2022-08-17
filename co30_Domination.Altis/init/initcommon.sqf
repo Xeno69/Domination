@@ -93,6 +93,10 @@ if (isNil "d_cas_available_time") then {
 	d_cas_available_time = 600; // time till CAS is available again!
 };
 
+if (isNil "d_cas_available_time_low") then {
+	d_cas_available_time_low = 100; // time CAS low cooldown setting
+};
+
 if (isServer) then {
 	skipTime d_TimeOfDay;
 
@@ -124,7 +128,7 @@ if (isServer) then {
 			[3,2,1,0], // 9 - points for repairing/refueling a vehicle
 			5, // 10 - points for healing another unit
 			3, // 11 - points for another player healing at a player mash
-			1, // 12 - points for another player spawning at squad leader
+			5, // 12 - points for another player spawning at squad leader
 			1, // 13 - points for transporting another player in a vehicle
 			20 // 14 - points for bringing a wreck to the wreck repair point
 		];
@@ -217,7 +221,7 @@ d_p_vecs = [
 	["D_TR8",301,"d_truck8","n_service","ColorGreen","E2",""],["D_TR9",400,"d_truck9","n_support","ColorGreen","T2",""],
 	["D_TR10",401,"d_truck10","n_support","ColorGreen","T1",""]
 ];
-if (d_ifa3lite) then {
+if (d_ifa3) then {
 	d_p_vecs pushBack ["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""];
 };
 if (d_gmcwg) then {

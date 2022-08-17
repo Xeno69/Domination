@@ -15,5 +15,11 @@ private _mlen = count _mname;
 		_av deleteVehicleCrew (driver _av);
 		_av lock 2;
 	};
+	_av addEventhandler ["getIn", {
+		if (isPlayer (_this # 2)) then {
+			(_this # 2) action ["getOut", _this # 0];
+			diag_log format ["Attention!!!! %1 is trying to get into an AA vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
+		};
+	}];
 	_grp call d_fnc_addgrp2hc;
 } forEach (allMapMarkers select {_x select [0, _mlen] == _mname});

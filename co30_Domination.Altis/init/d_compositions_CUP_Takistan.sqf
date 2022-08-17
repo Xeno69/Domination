@@ -275,7 +275,7 @@ private _compositions_i = [
 private _common = [
 ];
 
-if (!d_ifa3lite) then {
+if (!d_ifa3) then {
 #ifdef __OWN_SIDE_BLUFOR__
 d_compositions = _compositions_o;
 #endif

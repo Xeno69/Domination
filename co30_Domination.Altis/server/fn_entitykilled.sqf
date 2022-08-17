@@ -6,12 +6,10 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
-if (d_database_found) then {
-	if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
-		private _insti = _this # 2;
-		if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
-			_insti spawn d_fnc_addheadshot;
-		};
+if (_obj isKindOf "CAManBase" && {_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}}) then {
+	private _insti = _this # 2;
+	if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
+		[_insti, _insti distance2D _obj] spawn d_fnc_addheadshot;
 	};
 };
 
@@ -68,7 +66,7 @@ if !(_obj isKindOf "CAManBase") then {
 
 if (_ar # 3 == 1) then {
 	_obj setVariable ["d_dead", true];
-	_obj call d_fnc_onerespukilled;
+	call d_fnc_onerespukilled;
 };
 
 if (_ar # 4 > 0) then {
@@ -95,7 +93,7 @@ if (_ar # 16 == 1) then {
 };
 
 if (_ar # 5 == 1) then {
-	_obj call d_fnc_handleDeadVec;
+	call d_fnc_handleDeadVec;
 };
 
 if (_ar # 6 == 1) then {
@@ -107,28 +105,28 @@ if (_ar # 7 == 1) then {
 };
 
 if (_ar # 8 == 1) then {
-	_obj call d_fnc_chopperkilled;
+	call d_fnc_chopperkilled;
 };
 
 if (_ar # 9 == 1) then {
-	_obj call d_fnc_fuelCheck;
+	call d_fnc_fuelCheck;
 };
 
 if (_ar # 10 == 1) then {
-	_obj call d_fnc_mhqmsg;
+	call d_fnc_mhqmsg;
 };
 
 if (_ar # 11 == 1) then {
 	[_obj, 0] remoteExecCall ["setFuel", _obj];
-	_obj call d_fnc_bonusvecfnc;
+	call d_fnc_bonusvecfnc;
 };
 
 if (_ar # 12 == 1) then {
-	_obj call d_fnc_aboxkilled;
+	call d_fnc_aboxkilled;
 };
 
 if (_ar # 13 == 1) then {
-	_obj call d_fnc_PlacedObjKilled;
+	call d_fnc_PlacedObjKilled;
 };
 
 if (_ar # 14 == 1) then {
@@ -144,6 +142,10 @@ if (_ar # 19 == 1) then {
 	d_priority_targets = [];
 	publicVariable "d_priority_targets";
 	[_obj, 19, 0] call d_fnc_setekmode;
+};
+
+if (_obj in d_cur_tgt_enemy_units) then {
+	d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _obj);
 };
 
 _obj setVariable ["d_hkx", nil];

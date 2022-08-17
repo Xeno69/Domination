@@ -139,7 +139,7 @@ if (_move_controls) then {
 	};
 };
 
-if (d_ifa3lite || {d_gmcwg || {d_unsung || {d_vn}}}) then {
+if (d_ifa3 || {d_gmcwg || {d_unsung || {d_vn}}}) then {
 	(_disp displayCtrl 44459) ctrlShow false;
 	(_disp displayCtrl 44460) ctrlShow false;
 };

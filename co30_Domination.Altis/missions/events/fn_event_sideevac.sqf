@@ -23,7 +23,7 @@ private _event_succeed_points = 5;
 private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_center, (d_cur_target_radius * 0.25)]]] call BIS_fnc_randomPos;
 private _x_mt_event_ar = [];
 
-private _trigger = [_poss, [120,120,0,false,30], [d_own_side,"PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
+private _trigger = [_poss, [120,120,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
 waitUntil {sleep 0.1;!isNil {_trigger getVariable "d_event_start"}};
 
@@ -66,7 +66,7 @@ _pilot1 addEventHandler ["Killed", {
 	_this spawn {
 		scriptName "special cleanup rules for rescue pilots";
 		private _t = time;
-		waitUntil { time > (_t + 1200) };
+		waitUntil { sleep 1; time > (_t + 1200) };
 		addToRemainsCollector [_this];
 	};
 }];
@@ -88,7 +88,7 @@ _pilot2 addEventHandler ["Killed", {
 	_this spawn {
 		scriptName "special cleanup rules for rescue pilots";
 		private _t = time;
-		waitUntil { time > (_t + 1200) };
+		waitUntil { sleep 1; time > (_t + 1200) };
 		addToRemainsCollector [_this];
 	}; 
 }];
@@ -96,7 +96,7 @@ _pilot2 addEventHandler ["Killed", {
 [
 	([[[_poss, 35]],[]] call BIS_fnc_randomPos),											// Params: 1. Array, the building(s) nearest this position is used
 	[_pilot1],									//         2. Array of objects, the units that will garrison the building(s)
-	-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+	10,										//  (opt.) 3. Scalar, radius in which to fill building(s)
 	false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 	true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
@@ -108,7 +108,7 @@ _pilot2 addEventHandler ["Killed", {
 [
 	([[[_poss, 35]],[]] call BIS_fnc_randomPos),											// Params: 1. Array, the building(s) nearest this position is used
 	[_pilot2],									//         2. Array of objects, the units that will garrison the building(s)
-	-1,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+	10,										//  (opt.) 3. Scalar, radius in which to fill building(s)
 	false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
 	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 	true,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)

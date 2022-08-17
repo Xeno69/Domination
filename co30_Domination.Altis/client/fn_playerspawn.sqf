@@ -27,6 +27,12 @@ if (_rtype == 0) then { // player died
 	if (!isNil {player getVariable "d_ccas_action"}) then {
 		player removeAction (player getVariable "d_ccas_action");
 	};
+	if (!isNil {player getVariable "d_ccas_action_bomb"}) then {
+		player removeAction (player getVariable "d_ccas_action_bomb");
+	};
+	if (!isNil {player getVariable "d_ccas_action_bomb_napalm"}) then {
+		player removeAction (player getVariable "d_ccas_action_bomb_napalm");
+	};
 	if (player getVariable ["d_has_ffunc_aid", -9999] != -9999) then {
 		player removeAction (player getVariable "d_has_ffunc_aid");
 		player setVariable ["d_has_ffunc_aid", -9999];
@@ -61,6 +67,9 @@ if (_rtype == 0) then { // player died
 			player setVariable ["d_psuppressed", nil];
 		};
 	};
+	if (d_WithRevive == 0) then {
+		player removeEventHandler ["OpticsModeChanged", player getVariable "d_opmc_eh_id"];
+	};
 } else { // _rtype = 1, player has respawned
 	d_commandingMenuIniting = false;
 	d_DomCommandingMenuBlocked = false;
@@ -88,6 +97,18 @@ if (_rtype == 0) then { // player died
 			call d_fnc_retrieve_layoutgear;
 		} else {
 			call d_fnc_retrieve_respawngear;
+			{
+				if (_x != "") then {
+					player setOpticsMode [_forEachIndex + 1, _x];
+				};
+			} forEach (player getVariable "d_cur_opm");
+			player setVariable ["d_opmc_eh_id", 
+				player addEventHandler ["OpticsModeChanged", {
+					if (alive player && {currentWeapon player == primaryWeapon player}) then {
+						player setVariable ["d_cur_opm", [player getOpticsMode 1, player getOpticsMode 2, player getOpticsMode 3]];
+					};
+				}]
+			];
 		};
 	};
 	if (player getVariable ["d_has_gps", false]) then {
@@ -103,7 +124,7 @@ if (_rtype == 0) then { // player died
 		deleteVehicle ((_this # 1) # 1);
 	};
 
-#ifndef __IFA3LITE__
+#ifndef __IFA3__
 	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}) then {
 		player action ["NVGoggles",player];
 	};
@@ -126,7 +147,7 @@ if (_rtype == 0) then { // player died
 	};
 	if (d_disable_player_arty == 0) then {
 		if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-			if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+			if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 				player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
 			} else {
 				player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
@@ -136,16 +157,32 @@ if (_rtype == 0) then { // player died
 	if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 		if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
-			if (!d_ifa3lite && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+			if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
 				player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}"]];
+				if (d_enable_extra_cas == 1) then {
+					player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}"]];
+				};
 			} else {
 				player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
+				if (d_enable_extra_cas == 1) then {
+					if (d_vn) then {
+						player setVariable ["d_ccas_action_bomb_napalm", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM"], {call d_fnc_call_cas_bomb_napalm} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
+					} else {					
+						player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
+					};
+				};
 			};
 #else
 			if (d_player_side == blufor) then {
 				player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_w && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}"]];
+				if (d_enable_extra_cas == 1) then {
+					player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available_w && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}"]];
+				};
 			} else {
 				player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available_e && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}"]];
+				if (d_enable_extra_cas == 1) then {
+					player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available_e && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}"]];
+				};
 			};
 #endif
 		};
@@ -183,7 +220,7 @@ if (_rtype == 0) then { // player died
 		enableSentences false;
 	};
 	[player , "NoVoice"] remoteExecCall ["setSpeaker"];
-
+	
 	showChat true;
 	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 		[] spawn d_fnc_showhud;

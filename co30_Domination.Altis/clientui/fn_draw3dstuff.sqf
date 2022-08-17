@@ -69,22 +69,36 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	};
 };
 
-if (!d_tt_ver && {d_showallnearusermarkers}) then {
-	private "_pos";
-	private _col_s = d_color_hash;
-	{
-		_pos = markerPos _x;
-		_pos set [2, 10];
-		_distp = _pos_cam distance _pos;
-		if (_distp < 1000) then {
-			_m = 1 - (_distp / 1000);
-			_col = _col_s get (getMarkerColor _x);
-			if (_col isEqualTo []) then {
-				_col = [1, 1, 1, _m];
-			} else {
-				_col set [3, _m];
+if (!d_tt_ver) then {
+	if (d_showallnearusermarkers) then {
+		private "_pos";
+		private _col_s = d_color_hash;
+		{
+			_pos = markerPos _x;
+			_pos set [2, 10];
+			_distp = _pos_cam distance _pos;
+			if (_distp < 1000) then {
+				_m = 1 - (_distp / 1000);
+				_col = _col_s get (getMarkerColor _x);
+				if (_col isEqualTo []) then {
+					_col = [1, 1, 1, _m];
+				} else {
+					_col set [3, _m];
+				};
+				drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
 			};
-			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
-		};
-	} forEach (d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
+		} forEach (d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
+	};
+	if (!isNull d_near_player_flag) then {
+		drawLaser [
+			getPosASL d_near_player_flag vectorAdd [0, 0, 10],
+			[0, 0, 1],
+			[1.5, 1.5, 0],
+			[],
+			10,
+			10,
+			120,
+			false
+		];
+	};
 };

@@ -105,16 +105,17 @@ if !(_sname in d_db_savegames) then {
 			};
 			_iquery call d_fnc_queryconfigasync;
 		};
-		if (d_db_type == -1) exitWith {
+		if (d_db_type == 2) exitWith {
 			if (!d_tt_ver) then {
-				private _pn_missionsave = profileNamespace getVariable ["dom_missionsave", []];
+				private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsave", []];
 				_pn_missionsave pushBack [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos, _mvr2_ar];
-				profileNamespace setVariable ["dom_missionsave", _pn_missionsave];
+				missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
 			} else {
-				private _pn_missionsave = profileNamespace getVariable ["dom_missionsavett", []];
+				private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsavett", []];
 				_pn_missionsave pushBack [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)];
-				profileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
+				missionProfileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
 			};
+			saveMissionProfileNamespace;
 		};
 	};
 } else {
@@ -137,25 +138,29 @@ if !(_sname in d_db_savegames) then {
 			};
 			_iquery call d_fnc_queryconfigasync;
 		};
-		if (d_db_type == -1) exitWith {
+		if (d_db_type == 2) exitWith {
 			if (!d_tt_ver) then {
-				private _pn_missionsave = profileNamespace getVariable ["dom_missionsave", []];
+				private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsave", []];
 				private _comna = tolower (worldName + _sname);
 				private _idx = _pn_missionsave findIf {(_x # 12) == _comna};
 				if (_idx != -1) then {
 					_pn_missionsave set [_idx, [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos, _mvr2_ar]];
 					                           
 				};
-				profileNamespace setVariable ["dom_missionsave", _pn_missionsave];
+				missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
 			} else {
-				private _pn_missionsave = profileNamespace getVariable ["dom_missionsavett", []];
+				private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsavett", []];
+				__TRACE_1("","_pn_missionsave")
 				private _comna = tolower (worldName + _sname);
+				__TRACE_1("","_comna")
+				__TRACE_1("","_x")
 				private _idx = _pn_missionsave findIf {(_x # 18) == _comna};
 				if (_idx != -1) then {
 					_pn_missionsave set [_idx, [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db_w, _bonus_vecs_db_e, tolower worldname, d_points_blufor, d_points_opfor, d_kill_points_blufor, d_kill_points_opfor, d_points_array, tolower (worldName + _sname), tolower (worldName + _sname + briefingname)]];
 				};
-				profileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
+				missionProfileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
 			};
+			saveMissionProfileNamespace;
 		};
 	};
 };

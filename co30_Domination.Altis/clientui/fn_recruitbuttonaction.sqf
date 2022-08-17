@@ -102,10 +102,14 @@ if (d_WithRevive == 0 && {_unit getUnitTrait "Medic"}) then {
 
 d_current_ai_units pushBack _unit;
 
+if ((binocular _unit) isNotEqualTo "") then {
+	_unit removeWeapon (binocular _unit);
+};
+
 _unit call d_fnc_removenvgoggles_fak;
 
-_unit enableDynamicSimulation false;
-_unit triggerDynamicSimulation true;
+[_unit, false] remoteExecCall ["enableDynamicSimulation", 2];
+[_unit, true] remoteExecCall ["triggerDynamicSimulation", 2];
 
 if (!d_with_ace) then {
 	_unit addEventhandler ["handleDamage", {call d_fnc_handledamageai}];
@@ -145,7 +149,7 @@ if (!d_with_ranked) then {
 	} else {
 		{[_this # 0, _this # 0, true] call ace_arsenal_fnc_openBox}
 	};
-	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "true", 3];
+	_unit addAction [localize "STR_DOM_MISSIONSTRING_1585", _code, [], -1, false, true, "", "_target distance2D d_FLAG_BASE < 80", 3];
 };
 
 [_unit] remoteExecCall ["d_fnc_addceo", 2];

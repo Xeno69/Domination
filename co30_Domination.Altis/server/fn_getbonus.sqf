@@ -234,9 +234,13 @@ if !(_vec getVariable ["d_oncarrier", false]) then {
 		_vec setDamage 0;
 	};
 };
-if (d_with_ranked) then {
-	clearWeaponCargoGlobal _vec;
+if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
+	clearBackpackCargoGlobal _vec;
 };
+
 _vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
 [_vec, 11] call d_fnc_setekmode;
 _vec spawn {
@@ -335,8 +339,11 @@ _vec spawn {
 	sleep 10;
 	_this allowDamage true;
 };
-if (d_with_ranked) then {
-	clearWeaponCargoGlobal _vec;
+if (isNil {_vec getVariable "d_cwcg_inited"}) then {
+	if (d_with_ranked) then {
+		clearWeaponCargoGlobal _vec;
+	};
+	clearBackpackCargoGlobal _vec;
 };
 if (unitIsUAV _vec) then {
 	private _uavgrp = createVehicleCrew _vec;
@@ -365,8 +372,11 @@ if (!isNull _vec2) then {
 		sleep 10;
 		_this allowDamage true;
 	};
-	if (d_with_ranked) then {
-		clearWeaponCargoGlobal _vec2;
+	if (isNil {_vec2 getVariable "d_cwcg_inited"}) then {
+		if (d_with_ranked) then {
+			clearWeaponCargoGlobal _vec2;
+		};
+		clearBackpackCargoGlobal _vec2;
 	};
 	if (unitIsUAV _vec2) then {
 		private _uavgrp = createVehicleCrew _vec2;

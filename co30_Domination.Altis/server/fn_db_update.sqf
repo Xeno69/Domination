@@ -10,5 +10,14 @@ if (_this # 1 == 0) exitWith {
 		if (d_db_type == 1) exitWith {
 			["revivesAdd", [_this # 0]] call d_fnc_queryconfigasync;
 		};
+		if (d_db_type == 2) exitWith {
+			private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+			if (!isNil "_tmphash") then {
+				private _tmpar = _tmphash get (_this # 0);
+				if (!isNil "_tmpar") then {
+					_tmpar set [13, (_tmpar # 13) + 1];
+				};
+			};
+		};
 	};
 };
