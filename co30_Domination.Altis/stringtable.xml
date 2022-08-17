@@ -2758,7 +2758,7 @@
 <Japanese>Inf Viewdistance: %1</Japanese>
 <Original>Inf Viewdistance: %1</Original>
 <Russian>Дальность обзора: %1</Russian>
-<Chinesesimp>Inf Viewdistance: %1</Chinesesimp>
+<Chinesesimp>步兵视距：%1</Chinesesimp>
 <Chinese>Inf Viewdistance: %1</Chinese>
 <French>Inf Viewdistance: %1</French>
 </Key>
@@ -2770,7 +2770,7 @@
 <Japanese>Vehicle Viewdistance: %1</Japanese>
 <Original>Vehicle Viewdistance: %1</Original>
 <Russian>Дальность обзора (в технике): %1</Russian>
-<Chinesesimp>Vehicle Viewdistance: %1</Chinesesimp>
+<Chinesesimp>地面载具视距：%1</Chinesesimp>
 <Chinese>Vehicle Viewdistance: %1</Chinese>
 <French>Vehicle Viewdistance: %1</French>
 </Key>
@@ -2782,7 +2782,7 @@
 <Japanese>Air Viewdistance: %1</Japanese>
 <Original>Air Viewdistance: %1</Original>
 <Russian>Дальность обзора (в воздухе): %1</Russian>
-<Chinesesimp>Air Viewdistance: %1</Chinesesimp>
+<Chinesesimp>空中载具视距：%1</Chinesesimp>
 <Chinese>Air Viewdistance: %1</Chinese>
 <French>Air Viewdistance: %1</French>
 </Key>
@@ -9864,7 +9864,7 @@
 <Japanese>-------------------------- CAS / Artillery -----------------------------</Japanese>
 <Original>---------------------------- CAS / Artillery -------------------------------</Original>
 <Russian>--------------------------- CAS / Artillery --------------------------</Russian>
-<Chinesesimp>---------------------------- CAS / Artillery -------------------------------</Chinesesimp>
+<Chinesesimp>---------------------------- CAS / 火炮 -------------------------------</Chinesesimp>
 <Chinese>---------------------------- CAS / Artillery -------------------------------</Chinese>
 <French>---------------------------- CAS / Artillery -------------------------------</French>
 </Key>
@@ -10476,7 +10476,7 @@
 <Japanese>Call CAS Active Guided HE Bomb</Japanese>
 <Original>Call CAS Active Guided HE Bomb</Original>
 <Russian>Вызвать CAS Active Guided HE Bomb</Russian>
-<Chinesesimp>Call CAS Active Guided HE Bomb</Chinesesimp>
+<Chinesesimp>呼叫 CAS 自动制导 HE（高爆） 炸弹</Chinesesimp>
 <Chinese>Call CAS Active Guided HE Bomb</Chinese>
 <French>Call CAS Active Guided HE Bomb</French>
 </Key>
@@ -10488,7 +10488,7 @@
 <Japanese>Call CAS Bomb Napalm</Japanese>
 <Original>Call CAS Bomb Napalm</Original>
 <Russian>Вызвать CAS Bomb Napalm</Russian>
-<Chinesesimp>Call CAS Bomb Napalm</Chinesesimp>
+<Chinesesimp>呼叫 CAS 凝固汽油弹轰炸</Chinesesimp>
 <Chinese>Call CAS Bomb Napalm</Chinese>
 <French>Call CAS Bomb Napalm</French>
 </Key>
@@ -12193,7 +12193,7 @@
 <Japanese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Japanese>
 <Original>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Original>
 <Russian>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Russian>
-<Chinesesimp>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Chinesesimp>
+<Chinesesimp>%1 已被标记为死亡。安全护送 VIP 到目标中心进行疏散。</Chinesesimp>
 <Chinese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Chinese>
 <French>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</French>
 </Key>
@@ -12205,7 +12205,7 @@
 <Japanese>The VIP is following you.  Escort them to the center of town!</Japanese>
 <Original>The VIP is following you.  Escort them to the center of town!</Original>
 <Russian>The VIP is following you.  Escort them to the center of town!</Russian>
-<Chinesesimp>The VIP is following you.  Escort them to the center of town!</Chinesesimp>
+<Chinesesimp>VIP 会跟着你。护送他们到市中心！</Chinesesimp>
 <Chinese>The VIP is following you.  Escort them to the center of town!</Chinese>
 <French>The VIP is following you.  Escort them to the center of town!</French>
 </Key>
@@ -13045,7 +13045,7 @@
 <Japanese>Auto viewdistance change at main target and base:</Japanese>
 <Original>Auto viewdistance change at main target and base:</Original>
 <Russian>Автоматическое изменение дальности обзора на основной задаче и базе:</Russian>
-<Chinesesimp>Auto viewdistance change at main target and base:</Chinesesimp>
+<Chinesesimp>主要目标和基地的自动视距变化：</Chinesesimp>
 <Chinese>Auto viewdistance change at main target and base:</Chinese>
 <French>Auto viewdistance change at main target and base:</French>
 </Key>
@@ -14633,7 +14633,7 @@
 <Japanese>Enable extra CAS ordnance</Japanese>
 <Original>Enable extra CAS ordnance</Original>
 <Russian>Enable extra CAS ordnance</Russian>
-<Chinesesimp>Enable extra CAS ordnance</Chinesesimp>
+<Chinesesimp>启用额外的 CAS 弹药</Chinesesimp>
 <Chinese>Enable extra CAS ordnance</Chinese>
 <French>Enable extra CAS ordnance</French>
 </Key>
@@ -14765,7 +14765,7 @@
 <Japanese>With auto revive if no player is nearby (less than 215m):</Japanese>
 <Original>With auto revive if no player is nearby (less than 215m):</Original>
 <Russian>С автоматическим возрождением, если поблизости нет игроков (менее 215 м)</Russian>
-<Chinesesimp>With auto revive if no player is nearby (less than 215m):</Chinesesimp>
+<Chinesesimp>如果附近没有玩家（小于 215M）自动复活：</Chinesesimp>
 <Chinese>With auto revive if no player is nearby (less than 215m):</Chinese>
 <French>With auto revive if no player is nearby (less than 215m):</French>
 </Key>
@@ -14777,7 +14777,7 @@
 <Japanese>Show headshots</Japanese>
 <Original>Show headshots</Original>
 <Russian>Показать попадания в голову</Russian>
-<Chinesesimp>Show headshots</Chinesesimp>
+<Chinesesimp>显示头像</Chinesesimp>
 <Chinese>Show headshots</Chinese>
 <French>Show headshots</French>
 </Key>
@@ -14789,7 +14789,7 @@
 <Japanese>Client only</Japanese>
 <Original>Client only</Original>
 <Russian>Только клиент</Russian>
-<Chinesesimp>Client only</Chinesesimp>
+<Chinesesimp>仅限客户</Chinesesimp>
 <Chinese>Client only</Chinese>
 <French>Client only</French>
 </Key>
@@ -14801,7 +14801,7 @@
 <Japanese>Client and group</Japanese>
 <Original>Client and group</Original>
 <Russian>Client and group</Russian>
-<Chinesesimp>Client and group</Chinesesimp>
+<Chinesesimp>客户和团队</Chinesesimp>
 <Chinese>Client and group</Chinese>
 <French>Client and group</French>
 </Key>
@@ -14813,7 +14813,7 @@
 <Japanese>Client and allies</Japanese>
 <Original>Client and allies</Original>
 <Russian>Клиент и группа</Russian>
-<Chinesesimp>Client and allies</Chinesesimp>
+<Chinesesimp>客户和盟友</Chinesesimp>
 <Chinese>Client and allies</Chinese>
 <French>Client and allies</French>
 </Key>
@@ -14826,7 +14826,7 @@
 <Original>Headshot by %1 %2 m</Original>
 <Russian>Попадание в голову %1 %2 m</Russian>
 <Chinesesimp>Headshot by %1 %2 m</Chinesesimp>
-<Chinese>Headshot by %1 %2 m</Chinese>
+<Chinese>%1 %2 M 爆头</Chinese>
 <French>Headshot by %1 %2 m</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT">
@@ -14837,7 +14837,7 @@
 <Japanese>(+) %1 m</Japanese>
 <Original>(+) %1 m</Original>
 <Russian>(+) %1 m</Russian>
-<Chinesesimp>(+) %1 m</Chinesesimp>
+<Chinesesimp>(+) %1 M</Chinesesimp>
 <Chinese>(+) %1 m</Chinese>
 <French>(+) %1 m</French>
 </Key>
@@ -14849,7 +14849,7 @@
 <Japanese>Emergency exit!</Japanese>
 <Original>Emergency exit!</Original>
 <Russian>Аварийный выход!</Russian>
-<Chinesesimp>Emergency exit!</Chinesesimp>
+<Chinesesimp>紧急逃生！</Chinesesimp>
 <Chinese>Emergency exit!</Chinese>
 <French>Emergency exit!</French>
 </Key>
@@ -14861,7 +14861,7 @@
 <Japanese>Target selection time:</Japanese>
 <Original>Target selection time:</Original>
 <Russian>Время выбора цели:</Russian>
-<Chinesesimp>Target selection time:</Chinesesimp>
+<Chinesesimp>目标选择时间：</Chinesesimp>
 <Chinese>Target selection time:</Chinese>
 <French>Target selection time:</French>
 </Key>
@@ -14873,7 +14873,7 @@
 <Japanese>Enemy mercenaries (2035 only)</Japanese>
 <Original>Enemy mercenaries (2035 only)</Original>
 <Russian>Вражеские наемники (только 2035г.)</Russian>
-<Chinesesimp>Enemy mercenaries (2035 only)</Chinesesimp>
+<Chinesesimp>敌方雇佣兵（仅限 2035）</Chinesesimp>
 <Chinese>Enemy mercenaries (2035 only)</Chinese>
 <French>Enemy mercenaries (2035 only)</French>
 </Key>
@@ -14885,7 +14885,7 @@
 <Japanese>No Data Available Yet</Japanese>
 <Original>No Data Available Yet</Original>
 <Russian>Данных пока нет</Russian>
-<Chinesesimp>No Data Available Yet</Chinesesimp>
+<Chinesesimp>目前没有可用的数据。</Chinesesimp>
 <Chinese>No Data Available Yet</Chinese>
 <French>No Data Available Yet</French>
 </Key>
@@ -14897,7 +14897,7 @@
 <Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Japanese>
 <Original>Save player and mission progress to missionProfileNamespace if no SQL database is available</Original>
 <Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available</Russian>
-<Chinesesimp>Save player and mission progress to missionProfileNamespace if no SQL database is available</Chinesesimp>
+<Chinesesimp>如果没有可用的 SQL 数据库，则将玩家和任务进度保存到任务配置文件命名空间</Chinesesimp>
 <Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available</Chinese>
 <French>Save player and mission progress to missionProfileNamespace if no SQL database is available</French>
 </Key>
@@ -14909,7 +14909,7 @@
 <Japanese>Use only Inf VD slider to set all VD settings:</Japanese>
 <Original>Use only Inf VD slider to set all VD settings:</Original>
 <Russian>Use only Inf VD slider to set all VD settings:</Russian>
-<Chinesesimp>Use only Inf VD slider to set all VD settings:</Chinesesimp>
+<Chinesesimp>仅使用 Inf VD 滑块设置所有 VD 设置：</Chinesesimp>
 <Chinese>Use only Inf VD slider to set all VD settings:</Chinese>
 <French>Use only Inf VD slider to set all VD settings:</French>
 </Key>
@@ -14921,7 +14921,7 @@
 <Japanese>Remove silencer from spawned enemy AI units:</Japanese>
 <Original>Remove silencer from spawned enemy AI units:</Original>
 <Russian>Remove silencer from spawned enemy AI units:</Russian>
-<Chinesesimp>Remove silencer from spawned enemy AI units:</Chinesesimp>
+<Chinesesimp>生成的敌方 AI 单位移除消音器：</Chinesesimp>
 <Chinese>Remove silencer from spawned enemy AI units:</Chinese>
 <French>Remove silencer from spawned enemy AI units:</French>
 </Key>
@@ -14933,7 +14933,7 @@
 <Japanese>Yes (after server initializes client)</Japanese>
 <Original>Yes (after server initializes client)</Original>
 <Russian>Yes (after server initializes client)</Russian>
-<Chinesesimp>Yes (after server initializes client)</Chinesesimp>
+<Chinesesimp>是（服务器初始化客户端后）</Chinesesimp>
 <Chinese>Yes (after server initializes client)</Chinese>
 <French>Yes (after server initializes client)</French>
 </Key>
@@ -14945,7 +14945,7 @@
 <Japanese>Use server system time as game time</Japanese>
 <Original>Use server system time as game time</Original>
 <Russian>Use server system time as game time</Russian>
-<Chinesesimp>Use server system time as game time</Chinesesimp>
+<Chinesesimp>使用服务器系统时间作为游戏时间</Chinesesimp>
 <Chinese>Use server system time as game time</Chinese>
 <French>Use server system time as game time</French>
 </Key>
