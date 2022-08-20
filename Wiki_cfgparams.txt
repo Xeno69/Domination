@@ -77,8 +77,6 @@
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 #### **d_del_crew_always / Kill ALL vehicle crew (even outside) when a vehicle gets destroyed**
 > Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
-#### **d_ao_bfires / Big main target fires**
-> Default: 1 (No, disabled; 0 or Yes to enable it)<br/>
 #### **d_ao_radius_override / Target radius:**
 > Default: 0 (Normal 300m)<br/>
 > Target radius (normally 300m), available are (in meter) 350, 450, 550, 650, 750, 850 and 1000<br/>
@@ -154,7 +152,7 @@
 > Default: 5000 (meter)<br/>
 > Maximum viewdistance a client can select via Status Dialog. Available are (in meter) 2000, 3000, 4000, 5000, 6000, 7000, 8000, 9000 and 10000<br/>
 #### **d_ViewdistanceChange / Viewdistance changable:**
-> Default: 0 (Yes, enabled; 1 or No for no vd change)<br/>
+> Default: 0 (Yes, enabled; 1 or No for no vd change; 2 for Yes after server initializes client)<br/>
 > If disabled players can not change their client viewdistance<br/>
 #### **d_AutoViewdistanceChangeDefault / Initial client setting to automatically change view distance near targets:**
 > Default: 1 (Yes, enabled; 0 or No for no automatic vd change)<br/>
@@ -216,6 +214,8 @@
 > Default: 5 (seconds)<br/>
 > If a player dies it takes xr_respawn_available_after seconds until he/she can respawn<br/>
 > Available options in seconds: 5, 30, 60, 90, 120, 180, 240, 300 and 600<br/>
+#### **d_with_autorevive / With auto revive if no player is nearby (less than 215m):**
+> Default: 1 (Yes; 0 or No)<br/>
 #### **d_force_fast_intro / Force fast intro:**
 > Default: 0 (Default; 1 or Yes)<br/>
 #### **d_show_playernames / Show player names:**
@@ -273,10 +273,14 @@
 > Default: 120 (seconds)<br/>
 > Time it takes to fire a guided launcher again (too avoid players spamming targets with missiles)<br/>
 > Available options in seconds: 0 (disabled), 60, 120, 180, 240 and 300<br/>
+#### **d_enable_extra_cas / Enable extra CAS ordnance**
+> Default: 0 (No; 1 or Yes)<br/>
+#### **d_tell_arty_cas / Always announce enemy artillery / CAS**
+> Default: 0 (No; 1 or Yes)<br/>
 #### **d_disable_player_arty / Disable player artillery**
 > Default: 0 (No, player arty is enabled; 1 or Yes to disable player arty)<br/>
 #### **d_arty_unlimited / Disable artillery cooldown**
-> Default: 0 (No, artillery cooldown enabled; 1 or Yes to disable artillery cooldown)<br/>
+> Default: 0 (Default, artillery cooldown timer enabled; 1 or Yes to disable artillery cooldown timer; 2 or Low to set a low artillery cooldown timer)<br/>
 #### **d_artycheckfriendlies / Check for friendly units near artillery targets when firing artillery**
 > Default: 1 (Yes, check for friendly units; 0 or No to disable it)<br/>
 #### **d_disable_player_cas / Disable player CAS**
@@ -355,7 +359,7 @@
 > Default: -1 (Default)<br/>
 > Available options: 1, 2, 3, 4, 5, 6, 7, 8 and 9<br/>
 #### **d_camp_static_weapons / Defend with static weapons**
-> Default: 1 (Yes, enabled; 0 or No to disable<br/>
+> Default: 1 (Yes, enabled; 0 or No to disable; -1 or Random for random chance<br/>
 #### **d_camp_enable_guard / Enable guards and camps**
 > Default: 1 (No, disabled)<br/>
 > Available options: 1 (Yes, enable) and -1 (Random)<br/>
@@ -412,6 +416,8 @@
 > Reduces enemy AI group size depending on player numbers. Lower player number, lower group count.<br/>
 #### **d_skillfps / Adjust AI subskill if server FPS is low**
 > Default: 0 (Yes, enabled; 1 or No to disable it)<br/>
+#### **d_enemy_mercenaries / Enemy mercenaries (2035 only)**
+> Default: 0 (No; 1 or Yes)<br/>
 #### **d_ParaAtBase / Parachute from base:**
 > Default: 0 (Yes, enabled; 1 or No to disable<br/>
 #### **d_HALOWaitTime / HALO at base wait time:**
