@@ -3230,4 +3230,73 @@ if (d_WithVoicesDisabled == 1) then {
 	_vn_AI_Module = _vn_AI_Group createUnit ["vn_module_situationalawarenessmodule_disable", [0, 0, 0], [], 0, "NONE"];
 };
 
+
+// support enemy overrides with server settings (enemy factions)
+if (d_enemy_factions > 0) then {
+	
+	switch (d_enemy_factions) do {
+		case 1: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction1-taliban.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup];
+			d_specops_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array =+ [["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 2: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction2-eastasia.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_a"] call d_fnc_GetConfigGroup,
+				["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_b"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 3: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction3-centralafrica.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [["East","CFP_O_CFRebels","Infantry","cfp_o_cfrebels_infantry_squad"] call d_fnc_GetConfigGroup];
+			d_specops_E = [["East","CFP_O_CFRebels","SpecOps","cfp_o_cfrebels_specops_ex_military_fireteam"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CFP_O_CFRebels","SpecOps","o_cfpocfrebels_specops_sniper_team"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 4: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction4-islamicstate.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_inf_squad"] call d_fnc_GetConfigGroup];
+			d_specops_E = [
+				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_wpn_squad"] call d_fnc_GetConfigGroup,
+				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup
+			];
+			//d_sniper_E = // no sniper class
+			d_faction_independent_array = [["WEST","CFP_B_IQARMY","Infantry","cfp_b_grp_ia_inf_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 5: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction5-sudanarmedforces.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_squad"] call d_fnc_GetConfigGroup,
+				["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_riot_squad"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_specops_paratrooper_squad"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+	};
+	
+};
+
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom fn_preinit.sqf processed"];
