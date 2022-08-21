@@ -2879,7 +2879,10 @@ if (hasInterface) then {
 		if (d_ws) exitWith {
 			["B_D_Quadbike_01_lxWS"]
 		};
-		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F", "B_UAV_02_F"]
+		if (d_enable_extra_cas == 1) exitWith {
+			["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F", "B_UAV_02_F"]
+		};
+		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F"]
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
