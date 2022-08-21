@@ -2879,7 +2879,7 @@ if (hasInterface) then {
 		if (d_ws) exitWith {
 			["B_D_Quadbike_01_lxWS"]
 		};
-		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F"]
+		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F", "B_UAV_02_F]
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -2905,14 +2905,17 @@ if (hasInterface) then {
 
 #ifdef __OWN_SIDE_BLUFOR__
 	d_UAV_Small = "B_UAV_01_F";
+	d_UAV_CAS = "B_UAV_02_F";
 	d_UAV_Terminal = "B_UavTerminal";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	d_UAV_Small = "O_UAV_01_F";
+	d_UAV_CAS = "O_UAV_02_F";
 	d_UAV_Terminal = "O_UavTerminal";
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 	d_UAV_Small = "I_UAV_01_F";
+	d_UAV_CAS = "I_UAV_02_F";
 	d_UAV_Terminal = "I_UavTerminal";
 #endif
 

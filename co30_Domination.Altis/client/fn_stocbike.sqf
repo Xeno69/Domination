@@ -5,7 +5,35 @@ if (!hasInterface) exitWith {};
 
 private _vec = _this;
 player reveal _vec;
-player moveInDriver _vec;
+if (_vec isKindOf d_UAV_CAS) then {
+	if !(d_UAV_Terminal in (assignedItems player)) then {
+    	player setVariable ["d_has_gps", "ItemGPS" in (assignedItems player)];
+    	player linkItem d_UAV_Terminal;
+    };
+    deleteVehicle _vec; // delete so we can create it again with spawnVehicle
+    private _uav = [getPosATL player, 0, d_UAV_CAS, d_player_side, false, false] call bis_fnc_spawnVehicle;
+    _vec = _uav # 0;
+    __TRACE_1("","_uav")
+    _uav params ["_vecu", "_crew", "_grp"];
+    
+    _grp deleteGroupWhenEmpty true;
+    
+    _vecu allowCrewInImmobile true;
+    
+    _vecu setVehicleReceiveRemoteTargets true;
+    _vecu setVehicleReportRemoteTargets true;
+    _vecu setVehicleRadar 1;
+    
+    //_vecu allowDamage false;
+    
+    {
+    	_x setSkill ["spotDistance", 1];
+    } forEach _crew;	
+    
+    player connectTerminalToUav _vecu;
+} else {
+	player moveInDriver _vec;
+};
 
 if (_vec isKindOf "Quadbike_01_Base_F") then {
 	_vec addAction [format ["<t color='#AAD9EF'>%1</t>", localize "STR_DOM_MISSIONSTRING_162"], {(_this # 0) setVectorUp [0,0,1]}, 0, -1, false, false, "", "!(player in _target) && {((vectorUpVisual _target) # 2) < 0.6}", 10];

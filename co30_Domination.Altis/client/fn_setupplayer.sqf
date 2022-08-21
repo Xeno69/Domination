@@ -35,6 +35,7 @@ if (side (group player) == blufor) then {
 	} forEach ["d_chopper_service", "d_wreck_service", "d_teleporter", "d_aircraft_service", "bonus_air", "bonus_vehicles", "d_Ammobox_Reload", "d_vec_service", "Start", "d_runwaymarker"];
 
 	d_UAV_Small = "B_UAV_01_F";
+	d_UAV_CAS = "B_UAV_02_F";
 	d_UAV_Terminal = "B_UavTerminal";
 	if (didJIP) then {
 		{
@@ -64,6 +65,7 @@ if (side (group player) == blufor) then {
 	} forEach ["d_chopper_serviceR","d_wreck_serviceR","d_teleporter_1","d_aircraft_serviceR","bonus_airR","bonus_vehiclesR","d_Ammobox ReloadR","Start_opfor","d_vehicle_serviceR", "d_runwaymarker_o"];
 
 	d_UAV_Small = "O_UAV_01_F";
+	d_UAV_CAS = "O_UAV_02_F";
 	d_UAV_Terminal = "O_UavTerminal";
 	if (didJIP) then {
 		{
