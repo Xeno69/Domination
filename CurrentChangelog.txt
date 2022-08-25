@@ -1,4 +1,5 @@
 4.64
 
+- Added: You can now turn of missionProfileNamespace autoload and autosave to enable manual load and save (set d_save_to_mpns to 2, (missionprogress autosave disabled))
 - Fixed: Stupid copy and paste error which broke asnyc aplayer update for missionProfileNamespace (player progress also gets saved when a player disconnects)
 - Fixed: Somehow code for saving and loading mission progress from missionProfileNamespace got lost resulting in messing up resolved targets array and deployed MHQ not working
