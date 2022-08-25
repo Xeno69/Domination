@@ -108,6 +108,7 @@ if !(_sname in d_db_savegames) then {
 		if (d_db_type == 2) exitWith {
 			if (!d_tt_ver) then {
 				private _pn_missionsave = missionProfileNamespace getVariable ["dom_missionsave", []];
+				__TRACE_1("","_mvr2_ar")
 				_pn_missionsave pushBack [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos, _mvr2_ar];
 				missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
 			} else {
@@ -144,8 +145,8 @@ if !(_sname in d_db_savegames) then {
 				private _comna = tolower (worldName + _sname);
 				private _idx = _pn_missionsave findIf {(_x # 12) == _comna};
 				if (_idx != -1) then {
+					__TRACE_1("","_mvr2_ar")
 					_pn_missionsave set [_idx, [_sname, d_maintargets, _maintargets_list, d_current_target_index, d_cur_sm_idx, d_resolved_targets, _recapgone, d_side_missions_random, _current_mission_counter, d_searchintel, _bonus_vecs_db, tolower worldname, tolower (worldName + _sname), tolower (worldName + _sname + briefingname), d_retaken_farpspos, _mvr2_ar]];
-					                           
 				};
 				missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
 			} else {

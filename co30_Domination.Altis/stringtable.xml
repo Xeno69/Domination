@@ -14949,6 +14949,18 @@
 <Chinese>Use server system time as game time</Chinese>
 <French>Use server system time as game time</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2098">
+<English>Yes (missionprogress autosave disabled)</English>
+<Spanish>Yes (missionprogress autosave disabled)</Spanish>
+<Portuguese>Yes (missionprogress autosave disabled)</Portuguese>
+<Korean>Yes (missionprogress autosave disabled)</Korean>
+<Japanese>Yes (missionprogress autosave disabled)</Japanese>
+<Original>Yes (missionprogress autosave disabled)</Original>
+<Russian>Yes (missionprogress autosave disabled)</Russian>
+<Chinesesimp>Yes (missionprogress autosave disabled)</Chinesesimp>
+<Chinese>Yes (missionprogress autosave disabled)</Chinese>
+<French>Yes (missionprogress autosave disabled)</French>
+</Key>
 </Container>
 </Package>
 </Project>

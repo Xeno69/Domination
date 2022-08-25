@@ -641,7 +641,7 @@ if (isServer) then {
 		addMissionEventhandler ["BuildingChanged", {call d_fnc_buildingchanged}];
 	};
 	
-	if (!_mpended_done && { d_db_type == 2 && {d_save_to_mpns == 1}}) then {
+	if (!_mpended_done && { d_db_type == 2 && {d_save_to_mpns > 0}}) then {
 		addMissionEventHandler ["MPEnded", {saveMissionProfileNamespace}];
 	};
 };
