@@ -282,9 +282,16 @@ d_bonus_vecs_db = _ar # 9;
 } forEach d_bonus_vecs_db;
 
 d_retaken_farpspos = if (count _ar >= 12) then {
-	_ar # 11
+	if (d_db_type != 2) then {
+		_ar # 11
+	} else {
+		_ar # 12
+	};
 } else {
 	[]
+};
+if (d_retaken_farpspos isEqualType "") then {
+	d_retaken_farpspos = [];
 };
 __TRACE_1("","d_retaken_farpspos")
 if (d_retaken_farpspos isEqualType [] && {d_retaken_farpspos isNotEqualTo []}) then {
@@ -315,7 +322,9 @@ if (d_retaken_farpspos isEqualType [] && {d_retaken_farpspos isNotEqualTo []}) t
 	} forEach d_retaken_farpspos;
 };
 
-if (count _ar >= 13 && {(_ar # 12) isEqualType []}) then {
+private _arnum = [13, 12] select (d_db_type != 2);
+
+if (count _ar >= 13 && {(_ar # _arnum) isEqualType []}) then {
 	__TRACE_1("","d_vrespawn2_ar")
 	{
 		__TRACE_1("","_x")
@@ -350,7 +359,7 @@ if (count _ar >= 13 && {(_ar # 12) isEqualType []}) then {
 				};
 			};
 		} forEach d_vrespawn2_ar;
-	} forEach (_ar # 12);
+	} forEach (_ar # _arnum);
 };
 #else
 d_maintargets = _ar # 0;

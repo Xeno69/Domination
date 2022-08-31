@@ -1,44 +1,6 @@
-4.63
+4.64
 
-- Added: Support for missionProfileNamespace, player and mission progress is saved there if no database is available
-- Added: New parameter d_save_to_mpns ("Save player and mission progress to missionProfileNamespace if no SQL database is available" in server lobby) where you can turn off saving and loading mission progress to missionProfileNamespace
-- Added: Sign "AI Recruit" behind recruit desk if with AI is enabled
-- Added: Occupy script uses fuzzy positions when build positions are full, by longtimegamer
-- Added: Param d_no_ai_silencer ("Remove silencer from spawned enemy AI units:" in lobby, default No) which removes silencers from spawned enemy AI units
-- Added: OpticsMode for the primary weapon is now set to the previous optics mode when a player gets revived
-- Added: New parameter to enable extra CAS ordnance (d_enable_extra_cas in description.ext, "Enable extra CAS ordnance" in lobby), by longtimegamer
-- Added: If a M113 Command is used as MHQ in the Global Mobilization version deploy the antenna too when the MHQ gets deployed
-- Added: Mercenary settings available for all maps (2035 experimental), by longtimegamer
-- Added: New viewdistance option sets client to initial server value but player may change later (a server hint for player viewdistance), by longtimegamer
-- Added: New param d_use_systemtime ("Use server system time as game time" in lobby) to use server time as game start time, default disabled
-- Added: VIP escort event, by longtimegamer
-- Added: Players may create UAV at MHQ, by longtimegamer
-- Changed: Civilians spawned with occupy script can be on upper floors, by longtimegamer
-- Changed: d_dis_servicep param ("Disable all service points") now disables all service points including wreck repair
-- Fixed: If a camp is destroyed (which shouldn't happen but meh) it will be recreated
-- Fixed: Some targets in the Western Sahara version were still using Malden names
-- Fixed: Base wasn't mentioned in Auto change viewdistance string in the Status Dialog/Dashboard
-- Fixed: Don't throw an error messages when Domination.sqf for InterceptDB is found but InterceptDB is not loaded
-- Fixed: Vehicle respawn script could break if vehcile locked status wasn't correct
-- Fixed: Script error when accessing a non existing pylon array in fn_skinpolyresp.sqf
-- Fixed: If no squad leader was available for respawn/spawn the the marker was still drawn resulting in an error message
-- Fixed: Added SOG Prarie Fire remoteExec functions to CfgRemoteExec in description.ext
-- Fixed: Snipers do not spawn on roof, by longtimegamer
-- Fixed: Occupy script places all units in a group and does not delete units, by longtimegamer
-- Fixed: Do not spawn guerrilla events if d_with_MainTargetEvents == -1 "always"
-- Fixed: When a plane without VTOL was used for dropping para units over main targets it sometimes tried to land like a chopper or VTOL at the AO
-- Fixed: Do not spawn civilians near enemy units, by longtimegamer
-- Fixed: CAS fired eventhandler was called when arty fired
-- Fixed: Players get moved out of base artillery and AA vehicles if they somehow manage to get into them
-- Fixed: UAV triggers main target events, by longtimegamer
-- Fixed: Use building blacklist for enemy units as well as civilians, by longtimegamer
-- Fixed: Virtual Arsenal for recruited AI can only be used near the flag at base to avoid them beeing used as mobile arsenal point
-- Fixed: Calling CAS in the TT version did not work at all
-- Fixed: Air dropped vehicles should no longer land nose down (hopefully)
-- Fixed: Exploit where one could heal a friendly AI unit many times to increase score points
-- Fixed: Some maintarget events (guerrillas and defense events) should only be available when configured in settings, by longtimegamer
-- Fixed: Makegroup road selection for vehicles, by longtimegamer
-- Removed: RHS T15 tank was still in the enemy spawn vehicle classes, it's indestructible
-- Updated: IFA3 AIO version
-- Updated: S.O.G. version (update 1.2 vehicles added)
-- Updated translations
+- Added: You can now turn of missionProfileNamespace autoload and autosave to enable manual load and save (set d_save_to_mpns to 2, (missionprogress autosave disabled))
+- Fixed: Stupid copy and paste error which broke asnyc aplayer update for missionProfileNamespace (player progress also gets saved when a player disconnects)
+- Fixed: Somehow code for saving and loading mission progress from missionProfileNamespace got lost resulting in messing up resolved targets array and deployed MHQ not working
+- Fixed: Vehicles at FARPs were spanwed under the ground in the IFA3 version

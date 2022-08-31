@@ -642,9 +642,9 @@ class Params {
 	
 	class d_save_to_mpns {
 		title = "$STR_DOM_MISSIONSTRING_2094";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_2098"};
 	};
 	
 	class d_use_systemtime {

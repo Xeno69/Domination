@@ -49,12 +49,16 @@ if (isServer) then {
 };
 #endif
 
-if (d_use_systemtime == 1) then {
-	private _st = systemTime;
-	if (_year != -1) then {
-		_year = _st # 0;
+_year spawn {
+	params ["_year"];
+	waitUntil {!isNil "d_use_systemtime"};
+	if (d_use_systemtime == 1) then {
+		private _st = systemTime;
+		if (_year != -1) then {
+			_year = _st # 0;
+		};
+		setDate [_year, _st # 1, _st # 2, _st # 3, _st # 4];
 	};
-	setDate [_year, _st # 1, _st # 2, _st # 3, _st # 4];
 };
 
 diag_log [diag_frameno, diag_ticktime, time, "Dom init.sqf processed"];

@@ -781,7 +781,7 @@ if (isServer) then {
 	
 	call compileScript ["init\initcommon.sqf", false];
 	
-	if (!d_sql_database && {d_save_to_mpns == 1}) then {
+	if (!d_sql_database && {d_save_to_mpns > 0}) then {
 		d_database_found = true;
 		d_db_type = 2;
 	};
