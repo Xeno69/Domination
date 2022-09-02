@@ -14961,6 +14961,78 @@
 <Chinese>Yes (missionprogress autosave disabled)</Chinese>
 <French>Yes (missionprogress autosave disabled)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENEMY_FACTIONS">
+<English>MODS REQUIRED - Enemy factions (experimental)</English>
+<Spanish>MODS REQUIRED - Enemy factions (experimental)</Spanish>
+<Portuguese>MODS REQUIRED - Enemy factions (experimental)</Portuguese>
+<Korean>MODS REQUIRED - Enemy factions (experimental)</Korean>
+<Japanese>MODS REQUIRED - Enemy factions (experimental)</Japanese>
+<Original>MODS REQUIRED - Enemy factions (experimental)</Original>
+<Russian>MODS REQUIRED - Enemy factions (experimental)</Russian>
+<Chinesesimp>MODS REQUIRED - Enemy factions (experimental)</Chinesesimp>
+<Chinese>MODS REQUIRED - Enemy factions (experimental)</Chinese>
+<French>MODS REQUIRED - Enemy factions (experimental)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_TALIBAN">
+<English>Taliban (Community Factions Project)</English>
+<Spanish>Taliban (Community Factions Project)</Spanish>
+<Portuguese>Taliban (Community Factions Project)</Portuguese>
+<Korean>Taliban (Community Factions Project)</Korean>
+<Japanese>Taliban (Community Factions Project)</Japanese>
+<Original>Taliban (Community Factions Project)</Original>
+<Russian>Taliban (Community Factions Project)</Russian>
+<Chinesesimp>Taliban (Community Factions Project)</Chinesesimp>
+<Chinese>Taliban (Community Factions Project)</Chinese>
+<French>Taliban (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_ASIAN_INSURGENTS">
+<English>Asian Insurgents (Asian Factions for CUP)</English>
+<Spanish>Asian Insurgents (Asian Factions for CUP)</Spanish>
+<Portuguese>Asian Insurgents (Asian Factions for CUP)</Portuguese>
+<Korean>Asian Insurgents (Asian Factions for CUP)</Korean>
+<Japanese>Asian Insurgents (Asian Factions for CUP)</Japanese>
+<Original>Asian Insurgents (Asian Factions for CUP)</Original>
+<Russian>Asian Insurgents (Asian Factions for CUP)</Russian>
+<Chinesesimp>Asian Insurgents (Asian Factions for CUP)</Chinesesimp>
+<Chinese>Asian Insurgents (Asian Factions for CUP)</Chinese>
+<French>Asian Insurgents (Asian Factions for CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CENTRAL_AFRICAN_REBELS">
+<English>Central African Rebels (Community Factions Project)</English>
+<Spanish>Central African Rebels (Community Factions Project)</Spanish>
+<Portuguese>Central African Rebels (Community Factions Project)</Portuguese>
+<Korean>Central African Rebels (Community Factions Project)</Korean>
+<Japanese>Central African Rebels (Community Factions Project)</Japanese>
+<Original>Central African Rebels (Community Factions Project)</Original>
+<Russian>Central African Rebels (Community Factions Project)</Russian>
+<Chinesesimp>Central African Rebels (Community Factions Project)</Chinesesimp>
+<Chinese>Central African Rebels (Community Factions Project)</Chinese>
+<French>Central African Rebels (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_ISLAMIC_STATE">
+<English>Islamic State (Community Factions Project)</English>
+<Spanish>Islamic State (Community Factions Project)</Spanish>
+<Portuguese>Islamic State (Community Factions Project)</Portuguese>
+<Korean>Islamic State (Community Factions Project)</Korean>
+<Japanese>Islamic State (Community Factions Project)</Japanese>
+<Original>Islamic State (Community Factions Project)</Original>
+<Russian>Islamic State (Community Factions Project)</Russian>
+<Chinesesimp>Islamic State (Community Factions Project)</Chinesesimp>
+<Chinese>Islamic State (Community Factions Project)</Chinese>
+<French>Islamic State (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_SUDANESE_ARMED_FORCES">
+<English>Sudanese Armed Forces (Community Factions Project)</English>
+<Spanish>Sudanese Armed Forces (Community Factions Project)</Spanish>
+<Portuguese>Sudanese Armed Forces (Community Factions Project)</Portuguese>
+<Korean>Sudanese Armed Forces (Community Factions Project)</Korean>
+<Japanese>Sudanese Armed Forces (Community Factions Project)</Japanese>
+<Original>Sudanese Armed Forces (Community Factions Project)</Original>
+<Russian>Sudanese Armed Forces (Community Factions Project)</Russian>
+<Chinesesimp>Sudanese Armed Forces (Community Factions Project)</Chinesesimp>
+<Chinese>Sudanese Armed Forces (Community Factions Project)</Chinese>
+<French>Sudanese Armed Forces (Community Factions Project)</French>
+</Key>
 </Container>
 </Package>
 </Project>
