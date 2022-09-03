@@ -56,7 +56,7 @@ class D_VecDialog {
 			idc = 44452;
 			text = "$STR_DOM_MISSIONSTRING_1325"; 
 			action = "0 = [vehicle player, player] spawn d_fnc_loaddroppedx";
-			y = 0.53;
+			y = 0.52;
 		};
 		class CreateVecCaption: VecDialogCaption2 {
 			idc = 44450;
@@ -87,21 +87,27 @@ class D_VecDialog {
 			idc = 44453;
 			text = "$STR_DOM_MISSIONSTRING_1250"; 
 			action = "closeDialog 0;call d_fnc_teleportx";
-			y = 0.59;
+			y = 0.57;
 		};
 #ifndef __TT__
 		class SATViewButton: DropAmmoButton {
 			idc = 44459;
 			text = "$STR_DOM_MISSIONSTRING_1327"; 
 			action = "closeDialog 0;createDialog 'D_FakeUAVDialog'";
-			y = 0.65;
+			y = 0.62;
 		};
 #endif
 		class UAVButton: DropAmmoButton {
 			idc = 44460;
 			text = "$STR_DOM_MISSIONSTRING_1327a"; 
 			action = "closeDialog 0;call d_fnc_makeuav";
-			y = 0.71;
+			y = 0.67;
+		};
+		class UAVCASButton: DropAmmoButton {
+			idc = 44467;
+			text = "$STR_DOM_MISSIONSTRING_1327b"; 
+			action = "closeDialog 0;call d_fnc_makeuav_combat";
+			y = 0.72;
 		};
 		class DeployMHQ: DropAmmoButton {
 			idc = 44462;

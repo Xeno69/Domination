@@ -98,3 +98,5 @@ if (!d_carrier && {!d_ifa3 && {d_with_base_sabotage == 0 && {d_transport_chopper
 #endif
 
 0 spawn d_fnc_ai_loop;
+
+0 spawn d_fnc_uav_loop;

@@ -160,16 +160,19 @@ if (isNil "d_ranked_a") then {
 		20, // points needed to build a FARP (engineer)
 		10, // points a player gets for reviving another player
 		20, // points a Squad Leader needs for CAS
-		20  // points a player gets for bringing a wreck to the repair point
+		20, // points a player gets for bringing a wreck to the repair point
+		30 // points a player needs for a combat UAV
 	];
 } else {
-	if (count d_ranked_a < 24) then {
+	if (count d_ranked_a < 25) then {
 		if (count d_ranked_a == 22) then {
-			d_ranked_a append [20, 20];
-		} else {
-			if (count d_ranked_a == 23) then {
-				d_ranked_a pushBack 20;
-			};
+			d_ranked_a append [20, 20, 30];
+		};
+		if (count d_ranked_a == 23) then {
+			d_ranked_a append [20, 30];
+		};
+		if (count d_ranked_a == 24) then {
+			d_ranked_a append [30];
 		};
 	};
 };
@@ -186,7 +189,8 @@ if (isServer) then {
 		[7, d_ranked_a # 17],
 		[8, (d_ranked_a # 4) * -1],
 		[9, (d_ranked_a # 19) * -1],
-		[10, (d_ranked_a # 20) * -1]
+		[10, (d_ranked_a # 20) * -1],
+		[11, (d_ranked_a # 24) * -1]
 	];
 };
 

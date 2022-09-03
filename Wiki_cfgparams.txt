@@ -306,7 +306,7 @@
 > Available options (in meters): 150, 250, 350 and 450<br/>
 #### **d_enable_civ_vehs_locked / Civilian vehicles - lock vehicles**
 > Default: 1 (Yes, enabled; 0 or No to disable)<br/>
-#### **d_enable_extra_cas / Enable extra CAS ordnance**
+#### **d_enable_extra_cas / Enable extra CAS ordnance (500lb active laser guided bomb, team shared Greyhawk combat UAV, napalm if available)**
 > Default: 0 (No, not enabled; 1 or Yes to enable it)<br/>
 #### **d_tell_arty_cas / Always announce enemy artillery / CAS**
 > Default: 0 (No, enabled; 1 or Yes to disable it)<br/>

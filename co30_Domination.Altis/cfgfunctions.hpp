@@ -83,6 +83,7 @@ class cfgFunctions {
 			addc(airtaxi);
 			addc(changeairtaxidest);
 			addc(makeuav);
+			addc(makeuav_combat);
 			addc(haschemlight);
 			addc(attachchemlight);
 			addc(detachchemlight);
@@ -620,6 +621,7 @@ class cfgFunctions {
 			addc(nightfograin);
 			addc(changeskill);
 			addc(ai_loop);
+			addc(uav_loop);
 			addc(mtrestkilled0);
 			addc(mtrestkilled1);
 			addc(mthardtargetkilled);
