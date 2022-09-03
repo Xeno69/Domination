@@ -55,6 +55,7 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_vn}}}) then {
 		(_disp displayCtrl 44459) ctrlEnable true;
 		(_disp displayCtrl 44460) ctrlEnable true;
+		(_disp displayCtrl 44467) ctrlEnable true;
 	};
 	(_disp displayCtrl 44462) ctrlSetText (localize "STR_DOM_MISSIONSTRING_610");
 	(_disp displayCtrl 44449) ctrlEnable true;
@@ -71,6 +72,7 @@ if !(_mhq getVariable ["d_MHQ_Deployed", false]) then {
 	if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_vn}}}) then {
 		(_disp displayCtrl 44459) ctrlEnable false;
 		(_disp displayCtrl 44460) ctrlEnable false;
+		(_disp displayCtrl 44467) ctrlEnable false;
 	};
 	(_disp displayCtrl 44462) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1328");
 	(_disp displayCtrl 44449) ctrlEnable false;

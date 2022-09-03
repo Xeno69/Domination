@@ -84,6 +84,7 @@ if (_move_controls) then {
 	(_disp displayCtrl 44459) ctrlShow false;
 	(_disp displayCtrl 44460) ctrlShow false;
 	(_disp displayCtrl 44462) ctrlShow false;
+	(_disp displayCtrl 44467) ctrlShow false;
 
 	private _control = _disp displayCtrl 44454;
 	_control ctrlSetPositionX (((ctrlPosition _control) # 0) + 0.14);
@@ -122,6 +123,7 @@ if (_move_controls) then {
 		(_disp displayCtrl 44451) ctrlEnable false;
 		(_disp displayCtrl 44449) ctrlEnable false;
 		(_disp displayCtrl 44460) ctrlEnable false;
+		(_disp displayCtrl 44467) ctrlEnable false;
 		if (_ismhq) then {
 			if (d_with_mhq_camo == 0 && {!(_vec isKindOf "Air") && {!(_vec isKindOf "Ship")}}) then {
 				(_disp displayCtrl 44464) cbSetChecked d_deploy_mhq_camo;
@@ -142,6 +144,7 @@ if (_move_controls) then {
 if (d_ifa3 || {d_gmcwg || {d_unsung || {d_vn}}}) then {
 	(_disp displayCtrl 44459) ctrlShow false;
 	(_disp displayCtrl 44460) ctrlShow false;
+	(_disp displayCtrl 44467) ctrlShow false;
 };
 
 if (_vec isKindOf "Ship") then {

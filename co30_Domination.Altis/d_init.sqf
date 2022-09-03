@@ -410,6 +410,10 @@ if (isNil "d_object_spawn_blacklist") then {
 	];
 };
 
+if (isNil "d_cur_uav_combat") then {
+	d_cur_uav_combat = [];
+};
+
 if (hasInterface) then {
 	if (isNil "d_MainTargets") then {d_MainTargets = count d_target_names};
 };

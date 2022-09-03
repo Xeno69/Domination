@@ -8464,6 +8464,18 @@
 <Chinese>無人機</Chinese>
 <French>DRONE</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1327b">
+<English>Combat UAV</English>
+<Spanish>Combat UAV</Spanish>
+<Portuguese>Combat UAV</Portuguese>
+<Korean>Combat UAV</Korean>
+<Japanese>Combat UAV</Japanese>
+<Original>Combat UAV</Original>
+<Russian>Combat UAV</Russian>
+<Chinesesimp>Combat UAV</Chinesesimp>
+<Chinese>Combat UAV</Chinese>
+<French>Combat UAV</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1328">
 <English>Deploy MHQ</English>
 <Spanish>Desplegar MHQ</Spanish>
@@ -15032,6 +15044,30 @@
 <Chinesesimp>Sudanese Armed Forces (Community Factions Project)</Chinesesimp>
 <Chinese>Sudanese Armed Forces (Community Factions Project)</Chinese>
 <French>Sudanese Armed Forces (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_COMBAT_UAV_TEAM_MAX_REACHED">
+<English>Only one combat UAV allowed per team.</English>
+<Spanish>Only one combat UAV allowed per team.</Spanish>
+<Portuguese>Only one combat UAV allowed per team.</Portuguese>
+<Korean>Only one combat UAV allowed per team.</Korean>
+<Japanese>Only one combat UAV allowed per team.</Japanese>
+<Original>Only one combat UAV allowed per team.</Original>
+<Russian>Only one combat UAV allowed per team.</Russian>
+<Chinesesimp>Only one combat UAV allowed per team.</Chinesesimp>
+<Chinese>Only one combat UAV allowed per team.</Chinese>
+<French>Only one combat UAV allowed per team.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_COMBAT_UAV_PLAYER_MAX_REACHED">
+<English>Only one combat UAV allowed per player.</English>
+<Spanish>Only one combat UAV allowed per player.</Spanish>
+<Portuguese>Only one combat UAV allowed per player.</Portuguese>
+<Korean>Only one combat UAV allowed per player.</Korean>
+<Japanese>Only one combat UAV allowed per player.</Japanese>
+<Original>Only one combat UAV allowed per player.</Original>
+<Russian>Only one combat UAV allowed per player.</Russian>
+<Chinesesimp>Only one combat UAV allowed per player.</Chinesesimp>
+<Chinese>Only one combat UAV allowed per player.</Chinese>
+<French>Only one combat UAV allowed per player.</French>
 </Key>
 </Container>
 </Package>
