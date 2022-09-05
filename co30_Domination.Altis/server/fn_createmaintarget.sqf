@@ -792,6 +792,7 @@ if (d_occ_bldgs == 1) then {
 	
 		if ((_snp_cnt * 2) >= count _buildingsArraySorted) then {
 			// not many buildings, do nothing
+			_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted]; 
 		} else {
 			// take top 2N then randomize then resize
 			private _tmp = _buildingsArraySorted select [0, (_snp_cnt * 2)]; // 2x extra elements
