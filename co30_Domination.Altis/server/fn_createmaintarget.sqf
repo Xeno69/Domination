@@ -786,14 +786,18 @@ if (d_occ_bldgs == 1) then {
 	
 		if (_buildingsArraySorted isEqualTo []) exitWith {};
 	
-		//choose the Top N of sorted buildings array
+		//choose the Top 2N of sorted buildings array
 		
 		private _buildingsArray = [];
 	
-		if (_snp_cnt >= count _buildingsArraySorted) then {
-			_buildingsArray = _buildingsArraySorted select [0, count _buildingsArraySorted];
+		if ((_snp_cnt * 2) >= count _buildingsArraySorted) then {
+			// not many buildings, do nothing
 		} else {
-			_buildingsArray = _buildingsArraySorted select [0, _snp_cnt];
+			// take top 2N then randomize then resize
+			private _tmp = _buildingsArraySorted select [0, (_snp_cnt * 2)]; // 2x extra elements
+			_tmp = [ _tmp ] call BIS_fnc_arrayShuffle;
+			_tmp resize _snp_cnt; // resize to correct size
+			_buildingsArray = _tmp # 0;
 		};
 	
 		__TRACE_1("","_buildingsArray")
