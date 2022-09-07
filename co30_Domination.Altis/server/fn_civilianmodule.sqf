@@ -252,6 +252,6 @@ _m setVariable ["#onCreated", {
 			};
 		};
 	}];
-	[_this, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _this];
+	[_this, selectRandomWeighted d_civArray] remoteExec ["setIdentity", 0, _this];
 	_this setUnitLoadout selectRandomWeighted d_civArray;
 }];

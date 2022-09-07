@@ -53,6 +53,7 @@ _uav params ["_vecu", "_crew", "_grp"];
 _vecu setVariable ["d_player_netId", netId player];
 
 d_cur_uav_combat pushBack _vecu;
+publicVariable "d_cur_uav_combat";
 
 _grp deleteGroupWhenEmpty true;
 
