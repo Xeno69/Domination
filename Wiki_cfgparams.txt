@@ -2,157 +2,1370 @@
 
 ***
 
-Param                           | Title                                                                                       | Default | Value: Description
-------------------------------- | ------------------------------------------------------------------------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-d_MainTargets_num               | Main Targets                                                                                | `9998`  | `9998`: Complete, ordered <br /> `9999`: Order like placed in the editor <br /> `2`: 2 <br /> `4`: 4 <br /> `6`: 6 <br /> `8`: 8 <br /> `10`: 10 <br /> `12`: 12 <br /> `14`: 14 <br /> `16`: 16 <br /> `18`: 18 <br /> `20`: 20 <br /> `25`: 25 <br /> `34`: 34
-d_TimeOfDay                     | Time of day:                                                                                | `5`     | `0`: 00:00 <br /> `1`: 01:00 <br /> `2`: 02:00 <br /> `3`: 03:00 <br /> `4`: 04:00 <br /> `5`: 05:00 <br /> `6`: 06:00 <br /> `7`: 07:00 <br /> `8`: 08:00 <br /> `9`: 09:00 <br /> `10`: 10:00 <br /> `11`: 11:00 <br /> `12`: 12:00 <br /> `13`: 13:00 <br /> `14`: 14:00 <br /> `15`: 15:00 <br /> `16`: 16:00 <br /> `17`: 17:00 <br /> `18`: 18:00 <br /> `19`: 19:00 <br /> `20`: 20:00 <br /> `21`: 21:00 <br /> `22`: 22:00 <br /> `23`: 23:00
-d_enablefatigue                 | Disable fatigue:                                                                            | `0`     | `0`: Yes <br /> `1`: No
-d_enablesway                    | Disable sway:                                                                               | `0`     | `0`: Yes <br /> `1`: No
-d_with_suppress                 | Player can be suppressed                                                                    | `0`     | `0`: Yes <br /> `1`: No
-d_with_targetselect_count       | Players can select from available targets:                                                  | `4`     | `0`: Off <br /> `4`: 4 <br /> `8`: 8 <br /> `12`: 12 <br /> `9999`: Entire map
-d_targetselect_time             | Target selection time:                                                                      | `30`    | `30`: 30 <br /> `45`: 45 <br /> `60`: 60 <br /> `120`: 120 <br /> `240`: 240 <br /> `300`: 300
-d_MissionType                   | Mission Type:                                                                               | `0`     | `0`: Main Targets and Side Missions (Default) <br /> `1`: Main Targets Only <br /> `2`: Side Missions Only
-d_respawnatsql                  | Respawn at Squad Leader:                                                                    | `0`     | `0`: Squad Leader <br /> `2`: Squad <br /> `1`: None
-d_retakefarps                   | Retake Farps                                                                                | `0`     | `0`: Yes <br /> `1`: No
-d_with_MainTargetEvents         | Random events at main target:                                                               | `0`     | `0`: Never <br /> `1`: Low <br /> `2`: Medium <br /> `-1`: Always <br /> `-2`: Always, multiple events <br /> `-3`: Always, multiple events with guerrillas and defense <br /> `-4`: All
-d_with_ranked                   | Ranked:                                                                                     | `1`     | `0`: Yes <br /> `1`: No <br /> `2`: Ranked mode on but weapons not ranked
-d_transf_allow                  | Allow transfer of points to other players in ranked mode:                                   | `0`     | `0`: Yes <br /> `1`: No
-d_sm_dorandom                   | Random side missions:                                                                       | `0`     | `0`: Yes <br /> `1`: No
-d_bonus_vec_type                | Bonus vehicles:                                                                             | `0`     | `0`: Normal <br /> `1`: No sidemission bonus vehicles <br /> `2`: No main target bonus vehicles <br /> `3`: No bonus vehicles at all
-d_ao_check_for_ai               | Seize condition for main target:                                                            | `1`     | `0`: All camps captured and radio tower destroyed <br /> `1`: Low number of AI units, all camps captured and radio tower destroyed <br /> `2`: Low number of AI units and radio tower destroyed
-d_mt_respawngroups              | Respawn main target enemy AI groups as reinforcements:                                      | `0`     | `0`: Yes <br /> `1`: No
-d_bar_mhq_destroy               | AO enemy barracks and vehicle MHQ has to be destroyed by explosives                         | `1`     | `0`: No <br /> `1`: Yes
-d_allow_observers               | Enemy AI observers for artillery and CAS at AO                                              | `1`     | `0`: No <br /> `1`: Yes
-d_ai_persistent_corpses         | Persistent AI corpses                                                                       | `1`     | `0`: Yes <br /> `1`: No
-d_del_crew_always               | Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:                         | `1`     | `0`: Yes <br /> `1`: No
-d_ao_radius_override            | Target radius:                                                                              | `0`     | `0`: Normal <br /> `350`: 350 <br /> `450`: 450 <br /> `550`: 550 <br /> `650`: 650 <br /> `750`: 750 <br /> `850`: 850 <br /> `1000`: 1000
-d_save_to_mpns                  | Save player and mission progress to missionProfileNamespace if no SQL database is available | `1`     | `0`: No <br /> `1`: Yes <br /> `2`: Yes (missionprogress autosave disabled)
-d_use_systemtime                | Use server system time as game time                                                         | `0`     | `0`: No <br /> `1`: Yes
-d_weather                       | Internal weather system:                                                                    | `0`     | `0`: Yes <br /> `1`: No
-d_enable_fog                    | Enable fog (internal weather system):                                                       | `1`     | `0`: Yes <br /> `1`: No
-d_WithWinterWeather             | With winter weather:                                                                        | `1`     | `0`: Yes <br /> `1`: No
-d_withsandstorm                 | With sandstorm:                                                                             | `0`     | `0`: Yes <br /> `1`: No
-d_MaxNumAmmoboxes               | Max. number ammo boxes:                                                                     | `10`    | `10`: 10 <br /> `20`: 20 <br /> `30`: 30
-d_max_truck_cargo               | Engineer truck cargo capacity:                                                              | `6`     | `1`: 1 <br /> `3`: 3 <br /> `6`: 6 <br /> `9`: 9 <br /> `12`: 12 <br /> `16`: 16
-d_no_faks                       | Remove Fist Aid Kits:                                                                       | `1`     | `0`: Yes <br /> `1`: No
-d_no_ai_silencer                | Remove silencer from spawned enemy AI units:                                                | `0`     | `0`: No <br /> `1`: Yes
-d_timemultiplier                | Time Multiplier (1 real second = x ingame seconds):                                         | `1`     | `1`: Off <br /> `6`: 6 <br /> `12`: 12 <br /> `30`: 30 <br /> `45`: 45 <br /> `60`: 60 <br /> `90`: 90 <br /> `120`: 120
-d_with_dynsim                   | Dynamic Simulation:                                                                         | `0`     | `0`: Yes <br /> `1`: No
-d_with_bis_dynamicgroups        | With BIS Dynamic Groups (Squad Mgmt):                                                       | `0`     | `0`: Yes <br /> `1`: No
-d_arsenal_mod                   | Use only mod weapons in Virtual Arsenal:                                                    | `0`     | `0`: Yes <br /> `1`: No
-d_no_mortar_ar                  | Mortar bag packs in Virtual Arsenal:                                                        | `1`     | `0`: Yes <br /> `1`: No
-d_ao_markers                    | Turn off markers at AO for tower and camps:                                                 | `1`     | `0`: Yes <br /> `1`: No
-d_with_base_sabotage            | With base sabotage:                                                                         | `1`     | `0`: Yes <br /> `1`: No
-d_pylon_lodout                  | Pylon loadout enabled:                                                                      | `0`     | `0`: Yes <br /> `1`: No
-d_pylon_noclust                 | Remove cluster ammo from pylon loadout                                                      | `0`     | `0`: Yes <br /> `1`: No
-d_with_minefield                | With minefield at main targets:                                                             | `0`     | `0`: Yes <br /> `1`: No
-d_va_percentage                 | Limit Virtual Arsenal ammo box access to 1000                                               | `0`     | `0`: Yes <br /> `1`: No
-d_dis_servicep                  | Disable all service points, including FARPs (no refuel, no repair, no rearm)                | `1`     | `0`: Yes <br /> `1`: No
-d_InitialViewDistance           | Initial Viewdistance:                                                                       | `1600`  | `1000`: 1000m <br /> `1600`: 1600m <br /> `2000`: 2000m <br /> `2500`: 2500m <br /> `3000`: 3000m <br /> `3500`: 3500m <br /> `4000`: 4000m <br /> `4500`: 4500m <br /> `5000`: 5000m
-d_MaxViewDistance               | Maximum Viewdistance:                                                                       | `5000`  | `2000`: 2000m <br /> `3000`: 3000m <br /> `4000`: 4000m <br /> `5000`: 5000m <br /> `6000`: 6000m <br /> `7000`: 7000m <br /> `8000`: 8000m <br /> `9000`: 9000m <br /> `10000`: 10000m
-d_ViewdistanceChange            | Viewdistance changeable:                                                                    | `0`     | `0`: Yes <br /> `1`: No <br /> `2`: Yes (after server initializes client)
-d_AutoViewdistanceChangeDefault | Auto viewdistance change at main target and base:                                           | `1`     | `0`: No <br /> `1`: Yes
-d_playerspectateatbase          | Player can spectate other players at base flag                                              | `0`     | `0`: Yes <br /> `1`: No
-d_with_airtaxi                  | With AI air taxi (coop version only):                                                       | `0`     | `0`: Yes <br /> `1`: No
-d_with_airdrop                  | With air drop:                                                                              | `0`     | `0`: Yes <br /> `1`: No
-d_GrasAtStart                   | Grass:                                                                                      | `0`     | `0`: Yes <br /> `1`: No
-d_Terraindetail                 | Player can disable grass:                                                                   | `0`     | `0`: Yes <br /> `1`: No
-d_EnableSimulationCamps         | Enable simulation for enemy camps:                                                          | `0`     | `1`: Yes <br /> `0`: No
-d_WithRevive                    | With revive:                                                                                | `0`     | `0`: Yes <br /> `1`: No
-d_WithReviveSpectating          | With revive spectating:                                                                     | `0`     | `0`: Yes <br /> `1`: No
-d_only_medics_canrevive         | Only medics can revive:                                                                     | `1`     | `0`: Yes <br /> `1`: No
-d_ACEMedicalR                   | Disable ACE medical revive (if ACE is used) and use mission revive                          | `1`     | `0`: Yes <br /> `1`: No
-xr_max_lives                    | Max lives (revive):                                                                         | `-1`    | `1`: 1 <br /> `5`: 5 <br /> `10`: 10 <br /> `20`: 20 <br /> `30`: 30 <br /> `40`: 40 <br /> `50`: 50 <br /> `-1`: Unlimited
-xr_lifetime                     | Life time:                                                                                  | `300`   | `60`: 60 secs <br /> `120`: 120 secs <br /> `180`: 180 secs <br /> `240`: 240 secs <br /> `300`: 300 secs <br /> `600`: 600 secs <br /> `1200`: 1200 secs
-xr_respawn_available_after      | Respawn possible after:                                                                     | `5`     | `5`: 5 secs <br /> `30`: 30 secs <br /> `60`: 60 secs <br /> `90`: 90 secs <br /> `120`: 120 secs <br /> `180`: 180 secs <br /> `240`: 240 secs <br /> `300`: 300 secs <br /> `600`: 600 secs
-d_with_autorevive               | With auto revive if no player is nearby (less than 215m):                                   | `1`     | `0`: Yes <br /> `1`: No
-d_force_fast_intro              | Force fast intro:                                                                           | `0`     | `0`: Default <br /> `1`: Yes
-d_show_playernames              | Show player names:                                                                          | `0`     | `0`: Over head <br /> `1`: Cursor target
-d_playernames_state             | Default player name state:                                                                  | `1`     | `0`: Off <br /> `1`: Names <br /> `2`: Health
-d_show_player_marker            | Player marker:                                                                              | `1`     | `0`: Off <br /> `1`: Name only <br /> `2`: Marker only <br /> `3`: Health
-d_force_isstreamfriendlyui      | Force no HUD                                                                                | `0`     | `0`: No <br /> `1`: Yes
-d_show_headshots                | Show headshots                                                                              | `0`     | `0`: No <br /> `1`: Client only <br /> `3`: Client and allies
-d_WithAmbientRadio              | With ambient radio:                                                                         | `1`     | `0`: No <br /> `1`: Yes
-d_WithVoicesDisabled            | Disable voices:                                                                             | `0`     | `0`: No <br /> `1`: Yes
-d_with_3Dicon                   | With 3D draw icon above wreck repair/ammo point:                                            | `1`     | `0`: No <br /> `1`: Yes
-d_AutoKickTime                  | Air vecs autokick time:                                                                     | `1800`  | `0`: 0 Minutes <br /> `60`: 1 Minute <br /> `300`: 5 Minutes <br /> `600`: 10 Minutes <br /> `1800`: 30 Minutes <br /> `3600`: 60 Minutes
-d_score_needed_to_fly           | Flying choppers and planes only allowed when a player has a score higher than:              | `10`    | `-1`: Disabled <br /> `10`: 10 <br /> `50`: 50 <br /> `100`: 100 <br /> `500`: 500 <br /> `1000`: 1000 <br /> `2000`: 2000 <br /> `5000`: 5000
-d_without_nvg                   | Without NVgoggles:                                                                          | `1`     | `0`: Yes <br /> `1`: No <br /> `2`: Block but not for missile launchers
-d_without_ti                    | Disable Thermal Imaging (TI) for inf weapons/optics:                                        | `1`     | `0`: Yes <br /> `1`: No <br /> `2`: Block but not for missile launchers
-d_without_vec_ti                | Disable vehicle TI:                                                                         | `1`     | `0`: Yes <br /> `1`: No
-d_without_vec_nvg               | Disable vehicle NVG:                                                                        | `1`     | `0`: Yes <br /> `1`: No
-d_vec_at_farp                   | Add action menu "Spawn vehicle" to FARPs:                                                   | `0`     | `0`: Yes <br /> `1`: No
-d_engineerfull                  | Engineer full repair (old versions):                                                        | `1`     | `0`: Yes <br /> `1`: No
-d_mhqvec_create_cooldown        | Seconds till a player can create a new vec at MHQ:                                          | `120`   | `0`: Off <br /> `60`: 60 <br /> `120`: 120 <br /> `300`: 300 <br /> `600`: 600 <br /> `1200`: 1200 <br /> `1800`: 1800
-d_launcher_cooldown             | Launcher Cooldown Time in seconds:                                                          | `120`   | `0`: Off <br /> `60`: 60 <br /> `120`: 120 <br /> `180`: 180 <br /> `240`: 240 <br /> `300`: 300
-d_enable_extra_cas              | Enable extra CAS ordnance                                                                   | `0`     | `0`: No <br /> `1`: Yes
-d_tell_arty_cas                 | Always announce enemy artillery / CAS                                                       | `0`     | `0`: No <br /> `1`: Yes
-d_disable_player_arty           | Disable player artillery                                                                    | `0`     | `0`: No <br /> `1`: Yes
-d_arty_unlimited                | Disable artillery and CAS cooldown                                                          | `0`     | `0`: Default <br /> `1`: Disabled <br /> `2`: Low
-d_artycheckfriendlies           | Check for friendly units near artillery targets when firing artillery                       | `1`     | `0`: No <br /> `1`: Yes
-d_disable_player_cas            | Disable player CAS                                                                          | `0`     | `0`: No <br /> `1`: Yes
-d_enable_civs                   | Civilians - enable civilians                                                                | `0`     | `0`: Off <br /> `1`: On
-d_civ_unitcount                 | Civilians - civilian unit count (walking)                                                   | `10`    | `10`: 10 <br /> `15`: 15 <br /> `20`: 20 <br /> `25`: 25 <br /> `30`: 30 <br /> `40`: 40 <br /> `50`: 50 <br /> `75`: 75 <br /> `100`: 100
-d_civ_groupcount                | Civilians - civilian group count per target                                                 | `10`    | `-1`: Low <br /> `-2`: Normal <br /> `-3`: High <br /> `-4`: Very High <br /> `-5`: Extreme <br /> `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10 <br /> `15`: 15 <br /> `20`: 20 <br /> `25`: 25 <br /> `30`: 30 <br /> `35`: 35 <br /> `40`: 40 <br /> `45`: 45 <br /> `50`: 50 <br /> `75`: 75 <br /> `100`: 100 <br /> `150`: 150 <br /> `200`: 200 <br /> `250`: 250 <br /> `300`: 300
-d_civ_pnts                      | Civilians - subtract score when a player kills a civilian:                                  | `3`     | `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `10`: 10 <br /> `25`: 25 <br /> `50`: 50 <br /> `75`: 75 <br /> `100`: 100
-d_enable_civ_vehs               | Civilian vehicles - enabled                                                                 | `0`     | `0`: Off <br /> `10`: VeryLow <br /> `25`: Low <br /> `50`: Medium <br /> `75`: High <br /> `100`: Maximum
-d_enable_civ_vehs_rad           | Civilian vehicles - spawn radius                                                            | `250`   | `150`: 150m <br /> `250`: 250m <br /> `350`: 350m <br /> `450`: 450m
-d_enable_civ_vehs_locked        | Civilian vehicles - lock vehicles                                                           | `1`     | `0`: No <br /> `1`: Yes
-d_disable_airai                 | Disable enemy air                                                                           | `0`     | `0`: No <br /> `1`: Yes
-d_occ_bldgs                     | Enemy AI will occupy buildings                                                              | `1`     | `0`: No <br /> `1`: Yes
-d_ai_awareness_rad              | AI Advanced - enhanced awareness (common units)                                             | `-1`    | `-1`: No <br /> `10`: 10m <br /> `25`: 25m <br /> `50`: 50m <br /> `75`: 75m <br /> `100`: 100m <br /> `150`: 150m <br /> `200`: 200m <br /> `250`: 250m <br /> `300`: 300m <br /> `400`: 400m <br /> `450`: 450m <br /> `500`: 500m <br /> `550`: 550m <br /> `600`: 600m <br /> `650`: 650m(recommended) <br /> `700`: 700m <br /> `800`: 800m <br /> `900`: 900m <br /> `1000`: 1000m
-d_snp_aware                     | AI Advanced - enhanced awareness (sniper units)                                             | `0`     | `0`: No <br /> `1`: Yes
-d_ai_pursue_rad                 | AI Advanced - enemy active pursuit radius                                                   | `-1`    | `-1`: No <br /> `10`: 10m <br /> `25`: 25m <br /> `50`: 50m <br /> `75`: 75m <br /> `100`: 100m <br /> `125`: 125m <br /> `150`: 150m(recommended) <br /> `175`: 175m <br /> `200`: 200m <br /> `225`: 225m <br /> `250`: 250m <br /> `275`: 275m <br /> `300`: 300m <br /> `400`: 400m <br /> `500`: 500m <br /> `750`: 750m <br /> `1000`: 1000m
-d_ai_aggressiveshoot            | AI Advanced - enemy shoots aggressively at players                                          | `0`     | `0`: No <br /> `1`: Yes
-d_ai_quickammo                  | AI Advanced - enemy granted frequent ammo refills                                           | `0`     | `0`: No <br /> `1`: Yes
-d_occ_cnt                       | Enemy infantry - garrisoned group count - occupy mode                                       | `4`     | `-1`: Low <br /> `-2`: Normal <br /> `-3`: High <br /> `-4`: Very High <br /> `-5`: Extreme <br /> `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10 <br /> `11`: 11 <br /> `12`: 12 <br /> `13`: 13 <br /> `14`: 14 <br /> `15`: 15 <br /> `16`: 16 <br /> `17`: 17 <br /> `18`: 18 <br /> `19`: 19 <br /> `20`: 20 <br /> `21`: 21 <br /> `22`: 22 <br /> `23`: 23 <br /> `24`: 24 <br /> `25`: 25 <br /> `30`: 30 <br /> `35`: 35 <br /> `40`: 40 <br /> `45`: 45 <br /> `50`: 50
-d_occ_rad                       | Enemy infantry - deployment radius                                                          | `250`   | `125`: 125m <br /> `250`: 250m <br /> `350`: 350m <br /> `450`: 450m <br /> `550`: 550m <br /> `650`: 650m <br /> `750`: 750m <br /> `1000`: 1000m
-d_ovrw_cnt                      | Enemy infantry - garrisoned infantry group count - overwatch mode                           | `2`     | `-1`: Low <br /> `-2`: Normal <br /> `-3`: High <br /> `-4`: Very High <br /> `-5`: Extreme <br /> `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10 <br /> `11`: 11 <br /> `12`: 12 <br /> `13`: 13 <br /> `14`: 14 <br /> `15`: 15 <br /> `16`: 16 <br /> `17`: 17 <br /> `18`: 18 <br /> `19`: 19 <br /> `20`: 20 <br /> `21`: 21 <br /> `22`: 22 <br /> `23`: 23 <br /> `24`: 24 <br /> `25`: 25 <br /> `30`: 30 <br /> `35`: 35 <br /> `40`: 40 <br /> `45`: 45 <br /> `50`: 50
-d_ovrw_rad                      | Enemy infantry - deployment radius                                                          | `250`   | `125`: 125m <br /> `250`: 250m <br /> `350`: 350m <br /> `450`: 450m <br /> `550`: 550m <br /> `650`: 650m <br /> `750`: 750m <br /> `1000`: 1000m
-d_amb_cnt                       | Enemy infantry - garrisoned infantry group count - ambush mode                              | `2`     | `-1`: Low <br /> `-2`: Normal <br /> `-3`: High <br /> `-4`: Very High <br /> `-5`: Extreme <br /> `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10 <br /> `11`: 11 <br /> `12`: 12 <br /> `13`: 13 <br /> `14`: 14 <br /> `15`: 15 <br /> `16`: 16 <br /> `17`: 17 <br /> `18`: 18 <br /> `19`: 19 <br /> `20`: 20 <br /> `21`: 21 <br /> `22`: 22 <br /> `23`: 23 <br /> `24`: 24 <br /> `25`: 25 <br /> `30`: 30 <br /> `35`: 35 <br /> `40`: 40 <br /> `45`: 45 <br /> `50`: 50
-d_amb_rad                       | Enemy infantry - deployment radius                                                          | `250`   | `75`: 75m <br /> `125`: 125m <br /> `250`: 250m <br /> `300`: 300m <br /> `350`: 350m <br /> `450`: 450m <br /> `550`: 550m <br /> `650`: 650m <br /> `750`: 750m <br /> `1000`: 1000m
-d_snp_cnt                       | Enemy infantry - garrisoned infantry group count - sniper mode                              | `2`     | `-1`: Low <br /> `-2`: Normal <br /> `-3`: High <br /> `-4`: Very High <br /> `-5`: Extreme <br /> `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10 <br /> `15`: 15 <br /> `20`: 20 <br /> `25`: 25 <br /> `30`: 30 <br /> `45`: 45 <br /> `50`: 50
-d_snp_rad                       | Enemy infantry - deployment radius                                                          | `425`   | `250`: 250m <br /> `425`: 425m <br /> `650`: 650m <br /> `900`: 900m
-d_grp_cnt_footpatrol            | Enemy infantry - patrol infantry group count                                                | `-1`    | `-1`: Default <br /> `0`: 0 <br /> `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10 <br /> `11`: 11 <br /> `12`: 12 <br /> `13`: 13 <br /> `14`: 14 <br /> `15`: 15
-d_always_max_groups             | Enemy infantry - always choose maximum number of groups                                     | `0`     | `0`: No <br /> `1`: Yes
-d_grp_size_override             | Enemy infantry - group size                                                                 | `0`     | `0`: Default <br /> `1`: High
-d_camp_static_weapons           | Defend with static weapons                                                                  | `1`     | `0`: No <br /> `1`: Yes <br /> `-1`: Random
-d_camp_enable_guard             | Enable guards and camps                                                                     | `1`     | `0`: No <br /> `1`: Yes <br /> `-1`: Random
-d_max_bar_cnt                   | Maximum number of enemy infantry barracks                                                   | `7`     | `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `6`: 6 <br /> `7`: 7 <br /> `8`: 8 <br /> `9`: 9 <br /> `10`: 10
-d_max_camp_cnt                  | Maximum number of enemy camps to capture                                                    | `-1`    | `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `-1`: 3to5
-d_camp_center                   | Locate the first enemy camp to capture near the center of the main target                   | `0`     | `0`: No <br /> `1`: Yes
-d_WithMHQTeleport               | Teleport or spawn at MHQ:                                                                   | `0`     | `0`: Yes <br /> `1`: No
-d_MHQDisableNearMT              | Disable MHQ if less than x m away from MT:                                                  | `500`   | `0`: Off <br /> `500`: 500m <br /> `700`: 700m <br /> `900`: 900m <br /> `1000`: 1000m <br /> `2000`: 2000m
-d_NoMHQTeleEnemyNear            | No MHQ tele when enemy near:                                                                | `50`    | `0`: Disabled <br /> `50`: 50m <br /> `100`: 100m <br /> `200`: 200m <br /> `500`: 500m
-d_with_mhq_camo                 | MHQ Camo enabled:                                                                           | `0`     | `0`: Yes <br /> `1`: No
-d_WithTeleToBase                | Enable teleport to base:                                                                    | `0`     | `0`: Yes <br /> `1`: No
-d_MTTowerSatchelsOnly           | MT Tower Satchels only:                                                                     | `0`     | `0`: Yes <br /> `1`: No
-d_IllumMainTarget               | Illuminate main target:                                                                     | `0`     | `0`: Yes <br /> `1`: No
-d_sub_kill_points               | Subtract score when a player dies:                                                          | `0`     | `0`: No <br /> `1`: -1 Points <br /> `2`: -2 Points <br /> `3`: -3 Points <br /> `4`: -4 Points <br /> `5`: -5 Points <br /> `6`: -6 Points <br /> `7`: -7 Points <br /> `8`: -8 Points <br /> `9`: -9 Points <br /> `10`: -10 Points
-d_pilots_only                   | Only pilots can fly:                                                                        | `1`     | `0`: Yes <br /> `1`: No
-d_WithLessArmor                 | Armor at main targets:                                                                      | `0`     | `0`: Normal <br /> `1`: Less <br /> `2`: None <br /> `3`: Random
-d_WithLessArmor_side            | Armor at side missions:                                                                     | `0`     | `0`: Normal <br /> `1`: Less <br /> `2`: None <br /> `3`: Random
-d_EnemySkill                    | Skill Enemy:                                                                                | `2`     | `0`: Very Low <br /> `1`: Low <br /> `2`: Normal <br /> `3`: High <br /> `4`: Very High
-d_WithIsleDefense               | With isle defense:                                                                          | `0`     | `0`: Yes <br /> `1`: No
-d_without_sm_bonus              | Without sidemission bonus vehicles:                                                         | `1`     | `0`: Yes <br /> `1`: No
-d_smallgrps                     | Reduce number of AI units in groups depending on player numbers                             | `0`     | `0`: Yes <br /> `1`: No
-d_skillfps                      | Adjust AI subskill if server FPS is low                                                     | `0`     | `0`: Yes <br /> `1`: No
-d_enemy_mercenaries             | Enemy mercenaries (2035 only)                                                               | `0`     | `0`: No <br /> `1`: Yes
-d_enemy_factions                | MODS REQUIRED - Enemy factions (experimental)                                               | `0`     | `0`: Default <br /> `1`: Taliban (Community Factions Project) <br /> `2`: Asian Insurgents (Asian Factions for CUP) <br /> `3`: Central African Rebels (Community Factions Project) <br /> `4`: Islamic State (Community Factions Project) <br /> `5`: Sudanese Armed Forces (Community Factions Project)
-d_ParaAtBase                    | Parachute from base:                                                                        | `0`     | `0`: Yes <br /> `1`: No
-d_HALOWaitTime                  | HALO at base wait time:                                                                     | `0`     | `0`: 0 Minutes <br /> `300`: 5 Minutes <br /> `600`: 10 Minutes <br /> `1800`: 30 Minutes <br /> `3600`: 60 Minutes
-d_WithJumpFlags                 | No parachute jump flags:                                                                    | `1`     | `0`: Yes <br /> `1`: No
-d_HALOJumpHeight                | HALO jump height:                                                                           | `2000`  | `500`: 500m <br /> `700`: 700m <br /> `888`: 888m <br /> `1000`: 1000m <br /> `2000`: 2000m <br /> `5000`: 5000m
-d_LockArmored                   | Lock armored enemy vecs:                                                                    | `1`     | `0`: Yes <br /> `1`: No
-d_LockCars                      | Lock enemy cars:                                                                            | `1`     | `0`: Yes <br /> `1`: No
-d_LockAir                       | Lock enemy air vecs:                                                                        | `1`     | `0`: Yes <br /> `1`: No
-d_enemy_vecs_lift               | Enemy AI vehicles can be air lifted:                                                        | `0`     | `0`: Yes <br /> `1`: No
-d_maxnum_tks_forkick            | Max number TKs for kick:                                                                    | `10`    | `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `5`: 5 <br /> `10`: 10 <br /> `20`: 20 <br /> `30`: 30 <br /> `40`: 40 <br /> `1000000`: Disable
-d_player_kick_shootingbase      | Kick players shooting at base:                                                              | `10`    | `2`: 2 Shots <br /> `3`: 3 Shots <br /> `5`: 5 Shots <br /> `10`: 10 Shots <br /> `20`: 20 Shots <br /> `30`: 30 Shots <br /> `1000`: No kick
-d_no_teamkill                   | No teamkilling possible:                                                                    | `1`     | `0`: Yes <br /> `1`: No
-d_sub_tk_points                 | Negative TK points:                                                                         | `10`    | `0`: 0 <br /> `1`: 1 <br /> `5`: 5 <br /> `10`: 10 <br /> `20`: 20 <br /> `30`: 30 <br /> `50`: 50
-d_tk_forgive                    | Player can forgive teamkill (mission revive has to be enabled and spectating):              | `0`     | `0`: Yes <br /> `1`: No
-d_WreckDeleteTime               | Delete wrecks after:                                                                        | `3600`  | `1800`: 30 minutes <br /> `3600`: 60 minutes <br /> `5400`: 90 minutes <br /> `7200`: 120 minutes <br /> `1010101`: Never
-d_WreckMaxRepair                | Wreck max repairs:                                                                          | `3`     | `1`: 1 <br /> `2`: 2 <br /> `3`: 3 <br /> `4`: 4 <br /> `5`: 5 <br /> `10`: 10 <br /> `20`: 20 <br /> `10000000`: Infinite
-d_drop_radius                   | Air drop radius:                                                                            | `0`     | `0`: Exact position <br /> `10`: 10m <br /> `30`: 30m <br /> `50`: 50m <br /> `100`: 100m
-d_drop_max_dist                 | Airdrop max. dist:                                                                          | `500`   | `100`: 100m <br /> `500`: 500m <br /> `1000`: 1000m <br /> `2000`: 2000m <br /> `3000`: 3000m <br /> `5000`: 5000m <br /> `10000000`: Infinite
+**Available params (first description.ext/database, second server lobby):**
+
+#### **d_MainTargets_num / Main Targets**
+> Default: 9998 - Complete, ordered <br />
+> Available options: <br />
+>    - Complete, ordered (9998) <br />
+>    - Order like placed in the editor (9999) <br />
+>    - 2 (2) <br />
+>    - 4 (4) <br />
+>    - 6 (6) <br />
+>    - 8 (8) <br />
+>    - 10 (10) <br />
+>    - 12 (12) <br />
+>    - 14 (14) <br />
+>    - 16 (16) <br />
+>    - 18 (18) <br />
+>    - 20 (20) <br />
+>    - 25 (25) <br />
+>    - 34 (34) <br />
+
+#### **d_TimeOfDay / Time of day:**
+> Default: 5 - 05:00 <br />
+> Available options: <br />
+>    - 00:00 (0) <br />
+>    - 01:00 (1) <br />
+>    - 02:00 (2) <br />
+>    - 03:00 (3) <br />
+>    - 04:00 (4) <br />
+>    - 05:00 (5) <br />
+>    - 06:00 (6) <br />
+>    - 07:00 (7) <br />
+>    - 08:00 (8) <br />
+>    - 09:00 (9) <br />
+>    - 10:00 (10) <br />
+>    - 11:00 (11) <br />
+>    - 12:00 (12) <br />
+>    - 13:00 (13) <br />
+>    - 14:00 (14) <br />
+>    - 15:00 (15) <br />
+>    - 16:00 (16) <br />
+>    - 17:00 (17) <br />
+>    - 18:00 (18) <br />
+>    - 19:00 (19) <br />
+>    - 20:00 (20) <br />
+>    - 21:00 (21) <br />
+>    - 22:00 (22) <br />
+>    - 23:00 (23) <br />
+
+#### **d_enablefatigue / Disable fatigue:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_enablesway / Disable sway:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_suppress / Player can be suppressed**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_targetselect_count / Players can select from available targets:**
+> Default: 4 - 4 <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - 4 (4) <br />
+>    - 8 (8) <br />
+>    - 12 (12) <br />
+>    - Entire map (9999) <br />
+
+#### **d_targetselect_time / Target selection time:**
+> Default: 30 - 30 <br />
+> Available options: <br />
+>    - 30 (30) <br />
+>    - 45 (45) <br />
+>    - 60 (60) <br />
+>    - 120 (120) <br />
+>    - 240 (240) <br />
+>    - 300 (300) <br />
+
+#### **d_MissionType / Mission Type:**
+> Default: 0 - Main Targets and Side Missions (Default) <br />
+> Available options: <br />
+>    - Main Targets and Side Missions (Default) (0) <br />
+>    - Main Targets Only (1) <br />
+>    - Side Missions Only (2) <br />
+
+#### **d_respawnatsql / Respawn at Squad Leader:**
+> Default: 0 - Squad Leader <br />
+> Available options: <br />
+>    - Squad Leader (0) <br />
+>    - Squad (2) <br />
+>    - None (1) <br />
+
+#### **d_retakefarps / Retake Farps**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_MainTargetEvents / Random events at main target:**
+> Default: 0 - Never <br />
+> Available options: <br />
+>    - Never (0) <br />
+>    - Low (1) <br />
+>    - Medium (2) <br />
+>    - Always (-1) <br />
+>    - Always, multiple events (-2) <br />
+>    - Always, multiple events with guerrillas and defense (-3) <br />
+>    - All (-4) <br />
+
+#### **d_with_ranked / Ranked:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+>    - Ranked mode on but weapons not ranked (2) <br />
+
+#### **d_transf_allow / Allow transfer of points to other players in ranked mode:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_sm_dorandom / Random side missions:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_bonus_vec_type / Bonus vehicles:**
+> Default: 0 - Normal <br />
+> Available options: <br />
+>    - Normal (0) <br />
+>    - No sidemission bonus vehicles (1) <br />
+>    - No main target bonus vehicles (2) <br />
+>    - No bonus vehicles at all (3) <br />
+
+#### **d_ao_check_for_ai / Seize condition for main target:**
+> Default: 1 - Low number of AI units, all camps captured and radio tower destroyed <br />
+> Available options: <br />
+>    - All camps captured and radio tower destroyed (0) <br />
+>    - Low number of AI units, all camps captured and radio tower destroyed (1) <br />
+>    - Low number of AI units and radio tower destroyed (2) <br />
+
+#### **d_mt_respawngroups / Respawn main target enemy AI groups as reinforcements:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_bar_mhq_destroy / AO enemy barracks and vehicle MHQ has to be destroyed by explosives**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_allow_observers / Enemy AI observers for artillery and CAS at AO**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_ai_persistent_corpses / Persistent AI corpses**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_del_crew_always / Kill ALL vehicle crew (even outside) when a vehicle gets destroyed:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_ao_radius_override / Target radius:**
+> Default: 0 - Normal <br />
+> Available options: <br />
+>    - Normal (0) <br />
+>    - 350 (350) <br />
+>    - 450 (450) <br />
+>    - 550 (550) <br />
+>    - 650 (650) <br />
+>    - 750 (750) <br />
+>    - 850 (850) <br />
+>    - 1000 (1000) <br />
+
+#### **d_save_to_mpns / Save player and mission progress to missionProfileNamespace if no SQL database is available**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+>    - Yes (missionprogress autosave disabled) (2) <br />
+
+#### **d_use_systemtime / Use server system time as game time**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_weather / Internal weather system:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_enable_fog / Enable fog (internal weather system):**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_WithWinterWeather / With winter weather:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_withsandstorm / With sandstorm:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_MaxNumAmmoboxes / Max. number ammo boxes:**
+> Default: 10 - 10 <br />
+> Available options: <br />
+>    - 10 (10) <br />
+>    - 20 (20) <br />
+>    - 30 (30) <br />
+
+#### **d_max_truck_cargo / Engineer truck cargo capacity:**
+> Default: 6 - 6 <br />
+> Available options: <br />
+>    - 1 (1) <br />
+>    - 3 (3) <br />
+>    - 6 (6) <br />
+>    - 9 (9) <br />
+>    - 12 (12) <br />
+>    - 16 (16) <br />
+
+#### **d_no_faks / Remove Fist Aid Kits:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_no_ai_silencer / Remove silencer from spawned enemy AI units:**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_timemultiplier / Time Multiplier (1 real second = x ingame seconds):**
+> Default: 1 - Off <br />
+> Available options: <br />
+>    - Off (1) <br />
+>    - 6 (6) <br />
+>    - 12 (12) <br />
+>    - 30 (30) <br />
+>    - 45 (45) <br />
+>    - 60 (60) <br />
+>    - 90 (90) <br />
+>    - 120 (120) <br />
+
+#### **d_with_dynsim / Dynamic Simulation:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_bis_dynamicgroups / With BIS Dynamic Groups (Squad Mgmt):**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_arsenal_mod / Use only mod weapons in Virtual Arsenal:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_no_mortar_ar / Mortar bag packs in Virtual Arsenal:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_ao_markers / Turn off markers at AO for tower and camps:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_base_sabotage / With base sabotage:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_pylon_lodout / Pylon loadout enabled:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_pylon_noclust / Remove cluster ammo from pylon loadout**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_minefield / With minefield at main targets:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_va_percentage / Limit Virtual Arsenal ammo box access to 1000**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_dis_servicep / Disable all service points, including FARPs (no refuel, no repair, no rearm)**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_InitialViewDistance / Initial Viewdistance:**
+> Default: 1600 - 1600m <br />
+> Available options: <br />
+>    - 1000m (1000) <br />
+>    - 1600m (1600) <br />
+>    - 2000m (2000) <br />
+>    - 2500m (2500) <br />
+>    - 3000m (3000) <br />
+>    - 3500m (3500) <br />
+>    - 4000m (4000) <br />
+>    - 4500m (4500) <br />
+>    - 5000m (5000) <br />
+
+#### **d_MaxViewDistance / Maximum Viewdistance:**
+> Default: 5000 - 5000m <br />
+> Available options: <br />
+>    - 2000m (2000) <br />
+>    - 3000m (3000) <br />
+>    - 4000m (4000) <br />
+>    - 5000m (5000) <br />
+>    - 6000m (6000) <br />
+>    - 7000m (7000) <br />
+>    - 8000m (8000) <br />
+>    - 9000m (9000) <br />
+>    - 10000m (10000) <br />
+
+#### **d_ViewdistanceChange / Viewdistance changeable:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+>    - Yes (after server initializes client) (2) <br />
+
+#### **d_AutoViewdistanceChangeDefault / Auto viewdistance change at main target and base:**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_playerspectateatbase / Player can spectate other players at base flag**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_airtaxi / With AI air taxi (coop version only):**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_with_airdrop / With air drop:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_GrasAtStart / Grass:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_Terraindetail / Player can disable grass:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_EnableSimulationCamps / Enable simulation for enemy camps:**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - Yes (1) <br />
+>    - No (0) <br />
+
+#### **d_WithRevive / With revive:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_WithReviveSpectating / With revive spectating:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_only_medics_canrevive / Only medics can revive:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_ACEMedicalR / Disable ACE medical revive (if ACE is used) and use mission revive**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **xr_max_lives / Max lives (revive):**
+> Default: -1 - Unlimited <br />
+> Available options: <br />
+>    - 1 (1) <br />
+>    - 5 (5) <br />
+>    - 10 (10) <br />
+>    - 20 (20) <br />
+>    - 30 (30) <br />
+>    - 40 (40) <br />
+>    - 50 (50) <br />
+>    - Unlimited (-1) <br />
+
+#### **xr_lifetime / Life time:**
+> Default: 300 - 300 secs <br />
+> Available options: <br />
+>    - 60 secs (60) <br />
+>    - 120 secs (120) <br />
+>    - 180 secs (180) <br />
+>    - 240 secs (240) <br />
+>    - 300 secs (300) <br />
+>    - 600 secs (600) <br />
+>    - 1200 secs (1200) <br />
+
+#### **xr_respawn_available_after / Respawn possible after:**
+> Default: 5 - 5 secs <br />
+> Available options: <br />
+>    - 5 secs (5) <br />
+>    - 30 secs (30) <br />
+>    - 60 secs (60) <br />
+>    - 90 secs (90) <br />
+>    - 120 secs (120) <br />
+>    - 180 secs (180) <br />
+>    - 240 secs (240) <br />
+>    - 300 secs (300) <br />
+>    - 600 secs (600) <br />
+
+#### **d_with_autorevive / With auto revive if no player is nearby (less than 215m):**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_force_fast_intro / Force fast intro:**
+> Default: 0 - Default <br />
+> Available options: <br />
+>    - Default (0) <br />
+>    - Yes (1) <br />
+
+#### **d_show_playernames / Show player names:**
+> Default: 0 - Over head <br />
+> Available options: <br />
+>    - Over head (0) <br />
+>    - Cursor target (1) <br />
+
+#### **d_playernames_state / Default player name state:**
+> Default: 1 - Names <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - Names (1) <br />
+>    - Health (2) <br />
+
+#### **d_show_player_marker / Player marker:**
+> Default: 1 - Name only <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - Name only (1) <br />
+>    - Marker only (2) <br />
+>    - Health (3) <br />
+
+#### **d_force_isstreamfriendlyui / Force no HUD**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_show_headshots / Show headshots**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Client only (1) <br />
+>    - Client and allies (3) <br />
+
+#### **d_WithAmbientRadio / With ambient radio:**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_WithVoicesDisabled / Disable voices:**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_with_3Dicon / With 3D draw icon above wreck repair/ammo point:**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_AutoKickTime / Air vecs autokick time:**
+> Default: 1800 - 30 Minutes <br />
+> Available options: <br />
+>    - 0 Minutes (0) <br />
+>    - 1 Minute (60) <br />
+>    - 5 Minutes (300) <br />
+>    - 10 Minutes (600) <br />
+>    - 30 Minutes (1800) <br />
+>    - 60 Minutes (3600) <br />
+
+#### **d_score_needed_to_fly / Flying choppers and planes only allowed when a player has a score higher than:**
+> Default: 10 - 10 <br />
+> Available options: <br />
+>    - Disabled (-1) <br />
+>    - 10 (10) <br />
+>    - 50 (50) <br />
+>    - 100 (100) <br />
+>    - 500 (500) <br />
+>    - 1000 (1000) <br />
+>    - 2000 (2000) <br />
+>    - 5000 (5000) <br />
+
+#### **d_without_nvg / Without NVgoggles:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+>    - Block but not for missile launchers (2) <br />
+
+#### **d_without_ti / Disable Thermal Imaging (TI) for inf weapons/optics:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+>    - Block but not for missile launchers (2) <br />
+
+#### **d_without_vec_ti / Disable vehicle TI:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_without_vec_nvg / Disable vehicle NVG:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_vec_at_farp / Add action menu "Spawn vehicle" to FARPs:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_engineerfull / Engineer full repair (old versions):**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_mhqvec_create_cooldown / Seconds till a player can create a new vec at MHQ:**
+> Default: 120 - 120 <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - 60 (60) <br />
+>    - 120 (120) <br />
+>    - 300 (300) <br />
+>    - 600 (600) <br />
+>    - 1200 (1200) <br />
+>    - 1800 (1800) <br />
+
+#### **d_launcher_cooldown / Launcher Cooldown Time in seconds:**
+> Default: 120 - 120 <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - 60 (60) <br />
+>    - 120 (120) <br />
+>    - 180 (180) <br />
+>    - 240 (240) <br />
+>    - 300 (300) <br />
+
+#### **d_enable_extra_cas / Enable extra CAS ordnance**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_tell_arty_cas / Always announce enemy artillery / CAS**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_disable_player_arty / Disable player artillery**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_arty_unlimited / Disable artillery and CAS cooldown**
+> Default: 0 - Default <br />
+> Available options: <br />
+>    - Default (0) <br />
+>    - Disabled (1) <br />
+>    - Low (2) <br />
+
+#### **d_artycheckfriendlies / Check for friendly units near artillery targets when firing artillery**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_disable_player_cas / Disable player CAS**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_enable_civs / Civilians - enable civilians**
+> Default: 0 - Off <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - On (1) <br />
+
+#### **d_civ_unitcount / Civilians - civilian unit count (walking)**
+> Default: 10 - 10 <br />
+> Available options: <br />
+>    - 10 (10) <br />
+>    - 15 (15) <br />
+>    - 20 (20) <br />
+>    - 25 (25) <br />
+>    - 30 (30) <br />
+>    - 40 (40) <br />
+>    - 50 (50) <br />
+>    - 75 (75) <br />
+>    - 100 (100) <br />
+
+#### **d_civ_groupcount / Civilians - civilian group count per target**
+> Default: 10 - 10 <br />
+> Available options: <br />
+>    - Low (-1) <br />
+>    - Normal (-2) <br />
+>    - High (-3) <br />
+>    - Very High (-4) <br />
+>    - Extreme (-5) <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+>    - 15 (15) <br />
+>    - 20 (20) <br />
+>    - 25 (25) <br />
+>    - 30 (30) <br />
+>    - 35 (35) <br />
+>    - 40 (40) <br />
+>    - 45 (45) <br />
+>    - 50 (50) <br />
+>    - 75 (75) <br />
+>    - 100 (100) <br />
+>    - 150 (150) <br />
+>    - 200 (200) <br />
+>    - 250 (250) <br />
+>    - 300 (300) <br />
+
+#### **d_civ_pnts / Civilians - subtract score when a player kills a civilian:**
+> Default: 3 - 3 <br />
+> Available options: <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 10 (10) <br />
+>    - 25 (25) <br />
+>    - 50 (50) <br />
+>    - 75 (75) <br />
+>    - 100 (100) <br />
+
+#### **d_enable_civ_vehs / Civilian vehicles - enabled**
+> Default: 0 - Off <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - VeryLow (10) <br />
+>    - Low (25) <br />
+>    - Medium (50) <br />
+>    - High (75) <br />
+>    - Maximum (100) <br />
+
+#### **d_enable_civ_vehs_rad / Civilian vehicles - spawn radius**
+> Default: 250 - 250m <br />
+> Available options: <br />
+>    - 150m (150) <br />
+>    - 250m (250) <br />
+>    - 350m (350) <br />
+>    - 450m (450) <br />
+
+#### **d_enable_civ_vehs_locked / Civilian vehicles - lock vehicles**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_disable_airai / Disable enemy air**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_occ_bldgs / Enemy AI will occupy buildings**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_ai_awareness_rad / AI Advanced - enhanced awareness (common units)**
+> Default: -1 - No <br />
+> Available options: <br />
+>    - No (-1) <br />
+>    - 10m (10) <br />
+>    - 25m (25) <br />
+>    - 50m (50) <br />
+>    - 75m (75) <br />
+>    - 100m (100) <br />
+>    - 150m (150) <br />
+>    - 200m (200) <br />
+>    - 250m (250) <br />
+>    - 300m (300) <br />
+>    - 400m (400) <br />
+>    - 450m (450) <br />
+>    - 500m (500) <br />
+>    - 550m (550) <br />
+>    - 600m (600) <br />
+>    - 650m(recommended) (650) <br />
+>    - 700m (700) <br />
+>    - 800m (800) <br />
+>    - 900m (900) <br />
+>    - 1000m (1000) <br />
+
+#### **d_snp_aware / AI Advanced - enhanced awareness (sniper units)**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_ai_pursue_rad / AI Advanced - enemy active pursuit radius**
+> Default: -1 - No <br />
+> Available options: <br />
+>    - No (-1) <br />
+>    - 10m (10) <br />
+>    - 25m (25) <br />
+>    - 50m (50) <br />
+>    - 75m (75) <br />
+>    - 100m (100) <br />
+>    - 125m (125) <br />
+>    - 150m(recommended) (150) <br />
+>    - 175m (175) <br />
+>    - 200m (200) <br />
+>    - 225m (225) <br />
+>    - 250m (250) <br />
+>    - 275m (275) <br />
+>    - 300m (300) <br />
+>    - 400m (400) <br />
+>    - 500m (500) <br />
+>    - 750m (750) <br />
+>    - 1000m (1000) <br />
+
+#### **d_ai_aggressiveshoot / AI Advanced - enemy shoots aggressively at players**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_ai_quickammo / AI Advanced - enemy granted frequent ammo refills**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_occ_cnt / Enemy infantry - garrisoned group count - occupy mode**
+> Default: 4 - 4 <br />
+> Available options: <br />
+>    - Low (-1) <br />
+>    - Normal (-2) <br />
+>    - High (-3) <br />
+>    - Very High (-4) <br />
+>    - Extreme (-5) <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+>    - 11 (11) <br />
+>    - 12 (12) <br />
+>    - 13 (13) <br />
+>    - 14 (14) <br />
+>    - 15 (15) <br />
+>    - 16 (16) <br />
+>    - 17 (17) <br />
+>    - 18 (18) <br />
+>    - 19 (19) <br />
+>    - 20 (20) <br />
+>    - 21 (21) <br />
+>    - 22 (22) <br />
+>    - 23 (23) <br />
+>    - 24 (24) <br />
+>    - 25 (25) <br />
+>    - 30 (30) <br />
+>    - 35 (35) <br />
+>    - 40 (40) <br />
+>    - 45 (45) <br />
+>    - 50 (50) <br />
+
+#### **d_occ_rad / Enemy infantry - deployment radius**
+> Default: 250 - 250m <br />
+> Available options: <br />
+>    - 125m (125) <br />
+>    - 250m (250) <br />
+>    - 350m (350) <br />
+>    - 450m (450) <br />
+>    - 550m (550) <br />
+>    - 650m (650) <br />
+>    - 750m (750) <br />
+>    - 1000m (1000) <br />
+
+#### **d_ovrw_cnt / Enemy infantry - garrisoned infantry group count - overwatch mode**
+> Default: 2 - 2 <br />
+> Available options: <br />
+>    - Low (-1) <br />
+>    - Normal (-2) <br />
+>    - High (-3) <br />
+>    - Very High (-4) <br />
+>    - Extreme (-5) <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+>    - 11 (11) <br />
+>    - 12 (12) <br />
+>    - 13 (13) <br />
+>    - 14 (14) <br />
+>    - 15 (15) <br />
+>    - 16 (16) <br />
+>    - 17 (17) <br />
+>    - 18 (18) <br />
+>    - 19 (19) <br />
+>    - 20 (20) <br />
+>    - 21 (21) <br />
+>    - 22 (22) <br />
+>    - 23 (23) <br />
+>    - 24 (24) <br />
+>    - 25 (25) <br />
+>    - 30 (30) <br />
+>    - 35 (35) <br />
+>    - 40 (40) <br />
+>    - 45 (45) <br />
+>    - 50 (50) <br />
+
+#### **d_ovrw_rad / Enemy infantry - deployment radius**
+> Default: 250 - 250m <br />
+> Available options: <br />
+>    - 125m (125) <br />
+>    - 250m (250) <br />
+>    - 350m (350) <br />
+>    - 450m (450) <br />
+>    - 550m (550) <br />
+>    - 650m (650) <br />
+>    - 750m (750) <br />
+>    - 1000m (1000) <br />
+
+#### **d_amb_cnt / Enemy infantry - garrisoned infantry group count - ambush mode**
+> Default: 2 - 2 <br />
+> Available options: <br />
+>    - Low (-1) <br />
+>    - Normal (-2) <br />
+>    - High (-3) <br />
+>    - Very High (-4) <br />
+>    - Extreme (-5) <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+>    - 11 (11) <br />
+>    - 12 (12) <br />
+>    - 13 (13) <br />
+>    - 14 (14) <br />
+>    - 15 (15) <br />
+>    - 16 (16) <br />
+>    - 17 (17) <br />
+>    - 18 (18) <br />
+>    - 19 (19) <br />
+>    - 20 (20) <br />
+>    - 21 (21) <br />
+>    - 22 (22) <br />
+>    - 23 (23) <br />
+>    - 24 (24) <br />
+>    - 25 (25) <br />
+>    - 30 (30) <br />
+>    - 35 (35) <br />
+>    - 40 (40) <br />
+>    - 45 (45) <br />
+>    - 50 (50) <br />
+
+#### **d_amb_rad / Enemy infantry - deployment radius**
+> Default: 250 - 250m <br />
+> Available options: <br />
+>    - 75m (75) <br />
+>    - 125m (125) <br />
+>    - 250m (250) <br />
+>    - 300m (300) <br />
+>    - 350m (350) <br />
+>    - 450m (450) <br />
+>    - 550m (550) <br />
+>    - 650m (650) <br />
+>    - 750m (750) <br />
+>    - 1000m (1000) <br />
+
+#### **d_snp_cnt / Enemy infantry - garrisoned infantry group count - sniper mode**
+> Default: 2 - 2 <br />
+> Available options: <br />
+>    - Low (-1) <br />
+>    - Normal (-2) <br />
+>    - High (-3) <br />
+>    - Very High (-4) <br />
+>    - Extreme (-5) <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+>    - 15 (15) <br />
+>    - 20 (20) <br />
+>    - 25 (25) <br />
+>    - 30 (30) <br />
+>    - 45 (45) <br />
+>    - 50 (50) <br />
+
+#### **d_snp_rad / Enemy infantry - deployment radius**
+> Default: 425 - 425m <br />
+> Available options: <br />
+>    - 250m (250) <br />
+>    - 425m (425) <br />
+>    - 650m (650) <br />
+>    - 900m (900) <br />
+
+#### **d_grp_cnt_footpatrol / Enemy infantry - patrol infantry group count**
+> Default: -1 - Default <br />
+> Available options: <br />
+>    - Default (-1) <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+>    - 11 (11) <br />
+>    - 12 (12) <br />
+>    - 13 (13) <br />
+>    - 14 (14) <br />
+>    - 15 (15) <br />
+
+#### **d_always_max_groups / Enemy infantry - always choose maximum number of groups**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_grp_size_override / Enemy infantry - group size**
+> Default: 0 - Default <br />
+> Available options: <br />
+>    - Default (0) <br />
+>    - High (1) <br />
+
+#### **d_camp_static_weapons / Defend with static weapons**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+>    - Random (-1) <br />
+
+#### **d_camp_enable_guard / Enable guards and camps**
+> Default: 1 - Yes <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+>    - Random (-1) <br />
+
+#### **d_max_bar_cnt / Maximum number of enemy infantry barracks**
+> Default: 7 - 7 <br />
+> Available options: <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 6 (6) <br />
+>    - 7 (7) <br />
+>    - 8 (8) <br />
+>    - 9 (9) <br />
+>    - 10 (10) <br />
+
+#### **d_max_camp_cnt / Maximum number of enemy camps to capture**
+> Default: -1 - 3to5 <br />
+> Available options: <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 3to5 (-1) <br />
+
+#### **d_camp_center / Locate the first enemy camp to capture near the center of the main target**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_WithMHQTeleport / Teleport or spawn at MHQ:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_MHQDisableNearMT / Disable MHQ if less than x m away from MT:**
+> Default: 500 - 500m <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - 500m (500) <br />
+>    - 700m (700) <br />
+>    - 900m (900) <br />
+>    - 1000m (1000) <br />
+>    - 2000m (2000) <br />
+
+#### **d_NoMHQTeleEnemyNear / No MHQ tele when enemy near:**
+> Default: 50 - 50m <br />
+> Available options: <br />
+>    - Disabled (0) <br />
+>    - 50m (50) <br />
+>    - 100m (100) <br />
+>    - 200m (200) <br />
+>    - 500m (500) <br />
+
+#### **d_with_mhq_camo / MHQ Camo enabled:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_WithTeleToBase / Enable teleport to base:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_MTTowerSatchelsOnly / MT Tower Satchels only:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_IllumMainTarget / Illuminate main target:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_sub_kill_points / Subtract score when a player dies:**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - -1 Points (1) <br />
+>    - -2 Points (2) <br />
+>    - -3 Points (3) <br />
+>    - -4 Points (4) <br />
+>    - -5 Points (5) <br />
+>    - -6 Points (6) <br />
+>    - -7 Points (7) <br />
+>    - -8 Points (8) <br />
+>    - -9 Points (9) <br />
+>    - -10 Points (10) <br />
+
+#### **d_pilots_only / Only pilots can fly:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_WithLessArmor / Armor at main targets:**
+> Default: 0 - Normal <br />
+> Available options: <br />
+>    - Normal (0) <br />
+>    - Less (1) <br />
+>    - None (2) <br />
+>    - Random (3) <br />
+
+#### **d_WithLessArmor_side / Armor at side missions:**
+> Default: 0 - Normal <br />
+> Available options: <br />
+>    - Normal (0) <br />
+>    - Less (1) <br />
+>    - None (2) <br />
+>    - Random (3) <br />
+
+#### **d_EnemySkill / Skill Enemy:**
+> Default: 2 - Normal <br />
+> Available options: <br />
+>    - Very Low (0) <br />
+>    - Low (1) <br />
+>    - Normal (2) <br />
+>    - High (3) <br />
+>    - Very High (4) <br />
+
+#### **d_WithIsleDefense / With isle defense:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_without_sm_bonus / Without sidemission bonus vehicles:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_smallgrps / Reduce number of AI units in groups depending on player numbers**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_skillfps / Adjust AI subskill if server FPS is low**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_enemy_mercenaries / Enemy mercenaries (2035 only)**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
+#### **d_enemy_factions / MODS REQUIRED - Enemy factions (experimental)**
+> Default: 0 - Default <br />
+> Available options: <br />
+>    - Default (0) <br />
+>    - Taliban (Community Factions Project) (1) <br />
+>    - Asian Insurgents (Asian Factions for CUP) (2) <br />
+>    - Central African Rebels (Community Factions Project) (3) <br />
+>    - Islamic State (Community Factions Project) (4) <br />
+>    - Sudanese Armed Forces (Community Factions Project) (5) <br />
+
+#### **d_ParaAtBase / Parachute from base:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_HALOWaitTime / HALO at base wait time:**
+> Default: 0 - 0 Minutes <br />
+> Available options: <br />
+>    - 0 Minutes (0) <br />
+>    - 5 Minutes (300) <br />
+>    - 10 Minutes (600) <br />
+>    - 30 Minutes (1800) <br />
+>    - 60 Minutes (3600) <br />
+
+#### **d_WithJumpFlags / No parachute jump flags:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_HALOJumpHeight / HALO jump height:**
+> Default: 2000 - 2000m <br />
+> Available options: <br />
+>    - 500m (500) <br />
+>    - 700m (700) <br />
+>    - 888m (888) <br />
+>    - 1000m (1000) <br />
+>    - 2000m (2000) <br />
+>    - 5000m (5000) <br />
+
+#### **d_LockArmored / Lock armored enemy vecs:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_LockCars / Lock enemy cars:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_LockAir / Lock enemy air vecs:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_enemy_vecs_lift / Enemy AI vehicles can be air lifted:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_maxnum_tks_forkick / Max number TKs for kick:**
+> Default: 10 - 10 <br />
+> Available options: <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 5 (5) <br />
+>    - 10 (10) <br />
+>    - 20 (20) <br />
+>    - 30 (30) <br />
+>    - 40 (40) <br />
+>    - Disable (1000000) <br />
+
+#### **d_player_kick_shootingbase / Kick players shooting at base:**
+> Default: 10 - 10 Shots <br />
+> Available options: <br />
+>    - 2 Shots (2) <br />
+>    - 3 Shots (3) <br />
+>    - 5 Shots (5) <br />
+>    - 10 Shots (10) <br />
+>    - 20 Shots (20) <br />
+>    - 30 Shots (30) <br />
+>    - No kick (1000) <br />
+
+#### **d_no_teamkill / No teamkilling possible:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_sub_tk_points / Negative TK points:**
+> Default: 10 - 10 <br />
+> Available options: <br />
+>    - 0 (0) <br />
+>    - 1 (1) <br />
+>    - 5 (5) <br />
+>    - 10 (10) <br />
+>    - 20 (20) <br />
+>    - 30 (30) <br />
+>    - 50 (50) <br />
+
+#### **d_tk_forgive / Player can forgive teamkill (mission revive has to be enabled and spectating):**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_WreckDeleteTime / Delete wrecks after:**
+> Default: 3600 - 60 minutes <br />
+> Available options: <br />
+>    - 30 minutes (1800) <br />
+>    - 60 minutes (3600) <br />
+>    - 90 minutes (5400) <br />
+>    - 120 minutes (7200) <br />
+>    - Never (1010101) <br />
+
+#### **d_WreckMaxRepair / Wreck max repairs:**
+> Default: 3 - 3 <br />
+> Available options: <br />
+>    - 1 (1) <br />
+>    - 2 (2) <br />
+>    - 3 (3) <br />
+>    - 4 (4) <br />
+>    - 5 (5) <br />
+>    - 10 (10) <br />
+>    - 20 (20) <br />
+>    - Infinite (10000000) <br />
+
+#### **d_drop_radius / Air drop radius:**
+> Default: 0 - Exact position <br />
+> Available options: <br />
+>    - Exact position (0) <br />
+>    - 10m (10) <br />
+>    - 30m (30) <br />
+>    - 50m (50) <br />
+>    - 100m (100) <br />
+
+#### **d_drop_max_dist / Airdrop max. dist:**
+> Default: 500 - 500m <br />
+> Available options: <br />
+>    - 100m (100) <br />
+>    - 500m (500) <br />
+>    - 1000m (1000) <br />
+>    - 2000m (2000) <br />
+>    - 3000m (3000) <br />
+>    - 5000m (5000) <br />
+>    - Infinite (10000000) <br />
