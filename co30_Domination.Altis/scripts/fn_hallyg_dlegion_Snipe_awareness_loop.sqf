@@ -4,7 +4,7 @@
 //awareness loop - iterate through d_cur_tgt_enemy_units[] and run the awareness script for each unit
 while {sleep 0.1; true} do {
 	private _start_time = time;
-	private _cnt = 0;
+	private _count = 0;
 	if (d_mt_spotted) then {
 		{
 			if (!alive _x) then {
