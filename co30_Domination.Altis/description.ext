@@ -1049,9 +1049,9 @@ class Params {
 	
 	class d_with_autorevive {
 		title = "$STR_DOM_MISSIONSTRING_2090";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 1;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_418B"};
 	};
 
 	class d_params_dl_7 {

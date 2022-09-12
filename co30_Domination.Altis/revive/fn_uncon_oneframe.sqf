@@ -36,7 +36,7 @@ if ([xr_u_dcounter > 10 && {time > xr_u_xxstarttime}, xr_near_player_dist_respaw
 			_ret
 		};
 	};
-	if (isNull _nearunit) then {
+	if (isNull _nearunit || { d_with_autorevive == 2}) then {
 		if (d_with_autorevive == 1) then {
 			xr_respawn_available = true;
 			__spectdlg1006 ctrlSetText (localize "STR_DOM_MISSIONSTRING_922");
