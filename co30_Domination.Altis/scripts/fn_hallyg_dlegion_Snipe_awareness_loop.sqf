@@ -5,7 +5,11 @@
 while {sleep 0.1; true} do {
 	private _start_time = time;
 	private _count = 0;
-	if (d_mt_spotted) then {
+	if (d_mt_spotted || {d_enable_awareness}) then {
+		if (d_mt_spotted && {!d_enable_awareness}) then {
+			// if d_mt_spotted is true then awareness should start, d_mt_spotted is set to false when radiotower is destroyed
+			d_enable_awareness = true; // later set to false in fn_target_clear
+		};
 		{
 			if (!alive _x) then {
 				d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _x);
