@@ -7,6 +7,8 @@ __TRACE_1("","_this")
 
 sleep 1.123;
 
+d_enable_awareness = false;
+
 #ifdef __TT__
 deleteVehicle d_current_triggerTT;
 #endif
