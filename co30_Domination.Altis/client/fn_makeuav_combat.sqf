@@ -69,6 +69,23 @@ _vecu setVehicleRadar 1;
 	_x setSkill ["spotDistance", 1];
 } forEach _crew;	
 
+private _loiter_pos = getPos player;
+if !(d_cur_tgt_pos isEqualTo []) then {
+	_loiter_pos = d_cur_tgt_pos;
+};
+private _loiter_radius = 500;
+if (d_cur_target_radius > 0) then {
+	_loiter_radius = d_cur_target_radius + 500;
+};
+_wp = _grp addWaypoint [_loiter_pos, 0];
+_wp setWaypointType "LOITER";
+_wp setWaypointLoiterType "CIRCLE_L";
+_wp setWaypointLoiterRadius _loiter_radius;
+_wp setWaypointSpeed "LIMITED";
+_wp setWaypointBehaviour "CARELESS";
+
+_vecu flyInHeight 500;
+
 player connectTerminalToUav _vecu;
 
 player action ["UAVTerminalOpen"];
