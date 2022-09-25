@@ -6,6 +6,10 @@ __TRACE_1("","_this")
 
 diag_log ["DOM initPlayerLocal.sqf, sending this to init player on server:", _this];
 
+if (getClientStateNumber >= 11) exitWith {
+	diag_log "Dom game already ended... Exiting";
+};
+
 _this remoteExec ["d_fnc_initPlayerServer", 2];
 
 if (hasInterface) then {

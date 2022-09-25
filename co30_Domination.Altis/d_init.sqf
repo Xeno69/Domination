@@ -156,6 +156,10 @@ if (d_with_dynsim == 0) then {
 };
 
 if (isServer) then {
+	d_serv_test_obj = d_HeliHEmpty createVehicle [101,101,101];
+	d_serv_test_obj allowDamage false;
+	d_serv_test_obj enableDynamicSimulation false;
+	d_serv_test_obj enableSimulationGlobal false;
 	private _all_farp_flags = (allMissionObjects "FlagCarrierCore") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
 	
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)

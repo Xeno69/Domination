@@ -8,6 +8,10 @@ __TRACE_1("","_this")
 
 params ["", "_uid", "_name"];
 
+if (isNull d_serv_test_obj) exitWith {
+	diag_log "DOM playerdisconnected, d_serv_test_obj is Null!!!";
+};
+
 if (_uid isEqualTo "") exitWith {
 	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
 };
