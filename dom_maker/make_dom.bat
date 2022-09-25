@@ -5,8 +5,8 @@ rem The ArmaScriptCompiler.exe which is needed for SQFC files can be found at ht
 
 set BASE_MASTER=co30_Domination.Altis
 set MASTER=co30_Domination.Altis
-set D_VER=4_64
-set D_BNVER=4.64
+set D_VER=4_65
+set D_BNVER=4.65
 set D_NUM_PLAYERS=40
 set D_NUM_PLAYERS_TT=50
 set D_NUM_PLAYERS_CO=40
@@ -55,7 +55,7 @@ makePbo -A -B -P -X %NEW_VER% %NEW_VER%
 rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
-rem goto cleanup
+goto cleanup
 
 
 rem Blufor Western Sahara

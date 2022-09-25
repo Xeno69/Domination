@@ -652,6 +652,12 @@ if (isServer) then {
 	if (!_mpended_done && { d_db_type == 2 && {d_save_to_mpns > 0}}) then {
 		addMissionEventHandler ["MPEnded", {saveMissionProfileNamespace}];
 	};
+	
+	if (isMultiplayer && {d_db_type >= 0}) then {
+		addMissionEventHandler ["MPEnded", {
+			d_mp_e_d_x_o = true;
+		}];
+	};
 };
 
 if (hasInterface) then {
