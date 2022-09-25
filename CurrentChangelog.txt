@@ -7,3 +7,4 @@
 - Fixed: When a server restart happened players could loose all there points (hopefully fixed)
 - Fixed: AI awareness behavior suddenly stopped when radiotower destroyed and d_mt_spotted is set to false, by longtimegamer
 - Fixed: Invalid setIdentity on walking civilians, by longtimegamer
+- Fixed: Dying in a vehicle could make inf viewdistance the same as vehicle view distance (yet again, hopefully fixed)

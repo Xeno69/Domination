@@ -6,10 +6,10 @@ d_player_in_base = false;
 d_vec_role_pl = assignedVehicleRole player;
 if (d_player_canu) then {
 	d_player_in_vec = true;
+	if (d_isvdreduced) then {
+		d_isvdreduced = false;
+	};
 	if (d_vec_role_pl isNotEqualTo [] && {d_vec_role_pl # 0 != "cargo"}) then {
-		if (d_isvdreduced) then {
-			d_isvdreduced = false;
-		};
 		private _vp = _this # 2;
 		if (_vp isKindOf "Car" || {_vp isKindOf "Tank" || {_vp isKindOf "Motorcycle" || {_vp isKindOf "Ship"}}}) then {
 			if (d_ViewDistanceVec != viewDistance) then {

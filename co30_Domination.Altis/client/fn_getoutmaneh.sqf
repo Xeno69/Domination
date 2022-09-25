@@ -73,3 +73,4 @@ if (!isTouchingGround (vehicle player)) then {
 
 setViewDistance d_curviewdistance;
 setObjectViewDistance d_curobjectdistance + 100;
+d_isvdreduced = false;
