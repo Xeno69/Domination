@@ -26,7 +26,7 @@ private _checkvdpos = {
 while {true} do {
 	if (!isNil "d_maintarget_auto_vd") then {
 		if (d_maintarget_auto_vd) then {
-			if (!d_isvdreduced && {isNil "d_is_sat_on" && {isNull (findDisplay 312) && {viewDistance > 600 && {isNull objectParent player && {call _checkvdpos}}}}}) then {
+			if (!d_isvdreduced && {!d_isinuavmode && {isNil "d_is_sat_on" && {isNull (findDisplay 312) && {viewDistance > 600 && {isNull objectParent player && {call _checkvdpos}}}}}}) then {
 				setViewDistance 600;
 				setObjectViewDistance 700;
 				d_isvdreduced = true;

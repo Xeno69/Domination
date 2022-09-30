@@ -1244,6 +1244,7 @@ if (d_without_nvg != 1 || {d_without_ti != 1}) then {
 };
 
 d_isvdreduced = false;
+d_isinuavmode = false;
 if (d_AutoViewdistanceChangeDefault == 1) then {
 	0 spawn d_fnc_vdhandler;
 };
