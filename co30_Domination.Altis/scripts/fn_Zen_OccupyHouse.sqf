@@ -248,7 +248,7 @@ private _tmpPosArray = [];
 		};
 		diag_log [format ["bldg sizeOf: %1", (sizeOf typeOf _theBuilding)]];
 		if (!isNil "_theBuilding" && {(_housePos distance2D _theBuilding) > ((sizeOf typeOf _theBuilding) / 4.5)} && side (_units select _unitIndex) == civilian) then {
-			// the position is too far from the center of the building (limit is a calucalation of sizeOf)
+			// the position is too far from the center of the building for a civilian unit (limit is a calucalation of sizeOf)
 			//diag_log [format ["position skipped, too far from sizeOf: %1 > %2", (_housePos distance2D _theBuilding), ((sizeOf typeOf _theBuilding) / 3)]];
 			_skip_position = true;
 		};
