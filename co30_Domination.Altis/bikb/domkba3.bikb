@@ -453,7 +453,7 @@ class Sentences {
 	};
 	class PlayerMarkedForDeath {
 		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH";
-		speech[] = {};
+		speech[] = {"XMIT","GetReadyToFight"};
 		class Arguments {
 			class 1 {type = "simple";};
 			class 2 {type = "simple";};
@@ -478,7 +478,7 @@ class Sentences {
 	};
 	class PlayerMarkedForDeathEscort {
 		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT";
-		speech[] = {};
+		speech[] = {"XMIT","GetReadyToFight"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
@@ -529,7 +529,7 @@ class Sentences {
 	};
 	class MTEventVIPEscort {
 		text = "$STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT_JOIN";
-		speech[] = {};
+		speech[] = {"XMIT","GetReadyToFight"};
 		class Arguments {};
 	};
 };

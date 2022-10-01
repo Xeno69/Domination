@@ -132,13 +132,19 @@ private _placeCivilianCluster = {
     ] call d_fnc_Zen_OccupyHouse;
 
 #ifdef __GROUPDEBUG__
-	private _debug_tmp_civ_cnt = 0;
 	{
-		private _civ_string_tmp = format ["civ%1", _debug_tmp_civ_cnt];
+		private _civ_string_tmp = format ["civ%1", str (random 99999)];
 		[_civ_string_tmp, position _x, "ICON", "ColorBlack", [0.5, 0.5], _civ_string_tmp, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
-		_debug_tmp_civ_cnt = _debug_tmp_civ_cnt + 1;
 	} forEach _units_civ_cluster;
 #endif
+	
+	{
+		if (getPos _x # 0 < 75 && getPos _x # 1 < 75) then {
+			diag_log ["found a civilian unit placed near [0,0,0] unit will be deleted now."];
+			d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _x);
+			deleteVehicle _x;
+		};
+	} forEach _units_civ_cluster;
 	
 	diag_log ["civilian cluster successfully created"];
 };

@@ -237,8 +237,19 @@ private _tmpPosArray = [];
 			//diag_log [format ["position checking... distance from center: %1 --- %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
 		};
 		if (!isNil "_theBuilding" && {_distanceFromBuildingCenter > 0 && {(_housePos distance2D _theBuilding) > _distanceFromBuildingCenter}}) then {
-			// the position is too far from the center of the building
-			diag_log [format ["position skipped, too far from center: %1 > %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
+			// the position is too far from the center of the building (limit is set by parameter)
+			//diag_log [format ["position skipped, too far from center: distance %1 > _distanceFromBuildingCenter %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
+			_skip_position = true;
+		};
+		if (!isNil "_theBuilding" && {((_housePos # 2) - (getTerrainHeightASL _housePos)) > 7} && side (_units select _unitIndex) == civilian) then {
+			// the position is too high above the terrain for a civilian unit (prevents putting them in sniper locations)
+			//diag_log [format ["position skipped, too high: height above terrain is %1 > 7", ((_housePos # 2) - (getTerrainHeightASL _housePos))]];
+			_skip_position = true;
+		};
+		diag_log [format ["bldg sizeOf: %1", (sizeOf typeOf _theBuilding)]];
+		if (!isNil "_theBuilding" && {(_housePos distance2D _theBuilding) > ((sizeOf typeOf _theBuilding) / 4.5)} && side (_units select _unitIndex) == civilian) then {
+			// the position is too far from the center of the building for a civilian unit (limit is a calucalation of sizeOf)
+			//diag_log [format ["position skipped, too far from sizeOf: %1 > %2", (_housePos distance2D _theBuilding), ((sizeOf typeOf _theBuilding) / 3)]];
 			_skip_position = true;
 		};
 
@@ -442,6 +453,8 @@ private _tmpPosArray = [];
 									} else {
 										breakTo "while";
 									};
+								} else {
+									// diag_log ["position skipped, roof or edge"];
 								};//end if
 							};//end if
 						};//end if
@@ -457,13 +470,17 @@ if (_unitIndex < count _units && {count _positionsUsed > 0}) then {
 	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
 		private _unit = _units select _k;
 		private _targetPos = selectRandom _positionsUsed;
-		diag_log ["placing a unit in a non-standard position..."];
 		private _targetPosFuzzy = [_targetPos] call d_fnc_getfuzzyposition;
-		_unit setPosASL [_targetPosFuzzy # 0, _targetPosFuzzy # 1, (_targetPosFuzzy # 2) - EYE_HEIGHT];
+		//diag_log [format ["placing a unit in a non-standard position: %1", _targetPosFuzzy]];
+		_unit setPosASL _targetPosFuzzy;
 		sleep 0.1;
-		if (_unit distance2D [0,0,0] < 50) then {
+		if (getPos _unit # 0 < 100 && getPos _unit # 1 < 100) then {
+			diag_log ["error deleted a unit, position is almost on [0,0,0] so must be misplaced"];
+			if (side _unit == civilian) then {
+				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
+				diag_log ["deleted unit was a civilian, removed from d_cur_tgt_civ_units"];
+			};
 			deleteVehicle _unit;
-			diag_log ["error deleted a unit, position is almost on 0,0,0 so must be misplaced"];
 		};
 	};
 };
