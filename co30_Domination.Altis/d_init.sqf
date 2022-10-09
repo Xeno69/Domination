@@ -410,7 +410,20 @@ if (isNil "d_object_spawn_blacklist") then {
 		"cargo_house_slum_f.p3d",
 		"i_addon_02_v1_f.p3d",
 		"cargo_hq_v1_f.p3d",
-		"metal_shed_f.p3d"
+		"metal_shed_f.p3d",
+		"coalplant_01_mainbuilding_f.p3d",
+        "factory_02_f.p3d", // ?
+        "cementworks_01_grey_f.p3d",
+        "scf_01_boilerbuilding_f.p3d",
+        "scf_01_condenser_f.p3d",
+        "radar_01_hq_f.p3d",
+        "ind_mlyn_02.p3d", // ??? 28 positions?
+        "radar_01_kitchen_f.p3d",
+        "scf_01_chimney_f.p3d",
+        "ind_pec_01.p3d",
+        "ind_pec_02.p3d", // ??? 53 positions
+        "i_shed_ind_old_f.p3d", // ?
+        "scf_01_crystallizer_f.p3d" // ?? 29 positions
 	];
 };
 

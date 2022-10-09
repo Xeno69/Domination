@@ -88,9 +88,9 @@ if (_units isEqualTo [] || {isNull (_units # 0)}) exitWith {
 };
 
 _Zen_ExtendPosition = {
-	params ["_center", "_dist", "_phi"];
+	params ["_center", "_dist", "_phi", "_z"];
 
-	([(_center # 0) + (_dist * (cos _phi)), (_center # 1) + (_dist * (sin _phi)), _this # 3])
+	([(_center # 0) + (_dist * (cos _phi)), (_center # 1) + (_dist * (sin _phi)), _z])
 };
 
 _Zen_InsertionSort = {
@@ -152,16 +152,16 @@ _spawn_script_enable_movement = {
 
 private _buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
 
-if (count _buildingsArrayFiltered == 0) then {
-	diag_log [format ["error, no buildings were found within %1 meters of %2", _buildingRadius, _center]];
-} else {
-	diag_log [format ["occupyhouse found suitable building list: %1", _buildingsArrayFiltered]];
-};
-
 // use targetBuilding if it was passed
 if !(isNull _targetBuilding) then {
-	//diag_log [format ["occupy script was passed a target building: %1", _targetBuilding]];
+	//diag_log [format ["occupy script was passed a target building with %1 positions: %2", count (_targetBuilding buildingPos -1), _targetBuilding]];
 	_buildingsArrayFiltered = [_targetBuilding];
+} else {
+	if (count _buildingsArrayFiltered == 0) then {
+    	diag_log [format ["error, no buildings were found within %1 meters of %2", _buildingRadius, _center]];
+    } else {
+    	//diag_log [format ["occupyhouse found suitable building list: %1", _buildingsArrayFiltered]];
+    };
 };
 
 private _buildingPosArray = [];
@@ -185,17 +185,16 @@ if (_sortHeight) then {
 diag_log [format ["placing %1 units", count _units]];
 private _unitIndex = 0;
 private _tmpPosArray = [];
+private _theBuilding = nil;
+private _skipAngleCheck = false;
+diag_log ["start of forEach _buildingPosArray"];
 {
 	scopeName "for";
 	private _posArray = _x;
 	__TRACE_2("","_building","_posArray")
 
 	if (count _posArray == 0) then {
-		// _posArray is empty, non-fatal but should never happen (causes the next 'while' loop to be skipped)
-	};
-	
-	if (_unitIndex >= count _units) exitWith {
-		//diag_log ["all units have been placed! exiting forEach loop."];
+		diag_log ["_posArray is empty, non-fatal but should never happen (causes the next 'while' loop to be skipped)"];
 	};
 
 	while {count _posArray > 0} do {
@@ -210,58 +209,89 @@ private _tmpPosArray = [];
 		_posArray deleteAt 0;
 		private _housePos = [_housePosBeforeEyeHeight select 0, _housePosBeforeEyeHeight select 1, (_housePosBeforeEyeHeight select 2) + (getTerrainHeightASL _housePosBeforeEyeHeight) + EYE_HEIGHT];
 		// must re-detect the building object
-		private _bldgs_list_redetected = [];
+		private _bldgs_list = [];
 		if !(isNull _targetBuilding) then {
-			// target building was provided, no need to redetect
-			_bldgs_list_redetected = [_targetBuilding];
+			//diag_log ["target building was provided, no need to redetect"];
+			_theBuilding = _targetBuilding;
 		} else {
 			// collect a list of buildings so we can attempt to redetect the target building
-			_bldgs_list_redetected = [_housePos, 15] call d_fnc_getbldgswithpositions;
+			_bldgs_list = [_housePos, 199] call d_fnc_getbldgswithpositions;
 		};
 		
-		private _theBuilding = nil;
-		if (_bldgs_list_redetected isEqualTo []) then {
+		if (_bldgs_list isEqualTo [] && {isNil "_theBuilding"}) then {
 			diag_log ["position skipped, unexpectedly could not get the building object"];
 			_skip_position = true;
 		} else {
-			//diag_log [ format ["bldg redetect list: %1", _bldgs_list_redetected]];
-			_theBuilding = _bldgs_list_redetected select 0;
+			if (count _bldgs_list > 1 && {isNil "_theBuilding"}) then {
+				//diag_log [ format ["there are %1 buildings in the array, selecting the first element", count _bldgs_list]];
+				_theBuilding = _bldgs_list select 0;
+			};
 		};
-		
-		if (_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}) then {
+		if (!_skip_position && {_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}}) then {
 			// the position is not inside a house
 			diag_log ["position skipped, must be inside a house"];
 			_skip_position = true;
 		};
-		if (!isNil "_theBuilding") then {
+		if (!_skip_position && {!isNil "_theBuilding"}) then {
+			//diag_log [format ["_theBuilding is provided: %1", _theBuilding]];
 			//diag_log [format ["position checking... distance from center: %1 --- %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
 		};
-		if (!isNil "_theBuilding" && {_distanceFromBuildingCenter > 0 && {(_housePos distance2D _theBuilding) > _distanceFromBuildingCenter}}) then {
+		if (!_skip_position && {!isNil "_theBuilding" && {_distanceFromBuildingCenter > 0 && {(_housePos distance2D _theBuilding) > _distanceFromBuildingCenter}}}) then {
 			// the position is too far from the center of the building (limit is set by parameter)
 			//diag_log [format ["position skipped, too far from center: distance %1 > _distanceFromBuildingCenter %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
 			_skip_position = true;
 		};
-		if (!isNil "_theBuilding" && {((_housePos # 2) - (getTerrainHeightASL _housePos)) > 7} && side (_units select _unitIndex) == civilian) then {
+		if (!_skip_position && {!isNil "_theBuilding" && {((_housePos # 2) - (getTerrainHeightASL _housePos)) > 6}} && side (_units select _unitIndex) == civilian) then {
 			// the position is too high above the terrain for a civilian unit (prevents putting them in sniper locations)
-			//diag_log [format ["position skipped, too high: height above terrain is %1 > 7", ((_housePos # 2) - (getTerrainHeightASL _housePos))]];
+			//diag_log [format ["position skipped, too high: height above terrain is %1 > 6", ((_housePos # 2) - (getTerrainHeightASL _housePos))]];
 			_skip_position = true;
 		};
-		diag_log [format ["bldg sizeOf: %1", (sizeOf typeOf _theBuilding)]];
-		if (!isNil "_theBuilding" && {(_housePos distance2D _theBuilding) > ((sizeOf typeOf _theBuilding) / 4.5)} && side (_units select _unitIndex) == civilian) then {
-			// the position is too far from the center of the building for a civilian unit (limit is a calucalation of sizeOf)
-			//diag_log [format ["position skipped, too far from sizeOf: %1 > %2", (_housePos distance2D _theBuilding), ((sizeOf typeOf _theBuilding) / 3)]];
+		if (!_skip_position && {!isNil "_theBuilding" && {side (_units select _unitIndex) == civilian}}) then {
+			// use dimensions from boundingBoxReal to check if the position is too near the edges of the building
+			// this helps avoid placing civilians in exposed positions (balcony, front porch, etc.) but it's not perfect
+			private _bbr = boundingBoxReal _theBuilding;
+			private _pmin = _bbr select 0;
+            private _pmax = _bbr select 1;
+            private _pcenter = getPos _theBuilding;
+            private _minx = _pcenter # 0 + _pmin # 0 + (0.65*abs(_pmin # 0));
+			if (_housePos # 0 < _minx) then {
+				//diag_log ["x axis failed min"];
+				_housePos set [0, _minx];
+			};
+			private _maxx = _pcenter # 0 + _pmax # 0 - (0.65*abs(_pmax # 0));
+			if (_housePos # 0 > _maxx) then {
+				//diag_log ["x axis failed max"];
+				_housePos set [0, _maxx];
+			};
+			private _miny = _pcenter # 1 + _pmin # 1 + (0.65*abs(_pmin # 1));
+			if (_housePos # 1 < _miny) then {
+				//diag_log ["y axis failed min"];
+				_housePos set [1, _miny];
+			};
+			private _maxy = _pcenter # 1 + _pmax # 1 - (0.65*abs(_pmax # 1));
+			if (_housePos # 1 > _maxy) then {
+				//diag_log ["y axis failed max"];
+				_housePos set [1, _maxy];
+			};
+		};
+		if (!_skip_position && {(d_cur_tgt_building_positions_occupied find _housePos) != -1}) then {
+			//diag_log ["we already used this position, force to reuse as a fuzzy position"];
+			_positionsUsed pushBack _housePos;
 			_skip_position = true;
+		};
+		if (!_skip_position && {!isNil "_theBuilding" && {side (_units select _unitIndex) == civilian}}) then {
+			// skip the angle check when placing a civilian unit
+			_skipAngleCheck = true;
 		};
 
 		if !(_skip_position) then {
 			_startAngle = (round random 10) * (round random 36);
 			for "_i" from _startAngle to (_startAngle + 350) step 10 do {
 				_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, _housePos select 2] call _Zen_ExtendPosition;
-	
-				if !(lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull]) then {
-					if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
+				if (!lineIntersects [_checkPos, [_checkPos select 0, _checkPos select 1, (_checkPos select 2) + 25], objNull, objNull] || {_skipAngleCheck}) then {
+					if (!lineIntersects [_housePos, _checkPos, objNull, objNull] || {_skipAngleCheck}) then {
 						_checkPos = [_housePos, CHECK_DISTANCE, 90 - _i, (_housePos select 2) + (CHECK_DISTANCE * tan FOV_ANGLE)] call _Zen_ExtendPosition;
-						if !(lineIntersects [_housePos, _checkPos, objNull, objNull]) then {
+						if (!lineIntersects [_housePos, _checkPos, objNull, objNull] || {_skipAngleCheck}) then {
 							_hitCount = 0;
 							for "_k" from 30 to 360 step 30 do {
 								_checkPos = [_housePos, 20, 90 - _k, _housePos select 2] call _Zen_ExtendPosition;
@@ -454,28 +484,40 @@ private _tmpPosArray = [];
 										breakTo "while";
 									};
 								} else {
-									// diag_log ["position skipped, roof or edge"];
+									diag_log ["position skipped, roof or edge"];
 								};//end if
 							};//end if
 						};//end if
 					};//end if
 				};//end if
 			};//end for
+			//diag_log ["could not find a suitable angle, skipping this position"];
+		} else {
+			diag_log [format ["position was skipped and %1 positions remain", count _posArray]];
 		};//end if (_skip_position)
 	};//end while
 } forEach _buildingPosArray;
 
-if (_unitIndex < count _units && {count _positionsUsed > 0}) then {
-	// some units were not moved, continue iterating where we stopped and place units with fuzzy locations near the positions already used
+diag_log ["end of forEach _buildingPosArray"];
+
+if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
+	diag_log [format ["only %1 units out of %2 total units were moved", _unitIndex, count _units]];
 	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
 		private _unit = _units select _k;
-		private _targetPos = selectRandom _positionsUsed;
-		private _targetPosFuzzy = [_targetPos] call d_fnc_getfuzzyposition;
-		//diag_log [format ["placing a unit in a non-standard position: %1", _targetPosFuzzy]];
-		_unit setPosASL _targetPosFuzzy;
+		//private _targetPos = selectRandom _positionsUsed;
+		private _targetPos = getPos _theBuilding;
+		private _targetPosFuzzy = [_targetPos, (sizeOf typeOf _theBuilding) / 4] call d_fnc_getfuzzyposition;
+		// create an actual unit/group to ensure a non-colliding position, get the unit pos and then delete the unit/group
+		private _civgrptemp = createGroup civilian;
+		private _civtemp = _civgrptemp createUnit ["C_man_1", _targetPosFuzzy, [], 0, "NONE"];
+		private _targetPosFuzzyUnit = getPos _civtemp;
+		deleteVehicle _civtemp;
+		deleteGroup _civgrptemp;
+		diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
+		_unit setVehiclePosition [[_targetPosFuzzyUnit # 0, _targetPosFuzzyUnit # 1], [], 1.7, "NONE"];
 		sleep 0.1;
 		if (getPos _unit # 0 < 100 && getPos _unit # 1 < 100) then {
-			diag_log ["error deleted a unit, position is almost on [0,0,0] so must be misplaced"];
+			diag_log [format ["error deleted a unit, position is almost on [0,0,0] so must be misplaced %1", getPos _unit]];
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
 				diag_log ["deleted unit was a civilian, removed from d_cur_tgt_civ_units"];

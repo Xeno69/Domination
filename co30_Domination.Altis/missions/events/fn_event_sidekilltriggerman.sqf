@@ -32,7 +32,7 @@ private _tempgroup = [d_own_side] call d_fnc_creategroup;
 private _tempunit = _tempgroup createUnit [d_sm_pilottype, [0,0,0], [], 0, "NONE"];
 
 {
-	_unitsNotGarrisoned = [getPos _x, [_tempunit], 10, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
+	_unitsNotGarrisoned = [getPos _x, [_tempunit], 199, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
 	if (count _unitsNotGarrisoned == 0) exitWith {
 		// building is suitable
 		_bldg = _x;
@@ -122,7 +122,7 @@ private _enemyGuardGroup = (["specops", 0, "allmen", 1, getPos _bldg , 5, false,
 
 private _triggerman = leader _enemyGuardGroup;
 
-_unitsNotGarrisoned = [getPos _bldg, _allActors, 10, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
+_unitsNotGarrisoned = [getPos _bldg, _allActors, 199, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
 
 {
 	// log if garrison function fails
