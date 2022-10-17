@@ -134,9 +134,13 @@ if (_move_controls) then {
 				(_disp displayCtrl 44464) ctrlShow false;
 				(_disp displayCtrl 44466) ctrlShow false;
 			};
+			if (d_enable_extra_cas == 0) then {
+				(_disp displayCtrl 44467) ctrlShow false;
+			};
 		} else {
 			(_disp displayCtrl 44464) ctrlShow false;
 			(_disp displayCtrl 44466) ctrlShow false;
+			(_disp displayCtrl 44467) ctrlShow false;
 		};
 	};
 };
