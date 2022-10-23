@@ -15045,6 +15045,18 @@
 <Chinese>Sudanese Armed Forces (Community Factions Project)</Chinese>
 <French>Sudanese Armed Forces (Community Factions Project)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_RUSSIAN_ARMED_FORCES">
+<English>Russian Ground Forces (Community Factions Project)</English>
+<Spanish>Russian Ground Forces (Community Factions Project)</Spanish>
+<Portuguese>Russian Ground Forces (Community Factions Project)</Portuguese>
+<Korean>Russian Ground Forces (Community Factions Project)</Korean>
+<Japanese>Russian Ground Forces (Community Factions Project)</Japanese>
+<Original>Russian Ground Forces (Community Factions Project)</Original>
+<Russian>Russian Ground Forces (Community Factions Project)</Russian>
+<Chinesesimp>Russian Ground Forces (Community Factions Project)</Chinesesimp>
+<Chinese>Russian Ground Forces (Community Factions Project)</Chinese>
+<French>Russian Ground Forces (Community Factions Project)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_COMBAT_UAV_TEAM_MAX_REACHED">
 <English>Only one combat UAV allowed per team.</English>
 <Spanish>Only one combat UAV allowed per team.</Spanish>

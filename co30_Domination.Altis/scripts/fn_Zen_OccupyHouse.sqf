@@ -150,13 +150,14 @@ _spawn_script_enable_movement = {
 	};
 };
 
-private _buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
+private _buildingsArrayFiltered = [];
 
 // use targetBuilding if it was passed
 if !(isNull _targetBuilding) then {
 	//diag_log [format ["occupy script was passed a target building with %1 positions: %2", count (_targetBuilding buildingPos -1), _targetBuilding]];
 	_buildingsArrayFiltered = [_targetBuilding];
 } else {
+	_buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
 	if (count _buildingsArrayFiltered == 0) then {
     	diag_log [format ["error, no buildings were found within %1 meters of %2", _buildingRadius, _center]];
     } else {
@@ -521,6 +522,7 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
 				diag_log ["deleted unit was a civilian, removed from d_cur_tgt_civ_units"];
+				_total_civs_count_created = _total_civs_count_created - 1;
 			};
 			deleteVehicle _unit;
 		};

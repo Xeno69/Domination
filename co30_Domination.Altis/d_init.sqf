@@ -392,38 +392,15 @@ if (isNil "d_mt_tower") then {
 	d_mt_tower_pos = [];
 };
 
-if (isNil "d_object_spawn_blacklist") then {
-	d_object_spawn_blacklist = [
-		"vn_dyke.p3d",
-		"vn_dyke_10.p3d",
-		"u_addon_01_v1_f.p3d",
-		"u_addon_02_v1_f.p3d",
-		"u_addon_03_v1_f.p3d",
-		"i_addon_02_v1_f.p3d",
-		"i_addon_03_v1_f.p3d",
-		"i_addon_03mid_v1_f.p3d",
-		"i_addon_04_v1_f.p3d",
-		"stone_shed_v1_ruins_f.p3d",
-		"unfinished_building_01_f.p3d",
-		"i_garage_v1_f.p3d",
-		"i_garage_v2_f.p3d",
-		"cargo_house_slum_f.p3d",
-		"i_addon_02_v1_f.p3d",
-		"cargo_hq_v1_f.p3d",
-		"metal_shed_f.p3d",
-		"coalplant_01_mainbuilding_f.p3d",
-        "factory_02_f.p3d", // ?
-        "cementworks_01_grey_f.p3d",
-        "scf_01_boilerbuilding_f.p3d",
-        "scf_01_condenser_f.p3d",
-        "radar_01_hq_f.p3d",
-        "ind_mlyn_02.p3d", // ??? 28 positions?
-        "radar_01_kitchen_f.p3d",
-        "scf_01_chimney_f.p3d",
-        "ind_pec_01.p3d",
-        "ind_pec_02.p3d", // ??? 53 positions
-        "i_shed_ind_old_f.p3d", // ?
-        "scf_01_crystallizer_f.p3d" // ?? 29 positions
+if (isNil "d_object_spawn_blacklist_common") then {
+	d_object_spawn_blacklist_common = [
+		#include "init\d_bldg_blacklist_common.sqf"
+	];
+};
+
+if (isNil "d_object_spawn_blacklist_civs") then {
+	d_object_spawn_blacklist_civs = [
+		#include "init\d_bldg_blacklist_civs.sqf"
 	];
 };
 
