@@ -2761,7 +2761,32 @@ d_barracks_building = call {
 		"C_Tak_03_A_lxWS", 1,
 		"C_Tak_03_B_lxWS", 1,
 		"C_Tak_03_C_lxWS", 1
-	];	
+	];
+	
+	d_civ_women_common = [
+		"Max_woman1", 7,
+		"Max_woman3", 1,
+		"Max_woman4", 1
+	];
+	
+	d_civ_women_takistan = [
+		"Max_Tak_woman1", 0.5,
+		"Max_Tak_woman2", 0.5,
+		"Max_Tak_woman3", 0.5,
+		"Max_Tak_woman4", 0.5,
+		"Max_Tak_woman5", 0.5,
+		"Max_Tak_woman6", 15,
+		"Max_Taky_woman1", 0.5,
+		"Max_Taky_woman2", 0.5,
+		"Max_Taky_woman3", 0.5,
+		"Max_Taky_woman4", 0.5,
+		"Max_Taky_woman5", 0.5,
+		"Max_Tak2_woman1", 0.5,
+		"Max_Tak2_woman2", 0.5,
+		"Max_Tak2_woman3", 0.5,
+		"Max_Tak2_woman4", 0.5,
+		"Max_Tak2_woman5", 0.5
+	];
 	
 #ifdef __ALTIS__
 	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthHigh;

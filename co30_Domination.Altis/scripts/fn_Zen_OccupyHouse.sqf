@@ -252,9 +252,9 @@ diag_log ["start of forEach _buildingPosArray"];
 			// this helps avoid placing civilians in exposed positions (balcony, front porch, etc.) but it's not perfect
 			private _bbr = boundingBoxReal _theBuilding;
 			private _pmin = _bbr select 0;
-            private _pmax = _bbr select 1;
-            private _pcenter = getPos _theBuilding;
-            private _minx = _pcenter # 0 + _pmin # 0 + (0.65*abs(_pmin # 0));
+			private _pmax = _bbr select 1;
+			private _pcenter = getPos _theBuilding;
+			private _minx = _pcenter # 0 + _pmin # 0 + (0.65*abs(_pmin # 0));
 			if (_housePos # 0 < _minx) then {
 				//diag_log ["x axis failed min"];
 				_housePos set [0, _minx];

@@ -25,6 +25,15 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 	d_cur_tgt_civ_modules_presence = [];
 };
 
+d_civArray_current =+ d_civArray;
+
+if (d_enable_women == 1) then {
+	d_civArray_current = (d_civArray + d_civ_women_common);
+#ifdef __CUP_TAKISTAN__
+	d_civArray_current = (d_civArray + d_civ_women_takistan);
+#endif
+};
+
 private _civ_units_count_max = 500; // default (recalculated if adaptive settings are selected)
 
 private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
@@ -72,7 +81,7 @@ private _placeCivilianCluster = {
 	private _civ_group = createGroup civilian;
 	_civ_group deleteGroupWhenEmpty true;
 	for "_i" from 0 to _unit_count do {
-		_civAgent = createAgent [selectRandomWeighted d_civArray, [0,0,0], [], 0, "NONE"];
+		_civAgent = createAgent [selectRandomWeighted d_civArray_current, [0,0,0], [], 0, "NONE"];
 		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {
@@ -261,6 +270,6 @@ _m setVariable ["#onCreated", {
 			};
 		};
 	}];
-	[_this, selectRandomWeighted d_civArray] remoteExec ["setIdentity", 0, _this];
-	_this setUnitLoadout selectRandomWeighted d_civArray;
+	[_this, selectRandomWeighted d_civArray_current] remoteExec ["setIdentity", 0, _this];
+	_this setUnitLoadout selectRandomWeighted d_civArray_current;
 }];
