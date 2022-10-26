@@ -53,7 +53,10 @@ if (!_mchelper) then {
 
 private _nightorfog = call d_fnc_nightfograin;
 
-private _women_tmp_list = [
+private _women_infantry = [];
+
+#ifdef __OWN_SIDE_BLUFOR__
+_women_infantry = [
 	"WO_Soldier_lite_F",
 	"WO_Soldier_F",
 	"WO_Soldier_AR_F",
@@ -63,12 +66,26 @@ private _women_tmp_list = [
 	"WO_T_Soldier_F",
 	"WO_T_Officer_F"
 ];
+#endif
+
+#ifdef __OWN_SIDE_OPFOR__
+_women_infantry = [
+	"WB_Soldier_lite_F",
+	"WB_Soldier_F",
+	"WB_Soldier_AR_F",
+	"WB_officer_F",
+	"WB_Soldier_SL_F",
+	"WB_T_Soldier_AR_F",
+	"WB_T_Soldier_F",
+	"WB_T_Officer_F"
+];
+#endif
 
 {
 	private _one_unit = nil;
-	if (d_enable_women == 1 && {random 100 > 80 && {(groupId _grp) find "Sniper" == -1}}) then {
+	if (_women_infantry isNotEqualTo [] && {d_enable_women == 1 && {random 100 > 80 && {(groupId _grp) find "Sniper" == -1}}}) then {
 		// if women are enabled, chance unit is a woman, cannot be sniper because there is no sniper class for women
-		_one_unit = _grp createUnit [selectRandom _women_tmp_list, _pos, [], 10, "NONE"];
+		_one_unit = _grp createUnit [selectRandom _women_infantry, _pos, [], 10, "NONE"];
 	} else {
 		_one_unit = _grp createUnit [_x, _pos, [], 10, "NONE"];
 	};
