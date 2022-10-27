@@ -326,7 +326,8 @@ private _unitstog = [
 	false,	//fillEvenly
 	true,	//fillTopDown
 	false,	//disableTeleport
-	0		//unitMovementMode
+	0,		//unitMovementMode
+	_vec   //bldg
 ] call d_fnc_garrisonUnits;
 d_delinfsm append _unitstog;
 #endif
@@ -601,7 +602,7 @@ if (d_occ_bldgs == 1) then {
 			private _unitstog = [
 				[[[_trg_center, d_occ_rad]],[]] call BIS_fnc_randomPos,
 				-1,     //_maxNumUnits
-				99,		//fillRadius
+				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -646,7 +647,7 @@ if (d_occ_bldgs == 1) then {
 			private _unitstog = [
 				[[[_trg_center, d_ovrw_rad]],[]] call BIS_fnc_randomPos,
 				-1,     //_maxNumUnits
-				99,		//fillRadius
+				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -693,7 +694,7 @@ if (d_occ_bldgs == 1) then {
 			private _unitstog = [
 				_pos,
 				-1,     //_maxNumUnits
-				99,		//fillRadius
+				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				false,		//fillTopDown
@@ -706,7 +707,7 @@ if (d_occ_bldgs == 1) then {
 			private _unitstog = [
 				_pos,
 				-1,     //_maxNumUnits
-				99,		//fillRadius
+				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
 				true,		//fillTopDown
@@ -954,3 +955,5 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai
 	_dyke setpos [_pos#0,_pos#1,.3];
 } foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif
+
+diag_log ["end of fn_createmaintarget.sqf"];

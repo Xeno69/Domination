@@ -2761,7 +2761,32 @@ d_barracks_building = call {
 		"C_Tak_03_A_lxWS", 1,
 		"C_Tak_03_B_lxWS", 1,
 		"C_Tak_03_C_lxWS", 1
-	];	
+	];
+	
+	d_civ_women_common = [
+		"Max_woman1", 7,
+		"Max_woman3", 1,
+		"Max_woman4", 1
+	];
+	
+	d_civ_women_takistan = [
+		"Max_Tak_woman1", 0.5,
+		"Max_Tak_woman2", 0.5,
+		"Max_Tak_woman3", 0.5,
+		"Max_Tak_woman4", 0.5,
+		"Max_Tak_woman5", 0.5,
+		"Max_Tak_woman6", 15,
+		"Max_Taky_woman1", 0.5,
+		"Max_Taky_woman2", 0.5,
+		"Max_Taky_woman3", 0.5,
+		"Max_Taky_woman4", 0.5,
+		"Max_Taky_woman5", 0.5,
+		"Max_Tak2_woman1", 0.5,
+		"Max_Tak2_woman2", 0.5,
+		"Max_Tak2_woman3", 0.5,
+		"Max_Tak2_woman4", 0.5,
+		"Max_Tak2_woman5", 0.5
+	];
 	
 #ifdef __ALTIS__
 	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthHigh;
@@ -3295,6 +3320,20 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_specops_paratrooper_squad"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 6: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction6-russiangroundforces.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
+				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_vdv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
+				["EAST","CFP_O_RUARMY_DES","Infantry","InfSquad_DES"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["EAST","CFP_O_RUARMY_DES","SpecOps","cfp_o_ruarmy_specops_spetsnaz_team_des"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_sniper_team_emr_des"] call d_fnc_GetConfigGroup];
 			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
 		};
 	};

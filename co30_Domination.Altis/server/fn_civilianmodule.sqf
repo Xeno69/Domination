@@ -25,11 +25,20 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 	d_cur_tgt_civ_modules_presence = [];
 };
 
+d_civArray_current =+ d_civArray;
+
+if (d_enable_women == 1) then {
+	d_civArray_current = (d_civArray + d_civ_women_common);
+#ifdef __CUP_TAKISTAN__
+	d_civArray_current = (d_civArray + d_civ_women_takistan);
+#endif
+};
+
 private _civ_units_count_max = 500; // default (recalculated if adaptive settings are selected)
 
 private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
 
-private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist) };
+private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist_civs) };
 
 diag_log [format ["total possible buildings to spawn civs: %1", count (_buildings)]];
 
@@ -37,7 +46,7 @@ private _total_civs_count_created = 0;
 
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
-	diag_log ["attempting to place a civilian cluster..."];
+	diag_log [format ["attempting to place a civilian cluster... count _buildings array is: %1", count _buildings]];
 	if (count _buildings < 1) exitWith {
 		diag_log ["unable to place civilian cluster, no buildings in array"];
 	};
@@ -62,15 +71,17 @@ private _placeCivilianCluster = {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
 	_posArray = _bldg buildingPos -1;
-	_unit_count = 2 max floor(random 6);
+	_unit_count = 6 max floor(random 12);
 	if (count _posArray > 5 && {1 > random 10}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
 		diag_log ["randomly chose to spawn a large civilian group"];
-		_unit_count = 5 max floor(random 9);
+		_unit_count = 11 max floor(random 17);
 	};
 	private _units_civ_cluster = [];
+	private _civ_group = createGroup civilian;
+	_civ_group deleteGroupWhenEmpty true;
 	for "_i" from 0 to _unit_count do {
-		_civAgent = createAgent [selectRandomWeighted d_civArray, [0,0,0], [], 0, "NONE"];
+		_civAgent = createAgent [selectRandomWeighted d_civArray_current, [0,0,0], [], 0, "NONE"];
 		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {
@@ -119,7 +130,7 @@ private _placeCivilianCluster = {
 	[
     	getPos _bldg,											// Params: 1. Array, the building(s) nearest this position is used
     	_units_civ_cluster,									//         2. Array of objects, the units that will garrison the building(s)
-    	10,										//  (opt.) 3. Scalar, radius in which to fill building(s)
+    	199,										//  (opt.) 3. Scalar, radius in which to fill building(s)
     	false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
     	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
     	false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
@@ -128,7 +139,8 @@ private _placeCivilianCluster = {
     	false, //true         //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
     	false,                           //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
     	false,                       //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
-    	3.6                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
+    	99,                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
+    	_bldg							//  (opt.) 13. _targetBuilding Object, target building may be passed
     ] call d_fnc_Zen_OccupyHouse;
 
 #ifdef __GROUPDEBUG__
@@ -258,6 +270,6 @@ _m setVariable ["#onCreated", {
 			};
 		};
 	}];
-	[_this, selectRandomWeighted d_civArray] remoteExec ["setIdentity", 0, _this];
-	_this setUnitLoadout selectRandomWeighted d_civArray;
+	[_this, selectRandomWeighted d_civArray_current] remoteExec ["setIdentity", 0, _this];
+	_this setUnitLoadout selectRandomWeighted d_civArray_current;
 }];
