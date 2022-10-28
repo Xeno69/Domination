@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-if (d_noambient_bf_sounds) exitWith {};
+if (d_noambient_bf_sounds || d_noambient_bf_sounds_setting == 1) exitWith {};
 
 private _sounds = [
 	"BattlefieldExplosions1_3D",

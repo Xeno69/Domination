@@ -8,13 +8,14 @@
 //   1 Less
 //   2 None
 //   3 Random, enemy mode is randomly chosen [0,1,2] each time a maintarget is created
+//   4 High
 
 __TRACE_1("","_this")
 
 params ["_enemyMode"];
 
 if (_enemyMode == 3) then {
-	d_enemy_mode_current_maintarget = selectRandom [0, 1, 2];
+	d_enemy_mode_current_maintarget = selectRandom [0, 1, 2, 4];
 	_enemyMode = d_enemy_mode_current_maintarget;
 };
 
@@ -22,6 +23,7 @@ if (_enemyMode == 3) then {
 // the second one the minimum. So [2,0] means, there can be no vehicle groups at all or a maximum of 2 groups of this kind
 // second element: maximum number of vehicles in group; randomly chosen
 switch (_enemyMode) do {
+	// normal
 	case 0: {
 		d_vec_numbers_guard = [
 			[[1,0], 1], // tanks
@@ -81,7 +83,7 @@ switch (_enemyMode) do {
 			[1,1], // basic groups
 			[1,1] // specop groups
 		];
-		d_vec_numbers_attack = [
+		d_vec_numbers_attack = [ // not used?
 			[[1,1], 1], // tanks
 			[[1,1], 1], // tracked apc
 			[[1,1], 1], // wheeled apc
@@ -90,6 +92,8 @@ switch (_enemyMode) do {
 			[[1,1], 1] // aa
 		];
 	};
+	
+	// less
 	case 1: {
 		d_vec_numbers_guard = [
 			[[1,0], 1], // tanks
@@ -130,7 +134,7 @@ switch (_enemyMode) do {
 			[2,1], // basic groups
 			[2,1] // specop groups
 		];
-		d_vec_numbers_attack = [
+		d_vec_numbers_attack = [ // not used?
 			[[1,0], 1], // tanks
 			[[1,0], 1], // tracked apc
 			[[1,0], 1], // wheeled apc
@@ -139,6 +143,8 @@ switch (_enemyMode) do {
 			[[1,0], 1] // aa
 		];
 	};
+	
+	// none
 	case 2: {
 		d_vec_numbers_guard = [
 			[[0,0], 1], // tanks
@@ -179,13 +185,85 @@ switch (_enemyMode) do {
 			[4,1], // basic groups
 			[4,1] // specop groups
 		];
-		d_vec_numbers_attack = [
+		d_vec_numbers_attack = [ // not used?
 			[[0,0], 1], // tanks
 			[[0,0], 1], // tracked apc
 			[[0,0], 1], // wheeled apc
 			[[2,1], 1], // jeep with mg
 			[[2,1], 1], // jeep with gl
 			[[0,0], 1] // aa
+		];
+	};
+	
+	// case 3: does not exist, no case required since "3" is "random"
+	
+	// high
+	case 4: {
+		d_vec_numbers_guard = [
+			[[1,0], 1], // tanks
+			[[1,0], 1], // tracked apc
+			[[1,1], 1], // wheeled apc
+			[[1,1], 1], // jeep with mg
+			[[1,0], 1] // jeep with gl
+		];
+		d_vec_numbers_guard_static = [
+			[[5,3], 1], // tanks
+			[[5,3], 1], // tracked apc
+			[[3,2], 1] // aa
+		];
+		d_vec_numbers_patrol = [
+#ifndef __TT__
+			[[4,2], 1], // tanks
+			[[4,2], 1], // tracked apc
+			[[4,2], 1], // wheeled apc
+			[[4,2], 1], // jeep with mg
+			[[2,1], 1], // jeep with gl
+			[[1,1], 1]  // uav
+#else
+			[[1,1], 1], // tanks
+			[[2,1], 1], // tracked apc
+			[[2,1], 1], // wheeled apc
+			[[2,1], 1], // jeep with mg
+			[[1,1], 1], // jeep with gl
+			[[1,1], 1]  // uav
+#endif
+		];
+
+		// almost the same like above
+		// first element the max number of ai "foot" groups that will get spawned, second element minimum number (no number for vehicles in group necessary)
+		d_footunits_guard = [
+#ifndef __TT__
+			[1,1], // basic groups
+			[1,1] // specop groups
+#else
+			[2,1], // basic groups
+			[2,1] // specop groups
+#endif
+		];
+		d_footunits_patrol = [
+#ifndef __TT__
+			[2,2], // basic groups
+			[2,2] // specop groups
+#else
+			[6,3], // basic groups
+			[5,3] // specop groups
+#endif
+		];
+		d_footunits_guard_static = [
+			[1,1], // basic groups
+			[1,0] // specop groups
+		];
+		d_footunits_attack = [
+			[1,1], // basic groups
+			[1,1] // specop groups
+		];
+		d_vec_numbers_attack = [ // not used?
+			[[1,1], 1], // tanks
+			[[1,1], 1], // tracked apc
+			[[1,1], 1], // wheeled apc
+			[[1,1], 1], // jeep with mg
+			[[1,1], 1], // jeep with gl
+			[[1,1], 1] // aa
 		];
 	};
 };

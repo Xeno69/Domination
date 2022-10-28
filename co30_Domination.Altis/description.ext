@@ -1117,6 +1117,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
+	class d_noambient_bf_sounds_setting {
+		title = "$STR_DOM_MISSIONSTRING_DISABLE_AMBIENT_BATTLEFIELD_SOUNDS";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
 	class d_WithVoicesDisabled {
 		title = "$STR_DOM_MISSIONSTRING_SUPPRESS_VOICES";
 		values[] = {0,1};
@@ -1567,9 +1574,9 @@ class Params {
 
 	class d_WithLessArmor {
 		title = "$STR_DOM_MISSIONSTRING_1132";
-		values[] = {0,1,2,3};
+		values[] = {0,1,2,3,4};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405", "$STR_DOM_MISSIONSTRING_1007_RANDOM"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_11","$STR_DOM_MISSIONSTRING_1133","$STR_DOM_MISSIONSTRING_405","$STR_DOM_MISSIONSTRING_1007_RANDOM","$STR_DOM_MISSIONSTRING_400"};
 	};
 
 	class d_WithLessArmor_side {

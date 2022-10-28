@@ -194,7 +194,7 @@
 >    - 850 (850) <br />
 >    - 1000 (1000) <br />
 
-#### **d_save_to_mpns / Save player and mission progress to missionProfileNamespace if no SQL database is available**
+#### **d_save_to_mpns / Save player and mission progress to missionProfileNamespace if no SQL database is available. Enabling this feature will also enable ranked gameplay.**
 > Default: 1 - Yes <br />
 > Available options: <br />
 >    - No (0) <br />
@@ -525,7 +525,7 @@
 >    - No (0) <br />
 >    - Yes (1) <br />
 
-#### **d_WithVoicesDisabled / Disable voices:**
+#### **d_WithVoicesDisabled / Disable enemy voices (SOG only):**
 > Default: 0 - No <br />
 > Available options: <br />
 >    - No (0) <br />
@@ -1169,6 +1169,7 @@
 >    - Less (1) <br />
 >    - None (2) <br />
 >    - Random (3) <br />
+>    - High (4) <br />
 
 #### **d_WithLessArmor_side / Armor at side missions:**
 > Default: 0 - Normal <br />
