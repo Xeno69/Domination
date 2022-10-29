@@ -7396,6 +7396,18 @@
 <Chinese>敵方陣營啟用模擬：</Chinese>
 <French>Enable simulation for enemy camps:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_DISABLE_AMBIENT_BATTLEFIELD_SOUNDS">
+<English>Disable ambient battlefield sounds:</English>
+<Spanish>Disable ambient battlefield sounds:</Spanish>
+<Portuguese>Disable ambient battlefield sounds:</Portuguese>
+<Korean>Disable ambient battlefield sounds:</Korean>
+<Japanese>Disable ambient battlefield sounds:</Japanese>
+<Original>Disable ambient battlefield sounds:</Original>
+<Russian>Disable ambient battlefield sounds:</Russian>
+<Chinesesimp>Disable ambient battlefield sounds:</Chinesesimp>
+<Chinese>Disable ambient battlefield sounds:</Chinese>
+<French>Disable ambient battlefield sounds:</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1176">
 <English>Recruit AI (max.):</English>
 <Spanish>Recrutar AI (máx.):</Spanish>
@@ -14710,16 +14722,16 @@
 <French>Taking object...</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_SUPPRESS_VOICES">
-<English>Disable voices:</English>
-<Spanish>Disable voices:</Spanish>
-<Portuguese>Disable voices:</Portuguese>
+<English>Disable enemy voices:</English>
+<Spanish>Disable enemy voices:</Spanish>
+<Portuguese>Disable enemy voices:</Portuguese>
 <Korean>음성 비활성화:</Korean>
-<Japanese>Disable voices:</Japanese>
-<Original>Disable voices:</Original>
+<Japanese>Disable enemy voices:</Japanese>
+<Original>Disable enemy voices:</Original>
 <Russian>Отключить разговоры:</Russian>
 <Chinesesimp>禁用语音：</Chinesesimp>
 <Chinese>禁用語音：</Chinese>
-<French>Disable voices:</French>
+<French>Disable enemy voices:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
