@@ -25,24 +25,6 @@ private ["_grp", "_newGrp"];
 params ["_posv1", "_azi", "_typev1", ["_sideorgrp", sideUnknown], ["_addkills", true], ["_nocargo", false]];
 __TRACE_1("","_this")
 
-// from Killzone_Kid https://community.bistudio.com/wiki/isFlatEmpty
-fnc_isFlatEmpty = {
-	params ["_pos", "_params"];
-	_pos = _pos findEmptyPosition [0, _params select 0];
-	if (_pos isEqualTo []) exitWith {
-		//diag_log ["could not find a position findEmptyPosition"];
-		[]
-	};
-	_params = +_params;
-	_params set [0, -1];
-	_pos = _pos isFlatEmpty _params;
-	if (_pos isEqualTo []) exitWith {
-		//diag_log ["could not find a position isFlatEmpty"];
-		[]
-	};
-	_pos
-};
-
 if (!isClass (configFile>>"CfgVehicles">>_typev1)) exitWith {
 	diag_log ["ATTENTION: Couldn't spawn vehicle, fn_spawnvehicle.sqf, the following class does not exist (anymore):", _typev1, "_this:", _this];
 	[objNull, [], grpNull]
@@ -98,7 +80,7 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	private _pos_flat_empty_attempts = 0;
 	private _tmp_pos = _posv1;
 	while {_pos_flat_empty isEqualTo [] && {_pos_flat_empty_attempts < 99}} do {
-		_pos_flat_empty = [_tmp_pos, [1, -1, 0.1, 1, -1, false, objNull]] call fnc_isFlatEmpty;
+		_pos_flat_empty = [_tmp_pos, [1, -1, 0.1, 1, -1, false, objNull]] call d_fnc_isFlatEmpty;
 		if (_pos_flat_empty isEqualTo []) then {
 			_tmp_pos = [[[_tmp_pos, 25]],[]] call BIS_fnc_randomPos;
 			_pos_flat_empty_attempts = _pos_flat_empty_attempts + 1;
@@ -108,6 +90,8 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 		diag_log ["fn_spawnvehicle could not find a flat and empty spot after 99 attempts, giving up and using original position"];
 		_pos_flat_empty = _posv1;
 	};
+	// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
+	_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)];
 	_veh = createVehicle [_typev1, _pos_flat_empty, [], 0, "NONE"];
 	_veh call d_fnc_nodamoff;
 	if (d_del_crew_always == 1) then {

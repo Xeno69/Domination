@@ -15069,17 +15069,29 @@
 <Chinese>Russian Ground Forces (Community Factions Project)</Chinese>
 <French>Russian Ground Forces (Community Factions Project)</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN">
-<English>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
-<Spanish>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
-<Portuguese>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Portuguese>
-<Korean>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Korean>
-<Japanese>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
-<Original>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
-<Russian>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
-<Chinesesimp>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinesesimp>
-<Chinese>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinese>
-<French>MODS REQUIRED - Enable women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</French>
+<Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN_MILITARY">
+<English>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
+<Spanish>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
+<Portuguese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Portuguese>
+<Korean>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Korean>
+<Japanese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
+<Original>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
+<Russian>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
+<Chinesesimp>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinesesimp>
+<Chinese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinese>
+<French>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN_CIVS">
+<English>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
+<Spanish>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
+<Portuguese>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Portuguese>
+<Korean>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Korean>
+<Japanese>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
+<Original>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
+<Russian>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
+<Chinesesimp>MODS REQUIRED - Enable fighter women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinesesimp>
+<Chinese>MODS REQUIRED - Enable fighter women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Chinese>
+<French>MODS REQUIRED - Enable fighter women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_COMBAT_UAV_TEAM_MAX_REACHED">
 <English>Only one combat UAV allowed per team.</English>

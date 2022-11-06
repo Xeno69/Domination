@@ -39,6 +39,7 @@ if (alive d_mt_mobile_hq_obj) then {
 	d_mt_mobile_hq_obj setVariable ["d_mt_done", true];
 };
 d_mt_done = true;
+publicVariable "d_mt_done";
 
 sleep 0.01;
 

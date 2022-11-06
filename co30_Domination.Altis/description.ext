@@ -1313,6 +1313,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
+	class d_enable_women_civs {
+		title = "$STR_DOM_MISSIONSTRING_ENABLE_WOMEN_CIVS";
+		values[] = {0,1};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		default = 0;
+	};
+	
 	class d_params_dl_8_enemy_ai {
 		title = "$STR_DOM_MISSIONSTRING_1574_ENEMY_AI";
 		values[] = {-66};
@@ -1639,8 +1646,8 @@ class Params {
 		default = 0;
 	};
 	
-	class d_enable_women {
-		title = "$STR_DOM_MISSIONSTRING_ENABLE_WOMEN";
+	class d_enable_women_military {
+		title = "$STR_DOM_MISSIONSTRING_ENABLE_WOMEN_MILITARY";
 		values[] = {0,1};
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 		default = 0;

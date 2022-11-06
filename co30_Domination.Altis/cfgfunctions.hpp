@@ -365,6 +365,7 @@ class cfgFunctions {
 			addc(getbldgswithpositions);
 			addc(getunitbyuid);
 			addc(ismissionobjective);
+			addc(isflatempty);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

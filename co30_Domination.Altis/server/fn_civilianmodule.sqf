@@ -27,7 +27,7 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 
 d_civArray_current =+ d_civArray;
 
-if (d_enable_women == 1) then {
+if (d_enable_women_civs == 1) then {
 	d_civArray_current = (d_civArray + d_civ_women_common);
 #ifdef __CUP_TAKISTAN__
 	d_civArray_current = (d_civArray + d_civ_women_takistan);
