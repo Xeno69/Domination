@@ -16,8 +16,6 @@ if (count d_cur_uav_combat > 0 && {d_arty_unlimited != 1}) exitWith {
 
 private _uav_count_player = 0;
 {
-	diag_log ["zoooo"];
-	diag_log [_x];
 	if (_x getVariable "d_player_netId" == netId player) then {
 		_uav_count_player = _uav_count_player + 1;
 	};
