@@ -16,25 +16,61 @@ while {true} do {
 			_uav remoteExecCall ["d_fnc_initvec"];
 		};
 		while {!isNull (getConnectedUAV player)} do {
-			private _ar = UAVControl _uav;
-			if (!d_isinuavmode && {_ar # 0 == player && {_ar # 1 isNotEqualTo ""}}) then {
-				d_isinuavmode = true;
-				if (_uav isKindOf "Car" || {_uav isKindOf "Tank" || {_uav isKindOf "Motorcycle" || {_uav isKindOf "Ship"}}}) then {
-					if (d_ViewDistanceVec != viewDistance) then {
-						setViewDistance d_ViewDistanceVec;
-						setObjectViewDistance d_ViewDistanceVec + 100;
+			if (typeOf _uav == d_UAV_CAS) then {
+				// special case for combat UAV, different from MHQ based UAV
+				// UAV terminal may remain connected while player is not using turret or driver
+				private _ar = UAVControl _uav;
+				private _is_player_driver_or_gunner = false; 
+				if (count _ar == 4) then {
+					// UAV may have two different players controlling driver/gunner
+					// example from wiki:
+					// [player1, "DRIVER", player2, "GUNNER"] - player1 is controlling the UAV and is the pilot, player2 is controlling UAV and is the gunner
+					if (
+						(_ar # 0 == player && { _ar # 1 isEqualTo "GUNNER" || _ar # 1 isEqualTo "DRIVER" })
+							|| (_ar # 2 == player && { _ar # 3 isEqualTo "GUNNER" || _ar # 3 isEqualTo "DRIVER" })
+					) then {
+						_is_player_driver_or_gunner = true;
 					};
 				} else {
-					if (_uav isKindOf "Helicopter" || {_uav isKindOf "Plane"}) then {
-						if (d_ViewDistanceAir != viewDistance) then {
-							setViewDistance d_ViewDistanceAir;
-							setObjectViewDistance d_ViewDistanceAir + 100;
-						};
+					if (_ar # 0 == player && { _ar # 1 isEqualTo "GUNNER"
+						|| _ar # 1 isEqualTo "DRIVER" }
+					) then {
+						_is_player_driver_or_gunner = true;
 					};
 				};
-			} else {
-				if (d_isinuavmode) then {
+
+				if (!d_isinuavmode && { _is_player_driver_or_gunner }) then {
+					d_isinuavmode = true;
+					setViewDistance d_ViewDistanceAir;
+					setObjectViewDistance d_ViewDistanceAir + 100;
+				};
+				
+				if (d_isinuavmode && {! _is_player_driver_or_gunner }) then {
 					d_isinuavmode = false;
+					setViewDistance d_curviewdistance;
+					setObjectViewDistance d_curviewdistance + 100;
+				};
+			} else {
+				private _ar = UAVControl _uav;
+				if (!d_isinuavmode && {_ar # 0 == player && {_ar # 1 isNotEqualTo ""}}) then {
+					d_isinuavmode = true;
+					if (_uav isKindOf "Car" || {_uav isKindOf "Tank" || {_uav isKindOf "Motorcycle" || {_uav isKindOf "Ship"}}}) then {
+						if (d_ViewDistanceVec != viewDistance) then {
+							setViewDistance d_ViewDistanceVec;
+							setObjectViewDistance d_ViewDistanceVec + 100;
+						};
+					} else {
+						if (_uav isKindOf "Helicopter" || {_uav isKindOf "Plane"}) then {
+							if (d_ViewDistanceAir != viewDistance) then {
+								setViewDistance d_ViewDistanceAir;
+								setObjectViewDistance d_ViewDistanceAir + 100;
+							};
+						};
+					};
+				} else {
+					if (d_isinuavmode) then {
+						d_isinuavmode = false;
+					};
 				};
 			};
 			sleep 1;
@@ -45,6 +81,8 @@ while {true} do {
 			_uav remoteExecCall ["d_fnc_rem_uav"];
 			_uav setVariable ["d_vcheck", nil, true];
 		};
+		setViewDistance d_curviewdistance;
+		setObjectViewDistance d_curviewdistance + 100;
 		d_isinuavmode = false;
 	};
 	sleep 1;
