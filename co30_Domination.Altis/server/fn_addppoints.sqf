@@ -31,27 +31,29 @@ if (_kind in [1, 2, 3]) then {
 		if (_kind == 2) exitWith {
 			if (!isNull _obj) then {
 				private _uid = getPlayerUID _pl;
-				private _last = _obj getVariable [_uid, -1];
-				if (time - _last > 30) then {
-					call {
-						if (d_db_type == 0) exitWith {
-							"extdb3" callExtension format ["1:dom:campAdd:%1", _uid];
-						};
-						if (d_db_type == 1) exitWith {
-							["campAdd", [_uid]] call d_fnc_queryconfigasync;
-						};
-						if (d_db_type == 2) exitWith {
-							private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
-							if (!isNil "_tmphash") then {
-								private _tmpar = _tmphash get _uid;
-								if (!isNil "_tmpar") then {
-									_tmpar set [11, (_tmpar # 11) + 1];
+				if (!isNil "_uid") then {
+					private _last = _obj getVariable [_uid, -1];
+					if (time - _last > 30) then {
+						call {
+							if (d_db_type == 0) exitWith {
+								"extdb3" callExtension format ["1:dom:campAdd:%1", _uid];
+							};
+							if (d_db_type == 1) exitWith {
+								["campAdd", [_uid]] call d_fnc_queryconfigasync;
+							};
+							if (d_db_type == 2) exitWith {
+								private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
+								if (!isNil "_tmphash") then {
+									private _tmpar = _tmphash get _uid;
+									if (!isNil "_tmpar") then {
+										_tmpar set [11, (_tmpar # 11) + 1];
+									};
 								};
 							};
 						};
+						[_pl, 4] call d_fnc_addScore;
+						_obj setVariable [_uid, time];
 					};
-					[_pl, 4] call d_fnc_addScore;
-					_obj setVariable [_uid, time];
 				};
 			};
 		};
