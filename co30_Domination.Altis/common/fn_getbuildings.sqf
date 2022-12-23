@@ -2,6 +2,7 @@
 //#define __DEBUG__
 //#include "..\x_setup.sqf"
 
+// TODO - deprecate this and use fn_getbldgswithpositions.sqf
 // get array of buildings, return only buildings with defined positions inside
 // _center - position
 // _buildingRadius - set nearestObjects radius, -1 to return only the nearest building

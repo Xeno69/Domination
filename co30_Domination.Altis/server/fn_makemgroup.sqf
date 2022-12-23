@@ -83,7 +83,7 @@ _women_infantry = [
 
 {
 	private _one_unit = nil;
-	if (_women_infantry isNotEqualTo [] && {d_enable_women_military == 1 && {random 100 > 80 && {(groupId _grp) find "Sniper" == -1}}}) then {
+	if (_women_infantry isNotEqualTo [] && {d_enable_women_military == 1 && {random 100 > 95 && {(groupId _grp) find "Sniper" == -1}}}) then {
 		// if women are enabled, chance unit is a woman, cannot be sniper because there is no sniper class for women
 		_one_unit = _grp createUnit [selectRandom _women_infantry, _pos, [], 10, "NONE"];
 	} else {

@@ -42,16 +42,14 @@ private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_o
 
 diag_log [format ["total possible buildings to spawn civs: %1", count (_buildings)]];
 
-private _total_civs_count_created = 0;
-
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
 	diag_log [format ["attempting to place a civilian cluster... count _buildings array is: %1", count _buildings]];
 	if (count _buildings < 1) exitWith {
 		diag_log ["unable to place civilian cluster, no buildings in array"];
 	};
-	if (_total_civs_count_created > _civ_units_count_max) exitWith {
-		diag_log [format ["unable to place civilian cluster, %1 civs created and the max is %2", _total_civs_count_created, _civ_units_count_max]];
+	if (count d_cur_tgt_civ_units > _civ_units_count_max) exitWith {
+		diag_log [format ["unable to place civilian cluster, %1 civs created and the max is %2", count d_cur_tgt_civ_units, _civ_units_count_max]];
 	};
 	_grp = _this # 0;
 	_bldg = selectRandom _buildings;
@@ -60,13 +58,13 @@ private _placeCivilianCluster = {
 	if ([_bldg] call d_fnc_ismissionobjective) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is a mission objective"];
 	};
-	// do not create the civ cluster if any buildings within a 85m radius are also mission objectives
+	// do not create the civ cluster if any buildings within a 30m radius are also mission objectives
 	private _mustExit = false;
 	{
 		if ([_x] call d_fnc_ismissionobjective) exitWith {
 			_mustExit = true;
 		};
-	} forEach ([_bldg, 85] call d_fnc_getbldgswithpositions);
+	} forEach ([_bldg, 30] call d_fnc_getbldgswithpositions);
 	if (_mustExit == true) exitWith {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
@@ -82,7 +80,6 @@ private _placeCivilianCluster = {
 	_civ_group deleteGroupWhenEmpty true;
 	for "_i" from 0 to _unit_count do {
 		_civAgent = createAgent [selectRandomWeighted d_civArray_current, [0,0,0], [], 0, "NONE"];
-		_total_civs_count_created = _total_civs_count_created + 1;
 		if (random 2 <= 1) then {
 			if (random 2 <= 1) then {
 				[_civAgent, "SIT_LOW"] call BIS_fnc_ambientAnim;
@@ -123,7 +120,11 @@ private _placeCivilianCluster = {
 				call d_fnc_civmodulekilleh;
 			};
 		}];
-		[_civAgent, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civAgent];
+		// do not change the assigned face if "woman" is in the typeOf (avoid putting male faces on women)
+		if !(["woman", str typeOf _civAgent] call BIS_fnc_inString) then {
+			// select random face
+			[_civAgent, selectRandom d_civ_faces] remoteExec ["setIdentity", 0, _civAgent];
+		};
 		_units_civ_cluster pushBack _civAgent;
 	};
 	
@@ -136,7 +137,7 @@ private _placeCivilianCluster = {
     	false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
     	false,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
     	0,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
-    	false, //true         //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
+    	true,								//  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead
     	false,                           //  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
     	false,                       //  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
     	99,                           //  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
@@ -145,7 +146,8 @@ private _placeCivilianCluster = {
 
 #ifdef __GROUPDEBUG__
 	{
-		private _civ_string_tmp = format ["civ%1", str (random 99999)];
+		//private _civ_string_tmp = format ["civ%1", str (random 99999)];
+		private _civ_string_tmp = getModelInfo _bldg # 0; // useful for identifying bad buildings to add to the civ blacklist
 		[_civ_string_tmp, position _x, "ICON", "ColorBlack", [0.5, 0.5], _civ_string_tmp, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 	} forEach _units_civ_cluster;
 #endif
@@ -158,7 +160,7 @@ private _placeCivilianCluster = {
 		};
 	} forEach _units_civ_cluster;
 	
-	diag_log ["civilian cluster successfully created"];
+	diag_log [format ["civilian cluster successfully created %1 civ units", count _units_civ_cluster]];
 };
 
 #ifdef __DEBUG__
@@ -211,65 +213,76 @@ for "_i" from 0 to _civ_grp_count do {
 	[_grp] call _placeCivilianCluster;
 };
 
-diag_log [format ["total static civs created: %1", _total_civs_count_created]];
+diag_log [format ["total static civs created: %1", count d_cur_tgt_civ_units]];
 
 // create civilian module and use the module to spawn moving civilians (walking/running)
 // only create one module and a few civilians, too many moving civilians are distracting
 _grp_civmodule = createGroup [civilian, true];
 
-_ms1 = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,_radius] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-_ms1 call _civModuleSetVars;
-d_cur_tgt_civ_modules_presencesafespot pushBack _ms1;
-__TRACE_1("","_ms1")
-
-_ms2 = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,_radius] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-_ms2 call _civModuleSetVars;
-d_cur_tgt_civ_modules_presencesafespot pushBack _ms2;
-__TRACE_1("","_ms2")
-
-_ms3 = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position nearestBuilding ([[[_trg_center, [0,_radius] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-_ms3 call _civModuleSetVars;
-d_cur_tgt_civ_modules_presencesafespot pushBack _ms3;
-__TRACE_1("","_ms3")
-
-_mu1 = _grp_civmodule createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,_radius] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
-__TRACE_1("","_mu1")
-
-_mu2 = _grp_civmodule createUnit ["ModuleCivilianPresenceUnit_F", position nearestBuilding ([[[_trg_center, [0,_radius] call d_fnc_GetRandomRangeInt]],[]] call BIS_fnc_randomPos), [], 0, "NONE"];
-d_cur_tgt_civ_modules_presenceunit pushBack _mu2;
-__TRACE_1("","_mu2")
-
-private _m = _grp_civmodule createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
-
-d_cur_tgt_civ_modules_presence pushBack _m;
-
-//_m setVariable ["#debug", true]; // Debug mode on
-
-_m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray
-_m setVariable ["#useagents", true];
-_m setVariable ["#usepanicmode", false];
-_m setVariable ["#unitcount", d_civ_unitcount];
-_m setVariable ["#onCreated", {
-	d_cur_tgt_civ_units pushBack _this;
-	if (d_ai_persistent_corpses == 0) then {
-		// civ corpses are removed when civ module is deleted
-		removeFromRemainsCollector [_this];
+// try to find safespot locations - some safe buildings by string match
+private _safe_building_strings = ["church"]; // later can add more known safe places here
+{
+	if (getModelInfo _x # 0 in _safe_building_strings) then {
+		private _msmatch = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position _x, [], 0, "NONE"];
+		_msmatch call _civModuleSetVars;
+		d_cur_tgt_civ_modules_presencesafespot pushBack _msmatch;
+		__TRACE_1("","_msmatch")
+		//private _mu1 = _grp_civmodule createUnit ["ModuleCivilianPresenceUnit_F", position _msmatch, [], 0, "NONE"];
+		//d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
+		//__TRACE_1("","_mu1")
 	};
-	_this addEventHandler ["Killed", {
-		call d_fnc_civmodulekilleh;
-	}];
-	_this setVariable ["civ_is_walking", true];
-	_this addEventHandler ["FiredNear", {
-		params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-		if (_distance < 35) then {
-			_unit setVariable ["civ_last_firednear_or_threatened", time];
-			_unit forceSpeed 0;
-			if (_distance < 15) then {
-				_unit setUnitPos "DOWN";
-			};
+} forEach (_buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist_civs) });
+
+// find additional safespot locations (up to five total) that are not within 10m of a mission objective
+private _tries_remaining = 99;
+while {_tries_remaining > 0 && {count d_cur_tgt_civ_modules_presencesafespot < 5}} do {
+	_tries_remaining = _tries_remaining - 1;
+	{
+		if !([_x] call d_fnc_ismissionobjective) then {
+			private _ms = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position _x, [], 0, "NONE"];
+			_ms call _civModuleSetVars;
+			d_cur_tgt_civ_modules_presencesafespot pushBack _ms;
+			__TRACE_1("","_ms")
+	
 		};
-	}];
-	[_this, selectRandomWeighted d_civArray_current] remoteExec ["setIdentity", 0, _this];
-	_this setUnitLoadout selectRandomWeighted d_civArray_current;
-}];
+	} forEach _buildings;
+
+};
+
+if (count d_cur_tgt_civ_modules_presencesafespot > 0) then {
+	// we found at least one civilian location so we can create and configure the module PresenceUnit and Presence
+	private _mu1_pos = position (selectRandom d_cur_tgt_civ_modules_presencesafespot);
+	private _mu1 = _grp_civmodule createUnit ["ModuleCivilianPresenceUnit_F", _mu1_pos, [], 0, "NONE"];
+	d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
+	__TRACE_1("","_mu1")
+	private _m = _grp_civmodule createUnit ["ModuleCivilianPresence_F", [0,0,0], [], 0, "NONE"];
+	d_cur_tgt_civ_modules_presence pushBack _m;
+	//_m setVariable ["#debug", true]; // Debug mode on
+    _m setVariable ["#area", [_trg_center, 1000, 1000, 0, true, -1]];  // Fixed! this gets passed to https://community.bistudio.com/wiki/inAreaArray
+    _m setVariable ["#useagents", true];
+    _m setVariable ["#usepanicmode", false];
+    _m setVariable ["#unitcount", d_civ_unitcount];
+    _m setVariable ["#onCreated", {
+    	d_cur_tgt_civ_units pushBack _this;
+    	if (d_ai_persistent_corpses == 0) then {
+    		// civ corpses are removed when civ module is deleted
+    		removeFromRemainsCollector [_this];
+    	};
+    	_this addEventHandler ["Killed", {
+    		call d_fnc_civmodulekilleh;
+    	}];
+    	_this setVariable ["civ_is_walking", true];
+    	_this addEventHandler ["FiredNear", {
+    		params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+    		if (_distance < 35) then {
+    			_unit setVariable ["civ_last_firednear_or_threatened", time];
+    			_unit forceSpeed 0;
+    			if (_distance < 15) then {
+    				_unit setUnitPos "DOWN";
+    			};
+    		};
+    	}];
+    	[_this, selectRandomWeighted d_civArray_current] remoteExec ["setIdentity", 0, _this];
+    	_this setUnitLoadout selectRandomWeighted d_civArray_current;
+    }];
+};

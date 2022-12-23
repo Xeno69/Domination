@@ -242,11 +242,12 @@ diag_log ["start of forEach _buildingPosArray"];
 			//diag_log [format ["position skipped, too far from center: distance %1 > _distanceFromBuildingCenter %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
 			_skip_position = true;
 		};
-		if (!_skip_position && {!isNil "_theBuilding" && {((_housePos # 2) - (getTerrainHeightASL _housePos)) > 6}} && side (_units select _unitIndex) == civilian) then {
-			// the position is too high above the terrain for a civilian unit (prevents putting them in sniper locations)
-			//diag_log [format ["position skipped, too high: height above terrain is %1 > 6", ((_housePos # 2) - (getTerrainHeightASL _housePos))]];
-			_skip_position = true;
-		};
+		// disabled for now, allow civilians to spawn above the first floor
+		//if (!_skip_position && {!isNil "_theBuilding" && {((_housePos # 2) - (getTerrainHeightASL _housePos)) > 6}} && side (_units select _unitIndex) == civilian) then {
+		//	// the position is too high above the terrain for a civilian unit (prevents putting them in sniper locations)
+		//	//diag_log [format ["position skipped, too high: height above terrain is %1 > 6", ((_housePos # 2) - (getTerrainHeightASL _housePos))]];
+		//	_skip_position = true;
+		//};
 		if (!_skip_position && {!isNil "_theBuilding" && {side (_units select _unitIndex) == civilian}}) then {
 			// use dimensions from boundingBoxReal to check if the position is too near the edges of the building
 			// this helps avoid placing civilians in exposed positions (balcony, front porch, etc.) but it's not perfect
@@ -477,6 +478,12 @@ diag_log ["start of forEach _buildingPosArray"];
 												}]];
 											};
 										};
+										// check if civilian was misplaced and delete if civ unit is not in a house
+										if (side (_units select _unitIndex) == civilian && {!((getPosATL (_units select _unitIndex)) call d_fnc_isinhouse)}) then {
+											diag_log ["static civ unit is not in a house, deleting the civ unit now"];
+											d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find (_units select _unitIndex));
+											deleteVehicle (_units select _unitIndex);
+										};
 									};//end if _isDryRun
 									I(_unitIndex)
 									if (_fillEvenly) then {
@@ -522,7 +529,6 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
 				diag_log ["deleted unit was a civilian, removed from d_cur_tgt_civ_units"];
-				_total_civs_count_created = _total_civs_count_created - 1;
 			};
 			deleteVehicle _unit;
 		};
