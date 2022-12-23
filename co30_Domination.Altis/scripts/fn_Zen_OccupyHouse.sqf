@@ -528,7 +528,7 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 			diag_log [format ["error deleted a unit, position is almost on [0,0,0] so must be misplaced %1", getPos _unit]];
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
-				diag_log ["deleted unit was a civilian, removed from d_cur_tgt_civ_units"];
+				diag_log ["deleted unit was a civilian at [0,0,0], removed from d_cur_tgt_civ_units"];
 			};
 			deleteVehicle _unit;
 		};

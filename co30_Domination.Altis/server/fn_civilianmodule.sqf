@@ -222,14 +222,18 @@ _grp_civmodule = createGroup [civilian, true];
 // try to find safespot locations - some safe buildings by string match
 private _safe_building_strings = ["church"]; // later can add more known safe places here
 {
-	if (getModelInfo _x # 0 in _safe_building_strings) then {
-		private _msmatch = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position _x, [], 0, "NONE"];
+	private _y = _x;
+	private _is_safe = false;
+	{
+		if ([_x, getModelInfo _y # 0] call BIS_fnc_inString) then {
+			_is_safe = true;
+		}
+	} forEach _safe_building_strings;
+	if (_is_safe && {count d_cur_tgt_civ_modules_presencesafespot < 5}) then {
+		private _msmatch = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position _y, [], 0, "NONE"];
 		_msmatch call _civModuleSetVars;
 		d_cur_tgt_civ_modules_presencesafespot pushBack _msmatch;
 		__TRACE_1("","_msmatch")
-		//private _mu1 = _grp_civmodule createUnit ["ModuleCivilianPresenceUnit_F", position _msmatch, [], 0, "NONE"];
-		//d_cur_tgt_civ_modules_presenceunit pushBack _mu1;
-		//__TRACE_1("","_mu1")
 	};
 } forEach (_buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist_civs) });
 
