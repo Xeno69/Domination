@@ -350,7 +350,6 @@ class cfgFunctions {
 			addc(getfuzzyposition);
 			addc(isbldghostile);
 			addc(getbuildings);
-			addc(getcoveredpositions);
 			addc(setleader);
 			addc(sd180);
 			addc(setvel0);
@@ -366,6 +365,7 @@ class cfgFunctions {
 			addc(getunitbyuid);
 			addc(ismissionobjective);
 			addc(isflatempty);
+			addc(iscoveredposition);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";

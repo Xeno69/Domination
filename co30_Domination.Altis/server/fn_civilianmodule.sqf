@@ -220,14 +220,14 @@ diag_log [format ["total static civs created: %1", count d_cur_tgt_civ_units]];
 _grp_civmodule = createGroup [civilian, true];
 
 // try to find safespot locations - some safe buildings by string match
-private _safe_building_strings = ["church"]; // later can add more known safe places here
+private _safe_building_strings = ["church", "chapel"]; // later can add more known safe places here
 {
 	private _y = _x;
 	private _is_safe = false;
 	{
-		if ([_x, getModelInfo _y # 0] call BIS_fnc_inString) then {
+		if ([toLowerANSI _x, toLowerANSI (getModelInfo _y # 0)] call BIS_fnc_inString) then {
 			_is_safe = true;
-		}
+		};
 	} forEach _safe_building_strings;
 	if (_is_safe && {count d_cur_tgt_civ_modules_presencesafespot < 5}) then {
 		private _msmatch = _grp_civmodule createUnit ["ModuleCivilianPresenceSafeSpot_F", position _y, [], 0, "NONE"];

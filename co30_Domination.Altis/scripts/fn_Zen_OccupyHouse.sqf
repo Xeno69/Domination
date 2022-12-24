@@ -228,9 +228,8 @@ diag_log ["start of forEach _buildingPosArray"];
 				_theBuilding = _bldgs_list select 0;
 			};
 		};
-		if (!_skip_position && {_isRequireRoofOverhead && {!((_housePos) call d_fnc_isinhouse)}}) then {
-			// the position is not inside a house
-			diag_log ["position skipped, must be inside a house"];
+		if (!_skip_position && {_isRequireRoofOverhead && {!((_housePosBeforeEyeHeight) call d_fnc_iscoveredposition)}}) then {
+			diag_log ["position skipped, position must be covered with building overhead"];
 			_skip_position = true;
 		};
 		if (!_skip_position && {!isNil "_theBuilding"}) then {
@@ -479,7 +478,7 @@ diag_log ["start of forEach _buildingPosArray"];
 											};
 										};
 										// check if civilian was misplaced and delete if civ unit is not in a house
-										if (side (_units select _unitIndex) == civilian && {!((getPosATL (_units select _unitIndex)) call d_fnc_isinhouse)}) then {
+										if (side (_units select _unitIndex) == civilian && {!(((_units select _unitIndex)) call d_fnc_isinhouse)}) then {
 											diag_log ["static civ unit is not in a house, deleting the civ unit now"];
 											d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find (_units select _unitIndex));
 											deleteVehicle (_units select _unitIndex);
@@ -530,6 +529,11 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
 				diag_log ["deleted unit was a civilian at [0,0,0], removed from d_cur_tgt_civ_units"];
 			};
+			deleteVehicle _unit;
+		};
+		if (side _unit == civilian && {!((_unit) call d_fnc_isinhouse)}) then {
+			d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
+			diag_log ["deleted unit was a civilian and isinhouse was false, removed from d_cur_tgt_civ_units"];
 			deleteVehicle _unit;
 		};
 	};
