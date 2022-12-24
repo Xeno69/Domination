@@ -84,30 +84,27 @@ private _enemyGuardGroup = (["specops", 0, "allmen", 1, _nposss , 5, false, true
 } forEach (units _enemyGuardGroup);
 
 //find a suitable building and occupy
-_buildings_array_sorted_by_distance = [[_poss, 200] call d_fnc_getbldgswithpositions, _poss] call d_fnc_sortarraybydistance;
+private _buildings_array_sorted_by_distance = [];
+_buildings_array_sorted_by_distance = [[_nposss, 200] call d_fnc_getbldgswithpositions, _nposss] call d_fnc_sortarraybydistance;
 private _unitsNotGarrisoned = [];
 private _bldg = nil;
 private _marker = nil;
-
-{
-	//dry run to find a suitable building
-	_unitsNotGarrisoned = [getPos _x, _allActors, 199, false, false, true, false, 2, true, true, true] call d_fnc_Zen_OccupyHouse; // dry run
-	if (count _unitsNotGarrisoned == 0) exitWith {
-		// building is suitable
-		_bldg = _x;
-		_unitsNotGarrisoned = [getPos _x, _allActors, 199, false, false, true, false, 2, true, true] call d_fnc_Zen_OccupyHouse;
-	};
-
-} forEach _buildings_array_sorted_by_distance;
-
-if (!isNil "_bldg") then {
-	_marker = ["d_mt_event_marker_sideprisoners", getPos _bldg, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
-    [_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+private _spawnpos = _nposss;
+if !(_buildings_array_sorted_by_distance isEqualTo []) then {
+	_spawnpos = getPos (_buildings_array_sorted_by_distance # 0);
+	_unitsNotGarrisoned = [_spawnpos, _pilot1, 199, true, false, false, false, 2, false, true, false, -1, _buildings_array_sorted_by_distance # 0] call d_fnc_Zen_OccupyHouse;
 };
 
 {
 	diag_log [format ["fn_event_sideprisoners: failed to garrison and will remain in starting position: %1", _x]];
 } forEach _unitsNotGarrisoned;
+
+_marker = ["d_mt_event_marker_sideprisoners", _spawnpos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES", 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_PRISONERSANDEXPLOSIVES"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+
+{
+	_x setPos ([getPos _pilot1, 5] call d_fnc_getfuzzyposition); // fuzzy position within 5m of pilot
+} forEach units _enemyGuardGroup;
 
 private _all_dead = false;
 private _is_rescued = false;

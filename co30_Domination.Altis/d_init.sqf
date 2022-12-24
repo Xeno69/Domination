@@ -400,6 +400,8 @@ if (isNil "d_object_spawn_blacklist_common") then {
 
 if (isNil "d_object_spawn_blacklist_civs") then {
 	d_object_spawn_blacklist_civs = [
+		#include "init\d_bldg_blacklist_common.sqf"
+		,
 		#include "init\d_bldg_blacklist_civs.sqf"
 	];
 };

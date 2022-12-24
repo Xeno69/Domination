@@ -2,6 +2,7 @@
 //#define __DEBUG__
 //#include "..\x_setup.sqf"
 
+// TODO - add sideHostile check here, deprecate fn_getbuildings.sqf
 // get all buildings with positions (for unit garrison later)
 // parameters: _pos
 // parameters: _radius
