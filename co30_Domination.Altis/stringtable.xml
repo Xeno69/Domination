@@ -3711,16 +3711,16 @@
 <French>Trouvez un collaborateur dans %1 et éliminez-le.\n</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_567">
-<English>Find a drug dealer who sells drugs to our troops in %1 and eliminate him\n</English>
-<Spanish>Busque un traficante de drogas que vende drogas a nuestras tropas en %1 y elimínelo him\n</Spanish>
-<Portuguese>Encontrar um comerciante de fármaco quem vende fármacos a nossas tropas em %1 e eliminar him\n</Portuguese>
-<Korean>%1에 아군에게 마약을 판매한 마약상을 찾아 제거하십시오.</Korean>
-<Japanese>%1にいる我が軍に麻薬を売った売人を見つけ出し、殺害しろ。\n</Japanese>
-<Original>Find a drug dealer who sells drugs to our troops in %1 and eliminate him\n</Original>
-<Russian>Найдите наркоторговца в городе %1 и ликвидируйте его\n</Russian>
-<Chinesesimp>在 %1 区域找到一个向我军售卖毒品的毒贩并消灭\n</Chinesesimp>
-<Chinese>在 %1 區域找到一個向我軍售賣毒品的毒販並消滅\n</Chinese>
-<French>Trouvez un trafiquant de drogue qui vend de la drogue à nos troupes dans %1 et éliminez-le.\n</French>
+<English>Find a high value target in %1 and eliminate him\n</English>
+<Spanish>Find a high value target in %1 and eliminate him\n</Spanish>
+<Portuguese>Find a high value target in %1 and eliminate him\n</Portuguese>
+<Korean>Find a high value target in %1 and eliminate him\n</Korean>
+<Japanese>Find a high value target in %1 and eliminate him\n</Japanese>
+<Original>Find a high value target in %1 and eliminate him\n</Original>
+<Russian>Find a high value target in %1 and eliminate him\n</Russian>
+<Chinesesimp>Find a high value target in %1 and eliminate him\n</Chinesesimp>
+<Chinese>Find a high value target in %1 and eliminate him\n</Chinese>
+<French>Find a high value target in %1 and eliminate him\n</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_568">
 <English>No secondary main target mission available...</English>
