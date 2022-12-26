@@ -69,6 +69,7 @@ if (d_with_dynsim == 0) then {
 sleep 2.333;
 
 // create 3 enemy guards with unusual hat/bandanna to help players identify them
+// enemy guards should always be standing and should not fire
 private _hat_type = selectRandom ["H_Cap_red", "H_Shemag_olive_hs", "H_Bandanna_surfer"];
 private _enemyGuardGroup = (["specops", 0, "allmen", 1, _nposss , 5, false, true, 3] call d_fnc_CreateInf) # 0;
 {
@@ -81,6 +82,10 @@ private _enemyGuardGroup = (["specops", 0, "allmen", 1, _nposss , 5, false, true
 	removeBackpack _x;
 	_allActors pushBack _x;
 	_x_mt_event_ar pushBack _x;
+	_x disableAI "AUTOTARGET";
+	_x setCombatMode "BLUE";
+	_x setUnitPos "UP";
+	_x setVariable ["d_unit_hold_fire", true]; // TODO
 } forEach (units _enemyGuardGroup);
 
 //find a suitable building and occupy

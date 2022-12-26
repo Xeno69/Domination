@@ -17,8 +17,8 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
-private _minimumDistanceFromMaintarget = 500;
-private _maximumDistanceFromMaintarget = 800;
+private _minimumDistanceFromMaintarget = 325;
+private _maximumDistanceFromMaintarget = 400;
 private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
