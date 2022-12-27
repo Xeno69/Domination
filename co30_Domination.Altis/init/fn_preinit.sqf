@@ -3271,7 +3271,7 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup];
 			d_specops_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array =+ [["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 2: {
 			d_veh_a_E = [
@@ -3324,7 +3324,7 @@ if (d_enemy_factions > 0) then {
 		};
 		case 6: {
 			d_veh_a_E = [
-				#include "d_veh_a_O_faction6-russiangroundforces.sqf"
+				#include "d_veh_a_O_faction6-russiangroundforces_desert.sqf"
 			];
 			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
@@ -3335,6 +3335,19 @@ if (d_enemy_factions > 0) then {
 			d_specops_E = [["EAST","CFP_O_RUARMY_DES","SpecOps","cfp_o_ruarmy_specops_spetsnaz_team_des"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_sniper_team_emr_des"] call d_fnc_GetConfigGroup];
 			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 7: {
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction7-russiangroundforces_winter.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_group"] call d_fnc_GetConfigGroup,
+				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["Indep","IND_F","Infantry","HAF_InfSquad"] call d_fnc_GetConfigGroup];
 		};
 	};
 	
