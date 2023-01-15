@@ -2414,7 +2414,7 @@ d_barracks_building = call {
 	//
 	//civilian vehicles
 	//
-	private _civVehiclesWeightedCityWealthHigh = [
+	d_civVehiclesWeightedCityWealthHigh = [
 		"C_Offroad_01_F", 0.15,
 		"C_Hatchback_01_F", 0.30,
 		"C_Truck_02_covered_F", 0.05,
@@ -2425,7 +2425,7 @@ d_barracks_building = call {
 		"C_SUV_01_F", 0.15
 	];
 
-	private _civVehiclesWeightedCityWealthLow = [
+	d_civVehiclesWeightedCityWealthLow = [
 		"C_Offroad_01_F", 0.10,
 		"C_Hatchback_01_F", 0.10,
 		"C_Truck_02_covered_F", 0.03,
@@ -2438,7 +2438,7 @@ d_barracks_building = call {
 		"C_SUV_01_F", 0.16
 	];
 
-	private _civVehiclesWeightedRural = [
+	d_civVehiclesWeightedRural = [
 		"C_Offroad_01_F", 0.30,
 		"C_Truck_02_covered_F", 0.10,
 		"C_Truck_02_transport_F", 0.10,
@@ -2448,7 +2448,7 @@ d_barracks_building = call {
 		"C_Tractor_01_F", 0.10
 	];
 
-	private _civVehiclesWeightedRuralCup = [
+	d_civVehiclesWeightedRuralCup = [
 		"CUP_C_Golf4_random_Civ", 0.25,
 		"CUP_C_Datsun", 0.25,
 		"CUP_C_Octavia_CIV", 0.25,
@@ -2456,7 +2456,7 @@ d_barracks_building = call {
 		"C_Tractor_01_F", 0.05
 	];
 
-	private _civVehiclesWeightedRuralCupRemote = [
+	d_civVehiclesWeightedRuralCupRemote = [
 		"CUP_C_Datsun", 0.35,
 		"CUP_C_Datsun_4seat", 0.35,
 		"CUP_C_V3S_Covered_TKC", 0.15,
@@ -2597,7 +2597,7 @@ d_barracks_building = call {
 		"C_Man_p_fugitive_F_afro", 1
 	];
 
-	private _africanCivs = [
+	d_africanCivs = [
 		"C_man_p_beggar_F_afro", 1,
 		"C_Man_casual_1_F_afro", 1,
 		//"C_Man_casual_2_F_afro", 1,
@@ -2616,7 +2616,7 @@ d_barracks_building = call {
 		"C_Man_p_fugitive_F", 1
 	];
 	
-	private _asianCivs = [
+	d_asianCivs = [
 		"C_man_p_beggar_F_asia", 1,
 		"C_Man_casual_1_F_afro", 1,
 		//"C_Man_casual_2_F_afro", 1,
@@ -2635,7 +2635,7 @@ d_barracks_building = call {
 		"C_Man_casual_4_v2_F", 1
 	];
 	
-	private _euroCivs = [
+	d_euroCivs = [
 		"C_Man_casual_1_F_euro", 1,
 		//"C_Man_casual_2_F_afro", 1,
 		"C_Man_casual_3_F_euro", 1,
@@ -2680,7 +2680,7 @@ d_barracks_building = call {
 		"CUP_C_C_Priest_01", 1
 	];
 
-	private _cupCivsTakistan = [
+	d_cupCivsTakistan = [
 		"CUP_C_TK_Man_05_Waist", 1,
 		"CUP_C_TK_Man_06_Waist", 1,
 		"CUP_C_TK_Man_01_Coat", 1,
@@ -2692,15 +2692,6 @@ d_barracks_building = call {
 		"CUP_C_TK_Man_03_Jack", 1
 	];
 	
-	private _civsTanoa = [
-		"C_Man_casual_1_F_tanoan", 1,
-		"C_Man_casual_2_F_tanoan", 1,
-		"C_Man_casual_3_F_tanoan", 1,
-		"C_Man_casual_4_F_tanoan", 1,
-		"C_Man_casual_5_F_tanoan", 1,
-		"C_Man_casual_6_F_tanoan", 1
-	];
-
 	private _civsLivonia = [
 		"C_Man_1_enoch_F", 1,
 		"C_Man_2_enoch_F", 1,
@@ -2788,50 +2779,168 @@ d_barracks_building = call {
 		"Max_Tak2_woman5", 0.5
 	];
 	
+	d_civ_faction_tanoa = [
+		"C_man_p_beggar_F_tanoan", 1,
+		"C_Man_casual_1_F_tanoan", 1,
+		"C_Man_casual_3_F_tanoan", 1,
+		"C_Man_casual_4_v2_F_tanoan", 1,
+		"C_Man_casual_5_v2_F_tanoan", 1,
+		"C_Man_casual_6_v2_F_tanoan", 1,
+		"C_Man_casual_7_F_tanoan", 1,
+		"C_Man_casual_8_F_tanoan", 1,
+		"C_Man_casual_9_F_tanoan", 1
+	];
+	
+	d_civ_faction_cup_chernarus = [
+		"CUP_C_C_Assistant_01", 1,
+        "CUP_C_C_Bully_01", 1,
+        "CUP_C_C_Bully_02", 1,
+        "CUP_C_C_Bully_03", 1,
+        "CUP_C_C_Bully_04", 1,
+        "CUP_C_C_Citizen_01", 1,
+        "CUP_C_C_Citizen_02", 1,
+        "CUP_C_C_Citizen_03", 1,
+        "CUP_C_C_Citizen_04", 1,
+        "CUP_C_C_Worker_05", 1,
+        "CUP_C_C_Policeman_01", 1,
+        "CUP_C_C_Policeman_02", 1,
+        "CUP_C_C_Racketeer_01", 1,
+        "CUP_C_C_Racketeer_02", 1,
+        "CUP_C_C_Racketeer_03", 1,
+        "CUP_C_C_Racketeer_04", 1,
+        "CUP_C_C_Schoolteacher_01", 1,
+        "CUP_C_C_Villager_01", 1,
+        "CUP_C_C_Villager_02", 1,
+        "CUP_C_C_Villager_03", 1,
+        "CUP_C_C_Villager_04", 1,
+        "CUP_C_C_Woodlander_01", 1,
+        "CUP_C_C_Woodlander_02", 1,
+        "CUP_C_C_Woodlander_03", 1,
+        "CUP_C_C_Woodlander_04", 1,
+        "CUP_C_C_Worker_01", 1,
+        "CUP_C_C_Worker_02", 1,
+        "CUP_C_C_Worker_03", 1,
+        "CUP_C_C_Worker_04", 1,
+        "CUP_C_C_Citizen_Random", 1
+	];
+	
+	d_civ_faction_cfp_chernarus_winter = [
+		"CFP_C_CHERNO_WIN_Civilian_01", 1,
+         "CFP_C_CHERNO_WIN_Civilian_02", 1,
+         "CFP_C_CHERNO_WIN_Civilian_03", 1
+	];
+	
+	d_civ_faction_cfp_afghanistan = [
+		"CFP_C_AFG_Civilian_01", 1,
+		"CFP_C_AFG_Civilian_02", 1
+	];
+	
+	d_civ_faction_cfp_african_christian = [
+		"CFP_C_AFRCHRISTIAN_Civ_1_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_2_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_3_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_4_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_5_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_6_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_7_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_8_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_9_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_10_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_11_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_12_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_13_01", 1,
+		"CFP_C_AFRCHRISTIAN_Civ_14_01", 1
+	];
+	
+	d_civ_faction_cfp_african_islamic = [
+		"CFP_C_AFRISLAMIC_Civ_1_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_2_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_3_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_4_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_5_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_6_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_7_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_8_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_9_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_10_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_11_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_12_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_13_01", 1,
+		"CFP_C_AFRISLAMIC_Civ_14_01", 1
+	];
+	
+	d_civ_faction_cfp_asian = [
+		"CFP_C_ASIA_Civilian_1_01", 1,
+		"CFP_C_ASIA_Civilian_2_01", 1,
+		"CFP_C_ASIA_Civilian_3_01", 1,
+		"CFP_C_ASIA_Civilian_4_01", 1,
+		"CFP_C_ASIA_Civilian_5_01", 1,
+		"CFP_C_ASIA_Civilian_6_01", 1,
+		"CFP_C_ASIA_Civilian_7_01", 1,
+		"CFP_C_ASIA_Civilian_8_01", 1,
+		"CFP_C_ASIA_Civilian_9_01", 1,
+		"CFP_C_ASIA_Civilian_10_01", 1,
+		"CFP_C_ASIA_Civilian_11_01", 1,
+		"CFP_C_ASIA_Civilian_12_01", 1,
+		"CFP_C_ASIA_Civilian_13_01", 1,
+		"CFP_C_ASIA_Civilian_14_01", 1
+	];
+	
+	d_civ_faction_cfp_malden - [
+		"CFP_C_MALDEN_Civilian_01", 1,
+        "CFP_C_MALDEN_Civilian_02", 1
+	];
+	
+	d_civ_faction_cfp_middle_east = [
+		"CFP_C_ME_Civ_1_01", 1,
+        "CFP_C_ME_Civ_2_01", 1
+	];
+	
+	
 #ifdef __ALTIS__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthHigh;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
 	d_civ_faces = _mixedFaces;
-	d_civArray = _euroCivs;
+	d_civArray = d_euroCivs;
 #endif
 #ifdef __CUP_CHERNARUS__
-	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedRural;
 	d_civ_faces = _mixedFaces;
 	d_civArray = _cupCivsChernarus;
 #endif
 #ifdef __CUP_TAKISTAN__
-	d_civ_vehicles_weighted = _civVehiclesWeightedRuralCupRemote;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedRuralCupRemote;
 	d_civ_faces = (_greekFaces + _persianFaces);
-	d_civArray = _cupCivsTakistan;
+	d_civArray = d_cupCivsTakistan;
 #endif
 #ifdef __CUP_ZARGABAD__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = (_greekFaces + _persianFaces);
-	d_civArray = _cupCivsTakistan;
+	d_civArray = d_cupCivsTakistan;
 #endif
 #ifdef __CUP_SARA__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = _mixedFaces;
-	d_civArray = _cupCivsTakistan;
+	d_civArray = d_cupCivsTakistan;
 #endif
 #ifdef __IFA3__
-	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedRural;
 	d_civ_faces = _mixedFaces;
 	d_civArray = _commonCivs;
 #endif
 #ifdef __TANOA__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = _asianFaces;
-	d_civArray = _civsTanoa;
+	d_civArray = d_civ_faction_tanoa;
 #endif
 #ifdef __STRATIS__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthHigh;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
 	d_civ_faces = _mixedFaces;
-	d_civArray = _euroCivs;
+	d_civArray = d_euroCivs;
 #endif
 #ifdef __MALDEN__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = _mixedFaces;
-	d_civArray = _euroCivs;
+	d_civArray = d_euroCivs;
 #endif
 #ifdef __LIVONIA__
 	d_civ_vehicles_weighted = _civVehiclesWeightedRuralLivonia;
@@ -2839,7 +2948,7 @@ d_barracks_building = call {
 	d_civArray = _civsLivonia;
 #endif
 #ifdef __TT__
-	d_civ_vehicles_weighted = _civVehiclesWeightedRural;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedRural;
 	d_civ_faces = _mixedFaces;
 	d_civArray = _commonCivs;
 #endif
@@ -2851,12 +2960,12 @@ d_barracks_building = call {
 #ifdef __UNSUNG__
 	d_civ_vehicles_weighted = _civVehiclesWeightedRuraluns;
 	d_civ_faces = _asianFaces;
-	d_civArray = _asianCivs;
+	d_civArray = d_asianCivs;
 #endif
 #ifdef __CSLA__
 	d_civ_vehicles_weighted = _civVehiclesWeightedRuralLivonia;
 	d_civ_faces = _mixedFaces;
-	d_civArray = _euroCivs;
+	d_civArray = d_euroCivs;
 #endif
 #ifdef __VN__
 	d_civ_vehicles_weighted = _civVehiclesWeightedRuralVn;
@@ -2864,9 +2973,9 @@ d_barracks_building = call {
 	d_civArray = _civsVietnam;
 #endif
 #ifdef __WS__
-	d_civ_vehicles_weighted = _civVehiclesWeightedCityWealthLow;
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = _persianFaces;
-	d_civArray = (_civsWestSahara + _africanCivs);
+	d_civArray = (_civsWestSahara + d_africanCivs);
 #endif
 };
 

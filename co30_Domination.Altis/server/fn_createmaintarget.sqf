@@ -509,6 +509,24 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 	sleep 1.214;
 };
 
+if (d_civ_vehs_type > 0) then {
+	if (d_civ_vehs_type == 1) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedCityWealthHigh;
+	};
+	if (d_civ_vehs_type == 2) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedCityWealthLow;
+	};
+	if (d_civ_vehs_type == 3) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedRural;
+	};
+	if (d_civ_vehs_type == 4) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedRuralCup;
+	};
+	if (d_civ_vehs_type == 5) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedRuralCupRemote;
+	};	
+};
+
 #ifndef __TT__
 #include "fn_civiliancars.sqf"
 #endif
