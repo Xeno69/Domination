@@ -2803,7 +2803,6 @@ d_barracks_building = call {
         "CUP_C_C_Citizen_04", 1,
         "CUP_C_C_Worker_05", 1,
         "CUP_C_C_Policeman_01", 1,
-        "CUP_C_C_Policeman_02", 1,
         "CUP_C_C_Racketeer_01", 1,
         "CUP_C_C_Racketeer_02", 1,
         "CUP_C_C_Racketeer_03", 1,
@@ -2826,8 +2825,8 @@ d_barracks_building = call {
 	
 	d_civ_faction_cfp_chernarus_winter = [
 		"CFP_C_CHERNO_WIN_Civilian_01", 1,
-         "CFP_C_CHERNO_WIN_Civilian_02", 1,
-         "CFP_C_CHERNO_WIN_Civilian_03", 1
+        "CFP_C_CHERNO_WIN_Civilian_02", 1,
+        "CFP_C_CHERNO_WIN_Civilian_03", 1
 	];
 	
 	d_civ_faction_cfp_afghanistan = [
