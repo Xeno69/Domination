@@ -25,12 +25,53 @@ if (isNil "d_cur_tgt_civ_modules_presence") then {
 	d_cur_tgt_civ_modules_presence = [];
 };
 
-d_civArray_current =+ d_civArray;
+if (d_civ_type > 0) then {
+	if (d_civ_type == 1) then {
+		d_civArray_current =+ d_africanCivs;
+	};
+	if (d_civ_type == 2) then {
+		d_civArray_current =+ d_asianCivs;
+	};
+	if (d_civ_type == 3) then {
+		d_civArray_current =+ d_euroCivs;
+	};
+	if (d_civ_type == 4) then {
+		d_civArray_current =+ d_civ_faction_tanoa;
+	};
+	if (d_civ_type == 5) then {
+		d_civArray_current =+ d_civ_faction_cup_chernarus;
+	};
+	if (d_civ_type == 6) then {
+		d_civArray_current =+ d_civ_faction_cfp_chernarus_winter;
+	};
+	if (d_civ_type == 7) then {
+		d_civArray_current =+ d_civ_faction_cfp_afghanistan;
+	};
+	if (d_civ_type == 8) then {
+		d_civArray_current =+ d_civ_faction_cfp_african_christian;
+	};
+	if (d_civ_type == 9) then {
+		d_civArray_current =+ d_civ_faction_cfp_african_islamic;
+	};
+	if (d_civ_type == 10) then {
+		d_civArray_current =+ d_civ_faction_cfp_asian;
+	};
+	if (d_civ_type == 11) then {
+		d_civArray_current =+ d_civ_faction_cfp_malden;
+	};
+	if (d_civ_type == 12) then {
+		d_civArray_current =+ d_civ_faction_cfp_middle_east;
+	};
+	// TODO - IFA civs
+} else {
+	d_civArray_current =+ d_civArray;
+};
+
 
 if (d_enable_women_civs == 1) then {
-	d_civArray_current = (d_civArray + d_civ_women_common);
+	d_civArray_current = (d_civArray_current + d_civ_women_common);
 #ifdef __CUP_TAKISTAN__
-	d_civArray_current = (d_civArray + d_civ_women_takistan);
+	d_civArray_current = (d_civArray_current + d_civ_women_takistan);
 #endif
 };
 

@@ -12329,6 +12329,81 @@
 <Chinese>啟用平民(Civilian vehicles - enabled)</Chinese>
 <French>Activer les civils Civilian vehicles - enabled</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEHICLE_TYPE">
+<English>Civilian vehicles - type</English>
+<Spanish>Civilian vehicles - type</Spanish>
+<Portuguese>Civilian vehicles - type</Portuguese>
+<Korean>Civilian vehicles - type</Korean>
+<Japanese>Civilian vehicles - type</Japanese>
+<Original>Civilian vehicles - type</Original>
+<Russian>Civilian vehicles - type</Russian>
+<Chinesesimp>Civilian vehicles - type</Chinesesimp>
+<Chinese>Civilian vehicles - type</Chinese>
+<French>Civilian vehicles - type</French>
+</Key>
+
+
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_CITY_HIGH_WEALTH">
+<English>City, high wealth</English>
+<Spanish>City, high wealth</Spanish>
+<Portuguese>City, high wealth</Portuguese>
+<Korean>City, high wealth</Korean>
+<Japanese>City, high wealth</Japanese>
+<Original>City, high wealth</Original>
+<Russian>City, high wealth</Russian>
+<Chinesesimp>City, high wealth</Chinesesimp>
+<Chinese>City, high wealth</Chinese>
+<French>City, high wealth</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_CITY">
+<English>City</English>
+<Spanish>City</Spanish>
+<Portuguese>City</Portuguese>
+<Korean>City</Korean>
+<Japanese>City</Japanese>
+<Original>City</Original>
+<Russian>City</Russian>
+<Chinesesimp>City</Chinesesimp>
+<Chinese>City</Chinese>
+<French>City</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_RURAL">
+<English>Rural</English>
+<Spanish>Rural</Spanish>
+<Portuguese>Rural</Portuguese>
+<Korean>Rural</Korean>
+<Japanese>Rural</Japanese>
+<Original>Rural</Original>
+<Russian>Rural</Russian>
+<Chinesesimp>Rural</Chinesesimp>
+<Chinese>Rural</Chinese>
+<French>Rural</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_RURAL_CUP">
+<English>Rural (CUP)</English>
+<Spanish>Rural (CUP)</Spanish>
+<Portuguese>Rural (CUP)</Portuguese>
+<Korean>Rural (CUP)</Korean>
+<Japanese>Rural (CUP)</Japanese>
+<Original>Rural (CUP)</Original>
+<Russian>Rural (CUP)</Russian>
+<Chinesesimp>Rural (CUP)</Chinesesimp>
+<Chinese>Rural (CUP)</Chinese>
+<French>Rural (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_RURAL_CUP_LOW_WEALTH">
+<English>Rural, low wealth (CUP)</English>
+<Spanish>Rural, low wealth (CUP)</Spanish>
+<Portuguese>Rural, low wealth (CUP)</Portuguese>
+<Korean>Rural, low wealth (CUP)</Korean>
+<Japanese>Rural, low wealth (CUP)</Japanese>
+<Original>Rural, low wealth (CUP)</Original>
+<Russian>Rural, low wealth (CUP)</Russian>
+<Chinesesimp>Rural, low wealth (CUP)</Chinesesimp>
+<Chinese>Rural, low wealth (CUP)</Chinese>
+<French>Rural, low wealth (CUP)</French>
+</Key>
+    
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHRAD">
 <English>Civilian vehicles - spawn radius</English>
 <Spanish>Vehículos civiles - radio de desove</Spanish>
@@ -12364,6 +12439,162 @@
 <Chinesesimp>平民 - 启用平民</Chinesesimp>
 <Chinese>Civilians - 啟用平民 (enable civilians)</Chinese>
 <French>Civilians - Activer les civils</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_TYPE">
+<English>Civilian type</English>
+<Spanish>Civilian type</Spanish>
+<Portuguese>Civilian type</Portuguese>
+<Korean>Civilian type</Korean>
+<Japanese>Civilian type</Japanese>
+<Original>Civilian type</Original>
+<Russian>Civilian type</Russian>
+<Chinesesimp>Civilian type</Chinesesimp>
+<Chinese>Civilian type</Chinese>
+<French>Civilian type</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_AFRICAN">
+<English>African civilians</English>
+<Spanish>African civilians</Spanish>
+<Portuguese>African civilians</Portuguese>
+<Korean>African civilians</Korean>
+<Japanese>African civilians</Japanese>
+<Original>African civilians</Original>
+<Russian>African civilians</Russian>
+<Chinesesimp>African civilians</Chinesesimp>
+<Chinese>African civilians</Chinese>
+<French>African civilians</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_ASIAN">
+<English>Asian civilians</English>
+<Spanish>Asian civilians</Spanish>
+<Portuguese>Asian civilians</Portuguese>
+<Korean>Asian civilians</Korean>
+<Japanese>Asian civilians</Japanese>
+<Original>Asian civilians</Original>
+<Russian>Asian civilians</Russian>
+<Chinesesimp>Asian civilians</Chinesesimp>
+<Chinese>Asian civilians</Chinese>
+<French>Asian civilians</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_EURO">
+<English>European civilians</English>
+<Spanish>European civilians</Spanish>
+<Portuguese>European civilians</Portuguese>
+<Korean>European civilians</Korean>
+<Japanese>European civilians</Japanese>
+<Original>European civilians</Original>
+<Russian>European civilians</Russian>
+<Chinesesimp>European civilians</Chinesesimp>
+<Chinese>European civilians</Chinese>
+<French>European civilians</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_TANOAN">
+<English>Tanoan civilians</English>
+<Spanish>Tanoan civilians</Spanish>
+<Portuguese>Tanoan civilians</Portuguese>
+<Korean>Tanoan civilians</Korean>
+<Japanese>Tanoan civilians</Japanese>
+<Original>Tanoan civilians</Original>
+<Russian>Tanoan civilians</Russian>
+<Chinesesimp>Tanoan civilians</Chinesesimp>
+<Chinese>Tanoan civilians</Chinese>
+<French>Tanoan civilians</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CUP_CHERNARUS">
+<English>Chernarus civilians (CUP)</English>
+<Spanish>Chernarus civilians (CUP)</Spanish>
+<Portuguese>Chernarus civilians (CUP)</Portuguese>
+<Korean>Chernarus civilians (CUP)</Korean>
+<Japanese>Chernarus civilians (CUP)</Japanese>
+<Original>Chernarus civilians (CUP)</Original>
+<Russian>Chernarus civilians (CUP)</Russian>
+<Chinesesimp>Chernarus civilians (CUP)</Chinesesimp>
+<Chinese>Chernarus civilians (CUP)</Chinese>
+<French>Chernarus civilians (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_CHERNARUS_WINTER">
+<English>Chernarus winter civilians (CFP)</English>
+<Spanish>Chernarus winter civilians (CFP)</Spanish>
+<Portuguese>Chernarus winter civilians (CFP)</Portuguese>
+<Korean>Chernarus winter civilians (CFP)</Korean>
+<Japanese>Chernarus winter civilians (CFP)</Japanese>
+<Original>Chernarus winter civilians (CFP)</Original>
+<Russian>Chernarus winter civilians (CFP)</Russian>
+<Chinesesimp>Chernarus winter civilians (CFP)</Chinesesimp>
+<Chinese>Chernarus winter civilians (CFP)</Chinese>
+<French>Chernarus winter civilians (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFGHANISTAN">
+<English>Afghanistan civilians (CFP)</English>
+<Spanish>Afghanistan civilians (CFP)</Spanish>
+<Portuguese>Afghanistan civilians (CFP)</Portuguese>
+<Korean>Afghanistan civilians (CFP)</Korean>
+<Japanese>Afghanistan civilians (CFP)</Japanese>
+<Original>Afghanistan civilians (CFP)</Original>
+<Russian>Afghanistan civilians (CFP)</Russian>
+<Chinesesimp>Afghanistan civilians (CFP)</Chinesesimp>
+<Chinese>Afghanistan civilians (CFP)</Chinese>
+<French>Afghanistan civilians (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_CHRISTIAN">
+<English>African (Christian) civilians (CFP)</English>
+<Spanish>African (Christian) civilians (CFP)</Spanish>
+<Portuguese>African (Christian) civilians (CFP)</Portuguese>
+<Korean>African (Christian) civilians (CFP)</Korean>
+<Japanese>African (Christian) civilians (CFP)</Japanese>
+<Original>African (Christian) civilians (CFP)</Original>
+<Russian>African (Christian) civilians (CFP)</Russian>
+<Chinesesimp>African (Christian) civilians (CFP)</Chinesesimp>
+<Chinese>African (Christian) civilians (CFP)</Chinese>
+<French>African (Christian) civilians (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_ISLAMIC">
+<English>African (Islamic) civilians (CFP)</English>
+<Spanish>African (Islamic) civilians (CFP)</Spanish>
+<Portuguese>African (Islamic) civilians (CFP)</Portuguese>
+<Korean>African (Islamic) civilians (CFP)</Korean>
+<Japanese>African (Islamic) civilians (CFP)</Japanese>
+<Original>African (Islamic) civilians (CFP)</Original>
+<Russian>African (Islamic) civilians (CFP)</Russian>
+<Chinesesimp>African (Islamic) civilians (CFP)</Chinesesimp>
+<Chinese>African (Islamic) civilians (CFP)</Chinese>
+<French>African (Islamic) civilians (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_ASIAN">
+<English>Asian civilians (CFP)</English>
+<Spanish>Asian civilians (CFP)</Spanish>
+<Portuguese>Asian civilians (CFP)</Portuguese>
+<Korean>Asian civilians (CFP)</Korean>
+<Japanese>Asian civilians (CFP)</Japanese>
+<Original>Asian civilians (CFP)</Original>
+<Russian>Asian civilians (CFP)</Russian>
+<Chinesesimp>Asian civilians (CFP)</Chinesesimp>
+<Chinese>Asian civilians (CFP)</Chinese>
+<French>Asian civilians (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MALDEN">
+<English>Malden civilians (CFP)</English>
+<Spanish>Malden civilians (CFP)</Spanish>
+<Portuguese>Malden civilians (CFP)</Portuguese>
+<Korean>Malden civilians (CFP)</Korean>
+<Japanese>Malden civilians (CFP)</Japanese>
+<Original>Malden civilians (CFP)</Original>
+<Russian>Malden civilians (CFP)</Russian>
+<Chinesesimp>Malden civilians (CFP)</Chinesesimp>
+<Chinese>Malden civilians (CFP)</Chinese>
+<French>Malden civilians (CFP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MIDDLE_EAST">
+<English>Middle East civilians (CFP)</English>
+<Spanish>Middle East civilians (CFP)</Spanish>
+<Portuguese>Middle East civilians (CFP)</Portuguese>
+<Korean>Middle East civilians (CFP)</Korean>
+<Japanese>Middle East civilians (CFP)</Japanese>
+<Original>Middle East civilians (CFP)</Original>
+<Russian>Middle East civilians (CFP)</Russian>
+<Chinesesimp>Middle East civilians (CFP)</Chinesesimp>
+<Chinese>Middle East civilians (CFP)</Chinese>
+<French>Middle East civilians (CFP)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1893">
 <English>Civilians - civilian unit count (walking)</English>
