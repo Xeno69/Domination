@@ -661,6 +661,23 @@
 >    - Off (0) <br />
 >    - On (1) <br />
 
+#### **d_civ_type / Civilians - civilian type**
+> Default: 0 - default <br />
+> Available options: <br />
+>    - default (0) <br />
+>    - African civilians (1) <br />
+>    - Asian civilians (2) <br />
+>    - European civilians (3) <br />
+>    - Tanoan civilians (4) <br />
+>    - Chernarus civilians (CUP) (5) <br />
+>    - Chernarus civilians winter (CFP) (6) <br />
+>    - Afghanistan civilians (CFP) (7) <br />
+>    - African Christian civilians (CFP) (8) <br />
+>    - African Islamic civilians (CFP) (9) <br />
+>    - Asian civilians (CFP) (10) <br />
+>    - Malden civilians (CFP) (11) <br />
+>    - Middle East civilians (CFP) (12) <br />
+
 #### **d_civ_unitcount / Civilians - civilian unit count (walking)**
 > Default: 10 - 10 <br />
 > Available options: <br />
@@ -732,6 +749,16 @@
 >    - Medium (50) <br />
 >    - High (75) <br />
 >    - Maximum (100) <br />
+
+#### **d_civ_vehs_type / Civilian vehicles - vehicle type**
+> Default: 0 - default <br />
+> Available options: <br />
+>    - Default (0) <br />
+>    - City, high wealth (1) <br />
+>    - City (2) <br />
+>    - Rural (3) <br />
+>    - Rural (CUP) (4) <br />
+>    - Rural, low wealth (CUP) (5) <br />
 
 #### **d_enable_civ_vehs_rad / Civilian vehicles - spawn radius**
 > Default: 250 - 250m <br />
@@ -1227,6 +1254,8 @@
 >    - Central African Rebels (Community Factions Project) (3) <br />
 >    - Islamic State (Community Factions Project) (4) <br />
 >    - Sudanese Armed Forces (Community Factions Project) (5) <br />
+>    - Russian Armed Forces Desert (Community Factions Project) (6) <br />
+>    - Russian Armed Forces Winter (Russian Winter Retextures) (7) <br />
 
 #### **d_ParaAtBase / Parachute from base:**
 > Default: 0 - Yes <br />
