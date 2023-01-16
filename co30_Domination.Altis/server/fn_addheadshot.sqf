@@ -16,7 +16,7 @@ if (d_show_headshots > 0) then {
 	[_distance_fired] remoteExecCall ["d_fnc_headshot_notify", owner _pl];
 };
 
-if (d_show_headshots == 2) then {
+if (d_show_headshots == 2 && {!(d_force_isstreamfriendlyui == 1)}) then {
 	d_kb_logic1 kbTell [
 		d_kb_logic2,
 		d_kb_topic_side,
@@ -27,7 +27,7 @@ if (d_show_headshots == 2) then {
 	];
 };
 
-if (d_show_headshots == 3) then {
+if (d_show_headshots == 3 && {!(d_force_isstreamfriendlyui == 1)}) then {
 	d_kb_logic1 kbTell [
 		d_kb_logic2,
 		d_kb_topic_side,

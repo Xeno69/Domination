@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-// todo - show icon
+if (!hasInterface || {isStreamFriendlyUIEnabled}) exitWith {};
 
 params ["_distance_fired"];
 private _t = format [localize "STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT", floor _distance_fired];
