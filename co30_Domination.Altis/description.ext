@@ -212,6 +212,7 @@ class CfgRemoteExec {
 		class d_fnc_addfifo {allowedTargets = 2;};
 		class d_fnc_saveprogress2db {allowedTargets = 2;};
 		class d_fnc_db_loadsavegame_server {allowedTargets = 2;};
+		class d_fnc_endmaintarget {allowedTargets = 2;};
 		class d_fnc_endsidemission {allowedTargets = 2;};
 		class d_fnc_db_update {allowedTargets = 2;};
 		class d_fnc_addactionssm {allowedTargets = 1; jip = 1;};

@@ -546,6 +546,7 @@ class cfgFunctions {
 			addc(playerdisconnected);
 			addc(addfifo);
 			addc(db_loadsavegame_server);
+			addc(endmaintarget);
 			addc(endsidemission);
 			addc(db_update);
 			addc(getplayerscores);
