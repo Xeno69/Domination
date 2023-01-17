@@ -11021,6 +11021,18 @@
 <Chinese>保存到資料庫</Chinese>
 <French>Enregistrer dans la base de données</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_END_MAINTARGET">
+<English>End maintarget</English>
+<Spanish>End maintarget</Spanish>
+<Portuguese>End maintarget</Portuguese>
+<Korean>End maintarget</Korean>
+<Japanese>End maintarget</Japanese>
+<Original>End maintarget</Original>
+<Russian>End maintarget</Russian>
+<Chinesesimp>End maintarget</Chinesesimp>
+<Chinese>End maintarget</Chinese>
+<French>End maintarget</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1755">
 <English>End sidemission</English>
 <Spanish>Misión final</Spanish>
