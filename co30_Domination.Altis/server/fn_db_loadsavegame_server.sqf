@@ -176,7 +176,7 @@ d_bonus_vecs_db = _ar # 9;
 	} else {
 		_x
 	};
-	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 0, "NONE"];
+	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 10, "NONE"];
 	_vec allowDamage false;
 	if (unitIsUAV _vec) then {
 		private _uavgrp = createVehicleCrew _vec;
@@ -226,35 +226,37 @@ d_bonus_vecs_db = _ar # 9;
 
 	if (!_isar) then {
 		_vec setDir _dir;
-		_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+		_vec setVehiclePosition [_endpos, [], 10, "NONE"];
 		[_vec, _endpos] spawn {
 			scriptName "db_loadsavegame_server spawn1";
 			params ["_vec", "_endpos"];
 			sleep 0.2;
-			_vec setVehiclePosition [_endpos, [], 1, "NONE"];
+			_vec setVehiclePosition [_endpos, [], 20, "NONE"];
 			//sleep 0.2;
 			//(_this # 0) setVectorUp [0, 0, 1];
 			sleep 10;
 			_vec setDamage 0;
 			if (_vec distance2D _endpos > 30) then {
-				_vec setVehiclePosition [_endpos, [], 10, "NONE"];
+				_vec setVehiclePosition [_endpos, [], 30, "NONE"];
+				sleep 10;
 			};
 			_vec setDamage 0;
 			_vec allowDamage true;
 		};
 	} else {
 		_vec setDir (_x # 2);
-		_vec setVehiclePosition [_x # 1, [], 0, "NONE"];
+		_vec setVehiclePosition [_x # 1, [], 10, "NONE"];
 		[_vec, _x # 1] spawn {
 			scriptName "db_loadsavegame_server spawn2";
 			sleep 0.2;
-			(_this # 0) setVehiclePosition [_this # 1, [], 1, "NONE"];
+			(_this # 0) setVehiclePosition [_this # 1, [], 20, "NONE"];
 			//sleep 0.2;
 			//(_this # 0) setVectorUp [0, 0, 1];
 			sleep 10;
 			(_this # 0) setDamage 0;
 			if ((_this # 0) distance2D (_this # 1) > 30) then {
-				(_this # 0) setVehiclePosition [_this # 1, [], 10, "NONE"];
+				(_this # 0) setVehiclePosition [_this # 1, [], 30, "NONE"];
+				sleep 10;
 			};
 			(_this # 0) setDamage 0;
 			(_this # 0) allowDamage true;
@@ -378,7 +380,7 @@ publicVariable "d_searchintel";
 
 private _fnc_tt_bonusvec = {
 	params ["_vec_type", "_d_bonus_create_pos", "_d_bonus_air_positions", "_d_bap_counter", "_d_bonus_vec_positions", "_d_bvp_counter", "_side"];
-	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 0, "NONE"];
+	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 10, "NONE"];
 	_vec allowDamage false;
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
@@ -407,10 +409,10 @@ private _fnc_tt_bonusvec = {
 	};
 
 	_vec setDir _dir;
-	_vec setVehiclePosition [_endpos, [], 0, "NONE"];
+	_vec setVehiclePosition [_endpos, [], 10, "NONE"];
 	[_vec, _endpos] spawn {
 		sleep 0.2;
-		(_this # 0) setVehiclePosition [(_this # 1), [], 1, "NONE"];
+		(_this # 0) setVehiclePosition [(_this # 1), [], 30, "NONE"];
 		sleep 0.2;
 		(_this # 0) setVectorUp [0, 0, 1];
 		sleep 0.5;
