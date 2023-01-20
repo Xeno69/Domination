@@ -130,6 +130,7 @@ if (d_database_found) then {
 					_x set [1, (_x # 1) call d_fnc_convtime];
 				} forEach _dbresult;
 				d_top10_db_players_serv = _dbresult;
+				__TRACE_1("","d_top10_db_players_serv")
 
 				0 spawn d_fnc_dbtoppasync;
 			};

@@ -3,7 +3,11 @@
 #include "..\x_setup.sqf"
 
 while {true} do {
+#ifndef __DEBUG__
 	sleep 600;
+#else
+	sleep 10;
+#endif
 	private ["_uid", "_pa", "_ps", "_usc", "_t_ps", "_infkills", "_softveckills", "_armorkills", "_airkills", "_deaths", "_totalscore", "_playtime"];
 	{
 		if (!isNull _x) then {
@@ -74,7 +78,11 @@ while {true} do {
 		};
 		sleep 0.3;
 	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+#ifndef __DEBUG__
 	sleep 10;
+#else
+	sleep 1;
+#endif
 	call {
 		if (d_db_type == 0) exitWith {
 			_dbresult = parseSimpleArray ("extdb3" callExtension "2:dom:getTop10Players");

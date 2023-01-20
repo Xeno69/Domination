@@ -21,10 +21,10 @@ __TRACE_1("","_isplayer")
 
 private _doexit = false;
 {
-	[_forEachIndex, _x, _curreceiver] remoteExecCall ["d_fnc_receivetop", _receiver];
+	[_forEachIndex, _x] remoteExecCall ["d_fnc_receivetop", _receiver];
 	__TRACE_2("","_forEachIndex","_x")
 	sleep 0.1;
-	if (_isplayer && {isNull _receiver}) exitWith {
+	if (_isplayer && {isNull _curreceiver}) exitWith {
 		_doexit = true;
 		__TRACE("_doexit true")
 	};
