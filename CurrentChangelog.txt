@@ -10,3 +10,4 @@
 - Fixed: Dying in a vehicle could make inf viewdistance the same as vehicle view distance (yet again, hopefully fixed)
 - Fixed: UAV viewdistance was reduced beiing near the main target or base
 - Fixed: DB Top players list only showed the first entry after a while
+- Fixed: Saved vehicles (DB) exploded when spawned after DB read (hopefully fixed)
