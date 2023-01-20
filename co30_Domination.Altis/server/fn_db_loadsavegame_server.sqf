@@ -176,7 +176,7 @@ d_bonus_vecs_db = _ar # 9;
 	} else {
 		_x
 	};
-	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 10, "NONE"];
+	private _vec = createVehicle [_vtype, d_bonus_create_pos, [], 10, "CAN_COLLIDE"];
 	_vec allowDamage false;
 	if (unitIsUAV _vec) then {
 		private _uavgrp = createVehicleCrew _vec;
@@ -380,7 +380,7 @@ publicVariable "d_searchintel";
 
 private _fnc_tt_bonusvec = {
 	params ["_vec_type", "_d_bonus_create_pos", "_d_bonus_air_positions", "_d_bap_counter", "_d_bonus_vec_positions", "_d_bvp_counter", "_side"];
-	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 10, "NONE"];
+	private _vec = createVehicle [_vec_type, _d_bonus_create_pos, [], 10, "CAN_COLLIDE"];
 	_vec allowDamage false;
 	private ["_endpos", "_dir"];
 	if (_vec isKindOf "Air") then {
