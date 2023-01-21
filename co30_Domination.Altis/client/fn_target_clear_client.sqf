@@ -6,6 +6,11 @@ __TRACE("Start")
 
 if (!hasInterface) exitWith {};
 
+if (!isNil "d_meh_markercreated") then {
+	removeMissionEventHandler ["MarkerCreated", d_meh_markercreated];
+	d_meh_markercreated = nil;
+};
+
 playSound "d_fanfare";
 
 #ifndef __TT__

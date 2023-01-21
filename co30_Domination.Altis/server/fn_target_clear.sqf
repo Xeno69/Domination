@@ -60,7 +60,6 @@ if (!isNil "d_parahhandle" && {!isNull d_parahhandle}) then {
 };
 
 //[d_old_target_pos, d_mttarget_radius_patrol] spawn d_fnc_umadel;
-removeMissionEventHandler ["MarkerCreated", d_meh_markercreated];
 
 private _delete_marker_meh =+ d_delete_marker_meh;
 d_delete_marker_meh = [];

@@ -681,6 +681,7 @@ class cfgFunctions {
 			addc(camps_workaround);
 			addc(ambientanimals);
 			addc(sendtopplayers);
+			addc(add_tomadel);
 		};
 		class Dom_PrePostInit {
 			file = "init";

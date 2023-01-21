@@ -1,4 +1,5 @@
 // by Xeno
+//#define __DEBUG__
 #include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
@@ -31,3 +32,14 @@ if (!d_still_in_intro && {!isStreamFriendlyUIEnabled}) then {
 #ifndef __TT__
 call d_fnc_cmakemtgmarker;
 #endif
+
+d_meh_markercreated = addMissionEventHandler ["MarkerCreated", {
+	__TRACE_1("MarkerCreated EH","_this")
+	if (_this # 3) then {
+		if ((_this # 0) select [0, 13] == "_USER_DEFINED") then {
+			if (markerPos (_this # 0) distance2D (_thisArgs # 0) < _thisArgs # 1) then {
+				(_this # 0) remoteExecCall ["d_fnc_add_tomadel", 2];
+			};
+		};
+	};
+}, [d_cur_tgt_pos, d_mttarget_radius_patrol + 300]];
