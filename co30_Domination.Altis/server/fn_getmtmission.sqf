@@ -445,7 +445,7 @@ if (d_current_target_index != -1) then {
 			format [localize "STR_DOM_MISSIONSTRING_903", d_cur_tgt_name]
 		};
 		case 10: {
-			format [localize "STR_DOM_MISSIONSTRING_904", d_cur_tgt_name]
+			format [localize "STR_DOM_MISSIONSTRING_567", d_cur_tgt_name]
 		};
 	};
 } else {

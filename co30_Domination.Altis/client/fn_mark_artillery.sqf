@@ -32,7 +32,7 @@ _arrow = "Sign_Arrow_Large_F" createVehicle [0,0,0];
 _arrow setPos _pos_lt;
 #endif
 
-if (player distance2D _pos_lt < 10) exitWith {
+if (player distance2D _pos_lt < 10 && {!isStreamFriendlyUIEnabled}) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_1529");
 };
 
@@ -53,8 +53,11 @@ __TRACE_2("","d_ari_type","d_ari_salvos")
 
 if (d_ari_type != "") then {
 	[netId player, _pos_lt, d_name_pl, d_ari_type, d_ari_salvos] remoteExecCall ["d_fnc_at_serv", 2];
-
-	systemChat format [localize "STR_DOM_MISSIONSTRING_1523", mapGridPosition _pos_lt];
+	if (!isStreamFriendlyUIEnabled) then {
+		systemChat format [localize "STR_DOM_MISSIONSTRING_1523", mapGridPosition _pos_lt];
+	};
 } else {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1525");
+	if (!isStreamFriendlyUIEnabled) then {
+		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1525");
+	};
 };

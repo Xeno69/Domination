@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-if (!hasInterface) exitWith {};
+if (!hasInterface || {isStreamFriendlyUIEnabled}) exitWith {};
 
 __TRACE_1("","_this")
 
