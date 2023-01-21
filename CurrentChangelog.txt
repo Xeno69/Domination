@@ -1,5 +1,6 @@
 4.65
 
+- Added: Admin may end the maintarget (Admin UI), by longtimegamer
 - Added: "Always" to d_with_autorevive (value is 2, "With auto revive if no player is nearby (less than 215m)"), by longtimegamer
 - Added: Semi-randomize the sniper spawn positions, by longtimegamer
 - Added: Create combat UAV at MHQ if d_extra_cas is enabled one per team, if d_arty_unlimited == 1 then one per player, cost of 30 points if ranked (loiters main target), by longtimegamer

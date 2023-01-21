@@ -5847,18 +5847,6 @@
 <Chinese>在 %1 找到敵軍同盟者並消滅</Chinese>
 <French>Trouvez un collaborateur à %1 et éliminez-le</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_904">
-<English>Find a drug dealer who sells drugs to our troops in %1 and eliminate him</English>
-<Spanish>Encuentre un traficante de drogas que vende drogas a nuestras tropas en %1 y elimínelo.</Spanish>
-<Portuguese>Encontrar um comerciante de fármaco quem vende fármacos a nossas tropas em %1 e lhe eliminar</Portuguese>
-<Korean>%1에 아군에게 마약을 판매한 마약상을 찾아 제거하십시오.</Korean>
-<Japanese>%1にいる麻薬の売人を排除しろ</Japanese>
-<Original>Find a drug dealer who sells drugs to our troops in %1 and eliminate him</Original>
-<Russian>Найдите торговца наркотиками и уничтожьте его в %1 !</Russian>
-<Chinesesimp>在 %1 找到向我们军队兜售毒品的毒贩,消灭他！</Chinesesimp>
-<Chinese>在 %1 找到向我們軍隊兜售毒品的毒販,消滅他!</Chinese>
-<French>Trouvez un trafiquant qui vend de la drogue à nos troupes à% 1 et éliminez-le</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_905">
 <English>No Secondary Main Target Mission available</English>
 <Spanish>No hay Misiones Adicionales disponibles en el Objetivo Principal.</Spanish>
@@ -6268,16 +6256,16 @@
 <French>Votre équipe a tué le collabo.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_960">
-<English>Your team killed the drug dealer.</English>
-<Spanish>Su equipo mató al traficante de drogas.</Spanish>
-<Portuguese>Sua equipe matou o traficante de drogas.</Portuguese>
-<Korean>아군이 마약상을 처리하였습니다.</Korean>
-<Japanese>あなたのチームが麻薬の売人を排除しました。</Japanese>
-<Original>Your team killed the drug dealer.</Original>
-<Russian>Ваша команда уничтожила наркоторговца.</Russian>
-<Chinesesimp>你的小队杀死了毒贩。</Chinesesimp>
-<Chinese>你的小隊殺死了毒販.</Chinese>
-<French>Votre équipe a tué le trafiquant de drogue.</French>
+<English>Your team killed the high value target.</English>
+<Spanish>Your team killed the high value target.</Spanish>
+<Portuguese>Your team killed the high value target.</Portuguese>
+<Korean>Your team killed the high value target.</Korean>
+<Japanese>Your team killed the high value target.</Japanese>
+<Original>Your team killed the high value target.</Original>
+<Russian>Your team killed the high value target.</Russian>
+<Chinesesimp>Your team killed the high value target.</Chinesesimp>
+<Chinese>Your team killed the high value target.</Chinese>
+<French>Your team killed the high value target.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_961">
 <English>Secondary main target mission not solved...</English>

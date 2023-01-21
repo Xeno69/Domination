@@ -7,7 +7,7 @@ __TRACE_1("","_this")
 __TRACE_1("","owner d_kb_logic1");
 __TRACE_1("","owner d_kb_logic2");
 
-if (isNil "d_kb_hash") exitWith {};
+if (isNil "d_kb_hash" || { d_force_isstreamfriendlyui == 1 }) exitWith {};
 
 params ["_num", ["_val1", ""], ["_val2", ""]];
 
