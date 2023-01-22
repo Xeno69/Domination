@@ -506,7 +506,7 @@
 >    - Marker only (2) <br />
 >    - Health (3) <br />
 
-#### **d_force_isstreamfriendlyui / Force no HUD**
+#### **d_force_isstreamfriendlyui / Force no HUD, reduced server messages and most HUD elements removed**
 > Default: 0 - No <br />
 > Available options: <br />
 >    - No (0) <br />
