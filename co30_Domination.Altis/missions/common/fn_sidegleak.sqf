@@ -35,6 +35,8 @@ private _module = _moduleGroup createUnit ["ModuleSmokeGreen_F", _poss, [], 0, "
 _module setPos _poss;
 [_module] call BIS_fnc_initModules;
 
+sleep 2;
+
 d_sm_leak_sealed = false;
 publicVariable "d_sm_leak_sealed";
 [_vec, 1] remoteExecCall ["d_fnc_addactionssm", [0, -2] select isDedicated, _vec];
