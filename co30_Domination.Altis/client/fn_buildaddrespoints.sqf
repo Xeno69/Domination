@@ -88,7 +88,7 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 	d_additional_respawn_points = d_additional_respawn_points - [-1];
 	d_add_resp_points_uni = d_add_resp_points_uni - [-1];
 
-	private _whichm = ["d_farp_marker_b", "d_farp_marker_o"] select (d_player_side == blufor);
+	private _whichm = ["d_farp_marker_b", "d_farp_marker_o"] select (d_player_side == blufor);a
 
 	{
 		deleteMarkerLocal _x;
@@ -99,8 +99,15 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 	d_add_resp_points_pos pushBack (getPos D_FLAG_BASE);
 	{
 		__TRACE_1("5","_x")
-		if (count _x < 7 || {isNil {(_x # 6) getVariable "d_farptaken"}}) then {
+		__TRACE_1("5_1","count _x")
+#ifdef __DEBUG__
+		_meh = isNil {(_x # 6) getVariable "d_farptaken"};
+		__TRACE_1("5_2","_meh")
+#endif
+		if (count _x < 7 || {isNil {(_x # 6) getVariable "d_farptaken"} || {(_x # 6) getVariable "d_farptaken"}}) then {
+			__TRACE_1("before",d_add_resp_points_pos)
 			d_add_resp_points_pos pushBack (_x # 1);
+			__TRACE_1("after",d_add_resp_points_pos)
 		};
 	} forEach d_additional_respawn_points;
 };

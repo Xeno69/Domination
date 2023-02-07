@@ -78,6 +78,9 @@ while {true} do {
 		};
 		sleep 0.3;
 	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+	if (d_db_type == 2) then {
+		saveMissionProfileNamespace;
+	};
 #ifndef __DEBUG__
 	sleep 10;
 #else

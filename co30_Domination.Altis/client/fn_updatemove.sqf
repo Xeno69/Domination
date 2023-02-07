@@ -6,21 +6,23 @@ private _dst = (player getVariable "d_move_opos") distance2D (player getVariable
 __TRACE_1("","_dst")
 private _ar = player getVariable "d_p_distar";
 __TRACE_1("1","_ar")
-if (isNull objectParent player) then {
-	_ar set [0, (_ar # 0) + _dst];
-} else {
-	private _v = vehicle player;
-	call {
-		if (_v isKindOf "LandVehicle") exitWith {
-			_ar set [1, (_ar # 1) + _dst];
-		};
-		if (_v isKindOf "Air") exitWith {
-			_ar set [2, (_ar # 2) + _dst];
-		};
-		if (_v isKindOf "Ship") exitWith {
-			_ar set [3, (_ar # 3) + _dst];
+if (!isNil "_ar") then {
+	if (isNull objectParent player) then {
+		_ar set [0, (_ar # 0) + _dst];
+	} else {
+		private _v = vehicle player;
+		call {
+			if (_v isKindOf "LandVehicle") exitWith {
+				_ar set [1, (_ar # 1) + _dst];
+			};
+			if (_v isKindOf "Air") exitWith {
+				_ar set [2, (_ar # 2) + _dst];
+			};
+			if (_v isKindOf "Ship") exitWith {
+				_ar set [3, (_ar # 3) + _dst];
+			};
 		};
 	};
+	__TRACE_1("2","_ar")
 };
-__TRACE_1("2","_ar")
 player setVariable ["d_move_opos", getPosWorld player];
