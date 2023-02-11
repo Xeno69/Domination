@@ -109,5 +109,6 @@ if (d_database_found) then {
 	} else {
 		d_p_rounds = _this # 17;
 	};
+	__TRACE_1("","d_p_rounds")
 	d_movecheck_handle = _p_distar spawn d_fnc_movecheck;
 };

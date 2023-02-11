@@ -2,10 +2,7 @@
 //#define __DEBUG__
 //#include "..\x_setup.sqf"
 
-private _cname = d_weap_hash getOrDefault [_this, ""];
-//__TRACE_1("1","_cname")
-
-if (_cname isEqualTo "") then {
+d_weap_hash getOrDefaultCall [_this, {
 	private _ar = _this splitString "_";
 	//__TRACE_1("_ar 1","_ar")
 
@@ -20,10 +17,5 @@ if (_cname isEqualTo "") then {
 
 	//__TRACE_1("_ar 2","_ar")
 
-	_cname = _ar joinString "_";
-	d_weap_hash set [_this, _cname];
-};
-
-//__TRACE_1("2","_cname")
-
-_cname
+	_ar joinString "_";
+}, true];

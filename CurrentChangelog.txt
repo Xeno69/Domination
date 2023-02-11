@@ -15,3 +15,4 @@
 - Fixed: User placed markers at main targets were not removed once a main has been seized
 - Fixed: Increased action radius for gas leak missions hopefully fixing the action not showing up problem in some cases
 - Fixed: Change pylons didn't work on the carrier (action didn't show up)
+- Fixed: Saving player stats to missionProfileNamespace should really work now

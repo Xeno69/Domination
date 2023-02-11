@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #include "..\x_setup.sqf"
 
 diag_log ["DOM playerdisconnected: _this", _this];
@@ -8,10 +8,6 @@ __TRACE_1("","_this")
 
 if (isNull d_serv_test_obj) exitWith {
 	diag_log "DOM playerdisconnected, d_serv_test_obj is Null!!!";
-};
-
-if (!isNil "d_mp_e_d_x_o") exitWith {
-	diag_log "DOM playerdisconnected, d_mp_e_d_x_o is not nil!!!";
 };
 
 params ["", "_uid", "_name"];

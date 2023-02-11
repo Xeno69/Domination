@@ -39,14 +39,7 @@ if (d_database_found) then {
 				_dbresult = ["missionsGet", [tolower worldname]] call d_fnc_queryconfig;
 			};
 			if (d_db_type == 2) exitWith {
-				private _pn_missionsave = profileNamespace getVariable "dom_missionsave";
-				if (!isNil "_pn_missionsave") then {
-					__TRACE_1("old","_pn_missionsave")
-					missionProfileNamespace setVariable ["dom_missionsave", _pn_missionsave];
-					saveMissionProfileNamespace;
-					profileNamespace setVariable ["dom_missionsave", nil];
-				};
-				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
+				private _pn_missionsave = missionProfileNamespace getVariable "dom_missionsave";
 				if (!isNil "_pn_missionsave") then {
 					__TRACE_1("new","_pn_missionsave")
 					private _wn = tolower worldname;
@@ -83,13 +76,6 @@ if (d_database_found) then {
 				_dbresult = ["missionsttGet", [tolower worldname]] call d_fnc_queryconfig;
 			};
 			if (d_db_type == 2) exitWith {
-				private _pn_missionsave = profileNamespace getVariable "dom_missionsavett";
-				if (!isNil "_pn_missionsave") then {
-					__TRACE_1("old","_pn_missionsave")
-					missionProfileNamespace setVariable ["dom_missionsavett", _pn_missionsave];
-					saveMissionProfileNamespace;
-					profileNamespace setVariable ["dom_missionsavett", nil];
-				};
 				_pn_missionsave = missionProfileNamespace getVariable "dom_missionsavett";
 				if (!isNil "_pn_missionsave") then {
 					__TRACE_1("new","_pn_missionsave")
@@ -159,6 +145,7 @@ if (d_database_found) then {
 				for "_i" from 0 to _num do {
 					_har =+ _tmphash get ((_ar # _i) # 1);
 					_har set [1, (_har # 1) call d_fnc_convtime];
+					_har deleteAt 14;
 					d_top10_db_players_serv pushBack _har;
 				};
 				__TRACE_1("","d_top10_db_players_serv")

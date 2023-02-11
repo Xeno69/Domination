@@ -626,29 +626,11 @@ if (isServer) then {
 	call d_fnc_setupserver;
 	if (d_MissionType != 2) then {0 spawn d_fnc_createnexttarget};
 	
-	private _mpended_done = false;
-	if (d_database_found && {d_db_type == 2 && {isMultiplayer}}) then {
-		addMissionEventHandler ["MPEnded", {
-			saveMissionProfileNamespace;
-		}];
-		_mpended_done = true;
-	};
-
 	addMissionEventHandler ["PlayerDisconnected", {call d_fnc_playerdisconnected}];
 
 	addMissionEventHandler ["HandleDisconnect", {call d_fnc_handledisconnect}];
 	if (d_MissionType != 2) then {
 		addMissionEventhandler ["BuildingChanged", {call d_fnc_buildingchanged}];
-	};
-	
-	if (!_mpended_done && { d_db_type == 2 && {d_save_to_mpns > 0}}) then {
-		addMissionEventHandler ["MPEnded", {saveMissionProfileNamespace}];
-	};
-	
-	if (isMultiplayer && {d_db_type >= 0}) then {
-		addMissionEventHandler ["MPEnded", {
-			d_mp_e_d_x_o = true;
-		}];
 	};
 };
 
