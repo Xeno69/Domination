@@ -88,7 +88,7 @@ if (d_additional_respawn_points_orig isNotEqualTo []) then {
 	d_additional_respawn_points = d_additional_respawn_points - [-1];
 	d_add_resp_points_uni = d_add_resp_points_uni - [-1];
 
-	private _whichm = ["d_farp_marker_b", "d_farp_marker_o"] select (d_player_side == blufor);a
+	private _whichm = ["d_farp_marker_b", "d_farp_marker_o"] select (d_player_side == blufor);
 
 	{
 		deleteMarkerLocal _x;
