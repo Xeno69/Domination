@@ -207,6 +207,7 @@ class cfgFunctions {
 			addc(checkammo2);
 			addc(initgrhc);
 			addc(canu);
+			addc(canu2);
 			addc(tasks);
 			addc(updatemove);
 			addc(chopcheck);

@@ -108,7 +108,11 @@ play disableAI "CHECKVISIBLE";
 
 player setVariable ["d_tk_cutofft", time + 3];
 player setVariable ["xr_pluncon", false, true];
-["dom_alive_not_uncon", {call d_fnc_canu}] call d_fnc_eachframeadd;
+if (!d_with_ace) then {
+	["dom_alive_not_uncon", {call d_fnc_canu}] call d_fnc_eachframeadd;
+} else {
+	["dom_alive_not_uncon", {call d_fnc_canu2}] call d_fnc_eachframeadd;
+};
 d_player_in_base = true;
 d_player_in_air = false;
 

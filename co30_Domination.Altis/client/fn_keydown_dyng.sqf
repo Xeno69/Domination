@@ -4,9 +4,13 @@
 
 __TRACE_1("","_this")
 
-if ((_this # 1) in d_ak_teamswitch && {d_player_canu && {!(_this # 2) && {!(_this # 3) && {!(_this # 4)}}}}) then {
-	[0, _this] call d_fnc_KeyDownCommandingMenu;
-	true
+if ((_this # 1) in d_ak_teamswitch) then {
+	if (d_player_canu && {!(_this # 2) && {!(_this # 3) && {!(_this # 4)}}}) then {
+		[0, _this] call d_fnc_KeyDownCommandingMenu;
+		true
+	} else {
+		false
+	};
 } else {
 	false
 };

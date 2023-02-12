@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-params ["", "_dist", "_shooter", "_insti", "", "", "_ammoConf"];
+params ["", "_dist", "", "_insti", "", "", "_ammoConf"];
 
 __TRACE_1("","_this")
 
