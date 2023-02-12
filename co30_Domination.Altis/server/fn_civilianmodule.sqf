@@ -1,4 +1,5 @@
 //#define __DEBUG__
+//#define __GROUPDEBUG__
 #include "..\x_setup.sqf"
 
 params ["_trg_center", "_radius"];
@@ -191,6 +192,9 @@ private _placeCivilianCluster = {
 		private _civ_string_tmp = getModelInfo _bldg # 0; // useful for identifying bad buildings to add to the civ blacklist
 		[_civ_string_tmp, position _x, "ICON", "ColorBlack", [0.5, 0.5], _civ_string_tmp, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 	} forEach _units_civ_cluster;
+	{
+		["X", position _x, "ICON", "ColorBlack", [0.5, 0.5], "X", 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
+	} forEach d_cur_tgt_civ_modules_presencesafespot;
 #endif
 	
 	{
