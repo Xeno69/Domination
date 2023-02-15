@@ -8,8 +8,16 @@ diag_log ["DOM handledisconnect _this:", _this];
 
 __TRACE_1("","_this")
 
-if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name == "__SERVER__" || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}}) exitWith {
-	diag_log "DOM handledisconnect, _unit is either nil or kindof VirtualSpectator or _uid is empty or is server or HC!";
+if (_name == "__SERVER__") exitWith {
+	diag_log "DOM handledisconnect, _unit is server!";
+	if (d_db_type == 2) then {
+		saveMissionProfileNamespace;
+	};
+	false
+};
+
+if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}) exitWith {
+	diag_log "DOM handledisconnect, _unit is either nil or kindof VirtualSpectator or _uid is empty or is HC!";
 	false
 };
 

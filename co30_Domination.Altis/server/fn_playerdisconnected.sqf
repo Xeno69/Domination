@@ -133,11 +133,11 @@ call {
 			private _tmpar = _tmphash get _uid;
 			if (!isNil "_tmpar") then {
 				__TRACE_1("1","_tmpar")
-				_tmpar set [2, _infkills];
-				_tmpar set [3, _softveckills];
-				_tmpar set [4, _armorkills];
-				_tmpar set [5, _airkills];
-				_tmpar set [6, _deaths];
+				_tmpar set [2, (_tmpar # 2) + _infkills];
+				_tmpar set [3, (_tmpar # 3) + _softveckills];
+				_tmpar set [4, (_tmpar # 4) + _armorkills];
+				_tmpar set [5, (_tmpar # 5) + _airkills];
+				_tmpar set [6, (_tmpar # 6) + _deaths];
 				_tmpar set [7, _totalscore];
 				_tmpar set [1, _playtime];
 				_tmpar set [12, _tks];
