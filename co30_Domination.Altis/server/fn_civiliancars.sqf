@@ -38,23 +38,21 @@ if (d_enable_civ_vehs > 0) then {
 				};
 			};
 			if (_pos_flat_empty isEqualTo []) then {
-				diag_log ["fn_spawnvehicle could not find a flat and empty spot after 99 attempts, giving up and using original position"];
-				_pos_flat_empty = _currentRoad;
+				diag_log ["fn_civiliancars could not find a flat and empty spot after 99 attempts, giving up"];
+			} else {
+				// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL			
+				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)];	
+				_veh = createVehicle [selectRandomWeighted d_civ_vehicles_weighted, _pos_flat_empty, [], 0, "NONE"];
+				if (d_enable_civ_vehs_locked == 1) then {
+					_veh lock true;
+				};
+				_veh enableSimulationGlobal false;
+				_veh allowDamage false;
+				_veh setDamage 0;
+				_veh setdir _direction;
+				_veh setPos [(getPos _veh # 0) + 5.5, getPos _veh # 1, getPos _veh # 2];
+				d_cur_tgt_civ_vehicles pushBack _veh;
 			};
-			
-			// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL			
-			_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)];
-			
-			_veh = createVehicle [selectRandomWeighted d_civ_vehicles_weighted, _pos_flat_empty, [], 0, "NONE"];
-			if (d_enable_civ_vehs_locked == 1) then {
-				_veh lock true;
-			};
-			_veh enableSimulationGlobal false;
-			_veh allowDamage false;
-			_veh setDamage 0;
-			_veh setdir _direction;
-			_veh setPos [(getPos _veh # 0) + 5.5, getPos _veh # 1, getPos _veh # 2];
-			d_cur_tgt_civ_vehicles pushBack _veh;
 		};
 	};
 	
