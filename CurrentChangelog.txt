@@ -5,14 +5,19 @@
 - Added: Semi-randomize the sniper spawn positions, by longtimegamer
 - Added: Create combat UAV at MHQ if d_extra_cas is enabled one per team, if d_arty_unlimited == 1 then one per player, cost of 30 points if ranked (loiters main target), by longtimegamer
 - Added: Support for several new Opfor enemy factions from mods - Community Factions Project (CFP) and Asian Factions for CUP (AFCUP) - Taliban, East Asian Insurgents, Islamic State, Central African Insurgents, Sudanese Armed Forces, by longtimegamer
-- Fixed: When a server restart happened players could loose all there points (hopefully fixed)
+- Added: "High" enemy armor setting for maintarget, by longtimegamer
+- Added: Additional no-HUD support, by longtimegamer
+- Added: Civilians and civilian vehicle type server settings (2035 units or with mods), by longtimegamer
+- Added: Suppress ambient battlefield sounds in server settings, by longtimegamer
+- Fixed: When a server restart happened players could lose all their points (hopefully fixed)
 - Fixed: AI awareness behavior suddenly stopped when radiotower destroyed and d_mt_spotted is set to false, by longtimegamer
 - Fixed: Invalid setIdentity on walking civilians, by longtimegamer
 - Fixed: Dying in a vehicle could make inf viewdistance the same as vehicle view distance (yet again, hopefully fixed)
-- Fixed: UAV viewdistance was reduced beiing near the main target or base
+- Fixed: UAV viewdistance was reduced being near the main target or base
 - Fixed: DB Top players list only showed the first entry after a while
 - Fixed: Saved vehicles (DB) exploded when spawned after DB read (hopefully fixed)
 - Fixed: User placed markers at main targets were not removed once a main has been seized
+- Fixed: Cleanup misplaced civilian units, better civ spawn positions in buildings, by longtimegamer
 - Fixed: Increased action radius for gas leak missions hopefully fixing the action not showing up problem in some cases
 - Fixed: Change pylons didn't work on the carrier (action didn't show up)
 - Fixed: Saving player stats to missionProfileNamespace should really work now

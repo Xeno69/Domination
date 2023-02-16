@@ -16,8 +16,10 @@ if (isNil "_name") exitWith {};
 private _vside = _mhq getVariable "d_side";
 if (isNil "_vside" || {d_player_side != _vside}) exitWith {};
 #endif
-if (_isdeployed) then {
+if (_isdeployed && {!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}}) then {
 	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_647", _name];
 } else {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_648", _name];
+	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
+		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_648", _name];
+	};
 };
