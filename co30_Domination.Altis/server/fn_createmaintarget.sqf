@@ -562,7 +562,7 @@ if (d_occ_bldgs == 1) then {
 		_occ_cnt = d_occ_cnt;
 	};
 	
-	diag_log [format ["creating occupy groups _occ_cnt: %1", _occ_cnt]];
+	__TRACE_1("creating occupy groups _occ_cnt","_occ_cnt")
 	if (_occ_cnt > 0) then {
 		for "_xx" from 0 to (_occ_cnt - 1) do {
 			private _unitstog = [
