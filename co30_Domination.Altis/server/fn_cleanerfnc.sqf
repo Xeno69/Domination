@@ -15,7 +15,9 @@ private _cfunc = {
 while {true} do {
 	sleep (300 + random 150);
 	call _cfunc;
-	private _allmisobjs = allMissionObjects "WeaponHolder";
+	private _allmisobjs = "WeaponHolder" allObjects 0;
+	sleep 0.1;
+	_allmisobjs append ("GroundWeaponHolder" allObjects 0);
 	sleep 8;
 	call _cfunc;
 	private _helperx = entities [["WeaponHolderSimulated", "Plane_Canopy_Base_F", "Ejection_Seat_Base_F"], []];
