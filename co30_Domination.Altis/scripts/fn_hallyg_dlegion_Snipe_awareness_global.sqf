@@ -61,7 +61,7 @@ private _detectionRadius = 2000; //in meters
 private _moveOrderInterval = 30;
 private _ammoRefillInterval = 15;
 
-private _isSniper = "sniper" in (toLowerANSI (groupId (group _unit)));
+private _isSniper = "sniper" in (toLowerANSI (groupId _unit));
 
 //still testing
 //if (_isSniper) then {
