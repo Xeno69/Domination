@@ -159,7 +159,7 @@ if !(isNull _targetBuilding) then {
 } else {
 	_buildingsArrayFiltered = [_center, _buildingRadius] call d_fnc_getbldgswithpositions;
 	if (count _buildingsArrayFiltered == 0) then {
-    	diag_log [format ["error, no buildings were found within %1 meters of %2", _buildingRadius, _center]];
+		__TRACE_2("Error no buildings were found","_buildingRadius","_center")
     } else {
     	//diag_log [format ["occupyhouse found suitable building list: %1", _buildingsArrayFiltered]];
     };
@@ -183,12 +183,12 @@ if (_sortHeight) then {
 	} forEach _buildingPosArray;
 };
 
-diag_log [format ["placing %1 units", count _units]];
+__TRACE_1("placing units count","count _units")
 private _unitIndex = 0;
 private _tmpPosArray = [];
 private _theBuilding = nil;
 private _skipAngleCheck = false;
-diag_log ["start of forEach _buildingPosArray"];
+__TRACE("start of forEach _buildingPosArray")
 {
 	scopeName "for";
 	private _posArray = _x;
@@ -323,7 +323,7 @@ diag_log ["start of forEach _buildingPosArray"];
 									if (!_isDryRun) then {
 										
 										// success
-										diag_log [ format ["we found a good position and a good direction! _unitIndex: %1", _unitIndex]];
+										__TRACE_1("we found a good position and a good direction","_unitIndex")
 										
 										_positionsUsed pushBack _housePos;
 									
@@ -505,7 +505,7 @@ diag_log ["start of forEach _buildingPosArray"];
 	};//end while
 } forEach _buildingPosArray;
 
-diag_log ["end of forEach _buildingPosArray"];
+__TRACE("end of forEach _buildingPosArray")
 
 if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 	diag_log [format ["only %1 units out of %2 total units were moved", _unitIndex, count _units]];
