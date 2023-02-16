@@ -2293,15 +2293,15 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 	// Needs a building which can be entered by AI (as they will respawn inside)
 	// can only be destroyed by satchel charges!!!
 	// no marker gets created!
-d_barracks_building = call {
-	if (d_vn) exitWith {
-		"Land_vn_o_shelter_05"
+	d_barracks_building = call {
+		if (d_vn) exitWith {
+			"Land_vn_o_shelter_05"
+		};
+		if (d_ws) exitWith {
+			"Land_BagBunker_Large_F"
+		};
+		"Land_BagBunker_01_large_green_F"
 	};
-	if (d_ws) exitWith {
-		"Land_BagBunker_Large_F"
-	};
-	"Land_BagBunker_01_large_green_F"
-};
 
 	// same as barracks building. But enemy AI vehicles do not spawn inside the main target area but outside
 	// if destroyed no more enemy vehicles respawn
@@ -2412,6 +2412,8 @@ d_barracks_building = call {
 	};
 
 	d_dbox_idx = 0;
+	
+	d_chem_objs_ar = [];
 
 	//
 	//civilian vehicles

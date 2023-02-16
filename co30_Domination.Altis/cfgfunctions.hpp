@@ -683,6 +683,7 @@ class cfgFunctions {
 			addc(ambientanimals);
 			addc(sendtopplayers);
 			addc(add_tomadel);
+			addc(ad_c_ar);
 		};
 		class Dom_PrePostInit {
 			file = "init";

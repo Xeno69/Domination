@@ -26,9 +26,9 @@ while {true} do {
 	};
 	sleep 8;
 	call _cfunc;
-	_helperx = allMissionObjects "Chemlight_base";
-	if (_helperx isNotEqualTo []) then {
-		_allmisobjs append _helperx;
+	if (d_chem_objs_ar isNotEqualTo []) then {
+		_allmisobjs append d_chem_objs_ar;
+		d_chem_objs_ar = [];
 	};
 	sleep 8;
 	call _cfunc;

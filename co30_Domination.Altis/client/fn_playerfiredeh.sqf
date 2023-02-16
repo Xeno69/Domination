@@ -20,20 +20,23 @@ private _fnc_nearmhq = {
 	true
 };
 
-private _isput = (_this # 1) isEqualTo "Put";
+private _do_exit = false;
 
-if (_isput && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}) exitWith {
+if ((_this # 6) isKindOf "BulletCore" || {(_this # 6) isKindOf "ShotgunCore"}) then {
+	d_p_rounds = d_p_rounds + 1;
+	_do_exit = true;
+};
+
+if (!_do_exit && {(_this # 1) isEqualTo "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}}) exitWith {
 	deleteVehicle (_this # 6);
 	player addMagazine (_this # 5);
 	systemChat (localize "STR_DOM_MISSIONSTRING_2006");
 	__TRACE("Put ended")
 };
 
-private _do_exit = false;
-
-if ((_this # 6) isKindOf "BulletCore" || {(_this # 6) isKindOf "ShotgunCore"}) then {
-	d_p_rounds = d_p_rounds + 1;
-	_do_exit = true;
+if (!_do_exit && {(_this # 4) isKindOf "Chemlight_base"}) exitWith {
+	__TRACE("is chemlight")
+	(_this # 6) remoteExecCall ["d_fnc_ad_c_ar", 2];
 };
 
  if (d_player_in_base && {!d_pisadminp}) then {
@@ -43,7 +46,7 @@ if ((_this # 6) isKindOf "BulletCore" || {(_this # 6) isKindOf "ShotgunCore"}) t
 	if (player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)}) then {
 #endif
 		__TRACE("Player in Base")
-		if (_isput) then {
+		if ((_this # 1) isEqualTo "Put") then {
 			if (count _this > 6) then {
 				deleteVehicle (_this # 6);
 			};

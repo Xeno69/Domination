@@ -273,6 +273,7 @@ class CfgRemoteExec {
 		class d_fnc_receivetop {allowedTargets = 1;};
 		class d_fnc_sendtopplayers {allowedTargets = 2;};
 		class d_fnc_add_tomadel {allowedTargets = 2;};
+		class d_fnc_ad_c_ar {allowedTargets = 2;};
 #ifdef __TT__
 		class d_fnc_plcheckkillblufor {allowedTargets = 2;};
 		class d_fnc_plcheckkillopfor {allowedTargets = 2;};
