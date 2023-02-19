@@ -87,20 +87,20 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 		};
 	};
 	if (_pos_flat_empty isEqualTo []) then {
-		diag_log ["fn_spawnvehicle could not find a flat and empty spot after 99 attempts, giving up"];
-	} else {
-		// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
-		_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)];
-		_veh = createVehicle [_typev1, _pos_flat_empty, [], 0, "NONE"];
-		_veh call d_fnc_nodamoff;
-		if (d_del_crew_always == 1) then {
-			_veh allowCrewInImmobile [random 100 > 50, true];
-		} else {
-			_veh allowCrewInImmobile [false, true];
-		};
-		_veh setDir _azi;
-		_veh setVehiclePosition [_veh, [], 0, "NONE"];
+		diag_log ["fn_spawnvehicle could not find a flat and empty spot after 99 attempts, giving up and using original position"];
+		_pos_flat_empty = _posv1;
 	};
+	// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
+	_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)];
+	_veh = createVehicle [_typev1, _pos_flat_empty, [], 0, "NONE"];
+	_veh call d_fnc_nodamoff;
+	if (d_del_crew_always == 1) then {
+		_veh allowCrewInImmobile [random 100 > 50, true];
+	} else {
+		_veh allowCrewInImmobile [false, true];
+	};
+	_veh setDir _azi;
+	_veh setVehiclePosition [_veh, [], 0, "NONE"];
 };
 
 if (d_del_crew_always == 0) then {
