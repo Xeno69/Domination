@@ -139,9 +139,11 @@ if (_ar # 17 == 1) then {
 };
 
 if (_ar # 19 == 1) then {
-	d_priority_targets = [];
-	publicVariable "d_priority_targets";
-	[_obj, 19, 0] call d_fnc_setekmode;
+	if (_obj in d_priority_targets) then {
+		d_priority_targets deleteAt (d_priority_targets find _obj);
+		publicVariable "d_priority_targets";
+		[_obj, 19, 0] call d_fnc_setekmode;
+	};
 };
 
 if (_obj in d_cur_tgt_enemy_units) then {

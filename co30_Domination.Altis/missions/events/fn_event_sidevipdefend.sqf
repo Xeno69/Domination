@@ -122,13 +122,13 @@ d_priority_targets pushBack _pilot1;
 publicVariable "d_priority_targets";
 
 // waitUntil either killed EH or _event_survive_time duration
-waitUntil {sleep 3;d_priority_targets isEqualTo [] || {(time - _event_start_time) > _event_survive_time}};
+waitUntil {sleep 3;!(_pilot1 in d_priority_targets) || {(time - _event_start_time) > _event_survive_time}};
 
 diag_log ["vipdefend ended"];
 
 sleep 5;
 
-if (d_priority_targets isEqualTo []) then {
+if (!(_pilot1 in d_priority_targets)) then {
 	diag_log ["vipdefend failure"];
 	private _fail_survive_time = time - _event_start_time;
 	d_kb_logic1 kbTell [
@@ -153,15 +153,15 @@ if (d_priority_targets isEqualTo []) then {
 	{
 		_x addScore _event_succeed_points;
 	} forEach (allPlayers - entities "HeadlessClient_F");
-	// reset 
-	d_priority_targets deleteAt 0;
-	publicVariable "d_priority_targets";
-	deleteVehicle _pilot1;
 };
 
-d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
-publicVariable "d_mt_event_messages_array";
-
 // cleanup
+if (_pilot1 in d_priority_targets) then {
+	d_priority_targets deleteAt (d_priority_targets find _pilot1);
+	publicVariable "d_priority_targets";
+};
+deleteVehicle _pilot1;
 deleteVehicle _trigger;
 deleteMarker _marker; 
+d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
+publicVariable "d_mt_event_messages_array";

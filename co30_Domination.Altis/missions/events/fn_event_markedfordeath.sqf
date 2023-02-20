@@ -45,7 +45,7 @@ d_mt_event_messages_array pushBack _event_description;
 publicVariable "d_mt_event_messages_array";
 
 // waitUntil either killed EH or _event_survive_time duration
-waitUntil {sleep 3; d_priority_targets isEqualTo [] || {(time - _event_start_time) > _event_survive_time}};
+waitUntil {sleep 3; !(_event_target in d_priority_targets) || {(time - _event_start_time) > _event_survive_time}};
 
 if (!isNull _event_target) then {
 	[_event_target, 19, 0] call d_fnc_setekmode;
@@ -53,7 +53,7 @@ if (!isNull _event_target) then {
 
 diag_log ["markedfordeath ended"];
 
-if (d_priority_targets isEqualTo []) then {
+if (!(_event_target in d_priority_targets)) then {
 	diag_log ["markedfordeath failure"];
 	private _fail_survive_time = time - _event_start_time;
 	d_kb_logic1 kbTell [
@@ -78,11 +78,12 @@ if (d_priority_targets isEqualTo []) then {
 	{
 		_x addScore _event_succeed_points;
 	} forEach (allPlayers - entities "HeadlessClient_F");
-	// reset 
-	d_priority_targets deleteAt 0;
-	publicVariable "d_priority_targets";
 };
 
 // cleanup
+if (_event_target in d_priority_targets) then {
+	d_priority_targets deleteAt (d_priority_targets find _event_target);
+	publicVariable "d_priority_targets";
+};
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _event_description);
 publicVariable "d_mt_event_messages_array";

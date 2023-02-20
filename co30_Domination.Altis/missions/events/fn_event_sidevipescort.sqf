@@ -189,14 +189,13 @@ if (_all_dead) then {
 	} forEach (allPlayers - entities "HeadlessClient_F");
 };
 
-// reset 
-d_priority_targets deleteAt 0;
-publicVariable "d_priority_targets";
+// cleanup
+if (_pilot1 in d_priority_targets) then {
+	d_priority_targets deleteAt (d_priority_targets find _pilot1);
+	publicVariable "d_priority_targets";
+};
 deleteVehicle _pilot1;
-
+deleteVehicle _trigger;
+deleteMarker _marker;
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
-
-// cleanup
-deleteVehicle _trigger;
-deleteMarker _marker; 
