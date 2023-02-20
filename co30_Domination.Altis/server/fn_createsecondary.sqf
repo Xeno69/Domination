@@ -299,8 +299,12 @@ if (d_with_minefield == 0 && {random 100 > 70}) then {
 
 sleep 1;
 
-if (!isNil "d_sm_speedboat" && {d_sm_speedboat != ""}) then {
-	[_trg_center, _mtradius] spawn d_fnc_seapatrol;
+private _speedboatavailable = !isNil "d_sm_speedboat";
+if (!isNil "d_sm_speedboat") then {
+	_speedboatavailable = if (d_sm_speedboat isEqualType []) then {d_sm_speedboat isNotEqualTo []} else {d_sm_speedboat != ""};
+	if (_speedboatavailable) then {
+		[_trg_center, _mtradius] spawn d_fnc_seapatrol;
+	};
 };
 
 sleep 0.1;

@@ -11,7 +11,8 @@ if (hasInterface) then {
 
 if (isServer) then {
 	d_x_sm_pos params ["_poss", "_pos_other", "_pos_other2"];
-	private _vehicle = createVehicle [d_sm_SpeedBoat, _poss, [], 0, "NONE"];
+	private _speedboat = if (d_sm_speedboat isEqualType []) then {selectRandom d_sm_speedboat} else {d_sm_speedboat};
+	private _vehicle = createVehicle [_speedboat, _poss, [], 0, "NONE"];
 	_vehicle setDir markerDir "d_sm_108";
 	_vehicle setPos _poss;
 	_vehicle allowDamage false;
