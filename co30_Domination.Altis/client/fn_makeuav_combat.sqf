@@ -79,10 +79,10 @@ _wp = _grp addWaypoint [_loiter_pos, 0];
 _wp setWaypointType "LOITER";
 _wp setWaypointLoiterType "CIRCLE_L";
 _wp setWaypointLoiterRadius _loiter_radius;
-_wp setWaypointSpeed "LIMITED";
 _wp setWaypointBehaviour "CARELESS";
+_wp setWaypointCombatMode "BLUE";
 
-_vecu flyInHeight 500;
+_vecu flyInHeight 2000;
 
 player connectTerminalToUav _vecu;
 
