@@ -5,7 +5,7 @@ params ["_lpos", "_callero", "_wtype", "_enemy"];
 
 __TRACE_1("","_this")
 
-private _planeClass = d_cas_plane_ai;
+private _planeClass = if (d_cas_plane_ai isEqualType []) then {selectRandom d_cas_plane_ai} else {d_cas_plane_ai};
 
 __TRACE_1("","_planeClass")
 

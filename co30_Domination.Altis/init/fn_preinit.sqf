@@ -1436,6 +1436,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		publicVariable "d_cas_plane_avail";
 	};
 
+	// can now also be an array
 	d_cas_plane_ai =
 #ifdef __OWN_SIDE_INDEPENDENT__
 		"";
