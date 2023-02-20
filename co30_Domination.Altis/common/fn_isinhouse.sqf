@@ -4,7 +4,7 @@
 
 // check if a position is inside a house (tests if intersections isKindOf "House" in several different directions)
 
-private _is_in_house = true;
+/*private _is_in_house = true;
 private _test_vector_endpoints = [[6,3,0], [6,-3,0], [-6,3,0], [-6,-3,0], [0,0,50]];
 private _eye_height = 1.53;
 private _unit = _this;
@@ -32,3 +32,6 @@ private _acceptable_failures_remaining = 2;
 	};
 } forEach _test_vector_endpoints;
 _is_in_house
+*/
+
+insideBuilding _this == 1
