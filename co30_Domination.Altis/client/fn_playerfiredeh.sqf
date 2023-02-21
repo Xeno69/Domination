@@ -39,7 +39,8 @@ if (!_do_exit && {(_this # 4) isKindOf "Chemlight_base"}) exitWith {
 	(_this # 6) remoteExecCall ["d_fnc_ad_c_ar", 2];
 };
 
- if (d_player_in_base && {!d_pisadminp}) then {
+ //if (d_player_in_base && {!d_pisadminp}) then {
+ if (d_player_in_base) then {
 #ifndef __TT__
 	if (player inArea d_base_array) then {
 #else
@@ -47,30 +48,41 @@ if (!_do_exit && {(_this # 4) isKindOf "Chemlight_base"}) exitWith {
 #endif
 		__TRACE("Player in Base")
 		if ((_this # 1) isEqualTo "Put") then {
+			__TRACE("Put")
 			if (count _this > 6) then {
 				deleteVehicle (_this # 6);
 			};
 			[player, d_name_pl, 1] remoteExecCall ["d_fnc_RptMsgBS", 2];
 			_do_exit = true;
 		} else {
-			if (!d_there_are_enemies_atbase && {!d_enemies_near_base && {!(call d_fnc_checkammo)}}) then {
-				private _num = (player getVariable "d_p_f_b") + 1;
-				player setVariable ["d_p_f_b", _num];
-				_num spawn {
-					if !(player inArea [d_flag_base, 25, 25, 0, false]) then {
-						if (d_player_kick_shootingbase != 1000) then {
-							if (_this >= d_player_kick_shootingbase) then {
-								if (isNil {player getVariable "d_pfbk_announced"}) then {
-									[player, d_name_pl, 0] remoteExecCall ["d_fnc_RptMsgBS", 2];
-									player setVariable ["d_pfbk_announced", true];
+			if ((_this # 1) isEqualTo "Throw" && {player inArea [d_flag_base, 40, 40, 0, false]}) then {
+				__TRACE("Throw")
+				if (count _this > 6) then {
+					deleteVehicle (_this # 6);
+				};
+				[player, d_name_pl, 2] remoteExecCall ["d_fnc_RptMsgBS", 2];
+				_do_exit = true;
+			} else {
+				if (!d_there_are_enemies_atbase && {!d_enemies_near_base && {!(call d_fnc_checkammo)}}) then {
+					private _num = (player getVariable "d_p_f_b") + 1;
+					player setVariable ["d_p_f_b", _num];
+					_do_exit = true;
+					_num spawn {
+						if !(player inArea [d_flag_base, 25, 25, 0, false]) then {
+							if (d_player_kick_shootingbase != 1000) then {
+								if (_this >= d_player_kick_shootingbase) then {
+									if (isNil {player getVariable "d_pfbk_announced"}) then {
+										[player, d_name_pl, 0] remoteExecCall ["d_fnc_RptMsgBS", 2];
+										player setVariable ["d_pfbk_announced", true];
+									};
+								} else {
+									hint (localize "STR_DOM_MISSIONSTRING_537");
 								};
 							} else {
-								hint (localize "STR_DOM_MISSIONSTRING_537");
-							};
-						} else {
-							if (_this >= d_player_kick_shootingbase) then {
-								[player, d_name_pl, 0] remoteExecCall ["d_fnc_RptMsgBS", 2];
-								player setVariable ["d_p_f_b", 0];
+								if (_this >= d_player_kick_shootingbase) then {
+									[player, d_name_pl, 0] remoteExecCall ["d_fnc_RptMsgBS", 2];
+									player setVariable ["d_p_f_b", 0];
+								};
 							};
 						};
 					};

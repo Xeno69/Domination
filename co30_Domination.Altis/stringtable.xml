@@ -15360,6 +15360,18 @@
 <Chinese>Only one combat UAV allowed per player.</Chinese>
 <French>Only one combat UAV allowed per player.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2099">
+<English>Player %1 threw a grenade near the flag at base, Arma Key: %2</English>
+<Spanish>Player %1 threw a grenade near the flag at base, Arma Key: %2</Spanish>
+<Portuguese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Portuguese>
+<Korean>Player %1 threw a grenade near the flag at base, Arma Key: %2</Korean>
+<Japanese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Japanese>
+<Original>Player %1 threw a grenade near the flag at base, Arma Key: %2</Original>
+<Russian>Player %1 threw a grenade near the flag at base, Arma Key: %2</Russian>
+<Chinesesimp>Player %1 threw a grenade near the flag at base, Arma Key: %2</Chinesesimp>
+<Chinese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Chinese>
+<French>Player %1 threw a grenade near the flag at base, Arma Key: %2</French>
+</Key>
 </Container>
 </Package>
 </Project>
