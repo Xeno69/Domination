@@ -43,7 +43,9 @@ if !(d_UAV_Terminal in (assignedItems player)) then {
 };
 
 private _uav = [getPosATL player, 0, d_UAV_CAS, d_player_side, false, false] call bis_fnc_spawnVehicle;
-
+// force the UAV to desired altitude
+private _temppos = getPosWorld (_uav # 0);
+(_uav # 0) setPosATL [_temppos # 0, _temppos # 1, 2000];
 
 __TRACE_1("","_uav")
 _uav params ["_vecu", "_crew", "_grp"];
@@ -71,18 +73,18 @@ private _loiter_pos = getPos player;
 if !(d_cur_tgt_pos isEqualTo []) then {
 	_loiter_pos = d_cur_tgt_pos;
 };
-private _loiter_radius = 500;
+private _loiter_radius = 800;
 if (d_cur_target_radius > 0) then {
-	_loiter_radius = d_cur_target_radius + 500;
+	_loiter_radius = d_cur_target_radius + 800;
 };
 _wp = _grp addWaypoint [_loiter_pos, 0];
 _wp setWaypointType "LOITER";
 _wp setWaypointLoiterType "CIRCLE_L";
 _wp setWaypointLoiterRadius _loiter_radius;
-_wp setWaypointSpeed "LIMITED";
 _wp setWaypointBehaviour "CARELESS";
+_wp setWaypointCombatMode "BLUE";
 
-_vecu flyInHeight 500;
+_vecu flyInHeight 2000;
 
 player connectTerminalToUav _vecu;
 
