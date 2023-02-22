@@ -55,7 +55,7 @@ if (!_do_exit && {(_this # 4) isKindOf "Chemlight_base"}) exitWith {
 			[player, d_name_pl, 1] remoteExecCall ["d_fnc_RptMsgBS", 2];
 			_do_exit = true;
 		} else {
-			if ((_this # 1) isEqualTo "Throw" && {player inArea [d_flag_base, 40, 40, 0, false]}) then {
+			if ((_this # 1) isEqualTo "Throw" && {player inArea [d_flag_base, 70, 70, 0, false]}) then {
 				__TRACE("Throw")
 				if (count _this > 6) then {
 					deleteVehicle (_this # 6);
