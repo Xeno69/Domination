@@ -23,4 +23,5 @@
 - Fixed: Increased action radius for gas leak missions hopefully fixing the action not showing up problem in some cases
 - Fixed: Change pylons didn't work on the carrier (action didn't show up)
 - Fixed: Saving player stats to missionProfileNamespace should really work now
+- Fixed: When d_respawnatsql was set to 2 squad leader were able to respawn at themself
 - and like always make use of new script commands and other optimizations

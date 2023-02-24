@@ -1,11 +1,11 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 params ["_cparams", "_wone"];
 _cparams params ["_ctrl", "_sel"];
 
-//__TRACE_1("","_this")
+__TRACE_1("","_this")
 
 if (_sel == -1) exitWith {};
 
@@ -16,7 +16,7 @@ d_tele_prev_sel = _sel;
 
 private _data = _ctrl lbData _sel;
 
-//__TRACE_1("","_data")
+__TRACE_1("","_data")
 
 #define __COLRED [1,0,0,0.7]
 private _mravailable = false;
@@ -26,14 +26,14 @@ private _disp = [uiNamespace getVariable "XR_SpectDlg", uiNamespace getVariable 
 
 private _uidx = d_add_resp_points_uni find _data;
 
-//__TRACE_1("","_uidx")
+__TRACE_1("","_uidx")
 
 if (_uidx == -1) then {
 	if (_data != "D_BASE_D" && {_data != "D_SQL_D"}) then {
 		private _logtxt = ctrlText (_disp displayCtrl 11002);
 
 		private _mrs = missionNamespace getVariable [_data, objNull];
-		//__TRACE_1("","_mrs")
+		__TRACE_1("","_mrs")
 		if (!isNull _mrs) then {
 			private _curaridx = _not_avail_array pushBack _data;
 			private _lbcolor = call {
@@ -57,17 +57,21 @@ if (_uidx == -1) then {
 	} else {
 		if (d_respawnatsql in [0,2] && {_data == "D_SQL_D"}) then {
 			// d_respawnatsql == 2 always show button, otherwise only show if isleader == false (a squadmate)
+			__TRACE("1","d_respawnatsql")
 			if (d_respawnatsql == 2 || !(player getVariable ["xr_isleader", false])) then {
+				__TRACE("is not leader")
 				if (leader (group player) != player && [leader (group player)] call d_fnc_iseligibletospawnnewunit) then {
 					// the squad leader is eligible as a spawn target
 					_respawn_target = leader (group player);
+					__TRACE("1","_respawn_target")
 				};
-				if (isNil "_respawn_target" && d_respawnatsql == 2) then {
+				if (isNil "_respawn_target" && {d_respawnatsql == 2}) then {
 					// d_respawnatsql == 2 allows respawn on squadmates
 					// are any squadmates alive and eligible as a spawn target?
 					{
 						if (_x != player && [_x] call d_fnc_iseligibletospawnnewunit) exitWith {
 							_respawn_target = _x;
+							__TRACE("2","_respawn_target")
 						};
 					} forEach (units player);
 				};
@@ -86,9 +90,9 @@ if (_uidx == -1) then {
 
 d_lb_tele_first = false;
 
-//__TRACE_1("","d_additional_respawn_points")
+__TRACE_1("","d_additional_respawn_points")
 
-//__TRACE_1("","_uidx")
+__TRACE_1("","_uidx")
 
 d_cur_map_endpos = nil;
 d_alt_map_pos = nil;
@@ -115,7 +119,7 @@ private _end_pos = if (_uidx == -1) then {
 	(d_additional_respawn_points # _uidx) # 1;
 };
 
-//__TRACE_1("","_end_pos")
+__TRACE_1("","_end_pos")
 
 d_respawn_mar_str = _data;
 
@@ -124,9 +128,9 @@ if (_wone == 1 && {!xr_respawn_available}) then {
 	_data = "";
 };
 
-//__TRACE_3("","_data","_mravailable","_uidx")
-//__TRACE_1("","xr_respawn_available")
-//__TRACE_1("","_not_avail_array")
+__TRACE_3("","_data","_mravailable","_uidx")
+__TRACE_1("","xr_respawn_available")
+__TRACE_1("","_not_avail_array")
 
 if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_target" || {_uidx != -1}}}}) then {
 	d_beam_target = _data;
@@ -137,13 +141,13 @@ if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_ta
 	};
 	(_disp displayCtrl 100110) ctrlSetText _text;
 	(_disp displayCtrl 100102) ctrlEnable true;
-	//__TRACE("enable true")
+	__TRACE("enable true")
 } else {
-	//__TRACE_1("","d_beam_target")
-	//__TRACE_1("","d_last_beam_target")
+	__TRACE_1("","d_beam_target")
+	__TRACE_1("","d_last_beam_target")
 	(_disp displayCtrl 100110) ctrlSetText "";
 	(_disp displayCtrl 100102) ctrlEnable false;
-	//__TRACE("enable false 2")
+	__TRACE("enable false 2")
 	if (d_beam_target == "D_BASE_D" || {_uidx != -1}) exitWith {};
 	if !(d_beam_target in _not_avail_array) exitWith {};
 	d_beam_target = "";
@@ -158,7 +162,7 @@ if (!xr_respawn_available && {ctrlEnabled (_disp displayCtrl 100102)}) then {
 	(_disp displayCtrl 100102) ctrlEnable false;
 };
 
-//__TRACE_1("","d_beam_target")
+__TRACE_1("","d_beam_target")
 
 private _ctrlmap = _disp displayCtrl 900;
 ctrlMapAnimClear _ctrlmap;

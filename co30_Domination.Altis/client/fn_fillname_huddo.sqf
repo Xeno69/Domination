@@ -13,6 +13,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh", "_opax"];
 		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
 		private _epp = eyePos player;
+		private _gpl = group player;
 		{
 			_distu = _cam2world distance _x;
 			if (_distu <= _d_pn_hud) then {
@@ -63,7 +64,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 							_tex = "*";
 							_rtex = "#(argb,8,8,3)color(0,0,0,0)";
 						};
-						d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+						d_pl_name_huddo_ar pushBack [_rtex, [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == _gpl), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], _rsize, _rsize, 0, _tex, 1, __d_textsize_dr3d, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 					};
 				};
 			};
@@ -87,7 +88,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 						} else {
 							_tex = "*";
 						};
-						d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == group player), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
+						d_pl_name_huddo_ar pushBack ["#(argb,8,8,3)color(0,0,0,0)", [[1, 1, 1, 0.8], [0, 1, 0, 0.9]] select (group _x == _gpl), _targetPos vectorAdd [0, 0, 0.2 + (_distu / 15) / 1.5], 0.4, 0.4, 0, _tex, 1, __d_textsize_dr3d_ai, "RobotoCondensed"]; //PuristaSemibold PuristaMedium
 					};
 				};
 			} forEach (d_allplayerai select {alive _x && {isNull objectParent _x}});
