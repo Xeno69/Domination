@@ -156,6 +156,16 @@ if (!d_with_ranked) then {
 addToRemainsCollector [_unit];
 
 _unit addEventhandler ["getInMan", {call d_fnc_getinmanai}];
+if (d_sm_mt_protection > 0) then {
+	_unit addEventhandler ["getOutMan", {
+		private _id = (_this # 0) getVariable ["d_anticas_id_ai", -1];
+		if (_id >= 0) then {
+			(_this # 0) removeEventHandler ["firedMan", _id];
+			(_this # 0) setVariable ["d_anticas_id_ai", -1];
+		};
+		(_this # 0)removeEventHandler ["getOutMan", _thisEventHandler];
+	}];
+};
 
 if (d_ai_silent == 1) then {
 	[_unit, "NoVoice"] remoteExecCall ["setSpeaker", -2, false];

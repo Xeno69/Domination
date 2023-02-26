@@ -221,6 +221,7 @@ class cfgFunctions {
 			addc(headshot_notify);
 			addc(air_v_ee_eh);
 			addc(receivetop);
+			addc(anticas);
 		};
 		class Dom_UI {
 			file = "clientui";

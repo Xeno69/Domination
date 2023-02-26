@@ -71,6 +71,15 @@ if (!isTouchingGround (vehicle player)) then {
 	};
 };
 
+if (d_sm_mt_protection > 0) then {
+	private _id = player getVariable ["d_anticas_id_pl", -1];
+	__TRACE_1("","_id")
+	if (_id >= 0) then {
+		player removeEventHandler ["firedMan", _id];
+		player setVariable ["d_anticas_id_pl", -1];
+	};
+};
+
 setViewDistance d_curviewdistance;
 setObjectViewDistance d_curobjectdistance + 100;
 d_isvdreduced = false;

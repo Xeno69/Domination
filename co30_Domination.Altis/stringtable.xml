@@ -15372,6 +15372,78 @@
 <Chinese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Chinese>
 <French>Player %1 threw a grenade near the flag at base, Arma Key: %2</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2100">
+<English>Side mission/main target protection from friendly CAS missiles and bombs</English>
+<Spanish>Side mission/main target protection from friendly CAS missiles and bombs</Spanish>
+<Portuguese>Side mission/main target protection from friendly CAS missiles and bombs</Portuguese>
+<Korean>Side mission/main target protection from friendly CAS missiles and bombs</Korean>
+<Japanese>Side mission/main target protection from friendly CAS missiles and bombs</Japanese>
+<Original>Side mission/main target protection from friendly CAS missiles and bombs</Original>
+<Russian>Side mission/main target protection from friendly CAS missiles and bombs</Russian>
+<Chinesesimp>Side mission/main target protection from friendly CAS missiles and bombs</Chinesesimp>
+<Chinese>Side mission/main target protection from friendly CAS missiles and bombs</Chinese>
+<French>Side mission/main target protection from friendly CAS missiles and bombs</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2101">
+<English>Side mission only</English>
+<Spanish>Side mission only</Spanish>
+<Portuguese>Side mission only</Portuguese>
+<Korean>Side mission only</Korean>
+<Japanese>Side mission only</Japanese>
+<Original>Side mission only</Original>
+<Russian>Side mission only</Russian>
+<Chinesesimp>Side mission only</Chinesesimp>
+<Chinese>Side mission only</Chinese>
+<French>Side mission only</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2102">
+<English>Main target only</English>
+<Spanish>Main target only</Spanish>
+<Portuguese>Main target only</Portuguese>
+<Korean>Main target only</Korean>
+<Japanese>Main target only</Japanese>
+<Original>Main target only</Original>
+<Russian>Main target only</Russian>
+<Chinesesimp>Main target only</Chinesesimp>
+<Chinese>Main target only</Chinese>
+<French>Main target only</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2103">
+<English>Side mission and main target</English>
+<Spanish>Side mission and main target</Spanish>
+<Portuguese>Side mission and main target</Portuguese>
+<Korean>Side mission and main target</Korean>
+<Japanese>Side mission and main target</Japanese>
+<Original>Side mission and main target</Original>
+<Russian>Side mission and main target</Russian>
+<Chinesesimp>Side mission and main target</Chinesesimp>
+<Chinese>Side mission and main target</Chinese>
+<French>Side mission and main target</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2104">
+<English>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</English>
+<Spanish>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Spanish>
+<Portuguese>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Portuguese>
+<Korean>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Korean>
+<Japanese>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Japanese>
+<Original>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Original>
+<Russian>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Russian>
+<Chinesesimp>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Chinesesimp>
+<Chinese>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</Chinese>
+<French>Side mission protection form friendly CAS missiles and bombs activated. Deleting projectile!</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2105">
+<English>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</English>
+<Spanish>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Spanish>
+<Portuguese>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Portuguese>
+<Korean>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Korean>
+<Japanese>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Japanese>
+<Original>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Original>
+<Russian>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Russian>
+<Chinesesimp>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Chinesesimp>
+<Chinese>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</Chinese>
+<French>Main target protection form friendly CAS missiles and bombs activated. Deleting projectile!</French>
+</Key>
 </Container>
 </Package>
 </Project>

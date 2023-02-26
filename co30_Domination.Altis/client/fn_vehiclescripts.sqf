@@ -39,7 +39,7 @@ if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to
 };
 if (_do_exit) exitWith {};
 
-__TRACE_1("","Before")
+__TRACE("Before")
 
 if (_vec isKindOf "Air") then {
 	if (d_pilots_only == 0 && {!(call d_fnc_isPilotCheck) && {_this # 1 == "driver"}}) exitWith {
@@ -56,6 +56,17 @@ if (_vec isKindOf "Air") then {
 		// sadly yet another Arma bug is not fixed, therefore inputAction is also needed... http://feedback.arma3.com/view.php?id=20845
 		d_heli_kh_ro = (findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_ropekeyb}];
 	};
+	
+	if (d_sm_mt_protection > 0) then {
+		__TRACE("adding firedMan eh")
+		player setVariable ["d_anticas_id_pl", player addEventHandler ["firedMan", {
+			__TRACE_1("firedMan","_this")
+			if ((_this # 6) isKindOf "MissileBase" || {(_this # 6) isKindOf "BombCore" || {(_this # 6) isKindOf "RocketCore"}}) then {
+				_this spawn d_fnc_anticas;
+			};
+		}]];
+	};
+	
 	if (!d_with_ace) then {
 		_vec setVariable ["d_rappel_self_action", [
 				/* 0 object */						_vec,

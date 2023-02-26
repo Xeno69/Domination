@@ -308,6 +308,14 @@
 >    - Yes (0) <br />
 >    - No (1) <br />
 
+#### **d_sm_mt_protection / Side mission/main target protection from friendly CAS missiles and bombs**
+> Default: 0 - Off <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - Side mission only (1) <br />
+>    - Main target only (2) <br />
+>    - Side mission and main target (3) <br />
+
 #### **d_pylon_lodout / Pylon loadout enabled:**
 > Default: 0 - Yes <br />
 > Available options: <br />

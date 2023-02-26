@@ -10,6 +10,7 @@
 - Added: Civilians and civilian vehicle type server settings (2035 units or with mods), by longtimegamer
 - Added: Suppress ambient battlefield sounds in server settings, by longtimegamer
 - Added: Throwing grenades at the base flag removes them to stop idi*ts
+- Added: New param d_sm_mt_protection ("Side mission/main target protection from friendly CAS missiles and bombs" in server lobby). Deletes either friendly CAS missiles/bombs over side mission or main target or both, default 0, Off
 - Changed: d_cas_plane_ai and d_sm_speedboat can now also be an array of class names
 - Fixed: When a server restart happened players could lose all their points (hopefully fixed)
 - Fixed: AI awareness behavior suddenly stopped when radiotower destroyed and d_mt_spotted is set to false, by longtimegamer
