@@ -102,9 +102,9 @@ while {true} do {
 	_disabled = false;
 	_empty = false;
 	if (_delay != -1) then {
-		sleep (_delay + random 15);
+		sleep (_delay + random 20);
 	} else {
-		sleep (2 + random 2);
+		sleep (2 + random 10);
 	};
 	
 	if (alive _vec) then {
