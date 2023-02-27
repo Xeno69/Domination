@@ -247,6 +247,7 @@ __TRACE("start of forEach _buildingPosArray")
 		//	//diag_log [format ["position skipped, too high: height above terrain is %1 > 6", ((_housePos # 2) - (getTerrainHeightASL _housePos))]];
 		//	_skip_position = true;
 		//};
+		sleep 0.01;
 		if (!_skip_position && {!isNil "_theBuilding" && {side (_units select _unitIndex) == civilian}}) then {
 			// use dimensions from boundingBoxReal to check if the position is too near the edges of the building
 			// this helps avoid placing civilians in exposed positions (balcony, front porch, etc.) but it's not perfect
@@ -318,6 +319,8 @@ __TRACE("start of forEach _buildingPosArray")
 										};
 									};
 								};
+								
+								sleep 0.01;
 	
 								if (!_isRoof || {_edge}) then {
 									if (!_isDryRun) then {
@@ -396,6 +399,8 @@ __TRACE("start of forEach _buildingPosArray")
 											//enable priority movement
 											[_uuidx] call _spawn_script_enable_movement;
 										};
+										
+										sleep 0.01;
 		
 										//sniper mode - static forever
 										if (_unitMovementMode == 2) then {
@@ -514,6 +519,7 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 		//private _targetPos = selectRandom _positionsUsed;
 		private _targetPos = getPos _theBuilding;
 		private _targetPosFuzzy = [_targetPos, (sizeOf typeOf _theBuilding) / 4] call d_fnc_getfuzzyposition;
+		sleep 0.01;
 		// create an actual unit/group to ensure a non-colliding position, get the unit pos and then delete the unit/group
 		private _civgrptemp = createGroup civilian;
 		private _civtemp = _civgrptemp createUnit ["C_man_1", _targetPosFuzzy, [], 0, "NONE"];
