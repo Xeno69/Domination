@@ -6,9 +6,9 @@ __TRACE_1("","_this")
 
 if (d_mt_done) exitWith {};
 
-params ["_killed"];
+params ["_killed", "_kind"];
 
-if (_killed isKindOf "CAManBase") then {
+if (_kind) then {
 	if (d_mt_barracks_down) exitWith {
 		__TRACE("mt done or barracks down")
 	};

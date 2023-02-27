@@ -294,6 +294,7 @@ if (([getPos _vec, sizeOf d_vehicle_building] call d_fnc_getslope) > 0.4) then {
 };/* else {
 	_vec setVectorUp [0,0,1];
 };*/
+sleep 0.1;
 _vec setVariable ["d_v_pos", getPos _vec];
 if (d_bar_mhq_destroy == 1) then {
 	[_vec, 1] call d_fnc_checkmtrespawntarget;
@@ -904,6 +905,7 @@ if (d_with_MainTargetEvents != 0) then {
 
 if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot == 1 || {d_ai_quickammo == 1}}}}) then {
 	// at least one awareness setting is enabled, run the awareness loop
+	d_c_t_e_u_b = true;
 	d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
 };
 #endif

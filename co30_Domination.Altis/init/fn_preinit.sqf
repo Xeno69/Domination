@@ -605,6 +605,8 @@ if (isServer) then {
 	d_db_type = -1; // 0 = extDB3, 1 = InterceptDB, 2 = missionProfileNamespace
 	
 	d_delete_marker_meh = [];
+	
+	d_c_t_e_u_b = false;
 
 	if (isMultiplayer) then {
 		if (isClass (configFile >> "Intercept" >> "Dedmen" >> "intercept_database")) then {

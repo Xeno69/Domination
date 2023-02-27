@@ -145,11 +145,9 @@ if (side _grp == d_side_enemy) then {
 #endif
 (leader _grp) setRank "SERGEANT";
 
-{
-	if !(_noAIAwareness) then {
-		d_cur_tgt_enemy_units pushBack _x;
-	};
-} forEach units _grp;
+if !(_noAIAwareness) then {
+	d_cur_tgt_enemy_units append _ret;
+};
 
 #ifndef __TT__
 _ret call d_fnc_addceo;

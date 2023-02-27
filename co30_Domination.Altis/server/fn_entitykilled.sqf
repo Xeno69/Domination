@@ -66,10 +66,15 @@ if !(_obj isKindOf "CAManBase") then {
 	};
 };
 
+private _quit = false;
 if (_ar # 3 == 1) then {
 	_obj setVariable ["d_dead", true];
-	_this spawn d_fnc_onerespukilled;
+	if (_obj isKindOf "CAManBase") then {
+		_quit = true;
+	};
+	[_obj, _quit] spawn d_fnc_onerespukilled;
 };
+if (_quit) exitWith {true};
 
 if (_ar # 4 > 0) then {
 	call {
@@ -148,8 +153,10 @@ if (_ar # 19 == 1) then {
 	};
 };
 
-if (_obj in d_cur_tgt_enemy_units) then {
-	d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _obj);
+if (d_c_t_e_u_b) then {
+	if (_obj in d_cur_tgt_enemy_units) then {
+		d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _obj);
+	};
 };
 
 _obj setVariable ["d_hkx", nil];
