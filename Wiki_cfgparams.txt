@@ -403,6 +403,44 @@
 >    - Yes (0) <br />
 >    - No (1) <br />
 
+#### **d_with_ai / With AI features and recruitment:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+>    - Yes, but AI may not enter static weapons (2) <br />
+>    - Dynamic AI recruitment (more players, less AI recruitable) (3) <br />
+>    - Dynamic AI recruitment (more players, less AI recruitable), but AI may not enter static weapons (4) <br />
+
+#### **d_with_ai_features / With AI features but no AI recruit:**
+> Default: 1 - No <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_max_ai / Recruit AI (max.):**
+> Default: 8 <br />
+> Available options: <br />
+>    - 4 <br />
+>    - 6 <br />
+>    - 8 <br />
+>    - 10 <br />
+>    - 12 <br />
+>    - 14 <br />
+>    - 16 <br />
+
+#### **d_ai_alone_in_vehicle / AI can drive vehicle without a player inside:**
+> Default: 0 - Yes <br />
+> Available options: <br />
+>    - Yes (0) <br />
+>    - No (1) <br />
+
+#### **d_ai_silent / Bots are silent**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - No (0) <br />
+>    - Yes (1) <br />
+
 #### **d_GrasAtStart / Grass:**
 > Default: 0 - Yes <br />
 > Available options: <br />
