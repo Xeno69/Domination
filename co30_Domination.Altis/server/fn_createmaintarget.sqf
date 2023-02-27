@@ -141,8 +141,10 @@ if (d_bar_mhq_destroy == 0) then {
 	d_mt_barmhq_ar = [];
 };
 
-d_priority_targets = [];
-publicVariable "d_priority_targets";
+if (d_with_MainTargetEvents != 0) then {
+	d_priority_targets = [];
+	publicVariable "d_priority_targets";
+};
 
 private _parray = [_trg_center, _radius + 150, 8, 0.7, 0, false, true, true] call d_fnc_GetRanPointCircleBigArray;
 if (count _parray < 8) then {

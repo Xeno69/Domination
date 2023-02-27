@@ -26,10 +26,12 @@ __TRACE_2("","_obj","_ar")
 #ifndef __TT__
 if (_ar # 18 == 1) exitWith {
 	call d_fnc_plcheckkill;
-	if (_ar # 19 == 1) then {
-		d_priority_targets = [];
-		publicVariable "d_priority_targets";
-		[_obj, 19, 0] call d_fnc_setekmode;
+	if (d_with_MainTargetEvents != 0) then {
+		if (_ar # 19 == 1) then {
+			d_priority_targets = [];
+			publicVariable "d_priority_targets";
+			[_obj, 19, 0] call d_fnc_setekmode;
+		};
 	};
 	true
 };
@@ -145,7 +147,7 @@ if (_ar # 17 == 1) then {
 	_obj setFuel 0.05;
 };
 
-if (_ar # 19 == 1) then {
+if (d_with_MainTargetEvents != 0 && {_ar # 19 == 1}) then {
 	if (_obj in d_priority_targets) then {
 		d_priority_targets deleteAt (d_priority_targets find _obj);
 		publicVariable "d_priority_targets";

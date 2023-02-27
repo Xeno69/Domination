@@ -351,7 +351,7 @@ __TRACE("start of forEach _buildingPosArray")
 										};
 		
 										//occupy mode - no special behavior
-										if (_unitMovementMode == 0) then {
+										if (d_with_MainTargetEvents != 0 && {_unitMovementMode == 0}) then {
 											//do nothing, unit is free to move
 											//enable priority movement
 											[_uuidx] call _spawn_script_enable_movement;
@@ -397,7 +397,9 @@ __TRACE("start of forEach _buildingPosArray")
 												}]];
 											};
 											//enable priority movement
-											[_uuidx] call _spawn_script_enable_movement;
+											if (d_with_MainTargetEvents!= 0) then {
+												[_uuidx] call _spawn_script_enable_movement;
+											};
 										};
 										
 										sleep 0.01;
@@ -450,7 +452,9 @@ __TRACE("start of forEach _buildingPosArray")
 											};
 											
 											//enable priority movement
-											[_uuidx] call _spawn_script_enable_movement;
+											if (d_with_MainTargetEvents != 0) then {
+												[_uuidx] call _spawn_script_enable_movement;
+											};
 											
 											if (isNil {_uuidx getVariable "d_zen_fneh2"}) then {
 												_uuidx setVariable ["d_zen_fneh2", _uuidx addEventHandler ["FiredNear", {
