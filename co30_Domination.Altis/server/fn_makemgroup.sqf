@@ -34,7 +34,7 @@ if ((d_smallgrps == 0 && {_doreduce}) || {_unitsPerGroupMax > 0}) then {
 _ret resize (count _unitliste);
 
 private _subskill = if (diag_fps < 29 && {d_skillfps == 0}) then {
-	(0.12 + (random 0.04))
+	(0.08 + (random 0.04))
 } else {
 	//(0.1 + (random 0.2))
 	switch (d_EnemySkill) do {

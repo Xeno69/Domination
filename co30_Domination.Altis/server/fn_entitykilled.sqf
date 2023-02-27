@@ -69,7 +69,7 @@ if !(_obj isKindOf "CAManBase") then {
 private _quit = false;
 if (_ar # 3 == 1) then {
 	_obj setVariable ["d_dead", true];
-	if (_obj isKindOf "CAManBase") then {
+	if (!d_c_t_e_u_b && {_obj isKindOf "CAManBase"}) then {
 		_quit = true;
 	};
 	[_obj, _quit] spawn d_fnc_onerespukilled;
