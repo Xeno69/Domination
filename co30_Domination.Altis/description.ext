@@ -657,99 +657,6 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 	
-	class d_params_dl_8_env {
-		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
-		values[] = {-66};
-		default = -66;
-		texts[] = {""};
-	};
-
-	class d_weather {
-		title = "$STR_DOM_MISSIONSTRING_1164";
-		values[] = {0,1};
-		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_enable_fog {
-		title = "$STR_DOM_MISSIONSTRING_1164a";
-		values[] = {0,1};
-#ifndef __WS__
-		default = 0;
-#else
-		default = 1;
-#endif
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_WithWinterWeather {
-		title = "$STR_DOM_MISSIONSTRING_1731";
-		values[] = {0,1};
-#ifdef __WINTER__
-		default = 0;
-#else
-		default = 1;
-#endif
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
-	class d_withsandstorm {
-		title = "$STR_DOM_MISSIONSTRING_1732";
-		values[] = {0,1};
-#ifdef __ALTIS__
-		default = 0;
-#endif
-#ifdef __STRATIS__
-		default = 0;
-#endif
-#ifdef __TANOA__
-		default = 1;
-#endif
-#ifdef __TTTANOA__
-		default = 1;
-#endif
-#ifdef __CUP_CHERNARUS__
-		default = 1;
-#endif
-#ifdef __CUP_TAKISTAN__
-		default = 0;
-#endif
-#ifdef __CUP_SARA__
-		default = 0;
-#endif
-#ifdef __IFA3__
-		default = 1;
-#endif
-#ifdef __TTALTIS__
-		default = 1;
-#endif
-#ifdef __MALDEN__
-		default = 0;
-#endif
-#ifdef __TTMALDEN__
-		default = 1;
-#endif
-#ifdef __GMCWG__
-		default = 1;
-#endif
-#ifdef __LIVONIA__
-		default = 1;
-#endif
-#ifdef __UNSUNG__
-		default = 1;
-#endif
-#ifdef __GABRETA__
-		default = 1;
-#endif
-#ifdef __VNCLN__
-		default = 1;
-#endif
-#ifdef __WS__
-		default = 0;
-#endif
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-
 	class d_MaxNumAmmoboxes {
 		title = "$STR_DOM_MISSIONSTRING_1169";
 		values[] = {10,20,30};
@@ -866,6 +773,99 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_2056";
 		values[] = {0,1};
 		default = 1;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+	
+	class d_params_dl_8_env {
+		title = "$STR_DOM_MISSIONSTRING_1574_ENV";
+		values[] = {-66};
+		default = -66;
+		texts[] = {""};
+	};
+
+	class d_weather {
+		title = "$STR_DOM_MISSIONSTRING_1164";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
+	class d_enable_fog {
+		title = "$STR_DOM_MISSIONSTRING_1164a";
+		values[] = {0,1};
+#ifndef __WS__
+		default = 0;
+#else
+		default = 1;
+#endif
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
+	class d_WithWinterWeather {
+		title = "$STR_DOM_MISSIONSTRING_1731";
+		values[] = {0,1};
+#ifdef __WINTER__
+		default = 0;
+#else
+		default = 1;
+#endif
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+	};
+
+	class d_withsandstorm {
+		title = "$STR_DOM_MISSIONSTRING_1732";
+		values[] = {0,1};
+#ifdef __ALTIS__
+		default = 0;
+#endif
+#ifdef __STRATIS__
+		default = 0;
+#endif
+#ifdef __TANOA__
+		default = 1;
+#endif
+#ifdef __TTTANOA__
+		default = 1;
+#endif
+#ifdef __CUP_CHERNARUS__
+		default = 1;
+#endif
+#ifdef __CUP_TAKISTAN__
+		default = 0;
+#endif
+#ifdef __CUP_SARA__
+		default = 0;
+#endif
+#ifdef __IFA3__
+		default = 1;
+#endif
+#ifdef __TTALTIS__
+		default = 1;
+#endif
+#ifdef __MALDEN__
+		default = 0;
+#endif
+#ifdef __TTMALDEN__
+		default = 1;
+#endif
+#ifdef __GMCWG__
+		default = 1;
+#endif
+#ifdef __LIVONIA__
+		default = 1;
+#endif
+#ifdef __UNSUNG__
+		default = 1;
+#endif
+#ifdef __GABRETA__
+		default = 1;
+#endif
+#ifdef __VNCLN__
+		default = 1;
+#endif
+#ifdef __WS__
+		default = 0;
+#endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
 
