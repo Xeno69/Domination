@@ -97,6 +97,10 @@ if (_vec isKindOf "Boat_F") then {
 
 sleep 5;
 
+if (isNil "d_vec_respawn_blocked") then {
+	d_vec_respawn_blocked = false;
+};
+
 private ["_disabled", "_empty"];
 while {true} do {
 	_disabled = false;
@@ -104,8 +108,14 @@ while {true} do {
 	if (_delay != -1) then {
 		sleep (_delay + random 20);
 	} else {
-		sleep (2 + random 10);
+		sleep (2 + random 8);
 	};
+	
+	while {d_vec_respawn_blocked} do {
+		sleep 0.3;
+	};
+	
+	d_vec_respawn_blocked = true;
 	
 	if (alive _vec) then {
 		_empty = (crew _vec) findIf {alive _x} == -1;
@@ -242,4 +252,6 @@ while {true} do {
 		};
 		_vec setDamage 0;
 	};
+	
+	d_vec_respawn_blocked = false;
 };
