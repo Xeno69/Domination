@@ -70,6 +70,14 @@ if (_rtype == 0) then { // player died
 	if (d_WithRevive == 0) then {
 		player removeEventHandler ["OpticsModeChanged", player getVariable "d_opmc_eh_id"];
 	};
+	if (d_sm_mt_protection > 0) then {
+		private _id = player getVariable ["d_anticas_id_pl", -1];
+		__TRACE_1("","_id")
+		if (_id >= 0) then {
+			player removeEventHandler ["firedMan", _id];
+			player setVariable ["d_anticas_id_pl", -1];
+		};
+	};
 } else { // _rtype = 1, player has respawned
 	d_commandingMenuIniting = false;
 	d_DomCommandingMenuBlocked = false;
