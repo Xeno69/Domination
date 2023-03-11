@@ -267,16 +267,16 @@
 <French>Le nombre maximal de caisses de munitions simultanément est %1. Une caisse de munitions n'est supprimée que si la caisse a été détruite.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_32">
-<English>Reload a crate into chopper 1,2,3 or W or in one of the MHQs, otherwise you will end up at the next target without any crate.</English>
-<Spanish>Cargue una caja en el helicóptero 1,2,3 o W y en uno de los MHQs, de lo contrario el resultado final será en el próximo objetivo sin munición.</Spanish>
-<Portuguese>Reload Um crate a chopper 1,2,3 ou W ou em um do MHQs, otherwise acabará no objetivo próximo sem qualquer crate.</Portuguese>
+<English>Reload a crate into chopper 1,5 or 6 or in one of the MHQs, otherwise you will end up at the next target without any crate.</English>
+<Spanish>Cargue una caja en el helicóptero 1,5 o 6 y en uno de los MHQs, de lo contrario el resultado final será en el próximo objetivo sin munición.</Spanish>
+<Portuguese>Reload Um crate a chopper 1,5 ou 6 ou em um do MHQs, otherwise acabará no objetivo próximo sem qualquer crate.</Portuguese>
 <Korean>탄약상자를 사용하시고 꼭 다시 실어주십시오. 탄약상자는 자동으로 생성되거나 제거되지 않습니다.</Korean>
-<Japanese>弾薬箱をヘリコプター1,2,3またはWまたは移動指揮所(MHQ)のいずれかに再積載してください。そうしないと、弾薬箱なしで次の目標へ行くことになります。</Japanese>
-<Original>Reload a crate into chopper 1,2,3 or W or in one of the MHQs, otherwise you will end up at the next target without any crate.</Original>
+<Japanese>弾薬箱をヘリコプター1,5,6またはWまたは移動指揮所(MHQ)のいずれかに再積載してください。そうしないと、弾薬箱なしで次の目標へ行くことになります。</Japanese>
+<Original>Reload a crate into chopper 1,5 or 6 or in one of the MHQs, otherwise you will end up at the next target without any crate.</Original>
 <Russian>Не забывайте загружать ящик после выполненного задания обратно в транспорт, чтобы на новой миссии не остаться без арсенала.</Russian>
 <Chinesesimp>重新将弹药箱放进直升机或基地车（MHQ）内,否则下一个任务你可能没有弹药箱补给.</Chinesesimp>
 <Chinese>重新將彈藥箱放進直升機或基地車內,否則下一個任務你可能沒有彈藥箱補給</Chinese>
-<French>Chargez une caisse dans l'hélicoptère 1,2,3 ou W ou l'un des MHQ, sinon le résultat final sera sur la prochaine cible sans munitions.</French>
+<French>Chargez une caisse dans l'hélicoptère 1,5 ou 6 ou l'un des MHQ, sinon le résultat final sera sur la prochaine cible sans munitions.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_33">
 <English>Once deployed you can teleport from one MHQ to the other, enable satellite view or create a bike.</English>
