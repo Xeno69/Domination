@@ -153,12 +153,14 @@ class D_AdminDialog {
 			action = "call d_fnc_removeallusermarkers";
 			x = 0.08; y = 0.89; w = 0.25;
 		};
+#ifndef __TT__
 		class EndMaintargetButton: KickButton {
 			idc = -1;
 			text = "$STR_DOM_MISSIONSTRING_END_MAINTARGET";
 			action = "remoteExecCall ['d_fnc_endmaintarget', 2]";
 			x = 0.40; y = 0.89; w = 0.25;
 		};
+#endif
 		class EndSidemissionButton: KickButton {
 			idc = -1;
 			text = "$STR_DOM_MISSIONSTRING_1755";
