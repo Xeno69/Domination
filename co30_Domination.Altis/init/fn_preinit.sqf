@@ -607,6 +607,7 @@ if (isServer) then {
 	d_delete_marker_meh = [];
 	
 	d_c_t_e_u_b = false;
+	d_last_admin_mt_end = -1;
 
 	if (isMultiplayer) then {
 		if (isClass (configFile >> "Intercept" >> "Dedmen" >> "intercept_database")) then {
