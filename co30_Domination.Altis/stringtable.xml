@@ -15312,6 +15312,42 @@
 <Chinese>Russian Ground Forces Winter (Russian Winter Retextures)</Chinese>
 <French>Russian Ground Forces Winter (Russian Winter Retextures)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_AFRICAN_DESERT_CIVILIAN_MILITIA">
+<English>African Desert Civilian Militia</English>
+<Spanish>African Desert Civilian Militia</Spanish>
+<Portuguese>African Desert Civilian Militia</Portuguese>
+<Korean>African Desert Civilian Militia</Korean>
+<Japanese>African Desert Civilian Militia</Japanese>
+<Original>African Desert Civilian Militia</Original>
+<Russian>African Desert Civilian Militia</Russian>
+<Chinesesimp>African Desert Civilian Militia</Chinesesimp>
+<Chinese>African Desert Civilian Militia</Chinese>
+<French>African Desert Civilian Militia</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_ION_URBAN">
+<English>ION Services (Urban)</English>
+<Spanish>ION Services (Urban)</Spanish>
+<Portuguese>ION Services (Urban)</Portuguese>
+<Korean>ION Services (Urban)</Korean>
+<Japanese>ION Services (Urban)</Japanese>
+<Original>ION Services (Urban)</Original>
+<Russian>ION Services (Urban)</Russian>
+<Chinesesimp>ION Services (Urban)</Chinesesimp>
+<Chinese>ION Services (Urban)</Chinese>
+<French>ION Services (Urban)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_KARZEGHISTAN_ROYAL_GUARD">
+<English>Karzeghistan Royal Guard</English>
+<Spanish>Karzeghistan Royal Guard</Spanish>
+<Portuguese>Karzeghistan Royal Guard</Portuguese>
+<Korean>Karzeghistan Royal Guard</Korean>
+<Japanese>Karzeghistan Royal Guard</Japanese>
+<Original>Karzeghistan Royal Guard</Original>
+<Russian>Karzeghistan Royal Guard</Russian>
+<Chinesesimp>Karzeghistan Royal Guard</Chinesesimp>
+<Chinese>Karzeghistan Royal Guard</Chinese>
+<French>Karzeghistan Royal Guard</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN_MILITARY">
 <English>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
 <Spanish>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
