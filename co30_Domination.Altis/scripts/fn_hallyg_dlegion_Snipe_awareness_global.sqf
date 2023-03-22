@@ -16,6 +16,12 @@ params ["_unit", "_targetSideArray", "_awarenessRadius", "_pursueRadius", "_isAg
 
 __TRACE_1("","_this")
 
+private _isSniper = _unit getVariable ["d_is_sniper", false];
+
+if (_isSniper && { d_snp_aware == 1 }) then {
+	_awarenessRadius = 1200;
+};
+
 if (_awarenessRadius <= 0) exitWith {};
 
 if (!alive _unit) exitWith {};
@@ -60,13 +66,6 @@ if (isNil "_bodyPositionNext") then {
 private _detectionRadius = 2000; //in meters
 private _moveOrderInterval = 30;
 private _ammoRefillInterval = 15;
-
-private _isSniper = "sniper" in (toLowerANSI (groupId _unit));
-
-//still testing
-//if (_isSniper) then {
-//	_awarenessRadius = 1400;
-//};
 
 if (_unit getVariable ["ammoCount", 0] > _unit ammo primaryWeapon _unit || {_unit getVariable ["magazineCount", 0] > count magazinesAmmo _unit}) then {
 	//yes the unit actually fired
