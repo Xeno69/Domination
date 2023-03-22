@@ -30,12 +30,6 @@ if (_maxNumUnits > 0 && {count _unitlist > _maxNumUnits}) then {
 
 private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 
-if (_unitMovementMode == 2) then {
-	//give the sniper group a random name prefixed with "Sniper" as a hint for d_fnc_makemgroup
-	_sniperGrpName = format["Sniper%1", floor(random 999999)];
-	_newgroup setGroupId [_sniperGrpName];
-};
-
 private _units_to_garrison = [_centerPos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 
 if (_unitMovementMode == 2) then {
@@ -43,6 +37,7 @@ if (_unitMovementMode == 2) then {
 		_x disableAI "PATH";
 		_x forceSpeed 0;
 		_x setUnitPos "UP";
+		_x setVariable ["d_is_sniper", true];
 	} forEach _units_to_garrison;
 };
 sleep 0.2;
