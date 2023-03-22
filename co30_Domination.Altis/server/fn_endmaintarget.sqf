@@ -13,4 +13,3 @@ if (d_ao_markers == 1) then {
 if (d_ao_check_for_ai < 2) then {
 	d_mt_barracks_down = true;
 };
-0 spawn d_fnc_target_clear;
