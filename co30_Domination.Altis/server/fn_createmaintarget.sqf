@@ -36,6 +36,13 @@ private _selectitvec = {
 	};
 };
 
+params ["_trgobj", "_radius"];
+private _patrol_radius = _radius + 300 + random 300;
+private _trg_center = if (_trgobj isEqualType objNull) then {getPosATL _trgobj} else {_trgobj};
+__TRACE_1("","_trg_center")
+__TRACE_3("","_trgobj","_radius","_patrol_radius")
+__TRACE_1("","_this")
+
 // if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
 private _merc_array = [
 	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
@@ -61,6 +68,32 @@ if (d_camp_enable_guard == 1) then {
 	//always enabled 
 	_camp_enable_guard_current = 1;
 };
+
+#ifndef __TT__
+//if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -4}) then {
+if (true) then {
+	// chance of a pre-emptive event (a special event which supersedes most maintarget setup)
+	//if (7 > random 100) then {
+	if (true) then {
+		diag_log ["Small chance for special event was selected, d_preemptive_special_event set to true"];
+		d_preemptive_special_event = true;
+		publicVariable "d_preemptive_special_event";
+		switch (selectRandom [1,2]) do {
+			case 1: {
+				// defend
+				diag_log ["special event select: defend"];
+				// unset all static/guard
+				_camp_enable_guard_current = 0;
+				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
+			};
+			case 2: {
+			
+			};
+		};
+		
+	};
+};
+#endif
 
 if (_camp_enable_guard_current == 1) then {
 	_type_list_guard = [
@@ -91,6 +124,10 @@ private _type_list_patrol = [
 	["jeep_gl", [d_vec_numbers_patrol, 4] call _selectit, [d_vec_numbers_patrol,4] call _selectitvec]
 ];
 
+if (d_preemptive_special_event) then {
+	_type_list_patrol = []; // unset if defense event
+};
+
 private _d_veh_li = missionNamespace getVariable format ["d_veh_a_%1", d_enemy_side_short];
 
 __TRACE_1("","_d_veh_li")
@@ -105,29 +142,26 @@ __TRACE_1("","_type_list_patrol")
 
 private _type_list_guard_static2 = [];
 private _camp_static_weapons_current = 0;
-if (d_camp_static_weapons == -1) then {
-	//random chance
-	_camp_static_weapons_current = selectRandom [0,1];
-};
-if (d_camp_static_weapons == 1) then {
-	//always enabled
-	_camp_static_weapons_current = 1;
-};
-if (_camp_static_weapons_current == 1) then {
-	_type_list_guard_static2 = [
-    	["stat_mg", 1, ceil (random 4)],
-    	["stat_gl", 1, ceil (random 3)]
-    ];
+if (d_preemptive_special_event) then {
+	diag_log ["defense events, skipping static units"];
+} else {
+	if (d_camp_static_weapons == -1) then {
+		//random chance
+		_camp_static_weapons_current = selectRandom [0,1];
+	};
+	if (d_camp_static_weapons == 1) then {
+		//always enabled
+		_camp_static_weapons_current = 1;
+	};
+	if (_camp_static_weapons_current == 1) then {//
+		_type_list_guard_static2 = [
+			["stat_mg", 1, ceil (random 4)],
+			["stat_gl", 1, ceil (random 3)]
+		];
+	};
 };
 
 __TRACE_1("","_type_list_guard")
-
-params ["_trgobj", "_radius"];
-private _patrol_radius = _radius + 300 + random 300;
-private _trg_center = if (_trgobj isEqualType objNull) then {getPosATL _trgobj} else {_trgobj};
-__TRACE_1("","_trg_center")
-__TRACE_3("","_trgobj","_radius","_patrol_radius")
-__TRACE_1("","_this")
 
 // set enemy mode
 d_WithLessArmor call d_fnc_setenemymode;
@@ -201,6 +235,7 @@ private _barcompo = call {
 private _barcountxx = -1;
 
 for "_i" from 1 to d_num_barracks_objs do {
+	if (d_preemptive_special_event) exitWith {}; // do not make barracks if defense event is active
 	private _idx = floor random (count _parray);
 	_poss = _parray # _idx;
 	__TRACE_1("1","_poss")
@@ -264,7 +299,12 @@ for "_i" from 1 to d_num_barracks_objs do {
 d_num_barracks_objs = count d_mt_barracks_obj_ar;
 __TRACE_1("","d_mt_barracks_obj_ar")
 __TRACE_1("2","d_num_barracks_objs")
-d_mt_barracks_down = false;
+if (d_num_barracks_objs == 0) then {
+	d_mt_barracks_down = true;
+} else {
+	d_mt_barracks_down = false;
+};
+
 d_num_barracks_tt = d_num_barracks_objs;
 publicVariable "d_num_barracks_objs";
 publicVariable "d_num_barracks_tt";
@@ -273,68 +313,70 @@ private _idx = floor random (count _parray);
 _poss = _parray # _idx;
 __TRACE_1("1","_poss")
 
-if (_allbars isNotEqualTo []) then {
-	private _fidx = _allbars findIf {_x distance2D _poss < 115};
-	if (_fidx != -1) then {
-		private _icounter = 0;
-		while {_icounter < 50 || {_fidx != -1}} do {
-			_idx = floor random (count _parray);
-			_poss = _parray # _idx;
-			_fidx = _allbars findIf {_x distance2D _poss < 115};
-			_icounter = _icounter + 1;
+if (!d_preemptive_special_event) then {
+	if (_allbars isNotEqualTo []) then {
+		private _fidx = _allbars findIf {_x distance2D _poss < 115};
+		if (_fidx != -1) then {
+			private _icounter = 0;
+			while {_icounter < 50 || {_fidx != -1}} do {
+				_idx = floor random (count _parray);
+				_poss = _parray # _idx;
+				_fidx = _allbars findIf {_x distance2D _poss < 115};
+				_icounter = _icounter + 1;
+			};
 		};
 	};
-};
-_parray deleteAt _idx;
-_poss set [2, 0];
-_vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
-__TRACE_1("d_vehicle_building","_vec")
-_vec setDir (_vec getDir _trg_center);
-//_vec setPos _poss;
-if (([getPos _vec, sizeOf d_vehicle_building] call d_fnc_getslope) > 0.4) then {
-	_vec setVectorUp (surfaceNormal (getPos _vec));
-};/* else {
-	_vec setVectorUp [0,0,1];
-};*/
-sleep 0.1;
-_vec setVariable ["d_v_pos", getPos _vec];
-if (d_bar_mhq_destroy == 1) then {
-	[_vec, 1] call d_fnc_checkmtrespawntarget;
-} else {
-	_barcountxx = _barcountxx + 1;
-	_vec allowDamage false;
-	_vec addEventHandler ["handleDamage", {0}];
-	_vec setVariable ["d_timetotake", 40, true];
-	_vec setVariable ["d_taketime", 0, true];
-	_trig = [_vec, [13, 13, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["{alive _x && {!(_x getVariable ['xr_pluncon', false]) && {!(_x getVariable ['ace_isunconscious', false])}}} count thisList > 0", format ["d_bartrig_%1 = [thisTrigger, 1] spawn d_fnc_barmhqtrig", _barcountxx], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _barcountxx]]] call d_fnc_createtriggerlocal;
-	_trig setVariable ["d_vec", _vec];
-	_vec setVariable ["d_isbarormhq", 1, true]; // 0 = barracks, 1 = MHQ...
-	d_bara_trig_ar pushBack _trig;
-	d_mt_barmhq_ar pushBack _vec;
-};
-d_mt_mobile_hq_down = false;
-d_mt_mobile_hq_obj = _vec;
-
-if (d_bar_mhq_destroy == 0) then {
-	publicVariable "d_mt_barmhq_ar";
-	remoteExec ["d_fnc_makebarmhqwait", [0, -2] select isDedicated];
-};
+	_parray deleteAt _idx;
+	_poss set [2, 0];
+	_vec = createVehicle [d_vehicle_building, _poss, [], 0, "NONE"];
+	__TRACE_1("d_vehicle_building","_vec")
+	_vec setDir (_vec getDir _trg_center);
+	//_vec setPos _poss;
+	if (([getPos _vec, sizeOf d_vehicle_building] call d_fnc_getslope) > 0.4) then {
+		_vec setVectorUp (surfaceNormal (getPos _vec));
+	};/* else {
+		_vec setVectorUp [0,0,1];
+	};*/
+	sleep 0.1;
+	_vec setVariable ["d_v_pos", getPos _vec];
+	if (d_bar_mhq_destroy == 1) then {
+		[_vec, 1] call d_fnc_checkmtrespawntarget;
+	} else {
+		_barcountxx = _barcountxx + 1;
+		_vec allowDamage false;
+		_vec addEventHandler ["handleDamage", {0}];
+		_vec setVariable ["d_timetotake", 40, true];
+		_vec setVariable ["d_taketime", 0, true];
+		_trig = [_vec, [13, 13, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["{alive _x && {!(_x getVariable ['xr_pluncon', false]) && {!(_x getVariable ['ace_isunconscious', false])}}} count thisList > 0", format ["d_bartrig_%1 = [thisTrigger, 1] spawn d_fnc_barmhqtrig", _barcountxx], format ["[thisTrigger, d_bartrig_%1] call d_fnc_bartrigover", _barcountxx]]] call d_fnc_createtriggerlocal;
+		_trig setVariable ["d_vec", _vec];
+		_vec setVariable ["d_isbarormhq", 1, true]; // 0 = barracks, 1 = MHQ...
+		d_bara_trig_ar pushBack _trig;
+		d_mt_barmhq_ar pushBack _vec;
+	};
+	d_mt_mobile_hq_down = false;
+	d_mt_mobile_hq_obj = _vec;
+	
+	if (d_bar_mhq_destroy == 0) then {
+		publicVariable "d_mt_barmhq_ar";
+		remoteExec ["d_fnc_makebarmhqwait", [0, -2] select isDedicated];
+	};
 
 #ifndef __VN__
-private _unitstog = [
-	getPos _vec,
-	3,		//_maxNumUnits
-	10,		//fillRadius
-	true,	//fillRoof
-	false,	//fillEvenly
-	true,	//fillTopDown
-	false,	//disableTeleport
-	0,		//unitMovementMode
-	_vec   //bldg
-] call d_fnc_garrisonUnits;
-d_delinfsm append _unitstog;
+	private _unitstog = [
+		getPos _vec,
+		3,		//_maxNumUnits
+		10,		//fillRadius
+		true,	//fillRoof
+		false,	//fillEvenly
+		true,	//fillTopDown
+		false,	//disableTeleport
+		0,		//unitMovementMode
+		_vec   //bldg
+	] call d_fnc_garrisonUnits;
+	d_delinfsm append _unitstog;
 #endif
-sleep 0.1;
+	sleep 0.1;
+};
 
 #ifdef __DEBUG__
 {
@@ -479,6 +521,9 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 		private _xx_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
 		private _xpos = _wp_array_inf # _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
+		//if (d_preemptive_special_event) then {
+		//	_xpos = 1111111; /////////////////////////////////////////////
+		//};
 		__TRACE("from createmaintarget 1")
 		private _observer = ([_xpos, _unit_array, _agrp, true, false] call d_fnc_makemgroup) # 0;
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;
@@ -535,7 +580,7 @@ if (d_civ_vehs_type > 0) then {
 #endif
 //garrison begin
 
-if (d_occ_bldgs == 1) then {
+if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
 	private _occ_cnt = 0;
 	if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3 || d_occ_cnt == -4 || d_occ_cnt == -5) then {
@@ -796,7 +841,12 @@ if (d_occ_bldgs == 1) then {
 };
 //garrison end
 
-[_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
+if (d_preemptive_special_event) then {
+	diag_log ["skipped createsecondary for preemptive special event"];
+} else {
+	// creates camps, radiotower and mtmission
+	[_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
+};
 
 #ifndef __TT__
 if (d_enable_civs == 1) then {
@@ -811,6 +861,7 @@ if (d_enable_civs == 1) then {
 
 #ifndef __TT__
 if (d_with_MainTargetEvents != 0) then {
+	if (d_preemptive_special_event) exitWith {}; // a special event is already running
 	private _doMainTargetEvent = {
 		params ["_event_string"];
 		switch (_event_string) do {

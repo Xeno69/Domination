@@ -14097,6 +14097,18 @@
 <Chinese>注意：游擊隊已從 %1 遷入該城市。游擊隊對藍方友好，對紅方敵對。</Chinese>
 <French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2028_ENEMY_ATTACK">
+<English>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</English>
+<Spanish>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Spanish>
+<Portuguese>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Portuguese>
+<Korean>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Korean>
+<Japanese>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Japanese>
+<Original>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Original>
+<Russian>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Russian>
+<Chinesesimp>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Chinesesimp>
+<Chinese>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Chinese>
+<French>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_RESISTANCE">
 <English>Attention: some of the civilians are armed and ready to fight!</English>
 <Spanish>Attention: some of the civilians are armed and ready to fight!</Spanish>
@@ -14264,6 +14276,18 @@
 <Chinesesimp>敌人引爆了一个装置。失败！</Chinesesimp>
 <Chinese>敵人引爆了一個裝置。失敗！</Chinese>
 <French>The enemy detonated a device. Failure.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FAIL_ENEMY_BREACH">
+<English>The enemy breached the safezone. Mission failed.</English>
+<Spanish>The enemy breached the safezone. Mission failed.</Spanish>
+<Portuguese>The enemy breached the safezone. Mission failed.</Portuguese>
+<Korean>The enemy breached the safezone. Mission failed.</Korean>
+<Japanese>The enemy breached the safezone. Mission failed.</Japanese>
+<Original>The enemy breached the safezone. Mission failed.</Original>
+<Russian>The enemy breached the safezone. Mission failed.</Russian>
+<Chinesesimp>The enemy breached the safezone. Mission failed.</Chinesesimp>
+<Chinese>The enemy breached the safezone. Mission failed.</Chinese>
+<French>The enemy breached the safezone. Mission failed.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS">
 <English>Enemy explosive device disabled.</English>

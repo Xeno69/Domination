@@ -171,3 +171,20 @@ private _marker_vecs = d_marker_vecs;
 		};
 	};
 } forEach _marker_vecs select {!isNull _x};
+
+/*
+diag_log ["foooooooooo"];
+diag_log [d_preemptive_special_event];
+diag_log [d_cur_tgt_pos];
+diag_log [d_preemptive_special_event_startpos];
+diag_log ["fooooooooooend"];
+
+if (d_preemptive_special_event && {d_cur_tgt_pos isNotEqualTo [] && {d_preemptive_special_event_startpos isNotEqualTo []}}) then {
+	diag_log ["foooooooooodraw"];
+	_map drawArrow [
+		d_preemptive_special_event_startpos,
+		d_cur_tgt_pos,
+		[1,0,0,1]
+	];
+};
+*/
