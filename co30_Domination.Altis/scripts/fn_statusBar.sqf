@@ -30,7 +30,11 @@ private _formatstr = "
 
 "d_infobar" cutRsc ["d_infobar", "PLAIN"];
 
-while {true} do {
+if (isNil "d_mission_is_now_over") then {
+	d_mission_is_now_over = false;
+};
+
+while {!d_mission_is_now_over} do {
 	private _disp = uiNamespace getVariable "d_infobar";
 	if (isNil "_disp" || {isNull _disp}) then {
 		"d_infobar" cutRsc ["d_infobar", "PLAIN"];

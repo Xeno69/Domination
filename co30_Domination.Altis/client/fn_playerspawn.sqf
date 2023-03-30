@@ -74,7 +74,6 @@ if (_rtype == 0) then { // player died
 		private _id = player getVariable ["d_anticas_id_pl", -1];
 		__TRACE_1("","_id")
 		if (_id >= 0) then {
-			__TRACE("firedMan EH removed")
 			player removeEventHandler ["firedMan", _id];
 			player setVariable ["d_anticas_id_pl", -1];
 		};

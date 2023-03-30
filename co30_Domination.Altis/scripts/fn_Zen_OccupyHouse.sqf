@@ -500,7 +500,9 @@ __TRACE("start of forEach _buildingPosArray")
 										breakTo "while";
 									};
 								} else {
+#ifdef __DEBUG__
 									diag_log ["position skipped, roof or edge"];
+#endif
 								};//end if
 							};//end if
 						};//end if

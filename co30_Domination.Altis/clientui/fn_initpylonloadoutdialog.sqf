@@ -29,6 +29,7 @@ private _pylon_owners = _vec getVariable ["d_pylon_owners", []];
 private _pyl_owns_empty = _pylon_owners isEqualTo [];
 
 private _excludemags = getArray(getMissionConfig "CfgVehicles">>(typeOf _vec)>>"TransportPylons">>"excludeMagazines") apply {toLowerANSI _x};
+_excludemags append (getArray(getMissionConfig "d_excludemag_gen">>"excludeMagazines") apply {toLowerANSI _x});
 //__TRACE_1("","_excludemags")
 
 //__TRACE_1("","count _pylons")

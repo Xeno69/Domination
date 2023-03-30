@@ -607,6 +607,7 @@ if (isServer) then {
 	d_delete_marker_meh = [];
 	
 	d_c_t_e_u_b = false;
+	d_last_admin_mt_end = -1;
 
 	if (isMultiplayer) then {
 		if (isClass (configFile >> "Intercept" >> "Dedmen" >> "intercept_database")) then {
@@ -3463,6 +3464,57 @@ if (d_enemy_factions > 0) then {
 			d_specops_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
 			d_faction_independent_array = [["Indep","IND_F","Infantry","HAF_InfSquad"] call d_fnc_GetConfigGroup];
+		};
+		case 8: {
+			// African Desert Civilian Militia (ADG)
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction8-african-desert-civil-miltia.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_RIF_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_AR_ISL_Squad"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_RIF_Squad"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_MK_Sentry"] call d_fnc_GetConfigGroup];
+			d_faction_independent_array = [["WEST","UK3CB_ADG_I","Infantry","UK3CB_ADG_I_AR_ISL_Squad"] call d_fnc_GetConfigGroup];
+		};
+		case 9: {
+			// ION Urban
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction9-ion-urban.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_AR_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MG_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_RIF_Squad"] call d_fnc_GetConfigGroup
+				// UK3CB_ION_O_Urban_AT_Squad
+				// 
+			];
+			d_specops_E = [["EAST","UK3CB_ION_O_Urban","SpecOps","UK3CB_ION_O_Urban_DEM_SpecTeam"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MK_Sentry"] call d_fnc_GetConfigGroup];
+			//d_faction_independent_array = [["WEST","UK3CB_ADG_I","Infantry","UK3CB_ADG_I_AR_ISL_Squad"] call d_fnc_GetConfigGroup];
+		};
+		case 10: {
+			// Karzeghistan Royal Guard
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction10-karzeghistan-royal-guard.sqf"
+			];
+			d_veh_a_W =+ d_veh_a_E;
+			d_allmen_E = [
+				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_AR_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_MG_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_RIF_Squad"] call d_fnc_GetConfigGroup
+				// UK3CB_ION_O_Urban_AT_Squad
+				// 
+			];
+			d_specops_E = [["EAST","UK3CB_KRG_O","SpecOps","UK3CB_KRG_O_Recon_SpecSquad"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [
+				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_SniperTeam"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_KRG_O","SpecOps","UK3CB_KRG_O_SF_SniperTeam"] call d_fnc_GetConfigGroup
+			];
+			//d_faction_independent_array = [["WEST","UK3CB_ADG_I","Infantry","UK3CB_ADG_I_AR_ISL_Squad"] call d_fnc_GetConfigGroup];
 		};
 	};
 	

@@ -122,6 +122,7 @@ if (count d_resolved_targets < d_MainTargets) then {
 	};
 #endif
 } else {
+	d_mission_is_now_over = true;
 #ifndef __TT__
 	hint  composeText[
 		parseText("<t color='#f02b11ed' size='1'>" + format [localize "STR_DOM_MISSIONSTRING_570", d_cur_tgt_name] + "</t>"), lineBreak, lineBreak,
