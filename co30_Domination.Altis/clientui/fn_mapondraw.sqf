@@ -17,7 +17,7 @@ private _fnc_gmi = d_fnc_getmapicon;
 
 if (d_show_player_marker isNotEqualTo 0) then {
 	private ["_v", "_inv", "_text", "_crw", "_nmt", "_nt", "_ccrwm1", "_isc", "_vc", "_res"];
-	[d_show_player_marker, d_fnc_gethpname, d_mark_loc280, d_fnc_gethpnameai] params ["_s_pl_ma", "_fnc_ghpn", "_d_mark_loc280", "_fnc_ghpnai"];
+	[d_show_player_marker, d_fnc_gethpname, d_mark_loc280, d_fnc_gethpnameai, d_allplayermapd, d_current_ai_units] params ["_s_pl_ma", "_fnc_ghpn", "_d_mark_loc280", "_fnc_ghpnai", "_d_allplayermapd", "_d_current_ai_units"];
 	{
 		_v = vehicle _x;
 		if (_v distance2D _mapmid < _drawdist) then {
@@ -116,7 +116,7 @@ if (d_show_player_marker isNotEqualTo 0) then {
 				};
 			};
 		};
-	} forEach (d_allplayermapd + (d_current_ai_units select {alive _x}));
+	} forEach (_d_allplayermapd + (_d_current_ai_units select {alive _x}));
 };
 
 //__TRACE_1("","d_marker_vecs")
