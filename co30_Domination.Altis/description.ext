@@ -256,7 +256,6 @@ class CfgRemoteExec {
 		class bis_fnc_setfog {allowedTargets = 2;};
 		class bis_fnc_setovercast {allowedTargets = 2;};
 		class bis_fnc_setdate {allowedTargets = 2;};
-		class d_fnc_initgrhc {allowedTargets = 1;};
 		class BIS_fnc_effectKilledAirDestruction {};
 		class BIS_fnc_effectKilledSecondaries {};
 		class BIS_fnc_objectVar {};

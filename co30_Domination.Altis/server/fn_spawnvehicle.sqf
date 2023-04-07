@@ -149,7 +149,7 @@ if (_addkills) then {
 };
 
 if !(_veh isKindOf "Ship") then {
-	_veh addEventHandler ["handleDamage", {call d_fnc_v_hd}];
+	_veh setVariable ["d_drowned", true];
 	private _gvecs = _grp getVariable ["d_gvecs", []];
 	_gvecs pushBack _veh;
 	_grp setVariable ["d_gvecs", _gvecs];

@@ -632,6 +632,7 @@ if (isServer) then {
 	if (d_MissionType != 2) then {
 		addMissionEventhandler ["BuildingChanged", {call d_fnc_buildingchanged}];
 	};
+	addMissionEventHandler ["Drowned", {call d_fnc_v_hd}];
 };
 
 if (hasInterface) then {

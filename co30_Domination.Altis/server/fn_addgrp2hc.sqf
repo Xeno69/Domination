@@ -14,7 +14,6 @@ if (d_hc_array isEqualTo []) exitWith {};
 
 if (count d_hc_array == 1) then {
 	_this setGroupOwner (owner (d_hc_array # 0));
-	[_this, _this getVariable ["d_gvecs", []]] remoteExecCall ["d_fnc_initgrhc", owner (d_hc_array # 0)];
 #ifdef __TT__
 	if (d_with_ace && {!isNil {_this getVariable "d_ktypett"}}) then {
 		_this remoteExecCall ["d_fnc_addgrhcace", owner (d_hc_array # 0)];
@@ -27,7 +26,6 @@ if (count d_hc_array == 1) then {
 	};
 	
 	_this setGroupOwner (owner (d_hc_array # d_hc_counter));
-	[_this, _this getVariable ["d_gvecs", []]] remoteExecCall ["d_fnc_initgrhc", owner (d_hc_array # d_hc_counter)];
 #ifdef __TT__
 	if (d_with_ace && {!isNil {_this getVariable "d_ktypett"}}) then {
 		_this remoteExecCall ["d_fnc_addgrhcace", owner (d_hc_array # d_hc_counter)];
