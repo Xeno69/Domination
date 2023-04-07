@@ -14277,18 +14277,6 @@
 <Chinese>敵人引爆了一個裝置。失敗！</Chinese>
 <French>The enemy detonated a device. Failure.</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_FAIL_ENEMY_BREACH">
-<English>The enemy breached the safezone. Mission failed.</English>
-<Spanish>The enemy breached the safezone. Mission failed.</Spanish>
-<Portuguese>The enemy breached the safezone. Mission failed.</Portuguese>
-<Korean>The enemy breached the safezone. Mission failed.</Korean>
-<Japanese>The enemy breached the safezone. Mission failed.</Japanese>
-<Original>The enemy breached the safezone. Mission failed.</Original>
-<Russian>The enemy breached the safezone. Mission failed.</Russian>
-<Chinesesimp>The enemy breached the safezone. Mission failed.</Chinesesimp>
-<Chinese>The enemy breached the safezone. Mission failed.</Chinese>
-<French>The enemy breached the safezone. Mission failed.</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_EXPLOSIVES_SUCCESS">
 <English>Enemy explosive device disabled.</English>
 <Spanish>Enemy explosive device disabled.</Spanish>
