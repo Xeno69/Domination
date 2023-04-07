@@ -112,9 +112,6 @@ if (d_WithLessArmor == 4) then {
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 	private _units = [_spawn_pos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 	{
-		//_x setSkill _guerrillaBaseSkill;
-		//_x setSkill ["spotTime", 0.6];
-		//_x setSkill ["spotDistance", 0.6];
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
@@ -153,8 +150,6 @@ sleep 60;
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
 } forEach _newgroups;
-
-//d_mt_radio_down = true; // radiotower create was skipped //////////////////////////////
 
 waitUntil {sleep 3; d_mt_done};
 
