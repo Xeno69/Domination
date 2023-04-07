@@ -414,6 +414,13 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class MTEventSideEnemyAttack {
+		text = "$STR_DOM_MISSIONSTRING_2028_ENEMY_ATTACK";
+		speech[] = {};
+		class Arguments {
+			class 1 {type = "simple";};
+		};
+	};
 	class MTEventSideRabbitRescue {
 		text = "$STR_DOM_MISSIONSTRING_2028_RABBIT";
 		speech[] = {};

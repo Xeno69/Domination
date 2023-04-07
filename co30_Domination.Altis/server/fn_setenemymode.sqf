@@ -7,7 +7,7 @@
 //   0 Normal
 //   1 Less
 //   2 None
-//   3 Random, enemy mode is randomly chosen [0,1,2] each time a maintarget is created
+//   3 Random, enemy mode is randomly chosen [0,1,2,4] each time a maintarget is created
 //   4 High
 
 __TRACE_1("","_this")
