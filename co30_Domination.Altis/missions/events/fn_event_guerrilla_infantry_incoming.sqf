@@ -11,14 +11,14 @@ if (true) exitWith {};
 
 if !(isServer) exitWith {};
 
-params ["_target_radius", "_target_center"];
+params ["_target_radius", "_target_center", ["_spawn_pos", []], ["_with_vehicles", false]];
 
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
-private _minimumDistanceFromMaintarget = 325;
-private _maximumDistanceFromMaintarget = 400;
+private _minimumDistanceFromMaintarget = 250;
+private _maximumDistanceFromMaintarget = 300;
 private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
@@ -39,7 +39,9 @@ private _x_mt_event_ar = [];
 
 private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
-waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
+if (!d_preemptive_special_event) then {
+	waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
+};
 
 private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
 d_mt_event_messages_array pushBack _eventDescription;
@@ -53,21 +55,59 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-private _spawn_pos = _townNearbyPos;
+private _newgroups = [];
 
-if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) then {
-	// try to find a midpoint between chosen location and maintarget, too far for infantry to walk from location to location
-	private _midpoint_pos = [
-		((_target_center # 0) + (_townNearbyPos # 0))/2,
-		((_target_center # 1) + (_townNearbyPos # 1))/2
-	];
-	if ((_midpoint_pos distance2D _target_center) > _minimumDistanceFromMaintarget) then {
-		// if midpoint is not too close then use it instead of _townNearbyPos
-		_spawn_pos = _midpoint_pos;
+if (_spawn_pos isEqualTo []) then {
+	// spawn position was not provided, calculate the spawn position using _townNearbyPos  
+	_spawn_pos = _townNearbyPos;
+	
+	if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) then {
+		// try to find a midpoint between chosen location and maintarget, too far for infantry to walk from location to location
+		private _midpoint_pos = [
+			((_target_center # 0) + (_townNearbyPos # 0))/2,
+			((_target_center # 1) + (_townNearbyPos # 1))/2
+		];
+		if ((_midpoint_pos distance2D _target_center) > _minimumDistanceFromMaintarget) then {
+			// if midpoint is not too close then use it instead of _townNearbyPos
+			_spawn_pos = _midpoint_pos;
+		};
 	};
 };
 
-private _newgroups = [];
+while {surfaceIsWater _spawn_pos} do {
+	_spawn_pos = _spawn_pos getPos [20, _spawn_pos getDir _target_center];
+	sleep 0.01;
+};
+
+if (_with_vehicles) then {
+	private _incoming_vehs = [];
+	if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
+    	// "normal" or random which we force to normal
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc", "tank"];
+    };
+    
+    if (d_WithLessArmor == 1) then {
+    	// "less"
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
+    };
+    
+    if (d_WithLessArmor == 4) then {
+    	// high
+    	_incoming_vehs = ["jeep_mg", "jeep_mg", "wheeled_apc", "tracked_apc", "tank"]
+    };
+	private _vdir = _spawn_pos getDir _target_center;
+    {
+    	private _unitlist = [_x, "G"] call d_fnc_getunitlistv;
+    	private _newgroup = [independent] call d_fnc_creategroup;
+    	private _units = [1, _spawn_pos, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
+    	_newgroups pushBack _newgroup;
+    	if (d_with_dynsim == 0) then {
+    		[_newgroup, 0] spawn d_fnc_enabledynsim;
+    	};
+    	_x_mt_event_ar append (_units # 1);
+    } forEach _incoming_vehs;
+};
+
 // calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
 private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
 // default guerrilla force
@@ -78,6 +118,16 @@ if (_targetGroupCount > 10) then {
 if (_targetGroupCount > 20) then {
 	_guerrillaForce = ["allmen", "allmen", "allmen", "specops"];
 };
+
+if (d_preemptive_special_event) then {
+	// full battle, give the guerrillas the number of opfor groups / 3 or at least 4 groups
+	_guerrillaGroupCount = round(_targetGroupCount / 3) max 4;
+	_guerrillaForce = [];
+	for "_i" from 0 to _targetGroupCount do {
+    	_guerrillaForce pushBack "allmen";
+    };
+};
+
 private _guerrillaBaseSkill = 0.35;
 
 {
@@ -98,13 +148,20 @@ private _guerrillaBaseSkill = 0.35;
 	};
 } forEach _guerrillaForce;
 
-sleep 3.14;
+_marker = ["d_mt_event_marker_guerrillainfantry", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_GUERRILLAS", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+
+if (d_preemptive_special_event) then {
+	sleep 60;
+};
 
 {
+	// each group moves toward a random waypoint near the target center
+	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
 	_x setBehaviour "CARELESS";
-	_wp = _x addWaypoint[_target_center, 0];
+	_wp = _x addWaypoint[_wp_pos, 0];
 	_wp setWaypointBehaviour "SAFE";
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
@@ -112,9 +169,6 @@ sleep 3.14;
 } forEach _newgroups;
 
 sleep 2.333;
-
-_marker = ["d_mt_event_marker_guerrillainfantry", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_GUERRILLAS", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
-[_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 if (!isNil "d_event_trigger_tanks_guerr") then {
 	d_event_trigger_tanks_guerr setVariable ["d_event_start", true, true];
@@ -134,10 +188,14 @@ publicVariable "d_mt_event_messages_array";
 deleteVehicle _trigger;
 deleteMarker _marker;
 
-if (d_ai_persistent_corpses == 0) then {
-	waitUntil {sleep 10; d_mt_done};
+if (d_preemptive_special_event) then {
+	diag_log ["quick cleanup of preemptive event"];
 } else {
-	sleep 120;
+	if (d_ai_persistent_corpses == 0) then {
+		waitUntil {sleep 10; d_mt_done};
+	} else {
+		sleep 120;
+	};
 };
 
 //cleanup

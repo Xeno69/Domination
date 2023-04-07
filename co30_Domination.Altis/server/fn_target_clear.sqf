@@ -35,7 +35,7 @@ if (d_bar_mhq_destroy == 0) then {
 {
 	_x setVariable ["d_mt_done", true];
 } forEach (d_mt_barracks_obj_ar select {alive _x});
-if (alive d_mt_mobile_hq_obj) then {
+if (!isNil "d_mt_mobile_hq_obj" && {alive d_mt_mobile_hq_obj}) then {
 	d_mt_mobile_hq_obj setVariable ["d_mt_done", true];
 };
 d_mt_done = true;
@@ -44,7 +44,7 @@ publicVariable "d_mt_done";
 sleep 0.01;
 
 if (!d_side_main_done) then {
-	if (alive d_fixor_var) then {
+	if (!isNil "d_fixor_var" && {alive d_fixor_var}) then {
 		d_fixor_var setDamage 1;
 	};
 	d_side_main_done = true;
@@ -174,6 +174,9 @@ if (d_maintargets_list isNotEqualTo []) then {
 	};
 	private _mtunits =+ d_delinfsm;
 	d_delinfsm = [];
+	if (isNil "d_mt_mobile_hq_obj") then {
+		d_mt_mobile_hq_obj = objNull;
+	};
 	[d_current_target_index, _mt_barracks_obj_ar, _bara_trig_ar, d_mt_mobile_hq_obj, _mines_created, _mtunits] spawn d_fnc_delstuff;
 };
 

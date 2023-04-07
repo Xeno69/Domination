@@ -26,7 +26,7 @@ params ["_idx", "_mt_barracks_obj_ar", "_bara_trig_ar", "_mt_mobile_hq_obj", "_m
 	deleteVehicle _x;
 } forEach (_bara_trig_ar select {!isNull _x});
 
-if (!isNull _mt_mobile_hq_obj) then {
+if (!isNil "_mt_mobile_hq_obj" && {!isNull _mt_mobile_hq_obj}) then {
 	_mt_mobile_hq_obj spawn {
 		scriptName "spawn doexechcf2";
 		sleep (60 + random 60);
