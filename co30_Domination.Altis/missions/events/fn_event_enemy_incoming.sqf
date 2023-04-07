@@ -7,19 +7,26 @@
 if (true) exitWith {};
 #endif
 
-// Protect an unconscious pilot somewhere in the maintarget, enemy spawned nearby will attack the pilot
-// Defense only, no enemy will spawn in the maintarget
+// Defense only, enemies will spawn nearby and move into the city, no enemies will spawn in the maintarget
 
 if !(isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
+// for pre-emptive events, force victory check to include low ai
+private _original_check_for_ai_value = d_ao_check_for_ai;
+if (d_ao_check_for_ai != 2) then {
+	// temporarily set to 2
+	d_ao_check_for_ai = 2;
+	publicVariable "d_ao_check_for_ai";
+};
+
 private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
-private _minimumDistanceFromMaintarget = 325;
-private _maximumDistanceFromMaintarget = 400;
+private _minimumDistanceFromMaintarget = 250;
+private _maximumDistanceFromMaintarget = 300;
 private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
@@ -32,8 +39,10 @@ private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity
 	};
 } forEach _towns;
 
-if (_townNearbyPos isEqualTo []) exitWith {
-	diag_log ["unable to find a location to spawn infantry for guerrilla mission event", d_cur_tgt_name];
+if (_townNearbyPos isEqualTo []) then {
+	diag_log ["unable to find a nearby town so will choose a random position"];
+	_townNearbyPos = [[[_target_center, (d_cur_target_radius * 2.25)]],[[_target_center, (d_cur_target_radius * 1.75)]]] call BIS_fnc_randomPos;
+	_townNearbyName = "Unknown";
 };
 
 private _x_mt_event_ar = [];
@@ -73,18 +82,29 @@ d_preemptive_special_event_startpos = _spawn_pos;
 publicVariable "d_preemptive_special_event_startpos";
 
 private _newgroups = [];
-// calculate the sum of all groups of AI already in the maintarget and size the enemy force accordingly
-private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
-// default guerrilla force
-private _enemyForceInf = ["allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen"];
-private _enemyForceVeh = ["jeep_mg"];
-if (_targetGroupCount > 10) then {
-	_enemyForceInf = ["allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen"];
-	_enemyForceVeh = ["jeep_mg", "wheeled_apc"];
+// calculate the sum of all groups of AI already in the maintarget and size the enemy force accordingly (half + 1)
+private _targetGroupCount = round ((d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt) / 2) + 1;
+private _enemyForceInf = [];
+
+for "_i" from 0 to _targetGroupCount do {
+	_enemyForceInf pushBack "allmen";
 };
-if (_targetGroupCount > 20) then {
-	_enemyForceInf = ["allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen", "allmen"];
-	_enemyForceVeh = ["jeep_mg", "wheeled_apc", "tracked_apc"];
+
+private _incoming_vehs = [];
+
+if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
+	// "normal" or random which we force to normal
+	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc", "tank"];
+};
+
+if (d_WithLessArmor == 1) then {
+	// "less"
+	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
+};
+
+if (d_WithLessArmor == 4) then {
+	// high
+	_incoming_vehs = ["jeep_mg", "wheeled_apc", "wheeled_apc", "tracked_apc", "tank", "tank"]
 };
 
 {
@@ -105,7 +125,7 @@ if (_targetGroupCount > 20) then {
 	};
 } forEach _enemyForceInf;
 
-private _vdir = _target_center getDir _spawn_pos;
+private _vdir = _spawn_pos getDir _target_center;
 {
 	private _unitlist = [_x, d_enemy_side_short] call d_fnc_getunitlistv;
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
@@ -114,120 +134,40 @@ private _vdir = _target_center getDir _spawn_pos;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
-} forEach _enemyForceVeh;
+} forEach _incoming_vehs;
 
-sleep 3.14;
+_marker_enemy_spawn = ["d_mt_event_marker_enemyincoming", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_964", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
+[_marker_enemy_spawn, "STR_DOM_MISSIONSTRING_964"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
-
-
-
-/*
-private _poss = [[[_target_center, (d_cur_target_radius * 0.85)]],[[_target_center, (d_cur_target_radius * 0.40)]]] call BIS_fnc_randomPos;
-private _nposss = _poss findEmptyPosition [0, 25, d_sm_pilottype];
-if (_nposss isEqualTo []) then {_nposss = _poss};
-
-private _rescueGroup = [d_own_side] call d_fnc_creategroup;
-
-// create pilot1
-private _pilot1 = _rescueGroup createUnit [d_sm_pilottype, _nposss, [], 0, "NONE"];
-[_pilot1, 75] call d_fnc_nodamoffdyn;
-__TRACE_1("","_pilot1")
-_pilot1 call d_fnc_removenvgoggles_fak;
-removeHeadgear _pilot1;
-_pilot1 unlinkItem (hmd _pilot1); //remove nvgs
-[_pilot1, getPos _pilot1] call d_fnc_setposagls;
-
-removeAllWeapons _pilot1;
-_pilot1 setCaptive true;
-_pilot1 enableStamina false;
-_pilot1 enableFatigue false;
-_pilot1 disableAI "PATH";
-_pilot1 disableAI "RADIOPROTOCOL";
-_pilot1 forceSpeed 0;
-(leader _rescueGroup) setSkill 1;
-_rescueGroup allowFleeing 0;
-_rescueGroup deleteGroupWhenEmpty true;
-
-
-if (d_with_dynsim == 0) then {
-	[_rescueGroup] spawn d_fnc_enabledynsim;
-};
-
-// pilot cannot move for the entire event
-_pilot1 setUnconscious true;
-
-private _eventDescription = localize "STR_DOM_MISSIONSTRING_DEFEND";
-_marker_def = ["d_mt_event_enemy_incoming", getPos _pilot1, "ICON","ColorBlack", [1, 1], _eventDescription, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
-[_marker_def, "STR_DOM_MISSIONSTRING_DEFEND"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
-
-// actually don't immediately target the pilot, allow the players 90 seconds to set up a defense
-//sleep 90;
-sleep 10;
-
-// now the attack begins
-d_priority_targets pushBack _pilot1;
-publicVariable "d_priority_targets";
-*/
-
-
-
-
-sleep 2.333;
+sleep 60;
 
 {
+	// each group moves toward a random waypoint near the target center
+	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
 	_x setBehaviour "CARELESS";
-	_wp = _x addWaypoint[getPos _pilot1, 0];
+	_wp = _x addWaypoint[_wp_pos, 0];
 	_wp setWaypointBehaviour "SAFE";
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
 } forEach _newgroups;
 
-_marker_enemy_spawn = ["d_mt_event_marker_enemyincoming", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_964", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
-[_marker_enemy_spawn, "STR_DOM_MISSIONSTRING_964"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+//d_mt_radio_down = true; // radiotower create was skipped //////////////////////////////
 
-private _event_start_time = time;
-private _event_survive_time = 10*60; // 10 minutes
-//private _failed = false;
+waitUntil {sleep 3; d_mt_done};
 
-//while {sleep 15; (time - _start_time) < _duration;} do {
-	//private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
-	//if (!_foundAlive) exitWith {};
-	// mission failed if enemies are within 25m of target center
-	//if ({ side _x == d_side_enemy } count nearestObjects [_target_center, ["Man","Car","Tank"], 25] > 0) exitWith { _failed = true; };
-//};
-
-// waitUntil either killed EH or _event_survive_time duration
-waitUntil {sleep 3;!(_pilot1 in d_priority_targets) || {(time - _event_start_time) > _event_survive_time}};
-
-diag_log ["enemy_incoming ended"];
-
-sleep 5;
-
-//if (_failed) then {
-if (!(_pilot1 in d_priority_targets)) then {	
-	d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSideEnemyAttackFail",d_kbtel_chan];
-} else {
-	private _event_succeed_points = 20;
-	d_kb_logic1 kbTell [
-    	d_kb_logic2,
-    	d_kb_topic_side,
-    	"EventSucceed",
-    	["1", "", str _event_succeed_points, []],
-    	d_kbtel_chan
-    ];
-    {
-    	_x addScore _event_succeed_points;
-    } forEach (allPlayers - entities "HeadlessClient_F");
+if (d_ao_check_for_ai != _original_check_for_ai_value) then {
+	// set ai check back to original value
+	d_ao_check_for_ai = _original_check_for_ai_value;
+	publicVariable "d_ao_check_for_ai";
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
 deleteVehicle _trigger;
-deleteMarker _marker_def;
 deleteMarker _marker_enemy_spawn;
 
 d_preemptive_special_event = false;
@@ -241,6 +181,3 @@ if (d_ai_persistent_corpses == 0) then {
 } else {
 	sleep 120;
 };
-
-//cleanup
-//_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

@@ -70,24 +70,33 @@ if (d_camp_enable_guard == 1) then {
 };
 
 #ifndef __TT__
-//if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -4}) then {
-if (true) then {
+if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -4}) then {
 	// chance of a pre-emptive event (a special event which supersedes most maintarget setup)
-	//if (7 > random 100) then {
-	if (true) then {
+	if (10 > random 100) then {
 		diag_log ["Small chance for special event was selected, d_preemptive_special_event set to true"];
 		d_preemptive_special_event = true;
-		publicVariable "d_preemptive_special_event";
+		publicVariable "d_preemptive_special_event";		
 		switch (selectRandom [1,2]) do {
 			case 1: {
-				// defend
-				diag_log ["special event select: defend"];
+				diag_log ["special event selected: mt defend"];
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
 				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
 			};
 			case 2: {
-			
+				diag_log ["special event selected: three faction battle"];
+				// unset all static/guard
+				_camp_enable_guard_current = 0;
+				// spawn the opfor event
+				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
+				// wait for d_fnc_event_enemy_incoming to set a start pos for the enemy groups
+				sleep 3;
+				// calculate the desired spawn position for the guerrillas on the opposite side of the maintarget and away from opfor units
+				private _newx = (d_preemptive_special_event_startpos # 0) - (_trg_center # 0);
+				private _newy = (d_preemptive_special_event_startpos # 1) - (_trg_center # 1);
+				private _newpos = [(_trg_center # 0) - _newx, (_trg_center # 1) - _newy];
+				// spawn the guerrilla event
+				[_radius, _trg_center, _newpos, true] spawn d_fnc_event_guerrilla_infantry_incoming;
 			};
 		};
 		
@@ -124,10 +133,6 @@ private _type_list_patrol = [
 	["jeep_gl", [d_vec_numbers_patrol, 4] call _selectit, [d_vec_numbers_patrol,4] call _selectitvec]
 ];
 
-if (d_preemptive_special_event) then {
-	_type_list_patrol = []; // unset if defense event
-};
-
 private _d_veh_li = missionNamespace getVariable format ["d_veh_a_%1", d_enemy_side_short];
 
 __TRACE_1("","_d_veh_li")
@@ -136,6 +141,10 @@ __TRACE_1("","count _d_veh_li")
 if (count _d_veh_li > 12) then {
 	__TRACE("Pushing back UAV")
 	_type_list_patrol pushBack ["uav", [d_vec_numbers_patrol, 5] call _selectit, [d_vec_numbers_patrol,5] call _selectitvec];
+};
+
+if (d_preemptive_special_event) then {
+	_type_list_patrol = []; // unset if preemptive event
 };
 
 __TRACE_1("","_type_list_patrol")
@@ -511,7 +520,7 @@ _type_list_patrol = nil;
 
 sleep 1.124;
 
-if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
+if (d_allow_observers == 1 && {d_no_more_observers < 2 && {!d_preemptive_special_event}}) then {
 	d_nr_observers = floor random 4;
 	if (d_nr_observers < 2) then {d_nr_observers = 2};
 	d_obs_array = [];
@@ -521,9 +530,6 @@ if (d_allow_observers == 1 && {d_no_more_observers < 2}) then {
 		private _xx_ran = (count _wp_array_inf) call d_fnc_RandomFloor;
 		private _xpos = _wp_array_inf # _xx_ran;
 		_wp_array_inf deleteAt _xx_ran;
-		//if (d_preemptive_special_event) then {
-		//	_xpos = 1111111; /////////////////////////////////////////////
-		//};
 		__TRACE("from createmaintarget 1")
 		private _observer = ([_xpos, _unit_array, _agrp, true, false] call d_fnc_makemgroup) # 0;
 		[_agrp, _xpos, [_trg_center, _radius], [5, 20, 40], "", 0] spawn d_fnc_MakePatrolWPX;
@@ -841,12 +847,8 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 };
 //garrison end
 
-if (d_preemptive_special_event) then {
-	diag_log ["skipped createsecondary for preemptive special event"];
-} else {
-	// creates camps, radiotower and mtmission
-	[_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
-};
+// creates camps, radiotower and mtmission
+[_wp_array_inf, _radius, _trg_center] spawn d_fnc_createsecondary;
 
 #ifndef __TT__
 if (d_enable_civs == 1) then {

@@ -3384,7 +3384,10 @@ if (d_enemy_factions > 0) then {
 				#include "d_veh_a_O_faction1-taliban.sqf"
 			];
 			d_veh_a_W =+ d_veh_a_E;
-			d_allmen_E = [["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup];
+			d_allmen_E = [
+				["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
+			];
 			d_specops_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
 			d_faction_independent_array = [["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup];
@@ -3397,6 +3400,7 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [
 				["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_a"] call d_fnc_GetConfigGroup,
 				["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_b"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
 			];
 			d_specops_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
@@ -3407,7 +3411,10 @@ if (d_enemy_factions > 0) then {
 				#include "d_veh_a_O_faction3-centralafrica.sqf"
 			];
 			d_veh_a_W =+ d_veh_a_E;
-			d_allmen_E = [["East","CFP_O_CFRebels","Infantry","cfp_o_cfrebels_infantry_squad"] call d_fnc_GetConfigGroup];
+			d_allmen_E = [
+				["East","CFP_O_CFRebels","Infantry","cfp_o_cfrebels_infantry_squad"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
+			];
 			d_specops_E = [["East","CFP_O_CFRebels","SpecOps","cfp_o_cfrebels_specops_ex_military_fireteam"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["East","CFP_O_CFRebels","SpecOps","o_cfpocfrebels_specops_sniper_team"] call d_fnc_GetConfigGroup];
 			d_faction_independent_array = [["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup];
@@ -3421,6 +3428,7 @@ if (d_enemy_factions > 0) then {
 			d_specops_E = [
 				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_wpn_squad"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
 			];
 			//d_sniper_E = // no sniper class
 			d_faction_independent_array = [["WEST","CFP_B_IQARMY","Infantry","cfp_b_grp_ia_inf_squad"] call d_fnc_GetConfigGroup];
@@ -3433,6 +3441,7 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [
 				["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_squad"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_riot_squad"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
 			];
 			d_specops_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_specops_paratrooper_squad"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup];
@@ -3447,6 +3456,7 @@ if (d_enemy_factions > 0) then {
 				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_vdv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_RUARMY_DES","Infantry","InfSquad_DES"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
 			];
 			d_specops_E = [["EAST","CFP_O_RUARMY_DES","SpecOps","cfp_o_ruarmy_specops_spetsnaz_team_des"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_sniper_team_emr_des"] call d_fnc_GetConfigGroup];
@@ -3460,6 +3470,7 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [
 				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_group"] call d_fnc_GetConfigGroup,
 				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup
+				// TODO add an AT group
 			];
 			d_specops_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
@@ -3473,7 +3484,8 @@ if (d_enemy_factions > 0) then {
 			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_RIF_Squad"] call d_fnc_GetConfigGroup,
-				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_AR_ISL_Squad"] call d_fnc_GetConfigGroup
+				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_AR_ISL_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_AT_Squad"] call d_fnc_GetConfigGroup
 			];
 			d_specops_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_RIF_Squad"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_MK_Sentry"] call d_fnc_GetConfigGroup];
@@ -3488,9 +3500,8 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [
 				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_AR_Squad"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MG_Squad"] call d_fnc_GetConfigGroup,
-				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_RIF_Squad"] call d_fnc_GetConfigGroup
-				// UK3CB_ION_O_Urban_AT_Squad
-				// 
+				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_RIF_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_AT_Squad"] call d_fnc_GetConfigGroup
 			];
 			d_specops_E = [["EAST","UK3CB_ION_O_Urban","SpecOps","UK3CB_ION_O_Urban_DEM_SpecTeam"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MK_Sentry"] call d_fnc_GetConfigGroup];
@@ -3505,9 +3516,8 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [
 				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_AR_Squad"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_MG_Squad"] call d_fnc_GetConfigGroup,
-				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_RIF_Squad"] call d_fnc_GetConfigGroup
-				// UK3CB_ION_O_Urban_AT_Squad
-				// 
+				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_RIF_Squad"] call d_fnc_GetConfigGroup,
+				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_AT_Squad"] call d_fnc_GetConfigGroup
 			];
 			d_specops_E = [["EAST","UK3CB_KRG_O","SpecOps","UK3CB_KRG_O_Recon_SpecSquad"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [

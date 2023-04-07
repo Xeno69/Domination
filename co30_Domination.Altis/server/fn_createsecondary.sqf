@@ -10,7 +10,9 @@ params ["_wp_array", "_mtradius", "_trg_center"];
 
 sleep 1.120;
 
-_this call d_fnc_getmtmission;
+if (!d_preemptive_special_event) then {
+	_this call d_fnc_getmtmission;
+};
 
 sleep 1.0123;
 
@@ -104,7 +106,10 @@ if (d_with_dynsim == 0) then {
 #endif
 sleep 1.0112;
 
-["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
+if (!d_preemptive_special_event) then {
+	// no specops when a special event is already running
+	["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
+};
 
 #ifndef __TT__
 sleep 1;
@@ -253,6 +258,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		sleep 0.5;
 
 		if (_wf distance2D _trg_center > d_cur_target_radius || {random 100 > 30}) then {
+			if (d_preemptive_special_event) exitWith {}; // no secondary when a special event is already running
 			private _retgr = ["specops", [_poss], _trg_center, 0, "guard", d_enemy_side_short, 0, -1.111, 1, [_trg_center, _mtradius]] call d_fnc_makegroup;
 			(_retgr # 1) spawn {
 				scriptname "spawn 5_createsecondary";

@@ -14098,16 +14098,16 @@
 <French>Attention: Guerrilla infantry units are moving into the city from %1. The guerrillas are friendly to Blufor and hostile to Opfor.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2028_ENEMY_ATTACK">
-<English>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</English>
-<Spanish>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Spanish>
-<Portuguese>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Portuguese>
-<Korean>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Korean>
-<Japanese>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Japanese>
-<Original>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Original>
-<Russian>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Russian>
-<Chinesesimp>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Chinesesimp>
-<Chinese>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</Chinese>
-<French>Attention: Enemy units are moving into the city from %1. Defend the city! If any enemies reach the city center then the mission is a failure.</French>
+<English>Attention: Enemy units are moving into the city from %1. Defend the city!</English>
+<Spanish>Attention: Enemy units are moving into the city from %1. Defend the city!</Spanish>
+<Portuguese>Attention: Enemy units are moving into the city from %1. Defend the city!</Portuguese>
+<Korean>Attention: Enemy units are moving into the city from %1. Defend the city!</Korean>
+<Japanese>Attention: Enemy units are moving into the city from %1. Defend the city!</Japanese>
+<Original>Attention: Enemy units are moving into the city from %1. Defend the city!</Original>
+<Russian>Attention: Enemy units are moving into the city from %1. Defend the city!</Russian>
+<Chinesesimp>Attention: Enemy units are moving into the city from %1. Defend the city!</Chinesesimp>
+<Chinese>Attention: Enemy units are moving into the city from %1. Defend the city!</Chinese>
+<French>Attention: Enemy units are moving into the city from %1. Defend the city!</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_RESISTANCE">
 <English>Attention: some of the civilians are armed and ready to fight!</English>
