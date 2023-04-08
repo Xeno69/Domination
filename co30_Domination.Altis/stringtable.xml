@@ -3723,16 +3723,16 @@
 <French>Find a high value target in %1 and eliminate him\n</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_568">
-<English>No secondary main target mission available...</English>
-<Spanish>Ninguna misión adicional disponible en el objetivo principal...</Spanish>
-<Portuguese>Nenhuma missão de objetivo principal secundária disponível...</Portuguese>
-<Korean>메인미션 보조과제가 존재하지 않습니다.</Korean>
-<Japanese>主目標の副任務はありません...</Japanese>
-<Original>No secondary main target mission available...</Original>
-<Russian>Второстепенной задачи в городе нет...</Russian>
-<Chinesesimp>主线任务没有支线任务了...</Chinesesimp>
-<Chinese>主要目標任務沒有支線任務了...</Chinese>
-<French>Aucun objectif supplémentaire pour l'objectif principal...</French>
+<English>No secondary main target mission available...\n</English>
+<Spanish>Ninguna misión adicional disponible en el objetivo principal...\n</Spanish>
+<Portuguese>Nenhuma missão de objetivo principal secundária disponível...\n</Portuguese>
+<Korean>메인미션 보조과제가 존재하지 않습니다.\n</Korean>
+<Japanese>主目標の副任務はありません...\n</Japanese>
+<Original>No secondary main target mission available...\n</Original>
+<Russian>Второстепенной задачи в городе нет...\n</Russian>
+<Chinesesimp>主线任务没有支线任务了...\n</Chinesesimp>
+<Chinese>主要目標任務沒有支線任務了...\n</Chinese>
+<French>Aucun objectif supplémentaire pour l'objectif principal...\n</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_570">
 <English>%1 has been cleared...</English>

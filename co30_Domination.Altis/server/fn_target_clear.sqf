@@ -263,6 +263,9 @@ if (d_enable_civs == 1) then {
 d_cur_tgt_building_positions_occupied = [];
 publicVariable "d_cur_tgt_building_positions_occupied";
 
+d_mt_tower_pos = [];
+publicVariable "d_mt_tower_pos";
+
 sleep 0.245;
 
 private _mtmissionobjs =+ d_mtmissionobjs;
