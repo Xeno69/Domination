@@ -3455,8 +3455,9 @@ if (d_enemy_factions > 0) then {
 			d_allmen_E = [
 				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_vdv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
-				["EAST","CFP_O_RUARMY_DES","Infantry","InfSquad_DES"] call d_fnc_GetConfigGroup
-				// TODO add an AT group
+				["EAST","CFP_O_RUARMY_DES","Infantry","InfSquad_DES"] call d_fnc_GetConfigGroup,
+				["EAST","CFP_O_RUARMY_DES","Infantry","InfTeam_AT_DES"] call d_fnc_GetConfigGroup,
+				["EAST","CFP_O_RUARMY_DES","Infantry","O_InfTeam_AT_Heavy_DES"] call d_fnc_GetConfigGroup
 			];
 			d_specops_E = [["EAST","CFP_O_RUARMY_DES","SpecOps","cfp_o_ruarmy_specops_spetsnaz_team_des"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_sniper_team_emr_des"] call d_fnc_GetConfigGroup];
