@@ -88,6 +88,7 @@ if (_dobigtower) then {
 	_vec setVectorUp [0, 0, 1];
 };
 d_mt_tower_pos = getPos _vec;
+publicVariable "d_mt_tower_pos";
 [_vec] call d_fnc_CheckMTHardTarget;
 d_mt_radio_down = false;
 if (d_ao_markers == 1) then {
@@ -326,10 +327,12 @@ if (!isNil "d_cur_tgt_civ_units" && {count d_cur_tgt_civ_units != 0}) then {
 	{
 		private _civ = _x;
 		if ((getPos _civ) distance2D d_mt_tower_pos < 15) exitWith {
+			diag_log ["civ cleanup - too close to tower"];
 			deleteVehicle _civ;
 		};
 		{
 			if ((getPos _civ) distance2D (getPos _x) < 15) exitWith {
+				diag_log ["civ cleanup - too close to something in d_mt_barracks_obj_ar"];
 				deleteVehicle _civ;
 			};
 		} forEach d_mt_barracks_obj_ar;

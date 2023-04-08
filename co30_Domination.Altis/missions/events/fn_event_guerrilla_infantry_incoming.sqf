@@ -93,7 +93,7 @@ if (_with_vehicles) then {
     
     if (d_WithLessArmor == 4) then {
     	// high
-    	_incoming_vehs = ["jeep_mg", "jeep_mg", "wheeled_apc", "tracked_apc", "tank"]
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"]
     };
 	private _vdir = _spawn_pos getDir _target_center;
     {
@@ -120,10 +120,10 @@ if (_targetGroupCount > 20) then {
 };
 
 if (d_preemptive_special_event) then {
-	// full battle, give the guerrillas the number of opfor groups / 3 or at least 4 groups
-	_guerrillaGroupCount = round(_targetGroupCount / 3) max 4;
+	// full battle, give the guerrillas the number of opfor groups / 4 or at least 3 groups
+	_guerrillaGroupCount = round(_targetGroupCount / 4) max 3;
 	_guerrillaForce = [];
-	for "_i" from 0 to _targetGroupCount do {
+	for "_i" from 0 to _guerrillaGroupCount do {
     	_guerrillaForce pushBack "allmen";
     };
 };
@@ -152,7 +152,7 @@ _marker = ["d_mt_event_marker_guerrillainfantry", _spawn_pos, "ICON","ColorBlack
 [_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 if (d_preemptive_special_event) then {
-	sleep 60;
+	sleep 45;
 };
 
 {

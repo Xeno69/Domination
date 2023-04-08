@@ -39,17 +39,19 @@ private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity
 	};
 } forEach _towns;
 
+private _spawn_pos = [];
+
 if (_townNearbyPos isEqualTo []) then {
 	diag_log ["unable to find a nearby town so will choose a random position"];
-	_townNearbyPos = [[[_target_center, (d_cur_target_radius * 2.25)]],[[_target_center, (d_cur_target_radius * 1.75)]]] call BIS_fnc_randomPos;
+	_spawn_pos = [[[_target_center, (d_cur_target_radius * 2.25)]],[[_target_center, (d_cur_target_radius * 1.75)]]] call BIS_fnc_randomPos;
 	_townNearbyName = "Unknown";
+} else {
+	_spawn_pos = _townNearbyPos;
 };
 
 private _x_mt_event_ar = [];
 
-private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
-
-private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_ENEMY_ATTACK", _townNearbyName];
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
@@ -61,16 +63,11 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-// TODO - wait or make the players move quickly?
-//waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
-
-private _spawn_pos = _townNearbyPos;
-
-if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) then {
+if (_target_center distance2D _spawn_pos > _maximumDistanceFromMaintarget) then {
 	// try to find a midpoint between chosen location and maintarget, too far for infantry to walk from location to location
 	private _midpoint_pos = [
-		((_target_center # 0) + (_townNearbyPos # 0))/2,
-		((_target_center # 1) + (_townNearbyPos # 1))/2
+		((_target_center # 0) + (_spawn_pos # 0))/2,
+		((_target_center # 1) + (_spawn_pos # 1))/2
 	];
 	if ((_midpoint_pos distance2D _target_center) > _minimumDistanceFromMaintarget) then {
 		// if midpoint is not too close then use it instead of _townNearbyPos
@@ -80,6 +77,15 @@ if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) t
 
 d_preemptive_special_event_startpos = _spawn_pos;
 publicVariable "d_preemptive_special_event_startpos";
+
+// wait for the radiotower to be created
+// if we don't wait then creating enemies may cause the maintarget to "start"
+// if the maintarget "starts" without a radiotower then the server may incorrectly run target_clear (mt immediately turns all green)
+waitUntil {sleep 1; !(d_mt_tower_pos isEqualTo [])};
+
+diag_log ["radiotower exists, creating incoming enemy units now"];
+
+sleep 7;
 
 private _newgroups = [];
 // calculate the sum of all groups of AI already in the maintarget and size the enemy force accordingly (half + 1)
@@ -136,7 +142,7 @@ private _vdir = _spawn_pos getDir _target_center;
 _marker_enemy_spawn = ["d_mt_event_marker_enemyincoming", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_964", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
 [_marker_enemy_spawn, "STR_DOM_MISSIONSTRING_964"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
-sleep 60;
+sleep 45;
 
 {
 	// each group moves toward a random waypoint near the target center
@@ -162,7 +168,6 @@ if (d_ao_check_for_ai != _original_check_for_ai_value) then {
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
-deleteVehicle _trigger;
 deleteMarker _marker_enemy_spawn;
 
 d_preemptive_special_event = false;
