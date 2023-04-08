@@ -15,7 +15,8 @@ private _always_dokbmsg = [
 
 if (isNil "d_kb_hash") exitWith {};
 
+params ["_num", ["_val1", ""], ["_val2", ""]];
+
 if (d_force_isstreamfriendlyui != 1 || {_num in _always_dokbmsg}) then {
-	params ["_num", ["_val1", ""], ["_val2", ""]];
 	[_val1, _val2] call (d_kb_hash get _num);
 };
