@@ -8,6 +8,7 @@ if (true) exitWith {};
 #endif
 
 // Guerilla infantry spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
+// This may run concurrently with fn_event_enemy_incoming
 
 if !(isServer) exitWith {};
 
@@ -93,18 +94,31 @@ if (_with_vehicles) then {
     
     if (d_WithLessArmor == 4) then {
     	// high
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"]
+    	_incoming_vehs = ["wheeled_apc", "tracked_apc", "tracked_apc"];
     };
 	private _vdir = _spawn_pos getDir _target_center;
     {
     	private _unitlist = [_x, "G"] call d_fnc_getunitlistv;
     	private _newgroup = [independent] call d_fnc_creategroup;
-    	private _units = [1, _spawn_pos, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
+    	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
+		private _road_list = _rand_pos nearroads 30;
+		private _spawn_pos_foreach = [];
+		if (!(_road_list isEqualTo [])) then {
+			_spawn_pos_foreach = getPosASL (selectRandom _road_list);
+		} else {
+			_spawn_pos_foreach = _rand_pos;
+		};
+    	private _vecs_and_crews = [1, _spawn_pos_foreach, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
     	_newgroups pushBack _newgroup;
     	if (d_with_dynsim == 0) then {
     		[_newgroup, 0] spawn d_fnc_enabledynsim;
     	};
-    	_x_mt_event_ar append (_units # 1);
+    	_x_mt_event_ar append (_vecs_and_crews # 0); // vehicles
+    	_x_mt_event_ar append (_vecs_and_crews # 1); // crews
+		{
+			_x setSkill ["courage", 1];
+			_x setSkill ["commanding", 1];
+		} forEach _vecs_and_crews # 1; // crews
     } forEach _incoming_vehs;
 };
 
@@ -160,9 +174,9 @@ if (d_preemptive_special_event) then {
 	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
-	_x setBehaviour "CARELESS";
+	_x setBehaviour "COMBAT";
 	_wp = _x addWaypoint[_wp_pos, 0];
-	_wp setWaypointBehaviour "SAFE";
+	_wp setWaypointBehaviour "COMBAT";
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
