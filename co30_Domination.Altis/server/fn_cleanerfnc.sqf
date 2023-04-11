@@ -52,7 +52,7 @@ while {true} do {
 #endif
 						deleteVehicle _x;
 					} else {
-						if ((_x nearEntities ["CAManBase", 50]) findIf {isPlayer _x} == -1) then {
+						if ((_x nearEntities ["CAManBase", 50]) findIf {isPlayer _x} == -1 && {_x getVariable "d_do_not_delete" != 1}) then {
 							deleteVehicle _x;
 						};
 					};

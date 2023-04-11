@@ -72,7 +72,7 @@ if (d_camp_enable_guard == 1) then {
 #ifndef __TT__
 if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -4}) then {
 	// chance of a pre-emptive event (a special event which supersedes most maintarget setup)
-	if (10 > random 100) then {
+	if (20 > random 100) then {
 		diag_log ["Small chance for special event was selected, d_preemptive_special_event set to true"];
 		d_preemptive_special_event = true;
 		publicVariable "d_preemptive_special_event";		
