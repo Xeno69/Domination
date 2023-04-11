@@ -54,13 +54,17 @@ __TRACE_1("","list _old_units_trigger")
 
 {
 	if !(_x isKindOf "CAManBase") then {
-		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
-			_x call d_fnc_DelVecAndCrew;
-		} else {
-			_x call d_fnc_dpcpbv;
+		if (_x getVariable "d_do_not_delete" != 1) then {
+			if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
+				_x call d_fnc_DelVecAndCrew;
+			} else {
+				_x call d_fnc_dpcpbv;
+			};
 		};
 	} else {
-		if !(_x call d_fnc_isplayer) then {deleteVehicle _x};
+		if (_x getVariable "d_do_not_delete" != 1) then {
+			if !(_x call d_fnc_isplayer) then {deleteVehicle _x};
+		};
 	};
 	sleep 0.1;
 } forEach ((list _old_units_trigger) unitsBelowHeight 20);
@@ -72,13 +76,17 @@ sleep 0.1;
 __TRACE_1("","_mtunits")
 if (d_ai_persistent_corpses != 0) then {
 	{
-		_x setDamage 1;
-		sleep 0.01;
+		if (_x getVariable "d_do_not_delete" != 1) then {
+			_x setDamage 1;
+			sleep 0.01;
+		};
 	} forEach _mtunits;
 } else {
 	{
-		deleteVehicle _x;
-		sleep 0.1;
+		if (_x getVariable "d_do_not_delete" != 1) then {
+			deleteVehicle _x;
+			sleep 0.1;
+		};
 	} forEach _mtunits;
 };
 

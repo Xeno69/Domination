@@ -63,7 +63,7 @@ d_kb_logic1 kbTell [
 	d_kb_logic2,
 	d_kb_topic_side,
 	"MTEventSideEnemyAttack",
-	["1", "", _townNearbyName, []],
+	["1", "", d_cur_tgt_name, []],
 	d_kbtel_chan
 ];
 
@@ -121,7 +121,7 @@ if (d_WithLessArmor == 4) then {
 	private _unitlist = [_x, d_enemy_side_short] call d_fnc_getunitlistm;
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
+	private _units = [_rand_pos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 	{
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
@@ -138,7 +138,7 @@ private _vdir = _spawn_pos getDir _target_center;
 {
 	private _unitlist = [_x, d_enemy_side_short] call d_fnc_getunitlistv;
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
+	private _rand_pos = [[[_spawn_pos, 35]],["water"]] call BIS_fnc_randomPos;
 	private _road_list = _rand_pos nearroads 20;
 	private _spawn_pos_foreach = [];
 	if (!(_road_list isEqualTo [])) then {
@@ -175,9 +175,9 @@ sleep 30;
 	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
-	_x setBehaviour "COMBAT";
+	_x setBehaviour "SAFE";
 	_wp = _x addWaypoint[_wp_pos, 0];
-	_wp setWaypointBehaviour "COMBAT";
+	_wp setWaypointBehaviour "SAFE";
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";

@@ -42,6 +42,8 @@ private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,f
 
 if (!d_preemptive_special_event) then {
 	waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
+} else {
+	_townNearbyName = "nearby";
 };
 
 private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
@@ -147,7 +149,8 @@ private _guerrillaBaseSkill = 0.35;
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
+	private _rand_pos = [[[_spawn_pos, 35]],["water"]] call BIS_fnc_randomPos;
+	private _units = [_rand_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];
@@ -174,9 +177,9 @@ if (d_preemptive_special_event) then {
 	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
-	_x setBehaviour "COMBAT";
+	_x setBehaviour "CARELESS";
 	_wp = _x addWaypoint[_wp_pos, 0];
-	_wp setWaypointBehaviour "COMBAT";
+	_wp setWaypointBehaviour "SAFE";
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
