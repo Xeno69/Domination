@@ -769,6 +769,9 @@ if (hasInterface) then {
 			if (d_cup) exitWith {
 				call compileScript ["i_weapons_CUP.sqf", false];
 			};
+			if (d_pracs) exitWith {
+				call compileScript ["i_weapons_PRACS.sqf", false];
+			};
 			if (d_ifa3) exitWith {
 				call compileScript ["i_weapons_IFA3.sqf", false];
 			};

@@ -379,7 +379,12 @@ if (hasInterface) then {
 	if (d_with_airtaxi == 0) then {
 		d_taxi_aircrafts =
 #ifdef __OWN_SIDE_INDEPENDENT__
-			["I_Heli_Transport_02_F"];
+			call {
+				if (d_pracs) exitWith {
+					["PRACS_UH1H","PRACS_CH53","PRACS_Sa330_Puma"]
+				};
+				["I_Heli_Transport_02_F"]
+			};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 			call {
@@ -411,6 +416,9 @@ if (hasInterface) then {
 				};
 				if (d_csla) exitWith {
 					["CSLA_Mi17"]
+				};
+				if (d_pracs) exitWith {
+					["PRACS_SLA_Mi8amt"]
 				};
 				["O_T_VTOL_02_infantry_dynamicLoadout_F"]
 			};
