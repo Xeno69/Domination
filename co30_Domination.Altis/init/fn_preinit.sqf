@@ -222,6 +222,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __WS__
 #include "sm_bonus_vec_ar_ws.sqf"
 #endif
+#ifdef __PRACS__
+#include "sm_bonus_vec_ar_pracs.sqf"
+#endif
 
 #ifdef __ALTIS__
 #include "mt_bonus_vec_ar_altis.sqf"
@@ -276,6 +279,9 @@ d_e_marker_color_alpha = 0.8;
 #endif
 #ifdef __WS__
 #include "mt_bonus_vec_ar_ws.sqf"
+#endif
+#ifdef __PRACS__
+#include "mt_bonus_vec_ar_pracs.sqf"
 #endif
 
 #ifndef __TT__
@@ -943,6 +949,14 @@ if (!d_gmcwgwinter) then {
 				#include "d_allmen_B_CSLA.sqf"
 			];
 		}; 
+		if (d_pracs) exitWith {
+			d_allmen_W = [
+				#include "d_allmen_B_PRACS.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_O_PRACS.sqf"
+			];
+		};
 		d_allmen_W = [
 			#include "d_allmen_B_default.sqf"
 		];
@@ -1030,7 +1044,11 @@ if (!d_gmcwgwinter) then {
 #include "d_specops_O_CUP_TAKI.sqf"
 #endif
 #ifdef __CUP_SARA__
+if (!d_pracs) then {
 #include "d_specops_O_CUP_SLA.sqf"
+} else {
+#include "d_specops_O_PRACS.sqf"
+}
 #endif
 #ifdef __IFA3__
 #include "d_specops_O_default.sqf"
@@ -1131,11 +1149,6 @@ if (!d_gmcwgwinter) then {
 	d_sniper_E = [[["gm_gc_army_squadleader_mpiak74n_80_str", "gm_gc_army_rifleman_mpiak74n_80_str"], ["gm_gc_army_squadleader_mpiak74n_80_win", "gm_gc_army_rifleman_mpiak74n_80_win"]] select d_gmcwgwinter];
 	d_sniper_W = [[["gm_ge_army_squadleader_g3a3_p2a1_80_ols", "gm_ge_army_rifleman_g3a3_80_ols"], ["gm_ge_army_squadleader_g3a3_p2a1_parka_80_win", "gm_ge_army_rifleman_g3a3_parka_80_win"]] select d_gmcwgwinter];
 #endif
-#ifdef __PRACS__
-	d_sabotage_E = [["PRACS_SLA_Especas_ENG", "PRACS_SLA_Especas_Ninja_ENG"]];
-	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
-	d_sabotage_G = [["PRACS_Commando_ENG", "PRACS_Paratrooper_ENG", "PRACS_QSB_ENG"]];
-#endif
 
 #ifdef __CUP_CHERNARUS__
 	d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
@@ -1183,6 +1196,14 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __WS__
 d_sabotage_E = [["O_SFIA_exp_lxWS"]];
+#endif
+#ifdef __PRACS__
+	d_sabotage_E = [["PRACS_SLA_Especas_ENG", "PRACS_SLA_Especas_Ninja_ENG"]];
+	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
+	d_sabotage_G = [["PRACS_Commando_ENG", "PRACS_Paratrooper_ENG", "PRACS_QSB_ENG"]];
+	d_sniper_E = [["East","pracs_sla_groups","pracs_sla_especas_group_light","pracs_sla_especas_group_SHPS"] call d_fnc_GetConfigGroup, ["East","pracs_sla_groups","pracs_sla_infantry_group_light","pracs_sla_infantry_group_SHPS"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","PRACS_RACS_GROUPS","pracs_1st_infantry_group","pracs_1st_infantry_group_SHPS"] call d_fnc_GetConfigGroup, ["Indep","PRACS_RACS_GROUPS","pracs_commando_squads","pracs_Commando_Sniper_Team"] call d_fnc_GetConfigGroup];
 #endif
 
 	d_veh_a_E = [
@@ -1266,6 +1287,11 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		#include "d_veh_a_B_CSLA.sqf"
 	];
 #endif
+#ifdef __PRACS__
+	d_veh_a_E = [
+		#include "d_veh_a_O_PRACS.sqf"
+	];
+#endif
 
 	d_veh_a_G = [
 		#include "d_veh_a_G_default.sqf"
@@ -1324,6 +1350,11 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
+
+#ifdef __PRACS__
+	d_arti_observer_E = [["PRACS_SLA_Naval_Infantry_RTO","PRACS_SLA_Paratrooper_RTO","PRACS_SLA_Infantry_RTO"]];
+	d_arti_observer_G = [["PRACS_Royal_Marine_RTO","PRACS_Paratrooper_RTO","PRACS_Infantry_RTO"]];
+#endif
 
 	if (isNil "d_number_attack_planes") then {
 		d_number_attack_planes = 1;
@@ -1930,6 +1961,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __WS__
 #include "d_sm_classes_ws.sqf"
+#endif
+#ifdef __PRACS__
+#include "d_sm_classes_PRACS.sqf"
 #endif
 
 	d_intel_unit = objNull;
