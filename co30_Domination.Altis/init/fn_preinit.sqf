@@ -3044,7 +3044,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = _mixedFaces;
-	d_civArray = d_cupCivsTakistan;
+	d_civArray =  d_euroCivs;
 #endif
 #ifdef __IFA3__
 	d_civ_vehicles_weighted = d_civVehiclesWeightedRural;
