@@ -1271,7 +1271,7 @@ private _all_weapons_items_opfor = [
 			"PRACS_SLA_M88_Tanker_O_uniform",
 			"PRACS_SLA_M88_Artilleryman_O_uniform",
 			"PRACS_SLA_M88_NAVY_Officer_uniform",
-			"PRACS_SLA_Border_Guard_PL_uniform",
+			"PRACS_SLA_Border_Guard_PL_uniform"
 		],
 		// captain uniforms
 		[
@@ -1289,7 +1289,8 @@ private _all_weapons_items_opfor = [
 			"U_O_FullGhillie_ard"
 		],
 		// colonel uniforms
-		[			"PRACS_SLA_M88_G_uniform","PRACS_SLA_M88_Paratrooper_G_uniform","PRACS_SLA_M88_Guards_G_uniform",
+		[
+			"PRACS_SLA_M88_G_uniform","PRACS_SLA_M88_Paratrooper_G_uniform","PRACS_SLA_M88_Guards_G_uniform",
 			"PRACS_SLA_Border_Guard_GEN_uniform","PRACS_SLA_Border_Guard_PO1_uniform"
 		]
 	],
