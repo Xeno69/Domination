@@ -31,15 +31,18 @@ private _vecs = [];
 {_vecs append _x; sleep 0.01} forEach (missionNamespace getVariable format ["d_veh_a_%1", d_enemy_side_short]);
 __TRACE_1("","_vecs")
 
+// all entities of enemy type
 private _no = _delpos nearEntities [_vecs, _tradius];
 __TRACE_1("","_no")
 
 if (_no isNotEqualTo []) then {
 	{
-		if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
-			_x call d_fnc_DelVecAndCrew;
-		} else {
-			_x call d_fnc_dpcpbv;
+		if (_x getVariable "d_do_not_delete" != 1) then {
+			if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
+				_x call d_fnc_DelVecAndCrew;
+			} else {
+				_x call d_fnc_dpcpbv;
+			};
 		};
 		sleep 0.1;
 	} forEach _no;
