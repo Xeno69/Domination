@@ -3253,7 +3253,7 @@ if (hasInterface) then {
 		if (d_pracs) exitWith {
 			["PRACS_M577","PRACS_M577_4A","PRACS_M577_1ID","PRACS_M577_RF","PRACS_BMR_HQ","PRACS_BMR_HQ_4AD","PRACS_BMR_HQ_1ID","PRACS_BMR_HQ_Marine","PRACS_BMR_HQ_Fusilier",
 			"PRACS_SUV_COM","PRACS_M998_Command","PRACS_M998_Command_2para","PRACS_M998_Command_1Inf","PRACS_M998_Command_3mtn","PRACS_M998_Command_4A",
-			"PRACS_UH1H","PRACS_CH53","PRACS_Sa330_Puma","PRACS_Sa330_RSAF","PRACS_Sa330_Puma_NAVY","PRACS_Sa330_Puma_AS"]
+			"PRACS_UH1H","PRACS_CH53","PRACS_Sa330_Puma","PRACS_Sa330_RSAF","PRACS_Sa330_Puma_NAVY","PRACS_Sa330_Puma_Marine","PRACS_Sa330_Puma_AS"]
 		};
 		["I_MRAP_03_F", "I_Heli_light_03_unarmed_F","I_E_Heli_light_03_unarmed_F"]
 	};
@@ -3451,6 +3451,9 @@ if (hasInterface) then {
 	if (d_no_mortar_ar == 1) then {
 		(d_remove_from_arsenal # 5) append [{"_static_" in _this}, "vn_c_pack_01", "vn_c_pack_02"];
 	};
+#endif
+#ifdef __PRACS__
+	(d_remove_from_arsenal # 3) append [{"_Dress_" in _this}];
 #endif
 
 	// add here the class names of the weapons which you want to add to Virtual Arsenal

@@ -20,6 +20,9 @@ private _check_fnc = {
 	if (d_csla && {_this isKindOf "US85_M2l" || {_this isKindOf "US85_TOW_Stat"}}) exitWith {
 		true
 	};
+	if (d_pracs && {_this isKindOf "PRACS_SLA_DSHk_Mini" || {_this isKindOf "PRACS_SLA_AGS30_tripod" || {_this isKindOf "PRACS_SLA_SPG9_tripod" || {_this isKindOf "CUP_DSHKM_MiniTripod_base" || {_this isKindOf "PRACS_SLA_SPG9M_tripod" || {_this isKindOf "PRACS_SLA_9k115"}}}}}}) exitWith {
+		true
+	};
 	
 	false
 };
