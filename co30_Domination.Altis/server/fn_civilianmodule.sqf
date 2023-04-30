@@ -151,13 +151,16 @@ private _placeCivilianCluster = {
 		_civAgent addEventHandler ["Killed", {
 			private _check_punish = true;
 			{
-				if ([_x] call d_fnc_ismissionobjective) exitWith {
-					// problem: civilians walk near mission objectives and cannot easily be moved
-					// workaround: no penalty if civilian is killed within 100m of a mission objective (collateral damage / acceptable loss)
-					_check_punish = false;
-					diag_log [format ["civ killed but do not punish getPos %1", getPos (_this # 0)]];
+				if ((_x distance2D (getPos (_this # 0))) < 25) then {
+					_check_punish = false; // civ was too close to a mission objective.  collateral damage, no punishment.
+					d_kb_logic1 kbTell [
+						d_kb_logic2,
+						d_kb_topic_side,
+						"PenaltyKilledCivilianNoTextFreeToEngage",
+						d_kbtel_chan
+					];
 				};
-			} forEach ([getPos (_this # 0), 100] call d_fnc_getbldgswithpositions);
+			} forEach d_mtmissionobjs;
 			if (_check_punish) then {
 				call d_fnc_civmodulekilleh;
 			};

@@ -10,7 +10,8 @@ __TRACE_1("","owner d_kb_logic2");
 // some kb messages should always be played even if isStreamFriendlyUi is true 
 private _always_dokbmsg = [
 	61, // DangerMortarsNoText
-	62 // DangerAirstrikeNoText
+	62, // DangerAirstrikeNoText
+	63 // MTRadioTowerDownNoText
 	];
 
 if (isNil "d_kb_hash") exitWith {};

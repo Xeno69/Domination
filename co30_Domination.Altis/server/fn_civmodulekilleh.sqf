@@ -23,14 +23,27 @@ if (isNil "_punishMe") exitWith {};
 diag_log [diag_frameno, diag_ticktime, time, format ["Player (_punishMe) %1 killed a civilian.", _punishMe]];
 #endif
 
-d_kb_logic1 kbTell [
-	d_kb_logic2,
-	d_kb_topic_side,
-	"PenaltyKilledCivilian",
-	["1", "", name _punishMe, []],
-	["2", "", str d_civ_pnts, []],
-	d_kbtel_chan
-];
+if (d_force_isstreamfriendlyui == 1) then {
+	private _civkilledkb = selectRandom[
+		"PenaltyKilledCivilianNoTextCeaseFire",
+		"PenaltyKilledCivilianNoTextCheckYourFire",
+		"PenaltyKilledCivilianNoTextHoldFire"];
+	d_kb_logic1 kbTell [
+    	d_kb_logic2,
+    	d_kb_topic_side,
+    	_civkilledkb,
+    	d_kbtel_chan
+    ];
+} else {
+	d_kb_logic1 kbTell [
+    	d_kb_logic2,
+    	d_kb_topic_side,
+    	"PenaltyKilledCivilian",
+    	["1", "", name _punishMe, []],
+    	["2", "", str d_civ_pnts, []],
+    	d_kbtel_chan
+    ];
+};
 
 //subtract penalty for killing a civilian
 _punishMe addScore (d_civ_pnts * -1);
