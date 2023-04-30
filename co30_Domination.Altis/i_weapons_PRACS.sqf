@@ -6,180 +6,72 @@
 
 __TRACE("i_weapons.sqf")
 
-//Weapons not present:
-//AK101-109
-//SAIGA_MK03
-//TYPE_56_2
-//CZ584
-//Sa58P
-
 private _all_weapons_items_indep = [
 	[
 		1, // 1 = will only be added for a specific rank in the ranked version
 		"RIFLES",
 		// private rifles
 		[
-			"CUP_arifle_OTS14_GROZA", "CUP_smg_MP5A5",  
-			"CUP_lmg_M240", "CUP_lmg_M60E4", "CUP_arifle_CZ805_A1", "CUP_arifle_CZ805_A1_blk", "CUP_arifle_CZ805_A1_coyote", "CUP_arifle_CZ805_A2",
-			"CUP_arifle_CZ805_A2_blk", "CUP_arifle_CZ805_A2_coyote", "CUP_smg_EVO",
-			
-			//L7A2
-			"CUP_lmg_L7A2", 
-			
-			//G36
-			"CUP_arifle_G36C", "CUP_arifle_G36C_camo", "CUP_arifle_G36C_wdl", "CUP_arifle_G36C_hex", "CUP_arifle_G36C_VFG", "CUP_arifle_G36C_VFG_camo", "CUP_arifle_G36C_VFG_wdl", "CUP_arifle_G36C_VFG_hex",
-			
-			//M16
-			"CUP_arifle_M16A1", "CUP_arifle_M16A2", "CUP_arifle_M16A4_Base",
-			
-			//M4
-			"CUP_arifle_M4A1", "CUP_arifle_M4A1_camo", "CUP_arifle_M4A1_black", "CUP_arifle_M4A1_desert",
-			"CUP_arifle_M4A1_MOE_short_black", "CUP_arifle_M4A1_MOE_short_desert", "CUP_arifle_M4A1_MOE_short_winter", "CUP_arifle_M4A1_MOE_short_wdl",
-			
-			//MK1x
-			"CUP_arifle_Mk16_CQC", "CUP_arifle_Mk16_CQC_black", "CUP_arifle_Mk16_CQC_woodland"
-			
+			"PRACS_g3a3","PRACS_g3a3_w","PRACS_g3a4","PRACS_g3a4_w","PRACS_g3a4_aco",
+			"PRACS_CETME","PRACS_CETME_BNT",
+			"PRACS_UZI","PRACS_UZI_FS"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"CUP_arifle_OTS14_GROZA_GL", "CUP_arifle_OTS14_GROZA_Grip", "CUP_smg_MP5SD6", 
-			"CUP_arifle_CZ805_GL", "CUP_arifle_CZ805_GL_blk", "CUP_arifle_CZ805_GL_coyote",
-			
-			//G36
-			"CUP_arifle_G36K", "CUP_arifle_G36K_camo", "CUP_arifle_G36K_wdl","CUP_arifle_G36K_VFG", "CUP_arifle_G36K_VFG_camo", "CUP_arifle_G36K_VFG_wdl",
-			"CUP_arifle_MG36", "CUP_arifle_MG36_camo", "CUP_arifle_MG36_wdl", "CUP_arifle_MG36_hex",
-			
-			//HK4x
-			"CUP_arifle_HK416_CQB_Black", "CUP_arifle_HK416_CQB_Desert", "CUP_arifle_HK416_CQB_Wood",
-			
-			//M16
-			"CUP_arifle_Colt727", "CUP_arifle_M16A1GL", "CUP_arifle_M16A2_GL", "CUP_arifle_M16A4_GL",
-			
-			//M4
-			"CUP_arifle_M4A1_BUIS_GL", "CUP_arifle_M4A1_BUIS_camo_GL", "CUP_arifle_M4A1_BUIS_desert_GL",
-			"CUP_arifle_M4A3_desert", "CUP_arifle_M4A3_black", "CUP_arifle_M4A3_camo",
-			
-			//MK1x
-			"CUP_arifle_Mk16_CQC_AFG", "CUP_arifle_Mk16_CQC_AFG_black", "CUP_arifle_Mk16_CQC_AFG_woodland",
-			"CUP_arifle_Mk16_CQC_FG", "CUP_arifle_Mk16_CQC_FG_black", "CUP_arifle_Mk16_CQC_FG_woodland",
-			"CUP_arifle_Mk16_CQC_SFG", "CUP_arifle_Mk16_CQC_SFG_black", "CUP_arifle_Mk16_CQC_SFG_woodland",
-			"CUP_arifle_Mk16_CQC_EGLM", "CUP_arifle_Mk16_CQC_EGLM_black", "CUP_arifle_Mk16_CQC_EGLM_woodland",
-			"CUP_arifle_Mk16_STD", "CUP_arifle_Mk16_STD_black", "CUP_arifle_Mk16_STD_woodland"
-			
+			"PRACS_g3a3_Elcan","PRACS_g3a3_ACOG","PRACS_g3a3_W_ELCAN_BP",
+			"PRACS_g3a4_Elcan","PRACS_g3a4_ACOG","PRACS_g3a4_w_ELCAN_BP",
+			"PRACS_FNC",
+			"PRACS_HK33","PRACS_HK33_MKS",
+			"PRACS_HK33A4","PRACS_HK33A4_T1","PRACS_HK33A4_ELCAN",
+			"PRACS_galil_SAR",
+			"PRACS_galil_ACE23","PRACS_galil_ACE23_EOT","PRACS_galil_ACE23_EOT_XP","PRACS_galil_ACE23_G33_T1","PRACS_galil_ACE23_ACOG",
+			"PRACS_rk62","PRACS_rk62_ELCAN_SD","PRACS_rk62_T1",
+			"PRACS_g3a3t40","PRACS_g3a4t40","PRACS_g3a4t40_aco",
+			"PRACS_UZI_Commando"
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"CUP_arifle_AUG_A1", "CUP_glaunch_M79", "CUP_lmg_minimi", "CUP_lmg_m249_para", "CUP_lmg_Mk48_des", "CUP_lmg_Mk48_wdl",
-			
-			//L7A2
-			"CUP_lmg_L7A2_Flat",
-			
-			//G36
-			"CUP_arifle_G36K_RIS", "CUP_arifle_G36K_RIS_camo", "CUP_arifle_G36K_RIS_wdl", "CUP_arifle_G36K_AG36", "CUP_arifle_G36K_AG36_camo", "CUP_arifle_G36K_AG36_wdl",
-			"CUP_arifle_G36A", "CUP_arifle_G36A_camo", "CUP_arifle_G36A_wdl",
-			
-			//HK4x
-			"CUP_arifle_HK416_CQB_M203_Black", "CUP_arifle_HK416_CQB_M203_Desert", "CUP_arifle_HK416_CQB_M203_Wood",
-			"CUP_arifle_HK416_Black", "CUP_arifle_HK416_Desert", "CUP_arifle_HK416_Wood",
-			"CUP_arifle_HK_M27", "CUP_arifle_HK_M27_VFG", 	
-			
-			//L85
-			"CUP_arifle_L85A2", "CUP_arifle_L86A2",
-			
-			//M16
-			"CUP_arifle_Colt727_M203",
-			
-			//MK1x
-			"CUP_arifle_Mk16_STD_AFG", "CUP_arifle_Mk16_STD_AFG_black", "CUP_arifle_Mk16_STD_AFG_woodland",
-			"CUP_arifle_Mk16_STD_FG", "CUP_arifle_Mk16_STD_FG_black", "CUP_arifle_Mk16_STD_FG_woodland",
-			"CUP_arifle_Mk16_STD_SFG", "CUP_arifle_Mk16_STD_SFG_black", "CUP_arifle_Mk16_STD_SFG_woodland",
-			"CUP_arifle_Mk16_STD_EGLM", "CUP_arifle_Mk16_STD_EGLM_black", "CUP_arifle_Mk16_STD_EGLM_woodland",
-			"CUP_arifle_Mk16_SV", "CUP_arifle_Mk16_SV_black", "CUP_arifle_Mk16_SV_woodland"
+			"rhs_weap_m249",
+			"rhs_weap_minimi_para_railed",
+			"rhs_weap_m249_pip",
+			"rhs_weap_m249_pip_S","rhs_weap_m249_pip_S_para","rhs_weap_m249_pip_S_vfg",
+			"rhs_weap_m249_pip_L","rhs_weap_m249_pip_L_para","rhs_weap_m249_pip_L_vfg",
+			"rhs_weap_m249_pip_S_vfg1","rhs_weap_m249_pip_S_vfg2","rhs_weap_m249_pip_S_vfg3",
+			"rhs_weap_m249_pip_L_vfg1","rhs_weap_m249_pip_L_vfg2","rhs_weap_m249_pip_L_vfg3",
+			"PRACS_M249_EO_Short","PRACS_M249_EO_Short_QSB","PRACS_M249_Marine",
+			"PRACS_M60A2",
+			"rhs_weap_m32","rhs_weap_m32_usmc",
+			"PRACS_g3a3_W_ACOG_SD",
+			"PRACS_galil_ACE23_EOT_XP_P15_SD","PRACS_galil_ACE23_SF","PRACS_galil_ACE23_SF_ACO","PRACS_galil_ACE23_SF_EOT_XP_P15_SD",
+			"PRACS_HK416_recon","PRACS_HK416_Commando","PRACS_HK416_Commando_2","PRACS_HK416_Commando_3","PRACS_HK416_Commando_4",
+			"PRACS_HK416_m320_recon",
+			"PRACS_HK53","PRACS_HK53_XPS","PRACS_HK53_ACO"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			"CUP_sgun_M1014", "CUP_lmg_m249_para_gl", "CUP_lmg_M249_E2", "CUP_lmg_minimi_railed", "CUP_lmg_L110A1",
-			"CUP_lmg_MG3",
-			
-			//G36
-			"CUP_arifle_G36K_RIS_AG36", "CUP_arifle_G36K_RIS_AG36_camo", "CUP_arifle_G36K_RIS_AG36_wdl",
-			"CUP_arifle_G36A_RIS", "CUP_arifle_G36A_RIS_wdl", "CUP_arifle_G36A_RIS_camo", "CUP_arifle_AG36", "CUP_arifle_AG36_camo", "CUP_arifle_AG36_wdl",
-			"CUP_arifle_G36A3", "CUP_arifle_G36A3_camo", "CUP_arifle_G36A3_wdl", "CUP_arifle_G36A3_grip", "CUP_arifle_G36A3_grip_camo", "CUP_arifle_G36A3_grip_wdl",
-			
-			//HK4x
-			"CUP_arifle_HK416_M203_Black", "CUP_arifle_HK416_M203_Desert", "CUP_arifle_HK416_M203_Wood",
-			"CUP_arifle_HK416_M203_Black", "CUP_arifle_HK416_M203_Desert",
-			"CUP_arifle_HK_M27_AG36", 
-			"CUP_arifle_HK417_12", "CUP_arifle_HK417_12_Wood", "CUP_arifle_HK417_12_Desert",
-			
-			//L85
-			"CUP_arifle_L85A2_G", "CUP_arifle_L85A2_G", "CUP_arifle_L85A2_NG", "CUP_arifle_L85A2_GL",
-			
-			//MK1x
-			"CUP_arifle_Mk17_CQC", "CUP_arifle_Mk17_CQC_black", "CUP_arifle_Mk17_CQC_woodland"
+			"rhs_weap_m240G","rhs_weap_m240B","PRACS_m240B_Su320",
+			"PRACS_M60E4","PRACS_M60E4_ACO",
+			"PRACS_Mk48","PRACS_Mk48_STD",
+			"PRACS_Mk48_Para","PRACS_Mk48_Para_EOT_2","PRACS_Mk48_Para_EOT","PRACS_Mk48_Para_ACO",
+			"PRACS_Mk48_light","PRACS_Mk48_light_ACO",
+			"rhs_weap_M590_8RD","rhs_weap_M590_5RD",
+			"PRACS_g3a4_w_M8541_BP",
+			"PRACS_galil_ARM_308",
+			"PRACS_M24","PRACS_M24_BP_SD","PRACS_M40_BP_M",
+			"PRACS_M40_BP_M",
+			"PRACS_Commando_Mk10"
 		],
 		// captain rifles (gets added...)
 		[
-			"CUP_glaunch_Mk13", "CUP_srifle_Mk12SPR",
-			"CUP_arifle_Mk20",
-			
-			"CUP_lmg_MG3_rail",
-			
-			//G36
-			"CUP_arifle_G36A_AG36_RIS", "CUP_arifle_G36A_AG36_RIS_camo", "CUP_arifle_G36A_AG36_RIS_wdl",
-			"CUP_arifle_G36A3_AG36", "CUP_arifle_G36A3_AG36_camo", "CUP_arifle_G36A3_AG36_wdl",
-			"CUP_arifle_G36E", "CUP_arifle_G36E_camo", "CUP_arifle_G36E_wdl",
-			
-			//HK4x
-			"CUP_arifle_HK417_12_M203", "CUP_arifle_HK417_12_M203_Wood", "CUP_arifle_HK417_12_M203_Desert",
-			
-			//M4
-			"CUP_arifle_M4A1_SOMMOD_black", "CUP_arifle_M4A1_SOMMOD_ctrgt", "CUP_arifle_M4A1_SOMMOD_ctrg", "CUP_arifle_M4A1_SOMMOD_tan", "CUP_arifle_M4A1_SOMMOD_hex", "CUP_arifle_M4A1_SOMMOD_snow", "CUP_arifle_M4A1_SOMMOD_green",
-			
-			//MK1x
-			"CUP_arifle_Mk17_CQC_AFG", "CUP_arifle_Mk17_CQC_AFG_black", "CUP_arifle_Mk17_CQC_AFG_woodland",
-			"CUP_arifle_Mk17_CQC_FG", "CUP_arifle_Mk17_CQC_FG_black", "CUP_arifle_Mk17_CQC_FG_woodland",
-			"CUP_arifle_Mk17_CQC_SFG", "CUP_arifle_Mk17_CQC_SFG_black", "CUP_arifle_Mk17_CQC_SFG_woodland",
-			"CUP_arifle_Mk17_CQC_EGLM", "CUP_arifle_Mk17_CQC_EGLM_black", "CUP_arifle_Mk17_CQC_EGLM_woodland",
-			"CUP_arifle_Mk17_STD", "CUP_arifle_Mk17_STD_black", "CUP_arifle_Mk17_STD_woodland"
+			"PRACS_M60E4_ACO_SD","PRACS_M60E4_xps_g33_SD","PRACS_M60E4_ELCAN_SD"
 		],
 		// major rifles (gets...)
 		[
-			"CUP_srifle_M14_DMR", "CUP_srifle_M24_blk", "CUP_srifle_M24_des", "CUP_srifle_M24_wdl", "CUP_srifle_M40A3", "CUP_srifle_M110", "CUP_srifle_M14", "CUP_arifle_XM8_Carbine",
-			"CUP_arifle_XM8_Carbine_GL", "CUP_arifle_xm8_sharpshooter", "CUP_arifle_xm8_SAW", "CUP_arifle_XM8_Compact", "CUP_arifle_XM8_Compact_Rail",	"CUP_srifle_CZ750",
-			"CUP_arifle_XM8_Railed", "CUP_arifle_XM8_Carbine_FG",
-			
-			//G36
-			"CUP_arifle_G36K_KSK", "CUP_arifle_G36K_KSK_camo", "CUP_arifle_G36K_KSK_VFG", "CUP_arifle_G36K_KSK_VFG_camo",
-			
-			//HK4x
-			"CUP_arifle_HK417_20", "CUP_arifle_HK417_20_Wood", "CUP_arifle_HK417_20_Desert",
-			
-			//L129A1
-			"CUP_srifle_L129A1", "CUP_srifle_L129A1_ctrg", "CUP_srifle_L129A1_ctrgt", "CUP_srifle_L129A1_d", "CUP_srifle_L129A1_w",
-			
-			//MK1x
-			"CUP_arifle_Mk17_STD_AFG", "CUP_arifle_Mk17_STD_AFG_black", "CUP_arifle_Mk17_STD_AFG_woodland",
-			"CUP_arifle_Mk17_STD_FG", "CUP_arifle_Mk17_STD_FG_black", "CUP_arifle_Mk17_STD_FG_woodland",
-			"CUP_arifle_Mk17_STD_SFG", "CUP_arifle_Mk17_STD_SFG_black", "CUP_arifle_Mk17_STD_SFG_woodland",
-			"CUP_arifle_Mk17_STD_EGLM", "CUP_arifle_Mk17_STD_EGLM_black", "CUP_arifle_Mk17_STD_EGLM_woodland",
-			"CUP_arifle_Mk20", "CUP_arifle_Mk20_black", "CUP_arifle_Mk20_woodland"
-			
-			
+			"PRACS_M107"
 		],
 		// colonel rifles (...)
 		[
-			"CUP_sgun_AA12", "CUP_glaunch_M32", "CUP_srifle_AS50", "CUP_srifle_AWM_des", "CUP_srifle_AWM_wdl", "CUP_srifle_G22_des", "CUP_srifle_G22_wdl",
-			"CUP_srifle_AS50",
 			
-			//G36
-			"CUP_arifle_G36K_KSK_AFG", "CUP_arifle_G36K_KSK_AFG_camo",
-			
-			//M107
-			"CUP_srifle_M107_Base", "CUP_srifle_M107_Pristine", "CUP_srifle_M107_Desert", "CUP_srifle_M107_Snow", "CUP_srifle_M107_Woodland",
-			
-			//M16
-			"CUP_arifle_M16A1GL_FS", "CUP_arifle_M16A1GL_USA"
 		]
 	],
 	[
@@ -187,30 +79,34 @@ private _all_weapons_items_indep = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			"CUP_launch_M72A6", "CUP_launch_M136", "CUP_launch_FIM92Stinger"
+			"rhs_weap_fim92",
+			"rhs_weap_m72a7"
 		],
 		// corporal launchers
 		[
-			"CUP_launch_M72A6_Special"
+			"rhs_weap_M136",
+			"rhs_weap_M136_hedp",
+			"rhs_weap_M136_hp"
 		],
 		// sergeant launchers
 		[
-			"CUP_launch_MAAWS", "CUP_launch_NLAW"
+			"rhs_weap_smaw",
+			"rhs_weap_smaw_green"
 		],
 		// lieutenant launchers
 		[
-			"CUP_launch_M47"
+			"rhs_weap_maaws",
+			"PRACS_SAAWS"
 		],
-		// captain launchers
+		// capain launchers
 		[
-			"CUP_launch_Mk153Mod0", "CUP_launch_Mk153Mod0_blk"
 		],
 		// major launchers
 		[
 		],
 		// colonel launchers
 		[
-			"CUP_launch_Javelin"
+			"rhs_weap_fgm148"
 		]
 	],
 	[
@@ -218,23 +114,21 @@ private _all_weapons_items_indep = [
 		"PISTOLS",
 		// private pistols
 		[
-			"CUP_hgun_CZ75"
 		],
 		// corporal pistols
 		[
-			"CUP_hgun_M9", "CUP_hgun_Compact"
 		],
 		// sergeant pistols
 		[
-			"CUP_hgun_Glock17", "CUP_hgun_Glock17_blk", "CUP_hgun_Glock17_tan", "CUP_hgun_Phantom", "CUP_hgun_Duty"
+			"rhsusf_weap_glock17g4"
 		],
 		// lieutenant pistols
 		[
-			"CUP_hgun_Colt1911", "CUP_hgun_Deagle"
+			"rhsusf_weap_m9"
 		],
 		// captain pistols
 		[
-			"CUP_hgun_MicroUzi"
+			"rhsusf_weap_m1911a1"
 		],
 		// major pistols
 		[
@@ -249,39 +143,78 @@ private _all_weapons_items_indep = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
-
 		],
 		// corporal optics
 		[
-			"CUP_optic_Kobra", "CUP_optic_HoloBlack", "CUP_optic_HoloWdl", "CUP_optic_HoloDesert", "CUP_optic_CompM2_Black", "CUP_optic_CompM2_Woodland",
-			"CUP_optic_CompM2_Woodland2", "CUP_optic_CompM2_Desert", "CUP_optic_MRad", "CUP_optic_TrijiconRx01_desert",
-			"CUP_optic_TrijiconRx01_black", "CUP_acc_Flashlight", "CUP_acc_Flashlight_wdl", "CUP_acc_Flashlight_desert", "CUP_muzzle_snds_mp5"
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_ACO_grn_smg",
+			"optic_Aco_smg",
+			"rhsusf_acc_T1_high",
+			"rhsusf_acc_T1_low",
+			"rhsusf_acc_T1_low_fwd",
+			"rhsusf_acc_compm4",
+			"rhsusf_acc_eotech_xps3",
+			"rhsusf_acc_EOTECH",
+			"rhsusf_acc_wmx",
+			"rhsusf_acc_wmx_bk",
+			"rhsusf_acc_M952V",
+			"acc_pointer_IR"
 		],
 		// sergeant optics
 		[
-			"CUP_optic_PSO_1", "CUP_optic_Eotech533", "CUP_optic_Eotech533Grey", "CUP_optic_CompM4", "CUP_optic_ElcanM145", "CUP_optic_ZDDot", "CUP_optic_Elcan",
-			"CUP_optic_Elcan_reflex", "CUP_acc_CZ_M3X", "CUP_acc_LLM", "CUP_optic_PGO7V", "CUP_optic_PGO7V2", "CUP_optic_PGO7V3"
+			"rhsusf_acc_ACOG2_USMC",
+			"rhsusf_acc_ACOG3_USMC",
+			"rhsusf_acc_ACOG_USMC",
+			"rhs_weap_optic_smaw",
+			"rhsusf_acc_g33_t1",
+			"rhsusf_acc_g33_xps3",
+			"rhsusf_acc_g33_xps3_tan",
+			"rhsusf_acc_ACOG",
+			"rhsusf_acc_ACOG2",
+			"rhsusf_acc_ACOG3",
+			"rhsusf_acc_ACOG_anpvs27",
+			"rhsusf_acc_ACOG_MDO",
+			"rhsusf_acc_ACOG_d",
+			"rhsusf_acc_ACOG_wd",
+			"rhsusf_acc_ACOG_RMR",
+			"rhsusf_acc_SpecterDR",
+			"rhsusf_acc_SpecterDR_OD",
+			"rhsusf_acc_SpecterDR_D",
+			"rhsusf_acc_SpecterDR_A",
+			"acc_flashlight","optic_Holosight_smg"
 		],
 		// lieutenant optics
 		[
-			 "CUP_optic_MAAWS_Scope", "CUP_optic_PechenegScope", "CUP_optic_SUSAT", "CUP_optic_ACOG", "CUP_optic_PSO_3", "CUP_optic_RCO", "CUP_optic_RCO_desert",
-			 "CUP_acc_XM8_light_module"
+			"rhsusf_acc_LEUPOLDMK4",
+			"rhsusf_acc_LEUPOLDMK4_2",
+			"rhsusf_acc_LEUPOLDMK4_2_d",
+			"rhs_optic_maaws",
+			"rhsusf_acc_M8541",
+			"rhsusf_acc_M8541_low",
+			"rhsusf_acc_M8541_low_d",
+			"rhsusf_acc_M8541_low_wd",
+			"rhsusf_acc_premier_low",
+			"rhsusf_acc_premier_anpvs27",
+			"rhsusf_acc_premier",
+			"optic_MRD","optic_MRCO",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_ERCO_snd_F"
 		],
 		// captain optics
 		[
-			"muzzle_snds_acp", "CUP_optic_CWS", "CUP_optic_LeupoldMk4_CQ_T", "CUP_optic_ELCAN_SpecterDR", "CUP_optic_AN_PVS_4", "CUP_acc_ANPEQ_15", "CUP_acc_ANPEQ_2",
-			"CUP_acc_ANPEQ_2_camo", "CUP_acc_ANPEQ_2_desert", "CUP_acc_ANPEQ_2_grey", "CUP_optic_NSPU_RPG"
+			"optic_Hamr",
+			"rhsusf_acc_anpas13gv1",
+			"rhsusf_acc_anpvs27"
 		],
 		// major optics
 		[
-			"LaserDesignator", "CUP_optic_SMAW_Scope", "CUP_optic_GOSHAWK", "CUP_optic_NSPU", "CUP_optic_AN_PAS_13c2", "CUP_optic_AN_PVS_10", "CUP_optic_AN_PAS_13c1",
-			"CUP_optic_SB_11_4x20_PM"
+			"LaserDesignator", "optic_Aco_smg", "optic_ACO_grn_smg", "optic_tws", "optic_tws_mg", "optic_DMS"
 		],
 		// colonel optics
 		[
-			"CUP_Mxx_camo", "CUP_Mxx_camo_half", "CUP_SVD_camo_g", "CUP_SVD_camo_g_half", "CUP_SVD_camo_d", "CUP_SVD_camo_d_half", "CUP_optic_SB_3_12x50_PMII",
-			"CUP_optic_LeupoldMk4", "CUP_optic_Leupold_VX3", "CUP_optic_LeupoldM3LR", "CUP_optic_LeupoldMk4_10x40_LRT_Desert", "CUP_optic_LeupoldMk4_10x40_LRT_Woodland",
-			"CUP_optic_LeupoldMk4_MRT_tan"
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS"
 		]
 	],
 	[
@@ -290,26 +223,69 @@ private _all_weapons_items_indep = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private muzzles
 		[
+			"rhsusf_acc_SF3P556",
+			"rhsusf_acc_SFMB556"
 		],
 		// corporal muzzles
 		[
+			"rhsusf_acc_grip2",
+			"rhsusf_acc_grip2_tan",
+			"rhsusf_acc_grip1",
+			"rhsusf_acc_grip3",
+			"rhsusf_acc_grip3_tan"
 		],
 		// sergeant muzzles
 		[
-			"CUP_muzzle_snds_AWM", "CUP_muzzle_snds_M16", "muzzle_snds_L"
+			"acc_flashlight",
+			"rhsusf_acc_anpeq15side",
+			"rhsusf_acc_anpeq15_top",
+			"rhsusf_acc_anpeq15_wmx_light",
+			"rhsusf_acc_anpeq15_wmx",
+			"rhsusf_acc_anpeq15side_bk",
+			"rhsusf_acc_anpeq15_bk_top",
+			"rhsusf_acc_anpeq15",
+			"rhsusf_acc_anpeq15_light",
+			"rhsusf_acc_anpeq15_bk_light",
+			"rhsusf_acc_anpeq15_bk",
+			"rhsusf_acc_anpeq15A",
+			"rhsusf_acc_harris_bipod",
+			"rhsusf_acc_nt4_tan",
+			"rhsusf_acc_nt4_black",
+			"rhsusf_acc_rotex5_tan",
+			"rhsusf_acc_rotex5_grey",
+			"rhsusf_acc_rotex_mp7_aor1",
+			"rhsusf_acc_rotex_mp7",
+			"rhsusf_acc_rotex_mp7_desert",
+			"rhsusf_acc_rotex_mp7_winter",
+			"rhsusf_acc_grip4",
+			"acc_flashlight_pistol",
+			"rhsusf_acc_omega9k",
+			"rhsusf_acc_SR25S",
+			"rhsusf_acc_M2010S",
+			"rhs_acc_dtk",
+			"rhs_acc_dtk1983",
+			"rhs_acc_dtk1l",
+			"rhs_acc_dtk1p",
+			"rhs_acc_dtk1",
+			"rhs_acc_dtk2",
+			"rhs_acc_dtk3",
+			"rhs_acc_dtk4short",
+			"rhs_acc_dtk4screws",
+			"rhs_acc_dtk4long",
+			"rhsusf_ANPVS_14",
+			"rhsusf_ANPVS_15",
+			"rhsusf_Rhino"
 		],
 		// lieutenant muzzles
 		[
-			"CUP_acc_Glock17_Flashlight", "CUP_muzzle_snds_G36_black", "CUP_muzzle_snds_G36_desert", "CUP_muzzle_snds_MicroUzi", "CUP_muzzleFlash2SCAR_L", "CUP_muzzle_snds_SCAR_L",
-			"CUP_muzzle_mfsup_SCAR_L", "CUP_muzzle_snds_l85"
+			"muzzle_snds_B", "muzzle_snds_H","muzzle_snds_L", "muzzle_snds_M", "muzzle_snds_acp"
 		],
 		// captain muzzles
 		[
-			"CUP_acc_sffh", "CUP_acc_bfa", "CUP_muzzle_snds_M110", "CUP_muzzle_snds_M14", "CUP_muzzle_snds_M16_camo", "CUP_muzzle_mfsup_SCAR_H", "CUP_muzzle_snds_SCAR_H"
 		],
 		// major muzzles
 		[
-			"CUP_muzzle_snds_M9", "CUP_muzzle_snds_Mk12", "CUP_muzzle_snds_XM8"
+			"muzzle_snds_H_MG"
 		],
 		// colonel muzzles
 		[
@@ -321,59 +297,502 @@ private _all_weapons_items_indep = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"CUP_U_B_USArmy_Base", "CUP_U_B_USArmy_TwoKnee", "CUP_U_B_USArmy_UBACS", "CUP_U_B_USArmy_Soft", "CUP_U_B_USArmy_PilotOverall", "CUP_U_B_USMC_Officer",
-			"CUP_U_B_USMC_MARPAT_WDL_Sleeves", "CUP_U_B_USMC_MARPAT_WDL_RolledUp", "CUP_U_B_USMC_MARPAT_WDL_Kneepad", "CUP_U_B_USMC_MARPAT_WDL_TwoKneepads", "CUP_U_B_USMC_PilotOverall",
-			"CUP_U_B_USMC_MARPAT_WDL_RollUpKneepad", "CUP_U_B_FR_SpecOps", "CUP_U_B_FR_Scout", "CUP_U_B_FR_Officer", "CUP_U_B_FR_Corpsman", "CUP_U_B_FR_DirAction",
-			"CUP_U_B_FR_DirAction2", "CUP_U_B_FR_Light", "CUP_U_B_FR_Scout1", "CUP_U_B_FR_Scout2", "CUP_U_B_FR_Scout3", "CUP_B_USMC_Navy_Blue", "CUP_B_USMC_Navy_Brown",
-			"CUP_B_USMC_Navy_Green", "CUP_B_USMC_Navy_Red", "CUP_B_USMC_Navy_Violet", "CUP_B_USMC_Navy_White", "CUP_B_USMC_Navy_Yellow", "CUP_U_B_USMC_FROG1_WMARPAT",
-			"CUP_U_B_USMC_FROG1_DMARPAT", "CUP_U_B_USMC_FROG2_WMARPAT", "CUP_U_B_USMC_FROG2_DMARPAT", "CUP_U_B_USMC_FROG3_WMARPAT", "CUP_U_B_USMC_FROG3_DMARPAT",
-			"CUP_U_B_USMC_FROG4_WMARPAT", "CUP_U_B_USMC_FROG4_DMARPAT",
+			"PRACS_SIS_Uniform",
+			"PRACS_coverall",
+			"PRACS_Tanker_coverall",
+			"PRACS_M10_DES_uniform",
+			"PRACS_M10_SDPM_uniform",
+			"PRACS_M10_ASDPM_uniform",
+			"PRACS_M10_Digital_uniform",
+			"PRACS_M10_SMAR_uniform",
+			"PRACS_M10_RFP_uniform",
+			"PRACS_M10_RFP_G_uniform",
+			"PRACS_M10_1ID_uniform",
+			"PRACS_M10_2PARA_uniform",
+			"PRACS_M10_4A_uniform",
+			"PRACS_M10_Artillery_uniform",
+			"PRACS_M10_SNG_D_uniform",
+			"PRACS_M10_3MTN_uniform",
+			"PRACS_M10_Commando_uniform",
+			"PRACS_M10_Digital_Commando_uniform",
+			"PRACS_M10_Digital_Commando_OD_uniform",
+			"PRACS_M10_Marine_uniform",
+			"PRACS_M10_Boat_crew_uniform",
+			"PRACS_M10_Naval_crew_uniform",
+			"PRACS_M10_Recon_uniform",
+			"PRACS_M10_M04_uniform",
+			"PRACS_M10_RSAF_uniform",
+			"PRACS_M10_Fusilier_uniform",
 
-			"CUP_H_USArmy_Boonie", "CUP_H_USA_Cap", "CUP_H_USArmy_HelmetMICH", "CUP_H_USArmy_HelmetMICH_ESS", "CUP_H_USArmy_HelmetMICH_earpro", "CUP_H_USArmy_HelmetMICH_earpro_ess",
-			"CUP_H_USArmy_HelmetMICH_headset", "CUP_H_USArmy_HelmetMICH_headset_ess", "CUP_H_USArmy_HelmetMICH_wdl", "CUP_H_USArmy_Helmet_ECH1_Sand", "CUP_H_USArmy_Helmet_ECH2_Sand",
-			"CUP_H_USArmy_Helmet_ECH1_Black", "CUP_H_USArmy_Helmet_ECH2_Black", "CUP_H_USArmy_Helmet_ECH1_Green", "CUP_H_USArmy_Helmet_ECH2_GREEN", "CUP_H_USArmy_Helmet_Pro",
-			"CUP_H_USArmy_Helmet_Pro_gog", "CUP_H_USArmy_Helmet_M1_Olive", "CUP_H_USArmy_Helmet_M1_Vine", "CUP_H_USArmy_Helmet_M1_m81", "CUP_H_USArmy_Helmet_M1_btp", "CUP_H_USMC_Officer_Cap",
-			"CUP_H_USMC_HelmetWDL", "CUP_H_USMC_Headset_HelmetWDL", "CUP_H_USMC_Headset_GoggleW_HelmetWDL", "CUP_H_USMC_Crew_Helmet", "CUP_H_USMC_Goggles_HelmetWDL",
-			"CUP_H_USMC_Helmet_Pilot", "CUP_H_FR_Cap_Headset_Green", "CUP_H_FR_Cap_Officer_Headset", "CUP_H_FR_BandanaGreen", "CUP_H_FR_BandanaWdl", "CUP_H_FR_ECH", "CUP_H_FR_BoonieMARPAT",
-			"CUP_H_FR_BoonieWDL", "CUP_H_FR_BeanieGreen", "CUP_H_FR_Headset", "CUP_H_FR_Bandana_Headset", "CUP_H_FR_Headband_Headset", "CUP_H_FR_PRR_BoonieWDL", "CUP_H_USMC_ACVC_WDL",
-			"CUP_H_USMC_ACVC_DES", "CUP_H_USMC_MICH2000_WDL", "CUP_H_USMC_MICH2000_DES", "CUP_H_USMC_MICH2000_ESS_COMM_WDL", "CUP_H_USMC_MICH2000_ESS_COMM_DES",
-			"CUP_H_USMC_MICH2000_COMM_WDL", "CUP_H_USMC_MICH2000_COMM_DES", "CUP_H_USMC_MICH2000_DEF_WDL", "CUP_H_USMC_MICH2000_DEF_DES", "CUP_H_USMC_MICH2000_DEF_ESS_WDL",
-			"CUP_H_USMC_MICH2000_DEF_ESS_DES", "CUP_H_USMC_LWH_NVGMOUNT_WDL", "CUP_H_USMC_LWH_NVGMOUNT_DES", "CUP_H_USMC_LWH_WDL", "CUP_H_USMC_LWH_DES", "CUP_H_USMC_LWH_NVGMOUNT_ESS_HS_WDL",
-			"CUP_H_USMC_LWH_NVGMOUNT_ESS_HS_DES", "CUP_H_USMC_LWH_ESS_HS_WDL", "CUP_H_USMC_LWH_ESS_HS_DES", "CUP_H_USMC_LWH_NVGMOUNT_ESS_WDL", "CUP_H_USMC_LWH_NVGMOUNT_ESS_DES",
-			"CUP_H_USMC_LWH_ESS_WDL", "CUP_H_USMC_LWH_ESS_DES", "CUP_H_USMC_LWH_NVGMOUNT_ESS_LR_WDL", "CUP_H_USMC_LWH_NVGMOUNT_ESS_LR_DES", "CUP_H_USMC_LWH_ESS_LR_WDL",
-			"CUP_H_USMC_LWH_ESS_LR_DES", "CUP_H_USMC_BOONIE_WDL", "CUP_H_USMC_BOONIE_DES", "CUP_H_USMC_BOONIE_PRR_WDL", "CUP_H_USMC_BOONIE_PRR_DES", "CUP_H_USMC_CAP_WDL",
-			"CUP_H_USMC_CAP_DES", "CUP_H_USMC_CAP_PRR_WDL", "CUP_H_USMC_CAP_PRR_DES"
+			"PRACS_SIS_Chestrig",
+			"PRACS_air_TacVest",
+			"PRACS_holster_vest",
+			"PRACS_CIRAS",
+			"PRACS_CIRAS_rifleman",
+			"PRACS_CIRAS_Recon_SF",
+			"PRACS_CIRAS_SF",
+			"PRACS_CIRAS_SMG",
+			"PRACS_CIRAS_SMG_SF",
+			"PRACS_CIRAS_GAL_rifleman",
+			"PRACS_CIRAS_G3_Recon",
+			"PRACS_CIRAS_G3_rifleman",
+			"PRACS_CIRAS_G3_grenadier",
+			"PRACS_CIRAS_G3_medic",
+			"PRACS_CIRAS_medic",
+			"PRACS_CIRAS_GAL_medic",
+			"PRACS_CIRAS_grenadier",
+			"PRACS_CIRAS_grenadier_SF",
+			"PRACS_CIRAS_GAL_grenadier",
+			"PRACS_CIRAS_MG",
+			"PRACS_CIRAS_MG_SF",
+			"PRACS_O_CIRAS",
+			"PRACS_O_CIRAS_rifleman",
+			"PRACS_O_CIRAS_Recon_SF",
+			"PRACS_O_CIRAS_SF",
+			"PRACS_O_CIRAS_SMG",
+			"PRACS_O_CIRAS_SMG_SF",
+			"PRACS_O_CIRAS_G3_Recon",
+			"PRACS_O_CIRAS_GAL_rifleman",
+			"PRACS_O_CIRAS_G3_rifleman",
+			"PRACS_O_CIRAS_G3_grenadier",
+			"PRACS_O_CIRAS_GAL_grenadier",
+			"PRACS_O_CIRAS_G3_medic",
+			"PRACS_O_CIRAS_medic",
+			"PRACS_O_CIRAS_GAL_medic",
+			"PRACS_O_CIRAS_grenadier",
+			"PRACS_O_CIRAS_grenadier_SF",
+			"PRACS_O_CIRAS_MG",
+			"PRACS_O_CIRAS_MG_SF",
+			"PRACS_C_CIRAS",
+			"PRACS_C_CIRAS_rifleman",
+			"PRACS_C_CIRAS_Recon_SF",
+			"PRACS_C_CIRAS_SF",
+			"PRACS_C_CIRAS_GAL_rifleman",
+			"PRACS_C_CIRAS_SMG",
+			"PRACS_C_CIRAS_SMG_SF",
+			"PRACS_C_CIRAS_Officer",
+			"PRACS_C_CIRAS_Officer_HR",
+			"PRACS_C_CIRAS_TL",
+			"PRACS_C_CIRAS_SL",
+			"PRACS_C_CIRAS_PSG",
+			"PRACS_C_CIRAS_GAL_Officer",
+			"PRACS_C_CIRAS_GAL_TL",
+			"PRACS_C_CIRAS_GAL_SL",
+			"PRACS_C_CIRAS_GAL_PSG",
+			"PRACS_C_CIRAS_G3_Recon",
+			"PRACS_C_CIRAS_G3_rifleman",
+			"PRACS_C_CIRAS_G3_grenadier",
+			"PRACS_C_CIRAS_GAL_grenadier",
+			"PRACS_C_CIRAS_G3_medic",
+			"PRACS_C_CIRAS_GAL_medic",
+			"PRACS_C_CIRAS_medic",
+			"PRACS_C_CIRAS_grenadier",
+			"PRACS_C_CIRAS_grenadier_SF",
+			"PRACS_C_CIRAS_MG",
+			"PRACS_C_CIRAS_MG_SF",
+			"PRACS_RFP_CIRAS",
+			"PRACS_RFP_CIRAS_rifleman",
+			"PRACS_RFP_CIRAS_Recon_SF",
+			"PRACS_RFP_CIRAS_SF",
+			"PRACS_RFP_CIRAS_GAL_rifleman",
+			"PRACS_RFP_CIRAS_SMG",
+			"PRACS_RFP_CIRAS_SMG_SF",
+			"PRACS_RFP_CIRAS_G3_Recon",
+			"PRACS_RFP_CIRAS_G3_rifleman",
+			"PRACS_RFP_CIRAS_G3_grenadier",
+			"PRACS_RFP_CIRAS_GAL_grenadier",
+			"PRACS_RFP_CIRAS_G3_medic",
+			"PRACS_RFP_CIRAS_GAL_medic",
+			"PRACS_RFP_CIRAS_medic",
+			"PRACS_RFP_CIRAS_grenadier",
+			"PRACS_RFP_CIRAS_grenadier_SF",
+			"PRACS_RFP_CIRAS_MG",
+			"PRACS_RFP_CIRAS_MG_SF",
+			"PRACS_QSB_CIRAS",
+			"PRACS_QSB_CIRAS_rifleman",
+			"PRACS_QSB_CIRAS_Recon_SF",
+			"PRACS_QSB_CIRAS_SF",
+			"PRACS_QSB_CIRAS_GAL_rifleman",
+			"PRACS_QSB_CIRAS_SMG",
+			"PRACS_QSB_CIRAS_SMG_SF",
+			"PRACS_QSB_CIRAS_G3_Recon",
+			"PRACS_QSB_CIRAS_G3_rifleman",
+			"PRACS_QSB_CIRAS_G3_grenadier",
+			"PRACS_QSB_CIRAS_GAL_grenadier",
+			"PRACS_QSB_CIRAS_G3_medic",
+			"PRACS_QSB_CIRAS_GAL_medic",
+			"PRACS_QSB_CIRAS_medic",
+			"PRACS_QSB_CIRAS_grenadier",
+			"PRACS_QSB_CIRAS_grenadier_SF",
+			"PRACS_QSB_CIRAS_MG",
+			"PRACS_QSB_CIRAS_MG_SF",
+
+			"PRACS_SIS_Cap",
+			"PRACS_Navy_Cap",
+			"PRACS_Booniehat_6TDES",
+			"PRACS_Booniehat_HS_6TDES",
+			"PRACS_Booniehat_ASDPM_B",
+			"PRACS_Booniehat_HS_ASDPM",
+			"PRACS_Booniehat_SDPM",
+			"PRACS_Booniehat_HS_SDPM",
+			"PRACS_Booniehat_CSAR",
+			"PRACS_Booniehat_HS_CSAR",
+			"PRACS_Booniehat_GDES",
+			"PRACS_Booniehat_HS_GDES",
+			"PRACS_Booniehat_MDES",
+			"PRACS_Booniehat_HS_MDES",
+			"PRACS_Booniehat_RFP",
+			"PRACS_Booniehat_HS_RFP",
+			"PRACS_Booniehat_RFPG",
+			"PRACS_Booniehat_HS_RFPG",
+			"PRACS_Booniehat_Digital",
+			"PRACS_Booniehat_HS_Digital",
+			"PRACS_Booniehat_SMAR",
+			"PRACS_Booniehat_HS_SMAR",
+			"PRACS_Booniehat_M04",
+			"PRACS_Pilot_Headset",
+			"PRACS_Patrol_SDPM_Cap",
+			"PRACS_Patrol_DesDPM_Cap",
+			"PRACS_Patrol_CSAR_Cap",
+			"PRACS_Patrol_ASDPM_B_Cap",
+			"PRACS_Patrol_6TDes_Cap",
+			"PRACS_Patrol_RFP_Cap",
+			"PRACS_Patrol_RFP_G_Cap",
+			"PRACS_Patrol_Grey6TDes_Cap",
+			"PRACS_Patrol_Digital_Cap",
+			"PRACS_Patrol_SMAR_Cap",
+			"PRACS_LWH",
+			"PRACS_LWH_ESS",
+			"PRACS_LWH_HS",
+			"PRACS_LWH_6TDES",
+			"PRACS_LWH_ESS_6TDES",
+			"PRACS_LWH_HS_6TDES",
+			"PRACS_LWH_SMAR",
+			"PRACS_LWH_ESS_SMAR",
+			"PRACS_LWH_HS_SMAR",
+			"PRACS_ACH_ASDPM",
+			"PRACS_ACH_RFP_F",
+			"PRACS_ACH_QSB",
+
+			"rhs_Booniehat_m81",
+			"rhsusf_Bowman",
+			"rhsusf_bowman_cap",
+			"rhsusf_protech_helmet",
+			"rhsusf_protech_helmet_ess",
+			"rhsusf_protech_helmet_rhino",
+			"rhsusf_protech_helmet_rhino_ess",
+			"H_ShemagOpen_khk",
+			"H_ShemagOpen_tan",
+			"H_Shemag_olive",
+			"rhsusf_cvc_green_helmet",
+			"rhsusf_cvc_green_alt_helmet",
+			"rhsusf_cvc_green_ess",
+			"rhsusf_cvc_helmet",
+			"rhsusf_cvc_alt_helmet",
+			"rhsusf_cvc_ess",
+			"rhsusf_shemagh_grn",
+			"rhsusf_shemagh_od",
+			"rhsusf_shemagh_tan",
+			"rhsusf_shemagh2_tan",
+			"rhsusf_shemagh_white",
+			"rhsusf_shemagh2_white",
+			"rhsusf_shemagh_gogg_grn",
+			"rhsusf_shemagh2_gogg_grn",
+			"rhsusf_shemagh2_gogg_od",
+			"rhsusf_shemagh_gogg_tan",
+			"rhsusf_shemagh2_gogg_tan",
+			"rhsusf_shemagh_gogg_white",
+			"rhsusf_shemagh2_gogg_white",
+			"rhsusf_oakley_goggles_blk",
+			"rhsusf_oakley_goggles_ylw",
+			"rhs_goggles_yellow",
+			"rhs_goggles_clear",
+			"rhs_ess_black"
 		],
 		// corporal uniforms
 		[
+			"PRACS_Flight_medic_uniform",
+			"PRACS_Flight_medic_RSAF_uniform",
+			"PRACS_Flight_medic_RSM_uniform",
+			"PRACS_Flight_medic_RSN_uniform",
+			"PRACS_air_crew_Door_Gunner_uniform",
+			"PRACS_air_crew_Door_Gunner_RSAF_uniform",
+			"PRACS_air_crew_Door_Gunner_RSM_uniform",
+			"PRACS_air_crew_Door_Gunner_RSN_uniform",
+			"PRACS_M10_1ID_TL_uniform",
+			"PRACS_M10_2PARA_TL_uniform",
+			"PRACS_M10_4A_TL_uniform",
+			"PRACS_M10_ADA_uniform",
+			"PRACS_M10_SNG_D_TL_uniform",
+			"PRACS_M10_3MTN_TL_uniform",
+			"PRACS_M10_CSAR_uniform",
+			"PRACS_M10_Marine_Raider_uniform",
+			"PRACS_M10_Marine_TL_uniform",
+			"PRACS_M10_Fusilier_TL_uniform",
+			"PRACS_M10_QSB_TL_uniform",
+			
+			"PRACS_CIRAS_GAL_TL",
+			"PRACS_CIRAS_G3_TL",
+			"PRACS_CIRAS_TL",
+			"PRACS_O_CIRAS_TL",
+			"PRACS_O_CIRAS_GAL_TL",
+			"PRACS_O_CIRAS_G3_TL",
+			"PRACS_C_CIRAS_G3_TL",
+			"PRACS_RFP_CIRAS_TL",
+			"PRACS_RFP_CIRAS_GAL_TL",
+			"PRACS_RFP_CIRAS_G3_TL",
+			"PRACS_QSB_CIRAS_pistol_TL",
+			"PRACS_QSB_CIRAS_TL",
+			"PRACS_QSB_CIRAS_GAL_TL",
+			"PRACS_QSB_CIRAS_G3_TL",
+			"PRACS_QSB_CIRAS_GAL_grenadier_TL",
+			"PRACS_QSB_CIRAS_MG_SF_TL",
+
+			"PRACS_Royal_Marine_beret",
+			"PRACS_Royal_Fusilier_beret",
+			"PRACS_QSB_beret",
+			"PRACS_1st_Infantry_beret",
+			"PRACS_SNG_beret",
+			"PRACS_para_beret",
+			"PRACS_3mtn_beret",
+			"PRACS_Commando_beret",
+			"PRACS_Recon_beret",
+			"PRACS_4th_armored_beret",
+			"PRACS_RSAF_beret",
+			"PRACS_RSAF_CSAR_beret",
+			"PRACS_navy_beret",
+			"PRACS_HGU55_PMBU12",
+			"PRACS_HGU55_PMBU12_Raised",
+			"PRACS_HGU55_PMBU12_black",
+			"PRACS_HGU55_Raised_PMBU12_black",
+			"PRACS_HGU55_PMBU12_white",
+			"PRACS_HGU55_Raised_PMBU12_white",
+			"PRACS_HGU55_PMBU12_blue",
+			"PRACS_HGU55_Raised_PMBU12_blue",
+			"PRACS_HGU55_PMBU12_blueD",
+			"PRACS_HGU55_Raised_PMBU12_blueD",
+			"PRACS_HGU55_PMBU12_Orange",
+			"PRACS_HGU55_Raised_PMBU12_Orange",
+			"PRACS_HGU55_PMBU12_Purple",
+			"PRACS_HGU55_Raised_PMBU12_Purple",
+			"PRACS_HGU55_PMBU12_Red",
+			"PRACS_HGU55_Raised_PMBU12_Red",
+			"PRACS_HGU55_PMBU12_Red2",
+			"PRACS_HGU55_Raised_PMBU12_Red2",
+			"PRACS_HGU55_PMBU12_Red3",
+			"PRACS_HGU55_Raised_PMBU12_Red3",
+			"PRACS_HGU55_PMBU12_green",
+			"PRACS_HGU55_Raised_PMBU12_green",
+			"PRACS_HGU55_PMBU12_Special1",
+			"PRACS_HGU55_Raised_PMBU12_Special1",
+			"PRACS_HGU55_PMBU12_Special2",
+			"PRACS_HGU55_Raised_PMBU12_Special2",
+			"PRACS_HGU55_PMBU12_Special3",
+			"PRACS_HGU55_Raised_PMBU12_Special3",
+			"PRACS_HGU55_PMBU12_Special4",
+			"PRACS_HGU55_Raised_PMBU12_Special4",
+			"PRACS_HGU55_PMBU12_Special5",
+			"PRACS_HGU55_Raised_PMBU12_Special5",
+			"PRACS_HGU55_PMBU12_Special6",
+			"PRACS_HGU55_Raised_PMBU12_Special6"
 		],
 		// sergeant uniforms
 		[
-			"CUP_FR_NeckScarf", "CUP_FR_NeckScarf2"
+			"PRACS_Jet_Pilot_uniform",
+			"PRACS_G_suit_uniform",
+			"PRACS_G_suit_A4_uniform",
+			"PRACS_G_suit_A4_Marine_uniform",
+			"PRACS_G_suit_A4_Navy_uniform",
+			"PRACS_G_suit_MIII_uniform",
+			"PRACS_G_suit_M5_uniform",
+			"PRACS_G_suit_F16_uniform",
+			"PRACS_Pilot_suit_uniform",
+			"PRACS_Pilot_suit_C130_uniform",
+			"PRACS_Pilot_suit_P3_uniform",
+			"PRACS_Pilot_suit_E2_uniform",
+			"PRACS_Pilot_suit_E2_navy_uniform",
+			"PRACS_Pilot_suit_OV1_uniform",
+			"PRACS_Heli_crew_pilot_uniform",
+			"PRACS_Heli_crew_RSAF_uniform",
+			"PRACS_Heli_crew_RSM_uniform",
+			"PRACS_Heli_crew_RSN_uniform",
+			"PRACS_M10_1ID_SL_uniform",
+			"PRACS_M10_1ID_PSG_uniform",
+			"PRACS_M10_2PARA_PFR_uniform",
+			"PRACS_M10_2PARA_SL_uniform",
+			"PRACS_M10_2PARA_PSG_uniform",
+			"PRACS_M10_4A_SL_uniform",
+			"PRACS_M10_4A_PSG_uniform",
+			"PRACS_M10_Artillery_SL_uniform",
+			"PRACS_M10_SNG_D_SL_uniform",
+			"PRACS_M10_SNG_D_PSG_uniform",
+			"PRACS_M10_3MTN_SL_uniform",
+			"PRACS_M10_3MTN_PSG_uniform",
+			"PRACS_M10_Digital_Commando_PSG_uniform",
+			"PRACS_M10_Digital_Commando_PL_uniform",
+			"PRACS_M10_Marine_SL_uniform",
+			"PRACS_M10_Marine_Raider_SL_uniform",
+			"PRACS_M10_Marine_PSG_uniform",
+			"PRACS_M10_Recon_PSG_uniform",
+			"PRACS_M10_RSAF_ground_crew_NCO_uniform",
+			"PRACS_M10_Fusilier_SL_uniform",
+			"PRACS_M10_Fusilier_PSG_uniform",
+			"PRACS_M10_QSB_SL_uniform",
+			"PRACS_M10_QSB_PSG_uniform",
+
+			"PRACS_Jet_Pilot_harness",
+			"PRACS_Jet_Pilot_vest",
+			"PRACS_aircrew_flotation_vest",
+			"PRACS_aircrew_vest",
+			"PRACS_CIRAS_GAL_SL",
+			"PRACS_CIRAS_G3_SL",
+			"PRACS_CIRAS_SL",
+			"PRACS_O_CIRAS_SL",
+			"PRACS_O_CIRAS_GAL_SL",
+			"PRACS_O_CIRAS_G3_SL",
+			"PRACS_C_CIRAS_G3_SL",
+			"PRACS_RFP_CIRAS_SL",
+			"PRACS_RFP_CIRAS_GAL_SL",
+			"PRACS_RFP_CIRAS_G3_SL",
+			"PRACS_QSB_CIRAS_SMG_SF_SL",
+			"PRACS_QSB_CIRAS_SL",
+			"PRACS_QSB_CIRAS_GAL_SL",
+			"PRACS_QSB_CIRAS_G3_SL",
+			"PRACS_CIRAS_GAL_PSG",
+			"PRACS_CIRAS_G3_PSG",
+			"PRACS_CIRAS_PSG",
+			"PRACS_O_CIRAS_PSG",
+			"PRACS_O_CIRAS_GAL_PSG",
+			"PRACS_O_CIRAS_G3_PSG",
+			"PRACS_C_CIRAS_G3_PSG",
+			"PRACS_RFP_CIRAS_PSG",
+			"PRACS_RFP_CIRAS_GAL_PSG",
+			"PRACS_RFP_CIRAS_G3_PSG",
+			"PRACS_QSB_CIRAS_PSG",
+			"PRACS_QSB_CIRAS_GAL_PSG",
+			"PRACS_QSB_CIRAS_G3_PSG",
+
+			"PRACS_ACH_ASDPM_camo",
+			"PRACS_ACH_RFP_F_camo",
+			"PRACS_ACH_QSB_camo",
+			"PRACS_QSB_opscore",
+			"PRACS_Jet_Pilot_helmet",
+			"PRACS_Attack_Heli_pilot_helmet"
 		],
 		// lieutenant uniforms
 		[
+			"PRACS_M10_1ID_PL_uniform",
+			"PRACS_M10_2PARA_PL_uniform",
+			"PRACS_M10_4A_PL_uniform",
+			"PRACS_M10_Arty_officer_uniform",
+			"PRACS_M10_SNG_D_PL_uniform",
+			"PRACS_M10_3MTN_PL_uniform",
+			"PRACS_M10_Marine_PL_uniform",
+			"PRACS_M10_RSAF_Ground_Crew_Officer_uniform",
+			"PRACS_M10_RSAF_ground_crew_Commander_uniform",
+			"PRACS_M10_Fusilier_PL_uniform",
+			"PRACS_M10_QSB_PL_uniform",
+
+			"PRACS_CIRAS_GAL_Officer",
+			"PRACS_CIRAS_G3_Officer",
+			"PRACS_CIRAS_G3_Commander",
+			"PRACS_CIRAS_Officer",
+			"PRACS_CIRAS_Officer_HR",
+			"PRACS_O_CIRAS_Officer",
+			"PRACS_O_CIRAS_Officer_HR",
+			"PRACS_O_CIRAS_GAL_Officer",
+			"PRACS_O_CIRAS_GAL_Commander",
+			"PRACS_O_CIRAS_G3_Officer",
+			"PRACS_C_CIRAS_G3_Officer",
+			"PRACS_C_CIRAS_G3_Commander",
+			"PRACS_RFP_CIRAS_Officer",
+			"PRACS_RFP_CIRAS_Officer_HR",
+			"PRACS_RFP_CIRAS_GAL_Officer",
+			"PRACS_RFP_CIRAS_G3_Officer",
+			"PRACS_RFP_CIRAS_G3_Commander",
+			"PRACS_QSB_CIRAS_Officer",
+			"PRACS_QSB_CIRAS_Officer_HR",
+			"PRACS_QSB_CIRAS_GAL_Officer",
+			"PRACS_QSB_CIRAS_G3_Officer",
+			"PRACS_QSB_CIRAS_G3_Commander"
 		],
 		// captain uniforms
 		[
+			"PRACS_M10_1ID_CO_uniform",
+			"PRACS_M10_2PARA_CO_uniform",
+			"PRACS_M10_4A_CO_uniform",
+			"PRACS_M10_SNG_D_CO_uniform",
+			"PRACS_M10_3MTN_CO_uniform",
+			"PRACS_M10_Digital_Commando_CO_uniform",
+			"PRACS_M10_Marine_CO_uniform",
+			"PRACS_M10_Fusilier_CO_uniform",
+			"PRACS_M10_QSB_CO_uniform",
+			"PRACS_Officer_Cap",
+			"PRACS_RSAF_Officer_Cap",
+			"PRACS_RSM_Officer_Cap",
+			"PRACS_RSN_Officer_Cap"
 		],
 		// major uniforms
 		[
+			"PRACS_Police_Cap","PRACS_Police_Vest","PRACS_Police_Uniform",
+			"U_B_GhillieSuit"
 		],
 		// colonel uniforms
 		[
-			"CUP_U_B_BAF_DDPM_Ghillie", "CUP_U_B_BAF_DPM_Ghillie"
+			"PRACS_M10_2PARA_COL_uniform",
+			"PRACS_M10_4A_COL_uniform",
+			"PRACS_M10_SNG_D_COL_uniform",
+			"PRACS_M10_3MTN_COL_uniform",
+			"PRACS_M10_Digital_Commando_COL_uniform",
+			"PRACS_M10_1ID_COL_uniform",
+			"PRACS_M10_Marine_COL_uniform",
+			"PRACS_M10_Fusilier_COL_uniform",
+			"PRACS_M10_QSB_COL_uniform",
+			"U_B_FullGhillie_sard",
+			"U_B_FullGhillie_ard"
 		]
 	],
 	// additional weapons and items, no rank
 	[
-		0,  // 0 = always added for each rank in the ranked version
+		1,  // 0 = always added for each rank in the ranked version
 		"ITEMS",
-		// weapons
+		// private items
 		[
-			"MineDetector", "Binocular", (if (d_no_faks == 1) then {"FirstAidKit"} else {""}), "Medikit",
-			(if (d_without_nvg == 1) then {"NVGoggles"} else {""}),
-			"ToolKit", "B_UavTerminal"
+			"ItemRadio",
+			"ItemMap",
+			"ItemGPS",
+			"ItemCompass",
+			"ItemWatch",
+			"MineDetector",
+			"rhsusf_bino_m24",
+			(if (d_no_faks == 1) then {"FirstAidKit"} else {""}),
+			"Medikit",
+			"ToolKit",
+			"PRACS_UavTerminal",
+			"PRACS_UAV_MP",
+			(if (d_without_nvg == 1) then {"rhsusf_ANPVS_14"} else {""})
+		],
+		// corporal items
+		[
+			"rhsusf_bino_lerca_1200_black",
+			"rhsusf_bino_lerca_1200_tan",
+			"rhsusf_bino_Leupold_Mk4"
+		],
+		// sergeant items
+		[
+		],
+		// lieutenant items
+		[
+			"Rangefinder"
+		],
+		// captain items
+		[
+		],
+		// major items
+		[
+		],
+		// colonel items
+		[
 		]
 	]
 ];
@@ -384,36 +803,110 @@ private _all_weapons_items_opfor = [
 		"RIFLES",
 		// private rifles
 		[
-			"CUP_arifle_FNFAL", "CUP_arifle_FNFAL_desert", "CUP_arifle_FNFAL_woodland", "CUP_arifle_FNFAL_sand", "CUP_arifle_SR3M_Vikhr", "CUP_arifle_SR3M_Vikhr_VFG", "CUP_arifle_OTS14_GROZA", "CUP_arifle_AK47", "CUP_arifle_AK74", "CUP_arifle_AK74M", "CUP_arifle_AKS74", "CUP_arifle_AKS74U", "CUP_arifle_AKM", "CUP_arifle_AKS",
-			"CUP_arifle_RPK74", "CUP_arifle_RPK74M", "CUP_smg_bizon", "CUP_lmg_PKM", "CUP_srifle_CZ550", "CUP_smg_vityaz", "CUP_smg_vityaz_vfg"
+			"rhs_weap_ak74",
+			"PRACS_SLA_Aks74N","PRACS_SLA_Ak74",
+			"rhs_weap_aks74n"
 		],
 		// corporal rifles (gets added to private rifles)
 		[
-			"CUP_arifle_RPK74M_top_rail", "CUP_arifle_RPK74_top_rail", "CUP_arifle_AK74M_top_rail", "CUP_arifle_AK74M_camo", "CUP_arifle_AK74_top_rail", "CUP_arifle_AK47_top_rail", "CUP_arifle_AK47_GL", "CUP_arifle_AKS74U_top_rail", "CUP_arifle_AKM_top_rail",
-			"CUP_arifle_AKM_GL", "CUP_arifle_SR3M_Vikhr_top_rail", "CUP_arifle_SR3M_Vikhr_VFG_top_rail", "CUP_arifle_OTS14_GROZA_GL", "CUP_arifle_OTS14_GROZA_Grip", "CUP_arifle_AK74M_GL", "CUP_arifle_AK107", "CUP_arifle_AK74_GL",
-			"CUP_arifle_RPK74_45", "CUP_lmg_Pecheneg", "CUP_srifle_CZ550_rail", "CUP_smg_vityaz_top_rail", "CUP_smg_vityaz_vfg_top_rail", "CUP_smg_vityaz_vfg_front_rail",
-			"CUP_arifle_FNFAL5060", "CUP_arifle_FNFAL5060_desert", "CUP_arifle_FNFAL5060_sand", "CUP_arifle_FNFAL5060_woodland"
+			"PRACS_Ak74N_ACO","PRACS_Ak74M_PLUM_ACO",
+			"hgun_Pistol_heavy_01_F",
+			"hgun_Pistol_heavy_01_snds_F",
+			"rhs_weap_m38_rail",
+			"rhs_weap_ak74_3",
+			"rhs_weap_ak74_2",
+			"rhs_weap_aks74",
+			"rhs_weap_ak74n_2_npz",
+			"rhs_weap_aks74_2",
+			"rhs_weap_aks74u",
+			"rhs_weap_ak74m_camo",
+			"rhs_weap_ak74m_camo_dtk",
+			"rhs_weap_ak74m_plummag",
+			"rhs_weap_ak74m_plummag_dtk",
+			"rhs_weap_ak74m_desert",
+			"rhs_weap_ak74m_desert_dtk",
+			"rhs_weap_ak74m_fullplum",
+			"rhs_weap_ak74m_fullplum_dtk",
+			"rhs_weap_ak74m_2mag",
+			"rhs_weap_ak74m_2mag_dtk",
+			"rhs_weap_ak74m_2mag_camo",
+			"rhs_weap_ak74m_2mag_camo_dtk",
+			"rhs_weap_ak74m",
+			"rhs_weap_ak74m_dtk",
+			"rhs_weap_45th_ak74m"
+
 		],
 		// sergeant rifles (gets added to corporal and private rifles)
 		[
-			"CUP_arifle_RPK74_45_top_rail", "CUP_arifle_AK74M_GL_top_rail", "CUP_arifle_AK74_GL_top_rail", "CUP_arifle_AK47_GL_top_rail", "CUP_arifle_AKM_GL_top_rail", "CUP_lmg_UK59", "CUP_arifle_AUG_A1", "CUP_arifle_AK107_GL"
+			"PRACS_SLA_Aks74N_gp25","PRACS_SLA_Ak74_gp25","PRACS_Ak74M_GP25_ACO","PRACS_Ak74N_GP25_ACO","PRACS_Ak74M_PLUM_GP25_ACO",
+			"PRACS_ak105_ACO","PRACS_Ak105_esp_1","PRACS_Ak105_esp_2",
+			"PRACS_VAL_CTU","PRACS_VAL_CTU_2",
+			"rhs_weap_akmn_gp25",
+			"rhs_weap_akmn_gp25_npz",
+			"rhs_weap_ak74m_gp25_npz",
+			"rhs_weap_ak74mr_gp25",
+			"rhs_weap_ak74m_fullplum_gp25_npz",
+			"rhs_weap_ak103_zenitco01",
+			"rhs_weap_ak103_zenitco01_b33",
+			"rhs_weap_ak104_zenitco01",
+			"rhs_weap_ak104_zenitco01_b33",
+			"rhs_weap_ak103",
+			"rhs_weap_ak103_dtk",
+			"rhs_weap_45th_ak103",
+			"rhs_weap_ak103_1_npz",
+			"rhs_weap_ak103_2_npz",
+			"rhs_weap_ak103_npz",
+			"rhs_weap_ak104_npz",
+			"rhs_weap_ak105_npz",
+			"rhs_weap_ak103_1",
+			"rhs_weap_ak103_1_dtk",
+			"rhs_weap_ak103_2",
+			"rhs_weap_ak103_2_dtk",
+			"rhs_weap_akms_gp25",
+			"rhs_weap_akm_gp25",
+			"rhs_weap_45th_akm_gp25",
+			"rhs_weap_aks74n_gp25",
+			"rhs_weap_aks74_gp25",
+			"rhs_weap_ak103_gp25",
+			"rhs_weap_ak74m_gp25",
+			"rhs_weap_ak74m_gp25_dtk",
+			"rhs_weap_ak74m_fullplum_gp25",
+			"rhs_weap_ak74m_fullplum_gp25_dtk",
+			"rhs_weap_ak74_gp25",
+			"rhs_weap_ak74m_fullplum_gp25_folded",
+			"rhs_weap_ak74m_fullplum_gp25_npz_dtk",
+			"rhs_weap_ak74m_gp25_folded",
+			"rhs_weap_m84",
+			"rhs_weap_asval",
+			"rhs_weap_asval_grip",
+			"rhs_weap_vss",
+			"rhs_weap_vss_grip",
+			"rhs_weap_pkm"
 		],
 		// lieutenant rifles (gets added to...)
 		[
-			"CUP_arifle_FNFAL_railed_sand", "CUP_arifle_FNFAL_railed", "CUP_arifle_FNFAL_railed_desert", "CUP_arifle_FNFAL_railed_woodland", "CUP_arifle_RPK74M_railed", "CUP_arifle_AK74M_railed", "CUP_sgun_Saiga12K"
+			"PRACS_SVDs_Recon","PRACS_SVDs_Recon_2",
+			"rhs_weap_ak74m_zenitco01_b33",
+			"rhs_weap_ak74m_zenitco01",
+			"rhs_weap_ak105_zenitco01",
+			"rhs_weap_ak105_zenitco01_b33",
+			"rhs_weap_pkp",
+			"rhs_weap_svdp",
+			"rhs_weap_svdp_wd",
+			"rhs_weap_svds",
+			"arifle_AK12_F",
+			"arifle_AK12_GL_F"
 		],
 		// captain rifles (gets added...)
 		[
-			"CUP_arifle_FNFAL5060_railed", "CUP_arifle_FNFAL5060_railed_desert", "CUP_arifle_FNFAL5060_railed_sand", "CUP_arifle_FNFAL5060_railed_woodland", "CUP_arifle_AK74M_GL_railed", "CUP_arifle_AS_VAL", "CUP_arifle_AS_VAL_flash", "CUP_arifle_AS_VAL_VFG", "CUP_srifle_VSSVintorez", "CUP_srifle_VSSVintorez_VFG", "CUP_srifle_VSSVintorez_flash"
+			"rhs_weap_savz61"
 		],
 		// major rifles (gets...)
 		[
-			"CUP_arifle_AS_VAL_top_rail", "CUP_arifle_AS_VAL_flash_top", "CUP_srifle_VSSVintorez_top_rail", "CUP_srifle_VSSVintorez_VFG_top_rail", "CUP_srifle_VSSVintorez_flash_top", "CUP_srifle_LeeEnfield", "CUP_srifle_LeeEnfield_rail",
-			"CUP_srifle_SVD", "CUP_srifle_SVD_des"
+			"rhs_weap_t5000"
 		],
 		// colonel rifles (...)
 		[
-			"CUP_sgun_AA12","CUP_srifle_ksvk", "CUP_glaunch_6G30", "CUP_arifle_AKS_Gold"
 		]
 	],
 	[
@@ -421,29 +914,32 @@ private _all_weapons_items_opfor = [
 		"LAUNCHERS",
 		// private launchers
 		[
-			"CUP_launch_Igla", "CUP_launch_9K32Strela", "CUP_launch_RPG7V"
+			"rhs_weap_igla",
+			"rhs_weap_rshg2",
+			"rhs_weap_rpg26"
 		],
 		// corporal launchers
 		[
-			"CUP_launch_RPG18"
+			"rhs_weap_rpg7"
 		],
 		// sergeant launchers
 		[
-			"CUP_launch_MAAWS"
 		],
 		// lieutenant launchers
 		[
-			"CUP_launch_M47"
+			"rhs_weap_smaw",
+			"rhs_weap_smaw_green"
 		],
-		// captain launchers
+		// capain launchers
 		[
+			"rhs_weap_maaws"
 		],
 		// major launchers
 		[
+
 		],
 		// colonel launchers
 		[
-			"CUP_launch_Metis"
 		]
 	],
 	[
@@ -451,30 +947,32 @@ private _all_weapons_items_opfor = [
 		"PISTOLS",
 		// private pistols
 		[
-			"CUP_hgun_Makarov"
+			"rhs_weap_tr8"
 		],
 		// corporal pistols
 		[
-			 "CUP_hgun_PMM"
+			"rhs_weap_makarov_pm"
 		],
 		// sergeant pistols
 		[
+			"rhs_weap_pb_6p9",
+			"rhs_weap_pya"
 		],
 		// lieutenant pistols
 		[
-			"CUP_hgun_PB6P9", "CUP_hgun_Deagle"
+			"rhs_weap_tt33",
+			"rhs_weap_pp2000"
 		],
 		// captain pistols
 		[
-			"CUP_hgun_SA61"
+
 		],
 		// major pistols
 		[
-			"CUP_hgun_TaurusTracker455"
+
 		],
 		// colonel pistols
 		[
-			"CUP_hgun_TaurusTracker455_gold"
 		]
 	],
 	[
@@ -483,39 +981,98 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private optics
 		[
-
 		],
 		// corporal optics
 		[
-			"CUP_optic_Kobra", "CUP_optic_HoloBlack", "CUP_optic_HoloWdl", "CUP_optic_HoloDesert", "CUP_optic_CompM2_Black", "CUP_optic_CompM2_Woodland",
-			"CUP_optic_CompM2_Woodland2", "CUP_optic_CompM2_Desert", "CUP_optic_MRad", "CUP_optic_TrijiconRx01_desert",
-			"CUP_optic_TrijiconRx01_black", "CUP_acc_Flashlight", "CUP_acc_Flashlight_wdl", "CUP_acc_Flashlight_desert"
+			"optic_ACO_grn",
+			"optic_aco",
+			"optic_ACO_grn_smg",
+			"optic_Aco_smg",
+			"rhsusf_acc_compm4",
+			"rhsusf_acc_eotech_xps3",
+			"rhsusf_acc_EOTECH",
+			"rhsusf_acc_T1_high",
+			"rhsusf_acc_T1_low",
+			"rhsusf_acc_T1_low_fwd",
+			"acc_pointer_IR",
+			"rhsusf_acc_wmx",
+			"rhsusf_acc_wmx_bk",
+			"rhsusf_acc_M952V",
+
+			"rhs_acc_ekp8_02",
+			"rhs_acc_ekp8_18",
+			"rhs_acc_1p87",
+			"rhs_acc_ekp1",
+			"rhs_acc_pkas",
+			"rhs_acc_1p63",
+            "rhs_acc_rakursPM"
 		],
 		// sergeant optics
 		[
-			"CUP_optic_PSO_1", "CUP_optic_Eotech533", "CUP_optic_Eotech533Grey", "CUP_optic_CompM4", "CUP_optic_ElcanM145", "CUP_optic_ZDDot", "CUP_optic_Elcan",
-			"CUP_optic_Elcan_reflex", "CUP_acc_CZ_M3X", "CUP_acc_LLM", "CUP_optic_PGO7V", "CUP_optic_PGO7V2", "CUP_optic_PGO7V3"
+			"rhsusf_acc_ACOG2_USMC",
+			"rhsusf_acc_ACOG3_USMC",
+			"rhsusf_acc_ACOG_USMC",
+			"rhs_weap_optic_smaw",
+			"rhsusf_acc_g33_t1",
+			"rhsusf_acc_g33_xps3",
+			"rhsusf_acc_g33_xps3_tan",
+			"rhsusf_acc_ACOG",
+			"rhsusf_acc_ACOG2",
+			"rhsusf_acc_ACOG3",
+			"rhsusf_acc_ACOG_anpvs27",
+			"rhsusf_acc_ACOG_MDO",
+			"rhsusf_acc_ACOG_d",
+			"rhsusf_acc_ACOG_wd",
+			"rhsusf_acc_ACOG_RMR",
+			"rhsusf_acc_SpecterDR",
+			"rhsusf_acc_SpecterDR_OD",
+			"rhsusf_acc_SpecterDR_D",
+			"rhsusf_acc_SpecterDR_A",
+			"acc_flashlight","optic_Holosight_smg",
+
+			"rhs_acc_pgo7v",
+			"rhs_acc_pso1m2",
+			"rhs_acc_pgo7v2",
+			"rhs_acc_pgo7v3",
+			"rhs_acc_1p29"
+
 		],
 		// lieutenant optics
 		[
-			 "CUP_optic_MAAWS_Scope", "CUP_optic_PechenegScope", "CUP_optic_SUSAT", "CUP_optic_ACOG", "CUP_optic_PSO_3", "CUP_optic_RCO", "CUP_optic_RCO_desert",
-			 "CUP_acc_XM8_light_module"
+			"rhsusf_acc_LEUPOLDMK4",
+			"rhsusf_acc_LEUPOLDMK4_2",
+			"rhsusf_acc_LEUPOLDMK4_2_d",
+			"rhs_optic_maaws",
+			"rhsusf_acc_M8541",
+			"rhsusf_acc_M8541_low",
+			"rhsusf_acc_M8541_low_d",
+			"rhsusf_acc_M8541_low_wd",
+			"rhsusf_acc_premier_low",
+			"rhsusf_acc_premier_anpvs27",
+			"rhsusf_acc_premier",
+			"optic_MRD","optic_MRCO",
+			"optic_ERCO_khk_F",
+			"optic_ERCO_blk_F",
+			"optic_ERCO_snd_F",
+
+			"rhs_acc_pso1m21",
+			"rhs_acc_1p78"
 		],
 		// captain optics
 		[
-			"CUP_muzzle_Bizon", "CUP_muzzle_PBS4", "CUP_muzzle_pb6p9", "CUP_optic_CWS", "CUP_optic_LeupoldMk4_CQ_T", "CUP_optic_ELCAN_SpecterDR", "CUP_optic_AN_PVS_4", "CUP_acc_ANPEQ_15", "CUP_acc_ANPEQ_2",
-			"CUP_acc_ANPEQ_2_camo", "CUP_acc_ANPEQ_2_desert", "CUP_acc_ANPEQ_2_grey", "CUP_optic_NSPU_RPG"
+			"optic_Aco","optic_ACO_grn","optic_Arco","optic_Hamr",
+			"rhsusf_acc_anpas13gv1",
+			"rhsusf_acc_anpvs27",
+
+			"rhs_acc_dh520x56"
 		],
 		// major optics
 		[
-			"LaserDesignator", "CUP_optic_SMAW_Scope", "CUP_optic_GOSHAWK", "CUP_optic_NSPU", "CUP_optic_AN_PAS_13c2", "CUP_optic_AN_PVS_10", "CUP_optic_AN_PAS_13c1",
-			"CUP_optic_SB_11_4x20_PM", "CUP_optic_no23mk2"
+			"optic_Aco_smg", "optic_ACO_grn_smg", "optic_tws", "optic_tws_mg", "optic_DMS"
 		],
 		// colonel optics
 		[
-			"CUP_Mxx_camo", "CUP_Mxx_camo_half", "CUP_SVD_camo_g", "CUP_SVD_camo_g_half", "CUP_SVD_camo_d", "CUP_SVD_camo_d_half", "CUP_optic_SB_3_12x50_PMII",
-			"CUP_optic_LeupoldMk4", "CUP_optic_Leupold_VX3", "CUP_optic_LeupoldM3LR", "CUP_optic_LeupoldMk4_10x40_LRT_Desert", "CUP_optic_LeupoldMk4_10x40_LRT_Woodland",
-			"CUP_optic_LeupoldMk4_MRT_tan"
+			"optic_SOS", "optic_NVS", "optic_Nightstalker", "optic_LRPS"
 		]
 	],
 	[
@@ -524,26 +1081,89 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private muzzles
 		[
+			"rhsusf_acc_SF3P556",
+			"rhsusf_acc_SFMB556",
+
+			"rhs_acc_dtk",
+			"rhs_acc_dtk1l",
+			"rhs_acc_dtk1p",
+			"rhs_acc_dtk1",
+			"rhs_acc_dtk2",
+			"rhs_acc_dtk3"
 		],
 		// corporal muzzles
 		[
+			"rhsusf_acc_grip2",
+			"rhsusf_acc_grip2_tan",
+			"rhsusf_acc_grip1",
+			"rhsusf_acc_rotex_mp7_aor1",
+			"rhsusf_acc_rotex_mp7",
+			"rhsusf_acc_rotex_mp7_desert",
+			"rhsusf_acc_rotex_mp7_winter",
+			"rhsusf_acc_grip4",
+			"rhsusf_acc_SR25S",
+			"rhsusf_acc_grip3",
+			"rhsusf_acc_grip3_tan",
+			"rhsusf_acc_M2010S",
+			"rhs_acc_dtk1983",
+			"rhsusf_Rhino",
+			"rhs_acc_pgs64",
+			"rhs_acc_pgs64_74u",
+			"rhs_acc_pgs64_74un",
+			"rhs_acc_ak5",
+			"rhs_acc_perst1ik",
+			"rhs_acc_perst1ik_ris",
+			"rhs_acc_perst3",
+			"rhs_acc_perst3_top",
+			"rhs_acc_perst3_2dp_h",
+			"rhs_acc_perst3_2dp_light_h",
+			"rhs_acc_2dpZenit",
+			"rhs_acc_2dpZenit_ris",
+			"rhs_acc_grip_rk2",
+			"rhs_acc_grip_rk6"
 		],
 		// sergeant muzzles
 		[
-			"CUP_muzzle_snds_AWM", "CUP_muzzle_snds_M16", "CUP_muzzle_snds_SR3M"
+			"muzzle_snds_B",
+			"acc_flashlight",
+			"rhsusf_acc_anpeq15side",
+			"rhsusf_acc_anpeq15_top",
+			"rhsusf_acc_anpeq15_wmx_light",
+			"rhsusf_acc_anpeq15_wmx",
+			"rhsusf_acc_anpeq15side_bk",
+			"rhsusf_acc_anpeq15_bk_top",
+			"rhsusf_acc_anpeq15",
+			"rhsusf_acc_anpeq15_light",
+			"rhsusf_acc_anpeq15_bk_light",
+			"rhsusf_acc_anpeq15_bk",
+			"rhsusf_acc_anpeq15A",
+			"rhsusf_acc_harris_bipod",
+			"rhsusf_acc_nt4_tan",
+			"rhsusf_acc_nt4_black",
+			"rhsusf_acc_rotex5_tan",
+			"rhsusf_acc_rotex5_grey",
+			"rhsusf_acc_omega9k",
+			"acc_flashlight_pistol",
+			"rhs_acc_dtk4long",
+			"rhs_acc_dtk4screws",
+			"rhs_acc_dtk4short",
+			"rhs_acc_tgpa",
+			"rhs_acc_tgpv",
+			"rhs_acc_tgpv2",
+			"rhs_acc_pbs1",
+			"rhs_acc_pbs4",
+			"rhs_acc_harris_swivel"
 		],
 		// lieutenant muzzles
 		[
-			"CUP_muzzle_snds_G36_black", "CUP_muzzle_snds_G36_desert", "CUP_muzzle_snds_MicroUzi", "CUP_muzzleFlash2SCAR_L", "CUP_muzzle_snds_SCAR_L",
-			"CUP_muzzle_mfsup_SCAR_L"
+			"muzzle_snds_H","muzzle_snds_L", "muzzle_snds_M", "muzzle_snds_acp"
 		],
 		// captain muzzles
 		[
-			"CUP_acc_sffh", "CUP_acc_bfa", "CUP_muzzle_snds_M110", "CUP_muzzle_snds_M14", "CUP_muzzle_snds_M16_camo", "CUP_muzzle_mfsup_SCAR_H", "CUP_muzzle_snds_SCAR_H"
 		],
 		// major muzzles
 		[
-			"CUP_muzzle_snds_M9", "CUP_muzzle_snds_Mk12", "CUP_muzzle_snds_XM8"
+			"muzzle_snds_H_MG"
 		],
 		// colonel muzzles
 		[
@@ -555,49 +1175,162 @@ private _all_weapons_items_opfor = [
 		// third array index just means that it is an item and not a weapon thus must be added with addItemCargo and not addWeaponCargo
 		// private uniforms
 		[
-			"CUP_U_O_RUS_Flora_1", "CUP_U_O_RUS_EMR_1", "CUP_U_O_RUS_Flora_2", "CUP_U_O_RUS_EMR_2", "CUP_U_O_RUS_Flora_1_VDV", "CUP_U_O_RUS_EMR_1_VDV",
-			"CUP_U_O_RUS_Flora_2_VDV", "CUP_U_O_RUS_EMR_2_VDV", "CUP_U_O_RUS_Commander", "CUP_U_O_RUS_Gorka_Partizan", "CUP_U_O_RUS_Gorka_Partizan_A",
-			"CUP_U_O_RUS_Gorka_Green",  "CUP_U_O_SLA_MixedCamo", "CUP_U_O_SLA_Green", "CUP_U_O_SLA_Urban", "CUP_U_O_SLA_Desert",
-			"CUP_U_O_Partisan_TTsKO", "CUP_U_O_Partisan_TTsKO_Mixed", "CUP_U_O_Partisan_VSR_Mixed1", "CUP_U_O_Partisan_VSR_Mixed2", "CUP_U_O_SLA_Overalls_Pilot",
-			"CUP_U_O_SLA_Overalls_Tank", "CUP_U_O_SLA_Officer_Suit", "CUP_U_O_TK_Officer", "CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green",
-			"CUP_U_O_CHDKZ_Bardak", "CUP_U_O_CHDKZ_Commander", "CUP_U_O_CHDKZ_Lopotev", "CUP_U_O_CHDKZ_Kam_01", "CUP_U_O_CHDKZ_Kam_02", "CUP_U_O_CHDKZ_Kam_03",
-			"CUP_U_O_CHDKZ_Kam_04", "CUP_U_O_CHDKZ_Kam_05", "CUP_U_O_CHDKZ_Kam_06", "CUP_U_O_CHDKZ_Kam_07", "CUP_U_O_CHDKZ_Kam_08",
 
-			"CUP_H_RUS_6B27_NVG", "CUP_H_RUS_6B27_NVG_olive", "CUP_H_RUS_6B27", "CUP_H_RUS_6B27_olive", "CUP_H_RUS_TSH_4_Brown", "CUP_H_RUS_ZSH_Shield_Up",
-			"CUP_H_RUS_ZSH_Shield_Down", "CUP_H_RUS_Bandana_HS", "CUP_H_RUS_Beret_VDV", "CUP_H_RUS_Beret_Spetsnaz", "CUP_H_RUS_ZSH_1_Goggles", "CUP_H_RUS_ZSH_1",
-			"CUP_H_SLA_TankerHelmet", "CUP_H_SLA_Helmet", "CUP_H_SLA_OfficerCap", "CUP_H_SLA_SLCap", "CUP_H_SLA_Boonie", "CUP_H_SLA_Beret", "CUP_H_SLA_BeanieGreen",
-			"CUP_H_SLA_BeretRed"
+			"PRACS_SLA_M88_uniform","PRACS_SLA_M88_Paratrooper_uniform",
+			"PRACS_SLA_M88_Especas_uniform","PRACS_SLA_M88_Especas_Recon_uniform","PRACS_SLA_M88_Guards_uniform",
+			"PRACS_SLA_M88_Tanker_uniform","PRACS_SLA_M88_Artilleryman_uniform","PRACS_SLA_M88_NAVY_uniform",
+			"PRACS_SLA_Jet_Pilot_uniform",
+			"PRACS_SLA_Gorka_Black_uniform",
+			"PRACS_SLA_Border_Guard_uniform",
+
+			"PRACS_SLA_6b2","PRACS_SLA_6b2_chicom","PRACS_SLA_6b2_SVD","PRACS_SLA_6b2_Holster",
+			"PRACS_SLA_6B23","PRACS_SLA_6B23_O","PRACS_SLA_6B23_M",
+			"PRACS_SLA_6sh92","PRACS_SLA_6sh92_R","PRACS_SLA_6sh92_R_SF","PRACS_SLA_6sh92_R_Black",
+			"PRACS_SLA_6sh92_VOG","PRACS_SLA_6sh92_VOG_SF",
+
+			"rhs_altyn_novisor",
+			"rhs_altyn_novisor_ess",
+			"rhs_altyn_novisor_ess_bala",
+			"rhs_altyn_novisor_bala",
+			"rhs_altyn_visordown",
+			"rhs_altyn",
+			"rhs_altyn_bala",
+			"H_Bandanna_khk_hs",
+			"H_Bandanna_camo",
+			"H_Bandanna_sand",
+			"H_Bandanna_sgg",
+			"H_Bandanna_khk",
+			"H_Bandanna_gry",
+			"rhs_gssh18",
+			"rhs_ssh68",
+			"PRACS_SLA_ssh68","PRACS_SLA_ssh68_Navy","PRACS_SLA_ssh68_cover",
+			"PRACS_SLA_6B27M","PRACS_SLA_6B27M_ess",
+			"PRACS_SLA_Soft_Cap",
+			"PRACS_SLA_NAVY_Soft_Cap",
+			"PRACS_SLA_Booniehat",
+			"PRACS_SLA_Booniehat_NAVY",
+			"PRACS_SLA_Operator_Cap",
+			"PRACS_SLA_Operator_Cap_hs",
+			"rhs_tsh4_ess_bala",
+			"rhs_tsh4_bala",
+			"rhs_beanie_green",
+			"rhs_beanie",
+			"H_ShemagOpen_khk",
+			"H_ShemagOpen_tan",
+			"H_Shemag_olive",
+			"H_Shemag_olive_hs",
+			"rhs_zsh7a",
+			"rhs_zsh7a_mike",
+			"rhs_zsh7a_mike_green",
+			"rhs_zsh7a_mike_green_alt",
+			"rhs_zsh7a_alt",
+			"rhs_zsh7a_mike_alt",
+
+			"rhsusf_oakley_goggles_blk",
+			"rhsusf_oakley_goggles_ylw",
+			"rhs_goggles_yellow",
+			"rhs_goggles_clear",
+			"rhs_ess_black",
+			"rhs_balaclava1_olive",
+			"rhs_scarf"
 		],
 		// corporal uniforms
 		[
+			"PRACS_SLA_M88_TL_uniform",
+			"PRACS_SLA_M88_Paratrooper_TL_uniform",
+			"PRACS_SLA_M88_Especas_TL_uniform",
+			"PRACS_SLA_M88_Guards_TL_uniform",
+			"PRACS_SLA_M88_UN_uniform",
+			"PRACS_SLA_M88_NAVY_TL_uniform",
+
+			"PRACS_SLA_6B23_6sh92","PRACS_SLA_6B23_6sh92_L_Radio","PRACS_SLA_6B23_6sh92_L_Headset","PRACS_SLA_6B23_6sh92_VOG",
+			"PRACS_SLA_6B23_UN",
+
+			"PRACS_SLA_ssh68_UN",
+			"PRACS_SLA_UN_beret"
 		],
 		// sergeant uniforms
 		[
-			"CUP_RUS_Balaclava_blk", "CUP_RUS_Balaclava_grn"
+			"PRACS_SLA_M88_SL_uniform","PRACS_SLA_M88_PSG_uniform",
+			"PRACS_SLA_M88_Paratrooper_SL_uniform","PRACS_SLA_M88_Paratrooper_PSG_uniform",
+			"PRACS_SLA_M88_Especas_SL_uniform","PRACS_SLA_M88_Especas_PSG_uniform",
+			"PRACS_SLA_M88_Especas_Recon_PSG_uniform",
+			"PRACS_SLA_M88_Guards_SL_uniform","PRACS_SLA_M88_Guards_PSG_uniform",
+			"PRACS_SLA_M88_NAVY_SL_uniform","PRACS_SLA_M88_NAVY_PSG_uniform",
+			"PRACS_SLA_M88_UN_PSG_uniform",
+
+			"PRACS_SLA_Especas_Beret",
+			"PRACS_SLA_Guards_Beret"
 		],
 		// lieutenant uniforms
 		[
+			"PRACS_SLA_M88_O_uniform","PRACS_SLA_M88_C_uniform",
+			"PRACS_SLA_M88_Paratrooper_O_uniform","PRACS_SLA_M88_Paratrooper_C_uniform",
+			"PRACS_SLA_M88_Especas_O_uniform",
+			"PRACS_SLA_M88_Guards_O_uniform","PRACS_SLA_M88_Guards_C_uniform",
+			"PRACS_SLA_M88_Tanker_O_uniform",
+			"PRACS_SLA_M88_Artilleryman_O_uniform",
+			"PRACS_SLA_M88_NAVY_Officer_uniform",
+			"PRACS_SLA_Border_Guard_PL_uniform",
 		],
 		// captain uniforms
 		[
+			"U_O_GhillieSuit",
+			"PRACS_SLA_M88_UN_O_uniform",
+			"PRACS_SLA_Border_Guard_CO_uniform",
+			
+			"PRACS_SLA_Generals_Cap",
+			"PRACS_SLA_Border_Guard_Cap",
+			"PRACS_SLA_Political_Officer_Cap"
 		],
 		// major uniforms
 		[
+			"U_O_FullGhillie_sard",
+			"U_O_FullGhillie_ard"
 		],
 		// colonel uniforms
-		[
-			"CUP_U_O_RUS_Ghillie", "CUP_U_O_TK_Ghillie_Top"
+		[			"PRACS_SLA_M88_G_uniform","PRACS_SLA_M88_Paratrooper_G_uniform","PRACS_SLA_M88_Guards_G_uniform",
+			"PRACS_SLA_Border_Guard_GEN_uniform","PRACS_SLA_Border_Guard_PO1_uniform"
 		]
 	],
 	// additional weapons and items, no rank
 	[
 		0,  // 0 = always added for each rank in the ranked version
 		"ITEMS",
-		// weapons
 		[
-			"MineDetector", "Binocular", (if (d_no_faks == 1) then {"FirstAidKit"} else {""}), "Medikit",
-			(if (d_without_nvg == 1) then {"NVGoggles"} else {""}),
-			"ToolKit", "B_UavTerminal"
+			"ItemRadio",
+			"ItemMap",
+			"ItemGPS",
+			"ItemCompass",
+			"ItemWatch",
+			"MineDetector",
+			"rhssaf_zrak_rd7j",
+			(if (d_no_faks == 1) then {"FirstAidKit"} else {""}),
+			"Medikit",
+			(if (d_without_nvg == 1) then {"rhs_1PN138"} else {""}),
+			"ToolKit",
+			"O_UavTerminal",
+			"O_UAV_01_backpack_F"
+		],
+		// corporal items
+		[
+			"rhs_pdu4"
+		],
+		// sergeant items
+		[
+		],
+		// lieutenant items
+		[
+			"Rangefinder"
+		],
+		// captain items
+		[
+		],
+		// major items
+		[
+		],
+		// colonel items
+		[
 		]
 	]
 ];
