@@ -950,9 +950,6 @@ if (!d_gmcwgwinter) then {
 			];
 		}; 
 		if (d_pracs) exitWith {
-			d_allmen_W = [
-				#include "d_allmen_B_PRACS.sqf"
-			];
 			d_allmen_E = [
 				#include "d_allmen_O_PRACS.sqf"
 			];
