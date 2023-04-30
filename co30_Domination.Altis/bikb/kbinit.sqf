@@ -348,7 +348,8 @@ if (isServer) then {
 		[59, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","TTBArracksAnnounce",["1","",_this # 0,[]],["2","",str(d_tt_points # 2),[]],"SIDE"];d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","TTBArracksAnnounce",["1","",_this # 0,[]],["2","",str(d_tt_points # 2),[]],"SIDE"]}],
 		[60, {d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","MTVecBuildingDown","SIDE"]; d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","MTVecBuildingDown","SIDE"]}],
 		[61, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"DangerMortarsNoText",d_kbtel_chan]}],
-		[62, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"DangerAirstrikeNoText",d_kbtel_chan]}]
+		[62, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"DangerAirstrikeNoText",d_kbtel_chan]}],
+		[63, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTRadioTowerDownNoText",d_kbtel_chan]}]
 	];
 	__TRACE_1("","d_kb_hash")
 };

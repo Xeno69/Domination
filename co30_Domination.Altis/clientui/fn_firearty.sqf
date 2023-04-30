@@ -45,7 +45,11 @@ if (_no isNotEqualTo []) exitWith {
 
 if ((d_with_ranked || {d_database_found}) && {d_ranked_a # 2 > 0}) then {[player, 1] remoteExecCall ["d_fnc_ascfc", 2]};
 if (!d_tt_ver) then {
-	player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], d_kbtel_chan];
+	if (d_force_isstreamfriendlyui == 1) then {
+		player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequestNoText", d_kbtel_chan];
+	} else {
+		player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], d_kbtel_chan];
+	};
 } else {
 	private _topicside = switch (d_player_side) do {
 			case blufor: {"HQ_ART_W"};

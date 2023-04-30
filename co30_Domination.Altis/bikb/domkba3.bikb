@@ -44,12 +44,22 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class ArtilleryAvailableNoText {
+		text = "";
+		speech[] = {"XMIT","%1","SupportAddedDuringMission"};
+		class Arguments {};
+	};
 	class ArtilleryUnAvailable {
 		text = "$STR_DOM_MISSIONSTRING_1348";
 		speech[] = {"XMIT","%1","UnitDestroyedHQArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
+	};
+	class ArtilleryUnAvailableNoText {
+		text = "";
+		speech[] = {"XMIT","%1","UnitDestroyedHQArty"};
+		class Arguments {};
 	};
 	class ArtilleryRequest {
         text = "$STR_DOM_MISSIONSTRING_1404";
@@ -60,12 +70,22 @@ class Sentences {
             class 3 {type = "simple";};
         };
     };
+    class ArtilleryRequestNoText {
+		text = "";
+		speech[] = {"XMIT","SupportRequestRGArty"};
+		class Arguments {};
+	};
 	class ArtilleryRoger {
 		text = "$STR_DOM_MISSIONSTRING_1350";
 		speech[] = {"XMIT","RequestAcknowledgedSGArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
+	};
+	class ArtilleryRogerNoText {
+		text = "";
+		speech[] = {"XMIT","RequestAcknowledgedSGArty"};
+		class Arguments {};
 	};
 	class ArtilleryOTW {
 		text = "$STR_DOM_MISSIONSTRING_1351";
@@ -75,12 +95,22 @@ class Sentences {
 			class 2 {type = "simple";};
 		};
 	};
+	class ArtilleryOTWNoText {
+		text = "";
+		speech[] = {"XMIT","RoundsComplete"};
+		class Arguments {};
+	};
 	class ArtillerySplash {
 		text = "$STR_DOM_MISSIONSTRING_1354";
 		speech[] = {"XMIT","RequestAccomplishedSGArty"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
+	};
+	class ArtillerySplashNoText {
+		text = "";
+		speech[] = {"XMIT","RequestAccomplishedSGArty"};
+		class Arguments {};
 	};
 	class ArtilleryReload {
 		text = "$STR_DOM_MISSIONSTRING_1357";
@@ -89,12 +119,22 @@ class Sentences {
 			class 1 {type = "simple";};
 		};
 	};
+	class ArtilleryReloadNoText {
+		text = "$STR_DOM_MISSIONSTRING_1357";
+		speech[] = {"XMIT","ReloadingE"};
+		class Arguments {};
+	};
 	class ArtilleryComplete {
 		text = "$STR_DOM_MISSIONSTRING_1358";
 		speech[] = {"XMIT","ArtySGSupportRoundsComplete"};
 		class Arguments {
 			class 1 {type = "simple";};
 		};
+	};
+	class ArtilleryCompleteNoText {
+		text = "";
+		speech[] = {"XMIT","ArtySGSupportRoundsComplete"};
+		class Arguments {};
 	};
 	class ArtilleryExecute {
 		text = "$STR_DOM_MISSIONSTRING_1359";
@@ -104,6 +144,11 @@ class Sentences {
 			class 2 {type = "simple";};
 			class 3 {type = "simple";};
 		};
+	};
+	class ArtilleryExecuteNoText {
+		text = "";
+		speech[] = {};
+		class Arguments {};
 	};
 	class ArtilleryCanceled {
 		text = "$STR_DOM_MISSIONSTRING_1854";
@@ -139,6 +184,11 @@ class Sentences {
 		speech[] = {"XMIT","TargetIsNeutralized"};
 		class Arguments {};
 	};
+	class AllObserversDownNoText {
+		text = "";
+		speech[] = {"XMIT","TargetIsNeutralized"};
+		class Arguments {};
+	};
 	class MTRadioTower {
 		text = "$STR_DOM_MISSIONSTRING_1363";
 		speech[] = {"XMIT","GenCmdTargetNeutralize2"};
@@ -146,6 +196,11 @@ class Sentences {
 	};
 	class MTRadioTowerDown {
 		text = "$STR_DOM_MISSIONSTRING_1364";
+		speech[] = {"XMIT","TargetIsDown"};
+		class Arguments {};
+	};
+	class MTRadioTowerDownNoText {
+		text = "";
 		speech[] = {"XMIT","TargetIsDown"};
 		class Arguments {};
 	};
@@ -232,13 +287,28 @@ class Sentences {
 		speech[] = {"XMIT","RequestAcknowledgedSGCASBombing"};
 		class Arguments {};
 	};
+	class CASOnTheWayNoText {
+		text = "";
+		speech[] = {"XMIT","RequestAcknowledgedSGCASBombing"};
+		class Arguments {};
+	};
 	class CASUnavailable {
 		text = "$STR_DOM_MISSIONSTRING_1712";
 		speech[] = {"XMIT","UnitDestroyedHQCASBombing"};
 		class Arguments {};
 	};
+	class CASUnavailableNoText {
+		text = "";
+		speech[] = {"XMIT","UnitDestroyedHQCASBombing"};
+		class Arguments {};
+	};
 	class CASAvailable {
 		text = "$STR_DOM_MISSIONSTRING_1715";
+		speech[] = {"XMIT","SupportAddedDuringMission"};
+		class Arguments {};
+	};
+	class CASAvailableNoText {
+		text = "";
 		speech[] = {"XMIT","SupportAddedDuringMission"};
 		class Arguments {};
 	};
@@ -345,12 +415,33 @@ class Sentences {
 	};
 	class PenaltyKilledCivilian {
 		text = "$STR_DOM_MISSIONSTRING_1889";
-		speech[] = {};
+		speech[] = {"XMIT","CeaseFire"};
 		class Arguments {
 			class 1 {type = "simple";};
 			class 2 {type = "simple";};
 		};
 	};
+	class PenaltyKilledCivilianNoTextCeaseFire {
+		text = "";
+		speech[] = {"XMIT","CeaseFire"};
+		class Arguments {};
+	};
+	class PenaltyKilledCivilianNoTextCheckYourFire {
+		text = "";
+		speech[] = {"XMIT", "CheckYourFire"};
+		class Arguments {};
+	};
+	class PenaltyKilledCivilianNoTextHoldFire {
+		text = "";
+		speech[] = {"XMIT", "HoldFire"};
+		class Arguments {};
+	};
+	class PenaltyKilledCivilianNoTextFreeToEngage {
+		text = "";
+		speech[] = {"XMIT", "FreeToEngage"};
+		class Arguments {};
+	};
+	
 	class MTEventSideEvac {
 		text = "$STR_DOM_MISSIONSTRING_1803_NO_TIMER";
 		speech[] = {};

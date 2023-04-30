@@ -8,7 +8,11 @@ if (d_ao_markers == 1) then {
 	deleteMarker "d_m_t_rt";
 };
 #ifndef __TT__
-[37] call d_fnc_DoKBMsg;
+if (d_force_isstreamfriendlyui == 1) then {
+	[63] call d_fnc_DoKBMsg;
+} else {
+	[37] call d_fnc_DoKBMsg;
+};
 #else
 [38] call d_fnc_DoKBMsg;
 private _killer = _this # 2;

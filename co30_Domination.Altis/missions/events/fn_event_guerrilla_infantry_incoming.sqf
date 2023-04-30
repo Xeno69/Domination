@@ -8,6 +8,7 @@ if (true) exitWith {};
 #endif
 
 // Guerilla infantry spawn in a location near the maintarget and then move into the center of maintarget with a Search and Destroy waypoint
+// This may run concurrently with fn_event_enemy_incoming
 
 if !(isServer) exitWith {};
 
@@ -41,6 +42,8 @@ private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,f
 
 if (!d_preemptive_special_event) then {
 	waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
+} else {
+	_townNearbyName = "nearby";
 };
 
 private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
@@ -55,7 +58,8 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
-private _newgroups = [];
+private _newgroups_inf = [];
+private _newgroups_veh = [];
 
 if (_spawn_pos isEqualTo []) then {
 	// spawn position was not provided, calculate the spawn position using _townNearbyPos  
@@ -93,18 +97,31 @@ if (_with_vehicles) then {
     
     if (d_WithLessArmor == 4) then {
     	// high
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"]
+    	_incoming_vehs = ["wheeled_apc", "tracked_apc", "tracked_apc"];
     };
 	private _vdir = _spawn_pos getDir _target_center;
     {
     	private _unitlist = [_x, "G"] call d_fnc_getunitlistv;
     	private _newgroup = [independent] call d_fnc_creategroup;
-    	private _units = [1, _spawn_pos, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
-    	_newgroups pushBack _newgroup;
+    	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
+		private _road_list = _rand_pos nearroads 30;
+		private _spawn_pos_foreach = [];
+		if (!(_road_list isEqualTo [])) then {
+			_spawn_pos_foreach = getPosASL (selectRandom _road_list);
+		} else {
+			_spawn_pos_foreach = _rand_pos;
+		};
+    	private _vecs_and_crews = [1, _spawn_pos_foreach, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
+    	_newgroups_veh pushBack _newgroup;
     	if (d_with_dynsim == 0) then {
     		[_newgroup, 0] spawn d_fnc_enabledynsim;
     	};
-    	_x_mt_event_ar append (_units # 1);
+    	_x_mt_event_ar append (_vecs_and_crews # 0); // vehicles
+    	_x_mt_event_ar append (_vecs_and_crews # 1); // crews
+		{
+			_x setSkill ["courage", 1];
+			_x setSkill ["commanding", 1];
+		} forEach _vecs_and_crews # 1; // crews
     } forEach _incoming_vehs;
 };
 
@@ -133,7 +150,8 @@ private _guerrillaBaseSkill = 0.35;
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _units = [_spawn_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
+	private _rand_pos = [[[_spawn_pos, 35]],["water"]] call BIS_fnc_randomPos;
+	private _units = [_rand_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["spotTime", 0.6];
@@ -142,7 +160,7 @@ private _guerrillaBaseSkill = 0.35;
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
 	} forEach _units;
-	_newgroups pushBack _newgroup;
+	_newgroups_inf pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
@@ -155,6 +173,7 @@ if (d_preemptive_special_event) then {
 	sleep 45;
 };
 
+// infantry go first
 {
 	// each group moves toward a random waypoint near the target center
 	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
@@ -166,7 +185,21 @@ if (d_preemptive_special_event) then {
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
-} forEach _newgroups;
+} forEach _newgroups_inf;
+
+// vehicles go second
+{
+	// each group moves toward a random waypoint near the target center
+	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
+	_x setCombatMode "RED";
+	_x setSpeedMode "FULL";
+	_x setBehaviour "CARELESS";
+	_wp = _x addWaypoint[_wp_pos, 0];
+	_wp setWaypointBehaviour "COMBAT";
+	_wp setWaypointSpeed "FULL";
+	_wp setwaypointtype "SAD";
+	_wp setWaypointFormation "STAG COLUMN";
+} forEach _newgroups_veh;
 
 sleep 2.333;
 
@@ -175,7 +208,8 @@ if (!isNil "d_event_trigger_tanks_guerr") then {
 };
 
 while {sleep 1; !d_mt_done} do {
-	private _foundAlive = _newgroups findIf {(units _x) findIf {alive _x} > -1} > -1;
+	private _foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1 ||
+		_newgroups_veh findIf {(units _x) findIf {alive _x} > -1} > -1;
 	
 	if (!_foundAlive) exitWith {};
 	

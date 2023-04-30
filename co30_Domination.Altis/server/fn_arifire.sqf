@@ -83,7 +83,11 @@ if (!d_arty_stopp) then {
 #else
 if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}) then {
 #endif
-	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryRoger", ["1","",localize "STR_DOM_MISSIONSTRING_934",[]], _channel];
+	if (d_force_isstreamfriendlyui == 1) then {
+		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryRogerNoText", _channel];
+	} else {
+		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryRoger", ["1","",localize "STR_DOM_MISSIONSTRING_934",[]], _channel];
+	};
 };
 sleep 1;
 private _aristr = localize "STR_DOM_MISSIONSTRING_937";
@@ -92,7 +96,11 @@ if (!d_arty_stopp) then {
 #else
 if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}) then {
 #endif
-	_logic1 kbTell [_logic, _topicside, "ArtilleryUnAvailable", ["1", "", _aristr, []], _channel];
+	if (d_force_isstreamfriendlyui == 1) then {
+		_logic1 kbTell [_logic, _topicside, "ArtilleryUnAvailableNoText", _channel];
+	} else {
+		_logic1 kbTell [_logic, _topicside, "ArtilleryUnAvailable", ["1", "", _aristr, []], _channel];
+	};
 };
 
 _endtime = time + 6;
@@ -115,7 +123,11 @@ if (!d_arty_stopp) then {
 #else
 if !((_side_arti_op == opfor && {d_arty_stopp_e}) || {_side_arti_op == blufor && {d_arty_stopp_w}}) then {
 #endif
-	_logic1 kbTell [_aop, _topicside_arti,"ArtilleryExecute", ["1", "", _aristr, []], ["2", "", getText(configFile>>"CfgMagazines">>_ari_type>>"displayname"), []], ["3", "", str _ari_salvos, []], _channel];
+	if (d_force_isstreamfriendlyui == 1) then {
+		_logic1 kbTell [_aop, _topicside_arti,"ArtilleryExecuteNoText", _channel];
+	} else {
+		_logic1 kbTell [_aop, _topicside_arti,"ArtilleryExecute", ["1", "", _aristr, []], ["2", "", getText(configFile>>"CfgMagazines">>_ari_type>>"displayname"), []], ["3", "", str _ari_salvos, []], _channel];
+	};
 };
 
 _endtime = time + 8 + random 7;
@@ -243,7 +255,11 @@ for "_series" from 1 to _ari_salvos do {
 
 	_aop = objectFromNetId _arti_operator;
 	if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
+	if (d_force_isstreamfriendlyui == 1) then {	
+		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTWNoText", _channel];
+	} else {
+		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryOTW", ["1","",str _series,[]], ["2","",str(round _eta_time),[]], _channel];
+	};
 
 	private _spawn_handle = [_eta_time, _arti_operator, _logic, _logic1, _topicside_arti, _series, _channel] spawn {
 		scriptName "spawn arifire";
@@ -252,7 +268,11 @@ for "_series" from 1 to _ari_salvos do {
 
 		private _aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-		_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
+		if (d_force_isstreamfriendlyui == 1) then {
+			_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplashNoText", _channel];
+		} else {
+			_logic1 kbTell [_aop, _topicside_arti, "ArtillerySplash", ["1","",str _series,[]], _channel];
+		};
 	};
 
 	_endtime = time + _eta_time;
@@ -290,7 +310,11 @@ for "_series" from 1 to _ari_salvos do {
 	if (_series < _ari_salvos) then {
 		_aop = objectFromNetId _arti_operator;
 		if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-		_logic1 kbTell [_aop, _topicside_arti, "ArtilleryReload", ["1","",_aristr,[]], _channel];
+		if (d_force_isstreamfriendlyui == 1) then {
+			_logic1 kbTell [_aop, _topicside_arti, "ArtilleryReloadNoText", _channel];
+		} else {
+			_logic1 kbTell [_aop, _topicside_arti, "ArtilleryReload", ["1","",_aristr,[]], _channel];
+		};
 		sleep _reloadtime;
 	};
 };
@@ -324,7 +348,11 @@ sleep 3;
 
 _aop = objectFromNetId _arti_operator;
 if (isNil "_aop" || {isNull _aop}) then {_aop = _logic};
-_logic1 kbTell [_aop, _topicside_arti, "ArtilleryComplete", ["1","",_aristr,[]], _channel];
+if (d_force_isstreamfriendlyui == 1) then {
+	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryCompleteNoText", _channel];
+} else {
+	_logic1 kbTell [_aop, _topicside_arti, "ArtilleryComplete", ["1","",_aristr,[]], _channel];
+};
 
 if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (markerPos _sel_ari_mkr)}) then {
 	deleteMarker _sel_ari_mkr;
@@ -365,6 +393,10 @@ if (markerPos _sel_ari_mkr isNotEqualTo [0,0,0] && {_ari_tgt_pos isEqualTo (mark
 	private _logic = [d_hq_logic_blufor2, d_hq_logic_opfor2] select (_this # 3 == opfor);
 	(_this # 2) kbTell [_logic, _topicside, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
 #else
-	(_this # 2) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
+	if (d_force_isstreamfriendlyui == 1) then {
+		(_this # 2) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailableNoText", _channel];
+	} else {
+		(_this # 2) kbTell [d_kb_logic2, d_kb_topic_side, "ArtilleryAvailable", ["1", "", _aristr, []],_channel];
+	};
 #endif
 };

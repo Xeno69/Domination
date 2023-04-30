@@ -4,6 +4,8 @@
 
 if (!hasInterface) exitWith {};
 
+if (d_force_isstreamfriendlyui == 1 || {isStreamFriendlyUIEnabled}) exitWith {};
+
 if (_this # 0 == 0) exitWith {
 	hint composeText[
 		parseText format ["<t color='#f0ff0000' size='2'>%1</t>", localize "STR_DOM_MISSIONSTRING_676"], lineBreak,
