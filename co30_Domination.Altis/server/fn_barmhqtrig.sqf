@@ -90,7 +90,11 @@ while {true} do {
 				__TRACE_1("","_mt_done")
 				if (!_mt_done) then {
 #ifndef __TT__
-					[53] call d_fnc_DoKBMsg;
+					if (d_force_isstreamfriendlyui == 1) then {
+						// todo - add an audio notification
+					} else {
+						[53] call d_fnc_DoKBMsg;
+					};
 #else
 					[60] call d_fnc_DoKBMsg;
 #endif

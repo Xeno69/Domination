@@ -13,7 +13,7 @@
 // Usage : Call, execVM
 // Params: 1. _center Array, the building(s) nearest this position is used
 //         2. _units Array of objects, the units that will garrison the building(s)
-//  (opt.) 3. _buildingRadius (_fillRadius) Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+//  (opt.) 3. _buildingRadius (_fillRadius) Scalar, radius in which to fill building(s), -1 for only nearest building but if -1 then _targetBuilding must be provided, (default: -1)
 //  (opt.) 4. _putOnRoof (_fillRoof) Boolean, true to put units on the roof, false for only inside, (default: false)
 //  (opt.) 5. _fillEvenly Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
 //  (opt.) 6. _sortHeight (_fillTopDown) Boolean, true to fill from the top of the building down, (default: false)

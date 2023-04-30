@@ -29,8 +29,8 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
-private _minimumDistanceFromMaintarget = 250;
-private _maximumDistanceFromMaintarget = 300;
+private _minimumDistanceFromMaintarget = 185;
+private _maximumDistanceFromMaintarget = 265;
 private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
@@ -47,7 +47,7 @@ private _spawn_pos = [];
 
 if (_townNearbyPos isEqualTo []) then {
 	diag_log ["unable to find a nearby town so will choose a random position"];
-	_spawn_pos = [[[_target_center, (d_cur_target_radius * 2.25)]],[[_target_center, (d_cur_target_radius * 1.75)]]] call BIS_fnc_randomPos;
+	_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
 	_townNearbyName = "Unknown";
 } else {
 	_spawn_pos = _townNearbyPos;
@@ -73,8 +73,10 @@ if (_target_center distance2D _spawn_pos > _maximumDistanceFromMaintarget) then 
 		((_target_center # 0) + (_spawn_pos # 0))/2,
 		((_target_center # 1) + (_spawn_pos # 1))/2
 	];
-	if ((_midpoint_pos distance2D _target_center) > _minimumDistanceFromMaintarget) then {
-		// if midpoint is not too close then use it instead of _townNearbyPos
+	if ((_midpoint_pos distance2D _target_center) > _maximumDistanceFromMaintarget) then {
+		// midpoint is too far, give up looking for nearby towns and just choose a random position in the desired range
+		_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+	} else {
 		_spawn_pos = _midpoint_pos;
 	};
 };
@@ -91,9 +93,10 @@ diag_log ["radiotower exists, creating incoming enemy units now"];
 
 sleep 7;
 
-private _newgroups = [];
-// calculate the sum of all groups of AI already in the maintarget and size the enemy force accordingly (half + 1)
-private _targetGroupCount = round ((d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt) / 2) + 1;
+private _newgroups_inf = [];
+private _newgroups_veh = [];
+// calculate the sum of all groups of AI configured for the maintarget and size the enemy force accordingly (half + 3)
+private _targetGroupCount = round ((d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt) / 2) + 3;
 private _enemyForceInf = [];
 
 for "_i" from 0 to _targetGroupCount do {
@@ -121,6 +124,10 @@ if (d_WithLessArmor == 4) then {
 	private _unitlist = [_x, d_enemy_side_short] call d_fnc_getunitlistm;
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
+	if (50 > random 100) then {
+		// spread units out
+		_rand_pos = [[[_spawn_pos, 65]],[[_spawn_pos, 30], "water"]] call BIS_fnc_randomPos;
+	};
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 	{
 		_x setSkill ["courage", 1];
@@ -128,7 +135,7 @@ if (d_WithLessArmor == 4) then {
 		_x_mt_event_ar pushBack _x;
 		_x setVariable ["d_do_not_delete", 1, true];
 	} forEach _units;
-	_newgroups pushBack _newgroup;
+	_newgroups_inf pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
@@ -150,16 +157,16 @@ private _vdir = _spawn_pos getDir _target_center;
 	{
 		{
 			_x setVariable ["d_do_not_delete", 1, true];
-			_x_mt_event_ar pushBack _x;
 		} forEach _vecs_and_crews # 0; // vehicles
 		{
 			_x setSkill ["courage", 1];
 			_x setSkill ["commanding", 1];
 			_x setVariable ["d_do_not_delete", 1, true];
-			_x_mt_event_ar pushBack _x;
 		} forEach _vecs_and_crews # 1; // crews
 	} forEach _vecs_and_crews;
-	_newgroups pushBack _newgroup;
+	_x_mt_event_ar append (_vecs_and_crews # 0); // vehicles
+	_x_mt_event_ar append (_vecs_and_crews # 1); // crews
+	_newgroups_veh pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
@@ -170,6 +177,44 @@ _marker_enemy_spawn = ["d_mt_event_marker_enemyincoming", _spawn_pos, "ICON","Co
 
 sleep 30;
 
+// infantry go first
+{
+	// each group moves toward a random position near the target center
+	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
+	if (25 > random 100) then {
+		// some units will garrison in a building near the random position (walk to the position, not teleported)
+		private _unitsNotGarrisoned = [
+        	_wp_pos,											// Params: 1. Array, the building(s) nearest this position is used
+        	units _x,									//         2. Array of objects, the units that will garrison the building(s)
+        	20,										//  (opt.) 3. Scalar, radius in which to fill building(s), -1 for only nearest building, (default: -1)
+        	false,											//  (opt.) 4. Boolean, true to put units on the roof, false for only inside, (default: false)
+        	false,										//  (opt.) 5. Boolean, true to fill all buildings in radius evenly, false for one by one, (default: false)
+        	false,										//  (opt.) 6. Boolean, true to fill from the top of the building down, (default: false)
+        	true,									//  (opt.) 7. Boolean, true to order AI units to move to the position instead of teleporting, (default: false)
+        	0,   								//  (opt.) 8. Scalar, 0 - unit is free to move immediately (default: 0) 1 - unit is free to move after a firedNear event is triggered 2 - unit is static, no movement allowed
+        	false, //true                                                //  (opt.) 9. Boolean, true to force position selection such that the unit has a roof overhead // todo - fix the roof check, currently disqualifies many top floor position when set to true
+        	false,												//  (opt.) 10. _isAllowSpawnNearEnemy Boolean, true to allow the selected position to be near an enemy (default: false)
+        	false,												//  (opt.) 11. _isDryRun Boolean, true to dry run, for testing only no units are moved, still returns array of units that could not be garrisoned at given pos (default: false)
+        	-1 //,													//  (opt.) 12. _distanceFromBuildingCenter Scalar, distance a unit may be placed from the center of a building (usually safer) or -1 for any (default: -1)
+//        	_targetBuilding //true                                       //  (opt.) 13. Object, target building may be passed
+        ] call d_fnc_Zen_OccupyHouse;
+		
+	} else {
+		// most units will walk directly to the waypoint
+		_x setCombatMode "RED";
+		_x setSpeedMode "FULL";
+		_x setBehaviour "SAFE";
+		_wp = _x addWaypoint[_wp_pos, 0];
+		_wp setWaypointBehaviour "SAFE";
+		_wp setWaypointSpeed "FULL";
+		_wp setwaypointtype "SAD";
+		_wp setWaypointFormation "STAG COLUMN";
+	};
+} forEach _newgroups_inf;
+
+sleep 120;
+
+// vehicles go second
 {
 	// each group moves toward a random waypoint near the target center
 	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
@@ -181,9 +226,9 @@ sleep 30;
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
-} forEach _newgroups;
+} forEach _newgroups_veh;
 
-waitUntil {sleep 3; d_mt_radio_down && {d_mt_done}};
+waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
 // cleanup
 if (d_ao_check_for_ai != _original_check_for_ai_value) then {

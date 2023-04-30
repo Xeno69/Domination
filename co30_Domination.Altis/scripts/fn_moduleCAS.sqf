@@ -137,9 +137,19 @@ private _channel = d_kbtel_chan;
 #endif
 
 if (isNil "_callero" || {isNull _callero}) then {_callero = _logic};
-_logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
+if (d_force_isstreamfriendlyui == 1) then {
+	_logic1 kbTell [_callero, _topicside, "CASOnTheWayNoText", _channel];
+} else {
+	_logic1 kbTell [_callero, _topicside, "CASOnTheWay", _channel];
+};
+
 sleep 1;
-_logic1 kbTell [_logic, _topicside, "CASUnavailable", _channel];
+
+if (d_force_isstreamfriendlyui == 1) then {
+	_logic1 kbTell [_logic, _topicside, "CASUnavailableNoText", _channel];
+} else {
+	_logic1 kbTell [_logic, _topicside, "CASUnavailable", _channel];
+};
 
 private _callerpos = getPos _callero;
 
@@ -314,5 +324,9 @@ if (canMove _plane) then {
 	};
 #endif
 	remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
-	_logic1 kbTell [_logic, _topicside, "CASAvailable", _channel];
+	if (d_force_isstreamfriendlyui == 1) then {
+		_logic1 kbTell [_logic, _topicside, "CASAvailableNoText", _channel];
+	} else {
+		_logic1 kbTell [_logic, _topicside, "CASAvailable", _channel];
+	};
 };

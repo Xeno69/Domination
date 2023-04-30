@@ -245,10 +245,18 @@ if (d_with_ranked) then {
 					_weapp = "CSLA_Sa58P";
 					_magp = "CSLA_Sa58_30rnd_7_62vz43";
 				};
+				if (d_pracs) exitWith {
+					_weapp = "PRACS_SLA_Ak74";
+					_magp = "rhs_30Rnd_545x39_7N6_AK";
+				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
 			if (d_own_side == "GUER") exitWith {
+				if (d_pracs) exitWith {
+					_weapp = "PRACS_g3a3";
+					_magp = "PRACS_20rd_G3_mag";
+				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
@@ -623,7 +631,7 @@ if (d_dis_servicep == 1) then {
 "d_enemy_base" setMarkerPosLocal (d_base_array # 0);
 "d_enemy_base" setMarkerDirLocal (d_base_array # 3);
 [d_base_array # 0, [d_base_array # 1, d_base_array # 2, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "[0] call d_fnc_BaseEnemies;'d_enemy_base' setMarkerSizeLocal [d_base_array select 1,d_base_array select 2];d_there_are_enemies_atbase = true", "[1] call d_fnc_BaseEnemies;'d_enemy_base' setMarkerSizeLocal [0,0];d_there_are_enemies_atbase = false"]] call d_fnc_createtriggerlocal;
-[d_base_array # 0, [(d_base_array # 1) + 300, (d_base_array # 2) + 300, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "if (!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false])}) then {hint (localize 'STR_DOM_MISSIONSTRING_1409')};d_enemies_near_base = true", "d_enemies_near_base = false"]] call d_fnc_createtriggerlocal;
+[d_base_array # 0, [(d_base_array # 1) + 300, (d_base_array # 2) + 300, d_base_array # 3, true, 2], [d_enemy_side, "PRESENT", true], ["'Man' countType thislist > 0 || {'Tank' countType thislist > 0 || {'Car' countType thislist > 0}}", "if (!(player getVariable ['xr_pluncon', false]) && {!(player getVariable ['ace_isunconscious', false]) && {d_force_isstreamfriendlyui != 1 && {!isStreamFriendlyUIEnabled}}}) then {hint (localize 'STR_DOM_MISSIONSTRING_1409')};d_enemies_near_base = true", "d_enemies_near_base = false"]] call d_fnc_createtriggerlocal;
 
 
 [d_base_array # 0, [d_base_array # 1, d_base_array # 2, d_base_array # 3, true], ["ANYPLAYER", "PRESENT", true], ["(vehicle player) in thislist", "d_player_in_base = true", "d_player_in_base = false"]] call d_fnc_createtriggerlocal;
@@ -1064,6 +1072,9 @@ if (d_arsenal_mod == 0) then {
 	};
 	if (d_csla) then {
 		d_arsenal_mod_prestrings append ["CSLA_", "US85_"];
+	};
+	if (d_pracs) then {
+		d_arsenal_mod_prestrings append ["PRACS_", "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
 	};
 	if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 		d_arsenal_mod_prestrings pushBackUnique "ace_";
