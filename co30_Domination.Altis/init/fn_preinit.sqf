@@ -95,6 +95,12 @@ d_ws = true;
 d_ws = false;
 #endif
 
+#ifdef __PRACS__
+d_pracs = true;
+#else
+d_pracs = false;
+#endif
+
 d_HeliHEmpty = "Land_HelipadEmpty_F";
 
 // BLUFOR, OPFOR or INDEPENDENT for own side, setup in x_setup.sqf
@@ -216,6 +222,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __WS__
 #include "sm_bonus_vec_ar_ws.sqf"
 #endif
+#ifdef __PRACS__
+#include "sm_bonus_vec_ar_pracs.sqf"
+#endif
 
 #ifdef __ALTIS__
 #include "mt_bonus_vec_ar_altis.sqf"
@@ -271,6 +280,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __WS__
 #include "mt_bonus_vec_ar_ws.sqf"
 #endif
+#ifdef __PRACS__
+#include "mt_bonus_vec_ar_pracs.sqf"
+#endif
 
 #ifndef __TT__
 d_sm_b_vec_ar_c = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
@@ -288,7 +300,12 @@ d_mt_bonus_vehicle_array set [1, (d_mt_bonus_vehicle_array # 1) apply {toLowerAN
 
 d_x_drop_array =
 #ifdef __OWN_SIDE_INDEPENDENT__
-	[[], [localize "STR_DOM_MISSIONSTRING_22", "I_MRAP_03_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_IND_Ammo_F"]];
+	call {
+		if (d_pracs) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "PRACS_M998_cargo_open"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		};
+		[[], [localize "STR_DOM_MISSIONSTRING_22", "I_MRAP_03_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_IND_Ammo_F"]]
+	};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 	call {
@@ -321,6 +338,9 @@ d_x_drop_array =
 		if (d_csla) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "CSLA_AZU_para"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		}; 
+		if (d_pracs) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "PRACS_SLA_Tigr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 	};
 #endif
@@ -451,6 +471,10 @@ d_strongpointmarker = "mil_objective";
 d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
+if (d_pracs) then {
+	d_flag_str_opfor = "\PRACS_SLA_Core\Flags\flag_north_co.paa";
+	d_flag_str_independent = "\PRACS_Core\Flags\KingdomofSahrani.paa";
+};
 
 d_cargo_chute =
 #ifdef __OWN_SIDE_BLUFOR__
@@ -926,6 +950,11 @@ if (!d_gmcwgwinter) then {
 				#include "d_allmen_B_CSLA.sqf"
 			];
 		}; 
+		if (d_pracs) exitWith {
+			d_allmen_E = [
+				#include "d_allmen_O_PRACS.sqf"
+			];
+		};
 		d_allmen_W = [
 			#include "d_allmen_B_default.sqf"
 		];
@@ -1013,7 +1042,11 @@ if (!d_gmcwgwinter) then {
 #include "d_specops_O_CUP_TAKI.sqf"
 #endif
 #ifdef __CUP_SARA__
+if (!d_pracs) then {
 #include "d_specops_O_CUP_SLA.sqf"
+} else {
+#include "d_specops_O_PRACS.sqf"
+}
 #endif
 #ifdef __IFA3__
 #include "d_specops_O_default.sqf"
@@ -1162,6 +1195,14 @@ if (!d_gmcwgwinter) then {
 #ifdef __WS__
 d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
+#ifdef __PRACS__
+	d_sabotage_E = [["PRACS_SLA_Especas_ENG", "PRACS_SLA_Especas_Ninja_ENG"]];
+	d_sabotage_W = [["CUP_B_US_SpecOps", "CUP_B_FR_Soldier_Exp"]];
+	d_sabotage_G = [["PRACS_Commando_ENG", "PRACS_Paratrooper_ENG", "PRACS_QSB_ENG"]];
+	d_sniper_E = [["East","pracs_sla_groups","pracs_sla_especas_group_light","pracs_sla_especas_group_SHPS"] call d_fnc_GetConfigGroup, ["East","pracs_sla_groups","pracs_sla_infantry_group_light","pracs_sla_infantry_group_SHPS"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","CUP_B_US_Army","Infantry","CUP_B_US_Army_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_I = [["Indep","PRACS_RACS_GROUPS","pracs_1st_infantry_group","pracs_1st_infantry_group_SHPS"] call d_fnc_GetConfigGroup, ["Indep","PRACS_RACS_GROUPS","pracs_commando_squads","pracs_Commando_Sniper_Team"] call d_fnc_GetConfigGroup];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
@@ -1244,6 +1285,11 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		#include "d_veh_a_B_CSLA.sqf"
 	];
 #endif
+#ifdef __PRACS__
+	d_veh_a_E = [
+		#include "d_veh_a_O_PRACS.sqf"
+	];
+#endif
 
 	d_veh_a_G = [
 		#include "d_veh_a_G_default.sqf"
@@ -1303,6 +1349,11 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 
 	d_arti_observer_G = [["I_Soldier_TL_F"]];
 
+#ifdef __PRACS__
+	d_arti_observer_E = [["PRACS_SLA_Naval_Infantry_RTO","PRACS_SLA_Paratrooper_RTO","PRACS_SLA_Infantry_RTO"]];
+	d_arti_observer_G = [["PRACS_Royal_Marine_RTO","PRACS_Paratrooper_RTO","PRACS_Infantry_RTO"]];
+#endif
+
 	if (isNil "d_number_attack_planes") then {
 		d_number_attack_planes = 1;
 	};
@@ -1325,7 +1376,12 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 	// Type of aircraft, that will air drop stuff
 	d_drop_aircraft =
 #ifdef __OWN_SIDE_INDEPENDENT__
-		"I_Heli_Transport_02_F";
+		call {
+			if (d_pracs) exitWith {
+				"PRACS_C130"
+			};
+			"I_Heli_Transport_02_F"
+		};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 		call {
@@ -1373,6 +1429,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_cup) exitWith {
 				""
 			};
+			if (d_pracs) exitWith {
+				"PRACS_AN12B"
+			};
 			"O_Heli_Light_02_unarmed_F"
 		};
 #endif
@@ -1387,7 +1446,12 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 
 	d_cas_plane =
 #ifdef __OWN_SIDE_INDEPENDENT__
-		"I_Plane_Fighter_03_CAS_F";
+		call {
+			if (d_pracs) exitWith {
+				"PRACS_A4M"
+			};
+			"I_Plane_Fighter_03_CAS_F"
+		};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 		call {
@@ -1423,6 +1487,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_csla) exitWith {
 				""
 			}; 
+			if (d_pracs) exitWith {
+				"PRACS_SLA_MiG27"
+			};
 			"O_Plane_CAS_02_F"
 		};
 #endif
@@ -1442,7 +1509,12 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 	// can now also be an array
 	d_cas_plane_ai =
 #ifdef __OWN_SIDE_INDEPENDENT__
-		"";
+		call {
+			if (d_pracs) exitWith {
+				"PRACS_SLA_MiG27"
+			};
+			""
+		};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 		call {
@@ -1481,6 +1553,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			if (d_rhs) exitWith {
 				"RHS_A10"
 			};
+			if (d_pracs) exitWith {
+				"PRACS_A4M"
+			};
 			"B_Plane_CAS_01_F"
 		};
 #endif
@@ -1512,6 +1587,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_ws) exitWith {
 					"vn_o_boat_03_02"
 				};
+				if (d_pracs) exitWith {
+					"PRACS_SLA_GoFast_gun"
+				};
 				"O_Boat_Armed_01_hmg_F"
 			};
 		};
@@ -1531,6 +1609,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				};
 				if (d_csla) exitWith {
 					""
+				};
+				if (d_pracs) exitWith {
+					"PRACS_Mk5_SOCR"
 				};
 				"B_Boat_Armed_01_minigun_F"
 			};
@@ -1644,7 +1725,12 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 
 	d_base_aa_vec =
 #ifdef __OWN_SIDE_INDEPENDENT__
-	"I_LT_01_AA_F";
+	call {
+		if (d_pracs) exitWith {
+			"PRACS_M163_MACHBET"
+		};
+		"I_LT_01_AA_F"
+	};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 	call {
@@ -1689,6 +1775,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_ifa3) exitWith {
 			"LIB_61k"
 		};
+		if (d_pracs) exitWith {
+			"PRACS_SLA_MTLB_ZU23"
+		};
 		"O_APC_Tracked_02_AA_F"
 	};
 #endif
@@ -1697,7 +1786,12 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 	d_base_tank_vec =
 #ifdef __OWN_SIDE_INDEPENDENT__
-	"I_MBT_03_cannon_F";
+	call {
+		if (d_pracs) exitWith {
+			"PRACS_M60S"
+		};
+		"I_MBT_03_cannon_F"
+	};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 	call {
@@ -1742,6 +1836,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_ifa3) exitWith {
 			"LIB_T34_85"
 		};
+		if (d_pracs) exitWith {
+			"PRACS_SLA_T72BV"
+		};
 		"O_MBT_02_cannon_F"
 	};
 #endif
@@ -1750,7 +1847,12 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 	d_base_apc_vec =
 #ifdef __OWN_SIDE_INDEPENDENT__
-	"I_APC_tracked_03_cannon_F";
+	call {
+		if (d_pracs) exitWith {
+			"PRACS_Pizarro"
+		};
+		"I_APC_tracked_03_cannon_F"
+	};
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 	call {
@@ -1778,7 +1880,10 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		if (d_vn) exitWith {
 			"B_D_APC_Tracked_01_rcws_lxWS"
 		};
-		"B_APC_Wheeled_01_cannon_F";
+		if (d_pracs) exitWith {
+			"PRACS_Pizarro"
+		};
+		"B_APC_Wheeled_01_cannon_F"
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -1794,6 +1899,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		};
 		if (d_ifa3) exitWith {
 			"LIB_SOV_M3_Halftrack"
+		};
+		if (d_pracs) exitWith {
+			"PRACS_SLA_BMP2"
 		};
 		"O_APC_Tracked_02_cannon_F"
 	};
@@ -1851,6 +1959,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #endif
 #ifdef __WS__
 #include "d_sm_classes_ws.sqf"
+#endif
+#ifdef __PRACS__
+#include "d_sm_classes_PRACS.sqf"
 #endif
 
 	d_intel_unit = objNull;
@@ -1912,6 +2023,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_vn) exitWith {
 					[]
 				};
+				if (d_pracs) exitWith {
+					["PRACS_SLA_MiG27","PRACS_SLA_Su25","PRACS_SLA_SU22"]
+				};
 				["O_Plane_CAS_02_F"]
 			};
 		};
@@ -1929,7 +2043,14 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				["B_Plane_CAS_01_F"]
 			};
 		};
-		if (d_enemy_side_short == "G") exitWith {["I_Plane_Fighter_03_CAS_F"]};
+		if (d_enemy_side_short == "G") exitWith {
+			call {
+				if (d_pracs) exitWith {
+					["PRACS_A4M","PRACS_MirageV","PRACS_Mohawk"]
+				};
+				["I_Plane_Fighter_03_CAS_F"]
+			};
+		};
 	};
 
        // type of enemy UAV that will fly over the main target
@@ -2021,6 +2142,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				if (d_ws) exitWith {
 					["O_SFIA_Heli_Attack_02_dynamicLoadout_lxWS"]
 				};
+				if (d_pracs) exitWith {
+					["PRACS_SLA_Mi24D","PRACS_SLA_Mi24V_UPK"]
+				};
 				["O_Heli_Attack_02_F"]
 			};
 		};
@@ -2038,7 +2162,14 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				["B_Heli_Attack_01_F"]
 			};
 		};
-		if (d_enemy_side_short == "G") exitWith {["I_Heli_light_03_F"]};
+		if (d_enemy_side_short == "G") exitWith {
+			call {
+				if (d_pracs) exitWith {
+					["PRACS_AH1S","PRACS_RAH6","PRACS_Sa330_Puma_SOCAT"]
+				};
+				["I_Heli_light_03_F"]
+			};
+		};
 	};
 
 #ifdef __ALTIS__
@@ -2224,6 +2355,18 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 		["I_Heli_Transport_02_F"]
 	};
 #endif
+#ifdef __PRACS__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["PRACS_SLA_Mi8amt","PRACS_AN12B"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_Heli_Light_01_F"]
+		};
+		["PRACS_Sa330_Puma","PRACS_C130"]
+	};
+#endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
 	d_light_attack_chopper = call {
@@ -2252,6 +2395,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				};
 				if (d_rhs) exitWith {
 					["RHS_Mi24P_vvs"]
+				};
+				if (d_pracs) exitWith {
+					["PRACS_SLA_Mi17Sh","PRACS_SLA_Mi17Sh_UPK"]
 				};
 				["O_Heli_Attack_02_black_F"]
 			};
@@ -2288,6 +2434,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 			};
 			if (d_gmcwg) exitWith {
 				[]
+			};
+			if (d_pracs) exitWith {
+				["PRACS_UH1H_CAS"]
 			};
 			["I_Heli_light_03_dynamicLoadout_F"]
 		};
@@ -2927,7 +3076,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __CUP_SARA__
 	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
 	d_civ_faces = _mixedFaces;
-	d_civArray = d_cupCivsTakistan;
+	d_civArray =  d_euroCivs;
 #endif
 #ifdef __IFA3__
 	d_civ_vehicles_weighted = d_civVehiclesWeightedRural;
@@ -3091,11 +3240,21 @@ if (hasInterface) then {
 		if (d_csla) exitWith {
 			["CSLA_DTP90", "CSLA_Mi17mg", "CSLA_Mi17"]
 		};
+		if (d_pracs) exitWith {
+			["PRACS_SLA_Mi8amt","PRACS_SLA_BRDM_HQ","PRACS_SLA_BRDM_HQ_PKT","PRACS_SLA_MTLB_HQ"]
+		};
 		["O_MRAP_02_F", "O_Heli_Light_02_unarmed_F", "B_APC_Tracked_01_CRV_F", "rhsgref_BRDM2UM_vdv", "RHS_Mi8AMT_vvs"]
 	};
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
-	["I_MRAP_03_F", "I_Heli_light_03_unarmed_F","I_E_Heli_light_03_unarmed_F"];
+	call {
+		if (d_pracs) exitWith {
+			["PRACS_M577","PRACS_M577_4A","PRACS_M577_1ID","PRACS_M577_RF","PRACS_BMR_HQ","PRACS_BMR_HQ_4AD","PRACS_BMR_HQ_1ID","PRACS_BMR_HQ_Marine","PRACS_BMR_HQ_Fusilier",
+			"PRACS_SUV_COM","PRACS_M998_Command","PRACS_M998_Command_2para","PRACS_M998_Command_1Inf","PRACS_M998_Command_3mtn","PRACS_M998_Command_4A",
+			"PRACS_UH1H","PRACS_CH53","PRACS_Sa330_Puma","PRACS_Sa330_RSAF","PRACS_Sa330_Puma_NAVY","PRACS_Sa330_Puma_Marine","PRACS_Sa330_Puma_AS"]
+		};
+		["I_MRAP_03_F", "I_Heli_light_03_unarmed_F","I_E_Heli_light_03_unarmed_F"]
+	};
 #endif
 #ifdef __TT__
 	["B_Heli_Light_01_F", "B_APC_Tracked_01_CRV_F", "O_Heli_Light_02_unarmed_F", "B_T_APC_Tracked_01_CRV_F", "O_MRAP_02_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F"];
@@ -3290,6 +3449,9 @@ if (hasInterface) then {
 	if (d_no_mortar_ar == 1) then {
 		(d_remove_from_arsenal # 5) append [{"_static_" in _this}, "vn_c_pack_01", "vn_c_pack_02"];
 	};
+#endif
+#ifdef __PRACS__
+	(d_remove_from_arsenal # 3) append [{"_Dress_" in _this}];
 #endif
 
 	// add here the class names of the weapons which you want to add to Virtual Arsenal

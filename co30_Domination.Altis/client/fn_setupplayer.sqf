@@ -245,10 +245,18 @@ if (d_with_ranked) then {
 					_weapp = "CSLA_Sa58P";
 					_magp = "CSLA_Sa58_30rnd_7_62vz43";
 				};
+				if (d_pracs) exitWith {
+					_weapp = "PRACS_SLA_Ak74";
+					_magp = "rhs_30Rnd_545x39_7N6_AK";
+				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
 			if (d_own_side == "GUER") exitWith {
+				if (d_pracs) exitWith {
+					_weapp = "PRACS_g3a3";
+					_magp = "PRACS_20rd_G3_mag";
+				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
 			};
@@ -1064,6 +1072,9 @@ if (d_arsenal_mod == 0) then {
 	};
 	if (d_csla) then {
 		d_arsenal_mod_prestrings append ["CSLA_", "US85_"];
+	};
+	if (d_pracs) then {
+		d_arsenal_mod_prestrings append ["PRACS_", "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
 	};
 	if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 		d_arsenal_mod_prestrings pushBackUnique "ace_";

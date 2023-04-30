@@ -153,7 +153,7 @@ switch (toLowerANSI (_sm_ar # 1)) do {
 			};
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
-			["B_SAM_System_03_F", "B_Radar_System_01_F"];
+			["I_E_SAM_System_03_F", "I_E_Radar_System_01_F"];
 #endif
 		[d_x_sm_pos # 0, random 360, _samtypes, false, false, (_sm_ar # 3) call _boolorarrayfnc, (_sm_ar # 4) call _boolorarrayfnc, false, false, true, true] spawn d_fnc_sideobjects;
 	};
