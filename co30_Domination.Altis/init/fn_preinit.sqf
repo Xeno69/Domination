@@ -1670,6 +1670,9 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 #ifdef __WS__
 #include "d_compositions_default.sqf"
 #endif
+#ifdef __PRACS__
+#include "d_compositions_PRACS.sqf"
+#endif
 
 	// max men for main target clear
 	d_man_count_for_target_clear = 6;
