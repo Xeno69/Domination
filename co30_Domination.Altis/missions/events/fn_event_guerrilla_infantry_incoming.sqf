@@ -32,18 +32,20 @@ private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity
 	};
 } forEach _towns;
 
-if (_townNearbyPos isEqualTo []) exitWith {
-	diag_log ["unable to find a location to spawn infantry for guerrilla mission event", d_cur_tgt_name];
+if (_townNearbyPos isEqualTo []) then {
+	diag_log ["choosing a random position to start, unable to find a nearby town location to spawn infantry for guerrilla mission event", d_cur_tgt_name];
+	_townNearbyPos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+	_townNearbyName = "nearby";
 };
 
 private _x_mt_event_ar = [];
 
 private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,false,30], ["ANYPLAYER","PRESENT",true], ["this","thisTrigger setVariable ['d_event_start', true]",""]] call d_fnc_CreateTriggerLocal;
 
-if (!d_preemptive_special_event) then {
-	waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
-} else {
+if (d_preemptive_special_event) then {
 	_townNearbyName = "nearby";
+} else {
+	waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
 };
 
 private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
@@ -65,14 +67,16 @@ if (_spawn_pos isEqualTo []) then {
 	// spawn position was not provided, calculate the spawn position using _townNearbyPos  
 	_spawn_pos = _townNearbyPos;
 	
-	if (_target_center distance2D _townNearbyPos > _maximumDistanceFromMaintarget) then {
+	if (_target_center distance2D _spawn_pos > _maximumDistanceFromMaintarget) then {
 		// try to find a midpoint between chosen location and maintarget, too far for infantry to walk from location to location
 		private _midpoint_pos = [
 			((_target_center # 0) + (_townNearbyPos # 0))/2,
 			((_target_center # 1) + (_townNearbyPos # 1))/2
 		];
-		if ((_midpoint_pos distance2D _target_center) > _minimumDistanceFromMaintarget) then {
-			// if midpoint is not too close then use it instead of _townNearbyPos
+		if ((_midpoint_pos distance2D _target_center) > _maximumDistanceFromMaintarget || {(_midpoint_pos distance2D _target_center) < _minimumDistanceFromMaintarget}) then {
+			// midpoint is too far or too close, give up looking for nearby towns and just choose a random position in the desired range
+			_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+		} else {
 			_spawn_pos = _midpoint_pos;
 		};
 	};
@@ -87,7 +91,7 @@ if (_with_vehicles) then {
 	private _incoming_vehs = [];
 	if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
     	// "normal" or random which we force to normal
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc", "tank"];
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"];
     };
     
     if (d_WithLessArmor == 1) then {
@@ -97,7 +101,7 @@ if (_with_vehicles) then {
     
     if (d_WithLessArmor == 4) then {
     	// high
-    	_incoming_vehs = ["wheeled_apc", "tracked_apc", "tracked_apc"];
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc", "tracked_apc"];
     };
 	private _vdir = _spawn_pos getDir _target_center;
     {
@@ -127,35 +131,31 @@ if (_with_vehicles) then {
 
 // calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
 private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
-// default guerrilla force
-private _guerrillaForce = ["allmen", "allmen"];
-if (_targetGroupCount > 10) then {
-	_guerrillaForce = ["allmen", "allmen", "specops"];
-};
-if (_targetGroupCount > 20) then {
-	_guerrillaForce = ["allmen", "allmen", "allmen", "specops"];
+
+// guerrillas should be outnumbered
+_guerrillaGroupCount = round(_targetGroupCount / 5) max 1;
+_guerrillaForce = [];
+for "_i" from 0 to _guerrillaGroupCount do {
+	_guerrillaForce pushBack "allmen";
 };
 
 if (d_preemptive_special_event) then {
-	// full battle, give the guerrillas the number of opfor groups / 4 or at least 3 groups
-	_guerrillaGroupCount = round(_targetGroupCount / 4) max 3;
-	_guerrillaForce = [];
-	for "_i" from 0 to _guerrillaGroupCount do {
-    	_guerrillaForce pushBack "allmen";
-    };
+	_incoming_vehs = ["jeep_mg", "tracked_apc"];
 };
 
-private _guerrillaBaseSkill = 0.35;
+private _guerrillaBaseSkill = 0.85;
 
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
+	if (random 100 > 50) then {
+		// guerrillas need extra AT
+		_unitlist = ["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup;
+	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	private _rand_pos = [[[_spawn_pos, 35]],["water"]] call BIS_fnc_randomPos;
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
-		_x setSkill ["spotTime", 0.6];
-		_x setSkill ["spotDistance", 0.6];
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
@@ -186,6 +186,8 @@ if (d_preemptive_special_event) then {
 	_wp setwaypointtype "SAD";
 	_wp setWaypointFormation "STAG COLUMN";
 } forEach _newgroups_inf;
+
+sleep 120;
 
 // vehicles go second
 {

@@ -3062,6 +3062,18 @@
 <Chinese>總是，游擊隊的多個事件</Chinese>
 <French>Always, multiple events with guerrillas and defense</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_418C_GUERR_DEFENSE_ONLY">
+<English>Always, guerrillas and defense only</English>
+<Spanish>Always, guerrillas and defense only</Spanish>
+<Portuguese>Always, guerrillas and defense only</Portuguese>
+<Korean>Always, guerrillas and defense only</Korean>
+<Japanese>Always, guerrillas and defense only</Japanese>
+<Original>Always, guerrillas and defense only</Original>
+<Russian>Always, guerrillas and defense only</Russian>
+<Chinesesimp>Always, guerrillas and defense only</Chinesesimp>
+<Chinese>Always, guerrillas and defense only</Chinese>
+<French>Always, guerrillas and defense only</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_ALL">
 <English>All</English>
 <Spanish>All</Spanish>

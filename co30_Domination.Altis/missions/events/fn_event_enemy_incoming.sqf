@@ -29,8 +29,8 @@ private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
-private _minimumDistanceFromMaintarget = 185;
-private _maximumDistanceFromMaintarget = 265;
+private _minimumDistanceFromMaintarget = 200;
+private _maximumDistanceFromMaintarget = 275;
 private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
@@ -73,16 +73,16 @@ if (_target_center distance2D _spawn_pos > _maximumDistanceFromMaintarget) then 
 		((_target_center # 0) + (_spawn_pos # 0))/2,
 		((_target_center # 1) + (_spawn_pos # 1))/2
 	];
-	if ((_midpoint_pos distance2D _target_center) > _maximumDistanceFromMaintarget) then {
-		// midpoint is too far, give up looking for nearby towns and just choose a random position in the desired range
+	if ((_midpoint_pos distance2D _target_center) > _maximumDistanceFromMaintarget || {(_midpoint_pos distance2D _target_center) < _minimumDistanceFromMaintarget}) then {
+		// midpoint is too far or too close, give up looking for nearby towns and just choose a random position in the desired range
 		_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
 	} else {
 		_spawn_pos = _midpoint_pos;
 	};
 };
 
-d_preemptive_special_event_startpos = _spawn_pos;
-publicVariable "d_preemptive_special_event_startpos";
+d_preemptive_special_event_startpos_opfor = _spawn_pos;
+publicVariable "d_preemptive_special_event_startpos_opfor";
 
 // wait for the radiotower to be created
 // if we don't wait then creating enemies may cause the maintarget to "start"
@@ -181,7 +181,8 @@ sleep 30;
 {
 	// each group moves toward a random position near the target center
 	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
-	if (25 > random 100) then {
+	//if (25 > random 100) then {
+	if (false) then { // todo - fix non-teleport occupyhouse, skipping for now, many units are not moving at all
 		// some units will garrison in a building near the random position (walk to the position, not teleported)
 		private _unitsNotGarrisoned = [
         	_wp_pos,											// Params: 1. Array, the building(s) nearest this position is used
@@ -244,8 +245,8 @@ deleteMarker _marker_enemy_spawn;
 
 d_preemptive_special_event = false;
 publicVariable "d_preemptive_special_event";
-d_preemptive_special_event_startpos = [];
-publicVariable "d_preemptive_special_event_startpos";
+d_preemptive_special_event_startpos_opfor = [];
+publicVariable "d_preemptive_special_event_startpos_opfor";
 
 //cleanup
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
