@@ -63,6 +63,10 @@ private _get_possfortower = {
 };
 
 private _poss = [_mindists, _mslope] call _get_possfortower;
+if !(d_preemptive_special_event_startpos_opfor isEqualTo []) then {
+	// special location for radiotower when pre-emptive event is running
+	_poss = [[[d_preemptive_special_event_startpos_opfor, 50]],["water"]] call BIS_fnc_randomPos;
+};
 __TRACE_1("1","_poss")
 __TRACE_1("1","_trg_center")
 if (_trg_center isEqualTo _poss) then {
@@ -81,7 +85,7 @@ if (isNil "_poss" || {_poss isEqualTo []}) then {
 };
 _poss set [2, 0];
 private "_vec";
-if (_dobigtower) then {
+if (_dobigtower && {!d_preemptive_special_event}) then {
 	_vec = _poss call d_fnc_makenewtower;
 } else {
 	_vec = createVehicle [d_illum_tower, _poss, [], 0, "NONE"];
