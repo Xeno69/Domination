@@ -14,7 +14,10 @@ if !(isServer) exitWith {};
 
 params ["_target_radius", "_target_center", ["_spawn_pos", []], ["_with_vehicles", false]];
 
-private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
+private _event_name = "guerrilla_incoming";
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
+
+diag_log [format ["start event: %1", _mt_event_key]];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
@@ -225,13 +228,14 @@ deleteVehicle _trigger;
 deleteMarker _marker;
 
 if (d_preemptive_special_event) then {
-	diag_log ["quick cleanup of preemptive event"];
+	diag_log [format ["quick cleanup of preemptive event: %1", _mt_event_key]];
 } else {
 	if (d_ai_persistent_corpses == 0) then {
 		waitUntil {sleep 10; d_mt_done};
 	} else {
 		sleep 120;
 	};
+	diag_log [format ["cleanup of event: %1", _mt_event_key]];
 };
 
 //cleanup

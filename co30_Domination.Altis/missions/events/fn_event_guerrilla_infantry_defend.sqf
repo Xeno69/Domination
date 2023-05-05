@@ -14,7 +14,10 @@ if !(isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
+private _event_name = "guerrilla_defend";
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
+
+diag_log [format ["start event: %1", _mt_event_key]];
 
 private _x_mt_event_ar = [];
 
@@ -87,12 +90,11 @@ while {sleep 1; !d_mt_done} do {
 	private _foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1;
 	
 	if (!_foundAlive) exitWith {};
-	
-	sleep 15;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
 //cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

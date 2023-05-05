@@ -25,12 +25,15 @@ if (d_ao_check_for_ai != 2) then {
 	publicVariable "d_ao_check_for_ai";
 };
 
-private _mt_event_key = format ["d_X_MTEVENT_%1", d_cur_tgt_name];
+private _event_name = "enemy_incoming";
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
+
+diag_log [format ["start event: %1", _mt_event_key]];
 
 private _townNearbyName = "";
 private _townNearbyPos = [];
-private _minimumDistanceFromMaintarget = 200;
-private _maximumDistanceFromMaintarget = 275;
+private _minimumDistanceFromMaintarget = 300;
+private _maximumDistanceFromMaintarget = 400;
 private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
@@ -249,4 +252,5 @@ d_preemptive_special_event_startpos_opfor = [];
 publicVariable "d_preemptive_special_event_startpos_opfor";
 
 //cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
