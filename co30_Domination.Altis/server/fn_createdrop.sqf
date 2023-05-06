@@ -119,15 +119,6 @@ while {_chopper distance2D _drop_pos > __dist_to_drop} do {
 	__exit;
 	_unit doMove _drop_pos;
 };
-while {_chopper distance2D _end_pos > 600} do {
-	sleep 3.14;
-	"d_drop_marker" setMarkerPos (getPosWorld _chopper);
-	if (time > _endtime) then {
-		_chopper setDamage 1;
-	};
-	__exit;
-	_unit doMove _end_pos;
-};
 if (_may_exit) exitWith {
 	if (!isNil "_player" && {!isNull _player}) then {
 		3 remoteExecCall ["d_fnc_dropansw", _player];
@@ -166,6 +157,16 @@ if (_may_exit) exitWith {
 	if (!isNil "_player" && {!isNull _player}) then {
 		4 remoteExecCall ["d_fnc_dropansw", _player];
 	};
+};
+sleep 30;
+while {_chopper distance2D _end_pos > 600} do {
+	sleep 3.14;
+	"d_drop_marker" setMarkerPos (getPosWorld _chopper);
+	if (time > _endtime) then {
+		_chopper setDamage 1;
+	};
+	__exit;
+	_unit doMove _end_pos;
 };
 
 _drop_pos = nil;
