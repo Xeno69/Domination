@@ -316,6 +316,14 @@
 >    - Main target only (2) <br />
 >    - Side mission and main target (3) <br />
 
+#### **d_sm_mt_protectionAI / Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)**
+> Default: 0 - Off <br />
+> Available options: <br />
+>    - Off (0) <br />
+>    - Side mission only (1) <br />
+>    - Main target only (2) <br />
+>    - Side mission and main target (3) <br />
+
 #### **d_pylon_lodout / Pylon loadout enabled:**
 > Default: 0 - Yes <br />
 > Available options: <br />

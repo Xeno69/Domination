@@ -47,6 +47,8 @@ if (player distance2D _target < 30) exitWith {
 	systemChat (localize "STR_DOM_MISSIONSTRING_1529");
 };
 
+if (d_sm_mt_protectionAI > 0 && {_pos_lt call d_fnc_ac_ai_check}) exitWith {};
+
 [_target, netId player, 0] remoteExec ["d_fnc_moduleCAS_bomb", 2];
 
 if (_do_cleanup) then {

@@ -739,6 +739,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_2101","$STR_DOM_MISSIONSTRING_2102","$STR_DOM_MISSIONSTRING_2103"};
 	};
+	
+	class d_sm_mt_protectionAI {
+		title = "$STR_DOM_MISSIONSTRING_2100A";
+		values[] = {0,1,2,3};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_363","$STR_DOM_MISSIONSTRING_2101","$STR_DOM_MISSIONSTRING_2102","$STR_DOM_MISSIONSTRING_2103"};
+	};
 
 	class d_pylon_lodout {
 		title = "$STR_DOM_MISSIONSTRING_1938";
