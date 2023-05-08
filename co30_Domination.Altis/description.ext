@@ -1384,7 +1384,7 @@ class Params {
 	class d_ai_awareness_rad {
 		title = "$STR_DOM_MISSIONSTRING_1900AWARE";
 		values[] = {-1, 10, 25, 50, 75, 100, 150, 200, 250, 300, 400, 450, 500, 550, 600, 650, 700, 800, 900, 1000};
-		default = -1;
+		default = 650;
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007", "10m", "25m", "50m", "75m", "100m", "150m", "200m", "250m", "300m", "400m", "450m", "500m", "550m", "600m", "650m (recommended)", "700m", "800m", "900m", "1000m"};
 	};
 	
