@@ -36,7 +36,7 @@ _mname spawn {
 	deleteMarker _this;
 };
 
-_drop_pos = [_drop_pos # 0, _drop_pos # 1, 120];
+_drop_pos = [_drop_pos # 0, _drop_pos # 1, 80];
 
 d_para_available = false; publicVariable "d_para_available";
 remoteExecCall ["d_fnc_updatesupportrsc", [0, -2] select isDedicated];
@@ -79,17 +79,10 @@ _wp setWaypointTimeout [0, 0, 0];
 _wp setWaypointCompletionRadius 400;
 _wp setWaypointForceBehaviour true;
 
-private _wp2 = _grp addWaypoint [_end_pos, 0];
-_wp2 setWaypointtype "MOVE";
-_wp2 setWaypointBehaviour "CARELESS";
-_wp2 setWaypointSpeed "NORMAL";
-_wp2 setWaypointTimeout [0, 0, 0];
-_wp2 setWaypointForceBehaviour true;
-
 private _vecdist = _chopper distance2D _drop_pos;
 
 //_chopper flyInHeight 100;
-#define __dist_to_drop 300
+#define __dist_to_drop 150
 private _may_exit = false;
 sleep 12 + random 12;
 if (!isNil "_player" && {!isNull _player}) then {
@@ -164,6 +157,16 @@ if (_may_exit) exitWith {
 	if (!isNil "_player" && {!isNull _player}) then {
 		4 remoteExecCall ["d_fnc_dropansw", _player];
 	};
+};
+sleep 30;
+while {_chopper distance2D _end_pos > 600} do {
+	sleep 3.14;
+	"d_drop_marker" setMarkerPos (getPosWorld _chopper);
+	if (time > _endtime) then {
+		_chopper setDamage 1;
+	};
+	__exit;
+	_unit doMove _end_pos;
 };
 
 _drop_pos = nil;

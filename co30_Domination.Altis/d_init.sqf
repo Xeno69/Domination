@@ -384,8 +384,8 @@ if (isNil "d_civ_massacre") then {
 if (isNil "d_preemptive_special_event") then {
 	d_preemptive_special_event = false;
 };
-if (isNil "d_preemptive_special_event_startpos") then {
-	d_preemptive_special_event_startpos = [];
+if (isNil "d_preemptive_special_event_startpos_opfor") then {
+	d_preemptive_special_event_startpos_opfor = [];
 };
 if (isNil "d_cur_tgt_civ_vehicles") then {
 	d_cur_tgt_civ_vehicles = [];

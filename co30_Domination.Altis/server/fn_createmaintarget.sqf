@@ -70,21 +70,23 @@ if (d_camp_enable_guard == 1) then {
 };
 
 #ifndef __TT__
-if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -4}) then {
-	// chance of a pre-emptive event (a special event which supersedes most maintarget setup)
-	if (20 > random 100) then {
-		diag_log ["Small chance for special event was selected, d_preemptive_special_event set to true"];
+if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -5}) then {
+	// chance of a pre-emptive event (a special event which supersedes most maintarget setup) or when d_with_MainTargetEvents == -5
+	if (20 > random 100 || {d_with_MainTargetEvents == -5}) then {
+		diag_log ["Small chance for special event was selected or d_with_MainTargetEvents == -5, d_preemptive_special_event set to true"];
 		d_preemptive_special_event = true;
 		publicVariable "d_preemptive_special_event";		
 		switch (selectRandom [1,2]) do {
 			case 1: {
-				diag_log ["special event selected: mt defend"];
+				diag_log ["special event selected: guerrilla garrisoned in maintarget city and enemy attacks"];
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
 				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
+				// spawn the garrisoned guerrilla event
+				[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_defend;
 			};
 			case 2: {
-				diag_log ["special event selected: three faction battle"];
+				diag_log ["special event selected: guerrilla and enemy attack the maintarget"];
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
 				// spawn the opfor event
@@ -92,10 +94,10 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 				// wait for d_fnc_event_enemy_incoming to set a start pos for the enemy groups
 				sleep 3;
 				// calculate the desired spawn position for the guerrillas on the opposite side of the maintarget and away from opfor units
-				private _newx = (d_preemptive_special_event_startpos # 0) - (_trg_center # 0);
-				private _newy = (d_preemptive_special_event_startpos # 1) - (_trg_center # 1);
+				private _newx = (d_preemptive_special_event_startpos_opfor # 0) - (_trg_center # 0);
+				private _newy = (d_preemptive_special_event_startpos_opfor # 1) - (_trg_center # 1);
 				private _newpos = [(_trg_center # 0) - _newx, (_trg_center # 1) - _newy];
-				// spawn the guerrilla event
+				// spawn the guerrilla attack event
 				[_radius, _trg_center, _newpos, true] spawn d_fnc_event_guerrilla_infantry_incoming;
 			};
 		};

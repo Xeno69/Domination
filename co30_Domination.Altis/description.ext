@@ -515,10 +515,10 @@ class Params {
 	
 	class d_with_MainTargetEvents {
 		title = "$STR_DOM_MISSIONSTRING_1052_EVENTS";
-		values[] = {0,1,2,-1,-2,-3,-4};
+		values[] = {0,1,2,-1,-2,-3,-5,-4};
 		default = 0;
-		// never, low, medium, always, always multiple events, always multiple events with guerrillas, all
-		texts[] = {"$STR_DOM_MISSIONSTRING_418","$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_399B","$STR_DOM_MISSIONSTRING_418B","$STR_DOM_MISSIONSTRING_418C","$STR_DOM_MISSIONSTRING_418C_GUERR","$STR_DOM_MISSIONSTRING_ALL"};
+		// never, low, medium, always, always multiple events, always multiple events with guerrillas, always guerrillas, all (all non pre-emptive events)
+		texts[] = {"$STR_DOM_MISSIONSTRING_418","$STR_DOM_MISSIONSTRING_399","$STR_DOM_MISSIONSTRING_399B","$STR_DOM_MISSIONSTRING_418B","$STR_DOM_MISSIONSTRING_418C","$STR_DOM_MISSIONSTRING_418C_GUERR","$STR_DOM_MISSIONSTRING_418C_GUERR_DEFENSE_ONLY","$STR_DOM_MISSIONSTRING_ALL"};
 	};
 	
 	class d_with_ranked {

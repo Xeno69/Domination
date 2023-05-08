@@ -474,6 +474,7 @@ class cfgFunctions {
 			addc(event_sideprisoners);
 			addc(event_tanksincoming);
 			addc(event_guerrilla_infantry_incoming);
+			addc(event_guerrilla_infantry_defend);
 			addc(event_rabbitrescue);
 			addc(event_markedfordeath);
 			addc(event_sidevipdefend);
