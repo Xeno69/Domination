@@ -1,6 +1,10 @@
 4.66
 
 - Added: New entry d_excludemag_gen in CfgVehicles.cpp to remove magazines from all planes and not plane specific
+- Added: Pre-emptive event with some garrisoned guerrillas, new events server setting for "guerrilla and defense only", by longtimegamer
+- Added: Project RACS and SLA support, by Schalldampfer
 - Changed: AI Advanced - enhanced awareness is now enabled by default, range 650m (param d_ai_awareness_rad, you have to change it in the database manually if you already use one)
 - Fixed: Side mission protection disabled for convoy side missions
 - Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point
+- Fixed: Airdrop sometimes didn't drop ammo, by longtimegamer
+- Fixed: Airdrop vehicle sometimes did not fly away after drop was completed, by longtimegamer
