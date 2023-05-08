@@ -2,3 +2,4 @@
 
 - Added: New entry d_excludemag_gen in CfgVehicles.cpp to remove magazines from all planes and not plane specific
 - Fixed: Side mission protection disabled for convoy side missions
+- Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point

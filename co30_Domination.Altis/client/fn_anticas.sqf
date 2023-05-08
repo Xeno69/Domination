@@ -14,8 +14,9 @@ while {alive _pr} do {
 		__TRACE("In 1 or 3")
 		if (d_cur_sm_idx != -1 && {!isNil "d_x_sm_pos"}) then {
 			__TRACE_1("","d_x_sm_pos")
-			if (_pr distance2D (d_x_sm_pos # 0) < 1000) then {
-				if (d_x_sm_type == "convoy") exitWith {};
+			if (d_x_sm_type == "convoy") exitWith {};
+			private _checkpos = [d_x_sm_pos # 1, d_x_sm_pos # 0] select (d_x_sm_type != "deliver");
+			if (_pr distance2D _checkpos < 1000) then {
 				__TRACE_1("deleting projectile","")
 				deleteVehicle _pr;
 				private _last = (_this # 7) getVariable ["d_last_anti_cas_msg", -1];
