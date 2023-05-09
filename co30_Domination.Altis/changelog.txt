@@ -9,3 +9,4 @@
 - Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point
 - Fixed: Airdrop sometimes didn't drop ammo, by longtimegamer
 - Fixed: Airdrop vehicle sometimes did not fly away after drop was completed, by longtimegamer
+- Fixed: Additional recruit sign could fall over

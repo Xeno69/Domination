@@ -136,6 +136,8 @@ if (isServer) then {
 				_sign setDir ((getDir d_AI_HUT) - 180);
 				_sign setPos _spos;
 				_sign setObjectTextureGlobal [0, "pics\AI2.paa"];
+				_sign enableSimulationGlobal false;
+				d_AI_HUT setVariable ["d_ai_sign", _sign, true];
 			};
 		} else {
 			d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];

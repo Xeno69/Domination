@@ -427,6 +427,10 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	if (d_with_ai) then {
 		d_d3d_locsaire = localize "STR_DOM_MISSIONSTRING_314";
 		d_allai_recruit_objs = [d_AI_HUT] + d_additional_recruit_buildings;
+		private _sign = d_AI_HUT getVariable "d_ai_sign";
+		if (!isNil "_sign") then {
+			d_allai_recruit_objs pushBack _sign;
+		};
 	};
 #else
 	[[d_EFLAG_BASE, d_WFLAG_BASE] select (d_player_side == blufor), localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
