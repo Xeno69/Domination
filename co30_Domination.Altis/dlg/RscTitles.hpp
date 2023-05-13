@@ -799,3 +799,47 @@ class d_RscBarMHQTake {
 		};
 	};
 };
+
+class d_mtbestplayers_rsc {
+	idd=-1;
+	movingEnable=0;
+	duration = 10;
+	fadein = 1;
+	fadeout = 1;
+	onLoad = "uiNamespace setVariable ['d_mtbestplayers_rsc', _this select 0];call d_fnc_initmtbestplayersrsc";
+	onUnLoad = "uiNamespace setVariable ['d_mtbestplayers_rsc', nil]";
+	class controlsBackground {
+		class BackGroundMain: RscText {
+			colorBackground[] = {0, 0, 0, 0.4};
+			x = safezoneX + 0.05;
+			y = safeZoneY + 0.45;
+			w = 0.6;
+			h = 0.6;
+		};
+		class BCaption: RscText {
+			x = safezoneX + 0.07; y = safezoneY + 0.47;
+			w = 0.4; h = 0.04;
+			sizeEx = 0.04;
+			colorBackground[] = {1, 1, 1, 0};
+			colorText[] = {1, 1, 1, 1};
+			style = ST_LEFT;
+			text = "$STR_DOM_MISSIONSTRING_2108";
+		};
+	};
+	class controls {
+		class mtbestplayerslb: RscListNBox {
+			idc = 107;
+			x = safezoneX + 0.05; y = safezoneY + 0.54; w = safeZoneW; h = safeZoneH - 0.1;
+			drawSideArrows = 0;
+			columns[] = {};
+			idcRight = -1;
+			idcLeft = -1;
+			sizeEx = 0.040;
+			rowHeight = 0;
+			font = DEFAULTFONT;
+			shadow = 1;
+			colorText[] = {1, 1, 1, 1};
+			colorBackground[] = {1, 1, 1, 0.5};
+		};
+	};
+};

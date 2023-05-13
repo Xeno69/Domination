@@ -157,6 +157,7 @@ if (d_maintargets_list isNotEqualTo []) then {
 	d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured2",["1","",_cur_tgt_name,[_cur_tgt_name]],"SIDE"];
 #endif
 };
+call d_fnc_sendbestplayers;
 
 sleep 2.123;
 

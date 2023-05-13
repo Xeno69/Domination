@@ -222,6 +222,7 @@ class cfgFunctions {
 			addc(receivetop);
 			addc(anticas);
 			addc(ac_ai_check);
+			addc(showmtbest);
 		};
 		class Dom_UI {
 			file = "clientui";
@@ -294,6 +295,7 @@ class cfgFunctions {
 			addc(adasposchanged);
 			addc(vdairsliderchanged);
 			addc(vdvecsliderchanged);
+			addc(initmtbestplayersrsc);
 		};
 		class Dom_Common {
 			file = "common";
@@ -687,6 +689,7 @@ class cfgFunctions {
 			addc(sendtopplayers);
 			addc(add_tomadel);
 			addc(ad_c_ar);
+			addc(sendbestplayers);
 		};
 		class Dom_PrePostInit {
 			file = "init";

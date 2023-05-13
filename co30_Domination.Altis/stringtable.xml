@@ -15540,6 +15540,18 @@
 <Chinese>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Chinese>
 <French>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2108">
+<English>Best main target players</English>
+<Spanish>Best main target players</Spanish>
+<Portuguese>Best main target players</Portuguese>
+<Korean>Best main target players</Korean>
+<Japanese>Best main target players</Japanese>
+<Original>Best main target players</Original>
+<Russian>Best main target players</Russian>
+<Chinesesimp>Best main target players</Chinesesimp>
+<Chinese>Best main target players</Chinese>
+<French>Best main target players</French>
+</Key>
 </Container>
 </Package>
 </Project>
