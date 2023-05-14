@@ -14,5 +14,6 @@ if (d_jumpflag_vec == "") then {
 };
 
 #ifndef __TT__
-	d_near_player_flag = _flag;
+d_near_player_flag_pos = getPosASL _flag vectorAdd [0, 0, 10];
+d_near_player_flag = _flag;
 #endif
