@@ -45,7 +45,7 @@ if (_isman) then {
 	while {true} do {
 		sleep 1;
 		if (_old_add != d_groups_respawn_time_add) then {
-			_endtime = _endtime + (d_groups_respawn_time_add - _old_add) + random 2;
+			_endtime = _endtime + (d_groups_respawn_time_add - _old_add) + random 1;
 			_old_add = d_groups_respawn_time_add;
 			__TRACE_3("111","_endtime","_old_add","d_groups_respawn_time_add")
 		};
@@ -63,7 +63,7 @@ if (_isman) then {
 	
 	private _extratime = [0, d_launcher_cooldown / 2] select (d_launcher_cooldown > 0);
 	private _nump = count (allPlayers - (entities "HeadlessClient_F")) min 40;
-	private _endtime = time + _basetime - linearConversion [1, 40, _nump, 1, _maxtime, true] + (random 40) + _extratime;
+	private _endtime = time + _basetime - linearConversion [1, 40, _nump, 1, _maxtime, true] + (random 20) + _extratime;
 
 	__TRACE_1("","_endtime")
 

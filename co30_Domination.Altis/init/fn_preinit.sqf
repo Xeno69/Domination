@@ -2557,7 +2557,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 
 	if (isNil "d_ai_groups_respawn_time") then {
 		// inf base time, inf min time, vehicle base time, vehicle min time, all in seconds
-		// means, inf base time minus number of players but at least wait 130 to respawn a group, same for vehicles
+		// means, inf base time minus number of players but at least wait 150 to respawn a group, same for vehicles
 		// can also be put into the dom_settings in Domination sql DB
 		d_ai_groups_respawn_time = [250, 150, 320, 170];
 	};
