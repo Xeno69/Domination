@@ -170,6 +170,7 @@ if (surfaceIsWater _respawn_pos) then {
 } else {
 	player setVehiclePosition [_respawn_pos, [], 2, "NONE"];
 };
+player setDamage 0;
 "d_jail" cutText [format ["<t color='#ff0000' size='5'>%1</t>", localize "STR_DOM_MISSIONSTRING_1998"], "PLAIN", -1, true, true];
 d_goto_jail = nil;
 player allowDamage true;
