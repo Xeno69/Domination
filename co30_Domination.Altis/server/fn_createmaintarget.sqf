@@ -179,7 +179,7 @@ d_WithLessArmor call d_fnc_setenemymode;
 
 d_groups_respawn_time_add = 0;
 //limit barracks by d_max_bar_cnt, default is very high but may be lower if mission settings are non-default
-d_num_barracks_objs = ((ceil random 7) max 4) min d_max_bar_cnt;
+d_num_barracks_objs = ((ceil random 8) max 4) min d_max_bar_cnt;
 __TRACE_1("","d_num_barracks_objs")
 d_mt_barracks_obj_ar = [];
 if (d_bar_mhq_destroy == 0) then {
@@ -273,10 +273,10 @@ for "_i" from 1 to d_num_barracks_objs do {
 	_vec setVariable ["d_v_pos", getPos _vec];
 	private _nump = count (allPlayers - entities "HeadlessClient_F");
 	private _dist_trig_p = call {
-		if (_nump < 25) exitWith {50};
-		if (_nump < 30) exitWith {45};
-		if (_nump < 35) exitWith {40};
-		35
+		if (_nump < 25) exitWith {35};
+		if (_nump < 30) exitWith {30};
+		if (_nump < 35) exitWith {25};
+		20
 	};
 	private _trig = [_vec, [_dist_trig_p, _dist_trig_p, 0, false, 10], ["ANYPLAYER", "PRESENT", true], ["this", "", ""]] call d_fnc_createtriggerlocal;
 	_vec setVariable ["d_bar_trig", _trig];

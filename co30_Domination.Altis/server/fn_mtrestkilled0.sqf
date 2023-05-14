@@ -12,7 +12,7 @@ private _mt_done = _obj getVariable ["d_mt_done", false];
 __TRACE_1("","_mt_done")
 if (!_mt_done) then {
 	d_num_barracks_objs = d_num_barracks_objs - 1;
-	d_groups_respawn_time_add = d_groups_respawn_time_add + 15 + (random 8);
+	d_groups_respawn_time_add = d_groups_respawn_time_add + 10 + (random 8);
 	private _numob = {alive _x} count d_mt_barracks_obj_ar;
 	if (_numob != d_num_barracks_objs) then {
 		d_num_barracks_objs = _numob;
