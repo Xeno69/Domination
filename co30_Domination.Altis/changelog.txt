@@ -13,3 +13,4 @@
 - Fixed: Airdrop vehicle sometimes did not fly away after drop was completed, by longtimegamer
 - Fixed: Additional recruit sign could fall over
 - Fixed: It could happen that a player had damage when he was moved out of jail back to base
+- Fixed: High numbers were shown in scientific notation in the top 10 player dialog

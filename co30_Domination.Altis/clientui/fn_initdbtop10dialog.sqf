@@ -29,7 +29,7 @@ _ctrl lnbAddRow [""];
 if (!isNil "d_top10_db_players") then {
 	{
 		__TRACE_1("","_x")
-		_rowidx = _ctrl lnbAddRow (_x apply {if (_x isEqualType "") then {_x} else {str _x}});
+		_rowidx = _ctrl lnbAddRow (_x apply {if (_x isEqualType "") then {_x} else {[_x] call BIS_fnc_numberText}});
 		_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 		_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 	} forEach d_top10_db_players;
@@ -41,9 +41,9 @@ _ctrl lnbAddRow [""];
 
 if (!isNil "d_pl_db_mstart") then {
 	__TRACE_1("","d_pl_db_mstart")
-	_rowidx = _ctrl lnbAddRow (d_pl_db_mstart apply {if (_x isEqualType "") then {_x} else {str _x}});
-	_ctrl lnbSetText [[_rowidx, 7], str (score player)];
-	_ctrl lnbSetText [[_rowidx, 15], str d_p_rounds];
+	_rowidx = _ctrl lnbAddRow (d_pl_db_mstart apply {if (_x isEqualType "") then {_x} else {[_x] call BIS_fnc_numberText}});
+	_ctrl lnbSetText [[_rowidx, 7], [score player] call BIS_fnc_numberText];
+	_ctrl lnbSetText [[_rowidx, 15], [d_p_rounds] call BIS_fnc_numberText];
 	_ctrl lnbSetColor [[_rowidx, 0], __totscorecol];
 	_ctrl lnbSetColor [[_rowidx, 7], __totscorecol];
 };
