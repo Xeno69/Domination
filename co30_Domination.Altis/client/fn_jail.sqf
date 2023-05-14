@@ -93,6 +93,7 @@ if (_todelete != -1) then {
 player setPos _pmovepos;
 
 sleep 0.1;
+player setDamage 0;
 
 private _movecheck_fnc = _pmovepos spawn {
 	scriptname "spawn jail3";
