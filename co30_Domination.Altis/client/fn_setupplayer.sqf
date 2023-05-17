@@ -1343,4 +1343,7 @@ if (isMultiplayer) then {
 	};
 };
 
+// disable the FIR AWS dialog, use the internal one. Weapons like the GBU24 cause too much FPS drops
+AWS_AMS_Disable = true;
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom x_setupplayer.sqf processed"];
