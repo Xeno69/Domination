@@ -147,7 +147,7 @@ if (_rtype == 0) then { // player died
 		};
 	};
 	if (d_WithRevive == 1 && {!isNull (player getVariable "d_is_leader")}) then {
-		[player getVariable "d_is_leader", player] remoteExec ["selectLeader", groupOwner (player getVariable "d_is_leader")];
+		[player getVariable "d_is_leader", player] remoteExec ["d_fnc_selectLeader", groupOwner (player getVariable "d_is_leader")];
 	};
 	private _clattachedobj = player getVariable ["d_p_clattachedobj", objNull];
 	if (!isNull _clattachedobj) then {

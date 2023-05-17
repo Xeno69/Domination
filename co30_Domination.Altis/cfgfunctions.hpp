@@ -690,6 +690,7 @@ class cfgFunctions {
 			addc(add_tomadel);
 			addc(ad_c_ar);
 			addc(sendbestplayers);
+			addc(selectleader);
 		};
 		class Dom_PrePostInit {
 			file = "init";

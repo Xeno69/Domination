@@ -218,7 +218,7 @@ switch (_mode) do {
 
 		if (!isNull _group && {!isNull _player && {_group == group _player}}) then {
 			// Select new leader
-			[_group, _player] remoteExecCall ["selectLeader", groupOwner _group];
+			[_group, _player] remoteExecCall ["d_fnc_selectLeader", 2];
 		};
 	};
 
