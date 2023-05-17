@@ -24,7 +24,9 @@ if (player getVariable "xr_isdead") exitWith {};
 player switchAction "Die";
 //player switchMove "AinjPpneMstpSnonWrflDnon";
 //[player, 100] remoteExecCall ["xr_fnc_handlenet"];
-player setVariable ["xr_pluncon", true, true]; // just to be sure
+if !(player getVariable ["xr_pluncon", false]) then {
+	player setVariable ["xr_pluncon", true, true]; // just to be sure
+};
 
 _this spawn {
 	scriptName "xr respawn eh spawn";

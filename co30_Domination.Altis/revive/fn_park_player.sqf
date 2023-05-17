@@ -16,6 +16,7 @@ if (_dosleep) then {
 	"xr_revtxt" cutText [localize "STR_DOM_MISSIONSTRING_931", "BLACK OUT", 1];
 	waitUntil {alive player};
 };
+[player] joinSilent grpNull;
 //player setPos (markerPos "xr_playerparkmarker");
 player setVehiclePosition [markerPos "xr_playerparkmarker", [], 0, "NONE"]; // CAN_COLLIDE ?
 player remoteExecCall ["xr_fnc_phogl", 2];

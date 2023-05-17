@@ -197,7 +197,6 @@ class CfgRemoteExec {
 		class xr_fnc_yougetrevivedm {allowedTargets = 1;};
 		class xr_fnc_changeleader {};
 		class xr_fnc_draghelper {allowedTargets = 1;};
-		class xr_fnc_selleader {allowedTargets = 2;};
 		class d_fnc_rallusermarkers {allowedTargets = 2;};
 		class bis_fnc_settasklocal {allowedTargets = 1;};
 		class bis_fnc_setIdentity {};

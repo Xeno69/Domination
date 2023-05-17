@@ -749,7 +749,6 @@ class cfgFunctions {
 			addc(draghelper);
 			addc(changeleader);
 			addc(spectdlginit);
-			addc(selleader);
 			addc(draw3d);
 			addc(spectkeyeh);
 			addc(spectdraw3d);
