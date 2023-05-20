@@ -98,8 +98,8 @@ sleep 7;
 
 private _newgroups_inf = [];
 private _newgroups_veh = [];
-// calculate the sum of all groups of AI configured for the maintarget and size the enemy force accordingly (half + 3)
-private _targetGroupCount = round ((d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt) / 2) + 3;
+// calculate the sum of all groups of AI configured for the maintarget and size the enemy force accordingly
+private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt + d_grp_cnt_footpatrol;
 private _enemyForceInf = [];
 
 for "_i" from 0 to _targetGroupCount do {
@@ -110,27 +110,23 @@ private _incoming_vehs = [];
 
 if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
 	// "normal" or random which we force to normal
-	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc", "tank"];
+	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
 };
 
 if (d_WithLessArmor == 1) then {
 	// "less"
-	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
+	_incoming_vehs = ["jeep_mg", "jeep_mg"];
 };
 
 if (d_WithLessArmor == 4) then {
 	// high
-	_incoming_vehs = ["jeep_mg", "wheeled_apc", "wheeled_apc", "tracked_apc", "tank", "tank"]
+	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"];
 };
 
 {
 	private _unitlist = [_x, d_enemy_side_short] call d_fnc_getunitlistm;
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
-	if (50 > random 100) then {
-		// spread units out
-		_rand_pos = [[[_spawn_pos, 65]],[[_spawn_pos, 30], "water"]] call BIS_fnc_randomPos;
-	};
+	private _rand_pos = [[[_spawn_pos, 175]],[]] call BIS_fnc_randomPos;
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 	{
 		_x setSkill ["courage", 1];
@@ -183,7 +179,18 @@ sleep 30;
 // infantry go first
 {
 	// each group moves toward a random position near the target center
-	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
+	private _wp_pos = [];
+	if (33 > random 100) then {
+		// some enemy groups stay back from target center, near midpoint of enemy start and target center
+		private _midpoint_pos = [
+			((_target_center # 0) + (_spawn_pos # 0))/2,
+			((_target_center # 1) + (_spawn_pos # 1))/2
+		];
+		_wp_pos = [[[_midpoint_pos, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
+	} else {
+		// near target center
+		_wp_pos = [[[_target_center, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
+	};
 	//if (25 > random 100) then {
 	if (false) then { // todo - fix non-teleport occupyhouse, skipping for now, many units are not moving at all
 		// some units will garrison in a building near the random position (walk to the position, not teleported)

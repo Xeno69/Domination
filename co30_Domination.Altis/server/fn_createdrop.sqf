@@ -82,7 +82,7 @@ _wp setWaypointForceBehaviour true;
 private _vecdist = _chopper distance2D _drop_pos;
 
 //_chopper flyInHeight 100;
-#define __dist_to_drop 150
+#define __dist_to_drop 300
 private _may_exit = false;
 sleep 12 + random 12;
 if (!isNil "_player" && {!isNull _player}) then {

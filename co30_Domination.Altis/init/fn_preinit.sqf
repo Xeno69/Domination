@@ -2841,15 +2841,30 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 	];
 
 	d_cupCivsTakistan = [
-		"CUP_C_TK_Man_05_Waist", 1,
-		"CUP_C_TK_Man_06_Waist", 1,
-		"CUP_C_TK_Man_01_Coat", 1,
+		"CUP_C_TK_Man_04", 1,
+		"CUP_C_TK_Man_04_Jack", 1,
+		"CUP_C_TK_Man_04_Waist", 1,
+		"CUP_C_TK_Man_07", 1,
+		"CUP_C_TK_Man_07_Coat", 1,
+		"CUP_C_TK_Man_07_Waist", 1,
+		"CUP_C_TK_Man_08", 1,
+		"CUP_C_TK_Man_08_Coat", 1,
 		"CUP_C_TK_Man_08_Waist", 1,
-		"CUP_C_TK_Man_03_Coat", 1,
-		"CUP_C_TK_Man_01_Jack", 1,
+		"CUP_C_TK_Man_05_Coat", 1,
+		"CUP_C_TK_Man_05_Jack", 1,
+		"CUP_C_TK_Man_05_Waist", 1,
+		"CUP_C_TK_Man_06_Coat", 1,
 		"CUP_C_TK_Man_06_Jack", 1,
+		"CUP_C_TK_Man_06_Waist", 1,
+		"CUP_C_TK_Man_02", 1,
+		"CUP_C_TK_Man_02_Jack", 1,
+		"CUP_C_TK_Man_02_Waist", 1,
+		"CUP_C_TK_Man_01_Coat", 1,
+		"CUP_C_TK_Man_01_Jack", 1,
+		"CUP_C_TK_Man_01_Waist", 1,
+		"CUP_C_TK_Man_03_Coat", 1,
 		"CUP_C_TK_Man_03_Jack", 1,
-		"CUP_C_TK_Man_03_Jack", 1
+		"CUP_C_TK_Man_03_Waist", 1
 	];
 	
 	private _civsLivonia = [

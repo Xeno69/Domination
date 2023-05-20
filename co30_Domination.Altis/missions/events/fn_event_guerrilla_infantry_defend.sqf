@@ -37,10 +37,12 @@ d_kb_logic1 kbTell [
 private _newgroups_inf = [];
 
 // calculate the sum of all groups of AI already in the maintarget
-private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
+private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt + d_grp_cnt_footpatrol;
+// guerrillas should be outnumbered
+_guerrillaGroupCount = round(_targetGroupCount / 3) max 1;
 private _guerrillaForce = [];
 // size the guerrilla force
-for "_i" from 0 to (round(_targetGroupCount / 4) + 1) do {
+for "_i" from 0 to _guerrillaGroupCount do {
 	_guerrillaForce pushBack "allmen";
 };
 
@@ -54,7 +56,7 @@ private _guerrillaBaseSkill = 0.85;
 	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	// random position within 125m of target center
-	private _rand_pos = [[[_target_center, 40]],["water"]] call BIS_fnc_randomPos;
+	private _rand_pos = [[[_target_center, 80]],["water"]] call BIS_fnc_randomPos;
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
@@ -66,8 +68,8 @@ private _guerrillaBaseSkill = 0.85;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
-	if (random 100 > 66) then {
-		// garrison 2/3rds of the units
+	if (random 100 > 50) then {
+		// garrison 1/2 of the units
 		private _unitsNotGarrisoned = [
 			_rand_pos,
 			_units,
