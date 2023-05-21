@@ -16,7 +16,7 @@ if (d_with_ai && {d_player_canu}) then {[getPosATL player, velocity player, getD
 
 d_jump_action_id = player addAction [localize "str_a3_rscgrouprootmenu_items_openparachute0", {
 	private _chuten = call {
-		if (d_ifa3 || {d_gmcwg || {d_unsung || {d_csla || {d_vn}}}}) exitWith {
+		if (d_ifa3 || {d_gmcwg || {d_unsung || {d_csla || {d_vn && {d_force_steerable_parachutes != 1}}}}}) exitWith {
 			d_non_steer_para
 		};
 		"Steerable_Parachute_F"

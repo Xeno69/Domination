@@ -4,7 +4,7 @@
 
 disableSerialization;
 
-if (d_cur_tgt_pos isEqualTo [] || d_preemptive_special_event) exitWith {true};
+if (d_cur_tgt_pos isEqualTo [] || d_preemptive_special_event || d_paradrop_no_restrictions == 1) exitWith {true};
 
 private _res = (_this # 0) distance2D d_cur_tgt_pos > d_cur_target_radius + 200;
 

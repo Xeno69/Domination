@@ -42,10 +42,7 @@ if !(d_UAV_Terminal in (assignedItems player)) then {
 	player linkItem d_UAV_Terminal;
 };
 
-private _uav = [getPosATL player, 0, d_UAV_CAS, d_player_side, false, false] call bis_fnc_spawnVehicle;
-// force the UAV to desired altitude
-private _temppos = getPosWorld (_uav # 0);
-(_uav # 0) setPosATL [_temppos # 0, _temppos # 1, 2000];
+private _uav = [[(getPosATL player) # 0, (getPosATL player) # 1, 2000], 0, d_UAV_CAS, d_player_side, false, false] call bis_fnc_spawnVehicle;
 
 __TRACE_1("","_uav")
 _uav params ["_vecu", "_crew", "_grp"];

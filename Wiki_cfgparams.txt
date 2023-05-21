@@ -1334,6 +1334,18 @@
 >    - 2000m (2000) <br />
 >    - 5000m (5000) <br />
 
+#### **d_force_steerable_parachutes / Force steerable parachutes for players:**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - Yes (1) <br />
+>    - No (0) <br />
+
+#### **d_paradrop_no_restrictions / Players may parajump to any location:**
+> Default: 0 - No <br />
+> Available options: <br />
+>    - Yes (1) <br />
+>    - No (0) <br />
+
 #### **d_LockArmored / Lock armored enemy vecs:**
 > Default: 1 - No <br />
 > Available options: <br />

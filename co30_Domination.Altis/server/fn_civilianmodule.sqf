@@ -63,6 +63,9 @@ if (d_civ_type > 0) then {
 	if (d_civ_type == 12) then {
 		d_civArray_current =+ d_civ_faction_cfp_middle_east;
 	};
+	if (d_civ_type == 13) then {
+		d_civArray_current =+ d_cupCivsTakistan;
+	};
 	// TODO - IFA civs
 } else {
 	d_civArray_current =+ d_civArray;
@@ -301,7 +304,7 @@ while {_tries_remaining > 0 && {count d_cur_tgt_civ_modules_presencesafespot < 5
 
 };
 
-if (count d_cur_tgt_civ_modules_presencesafespot > 0) then {
+if (count d_cur_tgt_civ_modules_presencesafespot > 0 && { d_civ_unitcount > 0}) then {
 	// we found at least one civilian location so we can create and configure the module PresenceUnit and Presence
 	private _mu1_pos = position (selectRandom d_cur_tgt_civ_modules_presencesafespot);
 	private _mu1 = _grp_civmodule createUnit ["ModuleCivilianPresenceUnit_F", _mu1_pos, [], 0, "NONE"];
