@@ -7,6 +7,7 @@
 - Added: When a main target is done the top 10 players scores reached during that time are now shown
 - Changed: AI Advanced - enhanced awareness is now enabled by default, range 650m (param d_ai_awareness_rad, you have to change it in the database manually if you already use one)
 - Changed: GBU24 bombs (FIR) are removed from pylon loadout (too overpowered)
+- Changed: If the admin ends a main target enemy main target AI will be also be deleted
 - Fixed: Side mission protection disabled for convoy side missions
 - Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point
 - Fixed: Airdrop sometimes didn't drop ammo, by longtimegamer
