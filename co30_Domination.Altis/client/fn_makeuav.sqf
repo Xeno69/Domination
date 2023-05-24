@@ -42,7 +42,7 @@ player connectTerminalToUav _vecu;
 
 player action ["UAVTerminalOpen"];
 
-["a2", d_player_uid, _vecu] remoteExecCall ["d_fnc_p_o_ar", 2];
+["a2", d_player_uid, _vecu, _crew] remoteExecCall ["d_fnc_p_o_ar", 2];
 
 //diag_log ["UAVControl", UAVControl _vecu];
 

@@ -110,7 +110,16 @@ if (_ar # 6 == 1) then {
 };
 
 if (_ar # 7 == 1) then {
+	private _cr = _obj getVariable "d_uav_crew";
 	deleteVehicleCrew _obj;
+	if (!isNil "_cr") then {
+		_cr = _cr - [objNull];
+		if (_cr isNotEqualTo []) then {
+			{
+				deleteVehicle _x;
+			} forEach _cr;
+		};
+	};
 };
 
 if (_ar # 8 == 1) then {

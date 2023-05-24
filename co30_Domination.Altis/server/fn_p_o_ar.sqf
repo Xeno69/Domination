@@ -39,6 +39,7 @@ call {
 			_ar = _ar - [objNull];
 			_ar pushBack (_this # 2);
 		};
+		(_this # 2) setVariable ["d_uav_crew", _this # 3];
 		[_this # 2, 7] call d_fnc_setekmode;
 	};
 	if (_this # 0 == "ar") exitWith {
