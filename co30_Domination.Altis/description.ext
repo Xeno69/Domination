@@ -1290,7 +1290,7 @@ class Params {
 	
 	class d_civ_type {
 		title = "$STR_DOM_MISSIONSTRING_CIVILIAN_TYPE";
-		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_AFRICAN",
@@ -1299,19 +1299,21 @@ class Params {
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_TANOAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CUP_CHERNARUS",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_CHERNARUS_WINTER",
+			// CFP civilians - static civs work but dynamic civs are broken (civilian presence module)
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFGHANISTAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_CHRISTIAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_ISLAMIC",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_ASIAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MALDEN",
-			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MIDDLE_EAST"};
+			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MIDDLE_EAST",
+			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CUP_TAKISTAN"};
 	};
 
 	class d_civ_unitcount {
 		title = "$STR_DOM_MISSIONSTRING_1893";
-		values[] = {10,15,20,25,30,40,50,75,100};
-		default = 10;
-		texts[] = {"10","15","20","25","30","40","50","75","100"};
+		values[] = {0,10,15,20,25,30,40,50,75,100};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1063","10","15","20","25","30","40","50","75","100"};
 	};
 
 	class d_civ_groupcount {
@@ -1734,6 +1736,20 @@ class Params {
 		values[] = {500, 700, 888, 1000, 2000, 5000};
 		default = 2000;
 		texts[] = {"500 m","700 m","888 m","1000 m","2000 m","5000 m"};
+	};
+	
+	class d_force_steerable_parachutes {
+		title = "$STR_DOM_MISSIONSTRING_FORCE_STEERABLE_PARACHUTES";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
+	
+	class d_paradrop_no_restrictions {
+		title = "$STR_DOM_MISSIONSTRING_PARACHUTES_UNRESTRICTED";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
 	};
 
 	class d_params_dl_14 {

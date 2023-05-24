@@ -94,23 +94,27 @@ if (_with_vehicles) then {
 	private _incoming_vehs = [];
 	if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
     	// "normal" or random which we force to normal
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"];
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
     };
     
     if (d_WithLessArmor == 1) then {
     	// "less"
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
+    	_incoming_vehs = ["jeep_mg", "jeep_mg"];
     };
     
     if (d_WithLessArmor == 4) then {
     	// high
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc", "tracked_apc"];
+    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"];
+    };
+    // preemptive overrides
+    if (d_preemptive_special_event) then {
+    	_incoming_vehs = ["jeep_mg", "tracked_apc"];
     };
 	private _vdir = _spawn_pos getDir _target_center;
     {
     	private _unitlist = [_x, "G"] call d_fnc_getunitlistv;
     	private _newgroup = [independent] call d_fnc_creategroup;
-    	private _rand_pos = [[[_spawn_pos, 30]],["water"]] call BIS_fnc_randomPos;
+    	private _rand_pos = [[[_spawn_pos, 150]],[]] call BIS_fnc_randomPos;
 		private _road_list = _rand_pos nearroads 30;
 		private _spawn_pos_foreach = [];
 		if (!(_road_list isEqualTo [])) then {
@@ -133,17 +137,13 @@ if (_with_vehicles) then {
 };
 
 // calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
-private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt;
+private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt + d_grp_cnt_footpatrol;
 
 // guerrillas should be outnumbered
-_guerrillaGroupCount = round(_targetGroupCount / 5) max 1;
+_guerrillaGroupCount = round(_targetGroupCount / 3) max 1;
 _guerrillaForce = [];
 for "_i" from 0 to _guerrillaGroupCount do {
 	_guerrillaForce pushBack "allmen";
-};
-
-if (d_preemptive_special_event) then {
-	_incoming_vehs = ["jeep_mg", "tracked_apc"];
 };
 
 private _guerrillaBaseSkill = 0.85;
@@ -155,7 +155,7 @@ private _guerrillaBaseSkill = 0.85;
 		_unitlist = ["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup;
 	};
 	private _newgroup = [independent] call d_fnc_creategroup;
-	private _rand_pos = [[[_spawn_pos, 35]],["water"]] call BIS_fnc_randomPos;
+	private _rand_pos = [[[_spawn_pos, 100]],["water"]] call BIS_fnc_randomPos;
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;

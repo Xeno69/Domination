@@ -56,7 +56,9 @@ if (d_with_ranked || {d_database_found}) then {
 	[player, 3] remoteExecCall ["d_fnc_ascfc", 2];
 };
 
-systemChat format [localize "STR_DOM_MISSIONSTRING_161", _disp_name];
+if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
+	systemChat format [localize "STR_DOM_MISSIONSTRING_161", _disp_name];
+};
 sleep 3.123;
 player setVariable ["d_bike_b_mode", _b_mode];
 private _vet = if (_b_mode == 1) then {-1} else {
