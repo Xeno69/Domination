@@ -50,7 +50,7 @@ private _spawn_pos = [];
 
 if (_townNearbyPos isEqualTo []) then {
 	diag_log ["unable to find a nearby town so will choose a random position"];
-	_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+	_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget],["water"]]] call BIS_fnc_randomPos;
 	_townNearbyName = "Unknown";
 } else {
 	_spawn_pos = _townNearbyPos;
@@ -78,7 +78,7 @@ if (_target_center distance2D _spawn_pos > _maximumDistanceFromMaintarget) then 
 	];
 	if ((_midpoint_pos distance2D _target_center) > _maximumDistanceFromMaintarget || {(_midpoint_pos distance2D _target_center) < _minimumDistanceFromMaintarget}) then {
 		// midpoint is too far or too close, give up looking for nearby towns and just choose a random position in the desired range
-		_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+		_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget],["water"]]] call BIS_fnc_randomPos;
 	} else {
 		_spawn_pos = _midpoint_pos;
 	};
@@ -126,7 +126,7 @@ if (d_WithLessArmor == 4) then {
 {
 	private _unitlist = [_x, d_enemy_side_short] call d_fnc_getunitlistm;
 	private _newgroup = [d_side_enemy] call d_fnc_creategroup;
-	private _rand_pos = [[[_spawn_pos, 175]],[]] call BIS_fnc_randomPos;
+	private _rand_pos = [[[_spawn_pos, 175]],["water"]] call BIS_fnc_randomPos;
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true] call d_fnc_makemgroup;
 	{
 		_x setSkill ["courage", 1];

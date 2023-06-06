@@ -37,7 +37,7 @@ private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity
 
 if (_townNearbyPos isEqualTo []) then {
 	diag_log ["choosing a random position to start, unable to find a nearby town location to spawn infantry for guerrilla mission event", d_cur_tgt_name];
-	_townNearbyPos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+	_townNearbyPos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget],["water"]]] call BIS_fnc_randomPos;
 	_townNearbyName = "nearby";
 };
 
@@ -78,7 +78,7 @@ if (_spawn_pos isEqualTo []) then {
 		];
 		if ((_midpoint_pos distance2D _target_center) > _maximumDistanceFromMaintarget || {(_midpoint_pos distance2D _target_center) < _minimumDistanceFromMaintarget}) then {
 			// midpoint is too far or too close, give up looking for nearby towns and just choose a random position in the desired range
-			_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget]]] call BIS_fnc_randomPos;
+			_spawn_pos = [[[_target_center, _maximumDistanceFromMaintarget]],[[_target_center, _minimumDistanceFromMaintarget],["water"]]] call BIS_fnc_randomPos;
 		} else {
 			_spawn_pos = _midpoint_pos;
 		};
@@ -114,7 +114,7 @@ if (_with_vehicles) then {
     {
     	private _unitlist = [_x, "G"] call d_fnc_getunitlistv;
     	private _newgroup = [independent] call d_fnc_creategroup;
-    	private _rand_pos = [[[_spawn_pos, 150]],[]] call BIS_fnc_randomPos;
+    	private _rand_pos = [[[_spawn_pos, 150]],["water"]] call BIS_fnc_randomPos;
 		private _road_list = _rand_pos nearroads 30;
 		private _spawn_pos_foreach = [];
 		if (!(_road_list isEqualTo [])) then {
