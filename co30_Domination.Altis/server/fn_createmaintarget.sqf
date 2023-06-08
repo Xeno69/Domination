@@ -365,6 +365,7 @@ if (!d_preemptive_special_event) then {
 		d_mt_barmhq_ar pushBack _vec;
 	};
 	d_mt_mobile_hq_down = false;
+	publicVariable "d_mt_mobile_hq_down";
 	d_mt_mobile_hq_obj = _vec;
 	
 	if (d_bar_mhq_destroy == 0) then {

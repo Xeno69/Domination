@@ -15,7 +15,8 @@ private _formatstr = "
 	<img size='1.0' image='pics\summ.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1223") + ": %2  
 	<img size='1.0' image='pics\star.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1982") + ": %3  
 	<img size='1.0' image='pics\flag.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1983") + ": %4 / %5  
-	<img size='1.0' image='pics\bomb.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1984") + ": %6 / %7</t>";
+	<img size='1.0' image='pics\bomb.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1984") + ": %6 / %7
+	<img size='1.0' image='pics\bomb.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1984a") + ": %8</t>";
 #else
 private _formatstr = "
 	<t align='center'>
@@ -34,6 +35,8 @@ if (isNil "d_mission_is_now_over") then {
 	d_mission_is_now_over = false;
 };
 
+
+
 while {!d_mission_is_now_over} do {
 	private _disp = uiNamespace getVariable "d_infobar";
 	if (isNil "_disp" || {isNull _disp}) then {
@@ -51,7 +54,8 @@ while {!d_mission_is_now_over} do {
 			d_campscaptured,
 			d_numcamps, 
 			d_num_barracks_objs,
-			d_num_barracks_tt
+			d_num_barracks_tt,
+			["1", "0"] select d_mt_mobile_hq_down
 		];
 #else
 		if (d_player_side == opfor) then {

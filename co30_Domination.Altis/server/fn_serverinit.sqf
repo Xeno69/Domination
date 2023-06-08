@@ -17,7 +17,6 @@ d_mt_spotted = false;
 d_enable_awareness = false;
 d_mt_radio_down = false;
 d_mt_barracks_down = false;
-d_mt_mobile_hq_down = false;
 d_mt_event_resolved = false;
 d_x_mt_event_types = [
 	"PILOT_RESCUE",

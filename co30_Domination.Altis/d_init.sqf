@@ -322,6 +322,9 @@ if (isNil "d_campscaptured_e") then {
 	d_campscaptured_e = 0;
 };
 #endif
+if (isNil "d_mt_mobile_hq_down") then {
+	d_mt_mobile_hq_down = true;
+};
 
 if (isNil "d_currentcamps") then {
 	d_currentcamps = [];
