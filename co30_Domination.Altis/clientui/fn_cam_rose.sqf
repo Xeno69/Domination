@@ -38,7 +38,7 @@ private _correctit_fnc = {
 
 private ["_dir", "_x1", "_y1", "_pos"];
 while {!isNil "d_do_end_rose"} do {
-	_dir = getDirVisual BIS_fnc_establishingShot_fakeUAV;
+	_dir = getDirVisual d_cam_rose_target_obj;
 	_x1 = _center_x - (__radius * sin _dir);
 	_y1 = _center_y - (__radius * cos _dir);
 	_pos = [[_x1, _y1], _dir] call _correctit_fnc;

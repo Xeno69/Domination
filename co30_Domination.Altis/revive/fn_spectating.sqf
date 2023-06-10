@@ -176,6 +176,10 @@ if (!xr_pl_no_lifes) then {
 
 xr_meh_draw3d = addMissionEventhandler ["Draw3D", {call xr_fnc_spectdraw3d}];
 
+d_cam_rose_target_obj = xr_spectcam;
+d_do_end_rose = false;
+0 spawn d_fnc_cam_rose;
+
 xr_x_updatelb = false;
 xr_spect_timer = time + 10;
 xr_x_withresp = _withresp;
@@ -186,6 +190,7 @@ xr_x_loc_922 = localize "STR_DOM_MISSIONSTRING_922";
 		call xr_fnc_spect_oneframe;
 	} else {
 		["dom_xr_spect_of"] call d_fnc_eachframeremove;
+		d_do_end_rose = nil;
 		removeMissionEventHandler ["Draw3D", xr_meh_draw3d];
 		d_x_loop_end = true;
 		closeDialog 0;

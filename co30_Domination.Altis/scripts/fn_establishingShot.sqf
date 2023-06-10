@@ -228,6 +228,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 		params ["_pos", "_alt", "_rad", "_ang", "_dir"];
 
 		d_do_end_rose = false;
+		d_cam_rose_target_obj = BIS_fnc_establishingShot_fakeUAV;
 		0 spawn d_fnc_cam_rose;
 		while {isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}} do {
 			_ang = _ang - 0.5;

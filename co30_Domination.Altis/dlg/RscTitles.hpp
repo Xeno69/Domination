@@ -531,7 +531,7 @@ class d_fpsresource {
 			lineSpacing=0.95;
 			text="Server FPS:";
 			x = "SafeZoneX + 0.001";
-			y = "SafeZoneY + SafeZoneH - 0.057";
+			y = "SafeZoneY + SafeZoneH - 0.021";
 			w=0.3;h=0.1;
 			colorBackground[]={0,0,0,0};
 			colorText[]={1,1,1,0.45};
@@ -540,22 +540,22 @@ class d_fpsresource {
 		};
 		class client_cap: server_cap {
 			text="Client FPS:";
-			y = "SafeZoneY + SafeZoneH - 0.03";
+			x = "SafeZoneX + 0.12";
 		};
 		class server_out: server_cap {
 			idc = 50;
 			text="";
-			x = "SafeZoneX + 0.1";
+			x = "SafeZoneX + 0.07";
 		};
 		class client_out: client_cap {
 			idc = 51;
 			text="";
-			x = "SafeZoneX + 0.1";
+			x = "SafeZoneX + 0.187";
 		};
 		class csys_time: client_out {
 			idc = 52;
 			text="";
-			x = "SafeZoneX + 0.2";
+			x = "SafeZoneX + 0.24";
 		};
 	};
 };
