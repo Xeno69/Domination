@@ -19,6 +19,7 @@ params ["_pl", "_reason", ["_extra", -1]];
 // 12 - points for another player spawning at squad leader
 // 13 - points for transporting another player in a vehicle
 // 14 - points for bringing a wreck to the wreck repair point
+// 15 - points subtracted when killing an animal, see fn_killedanimal.sqf
 
 private _score = if (_extra == -1) then {
 	d_addscore_a # (_reason - 1)

@@ -15600,6 +15600,66 @@
 <Chinese>Best main target players</Chinese>
 <French>Best main target players</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2109">
+<English>points subtracted because of killing a %1</English>
+<Spanish>points subtracted because of killing a %1</Spanish>
+<Portuguese>points subtracted because of killing a %1</Portuguese>
+<Korean>points subtracted because of killing a %1</Korean>
+<Japanese>points subtracted because of killing a %1</Japanese>
+<Original>points subtracted because of killing a %1</Original>
+<Russian>points subtracted because of killing a %1</Russian>
+<Chinesesimp>points subtracted because of killing a %1</Chinesesimp>
+<Chinese>points subtracted because of killing a %1</Chinese>
+<French>points subtracted because of killing a %1</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2110">
+<English>hen/cock</English>
+<Spanish>hen/cock</Spanish>
+<Portuguese>hen/cock</Portuguese>
+<Korean>hen/cock</Korean>
+<Japanese>hen/cock</Japanese>
+<Original>hen/cock</Original>
+<Russian>hen/cock</Russian>
+<Chinesesimp>hen/cock</Chinesesimp>
+<Chinese>hen/cock</Chinese>
+<French>hen/cock</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2111">
+<English>goat/sheep</English>
+<Spanish>goat/sheep</Spanish>
+<Portuguese>goat/sheep</Portuguese>
+<Korean>goat/sheep</Korean>
+<Japanese>goat/sheep</Japanese>
+<Original>goat/sheep</Original>
+<Russian>goat/sheep</Russian>
+<Chinesesimp>goat/sheep</Chinesesimp>
+<Chinese>goat/sheep</Chinese>
+<French>goat/sheep</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2112">
+<English>dog</English>
+<Spanish>dog</Spanish>
+<Portuguese>dog</Portuguese>
+<Korean>dog</Korean>
+<Japanese>dog</Japanese>
+<Original>dog</Original>
+<Russian>dog</Russian>
+<Chinesesimp>dog</Chinesesimp>
+<Chinese>dog</Chinese>
+<French>dog</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_2113">
+<English>snake</English>
+<Spanish>snake</Spanish>
+<Portuguese>snake</Portuguese>
+<Korean>snake</Korean>
+<Japanese>snake</Japanese>
+<Original>snake</Original>
+<Russian>snake</Russian>
+<Chinesesimp>snake</Chinesesimp>
+<Chinese>snake</Chinese>
+<French>snake</French>
+</Key>
 </Container>
 </Package>
 </Project>

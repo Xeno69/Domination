@@ -691,6 +691,7 @@ class cfgFunctions {
 			addc(ad_c_ar);
 			addc(sendbestplayers);
 			addc(selectleader);
+			addc(killedanimal);
 		};
 		class Dom_PrePostInit {
 			file = "init";

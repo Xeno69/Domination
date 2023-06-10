@@ -19,6 +19,7 @@ params ["_reason", "_score"];
 // 11 - points for another player healing at a player mash
 // 12 - points for another player spawning at squad leader
 // 13 - points for transporting another player in a vehicle
+// 15 - points subtracted when killing an animal, see fn_killedanimal.sqf
 
 private _txt = call {
 	if (_reason == 1) exitWith {
@@ -62,6 +63,9 @@ private _txt = call {
 	};
 	if (_reason == 14) exitWith {
 		localize "STR_DOM_MISSIONSTRING_1856"
+	};
+	if (_reason == 15) exitWith {
+		format [localize "STR_DOM_MISSIONSTRING_2109", localize (_this # 2)]
 	};
 	""
 };

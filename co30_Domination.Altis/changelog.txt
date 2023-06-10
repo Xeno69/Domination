@@ -6,6 +6,7 @@
 - Added: New param d_sm_mt_protectionAI (Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS) in lobby, default off). Adds side mission and/or main target protection for player call CAS AI
 - Added: When a main target is done the top 10 players scores reached during that time are now shown
 - Added: Cam rose to spectating dialog
+- Added: Points get subtracted for killing animals (dogs -10, goats/sheep -5, hens/cocks -3, snakes -1)
 - Changed: AI Advanced - enhanced awareness is now enabled by default, range 650m (param d_ai_awareness_rad, you have to change it in the database manually if you already use one)
 - Changed: GBU24 bombs (FIR) are removed from pylon loadout (too overpowered)
 - Changed: If the admin ends a main target enemy main target AI will be also be deleted
