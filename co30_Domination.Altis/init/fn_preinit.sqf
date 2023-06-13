@@ -1534,7 +1534,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 				"RHS_Su25SM_vvsc"
 			};
 			if (d_vn) exitWith {
-				"vn_o_air_mig19_cas"
+				"vn_o_air_mig21_cas"
 			};
 			"O_Plane_CAS_02_F"
 		};
@@ -2024,7 +2024,7 @@ d_sabotage_E = [["O_SFIA_exp_lxWS"]];
 					["uns_Mig21_CAS", "uns_Mig21_CBU", "uns_Mig21_HCAS"]
 				};
 				if (d_vn) exitWith {
-					[]
+					["vn_o_air_mig21_cas", "vn_o_air_mig19_cas"]
 				};
 				if (d_pracs) exitWith {
 					["PRACS_SLA_MiG27","PRACS_SLA_Su25","PRACS_SLA_SU22"]

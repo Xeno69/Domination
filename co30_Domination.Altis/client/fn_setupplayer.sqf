@@ -1072,7 +1072,7 @@ if (d_arsenal_mod == 0) then {
 		d_arsenal_mod_prestrings pushBackUnique "uns_";
 	};
 	if (d_vn) then {
-		d_arsenal_mod_prestrings append ["weapons_f_vietnam_c", "characters_f_vietnam_c", "weapons_f_vietnam_02_c", "characters_f_vietnam_02_c"];
+		d_arsenal_mod_prestrings append ["weapons_f_vietnam_c", "characters_f_vietnam_c", "weapons_f_vietnam_02_c", "characters_f_vietnam_02_c","weapons_f_vietnam_03_c","characters_f_vietnam_03_c","weapons_f_vietnam_04_c","characters_f_vietnam_04_c"];
 	};
 	if (d_csla) then {
 		d_arsenal_mod_prestrings append ["CSLA_", "US85_"];
