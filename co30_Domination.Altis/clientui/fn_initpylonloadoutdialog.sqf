@@ -135,6 +135,7 @@ for "_i" from 0 to (count _pylons - 1) do {
 		//__TRACE_1("","toLowerANSI _x")
 		if !(toLowerANSI _x in _excludemags) then {
 			private _doadd = call {
+				if (d_pylon_noclust == 0 && {"cluster" in (toLowerANSI _x)}) exitWith {false};
 				private _sub = [[], getArray (configFile>>"CfgAmmo">>getText (configFile>>"CfgMagazines">>_x>>"ammo")>>"submunitionAmmo")] select (d_pylon_noclust == 0);
 				//__TRACE_1("","_sub")
 				if (_sub isNotEqualTo []) exitWith {false};

@@ -12,6 +12,7 @@
 - Changed: If the admin ends a main target enemy main target AI will be also be deleted
 - Changed: Status bar now also shows if enemy vehicle MHQ is destroyed
 - Changed: Server/Client FPS and system time ui adjustments
+- Changed: Check pylon magazine name for "cluster" bomb type if d_pylon_noclust is enabled
 - Fixed: Side mission protection disabled for convoy side missions
 - Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point
 - Fixed: Airdrop sometimes didn't drop ammo, by longtimegamer
