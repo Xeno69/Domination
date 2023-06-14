@@ -3,7 +3,9 @@
 
 //awareness loop - iterate through d_cur_tgt_enemy_units[] and run the awareness script for each unit
 while {sleep 0.1; true} do {
+#ifdef __DEBUG__
 	private _start_time = time;
+#endif
 	private _count = 0;
 	if (d_mt_spotted || {d_enable_awareness}) then {
 		if (d_mt_spotted && {!d_enable_awareness}) then {
@@ -18,7 +20,9 @@ while {sleep 0.1; true} do {
 				_count = _count + 1;
 			};
 		} forEach d_cur_tgt_enemy_units;
-		//diag_log [format ["enemy awareness loop time: %1 and total units process: %2", time - _start_time, _count]];
+#ifdef __DEBUG__
+		diag_log [format ["enemy awareness loop time: %1 and total units process: %2", time - _start_time, _count]];
+#endif
 	} else {
 		sleep 13;
 	};
