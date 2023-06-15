@@ -7,7 +7,7 @@ params ["_vec", "_grp", ["_nocargo", false]];
 _grp createVehicleCrew _vec;
 private _crew = crew _vec;
 if (count _crew > 0) then {
-	private _subskill = if (diag_fps > 29) then {
+	private _subskill = if (diag_fps > 25) then {
 		0.1 + (random 0.1)
 	} else {
 		0.12 + (random 0.04)
