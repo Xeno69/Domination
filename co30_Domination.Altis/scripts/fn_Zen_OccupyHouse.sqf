@@ -229,7 +229,7 @@ __TRACE("start of forEach _buildingPosArray")
 			};
 		};
 		if (!_skip_position && {_isRequireRoofOverhead && {!((_housePosBeforeEyeHeight) call d_fnc_iscoveredposition)}}) then {
-			diag_log ["position skipped, position must be covered with building overhead"];
+			//diag_log ["position skipped, position must be covered with building overhead"];
 			_skip_position = true;
 		};
 		if (!_skip_position && {!isNil "_theBuilding"}) then {
@@ -511,7 +511,7 @@ __TRACE("start of forEach _buildingPosArray")
 			};//end for
 			//diag_log ["could not find a suitable angle, skipping this position"];
 		} else {
-			diag_log [format ["position was skipped and %1 positions remain", count _posArray]];
+			//diag_log [format ["position was skipped and %1 positions remain", count _posArray]];
 		};//end if (_skip_position)
 	};//end while
 } forEach _buildingPosArray;
@@ -519,7 +519,7 @@ __TRACE("start of forEach _buildingPosArray")
 __TRACE("end of forEach _buildingPosArray")
 
 if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
-	diag_log [format ["only %1 units out of %2 total units were moved", _unitIndex, count _units]];
+	//diag_log [format ["only %1 units out of %2 total units were moved", _unitIndex, count _units]];
 	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
 		private _unit = _units select _k;
 		//private _targetPos = selectRandom _positionsUsed;
@@ -532,7 +532,7 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 		private _targetPosFuzzyUnit = getPos _civtemp;
 		deleteVehicle _civtemp;
 		deleteGroup _civgrptemp;
-		diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
+		//diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
 		_unit setVehiclePosition [[_targetPosFuzzyUnit # 0, _targetPosFuzzyUnit # 1], [], 1.7, "NONE"];
 		sleep 0.1;
 		if (getPos _unit # 0 < 100 && getPos _unit # 1 < 100) then {
