@@ -14,12 +14,13 @@ while {sleep 0.1; true} do {
 		};
 		{
 			if (!alive _x) then {
-				d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _x);
+				d_cur_tgt_enemy_units set [_forEachIndex, objNull];
 			} else {
 				[_x, [d_side_player], d_ai_awareness_rad, d_ai_pursue_rad, d_ai_aggressiveshoot, d_ai_quickammo] call d_fnc_hallyg_dlegion_Snipe_awareness_global;
 				_count = _count + 1;
 			};
 		} forEach d_cur_tgt_enemy_units;
+		d_cur_tgt_enemy_units = d_cur_tgt_enemy_units - [objNull];
 #ifdef __DEBUG__
 		diag_log [format ["enemy awareness loop time: %1 and total units process: %2", time - _start_time, _count]];
 #endif

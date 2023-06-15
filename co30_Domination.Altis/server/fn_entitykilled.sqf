@@ -71,7 +71,7 @@ if !(_obj isKindOf "CAManBase") then {
 private _quit = false;
 if (_ar # 3 == 1) then {
 	_obj setVariable ["d_dead", true];
-	if (!d_c_t_e_u_b && {_obj isKindOf "CAManBase"}) then {
+	if (_obj isKindOf "CAManBase") then {
 		_quit = true;
 	};
 	[_obj, _quit] spawn d_fnc_onerespukilled;
@@ -161,12 +161,6 @@ if (d_with_MainTargetEvents != 0 && {_ar # 19 == 1}) then {
 		d_priority_targets deleteAt (d_priority_targets find _obj);
 		publicVariable "d_priority_targets";
 		[_obj, 19, 0] call d_fnc_setekmode;
-	};
-};
-
-if (d_c_t_e_u_b) then {
-	if (_obj in d_cur_tgt_enemy_units) then {
-		d_cur_tgt_enemy_units deleteAt (d_cur_tgt_enemy_units find _obj);
 	};
 };
 

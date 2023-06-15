@@ -14,6 +14,7 @@
 - Changed: Status bar now also shows if enemy vehicle MHQ is destroyed
 - Changed: Server/Client FPS and system time ui adjustments
 - Changed: Check pylon magazine name for "cluster" bomb type if d_pylon_noclust is enabled
+- Changed: Barracks now also working when d_ai_awareness_rad, d_snp_aware, d_ai_pursue_rad and /or d_ai_aggressiveshoot is enabled
 - Fixed: Side mission protection disabled for convoy side missions
 - Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point
 - Fixed: Airdrop sometimes didn't drop ammo, by longtimegamer
