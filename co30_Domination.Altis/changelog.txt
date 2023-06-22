@@ -8,7 +8,7 @@
 - Added: Cam rose to spectating dialog
 - Added: Points get subtracted for killing animals (dogs -10, goats/sheep -5, hens/cocks -3, snakes -1)
 - Added: New vehicles from the S.O.G. Prairie Fire 1.3 update (including missing weapons from previous updates)
-- Added: Guerrilla faction configurable by server admin (Community Factions Project, Asian Factions for CUP)
+- Added: Guerrilla faction configurable by server admin (Community Factions Project, Asian Factions for CUP), by longtimegamer
 - Changed: AI Advanced - enhanced awareness is now enabled by default, range 650m (param d_ai_awareness_rad, you have to change it in the database manually if you already use one)
 - Changed: GBU24 bombs (FIR) are removed from pylon loadout (too overpowered)
 - Changed: If the admin ends a main target enemy main target AI will be also be deleted
