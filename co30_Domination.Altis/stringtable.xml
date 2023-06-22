@@ -15288,6 +15288,18 @@
 <Chinese>MODS REQUIRED - Enemy factions (experimental)</Chinese>
 <French>MODS REQUIRED - Enemy factions (experimental)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_GUERRILLA_FACTIONS">
+<English>MODS REQUIRED - Guerrilla factions (experimental)</English>
+<Spanish>MODS REQUIRED - Guerrilla factions (experimental)</Spanish>
+<Portuguese>MODS REQUIRED - Guerrilla factions (experimental)</Portuguese>
+<Korean>MODS REQUIRED - Guerrilla factions (experimental)</Korean>
+<Japanese>MODS REQUIRED - Guerrilla factions (experimental)</Japanese>
+<Original>MODS REQUIRED - Guerrilla factions (experimental)</Original>
+<Russian>MODS REQUIRED - Guerrilla factions (experimental)</Russian>
+<Chinesesimp>MODS REQUIRED - Guerrilla factions (experimental)</Chinesesimp>
+<Chinese>MODS REQUIRED - Guerrilla factions (experimental)</Chinese>
+<French>MODS REQUIRED - Guerrilla factions (experimental)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_TALIBAN">
 <English>Taliban (Community Factions Project)</English>
 <Spanish>Taliban (Community Factions Project)</Spanish>
@@ -15373,16 +15385,16 @@
 <French>Russian Ground Forces Winter (Russian Winter Retextures)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_AFRICAN_DESERT_CIVILIAN_MILITIA">
-<English>African Desert Civilian Militia</English>
-<Spanish>African Desert Civilian Militia</Spanish>
-<Portuguese>African Desert Civilian Militia</Portuguese>
-<Korean>African Desert Civilian Militia</Korean>
-<Japanese>African Desert Civilian Militia</Japanese>
-<Original>African Desert Civilian Militia</Original>
-<Russian>African Desert Civilian Militia</Russian>
-<Chinesesimp>African Desert Civilian Militia</Chinesesimp>
-<Chinese>African Desert Civilian Militia</Chinese>
-<French>African Desert Civilian Militia</French>
+<English>African Desert Civilian Militia (Community Factions Project)</English>
+<Spanish>African Desert Civilian Militia (Community Factions Project)</Spanish>
+<Portuguese>African Desert Civilian Militia (Community Factions Project)</Portuguese>
+<Korean>African Desert Civilian Militia (Community Factions Project)</Korean>
+<Japanese>African Desert Civilian Militia (Community Factions Project)</Japanese>
+<Original>African Desert Civilian Militia (Community Factions Project)</Original>
+<Russian>African Desert Civilian Militia (Community Factions Project)</Russian>
+<Chinesesimp>African Desert Civilian Militia (Community Factions Project)</Chinesesimp>
+<Chinese>African Desert Civilian Militia (Community Factions Project)</Chinese>
+<French>African Desert Civilian Militia (Community Factions Project)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_ION_URBAN">
 <English>ION Services (Urban)</English>
@@ -15397,16 +15409,76 @@
 <French>ION Services (Urban)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_KARZEGHISTAN_ROYAL_GUARD">
-<English>Karzeghistan Royal Guard</English>
-<Spanish>Karzeghistan Royal Guard</Spanish>
-<Portuguese>Karzeghistan Royal Guard</Portuguese>
-<Korean>Karzeghistan Royal Guard</Korean>
-<Japanese>Karzeghistan Royal Guard</Japanese>
-<Original>Karzeghistan Royal Guard</Original>
-<Russian>Karzeghistan Royal Guard</Russian>
-<Chinesesimp>Karzeghistan Royal Guard</Chinesesimp>
-<Chinese>Karzeghistan Royal Guard</Chinese>
-<French>Karzeghistan Royal Guard</French>
+<English>Karzeghistan Royal Guard (Community Factions Project)</English>
+<Spanish>Karzeghistan Royal Guard (Community Factions Project)</Spanish>
+<Portuguese>Karzeghistan Royal Guard (Community Factions Project)</Portuguese>
+<Korean>Karzeghistan Royal Guard (Community Factions Project)</Korean>
+<Japanese>Karzeghistan Royal Guard (Community Factions Project)</Japanese>
+<Original>Karzeghistan Royal Guard (Community Factions Project)</Original>
+<Russian>Karzeghistan Royal Guard (Community Factions Project)</Russian>
+<Chinesesimp>Karzeghistan Royal Guard (Community Factions Project)</Chinesesimp>
+<Chinese>Karzeghistan Royal Guard (Community Factions Project)</Chinese>
+<French>Karzeghistan Royal Guard (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_AAF">
+<English>Altis Armed Forces (Community Factions Project)</English>
+<Spanish>Altis Armed Forces (Community Factions Project)</Spanish>
+<Portuguese>Altis Armed Forces (Community Factions Project)</Portuguese>
+<Korean>Altis Armed Forces (Community Factions Project)</Korean>
+<Japanese>Altis Armed Forces (Community Factions Project)</Japanese>
+<Original>Altis Armed Forces (Community Factions Project)</Original>
+<Russian>Altis Armed Forces (Community Factions Project)</Russian>
+<Chinesesimp>Altis Armed Forces (Community Factions Project)</Chinesesimp>
+<Chinese>Altis Armed Forces (Community Factions Project)</Chinese>
+<French>Altis Armed Forces (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_AFGHANISTAN_ARMY">
+<English>Afghanistan Army (Community Factions Project)</English>
+<Spanish>Afghanistan Army (Community Factions Project)</Spanish>
+<Portuguese>Afghanistan Army (Community Factions Project)</Portuguese>
+<Korean>Afghanistan Army (Community Factions Project)</Korean>
+<Japanese>Afghanistan Army (Community Factions Project)</Japanese>
+<Original>Afghanistan Army (Community Factions Project)</Original>
+<Russian>Afghanistan Army (Community Factions Project)</Russian>
+<Chinesesimp>Afghanistan Army (Community Factions Project)</Chinesesimp>
+<Chinese>Afghanistan Army (Community Factions Project)</Chinese>
+<French>Afghanistan Army (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_SUDAN_PDF">
+<English>South Sudan People's Defense Force (Community Factions Project)</English>
+<Spanish>South Sudan People's Defense Force (Community Factions Project)</Spanish>
+<Portuguese>South Sudan People's Defense Force (Community Factions Project)</Portuguese>
+<Korean>South Sudan People's Defense Force (Community Factions Project)</Korean>
+<Japanese>South Sudan People's Defense Force (Community Factions Project)</Japanese>
+<Original>South Sudan People's Defense Force (Community Factions Project)</Original>
+<Russian>South Sudan People's Defense Force (Community Factions Project)</Russian>
+<Chinesesimp>South Sudan People's Defense Force (Community Factions Project)</Chinesesimp>
+<Chinese>South Sudan People's Defense Force (Community Factions Project)</Chinese>
+<French>South Sudan People's Defense Force (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_SUDAN_REV_FRONT">
+<English>Sudan Revolutionary Front (Community Factions Project)</English>
+<Spanish>Sudan Revolutionary Front (Community Factions Project)</Spanish>
+<Portuguese>Sudan Revolutionary Front (Community Factions Project)</Portuguese>
+<Korean>Sudan Revolutionary Front (Community Factions Project)</Korean>
+<Japanese>Sudan Revolutionary Front (Community Factions Project)</Japanese>
+<Original>Sudan Revolutionary Front (Community Factions Project)</Original>
+<Russian>Sudan Revolutionary Front (Community Factions Project)</Russian>
+<Chinesesimp>Sudan Revolutionary Front (Community Factions Project)</Chinesesimp>
+<Chinese>Sudan Revolutionary Front (Community Factions Project)</Chinese>
+<French>Sudan Revolutionary Front (Community Factions Project)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_EASTASIA">
+<English>East Asia INDFOR (Asian Factions for CUP)</English>
+<Spanish>East Asia INDFOR (Asian Factions for CUP)</Spanish>
+<Portuguese>East Asia INDFOR (Asian Factions for CUP)</Portuguese>
+<Korean>East Asia INDFOR (Asian Factions for CUP)</Korean>
+<Japanese>East Asia INDFOR (Asian Factions for CUP)</Japanese>
+<Original>East Asia INDFOR (Asian Factions for CUP)</Original>
+<Russian>East Asia INDFOR (Asian Factions for CUP)</Russian>
+<Chinesesimp>East Asia INDFOR (Asian Factions for CUP)</Chinesesimp>
+<Chinese>East Asia INDFOR (Asian Factions for CUP)</Chinese>
+<French>East Asia INDFOR (Asian Factions for CUP)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN_MILITARY">
 <English>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>

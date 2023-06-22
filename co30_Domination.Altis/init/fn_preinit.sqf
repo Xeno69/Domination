@@ -3569,7 +3569,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 2: {
 			d_veh_a_E = [
@@ -3582,7 +3581,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 3: {
 			d_veh_a_E = [
@@ -3594,7 +3592,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["East","CFP_O_CFRebels","SpecOps","cfp_o_cfrebels_specops_ex_military_fireteam"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["East","CFP_O_CFRebels","SpecOps","o_cfpocfrebels_specops_sniper_team"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 4: {
 			d_veh_a_E = [
@@ -3607,7 +3604,6 @@ if (d_enemy_factions > 0) then {
 				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_hq_squad"] call d_fnc_GetConfigGroup
 			];
 			//d_sniper_E = // no sniper class
-			d_faction_independent_array = [["WEST","CFP_B_IQARMY","Infantry","cfp_b_grp_ia_inf_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 5: {
 			d_veh_a_E = [
@@ -3621,7 +3617,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_specops_paratrooper_squad"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 6: {
 			d_veh_a_E = [
@@ -3637,7 +3632,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","CFP_O_RUARMY_DES","SpecOps","cfp_o_ruarmy_specops_spetsnaz_team_des"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_sniper_team_emr_des"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
 		};
 		case 7: {
 			d_veh_a_E = [
@@ -3651,7 +3645,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["Indep","IND_F","Infantry","HAF_InfSquad"] call d_fnc_GetConfigGroup];
 		};
 		case 8: {
 			// African Desert Civilian Militia (ADG)
@@ -3666,7 +3659,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_RIF_Squad"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_MK_Sentry"] call d_fnc_GetConfigGroup];
-			d_faction_independent_array = [["WEST","UK3CB_ADG_I","Infantry","UK3CB_ADG_I_AR_ISL_Squad"] call d_fnc_GetConfigGroup];
 		};
 		case 9: {
 			// ION Urban
@@ -3682,7 +3674,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["EAST","UK3CB_ION_O_Urban","SpecOps","UK3CB_ION_O_Urban_DEM_SpecTeam"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MK_Sentry"] call d_fnc_GetConfigGroup];
-			//d_faction_independent_array = [["WEST","UK3CB_ADG_I","Infantry","UK3CB_ADG_I_AR_ISL_Squad"] call d_fnc_GetConfigGroup];
 		};
 		case 10: {
 			// Karzeghistan Royal Guard
@@ -3701,11 +3692,28 @@ if (d_enemy_factions > 0) then {
 				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_SniperTeam"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_KRG_O","SpecOps","UK3CB_KRG_O_SF_SniperTeam"] call d_fnc_GetConfigGroup
 			];
-			//d_faction_independent_array = [["WEST","UK3CB_ADG_I","Infantry","UK3CB_ADG_I_AR_ISL_Squad"] call d_fnc_GetConfigGroup];
 		};
 	};
 	
 };
 
+d_faction_independent_array = [];
 
+// support guerrilla overrides with server settings (guerrilla factions)
+if (d_guerrilla_factions > 0) then {
+	switch (d_guerrilla_factions) do {
+		case 1: {
+			d_faction_independent_array = [["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 2: {
+			d_faction_independent_array = [["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 3: {
+			d_faction_independent_array = [["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 4: {
+			d_faction_independent_array = [["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup];
+		};
+	};
+};
 diag_log [diag_frameno, diag_ticktime, time, "Dom fn_preinit.sqf processed"];
