@@ -14518,16 +14518,16 @@
 <French>Deploy with camo net</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2045">
-<English>Distance traveled, in meters:</English>
-<Spanish>Distance traveled, in meters:</Spanish>
-<Portuguese>Distance traveled, in meters:</Portuguese>
-<Korean>이동거리,미터 단위(m):</Korean>
-<Japanese>移動距離 (m):</Japanese>
-<Original>Distance traveled, in meters:</Original>
-<Russian>Пройденное расстояние, в метрах:</Russian>
-<Chinesesimp>行驶距离，以米为单位：</Chinesesimp>
-<Chinese>行駛距離，以米為組織：</Chinese>
-<French>Distance traveled, in meters:</French>
+<English>Distance traveled, in kilometer:</English>
+<Spanish>Distance traveled, in kilometer:</Spanish>
+<Portuguese>Distance traveled, in kilometer:</Portuguese>
+<Korean>이동거리,미터 단위(km):</Korean>
+<Japanese>移動距離 (km):</Japanese>
+<Original>Distance traveled, in kilometer:</Original>
+<Russian>Distance traveled, in kilometer:</Russian>
+<Chinesesimp>Distance traveled, in kilometer：</Chinesesimp>
+<Chinese>Distance traveled, in kilometer：</Chinese>
+<French>Distance traveled, in kilometer:</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2046">
 <English>By foot:</English>

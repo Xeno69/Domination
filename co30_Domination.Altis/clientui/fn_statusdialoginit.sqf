@@ -72,6 +72,11 @@ if (!d_database_found) then {
 	(_disp displayCtrl 6004) ctrlSetText str(round (_p_distar # 1));
 	(_disp displayCtrl 6006) ctrlSetText str(round (_p_distar # 2));
 	(_disp displayCtrl 6008) ctrlSetText str(round (_p_distar # 3));
+	
+	(_disp displayCtrl 6002) ctrlSetText str(((_p_distar # 0)/1000) toFixed 2);
+	(_disp displayCtrl 6004) ctrlSetText str(((_p_distar # 1)/1000) toFixed 2);
+	(_disp displayCtrl 6006) ctrlSetText str(((_p_distar # 2)/1000) toFixed 2);
+	(_disp displayCtrl 6008) ctrlSetText str(((_p_distar # 3)/1000) toFixed 2);
 };
 
 private _tgt_ar = [];
