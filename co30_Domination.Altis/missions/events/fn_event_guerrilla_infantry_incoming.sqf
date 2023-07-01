@@ -150,9 +150,8 @@ private _guerrillaBaseSkill = 0.85;
 
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
-	if (random 100 > 50) then {
-		// guerrillas need extra AT
-		_unitlist = ["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup;
+	if !(d_faction_independent_array isEqualTo []) then {
+		_unitlist = selectRandom d_faction_independent_array;
 	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	private _rand_pos = [[[_spawn_pos, 100]],["water"]] call BIS_fnc_randomPos;
@@ -179,7 +178,7 @@ if (d_preemptive_special_event) then {
 // infantry go first
 {
 	// each group moves toward a random waypoint near the target center
-	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
+	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
 	_x setBehaviour "CARELESS";
@@ -195,7 +194,7 @@ sleep 120;
 // vehicles go second
 {
 	// each group moves toward a random waypoint near the target center
-	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.4)]],["water"]] call BIS_fnc_randomPos;
+	_wp_pos = [[[_target_center, (d_cur_target_radius * 0.2)]],["water"]] call BIS_fnc_randomPos;
 	_x setCombatMode "RED";
 	_x setSpeedMode "FULL";
 	_x setBehaviour "CARELESS";
@@ -203,7 +202,7 @@ sleep 120;
 	_wp setWaypointBehaviour "COMBAT";
 	_wp setWaypointSpeed "FULL";
 	_wp setwaypointtype "SAD";
-	_wp setWaypointFormation "STAG COLUMN";
+	_wp setWaypointFormation "VEE";
 } forEach _newgroups_veh;
 
 sleep 2.333;

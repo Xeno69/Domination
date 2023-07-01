@@ -50,9 +50,8 @@ private _guerrillaBaseSkill = 0.85;
 
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
-	if (random 100 > 50) then {
-		// guerrillas need extra AT
-		_unitlist = ["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup;
+	if !(d_faction_independent_array isEqualTo []) then {
+		_unitlist = selectRandom d_faction_independent_array;
 	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	// random position within 125m of target center

@@ -140,8 +140,6 @@ private _placeCivilianCluster = {
 				};
 				if (_distance < 10) then {
 					_unit setUnitPos "DOWN";
-				} else {
-					_unit setUnitPos "MIDDLE";
 				};
 				_unit setVariable ["civ_last_firednear_or_threatened", time];
 			};
