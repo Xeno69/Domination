@@ -537,24 +537,23 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 			private _civtemp = _civgrptemp createUnit ["C_man_1", _targetPosFuzzy, [], 0, "NONE"];
 			if (isNil "_civtemp" || {getPos _civtemp # 0 < 100 || {getPos _civtemp # 1 < 100}}) then {
 				if (isNil "_civtemp") then {
-					diag_log [format ["bad position, could not spawn %1", _attempts]];
+					//diag_log [format ["bad position, could not spawn %1", _attempts]];
 				} else {
-					diag_log [format ["bad position %1 %2", _attempts, getPos _civtemp]];
+					//diag_log [format ["bad position %1 %2", _attempts, getPos _civtemp]];
 					deleteVehicle _civtemp;
 				};
 				deleteGroup _civgrptemp;
 			} else {
-				diag_log ["found a good position"];
 				private _targetPosFuzzyUnit = getPos _civtemp;
 				deleteVehicle _civtemp;
 				deleteGroup _civgrptemp;
-				diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
+				//diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
 				_unit setVehiclePosition [[_targetPosFuzzyUnit # 0, _targetPosFuzzyUnit # 1], [], 1.7, "NONE"];
 				_foundgood = true;
 			};
 		};
 		if (isNil "_civtemp" || {!_foundgood || {getPos _civtemp # 0 < 100 || {getPos _civtemp # 1 < 100 || {side _unit == civilian && {!((_unit) call d_fnc_isinhouse)}}}}}) then {
-			diag_log ["still a bad position, giving up and removing the unit"];
+			diag_log ["still a bad position after 99 attempts, giving up and removing the unit"];
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
 			};

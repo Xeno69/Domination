@@ -140,7 +140,7 @@ private _placeCivilianCluster = {
 				if (_distance < 10 && {_distance > 3}) then {
 					_unit setUnitPos "DOWN";
 				};
-				if (_distance < 3 && {(time - _last_dangerclose_ts) > 3}) then {
+				if (_distance < 3 && {(time - _last_dangerclose_ts) > 1.5}) then {
 					// _firer is close enough to be dangerclose, set the dangerclose ts, _unit should be scared and move away from _firer
 					_unit setVariable ["civ_last_dangerclose", time];
 					_unit forceSpeed -1;
