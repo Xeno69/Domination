@@ -15205,16 +15205,16 @@
 <French>No Data Available Yet</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2094">
-<English>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</English>
-<Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Spanish>
-<Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Portuguese>
-<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Korean>
-<Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Japanese>
-<Original>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Original>
-<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Russian>
+<English>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</English>
+<Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Spanish>
+<Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Portuguese>
+<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Korean>
+<Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Japanese>
+<Original>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Original>
+<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Russian>
 <Chinesesimp>如果没有可用的 SQL 数据库，则将玩家和任务进度保存到任务配置文件命名空间</Chinesesimp>
-<Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Chinese>
-<French>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</French>
+<Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Chinese>
+<French>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2095">
 <English>Use only Inf VD slider to set all VD settings:</English>

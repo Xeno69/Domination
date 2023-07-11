@@ -212,7 +212,7 @@ if (!isNil "d_event_trigger_tanks_guerr") then {
 };
 
 private _all_dead = false;
-while {sleep 1; !d_mt_done; !_all_dead} do {
+while {sleep 1; !d_mt_done && {!_all_dead}} do {
 	private _foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1 ||
 		_newgroups_veh findIf {(units _x) findIf {alive _x} > -1} > -1;
 	_all_dead = !_foundAlive;
@@ -227,6 +227,7 @@ deleteMarker _marker;
 if (d_preemptive_special_event) then {
 	diag_log [format ["quick cleanup of preemptive event: %1", _mt_event_key]];
 } else {
+	diag_log [format ["waiting for cleanup of preemptive event: %1", _mt_event_key]];
 	if (d_ai_persistent_corpses == 0) then {
 		waitUntil {sleep 10; d_mt_done};
 	} else {

@@ -88,7 +88,7 @@ private _guerrillaBaseSkill = 0.85;
 } forEach _guerrillaForce;
 
 private _all_dead = false;
-while {sleep 1; !d_mt_done; !_all_dead} do {
+while {sleep 1; !d_mt_done && {!_all_dead}} do {
 	_foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1;
 	_all_dead = !_foundAlive;
 };
