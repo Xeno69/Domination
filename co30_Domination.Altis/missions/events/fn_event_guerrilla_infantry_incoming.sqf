@@ -211,13 +211,11 @@ if (!isNil "d_event_trigger_tanks_guerr") then {
 	d_event_trigger_tanks_guerr setVariable ["d_event_start", true, true];
 };
 
-while {sleep 1; !d_mt_done} do {
+private _all_dead = false;
+while {sleep 1; !d_mt_done; !_all_dead} do {
 	private _foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1 ||
 		_newgroups_veh findIf {(units _x) findIf {alive _x} > -1} > -1;
-	
-	if (!_foundAlive) exitWith {};
-	
-	sleep 15;
+	_all_dead = !_foundAlive;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
@@ -234,8 +232,9 @@ if (d_preemptive_special_event) then {
 	} else {
 		sleep 120;
 	};
-	diag_log [format ["cleanup of event: %1", _mt_event_key]];
 };
 
 //cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
+diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

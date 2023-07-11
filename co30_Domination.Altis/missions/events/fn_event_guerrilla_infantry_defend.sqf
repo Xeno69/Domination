@@ -87,10 +87,10 @@ private _guerrillaBaseSkill = 0.85;
 		
 } forEach _guerrillaForce;
 
-while {sleep 1; !d_mt_done} do {
-	private _foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1;
-	
-	if (!_foundAlive) exitWith {};
+private _all_dead = false;
+while {sleep 1; !d_mt_done; !_all_dead} do {
+	_foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1;
+	_all_dead = !_foundAlive;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
@@ -98,4 +98,5 @@ publicVariable "d_mt_event_messages_array";
 
 //cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
+diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

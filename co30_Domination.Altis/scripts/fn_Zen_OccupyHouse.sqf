@@ -228,10 +228,11 @@ __TRACE("start of forEach _buildingPosArray")
 				_theBuilding = _bldgs_list select 0;
 			};
 		};
-		if (!_skip_position && {_isRequireRoofOverhead && {!((_housePosBeforeEyeHeight) call d_fnc_iscoveredposition)}}) then {
-			diag_log ["position skipped, position must be covered with building overhead"];
-			_skip_position = true;
-		};
+		// NOTE - next part has problems, disabling for now
+		//if (!_skip_position && {_isRequireRoofOverhead && {!((_housePosBeforeEyeHeight) call d_fnc_iscoveredposition)}}) then {
+		//	diag_log ["position skipped, position must be covered with building overhead"];
+		//	_skip_position = true;
+		//};
 		if (!_skip_position && {!isNil "_theBuilding"}) then {
 			//diag_log [format ["_theBuilding is provided: %1", _theBuilding]];
 			//diag_log [format ["position checking... distance from center: %1 --- %2", (_housePos distance2D _theBuilding), _distanceFromBuildingCenter]];
@@ -487,11 +488,12 @@ __TRACE("start of forEach _buildingPosArray")
 											};
 										};
 										// check if civilian was misplaced and delete if civ unit is not in a house
-										if (side (_units select _unitIndex) == civilian && {!(((_units select _unitIndex)) call d_fnc_isinhouse)}) then {
-											diag_log ["static civ unit is not in a house, deleting the civ unit now"];
-											d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find (_units select _unitIndex));
-											deleteVehicle (_units select _unitIndex);
-										};
+										// NOTE - next part has problems and erroneously deletes the unit, skipping for now
+										//if (side (_units select _unitIndex) == civilian && {!(((_units select _unitIndex)) call d_fnc_isinhouse)}) then {
+										//	diag_log ["static civ unit is not in a house, deleting the civ unit now"];
+										//	d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find (_units select _unitIndex));
+										//	deleteVehicle (_units select _unitIndex);
+										//};
 									};//end if _isDryRun
 									I(_unitIndex)
 									if (_fillEvenly) then {
@@ -522,30 +524,40 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 	diag_log [format ["only %1 units out of %2 total units were moved", _unitIndex, count _units]];
 	for [{_k = _unitIndex}, {(_k < count _units)}, {I(_k)}] do {
 		private _unit = _units select _k;
-		//private _targetPos = selectRandom _positionsUsed;
-		private _targetPos = getPos _theBuilding;
-		private _targetPosFuzzy = [_targetPos, (sizeOf typeOf _theBuilding) / 4] call d_fnc_getfuzzyposition;
-		sleep 0.01;
-		// create an actual unit/group to ensure a non-colliding position, get the unit pos and then delete the unit/group
-		private _civgrptemp = createGroup civilian;
-		private _civtemp = _civgrptemp createUnit ["C_man_1", _targetPosFuzzy, [], 0, "NONE"];
-		private _targetPosFuzzyUnit = getPos _civtemp;
-		deleteVehicle _civtemp;
-		deleteGroup _civgrptemp;
-		diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
-		_unit setVehiclePosition [[_targetPosFuzzyUnit # 0, _targetPosFuzzyUnit # 1], [], 1.7, "NONE"];
-		sleep 0.1;
-		if (getPos _unit # 0 < 100 && getPos _unit # 1 < 100) then {
-			diag_log [format ["error deleted a unit, position is almost on [0,0,0] so must be misplaced %1", getPos _unit]];
+		private _attempts = 0;
+		private _foundgood = false;
+		// try to place unit in a fuzzy location until successful or max attempts reached
+		while {_attempts < 99 && {!_foundgood}} do {
+			_attempts = _attempts + 1;
+			private _targetPos = getPos _theBuilding;
+			private _targetPosFuzzy = [_targetPos, (sizeOf typeOf _theBuilding) / 4] call d_fnc_getfuzzyposition;
+			sleep 0.01;
+			// create an actual unit/group to ensure a non-colliding position, get the unit pos and then delete the unit/group
+			private _civgrptemp = createGroup civilian;
+			private _civtemp = _civgrptemp createUnit ["C_man_1", _targetPosFuzzy, [], 0, "NONE"];
+			if (isNil "_civtemp" || {getPos _civtemp # 0 < 100 || {getPos _civtemp # 1 < 100}}) then {
+				if (isNil "_civtemp") then {
+					diag_log [format ["bad position, could not spawn %1", _attempts]];
+				} else {
+					diag_log [format ["bad position %1 %2", _attempts, getPos _civtemp]];
+					deleteVehicle _civtemp;
+				};
+				deleteGroup _civgrptemp;
+			} else {
+				diag_log ["found a good position"];
+				private _targetPosFuzzyUnit = getPos _civtemp;
+				deleteVehicle _civtemp;
+				deleteGroup _civgrptemp;
+				diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
+				_unit setVehiclePosition [[_targetPosFuzzyUnit # 0, _targetPosFuzzyUnit # 1], [], 1.7, "NONE"];
+				_foundgood = true;
+			};
+		};
+		if (isNil "_civtemp" || {!_foundgood || {getPos _civtemp # 0 < 100 || {getPos _civtemp # 1 < 100 || {side _unit == civilian && {!((_unit) call d_fnc_isinhouse)}}}}}) then {
+			diag_log ["still a bad position, giving up and removing the unit"];
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
-				diag_log ["deleted unit was a civilian at [0,0,0], removed from d_cur_tgt_civ_units"];
 			};
-			deleteVehicle _unit;
-		};
-		if (side _unit == civilian && {!((_unit) call d_fnc_isinhouse)}) then {
-			d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
-			diag_log ["deleted unit was a civilian and isinhouse was false, removed from d_cur_tgt_civ_units"];
 			deleteVehicle _unit;
 		};
 	};

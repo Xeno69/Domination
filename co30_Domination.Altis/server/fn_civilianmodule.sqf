@@ -126,20 +126,33 @@ private _placeCivilianCluster = {
 	for "_i" from 0 to _unit_count do {
 		_civAgent = createAgent [selectRandomWeighted d_civArray_current, [0,0,0], [], 0, "NONE"];
 		if (random 2 <= 1) then {
-			if (random 2 <= 1) then {
-				[_civAgent, "SIT_LOW"] call BIS_fnc_ambientAnim;
-			} else {
-				_civAgent setUnitPos "MIDDLE";
-			};
+			_civAgent setUnitPos "MIDDLE";
 		};
+		_civAgent disableAI "FSM";
+        _civAgent setBehaviour "CARELESS";
 		_civAgent addEventHandler ["FiredNear", {
 			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
+			private _last_dangerclose_ts = (agent teamMember _unit) getVariable ["civ_last_dangerclose", 0];
 			if (_distance < 30) then {
-				if (((animationState _unit) find "sit") > 0) then {
-					_unit call BIS_fnc_ambientAnim__terminate;
-				};
-				if (_distance < 10) then {
+				//if (((animationState _unit) find "sit") > 0) then {
+				//	_unit call BIS_fnc_ambientAnim__terminate;
+				//};
+				if (_distance < 10 && {_distance > 3}) then {
 					_unit setUnitPos "DOWN";
+				};
+				if (_distance < 3 && {(time - _last_dangerclose_ts) > 3}) then {
+					// _firer is close enough to be dangerclose, set the dangerclose ts, _unit should be scared and move away from _firer
+					_unit setVariable ["civ_last_dangerclose", time];
+					_unit forceSpeed -1;
+					if (random 2 <= 1) then {
+						// _unit may stay prone or may switch to MIDDLE
+						_unit setUnitPos "MIDDLE";
+					};
+					// calculate a position to retreat
+					private _newx = (getPos _firer # 0) - (getPos _unit # 0);
+					private _newy = (getPos _firer # 1) - (getPos _unit # 1);
+					private _newpos = [(getPos _unit # 0) - (1.5 * _newx), (getPos _unit # 1) - (1.5 * _newy)];
+					_unit moveTo _newpos;
 				};
 				_unit setVariable ["civ_last_firednear_or_threatened", time];
 			};
@@ -192,8 +205,7 @@ private _placeCivilianCluster = {
 
 #ifdef __GROUPDEBUG__
 	{
-		//private _civ_string_tmp = format ["civ%1", str (random 99999)];
-		private _civ_string_tmp = getModelInfo _bldg # 0; // useful for identifying bad buildings to add to the civ blacklist
+		private _civ_string_tmp = format ["civ-%1-%2", getModelInfo _bldg # 0, str (random 99999)]; // useful for identifying bad buildings to add to the civ blacklist
 		[_civ_string_tmp, position _x, "ICON", "ColorBlack", [0.5, 0.5], _civ_string_tmp, 0, "mil_dot"] call d_fnc_CreateMarkerLocal;
 	} forEach _units_civ_cluster;
 	{
