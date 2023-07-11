@@ -61,6 +61,7 @@ private _guerrillaBaseSkill = 0.85;
 		_x setSkill _guerrillaBaseSkill;
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
+		_x addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 		_x_mt_event_ar pushBack _x;
 	} forEach _units;
 	_newgroups_inf pushBack _newgroup;

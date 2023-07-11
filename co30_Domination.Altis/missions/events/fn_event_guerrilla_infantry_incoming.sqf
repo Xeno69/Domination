@@ -161,6 +161,7 @@ private _guerrillaBaseSkill = 0.85;
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
+		_x addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 	} forEach _units;
 	_newgroups_inf pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
