@@ -16,6 +16,10 @@ if (!d_with_ace || {d_with_ace && {d_ACEMedicalR == 0}}) then {
 			};
 		};
 	};
+	if (!(_healed call d_fnc_isplayer) && {_healed != _healer}) then {
+		// a player is healing an AI, to prevent the AI from walking away during heal make the AI execute a gesture (shoulder rifle and lie down)
+		[_healed, "AmovPpneMstpSnonWnonDnon_healed"] remoteExecCall ["d_fnc_unitgesture", 2];
+	};
 	false
 } else {	
 	// Use ACE medical system

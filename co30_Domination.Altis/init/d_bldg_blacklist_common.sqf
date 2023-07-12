@@ -27,4 +27,6 @@
 "ind_pec_01.p3d",
 "ind_pec_02.p3d", // ??? 53 positions
 "i_shed_ind_old_f.p3d", // ?
+"i_garage_v1_dam_f.p3d",
+"slum_house01_f.p3d",
 "scf_01_crystallizer_f.p3d" // ?? 29 positions

@@ -34,4 +34,6 @@ private _acceptable_failures_remaining = 2;
 _is_in_house
 */
 
+// NOTE - neither the old code nor the new insideBuilding function seem to work correctly, might not want to use it
+
 insideBuilding _this == 1
