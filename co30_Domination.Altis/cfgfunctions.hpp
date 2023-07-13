@@ -404,6 +404,7 @@ class cfgFunctions {
 			addc(dgkup);
 			addc(dgkdown);
 			addc(dgefmeh);
+			addc(unitgesture);
 		};
 		class Dom_cba_Scripts {
 			file = "cba";

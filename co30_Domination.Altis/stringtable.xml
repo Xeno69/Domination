@@ -12549,88 +12549,88 @@
 <French>Chernarus civilians (CUP)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_CHERNARUS_WINTER">
-<English>Chernarus winter civilians (CFP) (static only)</English>
-<Spanish>Chernarus winter civilians (CFP) (static only)</Spanish>
-<Portuguese>Chernarus winter civilians (CFP) (static only)</Portuguese>
-<Korean>Chernarus winter civilians (CFP) (static only)</Korean>
-<Japanese>Chernarus winter civilians (CFP) (static only)</Japanese>
-<Original>Chernarus winter civilians (CFP) (static only)</Original>
-<Russian>Chernarus winter civilians (CFP) (static only)</Russian>
-<Chinesesimp>Chernarus winter civilians (CFP) (static only)</Chinesesimp>
-<Chinese>Chernarus winter civilians (CFP) (static only)</Chinese>
-<French>Chernarus winter civilians (CFP) (static only)</French>
+<English>Chernarus winter civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>Chernarus winter civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>Chernarus winter civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>Chernarus winter civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>Chernarus winter civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>Chernarus winter civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>Chernarus winter civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>Chernarus winter civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>Chernarus winter civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>Chernarus winter civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFGHANISTAN">
-<English>Afghanistan civilians (CFP) (static only)</English>
-<Spanish>Afghanistan civilians (CFP) (static only)</Spanish>
-<Portuguese>Afghanistan civilians (CFP) (static only)</Portuguese>
-<Korean>Afghanistan civilians (CFP) (static only)</Korean>
-<Japanese>Afghanistan civilians (CFP) (static only)</Japanese>
-<Original>Afghanistan civilians (CFP) (static only)</Original>
-<Russian>Afghanistan civilians (CFP) (static only)</Russian>
-<Chinesesimp>Afghanistan civilians (CFP) (static only)</Chinesesimp>
-<Chinese>Afghanistan civilians (CFP) (static only)</Chinese>
-<French>Afghanistan civilians (CFP) (static only)</French>
+<English>Afghanistan civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>Afghanistan civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>Afghanistan civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>Afghanistan civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>Afghanistan civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>Afghanistan civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>Afghanistan civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>Afghanistan civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>Afghanistan civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>Afghanistan civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_CHRISTIAN">
-<English>African (Christian) civilians (CFP) (static only)</English>
-<Spanish>African (Christian) civilians (CFP) (static only)</Spanish>
-<Portuguese>African (Christian) civilians (CFP) (static only)</Portuguese>
-<Korean>African (Christian) civilians (CFP) (static only)</Korean>
-<Japanese>African (Christian) civilians (CFP) (static only)</Japanese>
-<Original>African (Christian) civilians (CFP) (static only)</Original>
-<Russian>African (Christian) civilians (CFP) (static only)</Russian>
-<Chinesesimp>African (Christian) civilians (CFP) (static only)</Chinesesimp>
-<Chinese>African (Christian) civilians (CFP) (static only)</Chinese>
-<French>African (Christian) civilians (CFP) (static only)</French>
+<English>African (Christian) civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>African (Christian) civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>African (Christian) civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>African (Christian) civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>African (Christian) civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>African (Christian) civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>African (Christian) civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>African (Christian) civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>African (Christian) civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>African (Christian) civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_AFRICAN_ISLAMIC">
-<English>African (Islamic) civilians (CFP) (static only)</English>
-<Spanish>African (Islamic) civilians (CFP) (static only)</Spanish>
-<Portuguese>African (Islamic) civilians (CFP) (static only)</Portuguese>
-<Korean>African (Islamic) civilians (CFP) (static only)</Korean>
-<Japanese>African (Islamic) civilians (CFP) (static only)</Japanese>
-<Original>African (Islamic) civilians (CFP) (static only)</Original>
-<Russian>African (Islamic) civilians (CFP) (static only)</Russian>
-<Chinesesimp>African (Islamic) civilians (CFP) (static only)</Chinesesimp>
-<Chinese>African (Islamic) civilians (CFP) (static only)</Chinese>
-<French>African (Islamic) civilians (CFP) (static only)</French>
+<English>African (Islamic) civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>African (Islamic) civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>African (Islamic) civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>African (Islamic) civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>African (Islamic) civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>African (Islamic) civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>African (Islamic) civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>African (Islamic) civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>African (Islamic) civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>African (Islamic) civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_ASIAN">
-<English>Asian civilians (CFP) (static only)</English>
-<Spanish>Asian civilians (CFP) (static only)</Spanish>
-<Portuguese>Asian civilians (CFP) (static only)</Portuguese>
-<Korean>Asian civilians (CFP) (static only)</Korean>
-<Japanese>Asian civilians (CFP) (static only)</Japanese>
-<Original>Asian civilians (CFP) (static only)</Original>
-<Russian>Asian civilians (CFP) (static only)</Russian>
-<Chinesesimp>Asian civilians (CFP) (static only)</Chinesesimp>
-<Chinese>Asian civilians (CFP) (static only)</Chinese>
-<French>Asian civilians (CFP) (static only)</French>
+<English>Asian civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>Asian civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>Asian civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>Asian civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>Asian civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>Asian civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>Asian civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>Asian civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>Asian civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>Asian civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MALDEN">
-<English>Malden civilians (CFP) (static only)</English>
-<Spanish>Malden civilians (CFP) (static only)</Spanish>
-<Portuguese>Malden civilians (CFP) (static only)</Portuguese>
-<Korean>Malden civilians (CFP) (static only)</Korean>
-<Japanese>Malden civilians (CFP) (static only)</Japanese>
-<Original>Malden civilians (CFP) (static only)</Original>
-<Russian>Malden civilians (CFP) (static only)</Russian>
-<Chinesesimp>Malden civilians (CFP) (static only)</Chinesesimp>
-<Chinese>Malden civilians (CFP) (static only)</Chinese>
-<French>Malden civilians (CFP) (static only)</French>
+<English>Malden civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>Malden civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>Malden civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>Malden civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>Malden civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>Malden civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>Malden civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>Malden civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>Malden civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>Malden civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_MIDDLE_EAST">
-<English>Middle East civilians (CFP) (static only)</English>
-<Spanish>Middle East civilians (CFP) (static only)</Spanish>
-<Portuguese>Middle East civilians (CFP) (static only)</Portuguese>
-<Korean>Middle East civilians (CFP) (static only)</Korean>
-<Japanese>Middle East civilians (CFP) (static only)</Japanese>
-<Original>Middle East civilians (CFP) (static only)</Original>
-<Russian>Middle East civilians (CFP) (static only)</Russian>
-<Chinesesimp>Middle East civilians (CFP) (static only)</Chinesesimp>
-<Chinese>Middle East civilians (CFP) (static only)</Chinese>
-<French>Middle East civilians (CFP) (static only)</French>
+<English>Middle East civilians (CFP) (static only, walking units not supported)</English>
+<Spanish>Middle East civilians (CFP) (static only, walking units not supported)</Spanish>
+<Portuguese>Middle East civilians (CFP) (static only, walking units not supported)</Portuguese>
+<Korean>Middle East civilians (CFP) (static only, walking units not supported)</Korean>
+<Japanese>Middle East civilians (CFP) (static only, walking units not supported)</Japanese>
+<Original>Middle East civilians (CFP) (static only, walking units not supported)</Original>
+<Russian>Middle East civilians (CFP) (static only, walking units not supported)</Russian>
+<Chinesesimp>Middle East civilians (CFP) (static only, walking units not supported)</Chinesesimp>
+<Chinese>Middle East civilians (CFP) (static only, walking units not supported)</Chinese>
+<French>Middle East civilians (CFP) (static only, walking units not supported)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_CUP_TAKISTAN">
 <English>Takistan civilians (CUP)</English>
@@ -15217,16 +15217,16 @@
 <French>No Data Available Yet</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2094">
-<English>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</English>
-<Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Spanish>
-<Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Portuguese>
-<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Korean>
-<Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Japanese>
-<Original>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Original>
-<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Russian>
+<English>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</English>
+<Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Spanish>
+<Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Portuguese>
+<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Korean>
+<Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Japanese>
+<Original>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Original>
+<Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Russian>
 <Chinesesimp>如果没有可用的 SQL 数据库，则将玩家和任务进度保存到任务配置文件命名空间</Chinesesimp>
-<Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</Chinese>
-<French>Save player and mission progress to missionProfileNamespace if no SQL database is available (ranked)</French>
+<Chinese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Chinese>
+<French>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_2095">
 <English>Use only Inf VD slider to set all VD settings:</English>

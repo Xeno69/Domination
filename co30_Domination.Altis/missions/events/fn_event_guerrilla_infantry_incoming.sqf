@@ -161,6 +161,7 @@ private _guerrillaBaseSkill = 0.85;
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
+		_x addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 	} forEach _units;
 	_newgroups_inf pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
@@ -211,13 +212,11 @@ if (!isNil "d_event_trigger_tanks_guerr") then {
 	d_event_trigger_tanks_guerr setVariable ["d_event_start", true, true];
 };
 
-while {sleep 1; !d_mt_done} do {
+private _all_dead = false;
+while {sleep 1; !d_mt_done && {!_all_dead}} do {
 	private _foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1 ||
 		_newgroups_veh findIf {(units _x) findIf {alive _x} > -1} > -1;
-	
-	if (!_foundAlive) exitWith {};
-	
-	sleep 15;
+	_all_dead = !_foundAlive;
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
@@ -229,13 +228,15 @@ deleteMarker _marker;
 if (d_preemptive_special_event) then {
 	diag_log [format ["quick cleanup of preemptive event: %1", _mt_event_key]];
 } else {
+	diag_log [format ["waiting for cleanup of preemptive event: %1", _mt_event_key]];
 	if (d_ai_persistent_corpses == 0) then {
 		waitUntil {sleep 10; d_mt_done};
 	} else {
 		sleep 120;
 	};
-	diag_log [format ["cleanup of event: %1", _mt_event_key]];
 };
 
 //cleanup
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
+diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

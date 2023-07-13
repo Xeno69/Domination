@@ -260,4 +260,5 @@ publicVariable "d_preemptive_special_event_startpos_opfor";
 
 //cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
+diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

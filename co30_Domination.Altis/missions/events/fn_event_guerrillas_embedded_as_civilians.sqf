@@ -61,6 +61,7 @@ _guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
 		// guerillas are inactive (captive)
 		_x setCaptive true;
 		_x forceSpeed 0;
+		_x addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 		// guerillas dressed in plain clothes and look like civs
 		removeGoggles _x;
 		removeHeadgear _x;
