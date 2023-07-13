@@ -144,10 +144,6 @@ private _placeCivilianCluster = {
 					// _firer is close enough to be dangerclose, set the dangerclose ts, _unit should be scared and move away from _firer
 					_unit setVariable ["civ_last_dangerclose", time];
 					_unit forceSpeed -1;
-					if (random 2 <= 1) then {
-						// _unit may stay prone or may switch to MIDDLE
-						_unit setUnitPos "MIDDLE";
-					};
 					// calculate a position to retreat
 					private _newx = (getPos _firer # 0) - (getPos _unit # 0);
 					private _newy = (getPos _firer # 1) - (getPos _unit # 1);

@@ -7420,6 +7420,18 @@
 <Chinese>敵方陣營啟用模擬：</Chinese>
 <French>Enable simulation for enemy camps:</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ENABLE_PHRONK_FURNITURE">
+<English>Enable Phronk's Furniture (experimental):</English>
+<Spanish>Enable Phronk's Furniture (experimental):</Spanish>
+<Portuguese>Enable Phronk's Furniture (experimental):</Portuguese>
+<Korean>Enable Phronk's Furniture (experimental):</Korean>
+<Japanese>Enable Phronk's Furniture (experimental):</Japanese>
+<Original>Enable Phronk's Furniture (experimental):</Original>
+<Russian>Enable Phronk's Furniture (experimental):</Russian>
+<Chinesesimp>Enable Phronk's Furniture (experimental):</Chinesesimp>
+<Chinese>Enable Phronk's Furniture (experimental):</Chinese>
+<French>Enable Phronk's Furniture (experimental):</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_DISABLE_AMBIENT_BATTLEFIELD_SOUNDS">
 <English>Disable ambient battlefield sounds:</English>
 <Spanish>Disable ambient battlefield sounds:</Spanish>
