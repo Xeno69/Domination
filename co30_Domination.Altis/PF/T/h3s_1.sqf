@@ -1,0 +1,42 @@
+//Land_Slum_03_F
+isNil{params["_b"];_f=[];_dir=getDir _b;
+_barrel=createSimpleObject["A3\Structures_F_EPB\Items\Vessels\BarrelEmpty_grey_F.p3d",[0,0,0]];
+_basket=createSimpleObject["A3\Structures_F\Civ\Market\Basket_F.p3d",[0,0,0]];
+_blanket=selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"];
+_blanket1=createSimpleObject[_blanket,[0,0,0]];
+_blanket2=createSimpleObject[_blanket,[0,0,0]];
+_boxes1=createSimpleObject["A3\Structures_F\Civ\Market\CratesShabby_F.p3d",[0,0,0]];
+_boxes2=createSimpleObject["A3\Structures_F\Civ\Market\CratesShabby_F.p3d",[0,0,0]];
+_bucket1=createSimpleObject["Land_PlasticBucket_01_open_F",[0,0,0]];
+_bucket2=createSimpleObject["Land_PlasticBucket_01_open_F",[0,0,0]];
+_rack1=createSimpleObject["a3\structures_f\furniture\Rack_F.p3d",[0,0,0]];
+_rack2=createSimpleObject["A3\Structures_F_EPB\Furniture\ShelvesWooden_F.p3d",[0,0,0]];
+_rack3=createSimpleObject["A3\Structures_F_EPB\Furniture\ShelvesWooden_F.p3d",[0,0,0]];
+_pbox=createSimpleObject["A3\Structures_F\Civ\Market\CratesPlastic_F.p3d",[0,0,0]];
+_sack=createSimpleObject["A3\Structures_F\Civ\Market\Sack_F.p3d",[0,0,0]];
+_sacks1=createSimpleObject["A3\Structures_F\Civ\Market\Sacks_heap_F.p3d",[0,0,0]];
+_sacks2=createSimpleObject["A3\Structures_F\Civ\Market\Sacks_goods_F.p3d",[0,0,0]];
+_trash=createSimpleObject["A3\Structures_F\Civ\Garbage\Garbage_square5_F.p3d",[0,0,0]];
+_wBarrel=createSimpleObject["A3\Structures_F\Items\Vessels\BarrelWater_F.p3d",[0,0,0]];
+{_f pushBack _x}forEach[_basket,_barrel,_blanket1,_blanket2,_boxes1,_boxes2,_bucket1,_bucket2,_rack1,_rack2,_rack3,_pbox,_sack,_sacks1,_sacks2,_trash,_wBarrel];
+_b setVariable["PF",_f];
+
+_basket setPos(_b modelToWorld[.23,1.65,.04]);
+_barrel setPos(_b modelToWorld[-4.35,2.38,.16]);
+_blanket1 setPos(_b modelToWorld[0,3.2,-.61]);_blanket1 setDir(_dir+180);
+_blanket2 setPos(_b modelToWorld[-1.5,3.2,-.61]);_blanket2 setDir(_dir+(random 40+180));
+_boxes1 setPos(_b modelToWorld[5.4,4.3,.88]);
+_boxes2 setPos(_b modelToWorld[5.35,3.44,.88]);_boxes2 setDir(_dir+270);
+_bucket1 setPos(_b modelToWorld[-3.5,2.3,-.21]);
+_bucket2 setPos(_b modelToWorld[-3.9,2.5,-.21]);
+_pbox setPos(_b modelToWorld[-.6,1.65,-.183]);_pbox setDir(_dir+180);
+_rack1 setPos(_b modelToWorld[.93,2.7,.99]);
+_rack2 setPos(_b modelToWorld[.93,4,.35]);
+_rack3 setPos(_b modelToWorld[2.41,-1.3,.35]);
+_sack setPos(_b modelToWorld[5.5,7.45,.185]);
+_sacks1 setPos(_b modelToWorld[1.26,7.03,.16]);_sacks1 setDir(_dir+90);
+_sacks2 setPos(_b modelToWorld[-.12,-1,.37]);_sacks2 setDir(_dir+40);
+_trash setPos(_b modelToWorld[-2.3,5,-.58]);
+_wBarrel setPos(_b modelToWorld[-4.96,2.35,.16]);
+{_x setDir(random 359)}forEach[_basket,_barrel,_bucket1,_bucket2,_trash,_wBarrel];
+{_x setDir _dir}forEach[_boxes1,_rack1,_rack2,_rack3,_sack]}

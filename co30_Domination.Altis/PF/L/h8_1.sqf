@@ -1,0 +1,41 @@
+//Land_House_1W03_F
+isNil{params["_b"];_f=[];_fire=0;_match=0;
+_ax=createSimpleObject["a3\structures_f\items\tools\axe_f.p3d",[0,0,0]];
+_box=createSimpleObject["a3\props_f_exp\commercial\market\woodencounter_01_f.p3d",[0,0,0]];
+_box1=createSimpleObject["a3\props_f_exp\commercial\market\woodencounter_01_f.p3d",[0,0,0]];
+_box2=createSimpleObject["a3\structures_f\civ\constructions\woodenbox_f.p3d",[0,0,0]];
+_box3=createSimpleObject["a3\props_f_exp\commercial\market\woodencrate_01_f.p3d",[0,0,0]];
+_chair=createSimpleObject["a3\structures_f\furniture\chairwood_f.p3d",[0,0,0]];
+_chair2=createSimpleObject["a3\structures_f\furniture\chairwood_f.p3d",[0,0,0]];
+_chair3=createSimpleObject["a3\structures_f\furniture\chairwood_f.p3d",[0,0,0]];
+_chair4=createSimpleObject["a3\structures_f_heli\furniture\rattanchair_01_f.p3d",[0,0,0]];
+_chair5=createSimpleObject["a3\structures_f_heli\furniture\rattanchair_01_f.p3d",[0,0,0]];
+_fridge=createSimpleObject["A3\Structures_F_Heli\Items\Electronics\Fridge_01_F.p3d",[0,0,0]];
+if((dayTime<6)||(dayTime>18))then{_fire=createVehicle["FirePlace_burning_F",[0,0,0],[],0,"can_collide"];_match=createSimpleObject["A3\Structures_F_EPA\Items\Tools\Matches_F.p3d",[0,0,0]];{_f pushBack _x}forEach[_fire,_match]};
+_rack=createSimpleObject["a3\structures_f_epb\furniture\shelveswooden_f.p3d",[0,0,0]];
+_radio=createSimpleObject["a3\structures_f\items\electronics\fmradio_f.p3d",[0,0,0]];
+_table=createSimpleObject["a3\structures_f_epa\civ\camping\woodentable_large_f.p3d",[0,0,0]];
+_table2=createSimpleObject["a3\structures_f_epa\civ\camping\woodentable_small_f.p3d",[0,0,0]];
+_wood=createSimpleObject["a3\structures_f\civ\accessories\woodpile_f.p3d",[0,0,0]];
+{_f pushBack _x}forEach[_ax,_box,_box1,_box2,_box3,_chair,_chair2,_chair3,_chair4,_chair5,_fridge,_rack,_radio,_table,_table2,_wood];
+_b setVariable["PF",_f];
+
+_dir=getDir _b;
+_ax setPos(_b modelToWorld[-1.53,-3.33,-2.279]);_ax setDir(_dir+70);
+_box setPos(_b modelToWorld[-2.8,4.3,-1.39]);
+_box1 setPos(_b modelToWorld[-2.5,4.301,-1.3901]);
+_box2 setPos(_b modelToWorld[-2.34,4.301,-2.2]);
+_box3 setPos(_b modelToWorld[-.46,-7.6,-1.69]);
+_chair setPos(_b modelToWorld[-0.15,3,-2.34]);
+_chair2 setPos(_b modelToWorld[-0.15,1.1,-2.34]);_chair2 setDir(_dir+180);
+_chair3 setPos(_b modelToWorld[-.57,2.1,-2.34]);_chair3 setDir(_dir+270);
+_chair4 setPos(_b modelToWorld[-1.4,-7.3,-1.22]);_chair4 setDir(_dir+200);
+_chair5 setPos(_b modelToWorld[.4,-7.3,-1.22]);_chair5 setDir(_dir+180);
+_fridge setPos(_b modelToWorld[-3.62,3.6,-1.31]);_fridge setDir(_dir+270);
+_rack setPos(_b modelToWorld[-3.75,0.25,-1.345]);
+_radio setPos(_b modelToWorld[-.7,-7.3,-1.343]);
+_table setPos(_b modelToWorld[-0.15,2,-1.48]);
+_table2 setPos(_b modelToWorld[-0.45,-7.65,-1.477]);
+_wood setPos(_b modelToWorld[1.33,-2.98,-1.8]);_wood setDir(_dir+90);
+if(_fire isEqualType objNull)then{_fire setPos(_b modelToWorld[-.8,-3.03,-2]);_match setPos(_b modelToWorld[-1.4,-3.5,-2.311]);_match setDir _dir};
+{_x setDir _dir}forEach[_box,_box1,_box2,_box3,_chair,_rack,_radio,_table,_table2]}

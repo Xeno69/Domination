@@ -1,0 +1,42 @@
+//Land_i_Shed_Ind_F
+isNil{params["_b"];_f=[];_dir=getDir _b;
+_box1=createSimpleObject["Land_PaperBox_01_small_closed_brown_F",[0,0,0]];
+_box2=createSimpleObject["Land_PaperBox_01_small_closed_brown_F",[0,0,0]];
+_boxOpen=createSimpleObject["A3\Props_F_Orange\Humanitarian\Supplies\PaperBox_01_small_open_F.p3d",[0,0,0]];
+_chair=createSimpleObject["A3\Structures_F_Heli\Furniture\OfficeChair_01_F.p3d",[0,0,0]];
+_desk=createSimpleObject["A3\Structures_F\Furniture\TableDesk_F.p3d",[0,0,0]];
+_glove1=createSimpleObject["A3\Structures_F\Items\Tools\Gloves_F.p3d",[0,0,0]];
+_glove2=createSimpleObject["A3\Structures_F\Items\Tools\Gloves_F.p3d",[0,0,0]];
+_pages1=createSimpleObject["a3\Weapons_F_Orange\Ammo\leaflet_05_stack_f.p3d",[0,0,0]];
+_pages2=createSimpleObject["a3\Weapons_F_Orange\Ammo\leaflet_05_stack_f.p3d",[0,0,0]];
+_pallets=createSimpleObject["A3\Structures_F_EPA\Civ\Constructions\Pallets_stack_F.p3d",[0,0,0]];
+_saw=createSimpleObject["A3\Structures_F\Items\Tools\Saw_F.p3d",[0,0,0]];
+_scafold=createSimpleObject["A3\Structures_F_Heli\Civ\Constructions\MobileScafolding_01_F.p3d",[0,0,0]];
+_shelf=createSimpleObject["A3\Structures_F_EPB\Furniture\ShelvesWooden_F.p3d",[0,0,0]];
+_stair=createSimpleObject["A3\Structures_F_EPC\Dominants\GhostHotel\GH_Stairs_F.p3d",[0,0,0]];
+_wbench=createSimpleObject["A3\Structures_F_Heli\Furniture\Workbench_01_F.p3d",[0,0,0]];
+_wbox=createSimpleObject["A3\Structures_F\Civ\Constructions\WoodenBox_F.p3d",[0,0,0]];
+_wood=createSimpleObject["A3\Structures_F_Argo\Industrial\Materials\WoodenPlanks_01_messy_pine_F.p3d",[0,0,0]];
+_wstand=createSimpleObject["A3\Structures_F\Civ\Constructions\WorkStand_F.p3d",[0,0,0]];
+{_f pushBack _x}forEach[_box1,_box2,_boxOpen,_chair,_desk,_glove1,_glove2,_pages1,_pages2,_pallets,_saw,_scafold,_shelf,_stair,_stair,_wbench,_wbox,_wood,_wstand];
+_b setVariable["PF",_f];
+
+_box1 setPos(_b modelToWorld[-4.9,0.2,-1.08]);_box1 setDir(_dir+180);
+_box2 setPos(_b modelToWorld[-4.9,-.4,-1.08]);
+_boxOpen setPos(_b modelToWorld[-5.03,0.1,-.653]);_boxOpen setDir(_dir+310);
+_chair setPos(_b modelToWorld[-5.8,1.7,-.15]);_chair setDir(_dir+290);
+_desk setPos(_b modelToWorld[-5.04,1.55,-.7]);_desk setDir(_dir+270);
+_glove1 setPos(_b modelToWorld[3.7,8.24,-.64]);_glove1 setDir(_dir+55);
+_glove2 setPos(_b modelToWorld[3.9,8.25,-.64]);_glove2 setDir(_dir+15);
+_shelf setPos(_b modelToWorld[-4.85,-1.3,-.49]);
+_pages1 setPos(_b modelToWorld[-5.04,2,-.54]);
+_pages2 setPos(_b modelToWorld[-5,2.25,-.54]);_pages2 setDir(_dir+160);
+_pallets setPos(_b modelToWorld[-7.9,8.23,-.63]);
+_saw setPos(_b modelToWorld[3.4,8.4,-.625]);_saw setDir(_dir+160);
+_scafold setPos(_b modelToWorld[-6.9,8.15,1.31]);
+_stair setPos(_b modelToWorld[-2.2,-.645,1.47]);_stair setDir(_dir+90);
+_wbox setPos(_b modelToWorld[-6.9,8.15,.18]);_wbox setDir(_dir+random 13);
+_wbench setPos(_b modelToWorld[7.412,-1.45,-.52]);_wbench setDir(_dir+180);
+_wstand setPos(_b modelToWorld[3.4,8.48,-1.495]);
+_wood setPos(_b modelToWorld[13.8,7.85,.21]);
+{_x setDir _dir}forEach[_box2,_shelf,_pages1,_pallets,_scafold,_wstand,_wood]}
