@@ -1,0 +1,46 @@
+//Land_FuelStation_01_shop_F
+isNil{params["_b"];_f=[];_dir=getDir _b;
+_bat=createSimpleObject["a3\structures_f_bootcamp\Items\Electronics\CarBattery_02_F.p3d",[0,0,0]];
+_chair=createSimpleObject["a3\structures_f\furniture\ChairWood_F.p3d",[0,0,0]];
+_chair1=createSimpleObject["a3\structures_f\civ\Camping\CampingChair_V2_F.p3d",[0,0,0]];
+_chair2=createSimpleObject["a3\structures_f\civ\Camping\CampingChair_V2_F.p3d",[0,0,0]];
+_chair3=createSimpleObject["a3\structures_f\civ\Camping\CampingChair_V2_F.p3d",[0,0,0]];
+_chair4=createSimpleObject["a3\structures_f\civ\Camping\CampingChair_V2_F.p3d",[0,0,0]];
+_crobar=createSimpleObject["a3\Props_F_Orange\Items\Tools\Crowbar_01_F.p3d",[0,0,0]];
+_desk=createSimpleObject["a3\structures_f\furniture\TableDesk_F.p3d",[0,0,0]];
+_hammer=createSimpleObject["a3\structures_f\Items\Tools\Hammer_F.p3d",[0,0,0]];
+_mCase=createSimpleObject["A3\Structures_F_Heli\Items\Luggage\PlasticCase_01_small_F.p3d",[0,0,0]];
+_pliers=createSimpleObject["a3\structures_f\Items\Tools\Pliers_F.p3d",[0,0,0]];
+_rake=createSimpleObject["a3\weapons_f\mines\rake.p3d",[0,0,0]];
+_saw=createSimpleObject["a3\structures_f\Items\Tools\Saw_F.p3d",[0,0,0]];
+_screwD=createSimpleObject["a3\structures_f\Items\Tools\Screwdriver_V1_F.p3d",[0,0,0]];
+_shelf=createSimpleObject["a3\structures_f\furniture\ShelvesMetal_F.p3d",[0,0,0]];
+_shovel=createSimpleObject["a3\structures_f_epa\Items\Tools\Shovel_F.p3d",[0,0,0]];
+_wb=createSimpleObject["a3\Props_F_Orange\Civilian\InfoBoards\MapBoard_01_Wall_F.p3d",[0,0,0]];
+_tv=createSimpleObject["Land_FlatTV_01_F",[0,0,0]];
+{_f pushBack _x}forEach[_bat,_chair,_chair1,_chair2,_chair3,_chair4,_crobar,_desk,_hammer,_pliers,_rake,_saw,_screwD,_shelf,_shovel,_wb,_tv];
+_b setVariable["PF",_f];
+
+_bat setPos(_b modelToWorld[-3,-1.3,-.8]);_bat setDir(_dir+190);
+_chair setPos(_b modelToWorld[-1,1.49,-2]);
+_chair1 setPos(_b modelToWorld[0,-4.96,-1]);
+_chair2 setPos(_b modelToWorld[1,-4.96,-1]);
+_chair3 setPos(_b modelToWorld[-1,-4.96,-1]);
+_chair4 setPos(_b modelToWorld[-2,-4.96,-1]);
+_crobar setPos(_b modelToWorld[1.4,-2.9,-1.06]);
+_desk setPos(_b modelToWorld[-1,1.28,-1.19]);
+_hammer setPos(_b modelToWorld[2,-2.9,1.56]);
+_mCase setPos(_b modelToWorld[.25,1.04,-1.71]);
+_pliers setPos(_b modelToWorld[.8,-2.9,-1.81]);_pliers setDir(_dir+50);
+_rake setPos(_b modelToWorld[2,-2.5,-1.443]);_rake setDir(_dir+84);
+_saw setPos(_b modelToWorld[1,-2.9,-1.44]);
+_screwD setPos(_b modelToWorld[.6,-2.9,-1.075]);
+_shelf setPos(_b modelToWorld[1.48,-2.7,-2.01]);
+_shovel setPos(_b modelToWorld[1.1,-2.5,-1.42]);_shovel setDir(_dir+280);
+_wb setPos(_b modelToWorld[-2,5.1,0]);
+_tv setPos(_b modelToWorld[2.2,.35,1.24]);_tv setDir(_dir+45);_tv setVectorUp[0,0,-1];
+{_x setDir _dir}forEach[_chair,_desk,_screwD,_wb];
+{_x setDir(_dir+180)}forEach[_chair1,_chair2,_chair3,_chair4,_hammer];
+{_x setDir(_dir+90)}forEach[_crobar,_mCase,_saw,_shelf];
+_hammer setVectorUp[0,-1,0];
+if((dayTime<18)&&{(dayTime>5)})then{_tv setObjectTextureGlobal[0,(selectRandom["\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_pills_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_supermarket_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_maskrtnik_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_bluking_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_wine_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_plane_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_action_co.paa","\A3\Structures_F_Argo\Commercial\Billboards\Data\Advertisements\bill_getlost_co.paa"])]}}

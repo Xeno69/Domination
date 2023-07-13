@@ -1,0 +1,45 @@
+//Land_House_Small_03_F
+isNil{params["_b"];_f=[];_dir=getDir _b;
+_barrel=createSimpleObject["A3\Structures_F_EPB\Items\Vessels\BarrelEmpty_grey_F.p3d",[0,0,0]];
+_bed=createSimpleObject["a3\structures_f\civ\Camping\CampingTable_F.p3d",[0,0,0]];
+_blanket=createSimpleObject[(selectRandom["Land_Sleeping_bag_F","Land_Sleeping_bag_blue_F","Land_Sleeping_bag_brown_F"]),[0,0,0]];
+_can=createSimpleObject["A3\Structures_F\Items\Vessels\CanisterPlastic_F.p3d",[0,0,0]];
+_chair1=createSimpleObject["a3\structures_f\furniture\ChairWood_F.p3d",[0,0,0]];
+_chair2=createSimpleObject["a3\structures_f\furniture\ChairWood_F.p3d",[0,0,0]];
+_crates=createSimpleObject["A3\Structures_F\Civ\Market\CratesWooden_F.p3d",[0,0,0]];
+_desk=createSimpleObject["A3\Structures_F_Heli\Furniture\OfficeTable_01_F.p3d",[0,0,0]];_desk setObjectTextureGlobal[0,"\A3\Structures_F_Heli\Furniture\Data\OfficeTable_01_old_CO.paa"];
+_paper=createSimpleObject["a3\Weapons_F_Orange\Ammo\leaflet_05_old_f.p3d",[0,0,0]];
+_pencil=createSimpleObject["A3\Structures_F\Items\Stationery\PencilYellow_F.p3d",[0,0,0]];
+_pbox=createSimpleObject["A3\Structures_F\Civ\Market\CratesPlastic_F.p3d",[0,0,0]];
+_rack=createSimpleObject["a3\structures_f\furniture\Rack_F.p3d",[0,0,0]];
+_sack=createSimpleObject["A3\Structures_F\Civ\Market\Sack_F.p3d",[0,0,0]];
+_sacks=createSimpleObject["A3\Structures_F\Civ\Market\Sacks_goods_F.p3d",[0,0,0]];
+_shelf=createSimpleObject["a3\Props_F_Orange\Furniture\OfficeCabinet_02_F.p3d",[0,0,0]];
+_wBarrel=createSimpleObject["A3\Structures_F\Items\Vessels\BarrelWater_F.p3d",[0,0,0]];
+_table=createSimpleObject["A3\Structures_F_EPA\Civ\Camping\WoodenTable_small_F.p3d",[0,0,0]];
+_trash1=createSimpleObject["A3\Structures_F\Civ\Garbage\Garbage_square3_F.p3d",[0,0,0]];
+_trash2=createSimpleObject["A3\Structures_F\Civ\Garbage\Garbage_square5_F.p3d",[0,0,0]];
+{_f pushBack _x}forEach[_barrel,_bed,_blanket,_can,_chair1,_chair2,_crates,_desk,_paper,_pbox,_pencil,_rack,_sack,_sacks,_shelf,_table,_trash1,_trash2,_wBarrel];
+_b setVariable["PF",_f];
+
+_barrel setPos(_b modelToWorld[2.989,2.7,-.567]);
+_bed setPos(_b modelToWorld[-2.85,-1.4,-.9]);_bed setDir(_dir+270);
+_blanket setPos(_b modelToWorld[-2.85,-.89,-.92]);_blanket setDir(_dir+180);
+_can setPos(_b modelToWorld[-5.5,-2.1,-.685]);_can setDir(_dir+160);
+_chair1 setPos(_b modelToWorld[-5.75,-1.3,-1.373]);
+_chair2 setPos(_b modelToWorld[2.75,-1.55,-1.373]);
+_crates setPos(_b modelToWorld[0.85,4.68,.12]);_crates setDir(_dir+179);
+_desk setPos(_b modelToWorld[2.53,-2.04,-.53]);_desk setDir(_dir+180);
+_paper setPos(_b modelToWorld[2.7,-1.9,-.543]);_paper setDir(_dir+((random 10)+80));
+_pbox setPos(_b modelToWorld[0.4,4.3,-.138]);_pbox setDir(_dir+8);
+_pencil setPos(_b modelToWorld[2.65,-1.9,-.538]);_pencil setDir(_dir+((random 50)+150));
+_rack setPos(_b modelToWorld[-.16,-2.075,.255]);_rack setDir(_dir+270);
+_sack setPos(_b modelToWorld[0.54,5.005,.17]);
+_sacks setPos(_b modelToWorld[-5.9,4.51,-.35]);_sacks setDir(_dir+70);
+_shelf setPos(_b modelToWorld[2.986,0.53,.19]);_shelf setDir(_dir+90);
+_table setPos(_b modelToWorld[-5.78,-1.73,-.51]);_table setDir(_dir+90);
+_trash1 setPos(_b modelToWorld[-4,0,-1.28]);
+_trash2 setPos(_b modelToWorld[0,1,-1.28]);
+_wBarrel setPos(_b modelToWorld[2.8,2.2,-.567]);
+{_x setDir(random 359)}forEach[_barrel,_trash1,_trash2,_wBarrel];
+{_x setDir _dir}forEach[_chair1,_chair2,_sack]}

@@ -1,0 +1,43 @@
+//Land_House_Small_06_F
+isNil{params["_b"];_f=[];_dir=getDir _b;
+_basket=createSimpleObject["A3\Structures_F\Civ\Market\Basket_F.p3d",[0,0,0]];
+_bed=createSimpleObject["a3\structures_f\civ\Camping\CampingTable_F.p3d",[0,0,0]];
+_blanket=createSimpleObject[(selectRandom["A3\Structures_F\Civ\Camping\Sleeping_bag_F.p3d","A3\Structures_F\Civ\Camping\Sleeping_bag_blue_F.p3d","A3\Structures_F\Civ\Camping\Sleeping_bag_brown_F.p3d"]),[0,0,0]];
+_boxes=createSimpleObject["A3\Structures_F\Civ\Market\CratesShabby_F.p3d",[0,0,0]];
+_chair1=createSimpleObject["A3\Structures_F\Civ\Camping\CampingChair_V2_F.p3d",[0,0,0]];
+_chair2=createSimpleObject["A3\Structures_F\Civ\Camping\CampingChair_V1_F.p3d",[0,0,0]];
+_desk1=createSimpleObject["a3\structures_f\furniture\TableDesk_F.p3d",[0,0,0]];
+_desk2=createSimpleObject["a3\structures_f\furniture\TableDesk_F.p3d",[0,0,0]];
+_desk3=createSimpleObject["a3\structures_f\furniture\TableDesk_F.p3d",[0,0,0]];
+_desk4=createSimpleObject["A3\Structures_F_Heli\Furniture\OfficeTable_01_F.p3d",[0,0,0]];
+_microW=createSimpleObject["A3\Structures_F_Heli\Items\Electronics\Microwave_01_F.p3d",[0,0,0]];
+_fridge=createSimpleObject["Fridge_01_closed_F",[0,0,0]];
+_pcCase=createSimpleObject["A3\Structures_F_Heli\Items\Electronics\PCSet_01_case_F.p3d",[0,0,0]];
+_pcKey=createSimpleObject["A3\Structures_F_Heli\Items\Electronics\PCSet_01_keyboard_F.p3d",[0,0,0]];
+_pcMon=createSimpleObject["A3\Structures_F_Heli\Items\Electronics\PCSet_01_screen_F.p3d",[0,0,0]];
+_sack=createSimpleObject["A3\Structures_F\Civ\Market\Sack_F.p3d",[0,0,0]];
+_sink=createSimpleObject["A3\Structures_F\Civ\Accessories\Sink_F.p3d",[0,0,0]];
+{_f pushBack _x}forEach[_basket,_bed,_blanket,_boxes,_chair1,_chair2,_desk1,_desk2,_desk3,_desk4,_microW,_fridge,_pcCase,_pcKey,_pcMon,_sack,_sink];
+_b setVariable["PF",_f];
+
+_bed setPos(_b modelToWorld[-3.6,1.8,-.53]);
+_sack setPos(_b modelToWorld[-2.2,1.9,-.17]);
+_blanket setPos(_b modelToWorld[-3.6,1.8,-.49]);
+_fridge setPos(_b modelToWorld[1.4,-4.95,.03]);
+_boxes setPos(_b modelToWorld[2.1,-4.9,.52]);
+_desk1 setPos(_b modelToWorld[.2,-4.95,-.294]);
+_desk2 setPos(_b modelToWorld[-1.56,-4.95,-.294]);_desk2 setDir(_dir+180);
+_sink setPos(_b modelToWorld[-3.52,-4.95,.2]);
+_desk3 setPos(_b modelToWorld[-1.3,-4.9,-.295]);
+_basket setPos(_b modelToWorld[-1.3,-4.9,.4]);_basket setDir(random 359);
+_microW setPos(_b modelToWorld[0.3,-4.9,-.11]);_microW setDir(_dir+190);
+_desk4 setPos(_b modelToWorld[2.11,0,-.16]);
+_pcMon setPos(_b modelToWorld[2.3,0.2,.33]);
+_pcKey setPos(_b modelToWorld[2.1,0.25,-.16]);_pcKey setDir(_dir+85);
+_pcCase setPos(_b modelToWorld[2,1,-.492]);
+_chair1 setPos(_b modelToWorld[1.5,.2,0]);
+_chair2 setPos(_b modelToWorld[-3.7,2.8,.014]);
+{_x setDir _dir}forEach[_bed,_boxes,_sink,_desk3];
+{_x setDir(_dir+90)}forEach[_desk4,_pcMon,_pcCase];
+{_x setDir(_dir+180)}forEach[_fridge,_desk1,_desk2,_chair2];
+{_x setDir(_dir+270)}forEach[_sack,_blanket,_chair1]}
