@@ -137,7 +137,7 @@ if (_with_vehicles) then {
 };
 
 // calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
-private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt + d_grp_cnt_footpatrol;
+private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_snp_cnt + d_grp_cnt_footpatrol;
 
 // guerrillas should be outnumbered
 _guerrillaGroupCount = round(_targetGroupCount / 3) max 1;

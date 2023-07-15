@@ -494,6 +494,9 @@ __TRACE("start of forEach _buildingPosArray")
 										//	d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find (_units select _unitIndex));
 										//	deleteVehicle (_units select _unitIndex);
 										//};
+										if (side _uuidx == civilian) then {
+											_uuidx setVariable ["civ_startpos", getPos _uuidx];
+										};
 									};//end if _isDryRun
 									I(_unitIndex)
 									if (_fillEvenly) then {
@@ -549,11 +552,14 @@ if (_unitIndex < count _units && {!isNil "_theBuilding"}) then {
 				deleteGroup _civgrptemp;
 				//diag_log [format ["placing a unit in a non-standard position, raw fuzzy position: %1 and unit fuzzy position: %2", _targetPosFuzzy, _targetPosFuzzyUnit]];
 				_unit setVehiclePosition [[_targetPosFuzzyUnit # 0, _targetPosFuzzyUnit # 1], [], 1.7, "NONE"];
+				if (side _unit == civilian) then {
+					_unit setVariable ["civ_startpos", getPos _unit];
+				};
 				_foundgood = true;
 			};
 		};
 		if (isNil "_civtemp" || {!_foundgood || {getPos _civtemp # 0 < 100 || {getPos _civtemp # 1 < 100 || {side _unit == civilian && {!((_unit) call d_fnc_isinhouse)}}}}}) then {
-			diag_log ["still a bad position after 99 attempts, giving up and removing the unit"];
+			//diag_log ["still a bad position after 99 attempts, giving up and removing the unit"];
 			if (side _unit == civilian) then {
 				d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _unit);
 			};

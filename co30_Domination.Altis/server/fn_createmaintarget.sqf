@@ -43,6 +43,92 @@ __TRACE_1("","_trg_center")
 __TRACE_3("","_trgobj","_radius","_patrol_radius")
 __TRACE_1("","_this")
 
+// assign or calculate the number of enemy groups for overwatch, ambush and occupy infantry
+// occupy group count
+d_occ_cnt_current = 0;
+if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3 || d_occ_cnt == -4 || d_occ_cnt == -5) then {
+	//adaptive group count
+	//calculate number of occupy groups by counting the number of building in the maintarget area * spawn factor
+	private _occ_spawn_factor = 0;
+	if (d_occ_cnt == -1) then {
+		_occ_spawn_factor = 0.03;  // adaptive (low)
+	};
+	if (d_occ_cnt == -2) then {
+		_occ_spawn_factor = 0.06;  // adaptive (normal)
+	};
+	if (d_occ_cnt == -3) then {
+		_occ_spawn_factor = 0.12;  // adaptive (high)
+	};
+	if (d_occ_cnt == -4) then {
+		_occ_spawn_factor = 0.20;  // adaptive (very high)
+	};
+	if (d_occ_cnt == -5) then {
+		_occ_spawn_factor = 0.75;  // adaptive (extreme)
+	};
+	private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
+	private _occ_cnt_max = floor(_occ_spawn_factor * 100);
+	d_occ_cnt_current = floor (_bldg_count * _occ_spawn_factor) min _occ_cnt_max;
+	diag_log [format ["_occ_cnt adaptive value: %1", d_occ_cnt_current]];
+} else {
+	d_occ_cnt_current = d_occ_cnt;
+};
+// overwatch group count
+d_ovrw_cnt_current = 0;
+if (d_ovrw_cnt == -1 || d_ovrw_cnt == -2 || d_ovrw_cnt == -3 || d_ovrw_cnt == -4 || d_ovrw_cnt == -5) then {
+	//adaptive group count
+	//calculate number of overwatch groups by counting the number of building in the maintarget area * spawn factor
+	private _ovrw_spawn_factor = 0;
+	if (d_ovrw_cnt == -1) then {
+		_ovrw_spawn_factor = 0.03;  // adaptive (low)
+	};
+	if (d_ovrw_cnt == -2) then {
+		_ovrw_spawn_factor = 0.06;  // adaptive (normal)
+	};
+	if (d_ovrw_cnt == -3) then {
+		_ovrw_spawn_factor = 0.12;  // adaptive (high)
+	};
+	if (d_ovrw_cnt == -4) then {
+		_ovrw_spawn_factor = 0.20;  // adaptive (very high)
+	};
+	if (d_ovrw_cnt == -5) then {
+		_ovrw_spawn_factor = 0.75;  // adaptive (extreme)
+	};
+	private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
+	private _ovrw_cnt_max = floor(_ovrw_spawn_factor * 100);
+	d_ovrw_cnt_current = floor (_bldg_count * _ovrw_spawn_factor) min _ovrw_cnt_max;
+	diag_log [format ["_ovrw_cnt adaptive value: %1", d_ovrw_cnt_current]];
+} else {
+	d_ovrw_cnt_current = d_ovrw_cnt;
+};
+// ambush group count
+d_amb_cnt_current = 0;
+if (d_amb_cnt == -1 || d_amb_cnt == -2 || d_amb_cnt == -3 || d_amb_cnt == -4 || d_amb_cnt == -5) then {
+	//adaptive group count
+	//calculate number of ambush groups by counting the number of building in the maintarget area * spawn factor
+	private _amb_spawn_factor = 0;
+	if (d_amb_cnt == -1) then {
+		_amb_spawn_factor = 0.03;  // adaptive (low)
+	};
+	if (d_amb_cnt == -2) then {
+		_amb_spawn_factor = 0.06;  // adaptive (normal)
+	};
+	if (d_amb_cnt == -3) then {
+		_amb_spawn_factor = 0.12;  // adaptive (high)
+	};
+	if (d_amb_cnt == -4) then {
+		_amb_spawn_factor = 0.20;  // adaptive (very high)
+	};
+	if (d_amb_cnt == -5) then {
+		_amb_spawn_factor = 0.85;  // adaptive (extreme)
+	};
+	private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
+	private _amb_cnt_max = floor(_amb_spawn_factor * 100);
+	d_amb_cnt_current = floor (_bldg_count * _amb_spawn_factor) min _amb_cnt_max;
+	diag_log [format ["_amb_cnt adaptive value: %1", d_amb_cnt_current]];
+} else {
+	d_amb_cnt_current = d_amb_cnt;
+};
+
 // if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
 private _merc_array = [
 	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
@@ -591,37 +677,9 @@ if (d_civ_vehs_type > 0) then {
 
 if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 	//create garrisoned "occupy" groups of AI (free to move immediately)
-	private _occ_cnt = 0;
-	if (d_occ_cnt == -1 || d_occ_cnt == -2 || d_occ_cnt == -3 || d_occ_cnt == -4 || d_occ_cnt == -5) then {
-		//adaptive group count
-		//calculate number of occupy groups by counting the number of building in the maintarget area * spawn factor
-		private _occ_spawn_factor = 0;
-		if (d_occ_cnt == -1) then {
-			_occ_spawn_factor = 0.03;  // adaptive (low)
-		};
-		if (d_occ_cnt == -2) then {
-			_occ_spawn_factor = 0.06;  // adaptive (normal)
-		};
-		if (d_occ_cnt == -3) then {
-			_occ_spawn_factor = 0.12;  // adaptive (high)
-		};
-		if (d_occ_cnt == -4) then {
-			_occ_spawn_factor = 0.20;  // adaptive (very high)
-		};
-		if (d_occ_cnt == -5) then {
-			_occ_spawn_factor = 0.75;  // adaptive (extreme)
-		};
-		private _bldg_count = count ([_trg_center, d_occ_rad] call d_fnc_getbldgswithpositions);
-		private _occ_cnt_max = floor(_occ_spawn_factor * 100);
-		_occ_cnt = floor (_bldg_count * _occ_spawn_factor) min _occ_cnt_max;
-		diag_log [format ["_occ_cnt adaptive value: %1", _occ_cnt]];
-	} else {
-		_occ_cnt = d_occ_cnt;
-	};
-	
-	__TRACE_1("creating occupy groups _occ_cnt","_occ_cnt")
-	if (_occ_cnt > 0) then {
-		for "_xx" from 0 to (_occ_cnt - 1) do {
+	__TRACE_1("creating occupy groups d_occ_cnt_current","d_occ_cnt_current")
+	if (d_occ_cnt_current > 0) then {
+		for "_xx" from 0 to (d_occ_cnt_current - 1) do {
 			private _unitstog = [
 				[[[_trg_center, d_occ_rad]],[]] call BIS_fnc_randomPos,
 				-1,     //_maxNumUnits
@@ -637,36 +695,9 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 	};
 	
 	//create garrisoned "overwatch" groups of AI (movement disabled)
-	private _ovrw_cnt = 0;
-	if (d_ovrw_cnt == -1 || d_ovrw_cnt == -2 || d_ovrw_cnt == -3 || d_ovrw_cnt == -4 || d_ovrw_cnt == -5) then {
-		//adaptive group count
-		//calculate number of overwatch groups by counting the number of building in the maintarget area * spawn factor
-		private _ovrw_spawn_factor = 0;
-		if (d_ovrw_cnt == -1) then {
-			_ovrw_spawn_factor = 0.03;  // adaptive (low)
-		};
-		if (d_ovrw_cnt == -2) then {
-			_ovrw_spawn_factor = 0.06;  // adaptive (normal)
-		};
-		if (d_ovrw_cnt == -3) then {
-			_ovrw_spawn_factor = 0.12;  // adaptive (high)
-		};
-		if (d_ovrw_cnt == -4) then {
-			_ovrw_spawn_factor = 0.20;  // adaptive (very high)
-		};
-		if (d_ovrw_cnt == -5) then {
-			_ovrw_spawn_factor = 0.75;  // adaptive (extreme)
-		};
-		private _bldg_count = count ([_trg_center, d_ovrw_rad] call d_fnc_getbldgswithpositions);
-		private _ovrw_cnt_max = floor(_ovrw_spawn_factor * 100);
-		_ovrw_cnt = floor (_bldg_count * _ovrw_spawn_factor) min _ovrw_cnt_max;
-		diag_log [format ["_ovrw_cnt adaptive value: %1", _ovrw_cnt]];
-	} else {
-		_ovrw_cnt = d_ovrw_cnt;
-	};
-	diag_log [format ["creating overwatch groups _ovrw_cnt: %1", _ovrw_cnt]];
-	if (_ovrw_cnt > 0) then {
-		for "_xx" from 0 to (_ovrw_cnt - 1) do {
+	diag_log [format ["creating overwatch groups d_ovrw_cnt_current: %1", d_ovrw_cnt_current]];
+	if (d_ovrw_cnt_current > 0) then {
+		for "_xx" from 0 to (d_ovrw_cnt_current - 1) do {
 			private _unitstog = [
 				[[[_trg_center, d_ovrw_rad]],[]] call BIS_fnc_randomPos,
 				-1,     //_maxNumUnits
@@ -682,36 +713,9 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 	};
 
 	//create garrisoned "ambush" groups of AI (free to move after firedNear is triggered)
-	private _amb_cnt = 0;
-	if (d_amb_cnt == -1 || d_amb_cnt == -2 || d_amb_cnt == -3 || d_amb_cnt == -4 || d_amb_cnt == -5) then {
-		//adaptive group count
-		//calculate number of ambush groups by counting the number of building in the maintarget area * spawn factor
-		private _amb_spawn_factor = 0;
-		if (d_amb_cnt == -1) then {
-			_amb_spawn_factor = 0.03;  // adaptive (low)
-		};
-		if (d_amb_cnt == -2) then {
-			_amb_spawn_factor = 0.06;  // adaptive (normal)
-		};
-		if (d_amb_cnt == -3) then {
-			_amb_spawn_factor = 0.12;  // adaptive (high)
-		};
-		if (d_amb_cnt == -4) then {
-			_amb_spawn_factor = 0.20;  // adaptive (very high)
-		};
-		if (d_amb_cnt == -5) then {
-			_amb_spawn_factor = 0.85;  // adaptive (extreme)
-		};
-		private _bldg_count = count ([_trg_center, d_amb_rad] call d_fnc_getbldgswithpositions);
-		private _amb_cnt_max = floor(_amb_spawn_factor * 100);
-		_amb_cnt = floor (_bldg_count * _amb_spawn_factor) min _amb_cnt_max;
-		diag_log [format ["_amb_cnt adaptive value: %1", _amb_cnt]];
-	} else {
-		_amb_cnt = d_amb_cnt;
-	};
-	diag_log [format ["creating ambush groups _amb_cnt: %1", _amb_cnt]];
-	if (_amb_cnt > 0) then {
-		for "_xx" from 0 to (_amb_cnt - 1) do {
+	diag_log [format ["creating ambush groups d_amb_cnt_current: %1", d_amb_cnt_current]];
+	if (d_amb_cnt_current > 0) then {
+		for "_xx" from 0 to (d_amb_cnt_current - 1) do {
 			private _pos = [[[_trg_center, d_amb_rad]],[]] call BIS_fnc_randomPos;
 			// create an ambush group
 			private _unitstog = [
