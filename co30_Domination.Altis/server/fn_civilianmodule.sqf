@@ -117,7 +117,7 @@ private _placeCivilianCluster = {
 	_unit_count = 6 max floor(random 12);
 	if (count _posArray > 5 && {1 > random 10}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
-		diag_log ["randomly chose to spawn a large civilian group"];
+		//diag_log ["randomly chose to spawn a large civilian group"];
 		_unit_count = 11 max floor(random 17);
 	};
 	private _units_civ_cluster = [];
@@ -209,15 +209,17 @@ private _placeCivilianCluster = {
 	} forEach d_cur_tgt_civ_modules_presencesafespot;
 #endif
 	
+	private _debug_count = count _units_civ_cluster;
 	{
 		if (getPos _x # 0 < 75 && getPos _x # 1 < 75) then {
-			diag_log ["found a civilian unit placed near [0,0,0] unit will be deleted now."];
+			//diag_log ["found a civilian unit placed near [0,0,0] unit will be deleted now."];
 			d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _x);
 			deleteVehicle _x;
+			_debug_count = _debug_count - 1;
 		};
 	} forEach _units_civ_cluster;
 	
-	diag_log [format ["civilian cluster successfully created %1 civ units", count _units_civ_cluster]];
+	diag_log [format ["civilian cluster successfully created %1 civ units", _debug_count]];
 };
 
 #ifdef __DEBUG__

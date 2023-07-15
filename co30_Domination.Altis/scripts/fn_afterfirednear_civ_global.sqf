@@ -11,6 +11,7 @@ if ((damage _unit) > 0.05) then {
 private _last_threatened_ts = (agent teamMember _unit) getVariable ["civ_last_firednear_or_threatened", 0];
 private _last_dangerclose_ts = (agent teamMember _unit) getVariable ["civ_last_dangerclose", 0];
 private _civ_is_walking = (agent teamMember _unit) getVariable ["civ_is_walking", false];
+private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []];
 {
 	// if weapon is raised close by then immediately lay down and set threatend timestamp
 	if !(weaponLowered _x) exitWith {
@@ -35,7 +36,7 @@ private _civ_is_walking = (agent teamMember _unit) getVariable ["civ_is_walking"
 } forEach (allPlayers select { _x distance2D _unit < 6 });
 private _elapsed_time_since_threatened = (time - _last_threatened_ts);
 private _elapsed_time_since_dangerclose = (time - _last_dangerclose_ts);
-if (_elapsed_time_since_dangerclose > 7 && {!_civ_is_walking}) then {
+if (_elapsed_time_since_dangerclose > 7 && {!(_civ_startpos isEqualTo []) && {(_unit distance2D _civ_startpos) < 2 && {!_civ_is_walking}}}) then {
 	// static civilian was allowed to move for a few seconds but must stop moving now 
 	_unit forceSpeed 0;
 };
@@ -47,4 +48,9 @@ if (_elapsed_time_since_threatened > 30 && {_elapsed_time_since_threatened <= 45
 };
 if (_elapsed_time_since_threatened > 45) then {
 	_unit setUnitPos "AUTO";
+	if (!(_civ_startpos isEqualTo []) && {(_unit distance2D _civ_startpos) > 2}) then {
+		// static civilian moved away from startpos, now should move back
+		_unit forceSpeed -1;
+		_unit moveTo _civ_startpos;
+	};
 };

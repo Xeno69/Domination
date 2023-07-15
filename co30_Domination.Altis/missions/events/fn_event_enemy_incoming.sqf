@@ -99,7 +99,7 @@ sleep 7;
 private _newgroups_inf = [];
 private _newgroups_veh = [];
 // calculate the sum of all groups of AI configured for the maintarget and size the enemy force accordingly
-private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt + d_grp_cnt_footpatrol;
+private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_snp_cnt + d_grp_cnt_footpatrol;
 private _enemyForceInf = [];
 
 for "_i" from 0 to _targetGroupCount do {

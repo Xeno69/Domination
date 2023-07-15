@@ -37,7 +37,7 @@ d_kb_logic1 kbTell [
 private _newgroups_inf = [];
 
 // calculate the sum of all groups of AI already in the maintarget
-private _targetGroupCount = d_occ_cnt + d_ovrw_cnt + d_amb_cnt + d_snp_cnt + d_grp_cnt_footpatrol;
+private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_snp_cnt + d_grp_cnt_footpatrol;
 // guerrillas should be outnumbered
 _guerrillaGroupCount = round(_targetGroupCount / 3) max 1;
 private _guerrillaForce = [];
@@ -47,7 +47,7 @@ for "_i" from 0 to _guerrillaGroupCount do {
 };
 
 private _guerrillaBaseSkill = 0.85;
-
+private _markerpos = [];
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	if !(d_faction_independent_array isEqualTo []) then {
@@ -56,6 +56,9 @@ private _guerrillaBaseSkill = 0.85;
 	private _newgroup = [independent] call d_fnc_creategroup;
 	// random position within 125m of target center
 	private _rand_pos = [[[_target_center, 80]],["water"]] call BIS_fnc_randomPos;
+	if (_markerpos isEqualTo []) then {
+		_markerpos = _rand_pos;
+	};
 	private _units = [_rand_pos, _unitlist, _newgroup, false, true, 5, true] call d_fnc_makemgroup;
 	{
 		_x setSkill _guerrillaBaseSkill;
@@ -88,6 +91,9 @@ private _guerrillaBaseSkill = 0.85;
 		
 } forEach _guerrillaForce;
 
+_marker = ["d_mt_event_marker_guerrillainfantry_defend", _markerpos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_GUERRILLAS", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
+[_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+
 private _all_dead = false;
 while {sleep 1; !d_mt_done && {!_all_dead}} do {
 	_foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1;
@@ -101,3 +107,4 @@ publicVariable "d_mt_event_messages_array";
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
 diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
 _x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
+deleteMarker _marker;
