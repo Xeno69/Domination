@@ -215,7 +215,7 @@ private _placeCivilianCluster = {
 			//diag_log ["found a civilian unit placed near [0,0,0] unit will be deleted now."];
 			d_cur_tgt_civ_units deleteAt (d_cur_tgt_civ_units find _x);
 			deleteVehicle _x;
-			_debug_count = _debug_count - 1;
+_debug_count = _debug_count - 1;
 		};
 	} forEach _units_civ_cluster;
 	

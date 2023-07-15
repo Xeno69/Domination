@@ -90,6 +90,9 @@ class Header {
 #ifdef __WS__
 	maxPlayers = 21;
 #endif
+#ifdef __SPE__
+	maxPlayers = 46;
+#endif
 };
 
 joinUnassigned = false; // auto assign
@@ -404,6 +407,9 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14"};
 #endif
+#ifdef __SPE__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
+#endif		
 		default = 9998;
 	};
 
@@ -454,6 +460,9 @@ class Params {
 #endif
 #ifdef __WS__
 		default = 5;
+#endif
+#ifdef __SPE__
+		default = 7;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
@@ -610,6 +619,9 @@ class Params {
 		default = 0;
 #endif
 #ifdef __WS__
+		default = 1;
+#endif
+#ifdef __SPE__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
@@ -893,6 +905,9 @@ class Params {
 #endif
 #ifdef __WS__
 		default = 0;
+#endif
+#ifdef __SPE__
+		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
@@ -2283,7 +2298,7 @@ class CfgDebriefing {
 };
 
 class CfgIdentities {
-#ifndef __IFA3__
+#ifdef __ALTIS__
 	class DHQ_BF1 {
 		name = "Winters, HQ";
 		face = "whiteHead_04";
@@ -2294,10 +2309,8 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng";
+		speaker = "male02eng" 
 	};
-#endif
-#ifdef __ALTIS__
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";
@@ -2305,9 +2318,33 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Horiz, HQ";
 		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
 	};
 #endif
 #ifdef __TANOA__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";
@@ -2315,9 +2352,33 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Horiz, HQ";
 		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
 	};
 #endif
 #ifdef __MALDEN__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";
@@ -2325,9 +2386,33 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Horiz, HQ";
 		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
 	};
 #endif
 #ifdef __STRATIS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";
@@ -2336,8 +2421,32 @@ class CfgIdentities {
 		name = "Horiz, HQ";
 		speaker = "male02per";
 	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
 #endif
 #ifdef __CUP_TAKISTAN__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "Male03TK";
@@ -2346,8 +2455,32 @@ class CfgIdentities {
 		name = "Horiz, HQ";
 		speaker = "Male02TK";
 	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
 #endif
 #ifdef __CUP_CHERNARUS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Rustov, HQ";
 		speaker = "Male03RU";
@@ -2355,9 +2488,33 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Krustshov, HQ";
 		speaker = "Male02RU";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
 	};
 #endif
 #ifdef __CUP_SARA__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Rustov, HQ";
 		speaker = "Male03RU";
@@ -2365,6 +2522,18 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Krustshov, HQ";
 		speaker = "Male02RU";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
 	};
 #endif
 #ifdef __IFA3__
@@ -2396,27 +2565,54 @@ class CfgIdentities {
 		name = "Winters, HQ";
 		speaker = "Male02ENG";
 	};
-#else
-	class DHQ_IN1: DHQ_BF1 {
-		name = "Zaziki, HQ";
-		speaker = "Male03GRE";
+#endif
+#ifdef __RHS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
 	};
-	class DHQ_IN2: DHQ_BF1 {
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
+	class RDHQ_OP1: DHQ_BF1 {
+		name = "Ivan, HQ";
+		speaker = "RHS_Male03RUS";
+	};
+	class RDHQ_OP2: RDHQ_OP1 {
+		name = "Vasyl, HQ";
+		speaker = "RHS_Male02RUS";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
 		name = "Ouzo, HQ";
 		speaker = "Male02GRE";
 	};
 #endif
-#ifdef __RHS__
-	class RDHQ_OP1: DHQ_OP1 {
-		name = "Ivan, HQ";
-		speaker = "RHS_Male03RUS";
-	};
-	class RDHQ_OP2: DHQ_OP2 {
-		name = "Vasyl, HQ";
-		speaker = "RHS_Male02RUS";
-	};
-#endif
 #ifdef __GMCWG__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class GMDHQ_BF1: DHQ_BF1 {
 		name = "Berger, HQ";
 		speaker = "gm_voice_male_deu_04";
@@ -2433,8 +2629,32 @@ class CfgIdentities {
 		name = "Ehrlich, HQ";
 		speaker = "gm_voice_male_deu_01";
 	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
 #endif
 #ifdef __GABRETA__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";
@@ -2443,8 +2663,32 @@ class CfgIdentities {
 		name = "Horiz, HQ";
 		speaker = "male02per";
 	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
 #endif
 #ifdef __VNCLN__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
 	class VNDHQ_OP1: DHQ_BF1 {
 		name = "Van T� Duong";
 		speaker = "male03chi";
@@ -2453,8 +2697,74 @@ class CfgIdentities {
 		name = "Min Duong";
 		speaker = "male02chi";
 	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
 #endif
 #ifdef __WS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng" 
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __SPE__
+	class DHQ_BF1 {
+		name = "Mayer, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Schmitz, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_IN1: DHQ_BF1 {
+		name = "Winters, HQ";
+		speaker = "Male03ENG";
+	};
+	class DHQ_IN2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
 		speaker = "male03per";

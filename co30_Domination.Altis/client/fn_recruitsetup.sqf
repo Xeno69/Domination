@@ -143,6 +143,13 @@ if (isNil "d_UnitsToRecruit") then {
 	};
 	d_UnitsToRecruit = ["_Soldier_lxWS", "_soldier_AR_lxWS", "_soldier_exp_lxWS", "_Soldier_GL_lxWS", "_soldier_M_lxWS", "_medic_lxWS", "_soldier_repair_lxWS", "_soldier_LAT_lxWS"] apply {_pchar + _x};
 #endif
+#ifdef __SPE__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {["SPE_GER_rifleman_2", "SPE_GER_sapper", "SPE_GER_hmgunner", "SPE_GER_medic", "SPE_GER_Flamethrower_Operator", "SPE_GER_LAT_Rifleman", "SPE_GER_ober_grenadier"]};
+		case opfor: {[]};
+		case independent: {["SPE_US_Rifleman", "SPE_US_AT_Soldier", "SPE_US_Engineer", "SPE_US_Grenadier", "SPE_US_Flamethrower_Operator", "SPE_US_Medic", "SPE_US_HMGunner"]};
+	};
+#endif
 };
 
 player setVariable ["d_recdbusy", false];

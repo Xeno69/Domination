@@ -111,6 +111,9 @@ d_sm_array = [];
 #ifdef __WS__
 d_sm_array = [];
 #endif
+#ifdef __SPE__
+	d_sm_array = [];
+#endif
 
 call d_fnc_create_sm_bymarkers;
 
@@ -252,6 +255,13 @@ if (isServer) then {
 		case "E": {["O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_armed_lxWS", "O_SFIA_Offroad_armed_lxWS", "O_SFIA_Truck_02_box_lxWS", "O_SFIA_Truck_02_fuel_lxWS", "O_SFIA_Truck_02_Ammo_lxWS", "O_SFIA_Truck_02_aa_lxWS"]};
 		case "W": {["B_MRAP_01_hmg_F","B_APC_Wheeled_01_cannon_F", "B_MRAP_01_gmg_F", "B_Truck_01_Repair_F", "B_Truck_01_fuel_F", "B_Truck_01_ammo_F", "B_APC_Wheeled_01_cannon_F"]};
 		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
+	};
+#endif
+#ifdef __SPE__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
+		case "W": {["SPE_SdKfz250_1","SPE_ST_SdKfz250_1", "SPE_OpelBlitz_Flak38", "SPE_OpelBlitz_Repair", "SPE_OpelBlitz_Fuel", "SPE_OpelBlitz_Ammo", "SPE_SdKfz250_1"]};
+		case "G": {["SPE_US_M16_Halftrack","SPE_US_M3_Halftrack", "SPE_US_M16_Halftrack", "SPE_US_M3_Halftrack_Repair", "SPE_US_M3_Halftrack_Fuel", "SPE_US_M3_Halftrack_Ammo", "SPE_US_M3_Halftrack"]};
 	};
 #endif
 };

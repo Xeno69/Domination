@@ -19,10 +19,10 @@ d_vrespawn2_ar = [];
 		} else {
 			d_vrespawn2_ar pushBack [_vec, _number_v, _vposp, getDir _vec, typeOf _vec, _x # 2];
 			_vec setVariable ["d_vec_is_mhq", [_x # 2, _number_v]];
-			if (!d_with_ranked) then {
+			/*if (!d_with_ranked) then {
 				_vec setVariable ["d_ammobox", true, true];
 				_vec setVariable ["d_abox_perc", 100, true];
-			};
+			};*/
 		};
 		
 		_vec setVariable ["d_OUT_OF_SPACE", -1];

@@ -23,6 +23,9 @@ private _check_fnc = {
 	if (d_pracs && {_this isKindOf "PRACS_SLA_DSHk_Mini" || {_this isKindOf "PRACS_SLA_AGS30_tripod" || {_this isKindOf "PRACS_SLA_SPG9_tripod" || {_this isKindOf "CUP_DSHKM_MiniTripod_base" || {_this isKindOf "PRACS_SLA_SPG9M_tripod" || {_this isKindOf "PRACS_SLA_9k115"}}}}}}) exitWith {
 		true
 	};
+	if (d_spe && {_this isKindOf "SPE_M1919_M2" || {_this isKindOf "SPE_57mm_M1"}}) exitWith {
+		true
+	};
 	
 	false
 };

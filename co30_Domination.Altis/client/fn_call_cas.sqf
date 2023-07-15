@@ -21,7 +21,7 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 private "_pos_lt";
 private _do_exit = false;
 
-if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 	private _lt = laserTarget player;
 	__TRACE_1("","_lt")
 	if (isNil "_lt" || {isNull _lt}) exitWith {

@@ -90,7 +90,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 					};
 
 					_transobj engineOn false;
-					if (d_ifa3) then {
+					if (d_ifa3 || d_spe) then {
 						_transobj attachTo [_vec, [0, -15, 1]];
 					} else {
 						_transobj attachTo [_vec, [0, -15, 0]];

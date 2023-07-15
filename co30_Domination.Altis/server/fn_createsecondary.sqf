@@ -20,7 +20,7 @@ private _mindists = 5;
 private _mslope = 0.3;
 
 private _dobigtower = call {
-	if (d_cargotower isEqualTo "" || {d_cup || {d_ifa3 || {d_gmcwg || {d_unsung || {d_csla || {d_vn}}}}}}) exitWith {
+	if (d_cargotower isEqualTo "" || {d_cup || {d_ifa3 || {d_gmcwg || {d_unsung || {d_csla || {d_vn || {d_spe}}}}}}}) exitWith {
 		_dobigtower = false;
 		false;
 	};

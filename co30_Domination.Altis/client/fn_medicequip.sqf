@@ -8,7 +8,7 @@ if (!local _healer || {_healer distance2D d_FLAG_BASE < 30}) exitWith {};
 private _objs = [];
 
 if (_healer getUnitTrait "medic") then {
-	if (!d_vn && {!d_ifa3 && {!d_gmcwg && {!d_csla}}}) then {
+	if (!d_vn && {!d_ifa3 && {!d_gmcwg && {!d_csla && {!d_spe}}}}) then {
 		private _defi_pos = _healer modelToWorld [-0.5, 0.2, 0];
 		private _defi = createSimpleObject ["Land_Defibrillator_F", _defi_pos];
 		_defi setDir (getDir _healer - 180);

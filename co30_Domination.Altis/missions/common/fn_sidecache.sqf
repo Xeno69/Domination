@@ -1,4 +1,4 @@
-//#define __DEBUG__
+#define __DEBUG__
 #include "..\..\x_setup.sqf"
 
 if !(isServer) exitWith {};
@@ -65,7 +65,10 @@ while {!_created} do {
 					false,		//disableTeleport
 					0		//unitMovementMode
 				] call d_fnc_garrisonUnits;
-				d_x_sm_rem_ar append _unitstog;
+				__TRACE_1("","_unitstog")
+				if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+					d_x_sm_rem_ar append _unitstog;
+				};
 				sleep 1;
 				for "_ii" from 0 to 1 do {
 					_unitstog = [
@@ -78,7 +81,9 @@ while {!_created} do {
 						false,		//disableTeleport
 						0		//unitMovementMode
 					] call d_fnc_garrisonUnits;
-					d_x_sm_rem_ar append _unitstog;
+					if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+						d_x_sm_rem_ar append _unitstog;
+					};
 					sleep 1;
 				};
 			};

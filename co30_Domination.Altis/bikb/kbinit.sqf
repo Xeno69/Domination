@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #include "..\x_setup.sqf"
 
 if (isServer) then {
@@ -44,7 +44,7 @@ if (isServer) then {
 		d_hq_logic_opfor2 setVariable ["d_hq_logic_side", opfor];
 		d_hq_logic_opfor2 addEventHandler ["killed", {call d_fnc_kEHflogic}];
 	};
-	if (d_own_side == "GUER" || {d_ifa3}) then {
+	if (d_own_side == "GUER") then {
 		private _grprn = [independent] call d_fnc_creategroup;
 		__TRACE_1("","_grprn")
 		d_hq_logic_guer1 = _grprn createUnit ["Logic", [10, 10, 10], [], 0, "NONE"];
@@ -126,6 +126,7 @@ if (d_tt_ver || {d_own_side == "EAST"}) then {
 };
 
 if (d_tt_ver || {d_own_side == "WEST"}) then {
+	__TRACE("West")
 	if (!isServer && {isNil "d_hq_logic_blufor2"}) then {
 		while {true} do {
 			sleep 0.1;
@@ -169,7 +170,7 @@ if (d_tt_ver || {d_own_side == "WEST"}) then {
 	};
 };
 
-if (d_own_side == "GUER" || {d_ifa3}) then {
+if (d_own_side == "GUER") then {
 	if (!isServer && {isNil "d_hq_logic_guer2"}) then {
 		while {true} do {
 			sleep 0.1;
@@ -263,6 +264,7 @@ if (hasInterface) then {
 };
 
 if (isServer) then {
+	__TRACE("KBHASH")
 	d_kb_hash = createHashMapFromArray [
 		[0, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirSUAttack",d_kbtel_chan]}],
 		[1, {d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"TellAirAttackChopperAttack",d_kbtel_chan]}],

@@ -26,6 +26,11 @@ call {
 		_eventArmorMedium = "vn_i_armor_type63_01";
 		_eventArmorLight = "vn_i_wheeled_m151_mg_01_mp";
 	};
+	if (d_spe) exitWith {
+		_eventArmorHeavy = "I_MBT_03_cannon_F";
+		_eventArmorMedium = "I_APC_tracked_03_cannon_F";
+		_eventArmorLight = "I_LT_01_cannon_F";
+	};
 	_eventArmorHeavy = "I_MBT_03_cannon_F";
 	_eventArmorMedium = "I_APC_tracked_03_cannon_F";
 	_eventArmorLight = "I_LT_01_cannon_F";

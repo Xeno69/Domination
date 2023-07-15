@@ -32,7 +32,9 @@ if (!d_preemptive_special_event) then {
 		false,	//disableTeleport
 		0		//unitMovementMode
 	] call d_fnc_garrisonUnits;
-	d_delinfsm append _unitstog;
+	if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+		d_delinfsm append _unitstog;
+	};
 	
 	_unitstog = [
 		getPos _utower,
@@ -44,7 +46,9 @@ if (!d_preemptive_special_event) then {
 		false,	//disableTeleport
 		0		//unitMovementMode
 	] call d_fnc_garrisonUnits;
-	d_delinfsm append _unitstog;
+	if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+		d_delinfsm append _unitstog;
+	};
 };
 
 _vec

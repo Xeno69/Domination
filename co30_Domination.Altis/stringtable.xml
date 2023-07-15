@@ -50,6 +50,18 @@
 <Chinese>載具/無人機修理點</Chinese>
 <French>Réparation Véhicule/Drone</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_4_44">
+<English>Vehicle Service</English>
+<Spanish>Vehicle Service</Spanish>
+<Portuguese>Vehicle Service</Portuguese>
+<Korean>Vehicle Service</Korean>
+<Japanese>Vehicle Service</Japanese>
+<Original>Vehicle Service</Original>
+<Russian>Vehicle Service</Russian>
+<Chinesesimp>Vehicle Service</Chinesesimp>
+<Chinese>Vehicle Service</Chinese>
+<French>Vehicle Service</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_5">
 <English>Ammo Point</English>
 <Spanish>Punto de Municiones</Spanish>
@@ -3373,6 +3385,18 @@
 <Chinesesimp>载具/无人机修理点</Chinesesimp>
 <Chinese>載具/無人機修理點</Chinese>
 <French>Point Réparation Véhicules/Drones</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_524_44">
+<English>Vehicle Service Point</English>
+<Spanish>Vehicle Service Point</Spanish>
+<Portuguese>Vehicle Service Point</Portuguese>
+<Korean>Vehicle Service Point</Korean>
+<Japanese>Vehicle Service Point</Japanese>
+<Original>Vehicle Service Point</Original>
+<Russian>Vehicle Service Point</Russian>
+<Chinesesimp>Vehicle Service Point</Chinesesimp>
+<Chinese>Vehicle Service Point</Chinese>
+<French>Vehicle Service Point</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_526">
 <English>Plane Service Point</English>

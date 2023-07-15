@@ -11,11 +11,11 @@ private _items_no = if (!d_vn) then {
 	["MineDetector"]
 };
 
-if (!d_gmcwg && {!d_vn}) then {
+if (!d_gmcwg && {!d_vn && {!d_spe}}) then {
 	_items_no append ["FirstAidKit", "Medikit", "ItemCompass", "ItemWatch"];
 };
 
-if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "arifle_SDAR_F"];
 };
 
@@ -58,7 +58,7 @@ private _findmodfnc = {
 		_ok = call {
 			if (_item in _items_no) exitWith {false};
 			if (d_with_ace && {(_item select [0, 4]) isEqualTo "ace_"}) exitWith {false};
-			if (!d_ifa3 && {!d_vn && {"wetsuit" in _item || {"diving" in _item || {"rebreather" in _item}}}}) exitWith {false};
+			if (!d_ifa3 && {!d_vn && {!d_spe && {"wetsuit" in _item || {"diving" in _item || {"rebreather" in _item}}}}}) exitWith {false};
 			true
 		};
 		if (_ok) then {
@@ -78,6 +78,15 @@ private _findmodfnc = {
 				"";
 			};
 			__TRACE_1("","_kind")
+#ifdef __DEBUG__
+			private _helpercsal = configSourceAddonList (configFile >> _kind >> _x);
+			__TRACE_1("","_helpercsal")
+			{
+				if (_x select [0, 7] == "WW2_SPE") then {
+					_csalar pushBackUnique _x;
+				};
+			} forEach _helpercsal;
+#endif
 			__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")
 			if (_kind != "" && {([configSourceAddonList (configFile >> _kind >> _x)] call _findmodfnc) == -1}) then {
 				__TRACE_1("","_ar select _forEachIndex")

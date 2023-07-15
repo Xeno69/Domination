@@ -1,0 +1,12 @@
+["SPE_M10", "SPE_M18_Hellcat", "SPE_M4A0_75_Early", "SPE_M4A0_75", "SPE_M4A1_76", "SPE_M4A1_75", "SPE_M4A1_T34_Calliope_Direct"],
+["SPE_US_M16_Halftrack"],
+["SPE_US_M3_Halftrack"],
+["SPE_M45_Quadmount"],
+["SPE_US_M16_Halftrack"],
+["SPE_US_M3_Halftrack"],
+["SPE_M1919_M2", "SPE_FR_M1919_M2"],
+["SPE_M45_Quadmount","SPE_57mm_M1"],
+["SPE_M1919A6_Bipod", "SPE_M1_81"],
+["SPE_US_M3_Halftrack_Fuel", "SPE_FFI_OpelBlitz_Ammo"],
+["SPE_US_M3_Halftrack_Repair", "SPE_FFI_OpelBlitz_Repair"],
+["SPE_US_M3_Halftrack_Ammo", "SPE_FFI_OpelBlitz_Ammo"]

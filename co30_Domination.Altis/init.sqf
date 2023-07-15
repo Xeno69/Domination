@@ -3,8 +3,8 @@
 #include "x_setup.sqf"
 diag_log [diag_frameno, diag_ticktime, time, "Executing Dom init.sqf"];
 
-if (productVersion # 2 < 212) exitWith {
-	diag_log [diag_frameno, diag_ticktime, time, "You need at least Arma 3 patch 2.12 to run Domination!!!!"];
+if (productVersion # 2 < 213) exitWith {
+	diag_log [diag_frameno, diag_ticktime, time, "You need at least Arma 3 patch 2.14 to run Domination!!!!"];
 	endMission "LOSER";
 	forceEnd;
 };
@@ -45,6 +45,15 @@ if (isServer) then {
 	private _date = date;
 	_date set [0, 1971];
 	_year = 1971;
+	setDate _date;
+};
+#endif
+#ifdef __SPE__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 1944..."];
+	private _date = date;
+	_date set [0, 1944];
+	_year = 1944;
 	setDate _date;
 };
 #endif

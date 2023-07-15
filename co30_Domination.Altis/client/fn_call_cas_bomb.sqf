@@ -22,7 +22,7 @@ private "_target";
 private _do_exit = false;
 private _do_cleanup = false;
 
-if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 	_target = laserTarget player;
 	__TRACE_1("","_target")
 	if (isNil "_target" || {isNull _target}) exitWith {

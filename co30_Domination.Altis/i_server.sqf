@@ -157,12 +157,21 @@ if (isServer) then {
 if (!isServer) exitWith {};
 
 #ifdef __OWN_SIDE_BLUFOR__
-blufor setFriend [opfor, 0];
-opfor setFriend [blufor, 0];
-blufor setFriend [independent, 1];
-independent setFriend [blufor, 1];
-opfor setFriend [independent, 0];
-independent setFriend [opfor, 0];
+if (!d_spe) then {
+	blufor setFriend [opfor, 0];
+	opfor setFriend [blufor, 0];
+	blufor setFriend [independent, 1];
+	independent setFriend [blufor, 1];
+	opfor setFriend [independent, 0];
+	independent setFriend [opfor, 0];
+} else {
+	blufor setFriend [opfor, 0];
+	opfor setFriend [blufor, 0];
+	blufor setFriend [independent, 0];
+	independent setFriend [blufor, 0];
+	opfor setFriend [independent, 0];
+	independent setFriend [opfor, 0];
+};
 #endif
 
 #ifdef __OWN_SIDE_OPFOR__

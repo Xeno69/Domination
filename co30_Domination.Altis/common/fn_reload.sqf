@@ -25,7 +25,7 @@ if (isNull _object || {_object isKindOf "ParachuteBase"}) exitWith {};
 private _isUav = unitIsUAV _object;
 
 private _uavside = call {
-	if (d_tt_ver) exitWith {
+	if (d_tt_ver && {!isNil "d_chopper_trigger"}) exitWith {
 		[opfor, blufor] select (_object distance2D d_chopper_trigger < 1000)
 	};
 	sideUnknown

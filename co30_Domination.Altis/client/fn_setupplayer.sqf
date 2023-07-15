@@ -186,6 +186,9 @@ if (d_weather == 0) then {
 #ifdef __CSLA__
 		d_withsandstorm = 1;
 #endif
+#ifdef __SPE__
+		d_withsandstorm = 1;
+#endif
 		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
 	};
 };
@@ -220,6 +223,10 @@ if (d_with_ranked) then {
 				if (d_vn) exitWith {
 					_weapp = "vn_m16";
 					_magp = "vn_m16_20_mag";
+				};
+				if (d_spe) exitWith {
+					_weapp = "arifle_MX_F";
+					_magp = "30Rnd_65x39_caseless_mag";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -256,6 +263,10 @@ if (d_with_ranked) then {
 				if (d_pracs) exitWith {
 					_weapp = "PRACS_g3a3";
 					_magp = "PRACS_20rd_G3_mag";
+				};
+				if (d_spe) exitWith {
+					_weapp = "arifle_MX_F";
+					_magp = "30Rnd_65x39_caseless_mag";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -405,12 +416,17 @@ d_points_needed_18 = (d_points_needed # 6) + 200000;
 	[d_FLAG_BASE, localize "STR_DOM_MISSIONSTRING_1644", 2.5, 0, 0] call d_fnc_addto3drawar;
 	if (d_dis_servicep == 1) then {
 		if (!isNil "d_vecre_trigger") then {
-			[d_vecre_trigger, localize "STR_DOM_MISSIONSTRING_524", 5, 1, 0] call d_fnc_addto3drawar;
+			private _text_f = if (!d_spe && {!d_ifa3}) then {
+				localize "STR_DOM_MISSIONSTRING_4"
+			} else {
+				localize "STR_DOM_MISSIONSTRING_524_44"
+			};
+			[d_vecre_trigger, _text_f, 5, 1, 0] call d_fnc_addto3drawar;
 		};
 		if (!isNil "d_jet_trigger") then {
 			[d_jet_trigger, localize "STR_DOM_MISSIONSTRING_526", 5, 1, 0] call d_fnc_addto3drawar;
 		};
-		if (!d_ifa3 && {!isNil "d_chopper_trigger"}) then {
+		if (!d_ifa3 && {!d_spe && {!isNil "d_chopper_trigger"}}) then {
 			[d_chopper_trigger, localize "STR_DOM_MISSIONSTRING_528", 5, 1, 0] call d_fnc_addto3drawar;
 		};
 		private _allmhs = allMissionObjects "HeliH";
@@ -834,7 +850,7 @@ if (d_player_side == opfor && {markerPos "d_runwaymarker_o" isNotEqualTo [0,0,0]
 
 player call d_fnc_removenvgoggles_fak;
 #ifndef __IFA3__
-if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!d_vn && {!(player call d_fnc_hasnvgoggles)}}}}) then {
+if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!d_vn && {!d_spe && {!(player call d_fnc_hasnvgoggles)}}}}}) then {
 	if (!d_csla) then {
 		player linkItem (switch (d_player_side) do {
 			case opfor: {"NVGoggles_OPFOR"};
@@ -865,6 +881,15 @@ call {
 	if (d_csla) exitWith {
 		if (_bino == "") then {
 			player addWeapon "CSLA_bino";
+		};
+	};
+	if (d_spe) exitWith {
+		if (_bino == "") then {
+			if (d_player_side == west) then {
+				player addWeapon "SPE_Binocular_GER";
+			} else {
+				player addWeapon "SPE_Binocular_US";
+			};
 		};
 	};
 	if ((d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) || {d_string_player in d_can_call_cas}) then {
@@ -920,7 +945,7 @@ private _fnc_artvec = {
 
 if (d_disable_player_arty == 0) then {
 	if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
 		} else {
 			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
@@ -931,7 +956,7 @@ if (d_disable_player_arty == 0) then {
 if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
-		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn}}}}) then {
+		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 			if (d_enable_extra_cas == 1) then {
 				player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
@@ -1079,6 +1104,9 @@ if (d_arsenal_mod == 0) then {
 	};
 	if (d_pracs) then {
 		d_arsenal_mod_prestrings append ["PRACS_", "rhs_", "rhsgref_", "rhsusf_", "rhssaf_"];
+	};
+	if (d_spe) then {
+		d_arsenal_mod_prestrings append ["WW2_SPE_Assets_c_Weapons_InfantryWeapons_c", "WW2_SPE_Assets_c_Characters_Headgear_c", "WW2_SPE_Assets_c_Characters_Frenchs_c_FR_Late_Gear", "WW2_SPE_Assets_c_Characters_Civilians_c_French_Gear", "WW2_SPE_Assets_c_Characters_Americans_c_US_Rangers_Gear", "WW2_SPE_Assets_c_Characters_Americans_c_US_Army_Gear", "WW2_SPE_Assets_c_Characters_Americans_c_US_Airforce_Gear", "WW2_SPE_Assets_c_Characters_Germans_c_GER_Wehrmacht_Gear", "WW2_SPE_Assets_c_Characters_Germans_c_GER_TankTroops_Gear", "WW2_SPE_Assets_c_Characters_Germans_c_GER_Sturmtroopers_Gear", "ww2_spe_assets_c_weapons_misc_c_taskforceradioitems_compatibility", "WW2_SPE_Assets_c_Characters_Frenchs_c_FR_FFI_Gear","WW2_SPE_Assets_c_Weapons_Recoil_c", "WW2_SPE_Assets_c_Weapons_Sounds_c", "WW2_SPE_Assets_c_Weapons_Backpacks_c", "WW2_SPE_Assets_c_Weapons_Mines_c", "WW2_SPE_Assets_c_Vehicles_Weapons_c"];
 	};
 	if (d_with_ace && {d_arsenal_mod_prestrings isNotEqualTo []}) then {
 		d_arsenal_mod_prestrings pushBackUnique "ace_";
@@ -1290,7 +1318,7 @@ __TRACE_1("","d_isvdreduced")
 0 spawn d_fnc_gimmick;
 
 if (isMultiplayer) then {
-	if (d_force_fast_intro == 1 || {!d_ifa3 && {!d_vn}}) then {
+	if (d_force_fast_intro == 1 || {!d_ifa3 && {!d_vn && {!d_spe}}}) then {
 		0 spawn d_fnc_intro2;
 	} else {
 		0 spawn d_fnc_intro;

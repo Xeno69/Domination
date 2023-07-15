@@ -1,21 +1,29 @@
 // by Xeno
 #include "..\x_setup.sqf"
 
-#ifndef __VN__
-private _objs = (allMissionObjects "HBarrier_base_F") select {"d_bar_x_" in (str _x)};
-#else
-private _objs = (allMissionObjects "Land_vn_bagfence_long_f") select {"d_bar_x_" in (str _x)};
-#endif
+private _objs = call {
+	if (d_vn) exitWith {
+		(allMissionObjects "Land_vn_bagfence_long_f") select {"d_bar_x_" in (str _x)}
+	};
+	if (d_spe) exitWith {
+		(allMissionObjects "Land_SPE_French_Wall_Light_03_Small") select {"d_bar_x_" in (str _x)}
+	};
+	(allMissionObjects "HBarrier_base_F") select {"d_bar_x_" in (str _x)}
+};
 
 if (_objs isEqualTo []) exitWith {};
 
 sleep 1;
 
-#ifndef __VN__
-private _cnames = ("getNumber (_x >> 'scope') >= 2 && {getText (_x >> 'vehicleClass') in ['Armored', 'Car', 'Air']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x};
-#else
-private _cnames = (("getNumber (_x >> 'scope') >= 2 && {getText (_x >> 'vehicleClass') in ['Armored', 'Car', 'Air']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x}) select {_x select [0, 3] == "vn_"};
-#endif
+private _cnames = call {
+	if (d_vn) exitWith {
+		(("getNumber (_x >> 'scope') >= 2 && {getText (_x >> 'vehicleClass') in ['Armored', 'Car', 'Air']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x}) select {_x select [0, 3] == "vn_"};
+	};
+	if (d_spe) exitWith {
+		(("getNumber (_x >> 'scope') >= 2 && {getText (_x >> 'vehicleClass') in ['Armored', 'Car', 'Air']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x}) select {_x select [0, 4] == "SPE_"};
+	};
+	("getNumber (_x >> 'scope') >= 2 && {getText (_x >> 'vehicleClass') in ['Armored', 'Car', 'Air']}" configClasses (configFile >> "CfgVehicles")) apply {configName _x};
+};
 	
 private _objsar = [];
 	
@@ -31,6 +39,9 @@ while {true} do {
 		call {
 			if (d_vn) exitWith {
 				_obj attachTo [_x, [0.5, 0, 0.83 + _z]];
+			};
+			if (d_spe) exitWith {
+				_obj attachTo [_x, [0.5, 0, 1.2 + _z]];
 			};
 			if (d_ws) exitWith {
 				_obj attachTo [_x, [0.5, 0, 1.2 + _z]];

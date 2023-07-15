@@ -70,15 +70,21 @@ _unitsNotGarrisoned = [
 	_targetBuilding //true                                       //  (opt.) 13. Object, target building may be passed
 ] call d_fnc_Zen_OccupyHouse;
 sleep 0.01;
-__TRACE_1("","_unitsNotGarrisoned")
+__TRACE_1("1","_unitsNotGarrisoned")
 _units_to_garrison = _units_to_garrison - _unitsNotGarrisoned;
-if !(_unitsNotGarrisoned isEqualTo []) then {
+_unitsNotGarrisoned = _unitsNotGarrisoned - [objNull];
+_units_to_garrison = _units_to_garrison - [objNull];
+__TRACE_1("1","_units_to_garrison")
+__TRACE_1("2","_unitsNotGarrisoned")
+if (_unitsNotGarrisoned isNotEqualTo []) then {
 	diag_log [format ["units not garrisoned and will be deleted: %1", _unitsNotGarrisoned joinString "/"]];
+	{deleteVehicle _x} forEach _unitsNotGarrisoned;
 };
-{deleteVehicle _x} forEach _unitsNotGarrisoned;
 if (_units_to_garrison isEqualTo []) exitWith {
+	__TRACE("Deleting new group")
 	deleteGroup _newgroup;
 };
+__TRACE("after deleting new group")
 /* Removed for now, garrison groups should not respawn at main target respawn barracks (it's getting too much when there are about 40 players on the server)
 if (d_mt_respawngroups == 0) then {
 	{
@@ -86,8 +92,11 @@ if (d_mt_respawngroups == 0) then {
 	} forEach _units_to_garrison;
 	_newgroup setVariable ["d_respawninfo", ["specops", [], _centerPos, 0, "patrol2", d_side_enemy, 0, 0, 1, [_centerPos, _radius], false, []]];
 };*/
-_newgroup call d_fnc_addgrp2hc;
+if (!isNull _newgroup) then {
+	__TRACE("new group not null adding to HC")
+	_newgroup call d_fnc_addgrp2hc;
+};
 __TRACE_1("","_newgroup")
-__TRACE_1("","_units_to_garrison")
+__TRACE_1("3","_units_to_garrison")
 
 _units_to_garrison

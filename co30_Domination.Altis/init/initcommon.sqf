@@ -225,7 +225,7 @@ d_p_vecs = [
 	["D_TR8",301,"d_truck8","n_service","ColorGreen","E2",""],["D_TR9",400,"d_truck9","n_support","ColorGreen","T2",""],
 	["D_TR10",401,"d_truck10","n_support","ColorGreen","T1",""]
 ];
-if (d_ifa3) then {
+if (d_ifa3 || {d_spe}) then {
 	d_p_vecs pushBack ["D_TR11",500,"d_truck11","n_support","ColorGreen","W1",""];
 };
 if (d_gmcwg) then {
@@ -383,6 +383,9 @@ if (hasInterface) then {
 				if (d_pracs) exitWith {
 					["PRACS_UH1H","PRACS_CH53","PRACS_Sa330_Puma"]
 				};
+				if (d_spe) exitWith {
+					[]
+				};
 				["I_Heli_Transport_02_F"]
 			};
 #endif
@@ -405,6 +408,9 @@ if (hasInterface) then {
 				};
 				if (d_vn) exitWith {
 					["vn_b_air_uh1c_07_04"]
+				};
+				if (d_spe) exitWith {
+					[]
 				};
 				["B_T_VTOL_01_infantry_F", "B_Heli_Transport_03_unarmed_F", "B_Heli_Light_01_F", "B_Heli_Transport_01_F"]
 			};

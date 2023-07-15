@@ -471,7 +471,9 @@ if (!d_preemptive_special_event) then {
 		0,		//unitMovementMode
 		_vec   //bldg
 	] call d_fnc_garrisonUnits;
-	d_delinfsm append _unitstog;
+	if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+		d_delinfsm append _unitstog;
+	};
 #endif
 	sleep 0.1;
 };
@@ -690,10 +692,12 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				false,		//disableTeleport
 				0		//unitMovementMode
 			] call d_fnc_garrisonUnits;
-			d_delinfsm append _unitstog;
+			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+				d_delinfsm append _unitstog;
+			};
 		};
 	};
-	
+
 	//create garrisoned "overwatch" groups of AI (movement disabled)
 	diag_log [format ["creating overwatch groups d_ovrw_cnt_current: %1", d_ovrw_cnt_current]];
 	if (d_ovrw_cnt_current > 0) then {
@@ -708,7 +712,9 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				false,		//disableTeleport
 				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
-			d_delinfsm append _unitstog;
+			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+				d_delinfsm append _unitstog;
+			};
 		};
 	};
 
@@ -728,7 +734,9 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				false,		//disableTeleport
 				1		//unitMovementMode - ambush
 			] call d_fnc_garrisonUnits;
-			d_delinfsm append _unitstog;
+			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+				d_delinfsm append _unitstog;
+			};
 			
 			// create an overwatch group in same building or area (cover the ambush group)
 			private _unitstog = [
@@ -741,7 +749,9 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				false,		//disableTeleport
 				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
-			d_delinfsm append _unitstog;
+			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+				d_delinfsm append _unitstog;
+			};
 		};
 	};
 
@@ -846,7 +856,9 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				2,		//unitMovementMode
 				_x      //targetBuilding
 			] call d_fnc_garrisonUnits;
-			d_delinfsm append _unitstog;
+			if (!isNil "_unitstog" && {_unitstog isNotEqualTo []}) then {
+				d_delinfsm append _unitstog;
+			};
 		} forEach _buildingsArray;
 		//END create garrisoned groups of snipers
 	};
