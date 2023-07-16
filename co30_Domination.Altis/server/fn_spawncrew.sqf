@@ -4,9 +4,17 @@
 
 params ["_vec", "_grp", ["_nocargo", false]];
 
+#ifdef __214__
 _grp createVehicleCrew _vec;
+#else
+private _uavgrp = createVehicleCrew _vec;
+#endif
 private _crew = crew _vec;
 if (count _crew > 0) then {
+#ifndef __214__
+	_crew joinSilent _grp;
+	deleteGroup _uavgrp;
+#endif
 	private _subskill = if (diag_fps > 25) then {
 		0.1 + (random 0.1)
 	} else {

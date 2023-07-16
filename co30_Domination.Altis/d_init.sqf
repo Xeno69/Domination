@@ -641,6 +641,7 @@ if (isServer) then {
 	if (d_MissionType != 2) then {
 		addMissionEventhandler ["BuildingChanged", {call d_fnc_buildingchanged}];
 	};
+#ifdef __214__
 	addMissionEventHandler ["Drowned", {call d_fnc_v_hd}];
 	
 	addMissionEventHandler ["UAVCrewCreated", {
@@ -648,6 +649,7 @@ if (isServer) then {
 		_uav setVariable ["d_uav_crew", [_driver, _gunner]];
 		[_uav, 7] call d_fnc_setekmode;
 	}];
+#endif
 };
 
 if (hasInterface) then {
