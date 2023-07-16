@@ -304,8 +304,10 @@ if (d_ao_check_for_ai in [0, 1]) then {
 
 sleep 0.1;
 
-if (d_with_minefield == 0 && {random 100 > 70}) then {
-	[_mtradius, _trg_center] call d_fnc_minefield;
+if (!d_spe) then {
+	if (d_with_minefield == 0 && {random 100 > 70}) then {
+		[_mtradius, _trg_center] call d_fnc_minefield;
+	};
 };
 
 sleep 1;
