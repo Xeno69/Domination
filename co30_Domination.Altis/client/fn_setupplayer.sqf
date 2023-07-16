@@ -100,7 +100,7 @@ if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 
 {_x disableAI "RADIOPROTOCOL"; _x setSpeaker "NoVoice"} forEach (allPlayers - [player]);
 
-play disableAI "CHECKVISIBLE"; 
+player disableAI "CHECKVISIBLE"; 
 
 //if (d_player_radioprotocol) then {
 //	player disableAI "RADIOPROTOCOL";

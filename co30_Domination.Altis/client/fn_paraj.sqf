@@ -14,7 +14,7 @@ if (player distance2D _jumpobj > 15) exitWith {};
 private _do_exit = false;
 if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 4)) then {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_64", score player, d_ranked_a # 4];
+		[1, format [localize "STR_DOM_MISSIONSTRING_64", score player, d_ranked_a # 4]] call d_fnc_sideorsyschat;
 		_do_exit = true;
 	};
 };
@@ -24,7 +24,7 @@ if (_do_exit) exitWith {};
 if (isNil "d_next_jump_time") then {d_next_jump_time = -1};
 
 if (d_HALOWaitTime > 0 && {_mode == 0 && {player distance2D _jumpobj < 15 && {d_next_jump_time > time}}}) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_65", floor ((d_next_jump_time - time) / 60), round (d_next_jump_time - time) mod 60];
+	[1, format [localize "STR_DOM_MISSIONSTRING_65", floor ((d_next_jump_time - time) / 60), round (d_next_jump_time - time) mod 60]] call d_fnc_sideorsyschat;
 };
 
 d_global_jump_pos = [];

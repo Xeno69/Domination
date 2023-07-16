@@ -10,24 +10,48 @@ params ["_num", "_param1", "_param2", "_param3"];
 
 if (_num == 0) exitWith {
 #ifndef __TT__
-	d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+	if (!d_spe && {!d_ifa3}) then {
+		d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+	} else {
+		systemChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+	};
 #else	
 	if (d_player_side == blufor) then {
-		d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+		if (!d_spe && {!d_ifa3}) then {
+			d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+		} else {
+			systemChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+		};
 	} else {
-		d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+		if (!d_spe && {!d_ifa3}) then {
+			d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+		} else {
+			systemChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
+		};
 	};
 #endif
 };
 
 if (_num == 1) exitWith {
 #ifndef __TT__
-	d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+	if (!d_spe && {!d_ifa3}) then {
+		d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+	} else {
+		systemChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+	};
 #else
 	if (d_player_side == blufor) then {
-		d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+		if (!d_spe && {!d_ifa3}) then {
+			d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+		} else {
+			systemChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+		};
 	} else {
-		d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+		if (!d_spe && {!d_ifa3}) then {
+			d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+		} else {
+			systemChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
+		};
 	};
 #endif
 };
@@ -45,11 +69,11 @@ if (_num == 4) exitWith {
 };
 
 //if (_num == 5) exitWith {
-	//player sideChat format [localize "STR_DOM_MISSIONSTRING_1856", d_ranked_a # 23];
+	//[0, format [localize "STR_DOM_MISSIONSTRING_1856", d_ranked_a # 23]] call d_fnc_sideorsyschat;
 //};
 
 if (_num == 6) exitWith {
-	player sideChat (localize "STR_DOM_MISSIONSTRING_1519");
+	[0, localize "STR_DOM_MISSIONSTRING_1519"] call d_fnc_sideorsyschat;
 };
 
 if (_num == 7) exitWith {
@@ -89,7 +113,7 @@ if (_num == 11) exitWith {
 #ifdef __TT__
 if (_num == 12) exitWith {
 	private _lstr = ["STR_DOM_MISSIONSTRING_515", "STR_DOM_MISSIONSTRING_514"] select (d_WithRevive == 0);
-	player sideChat format [localize _lstr, _param1, _param2, "EAST", d_tt_points # 8];
+	[0, format [localize _lstr, _param1, _param2, "EAST", d_tt_points # 8]] call d_fnc_sideorsyschat;
 };
 
 if (_num == 13) exitWith {
@@ -104,7 +128,7 @@ if (_num == 13) exitWith {
 
 if (_num == 14) exitWith {
 	private _lstr = ["STR_DOM_MISSIONSTRING_515", "STR_DOM_MISSIONSTRING_514"] select (d_WithRevive == 0);
-	player sideChat format [localize _lstr, _param1, _param2, "WEST", d_tt_points # 8];
+	[0, format [localize _lstr, _param1, _param2, "WEST", d_tt_points # 8]] call d_fnc_sideorsyschat;
 };
 #endif
 
@@ -155,7 +179,7 @@ if (_num == 22) exitWith {
 };
 
 if (_num == 23) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_288", _param1];
+	[1, format [localize "STR_DOM_MISSIONSTRING_288", _param1]] call d_fnc_sideorsyschat;
 };
 
 if (_num == 24) exitWith {

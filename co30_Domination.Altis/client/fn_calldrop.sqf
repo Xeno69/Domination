@@ -9,17 +9,17 @@ if (!alive player || {isNull objectParent player && {(getPosATLVisual player) # 
 	d_commandingMenuIniting = false;
 };
 if !(d_para_available) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_163");
+	[1, localize "STR_DOM_MISSIONSTRING_163"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 
 if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 16)}) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_164", score player, d_ranked_a # 16];
+	[1, format [localize "STR_DOM_MISSIONSTRING_164", score player, d_ranked_a # 16]] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 
 if (!d_no_ai && {!isNil "d_drop_blocked"}) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_165");
+	[1, localize "STR_DOM_MISSIONSTRING_165"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 
@@ -50,13 +50,13 @@ if (d_x_drop_type != "") then {
 	private _mpdz =+ markerPos "d_drop_zone";
 	deleteMarkerLocal "d_drop_zone";
 	if ((getPosWorld player) distance2D _mpdz > d_drop_max_dist) exitWith {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_166", d_drop_max_dist];
+		[1, format [localize "STR_DOM_MISSIONSTRING_166", d_drop_max_dist]] call d_fnc_sideorsyschat;
 	};
-	player sideChat format [localize "STR_DOM_MISSIONSTRING_167", [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName];
+	[1, format [localize "STR_DOM_MISSIONSTRING_167", [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName]] call d_fnc_sideorsyschat;
 	if (d_with_ranked || {d_database_found}) then {[player, 4] remoteExecCall ["d_fnc_ascfc", 2]};
 	[d_x_drop_type, _mpdz, player, d_player_side] remoteExec ["d_fnc_createdrop", 2];
 } else {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_168");
+	[1, localize "STR_DOM_MISSIONSTRING_168"] call d_fnc_sideorsyschat;
 	deleteMarkerLocal "d_drop_zone";
 };
 

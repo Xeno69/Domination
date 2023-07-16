@@ -12,7 +12,7 @@ if (d_sm_mt_protectionAI == 1 || {d_sm_mt_protectionAI == 3}) then {
 		if (d_x_sm_type == "convoy") exitWith {};
 		private _checkpos = [d_x_sm_pos # 1, d_x_sm_pos # 0] select (d_x_sm_type != "deliver");
 		if (_pr distance2D _checkpos < 1000) then {
-			player sideChat (localize "STR_DOM_MISSIONSTRING_2106");
+			[0, localize "STR_DOM_MISSIONSTRING_2106"] call d_fnc_sideorsyschat;
 			_ret = true;
 		};
 	};
@@ -23,7 +23,7 @@ if (d_sm_mt_protectionAI == 2 || {d_sm_mt_protectionAI == 3}) then {
 		__TRACE("cur target pos ok")
 		if (_pr distance2D d_cur_tgt_pos < 1000) then {
 			__TRACE("dist below 1000")
-			player sideChat (localize "STR_DOM_MISSIONSTRING_2107");
+			[0, localize "STR_DOM_MISSIONSTRING_2107"] call d_fnc_sideorsyschat;
 			_ret = true;
 		};
 	};

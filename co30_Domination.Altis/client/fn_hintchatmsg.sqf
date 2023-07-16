@@ -30,8 +30,8 @@ hintSilent parseText format ["<t color='#34ebe8' size='1.3' align='center'>%1</t
 private _msg_chat = _arc joinString "";
 
 call {
-	if (_type_chat == "hq") exitWith {[playerSide, "HQ"] sideChat _msg_chat};
-	if (_type_chat == "side") exitWith {player sideChat _msg_chat};
+	if (_type_chat == "hq") exitWith {[1, _msg_chat] call d_fnc_sideorsyschat};
+	if (_type_chat == "side") exitWith {[0, _msg_chat] call d_fnc_sideorsyschat};
 	if (_type_chat == "global") exitWith {systemChat _msg_chat};
 	if (_type_chat == "group") exitWith {player groupChat _msg_chat};
 };

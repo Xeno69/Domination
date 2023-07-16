@@ -6,16 +6,16 @@ if (!hasInterface) exitWith {};
 
 #ifndef __TT__
 if !(d_cas_available) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1712");
+	[1, localize "STR_DOM_MISSIONSTRING_1712"] call d_fnc_sideorsyschat;
 };
 #else
 if (d_player_side == blufor && {!d_cas_available_w} || {d_player_side == opfor && {!d_cas_available_e}}) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1712");
+	[1, localize "STR_DOM_MISSIONSTRING_1712"] call d_fnc_sideorsyschat;
 };
 #endif
 
 if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)}) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_1713", score player, d_ranked_a # 22];
+	[1, format [localize "STR_DOM_MISSIONSTRING_1713", score player, d_ranked_a # 22]] call d_fnc_sideorsyschat;
 };
 
 private "_pos_lt";

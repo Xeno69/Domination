@@ -11,11 +11,11 @@ if (_this # 1 != player) exitWith {
 __TRACE_1("","_this")
 
 if (player != leader (group player)) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_311");
+	[1, localize "STR_DOM_MISSIONSTRING_311"] call d_fnc_sideorsyschat;
 };
 
 if (player distance2D (_this # 0) > 50) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_312");
+	[1, localize "STR_DOM_MISSIONSTRING_312"] call d_fnc_sideorsyschat;
 };
 
 d_current_ai_num = {alive _x && {!(_x call d_fnc_isplayer)}} count (units player);

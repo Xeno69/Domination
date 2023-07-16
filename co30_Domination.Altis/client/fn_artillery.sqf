@@ -5,6 +5,7 @@
 if (!hasInterface) exitWith {};
 
 if (!d_player_canu || {isNull objectParent player && {(getPos player) # 2 > 10}}) exitWith {
+	__TRACE("Exiting 1")
 	d_commandingMenuIniting = false;
 };
 
@@ -12,22 +13,26 @@ disableSerialization;
 
 
 if (!d_tt_ver && {!d_ari_available}) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_145");
+	__TRACE("Exiting 2")
+	[1, localize "STR_DOM_MISSIONSTRING_145"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 if (d_tt_ver && {d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}}) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_145");
+	__TRACE("Exiting 3")
+	[1, localize "STR_DOM_MISSIONSTRING_145"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 
 if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 2)}) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_147", score player, d_ranked_a # 2];
+	__TRACE("Exiting 4")
+	[1, format [localize "STR_DOM_MISSIONSTRING_147", score player, d_ranked_a # 2]] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 
 #ifndef __TT__
 if (!isNil "d_ari_blocked") exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_148");
+	__TRACE("Exiting 5")
+	[1, localize "STR_DOM_MISSIONSTRING_148"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 
@@ -53,7 +58,7 @@ if (d_player_side == blufor) then {
 	};
 };
 if (_dexit) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_148");
+	[1, localize "STR_DOM_MISSIONSTRING_148"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 #endif

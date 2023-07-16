@@ -91,7 +91,7 @@ __TRACE_1("","_eee")
 	if !(_smtype in _smtypes) exitWith {
 		private _msg = format ["Error: Side mission type %1 does not exist!!!!", _smtype];
 		diag_log _msg;
-		player sideChat _msg;
+		[0, _msg] call d_fnc_sideorsyschat;
 	};
 	
 	private _subtype = "";

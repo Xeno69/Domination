@@ -223,6 +223,7 @@ class cfgFunctions {
 			addc(anticas);
 			addc(ac_ai_check);
 			addc(showmtbest);
+			addc(sideorsyschat);
 		};
 		class Dom_UI {
 			file = "clientui";

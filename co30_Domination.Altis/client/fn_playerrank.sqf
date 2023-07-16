@@ -8,7 +8,7 @@ if (_score < d_points_needed # 0 && {_d_player_old_rank == 0}) exitWith {};
 if (_score < d_points_needed # 0 && {_d_player_old_rank != 0}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] >= d_points_needed # 0) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_664", _d_player_old_rank call d_fnc_GetRankIndex2]
+			[1, format [localize "STR_DOM_MISSIONSTRING_664", _d_player_old_rank call d_fnc_GetRankIndex2]] call d_fnc_sideorsyschat;
 		};
 	};
 	_d_player_old_rank = 0;
@@ -30,13 +30,13 @@ if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player
 if (_score < d_points_needed # 1 && {_score >= d_points_needed # 0 && {_d_player_old_rank != 1}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 1) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_665");
+			[1, localize "STR_DOM_MISSIONSTRING_665"] call d_fnc_sideorsyschat;
 		};
 		//playSound "d_fanfare";
 		playSound "d_rankup";
 	} else {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_666", _d_player_old_rank call d_fnc_GetRankIndex2];
+			[1, format [localize "STR_DOM_MISSIONSTRING_666", _d_player_old_rank call d_fnc_GetRankIndex2]] call d_fnc_sideorsyschat;
 		};
 		// TODO - maybe play a "bad" sound 
 	};
@@ -59,13 +59,13 @@ if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player
 if (_score < d_points_needed # 2 && {_score >= d_points_needed # 1 && {_d_player_old_rank != 2}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 2) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_667");
+			[1, localize "STR_DOM_MISSIONSTRING_667"] call d_fnc_sideorsyschat;
 		};
 		//playSound "d_fanfare";
 		playSound "d_rankup";
 	} else {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_668", _d_player_old_rank call d_fnc_GetRankIndex2];
+			[1, format [localize "STR_DOM_MISSIONSTRING_668", _d_player_old_rank call d_fnc_GetRankIndex2]] call d_fnc_sideorsyschat;
 		};
 	};
 	_d_player_old_rank = 2;
@@ -87,13 +87,13 @@ if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player
 if (_score < d_points_needed # 3 && {_score >= d_points_needed # 2 && {_d_player_old_rank != 3}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 3) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_669");
+			[1, localize "STR_DOM_MISSIONSTRING_669"] call d_fnc_sideorsyschat;
 		};
 		//playSound "d_fanfare";
 		playSound "d_rankup";
 	} else {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_670", _d_player_old_rank call d_fnc_GetRankIndex2];
+			[1, format [localize "STR_DOM_MISSIONSTRING_670", _d_player_old_rank call d_fnc_GetRankIndex2]] call d_fnc_sideorsyschat;
 		};
 	};
 	_d_player_old_rank = 3;
@@ -115,13 +115,13 @@ if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player
 if (_score < d_points_needed # 4 && {_score >= d_points_needed # 3 && {_d_player_old_rank != 4}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 4) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_671");
+			[1, localize "STR_DOM_MISSIONSTRING_671"] call d_fnc_sideorsyschat;
 		};
 		//playSound "d_fanfare";
 		playSound "d_rankup";
 	} else {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_672", _d_player_old_rank call d_fnc_GetRankIndex2];
+			[1, format [localize "STR_DOM_MISSIONSTRING_672", _d_player_old_rank call d_fnc_GetRankIndex2]] call d_fnc_sideorsyschat;
 		};
 	};
 	_d_player_old_rank = 4;
@@ -143,13 +143,13 @@ if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player
 if (_score < d_points_needed # 5 && {_score >= d_points_needed # 4 && {_d_player_old_rank != 5}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 5) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_673");
+			[1, localize "STR_DOM_MISSIONSTRING_673"] call d_fnc_sideorsyschat;
 		};
 		//playSound "d_fanfare";
 		playSound "d_rankup";
 	} else {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_674", _d_player_old_rank call d_fnc_GetRankIndex2];
+			[1, format [localize "STR_DOM_MISSIONSTRING_674", _d_player_old_rank call d_fnc_GetRankIndex2]] call d_fnc_sideorsyschat;
 		};
 	};
 	_d_player_old_rank = 5;
@@ -171,13 +171,13 @@ if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player
 if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player_old_rank != 6}}) exitWith {
 	if (player getVariable ["d_player_old_score", 0] < d_points_needed # 6) then {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_675");
+			[1, localize "STR_DOM_MISSIONSTRING_675"] call d_fnc_sideorsyschat;
 		};
 		//playSound "d_fanfare";
 		playSound "d_rankup";
 	} else {
 		if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-			[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_674a", "General"];
+			[1, format [localize "STR_DOM_MISSIONSTRING_674a", "General"]] call d_fnc_sideorsyschat;
 		};
 	};
 	player setRank "Colonel";
@@ -197,7 +197,7 @@ if (_score < d_points_needed # 6 && {_score >= d_points_needed # 5 && {_d_player
 if (_score >= d_points_needed # 6 && {_d_player_old_rank != 7}) exitWith {
 	player setRank "Colonel";
 	if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
-		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_675a");
+		[1, localize "STR_DOM_MISSIONSTRING_675a"] call d_fnc_sideorsyschat;
 	};
 	//playSound "d_fanfare";
 	playSound "d_rankup";

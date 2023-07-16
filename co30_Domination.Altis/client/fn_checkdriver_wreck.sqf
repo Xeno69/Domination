@@ -27,7 +27,7 @@ if (!isNil "_d_side") then {
 
 if (!_exit_it && {_position == "driver"}) then {
 	if (d_with_ranked && {rankId player < (d_wreck_lift_rank call d_fnc_GetRankIndex)}) exitWith {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_179a", rank player, d_wreck_lift_rank call d_fnc_GetRankString];
+		[1, format [localize "STR_DOM_MISSIONSTRING_179a", rank player, d_wreck_lift_rank call d_fnc_GetRankString]] call d_fnc_sideorsyschat;
 		_exit_it = true;
 	};
 	hintSilent composeText [parseText("<t color='#f0a7ff31' size='1.5'>" + (localize "STR_DOM_MISSIONSTRING_659") + "</t>"), lineBreak, lineBreak, localize "STR_DOM_MISSIONSTRING_1744"];

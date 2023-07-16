@@ -7,7 +7,7 @@ if (!hasInterface || {!d_player_canu}) exitWith {};
 private _exitj = false;
 if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 19)) then {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_76b", score player,d_ranked_a # 19];
+		[1, format [localize "STR_DOM_MISSIONSTRING_76b", score player,d_ranked_a # 19]] call d_fnc_sideorsyschat;
 		_exitj = true;
 	} else {
 		[player, 6] remoteExecCall ["d_fnc_ascfc", 2];

@@ -6,7 +6,7 @@ private _objs = call {
 		(allMissionObjects "Land_vn_bagfence_long_f") select {"d_bar_x_" in (str _x)}
 	};
 	if (d_spe) exitWith {
-		(allMissionObjects "Land_SPE_French_Wall_Light_03_Small") select {"d_bar_x_" in (str _x)}
+		(allMissionObjects "Land_SPE_Wood_TrenchLogWall_01_4m_v1") select {"d_bar_x_" in (str _x)}
 	};
 	(allMissionObjects "HBarrier_base_F") select {"d_bar_x_" in (str _x)}
 };
@@ -41,7 +41,7 @@ while {true} do {
 				_obj attachTo [_x, [0.5, 0, 0.83 + _z]];
 			};
 			if (d_spe) exitWith {
-				_obj attachTo [_x, [0.5, 0, 1.2 + _z]];
+				_obj attachTo [_x, [0, 0, 0.7 + _z]];
 			};
 			if (d_ws) exitWith {
 				_obj attachTo [_x, [0.5, 0, 1.2 + _z]];

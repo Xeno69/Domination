@@ -121,16 +121,23 @@ if (isServer) then {
 
 	if (d_with_ai) then {
 		d_pos_ai_hut = [markerPos "d_pos_aihut", markerDir "d_pos_aihut"];
-		if (!d_vn) then {
+		call {
+			if (d_vn) exitWith {
+				d_AI_HUT = createVehicle ["Land_vn_infostand_v2_f", d_pos_ai_hut # 0, [], 0, "NONE"];
+				d_AI_HUT setObjectTextureGlobal [0, "pics\AI.paa"];
+			};
+			if (d_spe) exitWith {
+				d_AI_HUT = createVehicle ["spe_sign_post_2", d_pos_ai_hut # 0, [], 0, "NONE"];
+				d_AI_HUT setObjectTextureGlobal [0, "pics\AI.paa"];
+				d_pos_ai_hut set [1, (d_pos_ai_hut # 1) + 180];
+			};
 			d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
-		} else {
-			d_AI_HUT = createVehicle ["Land_vn_infostand_v2_f", d_pos_ai_hut # 0, [], 0, "NONE"];
-			d_AI_HUT setObjectTextureGlobal [0, "pics\AI.paa"];
 		};
+		
 		d_AI_HUT setDir (d_pos_ai_hut # 1);
 		if (!d_carrier) then {
 			d_AI_HUT setPos (d_pos_ai_hut # 0);
-			if (!d_vn) then {
+			if (!d_vn && {!d_spe}) then {
 				private _spos = d_AI_HUT modelToWorld [0, -0.4, 0];
 				private _sign = createVehicle ["SignAd_Sponsor_F", _spos, [], 0, "NONE"];
 				_sign setDir ((getDir d_AI_HUT) - 180);

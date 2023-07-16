@@ -21,7 +21,7 @@ if (!isNil "_d_side") then {
 #endif
 
 if (_do_msg) then {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_182");
+	[1, localize "STR_DOM_MISSIONSTRING_182"] call d_fnc_sideorsyschat;
 };
 _enterer action ["getOut", _this # 0];
 

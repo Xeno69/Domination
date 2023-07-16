@@ -3,14 +3,18 @@
 
 if (isNil "d_heli_taxi_available") then {d_heli_taxi_available = true};
 
-if (!d_heli_taxi_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_139")};
+if (!d_heli_taxi_available) exitWith {
+	[1, localize "STR_DOM_MISSIONSTRING_139"] call d_fnc_sideorsyschat;
+};
 
-if (d_FLAG_BASE distance2D player < 500) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_140")};
+if (d_FLAG_BASE distance2D player < 500) exitWith {
+	[1, localize "STR_DOM_MISSIONSTRING_140"] call d_fnc_sideorsyschat;
+};
 
 private _exitj = false;
 if (d_with_ranked || {d_database_found}) then {
 	if (score player < (d_ranked_a # 15)) exitWith {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_1424", score player, d_ranked_a # 15];
+		[1, format [localize "STR_DOM_MISSIONSTRING_1424", score player, d_ranked_a # 15]] call d_fnc_sideorsyschat;
 		_exitj = true;
 	};
 	[player, 2] remoteExecCall ["d_fnc_ascfc", 2];
@@ -30,7 +34,7 @@ createDialog "D_AirTaxiDialog";
 waitUntil {!isNil "d_airdtaxi_dialog_open" && {d_x_do_call_taxi || {!d_airdtaxi_dialog_open || {!d_player_canu}}}};
 
 if (!d_x_do_call_taxi) exitWith {
-	player sideChat (localize "STR_DOM_MISSIONSTRING_1881");
+	[0, localize "STR_DOM_MISSIONSTRING_1881"] call d_fnc_sideorsyschat;
 };
 
 private _destination = markerPos d_x_airtaximarker;
@@ -39,7 +43,7 @@ if (!isNil "d_AISPAWN" && {_destination distance2D d_FLAG_BASE < 100}) then {_de
 
 _destination set [2, 0];
 
-player sideChat (localize "STR_DOM_MISSIONSTRING_141");
+[0, localize "STR_DOM_MISSIONSTRING_141"] call d_fnc_sideorsyschat;
 
 [netId player, getPos player, _destination, d_ataxi_unit_type] remoteExec ["d_fnc_airtaxiserver", 2];
 

@@ -1282,6 +1282,11 @@ if (!d_pracs) then {
 	d_sniper_G = [["Indep","SPE_FFI","Infantry","SPE_FFI_Sniper_Team"] call d_fnc_GetConfigGroup, ["Indep","SPE_FR_ARMY","Infantry","SPE_FR_Sniper_Team"] call d_fnc_GetConfigGroup, ["Indep","SPE_US_ARMY","Infantry","SPE_US_Sniper_Team"] call d_fnc_GetConfigGroup];
 	d_sabotage_W = [["SPE_sturmtrooper_sapper_gefr", "SPE_sturmtrooper_sapper"]];
 	d_sabotage_G = [["SPE_FFI_Sapper"]];
+	d_specops_G = [
+		["Indep","SPE_FFI","Infantry","SPE_FFI_Sapper_Team"] call d_fnc_GetConfigGroup,
+		["Indep","SPE_FR_ARMY","Infantry","SPE_FR_2AD_Dismounted_AssaultEngineer_Squad"] call d_fnc_GetConfigGroup,
+		["Indep","SPE_US_ARMY","Infantry","SPE_US_Scout_Squad"] call d_fnc_GetConfigGroup
+	];
 #endif
 
 	d_veh_a_E = [

@@ -11,12 +11,12 @@ player setVariable ["d_recdbusy", true];
 private _max_ai = [round linearConversion [0, 20, 21 - count d_allplayers, 0, d_max_ai, true], d_max_ai] select !d_ai_dyn_recruit;
 
 if (d_current_ai_num >= _max_ai) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_694", _max_ai];
+	[1, format [localize "STR_DOM_MISSIONSTRING_694", _max_ai]] call d_fnc_sideorsyschat;
 	player setVariable ["d_recdbusy", false];
 };
 
 if (player != leader (group player)) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_695");
+	[1, localize "STR_DOM_MISSIONSTRING_695"] call d_fnc_sideorsyschat;
 	player setVariable ["d_recdbusy", false];
 };
 
@@ -27,12 +27,12 @@ private _exitj = false;
 if (d_with_ranked) then {
 	private _rank = rank player;
 	if (_rank == "PRIVATE") exitWith {
-		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_696");
+		[1, localize "STR_DOM_MISSIONSTRING_696"] call d_fnc_sideorsyschat;
 		_exitj = true;
 	};
 
 	if (score player < ((d_points_needed # 0) + (d_ranked_a # 3))) exitWith {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_697", score player, d_ranked_a # 3];
+		[1, format [localize "STR_DOM_MISSIONSTRING_697", score player, d_ranked_a # 3]] call d_fnc_sideorsyschat;
 		_exitj = true;
 	};
 
@@ -45,7 +45,7 @@ if (d_with_ranked) then {
 		case "COLONEL": {8};
 	};
 	if (d_current_ai_num >= _max_rank_ai) exitWith {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_698", _max_rank_ai];
+		[1, format [localize "STR_DOM_MISSIONSTRING_698", _max_rank_ai]] call d_fnc_sideorsyschat;
 		_exitj = true;
 	};
 	// each AI soldier costs score points

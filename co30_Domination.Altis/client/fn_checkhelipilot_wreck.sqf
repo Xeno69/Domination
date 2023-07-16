@@ -27,7 +27,7 @@ if (!isNil "_d_side") then {
 
 if (!_exit_it && {_position == "driver" || {[_vec, player] call d_fnc_iscopilot}}) then {
 	if (d_with_ranked && {rankId player < (d_wreck_lift_rank call d_fnc_GetRankIndex)}) exitWith {
-		[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_179", rank player, d_wreck_lift_rank call d_fnc_GetRankString];
+		[1, format [localize "STR_DOM_MISSIONSTRING_179", rank player, d_wreck_lift_rank call d_fnc_GetRankString]] call d_fnc_sideorsyschat;
 		_exit_it = true;
 	};
 	if (d_pilots_only == 0 && {!(call d_fnc_isPilotCheck)}) exitWith {

@@ -16,7 +16,7 @@ if (!isNil "d_AISPAWN" && {_destination distance2D d_FLAG_BASE < 100}) then {_de
 
 _destination set [2, 0];
 
-player sideChat (localize "STR_DOM_MISSIONSTRING_1937");
+[1, localize "STR_DOM_MISSIONSTRING_1937"] call d_fnc_sideorsyschat;
 
 [_destination] remoteExec ["d_fnc_airtaxi_dest", 2];
 

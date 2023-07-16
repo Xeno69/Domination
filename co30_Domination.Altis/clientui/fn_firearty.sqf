@@ -3,10 +3,12 @@
 //#include "..\x_setup.sqf"
 
 if (!d_tt_ver) then {
-	if !(d_ari_available) exitWith {[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_149")};
+	if !(d_ari_available) exitWith {
+		[1, localize "STR_DOM_MISSIONSTRING_149"] call d_fnc_sideorsyschat;
+	};
 } else {
 	if (d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}) exitWith {
-		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_149");
+		[1, localize "STR_DOM_MISSIONSTRING_149"] call d_fnc_sideorsyschat;
 	};
 };
 
@@ -40,7 +42,7 @@ if (d_artycheckfriendlies == 1) then {
 };
 
 if (_no isNotEqualTo []) exitWith {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_151");
+	[1, localize "STR_DOM_MISSIONSTRING_151"] call d_fnc_sideorsyschat;
 };
 
 if ((d_with_ranked || {d_database_found}) && {d_ranked_a # 2 > 0}) then {[player, 1] remoteExecCall ["d_fnc_ascfc", 2]};

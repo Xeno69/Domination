@@ -58,6 +58,6 @@ if (d_ari_type != "") then {
 	};
 } else {
 	if (!isStreamFriendlyUIEnabled) then {
-		[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1525");
+		[1, localize "STR_DOM_MISSIONSTRING_1525"] call d_fnc_sideorsyschat;
 	};
 };

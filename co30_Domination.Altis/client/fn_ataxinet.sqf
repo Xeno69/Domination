@@ -20,9 +20,9 @@ private _strout = call {
 	""
 }; 
 if (_strout != "") then {
-	[playerSide, "HQ"] sideChat _strout;
+	[1, _strout] call d_fnc_sideorsyschat;
 };
 if (d_heli_taxi_available) then {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_1453");
+	[1, localize "STR_DOM_MISSIONSTRING_1453"] call d_fnc_sideorsyschat;
 	player setVariable ["d_can_change_taxi", nil];
 };

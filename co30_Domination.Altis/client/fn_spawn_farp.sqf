@@ -37,7 +37,7 @@ if (surfaceIsWater _d_farp_pos) exitWith {
 };
 
 if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 20)}) exitWith {
-	[playerSide, "HQ"] sideChat format [localize "STR_DOM_MISSIONSTRING_245", score player, d_ranked_a # 20];
+	[1, format [localize "STR_DOM_MISSIONSTRING_245", score player, d_ranked_a # 20]] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
 

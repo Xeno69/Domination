@@ -22,7 +22,7 @@ if (!d_player_canu) exitWith {
 };
 
 if (isNil "d_arti_did_fire") then {
-	[playerSide, "HQ"] sideChat (localize "STR_DOM_MISSIONSTRING_152");
+	[1, localize "STR_DOM_MISSIONSTRING_152"] call d_fnc_sideorsyschat;
 } else {
 	d_arti_did_fire = nil;
 };

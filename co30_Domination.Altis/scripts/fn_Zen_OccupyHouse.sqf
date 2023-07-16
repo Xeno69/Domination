@@ -76,13 +76,13 @@ private [
 private _positionsUsed = [];
 
 if (_center isEqualTo [0,0,0]) exitWith {
-	player sideChat str "Zen_Occupy House Error : Invalid position given.";
+	[0, "Zen_Occupy House Error : Invalid position given."] call d_fnc_sideorsyschat;
 	diag_log "Zen_Occupy House Error : Invalid position given.";
 	[]
 };
 
 if (_units isEqualTo [] || {isNull (_units # 0)}) exitWith {
-	player sideChat str "Zen_Occupy House Error : No units given.";
+	[0, "Zen_Occupy House Error : No units given."] call d_fnc_sideorsyschat;
 	diag_log "Zen_Occupy House Error : No units given.";
 	([])
 };
