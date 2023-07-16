@@ -1,5 +1,6 @@
 4.66
 
+- Added: SPE Normandy version
 - Added: New entry d_excludemag_gen in CfgVehicles.cpp to remove magazines from all planes and not plane specific
 - Added: Pre-emptive event with some garrisoned guerrillas, new events server setting for "guerrilla and defense only", by longtimegamer
 - Added: Project RACS and SLA support, by Schalldampfer
