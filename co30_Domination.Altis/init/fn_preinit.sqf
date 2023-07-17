@@ -29,10 +29,8 @@ d_tanoa = true;
 
 #ifndef __IFA3__
 d_ifa3 = false;
-d_kbtel_chan = "SIDE";
 #else
 d_ifa3 = true;
-d_kbtel_chan = "GLOBAL";
 #endif
 
 #ifdef __CUP__
@@ -103,10 +101,11 @@ d_pracs = false;
 
 #ifdef __SPE__
 d_spe = true;
-d_kbtel_chan = "GLOBAL";
 #else
 d_spe = false;
 #endif
+
+d_kbtel_chan = "SIDE";
 
 d_HeliHEmpty = "Land_HelipadEmpty_F";
 

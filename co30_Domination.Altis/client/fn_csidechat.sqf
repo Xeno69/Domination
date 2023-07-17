@@ -10,48 +10,24 @@ params ["_num", "_param1", "_param2", "_param3"];
 
 if (_num == 0) exitWith {
 #ifndef __TT__
-	if (!d_spe && {!d_ifa3}) then {
-		d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
-	} else {
-		systemChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
-	};
+	d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
 #else	
 	if (d_player_side == blufor) then {
-		if (!d_spe && {!d_ifa3}) then {
-			d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
-		} else {
-			systemChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
-		};
+		d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
 	} else {
-		if (!d_spe && {!d_ifa3}) then {
-			d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
-		} else {
-			systemChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
-		};
+		d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1372", _param1];
 	};
 #endif
 };
 
 if (_num == 1) exitWith {
 #ifndef __TT__
-	if (!d_spe && {!d_ifa3}) then {
-		d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
-	} else {
-		systemChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
-	};
+	d_kb_logic1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
 #else
 	if (d_player_side == blufor) then {
-		if (!d_spe && {!d_ifa3}) then {
-			d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
-		} else {
-			systemChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
-		};
+		d_hq_logic_blufor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
 	} else {
-		if (!d_spe && {!d_ifa3}) then {
-			d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
-		} else {
-			systemChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
-		};
+		d_hq_logic_opfor1 sideChat format [localize "STR_DOM_MISSIONSTRING_1373", _param1];
 	};
 #endif
 };

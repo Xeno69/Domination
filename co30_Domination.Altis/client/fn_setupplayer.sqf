@@ -225,8 +225,8 @@ if (d_with_ranked) then {
 					_magp = "vn_m16_20_mag";
 				};
 				if (d_spe) exitWith {
-					_weapp = "arifle_MX_F";
-					_magp = "30Rnd_65x39_caseless_mag";
+					_weapp = "SPE_K98";
+					_magp = "SPE_5Rnd_792x57";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -265,8 +265,8 @@ if (d_with_ranked) then {
 					_magp = "PRACS_20rd_G3_mag";
 				};
 				if (d_spe) exitWith {
-					_weapp = "arifle_MX_F";
-					_magp = "30Rnd_65x39_caseless_mag";
+					_weapp = "SPE_M1903A3_Springfield";
+					_magp = "SPE_5Rnd_762x63";
 				};
 				_weapp = "arifle_MX_F";
 				_magp = "30Rnd_65x39_caseless_mag";
@@ -891,6 +891,7 @@ call {
 				player addWeapon "SPE_Binocular_US";
 			};
 		};
+		if !("ItemRadio" in assigneditems player) then {player linkItem "ItemRadio"};
 	};
 	if ((d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) || {d_string_player in d_can_call_cas}) then {
 		if (!d_with_ranked && {_bino != "LaserDesignator"}) then {

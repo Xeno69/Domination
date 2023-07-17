@@ -811,7 +811,7 @@ if (hasInterface) then {
 				call compileScript ["i_weapons_csla.sqf", false];
 			};
 			if (d_spe) exitWith {
-				call compileScript ["i_weapons_default.sqf", false];
+				call compileScript ["i_weapons_SPE.sqf", false];
 			};
 			call compileScript ["i_weapons_default.sqf", false];
 		};
