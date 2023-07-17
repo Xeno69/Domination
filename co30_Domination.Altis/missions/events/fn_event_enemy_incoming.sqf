@@ -248,6 +248,12 @@ if (d_ao_check_for_ai != _original_check_for_ai_value) then {
 	publicVariable "d_ao_check_for_ai";
 };
 
+{
+	{
+		_x setVariable ["d_do_not_delete", nil, true];
+	} forEach units _x;
+} forEach _newgroups_inf;
+
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
