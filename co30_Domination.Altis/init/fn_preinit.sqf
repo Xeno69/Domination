@@ -2696,7 +2696,7 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 		"Land_Cargo_HQ_V3_F";
 #endif
 #ifdef __SPE__
-		"Land_Cargo_HQ_V4_F";
+		"Land_BagBunker_01_large_green_F";
 #endif
 
 	d_b_small_static_high =
