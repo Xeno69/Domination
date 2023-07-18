@@ -14,7 +14,7 @@ for "_i" from 1 to _num_mines do {
 };
 
 d_mines_created = [];
-private _mtype_fnc = call {
+private _mtype = call {
 	if (d_vn) exitWith {
 		selectRandom ["vn_mine_ammobox_range", "vn_mine_punji_01", "vn_mine_punji_02", "vn_mine_punji_03", "vn_mine_tm57"];
 	};
@@ -23,9 +23,10 @@ private _mtype_fnc = call {
 	};
 	selectRandom ["APERSMine", "APERSBoundingMine", "SLAMDirectionalMine", "APERSTripMine"]
 };
+__TRACE_1("","_mtype")
 
 for "_i" from 0 to (_num_mines - 1) do {
-	private _mine = createMine [call _mtype_fnc, _m_pos_ar # _i, [], 0];
+	private _mine = createMine [_mtype, _m_pos_ar # _i, [], 0];
 	_mine setDir random 360;
 	d_side_enemy revealMine _mine;
 	d_mines_created pushBack _mine;

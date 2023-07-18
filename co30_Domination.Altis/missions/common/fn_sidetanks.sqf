@@ -13,6 +13,11 @@ d_sm_points_opfor = 0;
 private _tanks_ar = [];
 for "_ii" from 1 to (count _posi_array) - 1 do {
 	private _tank = createVehicle [d_sm_tank, _posi_array # _ii, [], 0, "NONE"];
+	_tank allowDamage false;
+	_tank spawn {
+		sleep 30;
+		_x allowDamage false;
+	};
 	_tank setDir (_dirs # _ii);
 	_tank setPos (_posi_array # _ii);
 	d_x_sm_vec_rem_ar pushBack _tank;

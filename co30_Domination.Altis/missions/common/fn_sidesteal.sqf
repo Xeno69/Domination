@@ -9,11 +9,16 @@ params ["_vec", ["_vpos", []], ["_vdir", -4.5], ["_vtype", ""], ["_docreatearmor
 
 if (isNull _vec) then {
 	_vpos set [2, 0];
-	_vec = createVehicle [_vtype, _vpos, [], 0, "NONE"];
+	_vec = createVehicle [_vtype, _vpos, [], 0, "CAN_COLLIDE"];
+	_vec allowDamage false;
 	_vec setDir _vdir;
 	_vec setPos _vpos;
 	[_vec, 6] call d_fnc_setekmode;
 	_vec setDamage 0;
+	_vec spawn {
+		sleep 30;
+		_this allowDamage true;
+	};
 	sleep 1;
 };
 

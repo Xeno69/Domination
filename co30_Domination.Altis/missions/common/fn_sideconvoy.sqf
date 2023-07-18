@@ -18,8 +18,11 @@ private _newgroup = [d_side_enemy] call d_fnc_creategroup;
 
 private _allSMVecs = [];
 
+private _tmp_pos =+ _pos_start;
+private _dir180 = _direction + 180;
+
 for "_i" from 0 to (_numconfv - 1) do {
-	private _reta = [1, _pos_start, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
+	private _reta = [1, _tmp_pos, d_sm_convoy_vehicles # _i, _newgroup, _direction, false, true, false, true] call d_fnc_makevgroup;
 	_reta params ["_vehicles"];
 	_vehicles params ["_onevec"];
 	if (d_with_dynsim == 0) then {
@@ -28,11 +31,6 @@ for "_i" from 0 to (_numconfv - 1) do {
 	_onevec allowDamage false;
 	_onevec setVectorUp [0,0,1];
 	_onevec forceFollowRoad true;
-	_onevec spawn {
-		scriptname "spawn sideconvoy";
-		sleep 30;
-		_this allowDamage true;
-	};
 	_onevec lock true;
 	_onevec allowCrewInImmobile true;
 	_onevec addEventHandler ["killed", {
@@ -47,9 +45,18 @@ for "_i" from 0 to (_numconfv - 1) do {
 	d_x_sm_vec_rem_ar append _vehicles;
 	d_x_sm_rem_ar append (_reta # 1);
 	_onevec setConvoySeparation 20;
-	_vehicles = nil;
+	_tmp_pos = _tmp_pos getPos [20, _dir180];
 	sleep 1.933;
 };
+
+_allSMVecs spawn {
+	scriptname "spawn sideconvoy";
+	sleep 30;
+	{
+		_x allowDamage true;
+	} forEach _this;
+};
+
 
 (leader _newgroup) setRank "LIEUTENANT";
 _newgroup allowFleeing 0;

@@ -40,7 +40,7 @@ d_sm_plane = switch (d_enemy_side_short) do {
 d_sm_tank = switch (d_enemy_side_short) do {
 	case "E": {"O_MBT_02_cannon_F"};
 	case "W": {"SPE_PzKpfwVI_H1"};
-	case "G": {"[1150.37,773.821,7.62939e-006]"};
+	case "G": {"SPE_M4A1_76"};
 };
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "E": {"O_MRAP_02_gmg_F"};
