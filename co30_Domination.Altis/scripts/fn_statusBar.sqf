@@ -29,13 +29,15 @@ private _formatstr = "
 	<img size='1.0' image='\A3\Data_F\Flags\Flag_red_CO.paa'/> " + (localize "STR_DOM_MISSIONSTRING_1985") + ": %9</t>";
 #endif
 
+while {d_still_in_intro} do {
+	sleep 1;
+};
+
 "d_infobar" cutRsc ["d_infobar", "PLAIN"];
 
 if (isNil "d_mission_is_now_over") then {
 	d_mission_is_now_over = false;
 };
-
-
 
 while {!d_mission_is_now_over} do {
 	private _disp = uiNamespace getVariable "d_infobar";
