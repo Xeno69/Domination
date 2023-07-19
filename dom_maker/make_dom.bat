@@ -59,7 +59,7 @@ rem goto cleanup
 
 
 rem Blufor Normandy
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_ger_spe.normandy
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_ger.SPE_normandy
 set MISSION_SQM=..\mission_sqm\mission_blufor_normandy_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_blufor_normandy.sqf
 md %WORK_DIR%
@@ -94,7 +94,7 @@ rmdir /S /Q %WORK_DIR%
 
 
 rem Independet Normandy
-set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_usa_spe.normandy
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_usa.SPE_normandy
 set MISSION_SQM=..\mission_sqm\mission_independent_normandy_bin.sqm
 set X_SETUP=..\mission_sqm\x_setup_independent_normandy.sqf
 md %WORK_DIR%
