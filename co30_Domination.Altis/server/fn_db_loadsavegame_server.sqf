@@ -241,7 +241,10 @@ d_bonus_vecs_db = _ar # 9;
 				sleep 10;
 			};
 			_vec setDamage 0;
-			_vec allowDamage true;
+			_vec spawn {
+				sleep 20;
+				_this allowDamage true;
+			};
 		};
 	} else {
 		_vec setDir (_x # 2);
@@ -417,6 +420,7 @@ private _fnc_tt_bonusvec = {
 		(_this # 0) setVectorUp [0, 0, 1];
 		sleep 0.5;
 		(_this # 0) setDamage 0;
+		sleep 20;
 		(_this # 0) allowDamage true;
 	};
 	_vec setVariable ["d_WreckMaxRepair", d_WreckMaxRepair, true];
