@@ -190,9 +190,6 @@ sleep 3.321;
 if (d_WithJumpFlags == 1 && {d_maintargets_list isNotEqualTo []}) then {0 spawn d_fnc_createjumpflag};
 #endif
 
-diag_log["fooooooo forEach before"];
-diag_log[d_currentcamps];
-
 private _del_camps_stuff = [];
 {
 	private _flag = _x getVariable "d_FLAG";
@@ -204,8 +201,6 @@ private _del_camps_stuff = [];
 		_del_camps_stuff pushBack _flag;
 	};
 } forEach d_currentcamps;
-
-diag_log["fooooooo forEach after"];
 
 sleep 0.1;
 
