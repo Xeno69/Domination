@@ -2,7 +2,8 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-__TRACE("Start")
+private _fn_start_time = time;
+diag_log ["start of fn_targetclearm.sqf"];
 
 d_target_clear = true; publicVariable "d_target_clear";
 
@@ -33,4 +34,4 @@ d_hq_logic_blufor1 kbTell [d_hq_logic_blufor2,"HQ_W","Captured",["1","",d_cur_tg
 d_hq_logic_opfor1 kbTell [d_hq_logic_opfor2,"HQ_E","Captured",["1","",d_cur_tgt_name,[d_cur_tgt_name]],"SIDE"];
 #endif
 
-__TRACE("Start")
+diag_log [format ["end of fn_targetclearm.sqf, elapsed time: %1", time - _fn_start_time]];
