@@ -257,7 +257,7 @@ if (d_enable_civs == 1) then {
 		params ["_tmpCivVehs"];
 		diag_log ["pausing (sleep 300) before deleting civ vehicles"];
 		sleep 300;
-		diag_log [format ["deleting %1 civ vehicles", count _tmpCivVehs]];
+		diag_log [format ["pause (sleep 300) is over, now deleting %1 civ vehicles", count _tmpCivVehs]];
 		{
 			deleteVehicle _x;
 		} forEach _tmpCivVehs;
