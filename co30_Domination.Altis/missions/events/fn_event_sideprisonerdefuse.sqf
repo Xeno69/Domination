@@ -134,7 +134,7 @@ while {sleep 3.14; !d_mt_done; !_is_rescued} do {
 		_is_rescued = true;
 		d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventSidePrisonersDefuseNow",d_kbtel_chan];
 		_pilot1 setDamage 0;
-		sleep 7;
+		sleep 12;
 		deleteVehicle _pilot1;
 	};
 	// check if 45 second warning
