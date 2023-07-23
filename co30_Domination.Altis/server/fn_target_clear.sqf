@@ -5,6 +5,9 @@ if (!isServer) exitWith{};
 
 __TRACE_1("","_this")
 
+private _fn_start_time = time;
+diag_log ["start of fn_target_clear.sqf"];
+
 sleep 1.123;
 
 d_enable_awareness = false;
@@ -129,10 +132,10 @@ sleep 0.5;
 
 if (d_maintargets_list isNotEqualTo []) then {
 	if (d_bonus_vec_type in [0, 1]) then {
-		__TRACE("spawning d_fnc_gettargetbonus")
+		diag_log["spawning d_fnc_gettargetbonus"];
 		0 spawn d_fnc_gettargetbonus;
 	} else {
-		__TRACE("calling d_fnc_targetclearm")
+		diag_log["calling d_fnc_targetclearm"];
 		call d_fnc_targetclearm;
 	};
 } else {
@@ -252,8 +255,9 @@ if (d_enable_civs == 1) then {
 	[_tmpCivVehs] spawn {
 		scriptName "spawn_delete_civ_vehicles";
 		params ["_tmpCivVehs"];
-		diag_log ["deleting civ vehicles", count _tmpCivVehs];
+		diag_log ["pausing (sleep 300) before deleting civ vehicles"];
 		sleep 300;
+		diag_log [format ["pause (sleep 300) is over, now deleting %1 civ vehicles", count _tmpCivVehs]];
 		{
 			deleteVehicle _x;
 		} forEach _tmpCivVehs;
@@ -368,5 +372,5 @@ if (d_maintargets_list isNotEqualTo []) then {
 		0 spawn d_fnc_DomEnd;
 	};
 };
-
+diag_log [format ["end of fn_target_clear.sqf, elapsed time: %1", time - _fn_start_time]];
 __TRACE("Done")

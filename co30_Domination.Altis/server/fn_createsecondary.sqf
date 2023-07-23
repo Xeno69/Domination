@@ -313,7 +313,7 @@ sleep 1;
 private _speedboatavailable = !isNil "d_sm_speedboat";
 if (!isNil "d_sm_speedboat") then {
 	_speedboatavailable = if (d_sm_speedboat isEqualType []) then {d_sm_speedboat isNotEqualTo []} else {d_sm_speedboat != ""};
-	if (_speedboatavailable) then {
+	if (_speedboatavailable && {!d_preemptive_special_event}) then {
 		[_trg_center, _mtradius] spawn d_fnc_seapatrol;
 	};
 };

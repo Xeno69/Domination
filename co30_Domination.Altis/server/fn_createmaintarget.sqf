@@ -37,6 +37,8 @@ private _selectitvec = {
 };
 
 params ["_trgobj", "_radius"];
+private _fn_start_time = time;
+diag_log ["start of fn_createmaintarget.sqf"];
 private _patrol_radius = _radius + 300 + random 300;
 private _trg_center = if (_trgobj isEqualType objNull) then {getPosATL _trgobj} else {_trgobj};
 __TRACE_1("","_trg_center")
@@ -997,4 +999,4 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai
 } foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif
 
-diag_log ["end of fn_createmaintarget.sqf"];
+diag_log [format ["end of fn_createmaintarget.sqf, elapsed time: %1", time - _fn_start_time]];

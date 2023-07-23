@@ -120,7 +120,7 @@ class Sentences {
 		};
 	};
 	class ArtilleryReloadNoText {
-		text = "$STR_DOM_MISSIONSTRING_1357";
+		text = "";
 		speech[] = {"XMIT","ReloadingE"};
 		class Arguments {};
 	};

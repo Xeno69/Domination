@@ -203,9 +203,15 @@ if (_is_dead_all) then {
 	{
 		_x addScore _event_succeed_points;
 	} forEach (allPlayers - entities "HeadlessClient_F");
+	if (alive _pilot1) then {
+		_pilot1 setDamage 0;
+	};
+	if (alive _pilot2) then {
+		_pilot2 setDamage 0;
+	};
 };
 
-sleep 5.432;
+sleep 12;
 
 {
 	if (!isNull _x) then {
