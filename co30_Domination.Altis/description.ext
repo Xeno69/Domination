@@ -2309,7 +2309,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
@@ -2343,7 +2343,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
@@ -2377,7 +2377,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
@@ -2411,7 +2411,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
@@ -2445,7 +2445,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
@@ -2479,7 +2479,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Rustov, HQ";
@@ -2513,7 +2513,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Rustov, HQ";
@@ -2577,7 +2577,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class RDHQ_OP1: DHQ_BF1 {
 		name = "Ivan, HQ";
@@ -2611,7 +2611,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng"; 
 	};
 	class GMDHQ_BF1: DHQ_BF1 {
 		name = "Berger, HQ";
@@ -2653,7 +2653,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
@@ -2687,7 +2687,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class VNDHQ_OP1: DHQ_BF1 {
 		name = "Van T� Duong";
