@@ -17,14 +17,6 @@ params ["_target_radius", "_target_center"];
 // prevent target_clear
 d_mt_radio_down = false;
 
-// for pre-emptive events, force victory check to include low ai
-private _original_check_for_ai_value = d_ao_check_for_ai;
-if (d_ao_check_for_ai != 2) then {
-	// temporarily set to 2
-	d_ao_check_for_ai = 2;
-	publicVariable "d_ao_check_for_ai";
-};
-
 private _event_name = "enemy_incoming";
 private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
 
@@ -239,15 +231,11 @@ sleep 120;
 	_wp setWaypointFormation "STAG COLUMN";
 } forEach _newgroups_veh;
 
+diag_log [format ["setup complete for event: %1", _mt_event_key]];
+
 waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
 // cleanup
-if (d_ao_check_for_ai != _original_check_for_ai_value) then {
-	// set ai check back to original value
-	d_ao_check_for_ai = _original_check_for_ai_value;
-	publicVariable "d_ao_check_for_ai";
-};
-
 {
 	{
 		_x setVariable ["d_do_not_delete", nil, true];
