@@ -42,7 +42,7 @@ if !(d_UAV_Terminal in (assignedItems player)) then {
 	player linkItem d_UAV_Terminal;
 };
 
-private _uav = [[(getPosATL player) # 0, (getPosATL player) # 1, 2000], 0, d_UAV_CAS, d_player_side, false, false] call bis_fnc_spawnVehicle;
+private _uav = [[(getPosATL player) # 0, (getPosATL player) # 1, 1200], 0, d_UAV_CAS, d_player_side, false, false] call bis_fnc_spawnVehicle;
 
 __TRACE_1("","_uav")
 _uav params ["_vecu", "_crew", "_grp"];
