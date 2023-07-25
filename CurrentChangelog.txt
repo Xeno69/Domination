@@ -1,3 +1,30 @@
 4.66
 
-- Added: New entry d_excludemag_gen in CfgVehicles.cpp too remove magazines from all planes and not plane specific
+- Added: SPE GER and USA Normandy versions
+- Added: New entry d_excludemag_gen in CfgVehicles.cpp to remove magazines from all planes and not plane specific
+- Added: Pre-emptive event with some garrisoned guerrillas, new events server setting for "guerrilla and defense only", by longtimegamer
+- Added: Project RACS and SLA support, by Schalldampfer
+- Added: New param d_sm_mt_protectionAI (Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS) in lobby, default off). Adds side mission and/or main target protection for player call CAS AI
+- Added: When a main target is done the top 10 players scores reached during that time are now shown
+- Added: Cam rose to spectating dialog
+- Added: Points get subtracted for killing animals (dogs -10, goats/sheep -5, hens/cocks -3, snakes -1)
+- Added: New vehicles from the S.O.G. Prairie Fire 1.3 update (including missing weapons from previous updates)
+- Added: Guerrilla faction configurable by server admin (Community Factions Project, Asian Factions for CUP), by longtimegamer
+- Added: Phronk's Furniture, by longtimegamer
+- Changed: AI Advanced - enhanced awareness is now enabled by default, range 650m (param d_ai_awareness_rad, you have to change it in the database manually if you already use one)
+- Changed: GBU24 bombs (FIR) are removed from pylon loadout (too overpowered)
+- Changed: If the admin ends a main target enemy main target AI will be also be deleted
+- Changed: Status bar now also shows if enemy vehicle MHQ is destroyed
+- Changed: Server/Client FPS and system time ui adjustments
+- Changed: Check pylon magazine name for "cluster" bomb type if d_pylon_noclust is enabled
+- Changed: Barracks now also working when d_ai_awareness_rad, d_snp_aware, d_ai_pursue_rad and /or d_ai_aggressiveshoot is enabled
+- Changed: Show dist traveled in kilometer not meter
+- Changed Civs move away when weapon is raised nearby, by longtimegamer
+- Fixed: Side mission protection disabled for convoy side missions
+- Fixed: Side mission protection for deliver side missions is now at the delivery point and not the start point
+- Fixed: Airdrop sometimes didn't drop ammo, by longtimegamer
+- Fixed: Airdrop vehicle sometimes did not fly away after drop was completed, by longtimegamer
+- Fixed: Additional recruit sign could fall over
+- Fixed: It could happen that a player had damage when he was moved out of jail back to base
+- Fixed: High numbers were shown in scientific notation in the top 10 player dialog
+- Fixed: Prisoner side mission sometimes ended with a script error
