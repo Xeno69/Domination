@@ -2567,7 +2567,7 @@ class CfgIdentities {
 	};
 #endif
 #ifdef __RHS__
-	class DHQ_BF1 {
+	/*class DHQ_BF1 {
 		name = "Winters, HQ";
 		face = "whiteHead_04";
 		glasses = "None";
@@ -2578,7 +2578,7 @@ class CfgIdentities {
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
 		speaker = "male02eng";
-	};
+	};*/
 	class RDHQ_OP1: DHQ_BF1 {
 		name = "Ivan, HQ";
 		speaker = "RHS_Male03RUS";
@@ -2587,7 +2587,7 @@ class CfgIdentities {
 		name = "Vasyl, HQ";
 		speaker = "RHS_Male02RUS";
 	};
-	class DHQ_IN1 {
+	/*class DHQ_IN1 {
 		name = "Zaziki, HQ";
 		face = "whiteHead_04";
 		glasses = "None";
@@ -2598,7 +2598,7 @@ class CfgIdentities {
 	class DHQ_IN2: DHQ_IN1 {
 		name = "Ouzo, HQ";
 		speaker = "Male02GRE";
-	};
+	};*/
 #endif
 #ifdef __GMCWG__
 	class DHQ_BF1 {
