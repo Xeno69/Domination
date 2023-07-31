@@ -81,6 +81,18 @@ if (d_enable_women_civs == 1) then {
 
 private _civ_units_count_max = 500; // default (recalculated if adaptive settings are selected)
 
+private _safe_building_strings = [
+	"church",
+	"chapel",
+	"mosque",
+	"cathedral",
+	"hospital",
+	"medical",
+	"school"];
+
+// todo - blacklist strings:
+// factory, fuel, reservoir, warehouse, Land_SCF, Land_SM, 
+
 private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
 
 private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist_civs) };
@@ -96,8 +108,23 @@ private _placeCivilianCluster = {
 	if (count d_cur_tgt_civ_units > _civ_units_count_max) exitWith {
 		diag_log [format ["unable to place civilian cluster, %1 civs created and the max is %2", count d_cur_tgt_civ_units, _civ_units_count_max]];
 	};
-	_grp = _this # 0;
-	_bldg = selectRandom _buildings;
+	private _grp = _this # 0;
+	private _safe_bldg = nil;
+	private _bldg = nil;
+	// look for safe buildings first
+	{
+		private _the_bldg = _x;
+		{
+			if ([toLowerANSI _x, toLowerANSI (getModelInfo _the_bldg # 0)] call BIS_fnc_inString) exitWith {
+				_safe_bldg = _the_bldg;
+			};
+		} forEach _safe_building_strings;
+	} forEach _buildings;
+	if (!isNil "_safe_bldg") then {
+		_bldg = _safe_bldg;
+	} else {
+		_bldg = selectRandom _buildings;
+	};
 	_buildings deleteAt (_buildings find _bldg);
 	// check if selected building is a mission objective
 	if ([_bldg] call d_fnc_ismissionobjective) exitWith {
@@ -279,7 +306,6 @@ diag_log [format ["total static civs created: %1", count d_cur_tgt_civ_units]];
 _grp_civmodule = createGroup [civilian, true];
 
 // try to find safespot locations - some safe buildings by string match
-private _safe_building_strings = ["church", "chapel"]; // later can add more known safe places here
 {
 	private _y = _x;
 	private _is_safe = false;
