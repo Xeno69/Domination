@@ -16,5 +16,7 @@ while {lineIntersects [ATLToASL _start, ATLToASL _pos]} do {
 };
 _this setPosATL _pos;
 
+sleep (3 + random 2);
+
 _this allowDamage true;
 _this setDamage 0;
