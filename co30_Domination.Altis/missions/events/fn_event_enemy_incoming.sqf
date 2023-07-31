@@ -14,9 +14,6 @@ if !(isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-// prevent target_clear
-d_mt_radio_down = false;
-
 private _event_name = "enemy_incoming";
 private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
 
@@ -26,7 +23,6 @@ private _townNearbyName = "";
 private _townNearbyPos = [];
 private _minimumDistanceFromMaintarget = 300;
 private _maximumDistanceFromMaintarget = 400;
-private _marker = nil;
 
 private _towns = nearestLocations [_target_center, ["NameCityCapital", "NameCity", "NameVillage"], 10000];
 
@@ -124,9 +120,9 @@ if (d_WithLessArmor == 4) then {
 		_x setSkill ["courage", 1];
 		_x setSkill ["commanding", 1];
 		_x_mt_event_ar pushBack _x;
-		_x setVariable ["d_do_not_delete", 1, true];
 	} forEach _units;
 	_newgroups_inf pushBack _newgroup;
+	d_delinfsm append _units;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
@@ -147,23 +143,21 @@ private _vdir = _spawn_pos getDir _target_center;
 	private _vecs_and_crews = [1, _spawn_pos_foreach, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
 	{
 		{
-			_x setVariable ["d_do_not_delete", 1, true];
-		} forEach _vecs_and_crews # 0; // vehicles
-		{
 			_x setSkill ["courage", 1];
 			_x setSkill ["commanding", 1];
-			_x setVariable ["d_do_not_delete", 1, true];
 		} forEach _vecs_and_crews # 1; // crews
 	} forEach _vecs_and_crews;
 	_x_mt_event_ar append (_vecs_and_crews # 0); // vehicles
 	_x_mt_event_ar append (_vecs_and_crews # 1); // crews
+	d_delvecsmt append (_vecs_and_crews # 0);
+	d_delinfsm append (_vecs_and_crews # 1);
 	_newgroups_veh pushBack _newgroup;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
 } forEach _incoming_vehs;
 
-_marker_enemy_spawn = ["d_mt_event_marker_enemyincoming", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_964", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
+private _marker_enemy_spawn = ["d_mt_event_marker_enemyincoming", _spawn_pos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_964", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
 [_marker_enemy_spawn, "STR_DOM_MISSIONSTRING_964"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 sleep 30;
@@ -231,16 +225,20 @@ sleep 120;
 	_wp setWaypointFormation "STAG COLUMN";
 } forEach _newgroups_veh;
 
-diag_log [format ["setup complete for event: %1", _mt_event_key]];
-
 waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
 // cleanup
-{
+diag_log [format ["cleanup of event: %1", _mt_event_key]];
+if (d_delinfsm isNotEqualTo []) then {
 	{
-		_x setVariable ["d_do_not_delete", nil, true];
-	} forEach units _x;
-} forEach _newgroups_inf;
+		deleteVehicle _x;
+	} forEach d_delinfsm;
+};
+if (d_delvecsmt isNotEqualTo []) then {
+	{
+		deleteVehicle _x;
+	} forEach d_delvecsmt;
+};
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
@@ -252,7 +250,3 @@ publicVariable "d_preemptive_special_event";
 d_preemptive_special_event_startpos_opfor = [];
 publicVariable "d_preemptive_special_event_startpos_opfor";
 
-//cleanup
-diag_log [format ["cleanup of event: %1", _mt_event_key]];
-diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
-_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;

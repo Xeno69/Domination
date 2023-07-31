@@ -252,12 +252,12 @@ if (d_enable_civs == 1) then {
 	private _tmpCivVehs = +d_cur_tgt_civ_vehicles;
 	d_cur_tgt_civ_vehicles = [];
 	
-	[_tmpCivVehs] spawn {
+	[_tmpCivVehs, _cur_tgt_name] spawn {
 		scriptName "spawn_delete_civ_vehicles";
-		params ["_tmpCivVehs"];
+		params ["_tmpCivVehs", "_cur_tgt_name"];
 		diag_log ["pausing (sleep 300) before deleting civ vehicles"];
 		sleep 300;
-		diag_log [format ["pause (sleep 300) is over, now deleting %1 civ vehicles", count _tmpCivVehs]];
+		diag_log [format ["pause (sleep 300) is over, now deleting %1 civ vehicles from completed target %2", count _tmpCivVehs, _cur_tgt_name]];
 		{
 			deleteVehicle _x;
 		} forEach _tmpCivVehs;
