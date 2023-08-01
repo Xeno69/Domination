@@ -48,7 +48,7 @@ private _trigger = [_target_center, [d_cur_target_radius,d_cur_target_radius,0,f
 if (d_preemptive_special_event) then {
 	_townNearbyName = "nearby";
 } else {
-	waitUntil {sleep 0.1; !isNil {_trigger getVariable "d_event_start"}};
+	waitUntil {sleep 1; !isNil {_trigger getVariable "d_event_start"}};
 };
 
 private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_2028_INFANTRY", _townNearbyName];
@@ -129,6 +129,8 @@ if (_with_vehicles) then {
     	};
     	_x_mt_event_ar append (_vecs_and_crews # 0); // vehicles
     	_x_mt_event_ar append (_vecs_and_crews # 1); // crews
+    	d_delvecsmt append (_vecs_and_crews # 0);
+		d_delinfsm append (_vecs_and_crews # 1);
 		{
 			_x setSkill ["courage", 1];
 			_x setSkill ["commanding", 1];
@@ -164,6 +166,7 @@ private _guerrillaBaseSkill = 0.85;
 		_x addEventHandler ["handleHeal", {call d_fnc_handleheal}];
 	} forEach _units;
 	_newgroups_inf pushBack _newgroup;
+	d_delinfsm append _units;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
@@ -222,21 +225,9 @@ while {sleep 1; !d_mt_done && {!_all_dead}} do {
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
-deleteVehicle _trigger;
-deleteMarker _marker;
-
-if (d_preemptive_special_event) then {
-	diag_log [format ["quick cleanup of preemptive event: %1", _mt_event_key]];
-} else {
-	diag_log [format ["waiting for cleanup of preemptive event: %1", _mt_event_key]];
-	if (d_ai_persistent_corpses == 0) then {
-		waitUntil {sleep 10; d_mt_done};
-	} else {
-		sleep 120;
-	};
-};
+waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
 //cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
-diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
-_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
+deleteVehicle _trigger;
+deleteMarker _marker;

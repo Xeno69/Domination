@@ -68,6 +68,7 @@ private _markerpos = [];
 		_x_mt_event_ar pushBack _x;
 	} forEach _units;
 	_newgroups_inf pushBack _newgroup;
+	d_delinfsm append _units;
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
@@ -94,11 +95,7 @@ private _markerpos = [];
 _marker = ["d_mt_event_marker_guerrillainfantry_defend", _markerpos, "ICON","ColorBlack", [1, 1], localize "STR_DOM_MISSIONSTRING_GUERRILLAS", 0, "mil_start"] call d_fnc_CreateMarkerGlobal;
 [_marker, "STR_DOM_MISSIONSTRING_GUERRILLAS"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
-private _all_dead = false;
-while {sleep 1; !d_mt_done && {!_all_dead}} do {
-	_foundAlive = _newgroups_inf findIf {(units _x) findIf {alive _x} > -1} > -1;
-	_all_dead = !_foundAlive;
-};
+waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
@@ -106,5 +103,4 @@ publicVariable "d_mt_event_messages_array";
 //cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
 diag_log [format ["cleanup of event array: %1", _x_mt_event_ar]];
-_x_mt_event_ar call d_fnc_deletearrayunitsvehicles;
 deleteMarker _marker;
