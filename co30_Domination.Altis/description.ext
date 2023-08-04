@@ -2721,7 +2721,7 @@ class CfgIdentities {
 	};
 	class DHQ_BF2: DHQ_BF1 {
 		name = "Meyers, HQ";
-		speaker = "male02eng" 
+		speaker = "male02eng";
 	};
 	class DHQ_OP1: DHQ_BF1 {
 		name = "Aziz, HQ";
