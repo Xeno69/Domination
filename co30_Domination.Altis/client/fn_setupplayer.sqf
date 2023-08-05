@@ -100,7 +100,7 @@ if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
 
 {_x disableAI "RADIOPROTOCOL"; _x setSpeaker "NoVoice"} forEach (allPlayers - [player]);
 
-player disableAI "CHECKVISIBLE"; 
+//player disableAI "CHECKVISIBLE"; NEVER EVER USE THIS, IT DISABLES LOCKING FOR LAUNCHERS LIKE THE TITAN COMPACT
 
 //if (d_player_radioprotocol) then {
 //	player disableAI "RADIOPROTOCOL";
