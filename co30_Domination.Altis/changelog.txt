@@ -1,5 +1,9 @@
 4.67
 
+- Changed: Prefer to spawn civilians in safe buildings (church, chapel, mosque, hospital etc), by longtimegamer
 - Fixed: The Western Sahara Sefrouramal version was missing in the 7zip file
 - Fixed: Main target order "Complete, ordered" and "Order like placed in the editor" didn't mwork at all anymore
+- Fixed: Preemptive event cleanup not working when persistent corpses is enabled, by longtimegamer
+- Fixed: Admin may use end maintarget function when a preemptive event is running, by longtimegamer
+- Fixed: If guerrilla events are enabled there is a 50/50 chance for a preemptive (defense) event, by longtimegamer
 
