@@ -1,3 +1,5 @@
 4.67
 
 - Fixed: The Western Sahara Sefrouramal version was missing in the 7zip file
+- Fixed: Main target order "Complete, ordered" and "Order like placed in the editor" didn't mwork at all anymore
+
