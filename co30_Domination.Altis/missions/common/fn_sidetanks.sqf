@@ -16,7 +16,7 @@ for "_ii" from 1 to (count _posi_array) - 1 do {
 	_tank allowDamage false;
 	_tank spawn {
 		sleep 30;
-		_x allowDamage false;
+		_x allowDamage true;
 	};
 	_tank setDir (_dirs # _ii);
 	_tank setPos (_posi_array # _ii);
