@@ -10,9 +10,7 @@ if (!alive _v) exitWith {
 	_v setVariable ["d_drowned", false];
 };
 
-#ifdef __214__
 if (_d && {waterDamaged _v}) then {
 	_v setVariable ["d_drowned", false];
 	_v setDamage [1, false];
 };
-#endif

@@ -59,11 +59,7 @@ private _vec = objNull;
 	_vec addEventHandler ["handleDamage", {call d_fnc_CheckSMShotHD}];
 
 	if (_makecrew || {_radar}) then {
-#ifdef __214__
 		private _usedgrp = d_side_enemy createVehicleCrew _vec;
-#else
-		private _usedgrp = createVehicleCrew _vec;
-#endif
 		private _units = units _usedgrp;
 		if (_units isNotEqualTo []) then {
 			_usedgrp deleteGroupWhenEmpty true;
