@@ -1,4 +1,4 @@
-["O_MBT_02_cannon_F","O_MBT_04_cannon_F","O_MBT_04_command_F"],
+["O_MBT_02_cannon_F","O_MBT_04_cannon_F","O_MBT_04_command_F","O_MBT_02_railgun_F"],
 ["O_APC_Tracked_02_cannon_F"],
 ["O_APC_Wheeled_02_rcws_v2_F"],
 ["O_APC_Tracked_02_AA_F"],

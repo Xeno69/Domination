@@ -1,4 +1,4 @@
-["O_T_MBT_02_cannon_ghex_F","O_T_MBT_04_cannon_F","O_T_MBT_04_command_F"],
+["O_T_MBT_02_cannon_ghex_F","O_T_MBT_04_cannon_F","O_T_MBT_04_command_F","O_T_MBT_02_railgun_ghex_F"],
 ["O_T_APC_Tracked_02_cannon_ghex_F"],
 ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"],
 ["O_T_APC_Tracked_02_AA_ghex_F"],
