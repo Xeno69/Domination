@@ -75,15 +75,17 @@ _mtunits = _mtunits - [objNull];
 sleep 0.1;
 __TRACE_1("","_mtunits")
 if (d_ai_persistent_corpses != 0) then {
+	// default setting, corpses will be removed by remainsCollector
 	{
-		if (_x getVariable "d_do_not_delete" != 1) then {
+		if (_x getVariable ["d_do_not_delete", 0] != 1) then {
 			_x setDamage 1;
 			sleep 0.01;
 		};
 	} forEach _mtunits;
 } else {
+	// non-default setting, remainsCollector will not clean up, corpses must be deleted
 	{
-		if (_x getVariable "d_do_not_delete" != 1) then {
+		if (_x getVariable ["d_do_not_delete", 0] != 1) then {
 			deleteVehicle _x;
 			sleep 0.1;
 		};
