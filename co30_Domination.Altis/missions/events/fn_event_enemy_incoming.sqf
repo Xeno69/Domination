@@ -229,17 +229,6 @@ waitUntil {sleep 1; d_mt_radio_down && {d_mt_done}};
 
 // cleanup
 diag_log [format ["cleanup of event: %1", _mt_event_key]];
-if (d_delinfsm isNotEqualTo []) then {
-	{
-		deleteVehicle _x;
-	} forEach d_delinfsm;
-};
-if (d_delvecsmt isNotEqualTo []) then {
-	{
-		deleteVehicle _x;
-	} forEach d_delvecsmt;
-};
-
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
 
