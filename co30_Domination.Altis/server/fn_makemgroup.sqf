@@ -106,6 +106,11 @@ _women_infantry = [
 	};
 	_one_unit setUnitAbility ((d_skill_array # 0) + (random (d_skill_array # 1)));
 	_one_unit setSkill ["aimingAccuracy", _subskill];
+	if (d_EnemySkill in [0,1,2]) then {
+		// if very low, low, normal then aim/reload skills are reduced
+		_one_unit setSkill ["aimingShake", (_subskill * 0.8)];
+		_one_unit setSkill ["reloadSpeed", (_subskill * 0.8)];
+	};
 	_one_unit setSkill ["spotTime", _subskill];
 	_ret set [_forEachIndex, _one_unit];
 	_one_unit call d_fnc_removenvgoggles_fak;
