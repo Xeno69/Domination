@@ -88,7 +88,12 @@ private _safe_building_strings = [
 	"cathedral",
 	"hospital",
 	"medical",
-	"school"];
+	"school",
+	"land_offices",
+	"land_house",
+	"land_i_house",
+	"land_i_shop",
+	"land_i_stone"];
 
 // todo - blacklist strings:
 // factory, fuel, reservoir, warehouse, Land_SCF, Land_SM, 
@@ -268,13 +273,13 @@ if (d_civ_groupcount < 0) then {
 		_civ_spawn_factor = 0.07;  // adaptive (low)
 	};
 	if (d_civ_groupcount == -2) then {
-		_civ_spawn_factor = 0.20;  // adaptive (normal)
+		_civ_spawn_factor = 0.13;  // adaptive (normal)
 	};
 	if (d_civ_groupcount == -3) then {
-		_civ_spawn_factor = 0.35;  // adaptive (high)
+		_civ_spawn_factor = 0.28;  // adaptive (high)
 	};
 	if (d_civ_groupcount == -4) then {
-		_civ_spawn_factor = 0.55;  // adaptive (very high)
+		_civ_spawn_factor = 0.45;  // adaptive (very high)
 	};
 	if (d_civ_groupcount == -5) then {
 		_civ_spawn_factor = 0.80;  // adaptive (extreme)
