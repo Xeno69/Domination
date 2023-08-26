@@ -36,10 +36,10 @@ d_kb_logic1 kbTell [
 
 private _newgroups_inf = [];
 
-// calculate the sum of all groups of AI already in the maintarget
-private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_snp_cnt + d_grp_cnt_footpatrol;
+// calculate the sum of all groups of AI
+private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol;
 // guerrillas should be outnumbered
-_guerrillaGroupCount = round(_targetGroupCount / 3) max 1;
+private _guerrillaGroupCount = round(_targetGroupCount / 3) min 5;
 private _guerrillaForce = [];
 // size the guerrilla force
 for "_i" from 0 to _guerrillaGroupCount do {
