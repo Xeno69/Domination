@@ -143,7 +143,7 @@ _spawn_script_enable_movement = {
 				// shoot at the priority target if visible to the unit
 				if ([_this, _ptarget] call d_fnc_isvisible) then {
 					_this doTarget _ptarget;
-					_this doSuppressiveFire _ptarget;
+					_this doSuppressiveFire (getPosASL _ptarget);
 				};
 			};
 		};
