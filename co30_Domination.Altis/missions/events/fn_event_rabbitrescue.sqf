@@ -59,8 +59,8 @@ _rabbit setVariable ["BIS_fnc_animalBehaviour_disable", true];
 [_rabbit, _target_center, _move_order_interval] spawn {
 	scriptName "spawn rabbitrescue";
 	params ["_rabbit", "_target_center", "_move_order_interval"];
-	["d_bunny_marker", _rabbit, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
-	["d_bunny_marker", "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
+	_marker = ["d_bunny_marker", _rabbit, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
+	[_marker, "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 	_rabbit playMove "Rabbit_Hop";
 	private _time_last_move = time;
 	private _first_time = true;
@@ -112,6 +112,7 @@ if (_is_rescued || {!_is_dead}) then {
 
 deleteVehicle _rabbit;
 deleteVehicle _trigger;
+deleteMarker _marker;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";
