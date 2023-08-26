@@ -88,7 +88,12 @@ private _safe_building_strings = [
 	"cathedral",
 	"hospital",
 	"medical",
-	"school"];
+	"school",
+	"land_offices",
+	"land_house",
+	"land_i_house",
+	"land_i_shop",
+	"land_i_stone"];
 
 // todo - blacklist strings:
 // factory, fuel, reservoir, warehouse, Land_SCF, Land_SM, 
