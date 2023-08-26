@@ -908,13 +908,12 @@ if (d_with_MainTargetEvents != 0) then {
 				[_radius, _trg_center] spawn d_fnc_event_sideprisoners;
 			};
 			case "GUERRILLA_TANKS": {
-				if (!_guerrilla_event_running) then {
-					[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
-				};
+				[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
 			};
 			case "GUERRILLA_INFANTRY": {
 				if (!_guerrilla_event_running) then {
 					[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+					_guerrilla_event_running = true;
 				};
 			};
 			case "RABBIT_RESCUE": {
@@ -935,6 +934,7 @@ if (d_with_MainTargetEvents != 0) then {
 			case "CIV_RESISTANCE_INDEPENDENT": {
 				if (!_guerrilla_event_running) then {
 					[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+					_guerrilla_event_running = true;
 				};
 			};
 			case "MARKED_FOR_DEATH_VIP_ESCORT": {
