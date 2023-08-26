@@ -162,7 +162,7 @@ if (_Dtargets isNotEqualTo []) then {
 					// execute aggressive shooting
 					_isDoingSuppressiveFire = true;
 					_unit doTarget _x;
-					_unit doSuppressiveFire _x;
+					_unit doSuppressiveFire (getPosASL _x);
 				};
 			} forEach _targets;
 		};
