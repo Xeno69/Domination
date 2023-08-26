@@ -157,16 +157,19 @@ if (d_camp_enable_guard == 1) then {
 	_camp_enable_guard_current = 1;
 };
 
+private _guerrilla_event_running = false;
+
 #ifndef __TT__
 if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -5}) then {
 	// chance of a pre-emptive event (a special event which supersedes most maintarget setup) or when d_with_MainTargetEvents == -5
 	if (50 > random 100 || {d_with_MainTargetEvents == -5}) then {
-		diag_log ["Small chance for special event was selected or d_with_MainTargetEvents == -5, d_preemptive_special_event set to true"];
-		d_preemptive_special_event = true;
-		publicVariable "d_preemptive_special_event";		
-		switch (selectRandom [1,2]) do {
+		diag_log ["Chance for special event was selected or d_with_MainTargetEvents == -5, d_preemptive_special_event set to true"];
+		switch (selectRandom [1,2,3]) do {
 			case 1: {
 				diag_log ["special event selected: guerrilla garrisoned in maintarget city and enemy attacks"];
+				d_preemptive_special_event = true;
+				publicVariable "d_preemptive_special_event";
+				_guerrilla_event_running = true;
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
 				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
@@ -175,6 +178,9 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 			};
 			case 2: {
 				diag_log ["special event selected: guerrilla and enemy attack the maintarget"];
+				d_preemptive_special_event = true;
+				publicVariable "d_preemptive_special_event";
+				_guerrilla_event_running = true;
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
 				// spawn the opfor event
@@ -187,6 +193,13 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 				private _newpos = [(_trg_center # 0) - _newx, (_trg_center # 1) - _newy];
 				// spawn the guerrilla attack event
 				[_radius, _trg_center, _newpos, true] spawn d_fnc_event_guerrilla_infantry_incoming;
+			};
+			case 3: {
+				diag_log ["special event selected: (not a preemptive event) enemy occupy the maintarget as usual and guerrilla forces with some vehicles attack"];
+				_guerrilla_event_running = true;
+				// this event is not a real preemptive event so do not set d_preemptive_special_event
+				// spawn the guerrilla attack event
+				[_radius, _trg_center, [], true] spawn d_fnc_event_guerrilla_infantry_incoming;
 			};
 		};
 		
@@ -895,10 +908,14 @@ if (d_with_MainTargetEvents != 0) then {
 				[_radius, _trg_center] spawn d_fnc_event_sideprisoners;
 			};
 			case "GUERRILLA_TANKS": {
-				[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+				if (!_guerrilla_event_running) then {
+					[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+				};
 			};
 			case "GUERRILLA_INFANTRY": {
-				[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+				if (!_guerrilla_event_running) then {
+					[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+				};
 			};
 			case "RABBIT_RESCUE": {
 				[_radius, _trg_center] spawn d_fnc_event_rabbitrescue;
@@ -916,7 +933,9 @@ if (d_with_MainTargetEvents != 0) then {
 				[_radius, _trg_center] spawn d_fnc_event_sidekilltriggerman;
 			};
 			case "CIV_RESISTANCE_INDEPENDENT": {
-				[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+				if (!_guerrilla_event_running) then {
+					[_radius, _trg_center] spawn d_fnc_event_guerrillas_embedded_as_civilians;
+				};
 			};
 			case "MARKED_FOR_DEATH_VIP_ESCORT": {
 				[_radius, _trg_center, true] spawn d_fnc_event_sidevipescort;

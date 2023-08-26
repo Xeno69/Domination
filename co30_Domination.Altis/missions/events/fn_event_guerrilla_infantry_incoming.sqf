@@ -138,12 +138,12 @@ if (_with_vehicles) then {
     } forEach _incoming_vehs;
 };
 
-// calculate the sum of all groups of AI already in the maintarget and size the guerrilla force accordingly
-private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_snp_cnt + d_grp_cnt_footpatrol;
+// calculate the sum of all groups of AI
+private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol;
 
 // guerrillas should be outnumbered
-_guerrillaGroupCount = round(_targetGroupCount / 3) max 1;
-_guerrillaForce = [];
+private _guerrillaGroupCount = round(_targetGroupCount / 3) min 5;
+private _guerrillaForce = [];
 for "_i" from 0 to _guerrillaGroupCount do {
 	_guerrillaForce pushBack "allmen";
 };

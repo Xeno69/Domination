@@ -30,12 +30,23 @@ d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventCivResistance",d_kbtel_c
 private _guerrilla_uniforms = ["U_IG_Guerilla1_1",
  "U_IG_Guerilla2_1",
  "U_IG_Guerilla2_2",
- "U_IG_Guerilla2_3"];
+ "U_IG_Guerilla2_3",
+ "U_IG_Guerilla3_1",
+ "U_IG_Guerilla3_2",
+ "U_IG_leader"];
 
 private _newgroups = [];
 private _newunits = [];
 private _guerrillaBaseSkill = 0.5;
-_guerrillaForce = ["allmen", "allmen", "allmen", "allmen"];
+
+// calculate the sum of all groups of AI
+private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol;
+
+private _guerrillaGroupCount = round(_targetGroupCount / 3) min 5;
+private _guerrillaForce = [];
+for "_i" from 0 to _guerrillaGroupCount do {
+	_guerrillaForce pushBack "allmen";
+};
 
 {
 	if (_buildings isEqualTo []) exitWith {};

@@ -23,7 +23,7 @@ d_x_mt_event_types = [
 	"POW_RESCUE",
 	//"GUERRILLA_TANKS", //not in the random events list, guerrilla tanks event depends on presence of guerrilla infantry
 	"GUERRILLA_INFANTRY",
-	//"RABBIT_RESCUE", // removed for now
+	"RABBIT_RESCUE",
 	"MARKED_FOR_DEATH",
 	"RESCUE_DEFEND",
 	"RESCUE_DEFUSE",
