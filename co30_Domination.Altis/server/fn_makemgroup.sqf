@@ -108,8 +108,8 @@ _women_infantry = [
 	_one_unit setSkill ["aimingAccuracy", _subskill];
 	if (d_EnemySkill in [0,1,2]) then {
 		// if very low, low, normal then aim/reload skills are reduced
-		_one_unit setSkill ["aimingShake", (_subskill * 0.8)];
-		_one_unit setSkill ["reloadSpeed", (_subskill * 0.8)];
+		_one_unit setSkill ["aimingShake", (_subskill * 0.6)];
+		_one_unit setSkill ["reloadSpeed", (_subskill * 0.7)];
 	};
 	_one_unit setSkill ["spotTime", _subskill];
 	_ret set [_forEachIndex, _one_unit];

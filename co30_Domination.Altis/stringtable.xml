@@ -14229,6 +14229,18 @@
 <Chinese>注意：我們的幸運寵物兔子迷路了。查找 %1</Chinese>
 <French>Attention: Our lucky pet rabbit is lost.  Find %1!</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER">
+<English>rabbit</English>
+<Spanish>conejo</Spanish>
+<Portuguese>coelho</Portuguese>
+<Korean>rabbit</Korean>
+<Japanese>rabbit</Japanese>
+<Original>rabbit</Original>
+<Russian>rabbit</Russian>
+<Chinesesimp>rabbit</Chinesesimp>
+<Chinese>rabbit</Chinese>
+<French>lapin</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2029">
 <English>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</English>
 <Spanish>We have the chance to retake one of our farps the enemy had seized some time ago. Go get it back!</Spanish>
