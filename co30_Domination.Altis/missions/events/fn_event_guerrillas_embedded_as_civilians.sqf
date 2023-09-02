@@ -81,6 +81,11 @@ for "_i" from 0 to _guerrillaGroupCount do {
 		#endif
 		removeVest _x;
 		removeUniform _x;
+		_x removeWeaponGlobal (handgunWeapon _x);
+		_x removeWeaponGlobal (secondaryWeapon _x);
+		_x setVariable ["d_primary_weapon", primaryWeapon _x];
+		_x setVariable ["d_primary_weapon_magazine", primaryWeaponMagazine _x];
+		_x removeWeaponGlobal (primaryWeapon _x);
 		_x addUniform (selectRandom _guerrilla_uniforms);
 		private _hmd = hmd _x;
 		if (_hmd != "" && {getText(configFile>>"CfgWeapons">>_hmd>>"simulation") == "NVGoggles"}) then {
@@ -92,12 +97,28 @@ for "_i" from 0 to _guerrillaGroupCount do {
 		// guerrillas are triggered by the friendly side fighting nearby
 		_x addEventHandler ["FiredNear", {
 			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-			if (captive _unit && {_firer call d_fnc_isplayer}) then {
+			if (captive _unit && {_firer call d_fnc_isplayer && {_unit distance2D _firer < 30 }}) then {
 				// a player shooting near this unit has inspired his entire group to fight!
 				{
+					// restore weapons
+					private _primary_weapon = _x getVariable "d_primary_weapon";
+					private _primary_weapon_magazine = (_x getVariable "d_primary_weapon_magazine") select 0;
+					_x addWeaponGlobal _primary_weapon;
+					// restore ammo
+					if (isNull (unitBackpack _x)) then {
+						// units will only have a few magazines without a backpack
+						_x addBackpack "B_HuntingBackpack";
+					};
+					private _mag_count = 0;
+					while { _mag_count < 10} do {
+						_x addMagazineGlobal _primary_weapon_magazine;
+					};
+					_x selectWeapon _primary_weapon;
 					_x setCaptive false;
 					_x forceSpeed -1;
 					group _x setCombatMode "RED";
+					group _x setSpeedMode "FULL";
+					group _x setBehaviour "COMBAT";
 					if (_x getVariable "_join_player" && {(count units group _firer < 10)}) then {
 						[_x] join (group _firer);
 					};
