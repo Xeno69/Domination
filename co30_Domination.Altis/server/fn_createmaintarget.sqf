@@ -907,12 +907,19 @@ if (d_with_MainTargetEvents != 0) then {
 			case "POW_RESCUE": {
 				[_radius, _trg_center] spawn d_fnc_event_sideprisoners;
 			};
-			case "GUERRILLA_TANKS": {
-				[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
-			};
+			//case "GUERRILLA_TANKS": {
+			//	[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
+			//};
 			case "GUERRILLA_INFANTRY": {
 				if (!_guerrilla_event_running) then {
-					[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+					// there is a 1 in 2 chance the guerrillas will have vehicles
+					if (random 2 <= 1) then {
+						// infantry with vehicles
+						[_radius, _trg_center, [], true] spawn d_fnc_event_guerrilla_infantry_incoming;
+					} else {
+						// infantry without vehicles
+						[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_incoming;
+					};
 					_guerrilla_event_running = true;
 				};
 			};
@@ -977,10 +984,6 @@ if (d_with_MainTargetEvents != 0) then {
 				private _tmpRandomEvent = selectRandom _tmpMtEvents;
 				[_tmpRandomEvent] call _doMainTargetEvent;
 				_tmpMtEvents deleteAt (_tmpMtEvents find _tmpRandomEvent);
-				// if guerrilla infantry are randomly selected then there is a 1 in 3 chance of guerrilla tanks
-				if (_tmpRandomEvent == "GUERRILLA_INFANTRY" && {(random 3 <= 1)}) then {
-					[_radius, _trg_center] spawn d_fnc_event_tanksincoming;
-				};
 			};
 		} else {
 			// create one event
