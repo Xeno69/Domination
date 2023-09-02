@@ -69,7 +69,7 @@ _rabbit setVariable ["BIS_fnc_animalBehaviour_disable", true];
 		if ((time - _time_last_move) > _move_order_interval || { _first_time }) then {
 			_time_last_move = time;
 			_first_time = false;
-			_rabbit moveTo ([[[_target_center, 250]],[[_target_center, 150]]] call BIS_fnc_randomPos);
+			_rabbit moveTo ([[[_target_center, 100]],[[_target_center, 25]]] call BIS_fnc_randomPos);
 		};
 		"d_bunny_marker" setMarkerPos (getPosWorld _rabbit);
 	};

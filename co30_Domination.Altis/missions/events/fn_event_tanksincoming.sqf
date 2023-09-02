@@ -2,6 +2,8 @@
 //#define __DEBUG__
 #include "..\..\x_setup.sqf"
 
+// DEPRECATED - this script has been replaced by fn_event_guerrilla_infantry_incoming (that event now has an option to add tanks so this script is no longer needed)
+
 #ifdef __TT__
 //do not run this event in TvT (for now)
 if (true) exitWith {};

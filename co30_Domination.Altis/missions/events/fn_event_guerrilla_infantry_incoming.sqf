@@ -92,19 +92,33 @@ while {surfaceIsWater _spawn_pos} do {
 
 if (_with_vehicles) then {
 	private _incoming_vehs = [];
+	private _with_tanks = false;
+	// there is a 1 in 3 chance of guerrilla tanks
+	if (random 3 <= 1) then {
+		_with_tanks = true;
+	};
 	if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
     	// "normal" or random which we force to normal
     	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
+    	if (_with_tanks) then {
+    		_incoming_vehs = ["tank", "tank"];
+    	};
     };
     
     if (d_WithLessArmor == 1) then {
     	// "less"
     	_incoming_vehs = ["jeep_mg", "jeep_mg"];
+    	if (_with_tanks) then {
+			_incoming_vehs = ["tracked_apc", "tracked_apc"];
+		};
     };
     
     if (d_WithLessArmor == 4) then {
-    	// high
+    	// "high"
     	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"];
+    	if (_with_tanks) then {
+			_incoming_vehs = ["tank", "tank", "tracked_apc"];
+		};
     };
     // preemptive overrides
     if (d_preemptive_special_event) then {
@@ -142,7 +156,7 @@ if (_with_vehicles) then {
 private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol;
 
 // guerrillas should be outnumbered
-private _guerrillaGroupCount = round(_targetGroupCount / 3) min 5;
+private _guerrillaGroupCount = round(_targetGroupCount / 3) min 3;
 private _guerrillaForce = [];
 for "_i" from 0 to _guerrillaGroupCount do {
 	_guerrillaForce pushBack "allmen";
