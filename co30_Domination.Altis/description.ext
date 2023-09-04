@@ -1539,6 +1539,13 @@ class Params {
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007_RANDOM"};
 	};
 	
+	class d_enemy_mercenaries {
+		title = "$STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES";
+		values[] = {0,1};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		default = 0;
+	};
+	
 	class d_params_dl_8_obj {
 		title = "$STR_DOM_MISSIONSTRING_1574_OBJ";
 		values[] = {-66};
@@ -1702,13 +1709,6 @@ class Params {
 		values[] = {0,1};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
-	};
-	
-	class d_enemy_mercenaries {
-		title = "$STR_DOM_MISSIONSTRING_ENEMY_MERCENARIES";
-		values[] = {0,1};
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
-		default = 0;
 	};
 
 	class d_enemy_factions {
