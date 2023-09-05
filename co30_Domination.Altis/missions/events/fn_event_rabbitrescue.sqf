@@ -33,9 +33,10 @@ d_kb_logic1 kbTell [
 	d_kbtel_chan
 ];
 
+private _rand_pos = [[[_target_center, 15]],["water"]] call BIS_fnc_randomPos;
 private _rabbitgroup = [independent] call d_fnc_creategroup;
 //private _rabbit = _rabbitgroup createUnit ["Rabbit_F", _target_center, [], 0, "NONE"];
-private _rabbit = createAgent ["Rabbit_F", _target_center, [], 5, "NONE"];
+private _rabbit = createAgent ["Rabbit_F", _rand_pos, [], 5, "NONE"];
 [_rabbit, 30] call d_fnc_nodamoffdyn;
 
 _rabbitgroup setCombatMode "RED";
@@ -55,12 +56,12 @@ private _move_order_interval = 300;
 private _last_move = 0 - _move_order_interval;
 private _distanceToEnableRescue = 3; //in meters
 _rabbit setVariable ["BIS_fnc_animalBehaviour_disable", true];
+private _marker = ["d_bunny_marker", _rabbit, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
+	[_marker, "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
 [_rabbit, _target_center, _move_order_interval] spawn {
 	scriptName "spawn rabbitrescue";
 	params ["_rabbit", "_target_center", "_move_order_interval"];
-	_marker = ["d_bunny_marker", _rabbit, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
-	[_marker, "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 	_rabbit playMove "Rabbit_Hop";
 	private _time_last_move = time;
 	private _first_time = true;
@@ -69,6 +70,7 @@ _rabbit setVariable ["BIS_fnc_animalBehaviour_disable", true];
 		if ((time - _time_last_move) > _move_order_interval || { _first_time }) then {
 			_time_last_move = time;
 			_first_time = false;
+			// this doesn't actually work, rabbit wanders around and does not obey moveTo
 			_rabbit moveTo ([[[_target_center, 100]],[[_target_center, 25]]] call BIS_fnc_randomPos);
 		};
 		"d_bunny_marker" setMarkerPos (getPosWorld _rabbit);
