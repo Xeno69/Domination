@@ -12329,6 +12329,18 @@
 <Chinese>%1 僅存活了 %2 秒。任務失敗。</Chinese>
 <French>%1 only survived for %2 seconds.  Mission failed.</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHFAIL_ESCORT">
+<English>%1 did not survive.  Mission failed.</English>
+<Spanish>%1 did not survive.  Mission failed.</Spanish>
+<Portuguese>%1 did not survive.  Mission failed.</Portuguese>
+<Korean>%1 did not survive.  Mission failed.</Korean>
+<Japanese>%1 did not survive.  Mission failed.</Japanese>
+<Original>%1 did not survive.  Mission failed.</Original>
+<Russian>%1 did not survive.  Mission failed.</Russian>
+<Chinesesimp>%1 did not survive.  Mission failed.</Chinesesimp>
+<Chinese>%1 did not survive.  Mission failed.</Chinese>
+<French>%1 did not survive.  Mission failed.</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED">
 <English>Success.  %1 survived for %2 seconds. + %3</English>
 <Spanish>Success.  %1 survived for %2 seconds. + %3</Spanish>
@@ -12340,6 +12352,18 @@
 <Chinesesimp>成功。 %1 存活了 %2 秒。 + %3</Chinesesimp>
 <Chinese>成功。 %1 存活了 %2 秒。 + %3</Chinese>
 <French>Success.  %1 survived for %2 seconds. + %3</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_MARKEDFORDEATHSUCCEED_ESCORT">
+<English>Success.  %1 survived. + %2</English>
+<Spanish>Success.  %1 survived. + %2</Spanish>
+<Portuguese>Success.  %1 survived. + %2</Portuguese>
+<Korean>Success.  %1 survived. + %2</Korean>
+<Japanese>Success.  %1 survived. + %2</Japanese>
+<Original>Success.  %1 survived. + %2</Original>
+<Russian>Success.  %1 survived. + %2</Russian>
+<Chinesesimp>Success.  %1 survived. + %2</Chinesesimp>
+<Chinese>Success.  %1 survived. + %2</Chinese>
+<French>Success.  %1 survived. + %2</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_EVENTSUCCEED">
 <English>Success.  + %1</English>

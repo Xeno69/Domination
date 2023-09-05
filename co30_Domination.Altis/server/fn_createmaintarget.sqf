@@ -131,11 +131,25 @@ if (d_amb_cnt == -1 || d_amb_cnt == -2 || d_amb_cnt == -3 || d_amb_cnt == -4 || 
 	d_amb_cnt_current = d_amb_cnt;
 };
 
-// if selected use this array to override with mercenary units (only for Altis and Malden, nice weapons but no body armor)
-private _merc_array = [
+private _merc_array = [];
+#ifdef __OWN_SIDE_BLUFOR__
+_merc_array = [
 	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
-	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
+	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
+	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup,
+	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup,
+	["East","OPF_F","Infantry","OIA_InfTeam_AA"] call d_fnc_GetConfigGroup
 ];
+#endif
+#ifdef __OWN_SIDE_OPFOR__
+_merc_array = [
+	["West","Guerilla","Infantry","IRG_InfSquad"] call d_fnc_GetConfigGroup,
+	["West","Guerilla","Infantry","IRG_InfSquad"] call d_fnc_GetConfigGroup,
+	["West","Guerilla","Infantry","IRG_InfSquad_Weapons"] call d_fnc_GetConfigGroup,
+	["West","Guerilla","Infantry","IRG_InfSquad_Weapons"] call d_fnc_GetConfigGroup,
+	["West","BLU_F","Infantry","BUS_InfTeam_AA"] call d_fnc_GetConfigGroup
+];
+#endif
 
 if (d_enemy_mercenaries == 1) then {
 	d_allmen_E =+ _merc_array;

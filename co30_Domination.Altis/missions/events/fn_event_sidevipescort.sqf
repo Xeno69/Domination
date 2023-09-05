@@ -102,12 +102,12 @@ private _marker = nil;
 
 } forEach _buildings_array_sorted_by_distance;
 
-private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT", name _pilot1, _event_survive_time];
+private _eventDescription = format [localize "STR_DOM_MISSIONSTRING_MARKEDFORDEATH_ESCORT", name _pilot1];
 d_mt_event_messages_array pushBack _eventDescription;
 publicVariable "d_mt_event_messages_array";
 
 if (!isNil "_bldg") then {
-	_marker = ["d_mt_event_marker_sidevipescort", getPos _pilot1, "ICON","ColorBlack", [1, 1], _eventDescription, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
+	_marker = ["d_mt_event_marker_sidevipescort", getPos _pilot1, "ICON","ColorBlack", [1, 1], name _pilot1, 0, "mil_triangle"] call d_fnc_CreateMarkerGlobal;
     [_marker, "STR_DOM_MISSIONSTRING_DEFEND"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 };
 
@@ -168,9 +168,8 @@ if (_all_dead) then {
 	d_kb_logic1 kbTell [
     	d_kb_logic2,
     	d_kb_topic_side,
-    	"PlayerMarkedForDeathFail",
+    	"PlayerMarkedForDeathFailEscort",
     	["1", "", _event_target_name, []],
-    	["2", "", str _fail_survive_time, []],
     	d_kbtel_chan
     ];
 } else {
@@ -178,10 +177,9 @@ if (_all_dead) then {
 	d_kb_logic1 kbTell [
 		d_kb_logic2,
 		d_kb_topic_side,
-		"PlayerMarkedForDeathSucceed",
+		"PlayerMarkedForDeathSucceedEscort",
 		["1", "", _event_target_name, []],
-		["2", "", str (time - _event_start_time), []],
-		["3", "", str _event_succeed_points, []],
+		["2", "", str _event_succeed_points, []],
 		d_kbtel_chan
 	];
 	{
