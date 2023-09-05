@@ -1,9 +1,12 @@
-4.67
+4.68
 
-- Changed: Prefer to spawn civilians in safe buildings (church, chapel, mosque, hospital etc), by longtimegamer
-- Fixed: Launchers like Titan Compact or RHS Javelin didn't lock (never use player disableAI "CHECKVISIBLE")
-- Fixed: The Western Sahara Sefrouramal version was missing in the 7zip file
-- Fixed: Main target order "Complete, ordered" and "Order like placed in the editor" didn't mwork at all anymore
-- Fixed: Preemptive event cleanup not working when persistent corpses is enabled, by longtimegamer
-- Fixed: Admin may use end maintarget function when a preemptive event is running, by longtimegamer
-- Fixed: If guerrilla events are enabled there is a 50/50 chance for a preemptive (defense) event, by longtimegamer
+- Added: 2.14 scripting commands
+- Added: Opfor T-100X Futura Railgun tank (vanilla A3)
+- Added: 2035 mercenaries are now available as Opfor enemies (appear as FIA infantry), by longtimegamer
+- Added: 2035 mercenaries now have some AA infantry, by longtimegamer
+- Added: if enemy skill is very low, low, normal then aim/reload skills are reduced, by longtimegamer
+- Added: Maintarget event - rabbit rescue is back, by longtimegamer
+- Fixed: Better success and failure messages for the VIP escort event, by longtimegamer
+- Fixed: Rabbit marker was not cleaning up after event ended, by longtimegamer
+- Fixed: event with guerrillas embedded as civs - guerrillas start with no weapons until triggered by firedNear 30m away, by longtimegamer
+- Fixed: Tanks couldn't be destroyed in destroy tanks side missions
