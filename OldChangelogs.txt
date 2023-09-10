@@ -2,6 +2,19 @@ Changelogs
 
 Old...
 
+4.68
+
+- Added: 2.14 scripting commands
+- Added: Opfor T-100X Futura Railgun tank (vanilla A3)
+- Added: 2035 mercenaries are now available as Opfor enemies (appear as FIA infantry), by longtimegamer
+- Added: 2035 mercenaries now have some AA infantry, by longtimegamer
+- Added: if enemy skill is very low, low, normal then aim/reload skills are reduced, by longtimegamer
+- Added: Maintarget event - rabbit rescue is back, by longtimegamer
+- Fixed: Better success and failure messages for the VIP escort event, by longtimegamer
+- Fixed: Rabbit marker was not cleaning up after event ended, by longtimegamer
+- Fixed: event with guerrillas embedded as civs - guerrillas start with no weapons until triggered by firedNear 30m away, by longtimegamer
+- Fixed: Tanks couldn't be destroyed in destroy tanks side missions
+
 4.67
 
 - Changed: Prefer to spawn civilians in safe buildings (church, chapel, mosque, hospital etc), by longtimegamer
