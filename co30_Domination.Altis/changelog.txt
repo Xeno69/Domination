@@ -1,2 +1,3 @@
 4.69
 
+- Changed: Disable ambient radio chatter in SPE and IFA3 versions

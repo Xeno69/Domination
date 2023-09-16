@@ -1241,7 +1241,7 @@ if (!d_with_ace && {d_with_suppress == 0}) then {
 0 spawn d_fnc_uav_check;
 #endif
 
-if (d_WithAmbientRadio == 1) then {
+if (d_WithAmbientRadio == 1 && {!d_spe && {!d_ifa3}}) then {
    15 spawn d_fnc_AmbientRadioChatter;
 };
 
