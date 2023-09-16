@@ -50,7 +50,7 @@ while {!d_mission_is_now_over} do {
 #ifndef __TT__
 		(_disp displayCtrl 1102) ctrlSetStructuredText parseText format[
 			_formatstr,
-			count (allPlayers - entities "HeadlessClient_F"),
+			count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")}),
 			score player,
 			rank player,
 			d_campscaptured,
@@ -63,7 +63,7 @@ while {!d_mission_is_now_over} do {
 		if (d_player_side == opfor) then {
 			(_disp displayCtrl 1102) ctrlSetStructuredText parseText format[
 				_formatstr,
-				count (allPlayers - entities "HeadlessClient_F"),
+				count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")}),
 				score player,
 				rank player,
 				d_campscaptured_e,
@@ -76,7 +76,7 @@ while {!d_mission_is_now_over} do {
 		} else {
 			(_disp displayCtrl 1102) ctrlSetStructuredText parseText format[
 				_formatstr,
-				count (allPlayers - entities "HeadlessClient_F"),
+				count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")}),
 				score player,
 				rank player,
 				d_campscaptured_w,

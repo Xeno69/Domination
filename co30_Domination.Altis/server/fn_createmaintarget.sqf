@@ -386,7 +386,7 @@ for "_i" from 1 to d_num_barracks_objs do {
 		_vec setVectorUp (surfaceNormal (getPos _vec));
 	};
 	_vec setVariable ["d_v_pos", getPos _vec];
-	private _nump = count (allPlayers - entities "HeadlessClient_F");
+	private _nump = count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	private _dist_trig_p = call {
 		if (_nump < 25) exitWith {35};
 		if (_nump < 30) exitWith {30};

@@ -10,7 +10,7 @@ lbClear _ctrl;
 {
 	private _index = _ctrl lbAdd (name _x);
 	_ctrl lbSetData [_index, str _x];
-} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 
 _ctrl lbSetCurSel 0;
 ctrlSetFocus ((uiNamespace getVariable "d_AdminDialog") displayCtrl 1212);

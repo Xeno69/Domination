@@ -14,6 +14,6 @@ while {true} do {
 			};
 		};
 		sleep 1;
-	} forEach (allPlayers - entities "HeadlessClient_F");
+	} forEach ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	sleep 2;
 };

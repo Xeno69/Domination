@@ -1,3 +1,4 @@
 4.69
 
 - Changed: Disable ambient radio chatter in SPE and IFA3 versions
+- Fixed: "Error: No Unit" problems with the best player at main target dialog (only players actually still playing are shown)

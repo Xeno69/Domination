@@ -100,7 +100,7 @@ if (_is_rescued || {!_is_dead}) then {
 		];
 		{
 			_x addScore _event_succeed_points;
-		} forEach (allPlayers - entities "HeadlessClient_F");
+		} forEach ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	};
 } else {
 	d_kb_logic1 kbTell [

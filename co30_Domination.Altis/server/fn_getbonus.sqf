@@ -33,13 +33,13 @@ switch (d_sm_winner) do {
 		d_points_opfor = d_points_opfor + (d_tt_points # 4);
 		{
 			_x addScore (d_tt_points # 4);
-		} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {opfor getFriend side (group _x) >= 0.6}});
+		} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F") && {opfor getFriend side (group _x) >= 0.6}}});
 	};
 	case 2: {
 		d_points_blufor = d_points_blufor + (d_tt_points # 4);
 		{
 			_x addScore (d_tt_points # 4);
-		} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {blufor getFriend side (group _x) >= 0.6}});
+		} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F") && {blufor getFriend side (group _x) >= 0.6}}});
 	};
 };	
 #endif

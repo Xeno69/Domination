@@ -287,7 +287,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 					 };
 				    };
 				    if (_type isEqualTo "AP") then {
-					private _allPlayers =  allPlayers - entities "HeadlessClient_F";
+					private _allPlayers =  (allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")};
 					if (_allPlayers isNotEqualTo []) then {
 					       {
 						   if ((objectParent _x) isKindOf "Plane") then {

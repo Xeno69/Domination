@@ -42,4 +42,4 @@ private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_
 			};
 		};
 	};
-} forEach (d_allplayers select {alive _x && {!(_x getVariable ["xr_pluncon", false])}});
+} forEach (d_allplayers select {alive _x && {!(_x isKindOf "VirtualMan_F") && {!(_x getVariable ["xr_pluncon", false])}}});

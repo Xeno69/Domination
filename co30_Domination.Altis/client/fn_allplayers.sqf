@@ -4,9 +4,9 @@
 
 while {true} do {
 #ifndef __TT__
-	d_allplayers = (allPlayers - entities "HeadlessClient_F") select {!isNull _x};
+	d_allplayers = (allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}};
 #else
-	d_allplayers = (allPlayers - entities "HeadlessClient_F") select {!isNull _x && {d_player_side getFriend side (group _x) >= 0.6}};
+	d_allplayers = (allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F") && {d_player_side getFriend side (group _x) >= 0.6}}};
 #endif
 	d_allplayermapd = d_allplayers select {!(_x getVariable "xr_pluncon") && {isNil {_x getVariable "xr_plno3dd"}}};
 	if (d_with_ai) then {

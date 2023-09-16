@@ -2,7 +2,7 @@
 //#define __DEBUG__
 //#include "..\x_macros.sqf"
 
-xr_near_players = d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 50}}}};
+xr_near_players = d_allplayers select {alive _x && {!(_x isKindOf "VirtualMan_F") && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 50}}}}};
 
 //__TRACE_1("","xr_near_players")
 if (xr_near_players isNotEqualTo []) then {

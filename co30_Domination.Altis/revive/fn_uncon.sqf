@@ -143,7 +143,7 @@ d_uncon_finally_over = false;
 			};
 			d_uncon_finally_over = true;
 		};
-		private _d_a_p = d_allplayers select {alive _x && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}};
+		private _d_a_p = d_allplayers select {alive _x && {!(_x isKindOf "VirtualMan_F") && {_x != player && {!(_x getVariable ["xr_pluncon", false]) && {_x distance2D player < 100}}}}};
 		if (_d_a_p isNotEqualTo []) then {
 			player remoteExecCall ["xr_fnc_announcenearrem", _d_a_p];
 		};

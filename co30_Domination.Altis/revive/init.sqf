@@ -67,6 +67,6 @@ if (d_only_medics_canrevive != 0) then {
 		_x setVariable ["xr_ReviveAction", -9999];
 		_x setVariable ["xr_DragAction", -9999];
 	};
-} forEach ((allPlayers - entities "HeadlessClient_F") select {d_player_side getFriend side (group _x) >= 0.6});
+} forEach ((allPlayers - entities "HeadlessClient_F") select {d_player_side getFriend side (group _x) >= 0.6 && {!(_x isKindOf "VirtualMan_F")}});
 
 addMissionEventHandler ["Draw3D", {call xr_fnc_draw3d}];

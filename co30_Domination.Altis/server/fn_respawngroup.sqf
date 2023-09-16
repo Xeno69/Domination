@@ -19,7 +19,7 @@ if (!_isman && {d_mt_mobile_hq_down}) exitWith {
 };
 
 private _fnc_checktime = {
-	private _count = count (allPlayers - entities "HeadlessClient_F");
+	private _count = count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	if (_count == 0) then {
 		(time + (_this # 1))
 	} else {
@@ -36,7 +36,7 @@ if (_isman) then {
 	__TRACE_2("","_basetime","_maxtime")
 
 	private _old_add = d_groups_respawn_time_add;
-	private _nump = count (allPlayers - (entities "HeadlessClient_F")) min 40;
+	private _nump = count ((allPlayers - (entities "HeadlessClient_F")) select {!(_x isKindOf "VirtualMan_F")}) min 40;
 	private _endtime = time + _basetime - linearConversion [1, 40, _nump, 1, _maxtime, true] + (30 - linearConversion [1, 40, _nump, 1, 30, true]) + d_groups_respawn_time_add;
 	
 	__TRACE_1("","_endtime")
@@ -62,7 +62,7 @@ if (_isman) then {
 	__TRACE_2("","_basetime","_maxtime")
 	
 	private _extratime = [0, d_launcher_cooldown / 2] select (d_launcher_cooldown > 0);
-	private _nump = count (allPlayers - (entities "HeadlessClient_F")) min 40;
+	private _nump = count ((allPlayers - (entities "HeadlessClient_F")) select {!(_x isKindOf "VirtualMan_F")}) min 40;
 	private _endtime = time + _basetime - linearConversion [1, 40, _nump, 1, _maxtime, true] + (random 20) + _extratime;
 
 	__TRACE_1("","_endtime")

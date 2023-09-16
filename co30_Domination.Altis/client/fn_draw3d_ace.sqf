@@ -14,5 +14,5 @@ if (alive player && {!(player getVariable ["ace_isunconscious", false])}) then {
 			};
 			drawIcon3D ["\A3\Ui_f\data\IGUI\Cfg\HoldActions\holdAction_revive_ca.paa", [1,0,0,1 - (_dist / 200)], (getPosATLVisual _x) vectorAdd [0, 0, 1 + (_dist * 0.05)], 1, 1, 0, _utext, 2, 0.032 - (_dist / 9000), "RobotoCondensed"];
 		};
-	} forEach (d_allplayers select {alive _x && {_x getVariable ["ace_isunconscious", false]}});
+	} forEach (d_allplayers select {alive _x && {!(_x isKindOf "VirtualMan_F") && {_x getVariable ["ace_isunconscious", false]}}});
 };

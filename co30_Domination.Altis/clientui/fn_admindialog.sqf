@@ -30,7 +30,7 @@ if (!d_player_canu) exitWith {
 			{
 				private _index = _ctrl lbAdd (name _x);
 				_ctrl lbSetData [_index, str _x];
-			} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+			} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 			_ctrl lbSetCurSel 0;
 		};
 		sleep 0.2;

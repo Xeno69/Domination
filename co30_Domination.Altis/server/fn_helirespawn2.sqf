@@ -26,7 +26,7 @@ while {true} do {
 						};
 					} else {
 						if (time > _empty_respawn) then {
-							private _runits = ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+							private _runits = ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 							sleep 0.1;
 							if (_runits isNotEqualTo [] && {_runits findIf {_x distance2D _vec < 100} == -1}) then {
 								_disabled = true;

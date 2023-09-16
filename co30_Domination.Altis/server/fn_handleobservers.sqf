@@ -40,7 +40,7 @@ while {d_nr_observers > 0} do {
 						};
 					} else {
 						_e_ari_avail = false;
-						_nextaritime = time + 240 + (random 120) + linearConversion [1, 40, count (allPlayers - (entities "HeadlessClient_F")) min 40, 800, 1, true];
+						_nextaritime = time + 240 + (random 120) + linearConversion [1, 40, count ((allPlayers - (entities "HeadlessClient_F")) select {!(_x isKindOf "VirtualMan_F")}) min 40, 800, 1, true];
 						if (random 100 < 15) then {// 1 to 6 chance for smoke
 							[getPosWorld _enemy, 2] spawn d_fnc_shootari;
 						};

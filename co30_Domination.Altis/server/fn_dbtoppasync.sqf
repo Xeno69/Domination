@@ -143,7 +143,7 @@ while {true} do {
 			};
 		};
 		sleep 0.3;
-	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+	} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 	if (d_db_type == 2) then {
 		__TRACE("Saving mission profile namespace")
 		saveMissionProfileNamespace;

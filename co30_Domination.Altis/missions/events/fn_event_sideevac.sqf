@@ -202,7 +202,7 @@ if (_is_dead_all) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach (allPlayers - entities "HeadlessClient_F");
+	} forEach ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 	if (alive _pilot1) then {
 		_pilot1 setDamage 0;
 	};

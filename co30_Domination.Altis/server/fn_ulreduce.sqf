@@ -5,7 +5,7 @@
 params ["_unitliste", "_unitsPerGroup"];
 
 if (count _unitliste > 2) then {
-	private _nump = count (allPlayers - entities "HeadlessClient_F") min 40;
+	private _nump = count ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")}) min 40;
 	
 	private "_maxunits";
 	

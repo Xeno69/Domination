@@ -23,7 +23,7 @@ private _event_succeed_points = 5;
 
 waitUntil {sleep 5; !isNil {_trigger getVariable "d_event_start_time"}};
 private _event_start_time = _trigger getVariable "d_event_start_time";
-d_priority_targets pushBack ([allPlayers - (entities "HeadlessClient_F"), _target_center] call BIS_fnc_nearestPosition);
+d_priority_targets pushBack ([(allPlayers - (entities "HeadlessClient_F")) select {!(_x isKindOf "VirtualMan_F")}, _target_center] call BIS_fnc_nearestPosition);
 publicVariable "d_priority_targets";
 private _event_target = d_priority_targets # 0;
 private _event_target_name = name _event_target;
@@ -77,7 +77,7 @@ if (!(_event_target in d_priority_targets)) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach (allPlayers - entities "HeadlessClient_F");
+	} forEach ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 };
 
 // cleanup

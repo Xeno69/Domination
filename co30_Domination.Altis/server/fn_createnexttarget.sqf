@@ -63,8 +63,8 @@ d_recapturedcamp = false;
 
 d_pl_mt_score_hash = createHashMap;
 {
-	d_pl_mt_score_hash set [getPlayerUID _x, [score _x, _x]];
-} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x});
+	d_pl_mt_score_hash set [getPlayerUID _x, [score _x, _x, name _x]];
+} forEach ((allPlayers - entities "HeadlessClient_F") select {!isNull _x && {!(_x isKindOf "VirtualMan_F")}});
 
 #ifndef __TT__
 private _tsar = ["'Man' countType thislist >= (d_man_count_for_target_clear + 5)", "d_target_clear = false; publicVariable 'd_target_clear';d_update_target=true;call d_fnc_makemtgmarker;remoteExec ['d_fnc_createnexttargetclient', [0, -2] select isDedicated];d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,'Attack',['1','','" + d_cur_tgt_name + "',['" + d_cur_tgt_name + "']],d_kbtel_chan];deleteVehicle d_check_trigger", ""];

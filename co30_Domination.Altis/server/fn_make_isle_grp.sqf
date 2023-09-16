@@ -6,7 +6,7 @@ __TRACE("Starting _make_isle_grp")
 private _dc = 0;
 private _start_point = d_with_isledefense call d_fnc_GetRanPointSquare;
 
-private _allplayers = allPlayers - entities "HeadlessClient_F";
+private _allplayers = (allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")};
 private _player_near = false;
 
 #ifndef __TT__

@@ -252,10 +252,8 @@ if (d_MissionType != 2) then {
 
 (group _pl) setVariable ["d_pl_gr", true];
 
-if (!d_database_found) then {
-	if (!isNil "d_pl_mt_score_hash") then {
-		if !((getPlayerUID _pl) in d_pl_mt_score_hash) then {
-			d_pl_mt_score_hash set [getPlayerUID _pl, [score _pl, _pl]];
-		};
+if (!isNil "d_pl_mt_score_hash") then {
+	if !((getPlayerUID _pl) in d_pl_mt_score_hash) then {
+		d_pl_mt_score_hash set [getPlayerUID _pl, [score _pl, _pl, name _pl]];
 	};
 };

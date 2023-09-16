@@ -167,7 +167,7 @@ if (_all_dead) then {
 	];
 	{
 		_x addScore _event_succeed_points;
-	} forEach (allPlayers - entities "HeadlessClient_F");
+	} forEach ((allPlayers - entities "HeadlessClient_F") select {!(_x isKindOf "VirtualMan_F")});
 };
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

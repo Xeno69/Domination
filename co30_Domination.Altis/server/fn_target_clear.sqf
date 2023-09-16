@@ -88,7 +88,7 @@ private _pdist = d_old_radius + 200;
 		case blufor: {_addpblufor = _addpblufor + (d_tt_points # 0)};
 		case opfor: {_addpopfor = _addpopfor + (d_tt_points # 0)};
 	};
-} forEach ((allPlayers - entities "HeadlessClient_F") select {alive _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x distance2D d_old_target_pos < _pdist}}}});
+} forEach ((allPlayers - entities "HeadlessClient_F") select {alive _x && {!(_x isKindOf "VirtualMan_F") && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false]) && {_x distance2D d_old_target_pos < _pdist}}}}});
 
 d_kill_points_blufor = d_kill_points_blufor + _addpblufor;
 d_kill_points_opfor = d_kill_points_opfor + _addpopfor;
