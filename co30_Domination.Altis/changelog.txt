@@ -1,5 +1,6 @@
 4.69
 
+- Added: Lights at base and main target illumination (SPE flares module) in the SPE version because nights were too dark
 - Changed: Disable ambient radio chatter in SPE and IFA3 versions
 - Fixed: "Error: No Unit" problems with the best player at main target dialog (only players actually still playing are shown, hopefully fixed)
 - Fixed: When a squad leader died when a player selected respawn at SL the player could end up at position [0, 0, 0]
