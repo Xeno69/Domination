@@ -107,6 +107,7 @@ if (d_del_crew_always == 0) then {
 	_nocargo = true;
 };
 private _crew = [_veh, _grp, _nocargo] call d_fnc_spawnCrew;
+__TRACE_1("","_crew")
 {
 	_x call d_fnc_nodamoff;
 } forEach _crew;

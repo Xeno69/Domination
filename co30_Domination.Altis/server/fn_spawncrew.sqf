@@ -1,11 +1,14 @@
-// by Xeno
+// by Xenoa
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
 params ["_vec", "_grp", ["_nocargo", false]];
 
+__TRACE_1("","typeOf _vec")
+
 _grp createVehicleCrew _vec;
 private _crew = crew _vec;
+__TRACE_1("","_crew")
 if (count _crew > 0) then {
 	private _subskill = if (diag_fps > 25) then {
 		0.1 + (random 0.1)
@@ -22,23 +25,16 @@ if (count _crew > 0) then {
 			_x setSkill ["aimingAccuracy", random [0.05, 0.1, 0.125]];
 		} forEach _crew;
 	};
-	
-	if (!unitIsUAV _vec && {!(_vec isKindOf "Air")}) then {
-		if (!isNull driver _vec && {!isNull gunner _vec && {!isNull commander _vec}}) then {
-			_vec deleteVehicleCrew (commander _vec);
-			__TRACE_1("deleting commander","_vec")
-		};
-	};
 
 	private _addus = [];
-	if (!_nocargo && {(call d_fnc_PlayersNumber) < 18}) then {
+	if (!_nocargo && {(call d_fnc_PlayersNumber) < 25}) then {
 		private _ran =
 #ifdef __IFA3__
 			random 100 > 80;
 #else
 			random 100 > 59;
 #endif
-		if (_ran && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F"}}}}}}) then {
+		if (_ran && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F" || {_vec isKindOf "SPE_WheeledTracked_APC_base"}}}}}}}) then {
 			private _counter = _vec emptyPositions "cargo";
 			__TRACE_2("","typeOf _vec","_counter")
 			if (_counter > 0) then {
