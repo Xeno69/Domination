@@ -695,6 +695,7 @@ class cfgFunctions {
 			addc(selectleader);
 			addc(killedanimal);
 			addc(spe_illum);
+			addc(delobju);
 		};
 		class Dom_PrePostInit {
 			file = "init";

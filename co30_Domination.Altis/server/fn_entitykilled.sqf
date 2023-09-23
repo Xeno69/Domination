@@ -6,7 +6,10 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
+private _isman = false;
+
 if (_obj isKindOf "CAManBase") then {
+	_isman = true;
 	if (_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}) then {
 		private _insti = _this # 2;
 		if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
@@ -62,7 +65,7 @@ if (!d_with_ace || {d_with_ace && {local _obj}}) then {
 if (!isNil "d_is_hc") exitWith {true};
 #endif
 
-if !(_obj isKindOf "CAManBase") then {
+if !(_isman) then {
 	if (isPlayer (_this # 2)) then {
 		_this spawn d_fnc_bv_check;
 	};
@@ -71,12 +74,19 @@ if !(_obj isKindOf "CAManBase") then {
 private _quit = false;
 if (_ar # 3 == 1) then {
 	_obj setVariable ["d_dead", true];
-	if (_obj isKindOf "CAManBase") then {
+	if (_isman) then {
 		_quit = true;
 	};
 	[_obj, _quit] spawn d_fnc_onerespukilled;
 };
 if (_quit) exitWith {true};
+
+if (_ar # 20 == 1) exitWith {
+	if (!isNull (_this # 1) && {(_this # 1) distance2D _obj > 30}) then {
+		_obj spawn d_fnc_delobju;
+	};
+	true;
+};
 
 if (_ar # 4 > 0) then {
 	call {
