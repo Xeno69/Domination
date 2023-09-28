@@ -93,10 +93,12 @@ if (d_mt_respawngroups == 0) then {
 	_newgroup setVariable ["d_respawninfo", ["specops", [], _centerPos, 0, "patrol2", d_side_enemy, 0, 0, 1, [_centerPos, _radius], false, []]];
 };*/
 
-// delete a unit which was spawned inside a building shortly after it was killed if players are about 30 m away; Lots of dropped bombs at Dorph server which kills those units
-{
-	[_x, 20] call d_fnc_setekmode;
-} forEach (_units_to_garrison select {!isNull _x});
+if (d_ai_persistent_corpses != 0) then {
+	// delete a unit which was spawned inside a building shortly after it was killed if players are about 30 m away; Lots of dropped bombs at Dorph server which kills those units
+	{
+		[_x, 20] call d_fnc_setekmode;
+	} forEach (_units_to_garrison select {!isNull _x});
+};
 if (!isNull _newgroup) then {
 	__TRACE("new group not null adding to HC")
 	_newgroup call d_fnc_addgrp2hc;
