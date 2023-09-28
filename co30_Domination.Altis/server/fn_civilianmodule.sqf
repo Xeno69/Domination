@@ -270,19 +270,19 @@ private _civ_grp_count = d_civ_groupcount;
 private _civ_spawn_factor = 0; // determines number of static civs in houses
 if (d_civ_groupcount < 0) then {
 	if (d_civ_groupcount == -1) then {
-		_civ_spawn_factor = 0.07;  // adaptive (low)
+		_civ_spawn_factor = 0.05;  // adaptive (low)
 	};
 	if (d_civ_groupcount == -2) then {
-		_civ_spawn_factor = 0.13;  // adaptive (normal)
+		_civ_spawn_factor = 0.10;  // adaptive (normal)
 	};
 	if (d_civ_groupcount == -3) then {
-		_civ_spawn_factor = 0.28;  // adaptive (high)
+		_civ_spawn_factor = 0.20;  // adaptive (high)
 	};
 	if (d_civ_groupcount == -4) then {
-		_civ_spawn_factor = 0.45;  // adaptive (very high)
+		_civ_spawn_factor = 0.30;  // adaptive (very high)
 	};
 	if (d_civ_groupcount == -5) then {
-		_civ_spawn_factor = 0.80;  // adaptive (extreme)
+		_civ_spawn_factor = 0.50;  // adaptive (extreme)
 	};
 	private _bldg_count = count ([_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings);
 	private _civ_grp_count_max = floor(_civ_spawn_factor * 100); // sanity check, avoid spawning too many civ groups
