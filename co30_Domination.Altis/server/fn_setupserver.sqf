@@ -101,12 +101,10 @@ diag_log "Internal D Version: 4.69";
 
 private _av_check_fnc = {
 	_this addEventHandler ["handleDamage", {call d_fnc_pshootatarti;0}];
-	_this lockDriver true;
 	_this lock 2;
 	
 	if (!isNull (driver _this)) then {
 		_this deleteVehicleCrew (driver _this);
-		_this lockDriver true;
 		_this lock 2;
 	};
 	
@@ -118,11 +116,19 @@ private _av_check_fnc = {
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
 	_this addEventhandler ["fired", {call d_fnc_arifired}];
 	_this addEventhandler ["getIn", {
-		if (isPlayer (_this # 2)) then {
+		if (!local (_this # 2) || {(_this # 2) call d_fnc_isplayer}) then {
 			(_this # 2) action ["getOut", _this # 0];
-			diag_log format ["Attention!!!! %1 is trying to get into an artillery vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
+			if ((_this # 2) call d_fnc_isplayer) then {
+				diag_log format ["Attention!!!! %1 is trying to get into an artillery vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
+			};
 		};
 	}];
+	// if it still doesn't work add something like this
+	/*_this addEventhandler ["local", {
+		if !(_this # 1) then {
+			(driver (_this # 0)) action ["getOut", _this # 0];
+		};
+	}];*/
 	[_this, 2] spawn d_fnc_disglobalsim;
 };
 
