@@ -30,13 +30,15 @@ if !(isNil "d_ef_n_hash") then {
 };
 
 private "_todel";
-{
-	private _trig = _y;
-	//__TRACE_2("","_x","_trig")
-	private _hm = _trig getVariable "d_trig_hm";
-	_hm deleteAt _name;
-	if (count _hm == 0) then {
-		d_ef_trig_hash deleteAt _x;
-		deleteVehicle _trig;
-	};
-} forEach d_ef_trig_hash;
+if (!isNil "d_ef_trig_hash") then {
+	{
+		private _trig = _y;
+		//__TRACE_2("","_x","_trig")
+		private _hm = _trig getVariable "d_trig_hm";
+		_hm deleteAt _name;
+		if (count _hm == 0) then {
+			d_ef_trig_hash deleteAt _x;
+			deleteVehicle _trig;
+		};
+	} forEach d_ef_trig_hash;
+};

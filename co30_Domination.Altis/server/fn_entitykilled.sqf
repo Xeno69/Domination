@@ -81,11 +81,13 @@ if (_ar # 3 == 1) then {
 };
 if (_quit) exitWith {true};
 
-if (_ar # 20 == 1) exitWith {
-	if (!isNull (_this # 1) && {(_this # 1) distance2D _obj > 30}) then {
-		_obj spawn d_fnc_delobju;
+if (d_ai_persistent_corpses != 0) then {
+	if (_ar # 20 == 1) exitWith {
+		if (!isNull (_this # 1) && {(_this # 1) distance2D _obj > 30}) then {
+			_obj spawn d_fnc_delobju;
+		};
+		true;
 	};
-	true;
 };
 
 if (_ar # 4 > 0) then {
