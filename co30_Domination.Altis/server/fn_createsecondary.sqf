@@ -155,7 +155,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 
 	private _isFirstCamp = true;
 
-	private _parray = [_trg_center, d_cur_target_radius + 200, 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
+	private _parray = [_trg_center, d_cur_target_radius + (0.666 * d_cur_target_radius), 5, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBigArray;
 
 	for "_i" from 1 to _nrcamps do {
 		private _wf = objNull;
@@ -304,7 +304,7 @@ if (d_ao_check_for_ai in [0, 1]) then {
 
 sleep 0.1;
 
-if (d_with_minefield == 0 && {random 100 > 80}) then {
+if (d_with_minefield == 0 && {!d_preemptive_special_event && {random 100 > 80}}) then {
 	[_mtradius, _trg_center] call d_fnc_minefield;
 };
 

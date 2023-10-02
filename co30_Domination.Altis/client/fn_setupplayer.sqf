@@ -87,6 +87,8 @@ d_can_call_drop_ar = [];
 d_can_call_cas = [d_string_player];
 #endif
 
+d_player_can_call_extended_ordnance = d_enable_extra_cas;
+
 d_arsenal_opened = false;
 
 player disableConversation true;

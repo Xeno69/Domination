@@ -115,3 +115,13 @@ if (d_with_ranked && {d_transf_allow == 0}) then {
 		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1880", [call _fnc_inc_num], "", -5, [["expression", "99 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 	};
 };
+
+if (!d_with_ranked) then {
+	// create uav
+	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1327a", [call _fnc_inc_num], "", -5, [["expression", "60 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+};
+
+if (!d_with_ranked && {d_player_can_call_arti > 0 && {d_enable_extra_cas == 1}}) then {
+	// create combat uav
+	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1327b", [call _fnc_inc_num], "", -5, [["expression", "70 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+};

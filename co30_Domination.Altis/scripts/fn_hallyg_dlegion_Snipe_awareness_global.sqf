@@ -18,8 +18,12 @@ __TRACE_1("","_this")
 
 private _isSniper = _unit getVariable ["d_is_sniper", false];
 
-if (_isSniper && { d_snp_aware == 1 }) then {
-	_awarenessRadius = 1200;
+if (_isSniper && { d_snp_aware > 0 }) then {
+	if (d_snp_aware == 1) then {
+		_awarenessRadius = 1200; // awareness distance with the old default property value (0 or 1)
+	} else {
+		_awarenessRadius = d_snp_aware;
+	};
 };
 
 if (_awarenessRadius <= 0) exitWith {};
@@ -162,7 +166,11 @@ if (_Dtargets isNotEqualTo []) then {
 					// execute aggressive shooting
 					_isDoingSuppressiveFire = true;
 					_unit doTarget _x;
-					_unit doSuppressiveFire (getPosASL _x);
+					if (_isSniper) then {
+						_unit doFire _x; // sniper should only fire once
+					} else {
+						_unit doSuppressiveFire (getPosASL _x);
+					};
 				};
 			} forEach _targets;
 		};

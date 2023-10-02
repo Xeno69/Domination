@@ -59,6 +59,8 @@ _vecu allowCrewInImmobile true;
 _vecu setVehicleReceiveRemoteTargets true;
 _vecu setVehicleReportRemoteTargets true;
 _vecu setVehicleRadar 1;
+_vecu disableAI "LIGHTS";
+_vecu setCollisionLight false;
 
 //_vecu allowDamage false;
 
@@ -70,9 +72,12 @@ private _loiter_pos = getPos player;
 if !(d_cur_tgt_pos isEqualTo []) then {
 	_loiter_pos = d_cur_tgt_pos;
 };
+_vecu setVariable["d_loiter_pos", _loiter_pos, true];
+
+// set loiter waypoint
 private _loiter_radius = 800;
 if (d_cur_target_radius > 0) then {
-	_loiter_radius = d_cur_target_radius + 800;
+	_loiter_radius = d_cur_target_radius + 500;
 };
 _wp = _grp addWaypoint [_loiter_pos, 0];
 _wp setWaypointType "LOITER";
@@ -81,7 +86,7 @@ _wp setWaypointLoiterRadius _loiter_radius;
 _wp setWaypointBehaviour "CARELESS";
 _wp setWaypointCombatMode "BLUE";
 
-_vecu flyInHeight 2000;
+_vecu flyInHeight 1100; // this flyInHeight value is only possible with scripting, user selectable values are limited to 250m, 500m, 2000m
 
 player connectTerminalToUav _vecu;
 
