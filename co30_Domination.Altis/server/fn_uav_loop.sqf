@@ -14,13 +14,10 @@ while {true} do {
 			publicVariable "d_cur_uav_combat";
 			deleteVehicle _x;
 		} else {
-			diag_log [_x getVariable "d_loiter_pos"];
-			diag_log [d_cur_tgt_pos];
 			if (d_cur_tgt_pos isNotEqualTo [] && {(_x getVariable "d_loiter_pos") isNotEqualTo d_cur_tgt_pos}) then {
 				diag_log ["maintarget pos has changed, moving combat UAV to new maintarget"];
 				private _loiter_pos = d_cur_tgt_pos;
 				private _grp = group _x;
-				diag_log [groupId _grp];
 				// set loiter waypoint
 				private _loiter_radius = 800;
 				if (d_cur_target_radius > 0) then {
