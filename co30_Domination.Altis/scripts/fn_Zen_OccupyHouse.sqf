@@ -168,7 +168,13 @@ if !(isNull _targetBuilding) then {
 private _buildingPosArray = [];
 
 {
-	_buildingPosArray pushBack (_x buildingPos -1);
+	private _parray = _x buildingPos -1;
+	// some buildings in the safe list have one or more bad position, remove bad positions here
+	if (["chapel_v1_f", toLowerANSI (getModelInfo _x # 0)] call BIS_fnc_inString) then {
+		_parray deleteAt 1;
+	};
+	// add positions
+	_buildingPosArray pushBack _parray;
 } forEach _buildingsArrayFiltered;
 
 __TRACE_1("","_buildingPosArray")
