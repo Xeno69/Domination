@@ -95,12 +95,31 @@ private _safe_building_strings = [
 	"land_i_shop",
 	"land_i_stone"];
 
-// todo - blacklist strings:
-// factory, fuel, reservoir, warehouse, Land_SCF, Land_SM, 
+private _blacklist_building_strings = [
+	"slum_",
+	"shed_",
+	"Land_d",
+	"Land_u",
+	"factory",
+	"fuel",
+	"reservoir",
+	"warehouse",
+	"Land_SCF",
+	"Land_SM"];
 
 private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
 
-private _buildings = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist_civs) };
+// remove exact matches in the blacklist file, see d_bldgs_blacklist_civs.sqf
+private _buildings_unfiltered2 = _buildings_unfiltered select { !(getModelInfo _x # 0 in d_object_spawn_blacklist_civs) };
+// remove inString matches in _blacklist_building_strings
+private _buildings = _buildings_unfiltered2 select {
+	private _ret = true;
+	private _the_bldg = _x;
+	{
+		if ([toLowerANSI _x, toLowerANSI (getModelInfo _the_bldg # 0)] call BIS_fnc_inString) exitWith { _ret = false; };
+	} forEach _blacklist_building_strings;
+	_ret
+};
 
 diag_log [format ["total possible buildings to spawn civs: %1", count (_buildings)]];
 
@@ -294,16 +313,26 @@ diag_log [format ["civilian civ_grp_count: %1", _civ_grp_count]];
 
 // create civilians with createAgent (not the civilian module)
 // these civilians do not run around, they stand/sit/kneel and when firedNear is triggered they lay down
-for "_i" from 0 to _civ_grp_count do {
+private _civ_clusters_created = 0;
+for "_i" from 0 to 999 do {
 #ifdef __DEBUG__
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
 	_grp = createGroup [civilian, true];
 
 	__TRACE("Placing a civilian cluster...")
+	private _civ_count_before = count d_cur_tgt_civ_units;
 	[_grp] call _placeCivilianCluster;
+	if (count d_cur_tgt_civ_units > _civ_count_before) then {
+		// at least one civilian was correctly spawned, increment the count of civ clusters
+		_civ_clusters_created = _civ_clusters_created + 1;
+	};
+	if (_civ_clusters_created > _civ_grp_count) exitWith {
+		diag_log ["finished creating civ clusters, max civ cluster count reached"];
+	};
 };
 
+diag_log [format ["total number of civ clusters created: %1", _civ_clusters_created]];
 diag_log [format ["total static civs created: %1", count d_cur_tgt_civ_units]];
 
 // create civilian module and use the module to spawn moving civilians (walking/running)
