@@ -98,12 +98,17 @@ private _safe_building_strings = [
 private _blacklist_building_strings = [
 	"slum_",
 	"shed_",
-	"Land_d",
-	"Land_u",
+	"d_house_small",
+	"d_house_big",
+	"u_house_small",
+	"u_house_big",
+	"u_shop",
+	"i_stone_housebig",
 	"factory",
 	"fuel",
 	"reservoir",
 	"warehouse",
+	"pier",
 	"Land_SCF",
 	"Land_SM"];
 
