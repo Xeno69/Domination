@@ -67,5 +67,7 @@
 "scf_01_feeder_f.p3d",
 "pila.p3d",
 "d_stone_shed_v1_f.p3d",
+"i_stone_shed_v1_f.p3d",
 "d_house_small_01_v1_f.p3d",
+"d_house_small_02_v1_f.p3d",
 "unfinished_building_02_f.p3d"

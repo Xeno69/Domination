@@ -1422,9 +1422,9 @@ class Params {
 	
 	class d_snp_aware {
 		title = "$STR_DOM_MISSIONSTRING_1900D";
-		values[] = {0,1};
+		values[] = {0,1,100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1600,1700,1800,1900,2000};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","100m","200m","300m","400m","500m","600m","700m","800m","900m","1000m","1100m","1200m","1300m","1400m","1500m","1600m","1700m","1800m","1900m","2000m"};
 	};
 	
 	class d_ai_pursue_rad {

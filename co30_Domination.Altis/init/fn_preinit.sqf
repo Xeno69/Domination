@@ -3544,6 +3544,7 @@ if (hasInterface) then {
 	d_scoreadd_script = scriptNull;
 	d_weap_hash = createHashMap;
 	d_cur_inv_o_gear = [];
+	d_player_can_call_extended_ordnance = 0;
 
 	d_virtual_entities = ["d_virt_man_1", "d_virt_man_2", "d_virt_man_3", "d_virt_man_4", "d_virt_man_5"];
 

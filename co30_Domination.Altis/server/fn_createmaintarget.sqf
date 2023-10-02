@@ -137,8 +137,7 @@ _merc_array = [
 	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
 	["East","OPF_G_F","Infantry","O_G_InfSquad_Assault"] call d_fnc_GetConfigGroup,
 	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup,
-	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup,
-	["East","OPF_F","Infantry","OIA_InfTeam_AA"] call d_fnc_GetConfigGroup
+	["East","OPF_G_F","Infantry","O_G_InfTeam_Light"] call d_fnc_GetConfigGroup
 ];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -146,8 +145,7 @@ _merc_array = [
 	["West","Guerilla","Infantry","IRG_InfSquad"] call d_fnc_GetConfigGroup,
 	["West","Guerilla","Infantry","IRG_InfSquad"] call d_fnc_GetConfigGroup,
 	["West","Guerilla","Infantry","IRG_InfSquad_Weapons"] call d_fnc_GetConfigGroup,
-	["West","Guerilla","Infantry","IRG_InfSquad_Weapons"] call d_fnc_GetConfigGroup,
-	["West","BLU_F","Infantry","BUS_InfTeam_AA"] call d_fnc_GetConfigGroup
+	["West","Guerilla","Infantry","IRG_InfSquad_Weapons"] call d_fnc_GetConfigGroup
 ];
 #endif
 

@@ -55,6 +55,8 @@ call {
 			d_commandingMenuIniting = false;
 		};
 	};
+	if (_this == 60) exitWith {d_commandingMenuCode = {call d_fnc_makeuav;d_commandingMenuIniting = false}};
+	if (_this == 70) exitWith {d_commandingMenuCode = {call d_fnc_makeuav_combat;d_commandingMenuIniting = false}};
 	if (_this == 99) exitWith {
 		d_commandingMenuCode = {
 			0 spawn {
