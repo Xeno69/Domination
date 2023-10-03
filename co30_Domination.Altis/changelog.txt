@@ -14,5 +14,5 @@
 - Fixed: Spawn fewer civilians when low/med/high/veryhigh/extreme is selected, by longtime
 - Fixed: Cleanup could target an undefined trigger, by longtime
 - Fixed: Combat UAV loiters closer to maintarget, altitude lowered from 2000m to 1100m, vehicle lights are off, by longtime
-- Fixed: no mines during preemptive event, by longtime
+- Fixed: No mines during preemptive event, by longtime
 - Fixed: When closing Virtual Arsenal players ended up in a standing stance even when they were prone when opening it
