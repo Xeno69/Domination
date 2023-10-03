@@ -2,6 +2,9 @@
 
 - Added: Lights at base and main target illumination (SPE flares module) in the SPE version because nights were too dark
 - Changed: Disable ambient radio chatter in SPE and IFA3 versions
+- Changed: If server is unranked then players can create a UAV anywhere (not restricted to a deployed MHQ), by longtime
+- Changed: Combat UAV will reposition to new maintarget when previous target in cleared, by longtime
+- Changed: d_snp_aware is now a configurable distance, 0 no awareness, 1 is unchanged (1200m like before) or awareness is set by property value 100m-2000m, by longtime
 - Improved: Remove killed AI units in buildings immediately if no player is nearby (dead units eat up a lot of FPS)
 - Improved: Better protection for base AA vehicles so that players can't enter them
 - Fixed: "Error: No Unit" problems with the best player at main target dialog (only players actually still playing are shown, hopefully fixed)
@@ -10,3 +13,5 @@
 - Fixed: Do not run quick cleanup when persistent corpses is enabled, by longtime
 - Fixed: Spawn fewer civilians when low/med/high/veryhigh/extreme is selected, by longtime
 - Fixed: Cleanup could target an undefined trigger, by longtime
+- Fixed: Combat UAV loiters closer to maintarget, altitude lowered from 2000m to 1100m, vehicle lights are off, by longtime
+- Fixed: no mines during preemptive event, by longtime
