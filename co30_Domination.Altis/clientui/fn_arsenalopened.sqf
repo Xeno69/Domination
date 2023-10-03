@@ -9,10 +9,11 @@ d_arsenal_opened = true;
 //__TRACE_1("","d_arsenal_opened")
 
 disableSerialization;
-if (sunOrMoon < 0.9) then {
+if (sunOrMoon < 0.8) then {
 	d_arsenal_nvg_used = true;
 	camUseNVG true;
 };
+player setVariable ["d_arsenal_animstate", animationState player];
 params ["_disp"];
 if (!d_with_ace) then {
 	(_disp displayCtrl 44150) ctrlEnable false; // random

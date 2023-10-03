@@ -8,6 +8,10 @@ d_arsenal_opened = false;
 
 //__TRACE_1("","d_arsenal_opened")
 
+if (alive player && {!(player getVariable ["xr_pluncon", false])}) then {
+	player switchMove (player getVariable "d_arsenal_animstate");
+};
+
 call d_fnc_pcheck;
 
 if (alive player) then {
