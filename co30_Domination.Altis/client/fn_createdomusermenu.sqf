@@ -117,6 +117,7 @@ if (d_with_ranked && {d_transf_allow == 0}) then {
 };
 
 if (!d_with_ranked) then {
+	d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 	// create uav
 	d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1327a", [call _fnc_inc_num], "", -5, [["expression", "60 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 };
