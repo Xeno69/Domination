@@ -653,7 +653,7 @@ private _confmapsize = call {
 		deleteMarkerLocal "d_whole_island";
 		_ret
 	};
-	if (worldName == "cup_chernarus_A3") exitWith {
+	if (worldName == "cup_chernarus_A3" || worldName == "juju_sahtra") exitWith {
 		worldSize
 	};
 	getNumber(configFile>>"CfgWorlds">>worldName>>"mapSize")
