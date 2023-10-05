@@ -122,6 +122,11 @@ private _Dtargets = [];
 			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
 	};
+	if (unitIsUAV _x && {side (group _x) in _targetSideArray && {_x distance2D _unit < 25}}) then {
+		// UAV is too close to an enemy, now a valid target
+		_x setCaptive false;
+		_unit doSuppressiveFire _x;
+	};
 } forEach (_unit nearEntities _awarenessRadius);
 __TRACE_1("","_Dtargets")
 

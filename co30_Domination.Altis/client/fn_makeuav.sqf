@@ -32,7 +32,8 @@ _vecu setVehicleReceiveRemoteTargets true;
 _vecu setVehicleReportRemoteTargets true;
 _vecu setVehicleRadar 1;
 
-_vecu allowDamage false;
+//_vecu allowDamage false;
+_vecu setCaptive true;
 
 {
 	_x setSkill ["spotDistance", 1];
