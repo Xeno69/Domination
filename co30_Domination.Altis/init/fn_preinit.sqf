@@ -3149,7 +3149,6 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 	];
 	
 	d_civ_faction_tanoa = [
-		"C_man_p_beggar_F_tanoan", 1,
 		"C_Man_casual_1_F_tanoan", 1,
 		"C_Man_casual_3_F_tanoan", 1,
 		"C_Man_casual_4_v2_F_tanoan", 1,
