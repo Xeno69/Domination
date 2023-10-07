@@ -144,9 +144,8 @@ if (!xr_pl_no_lifes) then {
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;
 	__dspctrl(1010) ctrlSetText xr_name_player;
-
-	call xr_fnc_nearplayercheckui
 	camUseNVG false;
+	call xr_fnc_nearplayercheckui;
 } else {
 	__dspctrl(9998) ctrlEnable false;
 	__dspctrl(9998) ctrlSetText "";

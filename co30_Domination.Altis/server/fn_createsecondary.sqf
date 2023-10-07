@@ -321,7 +321,14 @@ if (!isNil "d_sm_speedboat") then {
 sleep 0.1;
 if (d_IllumMainTarget == 0) then {
 	if (!d_spe) then {
-		[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
+		[_trg_center, _mtradius] spawn {
+			params ["_trg_center", "_mtradius"];
+			scriptName "spawn_illum createsecondary";
+			for "_i" from 1 to 6 do {
+				[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
+				sleep (0.5 + random 2);
+			};
+		};
 	} else {
 		[_trg_center, _mtradius] spawn d_fnc_spe_illum;
 	};
