@@ -51,6 +51,7 @@ xr_spectcamtargetstr = getPlayerUID player;
 xr_spectcam cameraEffect ["Internal", "Back"];
 xr_spectcam camSetTarget xr_spectcamtarget;
 xr_spectcam camCommit 0;
+camUseNVG false;
 xr_x_withresp = _withresp;
 (_disp displayCtrl 1010) ctrlSetText xr_name_player;
 xr_x_loc_922 = localize "STR_DOM_MISSIONSTRING_922";

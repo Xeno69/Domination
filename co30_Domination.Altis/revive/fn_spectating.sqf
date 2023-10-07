@@ -146,6 +146,7 @@ if (!xr_pl_no_lifes) then {
 	__dspctrl(1010) ctrlSetText xr_name_player;
 
 	call xr_fnc_nearplayercheckui
+	camUseNVG false;
 } else {
 	__dspctrl(9998) ctrlEnable false;
 	__dspctrl(9998) ctrlSetText "";
@@ -169,6 +170,7 @@ if (!xr_pl_no_lifes) then {
 	xr_spectcam cameraEffect ["INTERNAL", "Back"];
 	xr_spectcam camCommit 0;
 	cameraEffectEnableHUD true;
+	camUseNVG false;
 	__dspctrl(1010) ctrlSetText (name _visobj);
 	
 	"d_nomorelifes" cutText [format ["<t color='#ff0000' size='5'>%1<br/>%2<br/>%3</t>", localize "STR_DOM_MISSIONSTRING_2039", localize "STR_DOM_MISSIONSTRING_2040", localize "STR_DOM_MISSIONSTRING_2041"], "PLAIN", -1, true, true];

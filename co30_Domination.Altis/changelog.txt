@@ -16,3 +16,4 @@
 - Fixed: Combat UAV loiters closer to maintarget, altitude lowered from 2000m to 1100m, vehicle lights are off, by longtime
 - Fixed: No mines during preemptive event, by longtime
 - Fixed: When closing Virtual Arsenal players ended up in a standing stance even when they were prone when opening it
+- Fixed: Turn NV for camera off when specatating dialog starts at night (otherwise the NV button shows the wrong state)
