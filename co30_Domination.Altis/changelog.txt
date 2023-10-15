@@ -19,3 +19,4 @@
 - Fixed: No mines during preemptive event, by longtime
 - Fixed: When closing Virtual Arsenal players ended up in a standing stance even when they were prone when opening it
 - Fixed: Turn NV for camera off when specatating dialog starts at night (otherwise the NV button shows the wrong state)
+- Fixed: Deleted cooldown rocket/missile projectiles are now deleted globally and not only on the client who fired

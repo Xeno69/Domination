@@ -205,6 +205,7 @@ class CfgRemoteExec {
 		class bis_fnc_setIdentity {};
 		class bis_fnc_curatorrespawn {};
 		class d_fnc_dynamicGroups {};
+		class d_fnc_delproj {};
 		class d_fnc_addppoints {allowedTargets = 2;};
 		class d_fnc_moduleCAS {allowedTargets = 2;};
 		class d_fnc_moduleCAS_bomb {allowedTargets = 2;};

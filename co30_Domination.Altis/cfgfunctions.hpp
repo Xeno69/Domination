@@ -371,6 +371,7 @@ class cfgFunctions {
 			addc(ismissionobjective);
 			addc(isflatempty);
 			addc(iscoveredposition);
+			addc(delproj);
 		};
 		class Dom_ext_Scripts {
 			file = "scripts";
