@@ -6,6 +6,7 @@
 - Changed: Combat UAV will reposition to new maintarget when previous target in cleared, by longtime
 - Changed: d_snp_aware is now a configurable distance, 0 no awareness, 1 is unchanged (1200m like before) or awareness is set by property value 100m-2000m, by longtime
 - Changed: More flares at night at main targets in the normal versions (non SPE versions)
+- Changed: Cooldown phase now also for normal AT rockets if fired close to an ammo box (avoids spamming targets with rockets)
 - Improved: Remove killed AI units in buildings immediately if no player is nearby (dead units eat up a lot of FPS)
 - Improved: Better protection for base AA vehicles so that players can't enter them
 - Fixed: "Error: No Unit" problems with the best player at main target dialog (only players actually still playing are shown, hopefully fixed)

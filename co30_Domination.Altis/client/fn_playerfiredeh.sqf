@@ -95,11 +95,33 @@ if (!_do_exit && {(_this # 4) isKindOf "Chemlight_base"}) exitWith {
 if (_do_exit || {d_with_ace}) exitWith {
 	__TRACE("Do Exit")
 };
-if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {(_this # 1) isKindOf ["LauncherCore", configFile >> "CfgWeapons"] && {getText (configFile>>"CfgAmmo">>(_this # 4)>>"simulation") == "shotMissile"}}}) then {
+if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {(_this # 1) isKindOf ["LauncherCore", configFile >> "CfgWeapons"] && {getText (configFile>>"CfgAmmo">>(_this # 4)>>"simulation") in ["shotRocket", "shotMissile"]}}}) then {
 	__TRACE("7 is null")
-	if (getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"weaponLockSystem") > 0}) then {
-		__TRACE("has manual control")
-		private _w = player getVariable "d_rcoold";
+	if (getText (configFile>>"CfgAmmo">>(_this # 4)>>"simulation") == "shotMissile") exitWith {
+		if (getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"manualControl") > 0 || {getNumber (configFile>>"CfgAmmo">>(_this # 4)>>"weaponLockSystem") > 0}) then {
+			__TRACE("has manual control")
+			private _w = player getVariable "d_rcoold";
+			__TRACE_1("1","_w")
+			if (!isNil "_w") then {
+				if (time < _w) then {
+					deleteVehicle (_this # 6);
+					__TRACE("projectile deleted")
+					private _ul =+ getUnitLoadout player;
+					(_ul # 1) set [4, [_this # 5, 1]];
+					player setUnitLoadout _ul;
+					__TRACE("Magazine added")
+					private _str = format [localize "STR_DOM_MISSIONSTRING_1969", [_this # 1, "CfgWeapons"] call d_fnc_getdisplayname, round (_w - time)];
+					hintSilent parseText format ["<t color='#ff0000' size='1.5' align='center'>%1</t>", _str];
+					systemChat _str;
+				};
+			} else {
+				player setVariable ["d_rcoold", time + d_launcher_cooldown];
+			};
+		};
+	__TRACE("Running through")
+	};
+	if ((player nearEntities ["ReammoBox_F", 25]) isNotEqualTo []) then {
+		private _w = player getVariable "d_rcoold2";
 		__TRACE_1("1","_w")
 		if (!isNil "_w") then {
 			if (time < _w) then {
@@ -109,13 +131,12 @@ if (d_launcher_cooldown > 0 && {isNull (_this # 7) && {(_this # 1) isKindOf ["La
 				(_ul # 1) set [4, [_this # 5, 1]];
 				player setUnitLoadout _ul;
 				__TRACE("Magazine added")
-				private _str = format [localize "STR_DOM_MISSIONSTRING_1969", [_this # 1, "CfgWeapons"] call d_fnc_getdisplayname, round (_w - time)];
+				private _str = format [localize "STR_DOM_MISSIONSTRING_1969a", [_this # 1, "CfgWeapons"] call d_fnc_getdisplayname, round (_w - time)];
 				hintSilent parseText format ["<t color='#ff0000' size='1.5' align='center'>%1</t>", _str];
 				systemChat _str;
 			};
 		} else {
-			player setVariable ["d_rcoold", time + d_launcher_cooldown];
+			player setVariable ["d_rcoold2", time + d_launcher_cooldown];
 		};
 	};
-	__TRACE("Running through")
 };
