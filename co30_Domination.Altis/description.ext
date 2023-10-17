@@ -327,6 +327,15 @@ class CfgRemoteExec {
 		class globalRadio {};
 		class setVehicleAmmo {};
 #endif
+		// support for mod - Project injury reaction (PiR)
+		class switchmove {};
+		class playactionnow {};
+		class setanimspeedcoef {};
+		class pir {};
+		// support for mod - Death and hit reactions
+		class setbleedingremaining {};
+		class call {};  // strange name for a function...
+		class bis_fnc_effectkilled {};
 	};
 };
 

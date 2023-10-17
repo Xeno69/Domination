@@ -85,7 +85,11 @@ private _superSimple = _class == "" || {_forceSuperSimple};
 private _object = nil;
 if (_superSimple) then {
 	//World coords are used
-	_object = createSimpleObject [_p3d, _pos, _loc];
+	if (d_EnableSimulationCamps > 0) then {
+		_object = createVehicle [_p3d, _pos, [], 0, "NONE"];
+	} else {
+		_object = createSimpleObject [_p3d, _pos, _loc];
+	};
 } else {
 	if (d_EnableSimulationCamps > 0) then {
 		_object = createVehicle [_class, _pos, [], 0, "NONE"];

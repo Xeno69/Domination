@@ -150,6 +150,21 @@ _spawn_script_enable_movement = {
 	};
 };
 
+_check_vertical_jumps = {
+	params ["_uuidx"];
+	_uuidx spawn {
+		scriptName "check if unit is vertically jumping and delete if true";
+		sleep 3;
+		private _startposz = (getPosASL _this) select 2;
+		sleep 3; 
+		private _posz = (getPosASL _this) select 2;
+		if (_posz != _startposz) exitWith {
+			// found a jumper (unit hovers up and down)
+			deleteVehicle _this;
+		};
+	};
+};
+
 private _buildingsArrayFiltered = [];
 
 // use targetBuilding if it was passed
@@ -355,6 +370,8 @@ __TRACE("start of forEach _buildingPosArray")
 											_uuidx setDir _i;
 		
 											doStop _uuidx;
+											[_uuidx] call _check_vertical_jumps;
+											_uuidx 
 										};
 		
 										//occupy mode - no special behavior
