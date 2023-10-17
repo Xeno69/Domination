@@ -3926,4 +3926,16 @@ if (d_guerrilla_factions > 0) then {
 		};
 	};
 };
+// support for mod - Death and hit reactions
+// this should not be required but something was wrong with initializing CBA properties for DAH with Domination, this fixed it
+WBK_DAH_Deaths_EnableFor_PLAYERS = false;
+WBK_DAH_Deaths_EnableFor_AI = true;
+WBK_DAH_Death_Chance = 100;
+WBK_DAH_Hit_EnableFor_AI = true;
+WBK_DAH_Hit_EnableFor_PLAYERS = false;
+WBK_DAH_Hit_Chance = 100;
+WBK_DAH_Hit_Chance_PLR = 0;
+WBK_DAH_Flinch_EnableFor_AI = false;
+WBK_DAH_Flinch_EnableFor_PLAYERS = false;
+
 diag_log [diag_frameno, diag_ticktime, time, "Dom fn_preinit.sqf processed"];

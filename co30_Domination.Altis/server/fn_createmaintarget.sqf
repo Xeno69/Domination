@@ -219,24 +219,22 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 };
 #endif
 
-if (_camp_enable_guard_current == 1) then {
-	_type_list_guard = [
-		["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
-		["specops", 0, [d_footunits_guard, 1] call _selectitmen],
-		["tank", [d_vec_numbers_guard, 0] call _selectit, [d_vec_numbers_guard,0] call _selectitvec],
-		["tracked_apc", [d_vec_numbers_guard, 1] call _selectit, [d_vec_numbers_guard,1] call _selectitvec],
-		["wheeled_apc", [d_vec_numbers_guard, 2] call _selectit, [d_vec_numbers_guard,2] call _selectitvec],
-		["jeep_mg", [d_vec_numbers_guard, 3] call _selectit, [d_vec_numbers_guard,3] call _selectitvec],
-		["jeep_gl", [d_vec_numbers_guard, 4] call _selectit, [d_vec_numbers_guard,4] call _selectitvec]
-	];
-	_type_list_guard_static = [
-		["allmen", 0, [d_footunits_guard_static, 0] call _selectitmen],
-		["specops",0, [d_footunits_guard_static, 1] call _selectitmen],
-		["tank", [d_vec_numbers_guard_static, 0] call _selectit, [d_vec_numbers_guard_static,0] call _selectitvec],
-		["tracked_apc", [d_vec_numbers_guard_static, 1] call _selectit, [d_vec_numbers_guard_static,1] call _selectitvec],
-		["aa", [d_vec_numbers_guard_static, 2] call _selectit, [d_vec_numbers_guard_static,2] call _selectitvec]
-	];
-};
+_type_list_guard = [
+	["allmen", 0, [d_footunits_guard, 0] call _selectitmen],
+	["specops", 0, [d_footunits_guard, 1] call _selectitmen],
+	["tank", [d_vec_numbers_guard, 0] call _selectit, [d_vec_numbers_guard,0] call _selectitvec],
+	["tracked_apc", [d_vec_numbers_guard, 1] call _selectit, [d_vec_numbers_guard,1] call _selectitvec],
+	["wheeled_apc", [d_vec_numbers_guard, 2] call _selectit, [d_vec_numbers_guard,2] call _selectitvec],
+	["jeep_mg", [d_vec_numbers_guard, 3] call _selectit, [d_vec_numbers_guard,3] call _selectitvec],
+	["jeep_gl", [d_vec_numbers_guard, 4] call _selectit, [d_vec_numbers_guard,4] call _selectitvec]
+];
+_type_list_guard_static = [
+	["allmen", 0, [d_footunits_guard_static, 0] call _selectitmen],
+	["specops",0, [d_footunits_guard_static, 1] call _selectitmen],
+	["tank", [d_vec_numbers_guard_static, 0] call _selectit, [d_vec_numbers_guard_static,0] call _selectitvec],
+	["tracked_apc", [d_vec_numbers_guard_static, 1] call _selectit, [d_vec_numbers_guard_static,1] call _selectitvec],
+	["aa", [d_vec_numbers_guard_static, 2] call _selectit, [d_vec_numbers_guard_static,2] call _selectitvec]
+];
 
 private _type_list_patrol = [
 	["allmen", 0, [d_footunits_patrol, 0] call _selectitmen],
@@ -536,7 +534,7 @@ private _comppost = [];
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
-			if (!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}) then {
+			if (_camp_enable_guard_current == 1 && {!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}}) then {
 				_idx = floor random (count _parray);
 				_nppos = _parray # _idx;
 				_ppos = _nppos;
@@ -573,7 +571,7 @@ sleep 0.233;
 		for "_xxx" from 1 to (_x # 2) do {
 			private _ppos = [];
 			private _iscompost = false;
-			if (!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}) then {
+			if (_camp_enable_guard_current == 1 && {!isNil "d_compositions" && {d_compositions isNotEqualTo [] && {(_x # 0) in ["allmen", "specops"]}}}) then {
 				_idx = floor random (count _parray);
 				_nppos = _parray # _idx;
 				_ppos = _nppos;
