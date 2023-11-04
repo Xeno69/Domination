@@ -461,23 +461,23 @@ if (isServer) then {
 #endif
 
 	if (d_weather == 0) then {0 spawn d_fnc_weatherserver};
+	
 	if (d_with_targetselect_count == 0 || {d_tt_ver}) then {
 		if (!d_tt_ver) then {
-			if (d_MainTargets_num > count d_target_names && {d_MainTargets_num != 9998 && {d_MainTargets_num != 9999}}) then {
-				d_MainTargets_num = count d_target_names;
-			};
-			
-			if (d_MainTargets_num == 9998) then {
-				d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
-				d_MainTargets_num = count d_target_names;
-			} else {
-				if (d_MainTargets_num == 9999) then { // order like placed in the editor
+			call {
+				if (d_MainTargets_num == 9998) exitWith {
+					d_maintargets_list = [floor (random 3)] call d_fnc_create_route;
+					d_MainTargets_num = count d_target_names;
+				};
+				if (d_MainTargets_num == 9999) exitWith { // order like placed in the editor
 					d_maintargets_list = call d_fnc_makteolpmttargets;
 					d_MainTargets_num = count d_target_names;
-				} else {
-					// create random list of targets
-					d_maintargets_list = call d_fnc_createrandomtargets;
 				};
+				if (d_MainTargets_num > count d_target_names) then {
+					d_MainTargets_num = count d_target_names;
+				};
+				// create random list of targets
+				d_maintargets_list = call d_fnc_createrandomtargets;
 			};
 		} else {
 			d_MainTargets_num = count d_target_names;
@@ -489,7 +489,7 @@ if (isServer) then {
 		d_MainTargets = count d_maintargets_list;
 	} else {
 		d_MainTargets = count d_target_names;
-		if (d_with_targetselect_count == -1 || {d_with_targetselect_count == 9999}) then {
+		if (d_with_targetselect_count == 9999) then {
 			d_with_targetselect_count = d_MainTargets;
 		};
 		d_mttargets_ar =+ d_target_names;
