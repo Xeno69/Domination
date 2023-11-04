@@ -122,7 +122,7 @@ private _Dtargets = [];
 			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
 	};
-	if (unitIsUAV _x && {side (group _x) in _targetSideArray && {_x distance2D _unit < 25}}) then {
+	if (unitIsUAV _x && {side (group _x) in _targetSideArray && {_x distance2D _unit < 20}}) then {
 		// UAV is too close to an enemy, now a valid target
 		_x setCaptive false;
 	};
@@ -158,6 +158,9 @@ if (_Dtargets isNotEqualTo []) then {
 		if (_isAggressiveShoot == 1) then {
 			__TRACE("Aggressive Shoot")
 			{
+				if(_unit in d_units_shooting_rpg) exitWith {
+					//diag_log ["unit is already busy shooting an rpg", _unit];
+				};
 				if (!(_x getVariable ["xr_pluncon", false]) && {[_unit, _x] call d_fnc_isvisible}) exitWith {
 					if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
 						// targeting a civ, make the civ a renegade so enemy will engage
@@ -173,13 +176,40 @@ if (_Dtargets isNotEqualTo []) then {
 					if (_isSniper) then {
 						_unit doFire _x; // sniper should only fire once
 					} else {
-						_unit doSuppressiveFire (getPosASL _x);
+						// TODO - figure out a better way to parse launcher ammo properties and determine which ammo types can be fired at infantry units
+						private _rpgs_force_shoot_strings_match = [
+							["_RPG32_", "RPG32_HE_F"],
+							["_Vorona_", "Vorona_HEAT"],
+							["_MRAWS_", "MRAWS_HE_F"],
+							["_MRAWS_", "MRAWS_HEAT_F"]
+						];
+						private _rpg_is_forceable = false;
+						private _rpg_force_ammo = "";
+						{
+							if ([_x select 0, secondaryWeapon _unit] call BIS_fnc_inString) exitWith {
+								if ((_x select 1) in (magazines _unit) || (_x select 1) in (secondaryWeaponMagazine _unit)) then {
+									// unit has a forceable RPG and the required HE ammo
+									_rpg_force_ammo = _x select 1;
+									_rpg_is_forceable = true;
+								};
+							};
+						} forEach _rpgs_force_shoot_strings_match;
+						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && {(_unit distance2D _x > 70) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}) then {
+							// TODO - check if friendlies are too close before firing the launcher?
+							// must synchronize this immediately to prevent spawning the script twice
+							// cannot use setVariable on _unit because it is not synchronous so must use publicVariable
+							d_units_shooting_rpg pushBack _unit;
+							publicVariable "d_units_shooting_rpg";
+							[_unit, _x, _rpg_force_ammo] spawn d_fnc_force_fire_rpg;
+						} else {
+							_unit doSuppressiveFire (getPosASL _x);
+						};
 					};
 				};
 			} forEach _targets;
 		};
 		
-		if !(_isDoingSuppressiveFire) then {
+		if (!_isDoingSuppressiveFire && {!(_unit in d_units_shooting_rpg)}) then {
 			_target_move_dest = _targets # 0;
 			__TRACE_1("","_target_move_dest")
 			// if a priority target is defined or a target is within pursue radius then doMove

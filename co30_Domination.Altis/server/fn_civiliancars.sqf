@@ -24,7 +24,7 @@ if (d_enable_civ_vehs > 0) then {
 			_roadConnectedTo = roadsConnectedTo _currentRoad;
 			_connectedRoad = _roadConnectedTo # 0;
 			if (isNil "_connectedRoad" || {isNull _connectedRoad}) exitWith {};
-			_direction = [_currentRoad, _connectedRoad] call BIS_fnc_DirTo;
+			_direction = ([_currentRoad, _connectedRoad] call BIS_fnc_DirTo) + random [-7, 0, 7];
 			
 			private _pos_flat_empty = [];
 			private _pos_flat_empty_attempts = 0;
@@ -42,7 +42,7 @@ if (d_enable_civ_vehs > 0) then {
 			} else {
 				// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL			
 				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)];	
-				_veh = createVehicle [selectRandomWeighted d_civ_vehicles_weighted, _pos_flat_empty, [], 0, "NONE"];
+				_veh = createVehicle [selectRandomWeighted d_civ_vehicles_weighted, _pos_flat_empty, [], 0.75, "NONE"]; // TODO - some civ vehicles explode immediately after createVehicle, maybe bad position
 				if (d_enable_civ_vehs_locked == 1) then {
 					_veh lock true;
 				};

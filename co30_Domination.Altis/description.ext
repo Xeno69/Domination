@@ -1456,9 +1456,9 @@ class Params {
 	
 	class d_ai_aggressiveshoot {
 		title = "$STR_DOM_MISSIONSTRING_1900AGGRESSIVESHOOT";
-		values[] = {0, 1};
+		values[] = {0, 1, 2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_EXPERIMENTAL"};
 	};
 	
 	class d_ai_quickammo {

@@ -407,6 +407,7 @@ class cfgFunctions {
 			addc(dgkdown);
 			addc(dgefmeh);
 			addc(unitgesture);
+			addc(force_fire_rpg);
 		};
 		class Dom_cba_Scripts {
 			file = "cba";

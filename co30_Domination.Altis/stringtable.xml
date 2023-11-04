@@ -12800,6 +12800,18 @@
 <Chinese>高級AI - 敵人向玩家猛烈射擊</Chinese>
 <French>AI Advanced - enemy shoots aggressively at players</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_EXPERIMENTAL">
+<English>Experimental</English>
+<Spanish>Experimental</Spanish>
+<Portuguese>Experimental</Portuguese>
+<Korean>Experimental</Korean>
+<Japanese>Experimental</Japanese>
+<Original>Experimental</Original>
+<Russian>Experimental</Russian>
+<Chinesesimp>Experimental</Chinesesimp>
+<Chinese>Experimental</Chinese>
+<French>Experimental</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
 <English>AI Advanced - enemy granted frequent ammo refills</English>
 <Spanish>Inteligencia Artificial Avanzada - el enemigo recibe frecuentes recargas de munición</Spanish>
