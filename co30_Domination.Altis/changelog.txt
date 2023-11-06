@@ -21,3 +21,4 @@
 - Fixed: Turn NV for camera off when specatating dialog starts at night (otherwise the NV button shows the wrong state)
 - Fixed: Deleted cooldown rocket/missile projectiles are now deleted globally and not only on the client who fired
 - Fixed: SPE explosives did not destroy side mission tanks
+- Fixed: Tank side missions didn't work in other versions too
