@@ -326,7 +326,7 @@ if (d_IllumMainTarget == 0) then {
 			scriptName "spawn_illum createsecondary";
 			for "_i" from 1 to 6 do {
 				[_trg_center, _mtradius] execFSM "fsms\fn_Illum.fsm";
-				sleep (0.5 + random 2);
+				sleep (1 + selectRandom [1, 2, 3, 4]);
 			};
 		};
 	} else {
