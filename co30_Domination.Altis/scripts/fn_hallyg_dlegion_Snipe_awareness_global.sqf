@@ -155,7 +155,7 @@ if (_Dtargets isNotEqualTo []) then {
 	};
 	if (count _targets > 0) then {
 		__TRACE_1("","_targets")
-		if (_isAggressiveShoot == 1) then {
+		if (_isAggressiveShoot > 0) then {
 			__TRACE("Aggressive Shoot")
 			{
 				if(_unit in d_units_shooting_rpg) exitWith {
