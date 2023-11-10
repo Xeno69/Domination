@@ -12,19 +12,18 @@ if (_prim_weapon_ammo_mag_arr isEqualTo []) then {
 	_u setVariable ["d_prim_weapon_ammo_mag_arr", _prim_weapon_ammo_mag_arr];
 };
 private _secondary_weapon = secondaryWeapon _u;
-private _mags = magazines _u;
 // remove primary weapon, handgun weapon and grenades, restore later
 _u removeMagazines "MiniGrenade";
 _u removeWeaponGlobal _prim_weapon;
 _u removeWeaponGlobal handgunWeapon _u;
 _u removeMagazines (_prim_weapon_ammo_mag_arr select 0);
-if (currentMagazine _u isNotEqualTo _rpg_ammo) then {
+if (secondaryWeaponMagazine _u isNotEqualTo _rpg_ammo) then {
 	_u reload ["", _rpg_ammo];
 };
 private _tmpveh = "B_Quadbike_01_F" createVehicle [0,0,0];
 _tmpveh enableSimulation false;
 _tmpveh hideObjectGlobal true;
-_tmpveh setPosATL (getPosATL _target);
+_tmpveh setVehiclePosition [(getPosATL _target), [], 0, "CAN_COLLIDE"];
 private _tmptgtsoldier = "B_TargetSoldier" createVehicle (getPosATL _target);
 _tmptgtsoldier enableSimulation false;
 _tmptgtsoldier hideObjectGlobal true;
@@ -38,12 +37,8 @@ deleteVehicle _tmpveh;
 deleteVehicle _tmptgtsoldier;
 _u doWatch objNull;
 _u doTarget objNull;
-// restore the magazines removed earlier
-{
-	if (_x isEqualTo (_prim_weapon_ammo_mag_arr select 0)) then {
-		_u addMagazine _x;
-	};
-} forEach _mags;
+// restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now
+_u addMagazines [(_prim_weapon_ammo_mag_arr select 0), 5];
 _u addWeaponGlobal _prim_weapon;
 _u selectWeapon _prim_weapon;
 sleep 4;
