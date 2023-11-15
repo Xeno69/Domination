@@ -2242,6 +2242,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 				if (d_ws) exitWith {
 					[]
 				};
+				if (d_spe) exitWith {
+					[]
+				};
 				["O_UAV_02_F","O_UAV_02_CAS_F","O_T_UAV_04_CAS_F"]
 			};
 		};
