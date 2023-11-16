@@ -86,6 +86,17 @@ if (_fired && {_isQuickAmmo == 1 || {_isSniper}}) then {
 	if ((time - _lastAmmoRefill) > _ammoRefillInterval) then {
 		//unit has waited longer than the required interval
 		_unit setVehicleAmmo 1;
+		// reload launcher ammo
+		if (secondaryWeapon _unit isNotEqualTo "") then {
+			private _testIsRocket = getText (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "cursor");
+			if (_testIsRocket in ["missile","rocket"]) then {
+				private _rocketArry = getArray (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "magazines");
+				private _rocket = (_rocketArry select 0);
+				if !(_rocket in backpackItems _unit) then {
+					_unit addItemToBackpack _rocket;
+				};
+			};
+		};
 		_lastAmmoRefill = time;
 		_unit setVariable ["lastAmmoRefill", time];
 	};

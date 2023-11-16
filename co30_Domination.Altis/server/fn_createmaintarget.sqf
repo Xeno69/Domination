@@ -1000,7 +1000,7 @@ if (d_with_MainTargetEvents != 0) then {
 			// case for d_with_MainTargetEvents == -1 (always) falls through to here
 			[selectRandom d_x_mt_event_types] call _doMainTargetEvent;
 		};
-		if (d_ai_awareness_rad > 0 && {d_enable_civs == 1 && {d_ai_aggressiveshoot == 1}}) then {
+		if (d_ai_awareness_rad > 0 && {d_enable_civs == 1 && {d_ai_aggressiveshoot > 0}}) then {
 			// awareness, civs, agressiveshoot are enabled
 			// very small chance of a civilian massacre
 			if (2 > random 100) then {
@@ -1011,7 +1011,7 @@ if (d_with_MainTargetEvents != 0) then {
 	};
 };
 
-if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot == 1 || {d_ai_quickammo == 1}}}}) then {
+if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai_aggressiveshoot > 0 || {d_ai_quickammo == 1}}}}) then {
 	// at least one awareness setting is enabled, run the awareness loop
 	d_cur_tgt_awareness_script_handle = [] spawn d_fnc_hallyg_dlegion_Snipe_awareness_loop;
 };
