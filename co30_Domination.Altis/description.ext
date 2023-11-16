@@ -305,6 +305,9 @@ class CfgRemoteExec {
 		class setbleedingremaining {};
 		class call {};  // strange name for a function...
 		class bis_fnc_effectkilled {};
+		// support for mod - Improved Melee System
+		class playaction {};
+		class say3d {};
 	};
 	// List of script commands allowed to be sent from client via remoteExec
 	class Commands {
@@ -346,6 +349,9 @@ class CfgRemoteExec {
 		class setbleedingremaining {};
 		class call {};  // strange name for a function...
 		class bis_fnc_effectkilled {};
+		// support for mod - Improved Melee System
+		class playaction {};
+		class say3d {};
 	};
 };
 
