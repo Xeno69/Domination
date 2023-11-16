@@ -205,7 +205,7 @@ if (_Dtargets isNotEqualTo []) then {
 								};
 							};
 						} forEach _rpgs_force_shoot_strings_match;
-						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && {(_unit distance2D _x > 70) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}) then {
+						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && {(_unit distance2D _x > 135) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}) then {
 							// TODO - check if friendlies are too close before firing the launcher?
 							// must synchronize this immediately to prevent spawning the script twice
 							// cannot use setVariable on _unit because it is not synchronous so must use publicVariable
