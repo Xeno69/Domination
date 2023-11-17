@@ -307,6 +307,7 @@ class CfgRemoteExec {
 		class bis_fnc_effectkilled {};
 		// support for mod - Improved Melee System
 		class playaction {};
+		class playmovenow {};
 		class say3d {};
 	};
 	// List of script commands allowed to be sent from client via remoteExec
@@ -351,6 +352,7 @@ class CfgRemoteExec {
 		class bis_fnc_effectkilled {};
 		// support for mod - Improved Melee System
 		class playaction {};
+		class playmovenow {};
 		class say3d {};
 	};
 };
