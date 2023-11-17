@@ -86,6 +86,17 @@ if (_fired && {_isQuickAmmo == 1 || {_isSniper}}) then {
 	if ((time - _lastAmmoRefill) > _ammoRefillInterval) then {
 		//unit has waited longer than the required interval
 		_unit setVehicleAmmo 1;
+		// reload launcher ammo
+		if (secondaryWeapon _unit isNotEqualTo "") then {
+			private _testIsRocket = getText (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "cursor");
+			if (_testIsRocket in ["missile","rocket"]) then {
+				private _rocketArry = getArray (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "magazines");
+				private _rocket = (_rocketArry select 0);
+				if !(_rocket in backpackItems _unit) then {
+					_unit addItemToBackpack _rocket;
+				};
+			};
+		};
 		_lastAmmoRefill = time;
 		_unit setVariable ["lastAmmoRefill", time];
 	};
@@ -194,7 +205,7 @@ if (_Dtargets isNotEqualTo []) then {
 								};
 							};
 						} forEach _rpgs_force_shoot_strings_match;
-						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && {(_unit distance2D _x > 70) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}) then {
+						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && {(_unit distance2D _x > 135) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}) then {
 							// TODO - check if friendlies are too close before firing the launcher?
 							// must synchronize this immediately to prevent spawning the script twice
 							// cannot use setVariable on _unit because it is not synchronous so must use publicVariable
