@@ -31,7 +31,7 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	_col set [3, 1 - (_distp / 200)];
 	_hasp = (_box getVariable "d_abox_perc") toFixed 2;
 	_txt = [_x # 2, format ["%1 (%2)", _x # 2, _hasp]] select (!isNil "_hasp");
-	if (_with_3Di == 1) then {
+	if (_with_3Di == 1 && {!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}}) then {
 		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} else {
 		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
@@ -97,7 +97,7 @@ if (!d_tt_ver) then {
 			};
 		} forEach (_d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
 	};
-	if (!isNull d_near_player_flag) then {
+	if (!isNull d_near_player_flag && {!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}}) then {
 		drawLaser [
 			d_near_player_flag_pos,
 			[0, 0, 1],
