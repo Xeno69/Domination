@@ -1,3 +1,4 @@
 4.70
 
 - Fixed: d_sum_camps > 0 before spawning target clear, by longtimegamer
+- Fixed: do not show virtual arsenal 3dmarker, flagpole beacon when streaming friendly or server-forced no-HUD, by longtimegamer
