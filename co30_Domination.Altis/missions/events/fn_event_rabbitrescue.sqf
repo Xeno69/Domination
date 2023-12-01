@@ -35,8 +35,7 @@ d_kb_logic1 kbTell [
 
 private _rand_pos = [[[_target_center, 15]],["water"]] call BIS_fnc_randomPos;
 private _rabbitgroup = [independent] call d_fnc_creategroup;
-//private _rabbit = _rabbitgroup createUnit ["Rabbit_F", _target_center, [], 0, "NONE"];
-private _rabbit = createAgent ["Rabbit_F", _rand_pos, [], 5, "NONE"];
+private _rabbit = _rabbitgroup createUnit ["Rabbit_F", _rand_pos, [], 0, "NONE"];
 [_rabbit, 30] call d_fnc_nodamoffdyn;
 
 _rabbitgroup setCombatMode "RED";
@@ -52,28 +51,57 @@ sleep 3.14;
 private _event_succeed_points = 25;
 private _is_dead = false;
 private _is_rescued = false;
-private _move_order_interval = 300;
+private _move_order_interval = 30;
 private _last_move = 0 - _move_order_interval;
 private _distanceToEnableRescue = 3; //in meters
 _rabbit setVariable ["BIS_fnc_animalBehaviour_disable", true];
+private _dir = getDir _rabbit;
+private _pos = getpos _rabbit;
+// Create an invisible AI unit
+private _ai = _rabbitgroup createUnit ["C_Man_1", _pos, [], 0, "FORM"];
+_ai setdir _dir;
+_ai allowdamage false;
+hideObjectGlobal _ai;
+//_ai enableSimulation false;
+_ai setUnitPos "MIDDLE";
+_ai allowFleeing 0;
+_ai setBehaviour "CARELESS";
+_ai setSpeedMode 'LIMITED';
+_ai setSpeaker "NoVoice";
+_ai enableai "ALL"; 
+detach _ai; 
+_ai enableSimulation true; 
+_ai forcespeed -1; 
+_ai switchMove ""; 
+_ai setSpeedMode "FULL"; 
+_ai forcespeed 9;
+_ai setanimspeedcoef 1.3;
+
+_rabbit attachTo [_ai,[0,-.4,0]];
+_rabbit addEventHandler ["Killed", {params ["_unit", "_killer", "_instigator", "_useEffects"]; deleteVehicle (attachedTo _unit)}];
 private _marker = ["d_bunny_marker", _rabbit, "ICON", "ColorBlue", [0.5,0.5], localize "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER", 0, "hd_dot"] call d_fnc_CreateMarkerGlobal;
 	[_marker, "STR_DOM_MISSIONSTRING_2028_RABBIT_MARKER"] remoteExecCall ["d_fnc_setmatxtloc", [0, -2] select isDedicated];
 
-[_rabbit, _target_center, _move_order_interval] spawn {
+[_rabbit, _ai, _target_center, _move_order_interval] spawn {
 	scriptName "spawn rabbitrescue";
-	params ["_rabbit", "_target_center", "_move_order_interval"];
+	params ["_rabbit", "_ai", "_target_center", "_move_order_interval"];
 	_rabbit playMove "Rabbit_Hop";
 	private _time_last_move = time;
 	private _first_time = true;
+	private _rand_pos = [];
 	while { sleep 5; alive _rabbit } do
 	{
 		if ((time - _time_last_move) > _move_order_interval || { _first_time }) then {
 			_time_last_move = time;
 			_first_time = false;
-			// this doesn't actually work, rabbit wanders around and does not obey moveTo
-			_rabbit moveTo ([[[_target_center, 100]],[[_target_center, 25]]] call BIS_fnc_randomPos);
+			_rabbit playMove "Rabbit_Hop";
+			_rand_pos = [[[_target_center, 100]],[[_target_center, 25]]] call BIS_fnc_randomPos;
+			_ai doMove (_rand_pos);
 		};
 		"d_bunny_marker" setMarkerPos (getPosWorld _rabbit);
+		if (_rabbit distance2D _rand_pos < 3) then {
+			_rabbit playMove "Rabbit_Stop";
+		};
 	};
 };
 
@@ -113,6 +141,7 @@ if (_is_rescued || {!_is_dead}) then {
 };
 
 deleteVehicle _rabbit;
+deleteVehicle _ai;
 deleteVehicle _trigger;
 deleteMarker _marker;
 
