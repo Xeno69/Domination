@@ -42,3 +42,7 @@ If you want to bundle or modify maps other than Altis follow these steps:
 * run your preferred PBO tool with PBO source folder `co30_Domination.Malden`
 
 Remember that your modifications can only be shared with the community if you contribute your work back to the source repository.
+
+# Mod support
+
+Domination uses a strict whitelist for client remote execution functions and commands. Some mods are not compatible with Domination due to these restrictions. To remove restrictions for client remote execution in your own PBO, see `CfgRemoteExec` in `description.ext` and set `mode=2`.

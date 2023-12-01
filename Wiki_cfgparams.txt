@@ -868,7 +868,10 @@
 > Default: 0 - No <br />
 > Available options: <br />
 >    - No (0) <br />
->    - Yes (1) <br />
+>    - Yes (1) 1200m<br />
+>    - 100m (100)<br />
+>    - ...m (...)<br />
+>    - 2000m (2000)<br />
 
 #### **d_ai_pursue_rad / AI Advanced - enemy active pursuit radius**
 > Default: -1 - No <br />
