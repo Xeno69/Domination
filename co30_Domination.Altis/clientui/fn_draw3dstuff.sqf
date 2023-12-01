@@ -34,7 +34,7 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	if (_with_3Di == 1 && {!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}}) then {
 		drawIcon3D ["a3\ui_f\data\IGUI\Cfg\Actions\reammo_ca.paa", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} else {
-		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, _txt, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
+		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, "", 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
 } forEach (_d_all_p_a_boxes select {!isNull (_x # 0) && {_pos_cam distance2D (_x # 0) < 80}});
 
