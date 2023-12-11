@@ -1,5 +1,5 @@
 scriptName "force ai fire rpg";
-params ["_u", "_target", "_rpg_ammo"];
+params ["_u", "_target"];
 // keep weapon and magazine vars so we can remove and later restore
 private _prim_weapon = _u getVariable ["d_prim_weapon", ""];
 if (_prim_weapon isEqualTo "") then {
@@ -17,9 +17,7 @@ _u removeMagazines "MiniGrenade";
 _u removeWeaponGlobal _prim_weapon;
 _u removeWeaponGlobal handgunWeapon _u;
 _u removeMagazines (_prim_weapon_ammo_mag_arr select 0);
-if (secondaryWeaponMagazine _u isNotEqualTo _rpg_ammo) then {
-	_u reload ["", _rpg_ammo];
-};
+// create a hidden vehicle and targetsoldier
 private _tmpveh = "B_Quadbike_01_F" createVehicle [0,0,0];
 _tmpveh enableSimulation false;
 _tmpveh hideObjectGlobal true;
@@ -33,6 +31,11 @@ _u doTarget _tmpveh;
 _u selectWeapon _secondary_weapon;
 _u doSuppressiveFire _tmpveh;
 sleep 8;
+if (secondaryWeaponMagazine _u isNotEqualTo []) then {
+	// the RPG was not fired, do not attempt to force fire again (set a variable)
+	_u setVariable ["d_do_not_force_fire_rpg", true];
+}
+reload _u;
 deleteVehicle _tmpveh;
 deleteVehicle _tmptgtsoldier;
 _u doWatch objNull;

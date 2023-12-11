@@ -187,31 +187,26 @@ if (_Dtargets isNotEqualTo []) then {
 					if (_isSniper) then {
 						_unit doFire _x; // sniper should only fire once
 					} else {
-						// TODO - figure out a better way to parse launcher ammo properties and determine which ammo types can be fired at infantry units
-						private _rpgs_force_shoot_strings_match = [
-							["_RPG32_", "RPG32_HE_F"],
-							["_Vorona_", "Vorona_HEAT"],
-							["_MRAWS_", "MRAWS_HE_F"],
-							["_MRAWS_", "MRAWS_HEAT_F"]
-						];
+						// check if RPG can be force fired
 						private _rpg_is_forceable = false;
-						private _rpg_force_ammo = "";
-						{
-							if ([_x select 0, secondaryWeapon _unit] call BIS_fnc_inString) exitWith {
-								if ((_x select 1) in (magazines _unit) || (_x select 1) in (secondaryWeaponMagazine _unit)) then {
-									// unit has a forceable RPG and the required HE ammo
-									_rpg_force_ammo = _x select 1;
-									_rpg_is_forceable = true;
-								};
+						// check if RPG is loaded
+						if (secondaryWeaponMagazine _unit isNotEqualTo []) then {
+							// check if RPG is laser lock (do not force shoot laser weapons for now)
+							// https://forums.bohemia.net/forums/topic/199883-how-to-find-if-a-weapon-can-use-laser-lock/?do=findComment&comment=3126502 post by Grezvany13
+							private _rpg_ammo = (secondaryWeaponMagazine _unit) select 0;
+							private _laser_lock = [(configFile >> "CfgAmmo" >> _rpg_ammo), "laserLock", 0] call BIS_fnc_returnConfigEntry;
+							if (_laser_lock == 0) then {
+								_rpg_is_forceable = true;
 							};
-						} forEach _rpgs_force_shoot_strings_match;
-						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && {(_unit distance2D _x > 135) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}) then {
+                        };
+						private _rpgs_force_shoot_minimum_distance = 100;
+						if (d_ai_aggressiveshoot == 2 && {!(_unit in d_units_shooting_rpg) && { !(_unit getVariable ["d_do_not_force_fire_rpg", false]) && {(_unit distance2D _x > _rpgs_force_shoot_minimum_distance) && { _rpg_is_forceable && { (currentWeapon _unit) isNotEqualTo (secondaryWeapon _unit)}}}}}) then {
 							// TODO - check if friendlies are too close before firing the launcher?
 							// must synchronize this immediately to prevent spawning the script twice
 							// cannot use setVariable on _unit because it is not synchronous so must use publicVariable
 							d_units_shooting_rpg pushBack _unit;
 							publicVariable "d_units_shooting_rpg";
-							[_unit, _x, _rpg_force_ammo] spawn d_fnc_force_fire_rpg;
+							[_unit, _x] spawn d_fnc_force_fire_rpg;
 						} else {
 							_unit doSuppressiveFire (getPosASL _x);
 						};
