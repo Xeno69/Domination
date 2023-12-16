@@ -91,7 +91,7 @@ while {true} do {
 				if (_dodelu) then {
 					{_x call d_fnc_DelVecAndCrew; sleep 0.01} forEach ((_x # 2) select {!isNull _x});
 					sleep 0.01;
-					{deleteVehicle _x; sleep 0.01} forEach (_x # 1);
+					deleteVehicle (_x # 1);
 					_isle_grps set [_forEachIndex, call d_fnc_make_isle_grp];
 				};
 				sleep 3.012;

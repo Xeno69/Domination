@@ -292,16 +292,16 @@ for "_series" from 1 to _ari_salvos do {
 #ifndef __TT__
 	if (d_arty_stopp) exitWith {
 		terminate _spawn_handle;
-		{deleteVehicle _x} forEach d_arty_projectiles;
+		deleteVehicle d_arty_projectiles;
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
 	};
 #else
 	if (_side_arti_op == opfor && {d_arty_stopp_e || {_side_arti_op == blufor && {d_arty_stopp_w}}}) exitWith {
 		terminate _spawn_handle;
 		if (_side_arti_op == opfor) then {
-			{deleteVehicle _x} forEach d_arty_projectiles_o;
+			deleteVehicle d_arty_projectiles_o;
 		} else {
-			{deleteVehicle _x} forEach d_arty_projectiles_b;
+			deleteVehicle d_arty_projectiles_b;
 		};
 		_logic1 kbTell [_logic, _topicside, "ArtilleryCanceled", _channel];
 	};

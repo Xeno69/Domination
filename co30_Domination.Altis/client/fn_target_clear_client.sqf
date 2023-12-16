@@ -25,16 +25,12 @@ d_mt_marker_triggers = [];
 #endif
 
 if (!isNil "d_client_barmhqtrigs") then {
-	{
-		deleteVehicle _x;
-	} forEach d_client_barmhqtrigs;
+	deleteVehicle d_client_barmhqtrigs;
 	d_client_barmhqtrigs = [];
 };
 
 if (!isNil "d_deletecamptrigs") then {
-	{
-		deleteVehicle _x;
-	} forEach d_deletecamptrigs;
+	deleteVehicle d_deletecamptrigs;
 	d_deletecamptrigs = [];
 };
 

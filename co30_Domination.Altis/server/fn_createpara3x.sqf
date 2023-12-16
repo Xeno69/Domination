@@ -445,8 +445,8 @@ if (_stop_it) exitWith {
 	{
 		deleteVehicleCrew _x;
 	} forEach (_vecs_ar select {!isNull _x});
-	{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
-	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
+	deleteVehicle (_vecs_ar select {!isNull _x});
+	deleteVehicle (_crews_ar select {!isNull _x});
 };
 
 while {d_should_be_there > 0 && {!d_mt_radio_down}} do {
@@ -475,6 +475,6 @@ if (!d_mt_radio_down) then {
 	{
 		deleteVehicleCrew _x;
 	} forEach (_vecs_ar select {!isNull _x});
-	{deleteVehicle _x} forEach (_vecs_ar select {!isNull _x});
-	{deleteVehicle _x} forEach (_crews_ar select {!isNull _x});
+	deleteVehicle (_vecs_ar select {!isNull _x});
+	deleteVehicle (_crews_ar select {!isNull _x});
 };

@@ -173,7 +173,7 @@ if (d_maintargets_list isNotEqualTo []) then {
 	if (!isNil "d_mines_created" && {d_mines_created isNotEqualTo []}) then {
 		_mines_created =+ d_mines_created;
 		d_mines_created = [];
-		{deleteVehicle _x} forEach d_mines_created;
+		deleteVehicle d_mines_created;
 		sleep 0.1;
 	};
 	private _mtunits =+ d_delinfsm;
@@ -205,9 +205,7 @@ private _del_camps_stuff = [];
 sleep 0.1;
 
 if (!isNil "d_cur_tgt_animals_units") then {
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_animals_units;
+	deleteVehicle d_cur_tgt_animals_units;
 	d_cur_tgt_animals_units = [];
 };
 
@@ -224,28 +222,20 @@ publicVariable "d_campscaptured_e";
 #ifndef __TT__
 if (d_enable_civs == 1) then {
 	//cleanup civ modules presencesafespot
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_modules_presencesafespot;
+	deleteVehicle d_cur_tgt_civ_modules_presencesafespot;
 	d_cur_tgt_civ_modules_presencesafespot = [];
 
 	//cleanup civ modules presenceunit
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_modules_presenceunit;
+	deleteVehicle d_cur_tgt_civ_modules_presenceunit;
 	d_cur_tgt_civ_modules_presenceunit = [];
 
 	//cleanup civ modules presence
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_modules_presence;
+	deleteVehicle d_cur_tgt_civ_modules_presence;
 	d_cur_tgt_civ_modules_presence = [];
 
 	//cleanup civ units
-	{
-		//diag_log [diag_frameno, diag_ticktime, time, format ["Deleting civ: %1", _x]];
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_units;
+	
+	deleteVehicle d_cur_tgt_civ_units;
 	
 	//cleanup civ vehicles after 300 secs
 	d_cur_tgt_civ_units = [];
@@ -258,9 +248,7 @@ if (d_enable_civs == 1) then {
 		diag_log ["pausing (sleep 300) before deleting civ vehicles"];
 		sleep 300;
 		diag_log [format ["pause (sleep 300) is over, now deleting %1 civ vehicles from completed target %2", count _tmpCivVehs, _cur_tgt_name]];
-		{
-			deleteVehicle _x;
-		} forEach _tmpCivVehs;
+		deleteVehicle _tmpCivVehs;
 	};
 };
 #endif

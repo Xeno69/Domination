@@ -29,7 +29,7 @@ private _objsar = [];
 	
 while {true} do {
 	private _cnamesew =+ _cnames;
-	{deleteVehicle _x} forEach _objsar;
+	deleteVehicle _objsar;
 	_objsar = [];
 	{
 		private _curname = selectRandom _cnamesew;

@@ -127,9 +127,7 @@ if (_ar # 7 == 1) then {
 	if (!isNil "_cr") then {
 		_cr = _cr - [objNull];
 		if (_cr isNotEqualTo []) then {
-			{
-				deleteVehicle _x;
-			} forEach _cr;
+			deleteVehicle _cr;
 		};
 	};
 };

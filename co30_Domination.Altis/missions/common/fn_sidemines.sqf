@@ -107,4 +107,4 @@ while {!d_sm_resolved} do {
 		d_sm_resolved = true;
 	};
 };
-if (_arrows isNotEqualTo []) then {{deleteVehicle _x} forEach _arrows};
+if (_arrows isNotEqualTo []) then {deleteVehicle _arrows};

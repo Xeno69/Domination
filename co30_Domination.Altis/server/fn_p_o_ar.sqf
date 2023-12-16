@@ -82,9 +82,7 @@ call {
 		private _ar = d_placed_objs_hash4 getOrDefault [_this # 1, []];
 		__TRACE_1("aj","_ar")
 		if (_ar isNotEqualTo []) then {
-			{
-				deleteVehicle _x;
-			} forEach _ar;
+			deleteVehicle _ar;
 		};
 		d_placed_objs_hash4 set [_this # 1, _this # 2];
 	};
@@ -92,9 +90,7 @@ call {
 		private _ar = d_placed_objs_hash4 getOrDefault [_this # 1, []];
 		__TRACE_1("ajr","_ar")
 		if (_ar isNotEqualTo []) then {
-			{
-				deleteVehicle _x;
-			} forEach _ar;
+			deleteVehicle _ar;
 		};
 		d_placed_objs_hash4 deleteAt (_this # 1);
 	};

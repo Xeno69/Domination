@@ -307,7 +307,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 		};
 		if (_vehicles isEqualTo []) exitWith {
 			__TRACE("_vehicles array IS empty")
-			{deleteVehicle _x} forEach _funits;
+			deleteVehicle _funits;
 			_funits = [];
 			_vehicles = [];
 		};
@@ -323,7 +323,7 @@ _pat_pos set [2, _cur_tgt_pos select 2]
 		sleep 0.1;
 		if (_vehicles isEqualTo []) exitWith {
 			__TRACE("_vehicles array IS empty")
-			{deleteVehicle _x} forEach _funits;
+			deleteVehicle _funits;
 			_funits = [];
 			_vehicles = [];
 		};

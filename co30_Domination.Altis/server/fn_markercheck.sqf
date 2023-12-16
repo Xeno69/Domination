@@ -19,7 +19,7 @@ if (_val isNotEqualTo []) then {
 			private _content = (_x # 0) getVariable ["d_objcont", []];
 			__TRACE_1("","_content")
 			if (_content isNotEqualTo []) then {
-				{deleteVehicle _x} forEach _content;
+				deleteVehicle _content;
 			};
 			
 			if ((_x # 0) isKindOf d_mash) then {
@@ -60,18 +60,14 @@ if (_val isNotEqualTo []) then {
 _val = d_placed_objs_hash3 getOrDefault [_uid, []];
 if (_val isNotEqualTo []) then {
 	__TRACE_1("3","_val")
-	{
-		deleteVehicle _x;
-	} forEach (_val select {!isNull _x});
+	deleteVehicle (_val select {!isNull _x});
 	d_placed_objs_hash3 deleteAt _uid;
 };
 
 _val = d_placed_objs_hash4 getOrDefault [_uid, []];
 if (_val isNotEqualTo []) then {
 	__TRACE_1("4","_val")
-	{
-		deleteVehicle _x;
-	} forEach (_val select {!isNull _x});
+	deleteVehicle (_val select {!isNull _x});
 	d_placed_objs_hash4 deleteAt _uid;
 };
 

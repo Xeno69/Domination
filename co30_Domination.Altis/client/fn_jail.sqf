@@ -179,9 +179,7 @@ player allowDamage true;
 cutText ["", "BLACK IN", 0.2];
 
 __TRACE("Deleting objects")
-{
-	deleteVehicle _x;
-} forEach _jailobjects;
+deleteVehicle _jailobjects;
 ["ajr", d_player_uid] remoteExecCall ["d_fnc_p_o_ar", 2];
 
 sleep 8;

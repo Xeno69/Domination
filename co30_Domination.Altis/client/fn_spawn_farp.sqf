@@ -139,7 +139,7 @@ _farp_seco addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MIS
 
 		private _farpcont = _farp getVariable ["d_objcont", []];
 		if (_farpcont isNotEqualTo []) then {
-			{deleteVehicle _x} forEach _farpcont;
+			deleteVehicle _farpcont;
 		};
 		deleteVehicle _farp;
 

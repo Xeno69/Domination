@@ -33,8 +33,7 @@ _u doTarget _tmpveh;
 _u selectWeapon _secondary_weapon;
 _u doSuppressiveFire _tmpveh;
 sleep 8;
-deleteVehicle _tmpveh;
-deleteVehicle _tmptgtsoldier;
+deleteVehicle [_tmpveh, _tmptgtsoldier];
 _u doWatch objNull;
 _u doTarget objNull;
 // restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now

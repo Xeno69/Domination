@@ -144,8 +144,6 @@ while {sleep 5; !d_mt_done} do {
 };
 
 //cleanup
-{
-	deleteVehicle _x;
-} forEach _newunits;
+deleteVehicle _newunits;
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);
 publicVariable "d_mt_event_messages_array";

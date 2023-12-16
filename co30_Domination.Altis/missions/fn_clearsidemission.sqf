@@ -53,7 +53,7 @@ sleep _deltime;
 	};
 } forEach d_x_sm_vec_rem_ar;
 d_x_sm_vec_rem_ar = [];
-{deleteVehicle _x} forEach (d_x_sm_rem_ar select {!isNull _x});
+deleteVehicle (d_x_sm_rem_ar select {!isNull _x});
 d_x_sm_rem_ar = [];
 
 sleep _waittime;

@@ -16,7 +16,5 @@ if (d_ao_check_for_ai < 2) then {
 };
 
 if (d_delinfsm isNotEqualTo []) then {
-	{
-		deleteVehicle _x;
-	} forEach d_delinfsm;
+	deleteVehicle d_delinfsm;
 };

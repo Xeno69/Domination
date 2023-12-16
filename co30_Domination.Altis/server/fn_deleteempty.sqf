@@ -62,10 +62,7 @@ if (_delfirebase_objects isNotEqualTo []) then {
 	} forEach (_delfirebase_objects select {!isNull _x});
 };
 
-{
-	deleteVehicle _x;
-	sleep 0.1;
-} forEach _delmines;
+deleteVehicle _delmines;
 
 {
 	if (_x isKindOf "House") then {_x setDamage 0};

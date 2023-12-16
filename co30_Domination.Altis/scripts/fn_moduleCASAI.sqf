@@ -207,7 +207,7 @@ if !(isNull _logico) then {
 //--- Delete plane
 if (canMove _plane) then {
 	deleteVehicle _plane;
-	{deleteVehicle _x} forEach _crew;
+	deleteVehicle _crew;
 	deleteGroup _group;
 } else {
 	[_plane, _crew, _group] spawn {
@@ -215,7 +215,7 @@ if (canMove _plane) then {
 		params ["_plane", "_crew", "_group"];
 		sleep 30;
 		deleteVehicle _plane;
-		{deleteVehicle _x} forEach _crew;
+		deleteVehicle _crew;
 		deleteGroup _group;
 	};
 };

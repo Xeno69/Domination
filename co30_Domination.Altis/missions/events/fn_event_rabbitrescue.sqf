@@ -140,9 +140,7 @@ if (_is_rescued || {!_is_dead}) then {
 	];
 };
 
-deleteVehicle _rabbit;
-deleteVehicle _ai;
-deleteVehicle _trigger;
+deleteVehicle [_rabbit, _ai, _trigger];
 deleteMarker _marker;
 
 d_mt_event_messages_array deleteAt (d_mt_event_messages_array find _eventDescription);

@@ -22,9 +22,7 @@ params ["_idx", "_mt_barracks_obj_ar", "_bara_trig_ar", "_mt_mobile_hq_obj", "_m
 	sleep 0.1;
 } forEach _mt_barracks_obj_ar;
 
-{
-	deleteVehicle _x;
-} forEach (_bara_trig_ar select {!isNull _x});
+deleteVehicle (_bara_trig_ar select {!isNull _x});
 
 if (!isNil "_mt_mobile_hq_obj" && {!isNull _mt_mobile_hq_obj}) then {
 	_mt_mobile_hq_obj spawn {
@@ -37,7 +35,7 @@ if (!isNil "_mt_mobile_hq_obj" && {!isNull _mt_mobile_hq_obj}) then {
 
 private _old_units_trigger = [(d_target_names # _idx) # 0, [500, 500, 0, false], [d_enemy_side, "PRESENT", false], ["this", "", ""]] call d_fnc_createtriggerlocal;
 
-{deleteVehicle _x; sleep 0.1} forEach _mines_created;
+deleteVehicle _mines_created;
 
 sleep 90;
 

@@ -22,7 +22,5 @@ while {!d_mt_done} do {
 	sleep 1;
 };
 sleep 30;
-{
-	deleteVehicle _x;
-} forEach _modules;
+deleteVehicle _modules;
 deleteGroup _gr;

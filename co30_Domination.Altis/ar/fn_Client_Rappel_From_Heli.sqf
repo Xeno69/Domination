@@ -222,8 +222,7 @@ if (local _player) then {
 
 	ropeDestroy _topRope;
 	ropeDestroy _bottomRope;
-	deleteVehicle _anchor;
-	deleteVehicle _rappelDevice;
+	deleteVehicle [_anchor, _rappelDevice];
 
 	if (!isNil {_player getVariable "AR_Is_Rappelling"}) then {
 		_player setVariable ["AR_Is_Rappelling", nil, true];

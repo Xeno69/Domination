@@ -4,7 +4,7 @@
 #define __del \
 deleteVehicleCrew _vec; \
 deleteVehicle _vec; \
-{deleteVehicle _x} forEach (_crew select {!isNull _x});
+deleteVehicle (_crew select {!isNull _x});
 
 if (!isServer) exitWith {};
 
@@ -257,7 +257,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	__del;
 };
 
-{deleteVehicle _x} forEach (_crew select {!isNull _x});
+deleteVehicle (_crew select {!isNull _x});
 
 deleteVehicle _helperh;
 
