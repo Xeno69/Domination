@@ -12812,6 +12812,18 @@
 <Chinese>Experimental</Chinese>
 <French>Experimental</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_ADVANCED">
+<English>Advanced</English>
+<Spanish>Advanced</Spanish>
+<Portuguese>Advanced</Portuguese>
+<Korean>Advanced</Korean>
+<Japanese>Advanced</Japanese>
+<Original>Advanced</Original>
+<Russian>Advanced</Russian>
+<Chinesesimp>Advanced</Chinesesimp>
+<Chinese>Advanced</Chinese>
+<French>Advanced</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1900QUICKAMMO">
 <English>AI Advanced - enemy granted frequent ammo refills</English>
 <Spanish>Inteligencia Artificial Avanzada - el enemigo recibe frecuentes recargas de munición</Spanish>

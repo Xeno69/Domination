@@ -1031,4 +1031,5 @@ if (d_ai_awareness_rad > 0 || {d_snp_aware == 1 || {d_ai_pursue_rad > 0 || {d_ai
 } foreach ([nearestTerrainObjects [_trg_center, [], 1000], {(getModelInfo _x # 1) find "vn_dyke"> 0 }] call BIS_fnc_conditionalSelect);
 #endif
 
+diag_log [format ["total count of d_delinfsm: %1", count d_delinfsm]];
 diag_log [format ["end of fn_createmaintarget.sqf, elapsed time: %1", time - _fn_start_time]];
