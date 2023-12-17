@@ -46,3 +46,7 @@ Remember that your modifications can only be shared with the community if you co
 # Mod support
 
 Domination uses a strict whitelist for client remote execution functions and commands. Some mods are not compatible with Domination due to these restrictions. To remove restrictions for client remote execution in your own PBO, see `CfgRemoteExec` in `description.ext` and set `mode=2`.
+
+# Reset saved mission namespace
+
+Delete the namespace file in `Documents/Arma 3` folder or `Documents/Arma 3 - Other Profiles` folder.

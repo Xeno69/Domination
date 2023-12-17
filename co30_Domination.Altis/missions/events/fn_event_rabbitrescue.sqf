@@ -113,7 +113,7 @@ while {!d_mt_done && {!_is_dead && {!_is_rescued}}} do {
 	if (_nobjs isNotEqualTo []) then {
 		_is_rescued = true;
 	};
-	sleep 5.621;
+	sleep 3.621;
 };
 
 if (_is_rescued || {!_is_dead}) then {

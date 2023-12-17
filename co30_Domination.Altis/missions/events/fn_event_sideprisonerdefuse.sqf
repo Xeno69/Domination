@@ -17,7 +17,7 @@ if (!isServer) exitWith {};
 
 params ["_target_radius", "_target_center"];
 
-//private _mt_event_key = format ["d_X_MTEVENT_PRISONERDEFUSE_%1", d_cur_tgt_name];
+private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, "PRISONERDEFUSE"];
 
 //position the event site at max distance 65% of target radius and min 25% of target radius
 private _poss = [[[_target_center, (d_cur_target_radius * 0.65)]],[[_target_center, (d_cur_target_radius * 0.25)]]] call BIS_fnc_randomPos;
