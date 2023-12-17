@@ -31,13 +31,16 @@ _u doTarget _tmpveh;
 _u selectWeapon _secondary_weapon;
 _u doSuppressiveFire _tmpveh;
 sleep 8;
+// cleanup immediately
+deleteVehicle _tmpveh;
+deleteVehicle _tmptgtsoldier;
+d_units_shooting_rpg deleteAt (d_units_shooting_rpg find _u);
+publicVariable "d_units_shooting_rpg";
 if (secondaryWeaponMagazine _u isNotEqualTo []) then {
 	// the RPG was not fired, do not attempt to force fire again (set a variable)
 	_u setVariable ["d_do_not_force_fire_rpg", true];
-}
+};
 reload _u;
-deleteVehicle _tmpveh;
-deleteVehicle _tmptgtsoldier;
 _u doWatch objNull;
 _u doTarget objNull;
 // restore the primary weapon and primary weapon magazines removed earlier, ignore handgun and grenades for now
@@ -46,5 +49,3 @@ _u addWeaponGlobal _prim_weapon;
 _u selectWeapon _prim_weapon;
 sleep 4;
 _u setAmmo [_prim_weapon, 999];
-d_units_shooting_rpg deleteAt (d_units_shooting_rpg find _u);
-publicVariable "d_units_shooting_rpg";
