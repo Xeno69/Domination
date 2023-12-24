@@ -174,7 +174,7 @@ private _guerrilla_event_running = false;
 #ifndef __TT__
 if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -5}) then {
 	// chance of a pre-emptive event (a special event which supersedes most maintarget setup) or when d_with_MainTargetEvents == -5
-	if (50 > random 100 || {d_with_MainTargetEvents == -5}) then {
+	if (25 > random 100 || {d_with_MainTargetEvents == -5}) then {
 		diag_log ["Chance for special event was selected or d_with_MainTargetEvents == -5, d_preemptive_special_event set to true"];
 		switch (selectRandom [1,2,3]) do {
 			case 1: {

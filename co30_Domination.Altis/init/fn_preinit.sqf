@@ -2974,22 +2974,45 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 	];
 	
 	d_asianCivs = [
-		"C_man_p_beggar_F_asia", 1,
-		"C_Man_casual_1_F_afro", 1,
-		//"C_Man_casual_2_F_afro", 1,
-		"C_Man_casual_3_F_afro", 1,
-		"C_Man_casual_4_v2_F_afro", 1,
-		"C_Man_casual_5_v2_F_afro", 1,
-		"C_Man_casual_6_v2_F_afro", 1,
-		"C_Man_casual_7_F_afro", 1,
-		"C_Man_casual_8_F_afro", 1,
-		"C_Man_casual_9_F_afro", 1,
-		"C_Man_p_fugitive_F_afro", 1,
+		"C_Man_casual_4_F_asia", 1,
+		"C_Man_casual_5_F_asia", 1,
+		"C_Man_casual_6_F_asia", 1,
+		"C_Man_polo_1_F_asia", 1,
+		"C_Man_polo_4_F_asia", 1,
+		"C_Man_polo_5_F_asia", 1,
+		"C_man_p_fugitive_F_asia", 1,
 		// minorities
-		"C_man_p_beggar_F_afro", 1,
-		"C_Man_p_fugitive_F_afro", 1,
-		"C_Man_casual_3_F", 1,
-		"C_Man_casual_4_v2_F", 1
+		"C_Man_casual_3_F", 1
+	];
+	
+	d_asianCivsCUP = [
+		"C_CUPCIVASIA_Civilian_1_01", 1,
+		"C_CUPCIVASIA_Civilian_2_01", 1,
+		"C_CUPCIVASIA_Civilian_3_01", 1,
+		"C_CUPCIVASIA_Civilian_4_01", 1,
+		"C_CUPCIVASIA_Civilian_5_01", 1,
+		"C_CUPCIVASIA_Civilian_6_01", 1,
+		"C_CUPCIVASIA_Civilian_7_01", 1,
+		"C_CUPCIVASIA_Civilian_8_01", 1,
+		"C_CUPCIVASIA_Civilian_9_01", 1,
+		"C_CUPCIVASIA_Civilian_10_01", 1,
+		"C_CUPCIVASIA_Civilian_11_01", 1,
+		"C_CUPCIVASIA_Civilian_12_01", 1
+	];
+
+	d_asianCivsCFP = [
+		"CFP_C_ASIA_Civilian_1_01", 1,
+		"CFP_C_ASIA_Civilian_2_01", 1,
+		"CFP_C_ASIA_Civilian_3_01", 1,
+		"CFP_C_ASIA_Civilian_4_01", 1,
+		"CFP_C_ASIA_Civilian_5_01", 1,
+		"CFP_C_ASIA_Civilian_6_01", 1,
+		"CFP_C_ASIA_Civilian_7_01", 1,
+		"CFP_C_ASIA_Civilian_8_01", 1,
+		"CFP_C_ASIA_Civilian_9_01", 1,
+		"CFP_C_ASIA_Civilian_10_01", 1,
+		"CFP_C_ASIA_Civilian_11_01", 1,
+		"CFP_C_ASIA_Civilian_12_01", 1
 	];
 	
 	d_euroCivs = [
