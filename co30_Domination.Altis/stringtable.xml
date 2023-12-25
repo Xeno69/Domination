@@ -12572,6 +12572,30 @@
 <Chinese>Asian civilians</Chinese>
 <French>Asian civilians</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_ASIAN_CUP">
+<English>Asian civilians (CUP)</English>
+<Spanish>Asian civilians (CUP)</Spanish>
+<Portuguese>Asian civilians (CUP)</Portuguese>
+<Korean>Asian civilians (CUP)</Korean>
+<Japanese>Asian civilians (CUP)</Japanese>
+<Original>Asian civilians (CUP)</Original>
+<Russian>Asian civilians (CUP)</Russian>
+<Chinesesimp>Asian civilians (CUP)</Chinesesimp>
+<Chinese>Asian civilians (CUP)</Chinese>
+<French>Asian civilians (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_ASIAN_CFP">
+<English>Asian civilians (CFP)</English>
+<Spanish>Asian civilians (CFP)</Spanish>
+<Portuguese>Asian civilians (CFP)</Portuguese>
+<Korean>Asian civilians (CFP)</Korean>
+<Japanese>Asian civilians (CFP)</Japanese>
+<Original>Asian civilians (CFP)</Original>
+<Russian>Asian civilians (CFP)</Russian>
+<Chinesesimp>Asian civilians (CFP)</Chinesesimp>
+<Chinese>Asian civilians (CFP)</Chinese>
+<French>Asian civilians (CFP)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_CIV_TYPE_EURO">
 <English>European civilians</English>
 <Spanish>European civilians</Spanish>
@@ -12812,7 +12836,7 @@
 <Chinese>Experimental</Chinese>
 <French>Experimental</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_ADVANCED">
+<Key ID="STR_DOM_MISSIONSTRING_ADVANCED_WORD">
 <English>Advanced</English>
 <Spanish>Advanced</Spanish>
 <Portuguese>Advanced</Portuguese>

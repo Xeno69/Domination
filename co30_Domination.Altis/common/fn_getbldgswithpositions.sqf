@@ -19,9 +19,22 @@ if (_buildingsArrayRaw isEqualTo []) exitWith {
 	[]
 };
 
+// select buildings with positions
 private _buildingsArrayUsableUnfiltered = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
 
-private _buildingsArrayUsable = _buildingsArrayUsableUnfiltered select { !(getModelInfo _x # 0 in _blacklist) };
+// do not select if inString with any string in the defined blacklist strings array
+private _blacklist_building_strings = ["dyke"];
+private _buildingsArrayUsableFiltered1 = _buildings_unfiltered2 select {
+	private _ret = true;
+	private _the_bldg = _x;
+	{
+		if ([toLowerANSI _x, toLowerANSI (getModelInfo _the_bldg # 0)] call BIS_fnc_inString) exitWith { _ret = false; };
+	} forEach _blacklist_building_strings;
+	_ret
+};
+
+// do not select if exact model name matches with any string in the params or default blacklist array
+private _buildingsArrayUsable = _buildingsArrayUsableFiltered1 select { !(getModelInfo _x # 0 in _blacklist) };
 
 if (_buildingsArrayUsable isEqualTo []) exitWith {
 	[]

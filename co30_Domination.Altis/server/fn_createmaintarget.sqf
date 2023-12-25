@@ -174,7 +174,7 @@ private _guerrilla_event_running = false;
 #ifndef __TT__
 if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTargetEvents == -5}) then {
 	// chance of a pre-emptive event (a special event which supersedes most maintarget setup) or when d_with_MainTargetEvents == -5
-	if (50 > random 100 || {d_with_MainTargetEvents == -5}) then {
+	if (25 > random 100 || {d_with_MainTargetEvents == -5}) then {
 		diag_log ["Chance for special event was selected or d_with_MainTargetEvents == -5, d_preemptive_special_event set to true"];
 		switch (selectRandom [1,2,3]) do {
 			case 1: {
@@ -812,18 +812,14 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 	if (_snp_cnt > 0) then {
 		//START create garrisoned groups of snipers
 		//prepare to create garrisoned groups of snipers - find and sort buildings
-		private _buildingsArrayRaw = nearestObjects [_trg_center, ["Building", "House"], d_snp_rad, true];
-	
-		if (_buildingsArrayRaw isEqualTo []) exitWith {};
-	
-		private _buildingsArrayUsable = _buildingsArrayRaw select {(_x buildingPos -1) isNotEqualTo []};
+		private _buildingsArrayUsable = [_trg_center, d_snp_rad] call d_fnc_getbldgswithpositions;
 	
 		if (_buildingsArrayUsable isEqualTo []) exitWith {};
 	
 		__TRACE_1("","_buildingsArrayUsable")
 	
 		//sort by building height
-		//_buildingsArraySorted = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x # 1) # 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
+		private _buildingsArraySortedByHeight = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x # 1) # 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
 	
 		//sort by elevation - sort by highest position in each building
 		private _buildingsArraySorted = [
@@ -847,7 +843,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 	
 		__TRACE_1("","_buildingsArraySorted")
 	
-		if (_buildingsArraySorted isEqualTo []) exitWith {};
+		if (_buildingsArraySorted isEqualTo [] || {_buildingsArraySortedByHeight isEqualTo []}) exitWith {};
 	
 		//choose the Top 2N of sorted buildings array
 		
@@ -862,6 +858,13 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 			_tmp = [ _tmp ] call BIS_fnc_arrayShuffle;
 			_tmp resize _snp_cnt; // resize to correct size
 			_buildingsArray = _tmp # 0;
+		};
+		
+		// replace 3 of the tallest buildings in the elevation array
+		if (count _buildingsArraySortedByHeight > 3) then {		
+			_buildingsArray set [0, (_buildingsArraySortedByHeight select 0)];
+			_buildingsArray set [1, (_buildingsArraySortedByHeight select 1)];
+			_buildingsArray set [2, (_buildingsArraySortedByHeight select 2)];
 		};
 	
 		__TRACE_1("","_buildingsArray")

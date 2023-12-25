@@ -66,6 +66,12 @@ if (d_civ_type > 0) then {
 	if (d_civ_type == 13) then {
 		d_civArray_current =+ d_cupCivsTakistan;
 	};
+	if (d_civ_type == 14) then {
+		d_civArray_current =+ d_asianCivsCUP;
+	};
+	if (d_civ_type == 15) then {
+		d_civArray_current =+ d_asianCivsCFP;
+	};
 	// TODO - IFA civs
 } else {
 	d_civArray_current =+ d_civArray;
@@ -93,7 +99,9 @@ private _safe_building_strings = [
 	"land_house",
 	"land_i_house",
 	"land_i_shop",
-	"land_i_stone"];
+	"land_i_stone",
+	"cage",
+	"jail"];
 
 private _blacklist_building_strings = [
 	"slum_",
@@ -110,7 +118,10 @@ private _blacklist_building_strings = [
 	"warehouse",
 	"pier",
 	"Land_SCF",
-	"Land_SM"];
+	"Land_SM",
+	"crater",
+	"camp",
+	"tower"];
 
 private _buildings_unfiltered = [_trg_center, _radius, d_side_enemy] call d_fnc_getbuildings;
 
