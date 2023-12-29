@@ -112,6 +112,7 @@ d_HeliHEmpty = "Land_HelipadEmpty_F";
 // BLUFOR, OPFOR or INDEPENDENT for own side, setup in x_setup.sqf
 #ifdef __OWN_SIDE_BLUFOR__
 d_own_side = "WEST";
+d_own_side_short = "W";
 d_own_sides = ["WEST"];
 d_own_sides_o = [blufor];
 if (!d_spe) then {
@@ -130,6 +131,7 @@ d_e_marker_color = "ColorOPFOR";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 d_own_side = "EAST";
+d_own_side_short = "E";
 d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3);
 d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3);
 d_enemy_side = "WEST";
@@ -142,6 +144,7 @@ d_e_marker_color = "ColorBLUFOR";
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 d_own_side = "GUER";
+d_own_side_short = "G";
 d_own_sides = ["GUER"];
 d_own_sides_o = [independent];
 if (!d_spe) then {
@@ -159,6 +162,7 @@ d_e_marker_color = "ColorGUER";
 #endif
 #ifdef __TT__
 d_own_side = "WEST";
+d_own_side_short = "W";
 d_own_sides = ["WEST"];
 d_enemy_side = "GUER";
 d_enemy_side_short = "G";

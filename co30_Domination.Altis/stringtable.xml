@@ -2990,6 +2990,18 @@
 <Chinese>極高</Chinese>
 <French>Extreme</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_400_EXTRA">
+<English>Extra</English>
+<Spanish>Extra</Spanish>
+<Portuguese>Extra</Portuguese>
+<Korean>Extra</Korean>
+<Japanese>Extra</Japanese>
+<Original>Extra</Original>
+<Russian>Extra</Russian>
+<Chinesesimp>Extra</Chinesesimp>
+<Chinese>Extra</Chinese>
+<French>Extra</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_405">
 <English>None</English>
 <Spanish>Nada</Spanish>
@@ -7911,6 +7923,42 @@
 <Chinesesimp>放下大炮</Chinesesimp>
 <Chinese>放下大炮</Chinese>
 <French>Larguer Artillerie</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1232_AMMOTRUCK">
+<English>Drop Ammo Truck</English>
+<Spanish>Drop Ammo Truck</Spanish>
+<Portuguese>Drop Ammo Truck</Portuguese>
+<Korean>Drop Ammo Truck</Korean>
+<Japanese>Drop Ammo Truck</Japanese>
+<Original>Drop Ammo Truck</Original>
+<Russian>Drop Ammo Truck</Russian>
+<Chinesesimp>Drop Ammo Truck</Chinesesimp>
+<Chinese>Drop Ammo Truck</Chinese>
+<French>Drop Ammo Truck</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1232_APC">
+<English>Drop APC</English>
+<Spanish>Drop APC</Spanish>
+<Portuguese>Drop APC</Portuguese>
+<Korean>Drop APC</Korean>
+<Japanese>Drop APC</Japanese>
+<Original>Drop APC</Original>
+<Russian>Drop APC</Russian>
+<Chinesesimp>Drop APC</Chinesesimp>
+<Chinese>Drop APC</Chinese>
+<French>Drop APC</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_1232_MRAP">
+<English>Drop MRAP</English>
+<Spanish>Drop MRAP</Spanish>
+<Portuguese>Drop MRAP</Portuguese>
+<Korean>Drop MRAP</Korean>
+<Japanese>Drop MRAP</Japanese>
+<Original>Drop MRAP</Original>
+<Russian>Drop MRAP</Russian>
+<Chinesesimp>Drop MRAP</Chinesesimp>
+<Chinese>Drop MRAP</Chinese>
+<French>Drop MRAP</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_1233">
 <English>Select Support:</English>

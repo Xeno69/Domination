@@ -31,6 +31,24 @@ class D_AirDropDialog {
 			action = "d_x_drop_type = (d_X_Drop_Array select 0) select 1;closeDialog 0";
 			y = 0.20;
 		};
+		class Drop4: Drop3 {
+			idc = 11008;
+			text = "$STR_DOM_MISSIONSTRING_1232_AMMOTRUCK";
+			action = "d_x_drop_type = d_sm_ammotrucktype_own_side;closeDialog 0";
+			y = 0.38;
+		};
+		class Drop5: Drop3 {
+			idc = 11020;
+			text = "$STR_DOM_MISSIONSTRING_1232_APC";
+			action = "d_x_drop_type = d_sm_apc_own_side;closeDialog 0";
+			y = 0.44;
+		};
+		class Drop6: Drop3 {
+			idc = 11021;
+			text = "$STR_DOM_MISSIONSTRING_1232_MRAP";
+			action = "d_x_drop_type = d_sm_HunterGMG;closeDialog 0";
+			y = 0.50;
+		};
 		class DropMapText: RscText {
 			x = 0.02; y = 0.02;
 			w = 0.5; h = 0.1;

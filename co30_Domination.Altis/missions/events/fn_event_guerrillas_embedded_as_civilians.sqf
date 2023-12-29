@@ -133,14 +133,17 @@ for "_i" from 0 to _guerrillaGroupCount do {
 	};
 } forEach _guerrillaForce;
 
+private _start_ts = time;
 while {sleep 5; !d_mt_done} do {
 	private _foundAlive = _newunits findIf {alive _x} > -1;
 	if (!_foundAlive) exitWith {};
-	sleep 30;
-	// occasionally replenish guerrilla ammo
-	{
-		_x setVehicleAmmo 1;
-	} forEach _newunits;
+	if (time - _start_ts > 30) then { 
+		_start_ts = time;
+		// occasionally replenish guerrilla ammo
+		{
+			_x setVehicleAmmo 1;
+		} forEach _newunits;
+	};
 };
 
 //cleanup

@@ -68,6 +68,11 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {"vn_o_wheeled_z157_ammo_nvam"};
+	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
 d_sm_cargotrucktype = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_z157_02_nvam"};
 	case "W": {"B_Truck_01_covered_F"};
@@ -99,6 +104,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"vn_o_wheeled_btr40_mg_01"};
+	case "W": {"uns_M113A1_M134"};
+	case "G": {"rhsgref_cdf_bmp2k"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"vn_o_wheeled_btr40_mg_01"};
 	case "W": {"uns_M113A1_M134"};
 	case "G": {"rhsgref_cdf_bmp2k"};

@@ -62,6 +62,11 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"B_Truck_01_ammo_F"};
 	case "G": {"PRACS_M250_Ammo"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {"PRACS_SLA_MAZ_ammo"};
+	case "W": {"B_Truck_01_ammo_F"};
+	case "G": {"PRACS_M250_Ammo"};
+};
 d_sm_medtrucktype = switch (d_enemy_side_short) do {
 	case "E": {"PRACS_SLA_Ural_AMB"};
 	case "W": {"B_Truck_01_medical_F"};
@@ -78,6 +83,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"PRACS_SLA_BTR80A"};
+	case "W": {"CUP_B_M2A3Bradley_USA_W"};
+	case "G": {"PRACS_BMR_A3_GA1"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"PRACS_SLA_BTR80A"};
 	case "W": {"CUP_B_M2A3Bradley_USA_W"};
 	case "G": {"PRACS_BMR_A3_GA1"};

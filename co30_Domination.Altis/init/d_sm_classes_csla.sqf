@@ -67,7 +67,17 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"US85_M923a"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {"O_Truck_02_Ammo_F"};
+	case "W": {"US85_M923a"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {["O_APC_Tracked_02_cannon_F","O_T_APC_Tracked_02_cannon_ghex_F"] select (d_tanoa || {d_livonia})};
+	case "W": {"US85_LAV25"};
+	case "G": {"I_APC_tracked_03_cannon_F"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {["O_APC_Tracked_02_cannon_F","O_T_APC_Tracked_02_cannon_ghex_F"] select (d_tanoa || {d_livonia})};
 	case "W": {"US85_LAV25"};
 	case "G": {"I_APC_tracked_03_cannon_F"};

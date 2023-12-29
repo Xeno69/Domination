@@ -116,6 +116,18 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"B_Truck_01_ammo_F"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {
+		call {
+			if (d_gmcwgwinter) exitWith {
+				"gm_gc_army_ural4320_reammo_win"
+			};
+			"gm_gc_army_ural4320_reammo"
+		};
+	};	
+	case "W": {"B_Truck_01_ammo_F"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
 d_sm_cargotrucktype = switch (d_enemy_side_short) do {
 	case "E": {
 		call {
@@ -203,6 +215,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"gm_gc_army_bmp1sp2"};
+	case "W": {"gm_ge_army_m113a1g_apc_milan"};
+	case "G": {"I_APC_tracked_03_cannon_F"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"gm_gc_army_bmp1sp2"};
 	case "W": {"gm_ge_army_m113a1g_apc_milan"};
 	case "G": {"I_APC_tracked_03_cannon_F"};

@@ -21,7 +21,7 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 private "_target";
 private _do_exit = false;
 
-if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
+if ([toLowerANSI (binocular player), "laser"] call BIS_fnc_inString || {!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}}) then {
 	_target = laserTarget player;
 	__TRACE_1("","_target")
 	if (isNil "_target" || {isNull _target}) exitWith {
