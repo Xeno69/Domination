@@ -77,6 +77,18 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"B_MBT_01_cannon_F"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {
+		call {
+			if (d_gmcwgwinter) exitWith {
+				"gm_gc_army_t55a_win"
+			};
+			"gm_gc_army_t55a"
+		};
+	};
+	case "W": {"B_MBT_01_cannon_F"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "E": {
 		call {

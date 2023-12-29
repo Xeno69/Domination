@@ -39,3 +39,8 @@ if (d_with_airdrop == 2 && {d_sm_HunterGMG isNotEqualTo []}) then {
 } else {
 	(_disp displayCtrl 11021) ctrlShow false;
 };
+if (d_with_airdrop == 2 && {d_sm_tank_own_side isNotEqualTo []}) then {
+	(_disp displayCtrl 11022) ctrlSetText (localize "STR_DOM_MISSIONSTRING_1232_TANK");
+} else {
+	(_disp displayCtrl 11022) ctrlShow false;
+};

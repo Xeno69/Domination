@@ -42,6 +42,11 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"B_MBT_01_cannon_F"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"CUP_O_T90_RU"};
+	case "W": {"B_MBT_01_cannon_F"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"CUP_O_Ka52_Blk_RU"};
 	case "W": {"B_Heli_Attack_01_F"};

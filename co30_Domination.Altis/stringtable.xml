@@ -7960,6 +7960,18 @@
 <Chinese>Drop MRAP</Chinese>
 <French>Drop MRAP</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1232_TANK">
+<English>Drop Tank</English>
+<Spanish>Drop Tank</Spanish>
+<Portuguese>Drop Tank</Portuguese>
+<Korean>Drop Tank</Korean>
+<Japanese>Drop Tank</Japanese>
+<Original>Drop Tank</Original>
+<Russian>Drop Tank</Russian>
+<Chinesesimp>Drop Tank</Chinesesimp>
+<Chinese>Drop Tank</Chinese>
+<French>Drop Tank</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1233">
 <English>Select Support:</English>
 <Spanish>Selec. Suministros:</Spanish>

@@ -49,6 +49,12 @@ class D_AirDropDialog {
 			action = "d_x_drop_type = d_sm_HunterGMG;closeDialog 0";
 			y = 0.50;
 		};
+		class Drop7: Drop3 {
+			idc = 11022;
+			text = "$STR_DOM_MISSIONSTRING_1232_TANK";
+			action = "d_x_drop_type = d_sm_tank_own_side;closeDialog 0";
+			y = 0.56;
+		};
 		class DropMapText: RscText {
 			x = 0.02; y = 0.02;
 			w = 0.5; h = 0.1;

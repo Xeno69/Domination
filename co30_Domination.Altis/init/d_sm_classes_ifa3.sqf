@@ -42,6 +42,11 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"LIB_PzKpfwVI_B"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"O_MBT_02_cannon_F"};
+	case "W": {"LIB_PzKpfwVI_B"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
 d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "E": {"O_Truck_02_Ammo_F"};
 	case "W": {"LIB_opelblitz_ammo"};
