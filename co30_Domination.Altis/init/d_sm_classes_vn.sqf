@@ -3,8 +3,8 @@ d_functionary = "vn_c_men_01";
 d_fuel_station = "Land_vn_fuelstation_build_02_f";//
 d_sm_cargo = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_z157_02"};
-	case "W": {"rhsusf_M1078A1P2_B_D_CP_fmtv_usarmy"};
-	case "G": {"I_Truck_02_box_F"};
+	case "W": {"vn_b_wheeled_m54_01"};
+	case "G": {"vn_i_wheeled_m54_01"};
 };
 //d_sm_hangar = "Land_TentHangar_V1_F"; // Land_TentHangar_V1_F creates 3 objects and adding a killed eh makes it useless as the correct object might never get destroyed
 //d_sm_hangar = "Land_vn_usaf_hangar_01"; // doesn't work, yet another SOG object which can't be destroyed
@@ -20,43 +20,43 @@ d_sm_small_radar = "Land_vn_radar_small_f";
 
 d_soldier_officer = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_men_nva_01"};
-	case "W": {"rhsusf_army_ocp_officer"};
-	case "G": {"I_officer_F"};
+	case "W": {"vn_b_men_sog_01"};
+	case "G": {"vn_i_men_army_01"};
 };
 d_sniper = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_men_nva_10"};
-	case "W": {"rhsusf_socom_marsoc_sniper_m107"};
-	case "G": {"I_sniper_F"};
+	case "W": {"vn_b_men_sog_12"};
+	case "G": {"vn_i_men_army_10"};
 };
 d_sm_arty = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_nva_static_d44_01"};
-	case "W": {"rhsusf_m109d_usarmy"};
-	case "G": {"B_MBT_01_arty_F"}; // no independent arty in Alpha 3
+	case "W": {"vn_b_army_static_m101_01"};
+	case "G": {"vn_i_static_m101_01"}; // no independent arty in Alpha 3
 };
 d_sm_plane = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_air_mig19_cas"};
-	case "W": {"rhsusf_f22"};
-	case "G": {"I_Plane_Fighter_03_CAS_F"};
+	case "W": {"vn_b_air_f4b_usmc_cas"};
+	case "G": {"vn_b_air_f4b_usmc_cas"};
 };
 d_sm_tank = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_armor_m41_01"};
-	case "W": {"rhsusf_m1a2sep1tuskiid_usarmy"};
-	case "G": {"I_MBT_03_cannon_F"};
+	case "W": {"vn_b_armor_m67_01_01"};
+	case "G": {"vn_i_armor_m67_01_01"};
 };
 d_sm_tank_own_side = switch (d_own_side_short) do {
 	case "E": {"vn_o_armor_m41_01"};
-	case "W": {"rhsusf_m1a2sep1tuskiid_usarmy"};
-	case "G": {"I_MBT_03_cannon_F"};
+	case "W": {"vn_b_armor_m67_01_01"};
+	case "G": {"vn_i_armor_m67_01_01"};
 };
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_btr40_mg_01_nvam"};
-	case "W": {"rhsusf_M1237_M2_usarmy_d"};
-	case "G": {"I_MRAP_03_hmg_F"};
+	case "W": {"vn_b_wheeled_m151_mg_02"};
+	case "G": {"vn_i_wheeled_m151_mg_01"};
 };
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_air_mi2_03_05"};
-	case "W": {"RHS_AH64DGrey"};
-	case "G": {"I_Heli_light_03_F"};
+	case "W": {"vn_b_air_ch34_01_01"};
+	case "G": {"vn_i_air_ch34_01_02"};
 };
 d_sm_pilottype = switch (d_enemy_side_short) do {
 	case "E": {"vn_b_men_aircrew_05"};
@@ -64,29 +64,29 @@ d_sm_pilottype = switch (d_enemy_side_short) do {
 	case "G": {"I_helipilot_F"};
 };
 d_sm_wrecktype = switch (d_enemy_side_short) do {
-	case "E": {"vn_air_uh1d_01_wreck"};
-	case "W": {"Land_rhs_mi28_wreck"};
-	case "G": {"Land_Wreck_Heli_Attack_02_F"};
+	case "E": {"vn_air_mi2_01_wreck"};
+	case "W": {"vn_air_uh1d_01_wreck"};
+	case "G": {"vn_air_ch34_01_wreck"};
 };
 d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_z157_ammo_nvam"};
-	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
-	case "G": {"I_Truck_02_ammo_F"};
+	case "W": {"vn_b_wheeled_m54_ammo"};
+	case "G": {"vn_i_wheeled_m54_ammo"};
 };
 d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
 	case "E": {"vn_o_wheeled_z157_ammo_nvam"};
-	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
-	case "G": {"I_Truck_02_ammo_F"};
+	case "W": {"vn_b_wheeled_m54_ammo"};
+	case "G": {"vn_i_wheeled_m54_ammo"};
 };
 d_sm_cargotrucktype = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_z157_02_nvam"};
-	case "W": {"B_Truck_01_covered_F"};
-	case "G": {"I_Truck_02_covered_F"};
+	case "W": {"vn_b_wheeled_m54_01"};
+	case "G": {"vn_i_wheeled_m54_01"};
 };
 d_sm_fueltrucktype = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_z157_fuel_nvam"};
-	case "W": {"B_Truck_01_fuel_F"};
-	case "G": {"I_Truck_02_fuel_F"};
+	case "W": {"vn_b_wheeled_m54_fuel"};
+	case "G": {"vn_i_wheeled_m54_fuel"};
 };
 d_sm_camo_net = call {
    if (d_enemy_side_short == "W") exitWith {"Land_vn_camonetb_nato"};
@@ -99,9 +99,9 @@ d_sm_medtrucktype = switch (d_enemy_side_short) do {
 	case "G": {"I_Truck_02_medical_F"};
 };
 d_sm_deliver_truck = switch (d_enemy_side_short) do {
-	case "E": {["vn_b_wheeled_m54_repair", "vn_b_wheeled_m54_ammo", "vn_b_wheeled_m54_fuel", "vn_b_wheeled_m54_01_sog"]};
-	case "W": {["RHS_Ural_Repair_VDV_01", "rhs_gaz66_ammo_vdv", "RHS_Ural_Fuel_VDV_01", "rhs_gaz66_ap2_vdv"]};
-	case "G": {["I_Truck_03_repair_F", "I_Truck_03_ammo_F", "I_Truck_03_fuel_F", "I_Truck_03_medical_F"]};
+	case "E": {["vn_o_wheeled_z157_repair", "vn_o_wheeled_z157_ammo_nvam", "vn_o_wheeled_z157_fuel_nvam", "vn_o_wheeled_z157_02_nvam"]};
+	case "W": {["vn_b_wheeled_m54_repair", "vn_b_wheeled_m54_ammo", "vn_b_wheeled_m54_fuel", "vn_b_wheeled_m54_01_sog"]};
+	case "G": {["vn_i_wheeled_m54_repair", "vn_i_wheeled_m54_ammo", "vn_i_wheeled_m54_fuel", "vn_i_wheeled_m54_01"]};
 };
 d_sm_cache = switch (d_enemy_side_short) do {
 	case "W": {["Land_vn_pavn_weapons_cache", "Land_vn_pavn_launchers", "Land_vn_pavn_weapons_wide"]};
@@ -110,13 +110,13 @@ d_sm_cache = switch (d_enemy_side_short) do {
 };
 d_sm_apc = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_btr40_mg_01"};
-	case "W": {"uns_M113A1_M134"};
-	case "G": {"rhsgref_cdf_bmp2k"};
+	case "W": {"vn_b_armor_m132_01"};
+	case "G": {"vn_i_armor_m132_01"};
 };
 d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"vn_o_wheeled_btr40_mg_01"};
-	case "W": {"uns_M113A1_M134"};
-	case "G": {"rhsgref_cdf_bmp2k"};
+	case "W": {"vn_b_armor_m132_01"};
+	case "G": {"vn_i_armor_m132_01"};
 };
 d_sm_scud = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_z157_04"};
