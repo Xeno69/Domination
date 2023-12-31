@@ -21,7 +21,7 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 private "_pos_lt";
 private _do_exit = false;
 
-if ([toLowerANSI (binocular player), "laser"] call BIS_fnc_inString) then {
+if (["laser", toLowerANSI (binocular player)] call BIS_fnc_inString) then {
 	private _lt = laserTarget player;
 	__TRACE_1("","_lt")
 	if (isNil "_lt" || {isNull _lt}) exitWith {

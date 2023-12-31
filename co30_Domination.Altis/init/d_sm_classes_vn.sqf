@@ -40,13 +40,13 @@ d_sm_plane = switch (d_enemy_side_short) do {
 };
 d_sm_tank = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_armor_m41_01"};
-	case "W": {"vn_b_armor_m67_01_01"};
-	case "G": {"vn_i_armor_m67_01_01"};
+	case "W": {"vn_b_armor_m48_01_01"};
+	case "G": {"vn_i_armor_m48_01_01"};
 };
 d_sm_tank_own_side = switch (d_own_side_short) do {
 	case "E": {"vn_o_armor_m41_01"};
-	case "W": {"vn_b_armor_m67_01_01"};
-	case "G": {"vn_i_armor_m67_01_01"};
+	case "W": {"vn_b_armor_m48_01_01"};
+	case "G": {"vn_i_armor_m48_01_01"};
 };
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_wheeled_btr40_mg_01_nvam"};

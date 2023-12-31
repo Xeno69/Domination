@@ -21,14 +21,13 @@ if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 22)})
 private "_target";
 private _do_exit = false;
 
-if ([toLowerANSI (binocular player), "laser"] call BIS_fnc_inString) then {
+if (["laser", toLowerANSI (binocular player)] call BIS_fnc_inString) then {
 	_target = laserTarget player;
 	__TRACE_1("","_target")
 	if (isNil "_target" || {isNull _target}) exitWith {
 		// laser target not valid
 		_do_exit = true;
 	};
-	_target = getPos _target;
 } else {
 	_target = screenToWorld [0.5, 0.5];
 };

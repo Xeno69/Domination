@@ -47,6 +47,14 @@ if (!d_player_canu) exitWith {
 	};
 };
 if (d_x_drop_type != "") then {
+	if (d_x_drop_type in d_x_drop_array_custom_types) then {
+		d_x_drop_type = switch (d_x_drop_type) do {
+        	case "dom_ammo": {d_sm_ammotrucktype_own_side};
+        	case "dom_apc": {d_sm_apc_own_side};
+        	case "dom_hunter_gmg": {d_sm_HunterGMG};
+        	case "dom_tank": {d_sm_tank_own_side};
+        };
+	};
 	private _mpdz =+ markerPos "d_drop_zone";
 	deleteMarkerLocal "d_drop_zone";
 	if ((getPosWorld player) distance2D _mpdz > d_drop_max_dist) exitWith {

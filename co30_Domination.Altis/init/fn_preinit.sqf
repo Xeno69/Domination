@@ -386,6 +386,8 @@ d_x_drop_array =
 	[[], [], []];
 #endif
 
+d_x_drop_array_custom_types = ["dom_ammo", "dom_apc", "dom_hunter_gmg", "dom_tank"];
+
 // side of the pilot that will fly the drop air vehicle
 d_drop_side = d_own_side;
 
