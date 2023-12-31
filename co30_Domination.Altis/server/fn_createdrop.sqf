@@ -22,12 +22,16 @@ params ["_drop_type", "_drop_pos", "_player"];
 
 // if a custom type was passed then substitute with correct classname
 if (_drop_type in d_x_drop_array_custom_types) then {
-	_drop_type = switch (_drop_type) do {
+	private _matched_drop_type = switch (_drop_type) do {
 		case "dom_ammo": {d_sm_ammotrucktype_own_side};
 		case "dom_apc": {d_sm_apc_own_side};
 		case "dom_hunter_gmg": {d_sm_HunterGMG_own_side};
 		case "dom_tank": {d_sm_tank_own_side};
 	};
+	if (isNil "_matched_drop_type" || {isNull _matched_drop_type || {_matched_drop_type == ""}}) exitWith {
+    	diag_log ["unsupported drop type, not defined for this map", _drop_type];
+    };
+	_drop_type = _matched_drop_type;
 };
 
 __TRACE_3("","_drop_type","_drop_pos","_player")
