@@ -386,7 +386,7 @@ d_x_drop_array =
 	[[], [], []];
 #endif
 
-d_x_drop_array_custom_types = ["dom_ammo", "dom_apc", "dom_hunter_gmg", "dom_tank"];
+d_x_drop_array_custom_types = ["dom_ammo", "dom_apc", "dom_hunter_gmg", "dom_tank", "dom_tank_special"];
 
 // side of the pilot that will fly the drop air vehicle
 d_drop_side = d_own_side;
@@ -2133,6 +2133,7 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 	publicVariable "d_sm_apc_own_side";
 	publicVariable "d_sm_HunterGMG_own_side";
 	publicVariable "d_sm_tank_own_side";
+	publicVariable "d_sm_tank_special_own_side";
 
 	d_intel_unit = objNull;
 

@@ -39,13 +39,18 @@ d_sm_plane = switch (d_enemy_side_short) do {
 };
 d_sm_tank = switch (d_enemy_side_short) do {
 	case "E": {"CUP_O_T90_RU"};
-	case "W": {"B_MBT_01_cannon_F"};
-	case "G": {"I_MBT_03_cannon_F"};
+	case "W": {"CUP_B_M1A1_Woodland_US_Army"};
+	case "G": {"CUP_I_M60A3_RACS"};
 };
 d_sm_tank_own_side = switch (d_own_side_short) do {
 	case "E": {"CUP_O_T90_RU"};
-	case "W": {"B_MBT_01_cannon_F"};
-	case "G": {"I_MBT_03_cannon_F"};
+	case "W": {"CUP_B_M1A1_Woodland_US_Army"};
+	case "G": {"CUP_I_T72_NAPA"};
+};
+d_sm_tank_special_own_side = switch (d_own_side_short) do {
+	case "E": {"CUP_O_ZSU23_TK"};
+	case "W": {"CUP_B_M1A_TUSK_NATO_T"};
+	case "G": {"CUP_I_ZSU23_Afghan_AAF"};
 };
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"CUP_O_Ka52_Blk_RU"};

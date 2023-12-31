@@ -7972,6 +7972,18 @@
 <Chinese>Drop Tank</Chinese>
 <French>Drop Tank</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_1232_TANK_SPECIAL">
+<English>Drop Tank Special</English>
+<Spanish>Drop Tank Special</Spanish>
+<Portuguese>Drop Tank Special</Portuguese>
+<Korean>Drop Tank Special</Korean>
+<Japanese>Drop Tank Special</Japanese>
+<Original>Drop Tank Special</Original>
+<Russian>Drop Tank Special</Russian>
+<Chinesesimp>Drop Tank Special</Chinesesimp>
+<Chinese>Drop Tank Special</Chinese>
+<French>Drop Tank Special</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1233">
 <English>Select Support:</English>
 <Spanish>Selec. Suministros:</Spanish>
