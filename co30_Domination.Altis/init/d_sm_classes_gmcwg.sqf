@@ -101,6 +101,18 @@ d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "W": {"B_MRAP_01_gmg_F"};
 	case "G": {"I_MRAP_03_hmg_F"};
 };
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
+	case "E": {
+		call {
+			if (d_gmcwgwinter) exitWith {
+				"gm_gc_army_btr60pu12_win"
+			};
+			"gm_gc_army_btr60pu12"
+		};
+	};
+	case "W": {"B_MRAP_01_gmg_F"};
+	case "G": {"I_MRAP_03_hmg_F"};
+};
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"O_Heli_Attack_02_black_F"};
 	case "W": {"B_Heli_Attack_01_F"};

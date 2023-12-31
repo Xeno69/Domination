@@ -53,6 +53,11 @@ d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "W": {"vn_b_wheeled_m151_mg_02"};
 	case "G": {"vn_i_wheeled_m151_mg_01"};
 };
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
+	case "E": {"vn_o_wheeled_btr40_mg_01_nvam"};
+	case "W": {"vn_b_wheeled_m151_mg_02"};
+	case "G": {"vn_i_wheeled_m151_mg_01"};
+};
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"vn_o_air_mi2_03_05"};
 	case "W": {"vn_b_air_ch34_01_01"};

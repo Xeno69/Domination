@@ -52,6 +52,11 @@ d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "W": {"US85_M1025_M60"};
 	case "G": {"I_MRAP_03_hmg_F"};
 };
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
+	case "E": {"O_MRAP_02_gmg_F"};
+	case "W": {"US85_M1025_M60"};
+	case "G": {"I_MRAP_03_hmg_F"};
+};
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"O_Heli_Attack_02_black_F"};
 	case "W": {"US85_MH60FFAR"};

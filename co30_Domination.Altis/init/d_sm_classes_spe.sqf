@@ -52,6 +52,11 @@ d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "W": {"SPE_SdKfz250_1"};
 	case "G": {"SPE_US_M3_Halftrack"};
 };
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
+	case "E": {"O_MRAP_02_gmg_F"};
+	case "W": {"SPE_SdKfz250_1"};
+	case "G": {"SPE_US_M3_Halftrack"};
+};
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {""};
 	case "W": {""};

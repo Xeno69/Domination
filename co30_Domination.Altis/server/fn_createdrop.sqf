@@ -25,7 +25,7 @@ if (_drop_type in d_x_drop_array_custom_types) then {
 	_drop_type = switch (_drop_type) do {
 		case "dom_ammo": {d_sm_ammotrucktype_own_side};
 		case "dom_apc": {d_sm_apc_own_side};
-		case "dom_hunter_gmg": {d_sm_HunterGMG};
+		case "dom_hunter_gmg": {d_sm_HunterGMG_own_side};
 		case "dom_tank": {d_sm_tank_own_side};
 	};
 };
