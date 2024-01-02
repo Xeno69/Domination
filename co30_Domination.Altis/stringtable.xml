@@ -15517,124 +15517,148 @@
 <French>MODS REQUIRED - Guerrilla factions (experimental)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_TALIBAN">
-<English>Taliban (Community Factions Project)</English>
-<Spanish>Taliban (Community Factions Project)</Spanish>
-<Portuguese>Taliban (Community Factions Project)</Portuguese>
-<Korean>Taliban (Community Factions Project)</Korean>
-<Japanese>Taliban (Community Factions Project)</Japanese>
-<Original>Taliban (Community Factions Project)</Original>
-<Russian>Taliban (Community Factions Project)</Russian>
-<Chinesesimp>Taliban (Community Factions Project)</Chinesesimp>
-<Chinese>Taliban (Community Factions Project)</Chinese>
-<French>Taliban (Community Factions Project)</French>
+<English>EAST - Taliban (Community Factions Project)</English>
+<Spanish>EAST - Taliban (Community Factions Project)</Spanish>
+<Portuguese>EAST - Taliban (Community Factions Project)</Portuguese>
+<Korean>EAST - Taliban (Community Factions Project)</Korean>
+<Japanese>EAST - Taliban (Community Factions Project)</Japanese>
+<Original>EAST - Taliban (Community Factions Project)</Original>
+<Russian>EAST - Taliban (Community Factions Project)</Russian>
+<Chinesesimp>EAST - Taliban (Community Factions Project)</Chinesesimp>
+<Chinese>EAST - Taliban (Community Factions Project)</Chinese>
+<French>EAST - Taliban (Community Factions Project)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_ASIAN_INSURGENTS">
-<English>Asian Insurgents (Asian Factions for CUP)</English>
-<Spanish>Asian Insurgents (Asian Factions for CUP)</Spanish>
-<Portuguese>Asian Insurgents (Asian Factions for CUP)</Portuguese>
-<Korean>Asian Insurgents (Asian Factions for CUP)</Korean>
-<Japanese>Asian Insurgents (Asian Factions for CUP)</Japanese>
-<Original>Asian Insurgents (Asian Factions for CUP)</Original>
-<Russian>Asian Insurgents (Asian Factions for CUP)</Russian>
-<Chinesesimp>Asian Insurgents (Asian Factions for CUP)</Chinesesimp>
-<Chinese>Asian Insurgents (Asian Factions for CUP)</Chinese>
-<French>Asian Insurgents (Asian Factions for CUP)</French>
+<English>EAST - Asian Insurgents (Asian Factions for CUP)</English>
+<Spanish>EAST - Asian Insurgents (Asian Factions for CUP)</Spanish>
+<Portuguese>EAST - Asian Insurgents (Asian Factions for CUP)</Portuguese>
+<Korean>EAST - Asian Insurgents (Asian Factions for CUP)</Korean>
+<Japanese>EAST - Asian Insurgents (Asian Factions for CUP)</Japanese>
+<Original>EAST - Asian Insurgents (Asian Factions for CUP)</Original>
+<Russian>EAST - Asian Insurgents (Asian Factions for CUP)</Russian>
+<Chinesesimp>EAST - Asian Insurgents (Asian Factions for CUP)</Chinesesimp>
+<Chinese>EAST - Asian Insurgents (Asian Factions for CUP)</Chinese>
+<French>EAST - Asian Insurgents (Asian Factions for CUP)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_CENTRAL_AFRICAN_REBELS">
-<English>Central African Rebels (Community Factions Project)</English>
-<Spanish>Central African Rebels (Community Factions Project)</Spanish>
-<Portuguese>Central African Rebels (Community Factions Project)</Portuguese>
-<Korean>Central African Rebels (Community Factions Project)</Korean>
-<Japanese>Central African Rebels (Community Factions Project)</Japanese>
-<Original>Central African Rebels (Community Factions Project)</Original>
-<Russian>Central African Rebels (Community Factions Project)</Russian>
-<Chinesesimp>Central African Rebels (Community Factions Project)</Chinesesimp>
-<Chinese>Central African Rebels (Community Factions Project)</Chinese>
-<French>Central African Rebels (Community Factions Project)</French>
+<English>EAST - Central African Rebels (Community Factions Project)</English>
+<Spanish>EAST - Central African Rebels (Community Factions Project)</Spanish>
+<Portuguese>EAST - Central African Rebels (Community Factions Project)</Portuguese>
+<Korean>EAST - Central African Rebels (Community Factions Project)</Korean>
+<Japanese>EAST - Central African Rebels (Community Factions Project)</Japanese>
+<Original>EAST - Central African Rebels (Community Factions Project)</Original>
+<Russian>EAST - Central African Rebels (Community Factions Project)</Russian>
+<Chinesesimp>EAST - Central African Rebels (Community Factions Project)</Chinesesimp>
+<Chinese>EAST - Central African Rebels (Community Factions Project)</Chinese>
+<French>EAST - Central African Rebels (Community Factions Project)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_ISLAMIC_STATE">
-<English>Islamic State (Community Factions Project)</English>
-<Spanish>Islamic State (Community Factions Project)</Spanish>
-<Portuguese>Islamic State (Community Factions Project)</Portuguese>
-<Korean>Islamic State (Community Factions Project)</Korean>
-<Japanese>Islamic State (Community Factions Project)</Japanese>
-<Original>Islamic State (Community Factions Project)</Original>
-<Russian>Islamic State (Community Factions Project)</Russian>
-<Chinesesimp>Islamic State (Community Factions Project)</Chinesesimp>
-<Chinese>Islamic State (Community Factions Project)</Chinese>
-<French>Islamic State (Community Factions Project)</French>
+<English>EAST - Islamic State (Community Factions Project)</English>
+<Spanish>EAST - Islamic State (Community Factions Project)</Spanish>
+<Portuguese>EAST - Islamic State (Community Factions Project)</Portuguese>
+<Korean>EAST - Islamic State (Community Factions Project)</Korean>
+<Japanese>EAST - Islamic State (Community Factions Project)</Japanese>
+<Original>EAST - Islamic State (Community Factions Project)</Original>
+<Russian>EAST - Islamic State (Community Factions Project)</Russian>
+<Chinesesimp>EAST - Islamic State (Community Factions Project)</Chinesesimp>
+<Chinese>EAST - Islamic State (Community Factions Project)</Chinese>
+<French>EAST - Islamic State (Community Factions Project)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_SUDANESE_ARMED_FORCES">
-<English>Sudanese Armed Forces (Community Factions Project)</English>
-<Spanish>Sudanese Armed Forces (Community Factions Project)</Spanish>
-<Portuguese>Sudanese Armed Forces (Community Factions Project)</Portuguese>
-<Korean>Sudanese Armed Forces (Community Factions Project)</Korean>
-<Japanese>Sudanese Armed Forces (Community Factions Project)</Japanese>
-<Original>Sudanese Armed Forces (Community Factions Project)</Original>
-<Russian>Sudanese Armed Forces (Community Factions Project)</Russian>
-<Chinesesimp>Sudanese Armed Forces (Community Factions Project)</Chinesesimp>
-<Chinese>Sudanese Armed Forces (Community Factions Project)</Chinese>
-<French>Sudanese Armed Forces (Community Factions Project)</French>
+<English>EAST - Sudanese Armed Forces (Community Factions Project)</English>
+<Spanish>EAST - Sudanese Armed Forces (Community Factions Project)</Spanish>
+<Portuguese>EAST - Sudanese Armed Forces (Community Factions Project)</Portuguese>
+<Korean>EAST - Sudanese Armed Forces (Community Factions Project)</Korean>
+<Japanese>EAST - Sudanese Armed Forces (Community Factions Project)</Japanese>
+<Original>EAST - Sudanese Armed Forces (Community Factions Project)</Original>
+<Russian>EAST - Sudanese Armed Forces (Community Factions Project)</Russian>
+<Chinesesimp>EAST - Sudanese Armed Forces (Community Factions Project)</Chinesesimp>
+<Chinese>EAST - Sudanese Armed Forces (Community Factions Project)</Chinese>
+<French>EAST - Sudanese Armed Forces (Community Factions Project)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_RUSSIAN_ARMED_FORCES_DESERT">
-<English>Russian Ground Forces Desert (Community Factions Project)</English>
-<Spanish>Russian Ground Forces Desert (Community Factions Project)</Spanish>
-<Portuguese>Russian Ground Forces Desert (Community Factions Project)</Portuguese>
-<Korean>Russian Ground Forces Desert (Community Factions Project)</Korean>
-<Japanese>Russian Ground Forces Desert (Community Factions Project)</Japanese>
-<Original>Russian Ground Forces Desert (Community Factions Project)</Original>
-<Russian>Russian Ground Forces Desert (Community Factions Project)</Russian>
-<Chinesesimp>Russian Ground Forces Desert (Community Factions Project)</Chinesesimp>
-<Chinese>Russian Ground Forces Desert (Community Factions Project)</Chinese>
-<French>Russian Ground Forces Desert (Community Factions Project)</French>
+<English>EAST - Russian Ground Forces Desert (Community Factions Project)</English>
+<Spanish>EAST - Russian Ground Forces Desert (Community Factions Project)</Spanish>
+<Portuguese>EAST - Russian Ground Forces Desert (Community Factions Project)</Portuguese>
+<Korean>EAST - Russian Ground Forces Desert (Community Factions Project)</Korean>
+<Japanese>EAST - Russian Ground Forces Desert (Community Factions Project)</Japanese>
+<Original>EAST - Russian Ground Forces Desert (Community Factions Project)</Original>
+<Russian>EAST - Russian Ground Forces Desert (Community Factions Project)</Russian>
+<Chinesesimp>EAST - Russian Ground Forces Desert (Community Factions Project)</Chinesesimp>
+<Chinese>EAST - Russian Ground Forces Desert (Community Factions Project)</Chinese>
+<French>EAST - Russian Ground Forces Desert (Community Factions Project)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_RUSSIAN_ARMED_FORCES_WINTER">
-<English>Russian Ground Forces Winter (Russian Winter Retextures)</English>
-<Spanish>Russian Ground Forces Winter (Russian Winter Retextures)</Spanish>
-<Portuguese>Russian Ground Forces Winter (Russian Winter Retextures)</Portuguese>
-<Korean>Russian Ground Forces Winter (Russian Winter Retextures)</Korean>
-<Japanese>Russian Ground Forces Winter (Russian Winter Retextures)</Japanese>
-<Original>Russian Ground Forces Winter (Russian Winter Retextures)</Original>
-<Russian>Russian Ground Forces Winter (Russian Winter Retextures)</Russian>
-<Chinesesimp>Russian Ground Forces Winter (Russian Winter Retextures)</Chinesesimp>
-<Chinese>Russian Ground Forces Winter (Russian Winter Retextures)</Chinese>
-<French>Russian Ground Forces Winter (Russian Winter Retextures)</French>
+<English>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</English>
+<Spanish>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Spanish>
+<Portuguese>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Portuguese>
+<Korean>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Korean>
+<Japanese>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Japanese>
+<Original>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Original>
+<Russian>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Russian>
+<Chinesesimp>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Chinesesimp>
+<Chinese>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Chinese>
+<French>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_AFRICAN_DESERT_CIVILIAN_MILITIA">
-<English>African Desert Civilian Militia (Community Factions Project)</English>
-<Spanish>African Desert Civilian Militia (Community Factions Project)</Spanish>
-<Portuguese>African Desert Civilian Militia (Community Factions Project)</Portuguese>
-<Korean>African Desert Civilian Militia (Community Factions Project)</Korean>
-<Japanese>African Desert Civilian Militia (Community Factions Project)</Japanese>
-<Original>African Desert Civilian Militia (Community Factions Project)</Original>
-<Russian>African Desert Civilian Militia (Community Factions Project)</Russian>
-<Chinesesimp>African Desert Civilian Militia (Community Factions Project)</Chinesesimp>
-<Chinese>African Desert Civilian Militia (Community Factions Project)</Chinese>
-<French>African Desert Civilian Militia (Community Factions Project)</French>
+<English>EAST - African Desert Civilian Militia (3CB)</English>
+<Spanish>EAST - African Desert Civilian Militia (3CB)</Spanish>
+<Portuguese>EAST - African Desert Civilian Militia (3CB)</Portuguese>
+<Korean>EAST - African Desert Civilian Militia (3CB)</Korean>
+<Japanese>EAST - African Desert Civilian Militia (3CB)</Japanese>
+<Original>EAST - African Desert Civilian Militia (3CB)</Original>
+<Russian>EAST - African Desert Civilian Militia (3CB)</Russian>
+<Chinesesimp>EAST - African Desert Civilian Militia (3CB)</Chinesesimp>
+<Chinese>EAST - African Desert Civilian Militia (3CB)</Chinese>
+<French>EAST - African Desert Civilian Militia (3CB)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_ION_URBAN">
-<English>ION Services (Urban)</English>
-<Spanish>ION Services (Urban)</Spanish>
-<Portuguese>ION Services (Urban)</Portuguese>
-<Korean>ION Services (Urban)</Korean>
-<Japanese>ION Services (Urban)</Japanese>
-<Original>ION Services (Urban)</Original>
-<Russian>ION Services (Urban)</Russian>
-<Chinesesimp>ION Services (Urban)</Chinesesimp>
-<Chinese>ION Services (Urban)</Chinese>
-<French>ION Services (Urban)</French>
+<English>EAST - ION Services (3CB)</English>
+<Spanish>EAST - ION Services (3CB)</Spanish>
+<Portuguese>EAST - ION Services (3CB)</Portuguese>
+<Korean>EAST - ION Services (3CB)</Korean>
+<Japanese>EAST - ION Services (3CB)</Japanese>
+<Original>EAST - ION Services (3CB)</Original>
+<Russian>EAST - ION Services (3CB)</Russian>
+<Chinesesimp>EAST - ION Services (3CB)</Chinesesimp>
+<Chinese>EAST - ION Services (3CB)</Chinese>
+<French>EAST - ION Services (3CB)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_KARZEGHISTAN_ROYAL_GUARD">
-<English>Karzeghistan Royal Guard (Community Factions Project)</English>
-<Spanish>Karzeghistan Royal Guard (Community Factions Project)</Spanish>
-<Portuguese>Karzeghistan Royal Guard (Community Factions Project)</Portuguese>
-<Korean>Karzeghistan Royal Guard (Community Factions Project)</Korean>
-<Japanese>Karzeghistan Royal Guard (Community Factions Project)</Japanese>
-<Original>Karzeghistan Royal Guard (Community Factions Project)</Original>
-<Russian>Karzeghistan Royal Guard (Community Factions Project)</Russian>
-<Chinesesimp>Karzeghistan Royal Guard (Community Factions Project)</Chinesesimp>
-<Chinese>Karzeghistan Royal Guard (Community Factions Project)</Chinese>
-<French>Karzeghistan Royal Guard (Community Factions Project)</French>
+<English>EAST - Karzeghistan Royal Guard (3CB)</English>
+<Spanish>EAST - Karzeghistan Royal Guard (3CB)</Spanish>
+<Portuguese>EAST - Karzeghistan Royal Guard (3CB)</Portuguese>
+<Korean>EAST - Karzeghistan Royal Guard (3CB)</Korean>
+<Japanese>EAST - Karzeghistan Royal Guard (3CB)</Japanese>
+<Original>EAST - Karzeghistan Royal Guard (3CB)</Original>
+<Russian>EAST - Karzeghistan Royal Guard (3CB)</Russian>
+<Chinesesimp>EAST - Karzeghistan Royal Guard (3CB)</Chinesesimp>
+<Chinese>EAST - Karzeghistan Royal Guard (3CB)</Chinese>
+<French>EAST - Karzeghistan Royal Guard (3CB)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CUP_RUSSIAN_ARMED_FORCES">
+<English>EAST - Russian Armed Forces (CUP)</English>
+<Spanish>EAST - Russian Armed Forces (CUP)</Spanish>
+<Portuguese>EAST - Russian Armed Forces (CUP)</Portuguese>
+<Korean>EAST - Russian Armed Forces (CUP)</Korean>
+<Japanese>EAST - Russian Armed Forces (CUP)</Japanese>
+<Original>EAST - Russian Armed Forces (CUP)</Original>
+<Russian>EAST - Russian Armed Forces (CUP)</Russian>
+<Chinesesimp>EAST - Russian Armed Forces (CUP)</Chinesesimp>
+<Chinese>EAST - Russian Armed Forces (CUP)</Chinese>
+<French>EAST - Russian Armed Forces (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CUP_TAKISTANI_ARMED_FORCES">
+<English>EAST - Takistani Armed Forces (CUP)</English>
+<Spanish>EAST - Takistani Armed Forces (CUP)</Spanish>
+<Portuguese>EAST - Takistani Armed Forces (CUP)</Portuguese>
+<Korean>EAST - Takistani Armed Forces (CUP)</Korean>
+<Japanese>EAST - Takistani Armed Forces (CUP)</Japanese>
+<Original>EAST - Takistani Armed Forces (CUP)</Original>
+<Russian>EAST - Takistani Armed Forces (CUP)</Russian>
+<Chinesesimp>EAST - Takistani Armed Forces (CUP)</Chinesesimp>
+<Chinese>EAST - Takistani Armed Forces (CUP)</Chinese>
+<French>EAST - Takistani Armed Forces (CUP)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_AAF">
 <English>Altis Armed Forces (Community Factions Project)</English>
