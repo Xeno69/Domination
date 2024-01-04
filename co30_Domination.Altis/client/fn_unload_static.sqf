@@ -64,7 +64,7 @@ while {d_e_placing_running == 0} do {
 	_pos_to_set = player modelToWorldVisualWorld [0,5,0];
 	_dir_to_set = getDir player;
 	_static setDir _dir_to_set;
-	_static setPosASL _pos_to_set;
+	_static setPosASL [_pos_to_set select 0, _pos_to_set select 1, (_pos_to_set select 2) + 0.5];
 	_static setVectorUp (surfaceNormal _pos_to_set);
 	sleep 0.211;
 	if (_vec distance2D player > 20) exitWith {
