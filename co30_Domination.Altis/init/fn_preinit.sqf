@@ -3953,6 +3953,21 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
 		};
 		case 12: {
+			// CUP - Russian Ground Forces (Winter)
+			d_veh_a_E = [
+				#include "d_veh_a_O_CUP_CHER.sqf"
+			];
+			d_allmen_E = [
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","InfSquad"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","InfAssault"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","InfTeam_AT"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","O_InfTeam_AT_Heavy"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["East","CUP_O_RU","Infantry_Ratnik_Winter","reconTeam"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CUP_O_RU","Infantry_Ratnik_Winter","reconSentry"] call d_fnc_GetConfigGroup];
+			];
+		};
+		case 13: {
 			// CUP - Takistan
 			d_veh_a_E = [
 				#include "d_veh_a_O_CUP_TAKI.sqf"
