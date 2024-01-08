@@ -4002,6 +4002,12 @@ if (d_guerrilla_factions > 0) then {
 		case 4: {
 			d_faction_independent_array = [["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup];
 		};
+		case 5: {
+			d_faction_independent_array = [["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup];
+		};
+		case 6: {
+			d_faction_independent_array = [["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup];
+		};
 	};
 };
 // support for mod - Death and hit reactions

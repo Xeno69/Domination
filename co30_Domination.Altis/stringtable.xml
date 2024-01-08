@@ -15732,6 +15732,30 @@
 <Chinese>East Asia INDFOR (Asian Factions for CUP)</Chinese>
 <French>East Asia INDFOR (Asian Factions for CUP)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_ION_PMC">
+<English>ION PMC Security Detail INDFOR (CUP)</English>
+<Spanish>ION PMC Security Detail INDFOR (CUP)</Spanish>
+<Portuguese>ION PMC Security Detail INDFOR (CUP)</Portuguese>
+<Korean>ION PMC Security Detail INDFOR (CUP)</Korean>
+<Japanese>ION PMC Security Detail INDFOR (CUP)</Japanese>
+<Original>ION PMC Security Detail INDFOR (CUP)</Original>
+<Russian>ION PMC Security Detail INDFOR (CUP)</Russian>
+<Chinesesimp>ION PMC Security Detail INDFOR (CUP)</Chinesesimp>
+<Chinese>ION PMC Security Detail INDFOR (CUP)</Chinese>
+<French>ION PMC Security Detail INDFOR (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_ION_PMC_ARCTIC">
+<English>ION PMC Security Detail Arctic INDFOR (CUP)</English>
+<Spanish>ION PMC Security Detail Arctic INDFOR (CUP)</Spanish>
+<Portuguese>ION PMC Security Detail Arctic INDFOR (CUP)</Portuguese>
+<Korean>ION PMC Security Detail Arctic INDFOR (CUP)</Korean>
+<Japanese>ION PMC Security Detail Arctic INDFOR (CUP)</Japanese>
+<Original>ION PMC Security Detail Arctic INDFOR (CUP)</Original>
+<Russian>ION PMC Security Detail Arctic INDFOR (CUP)</Russian>
+<Chinesesimp>ION PMC Security Detail Arctic INDFOR (CUP)</Chinesesimp>
+<Chinese>ION PMC Security Detail Arctic INDFOR (CUP)</Chinese>
+<French>ION PMC Security Detail Arctic INDFOR (CUP)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN_MILITARY">
 <English>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
 <Spanish>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
