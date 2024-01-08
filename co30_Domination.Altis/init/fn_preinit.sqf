@@ -3954,6 +3954,7 @@ if (d_enemy_factions > 0) then {
 		};
 		case 12: {
 			// CUP - Russian Ground Forces (Winter)
+			// hmmm no winter vehicles in CUP, reuse Chernarus vehicles
 			d_veh_a_E = [
 				#include "d_veh_a_O_CUP_CHER.sqf"
 			];
