@@ -3966,7 +3966,6 @@ if (d_enemy_factions > 0) then {
 			];
 			d_specops_E = [["East","CUP_O_RU","Infantry_Ratnik_Winter","reconTeam"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["East","CUP_O_RU","Infantry_Ratnik_Winter","reconSentry"] call d_fnc_GetConfigGroup];
-			];
 		};
 		case 13: {
 			// CUP - Takistan
