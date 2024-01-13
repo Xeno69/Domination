@@ -299,7 +299,7 @@ if (d_with_ranked || {d_database_found}) then {
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
-if (d_with_ranked != 1 && { d_without_nvg != 1 }) then {
+if (!d_with_ranked && { d_without_nvg != 1 }) then {
 	player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
 };
 
