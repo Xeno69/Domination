@@ -54,7 +54,7 @@ if (d_x_drop_type != "") then {
 	};
 	private _displayname = "";
 	if (d_x_drop_type in d_x_drop_array_custom_types) then {
-		_displayname = "special"; // generic word for custom airdrop
+		_displayname = localize "STR_DOM_MISSIONSTRING_400_EXTRA"; // generic word for custom airdrop
 	} else {
 		_displayname = [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName;
 	};
