@@ -47,6 +47,7 @@ d_sm_tank_own_side = switch (d_own_side_short) do {
 	case "W": {"SPE_PzKpfwVI_H1"};
 	case "G": {"SPE_M4A1_76"};
 };
+d_sm_tank_special_own_side = "";
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
 	case "E": {"O_MRAP_02_gmg_F"};
 	case "W": {"SPE_SdKfz250_1"};

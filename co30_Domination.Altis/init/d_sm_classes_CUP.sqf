@@ -52,6 +52,8 @@ d_sm_tank_special_own_side = switch (d_own_side_short) do {
 	case "W": {"CUP_B_M1A_TUSK_NATO_T"};
 	case "G": {"CUP_I_ZSU23_Afghan_AAF"};
 };
+d_sm_HunterGMG = "";
+d_sm_HunterGMG_own_side = "";
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"CUP_O_Ka52_Blk_RU"};
 	case "W": {"B_Heli_Attack_01_F"};
