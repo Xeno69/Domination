@@ -79,7 +79,7 @@ while {d_player_in_vec} do {
 						};
 
 						if (!isNull _liftobj) then {
-							if (_liftobj isKindOf "CAManBase") then {
+							if (_liftobj getEntityInfo 0) then {
 								_liftobj = objNull;
 							} else {
 								private _marp = _liftobj getVariable ["d_WreckMaxRepair", d_WreckMaxRepair];

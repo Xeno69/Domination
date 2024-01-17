@@ -8,7 +8,7 @@ params ["_obj"];
 
 private _isman = false;
 
-if (_obj isKindOf "CAManBase") then {
+if (_obj getEntityInfo 0) then {
 	_isman = true;
 	if (_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}) then {
 		private _insti = _this # 2;

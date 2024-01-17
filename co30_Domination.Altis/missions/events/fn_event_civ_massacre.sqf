@@ -23,7 +23,7 @@ private _civ_count_endangered = 0;
 private _civ_count_survived = 0;
 
 {
-	if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
+	if (alive _x && {_x getEntityInfo 0 && {side _x == civilian}}) then {
 		_civ_count_endangered = _civ_count_endangered + 1;
 	};
 } forEach (nearestObjects [_target_center, ["Man"], d_cur_target_radius]);
@@ -48,7 +48,7 @@ waitUntil {sleep 5; d_mt_done};
 diag_log ["civ_massacre ended"];
 
 {
-	if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
+	if (alive _x && {_x getEntityInfo 0 && {side _x == civilian}}) then {
 		_civ_count_survived = _civ_count_survived + 1;
 	};
 } forEach (nearestObjects [_target_center, ["Man"], d_cur_target_radius]);

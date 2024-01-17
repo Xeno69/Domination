@@ -32,7 +32,7 @@ if (xr_MouseButtons # 0) then {
 	if (_intsecs isNotEqualTo []) then {
 		_cursObj = (_intsecs # 0) # 3;
 	};
-	if (!isNull _cursObj && {!(_cursObj isKindOf "CAManBase")}) then {
+	if (!isNull _cursObj && {!(_cursObj getEntityInfo 0)}) then {
 		if (crew _cursObj isNotEqualTo []) then {
 			(crew _cursObj) findIf {
 				_ret = _x call d_fnc_isplayer;

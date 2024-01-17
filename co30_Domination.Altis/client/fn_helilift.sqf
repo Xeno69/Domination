@@ -29,7 +29,7 @@ while {alive _chopper && {alive player && {player in _chopper}}} do {
 				};
 			};
 			if (!isNull _liftobj) then {
-				if (_liftobj isKindOf "CAManBase") then {
+				if (_liftobj getEntityInfo 0) then {
 					_liftobj = objNull;
 				} else {
 					private _isvalid = _liftobj getVariable ["d_liftit", false] && {!(_liftobj getVariable ["d_no_lift", false])};

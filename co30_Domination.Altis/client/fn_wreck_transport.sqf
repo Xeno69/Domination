@@ -31,7 +31,7 @@ while {alive _vec && {alive player && {player in _vec}}} do {
 			};
 			__TRACE_1("1","_transobj")
 			if (!isNull _transobj) then {
-				if (_transobj isKindOf "CAManBase") then {
+				if (_transobj getEntityInfo 0) then {
 					_transobj = objNull;
 				} else {
 					private _isvalid = _transobj getVariable "d_canbewlifted";

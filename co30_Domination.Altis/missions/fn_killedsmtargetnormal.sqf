@@ -16,7 +16,7 @@ if (isNull _killer) then {
 
 __TRACE_1("","_killer")
 
-if !(_dvec isKindOf "CAManBase") then {
+if !(_dvec getEntityInfo 0) then {
 	addToRemainsCollector [_dvec];
 };
 #ifndef __TT__

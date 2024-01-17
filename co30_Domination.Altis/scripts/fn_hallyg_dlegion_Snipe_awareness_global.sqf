@@ -127,7 +127,7 @@ if (!_fired && {_isSniper && {time > _bodyPositionNext}}) then {
 private _Dtargets = [];
 
 {
-	if (isPlayer _x && {alive _x && {_x isKindOf "CAManBase" && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSideArray && {_x distance2D _unit < _detectionRadius}}}}}) then {
+	if (isPlayer _x && {alive _x && {_x getEntityInfo 0 && {!(vehicle _unit isKindOf "Air") && {side (group _x) in _targetSideArray && {_x distance2D _unit < _detectionRadius}}}}}) then {
 		if (!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}) then {
 			_unit reveal [_x, 4];
 			_Dtargets pushBack [_x distance2D _unit, _x];
@@ -143,7 +143,7 @@ __TRACE_1("","_Dtargets")
 if (d_civ_massacre) then {
 	// these enemies are attacking civs, add nearby civs within 75m to _Dtargets array
 	{
-		if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
+		if (alive _x && {_x getEntityInfo 0 && {side _x == civilian}}) then {
 			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
 	} forEach (nearestObjects [_unit, ["Man"], 75]);
@@ -173,7 +173,7 @@ if (_Dtargets isNotEqualTo []) then {
 					//diag_log ["unit is already busy shooting an rpg", _unit];
 				};
 				if (!(_x getVariable ["xr_pluncon", false]) && {[_unit, _x] call d_fnc_isvisible}) exitWith {
-					if (alive _x && {_x isKindOf "CAManBase" && {side _x == civilian}}) then {
+					if (alive _x && {_x getEntityInfo 0 && {side _x == civilian}}) then {
 						// targeting a civ, make the civ a renegade so enemy will engage
 						_x addRating -10000;
 						_x forceSpeed -1; // allow the targeted civilian to move, why not

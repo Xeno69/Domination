@@ -23,7 +23,7 @@ _eee = _obj isKindOf "WeaponHolderSimulated";
 __TRACE_2("","_eee","typeOf _obj")
 #endif
 
-if (!isNull _obj && {_obj isKindOf "CAManBase" || {_obj isKindOf "WeaponHolderSimulated"}}) exitWith {
+if (!isNull _obj && {_obj getEntityInfo 0 || {_obj isKindOf "WeaponHolderSimulated"}}) exitWith {
 	__TRACE_1("","_obj")
 };
 

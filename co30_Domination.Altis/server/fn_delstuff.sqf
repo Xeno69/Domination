@@ -51,7 +51,7 @@ d_delstuff_run = true;
 __TRACE_1("","list _old_units_trigger")
 
 {
-	if !(_x isKindOf "CAManBase") then {
+	if !(_x getEntityInfo 0) then {
 		if (_x getVariable "d_do_not_delete" != 1) then {
 			if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
 				_x call d_fnc_DelVecAndCrew;
