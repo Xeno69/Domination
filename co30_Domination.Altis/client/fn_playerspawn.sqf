@@ -134,7 +134,7 @@ if (_rtype == 0) then { // player died
 
 #ifndef __IFA3__
 	if (d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}) then {
-		player action ["NVGoggles",player];
+		player actionNow ["NVGoggles",player];
 	};
 #endif
 

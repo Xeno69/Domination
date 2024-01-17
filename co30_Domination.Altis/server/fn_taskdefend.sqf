@@ -43,7 +43,7 @@ _units spawn {
 		if (random 1 > 0.4) then {
 			doStop _x;
 			sleep 0.5;
-			_x action ["SitDown", _x];
+			_x actionNow ["SitDown", _x];
 		};
 	} forEach _this;
 };

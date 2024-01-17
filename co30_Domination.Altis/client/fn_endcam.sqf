@@ -32,7 +32,7 @@ waitUntil {camCommitted _camera};
 	if (_vec != player && {_vec isKindOf "Air"}) then {
 		private _posp = getPosATLVisual player;
 		private _is_driver = currentPilot _vec == player;
-		player action ["getOut", _vec];
+		player actionNow ["getOut", _vec];
 		waitUntil {isNull objectParent player};
 		player setPos [_posp # 0, _posp # 1, 0];
 		player setVelocity [0,0,0];

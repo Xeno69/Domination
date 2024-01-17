@@ -25,6 +25,6 @@ if (!isNil "d_arsenal_nvg_used") then {
 	camUseNVG false;
 };
 if (player getVariable ["d_currentvisionmode", 0] == 1 && {player call d_fnc_hasnvgoggles}) then {
-	player action ["NVGoggles", player];
+	player actionNow ["NVGoggles", player];
 };
 [player, "NoVoice"] remoteExec ["setSpeaker"];

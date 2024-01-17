@@ -90,4 +90,4 @@ _vecu flyInHeight 1100; // this flyInHeight value is only possible with scriptin
 
 player connectTerminalToUav _vecu;
 
-player action ["UAVTerminalOpen"];
+player actionNow ["UAVTerminalOpen"];

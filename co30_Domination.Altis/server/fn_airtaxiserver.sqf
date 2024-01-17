@@ -66,7 +66,7 @@ _vec flyInHeight 80;
 _vec flyInHeightASL [80,80,80];
 _grp setBehaviourStrong "CARELESS";
 
-_unit action ["CollisionLightOn", _vec];
+_unit actionNow ["CollisionLightOn", _vec];
 if (sunOrMoon != 1) then {_vec setPilotLight true};
 _vec setCollisionLight true;
 

@@ -164,7 +164,7 @@ showChat true;
 };
 
 #ifndef __IFA3__
-if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player action ["NVGoggles", player]};
+if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player actionNow ["NVGoggles", player]};
 #endif
 
 private _uidcheck_done = false;

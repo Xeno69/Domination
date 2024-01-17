@@ -214,7 +214,7 @@ if (d_database_found) then {
 0 spawn {
 	scriptName "spawn_buttonclickrespawn2";
 	if (!d_ifa3 && {!d_spe && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles && {sunOrMoon < 0.99 || {player getVariable ["d_currentvisionmode", 0] == 1}}}}}) then {
-		player action ["NVGoggles", player];
+		player actionNow ["NVGoggles", player];
 	};
 };
 __TRACE("MapClickRespawn done")

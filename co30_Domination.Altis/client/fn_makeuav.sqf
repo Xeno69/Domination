@@ -41,7 +41,7 @@ _vecu setCaptive true;
 
 player connectTerminalToUav _vecu;
 
-player action ["UAVTerminalOpen"];
+player actionNow ["UAVTerminalOpen"];
 
 ["a2", d_player_uid, _vecu, _crew] remoteExecCall ["d_fnc_p_o_ar", 2];
 
