@@ -52,7 +52,13 @@ if (d_x_drop_type != "") then {
 	if ((getPosWorld player) distance2D _mpdz > d_drop_max_dist) exitWith {
 		[1, format [localize "STR_DOM_MISSIONSTRING_166", d_drop_max_dist]] call d_fnc_sideorsyschat;
 	};
-	[1, format [localize "STR_DOM_MISSIONSTRING_167", [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName]] call d_fnc_sideorsyschat;
+	private _displayname = "";
+	if (d_x_drop_type in d_x_drop_array_custom_types) then {
+		_displayname = localize "STR_DOM_MISSIONSTRING_400_EXTRA"; // generic word for custom airdrop
+	} else {
+		_displayname = [d_x_drop_type, "CfgVehicles"] call d_fnc_GetDisplayName;
+	};
+	[1, format [localize "STR_DOM_MISSIONSTRING_167", _displayname]] call d_fnc_sideorsyschat;
 	if (d_with_ranked || {d_database_found}) then {[player, 4] remoteExecCall ["d_fnc_ascfc", 2]};
 	[d_x_drop_type, _mpdz, player, d_player_side] remoteExec ["d_fnc_createdrop", 2];
 } else {

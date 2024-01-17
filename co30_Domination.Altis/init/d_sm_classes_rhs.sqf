@@ -42,7 +42,18 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"rhsusf_m1a2sep1tuskiid_usarmy"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"rhs_t90a_tv"};
+	case "W": {"rhsusf_m1a2sep1tuskiid_usarmy"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
+d_sm_tank_special_own_side = "";
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
+	case "E": {"rhsgref_BRDM2_HQ_vmf"};
+	case "W": {"rhsusf_M1237_M2_usarmy_d"};
+	case "G": {"I_MRAP_03_hmg_F"};
+};
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
 	case "E": {"rhsgref_BRDM2_HQ_vmf"};
 	case "W": {"rhsusf_M1237_M2_usarmy_d"};
 	case "G": {"I_MRAP_03_hmg_F"};
@@ -63,6 +74,11 @@ d_sm_wrecktype = switch (d_enemy_side_short) do {
 	case "G": {"Land_Wreck_Heli_Attack_02_F"};
 };
 d_sm_ammotrucktype = switch (d_enemy_side_short) do {
+	case "E": {"rhs_gaz66_ammo_vdv"};
+	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
 	case "E": {"rhs_gaz66_ammo_vdv"};
 	case "W": {"rhsusf_M977A4_AMMO_usarmy_d"};
 	case "G": {"I_Truck_02_ammo_F"};
@@ -98,6 +114,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"rhs_bmp3mera_msv"};
+	case "W": {"RHS_M2A3_BUSKIII"};
+	case "G": {"rhsgref_cdf_bmp2k"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"rhs_bmp3mera_msv"};
 	case "W": {"RHS_M2A3_BUSKIII"};
 	case "G": {"rhsgref_cdf_bmp2k"};

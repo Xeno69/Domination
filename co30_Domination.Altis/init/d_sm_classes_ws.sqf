@@ -42,7 +42,18 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"B_MBT_01_cannon_F"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"O_SFIA_MBT_02_cannon_lxWS"};
+	case "W": {"B_MBT_01_cannon_F"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
+d_sm_tank_special_own_side = "";
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
+	case "E": {"O_Tura_Offroad_armor_armed_lxWS"};
+	case "W": {"B_MRAP_01_gmg_F"};
+	case "G": {"I_MRAP_03_hmg_F"};
+};
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
 	case "E": {"O_Tura_Offroad_armor_armed_lxWS"};
 	case "W": {"B_MRAP_01_gmg_F"};
 	case "G": {"I_MRAP_03_hmg_F"};
@@ -67,7 +78,17 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"B_Truck_01_ammo_F"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {"O_SFIA_Truck_02_Ammo_lxWS"};
+	case "W": {"B_Truck_01_ammo_F"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"O_SFIA_APC_Tracked_02_cannon_lxWS"};
+	case "W": {["B_APC_Tracked_01_rcws_F","B_T_APC_Tracked_01_rcws_F"] select (d_tanoa || {d_livonia})};
+	case "G": {"I_APC_tracked_03_cannon_F"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"O_SFIA_APC_Tracked_02_cannon_lxWS"};
 	case "W": {["B_APC_Tracked_01_rcws_F","B_T_APC_Tracked_01_rcws_F"] select (d_tanoa || {d_livonia})};
 	case "G": {"I_APC_tracked_03_cannon_F"};

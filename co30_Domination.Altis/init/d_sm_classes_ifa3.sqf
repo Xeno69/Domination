@@ -42,7 +42,20 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"LIB_PzKpfwVI_B"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"O_MBT_02_cannon_F"};
+	case "W": {"LIB_PzKpfwVI_B"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
+d_sm_tank_special_own_side = "";
+d_sm_HunterGMG = "";
+d_sm_HunterGMG_own_side = "";
 d_sm_ammotrucktype = switch (d_enemy_side_short) do {
+	case "E": {"O_Truck_02_Ammo_F"};
+	case "W": {"LIB_opelblitz_ammo"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
 	case "E": {"O_Truck_02_Ammo_F"};
 	case "W": {"LIB_opelblitz_ammo"};
 	case "G": {"I_Truck_02_ammo_F"};
@@ -63,6 +76,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"LIB_SOV_M3_Halftrack"};
+	case "W": {"LIB_SdKfz234_4_DLV"};
+	case "G": {"LIB_US_M3_Halftrack"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"LIB_SOV_M3_Halftrack"};
 	case "W": {"LIB_SdKfz234_4_DLV"};
 	case "G": {"LIB_US_M3_Halftrack"};

@@ -299,7 +299,9 @@ if (d_with_ranked || {d_database_found}) then {
 };
 
 // available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
-player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
+if (!d_with_ranked && { d_without_nvg != 1 }) then {
+	player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
+};
 
 if (d_MissionType != 2) then {
 	if (d_resolved_targets isNotEqualTo []) then {
@@ -530,7 +532,7 @@ if (!d_no_ai) then {
 	if (d_disable_player_arty == 0) then {
 		d_player_can_call_arti = 1;
 	};
-	if (d_with_airdrop == 0) then {
+	if (d_with_airdrop == 0 || {d_with_airdrop == 2}) then {
 		d_player_can_call_drop = 1;
 	};
 	d_player_can_call_cas = 1;
@@ -948,7 +950,7 @@ private _fnc_artvec = {
 
 if (d_disable_player_arty == 0) then {
 	if (!d_no_ai || {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) then {
-		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
+		if (["laser", toLowerANSI (binocular player)] call BIS_fnc_inString) then {
 			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}"]];
 		} else {
 			player setVariable ["d_ld_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1520"], {call d_fnc_mark_artillery} , 0, 9, true, false, "", "d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}"]];
@@ -959,9 +961,12 @@ if (d_disable_player_arty == 0) then {
 if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 	if (!d_no_ai || {d_string_player in d_can_call_cas}) then {
 #ifndef __TT__
-		if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
+		if (["laser", toLowerANSI (binocular player)] call BIS_fnc_inString) then {
 			player setVariable ["d_ccas_action", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711"], {call d_fnc_call_cas} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 			if (d_enable_extra_cas == 1) then {
+				if (d_vn) then {
+					player setVariable ["d_ccas_action_bomb_napalm", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM"], {call d_fnc_call_cas_bomb_napalm} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
+				};
 				player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!isNull (laserTarget player) && {!((laserTarget player) inArea d_base_array) && {currentWeapon player isKindOf ['LaserDesignator', configFile >> 'CfgWeapons']}}}}}}}"]];
 			};
 		} else {
@@ -969,9 +974,8 @@ if (isNil "d_cas_plane_avail" && {d_disable_player_cas == 0}) then {
 			if (d_enable_extra_cas == 1) then {
 				if (d_vn) then {
 					player setVariable ["d_ccas_action_bomb_napalm", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS_NAPALM"], {call d_fnc_call_cas_bomb_napalm} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
-				} else {
-					player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
 				};
+				player setVariable ["d_ccas_action_bomb", player addAction [format ["<t color='#FF0000'>%1</t>", localize "STR_DOM_MISSIONSTRING_1711_CAS_BOMB_POS"], {call d_fnc_call_cas_bomb} , 0, 9, true, false, "", "d_cas_available && {d_player_canu && {!(player getVariable ['d_isinaction', false]) && {!d_player_in_vec && {cameraView == 'GUNNER' && {!(screenToWorld [0.5, 0.5] inArea d_base_array) && {currentWeapon player isKindOf ['Binocular', configFile >> 'CfgWeapons']}}}}}}"]];
 			};
 		};
 #else

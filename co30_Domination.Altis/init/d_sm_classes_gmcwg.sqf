@@ -77,7 +77,32 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"B_MBT_01_cannon_F"};
 	case "G": {"I_MBT_03_cannon_F"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {
+		call {
+			if (d_gmcwgwinter) exitWith {
+				"gm_gc_army_t55a_win"
+			};
+			"gm_gc_army_t55a"
+		};
+	};
+	case "W": {"B_MBT_01_cannon_F"};
+	case "G": {"I_MBT_03_cannon_F"};
+};
+d_sm_tank_special_own_side = "";
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
+	case "E": {
+		call {
+			if (d_gmcwgwinter) exitWith {
+				"gm_gc_army_btr60pu12_win"
+			};
+			"gm_gc_army_btr60pu12"
+		};
+	};
+	case "W": {"B_MRAP_01_gmg_F"};
+	case "G": {"I_MRAP_03_hmg_F"};
+};
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
 	case "E": {
 		call {
 			if (d_gmcwgwinter) exitWith {
@@ -105,6 +130,18 @@ d_sm_wrecktype = switch (d_enemy_side_short) do {
 	case "G": {"Land_Wreck_Heli_Attack_02_F"};
 };
 d_sm_ammotrucktype = switch (d_enemy_side_short) do {
+	case "E": {
+		call {
+			if (d_gmcwgwinter) exitWith {
+				"gm_gc_army_ural4320_reammo_win"
+			};
+			"gm_gc_army_ural4320_reammo"
+		};
+	};	
+	case "W": {"B_Truck_01_ammo_F"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
 	case "E": {
 		call {
 			if (d_gmcwgwinter) exitWith {
@@ -203,6 +240,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"gm_gc_army_bmp1sp2"};
+	case "W": {"gm_ge_army_m113a1g_apc_milan"};
+	case "G": {"I_APC_tracked_03_cannon_F"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"gm_gc_army_bmp1sp2"};
 	case "W": {"gm_ge_army_m113a1g_apc_milan"};
 	case "G": {"I_APC_tracked_03_cannon_F"};

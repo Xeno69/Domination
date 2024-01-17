@@ -112,6 +112,7 @@ d_HeliHEmpty = "Land_HelipadEmpty_F";
 // BLUFOR, OPFOR or INDEPENDENT for own side, setup in x_setup.sqf
 #ifdef __OWN_SIDE_BLUFOR__
 d_own_side = "WEST";
+d_own_side_short = "W";
 d_own_sides = ["WEST"];
 d_own_sides_o = [blufor];
 if (!d_spe) then {
@@ -130,6 +131,7 @@ d_e_marker_color = "ColorOPFOR";
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 d_own_side = "EAST";
+d_own_side_short = "E";
 d_own_sides = [["EAST", "GUER"], ["EAST"]] select (!d_ifa3);
 d_own_sides_o = [[opfor, independent], [opfor]] select (!d_ifa3);
 d_enemy_side = "WEST";
@@ -142,6 +144,7 @@ d_e_marker_color = "ColorBLUFOR";
 #endif
 #ifdef __OWN_SIDE_INDEPENDENT__
 d_own_side = "GUER";
+d_own_side_short = "G";
 d_own_sides = ["GUER"];
 d_own_sides_o = [independent];
 if (!d_spe) then {
@@ -159,6 +162,7 @@ d_e_marker_color = "ColorGUER";
 #endif
 #ifdef __TT__
 d_own_side = "WEST";
+d_own_side_short = "W";
 d_own_sides = ["WEST"];
 d_enemy_side = "GUER";
 d_enemy_side_short = "G";
@@ -381,6 +385,8 @@ d_x_drop_array =
 #ifdef __TT__
 	[[], [], []];
 #endif
+
+d_x_drop_array_custom_types = ["dom_ammo", "dom_apc", "dom_hunter_gmg", "dom_tank", "dom_tank_special"];
 
 // side of the pilot that will fly the drop air vehicle
 d_drop_side = d_own_side;
@@ -2122,6 +2128,13 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 #include "d_sm_classes_spe.sqf"
 #endif
 
+	// airdrop types - make these available to the client
+	publicVariable "d_sm_ammotrucktype_own_side";
+	publicVariable "d_sm_apc_own_side";
+	publicVariable "d_sm_HunterGMG_own_side";
+	publicVariable "d_sm_tank_own_side";
+	publicVariable "d_sm_tank_special_own_side";
+
 	d_intel_unit = objNull;
 
 	d_ArtyShellsBlufor = [
@@ -3796,10 +3809,10 @@ if (d_enemy_factions > 0) then {
 	
 	switch (d_enemy_factions) do {
 		case 1: {
+			// CFP - Taliban
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction1-taliban.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","CFP_O_TBAN","Infantry","CFP_O_TBAN_infantry_8man_team"] call d_fnc_GetConfigGroup
 			];
@@ -3807,10 +3820,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","CFP_O_TBAN","SpecOps","CFP_O_TBAN_infantry_sniper_team"] call d_fnc_GetConfigGroup];
 		};
 		case 2: {
+			// AFCUP - South Asian Militia
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction2-eastasia.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_a"] call d_fnc_GetConfigGroup,
 				["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_8man_team_b"] call d_fnc_GetConfigGroup
@@ -3819,10 +3832,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","CUP_INS_ASIA","Infantry","cupinsasia_infantry_2man_team_b"] call d_fnc_GetConfigGroup];
 		};
 		case 3: {
+			// CFP - Central African Rebels
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction3-centralafrica.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["East","CFP_O_CFRebels","Infantry","cfp_o_cfrebels_infantry_squad"] call d_fnc_GetConfigGroup
 			];
@@ -3830,10 +3843,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["East","CFP_O_CFRebels","SpecOps","o_cfpocfrebels_specops_sniper_team"] call d_fnc_GetConfigGroup];
 		};
 		case 4: {
+			// CFP - Islamic State
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction4-islamicstate.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_inf_squad"] call d_fnc_GetConfigGroup];
 			d_specops_E = [
 				["EAST","CFP_O_IS","Infantry","cfp_o_grp_is_wpn_squad"] call d_fnc_GetConfigGroup,
@@ -3842,10 +3855,10 @@ if (d_enemy_factions > 0) then {
 			//d_sniper_E = // no sniper class
 		};
 		case 5: {
+			// CFP - Sudanese Armed Forces
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction5-sudanarmedforces.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_squad"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_SDARMY","Infantry","CFP_O_SDARMY_infantry_riot_squad"] call d_fnc_GetConfigGroup,
@@ -3855,10 +3868,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","CFP_O_SDARMY","SpecOps","CFP_O_SDARMY_infantry_sniper_team"] call d_fnc_GetConfigGroup];
 		};
 		case 6: {
+			// CFP - Russian Ground Forces (desert)
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction6-russiangroundforces_desert.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
 				["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_vdv_infantry_squad_emr_des"] call d_fnc_GetConfigGroup,
@@ -3870,10 +3883,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","CFP_O_RUARMY_DES","Infantry","cfp_o_ruarmy_infantry_msv_sniper_team_emr_des"] call d_fnc_GetConfigGroup];
 		};
 		case 7: {
+			// RWR - Russian Winter Retextures
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction7-russiangroundforces_winter.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_group"] call d_fnc_GetConfigGroup,
 				["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_groupmg"] call d_fnc_GetConfigGroup,
@@ -3883,11 +3896,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","RWR_ru_winter","RWR_ru_infantry_winter","RWR_group_inf_teamdm"] call d_fnc_GetConfigGroup];
 		};
 		case 8: {
-			// African Desert Civilian Militia (ADG)
+			// 3CB - African Desert Civilian Militia (ADG)
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction8-african-desert-civil-miltia.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_RIF_Squad"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_AR_ISL_Squad"] call d_fnc_GetConfigGroup,
@@ -3897,11 +3909,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","UK3CB_ADG_O","Infantry","UK3CB_ADG_O_MK_Sentry"] call d_fnc_GetConfigGroup];
 		};
 		case 9: {
-			// ION Urban
+			// 3CB - ION Urban
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction9-ion-urban.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_AR_Squad"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MG_Squad"] call d_fnc_GetConfigGroup,
@@ -3912,11 +3923,10 @@ if (d_enemy_factions > 0) then {
 			d_sniper_E = [["EAST","UK3CB_ION_O_Urban","Infantry","UK3CB_ION_O_Urban_MK_Sentry"] call d_fnc_GetConfigGroup];
 		};
 		case 10: {
-			// Karzeghistan Royal Guard
+			// 3CB - Karzeghistan Royal Guard
 			d_veh_a_E = [
 				#include "d_veh_a_O_faction10-karzeghistan-royal-guard.sqf"
 			];
-			d_veh_a_W =+ d_veh_a_E;
 			d_allmen_E = [
 				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_AR_Squad"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_MG_Squad"] call d_fnc_GetConfigGroup,
@@ -3928,6 +3938,47 @@ if (d_enemy_factions > 0) then {
 				["EAST","UK3CB_KRG_O","Infantry","UK3CB_KRG_O_SniperTeam"] call d_fnc_GetConfigGroup,
 				["EAST","UK3CB_KRG_O","SpecOps","UK3CB_KRG_O_SF_SniperTeam"] call d_fnc_GetConfigGroup
 			];
+		};
+		case 11: {
+			// CUP - Russian Federation
+			d_veh_a_E = [
+				#include "d_veh_a_O_CUP_CHER.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_O_CUP_CHER.sqf"
+			];
+			d_specops_E = [
+				#include "d_specops_O_CUP_CHER.sqf"
+			];
+			d_sniper_E = [["East","CUP_O_RU","Infantry_VDV_EMR","CUP_O_RU_SniperTeam_VDV_EMR"] call d_fnc_GetConfigGroup];
+		};
+		case 12: {
+			// CUP - Russian Ground Forces (Winter)
+			// hmmm no winter vehicles in CUP, reuse Chernarus vehicles
+			d_veh_a_E = [
+				#include "d_veh_a_O_CUP_CHER.sqf"
+			];
+			d_allmen_E = [
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","InfSquad"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","InfAssault"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","InfTeam_AT"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Winter","O_InfTeam_AT_Heavy"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["East","CUP_O_RU","Infantry_Ratnik_Winter","reconTeam"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CUP_O_RU","Infantry_Ratnik_Winter","reconSentry"] call d_fnc_GetConfigGroup];
+		};
+		case 13: {
+			// CUP - Takistan
+			d_veh_a_E = [
+				#include "d_veh_a_O_CUP_TAKI.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_O_CUP_TAKI.sqf"
+			];
+			d_specops_E = [
+				#include "d_specops_O_CUP_TAKI.sqf"
+			];
+			d_sniper_E = [["East","CUP_O_TK","Infantry","CUP_O_TK_SniperTeam"] call d_fnc_GetConfigGroup];
 		};
 	};
 	
@@ -3949,6 +4000,12 @@ if (d_guerrilla_factions > 0) then {
 		};
 		case 4: {
 			d_faction_independent_array = [["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup];
+		};
+		case 5: {
+			d_faction_independent_array = [["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup];
+		};
+		case 6: {
+			d_faction_independent_array = [["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup];
 		};
 	};
 };
