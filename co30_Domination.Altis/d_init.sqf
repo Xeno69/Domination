@@ -821,8 +821,8 @@ if (hasInterface) then {
 };
 
 if (d_EnablePhronkFurniture > 0) then {
-	PF_Range=d_EnablePhronkFurniture;			//Activation range on buildings to spawn furniture (Default = 60)
-	if(isServer)then{PFrun=false;[]spawn compileFinal(preprocessFile"PF\init.sqf")};
+	PF_Range=d_EnablePhronkFurniture; //Activation range on buildings to spawn furniture (Default = 60)
+	if (isServer)then {PFrun = false; 0 spawn compileFinal(preprocessFile"PF\init.sqf")};
 };
 d_init_processed = true;
 

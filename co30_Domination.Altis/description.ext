@@ -24,7 +24,7 @@ showSquadRadar = 1;
 saving = 0;
 loadScreen = "pics\domls.paa";
 overviewText = "$STR_DOM_MISSIONSTRING_1828";
-overrideHazeQualit = 0; // Very Low   0/1/2 - VeryLow/Low/Standard
+overrideHazeQuality = 0; // Very Low   0/1/2 - VeryLow/Low/Standard
 
 class CfgWorlds {
 	class Any {
