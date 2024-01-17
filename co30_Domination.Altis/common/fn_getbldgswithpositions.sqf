@@ -24,7 +24,7 @@ private _buildingsArrayUsableUnfiltered = _buildingsArrayRaw select {(_x buildin
 
 // do not select if inString with any string in the defined blacklist strings array
 private _blacklist_building_strings = ["dyke"];
-private _buildingsArrayUsableFiltered1 = _buildings_unfiltered2 select {
+private _buildingsArrayUsableFiltered2 = _buildingsArrayUsableUnfiltered select {
 	private _ret = true;
 	private _the_bldg = _x;
 	{
@@ -34,7 +34,7 @@ private _buildingsArrayUsableFiltered1 = _buildings_unfiltered2 select {
 };
 
 // do not select if exact model name matches with any string in the params or default blacklist array
-private _buildingsArrayUsable = _buildingsArrayUsableFiltered1 select { !(getModelInfo _x # 0 in _blacklist) };
+private _buildingsArrayUsable = _buildingsArrayUsableFiltered2 select { !(getModelInfo _x # 0 in _blacklist) };
 
 if (_buildingsArrayUsable isEqualTo []) exitWith {
 	[]

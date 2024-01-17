@@ -819,7 +819,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 		__TRACE_1("","_buildingsArrayUsable")
 	
 		//sort by building height
-		private _buildingsArraySortedByHeight = [_buildingsArrayUsable, [_trg_center], { _x modelToWorld (boundingBox _x # 1) # 2 }, "DESCEND", { 1 == 1 }] call BIS_fnc_sortBy;
+		private _buildingsArraySortedByHeight = [_buildingsArrayUsable, [_trg_center], { (_x modelToWorld (boundingBox _x # 1)) # 2 }, "DESCEND"] call BIS_fnc_sortBy;
 	
 		//sort by elevation - sort by highest position in each building
 		private _buildingsArraySorted = [

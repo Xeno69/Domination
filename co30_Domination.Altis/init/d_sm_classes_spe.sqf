@@ -42,7 +42,18 @@ d_sm_tank = switch (d_enemy_side_short) do {
 	case "W": {"SPE_PzKpfwVI_H1"};
 	case "G": {"SPE_M4A1_76"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"O_MBT_02_cannon_F"};
+	case "W": {"SPE_PzKpfwVI_H1"};
+	case "G": {"SPE_M4A1_76"};
+};
+d_sm_tank_special_own_side = "";
 d_sm_HunterGMG = switch (d_enemy_side_short) do {
+	case "E": {"O_MRAP_02_gmg_F"};
+	case "W": {"SPE_SdKfz250_1"};
+	case "G": {"SPE_US_M3_Halftrack"};
+};
+d_sm_HunterGMG_own_side = switch (d_own_side_short) do {
 	case "E": {"O_MRAP_02_gmg_F"};
 	case "W": {"SPE_SdKfz250_1"};
 	case "G": {"SPE_US_M3_Halftrack"};
@@ -67,7 +78,17 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"SPE_OpelBlitz_Ammo"};
 	case "G": {"SPE_US_M3_Halftrack_Ammo"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {"O_Truck_02_Ammo_F"};
+	case "W": {"SPE_OpelBlitz_Ammo"};
+	case "G": {"SPE_US_M3_Halftrack_Ammo"};
+};
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {["O_APC_Tracked_02_cannon_F","O_T_APC_Tracked_02_cannon_ghex_F"] select (d_tanoa || {d_livonia})};
+	case "W": {"SPE_SdKfz250_1"};
+	case "G": {"SPE_US_M3_Halftrack"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {["O_APC_Tracked_02_cannon_F","O_T_APC_Tracked_02_cannon_ghex_F"] select (d_tanoa || {d_livonia})};
 	case "W": {"SPE_SdKfz250_1"};
 	case "G": {"SPE_US_M3_Halftrack"};

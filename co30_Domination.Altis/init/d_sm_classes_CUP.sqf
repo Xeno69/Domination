@@ -39,9 +39,21 @@ d_sm_plane = switch (d_enemy_side_short) do {
 };
 d_sm_tank = switch (d_enemy_side_short) do {
 	case "E": {"CUP_O_T90_RU"};
-	case "W": {"B_MBT_01_cannon_F"};
-	case "G": {"I_MBT_03_cannon_F"};
+	case "W": {"CUP_B_M1A1_Woodland_US_Army"};
+	case "G": {"CUP_I_M60A3_RACS"};
 };
+d_sm_tank_own_side = switch (d_own_side_short) do {
+	case "E": {"CUP_O_T90_RU"};
+	case "W": {"CUP_B_M1A1_Woodland_US_Army"};
+	case "G": {"CUP_I_T72_NAPA"};
+};
+d_sm_tank_special_own_side = switch (d_own_side_short) do {
+	case "E": {"CUP_O_ZSU23_TK"};
+	case "W": {"CUP_B_M1A_TUSK_NATO_T"};
+	case "G": {"CUP_I_ZSU23_Afghan_AAF"};
+};
+d_sm_HunterGMG = "";
+d_sm_HunterGMG_own_side = "";
 d_sm_chopper = switch (d_enemy_side_short) do {
 	case "E": {"CUP_O_Ka52_Blk_RU"};
 	case "W": {"B_Heli_Attack_01_F"};
@@ -62,6 +74,11 @@ d_sm_ammotrucktype = switch (d_enemy_side_short) do {
 	case "W": {"B_Truck_01_ammo_F"};
 	case "G": {"I_Truck_02_ammo_F"};
 };
+d_sm_ammotrucktype_own_side = switch (d_own_side_short) do {
+	case "E": {"O_Truck_02_Ammo_F"};
+	case "W": {"B_Truck_01_ammo_F"};
+	case "G": {"I_Truck_02_ammo_F"};
+};
 d_sm_medtrucktype = switch (d_enemy_side_short) do {
 	case "E": {"O_Truck_02_medical_F"};
 	case "W": {"B_Truck_01_medical_F"};
@@ -78,6 +95,11 @@ d_sm_cache = switch (d_enemy_side_short) do {
 	case "G": {["Box_Syndicate_Ammo_F", "Box_Syndicate_Wps_F", "Box_Syndicate_WpsLaunch_F"]};
 };
 d_sm_apc = switch (d_enemy_side_short) do {
+	case "E": {"CUP_O_BMP3_RU"};
+	case "W": {"CUP_B_M2A3Bradley_USA_W"};
+	case "G": {"CUP_I_BMP_HQ_NAPA"};
+};
+d_sm_apc_own_side = switch (d_own_side_short) do {
 	case "E": {"CUP_O_BMP3_RU"};
 	case "W": {"CUP_B_M2A3Bradley_USA_W"};
 	case "G": {"CUP_I_BMP_HQ_NAPA"};

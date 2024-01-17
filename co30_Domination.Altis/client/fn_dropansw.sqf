@@ -12,4 +12,6 @@ private _msg = switch (_this) do {
 	case 4: {localize "STR_DOM_MISSIONSTRING_646"};
 };
 
-[1, _msg] call d_fnc_sideorsyschat;
+if (!isStreamFriendlyUIEnabled && {d_force_isstreamfriendlyui != 1}) then {
+	[1, _msg] call d_fnc_sideorsyschat;
+};
