@@ -59,6 +59,7 @@ if (d_searchintel # 5 == 1) then {
 {
 	_x allowCrewInImmobile true;
 	_x setVariable ["d_cur_pos", getPosASL _x];
+	_x forceFollowRoad true;
 } forEach _vecs;
 _agrp call d_fnc_addgrp2hc;
 [_agrp, _units, _vecs]
