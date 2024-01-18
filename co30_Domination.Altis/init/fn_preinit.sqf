@@ -2128,12 +2128,14 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 #include "d_sm_classes_spe.sqf"
 #endif
 
+if (d_with_airdrop == 2) then {
 	// airdrop types - make these available to the client
 	publicVariable "d_sm_ammotrucktype_own_side";
 	publicVariable "d_sm_apc_own_side";
 	publicVariable "d_sm_HunterGMG_own_side";
 	publicVariable "d_sm_tank_own_side";
 	publicVariable "d_sm_tank_special_own_side";
+};
 
 	d_intel_unit = objNull;
 
