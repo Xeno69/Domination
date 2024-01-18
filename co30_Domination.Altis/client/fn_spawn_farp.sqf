@@ -74,7 +74,7 @@ private _farptrig = [
 ["ANY", "PRESENT", true],
 ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""]
 ] call d_fnc_CreateTrigger;
-_farptrig setTriggerInterval 1;
+_farptrig setTriggerInterval 1.2;
 
 private _farpcont = [_farptrig];
 

@@ -6,6 +6,8 @@ params ["_list", "_trig"];
 
 //__TRACE_1("","_this")
 
+if (_list isEqualTo []) exitWith {false};
+
 if ("Plane" countType _list == 0) exitWith {false};
 
 _list params ["_plane"];

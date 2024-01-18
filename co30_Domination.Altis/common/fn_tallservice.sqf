@@ -6,6 +6,8 @@
 
 params ["_list", "_trig"];
 
+if (_list isEqualTo []) exitWith {false};
+
 if ("LandVehicle" countType _list == 0 && {"Plane" countType _list == 0 && {"Helicopter" countType _list == 0 && {"Ship" countType _list == 0}}}) exitWith {
 	//__TRACE("No vehicle inside trigger")
 	false

@@ -54,7 +54,7 @@ __TRACE_1("","_allmissiono")
 		["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""]
 	] call d_fnc_createtriggerlocal;
 	_trig setPosASL ((getPosASL _x) vectorAdd [0, 0, -0.5]);
-	_trig setTriggerInterval 1;
+	_trig setTriggerInterval 1.2;
 	__TRACE_1("serviceall","_x")
 	__TRACE_3("serviceall","_trig","getPos _trig","getPos _x")
 	sleep 0.01;

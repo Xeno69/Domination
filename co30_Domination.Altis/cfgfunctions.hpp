@@ -160,7 +160,7 @@ class cfgFunctions {
 			addc(jumpover);
 			addc(draw3d_ace);
 			addc(toggle3dm);
-			addc(keydown_dyng);
+			addc(kd_dyng);
 			addc(keyup_dyng);
 			addc(ropekeyb);
 			addc(handledamageai);

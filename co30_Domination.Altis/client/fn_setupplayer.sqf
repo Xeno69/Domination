@@ -645,7 +645,7 @@ if (d_dis_servicep == 1) then {
 			_farpc params ["_trig"];
 			_trig setTriggerActivation ["ANY", "PRESENT", true];
 			_trig setTriggerStatements ["[thislist, thisTrigger] call d_fnc_tallservice", "0 = [thisTrigger getVariable 'd_list'] spawn d_fnc_reload", ""];
-			_trig setTriggerInterval 1;
+			_trig setTriggerInterval 1.2;
 		};
 	} forEach d_farps;
 };
@@ -801,7 +801,7 @@ if (d_with_bis_dynamicgroups == 0) then {
 	0 spawn {
 		scriptName "spawn_setupplayer3";
 		waitUntil {!isNil {missionNamespace getVariable "BIS_dynamicGroups_key"}};
-		(findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_keydown_dyng}];
+		(findDisplay 46) displayAddEventHandler ["KeyDown", {call d_fnc_kd_dyng}];
 		(findDisplay 46) displayAddEventHandler ["KeyUp", {call d_fnc_keyup_dyng}];
 	};
 } else {

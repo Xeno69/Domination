@@ -10,5 +10,6 @@
 - Fixed: d_sum_camps > 0 before spawning target clear, by longtimegamer
 - Fixed: Do not show virtual arsenal 3dmarker, flagpole beacon when streaming friendly or server-forced no-HUD, by longtimegamer
 - Fixed: Statusbar rank did not show General
-- Fixed: unloaded static weapons created partially underground, by longtimegamer
-- Fixed: do not show airdrop message if streamfriendly is enabled, by longtimegamer
+- Fixed: Unloaded static weapons created partially underground, by longtimegamer
+- Fixed: Do not show airdrop message if streamfriendly is enabled, by longtimegamer
+- Opimizations

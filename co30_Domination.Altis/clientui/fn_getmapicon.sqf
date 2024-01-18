@@ -14,7 +14,7 @@ if (isNil "_i") then {
 private _s = _v getVariable "d_icon_size";
 if (isNil "_s") then {
 	_s = call {
-		if (_v isKindOf "Man") exitWith {
+		if (_v getEntityInfo 0) exitWith {
 			22
 		};
 		if (_v isKindOf "LandVehicle" || {_v isKindOf "Air"}) exitWith {
