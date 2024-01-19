@@ -7,7 +7,7 @@ if (!hasInterface) exitWith {};
 private "_pos_lt";
 private _do_exit = false;
 
-if (["laser", toLowerANSI (binocular player)] call BIS_fnc_inString) then {
+if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
 	private _lt = laserTarget player;
 
 	__TRACE_1("","_lt")
