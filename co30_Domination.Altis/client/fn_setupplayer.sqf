@@ -928,7 +928,11 @@ if (_unip != "") then {
 call d_fnc_save_respawngear;
 call d_fnc_save_layoutgear;
 
-0 spawn d_fnc_clean_craters;
+if (!isServer) then {
+	d_craters_array = [];
+	addMissionEventHandler ["EntityCreated", {if (typeOf _this == "#crater") then {d_craters_array pushBack _this}}];
+	0 spawn d_fnc_clean_craters;
+};
 
 private _vehicles = vehicles select {!(_x isKindOf "WeaponHolderSimulated")};
 
