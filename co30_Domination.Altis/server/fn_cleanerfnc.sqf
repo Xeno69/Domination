@@ -33,11 +33,6 @@ while {true} do {
 	};
 	sleep 8;
 	call _cfunc;
-	_helperx = allMissionObjects "#crater";
-	if (_helperx isNotEqualTo []) then {
-		_allmisobjs append _helperx;
-	};
-	sleep 8;
 	if (_allmisobjs isNotEqualTo []) then {
 		call _cfunc;
 		{
