@@ -334,13 +334,13 @@ for "_i" from 0 to 999 do {
 #ifdef __DEBUG__
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
+	if (count _buildings < 1) exitWith {
+		diag_log ["unable to call placeCivilianCluster, no buildings in array"];
+	};
 	_grp = createGroup [civilian, true];
 
 	__TRACE("Placing a civilian cluster...")
 	private _civ_count_before = count d_cur_tgt_civ_units;
-	if (count _buildings < 1) exitWith {
-		diag_log ["unable to call placeCivilianCluster, no buildings in array"];
-	};
 	[_grp] call _placeCivilianCluster;
 	if (count d_cur_tgt_civ_units > _civ_count_before) then {
 		// at least one civilian was correctly spawned, increment the count of civ clusters
