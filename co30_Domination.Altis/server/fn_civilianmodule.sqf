@@ -334,6 +334,9 @@ for "_i" from 0 to 999 do {
 #ifdef __DEBUG__
 	diag_log [diag_frameno, diag_ticktime, time, format ["civilian for loop, group count _i: %1", _i]];
 #endif
+	if (count _buildings < 1) exitWith {
+		diag_log ["unable to call placeCivilianCluster, no buildings in array"];
+	};
 	_grp = createGroup [civilian, true];
 
 	__TRACE("Placing a civilian cluster...")
