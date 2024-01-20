@@ -43,7 +43,7 @@ if (!isNull _killer) then {
 [42, (["sec_over", _type] select (d_side_player getFriend side (group _killer) >= 0.6)) call d_fnc_GetSMTargetMessage] call d_fnc_DoKBMsg;
 #endif
 if (d_database_found) then {
-	if (!isNil "_killer" && {!isNull _killer && {_killer call d_fnc_isplayer}}) then {
+	if (!isNil "_killer" && {!isNull _killer && {isPlayer [_killer]}}) then {
 		[_killer, 3] call d_fnc_addppoints;
 	};
 };

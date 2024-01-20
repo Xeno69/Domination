@@ -38,7 +38,7 @@ __TRACE_1("","_no")
 if (_no isNotEqualTo []) then {
 	{
 		if (_x getVariable "d_do_not_delete" != 1) then {
-			if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
+			if ((crew _x) findIf {isPlayer _x} == -1) then {
 				_x call d_fnc_DelVecAndCrew;
 			} else {
 				_x call d_fnc_dpcpbv;

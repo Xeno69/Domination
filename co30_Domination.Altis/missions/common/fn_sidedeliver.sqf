@@ -36,17 +36,17 @@ d_x_sm_vec_rem_ar pushBack _vec;
 
 _vec addEventhandler ["getIn", {
 	params ["_vec", "_role", "_unit"];
-	if (!(_unit call d_fnc_isplayer) && {_role == "driver"}) then {
+	if (!(isPlayer [_unit]) && {_role == "driver"}) then {
 		_unit action ["getOut", _vec];
 	};
 }];
 
 _vec addEventHandler ["SeatSwitched", {
 	params ["_vec", "_unit1", "_unit2"];
-	if (!(_unit1 call d_fnc_isplayer) && {(assignedVehicleRole _unit1) # 0 == "driver"}) then {
+	if (!(isPlayer [_unit1]) && {(assignedVehicleRole _unit1) # 0 == "driver"}) then {
 		_unit1 action ["getOut", _vec];
 	} else {
-		if (!(_unit2 call d_fnc_isplayer) && {(assignedVehicleRole _unit2) # 0 == "driver"}) then {
+		if (!(isPlayer [_unit2]) && {(assignedVehicleRole _unit2) # 0 == "driver"}) then {
 			_unit2 action ["getOut", _vec];
 		};
 	};

@@ -14,10 +14,10 @@ while {d_player_in_vec && {d_player_canu}} do {
 			_egoindex = __vaeh ["getOut", {call d_fnc_getOutEHPoints}];
 			{
 				_x setVariable ["d_TRANS_START", getPosASL _vec];
-			} forEach ((crew _vec) select {_x != player && {_x call d_fnc_isplayer}});
+			} forEach ((crew _vec) select {_x != player && {isPlayer _x}});
 		};
 		if (_eindex == -1) then {
-			_eindex = __vaeh ["getIn", {if ((_this # 2) call d_fnc_isplayer) then {(_this # 2) setVariable ["d_TRANS_START", getPosASL (_this # 0)]}}];
+			_eindex = __vaeh ["getIn", {if (isPlayer [_this # 2]) then {(_this # 2) setVariable ["d_TRANS_START", getPosASL (_this # 0)]}}];
 		};
 	};
 	if (player != currentPilot _vec) then {

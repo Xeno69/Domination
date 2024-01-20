@@ -145,6 +145,18 @@ if (isServer) then {
 				_sign setObjectTextureGlobal [0, "pics\AI2.paa"];
 				_sign enableSimulationGlobal false;
 				d_AI_HUT setVariable ["d_ai_sign", _sign, true];
+				/*_sign spawn {
+					params ["_sign"];
+					private _vupdir = [vectorDir _sign, vectorUp _sign];
+					while {true} do {
+						sleep 2;
+						if (_sign getEntityInfo 6) then {
+							if (_sign getEntityInfo 7 > 2) then {
+								_sign setVectorDirAndUp _vupdir;
+							};
+						};
+					};
+				};*/
 			};
 		} else {
 			d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];

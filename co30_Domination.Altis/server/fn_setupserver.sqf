@@ -116,11 +116,9 @@ private _av_check_fnc = {
 	_this setPos [getPosASL _this # 0, getPosASL _this # 1, 0.5];
 	_this addEventhandler ["fired", {call d_fnc_arifired}];
 	_this addEventhandler ["getIn", {
-		if (!local (_this # 2) || {(_this # 2) call d_fnc_isplayer}) then {
+		if (!local (_this # 2) || {isPlayer (_this # 2)}) then {
 			(_this # 2) action ["getOut", _this # 0];
-			if ((_this # 2) call d_fnc_isplayer) then {
-				diag_log format ["Attention!!!! %1 is trying to get into an artillery vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
-			};
+			diag_log format ["Attention!!!! %1 is trying to get into an artillery vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
 		};
 	}];
 	// if it still doesn't work add something like this

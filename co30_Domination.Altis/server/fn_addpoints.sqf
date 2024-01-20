@@ -3,7 +3,7 @@
 #include "..\x_setup.sqf"
 
 params ["_points", "_killer", ["_dopcheck", true]];
-if (_dopcheck && {!(_killer call d_fnc_isplayer)}) exitWith {};
+if (_dopcheck && {!(isPlayer [_killer])}) exitWith {};
 call {
 	private _side = side (group _killer);
 	if (_side == blufor) exitWith {d_points_blufor = d_points_blufor + _points};

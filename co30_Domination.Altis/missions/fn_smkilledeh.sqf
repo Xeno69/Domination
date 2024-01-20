@@ -14,7 +14,7 @@ if (isNull _killer) then {
 		_killer = (_this # 0) getVariable ["ace_medical_lastDamageSource", _killer];
 	};
 };
-if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
+if (!isNull _killer && {isPlayer [_killer]}) then {
 	if (side (group _killer) == opfor) then {
 		d_sm_points_opfor = d_sm_points_opfor + 1000;
 	} else {

@@ -10,7 +10,7 @@ if (d_with_ace && {isNull _killer}) then {
 	_killer = _vec getVariable ["ace_medical_lastDamageSource", _killer];
 };
 
-if !(_killer call d_fnc_isplayer) exitWith {};
+if !(isPlayer [_killer]) exitWith {};
 
 if (side (group _killer) == opfor) then {
 	if (!isServer) then {

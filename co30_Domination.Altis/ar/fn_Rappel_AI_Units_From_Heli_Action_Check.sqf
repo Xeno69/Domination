@@ -14,4 +14,4 @@ params ["_player"];
 
 if (leader _player != _player) exitWith {false};
 
-(units _player) findIf {vehicle _x != _x && {!(_x call d_fnc_isplayer) && {[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action_Check}}} > -1
+(units _player) findIf {vehicle _x != _x && {!(isPlayer [_x]) && {[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action_Check}}} > -1

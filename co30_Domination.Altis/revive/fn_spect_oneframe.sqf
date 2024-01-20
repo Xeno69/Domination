@@ -35,7 +35,7 @@ if (xr_MouseButtons # 0) then {
 	if (!isNull _cursObj && {!(_cursObj getEntityInfo 0)}) then {
 		if (crew _cursObj isNotEqualTo []) then {
 			(crew _cursObj) findIf {
-				_ret = _x call d_fnc_isplayer;
+				_ret = isPlayer [_x];
 				if (_ret) then {
 					_cursObj = _x;
 				};

@@ -15,7 +15,7 @@ private _has_ai = false;
 	} else {
 		(vehicle _x) deleteVehicleCrew _x;
 	};
-} forEach ((units player) select {!(_x call d_fnc_isplayer)});
+} forEach ((units player) select {!(isPlayer [_x])});
 if (_has_ai) then {[1, localize "STR_DOM_MISSIONSTRING_216"] call d_fnc_sideorsyschat;};
 private _dispx = uiNamespace getVariable "d_AIRecruitDialog";
 (_dispx displayCtrl 1011) ctrlShow false;

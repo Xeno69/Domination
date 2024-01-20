@@ -12,8 +12,8 @@ while {true} do {
 	private _remar = [];
 	{
 		private _units = units _x;
-		if (_units isNotEqualTo [] && {!unitIsUAV (objectParent (_units # 0)) && {_units findIf {_x call d_fnc_isplayer} == -1}}) then {
-			private _units = _units select {!(_x call d_fnc_isplayer)};
+		if (_units isNotEqualTo [] && {!unitIsUAV (objectParent (_units # 0)) && {_units findIf {isPlayer [_x]} == -1}}) then {
+			private _units = _units select {!(isPlayer [_x])};
 			if (_units isNotEqualTo []) then {
 				{
 					if (!isNull (objectParent _x)) then {

@@ -11,7 +11,7 @@ d_pl_name_huddo_ar = [];
 if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 	if (alive player && {!(player getVariable "xr_pluncon")}) then {
 		private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh", "_opax"];
-		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_isplayer, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_ghpn", "_fnc_ghpnai", "_fnc_isp", "_nfc_grp"];
+		[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_show_player_namesx, d_fnc_gethpname, d_fnc_gethpnameai, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_s_p_namesx", "_fnc_ghpn", "_fnc_ghpnai", "_nfc_grp"];
 		private _epp = eyePos player;
 		private _gpl = group player;
 		{
@@ -33,11 +33,11 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
 								true
 							};
-							if (_x == gunner _vu && {!((commander _vu) call _fnc_isp)}) exitWith {
+							if (_x == gunner _vu && {!(isPlayer (commander _vu))}) exitWith {
 								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
 								true
 							};
-							if (_x == driver _vu && {!((commander _vu) call _fnc_isp) && {!((gunner _vu) call _fnc_isp)}}) exitWith {
+							if (_x == driver _vu && {!(isPlayer (commander _vu)) && {!(isPlayer (gunner _vu))}}) exitWith {
 								_targetPos = _vu modelToWorldVisual (_x selectionPosition "Pilot");
 								true
 							};

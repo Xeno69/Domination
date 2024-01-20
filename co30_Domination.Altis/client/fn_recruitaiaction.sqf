@@ -18,6 +18,6 @@ if (player distance2D (_this # 0) > 50) exitWith {
 	[1, localize "STR_DOM_MISSIONSTRING_312"] call d_fnc_sideorsyschat;
 };
 
-d_current_ai_num = {alive _x && {!(_x call d_fnc_isplayer)}} count (units player);
+d_current_ai_num = {alive _x && {!(isPlayer [_x])}} count (units player);
 
 createDialog "d_AIRecruitDialog";

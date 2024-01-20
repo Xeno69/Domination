@@ -85,7 +85,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 		private _nobjs = _leader nearEntities ["CAManBase", 20];
 		if (_nobjs isNotEqualTo []) then {
 			{
-				if (alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
+				if (alive _x && {(isPlayer _x) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}) exitWith {
 					_rescued = true;
 					deleteVehicle _otrig;
 					_mforceendtime = time + 2400;
@@ -122,7 +122,7 @@ while {!_hostages_reached_dest && {!_all_dead && {!d_sm_resolved}}} do {
 			if (_fidx > -1) then {
 				_newgroup = group (_units # _fidx);
 			};
-			if !((leader _newgroup) call d_fnc_isplayer) then {
+			if !(isPlayer [leader _newgroup]) then {
 				_rescued = false;
 #ifdef __TT__
 				_winner = 0;

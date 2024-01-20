@@ -516,14 +516,14 @@ if (!d_no_ai) then {
 		};
 
 		private _leader = leader (group player);
-		if (!(_leader call d_fnc_isplayer) || {player == _leader}) then {
+		if (!(isPlayer [_leader]) || {player == _leader}) then {
 			{
 				if (isNull objectParent _x) then {
 					deleteVehicle _x;
 				} else {
 					(vehicle _x) deleteVehicleCrew _x;
 				};
-			} forEach ((units player) select {!(_x call d_fnc_isplayer)});
+			} forEach ((units player) select {!(isPlayer [_x])});
 		};
 	};
 

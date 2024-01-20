@@ -12,7 +12,7 @@ if (_obj getEntityInfo 0) then {
 	_isman = true;
 	if (_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}) then {
 		private _insti = _this # 2;
-		if (!isNull _insti && {isNull objectParent _insti && {isPlayer _insti}}) then {
+		if (!isNull _insti && {isNull objectParent _insti && {isPlayer [_insti]}}) then {
 			[_insti, _insti distance2D _obj] spawn d_fnc_addheadshot;
 		};
 	};
@@ -66,7 +66,7 @@ if (!isNil "d_is_hc") exitWith {true};
 #endif
 
 if !(_isman) then {
-	if (isPlayer (_this # 2)) then {
+	if (isPlayer [_this # 2]) then {
 		_this spawn d_fnc_bv_check;
 	};
 };

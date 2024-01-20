@@ -22,7 +22,7 @@ __TRACE_1("","_r")
 if (_r > 0) then {
 	_obj setVariable ["d_damt", _r];
 	
-	if (!d_with_ace && {_this # 5 == 0 && {!isNull (_this # 6) && {(_this # 6) call d_fnc_isplayer}}}) then {
+	if (!d_with_ace && {_this # 5 == 0 && {!isNull (_this # 6) && {isPlayer [_this # 6]}}}) then {
 		_obj setVariable ["d_last_damager", _this # 6];
 	};
 } else {

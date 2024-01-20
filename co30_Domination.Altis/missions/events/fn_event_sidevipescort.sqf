@@ -20,7 +20,7 @@ private _wait_time = 90;
 private _joined = false;
 private _check_player_nearby = {
 	// check if player is close enough to "rescue" the pilot
-	private _nobjs = (_pilot1 nearEntities ["CAManBase", 7]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+	private _nobjs = (_pilot1 nearEntities ["CAManBase", 7]) select {alive _x && {isPlayer _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 	if (_nobjs isNotEqualTo []) exitWith {
 		d_kb_logic1 kbTell [d_kb_logic2,d_kb_topic_side,"MTEventVIPEscort",d_kbtel_chan];
         _pilot1 setUnconscious false;

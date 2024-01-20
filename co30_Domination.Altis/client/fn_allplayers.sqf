@@ -18,7 +18,7 @@ while {true} do {
 		sleep 0.1;
 		d_allplayerai = [];
 		{
-			d_allplayerai append ((units _x) select {alive _x && {!(_x call d_fnc_isplayer)}});
+			d_allplayerai append ((units _x) select {alive _x && {!(isPlayer _x)}});
 		} forEach _tmpgrps;
 	};
 	if (!d_tt_ver && {d_showallnearusermarkers}) then {

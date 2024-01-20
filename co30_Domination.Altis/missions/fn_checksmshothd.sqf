@@ -14,7 +14,7 @@ if (!alive _obj) exitWith {
 if ((_this # 4) call d_fnc_checksimminet) then {
 #ifdef __TT__
 	private _u = _this # 6;
-	if (!isNull _u && {_u call d_fnc_isplayer}) then {
+	if (!isNull _u && {isPlayer [_u]}) then {
 		if (side (group _u) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;
 		} else {
@@ -29,7 +29,7 @@ if ((_this # 4) call d_fnc_checksimminet) then {
 	_obj setVariable ["d_damt1", _r];
 	__TRACE_1("","_r")
 	
-	if (!d_with_ace && {_this # 5 == 0 && {!isNull (_this # 6) && {(_this # 6) call d_fnc_isplayer}}}) then {
+	if (!d_with_ace && {_this # 5 == 0 && {!isNull (_this # 6) && {isPlayer [_this # 6]}}}) then {
 		_obj setVariable ["d_last_damager", _this # 6];
 	};
 	_r

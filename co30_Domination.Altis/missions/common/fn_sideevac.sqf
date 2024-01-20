@@ -89,7 +89,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			__TRACE("not rescued")
 			if (alive _pilot1) then {
 				__TRACE("_pilot1 alive")
-				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+				private _nobjs = (_pilot1 nearEntities ["CAManBase", 20]) select {alive _x && {(isPlayer _x) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 				if (_nobjs isNotEqualTo []) then {
 					_resctimestarted = time;
 					_rescued = true;
@@ -101,7 +101,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 			if (!_rescued) then {
 				if (alive _pilot2) then {
 					__TRACE("_pilot2 alive")
-					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+					private _nobjs = (_pilot2 nearEntities ["CAManBase", 20]) select {alive _x && {(isPlayer _x) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 					if (_nobjs isNotEqualTo []) then {
 						_resctimestarted = time;
 						_rescued = true;
@@ -128,7 +128,7 @@ while {!_pilots_at_base && {!_is_dead && {!d_sm_resolved}}} do {
 				_which_base = 2;
 			};
 #endif
-			if (alive _pilot1 && {!(leader (group _pilot1) call d_fnc_isplayer)} || {alive _pilot2 && {!(leader (group _pilot2) call d_fnc_isplayer)}}) then {
+			if (alive _pilot1 && {!(isPlayer [leader (group _pilot1)])} || {alive _pilot2 && {!(isPlayer [leader (group _pilot2)])}}) then {
 				_rescued = false;
 			};
 			if (time - _resctimestarted > 3600) then {

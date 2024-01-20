@@ -103,7 +103,7 @@ if (_vec isKindOf "Air") then {
 					/* 8 code executed on completion */	{
 						d_ai_rappeling = true;
 						{
-							if !(_x call d_fnc_isplayer) then {
+							if !(isPlayer [_x]) then {
 								sleep 1;
 								[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
 							};

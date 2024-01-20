@@ -24,7 +24,7 @@ if (_unit getVariable "xr_pluncon" || {xr_phd_invulnerable}) exitWith {
 	0
 };
 
-if (d_no_teamkill == 0 && {_dam >= 0.1 && {!isNull _injurer && {_injurer isNotEqualTo _unit && {side (group _injurer) getFriend side (group _unit) >= 0.6 && {isNull objectParent _unit && {_injurer call d_fnc_isplayer}}}}}}) exitWith {
+if (d_no_teamkill == 0 && {_dam >= 0.1 && {!isNull _injurer && {_injurer isNotEqualTo _unit && {side (group _injurer) getFriend side (group _unit) >= 0.6 && {isNull objectParent _unit && {isPlayer [_injurer]}}}}}}) exitWith {
 	if (_idx == -1 && {_ammo isNotEqualTo "" && {time > (player getVariable "d_tk_cutofft") && {call d_fnc_checkammo2}}}) then {
 		_unit setVariable ["d_tk_cutofft", time + 3];
 		hint format [localize "STR_DOM_MISSIONSTRING_497", name _injurer];

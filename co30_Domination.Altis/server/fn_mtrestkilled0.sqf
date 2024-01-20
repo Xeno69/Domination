@@ -50,7 +50,7 @@ if (!_mt_done) then {
 			_killer = _obj getVariable ["ace_medical_lastDamageSource", _killer];
 		};
 	};
-	if (!isNull _killer && {_killer call d_fnc_isplayer}) then {
+	if (!isNull _killer && {isPlayer [_killer]}) then {
 		[_killer, 1] call d_fnc_addScore;
 #ifdef __TT__
 		[d_tt_points # 2, _killer, false] call d_fnc_AddPoints;

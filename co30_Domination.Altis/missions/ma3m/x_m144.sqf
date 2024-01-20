@@ -39,7 +39,7 @@ if (isServer) then {
 	}];
 	_cm addMPEventHandler ["MPKilled", {
 		if (isServer) then {
-			if ((_this select 1) call d_fnc_isplayer) then {(_this select 1) addScore 5};
+			if (isPlayer [_this select 1]) then {(_this select 1) addScore 5};
 		};
 	}];
 	sleep 20;

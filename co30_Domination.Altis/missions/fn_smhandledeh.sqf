@@ -4,7 +4,7 @@
 
 __TRACE_1("handleDamage","_this")
 private _obj = _this # 6;
-if (!isNull _obj && {_this # 5 == 0 && {_obj call d_fnc_isplayer}}) then {
+if (!isNull _obj && {_this # 5 == 0 && {isPlayer [_obj]}}) then {
 	if (!d_with_ace) then {
 		(_this # 0) setVariable ["d_last_damager", _obj];
 	};

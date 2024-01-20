@@ -97,7 +97,7 @@ for "_i" from 0 to _guerrillaGroupCount do {
 		// guerrillas are triggered by the friendly side fighting nearby
 		_x addEventHandler ["FiredNear", {
 			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
-			if (captive _unit && {_firer call d_fnc_isplayer && {_unit distance2D _firer < 30 }}) then {
+			if (captive _unit && {isPlayer [_firer] && {_unit distance2D _firer < 30 }}) then {
 				// a player shooting near this unit has inspired his entire group to fight!
 				{
 					// restore weapons

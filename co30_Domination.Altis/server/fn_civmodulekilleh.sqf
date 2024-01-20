@@ -5,13 +5,13 @@ private _cKiller = _this # 1;
 private _cInstigator = _this # 2;
 private "_punishMe";
 
-if (_cKiller call d_fnc_isplayer) then {
+if (isPlayer [_cKiller]) then {
 	_punishMe = _cKiller;
 } else {
 	private _cKillerName = str _cKiller;	
 	if (_cKillerName find "artyvec" != -1) then {
 		//civ was killed by artillery, find who fired
-		if (!isNil "_cInstigator" && {!isNull _cInstigator && {_cInstigator call d_fnc_isplayer}}) then {
+		if (!isNil "_cInstigator" && {!isNull _cInstigator && {isPlayer [_cInstigator]}}) then {
 			_punishMe = _cInstigator;
 		};
 	};

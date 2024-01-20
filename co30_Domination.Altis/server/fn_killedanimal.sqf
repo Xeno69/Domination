@@ -8,7 +8,7 @@ if (isNull _insti) then {_insti = _killer}; // player driven vehicle road kill
 
 if (isNull _insti) exitWith {};
 
-if !(_insti call d_fnc_isplayer) exitWith {};
+if !(isPlayer [_insti]) exitWith {};
 
 private _score = 0;
 private _type = "";

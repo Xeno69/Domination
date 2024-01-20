@@ -7,7 +7,7 @@ params ["_killed", "", "_killer"];
 
 private _killedfriendly = side (group _killer) == side (group _killed);
 
-if (!isNull _killer && {(_killer call d_fnc_isplayer) && {vehicle _killer != vehicle _killed}}) then {
+if (!isNull _killer && {(isPlayer [_killer]) && {vehicle _killer != vehicle _killed}}) then {
 	private _namep = name _killed;
 	private _namek = name _killer;
 	if (!_killedfriendly) then {

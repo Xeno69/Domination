@@ -25,8 +25,8 @@ link9[] = {7,2};
 link10[] = {8,9};
 link11[] = {9,10};
 link12[] = {10,6};
-globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-294.769440,460.756470,420.799194,-529.186890,711,1254,1};
-window[] = {2,-1,-1,-1,-1,874,156,1116,156,3,729};
+globals[] = {0.000000,0,0,0,0,640,480,1,20,6316128,1,-294.769440,460.756470,420.799194,-529.186890,711,1236,1};
+window[] = {2,-1,-1,-1,-1,822,104,1064,104,3,729};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -73,7 +73,7 @@ class FSM
                          "		_lead = leader _grp;" \n
                          "		//player sideChat format [""_lead: %1, side _lead: %2, _recapside: %3, _curcap: %4"", _lead, side _lead, _recapside, _wf getVariable ""D_CURCAPTURER""];" \n
                          "		//diag_log format [""_lead: %1, side _lead: %2, _recapside: %3, _curcap: %4"", _lead, side _lead, _recapside, _wf getVariable ""D_CURCAPTURER""];" \n
-                         "		if (!(_lead call d_fnc_isplayer) && {_lead distance2D _wf < 300 && {(getPosATL _lead) select 2 < 10}}) then {" \n
+                         "		if (!(isPlayer [_lead]) && {_lead distance2D _wf < 300 && {(getPosATL _lead) select 2 < 10}}) then {" \n
                          "			if (!isNil {_grp getVariable ""D_PATR""}) then {_patgrps pushBack _grp};" \n
                          "			d_camp_cap_groups pushBack _grp;" \n
                          "			if (_lead distance2D _wf > 7) then {" \n

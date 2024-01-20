@@ -342,7 +342,6 @@ class cfgFunctions {
 			addc(checkveckillopfor);
 			addc(create_route);
 			addc(setposagls);
-			addc(isplayer);
 			addc(eachframeadd);
 			addc(eachframerun);
 			addc(eachframeremove);

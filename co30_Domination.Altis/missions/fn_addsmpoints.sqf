@@ -6,7 +6,7 @@ __TRACE_1("","_this")
 
 if (!alive (_this # 0)) exitWith {
 	(_this # 0) removeAllEventHandlers "handleDamage";
-	if (!isNull (_this # 6) && {(_this # 6) call d_fnc_isplayer}) then {
+	if (!isNull (_this # 6) && {isPlayer [_this # 6]}) then {
 		if (side (group (_this # 6)) == opfor) then {
 			d_sm_points_opfor = d_sm_points_opfor + 1;
 		} else {
@@ -17,7 +17,7 @@ if (!alive (_this # 0)) exitWith {
 	};
 };
 
-if (_this # 1 == "" && {!isNull (_this # 6) && {(_this # 6) call d_fnc_isplayer}}) then {
+if (_this # 1 == "" && {!isNull (_this # 6) && {isPlayer [_this # 6]}}) then {
 	if (side (group (_this # 6)) == opfor) then {
 		d_sm_points_opfor = d_sm_points_opfor + 1;
 	} else {

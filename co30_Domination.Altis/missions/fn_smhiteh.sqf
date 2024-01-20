@@ -4,7 +4,7 @@
 
 __TRACE_1("hit","_this")
 private _obj = _this # 3;
-if (!isNull _obj && {_obj call d_fnc_isplayer}) then {
+if (!isNull _obj && {isPlayer [_obj]}) then {
 	if (side (group _obj) == opfor) then {
 		d_sm_points_opfor = d_sm_points_opfor + 1;
 	} else {

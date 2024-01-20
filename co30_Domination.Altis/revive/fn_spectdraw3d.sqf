@@ -5,7 +5,7 @@
 #define __d_textsize_dr3d  0.03333
 
 private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_hh"];
-[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_fnc_isplayer, d_fnc_gethpname, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_fnc_ispl", "_fnc_ghpn", "_fnc_grp"];
+[positionCameraToWorld [0,0,0], d_dist_pname_hud, d_fnc_gethpname, d_fnc_getrankpic] params ["_cam2world", "_d_pn_hud", "_fnc_ghpn", "_fnc_grp"];
 {
 	_distu = _cam2world distance _x;
 	if (_distu <= _d_pn_hud) then {
@@ -18,8 +18,8 @@ private ["_distu", "_vu", "_targetPos", "_dodraw", "_tex", "_rtex", "_rsize", "_
 				call {
 					if (crew _vu isEqualTo 1) exitWith {true};
 					if (_x == commander _vu) exitWith {true};
-					if (_x == gunner _vu && {!((commander _vu) call _fnc_ispl)}) exitWith {true};
-					if (_x == driver _vu && {!((commander _vu) call _fnc_ispl) && {!((gunner _vu) call _fnc_ispl)}}) exitWith {true};
+					if (_x == gunner _vu && {!(isPlayer (commander _vu))}) exitWith {true};
+					if (_x == driver _vu && {!(isPlayer (commander _vu)) && {!(isPlayer (gunner _vu))}}) exitWith {true};
 					false
 				};
 			};

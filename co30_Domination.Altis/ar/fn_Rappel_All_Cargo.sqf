@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 params ["_vehicle", ["_rappelHeight", 25], ["_positionASL", []]];
 
-if ((currentPilot _vehicle) call d_fnc_isplayer) exitWith {};
+if (isPlayer (currentPilot _vehicle)) exitWith {};
 
 if (local _vehicle) then {
 	_this spawn {

@@ -20,7 +20,7 @@ private ["_ipic", "_pic", "_idx"];
 
 _ctrl lbSetCurSel 0;
 
-d_current_ai_units = (units player) select {!(_x call d_fnc_isplayer) && {alive _x}};
+d_current_ai_units = (units player) select {!(isPlayer _x) && {alive _x}};
 d_current_ai_num = count d_current_ai_units;
 
 private _max_ai = [round linearConversion [0, 20, 21 - count d_allplayers, 0, d_max_ai, true], d_max_ai] select !d_ai_dyn_recruit;

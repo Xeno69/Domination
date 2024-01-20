@@ -53,7 +53,7 @@ __TRACE_1("","list _old_units_trigger")
 {
 	if !(_x getEntityInfo 0) then {
 		if (_x getVariable "d_do_not_delete" != 1) then {
-			if ((crew _x) findIf {_x call d_fnc_isplayer} == -1) then {
+			if ((crew _x) findIf {isPlayer _x} == -1) then {
 				_x call d_fnc_DelVecAndCrew;
 			} else {
 				_x call d_fnc_dpcpbv;
@@ -61,7 +61,7 @@ __TRACE_1("","list _old_units_trigger")
 		};
 	} else {
 		if (_x getVariable "d_do_not_delete" != 1) then {
-			if !(_x call d_fnc_isplayer) then {deleteVehicle _x};
+			if !(isPlayer _x) then {deleteVehicle _x};
 		};
 	};
 	sleep 0.1;

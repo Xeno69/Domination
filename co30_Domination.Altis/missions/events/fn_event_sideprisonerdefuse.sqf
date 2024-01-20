@@ -128,7 +128,7 @@ while {sleep 3.14; !d_mt_done; !_is_rescued} do {
 	private _elapsed_time = (time - _start_fuse);
 	if (!alive _pilot1) exitWith { _all_dead = true };
 	// check if player is close enough to "rescue" the pilot
-	private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {(_x call d_fnc_isplayer) && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
+	private _nobjs = (_pilot1 nearEntities ["CAManBase", _distance_to_rescue]) select {alive _x && {isPlayer _x && {!(_x getVariable ["xr_pluncon", false]) && {!(_x getVariable ["ace_isunconscious", false])}}}};
 	if (_nobjs isNotEqualTo []) exitWith {
 		__TRACE("rescued _pilot1")
 		_is_rescued = true;

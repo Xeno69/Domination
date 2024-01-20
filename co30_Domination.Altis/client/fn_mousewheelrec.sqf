@@ -42,7 +42,7 @@ private _s_ai = [];
 		};
 		"\A3\ui_f\data\IGUI\RscIngameUI\RscUnitInfo\role_cargo_ca.paa"
 	};
-	if (_uni call d_fnc_isplayer) then {
+	if (isPlayer _uni) then {
 		_s_p pushBack format ["%1<img color='#FFFFFF' image='%2'/> <br/>", name _uni, _rpic];
 	} else {
 		_s_ai pushBack format ["%1 (AI)<img color='#FFFFFF' image='%2'/> <br/>", name _uni, _rpic];

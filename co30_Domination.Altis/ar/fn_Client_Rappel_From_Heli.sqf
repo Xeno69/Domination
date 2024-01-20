@@ -100,7 +100,7 @@ if (local _player) then {
 		params ["_player","_heli"];
 		while {_player getVariable ["AR_Is_Rappelling", false]} do {
 			if (speed _heli > 150) then {
-				if (_player call d_fnc_isplayer) then {
+				if (isPlayer _player) then {
 					hint "Moving too fast! You've lost grip of the rope.";
 				};
 				[_player] call AR_fnc_Rappel_Detach_Action;
@@ -149,7 +149,7 @@ if (local _player) then {
 
 		// Fix player direction
 		_dir = _dir + ((360/1000) * _dirSpinFactor);
-		if (_player call d_fnc_isplayer) then {
+		if (isPlayer _player) then {
 			private _currentDir = getDir _player;
 			private _minDir = (_dir - (_lookDirFreedom/2)) mod 360;
 			private _maxDir = (_dir + (_lookDirFreedom/2)) mod 360;

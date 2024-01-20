@@ -16,7 +16,7 @@ if (units player findIf {alive _x} > -1) then {
 			sleep 0.1;
 			_hasunits = true;
 			sleep 0.1;
-		} forEach ((formationMembers player) select {!(_x call d_fnc_isplayer) && {alive _x && {isNull objectParent _x && {_x distance2D _posasl_p > 500}}}});
+		} forEach ((formationMembers player) select {!(isPlayer _x) && {alive _x && {isNull objectParent _x && {_x distance2D _posasl_p > 500}}}});
 		if (_hasunits) then {
 			sleep 0.2;
 			private _wps = waypoints (group player);
@@ -60,6 +60,6 @@ if (units player findIf {alive _x} > -1) then {
 				if (alive _unit && {(getPosATL _unit) # 2 > 1}) then {[_unit, 0] call d_fnc_SetHeight};
 			};
 			false
-		} forEach ((formationMembers player) select {!(_x call d_fnc_isplayer) && {alive _x && {isNull objectParent _x && {_x distance2D _pos_p > 500}}}});
+		} forEach ((formationMembers player) select {!(isPlayer _x) && {alive _x && {isNull objectParent _x && {_x distance2D _pos_p > 500}}}});
 	};
 };

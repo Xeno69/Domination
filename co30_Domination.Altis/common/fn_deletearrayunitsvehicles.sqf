@@ -10,7 +10,7 @@
 		deleteVehicle _x;
 	} else {
 		if (_x isKindOf "LandVehicle" && {!((crew _x) isEqualTo [])}) then {
-			if ({alive _x && {_x call d_fnc_isplayer}} count (crew _x) == 0) then {
+			if ({alive _x && {isPlayer _x}} count (crew _x) == 0) then {
 				_x call d_fnc_DelVecAndCrew;
 			};
 		} else {

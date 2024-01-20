@@ -15,7 +15,7 @@ if (!isNull _insti) then {_killer = _insti};
 if (d_with_ace && {isNull _killer}) then {
 	_killer = _killed getVariable ["ace_medical_lastDamageSource", _killer];
 };
-if (isNull _killer || {!(_killer call d_fnc_isplayer)}) exitWith {};
+if (isNull _killer || {!(isPlayer [_killer])}) exitWith {};
 private _endpoints = if (isNull objectParent _killer) then {
 	private _dist = [_killed distance2D _killer, 500] select (isNull _killed);
 	if (_dist < 0) then {_dist = 500};

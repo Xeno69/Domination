@@ -58,7 +58,7 @@ while {true} do {
 				};
 				if (!_mt_done) then {
 					{
-						if (_x call d_fnc_isplayer) then {
+						if (isPlayer [_x]) then {
 							[_x, 1] call d_fnc_addScore;
 #ifdef __TT__
 							[d_tt_points # 2, _x, false] call d_fnc_AddPoints;
@@ -102,7 +102,7 @@ while {true} do {
 				};
 				if (!_mt_done) then {
 					{
-						if (_x call d_fnc_isplayer) then {
+						if (isPlayer [_x]) then {
 							[_x, 2] call d_fnc_addScore;
 						};
 					} forEach list _trig;
