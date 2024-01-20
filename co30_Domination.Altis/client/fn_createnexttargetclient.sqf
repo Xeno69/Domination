@@ -35,11 +35,14 @@ call d_fnc_cmakemtgmarker;
 
 d_meh_markercreated = addMissionEventHandler ["MarkerCreated", {
 	__TRACE_1("MarkerCreated EH","_this")
-	if (_this # 3) then {
+	__TRACE_1("MarkerCreated EH","_thisArgs")
+	if (_this # 3 && {!isNull (_this # 2)}) then {
 		if ((_this # 0) select [0, 13] == "_USER_DEFINED") then {
+			__TRACE("User defined")
 			if (markerPos (_this # 0) distance2D (_thisArgs # 0) < _thisArgs # 1) then {
+				__TRACE("Distance ok")
 				(_this # 0) remoteExecCall ["d_fnc_add_tomadel", 2];
 			};
 		};
 	};
-}, [d_cur_tgt_pos, d_mttarget_radius_patrol + 300]];
+}, [d_cur_tgt_pos, d_mttarget_radius_patrol + 600]];
