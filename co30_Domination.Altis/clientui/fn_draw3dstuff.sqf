@@ -4,28 +4,26 @@
 
 private _pos_cam = positionCameraToWorld [0,0,0];
 
-private ["_distp", "_cwt", "_col", "_ico", "_tex", "_hasp", "_txt"];
+private ["_distp", "_cwt", "_col", "_ico", "_tex", "_hasp", "_txt", "_obj", "_box"];
 private _with_3Di = d_with_3Dicon;
 private _d3d_locs4a = d_d3d_locs4a;
 private _d_3draw_ar = d_3draw_ar;
+private _iaar = [_pos_cam, 250, 250, 0, false];
 {
-	_x params ["_obj"];
+	_obj = _x # 0;
 	_distp = _pos_cam distance _obj;
-	if (_with_3Di == 1) then {
-		_tex = _obj getVariable "d_tex";
-	} else {
-		_tex = "#(argb,8,8,3)color(0,0,0,0)";
-	};
+	_tex = ["#(argb,8,8,3)color(0,0,0,0)", _obj getVariable "d_tex"] select (_with_3Di == 1);
 	if (_x # 4 == 0) then {
 		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, _x # 1, 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	} else {
 		drawIcon3D [_tex, [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((getPosASL _obj) vectorAdd [0, 0, (_x # 2) + (_distp * 0.05)]), 1, 1, 0, format [_d3d_locs4a, round ((_obj getVariable ["d_curreptime" , -1]) - serverTime) max 0], 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach (_d_3draw_ar select {alive (_x # 0) && {_pos_cam distance2D (_x # 0) < 250}});
+} forEach (_d_3draw_ar select {alive (_x # 0) && {(_x # 0) inArea _iaar}});
 
 private _d_all_p_a_boxes = d_all_p_a_boxes;
+_iaar = [_pos_cam, 80, 80, 0, false];
 {
-	_x params ["_box"];
+	_box = _x # 0;
 	_distp = _pos_cam distance _box;
 	_col = _x # 1;
 	_col set [3, 1 - (_distp / 200)];
@@ -36,22 +34,24 @@ private _d_all_p_a_boxes = d_all_p_a_boxes;
 	} else {
 		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", _col, ASLToAGL ((getPosASL _box) vectorAdd [0, 0, 1.5 + (_distp * 0.05)]), 1, 1, 0, "", 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 	};
-} forEach (_d_all_p_a_boxes select {!isNull (_x # 0) && {_pos_cam distance2D (_x # 0) < 80}});
+} forEach (_d_all_p_a_boxes select {!isNull (_x # 0) && {(_x # 0) inArea _iaar}});
 
 if (d_with_ai) then {
 	private _d3d_locsaire = d_d3d_locsaire;
 	private _d_allai_recruit_objs = d_allai_recruit_objs;
+	_iaar = [_pos_cam, 150, 150, 0, false];
 	{
 		_distp = _pos_cam distance _x;
 		drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [1, 1, 0, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 3 + (_distp * 0.05)]), 1, 1, 0, _d3d_locsaire, 2, 0.033 - (_distp / 9000), "RobotoCondensed"];
-	} forEach (_d_allai_recruit_objs select {alive _x && {_pos_cam distance2D _x < 150}});
+	} forEach (_d_allai_recruit_objs select {alive _x && {_x inArea _iaar}});
 };
 
 private _d_mhq_3ddraw = d_mhq_3ddraw;
+_iaar = [_pos_cam, 150, 150, 0, false];
 {
 	_distp = _pos_cam distance _x;
 	drawIcon3D ["#(argb,8,8,3)color(0,0,0,0)", [0, 0, 1, 1 - (_distp / 200)], ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 5 + (_distp * 0.05)]), 1, 1, 0, _x getVariable "d_mhq_txt", 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
-} forEach (_d_mhq_3ddraw select {alive _x && {_pos_cam distance2D _x < 150}});
+} forEach (_d_mhq_3ddraw select {alive _x && {_x inArea _iaar}});
 
 if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	if (_pos_cam distance2D d_cur_tgt_pos < 1500) then {
@@ -72,7 +72,7 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 			if (d_force_isstreamfriendlyui != 1) then {
 				drawIcon3D [_ico, _col, ASLToAGL ((visiblePositionASL _x) vectorAdd [0, 0, 8 + (_distp * 0.05)]), _m, _m, 0, str (_forEachIndex + 1), 1, 0.033 - (_distp / 9000), "RobotoCondensed"];
 			};
-		} forEach _d_currentcamps select {_pos_cam distance2D _x < 150};
+		} forEach _d_currentcamps select {_x inArea _iaar};
 	};
 };
 
@@ -81,11 +81,12 @@ if (!d_tt_ver) then {
 		private "_pos";
 		private _col_s = d_color_hash;
 		private _d_allnearusermarkers = d_allnearusermarkers;
+		_iaar = [_pos_cam, 1000, 1000, 0, false];
 		{
 			_pos = markerPos _x;
 			_pos set [2, 10];
-			_distp = _pos_cam distance _pos;
-			if (_distp < 1000) then {
+			if (_pos inArea _iaar) then {
+				_distp = _pos_cam distance _pos;
 				_m = 1 - (_distp / 1000);
 				_col = _col_s get (getMarkerColor _x);
 				if (_col isEqualTo []) then {
