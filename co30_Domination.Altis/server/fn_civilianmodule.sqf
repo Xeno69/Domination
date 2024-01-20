@@ -338,6 +338,9 @@ for "_i" from 0 to 999 do {
 
 	__TRACE("Placing a civilian cluster...")
 	private _civ_count_before = count d_cur_tgt_civ_units;
+	if (count _buildings < 1) exitWith {
+		diag_log ["unable to call placeCivilianCluster, no buildings in array"];
+	};
 	[_grp] call _placeCivilianCluster;
 	if (count d_cur_tgt_civ_units > _civ_count_before) then {
 		// at least one civilian was correctly spawned, increment the count of civ clusters
