@@ -217,6 +217,9 @@ d_campscaptured_w = 0;
 publicVariable "d_campscaptured_w";
 d_campscaptured_e = 0;
 publicVariable "d_campscaptured_e";
+#else
+d_campscaptured = 0;
+publicVariable "d_campscaptured";
 #endif
 
 #ifndef __TT__
