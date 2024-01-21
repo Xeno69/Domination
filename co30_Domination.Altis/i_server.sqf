@@ -30,7 +30,7 @@ d_bonus_vec_positions = [];
 	deleteMarker _x;
 } forEach (_allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_vec_positions_" && {([_x select [22, 23]] call BIS_fnc_parseNumber) != -1}});
 if (!isNil "d_the_carrier") then {
-	private _nobs = nearestObjects [d_the_carrier, ["FlagCarrier"], 200];
+	private _nobs = nearestObjects [d_the_carrier, ["FlagCarrier"], 200, true];
 	if (_nobs isNotEqualTo []) then {
 		d_the_carrier setVariable ["d_asl_height", (getPosASL (_nobs # 0) # 2) + 0.01];
 	};

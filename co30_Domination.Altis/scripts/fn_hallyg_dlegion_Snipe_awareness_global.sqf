@@ -6,6 +6,10 @@
 // runs awareness for one unit
 // this script needs to run fast so avoid sleep here
 
+__TRACE_1("","_this")
+
+if (!alive (_this # 0)) exitWith {};
+
 // _unit - this unit
 // _targetSideArray - array of sides the unit is engaging
 // _awarenessRadius - distance AI will be aware of players, radius in meters
@@ -13,8 +17,6 @@
 // _isAggressiveShoot - boolean, true will order AI to frequently fire (doTarget and doSuppressiveFire) at player when line of sight is favorable
 // _isQuickAmmo - unit will have ammo instantly replenished on a frequent basis (this is useful when doSuppressiveFire causes the unit to burn ammo rapidly)
 params ["_unit", "_targetSideArray", "_awarenessRadius", "_pursueRadius", "_isAggressiveShoot", "_isQuickAmmo"];
-
-__TRACE_1("","_this")
 
 private _isSniper = _unit getVariable ["d_is_sniper", false];
 
@@ -28,8 +30,6 @@ if (_isSniper && { d_snp_aware > 0 }) then {
 
 if (_awarenessRadius <= 0) exitWith {};
 
-if (!alive _unit) exitWith {};
-
 _unit disableAI "TARGET";
 private _startingPosition = _unit getVariable "startingPosition";
 if (isNil "_startingPosition") then {
@@ -37,35 +37,12 @@ if (isNil "_startingPosition") then {
 	_unit setVariable ["startingPosition", _startingPosition];
 };
 
-private _lastFired = _unit getVariable "lastFired";
-if (isNil "_lastFired") then {
-	_lastFired = 0;
-};
-
-private _lastMoveOrder = _unit getVariable "lastMoveOrder";
-if (isNil "_lastMoveOrder") then {
-	_lastMoveOrder = 0;
-};
-
-private _lastAmmoRefill = _unit getVariable "lastAmmoRefill";
-if (isNil "_lastAmmoRefill") then {
-	_lastAmmoRefill = 0;
-};
-
-private _executingOccupyCommand = _unit getVariable "executingOccupyCommand";
-if (isNil "_executingOccupyCommand") then {
-	_executingOccupyCommand = false;
-};
-
-private _fired = _unit getVariable "fired";
-if (isNil "_fired") then {
-	_fired = false;
-};
-
-private _bodyPositionNext = _unit getVariable "bodyPositionNext";
-if (isNil "_bodyPositionNext") then {
-	_bodyPositionNext = 0;
-};
+private _lastFired = _unit getVariable ["lastFired", 0];
+private _lastMoveOrder = _unit getVariable ["lastMoveOrder", 0];
+private _lastAmmoRefill = _unit getVariable ["lastAmmoRefill", 0];
+private _executingOccupyCommand = _unit getVariable ["executingOccupyCommand", false];
+private _fired = _unit getVariable ["fired", false];
+private _bodyPositionNext = _unit getVariable ["bodyPositionNext", 0];
 
 private _detectionRadius = 2000; //in meters
 private _moveOrderInterval = 30;
@@ -90,8 +67,7 @@ if (_fired && {_isQuickAmmo == 1 || {_isSniper}}) then {
 		if (secondaryWeapon _unit isNotEqualTo "") then {
 			private _testIsRocket = getText (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "cursor");
 			if (_testIsRocket in ["missile","rocket"]) then {
-				private _rocketArry = getArray (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "magazines");
-				private _rocket = (_rocketArry select 0);
+				private _rocket = getArray (configFile >> "CfgWeapons" >> (secondaryWeapon _unit) >> "magazines") # 0;
 				if !(_rocket in backpackItems _unit) then {
 					_unit addItemToBackpack _rocket;
 				};
@@ -146,7 +122,7 @@ if (d_civ_massacre) then {
 		if (alive _x && {_x getEntityInfo 0 && {side _x == civilian}}) then {
 			_Dtargets pushBack [_x distance2D _unit, _x];
 		};
-	} forEach (nearestObjects [_unit, ["Man"], 75]);
+	} forEach (nearestObjects [_unit, ["Man"], 75, true]);
 };
 
 private _targets = [];
@@ -158,7 +134,7 @@ if (_Dtargets isNotEqualTo []) then {
 	if (d_priority_targets isNotEqualTo []) then {
 		// if priority target exists then it should be first in the targets array
 		reverse _playersSortedByDistance;
-		_playersSortedByDistance pushBack d_priority_targets # 0;
+		_playersSortedByDistance pushBack (d_priority_targets # 0);
 		reverse _playersSortedByDistance;
 		_targets = _playersSortedByDistance;
 	} else {
@@ -193,7 +169,7 @@ if (_Dtargets isNotEqualTo []) then {
 						if (secondaryWeaponMagazine _unit isNotEqualTo []) then {
 							// check if RPG is laser lock (do not force shoot laser weapons for now)
 							// https://forums.bohemia.net/forums/topic/199883-how-to-find-if-a-weapon-can-use-laser-lock/?do=findComment&comment=3126502 post by Grezvany13
-							private _rpg_ammo = (secondaryWeaponMagazine _unit) select 0;
+							private _rpg_ammo = (secondaryWeaponMagazine _unit) # 0;
 							private _laser_lock = [(configFile >> "CfgAmmo" >> _rpg_ammo), "laserLock", 0] call BIS_fnc_returnConfigEntry;
 							if (_laser_lock == 0) then {
 								_rpg_is_forceable = true;

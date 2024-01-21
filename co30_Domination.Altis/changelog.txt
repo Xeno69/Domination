@@ -12,4 +12,4 @@
 - Fixed: Statusbar rank did not show General
 - Fixed: Unloaded static weapons created partially underground, by longtimegamer
 - Fixed: Do not show airdrop message if streamfriendly is enabled, by longtimegamer
-- Opimizations
+- Lots of opimizations (script profiling)
