@@ -2,7 +2,9 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-private _tower = (_this # 0) getVariable "d_tower";
+params ["_utower"];
+
+private _tower = _utower getVariable "d_tower";
 if (!isNil "_tower" && {!isNull _tower}) then {
 	_tower setVariable ["d_faster", true];
 	_tower setDamage 1;

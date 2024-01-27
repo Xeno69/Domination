@@ -15,8 +15,10 @@ _vec setVectorUp (vectorUp _utower);
 _vec setPosASL _toppos;
 
 _utower setVariable ["d_tower", _vec];
+_vec setVariable ["d_utower", _utower];
 
 _utower addEventhandler ["Killed", {call d_fnc_utowerkilled}];
+_utower setVariable ["d_delete_id", _utower addEventHandler ["Deleted", {call d_fnc_utowerkilled}]];
 
 d_mtmissionobjs pushBack _vec;
 d_mtmissionobjs pushBack _utower;

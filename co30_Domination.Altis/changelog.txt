@@ -12,4 +12,5 @@
 - Fixed: Statusbar rank did not show General
 - Fixed: Unloaded static weapons created partially underground, by longtimegamer
 - Fixed: Do not show airdrop message if streamfriendly is enabled, by longtimegamer
+- Fixed: If tower under radio got deleted (for whatever reason) main target mission did not end
 - Lots of opimizations (script profiling)

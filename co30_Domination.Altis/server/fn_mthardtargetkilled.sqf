@@ -34,6 +34,13 @@ if (!isNull _killer && {isPlayer [_killer]}) then {
 	};
 };
 #endif
+private _utower = (_this # 0) getVariable "d_utower";
+if (!isNil "_utower" && {!isNull _utower}) then {
+	private _id = _utower getVariable "d_delete_id";
+	if (!isNil "_id") then {
+		_utower removeEventHandler ["Deleted", _id];
+	};
+};
 (_this # 0) spawn {
 	scriptName "spawn checkmthardtarget";
 	if (isNil {_this getVariable "d_faster"}) then {
