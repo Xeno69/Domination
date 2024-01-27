@@ -17,7 +17,7 @@ private _mlen = count _mname;
 		};
 		
 		_x addEventhandler ["getIn", {
-			if (!local (_this # 2) || {isPlayer [_this # 2]}) then {
+			if (isPlayer [_this # 2]) then {
 				(_this # 2) action ["getOut", _this # 0];
 				diag_log format ["Attention!!!! %1 is trying to get into an AA vehicle at base, UID: %2", name (_this # 2), getPlayerUID (_this # 2)];
 			};
