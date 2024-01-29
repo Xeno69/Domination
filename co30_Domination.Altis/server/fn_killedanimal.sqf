@@ -35,4 +35,4 @@ call {
 if (_score == 0) exitWith {};
 
 _insti addScore _score;
-[15, abs _score, _type] remoteExecCall ["d_fnc_scoreadded", _pl];
+[15, abs _score, _type] remoteExecCall ["d_fnc_scoreadded", _insti];

@@ -6,16 +6,16 @@ __TRACE_1("","_this")
 
 params ["_obj"];
 
-private _isman = false;
-
-if (_obj getEntityInfo 0) then {
-	_isman = true;
+private _isman = if (_obj getEntityInfo 0) then {
 	if (_obj getHitIndex 2 == 1 || {_obj getHitIndex 0 == 1}) then {
 		private _insti = _this # 2;
 		if (!isNull _insti && {isNull objectParent _insti && {isPlayer [_insti]}}) then {
-			[_insti, _insti distance2D _obj] spawn d_fnc_addheadshot;
+			[_insti, _obj] spawn d_fnc_addheadshot;
 		};
 	};
+	true
+} else {
+	false
 };
 
 private _ar = _obj getVariable "d_hkx";

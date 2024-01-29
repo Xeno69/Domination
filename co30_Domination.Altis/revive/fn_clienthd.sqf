@@ -1,11 +1,12 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_macros.sqf"
+#include "..\x_macros.sqf"
 
 params ["_unit", "", "_dam", "", "_ammo", "_idx", "_injurer"];
-//__TRACE_1("","_this")
+__TRACE_1("","_this")
+
 if (!alive _unit) exitWith {
-	//__TRACE("unit not alive, removing hd EH")
+	__TRACE("unit not alive, removing hd EH")
 	private _ehi = player getVariable "xr_hd_eh_i";
 	if (!isNil "_ehi") then {
 		player removeEventHandler ["handleDamage", _ehi];
@@ -16,11 +17,11 @@ if (!alive _unit) exitWith {
 	nil
 };
 if (_dam == 0) exitWith {
-	//__TRACE_1("exiting, unit healing","_dam")
+	__TRACE_1("exiting, unit healing","_dam")
 	_dam
 };
 if (_unit getVariable "xr_pluncon" || {xr_phd_invulnerable}) exitWith {
-	//__TRACE("exiting, unit uncon or invulnerable")
+	__TRACE("exiting, unit uncon or invulnerable")
 	0
 };
 
