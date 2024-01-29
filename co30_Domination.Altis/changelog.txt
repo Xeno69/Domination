@@ -13,4 +13,5 @@
 - Fixed: Unloaded static weapons created partially underground, by longtimegamer
 - Fixed: Do not show airdrop message if streamfriendly is enabled, by longtimegamer
 - Fixed: If tower under radio got deleted (for whatever reason) main target mission did not end
+- Fixed: If an air taxi was also a vehicle available as bonus vehicle (side mission or main target bonus) player without enough points could not enter it when database is available
 - Lots of opimizations (script profiling)

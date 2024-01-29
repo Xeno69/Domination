@@ -14,6 +14,7 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 	};
 	if (_vec isKindOf "Air") then {
 		if (_vec getVariable ["d_vec_type", ""] == "MHQ") exitWith {};
+		if (!isNil {_vec getVariable "d_is_airtaxi"}) exitWith {};
 		private _type = toLowerANSI (typeOf _vec);
 #ifndef __TT__
 		if ((_type in d_mt_bonus_vehicle_array || {_type in d_sm_b_vec_ar_c}) && {player == driver _vec || {player == gunner _vec || {player == commander _vec}}}) then {
@@ -31,6 +32,7 @@ if (!(d_clientScriptsAr # 1) && {!isNil "d_player_autokick_time"}) then {
 };
 if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to_fly > -1 && {score player < d_score_needed_to_fly}}}}) then {
 	if (_vec getVariable ["d_vec_type", ""] == "MHQ") exitWith {};
+	if (!isNil {_vec getVariable "d_is_airtaxi"}) exitWith {};
 	if (player == driver _vec || {player == gunner _vec || {player == commander _vec || {player == currentPilot _vec || {[_vec, player] call d_fnc_iscopilot || {(fullCrew [_vec, "Turret"]) findIf {_x # 0 == player} > -1}}}}}) then {
 		player action ["getOut", _vec];
 		[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;

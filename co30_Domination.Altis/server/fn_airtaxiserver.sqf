@@ -6,6 +6,8 @@ deleteVehicleCrew _vec; \
 deleteVehicle _vec; \
 deleteVehicle (_crew select {!isNull _x});
 
+__TRACE("Starting Air Taxi Server")
+
 if (!isServer) exitWith {};
 
 d_heli_taxi_available = false;
@@ -45,6 +47,7 @@ addToRemainsCollector [_vec];
 _unit setSkill 1;
 _vec allowDamage false;
 _unit allowDamage false;
+_unit setRank "COLONEL";
 
 d_airtaxi_driver = _unit;
 _unit setVariable ["d_type", _ttype];
@@ -53,13 +56,15 @@ _vec lockDriver true;
 
 {_x setCaptive true} forEach _crew;
 
+_vec setVariable ["d_is_airtaxi", true, true];
+
 private _pospl =+ _playerpos;
 _pospl set [2,0];
 private _helperh = d_HeliHEmpty createVehicle [0,0,0];
 _unit setVariable ["d_hempty", _helperh];
 200 remoteExecCall ["d_fnc_ataxiNet", _player];
-private _nendpos = _playerpos findEmptyPosition [10, 200, _ttype];
-if (_nendpos isNotEqualTo []) then {_nendpos = _playerpos};
+private _nendpos = _pospl findEmptyPosition [10, 200, _ttype];
+if (_nendpos isNotEqualTo []) then {_nendpos = _pospl};
 _unit doMove _nendpos;
 _helperh setVehiclePosition [_nendpos, [], 0, "NONE"];
 _vec flyInHeight 80;
@@ -123,7 +128,7 @@ while {alive _unit && {alive _vec && {canMove _vec}}} do {
 	if (unitReady _unit) exitWith {
 		sleep 0.1;
 		_vec land "LAND";
-		__TRACE("End 2")
+		__TRACE("End 2 land")
 	};
 	sleep 1.012;
 };
@@ -169,6 +174,7 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	if (isNil "_nendpos") then {
 		_nendpos = _destination findEmptyPosition [10, 200, _ttype];
 		if (_nendpos isNotEqualTo []) then {_nendpos = _destination};
+		_nendpos set [2, 0];
 	};
 	_unit doMove _nendpos;
 	_unit setVariable ["d_isondestway", true];
@@ -180,8 +186,10 @@ if (alive _unit && {alive _vec && {canMove _vec}}) then {
 	_doend = false;
 	while {alive _unit && {alive _vec && {canMove _vec}}} do {
 		"d_airtaxi_marker" setMarkerPos (getPosWorld _vec);
+		__TRACE("Flying")
 		if (unitReady _unit) exitWith {
 			sleep 0.1;
+			__TRACE("Landing at destination")
 			_vec land "LAND";
 		};
 		if (!alive _unit || {!alive _vec || {!canMove _vec}}) exitWith {
