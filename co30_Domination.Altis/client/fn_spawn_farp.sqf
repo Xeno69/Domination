@@ -9,7 +9,7 @@ if (player getVariable ["d_isinaction", false]) exitWith {
 };
 
 if (player distance2D d_FLAG_BASE < 30) exitWith {
-	systemChat (localize "STR_DOM_MISSIONSTRING_246");
+	systemChat (localize "STR_DOM_MISSIONSTRING_246_a");
 	d_commandingMenuIniting = false;
 };
 

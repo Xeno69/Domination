@@ -1875,16 +1875,28 @@
 <French>Vous avez besoin de %2 points pour construire un FARP. Votre score actuel est: %1</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_246">
-<English>Place not valid. Try another location.</English>
-<Spanish>Lugar no válido. Pruebe otra ubicación.</Spanish>
-<Portuguese>Coloca não válido. Provar outra localização.</Portuguese>
-<Korean>배치할 수 없습니다. 다른 위치에 다시 시도하여 주십시오.</Korean>
-<Japanese>無効な場所です。 別の場所をお試しください。</Japanese>
-<Original>Place not valid. Try another location.</Original>
-<Russian>Тут не подходит. Попробуйте в другом месте.</Russian>
-<Chinesesimp>无法放置,请换一个地点。</Chinesesimp>
-<Chinese>無法放置,請換一個地點‧</Chinese>
-<French>Lieu non valide. Essayez un autre emplacement.</French>
+<English>Place not valid, slope too steep. Try another location.</English>
+<Spanish>Place not valid, slope too steep. Try another location.</Spanish>
+<Portuguese>Place not valid, slope too steep. Try another location.</Portuguese>
+<Korean>Place not valid, slope too steep. Try another location.</Korean>
+<Japanese>Place not valid, slope too steep. Try another location.</Japanese>
+<Original>Place not valid, slope too steep. Try another location.</Original>
+<Russian>Place not valid, slope too steep. Try another location.</Russian>
+<Chinesesimp>Place not valid, slope too steep. Try another location.</Chinesesimp>
+<Chinese>Place not valid, slope too steep. Try another location.</Chinese>
+<French>Place not valid, slope too steep. Try another location.</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_246_a">
+<English>Place not valid, too close to base. Try another location.</English>
+<Spanish>Place not valid, too close to base. Try another location.</Spanish>
+<Portuguese>Place not valid, too close to base. Try another location.</Portuguese>
+<Korean>Place not valid, too close to base. Try another location.</Korean>
+<Japanese>Place not valid, too close to base. Try another location.</Japanese>
+<Original>Place not valid, too close to base. Try another location.</Original>
+<Russian>Place not valid, too close to base. Try another location.</Russian>
+<Chinesesimp>Place not valid, too close to base. Try another location.</Chinesesimp>
+<Chinese>Place not valid, too close to base. Try another location.</Chinese>
+<French>Place not valid, too close to base. Try another location.</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_247">
 <English>You died before you could place the object.</English>
