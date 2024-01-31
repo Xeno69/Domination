@@ -140,6 +140,8 @@ d_base_array = [
 
 "d_isledefense_marker" setMarkerAlphaLocal 0;
 
+setMissionOptions [true, true];
+
 if (isServer) then {
 #include "i_server.sqf"
 };

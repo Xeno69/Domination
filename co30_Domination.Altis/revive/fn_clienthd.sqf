@@ -16,10 +16,10 @@ if (!alive _unit) exitWith {
 	};
 	nil
 };
-if (_dam == 0) exitWith {
+/*if (_dam == 0) exitWith {
 	__TRACE_1("exiting, unit healing","_dam")
 	_dam
-};
+};*/
 if (_unit getVariable "xr_pluncon" || {xr_phd_invulnerable}) exitWith {
 	__TRACE("exiting, unit uncon or invulnerable")
 	0
