@@ -8,7 +8,7 @@ params ["_killed", "_killer", "_insti"];
 if (isNull _insti) then {_insti = UAVControl vehicle _killer # 0}; // UAV/UGV player operated road kill
 if (isNull _insti) then {_insti = _killer}; // player driven vehicle road kill
 
-if (isNull _insti) exitWith {};
+if (isNull _insti || {_insti == _killed}) exitWith {};
 
 if ((d_with_ranked || {d_database_found}) && {d_sub_kill_points != 0 && {side (group _insti) getFriend side (group _killed) < 0.6}}) then {
 	_killed addScore d_sub_kill_points;
