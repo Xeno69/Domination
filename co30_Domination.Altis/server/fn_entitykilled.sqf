@@ -114,7 +114,7 @@ if (_ar # 16 == 1) then {
 };
 
 if (_ar # 5 == 1) then {
-	call d_fnc_handleDeadVec;
+	_obj spawn d_fnc_handleDeadVec;
 };
 
 if (_ar # 6 == 1) then {
