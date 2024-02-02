@@ -698,6 +698,7 @@ class cfgFunctions {
 			addc(spe_illum);
 			addc(delobju);
 			addc(entitycreated);
+			addc(disglobalsim);
 		};
 		class Dom_PrePostInit {
 			file = "init";
