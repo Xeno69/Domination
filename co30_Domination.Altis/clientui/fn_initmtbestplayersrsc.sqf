@@ -10,7 +10,7 @@ private _row = ["Pos", "Name", "Score"];
 
 _ctrl lnbAddColumn 0.02;
 _ctrl lnbAddColumn 0.05;
-_ctrl lnbAddColumn 0.2;
+_ctrl lnbAddColumn 0.135;
 
 private _rowidx = _ctrl lnbAddRow _row;
 

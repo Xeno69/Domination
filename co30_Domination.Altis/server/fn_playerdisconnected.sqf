@@ -2,27 +2,37 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected: _this", _this];
+#endif
 
 __TRACE_1("","_this")
 
 if (isNull d_serv_test_obj) exitWith {
+#ifdef __DEBUG__
 	diag_log "DOM playerdisconnected, d_serv_test_obj is Null!!!";
+#endif
 };
 
 params ["", "_uid", "_name"];
 
 if (_uid isEqualTo "") exitWith {
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected, _uid is an empty string, _this:", _this];
+#endif
 };
 
 private _gui = getUserInfo (_this # 5);
 __TRACE_1("","_gui")
 
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected: getUserInfo", _gui];
+#endif
 
 if (_gui # 7) exitWith {
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
+#endif
 	0 spawn {
 		scriptname "spawn pldisconnected";
 		sleep 2;
@@ -50,37 +60,51 @@ if (isNil "_unit" || {isNull _unit}) exitWith {};
 if (local _unit && {isDedicated}) exitWith {};
 
 if (_unit isKindOf "VirtualSpectator_F") exitWith {
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected, virtual spectator, _this:", _this];
+#endif
 };
 
 if (!d_database_found) exitWith {};
 
 if (!isNil {_unit getVariable "d_no_side_change"}) exitWith {
 	__TRACE_2("No database update","_unit","_name")
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected: No database update, _this:", _this];
+#endif
 };
 
 private _pa = d_player_hash getOrDefault [_uid, []];
 if (_pa isEqualTo []) exitWith {
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected uid not found in player hash, _this:", _this];
+#endif
 };
 
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected _unit:", _unit];
+#endif
 
 private _ps = if (!isNull _unit) then {getPlayerScores _unit} else {_pa # 12};
 private _scpl = if (!isNull _unit) then {score _unit} else {-1};
 __TRACE_1("","_scpl")
 __TRACE_1("","getPlayerScores _unit")
 __TRACE_1("","_ps")
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected _pa", _pa, " _ps", _ps, " _scpl", _scpl];
+#endif
 if (_ps isEqualTo [] || {_ps isEqualTo [0, 0, 0, 0, 0, 0]}) exitWith {
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected playerscores is either an empty array or has only entries with 0, _ps:", _ps, "_this:", _this];
+#endif
 };
 //  [infantry kills, soft vehicle kills, armor kills, air kills, deaths, total score]
 private _usc = _uid + "_scores";
 private _t_ps = d_player_hash getOrDefault [_usc, [0, 0, 0, 0, 0, 0]];
 __TRACE_1("","_t_ps")
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected: _t_ps", _t_ps];
+#endif
 // only add diff to db
 private _infkills = (_ps # 0) - (_t_ps # 0);
 private _softveckills = (_ps # 1) - (_t_ps # 1);
@@ -94,15 +118,21 @@ d_player_hash set [_usc, _ps];
 __TRACE_3("","_infkills","_softveckills","_armorkills")
 __TRACE_3("","_airkills","_deaths","_totalscore")
 
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected: _totalscore", _totalscore];
+#endif
 
 if (_totalscore <= 0) exitWith {
+#ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected _totalscore <= 0, _this:", _this];
+#endif
 };
 
 private _playtime = round (time - (_pa # 1));
 
+#ifdef __DEBUG__
 diag_log ["DOM playerdisconnected: _playtime", _playtime];
+#endif
 
 private _tks = _pa # 14;
 

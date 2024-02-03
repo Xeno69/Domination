@@ -138,7 +138,9 @@ d_cas_metadata_enemy = [_plane, _planePos, _pos, _offset, _velocity, _vectorDir,
 //publicVariable "d_cas_metadata_enemy";
 
 // use eachframe for a smooth approach
-["dom_cas_setvelocitytransform_enemy", {call d_fnc_moduleCAS_eachframeAI}] call d_fnc_eachframeadd;
+["dom_cas_setvelocitytransform_enemy", {call d_fnc_moduleCAS_eachframeAI}, 0.1] call d_fnc_eachframeadd;
+
+params ["_name", "_code", ["_delta", 0], ["_type", "seconds"]];
 
 waitUntil {
 	private _fireProgress = _plane getVariable ["fireProgress", 0];

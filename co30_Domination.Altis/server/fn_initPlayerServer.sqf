@@ -13,7 +13,9 @@ if (remoteExecutedOwner != owner _pl) exitWith {};
 
 if (_pl isKindOf "HeadlessClient_F") exitWith {
 	__TRACE_2("","_pl","owner _pl")
+#ifdef __DEBUG__
 	diag_log ["Dom initplayerserver headleass client connected"];
+#endif
 	d_hc_array pushBack _pl;
 	if (time > 10) then {
 		if (!isNil "d_recreatehcs_handle") then {
@@ -48,13 +50,17 @@ if (_p isEqualTo []) then {
 	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0, getPlayerID _pl];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
+#ifdef __DEBUG__
 	diag_log ["Dom initplayerserver, new player for this session:", _name, "_uid:", _uid, "getPlayerID _pl:", getPlayerID _pl];
+#endif
 	__TRACE_3("Player not found in d_player_hash","_uid","_name","_p")
 } else {
 	__TRACE_1("player store before change","_p")
 	if (_name != _p # 6) then {
 		[22, _name, _p # 6] remoteExecCall ["d_fnc_csidechat", [0, -2] select isDedicated];
+#ifdef __DEBUG__
 		diag_log format [localize "STR_DOM_MISSIONSTRING_942", _name, _p # 6, _uid];
+#endif
 	};
 	if ((_p # 9) # 0 > 0 && {time - ((_p # 9) # 0) > 900}) then {
 		_p set [8, [-2, xr_max_lives] select (xr_max_lives != -1)];
@@ -84,7 +90,9 @@ if (_p isEqualTo []) then {
 		};
 	};
 #endif
+#ifdef __DEBUG__
 	diag_log ["Dom initplayerserver, player joins session again:", _name, "_uid:", _uid, "getPlayerID _pl:", getPlayerID _pl];
+#endif
 	__TRACE_1("player store after change","_p")
 };
 
@@ -114,7 +122,9 @@ if (d_database_found) then {
 			};
 		};
 	};
+#ifdef __DEBUG__
 	diag_log ["Dom initplayerserver database playerGetTS result", _dbresult];
+#endif
 
 	__TRACE_1("","_dbresult")
 	if (_dbresult isEqualTo []) then {
@@ -123,11 +133,15 @@ if (d_database_found) then {
 		call {
 			if (d_db_type == 0) exitWith {
 				"extdb3" callExtension format ["1:dom:playerInsert:%1:%2", _uid, _name];
+#ifdef __DEBUG__
 				diag_log ["Dom initplayerserver database extdB3 player Insert", _name];
+#endif
 			};
 			if (d_db_type == 1) exitWith {
 				["playerInsert", [_uid, _name]] call d_fnc_queryconfigasync;
+#ifdef __DEBUG__
 				diag_log ["Dom initplayerserver database InterceptDB player Insert", _name];
+#endif
 			};
 			if (d_db_type == 2) exitWith {
 				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
@@ -135,7 +149,9 @@ if (d_database_found) then {
 					_tmphash set [_uid, [_name, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, [], 0, 0]];
 					__TRACE_1("player insert","_tmphash")
 					saveMissionProfileNamespace;
+#ifdef __DEBUG__
 					diag_log ["Dom initplayerserver database missionProfileNamespace player Insert", _name];
+#endif
 				};
 			};
 		};
@@ -144,11 +160,15 @@ if (d_database_found) then {
 		call {
 			if (d_db_type == 0) exitWith {
 				"extdb3" callExtension format ["1:dom:numplayedAdd:%1:%2", _name, _uid];
+#ifdef __DEBUG__
 				diag_log ["Dom initplayerserver database extdB3 updating numplayed:", _name];
+#endif
 			};
 			if (d_db_type == 1) exitWith {
 				["numplayedAdd", [_name, _uid]] call d_fnc_queryconfigasync;
+#ifdef __DEBUG__
 				diag_log ["Dom initplayerserver database InterceptDB updating numplayed", _name];
+#endif
 			};
 			if (d_db_type == 2) exitWith {
 				private _tmphash = missionProfileNamespace getVariable "d_player_hashmap";
@@ -159,7 +179,9 @@ if (d_database_found) then {
 						_tmpar set [10, (_tmpar # 10) + 1];
 						__TRACE_1("num played","_tmpar")
 					};
+#ifdef __DEBUG__
 					diag_log ["Dom initplayerserver database missionProfileNamespace updating numplayed", _name];
+#endif
 				};
 			};
 		};
@@ -201,7 +223,9 @@ if (d_database_found) then {
 				};
 			};
 		};
+#ifdef __DEBUG__
 		diag_log ["Dom initplayerserver database playerGet result", _dbresult];
+#endif
 		__TRACE_1("","_dbresult")
 		if (_dbresult isNotEqualTo []) then {
 			_dbresult params ["_pres"];

@@ -564,6 +564,7 @@ d_vec_camo_net =
 d_sm_winner = 0;
 d_objectID1 = objNull;
 d_objectID2 = objNull;
+d_nump_h_ar = [-1, -1];
 
 // no farps in A3 so we fake them
 // first entry should always be a helipad because the trigger which is needed to make it work is spawned there

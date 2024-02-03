@@ -4,12 +4,16 @@
 
 params ["_unit", "", "_uid", "_name"];
 
+#ifdef __DEBUG__
 diag_log ["DOM handledisconnect _this:", _this];
+#endif
 
 __TRACE_1("","_this")
 
 if (_name == "__SERVER__") exitWith {
+#ifdef __DEBUG__
 	diag_log "DOM handledisconnect, _unit is server!";
+#endif
 	if (d_db_type == 2) then {
 		saveMissionProfileNamespace;
 	};
@@ -17,7 +21,9 @@ if (_name == "__SERVER__") exitWith {
 };
 
 if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}) exitWith {
+#ifdef __DEBUG__
 	diag_log "DOM handledisconnect, _unit is either nil or kindof VirtualSpectator or _uid is empty or is HC!";
+#endif
 	false
 };
 
@@ -46,7 +52,9 @@ if (!isNil "_gru" && {!isNull _gru}) then {
 
 private _pa = d_player_hash getOrDefault [_uid, []];
 if (_pa isNotEqualTo []) then {
+#ifdef __DEBUG__
 	diag_log ["DOM handledisconnect player hash:", _pa];
+#endif
 	_pa set [0, [time - (_pa # 0), -1] select (time - (_pa # 0) < 0)];
 	if ((_pa # 9) # 0 == 0) then {
 		_pa set [9, [time, (_pa # 9) # 1]];
@@ -85,13 +93,17 @@ if (_pa isNotEqualTo []) then {
 	};
 	__TRACE_1("player store after change","_pa")
 } else {
+#ifdef __DEBUG__
 	diag_log "DOM handledisconnect no player hash found!!!";
+#endif
 };
 
 remoteExecCall ["", _unit];
 
 private _ar = _unit getVariable ["d_all_p_vecs_s", []];
+#ifdef __DEBUG__
 diag_log ["DOM handledisconnect d_all_p_vecs_s:", _ar];
+#endif
 if (_ar isNotEqualTo []) then {
 	{
 		_x setVariable ["d_end_time", time + 600];
@@ -103,6 +115,8 @@ removeAllOwnedMines _unit;
 
 _unit spawn d_fnc_hddelu;
 
+#ifdef __DEBUG__
 diag_log "DOM handledisconnect exiting";
+#endif
 
 false
