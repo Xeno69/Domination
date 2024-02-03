@@ -38,7 +38,7 @@ d_x_mt_event_pos = [];
 
 addMissionEventHandler ["EntityKilled", {call d_fnc_entitykilled}];
 addMissionEventHandler ["EntityRespawned", {call d_fnc_entityrespawned}];
-addMissionEventHandler ["EntityCreated", {call d_fnc_entitycreated}];
+//addMissionEventHandler ["EntityCreated", {call d_fnc_entitycreated}];
 
 // start air AI after some time
 // ATTENTION! KEEP AIR AI RATES LOW!!!! AIR AI EATS UP FPS
