@@ -54,7 +54,7 @@
 <English>Vehicle Service</English>
 <Spanish>Vehicle Service</Spanish>
 <Portuguese>Vehicle Service</Portuguese>
-<Korean>Vehicle Service</Korean>
+<Korean>장비 정비</Korean>
 <Japanese>Vehicle Service</Japanese>
 <Original>Vehicle Service</Original>
 <Russian>Vehicle Service</Russian>
@@ -1878,7 +1878,7 @@
 <English>Place not valid, slope too steep. Try another location.</English>
 <Spanish>Place not valid, slope too steep. Try another location.</Spanish>
 <Portuguese>Place not valid, slope too steep. Try another location.</Portuguese>
-<Korean>Place not valid, slope too steep. Try another location.</Korean>
+<Korean>배치할 수 없습니다. 다른 위치에 다시 시도하여 주십시오.</Korean>
 <Japanese>Place not valid, slope too steep. Try another location.</Japanese>
 <Original>Place not valid, slope too steep. Try another location.</Original>
 <Russian>Place not valid, slope too steep. Try another location.</Russian>
@@ -3102,7 +3102,7 @@
 <English>Always, guerrillas and defense only</English>
 <Spanish>Always, guerrillas and defense only</Spanish>
 <Portuguese>Always, guerrillas and defense only</Portuguese>
-<Korean>Always, guerrillas and defense only</Korean>
+<Korean>항상, 게릴라 및 방어진행</Korean>
 <Japanese>Always, guerrillas and defense only</Japanese>
 <Original>Always, guerrillas and defense only</Original>
 <Russian>Always, guerrillas and defense only</Russian>
@@ -3414,7 +3414,7 @@
 <English>Vehicle Service Point</English>
 <Spanish>Vehicle Service Point</Spanish>
 <Portuguese>Vehicle Service Point</Portuguese>
-<Korean>Vehicle Service Point</Korean>
+<Korean>장비 정비</Korean>
 <Japanese>Vehicle Service Point</Japanese>
 <Original>Vehicle Service Point</Original>
 <Russian>Vehicle Service Point</Russian>
@@ -3774,7 +3774,7 @@
 <English>Find a high value target in %1 and eliminate him\n</English>
 <Spanish>Find a high value target in %1 and eliminate him\n</Spanish>
 <Portuguese>Find a high value target in %1 and eliminate him\n</Portuguese>
-<Korean>Find a high value target in %1 and eliminate him\n</Korean>
+<Korean>%1 에 있는 고가치 표적을 찾아 사살하십시오.\n</Korean>
 <Japanese>Find a high value target in %1 and eliminate him\n</Japanese>
 <Original>Find a high value target in %1 and eliminate him\n</Original>
 <Russian>Find a high value target in %1 and eliminate him\n</Russian>
@@ -6319,7 +6319,7 @@
 <English>Your team killed the high value target.</English>
 <Spanish>Your team killed the high value target.</Spanish>
 <Portuguese>Your team killed the high value target.</Portuguese>
-<Korean>Your team killed the high value target.</Korean>
+<Korean>아군이 고가치 표적을 사살하였습니다.</Korean>
 <Japanese>Your team killed the high value target.</Japanese>
 <Original>Your team killed the high value target.</Original>
 <Russian>Your team killed the high value target.</Russian>
@@ -6967,7 +6967,7 @@
 <English>Force steerable parachutes:</English>
 <Spanish>Force steerable parachutes:</Spanish>
 <Portuguese>Force steerable parachutes:</Portuguese>
-<Korean>Force steerable parachutes:</Korean>
+<Korean>수동 조종가능 낙하산:</Korean>
 <Japanese>Force steerable parachutes:</Japanese>
 <Original>Force steerable parachutes:</Original>
 <Russian>Force steerable parachutes:</Russian>
@@ -6979,7 +6979,7 @@
 <English>Players may parajump to any location:</English>
 <Spanish>Players may parajump to any location:</Spanish>
 <Portuguese>Players may parajump to any location:</Portuguese>
-<Korean>Players may parajump to any location:</Korean>
+<Korean>플레이어 어떤 위치로든 공수낙하 가능:</Korean>
 <Japanese>Players may parajump to any location:</Japanese>
 <Original>Players may parajump to any location:</Original>
 <Russian>Players may parajump to any location:</Russian>
@@ -7472,7 +7472,7 @@
 <English>Enable Phronk's Furniture (experimental):</English>
 <Spanish>Enable Phronk's Furniture (experimental):</Spanish>
 <Portuguese>Enable Phronk's Furniture (experimental):</Portuguese>
-<Korean>Enable Phronk's Furniture (experimental):</Korean>
+<Korean>프롱크(Phronk's) 가구세트 활성화 (실험요소):</Korean>
 <Japanese>Enable Phronk's Furniture (experimental):</Japanese>
 <Original>Enable Phronk's Furniture (experimental):</Original>
 <Russian>Enable Phronk's Furniture (experimental):</Russian>
@@ -7484,7 +7484,7 @@
 <English>Disable ambient battlefield sounds:</English>
 <Spanish>Disable ambient battlefield sounds:</Spanish>
 <Portuguese>Disable ambient battlefield sounds:</Portuguese>
-<Korean>Disable ambient battlefield sounds:</Korean>
+<Korean>주변 전장소리 비활성화:</Korean>
 <Japanese>Disable ambient battlefield sounds:</Japanese>
 <Original>Disable ambient battlefield sounds:</Original>
 <Russian>Disable ambient battlefield sounds:</Russian>
@@ -8624,7 +8624,7 @@
 <English>Combat UAV</English>
 <Spanish>Combat UAV</Spanish>
 <Portuguese>Combat UAV</Portuguese>
-<Korean>Combat UAV</Korean>
+<Korean>무장 무인기</Korean>
 <Japanese>Combat UAV</Japanese>
 <Original>Combat UAV</Original>
 <Russian>Combat UAV</Russian>
@@ -11181,7 +11181,7 @@
 <English>End maintarget</English>
 <Spanish>End maintarget</Spanish>
 <Portuguese>End maintarget</Portuguese>
-<Korean>End maintarget</Korean>
+<Korean>메인미션 종료</Korean>
 <Japanese>End maintarget</Japanese>
 <Original>End maintarget</Original>
 <Russian>End maintarget</Russian>
@@ -12381,7 +12381,7 @@
 <English>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</English>
 <Spanish>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Spanish>
 <Portuguese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Portuguese>
-<Korean>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Korean>
+<Korean>%1 이(가) 적군의 표적으로 확인되었습니다. VIP를 안전가옥으로 무사히 피난시키길 바랍니다.</Korean>
 <Japanese>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Japanese>
 <Original>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Original>
 <Russian>%1 has been marked for death.  Safely escort the VIP to the target center for evacuation.</Russian>
@@ -12393,7 +12393,7 @@
 <English>The VIP is following you.  Escort them to the center of town!</English>
 <Spanish>The VIP is following you.  Escort them to the center of town!</Spanish>
 <Portuguese>The VIP is following you.  Escort them to the center of town!</Portuguese>
-<Korean>The VIP is following you.  Escort them to the center of town!</Korean>
+<Korean>VIP가 아군을 따라가고 있습니다.  마을의 안전가옥으로 VIP를 이동시키세요!</Korean>
 <Japanese>The VIP is following you.  Escort them to the center of town!</Japanese>
 <Original>The VIP is following you.  Escort them to the center of town!</Original>
 <Russian>The VIP is following you.  Escort them to the center of town!</Russian>
@@ -12429,7 +12429,7 @@
 <English>%1 did not survive.  Mission failed.</English>
 <Spanish>%1 did not survive.  Mission failed.</Spanish>
 <Portuguese>%1 did not survive.  Mission failed.</Portuguese>
-<Korean>%1 did not survive.  Mission failed.</Korean>
+<Korean>%1 이(가) 사망하였습니다.  미션실패.</Korean>
 <Japanese>%1 did not survive.  Mission failed.</Japanese>
 <Original>%1 did not survive.  Mission failed.</Original>
 <Russian>%1 did not survive.  Mission failed.</Russian>
@@ -12453,7 +12453,7 @@
 <English>Success.  %1 survived. + %2</English>
 <Spanish>Success.  %1 survived. + %2</Spanish>
 <Portuguese>Success.  %1 survived. + %2</Portuguese>
-<Korean>Success.  %1 survived. + %2</Korean>
+<Korean>성공.  %1 생존하였습니다. + %2</Korean>
 <Japanese>Success.  %1 survived. + %2</Japanese>
 <Original>Success.  %1 survived. + %2</Original>
 <Russian>Success.  %1 survived. + %2</Russian>
@@ -12525,7 +12525,7 @@
 <English>Civilian vehicles - type</English>
 <Spanish>Civilian vehicles - type</Spanish>
 <Portuguese>Civilian vehicles - type</Portuguese>
-<Korean>Civilian vehicles - type</Korean>
+<Korean>시민 장비 - 종류</Korean>
 <Japanese>Civilian vehicles - type</Japanese>
 <Original>Civilian vehicles - type</Original>
 <Russian>Civilian vehicles - type</Russian>
@@ -12539,7 +12539,7 @@
 <English>City, high wealth</English>
 <Spanish>City, high wealth</Spanish>
 <Portuguese>City, high wealth</Portuguese>
-<Korean>City, high wealth</Korean>
+<Korean>도시, 부촌지역</Korean>
 <Japanese>City, high wealth</Japanese>
 <Original>City, high wealth</Original>
 <Russian>City, high wealth</Russian>
@@ -12551,7 +12551,7 @@
 <English>City</English>
 <Spanish>City</Spanish>
 <Portuguese>City</Portuguese>
-<Korean>City</Korean>
+<Korean>도시</Korean>
 <Japanese>City</Japanese>
 <Original>City</Original>
 <Russian>City</Russian>
@@ -12563,7 +12563,7 @@
 <English>Rural</English>
 <Spanish>Rural</Spanish>
 <Portuguese>Rural</Portuguese>
-<Korean>Rural</Korean>
+<Korean>시골</Korean>
 <Japanese>Rural</Japanese>
 <Original>Rural</Original>
 <Russian>Rural</Russian>
@@ -12575,7 +12575,7 @@
 <English>Rural (CUP)</English>
 <Spanish>Rural (CUP)</Spanish>
 <Portuguese>Rural (CUP)</Portuguese>
-<Korean>Rural (CUP)</Korean>
+<Korean>시골 (CUP)</Korean>
 <Japanese>Rural (CUP)</Japanese>
 <Original>Rural (CUP)</Original>
 <Russian>Rural (CUP)</Russian>
@@ -12587,7 +12587,7 @@
 <English>Rural, low wealth (CUP)</English>
 <Spanish>Rural, low wealth (CUP)</Spanish>
 <Portuguese>Rural, low wealth (CUP)</Portuguese>
-<Korean>Rural, low wealth (CUP)</Korean>
+<Korean>시골, 빈촌지역 (CUP)</Korean>
 <Japanese>Rural, low wealth (CUP)</Japanese>
 <Original>Rural, low wealth (CUP)</Original>
 <Russian>Rural, low wealth (CUP)</Russian>
@@ -12636,7 +12636,7 @@
 <English>Civilian type</English>
 <Spanish>Civilian type</Spanish>
 <Portuguese>Civilian type</Portuguese>
-<Korean>Civilian type</Korean>
+<Korean>시민 유형</Korean>
 <Japanese>Civilian type</Japanese>
 <Original>Civilian type</Original>
 <Russian>Civilian type</Russian>
@@ -12648,7 +12648,7 @@
 <English>African civilians</English>
 <Spanish>African civilians</Spanish>
 <Portuguese>African civilians</Portuguese>
-<Korean>African civilians</Korean>
+<Korean>아프리카인</Korean>
 <Japanese>African civilians</Japanese>
 <Original>African civilians</Original>
 <Russian>African civilians</Russian>
@@ -12660,7 +12660,7 @@
 <English>Asian civilians</English>
 <Spanish>Asian civilians</Spanish>
 <Portuguese>Asian civilians</Portuguese>
-<Korean>Asian civilians</Korean>
+<Korean>아시아인</Korean>
 <Japanese>Asian civilians</Japanese>
 <Original>Asian civilians</Original>
 <Russian>Asian civilians</Russian>
@@ -12672,7 +12672,7 @@
 <English>Asian civilians (CUP)</English>
 <Spanish>Asian civilians (CUP)</Spanish>
 <Portuguese>Asian civilians (CUP)</Portuguese>
-<Korean>Asian civilians (CUP)</Korean>
+<Korean>아시아인 (CUP)</Korean>
 <Japanese>Asian civilians (CUP)</Japanese>
 <Original>Asian civilians (CUP)</Original>
 <Russian>Asian civilians (CUP)</Russian>
@@ -12684,7 +12684,7 @@
 <English>Asian civilians (CFP)</English>
 <Spanish>Asian civilians (CFP)</Spanish>
 <Portuguese>Asian civilians (CFP)</Portuguese>
-<Korean>Asian civilians (CFP)</Korean>
+<Korean>아시아인(CFP)</Korean>
 <Japanese>Asian civilians (CFP)</Japanese>
 <Original>Asian civilians (CFP)</Original>
 <Russian>Asian civilians (CFP)</Russian>
@@ -12696,7 +12696,7 @@
 <English>European civilians</English>
 <Spanish>European civilians</Spanish>
 <Portuguese>European civilians</Portuguese>
-<Korean>European civilians</Korean>
+<Korean>유럽인</Korean>
 <Japanese>European civilians</Japanese>
 <Original>European civilians</Original>
 <Russian>European civilians</Russian>
@@ -12708,7 +12708,7 @@
 <English>Tanoan civilians</English>
 <Spanish>Tanoan civilians</Spanish>
 <Portuguese>Tanoan civilians</Portuguese>
-<Korean>Tanoan civilians</Korean>
+<Korean>타노아시민</Korean>
 <Japanese>Tanoan civilians</Japanese>
 <Original>Tanoan civilians</Original>
 <Russian>Tanoan civilians</Russian>
@@ -12720,7 +12720,7 @@
 <English>Chernarus civilians (CUP)</English>
 <Spanish>Chernarus civilians (CUP)</Spanish>
 <Portuguese>Chernarus civilians (CUP)</Portuguese>
-<Korean>Chernarus civilians (CUP)</Korean>
+<Korean>체루나루스인 (CUP)</Korean>
 <Japanese>Chernarus civilians (CUP)</Japanese>
 <Original>Chernarus civilians (CUP)</Original>
 <Russian>Chernarus civilians (CUP)</Russian>
@@ -12732,7 +12732,7 @@
 <English>Chernarus winter civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>Chernarus winter civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>Chernarus winter civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>Chernarus winter civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>체르나루스 겨울시민 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>Chernarus winter civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>Chernarus winter civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>Chernarus winter civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12744,7 +12744,7 @@
 <English>Afghanistan civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>Afghanistan civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>Afghanistan civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>Afghanistan civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>아프가니스탄 시민 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>Afghanistan civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>Afghanistan civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>Afghanistan civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12756,7 +12756,7 @@
 <English>African (Christian) civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>African (Christian) civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>African (Christian) civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>African (Christian) civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>아프리카 (기독교) 교인 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>African (Christian) civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>African (Christian) civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>African (Christian) civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12768,7 +12768,7 @@
 <English>African (Islamic) civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>African (Islamic) civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>African (Islamic) civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>African (Islamic) civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>아프리카 (이슬람) 교인 (CFP)(고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>African (Islamic) civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>African (Islamic) civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>African (Islamic) civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12780,7 +12780,7 @@
 <English>Asian civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>Asian civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>Asian civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>Asian civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>아시아인 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>Asian civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>Asian civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>Asian civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12792,7 +12792,7 @@
 <English>Malden civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>Malden civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>Malden civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>Malden civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>몰든 시민 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>Malden civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>Malden civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>Malden civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12804,7 +12804,7 @@
 <English>Middle East civilians (CFP) (static only, walking units not supported)</English>
 <Spanish>Middle East civilians (CFP) (static only, walking units not supported)</Spanish>
 <Portuguese>Middle East civilians (CFP) (static only, walking units not supported)</Portuguese>
-<Korean>Middle East civilians (CFP) (static only, walking units not supported)</Korean>
+<Korean>중앙아시아 시민 (CFP) (고정만 가능, 걸어가는 시민은 지원하지 않습니다)</Korean>
 <Japanese>Middle East civilians (CFP) (static only, walking units not supported)</Japanese>
 <Original>Middle East civilians (CFP) (static only, walking units not supported)</Original>
 <Russian>Middle East civilians (CFP) (static only, walking units not supported)</Russian>
@@ -12816,7 +12816,7 @@
 <English>Takistan civilians (CUP)</English>
 <Spanish>Takistan civilians (CUP)</Spanish>
 <Portuguese>Takistan civilians (CUP)</Portuguese>
-<Korean>Takistan civilians (CUP)</Korean>
+<Korean>타키스타 시민 (CUP)</Korean>
 <Japanese>Takistan civilians (CUP)</Japanese>
 <Original>Takistan civilians (CUP)</Original>
 <Russian>Takistan civilians (CUP)</Russian>
@@ -12924,7 +12924,7 @@
 <English>Experimental</English>
 <Spanish>Experimental</Spanish>
 <Portuguese>Experimental</Portuguese>
-<Korean>Experimental</Korean>
+<Korean>실험요소</Korean>
 <Japanese>Experimental</Japanese>
 <Original>Experimental</Original>
 <Russian>Experimental</Russian>
@@ -12936,7 +12936,7 @@
 <English>Advanced</English>
 <Spanish>Advanced</Spanish>
 <Portuguese>Advanced</Portuguese>
-<Korean>Advanced</Korean>
+<Korean>고급</Korean>
 <Japanese>Advanced</Japanese>
 <Original>Advanced</Original>
 <Russian>Advanced</Russian>
@@ -13548,7 +13548,7 @@
 <English>Auto viewdistance change at main target and base:</English>
 <Spanish>Auto viewdistance change at main target and base:</Spanish>
 <Portuguese>Auto viewdistance change at main target and base:</Portuguese>
-<Korean>Auto viewdistance change at main target and base:</Korean>
+<Korean>메인 미션지 및 기지에서 시야거리 자동변경 기능:</Korean>
 <Japanese>Auto viewdistance change at main target and base:</Japanese>
 <Original>Auto viewdistance change at main target and base:</Original>
 <Russian>Автоматическое изменение дальности обзора на основной задаче и базе:</Russian>
@@ -13608,7 +13608,7 @@
 <English>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</English>
 <Spanish>%1 fase de enfriamiento... Tienes que esperar %2 segundos para disparar de nuevo!!!</Spanish>
 <Portuguese>%1 fase de resfriamento... Você tem que esperar %2 segundos para atirar novamente!!!</Portuguese>
-<Korean>%1 냉각 단계... 귀관은 %2 초 기다린 뒤에 재 발포 할수 있습니다!!!</Korean>
+<Korean>%1 대기시간... 귀관은 %2 초 기다린 뒤에 재 발포 할수 있습니다!!!</Korean>
 <Japanese>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Japanese>
 <Original>%1 cooldown phase... You have to wait %2 seconds to fire again!!!</Original>
 <Russian>%1 режим перезарядки... Вы должны подождать %2 секунд для повторного выстрела!!!</Russian>
@@ -13620,7 +13620,7 @@
 <English>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</English>
 <Spanish>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Spanish>
 <Portuguese>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Portuguese>
-<Korean>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Korean>
+<Korean>%1 아머박스 근처 대기시간... 귀관은 %2 초 기다린 뒤에 재 발포 할수 있습니다!!!</Korean>
 <Japanese>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Japanese>
 <Original>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Original>
 <Russian>%1 cooldown phase near ammo box... You have to wait %2 seconds to fire again!!!</Russian>
@@ -13813,7 +13813,7 @@
 <English>Vec MHQ</English>
 <Spanish>Vec MHQ</Spanish>
 <Portuguese>Vec MHQ</Portuguese>
-<Korean>Vec MHQ</Korean>
+<Korean>차량 MHQ</Korean>
 <Japanese>Vec MHQ</Japanese>
 <Original>Vec MHQ</Original>
 <Russian>Vec MHQ</Russian>
@@ -14377,7 +14377,7 @@
 <English>Attention: Enemy units are moving into %1. Defend the city!</English>
 <Spanish>Attention: Enemy units are moving into %1. Defend the city!</Spanish>
 <Portuguese>Attention: Enemy units are moving into %1. Defend the city!</Portuguese>
-<Korean>Attention: Enemy units are moving into %1. Defend the city!</Korean>
+<Korean>주의: 적군의 이동이 %1 에서 관측되었습니다 . 도시를 방어하세요!</Korean>
 <Japanese>Attention: Enemy units are moving into %1. Defend the city!</Japanese>
 <Original>Attention: Enemy units are moving into %1. Defend the city!</Original>
 <Russian>Attention: Enemy units are moving into %1. Defend the city!</Russian>
@@ -14413,7 +14413,7 @@
 <English>rabbit</English>
 <Spanish>conejo</Spanish>
 <Portuguese>coelho</Portuguese>
-<Korean>rabbit</Korean>
+<Korean>토끼</Korean>
 <Japanese>rabbit</Japanese>
 <Original>rabbit</Original>
 <Russian>rabbit</Russian>
@@ -15184,7 +15184,7 @@
 <English>Enable extra CAS ordnance</English>
 <Spanish>Enable extra CAS ordnance</Spanish>
 <Portuguese>Enable extra CAS ordnance</Portuguese>
-<Korean>Enable extra CAS ordnance</Korean>
+<Korean>추가 CAS 병기 활성화</Korean>
 <Japanese>Enable extra CAS ordnance</Japanese>
 <Original>Enable extra CAS ordnance</Original>
 <Russian>Enable extra CAS ordnance</Russian>
@@ -15387,7 +15387,7 @@
 <Key ID="STR_DOM_MISSIONSTRING_HEADSHOT_CLIENT">
 <English>(+) %1 m</English>
 <Spanish>(+) %1 m</Spanish>
-<Portuguese>(+) %1 m</Portuguese>
+<Portuguese>(+) %1 미터(m)</Portuguese>
 <Korean>(+) %1 m</Korean>
 <Japanese>(+) %1 m</Japanese>
 <Original>(+) %1 m</Original>
@@ -15448,7 +15448,7 @@
 <English>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</English>
 <Spanish>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Spanish>
 <Portuguese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Portuguese>
-<Korean>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Korean>
+<Korean>SQL 데이터베이스를 사용 할수 없는경우 플레이어 및 미션진행 상황을 미션 프로필네임스페이스에 저장합니다(서버랭킹 설정을 활성화합니다)</Korean>
 <Japanese>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Japanese>
 <Original>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Original>
 <Russian>Save player and mission progress to missionProfileNamespace if no SQL database is available (enables ranked server settings)</Russian>
@@ -15460,7 +15460,7 @@
 <English>Use only Inf VD slider to set all VD settings:</English>
 <Spanish>Use only Inf VD slider to set all VD settings:</Spanish>
 <Portuguese>Use only Inf VD slider to set all VD settings:</Portuguese>
-<Korean>Use only Inf VD slider to set all VD settings:</Korean>
+<Korean>보병 가시거리 설정을 사용하여 모든 가시거리 설정을 지정:</Korean>
 <Japanese>Use only Inf VD slider to set all VD settings:</Japanese>
 <Original>Use only Inf VD slider to set all VD settings:</Original>
 <Russian>Use only Inf VD slider to set all VD settings:</Russian>
@@ -15472,7 +15472,7 @@
 <English>Remove silencer from spawned enemy AI units:</English>
 <Spanish>Remove silencer from spawned enemy AI units:</Spanish>
 <Portuguese>Remove silencer from spawned enemy AI units:</Portuguese>
-<Korean>Remove silencer from spawned enemy AI units:</Korean>
+<Korean>생성된 적 AI 유닛의 소음기제거:</Korean>
 <Japanese>Remove silencer from spawned enemy AI units:</Japanese>
 <Original>Remove silencer from spawned enemy AI units:</Original>
 <Russian>Remove silencer from spawned enemy AI units:</Russian>
@@ -15484,7 +15484,7 @@
 <English>Yes (after server initializes client)</English>
 <Spanish>Yes (after server initializes client)</Spanish>
 <Portuguese>Yes (after server initializes client)</Portuguese>
-<Korean>Yes (after server initializes client)</Korean>
+<Korean>예 (서버클라이언트가 설치된 이후)</Korean>
 <Japanese>Yes (after server initializes client)</Japanese>
 <Original>Yes (after server initializes client)</Original>
 <Russian>Yes (after server initializes client)</Russian>
@@ -15496,7 +15496,7 @@
 <English>Use server system time as game time</English>
 <Spanish>Use server system time as game time</Spanish>
 <Portuguese>Use server system time as game time</Portuguese>
-<Korean>Use server system time as game time</Korean>
+<Korean>서버시스템 시간을 게임시간으로 사용</Korean>
 <Japanese>Use server system time as game time</Japanese>
 <Original>Use server system time as game time</Original>
 <Russian>Use server system time as game time</Russian>
@@ -15508,7 +15508,7 @@
 <English>Yes (missionprogress autosave disabled)</English>
 <Spanish>Yes (missionprogress autosave disabled)</Spanish>
 <Portuguese>Yes (missionprogress autosave disabled)</Portuguese>
-<Korean>Yes (missionprogress autosave disabled)</Korean>
+<Korean>예(미션진행사항 저장 비활성화)</Korean>
 <Japanese>Yes (missionprogress autosave disabled)</Japanese>
 <Original>Yes (missionprogress autosave disabled)</Original>
 <Russian>Yes (missionprogress autosave disabled)</Russian>
@@ -15520,7 +15520,7 @@
 <English>MODS REQUIRED - Enemy factions (experimental)</English>
 <Spanish>MODS REQUIRED - Enemy factions (experimental)</Spanish>
 <Portuguese>MODS REQUIRED - Enemy factions (experimental)</Portuguese>
-<Korean>MODS REQUIRED - Enemy factions (experimental)</Korean>
+<Korean>모드가 요구됨 - 적 세력 (실험요소)</Korean>
 <Japanese>MODS REQUIRED - Enemy factions (experimental)</Japanese>
 <Original>MODS REQUIRED - Enemy factions (experimental)</Original>
 <Russian>MODS REQUIRED - Enemy factions (experimental)</Russian>
@@ -15532,7 +15532,7 @@
 <English>MODS REQUIRED - Guerrilla factions (experimental)</English>
 <Spanish>MODS REQUIRED - Guerrilla factions (experimental)</Spanish>
 <Portuguese>MODS REQUIRED - Guerrilla factions (experimental)</Portuguese>
-<Korean>MODS REQUIRED - Guerrilla factions (experimental)</Korean>
+<Korean>모드가 요구됨 - 게릴라 세력 (실험요소)</Korean>
 <Japanese>MODS REQUIRED - Guerrilla factions (experimental)</Japanese>
 <Original>MODS REQUIRED - Guerrilla factions (experimental)</Original>
 <Russian>MODS REQUIRED - Guerrilla factions (experimental)</Russian>
@@ -15544,7 +15544,7 @@
 <English>EAST - Taliban (Community Factions Project)</English>
 <Spanish>EAST - Taliban (Community Factions Project)</Spanish>
 <Portuguese>EAST - Taliban (Community Factions Project)</Portuguese>
-<Korean>EAST - Taliban (Community Factions Project)</Korean>
+<Korean>홍군 - 탈레반 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>EAST - Taliban (Community Factions Project)</Japanese>
 <Original>EAST - Taliban (Community Factions Project)</Original>
 <Russian>EAST - Taliban (Community Factions Project)</Russian>
@@ -15556,7 +15556,7 @@
 <English>EAST - Asian Insurgents (Asian Factions for CUP)</English>
 <Spanish>EAST - Asian Insurgents (Asian Factions for CUP)</Spanish>
 <Portuguese>EAST - Asian Insurgents (Asian Factions for CUP)</Portuguese>
-<Korean>EAST - Asian Insurgents (Asian Factions for CUP)</Korean>
+<Korean>홍군 - 아시아 반군 (CUP의 아시아 세력 기반 )</Korean>
 <Japanese>EAST - Asian Insurgents (Asian Factions for CUP)</Japanese>
 <Original>EAST - Asian Insurgents (Asian Factions for CUP)</Original>
 <Russian>EAST - Asian Insurgents (Asian Factions for CUP)</Russian>
@@ -15568,7 +15568,7 @@
 <English>EAST - Central African Rebels (Community Factions Project)</English>
 <Spanish>EAST - Central African Rebels (Community Factions Project)</Spanish>
 <Portuguese>EAST - Central African Rebels (Community Factions Project)</Portuguese>
-<Korean>EAST - Central African Rebels (Community Factions Project)</Korean>
+<Korean>홍군 - 중앙 아프리카 반군 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>EAST - Central African Rebels (Community Factions Project)</Japanese>
 <Original>EAST - Central African Rebels (Community Factions Project)</Original>
 <Russian>EAST - Central African Rebels (Community Factions Project)</Russian>
@@ -15580,7 +15580,7 @@
 <English>EAST - Islamic State (Community Factions Project)</English>
 <Spanish>EAST - Islamic State (Community Factions Project)</Spanish>
 <Portuguese>EAST - Islamic State (Community Factions Project)</Portuguese>
-<Korean>EAST - Islamic State (Community Factions Project)</Korean>
+<Korean>홍군 - 이슬람 국가(IS) (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>EAST - Islamic State (Community Factions Project)</Japanese>
 <Original>EAST - Islamic State (Community Factions Project)</Original>
 <Russian>EAST - Islamic State (Community Factions Project)</Russian>
@@ -15592,7 +15592,7 @@
 <English>EAST - Sudanese Armed Forces (Community Factions Project)</English>
 <Spanish>EAST - Sudanese Armed Forces (Community Factions Project)</Spanish>
 <Portuguese>EAST - Sudanese Armed Forces (Community Factions Project)</Portuguese>
-<Korean>EAST - Sudanese Armed Forces (Community Factions Project)</Korean>
+<Korean>홍군 - 수단군 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>EAST - Sudanese Armed Forces (Community Factions Project)</Japanese>
 <Original>EAST - Sudanese Armed Forces (Community Factions Project)</Original>
 <Russian>EAST - Sudanese Armed Forces (Community Factions Project)</Russian>
@@ -15604,7 +15604,7 @@
 <English>EAST - Russian Ground Forces Desert (Community Factions Project)</English>
 <Spanish>EAST - Russian Ground Forces Desert (Community Factions Project)</Spanish>
 <Portuguese>EAST - Russian Ground Forces Desert (Community Factions Project)</Portuguese>
-<Korean>EAST - Russian Ground Forces Desert (Community Factions Project)</Korean>
+<Korean>홍군 - 러시아 사막 지상군 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>EAST - Russian Ground Forces Desert (Community Factions Project)</Japanese>
 <Original>EAST - Russian Ground Forces Desert (Community Factions Project)</Original>
 <Russian>EAST - Russian Ground Forces Desert (Community Factions Project)</Russian>
@@ -15616,7 +15616,7 @@
 <English>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</English>
 <Spanish>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Spanish>
 <Portuguese>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Portuguese>
-<Korean>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Korean>
+<Korean>홍군 - 러시아 겨울 지상군 (러시아인 겨울 스킨 모딩)</Korean>
 <Japanese>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Japanese>
 <Original>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Original>
 <Russian>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Russian>
@@ -15628,7 +15628,7 @@
 <English>EAST - African Desert Civilian Militia (3CB)</English>
 <Spanish>EAST - African Desert Civilian Militia (3CB)</Spanish>
 <Portuguese>EAST - African Desert Civilian Militia (3CB)</Portuguese>
-<Korean>EAST - African Desert Civilian Militia (3CB)</Korean>
+<Korean>홍군 - 아프리카 사막 민병대 (3CB 기반)</Korean>
 <Japanese>EAST - African Desert Civilian Militia (3CB)</Japanese>
 <Original>EAST - African Desert Civilian Militia (3CB)</Original>
 <Russian>EAST - African Desert Civilian Militia (3CB)</Russian>
@@ -15640,7 +15640,7 @@
 <English>EAST - ION Services (3CB)</English>
 <Spanish>EAST - ION Services (3CB)</Spanish>
 <Portuguese>EAST - ION Services (3CB)</Portuguese>
-<Korean>EAST - ION Services (3CB)</Korean>
+<Korean>홍군 - ION 민간군사기업 (3CB 기반)</Korean>
 <Japanese>EAST - ION Services (3CB)</Japanese>
 <Original>EAST - ION Services (3CB)</Original>
 <Russian>EAST - ION Services (3CB)</Russian>
@@ -15652,7 +15652,7 @@
 <English>EAST - Karzeghistan Royal Guard (3CB)</English>
 <Spanish>EAST - Karzeghistan Royal Guard (3CB)</Spanish>
 <Portuguese>EAST - Karzeghistan Royal Guard (3CB)</Portuguese>
-<Korean>EAST - Karzeghistan Royal Guard (3CB)</Korean>
+<Korean>홍군 - 카르체기스탄 왕실 근위대 (3CB 기반)</Korean>
 <Japanese>EAST - Karzeghistan Royal Guard (3CB)</Japanese>
 <Original>EAST - Karzeghistan Royal Guard (3CB)</Original>
 <Russian>EAST - Karzeghistan Royal Guard (3CB)</Russian>
@@ -15664,7 +15664,7 @@
 <English>EAST - Russian Armed Forces (CUP)</English>
 <Spanish>EAST - Russian Armed Forces (CUP)</Spanish>
 <Portuguese>EAST - Russian Armed Forces (CUP)</Portuguese>
-<Korean>EAST - Russian Armed Forces (CUP)</Korean>
+<Korean>홍군 - 러시아군 (CUP 기반)</Korean>
 <Japanese>EAST - Russian Armed Forces (CUP)</Japanese>
 <Original>EAST - Russian Armed Forces (CUP)</Original>
 <Russian>EAST - Russian Armed Forces (CUP)</Russian>
@@ -15676,7 +15676,7 @@
 <English>EAST - Russian Armed Forces Winter (CUP)</English>
 <Spanish>EAST - Russian Armed Forces Winter (CUP)</Spanish>
 <Portuguese>EAST - Russian Armed Forces Winter (CUP)</Portuguese>
-<Korean>EAST - Russian Armed Forces Winter (CUP)</Korean>
+<Korean>홍군 - 겨울 러시아군 (CUP기반)</Korean>
 <Japanese>EAST - Russian Armed Forces Winter (CUP)</Japanese>
 <Original>EAST - Russian Armed Forces Winter (CUP)</Original>
 <Russian>EAST - Russian Armed Forces Winter (CUP)</Russian>
@@ -15688,7 +15688,7 @@
 <English>EAST - Takistani Armed Forces (CUP)</English>
 <Spanish>EAST - Takistani Armed Forces (CUP)</Spanish>
 <Portuguese>EAST - Takistani Armed Forces (CUP)</Portuguese>
-<Korean>EAST - Takistani Armed Forces (CUP)</Korean>
+<Korean>홍군 - 타키스탄 군대 (CUP기반)</Korean>
 <Japanese>EAST - Takistani Armed Forces (CUP)</Japanese>
 <Original>EAST - Takistani Armed Forces (CUP)</Original>
 <Russian>EAST - Takistani Armed Forces (CUP)</Russian>
@@ -15700,7 +15700,7 @@
 <English>Altis Armed Forces (Community Factions Project)</English>
 <Spanish>Altis Armed Forces (Community Factions Project)</Spanish>
 <Portuguese>Altis Armed Forces (Community Factions Project)</Portuguese>
-<Korean>Altis Armed Forces (Community Factions Project)</Korean>
+<Korean>알티스군 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>Altis Armed Forces (Community Factions Project)</Japanese>
 <Original>Altis Armed Forces (Community Factions Project)</Original>
 <Russian>Altis Armed Forces (Community Factions Project)</Russian>
@@ -15712,7 +15712,7 @@
 <English>INDFOR Afghanistan Army (Community Factions Project)</English>
 <Spanish>INDFOR Afghanistan Army (Community Factions Project)</Spanish>
 <Portuguese>INDFOR Afghanistan Army (Community Factions Project)</Portuguese>
-<Korean>INDFOR Afghanistan Army (Community Factions Project)</Korean>
+<Korean>중립국 아프가니스탄 육군 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>INDFOR Afghanistan Army (Community Factions Project)</Japanese>
 <Original>INDFOR Afghanistan Army (Community Factions Project)</Original>
 <Russian>INDFOR Afghanistan Army (Community Factions Project)</Russian>
@@ -15724,7 +15724,7 @@
 <English>INDFOR South Sudan People's Defense Force (Community Factions Project)</English>
 <Spanish>INDFOR South Sudan People's Defense Force (Community Factions Project)</Spanish>
 <Portuguese>INDFOR South Sudan People's Defense Force (Community Factions Project)</Portuguese>
-<Korean>INDFOR South Sudan People's Defense Force (Community Factions Project)</Korean>
+<Korean>중립군 남수단 인민방위군 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>INDFOR South Sudan People's Defense Force (Community Factions Project)</Japanese>
 <Original>INDFOR South Sudan People's Defense Force (Community Factions Project)</Original>
 <Russian>INDFOR South Sudan People's Defense Force (Community Factions Project)</Russian>
@@ -15736,7 +15736,7 @@
 <English>INDFOR Sudan Revolutionary Front (Community Factions Project)</English>
 <Spanish>INDFOR Sudan Revolutionary Front (Community Factions Project)</Spanish>
 <Portuguese>INDFOR Sudan Revolutionary Front (Community Factions Project)</Portuguese>
-<Korean>INDFOR Sudan Revolutionary Front (Community Factions Project)</Korean>
+<Korean>중립군 수단 혁명 전선 (커뮤니티 팩션 프로젝트 기반)</Korean>
 <Japanese>INDFOR Sudan Revolutionary Front (Community Factions Project)</Japanese>
 <Original>INDFOR Sudan Revolutionary Front (Community Factions Project)</Original>
 <Russian>INDFOR Sudan Revolutionary Front (Community Factions Project)</Russian>
@@ -15748,7 +15748,7 @@
 <English>INDFOR East Asia (Asian Factions for CUP)</English>
 <Spanish>INDFOR East Asia (Asian Factions for CUP)</Spanish>
 <Portuguese>INDFOR East Asia (Asian Factions for CUP)</Portuguese>
-<Korean>INDFOR East Asia (Asian Factions for CUP)</Korean>
+<Korean>중립군 동아시아 (CUP의 아시아 세력 기반)</Korean>
 <Japanese>INDFOR East Asia (Asian Factions for CUP)</Japanese>
 <Original>INDFOR East Asia (Asian Factions for CUP)</Original>
 <Russian>INDFOR East Asia (Asian Factions for CUP)</Russian>
@@ -15760,7 +15760,7 @@
 <English>INDFOR ION PMC Security Detail (CUP)</English>
 <Spanish>INDFOR ION PMC Security Detail (CUP)</Spanish>
 <Portuguese>INDFOR ION PMC Security Detail (CUP)</Portuguese>
-<Korean>INDFOR ION PMC Security Detail (CUP)</Korean>
+<Korean>중립군 ION 민간군사 특전팀 (CUP)</Korean>
 <Japanese>INDFOR ION PMC Security Detail (CUP)</Japanese>
 <Original>INDFOR ION PMC Security Detail (CUP)</Original>
 <Russian>INDFOR ION PMC Security Detail (CUP)</Russian>
@@ -15772,7 +15772,7 @@
 <English>INDFOR ION PMC Security Detail Arctic (CUP)</English>
 <Spanish>INDFOR ION PMC Security Detail Arctic (CUP)</Spanish>
 <Portuguese>INDFOR ION PMC Security Detail Arctic (CUP)</Portuguese>
-<Korean>INDFOR ION PMC Security Detail Arctic (CUP)</Korean>
+<Korean>중립군 ION 민간군사 북극 특전팀 (CUP)</Korean>
 <Japanese>INDFOR ION PMC Security Detail Arctic (CUP)</Japanese>
 <Original>INDFOR ION PMC Security Detail Arctic (CUP)</Original>
 <Russian>INDFOR ION PMC Security Detail Arctic (CUP)</Russian>
@@ -15784,7 +15784,7 @@
 <English>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
 <Spanish>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
 <Portuguese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Portuguese>
-<Korean>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Korean>
+<Korean>모드가 요구됨 - 여군 활성화 - Maxjoiner가 제작한 (Max_Women, Max Women Soldiers, Women At Work) 모드 (실험적요소)</Korean>
 <Japanese>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
 <Original>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
 <Russian>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
@@ -15796,7 +15796,7 @@
 <English>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
 <Spanish>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>
 <Portuguese>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Portuguese>
-<Korean>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Korean>
+<Korean>모드가 요구됨 - 여성시민 활성화 -  Maxjoiner가 제작한 (Max_Women, Max Women Soldiers, Women At Work) (실험적요소)</Korean>
 <Japanese>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Japanese>
 <Original>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Original>
 <Russian>MODS REQUIRED - Enable civilian women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Russian>
@@ -15808,7 +15808,7 @@
 <English>Only one combat UAV allowed per team.</English>
 <Spanish>Only one combat UAV allowed per team.</Spanish>
 <Portuguese>Only one combat UAV allowed per team.</Portuguese>
-<Korean>Only one combat UAV allowed per team.</Korean>
+<Korean>팀당 한기의 전투 무인기만 허용됩니다.</Korean>
 <Japanese>Only one combat UAV allowed per team.</Japanese>
 <Original>Only one combat UAV allowed per team.</Original>
 <Russian>Only one combat UAV allowed per team.</Russian>
@@ -15820,7 +15820,7 @@
 <English>Only one combat UAV allowed per player.</English>
 <Spanish>Only one combat UAV allowed per player.</Spanish>
 <Portuguese>Only one combat UAV allowed per player.</Portuguese>
-<Korean>Only one combat UAV allowed per player.</Korean>
+<Korean>플레이어 당 하나의 전투 무인기만 허용됩니다.</Korean>
 <Japanese>Only one combat UAV allowed per player.</Japanese>
 <Original>Only one combat UAV allowed per player.</Original>
 <Russian>Only one combat UAV allowed per player.</Russian>
@@ -15832,7 +15832,7 @@
 <English>Player %1 threw a grenade near the flag at base, Arma Key: %2</English>
 <Spanish>Player %1 threw a grenade near the flag at base, Arma Key: %2</Spanish>
 <Portuguese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Portuguese>
-<Korean>Player %1 threw a grenade near the flag at base, Arma Key: %2</Korean>
+<Korean>플레이가 %1 이(가) 기지 깃발 근처에 수류탄을 던졌습니다, Arma Key: %2</Korean>
 <Japanese>Player %1 threw a grenade near the flag at base, Arma Key: %2</Japanese>
 <Original>Player %1 threw a grenade near the flag at base, Arma Key: %2</Original>
 <Russian>Player %1 threw a grenade near the flag at base, Arma Key: %2</Russian>
@@ -15844,7 +15844,7 @@
 <English>Side mission/main target protection from friendly player CAS missiles and bombs</English>
 <Spanish>Side mission/main target protection from friendly player CAS missiles and bombs</Spanish>
 <Portuguese>Side mission/main target protection from friendly player CAS missiles and bombs</Portuguese>
-<Korean>Side mission/main target protection from friendly player CAS missiles and bombs</Korean>
+<Korean>아군 플레이어 근접항공지원(미사일,폭탄)으로 부터 보조 미션/메인미션 목표물 보호</Korean>
 <Japanese>Side mission/main target protection from friendly player CAS missiles and bombs</Japanese>
 <Original>Side mission/main target protection from friendly player CAS missiles and bombs</Original>
 <Russian>Side mission/main target protection from friendly player CAS missiles and bombs</Russian>
@@ -15856,7 +15856,7 @@
 <English>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</English>
 <Spanish>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Spanish>
 <Portuguese>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Portuguese>
-<Korean>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Korean>
+<Korean>아군 AI 근접항공지원 (미사일,폭탄)으로 부터 보조 미션/메인미션 목표물 보호 (근접항공지원 요청)</Korean>
 <Japanese>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Japanese>
 <Original>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Original>
 <Russian>Side mission/main target protection from friendly AI CAS missiles and bombs (call CAS)</Russian>
@@ -15868,7 +15868,7 @@
 <English>Side mission only</English>
 <Spanish>Side mission only</Spanish>
 <Portuguese>Side mission only</Portuguese>
-<Korean>Side mission only</Korean>
+<Korean>사이드 미션만</Korean>
 <Japanese>Side mission only</Japanese>
 <Original>Side mission only</Original>
 <Russian>Side mission only</Russian>
@@ -15880,7 +15880,7 @@
 <English>Main target only</English>
 <Spanish>Main target only</Spanish>
 <Portuguese>Main target only</Portuguese>
-<Korean>Main target only</Korean>
+<Korean>메인 미션만</Korean>
 <Japanese>Main target only</Japanese>
 <Original>Main target only</Original>
 <Russian>Main target only</Russian>
@@ -15892,7 +15892,7 @@
 <English>Side mission and main target</English>
 <Spanish>Side mission and main target</Spanish>
 <Portuguese>Side mission and main target</Portuguese>
-<Korean>Side mission and main target</Korean>
+<Korean>사이드 미션 및 메인미션</Korean>
 <Japanese>Side mission and main target</Japanese>
 <Original>Side mission and main target</Original>
 <Russian>Side mission and main target</Russian>
@@ -15904,7 +15904,7 @@
 <English>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</English>
 <Spanish>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Spanish>
 <Portuguese>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Portuguese>
-<Korean>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Korean>
+<Korean>아군 근접항공지원(미사일,폭탄)에 대한 보조미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 발사체를 제거하세요!</Korean>
 <Japanese>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Japanese>
 <Original>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Original>
 <Russian>Side mission protection from friendly CAS missiles and bombs activated. Deleting projectile!</Russian>
@@ -15916,7 +15916,7 @@
 <English>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</English>
 <Spanish>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Spanish>
 <Portuguese>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Portuguese>
-<Korean>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Korean>
+<Korean>아군 근접항공지원(미사일,폭탄)에 대한 메인미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 발사체를 제거하세요!</Korean>
 <Japanese>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Japanese>
 <Original>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Original>
 <Russian>Main target protection from friendly CAS missiles and bombs activated. Deleting projectile!</Russian>
@@ -15928,7 +15928,7 @@
 <English>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</English>
 <Spanish>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Spanish>
 <Portuguese>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Portuguese>
-<Korean>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Korean>
+<Korean>AI 아군 근접항공지원(미사일,폭탄)에 대한 보조미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 요청을 수행 할 수 없습니다!</Korean>
 <Japanese>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Japanese>
 <Original>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Original>
 <Russian>Side mission protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Russian>
@@ -15940,7 +15940,7 @@
 <English>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</English>
 <Spanish>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Spanish>
 <Portuguese>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Portuguese>
-<Korean>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Korean>
+<Korean>AI 아군 근접항공지원(미사일,폭탄)에 대한 메인미션지의 적군 발사체 보호기능이 활성화 되어 있습니다. 요청을 수행 할 수 없습니다!</Korean>
 <Japanese>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Japanese>
 <Original>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Original>
 <Russian>Main target protection from friendly AI CAS missiles and bombs activated. Can't execute request!</Russian>
@@ -15952,7 +15952,7 @@
 <English>Best main target players</English>
 <Spanish>Best main target players</Spanish>
 <Portuguese>Best main target players</Portuguese>
-<Korean>Best main target players</Korean>
+<Korean>메인미션지 최고 플레이어</Korean>
 <Japanese>Best main target players</Japanese>
 <Original>Best main target players</Original>
 <Russian>Best main target players</Russian>
@@ -15964,7 +15964,7 @@
 <English>points subtracted because of killing a %1</English>
 <Spanish>points subtracted because of killing a %1</Spanish>
 <Portuguese>points subtracted because of killing a %1</Portuguese>
-<Korean>points subtracted because of killing a %1</Korean>
+<Korean>%1 사살로 인하여 포인트 차감</Korean>
 <Japanese>points subtracted because of killing a %1</Japanese>
 <Original>points subtracted because of killing a %1</Original>
 <Russian>points subtracted because of killing a %1</Russian>
@@ -15976,7 +15976,7 @@
 <English>hen/cock</English>
 <Spanish>hen/cock</Spanish>
 <Portuguese>hen/cock</Portuguese>
-<Korean>hen/cock</Korean>
+<Korean>암닭/수닭</Korean>
 <Japanese>hen/cock</Japanese>
 <Original>hen/cock</Original>
 <Russian>hen/cock</Russian>
@@ -15988,7 +15988,7 @@
 <English>goat/sheep</English>
 <Spanish>goat/sheep</Spanish>
 <Portuguese>goat/sheep</Portuguese>
-<Korean>goat/sheep</Korean>
+<Korean>염소/양</Korean>
 <Japanese>goat/sheep</Japanese>
 <Original>goat/sheep</Original>
 <Russian>goat/sheep</Russian>
@@ -16000,7 +16000,7 @@
 <English>dog</English>
 <Spanish>dog</Spanish>
 <Portuguese>dog</Portuguese>
-<Korean>dog</Korean>
+<Korean>개</Korean>
 <Japanese>dog</Japanese>
 <Original>dog</Original>
 <Russian>dog</Russian>
@@ -16012,7 +16012,7 @@
 <English>snake</English>
 <Spanish>snake</Spanish>
 <Portuguese>snake</Portuguese>
-<Korean>snake</Korean>
+<Korean>뱀</Korean>
 <Japanese>snake</Japanese>
 <Original>snake</Original>
 <Russian>snake</Russian>
