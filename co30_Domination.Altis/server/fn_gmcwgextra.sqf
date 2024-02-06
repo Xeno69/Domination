@@ -58,17 +58,17 @@ if (isClass(configFile>>"CfgVehicles">>"CUP_B_CH53E_VIV_GER")) then {
 #ifndef __TT__
 {
 	d_additional_mhqs pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 10] isEqualTo "d_mhq_add_"});
+} forEach (vehicles select {(str _x) find "d_mhq_add_" == 0});
 __TRACE_1("","d_additional_mhqs")
 {
 	d_additional_lift pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 11] isEqualTo "d_lift_add_"});
+} forEach (vehicles select {(str _x) find "d_lift_add_" == 0});
 {
 	d_additional_wreck pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_wreck_add_"});
+} forEach (vehicles select {(str _x) find "d_wreck_add_" == 0});
 {
 	d_additional_trans pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_trans_add_"});
+} forEach (vehicles select {(str _x) find "d_trans_add_" == 0});
 
 if (d_additional_mhqs isEqualTo []) then {
 	d_additional_mhqs = nil;
@@ -98,39 +98,39 @@ d_additional_mhqs_o = [];
 d_additional_mhqs_b = [];
 {
 	d_additional_mhqs_o pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_mhq_add_o_"});
+} forEach (vehicles select {(str _x) find "d_mhq_add_o_" == 0});
 __TRACE_1("","d_additional_mhqs_o")
 {
 	d_additional_mhqs_b pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_mhq_add_b_"});
+} forEach (vehicles select {(str _x) find "d_mhq_add_b_" == 0});
 __TRACE_1("","d_additional_mhqs_b")
 
 d_additional_lift_o = [];
 d_additional_lift_b = [];
 {
 	d_additional_lift_o pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 13] isEqualTo "d_lift_add_o_"});
+} forEach (vehicles select {(str _x) find "d_lift_add_o_" == 0});
 {
 	d_additional_lift_b pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 13] isEqualTo "d_lift_add_b_"});
+} forEach (vehicles select {(str _x) find "d_lift_add_b_" == 0});
 
 d_additional_wreck_o = [];
 d_additional_wreck_b = [];
 {
 	d_additional_wreck_o pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_wreck_add_o_"});
+} forEach (vehicles select {(str _x) find "d_wreck_add_o_" == 0});
 {
 	d_additional_wreck_b pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_wreck_add_b_"});
+} forEach (vehicles select {(str _x) find "d_wreck_add_b_" == 0});
 
 d_additional_trans_o = [];
 d_additional_trans_b = [];
 {
 	d_additional_trans_o pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_trans_add_o_"});
+} forEach (vehicles select {(str _x) find "d_trans_add_o_" == 0});
 {
 	d_additional_trans_b pushBack _x;
-} forEach (vehicles select {(str _x) select [0, 14] isEqualTo "d_trans_add_b_"});
+} forEach (vehicles select {(str _x) find "d_trans_add_b_" == 0});
 
 if (d_additional_mhqs_o isEqualTo []) then {
 	d_additional_mhqs_o = nil;

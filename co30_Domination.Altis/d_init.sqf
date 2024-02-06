@@ -162,11 +162,11 @@ if (isServer) then {
 	d_serv_test_obj allowDamage false;
 	d_serv_test_obj enableDynamicSimulation false;
 	d_serv_test_obj enableSimulationGlobal false;
-	private _all_farp_flags = (allMissionObjects "FlagCarrierCore") select {(str _x) select [0, 9] isEqualTo "d_flag_bb"};
+	private _all_farp_flags = (allMissionObjects "FlagCarrierCore") select {(str _x) find "d_flag_bb" == 0};
 	
 	// marker position of the player ammobox at base and other player ammoboxes (marker always needs to start with d_player_ammobox_pos)
 	// note, in the TT version add the side to the array too
-	private _allMapMarkers = allMapMarkers select {_x select [0, 20] isEqualTo "d_player_ammobox_pos"};
+	private _allMapMarkers = allMapMarkers select {_x find "d_player_ammobox_pos" == 0};
 
 #ifndef __TT__
 	private _farpmarkers = allMapMarkers select {_x select [0, 13] == "d_farp_marker"};
@@ -225,7 +225,7 @@ if (isServer) then {
 	d_player_ammoboxes = [[], []];
 
 	private _tempar = d_player_ammoboxes # 1;
-	private _rem = _allMapMarkers select {_x select [0, 22] isEqualTo "d_player_ammobox_pos_e"};
+	private _rem = _allMapMarkers select {_x find "d_player_ammobox_pos_e" == 0};
 	{
 		_tempar pushBack ([_x] call d_fnc_aboxcreate);
 	} forEach _rem;
@@ -541,7 +541,7 @@ if (isServer) then {
 	private _vecsar = [[d_vec_mhq_1,0,localize "STR_DOM_MISSIONSTRING_12"],[d_vec_mhq_2,1, localize "STR_DOM_MISSIONSTRING_13"],[d_vec_med_1,100],[d_vec_rep_1,200],[d_vec_fuel_1,201],[d_vec_ammo_1,202], [d_vec_rep_2,203],[d_vec_fuel_2,204], [d_vec_ammo_2,205], [d_vec_eng_1,300], [d_vec_eng_2,301], [d_vec_trans_1,400], [d_vec_trans_2,401]] select {!isNil {_x # 0}};
 	{
 		_vecsar pushBack [_x, 500 + _forEachIndex];
-	} forEach (vehicles select {(str _x) select [0, 12] isEqualTo "d_vec_wreck_"});
+	} forEach (vehicles select {(str _x) find "d_vec_wreck_" == 0});
 	if (!isNil "d_additional_mhqs") then {
 		{
 			private _num = 2 + _forEachIndex;
@@ -551,9 +551,9 @@ if (isServer) then {
 	_vecsar call d_fnc_initvrespawn2;
 	{
 		[_x, 300, false] spawn d_fnc_vehirespawn;
-	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
+	} forEach (vehicles select {(str _x) find "d_boat_" == 0});
 	
-	private _specialv = vehicles select {(str _x) select [0, 15] isEqualTo "d_vecs_special_"};
+	private _specialv = vehicles select {(str _x) find "d_vecs_special_" == 0};
 	if (_specialv isNotEqualTo []) then {
 		_specialv call d_fnc_initvecsspecial;
 	};
@@ -624,7 +624,7 @@ if (isServer) then {
 	
 	{
 		[_x, 300, false] spawn d_fnc_vehirespawn;
-	} forEach (vehicles select {(str _x) select [0, 7] isEqualTo "d_boat_"});
+	} forEach (vehicles select {(str _x) find "d_boat_" == 0});
 #endif
 	0 spawn d_fnc_initrepwreck;
 
@@ -760,9 +760,9 @@ if (hasInterface) then {
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, d_vec_at_farp == 0, getPosASL _x, _x];
 #ifndef __TT__
 		};
-	} forEach ((_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"}) select {!isNil {_x getVariable "d_farptaken"}});
+	} forEach ((_allmissobjs select {(str _x) find "d_flag_bb" == 0}) select {!isNil {_x getVariable "d_farptaken"}});
 #else
-	} forEach (_allmissobjs select {(str _x) select [0, 9] isEqualTo "d_flag_bb"});
+	} forEach (_allmissobjs select {(str _x) find "d_flag_bb" == 0});
 #endif
 	_icounter_o = 0;
 	_icounter_b = 0;
@@ -786,7 +786,7 @@ if (hasInterface) then {
 			_name = format ["%1 %2", localize "STR_DOM_MISSIONSTRING_1826", _icounter];
 		};
 		d_additional_respawn_points pushBack [format ["d_add_farp_%1", _x], str _x, _name, _side, true, getPosASL _x, _x];
-	} forEach (_allmissobjs select {(str _x) select [0, 15] isEqualTo "d_respawn_point"});
+	} forEach (_allmissobjs select {(str _x) find "d_respawn_point" == 0});
 
 	if (d_with_ranked) then {
 		call {

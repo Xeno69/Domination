@@ -37,9 +37,11 @@ private _findmodfnc = {
 		__TRACE_1("_findmodfnc","count _x")
 		__TRACE_1("_findmodfnc","count _csallow")
 		_ret = if (count _x >= count _csallow) then {
-			(_x select [0, count _csallow]) isEqualTo _csallow
+			//(_x select [0, count _csallow]) isEqualTo _csallow
+			_x find _csallow == 0
 		} else {
-			(_csallow select [0, count _x]) isEqualTo _x
+			//(_csallow select [0, count _x]) isEqualTo _x
+			_csallow find _x == 0
 		};
 		if (_ret) then {
 			_res = 1;
@@ -57,7 +59,7 @@ private _findmodfnc = {
 		_item = toLowerANSI _x;
 		_ok = call {
 			if (_item in _items_no) exitWith {false};
-			if (d_with_ace && {(_item select [0, 4]) isEqualTo "ace_"}) exitWith {false};
+			if (d_with_ace && {_item find "ace_" == 0}) exitWith {false};
 			if (!d_ifa3 && {!d_vn && {!d_spe && {"wetsuit" in _item || {"diving" in _item || {"rebreather" in _item}}}}}) exitWith {false};
 			true
 		};
@@ -82,7 +84,7 @@ private _findmodfnc = {
 			private _helpercsal = configSourceAddonList (configFile >> _kind >> _x);
 			__TRACE_1("","_helpercsal")
 			{
-				if (_x select [0, 7] == "WW2_SPE") then {
+				if (_x find "WW2_SPE" == 0) then {
 					_csalar pushBackUnique _x;
 				};
 			} forEach _helpercsal;

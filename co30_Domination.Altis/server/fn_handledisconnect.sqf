@@ -20,7 +20,7 @@ if (_name == "__SERVER__") exitWith {
 	false
 };
 
-if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name select [0, 9] == "HC_D_UNIT" || {_name select [0, 14] == "headlessclient"}}}}) exitWith {
+if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name find "HC_D_UNIT" == 0 || {_name find "headlessclient" == 0}}}}) exitWith {
 #ifdef __DEBUG__
 	diag_log "DOM handledisconnect, _unit is either nil or kindof VirtualSpectator or _uid is empty or is HC!";
 #endif

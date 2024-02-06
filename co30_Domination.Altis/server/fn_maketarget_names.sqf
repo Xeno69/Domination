@@ -40,6 +40,6 @@ private _cr = call {
 	if (isServer) then {
 		_dtar enableSimulationGlobal false;
 	};
-} forEach ((allMissionObjects "LocationCityCapital_F") select {str _x select [0, 9] isEqualTo "d_target_"});
+} forEach ((allMissionObjects "LocationCityCapital_F") select {(str _x) find "d_target_" == 0});
 diag_log ["DOM number of main targets found:", count d_target_names];
 __TRACE_1("All targets found","d_target_names")

@@ -672,7 +672,7 @@ d_island_x_max = _confmapsize;
 d_island_y_max = _confmapsize;
 
 private _wname = toLowerANSI worldName;
-d_iscup_island = _wname in ["chernarus_summer", "chernarus_winter", "chernarus", "eden", "abel", "noe", "sara", "takistan", "sara_dbe1", "zargabad"] || {(_wname select [0, 4]) isEqualTo "cup_"};
+d_iscup_island = _wname in ["chernarus_summer", "chernarus_winter", "chernarus", "eden", "abel", "noe", "sara", "takistan", "sara_dbe1", "zargabad"] || {_wname find "cup_" == 0};
 
 if (isServer) then {
 	d_player_hash = createHashMap;
@@ -3682,8 +3682,8 @@ if (hasInterface) then {
 		[], // PRIMARYWEAPON
 		[], // SECONDARYWEAPON
 		[], // HANDGUN
-		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this in ["u_o_v_soldier_viper_f", "u_o_v_soldier_viper_hex_f"]}}, {_this select [0, 4] == "u_c_" || {_this select [0, 6] == "u_i_c_"}}, "U_OrestesBody", "U_Marshal", "U_Rangemaster", "U_Competitor", {"paradeuniform" in _this}], // uniforms
-		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}, "V_Press_F", {_this select [0, 7] == "v_plain"}], // VEST
+		[{getText (configFile>>"CfgWeapons">>_this>>"ItemInfo">>"containerClass") == "Supply500"}, {d_player_side == blufor && {_this in ["u_o_v_soldier_viper_f", "u_o_v_soldier_viper_hex_f"]}}, {_this find "u_c_" == 0 || {_this find "u_i_c_" == 0}}, "U_OrestesBody", "U_Marshal", "U_Rangemaster", "U_Competitor", {"paradeuniform" in _this}], // uniforms
+		[{_this isKindOf ["V_DeckCrew_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_EOD_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["V_Safety_base_F", configFile >> "CfgWeapons"]}, "V_Press_F", {_this find "v_plain" == 0}], // VEST
 		[{_this isKindOf "B_HMG_01_weapon_F"}, {_this isKindOf "B_HMG_01_support_F"}, {_this isKindOf "B_HMG_02_support_F"}, {_this select [1, 15] == "_AA_01_weapon_F"}, {_this select [1, 15] == "_AT_01_weapon_F"}, {getText (configFile>>"CfgVehicles">>_this>>"vehicleclass") == "Respawn"}, {"uav_" in _this || {"ugv_" in _this}}, {_this select [1, 11] == "_messenger_"}, {"_everyday_" in _this}, {"_sport_" in _this}], // BACKPACK
 		[{d_player_side == blufor && {_this == "H_HelmetO_ViperSP_ghex_F" || {_this == "H_HelmetO_ViperSP_hex_F"}}}, {_this isKindOf ["H_Hat_blue", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_HeadBandage_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_RacingHelmet_1_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_headset_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_earprot_base_F", configFile >> "CfgWeapons"]}, {_this isKindOf ["H_Construction_basic_base_F", configFile >> "CfgWeapons"]}, {"paradedresscap" in _this}], // HEADGEAR
 		[], // GOGGLES
@@ -3709,7 +3709,7 @@ if (hasInterface) then {
 	];
 
 #ifdef __CUP__
-	(d_remove_from_arsenal # 4) append [{_this select [0, 15] == "CUP_V_B_LHDVest"}];
+	(d_remove_from_arsenal # 4) append [{_this find "CUP_V_B_LHDVest" == 0}];
 #endif
 #ifdef __GMCWG__
 	(d_remove_from_arsenal # 1) pushBack "gm_p2a1_launcher_blk";

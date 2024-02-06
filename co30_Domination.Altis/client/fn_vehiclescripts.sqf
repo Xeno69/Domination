@@ -34,9 +34,11 @@ if (!_do_exit && {_vec isKindOf "Air" && {d_database_found && {d_score_needed_to
 	if (_vec getVariable ["d_vec_type", ""] == "MHQ") exitWith {};
 	if (!isNil {_vec getVariable "d_is_airtaxi"}) exitWith {};
 	if (player == driver _vec || {player == gunner _vec || {player == commander _vec || {player == currentPilot _vec || {[_vec, player] call d_fnc_iscopilot || {(fullCrew [_vec, "Turret"]) findIf {_x # 0 == player} > -1}}}}}) then {
-		player action ["getOut", _vec];
-		[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;
-		_do_exit = true;
+		if (isMultiplayer) then {
+			player action ["getOut", _vec];
+			[format [localize "STR_DOM_MISSIONSTRING_2059", [typeOf _vec, "CfgVehicles"] call d_fnc_GetDisplayName, d_score_needed_to_fly, score player], "HQ"] call d_fnc_HintChatMsg;
+			_do_exit = true;
+		};
 	};
 };
 if (_do_exit) exitWith {};

@@ -37,7 +37,7 @@ d_meh_markercreated = addMissionEventHandler ["MarkerCreated", {
 	__TRACE_1("MarkerCreated EH","_this")
 	__TRACE_1("MarkerCreated EH","_thisArgs")
 	if (_this # 3 && {!isNull (_this # 2)}) then {
-		if ((_this # 0) select [0, 13] == "_USER_DEFINED") then {
+		if ((_this # 0) find "_USER_DEFINED" == 0) then {
 			__TRACE("User defined")
 			if (markerPos (_this # 0) distance2D (_thisArgs # 0) < _thisArgs # 1) then {
 				__TRACE("Distance ok")

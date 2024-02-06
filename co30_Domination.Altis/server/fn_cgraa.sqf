@@ -4,8 +4,6 @@
 
 params ["_side", "_type", "_mname", ["_remdriver", true]];
 
-private _mlen = count _mname;
-
 {
 	private _grp = [_side] call d_fnc_creategroup;
 	([1, markerPos _x, _type, _grp, markerDir _x, false, true] call d_fnc_makevgroup) params ["_av"];
@@ -24,4 +22,4 @@ private _mlen = count _mname;
 		}];
 	} forEach _av;
 	_grp call d_fnc_addgrp2hc;
-} forEach (allMapMarkers select {_x select [0, _mlen] == _mname});
+} forEach (allMapMarkers select {_x find _mname == 0});

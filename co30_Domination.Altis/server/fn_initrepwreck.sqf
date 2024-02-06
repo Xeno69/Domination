@@ -13,4 +13,4 @@
 		]
 	] call d_fnc_createtriggerlocal;
 	_trig setVariable ["d_repwreckobj", _x];	
-} forEach ((allMissionObjects "HeliH") select {(str _x) select [0, 11] isEqualTo "d_wreck_rep"});
+} forEach ((allMissionObjects "HeliH") select {(str _x) find "d_wreck_rep" == 0});

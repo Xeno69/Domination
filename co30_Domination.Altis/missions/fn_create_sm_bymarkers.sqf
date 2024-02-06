@@ -75,7 +75,7 @@ private _armorhelper_fnc = {
 };
 
 #ifdef __DEBUG__
-_eee = allMapMarkers select {_x select [0, 6] == "d_smm|"};
+_eee = allMapMarkers select {_x find "d_smm|" == 0};
 __TRACE_1("","_eee")
 #endif
 
@@ -625,7 +625,7 @@ __TRACE_1("","_eee")
 	
 	__TRACE_1("","_onesmar");
 	d_sm_hash set [_idx, _onesmar];
-} forEach (allMapMarkers select {_x select [0, 6] == "d_smm|"});
+} forEach (allMapMarkers select {_x find "d_smm|" == 0});
 
 if (isServer && {_dallsidemissions isNotEqualTo []}) then {
 	d_sm_array append _dallsidemissions;

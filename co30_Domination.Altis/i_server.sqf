@@ -3,7 +3,7 @@
 #include "x_setup.sqf"
 #endif
 
-private _allmapmarkers = allMapMarkers select {_x select [0, 8] isEqualTo "d_bonus_"};
+private _allmapmarkers = allMapMarkers select {_x find "d_bonus_" == 0};
 #ifndef __TT__
 d_bap_counter = 0;
 d_bacp_counter = 0;
@@ -11,13 +11,13 @@ d_bonus_create_pos = markerPos "d_bonus_create_pos";
 deleteMarker "d_bonus_create_pos";
 d_bonus_air_positions = [];
 d_bonus_air_positions_carrier = [];
-private _rem = _allmapmarkers select {_x select [0, 30] isEqualTo "d_bonus_air_positions_carrier_"};
+private _rem = _allmapmarkers select {_x find "d_bonus_air_positions_carrier_" == 0};
 {
 	d_bonus_air_positions_carrier pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
 } forEach _rem;
 _allmapmarkers = _allmapmarkers - _rem;
-_rem = _allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_air_positions_"};
+_rem = _allmapmarkers select {_x find "d_bonus_air_positions_" == 0};
 {
 	d_bonus_air_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
@@ -28,7 +28,7 @@ d_bonus_vec_positions = [];
 {
 	d_bonus_vec_positions pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-} forEach (_allmapmarkers select {_x select [0, 22] isEqualTo "d_bonus_vec_positions_" && {([_x select [22, 23]] call BIS_fnc_parseNumber) != -1}});
+} forEach (_allmapmarkers select {_x find "d_bonus_vec_positions_" == 0&& {([_x select [22, 23]] call BIS_fnc_parseNumber) != -1}});
 if (!isNil "d_the_carrier") then {
 	private _nobs = nearestObjects [d_the_carrier, ["FlagCarrier"], 200, true];
 	if (_nobs isNotEqualTo []) then {
@@ -42,7 +42,7 @@ d_bonus_air_positions_w = [];
 {
 	d_bonus_air_positions_w pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-} forEach (_allmapmarkers select {_x select [0, 24] isEqualTo "d_bonus_air_positions_w_"});
+} forEach (_allmapmarkers select {_x find "d_bonus_air_positions_w_" == 0});
 
 d_bonus_create_pos_e = markerPos "d_bonus_create_pos_e";
 d_bap_counter_e = 0;
@@ -50,21 +50,21 @@ d_bonus_air_positions_e = [];
 {
 	d_bonus_air_positions_e pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-} forEach (_allmapmarkers select {_x select [0, 24] isEqualTo "d_bonus_air_positions_e_"});
+} forEach (_allmapmarkers select {_x find "d_bonus_air_positions_e_" == 0});
 
 d_bvp_counter_w = 0;
 d_bonus_vec_positions_w = [];
 {
 	d_bonus_vec_positions_w pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-} forEach (_allmapmarkers select {_x select [0, 24] isEqualTo "d_bonus_vec_positions_w_"});
+} forEach (_allmapmarkers select {_x find "d_bonus_vec_positions_w_" == 0});
 
 d_bvp_counter_e = 0;
 d_bonus_vec_positions_e = [];
 {
 	d_bonus_vec_positions_e pushBack [markerPos _x, markerDir _x];
 	deleteMarker _x;
-} forEach (_allmapmarkers select {_x select [0, 24] isEqualTo "d_bonus_vec_positions_e_"});
+} forEach (_allmapmarkers select {_x find "d_bonus_vec_positions_e_" == 0});
 #endif
 
 // add some random patrols on the island

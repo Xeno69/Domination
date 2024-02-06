@@ -17,7 +17,7 @@ __TRACE_1("","_allmissiono")
 	_trig setTriggerInterval 1;
 	__TRACE_1("chopperservice","_trig")
 	sleep 0.01;
-} forEach (_allmissiono select {(str _x) select [0, 17] isEqualTo "d_chopper_trigger"});
+} forEach (_allmissiono select {(str _x) find "d_chopper_trigger" == 0});
 
 {
 	private _height = [10, 20] select (surfaceIsWater (getPosASL _x));
@@ -31,7 +31,7 @@ __TRACE_1("","_allmissiono")
 	_trig setTriggerInterval 1;
 	__TRACE_1("vecservice","_trig")
 	sleep 0.01;
-} forEach (_allmissiono select {(str _x) select [0, 15] isEqualTo "d_vecre_trigger"});
+} forEach (_allmissiono select {(str _x) find "d_vecre_trigger" == 0});
 
 {
 	private _trig = [
@@ -44,7 +44,7 @@ __TRACE_1("","_allmissiono")
 	_trig setTriggerInterval 1;
 	__TRACE_1("jetservice","_trig")
 	sleep 0.01;
-} forEach (_allmissiono select {(str _x) select [0, 13] isEqualTo "d_jet_trigger"});
+} forEach (_allmissiono select {(str _x) find "d_jet_trigger" == 0});
 
 {
 	private _trig = [
@@ -58,4 +58,4 @@ __TRACE_1("","_allmissiono")
 	__TRACE_1("serviceall","_x")
 	__TRACE_3("serviceall","_trig","getPos _trig","getPos _x")
 	sleep 0.01;
-} forEach (_allmissiono select {(str _x) select [0, 20] isEqualTo "d_serviceall_trigger"});
+} forEach (_allmissiono select {(str _x) find "d_serviceall_trigger" == 0});
