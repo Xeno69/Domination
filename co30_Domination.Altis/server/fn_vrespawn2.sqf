@@ -168,6 +168,9 @@ while {true} do {
 			if (_vec isKindOf "Boat_F") then {
 				_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 			};
+			if !(_vec isKindOf "Ship") then {
+				_vec setVariable ["d_drowned", true];
+			};
 			_vec setDamage 0;
 		};
 		sleep (8 + random 5);

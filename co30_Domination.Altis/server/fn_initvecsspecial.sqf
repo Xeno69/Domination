@@ -60,6 +60,9 @@ if (!isServer) exitWith{};
 			_vec remoteExecCall ["d_fnc_addpushaction", [0, -2] select isDedicated];
 		};
 	};
+	if !(_vec isKindOf "Ship") then {
+		_vec setVariable ["d_drowned", true];
+	};
 	
 	_vec setDamage 0;
 } forEach _this;

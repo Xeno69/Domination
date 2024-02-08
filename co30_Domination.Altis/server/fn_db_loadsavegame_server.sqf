@@ -221,6 +221,9 @@ d_bonus_vecs_db = _ar # 9;
 		if (d_bvp_counter > (count d_bonus_vec_positions - 1)) then {d_bvp_counter = 0};
 		_vec setVariable ["d_liftit", true, true];
 	};
+	if !(_vec isKindOf "Ship") then {
+		_vec setVariable ["d_drowned", true];
+	};
 	
 	__TRACE_1("","_endpos")
 
@@ -409,6 +412,9 @@ private _fnc_tt_bonusvec = {
 			if (d_bvp_counter_w > (count _d_bonus_vec_positions - 1)) then {d_bvp_counter_w = 0};
 		};
 		_vec setVariable ["d_liftit", true, true];
+	};
+	if !(_vec isKindOf "Ship") then {
+		_vec setVariable ["d_drowned", true];
 	};
 
 	_vec setDir _dir;

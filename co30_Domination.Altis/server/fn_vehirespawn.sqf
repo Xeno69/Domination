@@ -57,6 +57,10 @@ private _type = typeOf _vec;
 
 _vec setVariable ["d_vec_islocked", _vec call d_fnc_isVecLocked];
 
+if !(_vec isKindOf "Ship") then {
+	_vec setVariable ["d_drowned", true];
+};
+
 private _nopylon = _vec getVariable "d_disable_pylonloadout";
 
 if (_fuelcheck) then {
@@ -249,6 +253,9 @@ while {true} do {
 				clearWeaponCargoGlobal _vec;
 			};
 			clearBackpackCargoGlobal _vec;
+		};
+		if !(_vec isKindOf "Ship") then {
+			_vec setVariable ["d_drowned", true];
 		};
 		_vec setDamage 0;
 	};
