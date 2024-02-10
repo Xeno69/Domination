@@ -113,5 +113,5 @@ class CfgVehicles {
 };
 
 class d_excludemag_gen {
-	excludeMagazines[] = {"FIR_GBU24A_BLU118_P_1rnd_M", "FIR_GBU24A_P_1rnd_M", "FIR_GBU24A_BLU109_P_1rnd_M", "FIR_CBU97_P_1rnd_M", "FIR_CBU97_P_BRU57_2rnd_M", "FIR_CBU97_P_TripleRack_2rnd_M", "FIR_CBU105_P_1rnd_M", "FIR_CBU105_P_BRU57_2rnd_M", "FIR_CBU105_P_TripleRack_2rnd_M "};
+	excludeMagazines[] = {"FIR_GBU24A_BLU118_P_1rnd_M", "FIR_GBU24A_P_1rnd_M", "FIR_GBU24A_BLU109_P_1rnd_M", "FIR_CBU97_P_1rnd_M", "FIR_CBU97_P_BRU57_2rnd_M", "FIR_CBU97_P_TripleRack_2rnd_M", "FIR_CBU105_P_1rnd_M", "FIR_CBU105_P_BRU57_2rnd_M", "FIR_CBU105_P_TripleRack_2rnd_M"};
 };

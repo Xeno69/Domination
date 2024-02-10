@@ -4,15 +4,16 @@
 
 __TRACE_1("","_this")
 
+#ifdef __DEBUG__
+_mm = toLowerANSI(getText(configFile>>"CfgAmmo">>(_this # 4)>>"simulation"));
+__TRACE_1("","_mm")
+#endif
+
 params ["_obj"];
 if (!alive _obj) exitWith {
 	_obj removeAllEventHandlers "handleDamage";
 	__TRACE_1("not alive","_obj")
 };
-#ifdef __DEBUG__
-_mm = toLowerANSI(getText(configFile>>"CfgAmmo">>(_this # 4)>>"simulation"));
-__TRACE_1("","_mm")
-#endif
 private _r = if ((_this # 4) call d_fnc_checksimminet) then {
 	(_this # 2) * 1.1
 } else {
