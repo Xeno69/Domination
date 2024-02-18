@@ -41,6 +41,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -77,6 +78,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -112,6 +114,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -150,7 +153,7 @@ del i_weapons_vn.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
-rmdir /S /Q msara
+rem rmdir /S /Q msara
 rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q mifa3
@@ -182,6 +185,7 @@ del i_weapons_IFA3.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_UNSUNG.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -217,6 +221,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -252,6 +257,7 @@ del i_weapons_gmcwg.sqf
 del i_weapons_UNSUNG.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -286,6 +292,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -320,6 +327,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -354,6 +362,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -388,6 +397,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q mifa3
@@ -422,6 +432,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -456,6 +467,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -490,6 +502,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
@@ -524,6 +537,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
@@ -558,6 +572,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
@@ -592,6 +607,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -626,6 +642,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -660,6 +677,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -694,6 +712,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_default.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -729,6 +748,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_default.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -764,6 +784,7 @@ del i_weapons_gmcwg.sqf
 del i_weapons_UNSUNG.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
@@ -799,6 +820,7 @@ del i_weapons_UNSUNG.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -833,6 +855,7 @@ del i_weapons_IFA3.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -868,6 +891,7 @@ del i_weapons_IFA3.sqf
 del i_weapons_gmcwg.sqf
 del i_weapons_UNSUNG.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -903,6 +927,7 @@ del i_weapons_gmcwg.sqf
 del i_weapons_UNSUNG.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
@@ -937,6 +962,7 @@ del i_weapons_gmcwg.sqf
 del i_weapons_UNSUNG.sqf
 del i_weapons_csla.sqf
 del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
 cd missions
 rmdir /S /Q m
 rmdir /S /Q mifa3
