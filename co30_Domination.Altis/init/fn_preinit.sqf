@@ -105,6 +105,12 @@ d_spe = true;
 d_spe = false;
 #endif
 
+#ifndef __JSDF__
+d_jsdf = false;
+#else
+d_jsdf = true;
+#endif
+
 d_kbtel_chan = "SIDE";
 
 d_HeliHEmpty = "Land_HelipadEmpty_F";
@@ -188,6 +194,10 @@ d_version_string = "Carrier";
 d_version_string = ["RHS Opfor", "RHS Blufor"] select d_rhs_blufor;
 #endif
 
+#ifdef __JSDF__
+d_version_string = "JSDF Overhauled";
+#endif
+
 #ifdef __IFA3__
 d_e_marker_color_alpha = 1.3;
 #else
@@ -254,6 +264,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __SPE__
 #include "sm_bonus_vec_ar_spe.sqf"
 #endif
+#ifdef __JSDF__
+#include "sm_bonus_vec_ar_jsdf.sqf"
+#endif
 
 #ifdef __ALTIS__
 #include "mt_bonus_vec_ar_altis.sqf"
@@ -315,6 +328,9 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __SPE__
 #include "mt_bonus_vec_ar_spe.sqf"
 #endif
+#ifdef __JSDF__
+#include "mt_bonus_vec_ar_jsdf.sqf"
+#endif
 
 #ifndef __TT__
 d_sm_b_vec_ar_c = d_sm_bonus_vehicle_array apply {toLowerANSI _x};
@@ -361,6 +377,9 @@ d_x_drop_array =
 		};
 		if (d_spe) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "SPE_OpelBlitz_Open"], [localize "STR_DOM_MISSIONSTRING_20", "SPE_Ammocrate_Grenades_Frag_GER"]]
+		};
+		if (d_jsdf) exitWith {
+			[[], [localize "STR_DOM_MISSIONSTRING_22", "Sparky_JSDF_Overhaul_gac_JGSDF_HMV"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 		};
 		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select (d_tanoa || {d_livonia})], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
@@ -453,6 +472,9 @@ d_cargotower =
 #ifdef __SPE__
 	"";
 #endif
+#ifdef __JSDF__
+	"Land_Cargo_Tower_V4_F";
+#endif
 
 d_wcamp =
 #ifdef __ALTIS__
@@ -503,6 +525,9 @@ d_wcamp =
 #ifdef __SPE__
 	"Land_SPE_Tent_02";
 #endif
+#ifdef __JSDF__
+	"Land_Cargo_Patrol_V4_F";
+#endif
 
 #ifndef __VN__
 d_mash = "Land_FirstAidKit_01_closed_F";
@@ -524,6 +549,11 @@ call {
 		d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 		d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
 		d_flag_str_independent = "\a3\data_f\flags\flag_green_co.paa";
+	};
+	if (d_jsdf) exitWith {
+		d_flag_str_opfor = "\rhsafrf\addons\rhs_main\data\Flag_rus_CO.paa";
+		d_flag_str_independent = "\A3\Data_F_Exp\Flags\flag_SYND_CO.paa";
+		d_flag_str_blufor = "\Sparky_JSDF_overhaul_objects\Flags\Sparky_Japan_Flag_co.paa";
 	};
 	d_flag_str_blufor = "\a3\data_f\flags\flag_blue_co.paa";
 	d_flag_str_opfor = "\a3\data_f\flags\flag_red_co.paa";
@@ -1026,6 +1056,14 @@ if (!d_gmcwgwinter) then {
 				#include "d_allmen_B_SPE.sqf"
 			];
 		};
+		if (d_jsdf) exitWith {
+			d_allmen_W = [
+				#include "d_allmen_B_JSDF.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_O_RHS.sqf"
+			];
+		};
 		d_allmen_W = [
 			#include "d_allmen_B_default.sqf"
 		];
@@ -1092,6 +1130,9 @@ if (!d_gmcwgwinter) then {
 #endif
 #ifdef __SPE__
 #include "d_allmen_G_SPE.sqf"
+#endif
+#ifdef __JSDF__
+#include "d_allmen_G_default.sqf"
 #endif
 	];
 
@@ -1181,6 +1222,9 @@ if (!d_pracs) then {
 		if (d_spe) exitWith {
 			[["West","SPE_STURM","Infantry","SPE_sturmtrooper_Assault_Engineer_Squad"] call d_fnc_GetConfigGroup]
 		}; 
+		if (d_jsdf) exitWith {
+			[["West","Sparky_JSDF_overhaul_Groups","Infantry","Sparky_JSDF_overhaul_BUS_ReconTeam"] call d_fnc_GetConfigGroup, ["West","rhs_faction_socom_marsoc","rhs_group_nato_marsoc_infantry","rhs_group_nato_marsoc_infantry_team"] call d_fnc_GetConfigGroup]
+		};
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup,["West","BLU_F","Infantry","BUS_ReconSquad"] call d_fnc_GetConfigGroup]
 	};
 
@@ -1293,6 +1337,18 @@ if (!d_pracs) then {
 		["Indep","SPE_US_ARMY","Infantry","SPE_US_Scout_Squad"] call d_fnc_GetConfigGroup
 	];
 #endif
+#ifdef __JSDF__
+	d_specops_E = [
+		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_2mg"] call d_fnc_GetConfigGroup,
+		["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup, ["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_mg_sniper"] call d_fnc_GetConfigGroup
+	];
+	d_sabotage_E = [["rhs_vmf_recon_rifleman_scout_akm", "rhs_vmf_recon_sergeant"]];
+	d_sabotage_W = [["Sparky_JSDF_Overhaul_Explosives_ARDB_JGSDF", "Sparky_JSDF_Overhaul_Explosives_JGSDF"]];
+	d_sabotage_G = [["I_diver_exp_F"]];
+	d_sniper_E = [["East","rhs_faction_vmf","rhs_group_rus_vmf_infantry_recon","rhs_group_rus_vmf_infantry_recon_squad_sniper"] call d_fnc_GetConfigGroup];
+	d_sniper_W = [["West","Sparky_JSDF_overhaul_Groups","Infantry","Sparky_JSDF_overhaul_BUS_SniperTeam"] call d_fnc_GetConfigGroup];
+	d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+#endif
 
 	d_veh_a_E = [
 #ifdef __ALTIS__
@@ -1393,6 +1449,14 @@ if (!d_pracs) then {
 		#include "d_veh_a_O_PRACS.sqf"
 	];
 #endif
+#ifdef __JSDF__
+	d_veh_a_W = [
+		#include "d_veh_a_B_JSDF.sqf"
+	];
+	d_veh_a_E = [
+		#include "d_veh_a_O_RHS.sqf"
+	];
+#endif
 
 	d_veh_a_G =
 		call {
@@ -1466,6 +1530,10 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 	d_arti_observer_W = [["SPE_sturmtrooper_sapper_gefr"]];
 	d_arti_observer_G = [["SPE_US_Second_Lieutenant"]];
 #endif
+#ifdef __JSDF__
+	d_arti_observer_W = [["Sparky_JSDF_Overhaul_Recon_JTAC_JGSDF"]];
+	d_arti_observer_E = [["rhs_vmf_recon_rifleman_scout_akm"], ["rhs_vmf_recon_rifleman_scout"]];
+#endif
 
 	if (isNil "d_number_attack_planes") then {
 		d_number_attack_planes = 1;
@@ -1527,6 +1595,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 			};
 			if (d_spe) exitWith {
 				"SPE_FW190F8"
+			};
+			if (d_jsdf) exitWith {
+				"Sparky_JSDF_Overhaul_gac_JGSDF_CH47J"
 			};
 			"B_Heli_Transport_01_camo_F"
 		};
@@ -1598,6 +1669,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 			if (d_spe) exitWith {
 				"SPE_FW190F8"
 			};
+			if (d_jsdf) exitWith {
+				"Sparky_JSDF_Overhaul_JSDF_JASDF_F4A"
+			};
 			"B_Plane_CAS_01_F"
 		};
 #endif
@@ -1658,7 +1732,7 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 			if (d_unsung) exitWith {
 				"uns_Mig21_CAS"
 			};
-			if (d_rhs) exitWith {
+			if (d_rhs||d_jsdf) exitWith {
 				"RHS_Su25SM_vvsc"
 			};
 			if (d_vn) exitWith {
@@ -1666,6 +1740,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 			};
 			if (d_spe) exitWith {
 				"SPE_P47"
+			};
+			if (d_jsdf) exitWith {
+				"RHS_Su25SM_vvsc"
 			};
 			"O_Plane_CAS_02_F"
 		};
@@ -1720,6 +1797,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 				};
 				if (d_pracs) exitWith {
 					"PRACS_SLA_GoFast_gun"
+				};
+				if (d_jsdf) exitWith {
+					""
 				};
 				"O_Boat_Armed_01_hmg_F"
 			};
@@ -1814,6 +1894,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 //#ifdef __SPE__
 // no compositions
 //#endif
+#ifdef __JSDF__
+#include "d_compositions_jsdf.sqf"
+#endif
 
 	// max men for main target clear
 	d_man_count_for_target_clear = 6;
@@ -1907,6 +1990,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 		if (d_spe) exitWith {
 			"SPE_FlaK_36_AA"
 		};
+		if (d_jsdf) exitWith {
+			"Sparky_JSDF_Overhaul_JSDF_JGSDF_87SPAAG"
+		};
 		"B_APC_Tracked_01_AA_F";
 	};
 #endif
@@ -1973,6 +2059,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 		};
 		if (d_spe) exitWith {
 			"SPE_PzKpfwVI_H1"
+		};
+		if (d_jsdf) exitWith {
+			"Sparky_JSDF_Overhaul_gac_JGSDF_type10_v2"
 		};
 		"B_MBT_01_cannon_F";
 	};
@@ -2043,6 +2132,9 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 		};
 		if (d_spe) exitWith {
 			"SPE_SdKfz250_1"
+		};
+		if (d_jsdf) exitWith {
+			"Sparky_JSDF_Overhaul_JGSDF_Marshall"
 		};
 		"B_APC_Wheeled_01_cannon_F"
 	};
@@ -2136,6 +2228,9 @@ if (d_with_airdrop == 2) then {
 	publicVariable "d_sm_tank_own_side";
 	publicVariable "d_sm_tank_special_own_side";
 };
+#ifdef __JSDF__
+#include "d_sm_classes_jsdf.sqf"
+#endif
 
 	d_intel_unit = objNull;
 
@@ -2198,6 +2293,9 @@ if (d_with_airdrop == 2) then {
 				};
 				if (d_pracs) exitWith {
 					["PRACS_SLA_MiG27","PRACS_SLA_Su25","PRACS_SLA_SU22"]
+				};
+				if (d_jsdf) exitWith {
+					["rhs_mig29s_vmf","rhs_mig29sm_vmf","rhs_mig29s_vvsc","rhs_mig29sm_vvsc","RHS_Su25SM_vvsc","RHS_Su25SM_vvs","RHS_T50_vvs_generic_ext","RHS_T50_vvs_blueonblue"]
 				};
 				["O_Plane_CAS_02_F"]
 			};
@@ -2332,6 +2430,9 @@ if (d_with_airdrop == 2) then {
 				};
 				if (d_pracs) exitWith {
 					["PRACS_SLA_Mi24D","PRACS_SLA_Mi24V_UPK"]
+				};
+				if (d_jsdf) exitWith {
+					["RHS_Mi24P_vdv","RHS_Mi24V_vdv","RHS_Ka52_vvsc","RHS_Mi24P_vvsc","RHS_Mi24Vt_vvsc","rhs_mi28n_vvsc"]
 				};
 				["O_Heli_Attack_02_F"]
 			};
@@ -2570,6 +2671,18 @@ if (d_with_airdrop == 2) then {
 		["SPE_P47"]
 	};
 #endif
+#ifdef __JSDF__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["RHS_Mi8MTV3_vvsc"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["Sparky_JSDF_Overhaul_JSDF_JGSDF_UH1J_MG"]
+		};
+		["I_Heli_Transport_02_F"]
+	};
+#endif
 
 	// light attack chopper (for example I_Heli_light_03_F with MG)
 	d_light_attack_chopper = call {
@@ -2601,6 +2714,9 @@ if (d_with_airdrop == 2) then {
 				};
 				if (d_pracs) exitWith {
 					["PRACS_SLA_Mi17Sh","PRACS_SLA_Mi17Sh_UPK"]
+				};
+				if (d_jsdf) exitWith {
+					["RHS_Mi24P_vvs"]
 				};
 				["O_Heli_Attack_02_black_F"]
 			};
@@ -2716,6 +2832,9 @@ if (d_with_airdrop == 2) then {
 #ifdef __SPE__
 		"Land_BagBunker_01_large_green_F";
 #endif
+#ifdef __JSDF__
+		"Land_Cargo_HQ_V4_F";
+#endif
 
 	d_b_small_static_high =
 #ifdef __ALTIS__
@@ -2765,6 +2884,9 @@ if (d_with_airdrop == 2) then {
 #endif
 #ifdef __SPE__
 		"";
+#endif
+#ifdef __JSDF__
+		"Land_BagBunker_01_small_green_F";
 #endif
 
 	if (isNil "d_ai_groups_respawn_time") then {
@@ -3390,6 +3512,11 @@ if (d_with_airdrop == 2) then {
 	d_civ_faces = _mixedFaces;
 	d_civArray = d_euroCivs;
 #endif
+#ifdef __JSDF__
+	d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
+	d_civ_faces = _asianFaces;
+	d_civArray = d_asianCivs;
+#endif
 };
 
 if (hasInterface) then {
@@ -3433,6 +3560,9 @@ if (hasInterface) then {
 		};
 		if (d_spe) exitWith {
 			["SPE_OpelBlitz_Open"]
+		};
+		if (d_jsdf) exitWith {
+			["gac_jsdf_klx","Sparky_JSDF_Overhaul_gac_JGSDF_pajero"]
 		};
 		["B_Quadbike_01_F", "B_LSV_01_unarmed_F", "B_UAV_01_F"]
 	};
@@ -3495,7 +3625,7 @@ if (hasInterface) then {
 	d_check_ammo_load_vecs =
 #ifdef __OWN_SIDE_BLUFOR__
 	["B_Heli_Light_01_F", "B_MRAP_01_F", "B_APC_Tracked_01_CRV_F", "B_T_APC_Tracked_01_CRV_F","CUP_B_M1133_MEV_Woodland","CUP_B_LAV25_HQ_USMC","CUP_B_M1133_MEV_Desert","CUP_B_UH1Y_UNA_USMC","I_Heli_light_03_unarmed_F","RHS_MELB_MH6M","rhsusf_M1232_usarmy_wd","gm_ge_army_m113a1g_command","gm_ge_army_fuchsa0_command","CUP_B_UH1D_GER_KSK","I_E_Heli_light_03_unarmed_F",
-	"uns_M113_transport","uns_UH1H_m60","gm_ge_army_bo105m_vbh", "vn_b_wheeled_m54_03", "vn_b_air_uh1d_02_05", "B_D_APC_Tracked_01_CRV_lxWS","B_D_APC_Wheeled_01_command_lxWS","gm_ge_army_m113a1g_command", "SPE_OpelBlitz"];
+	"uns_M113_transport","uns_UH1H_m60","gm_ge_army_bo105m_vbh", "vn_b_wheeled_m54_03", "vn_b_air_uh1d_02_05", "B_D_APC_Tracked_01_CRV_lxWS","B_D_APC_Wheeled_01_command_lxWS","gm_ge_army_m113a1g_command", "SPE_OpelBlitz","Sparky_JSDF_Overhaul_JSDF_JGSDF_CCV","Sparky_JSDF_Overhaul_JSDF_JGSDF_LAV","Sparky_JSDF_Overhaul_gac_JGSDF_MCV"];
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {

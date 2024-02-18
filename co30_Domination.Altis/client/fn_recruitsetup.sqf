@@ -150,6 +150,13 @@ if (isNil "d_UnitsToRecruit") then {
 		case independent: {["SPE_US_Rifleman", "SPE_US_AT_Soldier", "SPE_US_Engineer", "SPE_US_Grenadier", "SPE_US_Flamethrower_Operator", "SPE_US_Medic", "SPE_US_HMGunner"]};
 	};
 #endif
+#ifdef __JSDF__
+	d_UnitsToRecruit = switch (d_player_side) do {
+		case blufor: {["Sparky_JSDF_Overhaul_Soldier_JGSDF", "Sparky_JSDF_Overhaul_Marksman_JGSDF", "Sparky_JSDF_Overhaul_Minimi_JGSDF", "Sparky_JSDF_Overhaul_GL_JGSDF", "Sparky_JSDF_Overhaul_Medic_JGSDF", "Sparky_JSDF_Overhaul_LAT_JGSDF", "Sparky_JSDF_Overhaul_AT_JGSDF", "Sparky_JSDF_Overhaul_AA_JGSDF", "Sparky_JSDF_Overhaul_HAT_JGSDF"]};
+		case opfor: {["rhs_vdv_des_rifleman", "rhs_vdv_des_marksman", "rhs_vdv_des_medic", "rhs_vdv_des_machinegunner", "rhs_vdv_des_at", "rhs_vdv_des_grenadier_rpg", "rhs_vdv_des_engineer", "rhs_vdv_des_aa", "rhs_vdv_des_grenadier", "rhs_vdv_des_RShG2"]};
+		case independent: {[]};
+	};
+#endif
 };
 
 player setVariable ["d_recdbusy", false];
