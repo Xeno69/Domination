@@ -9,23 +9,21 @@ __TRACE_1("","_this")
 
 params ["_pl"];
 
-if (remoteExecutedOwner != owner _pl) exitWith {};
-
-if (_pl isKindOf "HeadlessClient_F") exitWith {
+if (remoteExecutedOwner != owner _pl || {_pl isKindOf "HeadlessClient_F" || {_pl isKindOf "VirtualSpectator_F"}}) exitWith {
 	__TRACE_2("","_pl","owner _pl")
+	if (_pl isKindOf "HeadlessClient_F") then {
 #ifdef __DEBUG__
-	diag_log ["Dom initplayerserver headleass client connected"];
+		diag_log ["Dom initplayerserver headleass client connected"];
 #endif
-	d_hc_array pushBack _pl;
-	if (time > 10) then {
-		if (!isNil "d_recreatehcs_handle") then {
-			terminate d_recreatehcs_handle;
+		d_hc_array pushBack _pl;
+		if (time > 10) then {
+			if (!isNil "d_recreatehcs_handle") then {
+				terminate d_recreatehcs_handle;
+			};
+			d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 		};
-		d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 	};
 };
-
-if (_pl isKindOf "VirtualSpectator_F") exitWith {};
 
 private _uid = getPlayerUID _pl;
 

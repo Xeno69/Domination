@@ -16,7 +16,7 @@ private _fnc_nearmhq = {
 		false
 	};	
 	_ets = player nearEntities ["ReammoBox_F", 25];
-	if (_ets isEqualTo [] || {!isNil {(_ets # 0) getVariable "d_nocheck"}}) exitWith {false};
+	if (_ets isEqualTo [] || {(_ets # 0) getVariable ["d_nocheck", false]}) exitWith {false};
 	true
 };
 

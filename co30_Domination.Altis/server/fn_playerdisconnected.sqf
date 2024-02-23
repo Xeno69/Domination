@@ -29,6 +29,7 @@ __TRACE_1("","_gui")
 diag_log ["DOM playerdisconnected: getUserInfo", _gui];
 #endif
 
+//if ((_this # 5) getUserInfo 7) exitWith {
 if (_gui # 7) exitWith {
 #ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
@@ -46,6 +47,7 @@ if (_gui # 7) exitWith {
 	};
 };
 
+//private _unit = (_this # 5) getUserInfo 10;
 private _unit = _gui # 10;
 
 __TRACE_2("","_uid","_name")
@@ -67,7 +69,7 @@ if (_unit isKindOf "VirtualSpectator_F") exitWith {
 
 if (!d_database_found) exitWith {};
 
-if (!isNil {_unit getVariable "d_no_side_change"}) exitWith {
+if (_unit getVariable ["d_no_side_change", false]) exitWith {
 	__TRACE_2("No database update","_unit","_name")
 #ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected: No database update, _this:", _this];

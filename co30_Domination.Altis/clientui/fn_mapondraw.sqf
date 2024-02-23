@@ -111,7 +111,7 @@ if (d_show_player_marker isNotEqualTo 0) then {
 					"right"
 				];
 
-				if (_inv && {!isNil {_v getVariable "d_ism_vec"}}) then {
+				if (_inv && {_v getVariable ["d_ism_vec", true]}) then {
 					_v setVariable ["d_mvs_not", true];
 				};
 			};
@@ -127,7 +127,7 @@ private _d_mark_loc1825 = d_mark_loc1825;
 private _marker_vecs = d_marker_vecs;
 {
 	if (_x distance2D _mapmid < _drawdist) then {
-		if (isNil {_x getVariable "d_mvs_not"}) then {
+		if !(_x getVariable ["d_mvs_not", false]) then {
 			_isc = [_x, objNull, true] call _fnc_gmi;
 			//__TRACE_1("","_isc")
 			_mt = call {
@@ -166,7 +166,7 @@ private _marker_vecs = d_marker_vecs;
 			_x setVariable ["d_mvs_not", nil];
 		};
 	} else {
-		if (!isNil {_x getVariable "d_mvs_not"}) then {
+		if (_x getVariable ["d_mvs_not", false]) then {
 			_x setVariable ["d_mvs_not", nil];
 		};
 	};

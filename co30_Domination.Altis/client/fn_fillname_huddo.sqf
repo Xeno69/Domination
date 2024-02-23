@@ -68,7 +68,7 @@ if (d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 					};
 				};
 			};
-		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable "xr_pluncon") && {isNil {_x getVariable "xr_plno3dd"}}}}});
+		} forEach (d_allplayers select {alive _x && {_x != player && {!(_x getVariable "xr_pluncon") && {!(_x getVariable ["xr_plno3dd", false])}}}});
 		if (d_with_ai) then {
 			{
 				_distu = _cam2world distance _x;

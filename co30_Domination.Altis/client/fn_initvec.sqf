@@ -148,6 +148,7 @@ if (_d_vec < 100) exitWith {
 	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
 		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 200) exitWith {
@@ -183,6 +184,7 @@ if (_d_vec < 200) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 300) exitWith {
@@ -215,6 +217,7 @@ if (_d_vec < 300) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 400) exitWith {
@@ -252,6 +255,7 @@ if (_d_vec < 400) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 500) exitWith {
@@ -284,6 +288,7 @@ if (_d_vec < 500) exitWith {
 		_vec setVariable ["d_liftit", false];
 	};
 #endif
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 600) exitWith {
@@ -316,6 +321,7 @@ if (_d_vec < 600) exitWith {
 	};
 #endif
 	_vec addEventHandler ["getin", {call d_fnc_checkdriver_wreck}];
+	_vec setVariable ["d_s2fly", true];
 };
 
 #ifdef __TT__
@@ -360,6 +366,7 @@ if (_d_vec < 1100) exitWith {
 	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
 		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 1200) exitWith {
@@ -384,6 +391,7 @@ if (_d_vec < 1200) exitWith {
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 1300) exitWith {
@@ -405,6 +413,7 @@ if (_d_vec < 1300) exitWith {
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 1400) exitWith {
@@ -431,6 +440,7 @@ if (_d_vec < 1400) exitWith {
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 1500) exitWith {
@@ -452,6 +462,7 @@ if (_d_vec < 1500) exitWith {
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 if (_d_vec < 1600) exitWith {
@@ -473,6 +484,7 @@ if (_d_vec < 1600) exitWith {
 	if (d_player_side != opfor) then {
 		_vec setVariable ["d_liftit", false];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 #endif
 
@@ -512,6 +524,7 @@ if (_d_vec < 4000) exitWith {
 	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
 		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 
 #ifdef __TT__
@@ -539,5 +552,6 @@ if (_d_vec < 5000) exitWith {
 	if (isMultiplayer && {_vec isKindOf "Air" && {d_uids_def_choppers isNotEqualTo []}}) then {
 		_vec addEventhandler ["getIn", {call d_fnc_chopcheck}];
 	};
+	_vec setVariable ["d_s2fly", true];
 };
 #endif
