@@ -114,6 +114,13 @@ d_sm_array = [];
 #ifdef __SPE__
 	d_sm_array = [];
 #endif
+#ifdef __JSDF__
+d_sm_array =
+	[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,
+	20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,
+	41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,
+	61,62,63,64,65,66,67,68,69,70,71,72,73,74,100,101,102,103,104,105,106];
+#endif
 
 call d_fnc_create_sm_bymarkers;
 
@@ -262,6 +269,13 @@ if (isServer) then {
 		case "E": {["O_MRAP_02_hmg_F","O_APC_Wheeled_02_rcws_F", "O_MRAP_02_gmg_F", "O_Truck_03_repair_F", "O_Truck_03_fuel_F", "O_Truck_03_ammo_F", "O_APC_Wheeled_02_rcws_F"]};
 		case "W": {["SPE_SdKfz250_1","SPE_ST_SdKfz250_1", "SPE_OpelBlitz_Flak38", "SPE_OpelBlitz_Repair", "SPE_OpelBlitz_Fuel", "SPE_OpelBlitz_Ammo", "SPE_SdKfz250_1"]};
 		case "G": {["SPE_US_M16_Halftrack","SPE_US_M3_Halftrack", "SPE_US_M16_Halftrack", "SPE_US_M3_Halftrack_Repair", "SPE_US_M3_Halftrack_Fuel", "SPE_US_M3_Halftrack_Ammo", "SPE_US_M3_Halftrack"]};
+	};
+#endif
+#ifdef __JSDF__
+	d_sm_convoy_vehicles = switch (d_enemy_side_short) do {
+		case "E": {["rhs_btr80a_vdv","rhs_btr80a_vdv", "rhs_btr70_vdv", "RHS_Ural_Repair_VDV_01", "RHS_Ural_Fuel_VDV_01", "RHS_Ural_VDV_01", "RHS_Ural_Zu23_VDV_01"]};
+		case "W": {["Sparky_JSDF_Overhaul_JSDF_JGSDF_RCV","Sparky_JSDF_Overhaul_JSDF_JGSDF_Type89IFV", "Sparky_JSDF_Overhaul_JSDF_JGSDF_87SPAAG", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_resupply", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_fuel", "Sparky_JSDF_Overhaul_gac_JGSDF_35t_resupply", "Sparky_JSDF_Overhaul_gac_JGSDF_WAPC_GMG"]};
+		case "G": {["I_MRAP_03_gmg_F","I_APC_tracked_03_cannon_F", "I_MBT_03_cannon_F", "I_Truck_02_box_F", "I_Truck_02_fuel_F", "I_Truck_02_ammo_F", "I_APC_tracked_03_cannon_F"]};
 	};
 #endif
 };

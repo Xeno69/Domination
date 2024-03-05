@@ -94,6 +94,9 @@ class Header {
 #ifdef __SPE__
 	maxPlayers = 46;
 #endif
+#ifdef __JSDF__
+	maxPlayers = 46;
+#endif
 };
 
 joinUnassigned = false; // auto assign
@@ -413,6 +416,10 @@ class Params {
 #ifdef __SPE__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,31};
 #endif		
+#ifdef __JSDF__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,34};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","34"};
+#endif
 		default = 9998;
 	};
 
@@ -466,6 +473,9 @@ class Params {
 #endif
 #ifdef __SPE__
 		default = 7;
+#endif
+#ifdef __JSDF__
+		default = 5;
 #endif
 		texts[] = {"00:00","01:00","02:00","03:00","04:00","05:00","06:00","07:00","08:00","09:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00","18:00","19:00","20:00","21:00","22:00","23:00"};
 	};
@@ -632,6 +642,9 @@ class Params {
 		default = 1;
 #endif
 #ifdef __SPE__
+		default = 1;
+#endif
+#ifdef __JSDF__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
@@ -910,6 +923,9 @@ class Params {
 		default = 0;
 #endif
 #ifdef __SPE__
+		default = 1;
+#endif
+#ifdef __JSDF__
 		default = 1;
 #endif
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
@@ -2784,6 +2800,28 @@ class CfgIdentities {
 	class DHQ_OP2: DHQ_BF1 {
 		name = "Horiz, HQ";
 		speaker = "male02per";
+	};
+#endif
+#ifdef __JSDF__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class RDHQ_OP1: DHQ_BF1 {
+		name = "Ivan, HQ";
+		speaker = "RHS_Male03RUS";
+	};
+	class RDHQ_OP2: RDHQ_OP1 {
+		name = "Vasyl, HQ";
+		speaker = "RHS_Male02RUS";
 	};
 #endif
 };
