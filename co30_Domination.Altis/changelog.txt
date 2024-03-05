@@ -9,6 +9,7 @@
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep
 - Changed: Filtering out handleDamage firing when no damage occurs and fake head hits
+- Changed: JSDF Overhauled data for 4.69 by schalldampfer
 - Fixed: d_sum_camps > 0 before spawning target clear, by longtimegamer
 - Fixed: Do not show virtual arsenal 3dmarker, flagpole beacon when streaming friendly or server-forced no-HUD, by longtimegamer
 - Fixed: Statusbar rank did not show General
