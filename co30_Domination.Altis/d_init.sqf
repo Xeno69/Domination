@@ -649,11 +649,7 @@ if (isServer) then {
 	};
 	addMissionEventHandler ["Drowned", {call d_fnc_v_hd}];
 	
-	addMissionEventHandler ["UAVCrewCreated", {
-		params ["_uav", "_driver", "_gunner"];
-		_uav setVariable ["d_uav_crew", [_driver, _gunner]];
-		[_uav, 7] call d_fnc_setekmode;
-	}];
+	addMissionEventHandler ["UAVCrewCreated", {call d_fnc_uavcreated}];
 };
 
 if (hasInterface) then {
