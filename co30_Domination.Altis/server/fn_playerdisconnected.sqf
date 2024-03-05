@@ -22,15 +22,12 @@ if (_uid isEqualTo "") exitWith {
 #endif
 };
 
+#ifdef __DEBUG__
 private _gui = getUserInfo (_this # 5);
 __TRACE_1("","_gui")
-
-#ifdef __DEBUG__
-diag_log ["DOM playerdisconnected: getUserInfo", _gui];
 #endif
 
-//if ((_this # 5) getUserInfo 7) exitWith {
-if (_gui # 7) exitWith {
+if ((_this # 5) getUserInfo 7) exitWith {
 #ifdef __DEBUG__
 	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
 #endif
@@ -47,8 +44,7 @@ if (_gui # 7) exitWith {
 	};
 };
 
-//private _unit = (_this # 5) getUserInfo 10;
-private _unit = _gui # 10;
+private _unit = (_this # 5) getUserInfo 10;
 
 __TRACE_2("","_uid","_name")
 __TRACE_1("1","_unit")
