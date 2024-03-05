@@ -57,6 +57,15 @@ if (isServer) then {
 	setDate _date;
 };
 #endif
+#ifdef __JSDF__
+if (isServer) then {
+	diag_log ["DOM init.sqf, setting date back to 2022..."];
+	private _date = date;
+	_date set [0, 2022];
+	_year = 2022;
+	setDate _date;
+};
+#endif
 
 _year spawn {
 	params ["_year"];

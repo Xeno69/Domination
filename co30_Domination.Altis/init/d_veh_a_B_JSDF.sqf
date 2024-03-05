@@ -1,0 +1,13 @@
+["Sparky_JSDF_Overhaul_gac_JGSDF_type10_v2","Sparky_JSDF_Overhaul_gac_JGSDF_type90","Sparky_JSDF_Overhaul_JSDF_JGSDF_type74"],
+["Sparky_JSDF_Overhaul_JSDF_JGSDF_Type89IFV","Sparky_JSDF_Overhaul_gac_JGSDF_AAV"],
+["Sparky_JSDF_Overhaul_JSDF_JGSDF_RCV","Sparky_JSDF_Overhaul_JGSDF_Marshall"],
+["Sparky_JSDF_Overhaul_JSDF_JGSDF_87SPAAG"],
+["Sparky_JSDF_Overhaul_gac_JGSDF_LAV_249","Sparky_JSDF_Overhaul_gac_JGSDF_LAV_Recon","Sparky_JSDF_Overhaul_gac_JASDF_LAV_249"],
+["Sparky_JSDF_Overhaul_gac_JGSDF_HMV_249","Sparky_JSDF_Overhaul_gac_JGSDF_pajero_recon","Sparky_JSDF_Overhaul_gac_JGSDF_WAPC_GMG"],
+["Sparky_JSDF_Overhaul_JGSDF_M2_HMG"],
+["Sparky_JSDF_Overhaul_JGSDF_GMG","Sparky_JSDF_Overhaul_JGSDF_SAM"],
+["Sparky_JSDF_Overhaul_JGSDF_Mortar"],
+["Sparky_JSDF_Overhaul_gac_JGSDF_35t_fuel"],
+["Sparky_JSDF_Overhaul_JSDF_JGSDF_type90_Recovery"],
+["Sparky_JSDF_Overhaul_gac_JGSDF_35t_resupply"],
+["B_UAV_01_F","B_UAV_06_F","B_UGV_01_rcws_F"]

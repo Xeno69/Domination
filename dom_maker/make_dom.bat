@@ -166,6 +166,80 @@ rmdir /S /Q %NEW_VER%
 rmdir /S /Q %WORK_DIR%
 
 
+rem Blufor JSDF Kushirobeppo
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_jsdf.Kushirobeppo
+set MISSION_SQM=..\mission_sqm\mission_blufor_jsdf_Kushirobeppo_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_jsdf.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+del i_weapons_SPE.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rem rmdir /S /Q ma3a
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor JSDF Shikotan
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_jsdf.Shikotan
+set MISSION_SQM=..\mission_sqm\mission_blufor_jsdf_Shikotan_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_jsdf.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_IFA3.sqf
+del i_weapons_UNSUNG.sqf
+del i_weapons_gmcwg.sqf
+del i_weapons_csla.sqf
+del i_weapons_vn.sqf
+del i_weapons_PRACS.sqf
+del i_weapons_SPE.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q mifa3
+rmdir /S /Q ma3m
+rem rmdir /S /Q ma3a
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
 rem Blufor SOG Prairie
 set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor_vn.cam_lao_nam
 set MISSION_SQM=..\mission_sqm\mission_blufor_cam_lao_nam_bin.sqm
