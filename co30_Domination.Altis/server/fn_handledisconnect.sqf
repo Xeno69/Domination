@@ -10,7 +10,16 @@ diag_log ["DOM handledisconnect _this:", _this];
 
 __TRACE_1("","_this")
 
-if (_name == "__SERVER__") exitWith {
+if (isNil "_unit" || {isNull _unit}) exitWith {
+#ifdef __DEBUG__
+	diag_log "DOM handledisconnect, _unit is either nil or null!";
+#endif
+	false
+};
+
+private _plid = getPlayerID _unit;
+
+if (_plid getUserInfo 1 == 2) exitWith {
 #ifdef __DEBUG__
 	diag_log "DOM handledisconnect, _unit is server!";
 #endif
@@ -20,9 +29,9 @@ if (_name == "__SERVER__") exitWith {
 	false
 };
 
-if (isNil "_unit" || {_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_name find "HC_D_UNIT" == 0 || {_name find "headlessclient" == 0}}}}) exitWith {
+if (_unit isKindOf "VirtualSpectator_F" || {(_uid isEqualTo "") || {_plid getUserInfo 7}}) exitWith {
 #ifdef __DEBUG__
-	diag_log "DOM handledisconnect, _unit is either nil or kindof VirtualSpectator or _uid is empty or is HC!";
+	diag_log "DOM handledisconnect, _unit is either kind of VirtualSpectator or _uid is empty or is HC!";
 #endif
 	false
 };

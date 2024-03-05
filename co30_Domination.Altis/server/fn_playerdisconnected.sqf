@@ -8,6 +8,8 @@ diag_log ["DOM playerdisconnected: _this", _this];
 
 __TRACE_1("","_this")
 
+__TRACE_1("","d_serv_test_obj")
+
 if (isNull d_serv_test_obj) exitWith {
 #ifdef __DEBUG__
 	diag_log "DOM playerdisconnected, d_serv_test_obj is Null!!!";
@@ -28,18 +30,20 @@ __TRACE_1("","_gui")
 #endif
 
 if ((_this # 5) getUserInfo 7) exitWith {
+	if (_name != "__SERVER__") then {
 #ifdef __DEBUG__
-	diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
+		diag_log ["DOM playerdisconnected, headless client disconnect, _this:", _this];
 #endif
-	0 spawn {
-		scriptname "spawn pldisconnected";
-		sleep 2;
-		d_hc_array = d_hc_array - [objNull, grpNull];
-		if (d_hc_array isNotEqualTo []) then {
-			if (!isNil "d_recreatehcs_handle") then {
-				terminate d_recreatehcs_handle;
+		0 spawn {
+			scriptname "spawn pldisconnected HC";
+			sleep 2;
+			d_hc_array = d_hc_array - [objNull, grpNull];
+			if (d_hc_array isNotEqualTo []) then {
+				if (!isNil "d_recreatehcs_handle") then {
+					terminate d_recreatehcs_handle;
+				};
+				d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 			};
-			d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 		};
 	};
 };

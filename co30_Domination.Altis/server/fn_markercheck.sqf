@@ -71,9 +71,11 @@ if (_val isNotEqualTo []) then {
 	d_placed_objs_hash4 deleteAt _uid;
 };
 
-private _searchfor = "_USER_DEFINED #" + _id + "/";
-__TRACE_1("","_searchfor")
+#ifdef __DEBUG__
+private _hhelo = allMapMarkers select {_x find _id > -1};
+__TRACE_1("","_hhelo")
+#endif
 {
 	deleteMarker _x;
 	sleep 0.01;
-} forEach (allMapMarkers select {_x find _searchfor > -1});
+} forEach (allMapMarkers select {_x find _id > -1});

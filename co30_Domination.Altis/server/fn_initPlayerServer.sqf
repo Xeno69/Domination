@@ -7,28 +7,43 @@ diag_log [diag_frameno, diag_ticktime, time, "Executing MPF initPlayerServer.sqf
 #endif
 __TRACE_1("","_this")
 
+if (!isMultiplayer) exitWith {};
+
 params ["_pl"];
 
-if (remoteExecutedOwner != owner _pl || {_pl isKindOf "HeadlessClient_F" || {_pl isKindOf "VirtualSpectator_F"}}) exitWith {
+if (isNull _pl) exitWith {
+	diag_log "Domination ATTENTION!!!!!! A player connected as null object";
+	diag_log ["_this", _this];
+	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
+	diag_log "This may break scripts!!!!";
+};
+
+if (remoteExecutedOwner != owner _pl || {_pl isKindOf "VirtualSpectator_F"}) exitWith {
 	__TRACE_2("","_pl","owner _pl")
-	if (_pl isKindOf "HeadlessClient_F") then {
+};
+
+private _plid = getPlayerID _pl;
+
+__TRACE_1("","_plid")
+
+if (_plid getUserInfo 7) exitWith {
+	__TRACE_2("","_pl","owner _pl")
 #ifdef __DEBUG__
-		diag_log ["Dom initplayerserver headleass client connected"];
+	diag_log ["Dom initplayerserver headleass client connected"];
 #endif
-		d_hc_array pushBack _pl;
-		if (time > 10) then {
-			if (!isNil "d_recreatehcs_handle") then {
-				terminate d_recreatehcs_handle;
-			};
-			d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
+	d_hc_array pushBack _pl;
+	if (time > 10) then {
+		if (!isNil "d_recreatehcs_handle") then {
+			terminate d_recreatehcs_handle;
 		};
+		d_recreatehcs_handle = 0 spawn d_fnc_recreatehcs;
 	};
 };
 
-private _uid = getPlayerUID _pl;
+private _uid = _plid getUserInfo 2;
 
-if (isNull _pl || {_uid isEqualTo ""}) exitWith {
-	diag_log "Domination ATTENTION!!!!!! A player connected as null object or with an empty UID";
+if (_uid isEqualTo "") exitWith {
+	diag_log "Domination ATTENTION!!!!!! A player connected with an empty UID";
 	diag_log ["_this", _this];
 	diag_log "This means the player has not connected properly, resulting in a no unit message!!!!!";
 	diag_log "This may break scripts!!!!";
@@ -38,18 +53,18 @@ if (isNull _pl || {_uid isEqualTo ""}) exitWith {
 [_pl, 18] call d_fnc_setekmode;
 #endif
 
-private _name = name _pl;
+private _name = _plid getUserInfo 3;
 
 private _p = d_player_hash getOrDefault [_uid, []];
 private _f_c = false;
 private _sidepl = side (group _pl);
 __TRACE_1("","_sidepl")
 if (_p isEqualTo []) then {
-	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0, getPlayerID _pl];
+	_p = [time + d_AutoKickTime, time, "", 0, "", _sidepl, _name, 0, [-2, xr_max_lives] select (xr_max_lives != -1), [0, 0], "", [], [], 0, 0, [], 0, 0, _plid];
 	d_player_hash set [_uid, _p];
 	_f_c = true;
 #ifdef __DEBUG__
-	diag_log ["Dom initplayerserver, new player for this session:", _name, "_uid:", _uid, "getPlayerID _pl:", getPlayerID _pl];
+	diag_log ["Dom initplayerserver, new player for this session:", _name, "_uid:", _uid, "_plid:", _plid];
 #endif
 	__TRACE_3("Player not found in d_player_hash","_uid","_name","_p")
 } else {
@@ -70,7 +85,7 @@ if (_p isEqualTo []) then {
 	_p set [1, time];
 	_p set [6, _name];
 	_p set [14, 0];
-	_p set [18, getPlayerID _pl];
+	_p set [18, _plid];
 #ifdef __TT__
 	if (_sidepl != _p # 5) then {
 		if ((_p # 9) # 1 > 0 && {time - ((_p # 9) # 1) < 1800}) then {
@@ -89,7 +104,7 @@ if (_p isEqualTo []) then {
 	};
 #endif
 #ifdef __DEBUG__
-	diag_log ["Dom initplayerserver, player joins session again:", _name, "_uid:", _uid, "getPlayerID _pl:", getPlayerID _pl];
+	diag_log ["Dom initplayerserver, player joins session again:", _name, "_uid:", _uid, "_plid:", _plid];
 #endif
 	__TRACE_1("player store after change","_p")
 };
@@ -275,7 +290,7 @@ if (d_MissionType != 2) then {
 (group _pl) setVariable ["d_pl_gr", true];
 
 if (!isNil "d_pl_mt_score_hash") then {
-	if !((getPlayerUID _pl) in d_pl_mt_score_hash) then {
-		d_pl_mt_score_hash set [getPlayerUID _pl, [score _pl, _pl, name _pl]];
+	if !((_uid) in d_pl_mt_score_hash) then {
+		d_pl_mt_score_hash set [_uid, [score _pl, _pl, _name]];
 	};
 };
