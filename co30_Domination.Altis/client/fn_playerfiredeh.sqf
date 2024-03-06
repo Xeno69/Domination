@@ -1,5 +1,5 @@
 // by Xeno
-//#define __DEBUG__
+#define __DEBUG__
 #include "..\x_setup.sqf"
 
 __TRACE("fn_playerfiredeh")
@@ -27,7 +27,7 @@ if ((_this # 6) isKindOf "BulletCore" || {(_this # 6) isKindOf "ShotgunCore"}) t
 	_do_exit = true;
 };
 
-if (!_do_exit && {(_this # 1) isEqualTo "Put" && {(d_player_in_air && {animationState player == "halofreefall_non"}) || {call _fnc_nearmhq}}}) exitWith {
+if (!_do_exit && {(_this # 1) isEqualTo "Put" && {(getUnitFreefallInfo player) # 0 || {call _fnc_nearmhq}}}) exitWith {
 	deleteVehicle (_this # 6);
 	player addMagazine (_this # 5);
 	systemChat (localize "STR_DOM_MISSIONSTRING_2006");

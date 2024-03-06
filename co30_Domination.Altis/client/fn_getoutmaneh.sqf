@@ -48,11 +48,9 @@ if (alive (_this # 2)) then {
 };
 
 if (!isTouchingGround (vehicle player)) then {
-	d_player_in_air = true;
 	0 spawn {
 		scriptName "spawn_getoutmaneh";
 		while {d_player_canu && {getPos player # 2 > 2}} do {sleep 1};
-		d_player_in_air = false;
 #ifndef __TT__
 		if (d_player_canu && {player inArea d_base_array}) then {
 #else

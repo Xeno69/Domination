@@ -116,7 +116,6 @@ if (!d_with_ace) then {
 	["dom_alive_not_uncon", {call d_fnc_canu2}] call d_fnc_eachframeadd;
 };
 d_player_in_base = true;
-d_player_in_air = false;
 
 d_player_vecs = [];
 
