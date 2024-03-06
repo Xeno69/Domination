@@ -72,51 +72,79 @@ if (_vec isKindOf "Air") then {
 	};
 	
 	if (!d_with_ace) then {
-		_vec setVariable ["d_rappel_self_action", [
-				/* 0 object */						_vec,
-				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
-				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-				/* 4 condition to show */			"[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check",
-				/* 5 condition for action */		"player isNotEqualTo (currentPilot _target) && {speed _target < 50}",
-				/* 6 code executed on start */		{},
-				/* 7 code executed per tick */		{},
-				/* 8 code executed on completion */	{
-					[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
-				},
-				/* 9 code executed on interruption */	{},
-				/* 10 arguments */					[],
-				/* 11 action duration */			1,
-				/* 12 priority */					-1,
-				/* 13 remove on completion */		false,
-				/* 14 show unconscious */			false
-			] call bis_fnc_holdActionAdd
-		];
-
-		if (d_with_ai) then {
-			d_ai_rappeling = false;
-			_vec setVariable ["d_rappel_ai_action", [
+		private _issup = _vec getVariable "ar_canrap";
+		if (isNil "_issup") then {
+			_issup = (missionNamespace getVariable ["AR_SUPPORTED_VEHICLES_OVERRIDE", AR_SUPPORTED_VEHICLES]) findIf {_vec isKindOf _x} > -1;
+			_vec setVariable ["ar_canrap", _issup];
+		};
+		if (_issup) then {
+			_vec setVariable ["d_rappel_self_action", [
 					/* 0 object */						_vec,
-					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1864",
+					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1863",
 					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
 					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-					/* 4 condition to show */			"!d_ai_rappeling && {[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check}",
-					/* 5 condition for action */		"speed _target < 50",
+					/* 4 condition to show */			"[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action_Check",
+					/* 5 condition for action */		"player isNotEqualTo (currentPilot _target) && {speed _target < 50}",
 					/* 6 code executed on start */		{},
 					/* 7 code executed per tick */		{},
 					/* 8 code executed on completion */	{
-						d_ai_rappeling = true;
-						{
-							if !(isPlayer [_x]) then {
-								sleep 1;
-								[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
+						[player, vehicle player] call AR_fnc_Rappel_From_Heli_Action;
+					},
+					/* 9 code executed on interruption */	{},
+					/* 10 arguments */					[],
+					/* 11 action duration */			1,
+					/* 12 priority */					-1,
+					/* 13 remove on completion */		false,
+					/* 14 show unconscious */			false
+				] call bis_fnc_holdActionAdd
+			];
+
+			if (d_with_ai) then {
+				d_ai_rappeling = false;
+				_vec setVariable ["d_rappel_ai_action", [
+						/* 0 object */						_vec,
+						/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1864",
+						/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+						/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+						/* 4 condition to show */			"!d_ai_rappeling && {[player] call AR_fnc_Rappel_AI_Units_From_Heli_Action_Check}",
+						/* 5 condition for action */		"speed _target < 50",
+						/* 6 code executed on start */		{},
+						/* 7 code executed per tick */		{},
+						/* 8 code executed on completion */	{
+							d_ai_rappeling = true;
+							{
+								if !(isPlayer [_x]) then {
+									sleep 1;
+									[_x, vehicle _x] call AR_fnc_Rappel_From_Heli_Action;
+								};
+							} forEach (units player);
+							0 spawn {
+								scriptName "spawn_vehiclescripts";
+								sleep 10;
+								d_ai_rappeling = false;
 							};
-						} forEach (units player);
-						0 spawn {
-							scriptName "spawn_vehiclescripts";
-							sleep 10;
-							d_ai_rappeling = false;
-						};
+						},
+						/* 9 code executed on interruption */	{},
+						/* 10 arguments */					[],
+						/* 11 action duration */			1,
+						/* 12 priority */					-1,
+						/* 13 remove on completion */		false,
+						/* 14 show unconscious */			false
+					] call bis_fnc_holdActionAdd
+				];
+			};
+
+			_vec setVariable ["d_rappel_detach_action", [
+					/* 0 object */						_vec,
+					/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1865",
+					/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+					/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
+					/* 4 condition to show */			"[player] call AR_fnc_Rappel_Detach_Action_Check",
+					/* 5 condition for action */		"true",
+					/* 6 code executed on start */		{},
+					/* 7 code executed per tick */		{},
+					/* 8 code executed on completion */	{
+						[player] call AR_fnc_Rappel_Detach_Action;
 					},
 					/* 9 code executed on interruption */	{},
 					/* 10 arguments */					[],
@@ -127,27 +155,6 @@ if (_vec isKindOf "Air") then {
 				] call bis_fnc_holdActionAdd
 			];
 		};
-
-		_vec setVariable ["d_rappel_detach_action", [
-				/* 0 object */						_vec,
-				/* 1 action title */				localize "STR_DOM_MISSIONSTRING_1865",
-				/* 2 idle icon */					"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-				/* 3 progress icon */				"\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_connect_ca.paa",
-				/* 4 condition to show */			"[player] call AR_fnc_Rappel_Detach_Action_Check",
-				/* 5 condition for action */		"true",
-				/* 6 code executed on start */		{},
-				/* 7 code executed per tick */		{},
-				/* 8 code executed on completion */	{
-					[player] call AR_fnc_Rappel_Detach_Action;
-				},
-				/* 9 code executed on interruption */	{},
-				/* 10 arguments */					[],
-				/* 11 action duration */			1,
-				/* 12 priority */					-1,
-				/* 13 remove on completion */		false,
-				/* 14 show unconscious */			false
-			] call bis_fnc_holdActionAdd
-		];
 		
 		d_air_v_dam = 0;
 		_vec setVariable ["d_vec_para_action_move", [

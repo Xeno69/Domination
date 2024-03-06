@@ -12,7 +12,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 
 params ["_player", "_vec"];
 
-if !([_vec] call AR_fnc_Is_Supported_Vehicle) exitWith {false};
+//if !([_vec] call AR_fnc_Is_Supported_Vehicle) exitWith {false};
 private _h = (getPos _vec) # 2;
 if (_h < 5 || {_h > 150}) exitWith {false};
 if (isEngineOn _vec && {currentPilot _vec == _player}) exitWith {false};
