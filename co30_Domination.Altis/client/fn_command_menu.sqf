@@ -8,7 +8,7 @@ if (d_player_canu) then {
 	_cmdm = commandingMenu;
 	__TRACE_1("","_cmdm")
 	#endif
-	if (commandingMenu == "") then {
+	if (commandingMenu isEqualTo "") then {
 		call d_commandingMenuCode;
 		d_commandingMenuCode = nil;
 		d_DomCommandingMenuBlocked = false;

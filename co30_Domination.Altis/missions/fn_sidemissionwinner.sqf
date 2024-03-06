@@ -21,7 +21,7 @@ if (!isNil "d_sm_curptrig_script") then {
 
 d_cur_sm_txt = localize "STR_DOM_MISSIONSTRING_712";
 
-if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
+if (_d_sm_winner != 0 && {_bonus_vecn isNotEqualTo ""}) then {
 	if (d_with_ranked || {d_database_found}) then {
 		private _get_points = false;
 		if (d_player_canu) then {
@@ -88,7 +88,7 @@ if (_d_sm_winner != 0 && {_bonus_vecn != ""}) then {
 		case -1200: {localize "STR_DOM_MISSIONSTRING_1851"};
 		default {""};
 	};
-	if (_s != "") then {
+	if (_s isNotEqualTo "") then {
 		hint composeText[
 			parseText("<t color='#ffffffff' size='1.5'>" + (localize "STR_DOM_MISSIONSTRING_725") + "</t>"), lineBreak,lineBreak,
 			_s

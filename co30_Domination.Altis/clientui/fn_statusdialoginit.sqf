@@ -154,7 +154,7 @@ if (!d_tt_ver) then {
 			_intels = _intels + _tmp + "\n";
 		};
 	} forEach d_searchintel;
-	if (_intels == "") then {
+	if (_intels isEqualTo "") then {
 		_intels = localize "STR_DOM_MISSIONSTRING_548";
 	};
 	(_disp displayCtrl 11018) ctrlSetText _intels;

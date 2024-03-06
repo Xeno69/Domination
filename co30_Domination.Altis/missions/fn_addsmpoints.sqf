@@ -17,7 +17,7 @@ if (!alive (_this # 0)) exitWith {
 	};
 };
 
-if (_this # 1 == "" && {!isNull (_this # 6) && {isPlayer [_this # 6]}}) then {
+if (_this # 1 isEqualTo "" && {!isNull (_this # 6) && {isPlayer [_this # 6]}}) then {
 	if (side (group (_this # 6)) == opfor) then {
 		d_sm_points_opfor = d_sm_points_opfor + 1;
 	} else {

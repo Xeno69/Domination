@@ -80,7 +80,7 @@ if (_pa isNotEqualTo []) then {
 #endif
 	private _amark = _pa # 10;
 	__TRACE_1("","_amark")
-	if (_amark != "") then {
+	if (_amark isNotEqualTo "") then {
 		deleteMarker _amark;
 		_pa set [10, ""];
 	};

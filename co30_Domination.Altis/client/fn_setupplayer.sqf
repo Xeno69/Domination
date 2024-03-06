@@ -43,7 +43,7 @@ if (side (group player) == blufor) then {
 		} forEach (allMapMarkers select {_x select [0, 9] == "d_bm_opf_" || {_x select [0, 9] == "d_ab_opf_" || {_x select [0, 10] == "d_abm_opf_" || {_x select [0, 9] == "d_Mash_opf" || {_x select [0, 9] == "d_FARP_opf" || {_x select [0, 12] == "xr_opf_dead_"}}}}}});
 		{
 			(_x splitString "|") params ["", "_netid_ar"];
-			if (_netid_ar != "") then {
+			if (_netid_ar isNotEqualTo "") then {
 				private _obj = objectFromNetId _netid_ar;
 				if (side (group _obj) != d_player_side) then {
 					deleteMarkerLocal _x;
@@ -73,7 +73,7 @@ if (side (group player) == blufor) then {
 		} forEach (allMapMarkers select {_x select [0, 9] == "d_bm_blu_" || {_x select [0, 9] == "d_ab_blu_" || {_x select [0, 10] == "d_abm_blu_" || {_x select [0, 9] == "d_Mash_blu" || {_x select [0, 9] == "d_FARP_blu" || {_x select [0, 12] == "xr_blu_dead_"}}}}}});
 		{
 			(_x splitString "|") params ["", "_netid_ar"];
-			if (_netid_ar != "") then {
+			if (_netid_ar isNotEqualTo "") then {
 				private _obj = objectFromNetId _netid_ar;
 				if (side (group _obj) != d_player_side) then {
 					deleteMarkerLocal _x;
@@ -351,7 +351,7 @@ if (d_ParaAtBase == 0) then {
 #ifndef __TT__
 if (d_MissionType != 2) then {
 	{
-		if (d_jumpflag_vec == "") then {
+		if (d_jumpflag_vec isEqualTo "") then {
 			_x setVariable ["d_jf_id", _x addAction [format ["<t color='#D64C30' size='1.2'>%1</t>", localize "STR_DOM_MISSIONSTRING_296"], {_this spawn d_fnc_paraj}, 1, 1.5, true, true, "", "true", 10]];
 		} else {
 			_x setVariable ["d_jf_id", _x addAction [format ["<t color='#AAD9EF'>%1</t>", format [localize "STR_DOM_MISSIONSTRING_297", [d_jumpflag_vec, "CfgVehicles"] call d_fnc_GetDisplayName]], {_this spawn d_fnc_bike},[d_jumpflag_vec,1], 1.5, true, true, "", "true", 10]];
@@ -734,7 +734,7 @@ if (d_ParaAtBase == 1) then {
 //};
 
 private _primw = primaryWeapon player;
-if (_primw != "") then {
+if (_primw isNotEqualTo "") then {
 	player selectWeapon _primw;
 };
 
@@ -865,27 +865,27 @@ if (d_without_nvg == 1 && {!d_gmcwg && {!d_unsung && {!d_vn && {!d_spe && {!(pla
 private _bino = binocular player;
 call {
 	if (d_gmcwg) exitWith {
-		if (_bino == "") then {
+		if (_bino isEqualTo "") then {
 			player addWeapon "gm_ferod16_oli";
 		};
 	};
 	if (d_unsung) exitWith {
-		if (_bino == "") then {
+		if (_bino isEqualTo "") then {
 			player addWeapon "uns_binocular_army";
 		};
 	};
 	if (d_vn) exitWith {
-		if (_bino == "") then {
+		if (_bino isEqualTo "") then {
 			player addWeapon "vn_mk21_binocs";
 		};
 	};
 	if (d_csla) exitWith {
-		if (_bino == "") then {
+		if (_bino isEqualTo "") then {
 			player addWeapon "CSLA_bino";
 		};
 	};
 	if (d_spe) exitWith {
-		if (_bino == "") then {
+		if (_bino isEqualTo "") then {
 			if (d_player_side == west) then {
 				player addWeapon "SPE_Binocular_GER";
 			} else {
@@ -896,7 +896,7 @@ call {
 	};
 	if ((d_disable_player_arty == 0 && {d_string_player in d_can_use_artillery || {d_string_player in d_can_mark_artillery}}) || {d_string_player in d_can_call_cas}) then {
 		if (!d_with_ranked && {_bino != "LaserDesignator"}) then {
-			if (_bino != "") then {
+			if (_bino isNotEqualTo "") then {
 				player removeWeapon _bino;
 			};
 			player addWeapon "LaserDesignator";
@@ -905,7 +905,7 @@ call {
 			player addMagazine ["Laserbatteries", 1];
 		};
 	} else {
-		if (_bino == "") then {
+		if (_bino isEqualTo "") then {
 			player addWeapon "Binocular";
 		};
 	};
@@ -918,7 +918,7 @@ if !("ItemRadio" in assigneditems player) then {player linkItem "ItemRadio"};
 #endif
 
 private _unip = uniform player;
-if (_unip != "") then {
+if (_unip isNotEqualTo "") then {
 	if (getText (configFile>>"CfgWeapons">>_unip>>"ItemInfo">>"containerClass") == "Supply500") then {
 		removeUniform player;
 	};

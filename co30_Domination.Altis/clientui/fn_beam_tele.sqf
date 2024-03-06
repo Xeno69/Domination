@@ -2,7 +2,7 @@
 //#define __DEBUG__
 #include "..\x_setup.sqf"
 
-if (d_beam_target == "" || {d_x_loop_end}) exitWith {};
+if (d_beam_target isEqualTo "" || {d_x_loop_end}) exitWith {};
 
 d_x_loop_end = true;
 

@@ -11,12 +11,12 @@ while {!isNil "d_teleport_off" && {(xr_max_lives != -1 && {player getVariable ["
 	if (d_respawn_mar_str != _old_respmar) then {
 		//__TRACE_2("","d_respawn_mar_str","_old_respmar")
 		_cur_ang = 0;
-		if (_old_respmar != "") then {
+		if (_old_respmar isNotEqualTo "") then {
 			_old_respmar setMarkerDirLocal 0;
 		};
 		_old_respmar = d_respawn_mar_str;
 	};
-	if (d_respawn_mar_str != "") then {
+	if (d_respawn_mar_str isNotEqualTo "") then {
 		private _fps = diag_fps;
 		if (_fps < 50) then {
 			_cur_ang = _cur_ang + 5;

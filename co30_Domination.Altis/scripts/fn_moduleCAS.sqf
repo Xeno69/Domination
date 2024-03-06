@@ -81,7 +81,7 @@ if (isClass _cfg) then {
 		private _curpylon = _cfg select _i;
 		private _tweap = getText (configFile>>"CfgMagazines">>getText (_curpylon>>"attachment")>>"pylonWeapon");
 		__TRACE_1("","_tweap")
-		if (_tweap != "") then {
+		if (_tweap isNotEqualTo "") then {
 			_pylweaps pushBackUnique _tweap;
 		};
 	};

@@ -215,7 +215,7 @@ if (_show_respawnatsql) then {
 
 //__TRACE_1("","_logtxt")
 
-if (_logtxt != "") then {
+if (_logtxt isNotEqualTo "") then {
 	(_display displayCtrl 11002) ctrlSetText _logtxt;
 };
 

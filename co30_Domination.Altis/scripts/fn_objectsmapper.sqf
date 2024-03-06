@@ -209,7 +209,7 @@ private _multiplyMatrixFunc = {
 			};
 		};
 		if (!isNil "_varName") then  {
-			if (_varName != "") then  {
+			if (_varName isNotEqualTo "") then  {
 				_newObj setVehicleVarName _varName;
 				call (compile (_varName + " = _newObj;"));
 			};

@@ -88,7 +88,7 @@ for "_i" from 0 to _guerrillaGroupCount do {
 		_x removeWeaponGlobal (primaryWeapon _x);
 		_x addUniform (selectRandom _guerrilla_uniforms);
 		private _hmd = hmd _x;
-		if (_hmd != "" && {getText(configFile>>"CfgWeapons">>_hmd>>"simulation") == "NVGoggles"}) then {
+		if (_hmd isNotEqualTo "" && {getText(configFile>>"CfgWeapons">>_hmd>>"simulation") == "NVGoggles"}) then {
 			_x unlinkItem _hmd;
 		};
 		if (_join_player) then {

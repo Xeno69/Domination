@@ -106,7 +106,7 @@ if (_rtype == 0) then { // player died
 		} else {
 			call d_fnc_retrieve_respawngear;
 			{
-				if (_x != "") then {
+				if (_x isNotEqualTo "") then {
 					player setOpticsMode [_forEachIndex + 1, _x];
 				};
 			} forEach (player getVariable "d_cur_opm");

@@ -36,7 +36,7 @@
 
 params [["_input","",["",[]]], ["_pos",[],[[]]], ["_dir",0,[123]], ["_aligned",true,[true]], ["_forceSuperSimple",false,[true]], ["_loc", false]];
 
-if (_input isEqualType "" && {_input == ""}) exitWith {
+if (_input isEqualType "" && {_input isEqualTo ""}) exitWith {
 	__TRACE("Simple object input is corrupted!")
 	objNull
 };
@@ -74,12 +74,12 @@ if (count _data == 0) exitWith {
 //get class & model
 _data params [["_class","",[""]], ["_p3d","",[""]]];
 
-if (_class == "" && {_p3d == ""}) exitWith {
+if (_class isEqualTo "" && {_p3d isEqualTo ""}) exitWith {
 	__TRACE_1("Simple object data are corrupted, class or p3d is required","_input")
 	objNull
 };
 
-private _superSimple = _class == "" || {_forceSuperSimple};
+private _superSimple = _class isEqualTo "" || {_forceSuperSimple};
 
 //create simple object
 private _object = nil;

@@ -28,13 +28,13 @@ while {true} do {
 		d_allnearusermarkers = d_allnearusermarkers apply {[]};
 		{	
 			private _split_ar = _x splitString "#/";
-			if (_split_ar # 3 != "") then {
+			if ((_split_ar # 3) isNotEqualTo "") then {
 				private _chan = parseNumber (_split_ar # 3);
 				if (_chan > 0) then {
 					(d_allnearusermarkers # _chan) pushBack _x;
 				};
 			};
-		} forEach (allMapMarkers select {_x find "_USER_DEFINED #" == 0 && {markerPos _x distance2D player < 1000}});
+		} forEach (allMapMarkers select {_x find "_USER_DEFINED #" == 0 && {markerPos _x distance2D player < 800}});
 	};
 	sleep 2;
 };

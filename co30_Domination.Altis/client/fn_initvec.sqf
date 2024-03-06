@@ -50,7 +50,7 @@ __TRACE_1("","_vec")
 
 private _desm = _vec getVariable ["d_deserted_marker", ""];
 
-if (_desm != "" && {markerPos _desm isNotEqualTo [0,0,0]}) then {
+if (_desm isNotEqualTo "" && {markerPos _desm isNotEqualTo [0,0,0]}) then {
 	[_desm, _vec, "ICON", "ColorBlack", [1, 1], format [localize "STR_DOM_MISSIONSTRING_260", [_vec] call d_fnc_GetDisplayName], 0, "hd_dot"] call d_fnc_CreateMarkerLocal;
 };
 
@@ -73,17 +73,17 @@ if (_d_vec isEqualType []) exitWith {
 	__TRACE_2("","_vside","d_player_side")
 	if (_vside getFriend _p_side >= 0.6) then {
 		__TRACE_1("","_ma_text")
-		if (_ma_text != "") then {
+		if (_ma_text isNotEqualTo "") then {
 			_vec setVariable ["d_ma_text", _ma_text];
 		} else {
 			_vec setVariable ["d_ma_text", ""];
 		};
-		if (_ma_type != "") then {
+		if (_ma_type isNotEqualTo "") then {
 			_vec setVariable ["d_ma_type", getText (configFile >>"CfgMarkers">>_ma_type>>"icon")];
 			_vec setVariable ["d_ism_vec", true];
 		};
 		_vec setVariable ["d_icon_type", getText ((configOf _vec)>>"icon")];
-		if (_ma_col != "") then {
+		if (_ma_col isNotEqualTo "") then {
 			_vec setVariable ["d_ma_color", d_color_hash get _ma_col];
 		};
 		d_marker_vecs pushBack _vec;

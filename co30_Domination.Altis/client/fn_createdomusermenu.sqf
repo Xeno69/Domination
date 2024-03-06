@@ -76,7 +76,7 @@ if (d_pisadminp && {!visibleMap}) then {
 if (!d_with_ace) then {
 	private _clattached = player getVariable ["d_p_clattached", ""];
 	__TRACE_1("","_clattached")
-	if (_clattached == "") then {
+	if (_clattached isEqualTo "") then {
 		private _chemar = call d_fnc_haschemlight;
 		__TRACE_1("","_chemar")
 		if (count _chemar > 0) then {
@@ -90,13 +90,13 @@ if (!d_with_ace) then {
 					if (_x == "Chemlight_blue") exitWith {"18"};
 					""
 				};
-				if (_strnum != "") then {
+				if (_strnum isNotEqualTo "") then {
 					d_DomUserMenu pushBack [format [localize "STR_DOM_MISSIONSTRING_1506", getText(configFile>>"CfgMagazines">>_x>>"displayName")], [call _fnc_inc_num], "", -5, [["expression", _strnum + " call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 				};
 			} forEach _chemar;
 		};
 	} else {
-		if (_clattached != "") then {
+		if (_clattached isNotEqualTo "") then {
 			d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
 			d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1505", [call _fnc_inc_num], "", -5, [["expression", "20 call d_fnc_DomCommandingMenuExec"]], "1", "1"];

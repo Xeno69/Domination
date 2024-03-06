@@ -44,7 +44,7 @@
 private _target = param [0,true,[true,sideunknown,grpnull,objnull,[],""]];
 private _params = param [1,"",["",[]]];
 
-private _taskID = _params param [0,"",[""]]; if (_taskID == "") exitWith {};
+private _taskID = _params param [0,"",[""]]; if (_taskID isEqualTo "") exitWith {};
 private _taskVar = _taskID call bis_fnc_taskVar;
 
 private _texts = param [2,[GET_DATA(_taskVar,DESCRIPTION),GET_DATA(_taskVar,TITLE),GET_DATA(_taskVar,MARKER)],[[],""]];

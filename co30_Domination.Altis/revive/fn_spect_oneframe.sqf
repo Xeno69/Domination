@@ -59,10 +59,10 @@ if (time > xr_spect_timer) then {
 			private _pic = player getVariable "d_p_icon";
 			if (isNil "_pic") then {
 				_pic = getText ((configOf player)>>"icon");
-				if (_pic != "") then {
+				if (_pic isNotEqualTo "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
-				if (_pic == "") then {
+				if (_pic isEqualTo "") then {
 					_pic = "#(argb,8,8,3)color(1,1,1,0)";
 				};
 				player setVariable ["d_p_icon", _pic];
@@ -77,10 +77,10 @@ if (time > xr_spect_timer) then {
 			_pic = _x getVariable "d_p_icon";
 			if (isNil "_pic") then {
 				_pic = getText ((configOf _x)>>"icon");
-				if (_pic != "") then {
+				if (_pic isNotEqualTo "") then {
 					_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 				};
-				if (_pic == "") then {
+				if (_pic isEqualTo "") then {
 					_pic = "#(argb,8,8,3)color(1,1,1,0)";
 				};
 				_x setVariable ["d_p_icon", _pic];
@@ -100,10 +100,10 @@ if (time > xr_spect_timer) then {
 				_pic = _x getVariable "d_p_icon";
 				if (isNil "_pic") then {
 					_pic = getText ((configOf _x)>>"icon");
-					if (_pic != "") then {
+					if (_pic isNotEqualTo "") then {
 						_pic = getText (configFile >>"CfgVehicleIcons">>_pic);
 					};
-					if (_pic == "") then {
+					if (_pic isEqualTo "") then {
 						_pic = "#(argb,8,8,3)color(1,1,1,0)";
 					};
 					_x setVariable ["d_p_icon", _pic];

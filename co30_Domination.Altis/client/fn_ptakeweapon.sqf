@@ -53,7 +53,7 @@ if (!_isvalid) then {
 		private _secits = player getVariable "d_pprimweapitems";
 		if (primaryWeaponItems player isNotEqualTo _secits) then {
 			removeAllPrimaryWeaponItems player;
-			{player addPrimaryWeaponItem _x} forEach (_secits select {_x != ""});
+			{player addPrimaryWeaponItem _x} forEach (_secits select {_x isNotEqualTo ""});
 		};
 		
 		_exit_it = true;
@@ -69,7 +69,7 @@ if (!_isvalid) then {
 				{
 					player removeSecondaryWeaponItem _x;
 				} forEach (secondaryWeaponItems player);
-				{player addSecondaryWeaponItem _x} forEach (_secits select {_x != ""});
+				{player addSecondaryWeaponItem _x} forEach (_secits select {_x isNotEqualTo ""});
 			};
 			
 			_exit_it = true;
@@ -82,7 +82,7 @@ if (!_isvalid) then {
 				private _secits = player getVariable "d_phandgweapitems";
 				if (handgunItems player isNotEqualTo _secits) then {
 					removeAllHandgunItems player;
-					{player addHandgunItem _x} forEach (_secits select {_x != ""});
+					{player addHandgunItem _x} forEach (_secits select {_x isNotEqualTo ""});
 				};
 				
 				_exit_it = true;

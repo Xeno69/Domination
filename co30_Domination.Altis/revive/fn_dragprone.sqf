@@ -11,7 +11,7 @@ player setVariable ["xr_is_dragging", true];
 
 private _unit = player;
 private _name_dragee = [_dragee] call d_fnc_gethpname;
-if (isNil "_name_dragee" || {_name_dragee == ""}) then {_name_dragee = name _dragee};
+if (isNil "_name_dragee" || {_name_dragee isEqualTo ""}) then {_name_dragee = name _dragee};
 
 _dragee setVariable ["xr_dragged", true, true];
  

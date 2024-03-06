@@ -40,7 +40,7 @@ d_fnc_groupmarker = {
 		if ((units _grp) findIf {alive _x} > -1) exitWith {};
 	};
 	_helper = str _grp;
-	private _gname = if (_helper != "") then {_helper} else {d_gcounter = d_gcounter + 1; str d_gcounter};
+	private _gname = if (_helper isNotEqualTo "") then {_helper} else {d_gcounter = d_gcounter + 1; str d_gcounter};
 	private _mname = _gname + "dgrp";
 	private _mnamel = _mname + "lm";
 	_mnamewp = _mname + "wpm";
@@ -79,7 +79,7 @@ d_fnc_groupmarker = {
 			private _idx = currentWaypoint _grp;
 			if (_idx > 0 && {_idx < count _wps}) then {
 				private _curwppos = waypointPosition (_wps # _idx);
-				if (markerType _mnamewp == "") then {
+				if (markerType _mnamewp isEqualTo "") then {
 					[_mnamewp,_curwppos,"ICON","ColorGrey",[0.7, 0.7],"",0,"waypoint"] call d_fnc_CreateMarkerLocal;
 				} else {
 					_mnamewp setMarkerPosLocal _curwppos;

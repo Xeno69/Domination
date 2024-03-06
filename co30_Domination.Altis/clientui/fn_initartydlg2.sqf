@@ -14,7 +14,7 @@ d_arti_did_fire = nil;
 	//__TRACE_1("","_x")
 	//__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
 
-	if (!isMultiplayer || {_netid_ar != ""}) then {
+	if (!isMultiplayer || {_netid_ar isNotEqualTo ""}) then {
 		if (!d_tt_ver) then {
 			d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
 		} else {

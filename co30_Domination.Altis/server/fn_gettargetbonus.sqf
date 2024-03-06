@@ -17,7 +17,7 @@ if (!isNil "_cur_tar_obj" && {!isNull _cur_tar_obj}) then {
 		_vectypetouse = _vectypesv;
 	};
 };
-if (_vectypetouse == "") then {
+if (_vectypetouse isEqualTo "") then {
 	_vectypetouse = selectRandom d_mt_bonus_vehicle_array;
 };
 private _vec = createVehicle [_vectypetouse, d_bonus_create_pos, [], 0, "CAN_COLLIDE"];
@@ -76,10 +76,10 @@ if (!isNil "_cur_tar_obj" && {!isNull _cur_tar_obj}) then {
 	};
 };
 
-if (_vectypetouse_w_temp == "") then {
+if (_vectypetouse_w_temp isEqualTo "") then {
 	_vectypetouse_w_temp = selectRandom (d_mt_bonus_vehicle_array # 0);
 };
-if (_vectypetouse_e_temp == "") then {
+if (_vectypetouse_e_temp isEqualTo "") then {
 	_vectypetouse_e_temp = selectRandom (d_mt_bonus_vehicle_array # 1);
 };
 

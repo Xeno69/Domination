@@ -177,7 +177,7 @@ switch (_mode) do {
 		private _group  = _params param [0, grpNull, [grpNull]];
 		private _name 	= _params param [1, "", [""]];
 
-		if (!isNull _group && {_name != ""}) then
+		if (!isNull _group && {_name isNotEqualTo ""}) then
 		{
 			_group setGroupIdGlobal [_name];
 		};
@@ -906,7 +906,7 @@ switch (_mode) do {
 		private _lastInsigniaTexture = _group getVariable ["BIS_dynamicGroups_lastinsignia", ""];
 		private _insigniaTexture = "";
 
-		if (_lastInsigniaTexture == "") then {
+		if (_lastInsigniaTexture isEqualTo "") then {
 			private _insignia = if (count _availableInsignias > 0) then { selectRandom _availableInsignias } else { "" };
 			private _groupPicture 	= leader _group getVariable ["BIS_dg_ins", _insignia];
 			_insigniaTexture = ["GetInsigniaTexture", [_groupPicture]] call d_fnc_dynamicGroups;
@@ -915,7 +915,7 @@ switch (_mode) do {
 			_insigniaTexture = _lastInsigniaTexture;
 		};
 
-		if (_insigniaTexture != "") then {
+		if (_insigniaTexture isNotEqualTo "") then {
 			_insigniaTexture;
 		} else {
 			private _squadParams = squadParams leader _group;

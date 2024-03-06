@@ -131,7 +131,7 @@ if (!ctrlShown _ctrl) then {
 private _control = _dispx displayCtrl 1001;
 private _ipic = getText (configFile>>"cfgVehicles">>_torecruit>>"icon");
 //__TRACE_2("","_torecruit","_ipic")
-private _pic = if (_ipic == "") then {
+private _pic = if (_ipic isEqualTo "") then {
 	"#(argb,8,8,3)color(1,1,1,0)"
 } else {
 	getText(configFile>>"CfgVehicleIcons">>_ipic)

@@ -29,7 +29,7 @@ if (_drop_type in d_x_drop_array_custom_types) then {
 		case "dom_tank": {d_sm_tank_own_side};
 		case "dom_tank_special": {d_sm_tank_special_own_side};
 	};
-	if (isNil "_matched_drop_type" || {_matched_drop_type == ""}) exitWith {
+	if (isNil "_matched_drop_type" || {_matched_drop_type isEqualTo ""}) exitWith {
     	diag_log ["unsupported drop type, not defined for this map", _drop_type];
     };
 	_drop_type = _matched_drop_type;

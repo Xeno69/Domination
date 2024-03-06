@@ -19,7 +19,7 @@ if (!d_show_pname_hud && {!visibleMap && {isNil "d_is_sat_on"}}) then {
 		
 		private _name = [(name _ct) + d_phud_loc883, [getText((configOf _ct)>>"displayName") , name _ct] select (isPlayer _ct)] select !(_ct getVariable ["xr_pluncon", false]);
 		private _icon = getText((configOf _ct)>>"Icon");
-		if (_icon != "") then {
+		if (_icon isNotEqualTo "") then {
 			_icon = getText(configFile>>"CfgVehicleIcons">>_icon);
 		};
 		private _ctrtxt = [

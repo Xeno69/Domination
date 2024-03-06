@@ -12,7 +12,7 @@ private _pa = d_player_hash getOrDefault [getPlayerUID _pl, []];
 if (_pa isNotEqualTo []) then {
 	private _omar = _pa # 10;
 	__TRACE_1("","_omar")
-	if (_omar != "" && {markerPos _omar isNotEqualTo [0,0,0]}) then {
+	if (_omar isNotEqualTo "" && {markerPos _omar isNotEqualTo [0,0,0]}) then {
 		deleteMarker _omar;
 	};
 	_pa set [10, _mname];

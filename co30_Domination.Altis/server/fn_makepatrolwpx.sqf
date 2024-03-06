@@ -94,7 +94,7 @@ for "_i" from 0 to (2 + (floor (random 3))) do {
 			_wp setWaypointFormation "STAG COLUMN";
 		};
 	};
-	if (_wpstatements != "") then {
+	if (_wpstatements isNotEqualTo "") then {
 		_wp setWaypointStatements ["TRUE", _wpstatements];
 	};
 };
@@ -111,7 +111,7 @@ _wp1 setWaypointCompletionRadius (10 + random 10);
 if (_timeout isNotEqualTo []) then {
 	_wp1 setWaypointTimeout _timeout;
 };
-if (_wpstatements != "") then {
+if (_wpstatements isNotEqualTo "") then {
 	_wp1 setWaypointStatements ["TRUE", _wpstatements];
 };
 

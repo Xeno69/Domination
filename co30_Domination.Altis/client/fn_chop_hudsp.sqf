@@ -123,7 +123,7 @@ while {d_player_in_vec} do {
 
 							private _picstat = getText (_tofn>>"picture");
 							private _picvcicons = getText (configFile>>"CfgVehicleIcons">>_picstat);
-							__CTRL2(64439) ctrlSetText ([_picstat, _picvcicons] select (_picvcicons != ""));
+							__CTRL2(64439) ctrlSetText ([_picstat, _picvcicons] select (_picvcicons isNotEqualTo ""));
 							if (!isPiPEnabled) then {
 								_prev_liftobj = _liftobj;
 							};

@@ -5,7 +5,7 @@
 if (!hasInterface) exitWith {};
 
 __TRACE_1("","d_beam_target")
-if (d_beam_target == "") exitWith {
+if (d_beam_target isEqualTo "") exitWith {
 	__TRACE("exit, beam target empty")
 };
 

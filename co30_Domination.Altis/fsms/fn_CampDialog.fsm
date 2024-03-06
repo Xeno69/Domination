@@ -7,11 +7,11 @@ item2[] = {"End_",1,250,-360.506287,65.274925,-270.506256,115.274918,0.000000,"E
 item3[] = {"_",8,218,-42.705017,-30.471233,47.294983,19.528767,0.000000,""};
 item4[] = {"_",2,250,-43.176270,55.244370,46.823746,105.244370,0.000000,""};
 item5[] = {"_",4,218,140.580414,189.288956,230.580414,239.288956,0.000000,""};
-item6[] = {"_",4,218,-50.000000,325.000000,50.000000,375.000000,1.000000,"" \n ""};
+item6[] = {"_",4,4314,-50.000000,325.000000,50.000000,375.000000,1.000000,"" \n ""};
 item7[] = {"Delay",4,218,-200.000000,225.000000,-100.000000,275.000000,0.000000,"Delay"};
 item8[] = {"_curside____d_own",4,218,-50.000000,175.000000,50.000000,225.000000,1.000000,"_curside != d_own_side"};
 item9[] = {"Create_Dialog",2,250,-50.000000,250.000000,50.000000,300.000000,0.000000,"Create Dialog"};
-item10[] = {"Close_Dialog",2,4346,-50.000000,400.000000,50.000000,450.000000,0.000000,"Close Dialog"};
+item10[] = {"Close_Dialog",2,250,-50.000000,400.000000,50.000000,450.000000,0.000000,"Close Dialog"};
 item11[] = {"__1",8,218,-200.000000,300.000000,-100.000000,350.000000,0.000000,""};
 item12[] = {"Update_Dialog",2,250,-350.000000,250.000000,-250.000000,300.000000,0.000000,"Update Dialog"};
 link0[] = {0,3};
@@ -32,7 +32,7 @@ link14[] = {11,12};
 link15[] = {12,1};
 link16[] = {12,7};
 globals[] = {0.000000,0,0,0,0,640,480,1,33,6316128,1,-426.754242,277.207855,661.104248,-197.875351,772,942,1};
-window[] = {0,-1,-1,-1,-1,1218,104,2119,104,1,790};
+window[] = {0,-1,-1,-1,-1,1270,156,2171,156,1,790};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -125,7 +125,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"// create dialog" \n
                          "private _curside = ["""", _wf getVariable ""D_SIDE""] select (_wf distance2D player < 10);" \n
                          "" \n
-                         "if (!_progon && {_curside != """" && {_curside != d_own_side}}) then {" \n
+                         "if (!_progon && {_curside isNotEqualTo """" && {_curside != d_own_side}}) then {" \n
                          "	""d_ProgressBar"" cutRsc [""d_ProgressBar"", ""PLAIN""];" \n
                          "	_progon = true;" \n
                          "};" \n
@@ -151,7 +151,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Close_Dialog";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"_curside == """" || {_curside == d_own_side || {!d_player_canu}}" \n
+                                        condition=/*%FSM<CONDITION""">*/"_curside isEqualTo """" || {_curside == d_own_side || {!d_player_canu}}" \n
                                          ""/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };

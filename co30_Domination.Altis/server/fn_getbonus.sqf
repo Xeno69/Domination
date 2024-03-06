@@ -46,7 +46,7 @@ switch (d_sm_winner) do {
 
 #ifndef __TT__
 private _vec_type = "";
-if (d_current_sm_bonus_vec == "") then {
+if (d_current_sm_bonus_vec isEqualTo "") then {
 	_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_cur;
 	private _idxx = d_sm_bonus_vehicle_array_cur find _vec_type;
 	if (_idxx != -1) then {
@@ -74,7 +74,7 @@ private ["_d_bonus_create_pos", "_vec_type", "_d_bonus_air_positions", "_d_bonus
 
 switch (d_sm_winner) do {
 	case 1: {
-		if (d_current_sm_bonus_vec # 1 == "") then {
+		if (d_current_sm_bonus_vec # 1 isEqualTo "") then {
 			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_o;
 			private _idxx = d_sm_bonus_vehicle_array_o find _vec_type;
 			if (_idxx != -1) then {
@@ -94,7 +94,7 @@ switch (d_sm_winner) do {
 		_d_bap_counter = d_bap_counter_e;
 	};
 	case 2: {
-		if (d_current_sm_bonus_vec # 0 == "") then {
+		if (d_current_sm_bonus_vec # 0 isEqualTo "") then {
 			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_b;
 			private _idxx = d_sm_bonus_vehicle_array_b find _vec_type;
 			if (_idxx != -1) then {
@@ -114,7 +114,7 @@ switch (d_sm_winner) do {
 		_d_bap_counter = d_bap_counter_w;
 	};
 	case 123: {
-		if (d_current_sm_bonus_vec # 1 == "") then {
+		if (d_current_sm_bonus_vec # 1 isEqualTo "") then {
 			_vec_type = selectRandomWeighted d_sm_bonus_vehicle_array_o;
 			private _idxx = d_sm_bonus_vehicle_array_o find _vec_type;
 			if (_idxx != -1) then {
@@ -133,7 +133,7 @@ switch (d_sm_winner) do {
 		_d_bvp_counter = d_bvp_counter_e;
 		_d_bap_counter = d_bap_counter_e;
 		
-		if (d_current_sm_bonus_vec # 0 == "") then {
+		if (d_current_sm_bonus_vec # 0 isEqualTo "") then {
 			_vec_type2 = selectRandomWeighted d_sm_bonus_vehicle_array_b;
 			private _idxx = d_sm_bonus_vehicle_array_b find _vec_type2;
 			if (_idxx != -1) then {

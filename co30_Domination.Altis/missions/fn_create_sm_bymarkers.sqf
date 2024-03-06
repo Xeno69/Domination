@@ -162,7 +162,7 @@ __TRACE_1("","_eee")
 			call {
 				if (_subtype == "flag") exitWith {
 					(_onesmar # 2) pushBack (markerPos _curmar);
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "775"];
 						_onesmar set [6, "776"];
 					};
@@ -174,7 +174,7 @@ __TRACE_1("","_eee")
 			call {
 				if (_subtype == "tank") exitWith {
 					(_onesmar # 2) pushBack [markerPos _curmar, markerDir _curmar];
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1810"];
 						_onesmar set [6, "767"];
 					};
@@ -184,9 +184,9 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "arrest") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					(_onesmar # 2) pushBack (markerPos _curmar);
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1800"];
 						_onesmar set [6, "792"];
 					};
@@ -196,9 +196,9 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "artibase") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					(_onesmar # 2) pushBack (markerPos _curmar);
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1448"];
 						_onesmar set [6, "810"];
 					};
@@ -208,11 +208,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "deliver") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					(_onesmar # 2) pushBack (markerPos "d_sm_loga");
 					(_onesmar # 2) pushBack (markerPos _curmar);
 					_onesmar set [7, markerDir _curmar];
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1664"];
 						_onesmar set [6, "1665"];
 					};
@@ -225,7 +225,7 @@ __TRACE_1("","_eee")
 				if ((_onesmar # 2) isEqualTo []) then {
 					(_onesmar # 2) pushBack (markerPos _curmar);
 					_onesmar set [7, markerDir _curmar];
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1803"];
 						_onesmar set [6, "812"];
 					};
@@ -240,11 +240,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "radiotower") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1815"];
 						_onesmar set [6, "727"];
 					};
@@ -254,11 +254,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "prisoners") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1805"];
 						_onesmar set [6, "789"];
 					};
@@ -268,12 +268,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "stealchopper") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1809"];
 						_onesmar set [6, "796"];
 					};
@@ -283,12 +283,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "stealapc") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1819"];
 						_onesmar set [6, "1551"];
 					};
@@ -298,12 +298,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "stealtank") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1808"];
 						_onesmar set [6, "769"];
 					};
@@ -313,12 +313,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "stealplane") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1807"];
 						_onesmar set [6, "750"];
 					};
@@ -330,7 +330,7 @@ __TRACE_1("","_eee")
 			call {
 				if ((_onesmar # 2) isEqualTo []) then {
 					(_onesmar # 2) pushBack (markerPos _curmar);
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1806"];
 						_onesmar set [6, "760"];
 					};
@@ -345,12 +345,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "eliminateofficer") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1813"];
 						_onesmar set [6, "729"];
 					};
@@ -360,12 +360,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "eliminategovmember") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1817"];
 						_onesmar set [6, "729"];
 					};
@@ -375,12 +375,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "eliminatesniper") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1814"];
 						_onesmar set [6, "1545"];
 					};
@@ -390,12 +390,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "fuelstation") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "757"];
 						_onesmar set [6, "758"];
 					};
@@ -405,12 +405,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "transformer") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1804"];
 						_onesmar set [6, "741"];
 					};
@@ -420,12 +420,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "barracks") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "816"];
 						_onesmar set [6, "817"];
 					};
@@ -435,12 +435,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "hangar") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "814"];
 						_onesmar set [6, "815"];
 					};
@@ -450,12 +450,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "cargotruck") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "858"];
 						_onesmar set [6, "787"];
 					};
@@ -465,11 +465,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "minesland") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1666a"];
 						_onesmar set [6, "1667"];
 					};
@@ -479,11 +479,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "minesnaval") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1666"];
 						_onesmar set [6, "1667"];
 					};
@@ -493,11 +493,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "artycannon") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1811"];
 						_onesmar set [6, "731"];
 					};
@@ -507,12 +507,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "dataterminal") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1841"];
 						_onesmar set [6, "1842"];
 					};
@@ -522,12 +522,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "device") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1844"];
 						_onesmar set [6, "1845"];
 					};
@@ -537,12 +537,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "sam") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1846"];
 						_onesmar set [6, "1847"];
 					};
@@ -552,11 +552,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "cache") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "1849"];
 						_onesmar set [6, "1850"];
 					};
@@ -566,12 +566,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "trucks") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "49"];
 						_onesmar set [6, "50"];
 					};
@@ -581,11 +581,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "gleak") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "2010"];
 						_onesmar set [6, "2011"];
 					};
@@ -595,11 +595,11 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "farp") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "2029"];
 						_onesmar set [6, "2030"];
 					};
@@ -609,12 +609,12 @@ __TRACE_1("","_eee")
 		
 		if (_smtype == "scud") exitWith {
 			call {
-				if (_subtype == "") exitWith {
+				if (_subtype isEqualTo "") exitWith {
 					if ((_onesmar # 2) isEqualTo []) then {
 						(_onesmar # 2) pushBack (markerPos _curmar);
 						_onesmar set [7, markerDir _curmar];
 					};
-					if (hasInterface && {_onesmar # 5 == ""}) then {
+					if (hasInterface && {_onesmar # 5 isEqualTo ""}) then {
 						_onesmar set [5, "2075"];
 						_onesmar set [6, "2076"];
 					};

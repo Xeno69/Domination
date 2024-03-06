@@ -67,7 +67,7 @@ private _fnc_make_trig_mar = {
 		private _alpha = _i call _fnc_2_use;
 		private _marname = format ["d_dommtmxe_%1", _marcounter];
 		__TRACE_1("","_marname")
-		if (getMarkerType _marname != "") then {
+		if (getMarkerType _marname isNotEqualTo "") then {
 			__TRACE_1("Marker exists already","_marname")
 			deleteMarkerLocal _marname;
 		};

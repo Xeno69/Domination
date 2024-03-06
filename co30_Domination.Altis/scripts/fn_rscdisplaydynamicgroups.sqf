@@ -274,7 +274,7 @@ switch _mode do {
 
 			// Set the group icon
 			private _insignia = missionNamespace getVariable ["d_dg_fia", ""];
-			private _insigniaTexture = if (_insignia != "") then {["GetInsigniaTexture", [_insignia]] call d_fnc_dynamicgroups} else {["GetInsigniaTexture", [_groupPicture]] call d_fnc_dynamicgroups};
+			private _insigniaTexture = if (_insignia isNotEqualTo "") then {["GetInsigniaTexture", [_insignia]] call d_fnc_dynamicgroups} else {["GetInsigniaTexture", [_groupPicture]] call d_fnc_dynamicgroups};
 			_groupIcon ctrlSetText _insigniaTexture;
 		};
 	};
@@ -559,7 +559,7 @@ switch _mode do {
 		_params params [["_listbox", controlNull, [controlNull]], ["_data", "", [""]]];
 		private _index 		= -1;
 
-		if (_data != "") then {
+		if (_data isNotEqualTo "") then {
 			for "_i" from 0 to (((lnbSize _listbox) select 0) - 1) do {
 				if (_listbox lnbData [_i, 0] == _data) then {_index = _i};
 			};
@@ -572,7 +572,7 @@ switch _mode do {
 		_params params [["_listbox", controlNull, [controlNull]], ["_data", "", [""]]];
 
 		// Make sure data is not empty
-		if (!isNull _listbox && {_data != ""}) then {
+		if (!isNull _listbox && {_data isNotEqualTo ""}) then {
 			for "_i" from 0 to (((lnbSize _listbox) select 0) - 1) do {
 				if (_listbox lnbData [_i, 0] == _data) then {_listbox lnbDeleteRow _i};
 			};
@@ -583,7 +583,7 @@ switch _mode do {
 		_params params [["_listbox", controlNull, [controlNull]], ["_data", "", [""]]];
 		private _index 		= [];
 
-		if (_data != "") then {
+		if (_data isNotEqualTo "") then {
 			for "_i" from 0 to ((_listbox tvCount []) - 1) do {
 				if (_listbox tvData [_i] == _data) then {_index = [_i]};
 
@@ -607,7 +607,7 @@ switch _mode do {
 		];
 
 		// Make sure data is not empty
-		if (_data != "") then {
+		if (_data isNotEqualTo "") then {
 			private _index = ["TreeGetDataIndex", [_listbox, _data]] call d_fnc_rscdisplaydynamicgroups;
 
 			if !(_index isEqualTo []) then {
@@ -638,7 +638,7 @@ switch _mode do {
 		private _data = _params param [0, "", [""]];
 
 		// Make sure data is not empty
-		if (_data != "") then {
+		if (_data isNotEqualTo "") then {
 			private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
 			private _listbox = _display displayCtrl 9877;
 
@@ -656,7 +656,7 @@ switch _mode do {
 		private _data = _params param [0, "", [""]];
 
 		// Make sure data is not empty
-		if (_data != "") then {
+		if (_data isNotEqualTo "") then {
 			private _display = uiNamespace getVariable ["d_dynamicGroups_display", displayNull];
 			private _listbox = _display displayCtrl 9877;
 
@@ -1196,7 +1196,7 @@ switch _mode do {
 
 		private _nameTaken = (["GetAllGroupsOfSide", [side group player]] call d_fnc_dynamicgroups) findIf {groupId _x isEqualTo _clampedGroupName} > -1;
 
-		if (_clampedGroupName isEqualType "" && {_clampedGroupName != _oldGroupName && {_clampedGroupName != "" && {!_nameTaken}}}) then {
+		if (_clampedGroupName isEqualType "" && {_clampedGroupName != _oldGroupName && {_clampedGroupName isNotEqualTo "" && {!_nameTaken}}}) then {
 			(group player) setGroupId [_clampedGroupName];
 			["SendClientMessage", ["SetName", [group player, _clampedGroupName]]] call d_fnc_dynamicgroups;
 			playsound "ReadoutHideClick1";
@@ -1275,7 +1275,7 @@ switch _mode do {
 
 		private _picture = getText (configFile >> "CfgFactionClasses" >> faction _leader >> "flag");
 
-		if (_picture != "") then {
+		if (_picture isNotEqualTo "") then {
 			_picture;
 		} else {
 			["GetSideColor", [side group _leader]] call d_fnc_rscdisplaydynamicgroups;
@@ -1306,7 +1306,7 @@ switch _mode do {
 		if (isNull _player) exitWith {""};
 
 		private _icon 		= getText (configfile >> "CfgVehicles" >> typeOf _player >> "icon");
-		private _texture	= if (_icon != "") then {getText (configfile >> "CfgVehicleIcons" >> _icon)} else {""};
+		private _texture	= if (_icon isNotEqualTo "") then {getText (configfile >> "CfgVehicleIcons" >> _icon)} else {""};
 
 		_texture;
 	};

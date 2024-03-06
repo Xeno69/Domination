@@ -26,7 +26,7 @@ for "_i" from 0 to (count _cfg - 1) do {
 	//__TRACE_1("","_mag")
 	private _cname = configName (_cfg select _i);
 	//__TRACE_1("","_cname")
-	if (_mag != "") then {
+	if (_mag isNotEqualTo "") then {
 		private _ctrl_drivgun = _ctrl getVariable "d_turret_ctrl";
 		if (!isNil "_ctrl_drivgun") then {
 			private _turtype = [[], [0]] select (_ctrl_drivgun getVariable "d_cursel_gundriv" == 1);

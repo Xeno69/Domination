@@ -19,7 +19,7 @@ private _vec_name = _vec getVariable "d_vec_name";
 if (isNil "_vec_name") then {
 	_vec_name = localize "STR_DOM_MISSIONSTRING_11";
 } else {
-	if (_vec_name == "") then {_vec_name = localize "STR_DOM_MISSIONSTRING_11"};
+	if (_vec_name isEqualTo "") then {_vec_name = localize "STR_DOM_MISSIONSTRING_11"};
 };
 
 (_disp displayCtrl 44446) ctrlSetText getText(configFile>>"CfgVehicleIcons">>getText (configFile>>"CfgVehicles">>d_the_box>>"icon"));

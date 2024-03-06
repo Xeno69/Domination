@@ -11,7 +11,7 @@ private ["_ipic", "_pic", "_idx"];
 {
 	_ipic = getText (configFile>>"cfgVehicles">>_x>>"icon");
 	//__TRACE_2("","_x","_ipic")
-	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
+	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic isEqualTo "");
 	//__TRACE_1("","_pic")
 	_idx = _ctrl lbAdd ([_x, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];
@@ -34,7 +34,7 @@ private ["_tt", "_pic", "_idx"];
 	_tt = typeOf _x;
 	_ipic = getText (configFile>>"cfgVehicles">>_tt>>"icon");
 	//__TRACE_2("","_tt","_ipic")
-	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic == "");
+	_pic = [getText(configFile>>"CfgVehicleIcons">>_ipic), "#(argb,8,8,3)color(1,1,1,0)"] select (_ipic isEqualTo "");
 	//__TRACE_1("","_pic")
 	_idx = _ctrl lbAdd ([_tt, "CfgVehicles"] call d_fnc_GetDisplayName);
 	_ctrl lbSetPicture [_idx, _pic];

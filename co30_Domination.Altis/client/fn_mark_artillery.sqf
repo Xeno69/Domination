@@ -42,7 +42,7 @@ d_ari_type = "";
 d_ari_salvos = 1;
 createDialog "d_MarkArtilleryDialog";
 
-waitUntil {!isNil "d_markarti_dialog_open" && {d_ari_type != "" || {!d_markarti_dialog_open || {!d_player_canu}}}};
+waitUntil {!isNil "d_markarti_dialog_open" && {d_ari_type isNotEqualTo "" || {!d_markarti_dialog_open || {!d_player_canu}}}};
 
 deleteMarkerLocal "d_temp_mark_arty_marker";
 if (!d_player_canu) exitWith {
@@ -51,7 +51,7 @@ if (!d_player_canu) exitWith {
 
 __TRACE_2("","d_ari_type","d_ari_salvos")
 
-if (d_ari_type != "") then {
+if (d_ari_type isNotEqualTo "") then {
 	[netId player, _pos_lt, d_name_pl, d_ari_type, d_ari_salvos] remoteExecCall ["d_fnc_at_serv", 2];
 	if (!isStreamFriendlyUIEnabled) then {
 		systemChat format [localize "STR_DOM_MISSIONSTRING_1523", mapGridPosition _pos_lt];

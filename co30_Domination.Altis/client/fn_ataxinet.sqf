@@ -19,7 +19,7 @@ private _strout = call {
 	};
 	""
 }; 
-if (_strout != "") then {
+if (_strout isNotEqualTo "") then {
 	[1, _strout] call d_fnc_sideorsyschat;
 };
 if (d_heli_taxi_available) then {

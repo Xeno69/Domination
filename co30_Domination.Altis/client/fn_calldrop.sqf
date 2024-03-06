@@ -35,7 +35,7 @@ d_x_drop_type = "";
 createDialog "d_AirDropDialog";
 d_commandingMenuIniting = false;
 
-waitUntil {!isNil "d_airdrop_dialog_open" && {d_x_drop_type != "" || {!d_airdrop_dialog_open || {!d_player_canu}}}};
+waitUntil {!isNil "d_airdrop_dialog_open" && {d_x_drop_type isNotEqualTo "" || {!d_airdrop_dialog_open || {!d_player_canu}}}};
 
 deleteMarkerLocal "d_drop_marker_1";
 
@@ -46,7 +46,7 @@ if (!d_player_canu) exitWith {
 		missionNamespace setVariable ["d_drop_blocked", nil, true];
 	};
 };
-if (d_x_drop_type != "") then {
+if (d_x_drop_type isNotEqualTo "") then {
 	private _mpdz =+ markerPos "d_drop_zone";
 	deleteMarkerLocal "d_drop_zone";
 	if ((getPosWorld player) distance2D _mpdz > d_drop_max_dist) exitWith {

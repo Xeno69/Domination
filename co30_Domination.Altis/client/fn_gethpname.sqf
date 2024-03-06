@@ -19,7 +19,7 @@ if (alive _u) exitWith {
 private _n = _u getVariable "d_phname_d";
 if (isNil "_n") then {
 	_n = name _u;
-	if (_n == "") exitWith {};
+	if (_n isEqualTo "") exitWith {};
 	if (d_no_ai && {_u getUnitTrait "Medic"}) then {
 		_n = _n + d_phud_loc884;
 	};

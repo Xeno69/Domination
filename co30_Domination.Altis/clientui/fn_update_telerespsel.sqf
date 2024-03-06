@@ -50,7 +50,7 @@ if (_uidx == -1) then {
 			};
 			_ctrl lbSetColor [_sel, _lbcolor];
 
-			if (_logtxt != "" && {!d_lb_tele_first}) then {
+			if (_logtxt isNotEqualTo "" && {!d_lb_tele_first}) then {
 				(_disp displayCtrl 11002) ctrlSetText _logtxt;
 			};
 		};
@@ -132,7 +132,7 @@ __TRACE_3("","_data","_mravailable","_uidx")
 __TRACE_1("","xr_respawn_available")
 __TRACE_1("","_not_avail_array")
 
-if (_data != "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_target" || {_uidx != -1}}}}) then {
+if (_data isNotEqualTo "" && {_mravailable || {_data == "D_BASE_D" || {!isNil "_respawn_target" || {_uidx != -1}}}}) then {
 	d_beam_target = _data;
 	private _text = if (_wone == 1 || {d_tele_dialog == 0}) then {
 		format [localize "STR_DOM_MISSIONSTRING_607", _ctrl lbText _sel]

@@ -57,7 +57,7 @@ __NOALIEX
 private _cfgv = configOf _object;
 
 private _type_name = [_cfgv] call d_fnc_GetDisplayName;
-if (_type_name == "") then {_type_name = typeOf _object};
+if (_type_name isEqualTo "") then {_type_name = typeOf _object};
 if (hasInterface) then {
 	if (!_isUav) then {
 		_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_701", _type_name];
@@ -93,7 +93,7 @@ private _magsallturrets = magazinesAllTurrets _object;
 		//};
 		//__TRACE_1("","_removedX")
 		private _mag_disp_name = [_mag, "CfgMagazines"] call d_fnc_GetDisplayName;
-		if (_mag_disp_name == "") then {_mag_disp_name = _mag};
+		if (_mag_disp_name isEqualTo "") then {_mag_disp_name = _mag};
 		if (hasInterface && {!_isUav}) then {
 			_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_702", _mag_disp_name];
 		} else {
@@ -147,7 +147,7 @@ _fillTurrets = {
 				__NOALIEX2
 				{
 					private _mag_disp_name = [_x, "CfgMagazines"] call d_fnc_GetDisplayName;
-					if (_mag_disp_name == "") then {_mag_disp_name = _x};
+					if (_mag_disp_name isEqualTo "") then {_mag_disp_name = _x};
 					if (hasInterface && {!_isUav}) then {
 						_object vehicleChat format [localize "STR_DOM_MISSIONSTRING_702", _mag_disp_name];
 					} else {

@@ -1632,7 +1632,7 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 		"O_Heli_Light_02_unarmed_F";
 #endif
 
-	if (d_drop_aircraft == "") then {
+	if (d_drop_aircraft isEqualTo "") then {
 		d_drop_aircraft_avail = false;
 		publicVariable "d_drop_aircraft_avail";
 	};
@@ -1700,7 +1700,7 @@ d_arti_observer_W = [["B_recon_JTAC_F"]];
 #endif
 
 #ifndef __TT__
-	if (d_cas_plane == "") then {
+	if (d_cas_plane isEqualTo "") then {
 #else
 	if (d_cas_plane isEqualTo []) then {
 #endif

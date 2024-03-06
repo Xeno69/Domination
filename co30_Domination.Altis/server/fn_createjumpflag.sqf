@@ -26,12 +26,12 @@ if (_posi isNotEqualTo []) then {
 	d_flag_str_independent;
 #endif
 
-	[format ["d_paraflag%1", count d_resolved_targets], _flag, "ICON", "ColorYellow", [0.5, 0.5], ["Vehicle", "Parajump"] select (d_jumpflag_vec == ""), 0, "mil_flag"] call d_fnc_CreateMarkerGlobal;
+	[format ["d_paraflag%1", count d_resolved_targets], _flag, "ICON", "ColorYellow", [0.5, 0.5], ["Vehicle", "Parajump"] select (d_jumpflag_vec isEqualTo ""), 0, "mil_flag"] call d_fnc_CreateMarkerGlobal;
 	
 	if (d_WithJumpFlags == 1) then {
 		_flag remoteExecCall ["d_fnc_newflagclient", [0, -2] select isDedicated];
 	};
-	private _nt = ["NewJumpVehFlag", "NewJumpFlag"] select (d_jumpflag_vec == "");
+	private _nt = ["NewJumpVehFlag", "NewJumpFlag"] select (d_jumpflag_vec isEqualTo "");
 #ifndef __TT__
 	d_kb_logic1 kbTell [d_kb_logic2, d_kb_topic_side, _nt, d_kbtel_chan];
 #else

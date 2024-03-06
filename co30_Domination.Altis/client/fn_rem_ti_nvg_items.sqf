@@ -4,7 +4,7 @@
 if (!hasInterface) exitWith {};
 private _headgear = headgear player;
 
-if (_headgear != "") then {
+if (_headgear isNotEqualTo "") then {
 	private _subi = getArray (configFile>>"CfgWeapons">>_headgear>>"subItems") apply {toLowerANSI _x};
 	private _rem = false;
 	if (d_without_nvg != 1 && {"integrated_nvg" in _subi}) then {

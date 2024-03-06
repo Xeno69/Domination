@@ -5,7 +5,7 @@
 if (d_without_nvg != 1) then {
 	private _hmd = hmd _this;
 
-	if (_hmd != "" && {getText(configFile>>"CfgWeapons">>_hmd>>"simulation") == "NVGoggles"}) then {
+	if (_hmd isNotEqualTo "" && {getText(configFile>>"CfgWeapons">>_hmd>>"simulation") == "NVGoggles"}) then {
 		_this unlinkItem _hmd;
 	};
 };

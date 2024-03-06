@@ -4,7 +4,7 @@
 __TRACE_1("","_this")
 
 if ((_this # 1) in d_ak_getover) then {
-	if (d_player_canu && {speed player > 11 && {currentWeapon player == primaryWeapon player && {currentWeapon player != "" && {isNull objectParent player && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}) then {
+	if (d_player_canu && {speed player > 11 && {currentWeapon player == primaryWeapon player && {currentWeapon player isNotEqualTo "" && {isNull objectParent player && {stance player isEqualTo "STAND" && {getFatigue player < 0.5 && {isTouchingGround (vehicle player) && {!d_p_isju}}}}}}}}) then {
 		d_p_isju = true;
 		0 spawn {
 			scriptName "spawn jumpover";
