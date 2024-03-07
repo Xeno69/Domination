@@ -24,8 +24,7 @@ while {true} do {
 	if (!d_tt_ver && {d_showallnearusermarkers}) then {
 		sleep 0.1;
 		d_allnearusermarkers = [];
-		d_allnearusermarkers resize 16;
-		d_allnearusermarkers = d_allnearusermarkers apply {[]};
+		d_allnearusermarkers resize [16, []];
 		{	
 			private _split_ar = _x splitString "#/";
 			if ((_split_ar # 3) isNotEqualTo "") then {
