@@ -185,6 +185,7 @@ if (isDedicated) then {
 	0 spawn {
 		scriptName "spawn_initserver";
 		waitUntil {time > 0};
+		sleep 0.1;
 		enableEnvironment [false, false];
 		diag_log "DOM initServer environment disabled!";
 	};
