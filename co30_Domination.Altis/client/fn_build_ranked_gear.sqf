@@ -17,7 +17,7 @@ d_non_check_items apply {toLowerANSI _x};
 
 private _radiosb = [];
 if (isClass (configFile>>"CfgPatches">>"task_force_radio")) then {
-	_radiosb = ((bis_fnc_arsenal_data # 5) select {_x select [0, 3] == "TF_"}) apply {toLowerANSI _x};
+	_radiosb = ((bis_fnc_arsenal_data # 5) select {_x find "TF_" == 0}) apply {toLowerANSI _x};
 };
 
 {
