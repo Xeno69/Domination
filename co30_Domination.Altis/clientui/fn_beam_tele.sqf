@@ -143,13 +143,6 @@ if (_typepos == 1) then {
 		player setDir _global_dir;
 		if (!surfaceIsWater _global_pos) then {
 			player setVehiclePosition [_global_pos, [], 0, "NONE"]; // CAN_COLLIDE ?
-			if (d_vn) then {
-				if (markerPos "base_spawn_1" distance2D [15712, 7157.78, 0] < 10) then {
-					private _pasl = getPosASL player;
-					_pasl set [2, 14.981];
-					player setPosASL _pasl;
-				};
-			};
 		} else {
 			player setPosASL _global_pos;
 		};

@@ -17,26 +17,9 @@ params ["_target_radius", "_target_center"];
 
 private ["_eventArmorHeavy", "_eventArmorMedium", "_eventArmorLight"];
 //armor types
-call {
-	if (d_ifa3) exitWith {
-		_eventArmorHeavy = "LIB_PzKpfwIV_H";
-		_eventArmorMedium = "LIB_StuG_III_G";
-		_eventArmorLight = "LIB_SdKfz251";
-	};
-	if (d_vn) exitWith {
-		_eventArmorHeavy = "vn_i_armor_m41_01";
-		_eventArmorMedium = "vn_i_armor_type63_01";
-		_eventArmorLight = "vn_i_wheeled_m151_mg_01_mp";
-	};
-	if (d_spe) exitWith {
-		_eventArmorHeavy = "I_MBT_03_cannon_F";
-		_eventArmorMedium = "I_APC_tracked_03_cannon_F";
-		_eventArmorLight = "I_LT_01_cannon_F";
-	};
-	_eventArmorHeavy = "I_MBT_03_cannon_F";
-	_eventArmorMedium = "I_APC_tracked_03_cannon_F";
-	_eventArmorLight = "I_LT_01_cannon_F";
-};
+_eventArmorHeavy = "I_MBT_03_cannon_F";
+_eventArmorMedium = "I_APC_tracked_03_cannon_F";
+_eventArmorLight = "I_LT_01_cannon_F";
 
 //array of armor vehicles to create
 private _eventArmorAll = [];

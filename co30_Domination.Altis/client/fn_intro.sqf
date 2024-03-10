@@ -36,11 +36,7 @@ private _pspsxx = getPosASL player;
 "dynamicBlur" ppEffectAdjust [0.0];
 "dynamicBlur" ppEffectCommit 15;
 
-if (!d_vn) then {
-	playMusic "LeadTrack01b_F";
-} else {
-	playMusic "vn_drafted";
-};
+playMusic "LeadTrack01b_F";
 
 if (sunOrMoon < 0.99) then {camUseNVG true};
 
@@ -77,9 +73,6 @@ if (d_with_ai) then {if (_str2 isNotEqualTo "") then {_str2 = _str2 + " AI"} els
 private _str = "Two Teams";
 private _sarray = [];
 private _start_pos = 8;
-#endif
-#ifdef __IFA3__
-_start_pos = 3;
 #endif
 #ifdef __RHS__
 _start_pos = 3;
@@ -163,9 +156,7 @@ showChat true;
 	0 fadeMusic 1;
 };
 
-#ifndef __IFA3__
 if (sunOrMoon < 0.99 && {d_without_nvg == 1 && {player call d_fnc_hasnvgoggles}}) then {player actionNow ["NVGoggles", player]};
-#endif
 
 private _uidcheck_done = false;
 if (d_reserved_slot isNotEqualTo [] && {str player in d_reserved_slot}) then {
@@ -184,9 +175,7 @@ if (!_uidcheck_done && {d_uid_reserved_slots isNotEqualTo []} && {d_uids_for_res
 };
 
 d_still_in_intro = false;
-#ifndef __VN__
 enableEnvironment [false, true];
-#endif
 
 sleep 5;
 

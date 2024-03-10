@@ -95,23 +95,6 @@ if (_wtype == 1) then {
 	sleep 1;
 };
 
-#ifdef __VN__
-// default bomb type for SOG
-if (_wtype == 0) then {
-	_bomb = "vn_bomb_500_mk82_he_ammo";
-	sleep (2 max random 5);
-};
-if (_wtype == 2) then {
-	// napalm
-	_bomb = "vn_bomb_500_blu1b_fb_ammo";
-	sleep (2 max random 5);
-};
-if (_wtype == 3) then { 
-	_bomb = "vn_bomb_15000_blu82_dc_ammo"; // todo
-	sleep (2 max random 5);
-};
-#endif
-
 private _callerpos = getPos _callero;
 
 // fast CAS bomb, quickly drop the bomb, do not spawn a plane

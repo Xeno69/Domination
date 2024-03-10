@@ -7,23 +7,23 @@ if (!hasInterface) exitWith {};
 private "_pos_lt";
 private _do_exit = false;
 
-if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
-	private _lt = laserTarget player;
+private _lt = laserTarget player;
 
-	__TRACE_1("","_lt")
+__TRACE_1("","_lt")
 
-	if (isNil "_lt" || {isNull _lt}) exitWith {
-		// laser target not valid
-		_do_exit = true;
-	};
-
-	_pos_lt = getPos _lt;
-	_pos_lt set [2, 0];
-
-	__TRACE_1("","_pos_lt")
-} else {
-	_pos_lt = screenToWorld [0.5, 0.5];
+if (isNil "_lt" || {isNull _lt}) exitWith {
+	// laser target not valid
+	_do_exit = true;
 };
+
+_pos_lt = getPos _lt;
+_pos_lt set [2, 0];
+
+__TRACE_1("","_pos_lt")
+
+// if no LD is available use just this
+//_pos_lt = screenToWorld [0.5, 0.5];
+
 if (_do_exit) exitWith {};
 __TRACE_1("","_pos_lt")
 

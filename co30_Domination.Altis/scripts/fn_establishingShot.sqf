@@ -252,11 +252,7 @@ if (isNil "BIS_fnc_establishingShot_skip") then {
 	sleep 1;
 	__TRACE("After sleep 1")
 	if (isNil "BIS_fnc_establishingShot_skip" && {d_player_canu}) then {
-#ifndef __VN__
 		enableEnvironment [false, true];
-#else
-		enableEnvironment [true, true];
-#endif
 		2 fadeSound 1;
 
 		// Static fade-in
@@ -493,11 +489,7 @@ if (_mode == 0) then {
 		_x cutText ["", "PLAIN"];
 	} forEach ["BIS_layerEstShot", "BIS_layerStatic", "BIS_layerInterlacing"];
 	
-#ifndef __VN__
 	enableEnvironment [false, true];
-#else
-	enableEnvironment [true, true];
-#endif
 	"BIS_fnc_blackOut" cutText ["", "BLACK FADED", 10e10];
 
 	sleep 1;

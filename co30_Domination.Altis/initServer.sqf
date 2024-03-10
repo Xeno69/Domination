@@ -180,7 +180,6 @@ if (d_database_found) then {
 
 publicVariable "d_db_savegames";
 
-#ifndef __VN__
 if (isDedicated) then {
 	0 spawn {
 		scriptName "spawn_initserver";
@@ -190,6 +189,5 @@ if (isDedicated) then {
 		diag_log "DOM initServer environment disabled!";
 	};
 };
-#endif
 
 diag_log [diag_frameno, diag_ticktime, time, "MPF initServer.sqf processed"];

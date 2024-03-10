@@ -95,7 +95,7 @@ if (d_MissionType != 2 && {d_disable_airai != 1}) then {
 if (d_with_isledefense isNotEqualTo []) then {0 spawn d_fnc_isledefense};
 
 #ifndef __TT__
-if (!d_carrier && {!d_ifa3 && {!d_spe && {d_with_base_sabotage == 0 && {d_transport_chopper isNotEqualTo []}}}}) then {execFSM "fsms\fn_Infilrate.fsm"};
+if (!d_carrier && {d_with_base_sabotage == 0 && {d_transport_chopper isNotEqualTo []}}) then {execFSM "fsms\fn_Infilrate.fsm"};
 #endif
 
 0 spawn d_fnc_ai_loop;

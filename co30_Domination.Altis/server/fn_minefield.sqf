@@ -14,15 +14,7 @@ for "_i" from 1 to _num_mines do {
 };
 
 d_mines_created = [];
-private _mtype = call {
-	if (d_vn) exitWith {
-		selectRandom ["vn_mine_ammobox_range", "vn_mine_punji_01", "vn_mine_punji_02", "vn_mine_punji_03", "vn_mine_tm57"];
-	};
-	if (d_spe) exitWith {
-		selectRandom ["SPE_SMI_35_MINE", "SPE_TMI_42_MINE", "SPE_STMI_MINE", "SPE_US_M1A1_ATMINE", "SPE_US_M3_MINE", "SPE_US_M3_Pressure_MINE", "SPE_SMI_35_Pressure_MINE"];
-	};
-	selectRandom ["APERSMine", "APERSBoundingMine", "SLAMDirectionalMine", "APERSTripMine"]
-};
+private _mtype = selectRandom ["APERSMine", "APERSBoundingMine", "SLAMDirectionalMine", "APERSTripMine"];
 __TRACE_1("","_mtype")
 
 for "_i" from 0 to (_num_mines - 1) do {

@@ -695,11 +695,12 @@ class cfgFunctions {
 			addc(sendbestplayers);
 			addc(selectleader);
 			addc(killedanimal);
-			addc(spe_illum);
 			addc(delobju);
 			addc(entitycreated);
 			addc(disglobalsim);
 			addc(uavcreated);
+			addc(spawnservicepointbuildings);
+			addc(createbase);
 		};
 		class Dom_PrePostInit {
 			file = "init";

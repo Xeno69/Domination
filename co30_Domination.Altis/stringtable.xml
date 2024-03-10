@@ -15252,18 +15252,6 @@
 <Chinese>正在獲取對象...</Chinese>
 <French>Taking object...</French>
 </Key>
-<Key ID="STR_DOM_MISSIONSTRING_SUPPRESS_VOICES">
-<English>Disable enemy voices:</English>
-<Spanish>Disable enemy voices:</Spanish>
-<Portuguese>Disable enemy voices:</Portuguese>
-<Korean>음성 비활성화:</Korean>
-<Japanese>Disable enemy voices:</Japanese>
-<Original>Disable enemy voices:</Original>
-<Russian>Отключить разговоры:</Russian>
-<Chinesesimp>禁用语音：</Chinesesimp>
-<Chinese>禁用語音：</Chinese>
-<French>Disable enemy voices:</French>
-</Key>
 <Key ID="STR_DOM_MISSIONSTRING_2086">
 <English>Check for friendly units near artillery targets when firing artillery</English>
 <Spanish>Check for friendly units near artillery targets when firing artillery</Spanish>

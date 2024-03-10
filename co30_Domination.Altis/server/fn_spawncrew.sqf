@@ -29,12 +29,8 @@ if (count _crew > 0) then {
 	private _addus = [];
 	if (!_nocargo && {(call d_fnc_PlayersNumber) < 25}) then {
 		private _ran =
-#ifdef __IFA3__
-			random 100 > 80;
-#else
-			random 100 > 59;
-#endif
-		if (_ran && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F" || {_vec isKindOf "SPE_WheeledTracked_APC_base"}}}}}}}) then {
+		random 100 > 59;
+		if (_ran && {_vec isKindOf "Wheeled_APC" || {_vec isKindOf "Wheeled_APC_F" || {_vec isKindOf "Tracked_APC" || {_vec isKindOf "APC_Tracked_01_base_F" || {_vec isKindOf "APC_Tracked_02_base_F" || {_vec isKindOf "APC_Tracked_03_base_F"}}}}}}) then {
 			private _counter = _vec emptyPositions "cargo";
 			__TRACE_2("","typeOf _vec","_counter")
 			if (_counter > 0) then {

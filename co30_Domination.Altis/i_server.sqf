@@ -89,75 +89,35 @@ __TRACE_1("","d_with_isledefense")
 #ifndef __TT__
 if (isServer) then {
 	if (d_MissionType != 2) then {
-		0 spawn {
-			scriptName "spawn_ServicePoint_Building";
-			private _stype = [d_servicepoint_building] call BIS_fnc_simpleObjectData;
-
-			if ((d_service_buildings # 0) isNotEqualTo []) then {
-				private _pos = (d_service_buildings # 0) # 0;
-				_pos set [2, 3.3];
-				private _fac = createSimpleObject [_stype # 1, _pos];
-				_fac setDir ((d_service_buildings # 0) # 1);
-				_fac setPos _pos;
-			};
-
-			if ((d_service_buildings # 1) isNotEqualTo []) then {
-				private _pos = (d_service_buildings # 1) # 0;
-				_pos set [2, 3.3];
-				private _fac = createSimpleObject [_stype # 1, _pos];
-				_fac setDir ((d_service_buildings # 1) # 1);
-				_fac setPos _pos;
-			};
-
-			if ((d_service_buildings # 2) isNotEqualTo []) then {
-				private _pos = (d_service_buildings # 2) # 0;
-				_pos set [2, 3.3];
-				private _fac = createSimpleObject [_stype # 1, _pos];
-				_fac setDir ((d_service_buildings # 2) # 1);
-				_fac setPos _pos;
-			};
-		};
+		0 spawn d_fnc_spawnservicepointbuildings;
 	};
 
 	if (d_with_ai) then {
 		d_pos_ai_hut = [markerPos "d_pos_aihut", markerDir "d_pos_aihut"];
-		call {
-			if (d_vn) exitWith {
-				d_AI_HUT = createVehicle ["Land_vn_infostand_v2_f", d_pos_ai_hut # 0, [], 0, "NONE"];
-				d_AI_HUT setObjectTextureGlobal [0, "pics\AI.paa"];
-			};
-			if (d_spe) exitWith {
-				d_AI_HUT = createVehicle ["spe_sign_post_2", d_pos_ai_hut # 0, [], 0, "NONE"];
-				d_AI_HUT setObjectTextureGlobal [0, "pics\AI.paa"];
-				d_pos_ai_hut set [1, (d_pos_ai_hut # 1) + 180];
-			};
-			d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
-		};
+		d_AI_HUT = createVehicle ["Land_CashDesk_F", d_pos_ai_hut # 0, [], 0, "NONE"];
 		
 		d_AI_HUT setDir (d_pos_ai_hut # 1);
 		if (!d_carrier) then {
 			d_AI_HUT setPos (d_pos_ai_hut # 0);
-			if (!d_vn && {!d_spe}) then {
-				private _spos = d_AI_HUT modelToWorld [0, -0.4, 0];
-				private _sign = createVehicle ["SignAd_Sponsor_F", _spos, [], 0, "NONE"];
-				_sign setDir ((getDir d_AI_HUT) - 180);
-				_sign setPos _spos;
-				_sign setObjectTextureGlobal [0, "pics\AI2.paa"];
-				_sign enableSimulationGlobal false;
-				d_AI_HUT setVariable ["d_ai_sign", _sign, true];
-				/*_sign spawn {
-					params ["_sign"];
-					private _vupdir = [vectorDir _sign, vectorUp _sign];
-					while {true} do {
-						sleep 2;
-						if (_sign getEntityInfo 6) then {
-							if (_sign getEntityInfo 7 > 2) then {
-								_sign setVectorDirAndUp _vupdir;
-							};
+			private _spos = d_AI_HUT modelToWorld [0, -0.4, 0];
+			private _sign = createVehicle ["SignAd_Sponsor_F", _spos, [], 0, "NONE"];
+			_sign setDir ((getDir d_AI_HUT) - 180);
+			_sign setPos _spos;
+			_sign setObjectTextureGlobal [0, "pics\AI2.paa"];
+			_sign enableSimulationGlobal false;
+			d_AI_HUT setVariable ["d_ai_sign", _sign, true];
+			/*_sign spawn {
+				params ["_sign"];
+				private _vupdir = [vectorDir _sign, vectorUp _sign];
+				while {true} do {
+					sleep 2;
+					if (_sign getEntityInfo 6) then {
+						if (_sign getEntityInfo 7 > 2) then {
+							_sign setVectorDirAndUp _vupdir;
 						};
 					};
-				};*/
-			};
+				};
+			};*/
 		} else {
 			d_AI_HUT setPosASL [(d_pos_ai_hut # 0) # 0, (d_pos_ai_hut # 0) # 1, (getPosASL d_FLAG_BASE) # 2];
 		};
@@ -176,39 +136,21 @@ if (isServer) then {
 if (!isServer) exitWith {};
 
 #ifdef __OWN_SIDE_BLUFOR__
-if (!d_spe) then {
-	blufor setFriend [opfor, 0];
-	opfor setFriend [blufor, 0];
-	blufor setFriend [independent, 1];
-	independent setFriend [blufor, 1];
-	opfor setFriend [independent, 0];
-	independent setFriend [opfor, 0];
-} else {
-	blufor setFriend [opfor, 0];
-	opfor setFriend [blufor, 0];
-	blufor setFriend [independent, 0];
-	independent setFriend [blufor, 0];
-	opfor setFriend [independent, 0];
-	independent setFriend [opfor, 0];
-};
+blufor setFriend [opfor, 0];
+opfor setFriend [blufor, 0];
+blufor setFriend [independent, 1];
+independent setFriend [blufor, 1];
+opfor setFriend [independent, 0];
+independent setFriend [opfor, 0];
 #endif
 
 #ifdef __OWN_SIDE_OPFOR__
-if (!d_ifa3) then {
-	blufor setFriend [opfor, 0];
-	opfor setFriend [blufor, 0];
-	blufor setFriend [independent, 0];
-	independent setFriend [blufor, 0];
-	opfor setFriend [independent, 1];
-	independent setFriend [opfor, 1];
-} else {
-	blufor setFriend [opfor, 0];
-	opfor setFriend [blufor, 0];
-	independent setFriend [blufor, 0];
-	blufor setFriend [independent, 0];
-	opfor setFriend [independent, 1];
-	independent setFriend [opfor, 1];
-};
+blufor setFriend [opfor, 0];
+opfor setFriend [blufor, 0];
+blufor setFriend [independent, 0];
+independent setFriend [blufor, 0];
+opfor setFriend [independent, 1];
+independent setFriend [opfor, 1];
 #endif
 
 #ifdef __OWN_SIDE_INDEPENDENT__

@@ -145,11 +145,9 @@ if (_move_controls) then {
 	};
 };
 
-if (d_ifa3 || {d_gmcwg || {d_unsung || {d_vn || {d_spe}}}}) then {
-	(_disp displayCtrl 44459) ctrlShow false;
-	(_disp displayCtrl 44460) ctrlShow false;
-	(_disp displayCtrl 44467) ctrlShow false;
-};
+(_disp displayCtrl 44459) ctrlShow false;
+(_disp displayCtrl 44460) ctrlShow false;
+(_disp displayCtrl 44467) ctrlShow false;
 
 if (_vec isKindOf "Ship") then {
 	if (ctrlShown (_disp displayCtrl 44452)) then {

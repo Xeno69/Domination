@@ -5,19 +5,7 @@
 private _mods = _this apply {toLowerANSI _x};
 __TRACE_1("","_mods")
 
-private _items_no = if (!d_vn) then {
-	["ItemMap", "ItemRadio", "ToolKit", "MineDetector"]
-} else {
-	["MineDetector"]
-};
-
-if (!d_gmcwg && {!d_vn && {!d_spe}}) then {
-	_items_no append ["FirstAidKit", "Medikit", "ItemCompass", "ItemWatch"];
-};
-
-if (!d_ifa3 && {!d_gmcwg && {!d_unsung && {!d_csla && {!d_vn && {!d_spe}}}}}) then {
-	_items_no append ["LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "arifle_SDAR_F"];
-};
+private _items_no = ["ItemMap", "ItemRadio", "ToolKit", "MineDetector", "FirstAidKit", "Medikit", "ItemCompass", "ItemWatch", "LaserDesignator", "Rangefinder", "NVGoggles", "NVGoggles_OPFOR", "NVGoggles_INDEP", "ItemGPS", "arifle_SDAR_F"];
 
 if (d_cup || {d_rhs} || {d_pracs} || {d_jsdf}) then {
 	_items_no append ["B_UavTerminal", "O_UavTerminal", "I_UavTerminal"];
@@ -51,14 +39,15 @@ private _findmodfnc = {
 
 {
 	private _ar = _x;
+	private _with_ace = d_with_ace;
 	__TRACE_1("","_x")
 	private ["_item", "_kind", "_ok"];
 	{
 		_item = toLowerANSI _x;
 		_ok = call {
 			if (_item in _items_no) exitWith {false};
-			if (d_with_ace && {_item find "ace_" == 0}) exitWith {false};
-			if (!d_ifa3 && {!d_vn && {!d_spe && {"wetsuit" in _item || {"diving" in _item || {"rebreather" in _item}}}}}) exitWith {false};
+			if (_with_ace && {_item find "ace_" == 0}) exitWith {false};
+			if ("wetsuit" in _item || {"diving" in _item || {"rebreather" in _item}}) exitWith {false};
 			true
 		};
 		if (_ok) then {
@@ -78,15 +67,6 @@ private _findmodfnc = {
 				"";
 			};
 			__TRACE_1("","_kind")
-#ifdef __DEBUG__
-			private _helpercsal = configSourceAddonList (configFile >> _kind >> _x);
-			__TRACE_1("","_helpercsal")
-			{
-				if (_x find "WW2_SPE" == 0) then {
-					_csalar pushBackUnique _x;
-				};
-			} forEach _helpercsal;
-#endif
 			__TRACE_1("","configSourceAddonList (configFile >> _kind >> _x)")
 			if (_kind isNotEqualTo "" && {([configSourceAddonList (configFile >> _kind >> _x)] call _findmodfnc) == -1}) then {
 				__TRACE_1("","_ar select _forEachIndex")
