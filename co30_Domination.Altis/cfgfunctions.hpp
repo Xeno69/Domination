@@ -364,7 +364,6 @@ class cfgFunctions {
 			addc(deletearrayunitsvehicles);
 			addc(swm);
 			addc(markername);
-			addc(tanoafix);
 			addc(getbldgswithpositions);
 			addc(getunitbyuid);
 			addc(ismissionobjective);

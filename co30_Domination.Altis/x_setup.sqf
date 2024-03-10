@@ -22,7 +22,6 @@
 
 //#define __TT__
 //#define __TTALTIS__
-//#define __TTTANOA__
 //#define __TTMALDEN__
 
 //#define __RHS__

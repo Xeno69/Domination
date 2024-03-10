@@ -44,14 +44,6 @@ if (isNil "d_UnitsToRecruit") then {
 	};
 	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
 #endif
-#ifdef __TANOA__
-	private _pchar = switch (d_player_side) do {
-		case blufor: {"B_T"};
-		case opfor: {"O_T"};
-		case independent: {"I_T"};
-	};
-	d_UnitsToRecruit = ["_Soldier_F", "_soldier_AR_F", "_soldier_exp_F", "_Soldier_GL_F", "_soldier_M_F", "_medic_F", "_soldier_repair_F", "_soldier_LAT_F"] apply {_pchar + _x};
-#endif
 #ifdef __CUP_CHERNARUS__
 	d_UnitsToRecruit = switch (d_player_side) do {
 		case blufor: {["CUP_B_USMC_Soldier", "CUP_B_USMC_Soldier_AR", "CUP_B_FR_Soldier_Exp", "CUP_B_USMC_Soldier_GL", "CUP_B_USMC_Soldier_MG", "CUP_B_USMC_Medic", "CUP_B_USMC_Engineer", "CUP_B_USMC_Soldier_AT"]};

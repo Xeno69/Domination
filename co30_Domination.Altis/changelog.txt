@@ -1,5 +1,16 @@
 4.70
 
+The following versions are no longer supported:
+- Unsung
+- IFA3
+- CSLA
+- SOG Prairie Fire
+- Spearhead 1944
+- Livonia
+- Western Sahara
+- Global Mobilization
+- Tanoa
+
 - Added: Civilian east Asian types from CFP and CUP mods, by longtimegamer
 - Added: Some fighting vehicles are now available via airdrop if d_with_airdrop == 2 (ammo truck, APC, MRAP), by longtimegamer
 - Added: 2.16 overrideHazeQuality is set to VeryLow in description.ext (check https://community.bistudio.com/wiki/Description.ext#overrideHazeQuality )
@@ -8,7 +19,7 @@
 - Added: AI enhanced RPG attack on players when d_ai_aggressiveshoot == 2, by longtimegamer
 - Added: Chance for sniper positions in tall buildings (not just overall max elevation), by longtimegamer
 - Added: More initial viewdistance options, by longtimegamer
-- Changed: Added new 2.16 scripting commands and scripting command changes
+- Changed: Added new 2.18 scripting commands and scripting command changes
 - Changed: AI group respawn times increased again
 - Changed: Better messages if farp/mash position is too close to base or slope is too steep
 - Changed: Filtering out handleDamage firing when no damage occurs and fake head hits

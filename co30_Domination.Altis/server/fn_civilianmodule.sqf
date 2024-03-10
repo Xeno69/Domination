@@ -36,9 +36,6 @@ if (d_civ_type > 0) then {
 	if (d_civ_type == 3) then {
 		d_civArray_current =+ d_euroCivs;
 	};
-	if (d_civ_type == 4) then {
-		d_civArray_current =+ d_civ_faction_tanoa;
-	};
 	if (d_civ_type == 5) then {
 		d_civArray_current =+ d_civ_faction_cup_chernarus;
 	};

@@ -34,9 +34,6 @@ private _get_possfortower = {
 	__TRACE_1("_get_possfortower","_this")
 	private _npos = [_trg_center, _mtradius, _mdist, _slope, 0, false, true] call d_fnc_GetRanPointCircleBig;
 	private _iccount = 0;
-	if (d_tanoa) then {
-		_npos = [_npos] call d_fnc_tanoafix;
-	};
 	__TRACE_1("_get_possfortower 1","_npos")
 	
 	if (_npos isEqualTo _trg_center) then {
@@ -46,9 +43,6 @@ private _get_possfortower = {
 	while {_npos isEqualTo []} do {
 		_iccount = _iccount + 1;
 		_npos = [_trg_center, _mtradius, _mdist, _slope, 0, false, true] call d_fnc_GetRanPointCircleBig;
-		if (d_tanoa) then {
-			_npos = [_npos] call d_fnc_tanoafix;
-		};
 		__TRACE_1("_get_possfortower 2","_npos")
 		if (_iccount >= 50) exitWith {
 			__TRACE_1("_get_possfortower ExitWith","_npos")
@@ -178,17 +172,6 @@ if (d_ao_check_for_ai in [0, 1]) then {
 		} else {
 			private _idx = floor random (count _parray);
 			_poss = _parray # _idx;
-			if (d_tanoa) then {
-				_poss = [_poss] call d_fnc_tanoafix;
-				private _tcounter = 0;
-				while {_poss isEqualTo []} do {
-					_idx = floor random (count _parray);
-					_poss = _parray # _idx;
-					_poss = [_poss] call d_fnc_tanoafix;
-					if (_tcounter >= 70 && {_poss isNotEqualTo []}) exitWith {};
-					_tcounter = _tcounter + 1;
-				};
-			};
 			__TRACE_1("1","_poss")
 
 			if (d_currentcamps isNotEqualTo []) then {

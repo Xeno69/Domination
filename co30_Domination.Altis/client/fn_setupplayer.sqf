@@ -27,7 +27,7 @@ if (side (group player) == blufor) then {
 	d_own_side = "WEST";
 	d_own_sides = ["WEST"];
 	d_own_sides_o = [west];
-	d_create_bike = [["B_Quadbike_01_F"], ["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]] select d_tanoa;
+	d_create_bike = ["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"];
 	d_FLAG_BASE = d_WFLAG_BASE;
 
 	{
@@ -57,7 +57,7 @@ if (side (group player) == blufor) then {
 	d_own_side = "EAST";
 	d_own_sides = ["EAST"];
 	d_own_sides_o = [east];
-	d_create_bike = [["O_Quadbike_01_F"], ["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]] select d_tanoa;
+	d_create_bike = ["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"];
 	d_FLAG_BASE = d_EFLAG_BASE;
 
 	{
@@ -160,13 +160,7 @@ if (d_weather == 0) then {
 	if (d_WithWinterWeather == 0) then {
 		0 spawn d_fnc_weather_winter
 	} else {
-#ifdef __TANOA__
-		d_withsandstorm = 1;
-#endif
 #ifdef __CUP_CHERNARUS__
-		d_withsandstorm = 1;
-#endif
-#ifdef __TTTANOA__
 		d_withsandstorm = 1;
 #endif
 		if (d_withsandstorm == 0) then {0 spawn d_fnc_sandstorm};
