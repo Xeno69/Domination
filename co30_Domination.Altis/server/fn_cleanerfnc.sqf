@@ -15,17 +15,8 @@ private _cfunc = {
 while {true} do {
 	sleep (300 + random 150);
 	call _cfunc;
-	/*private _allmisobjs = "WeaponHolder" allObjects 0;
-	sleep 3;
-	_allmisobjs append ("GroundWeaponHolder" allObjects 0);
-	sleep 3;
-	_allmisobjs append ("WeaponHolderSimulated" allObjects 1);
-	sleep 8;
-	call _cfunc;*/
 	private _allmisobjs =+ d_cleaner_array;
 	d_cleaner_array = [];
-	//_allmisobjs append _helperx;
-	sleep 8;
 	call _cfunc;
 	if (d_chem_objs_ar isNotEqualTo []) then {
 		_allmisobjs append d_chem_objs_ar;
