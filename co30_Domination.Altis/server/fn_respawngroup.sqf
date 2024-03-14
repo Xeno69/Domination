@@ -63,7 +63,7 @@ if (_isman) then {
 	
 	private _extratime = [0, d_launcher_cooldown / 2] select (d_launcher_cooldown > 0);
 	private _nump = count ((allPlayers - (entities "HeadlessClient_F")) select {!(_x isKindOf "VirtualMan_F")}) min 40;
-	private _endtime = time + _basetime - linearConversion [1, 40, _nump, 1, _maxtime, true] + (random 30) + _extratime;
+	private _endtime = time + _basetime - linearConversion [1, 40, _nump, 1, _maxtime, true] + (random 20) + _extratime;
 
 	__TRACE_1("","_endtime")
 

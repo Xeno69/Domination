@@ -34,7 +34,7 @@ while {true} do {
 				__TRACE_1("","_mt_done")
 				if (!_mt_done) then {
 					d_num_barracks_objs = d_num_barracks_objs - 1;
-					d_groups_respawn_time_add = d_groups_respawn_time_add + 20 + (random 8);
+					d_groups_respawn_time_add = d_groups_respawn_time_add + 15 + (random 8);
 					publicVariable "d_num_barracks_objs";
 					__TRACE_1("","d_num_barracks_objs")
 				};
