@@ -1,16 +1,16 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
-if (!d_tt_ver) then {
-	if !(d_ari_available) exitWith {
-		[1, localize "STR_DOM_MISSIONSTRING_149"] call d_fnc_sideorsyschat;
-	};
-} else {
-	if (d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}) exitWith {
-		[1, localize "STR_DOM_MISSIONSTRING_149"] call d_fnc_sideorsyschat;
-	};
+#ifndef __TT__
+if !(d_ari_available) exitWith {
+	[1, localize "STR_DOM_MISSIONSTRING_149"] call d_fnc_sideorsyschat;
 };
+#else
+if (d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}) exitWith {
+	[1, localize "STR_DOM_MISSIONSTRING_149"] call d_fnc_sideorsyschat;
+};
+#endif
 
 disableSerialization;
 
@@ -46,23 +46,23 @@ if (_no isNotEqualTo []) exitWith {
 };
 
 if ((d_with_ranked || {d_database_found}) && {d_ranked_a # 2 > 0}) then {[player, 1] remoteExecCall ["d_fnc_ascfc", 2]};
-if (!d_tt_ver) then {
-	if (d_force_isstreamfriendlyui == 1) then {
-		player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequestNoText", d_kbtel_chan];
-	} else {
-		player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], d_kbtel_chan];
-	};
+#ifndef __TT__
+if (d_force_isstreamfriendlyui == 1) then {
+	player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequestNoText", d_kbtel_chan];
 } else {
-	private _topicside = switch (d_player_side) do {
-			case blufor: {"HQ_ART_W"};
-			case opfor: {"HQ_ART_E"};
-		};
-	private _logic = switch (d_player_side) do {
-		case blufor: {d_hq_logic_blufor1};
-		case opfor: {d_hq_logic_opfor1};
-	};
-	player kbTell [_logic, _topicside, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], "SIDE"];
+	player kbTell [d_kb_logic1, d_kb_topic_side_arti, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], d_kbtel_chan];
 };
+#else
+private _topicside = switch (d_player_side) do {
+		case blufor: {"HQ_ART_W"};
+		case opfor: {"HQ_ART_E"};
+	};
+private _logic = switch (d_player_side) do {
+	case blufor: {d_hq_logic_blufor1};
+	case opfor: {d_hq_logic_opfor1};
+};
+player kbTell [_logic, _topicside, "ArtilleryRequest", ["1", "", getText(configFile>>"CfgMagazines">>(_arele # 2)>>"displayname"), []], ["2", "", str (_arele # 3), []], ["3", "", mapGridPosition _curmar_pos, []], "SIDE"];
+#endif
 //__TRACE_1("","_arele")
 [_arele # 2, _arele # 3, netId player, _arele # 0] remoteExec ["d_fnc_arifire", 2];
 d_arti_did_fire = true;

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 private _pos_cam = positionCameraToWorld [0,0,0];
 
@@ -76,38 +76,38 @@ if (d_cur_tgt_pos isNotEqualTo [] && {d_currentcamps isNotEqualTo []}) then {
 	};
 };
 
-if (!d_tt_ver) then {
-	if (d_showallnearusermarkers) then {
-		private "_pos";
-		private _col_s = d_color_hash;
-		private _d_allnearusermarkers = d_allnearusermarkers;
-		_iaar = [_pos_cam, 1000, 1000, 0, false];
-		{
-			_pos = markerPos _x;
-			_pos set [2, 10];
-			if (_pos inArea _iaar) then {
-				_distp = _pos_cam distance _pos;
-				_m = 1 - (_distp / 1000);
-				_col = _col_s get (getMarkerColor _x);
-				if (_col isEqualTo []) then {
-					_col = [1, 1, 1, _m];
-				} else {
-					_col set [3, _m];
-				};
-				drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
+#ifndef __TT__
+if (d_showallnearusermarkers) then {
+	private "_pos";
+	private _col_s = d_color_hash;
+	private _d_allnearusermarkers = d_allnearusermarkers;
+	_iaar = [_pos_cam, 1000, 1000, 0, false];
+	{
+		_pos = markerPos _x;
+		_pos set [2, 10];
+		if (_pos inArea _iaar) then {
+			_distp = _pos_cam distance _pos;
+			_m = 1 - (_distp / 1000);
+			_col = _col_s get (getMarkerColor _x);
+			if (_col isEqualTo []) then {
+				_col = [1, 1, 1, _m];
+			} else {
+				_col set [3, _m];
 			};
-		} forEach (_d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
-	};
-	if (!isNull d_near_player_flag && {d_force_isstreamfriendlyui != 1 && {!isStreamFriendlyUIEnabled}}) then {
-		drawLaser [
-			d_near_player_flag_pos,
-			[0, 0, 1],
-			[5, 5, 5],
-			[],
-			10,
-			10,
-			120,
-			false
-		];
-	};
+			drawIcon3D [getText (configfile>>"CfgMarkers">>(markerType _x)>>"icon"), _col, _pos, _m, _m, 0, markerText _x, 1, 0.055 - (_distp / 15000), "RobotoCondensed"];
+		};
+	} forEach (_d_allnearusermarkers # currentChannel) select {getMarkerColor _x isNotEqualTo ""};
 };
+if (!isNull d_near_player_flag && {d_force_isstreamfriendlyui != 1 && {!isStreamFriendlyUIEnabled}}) then {
+	drawLaser [
+		d_near_player_flag_pos,
+		[0, 0, 1],
+		[5, 5, 5],
+		[],
+		10,
+		10,
+		120,
+		false
+	];
+};
+#endif

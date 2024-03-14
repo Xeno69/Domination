@@ -152,13 +152,12 @@ player setVariable ["d_jailar", nil, true];
 
 player setUnitLoadout _laodout;
 
-private "_respawn_pos";
+#ifndef __TT__
+private _respawn_pos = markerPos "base_spawn_1";
+#else
+private _respawn_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
 
-if (!d_tt_ver) then {
-	_respawn_pos = markerPos "base_spawn_1";
-} else {
-	_respawn_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
-};
 if (!d_carrier) then {
 	_respawn_pos set [2, 0];
 } else {

@@ -21,7 +21,8 @@ while {true} do {
 			d_allplayerai append ((units _x) select {alive _x && {!(isPlayer _x)}});
 		} forEach _tmpgrps;
 	};
-	if (!d_tt_ver && {d_showallnearusermarkers}) then {
+#ifndef __TT__
+	if (d_showallnearusermarkers) then {
 		sleep 0.1;
 		d_allnearusermarkers = [];
 		d_allnearusermarkers resize [16, []];
@@ -35,5 +36,6 @@ while {true} do {
 			};
 		} forEach (allMapMarkers select {_x find "_USER_DEFINED #" == 0 && {markerPos _x distance2D player < 800}});
 	};
+#endif
 	sleep 2;
 };

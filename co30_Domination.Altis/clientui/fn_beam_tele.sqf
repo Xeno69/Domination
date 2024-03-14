@@ -28,11 +28,11 @@ private _mrsv = objNull;
 private _respawn_target = nil;
 
 if (d_beam_target == "D_BASE_D") then {
-	if (!d_tt_ver) then {
-		_global_pos = markerPos "base_spawn_1";
-	} else {
-		_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
-	};
+#ifndef __TT__
+	_global_pos = markerPos "base_spawn_1";
+#else
+	_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
 	if (!d_carrier) then {
 		_global_pos set [2, 0];
 	} else {
@@ -71,11 +71,11 @@ if (d_beam_target == "D_BASE_D") then {
 		if (d_with_ranked || {d_database_found}) then {
 			[_respawn_target, 12] remoteExecCall ["d_fnc_addscore", 2];
 		};
-		if (!d_tt_ver) then {
-			d_player_in_base = player inArea d_base_array;
-		} else {
-			d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
-		};
+#ifndef __TT__
+		d_player_in_base = player inArea d_base_array;
+#else
+		d_player_in_base = player inArea (d_base_array # 0) || {player inArea (d_base_array # 1)};
+#endif
 	} else {
 		private _uidx = d_add_resp_points_uni find d_beam_target;
 		__TRACE_1("","_uidx")
@@ -111,11 +111,11 @@ if (d_beam_target == "D_BASE_D") then {
 				};
 				d_player_in_base = false;
 			} else {
-				if (!d_tt_ver) then {
-					_global_pos = markerPos "base_spawn_1";
-				} else {
-					_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
-				};
+#ifndef __TT__
+				_global_pos = markerPos "base_spawn_1";
+#else
+				_global_pos = [markerPos "base_spawn_2", markerPos "base_spawn_1"] select (d_player_side == blufor);
+#endif
 				if (!d_carrier) then {
 					_global_pos set [2, 0];
 				} else {

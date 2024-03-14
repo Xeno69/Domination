@@ -138,8 +138,7 @@ d_base_array = [
 
 "d_isledefense_marker" setMarkerAlphaLocal 0;
 
-//setMissionOptions createHashMapFromArray [["IgnoreNoDamage", true], ["IgnoreFakeHeadHit", true]];
-setMissionOptions [true, true];
+setMissionOptions createHashMapFromArray [["IgnoreNoDamage", true], ["IgnoreFakeHeadHit", true]];
 
 if (isServer) then {
 #include "i_server.sqf"

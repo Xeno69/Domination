@@ -38,19 +38,19 @@ if (d_player_can_call_arti > 0 && {d_areArtyVecsAvailable && {!_is_para}}) then 
 
 d_DomUserMenu pushBack ["-", [0], "", -1, [["expression", ""]], "1", "1"];
 
-if (!d_tt_ver) then {
-	__TRACE_1("","d_taxi_aircrafts")
-	//diag_log ["DOM trying to create air taxi menu entry, _is_para", _is_para, "d_taxi_aircrafts:", d_taxi_aircrafts, "d_heli_taxi_available:", d_heli_taxi_available];
-	if (!visibleMap && {!_is_para && {d_taxi_aircrafts isNotEqualTo []}}) then {
-		if (d_heli_taxi_available) then {
-			d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
-		} else {
-			if (!isNil {player getVariable "d_can_change_taxi"}) then {
-				d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1934", [call _fnc_inc_num], "", -5, [["expression", "31 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
-			};
+#ifndef __TT__
+__TRACE_1("","d_taxi_aircrafts")
+//diag_log ["DOM trying to create air taxi menu entry, _is_para", _is_para, "d_taxi_aircrafts:", d_taxi_aircrafts, "d_heli_taxi_available:", d_heli_taxi_available];
+if (!visibleMap && {!_is_para && {d_taxi_aircrafts isNotEqualTo []}}) then {
+	if (d_heli_taxi_available) then {
+		d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_535", [call _fnc_inc_num], "", -5, [["expression", "30 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
+	} else {
+		if (!isNil {player getVariable "d_can_change_taxi"}) then {
+			d_DomUserMenu pushBack [localize "STR_DOM_MISSIONSTRING_1934", [call _fnc_inc_num], "", -5, [["expression", "31 call d_fnc_DomCommandingMenuExec"]], "1", "1"];
 		};
 	};
 };
+#endif
 
 __TRACE_1("","isNil 'd_drop_aircraft_avail'")
 if (d_player_can_call_drop > 0 && {!visibleMap && {!_is_para && {isNil "d_drop_aircraft_avail"}}}) then {

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 disableSerialization;
 
@@ -15,14 +15,14 @@ d_arti_did_fire = nil;
 	//__TRACE_3("","_netid_ar","_type_ar","_rounds_ar")
 
 	if (!isMultiplayer || {_netid_ar isNotEqualTo ""}) then {
-		if (!d_tt_ver) then {
+#ifndef __TT__
+		d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
+#else
+		private _obj = objectFromNetId _netid_ar;
+		if (side (group _obj) == d_player_side) then {
 			d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
-		} else {
-			private _obj = objectFromNetId _netid_ar;
-			if (side (group _obj) == d_player_side) then {
-				d_cur_art_marker_ar pushBack [_x, _netid_ar, _type_ar, parseNumber _rounds_ar];
-			};
 		};
+#endif
 	};
 } forEach (allMapMarkers select {_x find "d_arttmx|" == 0});
 

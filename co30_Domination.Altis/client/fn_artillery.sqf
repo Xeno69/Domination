@@ -11,17 +11,19 @@ if (!d_player_canu || {isNull objectParent player && {(getPos player) # 2 > 10}}
 
 disableSerialization;
 
-
-if (!d_tt_ver && {!d_ari_available}) exitWith {
+#ifndef __TT__
+if (!d_ari_available) exitWith {
 	__TRACE("Exiting 2")
 	[1, localize "STR_DOM_MISSIONSTRING_145"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
-if (d_tt_ver && {d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}}) exitWith {
+#else
+if (d_player_side == blufor && {!d_ari_available_w} || {d_player_side == opfor && {!d_ari_available_e}}) exitWith {
 	__TRACE("Exiting 3")
 	[1, localize "STR_DOM_MISSIONSTRING_145"] call d_fnc_sideorsyschat;
 	d_commandingMenuIniting = false;
 };
+#endif
 
 if ((d_with_ranked || {d_database_found}) && {score player < (d_ranked_a # 2)}) exitWith {
 	__TRACE("Exiting 4")

@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 params ["_v", "_u", ["_m", false]];
 //__TRACE_1("","_this")
@@ -27,10 +27,8 @@ if (isNil "_s") then {
 //__TRACE_1("","_i")
 
 if (!_m) exitWith {
+#ifndef __TT__
 	private _c = call {
-		if (d_tt_ver) exitWith {
-			[0, 0.5, 0, 0.9];
-		};
 		if (d_side_player == blufor) exitWith {
 			[0, 0.3, 0.6, 0.9];
 		};
@@ -40,5 +38,9 @@ if (!_m) exitWith {
 		[0, 0.5, 0, 0.9]
 	};
 	[_i, _s, _c]
+#else
+	[_i, _s, [0, 0.5, 0, 0.9]]
+#endif
+	
 };
 [_i, _s, _v getVariable "d_ma_color"]

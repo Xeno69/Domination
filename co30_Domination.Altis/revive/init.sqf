@@ -1,6 +1,6 @@
 // by Xeno
 //#define __DEBUG__
-//#include "..\x_setup.sqf"
+#include "..\x_setup.sqf"
 
 if (!hasInterface) exitWith {};
 
@@ -29,12 +29,12 @@ xr_death_pos = [];
 private _grpl = group player;
 xr_side_pl = [playerSide, side _grpl] select (!isNull _grpl);
 
-if (!d_tt_ver) then {
-	xr_strpldead = format ["xr_dead_%1", getPlayerID player];
-} else {
-	private _mbegin = ["xr_opf_dead_%1", "xr_blu_dead_%1"] select (xr_side_pl == blufor);
-	xr_strpldead = format [_mbegin, getPlayerID player];
-};
+#ifndef __TT__
+xr_strpldead = format ["xr_dead_%1", getPlayerID player];
+#else
+private _mbegin = ["xr_opf_dead_%1", "xr_blu_dead_%1"] select (xr_side_pl == blufor);
+xr_strpldead = format [_mbegin, getPlayerID player];
+#endif
 
 player addEventHandler ["killed", {call xr_fnc_killedEH}];
 
