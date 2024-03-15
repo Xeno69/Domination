@@ -4112,6 +4112,47 @@ if (d_enemy_factions > 0) then {
 			];
 			d_sniper_E = [["East","CUP_O_TK","Infantry","CUP_O_TK_SniperTeam"] call d_fnc_GetConfigGroup];
 		};
+		case 14: {
+			// RHS Russian
+			d_veh_a_E = [
+				#include "d_veh_a_O_RHS.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_O_RHS.sqf"
+			];
+			// todo - no specops currently defined, reuse RHS allmen for now
+			d_specops_E = [
+				#include "d_allmen_O_RHS.sqf"
+			];
+			d_sniper_E = [["East","rhs_faction_msv","rhs_group_rus_msv_infantry","rhs_group_rus_msv_infantry_squad_sniper"] call d_fnc_GetConfigGroup];
+		};
+		case 15: {
+			// PMC Wagner Woodland
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction15-pmc-wagner-wdl.sqf"
+			];
+			d_allmen_E = [["East","CFP_O_Wagner_WDL","Infantry","cfp_o_wagner_infantry_field_security_patrol"] call d_fnc_GetConfigGroup];
+			d_specops_E = [["East","CFP_O_Wagner_WDL","Infantry","cfp_o_wagner_infantry_vip_bodyguard"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CFP_O_Wagner_WDL","SpecOps","cfp_o_wagner_specops_sniper_team"] call d_fnc_GetConfigGroup];
+		};
+		case 16: {
+			// PMC Wagner Winter
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction16-pmc-wagner-winter.sqf"
+			];
+			d_allmen_E = [["East","CFP_O_Wagner_WIN","Infantry","cfp_o_wagner_infantry_field_security_patrol"] call d_fnc_GetConfigGroup];
+			d_specops_E = [["East","CFP_O_Wagner_WIN","Infantry","cfp_o_wagner_infantry_vip_bodyguard"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CFP_O_Wagner_WIN","SpecOps","cfp_o_wagner_specops_sniper_team"] call d_fnc_GetConfigGroup];
+		};
+		case 17: {
+			// PMC Wagner Desert
+			d_veh_a_E = [
+				#include "d_veh_a_O_faction17-pmc-wagner-desert.sqf"
+			];
+			d_allmen_E = [["East","CFP_O_Wagner","Infantry","cfp_o_wagner_infantry_field_security_patrol"] call d_fnc_GetConfigGroup];
+			d_specops_E = [["East","CFP_O_Wagner","Infantry","cfp_o_wagner_infantry_vip_bodyguard"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CFP_O_Wagner","SpecOps","cfp_o_wagner_specops_sniper_team"] call d_fnc_GetConfigGroup];
+		};
 	};
 	
 };

@@ -1,0 +1,13 @@
+["CFP_O_Wagner_BMP_2_DESERT_01"],
+["CFP_O_Wagner_BTR_80_DESERT_01"],
+["CFP_O_Wagner_MT_LB_LV_DESERT_01"],
+["CFP_O_Wagner_Hilux_Igla_DESERT_01"],
+["CFP_O_Wagner_Hilux_DshKM_DESERT_01"],
+["CFP_O_Wagner_Hilux_SPG_DESERT_01"],
+["CFP_O_Wagner_Hilux_DshKM_DESERT_01"],
+["CFP_O_Wagner_Hilux_DshKM_DESERT_01"],
+["O_Mortar_01_F","O_G_Mortar_01_F"],
+["O_Truck_03_fuel_F"],
+["O_Truck_03_repair_F"],
+["O_Truck_03_ammo_F"],
+["O_UAV_01_F","O_UAV_06_F","O_UGV_01_rcws_F"]
