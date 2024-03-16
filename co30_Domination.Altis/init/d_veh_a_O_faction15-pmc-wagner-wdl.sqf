@@ -1,0 +1,13 @@
+["CFP_O_Wagner_BMP_2_WDL_01"],
+["CFP_O_Wagner_BTR_80_WDL_01"],
+["CFP_O_Wagner_MT_LB_LV_WDL_01"],
+["CFP_O_Wagner_Hilux_Igla_WDL_01"],
+["CFP_O_Wagner_Hilux_DshKM_WDL_01"],
+["CFP_O_Wagner_Hilux_SPG_WDL_01"],
+["CFP_O_Wagner_Hilux_DshKM_WDL_01"],
+["CFP_O_Wagner_Hilux_DshKM_WDL_01"],
+["O_Mortar_01_F","O_G_Mortar_01_F"],
+["O_Truck_03_fuel_F"],
+["O_Truck_03_repair_F"],
+["O_Truck_03_ammo_F"],
+["O_UAV_01_F","O_UAV_06_F","O_UGV_01_rcws_F"]

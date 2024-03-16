@@ -15672,6 +15672,54 @@
 <Chinese>EAST - Takistani Armed Forces (CUP)</Chinese>
 <French>EAST - Takistani Armed Forces (CUP)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CUP_RHS_RUSSIAN">
+<English>EAST - Russian Armed Forces (RHS)</English>
+<Spanish>EAST - Russian Armed Forces (RHS)</Spanish>
+<Portuguese>EAST - Russian Armed Forces (RHS)</Portuguese>
+<Korean>EAST - Russian Armed Forces (RHS)</Korean>
+<Japanese>EAST - Russian Armed Forces (RHS)</Japanese>
+<Original>EAST - Russian Armed Forces (RHS)</Original>
+<Russian>EAST - Russian Armed Forces (RHS)</Russian>
+<Chinesesimp>EAST - Russian Armed Forces (RHS)</Chinesesimp>
+<Chinese>EAST - Russian Armed Forces (RHS)</Chinese>
+<French>EAST - Russian Armed Forces (RHS)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CUP_PMC_WAGNER_WOODLAND">
+<English>EAST - PMC Wagner Woodland (CUP)</English>
+<Spanish>EAST - PMC Wagner Woodland (CUP)</Spanish>
+<Portuguese>EAST - PMC Wagner Woodland (CUP)</Portuguese>
+<Korean>EAST - PMC Wagner Woodland (CUP)</Korean>
+<Japanese>EAST - PMC Wagner Woodland (CUP)</Japanese>
+<Original>EAST - PMC Wagner Woodland (CUP)</Original>
+<Russian>EAST - PMC Wagner Woodland (CUP)</Russian>
+<Chinesesimp>EAST - PMC Wagner Woodland (CUP)</Chinesesimp>
+<Chinese>EAST - PMC Wagner Woodland (CUP)</Chinese>
+<French>EAST - PMC Wagner Woodland (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CUP_PMC_WAGNER_WINTER">
+<English>EAST - PMC Wagner Winter (CUP)</English>
+<Spanish>EAST - PMC Wagner Winter (CUP)</Spanish>
+<Portuguese>EAST - PMC Wagner Winter (CUP)</Portuguese>
+<Korean>EAST - PMC Wagner Winter (CUP)</Korean>
+<Japanese>EAST - PMC Wagner Winter (CUP)</Japanese>
+<Original>EAST - PMC Wagner Winter (CUP)</Original>
+<Russian>EAST - PMC Wagner Winter (CUP)</Russian>
+<Chinesesimp>EAST - PMC Wagner Winter (CUP)</Chinesesimp>
+<Chinese>EAST - PMC Wagner Winter (CUP)</Chinese>
+<French>EAST - PMC Wagner Winter (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_CUP_PMC_WAGNER_DESERT">
+<English>EAST - PMC Wagner Desert (CUP)</English>
+<Spanish>EAST - PMC Wagner Desert (CUP)</Spanish>
+<Portuguese>EAST - PMC Wagner Desert (CUP)</Portuguese>
+<Korean>EAST - PMC Wagner Desert (CUP)</Korean>
+<Japanese>EAST - PMC Wagner Desert (CUP)</Japanese>
+<Original>EAST - PMC Wagner Desert (CUP)</Original>
+<Russian>EAST - PMC Wagner Desert (CUP)</Russian>
+<Chinesesimp>EAST - PMC Wagner Desert (CUP)</Chinesesimp>
+<Chinese>EAST - PMC Wagner Desert (CUP)</Chinese>
+<French>EAST - PMC Wagner Desert (CUP)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_AAF">
 <English>Altis Armed Forces (Community Factions Project)</English>
 <Spanish>Altis Armed Forces (Community Factions Project)</Spanish>
