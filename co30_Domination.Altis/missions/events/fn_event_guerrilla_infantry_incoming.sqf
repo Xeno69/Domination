@@ -92,41 +92,35 @@ while {surfaceIsWater _spawn_pos} do {
 
 if (_with_vehicles) then {
 	private _incoming_vehs = [];
-	private _with_tanks = false;
-	// there is a 1 in 3 chance of guerrilla tanks
-	if (random 3 <= 1) then {
-		_with_tanks = true;
-	};
+	
 	if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
-    	// "normal" or random which we force to normal
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc"];
-    	if (_with_tanks) then {
-    		_incoming_vehs = ["tank", "tank"];
-    	};
-    };
-    
-    if (d_WithLessArmor == 1) then {
-    	// "less"
-    	_incoming_vehs = ["jeep_mg", "jeep_mg"];
-    	if (_with_tanks) then {
-			_incoming_vehs = ["tracked_apc", "tracked_apc"];
-		};
-    };
-    
-    if (d_WithLessArmor == 4) then {
-    	// "high"
-    	_incoming_vehs = ["jeep_mg", "wheeled_apc", "tracked_apc"];
-    	if (_with_tanks) then {
-			_incoming_vehs = ["tank", "tank", "tracked_apc"];
-		};
-    };
-    // preemptive overrides
-    if (d_preemptive_special_event) then {
-    	_incoming_vehs = ["jeep_mg", "tracked_apc"];
-    };
+		// "normal" or random which we force to normal
+		_incoming_vehs = [
+			selectRandom d_faction_independent_array select 1,
+			selectRandom d_faction_independent_array select 1
+		];
+	};
+	
+	if (d_WithLessArmor == 1) then {
+		// "less"
+		_incoming_vehs = [
+			selectRandom d_faction_independent_array select 1
+		];
+	};
+	
+	if (d_WithLessArmor == 4) then {
+		// "high"
+		_incoming_vehs = [
+			selectRandom d_faction_independent_array select 1,
+			selectRandom d_faction_independent_array select 1,
+			selectRandom d_faction_independent_array select 1
+		];
+	};
+	
 	private _vdir = _spawn_pos getDir _target_center;
     {
-    	private _unitlist = [_x, "G"] call d_fnc_getunitlistv;
+    	//private _vehicle_list = [_x, "G"] call d_fnc_getunitlistv;
+    	private _vname = _x;
     	private _newgroup = [independent] call d_fnc_creategroup;
     	private _rand_pos = [[[_spawn_pos, 150]],["water"]] call BIS_fnc_randomPos;
 		private _road_list = _rand_pos nearroads 30;
@@ -136,7 +130,7 @@ if (_with_vehicles) then {
 		} else {
 			_spawn_pos_foreach = _rand_pos;
 		};
-    	private _vecs_and_crews = [1, _spawn_pos_foreach, _unitlist, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
+    	private _vecs_and_crews = [1, _spawn_pos_foreach, _vname, _newgroup, _vdir, true, true, true] call d_fnc_makevgroup;
     	_newgroups_veh pushBack _newgroup;
     	if (d_with_dynsim == 0) then {
     		[_newgroup, 0] spawn d_fnc_enabledynsim;
@@ -167,7 +161,7 @@ private _guerrillaBaseSkill = 0.85;
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	if !(d_faction_independent_array isEqualTo []) then {
-		_unitlist = selectRandom d_faction_independent_array;
+		_unitlist = selectRandom (d_faction_independent_array select 0);
 	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	private _rand_pos = [[[_spawn_pos, 100]],["water"]] call BIS_fnc_randomPos;
