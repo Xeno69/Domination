@@ -15804,6 +15804,78 @@
 <Chinese>INDFOR ION PMC Security Detail Arctic (CUP)</Chinese>
 <French>INDFOR ION PMC Security Detail Arctic (CUP)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_TAKISTANI_LOCALS">
+<English>INDFOR Takistani Locals (CUP)</English>
+<Spanish>INDFOR Takistani Locals (CUP)</Spanish>
+<Portuguese>INDFOR Takistani Locals (CUP)</Portuguese>
+<Korean>INDFOR Takistani Locals (CUP)</Korean>
+<Japanese>INDFOR Takistani Locals (CUP)</Japanese>
+<Original>INDFOR Takistani Locals (CUP)</Original>
+<Russian>INDFOR Takistani Locals (CUP)</Russian>
+<Chinesesimp>INDFOR Takistani Locals (CUP)</Chinesesimp>
+<Chinese>INDFOR Takistani Locals (CUP)</Chinese>
+<French>INDFOR Takistani Locals (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_WESTERN_ULTRANATIONALISTS">
+<English>INDFOR Western Ultranationalists (CUP)</English>
+<Spanish>INDFOR Western Ultranationalists (CUP)</Spanish>
+<Portuguese>INDFOR Western Ultranationalists (CUP)</Portuguese>
+<Korean>INDFOR Western Ultranationalists (CUP)</Korean>
+<Japanese>INDFOR Western Ultranationalists (CUP)</Japanese>
+<Original>INDFOR Western Ultranationalists (CUP)</Original>
+<Russian>INDFOR Western Ultranationalists (CUP)</Russian>
+<Chinesesimp>INDFOR Western Ultranationalists (CUP)</Chinesesimp>
+<Chinese>INDFOR Western Ultranationalists (CUP)</Chinese>
+<French>INDFOR Western Ultranationalists (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_UN_DESERT">
+<English>INDFOR UN (Desert) (CUP)</English>
+<Spanish>INDFOR UN (Desert) (CUP)</Spanish>
+<Portuguese>INDFOR UN (Desert) (CUP)</Portuguese>
+<Korean>INDFOR UN (Desert) (CUP)</Korean>
+<Japanese>INDFOR UN (Desert) (CUP)</Japanese>
+<Original>INDFOR UN (Desert) (CUP)</Original>
+<Russian>INDFOR UN (Desert) (CUP)</Russian>
+<Chinesesimp>INDFOR UN (Desert) (CUP)</Chinesesimp>
+<Chinese>INDFOR UN (Desert) (CUP)</Chinese>
+<French>INDFOR UN (Desert) (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_2035_FIA">
+<English>INDFOR 2035 FIA</English>
+<Spanish>INDFOR 2035 FIA</Spanish>
+<Portuguese>INDFOR 2035 FIA</Portuguese>
+<Korean>INDFOR 2035 FIA</Korean>
+<Japanese>INDFOR 2035 FIA</Japanese>
+<Original>INDFOR 2035 FIA</Original>
+<Russian>INDFOR 2035 FIA</Russian>
+<Chinesesimp>INDFOR 2035 FIA</Chinesesimp>
+<Chinese>INDFOR 2035 FIA</Chinese>
+<French>INDFOR 2035 FIA</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_2035_SYNDIKAT">
+<English>INDFOR 2035 Syndikat</English>
+<Spanish>INDFOR 2035 Syndikat</Spanish>
+<Portuguese>INDFOR 2035 Syndikat</Portuguese>
+<Korean>INDFOR 2035 Syndikat</Korean>
+<Japanese>INDFOR 2035 Syndikat</Japanese>
+<Original>INDFOR 2035 Syndikat</Original>
+<Russian>INDFOR 2035 Syndikat</Russian>
+<Chinesesimp>INDFOR 2035 Syndikat</Chinesesimp>
+<Chinese>INDFOR 2035 Syndikat</Chinese>
+<French>INDFOR 2035 Syndikat</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_CUP_UN_FOREST">
+<English>INDFOR UN (Forest) (CUP)</English>
+<Spanish>INDFOR UN (Forest) (CUP)</Spanish>
+<Portuguese>INDFOR UN (Forest) (CUP)</Portuguese>
+<Korean>INDFOR UN (Forest) (CUP)</Korean>
+<Japanese>INDFOR UN (Forest) (CUP)</Japanese>
+<Original>INDFOR UN (Forest) (CUP)</Original>
+<Russian>INDFOR UN (Forest) (CUP)</Russian>
+<Chinesesimp>INDFOR UN (Forest) (CUP)</Chinesesimp>
+<Chinese>INDFOR UN (Forest) (CUP)</Chinese>
+<French>INDFOR UN (Forest) (CUP)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_ENABLE_WOMEN_MILITARY">
 <English>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</English>
 <Spanish>MODS REQUIRED - Enable military women - Max_Women, Max Women Soldiers, Women At Work by Maxjoiner (experimental)</Spanish>

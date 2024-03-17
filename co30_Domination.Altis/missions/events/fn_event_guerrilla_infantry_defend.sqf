@@ -51,7 +51,7 @@ private _markerpos = [];
 {
 	private _unitlist = [_x, "G"] call d_fnc_getunitlistm;
 	if !(d_faction_independent_array isEqualTo []) then {
-		_unitlist = selectRandom d_faction_independent_array;
+		_unitlist = selectRandom (d_faction_independent_array select 0);
 	};
 	private _newgroup = [independent] call d_fnc_creategroup;
 	// random position within 125m of target center
