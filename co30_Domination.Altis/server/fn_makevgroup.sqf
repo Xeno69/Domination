@@ -25,7 +25,9 @@ for "_n" from 0 to _nnvnum do {
 	};
 	
 	[_vec, 5] call d_fnc_setekmode;
-	addToRemainsCollector [_vec];
+	if (d_ai_persistent_corpses != 0) then {
+		addToRemainsCollector [_vec];
+	};
 	
 	if (_dyna && {d_with_dynsim == 0 && {!unitIsUAV _vec}}) then {
 		[_vec] spawn d_fnc_enabledynsim;
