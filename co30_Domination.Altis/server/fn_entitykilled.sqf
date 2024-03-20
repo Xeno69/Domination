@@ -113,7 +113,7 @@ if (_ar # 16 == 1) then {
 	d_sm_arrest_not_failed = false;
 };
 
-if (_ar # 5 == 1) then {
+if (_ar # 5 == 1 && { d_ai_persistent_corpses != 0 }) then {
 	_obj spawn d_fnc_handleDeadVec;
 };
 

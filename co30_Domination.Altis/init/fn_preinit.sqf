@@ -2842,6 +2842,19 @@ if (d_enemy_factions > 0) then {
 			d_specops_E = [["East","CFP_O_Wagner","Infantry","cfp_o_wagner_infantry_vip_bodyguard"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["East","CFP_O_Wagner","SpecOps","cfp_o_wagner_specops_sniper_team"] call d_fnc_GetConfigGroup];
 		};
+		case 18: {
+			// AAF (available in the 2035 base game)
+			d_veh_a_E = [
+				#include "d_veh_a_G_default.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_G_default.sqf"
+			];
+			d_specops_E = [
+				#include "d_allmen_G_default.sqf"
+			]; // no good specops groups in AAF, just use allmen
+			d_sniper_E = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+		};
 	};
 	
 };
