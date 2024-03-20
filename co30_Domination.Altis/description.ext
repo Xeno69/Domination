@@ -128,10 +128,12 @@ weaponholderRemovalMaxTime = 1200; // seconds. Default: 36000
 // weaponholderLimit = 1; // Default: 50
 
 //How often the remains collector checks monitored remains for removal. The value can be between 1 and 60.
-disposalCheckPeriod = 5;
+disposalCheckPeriod = 5; // seconds. Default: 5
 
 // uncomment the following to delete corpses and wrecks only if players are at least 30m away; default is 0, means no nearby player check is done by the engine
 // minPlayerDistance = 30;
+// Array variant of the above that allows setting individual minPlayerDistance for {corpses, wrecks, weaponholders}
+// minPlayerDistance[] = {50, 60, 70}; // meters. Default: {0, 0, 0}
 
 missionGroup = "DominationMissionGroup";
 
