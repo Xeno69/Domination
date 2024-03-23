@@ -12,7 +12,7 @@ if (true) exitWith {};
 
 if !(isServer) exitWith {};
 
-params ["_target_radius", "_target_center"];
+params ["_target_radius", "_target_center", ["_target_group_count_multiplier", 1]];
 
 private _event_name = "enemy_incoming";
 private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
@@ -87,7 +87,7 @@ sleep 7;
 private _newgroups_inf = [];
 private _newgroups_veh = [];
 // calculate the sum of all groups of AI
-private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol;
+private _targetGroupCount = ceil ((d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol) * _target_group_count_multiplier);
 private _enemyForceInf = [];
 
 for "_i" from 0 to _targetGroupCount do {

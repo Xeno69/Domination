@@ -184,7 +184,7 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 				_guerrilla_event_running = true;
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
-				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
+				[_radius, _trg_center, 0.75] spawn d_fnc_event_enemy_incoming; // 0.75, do not want too many units
 				// spawn the garrisoned guerrilla event
 				[_radius, _trg_center] spawn d_fnc_event_guerrilla_infantry_defend;
 			};
@@ -196,7 +196,7 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 				// unset all static/guard
 				_camp_enable_guard_current = 0;
 				// spawn the opfor event
-				[_radius, _trg_center] spawn d_fnc_event_enemy_incoming;
+				[_radius, _trg_center, 0.5] spawn d_fnc_event_enemy_incoming; // 0.5, we have two simultaneous events so only spawn half the usual enemies
 				// wait for d_fnc_event_enemy_incoming to set a start pos for the enemy groups
 				sleep 3;
 				// calculate the desired spawn position for the guerrillas on the opposite side of the maintarget and away from opfor units
@@ -204,14 +204,14 @@ if (d_side_enemy == opfor && {d_with_MainTargetEvents == -3 || d_with_MainTarget
 				private _newy = (d_preemptive_special_event_startpos_opfor # 1) - (_trg_center # 1);
 				private _newpos = [(_trg_center # 0) - _newx, (_trg_center # 1) - _newy];
 				// spawn the guerrilla attack event
-				[_radius, _trg_center, _newpos, true] spawn d_fnc_event_guerrilla_infantry_incoming;
+				[_radius, _trg_center, _newpos, true, 0.5] spawn d_fnc_event_guerrilla_infantry_incoming; // 0.5, we have two simultaneous events so only spawn half the usual enemies
 			};
 			case 3: {
 				diag_log ["special event selected: (not a preemptive event) enemy occupy the maintarget as usual and guerrilla forces with some vehicles attack"];
 				_guerrilla_event_running = true;
 				// this event is not a real preemptive event so do not set d_preemptive_special_event
 				// spawn the guerrilla attack event
-				[_radius, _trg_center, [], true] spawn d_fnc_event_guerrilla_infantry_incoming;
+				[_radius, _trg_center, [], true, 0.75] spawn d_fnc_event_guerrilla_infantry_incoming; // 0.75, do not want too many units
 			};
 		};
 		

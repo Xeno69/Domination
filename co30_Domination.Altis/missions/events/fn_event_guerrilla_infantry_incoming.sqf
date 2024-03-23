@@ -12,7 +12,7 @@ if (true) exitWith {};
 
 if !(isServer) exitWith {};
 
-params ["_target_radius", "_target_center", ["_spawn_pos", []], ["_with_vehicles", false]];
+params ["_target_radius", "_target_center", ["_spawn_pos", []], ["_with_vehicles", false], ["_target_group_count_multiplier", 1]];
 
 private _event_name = "guerrilla_incoming";
 private _mt_event_key = format ["d_X_MTEVENT_%1_%2", d_cur_tgt_name, _event_name];
@@ -147,7 +147,7 @@ if (_with_vehicles) then {
 };
 
 // calculate the sum of all groups of AI
-private _targetGroupCount = d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol;
+private _targetGroupCount = ceil ((d_occ_cnt_current + d_ovrw_cnt_current + d_amb_cnt_current + d_grp_cnt_footpatrol) * _target_group_count_multiplier);
 
 // guerrillas should be outnumbered
 private _guerrillaGroupCount = round(_targetGroupCount / 3) min 3;
