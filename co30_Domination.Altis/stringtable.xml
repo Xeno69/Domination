@@ -12583,7 +12583,30 @@
 <Chinese>Rural, low wealth (CUP)</Chinese>
 <French>Rural, low wealth (CUP)</French>
 </Key>
-    
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_CITY_CUP_LOW_WEALTH">
+<English>City, low wealth (CUP)</English>
+<Spanish>City, low wealth (CUP)</Spanish>
+<Portuguese>City, low wealth (CUP)</Portuguese>
+<Korean>City, low wealth (CUP)</Korean>
+<Japanese>City, low wealth (CUP)</Japanese>
+<Original>City, low wealth (CUP)</Original>
+<Russian>City, low wealth (CUP)</Russian>
+<Chinesesimp>City, low wealth (CUP)</Chinesesimp>
+<Chinese>City, low wealth (CUP)</Chinese>
+<French>City, low wealth (CUP)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_CIVILIAN_VEH_CITY_CFP_LOW_WEALTH">
+<English>City, low wealth (CFP)</English>
+<Spanish>City, low wealth (CFP)</Spanish>
+<Portuguese>City, low wealth (CFP)</Portuguese>
+<Korean>City, low wealth (CFP)</Korean>
+<Japanese>City, low wealth (CFP)</Japanese>
+<Original>City, low wealth (CFP)</Original>
+<Russian>City, low wealth (CFP)</Russian>
+<Chinesesimp>City, low wealth (CFP)</Chinesesimp>
+<Chinese>City, low wealth (CFP)</Chinese>
+<French>City, low wealth (CFP)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_1890CIVVEHRAD">
 <English>Civilian vehicles - spawn radius</English>
 <Spanish>Vehículos civiles - radio de desove</Spanish>
