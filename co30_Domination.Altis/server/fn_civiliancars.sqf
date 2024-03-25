@@ -1,3 +1,6 @@
+//#define __DEBUG__
+#include "..\x_setup.sqf"
+
 //create civilian vehicles
 //adapted from script by h8ermaker https://www.youtube.com/watch?v=pE47H8lG8uc
 if (d_enable_civ_vehs > 0) then {
@@ -37,17 +40,19 @@ if (d_enable_civ_vehs > 0) then {
 				_pos_flat_empty_attempts = _pos_flat_empty_attempts + 1;
 				
 				if (_tmp_pos findEmptyPosition [1.25, 2.5, _veh_type] isEqualTo []) then {
-					diag_log ["foooooooooooooooo findEmptyPosition failed"];
+					__TRACE("findEmptyPosition failed")
 				};
 				
 				if (_tmp_pos isFlatEmpty [0.5, -1] isEqualTo []) then {
-					diag_log ["foooooooooooooooo isFlatEmpty failed"];
+					// having problems with isFlatEmpty erroneously failing, deprecating it here
+					__TRACE("isFlatEmpty failed")
 				};
 				
 				if (_tmp_pos findEmptyPosition [1.25, 2.5, _veh_type] isNotEqualTo []) then {
                      _pos_flat_empty = _tmp_pos;
 				};
 
+				// if (_pos_flat_empty isNotEqualTo [] && { _tmp_pos isFlatEmpty [0.5, -1] isNotEqualTo [] }) then {
 				if (_pos_flat_empty isEqualTo []) then {
 					// pos is not suitable
 					// find a new pos within 3m radius so we can try again
@@ -55,10 +60,9 @@ if (d_enable_civ_vehs > 0) then {
 				};
 			};
 			if (_pos_flat_empty isEqualTo []) then {
-				diag_log ["fn_civiliancars could not find a flat and empty spot after 99 attempts, giving up"];
+				diag_log [format ["fn_civiliancars could not find a flat and empty spot after 99 attempts, giving up %1", _veh_type]];
 			} else {
-				diag_log [format ["fn_civiliancars found a good position after %1 attempts", _pos_flat_empty_attempts]];
-				diag_log [format ["fn_civiliancars getRoadInfo %1", (getRoadInfo _current_road)]];
+				diag_log [format ["fn_civiliancars found a good position for %1 after %2 attempts", _veh_type, _pos_flat_empty_attempts]];
 				// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
 				// translate pos to the right (+90) by distance (road width * 0.35) to spawn the vehicle on the side of the road
 				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)] getPos [_road_seg_width * 0.35, (_direction + 90)];
@@ -73,7 +77,15 @@ if (d_enable_civ_vehs > 0) then {
 				};
 				d_cur_tgt_civ_vehicles pushBack _veh;
 				_spawned_count = _spawned_count + 1;
-				private _cars_to_severely_damage = ["bus", "police", "ikarus", "idap", "army"];
+				private _cars_to_severely_damage = [
+					"bus",
+					"police",
+					"ikarus",
+					"idap",
+					"army",
+					"suv_ion",
+					"ambulance"
+				];
 				{
 					if ([_x, _veh_type] call BIS_fnc_inString) exitWith {
 						// severely damage this car for the visual affect of a broken city
