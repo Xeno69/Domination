@@ -663,7 +663,13 @@ if (d_civ_vehs_type > 0) then {
 	};
 	if (d_civ_vehs_type == 5) then {
 		d_civ_vehicles_weighted =+ d_civVehiclesWeightedRuralCupRemote;
-	};	
+	};
+	if (d_civ_vehs_type == 6) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedCityWealthLowCup;
+	};
+	if (d_civ_vehs_type == 7) then {
+		d_civ_vehicles_weighted =+ d_civVehiclesWeightedCityWealthLowCFP;
+	};
 };
 
 #ifndef __TT__

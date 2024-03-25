@@ -99,8 +99,8 @@ if (_sim in ["airplane", "helicopter", "airplanex", "helicopterx", "helicopterrt
 	} else {
 		_veh allowCrewInImmobile [false, true];
 	};
-	_veh setDir _azi;
-	_veh setVehiclePosition [_veh, [], 0, "NONE"];
+	//_veh setDir _azi;
+	//_veh setVehiclePosition [_veh, [], 0, "NONE"];
 };
 
 if (d_del_crew_always == 0) then {
