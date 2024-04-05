@@ -181,11 +181,11 @@ private _placeCivilianCluster = {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
 	_posArray = _bldg buildingPos -1;
-	_unit_count = 6 max floor(random 12);
-	if (count _posArray > 5 && {1 > random 10}) then {
+	_unit_count = selectRandom [3, 4, 5];
+	if (count _posArray > 5 && {1 > random 5}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
 		//diag_log ["randomly chose to spawn a large civilian group"];
-		_unit_count = 11 max floor(random 17);
+		_unit_count = selectRandom[8, 9, 10];
 	};
 	private _units_civ_cluster = [];
 	private _civ_group = createGroup civilian;
