@@ -96,24 +96,24 @@ if (_with_vehicles) then {
 	if (d_WithLessArmor == 0 || d_WithLessArmor == 3) then {
 		// "normal" or random which we force to normal
 		_incoming_vehs = [
-			selectRandom d_faction_independent_array select 1,
-			selectRandom d_faction_independent_array select 1
+			selectRandom (d_faction_independent_array select 1),
+			selectRandom (d_faction_independent_array select 1)
 		];
 	};
 	
 	if (d_WithLessArmor == 1) then {
 		// "less"
 		_incoming_vehs = [
-			selectRandom d_faction_independent_array select 1
+			selectRandom (d_faction_independent_array select 1)
 		];
 	};
 	
 	if (d_WithLessArmor == 4) then {
 		// "high"
 		_incoming_vehs = [
-			selectRandom d_faction_independent_array select 1,
-			selectRandom d_faction_independent_array select 1,
-			selectRandom d_faction_independent_array select 1
+			selectRandom (d_faction_independent_array select 1),
+			selectRandom (d_faction_independent_array select 1),
+			selectRandom (d_faction_independent_array select 1)
 		];
 	};
 	
