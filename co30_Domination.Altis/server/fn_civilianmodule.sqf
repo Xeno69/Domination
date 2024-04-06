@@ -181,7 +181,7 @@ private _placeCivilianCluster = {
 		diag_log ["unable to place civilian cluster, randomly chose a building that is too close to a mission objective"];
 	};
 	_posArray = _bldg buildingPos -1;
-	_unit_count = selectRandom [3, 4, 5]);
+	_unit_count = selectRandom [3, 4, 5];
 	if (count _posArray > 5 && {1 > random 5}) then {
 		// small chance for larger buildings (more than 5 positions) to have many civs
 		//diag_log ["randomly chose to spawn a large civilian group"];
