@@ -719,7 +719,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
-				false,		//fillTopDown
+				selectRandom [true, false],		//fillTopDown
 				false,		//disableTeleport
 				0		//unitMovementMode
 			] call d_fnc_garrisonUnits;
@@ -739,7 +739,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
-				false,		//fillTopDown
+				selectRandom [true, false],		//fillTopDown
 				false,		//disableTeleport
 				3		//unitMovementMode - overwatch
 			] call d_fnc_garrisonUnits;
@@ -761,7 +761,7 @@ if (d_occ_bldgs == 1 && {!d_preemptive_special_event}) then {
 				199,		//fillRadius
 				false,		//fillRoof
 				false,		//fillEvenly
-				false,		//fillTopDown
+				selectRandom [true, false],		//fillTopDown
 				false,		//disableTeleport
 				1		//unitMovementMode - ambush
 			] call d_fnc_garrisonUnits;
