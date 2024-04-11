@@ -268,6 +268,7 @@ class CfgRemoteExec {
 		class bis_fnc_setdate {allowedTargets = 2;};
 		class BIS_fnc_effectKilledAirDestruction {};
 		class BIS_fnc_effectKilledSecondaries {};
+		class bis_fnc_effectkilled {};
 		class BIS_fnc_fire {};
 		class BIS_fnc_objectVar {};
 		class BIS_fnc_setCustomSoundController {};
