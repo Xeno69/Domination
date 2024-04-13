@@ -29,8 +29,17 @@ private _vecs = [];
 private _agrp = [d_side_enemy] call d_fnc_creategroup;
 private _npos = _start_point;
 private _var = [];
-_var resize (selectRandom [2, 3]);
-_var = _var apply {[selectRandom ["jeep_mg", "wheeled_apc", "jeep_gl"], d_enemy_side_short] call d_fnc_getunitlistv};
+if (d_WithIsleDefense == 2) then {
+	// extra
+	_var = [
+		["aa", d_enemy_side_short] call d_fnc_getunitlistv,
+		["tank", d_enemy_side_short] call d_fnc_getunitlistv,
+		["wheeled_apc", d_enemy_side_short] call d_fnc_getunitlistv
+	];
+} else {
+	_var resize (selectRandom [2, 3]);
+	_var = _var apply {[selectRandom ["jeep_mg", "wheeled_apc", "jeep_gl"], d_enemy_side_short] call d_fnc_getunitlistv};
+};
 private _firstdone = false;
 {
 	if (!_firstdone || {selectRandom [0, 1] > 0}) then {
@@ -44,6 +53,7 @@ private _firstdone = false;
 	};
 } forEach _var;
 // TODO if tanks show better driving behaviour change it back to mixed list?
+// TODO four years later, chances are not very good :) but I am trying anyway if d_WithIsleDefense == 2 -Longtime
 //} forEach ([d_enemy_side_short] call d_fnc_getmixedlist);
 sleep 0.31;
 

@@ -1557,9 +1557,9 @@ class Params {
 
 	class d_WithIsleDefense {
 		title = "$STR_DOM_MISSIONSTRING_1128";
-		values[] = {0,1};
+		values[] = {0,1,2};
 		default = 0;
-		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
+		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_400_EXTRA"};
 	};
 	
 	class d_without_sm_bonus {

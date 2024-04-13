@@ -71,7 +71,7 @@ d_bonus_vec_positions_e = [];
 // if the array is empty, no patrols
 // simply place a rectangular marker called "d_isledefense_marker", marker text = number of patrols
 if (isServer) then {
-	if (d_WithIsleDefense == 0) then {
+	if (d_WithIsleDefense == 0 || { d_WithIsleDefense == 2 }) then {
 		private _mna = "d_isledefense_marker";
 		if (markerPos _mna isEqualTo [0,0,0]) exitWith {
 			d_with_isledefense = [];
