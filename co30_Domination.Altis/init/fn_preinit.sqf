@@ -4199,116 +4199,126 @@ if (d_enemy_factions > 0) then {
 d_faction_independent_array = [];
 
 // support guerrilla overrides with server settings (guerrilla factions)
-if (d_guerrilla_factions > 0) then {
-	switch (d_guerrilla_factions) do {
-		// Afghanistan Army (CFP)
-		case 1: {
-			d_faction_independent_array = [
-				[
-					["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup
-				],
-				["CFP_B_AFARMY_M113_01"]
-			];
-		};
-		// South Sudan People's Defense Force (CFP)
-		case 2: {
-			d_faction_independent_array = [
-				[
-					["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup
-				],
-				["CFP_I_SSArmy_T72_01", "CFP_I_SSArmy_T55_01"]
-			];
-		};
-		// Sudan Revolutionary Front (CFP)
-		case 3: {
-			d_faction_independent_array = [
-				[
-					["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup
-				],
-				["CFP_I_SDRebelsrf_Hilux_ZU_23_01"]
-			];
-		};
-		// East Asia INDFOR (AFCUP)
-		case 4: {
-			d_faction_independent_array = [
-				[
-					["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup
-				],
-				["I_CUPARMYASIA_T72_01", "I_CUPARMYASIA_BTR_60PB_01"]
-			];
-		};
-		// ION PMC
-		case 5: {
-			d_faction_independent_array = [
-				[
-					["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_MATV_GMG_ION", "CUP_I_BTR80A_ION"]
-			];
-		};
-		// ION PMC Arctic
-		case 6: {
-			d_faction_independent_array = [
-				[
-					["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_MATV_GMG_ION", "CUP_I_nM1025_Mk19_ION_WIN"]
-			];
-		};
-		// Takistani Locals
-		case 7: {
-			d_faction_independent_array = [
-				[
-					["Indep","CUP_I_TK_GUE","Infantry","CUP_I_TK_GUE_GroupWeapons"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_T55_TK_GUE", "CUP_I_Hilux_BMP1_TK_GUE"]
-			];
-		};
-		// Western Ultranationalists
-		case 8: {
-			d_faction_independent_array = [
-				[
-					["Indep","CFP_I_WestUltra","Infantry","CFP_I_WestUltra_infantry_8man_team"] call d_fnc_GetConfigGroup
-				],
-				["I_APC_Wheeled_03_cannon_F"]
-			];
-		};
-		// UN Desert
-		case 9: {
-			d_faction_independent_array = [
-				[
-					["Indep","CUP_I_UN","Infantry_DSR","CUP_I_UN_Patrol_DST"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_BTR80A_UN","CUP_I_BMP2_UN","CUP_I_BRDM2_UN"]
-			];
-		};
-		// UN Forest
-		case 10: {
-			d_faction_independent_array = [
-				[
-					["Indep","CUP_I_UN","Infantry_FST","CUP_I_UN_Patrol_FST"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_BTR80A_UN","CUP_I_BMP2_UN","CUP_I_BRDM2_UN"]
-			];
-		};
-		// 2035 FIA
-		case 11: {
-			d_faction_independent_array = [
-				[
-					["Indep","IND_G_F","Infantry","I_G_InfSquad_Assault"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_Hilux_BMP1_IND_G_F"]
-			];
-		};
-		// 2035 Syndikat
-		case 12: {
-			d_faction_independent_array = [
-				[
-					["Indep","IND_C_F","Infantry","ParaCombatGroup"] call d_fnc_GetConfigGroup
-				],
-				["CUP_I_M151_M2_SYND", "CUP_I_MTLB_pk_SYNDIKAT"]
-			];
-		};
+switch (d_guerrilla_factions) do {
+	
+	// Altis Armed Forces AAF (no mods)
+	case 0: {
+		d_faction_independent_array = [
+			[
+				["Indep","IND_F","Infantry","HAF_InfSquad"] call d_fnc_GetConfigGroup,
+				["Indep","IND_F","Infantry","HAF_InfTeam_AT"] call d_fnc_GetConfigGroup
+			],
+			["I_MRAP_03_hmg_F", "I_G_Offroad_01_armed_F"]
+		];
+	};
+	
+	// Afghanistan Army (CFP)
+	case 1: {
+		d_faction_independent_array = [
+			[
+				["WEST","CFP_B_AFARMY","Infantry","cfp_b_afarmy_infantry_squad"] call d_fnc_GetConfigGroup
+			],
+			["CFP_B_AFARMY_M113_01"]
+		];
+	};
+	// South Sudan People's Defense Force (CFP)
+	case 2: {
+		d_faction_independent_array = [
+			[
+				["Indep","CFP_I_SSArmy","Infantry","CFP_I_SSArmy_infantry_squad"] call d_fnc_GetConfigGroup
+			],
+			["CFP_I_SSArmy_T72_01", "CFP_I_SSArmy_T55_01"]
+		];
+	};
+	// Sudan Revolutionary Front (CFP)
+	case 3: {
+		d_faction_independent_array = [
+			[
+				["INDEP","CFP_I_SDRebelsrf","Infantry","CFP_I_SDRebelsrf_infantry_squad"] call d_fnc_GetConfigGroup
+			],
+			["CFP_I_SDRebelsrf_Hilux_ZU_23_01"]
+		];
+	};
+	// East Asia INDFOR (AFCUP)
+	case 4: {
+		d_faction_independent_array = [
+			[
+				["Indep","CUP_ARMY_ASIA","Infantry","cuparmyasia_infantry_rifle_squad"] call d_fnc_GetConfigGroup
+			],
+			["I_CUPARMYASIA_T72_01", "I_CUPARMYASIA_BTR_60PB_01"]
+		];
+	};
+	// ION PMC
+	case 5: {
+		d_faction_independent_array = [
+			[
+				["Indep","CUP_I_PMC_ION","Infantry","CUP_I_PMC_ION_Security_Detail"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_MATV_GMG_ION", "CUP_I_BTR80A_ION"]
+		];
+	};
+	// ION PMC Arctic
+	case 6: {
+		d_faction_independent_array = [
+			[
+				["Indep","CUP_I_PMC_ION","WinterInfantry","CUP_I_PMC_Winter_ION_Security_Detail"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_MATV_GMG_ION", "CUP_I_nM1025_Mk19_ION_WIN"]
+		];
+	};
+	// Takistani Locals
+	case 7: {
+		d_faction_independent_array = [
+			[
+				["Indep","CUP_I_TK_GUE","Infantry","CUP_I_TK_GUE_GroupWeapons"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_T55_TK_GUE", "CUP_I_Hilux_BMP1_TK_GUE"]
+		];
+	};
+	// Western Ultranationalists
+	case 8: {
+		d_faction_independent_array = [
+			[
+				["Indep","CFP_I_WestUltra","Infantry","CFP_I_WestUltra_infantry_8man_team"] call d_fnc_GetConfigGroup
+			],
+			["I_APC_Wheeled_03_cannon_F"]
+		];
+	};
+	// UN Desert
+	case 9: {
+		d_faction_independent_array = [
+			[
+				["Indep","CUP_I_UN","Infantry_DSR","CUP_I_UN_Patrol_DST"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_BTR80A_UN","CUP_I_BMP2_UN","CUP_I_BRDM2_UN"]
+		];
+	};
+	// UN Forest
+	case 10: {
+		d_faction_independent_array = [
+			[
+				["Indep","CUP_I_UN","Infantry_FST","CUP_I_UN_Patrol_FST"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_BTR80A_UN","CUP_I_BMP2_UN","CUP_I_BRDM2_UN"]
+		];
+	};
+	// 2035 FIA
+	case 11: {
+		d_faction_independent_array = [
+			[
+				["Indep","IND_G_F","Infantry","I_G_InfSquad_Assault"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_Hilux_BMP1_IND_G_F"]
+		];
+	};
+	// 2035 Syndikat
+	case 12: {
+		d_faction_independent_array = [
+			[
+				["Indep","IND_C_F","Infantry","ParaCombatGroup"] call d_fnc_GetConfigGroup
+			],
+			["CUP_I_M151_M2_SYND", "CUP_I_MTLB_pk_SYNDIKAT"]
+		];
 	};
 };
 // support for mod - Death and hit reactions
