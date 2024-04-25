@@ -138,7 +138,9 @@ diag_log [format ["total possible buildings to spawn civs: %1", count (_building
 
 //create a cluster of civilians (does not use civilian module)
 private _placeCivilianCluster = {
+#ifdef __DEBUG__
 	diag_log [format ["attempting to place a civilian cluster... count _buildings array is: %1", count _buildings]];
+#endif
 	if (count _buildings < 1) exitWith {
 		diag_log ["unable to place civilian cluster, no buildings in array"];
 	};

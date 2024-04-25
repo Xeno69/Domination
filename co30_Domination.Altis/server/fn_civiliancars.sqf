@@ -62,7 +62,9 @@ if (d_enable_civ_vehs > 0) then {
 			if (_pos_flat_empty isEqualTo []) then {
 				diag_log [format ["fn_civiliancars could not find a flat and empty spot after 99 attempts, giving up %1", _veh_type]];
 			} else {
+#ifdef __DEBUG__
 				diag_log [format ["fn_civiliancars found a good position for %1 after %2 attempts", _veh_type, _pos_flat_empty_attempts]];
+#endif
 				// isFlatEmpty, Resulting position will be original PositionAGL + getTerrainHeightASL
 				// translate pos to the right (+90) by distance (road width * 0.35) to spawn the vehicle on the side of the road
 				_pos_flat_empty = [(_pos_flat_empty # 0), (_pos_flat_empty # 1), (_pos_flat_empty # 2 - getTerrainHeightASL _pos_flat_empty)] getPos [_road_seg_width * 0.35, (_direction + 90)];
