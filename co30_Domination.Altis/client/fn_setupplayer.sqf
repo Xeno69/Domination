@@ -298,8 +298,10 @@ if (d_with_ranked || {d_database_found}) then {
 	inGameUISetEventHandler ["Action", "_this call d_fnc_healatmash; false"];
 };
 
-// available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
-player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
+if (d_disable_dom_weapon_mgmt != 1) then {
+	// available in non ranked versions too, removes nvg if without nvg is activated to avoid cheating
+	player addEventhandler ["Take", {call d_fnc_ptakeweapon}];
+};
 
 if (d_MissionType != 2) then {
 	if (d_resolved_targets isNotEqualTo []) then {

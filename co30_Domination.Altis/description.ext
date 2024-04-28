@@ -739,6 +739,13 @@ class Params {
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_922","$STR_DOM_MISSIONSTRING_1007"};
 	};
+	
+	class d_disable_dom_weapon_mgmt {
+		title = "$STR_DOM_MISSIONSTRING_DISABLE_WEAPON_MGMT";
+		values[] = {0,1};
+		default = 0;
+		texts[] = {"$STR_DOM_MISSIONSTRING_1007","$STR_DOM_MISSIONSTRING_922"};
+	};
 
 	class d_no_mortar_ar {
 		title = "$STR_DOM_MISSIONSTRING_1831";

@@ -16163,6 +16163,18 @@
 <Chinese>snake</Chinese>
 <French>snake</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_DISABLE_WEAPON_MGMT">
+<English>Disable Domination weapon and inventory management</English>
+<Spanish>Disable Domination weapon and inventory management</Spanish>
+<Portuguese>Disable Domination weapon and inventory management</Portuguese>
+<Korean>Disable Domination weapon and inventory management</Korean>
+<Japanese>Disable Domination weapon and inventory management</Japanese>
+<Original>Disable Domination weapon and inventory management</Original>
+<Russian>Disable Domination weapon and inventory management</Russian>
+<Chinesesimp>Disable Domination weapon and inventory management</Chinesesimp>
+<Chinese>Disable Domination weapon and inventory management</Chinese>
+<French>Disable Domination weapon and inventory management</French>
+</Key>
 </Container>
 </Package>
 </Project>
