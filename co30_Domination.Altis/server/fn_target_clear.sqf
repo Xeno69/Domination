@@ -223,23 +223,6 @@ publicVariable "d_campscaptured_e";
 
 #ifndef __TT__
 if (d_enable_civs == 1) then {
-	//cleanup civ modules presencesafespot
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_modules_presencesafespot;
-	d_cur_tgt_civ_modules_presencesafespot = [];
-
-	//cleanup civ modules presenceunit
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_modules_presenceunit;
-	d_cur_tgt_civ_modules_presenceunit = [];
-
-	//cleanup civ modules presence
-	{
-		deleteVehicle _x;
-	} forEach d_cur_tgt_civ_modules_presence;
-	d_cur_tgt_civ_modules_presence = [];
 
 	//cleanup civ units
 	{

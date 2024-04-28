@@ -10,7 +10,8 @@ if ((damage _unit) > 0.05) then {
 };
 private _last_threatened_ts = (agent teamMember _unit) getVariable ["civ_last_firednear_or_threatened", 0];
 private _last_dangerclose_ts = (agent teamMember _unit) getVariable ["civ_last_dangerclose", 0];
-private _civ_is_walking = (agent teamMember _unit) getVariable ["civ_is_walking", false];
+private _civ_walking_home = (agent teamMember _unit) getVariable ["d_civ_walking_home", false];
+private _civ_walking_home_and_is_scared = (agent teamMember _unit) getVariable ["d_civ_walking_home_and_is_scared", false];
 private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []];
 {
 	// if weapon is raised close by then immediately lay down and set threatend timestamp
@@ -36,21 +37,23 @@ private _civ_startpos = (agent teamMember _unit) getVariable ["civ_startpos", []
 } forEach (allPlayers select { _x distance2D _unit < 6 });
 private _elapsed_time_since_threatened = (time - _last_threatened_ts);
 private _elapsed_time_since_dangerclose = (time - _last_dangerclose_ts);
-if (_elapsed_time_since_dangerclose > 7 && {!(_civ_startpos isEqualTo []) && {(_unit distance2D _civ_startpos) < 2 && {!_civ_is_walking}}}) then {
-	// static civilian was allowed to move for a few seconds but must stop moving now 
+if (_elapsed_time_since_dangerclose > 7 && {!(_civ_startpos isEqualTo []) && {(_unit distance2D _civ_startpos) < 2 && {!(_civ_walking_home_and_is_scared)}}}) then {
+	// static civilian was allowed to move for a few seconds but must stop moving now
 	_unit forceSpeed 0;
 };
-if (_elapsed_time_since_threatened > 10 && {_civ_is_walking}) then {
-	_unit forceSpeed -1;
-};
-if (_elapsed_time_since_threatened > 30 && {_elapsed_time_since_threatened <= 45}) then {
+if (_elapsed_time_since_threatened > 20 && {_elapsed_time_since_threatened <= 45}) then {
 	_unit setUnitPos "MIDDLE";
 };
-if (_elapsed_time_since_threatened > 45) then {
+if (_elapsed_time_since_threatened > 45 || { _civ_walking_home_and_is_scared }) then {
 	_unit setUnitPos "AUTO";
-	if (!(_civ_startpos isEqualTo []) && {(_unit distance2D _civ_startpos) > 2}) then {
-		// static civilian moved away from startpos, now should move back
-		_unit forceSpeed -1;
-		_unit moveTo _civ_startpos;
+	if (_civ_startpos isNotEqualTo [] && {(_unit distance2D _civ_startpos) > 2}) then {
+		// unit has moved away from start position
+		if (_civ_walking_home && {!(_civ_walking_home_and_is_scared)}) then {
+			// do nothing, unit is expected to be away from _civ_startpos until scared to move
+		} else {
+			// static civilian moved away from startpos or is running home scared, unit should move back now
+			_unit moveTo _civ_startpos;
+			// diag_log [format ["global loop walking home scared moveToo unit: %1   curr pos: %2   startpos: %3", _unit, getPos _unit, _civ_startpos]];
+		};
 	};
 };
