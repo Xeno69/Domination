@@ -4192,6 +4192,20 @@ if (d_enemy_factions > 0) then {
 			]; // no good specops groups in AAF, just use allmen
 			d_sniper_E = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
 		};
+		case 19: {
+			// CUP - Russian Ground Forces (Summer)
+			d_veh_a_E = [
+				#include "d_veh_a_O_CUP_CHER.sqf"
+			];
+			d_allmen_E = [
+				["East","CUP_O_RU","Infantry_Ratnik_Summer","InfSquad"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Summer","InfAssault"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Summer","InfTeam_AT"] call d_fnc_GetConfigGroup,
+				["East","CUP_O_RU","Infantry_Ratnik_Summer","O_InfTeam_AT_Heavy"] call d_fnc_GetConfigGroup
+			];
+			d_specops_E = [["East","CUP_O_RU","Infantry_Ratnik_Summer","reconTeam"] call d_fnc_GetConfigGroup];
+			d_sniper_E = [["East","CUP_O_RU","Infantry_Ratnik_Summer","reconSentry"] call d_fnc_GetConfigGroup];
+		};
 	};
 	
 };
