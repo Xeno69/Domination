@@ -199,7 +199,7 @@ private _placeCivilianCluster = {
 			_civAgent setUnitPos "MIDDLE";
 		};
 		_civAgent disableAI "FSM";
-        _civAgent setBehaviour "CARELESS";
+		_civAgent setBehaviour "CARELESS";
 		_civAgent addEventHandler ["FiredNear", {
 			params ["_unit", "_firer", "_distance", "_weapon", "_muzzle", "_mode", "_ammo", "_gunner"];
 			private _last_dangerclose_ts = (agent teamMember _unit) getVariable ["civ_last_dangerclose", 0];
@@ -281,7 +281,7 @@ private _placeCivilianCluster = {
     	
     	private _group_pos = [];
     	if (_group_is_walking_home) then {
-    		_group_pos = [[[_bldg, 50]],[]] call BIS_fnc_randomPos; // within 50m of their home
+    		_group_pos = [[[_bldg, 25]],[]] call BIS_fnc_randomPos; // position near their home
     	};
     	
     	// these civs are walking home, move the civs in this array away from their start pos
