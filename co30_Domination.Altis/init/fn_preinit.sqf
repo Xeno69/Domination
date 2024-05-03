@@ -4206,6 +4206,19 @@ if (d_enemy_factions > 0) then {
 			d_specops_E = [["East","CUP_O_RU","Infantry_Ratnik_Summer","reconTeam"] call d_fnc_GetConfigGroup];
 			d_sniper_E = [["East","CUP_O_RU","Infantry_Ratnik_Summer","reconSentry"] call d_fnc_GetConfigGroup];
 		};
+		case 20: {
+			// NATO BLUFOR as OPFOR (available in the 2035 base game)
+			d_veh_a_E = [
+				#include "d_veh_a_B_default.sqf"
+			];
+			d_allmen_E = [
+				#include "d_allmen_B_default.sqf"
+			];
+			d_specops_E = [
+				#include "d_allmen_B_default.sqf"
+			]; // no good specops groups in NATO, just use allmen
+			d_sniper_E = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup];
+		};
 	};
 	
 };
