@@ -64,6 +64,9 @@ class Header {
 #ifdef __CUP_SARA__
 	maxPlayers = 41;
 #endif
+#ifdef __TANOA__
+	maxPlayers = 46;
+#endif
 #ifdef __TT__
 	maxPlayers = 56;
 #endif
@@ -352,6 +355,14 @@ class Params {
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,20,25,30};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","20","25","30"};
 #endif
+#ifdef __TANOA__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
+#endif
+#ifdef __TTTANOA__
+		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
+		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
+#endif
 #ifdef __STRATIS__
 		values[] = {9998,9999,2,4,6,8,10,12,14,16,18,21};
 		texts[] = {"$STR_DOM_MISSIONSTRING_969","$STR_DOM_MISSIONSTRING_2008","2","4","6","8","10","12","14","16","18","21"};
@@ -375,6 +386,9 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_980";
 		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
 #ifdef __CUP_CHERNARUS__
+		default = 7;
+#endif
+#ifdef __TANOA__
 		default = 7;
 #endif
 #ifdef __ALTIS__
@@ -518,6 +532,9 @@ class Params {
 		title = "$STR_DOM_MISSIONSTRING_2080";
 		values[] = {0,1};
 #ifdef __CUP_CHERNARUS__
+		default = 1;
+#endif
+#ifdef __TANOA__
 		default = 1;
 #endif
 #ifdef __ALTIS__
@@ -773,6 +790,12 @@ class Params {
 #endif
 #ifdef __STRATIS__
 		default = 0;
+#endif
+#ifdef __TANOA__
+		default = 1;
+#endif
+#ifdef __TTTANOA__
+		default = 1;
 #endif
 #ifdef __CUP_CHERNARUS__
 		default = 1;
@@ -1191,12 +1214,13 @@ class Params {
 	
 	class d_civ_type {
 		title = "$STR_DOM_MISSIONSTRING_CIVILIAN_TYPE";
-		values[] = {0,1,2,3,5,6,7,8,9,10,11,12,13,14,15};
+		values[] = {0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};
 		default = 0;
 		texts[] = {"$STR_DOM_MISSIONSTRING_418DEFAULT",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_AFRICAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_ASIAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_EURO",
+			"$STR_DOM_MISSIONSTRING_CIV_TYPE_TANOAN",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CUP_CHERNARUS",
 			"$STR_DOM_MISSIONSTRING_CIV_TYPE_CFP_CHERNARUS_WINTER",
 			// CFP civilians - static civs work but dynamic civs are broken (civilian presence module)
@@ -2225,6 +2249,40 @@ class CfgDebriefing {
 
 class CfgIdentities {
 #ifdef __ALTIS__
+	class DHQ_BF1 {
+		name = "Winters, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03ENG";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_BF2: DHQ_BF1 {
+		name = "Meyers, HQ";
+		speaker = "male02eng";
+	};
+	class DHQ_OP1: DHQ_BF1 {
+		name = "Aziz, HQ";
+		speaker = "male03per";
+	};
+	class DHQ_OP2: DHQ_BF1 {
+		name = "Horiz, HQ";
+		speaker = "male02per";
+	};
+	class DHQ_IN1 {
+		name = "Zaziki, HQ";
+		face = "whiteHead_04";
+		glasses = "None";
+		speaker = "Male03GRE";
+		pitch = 1.0;
+		nameSound = "Reynolds";
+	};
+	class DHQ_IN2: DHQ_IN1 {
+		name = "Ouzo, HQ";
+		speaker = "Male02GRE";
+	};
+#endif
+#ifdef __TANOA__
 	class DHQ_BF1 {
 		name = "Winters, HQ";
 		face = "whiteHead_04";

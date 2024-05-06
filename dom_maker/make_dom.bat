@@ -41,6 +41,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -98,6 +99,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rem rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 rmdir /S /Q ma3a
@@ -127,6 +129,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 rem rmdir /S /Q ma3a
@@ -156,9 +159,39 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 rem rmdir /S /Q ma3a
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem TT Tanoa
+set NEW_VER=tvt%D_NUM_PLAYERS_TT%_domination_%D_VER%_tt.tanoa
+set MISSION_SQM=..\mission_sqm\mission_tt_tanoa_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_tt_tanoa.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q moa
+rmdir /S /Q msara
+rmdir /S /Q ma3a
+rmdir /S /Q ma3s
+rmdir /S /Q ma3m
 cd ..
 cd ..
 makePbo -A -B -P -X %NEW_VER% %NEW_VER%
@@ -186,6 +219,7 @@ rmdir /S /Q m
 rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3m
 cd ..
 cd ..
@@ -213,6 +247,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -241,6 +276,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -269,6 +305,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -297,6 +334,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -325,6 +363,7 @@ cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -353,6 +392,7 @@ cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -381,6 +421,7 @@ cd missions
 rmdir /S /Q ma3a
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -409,6 +450,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -437,6 +479,36 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q ma3a
 rmdir /S /Q moa
+rmdir /S /Q ma3t
+rmdir /S /Q ma3s
+rmdir /S /Q ma3m
+cd ..
+cd ..
+makePbo -A -B -P -X %NEW_VER% %NEW_VER%
+rmdir /S /Q %NEW_VER%
+rmdir /S /Q %WORK_DIR%
+
+
+rem Blufor Tanoa
+set NEW_VER=co%D_NUM_PLAYERS%_domination_%D_VER%_blufor.tanoa
+set MISSION_SQM=..\mission_sqm\mission_blufor_tanoa_bin.sqm
+set X_SETUP=..\mission_sqm\x_setup_blufor_tanoa.sqf
+md %WORK_DIR%
+xcopy %MASTER%\*.* %WORK_DIR% /E /Y
+echo d | xcopy %MISSION_SQM% %WORK_DIR%\mission.sqm /Y
+echo d | xcopy %X_SETUP% %WORK_DIR%\x_setup.sqf /Y
+if defined D_DO_ASC_ALL ArmaScriptCompiler.exe
+md %NEW_VER%
+xcopy %WORK_DIR%\*.* %NEW_VER% /E /Y
+cd %NEW_VER%
+del i_weapons_rhs.sqf
+del i_weapons_CUP.sqf
+del i_weapons_PRACS.sqf
+cd missions
+rmdir /S /Q m
+rmdir /S /Q ma3a
+rmdir /S /Q moa
+rmdir /S /Q msara
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -465,6 +537,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3m
 cd ..
@@ -493,6 +566,7 @@ cd missions
 rmdir /S /Q m
 rmdir /S /Q moa
 rmdir /S /Q msara
+rmdir /S /Q ma3t
 rmdir /S /Q ma3s
 rmdir /S /Q ma3a
 cd ..

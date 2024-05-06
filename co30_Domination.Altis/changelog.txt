@@ -1,16 +1,5 @@
 4.70
 
-The following versions are no longer supported:
-- Unsung
-- IFA3
-- CSLA
-- SOG Prairie Fire
-- Spearhead 1944
-- Livonia
-- Western Sahara
-- Global Mobilization
-- Tanoa
-
 - Added: Civilian east Asian types from CFP and CUP mods, by longtimegamer
 - Added: Some fighting vehicles are now available via airdrop if d_with_airdrop == 2 (ammo truck, APC, MRAP), by longtimegamer
 - Added: 2.16 overrideHazeQuality is set to VeryLow in description.ext (check https://community.bistudio.com/wiki/Description.ext#overrideHazeQuality )

@@ -11,6 +11,16 @@ d_tt_ver = false;
 d_tt_ver = true;
 #endif
 
+#ifndef __TANOA__
+d_tanoa = false;
+#else
+d_tanoa = true;
+#endif
+
+#ifdef __TTTANOA__
+d_tanoa = true;
+#endif
+
 #ifdef __CUP__
 d_cup = true;
 #else
@@ -131,8 +141,14 @@ d_e_marker_color_alpha = 0.8;
 #ifdef __TTALTIS__
 #include "sm_bonus_vec_ar_tt.sqf"
 #endif
+#ifdef __TTTANOA__
+#include "sm_bonus_vec_ar_tt_tanoa.sqf"
+#endif
 #ifdef __TTMALDEN__
 #include "sm_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TANOA__
+#include "sm_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __STRATIS__
 #include "sm_bonus_vec_ar_altis.sqf"
@@ -167,6 +183,12 @@ d_e_marker_color_alpha = 0.8;
 #endif
 #ifdef __TTMALDEN__
 #include "mt_bonus_vec_ar_tt.sqf"
+#endif
+#ifdef __TTTANOA__
+#include "mt_bonus_vec_ar_tt_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "mt_bonus_vec_ar_tanoa.sqf"
 #endif
 #ifdef __STRATIS__
 #include "mt_bonus_vec_ar_altis.sqf"
@@ -218,7 +240,7 @@ d_x_drop_array =
 		if (d_jsdf) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "Sparky_JSDF_Overhaul_gac_JGSDF_HMV"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 		};
-		[[], [localize "STR_DOM_MISSIONSTRING_22", "B_MRAP_01_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["B_MRAP_01_F", "B_T_LSV_01_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_NATO_Ammo_F"]]
 	};
 #endif
 #ifdef __OWN_SIDE_OPFOR__
@@ -229,7 +251,7 @@ d_x_drop_array =
 		if (d_pracs) exitWith {
 			[[], [localize "STR_DOM_MISSIONSTRING_22", "PRACS_SLA_Tigr"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 		};
-		[[], [localize "STR_DOM_MISSIONSTRING_22", "O_MRAP_02_F"], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
+		[[], [localize "STR_DOM_MISSIONSTRING_22", ["O_MRAP_02_F", "O_T_LSV_02_unarmed_F"] select d_tanoa], [localize "STR_DOM_MISSIONSTRING_20", "Box_East_Ammo_F"]]
 	};
 #endif
 #ifdef __TT__
@@ -263,6 +285,9 @@ d_cargotower =
 #ifdef __CUP_SARA__
 	"Land_Cargo_Tower_V1_F";
 #endif
+#ifdef __TANOA__
+	"Land_Cargo_Tower_V4_F";
+#endif
 #ifdef __STRATIS__
 	"Land_Cargo_Tower_V3_F";
 #endif
@@ -288,6 +313,9 @@ d_wcamp =
 #endif
 #ifdef __CUP_SARA__
 	"Land_Cargo_Patrol_V1_F";
+#endif
+#ifdef __TANOA__
+	"Land_Cargo_Patrol_V4_F";
 #endif
 #ifdef __STRATIS__
 	"Land_Cargo_Patrol_V1_F";
@@ -727,6 +755,12 @@ if (isServer) then {
 #ifdef __TTALTIS__
 #include "d_allmen_O_default.sqf"
 #endif
+#ifdef __TTTANOA__
+#include "d_allmen_O_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_allmen_O_tanoa.sqf"
+#endif
 #ifdef __STRATIS__
 #include "d_allmen_O_default.sqf"
 #endif
@@ -781,6 +815,12 @@ if (isServer) then {
 #ifdef __TTALTIS__
 #include "d_allmen_G_default.sqf"
 #endif
+#ifdef __TTTANOA__
+#include "d_allmen_G_default.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_allmen_G_default.sqf"
+#endif
 #ifdef __STRATIS__
 #include "d_allmen_G_default.sqf"
 #endif
@@ -812,6 +852,12 @@ if (!d_pracs) then {
 #ifdef __TTALTIS__
 #include "d_specops_O_default.sqf"
 #endif
+#ifdef __TTTANOA__
+#include "d_specops_O_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_specops_O_tanoa.sqf"
+#endif
 #ifdef __STRATIS__
 #include "d_specops_O_default.sqf"
 #endif
@@ -833,9 +879,15 @@ if (!d_pracs) then {
 		[["West","BLU_F","Infantry","BUS_ReconTeam"] call d_fnc_GetConfigGroup,["West","BLU_F","Infantry","BUS_ReconSquad"] call d_fnc_GetConfigGroup]
 	};
 
-	d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup,["O_ghillie_ard_F","O_ghillie_ard_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"],["O_ghillie_sard_F","O_ghillie_sard_F"]];
-	d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup,["B_ghillie_ard_F","B_ghillie_ard_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"],["B_ghillie_sard_F","B_ghillie_sard_F"]];
-	d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+	if (d_tanoa) then {
+		d_sniper_E = [["East","OPF_T_F","Infantry","O_T_SniperTeam"] call d_fnc_GetConfigGroup,["O_T_ghillie_tna_F","O_T_ghillie_tna_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"]];
+		d_sniper_W = [["West","BLU_T_F","Infantry","B_T_SniperTeam"] call d_fnc_GetConfigGroup,["B_T_ghillie_tna_F","B_T_ghillie_tna_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"]];
+		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+	} else {
+		d_sniper_E = [["East","OPF_F","Infantry","OI_SniperTeam"] call d_fnc_GetConfigGroup,["O_ghillie_ard_F","O_ghillie_ard_F"],["O_ghillie_lsh_F","O_ghillie_lsh_F"],["O_ghillie_sard_F","O_ghillie_sard_F"]];
+		d_sniper_W = [["West","BLU_F","Infantry","BUS_SniperTeam"] call d_fnc_GetConfigGroup,["B_ghillie_ard_F","B_ghillie_ard_F"],["B_ghillie_lsh_F","B_ghillie_lsh_F"],["B_ghillie_sard_F","B_ghillie_sard_F"]];
+		d_sniper_G = [["Indep","IND_F","Infantry","HAF_SniperTeam"] call d_fnc_GetConfigGroup];
+	};
 
 #ifdef __RHS__
 	d_specops_E = [
@@ -918,6 +970,12 @@ if (!d_pracs) then {
 #ifdef __TTMALDEN__
 #include "d_veh_a_O_default.sqf"
 #endif
+#ifdef __TTTANOA__
+#include "d_veh_a_O_tanoa.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_veh_a_O_tanoa.sqf"
+#endif
 #ifdef __STRATIS__
 #include "d_veh_a_O_default.sqf"
 #endif
@@ -968,6 +1026,9 @@ if (!d_pracs) then {
 #endif
 #ifdef __CUP_SARA__
 	d_arti_observer_E = [["CUP_O_sla_Officer"]];
+#endif
+#ifdef __TANOA__
+	d_arti_observer_E = [["O_T_Recon_JTAC_F"]];
 #endif
 #ifdef __STRATIS__
 	d_arti_observer_E = [["O_recon_JTAC_F"]];
@@ -1205,6 +1266,9 @@ if (!d_pracs) then {
 #ifdef __TT__
 #include "d_compositions_default.sqf"
 #endif
+#ifdef __TANOA__
+#include "d_compositions_default.sqf"
+#endif
 #ifdef __STRATIS__
 #include "d_compositions_default.sqf"
 #endif
@@ -1269,6 +1333,9 @@ if (!d_pracs) then {
 		if (d_rhs) exitWith {
 			"RHS_M6_wd"
 		};
+		if (d_tanoa) exitWith {
+			"B_T_APC_Tracked_01_AA_F"
+		};
 		if (d_jsdf) exitWith {
 			"Sparky_JSDF_Overhaul_JSDF_JGSDF_87SPAAG"
 		};
@@ -1308,6 +1375,9 @@ if (!d_pracs) then {
 		};
 		if (d_rhs) exitWith {
 			"rhsusf_m1a1aimwd_usarmy"
+		};
+		if (d_tanoa) exitWith {
+			"B_T_MBT_01_cannon_F"
 		};
 		if (d_jsdf) exitWith {
 			"Sparky_JSDF_Overhaul_gac_JGSDF_type10_v2"
@@ -1349,6 +1419,9 @@ if (!d_pracs) then {
 		if (d_rhs) exitWith {
 			"RHS_M2A2_wd"
 		};
+		if (d_tanoa) exitWith {
+			"B_T_APC_Wheeled_01_cannon_F"
+		};
 		if (d_pracs) exitWith {
 			"PRACS_Pizarro"
 		};
@@ -1389,6 +1462,9 @@ if (!d_pracs) then {
 #endif
 #ifdef __CUP_SARA__
 #include "d_sm_classes_CUP.sqf"
+#endif
+#ifdef __TANOA__
+#include "d_sm_classes_default.sqf"
 #endif
 #ifdef __STRATIS__
 #include "d_sm_classes_default.sqf"
@@ -1576,6 +1652,18 @@ if (!d_pracs) then {
 		["I_Heli_Transport_02_F"]
 	};
 #endif
+#ifdef __TANOA__
+	// enemy parachute troops transport chopper
+	d_transport_chopper = call {
+		if (d_enemy_side_short == "E") exitWith {
+			["O_T_VTOL_02_infantry_grey_F"]
+		};
+		if (d_enemy_side_short == "W") exitWith {
+			["B_T_VTOL_01_infantry_blue_F"]
+		};
+		["I_Heli_Transport_02_F"]
+	};
+#endif
 #ifdef __STRATIS__
 	// enemy parachute troops transport chopper
 	d_transport_chopper = call {
@@ -1750,6 +1838,9 @@ if (!d_pracs) then {
 #ifdef __CUP_SARA__
 		"Land_Cargo_HQ_V1_F";
 #endif
+#ifdef __TANOA__
+		"Land_Cargo_HQ_V4_F";
+#endif
 #ifdef __STRATIS__
 		"Land_Cargo_HQ_V1_F";
 #endif
@@ -1774,6 +1865,9 @@ if (!d_pracs) then {
 		"Land_BagBunker_Small_F";
 #endif
 #ifdef __CUP_SARA__
+		"Land_BagBunker_01_small_green_F";
+#endif
+#ifdef __TANOA__
 		"Land_BagBunker_01_small_green_F";
 #endif
 #ifdef __STRATIS__
@@ -2145,6 +2239,17 @@ if (!d_pracs) then {
 			"Max_Tak2_woman5", 0.5
 		];
 		
+		d_civ_faction_tanoa = [
+			"C_Man_casual_1_F_tanoan", 1,
+			"C_Man_casual_3_F_tanoan", 1,
+			"C_Man_casual_4_v2_F_tanoan", 1,
+			"C_Man_casual_5_v2_F_tanoan", 1,
+			"C_Man_casual_6_v2_F_tanoan", 1,
+			"C_Man_casual_7_F_tanoan", 1,
+			"C_Man_casual_8_F_tanoan", 1,
+			"C_Man_casual_9_F_tanoan", 1
+		];
+		
 		d_civ_faction_cup_chernarus = [
 			"CUP_C_C_Assistant_01", 1,
 			"CUP_C_C_Bully_01", 1,
@@ -2275,6 +2380,11 @@ if (!d_pracs) then {
 		d_civ_faces = _mixedFaces;
 		d_civArray =  d_euroCivs;
 	#endif
+	#ifdef __TANOA__
+		d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthLow;
+		d_civ_faces = _asianFaces;
+		d_civArray = d_civ_faction_tanoa;
+	#endif
 	#ifdef __STRATIS__
 		d_civ_vehicles_weighted = d_civVehiclesWeightedCityWealthHigh;
 		d_civ_faces = _mixedFaces;
@@ -2311,6 +2421,9 @@ if (hasInterface) then {
 #endif
 #ifdef __OWN_SIDE_BLUFOR__
 	call {
+		if (d_tanoa) exitWith {
+			["B_Quadbike_01_F", "B_T_LSV_01_unarmed_F"]
+		};
 		if (d_rhs) exitWith {
 			["rhsusf_mrzr4_d"]
 		};
@@ -2322,6 +2435,9 @@ if (hasInterface) then {
 #endif
 #ifdef __OWN_SIDE_OPFOR__
 	call {
+		if (d_tanoa) exitWith {
+			["O_Quadbike_01_F", "O_T_LSV_02_unarmed_F"]
+		};
 		if (d_rhs) exitWith {
 			["rhs_tigr_3camo_msv", "RHS_UAZ_MSV_01"]
 		};

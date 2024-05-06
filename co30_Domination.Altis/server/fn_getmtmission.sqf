@@ -6,10 +6,16 @@ params ["_wp_array", "_mtradius", "_trg_center"];
 
 #define __getPos \
 _poss = [d_cur_tgt_pos, d_cur_target_radius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;\
+if (d_tanoa) then {\
+	_poss = [_poss] call d_fnc_tanoafix;\
+};\
 private _iccount = 0;\
 while {_poss isEqualTo []} do {\
 	_iccount = _iccount + 1;\
 	_poss = [d_cur_tgt_pos, d_cur_target_radius, 3, 0.3, 0, false, true] call d_fnc_GetRanPointCircleBig;\
+	if (d_tanoa) then {\
+		_poss = [_poss] call d_fnc_tanoafix;\
+	};\
 	if (_iccount >= 50 && {_poss isNotEqualTo []}) exitWith {};\
 };\
 if (isNil "_poss" || {_poss isEqualTo []}) then {\
@@ -41,6 +47,16 @@ if !(isServer) exitWith {};
 
 sleep 1.120;
 private _poss = _wp_array select ((count _wp_array) call d_fnc_RandomFloor);
+if (d_tanoa) then {
+	_poss = [_poss] call d_fnc_tanoafix;
+	private _tcounter = 0;
+	while {_poss isEqualTo []} do {
+		_poss = _wp_array select ((count _wp_array) call d_fnc_RandomFloor);
+		_poss = [_poss] call d_fnc_tanoafix;
+		if (_tcounter >= 70 && {_poss isNotEqualTo []}) exitWith {};
+		_tcounter = _tcounter + 1;
+	};
+};
 
 private _sec_kind = (floor (random 10)) + 1;
 
