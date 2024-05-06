@@ -72,8 +72,9 @@ private _markerpos = [];
 	if (d_with_dynsim == 0) then {
 		[_newgroup, 0] spawn d_fnc_enabledynsim;
 	};
+	// garrison the units
+	// a chance the group is in overwatch or ambush mode
 	if (random 100 > 50) then {
-		// garrison 1/2 of the units
 		private _unitsNotGarrisoned = [
 			_rand_pos,
 			_units,
@@ -83,6 +84,21 @@ private _markerpos = [];
 			false,
 			false,
 			3, // (overwatch) unit is static, free to move after firedNear event at very close range
+			false,
+			false,
+			false,
+			-1
+		] call d_fnc_Zen_OccupyHouse;
+	} else {
+		private _unitsNotGarrisoned = [
+			_rand_pos,
+			_units,
+			99,
+			false,
+			false,
+			false,
+			false,
+			1, // (ambush) unit is free to move after a firedNear event is triggered at 35m
 			false,
 			false,
 			false,

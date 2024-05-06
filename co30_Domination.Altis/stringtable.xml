@@ -15635,6 +15635,18 @@
 <Chinese>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</Chinese>
 <French>EAST - Russian Ground Forces Winter (Russian Winter Retextures)</French>
 </Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_RUSSIAN_ARMED_FORCES_SUMMER">
+<English>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</English>
+<Spanish>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Spanish>
+<Portuguese>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Portuguese>
+<Korean>EAST - Russian Ground Forces Summer Woodland  Jungle (CUP)</Korean>
+<Japanese>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Japanese>
+<Original>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Original>
+<Russian>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Russian>
+<Chinesesimp>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Chinesesimp>
+<Chinese>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</Chinese>
+<French>EAST - Russian Ground Forces Summer Woodland Jungle (CUP)</French>
+</Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_AFRICAN_DESERT_CIVILIAN_MILITIA">
 <English>EAST - African Desert Civilian Militia (3CB)</English>
 <Spanish>EAST - African Desert Civilian Militia (3CB)</Spanish>
@@ -15756,16 +15768,28 @@
 <French>EAST - PMC Wagner Desert (CUP)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_2035_AAF">
-<English>EAST - AAF (2035 no mods required)</English>
-<Spanish>EAST - AAF (2035 no mods required)</Spanish>
-<Portuguese>EAST - AAF (2035 no mods required)</Portuguese>
-<Korean>EAST - AAF (2035 no mods required)</Korean>
-<Japanese>EAST - AAF (2035 no mods required)</Japanese>
-<Original>EAST - AAF (2035 no mods required)</Original>
-<Russian>EAST - AAF (2035 no mods required)</Russian>
-<Chinesesimp>EAST - AAF (2035 no mods required)</Chinesesimp>
-<Chinese>EAST - AAF (2035 no mods required)</Chinese>
-<French>EAST - AAF (2035 no mods required)</French>
+<English>EAST - AAF as OPFOR (2035 no mods required)</English>
+<Spanish>EAST - AAF as OPFOR (2035 no mods required)</Spanish>
+<Portuguese>EAST - AAF as OPFOR (2035 no mods required)</Portuguese>
+<Korean>EAST - AAF as OPFOR (2035 no mods required)</Korean>
+<Japanese>EAST - AAF as OPFOR (2035 no mods required)</Japanese>
+<Original>EAST - AAF as OPFOR (2035 no mods required)</Original>
+<Russian>EAST - AAF as OPFOR (2035 no mods required)</Russian>
+<Chinesesimp>EAST - AAF as OPFOR (2035 no mods required)</Chinesesimp>
+<Chinese>EAST - AAF as OPFOR (2035 no mods required)</Chinese>
+<French>EAST - AAF as OPFOR (2035 no mods required)</French>
+</Key>
+<Key ID="STR_DOM_MISSIONSTRING_FACTION_2035_NATO">
+<English>EAST - NATO as OPFOR (2035 no mods required)</English>
+<Spanish>EAST - NATO as OPFOR (2035 no mods required)</Spanish>
+<Portuguese>EAST - NATO as OPFOR (2035 no mods required)</Portuguese>
+<Korean>EAST - NATO as OPFOR (2035 no mods required)</Korean>
+<Japanese>EAST - NATO as OPFOR (2035 no mods required)</Japanese>
+<Original>EAST - NATO as OPFOR (2035 no mods required)</Original>
+<Russian>EAST - NATO as OPFOR (2035 no mods required)</Russian>
+<Chinesesimp>EAST - NATO as OPFOR (2035 no mods required)</Chinesesimp>
+<Chinese>EAST - NATO as OPFOR (2035 no mods required)</Chinese>
+<French>EAST - NATO as OPFOR (2035 no mods required)</French>
 </Key>
 <Key ID="STR_DOM_MISSIONSTRING_FACTION_INDFOR_AAF">
 <English>Altis Armed Forces (Community Factions Project)</English>
